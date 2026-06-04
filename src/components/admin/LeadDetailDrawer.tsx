@@ -3,7 +3,7 @@
 import { useEffect, type ReactNode } from "react";
 import { LeadActivityList } from "@/components/admin/LeadActivityList";
 import { LeadContactCell } from "@/components/admin/LeadContactCell";
-import { LeadMessageTemplates } from "@/components/admin/LeadMessageTemplates";
+import { LeadActionCenter } from "@/components/admin/LeadActionCenter";
 import {
   LeadPipelineControls,
   type LeadPipelinePatch,
@@ -23,6 +23,7 @@ import {
 } from "@/lib/leads/lead-pipeline";
 import { resolveLeadFollowUpSla } from "@/lib/leads/follow-up-sla";
 import { computeLeadQualityScore } from "@/lib/leads/lead-quality-score";
+import { resolveLeadActionRecommendation } from "@/lib/leads/lead-action-center";
 import { resolveLeadAttribution } from "@/lib/leads/source-attribution";
 import type { LeadIntent } from "@/lib/leads/types";
 
@@ -105,6 +106,7 @@ export function LeadDetailDrawer({
   const attribution = resolveLeadAttribution(lead);
   const followUpSla = resolveLeadFollowUpSla(lead);
   const quality = computeLeadQualityScore(lead);
+  const actionRecommendation = resolveLeadActionRecommendation(lead);
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end" role="presentation">
@@ -201,6 +203,11 @@ export function LeadDetailDrawer({
               />
             </DetailSection>
 
+            <LeadActionCenter
+              lead={lead}
+              recommendation={actionRecommendation}
+            />
+
             <DetailSection title="Kaynak Analizi">
               <DetailRow
                 label="Attribution"
@@ -283,8 +290,6 @@ export function LeadDetailDrawer({
                 refreshKey={lead.updatedAt ?? lead.id}
               />
             </DetailSection>
-
-            <LeadMessageTemplates lead={lead} />
 
             <DetailSection title="Hızlı Aksiyon">
               <LeadPipelineControls lead={lead} layout="mobile" onSaved={onLeadPatched} />

@@ -7,6 +7,9 @@ import { LeadDashboardSummary } from "@/components/admin/LeadDashboardSummary";
 import { LeadDetailDrawer } from "@/components/admin/LeadDetailDrawer";
 import { LeadExportButton } from "@/components/admin/LeadExportButton";
 import {
+  LeadActionBadge,
+} from "@/components/admin/LeadActionCenter";
+import {
   LeadFollowUpSlaBadge,
   LeadFollowUpSlaSection,
 } from "@/components/admin/LeadFollowUpSla";
@@ -36,12 +39,12 @@ import {
   computeLeadQualityScore,
   computeLeadQualitySummary,
 } from "@/lib/leads/lead-quality-score";
+import { resolveLeadActionRecommendation } from "@/lib/leads/lead-action-center";
 import {
   formatLeadIntentSummary,
   matchesPipelineStatusFilter,
   PIPELINE_STATUS_TABS,
   resolveLeadStatus,
-  resolveNextAction,
   type PipelineStatusFilter,
 } from "@/lib/leads/lead-pipeline";
 import { listLeadIntents } from "@/lib/leads/list-lead-intents";
@@ -425,7 +428,7 @@ export function LeadIntentsClient() {
                   <th className="px-4 py-3">Quality</th>
                   <th className="px-4 py-3">Status</th>
                   <th className="px-4 py-3">SLA</th>
-                  <th className="px-4 py-3">Next action</th>
+                  <th className="px-4 py-3">Önerilen aksiyon</th>
                   <th className="px-4 py-3">Contact</th>
                   <th className="px-4 py-3">Pipeline</th>
                   <th className="px-4 py-3" />
@@ -492,8 +495,8 @@ function LeadTableRow({
   const status = resolveLeadStatus(lead);
   const sla = resolveLeadFollowUpSla(lead);
   const quality = computeLeadQualityScore(lead);
+  const action = resolveLeadActionRecommendation(lead);
   const intent = formatLeadIntentSummary(lead);
-  const nextAction = resolveNextAction(lead);
 
   return (
       <tr className="border-b border-slate/10 last:border-0 hover:bg-off-white/50">
@@ -528,10 +531,8 @@ function LeadTableRow({
         <td className="max-w-[160px] px-4 py-3 align-top">
           <LeadFollowUpSlaBadge sla={sla} showAge />
         </td>
-        <td className="max-w-[220px] px-4 py-3 align-top">
-          <p className="line-clamp-2 text-slate" title={nextAction}>
-            {nextAction}
-          </p>
+        <td className="max-w-[200px] px-4 py-3 align-top">
+          <LeadActionBadge recommendation={action} />
         </td>
         <td className="max-w-[200px] px-4 py-3 align-top">
           <LeadContactCell lead={lead} />
@@ -568,8 +569,8 @@ function LeadMobileCard({
   const status = resolveLeadStatus(lead);
   const sla = resolveLeadFollowUpSla(lead);
   const quality = computeLeadQualityScore(lead);
+  const action = resolveLeadActionRecommendation(lead);
   const intent = formatLeadIntentSummary(lead);
-  const nextAction = resolveNextAction(lead);
 
   return (
     <article className="overflow-hidden rounded-xl border border-slate/20 bg-white shadow-card">
@@ -595,8 +596,10 @@ function LeadMobileCard({
           <dd className="break-words text-deep-navy">{intent}</dd>
           <dt className="text-slate">Tool</dt>
           <dd className="break-words">{lead.toolRequested}</dd>
-          <dt className="text-slate">Next action</dt>
-          <dd className="break-words text-slate">{nextAction}</dd>
+          <dt className="text-slate">Önerilen aksiyon</dt>
+          <dd>
+            <LeadActionBadge recommendation={action} />
+          </dd>
           <dt className="text-slate">Contact</dt>
           <dd>
             <LeadContactCell lead={lead} />
