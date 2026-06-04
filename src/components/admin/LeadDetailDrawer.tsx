@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
+import { LeadActivityList } from "@/components/admin/LeadActivityList";
 import { LeadContactCell } from "@/components/admin/LeadContactCell";
 import { LeadMessageTemplates } from "@/components/admin/LeadMessageTemplates";
 import {
@@ -250,6 +251,13 @@ export function LeadDetailDrawer({
               {lead.updatedAt ? (
                 <DetailRow label="UTC güncelleme" value={lead.updatedAt} />
               ) : null}
+            </DetailSection>
+
+            <DetailSection title="Aktivite Geçmişi">
+              <LeadActivityList
+                lead={lead}
+                refreshKey={lead.updatedAt ?? lead.id}
+              />
             </DetailSection>
 
             <LeadMessageTemplates lead={lead} />

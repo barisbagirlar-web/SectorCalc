@@ -3,6 +3,13 @@ import type { Request, Response } from "express";
 import { authorizeAdminWrite } from "./auth";
 import { applyCors } from "./cors";
 import { LEAD_INTENTS_COLLECTION } from "./constants";
+import {
+  buildLeadActivityRecord,
+  computeChangedFields,
+  LEAD_ACTIVITY_SUBCOLLECTION,
+  readStoredAdminNote,
+  readStoredStatus,
+} from "./leadActivity";
 import { parseLeadPipelineUpdateBody } from "./validatePipelineUpdate";
 
 if (!admin.apps.length) {
@@ -46,10 +53,8 @@ export async function handleUpdateLeadPipeline(
   }
 
   const updatedAt = new Date().toISOString();
-  const ref = admin
-    .firestore()
-    .collection(LEAD_INTENTS_COLLECTION)
-    .doc(parsed.data.leadId);
+  const db = admin.firestore();
+  const ref = db.collection(LEAD_INTENTS_COLLECTION).doc(parsed.data.leadId);
 
   try {
     const snapshot = await ref.get();
@@ -58,17 +63,56 @@ export async function handleUpdateLeadPipeline(
       return;
     }
 
-    await ref.update({
-      status: parsed.data.status,
-      adminNote: parsed.data.adminNote,
+    const existing = snapshot.data() ?? {};
+    const previousStatus = readStoredStatus(existing as Record<string, unknown>);
+    const previousAdminNote = readStoredAdminNote(
+      existing as Record<string, unknown>
+    );
+    const nextStatus = parsed.data.status;
+    const nextAdminNote = parsed.data.adminNote;
+
+    const changedFields = computeChangedFields({
+      previousStatus,
+      nextStatus,
+      previousAdminNote,
+      nextAdminNote,
+    });
+
+    const batch = db.batch();
+    batch.update(ref, {
+      status: nextStatus,
+      adminNote: nextAdminNote,
       updatedAt,
     });
+
+    let activityId: string | null = null;
+
+    if (changedFields.length > 0) {
+      const activityRef = ref.collection(LEAD_ACTIVITY_SUBCOLLECTION).doc();
+      const activityRecord = buildLeadActivityRecord({
+        leadId: parsed.data.leadId,
+        createdAt: updatedAt,
+        actorUid: authResult.actor.uid,
+        actorEmail: authResult.actor.email,
+        previousStatus,
+        nextStatus,
+        previousAdminNote,
+        nextAdminNote,
+        changedFields,
+      });
+      batch.set(activityRef, activityRecord);
+      activityId = activityRef.id;
+    }
+
+    await batch.commit();
 
     sendJson(res, 200, {
       success: true,
       updatedAt,
-      status: parsed.data.status,
-      adminNote: parsed.data.adminNote,
+      status: nextStatus,
+      adminNote: nextAdminNote,
+      changedFields,
+      activityId,
     });
   } catch (err) {
     const message =

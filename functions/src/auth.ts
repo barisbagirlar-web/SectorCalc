@@ -2,8 +2,14 @@ import * as admin from "firebase-admin";
 import type { Request } from "express";
 import { isAdminWriteConfigured, verifyAdminLeadUpdateSecret } from "./security";
 
+export interface AuthActor {
+  uid: string | null;
+  email: string | null;
+}
+
 export interface AuthSuccess {
   ok: true;
+  actor: AuthActor;
 }
 
 export interface AuthFailure {
@@ -13,6 +19,8 @@ export interface AuthFailure {
 }
 
 export type AuthorizeAdminWriteResult = AuthSuccess | AuthFailure;
+
+const MAINTENANCE_ACTOR: AuthActor = { uid: null, email: null };
 
 function parseBearerToken(req: Request): string | null {
   const header = req.get("Authorization");
@@ -33,7 +41,13 @@ export async function authorizeAdminWrite(
     try {
       const decoded = await admin.auth().verifyIdToken(bearerToken);
       if (decoded.admin === true) {
-        return { ok: true };
+        return {
+          ok: true,
+          actor: {
+            uid: decoded.uid,
+            email: typeof decoded.email === "string" ? decoded.email : null,
+          },
+        };
       }
       return { ok: false, status: 403, error: "Forbidden." };
     } catch {
@@ -42,7 +56,7 @@ export async function authorizeAdminWrite(
   }
 
   if (isAdminWriteConfigured() && verifyAdminLeadUpdateSecret(req)) {
-    return { ok: true };
+    return { ok: true, actor: MAINTENANCE_ACTOR };
   }
 
   return { ok: false, status: 401, error: "Unauthorized." };

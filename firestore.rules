@@ -22,6 +22,11 @@ service cloud.firestore {
       allow create: if
         leadId == request.resource.data.id
         && isValidLeadIntentCreate(request.resource.data);
+
+      match /activity/{activityId} {
+        allow read: if isAuthenticatedAdmin();
+        allow write: if false;
+      }
     }
   }
 }
