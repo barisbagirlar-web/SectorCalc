@@ -6,6 +6,10 @@ import { LeadConversionMetrics } from "@/components/admin/LeadConversionMetrics"
 import { LeadDashboardSummary } from "@/components/admin/LeadDashboardSummary";
 import { LeadDetailDrawer } from "@/components/admin/LeadDetailDrawer";
 import { LeadExportButton } from "@/components/admin/LeadExportButton";
+import {
+  LeadFollowUpSlaBadge,
+  LeadFollowUpSlaSection,
+} from "@/components/admin/LeadFollowUpSla";
 import { LeadContactCell } from "@/components/admin/LeadContactCell";
 import {
   LeadPipelineControls,
@@ -23,6 +27,7 @@ import { isFirebaseConfigured } from "@/lib/firebase/client";
 import { formatLocalDateTime } from "@/lib/format/datetime";
 import { computeLeadDashboardStats } from "@/lib/leads/admin-dashboard";
 import { computeLeadConversionMetrics } from "@/lib/leads/conversion-metrics";
+import { computeFollowUpSlaSummary, resolveLeadFollowUpSla } from "@/lib/leads/follow-up-sla";
 import {
   formatLeadIntentSummary,
   matchesPipelineStatusFilter,
@@ -156,6 +161,11 @@ export function LeadIntentsClient() {
     [leads]
   );
 
+  const followUpSlaSummary = useMemo(
+    () => computeFollowUpSlaSummary(leads),
+    [leads]
+  );
+
   const detailLead = useMemo(() => {
     if (!detailLeadId) {
       return null;
@@ -248,6 +258,8 @@ export function LeadIntentsClient() {
       <LeadDashboardSummary stats={dashboardStats} loading={loading} />
 
       <LeadConversionMetrics metrics={conversionMetrics} loading={loading} />
+
+      <LeadFollowUpSlaSection summary={followUpSlaSummary} loading={loading} />
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
         <LeadExportButton
@@ -396,6 +408,7 @@ export function LeadIntentsClient() {
                   <th className="px-4 py-3">Tool</th>
                   <th className="px-4 py-3">Priority</th>
                   <th className="px-4 py-3">Status</th>
+                  <th className="px-4 py-3">SLA</th>
                   <th className="px-4 py-3">Next action</th>
                   <th className="px-4 py-3">Contact</th>
                   <th className="px-4 py-3">Pipeline</th>
@@ -461,6 +474,7 @@ function LeadTableRow({
   onLeadPatched: (leadId: string, patch: LeadPipelinePatch) => void;
 }) {
   const status = resolveLeadStatus(lead);
+  const sla = resolveLeadFollowUpSla(lead);
   const intent = formatLeadIntentSummary(lead);
   const nextAction = resolveNextAction(lead);
 
@@ -490,6 +504,9 @@ function LeadTableRow({
         </td>
         <td className="px-4 py-3 align-top">
           <LeadStatusBadge status={status} />
+        </td>
+        <td className="max-w-[160px] px-4 py-3 align-top">
+          <LeadFollowUpSlaBadge sla={sla} showAge />
         </td>
         <td className="max-w-[220px] px-4 py-3 align-top">
           <p className="line-clamp-2 text-slate" title={nextAction}>
@@ -529,6 +546,7 @@ function LeadMobileCard({
   onLeadPatched: (leadId: string, patch: LeadPipelinePatch) => void;
 }) {
   const status = resolveLeadStatus(lead);
+  const sla = resolveLeadFollowUpSla(lead);
   const intent = formatLeadIntentSummary(lead);
   const nextAction = resolveNextAction(lead);
 
@@ -543,6 +561,7 @@ function LeadMobileCard({
           <div className="flex flex-wrap gap-2">
             <LeadPriorityBadge lead={lead} />
             <LeadStatusBadge status={status} />
+            <LeadFollowUpSlaBadge sla={sla} showAge />
           </div>
         </div>
         <dl className="grid grid-cols-[minmax(0,7rem)_1fr] gap-x-3 gap-y-3 text-sm">

@@ -10,6 +10,7 @@ import {
 } from "@/components/admin/LeadPipelineControls";
 import { LeadPriorityBadge } from "@/components/admin/LeadPriorityBadge";
 import { LeadStatusBadge } from "@/components/admin/LeadStatusBadge";
+import { LeadFollowUpSlaBadge } from "@/components/admin/LeadFollowUpSla";
 import { formatLocalDateTime } from "@/lib/format/datetime";
 import { formatLeadPlan, formatLeadSource } from "@/lib/leads/admin-metrics";
 import {
@@ -19,6 +20,7 @@ import {
   resolveLeadStatus,
   resolveNextAction,
 } from "@/lib/leads/lead-pipeline";
+import { resolveLeadFollowUpSla } from "@/lib/leads/follow-up-sla";
 import { resolveLeadAttribution } from "@/lib/leads/source-attribution";
 import type { LeadIntent } from "@/lib/leads/types";
 
@@ -99,6 +101,7 @@ export function LeadDetailDrawer({
   const nextAction = resolveNextAction(lead);
   const suggestedNextAction = !lead.nextAction?.trim();
   const attribution = resolveLeadAttribution(lead);
+  const followUpSla = resolveLeadFollowUpSla(lead);
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end" role="presentation">
@@ -175,6 +178,20 @@ export function LeadDetailDrawer({
               </div>
               <DetailRow label="Lead ID" value={displayValue(lead.id)} />
               <DetailRow label="Depolama" value={displayValue(lead.storageMode)} />
+            </DetailSection>
+
+            <DetailSection title="Takip Durumu">
+              <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:items-center sm:gap-3">
+                <dt className="font-medium text-slate">SLA</dt>
+                <dd>
+                  <LeadFollowUpSlaBadge sla={followUpSla} />
+                </dd>
+              </div>
+              <DetailRow label="Yaş" value={followUpSla.ageLabel} />
+              <DetailRow
+                label="Önerilen aksiyon"
+                value={followUpSla.recommendedAction}
+              />
             </DetailSection>
 
             <DetailSection title="Kaynak Analizi">
