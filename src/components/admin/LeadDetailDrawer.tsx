@@ -11,6 +11,7 @@ import {
 import { LeadPriorityBadge } from "@/components/admin/LeadPriorityBadge";
 import { LeadStatusBadge } from "@/components/admin/LeadStatusBadge";
 import { LeadFollowUpSlaBadge } from "@/components/admin/LeadFollowUpSla";
+import { LeadQualityDetail } from "@/components/admin/LeadQualityScore";
 import { formatLocalDateTime } from "@/lib/format/datetime";
 import { formatLeadPlan, formatLeadSource } from "@/lib/leads/admin-metrics";
 import {
@@ -21,6 +22,7 @@ import {
   resolveNextAction,
 } from "@/lib/leads/lead-pipeline";
 import { resolveLeadFollowUpSla } from "@/lib/leads/follow-up-sla";
+import { computeLeadQualityScore } from "@/lib/leads/lead-quality-score";
 import { resolveLeadAttribution } from "@/lib/leads/source-attribution";
 import type { LeadIntent } from "@/lib/leads/types";
 
@@ -102,6 +104,7 @@ export function LeadDetailDrawer({
   const suggestedNextAction = !lead.nextAction?.trim();
   const attribution = resolveLeadAttribution(lead);
   const followUpSla = resolveLeadFollowUpSla(lead);
+  const quality = computeLeadQualityScore(lead);
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end" role="presentation">
@@ -178,6 +181,10 @@ export function LeadDetailDrawer({
               </div>
               <DetailRow label="Lead ID" value={displayValue(lead.id)} />
               <DetailRow label="Depolama" value={displayValue(lead.storageMode)} />
+            </DetailSection>
+
+            <DetailSection title="Lead Kalitesi">
+              <LeadQualityDetail quality={quality} />
             </DetailSection>
 
             <DetailSection title="Takip Durumu">

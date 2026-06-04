@@ -10,6 +10,10 @@ import {
   LeadFollowUpSlaBadge,
   LeadFollowUpSlaSection,
 } from "@/components/admin/LeadFollowUpSla";
+import {
+  LeadQualityBadge,
+  LeadQualitySection,
+} from "@/components/admin/LeadQualityScore";
 import { LeadContactCell } from "@/components/admin/LeadContactCell";
 import {
   LeadPipelineControls,
@@ -28,6 +32,10 @@ import { formatLocalDateTime } from "@/lib/format/datetime";
 import { computeLeadDashboardStats } from "@/lib/leads/admin-dashboard";
 import { computeLeadConversionMetrics } from "@/lib/leads/conversion-metrics";
 import { computeFollowUpSlaSummary, resolveLeadFollowUpSla } from "@/lib/leads/follow-up-sla";
+import {
+  computeLeadQualityScore,
+  computeLeadQualitySummary,
+} from "@/lib/leads/lead-quality-score";
 import {
   formatLeadIntentSummary,
   matchesPipelineStatusFilter,
@@ -166,6 +174,11 @@ export function LeadIntentsClient() {
     [leads]
   );
 
+  const qualitySummary = useMemo(
+    () => computeLeadQualitySummary(leads),
+    [leads]
+  );
+
   const detailLead = useMemo(() => {
     if (!detailLeadId) {
       return null;
@@ -260,6 +273,8 @@ export function LeadIntentsClient() {
       <LeadConversionMetrics metrics={conversionMetrics} loading={loading} />
 
       <LeadFollowUpSlaSection summary={followUpSlaSummary} loading={loading} />
+
+      <LeadQualitySection summary={qualitySummary} loading={loading} />
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
         <LeadExportButton
@@ -407,6 +422,7 @@ export function LeadIntentsClient() {
                   <th className="px-4 py-3">Intent</th>
                   <th className="px-4 py-3">Tool</th>
                   <th className="px-4 py-3">Priority</th>
+                  <th className="px-4 py-3">Quality</th>
                   <th className="px-4 py-3">Status</th>
                   <th className="px-4 py-3">SLA</th>
                   <th className="px-4 py-3">Next action</th>
@@ -475,6 +491,7 @@ function LeadTableRow({
 }) {
   const status = resolveLeadStatus(lead);
   const sla = resolveLeadFollowUpSla(lead);
+  const quality = computeLeadQualityScore(lead);
   const intent = formatLeadIntentSummary(lead);
   const nextAction = resolveNextAction(lead);
 
@@ -501,6 +518,9 @@ function LeadTableRow({
         </td>
         <td className="px-4 py-3 align-top">
           <LeadPriorityBadge lead={lead} />
+        </td>
+        <td className="max-w-[180px] px-4 py-3 align-top">
+          <LeadQualityBadge quality={quality} />
         </td>
         <td className="px-4 py-3 align-top">
           <LeadStatusBadge status={status} />
@@ -547,6 +567,7 @@ function LeadMobileCard({
 }) {
   const status = resolveLeadStatus(lead);
   const sla = resolveLeadFollowUpSla(lead);
+  const quality = computeLeadQualityScore(lead);
   const intent = formatLeadIntentSummary(lead);
   const nextAction = resolveNextAction(lead);
 
@@ -560,6 +581,7 @@ function LeadMobileCard({
           </div>
           <div className="flex flex-wrap gap-2">
             <LeadPriorityBadge lead={lead} />
+            <LeadQualityBadge quality={quality} />
             <LeadStatusBadge status={status} />
             <LeadFollowUpSlaBadge sla={sla} showAge />
           </div>

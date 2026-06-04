@@ -9,6 +9,7 @@ import {
   resolveNextAction,
 } from "@/lib/leads/lead-pipeline";
 import { resolveLeadAttribution } from "@/lib/leads/source-attribution";
+import { computeLeadQualityScore } from "@/lib/leads/lead-quality-score";
 import type { LeadIntent } from "@/lib/leads/types";
 
 const UTF8_BOM = "\uFEFF";
@@ -35,6 +36,10 @@ export const LEADS_CSV_HEADERS = [
   "CTA Source",
   "Referrer",
   "UTM Summary",
+  "Quality Score",
+  "Quality Level",
+  "Quality Reasons",
+  "Quality Warnings",
 ] as const;
 
 function escapeCsvCell(value: string): string {
@@ -69,6 +74,7 @@ function formatLeadScore(lead: LeadIntent): string {
 
 function leadToCsvRow(lead: LeadIntent): string[] {
   const attribution = resolveLeadAttribution(lead);
+  const quality = computeLeadQualityScore(lead);
 
   return [
     formatLocalDateTime(lead.createdAt),
@@ -92,6 +98,10 @@ function leadToCsvRow(lead: LeadIntent): string[] {
     attribution.ctaLabel,
     attribution.referrerLabel,
     attribution.utmSummary,
+    String(quality.score),
+    quality.label,
+    quality.reasons.join("; "),
+    quality.warnings.join("; "),
   ];
 }
 
