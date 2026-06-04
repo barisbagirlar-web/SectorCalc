@@ -10,6 +10,7 @@ import {
 } from "@/lib/leads/lead-pipeline";
 import { resolveLeadAttribution } from "@/lib/leads/source-attribution";
 import { computeLeadQualityScore } from "@/lib/leads/lead-quality-score";
+import { detectTestLead } from "@/lib/leads/lead-cleanup";
 import type { LeadIntent } from "@/lib/leads/types";
 
 const UTF8_BOM = "\uFEFF";
@@ -40,6 +41,9 @@ export const LEADS_CSV_HEADERS = [
   "Quality Level",
   "Quality Reasons",
   "Quality Warnings",
+  "Is Test Lead",
+  "Test Lead Confidence",
+  "Test Lead Reasons",
 ] as const;
 
 function escapeCsvCell(value: string): string {
@@ -75,6 +79,7 @@ function formatLeadScore(lead: LeadIntent): string {
 function leadToCsvRow(lead: LeadIntent): string[] {
   const attribution = resolveLeadAttribution(lead);
   const quality = computeLeadQualityScore(lead);
+  const testDetection = detectTestLead(lead);
 
   return [
     formatLocalDateTime(lead.createdAt),
@@ -102,6 +107,9 @@ function leadToCsvRow(lead: LeadIntent): string[] {
     quality.label,
     quality.reasons.join("; "),
     quality.warnings.join("; "),
+    testDetection.isTestLead ? "Yes" : "No",
+    testDetection.isTestLead ? testDetection.confidence : "",
+    testDetection.reasons.join("; "),
   ];
 }
 

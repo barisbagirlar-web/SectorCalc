@@ -18,6 +18,10 @@ import {
   LeadQualitySection,
 } from "@/components/admin/LeadQualityScore";
 import { LeadSourceRoiSection } from "@/components/admin/LeadSourceRoi";
+import {
+  LeadCleanupControls,
+  TestLeadBadge,
+} from "@/components/admin/LeadCleanupControls";
 import { LeadContactCell } from "@/components/admin/LeadContactCell";
 import {
   LeadPipelineControls,
@@ -42,6 +46,11 @@ import {
 } from "@/lib/leads/lead-quality-score";
 import { resolveLeadActionRecommendation } from "@/lib/leads/lead-action-center";
 import { computeLeadSourceRoi } from "@/lib/leads/source-roi";
+import {
+  computeLeadCleanupSummary,
+  detectTestLead,
+  filterLeadsForMetrics,
+} from "@/lib/leads/lead-cleanup";
 import {
   formatLeadIntentSummary,
   matchesPipelineStatusFilter,
@@ -114,6 +123,8 @@ export function LeadIntentsClient() {
   const [pipelineFilter, setPipelineFilter] =
     useState<PipelineStatusFilter>("all");
   const [search, setSearch] = useState("");
+  const [excludeTestLeadsFromMetrics, setExcludeTestLeadsFromMetrics] =
+    useState(true);
 
   const firebaseConfigured = isFirebaseConfigured;
   const canLoadData = !authLoading && isAdmin;
@@ -164,27 +175,43 @@ export function LeadIntentsClient() {
     });
   }, [leads, industryFilter, sourceFilter, planFilter, pipelineFilter, search]);
 
+  const cleanupSummary = useMemo(
+    () =>
+      computeLeadCleanupSummary(leads, {
+        excludeTestLeads: excludeTestLeadsFromMetrics,
+      }),
+    [leads, excludeTestLeadsFromMetrics]
+  );
+
+  const metricLeads = useMemo(
+    () =>
+      filterLeadsForMetrics(leads, {
+        excludeTestLeads: excludeTestLeadsFromMetrics,
+      }),
+    [leads, excludeTestLeadsFromMetrics]
+  );
+
   const dashboardStats = useMemo(
-    () => computeLeadDashboardStats(leads),
-    [leads]
+    () => computeLeadDashboardStats(metricLeads),
+    [metricLeads]
   );
 
   const conversionMetrics = useMemo(
-    () => computeLeadConversionMetrics(leads),
-    [leads]
+    () => computeLeadConversionMetrics(metricLeads),
+    [metricLeads]
   );
 
   const followUpSlaSummary = useMemo(
-    () => computeFollowUpSlaSummary(leads),
-    [leads]
+    () => computeFollowUpSlaSummary(metricLeads),
+    [metricLeads]
   );
 
   const qualitySummary = useMemo(
-    () => computeLeadQualitySummary(leads),
-    [leads]
+    () => computeLeadQualitySummary(metricLeads),
+    [metricLeads]
   );
 
-  const sourceRoi = useMemo(() => computeLeadSourceRoi(leads), [leads]);
+  const sourceRoi = useMemo(() => computeLeadSourceRoi(metricLeads), [metricLeads]);
 
   const detailLead = useMemo(() => {
     if (!detailLeadId) {
@@ -274,6 +301,13 @@ export function LeadIntentsClient() {
           env vars to sync with Firestore.
         </div>
       )}
+
+      <LeadCleanupControls
+        summary={cleanupSummary}
+        excludeTestLeadsFromMetrics={excludeTestLeadsFromMetrics}
+        onExcludeTestLeadsChange={setExcludeTestLeadsFromMetrics}
+        loading={loading}
+      />
 
       <LeadDashboardSummary stats={dashboardStats} loading={loading} />
 
@@ -502,6 +536,7 @@ function LeadTableRow({
   const sla = resolveLeadFollowUpSla(lead);
   const quality = computeLeadQualityScore(lead);
   const action = resolveLeadActionRecommendation(lead);
+  const testDetection = detectTestLead(lead);
   const intent = formatLeadIntentSummary(lead);
 
   return (
@@ -514,6 +549,9 @@ function LeadTableRow({
           <p className="mt-0.5 truncate text-xs text-slate" title={lead.company}>
             {lead.company}
           </p>
+          <div className="mt-1">
+            <TestLeadBadge detection={testDetection} />
+          </div>
         </td>
         <td className="max-w-[180px] px-4 py-3 align-top">
           <p className="line-clamp-2 text-slate" title={intent}>
@@ -576,6 +614,7 @@ function LeadMobileCard({
   const sla = resolveLeadFollowUpSla(lead);
   const quality = computeLeadQualityScore(lead);
   const action = resolveLeadActionRecommendation(lead);
+  const testDetection = detectTestLead(lead);
   const intent = formatLeadIntentSummary(lead);
 
   return (
@@ -591,6 +630,7 @@ function LeadMobileCard({
             <LeadQualityBadge quality={quality} />
             <LeadStatusBadge status={status} />
             <LeadFollowUpSlaBadge sla={sla} showAge />
+            <TestLeadBadge detection={testDetection} />
           </div>
         </div>
         <dl className="grid grid-cols-[minmax(0,7rem)_1fr] gap-x-3 gap-y-3 text-sm">
