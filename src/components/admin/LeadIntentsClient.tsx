@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AdminAuthBar } from "@/components/admin/AdminAuthPanel";
+import { LeadConversionMetrics } from "@/components/admin/LeadConversionMetrics";
 import { LeadDashboardSummary } from "@/components/admin/LeadDashboardSummary";
 import { LeadDetailDrawer } from "@/components/admin/LeadDetailDrawer";
 import { LeadExportButton } from "@/components/admin/LeadExportButton";
@@ -21,6 +22,7 @@ import {
 import { isFirebaseConfigured } from "@/lib/firebase/client";
 import { formatLocalDateTime } from "@/lib/format/datetime";
 import { computeLeadDashboardStats } from "@/lib/leads/admin-dashboard";
+import { computeLeadConversionMetrics } from "@/lib/leads/conversion-metrics";
 import {
   formatLeadIntentSummary,
   matchesPipelineStatusFilter,
@@ -149,6 +151,11 @@ export function LeadIntentsClient() {
     [leads]
   );
 
+  const conversionMetrics = useMemo(
+    () => computeLeadConversionMetrics(leads),
+    [leads]
+  );
+
   const detailLead = useMemo(() => {
     if (!detailLeadId) {
       return null;
@@ -239,6 +246,8 @@ export function LeadIntentsClient() {
       )}
 
       <LeadDashboardSummary stats={dashboardStats} loading={loading} />
+
+      <LeadConversionMetrics metrics={conversionMetrics} loading={loading} />
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
         <LeadExportButton
