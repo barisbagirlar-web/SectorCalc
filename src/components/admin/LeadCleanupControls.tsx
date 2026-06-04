@@ -5,6 +5,11 @@ import {
   type LeadCleanupSummary,
   type TestLeadDetection,
 } from "@/lib/leads/lead-cleanup";
+import {
+  LeadTestClassificationControls,
+  type TestLeadClassificationPatch,
+} from "@/components/admin/LeadTestClassificationControls";
+import type { LeadIntent } from "@/lib/leads/types";
 
 interface LeadCleanupControlsProps {
   summary: LeadCleanupSummary;
@@ -84,26 +89,44 @@ export function TestLeadBadge({ detection }: TestLeadBadgeProps) {
     return null;
   }
 
+  const label = detection.isManualMark ? "Test Lead (Manuel)" : "Test Lead";
+
   return (
     <span
       className="inline-flex max-w-full items-center rounded-full border border-slate/30 bg-slate/10 px-2.5 py-0.5 text-xs font-semibold text-slate"
       title={detection.reasons.join(" · ")}
     >
-      Test Lead
+      {label}
     </span>
   );
 }
 
 interface LeadDataQualityDetailProps {
   detection: TestLeadDetection;
+  lead?: LeadIntent;
+  onSaved?: (leadId: string, patch: TestLeadClassificationPatch) => void;
 }
 
-export function LeadDataQualityDetail({ detection }: LeadDataQualityDetailProps) {
+export function LeadDataQualityDetail({
+  detection,
+  lead,
+  onSaved,
+}: LeadDataQualityDetailProps) {
   return (
     <div className="space-y-3">
       <DetailRow
         label="Test lead mi?"
         value={detection.isTestLead ? "Evet" : "Hayır"}
+      />
+      <DetailRow
+        label="Manuel işaret"
+        value={
+          detection.isManualMark
+            ? "Evet"
+            : detection.manualOverrideNotTest
+              ? "Hayır (admin onayı)"
+              : "—"
+        }
       />
       <DetailRow
         label="Güven seviyesi"
@@ -127,6 +150,13 @@ export function LeadDataQualityDetail({ detection }: LeadDataQualityDetailProps)
           )}
         </dd>
       </div>
+      {lead && onSaved ? (
+        <LeadTestClassificationControls
+          lead={lead}
+          detection={detection}
+          onSaved={onSaved}
+        />
+      ) : null}
     </div>
   );
 }

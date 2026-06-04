@@ -13,6 +13,7 @@ import { LeadStatusBadge } from "@/components/admin/LeadStatusBadge";
 import { LeadFollowUpSlaBadge } from "@/components/admin/LeadFollowUpSla";
 import { LeadQualityDetail } from "@/components/admin/LeadQualityScore";
 import { LeadDataQualityDetail } from "@/components/admin/LeadCleanupControls";
+import type { TestLeadClassificationPatch } from "@/components/admin/LeadTestClassificationControls";
 import { formatLocalDateTime } from "@/lib/format/datetime";
 import { formatLeadPlan, formatLeadSource } from "@/lib/leads/admin-metrics";
 import {
@@ -34,6 +35,10 @@ interface LeadDetailDrawerProps {
   open: boolean;
   onClose: () => void;
   onLeadPatched?: (leadId: string, patch: LeadPipelinePatch) => void;
+  onLeadTestClassificationPatched?: (
+    leadId: string,
+    patch: TestLeadClassificationPatch
+  ) => void;
 }
 
 function displayValue(value: string | number | undefined): string {
@@ -75,6 +80,7 @@ export function LeadDetailDrawer({
   open,
   onClose,
   onLeadPatched,
+  onLeadTestClassificationPatched,
 }: LeadDetailDrawerProps) {
   useEffect(() => {
     if (!open) {
@@ -193,7 +199,11 @@ export function LeadDetailDrawer({
             </DetailSection>
 
             <DetailSection title="Veri Kalitesi">
-              <LeadDataQualityDetail detection={testDetection} />
+              <LeadDataQualityDetail
+                detection={testDetection}
+                lead={lead}
+                onSaved={onLeadTestClassificationPatched}
+              />
             </DetailSection>
 
             <DetailSection title="Takip Durumu">
@@ -294,7 +304,7 @@ export function LeadDetailDrawer({
             <DetailSection title="Aktivite Geçmişi">
               <LeadActivityList
                 lead={lead}
-                refreshKey={lead.updatedAt ?? lead.id}
+                refreshKey={`${lead.updatedAt ?? lead.id}-${String(lead.isTestLead)}-${lead.testLeadMarkedAt ?? ""}`}
               />
             </DetailSection>
 

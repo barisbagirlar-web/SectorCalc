@@ -12,19 +12,38 @@ import type { LeadStatus } from "@/lib/leads/types";
 const ACTIVITY_SUBCOLLECTION = "activity";
 const LEAD_INTENTS_COLLECTION = "leadIntents";
 
-export interface LeadActivityEntry {
+export type LeadActivityType =
+  | "pipeline_update"
+  | "test_lead_marked"
+  | "test_lead_unmarked";
+
+interface LeadActivityBase {
   id: string;
   leadId: string;
   createdAt: string;
-  type: "pipeline_update";
+  type: LeadActivityType;
   actorUid: string | null;
   actorEmail: string | null;
+  changedFields: string[];
+}
+
+export interface PipelineActivityEntry extends LeadActivityBase {
+  type: "pipeline_update";
   previousStatus: LeadStatus;
   nextStatus: LeadStatus;
   previousAdminNote: string;
   nextAdminNote: string;
-  changedFields: string[];
 }
+
+export interface TestLeadActivityEntry extends LeadActivityBase {
+  type: "test_lead_marked" | "test_lead_unmarked";
+  previousIsTestLead: boolean;
+  nextIsTestLead: boolean;
+  previousTestLeadReason: string;
+  nextTestLeadReason: string;
+}
+
+export type LeadActivityEntry = PipelineActivityEntry | TestLeadActivityEntry;
 
 function normalizeStatus(value: unknown): LeadStatus {
   if (typeof value === "string" && isLeadStatus(value.trim())) {
@@ -48,15 +67,15 @@ function normalizeChangedFields(value: unknown): string[] {
   return value.filter((item): item is string => typeof item === "string");
 }
 
-function normalizeActivityEntry(
+function normalizeBoolean(value: unknown): boolean {
+  return value === true;
+}
+
+function normalizePipelineActivityEntry(
   leadId: string,
   id: string,
   data: Record<string, unknown>
-): LeadActivityEntry | null {
-  if (typeof data.createdAt !== "string" || !data.createdAt.trim()) {
-    return null;
-  }
-
+): PipelineActivityEntry | null {
   const activityType =
     data.type === "pipeline_update" || data.action === "pipeline_update"
       ? "pipeline_update"
@@ -72,7 +91,7 @@ function normalizeActivityEntry(
   return {
     id,
     leadId,
-    createdAt: data.createdAt,
+    createdAt: String(data.createdAt),
     type: activityType,
     actorUid: normalizeOptionalString(data.actorUid),
     actorEmail: normalizeOptionalString(data.actorEmail),
@@ -84,6 +103,55 @@ function normalizeActivityEntry(
       typeof nextAdminNoteRaw === "string" ? nextAdminNoteRaw : "",
     changedFields: normalizeChangedFields(data.changedFields),
   };
+}
+
+function normalizeTestLeadActivityEntry(
+  leadId: string,
+  id: string,
+  data: Record<string, unknown>
+): TestLeadActivityEntry | null {
+  if (data.type !== "test_lead_marked" && data.type !== "test_lead_unmarked") {
+    return null;
+  }
+
+  if (typeof data.createdAt !== "string" || !data.createdAt.trim()) {
+    return null;
+  }
+
+  return {
+    id,
+    leadId,
+    createdAt: data.createdAt,
+    type: data.type,
+    actorUid: normalizeOptionalString(data.actorUid),
+    actorEmail: normalizeOptionalString(data.actorEmail),
+    previousIsTestLead: normalizeBoolean(data.previousIsTestLead),
+    nextIsTestLead: normalizeBoolean(data.nextIsTestLead),
+    previousTestLeadReason:
+      typeof data.previousTestLeadReason === "string"
+        ? data.previousTestLeadReason
+        : "",
+    nextTestLeadReason:
+      typeof data.nextTestLeadReason === "string" ? data.nextTestLeadReason : "",
+    changedFields: normalizeChangedFields(data.changedFields),
+  };
+}
+
+function normalizeActivityEntry(
+  leadId: string,
+  id: string,
+  data: Record<string, unknown>
+): LeadActivityEntry | null {
+  if (typeof data.createdAt !== "string" || !data.createdAt.trim()) {
+    return null;
+  }
+
+  const pipeline = normalizePipelineActivityEntry(leadId, id, data);
+  if (pipeline) {
+    return pipeline;
+  }
+
+  return normalizeTestLeadActivityEntry(leadId, id, data);
 }
 
 export async function listLeadActivity(
@@ -129,23 +197,28 @@ export async function listLeadActivity(
   }
 }
 
-function resolveChangedFields(entry: LeadActivityEntry): string[] {
-  if (entry.changedFields.length > 0) {
-    return entry.changedFields;
-  }
+function isPipelineActivity(
+  entry: LeadActivityEntry
+): entry is PipelineActivityEntry {
+  return entry.type === "pipeline_update";
+}
 
-  const inferred: string[] = [];
-  if (entry.previousStatus !== entry.nextStatus) {
-    inferred.push("status");
-  }
-  if (entry.previousAdminNote !== entry.nextAdminNote) {
-    inferred.push("adminNote");
-  }
-  return inferred;
+function isTestLeadActivity(
+  entry: LeadActivityEntry
+): entry is TestLeadActivityEntry {
+  return entry.type === "test_lead_marked" || entry.type === "test_lead_unmarked";
 }
 
 export function formatActivitySummary(entry: LeadActivityEntry): string {
-  const changedFields = resolveChangedFields(entry);
+  if (isTestLeadActivity(entry)) {
+    if (entry.type === "test_lead_marked") {
+      return "Test lead olarak işaretlendi";
+    }
+    return "Test lead işareti kaldırıldı";
+  }
+
+  const changedFields =
+    entry.changedFields.length > 0 ? entry.changedFields : inferPipelineChangedFields(entry);
   const parts: string[] = [];
 
   if (changedFields.includes("status")) {
@@ -165,6 +238,17 @@ export function formatActivitySummary(entry: LeadActivityEntry): string {
   return parts.join(" · ");
 }
 
+function inferPipelineChangedFields(entry: PipelineActivityEntry): string[] {
+  const inferred: string[] = [];
+  if (entry.previousStatus !== entry.nextStatus) {
+    inferred.push("status");
+  }
+  if (entry.previousAdminNote !== entry.nextAdminNote) {
+    inferred.push("adminNote");
+  }
+  return inferred;
+}
+
 export function formatChangedFieldsLabel(changedFields: string[]): string {
   if (changedFields.length === 0) {
     return "—";
@@ -173,7 +257,42 @@ export function formatChangedFieldsLabel(changedFields: string[]): string {
   const labels: Record<string, string> = {
     status: "Durum",
     adminNote: "Admin notu",
+    isTestLead: "Test lead",
+    testLeadReason: "Test lead açıklaması",
   };
 
   return changedFields.map((field) => labels[field] ?? field).join(", ");
+}
+
+export function getActivityDetailLine(entry: LeadActivityEntry): string | null {
+  if (isTestLeadActivity(entry)) {
+    const parts: string[] = [];
+    if (entry.previousIsTestLead !== entry.nextIsTestLead) {
+      parts.push(
+        entry.nextIsTestLead ? "Test lead: Evet" : "Test lead: Hayır"
+      );
+    }
+    if (entry.nextTestLeadReason.trim()) {
+      parts.push(`Açıklama: ${entry.nextTestLeadReason.trim()}`);
+    }
+    return parts.length > 0 ? parts.join(" · ") : null;
+  }
+
+  if (entry.changedFields.includes("status")) {
+    return `${getLeadStatusLabel(entry.previousStatus)} → ${getLeadStatusLabel(entry.nextStatus)}`;
+  }
+
+  return null;
+}
+
+export function entryShowsAdminNote(entry: LeadActivityEntry): boolean {
+  return (
+    isPipelineActivity(entry) &&
+    entry.changedFields.includes("adminNote") &&
+    entry.nextAdminNote.trim().length > 0
+  );
+}
+
+export function getEntryAdminNote(entry: LeadActivityEntry): string {
+  return isPipelineActivity(entry) ? entry.nextAdminNote.trim() : "";
 }

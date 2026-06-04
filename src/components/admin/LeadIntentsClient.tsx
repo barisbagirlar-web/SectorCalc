@@ -22,6 +22,7 @@ import {
   LeadCleanupControls,
   TestLeadBadge,
 } from "@/components/admin/LeadCleanupControls";
+import type { TestLeadClassificationPatch } from "@/components/admin/LeadTestClassificationControls";
 import { LeadContactCell } from "@/components/admin/LeadContactCell";
 import {
   LeadPipelineControls,
@@ -262,6 +263,27 @@ export function LeadIntentsClient() {
       )
     );
   }, []);
+
+  const handleLeadTestClassificationPatched = useCallback(
+    (leadId: string, patch: TestLeadClassificationPatch) => {
+      setLeads((current) =>
+        current.map((item) =>
+          item.id === leadId
+            ? {
+                ...item,
+                isTestLead: patch.isTestLead,
+                testLeadReason: patch.testLeadReason,
+                testLeadMarkedAt: patch.testLeadMarkedAt,
+                testLeadMarkedByUid: patch.testLeadMarkedByUid,
+                testLeadMarkedByEmail: patch.testLeadMarkedByEmail,
+                updatedAt: patch.updatedAt ?? item.updatedAt,
+              }
+            : item
+        )
+      );
+    },
+    []
+  );
 
   const openDetail = (id: string) => {
     setDetailLeadId(id);
@@ -505,6 +527,7 @@ export function LeadIntentsClient() {
         open={detailLead !== null}
         onClose={closeDetail}
         onLeadPatched={handleLeadPatched}
+        onLeadTestClassificationPatched={handleLeadTestClassificationPatched}
       />
     </div>
   );

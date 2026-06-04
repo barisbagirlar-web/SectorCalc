@@ -123,6 +123,26 @@ export function normalizeLeadIntent(raw: unknown): LeadIntent | null {
     lead.updatedAt = record.updatedAt.trim();
   }
 
+  if (typeof record.isTestLead === "boolean") {
+    lead.isTestLead = record.isTestLead;
+  }
+
+  if (typeof record.testLeadReason === "string") {
+    lead.testLeadReason = record.testLeadReason.trim();
+  }
+
+  if (isNonEmptyString(record.testLeadMarkedAt)) {
+    lead.testLeadMarkedAt = record.testLeadMarkedAt.trim();
+  }
+
+  if (isNonEmptyString(record.testLeadMarkedByUid)) {
+    lead.testLeadMarkedByUid = record.testLeadMarkedByUid.trim();
+  }
+
+  if (isNonEmptyString(record.testLeadMarkedByEmail)) {
+    lead.testLeadMarkedByEmail = record.testLeadMarkedByEmail.trim();
+  }
+
   if (isNonEmptyString(record.toolSlug)) {
     lead.toolSlug = record.toolSlug.trim();
   } else if (isNonEmptyString(record.tool_slug)) {

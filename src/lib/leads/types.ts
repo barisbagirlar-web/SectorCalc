@@ -51,6 +51,12 @@ export interface LeadIntent {
   adminNote?: string;
   /** UTC ISO — set on admin pipeline save only */
   updatedAt?: string;
+  /** Admin manual test lead classification */
+  isTestLead?: boolean;
+  testLeadReason?: string;
+  testLeadMarkedAt?: string;
+  testLeadMarkedByUid?: string;
+  testLeadMarkedByEmail?: string;
   /** Attribution: tool slug when distinct from display name */
   toolSlug?: string;
   /** Attribution: page path alias */

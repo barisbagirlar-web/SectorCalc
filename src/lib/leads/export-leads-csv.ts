@@ -44,6 +44,8 @@ export const LEADS_CSV_HEADERS = [
   "Is Test Lead",
   "Test Lead Confidence",
   "Test Lead Reasons",
+  "Manual Test Lead",
+  "Test Lead Reason",
 ] as const;
 
 function escapeCsvCell(value: string): string {
@@ -110,6 +112,8 @@ function leadToCsvRow(lead: LeadIntent): string[] {
     testDetection.isTestLead ? "Yes" : "No",
     testDetection.isTestLead ? testDetection.confidence : "",
     testDetection.reasons.join("; "),
+    testDetection.isManualMark ? "Yes" : "No",
+    lead.testLeadReason?.trim() ?? testDetection.manualReason ?? "",
   ];
 }
 

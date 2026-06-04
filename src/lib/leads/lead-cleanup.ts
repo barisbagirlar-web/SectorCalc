@@ -7,6 +7,9 @@ export interface TestLeadDetection {
   isTestLead: boolean;
   confidence: TestLeadConfidence;
   reasons: string[];
+  isManualMark: boolean;
+  manualReason?: string;
+  manualOverrideNotTest: boolean;
 }
 
 export interface LeadCleanupSummary {
@@ -147,7 +150,7 @@ function resolveIsTestLead(
   return false;
 }
 
-export function detectTestLead(lead: LeadIntent): TestLeadDetection {
+function detectAutomaticTestLead(lead: LeadIntent): TestLeadDetection {
   const reasons: string[] = [];
 
   if (isTestEmail(lead.email)) {
@@ -191,7 +194,38 @@ export function detectTestLead(lead: LeadIntent): TestLeadDetection {
     isTestLead,
     confidence: isTestLead ? confidence : "low",
     reasons,
+    isManualMark: false,
+    manualOverrideNotTest: false,
   };
+}
+
+export function detectTestLead(lead: LeadIntent): TestLeadDetection {
+  if (lead.isTestLead === true) {
+    const reasons = ["Admin tarafından test lead olarak işaretlendi"];
+    if (lead.testLeadReason?.trim()) {
+      reasons.push(lead.testLeadReason.trim());
+    }
+    return {
+      isTestLead: true,
+      confidence: "high",
+      reasons,
+      isManualMark: true,
+      manualReason: lead.testLeadReason?.trim() || undefined,
+      manualOverrideNotTest: false,
+    };
+  }
+
+  if (lead.isTestLead === false) {
+    return {
+      isTestLead: false,
+      confidence: "low",
+      reasons: ["Admin tarafından test lead değil olarak işaretlendi"],
+      isManualMark: false,
+      manualOverrideNotTest: true,
+    };
+  }
+
+  return detectAutomaticTestLead(lead);
 }
 
 export function filterLeadsForMetrics(

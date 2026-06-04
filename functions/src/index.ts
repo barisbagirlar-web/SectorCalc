@@ -1,5 +1,6 @@
 import { onRequest } from "firebase-functions/v2/https";
 import { handleUpdateLeadPipeline } from "./updateLeadPipelineHandler";
+import { handleUpdateLeadTestClassification } from "./updateLeadTestClassificationHandler";
 
 export const updateLeadPipeline = onRequest(
   {
@@ -9,5 +10,15 @@ export const updateLeadPipeline = onRequest(
   },
   (req, res) => {
     void handleUpdateLeadPipeline(req, res);
+  }
+);
+
+export const updateLeadTestClassification = onRequest(
+  {
+    region: "us-central1",
+    invoker: "public",
+  },
+  (req, res) => {
+    void handleUpdateLeadTestClassification(req, res);
   }
 );

@@ -3,32 +3,19 @@
 import { useEffect, useState } from "react";
 import { formatLocalDateTime } from "@/lib/format/datetime";
 import {
+  entryShowsAdminNote,
   formatActivitySummary,
   formatChangedFieldsLabel,
+  getActivityDetailLine,
+  getEntryAdminNote,
   listLeadActivity,
   type LeadActivityEntry,
 } from "@/lib/leads/lead-activity";
-import { getLeadStatusLabel } from "@/lib/leads/lead-pipeline";
 import type { LeadIntent } from "@/lib/leads/types";
 
 interface LeadActivityListProps {
   lead: LeadIntent;
   refreshKey?: string;
-}
-
-function resolveChangedFields(entry: LeadActivityEntry): string[] {
-  if (entry.changedFields.length > 0) {
-    return entry.changedFields;
-  }
-
-  const inferred: string[] = [];
-  if (entry.previousStatus !== entry.nextStatus) {
-    inferred.push("status");
-  }
-  if (entry.previousAdminNote !== entry.nextAdminNote) {
-    inferred.push("adminNote");
-  }
-  return inferred;
 }
 
 export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
@@ -90,7 +77,7 @@ export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
   if (loadError) {
     return (
       <p className="text-sm text-slate" role="status">
-        Aktivite geçmişi backend okuma endpoint&apos;iyle açılacak.
+        Aktivite geçmişi yüklenemedi.
       </p>
     );
   }
@@ -106,7 +93,7 @@ export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
   return (
     <ul className="space-y-3">
       {entries.map((entry) => {
-        const changedFields = resolveChangedFields(entry);
+        const detailLine = getActivityDetailLine(entry);
 
         return (
           <li
@@ -125,26 +112,17 @@ export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
                 {formatLocalDateTime(entry.createdAt)}
               </time>
             </div>
+            {detailLine ? (
+              <p className="mt-1 text-xs text-slate">{detailLine}</p>
+            ) : null}
             <p className="mt-1 text-xs text-slate">
-              {changedFields.includes("status") ? (
-                <>
-                  {getLeadStatusLabel(entry.previousStatus)} →{" "}
-                  {getLeadStatusLabel(entry.nextStatus)}
-                </>
-              ) : null}
-              {entry.actorEmail ? (
-                <>
-                  {changedFields.includes("status") ? " · " : null}
-                  {entry.actorEmail}
-                </>
-              ) : null}
+              {entry.actorEmail ? entry.actorEmail : null}
+              {entry.actorEmail ? " · " : null}
+              Değişen alanlar: {formatChangedFieldsLabel(entry.changedFields)}
             </p>
-            <p className="mt-1 text-xs text-slate">
-              Değişen alanlar: {formatChangedFieldsLabel(changedFields)}
-            </p>
-            {changedFields.includes("adminNote") && entry.nextAdminNote.trim() ? (
+            {entryShowsAdminNote(entry) ? (
               <p className="mt-2 line-clamp-2 text-xs text-deep-navy">
-                Not: {entry.nextAdminNote.trim()}
+                Not: {getEntryAdminNote(entry)}
               </p>
             ) : null}
           </li>
