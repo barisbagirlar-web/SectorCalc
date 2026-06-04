@@ -17,6 +17,7 @@ import {
   LeadQualityBadge,
   LeadQualitySection,
 } from "@/components/admin/LeadQualityScore";
+import { LeadSourceRoiSection } from "@/components/admin/LeadSourceRoi";
 import { LeadContactCell } from "@/components/admin/LeadContactCell";
 import {
   LeadPipelineControls,
@@ -40,6 +41,7 @@ import {
   computeLeadQualitySummary,
 } from "@/lib/leads/lead-quality-score";
 import { resolveLeadActionRecommendation } from "@/lib/leads/lead-action-center";
+import { computeLeadSourceRoi } from "@/lib/leads/source-roi";
 import {
   formatLeadIntentSummary,
   matchesPipelineStatusFilter,
@@ -182,6 +184,8 @@ export function LeadIntentsClient() {
     [leads]
   );
 
+  const sourceRoi = useMemo(() => computeLeadSourceRoi(leads), [leads]);
+
   const detailLead = useMemo(() => {
     if (!detailLeadId) {
       return null;
@@ -278,6 +282,8 @@ export function LeadIntentsClient() {
       <LeadFollowUpSlaSection summary={followUpSlaSummary} loading={loading} />
 
       <LeadQualitySection summary={qualitySummary} loading={loading} />
+
+      <LeadSourceRoiSection roi={sourceRoi} loading={loading} />
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
         <LeadExportButton
