@@ -1,0 +1,127 @@
+rules_version = '2';
+
+// SectorCalc MVP — lead intents only.
+//
+// Production posture:
+// - Public clients may CREATE leadIntents with validated fields only.
+// - Public READ / UPDATE / DELETE are denied.
+//
+// Admin panel (/admin/leads): read only for Firebase Auth users with admin claim.
+// Writes from admin panel go through Cloud Function (Admin SDK), not client SDK.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    match /leadIntents/{leadId} {
+      allow read: if isAuthenticatedAdmin();
+      allow update, delete: if false;
+
+      allow create: if
+        leadId == request.resource.data.id
+        && isValidLeadIntentCreate(request.resource.data);
+    }
+  }
+}
+
+function isAuthenticatedAdmin() {
+  return request.auth != null && request.auth.token.admin == true;
+}
+
+function isValidLeadIntentCreate(data) {
+  return hasValidLeadKeys(data)
+    && isValidLeadId(data.id)
+    && isValidShortText(data.name, 2, 120)
+    && isValidEmail(data.email)
+    && isValidShortText(data.company, 2, 160)
+    && isValidShortText(data.industry, 2, 80)
+    && isValidShortText(data.toolRequested, 2, 160)
+    && isValidShortText(data.intendedUse, 2, 120)
+    && isValidPagePath(data.pagePath)
+    && isValidCreatedAt(data.createdAt)
+    && data.status == 'new'
+    && data.storageMode == 'firestore'
+    && isValidLeadSource(data.source)
+    && isValidOptionalPlan(data)
+    && isValidOptionalMessage(data);
+}
+
+function hasValidLeadKeys(data) {
+  return data.keys().hasOnly([
+      'id',
+      'name',
+      'email',
+      'company',
+      'industry',
+      'toolRequested',
+      'intendedUse',
+      'message',
+      'source',
+      'pagePath',
+      'plan',
+      'createdAt',
+      'status',
+      'storageMode',
+    ]);
+}
+
+function isValidLeadId(id) {
+  return id is string
+    && id.size() >= 8
+    && id.size() <= 80
+    && id.matches('^lead_[A-Za-z0-9._-]+$');
+}
+
+function isValidShortText(value, minLen, maxLen) {
+  return value is string
+    && value.size() >= minLen
+    && value.size() <= maxLen;
+}
+
+function isValidEmail(email) {
+  return email is string
+    && email.size() >= 5
+    && email.size() <= 254
+    && email.matches('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
+}
+
+function isValidPagePath(path) {
+  return path is string
+    && path.size() >= 1
+    && path.size() <= 256
+    && path.matches('^/.*');
+}
+
+function isValidCreatedAt(value) {
+  return value is string
+    && value.size() >= 20
+    && value.size() <= 40;
+}
+
+function isValidLeadSource(source) {
+  return source in [
+    'premium_unlock',
+    'pricing',
+    'export',
+    'sample_report',
+    'unknown',
+  ];
+}
+
+function isValidOptionalPlan(data) {
+  return !('plan' in data)
+    || data.plan in [
+      'single_report',
+      'sector_pass',
+      'pro',
+      'free',
+      'unknown',
+    ];
+}
+
+function isValidOptionalMessage(data) {
+  return !('message' in data)
+    || (data.message is string && data.message.size() <= 500);
+}

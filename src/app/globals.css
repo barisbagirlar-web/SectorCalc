@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-[#303030] antialiased;
+    font-family: var(--font-open-sans), "Open Sans", sans-serif;
+  }
+
+  strong {
+    @apply font-bold;
+  }
+}
+
+/* Prevent Tailwind preflight from overriding MagiClick product sections */
+#sector-product h1,
+#sector-product h2,
+#sector-product h3,
+#sector-product h4,
+#sector-product p,
+#sector-product a,
+#sector-product figure {
+  font-family: var(--font-open-sans), "Open Sans", Tahoma, "Lucida Grande", sans-serif;
+}
