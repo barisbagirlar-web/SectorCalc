@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { INDUSTRIES } from "@/data/industries";
 import { ALL_TOOLS } from "@/data/tools";
 import type { IndustrySlug } from "@/data/industries";
@@ -153,35 +153,15 @@ export function ToolFinder() {
           </div>
         </div>
 
-        <ul
-          id="tool-finder-results"
-          className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3"
-        >
+        <div id="tool-finder-results" className="mt-12">
           {results.length === 0 ? (
-            <li className="col-span-full rounded-xl border border-dashed border-slate/25 bg-off-white py-14 text-center text-slate">
+            <p className="rounded-xl border border-dashed border-slate/25 bg-off-white py-14 text-center text-slate">
               No tools match your filters. Try another decision focus or industry.
-            </li>
+            </p>
           ) : (
-            results.map((tool) => (
-              <li key={tool.slug}>
-                <Link
-                  href={tool.href}
-                  className="flex h-full flex-col rounded-xl border border-slate/15 bg-off-white p-5 transition-colors hover:border-professional-blue/30 hover:bg-white"
-                >
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-professional-blue">
-                    {tool.tier === "premium" ? "Decision tool" : "Quick estimate"}
-                  </span>
-                  <span className="mt-2 font-semibold text-deep-navy">
-                    {tool.name}
-                  </span>
-                  <span className="mt-1 flex-1 text-sm text-slate">
-                    {tool.shortDescription}
-                  </span>
-                </Link>
-              </li>
-            ))
+            <ToolsTileGrid tools={results} />
           )}
-        </ul>
+        </div>
       </Container>
     </section>
   );

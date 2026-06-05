@@ -19,7 +19,7 @@ export default function IndustriesPage() {
         <PageHero
           eyebrow="Industries"
           title="Industry-specific tools for cost, margin, capacity and pricing decisions"
-          subtitle="Each sector includes a quick estimator and a premium analyzer. Start with a number, then move into a decision report when the outcome affects profit or risk."
+          subtitle="Every live sector pairs a free quick estimator with a premium decision analyzer — step up to a structured report when margin, pricing or risk is material."
         />
         <section className="fourth-tab">
           <div className="container">

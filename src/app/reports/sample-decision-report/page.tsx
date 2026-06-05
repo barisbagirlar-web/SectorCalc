@@ -29,7 +29,7 @@ export default function SampleDecisionReportPage() {
       <PageHero
         eyebrow="Reports"
         title="Why premium reports are different"
-        subtitle="Premium reports are not just calculator outputs. They package inputs, assumptions, key findings, scenario analysis, risk level and recommendation into a decision-ready format."
+        subtitle="Premium reports package assumptions, findings, scenarios, risk level and recommendations — a decision-ready format, not raw calculator output."
       />
       <section className="border-b border-slate/10 bg-off-white py-10 md:py-12">
         <Container size="narrow">

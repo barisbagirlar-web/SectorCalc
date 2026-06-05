@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
-import { ToolCard } from "@/components/cards/ToolCard";
+import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { CTASection } from "@/components/sections/CTASection";
-import { FREE_TOOLS } from "@/data/tools";
+import { ALL_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
@@ -35,7 +35,7 @@ export default function FreeToolsPage() {
       <PageHero
         eyebrow="Free Tools"
         title="Free tools for quick business estimates"
-        subtitle="Use these tools to get fast directional numbers. When the result affects pricing, margin or operational risk, continue into the matching premium decision tool."
+        subtitle="Run directional estimates in minutes. When the outcome affects pricing, margin or operational risk, continue into the matching premium decision analyzer."
       />
       <section className="border-t border-slate/10 bg-white py-10 md:py-12">
         <Container size="wide">
@@ -69,19 +69,23 @@ export default function FreeToolsPage() {
       </section>
       <section className="border-t border-slate/10 bg-[#f4f6f8] py-12 md:py-16 lg:py-20">
         <Container size="wide">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {FREE_TOOLS.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} />
-            ))}
+          <h2 className="text-xl font-bold text-deep-navy">All calculators</h2>
+          <p className="mt-2 max-w-2xl text-sm text-slate">
+            {ALL_TOOLS.length} sector tools — quick estimates and premium decision analyzers in one
+            place.
+          </p>
+          <div className="mt-8">
+            <ToolsTileGrid tools={ALL_TOOLS} />
           </div>
         </Container>
       </section>
       <CTASection
-        title="Need a decision report?"
-        subtitle="Premium sector tools add scenarios, risk signals and packaged recommendations — payment and export are preview-only in the MVP."
-        primaryLabel="Explore premium tools"
-        primaryHref="/industries"
-        secondaryLabel="View sample report"
+        eyebrow="Premium decision reports"
+        title="When a quick estimate is not enough"
+        subtitle="Elevate from directional numbers to structured decision intelligence — multi-path scenarios, calibrated risk signals and stakeholder-ready recommendations. Payment and file export are in preview during this release; explore premium analyzers and review the report format today."
+        primaryLabel="Explore premium analyzers"
+        primaryHref="/pricing"
+        secondaryLabel="Preview sample report"
         secondaryHref="/reports/sample-decision-report"
       />
     </PageLayout>

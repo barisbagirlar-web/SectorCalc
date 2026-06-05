@@ -19,7 +19,7 @@ export default function LoginPage() {
     <PageLayout>
       <PageHero
         title="Admin Girişi"
-        subtitle="Lead yönetim paneline erişmek için yetkili admin hesabınızla giriş yapın."
+        subtitle="Sign in with an authorized admin account to access the lead management panel."
       />
       <section className="py-12">
         <Container size="narrow">

@@ -1,37 +1,26 @@
 import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
 import { HeroPlatformIllustration, TrustedIndustriesStrip } from "@/components/ui/MagiClickIllustrations";
-import { SITE } from "@/config/site";
-
-const HERO_BULLETS = [
-  "Quick estimates for common business questions",
-  "Premium reports for margin, pricing and risk decisions",
-  "Sector-specific tools for operators, consultants and teams",
-] as const;
+import { HomeOperationsValueSection } from "@/components/sections/HomeOperationsValueSection";
 
 export function HeroSection() {
   return (
     <section className="first-tab">
       <PageHero
-        title={SITE.tagline}
-        subtitle="SectorCalc turns cost, margin, capacity and pricing inputs into structured decision reports, risk signals and actionable recommendations across industries."
+        variant="home"
+        title="Stop Pricing Work That Loses Money."
+        subtitle="Sector-specific cost and risk reports for manufacturing, small industry and service businesses — without expensive ERP or consulting overhead."
       >
-        <ul className="mc-hero-bullets">
-          {HERO_BULLETS.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
         <div className="mc-hero-actions">
           <Link href="/industries" className="mc-btn-hero-primary">
-            Explore Sector Tools
+            Find Your Safe Price
           </Link>
           <Link href="/reports/sample-decision-report" className="mc-btn-hero-secondary">
             View Sample Report
           </Link>
         </div>
         <p className="mc-hero-microcopy">
-          <Link href="/free-tools">Start with free estimators</Link> if you only need a quick
-          number.
+          <Link href="/free-tools">Need a quick number? Try a free estimator →</Link>
         </p>
       </PageHero>
       <div className="container text-center">
@@ -43,6 +32,7 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+      <HomeOperationsValueSection />
       <section className="second-tab" aria-label="Industries served">
         <div className="container text-center">
           <div className="row">

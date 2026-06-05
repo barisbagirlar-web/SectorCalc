@@ -3,7 +3,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/layout/PageHero";
 import { PricingPlansGrid } from "@/components/sections/PricingPlansGrid";
 import { Container } from "@/components/ui/Container";
-import { ToolCard } from "@/components/cards/ToolCard";
+import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { PREMIUM_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -20,7 +20,7 @@ export default function PricingPage() {
       <PageHero
         eyebrow="Pricing"
         title="Plans for sector tools and decision reports"
-        subtitle="Free tools are for quick estimates. Single Report, Sector Pass and Pro are for premium decision reports — honest pricing with clear coming-soon labels until billing launches."
+        subtitle="Free tools deliver quick estimates. Single Report, Sector Pass and Pro unlock packaged decision reports — scenarios, risk verdicts and export-ready structure. Billing is preview-only in this release."
       />
       <section className="border-b border-amber/30 bg-amber/5 py-8">
         <Container size="narrow">
@@ -39,12 +39,11 @@ export default function PricingPage() {
             Included with Single Report, Sector Pass and Pro when billing launches. Open any
             analyzer now; request access through pricing CTAs if you need premium report flows.
           </p>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {PREMIUM_TOOLS.map((tool) => (
-              <div key={tool.slug} id={tool.slug}>
-                <ToolCard tool={tool} />
-              </div>
-            ))}
+          <div className="mt-8">
+            <ToolsTileGrid
+              tools={PREMIUM_TOOLS}
+              className="[&_li]:scroll-mt-24"
+            />
           </div>
         </Container>
       </section>

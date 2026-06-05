@@ -1,24 +1,11 @@
 import Link from "next/link";
 import { ReportPreviewCard } from "@/components/cards/ReportPreviewCard";
+import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import type { Tool } from "@/data/tools";
 
 interface McProductExtensionsProps {
   freeTools: Tool[];
   premiumTools: Tool[];
-}
-
-function McToolCard({ tool }: { tool: Tool }) {
-  const isPremium = tool.tier === "premium";
-  return (
-    <article className="mc-tool-card">
-      <p className={`mc-tier ${isPremium ? "mc-tier-premium" : "mc-tier-free"}`}>
-        {isPremium ? "Decision tool" : "Quick estimate"}
-      </p>
-      <h3>{tool.name}</h3>
-      <p>{tool.shortDescription}</p>
-      <Link href={tool.href}>{isPremium ? "Open decision tool →" : "Run estimate →"}</Link>
-    </article>
-  );
 }
 
 export function McProductExtensions({ freeTools, premiumTools }: McProductExtensionsProps) {
@@ -39,11 +26,7 @@ export function McProductExtensions({ freeTools, premiumTools }: McProductExtens
         <div className="container">
           <h2>Free sector tools</h2>
           <p>Structured quick estimates — no account required.</p>
-          <div className="mc-tools-grid">
-            {freeTools.map((tool) => (
-              <McToolCard key={tool.slug} tool={tool} />
-            ))}
-          </div>
+          <ToolsTileGrid tools={freeTools} className="mt-6" />
           <p className="mc-section-link">
             <Link href="/free-tools">View all free tools →</Link>
           </p>
@@ -57,11 +40,7 @@ export function McProductExtensions({ freeTools, premiumTools }: McProductExtens
             Scenario evaluation, risk signals and packaged reports when the cost of being wrong
             is real.
           </p>
-          <div className="mc-tools-grid">
-            {premiumTools.map((tool) => (
-              <McToolCard key={tool.slug} tool={tool} />
-            ))}
-          </div>
+          <ToolsTileGrid tools={premiumTools} className="mt-6" />
           <p className="mc-section-link">
             <Link href="/pricing">View pricing →</Link>
           </p>

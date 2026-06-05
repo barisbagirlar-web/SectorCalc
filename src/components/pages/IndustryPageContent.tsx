@@ -1,27 +1,13 @@
 import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
+import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import type { Industry } from "@/data/industries";
 import { getIndustryHubContent } from "@/data/industry-hub-content";
 import { getFreeToolsByIndustry, getPremiumToolsByIndustry } from "@/data/tools";
-import type { Tool } from "@/data/tools";
 
 interface IndustryPageContentProps {
   industry: Industry;
-}
-
-function McToolCard({ tool }: { tool: Tool }) {
-  const isPremium = tool.tier === "premium";
-  return (
-    <article className="mc-tool-card">
-      <p className={`mc-tier ${isPremium ? "mc-tier-premium" : "mc-tier-free"}`}>
-        {isPremium ? "Decision tool" : "Quick estimate"}
-      </p>
-      <h3>{tool.name}</h3>
-      <p>{tool.description}</p>
-      <Link href={tool.href}>{isPremium ? "Open decision tool →" : "Run estimate →"}</Link>
-    </article>
-  );
 }
 
 export function IndustryPageContent({ industry }: IndustryPageContentProps) {
@@ -59,11 +45,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
               This is a quick estimate. For decision-level analysis, open the matching premium
               tool below.
             </p>
-            <div className="mc-tools-grid">
-              {freeTools.map((tool) => (
-                <McToolCard key={tool.slug} tool={tool} />
-              ))}
-            </div>
+            <ToolsTileGrid tools={freeTools} className="mt-6" />
           </div>
         </section>
       )}
@@ -77,11 +59,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
               This premium analyzer is designed to support decision-making. Results are indicative
               and depend on your inputs.
             </p>
-            <div className="mc-tools-grid">
-              {premiumTools.map((tool) => (
-                <McToolCard key={tool.slug} tool={tool} />
-              ))}
-            </div>
+            <ToolsTileGrid tools={premiumTools} className="mt-6" />
           </div>
         </section>
       )}

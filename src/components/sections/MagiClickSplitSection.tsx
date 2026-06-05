@@ -34,7 +34,8 @@ export function MagiClickSplitSection({
 }: MagiClickSplitSectionProps) {
   const Visual = VISUALS[visual];
   const textCol = layout === "8-4" ? "col-xs-12 col-sm-8" : "col-xs-12 col-sm-7";
-  const visualCol = layout === "8-4" ? "hidden-xs col-sm-4" : "hidden-xs col-sm-5 text-center";
+  const visualCol =
+    layout === "8-4" ? "col-xs-12 col-sm-4 text-center" : "col-xs-12 col-sm-5 text-center";
 
   return (
     <section className={tabClass}>

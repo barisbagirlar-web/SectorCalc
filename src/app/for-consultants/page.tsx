@@ -5,6 +5,8 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
 import { CTASection } from "@/components/sections/CTASection";
 import { ConsultantAccessCta } from "@/components/leads/ConsultantAccessCta";
+import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
+import { ALL_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
 
 const benefits = [
@@ -47,7 +49,7 @@ export default function ForConsultantsPage() {
       <PageHero
         eyebrow="For Consultants"
         title="Sector calculations for advisory practices"
-        subtitle="Use SectorCalc to support client-facing calculations, preliminary assessments and structured premium report requests — across the industries your clients operate in."
+        subtitle="Support client engagements with sector-specific estimates, preliminary assessments and structured premium report requests — across every industry your clients operate in."
       />
       <section className="py-12 md:py-16">
         <Container>
@@ -75,9 +77,24 @@ export default function ForConsultantsPage() {
               </article>
             ))}
           </div>
-          <div className="mt-12 rounded-2xl border border-professional-blue/30 bg-deep-navy p-8 text-center md:p-12">
-            <h2 className="text-2xl font-bold text-white">Consultant program — coming soon</h2>
-            <p className="mx-auto mt-4 max-w-xl text-slate-300">
+          <div className="mt-12">
+            <h2 className="text-xl font-bold text-deep-navy">All sector calculators</h2>
+            <p className="mt-2 max-w-2xl text-sm text-slate">
+              Free quick estimates and premium decision analyzers — same compact catalog used across
+              the platform.
+            </p>
+            <div className="mt-6">
+              <ToolsTileGrid tools={ALL_TOOLS} />
+            </div>
+            <p className="mt-4 text-sm text-slate">
+              <Link href="/pricing" className="font-semibold text-professional-blue hover:underline">
+                View pricing and plans →
+              </Link>
+            </p>
+          </div>
+          <div className="mt-12 rounded-2xl border border-professional-blue/30 bg-deep-navy p-8 text-center text-white md:p-12">
+            <h2 className="text-2xl font-bold">Consultant program — coming soon</h2>
+            <p className="mx-auto mt-4 max-w-xl text-white">
               White-label branding, client workspaces and embed flows are not live yet. We are
               collecting consultant interest to shape Pro access, report packaging and team
               features.

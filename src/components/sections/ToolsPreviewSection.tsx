@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { ToolCard } from "@/components/cards/ToolCard";
+import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import type { Tool } from "@/data/tools";
 
 type SectionVariant = "white" | "off-white" | "muted" | "dark";
@@ -50,11 +50,7 @@ export function ToolsPreviewSection({
             </Link>
           }
         />
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {tools.map((tool) => (
-            <ToolCard key={tool.slug} tool={tool} onDark={dark} />
-          ))}
-        </div>
+        <ToolsTileGrid tools={tools} onDark={dark} />
       </Container>
     </section>
   );

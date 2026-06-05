@@ -20,7 +20,7 @@ export default function AdminLeadsPage() {
       <PageHero
         eyebrow="Admin"
         title="Lead Intents"
-        subtitle="Premium CTA, pricing, export ve sample report kaynaklı lead talepleri. Giriş yapmış admin hesabı gerekir."
+        subtitle="Lead requests from premium CTAs, pricing, export flows and sample reports. Authorized admin sign-in required."
       />
 
       <section className="bg-off-white py-10 md:py-14">

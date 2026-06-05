@@ -14,9 +14,9 @@ import { createPageMetadata } from "@/lib/metadata";
  * @see https://www.magiclick.com/products/true-omnichannel-banking-platform.aspx
  */
 export const metadata: Metadata = createPageMetadata({
-  title: "Sector-specific calculators for real business decisions",
+  title: "Stop pricing work that loses money",
   description:
-    "English-first sector decision platform. Free quick estimates and premium decision reports with risk signals, scenarios and recommendations for Construction, Cleaning, Restaurant, E-commerce and CNC & Manufacturing.",
+    "Sector-specific cost and risk reports for manufacturing, small industry and service businesses — without expensive ERP or consulting overhead.",
   path: "/",
 });
 

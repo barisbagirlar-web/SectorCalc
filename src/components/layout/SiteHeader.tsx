@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SiteLogo } from "@/components/brand/SiteLogo";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { NAV_ITEMS } from "@/config/site";
 
@@ -13,9 +14,7 @@ export function SiteHeader({ theme = "light" }: SiteHeaderProps) {
     return (
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#155079]">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="font-bold text-white">
-            SectorCalc
-          </Link>
+          <SiteLogo variant="on-dark" priority />
           <MobileNav theme="dark" />
         </div>
       </header>
@@ -25,9 +24,7 @@ export function SiteHeader({ theme = "light" }: SiteHeaderProps) {
   return (
     <header id="header" className="mc-header sticky top-0 z-50">
       <div className="container">
-        <Link href="/" className="mc-logo">
-          Sector<em>Calc</em>
-        </Link>
+        <SiteLogo priority />
         <nav id="main-navigation" aria-label="Main">
           <ul>
             {NAV_ITEMS.map((item) => (
