@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LeadIntentTrigger } from "@/components/leads/LeadIntentTrigger";
+import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import { EXPORT_MOCK_MESSAGE } from "@/config/export-messages";
 import {
   ANALYTICS_EVENTS,
@@ -14,12 +14,13 @@ interface ExportToolbarProps {
   toolSlug?: string;
   toolTitle?: string;
   industryLeadValue?: string;
+  locked?: boolean;
 }
 
 export function ExportToolbar({
   toolSlug,
   toolTitle,
-  industryLeadValue,
+  locked = false,
 }: ExportToolbarProps) {
   const [message, setMessage] = useState<string | null>(null);
 
@@ -28,15 +29,30 @@ export function ExportToolbar({
     setMessage(EXPORT_MOCK_MESSAGE);
   };
 
+  if (locked) {
+    return (
+      <div className="min-w-0 rounded-xl border border-slate/20 bg-white p-5 shadow-card sm:p-6">
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-slate">
+          Export
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-slate">
+          Export is part of the paid decision summary. Subscribe to SectorCalc Pro to
+          unlock premium tools; PDF export ships in a later release.
+        </p>
+        <ProCheckoutButton source="export_toolbar" className="mt-4 max-w-md" />
+      </div>
+    );
+  }
+
   return (
     <div className="min-w-0 rounded-xl border border-slate/20 bg-white p-5 shadow-card sm:p-6">
       <h2 className="text-sm font-semibold uppercase tracking-wider text-slate">
         Export
       </h2>
       <p className="mt-2 text-sm leading-relaxed text-slate">
-        Export is included in the packaged premium decision report — not the free
-        calculator card alone. Preview buttons show the future flow; billing is not
-        live yet.
+        {toolTitle
+          ? `Decision summary for ${toolTitle} — export preview only. PDF download ships in a later release.`
+          : "Export preview only. PDF download ships in a later release."}
       </p>
       <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         {EXPORT_ACTIONS.map((action) => (
@@ -52,7 +68,7 @@ export function ExportToolbar({
           </button>
         ))}
       </div>
-      {message && (
+      {message ? (
         <p
           id="export-message"
           className="mt-4 rounded-lg border border-professional-blue/20 bg-professional-blue/5 px-4 py-3 text-sm leading-relaxed text-deep-navy"
@@ -60,15 +76,7 @@ export function ExportToolbar({
         >
           {message}
         </p>
-      )}
-      <LeadIntentTrigger
-        source="export"
-        toolRequested={toolTitle}
-        industry={industryLeadValue}
-        className="mt-4 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg border-2 border-amber bg-amber/10 px-4 text-sm font-semibold text-deep-navy transition-colors hover:bg-amber/20"
-      >
-        Request premium report access
-      </LeadIntentTrigger>
+      ) : null}
     </div>
   );
 }

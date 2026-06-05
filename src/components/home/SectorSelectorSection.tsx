@@ -1,68 +1,7 @@
 import Link from "next/link";
 import type { SVGProps } from "react";
-
-type SectorIconName =
-  | "construction"
-  | "cleaning"
-  | "restaurant"
-  | "ecommerce"
-  | "manufacturing";
-
-type SectorCard = {
-  title: string;
-  description: string;
-  freeTool: string;
-  premiumTool: string;
-  href: string;
-  icon: SectorIconName;
-};
-
-const sectors: SectorCard[] = [
-  {
-    title: "İnşaat",
-    description:
-      "Proje maliyetini, değişiklik etkisini ve risk payını daha net görün.",
-    freeTool: "Proje Maliyet Tahmincisi",
-    premiumTool: "Değişiklik Emri Etki Analizcisi",
-    href: "/industries/construction",
-    icon: "construction",
-  },
-  {
-    title: "Temizlik",
-    description:
-      "İşçilik, süre ve teklif maliyetini daha kontrollü hesaplayın.",
-    freeTool: "Maliyet Tahmincisi",
-    premiumTool: "Ofis Temizliği Teklif Optimizasyon Aracı",
-    href: "/industries/cleaning",
-    icon: "cleaning",
-  },
-  {
-    title: "Restoran",
-    description:
-      "Yemek maliyetini, menü kârını ve kayıp noktalarını hızlı görün.",
-    freeTool: "Yemek Maliyeti Hesaplayıcısı",
-    premiumTool: "Menü Kâr Kaybı Tespit Aracı",
-    href: "/industries/restaurant",
-    icon: "restaurant",
-  },
-  {
-    title: "E-ticaret",
-    description: "Ürün marjını, iade etkisini ve net kâr kaybını ölçün.",
-    freeTool: "Ürün Kâr Marjı Hesaplayıcı",
-    premiumTool: "İade Oranı Kâr Azalması Aracı",
-    href: "/industries/ecommerce",
-    icon: "ecommerce",
-  },
-  {
-    title: "CNC ve İmalat",
-    description:
-      "Makine saati, setup, fire ve güvenli teklif fiyatını hesaplayın.",
-    freeTool: "Makine Saati Tahmincisi",
-    premiumTool: "CNC Minimum Güvenli Fiyat Teklifi Analizcisi",
-    href: "/industries/cnc-manufacturing",
-    icon: "manufacturing",
-  },
-];
+import { INDUSTRIES, type IndustryIcon } from "@/data/industries";
+import { getToolBySlug, type ToolSlug } from "@/data/tools";
 
 const iconSvgProps: SVGProps<SVGSVGElement> = {
   className: "h-8 w-8",
@@ -72,7 +11,7 @@ const iconSvgProps: SVGProps<SVGSVGElement> = {
   "aria-hidden": true,
 };
 
-function SectorIcon({ name }: { name: SectorIconName }) {
+function SectorIcon({ name }: { name: IndustryIcon }) {
   if (name === "construction") {
     return (
       <svg {...iconSvgProps}>
@@ -168,36 +107,50 @@ function ToolLine({
   );
 }
 
-function SectorCardItem({ sector }: { sector: SectorCard }) {
+function SectorCardItem({
+  title,
+  description,
+  freeTool,
+  premiumTool,
+  href,
+  icon,
+}: {
+  title: string;
+  description: string;
+  freeTool: string;
+  premiumTool: string;
+  href: string;
+  icon: IndustryIcon;
+}) {
   return (
     <article className="group flex h-full flex-col rounded-[28px] border border-slate/15 bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-professional-blue/25 hover:shadow-[0_24px_70px_rgba(15,23,42,0.10)]">
       <div className="flex gap-4">
         <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-cyan/20 bg-off-white text-professional-blue">
-          <SectorIcon name={sector.icon} />
+          <SectorIcon name={icon} />
         </div>
 
         <div className="min-w-0">
           <h3 className="text-xl font-semibold tracking-tight text-deep-navy sm:text-2xl">
-            {sector.title}
+            {title}
           </h3>
           <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate">
-            {sector.description}
+            {description}
           </p>
         </div>
       </div>
 
       <div className="mt-auto space-y-3 border-t border-slate/10 pt-5">
-        <ToolLine label="Ücretsiz" value={sector.freeTool} variant="free" />
-        <ToolLine label="Premium" value={sector.premiumTool} variant="premium" />
+        <ToolLine label="Free" value={freeTool} variant="free" />
+        <ToolLine label="Premium" value={premiumTool} variant="premium" />
       </div>
 
       <div className="mt-6 pt-1">
         <Link
-          href={sector.href}
+          href={href}
           className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-professional-blue/40 bg-white px-5 text-sm font-semibold text-professional-blue transition hover:bg-cyan/10 focus:outline-none focus:ring-2 focus:ring-professional-blue focus:ring-offset-2"
-          aria-label={`${sector.title} araçlarını gör`}
+          aria-label={`View ${title} tools`}
         >
-          Araçları Gör
+          View tools
           <span
             className="ml-2 transition-transform group-hover:translate-x-0.5"
             aria-hidden="true"
@@ -210,9 +163,22 @@ function SectorCardItem({ sector }: { sector: SectorCard }) {
   );
 }
 
+function getToolName(slug: string): string {
+  return getToolBySlug(slug as ToolSlug)?.name ?? slug;
+}
+
+const sectorCards = INDUSTRIES.map((industry) => ({
+  title: industry.name,
+  description: industry.shortDescription,
+  freeTool: getToolName(industry.freeToolSlugs[0] ?? ""),
+  premiumTool: getToolName(industry.premiumToolSlugs[0] ?? ""),
+  href: industry.href,
+  icon: industry.icon,
+}));
+
 export default function SectorSelectorSection() {
-  const topRow = sectors.slice(0, 3);
-  const bottomRow = sectors.slice(3);
+  const topRow = sectorCards.slice(0, 3);
+  const bottomRow = sectorCards.slice(3);
 
   return (
     <section
@@ -231,24 +197,24 @@ export default function SectorSelectorSection() {
             id="sector-selector-heading"
             className="text-balance text-3xl font-semibold tracking-tight text-deep-navy sm:text-4xl lg:text-5xl lg:leading-tight"
           >
-            Beş aktif sektörden birini seçin
+            Choose one of five active sectors
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-7 text-slate sm:mt-5 sm:text-lg sm:leading-8">
-            Sektörünüze özel ücretsiz araçlarla hızlı hesaplama yapın; premium
-            analizlerle maliyet, fiyat ve risk kararlarını daha net görün.
+            Run quick calculations with free sector tools, then use premium
+            analysis when cost, pricing and risk decisions need more structure.
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {topRow.map((sector) => (
-            <SectorCardItem key={sector.title} sector={sector} />
+            <SectorCardItem key={sector.title} {...sector} />
           ))}
         </div>
 
         <div className="mx-auto mt-6 grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
           {bottomRow.map((sector) => (
-            <SectorCardItem key={sector.title} sector={sector} />
+            <SectorCardItem key={sector.title} {...sector} />
           ))}
         </div>
       </div>

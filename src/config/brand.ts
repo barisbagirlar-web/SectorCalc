@@ -4,10 +4,10 @@
  */
 export const BRAND_ASSETS = {
   logo: {
-    default: "/img/brand/sectorcalc-logo.svg",
-    onDark: "/img/brand/sectorcalc-logo-on-dark.svg",
+    default: "/img/brand/sectorcalc-logo.png",
+    onDark: "/img/brand/sectorcalc-logo-on-dark.png",
     width: 1024,
-    height: 204,
+    height: 268,
   },
   favicon: {
     master: "/img/brand/sectorcalc-favicon.png",
@@ -18,8 +18,13 @@ export const BRAND_ASSETS = {
   },
   heroDevices: {
     src: "/images/sectorcalc-devices-hero.png",
-    width: 1672,
-    height: 941,
+    width: 1024,
+    height: 576,
+  },
+  platformFlow: {
+    src: "/images/sectorcalc-platform-hero.png",
+    width: 1024,
+    height: 562,
   },
 } as const;
 

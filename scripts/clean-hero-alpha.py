@@ -6,12 +6,12 @@ from pathlib import Path
 from PIL import Image
 
 # Hero asset used by HeroDeviceMockup.tsx
-HERO_IMAGE_PATH = Path("public/images/sectorcalc-devices-hero.png")
+HERO_IMAGE_PATH = Path("public/images/sectorcalc-platform-hero.png")
 SOURCE_IMAGE_PATH = Path(
     "/Users/macair1/.cursor/projects/Users-macair1-projects-SectorCalc/assets/"
-    "ChatGPT_Image_5_Haz_2026_20_23_55-21001d76-edf9-450d-9b17-2cc4d954183a.png"
+    "2772404f-eb2b-434b-8bf1-51ff1c8b6118-61c0a42f-2818-40f7-a43f-c0bb54bf750d.png"
 )
-TARGET_SIZE = (1672, 941)
+TARGET_SIZE = (1024, 562)
 
 RGB_NEAR_WHITE_THRESHOLD = 238
 ALPHA_VISIBLE_THRESHOLD = 8
@@ -178,21 +178,37 @@ def crop_to_content(image: Image.Image, pad: int = 4) -> Image.Image:
     return image.crop((left, top, right, bottom))
 
 
-def upscale_binary_alpha(image: Image.Image, target: tuple[int, int]) -> Image.Image:
+def binarize_alpha(image: Image.Image) -> Image.Image:
+    rgba = image.convert("RGBA")
+    pixels = rgba.load()
+    width, height = rgba.size
+
+    for y in range(height):
+        for x in range(width):
+            r, g, b, a = pixels[x, y]
+            if a > 127:
+                pixels[x, y] = (r, g, b, 255)
+            else:
+                pixels[x, y] = (0, 0, 0, 0)
+
+    return rgba
+
+
+def fit_to_canvas(image: Image.Image, target: tuple[int, int]) -> Image.Image:
     tw, th = target
     cw, ch = image.size
+
+    if (cw, ch) == (tw, th):
+        return binarize_alpha(image)
+
     scale = min(tw / cw, th / ch)
     nw, nh = int(round(cw * scale)), int(round(ch * scale))
-
-    rgb = image.convert("RGB").resize((nw, nh), Image.Resampling.LANCZOS)
-    alpha = image.getchannel("A").resize((nw, nh), Image.Resampling.NEAREST)
-    alpha = alpha.point(lambda p: 255 if p > 127 else 0)
+    resized = binarize_alpha(image.resize((nw, nh), Image.Resampling.LANCZOS))
 
     canvas = Image.new("RGBA", target, (0, 0, 0, 0))
     ox = (tw - nw) // 2
     oy = (th - nh) // 2
-    canvas.paste(rgb, (ox, oy))
-    canvas.paste(alpha, (ox, oy), alpha)
+    canvas.paste(resized, (ox, oy), resized)
     return canvas
 
 
@@ -252,10 +268,11 @@ def main() -> None:
 
     image = load_base_rgba()
     image = clean_connected_background(image)
-    image = trim_bottom_fringe_rows(image)
-    image = crop_to_content(image)
-    image = upscale_binary_alpha(image, TARGET_SIZE)
     image = clean_exposed_fringe(image)
+    image = trim_bottom_fringe_rows(image)
+    image = fit_to_canvas(image, TARGET_SIZE)
+    image = clean_exposed_fringe(image)
+    image = binarize_alpha(image)
 
     print("Verification:")
     verify_screen_pixels(image)

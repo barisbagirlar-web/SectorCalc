@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { LeadIntentTrigger } from "@/components/leads/LeadIntentTrigger";
+import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import { Container } from "@/components/ui/Container";
-import { pricingPlanIdToLeadPlan } from "@/data/lead-options";
 import {
   ANALYTICS_EVENTS,
   trackEvent,
@@ -11,15 +10,14 @@ import {
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { getPricingLeadToolLabel, PRICING_PLANS } from "@/data/pricing-plans";
-
-const planCtaBase =
-  "inline-flex w-full items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 min-h-[44px] px-6 py-2.5 text-base mt-8";
+import {
+  PRICING_PLANS,
+  PRICING_PRO_TAGLINE,
+} from "@/data/pricing-plans";
 
 interface PricingPlansGridProps {
   showHeader?: boolean;
   compact?: boolean;
-  /** When true, omit outer section wrapper (used inside mc-extension) */
   embedded?: boolean;
 }
 
@@ -33,17 +31,15 @@ export function PricingPlansGrid({
         {showHeader && (
           <SectionHeader
             eyebrow="Pricing"
-            title="Plans for operators, owners and advisors"
-            subtitle="Start free. Upgrade when you need packaged decision reports, scenarios and risk verdicts — not just calculator output."
+            title="Decision tools, not report upsells"
+            subtitle={PRICING_PRO_TAGLINE}
             align="center"
           />
         )}
 
         <div
           className={`grid gap-6 ${
-            compact
-              ? "md:grid-cols-2"
-              : "md:grid-cols-2 xl:grid-cols-4"
+            compact ? "md:grid-cols-2" : "mx-auto max-w-4xl md:grid-cols-2"
           }`}
         >
           {PRICING_PLANS.map((plan) => (
@@ -57,14 +53,14 @@ export function PricingPlansGrid({
             >
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="text-lg font-bold">{plan.name}</h3>
-                {plan.badge && (
+                {plan.badge ? (
                   <Badge
                     variant={plan.highlighted ? "premium" : "muted"}
                     className="text-[10px]"
                   >
                     {plan.badge}
                   </Badge>
-                )}
+                ) : null}
               </div>
               <p
                 className={`mt-2 text-2xl font-bold sm:text-3xl ${
@@ -73,7 +69,7 @@ export function PricingPlansGrid({
               >
                 {plan.price}
               </p>
-              {plan.period && (
+              {plan.period ? (
                 <p
                   className={`text-sm ${
                     plan.highlighted ? "text-slate-300" : "text-slate"
@@ -81,7 +77,7 @@ export function PricingPlansGrid({
                 >
                   {plan.period}
                 </p>
-              )}
+              ) : null}
               <p
                 className={`mt-4 text-sm leading-relaxed ${
                   plan.highlighted ? "text-slate-300" : "text-slate"
@@ -133,30 +129,16 @@ export function PricingPlansGrid({
                 >
                   {plan.primaryCta}
                 </Button>
+              ) : plan.checkoutPlan === "pro" ? (
+                <ProCheckoutButton
+                  label={plan.primaryCta}
+                  source="pricing_grid"
+                  className="mt-8"
+                />
               ) : (
-                <LeadIntentTrigger
-                  source="pricing"
-                  plan={pricingPlanIdToLeadPlan(plan.id)}
-                  toolRequested={getPricingLeadToolLabel(plan.name)}
-                  className={`${planCtaBase} ${
-                    plan.highlighted
-                      ? "bg-cyan text-deep-navy hover:bg-cyan/90 focus-visible:ring-cyan"
-                      : "bg-professional-blue text-white hover:bg-blue-700 focus-visible:ring-professional-blue"
-                  }`}
-                  onBeforeOpen={() => {
-                    if (plan.id === "sector-pass") {
-                      trackEvent(ANALYTICS_EVENTS.sector_pass_clicked, {
-                        plan: plan.id,
-                      });
-                    }
-                    trackEvent(ANALYTICS_EVENTS.pricing_clicked, {
-                      plan: plan.id,
-                      source: "pricing_grid",
-                    });
-                  }}
-                >
+                <Button href={plan.primaryHref} variant="primary" size="md" className="mt-8 w-full">
                   {plan.primaryCta}
-                </LeadIntentTrigger>
+                </Button>
               )}
             </article>
           ))}
@@ -164,18 +146,10 @@ export function PricingPlansGrid({
 
         {!compact && (
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              href="/industries"
-              variant="primary"
-              size="lg"
-              onClick={() =>
-                trackEvent(ANALYTICS_EVENTS.pricing_clicked, {
-                  source: "pricing_footer_primary",
-                })
-              }
-            >
-              Explore Premium Tools
-            </Button>
+            <ProCheckoutButton
+              label="Unlock Decision Tools — $29/mo"
+              source="pricing_footer"
+            />
             <Button href="/free-tools" variant="outline" size="lg">
               Start with Free Tools
             </Button>

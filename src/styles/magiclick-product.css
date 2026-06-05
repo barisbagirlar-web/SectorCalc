@@ -216,9 +216,16 @@ section.mc-page-hero.mc-page-hero--home .mc-page-hero-head {
   object-fit: contain;
 }
 
+#sector-product .first-tab .mc-hero-device-mockup {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
 #sector-product .first-tab .mc-hero-device-mockup .mc-hero-device-img {
   max-width: min(980px, 94vw);
-  max-height: min(44vw, 400px);
+  max-height: min(52vw, 460px);
+  display: block;
 }
 
 #sector-product .mc-home-operations {
@@ -588,6 +595,11 @@ section.mc-page-hero .mc-tool-tier-note {
   margin: 0 auto;
   display: block;
   object-fit: contain;
+}
+
+#sector-product .third-tab-image .mc-platform-flow-img {
+  max-width: min(1120px, 96vw);
+  max-height: min(58vw, 540px);
 }
 
 /* ——— FOURTH TAB ——— */

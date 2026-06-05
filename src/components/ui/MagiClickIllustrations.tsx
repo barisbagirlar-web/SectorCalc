@@ -38,13 +38,13 @@ function ProductImage({
 
 /** Homepage hero — SectorCalc platform architecture overview */
 export function HeroPlatformIllustration({ className = "" }: IllustrationProps) {
-  const hero = BRAND_ASSETS.heroDevices;
+  const platform = BRAND_ASSETS.platformFlow;
   return (
     <Image
-      src={hero.src}
+      src={platform.src}
       alt="SectorCalc platform flow — dashboards, calculators, decision engine and sector reports"
-      width={hero.width}
-      height={hero.height}
+      width={platform.width}
+      height={platform.height}
       priority
       unoptimized
       className={`mc-hero-visual mc-product-image ${className}`.trim()}
@@ -90,13 +90,16 @@ export function TrustedIndustriesStrip({ className = "" }: IllustrationProps) {
 }
 
 export function ExtendablePlatformIllustration({ className = "" }: IllustrationProps) {
+  const platform = BRAND_ASSETS.platformFlow;
   return (
-    <ProductImage
-      src={`${PRODUCT_BASE}/Customizable-Extendable.png`}
-      alt="Extendable sector calculation platform architecture"
-      width={1315}
-      height={731}
-      className={className}
+    <Image
+      src={platform.src}
+      alt="SectorCalc platform flow — sector inputs, calculators, decision engine and business outcomes"
+      width={platform.width}
+      height={platform.height}
+      unoptimized
+      className={`mc-product-image mc-platform-flow-img ${className}`.trim()}
+      sizes="(max-width: 768px) 98vw, (max-width: 1200px) 90vw, 1120px"
     />
   );
 }

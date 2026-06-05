@@ -8,6 +8,8 @@ import { ExportToolbar } from "@/components/tools/ExportToolbar";
 import { RiskVerdictCard } from "@/components/tools/RiskVerdictCard";
 import { ScenarioAnalysisPanel } from "@/components/tools/ScenarioAnalysisPanel";
 import { PremiumDecisionReportPanel } from "@/components/tools/PremiumDecisionReportPanel";
+import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
+import { PremiumToolPaywall } from "@/components/subscription/PremiumToolPaywall";
 import {
   getDefaultInputValues,
   runCalculator,
@@ -19,6 +21,12 @@ import {
   ANALYTICS_EVENTS,
   trackEvent,
 } from "@/lib/analytics/events";
+import {
+  filterFreeResults,
+  getRevenueToolByFreeSlug,
+  getVisibleInputs,
+} from "@/lib/tools/revenue-tools";
+import { useProSubscription } from "@/lib/subscription/use-pro-subscription";
 
 interface ToolCalculatorEngineProps {
   definition: ToolDefinition;
@@ -26,8 +34,16 @@ interface ToolCalculatorEngineProps {
 
 export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) {
   const hasDecisionReport = Boolean(definition.features?.decisionReport);
+  const isPremiumTool = definition.tier === "premium";
   const toolSlug = definition.slug;
   const industryLeadValue = industrySlugToLeadValue(definition.industryId);
+  const visibleInputs = useMemo(
+    () => getVisibleInputs(definition),
+    [definition]
+  );
+  const revenueFree = getRevenueToolByFreeSlug(definition.slug);
+  const { isPro, loading: subscriptionLoading } = useProSubscription();
+  const premiumLocked = isPremiumTool && !subscriptionLoading && !isPro;
 
   const [values, setValues] = useState<Record<string, number | string>>(() =>
     getDefaultInputValues(definition.inputs)
@@ -58,12 +74,13 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
       return { results: [], premium: undefined, hasErrors: true };
     }
     const output = runCalculator(definition.calculatorId, values);
+    const results = filterFreeResults(definition, output?.results ?? []);
     return {
-      results: output?.results ?? [],
+      results,
       premium: output?.premium,
       hasErrors: false,
     };
-  }, [definition.calculatorId, values, validate]);
+  }, [definition, values, validate]);
 
   useEffect(() => {
     if (
@@ -131,6 +148,9 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
     setErrors(validationErrors);
   };
 
+  const freeRiskNote =
+    definition.tier === "free" && revenueFree ? revenueFree.freeRiskHint : null;
+
   return (
     <div className="flex min-w-0 flex-col gap-8">
       <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
@@ -139,8 +159,13 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
             Inputs
           </p>
           <h2 className="mb-6 text-lg font-bold text-deep-navy">Calculation parameters</h2>
+          {definition.tier === "free" ? (
+            <p className="mb-4 text-sm leading-relaxed text-slate">
+              Quick check — limited inputs for a directional signal, not a final decision.
+            </p>
+          ) : null}
           <ToolForm
-            inputs={definition.inputs}
+            inputs={visibleInputs}
             values={values}
             errors={displayErrors}
             onChange={handleChange}
@@ -148,23 +173,31 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
           />
         </div>
         <div className="order-2 min-w-0 space-y-4">
-          <ToolResultPanel
-            results={computed.results}
-            interpretationNote={definition.interpretationNote}
-            hasErrors={computed.hasErrors}
-            dense={hasDecisionReport}
-          />
-          {computed.premium && !computed.hasErrors && (
-            <RiskVerdictCard
-              riskLevel={computed.premium.riskLevel}
-              riskLevelLabel={computed.premium.report.riskLevelLabel}
-              verdictText={computed.premium.verdictText}
-            />
+          {premiumLocked ? (
+            <PremiumToolPaywall toolTitle={definition.title} />
+          ) : (
+            <>
+              <ToolResultPanel
+                results={computed.results}
+                interpretationNote={
+                  freeRiskNote ?? definition.interpretationNote
+                }
+                hasErrors={computed.hasErrors}
+                dense={hasDecisionReport}
+              />
+              {computed.premium && !computed.hasErrors && (
+                <RiskVerdictCard
+                  riskLevel={computed.premium.riskLevel}
+                  riskLevelLabel={computed.premium.report.riskLevelLabel}
+                  verdictText={computed.premium.verdictText}
+                />
+              )}
+            </>
           )}
         </div>
       </div>
 
-      {computed.premium && !computed.hasErrors && (
+      {!premiumLocked && computed.premium && !computed.hasErrors && (
         <div className="order-3 min-w-0 space-y-8">
           <ScenarioAnalysisPanel
             scenarios={computed.premium.scenarios}
@@ -178,16 +211,20 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
             toolTitle={definition.title}
             industryLeadValue={industryLeadValue}
           />
+          <DecisionToolLegalDisclaimer />
         </div>
       )}
 
-      <div className={`min-w-0 ${computed.premium ? "order-4" : "order-3"}`}>
-        <ExportToolbar
-          toolSlug={toolSlug}
-          toolTitle={definition.title}
-          industryLeadValue={industryLeadValue}
-        />
-      </div>
+      {!premiumLocked && (
+        <div className={`min-w-0 ${computed.premium ? "order-4" : "order-3"}`}>
+          <ExportToolbar
+            toolSlug={toolSlug}
+            toolTitle={definition.title}
+            industryLeadValue={industryLeadValue}
+            locked={isPremiumTool && !isPro}
+          />
+        </div>
+      )}
     </div>
   );
 }
