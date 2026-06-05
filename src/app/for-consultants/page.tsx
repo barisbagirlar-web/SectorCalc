@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PageHero } from "@/components/layout/PageHero";
+import PageHero from "@/components/shared/PageHero";
 import { Container } from "@/components/ui/Container";
 import { CTASection } from "@/components/sections/CTASection";
 import { ConsultantAccessCta } from "@/components/leads/ConsultantAccessCta";
@@ -49,7 +49,7 @@ export default function ForConsultantsPage() {
       <PageHero
         eyebrow="For Consultants"
         title="Sector calculations for advisory practices"
-        subtitle="Support client engagements with sector-specific estimates, preliminary assessments and structured premium report requests — across every industry your clients operate in."
+        description="Support client engagements with sector-specific estimates, preliminary assessments and structured premium report requests — across every industry your clients operate in."
       />
       <section className="py-12 md:py-16">
         <Container>

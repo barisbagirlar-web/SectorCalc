@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PageHero } from "@/components/layout/PageHero";
+import PageHero from "@/components/shared/PageHero";
 import { LegalPageContent } from "@/components/legal/LegalPageContent";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { createPageMetadata } from "@/lib/metadata";
@@ -19,7 +19,7 @@ export default function TermsPage() {
       <PageHero
         eyebrow="Legal"
         title="Terms of Use"
-        subtitle="By using SectorCalc you agree to these terms for the current MVP release."
+        description="By using SectorCalc you agree to these terms for the current MVP release."
       />
       <LegalPageContent
         title="Terms of Use"

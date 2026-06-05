@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PageHero } from "@/components/layout/PageHero";
+import PageHero from "@/components/shared/PageHero";
 import { Container } from "@/components/ui/Container";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import { CTASection } from "@/components/sections/CTASection";
@@ -34,8 +34,8 @@ export default function FreeToolsPage() {
     <PageLayout>
       <PageHero
         eyebrow="Free Tools"
-        title="Free tools for quick business estimates"
-        subtitle="Run directional estimates in minutes. When the outcome affects pricing, margin or operational risk, continue into the matching premium decision analyzer."
+        title="Quick sector tools for practical estimates"
+        description="Use focused calculators for cost, margin, capacity and pricing questions before moving into premium analysis."
       />
       <section className="border-t border-slate/10 bg-white py-10 md:py-12">
         <Container size="wide">

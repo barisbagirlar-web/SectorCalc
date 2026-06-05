@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PageHero } from "@/components/layout/PageHero";
+import PageHero from "@/components/shared/PageHero";
 import { PricingPlansGrid } from "@/components/sections/PricingPlansGrid";
 import { Container } from "@/components/ui/Container";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
@@ -19,8 +19,8 @@ export default function PricingPage() {
     <PageLayout>
       <PageHero
         eyebrow="Pricing"
-        title="Plans for sector tools and decision reports"
-        subtitle="Free tools deliver quick estimates. Single Report, Sector Pass and Pro unlock packaged decision reports — scenarios, risk verdicts and export-ready structure. Billing is preview-only in this release."
+        title="Affordable decision support without heavy software"
+        description="Use free tools for quick estimates and premium reports when the decision requires more structure."
       />
       <section className="border-b border-amber/30 bg-amber/5 py-8">
         <Container size="narrow">

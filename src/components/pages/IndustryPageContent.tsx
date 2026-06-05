@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PageHero } from "@/components/layout/PageHero";
+import PageHero from "@/components/shared/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import type { Industry } from "@/data/industries";
@@ -16,12 +16,13 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
   const premiumTools = getPremiumToolsByIndustry(industry.slug);
 
   return (
-    <div id="sector-product">
+    <>
       <PageHero
         eyebrow="Industry pack"
         title={hub.hubTitle}
-        subtitle={hub.painStatement}
+        description={hub.painStatement}
       />
+      <div id="sector-product">
       <section className="third-tab">
         <div className="container text-center">
           <p>
@@ -72,6 +73,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
         secondaryLabel="View sample report"
         secondaryHref="/reports/sample-decision-report"
       />
-    </div>
+      </div>
+    </>
   );
 }

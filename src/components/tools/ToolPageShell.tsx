@@ -1,5 +1,5 @@
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PageHero } from "@/components/layout/PageHero";
+import PageHero from "@/components/shared/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumb } from "@/components/tools/Breadcrumb";
 import { ToolCalculatorEngine } from "@/components/tools/ToolCalculatorEngine";
@@ -31,21 +31,20 @@ export function ToolPageShell({ definition }: ToolPageShellProps) {
 
   return (
     <PageLayout headerTheme="light">
-      <div id="sector-product">
-        <PageHero
-          eyebrow={classificationLabel}
-          title={definition.title}
-          subtitle={definition.longDescription}
-        >
-          <p className="mc-tool-tier-note">
-            {isPremium
-              ? "This premium analyzer is designed to support decision-making. Results are indicative and depend on your inputs."
-              : "This is a quick estimate. For decision-level analysis, open the matching premium tool when pricing, margin or risk is on the line."}
-          </p>
-        </PageHero>
+      <PageHero
+        eyebrow={classificationLabel}
+        title={definition.title}
+        description={definition.longDescription}
+      />
 
-        <section className="fourth-tab">
+      <div id="sector-product">
+        <section className="fourth-tab border-t border-slate/10 bg-white">
           <Container size="wide" className="min-w-0 py-4">
+            <p className="mb-6 text-sm leading-relaxed text-slate">
+              {isPremium
+                ? "This premium analyzer is designed to support decision-making. Results are indicative and depend on your inputs."
+                : "This is a quick estimate. For decision-level analysis, open the matching premium tool when pricing, margin or risk is on the line."}
+            </p>
             <Breadcrumb items={breadcrumbItems} />
             <ToolCalculatorEngine definition={definition} />
             {definition.premiumTeaser && !definition.features?.decisionReport && (

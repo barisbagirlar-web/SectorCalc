@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PageHero } from "@/components/layout/PageHero";
+import PageHero from "@/components/shared/PageHero";
 import { LegalPageContent } from "@/components/legal/LegalPageContent";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { createPageMetadata } from "@/lib/metadata";
@@ -19,7 +19,7 @@ export default function PrivacyPage() {
       <PageHero
         eyebrow="Legal"
         title="Privacy Policy"
-        subtitle="Last updated for the SectorCalc MVP. This policy describes how we handle information you choose to submit."
+        description="Last updated for the SectorCalc MVP. This policy describes how we handle information you choose to submit."
       />
       <LegalPageContent
         title="Privacy Policy"

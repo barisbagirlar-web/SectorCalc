@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PageHero } from "@/components/layout/PageHero";
+import PageHero from "@/components/shared/PageHero";
 import { LegalPageContent } from "@/components/legal/LegalPageContent";
 import { CONTACT_EMAILS } from "@/config/contact";
 import { createPageMetadata } from "@/lib/metadata";
@@ -19,7 +19,7 @@ export default function DisclaimerPage() {
       <PageHero
         eyebrow="Legal"
         title="Disclaimer"
-        subtitle="Please read this before relying on calculator or report outputs for business decisions."
+        description="Please read this before relying on calculator or report outputs for business decisions."
       />
       <LegalPageContent
         title="Disclaimer"

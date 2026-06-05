@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PageHero } from "@/components/layout/PageHero";
+import PageHero from "@/components/shared/PageHero";
 import { Container } from "@/components/ui/Container";
 import { SampleDecisionReportLayout } from "@/components/reports/SampleDecisionReportLayout";
 import { CTASection } from "@/components/sections/CTASection";
@@ -28,8 +28,8 @@ export default function SampleDecisionReportPage() {
     <PageLayout>
       <PageHero
         eyebrow="Reports"
-        title="Why premium reports are different"
-        subtitle="Premium reports package assumptions, findings, scenarios, risk level and recommendations — a decision-ready format, not raw calculator output."
+        title="Decision reports for real operating questions"
+        description="Turn cost, pricing, capacity and margin inputs into structured reports your team can act on."
       />
       <section className="border-b border-slate/10 bg-off-white py-10 md:py-12">
         <Container size="narrow">
