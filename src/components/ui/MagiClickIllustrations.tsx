@@ -36,13 +36,13 @@ function ProductImage({
   );
 }
 
-/** Homepage hero — multi-device SectorCalc platform mockup */
+/** Homepage hero — SectorCalc platform architecture overview */
 export function HeroPlatformIllustration({ className = "" }: IllustrationProps) {
   const hero = BRAND_ASSETS.heroDevices;
   return (
     <Image
       src={hero.src}
-      alt="SectorCalc platform on laptop, tablet and mobile — sector dashboards and decision tools"
+      alt="SectorCalc platform flow — dashboards, calculators, decision engine and sector reports"
       width={hero.width}
       height={hero.height}
       priority

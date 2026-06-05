@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { PlatformIntroSection } from "@/components/sections/PlatformIntroSection";
-import { HomeSectorBridgeSection } from "@/components/sections/HomeSectorBridgeSection";
+import SectorSelectorSection from "@/components/home/SectorSelectorSection";
 import { PlatformPillarsSection } from "@/components/sections/PlatformPillarsSection";
 import { MagiClickSplitSection } from "@/components/sections/MagiClickSplitSection";
 import { PlatformCapabilitiesSection } from "@/components/sections/PlatformCapabilitiesSection";
@@ -29,7 +29,7 @@ export default function HomePage() {
             <div id="sector-product">
               <HeroSection />
               <PlatformIntroSection />
-              <HomeSectorBridgeSection />
+              <SectorSelectorSection />
               <PlatformPillarsSection />
               <MagiClickSplitSection
                 tabClass="fifth-tab"
