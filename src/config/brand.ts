@@ -4,10 +4,10 @@
  */
 export const BRAND_ASSETS = {
   logo: {
-    default: "/img/brand/sectorcalc-logo.png",
-    onDark: "/img/brand/sectorcalc-logo-on-dark.png",
+    default: "/img/brand/sectorcalc-logo.svg",
+    onDark: "/img/brand/sectorcalc-logo-on-dark.svg",
     width: 1024,
-    height: 268,
+    height: 204,
   },
   favicon: {
     master: "/img/brand/sectorcalc-favicon.png",
