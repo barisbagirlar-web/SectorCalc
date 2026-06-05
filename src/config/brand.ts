@@ -17,9 +17,9 @@ export const BRAND_ASSETS = {
     height: 512,
   },
   heroDevices: {
-    src: "/img/brand/sectorcalc-hero-devices.png",
-    width: 1024,
-    height: 576,
+    src: "/images/sectorcalc-devices-hero.png",
+    width: 1672,
+    height: 941,
   },
 } as const;
 

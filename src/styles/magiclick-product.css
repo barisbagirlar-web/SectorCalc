@@ -216,6 +216,11 @@ section.mc-page-hero.mc-page-hero--home .mc-page-hero-head {
   object-fit: contain;
 }
 
+#sector-product .first-tab .mc-hero-device-mockup img {
+  max-width: min(980px, 94vw);
+  max-height: min(44vw, 400px);
+}
+
 #sector-product .mc-home-operations {
   background: #fff !important;
   padding: 28px 0 32px;
@@ -372,9 +377,6 @@ section.mc-page-hero header .mc-page-hero-lead-text strong {
   width: 100%;
 }
 
-#sector-product .apple-image img,
-#sector-product .apple-image svg,
-#sector-product .apple-image .mc-hero-visual,
 #sector-product .apple-image .mc-product-image {
   width: 100%;
   max-width: 1100px;
@@ -384,10 +386,6 @@ section.mc-page-hero header .mc-page-hero-lead-text strong {
   display: block;
   padding: 0;
   object-fit: contain;
-}
-
-#sector-product .apple-image .mc-hero-visual {
-  filter: drop-shadow(0 18px 40px rgba(7, 22, 41, 0.18));
 }
 
 #sector-product .mc-hero-actions {

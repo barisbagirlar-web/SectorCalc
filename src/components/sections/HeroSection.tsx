@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
-import { HeroPlatformIllustration, TrustedIndustriesStrip } from "@/components/ui/MagiClickIllustrations";
+import { TrustedIndustriesStrip } from "@/components/ui/MagiClickIllustrations";
 import { HomeOperationsValueSection } from "@/components/sections/HomeOperationsValueSection";
+import { HeroDeviceMockup } from "@/components/home/HeroDeviceMockup";
 
 export function HeroSection() {
   return (
@@ -23,15 +24,7 @@ export function HeroSection() {
           <Link href="/free-tools">Need a quick number? Try a free estimator →</Link>
         </p>
       </PageHero>
-      <div className="container text-center">
-        <div className="row">
-          <div className="col-xs-12">
-            <figure className="apple-image">
-              <HeroPlatformIllustration className="mc-hero-visual" />
-            </figure>
-          </div>
-        </div>
-      </div>
+      <HeroDeviceMockup />
       <HomeOperationsValueSection />
       <section className="second-tab" aria-label="Industries served">
         <div className="container text-center">
