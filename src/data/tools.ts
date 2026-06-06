@@ -4,10 +4,13 @@ import { revenueToolRegistry } from "@/lib/tools/revenue-tools";
 export type ToolTier = "free" | "premium";
 
 export type ToolSlug =
-  | "project-cost-estimator"
-  | "cleaning-cost-estimator"
+  | "machine-time-calculator"
+  | "project-cost-calculator"
+  | "cleaning-cost-calculator"
   | "food-cost-calculator"
   | "product-margin-calculator"
+  | "project-cost-estimator"
+  | "cleaning-cost-estimator"
   | "machine-hour-estimator"
   | "change-order-impact-analyzer"
   | "office-cleaning-bid-optimizer"

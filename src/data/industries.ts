@@ -38,7 +38,7 @@ export const INDUSTRIES: Industry[] = [
     href: "/industries/construction",
     icon: "construction",
     accentColor: "amber",
-    freeToolSlugs: ["project-cost-estimator"],
+    freeToolSlugs: ["project-cost-calculator"],
     premiumToolSlugs: ["change-order-impact-analyzer"],
   },
   {
@@ -52,7 +52,7 @@ export const INDUSTRIES: Industry[] = [
     href: "/industries/cleaning",
     icon: "cleaning",
     accentColor: "cyan",
-    freeToolSlugs: ["cleaning-cost-estimator"],
+    freeToolSlugs: ["cleaning-cost-calculator"],
     premiumToolSlugs: ["office-cleaning-bid-optimizer"],
   },
   {
@@ -94,7 +94,7 @@ export const INDUSTRIES: Industry[] = [
     href: "/industries/cnc-manufacturing",
     icon: "manufacturing",
     accentColor: "blue",
-    freeToolSlugs: ["machine-hour-estimator"],
+    freeToolSlugs: ["machine-time-calculator"],
     premiumToolSlugs: ["cnc-minimum-safe-quote-analyzer"],
   },
 ];

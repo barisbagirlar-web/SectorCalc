@@ -29,6 +29,11 @@ export type RevenueSector =
 
 export type RevenueInputType = "number" | "currency" | "percent" | "select";
 
+export type RevenueSelectOption = {
+  readonly value: string;
+  readonly label: string;
+};
+
 export type RevenueToolInput = {
   key: string;
   label: string;
@@ -37,12 +42,21 @@ export type RevenueToolInput = {
   required: boolean;
   defaultValue?: number | string;
   helperText?: string;
+  options?: readonly RevenueSelectOption[];
 };
+
+/** v1B free tool route slugs — /tools/free/[slug] */
+export type FreeRevenueToolSlug =
+  | "machine-time-calculator"
+  | "project-cost-calculator"
+  | "cleaning-cost-calculator"
+  | "food-cost-calculator"
+  | "product-margin-calculator";
 
 export type RevenueTool = {
   sector: RevenueSector;
-  /** Live route slug — kept stable for existing /tools/free/[slug] pages */
-  freeSlug: ToolSlug;
+  /** v1B free route slug */
+  freeSlug: FreeRevenueToolSlug;
   /** Live route slug — kept stable for existing /tools/premium/[slug] pages */
   paidSlug: ToolSlug;
   freeTitle: string;
@@ -165,7 +179,7 @@ export const SECTORCALC_PRO_PRICING = {
 export const revenueTools: RevenueTool[] = [
   {
     sector: "cnc-manufacturing",
-    freeSlug: "machine-hour-estimator",
+    freeSlug: "machine-time-calculator",
     paidSlug: "cnc-minimum-safe-quote-analyzer",
     freeTitle: "Machine Time Calculator",
     paidTitle: "CNC Quote Risk Analyzer",
@@ -280,7 +294,7 @@ export const revenueTools: RevenueTool[] = [
   },
   {
     sector: "construction",
-    freeSlug: "project-cost-estimator",
+    freeSlug: "project-cost-calculator",
     paidSlug: "change-order-impact-analyzer",
     freeTitle: "Concrete / Project Cost Calculator",
     paidTitle: "Change Order Impact Analyzer",
@@ -308,6 +322,11 @@ export const revenueTools: RevenueTool[] = [
         label: "Deadline pressure",
         type: "select",
         required: true,
+        options: [
+          { value: "low", label: "Low" },
+          { value: "medium", label: "Medium" },
+          { value: "high", label: "High" },
+        ],
       },
     ],
     paidInputs: [
@@ -377,7 +396,7 @@ export const revenueTools: RevenueTool[] = [
   },
   {
     sector: "cleaning",
-    freeSlug: "cleaning-cost-estimator",
+    freeSlug: "cleaning-cost-calculator",
     paidSlug: "office-cleaning-bid-optimizer",
     freeTitle: "Cleaning Cost Calculator",
     paidTitle: "Office Cleaning Bid Optimizer",
