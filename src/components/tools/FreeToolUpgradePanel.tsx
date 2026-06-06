@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ScIcon } from "@/components/icons/ScIcon";
+import { UI_ICON } from "@/lib/icons/icon-registry";
 import type { RevenueTool } from "@/lib/tools/revenue-tools";
 import { getToolHref } from "@/lib/tools/paths";
 
@@ -15,9 +17,7 @@ export function FreeToolUpgradePanel({ revenue }: FreeToolUpgradePanelProps) {
       <ul className="mt-3 space-y-2">
         {revenue.freeMissingFactors.map((factor) => (
           <li key={factor} className="flex gap-2 text-sm text-deep-navy">
-            <span className="text-amber" aria-hidden>
-              ○
-            </span>
+            <ScIcon icon={UI_ICON.exclude} size="compact" className="mt-0.5 text-amber" />
             {factor}
           </li>
         ))}
