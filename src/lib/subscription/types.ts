@@ -1,17 +1,6 @@
-export type SubscriptionStatus =
-  | "active"
-  | "canceled"
-  | "past_due"
-  | "none";
+import type { SubscriptionStatus, UserSubscription } from "@/lib/billing/subscription";
 
-export interface UserSubscription {
-  status: SubscriptionStatus;
-  stripeCustomerId?: string;
-  stripeSubscriptionId?: string;
-  stripePriceId?: string;
-  currentPeriodEnd?: string;
-  updatedAt?: string;
-}
+export type { SubscriptionStatus, UserSubscription };
 
 export interface UserProfile {
   email?: string;

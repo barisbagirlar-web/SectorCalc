@@ -1,0 +1,94 @@
+"use client";
+
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
+import {
+  mapCustomerSignInError,
+  signInCustomerWithGoogle,
+} from "@/lib/firebase/customer-auth";
+
+const buttonClass =
+  "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50";
+
+interface CustomerSignInPanelProps {
+  nextPath: string;
+}
+
+export function CustomerSignInPanel({ nextPath }: CustomerSignInPanelProps) {
+  const router = useRouter();
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleGoogleSignIn = async () => {
+    setError(null);
+    setPending(true);
+
+    try {
+      await signInCustomerWithGoogle();
+      router.replace(nextPath);
+    } catch (caught) {
+      setError(mapCustomerSignInError(caught));
+      setPending(false);
+    }
+  };
+
+  return (
+    <div className="mt-8 rounded-xl border border-slate/15 bg-off-white p-6">
+      <h2 className="text-lg font-bold text-deep-navy">SectorCalc Pro sign-in</h2>
+      <p className="mt-2 text-sm leading-relaxed text-slate">
+        Sign in with Google to access premium analyzers or continue checkout. Admin
+        sign-in is separate above.
+      </p>
+      <button
+        type="button"
+        onClick={() => void handleGoogleSignIn()}
+        disabled={pending}
+        className={`${buttonClass} mt-4`}
+      >
+        {pending ? "Signing in…" : "Continue with Google"}
+      </button>
+      {error ? <p className="mt-3 text-sm text-soft-red">{error}</p> : null}
+    </div>
+  );
+}
+
+export function CustomerSignInFromNextParam() {
+  const searchParams = useSearchParams();
+  const next = searchParams.get("next");
+
+  if (!next || !next.startsWith("/")) {
+    return null;
+  }
+
+  return <CustomerSignInPanel nextPath={next} />;
+}
+
+interface PremiumLoginPromptProps {
+  paidSlug: string;
+}
+
+export function PremiumLoginPrompt({ paidSlug }: PremiumLoginPromptProps) {
+  const loginHref = `/login?next=${encodeURIComponent(`/tools/premium/${paidSlug}`)}`;
+
+  return (
+    <aside className="mx-auto max-w-2xl rounded-2xl border border-slate/15 bg-white p-6 shadow-card sm:p-8">
+      <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
+        Sign in required
+      </p>
+      <h2 className="mt-3 text-xl font-bold text-deep-navy sm:text-2xl">
+        Sign in to check SectorCalc Pro access
+      </h2>
+      <p className="mt-3 text-sm leading-relaxed text-slate">
+        Premium analyzers require a signed-in account with an active SectorCalc Pro
+        subscription.
+      </p>
+      <Link
+        href={loginHref}
+        className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto"
+      >
+        Sign in
+      </Link>
+    </aside>
+  );
+}

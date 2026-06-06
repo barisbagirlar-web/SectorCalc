@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import PageHero from "@/components/shared/PageHero";
+import { PricingSubscribedBanner } from "@/components/billing/SubscriptionActivationBanner";
 import { PricingPlansGrid } from "@/components/sections/PricingPlansGrid";
 import { Container } from "@/components/ui/Container";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
@@ -18,6 +20,9 @@ export const metadata: Metadata = createPageMetadata({
 export default function PricingPage() {
   return (
     <PageLayout>
+      <Suspense fallback={null}>
+        <PricingSubscribedBanner />
+      </Suspense>
       <PageHero
         eyebrow="Pricing"
         title="SectorCalc Pro"

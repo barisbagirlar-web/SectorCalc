@@ -1,14 +1,12 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { Suspense, useMemo, useState, type FormEvent } from "react";
+import { PremiumLoginPrompt } from "@/components/billing/CustomerSignInPanel";
+import { PremiumPaywall } from "@/components/billing/PremiumPaywall";
+import { PremiumSubscribedBanner } from "@/components/billing/SubscriptionActivationBanner";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
-import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
-import {
-  PREMIUM_SUBSCRIPTION_NOTE,
-  resolvePremiumToolAccess,
-} from "@/lib/billing/subscription";
-import { useProSubscription } from "@/lib/subscription/use-pro-subscription";
+import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import {
   arePremiumToolInputsValid,
   calculatePremiumToolResult,
@@ -202,39 +200,12 @@ function PremiumToolResultCard({
   );
 }
 
-function PremiumToolPaywallCard({ tool }: { tool: RevenueTool }) {
-  return (
-    <aside className="rounded-2xl border border-slate/15 bg-white p-6 shadow-card sm:p-8">
-      <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
-        SectorCalc Pro required
-      </p>
-      <h2 className="mt-3 text-xl font-bold text-deep-navy sm:text-2xl">
-        Unlock SectorCalc Pro
-      </h2>
-      <p className="mt-3 text-sm leading-relaxed text-slate">{tool.paidValue}</p>
-      <p className="mt-4 text-sm leading-relaxed text-slate">
-        {tool.paidResultPromise}
-      </p>
-      <ProCheckoutButton
-        label="Unlock SectorCalc Pro"
-        source="premium_tool_paywall"
-        toolSlug={tool.paidSlug}
-        className="mt-6"
-      />
-      <p className="mt-4 text-xs leading-relaxed text-slate">
-        {PREMIUM_SUBSCRIPTION_NOTE}
-      </p>
-    </aside>
-  );
-}
-
 interface PremiumToolPageProps {
   tool: RevenueTool;
 }
 
 export function PremiumToolPage({ tool }: PremiumToolPageProps) {
-  const { loading, subscription } = useProSubscription();
-  const hasAccess = !loading && resolvePremiumToolAccess(subscription);
+  const { user, isActive, loading, error } = useUserSubscription();
 
   const [values, setValues] = useState<PremiumToolInputValues>(() =>
     buildInitialValues(tool)
@@ -243,13 +214,14 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const result = useMemo(() => {
-    if (!submitted || !hasAccess) {
+    if (!submitted || !isActive) {
       return null;
     }
     return calculatePremiumToolResult(tool, values);
-  }, [submitted, hasAccess, tool, values]);
+  }, [submitted, isActive, tool, values]);
 
   const legalDisclaimer = tool.legalDisclaimer ?? revenueLegalDisclaimer;
+  const pricingHref = `/pricing?tool=${encodeURIComponent(tool.paidSlug)}`;
 
   const handleChange = (key: string, value: number | string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -318,53 +290,68 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
         <Container size="wide" className="min-w-0">
           {loading ? (
             <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate">
-              Checking subscription access…
+              Checking your SectorCalc Pro access…
             </div>
-          ) : !hasAccess ? (
+          ) : !user ? (
+            <PremiumLoginPrompt paidSlug={tool.paidSlug} />
+          ) : !isActive ? (
             <div className="mx-auto max-w-2xl">
-              <PremiumToolPaywallCard tool={tool} />
+              <Suspense fallback={null}>
+                <PremiumSubscribedBanner />
+              </Suspense>
+              <PremiumPaywall toolSlug={tool.paidSlug} pricingHref={pricingHref} />
+              {error ? (
+                <p className="mt-4 text-sm text-soft-red" role="alert">
+                  {error}
+                </p>
+              ) : null}
               <p className="mt-6 text-xs leading-relaxed text-slate">{legalDisclaimer}</p>
             </div>
           ) : (
-            <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
-              <div className="min-w-0 rounded-xl border border-slate/15 bg-white p-6 shadow-card sm:p-7">
-                <h2 className="text-lg font-bold text-deep-navy">Analyzer inputs</h2>
-                <p className="mt-2 text-sm leading-relaxed text-slate">
-                  {tool.paidResultPromise}
-                </p>
-                <form onSubmit={handleSubmit} className="mt-6 space-y-5" noValidate>
-                  {tool.paidInputs.map((input) => (
-                    <PremiumToolInputField
-                      key={input.key}
-                      input={input}
-                      value={values[input.key] ?? (input.type === "select" ? "" : 0)}
-                      error={errors[input.key]}
-                      onChange={handleChange}
-                    />
-                  ))}
-                  <button
-                    type="submit"
-                    className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto"
-                  >
-                    Run analyzer
-                  </button>
-                </form>
-              </div>
+            <>
+              <Suspense fallback={null}>
+                <PremiumSubscribedBanner />
+              </Suspense>
+              <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
+                <div className="min-w-0 rounded-xl border border-slate/15 bg-white p-6 shadow-card sm:p-7">
+                  <h2 className="text-lg font-bold text-deep-navy">Analyzer inputs</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-slate">
+                    {tool.paidResultPromise}
+                  </p>
+                  <form onSubmit={handleSubmit} className="mt-6 space-y-5" noValidate>
+                    {tool.paidInputs.map((input) => (
+                      <PremiumToolInputField
+                        key={input.key}
+                        input={input}
+                        value={values[input.key] ?? (input.type === "select" ? "" : 0)}
+                        error={errors[input.key]}
+                        onChange={handleChange}
+                      />
+                    ))}
+                    <button
+                      type="submit"
+                      className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto"
+                    >
+                      Run analyzer
+                    </button>
+                  </form>
+                </div>
 
-              <div className="min-w-0">
-                {result ? (
-                  <PremiumToolResultCard
-                    result={result}
-                    legalDisclaimer={legalDisclaimer}
-                  />
-                ) : (
-                  <div className="rounded-xl border border-dashed border-slate/20 bg-white p-6 text-sm leading-relaxed text-slate">
-                    Enter inputs and run the analyzer to receive a pricing, margin or
-                    bid verdict. No formulas are shown — only the decision output.
-                  </div>
-                )}
+                <div className="min-w-0">
+                  {result ? (
+                    <PremiumToolResultCard
+                      result={result}
+                      legalDisclaimer={legalDisclaimer}
+                    />
+                  ) : (
+                    <div className="rounded-xl border border-dashed border-slate/20 bg-white p-6 text-sm leading-relaxed text-slate">
+                      Enter inputs and run the analyzer to receive a pricing, margin or
+                      bid verdict. No formulas are shown — only the decision output.
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            </>
           )}
         </Container>
       </section>
