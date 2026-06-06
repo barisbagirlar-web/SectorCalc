@@ -13,7 +13,6 @@
  */
 
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
-import type { ToolSlug } from "@/data/tools";
 import { getToolHref } from "@/lib/tools/paths";
 
 // ---------------------------------------------------------------------------
@@ -53,12 +52,18 @@ export type FreeRevenueToolSlug =
   | "food-cost-calculator"
   | "product-margin-calculator";
 
+/** v1C premium analyzer route slugs — /tools/premium/[slug] */
+export type PremiumRevenueToolSlug =
+  | "cnc-quote-risk-analyzer"
+  | "change-order-impact-analyzer"
+  | "office-cleaning-bid-optimizer"
+  | "menu-profit-leak-detector"
+  | "return-profit-erosion-tool";
+
 export type RevenueTool = {
   sector: RevenueSector;
-  /** v1B free route slug */
   freeSlug: FreeRevenueToolSlug;
-  /** Live route slug — kept stable for existing /tools/premium/[slug] pages */
-  paidSlug: ToolSlug;
+  paidSlug: PremiumRevenueToolSlug;
   freeTitle: string;
   paidTitle: string;
   painStatement: string;
@@ -180,7 +185,7 @@ export const revenueTools: RevenueTool[] = [
   {
     sector: "cnc-manufacturing",
     freeSlug: "machine-time-calculator",
-    paidSlug: "cnc-minimum-safe-quote-analyzer",
+    paidSlug: "cnc-quote-risk-analyzer",
     freeTitle: "Machine Time Calculator",
     paidTitle: "CNC Quote Risk Analyzer",
     painStatement:
@@ -598,7 +603,7 @@ export const revenueTools: RevenueTool[] = [
   {
     sector: "ecommerce",
     freeSlug: "product-margin-calculator",
-    paidSlug: "return-rate-profit-erosion-tool",
+    paidSlug: "return-profit-erosion-tool",
     freeTitle: "Product Margin Calculator",
     paidTitle: "Return Profit Erosion Tool",
     painStatement:

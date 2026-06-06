@@ -8,7 +8,7 @@ import {
   areFreeToolInputsValid,
   calculateFreeToolResult,
   type FreeRiskLevel,
-  type FreeToolFormValues,
+  type FreeToolInputValues,
   type FreeToolResult,
 } from "@/lib/tools/free-tool-results";
 import {
@@ -44,8 +44,8 @@ const riskStyles: Record<
   },
 };
 
-function buildInitialValues(tool: RevenueTool): FreeToolFormValues {
-  const values: FreeToolFormValues = {};
+function buildInitialValues(tool: RevenueTool): FreeToolInputValues {
+  const values: FreeToolInputValues = {};
   for (const input of tool.freeInputs) {
     if (input.type === "select") {
       values[input.key] = input.options?.[0]?.value ?? "";
@@ -197,7 +197,7 @@ interface FreeToolPageProps {
 }
 
 export function FreeToolPage({ tool }: FreeToolPageProps) {
-  const [values, setValues] = useState<FreeToolFormValues>(() =>
+  const [values, setValues] = useState<FreeToolInputValues>(() =>
     buildInitialValues(tool)
   );
   const [submitted, setSubmitted] = useState(false);

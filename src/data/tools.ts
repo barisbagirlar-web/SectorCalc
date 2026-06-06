@@ -9,6 +9,8 @@ export type ToolSlug =
   | "cleaning-cost-calculator"
   | "food-cost-calculator"
   | "product-margin-calculator"
+  | "cnc-quote-risk-analyzer"
+  | "return-profit-erosion-tool"
   | "project-cost-estimator"
   | "cleaning-cost-estimator"
   | "machine-hour-estimator"

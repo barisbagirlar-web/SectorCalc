@@ -81,7 +81,7 @@ export const INDUSTRIES: Industry[] = [
     icon: "ecommerce",
     accentColor: "blue",
     freeToolSlugs: ["product-margin-calculator"],
-    premiumToolSlugs: ["return-rate-profit-erosion-tool"],
+    premiumToolSlugs: ["return-profit-erosion-tool"],
   },
   {
     slug: "cnc-manufacturing",
@@ -95,7 +95,7 @@ export const INDUSTRIES: Industry[] = [
     icon: "manufacturing",
     accentColor: "blue",
     freeToolSlugs: ["machine-time-calculator"],
-    premiumToolSlugs: ["cnc-minimum-safe-quote-analyzer"],
+    premiumToolSlugs: ["cnc-quote-risk-analyzer"],
   },
 ];
 
