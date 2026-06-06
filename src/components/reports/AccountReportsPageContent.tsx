@@ -2,12 +2,18 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   AccountLoginPrompt,
   ReportsHistoryList,
 } from "@/components/reports/ReportsHistoryList";
+import {
+  SingleReportPurchaseSuccessBanner,
+  SingleReportPurchasesPanel,
+} from "@/components/reports/SingleReportPurchasesPanel";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
+import { useUserPurchases } from "@/lib/billing/use-user-purchases";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import {
   listUserVerdictReports,
@@ -16,7 +22,11 @@ import {
 import { getAccountHref, getReportsHref } from "@/lib/tools/tool-links";
 
 export function AccountReportsPageContent() {
-  const { user, loading: authLoading } = useUserSubscription();
+  const searchParams = useSearchParams();
+  const purchased = searchParams.get("purchased");
+  const purchasedTool = searchParams.get("tool") ?? undefined;
+  const { user, loading: authLoading, isActive } = useUserSubscription();
+  const { purchases, loading: purchasesLoading } = useUserPurchases();
   const [reports, setReports] = useState<SavedVerdictReport[]>([]);
   const [loadingReports, setLoadingReports] = useState(false);
 
@@ -42,6 +52,8 @@ export function AccountReportsPageContent() {
     };
   }, [user]);
 
+  const showPurchaseSuccess = purchased === "single_report";
+
   return (
     <PageLayout headerTheme="light">
       <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
@@ -53,14 +65,14 @@ export function AccountReportsPageContent() {
             Back to account
           </Link>
           <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-professional-blue">
-            SectorCalc Pro
+            {isActive ? "SectorCalc Pro" : "Verdict reports"}
           </p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-deep-navy sm:text-4xl">
             Saved verdict reports
           </h1>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate">
-            Saved reports are linked to your account. Free tool inputs are not saved
-            unless you create a premium report.
+            Saved reports are linked to your account. Single Verdict purchases unlock
+            one premium analyzer — run it and save the report here.
           </p>
         </Container>
       </section>
@@ -73,12 +85,28 @@ export function AccountReportsPageContent() {
             </div>
           ) : !user ? (
             <AccountLoginPrompt nextPath={getReportsHref()} />
-          ) : loadingReports ? (
-            <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate">
-              Loading saved reports…
-            </div>
           ) : (
-            <ReportsHistoryList reports={reports} />
+            <>
+              {showPurchaseSuccess ? (
+                <SingleReportPurchaseSuccessBanner toolSlug={purchasedTool} />
+              ) : null}
+
+              {purchasesLoading ? (
+                <div className="mb-8 rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate">
+                  Loading purchase credits…
+                </div>
+              ) : (
+                <SingleReportPurchasesPanel purchases={purchases} />
+              )}
+
+              {loadingReports ? (
+                <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate">
+                  Loading saved reports…
+                </div>
+              ) : (
+                <ReportsHistoryList reports={reports} hasPurchaseCredits={purchases.length > 0} />
+              )}
+            </>
           )}
         </Container>
       </section>

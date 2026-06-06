@@ -1,0 +1,85 @@
+"use client";
+
+import Link from "next/link";
+import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import type { SingleReportPurchase } from "@/lib/billing/purchase-types";
+import { formatVerdictReportDate } from "@/lib/reports/verdict-report";
+
+interface SingleReportPurchasesPanelProps {
+  purchases: SingleReportPurchase[];
+}
+
+export function SingleReportPurchasesPanel({
+  purchases,
+}: SingleReportPurchasesPanelProps) {
+  if (purchases.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="mb-8">
+      <h2 className="text-lg font-bold text-deep-navy dark:text-off-white">
+        Single verdict credits
+      </h2>
+      <p className="mt-2 text-sm text-slate">
+        One-time purchases unlock the premium analyzer for that sector tool.
+      </p>
+      <ul className="mt-5 grid min-w-0 gap-4 sm:grid-cols-2">
+        {purchases.map((purchase) => {
+          const tool = getRevenueToolByPaidSlug(purchase.toolSlug);
+          const title = tool?.paidTitle ?? purchase.toolSlug;
+          const analyzerHref = `/tools/premium/${purchase.toolSlug}`;
+
+          return (
+            <li key={purchase.sessionId}>
+              <article className="sc-card flex h-full flex-col border-amber/20">
+                <p className="text-xs font-semibold uppercase tracking-wider text-amber">
+                  Single Verdict — $19
+                </p>
+                <h3 className="mt-2 text-base font-bold text-deep-navy dark:text-off-white">
+                  {title}
+                </h3>
+                <p className="mt-2 text-sm text-slate">
+                  Purchased {formatVerdictReportDate(purchase.createdAt)}
+                </p>
+                <Link href={analyzerHref} className="sc-btn-primary mt-5 inline-flex">
+                  Run premium analyzer
+                </Link>
+              </article>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
+interface SingleReportPurchaseSuccessBannerProps {
+  toolSlug?: string;
+}
+
+export function SingleReportPurchaseSuccessBanner({
+  toolSlug,
+}: SingleReportPurchaseSuccessBannerProps) {
+  const tool = toolSlug ? getRevenueToolByPaidSlug(toolSlug) : null;
+  const analyzerHref = tool ? `/tools/premium/${tool.paidSlug}` : "/premium-tools";
+
+  return (
+    <aside className="mb-8 rounded-xl border border-emerald/30 bg-emerald/[0.06] p-5 sm:p-6">
+      <p className="text-xs font-semibold uppercase tracking-wider text-emerald">
+        Payment received
+      </p>
+      <h2 className="mt-2 text-lg font-bold text-deep-navy dark:text-off-white">
+        Your Single Verdict credit is active
+      </h2>
+      <p className="mt-2 text-sm leading-relaxed text-slate">
+        {tool
+          ? `Open ${tool.paidTitle}, run the analyzer and save or export your verdict report.`
+          : "Open your premium analyzer, run the tool and save or export your verdict report."}
+      </p>
+      <Link href={analyzerHref} className="sc-btn-primary mt-4 inline-flex">
+        {tool ? `Open ${tool.paidTitle}` : "Browse premium analyzers"}
+      </Link>
+    </aside>
+  );
+}

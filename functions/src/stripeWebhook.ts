@@ -106,6 +106,8 @@ interface SingleReportPurchase {
   sessionId: string;
   createdAt: string;
   status: "completed";
+  amount?: number;
+  currency?: string;
 }
 
 async function writeSingleReportPurchase(
@@ -124,6 +126,10 @@ async function writeSingleReportPurchase(
     sessionId: session.id,
     createdAt: new Date().toISOString(),
     status: "completed",
+    amount:
+      typeof session.amount_total === "number" ? session.amount_total : undefined,
+    currency:
+      typeof session.currency === "string" ? session.currency : undefined,
   };
 
   const db = admin.firestore();

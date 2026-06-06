@@ -12,7 +12,7 @@ import {
   REVENUE_EVENTS,
   trackRevenueEvent,
 } from "@/lib/analytics/revenue-events";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import { usePremiumToolAccess } from "@/lib/billing/use-premium-tool-access";
 import { buildVerdictReportData } from "@/lib/reports/verdict-report";
 import { getPricingHref } from "@/lib/tools/tool-links";
 import {
@@ -265,7 +265,14 @@ interface PremiumToolPageProps {
 }
 
 export function PremiumToolPage({ tool }: PremiumToolPageProps) {
-  const { user, isActive, loading, error } = useUserSubscription();
+  const {
+    user,
+    canAccessAnalyzer,
+    isPro,
+    hasSinglePurchase,
+    loading,
+    error,
+  } = usePremiumToolAccess(tool.paidSlug);
 
   const [values, setValues] = useState<PremiumToolInputValues>(() =>
     buildInitialValues(tool)
@@ -275,18 +282,18 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const result = useMemo(() => {
-    if (!submitted || !isActive) {
+    if (!submitted || !canAccessAnalyzer) {
       return null;
     }
     return calculatePremiumToolResult(tool, values);
-  }, [submitted, isActive, tool, values]);
+  }, [submitted, canAccessAnalyzer, tool, values]);
 
   const verdictReportData = useMemo(() => {
-    if (!result || !isActive) {
+    if (!result || !canAccessAnalyzer) {
       return null;
     }
     return buildVerdictReportData({ tool, values, result });
-  }, [result, isActive, tool, values]);
+  }, [result, canAccessAnalyzer, tool, values]);
 
   const resultTracked = useRef(false);
 
@@ -297,15 +304,15 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
   }, [tool.paidSlug]);
 
   useEffect(() => {
-    if (!loading && user && !isActive) {
+    if (!loading && user && !canAccessAnalyzer) {
       trackRevenueEvent(REVENUE_EVENTS.paywall_viewed, {
         toolSlug: tool.paidSlug,
       });
     }
-  }, [loading, user, isActive, tool.paidSlug]);
+  }, [loading, user, canAccessAnalyzer, tool.paidSlug]);
 
   useEffect(() => {
-    if (result && isActive && !resultTracked.current) {
+    if (result && canAccessAnalyzer && !resultTracked.current) {
       resultTracked.current = true;
       trackRevenueEvent(REVENUE_EVENTS.premium_result_generated, {
         toolSlug: tool.paidSlug,
@@ -315,7 +322,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
     if (!result) {
       resultTracked.current = false;
     }
-  }, [result, isActive, tool.paidSlug]);
+  }, [result, canAccessAnalyzer, tool.paidSlug]);
 
   const legalDisclaimer = tool.legalDisclaimer ?? revenueLegalDisclaimer;
   const pricingHref = getPricingHref(tool);
@@ -395,11 +402,11 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
         <Container size="wide" className="min-w-0">
           {loading ? (
             <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate">
-              Checking your SectorCalc Pro access…
+              Checking your access…
             </div>
           ) : !user ? (
             <PremiumLoginPrompt paidSlug={tool.paidSlug} />
-          ) : !isActive ? (
+          ) : !canAccessAnalyzer ? (
             <div className="mx-auto max-w-2xl">
               <Suspense fallback={null}>
                 <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
@@ -417,6 +424,12 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
               <Suspense fallback={null}>
                 <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
               </Suspense>
+              {hasSinglePurchase && !isPro ? (
+                <p className="mb-6 rounded-xl border border-amber/25 bg-amber/[0.06] px-4 py-3 text-sm text-deep-navy dark:text-off-white">
+                  Single Verdict credit active for this analyzer. Run it once and save
+                  or export your report.
+                </p>
+              ) : null}
               <div className="flex min-w-0 flex-col gap-8">
                 {isCalculating ? (
                   <div className="sc-card animate-pulse">

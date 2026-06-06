@@ -1,0 +1,1176 @@
+================================================================================
+SECTORCALC — TAM YAPI RAPORU (EKSİKSİZ)
+================================================================================
+Oluşturulma : 2026-06-04
+Repo        : SectorCalc (GitHub: barisbagirlar-web/SectorCalc)
+Branch      : main
+Son commit  : 591d8ca — Replace last legacy list symbol with Heroicons in upgrade panel
+Önceki      : ec63b83 — Premium Heroicons icon system
+              6295918 — Monetization funnel
+              903778f — Premium design refactor
+Canlı URL   : https://sectorcalc-bf412.web.app
+Canonical   : https://sectorcalc.com
+Firebase    : sectorcalc-bf412
+Kaynak dosya: 248 TypeScript/TSX dosyası (src/)
+Build       : 81 statik sayfa (Next.js 15.5.19)
+
+================================================================================
+BÖLÜM 1 — MARKA & ÜRÜN KİMLİĞİ
+================================================================================
+
+Ad              : SectorCalc
+Tagline         : Sector-specific calculators for real business decisions.
+İkincil         : Calculate the number. Get the decision.
+Dil             : English-first (en)
+Para birimi     : USD
+İletişim        : hello@sectorcalc.com
+Gizlilik        : privacy@sectorcalc.com
+Domain          : sectorcalc.com
+
+Konumlandırma   :
+  - Generic calculator sitesi DEĞİL
+  - Sektör-spesifik karar araçları platformu
+  - Free tier  = hızlı kontrol, görünür risk, SEO, güven
+  - Premium    = karar analizörleri, verdict motoru, önerilen aksiyon
+  - PDF        = premium verdict export formatı (ürünün kendisi değil)
+  - Pro plan   = SectorCalc Pro @ $29/ay (+ Single Verdict @ $19 tek seferlik)
+
+Ana hedef       : Sektör acısını ücretli karar araçlarına dönüştürmek.
+
+================================================================================
+BÖLÜM 2 — TEKNOLOJİ YIĞINI
+================================================================================
+
+Framework       : Next.js 15.5 (App Router)
+UI              : React 19, TypeScript 5 (strict, any yasak)
+Styling         : Tailwind CSS 3.4, design-system.css, magiclick-product.css
+İkonlar         : @heroicons/react 2.2 (outline, stroke 1.75)
+PDF             : @react-pdf/renderer 4.5
+Backend         : Firebase 12 (client), firebase-admin 13 (functions)
+Ödeme           : Stripe (Cloud Functions only — src/app/api YOK)
+Hosting         : Firebase Hosting + Next.js SSR (ssrsectorcalcbf412)
+
+package.json scripts:
+  npm run dev                 → next dev
+  npm run build               → next build
+  npm run start               → next start
+  npm run lint                → next lint
+  npm run audit:revenue-tools → registry + route smoke (148 check)
+  npm run check:secrets       → pre-commit secret scanner
+  npm run admin:set-claim     → admin custom claim script
+
+Dependencies (prod):
+  @heroicons/react, @react-pdf/renderer, firebase, firebase-admin,
+  next, react, react-dom
+
+================================================================================
+BÖLÜM 3 — ÜRÜN MİMARİSİ & SAYFA NİYET HARİTASI
+================================================================================
+
+3.1 NAVİGASYON (src/config/site.ts)
+-----------------------------------
+PUBLIC_NAV_ITEMS:
+  Free Checks       → /free-tools
+  Premium Verdicts  → /premium-tools
+  Industries        → /industries
+  Pricing           → /pricing
+
+AUTH_NAV_ITEMS:
+  Reports           → /account/reports
+  Account           → /account
+
+Header CTA (logged out): Login + Run Free Check
+Header CTA (Pro inactive): Unlock Pro → /pricing
+
+3.2 FOOTER LİNKLERİ (SiteFooter.tsx)
+------------------------------------
+  Product   : Free Checks, Premium Verdicts, Industries, Pricing, Sample Report
+  Company   : How It Works, For Consultants
+  Legal     : Privacy, Terms, Disclaimer
+  Support   : hello@sectorcalc.com
+
+3.3 İÇ LİNK YARDIMCILARI (src/lib/tools/tool-links.ts)
+-------------------------------------------------------
+  getFreeToolHref(tool)           → /tools/free/{freeSlug}
+  getPremiumToolHref(tool)        → /tools/premium/{paidSlug}
+  getPricingHref(tool?, planId?)  → /pricing veya query string
+  getSingleVerdictPricingHref()   → /pricing?plan=single-verdict
+  getSampleReportHref()           → /reports/sample-decision-report
+  getFreeToolsHref()              → /free-tools
+  getPremiumToolsHref()           → /premium-tools
+  getIndustryHref(slug)           → /industries/{slug}
+  getAccountHref()                → /account
+  getReportsHref()                → /account/reports
+  getLoginHref(nextPath)          → /login?next=...
+
+3.4 7 SORULUK SAYFA REVİZYON STANDARDI
+---------------------------------------
+  1. Gerçek kullanıcı niyeti nedir?
+  2. Fiyat mı araç keşfi mi?
+  3. Free/Premium sınırı doğru mu?
+  4. CTA bir sonraki mantıklı adıma gidiyor mu?
+  5. Premium karar platformu hissi veriyor mu?
+  6. AI template gibi görünüyor mu?
+  7. Kullanıcı neden $29/ay ödemeli anlıyor mu?
+
+================================================================================
+BÖLÜM 4 — SATIŞ HUNİSİ (MONETIZATION FUNNEL) — CANLI
+================================================================================
+
+Commit: 6295918 — Post-design monetization funnel
+
+Akış:
+  Homepage Hero
+    → Pain / Risk sections
+    → Free Margin Check CTA
+    → Sample Decision Report showcase
+    → Sector selector / Industries preview
+    → Free vs Pro comparison
+    → Pricing preview
+    → Trust / How it works
+    → Final CTA
+
+  Sample Report (/reports/sample-decision-report)
+    → Premium verdict showcase (CNC örneği)
+    → Lead capture + pricing link
+    → Link kaynakları: homepage, pricing, premium-tools, footer, hero,
+      ReportPreviewSection, PlatformCapabilitiesSection, sector landings
+
+  Free Tool Result (FreeToolPage)
+    → Görünür risk ONLY (LOW/MEDIUM/HIGH)
+    → freeMissingFactors listesi (Heroicons MinusCircle)
+    → Upsell: Get Full Verdict for $19 (FreeToolEmailCaptureButton)
+    → Pro checkout alternatifi
+
+  Pricing (/pricing)
+    → 6 plan grid (PricingPlansGrid + PlanCheckoutAction)
+    → ROI copy + refund policy
+
+  How It Works (/how-it-works)
+    → Metodoloji, risk mantığı, sınırlamalar, gizlilik, disclaimer
+
+  3 Sektör Landing:
+    /cnc-quote-risk
+    /construction-bid-margin
+    /cleaning-contract-margin
+    → SectorMarginLanding component
+    → src/data/sector-landing-pages.ts
+
+  Paid Plans:
+    Pro Monthly → live Stripe checkout
+    Diğerleri  → waitlist / lead capture (LeadIntentModal)
+
+================================================================================
+BÖLÜM 5 — FİYATLANDIRMA PLANI
+================================================================================
+
+Kaynak: src/data/pricing-plans.ts + src/lib/pricing/plan-catalog.ts
+
+| Plan ID          | Ad               | Fiyat        | Durum     | Stripe |
+|------------------|------------------|--------------|-----------|--------|
+| free             | Free Check       | $0 forever   | live      | hayır  |
+| single_verdict   | Single Verdict   | $19/report   | waitlist  | hayır  |
+| pro              | Pro Monthly      | $29/month    | live      | EVET   |
+| pro_annual       | Pro Annual       | $249/year    | waitlist  | hayır  |
+| team             | Team             | $99/month    | waitlist  | hayır  |
+| consultant_api   | Consultant/API   | Waitlist     | waitlist  | hayır  |
+
+ROI copy    : "One avoided bad quote can pay for a full year of Pro."
+Refund      : PRICING_REFUND_POLICY (plan-catalog.ts)
+Single CTA  : "Get Full Verdict for $19" (SINGLE_VERDICT_CTA)
+
+PlanCheckoutAction.tsx:
+  - pro → ProCheckoutButton (Stripe)
+  - single_verdict / waitlist plans → LeadIntentTrigger + LeadIntentModal
+
+================================================================================
+BÖLÜM 6 — TASARIM SİSTEMİ (PREMIUM DESIGN REFACTOR)
+================================================================================
+
+Commit: 903778f — 5 fazlı premium design refactor
+Doküman: docs/premium-design-phases.md
+
+6.1 RENK PALETİ (tailwind.config.ts)
+------------------------------------
+  deep-navy         #0F172A   Başlıklar, koyu metin, primary CTA bg
+  dark-navy         #071527   Header/footer koyu varyant
+  professional-blue #2563EB   Linkler, accent, primary actions
+  cyan              #06B6D4   Koyu yüzey highlight
+  emerald           #10B981   FREE badge, düşük risk, success
+  amber             #F59E0B   PREMIUM badge, verdict vurgusu
+  soft-red          #EF4444   Hata, yüksek risk, past_due
+  slate             #64748B   Body text, secondary
+  off-white         #F8FAFC   Section bg, card fill
+
+Kullanım kuralları:
+  - Yeşil SADECE free badge / düşük risk
+  - Amber SADECE premium badge / ücretli vurgu
+  - Mavi/cyan accent ve linkler
+  - Beyaz kartlar off-white sayfa yüzeylerinde
+
+6.2 TİPOGRAFİ
+--------------
+  Primary font : Inter (--font-inter) via next/font — TEK font
+  (Open Sans kaldırıldı — Inter-only)
+  Başlıklar    : Bold, tracking-tight, deep-navy
+  Eyebrow      : text-xs, uppercase, tracking geniş, professional-blue
+  Touch target : min-h-[44px] / sc-cta-h 3.5rem
+
+6.3 CSS DOSYALARI
+-----------------
+  src/styles/design-system.css  → CSS custom properties, dark mode, sc-btn-*
+  src/styles/magiclick-product.css → Homepage MagiClick-style sections (#sector-product)
+  src/app/globals.css           → Tailwind imports + design-system import
+
+6.4 BİLEŞEN TOKEN'LARI
+----------------------
+  SurfaceCard     → src/components/ui/SurfaceCard.tsx
+  Button          → src/components/ui/Button.tsx (cta size)
+  FieldHint       → src/components/ui/FieldHint.tsx
+  Badge           → src/components/ui/Badge.tsx
+  Container       → src/components/ui/Container.tsx
+  SectionHeader   → src/components/ui/SectionHeader.tsx
+  ThemeProvider   → src/components/providers/ThemeProvider.tsx
+  ThemeToggle     → src/components/layout/ThemeToggle.tsx
+
+6.5 GÖLGELER & YÜZEYLER
+-----------------------
+  shadow-sm, shadow-card, shadow-card-dark
+  rounded-2xl / sc-radius-card 1rem
+  border-slate/15 ince premium border
+
+6.6 DUAL UI KATMANI
+-------------------
+  Homepage  : MagiClick-inspired (HeroSection, PlatformPillars, McProductExtensions...)
+  Catalog   : Modern Tailwind premium card system (ToolDiscoveryGrid, IndustryCard)
+  Admin     : Ayrı stable UI — DOKUNMA (/admin/leads)
+
+================================================================================
+BÖLÜM 7 — PREMIUM SEMANTİK İKON SİSTEMİ
+================================================================================
+
+Commit: ec63b83 + 591d8ca (son ○ kalıntısı temizlendi)
+
+Kural: SADECE Heroicons outline, stroke 1.75, emoji/✓/○ YASAK
+
+7.1 DOSYALAR
+------------
+  src/lib/icons/constants.ts      → ICON_STROKE=1.75, ICON_SIZE_CLASS
+  src/lib/icons/icon-registry.ts  → Tüm semantik mapping
+  src/components/icons/ScIcon.tsx → Generic icon wrapper
+  src/components/icons/SectorIcon.tsx → Sektör ikonu (slug → Heroicon)
+  src/components/icons/NavLinkWithIcon.tsx → Nav link + icon
+
+7.2 ScIcon BOYUTLARI
+--------------------
+  compact  → h-5 w-5
+  default  → h-6 w-6
+  feature  → h-7 w-7
+
+7.3 NAV İKONLARI (NAV_ICON_BY_HREF)
+-----------------------------------
+  /free-tools                    → MagnifyingGlassCircleIcon
+  /premium-tools                 → DocumentCheckIcon
+  /industries                    → Squares2X2Icon
+  /pricing                       → ReceiptPercentIcon
+  /account/reports               → ClipboardDocumentListIcon
+  /account, /login               → UserCircleIcon
+  /reports/sample-decision-report→ DocumentMagnifyingGlassIcon
+  /how-it-works                  → ArrowPathIcon
+  /privacy                       → ShieldCheckIcon
+
+7.4 SEKTÖR İKONLARI (SECTOR_ICON_BY_SLUG — 17 slug)
+----------------------------------------------------
+  cnc-manufacturing      → Cog6ToothIcon
+  construction           → BuildingOffice2Icon
+  cleaning               → ClipboardDocumentCheckIcon
+  restaurant             → ReceiptPercentIcon
+  ecommerce              → ShoppingBagIcon
+  welding-fabrication    → WrenchScrewdriverIcon
+  hvac                   → WrenchScrewdriverIcon
+  electrical-contracting → WrenchScrewdriverIcon
+  landscaping-lawn-care  → MapPinIcon
+  auto-repair-shop       → WrenchScrewdriverIcon
+  printing-signage       → PrinterIcon
+  plumbing               → WrenchScrewdriverIcon
+  carpentry-millwork     → BuildingOffice2Icon
+  roofing                → BuildingOffice2Icon
+  painting               → PresentationChartLineIcon
+  sheet-metal            → Cog6ToothIcon
+  3d-printing-service    → CubeIcon
+
+Fallback: SECTOR_ICON_BY_TYPE (manufacturing, construction, cleaning, ...)
+
+7.5 TOOL / KARAR KATEGORİ İKONLARI (TOOL_CATEGORY_ICON)
+-------------------------------------------------------
+  cost, margin, pricing, quote, safePrice, risk, report, scenario,
+  time, labor, overhead, export
+
+7.6 STATUS / TIER BADGE İKONLARI (STATUS_ICON + STATUS_COLOR_CLASS)
+-------------------------------------------------------------------
+  free       → EyeIcon (emerald)
+  premium    → DocumentCheckIcon (amber)
+  safe       → CheckCircleIcon (emerald)
+  review     → ExclamationCircleIcon (amber)
+  highRisk   → ExclamationTriangleIcon (soft-red)
+  doNotAccept→ XCircleIcon (soft-red)
+  saved      → BookmarkIcon (professional-blue)
+  download   → ArrowDownTrayIcon (professional-blue)
+
+7.7 UI İKONLARI (UI_ICON)
+-------------------------
+  menu, chevronRight, check, exclude (MinusCircle), security
+
+7.8 KULLANIM YERLERİ
+--------------------
+  SiteHeader / MobileNav / HeaderNav → NavLinkWithIcon
+  Homepage conversion sections → ScIcon + STATUS_ICON
+  IndustryCard / SectorIcon → sektör kartları
+  FreeToolPage → risk badge (HIGH/SAFE/REVIEW)
+  PremiumToolPage → verdict badges
+  PricingPlansGrid → plan feature list icons
+  SampleDecisionReportLayout → report section headers
+  PremiumToolPaywall → tier icons
+  FreeToolUpgradePanel → exclude icon (MinusCircle — eski ○ kaldırıldı)
+
+================================================================================
+BÖLÜM 8 — VERİ GÜDÜMLÜ ARAÇ MOTORU (SINGLE SOURCE OF TRUTH)
+================================================================================
+
+8.1 REGISTRY DOSYALARI
+----------------------
+  src/lib/tools/industry-registry.ts
+    → 17 sektör, 5 kategori, painStatement, seoKeywords, featured slugs
+
+  src/lib/tools/revenue-tools.ts
+    → Core 5 sektör tool çifti + shared pricing/legal copy
+
+  src/lib/tools/revenue-tools-additional.ts
+    → Extended 12 sektör tool çifti
+
+  src/data/industries.ts
+    → Registry → Industry page objects
+
+  src/data/tools.ts
+    → FREE_TOOLS (17), PREMIUM_TOOLS (17), ALL_TOOLS (34)
+
+  src/data/industry-hub-content.ts
+    → Sektör hub sayfa içeriği
+
+  src/data/sample-report-content.ts
+    → Sample decision report showcase içeriği
+
+  src/data/sector-landing-pages.ts
+    → 3 campaign landing page config
+
+8.2 HESAPLAMA MOTORLARI
+-----------------------
+  src/lib/tools/free-tool-results.ts         → Core 5 free
+  src/lib/tools/free-sector-calculations.ts  → Extended 12 free
+  src/lib/tools/premium-tool-results.ts      → Core 5 premium
+  src/lib/tools/premium-sector-calculations.ts → Extended 12 premium
+
+Pattern: calculateFreeToolResult / calculatePremiumToolResult
+  → extended modüllere delegate; core 5 inline
+
+8.3 UI KABUKLARI (paylaşımlı — sektör başına component YOK)
+-----------------------------------------------------------
+  src/components/tools/FreeToolPage.tsx
+    → Registry-driven free UX, risk-only result, $19 upsell
+
+  src/components/tools/PremiumToolPage.tsx
+    → Paywall + verdict + PDF + save report
+
+  src/components/tools/ToolPageShell.tsx
+  src/components/tools/ToolForm.tsx
+  src/components/tools/ToolInputField.tsx
+  src/components/tools/ToolResultPanel.tsx
+  src/components/tools/RiskVerdictCard.tsx
+  src/components/tools/PremiumDecisionReportPanel.tsx
+  src/components/tools/ScenarioAnalysisPanel.tsx
+  src/components/tools/FreeToolEmailCaptureButton.tsx
+  src/components/tools/FreeToolUpgradePanel.tsx
+  src/components/tools/PremiumTeaserPanel.tsx
+  src/components/tools/ToolDiscoveryGrid.tsx
+  src/components/tools/ToolCatalogByCategory.tsx
+
+Canonical routes:
+  /tools/free/[slug]     → 17 static (generateStaticParams)
+  /tools/premium/[slug]  → 17 static
+
+8.4 FREE vs PREMIUM DAVRANIŞ KİLİDİ
+----------------------------------
+FREE:
+  - 3–5 input (freeCalculatorInputIds ile filtrelenir)
+  - Risk signal / quick check (LOW/MEDIUM/HIGH)
+  - Safe price YOK, full verdict YOK, PDF YOK
+  - Browser-side (FREE_TOOL_PRIVACY_NOTE)
+  - CTA → premium analyzer / pricing / $19 upsell
+  - stripPaidOnlyResults() → paid label bloklama
+
+PREMIUM:
+  - 5–9 input
+  - Verdict labels (DO NOT ACCEPT UNDER, LEAKING PROFIT, SAFE TO QUOTE, ...)
+  - Suggested action
+  - Pro subscription paywall (PremiumToolPaywall)
+  - PDF export (@react-pdf/renderer)
+  - Save report → Firestore reports/
+  - Formül kullanıcıya açılmaz
+  - Legal: technical simulation disclaimer
+
+================================================================================
+BÖLÜM 9 — 17 SEKTÖR TAM KATALOG
+================================================================================
+
+5 KATEGORİ (industry-registry.ts):
+  heavy-industry       → Heavy Industry
+  building-trades      → Building Trades
+  field-services       → Field Services
+  food-retail          → Food & Retail
+  custom-manufacturing → Custom Manufacturing
+
+Featured: cnc-manufacturing, construction, cleaning
+
+| # | Kategori           | Sector Slug              | Sector Name              | Free Slug                       | Premium Slug                     |
+|---|--------------------|--------------------------|--------------------------|---------------------------------|----------------------------------|
+| 1 | Heavy Industry     | cnc-manufacturing        | CNC / Manufacturing      | machine-time-calculator         | cnc-quote-risk-analyzer          |
+| 2 | Building Trades    | construction             | Construction             | project-cost-calculator         | change-order-impact-analyzer     |
+| 3 | Field Services     | cleaning                 | Cleaning                 | cleaning-cost-calculator        | office-cleaning-bid-optimizer    |
+| 4 | Food & Retail      | restaurant               | Restaurant               | food-cost-calculator            | menu-profit-leak-detector        |
+| 5 | Food & Retail      | ecommerce                | E-commerce               | product-margin-calculator       | return-profit-erosion-tool       |
+| 6 | Heavy Industry     | welding-fabrication      | Welding & Fabrication    | welding-cost-estimator          | welding-bid-risk-analyzer        |
+| 7 | Building Trades    | hvac                     | HVAC                     | hvac-tonnage-rule-check         | hvac-project-margin-guard        |
+| 8 | Building Trades    | electrical-contracting   | Electrical Contracting   | electrical-labor-estimator      | panel-shop-margin-verdict        |
+| 9 | Field Services     | landscaping-lawn-care    | Landscaping & Lawn Care  | lawn-care-cost-check            | landscaping-contract-profit-tool |
+|10 | Field Services     | auto-repair-shop         | Auto Repair Shop         | repair-time-vs-price-check      | auto-shop-margin-leak-detector   |
+|11 | Custom Mfg         | printing-signage         | Printing & Signage       | print-job-cost-check            | signage-bid-safe-price-tool      |
+|12 | Building Trades    | plumbing                 | Plumbing                 | plumbing-fixture-cost-check     | plumbing-job-margin-verdict      |
+|13 | Custom Mfg         | carpentry-millwork       | Carpentry & Millwork     | cabinet-cost-estimator          | millwork-bid-risk-analyzer       |
+|14 | Building Trades    | roofing                  | Roofing                  | roofing-square-cost-check       | roofing-contract-margin-guard    |
+|15 | Building Trades    | painting                 | Painting                 | paint-coverage-cost-check       | painting-job-profit-verdict      |
+|16 | Heavy Industry     | sheet-metal              | Machine Shop — Sheet Metal| laser-cutting-time-check       | sheet-metal-quote-risk-tool      |
+|17 | Heavy Industry     | 3d-printing-service      | 3D Printing Service      | 3d-print-cost-check             | 3d-print-job-margin-tool         |
+
+Toplam: 17 sektör × 2 araç = 34 canonical tool route
+        + 17 industry hub = 51 sektör ilişkili sayfa
+
+additionalAnalyzers (registry) = roadmap copy only — route YOK
+
+================================================================================
+BÖLÜM 10 — TAM ROUTE HARİTASI (APP ROUTER)
+================================================================================
+
+10.1 PUBLIC MARKETING
+---------------------
+  /                                    Homepage (MagiClick + conversion sections)
+  /free-tools                          Free catalog by category
+  /premium-tools                       Premium analyzer discovery
+  /industries                          Sector grid (featured + 5 categories)
+  /industries/[slug]                   Sector hub landing (17 static)
+  /pricing                             6-plan pricing + checkout/waitlist
+  /how-it-works                        Metodoloji, risk, sınırlamalar, gizlilik
+  /for-consultants                     Consultant landing
+  /cnc-quote-risk                      CNC campaign landing
+  /construction-bid-margin             Construction campaign landing
+  /cleaning-contract-margin            Cleaning campaign landing
+
+10.2 ARAÇLAR (CANONICAL)
+------------------------
+  /tools/free/[slug]                   17 free calculators
+  /tools/premium/[slug]                17 premium analyzers
+
+10.3 KULLANICI
+--------------
+  /login                               Firebase Auth login
+  /account                             Dashboard + subscription status
+  /account/reports                       Saved verdict list
+  /account/reports/[reportId]          Dynamic saved report detail
+
+10.4 RAPORLAR & HUKUKİ
+----------------------
+  /reports/sample-decision-report      Premium decision report showcase
+  /privacy                             Privacy policy
+  /terms                               Terms of service
+  /disclaimer                          Legal disclaimer
+
+10.5 ADMIN (DONDURULMUŞ — DOKUNMA)
+----------------------------------
+  /admin/leads                         Lead dashboard (Firebase Auth admin claim)
+
+10.6 LEGACY (build'de var, primary DEĞİL)
+-----------------------------------------
+  /tools/[tier]/[slug]                 Eski 10 tool definition route
+    Eski slug örnekleri:
+      machine-hour-estimator, project-cost-estimator, cleaning-cost-estimator,
+      food-cost-calculator, product-margin-calculator,
+      cnc-minimum-safe-quote-analyzer, change-order-impact-analyzer,
+      office-cleaning-bid-optimizer, menu-profit-leak-detector,
+      return-rate-profit-erosion-tool
+
+10.7 META ROUTES
+----------------
+  /sitemap.xml                         src/app/sitemap.ts (static + 17 industry + 34 tool)
+  /robots.txt                          src/app/robots.ts
+  /icon.png, /apple-icon.png           App icons
+
+10.8 YASAK
+----------
+  src/app/api/*                        YOK — Stripe/webhook sadece Cloud Functions
+
+Toplam build: ~81 sayfa
+
+================================================================================
+BÖLÜM 11 — APP DOSYA AĞACI (src/app/)
+================================================================================
+
+src/app/
+  layout.tsx                           Root layout (Inter, globals, metadata)
+  globals.css
+  page.tsx                             Homepage
+  robots.ts
+  sitemap.ts
+  account/
+    page.tsx
+    reports/
+      page.tsx
+      [reportId]/page.tsx
+  admin/leads/page.tsx
+  cleaning-contract-margin/page.tsx
+  cnc-quote-risk/page.tsx
+  construction-bid-margin/page.tsx
+  disclaimer/page.tsx
+  for-consultants/page.tsx
+  free-tools/page.tsx
+  how-it-works/page.tsx
+  industries/
+    page.tsx
+    [slug]/page.tsx
+  login/page.tsx
+  premium-tools/page.tsx
+  pricing/page.tsx
+  privacy/page.tsx
+  reports/sample-decision-report/page.tsx
+  terms/page.tsx
+  tools/
+    [tier]/[slug]/page.tsx             LEGACY
+    free/[slug]/page.tsx
+    premium/[slug]/page.tsx
+
+================================================================================
+BÖLÜM 12 — BİLEŞEN AĞACI (src/components/) — 121 DOSYA
+================================================================================
+
+12.1 layout/ (9)
+----------------
+  SiteHeader.tsx          Ana header + nav + theme toggle
+  SiteFooter.tsx          4-column footer
+  HeaderNav.tsx           Desktop nav links
+  HeaderAuthCta.tsx       Login / Run Free Check / Unlock Pro
+  MobileNav.tsx           Mobile drawer nav
+  PageLayout.tsx          Standart sayfa wrapper (header+footer+providers)
+  PageHero.tsx            İç sayfa hero band
+  ThemeToggle.tsx         Light/dark mode switch
+
+12.2 icons/ (3)
+---------------
+  ScIcon.tsx              Generic Heroicon wrapper
+  SectorIcon.tsx          Sektör sembolü
+  NavLinkWithIcon.tsx     Nav item + icon
+
+12.3 ui/ (9)
+------------
+  Badge.tsx, Button.tsx, Container.tsx, FieldHint.tsx,
+  MagiClickIllustrations.tsx, MagiClickVisual.tsx,
+  PlatformFeatureIcon.tsx, SectionHeader.tsx, SurfaceCard.tsx
+
+12.4 providers/ (2)
+-------------------
+  AppProviders.tsx        Theme + LeadIntent context wrapper
+  ThemeProvider.tsx       Dark mode state
+
+12.5 sections/ (21) — Homepage & marketing
+------------------------------------------
+  HeroSection.tsx
+  HomeConversionSections.tsx    Pain, free check, sample report, sectors, pricing
+  HomeOperationsValueSection.tsx
+  HowItWorksSection.tsx
+  IndustriesPreviewSection.tsx
+  PlatformIntroSection.tsx
+  PlatformPillarsSection.tsx
+  PlatformCapabilitiesSection.tsx
+  PlatformArchitectureSection.tsx
+  McProductExtensions.tsx
+  MagiClickSplitSection.tsx
+  SplitFeatureSection.tsx
+  ToolsPreviewSection.tsx
+  ToolFinder.tsx
+  ReportPreviewSection.tsx
+  PricingPreview.tsx
+  PricingPlansGrid.tsx          6-plan grid (pricing page + homepage)
+  FaqPreviewSection.tsx
+  CTASection.tsx
+  CncCampaignHomeCta.tsx
+
+12.6 tools/ (24) — Araç UX
+--------------------------
+  FreeToolPage.tsx              Free tier shell + upsell
+  PremiumToolPage.tsx           Premium tier shell + paywall
+  ToolPageShell.tsx
+  ToolForm.tsx
+  ToolInputField.tsx
+  ToolResultPanel.tsx
+  ToolCalculatorEngine.tsx
+  ToolDiscoveryGrid.tsx
+  ToolCatalogByCategory.tsx
+  ToolsTileGrid.tsx
+  Breadcrumb.tsx
+  RelatedTools.tsx
+  ExportToolbar.tsx
+  ResultCard.tsx
+  RiskVerdictCard.tsx
+  PremiumDecisionReportPanel.tsx
+  PremiumTeaserPanel.tsx
+  ScenarioAnalysisPanel.tsx
+  FreeToolPrivacyNote.tsx
+  FreeToolUpgradePanel.tsx
+  FreeToolEmailCaptureButton.tsx
+  DecisionToolLegalDisclaimer.tsx
+
+12.7 industries/ (2)
+--------------------
+  IndustryCard.tsx
+  IndustriesGrid.tsx
+
+12.8 cards/ (4)
+---------------
+  IndustryCard.tsx              Catalog grid card (duplicate namespace)
+  ToolCard.tsx
+  ToolTile.tsx                  Dense legacy grid
+  ReportPreviewCard.tsx
+
+12.9 reports/ (7)
+-----------------
+  SampleDecisionReportLayout.tsx
+  VerdictPdfDocument.tsx
+  DownloadVerdictPdfButton.tsx
+  SaveVerdictReportButton.tsx
+  ReportsHistoryList.tsx
+  SavedReportDetailContent.tsx
+  AccountReportsPageContent.tsx
+
+12.10 subscription/ + billing/ + pricing/ (8)
+---------------------------------------------
+  ProCheckoutButton.tsx
+  PremiumToolPaywall.tsx
+  PremiumPaywall.tsx
+  CustomerSignInPanel.tsx
+  PricingToolUnlockBanner.tsx
+  SubscriptionActivationBanner.tsx
+  PlanCheckoutAction.tsx
+
+12.11 account/ (5)
+------------------
+  AccountDashboard.tsx
+  SubscriptionStatusCard.tsx
+  RecentReportsPanel.tsx
+  PremiumToolsGrid.tsx
+  FreeToolsQuickLinks.tsx
+
+12.12 leads/ (5)
+----------------
+  LeadIntentContext.tsx
+  LeadIntentModal.tsx
+  LeadIntentTrigger.tsx
+  RequestPremiumReportLeadButton.tsx
+  ConsultantAccessCta.tsx
+
+12.13 admin/ (18) — FROZEN
+--------------------------
+  AdminAuthPanel.tsx
+  AdminMetricCard.tsx
+  LeadIntentsClient.tsx
+  LeadDashboardSummary.tsx
+  LeadDetailDrawer.tsx
+  LeadPipelineControls.tsx
+  LeadActivityList.tsx
+  LeadActionCenter.tsx
+  LeadConversionMetrics.tsx
+  LeadSourceRoi.tsx
+  LeadFollowUpSla.tsx
+  LeadQualityScore.tsx
+  LeadPriorityBadge.tsx
+  LeadStatusBadge.tsx
+  LeadContactCell.tsx
+  LeadExportButton.tsx
+  LeadMessageTemplates.tsx
+  LeadCleanupControls.tsx
+  LeadTestClassificationControls.tsx
+
+12.14 launch/ (2)
+-----------------
+  SectorMarginLanding.tsx       3 campaign landing shared layout
+  CncQuoteRiskLanding.tsx       (legacy/alternate — check usage)
+
+12.15 home/ (2)
+---------------
+  HeroDeviceMockup.tsx
+  SectorSelectorSection.tsx
+
+12.16 brand/ + legal/ + pages/ + shared/ (5)
+-------------------------------------------
+  SiteLogo.tsx
+  LegalPageContent.tsx
+  IndustryPageContent.tsx
+  PageHero.tsx (shared/)
+
+================================================================================
+BÖLÜM 13 — LIB KATMANI (src/lib/) — 70+ DOSYA
+================================================================================
+
+13.1 tools/
+-----------
+  industry-registry.ts          17 sektör metadata
+  revenue-tools.ts              Core registry + pricing copy
+  revenue-tools-additional.ts   12 extended sector tools
+  free-tool-results.ts
+  free-sector-calculations.ts
+  premium-tool-results.ts
+  premium-sector-calculations.ts
+  tool-catalog.ts
+  tool-links.ts
+  paths.ts
+
+13.2 pricing/
+-------------
+  plan-catalog.ts               CheckoutPlanId, availability, refund policy
+  sectorcalc-pro.ts             Pro plan metadata
+
+13.3 billing/ + subscription/
+-----------------------------
+  create-checkout-session.ts
+  subscription.ts
+  use-user-subscription.ts
+  checkout.ts
+  types.ts
+  use-pro-subscription.ts
+
+13.4 firebase/
+--------------
+  client.ts                     Firebase client SDK init
+  auth.ts                       Auth helpers
+  customer-auth.ts              Customer login flow
+  admin.ts                      Admin SDK (server-side only contexts)
+
+13.5 reports/
+-------------
+  verdict-report.ts             Report data model
+  report-storage.ts             Firestore write/read
+  use-user-reports.ts           React hook
+
+13.6 leads/ (20+ dosya)
+-----------------------
+  types.ts, create-lead-intent.ts, firestore.ts, storage.ts
+  normalize.ts, rate-limit.ts
+  admin-dashboard.ts, admin-metrics.ts
+  lead-pipeline.ts, lead-activity.ts, lead-action-center.ts
+  lead-quality-score.ts, lead-cleanup.ts, lead-copy-actions.ts
+  conversion-metrics.ts, source-roi.ts, source-attribution.ts
+  follow-up-sla.ts, export-leads-csv.ts
+  list-lead-intents.ts
+  update-lead-pipeline-client.ts / server.ts
+  update-test-lead-classification-client.ts
+  validate-pipeline-update.ts
+  disabled/admin-lead-patch-route.ts
+
+13.7 admin/
+-----------
+  config.ts, lead-write-config.ts, server-guard.ts, use-admin-auth.ts
+
+13.8 analytics/
+---------------
+  events.ts
+  revenue-events.ts             REVENUE_EVENTS enum (no-op sink)
+
+13.9 icons/
+-----------
+  constants.ts
+  icon-registry.ts
+
+13.10 format/ + metadata
+------------------------
+  currency.ts, date.ts, datetime.ts
+  metadata.ts                   createPageMetadata()
+
+13.11 calculators/ (LEGACY — 10 dosya)
+--------------------------------------
+  Superseded by revenue-tools calculation modules
+  registry.ts + per-tool calculator files
+
+================================================================================
+BÖLÜM 14 — DATA KATMANI (src/data/)
+================================================================================
+
+  industries.ts                 Industry page data (from registry)
+  tools.ts                      FREE_TOOLS, PREMIUM_TOOLS, ALL_TOOLS
+  pricing-plans.ts              PRICING_PLANS array (6 plans)
+  sample-report-content.ts      Sample verdict showcase content
+  sector-landing-pages.ts       CNC, construction, cleaning landings
+  industry-hub-content.ts       Per-sector hub copy
+  faq.ts                        FAQ content
+  lead-options.ts               Lead form dropdown options
+  reports.ts                    Static report references
+  tool-finder-problems.ts       Homepage tool finder filters
+  tool-schema.ts                ToolDefinition types
+
+  tool-definitions/ (LEGACY — 10 dosya)
+    machine-hour-estimator, cnc-minimum-safe-quote-analyzer,
+    project-cost-estimator, cleaning-cost-estimator, food-cost-calculator,
+    product-margin-calculator, change-order-impact-analyzer,
+    office-cleaning-bid-optimizer, menu-profit-leak-detector,
+    return-rate-profit-erosion-tool
+
+================================================================================
+BÖLÜM 15 — CONFIG (src/config/)
+================================================================================
+
+  site.ts           SITE constants, PUBLIC_NAV_ITEMS, AUTH_NAV_ITEMS, siteUrl
+  brand.ts          Brand asset paths
+  contact.ts        Contact info
+  locales.ts        Locale config
+  export-messages.ts Export copy
+
+================================================================================
+BÖLÜM 16 — GELİR & FATURALAMA AKIŞI
+================================================================================
+
+16.1 PRO SUBSCRIPTION ($29/ay)
+------------------------------
+  Checkout  : createStripeCheckout Cloud Function → Stripe Checkout Session
+  Webhook   : stripeWebhook → users/{uid} subscription fields (Admin SDK)
+  Paywall   : PremiumToolPage + useUserSubscription / useProSubscription
+  Client write: BLOKE (Firestore rules users write: false)
+
+16.2 SINGLE VERDICT ($19)
+-------------------------
+  UI live   : Pricing grid + FreeToolPage upsell + sector landings
+  Checkout  : WAITLIST — LeadIntentModal (Stripe one-time HENÜZ YOK)
+  CTA       : "Get Full Verdict for $19"
+
+16.3 WAITLIST PLANLAR
+---------------------
+  Pro Annual $249, Team $99, Consultant/API
+  → LeadIntentTrigger + Firestore leadIntents create
+
+16.4 PDF & RAPORLAR
+-------------------
+  @react-pdf/renderer : VerdictPdfDocument.tsx
+  Download            : DownloadVerdictPdfButton.tsx
+  Save                : SaveVerdictReportButton.tsx → Firestore reports/
+  Sample              : /reports/sample-decision-report (static showcase)
+
+16.5 GEREKLİ SECRETS (functions)
+--------------------------------
+  STRIPE_SECRET_KEY
+  STRIPE_WEBHOOK_SECRET
+  STRIPE_PRICE_MONTHLY
+  PUBLIC_SITE_URL
+  ADMIN_LEAD_UPDATE_SECRET (admin only)
+
+16.6 FRONTEND PUBLIC ENV
+------------------------
+  NEXT_PUBLIC_FIREBASE_*
+  NEXT_PUBLIC_SITE_URL
+  ASLA stripe secret frontend'de
+
+================================================================================
+BÖLÜM 17 — FIREBASE & ALTYAPI
+================================================================================
+
+Project ID      : sectorcalc-bf412
+Firestore loc   : nam5 (North America multi-region) — DEĞİŞTİRİLEMEZ
+Functions reg   : us-central1 (tüm HTTPS functions)
+Hosting         : Firebase Hosting + Next.js SSR
+
+firebase.json:
+  firestore.rules + firestore.indexes.json
+  functions (default codebase, predeploy npm build)
+  hosting (source: ".", Next.js framework)
+
+17.1 CLOUD FUNCTIONS (functions/src/)
+-------------------------------------
+  index.ts                          Export hub
+  constants.ts                      FIRESTORE_DATABASE_LOCATION=nam5
+  regions.ts                        REVENUE_FUNCTION_REGION=us-central1
+  createStripeCheckout.ts           Revenue — Stripe checkout session
+  stripeWebhook.ts                  Revenue — subscription webhook
+  updateLeadPipelineHandler.ts      Admin — pipeline update
+  updateLeadTestClassificationHandler.ts  Admin — test classification
+  auth.ts, userAuth.ts              Auth helpers
+  cors.ts, security.ts              CORS + security
+  validatePipelineUpdate.ts
+  validateTestClassificationUpdate.ts
+  leadActivity.ts
+
+Live function exports (index.ts):
+  updateLeadPipeline              (admin, us-central1)
+  updateLeadTestClassification    (admin, us-central1)
+  createStripeCheckout            (revenue, us-central1)
+  stripeWebhook                   (revenue, us-central1)
+  ssrsectorcalcbf412              (hosting SSR, us-central1)
+
+17.2 FIRESTORE COLLECTIONS
+--------------------------
+  leadIntents/{id}
+    - public create only (validated fields)
+    - admin read only
+    - NO public update/delete
+
+  leadIntents/{id}/activity/{activityId}
+    - admin read only
+
+  users/{uid}
+    - owner read
+    - NO client write (subscription Stripe webhook only)
+
+  reports/{reportId}
+    - owner read/create
+    - NO update/delete
+
+17.3 AUTH
+---------
+  Customer : Firebase Auth (email)
+  Admin    : Firebase Auth + custom claim admin:true
+  Script   : npm run admin:set-claim
+
+================================================================================
+BÖLÜM 18 — ADMIN PANEL (DONDURULMUŞ CHECKPOINT)
+================================================================================
+
+Route   : /admin/leads
+Auth    : Firebase Auth admin claim
+Reads   : Firestore leadIntents (client SDK)
+Writes  : Cloud Functions only (Admin SDK)
+
+Özellikler (refactor YASAK):
+  Lead pipeline, activity log, SLA, quality score
+  Action center, source ROI, conversion metrics
+  Test classification controls, cleanup controls
+  CSV export, message templates
+
+Doküman : docs/admin-panel-stable-checkpoint.md
+
+================================================================================
+BÖLÜM 19 — ANALİTİK & EVENTLER
+================================================================================
+
+src/lib/analytics/events.ts           Genel product events
+src/lib/analytics/revenue-events.ts   Revenue funnel events
+
+REVENUE_EVENTS:
+  free_tool_started
+  free_tool_completed
+  premium_analyzer_viewed
+  paywall_viewed
+  pricing_viewed
+  checkout_started
+  checkout_returned_success
+  premium_result_generated
+  verdict_pdf_downloaded
+  verdict_report_saved
+
+Durum: no-op sink — GA4/PostHog wiring bekliyor
+
+================================================================================
+BÖLÜM 20 — SEO & METADATA
+================================================================================
+
+Canonical base : NEXT_PUBLIC_SITE_URL → https://sectorcalc.com
+Helper         : src/lib/metadata.ts → createPageMetadata()
+
+Sitemap (src/app/sitemap.ts):
+  14 static route + 17 industry + 34 tool = ~65 URL
+
+Örnek title'lar:
+  Premium Tools : Premium Decision Tools | SectorCalc
+  Free Tools    : Free Sector Calculators | SectorCalc
+  Industries    : Industry Cost and Margin Tools | SectorCalc
+  Pricing       : Pricing | SectorCalc
+  How It Works  : How It Works — Methodology & Limitations
+
+================================================================================
+BÖLÜM 21 — PUBLIC STATİK VARLIKLAR
+================================================================================
+
+public/images/
+  sectorcalc-devices-hero.png, sectorcalc-platform-hero.png (+ variants)
+
+public/img/brand/
+  sectorcalc-logo.svg / .png
+  sectorcalc-logo-on-dark.svg / .png
+  sectorcalc-favicon.png / -32.png / -180.png
+  sectorcalc-hero-devices.png
+
+public/img/products/  (MagiClick homepage decorative assets)
+  Digital-Banking-Platform.png, Magiclick-TrustedBy.png, ...
+
+================================================================================
+BÖLÜM 22 — SCRIPTS & KALİTE KONTROL
+================================================================================
+
+scripts/
+  audit-revenue-tools.mjs     148 registry check + route smoke
+  check-commit-secrets.mjs    Secret scanner
+  set-admin-claim.mjs         Admin claim setter
+  clean-hero-alpha.py         Image utility
+  README.md
+
+Quality gate (her major change):
+  npm run lint
+  npx tsc --noEmit
+  npm run build
+  npm run audit:revenue-tools
+
+Deploy:
+  firebase deploy --only hosting --project sectorcalc-bf412
+  firebase deploy --only functions --project sectorcalc-bf412
+  firebase deploy --only firestore:rules --project sectorcalc-bf412
+
+================================================================================
+BÖLÜM 23 — DOKÜMANTASYON İNDEKSİ (docs/)
+================================================================================
+
+  sectorcalc-product-dna.txt              Eski DNA raporu (2026-06-06, güncellenmeli)
+  sectorcalc-full-structure-report.txt    BU DOSYA — tam yapı raporu
+  premium-design-phases.md                5 fazlı design refactor checklist
+  revenue-flow-product-spec.md            Revenue tool spec
+  revenue-flow-v1-production-readiness.md
+  revenue-flow-v1-live-qa.md
+  revenue-env-standard.md                 Env variable standard
+  firebase-region-standard.md             nam5 + us-central1 lock
+  admin-panel-stable-checkpoint.md        Admin freeze doc
+  sectorcalc-stability-settings.md
+  full-catalog-qa.md
+  public-qa-checklist.md
+  deployment-checklist.md
+  env-checklist.md
+  security-notes.md
+  cursor-workflow.md
+  first-live-test-script.md
+  live-qa-report.md
+
+================================================================================
+BÖLÜM 24 — CURSOR RULES (.cursor/rules/)
+================================================================================
+
+  sectorcalc.mdc                  Genel proje kuralları
+  protected-infrastructure.mdc    Firebase region, admin, Stripe lock
+  tool-listing-tiles.mdc          Tool grid conventions
+  brand-assets-lock.mdc           Brand asset değişiklik yasağı
+
+================================================================================
+BÖLÜM 25 — SERT KURALLAR (ASLA İHLAL ETME)
+================================================================================
+
+  - Yeni repo / domain onaysız ekleme
+  - Firestore region migration YASAK (nam5)
+  - Admin panel refactor YASAK (/admin/leads)
+  - firebase functions:delete on admin functions YASAK
+  - src/app/api for Stripe YASAK
+  - Secret frontend veya git'e YASAK
+  - Client subscription write YASAK
+  - TypeScript strict, any YASAK
+  - Sahte trust badge / testimonial YASAK
+  - 17 sektör / 34 tool route değiştirme (onaysız)
+  - Minimal diff — gereksiz refactor YASAK
+
+================================================================================
+BÖLÜM 26 — TEKNİK BORÇ / LEGACY
+================================================================================
+
+  - /tools/[tier]/[slug] legacy route (10 eski slug)
+  - src/data/tool-definitions/ + src/lib/calculators/ superseded
+  - ToolTile dense grid — homepage preview; catalog ToolDiscoveryGrid kullanır
+  - Homepage bazı MagiClick bölümleri hâlâ "5 sectors" copy içerebilir
+  - additionalAnalyzers registry = roadmap only
+  - revenue-events.ts = no-op (analytics provider bekliyor)
+  - Single Verdict $19 Stripe checkout = henüz implement edilmedi (waitlist)
+  - Pro Annual / Team / Consultant = waitlist only
+  - CncQuoteRiskLanding.tsx — alternate component (SectorMarginLanding primary)
+  - Link copy'de → ok karakterleri bilinçli (emoji değil)
+
+================================================================================
+BÖLÜM 27 — SATIŞ HUNİSİ AKIŞ DİYAGRAMI (METİN)
+================================================================================
+
+  [Homepage / SEO / Ads]
+         |
+         v
+  [Free Margin Check] -----> [/tools/free/{slug}]
+         |                        |
+         |                   Risk: LOW/MED/HIGH
+         |                   Missing factors list
+         |                        |
+         v                        v
+  [Sample Report] <-------- [$19 Upsell CTA]
+  /reports/sample-decision-report
+         |
+         v
+  [Premium Verdicts] -----> [/tools/premium/{slug}]
+  /premium-tools                  |
+                                  v
+                            [Paywall if no Pro]
+                                  |
+         +------------------------+------------------------+
+         v                        v                        v
+  [Single Verdict $19]    [Pro $29/mo Stripe]     [Waitlist plans]
+  (lead capture)          (live checkout)          Annual/Team/API
+         |                        |
+         v                        v
+  [LeadIntent Firestore]   [users/{uid} subscription]
+         |
+         v
+  [/admin/leads] (admin dashboard)
+
+  Sector landings (/cnc-quote-risk, /construction-bid-margin,
+  /cleaning-contract-margin) → free tool + premium tool + pricing + sample
+
+================================================================================
+BÖLÜM 28 — SONRAKİ FAZ (GELİR AKTİVASYONU)
+================================================================================
+
+Tamamlanan:
+  [x] Premium design refactor (903778f)
+  [x] Monetization funnel UI (6295918)
+  [x] Premium semantic icon system (ec63b83 + 591d8ca)
+  [x] Deploy live
+
+Sıradaki (visual redesign YOK):
+  [ ] Single Verdict $19 — Stripe one-time checkout Cloud Function
+  [ ] Pro Annual $249 — Stripe price + checkout
+  [ ] Team $99 — multi-seat foundation
+  [ ] Analytics provider wiring (revenue-events.ts)
+  [ ] Manual QA: light/dark icons, badge consistency, funnel conversion
+
+================================================================================
+BÖLÜM 29 — TEK PARAGRAFLIK ÖZET
+================================================================================
+
+SectorCalc, Next.js 15 + Firebase üzerinde 17 sektörlü, veri-güdümlü bir karar
+araçları platformudur. Görsel olarak MagiClick-style marketing homepage ile
+premium Tailwind catalog UI (beyaz kartlar, navy metin, mavi accent, yeşil/amber
+tier badge'leri) bir arada yaşar. Tüm araçlar industry-registry.ts ve
+revenue-tools.ts'den FreeToolPage/PremiumToolPage kabuklarına akar: free araçlar
+yalnızca görünür risk verir; premium analizörler verdict, PDF ve kayıtlı rapor
+sunar — Pro paywall arkasında. Heroicons-only semantik ikon sistemi nav, sektör,
+badge ve upsell yüzeylerinde tutarlılık sağlar. Satış hunisi Sample Report →
+Free Upsell → Pricing (6 plan) → How It Works → 3 sektör landing → Pro checkout
+akışını tamamlar; Single Verdict $19 henüz waitlist'tedir. Backend Firebase
+nam5 + us-central1 functions (admin leads, Stripe checkout/webhook, Next.js SSR
+hosting) — Firestore rules client subscription write'ı bloklar; admin panel
+/admin/leads'te dondurulmuştur.
+
+================================================================================
+RAPOR SONU
+================================================================================
+Dosya yolu: docs/sectorcalc-full-structure-report.txt
+Güncelleme : Her major faz sonrası bu dosyayı yenile.

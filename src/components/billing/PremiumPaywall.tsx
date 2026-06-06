@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
+import { SingleVerdictCheckoutButton } from "@/components/subscription/SingleVerdictCheckoutButton";
 import { IconListItem } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
 import { SECTORCALC_PRO_PRICE_LABEL } from "@/lib/pricing/sectorcalc-pro";
@@ -34,10 +35,10 @@ export function PremiumPaywall({ tool, toolSlug, pricingHref }: PremiumPaywallPr
   return (
     <aside className="rounded-2xl border border-slate/15 bg-white p-6 shadow-card sm:p-8">
       <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
-        SectorCalc Pro required
+        Premium access required
       </p>
       <h2 className="mt-3 text-xl font-bold text-deep-navy sm:text-2xl">
-        Unlock this analyzer with SectorCalc Pro.
+        Unlock this analyzer with Single Verdict or SectorCalc Pro.
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-slate">
         Get safe price, bid risk and margin leak verdicts before you accept the job.
@@ -49,13 +50,24 @@ export function PremiumPaywall({ tool, toolSlug, pricingHref }: PremiumPaywallPr
           </IconListItem>
         ))}
       </ul>
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+      <div className="mt-6 flex flex-col gap-3">
+        <SingleVerdictCheckoutButton
+          toolSlug={resolvedToolSlug}
+          returnPath={
+            resolvedToolSlug
+              ? `/tools/premium/${resolvedToolSlug}`
+              : "/pricing"
+          }
+          source="premium_paywall"
+          className="sm:max-w-md"
+        />
         <ProCheckoutButton
           label={`Start SectorCalc Pro — ${SECTORCALC_PRO_PRICE_LABEL}`}
           source="premium_paywall"
           toolSlug={resolvedToolSlug}
           className="sm:max-w-xs"
         />
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <Link
           href={freeHref}
           className="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-slate/20 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
@@ -68,6 +80,7 @@ export function PremiumPaywall({ tool, toolSlug, pricingHref }: PremiumPaywallPr
         >
           View pricing
         </Link>
+        </div>
       </div>
       <p className="mt-4 text-xs leading-relaxed text-slate">{PAYWALL_SHORT_LEGAL}</p>
     </aside>

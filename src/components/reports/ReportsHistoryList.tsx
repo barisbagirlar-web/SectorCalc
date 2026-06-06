@@ -3,24 +3,30 @@
 import Link from "next/link";
 import { formatVerdictReportDate } from "@/lib/reports/verdict-report";
 import type { SavedVerdictReport } from "@/lib/reports/report-storage";
-import { getFreeToolsHref, getLoginHref } from "@/lib/tools/tool-links";
+import { getFreeToolsHref, getLoginHref, getPremiumToolsHref } from "@/lib/tools/tool-links";
 
 interface ReportsHistoryListProps {
   reports: SavedVerdictReport[];
+  hasPurchaseCredits?: boolean;
 }
 
-export function ReportsHistoryList({ reports }: ReportsHistoryListProps) {
+export function ReportsHistoryList({ reports, hasPurchaseCredits = false }: ReportsHistoryListProps) {
   if (reports.length === 0) {
     return (
       <div className="sc-card border-dashed text-center">
         <p className="text-base font-medium text-deep-navy dark:text-off-white">
-          No reports yet.
+          No saved reports yet.
         </p>
         <p className="mt-2 text-sm text-slate">
-          Run your first free margin check to see where pricing risk appears.
+          {hasPurchaseCredits
+            ? "Run your unlocked premium analyzer and save the verdict report here."
+            : "Run a free margin check, then unlock a Single Verdict or SectorCalc Pro to save reports."}
         </p>
-        <Link href={getFreeToolsHref()} className="sc-btn-primary mt-6 inline-flex">
-          Run Free Check
+        <Link
+          href={hasPurchaseCredits ? getPremiumToolsHref() : getFreeToolsHref()}
+          className="sc-btn-primary mt-6 inline-flex"
+        >
+          {hasPurchaseCredits ? "Open premium analyzers" : "Run Free Check"}
         </Link>
       </div>
     );

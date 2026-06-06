@@ -134,7 +134,7 @@ async function createSingleReportPaymentSession(
   return stripe.checkout.sessions.create({
     mode: "payment",
     line_items: [{ price: priceId, quantity: 1 }],
-    success_url: `${siteUrl}/account/reports?session_id={CHECKOUT_SESSION_ID}&purchased=single_report`,
+    success_url: `${siteUrl}/account/reports?session_id={CHECKOUT_SESSION_ID}&purchased=single_report&tool=${encodeURIComponent(toolSlug)}`,
     cancel_url: `${siteUrl}/pricing?canceled=true`,
     client_reference_id: authResult.uid,
     customer: existingCustomerId,
