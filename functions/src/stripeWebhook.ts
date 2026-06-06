@@ -2,7 +2,11 @@ import * as admin from "firebase-admin";
 import Stripe from "stripe";
 import type { Request, Response } from "express";
 import { defineString } from "firebase-functions/params";
-import { USERS_COLLECTION } from "./constants";
+import {
+  CHECKOUT_PLAN_SINGLE_REPORT,
+  USERS_COLLECTION,
+  USER_PURCHASES_SUBCOLLECTION,
+} from "./constants";
 
 const stripeSecretKey = defineString("STRIPE_SECRET_KEY", { default: "" });
 const stripeWebhookSecret = defineString("STRIPE_WEBHOOK_SECRET", { default: "" });
@@ -96,6 +100,41 @@ async function writeUserSubscription(
   );
 }
 
+interface SingleReportPurchase {
+  plan: typeof CHECKOUT_PLAN_SINGLE_REPORT;
+  toolSlug: string;
+  sessionId: string;
+  createdAt: string;
+  status: "completed";
+}
+
+async function writeSingleReportPurchase(
+  uid: string,
+  session: Stripe.Checkout.Session
+): Promise<void> {
+  const toolSlug =
+    typeof session.metadata?.toolSlug === "string" &&
+    session.metadata.toolSlug.trim().length > 0
+      ? session.metadata.toolSlug.trim()
+      : "cnc-quote-risk-analyzer";
+
+  const purchase: SingleReportPurchase = {
+    plan: CHECKOUT_PLAN_SINGLE_REPORT,
+    toolSlug,
+    sessionId: session.id,
+    createdAt: new Date().toISOString(),
+    status: "completed",
+  };
+
+  const db = admin.firestore();
+  await db
+    .collection(USERS_COLLECTION)
+    .doc(uid)
+    .collection(USER_PURCHASES_SUBCOLLECTION)
+    .doc(session.id)
+    .set(purchase, { merge: true });
+}
+
 export async function handleStripeWebhook(
   req: Request,
   res: Response
@@ -142,7 +181,19 @@ export async function handleStripeWebhook(
             ? session.client_reference_id
             : undefined);
 
-        if (!uid || !session.subscription) {
+        if (!uid) {
+          break;
+        }
+
+        if (
+          session.mode === "payment" &&
+          session.metadata?.plan === CHECKOUT_PLAN_SINGLE_REPORT
+        ) {
+          await writeSingleReportPurchase(uid, session);
+          break;
+        }
+
+        if (!session.subscription) {
           break;
         }
 

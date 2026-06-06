@@ -1,5 +1,13 @@
 export const LEAD_INTENTS_COLLECTION = "leadIntents";
 export const USERS_COLLECTION = "users";
+export const USER_PURCHASES_SUBCOLLECTION = "purchases";
+
+/** Stripe Checkout plan identifiers (session metadata). */
+export const CHECKOUT_PLAN_PRO = "pro" as const;
+export const CHECKOUT_PLAN_SINGLE_REPORT = "single_report" as const;
+
+/** Firebase param / secret name for the $19 one-time Single Verdict price ID. */
+export const STRIPE_PRICE_SINGLE_VERDICT_PARAM = "STRIPE_PRICE_SINGLE_VERDICT";
 
 /**
  * Firestore (default) database location — set at provisioning; never change via code.

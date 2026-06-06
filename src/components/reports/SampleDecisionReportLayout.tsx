@@ -211,6 +211,7 @@ export function SampleDecisionReportLayout() {
         <div className="mt-10 flex flex-col items-center gap-4 text-center">
           <div className="flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
             <SingleVerdictUpsellButton
+              toolSlug="cnc-quote-risk-analyzer"
               toolTitle={SAMPLE_REPORT_TITLE}
               pagePath="/reports/sample-decision-report"
               className="sc-btn-primary inline-flex w-full justify-center sm:w-auto"

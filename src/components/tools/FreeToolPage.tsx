@@ -233,6 +233,7 @@ function FreeToolResultCard({
         <p className="text-sm leading-relaxed text-slate">{FREE_UPSELL_COPY}</p>
         <div className="mt-4 flex flex-col gap-3">
           <SingleVerdictUpsellButton
+            toolSlug={tool.paidSlug}
             toolTitle={tool.freeTitle}
             pagePath={`/tools/free/${tool.freeSlug}`}
             className="sc-btn-primary inline-flex w-full justify-center"
@@ -407,6 +408,7 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
                 <p className="mt-2 text-sm leading-relaxed text-slate">{FREE_UPSELL_COPY}</p>
                 <div className="mt-5 flex flex-col gap-3">
                   <SingleVerdictUpsellButton
+                    toolSlug={tool.paidSlug}
                     toolTitle={tool.freeTitle}
                     pagePath={`/tools/free/${tool.freeSlug}`}
                     className="sc-btn-primary inline-flex w-full justify-center sm:w-auto"

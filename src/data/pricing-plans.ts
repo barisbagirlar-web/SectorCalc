@@ -67,12 +67,8 @@ export const PRICING_PLANS: PricingPlan[] = [
       "PDF-ready report for that run",
     ],
     primaryCta: "Get Full Verdict for $19",
-    checkoutReady: false,
-    leadIntent: {
-      source: "pricing",
-      plan: "single_report",
-      toolRequested: "Single Verdict ($19)",
-    },
+    checkoutPlan: "single_verdict",
+    checkoutReady: true,
   },
   {
     id: "pro",

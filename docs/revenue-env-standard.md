@@ -14,6 +14,7 @@ These values must stay in Firebase Functions secret/env only:
 | `STRIPE_SECRET_KEY` | Stripe API (checkout, subscription) |
 | `STRIPE_WEBHOOK_SECRET` | Webhook signature verification |
 | `STRIPE_PRICE_MONTHLY` | Pro monthly price ID |
+| `STRIPE_PRICE_SINGLE_VERDICT` | Single Verdict $19 one-time price ID |
 | `PUBLIC_SITE_URL` | Success/cancel redirect base URL |
 | `ADMIN_LEAD_UPDATE_SECRET` | Admin lead pipeline writes (Functions only) |
 

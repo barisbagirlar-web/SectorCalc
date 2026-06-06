@@ -1,9 +1,12 @@
 import { getCurrentUserIdToken, getFirebaseAuth } from "@/lib/firebase/auth";
 
+export type CheckoutPlan = "pro" | "single_report";
+
 export interface CreateCheckoutSessionOptions {
   toolSlug?: string;
   locale?: string;
   returnPath?: string;
+  plan?: CheckoutPlan;
 }
 
 export type CreateCheckoutSessionResult =
@@ -72,6 +75,7 @@ export async function createCheckoutSession(
     body: JSON.stringify({
       toolSlug,
       locale: options.locale,
+      plan: options.plan ?? "pro",
     }),
   });
 

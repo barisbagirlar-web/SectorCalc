@@ -1,5 +1,6 @@
 import { LeadIntentTrigger } from "@/components/leads/LeadIntentTrigger";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
+import { SingleVerdictCheckoutButton } from "@/components/subscription/SingleVerdictCheckoutButton";
 import Link from "next/link";
 import {
   PLAN_CATALOG,
@@ -33,6 +34,18 @@ export function PlanCheckoutAction({
           toolSlug={checkoutToolSlug}
         />
       </div>
+    );
+  }
+
+  if (plan.checkoutPlan === "single_verdict" && plan.checkoutReady) {
+    return (
+      <SingleVerdictCheckoutButton
+        toolSlug={checkoutToolSlug}
+        returnPath="/pricing"
+        className={className}
+        label={plan.primaryCta}
+        source="pricing_grid"
+      />
     );
   }
 
@@ -81,24 +94,4 @@ export function PlanAvailabilityBadge({
   );
 }
 
-export function SingleVerdictUpsellButton({
-  toolTitle,
-  pagePath,
-  className = "sc-btn-primary inline-flex w-full sm:w-auto",
-}: {
-  toolTitle: string;
-  pagePath: string;
-  className?: string;
-}) {
-  return (
-    <LeadIntentTrigger
-      source="premium_unlock"
-      plan="single_report"
-      toolRequested={`${toolTitle} — Get Full Verdict for $19`}
-      pagePath={pagePath}
-      className={className}
-    >
-      Get Full Verdict for $19
-    </LeadIntentTrigger>
-  );
-}
+export { SingleVerdictUpsellButton } from "@/components/subscription/SingleVerdictCheckoutButton";

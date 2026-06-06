@@ -34,8 +34,8 @@ export const PLAN_CATALOG: Record<CheckoutPlanId | "free" | "consultant_api", Pl
     name: "Single Verdict",
     priceLabel: "$19",
     period: "one report",
-    availability: "waitlist",
-    stripeCheckout: false,
+    availability: "live",
+    stripeCheckout: true,
   },
   pro: {
     id: "pro",
