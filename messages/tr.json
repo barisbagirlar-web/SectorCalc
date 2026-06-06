@@ -97,6 +97,7 @@
   },
   "freeTool": {
     "riskScoreLabel": "Risk skoru",
+    "riskScoreAria": "Risk skoru: yüzde {score}",
     "whatItMeans": "Bu ne anlama geliyor?",
     "premiumPreviewTitle": "Tam raporda görecekleriniz:",
     "premiumBadge": "Premium",
@@ -107,6 +108,7 @@
     "premiumPreview4": "PDF + Excel dışa aktarma"
   },
   "trust": {
+    "stripLabel": "Güven ve güvenlik",
     "refund": "7 gün iade politikası",
     "ssl": "256-bit SSL güvenli ödeme",
     "instant": "Anında erişim",
@@ -130,6 +132,151 @@
     "ar": "العربية"
   },
   "common": {
-    "learnMore": "Daha fazla bilgi"
+    "learnMore": "Daha fazla bilgi",
+    "loading": "Yükleniyor..."
+  },
+  "sectorCard": {
+    "calculate": "Hesapla",
+    "badge": {
+      "free": "Ücretsiz",
+      "premium": "Premium",
+      "new": "Yeni"
+    }
+  },
+  "theme": {
+    "groupLabel": "Renk teması",
+    "light": "Aydınlık tema",
+    "system": "Sistem teması",
+    "dark": "Karanlık tema"
+  },
+  "home": {
+    "hero": {
+      "trustStrip": "{count} sektör · Ücretsiz hesaplamalar · Premium raporlar · Uzman mantığı · ERP gerekmez"
+    },
+    "pain": {
+      "eyebrow": "Evrensel ölçüm",
+      "title": "Sektörünüzdeki görünmeyen kayıpları tespit edin",
+      "subtitle": "Her sektör kendine özgü kayıplar yaşar. Fire, zaman, enerji, malzeme… Size özel hesaplama araçlarıyla bu kayıpları anında görün.",
+      "items": {
+        "material": {
+          "title": "Malzeme maliyet riski",
+          "text": "Kurulum, yeniden işleme ve gizli işçilik, tahmin iyi göründükten sonra marjı eritir."
+        },
+        "labor": {
+          "title": "İşçilik ve zaman riski",
+          "text": "Ücretsiz kontroller görünür riski gösterir — premium analizörler tam kararı verir."
+        },
+        "overhead": {
+          "title": "Genel gider ve kapsam riski",
+          "text": "ERP kurulumu yok, danışmanlık yok — atölyeler, zanaatkarlar ve saha ekipleri için."
+        }
+      }
+    },
+    "freeCheck": {
+      "eyebrow": "Adım 1",
+      "title": "Ücretsiz sektör kontrolü yapın",
+      "subtitle": "{count} sektörde 3–5 girdili hızlı kontroller. Tarayıcıda görünür risk — hesap yok, güvenli fiyat yok, nihai karar yok.",
+      "cta": "Ücretsiz Marj Kontrolü",
+      "cardLabel": "Ücretsiz kontrol çıktısı",
+      "cardRisk": "Risk sinyali: ORTA",
+      "cardBody": "Görünür kurulum ve işçilik maruziyeti — ücretsiz planda tam güvenli fiyat gösterilmez."
+    },
+    "premiumStep": {
+      "eyebrow": "Adım 2",
+      "title": "Tam kararı açın",
+      "subtitle": "Premium analizörler minimum güvenli fiyat, marj sızıntısı, eylem önerisi ve PDF dışa aktarma ekler — teklif öncesi ihtiyaç duyulan karar katmanı.",
+      "cta": "Premium Analizörleri Gör",
+      "cardEyebrow": "Premium karar",
+      "cardTitle": "Minimum güvenli fiyat + eylem",
+      "cardBody": "Marj sızıntısı dökümü, kabul / yeniden fiyatlandır kararı ve dışa aktarılabilir PDF raporu."
+    },
+    "sample": {
+      "eyebrow": "Örnek karar raporu",
+      "title": "CNC Teklif Risk Raporu",
+      "subtitle": "Premium karar çıktısı böyle görünür — elektronik tablo dökümü değil.",
+      "verdictLabel": "Karar",
+      "verdictValue": "$1.840 ALTINDA KABUL ETMEYİN",
+      "riskLabel": "Marj riski",
+      "riskValue": "YÜKSEK RİSK",
+      "leakLabel": "Ana sızıntı",
+      "leakValue": "Kurulum süresi + takım tamponu",
+      "actionLabel": "Önerilen eylem",
+      "actionValue": "Teklifi göndermeden önce yeniden fiyatlandırın veya kapsamı daraltın.",
+      "primaryCta": "Örnek Karar Raporunu Gör",
+      "secondaryCta": "CNC Teklif Risk Analizörünü Aç"
+    },
+    "compare": {
+      "eyebrow": "Ücretsiz vs Pro",
+      "title": "Hızlı kontrol vs tam karar",
+      "freeLabel": "Ücretsiz kontrol",
+      "freeItem1": "Tarayıcıda görünür risk sinyali",
+      "freeItem2": "Doğrudan maliyet maruziyeti göstergeleri",
+      "freeItem3": "PDF dışa aktarma yok",
+      "freeItem4": "Kayıtlı rapor geçmişi yok",
+      "proLabel": "Pro karar",
+      "proItem1": "Minimum güvenli fiyat",
+      "proItem2": "Marj sızıntısı dökümü",
+      "proItem3": "Kabul / Yeniden fiyat / Kabul etme kararı",
+      "proItem4": "PDF hazır rapor ve kayıtlı geçmiş",
+      "proCta": "Premium Kararları Gör"
+    },
+    "trust": {
+      "title": "{count} sektörde güvenilir hesaplama",
+      "items": {
+        "erp": {
+          "title": "ERP gerekmez",
+          "text": "Kurumsal kurulum veya onboarding olmadan ücretsiz kontroller."
+        },
+        "freeSetup": {
+          "title": "Kurulum gerektirmez",
+          "text": "Tarayıcıda {count} sektör hızlı kontrolü — hesap gerekmez."
+        },
+        "premiumVerdicts": {
+          "title": "Premium kararlar riski açıklar",
+          "text": "Teklif öncesi minimum güvenli fiyat, marj sızıntıları ve eylem önerisi."
+        },
+        "stripe": {
+          "title": "Stripe ile güvenli ödeme",
+          "text": "Pro abonelik Stripe üzerinden güvenle faturalandırılır."
+        },
+        "privacy": {
+          "title": "İş verileriniz satılmaz",
+          "text": "Veri işleme ayrıntıları için gizlilik politikasını inceleyin."
+        }
+      }
+    },
+    "industriesPreview": {
+      "eyebrow": "Sektörler",
+      "title": "Operasyonel ve ticari kararlar için sektör paketleri",
+      "subtitle": "Her sektör modülü, o sektörün fiyatlandırma, marj ve risk değerlendirme biçimine uygun hızlı tahmin ve premium karar aracını birleştirir.",
+      "viewAll": "Tüm sektörleri gör →"
+    },
+    "cta": {
+      "eyebrow": "Hemen başlayın",
+      "title": "Sektörünüze özel hesaplamaya başlayın",
+      "subtitle": "Ücretsiz araçlarla hemen başlayın, ihtiyacınız olduğunda premium raporlara yükseltin.",
+      "primary": "Ücretsiz Araçları Keşfet",
+      "secondary": "Örnek Karar Raporunu Gör"
+    }
+  },
+  "emptyStates": {
+    "reports": {
+      "title": "Henüz kayıtlı rapor yok",
+      "body": "Ücretsiz sektör kontrolü yapın, ardından Tek Karar veya SectorCalc Pro ile raporları kaydedin.",
+      "bodyWithCredits": "Açılan premium analizörü çalıştırın ve karar raporunuzu buraya kaydedin.",
+      "ctaFree": "Ücretsiz araçları keşfet",
+      "ctaPremium": "Premium analizörleri aç",
+      "viewReport": "Raporu görüntüle"
+    },
+    "purchases": {
+      "title": "Tek karar kredileri",
+      "body": "Tek seferlik satın alımlar o sektör aracının premium analizörünü açar."
+    },
+    "login": {
+      "eyebrow": "Giriş gerekli",
+      "title": "Kayıtlı raporları görmek için giriş yapın",
+      "body": "Kayıtlı karar raporları SectorCalc hesabınıza bağlıdır.",
+      "cta": "Giriş yap"
+    }
   }
 }

@@ -8,6 +8,43 @@ import {
   calculatePhase2FreeResult,
   isPhase2Sector,
 } from "@/lib/tools/phase2-calculations";
+import { calculateDesiResult } from "@/lib/tools/calculation-formulas";
+import {
+  type SectorFreeSignal,
+  calculateWeldingFabFreeResult,
+  calculateHvacFreeResult,
+  calculateElectricalFreeResult,
+  calculateLandscapingFreeResult,
+  calculateAutoRepairFreeResult,
+  calculatePrintingFreeResult,
+  calculatePlumbingFreeResult,
+  calculateCarpentryFreeResult,
+  calculateRoofingFreeResult,
+  calculatePaintingFreeResult,
+  calculateSheetMetalFreeResult,
+  calculate3dPrintFreeResult,
+} from "@/lib/tools/sector-formulas-b";
+
+export {
+  calculateSpindleRpmResult,
+  calculateFeedRateResult,
+  calculateConcreteVolumeResult,
+  calculateRebarWeightResult,
+  calculateDesiResult,
+  calculateFertilizerNpkResult,
+  calculateIrrigationWaterResult,
+  calculateCarbonFootprintResult,
+  calculateHomeRenovationResult,
+  calculateFuelConsumptionResult,
+  calculateWeldingCostResult,
+  calculateWeldingCostFromShopInputs,
+  calculateHvacTonnageResult,
+  calculateFoodCostResult,
+  calculateProductMarginResult,
+  calculateRepairTimeResult,
+  calculatePlumbingCostResult,
+  calculateRoofingCostResult,
+} from "@/lib/tools/calculation-formulas";
 
 function getNumber(values: FreeToolInputValues, key: string): number {
   const raw = values[key];
@@ -65,6 +102,26 @@ export function isExtendedFreeSector(sector: string): boolean {
   return EXTENDED_SECTORS.has(sector);
 }
 
+function fromFreeSignal(
+  signal: SectorFreeSignal,
+  tool: RevenueTool
+): FreeToolResult {
+  if ("error" in signal) {
+    return buildGenericResult(
+      "MEDIUM",
+      "Check your inputs.",
+      signal.error,
+      tool.freeMissingFactors.slice(0, 4)
+    );
+  }
+  return buildGenericResult(
+    signal.riskLevel,
+    signal.headline,
+    signal.summary,
+    tool.freeMissingFactors.slice(0, 4)
+  );
+}
+
 export function calculateExtendedFreeResult(
   tool: RevenueTool,
   values: FreeToolInputValues
@@ -78,273 +135,131 @@ export function calculateExtendedFreeResult(
   }
 
   if (tool.sector === "welding-fabrication") {
-    const laborExposure =
-      getNumber(values, "laborHours") + getNumber(values, "fitUpHours");
-    if (laborExposure >= 16) {
-      return buildGenericResult(
-        "HIGH",
-        "This fab job may be underpriced.",
-        "High labor and fit-up exposure can compress margin before rework is modeled.",
-        ["Gas and consumables", "Rework risk", "Minimum safe bid"]
-      );
-    }
-    if (laborExposure >= 8) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Fit-up time may create margin pressure.",
-        "Visible labor exposure suggests a full bid check before quoting.",
-        ["Rework risk", "Target margin", "Minimum safe bid"]
-      );
-    }
+    return fromFreeSignal(
+      calculateWeldingFabFreeResult({
+        laborHours: getNumber(values, "laborHours"),
+        fitUpHours: getNumber(values, "fitUpHours"),
+        materialCost: getNumber(values, "materialCost"),
+        laborRate: getNumber(values, "laborRate"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "hvac") {
-    const sqft = getNumber(values, "squareFootage");
-    const tonnage = getNumber(values, "tonnage");
-    const ruleOfThumb = sqft > 0 ? sqft / 500 : 0;
-    if (tonnage > 0 && ruleOfThumb > 0 && tonnage < ruleOfThumb * 0.7) {
-      return buildGenericResult(
-        "HIGH",
-        "Tonnage may be undersized for the area.",
-        "Undersizing can lead to callbacks and margin loss on install labor.",
-        ["Equipment cost", "Callback risk", "Minimum project price"]
-      );
-    }
-    if (getNumber(values, "laborHours") >= 40) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Labor hours suggest a full margin check.",
-        "Large HVAC installs need callback and commissioning cost in the bid.",
-        ["Commissioning cost", "Callback risk", "Target margin"]
-      );
-    }
+    return fromFreeSignal(
+      calculateHvacFreeResult({
+        squareFootage: getNumber(values, "squareFootage"),
+        tonnage: getNumber(values, "tonnage"),
+        laborHours: getNumber(values, "laborHours"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "electrical-contracting") {
-    const laborCost = getNumber(values, "laborHours") * getNumber(values, "laborRate");
-    const ratio =
-      getNumber(values, "materialCost") > 0
-        ? laborCost / getNumber(values, "materialCost")
-        : 0;
-    if (ratio < 0.4 && getNumber(values, "laborHours") >= 8) {
-      return buildGenericResult(
-        "HIGH",
-        "Labor may be under-scoped for material load.",
-        "Panel jobs with heavy material and low labor hours often miss testing time.",
-        ["Testing hours", "Inspection risk", "Safe panel bid"]
-      );
-    }
-    if (getNumber(values, "laborHours") >= 16) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Labor exposure needs a bid check.",
-        "Visible hours suggest verifying inspection and testing allowance.",
-        ["Inspection risk", "Target margin", "Safe panel bid"]
-      );
-    }
+    return fromFreeSignal(
+      calculateElectricalFreeResult({
+        laborHours: getNumber(values, "laborHours"),
+        laborRate: getNumber(values, "laborRate"),
+        materialCost: getNumber(values, "materialCost"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "landscaping-lawn-care") {
-    const monthlyLoad =
-      getNumber(values, "crewHoursPerVisit") * getNumber(values, "visitsPerMonth");
-    if (monthlyLoad >= 40) {
-      return buildGenericResult(
-        "HIGH",
-        "This route may be underpriced.",
-        "High monthly crew hours can erode margin before fuel and wear are included.",
-        ["Fuel cost", "Equipment wear", "Minimum monthly price"]
-      );
-    }
-    if (monthlyLoad >= 20) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Visit load deserves a contract check.",
-        "Visible crew hours suggest testing the monthly bid before signing.",
-        ["Supply cost", "Target margin", "Minimum monthly price"]
-      );
-    }
+    return fromFreeSignal(
+      calculateLandscapingFreeResult({
+        crewHoursPerVisit: getNumber(values, "crewHoursPerVisit"),
+        visitsPerMonth: getNumber(values, "visitsPerMonth"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "auto-repair-shop") {
-    const quoted = getNumber(values, "quotedPrice");
-    const visibleCost =
-      getNumber(values, "repairHours") * 80 + getNumber(values, "partsCost");
-    if (quoted > 0 && visibleCost / quoted >= 0.75) {
-      return buildGenericResult(
-        "HIGH",
-        "Quoted price may not cover the job.",
-        "Visible labor and parts pressure is high before diagnostic and comeback risk.",
-        ["Diagnostic hours", "Comeback risk", "True job profit"]
-      );
-    }
-    if (getNumber(values, "repairHours") >= 6) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Long repair hours need a margin check.",
-        "Extended repair time increases comeback and labor exposure.",
-        ["Comeback risk", "Parts markup", "True job profit"]
-      );
-    }
+    return fromFreeSignal(
+      calculateAutoRepairFreeResult({
+        quotedPrice: getNumber(values, "quotedPrice"),
+        repairHours: getNumber(values, "repairHours"),
+        partsCost: getNumber(values, "partsCost"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "printing-signage") {
-    const designCost = getNumber(values, "designHours") * getNumber(values, "laborRate");
-    const ratio =
-      getNumber(values, "materialCost") > 0
-        ? designCost / getNumber(values, "materialCost")
-        : 0;
-    if (ratio >= 1.2) {
-      return buildGenericResult(
-        "HIGH",
-        "Design time may erode signage margin.",
-        "Heavy design load on print jobs often needs reprint and install buffer.",
-        ["Install hours", "Reprint risk", "Minimum safe price"]
-      );
-    }
-    if (getNumber(values, "designHours") >= 4) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Design hours need a bid check.",
-        "Visible design exposure suggests verifying install and reprint allowance.",
-        ["Ink cost", "Reprint risk", "Minimum safe price"]
-      );
-    }
+    return fromFreeSignal(
+      calculatePrintingFreeResult({
+        designHours: getNumber(values, "designHours"),
+        laborRate: getNumber(values, "laborRate"),
+        materialCost: getNumber(values, "materialCost"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "plumbing") {
-    const fixtures = getNumber(values, "fixtureCount");
-    const hoursPerFixture =
-      fixtures > 0 ? getNumber(values, "laborHours") / fixtures : 0;
-    if (fixtures >= 4 && hoursPerFixture < 1.5) {
-      return buildGenericResult(
-        "HIGH",
-        "Labor may be under-scoped for fixture count.",
-        "Multi-fixture jobs often need material runs and callback buffer.",
-        ["Material runs", "Callback risk", "Safe job price"]
-      );
-    }
-    if (getNumber(values, "laborHours") >= 6) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Labor exposure needs a job check.",
-        "Visible hours suggest verifying parts and callback allowance.",
-        ["Callback risk", "Target margin", "Safe job price"]
-      );
-    }
+    return fromFreeSignal(
+      calculatePlumbingFreeResult({
+        fixtureCount: getNumber(values, "fixtureCount"),
+        laborHours: getNumber(values, "laborHours"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "carpentry-millwork") {
-    const totalHours =
-      getNumber(values, "laborHours") + getNumber(values, "installHours");
-    if (totalHours >= 24) {
-      return buildGenericResult(
-        "HIGH",
-        "This millwork job may be underpriced.",
-        "Long shop and install hours can compress margin before waste is modeled.",
-        ["Finishing cost", "Waste rate", "Minimum millwork bid"]
-      );
-    }
-    if (totalHours >= 12) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Labor and install time need a bid check.",
-        "Visible hours suggest verifying waste and finishing allowance.",
-        ["Waste rate", "Target margin", "Minimum millwork bid"]
-      );
-    }
+    return fromFreeSignal(
+      calculateCarpentryFreeResult({
+        laborHours: getNumber(values, "laborHours"),
+        installHours: getNumber(values, "installHours"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "roofing") {
-    const laborCost = getNumber(values, "laborHours") * getNumber(values, "laborRate");
-    const ratio =
-      getNumber(values, "materialCost") > 0
-        ? laborCost / getNumber(values, "materialCost")
-        : 0;
-    if (ratio < 0.35 && getNumber(values, "laborHours") >= 16) {
-      return buildGenericResult(
-        "HIGH",
-        "Tear-off and delay risk may be missing.",
-        "Material-heavy roofing bids often underprice labor, tear-off and dump fees.",
-        ["Tear-off cost", "Weather delay risk", "Minimum roofing bid"]
-      );
-    }
-    if (getNumber(values, "laborHours") >= 24) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Long labor hours need a contract check.",
-        "Extended crew days increase weather and warranty exposure.",
-        ["Dump fees", "Target margin", "Minimum roofing bid"]
-      );
-    }
+    return fromFreeSignal(
+      calculateRoofingFreeResult({
+        laborHours: getNumber(values, "laborHours"),
+        laborRate: getNumber(values, "laborRate"),
+        materialCost: getNumber(values, "materialCost"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "painting") {
-    const prepIntensity =
-      getNumber(values, "areaSize") > 0
-        ? getNumber(values, "prepHours") / getNumber(values, "areaSize") * 100
-        : 0;
-    if (prepIntensity >= 0.15) {
-      return buildGenericResult(
-        "HIGH",
-        "Prep time may erode painting margin.",
-        "Heavy prep relative to area often needs scaffold and touch-up buffer.",
-        ["Scaffold cost", "Touch-up risk", "Minimum painting price"]
-      );
-    }
-    if (getNumber(values, "prepHours") >= 8) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Prep hours need a job check.",
-        "Visible prep exposure suggests verifying touch-up allowance.",
-        ["Touch-up risk", "Target margin", "Minimum painting price"]
-      );
-    }
+    return fromFreeSignal(
+      calculatePaintingFreeResult({
+        areaSize: getNumber(values, "areaSize"),
+        prepHours: getNumber(values, "prepHours"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "sheet-metal") {
-    const setupTime = getNumber(values, "setupTime");
-    const quantity = Math.max(1, getNumber(values, "quantity"));
-    if (quantity <= 2 && setupTime >= 45) {
-      return buildGenericResult(
-        "HIGH",
-        "Setup-heavy sheet metal may be underpriced.",
-        "Low quantity with long setup often destroys margin before scrap is modeled.",
-        ["Programming time", "Scrap rate", "Safe sheet metal quote"]
-      );
-    }
-    if (setupTime >= 25) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Setup time may create quote risk.",
-        "Visible setup exposure suggests a full quote check before accepting.",
-        ["Scrap rate", "Finishing cost", "Safe sheet metal quote"]
-      );
-    }
+    return fromFreeSignal(
+      calculateSheetMetalFreeResult({
+        setupTime: getNumber(values, "setupTime"),
+        quantity: getNumber(values, "quantity"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "3d-printing-service") {
-    const machineCost =
-      getNumber(values, "printHours") * getNumber(values, "machineRate");
-    const ratio =
-      getNumber(values, "materialCost") > 0
-        ? machineCost / getNumber(values, "materialCost")
-        : 0;
-    if (getNumber(values, "printHours") >= 12 && ratio >= 2) {
-      return buildGenericResult(
-        "HIGH",
-        "Long print jobs may be underpriced.",
-        "Extended machine time increases fail-rate and post-processing exposure.",
-        ["Post-processing", "Fail rate", "Minimum print price"]
-      );
-    }
-    if (getNumber(values, "printHours") >= 6) {
-      return buildGenericResult(
-        "MEDIUM",
-        "Print time needs a margin check.",
-        "Visible machine hours suggest verifying fail-rate buffer.",
-        ["Fail rate", "Target margin", "Minimum print price"]
-      );
-    }
+    return fromFreeSignal(
+      calculate3dPrintFreeResult({
+        printHours: getNumber(values, "printHours"),
+        machineRate: getNumber(values, "machineRate"),
+        materialCost: getNumber(values, "materialCost"),
+      }),
+      tool
+    );
   }
 
   if (tool.sector === "logistics-transport") {
@@ -352,8 +267,21 @@ export function calculateExtendedFreeResult(
     const width = getNumber(values, "width");
     const height = getNumber(values, "height");
     const quantity = Math.max(1, getNumber(values, "quantity"));
-    const volumeCm3 = length * width * height * quantity;
-    const desi = volumeCm3 > 0 ? Math.ceil(volumeCm3 / 5000) : 0;
+    const desiResult = calculateDesiResult({
+      length,
+      width,
+      height,
+      quantity,
+    });
+    if ("error" in desiResult) {
+      return buildGenericResult(
+        "MEDIUM",
+        "Check package dimensions.",
+        desiResult.error,
+        tool.freeMissingFactors.slice(0, 4)
+      );
+    }
+    const { desi } = desiResult;
 
     if (desi >= 100) {
       return buildGenericResult(

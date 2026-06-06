@@ -278,15 +278,38 @@ async function main() {
     if (!result.ok) failed += 1;
   }
 
-  const industryPassed = smokeResults.filter((r) => r.path.startsWith("/industries/") && r.ok).length;
-  const freePassed = smokeResults.filter((r) => r.path.startsWith("/tools/free/") && r.ok).length;
-  const premiumPassed = smokeResults.filter((r) => r.path.startsWith("/tools/premium/") && r.ok).length;
+  const LOCALE_PATH_PREFIX = /^\/[a-z]{2}(\/|$)/;
+
+  function pathWithoutLocale(path) {
+    return path.replace(LOCALE_PATH_PREFIX, "/");
+  }
+
+  const industryPassed = smokeResults.filter(
+    (r) => pathWithoutLocale(r.path).startsWith("/industries/") && r.ok && r.status === 200
+  ).length;
+  const freePassed = smokeResults.filter(
+    (r) => pathWithoutLocale(r.path).startsWith("/tools/free/") && r.ok && r.status === 200
+  ).length;
+  const premiumPassed = smokeResults.filter(
+    (r) => pathWithoutLocale(r.path).startsWith("/tools/premium/") && r.ok && r.status === 200
+  ).length;
+
+  const expectedIndustryCount = industryRoutes.length;
+  const expectedFreeCount = freeRoutes.length;
+  const expectedPremiumCount = premiumRoutes.length;
 
   console.log("\n=== Summary ===");
   console.log(`Registry checks: ${checks.filter((c) => c.pass).length}/${checks.length} passed`);
-  console.log(`Industry routes: ${industryPassed}/${industryRoutes.length}`);
-  console.log(`Free tools: ${freePassed}/${freeRoutes.length}`);
-  console.log(`Premium analyzers: ${premiumPassed}/${premiumRoutes.length}`);
+  console.log(`Industry routes: ${industryPassed}/${expectedIndustryCount}`);
+  console.log(`Free tools: ${freePassed}/${expectedFreeCount}`);
+  console.log(`Premium analyzers: ${premiumPassed}/${expectedPremiumCount}`);
+
+  if (industryPassed === 0 || freePassed === 0 || premiumPassed === 0) {
+    console.error(
+      "\n⚠️  WARNING: Summary shows 0 — likely a counter bug, not a route failure. Check individual ✓ lines above."
+    );
+    process.exit(1);
+  }
 
   if (failed > 0) {
     console.error(`\nCatalog audit failed: ${failed} issue(s).`);

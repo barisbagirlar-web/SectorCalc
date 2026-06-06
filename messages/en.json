@@ -97,6 +97,7 @@
   },
   "freeTool": {
     "riskScoreLabel": "Risk score",
+    "riskScoreAria": "Risk score: {score} percent",
     "whatItMeans": "What this means",
     "premiumPreviewTitle": "In the full report you get:",
     "premiumBadge": "Premium",
@@ -107,6 +108,7 @@
     "premiumPreview4": "PDF + Excel export"
   },
   "trust": {
+    "stripLabel": "Trust and security",
     "refund": "7-day refund policy",
     "ssl": "256-bit SSL secure checkout",
     "instant": "Instant access",
@@ -130,6 +132,151 @@
     "ar": "العربية"
   },
   "common": {
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "loading": "Loading..."
+  },
+  "sectorCard": {
+    "calculate": "Calculate",
+    "badge": {
+      "free": "Free",
+      "premium": "Premium",
+      "new": "New"
+    }
+  },
+  "theme": {
+    "groupLabel": "Color theme",
+    "light": "Light theme",
+    "system": "System theme",
+    "dark": "Dark theme"
+  },
+  "home": {
+    "hero": {
+      "trustStrip": "{count} sectors · Free calculators · Premium reports · Expert logic · No ERP required"
+    },
+    "pain": {
+      "eyebrow": "Universal measurement",
+      "title": "Detect the hidden losses in your industry",
+      "subtitle": "Every sector has unique losses — scrap, time, energy, material. See them instantly with sector-specific calculation tools.",
+      "items": {
+        "material": {
+          "title": "Material cost risk",
+          "text": "Setup time, rework and hidden labor erode margin after the estimate looks fine."
+        },
+        "labor": {
+          "title": "Labor & time risk",
+          "text": "Free checks expose visible risk — premium analyzers deliver the full verdict."
+        },
+        "overhead": {
+          "title": "Overhead & scope risk",
+          "text": "No ERP rollout, no consulting retainer — built for shops, trades and service teams."
+        }
+      }
+    },
+    "freeCheck": {
+      "eyebrow": "Step 1",
+      "title": "Run a free sector check",
+      "subtitle": "{count} sector quick checks with 3–5 inputs. See visible risk in your browser — no account, no safe price, no final verdict.",
+      "cta": "Run a Free Margin Check",
+      "cardLabel": "Free check output",
+      "cardRisk": "Risk signal: MEDIUM",
+      "cardBody": "Visible setup and labor exposure — full safe price withheld on free tier."
+    },
+    "premiumStep": {
+      "eyebrow": "Step 2",
+      "title": "Unlock the full verdict",
+      "subtitle": "Premium analyzers add minimum safe price, margin leak drivers, suggested action and PDF export — the decision layer operators need before quoting.",
+      "cta": "View Premium Analyzers",
+      "cardEyebrow": "Premium verdict",
+      "cardTitle": "Minimum safe price + action",
+      "cardBody": "Margin leak breakdown, accept / reprice verdict and exportable PDF report."
+    },
+    "sample": {
+      "eyebrow": "Sample verdict report",
+      "title": "CNC Quote Risk Report",
+      "subtitle": "This is what a premium decision output looks like — not a spreadsheet dump.",
+      "verdictLabel": "Verdict",
+      "verdictValue": "DO NOT ACCEPT UNDER $1,840",
+      "riskLabel": "Margin risk",
+      "riskValue": "HIGH RISK",
+      "leakLabel": "Main leak",
+      "leakValue": "Setup time + tooling buffer",
+      "actionLabel": "Suggested action",
+      "actionValue": "Reprice or reduce scope before sending the quote.",
+      "primaryCta": "View Sample Verdict Report",
+      "secondaryCta": "Open CNC Quote Risk Analyzer"
+    },
+    "compare": {
+      "eyebrow": "Free vs Pro",
+      "title": "Quick check vs full verdict",
+      "freeLabel": "Free check",
+      "freeItem1": "Visible risk signal in your browser",
+      "freeItem2": "Direct cost exposure indicators",
+      "freeItem3": "No PDF export",
+      "freeItem4": "No saved report history",
+      "proLabel": "Pro verdict",
+      "proItem1": "Minimum safe price",
+      "proItem2": "Margin leak breakdown",
+      "proItem3": "Accept / Reprice / Do Not Accept verdict",
+      "proItem4": "PDF-ready report and saved history",
+      "proCta": "View Premium Verdicts"
+    },
+    "trust": {
+      "title": "Trusted calculation across {count} sectors",
+      "items": {
+        "erp": {
+          "title": "No ERP required",
+          "text": "Free checks run without enterprise setup or onboarding."
+        },
+        "freeSetup": {
+          "title": "Free checks run without setup",
+          "text": "{count} sector quick checks in your browser — no account needed."
+        },
+        "premiumVerdicts": {
+          "title": "Premium verdicts explain the risk",
+          "text": "Minimum safe price, margin leaks and suggested action before you quote."
+        },
+        "stripe": {
+          "title": "Checkout secured by Stripe",
+          "text": "Pro subscription billed securely through Stripe."
+        },
+        "privacy": {
+          "title": "Business data is not sold",
+          "text": "See privacy policy for data handling details."
+        }
+      }
+    },
+    "industriesPreview": {
+      "eyebrow": "Industries",
+      "title": "Sector packs for operational and commercial decisions",
+      "subtitle": "Each industry module combines a quick estimate layer and a premium decision tool — aligned to how that sector prices work, measures margin and evaluates risk.",
+      "viewAll": "View all industries →"
+    },
+    "cta": {
+      "eyebrow": "Get started",
+      "title": "Start calculating for your sector",
+      "subtitle": "Begin with free tools, upgrade to premium reports when you need them.",
+      "primary": "Explore Free Tools",
+      "secondary": "View Sample Verdict Report"
+    }
+  },
+  "emptyStates": {
+    "reports": {
+      "title": "No saved reports yet",
+      "body": "Run a free sector check, then unlock a Single Verdict or SectorCalc Pro to save reports.",
+      "bodyWithCredits": "Run your unlocked premium analyzer and save the verdict report here.",
+      "ctaFree": "Explore free tools",
+      "ctaPremium": "Open premium analyzers",
+      "viewReport": "View report"
+    },
+    "purchases": {
+      "title": "Single verdict credits",
+      "body": "One-time purchases unlock the premium analyzer for that sector tool."
+    },
+    "login": {
+      "eyebrow": "Sign in required",
+      "title": "Sign in to view saved reports",
+      "body": "Saved verdict reports are linked to your SectorCalc account.",
+      "cta": "Sign in"
+    }
   }
 }

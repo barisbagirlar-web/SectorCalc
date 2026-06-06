@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { getLocale, getTranslations } from "next-intl/server";
 import {
   FEATURED_INDUSTRY_SLUGS,
   industryRegistry,
@@ -46,12 +47,12 @@ function ToolLine({
   return (
     <div className="grid grid-cols-[88px_1fr] items-start gap-3">
       <span
-        className={`inline-flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-xs font-semibold ${badgeClass}`}
+        className={`inline-flex h-7 min-h-[44px] items-center justify-center gap-1 rounded-full border px-2 text-xs font-semibold ${badgeClass}`}
       >
         <ScIcon icon={TierIcon} size="compact" className={tierColor} />
         {label}
       </span>
-      <span className="min-w-0 text-sm leading-7 text-slate">{value}</span>
+      <span className="min-w-0 text-sm leading-7 text-slate dark:text-slate-300">{value}</span>
     </div>
   );
 }
@@ -63,6 +64,10 @@ function SectorCardItem({
   premiumTool,
   freeHref,
   premiumHref,
+  freeLabel,
+  premiumLabel,
+  startFreeLabel,
+  viewPremiumLabel,
   icon,
   slug,
 }: {
@@ -72,43 +77,47 @@ function SectorCardItem({
   premiumTool: string;
   freeHref: string;
   premiumHref: string;
+  freeLabel: string;
+  premiumLabel: string;
+  startFreeLabel: string;
+  viewPremiumLabel: string;
   icon: IndustryIcon;
   slug: IndustrySlug;
 }) {
   return (
-    <article className="group flex h-full flex-col rounded-[28px] border border-slate/15 bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-professional-blue/25 hover:shadow-[0_24px_70px_rgba(15,23,42,0.10)]">
+    <article className="group flex h-full flex-col rounded-2xl border border-slate/15 bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-professional-blue/25 dark:border-slate-600 dark:bg-slate-800 dark:hover:border-slate-500">
       <div className="flex gap-4">
-        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-cyan/20 bg-off-white">
+        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-cyan/20 bg-off-white dark:border-slate-600 dark:bg-slate-900">
           <SectorIcon slug={slug} iconType={icon} />
         </div>
 
         <div className="min-w-0">
-          <h3 className="text-xl font-semibold tracking-tight text-deep-navy sm:text-2xl">
+          <h3 className="text-xl font-semibold tracking-tight text-deep-navy dark:text-off-white sm:text-2xl">
             {title}
           </h3>
-          <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate">
+          <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate dark:text-slate-300">
             {painStatement}
           </p>
         </div>
       </div>
 
-      <div className="mt-auto space-y-3 border-t border-slate/10 pt-5">
-        <ToolLine label="Free" value={freeTool} variant="free" />
-        <ToolLine label="Premium" value={premiumTool} variant="premium" />
+      <div className="mt-auto space-y-3 border-t border-slate/10 pt-5 dark:border-slate-700">
+        <ToolLine label={freeLabel} value={freeTool} variant="free" />
+        <ToolLine label={premiumLabel} value={premiumTool} variant="premium" />
       </div>
 
       <div className="mt-6 flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
         <Link
           href={freeHref}
-          className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-professional-blue px-5 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-professional-blue focus:ring-offset-2"
+          className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-professional-blue px-5 text-sm font-semibold text-white transition hover:bg-professional-blue/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-professional-blue focus-visible:ring-offset-2 dark:bg-cyan dark:text-deep-navy"
         >
-          Start Free Margin Check
+          {startFreeLabel}
         </Link>
         <Link
           href={premiumHref}
-          className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl border border-professional-blue/40 bg-white px-5 text-sm font-semibold text-professional-blue transition hover:bg-cyan/10 focus:outline-none focus:ring-2 focus:ring-professional-blue focus:ring-offset-2"
+          className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl border border-professional-blue/40 bg-white px-5 text-sm font-semibold text-professional-blue transition hover:bg-cyan/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-professional-blue focus-visible:ring-offset-2 dark:border-slate-500 dark:bg-slate-900 dark:text-cyan"
         >
-          View Premium Analyzer
+          {viewPremiumLabel}
         </Link>
       </div>
     </article>
@@ -137,12 +146,15 @@ const sectorsByCategory = CATEGORY_ORDER.map((category) => ({
   sectors: industryRegistry.filter((entry) => entry.category === category),
 })).filter((group) => group.sectors.length > 0);
 
-export default function SectorSelectorSection() {
+export default async function SectorSelectorSection() {
+  const t = await getTranslations("sectors");
+  const locale = await getLocale();
+
   return (
     <section
       id="industries"
       aria-labelledby="sector-selector-heading"
-      className="relative overflow-hidden border-t border-slate/15 bg-off-white py-16 sm:py-20 lg:py-24"
+      className="relative overflow-hidden border-t border-slate/15 bg-off-white py-16 dark:bg-slate-900 sm:py-20 lg:py-24"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(15,23,42,0.04)_1px,transparent_1px)] [background-size:22px_22px]"
@@ -153,59 +165,65 @@ export default function SectorSelectorSection() {
         <div className="mx-auto max-w-3xl text-center">
           <h2
             id="sector-selector-heading"
-            className="text-balance text-3xl font-semibold tracking-tight text-deep-navy sm:text-4xl lg:text-5xl lg:leading-tight"
+            className="sc-h2 text-balance lg:leading-tight"
           >
-            Choose from {SECTOR_COUNT} active sectors
+            {t("title", { count: SECTOR_COUNT })}
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-7 text-slate sm:mt-5 sm:text-lg sm:leading-8">
-            Nine industry categories — from CNC and construction to agriculture, energy and daily
-            life tools. Free checks surface risk; premium analyzers deliver expert verdicts.
+          <p className="sc-body-muted mx-auto mt-4 max-w-2xl text-pretty sm:mt-5 sm:text-lg sm:leading-8">
+            {t("subtitle")}
           </p>
           <p className="mt-4">
             <Link
               href="/industries"
-              className="text-sm font-semibold text-professional-blue hover:underline"
+              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-professional-blue hover:underline dark:text-cyan"
             >
-              View all {SECTOR_COUNT} industries →
+              {t("viewAll", { count: SECTOR_COUNT })}
             </Link>
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {featuredCards.map((sector) => (
-            <SectorCardItem key={sector.slug} {...sector} />
+            <SectorCardItem
+              key={sector.slug}
+              {...sector}
+              freeLabel={t("free")}
+              premiumLabel={t("premium")}
+              startFreeLabel={t("startFree")}
+              viewPremiumLabel={t("viewPremium")}
+            />
           ))}
         </div>
 
         <div className="mt-16">
-          <h3 className="text-center text-lg font-semibold text-deep-navy">
-            Browse by category
-          </h3>
+          <h3 className="sc-h3 text-center">{t("browseByCategory")}</h3>
           <div className="mt-8 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
             {sectorsByCategory.map(({ category, label, sectors }) => (
               <div
                 key={category}
-                className="rounded-2xl border border-slate/15 bg-white p-5 shadow-card"
+                className="rounded-2xl border border-slate/15 bg-white p-5 shadow-card dark:border-slate-600 dark:bg-slate-800"
               >
-                <h4 className="text-sm font-bold uppercase tracking-wide text-professional-blue">
-                  {label.en}
+                <h4 className="text-sm font-bold uppercase tracking-wide text-professional-blue dark:text-cyan">
+                  {locale === "tr" ? label.tr : label.en}
                 </h4>
-                <p className="mt-0.5 text-xs text-slate">{label.tr}</p>
-                <ul className="mt-4 space-y-2">
+                {locale === "tr" ? (
+                  <p className="mt-0.5 text-xs text-slate dark:text-slate-400">{label.en}</p>
+                ) : null}
+                <ul className="mt-4 space-y-1">
                   {sectors.map((sector) => {
                     const tool = getRevenueToolBySector(sector.slug);
                     return (
                       <li key={sector.slug}>
                         <Link
                           href={`/industries/${sector.slug}`}
-                          className="group flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-sm text-deep-navy transition hover:bg-cyan/10"
+                          className="group flex min-h-[44px] items-center justify-between gap-2 rounded-lg px-2 py-2 text-sm text-deep-navy transition hover:bg-cyan/10 dark:text-off-white dark:hover:bg-slate-700"
                         >
-                          <span className="font-medium group-hover:text-professional-blue">
+                          <span className="font-medium group-hover:text-professional-blue dark:group-hover:text-cyan">
                             {sector.name}
                           </span>
                           {tool ? (
-                            <span className="shrink-0 text-xs text-slate">
+                            <span className="shrink-0 text-xs text-slate dark:text-slate-400">
                               {tool.freeTitle}
                             </span>
                           ) : null}

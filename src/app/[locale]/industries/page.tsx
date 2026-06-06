@@ -14,10 +14,11 @@ import { INDUSTRIES, getIndustryBySlug, type Industry } from "@/data/industries"
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref, getPricingHref } from "@/lib/tools/tool-links";
 
+const SECTOR_COUNT = INDUSTRIES.length;
+
 export const metadata: Metadata = createPageMetadata({
   title: "Industry Cost and Margin Tools",
-  description:
-    "Seventeen active industry packs with free cost calculators and premium margin analyzers for pricing and bid decisions.",
+  description: `${SECTOR_COUNT} active industry packs with free cost calculators and premium margin analyzers for pricing and bid decisions.`,
   path: "/industries",
 });
 

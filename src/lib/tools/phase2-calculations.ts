@@ -9,6 +9,20 @@ import type {
   PremiumToolInputValues,
   PremiumToolResult,
 } from "@/lib/tools/premium-tool-results";
+import {
+  calculateCarbonFootprintResult,
+  calculateCbamComplianceResult,
+  calculateCropYieldOptimizerResult,
+  calculateFertilizerNpkResult,
+  calculateFuelConsumptionResult,
+  calculateHomeRenovationResult,
+  calculateIrrigationWaterResult,
+  calculateRenovationBudgetOptimizerResult,
+  cbamCategoryFromProductionTons,
+  cityFromTier,
+  ENERGY_EMISSION_MULTIPLIERS,
+  GRID_EMISSION_FACTOR_KG_PER_KWH,
+} from "@/lib/tools/calculation-formulas";
 
 function num(values: Record<string, number | string>, key: string): number {
   const raw = values[key];
@@ -22,6 +36,10 @@ function num(values: Record<string, number | string>, key: string): number {
 
 function yes(values: Record<string, number | string>, key: string): boolean {
   return values[key] === "yes";
+}
+
+function str(values: Record<string, number | string>, key: string): string {
+  return typeof values[key] === "string" ? String(values[key]) : "";
 }
 
 function money(value: number): string {
@@ -67,35 +85,46 @@ export function calculatePhase2FreeResult(
 
   switch (tool.sector) {
     case "agriculture-crops": {
-      const n = num(values, "nitrogenKgPerHa");
       const area = num(values, "areaHectares");
-      if (n > 200 || area * n > 5000) {
-        return freeResult(
-          "HIGH",
-          "Over-fertilization risk detected.",
-          `Total N load ${(area * n).toFixed(0)} kg — salinity and burn risk rise above 200 kg/ha N.`,
-          tool.freeMissingFactors.slice(0, 4)
-        );
+      const nRate = num(values, "nitrogenKgPerHa");
+      const pRate = num(values, "phosphorusKgPerHa");
+      const npk = calculateFertilizerNpkResult({
+        cropDemandN: nRate,
+        soilReserveN: pRate * 0.15,
+        fertilizerEfficiency: 85,
+      });
+      if ("error" in npk) {
+        return freeResult("MEDIUM", "Check fertilizer inputs.", npk.error, tool.freeMissingFactors.slice(0, 4));
       }
-      if (n > 120) {
-        return freeResult(
-          "MEDIUM",
-          "N rate is elevated.",
-          "Visible nitrogen rate may compress margin if yield does not respond linearly.",
-          tool.freeMissingFactors.slice(0, 4)
-        );
-      }
-      break;
+      const totalLoad = area * nRate;
+      const riskLevel: FreeRiskLevel =
+        nRate > 200 || totalLoad > 5000 ? "HIGH" : nRate > 120 ? "MEDIUM" : "LOW";
+      return freeResult(
+        riskLevel,
+        riskLevel === "HIGH" ? "Over-fertilization risk detected." : `N application: ${npk.fertilizerNeeded} kg/ha net`,
+        `${npk.note} Total field N load ${totalLoad.toFixed(0)} kg.`,
+        tool.freeMissingFactors.slice(0, 4)
+      );
     }
     case "agriculture-irrigation": {
-      const monthly =
-        num(values, "areaHectares") *
-        num(values, "pumpingHours") *
-        num(values, "electricityRate");
+      const area = num(values, "areaHectares");
+      const pumpingHours = num(values, "pumpingHours");
+      const electricityRate = num(values, "electricityRate");
+      const et0 = Math.max(3, pumpingHours / Math.max(1, area * 4));
+      const water = calculateIrrigationWaterResult({
+        et0,
+        kc: 1.05,
+        area,
+        irrigationEfficiency: 72,
+      });
+      const monthly = area * pumpingHours * electricityRate;
+      if ("error" in water) {
+        return freeResult("MEDIUM", "Check irrigation inputs.", water.error, tool.freeMissingFactors.slice(0, 4));
+      }
       return freeResult(
         monthly > 8000 ? "HIGH" : monthly > 2500 ? "MEDIUM" : "LOW",
-        `Visible pumping cost ~${money(monthly)}/month`,
-        "Before water rights, evaporation loss and efficiency verdict.",
+        `Pumping ~${money(monthly)}/mo · ${water.totalWaterM3} m³ gross water need`,
+        `${water.note} FAO Paper 56 crop water requirement modeled.`,
         tool.freeMissingFactors.slice(0, 4)
       );
     }
@@ -108,7 +137,7 @@ export function calculatePhase2FreeResult(
       return freeResult(
         monthly > 50000 ? "HIGH" : monthly > 15000 ? "MEDIUM" : "LOW",
         `Monthly feed exposure: ${money(monthly)}`,
-        "Quick feed bill before waste, spoilage and output efficiency are modeled.",
+        "Quick feed bill before waste, spoilage and FCR are modeled.",
         tool.freeMissingFactors.slice(0, 4)
       );
     }
@@ -126,39 +155,60 @@ export function calculatePhase2FreeResult(
       );
     }
     case "energy-consumption": {
-      const bill = num(values, "monthlyKwh") * num(values, "tariffPerKwh");
+      const kwh = num(values, "monthlyKwh");
+      const carbon = calculateCarbonFootprintResult({
+        energyConsumption: kwh,
+        emissionFactor: GRID_EMISSION_FACTOR_KG_PER_KWH,
+        gridLossFactor: 8,
+      });
+      const bill = kwh * num(values, "tariffPerKwh");
+      const emissionsNote =
+        "error" in carbon
+          ? ""
+          : ` · ${carbon.totalEmissions.toFixed(1)} tCO₂e (IPCC grid factor)`;
       return freeResult(
         bill > 12000 ? "HIGH" : bill > 4000 ? "MEDIUM" : "LOW",
-        `Monthly energy bill ~${money(bill)}`,
+        `Monthly energy bill ~${money(bill)}${emissionsNote}`,
         "Demand charges and power-factor penalties not modeled on free tier.",
         tool.freeMissingFactors.slice(0, 4)
       );
     }
     case "energy-carbon": {
-      const factors: Record<string, number> = {
-        coal: 0.9,
-        gas: 0.4,
-        electricity: 0.35,
-        renewable: 0.05,
-      };
-      const source = String(values.energySource ?? "electricity");
-      const tons = num(values, "productionTons") * (factors[source] ?? 0.35);
+      const source = str(values, "energySource") || "electricity";
+      const prod = num(values, "productionTons");
+      const energyKey = source as keyof typeof ENERGY_EMISSION_MULTIPLIERS;
+      const factor = ENERGY_EMISSION_MULTIPLIERS[energyKey] ?? 0.35;
+      const kwhEquivalent = prod * factor * 1000;
+      const carbon = calculateCarbonFootprintResult({
+        energyConsumption: kwhEquivalent,
+        emissionFactor: 0.001,
+        gridLossFactor: 5,
+      });
+      if ("error" in carbon) {
+        return freeResult("MEDIUM", "Check production inputs.", carbon.error, tool.freeMissingFactors.slice(0, 4));
+      }
+      const tons = carbon.totalEmissions;
       return freeResult(
         tons > 500 ? "HIGH" : tons > 100 ? "MEDIUM" : "LOW",
-        `Baseline emissions ~${tons.toFixed(1)} tCO₂`,
-        "Standard energy factors only — process and transport not included on free tier.",
+        `Baseline emissions ~${tons.toFixed(1)} tCO₂e`,
+        `IPCC-style factors for ${source} — process and transport on premium tier.`,
         tool.freeMissingFactors.slice(0, 4)
       );
     }
     case "daily-fuel": {
-      const fuel =
-        (num(values, "distanceKm") / 100) *
-        num(values, "consumptionPer100Km") *
-        num(values, "fuelPricePerLiter");
+      const fuel = calculateFuelConsumptionResult({
+        distanceKm: num(values, "distanceKm"),
+        fuelPricePerLiter: num(values, "fuelPricePerLiter"),
+        vehicleConsumption: num(values, "consumptionPer100Km"),
+        drivingStyle: "normal",
+      });
+      if ("error" in fuel) {
+        return freeResult("MEDIUM", "Check trip inputs.", fuel.error, tool.freeMissingFactors.slice(0, 4));
+      }
       return freeResult(
-        fuel > 200 ? "HIGH" : fuel > 75 ? "MEDIUM" : "LOW",
-        `One-way fuel ~${money(fuel)}`,
-        "Tolls, return leg and parking not included.",
+        fuel.totalCost > 200 ? "HIGH" : fuel.totalCost > 75 ? "MEDIUM" : "LOW",
+        `Trip fuel ~${money(fuel.totalCost)} (${fuel.totalLiters} L)`,
+        `${fuel.note} EPA-style driving adjustment applied.`,
         tool.freeMissingFactors.slice(0, 4)
       );
     }
@@ -175,14 +225,25 @@ export function calculatePhase2FreeResult(
       );
     }
     case "daily-renovation": {
-      const rates = { basic: 800, standard: 1500, premium: 2500 };
-      const q = String(values.materialQuality ?? "standard") as keyof typeof rates;
-      const base = num(values, "areaM2") * (rates[q] ?? 1500);
-      const withLabor = yes(values, "includeLabor") ? base * 1.6 : base;
+      const quality = (str(values, "materialQuality") || "standard") as
+        | "basic"
+        | "standard"
+        | "premium";
+      const renovation = calculateHomeRenovationResult({
+        areaM2: num(values, "areaM2"),
+        quality,
+        city: "standard",
+      });
+      if ("error" in renovation) {
+        return freeResult("MEDIUM", "Check renovation area.", renovation.error, tool.freeMissingFactors.slice(0, 4));
+      }
+      const withLabor = yes(values, "includeLabor")
+        ? renovation.totalCost * 1.6
+        : renovation.totalCost;
       return freeResult(
         withLabor > 50000 ? "HIGH" : withLabor > 20000 ? "MEDIUM" : "LOW",
-        `Visible budget ~${money(withLabor)}`,
-        "Base m² estimate before winter delay and regional multipliers.",
+        `Visible budget ~${money(withLabor)} (${renovation.costPerM2} TRY/m²)`,
+        `${renovation.note} Before winter delay and regional multipliers.`,
         tool.freeMissingFactors.slice(0, 4)
       );
     }
@@ -214,25 +275,42 @@ export function calculatePhase2PremiumResult(
   switch (tool.sector) {
     case "agriculture-crops": {
       const area = num(values, "areaHectares");
-      const revenue = num(values, "expectedYieldTonnes") * area * 250;
-      const cost = num(values, "fertilizerCost") + num(values, "irrigationCost");
-      const moisture = num(values, "soilMoisturePercent");
-      const weather = num(values, "weatherRiskIndex");
-      const moisturePenalty = moisture < 15 ? revenue * 0.3 : 0;
-      const weatherBuffer = weather > 7 ? revenue * 0.25 : 0;
-      const realProfit = revenue - cost - moisturePenalty - weatherBuffer;
+      const yieldResult = calculateCropYieldOptimizerResult({
+        cropType: "wheat",
+        areaHectares: area,
+        expectedYield: num(values, "expectedYieldTonnes"),
+        fertilizerCost: num(values, "fertilizerCost"),
+        irrigationCost: num(values, "irrigationCost"),
+        laborCost: 0,
+        marketPricePerTon: 250,
+        soilMoisturePercent: num(values, "soilMoisturePercent"),
+        weatherRiskIndex: num(values, "weatherRiskIndex"),
+        pestPressureIndex: 3,
+      });
+      if ("error" in yieldResult) {
+        return {
+          verdict: "REVIEW INPUTS",
+          headline: "Crop profit could not be modeled.",
+          primaryMetricLabel: "Real profit estimate",
+          primaryMetricValue: money(0),
+          riskDrivers: ["Soil moisture", "Weather index", "Input costs"],
+          suggestedAction: yieldResult.error,
+          severity: "watch",
+        };
+      }
       const severity: PremiumSeverity =
-        realProfit < 0 ? "danger" : realProfit < revenue * 0.1 ? "watch" : "safe";
+        yieldResult.realProfit < 0
+          ? "danger"
+          : yieldResult.realProfit < yieldResult.baseRevenue * 0.1
+            ? "watch"
+            : "safe";
       return {
-        verdict: severity === "danger" ? "LOSS GUARANTEED" : severity === "watch" ? "ACCEPT WITH BUFFER" : "SAFE TO PLANT",
+        verdict: yieldResult.verdictLabel,
         headline: "Weather-adjusted crop profit modeled.",
         primaryMetricLabel: "Real profit estimate",
-        primaryMetricValue: money(realProfit),
+        primaryMetricValue: money(yieldResult.realProfit),
         riskDrivers: ["Soil moisture", "Weather index", "Input costs", "Target margin"],
-        suggestedAction:
-          moisture < 15
-            ? `Soil moisture ${moisture}% is critical — add ${money(moisturePenalty)} buffer or delay planting.`
-            : `Weather index ${weather} — include ${money(weatherBuffer)} buffer in contract price.`,
+        suggestedAction: yieldResult.suggestedAction,
         severity,
       };
     }
@@ -321,71 +399,116 @@ export function calculatePhase2PremiumResult(
       };
     }
     case "energy-carbon": {
-      const factors: Record<string, number> = {
-        coal: 0.9,
-        gas: 0.4,
-        electricity: 0.35,
-        renewable: 0.05,
-      };
-      const source = String(values.energySource ?? "electricity");
+      const source = (str(values, "energySource") || "electricity") as
+        | "coal"
+        | "gas"
+        | "electricity"
+        | "renewable";
       const prod = num(values, "productionTons");
-      const base = prod * (factors[source] ?? 0.35);
-      const process = num(values, "processEmissionsFactor");
-      const transport = yes(values, "includesTransport") ? prod * 0.08 : 0;
-      const total = base + process + transport;
-      const cbamEur = total * 80;
-      const importVal = num(values, "euImportValue") || 1;
-      const pct = (cbamEur / importVal) * 100;
-      const severity: PremiumSeverity = pct > 15 ? "danger" : pct > 8 ? "watch" : "safe";
+      const cbam = calculateCbamComplianceResult({
+        productionTons: prod,
+        productCategory: cbamCategoryFromProductionTons(prod),
+        energySource: source,
+        euImportValueEur: num(values, "euImportValue") || 1,
+        processEfficiency: Math.max(0, 100 - num(values, "processEmissionsFactor") * 10),
+        transportDistanceKm: yes(values, "includesTransport") ? 800 : 0,
+      });
+      if ("error" in cbam) {
+        return {
+          verdict: "REVIEW INPUTS",
+          headline: "CBAM cost could not be calculated.",
+          primaryMetricLabel: "CBAM cost (€)",
+          primaryMetricValue: "€0",
+          riskDrivers: ["Energy mix", "Process emissions", "Transport"],
+          suggestedAction: cbam.error,
+          severity: "watch",
+        };
+      }
+      const severity: PremiumSeverity =
+        cbam.cbamCostPercentage > 15 ? "danger" : cbam.cbamCostPercentage > 8 ? "watch" : "safe";
       return {
-        verdict: severity === "danger" ? "HIGH CBAM RISK" : severity === "watch" ? "MODERATE CBAM" : "MANAGEABLE",
-        headline: "CBAM-style border cost estimated.",
+        verdict: cbam.verdictLabel,
+        headline: "CBAM border cost estimated (EU Reg. 2023/956).",
         primaryMetricLabel: "CBAM cost (€)",
-        primaryMetricValue: `€${cbamEur.toFixed(0)}`,
-        riskDrivers: ["Energy mix", "Process emissions", "Transport", "Import value"],
-        suggestedAction: `CBAM may equal ${pct.toFixed(1)}% of EU import value — shift from ${source} to renewable to cut ~${(((factors[source] ?? 0.35) - 0.05) / (factors[source] ?? 0.35) * 100).toFixed(0)}% emissions.`,
+        primaryMetricValue: `€${cbam.cbamCostCurrent.toFixed(0)}`,
+        riskDrivers: ["Energy mix", "Process efficiency", "Transport", "Import value"],
+        suggestedAction: cbam.suggestedAction,
         severity,
       };
     }
     case "daily-renovation": {
-      const rates = { basic: 800, standard: 1500, premium: 2500 };
-      const q = String(values.materialQuality ?? "standard") as keyof typeof rates;
-      const base = num(values, "areaM2") * (rates[q] ?? 1500);
-      const labor = yes(values, "includeLabor") ? base * 0.6 : 0;
-      const winter = String(values.season) === "winter" ? (base + labor) * 0.2 : 0;
-      const mult =
-        String(values.cityTier) === "major" ? 1.2 : String(values.cityTier) === "rural" ? 0.9 : 1;
-      const total = (base + labor + winter) * mult;
-      const withContingency = total * (1 + num(values, "contingencyPercent") / 100);
+      const quality = (str(values, "materialQuality") || "standard") as
+        | "basic"
+        | "standard"
+        | "premium";
+      const season = (str(values, "season") || "summer") as "summer" | "winter";
+      const budget = calculateRenovationBudgetOptimizerResult({
+        areaM2: num(values, "areaM2"),
+        materialQuality: quality,
+        includeLabor: yes(values, "includeLabor"),
+        city: cityFromTier(str(values, "cityTier") || "standard"),
+        season,
+        buildingAge: season === "winter" ? 25 : 12,
+        floorCount: 3,
+      });
+      if ("error" in budget) {
+        return {
+          verdict: "REVIEW INPUTS",
+          headline: "Renovation budget could not be calculated.",
+          primaryMetricLabel: "Recommended budget",
+          primaryMetricValue: money(0),
+          riskDrivers: ["Material tier", "Season", "City tier"],
+          suggestedAction: budget.error,
+          severity: "watch",
+        };
+      }
+      const withContingency = budget.realTotal * (1 + num(values, "contingencyPercent") / 100);
       return {
-        verdict: winter > 0 ? "ADD CONTINGENCY" : "BUDGET REALISTIC",
+        verdict: budget.verdictLabel,
         headline: "Realistic renovation budget calculated.",
         primaryMetricLabel: "Recommended budget",
         primaryMetricValue: money(withContingency),
-        riskDrivers: ["Material tier", "Season", "City tier", "Contingency"],
-        suggestedAction:
-          winter > 0
-            ? `Winter work adds ~${money(winter)} delay buffer — use ${money(withContingency)} as contract ceiling.`
-            : `Use ${money(withContingency)} including ${num(values, "contingencyPercent")}% contingency.`,
-        severity: winter > 0 ? "watch" : "safe",
+        riskDrivers: ["Material tier", "Season", "Hidden prep costs", "Contingency"],
+        suggestedAction: budget.suggestedAction,
+        severity: budget.verdictLabel.includes("HIGH") ? "watch" : "safe",
       };
     }
     case "daily-fuel": {
-      const oneWay =
-        (num(values, "distanceKm") / 100) *
-        num(values, "consumptionPer100Km") *
-        num(values, "fuelPricePerLiter");
-      const distance = yes(values, "returnTrip") ? num(values, "distanceKm") * 2 : num(values, "distanceKm");
-      const fuel =
-        (distance / 100) * num(values, "consumptionPer100Km") * num(values, "fuelPricePerLiter");
+      const oneWay = calculateFuelConsumptionResult({
+        distanceKm: num(values, "distanceKm"),
+        fuelPricePerLiter: num(values, "fuelPricePerLiter"),
+        vehicleConsumption: num(values, "consumptionPer100Km"),
+        drivingStyle: "normal",
+      });
+      if ("error" in oneWay) {
+        return {
+          verdict: "REVIEW INPUTS",
+          headline: "Trip budget could not be calculated.",
+          primaryMetricLabel: "Recommended trip budget",
+          primaryMetricValue: money(0),
+          riskDrivers: ["Fuel", "Distance"],
+          suggestedAction: oneWay.error,
+          severity: "watch",
+        };
+      }
+      const distance = yes(values, "returnTrip")
+        ? num(values, "distanceKm") * 2
+        : num(values, "distanceKm");
+      const roundTrip = calculateFuelConsumptionResult({
+        distanceKm: distance,
+        fuelPricePerLiter: num(values, "fuelPricePerLiter"),
+        vehicleConsumption: num(values, "consumptionPer100Km"),
+        drivingStyle: "normal",
+      });
+      const fuelCost = "error" in roundTrip ? oneWay.totalCost : roundTrip.totalCost;
       const tolls = num(values, "tollEstimate");
       const parking = num(values, "parkingPerDay");
-      const subtotal = fuel + tolls + parking;
+      const subtotal = fuelCost + tolls + parking;
       const total = subtotal * (1 + num(values, "bufferPercent") / 100);
-      const severity: PremiumSeverity = total > oneWay * 2.5 ? "watch" : "safe";
+      const severity: PremiumSeverity = total > oneWay.totalCost * 2.5 ? "watch" : "safe";
       return {
         verdict: severity === "watch" ? "ADD BUFFER" : "TRIP SAFE",
-        headline: "Full trip budget with buffer.",
+        headline: "Full trip budget with EPA-style fuel model.",
         primaryMetricLabel: "Recommended trip budget",
         primaryMetricValue: money(total),
         riskDrivers: ["Fuel", "Tolls", "Return leg", "Buffer"],

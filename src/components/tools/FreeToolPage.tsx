@@ -337,24 +337,24 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
 
   return (
     <PageLayout headerTheme="light">
-      <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
+      <section className="border-b border-slate/10 bg-white py-10 dark:bg-deep-navy sm:py-12">
         <Container size="wide" className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
             Free calculator
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-deep-navy sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-deep-navy dark:text-off-white sm:text-4xl">
             {tool.freeTitle}
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate">
             {tool.painStatement}
           </p>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy dark:text-off-white">
             {tool.freeValue}
           </p>
         </Container>
       </section>
 
-      <section className="bg-off-white py-10 sm:py-12">
+      <section className="bg-off-white py-10 dark:bg-slate-900 sm:py-12">
         <Container size="wide" className="min-w-0">
           <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
             <div className="min-w-0 sc-card">
@@ -362,8 +362,8 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
               <p className="mt-2 text-sm leading-relaxed text-slate">
                 {tool.freeResultPromise}
               </p>
-              <p className="mt-4 rounded-lg border border-slate/10 bg-off-white px-4 py-3 text-xs leading-relaxed text-slate">
-                <strong className="font-semibold text-deep-navy">Privacy:</strong>{" "}
+              <p className="mt-4 rounded-lg border border-slate/10 bg-off-white px-4 py-3 text-xs leading-relaxed text-slate dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                <strong className="font-semibold text-deep-navy dark:text-off-white">Privacy:</strong>{" "}
                 {FREE_TOOL_PRIVACY_NOTE}
               </p>
               <form ref={formRef} onSubmit={handleSubmit} className="mt-6 space-y-5" noValidate>
@@ -409,14 +409,8 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
                 <h3 className="text-base font-semibold text-deep-navy dark:text-off-white">
                   Need the full decision?
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{FREE_UPSELL_COPY}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate dark:text-slate-300">{FREE_UPSELL_COPY}</p>
                 <div className="mt-5 flex flex-col gap-3">
-                  <SingleVerdictUpsellButton
-                    toolSlug={tool.paidSlug}
-                    toolTitle={tool.freeTitle}
-                    pagePath={`/tools/free/${tool.freeSlug}`}
-                    className="sc-btn-primary inline-flex w-full justify-center sm:w-auto"
-                  />
                   <Link
                     href={premiumHref}
                     className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-professional-blue hover:underline"
@@ -425,14 +419,14 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
                   </Link>
                   <Link
                     href={singleVerdictHref}
-                    className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-professional-blue"
+                    className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-professional-blue dark:text-slate-300"
                   >
                     Compare pricing plans →
                   </Link>
                 </div>
               </aside>
 
-              <p className="rounded-lg border border-slate/15 bg-white px-4 py-3 text-xs leading-relaxed text-slate">
+              <p className="rounded-lg border border-slate/15 bg-white px-4 py-3 text-xs leading-relaxed text-slate dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
                 {tool.legalDisclaimer ?? revenueLegalDisclaimer}
               </p>
             </div>

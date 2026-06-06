@@ -24,15 +24,22 @@ export function RiskGauge({ score, label }: RiskGaugeProps) {
 
   return (
     <div
-      className={`rounded-2xl border border-slate/15 p-6 dark:border-slate-600 ${colors.bg}`}
+      className={`rounded-2xl border border-slate/15 p-6 shadow-card dark:border-slate-600 dark:bg-slate-800/80 ${colors.bg}`}
     >
       <div className="mb-2 flex items-center justify-between">
-        <span className="text-sm font-medium uppercase tracking-wider text-slate">
+        <span className="text-sm font-medium uppercase tracking-wider text-slate dark:text-slate-300">
           {t("riskScoreLabel")}
         </span>
         <span className={`text-3xl font-bold ${colors.text}`}>{clamped}%</span>
       </div>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-slate/20">
+      <div
+        className="h-2 w-full overflow-hidden rounded-full bg-slate/20 dark:bg-slate-600/40"
+        role="progressbar"
+        aria-valuenow={clamped}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label={t("riskScoreAria", { score: clamped })}
+      >
         <div
           className={`h-full rounded-full transition-all duration-500 ${colors.bar}`}
           style={{ width: `${clamped}%` }}

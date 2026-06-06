@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { formatVerdictReportDate } from "@/lib/reports/verdict-report";
 import type { SavedVerdictReport } from "@/lib/reports/report-storage";
-import { getFreeToolsHref, getLoginHref, getPremiumToolsHref } from "@/lib/tools/tool-links";
+import { EmptyReports } from "@/components/empty-states/EmptyReports";
+import { getLoginHref } from "@/lib/tools/tool-links";
 
 interface ReportsHistoryListProps {
   reports: SavedVerdictReport[];
@@ -11,25 +13,10 @@ interface ReportsHistoryListProps {
 }
 
 export function ReportsHistoryList({ reports, hasPurchaseCredits = false }: ReportsHistoryListProps) {
+  const t = useTranslations("emptyStates.reports");
+
   if (reports.length === 0) {
-    return (
-      <div className="sc-card border-dashed text-center">
-        <p className="text-base font-medium text-deep-navy dark:text-off-white">
-          No saved reports yet.
-        </p>
-        <p className="mt-2 text-sm text-slate">
-          {hasPurchaseCredits
-            ? "Run your unlocked premium analyzer and save the verdict report here."
-            : "Run a free margin check, then unlock a Single Verdict or SectorCalc Pro to save reports."}
-        </p>
-        <Link
-          href={hasPurchaseCredits ? getPremiumToolsHref() : getFreeToolsHref()}
-          className="sc-btn-primary mt-6 inline-flex"
-        >
-          {hasPurchaseCredits ? "Open premium analyzers" : "Run Free Check"}
-        </Link>
-      </div>
-    );
+    return <EmptyReports hasPurchaseCredits={hasPurchaseCredits} />;
   }
 
   return (
@@ -46,15 +33,17 @@ export function ReportsHistoryList({ reports, hasPurchaseCredits = false }: Repo
             <p className="mt-3 text-sm font-semibold text-deep-navy dark:text-off-white">
               {report.result.verdict}
             </p>
-            <p className="mt-2 text-sm text-slate">{report.result.primaryMetricValue}</p>
-            <p className="mt-3 text-xs text-slate">
+            <p className="mt-2 text-sm text-slate dark:text-slate-300">
+              {report.result.primaryMetricValue}
+            </p>
+            <p className="mt-3 text-xs text-slate dark:text-slate-400">
               {formatVerdictReportDate(report.createdAt)}
             </p>
             <Link
               href={`/account/reports/${report.id}`}
-              className="sc-btn-secondary mt-5 inline-flex"
+              className="sc-btn-secondary mt-5 inline-flex min-h-[44px]"
             >
-              View report
+              {t("viewReport")}
             </Link>
           </article>
         </li>
@@ -68,21 +57,25 @@ interface AccountLoginPromptProps {
 }
 
 export function AccountLoginPrompt({ nextPath }: AccountLoginPromptProps) {
+  const t = useTranslations("emptyStates.login");
   const loginHref = getLoginHref(nextPath);
 
   return (
     <aside className="sc-card mx-auto max-w-2xl">
       <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
-        Sign in required
+        {t("eyebrow")}
       </p>
       <h2 className="mt-3 text-xl font-bold text-deep-navy dark:text-off-white sm:text-2xl">
-        Sign in to view saved reports
+        {t("title")}
       </h2>
-      <p className="mt-3 text-sm leading-relaxed text-slate">
-        Saved verdict reports are linked to your SectorCalc account.
+      <p className="mt-3 text-sm leading-relaxed text-slate dark:text-slate-300">
+        {t("body")}
       </p>
-      <Link href={loginHref} className="sc-btn-primary mt-6 inline-flex w-full sm:w-auto">
-        Sign in
+      <Link
+        href={loginHref}
+        className="sc-btn-primary mt-6 inline-flex min-h-[44px] w-full sm:w-auto"
+      >
+        {t("cta")}
       </Link>
     </aside>
   );

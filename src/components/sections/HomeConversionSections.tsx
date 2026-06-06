@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 import { FeatureIconHeader, IconListItem, ScIcon, StatusIconBadge } from "@/components/icons/ScIcon";
 import {
   PAIN_RISK_ICONS,
@@ -7,56 +8,54 @@ import {
   UI_ICON,
 } from "@/lib/icons/icon-registry";
 import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { getFreeToolsHref, getPremiumToolsHref } from "@/lib/tools/tool-links";
+import { industryRegistry } from "@/lib/tools/industry-registry";
 
-const PAIN_ITEMS = [
+const SECTOR_COUNT = industryRegistry.length;
+
+const PAIN_ITEM_CONFIG = [
   {
+    key: "material",
     icon: PAIN_RISK_ICONS.material,
     iconClass: "text-professional-blue",
-    title: "Material cost risk",
-    text: "Setup time, rework and hidden labor erode margin after the estimate looks fine.",
   },
   {
+    key: "labor",
     icon: PAIN_RISK_ICONS.labor,
     iconClass: "text-amber",
-    title: "Labor & time risk",
-    text: "Free checks expose visible risk — premium analyzers deliver the full verdict.",
   },
   {
+    key: "overhead",
     icon: PAIN_RISK_ICONS.overhead,
     iconClass: "text-soft-red",
-    title: "Overhead & scope risk",
-    text: "No ERP rollout, no consulting retainer — built for shops, trades and service teams.",
   },
 ] as const;
 
-export function HomeTrustStrip() {
+export async function HomeTrustStrip() {
+  const t = await getTranslations("home");
   return (
     <p className="mc-hero-trust-strip">
-      27 sectors · Free calculators · Premium reports · Measurement logic · No ERP required
+      {t("hero.trustStrip", { count: SECTOR_COUNT })}
     </p>
   );
 }
 
-export function HomePainSection() {
+export async function HomePainSection() {
+  const t = await getTranslations("home");
+
   return (
     <section className="mc-home-conversion mc-home-pain" aria-labelledby="home-pain-heading">
       <div className="container">
-        <p className="mc-home-conversion-eyebrow">Margin decision platform</p>
-        <h2 id="home-pain-heading">Protect your margin before you quote.</h2>
-        <p className="mc-home-conversion-lead">
-          Generic calculators show a number. SectorCalc shows whether that quote is safe —
-          with sector-specific risk signals, verdict reports and suggested actions before you
-          send the bid.
-        </p>
+        <p className="mc-home-conversion-eyebrow">{t("pain.eyebrow")}</p>
+        <h2 id="home-pain-heading">{t("pain.title")}</h2>
+        <p className="mc-home-conversion-lead">{t("pain.subtitle")}</p>
         <ul className="mc-home-pain-list mt-8 grid gap-4 md:grid-cols-3">
-          {PAIN_ITEMS.map((item) => (
-            <li key={item.title} className="sc-card">
+          {PAIN_ITEM_CONFIG.map((item) => (
+            <li key={item.key} className="sc-card">
               <FeatureIconHeader
                 icon={item.icon}
                 iconClassName={item.iconClass}
-                title={item.title}
-                subtitle={item.text}
+                title={t(`pain.items.${item.key}.title`)}
+                subtitle={t(`pain.items.${item.key}.text`)}
               />
             </li>
           ))}
@@ -66,27 +65,32 @@ export function HomePainSection() {
   );
 }
 
-export function HomeFreeCheckSection() {
+export async function HomeFreeCheckSection() {
+  const t = await getTranslations("home");
+
   return (
     <section className="mc-home-conversion mc-home-free" aria-labelledby="home-free-heading">
       <div className="container">
         <div className="mc-home-conversion-grid">
           <div>
-            <p className="mc-home-conversion-eyebrow mc-home-conversion-eyebrow--free">Step 1</p>
-            <h2 id="home-free-heading">Run a free margin check</h2>
-            <p className="mc-home-conversion-lead">
-              Seventeen sector quick checks with 3–5 inputs. See visible risk in your browser —
-              no account, no safe price, no final verdict.
+            <p className="mc-home-conversion-eyebrow mc-home-conversion-eyebrow--free">
+              {t("freeCheck.eyebrow")}
             </p>
-            <Link href={getFreeToolsHref()} className="sc-btn-primary mc-home-conversion-cta">
-              Run Free Margin Check
+            <h2 id="home-free-heading">{t("freeCheck.title")}</h2>
+            <p className="mc-home-conversion-lead">
+              {t("freeCheck.subtitle", { count: SECTOR_COUNT })}
+            </p>
+            <Link href="/free-tools" className="sc-btn-primary mc-home-conversion-cta">
+              {t("freeCheck.cta")}
             </Link>
           </div>
           <div className="mc-home-conversion-card">
-            <StatusIconBadge status="free" label="Free check output" />
-            <p className="mt-3 text-lg font-bold text-deep-navy">Risk signal: MEDIUM</p>
-            <p className="mt-2 text-sm leading-relaxed text-slate">
-              Visible setup and labor exposure — full safe price withheld on free tier.
+            <StatusIconBadge status="free" label={t("freeCheck.cardLabel")} />
+            <p className="mt-3 text-lg font-bold text-deep-navy dark:text-off-white">
+              {t("freeCheck.cardRisk")}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-slate dark:text-slate-300">
+              {t("freeCheck.cardBody")}
             </p>
           </div>
         </div>
@@ -95,27 +99,32 @@ export function HomeFreeCheckSection() {
   );
 }
 
-export function HomePremiumVerdictSection() {
+export async function HomePremiumVerdictSection() {
+  const t = await getTranslations("home");
+
   return (
     <section className="mc-home-conversion mc-home-premium" aria-labelledby="home-premium-heading">
       <div className="container">
         <div className="mc-home-conversion-grid mc-home-conversion-grid--reverse">
           <div className="mc-home-conversion-card mc-home-conversion-card--premium">
-            <p className="text-xs font-bold uppercase tracking-wider text-amber">Premium verdict</p>
-            <p className="mt-3 text-lg font-bold text-deep-navy">Minimum safe price + action</p>
-            <p className="mt-2 text-sm leading-relaxed text-slate">
-              Margin leak breakdown, accept / reprice verdict and exportable PDF report.
+            <p className="text-xs font-bold uppercase tracking-wider text-amber">
+              {t("premiumStep.cardEyebrow")}
+            </p>
+            <p className="mt-3 text-lg font-bold text-deep-navy dark:text-off-white">
+              {t("premiumStep.cardTitle")}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-slate dark:text-slate-300">
+              {t("premiumStep.cardBody")}
             </p>
           </div>
           <div>
-            <p className="mc-home-conversion-eyebrow mc-home-conversion-eyebrow--premium">Step 2</p>
-            <h2 id="home-premium-heading">Unlock the full verdict</h2>
-            <p className="mc-home-conversion-lead">
-              Premium analyzers add minimum safe price, margin leak drivers, suggested action
-              and PDF export — the decision layer operators actually need before quoting.
+            <p className="mc-home-conversion-eyebrow mc-home-conversion-eyebrow--premium">
+              {t("premiumStep.eyebrow")}
             </p>
-            <Link href={getPremiumToolsHref()} className="mc-btn-hero-secondary mc-home-conversion-cta">
-              View Premium Analyzers
+            <h2 id="home-premium-heading">{t("premiumStep.title")}</h2>
+            <p className="mc-home-conversion-lead">{t("premiumStep.subtitle")}</p>
+            <Link href="/premium-tools" className="mc-btn-hero-secondary mc-home-conversion-cta">
+              {t("premiumStep.cta")}
             </Link>
           </div>
         </div>
@@ -124,7 +133,9 @@ export function HomePremiumVerdictSection() {
   );
 }
 
-export function HomeSampleVerdictSection() {
+export async function HomeSampleVerdictSection() {
+  const t = await getTranslations("home");
+
   return (
     <section
       className="mc-home-conversion mc-home-sample sc-section"
@@ -133,45 +144,41 @@ export function HomeSampleVerdictSection() {
       <div className="container">
         <p className="mc-home-conversion-eyebrow flex items-center justify-center gap-2">
           <ScIcon icon={DocumentMagnifyingGlassIcon} size="compact" className="text-professional-blue" />
-          Sample verdict report
+          {t("sample.eyebrow")}
         </p>
         <h2 id="home-sample-heading" className="sc-h2">
-          CNC Quote Risk Report
+          {t("sample.title")}
         </h2>
-        <p className="mc-home-conversion-lead">
-          This is what a premium decision output looks like — not a spreadsheet dump.
-        </p>
+        <p className="mc-home-conversion-lead">{t("sample.subtitle")}</p>
         <article className="mc-home-sample-verdict sc-card sc-reveal mx-auto max-w-3xl">
           <div className="mc-home-sample-verdict-row">
-            <span className="mc-home-sample-label">Verdict</span>
+            <span className="mc-home-sample-label">{t("sample.verdictLabel")}</span>
             <strong className="mc-home-sample-value mc-home-sample-value--alert">
-              DO NOT ACCEPT UNDER $1,840
+              {t("sample.verdictValue")}
             </strong>
           </div>
           <div className="mc-home-sample-verdict-row">
             <span className="mc-home-sample-label flex items-center gap-1.5">
               <ScIcon icon={STATUS_ICON.highRisk} size="compact" className="text-soft-red" />
-              Margin risk
+              {t("sample.riskLabel")}
             </span>
-            <strong className="mc-home-sample-value">HIGH RISK</strong>
+            <strong className="mc-home-sample-value">{t("sample.riskValue")}</strong>
           </div>
           <div className="mc-home-sample-verdict-row">
-            <span className="mc-home-sample-label">Main leak</span>
-            <strong className="mc-home-sample-value">Setup time + tooling buffer</strong>
+            <span className="mc-home-sample-label">{t("sample.leakLabel")}</span>
+            <strong className="mc-home-sample-value">{t("sample.leakValue")}</strong>
           </div>
           <div className="mc-home-sample-verdict-row">
-            <span className="mc-home-sample-label">Suggested action</span>
-            <strong className="mc-home-sample-value">
-              Reprice or reduce scope before sending the quote.
-            </strong>
+            <span className="mc-home-sample-label">{t("sample.actionLabel")}</span>
+            <strong className="mc-home-sample-value">{t("sample.actionValue")}</strong>
           </div>
         </article>
         <div className="mc-home-sample-actions">
           <Link href="/reports/sample-decision-report" className="sc-btn-primary">
-            View Sample Verdict Report
+            {t("sample.primaryCta")}
           </Link>
           <Link href="/tools/premium/cnc-quote-risk-analyzer" className="sc-btn-secondary">
-            Open CNC Quote Risk Analyzer
+            {t("sample.secondaryCta")}
           </Link>
         </div>
       </div>
@@ -179,56 +186,58 @@ export function HomeSampleVerdictSection() {
   );
 }
 
-export function HomeFreeVsProSection() {
+export async function HomeFreeVsProSection() {
+  const t = await getTranslations("home");
+
   return (
     <section
       className="mc-home-conversion mc-home-free-vs-pro sc-section"
       aria-labelledby="home-compare-heading"
     >
       <div className="container">
-        <p className="mc-home-conversion-eyebrow">Free vs Pro</p>
+        <p className="mc-home-conversion-eyebrow">{t("compare.eyebrow")}</p>
         <h2 id="home-compare-heading" className="sc-h2">
-          Quick check vs full verdict
+          {t("compare.title")}
         </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           <article className="sc-card sc-card-interactive">
-            <StatusIconBadge status="free" label="Free check" className="mb-4" />
+            <StatusIconBadge status="free" label={t("compare.freeLabel")} className="mb-4" />
             <ul className="space-y-3 text-sm leading-relaxed text-slate dark:text-slate-300">
               <IconListItem icon={STATUS_ICON.free} iconClassName="text-emerald">
-                Visible risk signal in your browser
+                {t("compare.freeItem1")}
               </IconListItem>
               <IconListItem icon={TOOL_CATEGORY_ICON.margin} iconClassName="text-emerald">
-                Direct cost exposure indicators
+                {t("compare.freeItem2")}
               </IconListItem>
               <IconListItem icon={UI_ICON.exclude} iconClassName="text-slate">
-                No PDF export
+                {t("compare.freeItem3")}
               </IconListItem>
               <IconListItem icon={UI_ICON.exclude} iconClassName="text-slate">
-                No saved report history
+                {t("compare.freeItem4")}
               </IconListItem>
             </ul>
-            <Link href={getFreeToolsHref()} className="sc-btn-secondary mt-6 w-full sm:w-auto">
-              Run Free Margin Check
+            <Link href="/free-tools" className="sc-btn-secondary mt-6 w-full sm:w-auto">
+              {t("freeCheck.cta")}
             </Link>
           </article>
           <article className="sc-card sc-card-interactive border-amber/30">
-            <StatusIconBadge status="premium" label="Pro verdict" className="mb-4" />
+            <StatusIconBadge status="premium" label={t("compare.proLabel")} className="mb-4" />
             <ul className="space-y-3 text-sm leading-relaxed text-slate dark:text-slate-300">
               <IconListItem icon={TOOL_CATEGORY_ICON.safePrice} iconClassName="text-amber">
-                Minimum safe price
+                {t("compare.proItem1")}
               </IconListItem>
               <IconListItem icon={TOOL_CATEGORY_ICON.risk} iconClassName="text-amber">
-                Margin leak breakdown
+                {t("compare.proItem2")}
               </IconListItem>
               <IconListItem icon={TOOL_CATEGORY_ICON.quote} iconClassName="text-amber">
-                Accept / Reprice / Do Not Accept verdict
+                {t("compare.proItem3")}
               </IconListItem>
               <IconListItem icon={TOOL_CATEGORY_ICON.export} iconClassName="text-amber">
-                PDF-ready report and saved history
+                {t("compare.proItem4")}
               </IconListItem>
             </ul>
-            <Link href={getPremiumToolsHref()} className="sc-btn-primary mt-6 w-full sm:w-auto">
-              View Premium Verdicts
+            <Link href="/premium-tools" className="sc-btn-primary mt-6 w-full sm:w-auto">
+              {t("compare.proCta")}
             </Link>
           </article>
         </div>
@@ -237,34 +246,24 @@ export function HomeFreeVsProSection() {
   );
 }
 
-export function HomeTrustSection() {
+const TRUST_ITEM_KEYS = ["erp", "freeSetup", "premiumVerdicts", "stripe", "privacy"] as const;
+
+export async function HomeTrustSection() {
+  const t = await getTranslations("home");
+
   return (
     <section className="mc-home-conversion mc-home-trust sc-section" aria-labelledby="home-trust-heading">
       <div className="container">
         <h2 id="home-trust-heading" className="sc-h2 text-center">
-          Built for business quotes where pricing mistakes erase margin.
+          {t("trust.title", { count: SECTOR_COUNT })}
         </h2>
         <ul className="mc-home-trust-grid mt-10">
-          <li>
-            <strong>No ERP required</strong>
-            <span>Free checks run without enterprise setup or onboarding.</span>
-          </li>
-          <li>
-            <strong>Free checks run without setup</strong>
-            <span>Seventeen sector quick checks in your browser — no account needed.</span>
-          </li>
-          <li>
-            <strong>Premium verdicts explain the risk</strong>
-            <span>Minimum safe price, margin leaks and suggested action before you quote.</span>
-          </li>
-          <li>
-            <strong>Checkout secured by Stripe</strong>
-            <span>Pro subscription billed securely through Stripe.</span>
-          </li>
-          <li>
-            <strong>Business data is not sold</strong>
-            <span>See privacy policy for data handling details.</span>
-          </li>
+          {TRUST_ITEM_KEYS.map((key) => (
+            <li key={key}>
+              <strong>{t(`trust.items.${key}.title`)}</strong>
+              <span>{t(`trust.items.${key}.text`, { count: SECTOR_COUNT })}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </section>

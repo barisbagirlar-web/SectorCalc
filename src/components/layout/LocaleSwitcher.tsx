@@ -28,7 +28,7 @@ export function LocaleSwitcher({ className = "" }: { className?: string }) {
         onChange={(event) => handleChange(event.target.value)}
         disabled={pending}
         aria-label={t("label")}
-        className="min-h-[36px] rounded-lg border border-slate/20 bg-white px-2 py-1 text-xs font-semibold text-deep-navy dark:border-slate-600 dark:bg-slate-900 dark:text-off-white"
+        className="min-h-[44px] rounded-lg border border-slate/20 bg-white px-2 py-1 text-xs font-semibold text-deep-navy dark:border-slate-600 dark:bg-slate-900 dark:text-off-white"
       >
         {locales.map((code) => (
           <option key={code} value={code}>

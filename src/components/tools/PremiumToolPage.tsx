@@ -229,7 +229,7 @@ function PremiumToolResultCard({
         {result.verdict}
       </p>
       <h3 className="mt-5 text-lg font-semibold text-deep-navy">{result.headline}</h3>
-      <div className="mt-4 rounded-xl border border-slate/15 bg-white p-5">
+      <div className="mt-4 rounded-xl border border-slate/15 bg-white p-5 dark:border-slate-600 dark:bg-slate-800">
         <p className="text-sm font-medium text-slate">{result.primaryMetricLabel}</p>
         <p className="mt-1 text-3xl font-bold tracking-tight text-deep-navy">
           {result.primaryMetricValue}
@@ -247,7 +247,7 @@ function PremiumToolResultCard({
           ))}
         </ul>
       </div>
-      <div className="mt-6 rounded-xl border border-slate/10 bg-white/80 p-4">
+      <div className="mt-6 rounded-xl border border-slate/10 bg-white/80 p-4 dark:border-slate-600 dark:bg-slate-800/80">
         <p className="text-xs font-semibold uppercase tracking-wider text-slate">
           Suggested action
         </p>
@@ -378,18 +378,18 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
 
   return (
     <PageLayout headerTheme="light">
-      <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
+      <section className="border-b border-slate/10 bg-white py-10 dark:bg-deep-navy sm:py-12">
         <Container size="wide" className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
             SectorCalc Pro analyzer
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-deep-navy sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-deep-navy dark:text-off-white sm:text-4xl">
             {tool.paidTitle}
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate">
             {tool.painStatement}
           </p>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy dark:text-off-white">
             {tool.paidValue}
           </p>
           <p className="mt-3 max-w-3xl text-xs leading-relaxed text-slate">
@@ -398,10 +398,10 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
         </Container>
       </section>
 
-      <section className="bg-off-white py-10 sm:py-12">
+      <section className="bg-off-white py-10 dark:bg-slate-900 sm:py-12">
         <Container size="wide" className="min-w-0">
           {loading ? (
-            <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate">
+            <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
               Checking your access…
             </div>
           ) : !user ? (

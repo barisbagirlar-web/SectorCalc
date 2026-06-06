@@ -1,5 +1,16 @@
 import type { RevenueTool } from "@/lib/tools/revenue-tools";
 import { calculateExtendedPremiumResult } from "@/lib/tools/premium-sector-calculations";
+import {
+  calculateCncMachiningTimeResult,
+  calculateConstructionProjectRiskResult,
+  deriveCncMachiningParamsFromShopInputs,
+} from "@/lib/tools/calculation-formulas";
+import {
+  calculateCleaningPremiumResult,
+  calculateRestaurantPremiumResult,
+  calculateEcommercePremiumResult,
+  type SectorPremiumSignal,
+} from "@/lib/tools/sector-formulas-b";
 
 export type PremiumToolInputValues = Record<string, number | string>;
 
@@ -67,6 +78,32 @@ export function arePremiumToolInputsValid(
   return true;
 }
 
+function fromCorePremiumSignal(
+  signal: SectorPremiumSignal,
+  formatMetric: (value: number) => string = money
+): PremiumToolResult {
+  if ("error" in signal) {
+    return {
+      verdict: "REVIEW INPUTS",
+      headline: "Inputs need correction.",
+      primaryMetricLabel: "Result",
+      primaryMetricValue: money(0),
+      riskDrivers: ["Input validation"],
+      suggestedAction: signal.error,
+      severity: "watch",
+    };
+  }
+  return {
+    verdict: signal.verdictLabel,
+    headline: signal.headline,
+    primaryMetricLabel: signal.primaryMetricLabel,
+    primaryMetricValue: formatMetric(signal.primaryMetricValue),
+    riskDrivers: signal.riskDrivers,
+    suggestedAction: signal.suggestedAction,
+    severity: signal.severity,
+  };
+}
+
 export function calculatePremiumToolResult(
   tool: RevenueTool,
   values: PremiumToolInputValues
@@ -85,29 +122,58 @@ export function calculatePremiumToolResult(
     const machineRate = getNumber(values, "machineRate");
     const riskMargin = getNumber(values, "riskMargin");
 
-    const totalMinutes = setupTime + cycleTime * quantity;
-    const machineHours = totalMinutes / 60;
+    const machiningParams = deriveCncMachiningParamsFromShopInputs({
+      setupTimeMinutes: setupTime,
+      cycleTimeMinutes: cycleTime,
+      quantity,
+      riskMarginPercent: riskMargin,
+    });
+
+    const engineResult = calculateCncMachiningTimeResult(machiningParams);
+    const shopMinutes = setupTime + cycleTime * quantity;
+    const machineHours =
+      ("error" in engineResult ? shopMinutes : engineResult.totalTime) / 60;
     const baseCost = machineHours * machineRate + toolCost + materialCost;
     const safePrice = baseCost * (1 + riskMargin / 100);
 
-    const danger = quantity <= 1 && setupTime >= 45;
+    if ("error" in engineResult) {
+      return {
+        verdict: `REPRICE REQUIRED ABOVE ${money(safePrice)}`,
+        headline: "Minimum safe price calculated.",
+        primaryMetricLabel: "Minimum safe price",
+        primaryMetricValue: money(safePrice),
+        riskDrivers: ["Setup time", "Tooling cost", "Machine rate", "Risk margin"],
+        suggestedAction: engineResult.error,
+        severity: "watch",
+      };
+    }
 
-    return {
-      verdict: danger
+    const danger =
+      engineResult.verdictLabel === "TOOL FAILURE RISK" ||
+      engineResult.verdictLabel === "HIGH PRECISION RISK" ||
+      (quantity <= 1 && setupTime >= 45);
+
+    const verdict =
+      danger
         ? `DO NOT ACCEPT UNDER ${money(safePrice)}`
         : safePrice > 0
-          ? `REPRICE REQUIRED ABOVE ${money(safePrice)}`
-          : "SAFE TO QUOTE",
-      headline: "Minimum safe price calculated.",
+          ? `${engineResult.verdictLabel} — REPRICE ABOVE ${money(safePrice)}`
+          : "SAFE TO QUOTE";
+
+    return {
+      verdict,
+      headline: "Minimum safe price with Taylor tool-life modeling.",
       primaryMetricLabel: "Minimum safe price",
       primaryMetricValue: money(safePrice),
       riskDrivers: [
-        "Setup time",
-        "Tooling and fixture cost",
+        `Setup burden ${(machiningParams.toleranceMicrons <= 25 ? "tight" : "standard")} tolerance`,
+        `Tool life ~${Math.round(engineResult.toolLifeMinutes)} min`,
         "Machine rate",
         "Risk margin",
       ],
-      suggestedAction: `Quote at or above ${money(safePrice)} or separate setup/tooling cost in the offer.`,
+      suggestedAction:
+        engineResult.suggestedAction ||
+        `Quote at or above ${money(safePrice)} or separate setup/tooling cost in the offer.`,
       severity: danger ? "danger" : "watch",
     };
   }
@@ -117,12 +183,34 @@ export function calculatePremiumToolResult(
     const changeEstimate = getNumber(values, "changeEstimate");
     const delayDays = getNumber(values, "delayDays");
     const crewCostPerDay = getNumber(values, "crewCostPerDay");
+    const marginTarget = getNumber(values, "marginTarget");
 
     const impactCost = changeEstimate + delayDays * crewCostPerDay;
     const marginRisk = originalBudget > 0 ? impactCost / originalBudget : 0;
 
+    const laborProductivity = Math.min(
+      100,
+      Math.max(40, 100 - delayDays * 1.5 - (marginTarget < 15 ? 10 : 0))
+    );
+
+    const siteRisk = calculateConstructionProjectRiskResult({
+      projectValue: originalBudget,
+      season: delayDays > 20 ? "winter" : delayDays > 10 ? "spring" : "summer",
+      soilType: changeEstimate > originalBudget * 0.1 ? "clay" : "loam",
+      weatherRiskIndex: Math.min(10, delayDays / 3),
+      laborProductivity,
+    });
+
+    const combinedRiskPct =
+      "error" in siteRisk
+        ? marginRisk * 100
+        : Math.max(marginRisk * 100, siteRisk.riskPercentage);
+
     const severity: PremiumSeverity =
-      marginRisk >= 0.15 ? "danger" : marginRisk >= 0.05 ? "watch" : "safe";
+      combinedRiskPct >= 15 ? "danger" : combinedRiskPct >= 8 ? "watch" : "safe";
+
+    const siteNote =
+      "error" in siteRisk ? "" : ` ${siteRisk.suggestedAction}`;
 
     return {
       verdict:
@@ -131,144 +219,61 @@ export function calculatePremiumToolResult(
           : severity === "watch"
             ? "RENEGOTIATE"
             : "ACCEPT",
-      headline: "Change order impact calculated.",
+      headline: "Change order + site risk impact calculated.",
       primaryMetricLabel: "Estimated impact cost",
       primaryMetricValue: money(impactCost),
-      riskDrivers: ["Change cost", "Delay days", "Crew cost", "Margin target"],
+      riskDrivers: [
+        "Change cost",
+        "Delay days",
+        "Crew cost",
+        "Site weather/soil risk",
+      ],
       suggestedAction:
         severity === "danger"
-          ? "Price the change order separately before accepting the work."
-          : "Review delay and crew assumptions before confirming the change.",
+          ? `Price the change separately. Combined risk ~${combinedRiskPct.toFixed(1)}% of budget.${siteNote}`
+          : `Review delay and crew assumptions.${siteNote}`,
       severity,
     };
   }
 
   if (tool.sector === "cleaning") {
-    const laborRate = getNumber(values, "laborRate");
-    const hoursPerVisit = getNumber(values, "hoursPerVisit");
-    const supplyCost = getNumber(values, "supplyCost");
-    const visitFrequency = getNumber(values, "visitFrequency");
-    const targetMargin = Math.min(80, getNumber(values, "targetMargin"));
-
-    const monthlyCost = laborRate * hoursPerVisit * visitFrequency + supplyCost;
-    const minimumMonthlyBid =
-      targetMargin >= 100 ? monthlyCost : monthlyCost / (1 - targetMargin / 100);
-
-    const severity: PremiumSeverity =
-      targetMargin < 12 ? "danger" : targetMargin < 22 ? "watch" : "safe";
-
-    const verdict =
-      severity === "danger"
-        ? "UNDERPRICED"
-        : severity === "watch"
-          ? "LOW MARGIN"
-          : "SAFE BID";
-
-    return {
-      verdict: `${verdict} — DO NOT BID UNDER ${money(minimumMonthlyBid)}/MONTH`,
-      headline: "Minimum monthly bid calculated.",
-      primaryMetricLabel: "Minimum monthly bid",
-      primaryMetricValue: money(minimumMonthlyBid),
-      riskDrivers: [
-        "Labor rate",
-        "Hours per visit",
-        "Supply cost",
-        "Target margin",
-      ],
-      suggestedAction: `Keep the monthly bid above ${money(minimumMonthlyBid)} or reduce scope/frequency.`,
-      severity,
-    };
+    return fromCorePremiumSignal(
+      calculateCleaningPremiumResult({
+        areaSize: getNumber(values, "areaSize"),
+        laborRate: getNumber(values, "laborRate"),
+        hoursPerVisit: getNumber(values, "hoursPerVisit"),
+        supplyCost: getNumber(values, "supplyCost"),
+        visitFrequency: getNumber(values, "visitFrequency"),
+        targetMargin: getNumber(values, "targetMargin"),
+      })
+    );
   }
 
   if (tool.sector === "restaurant") {
-    const menuPrice = getNumber(values, "menuPrice");
-    const ingredientCost = getNumber(values, "ingredientCost");
-    const wasteRate = getNumber(values, "wasteRate");
-    const deliveryCommission = getNumber(values, "deliveryCommission");
-    const laborCostPerItem = getNumber(values, "laborCostPerItem");
-    const targetMargin = getNumber(values, "targetMargin") / 100;
-
-    const realCost =
-      ingredientCost * (1 + wasteRate / 100) +
-      laborCostPerItem +
-      menuPrice * (deliveryCommission / 100);
-
-    const realMargin = menuPrice > 0 ? (menuPrice - realCost) / menuPrice : 0;
-
-    const severity: PremiumSeverity =
-      realMargin < targetMargin * 0.7
-        ? "danger"
-        : realMargin < targetMargin
-          ? "watch"
-          : "safe";
-
-    return {
-      verdict:
-        severity === "danger"
-          ? "REMOVE OR REPRICE"
-          : severity === "watch"
-            ? "LEAKING PROFIT"
-            : "PROFITABLE",
-      headline: "Real menu margin calculated.",
-      primaryMetricLabel: "Real margin",
-      primaryMetricValue: percent(realMargin * 100),
-      riskDrivers: [
-        "Ingredient cost",
-        "Waste",
-        "Delivery commission",
-        "Labor cost",
-      ],
-      suggestedAction:
-        severity === "safe"
-          ? "Keep monitoring waste and delivery channel mix."
-          : "Reprice the item or reduce waste/commission exposure.",
-      severity,
-    };
+    return fromCorePremiumSignal(
+      calculateRestaurantPremiumResult({
+        menuPrice: getNumber(values, "menuPrice"),
+        ingredientCost: getNumber(values, "ingredientCost"),
+        wasteRate: getNumber(values, "wasteRate"),
+        deliveryCommission: getNumber(values, "deliveryCommission"),
+        laborCostPerItem: getNumber(values, "laborCostPerItem"),
+        targetMargin: getNumber(values, "targetMargin"),
+      }),
+      percent
+    );
   }
 
   if (tool.sector === "ecommerce") {
-    const productPrice = getNumber(values, "productPrice");
-    const productCost = getNumber(values, "productCost");
-    const shippingCost = getNumber(values, "shippingCost");
-    const returnRate = getNumber(values, "returnRate");
-    const paymentFeeRate = getNumber(values, "paymentFeeRate");
-    const adCostPerSale = getNumber(values, "adCostPerSale");
-
-    const fee = productPrice * (paymentFeeRate / 100);
-    const returnDrag = productPrice * (returnRate / 100);
-    const netProfit =
-      productPrice -
-      productCost -
-      shippingCost -
-      fee -
-      adCostPerSale -
-      returnDrag;
-
-    const severity: PremiumSeverity =
-      netProfit < 0 ? "danger" : netProfit < productPrice * 0.1 ? "watch" : "safe";
-
-    return {
-      verdict:
-        severity === "danger"
-          ? "LOSS AFTER RETURNS"
-          : severity === "watch"
-            ? "FRAGILE"
-            : "SCALABLE",
-      headline: "Net profit after returns calculated.",
-      primaryMetricLabel: "Net profit after returns",
-      primaryMetricValue: money(netProfit),
-      riskDrivers: [
-        "Return rate",
-        "Shipping cost",
-        "Payment fee",
-        "Ad cost per sale",
-      ],
-      suggestedAction:
-        severity === "danger"
-          ? "Do not scale this product until return, shipping or ad cost is reduced."
-          : "Monitor return rate before increasing ad spend.",
-      severity,
-    };
+    return fromCorePremiumSignal(
+      calculateEcommercePremiumResult({
+        productPrice: getNumber(values, "productPrice"),
+        productCost: getNumber(values, "productCost"),
+        shippingCost: getNumber(values, "shippingCost"),
+        returnRate: getNumber(values, "returnRate"),
+        paymentFeeRate: getNumber(values, "paymentFeeRate"),
+        adCostPerSale: getNumber(values, "adCostPerSale"),
+      })
+    );
   }
 
   return {

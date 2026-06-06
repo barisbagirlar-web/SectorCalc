@@ -1,29 +1,39 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { IndustryCard } from "@/components/cards/IndustryCard";
+import { SectorCard } from "@/components/ui/SectorCard";
+import { SectorIcon } from "@/components/icons/SectorIcon";
+import { Link } from "@/i18n/routing";
 import { INDUSTRIES } from "@/data/industries";
 
-export function IndustriesPreviewSection() {
+export async function IndustriesPreviewSection() {
+  const t = await getTranslations("home.industriesPreview");
+
   return (
-    <section className="border-y border-slate/10 bg-white py-16 md:py-24 lg:py-28">
+    <section className="border-y border-slate/10 bg-white py-16 dark:border-slate-700 dark:bg-deep-navy md:py-24 lg:py-28">
       <Container size="wide">
         <SectionHeader
-          eyebrow="Industries"
-          title="Sector packs for operational and commercial decisions"
-          subtitle="Each industry module combines a quick estimate layer and a premium decision tool — aligned to how that sector prices work, measures margin and evaluates risk."
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          subtitle={t("subtitle")}
           action={
             <Link
               href="/industries"
-              className="shrink-0 text-sm font-semibold text-professional-blue hover:underline min-h-[44px] inline-flex items-center"
+              className="inline-flex min-h-[44px] shrink-0 items-center text-sm font-semibold text-professional-blue hover:underline dark:text-cyan"
             >
-              View all industries →
+              {t("viewAll")}
             </Link>
           }
         />
         <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
           {INDUSTRIES.map((industry) => (
-            <IndustryCard key={industry.slug} industry={industry} />
+            <SectorCard
+              key={industry.slug}
+              title={industry.name}
+              description={industry.businessPain}
+              icon={<SectorIcon slug={industry.slug} iconType={industry.icon} size="default" />}
+              href={industry.href}
+            />
           ))}
         </div>
       </Container>
