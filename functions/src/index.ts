@@ -1,12 +1,17 @@
 import { onRequest } from "firebase-functions/v2/https";
+import {
+  ADMIN_FUNCTION_REGION,
+  DEFAULT_FUNCTION_REGION,
+} from "./constants";
 import { handleUpdateLeadPipeline } from "./updateLeadPipelineHandler";
 import { handleUpdateLeadTestClassification } from "./updateLeadTestClassificationHandler";
 import { handleCreateStripeCheckout } from "./createStripeCheckout";
 import { handleStripeWebhook } from "./stripeWebhook";
 
+/** Admin — frozen region; do not migrate without explicit approval. */
 export const updateLeadPipeline = onRequest(
   {
-    region: "us-central1",
+    region: ADMIN_FUNCTION_REGION,
     secrets: ["ADMIN_LEAD_UPDATE_SECRET"],
     invoker: "public",
   },
@@ -17,7 +22,7 @@ export const updateLeadPipeline = onRequest(
 
 export const updateLeadTestClassification = onRequest(
   {
-    region: "us-central1",
+    region: ADMIN_FUNCTION_REGION,
     invoker: "public",
   },
   (req, res) => {
@@ -25,9 +30,10 @@ export const updateLeadTestClassification = onRequest(
   }
 );
 
+/** Revenue Flow — use DEFAULT_FUNCTION_REGION for all new billing/report functions. */
 export const createStripeCheckout = onRequest(
   {
-    region: "us-central1",
+    region: DEFAULT_FUNCTION_REGION,
     invoker: "public",
   },
   (req, res) => {
@@ -37,7 +43,7 @@ export const createStripeCheckout = onRequest(
 
 export const stripeWebhook = onRequest(
   {
-    region: "us-central1",
+    region: DEFAULT_FUNCTION_REGION,
     invoker: "public",
   },
   (req, res) => {
