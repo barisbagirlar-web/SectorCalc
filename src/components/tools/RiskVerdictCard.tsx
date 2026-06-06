@@ -8,25 +8,25 @@ const toneStyles: Record<
     border: "border-emerald/40",
     bg: "bg-emerald/10",
     title: "text-emerald",
-    text: "text-deep-navy",
+    text: "text-text-primary",
   },
   warning: {
     border: "border-amber/40",
     bg: "bg-amber/10",
     title: "text-amber",
-    text: "text-deep-navy",
+    text: "text-text-primary",
   },
   danger: {
     border: "border-soft-red/40",
     bg: "bg-soft-red/10",
     title: "text-soft-red",
-    text: "text-deep-navy",
+    text: "text-text-primary",
   },
   neutral: {
     border: "border-slate/30",
-    bg: "bg-off-white",
+    bg: "bg-bg-subtle",
     title: "text-slate",
-    text: "text-deep-navy",
+    text: "text-text-primary",
   },
 };
 

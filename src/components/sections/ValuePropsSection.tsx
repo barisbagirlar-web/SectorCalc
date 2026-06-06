@@ -19,17 +19,17 @@ export async function ValuePropsSection() {
 
   return (
     <section
-      className="border-t border-slate/10 bg-white py-14 dark:bg-slate-900 sm:py-16"
+      className="border-t border-border-subtle bg-white py-14 sm:py-16"
       aria-labelledby="value-props-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-professional-blue">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-teal">
             {t("valueProps.eyebrow")}
           </p>
           <h2
             id="value-props-heading"
-            className="mt-3 text-2xl font-bold tracking-tight text-deep-navy sm:text-3xl"
+            className="mt-3 text-2xl font-bold tracking-tight text-text-primary sm:text-3xl"
           >
             {t("valueProps.title")}
           </h2>
@@ -40,8 +40,8 @@ export async function ValuePropsSection() {
         <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {LOSS_DIMENSION_KEYS.map((item) => (
             <li key={item.titleKey} className="sc-card h-full">
-              <ScIcon icon={item.icon} size="feature" className="text-professional-blue" />
-              <h3 className="mt-4 text-base font-bold text-deep-navy dark:text-off-white">{t(item.titleKey)}</h3>
+              <ScIcon icon={item.icon} size="feature" className="text-accent-teal" />
+              <h3 className="mt-4 text-base font-bold text-text-primary">{t(item.titleKey)}</h3>
               <p className="mt-1 text-xs font-medium text-slate">{t(item.trKey)}</p>
               <p className="mt-3 text-sm leading-relaxed text-slate">{t(item.descKey)}</p>
             </li>

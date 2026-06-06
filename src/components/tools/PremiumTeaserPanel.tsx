@@ -28,13 +28,13 @@ export function PremiumTeaserPanel({ teaser, toolSlug }: PremiumTeaserPanelProps
         Next layer
       </Badge>
       <h2 className="text-xl font-bold text-white sm:text-2xl">{teaser.title}</h2>
-      <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
+      <p className="mt-3 text-sm leading-relaxed text-text-secondary sm:text-base">
         {teaser.text}
       </p>
       <Link
         href={teaser.ctaHref}
         onClick={handleCtaClick}
-        className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-amber px-6 text-sm font-semibold text-deep-navy transition-colors hover:bg-amber/90 sm:w-auto"
+        className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-amber px-6 text-sm font-semibold text-text-primary transition-colors hover:bg-amber/90 sm:w-auto"
       >
         {teaser.ctaLabel}
       </Link>

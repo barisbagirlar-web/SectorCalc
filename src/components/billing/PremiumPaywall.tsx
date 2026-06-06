@@ -33,14 +33,14 @@ export function PremiumPaywall({ tool, toolSlug, pricingHref }: PremiumPaywallPr
   const freeHref = tool ? getFreeToolHref(tool) : "/free-tools";
 
   return (
-    <aside className="rounded-2xl border border-slate/15 bg-white p-6 shadow-card dark:border-slate-600 dark:bg-slate-800 sm:p-8">
-      <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
+    <aside className="rounded-2xl border border-border-subtle bg-white p-6 shadow-card sm:p-8">
+      <p className="text-xs font-semibold uppercase tracking-wider text-accent-teal">
         Premium access required
       </p>
-      <h2 className="mt-3 text-xl font-bold text-deep-navy dark:text-white sm:text-2xl">
+      <h2 className="mt-3 text-xl font-bold text-text-primary sm:text-2xl">
         Unlock this analyzer with Single Verdict or SectorCalc Pro.
       </h2>
-      <p className="mt-3 text-sm leading-relaxed text-slate dark:text-slate-300">
+      <p className="mt-3 text-sm leading-relaxed text-slate">
         Get safe price, bid risk and margin leak verdicts before you accept the job.
       </p>
       <ul className="mt-5 space-y-2">
@@ -70,19 +70,19 @@ export function PremiumPaywall({ tool, toolSlug, pricingHref }: PremiumPaywallPr
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <Link
           href={freeHref}
-          className="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-slate/20 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue dark:border-slate-600 dark:bg-slate-900 dark:text-off-white dark:hover:border-professional-blue"
+          className="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-border-subtle bg-white px-5 text-sm font-semibold text-text-primary transition-colors hover:border-accent-teal hover:text-accent-teal"
         >
           Try the Free Calculator
         </Link>
         <Link
           href={resolvedPricingHref}
-          className="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-transparent px-5 text-sm font-semibold text-slate transition-colors hover:text-professional-blue"
+          className="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-transparent px-5 text-sm font-semibold text-slate transition-colors hover:text-accent-teal"
         >
           View pricing
         </Link>
         </div>
       </div>
-      <p className="mt-4 text-xs leading-relaxed text-slate dark:text-slate-300">{PAYWALL_SHORT_LEGAL}</p>
+      <p className="mt-4 text-xs leading-relaxed text-slate">{PAYWALL_SHORT_LEGAL}</p>
     </aside>
   );
 }

@@ -39,7 +39,7 @@ export function SiteFooter() {
   const t = useTranslations("footer");
 
   return (
-    <footer id="footer" className="dark:border-slate-700 dark:bg-slate-900">
+    <footer id="footer" className="dark:border-slate-700">
       <div className="custom-works-container clearfix">
         <div className="container">
           <div className="footer-brand-block">

@@ -38,13 +38,13 @@ export default function IndustriesPage() {
   const featuredCards = resolveIndustryCards(featured, true);
 
   return (
-    <PageLayout headerTheme="light">
-      <section className="border-b border-slate/10 bg-off-white py-10 sm:py-12">
+    <PageLayout>
+      <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12">
         <Container>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-professional-blue">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-teal">
             Sector decision tools
           </p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-deep-navy sm:text-4xl">
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
             Choose the sector where margin risk starts
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
@@ -54,9 +54,9 @@ export default function IndustriesPage() {
         </Container>
       </section>
 
-      <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
+      <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
         <Container>
-          <h2 className="text-xl font-bold text-deep-navy">Featured sectors</h2>
+          <h2 className="text-xl font-bold text-text-primary">Featured sectors</h2>
           <div className="mt-6">
             <IndustriesGrid items={featuredCards} />
           </div>
@@ -73,10 +73,10 @@ export default function IndustriesPage() {
         return (
           <section
             key={category}
-            className="border-b border-slate/10 bg-off-white py-10 sm:py-12 even:bg-white"
+            className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12 even:bg-white"
           >
             <Container>
-              <h2 className="text-xl font-bold text-deep-navy">
+              <h2 className="text-xl font-bold text-text-primary">
                 {INDUSTRY_CATEGORY_LABELS[category]}
               </h2>
               <div className="mt-6">
@@ -87,18 +87,18 @@ export default function IndustriesPage() {
         );
       })}
 
-      <section className="bg-off-white py-8">
+      <section className="bg-bg-subtle py-8">
         <Container>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
             <Link
               href={getPremiumToolsHref()}
-              className="text-sm font-semibold text-professional-blue hover:underline"
+              className="text-sm font-semibold text-accent-teal hover:underline"
             >
               Browse premium analyzers →
             </Link>
             <Link
               href={getPricingHref()}
-              className="text-sm font-semibold text-slate hover:text-professional-blue"
+              className="text-sm font-semibold text-slate hover:text-accent-teal"
             >
               View SectorCalc Pro pricing →
             </Link>

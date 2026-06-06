@@ -163,11 +163,11 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
   return (
     <div className="flex min-w-0 flex-col gap-8">
       <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
-        <div className="order-1 min-w-0 rounded-xl border border-slate/15 bg-white p-6 shadow-card sm:p-7">
+        <div className="order-1 min-w-0 rounded-xl border border-border-subtle bg-white p-6 shadow-card sm:p-7">
           <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate">
             Inputs
           </p>
-          <h2 className="mb-6 text-lg font-bold text-deep-navy">Calculation parameters</h2>
+          <h2 className="mb-6 text-lg font-bold text-text-primary">Calculation parameters</h2>
           {isFreeTool ? (
             <>
               <p className="mb-4 text-sm leading-relaxed text-slate">

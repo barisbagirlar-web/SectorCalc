@@ -33,7 +33,7 @@ export default async function PricingPage({ params }: PageProps) {
   const t = await getTranslations("pricing");
 
   return (
-    <PageLayout headerTheme="light">
+    <PageLayout>
       <Suspense fallback={null}>
         <PricingCheckoutCanceledBanner />
       </Suspense>
@@ -44,22 +44,22 @@ export default async function PricingPage({ params }: PageProps) {
         <PricingToolUnlockBanner />
       </Suspense>
 
-      <section className="border-b border-slate/10 bg-off-white py-10 sm:py-12">
+      <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12">
         <Container>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-professional-blue">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-teal">
             {t("eyebrow")}
           </p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-deep-navy sm:text-4xl">
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
             {t("title")}
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
             {t("tagline")}
           </p>
-          <p className="mt-3 max-w-2xl text-base font-semibold text-deep-navy">
+          <p className="mt-3 max-w-2xl text-base font-semibold text-text-primary">
             {t("roiCopy")}
           </p>
           <p className="mt-4 text-sm">
-            <Link href={getSampleReportHref()} className="font-semibold text-professional-blue hover:underline">
+            <Link href={getSampleReportHref()} className="font-semibold text-accent-teal hover:underline">
               {t("sampleReport")}
             </Link>
           </p>
@@ -70,20 +70,20 @@ export default async function PricingPage({ params }: PageProps) {
         <PricingPlansGrid showHeader={false} embedded />
       </Suspense>
 
-      <section className="border-t border-slate/10 bg-white py-10 sm:py-12">
+      <section className="border-t border-border-subtle bg-white py-10 sm:py-12">
         <Container>
           <p className="text-xs leading-relaxed text-slate">{PRICING_CHECKOUT_LEGAL}</p>
           <p className="mt-4 text-xs leading-relaxed text-slate">{PRICING_REFUND_POLICY}</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href={getPremiumToolsHref()}
-              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-professional-blue hover:underline"
+              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent-teal hover:underline"
             >
               {t("browsePremium")}
             </Link>
             <Link
               href={getFreeToolsHref()}
-              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-slate hover:text-professional-blue"
+              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-slate hover:text-accent-teal"
             >
               {t("startFree")}
             </Link>

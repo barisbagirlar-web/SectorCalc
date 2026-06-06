@@ -35,7 +35,7 @@ export default async function HomePage({ params }: PageProps) {
   const t = await getTranslations("home");
 
   return (
-    <PageLayout headerTheme="light">
+    <PageLayout>
       <section id="sector-calc-platform">
         <div className="row">
           <div className="col-xs-12">

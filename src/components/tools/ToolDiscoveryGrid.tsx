@@ -13,7 +13,7 @@ export function ToolDiscoveryCard({ tool }: ToolDiscoveryCardProps) {
   return (
     <Link
       href={tool.href}
-      className="group flex h-full min-h-[120px] flex-col justify-between rounded-2xl border border-slate/15 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-professional-blue/30 hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-professional-blue/30 focus-visible:ring-offset-2"
+      className="group flex h-full min-h-[120px] flex-col justify-between rounded-2xl border border-border-subtle bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-accent-teal/30 hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal/30 focus-visible:ring-offset-2"
     >
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-2">
@@ -32,14 +32,14 @@ export function ToolDiscoveryCard({ tool }: ToolDiscoveryCardProps) {
             </span>
           ) : null}
         </div>
-        <h3 className="mt-3 break-words text-base font-bold leading-snug text-deep-navy line-clamp-2 group-hover:text-professional-blue">
+        <h3 className="mt-3 break-words text-base font-bold leading-snug text-text-primary line-clamp-2 group-hover:text-accent-teal">
           {tool.name}
         </h3>
         <p className="mt-2 line-clamp-2 break-words text-sm leading-relaxed text-slate">
           {tool.shortDescription}
         </p>
       </div>
-      <span className="mt-4 text-sm font-semibold text-professional-blue transition group-hover:translate-x-0.5">
+      <span className="mt-4 text-sm font-semibold text-accent-teal transition group-hover:translate-x-0.5">
         Open tool →
       </span>
     </Link>

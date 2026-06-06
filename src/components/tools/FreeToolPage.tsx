@@ -111,7 +111,7 @@ function FreeToolInputField({
     return (
       <div className="space-y-1.5">
         <div className="flex items-center gap-1">
-          <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy dark:text-off-white">
+          <label htmlFor={inputId} className="block text-sm font-medium text-text-primary">
             {input.label}
             {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
           </label>
@@ -151,7 +151,7 @@ function FreeToolInputField({
   return (
     <div className="space-y-1.5">
       <div className="flex items-center gap-1">
-        <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy dark:text-off-white">
+        <label htmlFor={inputId} className="block text-sm font-medium text-text-primary">
           {input.label}
           {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
         </label>
@@ -336,34 +336,34 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
   const premiumHref = getPremiumToolHref(tool);
 
   return (
-    <PageLayout headerTheme="light">
-      <section className="border-b border-slate/10 bg-white py-10 dark:bg-deep-navy sm:py-12">
+    <PageLayout>
+      <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
         <Container size="wide" className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
+          <p className="text-xs font-semibold uppercase tracking-wider text-accent-teal">
             Free calculator
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-deep-navy dark:text-off-white sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
             {tool.freeTitle}
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate">
             {tool.painStatement}
           </p>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy dark:text-off-white">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-text-primary">
             {tool.freeValue}
           </p>
         </Container>
       </section>
 
-      <section className="bg-off-white py-10 dark:bg-slate-900 sm:py-12">
+      <section className="bg-bg-subtle py-10 sm:py-12">
         <Container size="wide" className="min-w-0">
           <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
             <div className="min-w-0 sc-card">
-              <h2 className="text-lg font-bold text-deep-navy dark:text-off-white">Quick check inputs</h2>
+              <h2 className="text-lg font-bold text-text-primary">Quick check inputs</h2>
               <p className="mt-2 text-sm leading-relaxed text-slate">
                 {tool.freeResultPromise}
               </p>
-              <p className="mt-4 rounded-lg border border-slate/10 bg-off-white px-4 py-3 text-xs leading-relaxed text-slate dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                <strong className="font-semibold text-deep-navy dark:text-off-white">Privacy:</strong>{" "}
+              <p className="mt-4 rounded-lg border border-border-subtle bg-bg-subtle px-4 py-3 text-xs leading-relaxed text-slate">
+                <strong className="font-semibold text-text-primary">Privacy:</strong>{" "}
                 {FREE_TOOL_PRIVACY_NOTE}
               </p>
               <form ref={formRef} onSubmit={handleSubmit} className="mt-6 space-y-5" noValidate>
@@ -406,27 +406,27 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
               ) : null}
 
               <aside className="sc-card">
-                <h3 className="text-base font-semibold text-deep-navy dark:text-off-white">
+                <h3 className="text-base font-semibold text-text-primary">
                   Need the full decision?
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate dark:text-slate-300">{FREE_UPSELL_COPY}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate">{FREE_UPSELL_COPY}</p>
                 <div className="mt-5 flex flex-col gap-3">
                   <Link
                     href={premiumHref}
-                    className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-professional-blue hover:underline"
+                    className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-accent-teal hover:underline"
                   >
                     View premium analyzer →
                   </Link>
                   <Link
                     href={singleVerdictHref}
-                    className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-professional-blue dark:text-slate-300"
+                    className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-accent-teal"
                   >
                     Compare pricing plans →
                   </Link>
                 </div>
               </aside>
 
-              <p className="rounded-lg border border-slate/15 bg-white px-4 py-3 text-xs leading-relaxed text-slate dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
+              <p className="rounded-lg border border-border-subtle bg-white px-4 py-3 text-xs leading-relaxed text-slate">
                 {tool.legalDisclaimer ?? revenueLegalDisclaimer}
               </p>
             </div>

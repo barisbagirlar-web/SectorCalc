@@ -10,7 +10,7 @@ export async function IndustriesPreviewSection() {
   const t = await getTranslations("home.industriesPreview");
 
   return (
-    <section className="border-y border-slate/10 bg-white py-16 dark:border-slate-700 dark:bg-deep-navy md:py-24 lg:py-28">
+    <section className="border-y border-border-subtle bg-white py-16 md:py-24 lg:py-28">
       <Container size="wide">
         <SectionHeader
           eyebrow={t("eyebrow")}
@@ -19,7 +19,7 @@ export async function IndustriesPreviewSection() {
           action={
             <Link
               href="/industries"
-              className="inline-flex min-h-[44px] shrink-0 items-center text-sm font-semibold text-professional-blue hover:underline dark:text-cyan"
+              className="inline-flex min-h-[44px] shrink-0 items-center text-sm font-semibold text-accent-teal hover:underline"
             >
               {t("viewAll")}
             </Link>

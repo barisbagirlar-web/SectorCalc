@@ -91,7 +91,7 @@ export function PricingPlansGrid({
         )}
 
         {!compact ? (
-          <p className="mx-auto mb-8 max-w-2xl text-center text-base font-semibold text-deep-navy">
+          <p className="mx-auto mb-8 max-w-2xl text-center text-base font-semibold text-text-primary">
             {t("pricing.roiCopy")}
           </p>
         ) : null}
@@ -112,9 +112,9 @@ export function PricingPlansGrid({
               className={`flex flex-col rounded-2xl border p-6 md:p-7 ${
                 plan.highlighted || highlightPlanId === plan.id
                   ? plan.highlighted
-                    ? "border-professional-blue bg-deep-navy text-white shadow-card-dark ring-1 ring-cyan/20"
-                    : "border-professional-blue bg-white shadow-card ring-2 ring-professional-blue/30"
-                  : "border-slate/20 bg-white shadow-card"
+                    ? "border-accent-teal bg-bg-primary text-white shadow-card-dark ring-1 ring-cyan/20"
+                    : "border-accent-teal bg-white shadow-card ring-2 ring-accent-teal/30"
+                  : "border-border-subtle bg-white shadow-card"
               }`}
             >
               <div className="flex flex-wrap items-center gap-2">
@@ -133,7 +133,7 @@ export function PricingPlansGrid({
               </div>
               <p
                 className={`mt-2 text-2xl font-bold sm:text-3xl ${
-                  plan.highlighted ? "text-cyan" : "text-deep-navy"
+                  plan.highlighted ? "text-accent-teal" : "text-text-primary"
                 }`}
               >
                 {plan.price}
@@ -141,7 +141,7 @@ export function PricingPlansGrid({
               {plan.period ? (
                 <p
                   className={`text-sm ${
-                    plan.highlighted ? "text-slate-300" : "text-slate"
+                    plan.highlighted ? "text-text-secondary" : "text-slate"
                   }`}
                 >
                   {plan.period}
@@ -149,7 +149,7 @@ export function PricingPlansGrid({
               ) : null}
               <p
                 className={`mt-4 text-sm leading-relaxed ${
-                  plan.highlighted ? "text-slate-300" : "text-slate"
+                  plan.highlighted ? "text-text-secondary" : "text-slate"
                 }`}
               >
                 {plan.description}
@@ -159,8 +159,8 @@ export function PricingPlansGrid({
                   <IconListItem
                     key={feature}
                     icon={UI_ICON.check}
-                    iconClassName={plan.highlighted ? "text-cyan" : "text-emerald"}
-                    className={plan.highlighted ? "text-slate-200" : "text-deep-navy"}
+                    iconClassName={plan.highlighted ? "text-accent-teal" : "text-emerald"}
+                    className={plan.highlighted ? "text-text-secondary" : "text-text-primary"}
                   >
                     {feature}
                   </IconListItem>
@@ -192,7 +192,7 @@ export function PricingPlansGrid({
               {plan.checkoutPlan === "pro" && plan.checkoutReady ? (
                 <p
                   className={`mt-4 text-xs leading-relaxed ${
-                    plan.highlighted ? "text-slate-400" : "text-slate"
+                    plan.highlighted ? "text-text-muted" : "text-slate"
                   }`}
                 >
                   {PRICING_CHECKOUT_LEGAL}
@@ -210,7 +210,7 @@ export function PricingPlansGrid({
 
         {!compact ? (
           <p className="mt-6 text-center text-sm text-slate">
-            <Link href={getSampleReportHref()} className="font-semibold text-professional-blue hover:underline">
+            <Link href={getSampleReportHref()} className="font-semibold text-accent-teal hover:underline">
               {t("pricing.sampleReport")}
             </Link>
           </p>
@@ -255,8 +255,8 @@ export function PricingPlansGrid({
     <section
       className={
         compact
-          ? "border-y border-slate/10 bg-white py-20 md:py-28"
-          : "bg-off-white py-16 md:py-24"
+          ? "border-y border-border-subtle bg-white py-20 md:py-28"
+          : "bg-bg-subtle py-16 md:py-24"
       }
     >
       {inner}

@@ -31,17 +31,17 @@ const toneClasses = {
 
 export function SampleDecisionReportLayout() {
   return (
-    <section className="bg-off-white py-12 md:py-16 sc-section">
+    <section className="bg-bg-subtle py-12 md:py-16 sc-section">
       <Container>
-        <div className="overflow-hidden rounded-2xl border border-slate/20 bg-white shadow-card">
-          <header className="border-b border-slate/15 bg-deep-navy px-6 py-8 sm:px-10">
-            <p className="text-xs font-semibold uppercase tracking-wider text-cyan">
+        <div className="overflow-hidden rounded-2xl border border-border-subtle bg-white shadow-card">
+          <header className="border-b border-border-subtle bg-bg-primary px-6 py-8 sm:px-10">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent-teal">
               Premium verdict report · Illustrative sample
             </p>
             <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
               {SAMPLE_REPORT_TITLE}
             </h2>
-            <p className="mt-3 text-sm text-slate-300">
+            <p className="mt-3 text-sm text-text-secondary">
               Decision-ready output — not a calculator dump.
             </p>
           </header>
@@ -55,7 +55,7 @@ export function SampleDecisionReportLayout() {
               <p className="mt-4 text-2xl font-bold text-soft-red sm:text-3xl">
                 {SAMPLE_REPORT_VERDICT}
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-deep-navy sm:text-base">
+              <p className="mt-4 text-sm leading-relaxed text-text-primary sm:text-base">
                 {SAMPLE_REPORT_EXECUTIVE_VERDICT}
               </p>
               <dl className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -71,7 +71,7 @@ export function SampleDecisionReportLayout() {
                   <dt className="text-xs font-semibold uppercase tracking-wider text-slate">
                     Main leak
                   </dt>
-                  <dd className="mt-1 text-sm font-semibold text-deep-navy">
+                  <dd className="mt-1 text-sm font-semibold text-text-primary">
                     {SAMPLE_REPORT_MAIN_LEAK}
                   </dd>
                 </div>
@@ -79,7 +79,7 @@ export function SampleDecisionReportLayout() {
                   <dt className="text-xs font-semibold uppercase tracking-wider text-slate">
                     Suggested action
                   </dt>
-                  <dd className="mt-1 text-sm font-semibold text-deep-navy">
+                  <dd className="mt-1 text-sm font-semibold text-text-primary">
                     {SAMPLE_REPORT_SUGGESTED_ACTION}
                   </dd>
                 </div>
@@ -87,7 +87,7 @@ export function SampleDecisionReportLayout() {
             </article>
 
             <article>
-              <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-professional-blue">
+              <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-accent-teal">
                 <ScIcon icon={TOOL_CATEGORY_ICON.cost} size="compact" />
                 Input summary
               </h3>
@@ -95,12 +95,12 @@ export function SampleDecisionReportLayout() {
                 {SAMPLE_REPORT_INPUT_SUMMARY.map((row) => (
                   <div
                     key={row.label}
-                    className="rounded-xl border border-slate/15 bg-off-white px-4 py-3"
+                    className="rounded-xl border border-border-subtle bg-bg-subtle px-4 py-3"
                   >
                     <dt className="text-xs font-medium uppercase tracking-wide text-slate">
                       {row.label}
                     </dt>
-                    <dd className="mt-1 text-sm font-semibold text-deep-navy">{row.value}</dd>
+                    <dd className="mt-1 text-sm font-semibold text-text-primary">{row.value}</dd>
                   </div>
                 ))}
               </dl>
@@ -111,7 +111,7 @@ export function SampleDecisionReportLayout() {
                 <ScIcon icon={TOOL_CATEGORY_ICON.safePrice} size="compact" className="text-emerald" />
                 Minimum safe price
               </h3>
-              <p className="mt-3 text-3xl font-bold text-deep-navy">
+              <p className="mt-3 text-3xl font-bold text-text-primary">
                 {SAMPLE_REPORT_MINIMUM_SAFE_PRICE.amount}
               </p>
               <p className="mt-1 text-sm font-medium text-slate">
@@ -123,7 +123,7 @@ export function SampleDecisionReportLayout() {
             </article>
 
             <article>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-professional-blue">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-accent-teal">
                 Margin leak diagnosis
               </h3>
               <ul className="mt-4 space-y-3">
@@ -133,7 +133,7 @@ export function SampleDecisionReportLayout() {
                     className="sc-card flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between"
                   >
                     <div>
-                      <p className="font-semibold text-deep-navy">{leak.driver}</p>
+                      <p className="font-semibold text-text-primary">{leak.driver}</p>
                       <p className="mt-1 text-sm text-slate">{leak.impact}</p>
                     </div>
                     <span
@@ -149,13 +149,13 @@ export function SampleDecisionReportLayout() {
             </article>
 
             <article>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-professional-blue">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-accent-teal">
                 Scenario comparison
               </h3>
               <div className="mt-4 overflow-x-auto">
                 <table className="w-full min-w-[520px] text-left text-sm">
                   <thead>
-                    <tr className="border-b border-slate/20 text-xs font-semibold uppercase tracking-wider text-slate">
+                    <tr className="border-b border-border-subtle text-xs font-semibold uppercase tracking-wider text-slate">
                       <th className="pb-3 pr-4">Scenario</th>
                       <th className="pb-3 pr-4">Quote</th>
                       <th className="pb-3 pr-4">Margin</th>
@@ -164,9 +164,9 @@ export function SampleDecisionReportLayout() {
                   </thead>
                   <tbody>
                     {SAMPLE_REPORT_SCENARIOS.map((row) => (
-                      <tr key={row.label} className="border-b border-slate/10 last:border-0">
-                        <td className="py-3 pr-4 font-medium text-deep-navy">{row.label}</td>
-                        <td className="py-3 pr-4 text-deep-navy">{row.quote}</td>
+                      <tr key={row.label} className="border-b border-border-subtle last:border-0">
+                        <td className="py-3 pr-4 font-medium text-text-primary">{row.label}</td>
+                        <td className="py-3 pr-4 text-text-primary">{row.quote}</td>
                         <td className="py-3 pr-4 text-slate">{row.margin}</td>
                         <td className="py-3">
                           <span
@@ -182,11 +182,11 @@ export function SampleDecisionReportLayout() {
               </div>
             </article>
 
-            <article className="sc-card border-professional-blue/25 bg-professional-blue/[0.04]">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-professional-blue">
+            <article className="sc-card border-accent-teal/25 bg-accent-teal/[0.04]">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-accent-teal">
                 Suggested action
               </h3>
-              <p className="mt-3 text-base font-semibold text-deep-navy">
+              <p className="mt-3 text-base font-semibold text-text-primary">
                 {SAMPLE_REPORT_SUGGESTED_ACTION}
               </p>
               <p className="mt-3 text-sm leading-relaxed text-slate">
@@ -196,7 +196,7 @@ export function SampleDecisionReportLayout() {
               </p>
             </article>
 
-            <article className="rounded-xl border border-dashed border-slate/25 bg-off-white p-5">
+            <article className="rounded-xl border border-dashed border-slate/25 bg-bg-subtle p-5">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-slate">
                 Disclaimer
               </h3>
@@ -221,11 +221,11 @@ export function SampleDecisionReportLayout() {
             </Button>
           </div>
           <p className="text-sm text-slate">
-            <Link href={getFreeToolsHref()} className="font-semibold text-professional-blue hover:underline">
+            <Link href={getFreeToolsHref()} className="font-semibold text-accent-teal hover:underline">
               Run a free margin check
             </Link>
             {" · "}
-            <Link href={getPremiumToolsHref()} className="font-semibold text-professional-blue hover:underline">
+            <Link href={getPremiumToolsHref()} className="font-semibold text-accent-teal hover:underline">
               Browse premium analyzers
             </Link>
           </p>

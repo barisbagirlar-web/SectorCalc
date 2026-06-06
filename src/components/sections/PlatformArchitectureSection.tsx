@@ -40,7 +40,7 @@ const SECONDARY_FEATURES = [
 
 export function PlatformArchitectureSection() {
   return (
-    <section className="border-y border-white/5 bg-dark-navy py-20 md:py-28 lg:py-32">
+    <section className="border-y border-border-subtle bg-bg-primary py-20 md:py-28 lg:py-32">
       <Container>
         <SectionHeader
           eyebrow="Platform"
@@ -57,14 +57,14 @@ export function PlatformArchitectureSection() {
                 <PlatformFeatureIcon variant={feature.icon} dark />
               </div>
               <h3 className="mt-6 text-xl font-bold text-white">{feature.title}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-slate-400 md:text-base">
+              <p className="mt-4 text-sm leading-relaxed text-text-muted md:text-base">
                 {feature.description}
               </p>
             </article>
           ))}
         </div>
 
-        <div className="mt-16 grid gap-8 border-t border-white/10 pt-16 md:grid-cols-2 md:gap-12">
+        <div className="mt-16 grid gap-8 border-t border-border-subtle pt-16 md:grid-cols-2 md:gap-12">
           {SECONDARY_FEATURES.map((feature) => (
             <article
               key={feature.title}
@@ -73,7 +73,7 @@ export function PlatformArchitectureSection() {
               <PlatformFeatureIcon variant={feature.icon} dark />
               <div>
                 <h3 className="text-lg font-bold text-white">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                <p className="mt-3 text-sm leading-relaxed text-text-muted">
                   {feature.description}
                 </p>
               </div>

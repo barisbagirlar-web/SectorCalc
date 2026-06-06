@@ -2,11 +2,11 @@ import { Container } from "@/components/ui/Container";
 
 export function SplitFeatureSection() {
   return (
-    <section className="border-y border-slate/10 bg-white py-20 md:py-28 lg:py-32">
+    <section className="border-y border-border-subtle bg-white py-20 md:py-28 lg:py-32">
       <Container size="wide">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="min-w-0">
-            <h2 className="text-3xl font-bold leading-[1.12] tracking-tight text-deep-navy sm:text-4xl lg:text-[2.75rem]">
+            <h2 className="text-3xl font-bold leading-[1.12] tracking-tight text-text-primary sm:text-4xl lg:text-[2.75rem]">
               Complete clarity
               <br />
               for decision outputs
@@ -25,22 +25,22 @@ export function SplitFeatureSection() {
           </div>
 
           <div
-            className="relative overflow-hidden rounded-2xl border border-slate/15 bg-off-white p-8 shadow-card md:p-10"
+            className="relative overflow-hidden rounded-2xl border border-border-subtle bg-bg-subtle p-8 shadow-card md:p-10"
             aria-hidden
           >
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { label: "Executive summary", tone: "bg-deep-navy" },
-                { label: "Scenario paths", tone: "bg-professional-blue" },
-                { label: "Risk assessment", tone: "bg-cyan/80" },
-                { label: "Recommendation", tone: "bg-deep-navy/80" },
+                { label: "Executive summary", tone: "bg-bg-primary" },
+                { label: "Scenario paths", tone: "bg-accent-teal" },
+                { label: "Risk assessment", tone: "bg-accent-teal/80" },
+                { label: "Recommendation", tone: "bg-bg-primary/80" },
               ].map((block) => (
                 <div
                   key={block.label}
-                  className="rounded-xl border border-slate/10 bg-white p-5"
+                  className="rounded-xl border border-border-subtle bg-white p-5"
                 >
                   <div className={`mb-4 h-2 w-12 rounded-full ${block.tone}`} />
-                  <p className="text-sm font-semibold text-deep-navy">{block.label}</p>
+                  <p className="text-sm font-semibold text-text-primary">{block.label}</p>
                   <div className="mt-3 space-y-2">
                     <span className="block h-1.5 w-full rounded bg-slate/15" />
                     <span className="block h-1.5 w-[80%] rounded bg-slate/10" />

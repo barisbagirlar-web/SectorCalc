@@ -57,7 +57,7 @@ export function PremiumDecisionReportPanel({
     {
       title: "Key Findings",
       content: (
-        <ul className="list-disc space-y-2.5 pl-5 marker:text-cyan">
+        <ul className="list-disc space-y-2.5 pl-5 marker:text-accent-teal">
           {report.keyFindings.map((finding) => (
             <li key={finding}>{finding}</li>
           ))}
@@ -77,25 +77,25 @@ export function PremiumDecisionReportPanel({
     {
       title: "Assumptions",
       content: (
-        <p className="text-slate-400 italic">{report.assumptions}</p>
+        <p className="text-text-muted italic">{report.assumptions}</p>
       ),
     },
   ];
 
   return (
     <section className="min-w-0 overflow-hidden rounded-2xl border border-amber/25 bg-gradient-to-b from-deep-navy via-deep-navy to-dark-navy shadow-card-dark">
-      <div className="relative border-b border-white/10 px-5 py-6 sm:px-8 sm:py-7">
+      <div className="relative border-b border-border-subtle px-5 py-6 sm:px-8 sm:py-7">
         <Badge variant="premium" className="mb-3">
           Decision summary
         </Badge>
         <h2 className="max-w-xl text-xl font-bold text-white sm:text-2xl">
           {toolTitle} — structured output
         </h2>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-text-secondary sm:text-base">
           This summary is the export-ready view of your paid analyzer result — verdict,
           key drivers and suggested action. PDF download ships in a later release.
         </p>
-        <p className="mt-2 max-w-2xl text-xs leading-relaxed text-slate-400">
+        <p className="mt-2 max-w-2xl text-xs leading-relaxed text-text-muted">
           Based on your inputs only — not industry benchmarks. Review assumptions before
           acting.
         </p>
@@ -105,17 +105,17 @@ export function PremiumDecisionReportPanel({
         {sections.map((section, index) => (
           <article
             key={section.title}
-            className="relative rounded-xl border border-white/10 bg-white/[0.04] p-5 sm:p-6"
+            className="relative rounded-xl border border-border-subtle bg-white/[0.04] p-5 sm:p-6"
           >
             <div className="mb-4 flex items-center gap-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-professional-blue/20 text-sm font-bold text-cyan">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-teal/20 text-sm font-bold text-accent-teal">
                 {index + 1}
               </span>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-cyan">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-accent-teal">
                 {section.title}
               </h3>
             </div>
-            <div className="text-sm leading-relaxed text-slate-200 sm:text-[15px]">
+            <div className="text-sm leading-relaxed text-text-secondary sm:text-[15px]">
               {section.content}
             </div>
           </article>
@@ -125,7 +125,7 @@ export function PremiumDecisionReportPanel({
           <h3 className="text-sm font-semibold uppercase tracking-wider text-amber">
             Export (PDF preview)
           </h3>
-          <p className="mt-2 text-sm text-slate-300">
+          <p className="mt-2 text-sm text-text-secondary">
             PDF export is the paid tool result in shareable form — preview only until the
             export release ships.
           </p>
@@ -135,7 +135,7 @@ export function PremiumDecisionReportPanel({
                 key={format}
                 type="button"
                 onClick={() => handleExportClick(format)}
-                className="min-h-[44px] w-full rounded-lg border border-white/15 bg-white/5 px-4 text-sm font-medium text-slate-300 transition-colors hover:border-amber/30 hover:bg-white/10 hover:text-white sm:w-auto"
+                className="min-h-[44px] w-full rounded-lg border border-border-subtle bg-white/5 px-4 text-sm font-medium text-text-secondary transition-colors hover:border-amber/30 hover:bg-white/10 hover:text-white sm:w-auto"
               >
                 {format}
                 <span className="ml-2 text-xs text-slate-500">(preview)</span>
@@ -143,7 +143,7 @@ export function PremiumDecisionReportPanel({
             ))}
           </div>
           {exportMessage ? (
-            <p className="mt-4 text-sm text-slate-400" role="status">
+            <p className="mt-4 text-sm text-text-muted" role="status">
               {exportMessage}
             </p>
           ) : null}

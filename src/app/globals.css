@@ -10,8 +10,11 @@
   }
 
   body {
-    @apply bg-white text-deep-navy antialiased;
+    @apply antialiased;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: var(--font-inter), system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   strong {
@@ -19,32 +22,65 @@
   }
 }
 
-/* DARK MODE TEXT SAFETY — Force light text on dark backgrounds */
-.dark .bg-deep-navy,
-.dark .bg-slate-900,
-.dark .bg-slate-800,
-.dark .bg-dark-navy {
-  color: #F8FAFC !important;
+/* Engineered Light Theme — Premium Engineering Aesthetic */
+:root {
+  /* Backgrounds (Warm, Light) */
+  --bg-primary: #FAFAF9;
+  --bg-card: #FFFFFF;
+  --bg-subtle: #F5F5F4;
+  
+  /* Text (Warm, Readable) */
+  --text-primary: #292524;
+  --text-secondary: #57534E;
+  --text-muted: #A8A29E;
+  
+  /* Accents (Natural, Engineering) */
+  --accent-teal: #0D9488;
+  --accent-teal-light: #CCFBF1;
+  --accent-emerald: #059669;
+  --accent-amber: #D97706;
+  
+  /* Borders (Minimal) */
+  --border-subtle: #E7E5E4;
+  --border-focus: #0D9488;
+  
+  /* Status */
+  --success: #059669;
+  --warning: #D97706;
+  --error: #DC2626;
 }
 
-.dark .bg-deep-navy *,
-.dark .bg-slate-900 *,
-.dark .bg-slate-800 *,
-.dark .bg-dark-navy * {
-  color: #F8FAFC !important;
+/* Premium card style */
+.card-premium {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(41, 37, 36, 0.05), 0 1px 2px rgba(41, 37, 36, 0.03);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* Preserve intentional light colors (emerald, amber, cyan) */
-.dark .bg-deep-navy .text-emerald,
-.dark .bg-deep-navy .text-amber,
-.dark .bg-deep-navy .text-cyan,
-.dark .bg-slate-900 .text-emerald,
-.dark .bg-slate-900 .text-amber,
-.dark .bg-slate-900 .text-cyan,
-.dark .bg-slate-800 .text-emerald,
-.dark .bg-slate-800 .text-amber,
-.dark .bg-slate-800 .text-cyan {
-  color: inherit !important;
+.card-premium:hover {
+  box-shadow: 0 4px 12px rgba(41, 37, 36, 0.08), 0 2px 4px rgba(41, 37, 36, 0.04);
+  transform: translateY(-1px);
+}
+
+/* Engineering typography */
+.heading-engineering {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.body-engineering {
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Focus states */
+.focus-engineering:focus-visible {
+  outline: 2px solid var(--accent-teal);
+  outline-offset: 2px;
 }
 
 /* MagiClick product sections — Inter only */

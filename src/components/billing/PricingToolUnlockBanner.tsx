@@ -21,11 +21,11 @@ export function PricingToolUnlockBanner() {
     PRICING_UNLOCK_SUBTITLES[tool.paidSlug] ?? tool.paidValue;
 
   return (
-    <div className="border-b border-professional-blue/20 bg-cyan/10" role="status">
+    <div className="border-b border-accent-teal/20 bg-accent-teal/10" role="status">
       <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6">
-        <p className="text-sm font-medium text-deep-navy">
+        <p className="text-sm font-medium text-text-primary">
           You are unlocking:{" "}
-          <span className="font-semibold text-professional-blue">{tool.paidTitle}</span>
+          <span className="font-semibold text-accent-teal">{tool.paidTitle}</span>
         </p>
         <p className="mt-1 text-sm text-slate">{subtitle}</p>
       </div>

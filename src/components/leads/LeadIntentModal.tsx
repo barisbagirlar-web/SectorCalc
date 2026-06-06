@@ -21,9 +21,9 @@ import type {
 import { useLeadIntent } from "@/components/leads/LeadIntentContext";
 
 const inputClass =
-  "w-full min-h-[48px] rounded-lg border bg-white px-4 text-deep-navy focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
+  "w-full min-h-[48px] rounded-lg border bg-white px-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-teal/20";
 const inputErrorClass = "border-soft-red";
-const inputOkClass = "border-slate/25 focus:border-professional-blue";
+const inputOkClass = "border-slate/25 focus:border-accent-teal";
 
 interface FormState {
   name: string;
@@ -239,7 +239,7 @@ export function LeadIntentModal() {
     >
       <button
         type="button"
-        className="absolute inset-0 bg-deep-navy/60 backdrop-blur-[2px]"
+        className="absolute inset-0 bg-bg-primary/60 backdrop-blur-[2px]"
         aria-label="Close dialog"
         onClick={closeLeadModal}
       />
@@ -248,13 +248,13 @@ export function LeadIntentModal() {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative z-10 flex max-h-[92vh] w-full max-w-lg flex-col overflow-hidden rounded-t-2xl border border-slate/20 bg-white shadow-card sm:max-h-[90vh] sm:rounded-2xl"
+        className="relative z-10 flex max-h-[92vh] w-full max-w-lg flex-col overflow-hidden rounded-t-2xl border border-border-subtle bg-white shadow-card sm:max-h-[90vh] sm:rounded-2xl"
       >
-        <div className="flex items-start justify-between gap-4 border-b border-slate/15 px-5 py-5 sm:px-6">
+        <div className="flex items-start justify-between gap-4 border-b border-border-subtle px-5 py-5 sm:px-6">
           <div className="min-w-0">
             <h2
               id={titleId}
-              className="text-lg font-bold text-deep-navy sm:text-xl"
+              className="text-lg font-bold text-text-primary sm:text-xl"
             >
               {phase === "success" ? "Request received." : "Request this decision report"}
             </h2>
@@ -263,7 +263,7 @@ export function LeadIntentModal() {
                 Tell us what you need. Premium unlock and export are not live yet —
                 we record your intent for the next release.
                 {planName ? (
-                  <span className="mt-1 block font-medium text-deep-navy">
+                  <span className="mt-1 block font-medium text-text-primary">
                     Plan interest: {planName}
                   </span>
                 ) : null}
@@ -273,7 +273,7 @@ export function LeadIntentModal() {
           <button
             type="button"
             onClick={closeLeadModal}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-slate transition-colors hover:bg-off-white hover:text-deep-navy"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-slate transition-colors hover:bg-bg-subtle hover:text-text-primary"
             aria-label="Close"
           >
             <span aria-hidden className="text-xl leading-none">
@@ -293,7 +293,7 @@ export function LeadIntentModal() {
               <Link
                 href="/free-tools"
                 onClick={closeLeadModal}
-                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-6 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto"
+                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-accent-teal px-6 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto"
               >
                 Continue exploring tools
               </Link>
@@ -385,7 +385,7 @@ export function LeadIntentModal() {
                     type="text"
                     readOnly
                     value={form.toolRequested}
-                    className={`${inputClass} border-slate/25 bg-off-white text-slate`}
+                    className={`${inputClass} border-slate/25 bg-bg-subtle text-slate`}
                   />
                 </Field>
               ) : (
@@ -460,7 +460,7 @@ export function LeadIntentModal() {
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-6 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:opacity-60"
+                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-accent-teal px-6 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:opacity-60"
               >
                 {loading ? "Submitting…" : "Submit request"}
               </button>
@@ -488,7 +488,7 @@ function Field({
   const errorId = `${id}-error`;
   return (
     <div className="space-y-1.5">
-      <label htmlFor={id} className="block text-sm font-medium text-deep-navy">
+      <label htmlFor={id} className="block text-sm font-medium text-text-primary">
         {label}
         {required ? <span className="ml-0.5 text-soft-red">*</span> : null}
       </label>

@@ -6,13 +6,13 @@ type ButtonSize = "sm" | "md" | "lg" | "cta";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-professional-blue text-white hover:bg-professional-blue/90 focus-visible:ring-professional-blue dark:bg-cyan dark:text-deep-navy dark:hover:bg-cyan/90",
+    "bg-accent-teal text-white hover:bg-accent-teal/90 focus-visible:ring-accent-teal",
   secondary:
-    "bg-cyan text-deep-navy hover:bg-cyan/90 focus-visible:ring-cyan dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800",
+    "bg-accent-teal text-text-primary hover:bg-accent-teal/90 focus-visible:ring-cyan",
   ghost:
-    "bg-transparent text-off-white hover:bg-white/10 focus-visible:ring-white dark:text-off-white dark:hover:bg-white/10",
+    "bg-transparent text-text-primary hover:bg-white/10 focus-visible:ring-white",
   outline:
-    "border-2 border-professional-blue text-professional-blue bg-transparent hover:bg-professional-blue/5 focus-visible:ring-professional-blue dark:border-cyan dark:text-cyan dark:hover:bg-cyan/10",
+    "border-2 border-accent-teal text-accent-teal bg-transparent hover:bg-accent-teal/5 focus-visible:ring-accent-teal",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

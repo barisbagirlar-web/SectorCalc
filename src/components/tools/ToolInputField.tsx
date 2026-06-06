@@ -23,7 +23,7 @@ export function ToolInputField({
   if (input.type === "select" && input.options) {
     return (
       <div className="space-y-1.5">
-        <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy">
+        <label htmlFor={inputId} className="block text-sm font-medium text-text-primary">
           {input.label}
           {input.required && <span className="text-soft-red ml-0.5">*</span>}
         </label>
@@ -34,8 +34,8 @@ export function ToolInputField({
           onBlur={() => onBlur(input.id)}
           aria-invalid={Boolean(error)}
           aria-describedby={error ? errorId : `${inputId}-helper`}
-          className={`w-full min-h-[48px] rounded-lg border bg-white px-4 text-deep-navy focus:outline-none focus:ring-2 focus:ring-professional-blue/20 ${
-            error ? "border-soft-red" : "border-slate/25 focus:border-professional-blue"
+          className={`w-full min-h-[48px] rounded-lg border bg-white px-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-teal/20 ${
+            error ? "border-soft-red" : "border-slate/25 focus:border-accent-teal"
           }`}
         >
           {input.options.map((opt) => (
@@ -59,7 +59,7 @@ export function ToolInputField({
 
   return (
     <div className="space-y-1.5">
-      <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy">
+      <label htmlFor={inputId} className="block text-sm font-medium text-text-primary">
         {input.label}
         {input.required && <span className="text-soft-red ml-0.5">*</span>}
       </label>
@@ -84,9 +84,9 @@ export function ToolInputField({
           onBlur={() => onBlur(input.id)}
           aria-invalid={Boolean(error)}
           aria-describedby={error ? errorId : `${inputId}-helper`}
-          className={`w-full min-h-[48px] rounded-lg border bg-white py-2.5 text-deep-navy focus:outline-none focus:ring-2 focus:ring-professional-blue/20 ${
+          className={`w-full min-h-[48px] rounded-lg border bg-white py-2.5 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-teal/20 ${
             input.currency ? "pl-8 pr-4" : "px-4"
-          } ${input.unit ? "pr-12" : ""} ${error ? "border-soft-red" : "border-slate/25 focus:border-professional-blue"}`}
+          } ${input.unit ? "pr-12" : ""} ${error ? "border-soft-red" : "border-slate/25 focus:border-accent-teal"}`}
         />
         {input.unit && (
           <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate">

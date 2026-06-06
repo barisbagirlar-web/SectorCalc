@@ -19,7 +19,7 @@ export const metadata: Metadata = createPageMetadata({
 export default function SampleDecisionReportPage() {
   return (
     <PageLayout>
-      <section className="border-b border-slate/10 bg-white py-10 md:py-12">
+      <section className="border-b border-border-subtle bg-white py-10 md:py-12">
         <Container size="narrow">
           <p className="sc-eyebrow">Sample verdict report</p>
           <h1 className="mt-3 sc-h2">See what a premium margin decision report looks like</h1>
@@ -30,7 +30,7 @@ export default function SampleDecisionReportPage() {
           <ul className="mt-6 space-y-2 text-sm text-slate">
             {SAMPLE_REPORT_INCLUDES.map((item) => (
               <li key={item} className="flex gap-2">
-                <span className="font-semibold text-professional-blue" aria-hidden>
+                <span className="font-semibold text-accent-teal" aria-hidden>
                   —
                 </span>
                 {item}
@@ -38,11 +38,11 @@ export default function SampleDecisionReportPage() {
             ))}
           </ul>
           <p className="mt-6 text-sm text-slate">
-            <Link href={getPricingHref()} className="font-semibold text-professional-blue hover:underline">
+            <Link href={getPricingHref()} className="font-semibold text-accent-teal hover:underline">
               {SINGLE_VERDICT_CTA}
             </Link>
             {" · "}
-            <Link href={getFreeToolsHref()} className="font-semibold text-professional-blue hover:underline">
+            <Link href={getFreeToolsHref()} className="font-semibold text-accent-teal hover:underline">
               Start with a free check
             </Link>
           </p>

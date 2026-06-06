@@ -17,7 +17,7 @@ export function RelatedTools({ relatedToolIds, currentSlug }: RelatedToolsProps)
 
   return (
     <section>
-      <h2 className="text-lg font-bold text-deep-navy">Related tools</h2>
+      <h2 className="text-lg font-bold text-text-primary">Related tools</h2>
       <div className="mt-4">
         <ToolsTileGrid tools={related} />
       </div>

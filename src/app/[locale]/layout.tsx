@@ -40,8 +40,8 @@ export default async function LocaleLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html lang={locale} dir={dir} className={inter.variable} suppressHydrationWarning>
-      <body className="min-w-0 overflow-x-hidden bg-white font-sans antialiased dark:bg-deep-navy dark:text-off-white">
+    <html lang={locale} dir={dir} className={inter.variable}>
+      <body className="min-w-0 overflow-x-hidden bg-primary font-sans text-primary antialiased">
         <OrganizationJsonLd />
         <WebApplicationJsonLd />
         <NextIntlClientProvider locale={locale as AppLocale} messages={messages}>

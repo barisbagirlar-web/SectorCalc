@@ -70,13 +70,13 @@ export default function PrivacyPage() {
         footerNote={
           <p>
             See also{" "}
-            <Link href="/terms" className="font-semibold text-professional-blue hover:underline">
+            <Link href="/terms" className="font-semibold text-accent-teal hover:underline">
               Terms of Use
             </Link>{" "}
             and{" "}
             <Link
               href="/disclaimer"
-              className="font-semibold text-professional-blue hover:underline"
+              className="font-semibold text-accent-teal hover:underline"
             >
               Disclaimer
             </Link>

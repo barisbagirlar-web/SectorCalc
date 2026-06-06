@@ -39,7 +39,7 @@ function ToolLine({
 }) {
   const badgeClass =
     variant === "free"
-      ? "border-cyan/25 bg-cyan/10 text-professional-blue"
+      ? "border-cyan/25 bg-accent-teal/10 text-accent-teal"
       : "border-amber/25 bg-amber/10 text-amber";
   const TierIcon = variant === "free" ? STATUS_ICON.free : STATUS_ICON.premium;
   const tierColor = variant === "free" ? STATUS_COLOR_CLASS.free : STATUS_COLOR_CLASS.premium;
@@ -52,7 +52,7 @@ function ToolLine({
         <ScIcon icon={TierIcon} size="compact" className={tierColor} />
         {label}
       </span>
-      <span className="min-w-0 text-sm leading-7 text-slate dark:text-slate-300">{value}</span>
+      <span className="min-w-0 text-sm leading-7 text-slate">{value}</span>
     </div>
   );
 }
@@ -85,23 +85,23 @@ function SectorCardItem({
   slug: IndustrySlug;
 }) {
   return (
-    <article className="group flex h-full flex-col rounded-2xl border border-slate/15 bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-professional-blue/25 dark:border-slate-600 dark:bg-slate-800 dark:hover:border-slate-500">
+    <article className="group flex h-full flex-col rounded-2xl border border-border-subtle bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-accent-teal/25">
       <div className="flex gap-4">
-        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-cyan/20 bg-off-white dark:border-slate-600 dark:bg-slate-900">
+        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-cyan/20 bg-bg-subtle">
           <SectorIcon slug={slug} iconType={icon} />
         </div>
 
         <div className="min-w-0">
-          <h3 className="text-xl font-semibold tracking-tight text-deep-navy dark:text-off-white sm:text-2xl">
+          <h3 className="text-xl font-semibold tracking-tight text-text-primary sm:text-2xl">
             {title}
           </h3>
-          <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate dark:text-slate-300">
+          <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate">
             {painStatement}
           </p>
         </div>
       </div>
 
-      <div className="mt-auto space-y-3 border-t border-slate/10 pt-5 dark:border-slate-700">
+      <div className="mt-auto space-y-3 border-t border-border-subtle pt-5">
         <ToolLine label={freeLabel} value={freeTool} variant="free" />
         <ToolLine label={premiumLabel} value={premiumTool} variant="premium" />
       </div>
@@ -109,13 +109,13 @@ function SectorCardItem({
       <div className="mt-6 flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
         <Link
           href={freeHref}
-          className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-professional-blue px-5 text-sm font-semibold text-white transition hover:bg-professional-blue/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-professional-blue focus-visible:ring-offset-2 dark:bg-cyan dark:text-deep-navy"
+          className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-accent-teal px-5 text-sm font-semibold text-white transition hover:bg-accent-teal/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal focus-visible:ring-offset-2"
         >
           {startFreeLabel}
         </Link>
         <Link
           href={premiumHref}
-          className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl border border-professional-blue/40 bg-white px-5 text-sm font-semibold text-professional-blue transition hover:bg-cyan/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-professional-blue focus-visible:ring-offset-2 dark:border-slate-500 dark:bg-slate-900 dark:text-cyan"
+          className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl border border-accent-teal/40 bg-white px-5 text-sm font-semibold text-accent-teal transition hover:bg-accent-teal/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal focus-visible:ring-offset-2"
         >
           {viewPremiumLabel}
         </Link>
@@ -154,7 +154,7 @@ export default async function SectorSelectorSection() {
     <section
       id="industries"
       aria-labelledby="sector-selector-heading"
-      className="relative overflow-hidden border-t border-slate/15 bg-off-white py-16 dark:bg-slate-900 sm:py-20 lg:py-24"
+      className="relative overflow-hidden border-t border-border-subtle bg-bg-subtle py-16 sm:py-20 lg:py-24"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(15,23,42,0.04)_1px,transparent_1px)] [background-size:22px_22px]"
@@ -176,7 +176,7 @@ export default async function SectorSelectorSection() {
           <p className="mt-4">
             <Link
               href="/industries"
-              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-professional-blue hover:underline dark:text-cyan"
+              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent-teal hover:underline"
             >
               {t("viewAll", { count: SECTOR_COUNT })}
             </Link>
@@ -202,13 +202,13 @@ export default async function SectorSelectorSection() {
             {sectorsByCategory.map(({ category, label, sectors }) => (
               <div
                 key={category}
-                className="rounded-2xl border border-slate/15 bg-white p-5 shadow-card dark:border-slate-600 dark:bg-slate-800"
+                className="rounded-2xl border border-border-subtle bg-white p-5 shadow-card"
               >
-                <h4 className="text-sm font-bold uppercase tracking-wide text-professional-blue dark:text-cyan">
+                <h4 className="text-sm font-bold uppercase tracking-wide text-accent-teal">
                   {locale === "tr" ? label.tr : label.en}
                 </h4>
                 {locale === "tr" ? (
-                  <p className="mt-0.5 text-xs text-slate dark:text-slate-400">{label.en}</p>
+                  <p className="mt-0.5 text-xs text-slate">{label.en}</p>
                 ) : null}
                 <ul className="mt-4 space-y-1">
                   {sectors.map((sector) => {
@@ -217,13 +217,13 @@ export default async function SectorSelectorSection() {
                       <li key={sector.slug}>
                         <Link
                           href={`/industries/${sector.slug}`}
-                          className="group flex min-h-[44px] items-center justify-between gap-2 rounded-lg px-2 py-2 text-sm text-deep-navy transition hover:bg-cyan/10 dark:text-off-white dark:hover:bg-slate-700"
+                          className="group flex min-h-[44px] items-center justify-between gap-2 rounded-lg px-2 py-2 text-sm text-text-primary transition hover:bg-accent-teal/10"
                         >
-                          <span className="font-medium group-hover:text-professional-blue dark:group-hover:text-cyan">
+                          <span className="font-medium group-hover:text-accent-teal">
                             {sector.name}
                           </span>
                           {tool ? (
-                            <span className="shrink-0 text-xs text-slate dark:text-slate-400">
+                            <span className="shrink-0 text-xs text-slate">
                               {tool.freeTitle}
                             </span>
                           ) : null}

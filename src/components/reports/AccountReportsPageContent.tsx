@@ -56,19 +56,19 @@ export function AccountReportsPageContent() {
   const showPurchaseSuccess = purchased === "single_report";
 
   return (
-    <PageLayout headerTheme="light">
-      <section className="border-b border-slate/10 bg-white py-10 dark:bg-deep-navy sm:py-12">
+    <PageLayout>
+      <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
         <Container size="wide" className="min-w-0">
           <Link
             href={getAccountHref()}
-            className="text-sm font-medium text-professional-blue hover:underline"
+            className="text-sm font-medium text-accent-teal hover:underline"
           >
             Back to account
           </Link>
-          <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-professional-blue">
+          <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-accent-teal">
             {isActive ? "SectorCalc Pro" : "Verdict reports"}
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-deep-navy dark:text-off-white sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
             Saved verdict reports
           </h1>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate">
@@ -78,10 +78,10 @@ export function AccountReportsPageContent() {
         </Container>
       </section>
 
-      <section className="bg-off-white py-10 dark:bg-slate-900 sm:py-12">
+      <section className="bg-bg-subtle py-10 sm:py-12">
         <Container size="wide" className="min-w-0">
           {authLoading ? (
-            <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
+            <div className="rounded-xl border border-border-subtle bg-white p-6 text-sm text-slate">
               Loading your account…
             </div>
           ) : !user ? (
@@ -96,7 +96,7 @@ export function AccountReportsPageContent() {
               ) : null}
 
               {purchasesLoading ? (
-                <div className="mb-8 rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                <div className="mb-8 rounded-xl border border-border-subtle bg-white p-6 text-sm text-slate">
                   Loading purchase credits…
                 </div>
               ) : (
@@ -104,7 +104,7 @@ export function AccountReportsPageContent() {
               )}
 
               {loadingReports ? (
-                <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                <div className="rounded-xl border border-border-subtle bg-white p-6 text-sm text-slate">
                   Loading saved reports…
                 </div>
               ) : (

@@ -16,7 +16,7 @@ export function FreeToolUpgradePanel({ revenue }: FreeToolUpgradePanelProps) {
       </p>
       <ul className="mt-3 space-y-2">
         {revenue.freeMissingFactors.map((factor) => (
-          <li key={factor} className="flex gap-2 text-sm text-deep-navy">
+          <li key={factor} className="flex gap-2 text-sm text-text-primary">
             <ScIcon icon={UI_ICON.exclude} size="compact" className="mt-0.5 text-amber" />
             {factor}
           </li>
@@ -24,7 +24,7 @@ export function FreeToolUpgradePanel({ revenue }: FreeToolUpgradePanelProps) {
       </ul>
       <Link
         href={getToolHref("premium", revenue.paidSlug)}
-        className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+        className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-accent-teal px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
       >
         {revenue.premiumCtaLabel}
       </Link>

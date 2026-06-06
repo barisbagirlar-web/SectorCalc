@@ -25,7 +25,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
   return (
     <PageLayout>
       <main>
-        <section className="border-b border-slate/10 bg-off-white py-10 sm:py-12 sc-section">
+        <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12 sc-section">
           <Container size="narrow">
             <p className="sc-eyebrow">{config.eyebrow}</p>
             <h1 className="mt-3 text-balance sc-h2">{config.h1}</h1>
@@ -49,12 +49,12 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
           </Container>
         </section>
 
-        <section className="border-b border-slate/10 bg-white py-12 sm:py-14 sc-section">
+        <section className="border-b border-border-subtle bg-white py-12 sm:py-14 sc-section">
           <Container>
             <h2 className="sc-h3">Sector pain — where margin disappears</h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
               {config.painPoints.map((point) => (
-                <li key={point} className="sc-card text-sm font-medium leading-relaxed text-deep-navy">
+                <li key={point} className="sc-card text-sm font-medium leading-relaxed text-text-primary">
                   {point}
                 </li>
               ))}
@@ -62,7 +62,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
           </Container>
         </section>
 
-        <section className="border-b border-slate/10 bg-off-white py-12 sm:py-14 sc-section">
+        <section className="border-b border-border-subtle bg-bg-subtle py-12 sm:py-14 sc-section">
           <Container>
             <h2 className="sc-h3">Common margin leaks</h2>
             <ul className="mt-8 grid gap-4 md:grid-cols-2">
@@ -75,7 +75,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
           </Container>
         </section>
 
-        <section className="border-b border-slate/10 bg-white py-12 sm:py-14 sc-section">
+        <section className="border-b border-border-subtle bg-white py-12 sm:py-14 sc-section">
           <Container size="narrow">
             <h2 className="sc-h3">Start with a free margin check</h2>
             <p className="mt-4 sc-body-muted">
@@ -88,7 +88,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
           </Container>
         </section>
 
-        <section className="border-b border-slate/10 bg-off-white py-12 sm:py-14 sc-section">
+        <section className="border-b border-border-subtle bg-bg-subtle py-12 sm:py-14 sc-section">
           <Container>
             <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
               <div>
@@ -121,11 +121,11 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
                   </div>
                   <div className="flex justify-between gap-4">
                     <dt className="text-slate">Main leak</dt>
-                    <dd className="font-semibold text-deep-navy">{config.sampleVerdict.mainLeak}</dd>
+                    <dd className="font-semibold text-text-primary">{config.sampleVerdict.mainLeak}</dd>
                   </div>
                   <div>
                     <dt className="text-slate">Suggested action</dt>
-                    <dd className="mt-1 font-medium text-deep-navy">
+                    <dd className="mt-1 font-medium text-text-primary">
                       {config.sampleVerdict.suggestedAction}
                     </dd>
                   </div>
@@ -135,14 +135,14 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
           </Container>
         </section>
 
-        <section className="border-b border-slate/10 bg-deep-navy py-12 sm:py-14 text-white sc-section">
+        <section className="border-b border-border-subtle bg-bg-primary py-12 sm:py-14 text-white sc-section">
           <Container size="narrow">
             <h2 className="text-2xl font-bold sm:text-3xl">Choose how you protect margin</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              <article className="rounded-2xl border border-white/15 bg-white/5 p-6">
-                <p className="text-sm font-semibold text-cyan">Single Verdict</p>
+              <article className="rounded-2xl border border-border-subtle bg-white/5 p-6">
+                <p className="text-sm font-semibold text-accent-teal">Single Verdict</p>
                 <p className="mt-2 text-3xl font-bold">$9</p>
-                <p className="mt-2 text-sm text-slate-300">One premium analyzer report</p>
+                <p className="mt-2 text-sm text-text-secondary">One premium analyzer report</p>
                 <Link
                   href={singleVerdictHref}
                   className="sc-btn-primary mt-4 inline-flex w-full justify-center !text-sm"
@@ -151,12 +151,12 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
                 </Link>
               </article>
               <article className="rounded-2xl border border-cyan/30 bg-white/5 p-6">
-                <p className="text-sm font-semibold text-cyan">Pro Monthly</p>
+                <p className="text-sm font-semibold text-accent-teal">Pro Monthly</p>
                 <p className="mt-2 text-3xl font-bold">$19<span className="text-lg">/mo</span></p>
-                <p className="mt-2 text-sm text-slate-300">All 27 sector analyzers</p>
+                <p className="mt-2 text-sm text-text-secondary">All 27 sector analyzers</p>
                 <Link
                   href={config.pricingHref}
-                  className="sc-btn-secondary mt-4 inline-flex w-full justify-center !border-cyan/40 !text-cyan hover:!bg-cyan/10"
+                  className="sc-btn-secondary mt-4 inline-flex w-full justify-center !border-cyan/40 !text-accent-teal hover:!bg-accent-teal/10"
                 >
                   View pricing
                 </Link>
@@ -165,13 +165,13 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
           </Container>
         </section>
 
-        <section className="border-b border-slate/10 bg-white py-12 sm:py-14 sc-section">
+        <section className="border-b border-border-subtle bg-white py-12 sm:py-14 sc-section">
           <Container size="narrow">
             <h2 className="sc-h3">FAQ</h2>
             <dl className="mt-8 space-y-6">
               {config.faq.map((item) => (
                 <div key={item.question} className="sc-card">
-                  <dt className="font-semibold text-deep-navy">{item.question}</dt>
+                  <dt className="font-semibold text-text-primary">{item.question}</dt>
                   <dd className="mt-2 text-sm leading-relaxed text-slate">{item.answer}</dd>
                 </div>
               ))}
@@ -179,7 +179,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
           </Container>
         </section>
 
-        <section className="bg-off-white py-10 sm:py-12">
+        <section className="bg-bg-subtle py-10 sm:py-12">
           <Container size="narrow">
             <p className="text-sm leading-relaxed text-slate">
               SectorCalc outputs are technical simulations and decision-support estimates. They are
@@ -187,16 +187,16 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
               decisions. Business data is not sold.
             </p>
             <nav className="mt-6 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-4">
-              <Link href={config.freeToolHref} className="font-medium text-professional-blue hover:underline">
+              <Link href={config.freeToolHref} className="font-medium text-accent-teal hover:underline">
                 Free margin check
               </Link>
-              <Link href={config.premiumToolHref} className="font-medium text-professional-blue hover:underline">
+              <Link href={config.premiumToolHref} className="font-medium text-accent-teal hover:underline">
                 Premium analyzer
               </Link>
-              <Link href={SAMPLE_REPORT_HREF} className="font-medium text-professional-blue hover:underline">
+              <Link href={SAMPLE_REPORT_HREF} className="font-medium text-accent-teal hover:underline">
                 Sample verdict report
               </Link>
-              <Link href={config.pricingHref} className="font-medium text-professional-blue hover:underline">
+              <Link href={config.pricingHref} className="font-medium text-accent-teal hover:underline">
                 Pricing
               </Link>
             </nav>

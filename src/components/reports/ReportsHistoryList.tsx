@@ -24,19 +24,19 @@ export function ReportsHistoryList({ reports, hasPurchaseCredits = false }: Repo
       {reports.map((report) => (
         <li key={report.id}>
           <article className="sc-card sc-card-interactive flex h-full flex-col">
-            <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent-teal">
               {report.sector}
             </p>
-            <h2 className="mt-2 text-lg font-bold text-deep-navy dark:text-off-white">
+            <h2 className="mt-2 text-lg font-bold text-text-primary">
               {report.toolTitle}
             </h2>
-            <p className="mt-3 text-sm font-semibold text-deep-navy dark:text-off-white">
+            <p className="mt-3 text-sm font-semibold text-text-primary">
               {report.result.verdict}
             </p>
-            <p className="mt-2 text-sm text-slate dark:text-slate-300">
+            <p className="mt-2 text-sm text-slate">
               {report.result.primaryMetricValue}
             </p>
-            <p className="mt-3 text-xs text-slate dark:text-slate-400">
+            <p className="mt-3 text-xs text-slate">
               {formatVerdictReportDate(report.createdAt)}
             </p>
             <Link
@@ -62,13 +62,13 @@ export function AccountLoginPrompt({ nextPath }: AccountLoginPromptProps) {
 
   return (
     <aside className="sc-card mx-auto max-w-2xl">
-      <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
+      <p className="text-xs font-semibold uppercase tracking-wider text-accent-teal">
         {t("eyebrow")}
       </p>
-      <h2 className="mt-3 text-xl font-bold text-deep-navy dark:text-off-white sm:text-2xl">
+      <h2 className="mt-3 text-xl font-bold text-text-primary sm:text-2xl">
         {t("title")}
       </h2>
-      <p className="mt-3 text-sm leading-relaxed text-slate dark:text-slate-300">
+      <p className="mt-3 text-sm leading-relaxed text-slate">
         {t("body")}
       </p>
       <Link

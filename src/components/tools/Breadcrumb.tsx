@@ -24,7 +24,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
               )}
               {isLast || !item.href ? (
                 <span
-                  className={isLast ? "font-semibold text-deep-navy" : undefined}
+                  className={isLast ? "font-semibold text-text-primary" : undefined}
                   aria-current={isLast ? "page" : undefined}
                 >
                   {item.label}
@@ -32,7 +32,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
               ) : (
                 <Link
                   href={item.href}
-                  className="hover:text-deep-navy transition-colors"
+                  className="hover:text-text-primary transition-colors"
                 >
                   {item.label}
                 </Link>

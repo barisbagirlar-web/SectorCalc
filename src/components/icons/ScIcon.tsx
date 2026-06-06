@@ -54,17 +54,17 @@ type FeatureIconHeaderProps = {
 
 export function FeatureIconHeader({
   icon,
-  iconClassName = "text-professional-blue",
+  iconClassName = "text-accent-teal",
   title,
   subtitle,
 }: FeatureIconHeaderProps) {
   return (
     <div className="flex items-start gap-3">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate/15 bg-off-white text-professional-blue">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-subtle bg-bg-subtle text-accent-teal">
         <ScIcon icon={icon} size="feature" className={iconClassName} />
       </span>
       <div>
-        <p className="font-semibold text-deep-navy dark:text-off-white">{title}</p>
+        <p className="font-semibold text-text-primary">{title}</p>
         {subtitle ? (
           <p className="mt-1 text-sm leading-relaxed text-slate">{subtitle}</p>
         ) : null}

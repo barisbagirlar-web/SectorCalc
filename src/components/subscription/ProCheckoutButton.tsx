@@ -84,7 +84,7 @@ export function StripePlanCheckoutButton({
         type="button"
         onClick={() => void handleClick()}
         disabled={pending || loading}
-        className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-cyan px-6 text-sm font-semibold text-deep-navy transition-colors hover:bg-cyan/90 disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-accent-teal px-6 text-sm font-semibold text-text-primary transition-colors hover:bg-accent-teal/90 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {pending ? t("redirecting") : label}
       </button>

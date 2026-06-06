@@ -46,7 +46,7 @@ export function CTASection({
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <Link
             href={primaryHref}
-            className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-amber px-6 py-2.5 text-sm font-semibold text-deep-navy shadow-sm transition-colors hover:bg-amber/90"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-amber px-6 py-2.5 text-sm font-semibold text-text-primary shadow-sm transition-colors hover:bg-amber/90"
           >
             {primaryLabel}
           </Link>

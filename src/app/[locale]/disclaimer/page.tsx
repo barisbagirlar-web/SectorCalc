@@ -67,13 +67,13 @@ export default function DisclaimerPage() {
         footerNote={
           <p>
             See{" "}
-            <Link href="/terms" className="font-semibold text-professional-blue hover:underline">
+            <Link href="/terms" className="font-semibold text-accent-teal hover:underline">
               Terms of Use
             </Link>{" "}
             and{" "}
             <Link
               href="/privacy"
-              className="font-semibold text-professional-blue hover:underline"
+              className="font-semibold text-accent-teal hover:underline"
             >
               Privacy Policy
             </Link>

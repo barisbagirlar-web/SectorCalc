@@ -26,7 +26,7 @@ interface SingleVerdictCheckoutButtonProps {
 }
 
 const DEFAULT_BUTTON_CLASS =
-  "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-amber px-6 text-sm font-semibold text-deep-navy transition-colors hover:bg-amber/90 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-amber px-6 text-sm font-semibold text-text-primary transition-colors hover:bg-amber/90 disabled:cursor-not-allowed disabled:opacity-60";
 
 export function SingleVerdictCheckoutButton({
   toolSlug,

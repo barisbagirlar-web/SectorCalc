@@ -5,7 +5,7 @@ import { HOME_FAQ } from "@/data/faq";
 
 export function FaqPreviewSection() {
   return (
-    <section className="border-t border-slate/10 bg-[#f4f6f8] py-16 md:py-24 lg:py-28">
+    <section className="border-t border-border-subtle bg-[#f4f6f8] py-16 md:py-24 lg:py-28">
       <Container size="narrow">
         <SectionHeader
           eyebrow="FAQ"
@@ -16,9 +16,9 @@ export function FaqPreviewSection() {
           {HOME_FAQ.map((item) => (
             <div
               key={item.id}
-              className="rounded-xl border border-slate/15 bg-off-white p-6"
+              className="rounded-xl border border-border-subtle bg-bg-subtle p-6"
             >
-              <dt className="font-semibold text-deep-navy">{item.question}</dt>
+              <dt className="font-semibold text-text-primary">{item.question}</dt>
               <dd className="mt-2 text-sm leading-relaxed text-slate">{item.answer}</dd>
             </div>
           ))}
@@ -27,7 +27,7 @@ export function FaqPreviewSection() {
           More questions?{" "}
           <a
             href={`mailto:${CONTACT_EMAILS.hello}`}
-            className="font-semibold text-professional-blue hover:underline"
+            className="font-semibold text-accent-teal hover:underline"
           >
             Contact support
           </a>

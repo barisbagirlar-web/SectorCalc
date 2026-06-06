@@ -18,9 +18,9 @@ export function SectionHeader({
   action,
 }: SectionHeaderProps) {
   const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
-  const titleColor = dark ? "text-white" : "text-deep-navy";
-  const subtitleColor = dark ? "text-slate-300" : "text-slate";
-  const eyebrowColor = dark ? "text-cyan" : "text-professional-blue";
+  const titleColor = dark ? "text-white" : "text-text-primary";
+  const subtitleColor = dark ? "text-text-secondary" : "text-slate";
+  const eyebrowColor = dark ? "text-accent-teal" : "text-accent-teal";
 
   return (
     <div

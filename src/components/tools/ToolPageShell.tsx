@@ -32,7 +32,7 @@ export function ToolPageShell({ definition: rawDefinition }: ToolPageShellProps)
   ];
 
   return (
-    <PageLayout headerTheme="light">
+    <PageLayout>
       <PageHero
         eyebrow={classificationLabel}
         title={definition.title}
@@ -40,7 +40,7 @@ export function ToolPageShell({ definition: rawDefinition }: ToolPageShellProps)
       />
 
       <div id="sector-product">
-        <section className="fourth-tab border-t border-slate/10 bg-white">
+        <section className="fourth-tab border-t border-border-subtle bg-white">
           <Container size="wide" className="min-w-0 py-4">
             <p className="mb-6 text-sm leading-relaxed text-slate">
               {isPremium

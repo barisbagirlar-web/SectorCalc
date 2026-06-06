@@ -22,7 +22,7 @@ export function TrustBadgeStrip() {
 
   return (
     <div
-      className="mt-4 rounded-xl border border-slate/15 p-3 dark:border-slate-700"
+      className="mt-4 rounded-xl border border-border-subtle p-3"
       role="list"
       aria-label={t("stripLabel")}
     >
@@ -33,7 +33,7 @@ export function TrustBadgeStrip() {
             <div
               key={key}
               role="listitem"
-              className="flex items-center gap-2 text-xs text-slate dark:text-slate-300"
+              className="flex items-center gap-2 text-xs text-slate"
             >
               <Icon className="h-4 w-4 shrink-0 text-emerald" aria-hidden />
               <span className="font-medium">{t(key)}</span>

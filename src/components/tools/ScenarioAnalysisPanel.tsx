@@ -21,13 +21,13 @@ export function ScenarioAnalysisPanel({
   labels,
 }: ScenarioAnalysisPanelProps) {
   return (
-    <section className="rounded-xl border border-slate/20 bg-white p-5 shadow-card sm:p-6">
-      <h2 className="text-lg font-bold text-deep-navy">Scenario analysis</h2>
+    <section className="rounded-xl border border-border-subtle bg-white p-5 shadow-card sm:p-6">
+      <h2 className="text-lg font-bold text-text-primary">Scenario analysis</h2>
       <p className="mt-1 text-sm text-slate">{labels.subtitle}</p>
       <div className="mt-6 -mx-1 overflow-x-auto px-1 pb-1">
         <table className="w-full min-w-[520px] text-left text-sm">
           <thead>
-            <tr className="border-b border-slate/20 text-xs font-semibold uppercase tracking-wider text-slate">
+            <tr className="border-b border-border-subtle text-xs font-semibold uppercase tracking-wider text-slate">
               <th className="pb-3 pr-4">Scenario</th>
               <th className="pb-3 pr-4">{labels.metric}</th>
               <th className="pb-3 pr-4">{labels.primary}</th>
@@ -39,13 +39,13 @@ export function ScenarioAnalysisPanel({
             {scenarios.map((scenario) => (
               <tr
                 key={scenario.id}
-                className="border-b border-slate/10 last:border-0"
+                className="border-b border-border-subtle last:border-0"
               >
-                <td className="py-3 pr-4 font-medium text-deep-navy">
+                <td className="py-3 pr-4 font-medium text-text-primary">
                   {scenario.label}
                 </td>
                 <td className="py-3 pr-4 text-slate">{scenario.metricDisplay}</td>
-                <td className="py-3 pr-4 font-medium text-deep-navy">
+                <td className="py-3 pr-4 font-medium text-text-primary">
                   {formatCurrency(scenario.primaryValue)}
                 </td>
                 <td className="py-3 pr-4 text-slate">

@@ -32,22 +32,22 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
         align="left"
       />
 
-      <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
+      <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
         <Container size="narrow">
           <p className="text-sm leading-relaxed text-slate">
-            <strong className="text-deep-navy">Who it is for:</strong> {hub.whoItsFor}
+            <strong className="text-text-primary">Who it is for:</strong> {hub.whoItsFor}
           </p>
           <p className="mt-3 text-sm leading-relaxed text-slate">
-            <strong className="text-deep-navy">What decision it helps with:</strong>{" "}
+            <strong className="text-text-primary">What decision it helps with:</strong>{" "}
             {hub.decisionHelp}
           </p>
         </Container>
       </section>
 
       {tool ? (
-        <section className="border-b border-slate/10 bg-off-white py-10 sm:py-12">
+        <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12">
           <Container>
-            <h2 className="text-2xl font-bold text-deep-navy">Free calculator</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Free calculator</h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate">
               {hub.freeToolExplanation}
             </p>
@@ -62,9 +62,9 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
       ) : null}
 
       {tool ? (
-        <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
+        <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
           <Container>
-            <h2 className="text-2xl font-bold text-deep-navy">Premium analyzer</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Premium analyzer</h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate">
               {hub.premiumToolExplanation}
             </p>
@@ -82,9 +82,9 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
 
       {registryEntry?.additionalAnalyzers &&
       registryEntry.additionalAnalyzers.length > 0 ? (
-        <section className="border-b border-slate/10 bg-off-white py-10 sm:py-12">
+        <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12">
           <Container>
-            <h2 className="text-2xl font-bold text-deep-navy">Additional analyzers</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Additional analyzers</h2>
             <p className="mt-2 text-sm text-slate">
               Related decision tools on the SectorCalc roadmap for this sector.
             </p>
@@ -92,9 +92,9 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
               {registryEntry.additionalAnalyzers.map((analyzer) => (
                 <li
                   key={analyzer.title}
-                  className="rounded-xl border border-slate/15 bg-white px-5 py-4"
+                  className="rounded-xl border border-border-subtle bg-white px-5 py-4"
                 >
-                  <p className="font-semibold text-deep-navy">{analyzer.title}</p>
+                  <p className="font-semibold text-text-primary">{analyzer.title}</p>
                   <p className="mt-2 text-sm leading-relaxed text-slate">
                     {analyzer.description}
                   </p>
@@ -105,30 +105,30 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
         </section>
       ) : null}
 
-      <section className="bg-off-white py-10 sm:py-12">
+      <section className="bg-bg-subtle py-10 sm:py-12">
         <Container size="narrow">
           <p className="text-sm leading-relaxed text-slate">{revenueLegalDisclaimer}</p>
           <nav className="mt-6 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-4">
-            <Link href="/industries" className="font-medium text-professional-blue hover:underline">
+            <Link href="/industries" className="font-medium text-accent-teal hover:underline">
               All industries
             </Link>
             {tool ? (
               <>
                 <Link
                   href={getFreeToolHref(tool)}
-                  className="font-medium text-professional-blue hover:underline"
+                  className="font-medium text-accent-teal hover:underline"
                 >
                   Free calculator
                 </Link>
                 <Link
                   href={getPremiumToolHref(tool)}
-                  className="font-medium text-professional-blue hover:underline"
+                  className="font-medium text-accent-teal hover:underline"
                 >
                   Premium analyzer
                 </Link>
                 <Link
                   href={getPricingHref(tool)}
-                  className="font-medium text-professional-blue hover:underline"
+                  className="font-medium text-accent-teal hover:underline"
                 >
                   SectorCalc Pro pricing
                 </Link>
@@ -136,7 +136,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
             ) : null}
             <Link
               href={getAccountHref()}
-              className="font-medium text-professional-blue hover:underline"
+              className="font-medium text-accent-teal hover:underline"
             >
               Account
             </Link>

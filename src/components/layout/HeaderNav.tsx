@@ -3,17 +3,13 @@
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { NavLinkWithIcon } from "@/components/icons/NavLinkWithIcon";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
 import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/outline";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 
-type HeaderTheme = "light" | "dark";
-
 interface HeaderNavProps {
-  theme?: HeaderTheme;
   onNavigate?: () => void;
 }
 
@@ -29,16 +25,7 @@ const AUTH_NAV_KEYS = [
   { key: "account", href: "/account" },
 ] as const;
 
-function navLinkClass(theme: HeaderTheme, mobile: boolean): string {
-  if (mobile) {
-    return theme === "light"
-      ? "block min-h-[44px] py-3 text-sm font-semibold uppercase tracking-wide text-[#303030]"
-      : "block min-h-[44px] py-3 text-sm font-semibold uppercase tracking-wide text-slate-300";
-  }
-  return "";
-}
-
-export function DesktopHeaderNav({ theme = "light" }: { theme?: HeaderTheme }) {
+export function DesktopHeaderNav() {
   const t = useTranslations("nav");
   const { user, loading } = useUserSubscription();
 
@@ -59,7 +46,7 @@ export function DesktopHeaderNav({ theme = "light" }: { theme?: HeaderTheme }) {
           : null}
         {!loading && !user ? (
           <li>
-            <HeaderAuthCta theme={theme} />
+            <HeaderAuthCta />
           </li>
         ) : null}
       </ul>
@@ -67,20 +54,16 @@ export function DesktopHeaderNav({ theme = "light" }: { theme?: HeaderTheme }) {
   );
 }
 
-export function HeaderActions({ theme = "light" }: { theme?: HeaderTheme }) {
+export function HeaderActions() {
   const t = useTranslations("nav");
   const { isActive, loading } = useUserSubscription();
-  const isLight = theme === "light";
 
   return (
     <div className="hidden items-center gap-2 lg:flex">
-      <ThemeToggle />
       {!loading && !isActive ? (
         <Link
           href="/pricing"
-          className={`inline-flex min-h-[44px] items-center gap-1.5 px-3 text-sm font-semibold ${
-            isLight ? "text-professional-blue hover:text-blue-700" : "text-cyan hover:text-white"
-          }`}
+          className="inline-flex min-h-[44px] items-center gap-1.5 px-3 text-sm font-semibold text-accent-teal hover:text-accent-teal/80"
         >
           <ScIcon icon={UI_ICON.security} size="compact" className="text-current" />
           {t("unlockPro")}
@@ -97,7 +80,7 @@ export function HeaderActions({ theme = "light" }: { theme?: HeaderTheme }) {
   );
 }
 
-export function MobileHeaderNav({ theme = "light", onNavigate }: HeaderNavProps) {
+export function MobileHeaderNav({ onNavigate }: HeaderNavProps) {
   const t = useTranslations("nav");
   const { user, loading } = useUserSubscription();
 
@@ -109,7 +92,7 @@ export function MobileHeaderNav({ theme = "light", onNavigate }: HeaderNavProps)
             href={item.href}
             label={t(item.key)}
             onClick={onNavigate}
-            className={navLinkClass(theme, true)}
+            className="block min-h-[44px] py-3 text-sm font-semibold uppercase tracking-wide text-text-primary"
           />
         </li>
       ))}
@@ -120,34 +103,25 @@ export function MobileHeaderNav({ theme = "light", onNavigate }: HeaderNavProps)
                 href={item.href}
                 label={t(item.key)}
                 onClick={onNavigate}
-                className={navLinkClass(theme, true)}
+                className="block min-h-[44px] py-3 text-sm font-semibold uppercase tracking-wide text-text-primary"
               />
             </li>
           ))
         : null}
       {!loading && !user ? (
         <li>
-          <HeaderAuthCta theme={theme} onNavigate={onNavigate} />
+          <HeaderAuthCta onNavigate={onNavigate} />
         </li>
       ) : null}
       <li>
         <Link
           href="/free-tools"
           onClick={onNavigate}
-          className={`inline-flex min-h-[44px] items-center gap-2 py-3 text-sm font-semibold ${
-            theme === "light" ? "text-professional-blue" : "text-cyan"
-          }`}
+          className="inline-flex min-h-[44px] items-center gap-2 py-3 text-sm font-semibold text-accent-teal"
         >
-          <ScIcon
-            icon={MagnifyingGlassCircleIcon}
-            size="compact"
-            className={theme === "light" ? "text-professional-blue" : "text-cyan"}
-          />
+          <ScIcon icon={MagnifyingGlassCircleIcon} size="compact" className="text-accent-teal" />
           {t("runFreeCheck")}
         </Link>
-      </li>
-      <li>
-        <ThemeToggle className="mt-2" />
       </li>
     </>
   );

@@ -58,7 +58,7 @@ export function ToolFinder() {
 
   return (
     <section
-      className="overflow-x-hidden border-b border-slate/10 bg-white py-16 md:py-24 lg:py-28"
+      className="overflow-x-hidden border-b border-border-subtle bg-white py-16 md:py-24 lg:py-28"
       id="tool-finder"
     >
       <Container size="wide" className="min-w-0">
@@ -80,8 +80,8 @@ export function ToolFinder() {
                 onClick={() => setProblemFilter("all")}
                 className={`${chipBase} ${
                   problemFilter === "all"
-                    ? "bg-deep-navy text-white"
-                    : "border border-slate/20 bg-white text-slate hover:border-slate/30"
+                    ? "bg-bg-primary text-white"
+                    : "border border-border-subtle bg-white text-slate hover:border-slate/30"
                 }`}
               >
                 All
@@ -94,8 +94,8 @@ export function ToolFinder() {
                   title={problem.description}
                   className={`${chipBase} ${
                     problemFilter === problem.id
-                      ? "bg-deep-navy text-white"
-                      : "border border-slate/20 bg-white text-slate hover:border-slate/30"
+                      ? "bg-bg-primary text-white"
+                      : "border border-border-subtle bg-white text-slate hover:border-slate/30"
                   }`}
                 >
                   {problem.label}
@@ -115,7 +115,7 @@ export function ToolFinder() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onFocus={handleSearchFocus}
-              className="w-full min-h-[48px] rounded-lg border border-slate/20 bg-off-white px-4 text-deep-navy placeholder:text-slate focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/15"
+              className="w-full min-h-[48px] rounded-lg border border-border-subtle bg-bg-subtle px-4 text-text-primary placeholder:text-slate focus:border-accent-teal focus:outline-none focus:ring-2 focus:ring-accent-teal/15"
             />
           </div>
 
@@ -129,8 +129,8 @@ export function ToolFinder() {
                 onClick={() => setIndustryFilter("all")}
                 className={`${chipBase} ${
                   industryFilter === "all"
-                    ? "bg-professional-blue text-white"
-                    : "border border-slate/20 bg-white text-slate"
+                    ? "bg-accent-teal text-white"
+                    : "border border-border-subtle bg-white text-slate"
                 }`}
               >
                 All industries
@@ -142,8 +142,8 @@ export function ToolFinder() {
                   onClick={() => setIndustryFilter(industry.slug)}
                   className={`${chipBase} ${
                     industryFilter === industry.slug
-                      ? "bg-professional-blue text-white"
-                      : "border border-slate/20 bg-white text-slate"
+                      ? "bg-accent-teal text-white"
+                      : "border border-border-subtle bg-white text-slate"
                   }`}
                 >
                   {industry.name}
@@ -155,7 +155,7 @@ export function ToolFinder() {
 
         <div id="tool-finder-results" className="mt-12">
           {results.length === 0 ? (
-            <p className="rounded-xl border border-dashed border-slate/25 bg-off-white py-14 text-center text-slate">
+            <p className="rounded-xl border border-dashed border-slate/25 bg-bg-subtle py-14 text-center text-slate">
               No tools match your filters. Try another decision focus or industry.
             </p>
           ) : (

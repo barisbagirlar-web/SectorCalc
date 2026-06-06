@@ -35,13 +35,13 @@ const FREE_EXCLUDES = [
 
 export default function FreeToolsPage() {
   return (
-    <PageLayout headerTheme="light">
-      <section className="border-b border-slate/10 bg-off-white py-10 sm:py-12">
+    <PageLayout>
+      <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12">
         <Container>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-professional-blue">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-teal">
             Free tools
           </p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-deep-navy sm:text-4xl">
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
             Quick sector checks
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
@@ -51,11 +51,11 @@ export default function FreeToolsPage() {
         </Container>
       </section>
 
-      <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
+      <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
         <Container>
           <div className="grid gap-8 md:grid-cols-2">
             <div>
-              <h2 className="text-lg font-bold text-deep-navy">What free tools include</h2>
+              <h2 className="text-lg font-bold text-text-primary">What free tools include</h2>
               <ul className="mt-4 space-y-2.5">
                 {FREE_INCLUDES.map((item) => (
                   <IconListItem key={item} icon={UI_ICON.check} iconClassName="text-emerald">
@@ -65,7 +65,7 @@ export default function FreeToolsPage() {
               </ul>
             </div>
             <div>
-              <h2 className="text-lg font-bold text-deep-navy">What free tools do not include</h2>
+              <h2 className="text-lg font-bold text-text-primary">What free tools do not include</h2>
               <ul className="mt-4 space-y-2.5">
                 {FREE_EXCLUDES.map((item) => (
                   <IconListItem key={item} icon={UI_ICON.exclude} iconClassName="text-slate">
@@ -81,9 +81,9 @@ export default function FreeToolsPage() {
         </Container>
       </section>
 
-      <section className="border-b border-slate/10 bg-off-white py-10 sm:py-14">
+      <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-14">
         <Container size="wide">
-          <h2 className="text-xl font-bold text-deep-navy">Free tools catalog</h2>
+          <h2 className="text-xl font-bold text-text-primary">Free tools catalog</h2>
           <p className="mt-2 max-w-2xl text-sm text-slate">
             {FREE_TOOLS.length} free calculators across {industryRegistry.length} active sectors.
           </p>
@@ -95,8 +95,8 @@ export default function FreeToolsPage() {
 
       <section className="bg-white py-10 sm:py-12">
         <Container>
-          <div className="rounded-2xl border border-slate/15 bg-off-white/50 p-6 sm:p-8">
-            <h2 className="text-xl font-bold text-deep-navy">Need a verdict, not just a check?</h2>
+          <div className="rounded-2xl border border-border-subtle bg-bg-subtle/50 p-6 sm:p-8">
+            <h2 className="text-xl font-bold text-text-primary">Need a verdict, not just a check?</h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate">
               Premium analyzers add safe price floors, margin leak detection and accept / reprice
               verdicts — included with SectorCalc Pro.
@@ -107,7 +107,7 @@ export default function FreeToolsPage() {
               </Button>
               <Link
                 href="/industries"
-                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-professional-blue"
+                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-accent-teal"
               >
                 Browse by industry →
               </Link>

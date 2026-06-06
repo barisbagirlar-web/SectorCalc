@@ -17,8 +17,8 @@ export function ToolTile({ tool, onDark = false }: ToolTileProps) {
       href={tool.href}
       className={`group flex h-full min-h-[68px] flex-col rounded-md border p-2 transition-colors ${
         onDark
-          ? "border-white/15 bg-deep-navy hover:border-cyan/40"
-          : "border-slate/20 bg-white hover:border-professional-blue/40 hover:bg-off-white"
+          ? "border-border-subtle bg-bg-primary hover:border-cyan/40"
+          : "border-border-subtle bg-white hover:border-accent-teal/40 hover:bg-bg-subtle"
       }`}
     >
       <div className="mb-1 flex min-w-0 items-center gap-1">
@@ -38,7 +38,7 @@ export function ToolTile({ tool, onDark = false }: ToolTileProps) {
         {industry && (
           <span
             className={`truncate text-[9px] font-medium ${
-              onDark ? "text-slate-400" : "text-slate"
+              onDark ? "text-text-muted" : "text-slate"
             }`}
           >
             {industry.name}
@@ -48,15 +48,15 @@ export function ToolTile({ tool, onDark = false }: ToolTileProps) {
       <span
         className={`line-clamp-2 text-xs font-semibold leading-tight transition-colors ${
           onDark
-            ? "text-white group-hover:text-cyan"
-            : "text-deep-navy group-hover:text-professional-blue"
+            ? "text-white group-hover:text-accent-teal"
+            : "text-text-primary group-hover:text-accent-teal"
         }`}
       >
         {tool.name}
       </span>
       <span
         className={`mt-0.5 line-clamp-1 text-[10px] leading-tight ${
-          onDark ? "text-slate-400" : "text-slate"
+          onDark ? "text-text-muted" : "text-slate"
         }`}
       >
         {tool.shortDescription}

@@ -16,10 +16,10 @@ interface ToolsPreviewSectionProps {
 }
 
 const surfaceClasses: Record<SectionVariant, string> = {
-  white: "bg-white border-y border-slate/10",
-  "off-white": "bg-off-white",
-  muted: "bg-[#f4f6f8] border-y border-slate/10",
-  dark: "bg-dark-navy border-y border-white/5",
+  white: "bg-white border-y border-border-subtle",
+  "off-white": "bg-bg-subtle",
+  muted: "bg-[#f4f6f8] border-y border-border-subtle",
+  dark: "bg-bg-primary border-y border-border-subtle",
 };
 
 export function ToolsPreviewSection({
@@ -43,7 +43,7 @@ export function ToolsPreviewSection({
             <Link
               href={viewAllHref}
               className={`shrink-0 text-sm font-semibold min-h-[44px] inline-flex items-center ${
-                dark ? "text-cyan hover:text-white" : "text-professional-blue hover:underline"
+                dark ? "text-accent-teal hover:text-white" : "text-accent-teal hover:underline"
               }`}
             >
               {viewAllLabel} →

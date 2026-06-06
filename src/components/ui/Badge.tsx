@@ -9,10 +9,10 @@ interface BadgeProps {
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
-  default: "bg-professional-blue/10 text-professional-blue",
+  default: "bg-accent-teal/10 text-accent-teal",
   free: "bg-emerald/10 text-emerald",
   premium: "bg-amber/10 text-amber",
-  new: "bg-cyan/10 text-cyan",
+  new: "bg-accent-teal/10 text-accent-teal",
   muted: "bg-slate/10 text-slate",
 };
 

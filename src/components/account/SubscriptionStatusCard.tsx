@@ -32,7 +32,7 @@ export function SubscriptionStatusCard({
 }: SubscriptionStatusCardProps) {
   if (loading) {
     return (
-      <section className="rounded-xl border border-slate/15 bg-white p-6 shadow-card">
+      <section className="rounded-xl border border-border-subtle bg-white p-6 shadow-card">
         <p className="text-sm text-slate">Loading subscription status…</p>
       </section>
     );
@@ -47,14 +47,14 @@ export function SubscriptionStatusCard({
         <p className="text-xs font-semibold uppercase tracking-wider text-soft-red">
           Subscription
         </p>
-        <h2 className="mt-2 text-xl font-bold text-deep-navy">Payment issue</h2>
+        <h2 className="mt-2 text-xl font-bold text-text-primary">Payment issue</h2>
         <p className="mt-3 text-sm leading-relaxed text-slate">
           Your SectorCalc Pro subscription needs attention. Update billing to restore
           premium analyzer access.
         </p>
         <Link
           href={getPricingHref()}
-          className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+          className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-accent-teal px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
         >
           Go to pricing
         </Link>
@@ -68,7 +68,7 @@ export function SubscriptionStatusCard({
         <p className="text-xs font-semibold uppercase tracking-wider text-emerald">
           Subscription
         </p>
-        <h2 className="mt-2 text-xl font-bold text-deep-navy">SectorCalc Pro active</h2>
+        <h2 className="mt-2 text-xl font-bold text-text-primary">SectorCalc Pro active</h2>
         {periodEnd ? (
           <p className="mt-3 text-sm text-slate">Current period ends {periodEnd}</p>
         ) : (
@@ -78,7 +78,7 @@ export function SubscriptionStatusCard({
         )}
         <Link
           href={getPremiumToolsNavHref()}
-          className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+          className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-accent-teal px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
         >
           Open premium tools
         </Link>
@@ -87,17 +87,17 @@ export function SubscriptionStatusCard({
   }
 
   return (
-    <section className="rounded-xl border border-slate/15 bg-white p-6 shadow-card">
-      <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
+    <section className="rounded-xl border border-border-subtle bg-white p-6 shadow-card">
+      <p className="text-xs font-semibold uppercase tracking-wider text-accent-teal">
         Subscription
       </p>
-      <h2 className="mt-2 text-xl font-bold text-deep-navy">SectorCalc Pro not active</h2>
+      <h2 className="mt-2 text-xl font-bold text-text-primary">SectorCalc Pro not active</h2>
       <p className="mt-3 text-sm leading-relaxed text-slate">
         Unlock sector-specific analyzers for safe price, bid risk and margin leak verdicts.
       </p>
       <Link
         href={getPricingHref()}
-        className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+        className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-accent-teal px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
       >
         Unlock SectorCalc Pro
       </Link>

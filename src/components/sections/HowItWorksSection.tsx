@@ -24,7 +24,7 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="bg-off-white py-16 md:py-24">
+    <section className="bg-bg-subtle py-16 md:py-24">
       <Container>
         <SectionHeader
           eyebrow="How it works"
@@ -35,12 +35,12 @@ export function HowItWorksSection() {
           {steps.map((item) => (
             <li
               key={item.step}
-              className="relative rounded-2xl border border-slate/15 bg-white p-8 shadow-card"
+              className="relative rounded-2xl border border-border-subtle bg-white p-8 shadow-card"
             >
-              <span className="text-4xl font-bold text-professional-blue/20">
+              <span className="text-4xl font-bold text-accent-teal/20">
                 {item.step}
               </span>
-              <h3 className="mt-4 text-xl font-bold text-deep-navy">{item.title}</h3>
+              <h3 className="mt-4 text-xl font-bold text-text-primary">{item.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate">{item.description}</p>
             </li>
           ))}

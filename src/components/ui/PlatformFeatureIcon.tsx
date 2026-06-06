@@ -7,8 +7,8 @@ interface PlatformFeatureIconProps {
 
 const frameClass = (dark: boolean) =>
   dark
-    ? "border-white/15 bg-white/[0.06]"
-    : "border-slate/15 bg-off-white";
+    ? "border-border-subtle bg-white/[0.06]"
+    : "border-border-subtle bg-bg-subtle";
 
 export function PlatformFeatureIcon({ variant, dark = false }: PlatformFeatureIconProps) {
   const frame = `flex h-14 w-14 items-center justify-center rounded-xl border ${frameClass(dark)}`;
@@ -21,7 +21,7 @@ export function PlatformFeatureIcon({ variant, dark = false }: PlatformFeatureIc
             {[0, 1, 2, 3].map((i) => (
               <span
                 key={i}
-                className={`h-2.5 w-2.5 rounded-sm ${dark ? "bg-cyan/70" : "bg-professional-blue/80"}`}
+                className={`h-2.5 w-2.5 rounded-sm ${dark ? "bg-accent-teal/70" : "bg-accent-teal/80"}`}
               />
             ))}
           </div>
@@ -30,7 +30,7 @@ export function PlatformFeatureIcon({ variant, dark = false }: PlatformFeatureIc
     case "report":
       return (
         <div className={frame} aria-hidden>
-          <div className={`h-9 w-7 rounded-sm border-2 ${dark ? "border-cyan/50" : "border-professional-blue/40"}`}>
+          <div className={`h-9 w-7 rounded-sm border-2 ${dark ? "border-cyan/50" : "border-accent-teal/40"}`}>
             <span className={`mt-1.5 block h-1 w-4 ${dark ? "bg-white/40" : "bg-slate/30"}`} />
             <span className={`mt-1 block h-1 w-5 ${dark ? "bg-white/25" : "bg-slate/20"}`} />
           </div>
@@ -40,16 +40,16 @@ export function PlatformFeatureIcon({ variant, dark = false }: PlatformFeatureIc
       return (
         <div className={frame} aria-hidden>
           <div className="flex gap-1">
-            <span className={`h-8 w-2 rounded-full ${dark ? "bg-cyan/60" : "bg-professional-blue/70"}`} />
+            <span className={`h-8 w-2 rounded-full ${dark ? "bg-accent-teal/60" : "bg-accent-teal/70"}`} />
             <span className={`mt-2 h-5 w-2 rounded-full ${dark ? "bg-white/30" : "bg-slate/25"}`} />
-            <span className={`h-6 w-2 rounded-full ${dark ? "bg-cyan/40" : "bg-cyan/70"}`} />
+            <span className={`h-6 w-2 rounded-full ${dark ? "bg-accent-teal/40" : "bg-accent-teal/70"}`} />
           </div>
         </div>
       );
     case "locale":
       return (
         <div className={frame} aria-hidden>
-          <span className={`text-lg font-bold ${dark ? "text-cyan" : "text-professional-blue"}`}>
+          <span className={`text-lg font-bold ${dark ? "text-accent-teal" : "text-accent-teal"}`}>
             EN
           </span>
         </div>
@@ -69,7 +69,7 @@ export function PlatformFeatureIcon({ variant, dark = false }: PlatformFeatureIc
             {[40, 65, 50].map((h, i) => (
               <span
                 key={i}
-                className={`w-2 rounded-t-sm ${dark ? "bg-cyan/60" : "bg-professional-blue/70"}`}
+                className={`w-2 rounded-t-sm ${dark ? "bg-accent-teal/60" : "bg-accent-teal/70"}`}
                 style={{ height: `${h}%`, maxHeight: "1.75rem" }}
               />
             ))}

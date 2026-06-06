@@ -60,7 +60,7 @@ export default function ForConsultantsPage() {
             {AUDIENCE.map((role) => (
               <li
                 key={role}
-                className="rounded-full border border-slate/15 bg-off-white px-3 py-1.5 text-sm text-deep-navy"
+                className="rounded-full border border-border-subtle bg-bg-subtle px-3 py-1.5 text-sm text-text-primary"
               >
                 {role}
               </li>
@@ -70,15 +70,15 @@ export default function ForConsultantsPage() {
             {benefits.map((benefit) => (
               <article
                 key={benefit.title}
-                className="rounded-xl border border-slate/15 bg-white p-6 shadow-card"
+                className="rounded-xl border border-border-subtle bg-white p-6 shadow-card"
               >
-                <h2 className="text-lg font-bold text-deep-navy">{benefit.title}</h2>
+                <h2 className="text-lg font-bold text-text-primary">{benefit.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-slate">{benefit.description}</p>
               </article>
             ))}
           </div>
           <div className="mt-12">
-            <h2 className="text-xl font-bold text-deep-navy">All sector calculators</h2>
+            <h2 className="text-xl font-bold text-text-primary">All sector calculators</h2>
             <p className="mt-2 max-w-2xl text-sm text-slate">
               Free quick estimates and premium decision analyzers — same compact catalog used across
               the platform.
@@ -87,12 +87,12 @@ export default function ForConsultantsPage() {
               <ToolsTileGrid tools={ALL_TOOLS} />
             </div>
             <p className="mt-4 text-sm text-slate">
-              <Link href="/pricing" className="font-semibold text-professional-blue hover:underline">
+              <Link href="/pricing" className="font-semibold text-accent-teal hover:underline">
                 View pricing and plans →
               </Link>
             </p>
           </div>
-          <div className="mt-12 rounded-2xl border border-professional-blue/30 bg-deep-navy p-8 text-center text-white md:p-12">
+          <div className="mt-12 rounded-2xl border border-professional-blue/30 bg-bg-primary p-8 text-center text-white md:p-12">
             <h2 className="text-2xl font-bold">Consultant program — coming soon</h2>
             <p className="mx-auto mt-4 max-w-xl text-white">
               White-label branding, client workspaces and embed flows are not live yet. We are

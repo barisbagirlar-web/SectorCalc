@@ -17,8 +17,8 @@ export function ToolResultPanel({
 }: ToolResultPanelProps) {
   return (
     <aside className="flex min-w-0 flex-col gap-4 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:self-start lg:overflow-y-auto">
-      <div className="rounded-xl border border-slate/20 bg-white p-5 shadow-card sm:p-6">
-        <h2 className="text-lg font-bold text-deep-navy">Results</h2>
+      <div className="rounded-xl border border-border-subtle bg-white p-5 shadow-card sm:p-6">
+        <h2 className="text-lg font-bold text-text-primary">Results</h2>
         {hasErrors ? (
           <p className="mt-4 text-sm text-slate">
             Fix the highlighted inputs to see your estimates.
@@ -39,7 +39,7 @@ export function ToolResultPanel({
           </div>
         )}
       </div>
-      <p className="rounded-lg border border-slate/15 bg-off-white px-4 py-3 text-sm leading-relaxed text-slate">
+      <p className="rounded-lg border border-border-subtle bg-bg-subtle px-4 py-3 text-sm leading-relaxed text-slate">
         {interpretationNote}
       </p>
     </aside>

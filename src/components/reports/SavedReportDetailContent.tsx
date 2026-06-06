@@ -95,9 +95,9 @@ export function SavedReportDetailContent({ reportId }: SavedReportDetailContentP
 
   if (authLoading || loadingReport) {
     return (
-      <PageLayout headerTheme="light">
+      <PageLayout>
         <Container size="wide" className="py-12">
-          <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate">
+          <div className="rounded-xl border border-border-subtle bg-white p-6 text-sm text-slate">
             Loading report…
           </div>
         </Container>
@@ -107,7 +107,7 @@ export function SavedReportDetailContent({ reportId }: SavedReportDetailContentP
 
   if (!user) {
     return (
-      <PageLayout headerTheme="light">
+      <PageLayout>
         <Container size="wide" className="py-12">
           <AccountLoginPrompt nextPath={`/account/reports/${reportId}`} />
         </Container>
@@ -123,19 +123,19 @@ export function SavedReportDetailContent({ reportId }: SavedReportDetailContentP
   const pdfData = savedReportToVerdictReportData(report);
 
   return (
-    <PageLayout headerTheme="light">
-      <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
+    <PageLayout>
+      <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
         <Container size="wide" className="min-w-0">
           <Link
             href="/account/reports"
-            className="text-sm font-medium text-professional-blue hover:underline"
+            className="text-sm font-medium text-accent-teal hover:underline"
           >
             Back to saved reports
           </Link>
-          <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-professional-blue">
+          <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-accent-teal">
             {report.sector}
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-deep-navy sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
             {report.toolTitle}
           </h1>
           <p className="mt-3 text-sm text-slate">
@@ -144,7 +144,7 @@ export function SavedReportDetailContent({ reportId }: SavedReportDetailContentP
         </Container>
       </section>
 
-      <section className="bg-off-white py-10 sm:py-12">
+      <section className="bg-bg-subtle py-10 sm:py-12">
         <Container size="wide" className="min-w-0">
           <div className="mx-auto max-w-3xl">
             <article
@@ -156,14 +156,14 @@ export function SavedReportDetailContent({ reportId }: SavedReportDetailContentP
               <p className={`mt-3 text-xl font-bold leading-snug sm:text-2xl ${styles.verdict}`}>
                 {report.result.verdict}
               </p>
-              <h2 className="mt-5 text-lg font-semibold text-deep-navy">
+              <h2 className="mt-5 text-lg font-semibold text-text-primary">
                 {report.result.headline}
               </h2>
-              <div className="mt-4 rounded-xl border border-slate/15 bg-white p-5">
+              <div className="mt-4 rounded-xl border border-border-subtle bg-white p-5">
                 <p className="text-sm font-medium text-slate">
                   {report.result.primaryMetricLabel}
                 </p>
-                <p className="mt-1 text-3xl font-bold tracking-tight text-deep-navy">
+                <p className="mt-1 text-3xl font-bold tracking-tight text-text-primary">
                   {report.result.primaryMetricValue}
                 </p>
               </div>
@@ -173,31 +173,31 @@ export function SavedReportDetailContent({ reportId }: SavedReportDetailContentP
                 </p>
                 <ul className="mt-3 space-y-2">
                   {report.result.riskDrivers.map((driver) => (
-                    <li key={driver} className="text-sm text-deep-navy">
+                    <li key={driver} className="text-sm text-text-primary">
                       {driver}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="mt-6 rounded-xl border border-slate/10 bg-white/80 p-4">
+              <div className="mt-6 rounded-xl border border-border-subtle bg-white/80 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wider text-slate">
                   Suggested action
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-deep-navy">
+                <p className="mt-2 text-sm leading-relaxed text-text-primary">
                   {report.result.suggestedAction}
                 </p>
               </div>
             </article>
 
-            <div className="mt-8 rounded-xl border border-slate/15 bg-white p-6">
-              <h2 className="text-lg font-bold text-deep-navy">Input summary</h2>
+            <div className="mt-8 rounded-xl border border-border-subtle bg-white p-6">
+              <h2 className="text-lg font-bold text-text-primary">Input summary</h2>
               <dl className="mt-4 divide-y divide-slate/10">
                 {report.inputs.map((input) => (
                   <div key={input.label} className="py-3">
                     <dt className="text-xs font-medium uppercase tracking-wide text-slate">
                       {input.label}
                     </dt>
-                    <dd className="mt-1 text-sm text-deep-navy">{input.value}</dd>
+                    <dd className="mt-1 text-sm text-text-primary">{input.value}</dd>
                   </div>
                 ))}
               </dl>

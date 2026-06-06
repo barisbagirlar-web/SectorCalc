@@ -13,7 +13,7 @@ export function ToolCatalogByCategory({ tools }: ToolCatalogByCategoryProps) {
     <div className="space-y-12">
       {groups.map((group) => (
         <section key={group.category}>
-          <h2 className="text-xl font-bold text-deep-navy">{group.label}</h2>
+          <h2 className="text-xl font-bold text-text-primary">{group.label}</h2>
           <div className="mt-6">
             <ToolDiscoveryGrid tools={group.tools} />
           </div>

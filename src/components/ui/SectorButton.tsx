@@ -62,22 +62,22 @@ export function SectorButton({
         size === "md" && "px-6 py-3 text-base",
         size === "lg" && "px-8 py-4 text-lg",
         variant === "primary" && [
-          "bg-professional-blue text-white hover:bg-professional-blue/90",
-          "focus-visible:ring-professional-blue",
-          "dark:bg-cyan dark:text-deep-navy dark:hover:bg-cyan/90 dark:focus-visible:ring-cyan",
+          "bg-accent-teal text-white hover:bg-accent-teal/90",
+          "focus-visible:ring-accent-teal",
+          "dark:bg-accent-teal",
         ],
         variant === "secondary" && [
           "bg-amber text-white hover:bg-amber/90 focus-visible:ring-amber",
-          "dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800",
+          "dark:bg-bg-subtle",
         ],
         variant === "outline" && [
-          "border-2 border-slate/30 text-deep-navy hover:bg-off-white",
+          "border-2 border-slate/30 text-text-primary hover:bg-bg-subtle",
           "focus-visible:ring-slate/40",
-          "dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800",
+          "dark:border-border-subtle",
         ],
         variant === "ghost" && [
           "text-slate hover:bg-slate/10 focus-visible:ring-slate/40",
-          "dark:text-slate-300 dark:hover:bg-slate-800",
+          "dark:text-text-secondary",
         ],
         variant === "danger" && [
           "bg-soft-red text-white hover:bg-soft-red/90 focus-visible:ring-soft-red",

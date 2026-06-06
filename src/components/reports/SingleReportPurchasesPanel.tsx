@@ -20,7 +20,7 @@ export function SingleReportPurchasesPanel({
 
   return (
     <section className="mb-8">
-      <h2 className="text-lg font-bold text-deep-navy dark:text-off-white">
+      <h2 className="text-lg font-bold text-text-primary">
         Single verdict credits
       </h2>
       <p className="mt-2 text-sm text-slate">
@@ -38,7 +38,7 @@ export function SingleReportPurchasesPanel({
                 <p className="text-xs font-semibold uppercase tracking-wider text-amber">
                   {`Single Verdict — $${SINGLE_VERDICT_PRICE}`}
                 </p>
-                <h3 className="mt-2 text-base font-bold text-deep-navy dark:text-off-white">
+                <h3 className="mt-2 text-base font-bold text-text-primary">
                   {title}
                 </h3>
                 <p className="mt-2 text-sm text-slate">
@@ -71,7 +71,7 @@ export function SingleReportPurchaseSuccessBanner({
       <p className="text-xs font-semibold uppercase tracking-wider text-emerald">
         Payment received
       </p>
-      <h2 className="mt-2 text-lg font-bold text-deep-navy dark:text-off-white">
+      <h2 className="mt-2 text-lg font-bold text-text-primary">
         Your Single Verdict credit is active
       </h2>
       <p className="mt-2 text-sm leading-relaxed text-slate">

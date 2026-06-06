@@ -117,7 +117,7 @@ function PremiumToolInputField({
     return (
       <div className="space-y-1.5">
         <div className="flex items-center gap-1">
-          <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy dark:text-off-white">
+          <label htmlFor={inputId} className="block text-sm font-medium text-text-primary">
             {input.label}
             {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
           </label>
@@ -157,7 +157,7 @@ function PremiumToolInputField({
   return (
     <div className="space-y-1.5">
       <div className="flex items-center gap-1">
-        <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy dark:text-off-white">
+        <label htmlFor={inputId} className="block text-sm font-medium text-text-primary">
           {input.label}
           {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
         </label>
@@ -228,10 +228,10 @@ function PremiumToolResultCard({
       <p className={`mt-3 text-xl font-bold leading-snug sm:text-2xl ${styles.verdict}`}>
         {result.verdict}
       </p>
-      <h3 className="mt-5 text-lg font-semibold text-deep-navy">{result.headline}</h3>
-      <div className="mt-4 rounded-xl border border-slate/15 bg-white p-5 dark:border-slate-600 dark:bg-slate-800">
+      <h3 className="mt-5 text-lg font-semibold text-text-primary">{result.headline}</h3>
+      <div className="mt-4 rounded-xl border border-border-subtle bg-white p-5">
         <p className="text-sm font-medium text-slate">{result.primaryMetricLabel}</p>
-        <p className="mt-1 text-3xl font-bold tracking-tight text-deep-navy">
+        <p className="mt-1 text-3xl font-bold tracking-tight text-text-primary">
           {result.primaryMetricValue}
         </p>
       </div>
@@ -241,17 +241,17 @@ function PremiumToolResultCard({
         </p>
         <ul className="mt-3 space-y-2">
           {result.riskDrivers.map((driver) => (
-            <li key={driver} className="text-sm text-deep-navy">
+            <li key={driver} className="text-sm text-text-primary">
               {driver}
             </li>
           ))}
         </ul>
       </div>
-      <div className="mt-6 rounded-xl border border-slate/10 bg-white/80 p-4 dark:border-slate-600 dark:bg-slate-800/80">
+      <div className="mt-6 rounded-xl border border-border-subtle bg-white/80 p-4">
         <p className="text-xs font-semibold uppercase tracking-wider text-slate">
           Suggested action
         </p>
-        <p className="mt-2 text-sm leading-relaxed text-deep-navy">
+        <p className="mt-2 text-sm leading-relaxed text-text-primary">
           {result.suggestedAction}
         </p>
       </div>
@@ -377,19 +377,19 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
   };
 
   return (
-    <PageLayout headerTheme="light">
-      <section className="border-b border-slate/10 bg-white py-10 dark:bg-deep-navy sm:py-12">
+    <PageLayout>
+      <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
         <Container size="wide" className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
+          <p className="text-xs font-semibold uppercase tracking-wider text-accent-teal">
             SectorCalc Pro analyzer
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-deep-navy dark:text-off-white sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
             {tool.paidTitle}
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate">
             {tool.painStatement}
           </p>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy dark:text-off-white">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-text-primary">
             {tool.paidValue}
           </p>
           <p className="mt-3 max-w-3xl text-xs leading-relaxed text-slate">
@@ -398,10 +398,10 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
         </Container>
       </section>
 
-      <section className="bg-off-white py-10 dark:bg-slate-900 sm:py-12">
+      <section className="bg-bg-subtle py-10 sm:py-12">
         <Container size="wide" className="min-w-0">
           {loading ? (
-            <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
+            <div className="rounded-xl border border-border-subtle bg-white p-6 text-sm text-slate">
               Checking your access…
             </div>
           ) : !user ? (
@@ -425,7 +425,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
                 <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
               </Suspense>
               {hasSinglePurchase && !isPro ? (
-                <p className="mb-6 rounded-xl border border-amber/25 bg-amber/[0.06] px-4 py-3 text-sm text-deep-navy dark:text-off-white">
+                <p className="mb-6 rounded-xl border border-amber/25 bg-amber/[0.06] px-4 py-3 text-sm text-text-primary">
                   Single Verdict credit active for this analyzer. Run it once and save
                   or export your report.
                 </p>
@@ -464,7 +464,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
                 ) : null}
                 <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
                 <div className="min-w-0 sc-card">
-                  <h2 className="text-lg font-bold text-deep-navy dark:text-off-white">Analyzer inputs</h2>
+                  <h2 className="text-lg font-bold text-text-primary">Analyzer inputs</h2>
                   <p className="mt-2 text-sm leading-relaxed text-slate">
                     {tool.paidResultPromise}
                   </p>

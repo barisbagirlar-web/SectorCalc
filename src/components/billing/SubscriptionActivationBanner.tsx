@@ -44,7 +44,7 @@ export function PricingSubscribedBanner() {
       role="status"
     >
       <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6">
-        <p className="text-sm font-medium text-deep-navy">
+        <p className="text-sm font-medium text-text-primary">
           Payment received. Your SectorCalc Pro access may take a few seconds to
           activate.
         </p>
@@ -60,14 +60,14 @@ export function PricingSubscribedBanner() {
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
               <Link
                 href={premiumHref}
-                className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-accent-teal px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
               >
                 Open premium tools
               </Link>
               {!tool ? (
                 <Link
                   href={getAccountHref()}
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/20 bg-white px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-border-subtle bg-white px-4 text-sm font-semibold text-text-primary transition-colors hover:border-accent-teal hover:text-accent-teal"
                 >
                   Go to account
                 </Link>
@@ -76,7 +76,7 @@ export function PricingSubscribedBanner() {
                 <button
                   type="button"
                   onClick={() => router.refresh()}
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/20 bg-white px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-border-subtle bg-white px-4 text-sm font-semibold text-text-primary transition-colors hover:border-accent-teal hover:text-accent-teal"
                 >
                   Refresh access
                 </button>
@@ -100,7 +100,7 @@ export function PricingCheckoutCanceledBanner() {
   return (
     <div className="border-b border-amber/25 bg-amber/10" role="status">
       <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6">
-        <p className="text-sm font-medium text-deep-navy">
+        <p className="text-sm font-medium text-text-primary">
           Checkout was canceled. No charge was made.
         </p>
         <p className="mt-1 text-sm text-slate">
@@ -131,7 +131,7 @@ export function PremiumSubscribedBanner({ toolSlug }: { toolSlug?: string }) {
 
   return (
     <div className="mb-6 rounded-xl border border-emerald/25 bg-emerald/10 px-4 py-4 sm:px-5">
-      <p className="text-sm font-medium text-deep-navy">
+      <p className="text-sm font-medium text-text-primary">
         Payment received. Your SectorCalc Pro access may take a few seconds to activate.
       </p>
       {!loading && isActive ? (

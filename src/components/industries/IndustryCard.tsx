@@ -46,7 +46,7 @@ function ToolRow({ label, tone, tool, href }: ToolRowProps) {
   return (
     <Link
       href={href}
-      className="group/tool flex min-h-[76px] items-start justify-between gap-3 rounded-2xl border border-slate/15 bg-off-white/50 px-4 py-3.5 transition hover:border-professional-blue/30 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-professional-blue/30 focus-visible:ring-offset-1"
+      className="group/tool flex min-h-[76px] items-start justify-between gap-3 rounded-2xl border border-border-subtle bg-bg-subtle/50 px-4 py-3.5 transition hover:border-accent-teal/30 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal/30 focus-visible:ring-offset-1"
     >
       <div className="min-w-0 flex-1">
         <span
@@ -55,7 +55,7 @@ function ToolRow({ label, tone, tool, href }: ToolRowProps) {
           <ScIcon icon={TierIcon} size="compact" className={tierColor} />
           {label}
         </span>
-        <h4 className="mt-2 break-words text-sm font-bold leading-snug text-deep-navy line-clamp-2 group-hover/tool:text-professional-blue">
+        <h4 className="mt-2 break-words text-sm font-bold leading-snug text-text-primary line-clamp-2 group-hover/tool:text-accent-teal">
           {tool.title}
         </h4>
         <p className="mt-1.5 line-clamp-2 break-words text-xs leading-5 text-slate">
@@ -65,7 +65,7 @@ function ToolRow({ label, tone, tool, href }: ToolRowProps) {
       <ScIcon
         icon={UI_ICON.chevronRight}
         size="compact"
-        className="mt-7 shrink-0 text-professional-blue transition group-hover/tool:translate-x-0.5"
+        className="mt-7 shrink-0 text-accent-teal transition group-hover/tool:translate-x-0.5"
       />
     </Link>
   );
@@ -89,28 +89,28 @@ export function IndustryCard({
     <article
       className={`group flex h-full flex-col rounded-2xl border bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-card sm:p-7 ${
         featured
-          ? "border-professional-blue/25 ring-1 ring-professional-blue/10 hover:border-professional-blue/40"
-          : "border-slate/15 hover:border-professional-blue/30"
+          ? "border-accent-teal/25 ring-1 ring-accent-teal/10 hover:border-accent-teal/40"
+          : "border-border-subtle hover:border-accent-teal/30"
       }`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate/15 bg-off-white">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border-subtle bg-bg-subtle">
             <SectorIcon slug={slug} iconType={iconType} size="default" />
           </span>
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-professional-blue">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-teal">
             Sector pack
           </p>
         </div>
         {category ? (
-          <span className="shrink-0 rounded-full bg-off-white px-2.5 py-1 text-[10px] font-semibold text-slate ring-1 ring-slate/15">
+          <span className="shrink-0 rounded-full bg-bg-subtle px-2.5 py-1 text-[10px] font-semibold text-slate ring-1 ring-slate/15">
             {category}
           </span>
         ) : null}
       </div>
 
       <div className="mt-4">
-        <h2 className="text-xl font-bold tracking-tight text-deep-navy sm:text-2xl">
+        <h2 className="text-xl font-bold tracking-tight text-text-primary sm:text-2xl">
           {name}
         </h2>
         <p className="mt-3 line-clamp-2 min-h-[2.75rem] text-sm leading-relaxed text-slate sm:min-h-[3rem] sm:text-[15px] sm:leading-7">
@@ -133,24 +133,24 @@ export function IndustryCard({
         />
       </div>
 
-      <div className="mt-6 border-t border-slate/10 pt-5">
+      <div className="mt-6 border-t border-border-subtle pt-5">
         <div className="flex flex-col gap-2.5 sm:flex-row sm:items-stretch">
           <Link
             href={freeHref}
-            className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-xl bg-deep-navy px-4 text-sm font-bold text-white transition hover:bg-deep-navy/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-professional-blue/40 focus-visible:ring-offset-2"
+            className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-xl bg-bg-primary px-4 text-sm font-bold text-white transition hover:bg-bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal/40 focus-visible:ring-offset-2"
           >
             Try free tool
           </Link>
           <Link
             href={premiumHref}
-            className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-xl border border-professional-blue/25 bg-professional-blue/5 px-4 text-sm font-bold text-professional-blue transition hover:border-professional-blue/40 hover:bg-professional-blue/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-professional-blue/30 focus-visible:ring-offset-2"
+            className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-xl border border-accent-teal/25 bg-accent-teal/5 px-4 text-sm font-bold text-accent-teal transition hover:border-accent-teal/40 hover:bg-accent-teal/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal/30 focus-visible:ring-offset-2"
           >
             View premium analyzer
           </Link>
         </div>
         <Link
           href={sectorHref}
-          className="mt-4 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-slate transition hover:text-professional-blue focus-visible:outline-none focus-visible:underline"
+          className="mt-4 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-slate transition hover:text-accent-teal focus-visible:outline-none focus-visible:underline"
         >
           Open sector hub
           <ScIcon icon={UI_ICON.chevronRight} size="compact" className="text-current" />

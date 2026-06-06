@@ -2,14 +2,14 @@ import { formatCurrency } from "@/lib/format/currency";
 import type { ToolResult } from "@/data/tool-schema";
 
 const toneClasses = {
-  neutral: "border-slate/20 bg-off-white",
+  neutral: "border-border-subtle bg-bg-subtle",
   success: "border-emerald/30 bg-emerald/5",
   warning: "border-amber/30 bg-amber/5",
   danger: "border-soft-red/30 bg-soft-red/5",
 };
 
 const toneValueClasses = {
-  neutral: "text-deep-navy",
+  neutral: "text-text-primary",
   success: "text-emerald",
   warning: "text-amber",
   danger: "text-soft-red",

@@ -20,13 +20,13 @@ export function PremiumToolPaywall({
 
   return (
     <div className="rounded-2xl border border-amber/30 bg-gradient-to-br from-deep-navy to-dark-navy p-6 md:p-8">
-      <p className="text-xs font-semibold uppercase tracking-wider text-cyan">
+      <p className="text-xs font-semibold uppercase tracking-wider text-accent-teal">
         SectorCalc Pro required
       </p>
       <h2 className="mt-3 text-xl font-bold text-white sm:text-2xl">
         {ctaHint}
       </h2>
-      <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
+      <p className="mt-3 text-sm leading-relaxed text-text-secondary sm:text-base">
         Free calculators show quick checks. {toolTitle} delivers safe price floors,
         margin leak detection and accept/reject verdicts — {SECTORCALC_PRO_PRICE_LABEL}.
       </p>

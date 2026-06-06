@@ -9,7 +9,7 @@ import {
 } from "@/lib/firebase/customer-auth";
 
 const buttonClass =
-  "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-accent-teal px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50";
 
 interface CustomerSignInPanelProps {
   nextPath: string;
@@ -34,8 +34,8 @@ export function CustomerSignInPanel({ nextPath }: CustomerSignInPanelProps) {
   };
 
   return (
-    <div className="mt-8 rounded-xl border border-slate/15 bg-off-white p-6">
-      <h2 className="text-lg font-bold text-deep-navy">SectorCalc Pro sign-in</h2>
+    <div className="mt-8 rounded-xl border border-border-subtle bg-bg-subtle p-6">
+      <h2 className="text-lg font-bold text-text-primary">SectorCalc Pro sign-in</h2>
       <p className="mt-2 text-sm leading-relaxed text-slate">
         Sign in with Google to access premium analyzers or continue checkout. Admin
         sign-in is separate above.
@@ -72,11 +72,11 @@ export function PremiumLoginPrompt({ paidSlug }: PremiumLoginPromptProps) {
   const loginHref = `/login?next=${encodeURIComponent(`/tools/premium/${paidSlug}`)}`;
 
   return (
-    <aside className="mx-auto max-w-2xl rounded-2xl border border-slate/15 bg-white p-6 shadow-card sm:p-8">
-      <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
+    <aside className="mx-auto max-w-2xl rounded-2xl border border-border-subtle bg-white p-6 shadow-card sm:p-8">
+      <p className="text-xs font-semibold uppercase tracking-wider text-accent-teal">
         Sign in required
       </p>
-      <h2 className="mt-3 text-xl font-bold text-deep-navy sm:text-2xl">
+      <h2 className="mt-3 text-xl font-bold text-text-primary sm:text-2xl">
         Sign in to check SectorCalc Pro access
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-slate">
@@ -85,7 +85,7 @@ export function PremiumLoginPrompt({ paidSlug }: PremiumLoginPromptProps) {
       </p>
       <Link
         href={loginHref}
-        className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto"
+        className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-accent-teal px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto"
       >
         Sign in
       </Link>

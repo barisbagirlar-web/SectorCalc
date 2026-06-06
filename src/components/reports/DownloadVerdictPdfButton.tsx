@@ -32,7 +32,7 @@ export function DownloadVerdictPdfButton({
       onClick={() =>
         trackRevenueEvent(REVENUE_EVENTS.verdict_pdf_downloaded, { slug })
       }
-      className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/15 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
+      className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-border-subtle bg-white px-5 text-sm font-semibold text-text-primary transition-colors hover:border-accent-teal hover:text-accent-teal"
     >
       {({ loading }) => (loading ? "Preparing PDF…" : "Download Verdict PDF")}
     </PDFDownloadLink>

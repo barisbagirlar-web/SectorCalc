@@ -31,7 +31,7 @@ export function ExportToolbar({
 
   if (locked) {
     return (
-      <div className="min-w-0 rounded-xl border border-slate/20 bg-white p-5 shadow-card sm:p-6">
+      <div className="min-w-0 rounded-xl border border-border-subtle bg-white p-5 shadow-card sm:p-6">
         <h2 className="text-sm font-semibold uppercase tracking-wider text-slate">
           Export
         </h2>
@@ -45,7 +45,7 @@ export function ExportToolbar({
   }
 
   return (
-    <div className="min-w-0 rounded-xl border border-slate/20 bg-white p-5 shadow-card sm:p-6">
+    <div className="min-w-0 rounded-xl border border-border-subtle bg-white p-5 shadow-card sm:p-6">
       <h2 className="text-sm font-semibold uppercase tracking-wider text-slate">
         Export
       </h2>
@@ -60,7 +60,7 @@ export function ExportToolbar({
             key={action}
             type="button"
             onClick={() => handleExportClick(action)}
-            className="min-h-[44px] w-full rounded-lg border border-slate/25 bg-off-white px-4 text-sm font-medium text-slate transition-colors hover:border-professional-blue/40 hover:bg-white hover:text-deep-navy sm:w-auto sm:min-w-[100px]"
+            className="min-h-[44px] w-full rounded-lg border border-slate/25 bg-bg-subtle px-4 text-sm font-medium text-slate transition-colors hover:border-accent-teal/40 hover:bg-white hover:text-text-primary sm:w-auto sm:min-w-[100px]"
             aria-describedby={message ? "export-message" : undefined}
           >
             {action}
@@ -71,7 +71,7 @@ export function ExportToolbar({
       {message ? (
         <p
           id="export-message"
-          className="mt-4 rounded-lg border border-professional-blue/20 bg-professional-blue/5 px-4 py-3 text-sm leading-relaxed text-deep-navy"
+          className="mt-4 rounded-lg border border-accent-teal/20 bg-accent-teal/5 px-4 py-3 text-sm leading-relaxed text-text-primary"
           role="status"
         >
           {message}

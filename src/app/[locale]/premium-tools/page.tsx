@@ -59,13 +59,13 @@ export default function PremiumToolsPage() {
     .slice(0, 6);
 
   return (
-    <PageLayout headerTheme="light">
-      <section className="border-b border-slate/10 bg-off-white py-10 sm:py-12">
+    <PageLayout>
+      <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12">
         <Container>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-professional-blue">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-teal">
             SectorCalc Pro
           </p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-deep-navy sm:text-4xl">
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
             Premium decision analyzers
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
@@ -73,18 +73,18 @@ export default function PremiumToolsPage() {
             sector workflows, not generic calculators.
           </p>
           <p className="mt-4 text-sm">
-            <Link href={getSampleReportHref()} className="font-semibold text-professional-blue hover:underline">
+            <Link href={getSampleReportHref()} className="font-semibold text-accent-teal hover:underline">
               View sample verdict report →
             </Link>
           </p>
         </Container>
       </section>
 
-      <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
+      <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
         <Container>
-          <h2 className="text-xl font-bold text-deep-navy">Free vs Premium</h2>
+          <h2 className="text-xl font-bold text-text-primary">Free vs Premium</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <article className="rounded-2xl border border-slate/15 bg-off-white/50 p-6">
+            <article className="rounded-2xl border border-border-subtle bg-bg-subtle/50 p-6">
               <span className="inline-flex rounded-full bg-emerald/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald ring-1 ring-emerald/20">
                 Free tools
               </span>
@@ -97,7 +97,7 @@ export default function PremiumToolsPage() {
               </ul>
               <Link
                 href={getFreeToolsHref()}
-                className="mt-6 inline-flex min-h-[44px] items-center text-sm font-semibold text-professional-blue hover:underline"
+                className="mt-6 inline-flex min-h-[44px] items-center text-sm font-semibold text-accent-teal hover:underline"
               >
                 Browse free tools →
               </Link>
@@ -113,7 +113,7 @@ export default function PremiumToolsPage() {
                   </IconListItem>
                 ))}
               </ul>
-              <p className="mt-4 text-sm font-semibold text-deep-navy">
+              <p className="mt-4 text-sm font-semibold text-text-primary">
                 {sectorCalcProPricing.planName} — ${sectorCalcProPricing.priceMonthly}/month
               </p>
             </article>
@@ -121,9 +121,9 @@ export default function PremiumToolsPage() {
         </Container>
       </section>
 
-      <section className="border-b border-slate/10 bg-off-white py-10 sm:py-14">
+      <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-14">
         <Container size="wide">
-          <h2 className="text-xl font-bold text-deep-navy">Premium analyzer catalog</h2>
+          <h2 className="text-xl font-bold text-text-primary">Premium analyzer catalog</h2>
           <p className="mt-2 max-w-2xl text-sm text-slate">
             Seventeen sector-specific analyzers included with SectorCalc Pro. Each pairs with a
             free quick check in the same industry.
@@ -134,9 +134,9 @@ export default function PremiumToolsPage() {
         </Container>
       </section>
 
-      <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
+      <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
         <Container>
-          <h2 className="text-xl font-bold text-deep-navy">Verdict examples</h2>
+          <h2 className="text-xl font-bold text-text-primary">Verdict examples</h2>
           <p className="mt-2 max-w-2xl text-sm text-slate">
             Premium analyzers return clear decision outputs — not raw formulas or spreadsheet
             dumps.
@@ -145,9 +145,9 @@ export default function PremiumToolsPage() {
             {VERDICT_EXAMPLES.map((item) => (
               <article
                 key={item.verdict}
-                className="rounded-2xl border border-slate/15 bg-off-white/50 p-5"
+                className="rounded-2xl border border-border-subtle bg-bg-subtle/50 p-5"
               >
-                <p className="text-sm font-bold text-deep-navy">{item.verdict}</p>
+                <p className="text-sm font-bold text-text-primary">{item.verdict}</p>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{item.context}</p>
               </article>
             ))}
@@ -158,7 +158,7 @@ export default function PremiumToolsPage() {
               {exampleVerdicts.map((label, index) => (
                 <span key={label}>
                   {index > 0 ? (index === exampleVerdicts.length - 1 ? " and " : ", ") : ""}
-                  <strong className="font-semibold text-deep-navy">{label}</strong>
+                  <strong className="font-semibold text-text-primary">{label}</strong>
                 </span>
               ))}
               .
@@ -167,10 +167,10 @@ export default function PremiumToolsPage() {
         </Container>
       </section>
 
-      <section className="bg-off-white py-10 sm:py-14">
+      <section className="bg-bg-subtle py-10 sm:py-14">
         <Container>
-          <div className="rounded-2xl border border-slate/15 bg-white p-6 sm:p-8">
-            <h2 className="text-xl font-bold text-deep-navy">Unlock all premium analyzers</h2>
+          <div className="rounded-2xl border border-border-subtle bg-white p-6 sm:p-8">
+            <h2 className="text-xl font-bold text-text-primary">Unlock all premium analyzers</h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate">
               {sectorCalcProPricing.description}
             </p>
@@ -180,13 +180,13 @@ export default function PremiumToolsPage() {
               </Button>
               <Link
                 href={getSampleReportHref()}
-                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-professional-blue hover:underline"
+                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-accent-teal hover:underline"
               >
                 Sample verdict report →
               </Link>
               <Link
                 href="/industries"
-                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-professional-blue"
+                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-accent-teal"
               >
                 Browse by industry →
               </Link>

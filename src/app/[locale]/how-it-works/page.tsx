@@ -109,8 +109,8 @@ const METHODOLOGY_SECTIONS = [
 
 export default function HowItWorksPage() {
   return (
-    <PageLayout headerTheme="light">
-      <section className="border-b border-slate/10 bg-off-white py-10 sm:py-12">
+    <PageLayout>
+      <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12">
         <Container>
           <p className="sc-eyebrow">How it works</p>
           <h1 className="mt-3 sc-h2">Methodology, outputs and limitations</h1>
@@ -118,18 +118,18 @@ export default function HowItWorksPage() {
             SectorCalc is a sector-specific measurement and decision platform. Free checks build trust;
             premium verdicts deliver the decision layer operators need before quoting.
           </p>
-          <p className="mt-4 max-w-2xl text-sm font-medium text-deep-navy">
+          <p className="mt-4 max-w-2xl text-sm font-medium text-text-primary">
             Free checks run without ERP setup. Business data is not sold.
           </p>
         </Container>
       </section>
 
-      <section className="border-b border-slate/10 bg-white py-10 sm:py-14">
+      <section className="border-b border-border-subtle bg-white py-10 sm:py-14">
         <Container size="narrow">
           <div className="space-y-12">
             {METHODOLOGY_SECTIONS.map((section) => (
               <article key={section.id} id={section.id} className="scroll-mt-24">
-                <h2 className="text-xl font-bold text-deep-navy">{section.title}</h2>
+                <h2 className="text-xl font-bold text-text-primary">{section.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-slate sm:text-base">
                   {section.body}
                 </p>
@@ -137,7 +137,7 @@ export default function HowItWorksPage() {
                   <ul className="mt-4 space-y-2">
                     {section.bullets.map((item) => (
                       <li key={item} className="flex gap-2 text-sm text-slate">
-                        <span className="text-professional-blue" aria-hidden>
+                        <span className="text-accent-teal" aria-hidden>
                           —
                         </span>
                         {item}
@@ -151,9 +151,9 @@ export default function HowItWorksPage() {
         </Container>
       </section>
 
-      <section className="border-b border-slate/10 bg-off-white py-10 sm:py-12">
+      <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12">
         <Container>
-          <h2 className="text-xl font-bold text-deep-navy">Free vs premium at a glance</h2>
+          <h2 className="text-xl font-bold text-text-primary">Free vs premium at a glance</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <article className="sc-card">
               <p className="sc-eyebrow text-emerald">Free check</p>
@@ -187,25 +187,25 @@ export default function HowItWorksPage() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <Link
               href={getFreeToolsHref()}
-              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-professional-blue hover:underline"
+              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent-teal hover:underline"
             >
               Run a free check →
             </Link>
             <Link
               href={getSampleReportHref()}
-              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-slate hover:text-professional-blue"
+              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-slate hover:text-accent-teal"
             >
               View sample verdict report →
             </Link>
             <Link
               href={getPremiumToolsHref()}
-              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-slate hover:text-professional-blue"
+              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-slate hover:text-accent-teal"
             >
               Browse premium analyzers →
             </Link>
             <Link
               href={getPricingHref()}
-              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-slate hover:text-professional-blue"
+              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-slate hover:text-accent-teal"
             >
               View pricing →
             </Link>

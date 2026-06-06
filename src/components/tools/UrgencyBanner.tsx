@@ -16,10 +16,10 @@ export function UrgencyBanner() {
 
   return (
     <div
-      className="rounded-2xl border border-emerald/20 bg-emerald/10 px-4 py-2 text-center dark:border-emerald/30 dark:bg-emerald/5"
+      className="rounded-2xl border border-emerald/20 bg-emerald/10 px-4 py-2 text-center"
       aria-hidden="true"
     >
-      <p className="text-sm font-medium text-emerald dark:text-emerald-400">
+      <p className="text-sm font-medium text-emerald">
         {t("urgencyBanner", { count })}
       </p>
     </div>

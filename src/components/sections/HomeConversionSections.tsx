@@ -16,7 +16,7 @@ const PAIN_ITEM_CONFIG = [
   {
     key: "material",
     icon: PAIN_RISK_ICONS.material,
-    iconClass: "text-professional-blue",
+    iconClass: "text-accent-teal",
   },
   {
     key: "labor",
@@ -86,10 +86,10 @@ export async function HomeFreeCheckSection() {
           </div>
           <div className="mc-home-conversion-card">
             <StatusIconBadge status="free" label={t("freeCheck.cardLabel")} />
-            <p className="mt-3 text-lg font-bold text-deep-navy dark:text-off-white">
+            <p className="mt-3 text-lg font-bold text-text-primary">
               {t("freeCheck.cardRisk")}
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-slate dark:text-slate-300">
+            <p className="mt-2 text-sm leading-relaxed text-slate">
               {t("freeCheck.cardBody")}
             </p>
           </div>
@@ -110,10 +110,10 @@ export async function HomePremiumVerdictSection() {
             <p className="text-xs font-bold uppercase tracking-wider text-amber">
               {t("premiumStep.cardEyebrow")}
             </p>
-            <p className="mt-3 text-lg font-bold text-deep-navy dark:text-off-white">
+            <p className="mt-3 text-lg font-bold text-text-primary">
               {t("premiumStep.cardTitle")}
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-slate dark:text-slate-300">
+            <p className="mt-2 text-sm leading-relaxed text-slate">
               {t("premiumStep.cardBody")}
             </p>
           </div>
@@ -143,7 +143,7 @@ export async function HomeSampleVerdictSection() {
     >
       <div className="container">
         <p className="mc-home-conversion-eyebrow flex items-center justify-center gap-2">
-          <ScIcon icon={DocumentMagnifyingGlassIcon} size="compact" className="text-professional-blue" />
+          <ScIcon icon={DocumentMagnifyingGlassIcon} size="compact" className="text-accent-teal" />
           {t("sample.eyebrow")}
         </p>
         <h2 id="home-sample-heading" className="sc-h2">
@@ -202,7 +202,7 @@ export async function HomeFreeVsProSection() {
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           <article className="sc-card sc-card-interactive">
             <StatusIconBadge status="free" label={t("compare.freeLabel")} className="mb-4" />
-            <ul className="space-y-3 text-sm leading-relaxed text-slate dark:text-slate-300">
+            <ul className="space-y-3 text-sm leading-relaxed text-slate">
               <IconListItem icon={STATUS_ICON.free} iconClassName="text-emerald">
                 {t("compare.freeItem1")}
               </IconListItem>
@@ -222,7 +222,7 @@ export async function HomeFreeVsProSection() {
           </article>
           <article className="sc-card sc-card-interactive border-amber/30">
             <StatusIconBadge status="premium" label={t("compare.proLabel")} className="mb-4" />
-            <ul className="space-y-3 text-sm leading-relaxed text-slate dark:text-slate-300">
+            <ul className="space-y-3 text-sm leading-relaxed text-slate">
               <IconListItem icon={TOOL_CATEGORY_ICON.safePrice} iconClassName="text-amber">
                 {t("compare.proItem1")}
               </IconListItem>

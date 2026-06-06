@@ -15,7 +15,7 @@ export default function PageHero({
 
   return (
     <section
-      className="relative isolate overflow-hidden border-b border-slate/15"
+      className="relative isolate overflow-hidden border-b border-border-subtle"
       aria-labelledby="page-hero-title"
     >
       <div

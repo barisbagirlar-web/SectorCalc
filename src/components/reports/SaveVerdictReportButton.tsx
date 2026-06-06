@@ -13,7 +13,7 @@ import type {
 import type { RevenueTool } from "@/lib/tools/revenue-tools";
 
 const buttonClass =
-  "inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex min-h-[44px] items-center justify-center rounded-lg bg-accent-teal px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60";
 
 interface SaveVerdictReportButtonProps {
   uid: string;

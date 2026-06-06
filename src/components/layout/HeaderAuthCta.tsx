@@ -4,24 +4,16 @@ import Link from "next/link";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { getAccountHref, getPricingHref } from "@/lib/tools/tool-links";
 
-type HeaderTheme = "light" | "dark";
-
 interface HeaderAuthCtaProps {
-  theme?: HeaderTheme;
   onNavigate?: () => void;
 }
 
-export function HeaderAuthCta({ theme = "light", onNavigate }: HeaderAuthCtaProps) {
+export function HeaderAuthCta({ onNavigate }: HeaderAuthCtaProps) {
   const { user, isActive, loading } = useUserSubscription();
-  const isLight = theme === "light";
 
-  const baseClass = `inline-flex min-h-[44px] items-center text-sm font-semibold ${
-    isLight ? "text-[#808080] hover:text-professional-blue" : "text-slate-300 hover:text-white"
-  }`;
+  const baseClass = "inline-flex min-h-[44px] items-center text-sm font-semibold text-text-secondary hover:text-accent-teal";
 
-  const mobileClass = `block min-h-[44px] py-3 text-sm font-semibold ${
-    isLight ? "text-professional-blue" : "text-cyan"
-  }`;
+  const mobileClass = "block min-h-[44px] py-3 text-sm font-semibold text-accent-teal";
 
   if (loading) {
     return null;
