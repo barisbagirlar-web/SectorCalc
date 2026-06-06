@@ -1,15 +1,13 @@
 /**
  * SectorCalc Revenue Flow v1A — Product Spec Lock
  *
- * Canonical free calculator / paid analyzer registry (5 sectors).
+ * Canonical free calculator / paid analyzer registry (17 sectors).
  * See docs/revenue-flow-product-spec.md
  *
  * FREE: SEO + trust + pre-check — no safe price, verdict, or PDF.
  * PAID: Decision analyzers (SectorCalc Pro) — PDF export is a later phase.
  *
- * Live URL slugs are stable (e.g. machine-hour-estimator); product input `key`
- * fields describe the target UX model. `freeCalculatorInputIds` bridges to
- * existing calculator definitions until v1B unifies the input model.
+ * Live URL slugs are defined per tool (e.g. machine-time-calculator).
  */
 
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";

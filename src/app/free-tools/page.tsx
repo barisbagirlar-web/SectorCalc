@@ -10,7 +10,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Free Tools",
   description:
-    "Free sector estimators for Construction, Cleaning, Restaurant, E-commerce and CNC & Manufacturing. Quick directional numbers with a clear path to premium decision tools.",
+    "Free sector calculators across 17 industries — Construction, Cleaning, CNC, HVAC, Plumbing, and more. Quick directional risk checks with a clear path to premium decision analyzers.",
   path: "/free-tools",
 });
 

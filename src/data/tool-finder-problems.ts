@@ -13,10 +13,10 @@ export const TOOL_FINDER_PROBLEMS: ToolFinderProblem[] = [
     label: "Estimate cost",
     description: "Quick project, job and service cost estimates",
     toolSlugs: [
-      "project-cost-estimator",
-      "cleaning-cost-estimator",
+      "project-cost-calculator",
+      "cleaning-cost-calculator",
       "food-cost-calculator",
-      "machine-hour-estimator",
+      "machine-time-calculator",
     ],
   },
   {
@@ -24,7 +24,7 @@ export const TOOL_FINDER_PROBLEMS: ToolFinderProblem[] = [
     label: "Protect margin",
     description: "Minimum safe price and margin protection",
     toolSlugs: [
-      "cnc-minimum-safe-quote-analyzer",
+      "cnc-quote-risk-analyzer",
       "change-order-impact-analyzer",
       "office-cleaning-bid-optimizer",
       "menu-profit-leak-detector",
@@ -35,10 +35,10 @@ export const TOOL_FINDER_PROBLEMS: ToolFinderProblem[] = [
     label: "Price a job",
     description: "Bids, quotes and change-order pricing",
     toolSlugs: [
-      "project-cost-estimator",
+      "project-cost-calculator",
       "change-order-impact-analyzer",
       "office-cleaning-bid-optimizer",
-      "cnc-minimum-safe-quote-analyzer",
+      "cnc-quote-risk-analyzer",
     ],
   },
   {
@@ -47,7 +47,7 @@ export const TOOL_FINDER_PROBLEMS: ToolFinderProblem[] = [
     description: "Return-rate and catalog profit erosion",
     toolSlugs: [
       "product-margin-calculator",
-      "return-rate-profit-erosion-tool",
+      "return-profit-erosion-tool",
     ],
   },
   {
@@ -65,8 +65,8 @@ export const TOOL_FINDER_PROBLEMS: ToolFinderProblem[] = [
     label: "Calculate machine cost",
     description: "Machine-hour and CNC shop-floor costing",
     toolSlugs: [
-      "machine-hour-estimator",
-      "cnc-minimum-safe-quote-analyzer",
+      "machine-time-calculator",
+      "cnc-quote-risk-analyzer",
     ],
   },
 ];
