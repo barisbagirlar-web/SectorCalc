@@ -33,6 +33,9 @@ import {
   ArrowDownTrayIcon,
   UserGroupIcon,
   TruckIcon,
+  SunIcon,
+  BoltIcon,
+  HomeModernIcon,
 } from "@heroicons/react/24/outline";
 import type { IndustryIcon } from "@/lib/tools/industry-registry";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
@@ -73,6 +76,15 @@ export const SECTOR_ICON_BY_SLUG: Partial<Record<IndustrySlug, HeroIcon>> = {
   "sheet-metal": Cog6ToothIcon,
   "3d-printing-service": CubeIcon,
   "logistics-transport": TruckIcon,
+  "agriculture-crops": SunIcon,
+  "agriculture-irrigation": SunIcon,
+  "agriculture-feed": SunIcon,
+  "agriculture-dairy": SunIcon,
+  "energy-consumption": BoltIcon,
+  "energy-carbon": BoltIcon,
+  "daily-renovation": HomeModernIcon,
+  "daily-fuel": HomeModernIcon,
+  "daily-meals": HomeModernIcon,
 };
 
 /** Fallback by industry icon category */
@@ -85,6 +97,9 @@ export const SECTOR_ICON_BY_TYPE: Record<IndustryIcon, HeroIcon> = {
   trades: WrenchScrewdriverIcon,
   "field-service": MapPinIcon,
   custom: Squares2X2Icon,
+  agriculture: SunIcon,
+  energy: BoltIcon,
+  daily: HomeModernIcon,
 };
 
 /** Tool / decision category symbols */

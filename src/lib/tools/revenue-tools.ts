@@ -1,7 +1,7 @@
 /**
  * SectorCalc Revenue Flow v1A — Product Spec Lock
  *
- * Canonical free calculator / paid analyzer registry (17 sectors).
+ * Canonical free calculator / paid analyzer registry (27 sectors).
  * See docs/revenue-flow-product-spec.md
  *
  * FREE: SEO + trust + pre-check — no safe price, verdict, or PDF.
@@ -166,7 +166,7 @@ export const SECTORCALC_PRO_PRICING = {
 } as const;
 
 // ---------------------------------------------------------------------------
-// Core + extended sector product matrix (17 sectors)
+// Core + extended sector product matrix (27 sectors)
 // ---------------------------------------------------------------------------
 
 const revenueToolsCore: RevenueTool[] = [

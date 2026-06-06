@@ -1,4 +1,5 @@
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import { phase2RevenueTools } from "@/lib/tools/revenue-tools-phase2";
 
 const LEGAL_DISCLAIMER =
   "This is a technical simulation and decision-support output. It is not financial, legal or engineering advice. Verify all results before making business decisions.";
@@ -584,4 +585,5 @@ export const additionalRevenueTools: AdditionalRevenueTool[] = [
     premiumTeaserText:
       "Unlock the Route & Freight Loss Analyzer for deadhead, toll and rest-risk verdict.",
   }),
+  ...phase2RevenueTools,
 ];

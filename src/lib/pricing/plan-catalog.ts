@@ -6,6 +6,7 @@
 export type CheckoutPlanId =
   | "pro"
   | "single_verdict"
+  | "sector_pack"
   | "pro_annual"
   | "team";
 
@@ -36,6 +37,14 @@ export const PLAN_CATALOG: Record<CheckoutPlanId | "free" | "consultant_api", Pl
     period: "one report",
     availability: "live",
     stripeCheckout: true,
+  },
+  sector_pack: {
+    id: "sector_pack",
+    name: "Sector Pack",
+    priceLabel: "$49",
+    period: "one sector",
+    availability: "waitlist",
+    stripeCheckout: false,
   },
   pro: {
     id: "pro",

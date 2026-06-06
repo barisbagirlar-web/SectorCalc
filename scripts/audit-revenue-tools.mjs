@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Static + smoke audit for Revenue Flow 17-sector catalog.
+ * Static + smoke audit for Revenue Flow 27-sector catalog.
  * No npm dependencies — reads TS source and optionally smoke-tests live routes.
  */
 
@@ -29,6 +29,15 @@ const EXPECTED_SECTORS = [
   "sheet-metal",
   "3d-printing-service",
   "logistics-transport",
+  "agriculture-crops",
+  "agriculture-irrigation",
+  "agriculture-feed",
+  "agriculture-dairy",
+  "energy-consumption",
+  "energy-carbon",
+  "daily-renovation",
+  "daily-fuel",
+  "daily-meals",
 ];
 
 function read(relPath) {
@@ -60,7 +69,22 @@ function splitToolBlocks(section) {
   if (section.includes("buildTool(")) {
     return section.split(/(?=buildTool\(\{)/).filter((block) => block.includes('freeSlug: "'));
   }
+  if (section.includes("build({")) {
+    return section.split(/(?=build\(\{)/).filter((block) => block.includes('freeSlug: "'));
+  }
   return section.split(/(?=\n  \{)/).filter((block) => block.includes('sector: "'));
+}
+
+function findMatchingBracketEnd(text, openIndex) {
+  let depth = 0;
+  for (let i = openIndex; i < text.length; i += 1) {
+    if (text[i] === "[") depth += 1;
+    if (text[i] === "]") {
+      depth -= 1;
+      if (depth === 0) return i;
+    }
+  }
+  return -1;
 }
 
 function countInputsInBlock(block, fieldName) {
@@ -70,21 +94,32 @@ function countInputsInBlock(block, fieldName) {
   }
   const slice = block.slice(fieldStart);
   const arrayStart = slice.indexOf("[");
-  const arrayEnd = slice.indexOf("],", arrayStart);
+  const arrayEnd = findMatchingBracketEnd(slice, arrayStart);
   if (arrayStart === -1 || arrayEnd === -1) {
     return 0;
   }
   const arrayBody = slice.slice(arrayStart, arrayEnd);
   const explicitKeys = (arrayBody.match(/\bkey:\s*"/g) ?? []).length;
-  const helperInputs = (arrayBody.match(/(?:currency|numberInput|percentInput)\(/g) ?? []).length;
-  return explicitKeys > 0 ? explicitKeys : helperInputs;
+  const helperInputs = (
+    arrayBody.match(
+      /(?:currency|numberInput|percentInput|yesNoSelect|qualitySelect)\(/g
+    ) ?? []
+  ).length;
+  const refInputs = (arrayBody.match(/\benergySelect\b/g) ?? []).length;
+  return explicitKeys + helperInputs + refInputs;
 }
 
 function hasLegalDisclaimer(block, additionalSource) {
   if (block.includes("legalDisclaimer")) {
     return true;
   }
-  return block.includes("buildTool(") && additionalSource.includes("legalDisclaimer: LEGAL_DISCLAIMER");
+  if (block.includes("buildTool(") && additionalSource.includes("legalDisclaimer: LEGAL_DISCLAIMER")) {
+    return true;
+  }
+  if (block.includes("build({") && additionalSource.includes("legalDisclaimer: LEGAL")) {
+    return true;
+  }
+  return false;
 }
 
 function findDuplicates(values) {
@@ -137,6 +172,7 @@ function buildToolsFromSections(sections) {
 async function main() {
   const revenueCore = read("src/lib/tools/revenue-tools.ts");
   const revenueAdditional = read("src/lib/tools/revenue-tools-additional.ts");
+  const revenuePhase2 = read("src/lib/tools/revenue-tools-phase2.ts");
   const industryRegistry = read("src/lib/tools/industry-registry.ts");
 
   const coreSection = extractArraySection(revenueCore, "const revenueToolsCore");
@@ -144,7 +180,8 @@ async function main() {
     revenueAdditional,
     "export const additionalRevenueTools"
   );
-  const tools = buildToolsFromSections([coreSection, additionalSection]);
+  const phase2Section = extractArraySection(revenuePhase2, "export const phase2RevenueTools");
+  const tools = buildToolsFromSections([coreSection, additionalSection, phase2Section]);
 
   const registryBlock =
     industryRegistry.match(/export const industryRegistry[\s\S]*?\] as const/)?.[0] ?? "";
@@ -158,8 +195,8 @@ async function main() {
 
   checks.push(check("revenueTools export present", revenueCore.includes("export const revenueTools")));
   checks.push(check("industry registry present", industryRegistry.includes("export const industryRegistry")));
-  checks.push(check("tool count === 18", tools.length === 18, `found ${tools.length}`));
-  checks.push(check("registry count === 18", registrySlugs.length === 18, `found ${registrySlugs.length}`));
+  checks.push(check("tool count === 27", tools.length === 27, `found ${tools.length}`));
+  checks.push(check("registry count === 27", registrySlugs.length === 27, `found ${registrySlugs.length}`));
   checks.push(check("no duplicate freeSlug", findDuplicates(freeSlugs).length === 0, findDuplicates(freeSlugs).join(", ")));
   checks.push(check("no duplicate paidSlug", findDuplicates(paidSlugs).length === 0, findDuplicates(paidSlugs).join(", ")));
   checks.push(check("no duplicate sector", findDuplicates(sectors).length === 0, findDuplicates(sectors).join(", ")));
@@ -173,7 +210,13 @@ async function main() {
     const paidInputCount = countInputsInBlock(tool.block, "paidInputs");
     checks.push(check(`${tool.freeSlug}: freeInputs >= 3`, freeInputCount >= 3, `count=${freeInputCount}`));
     checks.push(check(`${tool.paidSlug}: paidInputs >= 5`, paidInputCount >= 5, `count=${paidInputCount}`));
-    checks.push(check(`${tool.sector}: legalDisclaimer`, hasLegalDisclaimer(tool.block, revenueAdditional)));
+    checks.push(
+      check(
+        `${tool.sector}: legalDisclaimer`,
+        hasLegalDisclaimer(tool.block, revenueAdditional) ||
+          hasLegalDisclaimer(tool.block, revenuePhase2)
+      )
+    );
     checks.push(check(`${tool.sector}: seoKeywords`, tool.block.includes("seoKeywords")));
     checks.push(check(`${tool.sector}: verdictLabels`, tool.block.includes("verdictLabels")));
 

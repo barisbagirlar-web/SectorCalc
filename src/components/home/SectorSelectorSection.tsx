@@ -1,12 +1,31 @@
 import Link from "next/link";
-import { FEATURED_INDUSTRY_SLUGS } from "@/lib/tools/industry-registry";
+import {
+  FEATURED_INDUSTRY_SLUGS,
+  industryRegistry,
+  type IndustryCategory,
+  type IndustryIcon,
+  type IndustrySlug,
+} from "@/lib/tools/industry-registry";
+import { INDUSTRY_CATEGORY_DISPLAY } from "@/data/industry-category-labels";
 import { getIndustryBySlug } from "@/data/industries";
 import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
 import { getFreeToolHref, getPremiumToolHref } from "@/lib/tools/tool-links";
 import { SectorIcon } from "@/components/icons/SectorIcon";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { STATUS_ICON, STATUS_COLOR_CLASS } from "@/lib/icons/icon-registry";
-import type { IndustryIcon } from "@/lib/tools/industry-registry";
+
+const SECTOR_COUNT = industryRegistry.length;
+const CATEGORY_ORDER: IndustryCategory[] = [
+  "heavy-industry",
+  "building-trades",
+  "field-services",
+  "food-retail",
+  "custom-manufacturing",
+  "logistics-transport",
+  "agriculture-livestock",
+  "energy-environment",
+  "daily-life",
+];
 
 function ToolLine({
   label,
@@ -54,7 +73,7 @@ function SectorCardItem({
   freeHref: string;
   premiumHref: string;
   icon: IndustryIcon;
-  slug: string;
+  slug: IndustrySlug;
 }) {
   return (
     <article className="group flex h-full flex-col rounded-[28px] border border-slate/15 bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-professional-blue/25 hover:shadow-[0_24px_70px_rgba(15,23,42,0.10)]">
@@ -96,7 +115,7 @@ function SectorCardItem({
   );
 }
 
-const sectorCards = FEATURED_INDUSTRY_SLUGS.map((slug) => {
+const featuredCards = FEATURED_INDUSTRY_SLUGS.map((slug) => {
   const industry = getIndustryBySlug(slug);
   const tool = getRevenueToolBySector(slug);
 
@@ -111,6 +130,12 @@ const sectorCards = FEATURED_INDUSTRY_SLUGS.map((slug) => {
     slug,
   };
 });
+
+const sectorsByCategory = CATEGORY_ORDER.map((category) => ({
+  category,
+  label: INDUSTRY_CATEGORY_DISPLAY[category],
+  sectors: industryRegistry.filter((entry) => entry.category === category),
+})).filter((group) => group.sectors.length > 0);
 
 export default function SectorSelectorSection() {
   return (
@@ -130,27 +155,68 @@ export default function SectorSelectorSection() {
             id="sector-selector-heading"
             className="text-balance text-3xl font-semibold tracking-tight text-deep-navy sm:text-4xl lg:text-5xl lg:leading-tight"
           >
-            Choose from seventeen active sectors
+            Choose from {SECTOR_COUNT} active sectors
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-7 text-slate sm:mt-5 sm:text-lg sm:leading-8">
-            Start with featured sectors below, or browse all seventeen industry packs with free
-            calculators and premium analyzers.
+            Nine industry categories — from CNC and construction to agriculture, energy and daily
+            life tools. Free checks surface risk; premium analyzers deliver expert verdicts.
           </p>
           <p className="mt-4">
             <Link
               href="/industries"
               className="text-sm font-semibold text-professional-blue hover:underline"
             >
-              View all 17 industries →
+              View all {SECTOR_COUNT} industries →
             </Link>
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {sectorCards.map((sector) => (
-            <SectorCardItem key={sector.title} {...sector} />
+          {featuredCards.map((sector) => (
+            <SectorCardItem key={sector.slug} {...sector} />
           ))}
+        </div>
+
+        <div className="mt-16">
+          <h3 className="text-center text-lg font-semibold text-deep-navy">
+            Browse by category
+          </h3>
+          <div className="mt-8 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+            {sectorsByCategory.map(({ category, label, sectors }) => (
+              <div
+                key={category}
+                className="rounded-2xl border border-slate/15 bg-white p-5 shadow-card"
+              >
+                <h4 className="text-sm font-bold uppercase tracking-wide text-professional-blue">
+                  {label.en}
+                </h4>
+                <p className="mt-0.5 text-xs text-slate">{label.tr}</p>
+                <ul className="mt-4 space-y-2">
+                  {sectors.map((sector) => {
+                    const tool = getRevenueToolBySector(sector.slug);
+                    return (
+                      <li key={sector.slug}>
+                        <Link
+                          href={`/industries/${sector.slug}`}
+                          className="group flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-sm text-deep-navy transition hover:bg-cyan/10"
+                        >
+                          <span className="font-medium group-hover:text-professional-blue">
+                            {sector.name}
+                          </span>
+                          {tool ? (
+                            <span className="shrink-0 text-xs text-slate">
+                              {tool.freeTitle}
+                            </span>
+                          ) : null}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -71,6 +71,27 @@ export const PRICING_PLANS: PricingPlan[] = [
     checkoutReady: true,
   },
   {
+    id: "sector-pack",
+    planId: "sector_pack",
+    name: "Sector Pack",
+    price: "$49",
+    period: "one sector",
+    description:
+      "Every free check and premium analyzer in one industry category — ideal when you quote in a single vertical.",
+    features: [
+      "All tools in one sector category",
+      "Comparative loss analysis",
+      "API access preview (100 calls)",
+    ],
+    primaryCta: "Join Sector Pack Waitlist",
+    checkoutReady: false,
+    leadIntent: {
+      source: "pricing",
+      plan: "sector_pass",
+      toolRequested: "Sector Pack ($49 one-time)",
+    },
+  },
+  {
     id: "pro",
     planId: "pro",
     name: "Pro Monthly",

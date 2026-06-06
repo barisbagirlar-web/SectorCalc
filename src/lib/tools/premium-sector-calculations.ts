@@ -4,6 +4,10 @@ import type {
   PremiumToolInputValues,
   PremiumToolResult,
 } from "@/lib/tools/premium-tool-results";
+import {
+  calculatePhase2PremiumResult,
+  isPhase2Sector,
+} from "@/lib/tools/phase2-calculations";
 
 function getNumber(values: PremiumToolInputValues, key: string): number {
   const raw = values[key];
@@ -57,6 +61,15 @@ const EXTENDED_SECTORS = new Set([
   "sheet-metal",
   "3d-printing-service",
   "logistics-transport",
+  "agriculture-crops",
+  "agriculture-irrigation",
+  "agriculture-feed",
+  "agriculture-dairy",
+  "energy-consumption",
+  "energy-carbon",
+  "daily-renovation",
+  "daily-fuel",
+  "daily-meals",
 ]);
 
 export function isExtendedPremiumSector(sector: string): boolean {
@@ -73,6 +86,10 @@ export function calculateExtendedPremiumResult(
 ): PremiumToolResult | null {
   if (!EXTENDED_SECTORS.has(tool.sector)) {
     return null;
+  }
+
+  if (isPhase2Sector(tool.sector)) {
+    return calculatePhase2PremiumResult(tool, values);
   }
 
   const targetMargin = clampMargin(getNumber(values, "targetMargin"));

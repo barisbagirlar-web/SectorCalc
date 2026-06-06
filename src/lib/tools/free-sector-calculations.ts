@@ -4,6 +4,10 @@ import type {
   FreeToolInputValues,
   FreeToolResult,
 } from "@/lib/tools/free-tool-results";
+import {
+  calculatePhase2FreeResult,
+  isPhase2Sector,
+} from "@/lib/tools/phase2-calculations";
 
 function getNumber(values: FreeToolInputValues, key: string): number {
   const raw = values[key];
@@ -46,6 +50,15 @@ const EXTENDED_SECTORS = new Set([
   "sheet-metal",
   "3d-printing-service",
   "logistics-transport",
+  "agriculture-crops",
+  "agriculture-irrigation",
+  "agriculture-feed",
+  "agriculture-dairy",
+  "energy-consumption",
+  "energy-carbon",
+  "daily-renovation",
+  "daily-fuel",
+  "daily-meals",
 ]);
 
 export function isExtendedFreeSector(sector: string): boolean {
@@ -58,6 +71,10 @@ export function calculateExtendedFreeResult(
 ): FreeToolResult | null {
   if (!EXTENDED_SECTORS.has(tool.sector)) {
     return null;
+  }
+
+  if (isPhase2Sector(tool.sector)) {
+    return calculatePhase2FreeResult(tool, values);
   }
 
   if (tool.sector === "welding-fabrication") {

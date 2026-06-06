@@ -1,5 +1,5 @@
 /**
- * SectorCalc — 17 active industry registry (Revenue Flow multi-sector launch).
+ * SectorCalc — 27 active industry registry (Revenue Flow multi-sector launch).
  * Single source for industry metadata, categories, and additional analyzer copy.
  */
 
@@ -9,7 +9,10 @@ export type IndustryCategory =
   | "field-services"
   | "food-retail"
   | "custom-manufacturing"
-  | "logistics-transport";
+  | "logistics-transport"
+  | "agriculture-livestock"
+  | "energy-environment"
+  | "daily-life";
 
 export type IndustrySlug =
   | "cnc-manufacturing"
@@ -29,7 +32,16 @@ export type IndustrySlug =
   | "painting"
   | "sheet-metal"
   | "3d-printing-service"
-  | "logistics-transport";
+  | "logistics-transport"
+  | "agriculture-crops"
+  | "agriculture-irrigation"
+  | "agriculture-feed"
+  | "agriculture-dairy"
+  | "energy-consumption"
+  | "energy-carbon"
+  | "daily-renovation"
+  | "daily-fuel"
+  | "daily-meals";
 
 export type IndustryIcon =
   | "construction"
@@ -39,7 +51,10 @@ export type IndustryIcon =
   | "manufacturing"
   | "trades"
   | "field-service"
-  | "custom";
+  | "custom"
+  | "agriculture"
+  | "energy"
+  | "daily";
 
 export type AdditionalAnalyzer = {
   title: string;
@@ -66,12 +81,19 @@ export const INDUSTRY_CATEGORY_LABELS: Record<IndustryCategory, string> = {
   "food-retail": "Food & Retail",
   "custom-manufacturing": "Custom Manufacturing",
   "logistics-transport": "Logistics & Transport",
+  "agriculture-livestock": "Agriculture & Livestock",
+  "energy-environment": "Energy & Environment",
+  "daily-life": "Daily Life",
 };
 
 export const FEATURED_INDUSTRY_SLUGS: readonly IndustrySlug[] = [
   "cnc-manufacturing",
   "construction",
   "cleaning",
+  "logistics-transport",
+  "agriculture-crops",
+  "energy-carbon",
+  "daily-renovation",
 ] as const;
 
 export const industryRegistry: readonly IndustryRegistryEntry[] = [
@@ -416,6 +438,140 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
     icon: "field-service",
     accentColor: "amber",
   },
+  {
+    slug: "agriculture-crops",
+    name: "Crop & Fertilizer",
+    category: "agriculture-livestock",
+    description:
+      "Calculate fertilizer dosage, crop yield exposure and soil moisture risk before planting season commitments.",
+    painStatement:
+      "Fertilizer over-application and weather gaps can destroy crop margin before harvest.",
+    seoKeywords: [
+      "fertilizer dosage calculator",
+      "crop yield analyzer",
+      "mahsul verimi",
+      "gübre dozaj",
+    ],
+    priority: 19,
+    icon: "agriculture",
+    accentColor: "emerald",
+  },
+  {
+    slug: "agriculture-irrigation",
+    name: "Irrigation & Water",
+    category: "agriculture-livestock",
+    description:
+      "Estimate irrigation cost and water efficiency before expanding acreage or signing supply contracts.",
+    painStatement:
+      "Underestimated pumping and water rights cost can erase field margin.",
+    seoKeywords: [
+      "irrigation cost calculator",
+      "water efficiency farm",
+      "sulama maliyeti",
+    ],
+    priority: 20,
+    icon: "agriculture",
+    accentColor: "cyan",
+  },
+  {
+    slug: "agriculture-feed",
+    name: "Livestock Feed",
+    category: "agriculture-livestock",
+    description:
+      "Estimate feed cost and efficiency exposure for cattle and herd operations.",
+    painStatement:
+      "Feed waste and storage loss can quietly exceed milk or meat revenue.",
+    seoKeywords: ["feed cost calculator", "yem maliyeti", "feed efficiency livestock"],
+    priority: 21,
+    icon: "agriculture",
+    accentColor: "amber",
+  },
+  {
+    slug: "agriculture-dairy",
+    name: "Dairy & Milk Yield",
+    category: "agriculture-livestock",
+    description:
+      "Check milk yield versus feed cost and detect dairy profit leaks.",
+    painStatement:
+      "Low yield per cow with rising feed prices destroys dairy profitability.",
+    seoKeywords: ["milk yield calculator", "dairy profit analyzer", "süt verimi"],
+    priority: 22,
+    icon: "agriculture",
+    accentColor: "emerald",
+  },
+  {
+    slug: "energy-consumption",
+    name: "Energy Consumption",
+    category: "energy-environment",
+    description:
+      "Check kWh exposure and energy efficiency before capex or tariff renegotiation.",
+    painStatement:
+      "Unmanaged kWh spikes and demand charges can blow operating budgets.",
+    seoKeywords: [
+      "kwh consumption calculator",
+      "energy efficiency report",
+      "enerji tüketim analizi",
+    ],
+    priority: 23,
+    icon: "energy",
+    accentColor: "amber",
+  },
+  {
+    slug: "energy-carbon",
+    name: "Carbon & CBAM",
+    category: "energy-environment",
+    description:
+      "Estimate carbon footprint and CBAM-style import cost before EU shipments.",
+    painStatement:
+      "Carbon border costs can erase export margin if not modeled upfront.",
+    seoKeywords: [
+      "carbon footprint calculator",
+      "CBAM compliance",
+      "karbon ayak izi",
+    ],
+    priority: 24,
+    icon: "energy",
+    accentColor: "emerald",
+  },
+  {
+    slug: "daily-renovation",
+    name: "Home Renovation",
+    category: "daily-life",
+    description:
+      "Estimate renovation cost per m² with regional and seasonal buffers.",
+    painStatement:
+      "Renovation budgets blow up when weather delays and city premiums are ignored.",
+    seoKeywords: ["home renovation calculator", "ev tadilat hesabı", "renovation budget"],
+    priority: 25,
+    icon: "daily",
+    accentColor: "blue",
+  },
+  {
+    slug: "daily-fuel",
+    name: "Fuel & Travel",
+    category: "daily-life",
+    description:
+      "Check fuel consumption and trip budget before long drives or fleet trips.",
+    painStatement:
+      "Fuel and toll surprises can wreck personal or small fleet travel budgets.",
+    seoKeywords: ["fuel consumption calculator", "trip budget", "akaryakıt tüketimi"],
+    priority: 26,
+    icon: "daily",
+    accentColor: "cyan",
+  },
+  {
+    slug: "daily-meals",
+    name: "Meals & Grocery",
+    category: "daily-life",
+    description:
+      "Calculate recipe and weekly grocery cost with waste and inflation buffers.",
+    painStatement:
+      "Food waste and premium ingredient drift erode household food budgets.",
+    seoKeywords: ["recipe cost calculator", "meal planning budget", "yemek tarifi maliyeti"],
+    priority: 27,
+    icon: "daily",
+    accentColor: "amber",
+  },
 ] as const;
 
 export function getIndustryRegistryEntry(
@@ -440,6 +596,9 @@ export function getAllIndustryCategories(): IndustryCategory[] {
     "food-retail",
     "custom-manufacturing",
     "logistics-transport",
+    "agriculture-livestock",
+    "energy-environment",
+    "daily-life",
   ];
 }
 

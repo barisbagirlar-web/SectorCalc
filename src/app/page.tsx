@@ -10,6 +10,7 @@ import {
   HomeTrustSection,
 } from "@/components/sections/HomeConversionSections";
 import { CTASection } from "@/components/sections/CTASection";
+import { ValuePropsSection } from "@/components/sections/ValuePropsSection";
 import { PricingPreview } from "@/components/sections/PricingPreview";
 import SectorSelectorSection from "@/components/home/SectorSelectorSection";
 import { createPageMetadata } from "@/lib/metadata";
@@ -17,7 +18,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Stop pricing work that loses money",
   description:
-    "Calculate costs, detect losses, and optimize operations across 18 sectors. Free calculators and premium verdict reports without ERP complexity.",
+    "Calculate costs, detect losses, and optimize operations across 27 sectors. Free calculators and premium verdict reports without ERP complexity.",
   path: "/",
 });
 
@@ -29,6 +30,7 @@ export default function HomePage() {
           <div className="col-xs-12">
             <div id="sector-product">
               <HeroSection />
+              <ValuePropsSection />
               <HomePainSection />
               <HomeFreeCheckSection />
               <HomeSampleVerdictSection />

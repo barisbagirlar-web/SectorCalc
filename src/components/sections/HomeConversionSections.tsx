@@ -33,7 +33,7 @@ const PAIN_ITEMS = [
 export function HomeTrustStrip() {
   return (
     <p className="mc-hero-trust-strip">
-      18 sectors · Free calculators · Premium reports · Measurement logic · No ERP required
+      27 sectors · Free calculators · Premium reports · Measurement logic · No ERP required
     </p>
   );
 }
