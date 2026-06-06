@@ -45,6 +45,7 @@ const EXTENDED_SECTORS = new Set([
   "painting",
   "sheet-metal",
   "3d-printing-service",
+  "logistics-transport",
 ]);
 
 export function isExtendedFreeSector(sector: string): boolean {
@@ -325,6 +326,40 @@ export function calculateExtendedFreeResult(
         "Print time needs a margin check.",
         "Visible machine hours suggest verifying fail-rate buffer.",
         ["Fail rate", "Target margin", "Minimum print price"]
+      );
+    }
+  }
+
+  if (tool.sector === "logistics-transport") {
+    const length = getNumber(values, "length");
+    const width = getNumber(values, "width");
+    const height = getNumber(values, "height");
+    const quantity = Math.max(1, getNumber(values, "quantity"));
+    const volumeCm3 = length * width * height * quantity;
+    const desi = volumeCm3 > 0 ? Math.ceil(volumeCm3 / 5000) : 0;
+
+    if (desi >= 100) {
+      return buildGenericResult(
+        "HIGH",
+        "High desi — freight cost may spike.",
+        `Total desi is ${desi} across ${quantity} package(s). Volumetric weight can exceed actual weight and inflate quotes.`,
+        ["Deadhead return cost", "Toll fees", "Minimum safe freight price"]
+      );
+    }
+    if (desi >= 40) {
+      return buildGenericResult(
+        "MEDIUM",
+        "Moderate desi — verify carrier brackets.",
+        `Total desi is ${desi}. Confirm carrier volumetric rules before locking the rate.`,
+        ["Route tolls", "Empty return miles", "Full route verdict"]
+      );
+    }
+    if (desi > 0) {
+      return buildGenericResult(
+        "LOW",
+        `Total desi: ${desi} — within a typical bracket.`,
+        `${quantity} package(s) at ${length}×${width}×${height} cm. Run the route analyzer before quoting long lanes with empty return.`,
+        tool.freeMissingFactors.slice(0, 4)
       );
     }
   }

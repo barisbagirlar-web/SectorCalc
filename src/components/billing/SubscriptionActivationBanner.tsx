@@ -88,6 +88,28 @@ export function PricingSubscribedBanner() {
   );
 }
 
+export function PricingCheckoutCanceledBanner() {
+  const searchParams = useSearchParams();
+  const canceled = searchParams.get("canceled") === "true";
+
+  if (!canceled) {
+    return null;
+  }
+
+  return (
+    <div className="border-b border-amber/25 bg-amber/10" role="status">
+      <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6">
+        <p className="text-sm font-medium text-deep-navy">
+          Checkout was canceled. No charge was made.
+        </p>
+        <p className="mt-1 text-sm text-slate">
+          You can try again with Single Verdict ($19) or SectorCalc Pro when you are ready.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function PremiumSubscribedBanner({ toolSlug }: { toolSlug?: string }) {
   const searchParams = useSearchParams();
   const subscribed = searchParams.get("subscribed") === "true";

@@ -108,6 +108,18 @@ const percentInput = (
   defaultValue,
 });
 
+const yesNoSelect = (key: string, label: string, defaultValue = "no"): RevenueToolInput => ({
+  key,
+  label,
+  type: "select",
+  required: true,
+  defaultValue,
+  options: [
+    { value: "yes", label: "Yes" },
+    { value: "no", label: "No" },
+  ],
+});
+
 export const additionalRevenueTools: AdditionalRevenueTool[] = [
   buildTool({
     sector: "welding-fabrication",
@@ -518,5 +530,58 @@ export const additionalRevenueTools: AdditionalRevenueTool[] = [
     premiumTeaserTitle: "Quoting a custom 3D print job?",
     premiumTeaserText:
       "Unlock the 3D Print Job Margin Tool for minimum price and fail-rate protection.",
+  }),
+  buildTool({
+    sector: "logistics-transport",
+    freeSlug: "desi-calculator",
+    paidSlug: "route-optimization-analyzer",
+    freeTitle: "Desi & Volumetric Weight Calculator",
+    paidTitle: "Route & Freight Loss Analyzer",
+    painStatement:
+      "Desi miscalculations and empty return miles can quietly erase freight margin.",
+    freeValue: "Calculate volumetric (desi) weight and visible freight volume risk.",
+    paidValue:
+      "Model deadhead, tolls, driver rest risk and minimum safe freight price.",
+    freeInputs: [
+      numberInput("length", "Length", "cm"),
+      numberInput("width", "Width", "cm"),
+      numberInput("height", "Height", "cm"),
+      numberInput("quantity", "Package count", undefined, 1),
+    ],
+    paidInputs: [
+      numberInput("distanceKm", "Distance", "km"),
+      numberInput("fuelPricePerKm", "Fuel cost per km", "USD/km"),
+      numberInput("driverHourlyRate", "Driver hourly rate", "USD/hr"),
+      numberInput("estimatedHours", "Estimated drive hours", "hr"),
+      yesNoSelect("returnEmpty", "Empty return (deadhead)", "no"),
+      yesNoSelect("hasTolls", "Toll roads on route", "no"),
+      yesNoSelect("overweightRisk", "Overweight / fine risk", "no"),
+      percentInput("targetMargin", "Target margin", 18),
+    ],
+    freeResultPromise:
+      "Shows total desi and warns when volumetric weight may inflate freight cost.",
+    paidResultPromise:
+      "Returns true route cost, hidden leak drivers and accept/reprice verdict.",
+    verdictLabels: [
+      "HIGH RISK - LEAKING PROFIT",
+      "MODERATE RISK - MARGIN PRESSURE",
+      "ACCEPT SAFELY",
+    ],
+    seoKeywords: [
+      "desi calculator",
+      "volumetric weight calculator",
+      "route freight analyzer",
+      "deadhead cost calculator",
+    ],
+    freeMissingFactors: [
+      "Deadhead (empty return) cost",
+      "Toll and road fee buffer",
+      "Driver rest / delay penalty",
+      "Minimum safe freight price",
+    ],
+    premiumCtaLabel: "Unlock Route Analyzer",
+    premiumTeaserTitle: "Quoting a lane with empty return?",
+    premiumTeaserText:
+      "Unlock the Route & Freight Loss Analyzer for deadhead, toll and rest-risk verdict.",
   }),
 ];

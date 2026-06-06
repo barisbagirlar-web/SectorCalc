@@ -133,12 +133,18 @@ async function writeSingleReportPurchase(
   };
 
   const db = admin.firestore();
-  await db
+  const purchaseRef = db
     .collection(USERS_COLLECTION)
     .doc(uid)
     .collection(USER_PURCHASES_SUBCOLLECTION)
-    .doc(session.id)
-    .set(purchase, { merge: true });
+    .doc(session.id);
+
+  const existing = await purchaseRef.get();
+  if (existing.exists) {
+    return;
+  }
+
+  await purchaseRef.set(purchase);
 }
 
 export async function handleStripeWebhook(

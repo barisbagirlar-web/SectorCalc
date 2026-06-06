@@ -56,10 +56,15 @@ const EXTENDED_SECTORS = new Set([
   "painting",
   "sheet-metal",
   "3d-printing-service",
+  "logistics-transport",
 ]);
 
 export function isExtendedPremiumSector(sector: string): boolean {
   return EXTENDED_SECTORS.has(sector);
+}
+
+function getSelectYes(values: PremiumToolInputValues, key: string): boolean {
+  return values[key] === "yes";
 }
 
 export function calculateExtendedPremiumResult(
@@ -414,6 +419,70 @@ export function calculateExtendedPremiumResult(
       primaryMetricValue: money(minimumPrintPrice),
       riskDrivers: ["Print hours", "Fail rate", "Post-processing", "Target margin"],
       suggestedAction: `Price the job at or above ${money(minimumPrintPrice)} with fail buffer.`,
+      severity,
+    };
+  }
+
+  if (tool.sector === "logistics-transport") {
+    const distanceKm = getNumber(values, "distanceKm");
+    const fuelPerKm = getNumber(values, "fuelPricePerKm");
+    const driverRate = getNumber(values, "driverHourlyRate");
+    const hours = getNumber(values, "estimatedHours");
+    const returnEmpty = getSelectYes(values, "returnEmpty");
+    const hasTolls = getSelectYes(values, "hasTolls");
+    const overweightRisk = getSelectYes(values, "overweightRisk");
+
+    const baseFuelCost = distanceKm * fuelPerKm;
+    const baseLaborCost = hours * driverRate;
+    const baseTotal = baseFuelCost + baseLaborCost;
+
+    const deadheadPenalty = returnEmpty ? baseFuelCost * 0.4 : 0;
+    const tollFees = hasTolls ? distanceKm * 0.05 : 0;
+    const overweightFineRisk = overweightRisk ? 500 : 0;
+    const driverRestPenalty = hours > 9 ? baseLaborCost * 0.15 : 0;
+
+    const realTotalCost =
+      baseTotal + deadheadPenalty + tollFees + overweightFineRisk + driverRestPenalty;
+    const minimumSafeFreight = minimumPrice(realTotalCost, targetMargin);
+
+    let verdict = "ACCEPT SAFELY";
+    let suggestedAction =
+      "Route cost is within modeled tolerance at your target margin.";
+    let severity: PremiumSeverity = "safe";
+
+    if (returnEmpty && hours > 9) {
+      verdict = "HIGH RISK - LEAKING PROFIT";
+      suggestedAction =
+        "Empty return adds ~40% fuel exposure and drive hours exceed typical rest windows. Reprice at least 25% or secure a backhaul.";
+      severity = "danger";
+    } else if (returnEmpty) {
+      verdict = "MODERATE RISK - MARGIN PRESSURE";
+      suggestedAction =
+        "Deadhead return adds ~40% to fuel cost. Increase the quote at least 18% or find a return load.";
+      severity = "watch";
+    } else if (hours > 9) {
+      verdict = "TIME RISK - DELAY PENALTY";
+      suggestedAction =
+        "Drive time exceeds 9 hours — rest compliance may delay delivery. Add buffer or plan a relay driver.";
+      severity = "watch";
+    }
+
+    if (overweightRisk) {
+      severity = severity === "safe" ? "watch" : severity;
+    }
+
+    return {
+      verdict,
+      headline: "True route cost with hidden freight leaks modeled.",
+      primaryMetricLabel: "Minimum safe freight price",
+      primaryMetricValue: money(minimumSafeFreight),
+      riskDrivers: [
+        "Fuel & distance",
+        returnEmpty ? "Deadhead return (~40% fuel)" : "No deadhead modeled",
+        hasTolls ? "Toll allowance" : "No tolls",
+        hours > 9 ? "Driver rest / delay risk" : "Drive time within window",
+      ],
+      suggestedAction,
       severity,
     };
   }

@@ -15,10 +15,10 @@ export const SITE = {
   name: "SectorCalc",
   domain: "sectorcalc.com",
   url: siteUrl,
-  defaultTitle: "SectorCalc — Sector-specific calculators for real business decisions",
+  defaultTitle: "SectorCalc — Sector-specific measurement, loss detection and decision reports",
   defaultDescription:
-    "English-first sector decision platform. Free quick estimates and premium decision reports with risk signals and scenarios for Construction, Cleaning, Restaurant, E-commerce and CNC & Manufacturing.",
-  tagline: "Sector-specific calculators for real business decisions.",
+    "Calculate costs, measure efficiency, detect losses, and optimize operations across 18 sectors — free calculators and premium verdict reports without ERP complexity.",
+  tagline: "Her sektör için özel hesaplama, ölçüm ve karar raporları.",
   secondaryTagline: "Calculate the number. Get the decision.",
   contactEmail: "hello@sectorcalc.com",
   privacyEmail: "privacy@sectorcalc.com",

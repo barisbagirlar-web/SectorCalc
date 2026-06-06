@@ -8,8 +8,8 @@ export function HeroSection() {
     <section className="first-tab">
       <PageHero
         variant="home"
-        title="Stop Pricing Work That Loses Money."
-        subtitle="Check job cost, margin risk and safe price before you quote — with sector-specific verdict reports for manufacturing, trades and service businesses."
+        title="Her sektör için ÖZEL ölç, kaybı tespit et, güvenle karar ver."
+        subtitle="SectorCalc helps businesses and professionals calculate costs, measure efficiency, detect losses, and optimize operations — without expensive ERP systems."
       >
         <div className="mc-hero-actions">
           <Link href="/free-tools" className="mc-btn-hero-primary">

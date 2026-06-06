@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PricingToolUnlockBanner } from "@/components/billing/PricingToolUnlockBanner";
-import { PricingSubscribedBanner } from "@/components/billing/SubscriptionActivationBanner";
+import { PricingSubscribedBanner, PricingCheckoutCanceledBanner } from "@/components/billing/SubscriptionActivationBanner";
 import { PricingPlansGrid } from "@/components/sections/PricingPlansGrid";
 import { Container } from "@/components/ui/Container";
 import { PRICING_PRO_TAGLINE, PRICING_ROI_COPY, PRICING_PAGE_H1 } from "@/data/pricing-plans";
@@ -22,6 +22,9 @@ export const metadata: Metadata = createPageMetadata({
 export default function PricingPage() {
   return (
     <PageLayout headerTheme="light">
+      <Suspense fallback={null}>
+        <PricingCheckoutCanceledBanner />
+      </Suspense>
       <Suspense fallback={null}>
         <PricingSubscribedBanner />
       </Suspense>

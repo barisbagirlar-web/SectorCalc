@@ -17,7 +17,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Stop pricing work that loses money",
   description:
-    "Protect your margin before you quote. Sector-specific free margin checks and premium verdict reports for manufacturing, trades and service businesses.",
+    "Calculate costs, detect losses, and optimize operations across 18 sectors. Free calculators and premium verdict reports without ERP complexity.",
   path: "/",
 });
 

@@ -28,6 +28,7 @@ const EXPECTED_SECTORS = [
   "painting",
   "sheet-metal",
   "3d-printing-service",
+  "logistics-transport",
 ];
 
 function read(relPath) {
@@ -157,8 +158,8 @@ async function main() {
 
   checks.push(check("revenueTools export present", revenueCore.includes("export const revenueTools")));
   checks.push(check("industry registry present", industryRegistry.includes("export const industryRegistry")));
-  checks.push(check("tool count === 17", tools.length === 17, `found ${tools.length}`));
-  checks.push(check("registry count === 17", registrySlugs.length === 17, `found ${registrySlugs.length}`));
+  checks.push(check("tool count === 18", tools.length === 18, `found ${tools.length}`));
+  checks.push(check("registry count === 18", registrySlugs.length === 18, `found ${registrySlugs.length}`));
   checks.push(check("no duplicate freeSlug", findDuplicates(freeSlugs).length === 0, findDuplicates(freeSlugs).join(", ")));
   checks.push(check("no duplicate paidSlug", findDuplicates(paidSlugs).length === 0, findDuplicates(paidSlugs).join(", ")));
   checks.push(check("no duplicate sector", findDuplicates(sectors).length === 0, findDuplicates(sectors).join(", ")));

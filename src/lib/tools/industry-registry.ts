@@ -8,7 +8,8 @@ export type IndustryCategory =
   | "building-trades"
   | "field-services"
   | "food-retail"
-  | "custom-manufacturing";
+  | "custom-manufacturing"
+  | "logistics-transport";
 
 export type IndustrySlug =
   | "cnc-manufacturing"
@@ -27,7 +28,8 @@ export type IndustrySlug =
   | "roofing"
   | "painting"
   | "sheet-metal"
-  | "3d-printing-service";
+  | "3d-printing-service"
+  | "logistics-transport";
 
 export type IndustryIcon =
   | "construction"
@@ -63,6 +65,7 @@ export const INDUSTRY_CATEGORY_LABELS: Record<IndustryCategory, string> = {
   "field-services": "Field Services",
   "food-retail": "Food & Retail",
   "custom-manufacturing": "Custom Manufacturing",
+  "logistics-transport": "Logistics & Transport",
 };
 
 export const FEATURED_INDUSTRY_SLUGS: readonly IndustrySlug[] = [
@@ -395,6 +398,24 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
     icon: "manufacturing",
     accentColor: "cyan",
   },
+  {
+    slug: "logistics-transport",
+    name: "Logistics & Transport",
+    category: "logistics-transport",
+    description:
+      "Calculate volumetric (desi) weight, route cost exposure and freight margin risk before you quote a load.",
+    painStatement:
+      "Desi miscalculations and empty return miles can quietly erase freight margin.",
+    seoKeywords: [
+      "desi calculator",
+      "freight cost calculator",
+      "route optimization analyzer",
+      "volumetric weight shipping",
+    ],
+    priority: 18,
+    icon: "field-service",
+    accentColor: "amber",
+  },
 ] as const;
 
 export function getIndustryRegistryEntry(
@@ -418,6 +439,7 @@ export function getAllIndustryCategories(): IndustryCategory[] {
     "field-services",
     "food-retail",
     "custom-manufacturing",
+    "logistics-transport",
   ];
 }
 

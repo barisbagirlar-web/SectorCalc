@@ -32,6 +32,7 @@ import {
   XCircleIcon,
   ArrowDownTrayIcon,
   UserGroupIcon,
+  TruckIcon,
 } from "@heroicons/react/24/outline";
 import type { IndustryIcon } from "@/lib/tools/industry-registry";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
@@ -71,6 +72,7 @@ export const SECTOR_ICON_BY_SLUG: Partial<Record<IndustrySlug, HeroIcon>> = {
   painting: PresentationChartLineIcon,
   "sheet-metal": Cog6ToothIcon,
   "3d-printing-service": CubeIcon,
+  "logistics-transport": TruckIcon,
 };
 
 /** Fallback by industry icon category */
