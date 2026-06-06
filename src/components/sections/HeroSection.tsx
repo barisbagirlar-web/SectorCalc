@@ -1,22 +1,21 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/layout/PageHero";
 import { HomeTrustStrip } from "@/components/sections/HomeConversionSections";
 import { HeroDeviceMockup } from "@/components/home/HeroDeviceMockup";
 
-export function HeroSection() {
+export async function HeroSection() {
+  const t = await getTranslations("hero");
+
   return (
     <section className="first-tab">
-      <PageHero
-        variant="home"
-        title="Her sektör için ÖZEL ölç, kaybı tespit et, güvenle karar ver."
-        subtitle="SectorCalc helps businesses and professionals calculate costs, measure efficiency, detect losses, and optimize operations — without expensive ERP systems."
-      >
+      <PageHero variant="home" title={t("title")} subtitle={t("subtitle")}>
         <div className="mc-hero-actions">
           <Link href="/free-tools" className="mc-btn-hero-primary">
-            Run a Free Margin Check
+            {t("primaryCta")}
           </Link>
           <Link href="/reports/sample-decision-report" className="mc-btn-hero-secondary">
-            View Sample Verdict Report
+            {t("secondaryCta")}
           </Link>
         </div>
         <HomeTrustStrip />

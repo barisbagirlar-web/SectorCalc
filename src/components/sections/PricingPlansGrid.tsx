@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import {
   PlanAvailabilityBadge,
@@ -27,9 +28,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import {
-  PRICING_PLANS,
-  PRICING_PRO_TAGLINE,
-  PRICING_ROI_COPY,
+  buildPricingPlans,
 } from "@/data/pricing-plans";
 
 interface PricingPlansGridProps {
@@ -46,9 +45,12 @@ export function PricingPlansGrid({
   embedded = false,
   featuredOnly = false,
 }: PricingPlansGridProps) {
+  const t = useTranslations();
   const searchParams = useSearchParams();
   const highlightPlanId = searchParams.get("plan") ?? undefined;
   const planRefs = useRef<Record<string, HTMLElement | null>>({});
+
+  const pricingPlans = useMemo(() => buildPricingPlans(t), [t]);
 
   const checkoutToolSlug = useMemo(() => {
     const tool = searchParams.get("tool");
@@ -66,9 +68,9 @@ export function PricingPlansGrid({
   const visiblePlans = useMemo(
     () =>
       featuredOnly
-        ? PRICING_PLANS.filter((plan) => plan.id === "free" || plan.id === "pro")
-        : PRICING_PLANS,
-    [featuredOnly]
+        ? pricingPlans.filter((plan) => plan.id === "free" || plan.id === "pro")
+        : pricingPlans,
+    [featuredOnly, pricingPlans]
   );
 
   useEffect(() => {
@@ -81,16 +83,16 @@ export function PricingPlansGrid({
       <Container className={embedded ? "px-0" : undefined}>
         {showHeader && (
           <SectionHeader
-            eyebrow="Pricing"
-            title="Protect margin before you quote"
-            subtitle={PRICING_PRO_TAGLINE}
+            eyebrow={t("pricing.eyebrow")}
+            title={t("pricing.title")}
+            subtitle={t("pricing.tagline")}
             align="center"
           />
         )}
 
         {!compact ? (
           <p className="mx-auto mb-8 max-w-2xl text-center text-base font-semibold text-deep-navy">
-            {PRICING_ROI_COPY}
+            {t("pricing.roiCopy")}
           </p>
         ) : null}
 
@@ -163,16 +165,6 @@ export function PricingPlansGrid({
                     {feature}
                   </IconListItem>
                 ))}
-                {plan.comingSoonFeatures?.map((feature) => (
-                  <IconListItem
-                    key={feature}
-                    icon={UI_ICON.exclude}
-                    iconClassName={plan.highlighted ? "text-slate-400" : "text-slate"}
-                    className={plan.highlighted ? "text-slate-400" : "text-slate"}
-                  >
-                    {feature}
-                  </IconListItem>
-                ))}
               </ul>
               {plan.id === "free" && plan.primaryHref ? (
                 <Button
@@ -219,7 +211,7 @@ export function PricingPlansGrid({
         {!compact ? (
           <p className="mt-6 text-center text-sm text-slate">
             <Link href={getSampleReportHref()} className="font-semibold text-professional-blue hover:underline">
-              View sample verdict report →
+              {t("pricing.sampleReport")}
             </Link>
           </p>
         ) : null}
@@ -228,7 +220,7 @@ export function PricingPlansGrid({
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <div className="w-full max-w-md">
               <ProCheckoutButton
-                label="Start SectorCalc Pro"
+                label={t("pricing.proCta")}
                 source="pricing_footer"
                 toolSlug={checkoutToolSlug}
               />

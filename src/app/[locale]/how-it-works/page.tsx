@@ -170,7 +170,7 @@ export default function HowItWorksPage() {
                 <li>Full analyzer inputs</li>
                 <li>Verdict label and suggested action</li>
                 <li>PDF export for saved reports</li>
-                <li>Single Verdict ($19) or Pro ($29/month)</li>
+                <li>Single Verdict ($9) or Pro ($19/month)</li>
               </ul>
             </article>
           </div>

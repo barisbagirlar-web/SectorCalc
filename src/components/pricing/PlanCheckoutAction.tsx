@@ -1,12 +1,14 @@
-import { LeadIntentTrigger } from "@/components/leads/LeadIntentTrigger";
-import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
+"use client";
+
+import { StripePlanCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import { SingleVerdictCheckoutButton } from "@/components/subscription/SingleVerdictCheckoutButton";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import {
   PLAN_CATALOG,
   type CheckoutPlanId,
 } from "@/lib/pricing/plan-catalog";
 import type { PricingPlan } from "@/data/pricing-plans";
+import { useTranslations } from "next-intl";
 
 type PlanCheckoutActionProps = {
   plan: PricingPlan;
@@ -15,51 +17,44 @@ type PlanCheckoutActionProps = {
   highlighted?: boolean;
 };
 
+const SUBSCRIPTION_CHECKOUT_PLANS = ["pro", "pro_annual", "team"] as const;
+
+type SubscriptionCheckoutPlan = (typeof SUBSCRIPTION_CHECKOUT_PLANS)[number];
+
+function isSubscriptionCheckoutPlan(
+  plan: CheckoutPlanId
+): plan is SubscriptionCheckoutPlan {
+  return (SUBSCRIPTION_CHECKOUT_PLANS as readonly string[]).includes(plan);
+}
+
 export function PlanCheckoutAction({
   plan,
   checkoutToolSlug,
   className = "mt-8 w-full",
-  highlighted = false,
 }: PlanCheckoutActionProps) {
-  const leadButtonClass = highlighted
-    ? "bg-cyan text-deep-navy hover:bg-cyan/90"
-    : "bg-professional-blue text-white hover:bg-blue-700";
-
-  if (plan.checkoutPlan === "pro" && plan.checkoutReady) {
+  if (plan.checkoutPlan && plan.checkoutReady && isSubscriptionCheckoutPlan(plan.checkoutPlan)) {
     return (
-      <div className={className}>
-        <ProCheckoutButton
-          label={plan.primaryCta}
-          source="pricing_grid"
-          toolSlug={checkoutToolSlug}
-        />
-      </div>
+      <StripePlanCheckoutButton
+        plan={plan.checkoutPlan}
+        label={plan.primaryCta}
+        className={className}
+        source="pricing_grid"
+        toolSlug={checkoutToolSlug}
+        hideWhenProActive={plan.checkoutPlan === "pro" || plan.checkoutPlan === "pro_annual"}
+      />
     );
   }
 
   if (plan.checkoutPlan === "single_verdict" && plan.checkoutReady) {
     return (
-      <SingleVerdictCheckoutButton
-        toolSlug={checkoutToolSlug}
-        returnPath="/pricing"
-        className={className}
-        label={plan.primaryCta}
-        source="pricing_grid"
-      />
-    );
-  }
-
-  if (plan.leadIntent) {
-    return (
-      <LeadIntentTrigger
-        source={plan.leadIntent.source}
-        plan={plan.leadIntent.plan}
-        toolRequested={plan.leadIntent.toolRequested}
-        pagePath="/pricing"
-        className={`inline-flex min-h-[44px] w-full items-center justify-center rounded-lg px-5 text-sm font-semibold transition-colors ${leadButtonClass} ${className}`}
-      >
-        {plan.primaryCta}
-      </LeadIntentTrigger>
+      <div className={className}>
+        <SingleVerdictCheckoutButton
+          toolSlug={checkoutToolSlug}
+          returnPath="/pricing"
+          label={plan.primaryCta}
+          source="pricing_grid"
+        />
+      </div>
     );
   }
 
@@ -77,19 +72,20 @@ export function PlanCheckoutAction({
 export function PlanAvailabilityBadge({
   planId,
 }: {
-  planId: CheckoutPlanId | "free" | "consultant_api";
+  planId: CheckoutPlanId | "free";
 }) {
+  const t = useTranslations("pricing");
   const entry = PLAN_CATALOG[planId];
   if (entry.availability === "live") {
     return (
       <span className="text-[10px] font-bold uppercase tracking-wider text-emerald">
-        Available now
+        {t("availableNow")}
       </span>
     );
   }
   return (
     <span className="text-[10px] font-bold uppercase tracking-wider text-amber">
-      Waitlist
+      {t("waitlist")}
     </span>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { startCheckoutSession } from "@/lib/billing/create-checkout-session";
 import {
   REVENUE_EVENTS,
@@ -32,6 +33,8 @@ export function SingleVerdictCheckoutButton({
   label = SINGLE_VERDICT_CTA,
   source = "single_verdict_upsell",
 }: SingleVerdictCheckoutButtonProps) {
+  const t = useTranslations("checkout");
+  const locale = useLocale();
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -54,13 +57,14 @@ export function SingleVerdictCheckoutButton({
       await startCheckoutSession({
         plan: "single_report",
         toolSlug,
+        locale,
         returnPath,
       });
     } catch (caught) {
       if (caught instanceof Error) {
         setError(caught.message);
       } else {
-        setError("Unable to start checkout.");
+        setError(t("error"));
       }
       setPending(false);
     }
@@ -74,7 +78,7 @@ export function SingleVerdictCheckoutButton({
         disabled={pending}
         className={buttonClassName ?? DEFAULT_BUTTON_CLASS}
       >
-        {pending ? "Redirecting to checkout…" : label}
+        {pending ? t("redirecting") : label}
       </button>
       {error ? <p className="mt-2 text-sm text-soft-red">{error}</p> : null}
     </div>

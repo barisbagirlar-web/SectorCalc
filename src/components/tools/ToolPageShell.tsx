@@ -83,7 +83,7 @@ export function ToolPageShell({ definition: rawDefinition }: ToolPageShellProps)
           title={isPremium ? "Unlock all decision tools" : "Continue with sector tools"}
           subtitle={
             isPremium
-              ? "SectorCalc Pro unlocks premium decision tools across all seventeen sectors — $29/month, cancel anytime."
+              ? "SectorCalc Pro unlocks premium decision tools across all sectors — $19/month, cancel anytime."
               : "Run another quick check or unlock the decision tool when the number affects margin, pricing or risk."
           }
           primaryLabel={isPremium ? "View SectorCalc Pro" : "Browse industries"}

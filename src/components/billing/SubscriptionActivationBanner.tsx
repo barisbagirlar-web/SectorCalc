@@ -8,6 +8,7 @@ import {
   REVENUE_EVENTS,
   trackRevenueEvent,
 } from "@/lib/analytics/revenue-events";
+import { SINGLE_VERDICT_PRICE } from "@/lib/pricing/plan-catalog";
 import { getAccountHref, getPremiumToolHref } from "@/lib/tools/tool-links";
 import { getRevenueToolByPaidSlug, revenueTools } from "@/lib/tools/revenue-tools";
 
@@ -103,7 +104,7 @@ export function PricingCheckoutCanceledBanner() {
           Checkout was canceled. No charge was made.
         </p>
         <p className="mt-1 text-sm text-slate">
-          You can try again with Single Verdict ($19) or SectorCalc Pro when you are ready.
+          {`You can try again with Single Verdict ($${SINGLE_VERDICT_PRICE}) or SectorCalc Pro when you are ready.`}
         </p>
       </div>
     </div>

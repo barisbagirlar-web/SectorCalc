@@ -1,15 +1,14 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { NavLinkWithIcon } from "@/components/icons/NavLinkWithIcon";
 import { ScIcon } from "@/components/icons/ScIcon";
-import { AUTH_NAV_ITEMS, PUBLIC_NAV_ITEMS } from "@/config/site";
 import { UI_ICON } from "@/lib/icons/icon-registry";
 import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/outline";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
-import { getFreeToolsHref, getPricingHref } from "@/lib/tools/tool-links";
 
 type HeaderTheme = "light" | "dark";
 
@@ -17,6 +16,18 @@ interface HeaderNavProps {
   theme?: HeaderTheme;
   onNavigate?: () => void;
 }
+
+const PUBLIC_NAV_KEYS = [
+  { key: "freeTools", href: "/free-tools" },
+  { key: "premiumTools", href: "/premium-tools" },
+  { key: "industries", href: "/industries" },
+  { key: "pricing", href: "/pricing" },
+] as const;
+
+const AUTH_NAV_KEYS = [
+  { key: "reports", href: "/account/reports" },
+  { key: "account", href: "/account" },
+] as const;
 
 function navLinkClass(theme: HeaderTheme, mobile: boolean): string {
   if (mobile) {
@@ -28,20 +39,21 @@ function navLinkClass(theme: HeaderTheme, mobile: boolean): string {
 }
 
 export function DesktopHeaderNav({ theme = "light" }: { theme?: HeaderTheme }) {
+  const t = useTranslations("nav");
   const { user, loading } = useUserSubscription();
 
   return (
     <nav id="main-navigation" aria-label="Main" className="hidden lg:block">
       <ul className="flex items-center gap-1">
-        {PUBLIC_NAV_ITEMS.map((item) => (
+        {PUBLIC_NAV_KEYS.map((item) => (
           <li key={item.href}>
-            <NavLinkWithIcon href={item.href} label={item.label} />
+            <NavLinkWithIcon href={item.href} label={t(item.key)} />
           </li>
         ))}
         {!loading && user
-          ? AUTH_NAV_ITEMS.map((item) => (
+          ? AUTH_NAV_KEYS.map((item) => (
               <li key={item.href}>
-                <NavLinkWithIcon href={item.href} label={item.label} />
+                <NavLinkWithIcon href={item.href} label={t(item.key)} />
               </li>
             ))
           : null}
@@ -56,6 +68,7 @@ export function DesktopHeaderNav({ theme = "light" }: { theme?: HeaderTheme }) {
 }
 
 export function HeaderActions({ theme = "light" }: { theme?: HeaderTheme }) {
+  const t = useTranslations("nav");
   const { isActive, loading } = useUserSubscription();
   const isLight = theme === "light";
 
@@ -64,47 +77,48 @@ export function HeaderActions({ theme = "light" }: { theme?: HeaderTheme }) {
       <ThemeToggle />
       {!loading && !isActive ? (
         <Link
-          href={getPricingHref()}
+          href="/pricing"
           className={`inline-flex min-h-[44px] items-center gap-1.5 px-3 text-sm font-semibold ${
             isLight ? "text-professional-blue hover:text-blue-700" : "text-cyan hover:text-white"
           }`}
         >
           <ScIcon icon={UI_ICON.security} size="compact" className="text-current" />
-          Unlock Pro
+          {t("unlockPro")}
         </Link>
       ) : null}
       <Link
-        href={getFreeToolsHref()}
+        href="/free-tools"
         className="sc-btn-primary inline-flex !min-h-[44px] items-center gap-2 !px-4 !text-sm"
       >
         <ScIcon icon={MagnifyingGlassCircleIcon} size="compact" className="text-white" />
-        Run Free Check
+        {t("runFreeCheck")}
       </Link>
     </div>
   );
 }
 
 export function MobileHeaderNav({ theme = "light", onNavigate }: HeaderNavProps) {
+  const t = useTranslations("nav");
   const { user, loading } = useUserSubscription();
 
   return (
     <>
-      {PUBLIC_NAV_ITEMS.map((item) => (
+      {PUBLIC_NAV_KEYS.map((item) => (
         <li key={item.href}>
           <NavLinkWithIcon
             href={item.href}
-            label={item.label}
+            label={t(item.key)}
             onClick={onNavigate}
             className={navLinkClass(theme, true)}
           />
         </li>
       ))}
       {!loading && user
-        ? AUTH_NAV_ITEMS.map((item) => (
+        ? AUTH_NAV_KEYS.map((item) => (
             <li key={item.href}>
               <NavLinkWithIcon
                 href={item.href}
-                label={item.label}
+                label={t(item.key)}
                 onClick={onNavigate}
                 className={navLinkClass(theme, true)}
               />
@@ -118,7 +132,7 @@ export function MobileHeaderNav({ theme = "light", onNavigate }: HeaderNavProps)
       ) : null}
       <li>
         <Link
-          href={getFreeToolsHref()}
+          href="/free-tools"
           onClick={onNavigate}
           className={`inline-flex min-h-[44px] items-center gap-2 py-3 text-sm font-semibold ${
             theme === "light" ? "text-professional-blue" : "text-cyan"
@@ -129,7 +143,7 @@ export function MobileHeaderNav({ theme = "light", onNavigate }: HeaderNavProps)
             size="compact"
             className={theme === "light" ? "text-professional-blue" : "text-cyan"}
           />
-          Run Free Check
+          {t("runFreeCheck")}
         </Link>
       </li>
       <li>

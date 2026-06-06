@@ -1,178 +1,138 @@
-import type { LeadPlan, LeadSource } from "@/lib/leads/types";
-import {
-  FREE_PLAN_PRICING,
-  sectorCalcProPricing,
-} from "@/lib/pricing/sectorcalc-pro";
 import type { CheckoutPlanId } from "@/lib/pricing/plan-catalog";
 
-export interface PricingPlan {
+/** Translation-key driven plan definition — single global USD price list. */
+export type GlobalPricingPlanDef = {
   id: string;
-  planId?: CheckoutPlanId | "free" | "consultant_api";
-  name: string;
-  price: string;
-  period?: string;
-  description: string;
-  features: string[];
-  comingSoonFeatures?: string[];
-  primaryCta: string;
-  primaryHref?: string;
+  planId: CheckoutPlanId | "free";
+  nameKey: string;
+  priceDisplayKey: string;
+  periodKey?: string;
+  descriptionKey: string;
+  featuresKey: string;
+  ctaKey: string;
+  badgeKey?: string;
   highlighted?: boolean;
-  badge?: string;
-  /** Live Stripe checkout — only Pro monthly today */
   checkoutPlan?: CheckoutPlanId;
   checkoutReady?: boolean;
-  leadIntent?: {
-    source: LeadSource;
-    plan: LeadPlan;
-    toolRequested: string;
-  };
-}
+  primaryHref?: string;
+};
 
-export const PRICING_ROI_COPY =
-  "One avoided bad quote can pay for a full year of Pro.";
-
-export const PRICING_PAGE_H1 = "Choose how you protect your margin.";
-
-/** Prefilled tool/report field when opening lead modal from a pricing plan CTA */
-export function getPricingLeadToolLabel(planName: string): string {
-  return `${planName} (pricing inquiry)`;
-}
-
-export const PRICING_PLANS: PricingPlan[] = [
+export const GLOBAL_PRICING_PLAN_DEFS: GlobalPricingPlanDef[] = [
   {
     id: "free",
     planId: "free",
-    name: "Free Check",
-    price: "$0",
-    period: "forever",
-    description: FREE_PLAN_PRICING.description,
-    features: [...FREE_PLAN_PRICING.features],
-    comingSoonFeatures: ["No minimum safe price", "No verdict or PDF export"],
-    primaryCta: "Run a Free Margin Check",
+    nameKey: "pricing.free",
+    priceDisplayKey: "pricing.freePrice",
+    periodKey: "pricing.freePeriod",
+    descriptionKey: "pricing.freeDescription",
+    featuresKey: "pricing.freeFeatures",
+    ctaKey: "pricing.freeCta",
     primaryHref: "/free-tools",
-    checkoutReady: false,
   },
   {
     id: "single-verdict",
     planId: "single_verdict",
-    name: "Single Verdict",
-    price: "$19",
-    period: "one report",
-    description:
-      "One premium analyzer run with full verdict output — ideal for a single high-stakes quote decision.",
-    features: [
-      "One premium analyzer verdict",
-      "Minimum safe price where applicable",
-      "Margin leak breakdown",
-      "PDF-ready report for that run",
-    ],
-    primaryCta: "Get Full Verdict for $19",
+    nameKey: "pricing.single",
+    priceDisplayKey: "pricing.singlePrice",
+    periodKey: "pricing.singlePeriod",
+    descriptionKey: "pricing.singleDescription",
+    featuresKey: "pricing.singleFeatures",
+    ctaKey: "pricing.singleCta",
     checkoutPlan: "single_verdict",
     checkoutReady: true,
   },
   {
-    id: "sector-pack",
-    planId: "sector_pack",
-    name: "Sector Pack",
-    price: "$49",
-    period: "one sector",
-    description:
-      "Every free check and premium analyzer in one industry category — ideal when you quote in a single vertical.",
-    features: [
-      "All tools in one sector category",
-      "Comparative loss analysis",
-      "API access preview (100 calls)",
-    ],
-    primaryCta: "Join Sector Pack Waitlist",
-    checkoutReady: false,
-    leadIntent: {
-      source: "pricing",
-      plan: "sector_pass",
-      toolRequested: "Sector Pack ($49 one-time)",
-    },
-  },
-  {
     id: "pro",
     planId: "pro",
-    name: "Pro Monthly",
-    price: "$29",
-    period: "per month",
-    description: sectorCalcProPricing.description,
-    features: [...sectorCalcProPricing.bullets],
-    primaryCta: "Start SectorCalc Pro",
+    nameKey: "pricing.pro",
+    priceDisplayKey: "pricing.proPrice",
+    periodKey: "pricing.proPeriod",
+    descriptionKey: "pricing.proDescription",
+    featuresKey: "pricing.proFeatures",
+    ctaKey: "pricing.proCta",
+    badgeKey: "pricing.proBadge",
     highlighted: true,
-    badge: "Most popular",
     checkoutPlan: "pro",
     checkoutReady: true,
   },
   {
     id: "pro-annual",
     planId: "pro_annual",
-    name: "Pro Annual",
-    price: "$249",
-    period: "per year",
-    description:
-      "Full SectorCalc Pro access billed annually — best value for teams quoting weekly.",
-    features: [
-      "All premium analyzers",
-      "Saved verdict reports",
-      "PDF export",
-      "Priority onboarding when available",
-    ],
-    primaryCta: "Join Annual Pro Waitlist",
-    checkoutReady: false,
-    leadIntent: {
-      source: "pricing",
-      plan: "pro",
-      toolRequested: "Pro Annual ($249/year)",
-    },
+    nameKey: "pricing.proAnnual",
+    priceDisplayKey: "pricing.proAnnualPrice",
+    periodKey: "pricing.proAnnualPeriod",
+    descriptionKey: "pricing.proAnnualDescription",
+    featuresKey: "pricing.proAnnualFeatures",
+    ctaKey: "pricing.proAnnualCta",
+    checkoutPlan: "pro_annual",
+    checkoutReady: true,
   },
   {
     id: "team",
     planId: "team",
-    name: "Team",
-    price: "$99",
-    period: "per month",
-    description:
-      "Multi-seat access for estimators, ops leads and field managers — rollout waitlist open.",
-    features: [
-      "Shared sector analyzer access",
-      "Team report history",
-      "Admin seat controls (planned)",
-      "Volume pricing review",
-    ],
-    primaryCta: "Join Team Waitlist",
-    checkoutReady: false,
-    leadIntent: {
-      source: "pricing",
-      plan: "sector_pass",
-      toolRequested: "Team plan ($99/month)",
-    },
-  },
-  {
-    id: "consultant-api",
-    planId: "consultant_api",
-    name: "Consultant / API",
-    price: "Waitlist",
-    period: "custom",
-    description:
-      "White-label verdict workflows and API access for consultants and integrators.",
-    features: [
-      "Consultant workflow interest list",
-      "API access preview",
-      "Custom sector packs (roadmap)",
-      "No self-serve checkout yet",
-    ],
-    primaryCta: "Join Consultant Waitlist",
-    checkoutReady: false,
-    leadIntent: {
-      source: "pricing",
-      plan: "unknown",
-      toolRequested: "Consultant / API waitlist",
-    },
+    nameKey: "pricing.team",
+    priceDisplayKey: "pricing.teamPrice",
+    periodKey: "pricing.teamPeriod",
+    descriptionKey: "pricing.teamDescription",
+    featuresKey: "pricing.teamFeatures",
+    ctaKey: "pricing.teamCta",
+    checkoutPlan: "team",
+    checkoutReady: true,
   },
 ];
 
-export const PRICING_PRO_TAGLINE = sectorCalcProPricing.headline;
+export type PricingPlan = {
+  id: string;
+  planId: CheckoutPlanId | "free";
+  name: string;
+  price: string;
+  period?: string;
+  description: string;
+  features: string[];
+  primaryCta: string;
+  primaryHref?: string;
+  highlighted?: boolean;
+  badge?: string;
+  checkoutPlan?: CheckoutPlanId;
+  checkoutReady?: boolean;
+};
 
-export { sectorCalcProPricing };
+type PricingTranslator = {
+  (key: string): string;
+  raw(key: string): unknown;
+};
+
+export function buildPricingPlans(t: PricingTranslator): PricingPlan[] {
+  return GLOBAL_PRICING_PLAN_DEFS.map((def) => {
+    const featuresRaw = t.raw(def.featuresKey);
+    const features =
+      typeof featuresRaw === "string"
+        ? featuresRaw.split("|").map((item) => item.trim()).filter(Boolean)
+        : [];
+
+    return {
+      id: def.id,
+      planId: def.planId,
+      name: t(def.nameKey),
+      price: t(def.priceDisplayKey),
+      period: def.periodKey ? t(def.periodKey) : undefined,
+      description: t(def.descriptionKey),
+      features,
+      primaryCta: t(def.ctaKey),
+      primaryHref: def.primaryHref,
+      highlighted: def.highlighted,
+      badge: def.badgeKey ? t(def.badgeKey) : undefined,
+      checkoutPlan: def.checkoutPlan,
+      checkoutReady: def.checkoutReady,
+    };
+  });
+}
+
+/** @deprecated Use buildPricingPlans(t) in client/server components with next-intl */
+export const PRICING_PLANS: PricingPlan[] = [];
+
+export const PRICING_ROI_COPY = "One avoided bad quote can pay for a full year of Pro.";
+export const PRICING_PAGE_H1 = "Choose how you protect your margin.";
+
+export { sectorCalcProPricing } from "@/lib/pricing/sectorcalc-pro";
+export const PRICING_PRO_TAGLINE = "Premium verdict analyzers turn free risk signals into minimum safe prices.";

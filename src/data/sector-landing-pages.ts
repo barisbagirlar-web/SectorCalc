@@ -105,7 +105,7 @@ export const CNC_QUOTE_RISK_LANDING = buildConfig("cnc-manufacturing", "/cnc-quo
     {
       question: "Can I buy one report instead of Pro?",
       answer:
-        "Single Verdict ($19) covers one premium analyzer run. Pro ($29/month) unlocks all seventeen sector analyzers.",
+        "Single Verdict ($9) covers one premium analyzer run. Pro ($19/month) unlocks all sector analyzers.",
     },
   ],
 });
@@ -158,7 +158,7 @@ export const CONSTRUCTION_BID_MARGIN_LANDING = buildConfig(
       {
         question: "How is pricing structured?",
         answer:
-          "Start free. Single Verdict ($19) for one report, or Pro ($29/month) for all sector analyzers.",
+          "Start free. Single Verdict ($9) for one report, or Pro ($19/month) for all sector analyzers.",
       },
     ],
   }

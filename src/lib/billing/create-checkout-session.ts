@@ -1,6 +1,6 @@
 import { getCurrentUserIdToken, getFirebaseAuth } from "@/lib/firebase/auth";
 
-export type CheckoutPlan = "pro" | "single_report";
+export type CheckoutPlan = "pro" | "single_report" | "pro_annual" | "team";
 
 export interface CreateCheckoutSessionOptions {
   toolSlug?: string;

@@ -40,8 +40,17 @@ const EXPECTED_SECTORS = [
   "daily-meals",
 ];
 
+const LOCALE_PREFIX = process.env.CATALOG_QA_LOCALE ?? "en";
+
 function read(relPath) {
   return readFileSync(resolve(ROOT, relPath), "utf8");
+}
+
+function localizedPath(path) {
+  if (path.startsWith("/admin")) {
+    return path;
+  }
+  return `/${LOCALE_PREFIX}${path === "/" ? "" : path}`;
 }
 
 function extractArraySection(source, marker) {
@@ -248,10 +257,15 @@ async function main() {
     if (!item.pass) failed += 1;
   }
 
-  const industryRoutes = EXPECTED_SECTORS.map((s) => `/industries/${s}`);
-  const freeRoutes = freeSlugs.map((s) => `/tools/free/${s}`);
-  const premiumRoutes = paidSlugs.map((s) => `/tools/premium/${s}`);
-  const extraRoutes = ["/industries", "/pricing", "/account", "/admin/leads"];
+  const industryRoutes = EXPECTED_SECTORS.map((s) => localizedPath(`/industries/${s}`));
+  const freeRoutes = freeSlugs.map((s) => localizedPath(`/tools/free/${s}`));
+  const premiumRoutes = paidSlugs.map((s) => localizedPath(`/tools/premium/${s}`));
+  const extraRoutes = [
+    localizedPath("/industries"),
+    localizedPath("/pricing"),
+    localizedPath("/account"),
+    "/admin/leads",
+  ];
   const allRoutes = [...industryRoutes, ...freeRoutes, ...premiumRoutes, ...extraRoutes];
 
   console.log(`\n=== Route Smoke (${BASE_URL}) ===\n`);

@@ -1,19 +1,18 @@
 /**
  * Canonical paid plan IDs for UI and checkout routing.
- * Only `pro` has live Stripe checkout; others use waitlist / lead capture until enabled.
+ * Stripe price IDs live in Cloud Functions env — never in the frontend.
  */
 
 export type CheckoutPlanId =
   | "pro"
   | "single_verdict"
-  | "sector_pack"
   | "pro_annual"
   | "team";
 
 export type PlanAvailability = "live" | "waitlist";
 
 export interface PlanCatalogEntry {
-  id: CheckoutPlanId | "free" | "consultant_api";
+  id: CheckoutPlanId | "free";
   name: string;
   priceLabel: string;
   period?: string;
@@ -21,7 +20,7 @@ export interface PlanCatalogEntry {
   stripeCheckout: boolean;
 }
 
-export const PLAN_CATALOG: Record<CheckoutPlanId | "free" | "consultant_api", PlanCatalogEntry> = {
+export const PLAN_CATALOG: Record<CheckoutPlanId | "free", PlanCatalogEntry> = {
   free: {
     id: "free",
     name: "Free Check",
@@ -32,24 +31,16 @@ export const PLAN_CATALOG: Record<CheckoutPlanId | "free" | "consultant_api", Pl
   },
   single_verdict: {
     id: "single_verdict",
-    name: "Single Verdict",
-    priceLabel: "$19",
+    name: "Single Tool Report",
+    priceLabel: "$9",
     period: "one report",
     availability: "live",
     stripeCheckout: true,
   },
-  sector_pack: {
-    id: "sector_pack",
-    name: "Sector Pack",
-    priceLabel: "$49",
-    period: "one sector",
-    availability: "waitlist",
-    stripeCheckout: false,
-  },
   pro: {
     id: "pro",
     name: "Pro Monthly",
-    priceLabel: "$29/month",
+    priceLabel: "$19/month",
     period: "billed monthly",
     availability: "live",
     stripeCheckout: true,
@@ -57,31 +48,23 @@ export const PLAN_CATALOG: Record<CheckoutPlanId | "free" | "consultant_api", Pl
   pro_annual: {
     id: "pro_annual",
     name: "Pro Annual",
-    priceLabel: "$249/year",
+    priceLabel: "$149/year",
     period: "billed annually",
-    availability: "waitlist",
-    stripeCheckout: false,
+    availability: "live",
+    stripeCheckout: true,
   },
   team: {
     id: "team",
     name: "Team",
-    priceLabel: "$99/month",
+    priceLabel: "$49/month",
     period: "per month",
-    availability: "waitlist",
-    stripeCheckout: false,
-  },
-  consultant_api: {
-    id: "consultant_api",
-    name: "Consultant / API",
-    priceLabel: "Waitlist",
-    period: "custom",
-    availability: "waitlist",
-    stripeCheckout: false,
+    availability: "live",
+    stripeCheckout: true,
   },
 };
 
-export const SINGLE_VERDICT_PRICE = 19;
+export const SINGLE_VERDICT_PRICE = 9;
 export const SINGLE_VERDICT_CTA = `Get Full Verdict for $${SINGLE_VERDICT_PRICE}`;
 
 export const PRICING_REFUND_POLICY =
-  "SectorCalc Pro is a digital subscription billed through Stripe. You can cancel anytime from your account or Stripe customer portal — access continues through the current billing period. Single verdict and annual plans are digital products with no guaranteed refunds; contact support if billing was made in error. Outputs are estimates only — not financial, legal or engineering advice.";
+  "SectorCalc Pro is a digital subscription billed through Stripe. You can cancel anytime from your account or Stripe customer portal — access continues through the current billing period. Single verdict and annual plans are digital products with no guaranteed refunds; contact support if billing was made in error. Outputs are estimates only — not financial, legal or engineering advice. Stripe Adaptive Pricing may show local currency at checkout.";

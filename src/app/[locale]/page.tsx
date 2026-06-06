@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { HeroSection } from "@/components/sections/HeroSection";
 import {
@@ -22,7 +23,14 @@ export const metadata: Metadata = createPageMetadata({
   path: "/",
 });
 
-export default function HomePage() {
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function HomePage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <PageLayout headerTheme="light">
       <section id="sector-calc-platform">

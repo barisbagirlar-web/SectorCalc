@@ -1,6 +1,7 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { resolveNavIcon } from "@/lib/icons/icon-registry";
+import { stripLocalePrefix } from "@/i18n/routing";
 
 type NavLinkWithIconProps = {
   href: string;
@@ -17,7 +18,7 @@ export function NavLinkWithIcon({
   onClick,
   showIcon = true,
 }: NavLinkWithIconProps) {
-  const Icon = resolveNavIcon(href);
+  const Icon = resolveNavIcon(stripLocalePrefix(href));
 
   return (
     <Link href={href} onClick={onClick} className={`inline-flex items-center gap-2 ${className}`}>

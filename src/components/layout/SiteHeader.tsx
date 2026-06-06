@@ -3,6 +3,7 @@ import {
   DesktopHeaderNav,
   HeaderActions,
 } from "@/components/layout/HeaderNav";
+import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { MobileNav } from "@/components/layout/MobileNav";
 
 type HeaderTheme = "light" | "dark";
@@ -28,7 +29,10 @@ export function SiteHeader({ theme = "light" }: SiteHeaderProps) {
       <div className="container">
         <SiteLogo priority />
         <DesktopHeaderNav theme="light" />
-        <HeaderActions theme="light" />
+        <div className="hidden items-center gap-2 lg:flex">
+          <LocaleSwitcher />
+          <HeaderActions theme="light" />
+        </div>
         <MobileNav theme="light" />
       </div>
     </header>

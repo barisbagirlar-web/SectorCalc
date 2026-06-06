@@ -6,7 +6,9 @@ import { authorizeSignedInUser } from "./userAuth";
 import { applyCors } from "./cors";
 import {
   CHECKOUT_PLAN_PRO,
+  CHECKOUT_PLAN_PRO_ANNUAL,
   CHECKOUT_PLAN_SINGLE_REPORT,
+  CHECKOUT_PLAN_TEAM,
   USERS_COLLECTION,
 } from "./constants";
 
@@ -15,13 +17,19 @@ const stripePriceMonthly = defineString("STRIPE_PRICE_MONTHLY", { default: "" })
 const stripePriceSingleVerdict = defineString("STRIPE_PRICE_SINGLE_VERDICT", {
   default: "",
 });
+const stripePriceProAnnual = defineString("STRIPE_PRICE_PRO_ANNUAL", { default: "" });
+const stripePriceTeam = defineString("STRIPE_PRICE_TEAM", { default: "" });
 const publicSiteUrl = defineString("PUBLIC_SITE_URL", {
   default: "https://sectorcalc-bf412.web.app",
 });
 
 const DEFAULT_PREMIUM_TOOL_SLUG = "cnc-quote-risk-analyzer";
 
-type CheckoutPlan = typeof CHECKOUT_PLAN_PRO | typeof CHECKOUT_PLAN_SINGLE_REPORT;
+type CheckoutPlan =
+  | typeof CHECKOUT_PLAN_PRO
+  | typeof CHECKOUT_PLAN_SINGLE_REPORT
+  | typeof CHECKOUT_PLAN_PRO_ANNUAL
+  | typeof CHECKOUT_PLAN_TEAM;
 
 if (!admin.apps.length) {
   admin.initializeApp();
@@ -56,48 +64,75 @@ function resolveCheckoutPlan(body: CheckoutRequestBody): CheckoutPlan {
   if (body.plan === CHECKOUT_PLAN_SINGLE_REPORT) {
     return CHECKOUT_PLAN_SINGLE_REPORT;
   }
+  if (body.plan === CHECKOUT_PLAN_PRO_ANNUAL) {
+    return CHECKOUT_PLAN_PRO_ANNUAL;
+  }
+  if (body.plan === CHECKOUT_PLAN_TEAM) {
+    return CHECKOUT_PLAN_TEAM;
+  }
   return CHECKOUT_PLAN_PRO;
 }
 
-async function createProSubscriptionSession(
+function resolveAppLocale(body: CheckoutRequestBody): string {
+  const raw = typeof body.locale === "string" ? body.locale.trim() : "";
+  if (["en", "tr", "es", "de", "ar"].includes(raw)) {
+    return raw;
+  }
+  return "en";
+}
+
+function resolveStripeCheckoutLocale(locale: string): Stripe.Checkout.SessionCreateParams.Locale {
+  const map: Record<string, Stripe.Checkout.SessionCreateParams.Locale> = {
+    en: "en",
+    tr: "tr",
+    es: "es",
+    de: "de",
+    ar: "ar",
+  };
+  return map[locale] ?? "auto";
+}
+
+function localizedSitePath(siteUrl: string, locale: string, path: string): string {
+  const base = siteUrl.replace(/\/$/, "");
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${base}/${locale}${normalized}`;
+}
+
+async function getExistingCustomerId(uid: string): Promise<string | undefined> {
+  const db = admin.firestore();
+  const userSnap = await db.collection(USERS_COLLECTION).doc(uid).get();
+  const customerId = userSnap.data()?.subscription?.stripeCustomerId;
+  return typeof customerId === "string" ? customerId : undefined;
+}
+
+async function createSubscriptionSession(
   stripe: Stripe,
   authResult: { uid: string; email: string },
-  body: CheckoutRequestBody
+  body: CheckoutRequestBody,
+  plan: typeof CHECKOUT_PLAN_PRO | typeof CHECKOUT_PLAN_PRO_ANNUAL | typeof CHECKOUT_PLAN_TEAM,
+  priceId: string
 ): Promise<Stripe.Checkout.Session> {
   const explicitToolSlug = resolveExplicitToolSlug(body);
   const toolSlug = resolveToolSlugForMetadata(body);
-  const locale =
-    typeof body.locale === "string" && body.locale.trim().length > 0
-      ? body.locale.trim()
-      : undefined;
-
-  const priceId = stripePriceMonthly.value().trim();
+  const locale = resolveAppLocale(body);
   const siteUrl = publicSiteUrl.value().trim().replace(/\/$/, "");
-
-  const db = admin.firestore();
-  const userRef = db.collection(USERS_COLLECTION).doc(authResult.uid);
-  const userSnap = await userRef.get();
-  const existingCustomerId =
-    typeof userSnap.data()?.subscription?.stripeCustomerId === "string"
-      ? userSnap.data()?.subscription?.stripeCustomerId
-      : undefined;
+  const existingCustomerId = await getExistingCustomerId(authResult.uid);
 
   const metadata: Record<string, string> = {
     uid: authResult.uid,
     toolSlug,
-    plan: CHECKOUT_PLAN_PRO,
+    plan,
+    locale,
   };
-  if (locale) {
-    metadata.locale = locale;
-  }
 
   return stripe.checkout.sessions.create({
     mode: "subscription",
     line_items: [{ price: priceId, quantity: 1 }],
+    locale: resolveStripeCheckoutLocale(locale),
     success_url: explicitToolSlug
-      ? `${siteUrl}/tools/premium/${encodeURIComponent(explicitToolSlug)}?subscribed=true`
-      : `${siteUrl}/account?subscribed=true`,
-    cancel_url: `${siteUrl}/pricing?canceled=true`,
+      ? `${localizedSitePath(siteUrl, locale, `/tools/premium/${encodeURIComponent(explicitToolSlug)}`)}?subscribed=true`
+      : `${localizedSitePath(siteUrl, locale, "/account")}?subscribed=true`,
+    cancel_url: `${localizedSitePath(siteUrl, locale, "/pricing")}?canceled=true`,
     client_reference_id: authResult.uid,
     customer: existingCustomerId,
     customer_email: existingCustomerId ? undefined : authResult.email,
@@ -114,28 +149,24 @@ async function createSingleReportPaymentSession(
   body: CheckoutRequestBody
 ): Promise<Stripe.Checkout.Session> {
   const toolSlug = resolveToolSlugForMetadata(body);
+  const locale = resolveAppLocale(body);
   const priceId = stripePriceSingleVerdict.value().trim();
   const siteUrl = publicSiteUrl.value().trim().replace(/\/$/, "");
-
-  const db = admin.firestore();
-  const userRef = db.collection(USERS_COLLECTION).doc(authResult.uid);
-  const userSnap = await userRef.get();
-  const existingCustomerId =
-    typeof userSnap.data()?.subscription?.stripeCustomerId === "string"
-      ? userSnap.data()?.subscription?.stripeCustomerId
-      : undefined;
+  const existingCustomerId = await getExistingCustomerId(authResult.uid);
 
   const metadata: Record<string, string> = {
     uid: authResult.uid,
     plan: CHECKOUT_PLAN_SINGLE_REPORT,
     toolSlug,
+    locale,
   };
 
   return stripe.checkout.sessions.create({
     mode: "payment",
     line_items: [{ price: priceId, quantity: 1 }],
-    success_url: `${siteUrl}/account/reports?session_id={CHECKOUT_SESSION_ID}&purchased=single_report&tool=${encodeURIComponent(toolSlug)}`,
-    cancel_url: `${siteUrl}/pricing?canceled=true`,
+    locale: resolveStripeCheckoutLocale(locale),
+    success_url: `${localizedSitePath(siteUrl, locale, "/account/reports")}?session_id={CHECKOUT_SESSION_ID}&purchased=single_report&tool=${encodeURIComponent(toolSlug)}`,
+    cancel_url: `${localizedSitePath(siteUrl, locale, "/pricing")}?canceled=true`,
     client_reference_id: authResult.uid,
     customer: existingCustomerId,
     customer_email: existingCustomerId ? undefined : authResult.email,
@@ -192,10 +223,11 @@ export async function handleCreateStripeCheckout(
         return;
       }
 
-      const session = await createSingleReportPaymentSession(stripe, {
-        uid: authResult.uid,
-        email: authResult.email,
-      }, body);
+      const session = await createSingleReportPaymentSession(
+        stripe,
+        { uid: authResult.uid, email: authResult.email },
+        body
+      );
 
       if (!session.url) {
         sendJson(res, 500, {
@@ -209,8 +241,17 @@ export async function handleCreateStripeCheckout(
       return;
     }
 
-    const monthlyPriceId = stripePriceMonthly.value().trim();
-    if (!monthlyPriceId) {
+    const priceByPlan: Record<
+      typeof CHECKOUT_PLAN_PRO | typeof CHECKOUT_PLAN_PRO_ANNUAL | typeof CHECKOUT_PLAN_TEAM,
+      string
+    > = {
+      [CHECKOUT_PLAN_PRO]: stripePriceMonthly.value().trim(),
+      [CHECKOUT_PLAN_PRO_ANNUAL]: stripePriceProAnnual.value().trim(),
+      [CHECKOUT_PLAN_TEAM]: stripePriceTeam.value().trim(),
+    };
+
+    const priceId = priceByPlan[plan].trim();
+    if (!priceId) {
       sendJson(res, 503, {
         success: false,
         error: "Checkout is not configured yet.",
@@ -218,10 +259,13 @@ export async function handleCreateStripeCheckout(
       return;
     }
 
-    const session = await createProSubscriptionSession(stripe, {
-      uid: authResult.uid,
-      email: authResult.email,
-    }, body);
+    const session = await createSubscriptionSession(
+      stripe,
+      { uid: authResult.uid, email: authResult.email },
+      body,
+      plan,
+      priceId
+    );
 
     if (!session.url) {
       sendJson(res, 500, {

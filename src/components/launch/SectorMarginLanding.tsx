@@ -141,7 +141,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               <article className="rounded-2xl border border-white/15 bg-white/5 p-6">
                 <p className="text-sm font-semibold text-cyan">Single Verdict</p>
-                <p className="mt-2 text-3xl font-bold">$19</p>
+                <p className="mt-2 text-3xl font-bold">$9</p>
                 <p className="mt-2 text-sm text-slate-300">One premium analyzer report</p>
                 <Link
                   href={singleVerdictHref}
@@ -152,7 +152,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
               </article>
               <article className="rounded-2xl border border-cyan/30 bg-white/5 p-6">
                 <p className="text-sm font-semibold text-cyan">Pro Monthly</p>
-                <p className="mt-2 text-3xl font-bold">$29<span className="text-lg">/mo</span></p>
+                <p className="mt-2 text-3xl font-bold">$19<span className="text-lg">/mo</span></p>
                 <p className="mt-2 text-sm text-slate-300">All seventeen sector analyzers</p>
                 <Link
                   href={config.pricingHref}
