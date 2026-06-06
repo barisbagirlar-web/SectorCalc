@@ -19,6 +19,34 @@
   }
 }
 
+/* DARK MODE TEXT SAFETY — Force light text on dark backgrounds */
+.dark .bg-deep-navy,
+.dark .bg-slate-900,
+.dark .bg-slate-800,
+.dark .bg-dark-navy {
+  color: #F8FAFC !important;
+}
+
+.dark .bg-deep-navy *,
+.dark .bg-slate-900 *,
+.dark .bg-slate-800 *,
+.dark .bg-dark-navy * {
+  color: #F8FAFC !important;
+}
+
+/* Preserve intentional light colors (emerald, amber, cyan) */
+.dark .bg-deep-navy .text-emerald,
+.dark .bg-deep-navy .text-amber,
+.dark .bg-deep-navy .text-cyan,
+.dark .bg-slate-900 .text-emerald,
+.dark .bg-slate-900 .text-amber,
+.dark .bg-slate-900 .text-cyan,
+.dark .bg-slate-800 .text-emerald,
+.dark .bg-slate-800 .text-amber,
+.dark .bg-slate-800 .text-cyan {
+  color: inherit !important;
+}
+
 /* MagiClick product sections — Inter only */
 #sector-product h1,
 #sector-product h2,
