@@ -1,119 +1,168 @@
 /**
  * SectorCalc Revenue Flow v1A — Product Spec Lock
  *
- * Canonical registry for free calculator / paid analyzer pairs across five sectors.
- * See docs/revenue-flow-product-spec.md for product rules and extension guide.
+ * Canonical free calculator / paid analyzer registry (5 sectors).
+ * See docs/revenue-flow-product-spec.md
  *
- * FREE: SEO + trust + pre-check. No safe price, verdict, PDF, or saved analysis.
- * PAID: Decision analyzers (SectorCalc Pro). PDF export is a later phase.
+ * FREE: SEO + trust + pre-check — no safe price, verdict, or PDF.
+ * PAID: Decision analyzers (SectorCalc Pro) — PDF export is a later phase.
  *
- * Out of scope for v1A: Stripe, webhooks, PDF, new subscription guards, Cloud Functions.
+ * Live URL slugs are stable (e.g. machine-hour-estimator); product input `key`
+ * fields describe the target UX model. `freeCalculatorInputIds` bridges to
+ * existing calculator definitions until v1B unifies the input model.
  */
 
-import type { IndustrySlug } from "@/data/industries";
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
 import type { ToolSlug } from "@/data/tools";
-import {
-  FREE_PLAN_PRICING,
-  REVENUE_LEGAL_DISCLAIMER,
-  REVENUE_LEGAL_DISCLAIMER_PAID,
-  SECTORCALC_PRO,
-  SECTORCALC_PRO_PRICE,
-  SECTORCALC_PRO_PRICE_LABEL,
-  SECTORCALC_PRO_PRICING,
-} from "@/lib/pricing/sectorcalc-pro";
 import { getToolHref } from "@/lib/tools/paths";
 
-// Re-export pricing for existing consumers
-export {
-  FREE_PLAN_PRICING,
-  REVENUE_LEGAL_DISCLAIMER,
-  REVENUE_LEGAL_DISCLAIMER_PAID,
-  SECTORCALC_PRO,
-  SECTORCALC_PRO_PRICE,
-  SECTORCALC_PRO_PRICE_LABEL,
-  SECTORCALC_PRO_PRICING,
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+export type RevenueSector =
+  | "cnc-manufacturing"
+  | "construction"
+  | "cleaning"
+  | "restaurant"
+  | "ecommerce";
+
+export type RevenueInputType = "number" | "currency" | "percent" | "select";
+
+export type RevenueToolInput = {
+  key: string;
+  label: string;
+  type: RevenueInputType;
+  unit?: string;
+  required: boolean;
+  defaultValue?: number | string;
+  helperText?: string;
 };
 
-export const FREE_TOOL_PRIVACY_NOTE =
-  "Inputs stay in your browser for this session. SectorCalc does not store free tool inputs unless you create an account and save an analysis.";
-
-// ---------------------------------------------------------------------------
-// Product spec types (v1A lock)
-// ---------------------------------------------------------------------------
-
-/** One of the five revenue sectors — aligned with IndustrySlug. */
-export type RevenueSector = IndustrySlug;
-
-/** Reference to a calculator input field by ID (matches tool-definition inputs). */
-export interface RevenueToolInput {
-  readonly id: string;
-}
-
-export type FreeResultType = "quick_check" | "risk_signal";
-export type PaidResultType = "decision_verdict";
-
-/**
- * Locked product metadata for one sector's free calculator + paid analyzer pair.
- * Formulas stay minimal in v1A — this registry defines what each tool promises.
- */
-export interface RevenueTool {
+export type RevenueTool = {
   sector: RevenueSector;
+  /** Live route slug — kept stable for existing /tools/free/[slug] pages */
   freeSlug: ToolSlug;
+  /** Live route slug — kept stable for existing /tools/premium/[slug] pages */
   paidSlug: ToolSlug;
   freeTitle: string;
   paidTitle: string;
   painStatement: string;
   freeValue: string;
   paidValue: string;
-  freeInputs: readonly RevenueToolInput[];
-  paidInputs: readonly RevenueToolInput[];
+  freeInputs: RevenueToolInput[];
+  paidInputs: RevenueToolInput[];
   freeResultPromise: string;
   paidResultPromise: string;
-  verdictLabels: readonly string[];
+  verdictLabels: string[];
   legalDisclaimer: string;
-  seoKeywords: readonly string[];
-  /** Runtime: result IDs allowed on free tier. */
+  seoKeywords: string[];
+  /** Bridge: IDs on existing free calculator definitions (v1A runtime) */
+  freeCalculatorInputIds: readonly string[];
+  /** Bridge: result IDs allowed on free tier (v1A runtime) */
   freeResultIds: readonly string[];
-  /** Runtime: factors withheld from free tier (upgrade panel). */
+  /** Factors withheld from free tier — drives upgrade panel */
   freeMissingFactors: readonly string[];
-  /** Runtime: CTA on free tool → paid analyzer. */
   premiumCtaLabel: string;
-  freeResultType: FreeResultType;
-  paidResultType: PaidResultType;
   premiumTeaserTitle: string;
   premiumTeaserText: string;
-}
+};
 
-export interface RevenueToolRegistry {
-  readonly legalDisclaimer: string;
-  readonly tools: readonly RevenueTool[];
-}
+export type RevenueToolRegistry = {
+  legalDisclaimer: string;
+  tools: RevenueTool[];
+};
 
-/** @deprecated Use RevenueTool */
-export type RevenueToolProductSpec = RevenueTool;
-
-/** @deprecated Use RevenueTool */
-export type RevenueToolPair = RevenueTool;
+export type FreeResultType = "quick_check" | "risk_signal";
+export type PaidResultType = "decision_verdict";
 
 // ---------------------------------------------------------------------------
-// Input helpers
+// Shared copy & pricing
 // ---------------------------------------------------------------------------
 
-function inputs(...ids: string[]): readonly RevenueToolInput[] {
-  return ids.map((id) => ({ id }));
-}
+export const revenueLegalDisclaimer =
+  "This is a technical simulation and decision-support output. It is not financial, legal or engineering advice. Verify all results before making business decisions.";
 
-function inputIds(spec: RevenueTool, tier: "free" | "paid"): readonly string[] {
-  const list = tier === "free" ? spec.freeInputs : spec.paidInputs;
-  return list.map((input) => input.id);
-}
+export const sectorCalcProPricing = {
+  planName: "SectorCalc Pro",
+  priceMonthly: 29,
+  currency: "USD",
+  headline: "Unlock sector-specific decision tools.",
+  description:
+    "Avoid underpriced jobs, margin leaks and bad bids with premium analyzers built for real operating decisions.",
+  bullets: [
+    "Safe price and bid risk verdicts",
+    "Margin leak detection",
+    "Sector-specific analyzer tools",
+    "Report-style decision summaries",
+    "Cancel anytime",
+    "Digital product, no refunds",
+    "Estimates only; verify before business decisions",
+  ],
+  legalDisclaimer: revenueLegalDisclaimer,
+} as const;
+
+export const FREE_TOOL_PRIVACY_NOTE =
+  "Inputs stay in your browser for this session. SectorCalc does not store free tool inputs unless you create an account and save an analysis.";
+
+/** @deprecated Use revenueLegalDisclaimer */
+export const REVENUE_LEGAL_DISCLAIMER = revenueLegalDisclaimer;
+
+/** @deprecated Use sectorCalcProPricing */
+export const SECTORCALC_PRO = {
+  id: "pro" as const,
+  planName: sectorCalcProPricing.planName,
+  price: sectorCalcProPricing.priceMonthly,
+  priceLabel: `$${sectorCalcProPricing.priceMonthly}/month`,
+  headline: sectorCalcProPricing.headline,
+  description: sectorCalcProPricing.description,
+  bullets: sectorCalcProPricing.bullets,
+  legalDisclaimer: sectorCalcProPricing.legalDisclaimer,
+} as const;
+
+export const SECTORCALC_PRO_PRICE = sectorCalcProPricing.priceMonthly;
+export const SECTORCALC_PRO_PRICE_LABEL = `$${sectorCalcProPricing.priceMonthly}/month`;
+
+export const REVENUE_LEGAL_DISCLAIMER_PAID =
+  `${revenueLegalDisclaimer} Digital product. No refunds.`;
+
+export const FREE_PLAN_PRICING = {
+  id: "free" as const,
+  name: "Free",
+  priceLabel: "$0",
+  period: "forever",
+  description:
+    "Quick sector checks — limited inputs, directional numbers and early risk signals.",
+  features: [
+    "Five industry quick-check calculators",
+    "2–3 inputs per tool",
+    "Risk or preview signals",
+    "No account required",
+  ],
+} as const;
+
+/** @deprecated Use sectorCalcProPricing */
+export const SECTORCALC_PRO_PRICING = {
+  id: "pro" as const,
+  name: sectorCalcProPricing.planName,
+  price: sectorCalcProPricing.priceMonthly,
+  priceLabel: SECTORCALC_PRO_PRICE_LABEL,
+  tagline: sectorCalcProPricing.headline,
+  description: sectorCalcProPricing.description,
+  features: sectorCalcProPricing.bullets.slice(0, 5),
+  freePlanContrast: [
+    "No safe price or accept/reject verdict",
+    "No decision summaries",
+    "No export",
+  ],
+  laterRelease: sectorCalcProPricing.bullets.slice(5),
+} as const;
 
 // ---------------------------------------------------------------------------
-// Five-sector product matrix (canonical)
+// Five-sector product matrix
 // ---------------------------------------------------------------------------
 
-const REVENUE_TOOLS: readonly RevenueTool[] = [
+export const revenueTools: RevenueTool[] = [
   {
     sector: "cnc-manufacturing",
     freeSlug: "machine-hour-estimator",
@@ -125,39 +174,97 @@ const REVENUE_TOOLS: readonly RevenueTool[] = [
     freeValue: "Estimate visible machine time and direct cost risk.",
     paidValue:
       "Find the minimum safe price and quote verdict before accepting the job.",
-    freeInputs: inputs(
+    freeInputs: [
+      {
+        key: "setupTime",
+        label: "Setup time",
+        type: "number",
+        unit: "min",
+        required: true,
+      },
+      {
+        key: "cycleTime",
+        label: "Cycle time",
+        type: "number",
+        unit: "min",
+        required: true,
+      },
+      {
+        key: "quantity",
+        label: "Quantity",
+        type: "number",
+        required: true,
+        defaultValue: 1,
+      },
+    ],
+    paidInputs: [
+      {
+        key: "setupTime",
+        label: "Setup time",
+        type: "number",
+        unit: "min",
+        required: true,
+      },
+      {
+        key: "cycleTime",
+        label: "Cycle time",
+        type: "number",
+        unit: "min",
+        required: true,
+      },
+      {
+        key: "quantity",
+        label: "Quantity",
+        type: "number",
+        required: true,
+        defaultValue: 1,
+      },
+      {
+        key: "toolCost",
+        label: "Tooling and fixture cost",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "materialCost",
+        label: "Material cost",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "machineRate",
+        label: "Machine rate",
+        type: "currency",
+        unit: "USD/hr",
+        required: true,
+      },
+      {
+        key: "riskMargin",
+        label: "Risk margin",
+        type: "percent",
+        unit: "%",
+        required: true,
+        defaultValue: 15,
+      },
+    ],
+    freeResultPromise:
+      "Shows visible time exposure and warns when setup-heavy jobs may be underpriced.",
+    paidResultPromise:
+      "Returns a minimum safe price, quote risk verdict and suggested action.",
+    verdictLabels: ["DO NOT ACCEPT UNDER", "REPRICE REQUIRED", "SAFE TO QUOTE"],
+    legalDisclaimer: revenueLegalDisclaimer,
+    seoKeywords: [
+      "cnc cost calculator",
+      "machine shop quote calculator",
+      "cnc quote risk analyzer",
+      "minimum safe price cnc job",
+    ],
+    freeCalculatorInputIds: [
       "monthlyMachineCost",
       "availableHours",
-      "utilizationRate"
-    ),
-    paidInputs: inputs(
-      "quantity",
-      "materialCostPerPart",
-      "setupMinutes",
-      "cycleMinutesPerPart",
-      "machineHourlyCost",
-      "operatorHourlyCost",
-      "toolingCost",
-      "scrapRate",
-      "overheadCost",
-      "targetMargin"
-    ),
-    freeResultPromise:
-      "Estimated machine-hour cost — visible time and direct cost exposure only.",
-    paidResultPromise:
-      "Minimum safe price, setup/tooling drivers and quote accept/reprice/reject verdict.",
-    verdictLabels: [
-      "DO NOT ACCEPT UNDER",
-      "REPRICE REQUIRED",
-      "SAFE TO QUOTE",
-    ],
-    legalDisclaimer: REVENUE_LEGAL_DISCLAIMER,
-    seoKeywords: [
-      "cnc machine time calculator",
-      "cnc hourly rate estimator",
-      "manufacturing cost calculator",
-      "cnc quote risk analyzer",
-      "minimum safe cnc quote",
+      "utilizationRate",
     ],
     freeResultIds: ["machineHourCost"],
     freeMissingFactors: [
@@ -167,8 +274,6 @@ const REVENUE_TOOLS: readonly RevenueTool[] = [
       "Accept / reprice / reject verdict",
     ],
     premiumCtaLabel: "Unlock Safe Price Analyzer",
-    freeResultType: "risk_signal",
-    paidResultType: "decision_verdict",
     premiumTeaserTitle: "Quoting a one-off or low-volume job?",
     premiumTeaserText:
       "Unlock the CNC Quote Risk Analyzer for minimum safe price, key cost drivers and a quote verdict.",
@@ -183,36 +288,81 @@ const REVENUE_TOOLS: readonly RevenueTool[] = [
     freeValue: "Estimate visible cost exposure from project changes.",
     paidValue:
       "Measure delay, crew cost and margin impact before accepting the change.",
-    freeInputs: inputs("materialCost", "laborHours", "laborHourlyRate"),
-    paidInputs: inputs(
-      "originalContractValue",
-      "originalEstimatedCost",
-      "extraLaborHours",
-      "laborHourlyRate",
-      "extraMaterialCost",
-      "extraEquipmentCost",
-      "delayDays",
-      "dailyOverheadCost",
-      "targetChangeMargin",
-      "customerOfferedPrice"
-    ),
+    freeInputs: [
+      {
+        key: "originalBudget",
+        label: "Original budget",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "changeEstimate",
+        label: "Change cost estimate",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "deadlinePressure",
+        label: "Deadline pressure",
+        type: "select",
+        required: true,
+      },
+    ],
+    paidInputs: [
+      {
+        key: "originalBudget",
+        label: "Original budget",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "changeEstimate",
+        label: "Change cost estimate",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "delayDays",
+        label: "Delay days",
+        type: "number",
+        unit: "days",
+        required: true,
+      },
+      {
+        key: "crewCostPerDay",
+        label: "Crew cost per day",
+        type: "currency",
+        unit: "USD/day",
+        required: true,
+      },
+      {
+        key: "marginTarget",
+        label: "Target margin",
+        type: "percent",
+        unit: "%",
+        required: true,
+      },
+    ],
     freeResultPromise:
-      "Estimated direct project cost — visible exposure, not a change-order verdict.",
+      "Shows whether the visible change cost may become a margin risk.",
     paidResultPromise:
-      "Minimum safe change price, margin delta, delay cost and accept/renegotiate verdict.",
+      "Returns change impact, margin risk and accept/renegotiate verdict.",
     verdictLabels: [
       "ACCEPT",
       "RENEGOTIATE",
       "DO NOT ACCEPT WITHOUT PRICE ADJUSTMENT",
     ],
-    legalDisclaimer: REVENUE_LEGAL_DISCLAIMER,
+    legalDisclaimer: revenueLegalDisclaimer,
     seoKeywords: [
-      "project cost calculator",
-      "concrete cost estimator",
       "construction cost calculator",
       "change order impact analyzer",
-      "construction margin calculator",
+      "project margin risk calculator",
     ],
+    freeCalculatorInputIds: ["materialCost", "laborHours", "laborHourlyRate"],
     freeResultIds: ["estimatedProjectCost"],
     freeMissingFactors: [
       "Minimum safe change-order price",
@@ -221,8 +371,6 @@ const REVENUE_TOOLS: readonly RevenueTool[] = [
       "Scenario comparison at target margins",
     ],
     premiumCtaLabel: "Unlock Change Order Analyzer",
-    freeResultType: "risk_signal",
-    paidResultType: "decision_verdict",
     premiumTeaserTitle: "Need a change-order decision?",
     premiumTeaserText:
       "Unlock the Change Order Impact Analyzer for margin impact, delay cost and a clear verdict.",
@@ -238,32 +386,82 @@ const REVENUE_TOOLS: readonly RevenueTool[] = [
     freeValue: "Estimate basic labor and visit cost.",
     paidValue:
       "Find the minimum monthly bid with labor, supplies, frequency and target margin.",
-    freeInputs: inputs("area", "estimatedHours", "laborHourlyCost"),
-    paidInputs: inputs(
-      "area",
-      "frequencyPerMonth",
-      "hoursPerVisit",
-      "crewSize",
-      "laborHourlyCost",
-      "suppliesCostPerVisit",
-      "travelCostPerVisit",
-      "monthlyOverhead",
-      "targetMargin",
-      "customerBudget"
-    ),
+    freeInputs: [
+      {
+        key: "areaSize",
+        label: "Area size",
+        type: "number",
+        unit: "sq ft",
+        required: true,
+      },
+      {
+        key: "staffCount",
+        label: "Staff count",
+        type: "number",
+        required: true,
+      },
+      {
+        key: "visitFrequency",
+        label: "Visits per month",
+        type: "number",
+        required: true,
+      },
+    ],
+    paidInputs: [
+      {
+        key: "areaSize",
+        label: "Area size",
+        type: "number",
+        unit: "sq ft",
+        required: true,
+      },
+      {
+        key: "laborRate",
+        label: "Labor rate",
+        type: "currency",
+        unit: "USD/hr",
+        required: true,
+      },
+      {
+        key: "hoursPerVisit",
+        label: "Hours per visit",
+        type: "number",
+        unit: "hr",
+        required: true,
+      },
+      {
+        key: "supplyCost",
+        label: "Supply cost",
+        type: "currency",
+        unit: "USD/month",
+        required: true,
+      },
+      {
+        key: "visitFrequency",
+        label: "Visits per month",
+        type: "number",
+        required: true,
+      },
+      {
+        key: "targetMargin",
+        label: "Target margin",
+        type: "percent",
+        unit: "%",
+        required: true,
+      },
+    ],
     freeResultPromise:
-      "Estimated job cost from area, hours and labor — not a contract bid verdict.",
+      "Shows basic workload exposure and warns when visit frequency may underprice labor.",
     paidResultPromise:
-      "Minimum safe monthly bid, margin at customer budget and underpriced / safe bid verdict.",
+      "Returns minimum monthly bid, margin risk and pricing verdict.",
     verdictLabels: ["SAFE BID", "LOW MARGIN", "UNDERPRICED"],
-    legalDisclaimer: REVENUE_LEGAL_DISCLAIMER,
+    legalDisclaimer: revenueLegalDisclaimer,
     seoKeywords: [
       "cleaning cost calculator",
       "office cleaning bid calculator",
-      "janitorial pricing estimator",
-      "cleaning bid optimizer",
-      "commercial cleaning margin",
+      "cleaning contract pricing tool",
     ],
+    freeCalculatorInputIds: ["area", "estimatedHours", "laborHourlyCost"],
     freeResultIds: ["totalCost"],
     freeMissingFactors: [
       "Minimum safe monthly bid",
@@ -272,8 +470,6 @@ const REVENUE_TOOLS: readonly RevenueTool[] = [
       "Underpriced / safe bid verdict",
     ],
     premiumCtaLabel: "Unlock Bid Optimizer",
-    freeResultType: "risk_signal",
-    paidResultType: "decision_verdict",
     premiumTeaserTitle: "Pricing a recurring office contract?",
     premiumTeaserText:
       "Unlock the Office Cleaning Bid Optimizer for minimum monthly bid and margin at budget.",
@@ -289,30 +485,85 @@ const REVENUE_TOOLS: readonly RevenueTool[] = [
     freeValue: "Check basic food cost ratio.",
     paidValue:
       "Detect real margin after waste, delivery fees and labor cost.",
-    freeInputs: inputs("ingredientCost", "sellingPrice", "portions"),
-    paidInputs: inputs(
-      "sellingPrice",
-      "ingredientCost",
-      "wasteRate",
-      "packagingCost",
-      "laborCostPerItem",
-      "deliveryCommissionRate",
-      "targetMargin",
-      "monthlyUnitsSold"
-    ),
+    freeInputs: [
+      {
+        key: "menuPrice",
+        label: "Menu price",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "foodCost",
+        label: "Food cost",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "deliveryCommission",
+        label: "Delivery commission",
+        type: "percent",
+        unit: "%",
+        required: false,
+      },
+    ],
+    paidInputs: [
+      {
+        key: "menuPrice",
+        label: "Menu price",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "ingredientCost",
+        label: "Ingredient cost",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "wasteRate",
+        label: "Waste rate",
+        type: "percent",
+        unit: "%",
+        required: true,
+      },
+      {
+        key: "deliveryCommission",
+        label: "Delivery commission",
+        type: "percent",
+        unit: "%",
+        required: true,
+      },
+      {
+        key: "laborCostPerItem",
+        label: "Labor cost per item",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "targetMargin",
+        label: "Target margin",
+        type: "percent",
+        unit: "%",
+        required: true,
+      },
+    ],
     freeResultPromise:
-      "Food cost percentage per portion — basic ratio, not a profit leak verdict.",
+      "Shows basic food cost pressure before hidden operating costs.",
     paidResultPromise:
-      "True margin after waste and fees, monthly leak amount and remove / reprice / keep verdict.",
+      "Returns real margin, profit leak and reprice/remove verdict.",
     verdictLabels: ["PROFITABLE", "LEAKING PROFIT", "REMOVE OR REPRICE"],
-    legalDisclaimer: REVENUE_LEGAL_DISCLAIMER,
+    legalDisclaimer: revenueLegalDisclaimer,
     seoKeywords: [
       "food cost calculator",
-      "restaurant food cost percentage",
       "menu profit calculator",
-      "menu profit leak detector",
-      "restaurant margin analyzer",
+      "restaurant margin leak detector",
     ],
+    freeCalculatorInputIds: ["ingredientCost", "sellingPrice", "portions"],
     freeResultIds: ["foodCostPercentage"],
     freeMissingFactors: [
       "Waste, commission and labor-adjusted true profit",
@@ -321,8 +572,6 @@ const REVENUE_TOOLS: readonly RevenueTool[] = [
       "Suggested action plan",
     ],
     premiumCtaLabel: "Unlock Profit Leak Analyzer",
-    freeResultType: "risk_signal",
-    paidResultType: "decision_verdict",
     premiumTeaserTitle: "Is this menu item actually profitable?",
     premiumTeaserText:
       "Unlock the Menu Profit Leak Detector for waste, commission and labor-adjusted profit.",
@@ -338,31 +587,85 @@ const REVENUE_TOOLS: readonly RevenueTool[] = [
     freeValue: "Check basic gross margin.",
     paidValue:
       "Measure net profit after returns, shipping, payment fees and ad cost.",
-    freeInputs: inputs("sellingPrice", "productCost", "returnRate"),
-    paidInputs: inputs(
-      "sellingPrice",
-      "productCost",
-      "shippingCost",
-      "platformFeeRate",
-      "paymentFeeRate",
-      "returnRate",
-      "returnHandlingCost",
-      "adCostPerOrder",
-      "targetMargin"
-    ),
+    freeInputs: [
+      {
+        key: "productPrice",
+        label: "Product price",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "productCost",
+        label: "Product cost",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "returnRate",
+        label: "Return rate",
+        type: "percent",
+        unit: "%",
+        required: false,
+      },
+    ],
+    paidInputs: [
+      {
+        key: "productPrice",
+        label: "Product price",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "productCost",
+        label: "Product cost",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "shippingCost",
+        label: "Shipping cost",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+      {
+        key: "returnRate",
+        label: "Return rate",
+        type: "percent",
+        unit: "%",
+        required: true,
+      },
+      {
+        key: "paymentFeeRate",
+        label: "Payment fee",
+        type: "percent",
+        unit: "%",
+        required: true,
+      },
+      {
+        key: "adCostPerSale",
+        label: "Ad cost per sale",
+        type: "currency",
+        unit: "USD",
+        required: true,
+      },
+    ],
     freeResultPromise:
-      "Headline gross margin from price, cost and return rate — not net profit after fees.",
+      "Shows basic gross margin before returns, ads and payment fees.",
     paidResultPromise:
-      "Net profit after returns and ad spend, erosion amount and scalable vs. fragile vs. loss verdict.",
+      "Returns net profit after returns, break point and scaling verdict.",
     verdictLabels: ["SCALABLE", "FRAGILE", "LOSS AFTER RETURNS"],
-    legalDisclaimer: REVENUE_LEGAL_DISCLAIMER,
+    legalDisclaimer: revenueLegalDisclaimer,
     seoKeywords: [
       "product margin calculator",
-      "ecommerce margin calculator",
       "return rate profit calculator",
-      "sku profit erosion",
-      "ecommerce net margin analyzer",
+      "ecommerce profit erosion tool",
     ],
+    freeCalculatorInputIds: ["sellingPrice", "productCost", "returnRate"],
     freeResultIds: ["margin"],
     freeMissingFactors: [
       "Net profit after returns, fees and ad spend",
@@ -371,59 +674,58 @@ const REVENUE_TOOLS: readonly RevenueTool[] = [
       "Key SKU risk drivers",
     ],
     premiumCtaLabel: "Unlock Return Risk Analyzer",
-    freeResultType: "risk_signal",
-    paidResultType: "decision_verdict",
     premiumTeaserTitle: "Can this SKU scale after returns?",
     premiumTeaserText:
       "Unlock the Return Profit Erosion Tool for post-return net profit and a scale-or-stop verdict.",
   },
-] as const;
+];
 
-export const REVENUE_TOOL_REGISTRY: RevenueToolRegistry = {
-  legalDisclaimer: REVENUE_LEGAL_DISCLAIMER,
-  tools: REVENUE_TOOLS,
+export const revenueToolRegistry: RevenueToolRegistry = {
+  legalDisclaimer: revenueLegalDisclaimer,
+  tools: revenueTools,
 };
 
-/** @deprecated Use REVENUE_TOOL_REGISTRY.tools */
-export const REVENUE_TOOL_PRODUCT_SPECS = REVENUE_TOOL_REGISTRY.tools;
+/** @deprecated Use revenueToolRegistry */
+export const REVENUE_TOOL_REGISTRY = revenueToolRegistry;
 
-/** @deprecated Use REVENUE_TOOL_REGISTRY.tools */
-export const REVENUE_TOOL_PAIRS = REVENUE_TOOL_REGISTRY.tools;
+/** @deprecated Use revenueTools */
+export const REVENUE_TOOL_PRODUCT_SPECS = revenueTools;
+
+/** @deprecated Use revenueTools */
+export const REVENUE_TOOL_PAIRS = revenueTools;
+
+/** @deprecated Use RevenueTool */
+export type RevenueToolProductSpec = RevenueTool;
+
+/** @deprecated Use RevenueTool */
+export type RevenueToolPair = RevenueTool;
 
 // ---------------------------------------------------------------------------
 // Lookup helpers
 // ---------------------------------------------------------------------------
 
-const byFreeSlug = new Map(
-  REVENUE_TOOL_REGISTRY.tools.map((tool) => [tool.freeSlug, tool] as const)
-);
-
-const byPaidSlug = new Map(
-  REVENUE_TOOL_REGISTRY.tools.map((tool) => [tool.paidSlug, tool] as const)
-);
-
-export function getRevenueToolByFreeSlug(slug: string): RevenueTool | undefined {
-  return byFreeSlug.get(slug as ToolSlug);
+export function getRevenueToolByFreeSlug(slug: string): RevenueTool | null {
+  return revenueTools.find((tool) => tool.freeSlug === slug) ?? null;
 }
 
-export function getRevenueToolByPremiumSlug(slug: string): RevenueTool | undefined {
-  return byPaidSlug.get(slug as ToolSlug);
+export function getRevenueToolByPaidSlug(slug: string): RevenueTool | null {
+  return revenueTools.find((tool) => tool.paidSlug === slug) ?? null;
 }
 
-export function getRevenueToolByPaidSlug(slug: string): RevenueTool | undefined {
-  return getRevenueToolByPremiumSlug(slug);
+export function getRevenueToolByPremiumSlug(slug: string): RevenueTool | null {
+  return getRevenueToolByPaidSlug(slug);
 }
 
-export function getRevenueToolBySector(sector: RevenueSector): RevenueTool | undefined {
-  return REVENUE_TOOL_REGISTRY.tools.find((tool) => tool.sector === sector);
+export function getRevenueToolBySector(sector: RevenueSector): RevenueTool | null {
+  return revenueTools.find((tool) => tool.sector === sector) ?? null;
 }
 
 export function getAllRevenueToolSpecs(): readonly RevenueTool[] {
-  return REVENUE_TOOL_REGISTRY.tools;
+  return revenueTools;
 }
 
 export function getRevenueToolRegistry(): RevenueToolRegistry {
-  return REVENUE_TOOL_REGISTRY;
+  return revenueToolRegistry;
 }
 
 // ---------------------------------------------------------------------------
@@ -496,7 +798,7 @@ export function getVisibleInputs(definition: ToolDefinition) {
     return definition.inputs;
   }
 
-  const allowed = new Set(inputIds(revenue, "free"));
+  const allowed = new Set(revenue.freeCalculatorInputIds);
   return definition.inputs.filter((input) => allowed.has(input.id));
 }
 

@@ -1,5 +1,5 @@
 import { getToolHref } from "@/lib/tools/paths";
-import { REVENUE_TOOL_REGISTRY } from "@/lib/tools/revenue-tools";
+import { revenueToolRegistry } from "@/lib/tools/revenue-tools";
 
 export type ToolTier = "free" | "premium";
 
@@ -26,7 +26,7 @@ export interface Tool {
   comingSoon?: boolean;
 }
 
-export const FREE_TOOLS: Tool[] = REVENUE_TOOL_REGISTRY.tools.map((tool) => ({
+export const FREE_TOOLS: Tool[] = revenueToolRegistry.tools.map((tool) => ({
   slug: tool.freeSlug,
   name: tool.freeTitle,
   shortDescription: tool.freeValue,
@@ -36,7 +36,7 @@ export const FREE_TOOLS: Tool[] = REVENUE_TOOL_REGISTRY.tools.map((tool) => ({
   href: getToolHref("free", tool.freeSlug),
 }));
 
-export const PREMIUM_TOOLS: Tool[] = REVENUE_TOOL_REGISTRY.tools.map((tool) => ({
+export const PREMIUM_TOOLS: Tool[] = revenueToolRegistry.tools.map((tool) => ({
   slug: tool.paidSlug,
   name: tool.paidTitle,
   shortDescription: tool.paidValue,
@@ -65,7 +65,7 @@ export function getPremiumToolsByIndustry(industrySlug: string): Tool[] {
 }
 
 const FREE_TO_PAID_SLUG = Object.fromEntries(
-  REVENUE_TOOL_REGISTRY.tools.map((tool) => [tool.freeSlug, tool.paidSlug])
+  revenueToolRegistry.tools.map((tool) => [tool.freeSlug, tool.paidSlug])
 ) as Partial<Record<ToolSlug, ToolSlug>>;
 
 export function getMatchingPremiumTool(freeSlug: ToolSlug): Tool | undefined {
