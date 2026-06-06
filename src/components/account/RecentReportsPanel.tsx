@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { formatVerdictReportDate } from "@/lib/reports/verdict-report";
 import type { SavedVerdictReport } from "@/lib/reports/report-storage";
-import { getPremiumToolHref, getReportsHref } from "@/lib/tools/tool-links";
+import { getPremiumToolHref, getPremiumToolsHref, getReportsHref } from "@/lib/tools/tool-links";
 import { revenueTools } from "@/lib/tools/revenue-tools";
 
 const defaultPremiumHref = revenueTools[0]
   ? getPremiumToolHref(revenueTools[0])
-  : "/pricing#premium-tools";
+  : getPremiumToolsHref();
 
 interface RecentReportsPanelProps {
   reports: SavedVerdictReport[];

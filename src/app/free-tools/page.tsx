@@ -1,50 +1,61 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
-import PageHero from "@/components/shared/PageHero";
+import { ToolCatalogByCategory } from "@/components/tools/ToolCatalogByCategory";
+import { FreeToolPrivacyNote } from "@/components/tools/FreeToolPrivacyNote";
 import { Container } from "@/components/ui/Container";
-import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
-import { CTASection } from "@/components/sections/CTASection";
-import { ALL_TOOLS } from "@/data/tools";
+import { Button } from "@/components/ui/Button";
+import { FREE_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
+import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Free Tools",
+  title: "Free Sector Calculators",
   description:
-    "Free sector calculators across 17 industries — Construction, Cleaning, CNC, HVAC, Plumbing, and more. Quick directional risk checks with a clear path to premium decision analyzers.",
+    "Free sector calculators for quick visible risk checks across seventeen industries. Browser-side processing with a clear path to premium decision analyzers.",
   path: "/free-tools",
 });
 
 const FREE_INCLUDES = [
-  "Basic structured inputs",
-  "Immediate estimate output",
+  "Basic structured inputs (3–5 fields)",
+  "Immediate risk signal output",
   "Short interpretation note",
-  "Link to matching premium decision tool",
+  "Link to matching premium analyzer",
 ] as const;
 
 const FREE_EXCLUDES = [
+  "Minimum safe price verdict",
   "Full decision report package",
-  "Scenario comparison package",
-  "Saved calculation history",
-  "PDF / Excel / Word export",
-  "Professional review or certification",
+  "PDF / export",
+  "Saved report history",
 ] as const;
 
 export default function FreeToolsPage() {
   return (
-    <PageLayout>
-      <PageHero
-        eyebrow="Free Tools"
-        title="Quick sector tools for practical estimates"
-        description="Use focused calculators for cost, margin, capacity and pricing questions before moving into premium analysis."
-      />
-      <section className="border-t border-slate/10 bg-white py-10 md:py-12">
-        <Container size="wide">
-          <div className="grid gap-10 md:grid-cols-2">
+    <PageLayout headerTheme="light">
+      <section className="border-b border-slate/10 bg-off-white py-10 sm:py-12">
+        <Container>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-professional-blue">
+            Free tools
+          </p>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-deep-navy sm:text-4xl">
+            Quick sector checks
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
+            Directional risk signals for cost, margin and pricing questions — free, fast and
+            built to lead into premium verdict analyzers when you need a real decision.
+          </p>
+        </Container>
+      </section>
+
+      <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
+        <Container>
+          <div className="grid gap-8 md:grid-cols-2">
             <div>
               <h2 className="text-lg font-bold text-deep-navy">What free tools include</h2>
-              <ul className="mt-4 space-y-2 text-sm text-slate">
+              <ul className="mt-4 space-y-2.5">
                 {FREE_INCLUDES.map((item) => (
-                  <li key={item} className="flex gap-2">
+                  <li key={item} className="flex gap-2 text-sm text-slate">
                     <span className="text-emerald" aria-hidden>
                       ✓
                     </span>
@@ -55,9 +66,9 @@ export default function FreeToolsPage() {
             </div>
             <div>
               <h2 className="text-lg font-bold text-deep-navy">What free tools do not include</h2>
-              <ul className="mt-4 space-y-2 text-sm text-slate">
+              <ul className="mt-4 space-y-2.5">
                 {FREE_EXCLUDES.map((item) => (
-                  <li key={item} className="flex gap-2">
+                  <li key={item} className="flex gap-2 text-sm text-slate">
                     <span aria-hidden>○</span>
                     {item}
                   </li>
@@ -65,29 +76,46 @@ export default function FreeToolsPage() {
               </ul>
             </div>
           </div>
-        </Container>
-      </section>
-      <section className="border-t border-slate/10 bg-[#f4f6f8] py-12 md:py-16 lg:py-20">
-        <Container size="wide">
-          <h2 className="text-xl font-bold text-deep-navy">All calculators</h2>
-          <p className="mt-2 max-w-2xl text-sm text-slate">
-            {ALL_TOOLS.length} sector tools — quick estimates and premium decision analyzers in one
-            place.
-          </p>
           <div className="mt-8">
-            <ToolsTileGrid tools={ALL_TOOLS} />
+            <FreeToolPrivacyNote />
           </div>
         </Container>
       </section>
-      <CTASection
-        eyebrow="Premium decision reports"
-        title="When a quick estimate is not enough"
-        subtitle="Elevate from directional numbers to structured decision intelligence — multi-path scenarios, calibrated risk signals and stakeholder-ready recommendations. Payment and file export are in preview during this release; explore premium analyzers and review the report format today."
-        primaryLabel="Explore premium analyzers"
-        primaryHref="/pricing"
-        secondaryLabel="Preview sample report"
-        secondaryHref="/reports/sample-decision-report"
-      />
+
+      <section className="border-b border-slate/10 bg-off-white py-10 sm:py-14">
+        <Container size="wide">
+          <h2 className="text-xl font-bold text-deep-navy">Free tools catalog</h2>
+          <p className="mt-2 max-w-2xl text-sm text-slate">
+            {FREE_TOOLS.length} free calculators across seventeen active sectors.
+          </p>
+          <div className="mt-8">
+            <ToolCatalogByCategory tools={FREE_TOOLS} />
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-white py-10 sm:py-12">
+        <Container>
+          <div className="rounded-2xl border border-slate/15 bg-off-white/50 p-6 sm:p-8">
+            <h2 className="text-xl font-bold text-deep-navy">Need a verdict, not just a check?</h2>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate">
+              Premium analyzers add safe price floors, margin leak detection and accept / reprice
+              verdicts — included with SectorCalc Pro.
+            </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button href={getPremiumToolsHref()} variant="primary" size="lg">
+                Explore premium analyzers
+              </Button>
+              <Link
+                href="/industries"
+                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-professional-blue"
+              >
+                Browse by industry →
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
     </PageLayout>
   );
 }

@@ -12,9 +12,10 @@ import {
 } from "@/lib/tools/industry-registry";
 import { getIndustryBySlug, type Industry } from "@/data/industries";
 import { createPageMetadata } from "@/lib/metadata";
+import { getPremiumToolsHref, getPricingHref } from "@/lib/tools/tool-links";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Industries",
+  title: "Industry Cost and Margin Tools",
   description:
     "Seventeen active industry packs with free cost calculators and premium margin analyzers for pricing and bid decisions.",
   path: "/industries",
@@ -87,12 +88,20 @@ export default function IndustriesPage() {
 
       <section className="bg-off-white py-8">
         <Container>
-          <Link
-            href="/pricing"
-            className="text-sm font-semibold text-professional-blue hover:underline"
-          >
-            View SectorCalc Pro pricing →
-          </Link>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <Link
+              href={getPremiumToolsHref()}
+              className="text-sm font-semibold text-professional-blue hover:underline"
+            >
+              Browse premium analyzers →
+            </Link>
+            <Link
+              href={getPricingHref()}
+              className="text-sm font-semibold text-slate hover:text-professional-blue"
+            >
+              View SectorCalc Pro pricing →
+            </Link>
+          </div>
         </Container>
       </section>
     </PageLayout>

@@ -28,7 +28,8 @@ export const SITE = {
 
 export const NAV_ITEMS = [
   { label: "Free Tools", href: "/free-tools" },
-  { label: "Premium Tools", href: "/pricing#premium-tools" },
+  { label: "Premium Tools", href: "/premium-tools" },
+  { label: "Industries", href: "/industries" },
   { label: "Pricing", href: "/pricing" },
   { label: "Reports", href: "/account/reports" },
   { label: "Account", href: "/account" },

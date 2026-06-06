@@ -6,6 +6,7 @@ import { ALL_TOOLS } from "@/data/tools";
 const STATIC_ROUTES = [
   "/",
   "/free-tools",
+  "/premium-tools",
   "/industries",
   "/pricing",
   "/for-consultants",

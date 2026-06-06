@@ -6,12 +6,13 @@ import type { SavedVerdictReport } from "@/lib/reports/report-storage";
 import {
   getLoginHref,
   getPremiumToolHref,
+  getPremiumToolsHref,
 } from "@/lib/tools/tool-links";
 import { revenueTools } from "@/lib/tools/revenue-tools";
 
 const defaultPremiumHref = revenueTools[0]
   ? getPremiumToolHref(revenueTools[0])
-  : "/pricing#premium-tools";
+  : getPremiumToolsHref();
 
 interface ReportsHistoryListProps {
   reports: SavedVerdictReport[];
