@@ -1,8 +1,6 @@
 import { onRequest } from "firebase-functions/v2/https";
-import {
-  ADMIN_FUNCTION_REGION,
-  DEFAULT_FUNCTION_REGION,
-} from "./constants";
+import { ADMIN_FUNCTION_REGION } from "./constants";
+import { REVENUE_FUNCTION_REGION } from "./regions";
 import { handleUpdateLeadPipeline } from "./updateLeadPipelineHandler";
 import { handleUpdateLeadTestClassification } from "./updateLeadTestClassificationHandler";
 import { handleCreateStripeCheckout } from "./createStripeCheckout";
@@ -30,10 +28,10 @@ export const updateLeadTestClassification = onRequest(
   }
 );
 
-/** Revenue Flow — use DEFAULT_FUNCTION_REGION for all new billing/report functions. */
+/** Revenue Flow — use REVENUE_FUNCTION_REGION for all new billing/report functions. */
 export const createStripeCheckout = onRequest(
   {
-    region: DEFAULT_FUNCTION_REGION,
+    region: REVENUE_FUNCTION_REGION,
     invoker: "public",
   },
   (req, res) => {
@@ -43,7 +41,7 @@ export const createStripeCheckout = onRequest(
 
 export const stripeWebhook = onRequest(
   {
-    region: DEFAULT_FUNCTION_REGION,
+    region: REVENUE_FUNCTION_REGION,
     invoker: "public",
   },
   (req, res) => {

@@ -64,22 +64,35 @@ Firestore is **`nam5`**, not `europe-west3`. The project already runs entirely i
 
 ## 4. New Revenue Functions — Required Pattern
 
-Use Firebase Functions v2 `onRequest` with `DEFAULT_FUNCTION_REGION`:
+**Region helper:** `functions/src/regions.ts`
+
+| Export | Value | Use |
+|--------|-------|-----|
+| `REVENUE_FUNCTION_REGION` | `DEFAULT_FUNCTION_REGION` | All new Revenue Flow exports |
+| `REVENUE_FUNCTION_NAMES` | `createStripeCheckout`, `stripeWebhook`, `futureReportExport` | Naming registry |
+
+Use Firebase Functions v2 `onRequest` with `REVENUE_FUNCTION_REGION`:
 
 ```typescript
 import { onRequest } from "firebase-functions/v2/https";
-import { DEFAULT_FUNCTION_REGION } from "./constants";
+import { REVENUE_FUNCTION_REGION } from "./regions";
 
 export const myNewRevenueFunction = onRequest(
   {
-    region: DEFAULT_FUNCTION_REGION,
+    region: REVENUE_FUNCTION_REGION,
     invoker: "public",
   },
   handler,
 );
 ```
 
-**Do not** hardcode `"us-central1"` or `"europe-west3"` in new revenue function exports — import the constant.
+**Do not** hardcode `"us-central1"` or `"europe-west3"` in new revenue function exports — import from `./regions`.
+
+### Revenue functions (must use `REVENUE_FUNCTION_REGION`)
+
+- `createStripeCheckout`
+- `stripeWebhook`
+- Future report export / billing functions
 
 ### Admin functions
 
@@ -145,5 +158,6 @@ without explicit user approval.
 
 ## 9. Related Docs
 
+- `docs/revenue-env-standard.md` — Stripe secrets, subscription write rules
 - `docs/sectorcalc-stability-settings.md` — secrets, deploy discipline
 - `docs/admin-panel-stable-checkpoint.md` — admin stable state
