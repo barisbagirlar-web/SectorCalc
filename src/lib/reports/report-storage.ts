@@ -115,7 +115,7 @@ function normalizeSavedVerdictReportResult(
   };
 }
 
-function normalizeSavedVerdictReport(
+export function parseSavedVerdictReport(
   id: string,
   value: unknown
 ): SavedVerdictReport | null {
@@ -248,7 +248,7 @@ export async function listUserVerdictReports(
 
     const reports: SavedVerdictReport[] = [];
     for (const docSnapshot of snapshot.docs) {
-      const normalized = normalizeSavedVerdictReport(
+      const normalized = parseSavedVerdictReport(
         docSnapshot.id,
         docSnapshot.data()
       );
@@ -285,7 +285,7 @@ export async function getUserVerdictReport({
       return null;
     }
 
-    const normalized = normalizeSavedVerdictReport(reportId, snapshot.data());
+    const normalized = parseSavedVerdictReport(reportId, snapshot.data());
     if (!normalized || normalized.uid !== uid) {
       return null;
     }
