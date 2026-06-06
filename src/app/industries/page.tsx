@@ -39,7 +39,7 @@ export default function IndustriesPage() {
       <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
         <Container>
           <h2 className="text-xl font-bold text-deep-navy">Featured sectors</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((industry) => (
               <IndustryCatalogCard key={industry.slug} industry={industry} featured />
             ))}
@@ -62,7 +62,7 @@ export default function IndustriesPage() {
               <h2 className="text-xl font-bold text-deep-navy">
                 {INDUSTRY_CATEGORY_LABELS[category]}
               </h2>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {industries.map((industry) => (
                   <IndustryCatalogCard key={industry.slug} industry={industry} />
                 ))}
