@@ -1,483 +1,853 @@
 ================================================================================
-SECTORCALC — PRODUCT DNA REPORT (Design → Architecture → Live Stack)
+SECTORCALC — PRODUCT DNA (v1.0)
+Global sector-specific calculation & decision-tool platform
 ================================================================================
-Generated : 2026-06-06
-Repo      : SectorCalc (GitHub: barisbagirlar-web/SectorCalc)
-Latest    : commit f78fa51 — Align product navigation with premium tool discovery
-Live      : https://sectorcalc-bf412.web.app
-Canonical : https://sectorcalc.com
-Firebase  : sectorcalc-bf412
+Generated: 2026-06-06
+Domain: sectorcalc.com
+Project: SectorCalc (Next.js 15 + Firebase)
 
 ================================================================================
-1. BRAND & PRODUCT IDENTITY
+TABLE OF CONTENTS
 ================================================================================
-
-Name        : SectorCalc
-Tagline     : Sector-specific calculators for real business decisions.
-Secondary   : Calculate the number. Get the decision.
-Locale      : English-first (en)
-Currency    : USD
-Contact     : hello@sectorcalc.com
-Privacy     : privacy@sectorcalc.com
-
-Positioning :
-  NOT a generic calculator site.
-  IS a sector-specific decision tools platform:
-  - Free tier  = quick checks, visible risk, SEO, trust
-  - Premium    = decision analyzers, verdict engines, suggested actions
-  - PDF        = export format of premium verdict (not the product itself)
-  - Pro plan   = SectorCalc Pro @ $29/month
-
-Main goal   : Turn sector pain into paid decision tools.
+1. Product Identity
+2. Design System
+3. Code Structure
+4. Product Catalog (27 Sectors)
+5. Formula Structures
+6. Revenue Model
+7. Technical Architecture
 
 ================================================================================
-2. PRODUCT ARCHITECTURE — PAGE INTENT MAP (LOCKED)
+1. PRODUCT IDENTITY
 ================================================================================
 
-Navigation  → User intent routing
-Industries  → Sector discovery (17 packs, category grid, premium cards)
-Free Tools  → Trust + SEO + trial (/free-tools)
-Premium Tools → Product value discovery (/premium-tools)
-Pricing     → Payment decision only (/pricing) — NOT tool catalog
-Account     → Subscription + user panel (/account)
-Reports     → Saved verdict reports (/account/reports)
-Unlock Pro  → /pricing (header CTA when logged out / inactive)
+Mission: Turn sector pain into paid decision tools.
 
-Header nav (src/config/site.ts):
-  Free Tools      → /free-tools
-  Premium Tools   → /premium-tools
-  Industries      → /industries
-  Pricing         → /pricing
-  Reports         → /account/reports
-  Account         → /account
+Core Model:
+- FREE tools = quick checks, SEO entry, trust building, visible risk signals
+- PAID analyzers = safe price, bid risk, margin leak, verdict, suggested action
+- PDF = export format of paid analyzer result (future phase)
 
-Internal link helpers (src/lib/tools/tool-links.ts):
-  getFreeToolHref(tool)       → /tools/free/{freeSlug}
-  getPremiumToolHref(tool)    → /tools/premium/{paidSlug}
-  getPricingHref(tool?)       → /pricing or /pricing?tool={paidSlug}
-  getFreeToolsHref()          → /free-tools
-  getPremiumToolsHref()       → /premium-tools
-  getIndustryHref(slug)       → /industries/{slug}
-  getAccountHref()            → /account
-  getReportsHref()            → /account/reports
-  getLoginHref(next)          → /login?next=...
+Target Users:
+- CNC manufacturers, construction contractors, cleaning services
+- Restaurants, e-commerce sellers, welding shops
+- HVAC, electrical, plumbing, roofing contractors
+- Landscaping, auto repair, printing, carpentry
+- Logistics, agriculture, energy, daily life
 
-7-question page review standard (before any new page):
-  1. What is the real user intent?
-  2. Price or tool discovery?
-  3. Free/Premium boundary correct?
-  4. CTA leads to next logical step?
-  5. Does it feel like a premium decision platform?
-  6. Does it look like an AI template?
-  7. Does user understand why $29/month?
+Value Proposition:
+"Avoid underpriced jobs, margin leaks and bad bids with premium analyzers 
+built for real operating decisions."
 
 ================================================================================
-3. DESIGN SYSTEM — VISUAL DNA
+2. DESIGN SYSTEM
 ================================================================================
 
-3.1 COLOR PALETTE (tailwind.config.ts)
---------------------------------------
-deep-navy         #0F172A   Headings, primary dark text, primary CTA bg
-dark-navy         #071527   Dark header variant, footer accents
-professional-blue #2563EB   Links, accent, primary actions
-cyan              #06B6D4   Highlight on dark surfaces
-emerald           #10B981   FREE badge, low-risk signals, success
-amber             #F59E0B   PREMIUM badge, verdict emphasis
-soft-red          #EF4444   Errors, past_due subscription
-slate             #64748B   Body text, secondary copy
-off-white         #F8FAFC   Section backgrounds, card fills
+2.1 TYPOGRAPHY
+────────────────────────────────────────────────────────────────────────────
+Font: Inter (Google Fonts)
+Variable: --font-inter
+Fallback: system-ui, -apple-system, sans-serif
+Feature settings: "cv02", "cv03", "cv04", "cv11"
 
-Usage rules:
-  - Premium but simple — no excessive gradients
-  - Green ONLY for free badge / low risk
-  - Amber ONLY for premium badge / paid emphasis
-  - Blue/cyan for accent and links
-  - White cards on off-white page surfaces
+Scale:
+  --sc-h1: clamp(2.25rem, 4vw, 3.5rem)   → 36-56px
+  --sc-h2: clamp(1.75rem, 3vw, 2.5rem)   → 28-40px  
+  --sc-h3: clamp(1.25rem, 2vw, 1.75rem)  → 20-28px
+  --sc-body: 1rem (16px)
+  --sc-small: 0.875rem (14px)
+  --sc-eyebrow: 0.75rem (12px) uppercase, tracking 0.12em
 
-3.2 TYPOGRAPHY
---------------
-Primary UI font : Inter (--font-inter) via next/font
-Body / product  : Open Sans (--font-open-sans) — globals.css body
-Headings        : Bold, tracking-tight, deep-navy
-Eyebrow labels  : text-xs, uppercase, tracking-[0.18–0.24em], professional-blue
-Touch targets   : min-h-[44px] minimum
+Headings:
+  H1: font-weight 700, letter-spacing -0.025em, line-height 1.1
+  H2: font-weight 600, letter-spacing -0.02em, line-height 1.2
+  H3: font-weight 600, line-height 1.3
 
-3.3 SHADOWS & SURFACES
-----------------------
-shadow-sm       Default card
-shadow-card     Hover lift (0 4px 24px -4px rgba(15,23,42,0.12))
-shadow-card-dark Dark premium cards
-rounded-2xl     Standard premium card radius
-border-slate/15 Thin premium borders
+2.2 COLOR PALETTE
+────────────────────────────────────────────────────────────────────────────
 
-3.4 CARD PATTERNS
------------------
-IndustryCard (industries grid):
-  - SECTOR PACK label
-  - Sector name (xl/2xl)
-  - Pain statement (line-clamp-2)
-  - 2 stacked tool rows (Free Tool / Premium Analyzer) with badge + arrow
-  - CTA band: Try free | View premium | Open sector hub
+LIGHT THEME (Primary - Engineering Aesthetic):
 
-ToolDiscoveryCard (free-tools / premium-tools catalog):
-  - Badge (Free green / Premium amber)
-  - Industry name micro-label
-  - Tool title (line-clamp-2, break-words — no ugly truncation)
-  - Description (line-clamp-2)
-  - "Open tool →"
+Backgrounds (Warm, Light):
+  --bg-primary:    #FAFAF9  (Stone-50)  — page background
+  --bg-card:       #FFFFFF              — card background
+  --bg-subtle:     #F5F5F4  (Stone-100) — subtle sections
 
-Grid standard:
-  Mobile   : 1 column
-  Tablet   : 2 columns (md:)
-  Desktop  : 3 columns (xl: or lg:)
-  Gap      : gap-6 (~24px)
-  Rule     : NO horizontal scroll (body overflow-x-hidden)
+Text (Warm, Readable):
+  --text-primary:  #292524  (Stone-800) — headings, body
+  --text-secondary:#57534E  (Stone-600) — secondary text
+  --text-muted:    #A8A29E  (Stone-400) — placeholders
 
-3.5 LEGACY / DUAL UI LAYERS
----------------------------
-Homepage uses MagiClick-inspired product sections:
-  - src/styles/magiclick-product.css
-  - #sector-product wrapper
-  - HeroSection, PlatformPillars, MagiClickSplitSection, etc.
+Accents (Natural, Engineering):
+  --accent-teal:       #0D9488  (Teal-600)  — primary accent, focus
+  --accent-teal-light: #CCFBF1  (Teal-100)  — teal backgrounds
+  --accent-emerald:    #059669  (Emerald-600) — success
+  --accent-amber:      #D97706  (Amber-600)   — warning
 
-Catalog/tool pages use modern Tailwind premium card system.
-Admin panel (/admin/leads) = separate stable UI — DO NOT REFACTOR.
+Borders (Minimal):
+  --border-subtle: #E7E5E4  (Stone-200)
+  --border-focus:  #0D9488  (Teal-600)
 
-================================================================================
-4. DATA-DRIVEN TOOL ENGINE (SINGLE SOURCE OF TRUTH)
-================================================================================
+Status:
+  --success: #059669  (Emerald-600)
+  --warning: #D97706  (Amber-600)
+  --error:   #DC2626  (Red-600)
 
-4.1 REGISTRY FILES
-------------------
-src/lib/tools/industry-registry.ts
-  → 17 sectors, 5 categories, painStatement, seoKeywords, featured slugs
+DARK THEME (design-system.css):
+  --sc-text:       #f8fafc  (Slate-50)
+  --sc-text-muted: #cbd5e1  (Slate-300)
+  --sc-page-bg:    #0f172a  (Slate-900) — navy
+  --sc-card-bg:    #1e293b  (Slate-800)
+  --sc-border:     #334155  (Slate-700)
+  --sc-blue:       #60a5fa  (Blue-400)
+  --sc-blue-hover: #93c5fd  (Blue-300)
 
-src/lib/tools/revenue-tools.ts
-  → Core 5 sector tool pairs (RevenueTool type)
+Industry Accent Colors:
+  blue:   #2563eb — CNC, e-commerce, auto, plumbing, sheet metal
+  cyan:   #06b6d4 — cleaning, HVAC, landscaping, printing, painting, 3D print
+  emerald:#10b981 — restaurant, crop, dairy, carbon
+  amber:  #f59e0b — construction, electrical, roofing, carpentry, transport
 
-src/lib/tools/revenue-tools-additional.ts
-  → Extended 12 sector tool pairs
+2.3 SPACING & LAYOUT
+────────────────────────────────────────────────────────────────────────────
 
-src/data/industries.ts
-  → Bridges registry → Industry objects for pages
+Section Padding:
+  Mobile:  --sc-section-py: 3.5rem (56px)
+  Tablet:  --sc-section-py: 4.5rem (72px)
+  Desktop: --sc-section-py: 6rem   (96px)
 
-src/data/tools.ts
-  → FREE_TOOLS (17), PREMIUM_TOOLS (17), ALL_TOOLS (34)
+Card Padding:
+  Mobile:  --sc-card-p: 1rem   (16px)
+  Desktop: --sc-card-p: 1.5rem (24px)
 
-4.2 CALCULATION ENGINES
------------------------
-src/lib/tools/free-tool-results.ts        → Core 5 free
-src/lib/tools/free-sector-calculations.ts   → Extended 12 free
-src/lib/tools/premium-tool-results.ts       → Core 5 premium
-src/lib/tools/premium-sector-calculations.ts → Extended 12 premium
+Component Heights:
+  --sc-cta-h:   3.5rem (56px) — buttons
+  --sc-input-h: 3rem   (48px) — form inputs
 
-Pattern: calculateFreeToolResult / calculatePremiumToolResult delegate to
-extended modules first; core 5 handled inline.
+Border Radius:
+  --sc-radius-card:  1rem    (16px) — cards
+  --sc-radius-btn:   0.875rem(14px) — buttons
+  --sc-radius-input: 0.75rem (12px) — inputs
 
-4.3 UI SHELLS (shared, not per-sector components)
--------------------------------------------------
-src/components/tools/FreeToolPage.tsx     → registry-driven free UX
-src/components/tools/PremiumToolPage.tsx  → paywall + verdict + PDF
+Shadows:
+  Card:       0 1px 3px rgba(41,37,36,0.05), 0 1px 2px rgba(41,37,36,0.03)
+  Card Hover: 0 4px 12px rgba(41,37,36,0.08), 0 2px 4px rgba(41,37,36,0.04)
+  Premium:    0 4px 24px -4px rgb(15,23,42/0.12)
 
-Routes:
-  /tools/free/[slug]     → 17 static pages (generateStaticParams)
-  /tools/premium/[slug]  → 17 static pages
+2.4 COMPONENT CLASSES
+────────────────────────────────────────────────────────────────────────────
 
-Legacy (shadowed, do not use for new work):
-  /tools/[tier]/[slug]   → old 10 tool definitions
-  src/data/tool-definitions/
-  src/lib/calculators/
+Cards:
+  .card-premium   — white bg, subtle border, 16px radius, shadow
+  .sc-card        — design-system card with hover transform
+  .sc-card-interactive — adds hover lift (-3px translateY)
 
-4.4 FREE vs PREMIUM BEHAVIOR LOCK
----------------------------------
-FREE:
-  - 3–5 inputs
-  - Risk signal / quick check
-  - NO safe price, NO full verdict, NO PDF
-  - Browser-side processing (FREE_TOOL_PRIVACY_NOTE)
-  - CTA → premium analyzer / pricing
+Buttons:
+  .sc-btn-primary   — blue bg, white text, 56px height, 14px radius
+  .sc-btn-secondary — transparent, blue border, blue text
 
-PREMIUM:
-  - 5–9 inputs
-  - Verdict labels (DO NOT ACCEPT UNDER, LEAKING PROFIT, etc.)
-  - Suggested action
-  - Paywall without active Pro subscription
-  - PDF export via @react-pdf/renderer
-  - Does NOT expose raw formulas to user
-  - Legal: technical simulation, not financial/legal/engineering advice
+Inputs:
+  .sc-input        — 48px height, 12px radius, slate border
+  .sc-input:focus  — blue border + 3px blue ring
+  .sc-input-error  — red border + 3px red ring
+
+Typography:
+  .sc-h1, .sc-h2, .sc-h3  — responsive headings
+  .sc-eyebrow              — uppercase label
+  .sc-body-muted           — secondary text
+
+Animations:
+  .sc-reveal        — fade-up (350ms)
+  .sc-result-reveal — fade-in (300ms)
+
+Transitions:
+  --sc-transition: 181ms ease
 
 ================================================================================
-5. SEVENTEEN SECTORS — FULL CATALOG
+3. CODE STRUCTURE
 ================================================================================
 
-5 CATEGORIES (industry-registry.ts):
-  heavy-industry       → Heavy Industry
-  building-trades      → Building Trades
-  field-services       → Field Services
-  food-retail          → Food & Retail
-  custom-manufacturing → Custom Manufacturing
+3.1 PROJECT ROOT
+────────────────────────────────────────────────────────────────────────────
+/
+├── src/                  # Next.js 15 App Router source
+│   ├── app/              # Routes & layouts
+│   ├── components/       # React components
+│   ├── config/           # App configuration
+│   ├── data/             # Static data & types
+│   ├── i18n/             # Internationalization
+│   ├── lib/              # Utilities & business logic
+│   └── styles/           # CSS files
+├── functions/            # Firebase Cloud Functions
+├── public/               # Static assets
+├── messages/             # i18n translations (JSON)
+├── scripts/              # Build & audit scripts
+└── docs/                 # Documentation
 
-Featured sectors: cnc-manufacturing, construction, cleaning
+3.2 APP ROUTER STRUCTURE
+────────────────────────────────────────────────────────────────────────────
+src/app/
+├── layout.tsx            # Root layout
+├── page.tsx              # Landing redirect
+├── globals.css           # Global styles
+├── icon.png              # Favicon
+├── apple-icon.png        # Apple touch icon
+├── robots.ts             # Robots.txt generator
+├── sitemap.ts            # Sitemap generator
+├── admin/                # Admin panel
+│   ├── layout.tsx
+│   └── leads/            # Lead management
+├── debug/                # Debug tools
+│   └── firestore-write/
+└── [locale]/             # Internationalized routes
+    ├── layout.tsx        # Locale layout (Inter font, next-intl)
+    ├── page.tsx          # Homepage
+    ├── account/          # User account
+    ├── free-tools/       # Free calculator listing
+    ├── premium-tools/    # Premium analyzer listing
+    ├── industries/       # Sector hub pages
+    ├── pricing/          # Subscription plans
+    ├── login/            # Authentication
+    ├── reports/          # Saved reports
+    ├── how-it-works/     # Onboarding
+    ├── for-consultants/  # B2B landing
+    ├── tools/            # Tool detail pages
+    │   ├── [tier]/       # free | premium
+    │   └── [slug]/       # Tool slug
+    ├── tools/free/[slug]/     # Free tool pages
+    ├── tools/premium/[slug]/  # Premium tool pages
+    ├── disclaimer/       # Legal disclaimer
+    ├── privacy/          # Privacy policy
+    └── terms/            # Terms of service
 
-| Category            | Sector Slug              | Sector Name              | Free Tool Slug                  | Premium Tool Slug                |
-|---------------------|--------------------------|--------------------------|---------------------------------|----------------------------------|
-| Heavy Industry      | cnc-manufacturing        | CNC / Manufacturing      | machine-time-calculator         | cnc-quote-risk-analyzer          |
-| Building Trades     | construction             | Construction             | project-cost-calculator         | change-order-impact-analyzer     |
-| Field Services      | cleaning                 | Cleaning                 | cleaning-cost-calculator        | office-cleaning-bid-optimizer    |
-| Food & Retail       | restaurant               | Restaurant               | food-cost-calculator            | menu-profit-leak-detector        |
-| Food & Retail       | ecommerce                | E-commerce               | product-margin-calculator       | return-profit-erosion-tool       |
-| Heavy Industry      | welding-fabrication      | Welding & Fabrication    | welding-cost-estimator          | welding-bid-risk-analyzer        |
-| Building Trades     | hvac                     | HVAC                     | hvac-tonnage-rule-check         | hvac-project-margin-guard        |
-| Building Trades     | electrical-contracting   | Electrical Contracting   | electrical-labor-estimator      | panel-shop-margin-verdict        |
-| Field Services      | landscaping-lawn-care    | Landscaping & Lawn Care  | lawn-care-cost-check            | landscaping-contract-profit-tool |
-| Field Services      | auto-repair-shop         | Auto Repair Shop         | repair-time-vs-price-check      | auto-shop-margin-leak-detector   |
-| Custom Manufacturing| printing-signage         | Printing & Signage       | print-job-cost-check            | signage-bid-safe-price-tool      |
-| Building Trades     | plumbing                 | Plumbing                 | plumbing-fixture-cost-check     | plumbing-job-margin-verdict      |
-| Custom Manufacturing| carpentry-millwork       | Carpentry & Millwork     | cabinet-cost-estimator          | millwork-bid-risk-analyzer       |
-| Building Trades     | roofing                  | Roofing                  | roofing-square-cost-check       | roofing-contract-margin-guard    |
-| Building Trades     | painting                 | Painting                 | paint-coverage-cost-check       | painting-job-profit-verdict      |
-| Heavy Industry      | sheet-metal              | Machine Shop — Sheet Metal | laser-cutting-time-check      | sheet-metal-quote-risk-tool      |
-| Heavy Industry      | 3d-printing-service      | 3D Printing Service      | 3d-print-cost-check             | 3d-print-job-margin-tool         |
-
-Total: 17 sectors × 2 tools = 34 live routes + 17 industry hub pages
-
-================================================================================
-6. ROUTE MAP (APP ROUTER)
-================================================================================
-
-PUBLIC MARKETING
-  /                           Homepage (MagiClick-style product story)
-  /free-tools                 Free catalog by category
-  /premium-tools              Premium analyzer discovery
-  /industries                 Sector grid (featured + 5 categories)
-  /industries/[slug]          Sector hub landing (17 static)
-  /pricing                    Free vs Pro plans + checkout
-  /for-consultants            Consultant landing
-  /cnc-quote-risk             CNC campaign landing
-
-TOOLS (canonical)
-  /tools/free/[slug]          17 free calculators
-  /tools/premium/[slug]       17 premium analyzers
-
-USER
-  /login                      Firebase Auth login
-  /account                    Dashboard + subscription status
-  /account/reports            Saved verdict list
-  /account/reports/[reportId] Dynamic saved report detail
-
-REPORTS / LEGAL
-  /reports/sample-decision-report   Sample PDF preview
-  /privacy, /terms, /disclaimer
-
-ADMIN (STABLE — DO NOT BREAK)
-  /admin/leads                Lead dashboard (Firebase Auth admin claim)
-
-LEGACY (exists in build, not primary)
-  /tools/[tier]/[slug]        Old 10 tool slugs
-
-NO src/app/api routes — Stripe/webhook via Cloud Functions only.
-
-================================================================================
-7. REVENUE & BILLING FLOW
-================================================================================
-
-Plan: SectorCalc Pro — $29/month USD
-Checkout: createStripeCheckout Cloud Function → Stripe Checkout Session
-Webhook: stripeWebhook → writes users/{uid} subscription fields (Admin SDK)
-Paywall: PremiumToolPage + useUserSubscription hook
-Client subscription write: BLOCKED (Firestore rules allow write: false on users)
-
-Required function secrets (functions/.env local, Firebase secrets prod):
-  STRIPE_SECRET_KEY
-  STRIPE_WEBHOOK_SECRET
-  STRIPE_PRICE_MONTHLY
-  PUBLIC_SITE_URL
-  ADMIN_LEAD_UPDATE_SECRET (admin functions only)
-
-Frontend public only:
-  NEXT_PUBLIC_FIREBASE_*
-  NEXT_PUBLIC_*_URL flags
-  NEVER NEXT_PUBLIC stripe secrets
-
-PDF: @react-pdf/renderer — VerdictPdfDocument, DownloadVerdictPdfButton
-Reports stored: Firestore reports/{id} owner-only read/create
-
-================================================================================
-8. FIREBASE & INFRASTRUCTURE DNA
-================================================================================
-
-Project ID     : sectorcalc-bf412
-Firestore loc  : nam5 (North America multi-region) — IMMUTABLE
-Functions reg  : us-central1 (all HTTPS functions)
-Hosting        : Firebase Hosting + Next.js SSR (ssrsectorcalcbf412)
-
-functions/src/constants.ts:
-  FIRESTORE_DATABASE_LOCATION = "nam5"
-  DEFAULT_FUNCTION_REGION     = "us-central1"
-  ADMIN_FUNCTION_REGION       = "us-central1" (frozen)
-
-functions/src/regions.ts:
-  REVENUE_FUNCTION_REGION = DEFAULT_FUNCTION_REGION
-  REVENUE_FUNCTION_NAMES  = createStripeCheckout, stripeWebhook, futureReportExport
-
-Cloud Functions (live):
-  updateLeadPipeline           (admin, us-central1)
-  updateLeadTestClassification (admin, us-central1)
-  createStripeCheckout         (revenue, us-central1)
-  stripeWebhook                (revenue, us-central1)
-  ssrsectorcalcbf412           (hosting SSR, us-central1)
-
-Firestore collections:
-  leadIntents/{id}       public create only; admin read
-  leadIntents/{id}/activity  admin read only
-  users/{uid}            owner read; NO client write
-  reports/{id}           owner read/create; no update/delete
-
-Auth:
-  Customer → Firebase Auth (email)
-  Admin    → Firebase Auth + custom claim admin:true
-
-================================================================================
-9. ADMIN PANEL (FROZEN STABLE CHECKPOINT)
-================================================================================
-
-Route: /admin/leads
-Auth: Firebase Auth admin claim
-Reads: Firestore leadIntents (client SDK)
-Writes: Cloud Functions only (Admin SDK) — NOT client Firestore writes
-
-Features (do not refactor):
-  Lead pipeline, activity log, SLA, quality score
-  Action center, source ROI, conversion metrics
-  Test classification controls, cleanup controls
-  CSV export, message templates
-
-Docs: docs/admin-panel-stable-checkpoint.md
-
-================================================================================
-10. SOURCE TREE — KEY DIRECTORIES
-================================================================================
-
-src/app/                    Next.js 15 App Router pages
+3.3 COMPONENT ARCHITECTURE
+────────────────────────────────────────────────────────────────────────────
 src/components/
-  layout/                   SiteHeader, MobileNav, PageLayout, Footer
-  industries/               IndustryCard, IndustriesGrid
-  tools/                    FreeToolPage, PremiumToolPage, ToolDiscoveryGrid
-  billing/                  Paywall, checkout banners
-  subscription/             ProCheckoutButton
-  reports/                  PDF, saved reports UI
-  admin/                    Lead dashboard (FROZEN)
-  sections/                 Homepage marketing sections
-  cards/                    ToolTile (dense legacy grid)
+├── account/              # Account dashboard components
+│   ├── AccountDashboard.tsx
+│   ├── FreeToolsQuickLinks.tsx
+│   ├── PremiumToolsGrid.tsx
+│   ├── RecentReportsPanel.tsx
+│   └── SubscriptionStatusCard.tsx
+├── admin/                # Admin panel components
+│   ├── AdminAuthPanel.tsx
+│   ├── LeadDashboardSummary.tsx
+│   ├── LeadDetailDrawer.tsx
+│   ├── LeadActionCenter.tsx
+│   ├── LeadActivityList.tsx
+│   ├── LeadQualityScore.tsx
+│   ├── LeadPriorityBadge.tsx
+│   ├── LeadFollowUpSla.tsx
+│   ├── LeadPipelineControls.tsx
+│   └── ... (20+ admin components)
+├── billing/              # Stripe & subscription
+│   ├── PremiumPaywall.tsx
+│   ├── CheckoutLoadingOverlay.tsx
+│   ├── ProUpsellBanner.tsx
+│   └── SubscriptionActivationBanner.tsx
+├── brand/                # Logo & branding
+│   └── SiteLogo.tsx
+├── cards/                # Reusable cards
+│   ├── ToolTile.tsx      # Compact tool listing tile
+│   └── ReportPreviewCard.tsx
+├── home/                 # Homepage sections
+│   └── SectorSelectorSection.tsx
+├── icons/                # SVG icons
+│   ├── ScIcon.tsx
+│   └── SectorIcon.tsx
+├── industries/           # Industry components
+│   └── IndustryCard.tsx
+├── launch/               # Landing pages
+│   └── SectorMarginLanding.tsx
+├── layout/               # Site chrome
+│   ├── SiteHeader.tsx
+│   ├── HeaderNav.tsx
+│   ├── HeaderAuthCta.tsx
+│   ├── MobileNav.tsx
+│   ├── SiteFooter.tsx
+│   ├── PageLayout.tsx
+│   └── LocaleSwitcher.tsx
+├── leads/                # Lead capture
+│   ├── LeadIntentModal.tsx
+│   └── RequestPremiumReportLeadButton.tsx
+├── legal/                # Legal pages
+│   └── LegalPageContent.tsx
+├── pricing/              # Pricing page
+├── providers/            # React context providers
+│   └── AppProviders.tsx
+├── reports/              # Report management
+│   ├── ReportsHistoryList.tsx
+│   ├── SavedReportDetailContent.tsx
+│   └── DownloadVerdictPdfButton.tsx
+├── sections/             # Homepage/marketing sections
+│   ├── CTASection.tsx
+│   ├── FaqPreviewSection.tsx
+│   ├── HowItWorksSection.tsx
+│   ├── IndustriesPreviewSection.tsx
+│   ├── PricingPlansGrid.tsx
+│   └── ToolFinder.tsx
+├── seo/                  # SEO components
+│   └── JsonLd.tsx
+├── subscription/         # Subscription UI
+│   ├── PremiumToolPaywall.tsx
+│   └── ProCheckoutButton.tsx
+├── tools/                # Calculator/analyzer UI
+│   ├── FreeToolPage.tsx
+│   ├── PremiumToolPage.tsx
+│   ├── FreeToolResultDisplay.tsx
+│   ├── PremiumDecisionReportPanel.tsx
+│   ├── PremiumTeaserPanel.tsx
+│   ├── RiskGauge.tsx
+│   ├── ResultCard.tsx
+│   ├── RelatedTools.tsx
+│   ├── DecisionToolLegalDisclaimer.tsx
+│   └── ExportToolbar.tsx
+└── ui/                   # Base UI components
+    ├── Button.tsx
+    └── SectorButton.tsx
+
+3.4 DATA LAYER
+────────────────────────────────────────────────────────────────────────────
+src/data/
+├── tools.ts              # Tool catalog (derived from revenue-tools)
+├── tool-schema.ts        # ToolDefinition, ToolResult types
+├── industries.ts         # Industry metadata
+├── pricing-plans.ts      # Subscription plans
+├── faq.ts                # FAQ content
+├── reports.ts            # Report types
+├── lead-options.ts       # Lead form options
+├── tool-definitions/     # Calculator logic definitions
+├── industry-hub-content.ts
+└── sector-landing-pages.ts
+
+3.5 LIB / BUSINESS LOGIC
+────────────────────────────────────────────────────────────────────────────
 src/lib/
-  tools/                    Registry, calculations, tool-links
-  billing/                  Subscription hooks
-  reports/                  Verdict report model + storage
-  firebase/                 Client + admin Firebase
-  leads/                    Lead intent client/server
-  analytics/                events.ts, revenue-events.ts
-src/data/                   industries.ts, tools.ts, pricing-plans.ts
-functions/src/              Cloud Functions TypeScript
-docs/                       QA, deployment, region, env standards
-scripts/                    audit-revenue-tools.mjs, check-commit-secrets.mjs
-.cursor/rules/              sectorcalc.mdc, protected-infrastructure.mdc
+├── tools/
+│   ├── revenue-tools.ts          # 27-sector tool registry (CANONICAL)
+│   ├── revenue-tools-additional.ts # Extended sector tools
+│   ├── industry-registry.ts      # 27 industry definitions
+│   └── paths.ts                  # Tool URL generation
+├── metadata.ts           # SEO metadata builder
+├── firebase.ts           # Firebase client init
+├── stripe.ts             # Stripe integration
+└── auth.ts               # Firebase Auth helpers
 
-Stack:
-  Next.js 15.5, React 19, TypeScript 5 strict
-  Tailwind CSS 3.4
-  Firebase 12 (client), firebase-admin 13 (functions)
-  NO src/app/api
+3.6 INTERNATIONALIZATION
+────────────────────────────────────────────────────────────────────────────
+src/i18n/
+├── routing.ts            # Locale routing config
+└── request.ts            # Request locale handling
 
-================================================================================
-11. ANALYTICS & EVENTS
-================================================================================
+messages/
+├── en.json               # English
+├── tr.json               # Turkish
+├── de.json               # German
+├── es.json               # Spanish
+└── ar.json               # Arabic (RTL)
 
-src/lib/analytics/events.ts         General product events
-src/lib/analytics/revenue-events.ts Revenue funnel (pricing_viewed, checkout, etc.)
-
-Key revenue events wired in FreeToolPage, PremiumToolPage, PricingPlansGrid.
-
-================================================================================
-12. SEO & METADATA
-================================================================================
-
-Canonical base: NEXT_PUBLIC_SITE_URL → https://sectorcalc.com
-Helper: src/lib/metadata.ts → createPageMetadata()
-
-Page titles (locked examples):
-  Premium Tools : Premium Decision Tools | SectorCalc
-  Free Tools    : Free Sector Calculators | SectorCalc
-  Industries    : Industry Cost and Margin Tools | SectorCalc
-  Pricing       : Pricing | SectorCalc
-
-Sitemap: src/app/sitemap.ts
-  Static routes + 17 industries + 34 tool routes
+Supported Locales: en, tr, de, es, ar
+Default: en
+RTL: ar
 
 ================================================================================
-13. QUALITY & GUARDRAILS
+4. PRODUCT CATALOG (27 SECTORS)
 ================================================================================
 
-npm run lint                  ESLint (next lint)
-npm run build                 Next.js production (77+ static pages)
-npm run audit:revenue-tools   148 registry checks + live route smoke
-npm run check:secrets         Pre-commit secret scanner
+4.1 SECTOR OVERVIEW
+────────────────────────────────────────────────────────────────────────────
 
-Docs:
-  docs/firebase-region-standard.md
-  docs/revenue-env-standard.md
-  docs/full-catalog-qa.md
-  docs/sectorcalc-stability-settings.md
-  docs/cursor-workflow.md
+CATEGORY: Heavy Industry
+────────────────────────────────────────────────────────────────────────────
+1. CNC / Manufacturing (cnc-manufacturing)
+   Free:  Machine Time Calculator (machine-time-calculator)
+   Paid:  CNC Quote Risk Analyzer (cnc-quote-risk-analyzer)
+   Pain:  "One-off job may look profitable but setup and tooling can destroy margin"
 
-Hard rules (never break):
-  - No new repo / domain without explicit approval
-  - No Firestore region migration
-  - No admin panel refactor
-  - No firebase functions:delete on admin functions
-  - No src/app/api for Stripe
-  - No secrets in frontend or git
-  - No client subscription writes
-  - TypeScript strict, no any
-  - Minimal diff patches
+2. Welding & Fabrication (welding-fabrication)
+   Free:  Welding Cost Estimator
+   Paid:  Welding Bid Risk Analyzer
+   Pain:  "Fit-up time and rework risk can turn a busy fab shop quote into margin loss"
+
+3. Sheet Metal (sheet-metal)
+   Free:  Laser Cutting Cost Calculator
+   Paid:  Sheet Metal Quote Risk Tool
+   Pain:  "Programming, setup and scrap can destroy margin on sheet metal quotes"
+
+4. 3D Printing Service (3d-printing-service)
+   Free:  3D Print Cost Calculator
+   Paid:  3D Print Margin Tool
+   Pain:  "Print failures and post-processing can erase profit on custom jobs"
+
+CATEGORY: Building Trades
+────────────────────────────────────────────────────────────────────────────
+5. Construction (construction)
+   Free:  Project Cost Calculator (project-cost-calculator)
+   Paid:  Change Order Impact Analyzer (change-order-impact-analyzer)
+   Pain:  "Small change orders can quietly erase project margin"
+
+6. HVAC (hvac)
+   Free:  HVAC Tonnage Calculator
+   Paid:  HVAC Project Margin Guard
+   Pain:  "Equipment, ductwork and callback risk can compress project margin fast"
+
+7. Electrical Contracting (electrical-contracting)
+   Free:  Electrical Labor Estimator
+   Paid:  Panel Shop Bid Calculator
+   Pain:  "Material, testing time and inspection delays can underprice panel work"
+
+8. Plumbing (plumbing)
+   Free:  Plumbing Cost Calculator
+   Paid:  Plumbing Margin Verdict
+   Pain:  "Parts runs, callbacks and fixture complexity can underprice jobs"
+
+9. Roofing (roofing)
+   Free:  Roofing Cost Calculator
+   Paid:  Roofing Contract Margin Guard
+   Pain:  "Tear-off, dump fees and weather delays can turn bids into warranty risk"
+
+10. Painting (painting)
+    Free:  Painting Cost Calculator
+    Paid:  Painting Job Profit Verdict
+    Pain:  "Prep time, scaffold cost and touch-ups can underprice jobs"
+
+CATEGORY: Field Services
+────────────────────────────────────────────────────────────────────────────
+11. Cleaning (cleaning)
+    Free:  Cleaning Cost Calculator (cleaning-cost-calculator)
+    Paid:  Office Cleaning Bid Optimizer (office-cleaning-bid-optimizer)
+    Pain:  "Cleaning contract can look easy and still lose money every month"
+
+12. Landscaping & Lawn Care (landscaping-lawn-care)
+    Free:  Lawn Care Cost Calculator
+    Paid:  Landscaping Contract Profit Tool
+    Pain:  "Fuel, crew hours and equipment wear can underprice monthly contracts"
+
+13. Auto Repair Shop (auto-repair-shop)
+    Free:  Auto Repair Pricing Calculator
+    Paid:  Auto Shop Margin Leak Detector
+    Pain:  "Diagnostic time and comeback risk can leak profit on quoted repairs"
+
+CATEGORY: Food & Retail
+────────────────────────────────────────────────────────────────────────────
+14. Restaurant (restaurant)
+    Free:  Food Cost Calculator (food-cost-calculator)
+    Paid:  Menu Profit Leak Detector (menu-profit-leak-detector)
+    Pain:  "Popular menu item can still leak profit after waste, labor and commission"
+
+15. E-commerce (ecommerce)
+    Free:  Product Margin Calculator (product-margin-calculator)
+    Paid:  Return Profit Erosion Tool (return-profit-erosion-tool)
+    Pain:  "Sales can grow while returns, ads and fees erase the profit"
+
+CATEGORY: Custom Manufacturing
+────────────────────────────────────────────────────────────────────────────
+16. Printing & Signage (printing-signage)
+    Free:  Print Job Cost Calculator
+    Paid:  Signage Safe Price Tool
+    Pain:  "Design time, install labor and reprint risk can erase job margin"
+
+17. Carpentry & Millwork (carpentry-millwork)
+    Free:  Cabinet Cost Estimator
+    Paid:  Millwork Bid Risk Analyzer
+    Pain:  "Waste, finishing and install time can underprice custom millwork bids"
+
+CATEGORY: Logistics & Transport
+────────────────────────────────────────────────────────────────────────────
+18. Logistics & Transport (logistics-transport)
+    Free:  Desi / Volumetric Weight Calculator
+    Paid:  Freight Margin Risk Analyzer
+    Pain:  "Desi miscalculations and empty return miles can quietly erase freight margin"
+
+CATEGORY: Agriculture & Livestock
+────────────────────────────────────────────────────────────────────────────
+19. Crop & Fertilizer (agriculture-crops)
+    Free:  Fertilizer Dosage Calculator
+    Paid:  Crop Yield Analyzer
+    Pain:  "Fertilizer over-application and weather gaps can destroy crop margin"
+
+20. Irrigation & Water (agriculture-irrigation)
+    Free:  Irrigation Cost Calculator
+    Paid:  Water Efficiency Analyzer
+    Pain:  "Underestimated pumping and water rights cost can erase field margin"
+
+21. Livestock Feed (agriculture-feed)
+    Free:  Feed Cost Calculator
+    Paid:  Feed Efficiency Analyzer
+    Pain:  "Feed waste and storage loss can quietly exceed milk or meat revenue"
+
+22. Dairy & Milk Yield (agriculture-dairy)
+    Free:  Milk Yield Calculator
+    Paid:  Dairy Profit Analyzer
+    Pain:  "Low yield per cow with rising feed prices destroys dairy profitability"
+
+CATEGORY: Energy & Environment
+────────────────────────────────────────────────────────────────────────────
+23. Energy Consumption (energy-consumption)
+    Free:  kWh Consumption Calculator
+    Paid:  Energy Efficiency Report
+    Pain:  "Unmanaged kWh spikes and demand charges can blow operating budgets"
+
+24. Carbon & CBAM (energy-carbon)
+    Free:  Carbon Footprint Calculator
+    Paid:  CBAM Import Cost Analyzer
+    Pain:  "Carbon border costs can erase export margin if not modeled upfront"
+
+CATEGORY: Daily Life
+────────────────────────────────────────────────────────────────────────────
+25. Home Renovation (daily-renovation)
+    Free:  Renovation Cost Calculator
+    Paid:  Renovation Budget Analyzer
+    Pain:  "Renovation budgets blow up when weather delays and city premiums are ignored"
+
+26. Fuel & Travel (daily-fuel)
+    Free:  Fuel Consumption Calculator
+    Paid:  Trip Budget Analyzer
+    Pain:  "Fuel and toll surprises can wreck personal or small fleet travel budgets"
+
+27. Meals & Grocery (daily-meals)
+    Free:  Recipe Cost Calculator
+    Paid:  Meal Planning Budget Tool
+    Pain:  "Food waste and premium ingredient drift erode household food budgets"
 
 ================================================================================
-14. DEPLOYMENT
+5. FORMULA STRUCTURES
 ================================================================================
 
-Hosting : firebase deploy --only hosting --project sectorcalc-bf412
-Functions: firebase deploy --only functions --project sectorcalc-bf412
-Rules   : firebase deploy --only firestore:rules --project sectorcalc-bf412
+5.1 FREE TOOL INPUT/OUTPUT PATTERN
+────────────────────────────────────────────────────────────────────────────
 
-Live URL: https://sectorcalc-bf412.web.app
-Console  : https://console.firebase.google.com/project/sectorcalc-bf412
+Input Pattern (3-5 inputs):
+  - Basic operational metrics (time, cost, quantity)
+  - Simple select options (pressure levels, frequency)
+  - No advanced risk factors
+
+Output Pattern:
+  - Quick check / risk signal
+  - NO safe price
+  - NO verdict
+  - NO PDF
+  - Privacy note: "Inputs processed in browser, not stored"
+
+5.2 PAID ANALYZER INPUT/OUTPUT PATTERN
+────────────────────────────────────────────────────────────────────────────
+
+Input Pattern (5-8 inputs):
+  - All free inputs PLUS:
+  - Detailed cost breakdowns (labor, materials, overhead)
+  - Risk factors (waste rate, margin target, delay days)
+  - Sector-specific variables
+
+Output Pattern:
+  - Minimum safe price / bid
+  - Verdict: ACCEPT / REPRICE / REJECT (sector-specific labels)
+  - Key cost drivers identified
+  - Margin leak detection
+  - Suggested action
+  - Legal disclaimer
+
+5.3 SECTOR-SPECIFIC FORMULAS
+────────────────────────────────────────────────────────────────────────────
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CNC MANUFACTURING                                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Free Inputs:                                                                │
+│   • setupTime (min)                                                         │
+│   • cycleTime (min)                                                         │
+│   • quantity (units)                                                        │
+│                                                                             │
+│ Free Output: Visible time exposure, setup-heavy warning                     │
+│                                                                             │
+│ Paid Inputs (additional):                                                   │
+│   • toolCost (USD)                                                          │
+│   • materialCost (USD)                                                      │
+│   • machineRate (USD/hr)                                                    │
+│   • riskMargin (%)                                                          │
+│                                                                             │
+│ Paid Formula:                                                               │
+│   machineTime = (setupTime + cycleTime × quantity) / 60                     │
+│   machineCost = machineTime × machineRate                                   │
+│   totalCost = machineCost + materialCost + toolCost                         │
+│   safePrice = totalCost × (1 + riskMargin/100)                             │
+│                                                                             │
+│ Paid Verdicts:                                                              │
+│   DO NOT ACCEPT UNDER [safePrice]                                           │
+│   REPRICE REQUIRED                                                          │
+│   SAFE TO QUOTE                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CONSTRUCTION                                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Free Inputs:                                                                │
+│   • originalBudget (USD)                                                    │
+│   • changeEstimate (USD)                                                    │
+│   • deadlinePressure (low/medium/high)                                      │
+│                                                                             │
+│ Free Output: Change cost margin risk signal                                 │
+│                                                                             │
+│ Paid Inputs (additional):                                                   │
+│   • delayDays (days)                                                        │
+│   • crewCostPerDay (USD/day)                                                │
+│   • marginTarget (%)                                                        │
+│                                                                             │
+│ Paid Formula:                                                               │
+│   delayCost = delayDays × crewCostPerDay                                    │
+│   changeImpact = changeEstimate + delayCost                                 │
+│   marginErosion = changeImpact / originalBudget × 100                       │
+│   safeChangePrice = changeEstimate × (1 + marginTarget/100) + delayCost    │
+│                                                                             │
+│ Paid Verdicts:                                                              │
+│   ACCEPT                                                                    │
+│   RENEGOTIATE                                                               │
+│   DO NOT ACCEPT WITHOUT PRICE ADJUSTMENT                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CLEANING                                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Free Inputs:                                                                │
+│   • areaSize (sq ft)                                                        │
+│   • staffCount (people)                                                     │
+│   • visitFrequency (visits/month)                                           │
+│                                                                             │
+│ Free Output: Workload exposure, underprice warning                          │
+│                                                                             │
+│ Paid Inputs (additional):                                                   │
+│   • laborRate (USD/hr)                                                      │
+│   • hoursPerVisit (hr)                                                      │
+│   • supplyCost (USD/month)                                                  │
+│   • targetMargin (%)                                                        │
+│                                                                             │
+│ Paid Formula:                                                               │
+│   monthlyHours = hoursPerVisit × visitFrequency                             │
+│   laborCost = monthlyHours × laborRate                                      │
+│   totalCost = laborCost + supplyCost                                        │
+│   minimumBid = totalCost / (1 - targetMargin/100)                          │
+│                                                                             │
+│ Paid Verdicts:                                                              │
+│   SAFE BID                                                                  │
+│   LOW MARGIN                                                                │
+│   UNDERPRICED                                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ RESTAURANT                                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Free Inputs:                                                                │
+│   • menuPrice (USD)                                                         │
+│   • foodCost (USD)                                                          │
+│   • deliveryCommission (%)                                                  │
+│                                                                             │
+│ Free Output: Food cost ratio, hidden cost warning                           │
+│                                                                             │
+│ Paid Inputs (additional):                                                   │
+│   • ingredientCost (USD)                                                    │
+│   • wasteRate (%)                                                           │
+│   • laborCostPerItem (USD)                                                  │
+│   • targetMargin (%)                                                        │
+│                                                                             │
+│ Paid Formula:                                                               │
+│   adjustedCost = ingredientCost × (1 + wasteRate/100)                      │
+│   commissionCost = menuPrice × deliveryCommission/100                       │
+│   trueCost = adjustedCost + laborCostPerItem + commissionCost               │
+│   trueMargin = (menuPrice - trueCost) / menuPrice × 100                    │
+│   profitLeak = menuPrice × targetMargin/100 - (menuPrice - trueCost)        │
+│                                                                             │
+│ Paid Verdicts:                                                              │
+│   PROFITABLE                                                                │
+│   LEAKING PROFIT                                                            │
+│   REMOVE OR REPRICE                                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ E-COMMERCE                                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Free Inputs:                                                                │
+│   • productPrice (USD)                                                      │
+│   • productCost (USD)                                                       │
+│   • returnRate (%)                                                          │
+│                                                                             │
+│ Free Output: Gross margin, return risk signal                               │
+│                                                                             │
+│ Paid Inputs (additional):                                                   │
+│   • shippingCost (USD)                                                      │
+│   • paymentFeeRate (%)                                                      │
+│   • adCostPerSale (USD)                                                     │
+│                                                                             │
+│ Paid Formula:                                                               │
+│   returnLoss = productPrice × returnRate/100                                │
+│   paymentFee = productPrice × paymentFeeRate/100                            │
+│   netRevenue = productPrice - returnLoss - paymentFee                       │
+│   netCost = productCost + shippingCost + adCostPerSale                      │
+│   netProfit = netRevenue - netCost                                          │
+│   breakEvenReturnRate = (productPrice - netCost) / productPrice × 100       │
+│                                                                             │
+│ Paid Verdicts:                                                              │
+│   SCALABLE                                                                  │
+│   FRAGILE                                                                   │
+│   LOSS AFTER RETURNS                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+5.4 VERDICT LABELS BY SECTOR
+────────────────────────────────────────────────────────────────────────────
+
+Sector              | Verdict 1           | Verdict 2         | Verdict 3
+--------------------|---------------------|-------------------|------------------
+CNC                 | DO NOT ACCEPT UNDER | REPRICE REQUIRED  | SAFE TO QUOTE
+Construction        | ACCEPT              | RENEGOTIATE       | DO NOT ACCEPT
+Cleaning            | SAFE BID            | LOW MARGIN        | UNDERPRICED
+Restaurant          | PROFITABLE          | LEAKING PROFIT    | REMOVE OR REPRICE
+E-commerce          | SCALABLE            | FRAGILE           | LOSS AFTER RETURNS
+Welding             | SAFE TO QUOTE       | REPRICE NEEDED    | DO NOT ACCEPT
+HVAC                | MARGIN SAFE         | TIGHT MARGIN      | REBID REQUIRED
+Electrical          | BID ACCEPTED        | REPRICE REQUIRED  | REJECT
+Landscaping         | CONTRACT SAFE       | LOW MARGIN        | UNDERPRICED
+Auto Repair         | JOB PROFITABLE      | COMEBACK RISK     | REJECT OR REPRICE
+Printing            | SAFE PRICE          | DESIGN RISK       | DO NOT ACCEPT
+Plumbing            | JOB SAFE            | CALLBACK RISK     | REPRICE REQUIRED
+Carpentry           | BID SAFE            | WASTE RISK        | REPRICE REQUIRED
+Roofing             | CONTRACT SAFE       | WEATHER RISK      | REBID REQUIRED
+Painting            | JOB PROFITABLE      | PREP RISK         | REPRICE REQUIRED
+Sheet Metal         | QUOTE SAFE          | SETUP RISK        | DO NOT ACCEPT
+3D Printing         | PRINT SAFE          | FAIL RISK         | REPRICE REQUIRED
+Logistics           | LOAD PROFITABLE     | EMPTY RISK        | REPRICE REQUIRED
+Crop                | YIELD SAFE          | FERTILIZER RISK   | RECALCULATE
+Irrigation          | WATER EFFICIENT     | PUMP RISK         | REASSESS
+Feed                | FEED EFFICIENT      | STORAGE RISK      | RECALCULATE
+Dairy               | YIELD PROFITABLE    | FEED COST RISK    | REASSESS
+Energy              | CONSUMPTION OK      | DEMAND RISK       | OPTIMIZE REQUIRED
+Carbon              | COMPLIANT           | BORDER COST RISK  | RECALCULATE
+Renovation          | BUDGET SAFE         | DELAY RISK        | REBUDGET REQUIRED
+Fuel                | TRIP AFFORDABLE     | FUEL RISK         | RECALCULATE
+Meals               | BUDGET OK           | WASTE RISK        | ADJUST PORTIONS
 
 ================================================================================
-15. TECH DEBT / KNOWN LEGACY
+6. REVENUE MODEL
 ================================================================================
 
-- /tools/[tier]/[slug] legacy route with old slugs (machine-hour-estimator etc.)
-- src/data/tool-definitions/ + src/lib/calculators/ — superseded by revenue-tools
-- ToolTile dense grid (2–7 cols) — used on homepage previews; catalog uses ToolDiscoveryGrid
-- ToolFinder problem filters updated to canonical slugs
-- Homepage copy still mentions "5 sectors" in some MagiClick sections
-- additionalAnalyzers in registry = roadmap copy only (no routes)
+6.1 SUBSCRIPTION PLANS
+────────────────────────────────────────────────────────────────────────────
+
+FREE PLAN ($0 forever):
+  - 27 industry quick-check calculators
+  - 2-3 inputs per tool
+  - Risk or preview signals
+  - No account required
+  - NO safe price or verdict
+  - NO decision summaries
+  - NO export
+
+SECTORCALC PRO ($29/month):
+  - Safe price and bid risk verdicts
+  - Margin leak detection
+  - 27 sector-specific analyzer tools
+  - Report-style decision summaries
+  - Cancel anytime
+  - Digital product, no refunds
+
+6.2 PRICING DISPLAY
+────────────────────────────────────────────────────────────────────────────
+
+Headline: "Unlock sector-specific decision tools."
+Description: "Avoid underpriced jobs, margin leaks and bad bids with premium 
+              analyzers built for real operating decisions."
+
+Bullets:
+  ✓ Safe price and bid risk verdicts
+  ✓ Margin leak detection
+  ✓ Sector-specific analyzer tools
+  ✓ Report-style decision summaries
+  ✓ Cancel anytime
+  ✓ Digital product, no refunds
+  ✓ Estimates only; verify before business decisions
+
+6.3 LEGAL DISCLAIMER (Required on all tools)
+────────────────────────────────────────────────────────────────────────────
+
+"This is a technical simulation and decision-support output. It is not 
+financial, legal or engineering advice. Verify all results before making 
+business decisions."
+
+6.4 PRIVACY NOTES
+────────────────────────────────────────────────────────────────────────────
+
+Free Tools:
+"Free tool inputs are processed in your browser and are not stored unless 
+you create an account or save a premium report."
+
+Paid Tools:
+"Premium analyzer results may be saved to your account only when you choose 
+to save a report."
 
 ================================================================================
-16. ONE-PARAGRAPH DNA SUMMARY
+7. TECHNICAL ARCHITECTURE
 ================================================================================
 
-SectorCalc is a data-driven, 17-sector decision tools platform on Next.js 15 +
-Firebase, visually split between a MagiClick-style marketing homepage and a
-premium Tailwind catalog UI (white cards, navy text, blue accent, green/amber
-tier badges). All tools flow from industry-registry.ts + revenue-tools.ts into
-shared FreeToolPage/PremiumToolPage shells — free tools give visible risk only;
-premium analyzers deliver verdicts behind a $29/month Pro paywall with PDF
-export. Navigation separates discovery (Industries, Free Tools, Premium Tools)
-from payment (Pricing) and persistence (Account/Reports). Backend is Firebase
-nam5 + us-central1 functions for admin leads, Stripe checkout/webhook, and
-Next.js SSR hosting — with strict Firestore rules blocking client subscription
-writes and a frozen admin panel at /admin/leads.
+7.1 STACK
+────────────────────────────────────────────────────────────────────────────
+
+Frontend:
+  - Next.js 15 (App Router)
+  - React 19
+  - TypeScript 5
+  - Tailwind CSS 3.4
+  - next-intl (i18n)
+  - Framer Motion (animations)
+
+Backend:
+  - Firebase Hosting
+  - Firebase Auth
+  - Firestore (database)
+  - Cloud Functions (Node.js 22)
+  - Stripe (payments)
+
+7.2 DEPLOYMENT
+────────────────────────────────────────────────────────────────────────────
+
+Hosting: Firebase Hosting (static export)
+Functions: Cloud Functions (us-central1)
+Region: nam5 (Firestore), us-central1 (Functions)
+Domain: sectorcalc.com
+
+Deploy Command:
+  npm run deploy
+  → verify + build + firebase deploy --only hosting,functions
+
+7.3 URL STRUCTURE
+────────────────────────────────────────────────────────────────────────────
+
+Free Tools:  /[locale]/tools/free/[slug]
+Paid Tools:  /[locale]/tools/premium/[slug]
+Industries:  /[locale]/industries/[slug]
+Pricing:     /[locale]/pricing
+Account:     /[locale]/account
+Reports:     /[locale]/reports
+
+7.4 FIREBASE STRUCTURE
+────────────────────────────────────────────────────────────────────────────
+
+Collections:
+  - users (auth + subscription status)
+  - leadIntents (lead captures)
+  - reports (saved analyzer results)
+
+Functions:
+  - createStripeCheckout
+  - stripeWebhook
+  - updateLeadPipeline
+  - updateLeadTestClassification
+  - ssrsectorcalcbf412 (Next.js SSR)
+
+7.5 SECURITY RULES
+────────────────────────────────────────────────────────────────────────────
+
+- Client cannot write subscription status
+- Admin: Firebase Auth `admin: true` claim verification
+- Reports: owner-only access
+- Stripe: Bearer ID token on checkout; webhook raw signature verify
 
 ================================================================================
-END OF REPORT
+END OF PRODUCT DNA
 ================================================================================
