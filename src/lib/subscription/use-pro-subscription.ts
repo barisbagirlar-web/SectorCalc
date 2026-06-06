@@ -5,7 +5,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged, type User } from "@/lib/firebase/auth";
 import { getFirebaseAuth } from "@/lib/firebase/auth";
 import { getFirestoreDb } from "@/lib/firebase/client";
-import { isProSubscriptionActive } from "@/lib/tools/revenue-tools";
+import { hasActiveSubscription } from "@/lib/billing/subscription";
 import type { UserProfile } from "@/lib/subscription/types";
 
 interface ProSubscriptionState {
@@ -68,10 +68,7 @@ export function useProSubscription(): ProSubscriptionState {
     return unsubscribeProfile;
   }, [user]);
 
-  const isPro = isProSubscriptionActive(
-    subscription?.status,
-    subscription?.currentPeriodEnd
-  );
+  const isPro = hasActiveSubscription(subscription);
 
   return { user, loading, isPro, subscription };
 }

@@ -11,19 +11,79 @@ if (!admin.apps.length) {
   admin.initializeApp();
 }
 
-interface SubscriptionWritePayload {
-  status: "active" | "inactive" | "canceled" | "past_due" | "trialing";
-  plan: "pro";
+type FirestoreSubscriptionStatus = "active" | "canceled" | "past_due" | "none";
+
+interface FirestoreSubscription {
+  status: FirestoreSubscriptionStatus;
   stripeCustomerId?: string;
   stripeSubscriptionId?: string;
+  stripePriceId?: string;
   currentPeriodEnd?: string;
   updatedAt: string;
+}
+
+function resolveUid(metadata: Stripe.Metadata | null | undefined): string | undefined {
+  if (!metadata) {
+    return undefined;
+  }
+  const uid = metadata.uid ?? metadata.firebaseUID;
+  return typeof uid === "string" && uid.length > 0 ? uid : undefined;
+}
+
+function mapStripeSubscriptionStatus(
+  stripeStatus: Stripe.Subscription.Status
+): FirestoreSubscriptionStatus {
+  if (stripeStatus === "active" || stripeStatus === "trialing") {
+    return "active";
+  }
+  if (
+    stripeStatus === "past_due" ||
+    stripeStatus === "unpaid" ||
+    stripeStatus === "incomplete" ||
+    stripeStatus === "incomplete_expired"
+  ) {
+    return "past_due";
+  }
+  if (stripeStatus === "canceled") {
+    return "canceled";
+  }
+  return "none";
+}
+
+function resolveStripePriceId(subscription: Stripe.Subscription): string | undefined {
+  const firstItem = subscription.items.data[0];
+  if (!firstItem?.price?.id) {
+    return undefined;
+  }
+  return firstItem.price.id;
+}
+
+function subscriptionPayloadFromStripe(
+  subscription: Stripe.Subscription,
+  customerId?: string
+): FirestoreSubscription {
+  const currentPeriodEnd = subscription.current_period_end
+    ? new Date(subscription.current_period_end * 1000).toISOString()
+    : undefined;
+
+  return {
+    status: mapStripeSubscriptionStatus(subscription.status),
+    stripeCustomerId:
+      customerId ??
+      (typeof subscription.customer === "string"
+        ? subscription.customer
+        : subscription.customer?.id),
+    stripeSubscriptionId: subscription.id,
+    stripePriceId: resolveStripePriceId(subscription),
+    currentPeriodEnd,
+    updatedAt: new Date().toISOString(),
+  };
 }
 
 async function writeUserSubscription(
   uid: string,
   email: string | null | undefined,
-  subscription: SubscriptionWritePayload
+  subscription: FirestoreSubscription
 ): Promise<void> {
   const db = admin.firestore();
   await db.collection(USERS_COLLECTION).doc(uid).set(
@@ -34,33 +94,6 @@ async function writeUserSubscription(
     },
     { merge: true }
   );
-}
-
-function subscriptionPayloadFromStripe(
-  subscription: Stripe.Subscription,
-  customerId?: string
-): SubscriptionWritePayload {
-  const currentPeriodEnd = subscription.current_period_end
-    ? new Date(subscription.current_period_end * 1000).toISOString()
-    : undefined;
-
-  let status: SubscriptionWritePayload["status"] = "inactive";
-  if (subscription.status === "active" || subscription.status === "trialing") {
-    status = subscription.status;
-  } else if (subscription.status === "past_due") {
-    status = "past_due";
-  } else if (subscription.status === "canceled") {
-    status = "canceled";
-  }
-
-  return {
-    status,
-    plan: "pro",
-    stripeCustomerId: customerId ?? (typeof subscription.customer === "string" ? subscription.customer : subscription.customer?.id),
-    stripeSubscriptionId: subscription.id,
-    currentPeriodEnd,
-    updatedAt: new Date().toISOString(),
-  };
 }
 
 export async function handleStripeWebhook(
@@ -104,9 +137,11 @@ export async function handleStripeWebhook(
       case "checkout.session.completed": {
         const session = event.data.object as Stripe.Checkout.Session;
         const uid =
-          session.metadata?.firebaseUID ??
-          session.client_reference_id ??
-          undefined;
+          resolveUid(session.metadata) ??
+          (typeof session.client_reference_id === "string"
+            ? session.client_reference_id
+            : undefined);
+
         if (!uid || !session.subscription) {
           break;
         }
@@ -119,23 +154,30 @@ export async function handleStripeWebhook(
           session.customer_details?.email,
           subscriptionPayloadFromStripe(
             subscription,
-            typeof session.customer === "string" ? session.customer : session.customer?.id
+            typeof session.customer === "string"
+              ? session.customer
+              : session.customer?.id
           )
         );
         break;
       }
-      case "customer.subscription.updated":
-      case "customer.subscription.deleted": {
+      case "customer.subscription.updated": {
         const subscription = event.data.object as Stripe.Subscription;
-        const uid = subscription.metadata?.firebaseUID;
+        const uid = resolveUid(subscription.metadata);
         if (!uid) {
           break;
         }
-
-        const payload = subscriptionPayloadFromStripe(subscription);
-        if (event.type === "customer.subscription.deleted") {
-          payload.status = "canceled";
+        await writeUserSubscription(uid, undefined, subscriptionPayloadFromStripe(subscription));
+        break;
+      }
+      case "customer.subscription.deleted": {
+        const subscription = event.data.object as Stripe.Subscription;
+        const uid = resolveUid(subscription.metadata);
+        if (!uid) {
+          break;
         }
+        const payload = subscriptionPayloadFromStripe(subscription);
+        payload.status = "canceled";
         await writeUserSubscription(uid, undefined, payload);
         break;
       }

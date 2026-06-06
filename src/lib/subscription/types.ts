@@ -1,15 +1,14 @@
 export type SubscriptionStatus =
   | "active"
-  | "inactive"
   | "canceled"
   | "past_due"
-  | "trialing";
+  | "none";
 
 export interface UserSubscription {
   status: SubscriptionStatus;
-  plan: "pro";
   stripeCustomerId?: string;
   stripeSubscriptionId?: string;
+  stripePriceId?: string;
   currentPeriodEnd?: string;
   updatedAt?: string;
 }

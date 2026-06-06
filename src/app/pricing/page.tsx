@@ -11,7 +11,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Pricing",
   description:
-    "SectorCalc Pro — $29/month for premium sector decision tools: safe price verdicts, margin leak detection and bid risk analysis.",
+    "SectorCalc Pro — $29/month. Unlock sector-specific decision tools for pricing, cost and margin risk.",
   path: "/pricing",
 });
 
@@ -20,7 +20,7 @@ export default function PricingPage() {
     <PageLayout>
       <PageHero
         eyebrow="Pricing"
-        title="Pay for decisions — not PDF upsells"
+        title="SectorCalc Pro"
         description={PRICING_PRO_TAGLINE}
       />
       <PricingPlansGrid showHeader={false} />

@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState, type FormEvent } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
+import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import {
   PREMIUM_SUBSCRIPTION_NOTE,
   resolvePremiumToolAccess,
@@ -202,13 +202,7 @@ function PremiumToolResultCard({
   );
 }
 
-function PremiumToolPaywallCard({
-  tool,
-  pricingHref,
-}: {
-  tool: RevenueTool;
-  pricingHref: string;
-}) {
+function PremiumToolPaywallCard({ tool }: { tool: RevenueTool }) {
   return (
     <aside className="rounded-2xl border border-slate/15 bg-white p-6 shadow-card sm:p-8">
       <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
@@ -221,12 +215,12 @@ function PremiumToolPaywallCard({
       <p className="mt-4 text-sm leading-relaxed text-slate">
         {tool.paidResultPromise}
       </p>
-      <Link
-        href={pricingHref}
-        className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto"
-      >
-        Unlock SectorCalc Pro
-      </Link>
+      <ProCheckoutButton
+        label="Unlock SectorCalc Pro"
+        source="premium_tool_paywall"
+        toolSlug={tool.paidSlug}
+        className="mt-6"
+      />
       <p className="mt-4 text-xs leading-relaxed text-slate">
         {PREMIUM_SUBSCRIPTION_NOTE}
       </p>
@@ -255,7 +249,6 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
     return calculatePremiumToolResult(tool, values);
   }, [submitted, hasAccess, tool, values]);
 
-  const pricingHref = `/pricing?tool=${encodeURIComponent(tool.paidSlug)}`;
   const legalDisclaimer = tool.legalDisclaimer ?? revenueLegalDisclaimer;
 
   const handleChange = (key: string, value: number | string) => {
@@ -329,7 +322,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
             </div>
           ) : !hasAccess ? (
             <div className="mx-auto max-w-2xl">
-              <PremiumToolPaywallCard tool={tool} pricingHref={pricingHref} />
+              <PremiumToolPaywallCard tool={tool} />
               <p className="mt-6 text-xs leading-relaxed text-slate">{legalDisclaimer}</p>
             </div>
           ) : (

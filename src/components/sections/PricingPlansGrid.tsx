@@ -7,6 +7,7 @@ import {
   ANALYTICS_EVENTS,
   trackEvent,
 } from "@/lib/analytics/events";
+import { PRICING_CHECKOUT_LEGAL } from "@/lib/billing/subscription";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -130,11 +131,19 @@ export function PricingPlansGrid({
                   {plan.primaryCta}
                 </Button>
               ) : plan.checkoutPlan === "pro" ? (
-                <ProCheckoutButton
-                  label={plan.primaryCta}
-                  source="pricing_grid"
-                  className="mt-8"
-                />
+                <div className="mt-8">
+                  <ProCheckoutButton
+                    label={plan.primaryCta}
+                    source="pricing_grid"
+                  />
+                  <p
+                    className={`mt-4 text-xs leading-relaxed ${
+                      plan.highlighted ? "text-slate-400" : "text-slate"
+                    }`}
+                  >
+                    {PRICING_CHECKOUT_LEGAL}
+                  </p>
+                </div>
               ) : (
                 <Button href={plan.primaryHref} variant="primary" size="md" className="mt-8 w-full">
                   {plan.primaryCta}
@@ -146,10 +155,15 @@ export function PricingPlansGrid({
 
         {!compact && (
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <ProCheckoutButton
-              label="Unlock Decision Tools — $29/mo"
-              source="pricing_footer"
-            />
+            <div className="w-full max-w-md">
+              <ProCheckoutButton
+                label="Start SectorCalc Pro"
+                source="pricing_footer"
+              />
+              <p className="mt-3 text-center text-xs leading-relaxed text-slate">
+                {PRICING_CHECKOUT_LEGAL}
+              </p>
+            </div>
             <Button href="/free-tools" variant="outline" size="lg">
               Start with Free Tools
             </Button>

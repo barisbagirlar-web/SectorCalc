@@ -32,7 +32,9 @@ export function PremiumToolPaywall({
       </p>
       <div className="mt-6">
         <ProCheckoutButton
+          label="Unlock SectorCalc Pro"
           source="premium_tool_paywall"
+          toolSlug={toolSlug ?? revenue?.paidSlug}
           className="max-w-md"
         />
       </div>

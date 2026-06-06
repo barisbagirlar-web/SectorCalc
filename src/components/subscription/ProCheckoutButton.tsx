@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { signInCustomerWithGoogle, mapCustomerSignInError } from "@/lib/firebase/customer-auth";
-import { createProCheckoutSession } from "@/lib/subscription/checkout";
+import { startCheckoutSession } from "@/lib/billing/create-checkout-session";
 import { useProSubscription } from "@/lib/subscription/use-pro-subscription";
 import {
   ANALYTICS_EVENTS,
@@ -13,14 +12,16 @@ interface ProCheckoutButtonProps {
   label?: string;
   className?: string;
   source?: string;
+  toolSlug?: string;
 }
 
 export function ProCheckoutButton({
-  label = "Unlock Decision Tools — $29/mo",
+  label = "Start SectorCalc Pro",
   className = "",
   source = "pricing",
+  toolSlug,
 }: ProCheckoutButtonProps) {
-  const { user, isPro, loading } = useProSubscription();
+  const { isPro, loading } = useProSubscription();
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -42,16 +43,7 @@ export function ProCheckoutButton({
         source,
       });
 
-      if (!user) {
-        try {
-          await signInCustomerWithGoogle();
-        } catch (signInError) {
-          throw new Error(mapCustomerSignInError(signInError));
-        }
-      }
-
-      const session = await createProCheckoutSession();
-      window.location.assign(session.url);
+      await startCheckoutSession({ toolSlug, returnPath: "/pricing" });
     } catch (caught) {
       if (caught instanceof Error) {
         setError(caught.message);

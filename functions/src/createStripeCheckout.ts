@@ -7,7 +7,12 @@ import { applyCors } from "./cors";
 import { USERS_COLLECTION } from "./constants";
 
 const stripeSecretKey = defineString("STRIPE_SECRET_KEY", { default: "" });
-const stripeProPriceId = defineString("STRIPE_PRO_PRICE_ID", { default: "" });
+const stripePriceMonthly = defineString("STRIPE_PRICE_MONTHLY", { default: "" });
+const publicSiteUrl = defineString("PUBLIC_SITE_URL", {
+  default: "https://sectorcalc-bf412.web.app",
+});
+
+const DEFAULT_PREMIUM_TOOL_SLUG = "cnc-quote-risk-analyzer";
 
 if (!admin.apps.length) {
   admin.initializeApp();
@@ -22,9 +27,15 @@ function sendJson(
 }
 
 interface CheckoutRequestBody {
-  plan?: string;
-  successUrl?: string;
-  cancelUrl?: string;
+  toolSlug?: string;
+  locale?: string;
+}
+
+function resolveToolSlug(body: CheckoutRequestBody): string {
+  if (typeof body.toolSlug === "string" && body.toolSlug.trim().length > 0) {
+    return body.toolSlug.trim();
+  }
+  return DEFAULT_PREMIUM_TOOL_SLUG;
 }
 
 export async function handleCreateStripeCheckout(
@@ -46,23 +57,22 @@ export async function handleCreateStripeCheckout(
     return;
   }
 
-  const body = req.body as CheckoutRequestBody;
-  if (body.plan !== "pro") {
-    sendJson(res, 400, { success: false, error: "Unsupported plan." });
+  if (!authResult.email) {
+    sendJson(res, 400, { success: false, error: "Account email is required for checkout." });
     return;
   }
 
-  const successUrl =
-    typeof body.successUrl === "string" && body.successUrl.startsWith("http")
-      ? body.successUrl
-      : "https://sectorcalc-bf412.web.app/pricing?checkout=success";
-  const cancelUrl =
-    typeof body.cancelUrl === "string" && body.cancelUrl.startsWith("http")
-      ? body.cancelUrl
-      : "https://sectorcalc-bf412.web.app/pricing?checkout=cancel";
+  const body = (req.body ?? {}) as CheckoutRequestBody;
+  const toolSlug = resolveToolSlug(body);
+  const locale =
+    typeof body.locale === "string" && body.locale.trim().length > 0
+      ? body.locale.trim()
+      : undefined;
 
   const secretKey = stripeSecretKey.value().trim();
-  const priceId = stripeProPriceId.value().trim();
+  const priceId = stripePriceMonthly.value().trim();
+  const siteUrl = publicSiteUrl.value().trim().replace(/\/$/, "");
+
   if (!secretKey || !priceId) {
     sendJson(res, 503, {
       success: false,
@@ -80,33 +90,38 @@ export async function handleCreateStripeCheckout(
       ? userSnap.data()?.subscription?.stripeCustomerId
       : undefined;
 
+  const metadata: Record<string, string> = {
+    uid: authResult.uid,
+    toolSlug,
+  };
+  if (locale) {
+    metadata.locale = locale;
+  }
+
   try {
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: successUrl,
-      cancel_url: cancelUrl,
+      success_url: `${siteUrl}/tools/premium/${encodeURIComponent(toolSlug)}?subscribed=true`,
+      cancel_url: `${siteUrl}/pricing?canceled=true`,
       client_reference_id: authResult.uid,
       customer: existingCustomerId,
-      customer_email: existingCustomerId ? undefined : authResult.email ?? undefined,
-      metadata: {
-        firebaseUID: authResult.uid,
-        plan: "pro",
-      },
+      customer_email: existingCustomerId ? undefined : authResult.email,
+      metadata,
       subscription_data: {
-        metadata: {
-          firebaseUID: authResult.uid,
-          plan: "pro",
-        },
+        metadata,
       },
     });
 
     if (!session.url) {
-      sendJson(res, 500, { success: false, error: "Checkout session missing URL." });
+      sendJson(res, 500, {
+        success: false,
+        error: "Checkout session missing URL.",
+      });
       return;
     }
 
-    sendJson(res, 200, { success: true, url: session.url });
+    sendJson(res, 200, { success: true, checkoutUrl: session.url });
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Unable to create checkout session.";

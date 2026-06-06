@@ -1,9 +1,8 @@
-import { isProSubscriptionActive } from "@/lib/tools/revenue-tools";
 import type { UserSubscription } from "@/lib/subscription/types";
 
 /**
  * Firestore-backed subscription check.
- * Wire Stripe webhook updates to users/{uid}.subscription in a later phase.
+ * Subscription writes happen only via stripeWebhook Cloud Function.
  */
 export function hasActiveSubscription(
   subscription: UserSubscription | null | undefined
@@ -12,10 +11,7 @@ export function hasActiveSubscription(
     return false;
   }
 
-  return isProSubscriptionActive(
-    subscription.status,
-    subscription.currentPeriodEnd
-  );
+  return subscription.status === "active";
 }
 
 /** v1C fallback when no subscription document exists — defaults to paywall. */
@@ -26,8 +22,7 @@ export function hasActiveSubscriptionMock(): boolean {
 export function resolvePremiumToolAccess(
   subscription: UserSubscription | null | undefined
 ): boolean {
-  const active = hasActiveSubscription(subscription);
-  if (active) {
+  if (hasActiveSubscription(subscription)) {
     return true;
   }
   return hasActiveSubscriptionMock();
@@ -35,3 +30,6 @@ export function resolvePremiumToolAccess(
 
 export const PREMIUM_SUBSCRIPTION_NOTE =
   "SectorCalc Pro renews monthly. Digital product. No refunds.";
+
+export const PRICING_CHECKOUT_LEGAL =
+  "Subscription renews monthly. Cancel anytime. Digital product. No refunds. Estimates only; verify before business decisions.";

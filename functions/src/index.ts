@@ -1,8 +1,8 @@
 import { onRequest } from "firebase-functions/v2/https";
 import { handleUpdateLeadPipeline } from "./updateLeadPipelineHandler";
 import { handleUpdateLeadTestClassification } from "./updateLeadTestClassificationHandler";
-import { handleCreateStripeCheckout } from "./createStripeCheckoutHandler";
-import { handleStripeWebhook } from "./stripeWebhookHandler";
+import { handleCreateStripeCheckout } from "./createStripeCheckout";
+import { handleStripeWebhook } from "./stripeWebhook";
 
 export const updateLeadPipeline = onRequest(
   {
