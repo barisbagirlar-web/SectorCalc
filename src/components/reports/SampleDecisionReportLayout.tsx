@@ -1,7 +1,12 @@
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
+import { ScIcon } from "@/components/icons/ScIcon";
+import {
+  STATUS_ICON,
+  TOOL_CATEGORY_ICON,
+} from "@/lib/icons/icon-registry";
 import { SingleVerdictUpsellButton } from "@/components/pricing/PlanCheckoutAction";
+import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
 import {
   SAMPLE_REPORT_DISCLAIMER,
   SAMPLE_REPORT_EXECUTIVE_VERDICT,
@@ -43,7 +48,8 @@ export function SampleDecisionReportLayout() {
 
           <div className="space-y-10 p-6 sm:p-10">
             <article className="sc-card border-soft-red/35 bg-soft-red/[0.04]">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-soft-red">
+              <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-soft-red">
+                <ScIcon icon={STATUS_ICON.doNotAccept} size="compact" className="text-soft-red" />
                 Executive verdict
               </h3>
               <p className="mt-4 text-2xl font-bold text-soft-red sm:text-3xl">
@@ -81,7 +87,8 @@ export function SampleDecisionReportLayout() {
             </article>
 
             <article>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-professional-blue">
+              <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-professional-blue">
+                <ScIcon icon={TOOL_CATEGORY_ICON.cost} size="compact" />
                 Input summary
               </h3>
               <dl className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -100,7 +107,8 @@ export function SampleDecisionReportLayout() {
             </article>
 
             <article className="sc-card border-emerald/30 bg-emerald/[0.04]">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald">
+              <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-emerald">
+                <ScIcon icon={TOOL_CATEGORY_ICON.safePrice} size="compact" className="text-emerald" />
                 Minimum safe price
               </h3>
               <p className="mt-3 text-3xl font-bold text-deep-navy">

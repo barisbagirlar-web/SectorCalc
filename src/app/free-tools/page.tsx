@@ -4,6 +4,8 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { ToolCatalogByCategory } from "@/components/tools/ToolCatalogByCategory";
 import { FreeToolPrivacyNote } from "@/components/tools/FreeToolPrivacyNote";
 import { Container } from "@/components/ui/Container";
+import { IconListItem } from "@/components/icons/ScIcon";
+import { UI_ICON } from "@/lib/icons/icon-registry";
 import { Button } from "@/components/ui/Button";
 import { FREE_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
@@ -55,12 +57,9 @@ export default function FreeToolsPage() {
               <h2 className="text-lg font-bold text-deep-navy">What free tools include</h2>
               <ul className="mt-4 space-y-2.5">
                 {FREE_INCLUDES.map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-slate">
-                    <span className="text-emerald" aria-hidden>
-                      ✓
-                    </span>
+                  <IconListItem key={item} icon={UI_ICON.check} iconClassName="text-emerald">
                     {item}
-                  </li>
+                  </IconListItem>
                 ))}
               </ul>
             </div>
@@ -68,10 +67,9 @@ export default function FreeToolsPage() {
               <h2 className="text-lg font-bold text-deep-navy">What free tools do not include</h2>
               <ul className="mt-4 space-y-2.5">
                 {FREE_EXCLUDES.map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-slate">
-                    <span aria-hidden>○</span>
+                  <IconListItem key={item} icon={UI_ICON.exclude} iconClassName="text-slate">
                     {item}
-                  </li>
+                  </IconListItem>
                 ))}
               </ul>
             </div>

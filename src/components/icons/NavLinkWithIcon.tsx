@@ -1,0 +1,30 @@
+import Link from "next/link";
+import { ScIcon } from "@/components/icons/ScIcon";
+import { resolveNavIcon } from "@/lib/icons/icon-registry";
+
+type NavLinkWithIconProps = {
+  href: string;
+  label: string;
+  className?: string;
+  onClick?: () => void;
+  showIcon?: boolean;
+};
+
+export function NavLinkWithIcon({
+  href,
+  label,
+  className = "",
+  onClick,
+  showIcon = true,
+}: NavLinkWithIconProps) {
+  const Icon = resolveNavIcon(href);
+
+  return (
+    <Link href={href} onClick={onClick} className={`inline-flex items-center gap-2 ${className}`}>
+      {showIcon && Icon ? (
+        <ScIcon icon={Icon} size="compact" className="text-current opacity-80" />
+      ) : null}
+      {label}
+    </Link>
+  );
+}

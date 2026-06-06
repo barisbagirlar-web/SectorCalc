@@ -3,7 +3,11 @@
 import Link from "next/link";
 import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
+import { NavLinkWithIcon } from "@/components/icons/NavLinkWithIcon";
+import { ScIcon } from "@/components/icons/ScIcon";
 import { AUTH_NAV_ITEMS, PUBLIC_NAV_ITEMS } from "@/config/site";
+import { UI_ICON } from "@/lib/icons/icon-registry";
+import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/outline";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { getFreeToolsHref, getPricingHref } from "@/lib/tools/tool-links";
 
@@ -31,13 +35,13 @@ export function DesktopHeaderNav({ theme = "light" }: { theme?: HeaderTheme }) {
       <ul className="flex items-center gap-1">
         {PUBLIC_NAV_ITEMS.map((item) => (
           <li key={item.href}>
-            <Link href={item.href}>{item.label}</Link>
+            <NavLinkWithIcon href={item.href} label={item.label} />
           </li>
         ))}
         {!loading && user
           ? AUTH_NAV_ITEMS.map((item) => (
               <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
+                <NavLinkWithIcon href={item.href} label={item.label} />
               </li>
             ))
           : null}
@@ -61,17 +65,19 @@ export function HeaderActions({ theme = "light" }: { theme?: HeaderTheme }) {
       {!loading && !isActive ? (
         <Link
           href={getPricingHref()}
-          className={`inline-flex min-h-[44px] items-center px-3 text-sm font-semibold ${
+          className={`inline-flex min-h-[44px] items-center gap-1.5 px-3 text-sm font-semibold ${
             isLight ? "text-professional-blue hover:text-blue-700" : "text-cyan hover:text-white"
           }`}
         >
+          <ScIcon icon={UI_ICON.security} size="compact" className="text-current" />
           Unlock Pro
         </Link>
       ) : null}
       <Link
         href={getFreeToolsHref()}
-        className="sc-btn-primary !min-h-[44px] !px-4 !text-sm"
+        className="sc-btn-primary inline-flex !min-h-[44px] items-center gap-2 !px-4 !text-sm"
       >
+        <ScIcon icon={MagnifyingGlassCircleIcon} size="compact" className="text-white" />
         Run Free Check
       </Link>
     </div>
@@ -85,25 +91,23 @@ export function MobileHeaderNav({ theme = "light", onNavigate }: HeaderNavProps)
     <>
       {PUBLIC_NAV_ITEMS.map((item) => (
         <li key={item.href}>
-          <Link
+          <NavLinkWithIcon
             href={item.href}
+            label={item.label}
             onClick={onNavigate}
             className={navLinkClass(theme, true)}
-          >
-            {item.label}
-          </Link>
+          />
         </li>
       ))}
       {!loading && user
         ? AUTH_NAV_ITEMS.map((item) => (
             <li key={item.href}>
-              <Link
+              <NavLinkWithIcon
                 href={item.href}
+                label={item.label}
                 onClick={onNavigate}
                 className={navLinkClass(theme, true)}
-              >
-                {item.label}
-              </Link>
+              />
             </li>
           ))
         : null}
@@ -116,10 +120,15 @@ export function MobileHeaderNav({ theme = "light", onNavigate }: HeaderNavProps)
         <Link
           href={getFreeToolsHref()}
           onClick={onNavigate}
-          className={`block min-h-[44px] py-3 text-sm font-semibold ${
+          className={`inline-flex min-h-[44px] items-center gap-2 py-3 text-sm font-semibold ${
             theme === "light" ? "text-professional-blue" : "text-cyan"
           }`}
         >
+          <ScIcon
+            icon={MagnifyingGlassCircleIcon}
+            size="compact"
+            className={theme === "light" ? "text-professional-blue" : "text-cyan"}
+          />
           Run Free Check
         </Link>
       </li>

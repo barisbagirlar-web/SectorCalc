@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
+import { IconListItem } from "@/components/icons/ScIcon";
+import { UI_ICON } from "@/lib/icons/icon-registry";
 import { SECTORCALC_PRO_PRICE_LABEL } from "@/lib/pricing/sectorcalc-pro";
 import { getFreeToolHref, getPricingHref } from "@/lib/tools/tool-links";
 import type { RevenueTool } from "@/lib/tools/revenue-tools";
@@ -42,12 +44,9 @@ export function PremiumPaywall({ tool, toolSlug, pricingHref }: PremiumPaywallPr
       </p>
       <ul className="mt-5 space-y-2">
         {PAYWALL_BULLETS.map((bullet) => (
-          <li key={bullet} className="flex gap-2 text-sm text-deep-navy">
-            <span className="text-emerald" aria-hidden>
-              ✓
-            </span>
+          <IconListItem key={bullet} icon={UI_ICON.check} iconClassName="text-emerald">
             {bullet}
-          </li>
+          </IconListItem>
         ))}
       </ul>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

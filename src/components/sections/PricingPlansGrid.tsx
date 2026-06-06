@@ -8,7 +8,8 @@ import {
   PlanAvailabilityBadge,
   PlanCheckoutAction,
 } from "@/components/pricing/PlanCheckoutAction";
-import { Container } from "@/components/ui/Container";
+import { IconListItem } from "@/components/icons/ScIcon";
+import { UI_ICON } from "@/lib/icons/icon-registry";
 import {
   REVENUE_EVENTS,
   trackRevenueEvent,
@@ -22,6 +23,7 @@ import { PRICING_REFUND_POLICY } from "@/lib/pricing/plan-catalog";
 import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
 import { getSampleReportHref } from "@/lib/tools/tool-links";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import {
@@ -152,31 +154,24 @@ export function PricingPlansGrid({
               </p>
               <ul className="mt-6 flex-1 space-y-2.5">
                 {plan.features.map((feature) => (
-                  <li
+                  <IconListItem
                     key={feature}
-                    className={`flex gap-2 text-sm ${
-                      plan.highlighted ? "text-slate-200" : "text-deep-navy"
-                    }`}
+                    icon={UI_ICON.check}
+                    iconClassName={plan.highlighted ? "text-cyan" : "text-emerald"}
+                    className={plan.highlighted ? "text-slate-200" : "text-deep-navy"}
                   >
-                    <span
-                      className={plan.highlighted ? "text-cyan" : "text-emerald"}
-                      aria-hidden
-                    >
-                      ✓
-                    </span>
                     {feature}
-                  </li>
+                  </IconListItem>
                 ))}
                 {plan.comingSoonFeatures?.map((feature) => (
-                  <li
+                  <IconListItem
                     key={feature}
-                    className={`flex gap-2 text-sm ${
-                      plan.highlighted ? "text-slate-400" : "text-slate"
-                    }`}
+                    icon={UI_ICON.exclude}
+                    iconClassName={plan.highlighted ? "text-slate-400" : "text-slate"}
+                    className={plan.highlighted ? "text-slate-400" : "text-slate"}
                   >
-                    <span aria-hidden>○</span>
                     {feature}
-                  </li>
+                  </IconListItem>
                 ))}
               </ul>
               {plan.id === "free" && plan.primaryHref ? (

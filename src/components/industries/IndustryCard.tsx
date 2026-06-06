@@ -1,8 +1,14 @@
 import Link from "next/link";
 import type { Industry } from "@/data/industries";
+import { getIndustryBySlug } from "@/data/industries";
+import { ScIcon } from "@/components/icons/ScIcon";
+import { SectorIcon } from "@/components/icons/SectorIcon";
+import { STATUS_ICON, STATUS_COLOR_CLASS, UI_ICON } from "@/lib/icons/icon-registry";
 import {
   INDUSTRY_CATEGORY_LABELS,
   type IndustryCategory,
+  type IndustryIcon,
+  type IndustrySlug,
 } from "@/lib/tools/industry-registry";
 import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
 
@@ -34,6 +40,8 @@ function ToolRow({ label, tone, tool, href }: ToolRowProps) {
     tone === "free"
       ? "bg-emerald/10 text-emerald ring-emerald/20"
       : "bg-amber/15 text-amber ring-amber/25";
+  const TierIcon = tone === "free" ? STATUS_ICON.free : STATUS_ICON.premium;
+  const tierColor = tone === "free" ? STATUS_COLOR_CLASS.free : STATUS_COLOR_CLASS.premium;
 
   return (
     <Link
@@ -42,8 +50,9 @@ function ToolRow({ label, tone, tool, href }: ToolRowProps) {
     >
       <div className="min-w-0 flex-1">
         <span
-          className={`inline-flex rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] ring-1 ${badgeClass}`}
+          className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] ring-1 ${badgeClass}`}
         >
+          <ScIcon icon={TierIcon} size="compact" className={tierColor} />
           {label}
         </span>
         <h4 className="mt-2 break-words text-sm font-bold leading-snug text-deep-navy line-clamp-2 group-hover/tool:text-professional-blue">
@@ -53,12 +62,11 @@ function ToolRow({ label, tone, tool, href }: ToolRowProps) {
           {tool.description}
         </p>
       </div>
-      <span
-        className="mt-7 shrink-0 text-sm font-semibold text-professional-blue transition group-hover/tool:translate-x-0.5"
-        aria-hidden
-      >
-        →
-      </span>
+      <ScIcon
+        icon={UI_ICON.chevronRight}
+        size="compact"
+        className="mt-7 shrink-0 text-professional-blue transition group-hover/tool:translate-x-0.5"
+      />
     </Link>
   );
 }
@@ -75,6 +83,7 @@ export function IndustryCard({
   const sectorHref = `/industries/${slug}`;
   const freeHref = `/tools/free/${freeTool.slug}`;
   const premiumHref = `/tools/premium/${premiumTool.slug}`;
+  const iconType: IndustryIcon = getIndustryBySlug(slug as IndustrySlug)?.icon ?? "manufacturing";
 
   return (
     <article
@@ -85,9 +94,14 @@ export function IndustryCard({
       }`}
     >
       <div className="flex items-start justify-between gap-3">
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-professional-blue">
-          Sector pack
-        </p>
+        <div className="flex items-center gap-3">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate/15 bg-off-white">
+            <SectorIcon slug={slug} iconType={iconType} size="default" />
+          </span>
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-professional-blue">
+            Sector pack
+          </p>
+        </div>
         {category ? (
           <span className="shrink-0 rounded-full bg-off-white px-2.5 py-1 text-[10px] font-semibold text-slate ring-1 ring-slate/15">
             {category}
@@ -136,9 +150,10 @@ export function IndustryCard({
         </div>
         <Link
           href={sectorHref}
-          className="mt-4 inline-flex min-h-[44px] items-center text-sm font-semibold text-slate transition hover:text-professional-blue focus-visible:outline-none focus-visible:underline"
+          className="mt-4 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-semibold text-slate transition hover:text-professional-blue focus-visible:outline-none focus-visible:underline"
         >
-          Open sector hub →
+          Open sector hub
+          <ScIcon icon={UI_ICON.chevronRight} size="compact" className="text-current" />
         </Link>
       </div>
     </article>

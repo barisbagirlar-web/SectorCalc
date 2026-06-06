@@ -5,6 +5,7 @@ import { useMemo, useRef, useState, type FormEvent } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { FieldHint } from "@/components/ui/FieldHint";
+import { StatusIconBadge } from "@/components/icons/ScIcon";
 import {
   REVENUE_EVENTS,
   trackRevenueEvent,
@@ -211,14 +212,17 @@ function FreeToolResultCard({
       <p className="text-sm font-semibold text-emerald dark:text-emerald">
         Risk analysis complete.
       </p>
-      <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate">
-        Visible risk —{" "}
-        {result.riskLevel === "HIGH"
-          ? "HIGH RISK"
-          : result.riskLevel === "LOW"
-            ? "LOW RISK"
-            : "MEDIUM RISK"}
-      </p>
+      <StatusIconBadge
+        status={result.riskLevel === "HIGH" ? "highRisk" : result.riskLevel === "LOW" ? "safe" : "review"}
+        label={
+          result.riskLevel === "HIGH"
+            ? "HIGH RISK"
+            : result.riskLevel === "LOW"
+              ? "LOW RISK"
+              : "MEDIUM RISK"
+        }
+        className="mt-3"
+      />
       <p className={`mt-2 text-2xl font-bold ${styles.text}`}>{result.riskLevel}</p>
       <h3 className="mt-4 text-lg font-semibold text-deep-navy dark:text-off-white">
         {result.headline}

@@ -1,5 +1,34 @@
 import Link from "next/link";
+import { FeatureIconHeader, IconListItem, ScIcon, StatusIconBadge } from "@/components/icons/ScIcon";
+import {
+  PAIN_RISK_ICONS,
+  STATUS_ICON,
+  TOOL_CATEGORY_ICON,
+  UI_ICON,
+} from "@/lib/icons/icon-registry";
+import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { getFreeToolsHref, getPremiumToolsHref } from "@/lib/tools/tool-links";
+
+const PAIN_ITEMS = [
+  {
+    icon: PAIN_RISK_ICONS.material,
+    iconClass: "text-professional-blue",
+    title: "Material cost risk",
+    text: "Setup time, rework and hidden labor erode margin after the estimate looks fine.",
+  },
+  {
+    icon: PAIN_RISK_ICONS.labor,
+    iconClass: "text-amber",
+    title: "Labor & time risk",
+    text: "Free checks expose visible risk — premium analyzers deliver the full verdict.",
+  },
+  {
+    icon: PAIN_RISK_ICONS.overhead,
+    iconClass: "text-soft-red",
+    title: "Overhead & scope risk",
+    text: "No ERP rollout, no consulting retainer — built for shops, trades and service teams.",
+  },
+] as const;
 
 export function HomeTrustStrip() {
   return (
@@ -20,10 +49,17 @@ export function HomePainSection() {
           with sector-specific risk signals, verdict reports and suggested actions before you
           send the bid.
         </p>
-        <ul className="mc-home-pain-list">
-          <li>Setup time, rework and hidden labor erode margin after the estimate looks fine.</li>
-          <li>Free checks expose visible risk — premium analyzers deliver the full verdict.</li>
-          <li>No ERP rollout, no consulting retainer — built for shops, trades and service teams.</li>
+        <ul className="mc-home-pain-list mt-8 grid gap-4 md:grid-cols-3">
+          {PAIN_ITEMS.map((item) => (
+            <li key={item.title} className="sc-card">
+              <FeatureIconHeader
+                icon={item.icon}
+                iconClassName={item.iconClass}
+                title={item.title}
+                subtitle={item.text}
+              />
+            </li>
+          ))}
         </ul>
       </div>
     </section>
@@ -47,7 +83,7 @@ export function HomeFreeCheckSection() {
             </Link>
           </div>
           <div className="mc-home-conversion-card">
-            <p className="text-xs font-bold uppercase tracking-wider text-emerald">Free check output</p>
+            <StatusIconBadge status="free" label="Free check output" />
             <p className="mt-3 text-lg font-bold text-deep-navy">Risk signal: MEDIUM</p>
             <p className="mt-2 text-sm leading-relaxed text-slate">
               Visible setup and labor exposure — full safe price withheld on free tier.
@@ -95,7 +131,10 @@ export function HomeSampleVerdictSection() {
       aria-labelledby="home-sample-heading"
     >
       <div className="container">
-        <p className="mc-home-conversion-eyebrow">Sample verdict report</p>
+        <p className="mc-home-conversion-eyebrow flex items-center justify-center gap-2">
+          <ScIcon icon={DocumentMagnifyingGlassIcon} size="compact" className="text-professional-blue" />
+          Sample verdict report
+        </p>
         <h2 id="home-sample-heading" className="sc-h2">
           CNC Quote Risk Report
         </h2>
@@ -110,7 +149,10 @@ export function HomeSampleVerdictSection() {
             </strong>
           </div>
           <div className="mc-home-sample-verdict-row">
-            <span className="mc-home-sample-label">Margin risk</span>
+            <span className="mc-home-sample-label flex items-center gap-1.5">
+              <ScIcon icon={STATUS_ICON.highRisk} size="compact" className="text-soft-red" />
+              Margin risk
+            </span>
             <strong className="mc-home-sample-value">HIGH RISK</strong>
           </div>
           <div className="mc-home-sample-verdict-row">
@@ -150,24 +192,40 @@ export function HomeFreeVsProSection() {
         </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           <article className="sc-card sc-card-interactive">
-            <p className="sc-eyebrow text-emerald">Free check</p>
-            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate dark:text-slate-300">
-              <li>Visible risk signal in your browser</li>
-              <li>Direct cost exposure indicators</li>
-              <li>No PDF export</li>
-              <li>No saved report history</li>
+            <StatusIconBadge status="free" label="Free check" className="mb-4" />
+            <ul className="space-y-3 text-sm leading-relaxed text-slate dark:text-slate-300">
+              <IconListItem icon={STATUS_ICON.free} iconClassName="text-emerald">
+                Visible risk signal in your browser
+              </IconListItem>
+              <IconListItem icon={TOOL_CATEGORY_ICON.margin} iconClassName="text-emerald">
+                Direct cost exposure indicators
+              </IconListItem>
+              <IconListItem icon={UI_ICON.exclude} iconClassName="text-slate">
+                No PDF export
+              </IconListItem>
+              <IconListItem icon={UI_ICON.exclude} iconClassName="text-slate">
+                No saved report history
+              </IconListItem>
             </ul>
             <Link href={getFreeToolsHref()} className="sc-btn-secondary mt-6 w-full sm:w-auto">
               Run Free Margin Check
             </Link>
           </article>
           <article className="sc-card sc-card-interactive border-amber/30">
-            <p className="sc-eyebrow text-amber">Pro verdict</p>
-            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate dark:text-slate-300">
-              <li>Minimum safe price</li>
-              <li>Margin leak breakdown</li>
-              <li>Accept / Reprice / Do Not Accept verdict</li>
-              <li>PDF-ready report and saved history</li>
+            <StatusIconBadge status="premium" label="Pro verdict" className="mb-4" />
+            <ul className="space-y-3 text-sm leading-relaxed text-slate dark:text-slate-300">
+              <IconListItem icon={TOOL_CATEGORY_ICON.safePrice} iconClassName="text-amber">
+                Minimum safe price
+              </IconListItem>
+              <IconListItem icon={TOOL_CATEGORY_ICON.risk} iconClassName="text-amber">
+                Margin leak breakdown
+              </IconListItem>
+              <IconListItem icon={TOOL_CATEGORY_ICON.quote} iconClassName="text-amber">
+                Accept / Reprice / Do Not Accept verdict
+              </IconListItem>
+              <IconListItem icon={TOOL_CATEGORY_ICON.export} iconClassName="text-amber">
+                PDF-ready report and saved history
+              </IconListItem>
             </ul>
             <Link href={getPremiumToolsHref()} className="sc-btn-primary mt-6 w-full sm:w-auto">
               View Premium Verdicts

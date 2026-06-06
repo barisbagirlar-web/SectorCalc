@@ -4,6 +4,8 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { ToolCatalogByCategory } from "@/components/tools/ToolCatalogByCategory";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { Container } from "@/components/ui/Container";
+import { IconListItem } from "@/components/icons/ScIcon";
+import { STATUS_ICON } from "@/lib/icons/icon-registry";
 import { Button } from "@/components/ui/Button";
 import { PREMIUM_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
@@ -88,12 +90,9 @@ export default function PremiumToolsPage() {
               </span>
               <ul className="mt-4 space-y-2.5">
                 {FREE_VS_PREMIUM.free.map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-slate">
-                    <span className="text-emerald" aria-hidden>
-                      ✓
-                    </span>
+                  <IconListItem key={item} icon={STATUS_ICON.free} iconClassName="text-emerald">
                     {item}
-                  </li>
+                  </IconListItem>
                 ))}
               </ul>
               <Link
@@ -109,12 +108,9 @@ export default function PremiumToolsPage() {
               </span>
               <ul className="mt-4 space-y-2.5">
                 {FREE_VS_PREMIUM.premium.map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-deep-navy">
-                    <span className="text-amber" aria-hidden>
-                      ✓
-                    </span>
+                  <IconListItem key={item} icon={STATUS_ICON.premium} iconClassName="text-amber">
                     {item}
-                  </li>
+                  </IconListItem>
                 ))}
               </ul>
               <p className="mt-4 text-sm font-semibold text-deep-navy">

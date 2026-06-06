@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 import { MobileHeaderNav } from "@/components/layout/HeaderNav";
+import { ScIcon } from "@/components/icons/ScIcon";
+import { UI_ICON } from "@/lib/icons/icon-registry";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { getPricingHref } from "@/lib/tools/tool-links";
 import Link from "next/link";
@@ -31,9 +33,7 @@ export function MobileNav({ theme = "light" }: MobileNavProps) {
         }`}
         aria-label="Open menu"
       >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-          <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
-        </svg>
+        <ScIcon icon={UI_ICON.menu} size="default" className="text-current" />
       </summary>
       <ul
         className={`absolute left-0 right-0 top-full z-50 border-b bg-white px-4 py-3 shadow-lg dark:bg-slate-900 ${

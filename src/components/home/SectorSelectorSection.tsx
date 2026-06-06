@@ -1,101 +1,12 @@
 import Link from "next/link";
-import type { SVGProps } from "react";
 import { FEATURED_INDUSTRY_SLUGS } from "@/lib/tools/industry-registry";
-import { getIndustryBySlug, type IndustryIcon } from "@/data/industries";
+import { getIndustryBySlug } from "@/data/industries";
 import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
 import { getFreeToolHref, getPremiumToolHref } from "@/lib/tools/tool-links";
-
-const iconSvgProps: SVGProps<SVGSVGElement> = {
-  className: "h-8 w-8",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg",
-  "aria-hidden": true,
-};
-
-function SectorIcon({ name }: { name: IndustryIcon }) {
-  if (name === "construction") {
-    return (
-      <svg {...iconSvgProps}>
-        <path
-          d="M4 20h16M6 20V9l6-4 6 4v11M8 20v-7h8v7M9 9h6M12 5v4"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  }
-
-  if (name === "cleaning") {
-    return (
-      <svg {...iconSvgProps}>
-        <path
-          d="M8 4h8M12 4v10M7 20h10M9 14h6l1 6H8l1-6ZM5 9h4M15 9h4"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  }
-
-  if (name === "restaurant") {
-    return (
-      <svg {...iconSvgProps}>
-        <path
-          d="M4 19h16M6 15a6 6 0 0 1 12 0H6ZM12 7V4M8 4v5M16 4v5"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  }
-
-  if (name === "ecommerce") {
-    return (
-      <svg {...iconSvgProps}>
-        <path
-          d="M5 6h2l2 10h8l2-7H8M10 20h.01M17 20h.01M9 10h10"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  }
-
-  if (name === "trades" || name === "field-service" || name === "custom") {
-    return (
-      <svg {...iconSvgProps}>
-        <path
-          d="M4 19h16M8 19V9l4-3 4 3v10M10 13h4M12 6v3"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  }
-
-  return (
-    <svg {...iconSvgProps}>
-      <path
-        d="M4 19h16M6 19V8h5v11M13 19V5h5v14M8 11h1M8 14h1M15 8h1M15 11h1M15 14h1"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+import { SectorIcon } from "@/components/icons/SectorIcon";
+import { ScIcon } from "@/components/icons/ScIcon";
+import { STATUS_ICON, STATUS_COLOR_CLASS } from "@/lib/icons/icon-registry";
+import type { IndustryIcon } from "@/lib/tools/industry-registry";
 
 function ToolLine({
   label,
@@ -109,13 +20,16 @@ function ToolLine({
   const badgeClass =
     variant === "free"
       ? "border-cyan/25 bg-cyan/10 text-professional-blue"
-      : "border-emerald/25 bg-emerald/10 text-emerald";
+      : "border-amber/25 bg-amber/10 text-amber";
+  const TierIcon = variant === "free" ? STATUS_ICON.free : STATUS_ICON.premium;
+  const tierColor = variant === "free" ? STATUS_COLOR_CLASS.free : STATUS_COLOR_CLASS.premium;
 
   return (
     <div className="grid grid-cols-[88px_1fr] items-start gap-3">
       <span
-        className={`inline-flex h-7 items-center justify-center rounded-full border px-3 text-xs font-semibold ${badgeClass}`}
+        className={`inline-flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-xs font-semibold ${badgeClass}`}
       >
+        <ScIcon icon={TierIcon} size="compact" className={tierColor} />
         {label}
       </span>
       <span className="min-w-0 text-sm leading-7 text-slate">{value}</span>
@@ -131,6 +45,7 @@ function SectorCardItem({
   freeHref,
   premiumHref,
   icon,
+  slug,
 }: {
   title: string;
   painStatement: string;
@@ -139,12 +54,13 @@ function SectorCardItem({
   freeHref: string;
   premiumHref: string;
   icon: IndustryIcon;
+  slug: string;
 }) {
   return (
     <article className="group flex h-full flex-col rounded-[28px] border border-slate/15 bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-professional-blue/25 hover:shadow-[0_24px_70px_rgba(15,23,42,0.10)]">
       <div className="flex gap-4">
-        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-cyan/20 bg-off-white text-professional-blue">
-          <SectorIcon name={icon} />
+        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-cyan/20 bg-off-white">
+          <SectorIcon slug={slug} iconType={icon} />
         </div>
 
         <div className="min-w-0">
@@ -192,6 +108,7 @@ const sectorCards = FEATURED_INDUSTRY_SLUGS.map((slug) => {
     freeHref: tool ? getFreeToolHref(tool) : `/industries/${slug}`,
     premiumHref: tool ? getPremiumToolHref(tool) : `/pricing`,
     icon: industry?.icon ?? "manufacturing",
+    slug,
   };
 });
 

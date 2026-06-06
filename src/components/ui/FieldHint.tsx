@@ -22,7 +22,7 @@ export function FieldHint({ text }: FieldHintProps) {
         onClick={() => setOpen((value) => !value)}
         onBlur={() => setOpen(false)}
       >
-        <QuestionMarkCircleIcon className="h-5 w-5" strokeWidth={1.5} aria-hidden />
+        <QuestionMarkCircleIcon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
       </button>
       {open ? (
         <span
