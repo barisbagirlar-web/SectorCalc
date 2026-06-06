@@ -37,6 +37,21 @@ const DownloadVerdictPdfButton = dynamic(
   }
 );
 
+const SaveVerdictReportButton = dynamic(
+  () =>
+    import("@/components/reports/SaveVerdictReportButton").then(
+      (mod) => mod.SaveVerdictReportButton
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <span className="inline-flex min-h-[44px] items-center text-sm text-slate">
+        Loading save…
+      </span>
+    ),
+  }
+);
+
 const severityStyles: Record<
   PremiumSeverity,
   { border: string; bg: string; verdict: string }
@@ -368,12 +383,20 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
                         result={result}
                         legalDisclaimer={legalDisclaimer}
                       />
-                      <div className="mt-4">
+                      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start">
                         <DownloadVerdictPdfButton
                           data={verdictReportData}
                           slug={tool.paidSlug}
                           severity={result.severity}
                         />
+                        {user ? (
+                          <SaveVerdictReportButton
+                            uid={user.uid}
+                            tool={tool}
+                            values={values}
+                            result={result}
+                          />
+                        ) : null}
                       </div>
                     </>
                   ) : (

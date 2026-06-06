@@ -33,6 +33,16 @@ service cloud.firestore {
       allow read: if request.auth != null && request.auth.uid == userId;
       allow write: if false;
     }
+
+    match /reports/{reportId} {
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid;
+
+      allow read: if request.auth != null
+        && resource.data.uid == request.auth.uid;
+
+      allow update, delete: if false;
+    }
   }
 }
 
