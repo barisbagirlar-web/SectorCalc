@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { PREMIUM_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
-import { getFreeToolsHref, getPricingHref } from "@/lib/tools/tool-links";
+import { getFreeToolsHref, getPricingHref, getSampleReportHref } from "@/lib/tools/tool-links";
 import { revenueTools, sectorCalcProPricing } from "@/lib/tools/revenue-tools";
 
 export const metadata: Metadata = createPageMetadata({
@@ -69,6 +69,11 @@ export default function PremiumToolsPage() {
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
             Verdict engines for safe price, bid risk and margin leak decisions — built for real
             sector workflows, not generic calculators.
+          </p>
+          <p className="mt-4 text-sm">
+            <Link href={getSampleReportHref()} className="font-semibold text-professional-blue hover:underline">
+              View sample verdict report →
+            </Link>
           </p>
         </Container>
       </section>
@@ -177,6 +182,12 @@ export default function PremiumToolsPage() {
               <Button href={getPricingHref()} variant="primary" size="lg">
                 View pricing — ${sectorCalcProPricing.priceMonthly}/month
               </Button>
+              <Link
+                href={getSampleReportHref()}
+                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-professional-blue hover:underline"
+              >
+                Sample verdict report →
+              </Link>
               <Link
                 href="/industries"
                 className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-professional-blue"

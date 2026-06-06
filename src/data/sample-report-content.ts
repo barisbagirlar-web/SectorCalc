@@ -1,86 +1,91 @@
-export interface SampleReportKpi {
-  id: string;
-  label: string;
-  value: string;
-  tone: "neutral" | "success" | "warning" | "danger";
-}
+/** CNC Quote Risk Report — premium decision report showcase (illustrative). */
 
-export const SAMPLE_REPORT_KPIS: SampleReportKpi[] = [
-  {
-    id: "min-quote",
-    label: "Minimum safe quote",
-    value: "$4,280",
-    tone: "success",
-  },
-  {
-    id: "risk",
-    label: "Risk level",
-    value: "Moderate risk",
-    tone: "warning",
-  },
-  {
-    id: "margin",
-    label: "Target margin",
-    value: "28%",
-    tone: "neutral",
-  },
-  {
-    id: "setup-share",
-    label: "Setup cost share",
-    value: "31%",
-    tone: "warning",
-  },
-];
+export const SAMPLE_REPORT_TITLE = "CNC Quote Risk Report";
 
-export const SAMPLE_REPORT_EXECUTIVE_SUMMARY =
-  "For a batch of 10 CNC parts at 28% target margin, the minimum safe quote is $4,280 ($428 per unit). Direct cost before margin is $3,347 with $933 gross profit at the target margin. The job is structurally acceptable if setup time and scrap assumptions hold.";
+export const SAMPLE_REPORT_VERDICT = "DO NOT ACCEPT UNDER $1,840";
 
-export const SAMPLE_REPORT_KEY_FINDINGS = [
-  "Productive machine time totals 4.5 hours (setup 1.5 h + cycle 3.0 h).",
-  "Setup cost represents 31% of direct cost — small batches amplify setup exposure.",
-  "Scrap at 5% adds an estimated $9 material impact on this job.",
-  "Break-even quote (no margin) is $3,347; target margin requires $4,280.",
-];
+export const SAMPLE_REPORT_MARGIN_RISK = "HIGH";
+
+export const SAMPLE_REPORT_MAIN_LEAK = "Setup time + tooling buffer";
+
+export const SAMPLE_REPORT_SUGGESTED_ACTION =
+  "Reprice or reduce scope before sending the quote.";
+
+export const SAMPLE_REPORT_EXECUTIVE_VERDICT = `The quoted job at $1,520 falls below the minimum safe price floor of $1,840. Margin risk is HIGH — setup time and tooling buffer consume disproportionate share of direct cost on this one-off run. Do not accept the work at the current quote without repricing or reducing scope.`;
+
+export const SAMPLE_REPORT_INPUT_SUMMARY = [
+  { label: "Quoted price", value: "$1,520" },
+  { label: "Quantity", value: "8 parts" },
+  { label: "Setup time", value: "2.5 hours" },
+  { label: "Cycle time per part", value: "18 minutes" },
+  { label: "Machine rate", value: "$95/hour" },
+  { label: "Material cost", value: "$186" },
+  { label: "Tooling / consumables", value: "$74" },
+  { label: "Target margin", value: "28%" },
+] as const;
+
+export const SAMPLE_REPORT_MINIMUM_SAFE_PRICE = {
+  amount: "$1,840",
+  perUnit: "$230/part",
+  note: "Floor price at 28% target margin after setup, tooling buffer and scrap allowance.",
+};
+
+export const SAMPLE_REPORT_MARGIN_LEAKS = [
+  {
+    driver: "Setup time concentration",
+    impact: "Setup represents 38% of direct machine cost on an 8-part batch.",
+    severity: "high" as const,
+  },
+  {
+    driver: "Tooling buffer underpriced",
+    impact: "Tool changes and first-piece prove-out not fully reflected in quote.",
+    severity: "high" as const,
+  },
+  {
+    driver: "Scrap allowance",
+    impact: "5% scrap on tight-tolerance work adds $12 material exposure.",
+    severity: "medium" as const,
+  },
+  {
+    driver: "Rush scheduling pressure",
+    impact: "Expedited slot may require overtime rate not in base quote.",
+    severity: "medium" as const,
+  },
+] as const;
 
 export const SAMPLE_REPORT_SCENARIOS = [
   {
-    label: "Low margin scenario",
-    margin: "18%",
-    quote: "$4,082",
-    unit: "$408",
-    profit: "$735",
+    label: "Current quote (at risk)",
+    quote: "$1,520",
+    margin: "12%",
+    verdict: "DO NOT ACCEPT",
+    tone: "danger" as const,
   },
   {
-    label: "Base scenario",
+    label: "Minimum safe price",
+    quote: "$1,840",
     margin: "28%",
-    quote: "$4,280",
-    unit: "$428",
-    profit: "$933",
+    verdict: "REPRICE TO THIS FLOOR",
+    tone: "warning" as const,
   },
   {
     label: "Strong margin scenario",
+    quote: "$2,040",
     margin: "38%",
-    quote: "$4,528",
-    unit: "$453",
-    profit: "$1,181",
+    verdict: "SAFE TO QUOTE",
+    tone: "success" as const,
   },
-];
+] as const;
 
-export const SAMPLE_REPORT_RISK =
-  "Moderate risk — review setup cost, scrap allowance and margin before sending the quote.";
-
-export const SAMPLE_REPORT_RECOMMENDATION =
-  "The job may be acceptable, but the quote should include a margin buffer for setup and scrap variation. Confirm material price stability and first-piece approval time before commitment.";
-
-export const SAMPLE_REPORT_ASSUMPTIONS =
-  "This sample is illustrative and based on hypothetical CNC job inputs. It does not replace professional cost accounting, contractual review or shop-floor validation. Paid export and saved calculations are not yet available in the MVP.";
+export const SAMPLE_REPORT_DISCLAIMER =
+  "This sample report is illustrative and based on hypothetical CNC job inputs. It demonstrates premium verdict structure — not a live calculation from your data. SectorCalc outputs are decision-support simulations, not financial, legal or engineering advice. Verify all numbers before commercial commitments.";
 
 export const SAMPLE_REPORT_INCLUDES = [
-  "Executive summary tailored to your inputs",
-  "Key findings with cost drivers and thresholds",
-  "Scenario analysis (low, base, strong margin or return assumptions)",
-  "Structured risk level and verdict",
-  "Actionable recommendation for operators and advisors",
-  "Assumptions and limitations for client-ready context",
-  "Export package (PDF, Excel, Word) — coming soon",
-];
+  "Executive verdict with accept / reprice / reject signal",
+  "Structured input summary",
+  "Minimum safe price floor",
+  "Margin leak diagnosis with cost drivers",
+  "Scenario comparison at multiple margin targets",
+  "Suggested action for operators and estimators",
+  "PDF-ready export for internal review",
+] as const;

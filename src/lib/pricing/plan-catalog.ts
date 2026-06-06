@@ -1,0 +1,78 @@
+/**
+ * Canonical paid plan IDs for UI and checkout routing.
+ * Only `pro` has live Stripe checkout; others use waitlist / lead capture until enabled.
+ */
+
+export type CheckoutPlanId =
+  | "pro"
+  | "single_verdict"
+  | "pro_annual"
+  | "team";
+
+export type PlanAvailability = "live" | "waitlist";
+
+export interface PlanCatalogEntry {
+  id: CheckoutPlanId | "free" | "consultant_api";
+  name: string;
+  priceLabel: string;
+  period?: string;
+  availability: PlanAvailability;
+  stripeCheckout: boolean;
+}
+
+export const PLAN_CATALOG: Record<CheckoutPlanId | "free" | "consultant_api", PlanCatalogEntry> = {
+  free: {
+    id: "free",
+    name: "Free Check",
+    priceLabel: "$0",
+    period: "forever",
+    availability: "live",
+    stripeCheckout: false,
+  },
+  single_verdict: {
+    id: "single_verdict",
+    name: "Single Verdict",
+    priceLabel: "$19",
+    period: "one report",
+    availability: "waitlist",
+    stripeCheckout: false,
+  },
+  pro: {
+    id: "pro",
+    name: "Pro Monthly",
+    priceLabel: "$29/month",
+    period: "billed monthly",
+    availability: "live",
+    stripeCheckout: true,
+  },
+  pro_annual: {
+    id: "pro_annual",
+    name: "Pro Annual",
+    priceLabel: "$249/year",
+    period: "billed annually",
+    availability: "waitlist",
+    stripeCheckout: false,
+  },
+  team: {
+    id: "team",
+    name: "Team",
+    priceLabel: "$99/month",
+    period: "per month",
+    availability: "waitlist",
+    stripeCheckout: false,
+  },
+  consultant_api: {
+    id: "consultant_api",
+    name: "Consultant / API",
+    priceLabel: "Waitlist",
+    period: "custom",
+    availability: "waitlist",
+    stripeCheckout: false,
+  },
+};
+
+export const SINGLE_VERDICT_PRICE = 19;
+export const SINGLE_VERDICT_CTA = `Get Full Verdict for $${SINGLE_VERDICT_PRICE}`;
+
+export const PRICING_REFUND_POLICY =
+  "SectorCalc Pro is a digital subscription billed through Stripe. You can cancel anytime from your account or Stripe customer portal — access continues through the current billing period. Single verdict and annual plans are digital products with no guaranteed refunds; contact support if billing was made in error. Outputs are estimates only — not financial, legal or engineering advice.";

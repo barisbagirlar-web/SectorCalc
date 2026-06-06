@@ -1,41 +1,34 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
-import PageHero from "@/components/shared/PageHero";
 import { Container } from "@/components/ui/Container";
 import { SampleDecisionReportLayout } from "@/components/reports/SampleDecisionReportLayout";
 import { CTASection } from "@/components/sections/CTASection";
+import { SAMPLE_REPORT_INCLUDES } from "@/data/sample-report-content";
 import { createPageMetadata } from "@/lib/metadata";
-
-const REPORT_INCLUDES = [
-  "Executive summary",
-  "Input assumptions",
-  "Key metrics",
-  "Scenario analysis",
-  "Risk level",
-  "Recommendation",
-  "Export-ready structure (preview in MVP)",
-] as const;
+import { getFreeToolsHref, getPricingHref } from "@/lib/tools/tool-links";
+import { SINGLE_VERDICT_CTA } from "@/lib/pricing/plan-catalog";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Sample Decision Report",
+  title: "Sample Verdict Report — CNC Quote Risk",
   description:
-    "See why premium SectorCalc reports matter — executive summary, scenarios, risk level and recommendations in a decision-ready format, not just calculator output.",
+    "Preview a premium SectorCalc verdict report: executive verdict, minimum safe price, margin leak diagnosis, scenarios and suggested action.",
   path: "/reports/sample-decision-report",
 });
 
 export default function SampleDecisionReportPage() {
   return (
     <PageLayout>
-      <PageHero
-        eyebrow="Reports"
-        title="Decision reports for real operating questions"
-        description="Turn cost, pricing, capacity and margin inputs into structured reports your team can act on."
-      />
-      <section className="border-b border-slate/10 bg-off-white py-10 md:py-12">
+      <section className="border-b border-slate/10 bg-white py-10 md:py-12">
         <Container size="narrow">
-          <h2 className="text-xl font-bold text-deep-navy">What a premium report includes</h2>
+          <p className="sc-eyebrow">Sample verdict report</p>
+          <h1 className="mt-3 sc-h2">See what a premium margin decision report looks like</h1>
+          <p className="mt-4 max-w-2xl sc-body-muted">
+            This CNC Quote Risk Report sample shows the full verdict structure — executive verdict,
+            safe price floor, margin leaks and suggested action — not just calculator output.
+          </p>
           <ul className="mt-6 space-y-2 text-sm text-slate">
-            {REPORT_INCLUDES.map((item) => (
+            {SAMPLE_REPORT_INCLUDES.map((item) => (
               <li key={item} className="flex gap-2">
                 <span className="font-semibold text-professional-blue" aria-hidden>
                   —
@@ -44,20 +37,26 @@ export default function SampleDecisionReportPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-sm leading-relaxed text-slate">
-            Payment and file export are not live in the MVP. You can preview report structure here
-            and request premium access through pricing or industry tools.
+          <p className="mt-6 text-sm text-slate">
+            <Link href={getPricingHref()} className="font-semibold text-professional-blue hover:underline">
+              {SINGLE_VERDICT_CTA}
+            </Link>
+            {" · "}
+            <Link href={getFreeToolsHref()} className="font-semibold text-professional-blue hover:underline">
+              Start with a free check
+            </Link>
           </p>
         </Container>
       </section>
       <SampleDecisionReportLayout />
       <CTASection
-        title="Apply decision reports in your sector"
-        subtitle="Five live industry packs combine free estimates and premium analyzers on one structured engine."
-        primaryLabel="Explore Premium Sector Tools"
-        primaryHref="/industries"
+        eyebrow="Margin decision platform"
+        title="Protect your margin before you send the quote"
+        subtitle="Run a free sector check, then unlock the full verdict when the decision affects real money."
+        primaryLabel="Run Free Margin Check"
+        primaryHref={getFreeToolsHref()}
         secondaryLabel="View Pricing"
-        secondaryHref="/pricing"
+        secondaryHref={getPricingHref()}
       />
     </PageLayout>
   );

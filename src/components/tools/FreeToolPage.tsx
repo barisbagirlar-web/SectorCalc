@@ -11,9 +11,10 @@ import {
 } from "@/lib/analytics/revenue-events";
 import {
   getPremiumToolHref,
-  getPricingHref,
+  getSingleVerdictPricingHref,
 } from "@/lib/tools/tool-links";
 import { FreeToolEmailCaptureButton } from "@/components/tools/FreeToolEmailCaptureButton";
+import { SingleVerdictUpsellButton } from "@/components/pricing/PlanCheckoutAction";
 import {
   areFreeToolInputsValid,
   calculateFreeToolResult,
@@ -28,8 +29,8 @@ import {
   type RevenueToolInput,
 } from "@/lib/tools/revenue-tools";
 
-const QUICK_CHECK_NOTE =
-  "This is only a quick check — not a safe price, minimum bid, or final paid verdict.";
+const FREE_UPSELL_COPY =
+  "This free check shows visible risk only. Unlock the full verdict to see minimum safe price, margin leak breakdown, action recommendation and PDF-ready decision report.";
 
 const riskStyles: Record<
   FreeRiskLevel,
@@ -201,8 +202,6 @@ function FreeToolResultCard({
   tool: RevenueTool;
 }) {
   const styles = riskStyles[result.riskLevel];
-  const premiumHref = getPremiumToolHref(tool);
-  const pricingHref = getPricingHref(tool);
 
   return (
     <article
@@ -213,51 +212,28 @@ function FreeToolResultCard({
         Risk analysis complete.
       </p>
       <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate">
-        Risk signal — {result.riskLevel === "HIGH" ? "HIGH RISK" : result.riskLevel === "LOW" ? "SAFE TO QUOTE" : "MEDIUM RISK"}
+        Visible risk —{" "}
+        {result.riskLevel === "HIGH"
+          ? "HIGH RISK"
+          : result.riskLevel === "LOW"
+            ? "LOW RISK"
+            : "MEDIUM RISK"}
       </p>
       <p className={`mt-2 text-2xl font-bold ${styles.text}`}>{result.riskLevel}</p>
-      <h3 className="mt-4 text-lg font-semibold text-deep-navy">{result.headline}</h3>
+      <h3 className="mt-4 text-lg font-semibold text-deep-navy dark:text-off-white">
+        {result.headline}
+      </h3>
       <p className="mt-2 text-sm leading-relaxed text-slate">{result.summary}</p>
-      <p className="mt-4 text-sm leading-relaxed text-slate">{QUICK_CHECK_NOTE}</p>
 
-      <div className="mt-6">
-        <p className="text-xs font-semibold uppercase tracking-wider text-slate">
-          Not included in free check
-        </p>
-        <ul className="mt-3 space-y-2">
-          {result.missingFactors.map((factor) => (
-            <li key={factor} className="flex gap-2 text-sm text-deep-navy">
-              <span className="text-amber" aria-hidden>
-                ○
-              </span>
-              {factor}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-6 rounded-xl border border-slate/15 bg-white p-5">
-        <h4 className="text-base font-semibold text-deep-navy">
-          Your quick check shows visible risk only.
-        </h4>
-        <p className="mt-2 text-sm leading-relaxed text-slate">
-          Unlock the full verdict to see minimum safe price, margin leak breakdown,
-          action recommendation and PDF report.
-        </p>
-        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link
-            href={pricingHref}
-            className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
-          >
-            Get Full Verdict
-          </Link>
+      <div className="mt-6 rounded-xl border border-slate/15 bg-white p-5 dark:border-slate-600 dark:bg-slate-800">
+        <p className="text-sm leading-relaxed text-slate">{FREE_UPSELL_COPY}</p>
+        <div className="mt-4 flex flex-col gap-3">
+          <SingleVerdictUpsellButton
+            toolTitle={tool.freeTitle}
+            pagePath={`/tools/free/${tool.freeSlug}`}
+            className="sc-btn-primary inline-flex w-full justify-center"
+          />
           <FreeToolEmailCaptureButton toolTitle={tool.freeTitle} />
-          <Link
-            href={premiumHref}
-            className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/20 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
-          >
-            View premium analyzer
-          </Link>
         </div>
       </div>
     </article>
@@ -347,7 +323,7 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
     }, 400);
   };
 
-  const pricingHref = getPricingHref(tool);
+  const singleVerdictHref = getSingleVerdictPricingHref(tool);
   const premiumHref = getPremiumToolHref(tool);
 
   return (
@@ -420,24 +396,29 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
                 </div>
               ) : null}
 
-              <aside className="rounded-xl border border-slate/15 bg-white p-6">
-                <h3 className="text-base font-semibold text-deep-navy">
+              <aside className="sc-card">
+                <h3 className="text-base font-semibold text-deep-navy dark:text-off-white">
                   Need the full decision?
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{tool.paidValue}</p>
-                <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <Link
-                    href={pricingHref}
-                    className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
-                  >
-                    Get Full Verdict
-                  </Link>
+                <p className="mt-2 text-sm leading-relaxed text-slate">{FREE_UPSELL_COPY}</p>
+                <div className="mt-5 flex flex-col gap-3">
+                  <SingleVerdictUpsellButton
+                    toolTitle={tool.freeTitle}
+                    pagePath={`/tools/free/${tool.freeSlug}`}
+                    className="sc-btn-primary inline-flex w-full justify-center sm:w-auto"
+                  />
                   <FreeToolEmailCaptureButton toolTitle={tool.freeTitle} />
                   <Link
                     href={premiumHref}
-                    className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/20 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
+                    className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-professional-blue hover:underline"
                   >
-                    View premium analyzer
+                    View premium analyzer →
+                  </Link>
+                  <Link
+                    href={singleVerdictHref}
+                    className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-professional-blue"
+                  >
+                    Compare pricing plans →
                   </Link>
                 </div>
               </aside>

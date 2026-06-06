@@ -9,12 +9,24 @@ export function getPremiumToolHref(tool: RevenueTool): string {
   return `/tools/premium/${tool.paidSlug}`;
 }
 
-export function getPricingHref(tool?: RevenueTool): string {
-  if (!tool) {
-    return "/pricing";
+export function getPricingHref(tool?: RevenueTool, planId?: string): string {
+  const params = new URLSearchParams();
+  if (tool) {
+    params.set("tool", tool.paidSlug);
   }
+  if (planId) {
+    params.set("plan", planId);
+  }
+  const query = params.toString();
+  return query ? `/pricing?${query}` : "/pricing";
+}
 
-  return `/pricing?tool=${encodeURIComponent(tool.paidSlug)}`;
+export function getSingleVerdictPricingHref(tool?: RevenueTool): string {
+  return getPricingHref(tool, "single-verdict");
+}
+
+export function getSampleReportHref(): string {
+  return "/reports/sample-decision-report";
 }
 
 export function getFreeToolsHref(): string {

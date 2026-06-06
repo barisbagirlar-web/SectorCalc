@@ -6,11 +6,13 @@ import { LeadIntentTrigger } from "@/components/leads/LeadIntentTrigger";
 type FreeToolEmailCaptureButtonProps = {
   toolTitle: string;
   className?: string;
+  label?: string;
 };
 
 export function FreeToolEmailCaptureButton({
   toolTitle,
-  className = "inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/20 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue",
+  className = "sc-btn-secondary inline-flex w-full sm:w-auto",
+  label = "Email me this risk breakdown",
 }: FreeToolEmailCaptureButtonProps) {
   const pathname = usePathname();
 
@@ -18,11 +20,11 @@ export function FreeToolEmailCaptureButton({
     <LeadIntentTrigger
       source="premium_unlock"
       plan="single_report"
-      toolRequested={`${toolTitle} — free check follow-up`}
+      toolRequested={`${toolTitle} — free check risk breakdown`}
       pagePath={pathname}
       className={className}
     >
-      Send result to my email
+      {label}
     </LeadIntentTrigger>
   );
 }

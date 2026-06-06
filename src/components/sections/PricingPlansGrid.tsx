@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo } from "react";
-import { LeadIntentTrigger } from "@/components/leads/LeadIntentTrigger";
+import { useEffect, useMemo, useRef } from "react";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
+import {
+  PlanAvailabilityBadge,
+  PlanCheckoutAction,
+} from "@/components/pricing/PlanCheckoutAction";
 import { Container } from "@/components/ui/Container";
 import {
   REVENUE_EVENTS,
@@ -15,7 +18,9 @@ import {
   trackEvent,
 } from "@/lib/analytics/events";
 import { PRICING_CHECKOUT_LEGAL } from "@/lib/billing/subscription";
+import { PRICING_REFUND_POLICY } from "@/lib/pricing/plan-catalog";
 import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import { getSampleReportHref } from "@/lib/tools/tool-links";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -40,10 +45,21 @@ export function PricingPlansGrid({
   featuredOnly = false,
 }: PricingPlansGridProps) {
   const searchParams = useSearchParams();
+  const highlightPlanId = searchParams.get("plan") ?? undefined;
+  const planRefs = useRef<Record<string, HTMLElement | null>>({});
+
   const checkoutToolSlug = useMemo(() => {
     const tool = searchParams.get("tool");
     return tool && getRevenueToolByPaidSlug(tool) ? tool : undefined;
   }, [searchParams]);
+
+  useEffect(() => {
+    if (!highlightPlanId) {
+      return;
+    }
+    const el = planRefs.current[highlightPlanId];
+    el?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [highlightPlanId]);
 
   const visiblePlans = useMemo(
     () =>
@@ -86,14 +102,22 @@ export function PricingPlansGrid({
           {visiblePlans.map((plan) => (
             <article
               key={plan.id}
+              ref={(node) => {
+                planRefs.current[plan.id] = node;
+              }}
               className={`flex flex-col rounded-2xl border p-6 md:p-7 ${
-                plan.highlighted
-                  ? "border-professional-blue bg-deep-navy text-white shadow-card-dark ring-1 ring-cyan/20"
+                plan.highlighted || highlightPlanId === plan.id
+                  ? plan.highlighted
+                    ? "border-professional-blue bg-deep-navy text-white shadow-card-dark ring-1 ring-cyan/20"
+                    : "border-professional-blue bg-white shadow-card ring-2 ring-professional-blue/30"
                   : "border-slate/20 bg-white shadow-card"
               }`}
             >
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="text-lg font-bold">{plan.name}</h3>
+                {plan.planId && plan.planId !== "free" ? (
+                  <PlanAvailabilityBadge planId={plan.planId} />
+                ) : null}
                 {plan.badge ? (
                   <Badge
                     variant={plan.highlighted ? "premium" : "muted"}
@@ -170,43 +194,40 @@ export function PricingPlansGrid({
                 >
                   {plan.primaryCta}
                 </Button>
-              ) : plan.checkoutPlan === "pro" ? (
-                <div className="mt-8">
-                  <ProCheckoutButton
-                    label={plan.primaryCta}
-                    source="pricing_grid"
-                    toolSlug={checkoutToolSlug}
-                  />
-                  <p
-                    className={`mt-4 text-xs leading-relaxed ${
-                      plan.highlighted ? "text-slate-400" : "text-slate"
-                    }`}
-                  >
-                    {PRICING_CHECKOUT_LEGAL}
-                  </p>
-                </div>
-              ) : plan.leadIntent ? (
-                <LeadIntentTrigger
-                  source={plan.leadIntent.source}
-                  plan={plan.leadIntent.plan}
-                  toolRequested={plan.leadIntent.toolRequested}
-                  pagePath="/pricing"
-                  className={`mt-8 inline-flex min-h-[44px] w-full items-center justify-center rounded-lg px-5 text-sm font-semibold transition-colors ${
-                    plan.highlighted
-                      ? "bg-cyan text-deep-navy hover:bg-cyan/90"
-                      : "bg-professional-blue text-white hover:bg-blue-700"
+              ) : (
+                <PlanCheckoutAction
+                  plan={plan}
+                  checkoutToolSlug={checkoutToolSlug}
+                  highlighted={plan.highlighted}
+                  className="mt-8 w-full"
+                />
+              )}
+              {plan.checkoutPlan === "pro" && plan.checkoutReady ? (
+                <p
+                  className={`mt-4 text-xs leading-relaxed ${
+                    plan.highlighted ? "text-slate-400" : "text-slate"
                   }`}
                 >
-                  {plan.primaryCta}
-                </LeadIntentTrigger>
-              ) : plan.primaryHref ? (
-                <Button href={plan.primaryHref} variant="primary" size="md" className="mt-8 w-full">
-                  {plan.primaryCta}
-                </Button>
+                  {PRICING_CHECKOUT_LEGAL}
+                </p>
               ) : null}
             </article>
           ))}
         </div>
+
+        {!compact ? (
+          <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-slate">
+            {PRICING_REFUND_POLICY}
+          </p>
+        ) : null}
+
+        {!compact ? (
+          <p className="mt-6 text-center text-sm text-slate">
+            <Link href={getSampleReportHref()} className="font-semibold text-professional-blue hover:underline">
+              View sample verdict report →
+            </Link>
+          </p>
+        ) : null}
 
         {!compact && (
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

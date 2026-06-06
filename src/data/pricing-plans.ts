@@ -2,11 +2,12 @@ import type { LeadPlan, LeadSource } from "@/lib/leads/types";
 import {
   FREE_PLAN_PRICING,
   sectorCalcProPricing,
-  SECTORCALC_PRO_PRICE_LABEL,
 } from "@/lib/pricing/sectorcalc-pro";
+import type { CheckoutPlanId } from "@/lib/pricing/plan-catalog";
 
 export interface PricingPlan {
   id: string;
+  planId?: CheckoutPlanId | "free" | "consultant_api";
   name: string;
   price: string;
   period?: string;
@@ -17,7 +18,9 @@ export interface PricingPlan {
   primaryHref?: string;
   highlighted?: boolean;
   badge?: string;
-  checkoutPlan?: "pro";
+  /** Live Stripe checkout — only Pro monthly today */
+  checkoutPlan?: CheckoutPlanId;
+  checkoutReady?: boolean;
   leadIntent?: {
     source: LeadSource;
     plan: LeadPlan;
@@ -28,6 +31,8 @@ export interface PricingPlan {
 export const PRICING_ROI_COPY =
   "One avoided bad quote can pay for a full year of Pro.";
 
+export const PRICING_PAGE_H1 = "Choose how you protect your margin.";
+
 /** Prefilled tool/report field when opening lead modal from a pricing plan CTA */
 export function getPricingLeadToolLabel(planName: string): string {
   return `${planName} (pricing inquiry)`;
@@ -36,20 +41,20 @@ export function getPricingLeadToolLabel(planName: string): string {
 export const PRICING_PLANS: PricingPlan[] = [
   {
     id: "free",
+    planId: "free",
     name: "Free Check",
     price: "$0",
     period: "forever",
     description: FREE_PLAN_PRICING.description,
     features: [...FREE_PLAN_PRICING.features],
-    comingSoonFeatures: [
-      "No minimum safe price",
-      "No verdict or PDF export",
-    ],
+    comingSoonFeatures: ["No minimum safe price", "No verdict or PDF export"],
     primaryCta: "Run a Free Margin Check",
     primaryHref: "/free-tools",
+    checkoutReady: false,
   },
   {
     id: "single-verdict",
+    planId: "single_verdict",
     name: "Single Verdict",
     price: "$19",
     period: "one report",
@@ -58,10 +63,11 @@ export const PRICING_PLANS: PricingPlan[] = [
     features: [
       "One premium analyzer verdict",
       "Minimum safe price where applicable",
-      "Suggested action output",
-      "PDF export for that report",
+      "Margin leak breakdown",
+      "PDF-ready report for that run",
     ],
-    primaryCta: "Request Single Verdict",
+    primaryCta: "Get Full Verdict for $19",
+    checkoutReady: false,
     leadIntent: {
       source: "pricing",
       plan: "single_report",
@@ -70,19 +76,22 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
   {
     id: "pro",
-    name: sectorCalcProPricing.planName,
-    price: SECTORCALC_PRO_PRICE_LABEL,
-    period: "billed monthly",
+    planId: "pro",
+    name: "Pro Monthly",
+    price: "$29",
+    period: "per month",
     description: sectorCalcProPricing.description,
     features: [...sectorCalcProPricing.bullets],
     primaryCta: "Start SectorCalc Pro",
     highlighted: true,
     badge: "Most popular",
     checkoutPlan: "pro",
+    checkoutReady: true,
   },
   {
     id: "pro-annual",
-    name: "Annual Pro",
+    planId: "pro_annual",
+    name: "Pro Annual",
     price: "$249",
     period: "per year",
     description:
@@ -94,14 +103,16 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Priority onboarding when available",
     ],
     primaryCta: "Join Annual Pro Waitlist",
+    checkoutReady: false,
     leadIntent: {
       source: "pricing",
       plan: "pro",
-      toolRequested: "Annual Pro ($249/year)",
+      toolRequested: "Pro Annual ($249/year)",
     },
   },
   {
     id: "team",
+    planId: "team",
     name: "Team",
     price: "$99",
     period: "per month",
@@ -114,6 +125,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Volume pricing review",
     ],
     primaryCta: "Join Team Waitlist",
+    checkoutReady: false,
     leadIntent: {
       source: "pricing",
       plan: "sector_pass",
@@ -122,6 +134,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
   {
     id: "consultant-api",
+    planId: "consultant_api",
     name: "Consultant / API",
     price: "Waitlist",
     period: "custom",
@@ -134,6 +147,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       "No self-serve checkout yet",
     ],
     primaryCta: "Join Consultant Waitlist",
+    checkoutReady: false,
     leadIntent: {
       source: "pricing",
       plan: "unknown",
@@ -144,4 +158,4 @@ export const PRICING_PLANS: PricingPlan[] = [
 
 export const PRICING_PRO_TAGLINE = sectorCalcProPricing.headline;
 
-export { SECTORCALC_PRO_PRICE_LABEL, sectorCalcProPricing };
+export { sectorCalcProPricing };
