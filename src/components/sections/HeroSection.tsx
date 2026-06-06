@@ -12,10 +12,10 @@ export async function HeroSection() {
       <PageHero variant="home" title={t("title")} subtitle={t("subtitle")}>
         <div className="mc-hero-actions">
           <Link href="/free-tools" className="mc-btn-hero-primary">
-            {t("primaryCta")}
+            {t("exploreFreeCta")}
           </Link>
-          <Link href="/reports/sample-decision-report" className="mc-btn-hero-secondary">
-            {t("secondaryCta")}
+          <Link href="/premium-tools" className="mc-btn-hero-secondary">
+            {t("viewPremiumCta")}
           </Link>
         </div>
         <HomeTrustStrip />

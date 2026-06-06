@@ -8,13 +8,14 @@ import { IconListItem } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
 import { Button } from "@/components/ui/Button";
 import { FREE_TOOLS } from "@/data/tools";
+import { industryRegistry } from "@/lib/tools/industry-registry";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Free Sector Calculators",
   description:
-    "Free sector calculators for quick visible risk checks across seventeen industries. Browser-side processing with a clear path to premium decision analyzers.",
+    "Free sector calculators for quick visible risk checks across 27 industries. Browser-side processing with a clear path to premium decision analyzers.",
   path: "/free-tools",
 });
 
@@ -84,7 +85,7 @@ export default function FreeToolsPage() {
         <Container size="wide">
           <h2 className="text-xl font-bold text-deep-navy">Free tools catalog</h2>
           <p className="mt-2 max-w-2xl text-sm text-slate">
-            {FREE_TOOLS.length} free calculators across seventeen active sectors.
+            {FREE_TOOLS.length} free calculators across {industryRegistry.length} active sectors.
           </p>
           <div className="mt-8">
             <ToolCatalogByCategory tools={FREE_TOOLS} />

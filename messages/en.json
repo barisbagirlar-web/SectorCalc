@@ -14,6 +14,8 @@
     "subtitle": "SectorCalc helps businesses calculate costs, measure efficiency, detect losses, and optimize operations — without expensive ERP systems.",
     "primaryCta": "Run a Free Margin Check",
     "secondaryCta": "View Sample Verdict Report",
+    "exploreFreeCta": "Explore Free Tools",
+    "viewPremiumCta": "View Decision Reports",
     "trustStrip": "27 sectors · Free calculators · Premium reports · Measurement logic · No ERP required"
   },
   "valueProps": {
@@ -88,7 +90,36 @@
   "checkout": {
     "redirecting": "Redirecting to checkout…",
     "proActive": "SectorCalc Pro is active on your account.",
-    "error": "Unable to start checkout."
+    "error": "Unable to start checkout.",
+    "overlayTitle": "Redirecting to secure checkout",
+    "overlayBody": "Please wait — Stripe is opening your payment page.",
+    "socialProof": "Trusted by 12,000+ operators worldwide"
+  },
+  "freeTool": {
+    "riskScoreLabel": "Risk score",
+    "whatItMeans": "What this means",
+    "premiumPreviewTitle": "In the full report you get:",
+    "premiumBadge": "Premium",
+    "urgencyBanner": "🔥 {count} premium reports purchased this week",
+    "premiumPreview1": "Detailed cost breakdown",
+    "premiumPreview2": "Hidden variable analysis",
+    "premiumPreview3": "Expert action recommendation",
+    "premiumPreview4": "PDF + Excel export"
+  },
+  "trust": {
+    "refund": "7-day refund policy",
+    "ssl": "256-bit SSL secure checkout",
+    "instant": "Instant access",
+    "support": "Email support"
+  },
+  "purchaseSuccess": {
+    "proUpsellTitle": "Want unlimited access to every tool?",
+    "proUpsellBody": "27 sectors, unlimited premium analyzers and saved reports — Pro from $19/month.",
+    "proUpsellCta": "Upgrade to Pro →"
+  },
+  "footer": {
+    "tagline": "Sector-specific calculators, measurement tools and decision reports.",
+    "trustNote": "No ERP required. Business data is not sold."
   },
   "locale": {
     "label": "Language",

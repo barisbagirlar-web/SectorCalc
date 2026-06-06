@@ -1,4 +1,7 @@
-import Link from "next/link";
+"use client";
+
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { SiteLogo } from "@/components/brand/SiteLogo";
 import { SITE } from "@/config/site";
 
@@ -33,15 +36,15 @@ const FOOTER_GROUPS = [
 ] as const;
 
 export function SiteFooter() {
+  const t = useTranslations("footer");
+
   return (
     <footer id="footer" className="dark:border-slate-700 dark:bg-slate-900">
       <div className="custom-works-container clearfix">
         <div className="container">
           <div className="footer-brand-block">
             <SiteLogo />
-            <p className="footer-tagline">
-              Sector-specific margin decision platform
-            </p>
+            <p className="footer-tagline">{t("tagline")}</p>
           </div>
           <nav className="footer-groups" aria-label="Footer">
             {FOOTER_GROUPS.map((group) => (
@@ -62,9 +65,7 @@ export function SiteFooter() {
               <div className="copyright">
                 © {new Date().getFullYear()} {SITE.siteName}
               </div>
-              <p className="footer-trust-note">
-                Checkout secured by Stripe. Business data is not sold.
-              </p>
+              <p className="footer-trust-note">{t("trustNote")}</p>
               <div className="footer-bottom-links footer-bottom-links-box">
                 {FOOTER_GROUPS.find((g) => g.title === "Legal")?.links.map((link) => (
                   <Link key={link.href} href={link.href}>

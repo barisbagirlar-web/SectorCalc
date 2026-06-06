@@ -14,6 +14,8 @@
     "subtitle": "SectorCalc, işletmelerin maliyetleri hesaplamasına, verimliliği ölçmesine, kayıpları tespit etmesine ve operasyonları optimize etmesine yardımcı olur — pahalı ERP sistemlerine gerek kalmadan.",
     "primaryCta": "Ücretsiz Marj Kontrolü",
     "secondaryCta": "Örnek Karar Raporunu Gör",
+    "exploreFreeCta": "Ücretsiz Araçları Keşfet",
+    "viewPremiumCta": "Karar Raporlarını Gör",
     "trustStrip": "27 sektör · Ücretsiz hesaplayıcılar · Premium raporlar · Ölçüm mantığı · ERP gerekmez"
   },
   "valueProps": {
@@ -88,7 +90,36 @@
   "checkout": {
     "redirecting": "Ödeme sayfasına yönlendiriliyor…",
     "proActive": "SectorCalc Pro hesabınızda aktif.",
-    "error": "Ödeme başlatılamadı."
+    "error": "Ödeme başlatılamadı.",
+    "overlayTitle": "Güvenli ödemeye yönlendiriliyor",
+    "overlayBody": "Lütfen bekleyin — Stripe ödeme sayfanız açılıyor.",
+    "socialProof": "12.000+ işletme tarafından güvenle kullanılıyor"
+  },
+  "freeTool": {
+    "riskScoreLabel": "Risk skoru",
+    "whatItMeans": "Bu ne anlama geliyor?",
+    "premiumPreviewTitle": "Tam raporda görecekleriniz:",
+    "premiumBadge": "Premium",
+    "urgencyBanner": "🔥 Bu hafta {count} kişi Premium rapor aldı",
+    "premiumPreview1": "Detaylı maliyet kırılımı",
+    "premiumPreview2": "Gizli değişken analizleri",
+    "premiumPreview3": "Uzman eylem tavsiyesi",
+    "premiumPreview4": "PDF + Excel dışa aktarma"
+  },
+  "trust": {
+    "refund": "7 gün iade politikası",
+    "ssl": "256-bit SSL güvenli ödeme",
+    "instant": "Anında erişim",
+    "support": "E-posta desteği"
+  },
+  "purchaseSuccess": {
+    "proUpsellTitle": "Tüm araçlara sınırsız erişim mi istiyorsunuz?",
+    "proUpsellBody": "27 sektör, sınırsız premium analizör ve kayıtlı raporlar — Pro aylık $19'dan.",
+    "proUpsellCta": "Pro Plana Geç →"
+  },
+  "footer": {
+    "tagline": "Her sektör için özel hesaplama, ölçüm ve karar raporları.",
+    "trustNote": "ERP gerekmez. İş verileriniz satılmaz."
   },
   "locale": {
     "label": "Dil",

@@ -6,6 +6,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import "../globals.css";
 import "@/styles/magiclick-product.css";
+import { OrganizationJsonLd, WebApplicationJsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import { routing, type AppLocale } from "@/i18n/routing";
 
@@ -41,6 +42,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={dir} className={inter.variable} suppressHydrationWarning>
       <body className="min-w-0 overflow-x-hidden bg-white font-sans antialiased dark:bg-deep-navy dark:text-off-white">
+        <OrganizationJsonLd />
+        <WebApplicationJsonLd />
         <NextIntlClientProvider locale={locale as AppLocale} messages={messages}>
           {children}
         </NextIntlClientProvider>

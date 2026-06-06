@@ -10,7 +10,7 @@ import {
   getIndustriesByCategory,
   INDUSTRY_CATEGORY_LABELS,
 } from "@/lib/tools/industry-registry";
-import { getIndustryBySlug, type Industry } from "@/data/industries";
+import { INDUSTRIES, getIndustryBySlug, type Industry } from "@/data/industries";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref, getPricingHref } from "@/lib/tools/tool-links";
 
@@ -48,7 +48,7 @@ export default function IndustriesPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
             Start with a free quick check, then unlock premium analyzers for safe price, bid
-            risk and margin leak decisions across seventeen active sectors.
+            risk and margin leak decisions across {INDUSTRIES.length} active sectors.
           </p>
         </Container>
       </section>

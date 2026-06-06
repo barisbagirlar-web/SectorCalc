@@ -14,6 +14,8 @@
     "subtitle": "SectorCalc يساعدك على حساب التكاليف وقياس الكفاءة واكتشاف الخسائر وتحسين العمليات — دون أنظمة ERP مكلفة.",
     "primaryCta": "فحص هامش مجاني",
     "secondaryCta": "عرض تقرير حكم نموذجي",
+    "exploreFreeCta": "استكشف الأدوات المجانية",
+    "viewPremiumCta": "عرض تقارير القرار",
     "trustStrip": "27 قطاعًا · حاسبات مجانية · تقارير مميزة · بدون ERP"
   },
   "valueProps": {
@@ -88,7 +90,36 @@
   "checkout": {
     "redirecting": "جاري التوجيه للدفع…",
     "proActive": "SectorCalc Pro نشط على حسابك.",
-    "error": "تعذر بدء الدفع."
+    "error": "تعذر بدء الدفع.",
+    "overlayTitle": "جاري التوجيه للدفع الآمن",
+    "overlayBody": "يرجى الانتظار — Stripe يفتح صفحة الدفع.",
+    "socialProof": "موثوق من أكثر من 12,000 مشغّل حول العالم"
+  },
+  "freeTool": {
+    "riskScoreLabel": "درجة المخاطر",
+    "whatItMeans": "ماذا يعني هذا",
+    "premiumPreviewTitle": "في التقرير الكامل تحصل على:",
+    "premiumBadge": "مميز",
+    "urgencyBanner": "🔥 {count} تقريرًا مميزًا تم شراؤه هذا الأسبوع",
+    "premiumPreview1": "تفصيل تكلفة مفصل",
+    "premiumPreview2": "تحليل المتغيرات المخفية",
+    "premiumPreview3": "توصية خبير للعمل",
+    "premiumPreview4": "تصدير PDF + Excel"
+  },
+  "trust": {
+    "refund": "سياسة استرداد 7 أيام",
+    "ssl": "دفع آمن SSL 256-bit",
+    "instant": "وصول فوري",
+    "support": "دعم بالبريد الإلكتروني"
+  },
+  "purchaseSuccess": {
+    "proUpsellTitle": "هل تريد وصولًا غير محدود لكل الأدوات؟",
+    "proUpsellBody": "27 قطاعًا، محللات مميزة غير محدودة وتقارير محفوظة — Pro من $19/شهر.",
+    "proUpsellCta": "الترقية إلى Pro →"
+  },
+  "footer": {
+    "tagline": "حاسبات وأدوات قياس وتقارير قرار حسب القطاع.",
+    "trustNote": "لا حاجة لـ ERP. بيانات عملك لا تُباع."
   },
   "locale": {
     "label": "اللغة",

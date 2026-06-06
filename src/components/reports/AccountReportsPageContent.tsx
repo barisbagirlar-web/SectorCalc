@@ -11,6 +11,7 @@ import {
   SingleReportPurchaseSuccessBanner,
   SingleReportPurchasesPanel,
 } from "@/components/reports/SingleReportPurchasesPanel";
+import { ProUpsellBanner } from "@/components/billing/ProUpsellBanner";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { useUserPurchases } from "@/lib/billing/use-user-purchases";
@@ -88,7 +89,10 @@ export function AccountReportsPageContent() {
           ) : (
             <>
               {showPurchaseSuccess ? (
-                <SingleReportPurchaseSuccessBanner toolSlug={purchasedTool} />
+                <>
+                  <SingleReportPurchaseSuccessBanner toolSlug={purchasedTool} />
+                  {!isActive ? <ProUpsellBanner /> : null}
+                </>
               ) : null}
 
               {purchasesLoading ? (

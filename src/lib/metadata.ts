@@ -23,6 +23,30 @@ export interface PageMetadataOptions {
   path?: string;
 }
 
+export interface ToolMetadataOptions {
+  toolSlug: string;
+  toolTitle: string;
+  sectorName: string;
+  tier: "free" | "premium";
+  locale?: string;
+}
+
+export function getToolMetadata(options: ToolMetadataOptions): Metadata {
+  const tierLabel = options.tier === "free" ? "Free" : "Premium";
+  const title = `${options.toolTitle} — ${tierLabel}`;
+  const description = `${tierLabel} ${options.toolTitle.toLowerCase()} for ${options.sectorName.toLowerCase()}. Calculate costs, detect losses, and get expert-level decision reports.`;
+  const path =
+    options.locale !== undefined
+      ? `/${options.locale}/tools/${options.tier}/${options.toolSlug}`
+      : `/tools/${options.tier}/${options.toolSlug}`;
+
+  return createPageMetadata({
+    title,
+    description,
+    path,
+  });
+}
+
 export function createPageMetadata(options: PageMetadataOptions = {}): Metadata {
   const title = options.title
     ? `${options.title} | ${SITE.siteName}`

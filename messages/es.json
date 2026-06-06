@@ -14,6 +14,8 @@
     "subtitle": "SectorCalc ayuda a calcular costes, medir eficiencia, detectar pérdidas y optimizar operaciones — sin ERP costosos.",
     "primaryCta": "Control de margen gratis",
     "secondaryCta": "Ver informe de ejemplo",
+    "exploreFreeCta": "Explorar herramientas gratis",
+    "viewPremiumCta": "Ver informes de decisión",
     "trustStrip": "27 sectores · Calculadoras gratis · Informes premium · Sin ERP"
   },
   "valueProps": {
@@ -88,7 +90,36 @@
   "checkout": {
     "redirecting": "Redirigiendo al pago…",
     "proActive": "SectorCalc Pro está activo en tu cuenta.",
-    "error": "No se pudo iniciar el pago."
+    "error": "No se pudo iniciar el pago.",
+    "overlayTitle": "Redirigiendo al pago seguro",
+    "overlayBody": "Espera — Stripe está abriendo tu página de pago.",
+    "socialProof": "Confiado por más de 12.000 operadores en todo el mundo"
+  },
+  "freeTool": {
+    "riskScoreLabel": "Puntuación de riesgo",
+    "whatItMeans": "Qué significa esto",
+    "premiumPreviewTitle": "En el informe completo obtienes:",
+    "premiumBadge": "Premium",
+    "urgencyBanner": "🔥 {count} informes premium comprados esta semana",
+    "premiumPreview1": "Desglose detallado de costes",
+    "premiumPreview2": "Análisis de variables ocultas",
+    "premiumPreview3": "Recomendación experta de acción",
+    "premiumPreview4": "Exportación PDF + Excel"
+  },
+  "trust": {
+    "refund": "Política de reembolso de 7 días",
+    "ssl": "Pago seguro SSL 256-bit",
+    "instant": "Acceso instantáneo",
+    "support": "Soporte por email"
+  },
+  "purchaseSuccess": {
+    "proUpsellTitle": "¿Quieres acceso ilimitado a todas las herramientas?",
+    "proUpsellBody": "27 sectores, analizadores premium ilimitados e informes guardados — Pro desde $19/mes.",
+    "proUpsellCta": "Actualizar a Pro →"
+  },
+  "footer": {
+    "tagline": "Calculadoras, herramientas de medición e informes de decisión por sector.",
+    "trustNote": "Sin ERP. Los datos de tu negocio no se venden."
   },
   "locale": {
     "label": "Idioma",

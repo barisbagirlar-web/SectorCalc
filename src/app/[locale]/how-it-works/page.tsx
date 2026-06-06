@@ -115,7 +115,7 @@ export default function HowItWorksPage() {
           <p className="sc-eyebrow">How it works</p>
           <h1 className="mt-3 sc-h2">Methodology, outputs and limitations</h1>
           <p className="mt-4 max-w-2xl sc-body-muted">
-            SectorCalc is a sector-specific margin decision platform. Free checks build trust;
+            SectorCalc is a sector-specific measurement and decision platform. Free checks build trust;
             premium verdicts deliver the decision layer operators need before quoting.
           </p>
           <p className="mt-4 max-w-2xl text-sm font-medium text-deep-navy">

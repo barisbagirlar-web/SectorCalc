@@ -153,7 +153,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
               <article className="rounded-2xl border border-cyan/30 bg-white/5 p-6">
                 <p className="text-sm font-semibold text-cyan">Pro Monthly</p>
                 <p className="mt-2 text-3xl font-bold">$19<span className="text-lg">/mo</span></p>
-                <p className="mt-2 text-sm text-slate-300">All seventeen sector analyzers</p>
+                <p className="mt-2 text-sm text-slate-300">All 27 sector analyzers</p>
                 <Link
                   href={config.pricingHref}
                   className="sc-btn-secondary mt-4 inline-flex w-full justify-center !border-cyan/40 !text-cyan hover:!bg-cyan/10"

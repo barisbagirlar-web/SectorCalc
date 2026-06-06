@@ -14,6 +14,8 @@
     "subtitle": "SectorCalc hilft bei Kosten, Effizienz, Verlusten und Optimierung — ohne teure ERP-Systeme.",
     "primaryCta": "Gratis-Margen-Check",
     "secondaryCta": "Beispiel-Urteilsbericht",
+    "exploreFreeCta": "Gratis-Tools entdecken",
+    "viewPremiumCta": "Entscheidungsberichte ansehen",
     "trustStrip": "27 Branchen · Gratis-Rechner · Premium-Berichte · Kein ERP nötig"
   },
   "valueProps": {
@@ -88,7 +90,36 @@
   "checkout": {
     "redirecting": "Weiterleitung zur Kasse…",
     "proActive": "SectorCalc Pro ist auf Ihrem Konto aktiv.",
-    "error": "Checkout konnte nicht gestartet werden."
+    "error": "Checkout konnte nicht gestartet werden.",
+    "overlayTitle": "Weiterleitung zur sicheren Kasse",
+    "overlayBody": "Bitte warten — Stripe öffnet Ihre Zahlungsseite.",
+    "socialProof": "Vertraut von über 12.000 Betreibern weltweit"
+  },
+  "freeTool": {
+    "riskScoreLabel": "Risikowert",
+    "whatItMeans": "Was das bedeutet",
+    "premiumPreviewTitle": "Im vollständigen Bericht erhalten Sie:",
+    "premiumBadge": "Premium",
+    "urgencyBanner": "🔥 {count} Premium-Berichte diese Woche gekauft",
+    "premiumPreview1": "Detaillierte Kostenaufschlüsselung",
+    "premiumPreview2": "Analyse versteckter Variablen",
+    "premiumPreview3": "Experten-Empfehlung zum Handeln",
+    "premiumPreview4": "PDF + Excel-Export"
+  },
+  "trust": {
+    "refund": "7-Tage-Rückerstattung",
+    "ssl": "256-bit SSL sichere Kasse",
+    "instant": "Sofortiger Zugang",
+    "support": "E-Mail-Support"
+  },
+  "purchaseSuccess": {
+    "proUpsellTitle": "Unbegrenzter Zugang zu allen Tools?",
+    "proUpsellBody": "27 Branchen, unbegrenzte Premium-Analysatoren und gespeicherte Berichte — Pro ab $19/Monat.",
+    "proUpsellCta": "Auf Pro upgraden →"
+  },
+  "footer": {
+    "tagline": "Branchenspezifische Rechner, Messwerkzeuge und Entscheidungsberichte.",
+    "trustNote": "Kein ERP nötig. Geschäftsdaten werden nicht verkauft."
   },
   "locale": {
     "label": "Sprache",

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { CheckoutLoadingOverlay } from "@/components/billing/CheckoutLoadingOverlay";
+import { TrustBadgeStrip } from "@/components/billing/TrustBadgeStrip";
 import { startCheckoutSession } from "@/lib/billing/create-checkout-session";
 import {
   REVENUE_EVENTS,
@@ -20,6 +22,7 @@ interface SingleVerdictCheckoutButtonProps {
   buttonClassName?: string;
   label?: string;
   source?: string;
+  showTrust?: boolean;
 }
 
 const DEFAULT_BUTTON_CLASS =
@@ -32,6 +35,7 @@ export function SingleVerdictCheckoutButton({
   buttonClassName,
   label = SINGLE_VERDICT_CTA,
   source = "single_verdict_upsell",
+  showTrust = true,
 }: SingleVerdictCheckoutButtonProps) {
   const t = useTranslations("checkout");
   const locale = useLocale();
@@ -72,6 +76,7 @@ export function SingleVerdictCheckoutButton({
 
   return (
     <div className={className}>
+      {pending ? <CheckoutLoadingOverlay /> : null}
       <button
         type="button"
         onClick={() => void handleClick()}
@@ -80,7 +85,13 @@ export function SingleVerdictCheckoutButton({
       >
         {pending ? t("redirecting") : label}
       </button>
-      {error ? <p className="mt-2 text-sm text-soft-red">{error}</p> : null}
+      {error ? <p className="mt-2 text-center text-sm text-soft-red">{error}</p> : null}
+      {showTrust ? (
+        <>
+          <TrustBadgeStrip />
+          <p className="mt-2 text-center text-xs text-slate">{t("socialProof")}</p>
+        </>
+      ) : null}
     </div>
   );
 }
@@ -91,12 +102,14 @@ export function SingleVerdictUpsellButton({
   pagePath,
   className,
   source,
+  showTrust,
 }: {
   toolSlug?: string;
   toolTitle?: string;
   pagePath: string;
   className?: string;
   source?: string;
+  showTrust?: boolean;
 }) {
   return (
     <SingleVerdictCheckoutButton
@@ -104,6 +117,7 @@ export function SingleVerdictUpsellButton({
       returnPath={pagePath}
       buttonClassName={className}
       source={source}
+      showTrust={showTrust}
     />
   );
 }

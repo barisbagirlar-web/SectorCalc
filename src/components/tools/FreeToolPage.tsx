@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useRef, useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { FieldHint } from "@/components/ui/FieldHint";
@@ -14,8 +15,13 @@ import {
   getPremiumToolHref,
   getSingleVerdictPricingHref,
 } from "@/lib/tools/tool-links";
-import { FreeToolEmailCaptureButton } from "@/components/tools/FreeToolEmailCaptureButton";
+import { FreeToolResultDisplay } from "@/components/tools/FreeToolResultDisplay";
+import { UrgencyBanner } from "@/components/tools/UrgencyBanner";
 import { SingleVerdictUpsellButton } from "@/components/pricing/PlanCheckoutAction";
+import {
+  freeRiskLevelLabel,
+  freeRiskLevelToScore,
+} from "@/lib/tools/free-risk-score";
 import {
   areFreeToolInputsValid,
   calculateFreeToolResult,
@@ -202,16 +208,20 @@ function FreeToolResultCard({
   result: FreeToolResult;
   tool: RevenueTool;
 }) {
+  const t = useTranslations("freeTool");
   const styles = riskStyles[result.riskLevel];
+  const premiumPreviewItems = [
+    t("premiumPreview1"),
+    t("premiumPreview2"),
+    t("premiumPreview3"),
+    t("premiumPreview4"),
+  ];
 
   return (
     <article
-      className={`sc-card sc-result-reveal ${styles.border} ${styles.bg}`}
+      className={`sc-card sc-result-reveal space-y-6 ${styles.border} ${styles.bg}`}
       aria-live="polite"
     >
-      <p className="text-sm font-semibold text-emerald dark:text-emerald">
-        Risk analysis complete.
-      </p>
       <StatusIconBadge
         status={result.riskLevel === "HIGH" ? "highRisk" : result.riskLevel === "LOW" ? "safe" : "review"}
         label={
@@ -221,26 +231,20 @@ function FreeToolResultCard({
               ? "LOW RISK"
               : "MEDIUM RISK"
         }
-        className="mt-3"
       />
-      <p className={`mt-2 text-2xl font-bold ${styles.text}`}>{result.riskLevel}</p>
-      <h3 className="mt-4 text-lg font-semibold text-deep-navy dark:text-off-white">
-        {result.headline}
-      </h3>
-      <p className="mt-2 text-sm leading-relaxed text-slate">{result.summary}</p>
-
-      <div className="mt-6 rounded-xl border border-slate/15 bg-white p-5 dark:border-slate-600 dark:bg-slate-800">
-        <p className="text-sm leading-relaxed text-slate">{FREE_UPSELL_COPY}</p>
-        <div className="mt-4 flex flex-col gap-3">
-          <SingleVerdictUpsellButton
-            toolSlug={tool.paidSlug}
-            toolTitle={tool.freeTitle}
-            pagePath={`/tools/free/${tool.freeSlug}`}
-            className="sc-btn-primary inline-flex w-full justify-center"
-          />
-          <FreeToolEmailCaptureButton toolTitle={tool.freeTitle} />
-        </div>
-      </div>
+      <FreeToolResultDisplay
+        riskScore={freeRiskLevelToScore(result.riskLevel)}
+        riskLabel={freeRiskLevelLabel(result.riskLevel)}
+        explanation={result.summary}
+        premiumPreviewItems={premiumPreviewItems}
+      />
+      <UrgencyBanner />
+      <SingleVerdictUpsellButton
+        toolSlug={tool.paidSlug}
+        toolTitle={tool.freeTitle}
+        pagePath={`/tools/free/${tool.freeSlug}`}
+        className="w-full"
+      />
     </article>
   );
 }
@@ -413,7 +417,6 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
                     pagePath={`/tools/free/${tool.freeSlug}`}
                     className="sc-btn-primary inline-flex w-full justify-center sm:w-auto"
                   />
-                  <FreeToolEmailCaptureButton toolTitle={tool.freeTitle} />
                   <Link
                     href={premiumHref}
                     className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-professional-blue hover:underline"
