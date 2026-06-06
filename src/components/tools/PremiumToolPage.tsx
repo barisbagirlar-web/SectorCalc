@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { Suspense, useMemo, useState, type FormEvent } from "react";
 import { PremiumLoginPrompt } from "@/components/billing/CustomerSignInPanel";
 import { PremiumPaywall } from "@/components/billing/PremiumPaywall";
@@ -7,6 +8,7 @@ import { PremiumSubscribedBanner } from "@/components/billing/SubscriptionActiva
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import { buildVerdictReportData } from "@/lib/reports/verdict-report";
 import {
   arePremiumToolInputsValid,
   calculatePremiumToolResult,
@@ -19,6 +21,21 @@ import {
   type RevenueTool,
   type RevenueToolInput,
 } from "@/lib/tools/revenue-tools";
+
+const DownloadVerdictPdfButton = dynamic(
+  () =>
+    import("@/components/reports/DownloadVerdictPdfButton").then(
+      (mod) => mod.DownloadVerdictPdfButton
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <span className="inline-flex min-h-[44px] items-center text-sm text-slate">
+        Preparing PDF…
+      </span>
+    ),
+  }
+);
 
 const severityStyles: Record<
   PremiumSeverity,
@@ -220,6 +237,13 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
     return calculatePremiumToolResult(tool, values);
   }, [submitted, isActive, tool, values]);
 
+  const verdictReportData = useMemo(() => {
+    if (!result || !isActive) {
+      return null;
+    }
+    return buildVerdictReportData({ tool, values, result });
+  }, [result, isActive, tool, values]);
+
   const legalDisclaimer = tool.legalDisclaimer ?? revenueLegalDisclaimer;
   const pricingHref = `/pricing?tool=${encodeURIComponent(tool.paidSlug)}`;
 
@@ -338,11 +362,20 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
                 </div>
 
                 <div className="min-w-0">
-                  {result ? (
-                    <PremiumToolResultCard
-                      result={result}
-                      legalDisclaimer={legalDisclaimer}
-                    />
+                  {result && verdictReportData ? (
+                    <>
+                      <PremiumToolResultCard
+                        result={result}
+                        legalDisclaimer={legalDisclaimer}
+                      />
+                      <div className="mt-4">
+                        <DownloadVerdictPdfButton
+                          data={verdictReportData}
+                          slug={tool.paidSlug}
+                          severity={result.severity}
+                        />
+                      </div>
+                    </>
                   ) : (
                     <div className="rounded-xl border border-dashed border-slate/20 bg-white p-6 text-sm leading-relaxed text-slate">
                       Enter inputs and run the analyzer to receive a pricing, margin or
