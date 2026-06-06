@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "audit:revenue-tools": "node scripts/audit-revenue-tools.mjs",
+    "check:secrets": "node scripts/check-commit-secrets.mjs",
     "admin:set-claim": "node scripts/set-admin-claim.mjs"
   },
   "dependencies": {
