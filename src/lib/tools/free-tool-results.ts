@@ -1,4 +1,5 @@
 import type { RevenueTool } from "@/lib/tools/revenue-tools";
+import { calculateExtendedFreeResult } from "@/lib/tools/free-sector-calculations";
 
 export type FreeRiskLevel = "LOW" | "MEDIUM" | "HIGH";
 
@@ -49,6 +50,11 @@ export function calculateFreeToolResult(
   tool: RevenueTool,
   values: FreeToolInputValues
 ): FreeToolResult {
+  const extended = calculateExtendedFreeResult(tool, values);
+  if (extended) {
+    return extended;
+  }
+
   if (tool.sector === "cnc-manufacturing") {
     const setupTime = getNumber(values, "setupTime");
     const quantity = getNumber(values, "quantity");

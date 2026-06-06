@@ -21,7 +21,7 @@ export const HOME_FAQ: FaqItem[] = [
     id: "industries",
     question: "Which industries does SectorCalc support?",
     answer:
-      "We launch with Construction, Cleaning, Restaurant, E-commerce, and CNC & Manufacturing — with more sector packs planned based on operator demand.",
+      "We launch with seventeen active industry packs — each with a free calculator and premium margin analyzer.",
   },
   {
     id: "consultants",

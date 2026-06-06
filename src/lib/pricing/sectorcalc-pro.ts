@@ -45,7 +45,7 @@ export const FREE_PLAN_PRICING = {
   description:
     "Quick sector checks — limited inputs, directional numbers and early risk signals.",
   features: [
-    "Five industry quick-check calculators",
+    "Seventeen industry quick-check calculators",
     "2–3 inputs per tool",
     "Risk or preview signals",
     "No account required",

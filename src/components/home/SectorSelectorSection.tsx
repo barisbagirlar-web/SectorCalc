@@ -1,10 +1,8 @@
 import Link from "next/link";
 import type { SVGProps } from "react";
-import { INDUSTRIES, type IndustryIcon } from "@/data/industries";
-import {
-  getRevenueToolBySector,
-  type RevenueSector,
-} from "@/lib/tools/revenue-tools";
+import { FEATURED_INDUSTRY_SLUGS } from "@/lib/tools/industry-registry";
+import { getIndustryBySlug, type IndustryIcon } from "@/data/industries";
+import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
 import { getFreeToolHref, getPremiumToolHref } from "@/lib/tools/tool-links";
 
 const iconSvgProps: SVGProps<SVGSVGElement> = {
@@ -63,6 +61,20 @@ function SectorIcon({ name }: { name: IndustryIcon }) {
       <svg {...iconSvgProps}>
         <path
           d="M5 6h2l2 10h8l2-7H8M10 20h.01M17 20h.01M9 10h10"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  if (name === "trades" || name === "field-service" || name === "custom") {
+    return (
+      <svg {...iconSvgProps}>
+        <path
+          d="M4 19h16M8 19V9l4-3 4 3v10M10 13h4M12 6v3"
           stroke="currentColor"
           strokeWidth="1.8"
           strokeLinecap="round"
@@ -168,24 +180,22 @@ function SectorCardItem({
   );
 }
 
-const sectorCards = INDUSTRIES.map((industry) => {
-  const tool = getRevenueToolBySector(industry.slug as RevenueSector);
+const sectorCards = FEATURED_INDUSTRY_SLUGS.map((slug) => {
+  const industry = getIndustryBySlug(slug);
+  const tool = getRevenueToolBySector(slug);
 
   return {
-    title: industry.name,
-    painStatement: tool?.painStatement ?? industry.businessPain,
-    freeTool: tool?.freeTitle ?? industry.freeToolSlugs[0] ?? "",
-    premiumTool: tool?.paidTitle ?? industry.premiumToolSlugs[0] ?? "",
-    freeHref: tool ? getFreeToolHref(tool) : `/industries/${industry.slug}`,
+    title: industry?.name ?? slug,
+    painStatement: tool?.painStatement ?? industry?.businessPain ?? "",
+    freeTool: tool?.freeTitle ?? "",
+    premiumTool: tool?.paidTitle ?? "",
+    freeHref: tool ? getFreeToolHref(tool) : `/industries/${slug}`,
     premiumHref: tool ? getPremiumToolHref(tool) : `/pricing`,
-    icon: industry.icon,
+    icon: industry?.icon ?? "manufacturing",
   };
 });
 
 export default function SectorSelectorSection() {
-  const topRow = sectorCards.slice(0, 3);
-  const bottomRow = sectorCards.slice(3);
-
   return (
     <section
       id="industries"
@@ -203,23 +213,25 @@ export default function SectorSelectorSection() {
             id="sector-selector-heading"
             className="text-balance text-3xl font-semibold tracking-tight text-deep-navy sm:text-4xl lg:text-5xl lg:leading-tight"
           >
-            Choose one of five active sectors
+            Choose from seventeen active sectors
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-7 text-slate sm:mt-5 sm:text-lg sm:leading-8">
-            Run quick calculations with free sector tools, then use premium
-            analysis when cost, pricing and risk decisions need more structure.
+            Start with featured sectors below, or browse all seventeen industry packs with free
+            calculators and premium analyzers.
+          </p>
+          <p className="mt-4">
+            <Link
+              href="/industries"
+              className="text-sm font-semibold text-professional-blue hover:underline"
+            >
+              View all 17 industries →
+            </Link>
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {topRow.map((sector) => (
-            <SectorCardItem key={sector.title} {...sector} />
-          ))}
-        </div>
-
-        <div className="mx-auto mt-6 grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
-          {bottomRow.map((sector) => (
+          {sectorCards.map((sector) => (
             <SectorCardItem key={sector.title} {...sector} />
           ))}
         </div>

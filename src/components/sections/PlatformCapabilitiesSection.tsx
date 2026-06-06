@@ -96,7 +96,7 @@ export function PlatformCapabilitiesSection() {
             <p>
               SectorCalc combines free quick estimates with premium decision reports — validated
               inputs, transparent formulas, scenarios, risk signals and report-ready structure
-              across five live sectors.
+              across seventeen active sectors.
             </p>
           </article>
           {CAPABILITIES.map((capability) => (

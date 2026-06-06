@@ -13,18 +13,15 @@
  */
 
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
+import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import { additionalRevenueTools } from "@/lib/tools/revenue-tools-additional";
 import { getToolHref } from "@/lib/tools/paths";
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
-export type RevenueSector =
-  | "cnc-manufacturing"
-  | "construction"
-  | "cleaning"
-  | "restaurant"
-  | "ecommerce";
+export type RevenueSector = IndustrySlug;
 
 export type RevenueInputType = "number" | "currency" | "percent" | "select";
 
@@ -45,20 +42,10 @@ export type RevenueToolInput = {
 };
 
 /** v1B free tool route slugs — /tools/free/[slug] */
-export type FreeRevenueToolSlug =
-  | "machine-time-calculator"
-  | "project-cost-calculator"
-  | "cleaning-cost-calculator"
-  | "food-cost-calculator"
-  | "product-margin-calculator";
+export type FreeRevenueToolSlug = string;
 
 /** v1C premium analyzer route slugs — /tools/premium/[slug] */
-export type PremiumRevenueToolSlug =
-  | "cnc-quote-risk-analyzer"
-  | "change-order-impact-analyzer"
-  | "office-cleaning-bid-optimizer"
-  | "menu-profit-leak-detector"
-  | "return-profit-erosion-tool";
+export type PremiumRevenueToolSlug = string;
 
 export type RevenueTool = {
   sector: RevenueSector;
@@ -156,7 +143,7 @@ export const FREE_PLAN_PRICING = {
   description:
     "Quick sector checks — limited inputs, directional numbers and early risk signals.",
   features: [
-    "Five industry quick-check calculators",
+    "Seventeen industry quick-check calculators",
     "2–3 inputs per tool",
     "Risk or preview signals",
     "No account required",
@@ -181,10 +168,10 @@ export const SECTORCALC_PRO_PRICING = {
 } as const;
 
 // ---------------------------------------------------------------------------
-// Five-sector product matrix
+// Core + extended sector product matrix (17 sectors)
 // ---------------------------------------------------------------------------
 
-export const revenueTools: RevenueTool[] = [
+const revenueToolsCore: RevenueTool[] = [
   {
     sector: "cnc-manufacturing",
     freeSlug: "machine-time-calculator",
@@ -705,6 +692,11 @@ export const revenueTools: RevenueTool[] = [
     premiumTeaserText:
       "Unlock the Return Profit Erosion Tool for post-return net profit and a scale-or-stop verdict.",
   },
+];
+
+export const revenueTools: RevenueTool[] = [
+  ...revenueToolsCore,
+  ...additionalRevenueTools,
 ];
 
 export const revenueToolRegistry: RevenueToolRegistry = {

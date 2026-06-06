@@ -2,19 +2,11 @@
 
 import Link from "next/link";
 import { revenueTools } from "@/lib/tools/revenue-tools";
+import { getIndustryDisplayName } from "@/lib/tools/industry-registry";
 import {
   getPremiumToolHref,
   getPricingHref,
 } from "@/lib/tools/tool-links";
-import type { RevenueSector } from "@/lib/tools/revenue-tools";
-
-const SECTOR_LABELS: Record<RevenueSector, string> = {
-  "cnc-manufacturing": "CNC Manufacturing",
-  construction: "Construction",
-  cleaning: "Cleaning",
-  restaurant: "Restaurant",
-  ecommerce: "E-commerce",
-};
 
 interface PremiumToolsGridProps {
   isActive: boolean;
@@ -36,7 +28,7 @@ export function PremiumToolsGrid({ isActive }: PremiumToolsGridProps) {
             <li key={tool.paidSlug}>
               <article className="rounded-xl border border-slate/15 bg-white p-5 shadow-card">
                 <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
-                  {SECTOR_LABELS[tool.sector]}
+                  {getIndustryDisplayName(tool.sector)}
                 </p>
                 <h3 className="mt-2 text-base font-bold text-deep-navy">{tool.paidTitle}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{tool.painStatement}</p>

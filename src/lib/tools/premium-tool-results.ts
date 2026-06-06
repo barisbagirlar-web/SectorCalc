@@ -1,4 +1,5 @@
 import type { RevenueTool } from "@/lib/tools/revenue-tools";
+import { calculateExtendedPremiumResult } from "@/lib/tools/premium-sector-calculations";
 
 export type PremiumToolInputValues = Record<string, number | string>;
 
@@ -70,6 +71,11 @@ export function calculatePremiumToolResult(
   tool: RevenueTool,
   values: PremiumToolInputValues
 ): PremiumToolResult {
+  const extended = calculateExtendedPremiumResult(tool, values);
+  if (extended) {
+    return extended;
+  }
+
   if (tool.sector === "cnc-manufacturing") {
     const setupTime = getNumber(values, "setupTime");
     const cycleTime = getNumber(values, "cycleTime");

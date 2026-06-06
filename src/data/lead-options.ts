@@ -1,5 +1,6 @@
+import { industryRegistry } from "@/lib/tools/industry-registry";
 import { ALL_TOOLS } from "@/data/tools";
-import type { IndustrySlug } from "@/data/industries";
+import type { IndustrySlug } from "@/lib/tools/industry-registry";
 import { INDUSTRIES } from "@/data/industries";
 import type { LeadPlan } from "@/lib/leads/types";
 
@@ -9,11 +10,10 @@ export interface SelectOption {
 }
 
 export const LEAD_INDUSTRY_OPTIONS: SelectOption[] = [
-  { value: "Construction", label: "Construction" },
-  { value: "Cleaning", label: "Cleaning" },
-  { value: "Restaurant", label: "Restaurant" },
-  { value: "E-commerce", label: "E-commerce" },
-  { value: "CNC & Manufacturing", label: "CNC & Manufacturing" },
+  ...industryRegistry.map((entry) => ({
+    value: entry.name,
+    label: entry.name,
+  })),
   { value: "Consulting / Agency", label: "Consulting / Agency" },
   { value: "Other", label: "Other" },
 ];
@@ -32,13 +32,9 @@ export const LEAD_TOOL_OPTIONS: SelectOption[] = ALL_TOOLS.map((tool) => ({
   label: `${tool.name} (${tool.tier})`,
 }));
 
-const INDUSTRY_SLUG_TO_LEAD: Record<IndustrySlug, string> = {
-  construction: "Construction",
-  cleaning: "Cleaning",
-  restaurant: "Restaurant",
-  ecommerce: "E-commerce",
-  "cnc-manufacturing": "CNC & Manufacturing",
-};
+const INDUSTRY_SLUG_TO_LEAD: Record<IndustrySlug, string> = Object.fromEntries(
+  industryRegistry.map((entry) => [entry.slug, entry.name])
+) as Record<IndustrySlug, string>;
 
 export function industrySlugToLeadValue(slug: IndustrySlug): string {
   return INDUSTRY_SLUG_TO_LEAD[slug];

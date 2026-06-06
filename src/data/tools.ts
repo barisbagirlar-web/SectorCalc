@@ -3,32 +3,16 @@ import { revenueToolRegistry } from "@/lib/tools/revenue-tools";
 
 export type ToolTier = "free" | "premium";
 
-export type ToolSlug =
-  | "machine-time-calculator"
-  | "project-cost-calculator"
-  | "cleaning-cost-calculator"
-  | "food-cost-calculator"
-  | "product-margin-calculator"
-  | "cnc-quote-risk-analyzer"
-  | "return-profit-erosion-tool"
-  | "project-cost-estimator"
-  | "cleaning-cost-estimator"
-  | "machine-hour-estimator"
-  | "change-order-impact-analyzer"
-  | "office-cleaning-bid-optimizer"
-  | "menu-profit-leak-detector"
-  | "return-rate-profit-erosion-tool"
-  | "cnc-minimum-safe-quote-analyzer";
+export type ToolSlug = string;
 
 export interface Tool {
-  slug: ToolSlug;
+  slug: string;
   name: string;
   shortDescription: string;
   description: string;
   tier: ToolTier;
   industrySlug: string;
   href: string;
-  comingSoon?: boolean;
 }
 
 export const FREE_TOOLS: Tool[] = revenueToolRegistry.tools.map((tool) => ({
@@ -53,28 +37,30 @@ export const PREMIUM_TOOLS: Tool[] = revenueToolRegistry.tools.map((tool) => ({
 
 export const ALL_TOOLS: Tool[] = [...FREE_TOOLS, ...PREMIUM_TOOLS];
 
-export function getToolBySlug(slug: ToolSlug): Tool | undefined {
-  return ALL_TOOLS.find((t) => t.slug === slug);
+export function getToolBySlug(slug: string): Tool | undefined {
+  return ALL_TOOLS.find((tool) => tool.slug === slug);
 }
 
 export function getToolsByIndustry(industrySlug: string): Tool[] {
-  return ALL_TOOLS.filter((t) => t.industrySlug === industrySlug);
+  return ALL_TOOLS.filter((tool) => tool.industrySlug === industrySlug);
 }
 
 export function getFreeToolsByIndustry(industrySlug: string): Tool[] {
-  return FREE_TOOLS.filter((t) => t.industrySlug === industrySlug);
+  return FREE_TOOLS.filter((tool) => tool.industrySlug === industrySlug);
 }
 
 export function getPremiumToolsByIndustry(industrySlug: string): Tool[] {
-  return PREMIUM_TOOLS.filter((t) => t.industrySlug === industrySlug);
+  return PREMIUM_TOOLS.filter((tool) => tool.industrySlug === industrySlug);
 }
 
 const FREE_TO_PAID_SLUG = Object.fromEntries(
   revenueToolRegistry.tools.map((tool) => [tool.freeSlug, tool.paidSlug])
-) as Partial<Record<ToolSlug, ToolSlug>>;
+);
 
-export function getMatchingPremiumTool(freeSlug: ToolSlug): Tool | undefined {
+export function getMatchingPremiumTool(freeSlug: string): Tool | undefined {
   const paidSlug = FREE_TO_PAID_SLUG[freeSlug];
-  if (!paidSlug) return undefined;
+  if (!paidSlug) {
+    return undefined;
+  }
   return getToolBySlug(paidSlug);
 }

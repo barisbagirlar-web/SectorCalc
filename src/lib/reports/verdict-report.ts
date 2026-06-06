@@ -1,4 +1,5 @@
 import type { RevenueTool, RevenueToolInput } from "@/lib/tools/revenue-tools";
+import { getIndustryDisplayName } from "@/lib/tools/industry-registry";
 import type {
   PremiumToolInputValues,
   PremiumToolResult,
@@ -25,14 +26,6 @@ export type VerdictReportData = {
 
 export const VERDICT_REPORT_LEGAL_DISCLAIMER =
   "This report is a technical simulation and decision-support output. It is not financial, legal or engineering advice. Results depend on user-provided inputs. Verify all outputs before making business decisions. Digital product. No refunds.";
-
-const SECTOR_LABELS: Record<RevenueTool["sector"], string> = {
-  "cnc-manufacturing": "CNC Manufacturing",
-  construction: "Construction",
-  cleaning: "Cleaning",
-  restaurant: "Restaurant",
-  ecommerce: "E-commerce",
-};
 
 function formatInputValue(
   input: RevenueToolInput,
@@ -94,7 +87,7 @@ export function buildVerdictReportData({
 }): VerdictReportData {
   return {
     toolTitle: tool.paidTitle,
-    sector: SECTOR_LABELS[tool.sector],
+    sector: getIndustryDisplayName(tool.sector),
     generatedAt: new Date().toISOString(),
     verdict: result.verdict,
     headline: result.headline,
