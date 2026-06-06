@@ -26,11 +26,17 @@ export const SITE = {
   defaultCurrency: "USD" as const,
 } as const;
 
-export const NAV_ITEMS = [
-  { label: "Free Tools", href: "/free-tools" },
-  { label: "Premium Tools", href: "/premium-tools" },
+export const PUBLIC_NAV_ITEMS = [
+  { label: "Free Checks", href: "/free-tools" },
+  { label: "Premium Verdicts", href: "/premium-tools" },
   { label: "Industries", href: "/industries" },
   { label: "Pricing", href: "/pricing" },
+] as const;
+
+export const AUTH_NAV_ITEMS = [
   { label: "Reports", href: "/account/reports" },
   { label: "Account", href: "/account" },
 ] as const;
+
+/** @deprecated Use PUBLIC_NAV_ITEMS + AUTH_NAV_ITEMS */
+export const NAV_ITEMS = [...PUBLIC_NAV_ITEMS, ...AUTH_NAV_ITEMS] as const;

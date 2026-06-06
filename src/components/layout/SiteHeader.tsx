@@ -1,8 +1,9 @@
-import Link from "next/link";
 import { SiteLogo } from "@/components/brand/SiteLogo";
-import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
+import {
+  DesktopHeaderNav,
+  HeaderActions,
+} from "@/components/layout/HeaderNav";
 import { MobileNav } from "@/components/layout/MobileNav";
-import { NAV_ITEMS } from "@/config/site";
 
 type HeaderTheme = "light" | "dark";
 
@@ -23,21 +24,11 @@ export function SiteHeader({ theme = "light" }: SiteHeaderProps) {
   }
 
   return (
-    <header id="header" className="mc-header sticky top-0 z-50">
+    <header id="header" className="mc-header sticky top-0 z-50 dark:border-slate-700 dark:bg-slate-900">
       <div className="container">
         <SiteLogo priority />
-        <nav id="main-navigation" aria-label="Main">
-          <ul>
-            {NAV_ITEMS.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-            <li>
-              <HeaderAuthCta />
-            </li>
-          </ul>
-        </nav>
+        <DesktopHeaderNav theme="light" />
+        <HeaderActions theme="light" />
         <MobileNav theme="light" />
       </div>
     </header>

@@ -16,7 +16,7 @@
 #sector-product {
   width: 100%;
   overflow: hidden;
-  font-family: var(--font-open-sans), "Open Sans", Tahoma, "Lucida Grande", sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
   color: #303030;
 }
 
@@ -1370,4 +1370,217 @@ section.mc-page-hero .mc-page-hero-head > *:not(header) {
   #sector-product .sixth-tab {
     padding: 60px 0;
   }
+}
+
+/* Homepage conversion flow (premium repositioning) */
+#sector-product .mc-hero-trust-strip {
+  margin-top: 1.25rem;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+#sector-product .mc-home-conversion {
+  padding: 56px 0;
+  border-top: 1px solid rgba(100, 116, 139, 0.12);
+}
+
+#sector-product .mc-home-conversion-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-bottom: 12px;
+}
+
+#sector-product .mc-home-conversion-eyebrow--free {
+  color: #10b981;
+}
+
+#sector-product .mc-home-conversion-eyebrow--premium {
+  color: #f59e0b;
+}
+
+#sector-product .mc-home-conversion h2 {
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 16px;
+}
+
+#sector-product .mc-home-conversion-lead {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #64748b;
+  max-width: 640px;
+  margin: 0 0 20px;
+}
+
+#sector-product .mc-home-pain-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 720px;
+}
+
+#sector-product .mc-home-pain-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #303030;
+}
+
+#sector-product .mc-home-pain-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+#sector-product .mc-home-conversion-grid {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  #sector-product .mc-home-conversion-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #sector-product .mc-home-conversion-grid--reverse .mc-home-conversion-card {
+    order: -1;
+  }
+}
+
+#sector-product .mc-home-conversion-card {
+  border: 1px solid rgba(100, 116, 139, 0.15);
+  border-radius: 16px;
+  background: #fff;
+  padding: 24px;
+  box-shadow: 0 4px 24px -4px rgba(15, 23, 42, 0.08);
+}
+
+#sector-product .mc-home-conversion-card--premium {
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+#sector-product .mc-home-conversion-cta {
+  display: inline-flex;
+  margin-top: 8px;
+}
+
+#sector-product .mc-home-sample-verdict {
+  margin-top: 24px;
+  border: 1px solid rgba(100, 116, 139, 0.15);
+  border-radius: 16px;
+  background: #f8fafc;
+  padding: 24px;
+  max-width: 720px;
+}
+
+#sector-product .mc-home-sample-verdict-row {
+  display: grid;
+  gap: 4px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(100, 116, 139, 0.1);
+}
+
+#sector-product .mc-home-sample-verdict-row:last-child {
+  border-bottom: none;
+}
+
+#sector-product .mc-home-sample-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+#sector-product .mc-home-sample-value {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0f172a;
+}
+
+#sector-product .mc-home-sample-value--alert {
+  color: #ef4444;
+}
+
+#sector-product .mc-home-sample-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+#sector-product .mc-home-trust-grid {
+  display: grid;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  #sector-product .mc-home-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  #sector-product .mc-home-trust-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+#sector-product .mc-home-trust-grid li {
+  border: 1px solid rgba(100, 116, 139, 0.12);
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px;
+}
+
+#sector-product .mc-home-trust-grid strong {
+  display: block;
+  font-size: 14px;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+#sector-product .mc-home-trust-grid span {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+#sector-product .mc-home-pricing-roi {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+#footer .footer-brand-block {
+  margin-bottom: 32px;
+}
+
+#footer .footer-brand-block .footer-tagline {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+#footer .footer-trust-note {
+  margin: 0 0 24px;
+  max-width: 720px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #64748b;
 }

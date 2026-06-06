@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
-import { TrustedIndustriesStrip } from "@/components/ui/MagiClickIllustrations";
-import { HomeOperationsValueSection } from "@/components/sections/HomeOperationsValueSection";
+import { HomeTrustStrip } from "@/components/sections/HomeConversionSections";
 import { HeroDeviceMockup } from "@/components/home/HeroDeviceMockup";
 
 export function HeroSection() {
@@ -10,31 +9,19 @@ export function HeroSection() {
       <PageHero
         variant="home"
         title="Stop Pricing Work That Loses Money."
-        subtitle="Sector-specific cost and risk reports for manufacturing, small industry and service businesses — without expensive ERP or consulting overhead."
+        subtitle="Check job cost, margin risk and safe price before you quote — with sector-specific verdict reports for manufacturing, trades and service businesses."
       >
         <div className="mc-hero-actions">
-          <Link href="/industries" className="mc-btn-hero-primary">
-            Find Your Safe Price
+          <Link href="/free-tools" className="mc-btn-hero-primary">
+            Run a Free Margin Check
           </Link>
           <Link href="/reports/sample-decision-report" className="mc-btn-hero-secondary">
-            View Sample Report
+            View Sample Verdict Report
           </Link>
         </div>
-        <p className="mc-hero-microcopy">
-          <Link href="/free-tools">Need a quick number? Try a free estimator →</Link>
-        </p>
+        <HomeTrustStrip />
       </PageHero>
       <HeroDeviceMockup />
-      <HomeOperationsValueSection />
-      <section className="second-tab" aria-label="Industries served">
-        <div className="container text-center">
-          <div className="row">
-            <figure className="col-xs-12">
-              <TrustedIndustriesStrip />
-            </figure>
-          </div>
-        </div>
-      </section>
     </section>
   );
 }

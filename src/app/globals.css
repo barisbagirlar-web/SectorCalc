@@ -2,14 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "../styles/design-system.css";
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white text-[#303030] antialiased;
-    font-family: var(--font-open-sans), "Open Sans", sans-serif;
+    @apply bg-white text-deep-navy antialiased;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
 
   strong {
@@ -17,7 +19,7 @@
   }
 }
 
-/* Prevent Tailwind preflight from overriding MagiClick product sections */
+/* MagiClick product sections — Inter only */
 #sector-product h1,
 #sector-product h2,
 #sector-product h3,
@@ -25,5 +27,5 @@
 #sector-product p,
 #sector-product a,
 #sector-product figure {
-  font-family: var(--font-open-sans), "Open Sans", Tahoma, "Lucida Grande", sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }

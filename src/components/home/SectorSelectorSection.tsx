@@ -167,7 +167,7 @@ function SectorCardItem({
           href={freeHref}
           className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-professional-blue px-5 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-professional-blue focus:ring-offset-2"
         >
-          Start Free Calculator
+          Start Free Margin Check
         </Link>
         <Link
           href={premiumHref}

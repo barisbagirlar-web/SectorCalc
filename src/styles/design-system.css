@@ -1,0 +1,246 @@
+/**
+ * SectorCalc Premium Design System
+ * Inter-only · B2B margin decision platform
+ */
+
+:root {
+  --sc-font: var(--font-inter), system-ui, sans-serif;
+
+  --sc-navy: #0f172a;
+  --sc-blue: #2563eb;
+  --sc-blue-hover: #1d4ed8;
+  --sc-emerald: #10b981;
+  --sc-amber: #f59e0b;
+  --sc-red: #ef4444;
+  --sc-cyan: #06b6d4;
+  --sc-slate: #64748b;
+  --sc-off-white: #f8fafc;
+  --sc-white: #ffffff;
+  --sc-border: rgb(226 232 240 / 0.6);
+
+  --sc-text: var(--sc-navy);
+  --sc-text-muted: var(--sc-slate);
+  --sc-page-bg: var(--sc-white);
+  --sc-card-bg: var(--sc-white);
+
+  --sc-h1: clamp(2.25rem, 4vw, 3.5rem);
+  --sc-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --sc-h3: clamp(1.25rem, 2vw, 1.75rem);
+  --sc-body: 1rem;
+  --sc-small: 0.875rem;
+  --sc-eyebrow: 0.75rem;
+
+  --sc-section-py: 3.5rem;
+  --sc-gap: 1.5rem;
+  --sc-card-p: 1rem;
+  --sc-cta-h: 3.5rem;
+  --sc-input-h: 3rem;
+  --sc-radius-card: 1rem;
+  --sc-radius-btn: 0.875rem;
+  --sc-radius-input: 0.75rem;
+  --sc-transition: 180ms ease;
+  --sc-shadow-card: 0 4px 24px -4px rgb(15 23 42 / 0.12);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --sc-section-py: 4.5rem;
+    --sc-card-p: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --sc-section-py: 6rem;
+  }
+}
+
+.dark {
+  --sc-text: #f8fafc;
+  --sc-text-muted: #cbd5e1;
+  --sc-page-bg: #0f172a;
+  --sc-card-bg: #1e293b;
+  --sc-border: #334155;
+  --sc-navy: #f8fafc;
+  --sc-blue: #60a5fa;
+  --sc-blue-hover: #93c5fd;
+}
+
+html {
+  font-family: var(--sc-font);
+}
+
+body {
+  font-family: var(--sc-font);
+  font-size: var(--sc-body);
+  line-height: 1.6;
+  color: var(--sc-text);
+  background-color: var(--sc-page-bg);
+}
+
+/* Typography utilities */
+.sc-h1 {
+  font-size: var(--sc-h1);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--sc-text);
+}
+
+.sc-h2 {
+  font-size: var(--sc-h2);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--sc-text);
+}
+
+.sc-h3 {
+  font-size: var(--sc-h3);
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--sc-text);
+}
+
+.sc-eyebrow {
+  font-size: var(--sc-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sc-blue);
+}
+
+.sc-body-muted {
+  font-size: var(--sc-body);
+  line-height: 1.6;
+  color: var(--sc-text-muted);
+}
+
+/* Section spacing */
+.sc-section {
+  padding-top: var(--sc-section-py);
+  padding-bottom: var(--sc-section-py);
+}
+
+/* Card standard */
+.sc-card {
+  border-radius: var(--sc-radius-card);
+  border: 1px solid var(--sc-border);
+  background: var(--sc-card-bg);
+  padding: var(--sc-card-p);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
+  transition: transform var(--sc-transition), box-shadow var(--sc-transition),
+    border-color var(--sc-transition);
+}
+
+.sc-card-interactive:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sc-shadow-card);
+  border-color: rgb(37 99 235 / 0.25);
+}
+
+/* CTA buttons */
+.sc-btn-primary {
+  display: inline-flex;
+  min-height: var(--sc-cta-h);
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1.5rem;
+  border-radius: var(--sc-radius-btn);
+  background: var(--sc-blue);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 150ms ease, box-shadow 150ms ease;
+}
+
+.sc-btn-primary:hover {
+  background: var(--sc-blue-hover);
+  box-shadow: 0 4px 14px rgb(37 99 235 / 0.25);
+}
+
+.sc-btn-secondary {
+  display: inline-flex;
+  min-height: var(--sc-cta-h);
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1.5rem;
+  border-radius: var(--sc-radius-btn);
+  border: 1px solid rgb(37 99 235 / 0.4);
+  background: transparent;
+  color: var(--sc-blue);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.sc-btn-secondary:hover {
+  background: rgb(37 99 235 / 0.06);
+  border-color: var(--sc-blue);
+}
+
+/* Form inputs */
+.sc-input {
+  min-height: var(--sc-input-h);
+  width: 100%;
+  border-radius: var(--sc-radius-input);
+  border: 1px solid #cbd5e1;
+  background: var(--sc-card-bg);
+  color: var(--sc-text);
+  padding-inline: 1rem;
+  font-size: 1rem;
+  transition: border-color var(--sc-transition), box-shadow var(--sc-transition);
+}
+
+.sc-input:focus {
+  outline: none;
+  border-color: var(--sc-blue);
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 0.2);
+}
+
+.sc-input-error {
+  border-color: var(--sc-red);
+}
+
+.sc-input-error:focus {
+  box-shadow: 0 0 0 3px rgb(239 68 68 / 0.2);
+}
+
+.dark .sc-input {
+  border-color: #475569;
+}
+
+/* Reveal animation */
+.sc-reveal {
+  animation: sc-fade-up 350ms ease forwards;
+}
+
+.sc-result-reveal {
+  animation: sc-fade-in 300ms ease forwards;
+}
+
+@keyframes sc-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sc-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Focus visible baseline */
+:focus-visible {
+  outline: 2px solid var(--sc-blue);
+  outline-offset: 2px;
+}

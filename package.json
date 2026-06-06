@@ -12,6 +12,7 @@
     "admin:set-claim": "node scripts/set-admin-claim.mjs"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@react-pdf/renderer": "^4.5.1",
     "firebase": "^12.14.0",
     "firebase-admin": "^13.10.0",

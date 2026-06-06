@@ -1,55 +1,48 @@
 import Link from "next/link";
+import { SiteLogo } from "@/components/brand/SiteLogo";
 import { SITE } from "@/config/site";
 
 const FOOTER_GROUPS = [
   {
-    title: "Tools",
+    title: "Product",
     links: [
-      { label: "Free Tools", href: "/free-tools" },
+      { label: "Free Checks", href: "/free-tools" },
+      { label: "Premium Verdicts", href: "/premium-tools" },
+      { label: "Sample Report", href: "/reports/sample-decision-report" },
       { label: "Pricing", href: "/pricing" },
     ],
   },
   {
-    title: "Industries",
-    links: [
-      { label: "All Industries", href: "/industries" },
-      { label: "Construction", href: "/industries/construction" },
-      { label: "Cleaning", href: "/industries/cleaning" },
-      { label: "Restaurant", href: "/industries/restaurant" },
-      { label: "E-commerce", href: "/industries/ecommerce" },
-      { label: "CNC & Manufacturing", href: "/industries/cnc-manufacturing" },
-    ],
-  },
-  {
-    title: "Reports",
-    links: [{ label: "Sample Decision Report", href: "/reports/sample-decision-report" }],
-  },
-  {
     title: "Company",
     links: [
+      { label: "How It Works", href: "/how-it-works" },
       { label: "For Consultants", href: "/for-consultants" },
-      { label: "Login", href: "/login" },
+      { label: "Contact", href: `mailto:${SITE.contactEmail}` },
+      { label: "Security", href: "/privacy" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
       { label: "Disclaimer", href: "/disclaimer" },
+      { label: "Refund Policy", href: "/terms" },
     ],
   },
 ] as const;
 
 export function SiteFooter() {
   return (
-    <footer id="footer">
+    <footer id="footer" className="dark:border-slate-700 dark:bg-slate-900">
       <div className="custom-works-container clearfix">
         <div className="container">
-          <p className="footer-tagline">
-            {SITE.siteName} is an English-first sector calculation and decision-report platform
-            for business cost, margin, capacity and pricing decisions.
-          </p>
+          <div className="footer-brand-block">
+            <SiteLogo />
+            <p className="footer-tagline">
+              Sector-specific margin decision platform
+            </p>
+          </div>
           <nav className="footer-groups" aria-label="Footer">
             {FOOTER_GROUPS.map((group) => (
               <div key={group.title} className="footer-group">
@@ -69,6 +62,9 @@ export function SiteFooter() {
               <div className="copyright">
                 © {new Date().getFullYear()} {SITE.siteName}
               </div>
+              <p className="footer-trust-note">
+                Checkout secured by Stripe. Business data is not sold.
+              </p>
               <div className="footer-bottom-links footer-bottom-links-box">
                 {FOOTER_GROUPS.find((g) => g.title === "Legal")?.links.map((link) => (
                   <Link key={link.href} href={link.href}>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode, ButtonHTMLAttributes } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
-type ButtonSize = "sm" | "md" | "lg";
+type ButtonSize = "sm" | "md" | "lg" | "cta";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
@@ -19,6 +19,7 @@ const sizeClasses: Record<ButtonSize, string> = {
   sm: "min-h-[44px] px-4 py-2 text-sm",
   md: "min-h-[44px] px-6 py-2.5 text-base",
   lg: "min-h-[48px] px-8 py-3 text-base font-semibold",
+  cta: "min-h-[56px] px-6 py-3 text-base font-semibold rounded-[14px]",
 };
 
 const baseClasses =

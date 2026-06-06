@@ -6,7 +6,7 @@ import { PricingToolUnlockBanner } from "@/components/billing/PricingToolUnlockB
 import { PricingSubscribedBanner } from "@/components/billing/SubscriptionActivationBanner";
 import { PricingPlansGrid } from "@/components/sections/PricingPlansGrid";
 import { Container } from "@/components/ui/Container";
-import { PRICING_PRO_TAGLINE } from "@/data/pricing-plans";
+import { PRICING_PRO_TAGLINE, PRICING_ROI_COPY } from "@/data/pricing-plans";
 import { createPageMetadata } from "@/lib/metadata";
 import { getFreeToolsHref, getPremiumToolsHref } from "@/lib/tools/tool-links";
 import { PRICING_CHECKOUT_LEGAL } from "@/lib/billing/subscription";
@@ -38,6 +38,9 @@ export default function PricingPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
             {PRICING_PRO_TAGLINE}
+          </p>
+          <p className="mt-3 max-w-2xl text-base font-semibold text-deep-navy">
+            {PRICING_ROI_COPY}
           </p>
         </Container>
       </section>

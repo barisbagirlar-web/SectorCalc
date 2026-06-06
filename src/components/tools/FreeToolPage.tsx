@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useRef, useState, type FormEvent } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
+import { FieldHint } from "@/components/ui/FieldHint";
 import {
   REVENUE_EVENTS,
   trackRevenueEvent,
@@ -12,6 +13,7 @@ import {
   getPremiumToolHref,
   getPricingHref,
 } from "@/lib/tools/tool-links";
+import { FreeToolEmailCaptureButton } from "@/components/tools/FreeToolEmailCaptureButton";
 import {
   areFreeToolInputsValid,
   calculateFreeToolResult,
@@ -66,6 +68,20 @@ function buildInitialValues(tool: RevenueTool): FreeToolInputValues {
   return values;
 }
 
+function validationMessage(input: RevenueToolInput, value: number | string): string {
+  if (input.type === "select") {
+    return `Please select ${input.label.toLowerCase()} before continuing.`;
+  }
+  const numeric = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(numeric)) {
+    return `${input.label} must be a valid number.`;
+  }
+  if (numeric <= 0) {
+    return `${input.label} must be greater than 0.`;
+  }
+  return `${input.label} must be a valid number.`;
+}
+
 interface FreeToolInputFieldProps {
   input: RevenueToolInput;
   value: number | string;
@@ -80,21 +96,26 @@ function FreeToolInputField({
   onChange,
 }: FreeToolInputFieldProps) {
   const inputId = `free-tool-${input.key}`;
+  const errorId = `${inputId}-error`;
+  const helperId = `${inputId}-helper`;
 
   if (input.type === "select" && input.options) {
     return (
       <div className="space-y-1.5">
-        <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy">
-          {input.label}
-          {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
-        </label>
+        <div className="flex items-center gap-1">
+          <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy dark:text-off-white">
+            {input.label}
+            {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
+          </label>
+          {input.helperText ? <FieldHint text={input.helperText} /> : null}
+        </div>
         <select
           id={inputId}
           value={String(value)}
           onChange={(event) => onChange(input.key, event.target.value)}
-          className={`min-h-[48px] w-full rounded-lg border bg-white px-4 text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20 ${
-            error ? "border-soft-red" : "border-slate/25"
-          }`}
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? errorId : helperId}
+          className={`sc-input ${error ? "sc-input-error" : ""}`}
         >
           {input.options.map((option) => (
             <option key={option.value} value={option.value}>
@@ -103,10 +124,12 @@ function FreeToolInputField({
           ))}
         </select>
         {input.helperText ? (
-          <p className="text-xs leading-relaxed text-slate">{input.helperText}</p>
+          <p id={helperId} className="text-xs leading-relaxed text-slate">
+            {input.helperText}
+          </p>
         ) : null}
         {error ? (
-          <p className="text-sm text-soft-red" role="alert">
+          <p id={errorId} className="text-sm text-soft-red" role="alert">
             {error}
           </p>
         ) : null}
@@ -119,10 +142,13 @@ function FreeToolInputField({
 
   return (
     <div className="space-y-1.5">
-      <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy">
-        {input.label}
-        {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
-      </label>
+      <div className="flex items-center gap-1">
+        <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy dark:text-off-white">
+          {input.label}
+          {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
+        </label>
+        {input.helperText ? <FieldHint text={input.helperText} /> : null}
+      </div>
       <div className="relative">
         {isCurrency ? (
           <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate">
@@ -141,9 +167,11 @@ function FreeToolInputField({
               event.target.value === "" ? 0 : Number(event.target.value);
             onChange(input.key, next);
           }}
-          className={`min-h-[48px] w-full rounded-lg border bg-white py-2.5 text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20 ${
-            isCurrency ? "pl-8 pr-4" : "px-4"
-          } ${showUnit ? "pr-14" : ""} ${error ? "border-soft-red" : "border-slate/25"}`}
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? errorId : helperId}
+          className={`sc-input ${isCurrency ? "pl-8 pr-4" : "px-4"} ${showUnit ? "pr-14" : ""} ${
+            error ? "sc-input-error" : ""
+          }`}
         />
         {showUnit ? (
           <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate">
@@ -152,10 +180,12 @@ function FreeToolInputField({
         ) : null}
       </div>
       {input.helperText ? (
-        <p className="text-xs leading-relaxed text-slate">{input.helperText}</p>
+        <p id={helperId} className="text-xs leading-relaxed text-slate">
+          {input.helperText}
+        </p>
       ) : null}
       {error ? (
-        <p className="text-sm text-soft-red" role="alert">
+        <p id={errorId} className="text-sm text-soft-red" role="alert">
           {error}
         </p>
       ) : null}
@@ -176,11 +206,14 @@ function FreeToolResultCard({
 
   return (
     <article
-      className={`rounded-xl border p-6 ${styles.border} ${styles.bg}`}
+      className={`sc-card sc-result-reveal ${styles.border} ${styles.bg}`}
       aria-live="polite"
     >
-      <p className="text-xs font-semibold uppercase tracking-wider text-slate">
-        Risk signal
+      <p className="text-sm font-semibold text-emerald dark:text-emerald">
+        Risk analysis complete.
+      </p>
+      <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate">
+        Risk signal — {result.riskLevel === "HIGH" ? "HIGH RISK" : result.riskLevel === "LOW" ? "SAFE TO QUOTE" : "MEDIUM RISK"}
       </p>
       <p className={`mt-2 text-2xl font-bold ${styles.text}`}>{result.riskLevel}</p>
       <h3 className="mt-4 text-lg font-semibold text-deep-navy">{result.headline}</h3>
@@ -205,19 +238,20 @@ function FreeToolResultCard({
 
       <div className="mt-6 rounded-xl border border-slate/15 bg-white p-5">
         <h4 className="text-base font-semibold text-deep-navy">
-          Your quick check shows visible risk.
+          Your quick check shows visible risk only.
         </h4>
         <p className="mt-2 text-sm leading-relaxed text-slate">
-          The free calculator gives a quick estimate. The premium analyzer shows the
-          safe price, risk drivers and suggested action.
+          Unlock the full verdict to see minimum safe price, margin leak breakdown,
+          action recommendation and PDF report.
         </p>
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Link
             href={pricingHref}
             className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
           >
-            Unlock the Full Analyzer
+            Get Full Verdict
           </Link>
+          <FreeToolEmailCaptureButton toolTitle={tool.freeTitle} />
           <Link
             href={premiumHref}
             className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/20 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
@@ -239,8 +273,10 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
     buildInitialValues(tool)
   );
   const [submitted, setSubmitted] = useState(false);
+  const [isCalculating, setIsCalculating] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const startedTracked = useRef(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const result = useMemo(() => {
     if (!submitted) {
@@ -273,33 +309,42 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
         if (!input.required) {
           continue;
         }
+        const value = values[input.key] ?? (input.type === "select" ? "" : 0);
         if (input.type === "select") {
-          if (typeof values[input.key] !== "string" || values[input.key] === "") {
-            nextErrors[input.key] = "Required";
+          if (typeof value !== "string" || value === "") {
+            nextErrors[input.key] = validationMessage(input, value);
           }
           continue;
         }
         const numeric =
-          typeof values[input.key] === "number"
-            ? values[input.key]
-            : Number(values[input.key]);
+          typeof value === "number" ? value : Number(value);
         if (
           typeof numeric !== "number" ||
           !Number.isFinite(numeric) ||
-          numeric < 0
+          numeric <= 0
         ) {
-          nextErrors[input.key] = "Enter a valid number";
+          nextErrors[input.key] = validationMessage(input, value);
         }
       }
       setErrors(nextErrors);
       setSubmitted(false);
+      const firstKey = Object.keys(nextErrors)[0];
+      if (firstKey && formRef.current) {
+        const el = formRef.current.querySelector(`#free-tool-${firstKey}`);
+        el?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
       return;
     }
     setErrors({});
-    setSubmitted(true);
-    trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
-      toolSlug: tool.freeSlug,
-    });
+    setIsCalculating(true);
+    setSubmitted(false);
+    window.setTimeout(() => {
+      setIsCalculating(false);
+      setSubmitted(true);
+      trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
+        toolSlug: tool.freeSlug,
+      });
+    }, 400);
   };
 
   const pricingHref = getPricingHref(tool);
@@ -327,8 +372,8 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
       <section className="bg-off-white py-10 sm:py-12">
         <Container size="wide" className="min-w-0">
           <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
-            <div className="min-w-0 rounded-xl border border-slate/15 bg-white p-6 shadow-card sm:p-7">
-              <h2 className="text-lg font-bold text-deep-navy">Quick check inputs</h2>
+            <div className="min-w-0 sc-card">
+              <h2 className="text-lg font-bold text-deep-navy dark:text-off-white">Quick check inputs</h2>
               <p className="mt-2 text-sm leading-relaxed text-slate">
                 {tool.freeResultPromise}
               </p>
@@ -336,7 +381,7 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
                 <strong className="font-semibold text-deep-navy">Privacy:</strong>{" "}
                 {FREE_TOOL_PRIVACY_NOTE}
               </p>
-              <form onSubmit={handleSubmit} className="mt-6 space-y-5" noValidate>
+              <form ref={formRef} onSubmit={handleSubmit} className="mt-6 space-y-5" noValidate>
                 {tool.freeInputs.map((input) => (
                   <FreeToolInputField
                     key={input.key}
@@ -348,22 +393,32 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
                 ))}
                 <button
                   type="submit"
-                  className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto"
+                  disabled={isCalculating}
+                  className="sc-btn-primary w-full sm:w-auto disabled:opacity-60"
                 >
-                  Run quick check
+                  {isCalculating ? "Calculating your margin risk..." : "Run quick check"}
                 </button>
               </form>
             </div>
 
             <div className="min-w-0 space-y-4">
-              {result ? (
+              {isCalculating ? (
+                <div className="sc-card animate-pulse">
+                  <p className="text-sm font-medium text-slate">
+                    Calculating your margin risk...
+                  </p>
+                  <div className="mt-4 h-24 rounded-lg bg-slate/10" />
+                </div>
+              ) : null}
+              {!isCalculating && result ? (
                 <FreeToolResultCard result={result} tool={tool} />
-              ) : (
-                <div className="rounded-xl border border-dashed border-slate/20 bg-white p-6 text-sm leading-relaxed text-slate">
+              ) : null}
+              {!isCalculating && !result ? (
+                <div className="sc-card border-dashed text-sm leading-relaxed text-slate">
                   Enter inputs and run the quick check to see a directional risk
                   signal. No safe price or final verdict is shown on the free tier.
                 </div>
-              )}
+              ) : null}
 
               <aside className="rounded-xl border border-slate/15 bg-white p-6">
                 <h3 className="text-base font-semibold text-deep-navy">
@@ -375,8 +430,9 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
                     href={pricingHref}
                     className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
                   >
-                    Unlock the Full Analyzer
+                    Get Full Verdict
                   </Link>
+                  <FreeToolEmailCaptureButton toolTitle={tool.freeTitle} />
                   <Link
                     href={premiumHref}
                     className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/20 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"

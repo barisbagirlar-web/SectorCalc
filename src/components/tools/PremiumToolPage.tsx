@@ -7,6 +7,7 @@ import { PremiumPaywall } from "@/components/billing/PremiumPaywall";
 import { PremiumSubscribedBanner } from "@/components/billing/SubscriptionActivationBanner";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
+import { FieldHint } from "@/components/ui/FieldHint";
 import {
   REVENUE_EVENTS,
   trackRevenueEvent,
@@ -109,21 +110,26 @@ function PremiumToolInputField({
   onChange,
 }: PremiumToolInputFieldProps) {
   const inputId = `premium-tool-${input.key}`;
+  const errorId = `${inputId}-error`;
+  const helperId = `${inputId}-helper`;
 
   if (input.type === "select" && input.options) {
     return (
       <div className="space-y-1.5">
-        <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy">
-          {input.label}
-          {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
-        </label>
+        <div className="flex items-center gap-1">
+          <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy dark:text-off-white">
+            {input.label}
+            {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
+          </label>
+          {input.helperText ? <FieldHint text={input.helperText} /> : null}
+        </div>
         <select
           id={inputId}
           value={String(value)}
           onChange={(event) => onChange(input.key, event.target.value)}
-          className={`min-h-[48px] w-full rounded-lg border bg-white px-4 text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20 ${
-            error ? "border-soft-red" : "border-slate/25"
-          }`}
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? errorId : input.helperText ? helperId : undefined}
+          className={`sc-input ${error ? "sc-input-error" : ""}`}
         >
           {input.options.map((option) => (
             <option key={option.value} value={option.value}>
@@ -131,8 +137,13 @@ function PremiumToolInputField({
             </option>
           ))}
         </select>
+        {input.helperText ? (
+          <p id={helperId} className="text-xs leading-relaxed text-slate">
+            {input.helperText}
+          </p>
+        ) : null}
         {error ? (
-          <p className="text-sm text-soft-red" role="alert">
+          <p id={errorId} className="text-sm text-soft-red" role="alert">
             {error}
           </p>
         ) : null}
@@ -145,10 +156,13 @@ function PremiumToolInputField({
 
   return (
     <div className="space-y-1.5">
-      <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy">
-        {input.label}
-        {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
-      </label>
+      <div className="flex items-center gap-1">
+        <label htmlFor={inputId} className="block text-sm font-medium text-deep-navy dark:text-off-white">
+          {input.label}
+          {input.required ? <span className="ml-0.5 text-soft-red">*</span> : null}
+        </label>
+        {input.helperText ? <FieldHint text={input.helperText} /> : null}
+      </div>
       <div className="relative">
         {isCurrency ? (
           <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate">
@@ -167,9 +181,11 @@ function PremiumToolInputField({
               event.target.value === "" ? 0 : Number(event.target.value);
             onChange(input.key, next);
           }}
-          className={`min-h-[48px] w-full rounded-lg border bg-white py-2.5 text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20 ${
-            isCurrency ? "pl-8 pr-4" : "px-4"
-          } ${showUnit ? "pr-14" : ""} ${error ? "border-soft-red" : "border-slate/25"}`}
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? errorId : input.helperText ? helperId : undefined}
+          className={`sc-input ${isCurrency ? "pl-8 pr-4" : "px-4"} ${showUnit ? "pr-14" : ""} ${
+            error ? "sc-input-error" : ""
+          }`}
         />
         {showUnit ? (
           <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate">
@@ -177,8 +193,13 @@ function PremiumToolInputField({
           </span>
         ) : null}
       </div>
+      {input.helperText ? (
+        <p id={helperId} className="text-xs leading-relaxed text-slate">
+          {input.helperText}
+        </p>
+      ) : null}
       {error ? (
-        <p className="text-sm text-soft-red" role="alert">
+        <p id={errorId} className="text-sm text-soft-red" role="alert">
           {error}
         </p>
       ) : null}
@@ -197,10 +218,11 @@ function PremiumToolResultCard({
 
   return (
     <article
-      className={`rounded-2xl border p-6 sm:p-8 ${styles.border} ${styles.bg}`}
+      className={`sc-card sc-result-reveal ${styles.border} ${styles.bg}`}
       aria-live="polite"
     >
-      <p className="text-xs font-semibold uppercase tracking-wider text-slate">
+      <p className="text-sm font-semibold text-emerald">Risk analysis complete.</p>
+      <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate">
         Decision verdict
       </p>
       <p className={`mt-3 text-xl font-bold leading-snug sm:text-2xl ${styles.verdict}`}>
@@ -249,6 +271,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
     buildInitialValues(tool)
   );
   const [submitted, setSubmitted] = useState(false);
+  const [isCalculating, setIsCalculating] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const result = useMemo(() => {
@@ -338,7 +361,12 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setIsCalculating(true);
+    setSubmitted(false);
+    window.setTimeout(() => {
+      setIsCalculating(false);
+      setSubmitted(true);
+    }, 400);
   };
 
   return (
@@ -389,9 +417,41 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
               <Suspense fallback={null}>
                 <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
               </Suspense>
-              <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
-                <div className="min-w-0 rounded-xl border border-slate/15 bg-white p-6 shadow-card sm:p-7">
-                  <h2 className="text-lg font-bold text-deep-navy">Analyzer inputs</h2>
+              <div className="flex min-w-0 flex-col gap-8">
+                {isCalculating ? (
+                  <div className="sc-card animate-pulse">
+                    <p className="text-sm font-medium text-slate">
+                      Calculating your margin risk...
+                    </p>
+                    <div className="mt-4 h-32 rounded-lg bg-slate/10" />
+                  </div>
+                ) : null}
+                {!isCalculating && result && verdictReportData ? (
+                  <div className="min-w-0 space-y-4">
+                    <PremiumToolResultCard
+                      result={result}
+                      legalDisclaimer={legalDisclaimer}
+                    />
+                    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start">
+                      <DownloadVerdictPdfButton
+                        data={verdictReportData}
+                        slug={tool.paidSlug}
+                        severity={result.severity}
+                      />
+                      {user ? (
+                        <SaveVerdictReportButton
+                          uid={user.uid}
+                          tool={tool}
+                          values={values}
+                          result={result}
+                        />
+                      ) : null}
+                    </div>
+                  </div>
+                ) : null}
+                <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
+                <div className="min-w-0 sc-card">
+                  <h2 className="text-lg font-bold text-deep-navy dark:text-off-white">Analyzer inputs</h2>
                   <p className="mt-2 text-sm leading-relaxed text-slate">
                     {tool.paidResultPromise}
                   </p>
@@ -407,43 +467,23 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
                     ))}
                     <button
                       type="submit"
-                      className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto"
+                      disabled={isCalculating}
+                      className="sc-btn-primary w-full sm:w-auto disabled:opacity-60"
                     >
-                      Run analyzer
+                      {isCalculating ? "Calculating your margin risk..." : "Run analyzer"}
                     </button>
                   </form>
                 </div>
 
                 <div className="min-w-0">
-                  {result && verdictReportData ? (
-                    <>
-                      <PremiumToolResultCard
-                        result={result}
-                        legalDisclaimer={legalDisclaimer}
-                      />
-                      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start">
-                        <DownloadVerdictPdfButton
-                          data={verdictReportData}
-                          slug={tool.paidSlug}
-                          severity={result.severity}
-                        />
-                        {user ? (
-                          <SaveVerdictReportButton
-                            uid={user.uid}
-                            tool={tool}
-                            values={values}
-                            result={result}
-                          />
-                        ) : null}
-                      </div>
-                    </>
-                  ) : (
-                    <div className="rounded-xl border border-dashed border-slate/20 bg-white p-6 text-sm leading-relaxed text-slate">
+                  {!isCalculating && !result ? (
+                    <div className="sc-card border-dashed text-sm leading-relaxed text-slate">
                       Enter inputs and run the analyzer to receive a pricing, margin or
                       bid verdict. No formulas are shown — only the decision output.
                     </div>
-                  )}
+                  ) : null}
                 </div>
+              </div>
               </div>
             </>
           )}

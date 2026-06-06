@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo } from "react";
+import { LeadIntentTrigger } from "@/components/leads/LeadIntentTrigger";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import { Container } from "@/components/ui/Container";
 import {
@@ -21,24 +22,36 @@ import { Badge } from "@/components/ui/Badge";
 import {
   PRICING_PLANS,
   PRICING_PRO_TAGLINE,
+  PRICING_ROI_COPY,
 } from "@/data/pricing-plans";
 
 interface PricingPlansGridProps {
   showHeader?: boolean;
   compact?: boolean;
   embedded?: boolean;
+  /** Homepage teaser — show Free Check + Pro only */
+  featuredOnly?: boolean;
 }
 
 export function PricingPlansGrid({
   showHeader = true,
   compact = false,
   embedded = false,
+  featuredOnly = false,
 }: PricingPlansGridProps) {
   const searchParams = useSearchParams();
   const checkoutToolSlug = useMemo(() => {
     const tool = searchParams.get("tool");
     return tool && getRevenueToolByPaidSlug(tool) ? tool : undefined;
   }, [searchParams]);
+
+  const visiblePlans = useMemo(
+    () =>
+      featuredOnly
+        ? PRICING_PLANS.filter((plan) => plan.id === "free" || plan.id === "pro")
+        : PRICING_PLANS,
+    [featuredOnly]
+  );
 
   useEffect(() => {
     trackRevenueEvent(REVENUE_EVENTS.pricing_viewed, {
@@ -51,18 +64,26 @@ export function PricingPlansGrid({
         {showHeader && (
           <SectionHeader
             eyebrow="Pricing"
-            title="Decision tools, not report upsells"
+            title="Protect margin before you quote"
             subtitle={PRICING_PRO_TAGLINE}
             align="center"
           />
         )}
 
+        {!compact ? (
+          <p className="mx-auto mb-8 max-w-2xl text-center text-base font-semibold text-deep-navy">
+            {PRICING_ROI_COPY}
+          </p>
+        ) : null}
+
         <div
           className={`grid gap-6 ${
-            compact ? "md:grid-cols-2" : "mx-auto max-w-4xl md:grid-cols-2"
+            compact
+              ? "md:grid-cols-2"
+              : "md:grid-cols-2 xl:grid-cols-3"
           }`}
         >
-          {PRICING_PLANS.map((plan) => (
+          {visiblePlans.map((plan) => (
             <article
               key={plan.id}
               className={`flex flex-col rounded-2xl border p-6 md:p-7 ${
@@ -134,7 +155,7 @@ export function PricingPlansGrid({
                   </li>
                 ))}
               </ul>
-              {plan.id === "free" ? (
+              {plan.id === "free" && plan.primaryHref ? (
                 <Button
                   href={plan.primaryHref}
                   variant="primary"
@@ -164,11 +185,25 @@ export function PricingPlansGrid({
                     {PRICING_CHECKOUT_LEGAL}
                   </p>
                 </div>
-              ) : (
+              ) : plan.leadIntent ? (
+                <LeadIntentTrigger
+                  source={plan.leadIntent.source}
+                  plan={plan.leadIntent.plan}
+                  toolRequested={plan.leadIntent.toolRequested}
+                  pagePath="/pricing"
+                  className={`mt-8 inline-flex min-h-[44px] w-full items-center justify-center rounded-lg px-5 text-sm font-semibold transition-colors ${
+                    plan.highlighted
+                      ? "bg-cyan text-deep-navy hover:bg-cyan/90"
+                      : "bg-professional-blue text-white hover:bg-blue-700"
+                  }`}
+                >
+                  {plan.primaryCta}
+                </LeadIntentTrigger>
+              ) : plan.primaryHref ? (
                 <Button href={plan.primaryHref} variant="primary" size="md" className="mt-8 w-full">
                   {plan.primaryCta}
                 </Button>
-              )}
+              ) : null}
             </article>
           ))}
         </div>

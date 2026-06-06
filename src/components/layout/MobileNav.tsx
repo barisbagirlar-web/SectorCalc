@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
-import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
-import { NAV_ITEMS } from "@/config/site";
+import { MobileHeaderNav } from "@/components/layout/HeaderNav";
+import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import { getPricingHref } from "@/lib/tools/tool-links";
+import Link from "next/link";
 
 type HeaderTheme = "light" | "dark";
 
@@ -14,6 +15,7 @@ interface MobileNavProps {
 export function MobileNav({ theme = "light" }: MobileNavProps) {
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const isLight = theme === "light";
+  const { isActive, loading } = useUserSubscription();
 
   const closeMenu = () => {
     if (detailsRef.current) {
@@ -25,7 +27,7 @@ export function MobileNav({ theme = "light" }: MobileNavProps) {
     <details ref={detailsRef} className="lg:hidden">
       <summary
         className={`flex min-h-[44px] min-w-[44px] cursor-pointer list-none items-center justify-center [&::-webkit-details-marker]:hidden ${
-          isLight ? "text-[#303030]" : "text-white"
+          isLight ? "text-[#303030] dark:text-slate-200" : "text-white"
         }`}
         aria-label="Open menu"
       >
@@ -34,26 +36,24 @@ export function MobileNav({ theme = "light" }: MobileNavProps) {
         </svg>
       </summary>
       <ul
-        className={`absolute left-0 right-0 top-full z-50 border-b bg-white px-4 py-3 shadow-lg ${
-          isLight ? "border-[#e5e5e5]" : "border-white/10 bg-dark-navy"
+        className={`absolute left-0 right-0 top-full z-50 border-b bg-white px-4 py-3 shadow-lg dark:bg-slate-900 ${
+          isLight ? "border-[#e5e5e5] dark:border-slate-700" : "border-white/10 bg-dark-navy"
         }`}
       >
-        {NAV_ITEMS.map((item) => (
-          <li key={item.href}>
+        <MobileHeaderNav theme={theme} onNavigate={closeMenu} />
+        {!loading && !isActive ? (
+          <li>
             <Link
-              href={item.href}
+              href={getPricingHref()}
               onClick={closeMenu}
-              className={`block min-h-[44px] py-3 text-sm font-semibold uppercase tracking-wide ${
-                isLight ? "text-[#303030]" : "text-slate-300"
+              className={`block min-h-[44px] py-3 text-sm font-semibold ${
+                isLight ? "text-professional-blue" : "text-cyan"
               }`}
             >
-              {item.label}
+              Unlock Pro
             </Link>
           </li>
-        ))}
-        <li>
-          <HeaderAuthCta theme={theme} onNavigate={closeMenu} />
-        </li>
+        ) : null}
       </ul>
     </details>
   );
