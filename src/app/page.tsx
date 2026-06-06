@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { CncCampaignHomeCta } from "@/components/sections/CncCampaignHomeCta";
 import { PlatformIntroSection } from "@/components/sections/PlatformIntroSection";
 import SectorSelectorSection from "@/components/home/SectorSelectorSection";
 import { PlatformPillarsSection } from "@/components/sections/PlatformPillarsSection";
@@ -28,6 +29,7 @@ export default function HomePage() {
           <div className="col-xs-12">
             <div id="sector-product">
               <HeroSection />
+              <CncCampaignHomeCta />
               <PlatformIntroSection />
               <SectorSelectorSection />
               <PlatformPillarsSection />

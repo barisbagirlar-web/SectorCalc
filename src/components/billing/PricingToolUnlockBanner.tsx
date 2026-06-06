@@ -3,6 +3,11 @@
 import { useSearchParams } from "next/navigation";
 import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
 
+const PRICING_UNLOCK_SUBTITLES: Partial<Record<string, string>> = {
+  "cnc-quote-risk-analyzer":
+    "Get the minimum safe price and quote verdict for setup-heavy jobs.",
+};
+
 export function PricingToolUnlockBanner() {
   const searchParams = useSearchParams();
   const toolParam = searchParams.get("tool");
@@ -12,6 +17,9 @@ export function PricingToolUnlockBanner() {
     return null;
   }
 
+  const subtitle =
+    PRICING_UNLOCK_SUBTITLES[tool.paidSlug] ?? tool.paidValue;
+
   return (
     <div className="border-b border-professional-blue/20 bg-cyan/10" role="status">
       <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6">
@@ -19,7 +27,7 @@ export function PricingToolUnlockBanner() {
           You are unlocking:{" "}
           <span className="font-semibold text-professional-blue">{tool.paidTitle}</span>
         </p>
-        <p className="mt-1 text-sm text-slate">{tool.paidValue}</p>
+        <p className="mt-1 text-sm text-slate">{subtitle}</p>
       </div>
     </div>
   );
