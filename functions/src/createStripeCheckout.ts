@@ -87,7 +87,6 @@ function resolveStripeCheckoutLocale(locale: string): Stripe.Checkout.SessionCre
     tr: "tr",
     es: "es",
     de: "de",
-    ar: "ar",
   };
   return map[locale] ?? "auto";
 }
