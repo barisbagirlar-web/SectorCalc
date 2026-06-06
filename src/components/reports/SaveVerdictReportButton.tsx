@@ -1,6 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import {
+  REVENUE_EVENTS,
+  trackRevenueEvent,
+} from "@/lib/analytics/revenue-events";
 import { saveVerdictReport } from "@/lib/reports/report-storage";
 import type {
   PremiumToolInputValues,
@@ -41,6 +45,9 @@ export function SaveVerdictReportButton({
     if (saveResult.ok) {
       setSuccess(true);
       setPending(false);
+      trackRevenueEvent(REVENUE_EVENTS.verdict_report_saved, {
+        toolSlug: tool.paidSlug,
+      });
       return;
     }
 

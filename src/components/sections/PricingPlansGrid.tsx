@@ -2,9 +2,13 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import { Container } from "@/components/ui/Container";
+import {
+  REVENUE_EVENTS,
+  trackRevenueEvent,
+} from "@/lib/analytics/revenue-events";
 import {
   ANALYTICS_EVENTS,
   trackEvent,
@@ -35,6 +39,12 @@ export function PricingPlansGrid({
     const tool = searchParams.get("tool");
     return tool && getRevenueToolByPaidSlug(tool) ? tool : undefined;
   }, [searchParams]);
+
+  useEffect(() => {
+    trackRevenueEvent(REVENUE_EVENTS.pricing_viewed, {
+      toolSlug: checkoutToolSlug,
+    });
+  }, [checkoutToolSlug]);
 
   const inner = (
       <Container className={embedded ? "px-0" : undefined}>

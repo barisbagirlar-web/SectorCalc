@@ -1,12 +1,16 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Suspense, useMemo, useState, type FormEvent } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { PremiumLoginPrompt } from "@/components/billing/CustomerSignInPanel";
 import { PremiumPaywall } from "@/components/billing/PremiumPaywall";
 import { PremiumSubscribedBanner } from "@/components/billing/SubscriptionActivationBanner";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
+import {
+  REVENUE_EVENTS,
+  trackRevenueEvent,
+} from "@/lib/analytics/revenue-events";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { buildVerdictReportData } from "@/lib/reports/verdict-report";
 import { getPricingHref } from "@/lib/tools/tool-links";
@@ -18,6 +22,7 @@ import {
   type PremiumToolResult,
 } from "@/lib/tools/premium-tool-results";
 import {
+  PAID_TOOL_SAVE_PRIVACY_NOTE,
   revenueLegalDisclaimer,
   type RevenueTool,
   type RevenueToolInput,
@@ -260,6 +265,35 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
     return buildVerdictReportData({ tool, values, result });
   }, [result, isActive, tool, values]);
 
+  const resultTracked = useRef(false);
+
+  useEffect(() => {
+    trackRevenueEvent(REVENUE_EVENTS.premium_analyzer_viewed, {
+      toolSlug: tool.paidSlug,
+    });
+  }, [tool.paidSlug]);
+
+  useEffect(() => {
+    if (!loading && user && !isActive) {
+      trackRevenueEvent(REVENUE_EVENTS.paywall_viewed, {
+        toolSlug: tool.paidSlug,
+      });
+    }
+  }, [loading, user, isActive, tool.paidSlug]);
+
+  useEffect(() => {
+    if (result && isActive && !resultTracked.current) {
+      resultTracked.current = true;
+      trackRevenueEvent(REVENUE_EVENTS.premium_result_generated, {
+        toolSlug: tool.paidSlug,
+        severity: result.severity,
+      });
+    }
+    if (!result) {
+      resultTracked.current = false;
+    }
+  }, [result, isActive, tool.paidSlug]);
+
   const legalDisclaimer = tool.legalDisclaimer ?? revenueLegalDisclaimer;
   const pricingHref = getPricingHref(tool);
 
@@ -323,6 +357,9 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy">
             {tool.paidValue}
           </p>
+          <p className="mt-3 max-w-3xl text-xs leading-relaxed text-slate">
+            {PAID_TOOL_SAVE_PRIVACY_NOTE}
+          </p>
         </Container>
       </section>
 
@@ -337,7 +374,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
           ) : !isActive ? (
             <div className="mx-auto max-w-2xl">
               <Suspense fallback={null}>
-                <PremiumSubscribedBanner />
+                <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
               </Suspense>
               <PremiumPaywall tool={tool} pricingHref={pricingHref} />
               {error ? (
@@ -350,7 +387,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
           ) : (
             <>
               <Suspense fallback={null}>
-                <PremiumSubscribedBanner />
+                <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
               </Suspense>
               <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
                 <div className="min-w-0 rounded-xl border border-slate/15 bg-white p-6 shadow-card sm:p-7">

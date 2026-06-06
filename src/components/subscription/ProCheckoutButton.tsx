@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import { startCheckoutSession } from "@/lib/billing/create-checkout-session";
+import {
+  REVENUE_EVENTS,
+  trackRevenueEvent,
+} from "@/lib/analytics/revenue-events";
 import { useProSubscription } from "@/lib/subscription/use-pro-subscription";
 import {
   ANALYTICS_EVENTS,
@@ -41,6 +45,11 @@ export function ProCheckoutButton({
       trackEvent(ANALYTICS_EVENTS.pricing_clicked, {
         plan: "pro",
         source,
+      });
+
+      trackRevenueEvent(REVENUE_EVENTS.checkout_started, {
+        source,
+        toolSlug,
       });
 
       await startCheckoutSession({

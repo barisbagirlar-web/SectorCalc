@@ -122,7 +122,10 @@ export const sectorCalcProPricing = {
 } as const;
 
 export const FREE_TOOL_PRIVACY_NOTE =
-  "Inputs stay in your browser for this session. SectorCalc does not store free tool inputs unless you create an account and save an analysis.";
+  "Free tool inputs are processed in your browser and are not stored unless you create an account or save a premium report.";
+
+export const PAID_TOOL_SAVE_PRIVACY_NOTE =
+  "Premium analyzer results may be saved to your account only when you choose to save a report.";
 
 /** @deprecated Use revenueLegalDisclaimer */
 export const REVENUE_LEGAL_DISCLAIMER = revenueLegalDisclaimer;

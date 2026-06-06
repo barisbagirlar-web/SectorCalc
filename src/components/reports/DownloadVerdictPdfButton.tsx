@@ -3,6 +3,10 @@
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { VerdictPdfDocument } from "@/components/reports/VerdictPdfDocument";
 import {
+  REVENUE_EVENTS,
+  trackRevenueEvent,
+} from "@/lib/analytics/revenue-events";
+import {
   buildVerdictReportFileName,
   type VerdictReportData,
 } from "@/lib/reports/verdict-report";
@@ -25,6 +29,9 @@ export function DownloadVerdictPdfButton({
     <PDFDownloadLink
       document={<VerdictPdfDocument data={data} severity={severity} />}
       fileName={fileName}
+      onClick={() =>
+        trackRevenueEvent(REVENUE_EVENTS.verdict_pdf_downloaded, { slug })
+      }
       className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/15 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
     >
       {({ loading }) => (loading ? "Preparing PDF…" : "Download Verdict PDF")}

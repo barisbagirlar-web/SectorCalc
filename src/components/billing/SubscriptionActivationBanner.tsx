@@ -2,7 +2,12 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import {
+  REVENUE_EVENTS,
+  trackRevenueEvent,
+} from "@/lib/analytics/revenue-events";
 import { getAccountHref, getPremiumToolHref } from "@/lib/tools/tool-links";
 import { getRevenueToolByPaidSlug, revenueTools } from "@/lib/tools/revenue-tools";
 
@@ -18,6 +23,15 @@ export function PricingSubscribedBanner() {
     : revenueTools[0]
       ? getPremiumToolHref(revenueTools[0])
       : getAccountHref();
+
+  useEffect(() => {
+    if (subscribed) {
+      trackRevenueEvent(REVENUE_EVENTS.checkout_returned_success, {
+        toolSlug: toolParam ?? undefined,
+        surface: "pricing",
+      });
+    }
+  }, [subscribed, toolParam]);
 
   if (!subscribed) {
     return null;
@@ -74,10 +88,19 @@ export function PricingSubscribedBanner() {
   );
 }
 
-export function PremiumSubscribedBanner() {
+export function PremiumSubscribedBanner({ toolSlug }: { toolSlug?: string }) {
   const searchParams = useSearchParams();
   const subscribed = searchParams.get("subscribed") === "true";
   const { isActive, loading } = useUserSubscription();
+
+  useEffect(() => {
+    if (subscribed) {
+      trackRevenueEvent(REVENUE_EVENTS.checkout_returned_success, {
+        toolSlug,
+        surface: "premium_tool",
+      });
+    }
+  }, [subscribed, toolSlug]);
 
   if (!subscribed) {
     return null;

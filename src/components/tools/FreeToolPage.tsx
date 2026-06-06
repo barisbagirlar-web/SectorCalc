@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useRef, useState, type FormEvent } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
+import {
+  REVENUE_EVENTS,
+  trackRevenueEvent,
+} from "@/lib/analytics/revenue-events";
 import {
   getPremiumToolHref,
   getPricingHref,
@@ -16,13 +20,11 @@ import {
   type FreeToolResult,
 } from "@/lib/tools/free-tool-results";
 import {
+  FREE_TOOL_PRIVACY_NOTE,
   revenueLegalDisclaimer,
   type RevenueTool,
   type RevenueToolInput,
 } from "@/lib/tools/revenue-tools";
-
-const FREE_TOOL_PRIVACY_NOTE =
-  "Free tool inputs are processed in your browser and are not stored unless you choose to create an account or save a report.";
 
 const QUICK_CHECK_NOTE =
   "This is only a quick check — not a safe price, minimum bid, or final paid verdict.";
@@ -238,6 +240,7 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
   );
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const startedTracked = useRef(false);
 
   const result = useMemo(() => {
     if (!submitted) {
@@ -247,6 +250,12 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
   }, [submitted, tool, values]);
 
   const handleChange = (key: string, value: number | string) => {
+    if (!startedTracked.current) {
+      startedTracked.current = true;
+      trackRevenueEvent(REVENUE_EVENTS.free_tool_started, {
+        toolSlug: tool.freeSlug,
+      });
+    }
     setValues((prev) => ({ ...prev, [key]: value }));
     setSubmitted(false);
     setErrors((prev) => {
@@ -288,6 +297,9 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
     }
     setErrors({});
     setSubmitted(true);
+    trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
+      toolSlug: tool.freeSlug,
+    });
   };
 
   const pricingHref = getPricingHref(tool);
