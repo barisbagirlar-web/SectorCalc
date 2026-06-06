@@ -3,6 +3,15 @@
 import Link from "next/link";
 import { formatVerdictReportDate } from "@/lib/reports/verdict-report";
 import type { SavedVerdictReport } from "@/lib/reports/report-storage";
+import {
+  getLoginHref,
+  getPremiumToolHref,
+} from "@/lib/tools/tool-links";
+import { revenueTools } from "@/lib/tools/revenue-tools";
+
+const defaultPremiumHref = revenueTools[0]
+  ? getPremiumToolHref(revenueTools[0])
+  : "/pricing#premium-tools";
 
 interface ReportsHistoryListProps {
   reports: SavedVerdictReport[];
@@ -19,7 +28,7 @@ export function ReportsHistoryList({ reports }: ReportsHistoryListProps) {
           Run a premium analyzer and save the verdict to build your decision history.
         </p>
         <Link
-          href="/tools/premium/cnc-quote-risk-analyzer"
+          href={defaultPremiumHref}
           className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
         >
           Open premium analyzers
@@ -60,7 +69,7 @@ interface AccountLoginPromptProps {
 }
 
 export function AccountLoginPrompt({ nextPath }: AccountLoginPromptProps) {
-  const loginHref = `/login?next=${encodeURIComponent(nextPath)}`;
+  const loginHref = getLoginHref(nextPath);
 
   return (
     <aside className="mx-auto max-w-2xl rounded-2xl border border-slate/15 bg-white p-6 shadow-card sm:p-8">

@@ -1,7 +1,11 @@
 import Link from "next/link";
 import type { SVGProps } from "react";
 import { INDUSTRIES, type IndustryIcon } from "@/data/industries";
-import { getToolBySlug, type ToolSlug } from "@/data/tools";
+import {
+  getRevenueToolBySector,
+  type RevenueSector,
+} from "@/lib/tools/revenue-tools";
+import { getFreeToolHref, getPremiumToolHref } from "@/lib/tools/tool-links";
 
 const iconSvgProps: SVGProps<SVGSVGElement> = {
   className: "h-8 w-8",
@@ -109,17 +113,19 @@ function ToolLine({
 
 function SectorCardItem({
   title,
-  description,
+  painStatement,
   freeTool,
   premiumTool,
-  href,
+  freeHref,
+  premiumHref,
   icon,
 }: {
   title: string;
-  description: string;
+  painStatement: string;
   freeTool: string;
   premiumTool: string;
-  href: string;
+  freeHref: string;
+  premiumHref: string;
   icon: IndustryIcon;
 }) {
   return (
@@ -134,7 +140,7 @@ function SectorCardItem({
             {title}
           </h3>
           <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate">
-            {description}
+            {painStatement}
           </p>
         </div>
       </div>
@@ -144,37 +150,37 @@ function SectorCardItem({
         <ToolLine label="Premium" value={premiumTool} variant="premium" />
       </div>
 
-      <div className="mt-6 pt-1">
+      <div className="mt-6 flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
         <Link
-          href={href}
-          className="inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-professional-blue/40 bg-white px-5 text-sm font-semibold text-professional-blue transition hover:bg-cyan/10 focus:outline-none focus:ring-2 focus:ring-professional-blue focus:ring-offset-2"
-          aria-label={`View ${title} tools`}
+          href={freeHref}
+          className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl bg-professional-blue px-5 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-professional-blue focus:ring-offset-2"
         >
-          View tools
-          <span
-            className="ml-2 transition-transform group-hover:translate-x-0.5"
-            aria-hidden="true"
-          >
-            →
-          </span>
+          Start Free Calculator
+        </Link>
+        <Link
+          href={premiumHref}
+          className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-2xl border border-professional-blue/40 bg-white px-5 text-sm font-semibold text-professional-blue transition hover:bg-cyan/10 focus:outline-none focus:ring-2 focus:ring-professional-blue focus:ring-offset-2"
+        >
+          View Premium Analyzer
         </Link>
       </div>
     </article>
   );
 }
 
-function getToolName(slug: string): string {
-  return getToolBySlug(slug as ToolSlug)?.name ?? slug;
-}
+const sectorCards = INDUSTRIES.map((industry) => {
+  const tool = getRevenueToolBySector(industry.slug as RevenueSector);
 
-const sectorCards = INDUSTRIES.map((industry) => ({
-  title: industry.name,
-  description: industry.shortDescription,
-  freeTool: getToolName(industry.freeToolSlugs[0] ?? ""),
-  premiumTool: getToolName(industry.premiumToolSlugs[0] ?? ""),
-  href: industry.href,
-  icon: industry.icon,
-}));
+  return {
+    title: industry.name,
+    painStatement: tool?.painStatement ?? industry.businessPain,
+    freeTool: tool?.freeTitle ?? industry.freeToolSlugs[0] ?? "",
+    premiumTool: tool?.paidTitle ?? industry.premiumToolSlugs[0] ?? "",
+    freeHref: tool ? getFreeToolHref(tool) : `/industries/${industry.slug}`,
+    premiumHref: tool ? getPremiumToolHref(tool) : `/pricing`,
+    icon: industry.icon,
+  };
+});
 
 export default function SectorSelectorSection() {
   const topRow = sectorCards.slice(0, 3);

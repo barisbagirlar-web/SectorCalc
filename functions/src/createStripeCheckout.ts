@@ -31,11 +31,15 @@ interface CheckoutRequestBody {
   locale?: string;
 }
 
-function resolveToolSlug(body: CheckoutRequestBody): string {
+function resolveExplicitToolSlug(body: CheckoutRequestBody): string | undefined {
   if (typeof body.toolSlug === "string" && body.toolSlug.trim().length > 0) {
     return body.toolSlug.trim();
   }
-  return DEFAULT_PREMIUM_TOOL_SLUG;
+  return undefined;
+}
+
+function resolveToolSlugForMetadata(body: CheckoutRequestBody): string {
+  return resolveExplicitToolSlug(body) ?? DEFAULT_PREMIUM_TOOL_SLUG;
 }
 
 export async function handleCreateStripeCheckout(
@@ -63,7 +67,8 @@ export async function handleCreateStripeCheckout(
   }
 
   const body = (req.body ?? {}) as CheckoutRequestBody;
-  const toolSlug = resolveToolSlug(body);
+  const explicitToolSlug = resolveExplicitToolSlug(body);
+  const toolSlug = resolveToolSlugForMetadata(body);
   const locale =
     typeof body.locale === "string" && body.locale.trim().length > 0
       ? body.locale.trim()
@@ -102,7 +107,9 @@ export async function handleCreateStripeCheckout(
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${siteUrl}/tools/premium/${encodeURIComponent(toolSlug)}?subscribed=true`,
+      success_url: explicitToolSlug
+        ? `${siteUrl}/tools/premium/${encodeURIComponent(explicitToolSlug)}?subscribed=true`
+        : `${siteUrl}/account?subscribed=true`,
       cancel_url: `${siteUrl}/pricing?canceled=true`,
       client_reference_id: authResult.uid,
       customer: existingCustomerId,

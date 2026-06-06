@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   AccountLoginPrompt,
@@ -12,6 +13,7 @@ import {
   listUserVerdictReports,
   type SavedVerdictReport,
 } from "@/lib/reports/report-storage";
+import { getAccountHref, getReportsHref } from "@/lib/tools/tool-links";
 
 export function AccountReportsPageContent() {
   const { user, loading: authLoading } = useUserSubscription();
@@ -44,7 +46,13 @@ export function AccountReportsPageContent() {
     <PageLayout headerTheme="light">
       <section className="border-b border-slate/10 bg-white py-10 sm:py-12">
         <Container size="wide" className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-wider text-professional-blue">
+          <Link
+            href={getAccountHref()}
+            className="text-sm font-medium text-professional-blue hover:underline"
+          >
+            Back to account
+          </Link>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-professional-blue">
             SectorCalc Pro
           </p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-deep-navy sm:text-4xl">
@@ -64,7 +72,7 @@ export function AccountReportsPageContent() {
               Loading your account…
             </div>
           ) : !user ? (
-            <AccountLoginPrompt nextPath="/account/reports" />
+            <AccountLoginPrompt nextPath={getReportsHref()} />
           ) : loadingReports ? (
             <div className="rounded-xl border border-slate/15 bg-white p-6 text-sm text-slate">
               Loading saved reports…

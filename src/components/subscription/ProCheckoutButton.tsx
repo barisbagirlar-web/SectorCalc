@@ -43,7 +43,10 @@ export function ProCheckoutButton({
         source,
       });
 
-      await startCheckoutSession({ toolSlug, returnPath: "/pricing" });
+      await startCheckoutSession({
+        toolSlug,
+        returnPath: toolSlug ? `/pricing?tool=${encodeURIComponent(toolSlug)}` : "/pricing",
+      });
     } catch (caught) {
       if (caught instanceof Error) {
         setError(caught.message);

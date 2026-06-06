@@ -5,6 +5,10 @@ import { useMemo, useState, type FormEvent } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import {
+  getPremiumToolHref,
+  getPricingHref,
+} from "@/lib/tools/tool-links";
+import {
   areFreeToolInputsValid,
   calculateFreeToolResult,
   type FreeRiskLevel,
@@ -157,8 +161,16 @@ function FreeToolInputField({
   );
 }
 
-function FreeToolResultCard({ result }: { result: FreeToolResult }) {
+function FreeToolResultCard({
+  result,
+  tool,
+}: {
+  result: FreeToolResult;
+  tool: RevenueTool;
+}) {
   const styles = riskStyles[result.riskLevel];
+  const premiumHref = getPremiumToolHref(tool);
+  const pricingHref = getPricingHref(tool);
 
   return (
     <article
@@ -187,6 +199,30 @@ function FreeToolResultCard({ result }: { result: FreeToolResult }) {
             </li>
           ))}
         </ul>
+      </div>
+
+      <div className="mt-6 rounded-xl border border-slate/15 bg-white p-5">
+        <h4 className="text-base font-semibold text-deep-navy">
+          Your quick check shows visible risk.
+        </h4>
+        <p className="mt-2 text-sm leading-relaxed text-slate">
+          The free calculator gives a quick estimate. The premium analyzer shows the
+          safe price, risk drivers and suggested action.
+        </p>
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Link
+            href={pricingHref}
+            className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+          >
+            Unlock the Full Analyzer
+          </Link>
+          <Link
+            href={premiumHref}
+            className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/20 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
+          >
+            View premium analyzer
+          </Link>
+        </div>
       </div>
     </article>
   );
@@ -254,8 +290,8 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
     setSubmitted(true);
   };
 
-  const pricingHref = `/pricing?tool=${encodeURIComponent(tool.paidSlug)}`;
-  const premiumHref = `/tools/premium/${tool.paidSlug}`;
+  const pricingHref = getPricingHref(tool);
+  const premiumHref = getPremiumToolHref(tool);
 
   return (
     <PageLayout headerTheme="light">
@@ -309,7 +345,7 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
 
             <div className="min-w-0 space-y-4">
               {result ? (
-                <FreeToolResultCard result={result} />
+                <FreeToolResultCard result={result} tool={tool} />
               ) : (
                 <div className="rounded-xl border border-dashed border-slate/20 bg-white p-6 text-sm leading-relaxed text-slate">
                   Enter inputs and run the quick check to see a directional risk
@@ -321,19 +357,17 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
                 <h3 className="text-base font-semibold text-deep-navy">
                   Need the full decision?
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">
-                  {tool.paidValue}
-                </p>
+                <p className="mt-2 text-sm leading-relaxed text-slate">{tool.paidValue}</p>
                 <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Link
                     href={pricingHref}
-                    className="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+                    className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
                   >
                     Unlock the Full Analyzer
                   </Link>
                   <Link
                     href={premiumHref}
-                    className="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-slate/20 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
+                    className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/20 bg-white px-5 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
                   >
                     View premium analyzer
                   </Link>

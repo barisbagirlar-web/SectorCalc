@@ -9,6 +9,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { buildVerdictReportData } from "@/lib/reports/verdict-report";
+import { getPricingHref } from "@/lib/tools/tool-links";
 import {
   arePremiumToolInputsValid,
   calculatePremiumToolResult,
@@ -260,7 +261,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
   }, [result, isActive, tool, values]);
 
   const legalDisclaimer = tool.legalDisclaimer ?? revenueLegalDisclaimer;
-  const pricingHref = `/pricing?tool=${encodeURIComponent(tool.paidSlug)}`;
+  const pricingHref = getPricingHref(tool);
 
   const handleChange = (key: string, value: number | string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -338,7 +339,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
               <Suspense fallback={null}>
                 <PremiumSubscribedBanner />
               </Suspense>
-              <PremiumPaywall toolSlug={tool.paidSlug} pricingHref={pricingHref} />
+              <PremiumPaywall tool={tool} pricingHref={pricingHref} />
               {error ? (
                 <p className="mt-4 text-sm text-soft-red" role="alert">
                   {error}

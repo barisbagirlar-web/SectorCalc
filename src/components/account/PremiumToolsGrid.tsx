@@ -2,6 +2,10 @@
 
 import Link from "next/link";
 import { revenueTools } from "@/lib/tools/revenue-tools";
+import {
+  getPremiumToolHref,
+  getPricingHref,
+} from "@/lib/tools/tool-links";
 import type { RevenueSector } from "@/lib/tools/revenue-tools";
 
 const SECTOR_LABELS: Record<RevenueSector, string> = {
@@ -25,9 +29,7 @@ export function PremiumToolsGrid({ isActive }: PremiumToolsGridProps) {
       </p>
       <ul className="mt-5 grid min-w-0 gap-4">
         {revenueTools.map((tool) => {
-          const href = isActive
-            ? `/tools/premium/${tool.paidSlug}`
-            : `/pricing?tool=${encodeURIComponent(tool.paidSlug)}`;
+          const href = isActive ? getPremiumToolHref(tool) : getPricingHref(tool);
           const ctaLabel = isActive ? "Open analyzer" : "Unlock Pro";
 
           return (

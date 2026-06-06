@@ -3,12 +3,21 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import { getAccountHref, getPremiumToolHref } from "@/lib/tools/tool-links";
+import { getRevenueToolByPaidSlug, revenueTools } from "@/lib/tools/revenue-tools";
 
 export function PricingSubscribedBanner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const subscribed = searchParams.get("subscribed") === "true";
   const { user, isActive, loading } = useUserSubscription();
+  const toolParam = searchParams.get("tool");
+  const tool = toolParam ? getRevenueToolByPaidSlug(toolParam) : null;
+  const premiumHref = tool
+    ? getPremiumToolHref(tool)
+    : revenueTools[0]
+      ? getPremiumToolHref(revenueTools[0])
+      : getAccountHref();
 
   if (!subscribed) {
     return null;
@@ -35,11 +44,19 @@ export function PricingSubscribedBanner() {
             )}
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
               <Link
-                href="/tools/premium/cnc-quote-risk-analyzer"
+                href={premiumHref}
                 className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
               >
                 Open premium tools
               </Link>
+              {!tool ? (
+                <Link
+                  href={getAccountHref()}
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/20 bg-white px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue hover:text-professional-blue"
+                >
+                  Go to account
+                </Link>
+              ) : null}
               {!isActive ? (
                 <button
                   type="button"

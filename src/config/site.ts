@@ -28,8 +28,8 @@ export const SITE = {
 
 export const NAV_ITEMS = [
   { label: "Free Tools", href: "/free-tools" },
-  { label: "Industries", href: "/industries" },
-  { label: "Reports", href: "/reports/sample-decision-report" },
+  { label: "Premium Tools", href: "/pricing#premium-tools" },
   { label: "Pricing", href: "/pricing" },
-  { label: "For Consultants", href: "/for-consultants" },
+  { label: "Reports", href: "/account/reports" },
+  { label: "Account", href: "/account" },
 ] as const;

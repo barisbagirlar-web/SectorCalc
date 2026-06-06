@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SiteLogo } from "@/components/brand/SiteLogo";
+import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { NAV_ITEMS } from "@/config/site";
 
@@ -33,7 +34,7 @@ export function SiteHeader({ theme = "light" }: SiteHeaderProps) {
               </li>
             ))}
             <li>
-              <Link href="/login">Login</Link>
+              <HeaderAuthCta />
             </li>
           </ul>
         </nav>

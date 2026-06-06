@@ -3,8 +3,12 @@
 import Link from "next/link";
 import { formatVerdictReportDate } from "@/lib/reports/verdict-report";
 import type { SavedVerdictReport } from "@/lib/reports/report-storage";
+import { getPremiumToolHref, getReportsHref } from "@/lib/tools/tool-links";
+import { revenueTools } from "@/lib/tools/revenue-tools";
 
-const PREMIUM_TOOLS_HREF = "/tools/premium/cnc-quote-risk-analyzer";
+const defaultPremiumHref = revenueTools[0]
+  ? getPremiumToolHref(revenueTools[0])
+  : "/pricing#premium-tools";
 
 interface RecentReportsPanelProps {
   reports: SavedVerdictReport[];
@@ -26,7 +30,7 @@ export function RecentReportsPanel({
         </div>
         {reports.length > 0 ? (
           <Link
-            href="/account/reports"
+            href={getReportsHref()}
             className="inline-flex min-h-[44px] items-center text-sm font-semibold text-professional-blue hover:underline"
           >
             View all
@@ -44,7 +48,7 @@ export function RecentReportsPanel({
         <div className="mt-5 rounded-xl border border-dashed border-slate/20 bg-off-white p-5">
           <p className="text-sm font-medium text-deep-navy">No saved verdict reports yet.</p>
           <Link
-            href={PREMIUM_TOOLS_HREF}
+            href={defaultPremiumHref}
             className="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
           >
             Run a premium analyzer

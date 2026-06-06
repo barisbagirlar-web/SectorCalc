@@ -1,6 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import { FreeToolsQuickLinks } from "@/components/account/FreeToolsQuickLinks";
 import { PremiumToolsGrid } from "@/components/account/PremiumToolsGrid";
 import { RecentReportsPanel } from "@/components/account/RecentReportsPanel";
 import { SubscriptionStatusCard } from "@/components/account/SubscriptionStatusCard";
@@ -8,9 +11,30 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { useUserReports } from "@/lib/reports/use-user-reports";
+import { getLoginHref } from "@/lib/tools/tool-links";
+
+function AccountSubscribedBanner() {
+  const searchParams = useSearchParams();
+  const subscribed = searchParams.get("subscribed") === "true";
+
+  if (!subscribed) {
+    return null;
+  }
+
+  return (
+    <div className="mb-6 rounded-xl border border-emerald/25 bg-emerald/10 px-4 py-4 sm:px-5">
+      <p className="text-sm font-medium text-deep-navy">
+        Payment received. Your SectorCalc Pro access may take a few seconds to activate.
+      </p>
+      <p className="mt-2 text-sm text-slate">
+        Premium tools and saved reports will appear here once your subscription is active.
+      </p>
+    </div>
+  );
+}
 
 function AccountDashboardLoginPrompt() {
-  const loginHref = `/login?next=${encodeURIComponent("/account")}`;
+  const loginHref = getLoginHref("/account");
 
   return (
     <aside className="mx-auto max-w-2xl rounded-2xl border border-slate/15 bg-white p-6 shadow-card sm:p-8">
@@ -67,6 +91,9 @@ export function AccountDashboard() {
             <AccountDashboardLoginPrompt />
           ) : (
             <>
+              <Suspense fallback={null}>
+                <AccountSubscribedBanner />
+              </Suspense>
               <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
                 <div className="min-w-0 space-y-6">
                   <SubscriptionStatusCard
@@ -79,6 +106,7 @@ export function AccountDashboard() {
                     loading={reportsLoading}
                     error={reportsError}
                   />
+                  <FreeToolsQuickLinks />
                 </div>
                 <PremiumToolsGrid isActive={isActive} />
               </div>

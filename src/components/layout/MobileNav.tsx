@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRef } from "react";
+import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { NAV_ITEMS } from "@/config/site";
 
 type HeaderTheme = "light" | "dark";
@@ -51,15 +52,7 @@ export function MobileNav({ theme = "light" }: MobileNavProps) {
           </li>
         ))}
         <li>
-          <Link
-            href="/login"
-            onClick={closeMenu}
-            className={`block min-h-[44px] py-3 text-sm font-semibold ${
-              isLight ? "text-[#808080]" : "text-slate-300"
-            }`}
-          >
-            Login
-          </Link>
+          <HeaderAuthCta theme={theme} onNavigate={closeMenu} />
         </li>
       </ul>
     </details>

@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useMemo } from "react";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import { Container } from "@/components/ui/Container";
 import {
@@ -8,6 +10,7 @@ import {
   trackEvent,
 } from "@/lib/analytics/events";
 import { PRICING_CHECKOUT_LEGAL } from "@/lib/billing/subscription";
+import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -27,6 +30,12 @@ export function PricingPlansGrid({
   compact = false,
   embedded = false,
 }: PricingPlansGridProps) {
+  const searchParams = useSearchParams();
+  const checkoutToolSlug = useMemo(() => {
+    const tool = searchParams.get("tool");
+    return tool && getRevenueToolByPaidSlug(tool) ? tool : undefined;
+  }, [searchParams]);
+
   const inner = (
       <Container className={embedded ? "px-0" : undefined}>
         {showHeader && (
@@ -135,6 +144,7 @@ export function PricingPlansGrid({
                   <ProCheckoutButton
                     label={plan.primaryCta}
                     source="pricing_grid"
+                    toolSlug={checkoutToolSlug}
                   />
                   <p
                     className={`mt-4 text-xs leading-relaxed ${
@@ -159,6 +169,7 @@ export function PricingPlansGrid({
               <ProCheckoutButton
                 label="Start SectorCalc Pro"
                 source="pricing_footer"
+                toolSlug={checkoutToolSlug}
               />
               <p className="mt-3 text-center text-xs leading-relaxed text-slate">
                 {PRICING_CHECKOUT_LEGAL}

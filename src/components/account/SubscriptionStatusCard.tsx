@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import type { UserSubscription } from "@/lib/billing/subscription";
-
-const PREMIUM_TOOLS_HREF = "/tools/premium/cnc-quote-risk-analyzer";
+import { getPremiumToolsNavHref, getPricingHref } from "@/lib/tools/tool-links";
 
 function formatPeriodEnd(value: string | undefined): string | null {
   if (!value) {
@@ -54,7 +53,7 @@ export function SubscriptionStatusCard({
           premium analyzer access.
         </p>
         <Link
-          href="/pricing"
+          href={getPricingHref()}
           className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
         >
           Go to pricing
@@ -78,7 +77,7 @@ export function SubscriptionStatusCard({
           </p>
         )}
         <Link
-          href={PREMIUM_TOOLS_HREF}
+          href={getPremiumToolsNavHref()}
           className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
         >
           Open premium tools
@@ -97,7 +96,7 @@ export function SubscriptionStatusCard({
         Unlock sector-specific analyzers for safe price, bid risk and margin leak verdicts.
       </p>
       <Link
-        href="/pricing"
+        href={getPricingHref()}
         className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
       >
         Unlock SectorCalc Pro
