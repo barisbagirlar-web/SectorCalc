@@ -1,5 +1,5 @@
 import { getToolHref } from "@/lib/tools/paths";
-import { REVENUE_TOOL_PAIRS } from "@/lib/tools/revenue-tools";
+import { REVENUE_TOOL_PRODUCT_SPECS } from "@/lib/tools/revenue-tools";
 
 export type ToolTier = "free" | "premium";
 
@@ -26,24 +26,24 @@ export interface Tool {
   comingSoon?: boolean;
 }
 
-export const FREE_TOOLS: Tool[] = REVENUE_TOOL_PAIRS.map((pair) => ({
-  slug: pair.freeSlug,
-  name: pair.freeTitle,
-  shortDescription: pair.freeRiskHint,
-  description: pair.painStatement,
+export const FREE_TOOLS: Tool[] = REVENUE_TOOL_PRODUCT_SPECS.map((spec) => ({
+  slug: spec.freeSlug,
+  name: spec.freeTitle,
+  shortDescription: spec.freeValue,
+  description: spec.painStatement,
   tier: "free" as const,
-  industrySlug: pair.sector,
-  href: getToolHref("free", pair.freeSlug),
+  industrySlug: spec.sector,
+  href: getToolHref("free", spec.freeSlug),
 }));
 
-export const PREMIUM_TOOLS: Tool[] = REVENUE_TOOL_PAIRS.map((pair) => ({
-  slug: pair.premiumSlug,
-  name: pair.premiumTitle,
-  shortDescription: pair.paidValueStatement,
-  description: pair.paidValueStatement,
+export const PREMIUM_TOOLS: Tool[] = REVENUE_TOOL_PRODUCT_SPECS.map((spec) => ({
+  slug: spec.paidSlug,
+  name: spec.paidTitle,
+  shortDescription: spec.paidValue,
+  description: spec.paidValue,
   tier: "premium" as const,
-  industrySlug: pair.sector,
-  href: getToolHref("premium", pair.premiumSlug),
+  industrySlug: spec.sector,
+  href: getToolHref("premium", spec.paidSlug),
 }));
 
 export const ALL_TOOLS: Tool[] = [...FREE_TOOLS, ...PREMIUM_TOOLS];
@@ -64,16 +64,12 @@ export function getPremiumToolsByIndustry(industrySlug: string): Tool[] {
   return PREMIUM_TOOLS.filter((t) => t.industrySlug === industrySlug);
 }
 
-const FREE_TO_PREMIUM_SLUG: Partial<Record<ToolSlug, ToolSlug>> = {
-  "project-cost-estimator": "change-order-impact-analyzer",
-  "cleaning-cost-estimator": "office-cleaning-bid-optimizer",
-  "food-cost-calculator": "menu-profit-leak-detector",
-  "product-margin-calculator": "return-rate-profit-erosion-tool",
-  "machine-hour-estimator": "cnc-minimum-safe-quote-analyzer",
-};
+const FREE_TO_PAID_SLUG = Object.fromEntries(
+  REVENUE_TOOL_PRODUCT_SPECS.map((spec) => [spec.freeSlug, spec.paidSlug])
+) as Partial<Record<ToolSlug, ToolSlug>>;
 
 export function getMatchingPremiumTool(freeSlug: ToolSlug): Tool | undefined {
-  const premiumSlug = FREE_TO_PREMIUM_SLUG[freeSlug];
-  if (!premiumSlug) return undefined;
-  return getToolBySlug(premiumSlug);
+  const paidSlug = FREE_TO_PAID_SLUG[freeSlug];
+  if (!paidSlug) return undefined;
+  return getToolBySlug(paidSlug);
 }

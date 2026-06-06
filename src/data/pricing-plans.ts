@@ -1,3 +1,9 @@
+import {
+  FREE_PLAN_PRICING,
+  SECTORCALC_PRO_PRICE_LABEL,
+  SECTORCALC_PRO_PRICING,
+} from "@/lib/tools/revenue-tools";
+
 export interface PricingPlan {
   id: string;
   name: string;
@@ -20,53 +26,33 @@ export function getPricingLeadToolLabel(planName: string): string {
 
 export const PRICING_PLANS: PricingPlan[] = [
   {
-    id: "free",
-    name: "Free",
-    price: "$0",
-    period: "forever",
-    description:
-      "Quick sector checks — limited inputs, directional numbers and early risk signals.",
-    features: [
-      "Five industry quick-check tools",
-      "2–3 inputs per tool",
-      "Risk or preview signals",
-      "No account required",
-    ],
-    comingSoonFeatures: [
-      "No safe price or accept/reject verdict",
-      "No decision summaries",
-      "No export",
-    ],
+    id: FREE_PLAN_PRICING.id,
+    name: FREE_PLAN_PRICING.name,
+    price: FREE_PLAN_PRICING.priceLabel,
+    period: FREE_PLAN_PRICING.period,
+    description: FREE_PLAN_PRICING.description,
+    features: [...FREE_PLAN_PRICING.features],
+    comingSoonFeatures: [...SECTORCALC_PRO_PRICING.freePlanContrast],
     primaryCta: "Start with Free Tools",
     primaryHref: "/free-tools",
   },
   {
-    id: "pro",
-    name: "SectorCalc Pro",
-    price: "$29",
+    id: SECTORCALC_PRO_PRICING.id,
+    name: SECTORCALC_PRO_PRICING.name,
+    price: SECTORCALC_PRO_PRICING.priceLabel.replace("/month", ""),
     period: "per month",
-    description:
-      "Premium decision tools for sector-specific pricing, cost and margin risk.",
-    features: [
-      "All premium decision tools across five sectors",
-      "Minimum safe price verdicts",
-      "Margin leak detection",
-      "Bid risk analysis",
-      "Sector-specific decision summaries",
-      "Cancel anytime",
-    ],
-    comingSoonFeatures: [
-      "PDF export in a later release",
-      "Estimates only; verify before business decisions",
-      "Digital product; no refunds",
-    ],
-    primaryCta: "Unlock Decision Tools",
+    description: SECTORCALC_PRO_PRICING.description,
+    features: [...SECTORCALC_PRO_PRICING.features],
+    comingSoonFeatures: [...SECTORCALC_PRO_PRICING.laterRelease],
+    primaryCta: "Unlock Decision Analyzers",
     primaryHref: "/pricing",
     highlighted: true,
-    badge: "Decision tools",
+    badge: "Decision analyzers",
     checkoutPlan: "pro",
   },
 ];
 
-export const PRICING_PRO_TAGLINE =
-  "Unlock sector-specific decision tools that help prevent underpriced jobs, margin leaks and bad bids.";
+export const PRICING_PRO_TAGLINE = SECTORCALC_PRO_PRICING.tagline;
+
+/** Re-export for components that need the locked price label. */
+export { SECTORCALC_PRO_PRICE_LABEL };
