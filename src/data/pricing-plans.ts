@@ -1,8 +1,9 @@
 import {
   FREE_PLAN_PRICING,
+  SECTORCALC_PRO,
   SECTORCALC_PRO_PRICE_LABEL,
   SECTORCALC_PRO_PRICING,
-} from "@/lib/tools/revenue-tools";
+} from "@/lib/pricing/sectorcalc-pro";
 
 export interface PricingPlan {
   id: string;
@@ -37,13 +38,13 @@ export const PRICING_PLANS: PricingPlan[] = [
     primaryHref: "/free-tools",
   },
   {
-    id: SECTORCALC_PRO_PRICING.id,
-    name: SECTORCALC_PRO_PRICING.name,
-    price: SECTORCALC_PRO_PRICING.priceLabel.replace("/month", ""),
+    id: SECTORCALC_PRO.id,
+    name: SECTORCALC_PRO.planName,
+    price: SECTORCALC_PRO.priceLabel.replace("/month", ""),
     period: "per month",
-    description: SECTORCALC_PRO_PRICING.description,
-    features: [...SECTORCALC_PRO_PRICING.features],
-    comingSoonFeatures: [...SECTORCALC_PRO_PRICING.laterRelease],
+    description: SECTORCALC_PRO.description,
+    features: [...SECTORCALC_PRO.bullets.slice(0, 5)],
+    comingSoonFeatures: [...SECTORCALC_PRO.bullets.slice(5)],
     primaryCta: "Unlock Decision Analyzers",
     primaryHref: "/pricing",
     highlighted: true,
@@ -52,7 +53,6 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
 ];
 
-export const PRICING_PRO_TAGLINE = SECTORCALC_PRO_PRICING.tagline;
+export const PRICING_PRO_TAGLINE = SECTORCALC_PRO.headline;
 
-/** Re-export for components that need the locked price label. */
 export { SECTORCALC_PRO_PRICE_LABEL };

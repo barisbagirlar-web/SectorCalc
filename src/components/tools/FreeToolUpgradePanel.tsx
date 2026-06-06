@@ -1,9 +1,9 @@
 import Link from "next/link";
-import type { RevenueToolProductSpec } from "@/lib/tools/revenue-tools";
+import type { RevenueTool } from "@/lib/tools/revenue-tools";
 import { getToolHref } from "@/lib/tools/paths";
 
 interface FreeToolUpgradePanelProps {
-  revenue: RevenueToolProductSpec;
+  revenue: RevenueTool;
 }
 
 export function FreeToolUpgradePanel({ revenue }: FreeToolUpgradePanelProps) {

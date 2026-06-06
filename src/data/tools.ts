@@ -1,5 +1,5 @@
 import { getToolHref } from "@/lib/tools/paths";
-import { REVENUE_TOOL_PRODUCT_SPECS } from "@/lib/tools/revenue-tools";
+import { REVENUE_TOOL_REGISTRY } from "@/lib/tools/revenue-tools";
 
 export type ToolTier = "free" | "premium";
 
@@ -26,24 +26,24 @@ export interface Tool {
   comingSoon?: boolean;
 }
 
-export const FREE_TOOLS: Tool[] = REVENUE_TOOL_PRODUCT_SPECS.map((spec) => ({
-  slug: spec.freeSlug,
-  name: spec.freeTitle,
-  shortDescription: spec.freeValue,
-  description: spec.painStatement,
+export const FREE_TOOLS: Tool[] = REVENUE_TOOL_REGISTRY.tools.map((tool) => ({
+  slug: tool.freeSlug,
+  name: tool.freeTitle,
+  shortDescription: tool.freeValue,
+  description: tool.painStatement,
   tier: "free" as const,
-  industrySlug: spec.sector,
-  href: getToolHref("free", spec.freeSlug),
+  industrySlug: tool.sector,
+  href: getToolHref("free", tool.freeSlug),
 }));
 
-export const PREMIUM_TOOLS: Tool[] = REVENUE_TOOL_PRODUCT_SPECS.map((spec) => ({
-  slug: spec.paidSlug,
-  name: spec.paidTitle,
-  shortDescription: spec.paidValue,
-  description: spec.paidValue,
+export const PREMIUM_TOOLS: Tool[] = REVENUE_TOOL_REGISTRY.tools.map((tool) => ({
+  slug: tool.paidSlug,
+  name: tool.paidTitle,
+  shortDescription: tool.paidValue,
+  description: tool.paidValue,
   tier: "premium" as const,
-  industrySlug: spec.sector,
-  href: getToolHref("premium", spec.paidSlug),
+  industrySlug: tool.sector,
+  href: getToolHref("premium", tool.paidSlug),
 }));
 
 export const ALL_TOOLS: Tool[] = [...FREE_TOOLS, ...PREMIUM_TOOLS];
@@ -65,7 +65,7 @@ export function getPremiumToolsByIndustry(industrySlug: string): Tool[] {
 }
 
 const FREE_TO_PAID_SLUG = Object.fromEntries(
-  REVENUE_TOOL_PRODUCT_SPECS.map((spec) => [spec.freeSlug, spec.paidSlug])
+  REVENUE_TOOL_REGISTRY.tools.map((tool) => [tool.freeSlug, tool.paidSlug])
 ) as Partial<Record<ToolSlug, ToolSlug>>;
 
 export function getMatchingPremiumTool(freeSlug: ToolSlug): Tool | undefined {
