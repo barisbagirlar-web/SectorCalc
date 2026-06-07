@@ -386,7 +386,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
               formulaTitle: tAuthority("formulaTitle"),
               inputsTitle: tAuthority("inputsTitle"),
               includesTitle: tAuthority("includesTitle"),
-              excludesTitle: tAuthority("excludesTitle"),
+              estimateMissesTitle: tAuthority("estimateMissesTitle"),
               faqTitle: tAuthority("faqTitle"),
               faqUseTitle: tAuthority("faqUseTitle"),
               faqFreeTitle: tAuthority("faqFreeTitle"),
@@ -396,6 +396,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
               faqPremiumAnswer: tAuthority("faqPremiumAnswer"),
               relatedGuideTitle: tAuthority("relatedGuideTitle"),
               relatedHubTitle: tAuthority("relatedHubTitle"),
+              relatedPremiumTitle: tAuthority("relatedPremiumTitle"),
+              relatedPremiumCta: tAuthority("relatedPremiumCta"),
             }}
           />
         </Container>

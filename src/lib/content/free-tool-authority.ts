@@ -6,6 +6,7 @@ export interface FreeToolAuthorityCopy {
   readonly inputsMeaning: string;
   readonly includes: readonly string[];
   readonly excludes: readonly string[];
+  readonly estimateMisses: string;
 }
 
 const CATEGORY_FORMULA: Record<FreeTrafficCategory, string> = {
@@ -34,6 +35,9 @@ const CATEGORY_FORMULA: Record<FreeTrafficCategory, string> = {
 const DEFAULT_FORMULA =
   "This calculator uses the values entered above to estimate the primary result and related secondary values using standard ratio formulas for this tool type.";
 
+const ESTIMATE_MISSES =
+  "This free result gives the first number. It does not include hidden drivers such as thresholds, benchmark comparison, sensitivity, export-ready report output or suggested action plans.";
+
 export function getFreeToolAuthorityCopy(tool: FreeTrafficTool): FreeToolAuthorityCopy {
   const formulaSummary = CATEGORY_FORMULA[tool.category] ?? DEFAULT_FORMULA;
   const inputsMeaning = tool.inputs
@@ -54,5 +58,6 @@ export function getFreeToolAuthorityCopy(tool: FreeTrafficTool): FreeToolAuthori
       "PDF or CSV export and saved report history",
       "Professional financial, legal, medical or engineering advice",
     ],
+    estimateMisses: ESTIMATE_MISSES,
   };
 }

@@ -13,10 +13,13 @@ export interface PremiumAnalyzerAuthorityBlockProps {
   readonly schema: PremiumCalculatorSchema;
   readonly labels: {
     readonly whenToUseTitle: string;
-    readonly painTitle: string;
+    readonly whenToUseBody: string;
+    readonly measuresTitle: string;
     readonly promiseTitle: string;
     readonly decidesTitle: string;
     readonly reportTitle: string;
+    readonly previewExcludesTitle: string;
+    readonly previewExcludesBody: string;
     readonly assumptionsTitle: string;
     readonly faqTitle: string;
     readonly faqMeasureTitle: string;
@@ -27,6 +30,8 @@ export interface PremiumAnalyzerAuthorityBlockProps {
     readonly faqErpAnswer: string;
     readonly relatedGuideTitle: string;
     readonly relatedFreeTitle: string;
+    readonly relatedHubTitle: string;
+    readonly relatedIndustryTitle: string;
     readonly pricingCta: string;
   };
 }
@@ -71,9 +76,11 @@ export function PremiumAnalyzerAuthorityBlock({
         {labels.whenToUseTitle}
       </h2>
 
+      <p className="mt-3 text-sm leading-relaxed text-body-charcoal">{labels.whenToUseBody}</p>
+
       <div className="mt-4 space-y-4 text-sm leading-relaxed text-body-charcoal">
         <div>
-          <h3 className="font-semibold text-premium-velvet">{labels.painTitle}</h3>
+          <h3 className="font-semibold text-premium-velvet">{labels.measuresTitle}</h3>
           <p className="mt-1">{schema.painStatement}</p>
         </div>
         <div>
@@ -98,6 +105,10 @@ export function PremiumAnalyzerAuthorityBlock({
           </ul>
         </div>
         <div>
+          <h3 className="font-semibold text-premium-velvet">{labels.previewExcludesTitle}</h3>
+          <p className="mt-1">{labels.previewExcludesBody}</p>
+        </div>
+        <div>
           <h3 className="font-semibold text-premium-velvet">{labels.assumptionsTitle}</h3>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             {assumptionNotes.map((note) => (
@@ -108,14 +119,6 @@ export function PremiumAnalyzerAuthorityBlock({
       </div>
 
       <div className="mt-4 flex flex-wrap gap-3 border-t border-technical-gray pt-4">
-        {guide ? (
-          <Link
-            href={getAuthorityGuideRoutePath(guide.slug)}
-            className="text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
-          >
-            {labels.relatedGuideTitle}: {guide.title}
-          </Link>
-        ) : null}
         {relatedFreeTool ? (
           <Link
             href={getToolHref("free", relatedFreeTool.slug)}
@@ -126,10 +129,18 @@ export function PremiumAnalyzerAuthorityBlock({
         ) : null}
         {guide ? (
           <Link
+            href={getAuthorityGuideRoutePath(guide.slug)}
+            className="text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
+          >
+            {labels.relatedGuideTitle}: {guide.title}
+          </Link>
+        ) : null}
+        {guide ? (
+          <Link
             href={`/seo/${getSeoHubSlugForGuide(guide)}`}
             className="text-sm text-body-charcoal underline underline-offset-2 hover:text-premium-velvet"
           >
-            SEO hub
+            {labels.relatedHubTitle}
           </Link>
         ) : null}
         {guide ? (
@@ -137,7 +148,7 @@ export function PremiumAnalyzerAuthorityBlock({
             href={getIndustryPathForGuide(guide)}
             className="text-sm text-body-charcoal underline underline-offset-2 hover:text-premium-velvet"
           >
-            Industry
+            {labels.relatedIndustryTitle}
           </Link>
         ) : null}
         <Link

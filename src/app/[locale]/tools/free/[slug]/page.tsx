@@ -14,6 +14,7 @@ import {
 } from "@/lib/seo/schema-mesh";
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
+import { getTierOneFreeToolMetadata } from "@/lib/seo/seo-refresh-priority";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
 
 interface FreeToolPageParams {
@@ -66,9 +67,11 @@ export async function generateMetadata({
     return {};
   }
 
+  const tierOneMeta = getTierOneFreeToolMetadata(slug);
+
   return createPageMetadata({
-    title: trafficTool.seoTitle,
-    description: trafficTool.seoDescription,
+    title: tierOneMeta?.metaTitle ?? trafficTool.seoTitle,
+    description: tierOneMeta?.metaDescription ?? trafficTool.seoDescription,
     path: `/tools/free/${trafficTool.slug}`,
     locale: appLocale,
   });

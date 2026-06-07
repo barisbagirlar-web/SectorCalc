@@ -85,6 +85,13 @@ export default async function ProgrammaticSeoPage({
         </Container>
       </section>
 
+      <section className="sc-pro-section sc-pro-section--alt">
+        <Container className="sc-pro-container">
+          <h2 className="sc-pro-headline text-lg">What this page helps you calculate</h2>
+          <p className="mt-3 text-sm leading-relaxed text-body-charcoal">{page.helpsYouCalculate}</p>
+        </Container>
+      </section>
+
       <section className="sc-pro-section">
         <Container className="sc-pro-container">
           <FeaturedAnswerBlock

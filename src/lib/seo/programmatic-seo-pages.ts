@@ -9,6 +9,7 @@ export type ProgrammaticSeoPage = {
   readonly metaTitle: string;
   readonly metaDescription: string;
   readonly intro: string;
+  readonly helpsYouCalculate: string;
   readonly featuredQuestion: string;
   readonly featuredAnswer: string;
   readonly featuredBullets: readonly string[];
@@ -23,43 +24,56 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
   {
     slug: "manufacturing-cost-calculators",
     title: "Manufacturing Cost Calculators",
-    metaTitle: "Manufacturing Cost Calculators — OEE, Scrap & Shop-Floor Tools",
+    metaTitle: "Manufacturing Cost Calculators & OEE Tools | SectorCalc",
     metaDescription:
-      "Free manufacturing calculators for OEE, scrap rate, tool wear and shop-floor exposure. Premium analyzers add hidden-loss diagnostics and decision reports.",
+      "Calculate manufacturing cost per unit, OEE, scrap rate and machine time. Free shop-floor calculators plus premium hidden-loss analyzers for quoting decisions.",
     intro:
-      "Manufacturing teams use SectorCalc to estimate OEE, scrap exposure and capacity loss before quoting jobs or changing shift plans.",
-    featuredQuestion: "What manufacturing calculators does SectorCalc provide?",
+      "Use these calculators to estimate unit cost, machine time, scrap exposure and OEE before you quote a job or change shift plans.",
+    helpsYouCalculate:
+      "Machine time, unit cost, scrap rate, OEE, cycle time and material yield for CNC, fabrication and assembly jobs.",
+    featuredQuestion: "What is a manufacturing cost calculator?",
     featuredAnswer:
-      "SectorCalc provides free manufacturing calculators for OEE, scrap rate, machine time and material yield, plus premium analyzers that turn those estimates into hidden-loss diagnostics with threshold checks and export-ready decision reports.",
+      "A manufacturing cost calculator estimates machine time, material use, labor, scrap and unit cost from your inputs. It helps you sanity-check quotes before setup loss, tool wear or downtime erode margin. Pair free calculators with premium analyzers when pricing, capacity or scheduling decisions need hidden-driver diagnostics.",
     featuredBullets: [
-      "Free OEE and scrap calculators for quick shop-floor estimates",
-      "Premium CNC OEE loss analyzer for capacity exposure",
-      "Links to industries and categories for deeper discovery",
+      "Unit cost, machine hour rate and machine time estimates",
+      "OEE and scrap rate checks for shop-floor visibility",
+      "Premium analyzers for CNC capacity loss and tool wear exposure",
     ],
     freeToolLinks: [
-      { href: "/tools/free/oee-calculator", label: "OEE Calculator" },
-      { href: "/tools/free/scrap-rate-calculator", label: "Scrap Rate Calculator" },
-      { href: "/tools/free/cnc-cycle-time-calculator", label: "CNC Cycle Time Calculator" },
-      { href: "/tools/free/machine-time-calculator", label: "Machine Time Calculator" },
+      { href: "/tools/free/oee-calculator", label: "Open the OEE calculator" },
+      { href: "/tools/free/scrap-rate-calculator", label: "Open the scrap rate calculator" },
+      { href: "/tools/free/cnc-cycle-time-calculator", label: "Open the CNC cycle time calculator" },
+      { href: "/tools/free/machine-time-calculator", label: "Open the machine time calculator" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/cnc-oee-loss", label: "CNC OEE Loss Analyzer" },
-      { href: "/tools/premium-schema/cnc-tool-wear-cost", label: "CNC Tool Wear Cost Analyzer" },
-      { href: "/tools/premium-schema/sheet-metal-scrap-risk", label: "Sheet Metal Scrap Risk Analyzer" },
+      { href: "/tools/premium-schema/cnc-oee-loss", label: "View the CNC OEE Loss Analyzer" },
+      { href: "/tools/premium-schema/cnc-tool-wear-cost", label: "View the CNC Tool Wear Cost Analyzer" },
+      { href: "/tools/premium-schema/sheet-metal-scrap-risk", label: "View the Sheet Metal Scrap Risk Analyzer" },
     ],
     industryLinks: [
-      { href: "/industries/cnc-manufacturing", label: "CNC Manufacturing" },
-      { href: "/industries/sheet-metal", label: "Sheet Metal" },
+      { href: "/industries/cnc-manufacturing", label: "Browse CNC manufacturing tools" },
+      { href: "/industries/sheet-metal", label: "Browse sheet metal calculators" },
     ],
     faq: [
       {
-        question: "Are manufacturing calculators free?",
-        answer: "Yes. SectorCalc free manufacturing calculators run in your browser with no sign-up required.",
+        question: "What is a manufacturing cost calculator?",
+        answer:
+          "A manufacturing cost calculator estimates machine time, material use, labor, scrap and unit cost. SectorCalc connects these base calculators with premium analyzers for OEE loss, tool wear and sheet metal scrap risk.",
       },
       {
-        question: "When should I use a premium manufacturing analyzer?",
+        question: "How do I calculate manufacturing cost per unit?",
         answer:
-          "Use a premium analyzer when the estimate affects pricing, capacity planning or a management decision and you need hidden drivers, thresholds and export-ready output.",
+          "Divide total production cost by the number of good units produced. Include machine time, labor, material waste, setup time and scrap rate for a realistic unit cost before quoting.",
+      },
+      {
+        question: "Why do manufacturing jobs lose margin?",
+        answer:
+          "Jobs usually lose margin when setup time, scrap, tool wear, inspection delays or machine downtime are not included before pricing.",
+      },
+      {
+        question: "When should I use a premium analyzer?",
+        answer:
+          "Use a premium analyzer when the result affects quoting, capacity planning, production scheduling or management reporting and you need hidden drivers, thresholds and export-ready output.",
       },
     ],
     relatedHubSlugs: [
@@ -71,39 +85,56 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
   {
     slug: "construction-cost-calculators",
     title: "Construction Cost Calculators",
-    metaTitle: "Construction Cost Calculators — Concrete, Labor & Project Margin",
+    metaTitle: "Construction Cost Calculators & Concrete Tools | SectorCalc",
     metaDescription:
-      "Free construction calculators for concrete volume, labor cost and project exposure. Premium reports add delay, margin and overrun diagnostics.",
+      "Estimate concrete volume, labor cost, renovation area and project margin. Free construction calculators plus premium overrun and subcontractor margin analyzers.",
     intro:
-      "Contractors and estimators use SectorCalc to sanity-check material quantities, labor exposure and project margin before bidding.",
-    featuredQuestion: "What construction calculators are available on SectorCalc?",
+      "Contractors and estimators use these tools to validate quantities, labor exposure and margin before bidding or approving change orders.",
+    helpsYouCalculate:
+      "Concrete volume, floor area, roofing coverage, labor cost ratios and quick renovation quantity checks for field estimates.",
+    featuredQuestion: "What does a construction cost calculator help you estimate?",
     featuredAnswer:
-      "SectorCalc offers free construction calculators for concrete volume, area, labor cost and common field measurements, plus premium analyzers for project overrun, subcontractor margin leak and weather delay exposure.",
+      "Construction cost calculators estimate material quantities, labor exposure and margin pressure from your project inputs. They help you catch takeoff errors and budget drift before subcontractor packages or client pricing are locked. Use premium overrun analyzers when forecast cost threatens project margin.",
     featuredBullets: [
-      "Concrete and measurement calculators for field estimates",
-      "Premium construction overrun and margin analyzers",
-      "Industry pages for roofing, HVAC, plumbing and more",
+      "Concrete, area and roofing quantity calculators",
+      "Labor and margin checks for bid sanity",
+      "Premium overrun and subcontractor margin analyzers",
     ],
     freeToolLinks: [
-      { href: "/tools/free/concrete-volume-calculator", label: "Concrete Volume Calculator" },
-      { href: "/tools/free/area-converter", label: "Area Converter" },
-      { href: "/tools/free/square-meter-calculator", label: "Square Meter Calculator" },
-      { href: "/tools/free/roofing-area-calculator", label: "Roofing Area Calculator" },
+      { href: "/tools/free/concrete-volume-calculator", label: "Open the concrete volume calculator" },
+      { href: "/tools/free/area-converter", label: "Open the area converter" },
+      { href: "/tools/free/square-meter-calculator", label: "Open the square meter calculator" },
+      { href: "/tools/free/roofing-area-calculator", label: "Open the roofing area calculator" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/construction-project-overrun", label: "Construction Project Overrun Analyzer" },
-      { href: "/tools/premium-schema/construction-subcontractor-margin-leak", label: "Subcontractor Margin Leak Analyzer" },
-      { href: "/tools/premium-schema/roofing-weather-delay-risk", label: "Roofing Weather Delay Analyzer" },
+      { href: "/tools/premium-schema/construction-project-overrun", label: "View the Construction Project Overrun Analyzer" },
+      { href: "/tools/premium-schema/construction-subcontractor-margin-leak", label: "View the Subcontractor Margin Leak Analyzer" },
+      { href: "/tools/premium-schema/roofing-weather-delay-risk", label: "View the Roofing Weather Delay Analyzer" },
     ],
     industryLinks: [
-      { href: "/industries/construction", label: "Construction" },
-      { href: "/industries/roofing", label: "Roofing" },
+      { href: "/industries/construction", label: "Browse construction calculators" },
+      { href: "/industries/roofing", label: "Browse roofing tools" },
     ],
     faq: [
+      {
+        question: "What is a construction cost calculator?",
+        answer:
+          "A construction cost calculator estimates material quantities, labor exposure and margin from project inputs such as area, volume, coverage or cost codes.",
+      },
+      {
+        question: "How do I estimate concrete volume for a slab?",
+        answer:
+          "Multiply length × width × depth in consistent units to get cubic meters or cubic feet. Use the free concrete volume calculator to convert and sanity-check pour quantities.",
+      },
       {
         question: "Can I use SectorCalc instead of estimating software?",
         answer:
           "SectorCalc is a calculator and decision-report layer, not a full ERP or estimating system. Use it for quick checks and hidden-loss diagnostics.",
+      },
+      {
+        question: "When should I use a premium construction analyzer?",
+        answer:
+          "Use a premium analyzer when forecast overrun, subcontractor margin leak or weather delay exposure threatens project margin and you need export-ready decision output.",
       },
     ],
     relatedHubSlugs: ["manufacturing-cost-calculators", "finance-business-calculators"],
@@ -111,35 +142,52 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
   {
     slug: "logistics-route-calculators",
     title: "Logistics & Route Calculators",
-    metaTitle: "Logistics Route Calculators — Fuel, Deadhead & Freight Margin",
+    metaTitle: "Logistics Route Cost Calculators | SectorCalc",
     metaDescription:
-      "Free route and fuel calculators plus premium analyzers for route loss, deadhead exposure and freight margin decisions.",
+      "Calculate route cost, fuel use, freight margin and deadhead exposure. Free logistics calculators plus premium route loss and fuel drift analyzers.",
     intro:
-      "Dispatchers and owner-operators use SectorCalc to compare trip cost, fuel drift and route margin before accepting loads.",
+      "Dispatchers and owner-operators compare trip cost, fuel drift and route margin before accepting loads or repricing lanes.",
+    helpsYouCalculate:
+      "Route cost, fuel consumption, freight cost per trip, delivery stop economics and deadhead exposure on recurring lanes.",
     featuredQuestion: "How do logistics calculators help with route margin?",
     featuredAnswer:
-      "Logistics calculators estimate trip cost, fuel use and time exposure from your inputs. Premium route analyzers separate loaded versus empty miles and show threshold pressure so you can reprice or reject low-margin loads.",
+      "Logistics calculators estimate trip cost, fuel use and time exposure from distance, consumption and stop inputs. They separate loaded miles from deadhead so you can see when a lane looks profitable on average but loses money on empty return legs. Premium route analyzers add threshold pressure for repricing decisions.",
     featuredBullets: [
-      "Route cost and fuel calculators for quick checks",
+      "Route cost and fuel calculators for quick lane checks",
+      "Deadhead and stop-time visibility",
       "Premium route loss and fuel drift analyzers",
-      "Links to logistics industries and premium tools",
     ],
     freeToolLinks: [
-      { href: "/tools/free/route-cost-calculator", label: "Route Cost Calculator" },
-      { href: "/tools/free/fuel-cost-calculator", label: "Fuel Cost Calculator" },
-      { href: "/tools/free/freight-cost-calculator", label: "Freight Cost Calculator" },
-      { href: "/tools/free/fuel-consumption-calculator", label: "Fuel Consumption Calculator" },
+      { href: "/tools/free/route-cost-calculator", label: "Open the route cost calculator" },
+      { href: "/tools/free/fuel-cost-calculator", label: "Open the fuel cost calculator" },
+      { href: "/tools/free/freight-cost-calculator", label: "Open the freight cost calculator" },
+      { href: "/tools/free/fuel-consumption-calculator", label: "Open the fuel consumption calculator" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/logistics-route-loss", label: "Logistics Route Loss Analyzer" },
-      { href: "/tools/premium-schema/logistics-fuel-route-drift", label: "Fuel Route Drift Analyzer" },
+      { href: "/tools/premium-schema/logistics-route-loss", label: "View the Logistics Route Loss Analyzer" },
+      { href: "/tools/premium-schema/logistics-fuel-route-drift", label: "View the Fuel Route Drift Analyzer" },
     ],
-    industryLinks: [{ href: "/industries/logistics-transport", label: "Logistics & Transport" }],
+    industryLinks: [{ href: "/industries/logistics-transport", label: "Browse logistics calculators" }],
     faq: [
       {
         question: "What is route deadhead cost?",
         answer:
           "Deadhead cost is the expense of running empty or under-loaded miles, including fuel, driver hours and tolls that do not earn revenue on that leg.",
+      },
+      {
+        question: "How do you calculate delivery route cost?",
+        answer:
+          "Sum fuel, driver labor, tolls and vehicle wear for the trip. Add stop time at your loaded hourly rate and include deadhead legs that run without freight revenue.",
+      },
+      {
+        question: "When should I reprice a logistics lane?",
+        answer:
+          "Reprice when deadhead percentage, fuel drift or stop density pushes effective margin below your cost floor for several consecutive weeks.",
+      },
+      {
+        question: "When should I use a premium route analyzer?",
+        answer:
+          "Use a premium analyzer when recurring routes show stable revenue but eroding margin and you need hidden driver breakdown with export-ready output.",
       },
     ],
     relatedHubSlugs: ["energy-carbon-calculators", "finance-business-calculators"],
@@ -147,39 +195,56 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
   {
     slug: "energy-carbon-calculators",
     title: "Energy & Carbon Calculators",
-    metaTitle: "Energy & Carbon Calculators — Peak Load, kWh & Compliance Exposure",
+    metaTitle: "Energy & Carbon Calculators — kWh and Peak Load | SectorCalc",
     metaDescription:
-      "Free energy calculators and premium analyzers for peak load, utility cost and carbon compliance exposure.",
+      "Calculate electricity cost, kWh exposure, peak load pressure and carbon footprint. Free energy calculators plus premium peak cost and compliance analyzers.",
     intro:
-      "Facilities and energy teams use SectorCalc to compare blended kWh cost against peak-hour exposure and carbon pressure.",
+      "Facilities and energy teams compare blended kWh cost against peak-hour exposure and carbon pressure before operational or compliance decisions.",
+    helpsYouCalculate:
+      "kWh cost, electricity bill estimates, peak load exposure, compressor leak cost signals and quick carbon footprint checks.",
     featuredQuestion: "What is energy peak exposure?",
     featuredAnswer:
-      "Energy peak exposure is the extra cost hidden inside average kWh when high-demand hours drive your true unit cost. SectorCalc calculators and premium analyzers help you see peak load, compressor leaks and carbon compliance pressure separately.",
+      "Energy peak exposure is the extra cost hidden inside average kWh when high-demand periods trigger demand charges or time-of-use multipliers. Calculators help you see whether heavy loads during peak windows are driving true unit cost above your blended tariff estimate.",
     featuredBullets: [
-      "Free kWh and energy cost calculators",
+      "Free kWh and electricity bill calculators",
+      "Peak load and carbon quick checks",
       "Premium peak cost and carbon compliance analyzers",
-      "Export-ready reports on premium plans",
     ],
     freeToolLinks: [
-      { href: "/tools/free/kwh-cost-calculator", label: "kWh Cost Calculator" },
-      { href: "/tools/free/electricity-bill-calculator", label: "Electricity Bill Calculator" },
-      { href: "/tools/free/carbon-footprint-quick", label: "Carbon Footprint Quick Check" },
-      { href: "/tools/free/energy-consumption-check", label: "Energy Consumption Check" },
+      { href: "/tools/free/kwh-cost-calculator", label: "Open the kWh cost calculator" },
+      { href: "/tools/free/electricity-bill-calculator", label: "Open the electricity bill calculator" },
+      { href: "/tools/free/carbon-footprint-quick", label: "Open the carbon footprint quick check" },
+      { href: "/tools/free/energy-consumption-check", label: "Open the energy consumption check" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/energy-peak-cost", label: "Energy Peak Cost Analyzer" },
-      { href: "/tools/premium-schema/energy-compressor-leak-cost", label: "Compressor Leak Cost Analyzer" },
-      { href: "/tools/premium-schema/carbon-footprint-compliance-risk", label: "Carbon Compliance Risk Analyzer" },
+      { href: "/tools/premium-schema/energy-peak-cost", label: "View the Energy Peak Cost Analyzer" },
+      { href: "/tools/premium-schema/energy-compressor-leak-cost", label: "View the Compressor Leak Cost Analyzer" },
+      { href: "/tools/premium-schema/carbon-footprint-compliance-risk", label: "View the Carbon Compliance Risk Analyzer" },
     ],
     industryLinks: [
-      { href: "/industries/energy-consumption", label: "Energy Consumption" },
-      { href: "/industries/energy-carbon", label: "Energy & Carbon" },
+      { href: "/industries/energy-consumption", label: "Browse energy consumption tools" },
+      { href: "/industries/energy-carbon", label: "See energy and carbon calculators" },
     ],
     faq: [
+      {
+        question: "What is energy peak exposure?",
+        answer:
+          "Peak exposure is extra cost hidden inside average kWh when high-demand periods trigger demand charges or time-of-use multipliers on your utility bill.",
+      },
+      {
+        question: "How do you calculate electricity cost from kWh?",
+        answer:
+          "Multiply kilowatt-hours consumed by your effective tariff, including demand charges when applicable. Compare peak-window usage separately from off-peak loads.",
+      },
       {
         question: "Does SectorCalc replace an energy audit?",
         answer:
           "No. SectorCalc provides structured estimates and decision reports. Confirm critical compliance and engineering decisions with qualified professionals.",
+      },
+      {
+        question: "When should I use a premium energy analyzer?",
+        answer:
+          "Use a premium analyzer when peak load, compressor leaks or carbon compliance exposure affects operational budgeting or customer reporting requirements.",
       },
     ],
     relatedHubSlugs: ["logistics-route-calculators", "hidden-loss-decision-reports"],
@@ -192,6 +257,8 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       "Free agriculture calculators and premium analyzers for irrigation yield loss, feed efficiency and farm margin exposure.",
     intro:
       "Farm operators use SectorCalc to estimate irrigation cost, yield gaps and feed efficiency before season or contract decisions.",
+    helpsYouCalculate:
+      "Crop yield, irrigation cost, feed ratios, water usage and quick farm margin checks from field inputs.",
     featuredQuestion: "What agriculture tools does SectorCalc offer?",
     featuredAnswer:
       "SectorCalc includes free agriculture calculators for crop planning, irrigation and cost ratios, plus premium analyzers for irrigation yield loss and dairy feed efficiency with threshold checks and export-ready reports.",
@@ -231,6 +298,8 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       "Free finance and business calculators for loans, margins, break-even and pricing decisions across sectors.",
     intro:
       "Owners and operators use SectorCalc finance calculators for loan payments, break-even checks and quick margin math.",
+    helpsYouCalculate:
+      "Loan payments, mortgage estimates, break-even points, markup, ROI and common business ratio checks.",
     featuredQuestion: "What finance calculators are free on SectorCalc?",
     featuredAnswer:
       "SectorCalc provides free calculators for loans, mortgages, break-even, markup, ROI and common business ratios. Premium decision reports add hidden-loss diagnostics when the outcome affects pricing or operations.",
@@ -270,6 +339,8 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       "Free unit conversion calculators for area, temperature, volume, length and everyday measurement tasks.",
     intro:
       "Teams use SectorCalc conversion calculators for field measurements, quotes and cross-unit checks without spreadsheet friction.",
+    helpsYouCalculate:
+      "Area, temperature, volume, length, weight and speed conversions between metric and imperial units.",
     featuredQuestion: "What unit converters does SectorCalc include?",
     featuredAnswer:
       "SectorCalc includes free converters for area, temperature, volume, length, weight and speed with visible assumptions. They run in the browser and require no account.",
@@ -305,6 +376,8 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       "Premium SectorCalc analyzers for hidden-loss diagnostics, threshold checks, suggested actions and export-ready decision reports.",
     intro:
       "When a free estimate is not enough, premium analyzers show hidden drivers, threshold pressure and practical next actions.",
+    helpsYouCalculate:
+      "Hidden-loss exposure, threshold interpretation, suggested actions and export-ready decision reports across sectors.",
     featuredQuestion: "What is a hidden-loss decision report?",
     featuredAnswer:
       "A hidden-loss decision report starts from your inputs, surfaces the main exposure driver, compares warning and critical thresholds, suggests an action and can be exported for management or client review on paid plans.",

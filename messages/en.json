@@ -314,7 +314,7 @@
       "excludes4": "Hidden-variable margin diagnosis",
       "premiumBlockTitle": "See what this estimate misses",
       "premiumBlockBody": "Free calculators show the first number. Premium analyzers add hidden drivers, thresholds, suggested actions and export-ready decision reports.",
-      "premiumCta": "Open premium analyzer →",
+      "premiumCta": "See what this estimate misses →",
       "premiumBlockNote": "Best when the result affects pricing, operations or management decisions.",
       "relatedTitle": "Related calculators"
     },
@@ -328,11 +328,11 @@
   "contentAuthority": {
     "freeTool": {
       "howItWorksTitle": "How this calculator works",
-      "descriptionTitle": "What this tool does",
+      "descriptionTitle": "What this calculator does",
       "formulaTitle": "Formula summary",
-      "inputsTitle": "What the inputs mean",
-      "includesTitle": "What this result includes",
-      "excludesTitle": "What this result does not include",
+      "inputsTitle": "Inputs used",
+      "includesTitle": "What the result includes",
+      "estimateMissesTitle": "What this estimate misses",
       "faqTitle": "FAQ",
       "faqUseTitle": "What is this calculator used for?",
       "faqFreeTitle": "Is this calculator free?",
@@ -341,14 +341,19 @@
       "faqFreeAnswer": "Yes. SectorCalc free calculators run in your browser with no sign-up required.",
       "faqPremiumAnswer": "Use a premium analyzer when the estimate affects pricing, operations or management decisions and you need hidden drivers, thresholds and export-ready reports.",
       "relatedGuideTitle": "Learn how this calculation works",
-      "relatedHubTitle": "Explore more calculators in this category"
+      "relatedHubTitle": "Compare calculators in this category",
+      "relatedPremiumTitle": "Related premium analyzer",
+      "relatedPremiumCta": "View the related premium analyzer"
     },
     "premium": {
       "whenToUseTitle": "When to use this analyzer",
-      "painTitle": "Problem this analyzer addresses",
+      "whenToUseBody": "Use this analyzer when the result affects pricing, operations, capacity, scheduling or management reporting.",
+      "measuresTitle": "What this analyzer measures",
       "promiseTitle": "What you get",
       "decidesTitle": "What this analyzer helps decide",
       "reportTitle": "What the report includes",
+      "previewExcludesTitle": "What the preview does not include",
+      "previewExcludesBody": "The free preview shows sample structure only. Full threshold checks, hidden driver breakdown, suggested actions and export-ready PDF or CSV require paid access.",
       "assumptionsTitle": "Assumptions used",
       "faqTitle": "FAQ",
       "faqMeasureTitle": "What does this analyzer measure?",
@@ -358,8 +363,10 @@
       "faqReportAnswer": "The decision report includes executive summary, hidden driver breakdown, threshold check, suggested actions, assumption notes and export-ready output on paid access.",
       "faqErpAnswer": "No. SectorCalc is a calculator and decision-report layer. It does not replace ERP, accounting systems or professional financial, legal or engineering advice.",
       "relatedGuideTitle": "Authority guide",
-      "relatedFreeTitle": "Free calculator",
-      "pricingCta": "View pricing"
+      "relatedFreeTitle": "Open the related free calculator",
+      "relatedHubTitle": "Compare calculators in this category",
+      "relatedIndustryTitle": "Browse industry calculators",
+      "pricingCta": "Unlock the full decision report"
     }
   },
   "trust": {

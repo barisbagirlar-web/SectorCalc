@@ -18,6 +18,7 @@ import {
   sanitizeJsonLd,
   type JsonLdRecord,
 } from "@/lib/seo/schema-mesh";
+import { getTierOnePremiumMetadata } from "@/lib/seo/seo-refresh-priority";
 import {
   getPremiumSchemaBySlug,
   listPremiumSchemaSlugs,
@@ -61,9 +62,11 @@ export async function generateMetadata({
     return {};
   }
 
+  const tierOneMeta = getTierOnePremiumMetadata(slug);
+
   return createPageMetadata({
-    title: `${schema.name} | SectorCalc`,
-    description: schema.painStatement,
+    title: tierOneMeta?.metaTitle ?? `${schema.name} | SectorCalc`,
+    description: tierOneMeta?.metaDescription ?? schema.painStatement,
     path: `/tools/premium-schema/${schema.id}`,
     locale: locale as AppLocale,
   });
@@ -163,10 +166,13 @@ export default async function PremiumSchemaPilotPage({
           schema={schema}
           labels={{
             whenToUseTitle: tAuthority("whenToUseTitle"),
-            painTitle: tAuthority("painTitle"),
+            whenToUseBody: tAuthority("whenToUseBody"),
+            measuresTitle: tAuthority("measuresTitle"),
             promiseTitle: tAuthority("promiseTitle"),
             decidesTitle: tAuthority("decidesTitle"),
             reportTitle: tAuthority("reportTitle"),
+            previewExcludesTitle: tAuthority("previewExcludesTitle"),
+            previewExcludesBody: tAuthority("previewExcludesBody"),
             assumptionsTitle: tAuthority("assumptionsTitle"),
             faqTitle: tAuthority("faqTitle"),
             faqMeasureTitle: tAuthority("faqMeasureTitle"),
@@ -177,6 +183,8 @@ export default async function PremiumSchemaPilotPage({
             faqErpAnswer: tAuthority("faqErpAnswer"),
             relatedGuideTitle: tAuthority("relatedGuideTitle"),
             relatedFreeTitle: tAuthority("relatedFreeTitle"),
+            relatedHubTitle: tAuthority("relatedHubTitle"),
+            relatedIndustryTitle: tAuthority("relatedIndustryTitle"),
             pricingCta: tAuthority("pricingCta"),
           }}
         />

@@ -120,9 +120,9 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
     seoDescription:
       "Learn what OEE means and how to calculate availability, performance and quality. Free OEE calculator plus premium CNC capacity loss analyzer on SectorCalc.",
     h1: "What is OEE and how to calculate it",
-    featuredQuestion: "What is OEE and how is it calculated?",
+    featuredQuestion: "What is OEE and how do you calculate it?",
     featuredAnswer:
-      "Overall Equipment Effectiveness (OEE) measures how much of scheduled machine time produces good parts at target rate. OEE equals availability × performance × quality. Availability is run time divided by planned time, performance is actual output versus ideal cycle rate, and quality is good units divided by total units. SectorCalc free OEE calculator estimates the score; premium analyzers quantify hidden capacity and scrap loss behind a low OEE.",
+      "OEE measures how effectively a machine or production line turns planned time into good output. It is calculated by multiplying availability, performance and quality. A lower OEE usually points to downtime, speed loss, scrap or setup problems that reduce true production capacity.",
     sections: [
       {
         heading: "What does OEE measure?",
@@ -151,9 +151,9 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
           "Utilization measures scheduled use of calendar time. OEE measures productive effectiveness during scheduled production. TEEP extends the view to all calendar hours including unscheduled time.",
       },
       {
-        heading: "Use calculators before changing capacity plans",
+        heading: "When the basic calculator is not enough",
         body:
-          "Run the free OEE calculator with your shift data, then open the premium CNC OEE loss analyzer when the score threatens delivery dates or quoted margins.",
+          "Use the free OEE calculator for shift-level checks. Open the premium CNC OEE loss analyzer when low OEE threatens quoted margin, delivery dates or capacity plans and you need hidden drivers, thresholds and export-ready output.",
       },
     ],
     relatedFreeToolSlugs: [
@@ -177,7 +177,12 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
       {
         question: "Can I calculate OEE with a free calculator?",
         answer:
-          "Yes. SectorCalc OEE calculator accepts availability, performance and quality inputs or component times and returns the composite score in your browser.",
+          "Yes. The OEE calculator accepts availability, performance and quality inputs or component times and returns the composite score in your browser.",
+      },
+      {
+        question: "When should I use a premium OEE analyzer?",
+        answer:
+          "Use a premium analyzer when OEE affects quoting, scheduling or management reporting and you need hidden driver breakdown with export-ready decision output.",
       },
     ],
   },
@@ -215,9 +220,9 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
           "A 5% scrap rate on high-value alloy or long cycle parts can erase profit faster than a small price discount. Quote calculators should include expected yield, not best-case yield.",
       },
       {
-        heading: "Reduce scrap before repricing customers",
+        heading: "When the basic calculator is not enough",
         body:
-          "Measure baseline scrap by job type, then test nesting, tooling and first-piece inspection changes. Use premium scrap risk analysis when loss persists across batches.",
+          "Use free scrap calculators for batch-level ratios. Open the premium sheet metal scrap risk analyzer when recurring loss threatens quoted margin and you need threshold checks, hidden drivers and export-ready decision output.",
       },
     ],
     relatedFreeToolSlugs: [
@@ -241,7 +246,12 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
       {
         question: "Does SectorCalc have a scrap rate calculator?",
         answer:
-          "Yes. The free scrap rate calculator estimates loss ratios from your inputs. Premium sheet metal scrap risk analyzer adds hidden driver breakdown and decision report output.",
+          "Yes. The free scrap rate calculator estimates loss ratios from your inputs. The premium sheet metal scrap risk analyzer adds hidden driver breakdown and decision report output.",
+      },
+      {
+        question: "When should I escalate from free scrap math to a premium report?",
+        answer:
+          "Escalate when scrap rate affects quoted margin on repeat jobs and you need threshold interpretation, hidden drivers and export-ready output for management review.",
       },
     ],
   },
@@ -536,9 +546,9 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
           "Floor coverage, paint, tile and rental rate quotes often use different units than your takeoff. Convert once at the estimate stage to avoid compounding error across trades.",
       },
       {
-        heading: "Pair conversion with quantity calculators",
+        heading: "When the basic calculator is not enough",
         body:
-          "After converting area, use concrete, paint or flooring calculators with consistent units before submitting supplier orders or client proposals.",
+          "Use the free area converter for unit checks on plans and quotes. Open a premium warehouse space cost analyzer when converted area drives occupancy cost decisions that need threshold checks and export-ready reporting.",
       },
     ],
     relatedFreeToolSlugs: [
@@ -560,9 +570,14 @@ export const AUTHORITY_GUIDES: readonly AuthorityGuide[] = [
           "Multiply hectares by 2.471 to get acres. One hectare is exactly 10,000 square meters.",
       },
       {
-        question: "Is the SectorCalc area converter free?",
+        question: "Is the area converter free?",
         answer:
           "Yes. The area converter runs in your browser with no sign-up and supports common metric and imperial area units.",
+      },
+      {
+        question: "When do area conversion mistakes affect project cost?",
+        answer:
+          "Mixed units on floor coverage, paint, tile or land quotes compound into material ordering errors. Convert once at the estimate stage before multiplying by unit rates.",
       },
     ],
   },

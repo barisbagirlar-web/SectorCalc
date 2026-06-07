@@ -29,6 +29,12 @@ function collectGuideStrings(): string {
   ]).join(" ");
 }
 
+const TIER_ONE_GUIDE_SLUGS = [
+  "what-is-oee-and-how-to-calculate-it",
+  "how-to-calculate-scrap-rate",
+  "how-to-use-area-converter",
+] as const;
+
 describe("authority guides", () => {
   test("AUTHORITY_GUIDES length >= 8", () => {
     expect(countAuthorityGuides()).toBeGreaterThanOrEqual(8);
@@ -77,7 +83,24 @@ describe("authority guides", () => {
     });
   });
 
-  test("related free slug FREE_TRAFFIC_TOOLS içinde var", () => {
+  test("tier 1 guides have at least 4 FAQ items", () => {
+    for (const slug of TIER_ONE_GUIDE_SLUGS) {
+      const guide = getAuthorityGuideBySlug(slug);
+      expect(guide?.faq.length).toBeGreaterThanOrEqual(4);
+    }
+  });
+
+  test("tier 1 guides featuredAnswer is 40–80 words", () => {
+    for (const slug of TIER_ONE_GUIDE_SLUGS) {
+      const guide = getAuthorityGuideBySlug(slug);
+      expect(guide).not.toBeNull();
+      const count = wordCount(guide?.featuredAnswer ?? "");
+      expect(count).toBeGreaterThanOrEqual(40);
+      expect(count).toBeLessThanOrEqual(80);
+    }
+  });
+
+  test("related links resolve to valid catalog slugs", () => {
     AUTHORITY_GUIDES.forEach((guide) => {
       guide.relatedFreeToolSlugs.forEach((slug) => {
         expect(FREE_SLUGS.has(slug)).toBe(true);
