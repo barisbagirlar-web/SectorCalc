@@ -21,6 +21,10 @@
   --sc-warning: #d97706;
   --sc-danger: #991b1b;
 
+  --sc-inverse-bg: #111111;
+  --sc-inverse-text: #ffffff;
+  --sc-inverse-muted: rgb(255 255 255 / 0.78);
+
   /* Bridge to legacy industrial vars */
   --bg-industrial-matte: var(--sc-bg);
   --text-premium-velvet: var(--sc-text);
@@ -1719,5 +1723,20 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 
 .sc-omni-hub__tool-row--premium:hover {
   background: rgb(30 64 175 / 0.04);
+}
+
+/* ── Inverse contrast surfaces (dark band / black panel) ── */
+.sc-inverse-surface {
+  background: var(--sc-inverse-bg, #111111);
+  color: var(--sc-inverse-text, #ffffff);
+  border: 1px solid rgb(255 255 255 / 0.12);
+}
+
+.sc-inverse-surface :where(h1, h2, h3, h4, h5, h6, p, span, li, label, dt, dd) {
+  color: inherit;
+}
+
+.sc-inverse-surface :is(.text-text-primary, .text-text-secondary, .text-body-charcoal, .text-premium-velvet, .text-deep-navy) {
+  color: var(--sc-inverse-muted, rgb(255 255 255 / 0.78)) !important;
 }
 

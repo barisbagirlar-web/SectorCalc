@@ -4,6 +4,13 @@
  * Dark surface → white text (#fff)
  */
 
+/* Dark surface tokens — inverse contrast (white copy) */
+:root {
+  --sc-inverse-bg: #111111;
+  --sc-inverse-text: #ffffff;
+  --sc-inverse-muted: rgb(255 255 255 / 0.78);
+}
+
 /* ── Light surfaces ── */
 :is(
   .ind-page-hero,
@@ -15,7 +22,8 @@
   .bg-bg-subtle,
   .bg-premium-surface,
   .bg-bg-card,
-  .bg-light-gray
+  .bg-light-gray,
+  .sc-app-main
 ) {
   color: var(--text-premium-velvet);
 }
@@ -47,7 +55,7 @@
   color: var(--text-body-charcoal) !important;
 }
 
-/* Safety net: white copy on light surfaces → dark (except nested dark islands) */
+/* Safety net: white utility on light surfaces → dark (skip dark islands + self-dark CTAs) */
 :is(
   .ind-page-hero,
   .ind-os-page,
@@ -56,9 +64,33 @@
   .bg-industrial-matte,
   .bg-bg-subtle,
   .bg-premium-surface,
-  .bg-bg-primary
+  .bg-bg-primary,
+  .sc-app-main
 )
-  :is(.text-white, .text-white\/85, .text-white\/75, .text-white\/70, .text-white\/55) {
+  :is(.text-white, .text-white\/85, .text-white\/75, .text-white\/70, .text-white\/55):not(
+    :is(
+      .bg-deep-navy,
+      .bg-dark-navy,
+      .bg-black,
+      .bg-premium,
+      .ind-terminal,
+      .ind-terminal--inverse,
+      .surface-dark,
+      .sc-inverse-surface
+    )
+  ):not(
+    :is(
+      .bg-deep-navy,
+      .bg-dark-navy,
+      .bg-black,
+      .bg-premium,
+      .ind-terminal,
+      .ind-terminal--inverse,
+      .surface-dark,
+      .sc-inverse-surface
+    )
+    *
+  ) {
   color: var(--text-premium-velvet) !important;
 }
 
@@ -71,11 +103,21 @@
   .bg-industrial-matte,
   .bg-bg-subtle,
   .bg-premium-surface,
-  .bg-bg-primary
+  .bg-bg-primary,
+  .sc-app-main
 )
-  :is(.bg-deep-navy, .bg-black, .bg-premium, .ind-terminal, .ind-terminal--inverse)
+  :is(
+    .bg-deep-navy,
+    .bg-dark-navy,
+    .bg-black,
+    .bg-premium,
+    .ind-terminal,
+    .ind-terminal--inverse,
+    .surface-dark,
+    .sc-inverse-surface
+  )
   :is(.text-white, .text-white\/85) {
-  color: #ffffff !important;
+  color: var(--sc-inverse-text) !important;
 }
 
 :is(
@@ -86,9 +128,19 @@
   .bg-industrial-matte,
   .bg-bg-subtle,
   .bg-premium-surface,
-  .bg-bg-primary
+  .bg-bg-primary,
+  .sc-app-main
 )
-  :is(.bg-deep-navy, .bg-black, .bg-premium, .ind-terminal, .ind-terminal--inverse)
+  :is(
+    .bg-deep-navy,
+    .bg-dark-navy,
+    .bg-black,
+    .bg-premium,
+    .ind-terminal,
+    .ind-terminal--inverse,
+    .surface-dark,
+    .sc-inverse-surface
+  )
   :is(.text-white\/75, .text-white\/70) {
   color: rgb(255 255 255 / 0.75) !important;
 }
@@ -101,19 +153,47 @@
   .bg-industrial-matte,
   .bg-bg-subtle,
   .bg-premium-surface,
-  .bg-bg-primary
+  .bg-bg-primary,
+  .sc-app-main
 )
-  :is(.bg-deep-navy, .bg-black, .bg-premium, .ind-terminal, .ind-terminal--inverse)
+  :is(
+    .bg-deep-navy,
+    .bg-dark-navy,
+    .bg-black,
+    .bg-premium,
+    .ind-terminal,
+    .ind-terminal--inverse,
+    .surface-dark,
+    .sc-inverse-surface
+  )
   .text-white\/55 {
   color: rgb(255 255 255 / 0.55) !important;
 }
 
-/* ── Dark surfaces ── */
-:is(.bg-black, .bg-premium, .ind-terminal, .ind-terminal--inverse, .surface-dark) {
-  color: #ffffff;
+/* ── Dark surfaces (inverse contrast) ── */
+:is(
+  .bg-deep-navy,
+  .bg-dark-navy,
+  .bg-black,
+  .bg-premium,
+  .ind-terminal,
+  .ind-terminal--inverse,
+  .surface-dark,
+  .sc-inverse-surface
+) {
+  color: var(--sc-inverse-text);
 }
 
-:is(.bg-black, .bg-premium, .ind-terminal, .surface-dark)
+:is(
+  .bg-deep-navy,
+  .bg-dark-navy,
+  .bg-black,
+  .bg-premium,
+  .ind-terminal,
+  .ind-terminal--inverse,
+  .surface-dark,
+  .sc-inverse-surface
+)
   :where(
     h1,
     h2,
@@ -134,37 +214,76 @@
   color: inherit;
 }
 
-:is(.bg-black, .bg-premium, .ind-terminal, .surface-dark)
+:is(
+  .bg-deep-navy,
+  .bg-dark-navy,
+  .bg-black,
+  .bg-premium,
+  .ind-terminal,
+  .ind-terminal--inverse,
+  .surface-dark,
+  .sc-inverse-surface
+)
   :is(
     .text-\[\#A3A3A3\],
     .text-body-charcoal,
     .text-text-secondary,
     .text-text-muted,
+    .text-text-primary,
+    .text-premium-velvet,
+    .text-deep-navy,
     .text-slate-300,
     .text-slate-400,
     .text-slate-500,
     .text-neutral-400
   ) {
-  color: rgb(255 255 255 / 0.82) !important;
+  color: var(--sc-inverse-muted) !important;
 }
 
-:is(.bg-black, .bg-premium, .ind-terminal, .surface-dark):not(:has(.ind-os-panel))
+:is(
+  .bg-deep-navy,
+  .bg-dark-navy,
+  .bg-black,
+  .bg-premium,
+  .ind-terminal,
+  .ind-terminal--inverse,
+  .surface-dark,
+  .sc-inverse-surface
+):not(:has(.ind-os-panel))
   :is(h1, h2, h3, h4, h5, h6, .text-white, .text-premium-velvet) {
-  color: #ffffff !important;
+  color: var(--sc-inverse-text) !important;
 }
 
-:is(.bg-black, .bg-premium, .ind-terminal, .surface-dark)
+:is(
+  .bg-deep-navy,
+  .bg-dark-navy,
+  .bg-black,
+  .bg-premium,
+  .ind-terminal,
+  .ind-terminal--inverse,
+  .surface-dark,
+  .sc-inverse-surface
+)
   a:not(.sc-btn-primary):not(.ind-os-btn-action):not(.ind-os-panel a) {
-  color: #ffffff;
+  color: var(--sc-inverse-text);
 }
 
-:is(.bg-black, .bg-premium, .ind-terminal, .surface-dark)
+:is(
+  .bg-deep-navy,
+  .bg-dark-navy,
+  .bg-black,
+  .bg-premium,
+  .ind-terminal,
+  .ind-terminal--inverse,
+  .surface-dark,
+  .sc-inverse-surface
+)
   a:not(.sc-btn-primary):not(.ind-os-btn-action):hover {
   color: rgb(255 255 255 / 0.85);
 }
 
 /* Light panels nested inside dark sections */
-:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel {
+:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .ind-terminal) .ind-os-panel {
   color: var(--text-premium-velvet);
   background: #ffffff;
 }
@@ -194,11 +313,12 @@
   color: rgb(255 255 255 / 0.85) !important;
 }
 
-/* Primary CTAs keep white label on orange/dark buttons */
+/* Primary CTAs — white label on dark / orange buttons */
 .sc-btn-primary,
 .ind-os-btn-action,
 .ind-btn-primary,
+:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .sc-inverse-surface),
 [class*="bg-deep-navy"],
 [class*="bg-action-orange"] {
-  color: #ffffff;
+  color: var(--sc-inverse-text) !important;
 }
