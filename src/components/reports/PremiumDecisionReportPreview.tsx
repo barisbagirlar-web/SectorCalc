@@ -1,7 +1,10 @@
 "use client";
 
+import { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
+import { PremiumReportExportActions } from "@/components/reports/PremiumReportExportActions";
+import { buildPremiumReportExportPayload } from "@/lib/premium-schema/premium-report-export";
 import type {
   PremiumCalculatorSchema,
   PremiumSchemaEngineResult,
@@ -15,7 +18,6 @@ import {
   getSuggestedActionSteps,
   getThresholdSummary,
   getVerdictFromThresholds,
-  reportPreviewSections,
   type ExecutiveVerdict,
   type ThresholdSummaryItem,
 } from "@/lib/premium-schema/format-premium-result";
@@ -207,42 +209,20 @@ function AssumptionsSection({
 }
 
 function ExportPreviewRow({
-  title,
-  previewCta,
-  bufferedLabel,
-  p90Formatted,
-  floorFormatted,
+  payload,
+  printHref,
 }: {
-  title: string;
-  previewCta: string;
-  bufferedLabel: string;
-  p90Formatted: string;
-  floorFormatted: string;
+  payload: ReturnType<typeof buildPremiumReportExportPayload>;
+  printHref: string;
 }) {
-  const sections = reportPreviewSections();
-
-  return (
-    <section className="sc-premium-decision-report__section sc-premium-decision-report__export">
-      <h3 className="sc-premium-decision-report__heading">{title}</h3>
-      <ul className="sc-premium-export-list">
-        {sections.map((section) => (
-          <li key={section}>{section}</li>
-        ))}
-      </ul>
-      <p className="sc-premium-decision-report__buffered">
-        {bufferedLabel}: {p90Formatted} · {floorFormatted}
-      </p>
-      <button type="button" className="sc-ledger-cta-secondary sc-premium-decision-report__preview-cta" disabled>
-        {previewCta}
-      </button>
-    </section>
-  );
+  return <PremiumReportExportActions payload={payload} printHref={printHref} />;
 }
 
 /** Full A4-style premium decision report preview. */
 export function PremiumDecisionReportPreview({
   schema,
   result,
+  locale,
   compact = false,
 }: PremiumDecisionReportPreviewProps) {
   const t = useTranslations("premiumDecisionReport");
@@ -250,6 +230,12 @@ export function PremiumDecisionReportPreview({
   const thresholdItems = getThresholdSummary(schema, result.thresholdAlerts, result.outputs);
   const severity = worstThresholdSeverity(result.thresholdAlerts);
   const assumptions = getAssumptionLines(schema);
+
+  const exportPayload = useMemo(
+    () => buildPremiumReportExportPayload(schema, result, locale),
+    [schema, result, locale]
+  );
+  const printHref = `/tools/premium-schema/${schema.id}/print`;
 
   return (
     <article className="sc-premium-decision-report sc-ledger-letterpress" aria-label={t("documentLabel")}>
@@ -296,13 +282,7 @@ export function PremiumDecisionReportPreview({
         legalTitle={t("legalTitle")}
       />
 
-      <ExportPreviewRow
-        title={t("exportTitle")}
-        previewCta={t("previewCta")}
-        bufferedLabel={t("bufferedExposure")}
-        p90Formatted={result.p90ExposureFormatted}
-        floorFormatted={result.minimumSafePriceFormatted}
-      />
+      <ExportPreviewRow payload={exportPayload} printHref={printHref} />
     </article>
   );
 }
