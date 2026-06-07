@@ -37,12 +37,16 @@
   html {
     scroll-behavior: smooth;
     background-color: var(--sc-bg);
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
     @apply bg-industrial-matte text-premium-velvet antialiased;
     position: relative;
     background-color: var(--sc-bg);
+    overflow-x: hidden;
+    max-width: 100%;
     font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Helvetica Neue",
       Helvetica, Arial, sans-serif;
     font-size: 17px;

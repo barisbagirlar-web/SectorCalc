@@ -16,8 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return createPageMetadata({
-    title: `${tool.freeTitle} | MarginCore Pilot`,
-    description: `${tool.freeValue} Naive machine-time exposure with optional Pro P90 verdict via MarginCore.`,
+    title: tool.freeTitle,
+    description: `${tool.freeValue} Free machine-time estimate — upgrade to the premium analyzer for hidden drivers, thresholds and export-ready reports.`,
     path: `/tools/free/${PILOT_FREE_SLUG}`,
   });
 }

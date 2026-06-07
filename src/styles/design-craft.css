@@ -725,6 +725,8 @@
 /* ── Premium decision report preview ── */
 .sc-premium-decision-report {
   min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
   background: #fff;
   border: 1px solid var(--sc-border);
   color: var(--sc-text);
@@ -3264,6 +3266,8 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 /* ── Premium print report ── */
 .sc-print-page {
   min-width: 0;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .sc-print-toolbar {

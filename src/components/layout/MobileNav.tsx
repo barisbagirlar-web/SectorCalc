@@ -22,7 +22,7 @@ export function MobileNav() {
 
   return (
     <details ref={detailsRef} className="relative lg:hidden">
-      <summary className="apple-nav__menu-btn" aria-label="Open menu">
+      <summary className="apple-nav__menu-btn min-h-[44px] min-w-[44px]" aria-label="Open menu">
         <ScIcon icon={UI_ICON.menu} size="compact" className="text-current" />
       </summary>
       <ul className="apple-nav__dropdown">

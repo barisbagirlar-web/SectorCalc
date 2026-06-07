@@ -70,10 +70,17 @@ export function getToolMetadata(options: ToolMetadataOptions): Metadata {
   });
 }
 
+function finalizePageTitle(rawTitle: string): string {
+  const trimmed = rawTitle.trim();
+  const suffix = ` | ${SITE.siteName}`;
+  if (trimmed.endsWith(suffix)) {
+    return trimmed;
+  }
+  return `${trimmed}${suffix}`;
+}
+
 export function createPageMetadata(options: PageMetadataOptions = {}): Metadata {
-  const title = options.title
-    ? `${options.title} | ${SITE.siteName}`
-    : SITE.defaultTitle;
+  const title = options.title ? finalizePageTitle(options.title) : SITE.defaultTitle;
   const description = options.description ?? SITE.defaultDescription;
   const path = options.path ?? "/";
   const locale = options.locale ?? "en";

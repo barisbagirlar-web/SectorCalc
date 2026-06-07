@@ -14,7 +14,6 @@ const OS_NAV_KEYS = [
   { key: "categories", href: "/categories" },
   { key: "reports", href: "/account/reports" },
   { key: "pricing", href: "/pricing" },
-  { key: "account", href: "/account" },
 ] as const;
 
 export function DesktopHeaderNav() {
