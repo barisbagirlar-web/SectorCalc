@@ -1,8 +1,7 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, test } from "vitest";
-import { siteUrl } from "@/config/site";
-import { locales } from "@/i18n/locales";
+import { SITE_BASE_URL, SUPPORTED_LOCALES } from "@/lib/seo/global-seo-config";
 import {
   buildSitemapEntries,
   countExpectedSitemapMinimum,
@@ -108,11 +107,11 @@ describe("production-hardening", () => {
 
     expect(entries.length).toBeGreaterThanOrEqual(countExpectedSitemapMinimum());
 
-    for (const locale of locales) {
-      expect(urls).toContain(`${siteUrl}/${locale}/categories`);
-      expect(urls).toContain(`${siteUrl}/${locale}/premium-tools`);
-      expect(urls).toContain(`${siteUrl}/${locale}/tools/free/area-converter`);
-      expect(urls).toContain(`${siteUrl}/${locale}/tools/premium-schema/cnc-oee-loss`);
+    for (const locale of SUPPORTED_LOCALES) {
+      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/categories`);
+      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/premium-tools`);
+      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/tools/free/area-converter`);
+      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/tools/premium-schema/cnc-oee-loss`);
     }
 
     for (const slug of listAllFreeToolSlugs()) {

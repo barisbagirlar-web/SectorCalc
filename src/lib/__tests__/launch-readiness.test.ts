@@ -15,8 +15,7 @@ const en = JSON.parse(
     singleReportNote: string;
   };
 };
-import { siteUrl } from "@/config/site";
-import { locales } from "@/i18n/locales";
+import { SITE_BASE_URL, SUPPORTED_LOCALES } from "@/lib/seo/global-seo-config";
 import {
   buildSitemapEntries,
   countExpectedSitemapMinimum,
@@ -161,12 +160,12 @@ describe("launch-readiness", () => {
 
     expect(entries.length).toBeGreaterThanOrEqual(countExpectedSitemapMinimum());
 
-    for (const locale of locales) {
-      expect(urls).toContain(`${siteUrl}/${locale}/categories`);
-      expect(urls).toContain(`${siteUrl}/${locale}/free-tools`);
-      expect(urls).toContain(`${siteUrl}/${locale}/premium-tools`);
-      expect(urls).toContain(`${siteUrl}/${locale}/industries`);
-      expect(urls).toContain(`${siteUrl}/${locale}/pricing`);
+    for (const locale of SUPPORTED_LOCALES) {
+      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/categories`);
+      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/free-tools`);
+      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/premium-tools`);
+      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/industries`);
+      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/pricing`);
     }
 
     for (const slug of listFreeTrafficSlugs()) {

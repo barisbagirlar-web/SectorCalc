@@ -1,17 +1,19 @@
 /**
  * Public indexable URL manifest for GSC inspection and IndexNow submission.
- * EN/TR locales only. Excludes admin, api, print, checkout and debug routes.
+ * Derived from sitemap-manifest.ts (single source of truth).
  */
 
-import { listAuthorityGuideSlugs } from "@/lib/content/authority-guides";
-import { getAuthorityGuideRoutePath } from "@/lib/content/authority-links";
-import { getPremiumSchemaRoutePath } from "@/lib/seo/build-sitemap";
-import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
 import {
-  getFreeToolRoutePath,
-  listAllFreeToolSlugs,
-} from "@/lib/tools/free-traffic-routes";
-import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
+  INDEXABLE_LOCALE_ROUTES,
+  SUPPORTED_LOCALES,
+  type SupportedLocale,
+} from "@/lib/seo/global-seo-config";
+import {
+  buildLocalizedPath,
+  getSitemapManifest,
+  isSitemapPathAllowed,
+  type SitemapManifestItem,
+} from "@/lib/seo/sitemap-manifest";
 
 export type IndexableUrlType =
   | "core"
@@ -23,7 +25,7 @@ export type IndexableUrlType =
 
 export type IndexableUrlPriority = "critical" | "high" | "medium";
 
-export type IndexableLocale = "en" | "tr";
+export type IndexableLocale = SupportedLocale;
 
 export type IndexableUrlItem = {
   readonly path: string;
@@ -33,27 +35,7 @@ export type IndexableUrlItem = {
   readonly inspectionOrder: number;
 };
 
-export const INDEXABLE_LOCALES: readonly IndexableLocale[] = ["en", "tr"] as const;
-
-/** Static public hub paths (no locale prefix). */
-const CORE_HUB_STATIC_PATHS: readonly {
-  readonly path: string;
-  readonly type: IndexableUrlType;
-  readonly priority: IndexableUrlPriority;
-}[] = [
-  { path: "/", type: "core", priority: "critical" },
-  { path: "/free-tools", type: "hub", priority: "critical" },
-  { path: "/premium-tools", type: "hub", priority: "critical" },
-  { path: "/categories", type: "hub", priority: "critical" },
-  { path: "/industries", type: "hub", priority: "critical" },
-  { path: "/pricing", type: "hub", priority: "critical" },
-  { path: "/beta-partner", type: "hub", priority: "high" },
-  { path: "/how-it-works", type: "hub", priority: "medium" },
-  { path: "/for-consultants", type: "hub", priority: "medium" },
-  { path: "/privacy", type: "core", priority: "medium" },
-  { path: "/terms", type: "core", priority: "medium" },
-  { path: "/disclaimer", type: "core", priority: "medium" },
-] as const;
+export const INDEXABLE_LOCALES: readonly IndexableLocale[] = SUPPORTED_LOCALES;
 
 /** GSC-critical paths (EN) — used to seed inspectionOrder. */
 const CRITICAL_INSPECTION_PATHS: readonly string[] = [
@@ -92,36 +74,59 @@ const HIGH_PRIORITY_PREMIUM_SLUGS = new Set([
   "restaurant-menu-margin-leak",
 ]);
 
-const EXCLUDED_PATH_PATTERNS: readonly RegExp[] = [
-  /\/admin(?:\/|$)/,
-  /^\/api(?:\/|$)/,
-  /\/print(?:\/|$)/,
-  /^\/checkout(?:\/|$)/,
-  /\/debug(?:\/|$)/,
-];
-
-function normalizeStaticPath(path: string): string {
-  if (!path.startsWith("/")) {
-    return `/${path}`;
-  }
-  return path === "" ? "/" : path;
-}
-
-function buildLocalizedPath(locale: IndexableLocale, staticPath: string): string {
-  const normalized = normalizeStaticPath(staticPath);
-  if (normalized === "/") {
-    return `/${locale}`;
-  }
-  return `/${locale}${normalized}`;
-}
-
-function getProgrammaticSeoRoutePath(slug: string): string {
-  return `/seo/${slug}`;
-}
-
 export function isPathIndexable(path: string): boolean {
-  const normalized = normalizeStaticPath(path);
-  return !EXCLUDED_PATH_PATTERNS.some((pattern) => pattern.test(normalized));
+  return isSitemapPathAllowed(path);
+}
+
+function mapManifestType(type: SitemapManifestItem["type"]): IndexableUrlType {
+  return type;
+}
+
+function mapManifestPriority(item: SitemapManifestItem): IndexableUrlPriority {
+  if (
+    item.path === "/" ||
+    item.path === "/free-tools" ||
+    item.path === "/premium-tools" ||
+    item.path === "/categories" ||
+    item.path === "/industries" ||
+    item.path === "/pricing"
+  ) {
+    return "critical";
+  }
+
+  if (
+    item.type === "seo_landing" &&
+    item.path === "/seo/manufacturing-cost-calculators"
+  ) {
+    return "critical";
+  }
+
+  if (
+    item.type === "authority_guide" &&
+    item.path === "/guides/what-is-oee-and-how-to-calculate-it"
+  ) {
+    return "critical";
+  }
+
+  if (item.type === "free_tool") {
+    const slug = item.path.replace("/tools/free/", "");
+    return HIGH_PRIORITY_FREE_SLUGS.has(slug) ? "high" : "medium";
+  }
+
+  if (item.type === "premium_analyzer") {
+    const slug = item.path.replace("/tools/premium-schema/", "");
+    return HIGH_PRIORITY_PREMIUM_SLUGS.has(slug) ? "high" : "medium";
+  }
+
+  if (item.type === "seo_landing" || item.type === "authority_guide") {
+    return "high";
+  }
+
+  if (item.type === "hub" && item.path === "/beta-partner") {
+    return "high";
+  }
+
+  return "medium";
 }
 
 function assignInspectionOrders(items: IndexableUrlItem[]): IndexableUrlItem[] {
@@ -163,61 +168,21 @@ function assignInspectionOrders(items: IndexableUrlItem[]): IndexableUrlItem[] {
 export function getIndexableUrlManifest(): IndexableUrlItem[] {
   const items: IndexableUrlItem[] = [];
 
-  for (const locale of INDEXABLE_LOCALES) {
-    for (const entry of CORE_HUB_STATIC_PATHS) {
-      const path = buildLocalizedPath(locale, entry.path);
+  for (const manifestItem of getSitemapManifest()) {
+    for (const locale of manifestItem.locales) {
+      if (!INDEXABLE_LOCALE_ROUTES[locale]) {
+        continue;
+      }
+
+      const path = buildLocalizedPath(manifestItem.path, locale);
       if (!isPathIndexable(path)) {
         continue;
       }
-      items.push({
-        path,
-        type: entry.type,
-        priority: entry.priority,
-        locale,
-        inspectionOrder: 0,
-      });
-    }
 
-    for (const seoSlug of listProgrammaticSeoSlugs()) {
-      const path = buildLocalizedPath(locale, getProgrammaticSeoRoutePath(seoSlug));
       items.push({
         path,
-        type: "seo_landing",
-        priority: seoSlug === "manufacturing-cost-calculators" ? "critical" : "high",
-        locale,
-        inspectionOrder: 0,
-      });
-    }
-
-    for (const guideSlug of listAuthorityGuideSlugs()) {
-      const path = buildLocalizedPath(locale, getAuthorityGuideRoutePath(guideSlug));
-      items.push({
-        path,
-        type: "authority_guide",
-        priority:
-          guideSlug === "what-is-oee-and-how-to-calculate-it" ? "critical" : "high",
-        locale,
-        inspectionOrder: 0,
-      });
-    }
-
-    for (const freeSlug of listAllFreeToolSlugs()) {
-      const path = buildLocalizedPath(locale, getFreeToolRoutePath(freeSlug));
-      items.push({
-        path,
-        type: "free_tool",
-        priority: HIGH_PRIORITY_FREE_SLUGS.has(freeSlug) ? "high" : "medium",
-        locale,
-        inspectionOrder: 0,
-      });
-    }
-
-    for (const premiumSlug of listPremiumSchemaSlugs()) {
-      const path = buildLocalizedPath(locale, getPremiumSchemaRoutePath(premiumSlug));
-      items.push({
-        path,
-        type: "premium_analyzer",
-        priority: HIGH_PRIORITY_PREMIUM_SLUGS.has(premiumSlug) ? "high" : "medium",
+        type: mapManifestType(manifestItem.type),
+        priority: mapManifestPriority(manifestItem),
         locale,
         inspectionOrder: 0,
       });

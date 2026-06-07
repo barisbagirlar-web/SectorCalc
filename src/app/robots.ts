@@ -1,7 +1,14 @@
 import type { MetadataRoute } from "next";
-import { siteUrl } from "@/config/site";
+import { SITE_BASE_URL } from "@/lib/seo/global-seo-config";
 
-const COMMON_DISALLOW = ["/admin/", "/api/", "/logs/"];
+const COMMON_DISALLOW = [
+  "/admin/",
+  "/api/",
+  "/logs/",
+  "/*/print",
+  "/*/tools/premium-schema/*/print",
+  "/tools/premium-schema/*/print",
+];
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,23 +16,23 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: [...COMMON_DISALLOW, "/*/tools/premium-schema/*/print", "/tools/premium-schema/*/print"],
+        disallow: COMMON_DISALLOW,
       },
       {
         userAgent: ["Googlebot", "Bingbot", "Applebot"],
         allow: "/",
-        disallow: COMMON_DISALLOW,
+        disallow: ["/admin/", "/api/", "/logs/", "/*/print", "/tools/premium-schema/*/print"],
       },
       {
         userAgent: ["GPTBot", "ChatGPT-User", "PerplexityBot", "ClaudeBot"],
         allow: "/",
-        disallow: COMMON_DISALLOW,
+        disallow: ["/admin/", "/api/", "/logs/"],
       },
       {
         userAgent: ["CCBot", "Diffbot"],
         disallow: "/",
       },
     ],
-    sitemap: `${siteUrl}/sitemap.xml`,
+    sitemap: `${SITE_BASE_URL}/sitemap.xml`,
   };
 }
