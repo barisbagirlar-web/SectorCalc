@@ -24,6 +24,12 @@
 
 ## Product & operations
 
+- [Product Roadmap Freeze](./product-roadmap-freeze.md) — 30-day feature freeze and allowed work boundaries
+- [30-Day Monetization Sprint](./monetization-sprint-30-day-plan.md) — revenue sprint goal, KPIs, weekly plan
+- [Monetization Decision Gates](./monetization-decision-gates.md) — data gates before product changes
+- [Backlog Intake Template](./backlog-intake-template.md) — new idea intake during freeze
+- [Revenue Sprint Dashboard](./revenue-sprint-dashboard.md) — weekly metrics table and gate status
+- [Cursor Scope Control](./cursor-scope-control.md) — agent/PR scope rules for the sprint
 - [SectorCalc Product DNA](./sectorcalc-product-dna.txt)
 - [Deployment Checklist](./deployment-checklist.md)
 - [Env Checklist](./env-checklist.md)
