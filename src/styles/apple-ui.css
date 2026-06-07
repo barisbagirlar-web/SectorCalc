@@ -5,8 +5,8 @@
 
 :root {
   /* Apple palette */
-  --apple-bg: #ffffff;
-  --apple-bg-secondary: #f5f5f7;
+  --apple-bg: #faf7f2;
+  --apple-bg-secondary: #faf7f2;
   --apple-text: #1d1d1f;
   --apple-text-secondary: #86868b;
   --apple-text-tertiary: #6e6e73;
@@ -285,7 +285,7 @@
   top: 0;
   z-index: 9999;
   font-family: var(--apple-font);
-  background: rgba(251, 251, 253, 0.8);
+  background: rgb(250 247 242 / 0.92);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.16);

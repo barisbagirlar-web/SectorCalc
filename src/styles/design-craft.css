@@ -9,6 +9,7 @@
 /* ── Ledger tokens ── */
 :root {
   --sc-bg: #faf7f2;
+  --sc-bg-muted: #f5f0e8;
   --sc-surface: #ffffff;
   --sc-text: #1a1a1a;
   --sc-muted: #6b6b6b;
@@ -827,7 +828,7 @@
 .sc-craft-section--white,
 .sc-ledger-section--alt,
 .sc-craft-section--alt {
-  background-color: var(--sc-surface);
+  background-color: var(--sc-bg-muted);
 }
 
 .sc-pro-section--border,
@@ -1283,5 +1284,29 @@
 .sc-catalog-explorer__item-card,
 .sc-free-tools-explorer__tool-card {
   height: 100%;
+}
+
+/* ── Page canvas — theme fill, no white viewport gutters ── */
+.sc-app-main,
+.sc-pro-page,
+.sc-ledger-page,
+.ind-os-page {
+  background-color: var(--sc-bg);
+}
+
+.sc-app-main > section.bg-white:not(.rounded-sm):not(.shadow-card),
+.sc-app-main section.bg-white:not(.rounded-sm):not(.shadow-card):not([class*="p-5"]):not([class*="p-6"]),
+main section.bg-white:not(.rounded-sm):not(.shadow-card):not([class*="p-4"]):not([class*="p-5"]):not([class*="p-6"]),
+main section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card):not([class*="p-4"]):not([class*="p-5"]):not([class*="p-6"]) {
+  background-color: var(--sc-bg) !important;
+}
+
+.sc-app-main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card),
+main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
+  background-color: var(--sc-bg) !important;
+}
+
+.apple-footer {
+  background: var(--sc-bg);
 }
 

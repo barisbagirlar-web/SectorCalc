@@ -22,7 +22,7 @@ export function Container({
 }: ContainerProps) {
   return (
     <Component
-      className={`mx-auto w-full bg-industrial-matte px-3 sm:px-4 lg:px-5 ${sizeClasses[size]} ${className}`}
+      className={`mx-auto w-full px-3 sm:px-4 lg:px-5 ${sizeClasses[size]} ${className}`}
     >
       {children}
     </Component>
