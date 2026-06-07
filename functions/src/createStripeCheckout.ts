@@ -47,6 +47,43 @@ interface CheckoutRequestBody {
   toolSlug?: string;
   locale?: string;
   plan?: CheckoutPlan;
+  returnPath?: string;
+}
+
+function resolveSafeReturnPath(returnPath?: string): string {
+  const trimmed = typeof returnPath === "string" ? returnPath.trim() : "";
+  if (
+    trimmed.length === 0 ||
+    !trimmed.startsWith("/") ||
+    trimmed.startsWith("//") ||
+    trimmed.includes("://")
+  ) {
+    return "/pricing";
+  }
+  return trimmed;
+}
+
+function buildCheckoutSuccessUrl(
+  siteUrl: string,
+  locale: string,
+  plan: string,
+  returnPath: string
+): string {
+  const base = localizedSitePath(siteUrl, locale, "/checkout/success");
+  const params = new URLSearchParams({
+    plan,
+    return: returnPath,
+  });
+  return `${base}?session_id={CHECKOUT_SESSION_ID}&${params.toString()}`;
+}
+
+function buildCheckoutCancelUrl(
+  siteUrl: string,
+  locale: string,
+  returnPath: string
+): string {
+  const base = localizedSitePath(siteUrl, locale, "/checkout/cancel");
+  return `${base}?return=${encodeURIComponent(returnPath)}`;
 }
 
 function resolveExplicitToolSlug(body: CheckoutRequestBody): string | undefined {
@@ -111,27 +148,26 @@ async function createSubscriptionSession(
   plan: typeof CHECKOUT_PLAN_PRO | typeof CHECKOUT_PLAN_PRO_ANNUAL | typeof CHECKOUT_PLAN_TEAM,
   priceId: string
 ): Promise<Stripe.Checkout.Session> {
-  const explicitToolSlug = resolveExplicitToolSlug(body);
   const toolSlug = resolveToolSlugForMetadata(body);
   const locale = resolveAppLocale(body);
   const siteUrl = publicSiteUrl.value().trim().replace(/\/$/, "");
   const existingCustomerId = await getExistingCustomerId(authResult.uid);
+  const returnPath = resolveSafeReturnPath(body.returnPath);
 
   const metadata: Record<string, string> = {
     uid: authResult.uid,
     toolSlug,
     plan,
     locale,
+    returnPath,
   };
 
   return stripe.checkout.sessions.create({
     mode: "subscription",
     line_items: [{ price: priceId, quantity: 1 }],
     locale: resolveStripeCheckoutLocale(locale),
-    success_url: explicitToolSlug
-      ? `${localizedSitePath(siteUrl, locale, `/tools/premium/${encodeURIComponent(explicitToolSlug)}`)}?subscribed=true`
-      : `${localizedSitePath(siteUrl, locale, "/account")}?subscribed=true`,
-    cancel_url: `${localizedSitePath(siteUrl, locale, "/pricing")}?canceled=true`,
+    success_url: buildCheckoutSuccessUrl(siteUrl, locale, plan, returnPath),
+    cancel_url: buildCheckoutCancelUrl(siteUrl, locale, returnPath),
     client_reference_id: authResult.uid,
     customer: existingCustomerId,
     customer_email: existingCustomerId ? undefined : authResult.email,
@@ -152,20 +188,27 @@ async function createSingleReportPaymentSession(
   const priceId = stripePriceSingleVerdict.value().trim();
   const siteUrl = publicSiteUrl.value().trim().replace(/\/$/, "");
   const existingCustomerId = await getExistingCustomerId(authResult.uid);
+  const returnPath = resolveSafeReturnPath(body.returnPath);
 
   const metadata: Record<string, string> = {
     uid: authResult.uid,
     plan: CHECKOUT_PLAN_SINGLE_REPORT,
     toolSlug,
     locale,
+    returnPath,
   };
 
   return stripe.checkout.sessions.create({
     mode: "payment",
     line_items: [{ price: priceId, quantity: 1 }],
     locale: resolveStripeCheckoutLocale(locale),
-    success_url: `${localizedSitePath(siteUrl, locale, "/account/reports")}?session_id={CHECKOUT_SESSION_ID}&purchased=single_report&tool=${encodeURIComponent(toolSlug)}`,
-    cancel_url: `${localizedSitePath(siteUrl, locale, "/pricing")}?canceled=true`,
+    success_url: buildCheckoutSuccessUrl(
+      siteUrl,
+      locale,
+      CHECKOUT_PLAN_SINGLE_REPORT,
+      returnPath
+    ),
+    cancel_url: buildCheckoutCancelUrl(siteUrl, locale, returnPath),
     client_reference_id: authResult.uid,
     customer: existingCustomerId,
     customer_email: existingCustomerId ? undefined : authResult.email,

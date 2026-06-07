@@ -3,7 +3,10 @@ import Stripe from "stripe";
 import type { Request, Response } from "express";
 import { defineString } from "firebase-functions/params";
 import {
+  CHECKOUT_PLAN_PRO,
+  CHECKOUT_PLAN_PRO_ANNUAL,
   CHECKOUT_PLAN_SINGLE_REPORT,
+  CHECKOUT_PLAN_TEAM,
   USERS_COLLECTION,
   USER_PURCHASES_SUBCOLLECTION,
 } from "./constants";
@@ -17,8 +20,15 @@ if (!admin.apps.length) {
 
 type FirestoreSubscriptionStatus = "active" | "canceled" | "past_due" | "none";
 
+type CheckoutPlan =
+  | typeof CHECKOUT_PLAN_PRO
+  | typeof CHECKOUT_PLAN_SINGLE_REPORT
+  | typeof CHECKOUT_PLAN_PRO_ANNUAL
+  | typeof CHECKOUT_PLAN_TEAM;
+
 interface FirestoreSubscription {
   status: FirestoreSubscriptionStatus;
+  plan?: CheckoutPlan;
   stripeCustomerId?: string;
   stripeSubscriptionId?: string;
   stripePriceId?: string;
@@ -64,14 +74,26 @@ function resolveStripePriceId(subscription: Stripe.Subscription): string | undef
 
 function subscriptionPayloadFromStripe(
   subscription: Stripe.Subscription,
-  customerId?: string
+  customerId?: string,
+  plan?: CheckoutPlan
 ): FirestoreSubscription {
   const currentPeriodEnd = subscription.current_period_end
     ? new Date(subscription.current_period_end * 1000).toISOString()
     : undefined;
 
+  const resolvedPlan =
+    plan ??
+    (subscription.metadata?.plan === CHECKOUT_PLAN_TEAM
+      ? CHECKOUT_PLAN_TEAM
+      : subscription.metadata?.plan === CHECKOUT_PLAN_PRO_ANNUAL
+        ? CHECKOUT_PLAN_PRO_ANNUAL
+        : subscription.metadata?.plan === CHECKOUT_PLAN_PRO
+          ? CHECKOUT_PLAN_PRO
+          : undefined);
+
   return {
     status: mapStripeSubscriptionStatus(subscription.status),
+    plan: resolvedPlan,
     stripeCustomerId:
       customerId ??
       (typeof subscription.customer === "string"
@@ -219,7 +241,12 @@ export async function handleStripeWebhook(
             subscription,
             typeof session.customer === "string"
               ? session.customer
-              : session.customer?.id
+              : session.customer?.id,
+            session.metadata?.plan === CHECKOUT_PLAN_TEAM
+              ? CHECKOUT_PLAN_TEAM
+              : session.metadata?.plan === CHECKOUT_PLAN_PRO_ANNUAL
+                ? CHECKOUT_PLAN_PRO_ANNUAL
+                : CHECKOUT_PLAN_PRO
           )
         );
         break;

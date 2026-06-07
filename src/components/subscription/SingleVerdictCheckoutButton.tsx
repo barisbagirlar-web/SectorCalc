@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { CheckoutLoadingOverlay } from "@/components/billing/CheckoutLoadingOverlay";
 import { TrustBadgeStrip } from "@/components/billing/TrustBadgeStrip";
-import { startCheckoutSession } from "@/lib/billing/create-checkout-session";
+import { startCheckoutRedirect } from "@/lib/billing/start-checkout";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
@@ -58,9 +58,9 @@ export function SingleVerdictCheckoutButton({
  plan: "single_report",
  });
 
- await startCheckoutSession({
- plan: "single_report",
- toolSlug,
+ await startCheckoutRedirect({
+ planId: "single_report",
+ premiumSlug: toolSlug,
  locale,
  returnPath,
  });

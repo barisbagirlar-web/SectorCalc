@@ -2,12 +2,13 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
-import { startCheckoutSession } from "@/lib/billing/create-checkout-session";
+import { CheckoutStartError, startCheckoutRedirect } from "@/lib/billing/start-checkout";
 import { buildPremiumPricingHref } from "@/lib/entitlements/premium-entitlements";
 import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import { buildTrackedCtaHref } from "@/lib/campaigns/campaign-links";
 import { stripLocalePrefix } from "@/i18n/locales";
+import { useState } from "react";
 
 export interface PremiumReportLockedStateProps {
   schemaName: string;
@@ -24,10 +25,15 @@ export function PremiumReportLockedState({
   checkoutHref,
 }: PremiumReportLockedStateProps) {
   const t = useTranslations("premiumDecisionReport.locked");
+  const tCheckout = useTranslations("checkout");
   const locale = useLocale();
   const pathname = usePathname();
   const attribution = useAttributionContext();
   const pagePath = stripLocalePrefix(pathname);
+  const returnPath = `/tools/premium-schema/${schemaSlug}`;
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const pricingHref = buildTrackedCtaHref(
     checkoutHref ?? buildPremiumPricingHref(schemaSlug),
     attribution.utmCampaign,
@@ -37,6 +43,9 @@ export function PremiumReportLockedState({
   );
 
   const handleUnlock = () => {
+    setError(null);
+    setPending(true);
+
     trackConversionEvent({
       stage: "unlock_intent",
       eventName: "premium_unlock_click",
@@ -50,11 +59,18 @@ export function PremiumReportLockedState({
       valueType: "premium",
     });
 
-    void startCheckoutSession({
-      toolSlug: schemaSlug,
-      plan: "single_report",
-      returnPath: `/tools/premium-schema/${schemaSlug}`,
-      locale: undefined,
+    void startCheckoutRedirect({
+      planId: "single_report",
+      premiumSlug: schemaSlug,
+      returnPath,
+      locale,
+    }).catch((caught: unknown) => {
+      setPending(false);
+      if (caught instanceof CheckoutStartError) {
+        setError(caught.message);
+        return;
+      }
+      setError(tCheckout("error"));
     });
   };
 
@@ -103,9 +119,10 @@ export function PremiumReportLockedState({
           <button
             type="button"
             onClick={handleUnlock}
-            className="sc-ledger-cta-primary sc-premium-report-locked__cta min-h-[48px]"
+            disabled={pending}
+            className="sc-ledger-cta-primary sc-premium-report-locked__cta min-h-[48px] disabled:opacity-60"
           >
-            {t("unlockCta")}
+            {pending ? tCheckout("redirecting") : t("unlockCta")}
           </button>
           <Link
             href={pricingHref}
@@ -115,6 +132,14 @@ export function PremiumReportLockedState({
             {t("pricingCta")}
           </Link>
         </div>
+        {error ? (
+          <p className="mt-3 text-sm text-amber" role="alert">
+            {error}{" "}
+            <Link href={pricingHref} className="underline underline-offset-2">
+              {t("pricingCta")}
+            </Link>
+          </p>
+        ) : null}
       </div>
     </section>
   );

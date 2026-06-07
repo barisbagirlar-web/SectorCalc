@@ -5,6 +5,10 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { startCheckoutSession, type CheckoutPlan } from "@/lib/billing/create-checkout-session";
 import {
+  mapCheckoutPlanToBillingPlanId,
+} from "@/lib/billing/billing-config";
+import { CheckoutStartError, startCheckoutRedirect } from "@/lib/billing/start-checkout";
+import {
  REVENUE_EVENTS,
  trackRevenueEvent,
 } from "@/lib/analytics/revenue-events";
@@ -84,6 +88,17 @@ export function StripePlanCheckoutButton({
  plan,
  });
 
+ const billingPlanId = mapCheckoutPlanToBillingPlanId(plan);
+ if (billingPlanId) {
+ await startCheckoutRedirect({
+ planId: billingPlanId,
+ premiumSlug: toolSlug,
+ locale,
+ returnPath,
+ });
+ return;
+ }
+
  await startCheckoutSession({
  plan,
  toolSlug,
@@ -91,7 +106,9 @@ export function StripePlanCheckoutButton({
  returnPath,
  });
  } catch (caught) {
- if (caught instanceof Error) {
+ if (caught instanceof CheckoutStartError) {
+ setError(caught.message);
+ } else if (caught instanceof Error) {
  setError(caught.message);
  } else {
  setError(t("error"));

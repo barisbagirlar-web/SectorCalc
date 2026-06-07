@@ -1,7 +1,10 @@
 export type SubscriptionStatus = "active" | "canceled" | "past_due" | "none";
 
+export type SubscriptionPlanId = "pro" | "pro_annual" | "team";
+
 export type UserSubscription = {
  status: SubscriptionStatus;
+ plan?: SubscriptionPlanId;
  stripeCustomerId?: string;
  stripeSubscriptionId?: string;
  stripePriceId?: string;
@@ -67,6 +70,7 @@ export function normalizeUserSubscription(value: unknown): UserSubscription | nu
 
  const data = value as Record<string, unknown>;
  const rawStatus = data.status;
+ const rawPlan = data.plan;
 
  const status: SubscriptionStatus =
  rawStatus === "active" ||
@@ -78,6 +82,10 @@ export function normalizeUserSubscription(value: unknown): UserSubscription | nu
 
  return {
  status,
+ plan:
+ rawPlan === "pro" || rawPlan === "pro_annual" || rawPlan === "team"
+ ? rawPlan
+ : undefined,
  stripeCustomerId:
  typeof data.stripeCustomerId === "string" ? data.stripeCustomerId : undefined,
  stripeSubscriptionId:

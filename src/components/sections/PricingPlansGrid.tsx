@@ -204,16 +204,11 @@ export function PricingPlansGrid({
                     {plan.primaryCta}
                   </TrackedCtaLink>
                 ) : isEnterprise ? (
-                  <TrackedCtaLink
-                    href="/for-consultants"
-                    eventName="pricing_cta_click"
-                    ctaId="pricing_team_contact"
-                    source="pricing"
-                    medium="team_plan"
-                    className="sc-cta-secondary inline-flex w-full justify-center"
-                  >
-                    Contact us
-                  </TrackedCtaLink>
+                  <PlanCheckoutAction
+                    plan={plan}
+                    checkoutToolSlug={checkoutToolSlug}
+                    className="w-full"
+                  />
                 ) : (
                   <PlanCheckoutAction
                     plan={plan}

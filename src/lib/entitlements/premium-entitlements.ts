@@ -6,6 +6,7 @@ import {
   hasProAccess,
   isDevelopmentProBypass,
   isProBypassEmail,
+  type SubscriptionPlanId,
   type UserSubscription,
 } from "@/lib/billing/subscription";
 
@@ -30,9 +31,17 @@ export interface PremiumEntitlementInput {
   readonly level?: PremiumEntitlementLevel;
   readonly isAdmin?: boolean;
   readonly hasProSubscription?: boolean;
+  readonly subscriptionPlan?: SubscriptionPlanId;
   readonly hasSingleReportForSchema?: boolean;
   readonly isDevelopmentBypass?: boolean;
   readonly userEmail?: string | null;
+}
+
+/**
+ * Client-side checkout session_id must never grant full entitlement without server verification.
+ */
+export function isClientCheckoutSessionTrusted(_sessionId?: string | null): false {
+  return false;
 }
 
 const FULL_ACCESS_LEVELS: readonly PremiumEntitlementLevel[] = [
@@ -72,6 +81,9 @@ export function resolvePremiumEntitlementLevel(
     isProBypassEmail(input.userEmail ?? null) ||
     input.hasProSubscription
   ) {
+    if (input.subscriptionPlan === "team") {
+      return "team";
+    }
     return "pro";
   }
 
@@ -111,10 +123,13 @@ export function getPremiumEntitlementFromBillingState(options: {
   hasSingleReportForSchema?: boolean;
 }): PremiumEntitlement {
   const hasProSubscription = hasProAccess(options.subscription ?? null, options.userEmail);
+  const subscriptionPlan =
+    hasProSubscription && options.subscription?.plan ? options.subscription.plan : undefined;
 
   return getPremiumEntitlement({
     isAdmin: options.isAdmin,
     hasProSubscription,
+    subscriptionPlan,
     hasSingleReportForSchema: options.hasSingleReportForSchema,
     isDevelopmentBypass: isDevelopmentProBypass(),
     userEmail: options.userEmail,

@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
-import { startCheckoutSession } from "@/lib/billing/create-checkout-session";
+import { startCheckoutRedirect } from "@/lib/billing/start-checkout";
 import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import { stripLocalePrefix } from "@/i18n/locales";
@@ -97,10 +97,13 @@ export function PremiumReportExportActions({
       ctaId: "unlock_export",
       valueType: "premium",
     });
-    void startCheckoutSession({
-      toolSlug: payload.schemaSlug,
-      plan: "single_report",
+    void startCheckoutRedirect({
+      planId: "single_report",
+      premiumSlug: payload.schemaSlug,
       returnPath: `/tools/premium-schema/${payload.schemaSlug}`,
+      locale,
+    }).catch(() => {
+      window.location.assign(checkoutHref);
     });
   }, [
     attribution.utmCampaign,
@@ -284,9 +287,11 @@ export function PremiumPrintToolbar({
   };
 
   const handleUnlock = () => {
-    void startCheckoutSession({
-      plan: "single_report",
+    void startCheckoutRedirect({
+      planId: "single_report",
       returnPath: backHref,
+    }).catch(() => {
+      window.location.assign(checkoutHref);
     });
   };
 

@@ -76,6 +76,7 @@ export async function createCheckoutSession(
  toolSlug,
  locale: options.locale,
  plan: options.plan ?? "pro",
+ returnPath: options.returnPath,
  }),
  });
 
