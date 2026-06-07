@@ -281,6 +281,9 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                       >
                         {t("tool.premiumCta")}
                       </Link>
+                      <p className="mt-3 text-xs leading-relaxed text-body-charcoal">
+                        {t("tool.premiumBlockNote")}
+                      </p>
                     </div>
                   ) : null}
 

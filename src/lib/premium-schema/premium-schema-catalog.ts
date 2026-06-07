@@ -16,6 +16,11 @@ import {
 } from "@/lib/premium-schema/schema-registry";
 import type { IndustryCategory, IndustrySlug } from "@/lib/tools/industry-registry";
 import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import type { ClaimReadiness } from "@/lib/benchmarks/benchmark-types";
+import {
+  getPremiumClaimCopy,
+  getPremiumClaimTypeLabel,
+} from "@/lib/premium-schema/premium-claim-copy";
 
 export type PremiumSchemaCatalogBadge =
   | "Decision report"
@@ -223,17 +228,23 @@ function schemaToCatalogItem(schema: PremiumCalculatorSchema, locale: string): P
 }
 
 export function catalogItemFromPremiumSchema(
-  item: PremiumSchemaCatalogItem
+  item: PremiumSchemaCatalogItem,
+  readiness: ClaimReadiness = "sample_only"
 ): CatalogItem {
+  const claim = getPremiumClaimCopy(item.slug, readiness);
+
   return {
     title: item.title,
     description: item.painStatement,
     href: item.href.replace(/^\/[a-z]{2}\//, "/"),
-    meta: `${item.primaryOutputLabel} · ${item.priceHint}`,
-    badge: item.badge,
+    meta: item.primaryOutputLabel,
+    badge: "Premium analyzer",
     ctaLabel: "View analyzer →",
     itemKind: "premium-analyzer",
-    promise: item.promise,
+    promise: claim.valueStatement,
+    claimHeadline: claim.headline,
+    upgradeReason: claim.upgradeReason,
+    claimTypeLabel: getPremiumClaimTypeLabel(claim.claimType),
     reportSections: item.reportSections,
     priceHint: item.priceHint,
     primaryOutputLabel: item.primaryOutputLabel,
@@ -323,8 +334,7 @@ export function buildPremiumSchemaCatalogGroups(locale = "en"): CatalogGroup[] {
     if (list) {
       list.push({
         ...catalogItemFromPremiumSchema(item),
-        description: item.promise,
-        meta: `${item.primaryOutputLabel} · ${formatReportSectionsShort(item.reportSections)} · ${item.priceHint}`,
+        meta: `${item.primaryOutputLabel} · ${formatReportSectionsShort(item.reportSections)}`,
       });
     }
   }

@@ -15,6 +15,9 @@ export type CatalogItem = {
   readonly ctaLabel?: string;
   readonly itemKind?: CatalogItemKind;
   readonly promise?: string;
+  readonly claimHeadline?: string;
+  readonly upgradeReason?: string;
+  readonly claimTypeLabel?: string;
   readonly reportSections?: readonly string[];
   readonly priceHint?: string;
   readonly primaryOutputLabel?: string;

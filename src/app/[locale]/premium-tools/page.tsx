@@ -14,9 +14,9 @@ import {
 import { getFreeToolsHref, getPricingHref, getSampleReportHref } from "@/lib/tools/tool-links";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Premium Decision Reports and Hidden-Loss Analyzers | SectorCalc",
+  title: "Premium Hidden-Loss Analyzers and Decision Reports | SectorCalc",
   description:
-    "Explore premium analyzers for cost, scrap, OEE, route, energy, carbon, calibration and benchmark decisions.",
+    "Explore premium analyzers for scrap, OEE, route, energy, carbon, margin, calibration and benchmark decisions.",
   path: "/premium-tools",
 });
 

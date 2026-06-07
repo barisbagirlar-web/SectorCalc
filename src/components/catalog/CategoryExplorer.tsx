@@ -35,27 +35,35 @@ function CatalogItemCard({
           ? "View analyzer →"
           : openLabel);
 
-  const kindLabel =
-    item.itemKind === "premium-analyzer"
-      ? "Premium analyzer"
-      : item.itemKind === "free-calculator"
-        ? "Free calculator"
-        : null;
+  const isPremiumCard = variant === "premium-tools" || item.itemKind === "premium-analyzer";
 
   return (
     <article className="sc-ledger-card sc-craft-card sc-ledger-letterpress sc-catalog-explorer__item-card">
-      {item.badge ? (
+      {isPremiumCard && item.badge ? (
         <p className="sc-craft-eyebrow line-clamp-1">{item.badge}</p>
-      ) : kindLabel ? (
-        <p className="sc-craft-eyebrow line-clamp-1">{kindLabel}</p>
+      ) : item.itemKind === "free-calculator" ? (
+        <p className="sc-craft-eyebrow line-clamp-1">Free calculator</p>
       ) : null}
       <h3 className="sc-craft-card__title mt-1 line-clamp-2">{item.title}</h3>
+      {isPremiumCard && item.claimHeadline ? (
+        <p className="mt-2 text-sm font-semibold leading-snug text-premium-velvet line-clamp-3">
+          {item.claimHeadline}
+        </p>
+      ) : null}
       <p className="sc-craft-card__body line-clamp-3">{item.description}</p>
-      {item.promise && variant === "premium-tools" ? (
+      {item.promise && isPremiumCard ? (
         <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-body-charcoal">{item.promise}</p>
       ) : null}
       {item.meta ? (
-        <p className="mt-2 font-mono text-[11px] leading-snug text-sc-navy line-clamp-2">{item.meta}</p>
+        <p className="mt-2 font-mono text-[11px] leading-snug text-sc-navy line-clamp-2">
+          {isPremiumCard && item.claimTypeLabel ? `${item.claimTypeLabel} · ` : ""}
+          {item.meta}
+        </p>
+      ) : null}
+      {isPremiumCard && item.upgradeReason ? (
+        <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-body-charcoal">
+          {item.upgradeReason}
+        </p>
       ) : null}
       <Link href={item.href} className="sc-craft-card__cta">
         {ctaLabel}

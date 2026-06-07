@@ -28,6 +28,7 @@ import {
   type ExecutiveVerdict,
   type ThresholdSummaryItem,
 } from "@/lib/premium-schema/format-premium-result";
+import { getPremiumClaimCopy } from "@/lib/premium-schema/premium-claim-copy";
 import { worstThresholdSeverity } from "@/lib/premium-schema/premium-schema-engine";
 
 export type PremiumDecisionReportPreviewProps = {
@@ -217,6 +218,31 @@ function AssumptionsSection({
   );
 }
 
+function DecisionValueSection({
+  title,
+  intro,
+  bullets,
+  decisionValue,
+}: {
+  title: string;
+  intro: string;
+  bullets: readonly string[];
+  decisionValue: string;
+}) {
+  return (
+    <section className="sc-premium-decision-report__section sc-premium-decision-value" aria-label={title}>
+      <h3 className="sc-premium-decision-report__heading">{title}</h3>
+      <p className="sc-premium-decision-value__intro">{intro}</p>
+      <ul className="sc-premium-decision-value__list">
+        {bullets.map((bullet) => (
+          <li key={bullet}>{bullet}</li>
+        ))}
+      </ul>
+      <p className="sc-premium-decision-value__note">{decisionValue}</p>
+    </section>
+  );
+}
+
 function ExportPreviewRow({
   payload,
   printHref,
@@ -248,6 +274,7 @@ export function PremiumDecisionReportPreview({
   checkoutHref,
 }: PremiumDecisionReportPreviewProps) {
   const t = useTranslations("premiumDecisionReport");
+  const tDecision = useTranslations("premiumDecisionReport.decisionValue");
   const verdict = getVerdictFromThresholds(result.thresholdAlerts);
   const thresholdItems = getThresholdSummary(schema, result.thresholdAlerts, result.outputs);
   const previewThresholdItems = limitPreviewThresholdCount(thresholdItems, 2);
@@ -255,6 +282,14 @@ export function PremiumDecisionReportPreview({
   const assumptions = getAssumptionLines(schema);
   const isFullReport = entitlement.canViewFullReport;
   const resolvedCheckoutHref = buildPremiumCheckoutHref(schema.id, checkoutHref);
+  const claimCopy = getPremiumClaimCopy(schema.id);
+
+  const decisionBullets = [
+    tDecision("bullet1"),
+    tDecision("bullet2"),
+    tDecision("bullet3"),
+    tDecision("bullet4"),
+  ] as const;
 
   const exportPayload = useMemo(
     () => buildPremiumReportExportPayload(schema, result, locale),
@@ -277,6 +312,12 @@ export function PremiumDecisionReportPreview({
           {!isFullReport ? (
             <ThresholdStatusSection items={previewThresholdItems} title={t("thresholdTitle")} />
           ) : null}
+          <DecisionValueSection
+            title={tDecision("title")}
+            intro={tDecision("intro")}
+            bullets={decisionBullets}
+            decisionValue={claimCopy.decisionValue}
+          />
         </>
       ) : null}
 

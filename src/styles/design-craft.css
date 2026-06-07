@@ -769,6 +769,33 @@
   color: var(--sc-muted);
 }
 
+.sc-premium-decision-value__intro {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--sc-ink, #1a1a1a);
+}
+
+.sc-premium-decision-value__list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.125rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--sc-body, #3d3d3d);
+}
+
+.sc-premium-decision-value__list li + li {
+  margin-top: 0.35rem;
+}
+
+.sc-premium-decision-value__note {
+  margin-top: 0.875rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--sc-muted);
+}
+
 .sc-premium-verdict {
   padding: 1.25rem 1.5rem;
   border-bottom: 1px solid var(--sc-border);

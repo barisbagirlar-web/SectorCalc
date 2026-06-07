@@ -10,10 +10,10 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations("pricing");
   return createPageMetadata({
-    title: t("title"),
-    description: t("tagline"),
+    title: "Pricing for Sector Calculators and Decision Reports | SectorCalc",
+    description:
+      "Start free and upgrade to premium decision reports, hidden-loss diagnostics, threshold checks and export-ready outputs.",
     path: "/pricing",
     locale: locale as AppLocale,
   });
@@ -31,6 +31,7 @@ export default async function PricingPage({ params }: PageProps) {
           <p className="sc-pro-eyebrow">{t("eyebrow")}</p>
           <h1 className="sc-pro-title sc-pro-title--compact">{t("title")}</h1>
           <p className="sc-pro-lead">{t("tagline")}</p>
+          <p className="sc-pro-lead mt-2 text-sm">{t("singleReportNote")}</p>
           <hr className="sc-ledger-separator" />
         </Container>
       </section>
