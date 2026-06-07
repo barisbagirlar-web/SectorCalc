@@ -81,6 +81,23 @@ export function getCanonicalPathForLocale(
   return addLocaleToPath(stripLocaleFromPath(pathname), locale);
 }
 
+export function needsEnglishLocaleRewrite(pathname: string): boolean {
+  if (isTurkishPath(pathname)) {
+    return false;
+  }
+  if (pathname === "/en" || pathname.startsWith("/en/")) {
+    return false;
+  }
+  return true;
+}
+
+export function rewritePathToEnglishLocale(pathname: string): string {
+  if (pathname === "/") {
+    return "/en";
+  }
+  return `/en${pathname}`;
+}
+
 export function getLegacyEnRedirectPath(pathname: string): string | null {
   if (pathname === "/en") {
     return "/";

@@ -7,6 +7,8 @@ import {
   getLegacyEnRedirectPath,
   isMiddlewareExcludedPath,
   LOCALE_COOKIE,
+  needsEnglishLocaleRewrite,
+  rewritePathToEnglishLocale,
   shouldRedirectRootToTurkish,
 } from "@/lib/i18n/locale-routing";
 
@@ -55,6 +57,13 @@ export default function middleware(request: NextRequest) {
       url.pathname = "/tr";
       return applyRegionHeaders(NextResponse.redirect(url, 307), request);
     }
+  }
+
+  if (needsEnglishLocaleRewrite(pathname)) {
+    const url = request.nextUrl.clone();
+    url.pathname = rewritePathToEnglishLocale(pathname);
+    const response = NextResponse.rewrite(url);
+    return applyRegionHeaders(response, request);
   }
 
   const response = intlMiddleware(request);

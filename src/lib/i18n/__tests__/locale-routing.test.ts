@@ -3,6 +3,8 @@ import {
   addLocaleToPath,
   getLegacyEnRedirectPath,
   isMiddlewareExcludedPath,
+  needsEnglishLocaleRewrite,
+  rewritePathToEnglishLocale,
   stripLocaleFromPath,
 } from "@/lib/i18n/locale-routing";
 
@@ -51,5 +53,17 @@ describe("locale-routing", () => {
 
   test('addLocaleToPath("/en/free-tools", "en") => "/free-tools"', () => {
     expect(addLocaleToPath("/en/free-tools", "en")).toBe("/free-tools");
+  });
+
+  test("needsEnglishLocaleRewrite true for root English paths", () => {
+    expect(needsEnglishLocaleRewrite("/free-tools")).toBe(true);
+    expect(needsEnglishLocaleRewrite("/tools/free/area-converter")).toBe(true);
+    expect(needsEnglishLocaleRewrite("/tr/free-tools")).toBe(false);
+    expect(needsEnglishLocaleRewrite("/en/free-tools")).toBe(false);
+  });
+
+  test("rewritePathToEnglishLocale maps unprefixed paths", () => {
+    expect(rewritePathToEnglishLocale("/")).toBe("/en");
+    expect(rewritePathToEnglishLocale("/free-tools")).toBe("/en/free-tools");
   });
 });
