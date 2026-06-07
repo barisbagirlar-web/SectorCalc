@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { IndustrialHome } from "@/components/os/IndustrialHome";
+import { HomepageHybrid } from "@/components/home/HomepageHybrid";
 import { createPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("homeDashboard");
+  const t = await getTranslations("homepageHybrid");
 
   return createPageMetadata({
     title: t("meta.title"),
@@ -24,7 +24,7 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <PageLayout>
-      <IndustrialHome />
+      <HomepageHybrid />
     </PageLayout>
   );
 }

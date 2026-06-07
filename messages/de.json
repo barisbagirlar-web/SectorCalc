@@ -96,7 +96,9 @@
     "socialProof": "Vertraut von über 12.000 Betreibern weltweit"
   },
   "pilotCnc": {
-    "hero": { "eyebrow": "MarginCore Pilot · CNC Manufacturing" },
+    "hero": {
+      "eyebrow": "MarginCore Pilot · CNC Manufacturing"
+    },
     "form": {
       "title": "Job inputs",
       "subtitle": "Setup, cycle and quantity — naive machine-time exposure.",
@@ -298,10 +300,22 @@
       "primaryCta": "Access Premium Verdicts",
       "secondaryCta": "View Sample Report",
       "metrics": {
-        "sectors": { "label": "Sectors", "value": "27 LIVE" },
-        "engine": { "label": "Engine", "value": "P90 MC" },
-        "confidence": { "label": "Confidence", "value": "Z = 1.28" },
-        "gate": { "label": "Access", "value": "PRO GATE" }
+        "sectors": {
+          "label": "Sectors",
+          "value": "27 LIVE"
+        },
+        "engine": {
+          "label": "Engine",
+          "value": "P90 MC"
+        },
+        "confidence": {
+          "label": "Confidence",
+          "value": "Z = 1.28"
+        },
+        "gate": {
+          "label": "Access",
+          "value": "PRO GATE"
+        }
       }
     },
     "grid": {
@@ -370,5 +384,193 @@
     "light": "Light theme",
     "system": "System theme",
     "dark": "Dark theme"
+  },
+  "homepageHybrid": {
+    "meta": {
+      "title": "SectorCalc — Measure hidden loss across 27 sectors",
+      "description": "Your operation is leaking money. SectorCalc turns sector-specific inputs into calculators, hidden-loss diagnostics and decision reports — without ERP complexity."
+    },
+    "hero": {
+      "eyebrow": "Hidden loss detection",
+      "headline": "Your operation is leaking money. Measure where.",
+      "subtitle": "From CNC scrap and setup loss to route cost, energy exposure and project overruns — SectorCalc turns sector-specific inputs into calculators, hidden-loss diagnostics and decision reports.",
+      "supporting": "Built for businesses priced out of ERP.",
+      "ctaPrimary": "Find your loss area",
+      "ctaSecondary": "View free calculators"
+    },
+    "positioning": {
+      "title": "ERP-level calculation logic without ERP complexity.",
+      "text": "Most teams still calculate loss, waste, cost and efficiency in spreadsheets, notebooks or guesswork. SectorCalc gives them focused calculators and decision reports they can use immediately."
+    },
+    "scenarios": {
+      "eyebrow": "Sample hidden-loss scenarios",
+      "cnc": {
+        "label": "Sample hidden-loss scenario",
+        "title": "CNC scrap and setup loss",
+        "text": "A typical CNC shop can lose margin through scrap drift, setup overruns and tooling cost that never appears in the first quote.",
+        "metric": "Example exposure: $4,280/month",
+        "action": "Track scrap threshold, setup drift and tool wear before accepting similar jobs.",
+        "cta": "Try CNC calculator"
+      },
+      "route": {
+        "label": "Sample hidden-loss scenario",
+        "title": "Route deadhead cost",
+        "text": "Logistics teams often underestimate the cost of empty return trips and non-optimized routing.",
+        "metric": "Example exposure: $6,120/month",
+        "action": "Calculate actual cost per kilometer including deadhead and reoptimize routes quarterly.",
+        "cta": "Try route calculator"
+      },
+      "energy": {
+        "label": "Benchmark model",
+        "title": "Energy peak cost exposure",
+        "text": "Industrial operations can pay 3–5× base rate during peak demand hours without tracking when those hours are.",
+        "metric": "Typical exposure: $2,890/month",
+        "action": "Map your peak consumption hours and shift non-critical loads to off-peak windows.",
+        "cta": "Try energy calculator"
+      },
+      "food": {
+        "label": "Benchmark model",
+        "title": "Food waste and portion drift",
+        "text": "Restaurant and catering operations can lose revenue to untracked waste, overportioning and ingredient spoilage.",
+        "metric": "Typical exposure: $3,450/month",
+        "action": "Track portion cost variance and waste by shift to identify training gaps.",
+        "cta": "Try food waste calculator"
+      }
+    },
+    "measure": {
+      "title": "What you can measure with SectorCalc",
+      "money": {
+        "title": "Money & margin",
+        "bullet1": "Hidden cost layers",
+        "bullet2": "Margin leaks",
+        "bullet3": "Pricing gaps"
+      },
+      "material": {
+        "title": "Material & scrap",
+        "bullet1": "Scrap drift",
+        "bullet2": "Waste you cannot see",
+        "bullet3": "Inventory loss"
+      },
+      "time": {
+        "title": "Time & OEE",
+        "bullet1": "Setup overruns",
+        "bullet2": "Downtime cost",
+        "bullet3": "Throughput loss"
+      },
+      "energy": {
+        "title": "Energy & carbon",
+        "bullet1": "Peak cost exposure",
+        "bullet2": "Efficiency gaps",
+        "bullet3": "Carbon footprint"
+      }
+    },
+    "platform": {
+      "title": "Industrial calculators. Sector-specific.",
+      "stat": "27 active sectors → 50+ calculators → Decision reports",
+      "text": "Manufacturing, logistics, construction, energy and more — each with calculators tuned to how that sector loses money.",
+      "cta": "View all sectors",
+      "categories": {
+        "manufacturing": "Manufacturing",
+        "logistics": "Logistics",
+        "construction": "Construction",
+        "energy": "Energy",
+        "food": "Food & Beverage",
+        "textile": "Textile",
+        "automotive": "Automotive",
+        "healthcare": "Healthcare"
+      }
+    },
+    "comparison": {
+      "title": "How teams calculate loss today",
+      "rowLabel": "Comparison dimension",
+      "columns": {
+        "excel": "Excel",
+        "notebook": "Notebook",
+        "erp": "ERP/SAP",
+        "sectorcalc": "SectorCalc"
+      },
+      "rows": {
+        "setup": {
+          "label": "Setup time",
+          "excel": "Hours",
+          "notebook": "N/A",
+          "erp": "Months",
+          "sectorcalc": "5 min"
+        },
+        "cost": {
+          "label": "Cost",
+          "excel": "Free",
+          "notebook": "Free",
+          "erp": "$50K+",
+          "sectorcalc": "$9–49/mo"
+        },
+        "sectorLogic": {
+          "label": "Sector logic",
+          "excel": "Manual",
+          "notebook": "Manual",
+          "erp": "Generic",
+          "sectorcalc": "Built-in"
+        },
+        "mobile": {
+          "label": "Mobile",
+          "excel": "Limited",
+          "notebook": "No",
+          "erp": "Limited",
+          "sectorcalc": "Yes"
+        },
+        "assumptions": {
+          "label": "Assumptions",
+          "excel": "Hidden",
+          "notebook": "Hidden",
+          "erp": "Configured",
+          "sectorcalc": "Transparent"
+        },
+        "updates": {
+          "label": "Updates",
+          "excel": "Manual",
+          "notebook": "Manual",
+          "erp": "Expensive",
+          "sectorcalc": "Auto"
+        }
+      }
+    },
+    "pricing": {
+      "title": "Priced for teams priced out of enterprise software",
+      "cta": "Start free — no card required",
+      "viewPlans": "View full pricing →",
+      "plans": {
+        "free": {
+          "name": "Free",
+          "price": "",
+          "feature1": "All base calculators",
+          "feature2": "Sample scenarios",
+          "feature3": "Decision templates"
+        },
+        "pro": {
+          "name": "Pro",
+          "price": "$9–29/mo",
+          "feature1": "Advanced diagnostics",
+          "feature2": "Benchmark models",
+          "feature3": "Export & reports",
+          "feature4": "Saved verdict history"
+        },
+        "team": {
+          "name": "Team",
+          "price": "$49/mo",
+          "feature1": "Multi-user access",
+          "feature2": "Custom templates",
+          "feature3": "Priority support",
+          "feature4": "Shared report archive"
+        }
+      }
+    },
+    "final": {
+      "title": "Find the loss area. Measure the exposure. Make the call.",
+      "bullet1": "27 sectors",
+      "bullet2": "50+ calculators",
+      "bullet3": "Free tier available",
+      "bullet4": "No credit card required",
+      "cta": "Find your loss area"
+    }
   }
 }

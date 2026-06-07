@@ -508,6 +508,194 @@
       }
     }
   },
+  "homepageHybrid": {
+    "meta": {
+      "title": "SectorCalc — 27 sektörde gizli kaybı ölçün",
+      "description": "Operasyonunuz para kaybediyor. SectorCalc, sektöre özel girdileri hesaplayıcılar, gizli kayıp teşhisleri ve karar raporlarına dönüştürür — ERP karmaşası olmadan."
+    },
+    "hero": {
+      "eyebrow": "Gizli kayıp tespiti",
+      "headline": "Operasyonunuz para kaybediyor. Nerede olduğunu ölçün.",
+      "subtitle": "CNC fire ve setup kaybından rota maliyeti, enerji maruziyeti ve proje aşımına — SectorCalc sektöre özel girdileri hesaplayıcılar, gizli kayıp teşhisleri ve karar raporlarına dönüştürür.",
+      "supporting": "ERP fiyatının dışında kalan işletmeler için tasarlandı.",
+      "ctaPrimary": "Kayıp alanınızı bulun",
+      "ctaSecondary": "Ücretsiz hesaplayıcıları görün"
+    },
+    "positioning": {
+      "title": "ERP karmaşıklığı olmadan ERP seviyesinde hesaplama mantığı.",
+      "text": "Çoğu ekip hâlâ kayıp, fire, maliyet ve verimliliği elektronik tablolar, defterler veya tahminle hesaplıyor. SectorCalc, hemen kullanabilecekleri odaklı hesaplayıcılar ve karar raporları sunar."
+    },
+    "scenarios": {
+      "eyebrow": "Örnek gizli kayıp senaryoları",
+      "cnc": {
+        "label": "Örnek gizli kayıp senaryosu",
+        "title": "CNC fire ve setup kaybı",
+        "text": "Tipik bir CNC atölyesi, fire sapması, setup aşımı ve ilk teklifte görünmeyen takım maliyetiyle marj kaybedebilir.",
+        "metric": "Örnek maruziyet: $4.280/ay",
+        "action": "Benzer işleri kabul etmeden önce fire eşiği, setup sapması ve takım aşınmasını takip edin.",
+        "cta": "CNC hesaplayıcısını dene"
+      },
+      "route": {
+        "label": "Örnek gizli kayıp senaryosu",
+        "title": "Rota deadhead maliyeti",
+        "text": "Lojistik ekipleri boş dönüş seferlerinin ve optimize edilmemiş rotaların maliyetini sıkça hafife alır.",
+        "metric": "Örnek maruziyet: $6.120/ay",
+        "action": "Deadhead dahil gerçek km maliyetini hesaplayın ve rotaları üç ayda bir yeniden optimize edin.",
+        "cta": "Rota hesaplayıcısını dene"
+      },
+      "energy": {
+        "label": "Kıyaslama modeli",
+        "title": "Enerji pik saat maliyeti",
+        "text": "Endüstriyel operasyonlar, pik talep saatlerini takip etmeden baz tarifenin 3–5 katını ödeyebilir.",
+        "metric": "Tipik maruziyet: $2.890/ay",
+        "action": "Pik tüketim saatlerinizi haritalayın ve kritik olmayan yükleri düşük tarife saatlerine kaydırın.",
+        "cta": "Enerji hesaplayıcısını dene"
+      },
+      "food": {
+        "label": "Kıyaslama modeli",
+        "title": "Gıda firesi ve porsiyon sapması",
+        "text": "Restoran ve catering operasyonları, takip edilmeyen fire, aşırı porsiyon ve malzeme bozulmasıyla gelir kaybeder.",
+        "metric": "Tipik maruziyet: $3.450/ay",
+        "action": "Porsiyon maliyet varyansını ve vardiya bazlı fireyi takip ederek eğitim açıklarını belirleyin.",
+        "cta": "Gıda fire hesaplayıcısını dene"
+      }
+    },
+    "measure": {
+      "title": "SectorCalc ile neleri ölçebilirsiniz",
+      "money": {
+        "title": "Para ve marj",
+        "bullet1": "Gizli maliyet katmanları",
+        "bullet2": "Marj sızıntıları",
+        "bullet3": "Fiyatlandırma boşlukları"
+      },
+      "material": {
+        "title": "Malzeme ve fire",
+        "bullet1": "Fire sapması",
+        "bullet2": "Göremediğiniz fire",
+        "bullet3": "Stok kaybı"
+      },
+      "time": {
+        "title": "Zaman ve OEE",
+        "bullet1": "Setup aşımı",
+        "bullet2": "Duruş maliyeti",
+        "bullet3": "Verim kaybı"
+      },
+      "energy": {
+        "title": "Enerji ve karbon",
+        "bullet1": "Pik maliyet maruziyeti",
+        "bullet2": "Verimlilik boşlukları",
+        "bullet3": "Karbon ayak izi"
+      }
+    },
+    "platform": {
+      "title": "Endüstriyel hesaplayıcılar. Sektöre özel.",
+      "stat": "27 aktif sektör → 50+ hesaplayıcı → Karar raporları",
+      "text": "Üretim, lojistik, inşaat, enerji ve daha fazlası — her biri o sektörün para kaybetme biçimine göre ayarlanmış hesaplayıcılarla.",
+      "cta": "Tüm sektörleri görün",
+      "categories": {
+        "manufacturing": "Üretim",
+        "logistics": "Lojistik",
+        "construction": "İnşaat",
+        "energy": "Enerji",
+        "food": "Gıda ve İçecek",
+        "textile": "Tekstil",
+        "automotive": "Otomotiv",
+        "healthcare": "Sağlık"
+      }
+    },
+    "comparison": {
+      "title": "Ekipler kaybı bugün nasıl hesaplıyor",
+      "rowLabel": "Karşılaştırma boyutu",
+      "columns": {
+        "excel": "Excel",
+        "notebook": "Defter",
+        "erp": "ERP/SAP",
+        "sectorcalc": "SectorCalc"
+      },
+      "rows": {
+        "setup": {
+          "label": "Kurulum süresi",
+          "excel": "Saatler",
+          "notebook": "Yok",
+          "erp": "Aylar",
+          "sectorcalc": "5 dk"
+        },
+        "cost": {
+          "label": "Maliyet",
+          "excel": "Ücretsiz",
+          "notebook": "Ücretsiz",
+          "erp": "$50K+",
+          "sectorcalc": "$9–49/ay"
+        },
+        "sectorLogic": {
+          "label": "Sektör mantığı",
+          "excel": "Manuel",
+          "notebook": "Manuel",
+          "erp": "Genel",
+          "sectorcalc": "Dahili"
+        },
+        "mobile": {
+          "label": "Mobil",
+          "excel": "Sınırlı",
+          "notebook": "Hayır",
+          "erp": "Sınırlı",
+          "sectorcalc": "Evet"
+        },
+        "assumptions": {
+          "label": "Varsayımlar",
+          "excel": "Gizli",
+          "notebook": "Gizli",
+          "erp": "Yapılandırılmış",
+          "sectorcalc": "Şeffaf"
+        },
+        "updates": {
+          "label": "Güncellemeler",
+          "excel": "Manuel",
+          "notebook": "Manuel",
+          "erp": "Pahalı",
+          "sectorcalc": "Otomatik"
+        }
+      }
+    },
+    "pricing": {
+      "title": "Kurumsal yazılım fiyatının dışında kalan ekipler için",
+      "cta": "Ücretsiz başlayın — kart gerekmez",
+      "viewPlans": "Tüm fiyatlandırmayı görün →",
+      "plans": {
+        "free": {
+          "name": "Ücretsiz",
+          "price": "",
+          "feature1": "Tüm temel hesaplayıcılar",
+          "feature2": "Örnek senaryolar",
+          "feature3": "Karar şablonları"
+        },
+        "pro": {
+          "name": "Pro",
+          "price": "$9–29/ay",
+          "feature1": "Gelişmiş teşhis",
+          "feature2": "Kıyaslama modelleri",
+          "feature3": "Dışa aktarma ve raporlar",
+          "feature4": "Kayıtlı karar geçmişi"
+        },
+        "team": {
+          "name": "Ekip",
+          "price": "$49/ay",
+          "feature1": "Çoklu kullanıcı erişimi",
+          "feature2": "Özel şablonlar",
+          "feature3": "Öncelikli destek",
+          "feature4": "Paylaşımlı rapor arşivi"
+        }
+      }
+    },
+    "final": {
+      "title": "Kayıp alanını bulun. Maruziyeti ölçün. Kararı verin.",
+      "bullet1": "27 sektör",
+      "bullet2": "50+ hesaplayıcı",
+      "bullet3": "Ücretsiz katman mevcut",
+      "bullet4": "Kredi kartı gerekmez",
+      "cta": "Kayıp alanınızı bulun"
+    }
+  },
   "industrialHome": {
     "brand": "SectorCalc",
     "modulesTitle": "Sektöre göre göz at",
