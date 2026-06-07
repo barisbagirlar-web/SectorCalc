@@ -1,19 +1,29 @@
 /**
- * Root English + /tr Turkish URL architecture.
- * English canonical paths have no locale prefix; Turkish uses /tr.
+ * Root English + prefixed locale URL architecture (en, tr, de, fr, es, ar).
  */
 
-export const DEFAULT_LOCALE = "en";
-export const TURKISH_LOCALE = "tr";
-export const ROOT_LOCALE = "en";
+import {
+  DEFAULT_LOCALE,
+  getLocalePathPrefix,
+  LOCALE_COOKIE,
+  PREFIXED_LOCALES,
+  ROOT_LOCALE,
+  SUPPORTED_LOCALES,
+  type SupportedLocale,
+  isSupportedLocale,
+} from "@/lib/i18n/locale-config";
 
-export const SUPPORTED_LOCALES = ["en", "tr"] as const;
+export {
+  DEFAULT_LOCALE,
+  LOCALE_COOKIE,
+  ROOT_LOCALE,
+  SUPPORTED_LOCALES,
+  type SupportedLocale,
+  isSupportedLocale,
+};
 
-export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
-
-export const LOCALE_COOKIE = "sectorcalc_locale";
-
-const LOCALE_PREFIX = /^\/(en|tr)(?=\/|$)/;
+const LOCALE_SEGMENT_PATTERN = SUPPORTED_LOCALES.join("|");
+const LOCALE_PREFIX = new RegExp(`^/(${LOCALE_SEGMENT_PATTERN})(?=\\/|$)`);
 
 const MIDDLEWARE_EXCLUDED_EXACT = new Set([
   "/favicon.ico",
@@ -31,31 +41,71 @@ const MIDDLEWARE_EXCLUDED_PREFIXES = ["/api", "/admin", "/_next"] as const;
 const STATIC_FILE_EXTENSION =
   /\.(?:ico|png|jpe?g|gif|webp|svg|txt|xml|json|woff2?|ttf|eot|css|js|map)$/i;
 
-export function isSupportedLocale(value: string): value is SupportedLocale {
-  return (SUPPORTED_LOCALES as readonly string[]).includes(value);
-}
+const COUNTRY_TO_LOCALE: Readonly<Record<string, SupportedLocale>> = {
+  TR: "tr",
+  DE: "de",
+  AT: "de",
+  CH: "de",
+  FR: "fr",
+  BE: "fr",
+  ES: "es",
+  MX: "es",
+  AR: "es",
+  SA: "ar",
+  AE: "ar",
+  EG: "ar",
+  QA: "ar",
+  KW: "ar",
+  BH: "ar",
+  OM: "ar",
+  JO: "ar",
+  LB: "ar",
+  MA: "ar",
+  DZ: "ar",
+  TN: "ar",
+};
 
 export function isLocalizedPath(pathname: string): boolean {
   return LOCALE_PREFIX.test(pathname);
 }
 
+export function parseLocaleFromPath(pathname: string): SupportedLocale | null {
+  const match = pathname.match(LOCALE_PREFIX);
+  if (!match) {
+    return null;
+  }
+  const segment = match[1];
+  return isSupportedLocale(segment) ? segment : null;
+}
+
+export function isLocalePath(pathname: string, locale: SupportedLocale): boolean {
+  const prefix = getLocalePathPrefix(locale);
+  if (locale === ROOT_LOCALE) {
+    return !isLocalizedPath(pathname) || pathname === "/en" || pathname.startsWith("/en/");
+  }
+  return pathname === prefix || pathname.startsWith(`${prefix}/`);
+}
+
+/** @deprecated Use isLocalePath(pathname, "tr") */
 export function isTurkishPath(pathname: string): boolean {
-  return pathname === "/tr" || pathname.startsWith("/tr/");
+  return isLocalePath(pathname, "tr");
+}
+
+export function isPrefixedLocalePath(pathname: string): boolean {
+  const locale = parseLocaleFromPath(pathname);
+  return locale !== null && locale !== ROOT_LOCALE;
 }
 
 export function stripLocaleFromPath(pathname: string): string {
-  if (pathname === "/en" || pathname === "/tr") {
+  const locale = parseLocaleFromPath(pathname);
+  if (!locale) {
+    return pathname;
+  }
+  if (pathname === `/${locale}`) {
     return "/";
   }
-  if (pathname.startsWith("/en/")) {
-    const rest = pathname.slice(3);
-    return rest.length > 0 ? rest : "/";
-  }
-  if (pathname.startsWith("/tr/")) {
-    const rest = pathname.slice(3);
-    return rest.length > 0 ? rest : "/";
-  }
-  return pathname;
+  const rest = pathname.slice(locale.length + 1);
+  return rest.length > 0 ? rest : "/";
 }
 
 export function addLocaleToPath(pathname: string, locale: SupportedLocale): string {
@@ -63,15 +113,20 @@ export function addLocaleToPath(pathname: string, locale: SupportedLocale): stri
   const normalized =
     base === "/" ? "/" : base.startsWith("/") ? base : `/${base}`;
 
-  if (locale === "en") {
+  if (locale === ROOT_LOCALE) {
     return normalized;
   }
 
+  const prefix = getLocalePathPrefix(locale);
   if (normalized === "/") {
-    return "/tr";
+    return prefix;
   }
 
-  return `/tr${normalized}`;
+  return `${prefix}${normalized}`;
+}
+
+export function switchPathLocale(pathname: string, locale: SupportedLocale): string {
+  return addLocaleToPath(stripLocaleFromPath(pathname), locale);
 }
 
 export function getCanonicalPathForLocale(
@@ -82,10 +137,10 @@ export function getCanonicalPathForLocale(
 }
 
 export function needsEnglishLocaleRewrite(pathname: string): boolean {
-  if (isTurkishPath(pathname)) {
+  if (pathname === "/en" || pathname.startsWith("/en/")) {
     return false;
   }
-  if (pathname === "/en" || pathname.startsWith("/en/")) {
+  if (isPrefixedLocalePath(pathname)) {
     return false;
   }
   return true;
@@ -122,20 +177,67 @@ export function isMiddlewareExcludedPath(pathname: string): boolean {
   return false;
 }
 
+function detectLocaleFromAcceptLanguage(acceptLanguage: string | null): SupportedLocale | null {
+  if (!acceptLanguage) {
+    return null;
+  }
+  const tags = acceptLanguage
+    .split(",")
+    .map((part) => part.split(";")[0]?.trim().toLowerCase())
+    .filter((tag): tag is string => Boolean(tag));
+
+  for (const tag of tags) {
+    const base = tag.split("-")[0] ?? tag;
+    if (isSupportedLocale(base) && base !== ROOT_LOCALE) {
+      return base;
+    }
+  }
+  return null;
+}
+
+export function resolveRootVisitLocale(options: {
+  readonly cookieLocale: string | undefined;
+  readonly countryCode: string | null;
+  readonly acceptLanguage: string | null;
+}): SupportedLocale {
+  if (options.cookieLocale && isSupportedLocale(options.cookieLocale)) {
+    return options.cookieLocale;
+  }
+
+  const country = options.countryCode?.toUpperCase();
+  if (country && country in COUNTRY_TO_LOCALE) {
+    return COUNTRY_TO_LOCALE[country];
+  }
+
+  const fromAccept = detectLocaleFromAcceptLanguage(options.acceptLanguage);
+  if (fromAccept) {
+    return fromAccept;
+  }
+
+  return ROOT_LOCALE;
+}
+
+export function shouldRedirectRootToLocale(options: {
+  readonly cookieLocale: string | undefined;
+  readonly countryCode: string | null;
+  readonly acceptLanguage: string | null;
+}): SupportedLocale | null {
+  const resolved = resolveRootVisitLocale(options);
+  if (resolved === ROOT_LOCALE) {
+    return null;
+  }
+  return resolved;
+}
+
+/** @deprecated Use shouldRedirectRootToLocale */
 export function shouldRedirectRootToTurkish(options: {
   readonly cookieLocale: string | undefined;
   readonly countryCode: string | null;
   readonly acceptLanguage: string | null;
 }): boolean {
-  if (options.cookieLocale === "en") {
-    return false;
-  }
-  if (options.cookieLocale === "tr") {
-    return true;
-  }
-  if (options.countryCode?.toUpperCase() === "TR") {
-    return true;
-  }
-  const accept = options.acceptLanguage?.toLowerCase() ?? "";
-  return accept.startsWith("tr");
+  return shouldRedirectRootToLocale(options) === "tr";
+}
+
+export function buildPrefixedLocaleMatcherSegment(): string {
+  return PREFIXED_LOCALES.join("|");
 }

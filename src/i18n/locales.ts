@@ -1,6 +1,6 @@
 import { stripLocaleFromPath } from "@/lib/i18n/locale-routing";
 
-export const locales = ["en", "tr"] as const;
+export const locales = ["en", "tr", "de", "fr", "es", "ar"] as const;
 export type AppLocale = (typeof locales)[number];
 
 export function isAppLocale(value: string): value is AppLocale {

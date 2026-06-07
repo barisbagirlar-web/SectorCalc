@@ -6,6 +6,7 @@ import {
   needsEnglishLocaleRewrite,
   rewritePathToEnglishLocale,
   stripLocaleFromPath,
+  switchPathLocale,
 } from "@/lib/i18n/locale-routing";
 
 describe("locale-routing", () => {
@@ -13,16 +14,32 @@ describe("locale-routing", () => {
     expect(addLocaleToPath("/free-tools", "en")).toBe("/free-tools");
   });
 
-  test('addLocaleToPath("/free-tools", "tr") => "/tr/free-tools"', () => {
+  test("addLocaleToPath tr/de/fr/es/ar prefixed paths", () => {
     expect(addLocaleToPath("/free-tools", "tr")).toBe("/tr/free-tools");
+    expect(addLocaleToPath("/free-tools", "de")).toBe("/de/free-tools");
+    expect(addLocaleToPath("/free-tools", "fr")).toBe("/fr/free-tools");
+    expect(addLocaleToPath("/free-tools", "es")).toBe("/es/free-tools");
+    expect(addLocaleToPath("/free-tools", "ar")).toBe("/ar/free-tools");
   });
 
   test('addLocaleToPath("/tr/free-tools", "en") => "/free-tools"', () => {
     expect(addLocaleToPath("/tr/free-tools", "en")).toBe("/free-tools");
   });
 
-  test('stripLocaleFromPath("/tr/free-tools") => "/free-tools"', () => {
-    expect(stripLocaleFromPath("/tr/free-tools")).toBe("/free-tools");
+  test('switchPathLocale("/tr/tools/free/area-converter", "de") => "/de/tools/free/area-converter"', () => {
+    expect(switchPathLocale("/tr/tools/free/area-converter", "de")).toBe(
+      "/de/tools/free/area-converter",
+    );
+  });
+
+  test('switchPathLocale("/ar/tools/free/area-converter", "en") => "/tools/free/area-converter"', () => {
+    expect(switchPathLocale("/ar/tools/free/area-converter", "en")).toBe(
+      "/tools/free/area-converter",
+    );
+  });
+
+  test('stripLocaleFromPath("/ar/free-tools") => "/free-tools"', () => {
+    expect(stripLocaleFromPath("/ar/free-tools")).toBe("/free-tools");
   });
 
   test('stripLocaleFromPath("/en/free-tools") => "/free-tools"', () => {
@@ -47,19 +64,10 @@ describe("locale-routing", () => {
     expect(isMiddlewareExcludedPath("/sitemap.xml")).toBe(true);
   });
 
-  test('addLocaleToPath("/en/free-tools", "tr") => "/tr/free-tools"', () => {
-    expect(addLocaleToPath("/en/free-tools", "tr")).toBe("/tr/free-tools");
-  });
-
-  test('addLocaleToPath("/en/free-tools", "en") => "/free-tools"', () => {
-    expect(addLocaleToPath("/en/free-tools", "en")).toBe("/free-tools");
-  });
-
-  test("needsEnglishLocaleRewrite true for root English paths", () => {
+  test("needsEnglishLocaleRewrite skips prefixed locales", () => {
+    expect(needsEnglishLocaleRewrite("/de/free-tools")).toBe(false);
+    expect(needsEnglishLocaleRewrite("/fr/free-tools")).toBe(false);
     expect(needsEnglishLocaleRewrite("/free-tools")).toBe(true);
-    expect(needsEnglishLocaleRewrite("/tools/free/area-converter")).toBe(true);
-    expect(needsEnglishLocaleRewrite("/tr/free-tools")).toBe(false);
-    expect(needsEnglishLocaleRewrite("/en/free-tools")).toBe(false);
   });
 
   test("rewritePathToEnglishLocale maps unprefixed paths", () => {

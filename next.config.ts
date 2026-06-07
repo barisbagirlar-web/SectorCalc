@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
         { source: "/", destination: "/en" },
         {
           source:
-            "/:path((?!tr(?:/|$)|en(?:/|$)|admin(?:/|$)|api(?:/|$)|_next(?:/|$)).*)",
+            "/:path((?!tr(?:/|$)|de(?:/|$)|fr(?:/|$)|es(?:/|$)|ar(?:/|$)|en(?:/|$)|admin(?:/|$)|api(?:/|$)|_next(?:/|$)).*)",
           destination: "/en/:path",
         },
       ],

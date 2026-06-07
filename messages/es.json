@@ -1,15 +1,30 @@
 {
   "nav": {
+    "tools": "Tools",
+    "industries": "Industrias",
+    "categories": "Categories",
+    "reports": "Informes",
+    "pricing": "Precios",
+    "account": "Cuenta",
+    "auditEngine": "Tools",
+    "intelligenceLayer": "Premium",
+    "myReports": "Reports",
+    "settings": "Account",
+    "audit": "Audit",
+    "intelligence": "Intelligence",
+    "archive": "Archive",
     "freeTools": "Controles gratis",
     "premiumTools": "Veredictos premium",
-    "industries": "Industrias",
-    "pricing": "Precios",
-    "reports": "Informes",
-    "account": "Cuenta",
     "unlockPro": "Desbloquear Pro",
-    "runFreeCheck": "Control gratis",
-    "tools": "Tools",
-    "categories": "Categories"
+    "runFreeCheck": "Control gratis"
+  },
+  "osGate": {
+    "label": "Subscription required",
+    "message": "This operation requires Intelligence Layer. Unlock with Pro membership.",
+    "single": "Single run {price}",
+    "pro": "Pro {price}",
+    "singleCta": "Unlock run · {price}",
+    "proCta": "Pro · {price}"
   },
   "hero": {
     "title": "Mide con precisión para tu sector. Detecta cada pérdida. Decide con confianza.",
@@ -51,6 +66,7 @@
     "eyebrow": "Precios",
     "title": "Elige cómo proteger tu margen.",
     "tagline": "Los analizadores premium convierten señales de riesgo en precios mínimos seguros e informes exportables.",
+    "singleReportNote": "Single decision reports from $9 for one-off analysis.",
     "roiCopy": "Evitar una mala cotización puede pagar un año de Pro.",
     "sampleReport": "Ver informe de ejemplo →",
     "browsePremium": "Ver analizadores premium →",
@@ -88,7 +104,22 @@
     "teamDescription": "Acceso multiusuario para estimadores y líderes de operaciones.",
     "teamFeatures": "Acceso compartido|Historial de informes|Controles admin (próximamente)|Precios por volumen",
     "teamCta": "Empezar plan Equipo",
-    "singleReportNote": "Single decision reports from $9 for one-off analysis."
+    "matrix": {
+      "pageTitle": "Plan & Feature Matrix",
+      "pageSubtitle": "Compare access tiers across the Industrial OS.",
+      "featureCol": "Feature",
+      "action": "Action",
+      "colFree": "Free",
+      "colPro": "Pro",
+      "colEnterprise": "Enterprise",
+      "sectorCalculators": "Sector utility modules",
+      "riskSignals": "Risk signal output",
+      "premiumAnalyzers": "Intelligence analyzers",
+      "savedReports": "Saved verdict archive",
+      "pdfExport": "PDF export",
+      "teamSeats": "Multi-seat access",
+      "adminControls": "Admin seat controls"
+    }
   },
   "checkout": {
     "redirecting": "Redirigiendo al pago…",
@@ -98,17 +129,32 @@
     "overlayBody": "Espera — Stripe está abriendo tu página de pago.",
     "socialProof": "Confiado por más de 12.000 operadores en todo el mundo"
   },
+  "checkoutPages": {
+    "successEyebrow": "Checkout",
+    "successTitle": "Payment received.",
+    "successText": "Your premium access is being prepared. If your report does not unlock immediately, refresh the page or contact support.",
+    "successRefreshNote": "Payment confirmation received. Access is applied by our server — refresh in a few seconds if your report is still locked.",
+    "successPrimaryCta": "Return to analyzer",
+    "successPremiumCta": "Open premium analyzers",
+    "successSecondaryCta": "Go to pricing",
+    "cancelEyebrow": "Checkout",
+    "cancelTitle": "Checkout canceled.",
+    "cancelText": "You can continue using free calculators or return to the premium analyzer when ready.",
+    "cancelPricingCta": "Return to pricing",
+    "cancelReturnCta": "Return to analyzer",
+    "cancelFreeCta": "View free calculators"
+  },
   "pilotCnc": {
     "hero": {
       "eyebrow": "MarginCore Pilot · CNC Manufacturing"
     },
     "form": {
       "title": "Job inputs",
-      "subtitle": "Setup, cycle and quantity — naive machine-time exposure.",
       "setupTime": "Setup time (min)",
       "cycleTime": "Cycle time (min)",
       "quantity": "Quantity (units)",
       "submit": "Run naive exposure check",
+      "subtitle": "Setup, cycle and quantity — naive machine-time exposure.",
       "rateNote": "Naive machine cost uses ${rate}/hr until premium tooling and material are supplied."
     },
     "result": {
@@ -120,12 +166,9 @@
       "naiveCost": "Naive machine cost"
     },
     "premium": {
-      "eyebrow": "MarginCore Pro",
       "title": "Stochastic P90 verdict",
-      "body": "Server-side MarginCore analysis — requires SectorCalc Pro.",
       "cta": "Unlock Premium Verdict & Risk Report",
       "loading": "Running MarginCore analysis…",
-      "disclaimer": "Premium defaults tooling and material to zero.",
       "signInRequired": "Sign in with Pro to unlock the premium verdict.",
       "signInLink": "Sign in →",
       "failed": "Premium verdict could not be generated.",
@@ -133,7 +176,10 @@
       "naiveLabel": "Deterministic",
       "bufferLabel": "P90 buffer",
       "p90Label": "P90 safe",
-      "fullAnalyzerLink": "Open full CNC Quote Risk Analyzer →"
+      "fullAnalyzerLink": "Open full CNC Quote Risk Analyzer →",
+      "eyebrow": "MarginCore Pro",
+      "body": "Server-side MarginCore analysis — requires SectorCalc Pro.",
+      "disclaimer": "Premium defaults tooling and material to zero."
     },
     "phase2": {
       "label": "MarginCore · Phase 2",
@@ -143,6 +189,7 @@
   },
   "freeTool": {
     "riskScoreLabel": "Puntuación de riesgo",
+    "riskScoreAria": "Risk score: {score} percent",
     "whatItMeans": "Qué significa esto",
     "premiumPreviewTitle": "En el informe completo obtienes:",
     "premiumBadge": "Premium",
@@ -151,7 +198,148 @@
     "premiumPreview2": "Análisis de variables ocultas",
     "premiumPreview3": "Recomendación experta de acción",
     "premiumPreview4": "Exportación PDF + Excel",
-    "riskScoreAria": "Risk score: {score} percent"
+    "unlockVerdictTitle": "Unlock full verdict",
+    "unlockVerdictBody": "See P90 safe price, margin leak breakdown and the recommended action — withheld from the free tier.",
+    "unlockVerdictCta": "Unlock full verdict",
+    "unlockVerdictLoading": "Checking access…"
+  },
+  "catalogExplorer": {
+    "categories": {
+      "eyebrow": "Categories",
+      "title": "Find the right calculator category.",
+      "subtitle": "Choose the type of loss, measurement or decision you need first."
+    },
+    "freeTools": {
+      "eyebrow": "Free tools",
+      "title": "Free calculators by category.",
+      "subtitle": "Start with the calculation area you need, then open the tool."
+    },
+    "premiumTools": {
+      "eyebrow": "Premium analyzers",
+      "title": "Decision reports by loss type.",
+      "subtitle": "Choose the decision area before opening the analyzer."
+    },
+    "industries": {
+      "eyebrow": "Industries",
+      "title": "Explore calculators by sector.",
+      "subtitle": "Start from your industry, then choose the calculation or report."
+    },
+    "labels": {
+      "categories": {
+        "navLabel": "Browse by category",
+        "countLabel": "{count, plural, one {# tool} other {# tools}}",
+        "viewCategory": "View tools",
+        "viewCategoryOpen": "Showing tools",
+        "openItem": "Open calculator →"
+      },
+      "free-tools": {
+        "navLabel": "Browse by category",
+        "countLabel": "{count, plural, one {# calculator} other {# calculators}}",
+        "viewCategory": "View calculators",
+        "viewCategoryOpen": "Showing calculators",
+        "openItem": "Open calculator →"
+      },
+      "premium-tools": {
+        "navLabel": "Browse by report type",
+        "countLabel": "{count, plural, one {# analyzer} other {# analyzers}}",
+        "viewCategory": "View analyzers",
+        "viewCategoryOpen": "Showing analyzers",
+        "openItem": "View analyzer →"
+      },
+      "industries": {
+        "navLabel": "Browse by sector group",
+        "countLabel": "{count, plural, one {# sector} other {# sectors}}",
+        "viewCategory": "View sectors",
+        "viewCategoryOpen": "Showing sectors",
+        "openItem": "Open industry →"
+      }
+    }
+  },
+  "freeTrafficCatalog": {
+    "metaTitle": "Free Sector Calculators — 100 Tools",
+    "metaDescription": "Free browser calculators for measurement, cost, finance, energy, conversion and everyday decisions. 100 active tools — no sign-up required.",
+    "eyebrow": "Free calculators",
+    "title": "Free sector calculators",
+    "lead": "Quick calculators for measurement, cost, finance, energy, conversion, health and everyday decisions.",
+    "explorerSub": "Choose a category first, then open the calculator you need.",
+    "hubHeadlineLead": "Your shop floor in",
+    "hubHeadlineTail": "free calculators",
+    "hubSub": "Pick a category, then open the calculator you need — browser-side, no sign-up.",
+    "hubCategoriesTitle": "Calculator categories",
+    "viewCalculators": "View calculators",
+    "viewCalculatorsOpen": "Calculators shown",
+    "totalCount": "{traffic} free calculators · {sectors} sector tools · {categories} categories",
+    "categoryNavLabel": "Jump to category",
+    "featuredTitle": "Featured calculators",
+    "featuredLead": "Most searched free tools across finance, health, construction and industry.",
+    "openCalculator": "Open calculator",
+    "decisionAnalyzerNote": "Decision analyzer available",
+    "categoryCount": "{count} calculators",
+    "includesTitle": "What free tools include",
+    "includes1": "2–5 inputs with units on every field",
+    "includes2": "Instant browser-side result",
+    "includes3": "Short plain-language explanation",
+    "includes4": "Link to related premium analyzer when available",
+    "excludesTitle": "What free tools do not include",
+    "excludes1": "P90 safe price or accept / reject verdict",
+    "excludes2": "PDF export or saved report history",
+    "excludes3": "Margin leak diagnosis or sensitivity matrix",
+    "excludes4": "Account storage of free-tier inputs",
+    "sectorToolsTitle": "Sector decision tools",
+    "sectorToolsLead": "Industry-specific free checks tied to premium verdict analyzers across 27 sectors.",
+    "sectorToolsCount": "{count} sector free tools across {industries} industries",
+    "premiumUpsellTitle": "Need a verdict, not just a number?",
+    "premiumUpsellBody": "Premium analyzers add safe price floors, margin leak detection and accept / reprice verdicts — included with SectorCalc Pro.",
+    "premiumUpsellCta": "Explore premium analyzers",
+    "premiumUpsellIndustries": "Browse by industry →",
+    "categories": {
+      "construction-measurement": "Construction & measurement",
+      "finance-business": "Finance & business",
+      "manufacturing-workshop": "Manufacturing & workshop",
+      "energy-carbon": "Energy & carbon",
+      "logistics-travel": "Logistics & travel",
+      "agriculture-food": "Agriculture & food",
+      "everyday-life": "Everyday life",
+      "math-statistics": "Math & statistics",
+      "conversion": "Unit conversion",
+      "health-body": "Health & body"
+    },
+    "categoryDescriptions": {
+      "construction-measurement": "Area, volume, concrete, roofing and on-site measurement checks.",
+      "finance-business": "Margin, loan, payroll, tax and everyday business math.",
+      "manufacturing-workshop": "Machine time, scrap, OEE helpers and shop-floor quick checks.",
+      "energy-carbon": "kWh cost, fuel use, peak load and carbon exposure estimates.",
+      "logistics-travel": "Route cost, freight, fuel and travel time calculators.",
+      "agriculture-food": "Yield, feed, crop cost and food production quick math.",
+      "everyday-life": "Household, retail and personal decision calculators.",
+      "math-statistics": "Percentages, averages, ratios and statistical shortcuts.",
+      "conversion": "Length, weight, area, volume and unit converters.",
+      "health-body": "BMI, calorie and body metric estimators — not medical advice."
+    },
+    "tool": {
+      "calculate": "Calculate",
+      "awaiting": "Enter values and calculate to see your result here.",
+      "includesTitle": "What this result includes",
+      "includes1": "Formula-based estimate from your inputs",
+      "includes2": "Browser-only processing — inputs not stored",
+      "includes3": "Expanded formula for this calculator type",
+      "excludesTitle": "What this result does not include",
+      "excludes1": "Premium verdict or safe price floor",
+      "excludes2": "PDF export",
+      "excludes3": "Saved reports",
+      "excludes4": "Hidden-variable margin diagnosis",
+      "premiumBlockTitle": "See what this estimate misses",
+      "premiumBlockBody": "Free calculators show the first number. Premium analyzers add hidden drivers, thresholds, suggested actions and export-ready decision reports.",
+      "premiumCta": "See what this estimate misses →",
+      "premiumBlockNote": "Best when the result affects pricing, operations or management decisions.",
+      "relatedTitle": "Related calculators"
+    },
+    "validation": {
+      "required": "Please select a value.",
+      "number": "Enter a valid number.",
+      "min": "Must be at least {min}.",
+      "max": "Must be at most {max}."
+    }
   },
   "contentAuthority": {
     "freeTool": {
@@ -198,11 +386,11 @@
     }
   },
   "trust": {
+    "stripLabel": "Trust and security",
     "refund": "Política de reembolso de 7 días",
     "ssl": "Pago seguro SSL 256-bit",
     "instant": "Acceso instantáneo",
-    "support": "Soporte por email",
-    "stripLabel": "Trust and security"
+    "support": "Soporte por email"
   },
   "purchaseSuccess": {
     "proUpsellTitle": "¿Quieres acceso ilimitado a todas las herramientas?",
@@ -212,6 +400,40 @@
   "footer": {
     "tagline": "Calculadoras, herramientas de medición e informes de decisión por sector.",
     "trustNote": "Sin ERP. Los datos de tu negocio no se venden."
+  },
+  "enterpriseFooter": {
+    "brand": "SectorCalc",
+    "tagline": "Sector-specific calculators, measurement tools and decision reports.",
+    "sectorsTitle": "SECTORS",
+    "allSectors": "All 27 Sectors",
+    "sectors": {
+      "manufacturing": "Manufacturing",
+      "logistics": "Logistics",
+      "construction": "Construction"
+    },
+    "complianceTitle": "COMPLIANCE",
+    "compliance": {
+      "iso": "ISO 27001 Ready",
+      "sla": "SLA: 99.9% Uptime",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "disclaimer": "Disclaimer"
+    },
+    "authorityTitle": "AUTHORITY",
+    "copyright": "© {year} {site}. All rights reserved.",
+    "authorityLine": "Built for the shop floor.",
+    "vaultLink": "Personal Data Vault →"
+  },
+  "region": {
+    "label": "Region",
+    "auto": "Auto (by language)",
+    "global": "Global · USD",
+    "turkey": "Turkey · TRY",
+    "germany": "Germany · EUR",
+    "indicator": "{region} · {currency}",
+    "indicatorHint": "Currency follows your language or manual region choice",
+    "manualActive": "Manual region: {region}",
+    "followsLanguage": "Follows language → {region}"
   },
   "locale": {
     "label": "Idioma",
@@ -224,6 +446,20 @@
   "common": {
     "learnMore": "Learn more",
     "loading": "Loading..."
+  },
+  "sectorCard": {
+    "calculate": "Calculate",
+    "badge": {
+      "free": "Free",
+      "premium": "Premium",
+      "new": "New"
+    }
+  },
+  "theme": {
+    "groupLabel": "Color theme",
+    "light": "Light theme",
+    "system": "System theme",
+    "dark": "Dark theme"
   },
   "home": {
     "hero": {
@@ -321,18 +557,18 @@
         }
       }
     },
+    "industriesPreview": {
+      "eyebrow": "Industries",
+      "title": "Sector packs for operational and commercial decisions",
+      "subtitle": "Each industry module combines a quick estimate layer and a premium decision tool — aligned to how that sector prices work, measures margin and evaluates risk.",
+      "viewAll": "View all industries →"
+    },
     "cta": {
       "eyebrow": "Get started",
       "title": "Start calculating for your sector",
       "subtitle": "Begin with free tools, upgrade to premium reports when you need them.",
       "primary": "Explore Free Tools",
       "secondary": "View Sample Verdict Report"
-    },
-    "industriesPreview": {
-      "eyebrow": "Industries",
-      "title": "Sector packs for operational and commercial decisions",
-      "subtitle": "Each industry module combines a quick estimate layer and a premium decision tool — aligned to how that sector prices work, measures margin and evaluates risk.",
-      "viewAll": "View all industries →"
     }
   },
   "homeDashboard": {
@@ -397,40 +633,6 @@
         "sample": "Sample"
       }
     }
-  },
-  "emptyStates": {
-    "reports": {
-      "title": "No saved reports yet",
-      "body": "Run a free sector check, then unlock a Single Verdict or SectorCalc Pro to save reports.",
-      "bodyWithCredits": "Run your unlocked premium analyzer and save the verdict report here.",
-      "ctaFree": "Explore free tools",
-      "ctaPremium": "Open premium analyzers",
-      "viewReport": "View report"
-    },
-    "purchases": {
-      "title": "Single verdict credits",
-      "body": "One-time purchases unlock the premium analyzer for that sector tool."
-    },
-    "login": {
-      "eyebrow": "Sign in required",
-      "title": "Sign in to view saved reports",
-      "body": "Saved verdict reports are linked to your SectorCalc account.",
-      "cta": "Sign in"
-    }
-  },
-  "sectorCard": {
-    "calculate": "Calculate",
-    "badge": {
-      "free": "Free",
-      "premium": "Premium",
-      "new": "New"
-    }
-  },
-  "theme": {
-    "groupLabel": "Color theme",
-    "light": "Light theme",
-    "system": "System theme",
-    "dark": "Dark theme"
   },
   "homepageHybrid": {
     "meta": {
@@ -612,6 +814,11 @@
         }
       }
     },
+    "betaPartner": {
+      "title": "Help build verified sector benchmarks.",
+      "text": "SectorCalc is building benchmark-backed calculators with operators, consultants and early businesses. Beta partners can receive premium reports in exchange for structured feedback.",
+      "cta": "Apply for beta partner access"
+    },
     "final": {
       "title": "Find the loss area. Measure the exposure. Make the call.",
       "bullet1": "{sectorCount} sector areas",
@@ -619,64 +826,62 @@
       "bullet3": "Free tier available",
       "bullet4": "No credit card required",
       "cta": "Find your loss area"
-    },
-    "betaPartner": {
-      "title": "Help build verified sector benchmarks.",
-      "text": "SectorCalc is building benchmark-backed calculators with operators, consultants and early businesses. Beta partners can receive premium reports in exchange for structured feedback.",
-      "cta": "Apply for beta partner access"
     }
   },
-  "catalogExplorer": {
-    "categories": {
-      "eyebrow": "Categories",
-      "title": "Find the right calculator category.",
-      "subtitle": "Choose the type of loss, measurement or decision you need first."
-    },
-    "freeTools": {
-      "eyebrow": "Free tools",
-      "title": "Free calculators by category.",
-      "subtitle": "Start with the calculation area you need, then open the tool."
-    },
-    "premiumTools": {
-      "eyebrow": "Premium analyzers",
-      "title": "Decision reports by loss type.",
-      "subtitle": "Choose the decision area before opening the analyzer."
-    },
-    "industries": {
-      "eyebrow": "Industries",
-      "title": "Explore calculators by sector.",
-      "subtitle": "Start from your industry, then choose the calculation or report."
-    },
-    "labels": {
-      "categories": {
-        "navLabel": "Browse by category",
-        "countLabel": "{count, plural, one {# tool} other {# tools}}",
-        "viewCategory": "View tools",
-        "viewCategoryOpen": "Showing tools",
-        "openItem": "Open calculator →"
-      },
-      "free-tools": {
-        "navLabel": "Browse by category",
-        "countLabel": "{count, plural, one {# calculator} other {# calculators}}",
-        "viewCategory": "View calculators",
-        "viewCategoryOpen": "Showing calculators",
-        "openItem": "Open calculator →"
-      },
-      "premium-tools": {
-        "navLabel": "Browse by report type",
-        "countLabel": "{count, plural, one {# analyzer} other {# analyzers}}",
-        "viewCategory": "View analyzers",
-        "viewCategoryOpen": "Showing analyzers",
-        "openItem": "View analyzer →"
-      },
-      "industries": {
-        "navLabel": "Browse by sector group",
-        "countLabel": "{count, plural, one {# sector} other {# sectors}}",
-        "viewCategory": "View sectors",
-        "viewCategoryOpen": "Showing sectors",
-        "openItem": "Open industry →"
+  "industrialHome": {
+    "brand": "SectorCalc",
+    "modulesTitle": "Browse by sector",
+    "initializeAudit": "Open",
+    "systemStatus": {
+      "title": "Platform snapshot",
+      "line": "Free calculators and premium expert reports — one platform.",
+      "metrics": {
+        "sectors": {
+          "label": "Sectors",
+          "value": "{count} active"
+        },
+        "engine": {
+          "label": "Calculators",
+          "value": "50+ tools"
+        },
+        "confidence": {
+          "label": "Reports",
+          "value": "Expert layer"
+        },
+        "gate": {
+          "label": "Access",
+          "value": "Free + Pro"
+        }
       }
-    }
+    },
+    "quickAccess": {
+      "title": "Quick access",
+      "open": "Open",
+      "modules": {
+        "tools": "Free tools",
+        "industries": "Industries",
+        "categories": "Categories",
+        "premium": "Premium reports",
+        "archive": "Audit archive"
+      }
+    },
+    "lossDimensions": {
+      "title": "What you can measure",
+      "money": "Money & margin",
+      "material": "Material & scrap",
+      "time": "Time & OEE",
+      "energy": "Energy & carbon"
+    },
+    "tagline": "Sector-specific calculation and measurement platform",
+    "headline": "Calculate, measure and optimize",
+    "headlineAccent": "for your sector.",
+    "lead": "Production, logistics, construction, energy and daily life — expert formulas, clear results, no ERP complexity.",
+    "activeModule": "Sector calculator"
+  },
+  "auditHub": {
+    "eyebrow": "SectorCalc Audit Hub",
+    "title": "Master Audit Engine",
+    "subtitle": "27 industrial sectors · U-Engine diagnostics · hidden loss detection"
   },
   "auditArchive": {
     "meta": {
@@ -694,10 +899,25 @@
     "viewFullArchive": "Open full archive",
     "emptySignedIn": "No saved audits yet. Run a premium analyzer and save the verdict to populate your vault."
   },
-  "auditHub": {
-    "eyebrow": "SectorCalc Audit Hub",
-    "title": "Master Audit Engine",
-    "subtitle": "27 industrial sectors · U-Engine diagnostics · hidden loss detection"
+  "emptyStates": {
+    "reports": {
+      "title": "No saved reports yet",
+      "body": "Run a free sector check, then unlock a Single Verdict or SectorCalc Pro to save reports.",
+      "bodyWithCredits": "Run your unlocked premium analyzer and save the verdict report here.",
+      "ctaFree": "Explore free tools",
+      "ctaPremium": "Open premium analyzers",
+      "viewReport": "View report"
+    },
+    "purchases": {
+      "title": "Single verdict credits",
+      "body": "One-time purchases unlock the premium analyzer for that sector tool."
+    },
+    "login": {
+      "eyebrow": "Sign in required",
+      "title": "Sign in to view saved reports",
+      "body": "Saved verdict reports are linked to your SectorCalc account.",
+      "cta": "Sign in"
+    }
   },
   "betaPartner": {
     "meta": {
@@ -770,188 +990,6 @@
       "rateLimited": "Please wait before submitting again."
     }
   },
-  "checkoutPages": {
-    "successEyebrow": "Checkout",
-    "successTitle": "Payment received.",
-    "successText": "Your premium access is being prepared. If your report does not unlock immediately, refresh the page or contact support.",
-    "successRefreshNote": "Payment confirmation received. Access is applied by our server — refresh in a few seconds if your report is still locked.",
-    "successPrimaryCta": "Return to analyzer",
-    "successPremiumCta": "Open premium analyzers",
-    "successSecondaryCta": "Go to pricing",
-    "cancelEyebrow": "Checkout",
-    "cancelTitle": "Checkout canceled.",
-    "cancelText": "You can continue using free calculators or return to the premium analyzer when ready.",
-    "cancelPricingCta": "Return to pricing",
-    "cancelReturnCta": "Return to analyzer",
-    "cancelFreeCta": "View free calculators"
-  },
-  "enterpriseFooter": {
-    "brand": "SectorCalc",
-    "tagline": "Sector-specific calculators, measurement tools and decision reports.",
-    "sectorsTitle": "SECTORS",
-    "allSectors": "All 27 Sectors",
-    "sectors": {
-      "manufacturing": "Manufacturing",
-      "logistics": "Logistics",
-      "construction": "Construction"
-    },
-    "complianceTitle": "COMPLIANCE",
-    "compliance": {
-      "iso": "ISO 27001 Ready",
-      "sla": "SLA: 99.9% Uptime",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "disclaimer": "Disclaimer"
-    },
-    "authorityTitle": "AUTHORITY",
-    "copyright": "© {year} {site}. All rights reserved.",
-    "authorityLine": "Built for the shop floor.",
-    "vaultLink": "Personal Data Vault →"
-  },
-  "freeTrafficCatalog": {
-    "metaTitle": "Free Sector Calculators — 100 Tools",
-    "metaDescription": "Free browser calculators for measurement, cost, finance, energy, conversion and everyday decisions. 100 active tools — no sign-up required.",
-    "eyebrow": "Free calculators",
-    "title": "Free sector calculators",
-    "lead": "Quick calculators for measurement, cost, finance, energy, conversion, health and everyday decisions.",
-    "explorerSub": "Choose a category first, then open the calculator you need.",
-    "hubHeadlineLead": "Your shop floor in",
-    "hubHeadlineTail": "free calculators",
-    "hubSub": "Pick a category, then open the calculator you need — browser-side, no sign-up.",
-    "hubCategoriesTitle": "Calculator categories",
-    "viewCalculators": "View calculators",
-    "viewCalculatorsOpen": "Calculators shown",
-    "totalCount": "{traffic} free calculators · {sectors} sector tools · {categories} categories",
-    "categoryNavLabel": "Jump to category",
-    "featuredTitle": "Featured calculators",
-    "featuredLead": "Most searched free tools across finance, health, construction and industry.",
-    "openCalculator": "Open calculator",
-    "decisionAnalyzerNote": "Decision analyzer available",
-    "categoryCount": "{count} calculators",
-    "includesTitle": "What free tools include",
-    "includes1": "2–5 inputs with units on every field",
-    "includes2": "Instant browser-side result",
-    "includes3": "Short plain-language explanation",
-    "includes4": "Link to related premium analyzer when available",
-    "excludesTitle": "What free tools do not include",
-    "excludes1": "P90 safe price or accept / reject verdict",
-    "excludes2": "PDF export or saved report history",
-    "excludes3": "Margin leak diagnosis or sensitivity matrix",
-    "excludes4": "Account storage of free-tier inputs",
-    "sectorToolsTitle": "Sector decision tools",
-    "sectorToolsLead": "Industry-specific free checks tied to premium verdict analyzers across 27 sectors.",
-    "sectorToolsCount": "{count} sector free tools across {industries} industries",
-    "premiumUpsellTitle": "Need a verdict, not just a number?",
-    "premiumUpsellBody": "Premium analyzers add safe price floors, margin leak detection and accept / reprice verdicts — included with SectorCalc Pro.",
-    "premiumUpsellCta": "Explore premium analyzers",
-    "premiumUpsellIndustries": "Browse by industry →",
-    "categories": {
-      "construction-measurement": "Construction & measurement",
-      "finance-business": "Finance & business",
-      "manufacturing-workshop": "Manufacturing & workshop",
-      "energy-carbon": "Energy & carbon",
-      "logistics-travel": "Logistics & travel",
-      "agriculture-food": "Agriculture & food",
-      "everyday-life": "Everyday life",
-      "math-statistics": "Math & statistics",
-      "conversion": "Unit conversion",
-      "health-body": "Health & body"
-    },
-    "categoryDescriptions": {
-      "construction-measurement": "Area, volume, concrete, roofing and on-site measurement checks.",
-      "finance-business": "Margin, loan, payroll, tax and everyday business math.",
-      "manufacturing-workshop": "Machine time, scrap, OEE helpers and shop-floor quick checks.",
-      "energy-carbon": "kWh cost, fuel use, peak load and carbon exposure estimates.",
-      "logistics-travel": "Route cost, freight, fuel and travel time calculators.",
-      "agriculture-food": "Yield, feed, crop cost and food production quick math.",
-      "everyday-life": "Household, retail and personal decision calculators.",
-      "math-statistics": "Percentages, averages, ratios and statistical shortcuts.",
-      "conversion": "Length, weight, area, volume and unit converters.",
-      "health-body": "BMI, calorie and body metric estimators — not medical advice."
-    },
-    "tool": {
-      "calculate": "Calculate",
-      "awaiting": "Enter values and calculate to see your result here.",
-      "includesTitle": "What this result includes",
-      "includes1": "Formula-based estimate from your inputs",
-      "includes2": "Browser-only processing — inputs not stored",
-      "includes3": "Expanded formula for this calculator type",
-      "excludesTitle": "What this result does not include",
-      "excludes1": "Premium verdict or safe price floor",
-      "excludes2": "PDF export",
-      "excludes3": "Saved reports",
-      "excludes4": "Hidden-variable margin diagnosis",
-      "premiumBlockTitle": "See what this estimate misses",
-      "premiumBlockBody": "Free calculators show the first number. Premium analyzers add hidden drivers, thresholds, suggested actions and export-ready decision reports.",
-      "premiumCta": "See what this estimate misses →",
-      "premiumBlockNote": "Best when the result affects pricing, operations or management decisions.",
-      "relatedTitle": "Related calculators"
-    },
-    "validation": {
-      "required": "Please select a value.",
-      "number": "Enter a valid number.",
-      "min": "Must be at least {min}.",
-      "max": "Must be at most {max}."
-    }
-  },
-  "industrialHome": {
-    "brand": "SectorCalc",
-    "modulesTitle": "Browse by sector",
-    "initializeAudit": "Open",
-    "systemStatus": {
-      "title": "Platform snapshot",
-      "line": "Free calculators and premium expert reports — one platform.",
-      "metrics": {
-        "sectors": {
-          "label": "Sectors",
-          "value": "{count} active"
-        },
-        "engine": {
-          "label": "Calculators",
-          "value": "50+ tools"
-        },
-        "confidence": {
-          "label": "Reports",
-          "value": "Expert layer"
-        },
-        "gate": {
-          "label": "Access",
-          "value": "Free + Pro"
-        }
-      }
-    },
-    "quickAccess": {
-      "title": "Quick access",
-      "open": "Open",
-      "modules": {
-        "tools": "Free tools",
-        "industries": "Industries",
-        "categories": "Categories",
-        "premium": "Premium reports",
-        "archive": "Audit archive"
-      }
-    },
-    "lossDimensions": {
-      "title": "What you can measure",
-      "money": "Money & margin",
-      "material": "Material & scrap",
-      "time": "Time & OEE",
-      "energy": "Energy & carbon"
-    },
-    "tagline": "Sector-specific calculation and measurement platform",
-    "headline": "Calculate, measure and optimize",
-    "headlineAccent": "for your sector.",
-    "lead": "Production, logistics, construction, energy and daily life — expert formulas, clear results, no ERP complexity.",
-    "activeModule": "Sector calculator"
-  },
-  "osGate": {
-    "label": "Subscription required",
-    "message": "This operation requires Intelligence Layer. Unlock with Pro membership.",
-    "single": "Single run {price}",
-    "pro": "Pro {price}",
-    "singleCta": "Unlock run · {price}",
-    "proCta": "Pro · {price}"
-  },
   "premiumDecisionReport": {
     "documentLabel": "Premium decision report",
     "reportEyebrow": "Decision report",
@@ -1017,16 +1055,5 @@
       "bullet3": "Turn the result into a practical action",
       "bullet4": "Export the report for management or client review"
     }
-  },
-  "region": {
-    "label": "Region",
-    "auto": "Auto (by language)",
-    "global": "Global · USD",
-    "turkey": "Turkey · TRY",
-    "germany": "Germany · EUR",
-    "indicator": "{region} · {currency}",
-    "indicatorHint": "Currency follows your language or manual region choice",
-    "manualActive": "Manual region: {region}",
-    "followsLanguage": "Follows language → {region}"
   }
 }

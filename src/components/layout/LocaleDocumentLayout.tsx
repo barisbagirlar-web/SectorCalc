@@ -4,6 +4,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { JsonLd, buildHomepageJsonLd } from "@/components/seo/JsonLd";
 import { LlmsTxtLink, SeoHeadLinks } from "@/components/seo/SeoHeadLinks";
 import type { AppLocale } from "@/i18n/routing";
+import { getLocaleTextDirection } from "@/lib/i18n/locale-config";
 import { getServerRegion } from "@/lib/compliance/server-region";
 import { RegionProvider } from "@/lib/compliance/region-context";
 
@@ -36,11 +37,12 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
   setRequestLocale(locale);
   const messages = await getMessages();
   const region = await getServerRegion(locale);
+  const direction = getLocaleTextDirection(locale);
 
   return (
     <html
       lang={locale}
-      dir="ltr"
+      dir={direction}
       className={`${inter.variable} ${barlow.variable} ${jetbrainsMono.variable}`}
       data-region={region}
     >

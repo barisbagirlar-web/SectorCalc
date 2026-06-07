@@ -1,15 +1,9 @@
 import { routing, type AppLocale } from "@/i18n/routing";
-import { isTurkishPath, stripLocaleFromPath } from "@/lib/i18n/locale-routing";
+import { addLocaleToPath, stripLocaleFromPath } from "@/lib/i18n/locale-routing";
 
 export function withLocale(path: string, locale: AppLocale = routing.defaultLocale): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (locale === "en") {
-    return normalized === "/" ? "/" : normalized;
-  }
-  if (normalized === "/") {
-    return "/tr";
-  }
-  return `/tr${normalized}`;
+  return addLocaleToPath(normalized, locale);
 }
 
 export function localizeHref(href: string, locale: AppLocale): string {
@@ -28,4 +22,4 @@ export function localizeHref(href: string, locale: AppLocale): string {
   return query ? `${localized}?${query}` : localized;
 }
 
-export { isTurkishPath };
+export { stripLocaleFromPath as stripLocalePrefix } from "@/lib/i18n/locale-routing";

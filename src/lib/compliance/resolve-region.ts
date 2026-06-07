@@ -4,17 +4,14 @@ import {
   REGION_MANUAL_COOKIE,
   type RegionCode,
 } from "@/config/regions";
-import { isTurkishPath } from "@/lib/i18n/locale-routing";
+import { parseLocaleFromPath, type SupportedLocale } from "@/lib/i18n/locale-routing";
 
-/** Extract locale from pathname — root paths are English. */
-export function extractLocaleFromPathname(pathname: string): string {
-  if (isTurkishPath(pathname)) {
-    return "tr";
-  }
-  return "en";
+/** Extract locale from pathname — unprefixed paths are English root. */
+export function extractLocaleFromPathname(pathname: string): SupportedLocale {
+  return parseLocaleFromPath(pathname) ?? "en";
 }
 
-/** Manual cookie → else locale drives region (en/es/ar→EN, tr→TR, de→DE). */
+/** Manual cookie → else locale drives region. */
 export function resolveRegionFromRequestContext(
   pathname: string,
   manualCookie: string | undefined | null,
@@ -26,4 +23,4 @@ export function resolveRegionFromRequestContext(
   return localeToRegion(locale);
 }
 
-export { REGION_MANUAL_COOKIE };
+export { REGION_MANUAL_COOKIE } from "@/config/regions";

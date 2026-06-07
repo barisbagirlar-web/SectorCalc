@@ -1,34 +1,53 @@
 /**
  * Locale-aware formatting helpers for SectorCalc public surfaces.
- * EN/TR primary; USD currency fallback when unspecified.
  */
 
-export type SupportedLocale = "en" | "tr";
+import {
+  LOCALE_DEFINITIONS,
+  type SupportedLocale,
+  isSupportedLocale,
+} from "@/lib/i18n/locale-config";
+
+export type { SupportedLocale };
 
 export type CurrencyCode = "USD" | "TRY" | "EUR" | "GBP";
 
 export type UnitSystem = "metric" | "imperial";
 
-export const NOT_AVAILABLE = "Not available";
-
-const LANGUAGE_TAGS: Record<SupportedLocale, string> = {
-  en: "en-US",
-  tr: "tr-TR",
+const NOT_AVAILABLE_BY_LOCALE: Record<SupportedLocale, string> = {
+  en: "Not available",
+  tr: "Mevcut değil",
+  de: "Nicht verfügbar",
+  fr: "Non disponible",
+  es: "No disponible",
+  ar: "غير متاح",
 };
 
 const FREE_TOOL_LEGAL_NOTE: Record<SupportedLocale, string> = {
   en: "This is a technical estimate based on the values you entered. It is not financial, legal, medical or engineering advice.",
   tr: "Bu sonuç, girdiğiniz değerlere dayalı teknik bir tahmindir. Mali, hukuki, tıbbi veya mühendislik danışmanlığı yerine geçmez.",
+  de: "Dieses Ergebnis ist eine technische Schätzung auf Basis Ihrer Eingaben. Es ersetzt keine Finanz-, Rechts-, Medizin- oder Ingenieurberatung.",
+  fr: "Ce résultat est une estimation technique basée sur les valeurs saisies. Il ne remplace pas un conseil financier, juridique, médical ou d'ingénierie.",
+  es: "Este resultado es una estimación técnica basada en los valores introducidos. No sustituye el asesoramiento financiero, legal, médico o de ingeniería.",
+  ar: "هذه النتيجة تقدير تقني بناءً على القيم التي أدخلتها. ولا تُعد بديلاً عن الاستشارة المالية أو القانونية أو الطبية أو الهندسية.",
 };
 
 const PREMIUM_LEGAL_NOTE: Record<SupportedLocale, string> = {
   en: "This report is a technical decision-support simulation based on user-provided inputs and sector assumptions. It is not financial, legal, medical or engineering advice. Verify all outputs before business decisions.",
   tr: "Bu rapor, kullanıcı girdileri ve sektör varsayımlarına dayalı teknik bir karar destek simülasyonudur. Mali, hukuki, tıbbi veya mühendislik danışmanlığı yerine geçmez. İş kararlarından önce tüm çıktıları doğrulayın.",
+  de: "Dieser Bericht ist eine technische Entscheidungsunterstützung auf Basis Ihrer Eingaben und Branchenannahmen. Er ersetzt keine Finanz-, Rechts-, Medizin- oder Ingenieurberatung. Prüfen Sie alle Ergebnisse vor Geschäftsentscheidungen.",
+  fr: "Ce rapport est une simulation d'aide à la décision basée sur vos entrées et les hypothèses sectorielles. Il ne remplace pas un conseil financier, juridique, médical ou d'ingénierie. Vérifiez toutes les sorties avant toute décision.",
+  es: "Este informe es una simulación de apoyo a decisiones basada en entradas del usuario y supuestos sectoriales. No sustituye asesoramiento financiero, legal, médico o de ingeniería. Verifique todos los resultados antes de decidir.",
+  ar: "هذا التقرير محاكاة دعم قرار تقنية بناءً على مدخلات المستخدم وافتراضات القطاع. ولا يُعد بديلاً عن الاستشارة المالية أو القانونية أو الطبية أو الهندسية. تحقق من جميع المخرجات قبل قرارات العمل.",
 };
 
 const TECHNICAL_SIMULATION_NOTICE: Record<SupportedLocale, string> = {
   en: "Technical decision-support simulation — not financial, legal, medical or engineering advice.",
   tr: "Teknik karar destek simülasyonu — mali, hukuki, tıbbi veya mühendislik danışmanlığı değildir.",
+  de: "Technische Entscheidungsunterstützung — keine Finanz-, Rechts-, Medizin- oder Ingenieurberatung.",
+  fr: "Simulation d'aide à la décision — pas un conseil financier, juridique, médical ou d'ingénierie.",
+  es: "Simulación de apoyo a decisiones — no es asesoramiento financiero, legal, médico o de ingeniería.",
+  ar: "محاكاة دعم قرار تقنية — ليست استشارة مالية أو قانونية أو طبية أو هندسية.",
 };
 
 export interface FormatNumberOptions {
@@ -41,25 +60,28 @@ function isUnavailable(value: number): boolean {
 }
 
 export function normalizeLocale(locale: string | undefined): SupportedLocale {
-  if (locale === "tr" || locale?.startsWith("tr-") || locale?.startsWith("tr_")) {
-    return "tr";
+  const base = locale?.split("-")[0]?.toLowerCase();
+  if (base && isSupportedLocale(base)) {
+    return base;
   }
   return "en";
 }
 
+export function getLocalizedNotAvailable(locale: SupportedLocale): string {
+  return NOT_AVAILABLE_BY_LOCALE[locale];
+}
+
 export function getDefaultCurrency(locale: SupportedLocale): CurrencyCode {
-  return locale === "tr" ? "TRY" : "USD";
+  return LOCALE_DEFINITIONS[locale].currency;
 }
 
 export function getDefaultUnitSystem(locale: SupportedLocale): UnitSystem {
-  if (locale === "tr") {
-    return "metric";
-  }
-  return "metric";
+  return LOCALE_DEFINITIONS[locale].unitSystem;
 }
 
 export function getDecimalSeparator(locale: SupportedLocale): string {
-  const parts = new Intl.NumberFormat(LANGUAGE_TAGS[locale]).formatToParts(1.1);
+  const tag = LOCALE_DEFINITIONS[locale].numberLocale;
+  const parts = new Intl.NumberFormat(tag).formatToParts(1.1);
   return parts.find((part) => part.type === "decimal")?.value ?? ".";
 }
 
@@ -69,9 +91,9 @@ export function formatLocalizedNumber(
   options: FormatNumberOptions = {},
 ): string {
   if (isUnavailable(value)) {
-    return NOT_AVAILABLE;
+    return getLocalizedNotAvailable(locale);
   }
-  return new Intl.NumberFormat(LANGUAGE_TAGS[locale], {
+  return new Intl.NumberFormat(LOCALE_DEFINITIONS[locale].numberLocale, {
     minimumFractionDigits: options.minimumFractionDigits,
     maximumFractionDigits: options.maximumFractionDigits ?? 2,
   }).format(value);
@@ -84,11 +106,11 @@ export function formatLocalizedCurrency(
   options: FormatNumberOptions = {},
 ): string {
   if (isUnavailable(value)) {
-    return NOT_AVAILABLE;
+    return getLocalizedNotAvailable(locale);
   }
   const code = currency ?? getDefaultCurrency(locale);
   try {
-    return new Intl.NumberFormat(LANGUAGE_TAGS[locale], {
+    return new Intl.NumberFormat(LOCALE_DEFINITIONS[locale].numberLocale, {
       style: "currency",
       currency: code,
       minimumFractionDigits: options.minimumFractionDigits,
@@ -101,7 +123,7 @@ export function formatLocalizedCurrency(
 
 export function formatLocalizedPercent(value: number, locale: SupportedLocale): string {
   if (isUnavailable(value)) {
-    return NOT_AVAILABLE;
+    return getLocalizedNotAvailable(locale);
   }
   return `${formatLocalizedNumber(value, locale, {
     maximumFractionDigits: 1,
@@ -120,9 +142,9 @@ export function formatLocalizedDate(
         ? value
         : Date.parse(String(value));
   if (!Number.isFinite(parsed)) {
-    return NOT_AVAILABLE;
+    return getLocalizedNotAvailable(locale);
   }
-  return new Intl.DateTimeFormat(LANGUAGE_TAGS[locale], {
+  return new Intl.DateTimeFormat(LOCALE_DEFINITIONS[locale].dateLocale, {
     dateStyle: "long",
     timeStyle: "short",
   }).format(new Date(parsed));
@@ -134,10 +156,14 @@ export function formatUnitValue(
   locale: SupportedLocale,
 ): string {
   const formatted = formatLocalizedNumber(value, locale);
-  if (formatted === NOT_AVAILABLE) {
-    return NOT_AVAILABLE;
+  if (formatted === getLocalizedNotAvailable(locale)) {
+    return formatted;
   }
   return unit ? `${formatted} ${unit}`.trim() : formatted;
+}
+
+export function getLocalizedLegalNote(locale: SupportedLocale): string {
+  return FREE_TOOL_LEGAL_NOTE[locale];
 }
 
 export function getFreeToolLegalNote(locale: SupportedLocale): string {
@@ -160,7 +186,7 @@ export function getPremiumOutputFormatted(
   currency: CurrencyCode = "USD",
 ): string {
   if (isUnavailable(value)) {
-    return NOT_AVAILABLE;
+    return getLocalizedNotAvailable(locale);
   }
 
   switch (format) {
@@ -178,3 +204,6 @@ export function getPremiumOutputFormatted(
         : formatLocalizedNumber(value, locale, { maximumFractionDigits: 2, minimumFractionDigits: 2 });
   }
 }
+
+/** @deprecated Use getLocalizedNotAvailable */
+export const NOT_AVAILABLE = NOT_AVAILABLE_BY_LOCALE.en;

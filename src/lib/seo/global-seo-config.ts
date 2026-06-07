@@ -2,6 +2,15 @@
  * Global SEO configuration — canonical base URL and supported sitemap locales.
  */
 
+import {
+  getActiveLocales,
+  SUPPORTED_LOCALES,
+  type SupportedLocale,
+  isSupportedLocale,
+  DEFAULT_LOCALE,
+  ROOT_LOCALE,
+} from "@/lib/i18n/locale-config";
+
 const PRODUCTION_FALLBACK_URL = "https://sectorcalc-bf412.web.app";
 
 function normalizeBaseUrl(value: string): string {
@@ -26,21 +35,17 @@ function resolveSiteBaseUrl(): string {
 
 export const SITE_BASE_URL = resolveSiteBaseUrl();
 
-export const SUPPORTED_LOCALES = ["en", "tr"] as const;
-
-export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
-
-export const DEFAULT_LOCALE: SupportedLocale = "en";
+export { SUPPORTED_LOCALES, DEFAULT_LOCALE, ROOT_LOCALE, type SupportedLocale, isSupportedLocale };
 
 export const INDEXABLE_LOCALE_ROUTES: Record<SupportedLocale, boolean> = {
   en: true,
   tr: true,
+  de: true,
+  fr: true,
+  es: true,
+  ar: true,
 };
 
 export function getActiveSitemapLocales(): readonly SupportedLocale[] {
-  return SUPPORTED_LOCALES.filter((locale) => INDEXABLE_LOCALE_ROUTES[locale]);
-}
-
-export function isSupportedLocale(value: string): value is SupportedLocale {
-  return (SUPPORTED_LOCALES as readonly string[]).includes(value);
+  return getActiveLocales().filter((locale) => INDEXABLE_LOCALE_ROUTES[locale]);
 }

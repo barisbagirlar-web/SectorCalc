@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { listAuthorityGuideSlugs } from "@/lib/content/authority-guides";
-import { SITE_BASE_URL } from "@/lib/seo/global-seo-config";
+import { getActiveSitemapLocales, SITE_BASE_URL } from "@/lib/seo/global-seo-config";
 import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
 import {
   buildAlternates,
@@ -92,37 +92,55 @@ describe("premium auto sitemap manifest", () => {
     expect(urls.some((url) => url.includes("/en/") || url.endsWith("/en"))).toBe(false);
   });
 
-  test("sitemap /tr URL üretir", () => {
+  test("sitemap prefixed locale URLs üretir", () => {
     expect(buildLocalizedUrl("/free-tools", "tr", "https://example.com")).toBe(
       "https://example.com/tr/free-tools",
     );
+    expect(buildLocalizedUrl("/free-tools", "de", "https://example.com")).toBe(
+      "https://example.com/de/free-tools",
+    );
+    expect(buildLocalizedUrl("/free-tools", "fr", "https://example.com")).toBe(
+      "https://example.com/fr/free-tools",
+    );
+    expect(buildLocalizedUrl("/free-tools", "es", "https://example.com")).toBe(
+      "https://example.com/es/free-tools",
+    );
+    expect(buildLocalizedUrl("/free-tools", "ar", "https://example.com")).toBe(
+      "https://example.com/ar/free-tools",
+    );
     expect(buildLocalizedUrl("/", "tr", "https://example.com")).toBe("https://example.com/tr");
+    expect(buildLocalizedUrl("/", "de", "https://example.com")).toBe("https://example.com/de");
   });
 
-  test("free tool English route /tools/free/[slug]", () => {
-    expect(paths).toContain("/tools/free/area-converter");
+  test("free tool routes 6 locale için üretilir", () => {
+    const freeItem = manifest.find((item) => item.path === "/tools/free/area-converter");
+    expect(freeItem?.locales).toEqual(getActiveSitemapLocales());
+    const localized = freeItem?.locales.map((locale) => buildLocalizedPath(freeItem.path, locale));
+    expect(localized).toContain("/tools/free/area-converter");
+    expect(localized).toContain("/tr/tools/free/area-converter");
+    expect(localized).toContain("/de/tools/free/area-converter");
+    expect(localized).toContain("/fr/tools/free/area-converter");
+    expect(localized).toContain("/es/tools/free/area-converter");
+    expect(localized).toContain("/ar/tools/free/area-converter");
   });
 
-  test("free tool Turkish route /tr/tools/free/[slug]", () => {
-    const trPaths = manifest
-      .filter((item) => item.path.startsWith("/tools/free/"))
-      .flatMap((item) => item.locales.map((locale) => buildLocalizedPath(item.path, locale)));
-    expect(trPaths).toContain("/tr/tools/free/area-converter");
+  test("premium routes 6 locale için üretilir", () => {
+    const premiumPath = "/tools/premium-schema/cnc-oee-loss";
+    const localized = getActiveSitemapLocales().map((locale) => buildLocalizedPath(premiumPath, locale));
+    expect(localized).toContain("/tools/premium-schema/cnc-oee-loss");
+    expect(localized).toContain("/ar/tools/premium-schema/cnc-oee-loss");
+    expect(localized.length).toBe(6);
   });
 
-  test("premium English route /tools/premium-schema/[slug]", () => {
-    expect(paths.some((path) => path.startsWith("/tools/premium-schema/"))).toBe(true);
-  });
-
-  test("premium Turkish route /tr/tools/premium-schema/[slug]", () => {
-    const trPremium = buildLocalizedPath("/tools/premium-schema/cnc-oee-loss", "tr");
-    expect(trPremium).toBe("/tr/tools/premium-schema/cnc-oee-loss");
-  });
-
-  test("alternates en/tr/x-default içerir", () => {
-    const alternates = buildAlternates("/free-tools", ["en", "tr"], "https://example.com");
+  test("alternates en,tr,de,fr,es,ar,x-default içerir", () => {
+    const locales = getActiveSitemapLocales();
+    const alternates = buildAlternates("/free-tools", locales, "https://example.com");
     expect(alternates.languages.en).toBe("https://example.com/free-tools");
     expect(alternates.languages.tr).toBe("https://example.com/tr/free-tools");
+    expect(alternates.languages.de).toBe("https://example.com/de/free-tools");
+    expect(alternates.languages.fr).toBe("https://example.com/fr/free-tools");
+    expect(alternates.languages.es).toBe("https://example.com/es/free-tools");
+    expect(alternates.languages.ar).toBe("https://example.com/ar/free-tools");
     expect(alternates.languages["x-default"]).toBe("https://example.com/free-tools");
   });
 

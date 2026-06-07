@@ -6,8 +6,9 @@ import {
   getDefaultCurrency,
   getDefaultUnitSystem,
   getFreeToolLegalNote,
+  getLocalizedLegalNote,
+  getLocalizedNotAvailable,
   getPremiumLegalNote,
-  NOT_AVAILABLE,
   normalizeLocale,
 } from "@/lib/format/localization";
 
@@ -20,12 +21,13 @@ describe("localization helpers", () => {
     expect(formatLocalizedNumber(1234.5, "tr")).toBe("1.234,5");
   });
 
-  test("NaN => Not available", () => {
-    expect(formatLocalizedNumber(Number.NaN, "en")).toBe(NOT_AVAILABLE);
+  test("NaN => localized not available", () => {
+    expect(formatLocalizedNumber(Number.NaN, "en")).toBe("Not available");
+    expect(formatLocalizedNumber(Number.NaN, "tr")).toBe("Mevcut değil");
   });
 
-  test("Infinity => Not available", () => {
-    expect(formatLocalizedNumber(Number.POSITIVE_INFINITY, "en")).toBe(NOT_AVAILABLE);
+  test("Infinity => localized not available", () => {
+    expect(formatLocalizedNumber(Number.POSITIVE_INFINITY, "en")).toBe("Not available");
   });
 
   test("formatLocalizedCurrency USD en works", () => {
@@ -58,10 +60,43 @@ describe("localization helpers", () => {
     expect(getPremiumLegalNote("tr").trim().length).toBeGreaterThan(0);
   });
 
-  test("normalizeLocale maps tr variants", () => {
+  test("normalizeLocale maps supported locales", () => {
     expect(normalizeLocale("tr")).toBe("tr");
-    expect(normalizeLocale("tr-TR")).toBe("tr");
+    expect(normalizeLocale("de")).toBe("de");
+    expect(normalizeLocale("fr")).toBe("fr");
+    expect(normalizeLocale("es")).toBe("es");
+    expect(normalizeLocale("ar")).toBe("ar");
     expect(normalizeLocale("en")).toBe("en");
     expect(normalizeLocale(undefined)).toBe("en");
+  });
+
+  test("tr TRY default currency", () => {
+    expect(getDefaultCurrency("tr")).toBe("TRY");
+  });
+
+  test("de EUR default currency", () => {
+    expect(getDefaultCurrency("de")).toBe("EUR");
+  });
+
+  test("fr EUR default currency", () => {
+    expect(getDefaultCurrency("fr")).toBe("EUR");
+  });
+
+  test("es EUR default currency", () => {
+    expect(getDefaultCurrency("es")).toBe("EUR");
+  });
+
+  test("ar USD default currency", () => {
+    expect(getDefaultCurrency("ar")).toBe("USD");
+  });
+
+  test("ar not available Arabic", () => {
+    expect(getLocalizedNotAvailable("ar")).toBe("غير متاح");
+  });
+
+  test("ar legal note Arabic", () => {
+    expect(getLocalizedLegalNote("ar")).toContain("هذه النتيجة");
+    expect(getFreeToolLegalNote("ar").trim().length).toBeGreaterThan(0);
+    expect(getPremiumLegalNote("ar").trim().length).toBeGreaterThan(0);
   });
 });

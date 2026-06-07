@@ -3,19 +3,19 @@ import { type NextRequest, NextResponse } from "next/server";
 import { routing } from "@/i18n/routing";
 import { REGION_COOKIE, REGION_HEADER } from "@/config/regions";
 import { detectCountryFromHeaders, detectRegionFromRequest } from "@/lib/compliance/detect-region";
+import { getLocalePathPrefix } from "@/lib/i18n/locale-config";
 import {
+  buildPrefixedLocaleMatcherSegment,
   getLegacyEnRedirectPath,
   isMiddlewareExcludedPath,
   LOCALE_COOKIE,
   needsEnglishLocaleRewrite,
   rewritePathToEnglishLocale,
-  shouldRedirectRootToTurkish,
+  shouldRedirectRootToLocale,
 } from "@/lib/i18n/locale-routing";
 
 /**
- * Locale routing (root English + /tr Turkish) + regional compliance.
- *
- * Premium access is NOT handled here — see premium-route-access.ts
+ * Locale routing (root English + prefixed locales) + regional compliance.
  */
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -45,16 +45,14 @@ export default function middleware(request: NextRequest) {
   }
 
   if (pathname === "/") {
-    const cookieLocale = request.cookies.get(LOCALE_COOKIE)?.value;
-    if (
-      shouldRedirectRootToTurkish({
-        cookieLocale,
-        countryCode: detectCountryFromHeaders(request.headers),
-        acceptLanguage: request.headers.get("accept-language"),
-      })
-    ) {
+    const targetLocale = shouldRedirectRootToLocale({
+      cookieLocale: request.cookies.get(LOCALE_COOKIE)?.value,
+      countryCode: detectCountryFromHeaders(request.headers),
+      acceptLanguage: request.headers.get("accept-language"),
+    });
+    if (targetLocale !== null) {
       const url = request.nextUrl.clone();
-      url.pathname = "/tr";
+      url.pathname = getLocalePathPrefix(targetLocale);
       return applyRegionHeaders(NextResponse.redirect(url, 307), request);
     }
   }
@@ -74,10 +72,12 @@ export default function middleware(request: NextRequest) {
   return applyRegionHeaders(NextResponse.next(), request);
 }
 
+const prefixedLocales = buildPrefixedLocaleMatcherSegment();
+
 export const config = {
   matcher: [
     "/",
-    "/(tr)/:path*",
+    `/(${prefixedLocales})/:path*`,
     "/((?!admin|api|_next|_vercel|.*\\..*).*)",
   ],
 };

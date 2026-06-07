@@ -3,17 +3,13 @@
 import { useTransition } from "react";
 import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/routing";
+import { LOCALE_DEFINITION_LIST } from "@/lib/i18n/locale-config";
 import {
   addLocaleToPath,
   stripLocaleFromPath,
   type SupportedLocale,
 } from "@/lib/i18n/locale-routing";
 import { setLocaleCookie } from "@/lib/i18n/locale-client";
-
-const LOCALE_OPTIONS: readonly { code: SupportedLocale; label: string }[] = [
-  { code: "en", label: "EN" },
-  { code: "tr", label: "TR" },
-] as const;
 
 export function LocaleSwitcher({ className = "" }: { className?: string }) {
   const locale = useLocale() as SupportedLocale;
@@ -41,11 +37,11 @@ export function LocaleSwitcher({ className = "" }: { className?: string }) {
         onChange={(event) => handleChange(event.target.value as SupportedLocale)}
         disabled={pending}
         aria-label="Language"
-        className="apple-locale__select min-w-[3.25rem]"
+        className="apple-locale__select min-w-[3rem] max-w-[4.5rem]"
       >
-        {LOCALE_OPTIONS.map((option) => (
-          <option key={option.code} value={option.code}>
-            {option.label}
+        {LOCALE_DEFINITION_LIST.map((option) => (
+          <option key={option.code} value={option.code} title={option.nativeName}>
+            {option.shortLabel}
           </option>
         ))}
       </select>

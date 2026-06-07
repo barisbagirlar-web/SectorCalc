@@ -180,3 +180,20 @@
     }
   }
 }
+
+/* RTL — minimal overrides for Arabic locale */
+[dir="rtl"] .apple-locale__select {
+  direction: rtl;
+}
+
+[dir="rtl"] .sc-pro-panel,
+[dir="rtl"] .sc-decision-block,
+[dir="rtl"] .sc-pro-container {
+  text-align: start;
+}
+
+[dir="rtl"] .route-loading-bar {
+  left: auto;
+  right: 0;
+  transform-origin: 100% 50%;
+}

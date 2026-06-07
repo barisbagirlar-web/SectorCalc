@@ -11,7 +11,7 @@ import {
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 
-function pathsForLocale(locale: "en" | "tr"): string[] {
+function pathsForLocale(locale: "en" | "tr" | "de" | "fr" | "es" | "ar"): string[] {
   return getIndexableUrlManifest()
     .filter((item) => item.locale === locale)
     .map((item) => item.path);
