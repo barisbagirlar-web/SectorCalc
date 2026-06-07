@@ -9,16 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* Industrial OS — Engineering Override */
-        "industrial-matte": "#FBFBFA",
-        "premium-velvet": "#111111",
-        "body-charcoal": "#2B2B2B",
+        /* Industrial Ledger v1.1 */
+        "industrial-matte": "#FAF7F2",
+        "premium-velvet": "#1A1A1A",
+        "body-charcoal": "#6B6B6B",
         "technical-gray": "#D1D1D1",
-        "action-orange": "#E65100",
-        /* Status signals (data only — NOT action orange) */
-        "crit-red": "#DC2626",
-        "warn-amber": "#F59E0B",
-        "safe-green": "#10B981",
+        "action-orange": "#C2410C",
+        "sc-copper": "#C2410C",
+        "sc-navy": "#1E40AF",
+        /* Status signals */
+        "crit-red": "#991B1B",
+        "warn-amber": "#D97706",
+        "safe-green": "#166534",
         /* Legacy aliases → industrial mapping */
         "base-black": "#111111",
         "base-white": "#FFFFFF",

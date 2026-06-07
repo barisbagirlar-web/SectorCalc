@@ -3,12 +3,15 @@
 import type { ToolInput } from "@/data/tool-schema";
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
 
+export type ToolInputVariant = "underline" | "boxed";
+
 interface ToolInputFieldProps {
   input: ToolInput;
   value: number | string;
   error?: string;
   onChange: (id: string, value: number | string) => void;
   onBlur: (id: string) => void;
+  variant?: ToolInputVariant;
 }
 
 export function ToolInputField({
@@ -17,17 +20,22 @@ export function ToolInputField({
   error,
   onChange,
   onBlur,
+  variant = "boxed",
 }: ToolInputFieldProps) {
   const inputId = `tool-input-${input.id}`;
   const errorId = `${inputId}-error`;
   const helperId = `${inputId}-helper`;
   const showUnit = Boolean(input.unit) && !input.currency;
+  const isUnderline = variant === "underline";
+  const inputClass = isUnderline
+    ? `sc-ledger-input-underline${error ? " sc-ledger-input--error" : ""}`
+    : `sc-ledger-input-boxed sc-industrial-input${input.currency ? " sc-industrial-input--currency" : ""}${showUnit ? " sc-industrial-input--unit" : ""}${error ? " sc-industrial-input--error" : ""}`;
 
   if (input.type === "select" && input.options) {
     return (
       <div className="sc-industrial-field">
         <div className="sc-industrial-field__label-row">
-          <label htmlFor={inputId} className="sc-industrial-field__label">
+          <label htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">
             {input.label}
             {input.required ? <span aria-hidden> *</span> : null}
           </label>
@@ -52,7 +60,7 @@ export function ToolInputField({
             {error}
           </p>
         ) : (
-          <p id={helperId} className="sc-industrial-field__helper">
+          <p id={helperId} className="sc-ledger-helper sc-industrial-field__helper">
             {input.helperText}
           </p>
         )}
@@ -63,14 +71,14 @@ export function ToolInputField({
   return (
     <div className="sc-industrial-field">
       <div className="sc-industrial-field__label-row">
-        <label htmlFor={inputId} className="sc-industrial-field__label">
+        <label htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">
           {input.label}
           {input.required ? <span aria-hidden> *</span> : null}
         </label>
         {showUnit ? <span className="sc-industrial-field__unit">{input.unit}</span> : null}
       </div>
-      <div className="sc-industrial-input-wrap">
-        {input.currency ? (
+      <div className={isUnderline ? undefined : "sc-industrial-input-wrap"}>
+        {!isUnderline && input.currency ? (
           <span className="sc-industrial-input-wrap__prefix" aria-hidden>
             $
           </span>
@@ -88,7 +96,7 @@ export function ToolInputField({
           onBlur={() => onBlur(input.id)}
           aria-invalid={Boolean(error)}
           aria-describedby={error ? errorId : helperId}
-          className={`sc-industrial-input${input.currency ? " sc-industrial-input--currency" : ""}${showUnit ? " sc-industrial-input--unit" : ""}${error ? " sc-industrial-input--error" : ""}`}
+          className={inputClass}
         />
       </div>
       {error ? (
@@ -96,7 +104,7 @@ export function ToolInputField({
           {error}
         </p>
       ) : (
-        <p id={helperId} className="sc-industrial-field__helper">
+        <p id={helperId} className="sc-ledger-helper sc-industrial-field__helper">
           {input.helperText}
         </p>
       )}

@@ -9,6 +9,7 @@ interface ToolFormProps {
   errors: Record<string, string>;
   onChange: (id: string, value: number | string) => void;
   onBlur: (id: string) => void;
+  variant?: "underline" | "boxed";
 }
 
 export function ToolForm({
@@ -17,10 +18,11 @@ export function ToolForm({
   errors,
   onChange,
   onBlur,
+  variant = "boxed",
 }: ToolFormProps) {
   return (
     <form
-      className="sc-industrial-form sc-industrial-panel p-4 sm:p-5"
+      className={`sc-industrial-form sc-ledger-panel sc-industrial-panel p-4 sm:p-5 sc-ledger-letterpress${variant === "underline" ? " sc-ledger-cetele-form" : ""}`}
       onSubmit={(e) => e.preventDefault()}
       noValidate
     >
@@ -32,6 +34,7 @@ export function ToolForm({
           error={errors[input.id]}
           onChange={onChange}
           onBlur={onBlur}
+          variant={variant}
         />
       ))}
     </form>

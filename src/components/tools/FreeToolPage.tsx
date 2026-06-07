@@ -5,7 +5,8 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { OsModuleHeader } from "@/components/os/OsModuleHeader";
 import { SectorToolSelect } from "@/components/os/SectorToolSelect";
 import { Container } from "@/components/ui/Container";
-import { handleNumericInputChange, SC_NUMERIC_INPUT_CLASS } from "@/lib/input/numeric-input";
+import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
+import { handleNumericInputChange } from "@/lib/input/numeric-input";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
@@ -19,9 +20,6 @@ import {
 } from "@/lib/tools/free-tool-results";
 import { type RevenueTool, type RevenueToolInput } from "@/lib/tools/revenue-tools";
 
-function formatInputLabel(label: string, unit?: string): string {
-  return unit ? `${label} (${unit})` : label;
-}
 
 function buildInitialValues(tool: RevenueTool): FreeToolInputValues {
   const values: FreeToolInputValues = {};
@@ -68,22 +66,24 @@ function FreeToolInputField({
 }: FreeToolInputFieldProps) {
  const inputId = `free-tool-${input.key}`;
  const errorId = `${inputId}-error`;
- const label = formatInputLabel(input.label, input.unit);
+ const showUnit = Boolean(input.unit) && input.type !== "currency";
 
  if (input.type === "select" && input.options) {
  return (
- <div className="space-y-1">
- <label htmlFor={inputId} className="label-badge block text-body-charcoal">
- {label}
- {input.required ? <span className="text-premium-velvet">*</span> : null}
+ <div className="sc-industrial-field">
+ <div className="sc-industrial-field__label-row">
+ <label htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">
+ {input.label}
+ {input.required ? <span aria-hidden> *</span> : null}
  </label>
+ </div>
  <select
  id={inputId}
  value={String(value)}
  onChange={(event) => onChange(input.key, event.target.value)}
  aria-invalid={Boolean(error)}
  aria-describedby={error ? errorId : undefined}
- className={`sc-input ${error ? "sc-input-error" : ""}`}
+ className={error ? "sc-industrial-input--error" : undefined}
  >
  {input.options.map((option) => (
  <option key={option.value} value={option.value}>
@@ -92,7 +92,7 @@ function FreeToolInputField({
  ))}
  </select>
  {error ? (
- <p id={errorId} className="text-xs text-crit-red status-crit" role="alert">
+ <p id={errorId} className="sc-industrial-field__error" role="alert">
  {error}
  </p>
  ) : null}
@@ -101,17 +101,19 @@ function FreeToolInputField({
  }
 
  const isCurrency = input.type === "currency";
- const showUnit = Boolean(input.unit) && input.type !== "currency";
 
  return (
- <div className="space-y-1">
- <label htmlFor={inputId} className="label-badge block text-body-charcoal">
- {label}
- {input.required ? <span className="text-premium-velvet">*</span> : null}
+ <div className="sc-industrial-field">
+ <div className="sc-industrial-field__label-row">
+ <label htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">
+ {input.label}
+ {input.required ? <span aria-hidden> *</span> : null}
  </label>
+ {showUnit ? <span className="sc-industrial-field__unit">{input.unit}</span> : null}
+ </div>
  <div className="relative">
  {isCurrency ? (
- <span className="pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 data-value text-xs text-body-charcoal">
+ <span className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 font-mono text-xs text-body-charcoal">
  $
  </span>
  ) : null}
@@ -127,18 +129,11 @@ function FreeToolInputField({
  }}
  aria-invalid={Boolean(error)}
  aria-describedby={error ? errorId : undefined}
- className={`${SC_NUMERIC_INPUT_CLASS} ${isCurrency ? "pl-8 pr-4" : "px-4"} ${showUnit ? "pr-14" : ""} ${
- error ? "sc-input-error" : ""
- }`}
+ className={`sc-ledger-input-underline${isCurrency ? " pl-5" : ""}${error ? " sc-ledger-input--error" : ""}`}
  />
- {showUnit ? (
- <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 data-value text-xs text-body-charcoal">
- {input.unit}
- </span>
- ) : null}
  </div>
  {error ? (
- <p id={errorId} className="text-xs text-crit-red status-crit" role="alert">
+ <p id={errorId} className="sc-industrial-field__error" role="alert">
  {error}
  </p>
  ) : null}
@@ -158,12 +153,12 @@ function FreeToolResultCard({ result }: { result: FreeToolResult }) {
        : "sc-result-primary";
 
  return (
- <div className="sc-result-panel" aria-live="polite">
- <p className="sc-craft-eyebrow">Risk signal</p>
+ <div className="sc-ledger-result sc-result-panel sc-ledger-letterpress" aria-live="polite">
+ <p className="sc-ledger-eyebrow">Hızlı çetele</p>
  <p className={`mt-2 text-base font-semibold leading-snug ${STATUS_TEXT_CLASS[status]}`} data-status={status}>
  {result.headline}
  </p>
- <p className={`mt-3 text-lg font-medium text-body-charcoal ${primaryClass}`}>{result.summary}</p>
+ <LedgerNumberTick value={result.summary} className={`mt-3 ${primaryClass}`} />
  </div>
  );
 }
@@ -258,11 +253,11 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
  <SectorToolSelect tier="free" currentSlug={tool.freeSlug} />
  <OsModuleHeader title={tool.freeTitle} tier="utility" />
 
- <div className="sc-tool-workspace mt-4">
+ <div className="sc-ledger-cetele sc-tool-workspace mt-4">
  <form
  ref={formRef}
  onSubmit={handleSubmit}
- className="sc-tool-workspace__form sc-industrial-form sc-industrial-panel p-4 sm:p-5"
+ className="sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
  noValidate
  >
  {tool.freeInputs.map((input) => (
@@ -285,7 +280,7 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
  </div>
  </form>
 
- <div className="sc-tool-workspace__result min-w-0">
+ <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0">
  {isCalculating ? (
  <p className="text-sm text-body-charcoal">Calculating…</p>
  ) : null}

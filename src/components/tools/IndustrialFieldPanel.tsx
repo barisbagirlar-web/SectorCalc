@@ -31,7 +31,7 @@ export interface IndustrialFieldPanelProps {
  */
 export function IndustrialFieldPanel({ panel, verdictSeverity }: IndustrialFieldPanelProps) {
   return (
-    <section className="sc-premium-report" aria-label="Industrial decision panel">
+    <section className="sc-ledger-report sc-premium-report sc-ledger-letterpress" aria-label="Industrial decision panel">
       <div className="sc-premium-report-section flex flex-wrap items-center justify-between gap-2">
         <span className="sc-craft-eyebrow">{panel.familyBadge}</span>
         <span className="font-mono text-[10px] uppercase tracking-wide text-body-charcoal">

@@ -12,11 +12,22 @@
 
 @layer base {
   :root {
-    --bg-industrial-matte: #fbfbfa;
-    --text-premium-velvet: #111111;
-    --text-body-charcoal: #2b2b2b;
-    --border-technical-gray: #d1d1d1;
-    --action-industrial-orange: #e65100;
+    /* Industrial Ledger v1.1 — see design-craft.css for full token set */
+    --sc-bg: #faf7f2;
+    --sc-surface: #ffffff;
+    --sc-text: #1a1a1a;
+    --sc-muted: #6b6b6b;
+    --sc-border: #d1d1d1;
+    --sc-copper: #c2410c;
+    --sc-navy: #1e40af;
+    --sc-success: #166534;
+    --sc-warning: #d97706;
+    --sc-danger: #991b1b;
+    --bg-industrial-matte: var(--sc-bg);
+    --text-premium-velvet: var(--sc-text);
+    --text-body-charcoal: var(--sc-muted);
+    --border-technical-gray: var(--sc-border);
+    --action-industrial-orange: var(--sc-copper);
     /* Typography stack — Inter / Barlow / JetBrains Mono */
     --font-sans: var(--font-inter);
     --font-display: var(--font-barlow);
@@ -29,6 +40,8 @@
 
   body {
     @apply bg-industrial-matte text-premium-velvet antialiased;
+    position: relative;
+    background-color: var(--sc-bg);
     font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Helvetica Neue",
       Helvetica, Arial, sans-serif;
     font-size: 17px;
@@ -37,6 +50,27 @@
     font-feature-settings: "cv11", "ss01";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.018;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(26, 26, 26, 0.03) 2px,
+      rgba(26, 26, 26, 0.03) 3px
+    );
+  }
+
+  body > * {
+    position: relative;
+    z-index: 1;
   }
 
   strong {

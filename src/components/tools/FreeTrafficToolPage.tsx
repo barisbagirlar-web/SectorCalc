@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
+import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
 import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics/events";
 import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/analytics/revenue-events";
 import { getToolHref } from "@/lib/tools/paths";
@@ -129,10 +130,10 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
 
       <section className="sc-craft-section overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
-          <div className="sc-tool-workspace">
+          <div className="sc-ledger-cetele sc-tool-workspace">
             <form
               onSubmit={handleSubmit}
-              className="sc-tool-workspace__form sc-industrial-form sc-industrial-panel p-4 sm:p-5"
+              className="sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
               noValidate
             >
               {tool.inputs.map((input) => {
@@ -193,7 +194,7 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                         setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
                         setSubmitted(false);
                       }}
-                      className={`sc-industrial-input${error ? " sc-industrial-input--error" : ""}`}
+                      className={`sc-ledger-input-underline${error ? " sc-ledger-input--error" : ""}`}
                       aria-invalid={Boolean(error)}
                     />
                     <p className="sc-industrial-field__helper">{input.helper}</p>
@@ -213,13 +214,13 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
               </div>
             </form>
 
-            <div className="sc-tool-workspace__result min-w-0 space-y-4" aria-live="polite">
+            <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0 space-y-4" aria-live="polite">
               {result ? (
                 <>
-                  <div className="sc-result-panel">
-                    <p className="sc-craft-eyebrow">{result.headline}</p>
+                  <div className="sc-ledger-result sc-result-panel sc-ledger-letterpress">
+                    <p className="sc-ledger-eyebrow">{result.headline}</p>
                     <p className="mt-1 text-xs text-body-charcoal">{result.primaryLabel}</p>
-                    <p className={primaryClass}>{result.primaryValue}</p>
+                    <LedgerNumberTick value={result.primaryValue} className={primaryClass} />
                     {result.secondaryValues.length > 0 ? (
                       <dl
                         className={`sc-result-secondary-grid${isConversion ? " sc-result-secondary-grid--3" : ""}`}

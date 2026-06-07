@@ -18,7 +18,7 @@ export function ToolDiscoveryCard({ tool, catalogVariant = "default" }: ToolDisc
 
   if (isPremium && catalogVariant === "premium") {
     return (
-      <article className="sc-craft-card">
+      <article className="sc-ledger-card sc-craft-card sc-ledger-letterpress">
         <p className="sc-craft-eyebrow">{architecture?.sectorLabel ?? industry?.name ?? "Sector"}</p>
         <h3 className="sc-craft-card__title mt-2">
           {architecture?.reclassifiedTitle ?? tool.name}
@@ -45,12 +45,12 @@ export function ToolDiscoveryCard({ tool, catalogVariant = "default" }: ToolDisc
   }
 
   return (
-    <Link href={tool.href} className="sc-craft-card group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-premium-velvet/30">
+    <Link href={tool.href} className="sc-ledger-card sc-craft-card sc-ledger-letterpress group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sc-copper/30">
       <div className="min-w-0 flex-1">
         {industry ? (
           <p className="sc-craft-eyebrow">{industry.name}</p>
         ) : null}
-        <h3 className="sc-craft-card__title mt-2 group-hover:text-[#E65100]">{tool.name}</h3>
+        <h3 className="sc-craft-card__title mt-2 group-hover:text-sc-copper">{tool.name}</h3>
         <p className="sc-craft-card__body">{tool.shortDescription}</p>
       </div>
       <span className="sc-craft-card__cta">Open calculator →</span>

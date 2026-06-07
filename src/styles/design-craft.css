@@ -1,26 +1,84 @@
 /**
- * SectorCalc Design Craft Layer v1
- * Handcrafted industrial + Apple marketing surfaces — one disciplined token set.
+ * SectorCalc Design Craft Layer v1.1 — Industrial Ledger
+ * 85% industrial grid · 10% ledger feel · 5% craft detail
  *
- * DNA: #FBFBFA bg · #111111 text · #2B2B2B secondary · #D1D1D1 border · #E65100 CTA only
+ * DNA: cream paper · white cards · dark text · copper CTA · navy trust
  */
 
-/* ── Marketing / catalog surfaces ── */
-.sc-craft-section {
-  padding-block: clamp(1.5rem, 4vw, 3rem);
-  background-color: var(--bg-industrial-matte, #fbfbfa);
+/* ── Ledger tokens ── */
+:root {
+  --sc-bg: #faf7f2;
+  --sc-surface: #ffffff;
+  --sc-text: #1a1a1a;
+  --sc-muted: #6b6b6b;
+  --sc-border: #d1d1d1;
+  --sc-copper: #c2410c;
+  --sc-copper-hover: #9a3412;
+  --sc-navy: #1e40af;
+  --sc-success: #166534;
+  --sc-warning: #d97706;
+  --sc-danger: #991b1b;
+
+  /* Bridge to legacy industrial vars */
+  --bg-industrial-matte: var(--sc-bg);
+  --text-premium-velvet: var(--sc-text);
+  --text-body-charcoal: var(--sc-muted);
+  --border-technical-gray: var(--sc-border);
+  --action-industrial-orange: var(--sc-copper);
+  --safe-green: var(--sc-success);
+  --warn-amber: var(--sc-warning);
+  --crit-red: var(--sc-danger);
+}
+
+/* ── Page shell + subtle noise (CSS only, max 0.02 opacity) ── */
+.sc-ledger-page {
+  position: relative;
+  background-color: var(--sc-bg);
   overflow-x: hidden;
 }
 
+.sc-ledger-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.018;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(26, 26, 26, 0.03) 2px,
+    rgba(26, 26, 26, 0.03) 3px
+  );
+}
+
+.sc-ledger-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Layout primitives ── */
+.sc-ledger-section,
+.sc-craft-section {
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+  background-color: var(--sc-bg);
+  overflow-x: hidden;
+}
+
+.sc-ledger-section--white,
 .sc-craft-section--white,
+.sc-ledger-section--alt,
 .sc-craft-section--alt {
-  background-color: #ffffff;
+  background-color: var(--sc-surface);
 }
 
+.sc-ledger-section--border,
 .sc-craft-section--border {
-  border-bottom: 1px solid var(--border-technical-gray, #d1d1d1);
+  border-bottom: 1px solid var(--sc-border);
 }
 
+.sc-ledger-container,
 .sc-craft-container {
   width: 100%;
   max-width: 72rem;
@@ -29,19 +87,23 @@
   min-width: 0;
 }
 
+.sc-ledger-container--wide,
 .sc-craft-container--wide {
   max-width: 80rem;
 }
 
+/* ── Typography ── */
+.sc-ledger-eyebrow,
 .sc-craft-eyebrow {
   font-family: var(--font-jetbrains), ui-monospace, monospace;
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-body-charcoal, #2b2b2b);
+  color: var(--sc-muted);
 }
 
+.sc-ledger-title,
 .sc-craft-headline {
   margin-top: 0.75rem;
   font-family: var(--font-barlow), sans-serif;
@@ -49,39 +111,53 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.12;
-  color: var(--text-premium-velvet, #111111);
+  color: var(--sc-text);
 }
 
+.sc-ledger-lead,
 .sc-craft-lead {
   margin-top: 1rem;
   max-width: 42rem;
   font-size: 1rem;
   line-height: 1.55;
-  color: var(--text-body-charcoal, #2b2b2b);
+  color: var(--sc-muted);
 }
 
+/* ── Cards + letterpress ── */
+.sc-ledger-card,
 .sc-craft-card {
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 9.5rem;
   padding: 1rem 1.125rem;
-  background: #ffffff;
-  border: 1px solid var(--border-technical-gray, #d1d1d1);
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
   border-radius: 0;
   box-shadow: none;
   transition: border-color 150ms ease;
 }
 
+.sc-ledger-letterpress,
+.sc-ledger-card.sc-ledger-letterpress,
+.sc-craft-card.sc-ledger-letterpress,
+.sc-industrial-panel.sc-ledger-letterpress,
+.sc-ledger-panel.sc-ledger-letterpress {
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.85) inset,
+    0 -1px 0 rgb(26 26 26 / 0.04) inset;
+}
+
+.sc-ledger-card:hover,
 .sc-craft-card:hover {
-  border-color: var(--text-premium-velvet, #111111);
+  border-color: var(--sc-text);
 }
 
 .sc-craft-card__title {
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.35;
-  color: var(--text-premium-velvet, #111111);
+  color: var(--sc-text);
 }
 
 .sc-craft-card__body {
@@ -89,7 +165,7 @@
   flex: 1 1 auto;
   font-size: 0.8125rem;
   line-height: 1.5;
-  color: var(--text-body-charcoal, #2b2b2b);
+  color: var(--sc-muted);
 }
 
 .sc-craft-card__cta {
@@ -101,20 +177,100 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-premium-velvet, #111111);
+  color: var(--sc-text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .sc-craft-card__cta:hover {
-  color: var(--action-industrial-orange, #e65100);
+  color: var(--sc-copper);
 }
 
-/* ── Tool / industrial panel ── */
+/* ── Divider (straight rule only — no hand-drawn) ── */
+.sc-ledger-divider {
+  height: 1px;
+  margin-block: 1rem;
+  background: var(--sc-border);
+  border: none;
+}
+
+/* ── Inputs ── */
+.sc-ledger-label,
+.sc-industrial-field__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-muted);
+}
+
+.sc-ledger-helper,
+.sc-industrial-field__helper {
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--sc-muted);
+}
+
+.sc-ledger-input-underline {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.625rem 0;
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.9375rem;
+  color: var(--sc-text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--sc-border);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sc-ledger-input-underline:focus {
+  outline: none;
+  border-bottom: 2px solid var(--sc-copper);
+  margin-bottom: -1px;
+}
+
+.sc-ledger-input-underline.sc-ledger-input--error,
+.sc-ledger-input-underline.sc-industrial-input--error {
+  border-bottom-color: var(--sc-danger);
+}
+
+.sc-ledger-input-boxed,
+.sc-industrial-input,
+.sc-industrial-form select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.625rem 0.875rem;
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.9375rem;
+  color: var(--sc-text);
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sc-ledger-input-boxed:focus,
+.sc-industrial-input:focus,
+.sc-industrial-form select:focus {
+  outline: none;
+  border-color: var(--sc-copper);
+  box-shadow: 0 0 0 1px var(--sc-copper);
+}
+
+.sc-ledger-input-boxed.sc-ledger-input--error,
+.sc-industrial-input--error,
+.sc-industrial-form select.sc-industrial-input--error {
+  border-color: var(--sc-danger);
+}
+
+/* ── Panels ── */
+.sc-ledger-panel,
 .sc-industrial-panel {
   min-width: 0;
-  background: #ffffff;
-  border: 1px solid var(--border-technical-gray, #d1d1d1);
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
   border-radius: 0;
 }
 
@@ -152,57 +308,17 @@
   min-width: 0;
 }
 
-.sc-industrial-field__label {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-body-charcoal, #2b2b2b);
-}
-
 .sc-industrial-field__unit {
   flex-shrink: 0;
   font-family: var(--font-jetbrains), ui-monospace, monospace;
   font-size: 0.6875rem;
-  color: var(--text-body-charcoal, #2b2b2b);
-  opacity: 0.85;
-}
-
-.sc-industrial-field__helper {
-  font-size: 0.75rem;
-  line-height: 1.45;
-  color: var(--text-body-charcoal, #2b2b2b);
+  color: var(--sc-muted);
 }
 
 .sc-industrial-field__error {
   font-size: 0.8125rem;
   line-height: 1.4;
-  color: var(--crit-red, #dc2626);
-}
-
-.sc-industrial-input,
-.sc-industrial-form select {
-  width: 100%;
-  min-height: 44px;
-  padding: 0.625rem 0.875rem;
-  font-family: var(--font-jetbrains), ui-monospace, monospace;
-  font-size: 0.9375rem;
-  color: var(--text-premium-velvet, #111111);
-  background: #ffffff;
-  border: 1px solid var(--border-technical-gray, #d1d1d1);
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.sc-industrial-input:focus,
-.sc-industrial-form select:focus {
-  outline: none;
-  border-color: var(--text-premium-velvet, #111111);
-}
-
-.sc-industrial-input--error,
-.sc-industrial-form select.sc-industrial-input--error {
-  border-color: var(--crit-red, #dc2626);
+  color: var(--sc-danger);
 }
 
 .sc-industrial-input-wrap {
@@ -225,7 +341,7 @@
   transform: translateY(-50%);
   font-family: var(--font-jetbrains), ui-monospace, monospace;
   font-size: 0.75rem;
-  color: var(--text-body-charcoal, #2b2b2b);
+  color: var(--sc-muted);
   pointer-events: none;
 }
 
@@ -237,14 +353,16 @@
   right: 0.75rem;
 }
 
-/* ── Result panel (3-second read) ── */
+/* ── Results + number tick ── */
+.sc-ledger-result,
 .sc-result-panel {
   min-width: 0;
   padding: 1.25rem;
-  background: #ffffff;
-  border: 1px solid var(--border-technical-gray, #d1d1d1);
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
 }
 
+.sc-ledger-big-number,
 .sc-result-primary {
   font-family: var(--font-jetbrains), ui-monospace, monospace;
   font-size: clamp(2rem, 5vw, 2.75rem);
@@ -252,19 +370,41 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
-  color: var(--text-premium-velvet, #111111);
+  color: var(--sc-text);
 }
 
 .sc-result-primary--safe {
-  color: var(--safe-green, #10b981);
+  color: var(--sc-success);
 }
 
 .sc-result-primary--warn {
-  color: var(--warn-amber, #f59e0b);
+  color: var(--sc-warning);
 }
 
 .sc-result-primary--danger {
-  color: var(--crit-red, #dc2626);
+  color: var(--sc-danger);
+}
+
+@keyframes sc-ledger-tick {
+  0% {
+    opacity: 0.45;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sc-ledger-number-tick {
+  display: inline-block;
+  animation: sc-ledger-tick 120ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-ledger-number-tick {
+    animation: none;
+  }
 }
 
 .sc-result-secondary-grid {
@@ -286,7 +426,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-body-charcoal, #2b2b2b);
+  color: var(--sc-muted);
 }
 
 .sc-result-secondary-grid dd {
@@ -294,19 +434,20 @@
   font-family: var(--font-jetbrains), ui-monospace, monospace;
   font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
-  color: var(--text-premium-velvet, #111111);
+  color: var(--sc-text);
 }
 
-/* ── Premium decision report ── */
+/* ── Premium report / Karar Masası ── */
+.sc-ledger-report,
 .sc-premium-report {
   min-width: 0;
-  background: #ffffff;
-  border: 1px solid var(--border-technical-gray, #d1d1d1);
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
 }
 
 .sc-premium-report-section {
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border-technical-gray, #d1d1d1);
+  border-bottom: 1px solid var(--sc-border);
 }
 
 .sc-premium-report-section:last-child {
@@ -318,30 +459,31 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-body-charcoal, #2b2b2b);
+  color: var(--sc-muted);
 }
 
+.sc-ledger-threshold,
 .sc-risk-strip {
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border-technical-gray, #d1d1d1);
+  border-bottom: 1px solid var(--sc-border);
   font-size: clamp(1.125rem, 2.5vw, 1.375rem);
   font-weight: 700;
   line-height: 1.25;
 }
 
 .sc-risk-strip--safe {
-  background: rgb(16 185 129 / 0.06);
-  color: var(--safe-green, #10b981);
+  background: rgb(22 101 52 / 0.06);
+  color: var(--sc-success);
 }
 
 .sc-risk-strip--watch {
-  background: rgb(245 158 11 / 0.06);
-  color: var(--warn-amber, #f59e0b);
+  background: rgb(217 119 6 / 0.06);
+  color: var(--sc-warning);
 }
 
 .sc-risk-strip--danger {
-  background: rgb(220 38 38 / 0.06);
-  color: var(--crit-red, #dc2626);
+  background: rgb(153 27 27 / 0.06);
+  color: var(--sc-danger);
 }
 
 .sc-loss-driver-grid {
@@ -358,14 +500,14 @@
 
 .sc-loss-driver-card {
   padding: 0.75rem;
-  background: var(--bg-industrial-matte, #fbfbfa);
-  border: 1px solid var(--border-technical-gray, #d1d1d1);
+  background: var(--sc-bg);
+  border: 1px solid var(--sc-border);
 }
 
 .sc-loss-driver-card__label {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--text-premium-velvet, #111111);
+  color: var(--sc-text);
 }
 
 .sc-loss-driver-card__amount {
@@ -373,13 +515,13 @@
   font-family: var(--font-jetbrains), ui-monospace, monospace;
   font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
-  color: var(--text-body-charcoal, #2b2b2b);
+  color: var(--sc-muted);
 }
 
 .sc-decision-block {
   padding: 1rem 1.25rem;
-  background: var(--bg-industrial-matte, #fbfbfa);
-  border: 1px solid var(--border-technical-gray, #d1d1d1);
+  background: var(--sc-bg);
+  border: 1px solid var(--sc-border);
 }
 
 .sc-decision-block__title {
@@ -387,7 +529,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-body-charcoal, #2b2b2b);
+  color: var(--sc-navy);
 }
 
 .sc-decision-block__body {
@@ -395,10 +537,11 @@
   font-size: 0.9375rem;
   line-height: 1.5;
   font-weight: 500;
-  color: var(--text-premium-velvet, #111111);
+  color: var(--sc-text);
 }
 
 /* ── CTAs ── */
+.sc-ledger-cta-primary,
 .sc-cta-primary {
   display: inline-flex;
   min-height: 44px;
@@ -411,23 +554,26 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #ffffff;
-  background: var(--action-industrial-orange, #e65100);
-  border: 1px solid var(--action-industrial-orange, #e65100);
+  background: var(--sc-copper);
+  border: 1px solid var(--sc-copper);
   border-radius: 0;
   box-shadow: none;
   transition: background-color 150ms ease, border-color 150ms ease;
 }
 
+.sc-ledger-cta-primary:hover:not(:disabled),
 .sc-cta-primary:hover:not(:disabled) {
-  background: #bf360c;
-  border-color: #bf360c;
+  background: var(--sc-copper-hover);
+  border-color: var(--sc-copper-hover);
 }
 
+.sc-ledger-cta-primary:disabled,
 .sc-cta-primary:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
 
+.sc-ledger-cta-secondary,
 .sc-cta-secondary {
   display: inline-flex;
   min-height: 44px;
@@ -436,18 +582,20 @@
   padding: 0 1rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--text-premium-velvet, #111111);
+  color: var(--sc-text);
   background: transparent;
-  border: 1px solid var(--border-technical-gray, #d1d1d1);
+  border: 1px solid var(--sc-border);
   border-radius: 0;
   transition: border-color 150ms ease, color 150ms ease;
 }
 
+.sc-ledger-cta-secondary:hover,
 .sc-cta-secondary:hover {
-  border-color: var(--text-premium-velvet, #111111);
+  border-color: var(--sc-text);
 }
 
-/* ── Tool page layout ── */
+/* ── Free: Hızlı Çetele layout ── */
+.sc-ledger-cetele,
 .sc-tool-workspace {
   display: grid;
   min-width: 0;
@@ -456,21 +604,95 @@
 }
 
 @media (min-width: 1024px) {
+  .sc-ledger-cetele,
   .sc-tool-workspace {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: start;
   }
 }
 
+.sc-ledger-cetele__form,
 .sc-tool-workspace__form {
   min-width: 0;
 }
 
+.sc-ledger-cetele__result,
 .sc-tool-workspace__result {
   min-width: 0;
 }
 
-/* ── Catalog grids — equal height, no horizontal scroll ── */
+/* Free underline form — single column on mobile */
+.sc-ledger-cetele-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Premium: Karar Masası layout ── */
+.sc-ledger-karar-masasi {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+@media (min-width: 1280px) {
+  .sc-ledger-karar-masasi {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 0.85fr) minmax(0, 1.1fr);
+    align-items: start;
+  }
+}
+
+.sc-ledger-karar-masasi__entries {
+  order: 3;
+}
+
+.sc-ledger-karar-masasi__big-number {
+  order: 1;
+}
+
+.sc-ledger-karar-masasi__alert {
+  order: 2;
+}
+
+.sc-ledger-karar-masasi__report {
+  order: 4;
+}
+
+.sc-ledger-karar-masasi__actions {
+  order: 5;
+}
+
+@media (min-width: 1280px) {
+  .sc-ledger-karar-masasi__entries {
+    order: unset;
+  }
+
+  .sc-ledger-karar-masasi__big-number {
+    order: unset;
+  }
+
+  .sc-ledger-karar-masasi__alert {
+    order: unset;
+  }
+
+  .sc-ledger-karar-masasi__report {
+    order: unset;
+  }
+
+  .sc-ledger-karar-masasi__actions {
+    order: unset;
+  }
+}
+
+@media (min-width: 1280px) {
+  .sc-tool-workspace.sc-tool-workspace--3col {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.1fr) minmax(0, 1.1fr);
+  }
+}
+
+/* ── Catalog grids ── */
 .sc-craft-grid {
   display: grid;
   gap: 0.875rem;
@@ -513,40 +735,49 @@
   }
 }
 
-/* ── Header craft refinements ── */
+/* ── Header — calmer utilities ── */
 .sc-header-craft .apple-nav {
-  background: rgb(251 251 250 / 0.92);
-  backdrop-filter: saturate(180%) blur(14px);
-  border-bottom: 1px solid var(--border-technical-gray, #d1d1d1);
+  background: rgb(250 247 242 / 0.94);
+  backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid var(--sc-border);
 }
 
 .sc-header-craft .apple-nav__utilities {
-  gap: 0.5rem;
+  gap: 0.375rem;
 }
 
 @media (min-width: 1024px) {
   .sc-header-craft .apple-nav__utilities {
-    gap: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .sc-header-craft .apple-nav__links {
+    gap: 0.125rem;
+  }
+
+  .sc-header-craft .apple-nav__link {
+    padding-inline: 0.625rem;
+    font-size: 0.8125rem;
   }
 }
 
 .sc-header-craft .apple-nav__link {
-  color: var(--text-body-charcoal, #2b2b2b);
+  color: var(--sc-muted);
   font-weight: 500;
 }
 
 .sc-header-craft .apple-nav__link:hover {
-  color: var(--text-premium-velvet, #111111);
+  color: var(--sc-text);
 }
 
 .sc-header-util-compact {
   display: flex;
   align-items: center;
-  gap: 0.375rem;
+  gap: 0.25rem;
 }
 
 @media (min-width: 1024px) {
   .sc-header-util-compact {
-    gap: 0.625rem;
+    gap: 0.375rem;
   }
 }

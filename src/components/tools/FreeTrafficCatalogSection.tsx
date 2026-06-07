@@ -36,7 +36,7 @@ export async function FreeTrafficCatalogSection() {
               }
               return (
                 <li key={slug}>
-                  <article className="sc-craft-card">
+                  <article className="sc-ledger-card sc-craft-card sc-ledger-letterpress">
                     <p className="sc-craft-eyebrow">{t(`categories.${tool.category}`)}</p>
                     <h3 className="sc-craft-card__title mt-2">{tool.title}</h3>
                     <p className="sc-craft-card__body">{tool.description}</p>
@@ -68,7 +68,7 @@ export async function FreeTrafficCatalogSection() {
               <ul className="sc-craft-grid sc-craft-grid--3 mt-5">
                 {tools.map((tool) => (
                   <li key={tool.slug}>
-                    <article className="sc-craft-card">
+                    <article className="sc-ledger-card sc-craft-card sc-ledger-letterpress">
                       <h3 className="sc-craft-card__title">{tool.title}</h3>
                       <p className="sc-craft-card__body">{tool.description}</p>
                       <Link href={resolveToolHref(tool.slug)} className="sc-craft-card__cta">

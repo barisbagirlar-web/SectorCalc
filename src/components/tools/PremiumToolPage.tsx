@@ -24,6 +24,8 @@ import {
 import {
  PremiumAnalyzerReportPanel,
 } from "@/components/tools/PremiumAnalyzerReportPanel";
+import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
+import { getPremiumSchemaForPaidSlug } from "@/lib/premium-schema/schema-registry";
 import {
  arePremiumToolInputsValid,
  calculatePremiumDecisionReport,
@@ -162,7 +164,7 @@ function PremiumToolInputField({
  }}
  aria-invalid={Boolean(error)}
  aria-describedby={error ? errorId : helperId}
- className={`sc-industrial-input${isCurrency ? " sc-industrial-input--currency" : ""}${showUnit ? " sc-industrial-input--unit" : ""}${error ? " sc-industrial-input--error" : ""}`}
+ className={`sc-ledger-input-boxed sc-industrial-input${isCurrency ? " sc-industrial-input--currency" : ""}${showUnit ? " sc-industrial-input--unit" : ""}${error ? " sc-industrial-input--error" : ""}`}
  />
  </div>
  {input.helperText ? (
@@ -198,6 +200,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  const [errors, setErrors] = useState<Record<string, string>>({});
 
  const isCncStochastic = tool.paidSlug === "cnc-quote-risk-analyzer";
+ const schemaPilot = getPremiumSchemaForPaidSlug(tool.paidSlug);
 
  const decisionReport = useMemo(() => {
  if (!submitted || !canAccessAnalyzer) {
@@ -329,6 +332,13 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  <>
  <SectorToolSelect tier="premium" currentSlug={tool.paidSlug} />
  <OsModuleHeader title={tool.paidTitle} tier="intelligence" />
+ {schemaPilot ? (
+ <>
+ <DynamicPremiumCalculator schema={schemaPilot} />
+ <details className="mt-4 sc-industrial-panel p-4">
+ <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wider text-body-charcoal">
+ Legacy contract engine (PDF-compatible)
+ </summary>
  <div className="sc-tool-workspace mt-4">
  <form
  onSubmit={handleSubmit}
@@ -345,17 +355,70 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  />
  ))}
  <div className="sc-industrial-form-actions">
+ <button type="submit" disabled={isCalculating} className="sc-cta-primary disabled:opacity-60">
+ {isCalculating ? "Calculating…" : "Run legacy analysis"}
+ </button>
+ </div>
+ </form>
+ <div className="sc-tool-workspace__result min-w-0 space-y-4">
+ {!isCalculating && decisionReport && result && verdictReportData ? (
+ <>
+ <PremiumAnalyzerReportPanel report={decisionReport} />
+ <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+ <DownloadVerdictPdfButton
+ data={verdictReportData}
+ slug={tool.paidSlug}
+ severity={result.severity}
+ />
+ {user ? (
+ <SaveVerdictReportButton uid={user.uid} tool={tool} values={values} result={result} />
+ ) : null}
+ </div>
+ {isCncStochastic ? (
+ <PremiumDecisionReportPanel
+ variant="stochastic"
+ sector={tool.sector}
+ inputs={toStochasticInputs(values)}
+ inputsReady={arePremiumToolInputsValid(tool, values)}
+ toolSlug={tool.paidSlug}
+ toolTitle={tool.paidTitle}
+ />
+ ) : null}
+ </>
+ ) : null}
+ </div>
+ </div>
+ </details>
+ </>
+ ) : (
+ <>
+ <div className="sc-ledger-karar-masasi mt-4">
+ <form
+ onSubmit={handleSubmit}
+ className="sc-ledger-karar-masasi__entries sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
+ noValidate
+ >
+ {tool.paidInputs.map((input) => (
+ <PremiumToolInputField
+ key={input.key}
+ input={input}
+ value={values[input.key] ?? (input.type === "select" ? "" : 0)}
+ error={errors[input.key]}
+ onChange={handleChange}
+ />
+ ))}
+ <div className="sc-industrial-form-actions">
  <button
  type="submit"
  disabled={isCalculating}
- className="sc-cta-primary disabled:opacity-60"
+ className="sc-ledger-cta-primary sc-cta-primary disabled:opacity-60"
  >
  {isCalculating ? "Calculating…" : "Run analysis"}
  </button>
  </div>
  </form>
 
- <div className="sc-tool-workspace__result min-w-0 space-y-4">
+ <div className="sc-ledger-karar-masasi__report min-w-0 space-y-4">
  {isCalculating ? <p className="text-sm text-body-charcoal">Calculating…</p> : null}
  {!isCalculating && decisionReport && result && verdictReportData ? (
  <>
@@ -386,6 +449,8 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  ) : null}
  </div>
  </div>
+ </>
+ )}
  </>
  )}
  </Container>

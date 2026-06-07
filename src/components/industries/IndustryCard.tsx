@@ -40,7 +40,7 @@ function ToolRow({ label, tone, tool, href }: ToolRowProps) {
   return (
     <Link
       href={href}
-      className="group/tool flex min-h-[72px] items-start justify-between gap-3 border border-technical-gray bg-white px-3 py-3 transition hover:border-premium-velvet focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-premium-velvet/20"
+      className="group/tool flex min-h-[72px] items-start justify-between gap-3 border border-technical-gray bg-white px-3 py-3 transition hover:border-sc-copper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sc-copper/20"
     >
       <div className="min-w-0 flex-1">
         <span className="sc-craft-eyebrow">{label}</span>
@@ -77,7 +77,7 @@ export function IndustryCard({
 
   return (
     <article
-      className={`sc-craft-card flex h-full flex-col p-5 sm:p-6 ${
+      className={`sc-ledger-card sc-craft-card sc-ledger-letterpress flex h-full flex-col p-5 sm:p-6 ${
         featured ? "border-premium-velvet/30" : ""
       }`}
     >

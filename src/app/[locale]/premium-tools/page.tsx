@@ -105,7 +105,7 @@ export default function PremiumToolsPage() {
           </p>
           <div className="sc-craft-grid sc-craft-grid--2 mt-5">
             {VERDICT_EXAMPLES.map((item) => (
-              <article key={item.verdict} className="sc-industrial-panel p-4">
+              <article key={item.verdict} className="sc-ledger-card sc-industrial-panel sc-ledger-letterpress p-4">
                 <p className={`text-sm font-bold ${item.verdict.includes("High risk") ? "text-crit-red" : item.verdict.includes("acceptable") ? "text-safe-green" : "text-premium-velvet"}`}>
                   {item.verdict}
                 </p>

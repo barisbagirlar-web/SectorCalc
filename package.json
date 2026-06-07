@@ -9,9 +9,10 @@
     "lint": "next lint",
     "test": "vitest run",
     "test:watch": "vitest",
+    "lint:schemas": "vitest run src/lib/premium-schema/__tests__/schema-linter.test.ts",
     "seo:llms": "node scripts/generate-llms-txt.mjs",
     "seo:indexnow": "node scripts/ping-indexnow.mjs",
-    "prebuild": "npm run seo:llms",
+    "prebuild": "npm run lint:schemas && npm run seo:llms",
     "audit:revenue-tools": "node scripts/audit-revenue-tools.mjs",
     "check:secrets": "node scripts/check-commit-secrets.mjs",
     "admin:set-claim": "node scripts/set-admin-claim.mjs"
