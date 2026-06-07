@@ -28,7 +28,7 @@ export default async function IndustriesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
-  const industryGroups = buildIndustryCatalogGroups();
+  const industryGroups = buildIndustryCatalogGroups(locale);
 
   return (
     <PageLayout>

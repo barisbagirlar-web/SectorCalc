@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
@@ -17,6 +17,7 @@ import {
   listRelatedTrafficTools,
   type FreeTrafficTool,
 } from "@/lib/tools/free-traffic-catalog";
+import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
 
 function buildInitialValues(tool: FreeTrafficTool): FreeTrafficInputValues {
   const values: FreeTrafficInputValues = {};
@@ -62,6 +63,12 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
     }
     return calculateFreeTrafficTool(tool.slug, values);
   }, [submitted, tool.slug, values]);
+
+  const relatedPremiumSlug = result?.relatedPremiumSlug ?? tool.relatedPremiumSlug;
+  const premiumAnalyzerHref = useMemo(
+    () => (relatedPremiumSlug ? resolvePremiumAnalyzerHref(relatedPremiumSlug) : null),
+    [relatedPremiumSlug]
+  );
 
   const relatedTools = listRelatedTrafficTools(tool);
   const isConversion = tool.resultType === "conversion";
@@ -258,19 +265,16 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                     </div>
                   </div>
 
-                  {(result.relatedPremiumSlug ?? tool.relatedPremiumSlug) ? (
+                  {premiumAnalyzerHref ? (
                     <div className="sc-decision-block">
                       <p className="sc-decision-block__title">{t("tool.premiumBlockTitle")}</p>
                       <p className="mt-2 text-sm text-body-charcoal">{t("tool.premiumBlockBody")}</p>
                       <Link
-                        href={getToolHref(
-                          "premium",
-                          result.relatedPremiumSlug ?? tool.relatedPremiumSlug ?? "",
-                        )}
+                        href={premiumAnalyzerHref}
                         onClick={() => {
                           trackEvent(ANALYTICS_EVENTS.premium_preview_viewed, {
                             toolSlug: tool.slug,
-                            premiumSlug: result.relatedPremiumSlug ?? tool.relatedPremiumSlug ?? "",
+                            premiumSlug: relatedPremiumSlug ?? "",
                           });
                         }}
                         className="sc-craft-card__cta mt-3"

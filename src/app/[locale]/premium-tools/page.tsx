@@ -4,20 +4,19 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
 import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
-import {
-  buildPremiumToolCatalogGroups,
-  DEFAULT_PREMIUM_REPORT_FAMILY,
-} from "@/lib/catalog/build-catalog-groups";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { Container } from "@/components/ui/Container";
-import { PREMIUM_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
+import {
+  buildPremiumSchemaCatalogGroups,
+  DEFAULT_PREMIUM_SCHEMA_CATALOG_GROUP,
+} from "@/lib/premium-schema/premium-schema-catalog";
 import { getFreeToolsHref, getPricingHref, getSampleReportHref } from "@/lib/tools/tool-links";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Premium Decision Reports",
+  title: "Premium Decision Reports and Hidden-Loss Analyzers | SectorCalc",
   description:
-    "Sector-specific loss detection, measurement, OEE, routing, energy and profitability decision reports.",
+    "Explore premium analyzers for cost, scrap, OEE, route, energy, carbon, calibration and benchmark decisions.",
   path: "/premium-tools",
 });
 
@@ -48,7 +47,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
-  const premiumGroups = buildPremiumToolCatalogGroups(PREMIUM_TOOLS);
+  const premiumGroups = buildPremiumSchemaCatalogGroups(locale);
 
   return (
     <PageLayout>
@@ -63,7 +62,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
           <SectorCatalogExplorer
             groups={premiumGroups}
             variant="premium-tools"
-            defaultGroupId={DEFAULT_PREMIUM_REPORT_FAMILY}
+            defaultGroupId={DEFAULT_PREMIUM_SCHEMA_CATALOG_GROUP}
           />
         </Container>
       </section>

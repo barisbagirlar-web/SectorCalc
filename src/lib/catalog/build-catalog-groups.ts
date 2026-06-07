@@ -20,6 +20,7 @@ import {
 } from "@/lib/tools/free-traffic-categories";
 import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
 import type { CatalogGroup, CatalogItem } from "@/lib/catalog/catalog-types";
+import { getIndustryRelatedPremiumItems } from "@/lib/premium-schema/premium-schema-catalog";
 
 export const INDUSTRY_CATEGORY_DESCRIPTIONS: Record<IndustryCategory, string> = {
   "heavy-industry":
@@ -155,7 +156,7 @@ export function buildPremiumToolCatalogGroups(tools: readonly Tool[]): CatalogGr
   })).filter((group) => group.items.length > 0);
 }
 
-export function buildIndustryCatalogGroups(): CatalogGroup[] {
+export function buildIndustryCatalogGroups(locale = "en"): CatalogGroup[] {
   return getAllIndustryCategories()
     .map((category) => {
       const entries = getIndustriesByCategory(category);
@@ -166,12 +167,14 @@ export function buildIndustryCatalogGroups(): CatalogGroup[] {
           if (!industry || !tool) {
             return null;
           }
+          const relatedPremium = getIndustryRelatedPremiumItems(entry.slug, locale, 3);
           return {
             title: industry.name,
             description: industry.businessPain,
             href: `/industries/${industry.slug}`,
             meta: `${tool.freeTitle} · ${tool.paidTitle}`,
             ctaLabel: "Open industry →",
+            relatedPremium: relatedPremium.length > 0 ? relatedPremium : undefined,
           };
         })
         .filter((item): item is NonNullable<typeof item> => item !== null);

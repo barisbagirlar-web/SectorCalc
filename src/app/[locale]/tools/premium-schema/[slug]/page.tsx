@@ -62,7 +62,7 @@ export default async function PremiumSchemaPilotPage({
     <PageLayout>
       <section className="border-b border-technical-gray bg-surface-cream">
         <Container className="py-8 sm:py-10">
-          <p className="sc-ledger-eyebrow">Premium schema pilot</p>
+          <p className="sc-ledger-eyebrow">Premium analyzer</p>
           <h1 className="mt-2 text-2xl font-semibold text-premium-velvet sm:text-3xl">
             {schema.name}
           </h1>

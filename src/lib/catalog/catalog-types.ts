@@ -1,3 +1,11 @@
+export type CatalogRelatedPremiumItem = {
+  readonly title: string;
+  readonly href: string;
+  readonly description?: string;
+};
+
+export type CatalogItemKind = "free-calculator" | "premium-analyzer";
+
 export type CatalogItem = {
   readonly title: string;
   readonly description: string;
@@ -5,6 +13,12 @@ export type CatalogItem = {
   readonly meta?: string;
   readonly badge?: string;
   readonly ctaLabel?: string;
+  readonly itemKind?: CatalogItemKind;
+  readonly promise?: string;
+  readonly reportSections?: readonly string[];
+  readonly priceHint?: string;
+  readonly primaryOutputLabel?: string;
+  readonly relatedPremium?: readonly CatalogRelatedPremiumItem[];
 };
 
 export type CatalogGroup = {

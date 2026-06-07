@@ -5,6 +5,7 @@ import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplore
 import { Container } from "@/components/ui/Container";
 import { FREE_TOOLS } from "@/data/tools";
 import { buildSectorToolCatalogGroups } from "@/lib/catalog/build-catalog-groups";
+import { buildCategoryPageCatalogGroups } from "@/lib/premium-schema/premium-schema-catalog";
 import { createPageMetadata } from "@/lib/metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -25,7 +26,7 @@ export default async function CategoriesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
-  const groups = buildSectorToolCatalogGroups(FREE_TOOLS);
+  const groups = buildCategoryPageCatalogGroups(buildSectorToolCatalogGroups(FREE_TOOLS), locale);
 
   return (
     <PageLayout>

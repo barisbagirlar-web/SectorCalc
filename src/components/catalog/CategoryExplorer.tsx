@@ -31,23 +31,49 @@ function CatalogItemCard({
       ? "View analyzer →"
       : variant === "industries"
         ? "Open industry →"
-        : openLabel);
+        : item.itemKind === "premium-analyzer"
+          ? "View analyzer →"
+          : openLabel);
+
+  const kindLabel =
+    item.itemKind === "premium-analyzer"
+      ? "Premium analyzer"
+      : item.itemKind === "free-calculator"
+        ? "Free calculator"
+        : null;
 
   return (
     <article className="sc-ledger-card sc-craft-card sc-ledger-letterpress sc-catalog-explorer__item-card">
       {item.badge ? (
         <p className="sc-craft-eyebrow line-clamp-1">{item.badge}</p>
+      ) : kindLabel ? (
+        <p className="sc-craft-eyebrow line-clamp-1">{kindLabel}</p>
       ) : null}
       <h3 className="sc-craft-card__title mt-1 line-clamp-2">{item.title}</h3>
       <p className="sc-craft-card__body line-clamp-3">{item.description}</p>
+      {item.promise && variant === "premium-tools" ? (
+        <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-body-charcoal">{item.promise}</p>
+      ) : null}
       {item.meta ? (
-        <p className="mt-2 text-[10px] font-medium uppercase tracking-wide text-sc-navy line-clamp-2">
-          {item.meta}
-        </p>
+        <p className="mt-2 font-mono text-[11px] leading-snug text-sc-navy line-clamp-2">{item.meta}</p>
       ) : null}
       <Link href={item.href} className="sc-craft-card__cta">
         {ctaLabel}
       </Link>
+      {variant === "industries" && item.relatedPremium && item.relatedPremium.length > 0 ? (
+        <div className="sc-catalog-explorer__related-premium">
+          <p className="sc-catalog-explorer__related-label">Premium analyzers</p>
+          <ul className="sc-catalog-explorer__related-list">
+            {item.relatedPremium.map((related) => (
+              <li key={related.href}>
+                <Link href={related.href} className="sc-catalog-explorer__related-link">
+                  {related.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </article>
   );
 }

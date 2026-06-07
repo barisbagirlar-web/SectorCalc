@@ -177,7 +177,7 @@ export async function HomeSampleVerdictSection() {
  <Link href="/reports/sample-decision-report" className="sc-btn-primary">
  {t("sample.primaryCta")}
  </Link>
- <Link href="/tools/premium/cnc-quote-risk-analyzer" className="sc-btn-secondary">
+ <Link href="/tools/premium-schema/cnc-oee-loss" className="sc-btn-secondary">
  {t("sample.secondaryCta")}
  </Link>
  </div>
