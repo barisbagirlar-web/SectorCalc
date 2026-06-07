@@ -10,7 +10,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint:schemas": "vitest run src/lib/premium-schema/__tests__/schema-linter.test.ts",
-    "validate:premium-schemas": "vitest run src/lib/premium-schema/__tests__/schema-linter.test.ts src/lib/premium-schema/__tests__/premium-schema-engine.test.ts src/lib/premium-schema/__tests__/premium-migration-map.test.ts src/lib/premium-schema/__tests__/premium-report-ux.test.ts",
+    "validate:premium-schemas": "vitest run src/lib/premium-schema/__tests__/schema-linter.test.ts src/lib/premium-schema/__tests__/premium-schema-engine.test.ts src/lib/premium-schema/__tests__/premium-migration-map.test.ts src/lib/premium-schema/__tests__/premium-report-ux.test.ts src/lib/premium-schema/__tests__/schema-draft.test.ts",
     "seo:llms": "node scripts/generate-llms-txt.mjs",
     "seo:indexnow": "node scripts/ping-indexnow.mjs",
     "prebuild": "npm run lint:schemas && npm run seo:llms",

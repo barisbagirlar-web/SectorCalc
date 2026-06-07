@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LeadIntentsClient } from "@/components/admin/LeadIntentsClient";
+import { AdminSubNav } from "@/components/admin/AdminSubNav";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
@@ -25,6 +26,7 @@ export default function AdminLeadsPage() {
 
  <section className="bg-off-white py-10 md:py-14">
  <Container>
+ <AdminSubNav />
  <LeadIntentsClient />
  </Container>
  </section>

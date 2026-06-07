@@ -9,6 +9,7 @@ import {
   FORMULA_FAMILY_LABELS,
   type FormulaFamilyId,
 } from "@/lib/premium-schema/formula-families";
+import type { PremiumOutputFormat } from "@/lib/premium-schema/premium-calculator-schema";
 
 export type FormulaInputs = Readonly<Record<string, number>>;
 
@@ -309,4 +310,166 @@ export function listRegisteredFormulaIds(): readonly string[] {
 
 export function formulaIdsInFamily(family: FormulaFamilyId): readonly string[] {
   return FORMULAS_BY_FAMILY[family] ?? [];
+}
+
+export type FormulaOutputHint = PremiumOutputFormat;
+
+export interface FormulaRegistryMeta {
+  readonly formulaId: string;
+  readonly family: FormulaFamilyId;
+  readonly label: string;
+  readonly description: string;
+  readonly requiredInputs: readonly string[];
+  readonly outputHint: FormulaOutputHint;
+}
+
+const FORMULA_META_DETAILS: Record<
+  string,
+  Omit<FormulaRegistryMeta, "formulaId" | "family" | "label">
+> = {
+  "measurement.variance_percent": {
+    description: "Percent deviation of actual versus target measurement.",
+    requiredInputs: ["actual", "target"],
+    outputHint: "percentage",
+  },
+  "benchmark.variance_percent": {
+    description: "Percent variance against a benchmark target.",
+    requiredInputs: ["actual", "target"],
+    outputHint: "percentage",
+  },
+  "time.labor_cost": {
+    description: "Labor or machine time converted to cost exposure.",
+    requiredInputs: ["hourlyCost", "lossHours"],
+    outputHint: "currency",
+  },
+  "scrap.material_cost": {
+    description: "Material cost multiplied by scrap rate percent.",
+    requiredInputs: ["materialCost", "scrapRate"],
+    outputHint: "currency",
+  },
+  "scrap.combined_operating": {
+    description: "Stack of labor, material and overhead operating costs.",
+    requiredInputs: ["laborCost", "materialCost", "overheadCost"],
+    outputHint: "currency",
+  },
+  "scrap.total_exposure": {
+    description: "Base cost scaled by hidden loss multiplier.",
+    requiredInputs: ["baseCost", "hiddenMultiplier"],
+    outputHint: "currency",
+  },
+  "oee.basic": {
+    description: "Classic OEE score from availability, performance and quality.",
+    requiredInputs: ["availability", "performance", "quality"],
+    outputHint: "score",
+  },
+  "oee.availability_loss_cost": {
+    description: "Cost of availability loss above planned tolerance.",
+    requiredInputs: ["machineRate", "downtimeHours", "plannedHours"],
+    outputHint: "currency",
+  },
+  "route.deadhead_cost": {
+    description: "Unpaid return distance cost exposure.",
+    requiredInputs: ["distanceKm", "costPerKm", "emptyReturnPercent"],
+    outputHint: "currency",
+  },
+  "route.total_freight_cost": {
+    description: "Fuel, driver, tolls and deadhead combined freight cost.",
+    requiredInputs: ["fuelCost", "driverCost", "tolls", "deadheadCost"],
+    outputHint: "currency",
+  },
+  "energy.excess_kwh_cost": {
+    description: "Cost of kWh consumption above target.",
+    requiredInputs: ["currentKwh", "targetKwh", "rate"],
+    outputHint: "currency",
+  },
+  "energy.kwh_cost": {
+    description: "Simple kWh times rate cost.",
+    requiredInputs: ["kwh", "rate"],
+    outputHint: "currency",
+  },
+  "energy.peak_demand_cost": {
+    description: "Peak kWh tariff plus demand charge.",
+    requiredInputs: ["peakKwh", "peakRate", "demandCharge"],
+    outputHint: "currency",
+  },
+  "energy.total_energy_cost": {
+    description: "Excess kWh cost plus peak demand stack.",
+    requiredInputs: ["excessKwh", "energyRate", "peakCost"],
+    outputHint: "currency",
+  },
+  "carbon.cbam_exposure": {
+    description: "Carbon border adjustment exposure estimate.",
+    requiredInputs: ["emissionsTon", "carbonPrice", "exposurePercent"],
+    outputHint: "currency",
+  },
+  "cost.p90_buffer": {
+    description: "P90 volatility buffer on adjusted cost.",
+    requiredInputs: ["adjustedCost", "volatilityPercent"],
+    outputHint: "currency",
+  },
+  "cost.minimum_safe_price": {
+    description: "Minimum safe price from P90 cost and target margin.",
+    requiredInputs: ["p90Cost", "targetMarginPercent"],
+    outputHint: "currency",
+  },
+  "yield.gap_value": {
+    description: "Yield gap tonnage valued at price per ton.",
+    requiredInputs: ["yieldGapTon", "pricePerTon"],
+    outputHint: "currency",
+  },
+  "loss.waste_exposure": {
+    description: "Ingredient waste cost from monthly spend and waste rate.",
+    requiredInputs: ["monthlyIngredientCost", "wasteRate"],
+    outputHint: "currency",
+  },
+  "loss.excess_waste_cost": {
+    description: "Waste cost above target waste rate band.",
+    requiredInputs: ["monthlyIngredientCost", "wasteRate", "targetWasteRate"],
+    outputHint: "currency",
+  },
+  "cost.margin_pressure": {
+    description: "Excess cost as percent of monthly revenue.",
+    requiredInputs: ["excessCost", "monthlyRevenue"],
+    outputHint: "percentage",
+  },
+  "time.delay_cost": {
+    description: "Daily site cost multiplied by delay days.",
+    requiredInputs: ["dailySiteCost", "delayDays"],
+    outputHint: "currency",
+  },
+  "cost.overrun_cost": {
+    description: "Budget overrun from percent drift.",
+    requiredInputs: ["budget", "overrunPercent"],
+    outputHint: "currency",
+  },
+  "cost.total_exposure": {
+    description: "Sum of three exposure components.",
+    requiredInputs: ["a", "b", "c"],
+    outputHint: "currency",
+  },
+};
+
+function buildFormulaRegistryMeta(): FormulaRegistryMeta[] {
+  return listRegisteredFormulaIds().map((formulaId) => {
+    const canonicalId = LEGACY_ALIASES[formulaId] ?? formulaId;
+    const meta = FORMULA_META[formulaId];
+    const details = FORMULA_META_DETAILS[canonicalId];
+    if (!meta || !details) {
+      throw new Error(`Missing formula metadata for "${formulaId}"`);
+    }
+    return {
+      formulaId,
+      family: meta.family,
+      label: meta.label,
+      description: details.description,
+      requiredInputs: details.requiredInputs,
+      outputHint: details.outputHint,
+    };
+  });
+}
+
+export const FORMULA_REGISTRY_META: readonly FormulaRegistryMeta[] = buildFormulaRegistryMeta();
+
+export function getFormulaRegistryMeta(formulaId: string): FormulaRegistryMeta | null {
+  return FORMULA_REGISTRY_META.find((item) => item.formulaId === formulaId) ?? null;
 }

@@ -1036,6 +1036,30 @@
   }
 }
 
+/* ── Admin schema generator ── */
+.sc-admin-schema-generator {
+  min-width: 0;
+}
+
+.sc-admin-schema-generator__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+@media (min-width: 1280px) {
+  .sc-admin-schema-generator__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.95fr);
+    align-items: start;
+  }
+}
+
+.sc-admin-schema-section {
+  min-width: 0;
+}
+
 @media (min-width: 1280px) {
   .sc-tool-workspace.sc-tool-workspace--3col {
     grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.1fr) minmax(0, 1.1fr);
