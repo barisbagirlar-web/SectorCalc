@@ -510,13 +510,14 @@
   },
   "homepageHybrid": {
     "meta": {
-      "title": "SectorCalc — 27 sektörde gizli kaybı ölçün",
-      "description": "Operasyonunuz para kaybediyor. SectorCalc, sektöre özel girdileri hesaplayıcılar, gizli kayıp teşhisleri ve karar raporlarına dönüştürür — ERP karmaşası olmadan."
+      "title": "SectorCalc — {sectorCount} sektör alanında gizli kaybı ölçün",
+      "description": "Operasyonunuz para kaybediyor. SectorCalc, sektör hesaplayıcıları ve premium karar raporlarıyla gizli kaybı ölçmenize yardımcı olur — ERP karmaşası olmadan."
     },
     "hero": {
       "eyebrow": "Gizli kayıp tespiti",
       "headline": "Operasyonunuz para kaybediyor. Nerede olduğunu ölçün.",
-      "subtitle": "CNC fire ve setup kaybından rota maliyeti, enerji maruziyeti ve proje aşımına — SectorCalc sektöre özel girdileri hesaplayıcılar, gizli kayıp teşhisleri ve karar raporlarına dönüştürür.",
+      "subtitleLine1": "SectorCalc, fire, setup, rota, enerji, OEE ve marjdaki gizli kaybı ölçmenize yardımcı olur.",
+      "subtitleLine2": "Sektöre özel girdileri hesaplayıcılar, teşhisler ve karar raporlarına dönüştürün — ERP karmaşası olmadan.",
       "supporting": "ERP fiyatının dışında kalan işletmeler için tasarlandı.",
       "ctaPrimary": "Kayıp alanınızı bulun",
       "ctaSecondary": "Ücretsiz hesaplayıcıları görün"
@@ -589,8 +590,8 @@
     },
     "platform": {
       "title": "Endüstriyel hesaplayıcılar. Sektöre özel.",
-      "stat": "27 aktif sektör → 50+ hesaplayıcı → Karar raporları",
-      "text": "Üretim, lojistik, inşaat, enerji ve daha fazlası — her biri o sektörün para kaybetme biçimine göre ayarlanmış hesaplayıcılarla.",
+      "stat": "{sectorCount} sektör alanı → 50+ hesaplayıcı yol haritası → Karar raporları",
+      "text": "Ücretsiz hesaplayıcılar ve premium karar raporları — üretim, lojistik, inşaat, enerji ve daha fazlası.",
       "cta": "Tüm sektörleri görün",
       "categories": {
         "manufacturing": "Üretim",
@@ -625,7 +626,7 @@
           "excel": "Ücretsiz",
           "notebook": "Ücretsiz",
           "erp": "$50K+",
-          "sectorcalc": "$9–49/ay"
+          "sectorcalc": "$9'dan itibaren"
         },
         "sectorLogic": {
           "label": "Sektör mantığı",
@@ -661,36 +662,35 @@
       "title": "Kurumsal yazılım fiyatının dışında kalan ekipler için",
       "cta": "Ücretsiz başlayın — kart gerekmez",
       "viewPlans": "Tüm fiyatlandırmayı görün →",
+      "singleReport": "Tek karar raporları $9'dan itibaren — tek seferlik analiz, dışa aktarma ve PDF için.",
       "plans": {
         "free": {
           "name": "Ücretsiz",
-          "price": "",
-          "feature1": "Tüm temel hesaplayıcılar",
+          "price": "$0",
+          "feature1": "Temel hesaplayıcılar",
           "feature2": "Örnek senaryolar",
-          "feature3": "Karar şablonları"
+          "feature3": "Kart gerekmez"
         },
         "pro": {
           "name": "Pro",
-          "price": "$9–29/ay",
+          "price": "$19/ay",
           "feature1": "Gelişmiş teşhis",
           "feature2": "Kıyaslama modelleri",
-          "feature3": "Dışa aktarma ve raporlar",
-          "feature4": "Kayıtlı karar geçmişi"
+          "feature3": "Dışa aktarma ve raporlar"
         },
         "team": {
           "name": "Ekip",
           "price": "$49/ay",
           "feature1": "Çoklu kullanıcı erişimi",
           "feature2": "Özel şablonlar",
-          "feature3": "Öncelikli destek",
-          "feature4": "Paylaşımlı rapor arşivi"
+          "feature3": "Öncelikli destek"
         }
       }
     },
     "final": {
       "title": "Kayıp alanını bulun. Maruziyeti ölçün. Kararı verin.",
-      "bullet1": "27 sektör",
-      "bullet2": "50+ hesaplayıcı",
+      "bullet1": "{sectorCount} sektör alanı",
+      "bullet2": "50+ hesaplayıcı yol haritası",
       "bullet3": "Ücretsiz katman mevcut",
       "bullet4": "Kredi kartı gerekmez",
       "cta": "Kayıp alanınızı bulun"

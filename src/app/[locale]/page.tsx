@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { HomepageHybrid } from "@/components/home/HomepageHybrid";
+import { getHomepageSectorAreaCount } from "@/lib/home/homepage-stats";
 import { createPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("homepageHybrid");
+  const sectorCount = getHomepageSectorAreaCount();
 
   return createPageMetadata({
-    title: t("meta.title"),
+    title: t("meta.title", { sectorCount }),
     description: t("meta.description"),
     path: "/",
   });

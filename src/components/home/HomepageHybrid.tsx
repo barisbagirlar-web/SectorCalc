@@ -2,6 +2,7 @@ import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import { ProductScreenMockup } from "@/components/ui/ProductScreenMockup";
 import { Container } from "@/components/ui/Container";
+import { getHomepageSectorAreaCount } from "@/lib/home/homepage-stats";
 
 const SCENARIO_IDS = ["cnc", "route", "energy", "food"] as const;
 const MEASURE_IDS = ["money", "material", "time", "energy"] as const;
@@ -36,6 +37,7 @@ const PLATFORM_CATEGORY_HREFS = [
 
 export async function HomepageHybrid() {
   const t = await getTranslations("homepageHybrid");
+  const sectorAreaCount = getHomepageSectorAreaCount();
 
   return (
     <div className="sc-home-hybrid">
@@ -48,7 +50,12 @@ export async function HomepageHybrid() {
               <h1 id="home-hero-heading" className="sc-home-hybrid__headline">
                 {t("hero.headline")}
               </h1>
-              <p className="sc-pro-lead">{t("hero.subtitle")}</p>
+              <p className="sc-pro-lead sc-home-hybrid__subtitle-line">
+                {t("hero.subtitleLine1")}
+              </p>
+              <p className="sc-pro-lead sc-home-hybrid__subtitle-line">
+                {t("hero.subtitleLine2")}
+              </p>
               <p className="sc-home-hybrid__supporting">{t("hero.supporting")}</p>
               <div className="sc-pro-hero-compact__actions">
                 <Link href="/categories" className="sc-cta-primary">
@@ -154,7 +161,9 @@ export async function HomepageHybrid() {
           <h2 id="platform-heading" className="sc-home-hybrid__section-title">
             {t("platform.title")}
           </h2>
-          <p className="sc-home-hybrid__platform-stat">{t("platform.stat")}</p>
+          <p className="sc-home-hybrid__platform-stat">
+            {t("platform.stat", { sectorCount: sectorAreaCount })}
+          </p>
           <p className="sc-home-hybrid__section-lead">{t("platform.text")}</p>
           <ul className="sc-home-hybrid__platform-categories">
             {PLATFORM_CATEGORY_HREFS.map(({ id, href }) => (
@@ -249,14 +258,12 @@ export async function HomepageHybrid() {
                     <li>{t(`pricing.plans.${plan}.feature1`)}</li>
                     <li>{t(`pricing.plans.${plan}.feature2`)}</li>
                     <li>{t(`pricing.plans.${plan}.feature3`)}</li>
-                    {plan !== "free" ? (
-                      <li>{t(`pricing.plans.${plan}.feature4`)}</li>
-                    ) : null}
                   </ul>
                 </article>
               </li>
             ))}
           </ul>
+          <p className="sc-home-hybrid__pricing-single">{t("pricing.singleReport")}</p>
           <div className="sc-home-hybrid__pricing-actions">
             <Link href="/free-tools" className="sc-cta-primary">
               {t("pricing.cta")}
@@ -277,7 +284,7 @@ export async function HomepageHybrid() {
             {t("final.title")}
           </h2>
           <ul className="sc-home-hybrid__final-bullets">
-            <li>{t("final.bullet1")}</li>
+            <li>{t("final.bullet1", { sectorCount: sectorAreaCount })}</li>
             <li>{t("final.bullet2")}</li>
             <li>{t("final.bullet3")}</li>
             <li>{t("final.bullet4")}</li>

@@ -510,13 +510,14 @@
   },
   "homepageHybrid": {
     "meta": {
-      "title": "SectorCalc — Measure hidden loss across 27 sectors",
-      "description": "Your operation is leaking money. SectorCalc turns sector-specific inputs into calculators, hidden-loss diagnostics and decision reports — without ERP complexity."
+      "title": "SectorCalc — Measure hidden loss across {sectorCount} sector areas",
+      "description": "Your operation is leaking money. SectorCalc helps teams measure hidden loss with sector calculators and premium decision reports — without ERP complexity."
     },
     "hero": {
       "eyebrow": "Hidden loss detection",
       "headline": "Your operation is leaking money. Measure where.",
-      "subtitle": "From CNC scrap and setup loss to route cost, energy exposure and project overruns — SectorCalc turns sector-specific inputs into calculators, hidden-loss diagnostics and decision reports.",
+      "subtitleLine1": "SectorCalc helps teams measure hidden loss in scrap, setup, routes, energy, OEE and margins.",
+      "subtitleLine2": "Turn sector-specific inputs into calculators, diagnostics and decision reports — without ERP complexity.",
       "supporting": "Built for businesses priced out of ERP.",
       "ctaPrimary": "Find your loss area",
       "ctaSecondary": "View free calculators"
@@ -589,8 +590,8 @@
     },
     "platform": {
       "title": "Industrial calculators. Sector-specific.",
-      "stat": "27 active sectors → 50+ calculators → Decision reports",
-      "text": "Manufacturing, logistics, construction, energy and more — each with calculators tuned to how that sector loses money.",
+      "stat": "{sectorCount} sector areas → 50+ calculator roadmap → Decision reports",
+      "text": "Free calculators and premium decision reports — manufacturing, logistics, construction, energy and more.",
       "cta": "View all sectors",
       "categories": {
         "manufacturing": "Manufacturing",
@@ -625,7 +626,7 @@
           "excel": "Free",
           "notebook": "Free",
           "erp": "$50K+",
-          "sectorcalc": "$9–49/mo"
+          "sectorcalc": "From $9"
         },
         "sectorLogic": {
           "label": "Sector logic",
@@ -661,36 +662,35 @@
       "title": "Priced for teams priced out of enterprise software",
       "cta": "Start free — no card required",
       "viewPlans": "View full pricing →",
+      "singleReport": "Single decision reports from $9 — for one-off analysis, export and PDF.",
       "plans": {
         "free": {
           "name": "Free",
-          "price": "",
-          "feature1": "All base calculators",
+          "price": "$0",
+          "feature1": "Base calculators",
           "feature2": "Sample scenarios",
-          "feature3": "Decision templates"
+          "feature3": "No card required"
         },
         "pro": {
           "name": "Pro",
-          "price": "$9–29/mo",
+          "price": "$19/mo",
           "feature1": "Advanced diagnostics",
           "feature2": "Benchmark models",
-          "feature3": "Export & reports",
-          "feature4": "Saved verdict history"
+          "feature3": "Export & reports"
         },
         "team": {
           "name": "Team",
           "price": "$49/mo",
           "feature1": "Multi-user access",
           "feature2": "Custom templates",
-          "feature3": "Priority support",
-          "feature4": "Shared report archive"
+          "feature3": "Priority support"
         }
       }
     },
     "final": {
       "title": "Find the loss area. Measure the exposure. Make the call.",
-      "bullet1": "27 sectors",
-      "bullet2": "50+ calculators",
+      "bullet1": "{sectorCount} sector areas",
+      "bullet2": "50+ calculator roadmap",
       "bullet3": "Free tier available",
       "bullet4": "No credit card required",
       "cta": "Find your loss area"

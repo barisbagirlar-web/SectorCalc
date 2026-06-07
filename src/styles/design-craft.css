@@ -2307,6 +2307,21 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   color: var(--sc-navy);
 }
 
+.sc-home-hybrid__subtitle-line {
+  max-width: 36rem;
+}
+
+.sc-home-hybrid__subtitle-line + .sc-home-hybrid__subtitle-line {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 429px) {
+  .sc-home-hybrid__subtitle-line {
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+}
+
 .sc-home-hybrid__section {
   padding-block: clamp(1.5rem, 4vw, 2.5rem);
   min-width: 0;
@@ -2702,6 +2717,14 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 
 .sc-home-hybrid__pricing-link:hover {
   text-decoration: underline;
+}
+
+.sc-home-hybrid__pricing-single {
+  margin-top: 1rem;
+  max-width: 36rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--sc-muted);
 }
 
 .sc-home-hybrid__final {
