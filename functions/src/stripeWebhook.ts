@@ -10,6 +10,11 @@ import {
   USERS_COLLECTION,
   USER_PURCHASES_SUBCOLLECTION,
 } from "./constants";
+import {
+  markSubscriptionEntitlementPaymentFailed,
+  updateSubscriptionEntitlementStatus,
+  upsertCheckoutSessionEntitlement,
+} from "./entitlementPersistence";
 
 const stripeSecretKey = defineString("STRIPE_SECRET_KEY", { default: "" });
 const stripeWebhookSecret = defineString("STRIPE_WEBHOOK_SECRET", { default: "" });
@@ -40,7 +45,7 @@ function resolveUid(metadata: Stripe.Metadata | null | undefined): string | unde
   if (!metadata) {
     return undefined;
   }
-  const uid = metadata.uid ?? metadata.firebaseUID;
+  const uid = metadata.uid ?? metadata.userId ?? metadata.firebaseUID;
   return typeof uid === "string" && uid.length > 0 ? uid : undefined;
 }
 
@@ -224,6 +229,7 @@ export async function handleStripeWebhook(
           session.metadata?.plan === CHECKOUT_PLAN_SINGLE_REPORT
         ) {
           await writeSingleReportPurchase(uid, session);
+          await upsertCheckoutSessionEntitlement(uid, session);
           break;
         }
 
@@ -249,6 +255,7 @@ export async function handleStripeWebhook(
                 : CHECKOUT_PLAN_PRO
           )
         );
+        await upsertCheckoutSessionEntitlement(uid, session, subscription);
         break;
       }
       case "customer.subscription.updated": {
@@ -258,6 +265,7 @@ export async function handleStripeWebhook(
           break;
         }
         await writeUserSubscription(uid, undefined, subscriptionPayloadFromStripe(subscription));
+        await updateSubscriptionEntitlementStatus(uid, subscription);
         break;
       }
       case "customer.subscription.deleted": {
@@ -269,6 +277,18 @@ export async function handleStripeWebhook(
         const payload = subscriptionPayloadFromStripe(subscription);
         payload.status = "canceled";
         await writeUserSubscription(uid, undefined, payload);
+        await updateSubscriptionEntitlementStatus(uid, subscription);
+        break;
+      }
+      case "invoice.payment_failed": {
+        const invoice = event.data.object as Stripe.Invoice;
+        const subscriptionId =
+          typeof invoice.subscription === "string"
+            ? invoice.subscription
+            : invoice.subscription?.id;
+        if (subscriptionId) {
+          await markSubscriptionEntitlementPaymentFailed(subscriptionId);
+        }
         break;
       }
       default:

@@ -63,6 +63,11 @@ service cloud.firestore {
       }
     }
 
+    match /premiumEntitlements/{entitlementId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow write: if false;
+    }
+
     match /reports/{reportId} {
       allow create: if request.auth != null
         && request.resource.data.uid == request.auth.uid;

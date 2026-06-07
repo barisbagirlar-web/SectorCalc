@@ -2,6 +2,8 @@
  * Premium schema report entitlement — adapter over billing/subscription state.
  */
 
+import { resolveEntitlementLevelFromRecords } from "@/lib/entitlements/entitlement-mapping";
+import type { PremiumEntitlementRecord } from "@/lib/entitlements/entitlement-types";
 import {
   hasProAccess,
   isDevelopmentProBypass,
@@ -121,13 +123,40 @@ export function getPremiumEntitlementFromBillingState(options: {
   subscription?: UserSubscription | null;
   userEmail?: string | null;
   hasSingleReportForSchema?: boolean;
+  entitlementRecords?: readonly PremiumEntitlementRecord[];
+  premiumSlug?: string;
 }): PremiumEntitlement {
+  if (options.isAdmin) {
+    return getPremiumEntitlement({ isAdmin: true });
+  }
+
+  if (isDevelopmentProBypass() || isProBypassEmail(options.userEmail ?? null)) {
+    const hasProSubscription = hasProAccess(options.subscription ?? null, options.userEmail);
+    const subscriptionPlan =
+      hasProSubscription && options.subscription?.plan ? options.subscription.plan : undefined;
+    return getPremiumEntitlement({
+      hasProSubscription: true,
+      subscriptionPlan,
+      isDevelopmentBypass: isDevelopmentProBypass(),
+      userEmail: options.userEmail,
+    });
+  }
+
+  if (options.entitlementRecords && options.premiumSlug) {
+    const recordLevel = resolveEntitlementLevelFromRecords(
+      options.entitlementRecords,
+      options.premiumSlug
+    );
+    if (recordLevel !== "preview") {
+      return getPremiumEntitlement({ level: recordLevel });
+    }
+  }
+
   const hasProSubscription = hasProAccess(options.subscription ?? null, options.userEmail);
   const subscriptionPlan =
     hasProSubscription && options.subscription?.plan ? options.subscription.plan : undefined;
 
   return getPremiumEntitlement({
-    isAdmin: options.isAdmin,
     hasProSubscription,
     subscriptionPlan,
     hasSingleReportForSchema: options.hasSingleReportForSchema,

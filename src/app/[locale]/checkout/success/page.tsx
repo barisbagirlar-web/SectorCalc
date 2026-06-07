@@ -9,7 +9,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ return?: string }>;
+  searchParams: Promise<{ return?: string; session_id?: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -25,10 +25,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CheckoutSuccessPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
-  const { return: returnParam } = await searchParams;
+  const { return: returnParam, session_id: sessionId } = await searchParams;
   setRequestLocale(locale);
   const t = await getTranslations("checkoutPages");
   const returnPath = resolveSafeReturnPath(returnParam);
+  const hasSessionReference = typeof sessionId === "string" && sessionId.trim().length > 0;
 
   return (
     <PageLayout>
@@ -37,6 +38,9 @@ export default async function CheckoutSuccessPage({ params, searchParams }: Page
           <p className="sc-pro-eyebrow">{t("successEyebrow")}</p>
           <h1 className="sc-pro-title sc-pro-title--compact">{t("successTitle")}</h1>
           <p className="sc-pro-lead mt-4 text-sm leading-relaxed">{t("successText")}</p>
+          {hasSessionReference ? (
+            <p className="mt-3 text-xs text-[var(--sc-text-muted)]">{t("successRefreshNote")}</p>
+          ) : null}
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link href={returnPath} className="sc-cta-primary inline-flex min-h-[48px] items-center justify-center">
               {t("successPrimaryCta")}

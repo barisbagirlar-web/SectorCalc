@@ -1,6 +1,7 @@
 export const LEAD_INTENTS_COLLECTION = "leadIntents";
 export const USERS_COLLECTION = "users";
 export const USER_PURCHASES_SUBCOLLECTION = "purchases";
+export const PREMIUM_ENTITLEMENTS_COLLECTION = "premiumEntitlements";
 
 /** Stripe Checkout plan identifiers (session metadata). */
 export const CHECKOUT_PLAN_PRO = "pro" as const;

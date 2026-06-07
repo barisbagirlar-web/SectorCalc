@@ -141,6 +141,53 @@ async function getExistingCustomerId(uid: string): Promise<string | undefined> {
   return typeof customerId === "string" ? customerId : undefined;
 }
 
+function mapCheckoutPlanToPlanId(plan: CheckoutPlan): string {
+  switch (plan) {
+    case CHECKOUT_PLAN_SINGLE_REPORT:
+      return "single_report";
+    case CHECKOUT_PLAN_TEAM:
+      return "team_monthly";
+    case CHECKOUT_PLAN_PRO:
+    case CHECKOUT_PLAN_PRO_ANNUAL:
+      return "pro_monthly";
+  }
+}
+
+function mapCheckoutPlanToEntitlementLevel(
+  plan: CheckoutPlan
+): "single_report" | "pro" | "team" {
+  if (plan === CHECKOUT_PLAN_SINGLE_REPORT) {
+    return "single_report";
+  }
+  if (plan === CHECKOUT_PLAN_TEAM) {
+    return "team";
+  }
+  return "pro";
+}
+
+function buildHardenedCheckoutMetadata(
+  authResult: { uid: string },
+  body: CheckoutRequestBody,
+  plan: CheckoutPlan
+): Record<string, string> {
+  const premiumSlug = resolveToolSlugForMetadata(body);
+  const locale = resolveAppLocale(body);
+  const returnPath = resolveSafeReturnPath(body.returnPath);
+
+  return {
+    uid: authResult.uid,
+    userId: authResult.uid,
+    planId: mapCheckoutPlanToPlanId(plan),
+    entitlementLevel: mapCheckoutPlanToEntitlementLevel(plan),
+    premiumSlug,
+    toolSlug: premiumSlug,
+    plan,
+    locale,
+    returnPath,
+    createdBy: "sectorcalc",
+  };
+}
+
 async function createSubscriptionSession(
   stripe: Stripe,
   authResult: { uid: string; email: string },
@@ -148,19 +195,16 @@ async function createSubscriptionSession(
   plan: typeof CHECKOUT_PLAN_PRO | typeof CHECKOUT_PLAN_PRO_ANNUAL | typeof CHECKOUT_PLAN_TEAM,
   priceId: string
 ): Promise<Stripe.Checkout.Session> {
-  const toolSlug = resolveToolSlugForMetadata(body);
   const locale = resolveAppLocale(body);
   const siteUrl = publicSiteUrl.value().trim().replace(/\/$/, "");
   const existingCustomerId = await getExistingCustomerId(authResult.uid);
   const returnPath = resolveSafeReturnPath(body.returnPath);
 
-  const metadata: Record<string, string> = {
-    uid: authResult.uid,
-    toolSlug,
-    plan,
-    locale,
-    returnPath,
-  };
+  const metadata = buildHardenedCheckoutMetadata(
+    { uid: authResult.uid },
+    body,
+    plan
+  );
 
   return stripe.checkout.sessions.create({
     mode: "subscription",
@@ -183,20 +227,17 @@ async function createSingleReportPaymentSession(
   authResult: { uid: string; email: string },
   body: CheckoutRequestBody
 ): Promise<Stripe.Checkout.Session> {
-  const toolSlug = resolveToolSlugForMetadata(body);
   const locale = resolveAppLocale(body);
   const priceId = stripePriceSingleVerdict.value().trim();
   const siteUrl = publicSiteUrl.value().trim().replace(/\/$/, "");
   const existingCustomerId = await getExistingCustomerId(authResult.uid);
   const returnPath = resolveSafeReturnPath(body.returnPath);
 
-  const metadata: Record<string, string> = {
-    uid: authResult.uid,
-    plan: CHECKOUT_PLAN_SINGLE_REPORT,
-    toolSlug,
-    locale,
-    returnPath,
-  };
+  const metadata = buildHardenedCheckoutMetadata(
+    { uid: authResult.uid },
+    body,
+    CHECKOUT_PLAN_SINGLE_REPORT
+  );
 
   return stripe.checkout.sessions.create({
     mode: "payment",

@@ -9,6 +9,7 @@ import {
   getPremiumEntitlementFromBillingState,
   type PremiumEntitlement,
 } from "@/lib/entitlements/premium-entitlements";
+import { usePremiumEntitlementRecords } from "@/lib/entitlements/use-premium-entitlement-records";
 import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 
 export interface UsePremiumSchemaEntitlementState {
@@ -30,8 +31,11 @@ export function usePremiumSchemaEntitlementBySlug(
   const { user, subscription, loading: subscriptionLoading } = useUserSubscription();
   const { loading: purchasesLoading, hasSingleReportForTool } = useUserPurchases();
   const { isAdmin, loading: adminLoading } = useAdminAuth();
+  const { records: entitlementRecords, loading: entitlementsLoading } =
+    usePremiumEntitlementRecords();
 
-  const loading = subscriptionLoading || purchasesLoading || adminLoading;
+  const loading =
+    subscriptionLoading || purchasesLoading || adminLoading || entitlementsLoading;
 
   const hasSingleReportForSchema = useMemo(() => {
     if (hasSingleReportForTool(schemaSlug)) {
@@ -50,8 +54,10 @@ export function usePremiumSchemaEntitlementBySlug(
         subscription,
         userEmail: user?.email ?? null,
         hasSingleReportForSchema,
+        entitlementRecords,
+        premiumSlug: schemaSlug,
       }),
-    [isAdmin, subscription, user?.email, hasSingleReportForSchema]
+    [isAdmin, subscription, user?.email, hasSingleReportForSchema, entitlementRecords, schemaSlug]
   );
 
   const checkoutHref = useMemo(
