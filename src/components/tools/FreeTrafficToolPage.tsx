@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -40,9 +40,10 @@ function verdictTone(headline: string): "neutral" | "positive" | "caution" {
 
 export interface FreeTrafficToolPageProps {
   tool: FreeTrafficTool;
+  featuredAnswer?: ReactNode;
 }
 
-export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
+export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPageProps) {
   const t = useTranslations("freeTrafficCatalog");
   const [values, setValues] = useState<FreeTrafficInputValues>(() => buildInitialValues(tool));
   const [submitted, setSubmitted] = useState(false);
@@ -134,6 +135,14 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
           <p className="sc-craft-lead">{tool.description}</p>
         </Container>
       </section>
+
+      {featuredAnswer ? (
+        <section className="sc-craft-section sc-craft-section--white sc-craft-section--border">
+          <Container size="wide" className="sc-craft-container sc-craft-container--wide">
+            {featuredAnswer}
+          </Container>
+        </section>
+      ) : null}
 
       <section className="sc-craft-section overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">

@@ -3657,3 +3657,102 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   }
 }
 
+/* SEO authority — featured snippet answer blocks */
+.sc-featured-answer {
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.sc-featured-answer__question {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-premium-velvet, #5c2d0f);
+}
+
+.sc-featured-answer__answer {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-body-charcoal, #2b2118);
+}
+
+.sc-featured-answer__list,
+.sc-featured-answer__steps {
+  margin-top: 0.875rem;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-body-charcoal, #2b2118);
+}
+
+.sc-featured-answer__list li + li,
+.sc-featured-answer__steps li + li {
+  margin-top: 0.375rem;
+}
+
+/* SEO authority — crawl-friendly link index */
+.sc-crawl-index {
+  padding: 1.5rem 0 0.5rem;
+}
+
+.sc-crawl-index__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-body-charcoal, #2b2118);
+}
+
+.sc-crawl-index__note {
+  margin-top: 0.375rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-body-charcoal, #2b2118);
+  opacity: 0.85;
+}
+
+.sc-crawl-index__groups {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .sc-crawl-index__groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .sc-crawl-index__groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sc-crawl-index__group-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-premium-velvet, #5c2d0f);
+}
+
+.sc-crawl-index__list {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sc-crawl-index__link {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-premium-velvet, #5c2d0f);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-word;
+}
+
+.sc-crawl-index__link:hover {
+  opacity: 0.85;
+}
+

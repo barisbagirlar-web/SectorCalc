@@ -1,46 +1,23 @@
-import { SITE } from "@/config/site";
+import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
 
-export function OrganizationJsonLd() {
- const payload = {
- "@context": "https://schema.org",
- "@type": "Organization",
- name: SITE.siteName,
- url: SITE.url,
- description: SITE.defaultDescription,
- contactPoint: {
- "@type": "ContactPoint",
- email: SITE.contactEmail,
- contactType: "customer service",
- },
- };
+export type JsonLdProps = {
+  readonly data: JsonLdRecord | readonly JsonLdRecord[];
+};
 
- return (
- <script
- type="application/ld+json"
- dangerouslySetInnerHTML={{ __html: JSON.stringify(payload) }}
- />
- );
+function escapeJsonLdScript(json: string): string {
+  return json.replace(/</g, "\\u003c");
 }
 
-export function WebApplicationJsonLd() {
- const payload = {
- "@context": "https://schema.org",
- "@type": "WebApplication",
- name: SITE.siteName,
- applicationCategory: "BusinessApplication",
- operatingSystem: "Web",
- offers: {
- "@type": "AggregateOffer",
- lowPrice: "0",
- highPrice: "49",
- priceCurrency: "USD",
- },
- };
+export function JsonLd({ data }: JsonLdProps) {
+  const payload = Array.isArray(data) ? data.map((item) => sanitizeJsonLd(item)) : sanitizeJsonLd(data);
+  const json = escapeJsonLdScript(JSON.stringify(payload));
 
- return (
- <script
- type="application/ld+json"
- dangerouslySetInnerHTML={{ __html: JSON.stringify(payload) }}
- />
- );
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: json }}
+    />
+  );
 }
+
+export { buildHomepageJsonLd } from "@/lib/seo/schema-mesh";

@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
 import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { Container } from "@/components/ui/Container";
+import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
+import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import {
   buildPremiumSchemaCatalogGroups,
   DEFAULT_PREMIUM_SCHEMA_CATALOG_GROUP,
+  getPremiumSchemaCatalogItems,
 } from "@/lib/premium-schema/premium-schema-catalog";
+import { buildPremiumToolsCrawlGroups, buildCoreHubCrawlGroups, buildSeoHubCrawlGroups } from "@/lib/seo/crawl-index";
+import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { getFreeToolsHref, getPricingHref, getSampleReportHref } from "@/lib/tools/tool-links";
 
 export const metadata: Metadata = createPageMetadata({
@@ -48,9 +54,28 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
   const premiumGroups = buildPremiumSchemaCatalogGroups(locale);
+  const catalogItems = getPremiumSchemaCatalogItems(locale);
+  const jsonLd = [
+    buildBreadcrumbJsonLd(
+      [
+        { name: "Home", path: "/" },
+        { name: "Premium tools", path: "/premium-tools" },
+      ],
+      locale
+    ),
+    buildItemListJsonLd(
+      catalogItems.map((item) => ({
+        name: item.title,
+        path: item.href.replace(/^\/[a-z]{2}\//, "/"),
+      })),
+      "Premium decision analyzers",
+      locale
+    ),
+  ];
 
   return (
     <PageLayout>
+      <JsonLd data={jsonLd} />
       <CatalogPageHero
         eyebrow={t("premiumTools.eyebrow")}
         title={t("premiumTools.title")}
@@ -63,6 +88,20 @@ export default async function PremiumToolsPage({ params }: PageProps) {
             groups={premiumGroups}
             variant="premium-tools"
             defaultGroupId={DEFAULT_PREMIUM_SCHEMA_CATALOG_GROUP}
+          />
+        </Container>
+      </section>
+
+      <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
+        <Container className="sc-pro-container">
+          <FeaturedAnswerBlock
+            question="What is a premium decision report on SectorCalc?"
+            answer="A premium decision report starts from your operational inputs, surfaces hidden-loss drivers, compares warning and critical thresholds, suggests practical actions and can be exported for management review when you have full report access."
+            bullets={[
+              "27 analyzers across manufacturing, logistics, energy and more",
+              "Threshold checks and suggested action plans",
+              "Export-ready PDF and CSV on paid plans",
+            ]}
           />
         </Container>
       </section>
@@ -119,6 +158,18 @@ export default async function PremiumToolsPage({ params }: PageProps) {
               <DecisionToolLegalDisclaimer variant="paid" />
             </div>
           </div>
+        </Container>
+      </section>
+
+      <section className="sc-pro-section sc-pro-section--border">
+        <Container className="sc-pro-container">
+          <CrawlIndexLinkList
+            groups={[
+              ...buildCoreHubCrawlGroups(),
+              ...buildPremiumToolsCrawlGroups(locale),
+              ...buildSeoHubCrawlGroups(),
+            ]}
+          />
         </Container>
       </section>
     </PageLayout>

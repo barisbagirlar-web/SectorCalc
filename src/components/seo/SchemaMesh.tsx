@@ -44,11 +44,6 @@ export function SchemaMesh({ sector, sectorKey, locale = "en", priceUsd = "19" }
         applicationCategory: "IndustrialIntelligenceModule",
       };
     }),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "1000",
-    },
   };
 
   return (

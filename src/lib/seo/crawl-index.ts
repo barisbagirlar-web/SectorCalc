@@ -1,0 +1,72 @@
+import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
+import { getOrderedFreeTrafficCategories } from "@/lib/tools/free-traffic-categories";
+import { buildPremiumSchemaCatalogGroups } from "@/lib/premium-schema/premium-schema-catalog";
+import { listProgrammaticSeoSlugs, PROGRAMMATIC_SEO_PAGES } from "@/lib/seo/programmatic-seo-pages";
+import { INDUSTRIES } from "@/data/industries";
+import type { CrawlIndexGroup } from "@/components/seo/CrawlIndexLinkList";
+
+export function buildFreeToolsCrawlGroups(): readonly CrawlIndexGroup[] {
+  const categories = getOrderedFreeTrafficCategories();
+
+  return categories.map((category) => ({
+    label: category.id.replace(/-/g, " "),
+    links: FREE_TRAFFIC_TOOLS.filter((tool) => tool.category === category.id).map((tool) => ({
+      href: `/tools/free/${tool.slug}`,
+      label: tool.title,
+    })),
+  }));
+}
+
+export function buildPremiumToolsCrawlGroups(locale = "en"): readonly CrawlIndexGroup[] {
+  return buildPremiumSchemaCatalogGroups(locale).map((group) => ({
+    label: group.label,
+    links: group.items.map((item) => ({
+      href: item.href,
+      label: item.title,
+    })),
+  }));
+}
+
+export function buildIndustriesCrawlGroups(): readonly CrawlIndexGroup[] {
+  return [
+    {
+      label: "Industries",
+      links: INDUSTRIES.map((industry) => ({
+        href: industry.href,
+        label: industry.name,
+      })),
+    },
+  ];
+}
+
+export function buildSeoHubCrawlGroups(): readonly CrawlIndexGroup[] {
+  return [
+    {
+      label: "SEO hubs",
+      links: PROGRAMMATIC_SEO_PAGES.map((page) => ({
+        href: `/seo/${page.slug}`,
+        label: page.title,
+      })),
+    },
+  ];
+}
+
+export function buildCoreHubCrawlGroups(): readonly CrawlIndexGroup[] {
+  return [
+    {
+      label: "Core pages",
+      links: [
+        { href: "/free-tools", label: "Free tools" },
+        { href: "/premium-tools", label: "Premium tools" },
+        { href: "/categories", label: "Categories" },
+        { href: "/industries", label: "Industries" },
+        { href: "/pricing", label: "Pricing" },
+        { href: "/beta-partner", label: "Beta partner" },
+        ...listProgrammaticSeoSlugs().map((slug) => ({
+          href: `/seo/${slug}`,
+          label: slug.replace(/-/g, " "),
+        })),
+      ],
+    },
+  ];
+}

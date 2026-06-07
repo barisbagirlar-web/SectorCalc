@@ -3,8 +3,15 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { FreeToolPage } from "@/components/tools/FreeToolPage";
 import { FreeTrafficToolPage } from "@/components/tools/FreeTrafficToolPage";
+import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
+import { JsonLd } from "@/components/seo/JsonLd";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
+import {
+  buildBreadcrumbJsonLd,
+  buildCalculatorJsonLd,
+  buildFAQJsonLd,
+} from "@/lib/seo/schema-mesh";
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
@@ -15,6 +22,18 @@ interface FreeToolPageParams {
 
 interface FreeToolRouteParams extends FreeToolPageParams {
   locale: string;
+}
+
+function buildFreeToolFeaturedQuestion(title: string): string {
+  return `What is ${title}?`;
+}
+
+function buildFreeToolFeaturedAnswer(description: string): string {
+  const words = description.trim().split(/\s+/);
+  if (words.length <= 60) {
+    return description.trim();
+  }
+  return `${words.slice(0, 58).join(" ")}…`;
 }
 
 export const dynamic = "force-static";
@@ -66,7 +85,38 @@ export default async function FreeRevenueToolRoute({
   const revenueTool = getRevenueToolByFreeSlug(slug);
 
   if (revenueTool) {
-    return <FreeToolPage tool={revenueTool} />;
+    const featuredAnswer = (
+      <FeaturedAnswerBlock
+        question={buildFreeToolFeaturedQuestion(revenueTool.freeTitle)}
+        answer={buildFreeToolFeaturedAnswer(revenueTool.freeValue)}
+      />
+    );
+    const jsonLd = [
+      buildBreadcrumbJsonLd(
+        [
+          { name: "Home", path: "/" },
+          { name: "Free tools", path: "/free-tools" },
+          { name: revenueTool.freeTitle, path: `/tools/free/${revenueTool.freeSlug}` },
+        ],
+        locale
+      ),
+      buildCalculatorJsonLd(
+        {
+          slug: revenueTool.freeSlug,
+          title: revenueTool.freeTitle,
+          description: revenueTool.freeValue,
+          seoDescription: revenueTool.freeValue,
+        },
+        locale
+      ),
+    ];
+
+    return (
+      <>
+        <JsonLd data={jsonLd} />
+        <FreeToolPage tool={revenueTool} featuredAnswer={featuredAnswer} />
+      </>
+    );
   }
 
   const trafficTool = getFreeTrafficToolBySlug(slug);
@@ -74,5 +124,35 @@ export default async function FreeRevenueToolRoute({
     notFound();
   }
 
-  return <FreeTrafficToolPage tool={trafficTool} />;
+  const featuredAnswer = (
+    <FeaturedAnswerBlock
+      question={buildFreeToolFeaturedQuestion(trafficTool.title)}
+      answer={buildFreeToolFeaturedAnswer(trafficTool.seoDescription || trafficTool.description)}
+    />
+  );
+  const faqJsonLd = buildFAQJsonLd([
+    {
+      question: buildFreeToolFeaturedQuestion(trafficTool.title),
+      answer: buildFreeToolFeaturedAnswer(trafficTool.seoDescription || trafficTool.description),
+    },
+  ]);
+  const jsonLd = [
+    buildBreadcrumbJsonLd(
+      [
+        { name: "Home", path: "/" },
+        { name: "Free tools", path: "/free-tools" },
+        { name: trafficTool.title, path: `/tools/free/${trafficTool.slug}` },
+      ],
+      locale
+    ),
+    buildCalculatorJsonLd(trafficTool, locale),
+    ...(faqJsonLd ? [faqJsonLd] : []),
+  ];
+
+  return (
+    <>
+      <JsonLd data={jsonLd} />
+      <FreeTrafficToolPage tool={trafficTool} featuredAnswer={featuredAnswer} />
+    </>
+  );
 }

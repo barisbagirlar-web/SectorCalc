@@ -4,6 +4,7 @@ import { INDUSTRIES } from "@/data/industries";
 import { ALL_TOOLS } from "@/data/tools";
 import { locales } from "@/i18n/locales";
 import { listSectorRegistryKeys } from "@/lib/os/registry/sectors";
+import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 import {
   getFreeToolRoutePath,
@@ -19,6 +20,7 @@ export const SITEMAP_STATIC_ROUTES = [
   "/how-it-works",
   "/industries",
   "/pricing",
+  "/beta-partner",
   "/for-consultants",
   "/reports/sample-decision-report",
   "/cnc-quote-risk",
@@ -33,8 +35,36 @@ export const SITEMAP_STATIC_ROUTES = [
   "/os",
 ] as const;
 
+const HIGH_PRIORITY_HUBS = new Set([
+  "/",
+  "/free-tools",
+  "/premium-tools",
+  "/categories",
+  "/industries",
+  "/pricing",
+]);
+
+const SEO_HUB_PRIORITY = 0.85;
+const FREE_TOOL_PRIORITY = 0.75;
+const PREMIUM_SCHEMA_PRIORITY = 0.8;
+const DEFAULT_STATIC_PRIORITY = 0.8;
+
+function getStaticPriority(path: string): number {
+  if (path === "/") {
+    return 1;
+  }
+  if (HIGH_PRIORITY_HUBS.has(path)) {
+    return 0.9;
+  }
+  return DEFAULT_STATIC_PRIORITY;
+}
+
 export function getPremiumSchemaRoutePath(slug: string): string {
   return `/tools/premium-schema/${slug}`;
+}
+
+export function getProgrammaticSeoRoutePath(slug: string): string {
+  return `/seo/${slug}`;
 }
 
 export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
@@ -47,7 +77,16 @@ export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
         url: `${base}/${locale}${path === "/" ? "" : path}`,
         lastModified: now,
         changeFrequency: path === "/" ? "weekly" : "monthly",
-        priority: path === "/" ? 1 : 0.8,
+        priority: getStaticPriority(path),
+      });
+    }
+
+    for (const seoSlug of listProgrammaticSeoSlugs()) {
+      entries.push({
+        url: `${base}/${locale}${getProgrammaticSeoRoutePath(seoSlug)}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: SEO_HUB_PRIORITY,
       });
     }
 
@@ -74,7 +113,7 @@ export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
         url: `${base}/${locale}${getFreeToolRoutePath(freeSlug)}`,
         lastModified: now,
         changeFrequency: "monthly",
-        priority: 0.72,
+        priority: FREE_TOOL_PRIORITY,
       });
     }
 
@@ -83,7 +122,7 @@ export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
         url: `${base}/${locale}${getPremiumSchemaRoutePath(premiumSlug)}`,
         lastModified: now,
         changeFrequency: "monthly",
-        priority: 0.78,
+        priority: PREMIUM_SCHEMA_PRIORITY,
       });
     }
 
@@ -104,6 +143,7 @@ export function countExpectedSitemapMinimum(): number {
   const localeCount = locales.length;
   const perLocale =
     SITEMAP_STATIC_ROUTES.length +
+    listProgrammaticSeoSlugs().length +
     INDUSTRIES.length +
     ALL_TOOLS.length +
     listAllFreeToolSlugs().length +

@@ -5,7 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import "../globals.css";
-import { OrganizationJsonLd, WebApplicationJsonLd } from "@/components/seo/JsonLd";
+import { JsonLd, buildHomepageJsonLd } from "@/components/seo/JsonLd";
 import { LlmsTxtLink, SeoHeadLinks } from "@/components/seo/SeoHeadLinks";
 import { createPageMetadata } from "@/lib/metadata";
 import { routing, type AppLocale } from "@/i18n/routing";
@@ -66,10 +66,10 @@ export default async function LocaleLayout({
       <head>
         <SeoHeadLinks />
         <LlmsTxtLink />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="min-w-0 overflow-x-hidden bg-industrial-matte font-sans text-[17px] leading-[1.47059] text-premium-velvet antialiased">
-        <OrganizationJsonLd />
-        <WebApplicationJsonLd />
+        <JsonLd data={buildHomepageJsonLd(locale)} />
         <NextIntlClientProvider locale={locale as AppLocale} messages={messages}>
           <RegionProvider region={region}>{children}</RegionProvider>
         </NextIntlClientProvider>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
@@ -14,6 +14,10 @@ import {
 } from "@/lib/catalog/build-catalog-groups";
 import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
 import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
+import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildItemListJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/schema-mesh";
+import { buildFreeToolsCrawlGroups, buildCoreHubCrawlGroups } from "@/lib/seo/crawl-index";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 import type { AppLocale } from "@/i18n/routing";
@@ -47,8 +51,27 @@ export default async function FreeToolsPage({ params }: PageProps) {
     t("openCalculator")
   );
 
+  const jsonLd = [
+    buildBreadcrumbJsonLd(
+      [
+        { name: "Home", path: "/" },
+        { name: "Free tools", path: "/free-tools" },
+      ],
+      locale
+    ),
+    buildItemListJsonLd(
+      FREE_TRAFFIC_TOOLS.map((tool) => ({
+        name: tool.title,
+        path: `/tools/free/${tool.slug}`,
+      })),
+      "Free sector calculators",
+      locale
+    ),
+  ];
+
   return (
     <PageLayout>
+      <JsonLd data={jsonLd} />
       <CatalogPageHero
         eyebrow={tCatalog("freeTools.eyebrow")}
         title={tCatalog("freeTools.title")}
@@ -111,6 +134,12 @@ export default async function FreeToolsPage({ params }: PageProps) {
               </Link>
             </div>
           </div>
+        </Container>
+      </section>
+
+      <section className="sc-pro-section sc-pro-section--border">
+        <Container className="sc-pro-container">
+          <CrawlIndexLinkList groups={[...buildCoreHubCrawlGroups(), ...buildFreeToolsCrawlGroups()]} />
         </Container>
       </section>
     </PageLayout>

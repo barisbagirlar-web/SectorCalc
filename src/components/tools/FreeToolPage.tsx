@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState, type FormEvent } from "react";
+import { useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { OsModuleHeader } from "@/components/os/OsModuleHeader";
 import { SectorToolSelect } from "@/components/os/SectorToolSelect";
@@ -165,9 +165,10 @@ function FreeToolResultCard({ result }: { result: FreeToolResult }) {
 
 interface FreeToolPageProps {
  tool: RevenueTool;
+ featuredAnswer?: ReactNode;
 }
 
-export function FreeToolPage({ tool }: FreeToolPageProps) {
+export function FreeToolPage({ tool, featuredAnswer }: FreeToolPageProps) {
  const [values, setValues] = useState<FreeToolInputValues>(() =>
  buildInitialValues(tool)
  );
@@ -252,6 +253,8 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
  <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
  <SectorToolSelect tier="free" currentSlug={tool.freeSlug} />
  <OsModuleHeader title={tool.freeTitle} tier="utility" />
+
+ {featuredAnswer ? <div className="mt-5">{featuredAnswer}</div> : null}
 
  <div className="sc-ledger-cetele sc-tool-workspace mt-4">
  <form
