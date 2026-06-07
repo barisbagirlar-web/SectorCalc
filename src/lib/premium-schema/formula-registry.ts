@@ -354,6 +354,117 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
           num(inputs, "pricePerTon")
       ),
   },
+  {
+    id: "cost.unit_cost",
+    family: "cost",
+    label: "Unit cost from total and quantity",
+    fn: (inputs) =>
+      nonNegative(safeDivide(num(inputs, "totalCost"), num(inputs, "quantity"))),
+  },
+  {
+    id: "time.setup_loss",
+    family: "time",
+    label: "Setup and changeover downtime cost",
+    fn: (inputs) =>
+      nonNegative(
+        (num(inputs, "setupMinutes") / 60) *
+          num(inputs, "setupsPerMonth") *
+          num(inputs, "hourlyCost")
+      ),
+  },
+  {
+    id: "cost.percent_of_amount",
+    family: "cost",
+    label: "Percent of amount exposure",
+    fn: (inputs) =>
+      nonNegative(num(inputs, "amount") * (num(inputs, "percent") / 100)),
+  },
+  {
+    id: "time.hour_overrun_cost",
+    family: "time",
+    label: "Hour overrun labor cost",
+    fn: (inputs) =>
+      nonNegative(
+        Math.max(0, num(inputs, "actualHours") - num(inputs, "plannedHours")) *
+          num(inputs, "hourlyCost")
+      ),
+  },
+  {
+    id: "cost.count_cost",
+    family: "cost",
+    label: "Count times unit cost",
+    fn: (inputs) => nonNegative(num(inputs, "count") * num(inputs, "costEach")),
+  },
+  {
+    id: "agriculture.feed_monthly_cost",
+    family: "benchmark",
+    label: "Monthly dairy feed cost",
+    fn: (inputs) =>
+      nonNegative(
+        num(inputs, "cows") * num(inputs, "feedCostPerCowPerDay") * num(inputs, "days")
+      ),
+  },
+  {
+    id: "agriculture.milk_yield_gap_revenue",
+    family: "benchmark",
+    label: "Milk yield gap revenue loss",
+    fn: (inputs) =>
+      nonNegative(
+        num(inputs, "cows") *
+          Math.max(
+            0,
+            num(inputs, "targetMilkLitersPerCowPerDay") - num(inputs, "milkLitersPerCowPerDay")
+          ) *
+          num(inputs, "milkPricePerLiter") *
+          num(inputs, "days")
+      ),
+  },
+  {
+    id: "retail.inventory_turnover",
+    family: "benchmark",
+    label: "Inventory turnover ratio",
+    fn: (inputs) =>
+      nonNegative(safeDivide(num(inputs, "annualCOGS"), num(inputs, "averageInventory"))),
+  },
+  {
+    id: "warehouse.unused_space_cost",
+    family: "cost",
+    label: "Unused warehouse space cost",
+    fn: (inputs) =>
+      nonNegative(num(inputs, "monthlyRent") * (num(inputs, "unusedSpacePercent") / 100)),
+  },
+  {
+    id: "legal.simple_interest_days",
+    family: "cost",
+    label: "Simple interest over days",
+    fn: (inputs) =>
+      nonNegative(
+        num(inputs, "principal") *
+          (num(inputs, "annualInterestPercent") / 100) *
+          (num(inputs, "days") / 365)
+      ),
+  },
+  {
+    id: "carbon.total_emissions",
+    family: "carbon",
+    label: "Total emissions tonnage",
+    fn: (inputs) =>
+      nonNegative(num(inputs, "energyEmissionsTon") + num(inputs, "fuelEmissionsTon")),
+  },
+  {
+    id: "calibration.tolerance_status",
+    family: "calibration",
+    label: "Tolerance band usage percent",
+    fn: (inputs) => {
+      const tolerance = num(inputs, "tolerance");
+      if (tolerance === 0) {
+        return 0;
+      }
+      return nonNegative(
+        (Math.abs(num(inputs, "actual") - num(inputs, "target")) / tolerance) * 100
+      );
+    },
+  },
 ];
 
 // Legacy aliases — stable ids for existing pilot schemas (same functions)
@@ -618,6 +729,72 @@ const FORMULA_META_DETAILS: Record<
     description: "Revenue lost from yield gap per hectare.",
     requiredInputs: ["areaHa", "expectedYieldTonPerHa", "actualYieldTonPerHa", "pricePerTon"],
     outputHint: "currency",
+  },
+  "cost.unit_cost": {
+    description: "Total cost divided by quantity for per-unit exposure.",
+    requiredInputs: ["totalCost", "quantity"],
+    outputHint: "currency",
+  },
+  "time.setup_loss": {
+    description: "Setup minutes converted to monthly changeover cost.",
+    requiredInputs: ["setupMinutes", "setupsPerMonth", "hourlyCost"],
+    outputHint: "currency",
+  },
+  "cost.percent_of_amount": {
+    description: "Percent applied to a base amount.",
+    requiredInputs: ["amount", "percent"],
+    outputHint: "currency",
+  },
+  "time.hour_overrun_cost": {
+    description: "Labor cost of hours above planned estimate.",
+    requiredInputs: ["actualHours", "plannedHours", "hourlyCost"],
+    outputHint: "currency",
+  },
+  "cost.count_cost": {
+    description: "Unit count multiplied by cost each.",
+    requiredInputs: ["count", "costEach"],
+    outputHint: "currency",
+  },
+  "agriculture.feed_monthly_cost": {
+    description: "Monthly feed spend from herd size and daily rate.",
+    requiredInputs: ["cows", "feedCostPerCowPerDay", "days"],
+    outputHint: "currency",
+  },
+  "agriculture.milk_yield_gap_revenue": {
+    description: "Revenue gap from milk yield below target.",
+    requiredInputs: [
+      "cows",
+      "milkLitersPerCowPerDay",
+      "targetMilkLitersPerCowPerDay",
+      "milkPricePerLiter",
+      "days",
+    ],
+    outputHint: "currency",
+  },
+  "retail.inventory_turnover": {
+    description: "Annual COGS divided by average inventory.",
+    requiredInputs: ["annualCOGS", "averageInventory"],
+    outputHint: "score",
+  },
+  "warehouse.unused_space_cost": {
+    description: "Rent allocated to unused warehouse space.",
+    requiredInputs: ["monthlyRent", "unusedSpacePercent"],
+    outputHint: "currency",
+  },
+  "legal.simple_interest_days": {
+    description: "Simple interest from principal, rate and days.",
+    requiredInputs: ["principal", "annualInterestPercent", "days"],
+    outputHint: "currency",
+  },
+  "carbon.total_emissions": {
+    description: "Sum of energy and fuel emissions tonnage.",
+    requiredInputs: ["energyEmissionsTon", "fuelEmissionsTon"],
+    outputHint: "number",
+  },
+  "calibration.tolerance_status": {
+    description: "Percent of tolerance band consumed by deviation.",
+    requiredInputs: ["target", "actual", "tolerance"],
+    outputHint: "percentage",
   },
 };
 

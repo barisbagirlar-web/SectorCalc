@@ -46,8 +46,8 @@ const BATCH2_FORMULA_IDS = [
 ] as const;
 
 describe("premium-schema-batch2", () => {
-  test("PREMIUM_SCHEMAS length is 12", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(12);
+  test("PREMIUM_SCHEMAS length is 27", () => {
+    expect(PREMIUM_SCHEMAS.length).toBe(27);
   });
 
   test("all batch 2 slugs exist in schema index", () => {

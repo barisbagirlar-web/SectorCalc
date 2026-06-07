@@ -31,6 +31,21 @@ const SCHEMA_PILOT_IDS = [
   "energy-compressor-leak-cost",
   "cloud-api-cost-overrun",
   "agriculture-irrigation-yield-loss",
+  "cnc-tool-wear-cost",
+  "textile-fabric-waste-risk",
+  "printing-reprint-margin-leak",
+  "auto-repair-comeback-cost",
+  "hvac-callback-margin-risk",
+  "electrical-panel-rework-cost",
+  "plumbing-leak-callback-cost",
+  "roofing-weather-delay-risk",
+  "painting-rework-coverage-risk",
+  "dairy-feed-efficiency-loss",
+  "retail-inventory-turnover-risk",
+  "warehouse-space-cost-leak",
+  "calibration-drift-risk",
+  "legal-interest-fee-calculator-pro",
+  "carbon-footprint-compliance-risk",
 ] as const;
 
 describe("premium-migration-map", () => {
@@ -55,7 +70,7 @@ describe("premium-migration-map", () => {
 
   test("schema_pilot items include schemaSlug", () => {
     const pilots = PREMIUM_MIGRATION_MAP.filter((entry) => entry.status === "schema_pilot");
-    expect(pilots.length).toBe(12);
+    expect(pilots.length).toBe(27);
     for (const pilot of pilots) {
       expect(pilot.schemaSlug).toBeTruthy();
     }

@@ -22,7 +22,7 @@ describe("premium-schema-engine", () => {
     }
   });
 
-  test("12 premium schemas are registered", () => {
+  test("27 premium schemas are registered", () => {
     const ids = listPremiumSchemaIds();
     expect(ids).toContain("cnc-oee-loss");
     expect(ids).toContain("logistics-route-loss");
@@ -31,7 +31,9 @@ describe("premium-schema-engine", () => {
     expect(ids).toContain("construction-project-overrun");
     expect(ids).toContain("sheet-metal-scrap-risk");
     expect(ids).toContain("restaurant-menu-margin-leak");
-    expect(ids.length).toBe(12);
+    expect(ids).toContain("cnc-tool-wear-cost");
+    expect(ids).toContain("carbon-footprint-compliance-risk");
+    expect(ids.length).toBe(27);
   });
 
   test("slug map bridges legacy premium routes", () => {
@@ -46,6 +48,8 @@ describe("premium-schema-engine", () => {
       "construction-project-overrun"
     );
     expect(PREMIUM_SCHEMA_SLUG_MAP["sheet-metal-quote-risk-tool"]).toBe("sheet-metal-scrap-risk");
+    expect(PREMIUM_SCHEMA_SLUG_MAP["cbam-compliance-verdict"]).toBe("carbon-footprint-compliance-risk");
+    expect(PREMIUM_SCHEMA_SLUG_MAP["welding-bid-risk-analyzer"]).toBe("cnc-tool-wear-cost");
   });
 
   for (const schemaId of [
