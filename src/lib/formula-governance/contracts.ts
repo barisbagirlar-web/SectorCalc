@@ -5,10 +5,11 @@
 import type { FormulaContract } from "@/lib/formula-governance/types";
 import { scenarioRuntimeTests } from "@/lib/formula-governance/contracts/shared";
 import { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/top-critical";
+import { BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/batch-expansion-critical";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
 
 const RENT_VS_BUY_DISCLAIMER =
-  "Job check only — not ERP, accounting, tax, legal or financial advice. Review your real numbers before housing or investment decisions.";
+  "Technical simulation only — not financial, legal, or tax advice. Verify assumptions before housing or investment decisions.";
 
 export const rentVsBuyContract: FormulaContract = {
   toolId: "free-traffic.rent-vs-buy-calculator",
@@ -181,6 +182,7 @@ export const rentVsBuyContract: FormulaContract = {
 export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   rentVsBuyContract,
   ...TOP_CRITICAL_FORMULA_CONTRACTS,
+  ...BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS,
 ];
 
 export function getFormulaContractBySlug(slug: string): FormulaContract | undefined {

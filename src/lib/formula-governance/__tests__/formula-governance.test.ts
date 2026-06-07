@@ -10,6 +10,10 @@ import {
 } from "@/lib/formula-governance/audit-runner";
 import { rentVsBuyContract, getFormulaContractBySlug, FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts";
 import { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/top-critical";
+import {
+  BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS,
+  BATCH_EXPANSION_CRITICAL_SLUGS,
+} from "@/lib/formula-governance/contracts/batch-expansion-critical";
 import { buildFormulaInventory, summarizeInventory } from "@/lib/formula-governance/inventory";
 import {
   buildContractGapReport,
@@ -51,9 +55,10 @@ describe("formula-governance contracts", () => {
     expect(rentVsBuyContract.criticalInputs).toContain("annualHomeAppreciation");
   });
 
-  test("phase 3 registers 11 formula contracts", () => {
-    expect(FORMULA_CONTRACTS.length).toBe(11);
+  test("phase 5E registers 21 formula contracts", () => {
+    expect(FORMULA_CONTRACTS.length).toBe(21);
     expect(TOP_CRITICAL_FORMULA_CONTRACTS.length).toBe(10);
+    expect(BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS.length).toBe(10);
   });
 
   test("phase 5C assured contracts wire runtime scenarios and property gate", () => {
@@ -243,9 +248,9 @@ describe("formula-governance audit runner", () => {
     expect(text).toContain("loan-payment-calculator");
   });
 
-  test("phase 3 reduces critical missing contracts to about 70", () => {
+  test("phase 5E reduces critical missing contracts by about 10", () => {
     const summary = summarizeInventory(buildFormulaInventory());
-    expect(summary.criticalMissingContracts.length).toBeGreaterThanOrEqual(68);
-    expect(summary.criticalMissingContracts.length).toBeLessThanOrEqual(72);
+    expect(summary.criticalMissingContracts.length).toBeGreaterThanOrEqual(53);
+    expect(summary.criticalMissingContracts.length).toBeLessThanOrEqual(62);
   });
 });

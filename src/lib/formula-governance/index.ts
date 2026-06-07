@@ -24,6 +24,10 @@ export {
 } from "@/lib/formula-governance/contracts";
 
 export { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/top-critical";
+export {
+  BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS,
+  BATCH_EXPANSION_CRITICAL_SLUGS,
+} from "@/lib/formula-governance/contracts/batch-expansion-critical";
 
 export {
   buildAuditPriorities,
