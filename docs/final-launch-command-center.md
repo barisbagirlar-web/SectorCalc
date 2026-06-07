@@ -3,6 +3,8 @@
 Single operations hub for the first 14 days after launch. Measure first, fix blockers only, no new product surface.
 
 **Related docs:**
+- [Stop / Measure / Decide](./stop-measure-decide.md)
+- [Final Status](./final-status.md)
 - [Quick Launch Checklist](./quick-launch-checklist.md)
 - [Launch Incident Response](./launch-incident-response.md)
 - [Product Roadmap Freeze](./product-roadmap-freeze.md)

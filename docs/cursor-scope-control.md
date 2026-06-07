@@ -1,6 +1,6 @@
 # Cursor Scope Control
 
-Rules for Cursor / agent tasks during the [30-day monetization sprint](./monetization-sprint-30-day-plan.md) and [product roadmap freeze](./product-roadmap-freeze.md).
+Rules for Cursor / agent tasks during the [30-day monetization sprint](./monetization-sprint-30-day-plan.md), [product roadmap freeze](./product-roadmap-freeze.md), and [Stop / Measure / Decide](./stop-measure-decide.md) operating mode.
 
 ---
 
@@ -118,6 +118,44 @@ Cursor **must not**:
 - expand paid budget without measured results in [Controlled Scale Sprint Report](./controlled-scale-sprint-report.md)
 
 Paid micro-tests are **operator-only** — see [Paid Micro-Test Runbook](./paid-micro-test-runbook.md).
+
+---
+
+## Final operating boundary
+
+**Default mode:** [Stop / Measure / Decide](./stop-measure-decide.md) — product development frozen; measure first.
+
+### Cursor must ask
+
+**What data supports this task?**
+
+If **no data** → do not implement → add to [Post-launch Backlog Items](./post-launch-backlog-items.md).
+
+Required in every task: metric or GSC signal + affected URL/slug + date range.
+
+### Allowed (with data or blocker proof)
+
+- Blocker fix (payment, export leak, mobile, indexing, build)
+- SEO indexing fix on existing Tier-1 URL
+- Measured CTA fix ([Final Decision Tree](./final-decision-tree.md) Cases 3–5)
+- Measured UX fix (Case 2)
+- Payment / entitlement reliability fix (Case 6)
+- Entitlement / export security fix
+- Docs update for operating mode
+
+### Not allowed
+
+- Speculative product expansion
+- New calculators or premium schemas
+- New SEO pages or guides
+- Broad redesign or homepage redesign
+- New pricing or pricing model changes
+- New dashboards unless KPI data explicitly requires it
+- New npm packages without production blocker proof
+- Starting paid ads or increasing budget (operator only)
+- Mixed sprints — pick one from [Next Sprint Selector](./next-sprint-selector.md)
+
+Sprint selection: [Final Decision Tree](./final-decision-tree.md) → exactly **one** sprint → **one** Cursor task per week ([Measurement Cadence](./measurement-cadence.md)).
 
 ---
 
