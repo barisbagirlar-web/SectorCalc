@@ -1,0 +1,3919 @@
+[
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "square-meter-calculator",
+    "title": "Square Meter Calculator",
+    "category": "construction-measurement",
+    "description": "Calculate floor or surface area in square meters from length and width.",
+    "seoTitle": "Square Meter Calculator — Area in m²",
+    "seoDescription": "Free square meter calculator. Enter length and width to get area in m² instantly in your browser.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Length",
+        "unit": "m",
+        "type": "number",
+        "helper": "Room or slab length in meters",
+        "min": 0.01
+      },
+      {
+        "key": "width",
+        "label": "Width",
+        "unit": "m",
+        "type": "number",
+        "helper": "Room or slab width in meters",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "square-footage-calculator",
+    "title": "Square Footage Calculator",
+    "category": "construction-measurement",
+    "description": "Convert length and width into total square feet for flooring and bids.",
+    "seoTitle": "Square Footage Calculator — Area in ft²",
+    "seoDescription": "Free square footage calculator for contractors and homeowners. Browser-side area in ft².",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Length",
+        "unit": "ft",
+        "type": "number",
+        "helper": "Length in feet",
+        "min": 0.01
+      },
+      {
+        "key": "width",
+        "label": "Width",
+        "unit": "ft",
+        "type": "number",
+        "helper": "Width in feet",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "concrete-volume-calculator",
+    "title": "Concrete Volume Calculator",
+    "category": "construction-measurement",
+    "description": "Estimate concrete volume in cubic meters for slabs and footings.",
+    "seoTitle": "Concrete Volume Calculator — m³ Estimate",
+    "seoDescription": "Calculate concrete volume from length, width and depth. Free browser calculator for pours and quotes.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "change-order-impact-analyzer",
+    "relatedIndustrySlug": "construction",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Length",
+        "unit": "m",
+        "type": "number",
+        "helper": "Pour length",
+        "min": 0.01
+      },
+      {
+        "key": "width",
+        "label": "Width",
+        "unit": "m",
+        "type": "number",
+        "helper": "Pour width",
+        "min": 0.01
+      },
+      {
+        "key": "depth",
+        "label": "Depth",
+        "unit": "m",
+        "type": "number",
+        "helper": "Pour depth/thickness",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "paint-coverage-calculator",
+    "title": "Paint Coverage Calculator",
+    "category": "construction-measurement",
+    "description": "Estimate paint liters needed from wall area and coverage rate.",
+    "seoTitle": "Paint Coverage Calculator — Liters Needed",
+    "seoDescription": "Free paint coverage calculator. Area and coverage per liter → estimated liters required.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "painting-job-profit-verdict",
+    "relatedIndustrySlug": "painting",
+    "inputs": [
+      {
+        "key": "area",
+        "label": "Wall area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Total paintable area",
+        "min": 0.1
+      },
+      {
+        "key": "coveragePerLiter",
+        "label": "Coverage per liter",
+        "unit": "m²/L",
+        "type": "number",
+        "helper": "Manufacturer coverage rate",
+        "min": 0.1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "brick-calculator",
+    "title": "Brick Calculator",
+    "category": "construction-measurement",
+    "description": "Estimate brick count for a wall area with standard brick and joint size.",
+    "seoTitle": "Brick Calculator — Wall Brick Estimate",
+    "seoDescription": "Free brick quantity estimator for masonry walls. Quick browser calculation.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "wallArea",
+        "label": "Wall area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Total wall face area",
+        "min": 0.1
+      },
+      {
+        "key": "bricksPerM2",
+        "label": "Bricks per m²",
+        "unit": "pcs/m²",
+        "type": "number",
+        "helper": "Including mortar joints",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "tile-calculator",
+    "title": "Tile Calculator",
+    "category": "construction-measurement",
+    "description": "Calculate tiles needed for floor or wall including waste allowance.",
+    "seoTitle": "Tile Calculator — Tiles Needed",
+    "seoDescription": "Estimate tile count from area, tile size and waste percent. Free construction calculator.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "area",
+        "label": "Area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Surface to tile",
+        "min": 0.1
+      },
+      {
+        "key": "tileArea",
+        "label": "Tile area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Single tile area",
+        "min": 0.001
+      },
+      {
+        "key": "wastePercent",
+        "label": "Waste allowance",
+        "unit": "%",
+        "type": "number",
+        "helper": "Breakage and cuts",
+        "min": 0,
+        "max": 50,
+        "defaultValue": 10
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "roof-pitch-calculator",
+    "title": "Roof Pitch Calculator",
+    "category": "construction-measurement",
+    "description": "Convert rise and run into roof pitch angle and slope ratio.",
+    "seoTitle": "Roof Pitch Calculator — Slope & Angle",
+    "seoDescription": "Free roof pitch calculator from rise and run. Browser-side geometry check.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "rise",
+        "label": "Rise",
+        "unit": "m",
+        "type": "number",
+        "helper": "Vertical rise",
+        "min": 0.01
+      },
+      {
+        "key": "run",
+        "label": "Run",
+        "unit": "m",
+        "type": "number",
+        "helper": "Horizontal run",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "wall-area-calculator",
+    "title": "Wall Area Calculator",
+    "category": "construction-measurement",
+    "description": "Calculate net wall area minus openings for paint and drywall.",
+    "seoTitle": "Wall Area Calculator — Net m²",
+    "seoDescription": "Wall area from perimeter, height and opening deductions. Free quick estimate.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "perimeter",
+        "label": "Perimeter",
+        "unit": "m",
+        "type": "number",
+        "helper": "Room perimeter",
+        "min": 0.1
+      },
+      {
+        "key": "height",
+        "label": "Height",
+        "unit": "m",
+        "type": "number",
+        "helper": "Wall height",
+        "min": 0.1
+      },
+      {
+        "key": "openings",
+        "label": "Opening area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Doors and windows total",
+        "min": 0,
+        "defaultValue": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "cubic-yard-calculator",
+    "title": "Cubic Yard Calculator",
+    "category": "construction-measurement",
+    "description": "Convert feet dimensions into cubic yards for fill and concrete orders.",
+    "seoTitle": "Cubic Yard Calculator — Volume in yd³",
+    "seoDescription": "Free cubic yard volume calculator for US construction orders.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Length",
+        "unit": "ft",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "width",
+        "label": "Width",
+        "unit": "ft",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "depth",
+        "label": "Depth",
+        "unit": "ft",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "drywall-calculator",
+    "title": "Drywall Sheet Calculator",
+    "category": "construction-measurement",
+    "description": "Estimate drywall sheets from wall area and sheet size.",
+    "seoTitle": "Drywall Calculator — Sheets Needed",
+    "seoDescription": "Calculate drywall sheet count from net wall area. Free browser tool.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "wallArea",
+        "label": "Wall area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "Net wall surface",
+        "min": 0.1
+      },
+      {
+        "key": "sheetArea",
+        "label": "Sheet area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "One board coverage",
+        "min": 0.1,
+        "defaultValue": 2.97
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "loan-payment-calculator",
+    "title": "Loan Payment Calculator",
+    "category": "finance-business",
+    "description": "Monthly payment from principal, annual rate and term.",
+    "seoTitle": "Loan Payment Calculator — Monthly Payment",
+    "seoDescription": "Free loan payment calculator. Amortizing monthly payment in your browser.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Principal",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Loan amount",
+        "min": 1
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "Nominal yearly interest",
+        "min": 0,
+        "step": 0.01
+      },
+      {
+        "key": "months",
+        "label": "Term",
+        "unit": "months",
+        "type": "number",
+        "helper": "Loan duration in months",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "mortgage-calculator",
+    "title": "Mortgage Calculator",
+    "category": "finance-business",
+    "description": "Estimate monthly mortgage payment for home purchase financing.",
+    "seoTitle": "Mortgage Calculator — Monthly Payment",
+    "seoDescription": "Free mortgage payment calculator. Principal, rate and term → monthly payment.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Loan amount",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Mortgage principal",
+        "min": 1
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "Mortgage interest rate",
+        "min": 0,
+        "step": 0.01
+      },
+      {
+        "key": "months",
+        "label": "Term",
+        "unit": "months",
+        "type": "number",
+        "helper": "Mortgage term in months",
+        "min": 1,
+        "defaultValue": 360
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "interest-calculator",
+    "title": "Simple Interest Calculator",
+    "category": "finance-business",
+    "description": "Simple interest and total repayment over time.",
+    "seoTitle": "Simple Interest Calculator",
+    "seoDescription": "Calculate simple interest from principal, rate and years. Free finance tool.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Principal",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "rate",
+        "label": "Annual rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "years",
+        "label": "Years",
+        "unit": "yr",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "vat-calculator",
+    "title": "VAT Calculator",
+    "category": "finance-business",
+    "description": "Add VAT to net amount or compute gross total.",
+    "seoTitle": "VAT Calculator — Net to Gross",
+    "seoDescription": "Free VAT calculator. Net amount and VAT rate → tax and gross total.",
+    "resultType": "cost",
+    "relatedIndustrySlug": "ecommerce",
+    "inputs": [
+      {
+        "key": "net",
+        "label": "Net amount",
+        "unit": "TRY",
+        "type": "number",
+        "helper": "Amount excluding VAT",
+        "min": 0.01
+      },
+      {
+        "key": "vatRate",
+        "label": "VAT rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "Standard VAT rate",
+        "min": 0,
+        "defaultValue": 20
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "percentage-calculator",
+    "title": "Percentage Calculator",
+    "category": "finance-business",
+    "description": "Find X percent of any value instantly.",
+    "seoTitle": "Percentage Calculator — X% of Value",
+    "seoDescription": "Free percentage calculator for discounts, margins and quick math.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "Base number",
+        "min": 0
+      },
+      {
+        "key": "percent",
+        "label": "Percent",
+        "unit": "%",
+        "type": "number",
+        "helper": "Percentage to apply",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "profit-margin-calculator",
+    "title": "Profit Margin Calculator",
+    "category": "finance-business",
+    "description": "Selling margin percent from cost and selling price.",
+    "seoTitle": "Profit Margin Calculator — Margin %",
+    "seoDescription": "Calculate profit margin from cost and price. Free business calculator.",
+    "resultType": "ratio",
+    "relatedPremiumSlug": "product-margin-calculator",
+    "relatedIndustrySlug": "ecommerce",
+    "inputs": [
+      {
+        "key": "cost",
+        "label": "Cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Unit cost",
+        "min": 0.01
+      },
+      {
+        "key": "sellingPrice",
+        "label": "Selling price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Sale price",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "break-even-calculator",
+    "title": "Break-Even Calculator",
+    "category": "finance-business",
+    "description": "Units needed to cover fixed costs at given price and variable cost.",
+    "seoTitle": "Break-Even Calculator — Units to Cover Costs",
+    "seoDescription": "Free break-even point calculator for small business planning.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "fixedCost",
+        "label": "Fixed costs",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Monthly or job fixed costs",
+        "min": 0.01
+      },
+      {
+        "key": "unitPrice",
+        "label": "Unit price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Selling price per unit",
+        "min": 0.01
+      },
+      {
+        "key": "variableCost",
+        "label": "Variable cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Cost per unit sold",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "unit-price-calculator",
+    "title": "Unit Price Calculator",
+    "category": "finance-business",
+    "description": "Price per unit from total price and quantity.",
+    "seoTitle": "Unit Price Calculator — Price per Unit",
+    "seoDescription": "Divide total price by quantity to compare pack sizes. Free calculator.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "totalPrice",
+        "label": "Total price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "quantity",
+        "label": "Quantity",
+        "unit": "units",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "discount-calculator",
+    "title": "Discount Calculator",
+    "category": "finance-business",
+    "description": "Sale price after discount percent.",
+    "seoTitle": "Discount Calculator — Sale Price",
+    "seoDescription": "Apply discount percent to original price. Free retail calculator.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "originalPrice",
+        "label": "Original price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "discountPercent",
+        "label": "Discount",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "max": 100
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "compound-interest-calculator",
+    "title": "Compound Interest Calculator",
+    "category": "finance-business",
+    "description": "Future value with annual compounding.",
+    "seoTitle": "Compound Interest Calculator — Future Value",
+    "seoDescription": "Estimate compound growth from principal, rate and years.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Principal",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "rate",
+        "label": "Annual rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "years",
+        "label": "Years",
+        "unit": "yr",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "machine-time-calculator",
+    "title": "CNC Machine Time Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Setup plus cycle time for batch machining cost basis.",
+    "seoTitle": "Machine Time Calculator — CNC Minutes & Cost",
+    "seoDescription": "Free CNC machine time and cost estimate. Browser-side shop floor check.",
+    "resultType": "time",
+    "relatedPremiumSlug": "cnc-quote-risk-analyzer",
+    "relatedIndustrySlug": "cnc-manufacturing",
+    "inputs": [
+      {
+        "key": "setupMinutes",
+        "label": "Setup time",
+        "unit": "min",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "cycleSeconds",
+        "label": "Cycle time",
+        "unit": "sec/part",
+        "type": "number",
+        "helper": "Per piece cycle",
+        "min": 0.01
+      },
+      {
+        "key": "quantity",
+        "label": "Quantity",
+        "unit": "pcs",
+        "type": "number",
+        "helper": "Parts in batch",
+        "min": 1
+      },
+      {
+        "key": "machineRate",
+        "label": "Machine rate",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "Shop rate",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "welding-cost-estimator",
+    "title": "Welding Cost Estimator",
+    "category": "manufacturing-workshop",
+    "description": "Material, labor and consumables for a weld job.",
+    "seoTitle": "Welding Cost Estimator — Job Cost",
+    "seoDescription": "Free welding job cost estimate from labor hours and materials.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "welding-bid-risk-analyzer",
+    "relatedIndustrySlug": "welding-fabrication",
+    "inputs": [
+      {
+        "key": "materialCost",
+        "label": "Material",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "laborHours",
+        "label": "Labor hours",
+        "unit": "hr",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "laborRate",
+        "label": "Labor rate",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "consumablesCost",
+        "label": "Consumables",
+        "unit": "USD",
+        "type": "number",
+        "helper": "Gas, wire, tips",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "laser-cutting-time-check",
+    "title": "Laser Cutting Time Check",
+    "category": "manufacturing-workshop",
+    "description": "Cut path time from length, speed and pierce count.",
+    "seoTitle": "Laser Cutting Time Calculator",
+    "seoDescription": "Estimate laser cut minutes from path length and machine speed.",
+    "resultType": "time",
+    "relatedPremiumSlug": "sheet-metal-quote-risk-tool",
+    "relatedIndustrySlug": "sheet-metal",
+    "inputs": [
+      {
+        "key": "setupMinutes",
+        "label": "Setup",
+        "unit": "min",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "cutLength",
+        "label": "Cut length",
+        "unit": "mm",
+        "type": "number",
+        "helper": "Total cut path",
+        "min": 0.1
+      },
+      {
+        "key": "cutSpeed",
+        "label": "Cut speed",
+        "unit": "mm/min",
+        "type": "number",
+        "helper": "Machine feed",
+        "min": 1
+      },
+      {
+        "key": "pierceCount",
+        "label": "Pierce count",
+        "unit": "holes",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "defaultValue": 0
+      },
+      {
+        "key": "pierceSeconds",
+        "label": "Pierce time",
+        "unit": "sec/hole",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "defaultValue": 2
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "3d-print-cost-check",
+    "title": "3D Print Cost Check",
+    "category": "manufacturing-workshop",
+    "description": "Filament, machine time and post-processing cost.",
+    "seoTitle": "3D Print Cost Calculator",
+    "seoDescription": "Free 3D printing job cost from material and machine hours.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "3d-print-job-margin-tool",
+    "relatedIndustrySlug": "3d-printing-service",
+    "inputs": [
+      {
+        "key": "materialCost",
+        "label": "Material",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "printHours",
+        "label": "Print time",
+        "unit": "hr",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "machineRate",
+        "label": "Machine rate",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "postProcessHours",
+        "label": "Post-process",
+        "unit": "hr",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "laborRate",
+        "label": "Labor rate",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "cnc-feed-rate-calculator",
+    "title": "CNC Feed Rate Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Spindle RPM and chip load to cutting feed rate.",
+    "seoTitle": "CNC Feed Rate Calculator — mm/min",
+    "seoDescription": "Calculate CNC feed rate from RPM, flutes and chip load.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "rpm",
+        "label": "Spindle RPM",
+        "unit": "RPM",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "flutes",
+        "label": "Flutes",
+        "unit": "value",
+        "type": "number",
+        "helper": "Number of cutting edges",
+        "min": 1,
+        "defaultValue": 2
+      },
+      {
+        "key": "chipLoad",
+        "label": "Chip load",
+        "unit": "mm/tooth",
+        "type": "number",
+        "helper": "",
+        "min": 0.001
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "spindle-speed-calculator",
+    "title": "Spindle Speed Calculator",
+    "category": "manufacturing-workshop",
+    "description": "RPM from surface speed and tool diameter.",
+    "seoTitle": "Spindle Speed Calculator — RPM",
+    "seoDescription": "Free RPM calculator for milling and turning operations.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "surfaceSpeed",
+        "label": "Surface speed",
+        "unit": "m/min",
+        "type": "number",
+        "helper": "Cutting speed",
+        "min": 0.1
+      },
+      {
+        "key": "diameter",
+        "label": "Tool diameter",
+        "unit": "mm",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "material-weight-calculator",
+    "title": "Material Weight Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Plate weight from dimensions and material density.",
+    "seoTitle": "Material Weight Calculator — kg",
+    "seoDescription": "Calculate metal plate weight from size and density.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Length",
+        "unit": "mm",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "width",
+        "label": "Width",
+        "unit": "mm",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "thickness",
+        "label": "Thickness",
+        "unit": "mm",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "density",
+        "label": "Density",
+        "unit": "g/cm³",
+        "type": "number",
+        "helper": "Steel ~7.85",
+        "min": 0.01,
+        "defaultValue": 7.85
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "sheet-metal-bend-calculator",
+    "title": "Sheet Metal Bend Allowance",
+    "category": "manufacturing-workshop",
+    "description": "Bend allowance from angle, radius and thickness.",
+    "seoTitle": "Sheet Metal Bend Calculator",
+    "seoDescription": "Estimate bend allowance for flat pattern layout.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "angle",
+        "label": "Bend angle",
+        "unit": "°",
+        "type": "number",
+        "helper": "",
+        "min": 1,
+        "max": 180
+      },
+      {
+        "key": "radius",
+        "label": "Inside radius",
+        "unit": "mm",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "thickness",
+        "label": "Thickness",
+        "unit": "mm",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "welding-wire-consumption-calculator",
+    "title": "Welding Wire Consumption",
+    "category": "manufacturing-workshop",
+    "description": "Wire weight from weld length and wire diameter.",
+    "seoTitle": "Welding Wire Consumption Calculator",
+    "seoDescription": "Estimate filler wire usage for MIG/MAG jobs.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "weldLength",
+        "label": "Weld length",
+        "unit": "m",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "wireDiameter",
+        "label": "Wire diameter",
+        "unit": "mm",
+        "type": "number",
+        "helper": "",
+        "min": 0.5
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "oee-calculator",
+    "title": "OEE Calculator",
+    "category": "manufacturing-workshop",
+    "description": "Overall equipment effectiveness from availability, performance and quality.",
+    "seoTitle": "OEE Calculator — Overall Effectiveness",
+    "seoDescription": "Free OEE calculator for production KPI tracking.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "availability",
+        "label": "Availability",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "max": 100
+      },
+      {
+        "key": "performance",
+        "label": "Performance",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "max": 100
+      },
+      {
+        "key": "quality",
+        "label": "Quality",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "max": 100
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "kwh-cost-calculator",
+    "title": "kWh Cost Calculator",
+    "category": "energy-carbon",
+    "description": "Electricity bill from consumption and unit rate.",
+    "seoTitle": "kWh Cost Calculator — Electricity Bill",
+    "seoDescription": "Multiply kWh by rate for energy cost. Free browser calculator.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "energy-efficiency-report",
+    "relatedIndustrySlug": "energy-consumption",
+    "inputs": [
+      {
+        "key": "kwh",
+        "label": "Energy used",
+        "unit": "kWh",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "rate",
+        "label": "Unit rate",
+        "unit": "/kWh",
+        "type": "number",
+        "helper": "Tariff per kWh",
+        "min": 0.0001
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "carbon-footprint-calculator",
+    "title": "Carbon Footprint Calculator",
+    "category": "energy-carbon",
+    "description": "CO₂ estimate from energy use and emission factor.",
+    "seoTitle": "Carbon Footprint Calculator — kg CO₂",
+    "seoDescription": "Quick carbon estimate from kWh and grid factor.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "cbam-compliance-verdict",
+    "relatedIndustrySlug": "energy-carbon",
+    "inputs": [
+      {
+        "key": "kwh",
+        "label": "Electricity",
+        "unit": "kWh",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "emissionFactor",
+        "label": "Grid factor",
+        "unit": "kg CO₂/kWh",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "defaultValue": 0.45
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "electricity-bill-estimator",
+    "title": "Electricity Bill Estimator",
+    "category": "energy-carbon",
+    "description": "Monthly bill from daily kWh and tariff.",
+    "seoTitle": "Electricity Bill Estimator",
+    "seoDescription": "Estimate monthly electricity cost from usage pattern.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "dailyKwh",
+        "label": "Daily usage",
+        "unit": "kWh/day",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "days",
+        "label": "Days",
+        "unit": "days/month",
+        "type": "number",
+        "helper": "",
+        "min": 1,
+        "defaultValue": 30
+      },
+      {
+        "key": "rate",
+        "label": "Rate",
+        "unit": "/kWh",
+        "type": "number",
+        "helper": "",
+        "min": 0.0001
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "solar-payback-calculator",
+    "title": "Solar Payback Calculator",
+    "category": "energy-carbon",
+    "description": "Years to recover solar installation cost from savings.",
+    "seoTitle": "Solar Payback Period Calculator",
+    "seoDescription": "Simple solar ROI payback estimate. Free energy tool.",
+    "resultType": "time",
+    "inputs": [
+      {
+        "key": "systemCost",
+        "label": "System cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "annualSavings",
+        "label": "Annual savings",
+        "unit": "USD/yr",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "btu-calculator",
+    "title": "BTU Calculator",
+    "category": "energy-carbon",
+    "description": "Convert kW heating/cooling load to BTU.",
+    "seoTitle": "BTU Calculator — kW to BTU/h",
+    "seoDescription": "Free BTU conversion for HVAC sizing checks.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "kw",
+        "label": "Power",
+        "unit": "kW",
+        "type": "number",
+        "helper": "Heating or cooling load",
+        "min": 0.01
+      },
+      {
+        "key": "hours",
+        "label": "Runtime",
+        "unit": "hours",
+        "type": "number",
+        "helper": "Hours per day for energy context",
+        "min": 0.01,
+        "defaultValue": 24
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "energy-cost-per-unit-calculator",
+    "title": "Energy Cost per Unit",
+    "category": "energy-carbon",
+    "description": "Manufacturing energy cost allocated per unit produced.",
+    "seoTitle": "Energy Cost per Unit Calculator",
+    "seoDescription": "Divide total energy cost by production volume.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "totalEnergyCost",
+        "label": "Energy cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "units",
+        "label": "Units produced",
+        "unit": "units",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "power-consumption-calculator",
+    "title": "Power Consumption Calculator",
+    "category": "energy-carbon",
+    "description": "kWh from device wattage and run hours.",
+    "seoTitle": "Power Consumption Calculator — kWh",
+    "seoDescription": "Watts × hours → kWh consumption estimate.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "watts",
+        "label": "Power draw",
+        "unit": "W",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "hours",
+        "label": "Run time",
+        "unit": "hr",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "co2-emissions-calculator",
+    "title": "CO₂ Emissions Calculator",
+    "category": "energy-carbon",
+    "description": "Emissions from fuel liters and emission factor.",
+    "seoTitle": "CO₂ Emissions Calculator",
+    "seoDescription": "Estimate CO₂ from fuel volume. Free environmental check.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "liters",
+        "label": "Fuel volume",
+        "unit": "L",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "factor",
+        "label": "Emission factor",
+        "unit": "kg CO₂/L",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "defaultValue": 2.31
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "gas-bill-calculator",
+    "title": "Gas Bill Calculator",
+    "category": "energy-carbon",
+    "description": "Natural gas cost from cubic meters and tariff.",
+    "seoTitle": "Gas Bill Calculator",
+    "seoDescription": "Estimate gas heating cost from consumption.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "cubicMeters",
+        "label": "Gas volume",
+        "unit": "m³",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "rate",
+        "label": "Tariff",
+        "unit": "/m³",
+        "type": "number",
+        "helper": "",
+        "min": 0.0001
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "insulation-savings-calculator",
+    "title": "Insulation Savings Calculator",
+    "category": "energy-carbon",
+    "description": "Annual heating savings from improved U-value.",
+    "seoTitle": "Insulation Savings Calculator",
+    "seoDescription": "Compare before/after insulation heat loss cost.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "area",
+        "label": "Surface area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "deltaU",
+        "label": "U-value improvement",
+        "unit": "W/m²K",
+        "type": "number",
+        "helper": "",
+        "min": 0.001
+      },
+      {
+        "key": "heatingCost",
+        "label": "Heating cost",
+        "unit": "USD/yr",
+        "type": "number",
+        "helper": "Baseline annual cost",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "fuel-consumption-calculator",
+    "title": "Fuel Consumption Calculator",
+    "category": "logistics-travel",
+    "description": "Liters and cost from distance and consumption per 100 km.",
+    "seoTitle": "Fuel Consumption Calculator — Liters & Cost",
+    "seoDescription": "Free trip fuel calculator from distance and L/100km.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "trip-budget-optimizer",
+    "relatedIndustrySlug": "daily-fuel",
+    "inputs": [
+      {
+        "key": "distance",
+        "label": "Distance",
+        "unit": "km",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "consumptionPer100",
+        "label": "Consumption",
+        "unit": "L/100km",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "fuelPrice",
+        "label": "Fuel price",
+        "unit": "/L",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "desi-calculator",
+    "title": "Desi Calculator",
+    "category": "logistics-travel",
+    "description": "Volumetric weight for cargo from cm dimensions.",
+    "seoTitle": "Desi Calculator — Volumetric Weight",
+    "seoDescription": "Free desi / dimensional weight calculator for shipping.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "route-optimization-analyzer",
+    "relatedIndustrySlug": "logistics-transport",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Length",
+        "unit": "cm",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "width",
+        "label": "Width",
+        "unit": "cm",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "height",
+        "label": "Height",
+        "unit": "cm",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "divisor",
+        "label": "Desi divisor",
+        "unit": "value",
+        "type": "number",
+        "helper": "3000 domestic / 5000 intl",
+        "min": 1,
+        "defaultValue": 3000
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "trip-cost-calculator",
+    "title": "Trip Cost Calculator",
+    "category": "logistics-travel",
+    "description": "Total trip cost from fuel, tolls and driver time.",
+    "seoTitle": "Trip Cost Calculator — Total Drive Cost",
+    "seoDescription": "Combine fuel, tolls and hourly cost for a route.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "fuelCost",
+        "label": "Fuel cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "tolls",
+        "label": "Tolls",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "driverHours",
+        "label": "Driver hours",
+        "unit": "hr",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "driverRate",
+        "label": "Driver rate",
+        "unit": "USD/hr",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "mileage-calculator",
+    "title": "Mileage Calculator",
+    "category": "logistics-travel",
+    "description": "Reimbursable mileage cost from miles and rate.",
+    "seoTitle": "Mileage Reimbursement Calculator",
+    "seoDescription": "Miles × rate per mile for expense claims.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "miles",
+        "label": "Distance",
+        "unit": "mi",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "ratePerMile",
+        "label": "Rate per mile",
+        "unit": "USD/mi",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "shipping-cost-estimator",
+    "title": "Shipping Cost Estimator",
+    "category": "logistics-travel",
+    "description": "Base rate plus weight and zone surcharge.",
+    "seoTitle": "Shipping Cost Estimator",
+    "seoDescription": "Quick parcel shipping cost estimate.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "route-optimization-analyzer",
+    "relatedIndustrySlug": "logistics-transport",
+    "inputs": [
+      {
+        "key": "baseRate",
+        "label": "Base rate",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "weight",
+        "label": "Weight",
+        "unit": "kg",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "ratePerKg",
+        "label": "Rate per kg",
+        "unit": "USD/kg",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "driving-time-calculator",
+    "title": "Driving Time Calculator",
+    "category": "logistics-travel",
+    "description": "ETA from distance and average speed.",
+    "seoTitle": "Driving Time Calculator — ETA",
+    "seoDescription": "Distance divided by speed gives drive hours.",
+    "resultType": "time",
+    "inputs": [
+      {
+        "key": "distance",
+        "label": "Distance",
+        "unit": "km",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "speed",
+        "label": "Average speed",
+        "unit": "km/h",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "fuel-efficiency-calculator",
+    "title": "Fuel Efficiency Calculator",
+    "category": "logistics-travel",
+    "description": "L/100km from liters used and distance driven.",
+    "seoTitle": "Fuel Efficiency Calculator — L/100km",
+    "seoDescription": "Calculate actual consumption from fill-up data.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "liters",
+        "label": "Fuel used",
+        "unit": "L",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "distance",
+        "label": "Distance",
+        "unit": "km",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "route-distance-calculator",
+    "title": "Route Distance Calculator",
+    "category": "logistics-travel",
+    "description": "Sum leg distances for multi-stop routes.",
+    "seoTitle": "Route Distance Calculator",
+    "seoDescription": "Add stop-to-stop distances for dispatch planning.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "leg1",
+        "label": "Leg 1",
+        "unit": "km",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "leg2",
+        "label": "Leg 2",
+        "unit": "km",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "leg3",
+        "label": "Leg 3",
+        "unit": "km",
+        "type": "number",
+        "helper": "Optional third leg",
+        "min": 0,
+        "defaultValue": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "tire-size-calculator",
+    "title": "Tire Size Calculator",
+    "category": "logistics-travel",
+    "description": "Tire diameter and circumference from size code.",
+    "seoTitle": "Tire Size Calculator — Diameter & Circumference",
+    "seoDescription": "Decode tire width, aspect and rim to rolling circumference.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "width",
+        "label": "Section width",
+        "unit": "mm",
+        "type": "number",
+        "helper": "",
+        "min": 100
+      },
+      {
+        "key": "aspect",
+        "label": "Aspect ratio",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 25
+      },
+      {
+        "key": "rim",
+        "label": "Rim diameter",
+        "unit": "in",
+        "type": "number",
+        "helper": "",
+        "min": 10
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "cargo-volume-calculator",
+    "title": "Cargo Volume Calculator",
+    "category": "logistics-travel",
+    "description": "Load volume in m³ from trailer dimensions.",
+    "seoTitle": "Cargo Volume Calculator — m³",
+    "seoDescription": "Trailer L×W×H volume for capacity planning.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Length",
+        "unit": "m",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "width",
+        "label": "Width",
+        "unit": "m",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "height",
+        "label": "Height",
+        "unit": "m",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "fertilizer-dosage-calculator",
+    "title": "Fertilizer Dosage Calculator",
+    "category": "agriculture-food",
+    "description": "Total fertilizer from field area and dosage rate.",
+    "seoTitle": "Fertilizer Dosage Calculator",
+    "seoDescription": "Area × dosage per hectare. Free ag calculator.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "crop-yield-loss-analyzer",
+    "relatedIndustrySlug": "agriculture-crops",
+    "inputs": [
+      {
+        "key": "area",
+        "label": "Field area",
+        "unit": "ha",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "dosagePerArea",
+        "label": "Dosage",
+        "unit": "kg/ha",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "recipe-cost-check",
+    "title": "Recipe Cost Check",
+    "category": "agriculture-food",
+    "description": "Total and per-portion recipe cost from ingredients.",
+    "seoTitle": "Recipe Cost Calculator — Per Portion",
+    "seoDescription": "Sum ingredient costs and divide by portions served.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "meal-planning-verdict",
+    "relatedIndustrySlug": "daily-meals",
+    "inputs": [
+      {
+        "key": "ingredient1",
+        "label": "Ingredient 1",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "ingredient2",
+        "label": "Ingredient 2",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "ingredient3",
+        "label": "Ingredient 3",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "portions",
+        "label": "Portions",
+        "unit": "servings",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "crop-yield-estimator",
+    "title": "Crop Yield Estimator",
+    "category": "agriculture-food",
+    "description": "Expected harvest from area and yield per hectare.",
+    "seoTitle": "Crop Yield Estimator — tons/ha",
+    "seoDescription": "Field area × expected yield. Free farm planning tool.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "crop-yield-loss-analyzer",
+    "relatedIndustrySlug": "agriculture-crops",
+    "inputs": [
+      {
+        "key": "area",
+        "label": "Area",
+        "unit": "ha",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "yieldPerHa",
+        "label": "Expected yield",
+        "unit": "t/ha",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "feed-conversion-calculator",
+    "title": "Feed Conversion Ratio",
+    "category": "agriculture-food",
+    "description": "FCR from feed intake and weight gain.",
+    "seoTitle": "Feed Conversion Ratio Calculator",
+    "seoDescription": "Livestock feed efficiency FCR calculator.",
+    "resultType": "ratio",
+    "relatedPremiumSlug": "feed-efficiency-analyzer",
+    "relatedIndustrySlug": "agriculture-feed",
+    "inputs": [
+      {
+        "key": "feedKg",
+        "label": "Feed consumed",
+        "unit": "kg",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "weightGain",
+        "label": "Weight gain",
+        "unit": "kg",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "irrigation-water-calculator",
+    "title": "Irrigation Water Calculator",
+    "category": "agriculture-food",
+    "description": "Water volume from area and depth applied.",
+    "seoTitle": "Irrigation Water Calculator — m³",
+    "seoDescription": "Estimate irrigation water requirement by field area.",
+    "resultType": "quantity",
+    "relatedPremiumSlug": "water-optimization-verdict",
+    "relatedIndustrySlug": "agriculture-irrigation",
+    "inputs": [
+      {
+        "key": "area",
+        "label": "Area",
+        "unit": "ha",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "depthMm",
+        "label": "Water depth",
+        "unit": "mm",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "livestock-feed-calculator",
+    "title": "Livestock Feed Calculator",
+    "category": "agriculture-food",
+    "description": "Daily feed requirement from head count and kg/head.",
+    "seoTitle": "Livestock Feed Calculator — kg/day",
+    "seoDescription": "Herd size × feed per animal per day.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "headCount",
+        "label": "Animals",
+        "unit": "head",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "feedPerHead",
+        "label": "Feed per head",
+        "unit": "kg/day",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "grain-storage-calculator",
+    "title": "Grain Storage Calculator",
+    "category": "agriculture-food",
+    "description": "Storage volume and weight from bin dimensions.",
+    "seoTitle": "Grain Storage Volume Calculator",
+    "seoDescription": "Silo volume and grain tonnage estimate.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "diameter",
+        "label": "Bin diameter",
+        "unit": "m",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "height",
+        "label": "Fill height",
+        "unit": "m",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "density",
+        "label": "Bulk density",
+        "unit": "t/m³",
+        "type": "number",
+        "helper": "",
+        "min": 0.1,
+        "defaultValue": 0.75
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "greenhouse-gas-ag-calculator",
+    "title": "Farm GHG Estimator",
+    "category": "agriculture-food",
+    "description": "Rough emissions from diesel and fertilizer use.",
+    "seoTitle": "Farm Greenhouse Gas Estimator",
+    "seoDescription": "Quick farm emissions check from fuel and N inputs.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "dieselLiters",
+        "label": "Diesel used",
+        "unit": "L/yr",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "fertilizerKg",
+        "label": "Fertilizer N",
+        "unit": "kg/yr",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "portion-size-calculator",
+    "title": "Portion Size Calculator",
+    "category": "agriculture-food",
+    "description": "Servings from batch weight and portion grams.",
+    "seoTitle": "Portion Size Calculator — Servings",
+    "seoDescription": "Divide batch weight by portion size for catering.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "batchWeight",
+        "label": "Batch weight",
+        "unit": "g",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "portionGrams",
+        "label": "Portion size",
+        "unit": "g",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "food-cost-percentage-calculator",
+    "title": "Food Cost % Calculator",
+    "category": "agriculture-food",
+    "description": "Food cost ratio for restaurant menu items.",
+    "seoTitle": "Food Cost Percentage Calculator",
+    "seoDescription": "Ingredient cost ÷ menu price × 100. Free F&B tool.",
+    "resultType": "ratio",
+    "relatedPremiumSlug": "menu-profit-leak-detector",
+    "relatedIndustrySlug": "restaurant",
+    "inputs": [
+      {
+        "key": "ingredientCost",
+        "label": "Ingredient cost",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "menuPrice",
+        "label": "Menu price",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "tip-calculator",
+    "title": "Tip Calculator",
+    "category": "everyday-life",
+    "description": "Tip amount and total bill from check and tip percent.",
+    "seoTitle": "Tip Calculator — Gratuity Amount",
+    "seoDescription": "Calculate tip and total to pay. Free everyday calculator.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "bill",
+        "label": "Bill amount",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "tipPercent",
+        "label": "Tip",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "defaultValue": 15
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "rent-affordability-calculator",
+    "title": "Rent Affordability Calculator",
+    "category": "everyday-life",
+    "description": "Max affordable rent from monthly income and ratio rule.",
+    "seoTitle": "Rent Affordability Calculator",
+    "seoDescription": "30% rule rent budget from net monthly income.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "income",
+        "label": "Monthly income",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "ratio",
+        "label": "Max rent ratio",
+        "unit": "%",
+        "type": "number",
+        "helper": "Common rule 30%",
+        "min": 1,
+        "max": 100,
+        "defaultValue": 30
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "salary-hourly-converter",
+    "title": "Salary to Hourly Converter",
+    "category": "everyday-life",
+    "description": "Convert annual salary to hourly wage.",
+    "seoTitle": "Salary to Hourly Calculator",
+    "seoDescription": "Annual salary ÷ working hours per year.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "annualSalary",
+        "label": "Annual salary",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "hoursPerYear",
+        "label": "Work hours/year",
+        "unit": "hr",
+        "type": "number",
+        "helper": "Default 2080",
+        "min": 1,
+        "defaultValue": 2080
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "age-calculator",
+    "title": "Age Calculator",
+    "category": "everyday-life",
+    "description": "Age in years from birth year to current year.",
+    "seoTitle": "Age Calculator — Years Old",
+    "seoDescription": "Simple age in years from birth year.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "birthYear",
+        "label": "Birth year",
+        "unit": "year",
+        "type": "number",
+        "helper": "",
+        "min": 1900,
+        "max": 2100
+      },
+      {
+        "key": "currentYear",
+        "label": "Current year",
+        "unit": "year",
+        "type": "number",
+        "helper": "",
+        "min": 1900,
+        "max": 2100,
+        "defaultValue": 2026
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "date-difference-calculator",
+    "title": "Date Difference Calculator",
+    "category": "everyday-life",
+    "description": "Days between two dates approximated by day count.",
+    "seoTitle": "Days Between Dates Calculator",
+    "seoDescription": "Approximate day span between two calendar dates.",
+    "resultType": "time",
+    "inputs": [
+      {
+        "key": "daysStart",
+        "label": "Start day of year",
+        "unit": "day",
+        "type": "number",
+        "helper": "1–365",
+        "min": 1,
+        "max": 365
+      },
+      {
+        "key": "daysEnd",
+        "label": "End day of year",
+        "unit": "day",
+        "type": "number",
+        "helper": "1–365",
+        "min": 1,
+        "max": 365
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "home-renovation-budget-calculator",
+    "title": "Home Renovation Budget",
+    "category": "everyday-life",
+    "description": "Room renovation cost from area and cost per m².",
+    "seoTitle": "Home Renovation Budget Calculator",
+    "seoDescription": "Area × unit renovation cost with contingency.",
+    "resultType": "cost",
+    "relatedPremiumSlug": "renovation-budget-optimizer",
+    "relatedIndustrySlug": "daily-renovation",
+    "inputs": [
+      {
+        "key": "area",
+        "label": "Area",
+        "unit": "m²",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "costPerM2",
+        "label": "Cost per m²",
+        "unit": "USD/m²",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "contingency",
+        "label": "Contingency",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "defaultValue": 10
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "moving-cost-estimator",
+    "title": "Moving Cost Estimator",
+    "category": "everyday-life",
+    "description": "Move cost from distance, volume and base fee.",
+    "seoTitle": "Moving Cost Estimator",
+    "seoDescription": "Rough moving truck cost estimate.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "distance",
+        "label": "Distance",
+        "unit": "km",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "volume",
+        "label": "Volume",
+        "unit": "m³",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "baseFee",
+        "label": "Base fee",
+        "unit": "USD",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "electricity-appliance-calculator",
+    "title": "Appliance Electricity Cost",
+    "category": "everyday-life",
+    "description": "Monthly cost to run an appliance from wattage and hours.",
+    "seoTitle": "Appliance Electricity Cost Calculator",
+    "seoDescription": "Daily kWh × rate × 30 for monthly appliance cost.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "watts",
+        "label": "Power",
+        "unit": "W",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "hoursPerDay",
+        "label": "Hours/day",
+        "unit": "hr",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "rate",
+        "label": "Rate",
+        "unit": "/kWh",
+        "type": "number",
+        "helper": "",
+        "min": 0.0001
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "water-usage-calculator",
+    "title": "Water Usage Calculator",
+    "category": "everyday-life",
+    "description": "Monthly water bill from m³ and tariff.",
+    "seoTitle": "Water Usage Cost Calculator",
+    "seoDescription": "Consumption volume × water tariff.",
+    "resultType": "cost",
+    "inputs": [
+      {
+        "key": "cubicMeters",
+        "label": "Water used",
+        "unit": "m³",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "rate",
+        "label": "Tariff",
+        "unit": "/m³",
+        "type": "number",
+        "helper": "",
+        "min": 0.0001
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "paint-room-calculator",
+    "title": "Paint Room Calculator",
+    "category": "everyday-life",
+    "description": "Paint liters for a room from perimeter and height.",
+    "seoTitle": "Paint Room Calculator — Liters",
+    "seoDescription": "Wall area from room dimensions → paint estimate.",
+    "resultType": "quantity",
+    "inputs": [
+      {
+        "key": "length",
+        "label": "Room length",
+        "unit": "m",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "width",
+        "label": "Room width",
+        "unit": "m",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "height",
+        "label": "Ceiling height",
+        "unit": "m",
+        "type": "number",
+        "helper": "",
+        "min": 0.1
+      },
+      {
+        "key": "coverage",
+        "label": "Coverage",
+        "unit": "m²/L",
+        "type": "number",
+        "helper": "",
+        "min": 0.1,
+        "defaultValue": 10
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "average-calculator",
+    "title": "Average Calculator",
+    "category": "math-statistics",
+    "description": "Arithmetic mean of up to five values.",
+    "seoTitle": "Average Calculator — Mean",
+    "seoDescription": "Free average (mean) calculator in your browser.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "v1",
+        "label": "Value 1",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "v2",
+        "label": "Value 2",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "v3",
+        "label": "Value 3",
+        "unit": "value",
+        "type": "number",
+        "helper": "Optional",
+        "min": 0,
+        "defaultValue": 0
+      },
+      {
+        "key": "v4",
+        "label": "Value 4",
+        "unit": "value",
+        "type": "number",
+        "helper": "Optional",
+        "min": 0,
+        "defaultValue": 0
+      },
+      {
+        "key": "v5",
+        "label": "Value 5",
+        "unit": "value",
+        "type": "number",
+        "helper": "Optional",
+        "min": 0,
+        "defaultValue": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "standard-deviation-calculator",
+    "title": "Standard Deviation Calculator",
+    "category": "math-statistics",
+    "description": "Population standard deviation from data set.",
+    "seoTitle": "Standard Deviation Calculator",
+    "seoDescription": "Calculate population σ from up to five values.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "v1",
+        "label": "Value 1",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "v2",
+        "label": "Value 2",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "v3",
+        "label": "Value 3",
+        "unit": "value",
+        "type": "number",
+        "helper": "Optional",
+        "min": 0,
+        "defaultValue": 0
+      },
+      {
+        "key": "v4",
+        "label": "Value 4",
+        "unit": "value",
+        "type": "number",
+        "helper": "Optional",
+        "min": 0,
+        "defaultValue": 0
+      },
+      {
+        "key": "v5",
+        "label": "Value 5",
+        "unit": "value",
+        "type": "number",
+        "helper": "Optional",
+        "min": 0,
+        "defaultValue": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "median-calculator",
+    "title": "Median Calculator",
+    "category": "math-statistics",
+    "description": "Median of sorted numeric inputs.",
+    "seoTitle": "Median Calculator",
+    "seoDescription": "Find median value from a small data set.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "v1",
+        "label": "Value 1",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "v2",
+        "label": "Value 2",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "v3",
+        "label": "Value 3",
+        "unit": "value",
+        "type": "number",
+        "helper": "Optional",
+        "min": 0,
+        "defaultValue": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "percentage-change-calculator",
+    "title": "Percentage Change Calculator",
+    "category": "math-statistics",
+    "description": "Percent increase or decrease from old to new value.",
+    "seoTitle": "Percentage Change Calculator",
+    "seoDescription": "(New − Old) / Old × 100 percent change.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "oldValue",
+        "label": "Old value",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "newValue",
+        "label": "New value",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "ratio-calculator",
+    "title": "Ratio Calculator",
+    "category": "math-statistics",
+    "description": "Simplify ratio between two numbers.",
+    "seoTitle": "Ratio Calculator — A:B",
+    "seoDescription": "Express ratio and decimal equivalent.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "a",
+        "label": "Value A",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "b",
+        "label": "Value B",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "weighted-average-calculator",
+    "title": "Weighted Average Calculator",
+    "category": "math-statistics",
+    "description": "Weighted mean from values and weights.",
+    "seoTitle": "Weighted Average Calculator",
+    "seoDescription": "Σ(value×weight) / Σweights.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "v1",
+        "label": "Value 1",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "w1",
+        "label": "Weight 1",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      },
+      {
+        "key": "v2",
+        "label": "Value 2",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "w2",
+        "label": "Weight 2",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0.01
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "permutation-calculator",
+    "title": "Permutation Calculator",
+    "category": "math-statistics",
+    "description": "nPr permutations for small n and r.",
+    "seoTitle": "Permutation Calculator — nPr",
+    "seoDescription": "Ordered arrangements n!/(n−r)!.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "n",
+        "label": "n",
+        "unit": "value",
+        "type": "number",
+        "helper": "Total items",
+        "min": 1,
+        "max": 20
+      },
+      {
+        "key": "r",
+        "label": "r",
+        "unit": "value",
+        "type": "number",
+        "helper": "Selected items",
+        "min": 1,
+        "max": 20
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "probability-calculator",
+    "title": "Probability Calculator",
+    "category": "math-statistics",
+    "description": "Joint probability of independent events.",
+    "seoTitle": "Probability Calculator — Independent Events",
+    "seoDescription": "Multiply probabilities of independent outcomes.",
+    "resultType": "ratio",
+    "inputs": [
+      {
+        "key": "p1",
+        "label": "Event A probability",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "0–1",
+        "min": 0,
+        "max": 1
+      },
+      {
+        "key": "p2",
+        "label": "Event B probability",
+        "unit": "ratio",
+        "type": "number",
+        "helper": "0–1",
+        "min": 0,
+        "max": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "sample-size-calculator",
+    "title": "Sample Size Calculator",
+    "category": "math-statistics",
+    "description": "Minimum sample for margin of error estimate.",
+    "seoTitle": "Sample Size Calculator — Survey n",
+    "seoDescription": "Rough sample size from population and margin.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "population",
+        "label": "Population",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "margin",
+        "label": "Margin of error",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0.1,
+        "max": 50,
+        "defaultValue": 5
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "z-score-calculator",
+    "title": "Z-Score Calculator",
+    "category": "math-statistics",
+    "description": "Standard score from value, mean and std dev.",
+    "seoTitle": "Z-Score Calculator",
+    "seoDescription": "(X − μ) / σ standard score calculator.",
+    "resultType": "statistics",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value X",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "mean",
+        "label": "Mean μ",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "stdDev",
+        "label": "Std dev σ",
+        "unit": "value",
+        "type": "number",
+        "helper": "",
+        "min": 0.0001
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "lbs-to-kg-calculator",
+    "title": "Pounds to Kilograms",
+    "category": "conversion",
+    "description": "Convert lbs to kg with a fixed conversion factor.",
+    "seoTitle": "Pounds to Kilograms — Free Converter",
+    "seoDescription": "Free lbs to kg conversion calculator. Browser-side, no sign-up.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "lbs",
+        "type": "number",
+        "helper": "Amount in lbs",
+        "min": 0.01
+      },
+      {
+        "key": "factor",
+        "label": "Factor",
+        "unit": "lbs/kg",
+        "type": "number",
+        "helper": "Conversion factor",
+        "min": 0.000001,
+        "defaultValue": 0.453592
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "inches-to-cm-calculator",
+    "title": "Inches to Centimeters",
+    "category": "conversion",
+    "description": "Convert in to cm with a fixed conversion factor.",
+    "seoTitle": "Inches to Centimeters — Free Converter",
+    "seoDescription": "Free in to cm conversion calculator. Browser-side, no sign-up.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "in",
+        "type": "number",
+        "helper": "Amount in in",
+        "min": 0.01
+      },
+      {
+        "key": "factor",
+        "label": "Factor",
+        "unit": "in/cm",
+        "type": "number",
+        "helper": "Conversion factor",
+        "min": 0.000001,
+        "defaultValue": 2.54
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "gallons-to-liters-calculator",
+    "title": "Gallons to Liters",
+    "category": "conversion",
+    "description": "Convert gal to L with a fixed conversion factor.",
+    "seoTitle": "Gallons to Liters — Free Converter",
+    "seoDescription": "Free gal to L conversion calculator. Browser-side, no sign-up.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "gal",
+        "type": "number",
+        "helper": "Amount in gal",
+        "min": 0.01
+      },
+      {
+        "key": "factor",
+        "label": "Factor",
+        "unit": "gal/L",
+        "type": "number",
+        "helper": "Conversion factor",
+        "min": 0.000001,
+        "defaultValue": 3.78541
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "fahrenheit-to-celsius-calculator",
+    "title": "Fahrenheit to Celsius",
+    "category": "conversion",
+    "description": "Convert °F to °C with a fixed conversion factor.",
+    "seoTitle": "Fahrenheit to Celsius — Free Converter",
+    "seoDescription": "Free °F to °C conversion calculator. Browser-side, no sign-up.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Temperature",
+        "unit": "°F",
+        "type": "number",
+        "helper": "Amount in °F",
+        "min": -459.67
+      },
+      {
+        "key": "decimals",
+        "label": "Decimal places",
+        "unit": "digits",
+        "type": "number",
+        "helper": "Result rounding (0–4)",
+        "min": 0,
+        "max": 4,
+        "defaultValue": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "mph-to-kmh-calculator",
+    "title": "MPH to KMH",
+    "category": "conversion",
+    "description": "Convert mph to km/h with a fixed conversion factor.",
+    "seoTitle": "MPH to KMH — Free Converter",
+    "seoDescription": "Free mph to km/h conversion calculator. Browser-side, no sign-up.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Speed",
+        "unit": "mph",
+        "type": "number",
+        "helper": "Amount in mph",
+        "min": 0.01
+      },
+      {
+        "key": "decimals",
+        "label": "Decimal places",
+        "unit": "digits",
+        "type": "number",
+        "helper": "Result rounding (0–4)",
+        "min": 0,
+        "max": 4,
+        "defaultValue": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "acres-to-hectares-calculator",
+    "title": "Acres to Hectares",
+    "category": "conversion",
+    "description": "Convert ac to ha with a fixed conversion factor.",
+    "seoTitle": "Acres to Hectares — Free Converter",
+    "seoDescription": "Free ac to ha conversion calculator. Browser-side, no sign-up.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "ac",
+        "type": "number",
+        "helper": "Amount in ac",
+        "min": 0.01
+      },
+      {
+        "key": "factor",
+        "label": "Factor",
+        "unit": "ac/ha",
+        "type": "number",
+        "helper": "Conversion factor",
+        "min": 0.000001,
+        "defaultValue": 0.404686
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "cubic-feet-to-cubic-meters-calculator",
+    "title": "Cubic Feet to m³",
+    "category": "conversion",
+    "description": "Convert ft³ to m³ with a fixed conversion factor.",
+    "seoTitle": "Cubic Feet to m³ — Free Converter",
+    "seoDescription": "Free ft³ to m³ conversion calculator. Browser-side, no sign-up.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "ft³",
+        "type": "number",
+        "helper": "Amount in ft³",
+        "min": 0.01
+      },
+      {
+        "key": "factor",
+        "label": "Factor",
+        "unit": "ft³/m³",
+        "type": "number",
+        "helper": "Conversion factor",
+        "min": 0.000001,
+        "defaultValue": 0.0283168
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "psi-to-bar-calculator",
+    "title": "PSI to Bar",
+    "category": "conversion",
+    "description": "Convert psi to bar with a fixed conversion factor.",
+    "seoTitle": "PSI to Bar — Free Converter",
+    "seoDescription": "Free psi to bar conversion calculator. Browser-side, no sign-up.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "psi",
+        "type": "number",
+        "helper": "Amount in psi",
+        "min": 0.01
+      },
+      {
+        "key": "factor",
+        "label": "Factor",
+        "unit": "psi/bar",
+        "type": "number",
+        "helper": "Conversion factor",
+        "min": 0.000001,
+        "defaultValue": 0.0689476
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "hp-to-kw-calculator",
+    "title": "Horsepower to Kilowatts",
+    "category": "conversion",
+    "description": "Convert hp to kW with a fixed conversion factor.",
+    "seoTitle": "Horsepower to Kilowatts — Free Converter",
+    "seoDescription": "Free hp to kW conversion calculator. Browser-side, no sign-up.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "hp",
+        "type": "number",
+        "helper": "Amount in hp",
+        "min": 0.01
+      },
+      {
+        "key": "factor",
+        "label": "Factor",
+        "unit": "hp/kW",
+        "type": "number",
+        "helper": "Conversion factor",
+        "min": 0.000001,
+        "defaultValue": 0.7457
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "currency-conversion-calculator",
+    "title": "Currency Conversion",
+    "category": "conversion",
+    "description": "Convert units to units with a fixed conversion factor.",
+    "seoTitle": "Currency Conversion — Free Converter",
+    "seoDescription": "Free units to units conversion calculator. Browser-side, no sign-up.",
+    "resultType": "conversion",
+    "inputs": [
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "units",
+        "type": "number",
+        "helper": "Amount in units",
+        "min": 0.01
+      },
+      {
+        "key": "factor",
+        "label": "Factor",
+        "unit": "units/units",
+        "type": "number",
+        "helper": "Conversion factor",
+        "min": 0.000001,
+        "defaultValue": 1
+      },
+      {
+        "key": "exchangeRate",
+        "label": "Exchange rate",
+        "unit": "units/units",
+        "type": "number",
+        "helper": "Rate",
+        "min": 0.000001,
+        "defaultValue": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "bmi-calculator",
+    "title": "BMI Calculator",
+    "category": "health-body",
+    "description": "Body mass index from height and weight.",
+    "seoTitle": "BMI Calculator — Body Mass Index",
+    "seoDescription": "Free BMI calculator. Weight and height → BMI category check.",
+    "resultType": "health",
+    "inputs": [
+      {
+        "key": "weightKg",
+        "label": "Weight",
+        "unit": "kg",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "heightM",
+        "label": "Height",
+        "unit": "m",
+        "type": "number",
+        "helper": "Use meters e.g. 1.75",
+        "min": 0.5,
+        "max": 3
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "calorie-calculator",
+    "title": "Calorie Calculator (BMR)",
+    "category": "health-body",
+    "description": "Basal metabolic rate via Mifflin-St Jeor equation.",
+    "seoTitle": "Calorie Calculator — BMR Estimate",
+    "seoDescription": "Estimate daily BMR from age, weight, height and sex.",
+    "resultType": "health",
+    "inputs": [
+      {
+        "key": "weightKg",
+        "label": "Weight",
+        "unit": "kg",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "heightCm",
+        "label": "Height",
+        "unit": "cm",
+        "type": "number",
+        "helper": "",
+        "min": 50
+      },
+      {
+        "key": "age",
+        "label": "Age",
+        "unit": "years",
+        "type": "number",
+        "helper": "",
+        "min": 10,
+        "max": 120
+      },
+      {
+        "key": "sex",
+        "label": "Biological sex",
+        "unit": "—",
+        "type": "select",
+        "helper": "Mifflin equation constant",
+        "options": [
+          {
+            "value": "male",
+            "label": "Male"
+          },
+          {
+            "value": "female",
+            "label": "Female"
+          }
+        ],
+        "defaultValue": "male"
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "body-fat-calculator",
+    "title": "Body Fat Calculator",
+    "category": "health-body",
+    "description": "Navy method body fat estimate from measurements.",
+    "seoTitle": "Body Fat Percentage Calculator",
+    "seoDescription": "Estimate body fat % from waist and neck measurements.",
+    "resultType": "health",
+    "inputs": [
+      {
+        "key": "waist",
+        "label": "Waist",
+        "unit": "cm",
+        "type": "number",
+        "helper": "",
+        "min": 30
+      },
+      {
+        "key": "neck",
+        "label": "Neck",
+        "unit": "cm",
+        "type": "number",
+        "helper": "",
+        "min": 20
+      },
+      {
+        "key": "height",
+        "label": "Height",
+        "unit": "cm",
+        "type": "number",
+        "helper": "",
+        "min": 100
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "ideal-weight-calculator",
+    "title": "Ideal Weight Calculator",
+    "category": "health-body",
+    "description": "Devine formula ideal body weight from height.",
+    "seoTitle": "Ideal Weight Calculator",
+    "seoDescription": "Height-based ideal weight estimate. Not medical advice.",
+    "resultType": "health",
+    "inputs": [
+      {
+        "key": "heightCm",
+        "label": "Height",
+        "unit": "cm",
+        "type": "number",
+        "helper": "",
+        "min": 100
+      },
+      {
+        "key": "sex",
+        "label": "Sex",
+        "unit": "—",
+        "type": "select",
+        "helper": "",
+        "options": [
+          {
+            "value": "male",
+            "label": "Male"
+          },
+          {
+            "value": "female",
+            "label": "Female"
+          }
+        ],
+        "defaultValue": "male"
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "water-intake-calculator",
+    "title": "Water Intake Calculator",
+    "category": "health-body",
+    "description": "Daily water target from body weight.",
+    "seoTitle": "Daily Water Intake Calculator — Liters",
+    "seoDescription": "Weight × factor for daily hydration estimate.",
+    "resultType": "health",
+    "inputs": [
+      {
+        "key": "weightKg",
+        "label": "Weight",
+        "unit": "kg",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "factor",
+        "label": "ml per kg",
+        "unit": "ml/kg",
+        "type": "number",
+        "helper": "Common 35 ml/kg",
+        "min": 20,
+        "defaultValue": 35
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "heart-rate-zone-calculator",
+    "title": "Heart Rate Zone Calculator",
+    "category": "health-body",
+    "description": "Training zones from max heart rate.",
+    "seoTitle": "Heart Rate Zone Calculator",
+    "seoDescription": "Max HR and zone percentages for cardio training.",
+    "resultType": "health",
+    "inputs": [
+      {
+        "key": "age",
+        "label": "Age",
+        "unit": "years",
+        "type": "number",
+        "helper": "",
+        "min": 10,
+        "max": 100
+      },
+      {
+        "key": "restingHr",
+        "label": "Resting HR",
+        "unit": "bpm",
+        "type": "number",
+        "helper": "",
+        "min": 30,
+        "max": 120,
+        "defaultValue": 60
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "protein-intake-calculator",
+    "title": "Protein Intake Calculator",
+    "category": "health-body",
+    "description": "Daily protein grams from weight and activity level.",
+    "seoTitle": "Protein Intake Calculator — g/day",
+    "seoDescription": "Body weight × protein factor for daily intake.",
+    "resultType": "health",
+    "inputs": [
+      {
+        "key": "weightKg",
+        "label": "Weight",
+        "unit": "kg",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "factor",
+        "label": "Protein factor",
+        "unit": "g/kg",
+        "type": "number",
+        "helper": "1.6–2.2 for active adults",
+        "min": 0.5,
+        "defaultValue": 1.6
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "pregnancy-due-date-calculator",
+    "title": "Pregnancy Due Date Calculator",
+    "category": "health-body",
+    "description": "Estimated due date from LMP week offset.",
+    "seoTitle": "Due Date Calculator — Pregnancy",
+    "seoDescription": "Approximate due date from last menstrual period. Not medical advice.",
+    "resultType": "health",
+    "inputs": [
+      {
+        "key": "weeksPregnant",
+        "label": "Weeks since LMP",
+        "unit": "weeks",
+        "type": "number",
+        "helper": "Weeks since last menstrual period",
+        "min": 1,
+        "max": 42
+      },
+      {
+        "key": "cycleLength",
+        "label": "Cycle length",
+        "unit": "days",
+        "type": "number",
+        "helper": "Average menstrual cycle length",
+        "min": 21,
+        "max": 35,
+        "defaultValue": 28
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "blood-alcohol-calculator",
+    "title": "Blood Alcohol Estimator",
+    "category": "health-body",
+    "description": "Rough BAC estimate from drinks and body weight.",
+    "seoTitle": "Blood Alcohol Calculator — BAC Estimate",
+    "seoDescription": "Educational BAC estimate only. Never drink and drive.",
+    "resultType": "health",
+    "inputs": [
+      {
+        "key": "drinks",
+        "label": "Standard drinks",
+        "unit": "drinks",
+        "type": "number",
+        "helper": "",
+        "min": 0
+      },
+      {
+        "key": "weightKg",
+        "label": "Weight",
+        "unit": "kg",
+        "type": "number",
+        "helper": "",
+        "min": 1
+      },
+      {
+        "key": "hours",
+        "label": "Hours drinking",
+        "unit": "hr",
+        "type": "number",
+        "helper": "",
+        "min": 0.1,
+        "defaultValue": 1
+      }
+    ]
+  },
+  {
+    "missingFactors": [
+      "P90 safe price floor",
+      "Margin leak diagnosis",
+      "Accept / caution / reject verdict",
+      "PDF export and saved reports"
+    ],
+    "slug": "macro-calculator",
+    "title": "Macro Calculator",
+    "category": "health-body",
+    "description": "Split daily calories into protein, carbs and fat grams.",
+    "seoTitle": "Macro Calculator — Protein Carbs Fat",
+    "seoDescription": "Calorie target split by macro percentages.",
+    "resultType": "health",
+    "inputs": [
+      {
+        "key": "calories",
+        "label": "Daily calories",
+        "unit": "kcal",
+        "type": "number",
+        "helper": "",
+        "min": 500
+      },
+      {
+        "key": "proteinPct",
+        "label": "Protein",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 30
+      },
+      {
+        "key": "carbPct",
+        "label": "Carbs",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 40
+      },
+      {
+        "key": "fatPct",
+        "label": "Fat",
+        "unit": "%",
+        "type": "number",
+        "helper": "",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 30
+      }
+    ]
+  }
+]

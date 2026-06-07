@@ -1,13 +1,34 @@
 {
   "nav": {
-    "freeTools": "Ücretsiz Kontroller",
-    "premiumTools": "Premium Kararlar",
+    "tools": "Araçlar",
     "industries": "Sektörler",
-    "pricing": "Fiyatlandırma",
+    "categories": "Kategoriler",
     "reports": "Raporlar",
+    "pricing": "Fiyatlandırma",
     "account": "Hesap",
-    "unlockPro": "Pro'yu Aç",
-    "runFreeCheck": "Ücretsiz Kontrol"
+    "auditEngine": "Araçlar",
+    "intelligenceLayer": "Premium",
+    "myReports": "Raporlar",
+    "settings": "Hesap",
+    "audit": "Audit",
+    "intelligence": "Intelligence",
+    "archive": "Arşiv",
+    "account": "Hesap",
+    "reports": "Raporlar",
+    "pricing": "Fiyatlandırma",
+    "freeTools": "Utility",
+    "premiumTools": "Intelligence",
+    "industries": "Sektörler",
+    "unlockPro": "Pro",
+    "runFreeCheck": "Run"
+  },
+  "osGate": {
+    "label": "Abonelik gerekli",
+    "message": "Bu işlem Intelligence Layer gerektirir. Pro üyeliği ile açılır.",
+    "single": "Tekil {price}",
+    "pro": "Pro {price}",
+    "singleCta": "Run aç · {price}",
+    "proCta": "Pro · {price}"
   },
   "hero": {
     "title": "Her sektör için ÖZEL ölç, kaybı tespit et, güvenle karar ver.",
@@ -85,7 +106,23 @@
     "teamPeriod": "aylık",
     "teamDescription": "Tahminciler, operasyon liderleri ve saha yöneticileri için çok koltuklu erişim.",
     "teamFeatures": "Paylaşımlı sektör analizör erişimi|Takım rapor geçmişi|Admin koltuk kontrolleri (planlanıyor)|Hacim fiyatlandırması",
-    "teamCta": "Takım Planına Başla"
+    "teamCta": "Takım Planına Başla",
+    "matrix": {
+      "pageTitle": "Plan ve Özellik Matrisi",
+      "pageSubtitle": "Industrial OS erişim katmanlarını karşılaştırın.",
+      "featureCol": "Özellik",
+      "action": "Aksiyon",
+      "colFree": "Free",
+      "colPro": "Pro",
+      "colEnterprise": "Enterprise",
+      "sectorCalculators": "Sektör utility modülleri",
+      "riskSignals": "Risk sinyali çıktısı",
+      "premiumAnalyzers": "Intelligence analizörleri",
+      "savedReports": "Kayıtlı karar arşivi",
+      "pdfExport": "PDF dışa aktarma",
+      "teamSeats": "Çok koltuklu erişim",
+      "adminControls": "Admin koltuk kontrolleri"
+    }
   },
   "checkout": {
     "redirecting": "Ödeme sayfasına yönlendiriliyor…",
@@ -94,6 +131,44 @@
     "overlayTitle": "Güvenli ödemeye yönlendiriliyor",
     "overlayBody": "Lütfen bekleyin — Stripe ödeme sayfanız açılıyor.",
     "socialProof": "12.000+ işletme tarafından güvenle kullanılıyor"
+  },
+  "pilotCnc": {
+    "hero": {
+      "eyebrow": "MarginCore Pilot · CNC İmalat"
+    },
+    "form": {
+      "title": "Girdiler",
+      "setupTime": "Kurulum süresi (dk)",
+      "cycleTime": "Çevrim süresi (dk)",
+      "quantity": "Adet (birim)",
+      "submit": "Run"
+    },
+    "result": {
+      "title": "Çıktı",
+      "empty": "—",
+      "totalMinutes": "Toplam süre",
+      "machineHours": "Makine saati",
+      "setupBurden": "Kurulum yükü",
+      "naiveCost": "Baseline"
+    },
+    "premium": {
+      "title": "CNC Audit Engine",
+      "cta": "Run",
+      "loading": "…",
+      "signInRequired": "Giriş gerekli.",
+      "signInLink": "Giriş yap",
+      "failed": "Çalıştırma başarısız.",
+      "verdictLabel": "Karar",
+      "naiveLabel": "Deterministik",
+      "bufferLabel": "P90 tampon",
+      "p90Label": "P90 güvenli",
+      "fullAnalyzerLink": "CNC Audit Engine →"
+    },
+    "phase2": {
+      "label": "MarginCore · Faz 2",
+      "reservedLabel": "Stokastik motor alanı",
+      "reservedBody": "Tam P90 duyarlılık matrisi ve PDF dışa aktarma premium açılıştan sonra buraya bağlanır."
+    }
   },
   "freeTool": {
     "riskScoreLabel": "Risk skoru",
@@ -105,7 +180,76 @@
     "premiumPreview1": "Detaylı maliyet kırılımı",
     "premiumPreview2": "Gizli değişken analizleri",
     "premiumPreview3": "Uzman eylem tavsiyesi",
-    "premiumPreview4": "PDF + Excel dışa aktarma"
+    "premiumPreview4": "PDF + Excel dışa aktarma",
+    "unlockVerdictTitle": "Tam kararı aç",
+    "unlockVerdictBody": "P90 güvenli fiyat, marj sızıntısı kırılımı ve önerilen eylem — ücretsiz katmanda gizli.",
+    "unlockVerdictCta": "Tam kararı aç",
+    "unlockVerdictLoading": "Erişim kontrol ediliyor…"
+  },
+  "freeTrafficCatalog": {
+    "metaTitle": "Ücretsiz Hesaplayıcılar — 100+ Araç",
+    "metaDescription": "İnşaat, finans, üretim, enerji, lojistik, tarım, günlük hayat, matematik ve sağlık için ücretsiz tarayıcı hesaplayıcıları. Kayıt gerekmez.",
+    "eyebrow": "Ücretsiz hesaplayıcılar",
+    "title": "Hesaplayıcı kütüphanesi",
+    "lead": "Yüksek trafikli ölçüm ve tahmin araçları — tarayıcınızda çalışır. Tekrar kullanım ücretsiz; karar raporu için premium sektör analizörleri.",
+    "totalCount": "{traffic} genel hesaplayıcı · {sectors} sektör aracı · {categories} kategori",
+    "categoryNavLabel": "Kategoriye git",
+    "featuredTitle": "Öne çıkan hesaplayıcılar",
+    "featuredLead": "Finans, sağlık, inşaat ve endüstride en çok aranan ücretsiz araçlar.",
+    "openCalculator": "Hesaplayıcıyı aç",
+    "decisionAnalyzerNote": "Karar analizörü mevcut",
+    "categoryCount": "{count} hesaplayıcı",
+    "includesTitle": "Ücretsiz araçlar neleri içerir",
+    "includes1": "Her alanda birimli 2–5 girdi",
+    "includes2": "Anında tarayıcıda sonuç",
+    "includes3": "Kısa sade açıklama",
+    "includes4": "Varsa ilgili premium analizör bağlantısı",
+    "excludesTitle": "Ücretsiz araçlar neleri içermez",
+    "excludes1": "P90 güvenli fiyat veya kabul / red kararı",
+    "excludes2": "PDF dışa aktarma veya kayıtlı rapor",
+    "excludes3": "Marj sızıntısı veya hassasiyet matrisi",
+    "excludes4": "Ücretsiz girdilerin hesapta saklanması",
+    "sectorToolsTitle": "Sektör karar araçları",
+    "sectorToolsLead": "27 sektörde premium karar analizörlerine bağlı ücretsiz kontroller.",
+    "sectorToolsCount": "{industries} sektörde {count} ücretsiz sektör aracı",
+    "premiumUpsellTitle": "Sadece sayı değil, karar mı lazım?",
+    "premiumUpsellBody": "Premium analizörler güvenli fiyat tabanı, marj sızıntısı ve kabul / yeniden fiyat kararı sunar — SectorCalc Pro ile.",
+    "premiumUpsellCta": "Premium analizörleri keşfet",
+    "premiumUpsellIndustries": "Sektöre göre göz at →",
+    "categories": {
+      "construction-measurement": "İnşaat ve ölçüm",
+      "finance-business": "Finans ve iş",
+      "manufacturing-workshop": "Üretim ve atölye",
+      "energy-carbon": "Enerji ve karbon",
+      "logistics-travel": "Lojistik ve seyahat",
+      "agriculture-food": "Tarım ve gıda",
+      "everyday-life": "Günlük hayat",
+      "math-statistics": "Matematik ve istatistik",
+      "conversion": "Birim dönüşüm",
+      "health-body": "Sağlık ve vücut"
+    },
+    "tool": {
+      "calculate": "Hesapla",
+      "awaiting": "Sonucu görmek için değerleri girip hesaplayın.",
+      "includesTitle": "Bu sonuç neleri içerir",
+      "includes1": "Girdilerinizden formül tabanlı tahmin",
+      "includes2": "Yalnızca tarayıcıda işlem — girdi saklanmaz",
+      "includes3": "Bu hesaplayıcı türü için genişletilmiş formül",
+      "excludesTitle": "Bu sonuç neleri içermez",
+      "excludes1": "Premium karar veya güvenli fiyat tabanı",
+      "excludes2": "PDF dışa aktarma",
+      "excludes3": "Kayıtlı raporlar",
+      "excludes4": "Gizli değişken marj teşhisi",
+      "premiumBlockTitle": "İlgili premium analizör",
+      "premiumBlockBody": "P90 fiyatlandırma, marj sızıntıları ve tam karar raporu için eşleşen sektör analizörünü kullanın.",
+      "premiumCta": "Premium analizörü aç →"
+    },
+    "validation": {
+      "required": "Lütfen bir değer seçin.",
+      "number": "Geçerli bir sayı girin.",
+      "min": "En az {min} olmalı.",
+      "max": "En fazla {max} olmalı."
+    }
   },
   "trust": {
     "stripLabel": "Güven ve güvenlik",
@@ -122,6 +266,40 @@
   "footer": {
     "tagline": "Her sektör için özel hesaplama, ölçüm ve karar raporları.",
     "trustNote": "ERP gerekmez. İş verileriniz satılmaz."
+  },
+  "enterpriseFooter": {
+    "brand": "SectorCalc",
+    "tagline": "Sektöre özel hesaplayıcılar, ölçüm araçları ve karar raporları.",
+    "sectorsTitle": "SEKTÖRLER",
+    "allSectors": "27 Sektörün Tümü",
+    "sectors": {
+      "manufacturing": "İmalat",
+      "logistics": "Lojistik",
+      "construction": "İnşaat"
+    },
+    "complianceTitle": "UYUMLULUK",
+    "compliance": {
+      "iso": "ISO 27001 Hazır",
+      "sla": "SLA: %99.9 Çalışma Süresi",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Kullanım Koşulları",
+      "disclaimer": "Sorumluluk Reddi"
+    },
+    "authorityTitle": "YETKİ",
+    "copyright": "© {year} {site}. Tüm hakları saklıdır.",
+    "authorityLine": "Saha için tasarlandı.",
+    "vaultLink": "Kişisel Veri Kasası →"
+  },
+  "region": {
+    "label": "Bölge",
+    "auto": "Otomatik (dile göre)",
+    "global": "Global · USD",
+    "turkey": "Türkiye · TRY",
+    "germany": "Almanya · EUR",
+    "indicator": "{region} · {currency}",
+    "indicatorHint": "Para birimi dilinize veya manuel bölge seçiminize göre belirlenir",
+    "manualActive": "Manuel bölge: {region}",
+    "followsLanguage": "Dile göre → {region}"
   },
   "locale": {
     "label": "Dil",
@@ -258,6 +436,110 @@
       "primary": "Ücretsiz Araçları Keşfet",
       "secondary": "Örnek Karar Raporunu Gör"
     }
+  },
+  "homeDashboard": {
+    "meta": {
+      "title": "MarginCore — KOBİ'ler için Profesyonel Risk Analitiği",
+      "description": "Sektör marj analizi için finansal risk paneli. Endüstri, inşaat ve lojistik executive özetleri ile P90 stokastik kararlar."
+    },
+    "hero": {
+      "statusLine": "MarginCore · Risk Terminali",
+      "title": "MarginCore: KOBİ'ler için Profesyonel Risk Analitiği.",
+      "subtitle": "Deterministik maliyet marjı, P90 güvenli fiyat ve duyarlılık matrisleri — marj üzerinden teklif veren operatörler için sunucu tarafı stokastik motor.",
+      "primaryCta": "Premium Kararlara Eriş",
+      "secondaryCta": "Örnek Raporu Gör",
+      "metrics": {
+        "sectors": { "label": "Sektör", "value": "27 CANLI" },
+        "engine": { "label": "Motor", "value": "P90 MC" },
+        "confidence": { "label": "Güven", "value": "Z = 1.28" },
+        "gate": { "label": "Erişim", "value": "PRO KAPI" }
+      }
+    },
+    "grid": {
+      "eyebrow": "Sektör kapsamı",
+      "title": "Dikey bazlı executive özetler",
+      "subtitle": "Gruplanmış risk modülleri — ücretsiz ön kontrol ve premium karar analizörleri. Sade metin: marjı okuyun, modülü açın.",
+      "sectorCount": "{count} modül",
+      "freeLabel": "Ön kontrol",
+      "proLabel": "Karar"
+    },
+    "groups": {
+      "industry": "Endüstri",
+      "construction": "İnşaat",
+      "logistics": "Lojistik"
+    },
+    "activity": {
+      "eyebrow": "Aktivite akışı",
+      "title": "Son raporlar",
+      "subtitle": "Örnek aktivite akışı — kayıtlı karar raporlarını senkronize etmek için giriş yapın.",
+      "viewAll": "Rapor arşivini aç",
+      "disclaimer": "Yalnızca örnek satırlar. Canlı rapor geçmişi SectorCalc Pro ve oturum açmayı gerektirir.",
+      "columns": {
+        "id": "Rapor ID",
+        "sector": "Sektör",
+        "verdict": "Karar",
+        "updated": "Güncelleme",
+        "status": "Durum"
+      },
+      "status": {
+        "complete": "Tamamlandı",
+        "pending": "Bekliyor",
+        "sample": "Örnek"
+      }
+    }
+  },
+  "industrialHome": {
+    "brand": "SectorCalc",
+    "modulesTitle": "Sektöre göre göz at",
+    "initializeAudit": "Aç",
+    "systemStatus": {
+      "title": "Platform özeti",
+      "line": "Ücretsiz hesaplayıcılar ve premium uzman raporları — tek platform.",
+      "metrics": {
+        "sectors": { "label": "Sektörler", "value": "{count} aktif" },
+        "engine": { "label": "Hesaplayıcılar", "value": "50+ araç" },
+        "confidence": { "label": "Raporlar", "value": "Uzman katmanı" },
+        "gate": { "label": "Erişim", "value": "Ücretsiz + Pro" }
+      }
+    },
+    "quickAccess": {
+      "title": "Hızlı erişim",
+      "open": "Aç",
+      "modules": {
+        "tools": "Ücretsiz araçlar",
+        "industries": "Sektörler",
+        "categories": "Kategoriler",
+        "premium": "Premium raporlar"
+      }
+    },
+    "lossDimensions": {
+      "title": "Neleri ölçebilirsiniz",
+      "money": "Para ve marj",
+      "material": "Malzeme ve fire",
+      "time": "Zaman ve OEE",
+      "energy": "Enerji ve karbon"
+    },
+    "tagline": "Sektöre özel hesaplama ve ölçüm platformu",
+    "headline": "Sektörünüz için hesaplayın, ölçün, optimize edin",
+    "headlineAccent": "",
+    "lead": "Üretim, lojistik, inşaat, enerji ve günlük hayat — uzman formüller, net sonuçlar, ERP karmaşası yok.",
+    "activeModule": "Sektör hesaplayıcısı"
+  },
+  "auditArchive": {
+    "meta": {
+      "title": "Operasyonel Denetim Arşivi — Kişisel Veri Kasası",
+      "description": "Hesabınıza bağlı kayıtlı operasyonel denetimleri ve karar geçmişini görüntüleyin."
+    },
+    "eyebrow": "Kişisel Veri Kasası",
+    "title": "Operasyonel Denetim Arşivi",
+    "subtitle": "Kayıtlı karar raporlarınız ve denetim sonuçlarınız Firestore'da güvenle saklanır ve hesabınıza bağlıdır.",
+    "backToAccount": "← Hesaba dön",
+    "loading": "Denetim arşivi yükleniyor…",
+    "sampleNote": "Örnek arşiv kayıtları gösteriliyor.",
+    "signInPrompt": "Kişisel denetim kasanızı Firestore'dan yüklemek için giriş yapın.",
+    "signInCta": "Giriş yap",
+    "viewFullArchive": "Tam arşivi aç",
+    "emptySignedIn": "Henüz kayıtlı denetim yok. Kasayı doldurmak için premium analizör çalıştırın ve kararı kaydedin."
   },
   "emptyStates": {
     "reports": {

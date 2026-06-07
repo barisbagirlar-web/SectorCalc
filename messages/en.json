@@ -1,13 +1,34 @@
 {
   "nav": {
-    "freeTools": "Free Checks",
-    "premiumTools": "Premium Verdicts",
+    "tools": "Tools",
     "industries": "Industries",
-    "pricing": "Pricing",
+    "categories": "Categories",
     "reports": "Reports",
+    "pricing": "Pricing",
     "account": "Account",
-    "unlockPro": "Unlock Pro",
-    "runFreeCheck": "Run Free Check"
+    "auditEngine": "Tools",
+    "intelligenceLayer": "Premium",
+    "myReports": "Reports",
+    "settings": "Account",
+    "audit": "Audit",
+    "intelligence": "Intelligence",
+    "archive": "Archive",
+    "account": "Account",
+    "reports": "Reports",
+    "pricing": "Pricing",
+    "freeTools": "Utilities",
+    "premiumTools": "Intelligence",
+    "industries": "Industries",
+    "unlockPro": "Pro",
+    "runFreeCheck": "Run"
+  },
+  "osGate": {
+    "label": "Subscription required",
+    "message": "This operation requires Intelligence Layer. Unlock with Pro membership.",
+    "single": "Single run {price}",
+    "pro": "Pro {price}",
+    "singleCta": "Unlock run · {price}",
+    "proCta": "Pro · {price}"
   },
   "hero": {
     "title": "Measure precisely for your sector. Detect every loss. Decide with confidence.",
@@ -16,7 +37,7 @@
     "secondaryCta": "View Sample Verdict Report",
     "exploreFreeCta": "Explore Free Tools",
     "viewPremiumCta": "View Decision Reports",
-    "trustStrip": "27 sectors · Free calculators · Premium reports · Measurement logic · No ERP required"
+    "trustStrip": "27 sectors · Free pre-checks · P90 verdicts · Margin leak intelligence · No ERP required"
   },
   "valueProps": {
     "eyebrow": "Universal measurement",
@@ -85,7 +106,23 @@
     "teamPeriod": "per month",
     "teamDescription": "Multi-seat access for estimators, ops leads and field managers.",
     "teamFeatures": "Shared sector analyzer access|Team report history|Admin seat controls (planned)|Volume pricing review",
-    "teamCta": "Start Team Plan"
+    "teamCta": "Start Team Plan",
+    "matrix": {
+      "pageTitle": "Plan & Feature Matrix",
+      "pageSubtitle": "Compare access tiers across the Industrial OS.",
+      "featureCol": "Feature",
+      "action": "Action",
+      "colFree": "Free",
+      "colPro": "Pro",
+      "colEnterprise": "Enterprise",
+      "sectorCalculators": "Sector utility modules",
+      "riskSignals": "Risk signal output",
+      "premiumAnalyzers": "Intelligence analyzers",
+      "savedReports": "Saved verdict archive",
+      "pdfExport": "PDF export",
+      "teamSeats": "Multi-seat access",
+      "adminControls": "Admin seat controls"
+    }
   },
   "checkout": {
     "redirecting": "Redirecting to checkout…",
@@ -94,6 +131,44 @@
     "overlayTitle": "Redirecting to secure checkout",
     "overlayBody": "Please wait — Stripe is opening your payment page.",
     "socialProof": "Trusted by 12,000+ operators worldwide"
+  },
+  "pilotCnc": {
+    "hero": {
+      "eyebrow": "MarginCore Pilot · CNC Manufacturing"
+    },
+    "form": {
+      "title": "Job variables",
+      "setupTime": "Setup time (min)",
+      "cycleTime": "Cycle time (min)",
+      "quantity": "Quantity (units)",
+      "submit": "Run"
+    },
+    "result": {
+      "title": "Output",
+      "empty": "—",
+      "totalMinutes": "Total time",
+      "machineHours": "Machine hours",
+      "setupBurden": "Setup burden",
+      "naiveCost": "Baseline"
+    },
+    "premium": {
+      "title": "CNC Audit Engine",
+      "cta": "Run",
+      "loading": "…",
+      "signInRequired": "Sign in required.",
+      "signInLink": "Sign in",
+      "failed": "Run failed.",
+      "verdictLabel": "Verdict",
+      "naiveLabel": "Deterministic",
+      "bufferLabel": "P90 buffer",
+      "p90Label": "P90 safe",
+      "fullAnalyzerLink": "Open CNC Audit Engine →"
+    },
+    "phase2": {
+      "label": "MarginCore · Phase 2",
+      "reservedLabel": "Stochastic engine slot",
+      "reservedBody": "Full P90 sensitivity matrix and PDF export mount here after premium unlock."
+    }
   },
   "freeTool": {
     "riskScoreLabel": "Risk score",
@@ -105,7 +180,76 @@
     "premiumPreview1": "Detailed cost breakdown",
     "premiumPreview2": "Hidden variable analysis",
     "premiumPreview3": "Expert action recommendation",
-    "premiumPreview4": "PDF + Excel export"
+    "premiumPreview4": "PDF + Excel export",
+    "unlockVerdictTitle": "Unlock full verdict",
+    "unlockVerdictBody": "See P90 safe price, margin leak breakdown and the recommended action — withheld from the free tier.",
+    "unlockVerdictCta": "Unlock full verdict",
+    "unlockVerdictLoading": "Checking access…"
+  },
+  "freeTrafficCatalog": {
+    "metaTitle": "Free Calculators — 100+ Tools",
+    "metaDescription": "Free browser calculators for construction, finance, manufacturing, energy, logistics, agriculture, everyday life, math and health. No sign-up required.",
+    "eyebrow": "Free calculators",
+    "title": "Calculator library",
+    "lead": "High-traffic measurement and estimation tools — processed in your browser. Free for repeat use; premium sector analyzers add decision reports when you need them.",
+    "totalCount": "{traffic} general calculators · {sectors} sector tools · {categories} categories",
+    "categoryNavLabel": "Jump to category",
+    "featuredTitle": "Featured calculators",
+    "featuredLead": "Most searched free tools across finance, health, construction and industry.",
+    "openCalculator": "Open calculator",
+    "decisionAnalyzerNote": "Decision analyzer available",
+    "categoryCount": "{count} calculators",
+    "includesTitle": "What free tools include",
+    "includes1": "2–5 inputs with units on every field",
+    "includes2": "Instant browser-side result",
+    "includes3": "Short plain-language explanation",
+    "includes4": "Link to related premium analyzer when available",
+    "excludesTitle": "What free tools do not include",
+    "excludes1": "P90 safe price or accept / reject verdict",
+    "excludes2": "PDF export or saved report history",
+    "excludes3": "Margin leak diagnosis or sensitivity matrix",
+    "excludes4": "Account storage of free-tier inputs",
+    "sectorToolsTitle": "Sector decision tools",
+    "sectorToolsLead": "Industry-specific free checks tied to premium verdict analyzers across 27 sectors.",
+    "sectorToolsCount": "{count} sector free tools across {industries} industries",
+    "premiumUpsellTitle": "Need a verdict, not just a number?",
+    "premiumUpsellBody": "Premium analyzers add safe price floors, margin leak detection and accept / reprice verdicts — included with SectorCalc Pro.",
+    "premiumUpsellCta": "Explore premium analyzers",
+    "premiumUpsellIndustries": "Browse by industry →",
+    "categories": {
+      "construction-measurement": "Construction & measurement",
+      "finance-business": "Finance & business",
+      "manufacturing-workshop": "Manufacturing & workshop",
+      "energy-carbon": "Energy & carbon",
+      "logistics-travel": "Logistics & travel",
+      "agriculture-food": "Agriculture & food",
+      "everyday-life": "Everyday life",
+      "math-statistics": "Math & statistics",
+      "conversion": "Unit conversion",
+      "health-body": "Health & body"
+    },
+    "tool": {
+      "calculate": "Calculate",
+      "awaiting": "Enter values and calculate to see your result here.",
+      "includesTitle": "What this result includes",
+      "includes1": "Formula-based estimate from your inputs",
+      "includes2": "Browser-only processing — inputs not stored",
+      "includes3": "Expanded formula for this calculator type",
+      "excludesTitle": "What this result does not include",
+      "excludes1": "Premium verdict or safe price floor",
+      "excludes2": "PDF export",
+      "excludes3": "Saved reports",
+      "excludes4": "Hidden-variable margin diagnosis",
+      "premiumBlockTitle": "Related premium analyzer",
+      "premiumBlockBody": "For P90 pricing, margin leaks and a full decision report, use the matching sector analyzer.",
+      "premiumCta": "Open premium analyzer →"
+    },
+    "validation": {
+      "required": "Please select a value.",
+      "number": "Enter a valid number.",
+      "min": "Must be at least {min}.",
+      "max": "Must be at most {max}."
+    }
   },
   "trust": {
     "stripLabel": "Trust and security",
@@ -123,6 +267,40 @@
     "tagline": "Sector-specific calculators, measurement tools and decision reports.",
     "trustNote": "No ERP required. Business data is not sold."
   },
+  "enterpriseFooter": {
+    "brand": "SectorCalc",
+    "tagline": "Sector-specific calculators, measurement tools and decision reports.",
+    "sectorsTitle": "SECTORS",
+    "allSectors": "All 27 Sectors",
+    "sectors": {
+      "manufacturing": "Manufacturing",
+      "logistics": "Logistics",
+      "construction": "Construction"
+    },
+    "complianceTitle": "COMPLIANCE",
+    "compliance": {
+      "iso": "ISO 27001 Ready",
+      "sla": "SLA: 99.9% Uptime",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "disclaimer": "Disclaimer"
+    },
+    "authorityTitle": "AUTHORITY",
+    "copyright": "© {year} {site}. All rights reserved.",
+    "authorityLine": "Built for the shop floor.",
+    "vaultLink": "Personal Data Vault →"
+  },
+  "region": {
+    "label": "Region",
+    "auto": "Auto (by language)",
+    "global": "Global · USD",
+    "turkey": "Turkey · TRY",
+    "germany": "Germany · EUR",
+    "indicator": "{region} · {currency}",
+    "indicatorHint": "Currency follows your language or manual region choice",
+    "manualActive": "Manual region: {region}",
+    "followsLanguage": "Follows language → {region}"
+  },
   "locale": {
     "label": "Language",
     "en": "English",
@@ -136,7 +314,7 @@
     "loading": "Loading..."
   },
   "sectorCard": {
-    "calculate": "Calculate",
+    "calculate": "Analyze",
     "badge": {
       "free": "Free",
       "premium": "Premium",
@@ -258,6 +436,110 @@
       "primary": "Explore Free Tools",
       "secondary": "View Sample Verdict Report"
     }
+  },
+  "homeDashboard": {
+    "meta": {
+      "title": "MarginCore — Professional Risk Analytics for SMEs",
+      "description": "Financial risk dashboard for sector margin analysis. Executive summaries by industry, construction and logistics with P90 stochastic verdicts."
+    },
+    "hero": {
+      "statusLine": "MarginCore · Risk Terminal",
+      "title": "MarginCore: Professional Risk Analytics for SMEs.",
+      "subtitle": "Deterministic exposure, P90 safe bid limits and sensitivity matrices — why margin leaks, not what to charge.",
+      "primaryCta": "Access Premium Verdicts",
+      "secondaryCta": "View Sample Report",
+      "metrics": {
+        "sectors": { "label": "Sectors", "value": "27 LIVE" },
+        "engine": { "label": "Engine", "value": "P90 MC" },
+        "confidence": { "label": "Confidence", "value": "Z = 1.28" },
+        "gate": { "label": "Access", "value": "PRO GATE" }
+      }
+    },
+    "grid": {
+      "eyebrow": "Sector coverage",
+      "title": "Executive summaries by vertical",
+      "subtitle": "Grouped risk modules — free pre-checks and premium verdict analyzers. No icons, no noise: read the exposure, open the module.",
+      "sectorCount": "{count} modules",
+      "freeLabel": "Pre-check",
+      "proLabel": "Verdict"
+    },
+    "groups": {
+      "industry": "Industry",
+      "construction": "Construction",
+      "logistics": "Logistics"
+    },
+    "activity": {
+      "eyebrow": "Activity feed",
+      "title": "Recent reports",
+      "subtitle": "Sample activity stream — sign in to sync saved verdict reports from your account.",
+      "viewAll": "Open report archive",
+      "disclaimer": "Illustrative rows only. Live report history requires SectorCalc Pro and a signed-in session.",
+      "columns": {
+        "id": "Report ID",
+        "sector": "Sector",
+        "verdict": "Verdict",
+        "updated": "Updated",
+        "status": "Status"
+      },
+      "status": {
+        "complete": "Complete",
+        "pending": "Awaiting",
+        "sample": "Sample"
+      }
+    }
+  },
+  "industrialHome": {
+    "brand": "SectorCalc",
+    "modulesTitle": "Browse by sector",
+    "initializeAudit": "Open",
+    "systemStatus": {
+      "title": "Platform snapshot",
+      "line": "Free calculators and premium expert reports — one platform.",
+      "metrics": {
+        "sectors": { "label": "Sectors", "value": "{count} active" },
+        "engine": { "label": "Calculators", "value": "50+ tools" },
+        "confidence": { "label": "Reports", "value": "Expert layer" },
+        "gate": { "label": "Access", "value": "Free + Pro" }
+      }
+    },
+    "quickAccess": {
+      "title": "Quick access",
+      "open": "Open",
+      "modules": {
+        "tools": "Free tools",
+        "industries": "Industries",
+        "categories": "Categories",
+        "premium": "Premium reports"
+      }
+    },
+    "lossDimensions": {
+      "title": "What you can measure",
+      "money": "Money & margin",
+      "material": "Material & scrap",
+      "time": "Time & OEE",
+      "energy": "Energy & carbon"
+    },
+    "tagline": "Sector-specific calculation and measurement platform",
+    "headline": "Calculate, measure and optimize",
+    "headlineAccent": "for your sector.",
+    "lead": "Production, logistics, construction, energy and daily life — expert formulas, clear results, no ERP complexity.",
+    "activeModule": "Sector calculator"
+  },
+  "auditArchive": {
+    "meta": {
+      "title": "Operational Audit Archive — Personal Data Vault",
+      "description": "Review saved operational audits and verdict history linked to your SectorCalc account."
+    },
+    "eyebrow": "Personal Data Vault",
+    "title": "Operational Audit Archive",
+    "subtitle": "Your saved verdict reports and audit outcomes are stored securely in Firestore and linked to your account.",
+    "backToAccount": "← Back to account",
+    "loading": "Loading audit archive…",
+    "sampleNote": "Sample archive records shown.",
+    "signInPrompt": "Sign in to load your personal audit vault from Firestore.",
+    "signInCta": "Sign in",
+    "viewFullArchive": "Open full archive",
+    "emptySignedIn": "No saved audits yet. Run a premium analyzer and save the verdict to populate your vault."
   },
   "emptyStates": {
     "reports": {

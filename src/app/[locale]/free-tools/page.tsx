@@ -1,115 +1,145 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { ToolCatalogByCategory } from "@/components/tools/ToolCatalogByCategory";
+import { FreeTrafficCatalogSection } from "@/components/tools/FreeTrafficCatalogSection";
 import { FreeToolPrivacyNote } from "@/components/tools/FreeToolPrivacyNote";
 import { Container } from "@/components/ui/Container";
 import { IconListItem } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
 import { Button } from "@/components/ui/Button";
 import { FREE_TOOLS } from "@/data/tools";
+import { FREE_TRAFFIC_CATEGORIES, FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
 import { industryRegistry } from "@/lib/tools/industry-registry";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Free Sector Calculators",
-  description:
-    "Free sector calculators for quick visible risk checks across 27 industries. Browser-side processing with a clear path to premium decision analyzers.",
-  path: "/free-tools",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("freeTrafficCatalog");
+  return createPageMetadata({
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    path: "/free-tools",
+  });
+}
 
-const FREE_INCLUDES = [
-  "Basic structured inputs (3–5 fields)",
-  "Immediate risk signal output",
-  "Short interpretation note",
-  "Link to matching premium analyzer",
-] as const;
+export default async function FreeToolsPage() {
+  const t = await getTranslations("freeTrafficCatalog");
 
-const FREE_EXCLUDES = [
-  "Minimum safe price verdict",
-  "Full decision report package",
-  "PDF / export",
-  "Saved report history",
-] as const;
-
-export default function FreeToolsPage() {
   return (
     <PageLayout>
-      <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12">
+      <section className="border-b border-border-subtle bg-bg-subtle py-4 sm:py-6">
         <Container>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-teal">
-            Free tools
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-deep-navy">
+            {t("eyebrow")}
           </p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
-            Quick sector checks
+            {t("title")}
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-            Directional risk signals for cost, margin and pricing questions — free, fast and
-            built to lead into premium verdict analyzers when you need a real decision.
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-secondary">
+            {t("lead")}
           </p>
+          <p className="mt-3 text-sm font-medium text-text-primary">
+            {t("totalCount", {
+              traffic: FREE_TRAFFIC_TOOLS.length,
+              sectors: FREE_TOOLS.length,
+              categories: FREE_TRAFFIC_CATEGORIES.length,
+            })}
+          </p>
+          <nav className="mt-4 flex flex-wrap gap-2" aria-label={t("categoryNavLabel")}>
+            <Link
+              href="#featured"
+              className="inline-flex min-h-[44px] items-center px-2 text-xs font-semibold uppercase tracking-wide text-text-secondary hover:text-deep-navy"
+            >
+              {t("featuredTitle")}
+            </Link>
+            {FREE_TRAFFIC_CATEGORIES.map((category) => (
+              <Link
+                key={category}
+                href={`#${category}`}
+                className="inline-flex min-h-[44px] items-center px-2 text-xs font-semibold uppercase tracking-wide text-text-secondary hover:text-deep-navy"
+              >
+                {t(`categories.${category}`)}
+              </Link>
+            ))}
+            <Link
+              href="#sector-tools"
+              className="inline-flex min-h-[44px] items-center px-2 text-xs font-semibold uppercase tracking-wide text-text-secondary hover:text-deep-navy"
+            >
+              {t("sectorToolsTitle")}
+            </Link>
+          </nav>
         </Container>
       </section>
 
-      <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
+      <section className="border-b border-border-subtle bg-white py-4 sm:py-6">
         <Container>
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             <div>
-              <h2 className="text-lg font-bold text-text-primary">What free tools include</h2>
+              <h2 className="text-lg font-bold text-text-primary">{t("includesTitle")}</h2>
               <ul className="mt-4 space-y-2.5">
-                {FREE_INCLUDES.map((item) => (
-                  <IconListItem key={item} icon={UI_ICON.check} iconClassName="text-emerald">
+                {[t("includes1"), t("includes2"), t("includes3"), t("includes4")].map((item) => (
+                  <IconListItem key={item} icon={UI_ICON.check} iconClassName="text-deep-navy">
                     {item}
                   </IconListItem>
                 ))}
               </ul>
             </div>
             <div>
-              <h2 className="text-lg font-bold text-text-primary">What free tools do not include</h2>
+              <h2 className="text-lg font-bold text-text-primary">{t("excludesTitle")}</h2>
               <ul className="mt-4 space-y-2.5">
-                {FREE_EXCLUDES.map((item) => (
-                  <IconListItem key={item} icon={UI_ICON.exclude} iconClassName="text-slate">
+                {[t("excludes1"), t("excludes2"), t("excludes3"), t("excludes4")].map((item) => (
+                  <IconListItem key={item} icon={UI_ICON.exclude} iconClassName="text-text-secondary">
                     {item}
                   </IconListItem>
                 ))}
               </ul>
             </div>
           </div>
-          <div className="mt-8">
+          <div className="mt-6">
             <FreeToolPrivacyNote />
           </div>
         </Container>
       </section>
 
-      <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-14">
+      <FreeTrafficCatalogSection />
+
+      <section
+        id="sector-tools"
+        className="border-b border-border-subtle bg-white py-4 sm:py-6"
+      >
         <Container size="wide">
-          <h2 className="text-xl font-bold text-text-primary">Free tools catalog</h2>
-          <p className="mt-2 max-w-2xl text-sm text-slate">
-            {FREE_TOOLS.length} free calculators across {industryRegistry.length} active sectors.
+          <h2 className="text-xl font-bold text-text-primary">{t("sectorToolsTitle")}</h2>
+          <p className="mt-2 max-w-2xl text-sm text-text-secondary">{t("sectorToolsLead")}</p>
+          <p className="mt-2 text-sm text-text-secondary">
+            {t("sectorToolsCount", {
+              count: FREE_TOOLS.length,
+              industries: industryRegistry.length,
+            })}
           </p>
-          <div className="mt-8">
+          <div className="mt-6">
             <ToolCatalogByCategory tools={FREE_TOOLS} />
           </div>
         </Container>
       </section>
 
-      <section className="bg-white py-10 sm:py-12">
+      <section className="bg-bg-subtle py-4 sm:py-6">
         <Container>
-          <div className="rounded-2xl border border-border-subtle bg-bg-subtle/50 p-6 sm:p-8">
-            <h2 className="text-xl font-bold text-text-primary">Need a verdict, not just a check?</h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate">
-              Premium analyzers add safe price floors, margin leak detection and accept / reprice
-              verdicts — included with SectorCalc Pro.
+          <div className="border border-border-subtle bg-white p-4 sm:p-6">
+            <h2 className="text-xl font-bold text-text-primary">{t("premiumUpsellTitle")}</h2>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-secondary">
+              {t("premiumUpsellBody")}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button href={getPremiumToolsHref()} variant="primary" size="lg">
-                Explore premium analyzers
+                {t("premiumUpsellCta")}
               </Button>
               <Link
                 href="/industries"
-                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-slate hover:text-accent-teal"
+                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-text-secondary hover:text-deep-navy"
               >
-                Browse by industry →
+                {t("premiumUpsellIndustries")}
               </Link>
             </div>
           </div>

@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FreeToolPage } from "@/components/tools/FreeToolPage";
+import { FreeTrafficToolPage } from "@/components/tools/FreeTrafficToolPage";
 import { createPageMetadata } from "@/lib/metadata";
+import {
+  getFreeTrafficToolBySlug,
+  listFreeTrafficSlugs,
+} from "@/lib/tools/free-traffic-catalog";
 import {
   getRevenueToolByFreeSlug,
   revenueTools,
@@ -14,8 +19,16 @@ interface FreeToolPageParams {
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
+function listAllFreeSlugs(): string[] {
+  const revenueSlugs = revenueTools.map((tool) => tool.freeSlug);
+  const trafficOnly = listFreeTrafficSlugs().filter(
+    (slug) => !revenueSlugs.includes(slug),
+  );
+  return [...revenueSlugs, ...trafficOnly];
+}
+
 export async function generateStaticParams(): Promise<FreeToolPageParams[]> {
-  return revenueTools.map((tool) => ({ slug: tool.freeSlug }));
+  return listAllFreeSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -24,15 +37,24 @@ export async function generateMetadata({
   params: Promise<FreeToolPageParams>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const tool = getRevenueToolByFreeSlug(slug);
-  if (!tool) {
+  const revenueTool = getRevenueToolByFreeSlug(slug);
+  if (revenueTool) {
+    return createPageMetadata({
+      title: `${revenueTool.freeTitle} | SectorCalc`,
+      description: `${revenueTool.freeValue} Unlock premium decision tools for pricing, cost and margin risk.`,
+      path: `/tools/free/${revenueTool.freeSlug}`,
+    });
+  }
+
+  const trafficTool = getFreeTrafficToolBySlug(slug);
+  if (!trafficTool) {
     return {};
   }
 
   return createPageMetadata({
-    title: `${tool.freeTitle} | SectorCalc`,
-    description: `${tool.freeValue} Unlock premium decision tools for pricing, cost and margin risk.`,
-    path: `/tools/free/${tool.freeSlug}`,
+    title: trafficTool.seoTitle,
+    description: trafficTool.seoDescription,
+    path: `/tools/free/${trafficTool.slug}`,
   });
 }
 
@@ -42,11 +64,16 @@ export default async function FreeRevenueToolRoute({
   params: Promise<FreeToolPageParams>;
 }) {
   const { slug } = await params;
-  const tool = getRevenueToolByFreeSlug(slug);
+  const revenueTool = getRevenueToolByFreeSlug(slug);
 
-  if (!tool) {
+  if (revenueTool) {
+    return <FreeToolPage tool={revenueTool} />;
+  }
+
+  const trafficTool = getFreeTrafficToolBySlug(slug);
+  if (!trafficTool) {
     notFound();
   }
 
-  return <FreeToolPage tool={tool} />;
+  return <FreeTrafficToolPage tool={trafficTool} />;
 }
