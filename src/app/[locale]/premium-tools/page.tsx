@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { PremiumToolsOmniHub } from "@/components/tools/PremiumToolsOmniHub";
-import { buildPremiumToolCatalogGroups } from "@/lib/catalog/build-catalog-groups";
+import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
+import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
+import {
+  buildPremiumToolCatalogGroups,
+  DEFAULT_PREMIUM_REPORT_FAMILY,
+} from "@/lib/catalog/build-catalog-groups";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { Container } from "@/components/ui/Container";
 import { PREMIUM_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
-import { getFreeToolsHref, getPricingHref } from "@/lib/tools/tool-links";
-import { sectorCalcProPricing } from "@/lib/tools/revenue-tools";
+import { getFreeToolsHref, getPricingHref, getSampleReportHref } from "@/lib/tools/tool-links";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Premium Decision Reports",
@@ -36,14 +40,31 @@ const VERDICT_EXAMPLES = [
   },
 ] as const;
 
-export default function PremiumToolsPage() {
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function PremiumToolsPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("catalogExplorer");
   const premiumGroups = buildPremiumToolCatalogGroups(PREMIUM_TOOLS);
 
   return (
     <PageLayout>
+      <CatalogPageHero
+        eyebrow={t("premiumTools.eyebrow")}
+        title={t("premiumTools.title")}
+        subtitle={t("premiumTools.subtitle")}
+      />
+
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-          <PremiumToolsOmniHub groups={premiumGroups} toolCount={PREMIUM_TOOLS.length} />
+          <SectorCatalogExplorer
+            groups={premiumGroups}
+            variant="premium-tools"
+            defaultGroupId={DEFAULT_PREMIUM_REPORT_FAMILY}
+          />
         </Container>
       </section>
 
@@ -55,8 +76,19 @@ export default function PremiumToolsPage() {
           </p>
           <div className="sc-craft-grid sc-craft-grid--2 mt-5">
             {VERDICT_EXAMPLES.map((item) => (
-              <article key={item.verdict} className="sc-ledger-card sc-industrial-panel sc-ledger-letterpress p-4">
-                <p className={`text-sm font-bold ${item.verdict.includes("High risk") ? "text-crit-red" : item.verdict.includes("acceptable") ? "text-safe-green" : "text-premium-velvet"}`}>
+              <article
+                key={item.verdict}
+                className="sc-ledger-card sc-industrial-panel sc-ledger-letterpress p-4"
+              >
+                <p
+                  className={`text-sm font-bold ${
+                    item.verdict.includes("High risk")
+                      ? "text-crit-red"
+                      : item.verdict.includes("acceptable")
+                        ? "text-safe-green"
+                        : "text-premium-velvet"
+                  }`}
+                >
                   {item.verdict}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-body-charcoal">{item.context}</p>
@@ -69,19 +101,19 @@ export default function PremiumToolsPage() {
       <section className="sc-pro-section">
         <Container className="sc-pro-container">
           <div className="sc-decision-block">
-            <h2 className="sc-pro-headline text-lg">Unlock all premium analyzers</h2>
+            <h2 className="sc-pro-headline text-lg">Open a decision report</h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-body-charcoal">
-              {sectorCalcProPricing.description}
+              Pick an analyzer above, or review a sample verdict before you commit.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link href={getPricingHref()} className="sc-cta-primary">
-                View pricing — ${sectorCalcProPricing.priceMonthly}/month
+              <Link href={getSampleReportHref()} className="sc-cta-primary">
+                View sample report
+              </Link>
+              <Link href={getPricingHref()} className="sc-cta-secondary">
+                View pricing
               </Link>
               <Link href={getFreeToolsHref()} className="sc-cta-secondary">
                 Browse free tools
-              </Link>
-              <Link href="/industries" className="sc-cta-secondary">
-                Browse by industry
               </Link>
             </div>
             <div className="mt-6">

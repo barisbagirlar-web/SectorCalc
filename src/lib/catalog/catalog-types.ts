@@ -4,6 +4,7 @@ export type CatalogItem = {
   readonly href: string;
   readonly meta?: string;
   readonly badge?: string;
+  readonly ctaLabel?: string;
 };
 
 export type CatalogGroup = {

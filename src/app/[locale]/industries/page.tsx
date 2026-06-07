@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { IndustriesOmniHub } from "@/components/industries/IndustriesOmniHub";
+import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
+import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
 import { Container } from "@/components/ui/Container";
 import { buildIndustryCatalogGroups } from "@/lib/catalog/build-catalog-groups";
 import { INDUSTRIES } from "@/data/industries";
 import { createPageMetadata } from "@/lib/metadata";
-import { getPremiumToolsHref, getPricingHref } from "@/lib/tools/tool-links";
+import { getPremiumToolsHref } from "@/lib/tools/tool-links";
+import type { IndustryCategory } from "@/lib/tools/industry-registry";
 
 const SECTOR_COUNT = INDUSTRIES.length;
+const DEFAULT_INDUSTRY_CATEGORY: IndustryCategory = "heavy-industry";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Industry Tools — Free Checks & Premium Reports",
@@ -16,14 +20,31 @@ export const metadata: Metadata = createPageMetadata({
   path: "/industries",
 });
 
-export default function IndustriesPage() {
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function IndustriesPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("catalogExplorer");
   const industryGroups = buildIndustryCatalogGroups();
 
   return (
     <PageLayout>
+      <CatalogPageHero
+        eyebrow={t("industries.eyebrow")}
+        title={t("industries.title")}
+        subtitle={t("industries.subtitle")}
+      />
+
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-          <IndustriesOmniHub groups={industryGroups} sectorCount={SECTOR_COUNT} />
+          <SectorCatalogExplorer
+            groups={industryGroups}
+            variant="industries"
+            defaultGroupId={DEFAULT_INDUSTRY_CATEGORY}
+          />
         </Container>
       </section>
 
@@ -33,8 +54,8 @@ export default function IndustriesPage() {
             <Link href={getPremiumToolsHref()} className="sc-cta-primary">
               Browse premium analyzers
             </Link>
-            <Link href={getPricingHref()} className="sc-cta-secondary">
-              View pricing
+            <Link href="/free-tools" className="sc-cta-secondary">
+              Browse free calculators
             </Link>
           </div>
         </Container>

@@ -2,12 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { FreeToolsOmniHub } from "@/components/tools/FreeToolsOmniHub";
+import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
+import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
 import { FreeToolPrivacyNote } from "@/components/tools/FreeToolPrivacyNote";
 import { Container } from "@/components/ui/Container";
 import { IconListItem } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
+import {
+  buildFreeTrafficCatalogGroups,
+  DEFAULT_FREE_TRAFFIC_CATEGORY,
+} from "@/lib/catalog/build-catalog-groups";
 import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
+import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 import type { AppLocale } from "@/i18n/routing";
@@ -28,13 +34,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function FreeToolsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const tCatalog = await getTranslations("catalogExplorer");
   const t = await getTranslations("freeTrafficCatalog");
+
+  const groups = buildFreeTrafficCatalogGroups(
+    FREE_TRAFFIC_TOOLS,
+    (meta: FreeTrafficCategoryMeta) => ({
+      label: t(meta.labelKey),
+      description: t(meta.descriptionKey),
+    }),
+    t("decisionAnalyzerNote"),
+    t("openCalculator")
+  );
 
   return (
     <PageLayout>
+      <CatalogPageHero
+        eyebrow={tCatalog("freeTools.eyebrow")}
+        title={tCatalog("freeTools.title")}
+        subtitle={tCatalog("freeTools.subtitle")}
+      />
+
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-          <FreeToolsOmniHub tools={FREE_TRAFFIC_TOOLS} />
+          <SectorCatalogExplorer
+            groups={groups}
+            variant="free-tools"
+            defaultGroupId={DEFAULT_FREE_TRAFFIC_CATEGORY}
+          />
         </Container>
       </section>
 

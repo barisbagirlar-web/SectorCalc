@@ -1,32 +1,39 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/layout/PageLayout";
+import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
 import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
 import { Container } from "@/components/ui/Container";
 import { FREE_TOOLS } from "@/data/tools";
 import { buildSectorToolCatalogGroups } from "@/lib/catalog/build-catalog-groups";
 import { createPageMetadata } from "@/lib/metadata";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Calculator Categories",
-  description:
-    "Browse SectorCalc tools by function: OEE, scrap, routing, calibration, energy, margin and more.",
-  path: "/categories",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  return createPageMetadata({
+    title: "Calculator Categories",
+    description:
+      "Browse SectorCalc tools by function: OEE, scrap, routing, calibration, energy, margin and more.",
+    path: "/categories",
+  });
+}
 
-export default function CategoriesPage() {
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function CategoriesPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("catalogExplorer");
   const groups = buildSectorToolCatalogGroups(FREE_TOOLS);
 
   return (
     <PageLayout>
-      <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
-        <Container className="sc-pro-container">
-          <p className="sc-pro-eyebrow">Categories</p>
-          <h1 className="sc-pro-title sc-pro-title--compact">Find the right calculator</h1>
-          <p className="sc-pro-lead">
-            Choose the type of loss, measurement or decision you need first.
-          </p>
-        </Container>
-      </section>
+      <CatalogPageHero
+        eyebrow={t("categories.eyebrow")}
+        title={t("categories.title")}
+        subtitle={t("categories.subtitle")}
+      />
 
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">

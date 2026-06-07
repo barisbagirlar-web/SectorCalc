@@ -26,11 +26,12 @@ function CatalogItemCard({
   variant: CategoryExplorerVariant;
 }) {
   const ctaLabel =
-    variant === "premium-tools"
+    item.ctaLabel ??
+    (variant === "premium-tools"
       ? "View analyzer →"
       : variant === "industries"
-        ? "Open sector hub →"
-        : openLabel;
+        ? "Open industry →"
+        : openLabel);
 
   return (
     <article className="sc-ledger-card sc-craft-card sc-ledger-letterpress sc-catalog-explorer__item-card">
@@ -130,8 +131,10 @@ export function CategoryExplorer({
                 id={`${panelPrefix}-panel-${group.id}`}
                 role="region"
                 aria-labelledby={`${panelPrefix}-trigger-${group.id}`}
-                hidden={!isOpen}
-                className="sc-catalog-explorer__accordion-panel"
+                aria-hidden={!isOpen}
+                className={`sc-catalog-explorer__accordion-panel${
+                  isOpen ? "" : " sc-catalog-explorer__accordion-panel--collapsed"
+                }`}
               >
                 <ItemGrid items={group.items} openLabel={labels.openItem} variant={variant} />
               </section>
@@ -180,9 +183,11 @@ export function CategoryExplorer({
               <section
                 key={group.id}
                 id={`${panelPrefix}-desktop-${group.id}`}
-                hidden={!isActive}
+                aria-hidden={!isActive}
                 aria-labelledby={`${panelPrefix}-desktop-heading-${group.id}`}
-                className="sc-catalog-explorer__panel sc-pro-panel sc-pro-letterpress p-4 sm:p-5"
+                className={`sc-catalog-explorer__panel sc-pro-panel sc-pro-letterpress p-4 sm:p-5${
+                  isActive ? "" : " sc-catalog-explorer__panel--inactive"
+                }`}
               >
                 <h2
                   id={`${panelPrefix}-desktop-heading-${group.id}`}

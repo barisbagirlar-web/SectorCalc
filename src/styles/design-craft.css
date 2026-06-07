@@ -1291,6 +1291,11 @@
   padding: 0 0 1.25rem;
 }
 
+.sc-catalog-explorer__accordion-panel--collapsed,
+.sc-catalog-explorer__panel--inactive {
+  display: none;
+}
+
 .sc-catalog-explorer__item-grid,
 .sc-free-tools-explorer__tool-grid {
   margin-top: 0.5rem;
@@ -1299,6 +1304,11 @@
 .sc-catalog-explorer__item-card,
 .sc-free-tools-explorer__tool-card {
   height: 100%;
+}
+
+.sc-catalog-explorer__item-card .sc-craft-card__cta {
+  margin-top: auto;
+  padding-top: 0.875rem;
 }
 
 /* ── Page canvas — theme fill, no white viewport gutters ── */

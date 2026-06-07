@@ -12,6 +12,13 @@ import {
 } from "@/lib/premium/premium-architecture";
 import { getPremiumArchitectureProfile } from "@/lib/premium/sector-loss-registry";
 import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
+import { getToolHref } from "@/lib/tools/paths";
+import {
+  DEFAULT_FREE_TRAFFIC_CATEGORY,
+  getOrderedFreeTrafficCategories,
+  type FreeTrafficCategoryMeta,
+} from "@/lib/tools/free-traffic-categories";
+import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
 import type { CatalogGroup, CatalogItem } from "@/lib/catalog/catalog-types";
 
 export const INDUSTRY_CATEGORY_DESCRIPTIONS: Record<IndustryCategory, string> = {
@@ -90,12 +97,16 @@ function toolToCatalogItem(tool: Tool, catalogVariant: "default" | "premium") {
   const architecture =
     catalogVariant === "premium" ? getPremiumArchitectureProfile(tool.slug) : null;
 
+  const ctaLabel =
+    catalogVariant === "premium" ? "View analyzer →" : "Open calculator →";
+
   return {
     title: architecture?.reclassifiedTitle ?? tool.name,
     description: architecture?.reclassifiedPromise ?? tool.shortDescription,
     href: tool.href,
     meta: architecture?.whatIsMeasured ?? industry?.name,
     badge: architecture ? PREMIUM_CATALOG_SHORT_LABELS[architecture.reportFamily] : industry?.name,
+    ctaLabel,
   };
 }
 
@@ -160,6 +171,7 @@ export function buildIndustryCatalogGroups(): CatalogGroup[] {
             description: industry.businessPain,
             href: `/industries/${industry.slug}`,
             meta: `${tool.freeTitle} · ${tool.paidTitle}`,
+            ctaLabel: "Open industry →",
           };
         })
         .filter((item): item is NonNullable<typeof item> => item !== null);
@@ -176,4 +188,32 @@ export function buildIndustryCatalogGroups(): CatalogGroup[] {
 
 export function resolveDefaultGroupId(groups: readonly CatalogGroup[]): string | undefined {
   return groups[0]?.id;
+}
+
+export { DEFAULT_FREE_TRAFFIC_CATEGORY };
+
+export function buildFreeTrafficCatalogGroups(
+  tools: readonly FreeTrafficTool[],
+  resolveCategoryCopy: (
+    meta: FreeTrafficCategoryMeta
+  ) => { label: string; description: string },
+  premiumNote: string,
+  openCalculatorLabel: string
+): CatalogGroup[] {
+  return getOrderedFreeTrafficCategories()
+    .map((meta) => ({
+      id: meta.id,
+      label: resolveCategoryCopy(meta).label,
+      description: resolveCategoryCopy(meta).description,
+      items: tools
+        .filter((tool) => tool.category === meta.id)
+        .map((tool) => ({
+          title: tool.title,
+          description: tool.description,
+          href: getToolHref("free", tool.slug),
+          meta: tool.relatedPremiumSlug ? premiumNote : undefined,
+          ctaLabel: openCalculatorLabel,
+        })),
+    }))
+    .filter((group) => group.items.length > 0);
 }

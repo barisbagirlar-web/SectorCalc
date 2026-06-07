@@ -186,6 +186,58 @@
     "unlockVerdictCta": "Unlock full verdict",
     "unlockVerdictLoading": "Checking access…"
   },
+  "catalogExplorer": {
+    "categories": {
+      "eyebrow": "Categories",
+      "title": "Find the right calculator category.",
+      "subtitle": "Choose the type of loss, measurement or decision you need first."
+    },
+    "freeTools": {
+      "eyebrow": "Free tools",
+      "title": "Free calculators by category.",
+      "subtitle": "Start with the calculation area you need, then open the tool."
+    },
+    "premiumTools": {
+      "eyebrow": "Premium analyzers",
+      "title": "Decision reports by loss type.",
+      "subtitle": "Choose the decision area before opening the analyzer."
+    },
+    "industries": {
+      "eyebrow": "Industries",
+      "title": "Explore calculators by sector.",
+      "subtitle": "Start from your industry, then choose the calculation or report."
+    },
+    "labels": {
+      "categories": {
+        "navLabel": "Browse by category",
+        "countLabel": "{count, plural, one {# tool} other {# tools}}",
+        "viewCategory": "View tools",
+        "viewCategoryOpen": "Showing tools",
+        "openItem": "Open calculator →"
+      },
+      "free-tools": {
+        "navLabel": "Browse by category",
+        "countLabel": "{count, plural, one {# calculator} other {# calculators}}",
+        "viewCategory": "View calculators",
+        "viewCategoryOpen": "Showing calculators",
+        "openItem": "Open calculator →"
+      },
+      "premium-tools": {
+        "navLabel": "Browse by report type",
+        "countLabel": "{count, plural, one {# analyzer} other {# analyzers}}",
+        "viewCategory": "View analyzers",
+        "viewCategoryOpen": "Showing analyzers",
+        "openItem": "View analyzer →"
+      },
+      "industries": {
+        "navLabel": "Browse by sector group",
+        "countLabel": "{count, plural, one {# sector} other {# sectors}}",
+        "viewCategory": "View sectors",
+        "viewCategoryOpen": "Showing sectors",
+        "openItem": "Open industry →"
+      }
+    }
+  },
   "freeTrafficCatalog": {
     "metaTitle": "Free Sector Calculators — 100 Tools",
     "metaDescription": "Free browser calculators for measurement, cost, finance, energy, conversion and everyday decisions. 100 active tools — no sign-up required.",
