@@ -18,6 +18,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry";
 import type { PremiumDecisionReportPreviewProps } from "@/components/reports/PremiumDecisionReportPreview";
+import { PREVIEW_ENTITLEMENT } from "@/lib/entitlements/premium-entitlements";
 
 describe("premium-report-ux", () => {
   test("critical threshold produces Critical verdict", () => {
@@ -154,6 +155,8 @@ describe("premium-report-ux", () => {
       result,
       locale: "en",
       compact: true,
+      entitlement: PREVIEW_ENTITLEMENT,
+      checkoutHref: "/pricing?tool=cnc-oee-loss",
     };
 
     expect(props.result.bigNumber.isBigNumber).toBe(true);

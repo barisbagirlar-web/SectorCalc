@@ -22,6 +22,8 @@ import {
 import { PremiumReportFeedback } from "@/components/reports/PremiumReportFeedback";
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
 import type { BenchmarkSnapshotValue } from "@/lib/benchmarks/benchmark-types";
+import { usePremiumSchemaEntitlement } from "@/lib/entitlements/use-premium-schema-entitlement";
+import { limitPreviewThresholdCount } from "@/lib/entitlements/premium-entitlements";
 
 export interface DynamicPremiumCalculatorProps {
   schema: PremiumCalculatorSchema;
@@ -35,6 +37,8 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   const intlLocale = useLocale();
   const locale = localeProp ?? intlLocale;
   const t = useTranslations("premiumDecisionReport");
+  const { entitlement, checkoutHref } = usePremiumSchemaEntitlement(schema);
+  const isFullReport = entitlement.canViewFullReport;
   const [values, setValues] = useState<SchemaInputValues>(() => buildDefaultSchemaInputs(schema));
   const [submitted, setSubmitted] = useState(false);
 
@@ -103,7 +107,14 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
 
           <div className="sc-ledger-karar-masasi__threshold min-w-0">
             <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress p-4 sm:p-5">
-              <ThresholdStatusSection items={reportData.thresholdItems} title={t("thresholdTitle")} />
+              <ThresholdStatusSection
+                items={
+                  isFullReport
+                    ? reportData.thresholdItems
+                    : limitPreviewThresholdCount(reportData.thresholdItems, 2)
+                }
+                title={t("thresholdTitle")}
+              />
             </div>
           </div>
         </div>
@@ -119,7 +130,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
         </div>
       )}
 
-      {result && reportData ? (
+      {result && reportData && isFullReport ? (
         <>
           <div className="sc-ledger-karar-masasi__drivers min-w-0 xl:hidden">
             <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress p-4 sm:p-5">
@@ -258,6 +269,8 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
               result={result}
               locale={locale}
               compact
+              entitlement={entitlement}
+              checkoutHref={checkoutHref}
             />
             {feedbackSnapshots ? (
               <PremiumReportFeedback

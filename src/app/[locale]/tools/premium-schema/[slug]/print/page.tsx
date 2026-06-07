@@ -72,6 +72,7 @@ export default async function PremiumSchemaPrintPage({
       payload={payload}
       locale={locale}
       backHref={`/tools/premium-schema/${schema.id}`}
+      legacyPaidSlug={schema.legacyPaidSlug}
     />
   );
 }

@@ -4,6 +4,7 @@ import { getTechnicalSimulationNotice } from "@/lib/premium-schema/premium-repor
 export interface PremiumPrintableReportProps {
   payload: PremiumReportExportPayload;
   locale: string;
+  isSample?: boolean;
 }
 
 const STATUS_LABEL: Record<PremiumReportExportPayload["executiveVerdict"]["status"], string> = {
@@ -29,12 +30,21 @@ function formatGeneratedDate(iso: string, locale: string): string {
   }).format(new Date(parsed));
 }
 
-export function PremiumPrintableReport({ payload, locale }: PremiumPrintableReportProps) {
+export function PremiumPrintableReport({
+  payload,
+  locale,
+  isSample = false,
+}: PremiumPrintableReportProps) {
   const generatedLabel = formatGeneratedDate(payload.generatedAt, locale);
   const statusLabel = STATUS_LABEL[payload.executiveVerdict.status];
 
   return (
     <article className="sc-print-report" aria-label={payload.title}>
+      {isSample ? (
+        <p className="sc-print-report__sample-banner" role="note">
+          Sample report — unlock the full decision report to export without this label.
+        </p>
+      ) : null}
       <header className="sc-print-section sc-print-report__cover">
         <p className="sc-print-report__brand">SectorCalc</p>
         <h1 className="sc-print-report__title">{payload.schemaName}</h1>

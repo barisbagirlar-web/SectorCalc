@@ -3414,6 +3414,109 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   text-decoration: underline;
 }
 
+.sc-premium-export-actions__locked-note {
+  flex: 1 1 100%;
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--sc-muted, #5c6370);
+}
+
+.sc-print-toolbar__sample-note {
+  flex: 1 1 100%;
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--sc-navy, #1e3a5f);
+}
+
+.sc-print-report__sample-banner {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--sc-navy, #1e3a5f);
+  background: rgba(30, 58, 95, 0.08);
+  border: 1px solid rgba(30, 58, 95, 0.18);
+  border-radius: 4px;
+}
+
+.sc-premium-report-locked {
+  margin-top: 1.25rem;
+  min-width: 0;
+}
+
+.sc-premium-report-locked__card {
+  padding: 1.25rem 1.35rem;
+  background: #fff;
+  border: 1px solid rgba(26, 26, 46, 0.12);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(26, 26, 46, 0.04);
+}
+
+.sc-premium-report-locked__title {
+  margin: 0.35rem 0 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--sc-navy, #1e3a5f);
+  line-height: 1.35;
+}
+
+.sc-premium-report-locked__text {
+  margin: 0.65rem 0 0;
+  font-size: 0.875rem;
+  color: var(--sc-ink, #1a1a2e);
+  line-height: 1.5;
+}
+
+.sc-premium-report-locked__list {
+  margin: 1rem 0 0;
+  padding-left: 1.15rem;
+  font-size: 0.8125rem;
+  color: var(--sc-ink, #1a1a2e);
+  line-height: 1.55;
+}
+
+.sc-premium-report-locked__list li + li {
+  margin-top: 0.35rem;
+}
+
+.sc-premium-report-locked__price {
+  margin: 0.85rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--sc-muted, #5c6370);
+}
+
+.sc-premium-report-locked__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+}
+
+.sc-premium-report-locked__cta,
+.sc-premium-report-locked__secondary {
+  flex: 1 1 auto;
+  min-width: min(100%, 10rem);
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 390px) {
+  .sc-premium-report-locked__card {
+    padding: 1rem;
+  }
+
+  .sc-premium-report-locked__actions {
+    flex-direction: column;
+  }
+
+  .sc-premium-report-locked__cta,
+  .sc-premium-report-locked__secondary,
+  .sc-premium-export-actions__btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 @media print {
   .apple-nav,
   .apple-footer,

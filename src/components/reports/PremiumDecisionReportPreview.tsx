@@ -4,7 +4,14 @@ import { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
 import { PremiumReportExportActions } from "@/components/reports/PremiumReportExportActions";
+import { PremiumReportLockedState } from "@/components/reports/PremiumReportLockedState";
 import { buildPremiumReportExportPayload } from "@/lib/premium-schema/premium-report-export";
+import {
+  PREVIEW_ENTITLEMENT,
+  buildPremiumCheckoutHref,
+  limitPreviewThresholdCount,
+  type PremiumEntitlement,
+} from "@/lib/entitlements/premium-entitlements";
 import type {
   PremiumCalculatorSchema,
   PremiumSchemaEngineResult,
@@ -29,6 +36,8 @@ export type PremiumDecisionReportPreviewProps = {
   locale: string;
   /** Hide sections already shown above the fold on mobile */
   compact?: boolean;
+  entitlement?: PremiumEntitlement;
+  checkoutHref?: string;
 };
 
 const VERDICT_CLASS: Record<ExecutiveVerdict["status"], string> = {
@@ -211,11 +220,22 @@ function AssumptionsSection({
 function ExportPreviewRow({
   payload,
   printHref,
+  entitlement,
+  checkoutHref,
 }: {
   payload: ReturnType<typeof buildPremiumReportExportPayload>;
   printHref: string;
+  entitlement: PremiumEntitlement;
+  checkoutHref: string;
 }) {
-  return <PremiumReportExportActions payload={payload} printHref={printHref} />;
+  return (
+    <PremiumReportExportActions
+      payload={payload}
+      printHref={printHref}
+      entitlement={entitlement}
+      checkoutHref={checkoutHref}
+    />
+  );
 }
 
 /** Full A4-style premium decision report preview. */
@@ -224,12 +244,17 @@ export function PremiumDecisionReportPreview({
   result,
   locale,
   compact = false,
+  entitlement = PREVIEW_ENTITLEMENT,
+  checkoutHref,
 }: PremiumDecisionReportPreviewProps) {
   const t = useTranslations("premiumDecisionReport");
   const verdict = getVerdictFromThresholds(result.thresholdAlerts);
   const thresholdItems = getThresholdSummary(schema, result.thresholdAlerts, result.outputs);
+  const previewThresholdItems = limitPreviewThresholdCount(thresholdItems, 2);
   const severity = worstThresholdSeverity(result.thresholdAlerts);
   const assumptions = getAssumptionLines(schema);
+  const isFullReport = entitlement.canViewFullReport;
+  const resolvedCheckoutHref = buildPremiumCheckoutHref(schema.id, checkoutHref);
 
   const exportPayload = useMemo(
     () => buildPremiumReportExportPayload(schema, result, locale),
@@ -249,40 +274,59 @@ export function PremiumDecisionReportPreview({
         <>
           <ExecutiveVerdictBlock verdict={verdict} statusLabel={t(`status.${verdict.status}`)} />
           <BigNumberSummary result={result} meaningLabel={t("whatThisMeans")} />
+          {!isFullReport ? (
+            <ThresholdStatusSection items={previewThresholdItems} title={t("thresholdTitle")} />
+          ) : null}
         </>
       ) : null}
 
-      <div className={compact ? "hidden xl:block" : undefined}>
-        <LossDriverBreakdown
-          result={result}
-          title={t("hiddenDriversTitle")}
-          intro={t("hiddenDriversIntro")}
+      {isFullReport ? (
+        <>
+          <div className={compact ? "hidden xl:block" : undefined}>
+            <LossDriverBreakdown
+              result={result}
+              title={t("hiddenDriversTitle")}
+              intro={t("hiddenDriversIntro")}
+            />
+          </div>
+
+          <div className={compact ? "hidden xl:block" : undefined}>
+            <ThresholdStatusSection items={thresholdItems} title={t("thresholdTitle")} />
+          </div>
+
+          <div className={compact ? "hidden xl:block" : undefined}>
+            <SuggestedActionSection
+              severity={severity}
+              engineAction={result.suggestedAction}
+              title={t("suggestedActionTitle")}
+              immediateLabel={t("actionImmediate")}
+              monitoringLabel={t("actionMonitoring")}
+              decisionLabel={t("actionDecision")}
+            />
+          </div>
+
+          <AssumptionsSection
+            lines={assumptions}
+            legalNote={result.legalNote}
+            assumptionsTitle={t("assumptionsTitle")}
+            legalTitle={t("legalTitle")}
+          />
+
+          <ExportPreviewRow
+            payload={exportPayload}
+            printHref={printHref}
+            entitlement={entitlement}
+            checkoutHref={resolvedCheckoutHref}
+          />
+        </>
+      ) : (
+        <PremiumReportLockedState
+          schemaName={schema.name}
+          schemaSlug={schema.id}
+          locale={locale}
+          checkoutHref={resolvedCheckoutHref}
         />
-      </div>
-
-      <div className={compact ? "hidden xl:block" : undefined}>
-        <ThresholdStatusSection items={thresholdItems} title={t("thresholdTitle")} />
-      </div>
-
-      <div className={compact ? "hidden xl:block" : undefined}>
-        <SuggestedActionSection
-          severity={severity}
-          engineAction={result.suggestedAction}
-          title={t("suggestedActionTitle")}
-          immediateLabel={t("actionImmediate")}
-          monitoringLabel={t("actionMonitoring")}
-          decisionLabel={t("actionDecision")}
-        />
-      </div>
-
-      <AssumptionsSection
-        lines={assumptions}
-        legalNote={result.legalNote}
-        assumptionsTitle={t("assumptionsTitle")}
-        legalTitle={t("legalTitle")}
-      />
-
-      <ExportPreviewRow payload={exportPayload} printHref={printHref} />
+      )}
     </article>
   );
 }
