@@ -1,3 +1,4 @@
+import "../globals.css";
 import { LocaleDocumentLayout } from "@/components/layout/LocaleDocumentLayout";
 
 export default function EnglishRootLayout({
