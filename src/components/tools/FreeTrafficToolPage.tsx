@@ -82,8 +82,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
     if (!submitted) {
       return null;
     }
-    return calculateFreeTrafficTool(tool.slug, values);
-  }, [submitted, tool.slug, values]);
+    return calculateFreeTrafficTool(tool.slug, values, locale);
+  }, [locale, submitted, tool.slug, values]);
 
   const relatedPremiumSlug = result?.relatedPremiumSlug ?? tool.relatedPremiumSlug;
   const premiumAnalyzerHref = useMemo(() => {

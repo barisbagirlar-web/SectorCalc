@@ -120,9 +120,9 @@ export function PremiumReportExportActions({
       return;
     }
     trackExport("report_csv_click", "csv", true);
-    const csv = serializePremiumReportCsv(payload);
+    const csv = serializePremiumReportCsv(payload, locale);
     downloadCsv(`${payload.schemaSlug}-report.csv`, csv);
-  }, [entitlement.canExportCsv, payload, trackExport]);
+  }, [entitlement.canExportCsv, locale, payload, trackExport]);
 
   const handleCopySummary = useCallback(async () => {
     if (!entitlement.canExportCsv) {
@@ -135,7 +135,7 @@ export function PremiumReportExportActions({
       return;
     }
     try {
-      await navigator.clipboard.writeText(buildPremiumReportSummaryText(payload));
+      await navigator.clipboard.writeText(buildPremiumReportSummaryText(payload, locale));
       setCopyState("copied");
       window.setTimeout(() => setCopyState("idle"), 2500);
     } catch {

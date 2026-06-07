@@ -1,7 +1,8 @@
-/**
- * Premium decision report formatting — pure helpers, no formula logic.
- */
-
+import {
+  getPremiumOutputFormatted,
+  normalizeLocale,
+  type SupportedLocale,
+} from "@/lib/format/localization";
 import type {
   PremiumCalculatorSchema,
   PremiumOutputFormat,
@@ -98,28 +99,9 @@ export function formatPremiumValue(
   value: number,
   format: PremiumOutputFormat,
   unit: string,
-  locale = "en"
+  locale: SupportedLocale | string = "en",
 ): string {
-  const safe = Number.isFinite(value) ? value : 0;
-
-  switch (format) {
-    case "currency":
-      return new Intl.NumberFormat(locale, {
-        style: "currency",
-        currency: "USD",
-        maximumFractionDigits: 0,
-      }).format(safe);
-    case "percentage":
-      return `${safe.toFixed(1)}%`;
-    case "duration":
-      return `${safe.toFixed(1)} h`;
-    case "score":
-      return safe.toFixed(2);
-    default:
-      return unit
-        ? `${safe.toLocaleString(locale, { maximumFractionDigits: 2 })} ${unit}`.trim()
-        : safe.toFixed(2);
-  }
+  return getPremiumOutputFormatted(value, format, unit, normalizeLocale(locale), "USD");
 }
 
 export function worstSeverityFromAlerts(
@@ -162,8 +144,10 @@ function resolveFieldLabel(schema: PremiumCalculatorSchema, fieldId: string): st
 export function getThresholdSummary(
   schema: PremiumCalculatorSchema,
   alerts: readonly ThresholdAlert[],
-  outputs: readonly SchemaPipelineOutput[]
+  outputs: readonly SchemaPipelineOutput[],
+  locale: SupportedLocale | string = "en",
 ): readonly ThresholdSummaryItem[] {
+  const formatLocale = normalizeLocale(locale);
   if (schema.thresholds.length === 0) {
     return [];
   }
@@ -174,7 +158,7 @@ export function getThresholdSummary(
     const alert = alertByField.get(rule.fieldId);
     const output = outputs.find((item) => item.id === rule.fieldId);
     const value = alert
-      ? formatPremiumValue(alert.value, output?.format ?? "number", output?.unit ?? "", "en")
+      ? formatPremiumValue(alert.value, output?.format ?? "number", output?.unit ?? "", formatLocale)
       : output?.formatted ?? "—";
 
     if (alert?.severity === "critical") {

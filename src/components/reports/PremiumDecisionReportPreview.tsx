@@ -276,7 +276,7 @@ export function PremiumDecisionReportPreview({
   const t = useTranslations("premiumDecisionReport");
   const tDecision = useTranslations("premiumDecisionReport.decisionValue");
   const verdict = getVerdictFromThresholds(result.thresholdAlerts);
-  const thresholdItems = getThresholdSummary(schema, result.thresholdAlerts, result.outputs);
+  const thresholdItems = getThresholdSummary(schema, result.thresholdAlerts, result.outputs, locale);
   const previewThresholdItems = limitPreviewThresholdCount(thresholdItems, 2);
   const severity = worstThresholdSeverity(result.thresholdAlerts);
   const assumptions = getAssumptionLines(schema);
@@ -376,10 +376,11 @@ export { ExecutiveVerdictBlock, BigNumberSummary, LossDriverBreakdown, Threshold
 
 export function buildPremiumDecisionReportData(
   schema: PremiumCalculatorSchema,
-  result: PremiumSchemaEngineResult
+  result: PremiumSchemaEngineResult,
+  locale = "en",
 ) {
   const verdict = getVerdictFromThresholds(result.thresholdAlerts);
-  const thresholdItems = getThresholdSummary(schema, result.thresholdAlerts, result.outputs);
+  const thresholdItems = getThresholdSummary(schema, result.thresholdAlerts, result.outputs, locale);
   const severity = worstThresholdSeverity(result.thresholdAlerts);
   return { verdict, thresholdItems, severity };
 }

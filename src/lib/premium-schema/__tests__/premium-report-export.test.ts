@@ -70,6 +70,23 @@ describe("premium-report-export", () => {
     expect(csv).toContain("big_number");
   });
 
+  test("CSV serialize uses Turkish headers for tr locale", () => {
+    const payload = buildPayload("cnc-oee-loss");
+    const csv = serializePremiumReportCsv(payload, "tr");
+    expect(csv.startsWith("bolum,etiket,deger,aciklama")).toBe(true);
+  });
+
+  test("TR legal note is localized", () => {
+    const schema = getPremiumCalculatorSchema("cnc-oee-loss");
+    expect(schema).not.toBeNull();
+    if (!schema) {
+      return;
+    }
+    const result = runPremiumSchemaEngine(schema, buildDefaultSchemaInputs(schema), "tr");
+    const payload = buildPremiumReportExportPayload(schema, result, "tr", FIXED_DATE);
+    expect(payload.legalNote).toMatch(/danışmanlığı|girdileri/i);
+  });
+
   test("CSV escapes comma quote and newline", () => {
     expect(escapeCsvField("plain")).toBe("plain");
     expect(escapeCsvField('say "hello"')).toBe('"say ""hello"""');

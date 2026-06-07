@@ -3,6 +3,12 @@
  * No eval / new Function / expression parsing.
  */
 
+import {
+  getPremiumLegalNote,
+  getPremiumOutputFormatted,
+  normalizeLocale,
+  type SupportedLocale,
+} from "@/lib/format/localization";
 import { getFormulaFn } from "@/lib/premium-schema/formula-registry";
 import type {
   PremiumCalculatorSchema,
@@ -18,6 +24,10 @@ import type {
 
 export const SCHEMA_LEGAL_NOTE =
   "This report is a technical decision-support simulation based on user-provided inputs and sector assumptions. It is not financial, legal, medical or engineering advice. Verify all outputs before business decisions.";
+
+export function getSchemaLegalNote(locale: SupportedLocale | string = "en"): string {
+  return getPremiumLegalNote(normalizeLocale(locale));
+}
 
 const Z_P90 = 1.2816;
 
@@ -98,24 +108,13 @@ function buildFormulaInputs(
   return mapped;
 }
 
-function formatOutput(value: number, format: SchemaPipelineOutput["format"], unit: string): string {
-  const safe = Number.isFinite(value) ? value : 0;
-  switch (format) {
-    case "currency":
-      return new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-        maximumFractionDigits: 0,
-      }).format(safe);
-    case "percentage":
-      return `${safe.toFixed(1)}%`;
-    case "duration":
-      return `${safe.toFixed(1)} h`;
-    case "score":
-      return safe.toFixed(2);
-    default:
-      return unit ? `${safe.toLocaleString("en-US", { maximumFractionDigits: 2 })} ${unit}`.trim() : safe.toFixed(2);
-  }
+function formatOutput(
+  value: number,
+  format: SchemaPipelineOutput["format"],
+  unit: string,
+  locale: SupportedLocale,
+): string {
+  return getPremiumOutputFormatted(value, format, unit, locale, "USD");
 }
 
 function evaluateThreshold(
@@ -217,8 +216,10 @@ function buildReportSection(
 
 export function runPremiumSchemaEngine(
   schema: PremiumCalculatorSchema,
-  rawInputs: SchemaInputValues
+  rawInputs: SchemaInputValues,
+  locale: SupportedLocale | string = "en",
 ): PremiumSchemaEngineResult {
+  const formatLocale = normalizeLocale(locale);
   const userInputs = normalizeSchemaInputs(schema, rawInputs);
   const computed: Record<string, number> = {
     hiddenMultiplierConst: schema.assumptions.hiddenLossMultiplier,
@@ -244,7 +245,7 @@ export function runPremiumSchemaEngine(
       unit: spec.unit,
       format: spec.format,
       raw: Number.isFinite(raw) ? raw : 0,
-      formatted: formatOutput(raw, spec.format, spec.unit),
+      formatted: formatOutput(raw, spec.format, spec.unit, formatLocale),
       isBigNumber: spec.isBigNumber ?? false,
     };
   });
@@ -286,8 +287,8 @@ export function runPremiumSchemaEngine(
     targetMarginPercent: schema.assumptions.targetMarginPercent,
   });
 
-  const p90ExposureFormatted = formatOutput(p90Exposure, "currency", "USD");
-  const minimumSafePriceFormatted = formatOutput(minimumSafePrice, "currency", "USD");
+  const p90ExposureFormatted = formatOutput(p90Exposure, "currency", "USD", formatLocale);
+  const minimumSafePriceFormatted = formatOutput(minimumSafePrice, "currency", "USD", formatLocale);
 
   const executiveSummary = `${schema.name}: ${bigNumber.formatted} primary exposure. Buffered P90 ${p90ExposureFormatted}. ${schema.painStatement}`;
 
@@ -315,7 +316,7 @@ export function runPremiumSchemaEngine(
     reportSections,
     executiveSummary,
     suggestedAction,
-    legalNote: SCHEMA_LEGAL_NOTE,
+    legalNote: getSchemaLegalNote(formatLocale),
     p90Exposure,
     p90ExposureFormatted,
     minimumSafePrice,

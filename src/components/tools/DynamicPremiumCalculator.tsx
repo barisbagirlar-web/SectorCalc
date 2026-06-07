@@ -74,15 +74,15 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
     if (!submitted) {
       return null;
     }
-    return runPremiumSchemaEngine(schema, values);
-  }, [submitted, schema, values]);
+    return runPremiumSchemaEngine(schema, values, locale);
+  }, [locale, submitted, schema, values]);
 
   const reportData = useMemo(() => {
     if (!result) {
       return null;
     }
-    return buildPremiumDecisionReportData(schema, result);
-  }, [schema, result]);
+    return buildPremiumDecisionReportData(schema, result, locale);
+  }, [locale, schema, result]);
 
   const feedbackSnapshots = useMemo(() => {
     if (!result) {

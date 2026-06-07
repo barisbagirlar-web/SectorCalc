@@ -60,7 +60,7 @@ export function RegionSelector({ className = "" }: { className?: string }) {
         onChange={(event) => handleChange(event.target.value)}
         disabled={pending}
         aria-label={t("label")}
-        className="apple-locale__select max-w-[9.5rem] text-[11px]"
+        className="apple-locale__select max-w-[7rem] min-w-0 text-[11px] sm:max-w-[8rem]"
         title={
           manual
             ? t("manualActive", { region: getRegionProfile(region).label })

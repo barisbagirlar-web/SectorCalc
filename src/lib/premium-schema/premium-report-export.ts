@@ -3,6 +3,13 @@
  * No server-side PDF; browser print / CSV download only.
  */
 
+import {
+  formatLocalizedDate,
+  getTechnicalSimulationNotice as getLocalizedTechnicalSimulationNotice,
+  normalizeLocale,
+  NOT_AVAILABLE,
+  type SupportedLocale,
+} from "@/lib/format/localization";
 import type {
   PremiumCalculatorSchema,
   PremiumSchemaEngineResult,
@@ -62,13 +69,8 @@ export interface PremiumReportCsvRow {
   readonly description: string;
 }
 
-const NOT_AVAILABLE = "Not available";
-
-const TECHNICAL_SIMULATION_NOTICE =
-  "Technical decision-support simulation — not financial, legal, medical or engineering advice.";
-
-export function getTechnicalSimulationNotice(): string {
-  return TECHNICAL_SIMULATION_NOTICE;
+export function getTechnicalSimulationNotice(locale: SupportedLocale | string = "en"): string {
+  return getLocalizedTechnicalSimulationNotice(normalizeLocale(locale));
 }
 
 function sanitizeExportString(value: string): string {
@@ -108,12 +110,17 @@ function buildSuggestedActions(severity: ThresholdSeverity): readonly string[] {
 export function buildPremiumReportExportPayload(
   schema: PremiumCalculatorSchema,
   result: PremiumSchemaEngineResult,
-  locale = "en",
+  locale: SupportedLocale | string = "en",
   generatedAt = new Date().toISOString()
 ): PremiumReportExportPayload {
-  void locale;
+  const formatLocale = normalizeLocale(locale);
   const verdict = getVerdictFromThresholds(result.thresholdAlerts);
-  const thresholdItems = getThresholdSummary(schema, result.thresholdAlerts, result.outputs);
+  const thresholdItems = getThresholdSummary(
+    schema,
+    result.thresholdAlerts,
+    result.outputs,
+    formatLocale,
+  );
   const severity = worstThresholdSeverity(result.thresholdAlerts);
   const drivers = getHiddenDriverOutputs(result);
   const assumptions = getAssumptionLines(schema);
@@ -165,8 +172,10 @@ export function escapeCsvField(value: string): string {
 }
 
 export function buildPremiumReportCsvRows(
-  payload: PremiumReportExportPayload
+  payload: PremiumReportExportPayload,
+  locale: SupportedLocale | string = "en",
 ): readonly PremiumReportCsvRow[] {
+  const formatLocale = normalizeLocale(locale);
   const rows: PremiumReportCsvRow[] = [
     {
       section: "executive_verdict",
@@ -228,15 +237,22 @@ export function buildPremiumReportCsvRows(
     section: "legal",
     label: "legal_note",
     value: payload.legalNote,
-    description: getTechnicalSimulationNotice(),
+    description: getTechnicalSimulationNotice(formatLocale),
   });
 
   return rows;
 }
 
-export function serializePremiumReportCsv(payload: PremiumReportExportPayload): string {
-  const rows = buildPremiumReportCsvRows(payload);
-  const header = "section,label,value,description";
+export function serializePremiumReportCsv(
+  payload: PremiumReportExportPayload,
+  locale: SupportedLocale | string = "en",
+): string {
+  const formatLocale = normalizeLocale(locale);
+  const rows = buildPremiumReportCsvRows(payload, formatLocale);
+  const header =
+    formatLocale === "tr"
+      ? "bolum,etiket,deger,aciklama"
+      : "section,label,value,description";
   const lines = rows.map((row) =>
     [row.section, row.label, row.value, row.description]
       .map((field) => escapeCsvField(field))
@@ -245,12 +261,17 @@ export function serializePremiumReportCsv(payload: PremiumReportExportPayload): 
   return [header, ...lines].join("\n");
 }
 
-export function buildPremiumReportSummaryText(payload: PremiumReportExportPayload): string {
+export function buildPremiumReportSummaryText(
+  payload: PremiumReportExportPayload,
+  locale: SupportedLocale | string = "en",
+): string {
+  const formatLocale = normalizeLocale(locale);
+  const generatedLabel = formatLocalizedDate(payload.generatedAt, formatLocale);
   const lines: string[] = [
     `SectorCalc — ${payload.schemaName}`,
     payload.title,
     `Report ID: ${payload.reportId}`,
-    `Generated: ${payload.generatedAt}`,
+    formatLocale === "tr" ? `Oluşturulma: ${generatedLabel}` : `Generated: ${generatedLabel}`,
     "",
     `Verdict (${payload.executiveVerdict.status}): ${payload.executiveVerdict.verdict}`,
     payload.executiveVerdict.explanation,
@@ -283,7 +304,7 @@ export function buildPremiumReportSummaryText(payload: PremiumReportExportPayloa
   });
 
   lines.push("", payload.legalNote);
-  lines.push(getTechnicalSimulationNotice());
+  lines.push(getTechnicalSimulationNotice(formatLocale));
 
   return lines.join("\n");
 }

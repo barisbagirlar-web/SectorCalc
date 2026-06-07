@@ -67,6 +67,22 @@ export function getProgrammaticSeoRoutePath(slug: string): string {
   return `/seo/${slug}`;
 }
 
+const SITEMAP_HREFLANG_LOCALES = ["en", "tr"] as const;
+
+function buildLocalizedUrl(base: string, locale: string, path: string): string {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${base}/${locale}${normalized === "/" ? "" : normalized}`;
+}
+
+function buildEnTrAlternates(base: string, path: string): MetadataRoute.Sitemap[number]["alternates"] {
+  const languages: Record<string, string> = {};
+  for (const locale of SITEMAP_HREFLANG_LOCALES) {
+    languages[locale] = buildLocalizedUrl(base, locale, path);
+  }
+  languages["x-default"] = buildLocalizedUrl(base, "en", path);
+  return { languages };
+}
+
 export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
   const base = siteUrl;
   const entries: MetadataRoute.Sitemap = [];
@@ -74,64 +90,75 @@ export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
   for (const locale of locales) {
     for (const path of SITEMAP_STATIC_ROUTES) {
       entries.push({
-        url: `${base}/${locale}${path === "/" ? "" : path}`,
+        url: buildLocalizedUrl(base, locale, path),
         lastModified: now,
         changeFrequency: path === "/" ? "weekly" : "monthly",
         priority: getStaticPriority(path),
+        alternates: buildEnTrAlternates(base, path),
       });
     }
 
     for (const seoSlug of listProgrammaticSeoSlugs()) {
+      const seoPath = getProgrammaticSeoRoutePath(seoSlug);
       entries.push({
-        url: `${base}/${locale}${getProgrammaticSeoRoutePath(seoSlug)}`,
+        url: buildLocalizedUrl(base, locale, seoPath),
         lastModified: now,
         changeFrequency: "monthly",
         priority: SEO_HUB_PRIORITY,
+        alternates: buildEnTrAlternates(base, seoPath),
       });
     }
 
     for (const industry of INDUSTRIES) {
       entries.push({
-        url: `${base}/${locale}${industry.href}`,
+        url: buildLocalizedUrl(base, locale, industry.href),
         lastModified: now,
         changeFrequency: "monthly",
         priority: 0.7,
+        alternates: buildEnTrAlternates(base, industry.href),
       });
     }
 
     for (const tool of ALL_TOOLS) {
       entries.push({
-        url: `${base}/${locale}${tool.href}`,
+        url: buildLocalizedUrl(base, locale, tool.href),
         lastModified: now,
         changeFrequency: "monthly",
         priority: tool.tier === "premium" ? 0.75 : 0.7,
+        alternates: buildEnTrAlternates(base, tool.href),
       });
     }
 
     for (const freeSlug of listAllFreeToolSlugs()) {
+      const freePath = getFreeToolRoutePath(freeSlug);
       entries.push({
-        url: `${base}/${locale}${getFreeToolRoutePath(freeSlug)}`,
+        url: buildLocalizedUrl(base, locale, freePath),
         lastModified: now,
         changeFrequency: "monthly",
         priority: FREE_TOOL_PRIORITY,
+        alternates: buildEnTrAlternates(base, freePath),
       });
     }
 
     for (const premiumSlug of listPremiumSchemaSlugs()) {
+      const premiumPath = getPremiumSchemaRoutePath(premiumSlug);
       entries.push({
-        url: `${base}/${locale}${getPremiumSchemaRoutePath(premiumSlug)}`,
+        url: buildLocalizedUrl(base, locale, premiumPath),
         lastModified: now,
         changeFrequency: "monthly",
         priority: PREMIUM_SCHEMA_PRIORITY,
+        alternates: buildEnTrAlternates(base, premiumPath),
       });
     }
 
     for (const sectorKey of listSectorRegistryKeys()) {
+      const auditPath = `/audit/${sectorKey}`;
       entries.push({
-        url: `${base}/${locale}/audit/${sectorKey}`,
+        url: buildLocalizedUrl(base, locale, auditPath),
         lastModified: now,
         changeFrequency: "weekly",
         priority: 0.85,
+        alternates: buildEnTrAlternates(base, auditPath),
       });
     }
   }

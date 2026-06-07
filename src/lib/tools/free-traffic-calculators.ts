@@ -4,6 +4,14 @@
  */
 
 import {
+  formatLocalizedCurrency,
+  formatLocalizedNumber,
+  getFreeToolLegalNote,
+  normalizeLocale,
+  NOT_AVAILABLE,
+  type SupportedLocale,
+} from "@/lib/format/localization";
+import {
   getFreeTrafficToolBySlug,
   listFreeTrafficSlugs,
 } from "@/lib/tools/free-traffic-catalog";
@@ -21,8 +29,7 @@ export type FreeTrafficResult = {
   readonly legalNote: string;
 };
 
-const LEGAL_NOTE =
-  "Free tool inputs are processed in your browser. They are not stored unless you create an account or save a premium report. This is a technical estimate, not financial, legal, medical or engineering advice.";
+let _activeFormatLocale: SupportedLocale = "en";
 
 export function normalizeNumber(value: string | number): number {
   const parsed = typeof value === "number" ? value : Number(String(value).trim());
@@ -53,20 +60,17 @@ export function round(value: number, digits = 2): number {
 }
 
 export function formatNumber(n: number, digits = 2): string {
-  if (!Number.isFinite(n)) {
-    return "—";
-  }
-  return n.toLocaleString(undefined, {
+  return formatLocalizedNumber(n, _activeFormatLocale, {
     maximumFractionDigits: digits,
     minimumFractionDigits: 0,
   });
 }
 
 export function formatCurrency(n: number, digits = 2): string {
-  if (!Number.isFinite(n)) {
-    return "—";
-  }
-  return `$${formatNumber(n, digits)}`;
+  return formatLocalizedCurrency(n, _activeFormatLocale, "USD", {
+    maximumFractionDigits: digits,
+    minimumFractionDigits: digits > 0 ? 0 : undefined,
+  });
 }
 
 export function assertFiniteNumber(n: number, fallback = 0): number {
@@ -96,7 +100,7 @@ function str(values: FreeTrafficInputValues, key: string): string {
 }
 
 function result(partial: Omit<FreeTrafficResult, "legalNote">): FreeTrafficResult {
-  return { ...partial, legalNote: LEGAL_NOTE };
+  return { ...partial, legalNote: getFreeToolLegalNote(_activeFormatLocale) };
 }
 
 type CalcPartial = Omit<FreeTrafficResult, "legalNote">;
@@ -1659,13 +1663,22 @@ const CALCULATORS: Record<string, CalculatorFn> = {
 export function calculateFreeTrafficTool(
   slug: string,
   values: FreeTrafficInputValues,
+  locale: SupportedLocale | string = "en",
 ): FreeTrafficResult {
   const calculator = CALCULATORS[slug];
   if (!calculator) {
     throw new Error(`Unknown free traffic calculator slug: ${slug}`);
   }
-  return meta(slug, calculator(values));
+  const previousLocale = _activeFormatLocale;
+  _activeFormatLocale = normalizeLocale(locale);
+  try {
+    return meta(slug, calculator(values));
+  } finally {
+    _activeFormatLocale = previousLocale;
+  }
 }
+
+export { NOT_AVAILABLE as FREE_RESULT_NOT_AVAILABLE };
 
 export function hasDedicatedTrafficCalculator(slug: string): boolean {
   return slug in CALCULATORS;

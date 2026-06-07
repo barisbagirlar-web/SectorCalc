@@ -64,7 +64,7 @@ export default async function PremiumSchemaPrintPage({
     notFound();
   }
 
-  const result = runPremiumSchemaEngine(schema, buildDefaultSchemaInputs(schema));
+  const result = runPremiumSchemaEngine(schema, buildDefaultSchemaInputs(schema), locale);
   const payload = buildPremiumReportExportPayload(schema, result, locale);
 
   return (
