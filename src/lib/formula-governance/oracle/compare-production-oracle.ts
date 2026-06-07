@@ -28,6 +28,11 @@ import {
   isRentVsBuyOracleSlug,
   RENT_VS_BUY_ORACLE_SLUG,
 } from "@/lib/formula-governance/oracle/rent-vs-buy-oracle";
+import {
+  isBusinessOperationsComparisonSlug,
+  runAllBusinessOperationsOracleComparisonAudits,
+  runBusinessOperationsOracleComparisonAudit,
+} from "@/lib/formula-governance/oracle/compare-business-operations-oracle";
 
 export type OracleComparisonStatus = "PASS" | "FAIL" | "NEEDS_ADAPTER" | "NOT_WIRED";
 
@@ -70,7 +75,7 @@ type ComparableField = {
   readonly tolerance: number;
 };
 
-function compareNumericFields(fields: readonly ComparableField[]): {
+export function compareNumericFields(fields: readonly ComparableField[]): {
   readonly passed: boolean;
   readonly diffs: readonly FieldComparisonDiff[];
 } {
@@ -465,7 +470,11 @@ export function compareProductionVsOracle(input: {
 
   try {
     const oracleOutput = buildOracleOutput(input.slug, input.values);
-    const comparison = compareNormalizedOutputs(input.slug, adapted.output, oracleOutput);
+    const comparison = compareNormalizedOutputs(
+      input.slug,
+      adapted.output as NormalizedFinanceProductionOutput,
+      oracleOutput,
+    );
     if (!comparison.passed) {
       return {
         slug: input.slug,
@@ -808,12 +817,16 @@ export function runAllFinanceOracleComparisonAudits(): readonly OracleComparison
   return [
     ...FINANCE_ORACLE_SLUGS.map((slug) => runFinanceOracleComparisonAudit(slug)),
     runRentVsBuyOracleComparisonAudit(),
+    ...runAllBusinessOperationsOracleComparisonAudits(),
   ];
 }
 
 export function auditOracleComparisonForSlug(slug: string): OracleComparisonAuditSummary | null {
   if (isRentVsBuyOracleSlug(slug)) {
     return runRentVsBuyOracleComparisonAudit();
+  }
+  if (isBusinessOperationsComparisonSlug(slug)) {
+    return runBusinessOperationsOracleComparisonAudit(slug);
   }
   if (!isFinanceOracleSlug(slug)) {
     return null;

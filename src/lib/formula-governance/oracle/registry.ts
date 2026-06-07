@@ -14,16 +14,15 @@ const ORACLE_MODULE_BY_TOOL: Record<string, string> = {
   "free-traffic.compound-interest-calculator": "finance-oracles.ts",
   "free-traffic.profit-margin-calculator": "finance-oracles.ts",
   "free-traffic.rent-vs-buy-calculator": "rent-vs-buy-oracle.ts",
+  "free-traffic.break-even-calculator": "business-oracles.ts",
+  "free-traffic.salary-cost-calculator": "business-oracles.ts",
+  "free-traffic.cash-flow-gap-calculator": "business-oracles.ts",
+  "free-traffic.machine-time-calculator": "operations-oracles.ts",
+  "revenue-premium.cnc-quote-risk-analyzer": "operations-oracles.ts",
 };
 
 /** Critical tools awaiting oracle module registration or file implementation. */
-const ORACLE_PENDING_TOOL_IDS: readonly string[] = [
-  "free-traffic.break-even-calculator",
-  "free-traffic.salary-cost-calculator",
-  "free-traffic.cash-flow-gap-calculator",
-  "free-traffic.machine-time-calculator",
-  "revenue-premium.cnc-quote-risk-analyzer",
-];
+const ORACLE_PENDING_TOOL_IDS: readonly string[] = [];
 
 export function getOracleModuleFilename(toolId: string): string | undefined {
   return ORACLE_MODULE_BY_TOOL[toolId];

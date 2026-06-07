@@ -66,8 +66,8 @@ export function buildCriticalContract(
   };
 }
 
-/** Phase 4 — finance tools with oracle, property tests, and runtime scenarios wired. */
-export function buildFinanceAssuredContract(
+/** Phase 4/5 — critical tools with oracle, property tests, and runtime scenarios wired. */
+export function buildAssuredCriticalContract(
   config: Omit<
     FormulaContract,
     | "riskLevel"
@@ -91,3 +91,6 @@ export function buildFinanceAssuredContract(
     auditStatus: "NEEDS_REVIEW",
   };
 }
+
+/** @deprecated Use buildAssuredCriticalContract */
+export const buildFinanceAssuredContract = buildAssuredCriticalContract;

@@ -1,4 +1,4 @@
-# Formula Oracle Baseline (Phase 4)
+# Formula Oracle Baseline (Phase 4–5C)
 
 Independent reference models for **critical** FormulaContracts where `oracleRequired: true`.
 
@@ -6,34 +6,35 @@ Independent reference models for **critical** FormulaContracts where `oracleRequ
 
 Oracles provide a second calculation path that the audit runner compares against the production formula. They are not user-facing and do not replace domain review.
 
-## Phase 4 status
+## Registered modules
 
-- **Finance module:** `finance-oracles.ts` + `oracle-types.ts`
-- **Registered (5):** loan, mortgage, simple interest, compound interest, profit margin
-- **Scenario runtime:** `scenario-runner.ts` executes `present: true` specs against oracles
-- **Property tests:** `finance-properties.test.ts` (fast-check)
+| Module | Tools |
+|---|---|
+| `finance-oracles.ts` | loan, mortgage, simple interest, compound interest, profit margin |
+| `rent-vs-buy-oracle.ts` | rent vs buy |
+| `business-oracles.ts` | break-even, salary cost, cash-flow gap |
+| `operations-oracles.ts` | machine time, CNC quote risk (base cost layer) |
 
-## Pending tool IDs (6)
+## Infrastructure
 
-Use `listPendingOracleToolIds()`:
+- **Scenario runtime:** `scenario-runner.ts`
+- **Production adapters:** `production-adapters.ts`
+- **Comparison runner:** `compare-production-oracle.ts`, `compare-business-operations-oracle.ts`
+- **Property tests:** `finance-properties.test.ts`, `rent-vs-buy-properties.test.ts`, `business-operations-properties.test.ts`
 
-- `free-traffic.rent-vs-buy-calculator` (module registered, file not implemented)
-- `free-traffic.break-even-calculator`
-- `free-traffic.salary-cost-calculator`
-- `free-traffic.cash-flow-gap-calculator`
-- `free-traffic.machine-time-calculator`
-- `revenue-premium.cnc-quote-risk-analyzer`
+## Pending tool IDs
+
+`listPendingOracleToolIds()` returns **[]** after Phase 5C (all 11 contracted critical tools with oracles are registered).
 
 ## Adding an oracle
 
 1. Add reference functions to a new or existing oracle module (never import production calculators)
-2. Register `toolId → module filename` in `registry.ts` under `ORACLE_MODULE_BY_TOOL`
-3. Add scenario handlers in `scenario-runner.ts` if runtime scenarios are required
-4. Wire property tests in `__tests__/`
-5. Re-run `npm run audit:formulas`
+2. Register `toolId → module filename` in `registry.ts`
+3. Add production locator entry in `production-formula-locator.ts`
+4. Add adapter + comparison scenarios + scenario handlers
+5. Mark contract `propertyTestsRegistered: true` and wire runtime scenarios
+6. Re-run `npm run audit:formulas`
 
 ## Policy
 
-Critical tools with `oracleRequired: true` **cannot PASS** until oracle is registered, property tests are marked, and scenario runtime passes where declared.
-
-Production-vs-oracle comparison is Phase 5.
+Critical tools with unresolved `missingParameterWarnings` may remain **FAIL** even when oracle/scenario/property gates pass. Production-vs-oracle comparison runs via `auditOracleComparisonForSlug`.

@@ -24,6 +24,7 @@ import {
 } from "@/lib/formula-governance/oracle/registry";
 import { runContractScenarioTests } from "@/lib/formula-governance/scenario-runner";
 import { FINANCE_ORACLE_SLUGS } from "@/lib/formula-governance/oracle/finance-oracles";
+import { BUSINESS_OPERATIONS_ORACLE_SLUGS } from "@/lib/formula-governance/oracle/production-formula-locator";
 
 const TOP_CRITICAL_SLUGS = [
   "loan-payment-calculator",
@@ -55,21 +56,14 @@ describe("formula-governance contracts", () => {
     expect(TOP_CRITICAL_FORMULA_CONTRACTS.length).toBe(10);
   });
 
-  test("each remaining top critical contract keeps scenario skeletons", () => {
-    const skeletonSlugs = new Set([
-      "break-even-calculator",
-      "salary-cost-calculator",
-      "cash-flow-gap-calculator",
-      "machine-time-calculator",
-      "cnc-quote-risk-analyzer",
-    ]);
-    for (const contract of TOP_CRITICAL_FORMULA_CONTRACTS) {
-      if (!skeletonSlugs.has(contract.slug)) {
-        continue;
-      }
-      expect(contract.scenarioTests.length).toBeGreaterThanOrEqual(5);
-      expect(contract.scenarioTests.every((s) => s.present === false)).toBe(true);
-      expect(contract.propertyTestsRegistered).toBe(false);
+  test("phase 5C assured contracts wire runtime scenarios and property gate", () => {
+    for (const slug of BUSINESS_OPERATIONS_ORACLE_SLUGS) {
+      const contract = getFormulaContractBySlug(slug);
+      expect(contract?.propertyTestsRegistered).toBe(true);
+      expect(contract?.scenarioTests.every((s) => s.present)).toBe(true);
+      const summary = runContractScenarioTests(slug);
+      expect(summary.failed).toBe(0);
+      expect(summary.passed).toBe(5);
     }
   });
 
@@ -184,13 +178,16 @@ describe("formula-governance audit runner", () => {
     expect(hasOracleForTool("free-traffic.rent-vs-buy-calculator")).toBe(true);
   });
 
-  test("phase 4 registers finance oracles and reduces pending count", () => {
+  test("phase 4 registers finance oracles and clears pending list in phase 5C", () => {
     expect(listFinanceOracleToolIds().length).toBe(5);
-    expect(listPendingOracleToolIds().length).toBe(5);
+    expect(listPendingOracleToolIds().length).toBe(0);
     expect(isOraclePending("free-traffic.loan-payment-calculator")).toBe(false);
     expect(isOraclePending("free-traffic.rent-vs-buy-calculator")).toBe(false);
+    expect(isOraclePending("free-traffic.break-even-calculator")).toBe(false);
     expect(hasOracleForTool("free-traffic.loan-payment-calculator")).toBe(true);
     expect(hasOracleForTool("free-traffic.rent-vs-buy-calculator")).toBe(true);
+    expect(hasOracleForTool("free-traffic.break-even-calculator")).toBe(true);
+    expect(hasOracleForTool("revenue-premium.cnc-quote-risk-analyzer")).toBe(true);
   });
 
   test("phase 4 finance tools no longer report oracle missing", () => {
@@ -211,6 +208,18 @@ describe("formula-governance audit runner", () => {
       expect(result?.findings.some((f) => f.code === "ORACLE_COMPARISON_PASS")).toBe(true);
       expect(result?.findings.some((f) => f.code === "ORACLE_COMPARISON_FAIL")).toBe(false);
       expect(result?.findings.some((f) => f.code === "ORACLE_COMPARISON_NEEDS_ADAPTER")).toBe(false);
+    }
+  });
+
+  test("phase 5C business and operations tools clear oracle/scenario/property blockers", () => {
+    const report = runGovernanceAudit();
+    for (const slug of BUSINESS_OPERATIONS_ORACLE_SLUGS) {
+      const result = report.results.find((r) => r.slug === slug);
+      expect(result).toBeDefined();
+      expect(result?.findings.some((f) => f.code === "CRIT_ORACLE_MISSING")).toBe(false);
+      expect(result?.findings.some((f) => f.code === "CRIT_PROPERTY_TESTS")).toBe(false);
+      expect(result?.findings.some((f) => f.code === "CRIT_SCENARIO_TESTS")).toBe(false);
+      expect(result?.findings.some((f) => f.code === "ORACLE_COMPARISON_PASS")).toBe(true);
     }
   });
 

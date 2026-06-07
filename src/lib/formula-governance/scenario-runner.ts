@@ -13,10 +13,22 @@ import {
   isFinanceOracleSlug,
 } from "@/lib/formula-governance/oracle/finance-oracles";
 import {
+  calculateBreakEvenOracle,
+  calculateCashFlowGapOracle,
+  calculateSalaryCostOracle,
+  isBusinessOracleSlug,
+} from "@/lib/formula-governance/oracle/business-oracles";
+import {
+  calculateCncQuoteRiskOracle,
+  calculateMachineTimeOracle,
+  isOperationsOracleSlug,
+} from "@/lib/formula-governance/oracle/operations-oracles";
+import {
   calculateRentVsBuyOracle,
   isRentVsBuyOracleSlug,
 } from "@/lib/formula-governance/oracle/rent-vs-buy-oracle";
 import { OracleValidationError } from "@/lib/formula-governance/oracle/oracle-types";
+import { calculatePremiumDecisionReport } from "@/lib/tools/premium-decision-engine";
 
 export type ScenarioRunResult = {
   readonly scenarioId: string;
@@ -337,6 +349,282 @@ const RENT_VS_BUY_SCENARIOS: Record<string, ScenarioHandler> = {
   },
 };
 
+const BREAK_EVEN_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-volume": () => {
+    const result = calculateBreakEvenOracle({ fixedCost: 50_000, unitPrice: 100, variableCost: 60 });
+    if (result.breakEvenUnits <= 0) {
+      throw new Error("Expected positive break-even units.");
+    }
+  },
+  "edge-zero-fixed": () => {
+    const result = calculateBreakEvenOracle({ fixedCost: 0, unitPrice: 80, variableCost: 35 });
+    if (Math.abs(result.breakEvenUnits) > 0.01) {
+      throw new Error("Zero fixed cost should yield zero break-even units.");
+    }
+  },
+  "absurd-contribution": () => {
+    try {
+      calculateBreakEvenOracle({ fixedCost: 10_000, unitPrice: 50, variableCost: 60 });
+      throw new Error("Expected validation error for non-positive contribution.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-fixed": () => {
+    const low = calculateBreakEvenOracle({ fixedCost: 20_000, unitPrice: 100, variableCost: 60 });
+    const high = calculateBreakEvenOracle({ fixedCost: 30_000, unitPrice: 100, variableCost: 60 });
+    if (high.breakEvenUnits <= low.breakEvenUnits) {
+      throw new Error("Higher fixed cost must increase break-even units.");
+    }
+  },
+  "sensitivity-price": () => {
+    const low = calculateBreakEvenOracle({ fixedCost: 20_000, unitPrice: 90, variableCost: 60 });
+    const high = calculateBreakEvenOracle({ fixedCost: 20_000, unitPrice: 110, variableCost: 60 });
+    if (high.breakEvenUnits >= low.breakEvenUnits) {
+      throw new Error("Higher unit price must reduce break-even units.");
+    }
+  },
+};
+
+const SALARY_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-burden": () => {
+    const result = calculateSalaryCostOracle({ grossSalary: 5000, employerRatePercent: 20 });
+    if (Math.abs(result.totalEmployerCost - 6000) > 0.01) {
+      throw new Error("Expected 20% burden to yield $6,000 total.");
+    }
+  },
+  "edge-zero-burden": () => {
+    const result = calculateSalaryCostOracle({ grossSalary: 5000, employerRatePercent: 0 });
+    if (Math.abs(result.totalEmployerCost - 5000) > 0.01) {
+      throw new Error("Zero burden should equal gross salary.");
+    }
+  },
+  "absurd-burden": () => {
+    try {
+      calculateSalaryCostOracle({ grossSalary: -1000, employerRatePercent: 20 });
+      throw new Error("Expected validation error for negative salary.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-salary": () => {
+    const low = calculateSalaryCostOracle({ grossSalary: 4000, employerRatePercent: 20 });
+    const high = calculateSalaryCostOracle({ grossSalary: 5000, employerRatePercent: 20 });
+    if (high.totalEmployerCost <= low.totalEmployerCost) {
+      throw new Error("Higher gross salary must increase total employer cost.");
+    }
+  },
+  "sensitivity-burden": () => {
+    const base = calculateSalaryCostOracle({ grossSalary: 5000, employerRatePercent: 20 });
+    const bumped = calculateSalaryCostOracle({ grossSalary: 5000, employerRatePercent: 25 });
+    if (bumped.totalEmployerCost <= base.totalEmployerCost) {
+      throw new Error("+5% burden must increase total employer cost.");
+    }
+  },
+};
+
+const CASH_FLOW_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-gap": () => {
+    const result = calculateCashFlowGapOracle({ receivablesDays: 45, payableDays: 30, dailyCost: 1000 });
+    if (result.workingCapitalGap <= 0) {
+      throw new Error("Expected positive working capital gap.");
+    }
+  },
+  "edge-balanced": () => {
+    const result = calculateCashFlowGapOracle({ receivablesDays: 30, payableDays: 30, dailyCost: 1000 });
+    if (Math.abs(result.workingCapitalGap) > 0.01) {
+      throw new Error("Equal receivable and payable days should yield zero gap.");
+    }
+  },
+  "absurd-negative-days": () => {
+    try {
+      calculateCashFlowGapOracle({ receivablesDays: -5, payableDays: 30, dailyCost: 1000 });
+      throw new Error("Expected validation error for negative days.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-receivables": () => {
+    const low = calculateCashFlowGapOracle({ receivablesDays: 35, payableDays: 30, dailyCost: 1000 });
+    const high = calculateCashFlowGapOracle({ receivablesDays: 45, payableDays: 30, dailyCost: 1000 });
+    if (high.workingCapitalGap <= low.workingCapitalGap) {
+      throw new Error("Longer receivables must widen working capital gap.");
+    }
+  },
+  "sensitivity-daily-cost": () => {
+    const base = calculateCashFlowGapOracle({ receivablesDays: 45, payableDays: 30, dailyCost: 1000 });
+    const bumped = calculateCashFlowGapOracle({ receivablesDays: 45, payableDays: 30, dailyCost: 1200 });
+    if (bumped.workingCapitalGap <= base.workingCapitalGap) {
+      throw new Error("Higher daily cost must widen gap amount.");
+    }
+  },
+};
+
+const MACHINE_TIME_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-job": () => {
+    const result = calculateMachineTimeOracle({
+      setupMinutes: 30,
+      cycleSeconds: 45,
+      quantity: 100,
+      machineRate: 85,
+    });
+    if (result.machineCost <= 0) {
+      throw new Error("Expected positive machine cost.");
+    }
+  },
+  "edge-single-part": () => {
+    const result = calculateMachineTimeOracle({
+      setupMinutes: 90,
+      cycleSeconds: 180,
+      quantity: 1,
+      machineRate: 110,
+    });
+    if (result.totalMinutes < 90) {
+      throw new Error("Setup-heavy single-part job must include setup minutes.");
+    }
+  },
+  "absurd-quantity": () => {
+    try {
+      calculateMachineTimeOracle({ setupMinutes: 30, cycleSeconds: 45, quantity: 0, machineRate: 85 });
+      throw new Error("Expected validation error for zero quantity.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-cycle": () => {
+    const low = calculateMachineTimeOracle({
+      setupMinutes: 30,
+      cycleSeconds: 30,
+      quantity: 100,
+      machineRate: 85,
+    });
+    const high = calculateMachineTimeOracle({
+      setupMinutes: 30,
+      cycleSeconds: 60,
+      quantity: 100,
+      machineRate: 85,
+    });
+    if (high.machineCost <= low.machineCost) {
+      throw new Error("Longer cycle must increase machine cost.");
+    }
+  },
+  "sensitivity-rate": () => {
+    const base = calculateMachineTimeOracle({
+      setupMinutes: 30,
+      cycleSeconds: 45,
+      quantity: 100,
+      machineRate: 85,
+    });
+    const bumped = calculateMachineTimeOracle({
+      setupMinutes: 30,
+      cycleSeconds: 45,
+      quantity: 100,
+      machineRate: 93.5,
+    });
+    if (bumped.machineCost <= base.machineCost) {
+      throw new Error("+10% machine rate must increase machine cost.");
+    }
+  },
+};
+
+const CNC_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-quote": () => {
+    const result = calculateCncQuoteRiskOracle({
+      setupTime: 90,
+      cycleTime: 2.5,
+      quantity: 50,
+      toolCost: 400,
+      materialCost: 800,
+      machineRate: 95,
+    });
+    if (result.baseCost <= 0) {
+      throw new Error("Expected positive CNC base cost.");
+    }
+  },
+  "edge-setup-heavy": () => {
+    const result = calculateCncQuoteRiskOracle({
+      setupTime: 240,
+      cycleTime: 1.2,
+      quantity: 5,
+      toolCost: 900,
+      materialCost: 500,
+      machineRate: 100,
+    });
+    if (result.machineHours < 4) {
+      throw new Error("Setup-heavy edge case should reflect long setup time.");
+    }
+  },
+  "absurd-zero-rate": () => {
+    try {
+      calculateCncQuoteRiskOracle({
+        setupTime: 90,
+        cycleTime: 2.5,
+        quantity: 50,
+        toolCost: 400,
+        materialCost: 800,
+        machineRate: 0,
+      });
+      throw new Error("Expected validation error for zero machine rate.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-tooling": () => {
+    const low = calculateCncQuoteRiskOracle({
+      setupTime: 90,
+      cycleTime: 2.5,
+      quantity: 50,
+      toolCost: 400,
+      materialCost: 800,
+      machineRate: 95,
+    });
+    const high = calculateCncQuoteRiskOracle({
+      setupTime: 90,
+      cycleTime: 2.5,
+      quantity: 50,
+      toolCost: 700,
+      materialCost: 800,
+      machineRate: 95,
+    });
+    if (high.baseCost <= low.baseCost) {
+      throw new Error("Higher tool cost must increase base cost.");
+    }
+  },
+  "sensitivity-margin": () => {
+    const low = calculatePremiumDecisionReport("cnc-quote-risk-analyzer", {
+      setupTime: 90,
+      cycleTime: 2.5,
+      quantity: 50,
+      toolCost: 400,
+      materialCost: 800,
+      machineRate: 95,
+      riskMargin: 10,
+    });
+    const high = calculatePremiumDecisionReport("cnc-quote-risk-analyzer", {
+      setupTime: 90,
+      cycleTime: 2.5,
+      quantity: 50,
+      toolCost: 400,
+      materialCost: 800,
+      machineRate: 95,
+      riskMargin: 20,
+    });
+    if (high.minimumSafePrice <= low.minimumSafePrice) {
+      throw new Error("Higher risk margin must increase minimum safe price.");
+    }
+  },
+};
+
 const SCENARIO_HANDLERS: Record<string, Record<string, ScenarioHandler>> = {
   "loan-payment-calculator": LOAN_SCENARIOS,
   "mortgage-calculator": MORTGAGE_SCENARIOS,
@@ -344,6 +632,11 @@ const SCENARIO_HANDLERS: Record<string, Record<string, ScenarioHandler>> = {
   "compound-interest-calculator": COMPOUND_SCENARIOS,
   "profit-margin-calculator": MARGIN_SCENARIOS,
   "rent-vs-buy-calculator": RENT_VS_BUY_SCENARIOS,
+  "break-even-calculator": BREAK_EVEN_SCENARIOS,
+  "salary-cost-calculator": SALARY_SCENARIOS,
+  "cash-flow-gap-calculator": CASH_FLOW_SCENARIOS,
+  "machine-time-calculator": MACHINE_TIME_SCENARIOS,
+  "cnc-quote-risk-analyzer": CNC_SCENARIOS,
 };
 
 export function runScenarioSpec(
@@ -359,7 +652,7 @@ export function runScenarioSpec(
     };
   }
 
-  if (!isFinanceOracleSlug(slug) && !isRentVsBuyOracleSlug(slug)) {
+  if (!isFinanceOracleSlug(slug) && !isRentVsBuyOracleSlug(slug) && !isBusinessOracleSlug(slug) && !isOperationsOracleSlug(slug)) {
     return {
       scenarioId: spec.id,
       description: spec.description,

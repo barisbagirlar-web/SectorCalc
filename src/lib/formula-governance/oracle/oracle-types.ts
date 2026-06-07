@@ -9,7 +9,12 @@ export type OracleValidationErrorCode =
   | "INVALID_TIME"
   | "INVALID_COMPOUNDS"
   | "INVALID_PRICE"
-  | "INVALID_COST";
+  | "INVALID_COST"
+  | "INVALID_CONTRIBUTION"
+  | "INVALID_SALARY"
+  | "INVALID_DAYS"
+  | "INVALID_QUANTITY"
+  | "INVALID_TIME_INPUT";
 
 export class OracleValidationError extends Error {
   readonly code: OracleValidationErrorCode;

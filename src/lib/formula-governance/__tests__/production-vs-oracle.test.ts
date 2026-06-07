@@ -13,7 +13,16 @@ import {
   runRentVsBuyOracleComparisonAudit,
 } from "@/lib/formula-governance/oracle/compare-production-oracle";
 import { FINANCE_ORACLE_SLUGS } from "@/lib/formula-governance/oracle/finance-oracles";
-import { FINANCE_PRODUCTION_FORMULA_LOCATORS } from "@/lib/formula-governance/oracle/production-formula-locator";
+import {
+  BUSINESS_OPERATIONS_ORACLE_SLUGS,
+  BUSINESS_OPERATIONS_PRODUCTION_FORMULA_LOCATORS,
+  FINANCE_PRODUCTION_FORMULA_LOCATORS,
+} from "@/lib/formula-governance/oracle/production-formula-locator";
+import {
+  BUSINESS_OPERATIONS_COMPARISON_SCENARIOS,
+  compareBusinessOperationsProductionVsOracle,
+  runBusinessOperationsOracleComparisonAudit,
+} from "@/lib/formula-governance/oracle/compare-business-operations-oracle";
 
 describe("production formula locator", () => {
   test("documents all five finance production paths", () => {
@@ -23,6 +32,15 @@ describe("production formula locator", () => {
       expect(locator?.productionFilePath).toBe("src/lib/tools/free-traffic-calculators.ts");
       expect(locator?.productionFunctionName).toBe("calculateFreeTrafficTool");
       expect(locator?.comparisonWired).toBe(true);
+    }
+  });
+
+  test("documents all five business and operations production paths", () => {
+    expect(BUSINESS_OPERATIONS_PRODUCTION_FORMULA_LOCATORS).toHaveLength(5);
+    for (const slug of BUSINESS_OPERATIONS_ORACLE_SLUGS) {
+      const locator = BUSINESS_OPERATIONS_PRODUCTION_FORMULA_LOCATORS.find((entry) => entry.slug === slug);
+      expect(locator?.comparisonWired).toBe(true);
+      expect(locator?.oracleFunctionName.length).toBeGreaterThan(0);
     }
   });
 });
@@ -63,9 +81,9 @@ describe("production vs oracle comparison", () => {
     });
   }
 
-  test("finance audit summaries pass comparable scenarios", () => {
+  test("all wired oracle audit summaries pass comparable scenarios", () => {
     const summaries = runAllFinanceOracleComparisonAudits();
-    expect(summaries.length).toBeGreaterThanOrEqual(6);
+    expect(summaries.length).toBe(11);
     for (const summary of summaries) {
       expect(summary.status).toBe("PASS");
       expect(summary.failCount).toBe(0);
@@ -115,5 +133,50 @@ describe("rent vs buy production vs oracle", () => {
   test("all audits include rent vs buy", () => {
     const summaries = runAllFinanceOracleComparisonAudits();
     expect(summaries.some((summary) => summary.slug === "rent-vs-buy-calculator")).toBe(true);
+    expect(summaries.some((summary) => summary.slug === "break-even-calculator")).toBe(true);
+    expect(summaries.some((summary) => summary.slug === "cnc-quote-risk-analyzer")).toBe(true);
   });
+});
+
+describe("business and operations production vs oracle", () => {
+  for (const slug of BUSINESS_OPERATIONS_ORACLE_SLUGS) {
+    describe(slug, () => {
+      const scenarios = BUSINESS_OPERATIONS_COMPARISON_SCENARIOS[slug];
+
+      test("has 3 normal, 1 edge, and 1 absurd scenario", () => {
+        expect(scenarios.filter((s) => s.kind === "normal")).toHaveLength(3);
+        expect(scenarios.filter((s) => s.kind === "edge")).toHaveLength(1);
+        expect(scenarios.filter((s) => s.kind === "absurd")).toHaveLength(1);
+      });
+
+      for (const scenario of scenarios.filter((s) => s.kind === "normal" || s.kind === "edge")) {
+        test(`${scenario.kind} scenario ${scenario.id} matches oracle`, () => {
+          const result = compareBusinessOperationsProductionVsOracle({
+            slug,
+            scenarioId: scenario.id,
+            values: scenario.values,
+          });
+          expect(result.status).toBe("PASS");
+          expect(result.diffs).toHaveLength(0);
+        });
+      }
+
+      test("absurd scenario diverges or rejects as expected", () => {
+        const absurd = scenarios.find((s) => s.kind === "absurd");
+        expect(absurd).toBeDefined();
+        const result = compareBusinessOperationsProductionVsOracle({
+          slug,
+          scenarioId: absurd!.id,
+          values: absurd!.values,
+        });
+        expect(result.status).not.toBe("PASS");
+      });
+
+      test("audit summary passes comparable scenarios", () => {
+        const summary = runBusinessOperationsOracleComparisonAudit(slug);
+        expect(summary.status).toBe("PASS");
+        expect(summary.passCount).toBe(4);
+      });
+    });
+  }
 });

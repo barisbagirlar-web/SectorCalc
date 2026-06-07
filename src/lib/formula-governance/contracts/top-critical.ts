@@ -8,9 +8,8 @@ import {
   FINANCIAL_SIMULATION_DISCLAIMER,
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
-  buildCriticalContract,
+  buildAssuredCriticalContract,
   buildFinanceAssuredContract,
-  scenarioSkeletons,
 } from "@/lib/formula-governance/contracts/shared";
 
 export const loanPaymentCalculatorContract: FormulaContract = buildFinanceAssuredContract({
@@ -314,7 +313,7 @@ export const profitMarginCalculatorContract: FormulaContract = buildFinanceAssur
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const breakEvenCalculatorContract: FormulaContract = buildCriticalContract({
+export const breakEvenCalculatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "free-traffic.break-even-calculator",
   toolName: "Break-Even Calculator",
   slug: "break-even-calculator",
@@ -339,13 +338,13 @@ export const breakEvenCalculatorContract: FormulaContract = buildCriticalContrac
     { id: "fixed-non-negative", description: "fixedCost must be ≥ 0", kind: "edge" },
     { id: "currency-units", description: "Price and cost use consistent currency", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-volume", description: "Normal case: positive contribution margin" },
     { id: "edge-zero-fixed", description: "Edge case: zero fixed cost → zero break-even units" },
     { id: "absurd-contribution", description: "Absurd case: negative contribution → no break-even" },
     { id: "directional-fixed", description: "Directional: higher fixed cost increases break-even units" },
     { id: "sensitivity-price", description: "Sensitivity: higher unit price reduces break-even units" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "fixed-up-units",
@@ -373,7 +372,7 @@ export const breakEvenCalculatorContract: FormulaContract = buildCriticalContrac
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const salaryCostCalculatorContract: FormulaContract = buildCriticalContract({
+export const salaryCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "free-traffic.salary-cost-calculator",
   toolName: "Employer Salary Cost Calculator",
   slug: "salary-cost-calculator",
@@ -398,13 +397,13 @@ export const salaryCostCalculatorContract: FormulaContract = buildCriticalContra
     { id: "burden-percent", description: "employerRatePercent is percent not decimal", kind: "dimensional" },
     { id: "burden-bounds", description: "employerRatePercent within 0–200% sanity band", kind: "edge" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-burden", description: "Normal case: 20% employer load" },
     { id: "edge-zero-burden", description: "Edge case: zero employer load" },
     { id: "absurd-burden", description: "Absurd input: negative burden rejected" },
     { id: "directional-salary", description: "Directional: higher salary increases total cost" },
     { id: "sensitivity-burden", description: "Sensitivity: +5% burden increases total cost linearly" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "salary-up-total",
@@ -432,7 +431,7 @@ export const salaryCostCalculatorContract: FormulaContract = buildCriticalContra
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const cashFlowGapCalculatorContract: FormulaContract = buildCriticalContract({
+export const cashFlowGapCalculatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "free-traffic.cash-flow-gap-calculator",
   toolName: "Cash Flow Gap Calculator",
   slug: "cash-flow-gap-calculator",
@@ -457,13 +456,13 @@ export const cashFlowGapCalculatorContract: FormulaContract = buildCriticalContr
     { id: "daily-cost-positive", description: "dailyCost must be > 0 for meaningful gap", kind: "edge" },
     { id: "day-units", description: "Receivables and payables measured in days", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-gap", description: "Normal case: receivables longer than payables" },
     { id: "edge-balanced", description: "Edge case: equal receivable and payable days → zero gap" },
     { id: "absurd-negative-days", description: "Absurd input: negative days rejected" },
     { id: "directional-receivables", description: "Directional: longer receivables increase gap" },
     { id: "sensitivity-daily-cost", description: "Sensitivity: higher daily cost widens gap amount" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "receivables-up-gap",
@@ -491,7 +490,7 @@ export const cashFlowGapCalculatorContract: FormulaContract = buildCriticalContr
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const machineTimeCalculatorContract: FormulaContract = buildCriticalContract({
+export const machineTimeCalculatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "free-traffic.machine-time-calculator",
   toolName: "Machine Time Calculator",
   slug: "machine-time-calculator",
@@ -518,13 +517,13 @@ export const machineTimeCalculatorContract: FormulaContract = buildCriticalContr
     { id: "rate-positive", description: "machineRate must be > 0", kind: "edge" },
     { id: "time-units", description: "Setup in minutes, cycle in seconds", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-job", description: "Normal case: batch with setup and cycle time" },
     { id: "edge-single-part", description: "Edge case: quantity = 1 setup-heavy job" },
     { id: "absurd-quantity", description: "Absurd input: zero quantity rejected" },
     { id: "directional-cycle", description: "Directional: longer cycle increases machine cost" },
     { id: "sensitivity-rate", description: "Sensitivity: +10% machine rate increases cost proportionally" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "cycle-up-cost",
@@ -552,7 +551,7 @@ export const machineTimeCalculatorContract: FormulaContract = buildCriticalContr
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const cncQuoteRiskAnalyzerContract: FormulaContract = buildCriticalContract({
+export const cncQuoteRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.cnc-quote-risk-analyzer",
   toolName: "CNC Audit Engine",
   slug: "cnc-quote-risk-analyzer",
@@ -596,13 +595,13 @@ export const cncQuoteRiskAnalyzerContract: FormulaContract = buildCriticalContra
     { id: "margin-percent", description: "riskMargin is percent buffer not decimal", kind: "dimensional" },
     { id: "purpose-alignment", description: "Safe price must reflect setup-heavy low-volume jobs", kind: "purpose" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-quote", description: "Normal case: low-volume job with tooling cost" },
     { id: "edge-setup-heavy", description: "Edge case: setup dominates cycle time" },
     { id: "absurd-zero-rate", description: "Absurd input: zero machine rate rejected" },
     { id: "directional-tooling", description: "Directional: higher tool cost raises safe price floor" },
     { id: "sensitivity-margin", description: "Sensitivity: higher risk margin raises minimum safe price" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "tool-up-safe-price",
