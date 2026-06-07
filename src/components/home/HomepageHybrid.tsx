@@ -93,7 +93,7 @@ export async function HomepageHybrid() {
           </h2>
           <ul className="sc-home-hybrid__scenario-grid">
             {SCENARIO_IDS.map((id) => (
-              <li key={id}>
+              <li key={id} className="sc-home-hybrid__scenario-item">
                 <article className="sc-home-hybrid__scenario-card">
                   <p className="sc-home-hybrid__scenario-label">
                     {t(`scenarios.${id}.label`)}
@@ -259,13 +259,18 @@ export async function HomepageHybrid() {
                     <li>{t(`pricing.plans.${plan}.feature2`)}</li>
                     <li>{t(`pricing.plans.${plan}.feature3`)}</li>
                   </ul>
+                  {plan === "pro" ? (
+                    <Link href="/pricing" className="sc-cta-primary sc-home-hybrid__pricing-card-cta">
+                      {t("pricing.plans.pro.cta")}
+                    </Link>
+                  ) : null}
                 </article>
               </li>
             ))}
           </ul>
           <p className="sc-home-hybrid__pricing-single">{t("pricing.singleReport")}</p>
           <div className="sc-home-hybrid__pricing-actions">
-            <Link href="/free-tools" className="sc-cta-primary">
+            <Link href="/free-tools" className="sc-cta-secondary sc-home-hybrid__pricing-start">
               {t("pricing.cta")}
             </Link>
             <Link href="/pricing" className="sc-home-hybrid__pricing-link">

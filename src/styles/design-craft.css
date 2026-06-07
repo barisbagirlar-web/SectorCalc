@@ -2294,7 +2294,14 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   letter-spacing: -0.025em;
   line-height: 1.08;
   color: var(--sc-text);
-  max-width: 18ch;
+  max-width: min(100%, 16em);
+}
+
+@media (max-width: 429px) {
+  .sc-home-hybrid__headline {
+    font-size: clamp(1.625rem, 7vw, 2rem);
+    line-height: 1.12;
+  }
 }
 
 .sc-home-hybrid__supporting {
@@ -2368,6 +2375,11 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   }
 }
 
+.sc-home-hybrid__scenario-item {
+  display: flex;
+  min-width: 0;
+}
+
 .sc-home-hybrid__scenario-card {
   display: flex;
   height: 100%;
@@ -2422,7 +2434,11 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 }
 
 .sc-home-hybrid__scenario-cta {
-  margin-top: 0.875rem;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.875rem;
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--sc-navy);
@@ -2670,6 +2686,18 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   box-shadow:
     0 1px 0 rgb(255 255 255 / 0.85) inset,
     0 0 0 1px rgb(30 64 175 / 0.08);
+}
+
+.sc-home-hybrid__pricing-card-cta {
+  margin-top: auto;
+  width: 100%;
+  min-height: 44px;
+  justify-content: center;
+}
+
+.sc-home-hybrid__pricing-start {
+  min-height: 44px;
+  align-items: center;
 }
 
 .sc-home-hybrid__pricing-name {
