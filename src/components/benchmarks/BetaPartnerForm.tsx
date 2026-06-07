@@ -14,7 +14,7 @@ import {
 } from "@/lib/benchmarks/create-beta-partner";
 import type { BetaPartnerFieldErrors, BetaPartnerInput } from "@/lib/benchmarks/benchmark-types";
 import { stripLocalePrefix } from "@/i18n/routing";
-import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import { appendAttributionToNotes } from "@/lib/campaigns/campaign-links";
 
@@ -39,13 +39,15 @@ export function BetaPartnerForm() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    trackSectorCalcEvent({
+    trackConversionEvent({
+      stage: "landing",
       eventName: "beta_partner_open",
       locale,
       pagePath,
       campaignId: attribution.utmCampaign,
       source: attribution.utmSource,
       medium: attribution.utmMedium,
+      valueType: "lead",
     });
   }, [attribution.utmCampaign, attribution.utmMedium, attribution.utmSource, locale, pagePath]);
 
@@ -77,7 +79,8 @@ export function BetaPartnerForm() {
       return;
     }
 
-    trackSectorCalcEvent({
+    trackConversionEvent({
+      stage: "lead_submit",
       eventName: "beta_partner_submit",
       locale,
       pagePath,
@@ -85,6 +88,7 @@ export function BetaPartnerForm() {
       source: attribution.utmSource,
       medium: attribution.utmMedium,
       ctaId: "beta_partner_form_submit",
+      valueType: "lead",
     });
 
     setSuccess(true);

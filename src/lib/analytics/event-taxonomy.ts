@@ -8,14 +8,18 @@ export const SECTORCALC_EVENTS = {
   free_tool_calculate: "free_tool_calculate",
   free_to_premium_click: "free_to_premium_click",
   premium_analyzer_open: "premium_analyzer_open",
+  premium_calculate: "premium_calculate",
   premium_unlock_click: "premium_unlock_click",
   pricing_view: "pricing_view",
   pricing_cta_click: "pricing_cta_click",
+  view_pricing_from_locked_report: "view_pricing_from_locked_report",
   beta_partner_open: "beta_partner_open",
   beta_partner_submit: "beta_partner_submit",
   report_export_click: "report_export_click",
   report_print_click: "report_print_click",
   report_csv_click: "report_csv_click",
+  report_copy_summary_click: "report_copy_summary_click",
+  locked_export_click: "locked_export_click",
 } as const;
 
 export type SectorCalcEventName =
@@ -35,6 +39,7 @@ export type SectorCalcEventPayload = {
 
 const LEGACY_EVENT_MAP: Partial<Record<SectorCalcEventName, AnalyticsEventName>> = {
   pricing_cta_click: "pricing_clicked",
+  view_pricing_from_locked_report: "pricing_clicked",
   premium_unlock_click: "unlock_clicked",
   free_to_premium_click: "premium_preview_viewed",
 };

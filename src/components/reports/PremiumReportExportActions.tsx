@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { startCheckoutSession } from "@/lib/billing/create-checkout-session";
-import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import { stripLocalePrefix } from "@/i18n/locales";
 import type { PremiumEntitlement } from "@/lib/entitlements/premium-entitlements";
@@ -48,45 +48,88 @@ export function PremiumReportExportActions({
   const pagePath = stripLocalePrefix(pathname);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
 
-  const trackExportEvent = useCallback(
-    (eventName: "report_export_click" | "report_print_click" | "report_csv_click" | "premium_unlock_click") => {
-      trackSectorCalcEvent({
-        eventName,
+  const trackExport = useCallback(
+    (
+      eventName:
+        | "report_export_click"
+        | "report_print_click"
+        | "report_csv_click"
+        | "report_copy_summary_click"
+        | "locked_export_click"
+        | "premium_unlock_click",
+      exportType: "pdf" | "print" | "csv" | "copy",
+      entitled: boolean
+    ) => {
+      trackConversionEvent({
+        stage: entitled ? "export_intent" : "unlock_intent",
+        eventName: entitled ? eventName : "locked_export_click",
         locale,
         pagePath,
         premiumSlug: payload.schemaSlug,
         campaignId: attribution.utmCampaign,
         source: attribution.utmSource,
         medium: attribution.utmMedium,
-        ctaId: eventName,
+        ctaId: entitled ? eventName : `locked_${exportType}`,
+        valueType: entitled ? "export" : "premium",
+        exportType,
       });
     },
-    [attribution.utmCampaign, attribution.utmMedium, attribution.utmSource, locale, pagePath, payload.schemaSlug]
+    [
+      attribution.utmCampaign,
+      attribution.utmMedium,
+      attribution.utmSource,
+      locale,
+      pagePath,
+      payload.schemaSlug,
+    ]
   );
 
   const handleUnlock = useCallback(() => {
-    trackExportEvent("premium_unlock_click");
+    trackConversionEvent({
+      stage: "unlock_intent",
+      eventName: "premium_unlock_click",
+      locale,
+      pagePath,
+      premiumSlug: payload.schemaSlug,
+      campaignId: attribution.utmCampaign,
+      source: attribution.utmSource,
+      medium: attribution.utmMedium,
+      ctaId: "unlock_export",
+      valueType: "premium",
+    });
     void startCheckoutSession({
       toolSlug: payload.schemaSlug,
       plan: "single_report",
       returnPath: `/tools/premium-schema/${payload.schemaSlug}`,
     });
-  }, [payload.schemaSlug, trackExportEvent]);
+  }, [
+    attribution.utmCampaign,
+    attribution.utmMedium,
+    attribution.utmSource,
+    locale,
+    pagePath,
+    payload.schemaSlug,
+  ]);
 
   const handleDownloadCsv = useCallback(() => {
-    if (!entitlement.canExportCsv || typeof document === "undefined") {
+    if (typeof document === "undefined") {
       return;
     }
-    trackExportEvent("report_csv_click");
+    if (!entitlement.canExportCsv) {
+      trackExport("locked_export_click", "csv", false);
+      return;
+    }
+    trackExport("report_csv_click", "csv", true);
     const csv = serializePremiumReportCsv(payload);
     downloadCsv(`${payload.schemaSlug}-report.csv`, csv);
-  }, [entitlement.canExportCsv, payload, trackExportEvent]);
+  }, [entitlement.canExportCsv, payload, trackExport]);
 
   const handleCopySummary = useCallback(async () => {
     if (!entitlement.canExportCsv) {
+      trackExport("locked_export_click", "copy", false);
       return;
     }
-    trackExportEvent("report_export_click");
+    trackExport("report_copy_summary_click", "copy", true);
     if (typeof navigator === "undefined" || !navigator.clipboard) {
       setCopyState("failed");
       return;
@@ -98,15 +141,27 @@ export function PremiumReportExportActions({
     } catch {
       setCopyState("failed");
     }
-  }, [entitlement.canExportCsv, payload, trackExportEvent]);
+  }, [entitlement.canExportCsv, payload, trackExport]);
 
   const handlePrint = useCallback(() => {
-    if (!entitlement.canExportPdf || typeof window === "undefined") {
+    if (typeof window === "undefined") {
       return;
     }
-    trackExportEvent("report_print_click");
+    if (!entitlement.canExportPdf) {
+      trackExport("locked_export_click", "print", false);
+      return;
+    }
+    trackExport("report_print_click", "print", true);
     window.open(printHref, "_blank", "noopener,noreferrer");
-  }, [entitlement.canExportPdf, printHref, trackExportEvent]);
+  }, [entitlement.canExportPdf, printHref, trackExport]);
+
+  const handleLockedExportClick = useCallback(
+    (exportType: "print" | "csv") => {
+      trackExport("locked_export_click", exportType, false);
+      handleUnlock();
+    },
+    [handleUnlock, trackExport]
+  );
 
   const exportLocked = !entitlement.canExportPdf && !entitlement.canExportCsv;
 
@@ -153,7 +208,7 @@ export function PremiumReportExportActions({
             ) : (
               <button
                 type="button"
-                onClick={handleUnlock}
+                onClick={() => handleLockedExportClick("print")}
                 className="sc-ledger-cta-secondary sc-premium-export-actions__btn min-h-[44px]"
               >
                 {tLocked("unlockPrint")}
@@ -171,7 +226,7 @@ export function PremiumReportExportActions({
             ) : (
               <button
                 type="button"
-                onClick={handleUnlock}
+                onClick={() => handleLockedExportClick("csv")}
                 className="sc-ledger-cta-secondary sc-premium-export-actions__btn min-h-[44px]"
               >
                 {tLocked("unlockCsv")}

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { stripLocalePrefix } from "@/i18n/locales";
-import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import {
   BigNumberSummary,
@@ -50,7 +50,8 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    trackSectorCalcEvent({
+    trackConversionEvent({
+      stage: "premium_preview",
       eventName: "premium_analyzer_open",
       locale,
       pagePath,
@@ -58,6 +59,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
       campaignId: attribution.utmCampaign,
       source: attribution.utmSource,
       medium: attribution.utmMedium,
+      valueType: "premium",
     });
   }, [
     attribution.utmCampaign,
@@ -110,6 +112,17 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitted(true);
+    trackConversionEvent({
+      stage: "premium_preview",
+      eventName: "premium_calculate",
+      locale,
+      pagePath,
+      premiumSlug: schema.id,
+      campaignId: attribution.utmCampaign,
+      source: attribution.utmSource,
+      medium: attribution.utmMedium,
+      valueType: "premium",
+    });
   };
 
   return (

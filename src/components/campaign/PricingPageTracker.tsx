@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { stripLocalePrefix } from "@/i18n/locales";
-import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 
 export function PricingPageTracker() {
@@ -13,13 +13,15 @@ export function PricingPageTracker() {
   const attribution = useAttributionContext();
 
   useEffect(() => {
-    trackSectorCalcEvent({
+    trackConversionEvent({
+      stage: "pricing_intent",
       eventName: "pricing_view",
       locale,
       pagePath: stripLocalePrefix(pathname),
       campaignId: attribution.utmCampaign,
       source: attribution.utmSource,
       medium: attribution.utmMedium,
+      valueType: "premium",
     });
   }, [attribution.utmCampaign, attribution.utmMedium, attribution.utmSource, locale, pathname]);
 

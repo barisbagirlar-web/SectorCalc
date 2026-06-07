@@ -7,7 +7,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
 import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics/events";
-import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import { buildTrackedCtaHref } from "@/lib/campaigns/campaign-links";
 import { stripLocalePrefix } from "@/i18n/locales";
@@ -64,7 +64,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
       tier: "free",
       source: "traffic_catalog",
     });
-    trackSectorCalcEvent({
+    trackConversionEvent({
+      stage: "tool_open",
       eventName: "free_tool_open",
       locale,
       pagePath,
@@ -72,6 +73,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
       campaignId: attribution.utmCampaign,
       source: attribution.utmSource,
       medium: attribution.utmMedium,
+      valueType: "free",
+      category: tool.category,
     });
   }, [attribution.utmCampaign, attribution.utmMedium, attribution.utmSource, locale, pagePath, tool.slug]);
 
@@ -145,7 +148,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
       toolSlug: tool.slug,
       source: "traffic_catalog",
     });
-    trackSectorCalcEvent({
+    trackConversionEvent({
+      stage: "calculation",
       eventName: "free_tool_calculate",
       locale,
       pagePath,
@@ -153,6 +157,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
       campaignId: attribution.utmCampaign,
       source: attribution.utmSource,
       medium: attribution.utmMedium,
+      valueType: "free",
+      category: tool.category,
     });
   };
 
@@ -319,7 +325,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                       <Link
                         href={premiumAnalyzerHref}
                         onClick={() => {
-                          trackSectorCalcEvent({
+                          trackConversionEvent({
+                            stage: "premium_interest",
                             eventName: "free_to_premium_click",
                             locale,
                             pagePath,
@@ -329,6 +336,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                             source: attribution.utmSource ?? "free_tool",
                             medium: attribution.utmMedium ?? "premium_upsell",
                             ctaId: "free_to_premium_click",
+                            valueType: "premium",
+                            category: tool.category,
                           });
                         }}
                         className="sc-craft-card__cta mt-3"

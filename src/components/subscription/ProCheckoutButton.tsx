@@ -13,7 +13,7 @@ import {
  ANALYTICS_EVENTS,
  trackEvent,
 } from "@/lib/analytics/events";
-import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import { stripLocalePrefix } from "@/i18n/locales";
 
@@ -65,8 +65,9 @@ export function StripePlanCheckoutButton({
  source,
  });
 
- trackSectorCalcEvent({
+ trackConversionEvent({
  eventName: "pricing_cta_click",
+ stage: "pricing_intent",
  locale,
  pagePath,
  toolSlug,
@@ -74,6 +75,7 @@ export function StripePlanCheckoutButton({
  source: attribution.utmSource ?? source,
  medium: attribution.utmMedium ?? "checkout",
  ctaId,
+ valueType: "premium",
  });
 
  trackRevenueEvent(REVENUE_EVENTS.checkout_started, {

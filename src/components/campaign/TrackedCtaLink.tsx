@@ -4,10 +4,8 @@ import type { ReactNode } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
-import {
-  trackSectorCalcEvent,
-  type SectorCalcEventName,
-} from "@/lib/analytics/event-taxonomy";
+import { trackConversionEvent, mapEventToStage } from "@/lib/analytics/conversion-funnel";
+import type { SectorCalcEventName } from "@/lib/analytics/event-taxonomy";
 import { buildTrackedCtaHref } from "@/lib/campaigns/campaign-links";
 import { usePathname, stripLocalePrefix } from "@/i18n/routing";
 
@@ -46,7 +44,8 @@ export function TrackedCtaLink({
       href={trackedHref}
       className={className}
       onClick={() => {
-        trackSectorCalcEvent({
+        trackConversionEvent({
+          stage: mapEventToStage(eventName),
           eventName,
           locale,
           pagePath: stripLocalePrefix(pathname),
