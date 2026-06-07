@@ -232,6 +232,23 @@ export async function HomepageHybrid() {
 
       <hr className="sc-ledger-separator" />
 
+      {/* 6b. Beta partner */}
+      <section className="sc-home-hybrid__section" aria-labelledby="beta-partner-heading">
+        <Container className="sc-pro-container">
+          <div className="sc-home-hybrid__beta-block rounded-lg border border-professional-blue/25 bg-white p-6 md:p-8">
+            <h2 id="beta-partner-heading" className="sc-home-hybrid__section-title">
+              {t("betaPartner.title")}
+            </h2>
+            <p className="sc-home-hybrid__section-lead">{t("betaPartner.text")}</p>
+            <Link href="/beta-partner" className="sc-cta-secondary sc-home-hybrid__beta-cta mt-4 inline-flex min-h-[44px] items-center">
+              {t("betaPartner.cta")}
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      <hr className="sc-ledger-separator" />
+
       {/* 7. Pricing preview */}
       <section className="sc-home-hybrid__section" aria-labelledby="pricing-heading">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">

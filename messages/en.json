@@ -740,6 +740,11 @@
         }
       }
     },
+    "betaPartner": {
+      "title": "Help build verified sector benchmarks.",
+      "text": "SectorCalc is building benchmark-backed calculators with operators, consultants and early businesses. Beta partners can receive premium reports in exchange for structured feedback.",
+      "cta": "Apply for beta partner access"
+    },
     "final": {
       "title": "Find the loss area. Measure the exposure. Make the call.",
       "bullet1": "{sectorCount} sector areas",
@@ -825,6 +830,77 @@
       "title": "Sign in to view saved reports",
       "body": "Saved verdict reports are linked to your SectorCalc account.",
       "cta": "Sign in"
+    }
+  },
+  "betaPartner": {
+    "meta": {
+      "title": "Beta Partner Program",
+      "description": "Apply to help SectorCalc build verified sector benchmarks with structured operational feedback."
+    },
+    "hero": {
+      "eyebrow": "Beta partner program",
+      "title": "Help build verified sector benchmarks",
+      "subtitle": "Share structured operational data in exchange for premium reports and early access to benchmark-backed calculators."
+    },
+    "who": {
+      "title": "Who should apply",
+      "item1": "Operators tracking scrap, setup, route, energy or margin loss",
+      "item2": "Consultants preparing client-facing sector assessments",
+      "item3": "Early-stage businesses without ERP-level tooling",
+      "item4": "Teams willing to give structured feedback on calculator fit"
+    },
+    "data": {
+      "title": "What data we collect",
+      "item1": "Industry, company size and main loss area",
+      "item2": "Current tracking method and estimated monthly loss range",
+      "item3": "Optional anonymized benchmark permission after review"
+    },
+    "benefits": {
+      "title": "What you get",
+      "item1": "Early access to premium decision reports",
+      "item2": "Direct input into sector benchmark design",
+      "item3": "Optional case study participation with explicit permission"
+    },
+    "form": {
+      "heading": "Apply for beta partner access",
+      "intro": "All fields marked * are required. We review applications manually — no fake claims or auto-published case studies.",
+      "companyName": "Company name",
+      "contactName": "Contact name",
+      "email": "Work email",
+      "country": "Country",
+      "industry": "Industry",
+      "companySize": "Company size",
+      "role": "Your role",
+      "mainLossArea": "Main loss area",
+      "currentMethod": "How you track loss today",
+      "monthlyEstimatedLossRange": "Estimated monthly loss",
+      "notes": "Additional notes",
+      "caseStudyPermission": "I may allow anonymized or named case study use after review",
+      "selectPlaceholder": "Select…",
+      "submit": "Submit application",
+      "submitting": "Submitting…",
+      "successTitle": "Application received",
+      "successBody": "Thank you. We review beta partner applications manually and will follow up by email.",
+      "rateLimited": "Please wait before submitting again."
+    },
+    "feedback": {
+      "prompt": "Optional: help improve this report with structured feedback.",
+      "open": "Share feedback",
+      "eyebrow": "Report feedback",
+      "title": "How well did this report fit your operation?",
+      "optional": "Optional — skipped by most users.",
+      "dismiss": "Dismiss",
+      "rating": "Overall rating",
+      "usefulness": "Usefulness",
+      "formulaFit": "Formula fit",
+      "missingVariable": "Missing variable",
+      "comment": "Comment",
+      "benchmarkPermission": "Allow anonymized use in future sector benchmarks (reviewed by admin)",
+      "selectPlaceholder": "Select…",
+      "submit": "Send feedback",
+      "submitting": "Sending…",
+      "thankYou": "Thank you — feedback saved for benchmark review.",
+      "rateLimited": "Please wait before submitting again."
     }
   },
   "premiumDecisionReport": {

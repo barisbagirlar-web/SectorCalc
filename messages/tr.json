@@ -740,6 +740,11 @@
         }
       }
     },
+    "betaPartner": {
+      "title": "Doğrulanmış sektör kıyaslamaları oluşturmaya yardım edin.",
+      "text": "SectorCalc, operatörler, danışmanlar ve erken dönem işletmelerle kıyaslama destekli hesaplayıcılar geliştiriyor. Beta ortakları, yapılandırılmış geri bildirim karşılığında premium raporlar alabilir.",
+      "cta": "Beta ortak erişimi için başvur"
+    },
     "final": {
       "title": "Kayıp alanını bulun. Maruziyeti ölçün. Kararı verin.",
       "bullet1": "{sectorCount} sektör alanı",
@@ -825,6 +830,77 @@
       "title": "Kayıtlı raporları görmek için giriş yapın",
       "body": "Kayıtlı karar raporları SectorCalc hesabınıza bağlıdır.",
       "cta": "Giriş yap"
+    }
+  },
+  "betaPartner": {
+    "meta": {
+      "title": "Beta Ortak Programı",
+      "description": "SectorCalc'ın yapılandırılmış operasyonel geri bildirimle doğrulanmış sektör kıyaslamaları oluşturmasına yardım etmek için başvurun."
+    },
+    "hero": {
+      "eyebrow": "Beta ortak programı",
+      "title": "Doğrulanmış sektör kıyaslamaları oluşturmaya yardım edin",
+      "subtitle": "Premium raporlar ve kıyaslama destekli hesaplayıcılara erken erişim karşılığında yapılandırılmış operasyonel veri paylaşın."
+    },
+    "who": {
+      "title": "Kimler başvurmalı",
+      "item1": "Fire, setup, rota, enerji veya marj kaybını takip eden operatörler",
+      "item2": "Müşteri odaklı sektör değerlendirmeleri hazırlayan danışmanlar",
+      "item3": "ERP seviyesinde araçları olmayan erken dönem işletmeler",
+      "item4": "Hesaplayıcı uyumuna yapılandırılmış geri bildirim vermeye istekli ekipler"
+    },
+    "data": {
+      "title": "Hangi veriyi topluyoruz",
+      "item1": "Sektör, şirket büyüklüğü ve ana kayıp alanı",
+      "item2": "Mevcut takip yöntemi ve tahmini aylık kayıp aralığı",
+      "item3": "İnceleme sonrası isteğe bağlı anonim kıyaslama izni"
+    },
+    "benefits": {
+      "title": "Ne kazanırsınız",
+      "item1": "Premium karar raporlarına erken erişim",
+      "item2": "Sektör kıyaslama tasarımına doğrudan katkı",
+      "item3": "Açık izinle isteğe bağlı vaka çalışması katılımı"
+    },
+    "form": {
+      "heading": "Beta ortak erişimi için başvur",
+      "intro": "* ile işaretli alanlar zorunludur. Başvuruları manuel inceliyoruz — sahte iddia veya otomatik yayınlanan vaka çalışması yok.",
+      "companyName": "Şirket adı",
+      "contactName": "İletişim adı",
+      "email": "İş e-postası",
+      "country": "Ülke",
+      "industry": "Sektör",
+      "companySize": "Şirket büyüklüğü",
+      "role": "Rolünüz",
+      "mainLossArea": "Ana kayıp alanı",
+      "currentMethod": "Kaybı bugün nasıl takip ediyorsunuz",
+      "monthlyEstimatedLossRange": "Tahmini aylık kayıp",
+      "notes": "Ek notlar",
+      "caseStudyPermission": "İnceleme sonrası anonim veya isimli vaka çalışması kullanımına izin verebilirim",
+      "selectPlaceholder": "Seçin…",
+      "submit": "Başvuruyu gönder",
+      "submitting": "Gönderiliyor…",
+      "successTitle": "Başvuru alındı",
+      "successBody": "Teşekkürler. Beta ortak başvurularını manuel inceliyoruz ve e-posta ile dönüş yapacağız.",
+      "rateLimited": "Lütfen tekrar göndermeden önce bekleyin."
+    },
+    "feedback": {
+      "prompt": "İsteğe bağlı: yapılandırılmış geri bildirimle bu raporu geliştirmemize yardım edin.",
+      "open": "Geri bildirim paylaş",
+      "eyebrow": "Rapor geri bildirimi",
+      "title": "Bu rapor operasyonunuza ne kadar uydu?",
+      "optional": "İsteğe bağlı — çoğu kullanıcı atlar.",
+      "dismiss": "Kapat",
+      "rating": "Genel puan",
+      "usefulness": "Faydalılık",
+      "formulaFit": "Formül uyumu",
+      "missingVariable": "Eksik değişken",
+      "comment": "Yorum",
+      "benchmarkPermission": "Gelecekteki sektör kıyaslamalarında anonim kullanıma izin ver (admin onaylı)",
+      "selectPlaceholder": "Seçin…",
+      "submit": "Geri bildirimi gönder",
+      "submitting": "Gönderiliyor…",
+      "thankYou": "Teşekkürler — geri bildirim kıyaslama incelemesi için kaydedildi.",
+      "rateLimited": "Lütfen tekrar göndermeden önce bekleyin."
     }
   },
   "premiumDecisionReport": {

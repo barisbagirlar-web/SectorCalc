@@ -19,7 +19,9 @@ import {
   buildDefaultSchemaInputs,
   runPremiumSchemaEngine,
 } from "@/lib/premium-schema/premium-schema-engine";
+import { PremiumReportFeedback } from "@/components/reports/PremiumReportFeedback";
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import type { BenchmarkSnapshotValue } from "@/lib/benchmarks/benchmark-types";
 
 export interface DynamicPremiumCalculatorProps {
   schema: PremiumCalculatorSchema;
@@ -49,6 +51,31 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
     }
     return buildPremiumDecisionReportData(schema, result);
   }, [schema, result]);
+
+  const feedbackSnapshots = useMemo(() => {
+    if (!result) {
+      return null;
+    }
+    const inputSnapshot: Record<string, BenchmarkSnapshotValue> = {};
+    for (const [key, value] of Object.entries(values)) {
+      if (
+        typeof value === "string" ||
+        typeof value === "number" ||
+        typeof value === "boolean"
+      ) {
+        inputSnapshot[key] = value;
+      }
+    }
+    const resultSnapshot: Record<string, BenchmarkSnapshotValue> = {
+      bigNumber: result.bigNumber.raw,
+      p90Exposure: result.p90Exposure,
+      minimumSafePrice: result.minimumSafePrice,
+    };
+    for (const output of result.outputs) {
+      resultSnapshot[output.id] = output.raw;
+    }
+    return { inputSnapshot, resultSnapshot };
+  }, [result, values]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -225,12 +252,23 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
 
       <div className="sc-ledger-karar-masasi__report min-w-0">
         {result ? (
-          <PremiumDecisionReportPreview
-            schema={schema}
-            result={result}
-            locale={locale}
-            compact
-          />
+          <>
+            <PremiumDecisionReportPreview
+              schema={schema}
+              result={result}
+              locale={locale}
+              compact
+            />
+            {feedbackSnapshots ? (
+              <PremiumReportFeedback
+                schemaSlug={schema.id}
+                sectorSlug={schema.sectorSlug}
+                reportSlug={schema.id}
+                inputSnapshot={feedbackSnapshots.inputSnapshot}
+                resultSnapshot={feedbackSnapshots.resultSnapshot}
+              />
+            ) : null}
+          </>
         ) : (
           <aside className="sc-ledger-panel sc-industrial-panel p-4 sm:p-5">
             <p className="sc-ledger-eyebrow">{schema.category}</p>

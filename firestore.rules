@@ -29,6 +29,30 @@ service cloud.firestore {
       }
     }
 
+    match /betaPartners/{partnerId} {
+      allow read: if isAuthenticatedAdmin();
+      allow update, delete: if false;
+      allow create: if
+        partnerId == request.resource.data.id
+        && isValidBetaPartnerCreate(request.resource.data);
+    }
+
+    match /benchmarkSubmissions/{submissionId} {
+      allow read: if isAuthenticatedAdmin();
+      allow update, delete: if false;
+      allow create: if
+        submissionId == request.resource.data.id
+        && isValidBenchmarkSubmissionCreate(request.resource.data);
+    }
+
+    match /reportFeedback/{feedbackId} {
+      allow read: if isAuthenticatedAdmin();
+      allow update, delete: if false;
+      allow create: if
+        feedbackId == request.resource.data.id
+        && isValidReportFeedbackCreate(request.resource.data);
+    }
+
     match /users/{userId} {
       allow read: if request.auth != null && request.auth.uid == userId;
       allow write: if false;
@@ -149,4 +173,172 @@ function isValidOptionalPlan(data) {
 function isValidOptionalMessage(data) {
   return !('message' in data)
     || (data.message is string && data.message.size() <= 500);
+}
+
+function isValidBetaPartnerCreate(data) {
+  return hasValidBetaPartnerKeys(data)
+    && isValidBetaPartnerId(data.id)
+    && isValidShortText(data.companyName, 0, 160)
+    && isValidShortText(data.contactName, 0, 120)
+    && (data.companyName.size() >= 2 || data.contactName.size() >= 2)
+    && isValidEmail(data.email)
+    && isValidShortText(data.country, 2, 80)
+    && isValidShortText(data.industry, 2, 80)
+    && isValidShortText(data.companySize, 2, 40)
+    && isValidShortText(data.role, 2, 80)
+    && isValidShortText(data.mainLossArea, 2, 160)
+    && isValidShortText(data.currentMethod, 2, 160)
+    && isValidShortText(data.monthlyEstimatedLossRange, 2, 40)
+    && data.wantsCaseStudyPermission is bool
+    && isValidShortText(data.notes, 0, 1000)
+    && isValidCreatedAt(data.createdAt)
+    && isValidCreatedAt(data.updatedAt)
+    && data.status == 'new';
+}
+
+function hasValidBetaPartnerKeys(data) {
+  return data.keys().hasOnly([
+      'id',
+      'createdAt',
+      'updatedAt',
+      'status',
+      'companyName',
+      'contactName',
+      'email',
+      'country',
+      'industry',
+      'companySize',
+      'role',
+      'mainLossArea',
+      'currentMethod',
+      'monthlyEstimatedLossRange',
+      'wantsCaseStudyPermission',
+      'notes',
+    ]);
+}
+
+function isValidBetaPartnerId(id) {
+  return id is string
+    && id.size() >= 8
+    && id.size() <= 80
+    && id.matches('^beta_[A-Za-z0-9._-]+$');
+}
+
+function isValidBenchmarkSubmissionCreate(data) {
+  return hasValidBenchmarkSubmissionKeys(data)
+    && isValidBenchmarkSubmissionId(data.id)
+    && isValidBenchmarkSource(data.source)
+    && isValidShortText(data.sectorSlug, 2, 80)
+    && isValidShortText(data.toolSlug, 2, 80)
+    && isValidShortText(data.country, 2, 80)
+    && isValidShortText(data.currency, 2, 8)
+    && isValidShortText(data.companySize, 2, 40)
+    && data.inputSnapshot is map
+    && data.inputSnapshot.size() <= 40
+    && data.resultSnapshot is map
+    && data.resultSnapshot.size() <= 40
+    && isValidUserReportedAccuracy(data.userReportedAccuracy)
+    && isValidShortText(data.userComment, 0, 1000)
+    && data.permissionForAnonymizedBenchmark is bool
+    && data.permissionForCaseStudy is bool
+    && data.reviewedByAdmin is bool
+    && data.reviewedByAdmin == false
+    && isValidBenchmarkReviewStatus(data.reviewStatus)
+    && data.reviewStatus == 'pending'
+    && isValidCreatedAt(data.createdAt)
+    && isValidCreatedAt(data.updatedAt);
+}
+
+function hasValidBenchmarkSubmissionKeys(data) {
+  return data.keys().hasOnly([
+      'id',
+      'createdAt',
+      'updatedAt',
+      'source',
+      'sectorSlug',
+      'toolSlug',
+      'country',
+      'currency',
+      'companySize',
+      'inputSnapshot',
+      'resultSnapshot',
+      'userReportedAccuracy',
+      'userComment',
+      'permissionForAnonymizedBenchmark',
+      'permissionForCaseStudy',
+      'reviewedByAdmin',
+      'reviewStatus',
+    ]);
+}
+
+function isValidBenchmarkSubmissionId(id) {
+  return id is string
+    && id.size() >= 8
+    && id.size() <= 80
+    && id.matches('^benchmark_[A-Za-z0-9._-]+$');
+}
+
+function isValidBenchmarkSource(source) {
+  return source in [
+    'beta_partner',
+    'premium_report_feedback',
+    'manual_admin',
+  ];
+}
+
+function isValidUserReportedAccuracy(value) {
+  return value in ['low', 'medium', 'high'];
+}
+
+function isValidBenchmarkReviewStatus(value) {
+  return value in ['pending', 'approved', 'rejected'];
+}
+
+function isValidReportFeedbackCreate(data) {
+  return hasValidReportFeedbackKeys(data)
+    && isValidReportFeedbackId(data.id)
+    && isValidShortText(data.schemaSlug, 2, 80)
+    && isValidShortText(data.sectorSlug, 2, 80)
+    && isValidReportFeedbackRating(data.rating)
+    && isValidShortText(data.usefulness, 2, 40)
+    && isValidShortText(data.formulaFit, 2, 40)
+    && isValidShortText(data.missingVariable, 0, 160)
+    && isValidShortText(data.comment, 0, 800)
+    && data.permissionForBenchmark is bool
+    && isValidCreatedAt(data.createdAt)
+    && isValidOptionalReportSlug(data);
+}
+
+function isValidOptionalReportSlug(data) {
+  return !('reportSlug' in data)
+    || (data.reportSlug is string && data.reportSlug.size() >= 2 && data.reportSlug.size() <= 80);
+}
+
+function hasValidReportFeedbackKeys(data) {
+  let keys = data.keys();
+  return keys.hasAll([
+      'id',
+      'createdAt',
+      'schemaSlug',
+      'sectorSlug',
+      'rating',
+      'usefulness',
+      'formulaFit',
+      'missingVariable',
+      'comment',
+      'permissionForBenchmark',
+    ])
+    && keys.size() >= 10
+    && keys.size() <= 11;
+}
+
+function isValidReportFeedbackRating(rating) {
+  return rating is number && rating >= 1 && rating <= 5;
+}
+
+function isValidReportFeedbackId(id) {
+  return id is string
+    && id.size() >= 8
+    && id.size() <= 80
+    && id.matches('^feedback_[A-Za-z0-9._-]+$');
 }

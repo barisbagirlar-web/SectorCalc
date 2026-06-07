@@ -3171,3 +3171,28 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   margin-top: 1.25rem;
 }
 
+.sc-home-hybrid__beta-block {
+  max-width: 48rem;
+}
+
+.sc-home-hybrid__beta-cta {
+  display: inline-flex;
+}
+
+.sc-beta-partner__form {
+  max-width: 100%;
+}
+
+.sc-admin-benchmarks__table-wrap {
+  overflow-x: auto;
+}
+
+.sc-admin-benchmarks__table {
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.sc-report-feedback {
+  max-width: 100%;
+}
+
