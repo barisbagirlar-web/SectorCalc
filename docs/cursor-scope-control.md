@@ -68,7 +68,32 @@ Use this checklist in PR descriptions and agent final reports.
 
 ## Backlog routing
 
-New ideas → [Backlog Intake Template](./backlog-intake-template.md) → review at weekly gate check → sprint only if [decision gate](./monetization-decision-gates.md) is met.
+New ideas → [Growth Backlog Intake Form](./growth-backlog-intake-form.md) → add to [Post-launch Backlog Items](./post-launch-backlog-items.md) → score via [Growth Backlog Scoring Model](./growth-backlog-scoring-model.md) → weekly [Sprint Selection Rules](./sprint-selection-rules.md) → sprint only if gate met.
+
+Legacy quick intake: [Backlog Intake Template](./backlog-intake-template.md).
+
+---
+
+## Cursor backlog gate
+
+Before Cursor applies any new task, classify it:
+
+| Class | Action |
+|---|---|
+| **blocker** | Implement immediately — payment/export leak, build failure, Tier-1 mobile overflow, broken indexable route, SEO noindex/canonical error, conversion event not firing |
+| **revenue fix** | Implement only with KPI/revenue signal reference |
+| **SEO indexing fix** | Implement only for Tier-1 URL with GSC/crawl evidence |
+| **conversion fix** | Implement only with Live KPI verdict + event counts |
+| **backlog only** | **Do not implement** — add to [post-launch-backlog-items.md](./post-launch-backlog-items.md) |
+
+If classified **backlog only**:
+
+1. Do not write product code for the idea.
+2. Add or update a row in [post-launch-backlog-items.md](./post-launch-backlog-items.md) using [growth-backlog-intake-form.md](./growth-backlog-intake-form.md).
+3. Set status to `needs_data` unless evidence and score ≥ 15 (or blocker override).
+4. Reference [Post-launch Growth Backlog](./post-launch-growth-backlog.md) in the final report.
+
+Cursor must not implement unmeasured ideas during the [product roadmap freeze](./product-roadmap-freeze.md).
 
 ---
 
