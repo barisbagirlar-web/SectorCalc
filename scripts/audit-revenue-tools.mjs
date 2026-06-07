@@ -81,7 +81,30 @@ function splitToolBlocks(section) {
   if (section.includes("build({")) {
     return section.split(/(?=build\(\{)/).filter((block) => block.includes('freeSlug: "'));
   }
-  return section.split(/(?=\n  \{)/).filter((block) => block.includes('sector: "'));
+  const blocks = [];
+  const toolStart = /(?:^|\n)\s*(?:\/\*\*[\s\S]*?\*\/\s*)?\{/g;
+  let match = toolStart.exec(section);
+  while (match) {
+    const start = match.index + match[0].lastIndexOf("{");
+    let depth = 0;
+    let end = start;
+    for (let i = start; i < section.length; i += 1) {
+      if (section[i] === "{") depth += 1;
+      if (section[i] === "}") {
+        depth -= 1;
+        if (depth === 0) {
+          end = i + 1;
+          break;
+        }
+      }
+    }
+    const block = section.slice(start, end);
+    if (block.includes('sector: "') && block.includes('freeSlug: "')) {
+      blocks.push(block);
+    }
+    match = toolStart.exec(section);
+  }
+  return blocks;
 }
 
 function findMatchingBracketEnd(text, openIndex) {

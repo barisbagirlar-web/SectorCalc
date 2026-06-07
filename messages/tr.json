@@ -13,12 +13,8 @@
     "audit": "Audit",
     "intelligence": "Intelligence",
     "archive": "Arşiv",
-    "account": "Hesap",
-    "reports": "Raporlar",
-    "pricing": "Fiyatlandırma",
     "freeTools": "Utility",
     "premiumTools": "Intelligence",
-    "industries": "Sektörler",
     "unlockPro": "Pro",
     "runFreeCheck": "Run"
   },
@@ -582,10 +578,22 @@
       "primaryCta": "Premium Kararlara Eriş",
       "secondaryCta": "Örnek Raporu Gör",
       "metrics": {
-        "sectors": { "label": "Sektör", "value": "27 CANLI" },
-        "engine": { "label": "Motor", "value": "P90 MC" },
-        "confidence": { "label": "Güven", "value": "Z = 1.28" },
-        "gate": { "label": "Erişim", "value": "PRO KAPI" }
+        "sectors": {
+          "label": "Sektör",
+          "value": "27 CANLI"
+        },
+        "engine": {
+          "label": "Motor",
+          "value": "P90 MC"
+        },
+        "confidence": {
+          "label": "Güven",
+          "value": "Z = 1.28"
+        },
+        "gate": {
+          "label": "Erişim",
+          "value": "PRO KAPI"
+        }
       }
     },
     "grid": {
@@ -823,10 +831,22 @@
       "title": "Platform özeti",
       "line": "Ücretsiz hesaplayıcılar ve premium uzman raporları — tek platform.",
       "metrics": {
-        "sectors": { "label": "Sektörler", "value": "{count} aktif" },
-        "engine": { "label": "Hesaplayıcılar", "value": "50+ araç" },
-        "confidence": { "label": "Raporlar", "value": "Uzman katmanı" },
-        "gate": { "label": "Erişim", "value": "Ücretsiz + Pro" }
+        "sectors": {
+          "label": "Sektörler",
+          "value": "{count} aktif"
+        },
+        "engine": {
+          "label": "Hesaplayıcılar",
+          "value": "50+ araç"
+        },
+        "confidence": {
+          "label": "Raporlar",
+          "value": "Uzman katmanı"
+        },
+        "gate": {
+          "label": "Erişim",
+          "value": "Ücretsiz + Pro"
+        }
       }
     },
     "quickAccess": {
@@ -836,7 +856,8 @@
         "tools": "Ücretsiz araçlar",
         "industries": "Sektörler",
         "categories": "Kategoriler",
-        "premium": "Premium raporlar"
+        "premium": "Premium raporlar",
+        "archive": "Audit archive"
       }
     },
     "lossDimensions": {

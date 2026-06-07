@@ -1,219 +1,219 @@
 {
   "sector": {
     "cnc": {
-      "title": "CNC & Talaşlı İmalat İstihbaratı",
+      "title": "CNC Intelligence",
       "params": {
-        "target_cycle_time": "İdeal Çevrim Süresi (sn)",
-        "actual_cycle_time": "Ölçülen Süre (sn)",
-        "machine_rate": "Saatlik Tezgah Gideri ($)"
-      }
-    },
-    "construction": {
-      "title": "İnşaat & Proje İstihbaratı",
-      "params": {
-        "target_value": "Hedef Proje Değeri ($)",
-        "earned_value": "Kazanılmış Değer ($)",
-        "labor_cost": "İşçilik Maliyet Oranı ($/sa)"
-      }
-    },
-    "cleaning": {
-      "title": "Temizlik Hizmetleri İstihbaratı",
-      "params": {
-        "planned_hours": "Planlanan Süre (sa)",
-        "actual_hours": "Gerçekleşen Süre (sa)",
-        "hourly_labor_cost": "Saatlik Personel Gideri ($)"
-      }
-    },
-    "restaurant": {
-      "title": "Restoran Marj İstihbaratı",
-      "params": {
-        "target_food_cost_pct": "Hedef Gıda Maliyeti (%)",
-        "actual_food_cost_pct": "Gerçekleşen Gıda Maliyeti (%)",
-        "avg_plate_revenue": "Ortalama Tabak Geliri ($)"
-      }
-    },
-    "ecommerce": {
-      "title": "E-Ticaret Marj İstihbaratı",
-      "params": {
-        "target_margin_pct": "Hedef Marj (%)",
-        "actual_margin_pct": "Gerçekleşen Marj (%)",
-        "avg_order_value": "Ortalama Sipariş Değeri ($)"
-      }
-    },
-    "welding": {
-      "title": "Kaynak & Metal İşleme İstihbaratı",
-      "params": {
-        "estimated_hours": "Tahmini Süre (sa)",
-        "actual_hours": "Gerçekleşen Süre (sa)",
-        "welder_rate": "Kaynakçı Saatlik Gideri ($)"
-      }
-    },
-    "hvac": {
-      "title": "HVAC Proje İstihbaratı",
-      "params": {
-        "planned_install_cost": "Planlanan Kurulum Maliyeti ($)",
-        "actual_install_cost": "Gerçekleşen Kurulum Maliyeti ($)",
-        "crew_rate": "Ekip Saatlik Gideri ($)"
-      }
-    },
-    "electrical": {
-      "title": "Elektrik Taahhüt İstihbaratı",
-      "params": {
-        "bid_labor_hours": "Teklif İşçilik Saati (sa)",
-        "actual_labor_hours": "Gerçekleşen İşçilik Saati (sa)",
-        "electrician_rate": "Elektrikçi Saatlik Gideri ($)"
-      }
-    },
-    "landscaping": {
-      "title": "Peyzaj & Çim Bakımı İstihbaratı",
-      "params": {
-        "route_hours": "Planlanan Rota Süresi (sa)",
-        "actual_route_hours": "Gerçekleşen Rota Süresi (sa)",
-        "crew_rate": "Ekip Saatlik Gideri ($)"
-      }
-    },
-    "auto_repair": {
-      "title": "Oto Tamir Servisi İstihbaratı",
-      "params": {
-        "quoted_labor_hours": "Teklif İşçilik Saati (sa)",
-        "actual_labor_hours": "Gerçekleşen İşçilik Saati (sa)",
-        "bay_rate": "Servis Saatlik Gideri ($)"
-      }
-    },
-    "printing": {
-      "title": "Baskı & Tabela İstihbaratı",
-      "params": {
-        "est_job_cost": "Tahmini İş Maliyeti ($)",
-        "actual_job_cost": "Gerçekleşen İş Maliyeti ($)",
-        "press_rate": "Pres Saatlik Gideri ($)"
-      }
-    },
-    "plumbing": {
-      "title": "Tesisat Hizmetleri İstihbaratı",
-      "params": {
-        "job_estimate": "İş Tahmini ($)",
-        "job_actual": "Gerçekleşen Maliyet ($)",
-        "service_rate": "Servis Saatlik Gideri ($)"
-      }
-    },
-    "millwork": {
-      "title": "Marangozluk & Ahşap İşleme İstihbaratı",
-      "params": {
-        "est_material_cost": "Tahmini Malzeme Maliyeti ($)",
-        "actual_material_cost": "Gerçekleşen Malzeme Maliyeti ($)",
-        "shop_rate": "Atölye Saatlik Gideri ($)"
-      }
-    },
-    "roofing": {
-      "title": "Çatı Taahhüt İstihbaratı",
-      "params": {
-        "bid_per_square": "Teklif Kare Fiyatı ($)",
-        "actual_per_square": "Gerçekleşen Kare Fiyatı ($)",
-        "crew_rate": "Ekip Saatlik Gideri ($)"
-      }
-    },
-    "painting": {
-      "title": "Boya İşi İstihbaratı",
-      "params": {
-        "coverage_target": "Hedef Kaplama (m²)",
-        "coverage_actual": "Gerçekleşen Kaplama (m²)",
-        "painter_rate": "Boya Ekibi Saatlik Gideri ($)"
-      }
-    },
-    "sheet_metal": {
-      "title": "Sac Metal & Lazer İstihbaratı",
-      "params": {
-        "nest_cycle_time": "İdeal Nest Süresi (sn)",
-        "measured_cycle_time": "Ölçülen Nest Süresi (sn)",
-        "laser_rate": "Lazer Saatlik Gideri ($)"
-      }
-    },
-    "print_3d": {
-      "title": "3D Baskı Hizmeti İstihbaratı",
-      "params": {
-        "print_time": "Planlanan Baskı Süresi (sa)",
-        "actual_print_time": "Gerçekleşen Baskı Süresi (sa)",
-        "printer_rate": "Yazıcı Saatlik Gideri ($)"
+        "Ideal_Cycle_Time": "Ideal Cycle Time",
+        "Actual_Cycle_Time": "Actual Cycle Time",
+        "Machine_Rate": "Machine Rate"
       }
     },
     "logistics": {
-      "title": "Lojistik & Rotalama İstihbaratı",
+      "title": "Logistics & Routing Intelligence",
       "params": {
-        "fuel_price": "Yakıt Fiyatı ($/L)",
-        "planned_dist": "Planlanan Mesafe (km)",
-        "actual_dist": "Gerçekleşen Mesafe (km)"
+        "Planned_KM": "Planned KM",
+        "Actual_KM": "Actual KM",
+        "Fuel_Price": "Fuel Price"
       }
     },
-    "ag_crops": {
-      "title": "Tarım & Gübre İstihbaratı",
+    "construction": {
+      "title": "Construction Project Intelligence",
       "params": {
-        "target_yield": "Hedef Verim (kg)",
-        "actual_yield": "Gerçekleşen Verim (kg)",
-        "fertilizer_cost_per_kg": "Gübre Birim Maliyeti ($/kg)"
+        "Target_Cost": "Target Cost",
+        "Actual_Cost": "Actual Cost",
+        "Labor_Hours": "Labor Hours"
       }
     },
-    "ag_irrigation": {
-      "title": "Sulama & Su İstihbaratı",
+    "agriculture": {
+      "title": "Crop Yield Management Intelligence",
       "params": {
-        "planned_water_use": "Planlanan Su Kullanımı (L)",
-        "actual_water_use": "Gerçekleşen Su Kullanımı (L)",
-        "pump_cost_per_liter": "Pompa Birim Maliyeti ($/L)"
+        "Target_Yield_Ha": "Target Yield Ha",
+        "Actual_Yield_Ha": "Actual Yield Ha",
+        "Input_Cost": "Input Cost"
       }
     },
-    "ag_feed": {
-      "title": "Hayvancılık & Yem İstihbaratı",
+    "textile": {
+      "title": "Textile Manufacturing Intelligence",
       "params": {
-        "feed_budget": "Yem Bütçesi (kg)",
-        "feed_actual": "Gerçekleşen Yem (kg)",
-        "feed_price_per_kg": "Yem Birim Fiyatı ($/kg)"
+        "Target_Fabric_Usage": "Target Fabric Usage",
+        "Actual_Usage": "Actual Usage",
+        "Fabric_Cost": "Fabric Cost"
       }
     },
-    "ag_dairy": {
-      "title": "Süt Verimi İstihbaratı",
+    "plastics": {
+      "title": "Plastic Injection Intelligence",
       "params": {
-        "target_milk_yield": "Hedef Süt Verimi (L)",
-        "actual_milk_yield": "Gerçekleşen Süt Verimi (L)",
-        "feed_cost_per_liter": "Yem Birim Maliyeti ($/L)"
+        "Target_Cycle_Time": "Target Cycle Time",
+        "Scrap_Rate": "Scrap Rate",
+        "Material_Cost": "Material Cost"
       }
     },
-    "energy": {
-      "title": "Enerji Tüketimi İstihbaratı",
+    "food_bev": {
+      "title": "Food & Beverage Intelligence",
       "params": {
-        "target_kwh": "Hedef Tüketim (kWh)",
-        "actual_kwh": "Gerçekleşen Tüketim (kWh)",
-        "kwh_rate": "kWh Birim Fiyatı ($)"
+        "Standard_Yield": "Standard Yield",
+        "Actual_Output": "Actual Output",
+        "Batch_Cost": "Batch Cost"
       }
     },
-    "carbon": {
-      "title": "Karbon & CBAM İstihbaratı",
+    "automotive": {
+      "title": "Automotive Assembly Intelligence",
       "params": {
-        "target_emissions": "Hedef Emisyon (tCO₂e)",
-        "actual_emissions": "Gerçekleşen Emisyon (tCO₂e)",
-        "carbon_price_per_tonne": "Karbon Birim Fiyatı ($/tCO₂e)"
+        "Target_Throughput": "Target Throughput",
+        "Actual_Throughput": "Actual Throughput",
+        "Unit_Labor_Cost": "Unit Labor Cost"
       }
     },
-    "renovation": {
-      "title": "Ev Tadilatı İstihbaratı",
+    "electronics": {
+      "title": "Electronics PCB Intelligence",
       "params": {
-        "budget_per_sqm": "m² Başına Bütçe ($)",
-        "actual_per_sqm": "m² Başına Gerçekleşen ($)",
-        "contractor_rate": "Usta Saatlik Gideri ($)"
+        "Yield_Rate": "Yield Rate",
+        "Defect_Count": "Defect Count",
+        "Component_Cost": "Component Cost"
       }
     },
-    "fuel": {
-      "title": "Yakıt & Seyahat İstihbaratı",
+    "metalworking": {
+      "title": "Metal Fabrication Intelligence",
       "params": {
-        "planned_consumption": "Planlanan Tüketim (L)",
-        "actual_consumption": "Gerçekleşen Tüketim (L)",
-        "fuel_price_per_liter": "Yakıt Fiyatı ($/L)"
+        "Standard_Weight": "Standard Weight",
+        "Actual_Weight": "Actual Weight",
+        "Raw_Material_Cost": "Raw Material Cost"
       }
     },
-    "meals": {
-      "title": "Yemek & Market İstihbaratı",
+    "pharma": {
+      "title": "Pharmaceuticals Intelligence",
       "params": {
-        "recipe_budget": "Tarif Bütçesi ($)",
-        "actual_spend": "Gerçekleşen Harcama ($)",
-        "cost_per_serving": "Porsiyon Başına Maliyet ($)"
+        "Target_Potency": "Target Potency",
+        "Actual_Potency": "Actual Potency",
+        "Batch_Cost": "Batch Cost"
+      }
+    },
+    "warehousing": {
+      "title": "Warehouse Inventory Intelligence",
+      "params": {
+        "Target_Stock_Turn": "Target Stock Turn",
+        "Actual_Turn": "Actual Turn",
+        "Storage_Cost": "Storage Cost"
+      }
+    },
+    "marine": {
+      "title": "Marine Shipping Intelligence",
+      "params": {
+        "Planned_Fuel": "Planned Fuel",
+        "Actual_Fuel": "Actual Fuel",
+        "Voyage_Cost": "Voyage Cost"
+      }
+    },
+    "waste_mgmt": {
+      "title": "Waste Management Intelligence",
+      "params": {
+        "Target_Disposal_Cost": "Target Disposal Cost",
+        "Actual_Disposal_Cost": "Actual Disposal Cost",
+        "Volume": "Volume"
+      }
+    },
+    "water_utility": {
+      "title": "Water Utility Intelligence",
+      "params": {
+        "Target_Flow_Rate": "Target Flow Rate",
+        "Actual_Flow_Rate": "Actual Flow Rate",
+        "Operational_Cost": "Operational Cost"
+      }
+    },
+    "energy_plant": {
+      "title": "Energy & Utilities Intelligence",
+      "params": {
+        "Target_Output_Kwh": "Target Output Kwh",
+        "Actual_Output_Kwh": "Actual Output Kwh",
+        "Operational_Cost": "Operational Cost"
+      }
+    },
+    "hvac": {
+      "title": "HVAC Facilities Intelligence",
+      "params": {
+        "Target_Energy_Consumption": "Target Energy Consumption",
+        "Actual_Consumption": "Actual Consumption",
+        "Cost_Per_Unit": "Cost Per Unit"
+      }
+    },
+    "mining": {
+      "title": "Mining Operations Intelligence",
+      "params": {
+        "Target_Ore_Grade": "Target Ore Grade",
+        "Actual_Ore_Grade": "Actual Ore Grade",
+        "Extraction_Cost": "Extraction Cost"
+      }
+    },
+    "printing": {
+      "title": "Printing & Packaging Intelligence",
+      "params": {
+        "Target_Ink_Usage": "Target Ink Usage",
+        "Actual_Ink_Usage": "Actual Ink Usage",
+        "Material_Cost": "Material Cost"
+      }
+    },
+    "livestock": {
+      "title": "Livestock & Dairy Intelligence",
+      "params": {
+        "Target_Feed_Efficiency": "Target Feed Efficiency",
+        "Actual_Efficiency": "Actual Efficiency",
+        "Feed_Cost": "Feed Cost"
+      }
+    },
+    "hospitality": {
+      "title": "Hospitality / F&B Intelligence",
+      "params": {
+        "Target_Food_Cost_%": "Target Food Cost %",
+        "Actual_Food_Cost_%": "Actual Food Cost %",
+        "Revenue": "Revenue"
+      }
+    },
+    "retail": {
+      "title": "Retail Operations Intelligence",
+      "params": {
+        "Target_Margin_%": "Target Margin %",
+        "Actual_Margin_%": "Actual Margin %",
+        "Operating_Cost": "Operating Cost"
+      }
+    },
+    "finance": {
+      "title": "Corporate Finance Intelligence",
+      "params": {
+        "Target_Budget": "Target Budget",
+        "Actual_Expenditure": "Actual Expenditure",
+        "Admin_Cost": "Admin Cost"
+      }
+    },
+    "legal_it": {
+      "title": "IT & Software Services Intelligence",
+      "params": {
+        "Projected_Hours": "Projected Hours",
+        "Actual_Hours": "Actual Hours",
+        "Hourly_Rate": "Hourly Rate"
+      }
+    },
+    "facility_mgmt": {
+      "title": "Facility Maintenance Intelligence",
+      "params": {
+        "Planned_Maintenance_Cost": "Planned Maintenance Cost",
+        "Actual_Cost": "Actual Cost",
+        "Downtime_Hrs": "Downtime Hrs"
+      }
+    },
+    "aviation_mro": {
+      "title": "Aviation MRO Intelligence",
+      "params": {
+        "Target_Repair_Time": "Target Repair Time",
+        "Actual_Repair_Time": "Actual Repair Time",
+        "Parts_Cost": "Parts Cost"
+      }
+    },
+    "paper_pkg": {
+      "title": "Paper & Packaging Intelligence",
+      "params": {
+        "Target_GSM": "Target GSM",
+        "Actual_GSM": "Actual GSM",
+        "Production_Cost": "Production Cost"
       }
     }
   },

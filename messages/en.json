@@ -13,12 +13,8 @@
     "audit": "Audit",
     "intelligence": "Intelligence",
     "archive": "Archive",
-    "account": "Account",
-    "reports": "Reports",
-    "pricing": "Pricing",
     "freeTools": "Utilities",
     "premiumTools": "Intelligence",
-    "industries": "Industries",
     "unlockPro": "Pro",
     "runFreeCheck": "Run"
   },
@@ -582,10 +578,22 @@
       "primaryCta": "Access Premium Verdicts",
       "secondaryCta": "View Sample Report",
       "metrics": {
-        "sectors": { "label": "Sectors", "value": "27 LIVE" },
-        "engine": { "label": "Engine", "value": "P90 MC" },
-        "confidence": { "label": "Confidence", "value": "Z = 1.28" },
-        "gate": { "label": "Access", "value": "PRO GATE" }
+        "sectors": {
+          "label": "Sectors",
+          "value": "27 LIVE"
+        },
+        "engine": {
+          "label": "Engine",
+          "value": "P90 MC"
+        },
+        "confidence": {
+          "label": "Confidence",
+          "value": "Z = 1.28"
+        },
+        "gate": {
+          "label": "Access",
+          "value": "PRO GATE"
+        }
       }
     },
     "grid": {
@@ -823,10 +831,22 @@
       "title": "Platform snapshot",
       "line": "Free calculators and premium expert reports — one platform.",
       "metrics": {
-        "sectors": { "label": "Sectors", "value": "{count} active" },
-        "engine": { "label": "Calculators", "value": "50+ tools" },
-        "confidence": { "label": "Reports", "value": "Expert layer" },
-        "gate": { "label": "Access", "value": "Free + Pro" }
+        "sectors": {
+          "label": "Sectors",
+          "value": "{count} active"
+        },
+        "engine": {
+          "label": "Calculators",
+          "value": "50+ tools"
+        },
+        "confidence": {
+          "label": "Reports",
+          "value": "Expert layer"
+        },
+        "gate": {
+          "label": "Access",
+          "value": "Free + Pro"
+        }
       }
     },
     "quickAccess": {
@@ -836,7 +856,8 @@
         "tools": "Free tools",
         "industries": "Industries",
         "categories": "Categories",
-        "premium": "Premium reports"
+        "premium": "Premium reports",
+        "archive": "Audit archive"
       }
     },
     "lossDimensions": {

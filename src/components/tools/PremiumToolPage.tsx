@@ -36,6 +36,7 @@ import {
 import {
  type RevenueTool,
  type RevenueToolInput,
+ revenueLegalDisclaimer,
 } from "@/lib/tools/revenue-tools";
 
 const DownloadVerdictPdfButton = dynamic(
@@ -453,6 +454,11 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  )}
  </>
  )}
+ </Container>
+ </section>
+ <section className="border-t border-technical-gray/40 bg-off-white py-6">
+ <Container>
+ <p className="text-xs leading-relaxed text-body-charcoal">{tool.legalDisclaimer || revenueLegalDisclaimer}</p>
  </Container>
  </section>
  </PageLayout>
