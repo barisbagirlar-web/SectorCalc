@@ -2,6 +2,8 @@
 
 Initial campaign clusters for organic SEO, niche distribution and beta partner lead capture.
 
+**Content pack:** See [launch-campaign-content-pack.md](./launch-campaign-content-pack.md) for LinkedIn posts, Reddit copy, outreach templates, short social posts and the full 30-day calendar.
+
 ## Campaign clusters (8)
 
 | ID | Landing | Primary channels |
