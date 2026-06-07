@@ -436,7 +436,8 @@
     "tr": "Türkçe",
     "es": "Español",
     "de": "Deutsch",
-    "ar": "العربية"
+    "ar": "العربية",
+    "fr": "Français"
   },
   "common": {
     "learnMore": "Daha fazla bilgi",
@@ -1027,19 +1028,19 @@
       "backToReport": "Rapora dön"
     },
     "locked": {
-      "title": "Tam karar raporunun kilidini açın",
+      "title": "Tam karar raporunu açın",
       "text": "Önizleme ana maruziyeti gösterir. Tam rapor gizli sürücüleri, eşik yorumunu, önerilen aksiyonları ve dışa aktarmaya hazır çıktıyı gösterir.",
       "bulletBreakdown": "Tam kayıp dökümü",
       "bulletThreshold": "Eşik yorumu",
       "bulletAction": "Önerilen aksiyon planı",
       "bulletExport": "PDF / CSV dışa aktarma",
       "bulletSaved": "Kaydedilmiş rapor çıktısı",
-      "unlockCta": "Tam raporu aç",
+      "unlockCta": "Raporu aç",
       "pricingCta": "Fiyatlandırmayı gör",
       "valueLine": "Sonuç fiyatlandırma, operasyon veya yönetim kararlarını etkiliyorsa idealdir.",
       "exportLocked": "Dışa aktarma tam karar raporuna dahildir.",
-      "unlockPrint": "PDF yazdırmak / kaydetmek için kilidi açın",
-      "unlockCsv": "CSV indirmek için kilidi açın",
+      "unlockPrint": "PDF için raporu açın",
+      "unlockCsv": "CSV için raporu açın",
       "samplePrintNote": "Örnek önizleme — örnek etiketi olmadan yazdırmak için tam raporu açın."
     },
     "decisionValue": {
@@ -1050,5 +1051,93 @@
       "bullet3": "Sonucu uygulanabilir bir aksiyona dönüştürün",
       "bullet4": "Raporu yönetim veya müşteri incelemesi için dışa aktarın"
     }
+  },
+  "navigation": {
+    "tools": "Hesaplama aracı",
+    "pricing": "Fiyatlandırma",
+    "account": "Hesap",
+    "freeTools": "Ücretsiz hesaplama aracı",
+    "premiumTools": "Premium analiz aracı",
+    "reports": "Karar raporu"
+  },
+  "homepage": {
+    "headline": "Görünmeyen kayıp, marj maruziyeti ve operasyonel riski sektöre özel hesaplama araçlarıyla ölçün",
+    "primaryCta": "Ücretsiz başla",
+    "secondaryCta": "Ücretsiz araçlar"
+  },
+  "freeTools": {
+    "title": "Ücretsiz Sektörel Hesaplama Araçları",
+    "metaTitle": "Ücretsiz Sektörel Hesaplama Araçları | SectorCalc",
+    "calculate": "Hesapla"
+  },
+  "premiumTools": {
+    "title": "Premium analiz aracı",
+    "openAnalyzer": "Analiz aracını aç"
+  },
+  "categories": {
+    "title": "Kategoriye göre göz at",
+    "viewAll": "Tüm kategoriler"
+  },
+  "industries": {
+    "title": "Sektöre göre keşfet",
+    "viewAll": "Sektör seç"
+  },
+  "calculator": {
+    "calculate": "Hesapla",
+    "awaiting": "Sonucu görmek için değerleri girin",
+    "validationRequired": "Lütfen bir değer seçin.",
+    "validationNumber": "Geçerli bir sayı girin."
+  },
+  "premiumReport": {
+    "executiveSummary": "Yönetici özeti",
+    "mainExposure": "Ana maruziyet",
+    "hiddenDrivers": "Gizli sürücüler",
+    "thresholdCheck": "Eşik kontrolü",
+    "suggestedActions": "Önerilen aksiyonlar",
+    "assumptions": "Varsayımlar",
+    "exportReady": "Dışa aktarmaya hazır rapor",
+    "legalNote": "Yasal not"
+  },
+  "export": {
+    "downloadCsv": "CSV indir",
+    "printReport": "Yazdır / PDF",
+    "copySummary": "Özeti kopyala"
+  },
+  "legal": {
+    "disclaimer": "Bu sonuç, girdiğiniz değerlere dayalı teknik bir tahmindir. Finansal, hukuki, tıbbi veya mühendislik danışmanlığının yerine geçmez.",
+    "premiumDisclaimer": "Bu rapor karar destek simülasyonudur. Finansal, hukuki, tıbbi veya mühendislik danışmanlığının yerine geçmez.",
+    "reportNote": "Yalnızca operasyonel referans içindir — fiyat veya sözleşme öncesi varsayımları doğrulayın."
+  },
+  "errors": {
+    "calculationFailed": "Bu sonucu hesaplayamadık. Girdiğiniz değerleri kontrol edip tekrar deneyin.",
+    "invalidInput": "Bir veya daha fazla değer geçersiz. İşaretli alanları kontrol edin.",
+    "networkError": "Bağlantı kurulamadı. Ağınızı kontrol edip tekrar deneyin.",
+    "accessDenied": "Bu rapor için premium erişim gerekir.",
+    "notFound": "Sayfa veya araç bulunamadı.",
+    "generic": "Bir sorun oluştu. Lütfen tekrar deneyin."
+  },
+  "seo": {
+    "homeTitle": "SectorCalc — Sektörel hesaplama ve karar raporları",
+    "homeDescription": "Görünmeyen kayıp, marj maruziyeti ve operasyonel riski sektöre özel hesaplama araçlarıyla ölçün — ERP karmaşıklığı olmadan.",
+    "freeToolsTitle": "Ücretsiz Sektörel Hesaplama Araçları | SectorCalc",
+    "freeToolsDescription": "Maliyet, ölçüm, enerji ve iş kararları için ücretsiz tarayıcı hesaplayıcıları. Kayıt gerekmez.",
+    "pricingTitle": "Fiyatlandırma | SectorCalc",
+    "pricingDescription": "Ücretsiz hesaplayıcılar ve premium karar raporları — tek rapor $9'dan, Pro $19/ay.",
+    "premiumToolsTitle": "Premium Analiz Araçları | SectorCalc",
+    "premiumToolsDescription": "Görünmeyen kayıp analizi, eşik kontrolü ve dışa aktarmaya hazır karar raporları."
+  },
+  "cta": {
+    "startFree": "Ücretsiz başla",
+    "calculateNow": "Hesapla",
+    "viewFreeTools": "Ücretsiz araçlar",
+    "openPremiumAnalyzer": "Analiz aracını aç",
+    "unlockFullReport": "Raporu aç",
+    "viewPricing": "Fiyatlandırma",
+    "downloadCsv": "CSV indir",
+    "printReport": "Yazdır / PDF",
+    "copySummary": "Özeti kopyala",
+    "switchLanguage": "Dil",
+    "chooseSector": "Sektör seç",
+    "seeWhatThisEstimateMisses": "Eksikleri gör"
   }
 }

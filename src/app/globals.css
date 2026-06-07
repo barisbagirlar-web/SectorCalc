@@ -197,3 +197,13 @@
   right: 0;
   transform-origin: 100% 50%;
 }
+
+[dir="rtl"] .locale-sensitive-row {
+  direction: rtl;
+}
+
+[dir="rtl"] .sc-report-table,
+[dir="rtl"] .sc-premium-preview {
+  text-align: start;
+  overflow-x: auto;
+}

@@ -19,11 +19,11 @@
     "runFreeCheck": "Check gratuit"
   },
   "osGate": {
-    "label": "Subscription required",
-    "message": "This operation requires Intelligence Layer. Unlock with Pro membership.",
+    "label": "Abonnement requis",
+    "message": "Cette fonction nécessite la couche Intelligence. Débloquez avec Pro.",
     "single": "Single run {price}",
     "pro": "Pro {price}",
-    "singleCta": "Unlock run · {price}",
+    "singleCta": "Lancer · {price}",
     "proCta": "Pro · {price}"
   },
   "hero": {
@@ -36,43 +36,43 @@
     "trustStrip": "27 secteurs · Calculateurs gratuits · Rapports premium · Sans ERP"
   },
   "valueProps": {
-    "eyebrow": "Universelle Messung",
-    "title": "Vier Verlustdimensionen — eine Plattform",
-    "subtitle": "SectorCalc zeigt Geld-, Material-, Zeit- und Energieverluste mit Gratis-Checks und Premium-Urteilen.",
-    "financial": "Finanzverlust",
+    "eyebrow": "Mesure universelle",
+    "title": "Quatre dimensions de perte — une plateforme",
+    "subtitle": "SectorCalc révèle fuites financières, matières, temps et énergie avec contrôles gratuits et analyses premium.",
+    "financial": "Perte financière",
     "financialTr": "Finanzverlust",
-    "financialDesc": "Marge-, Kosten- und Gewinnlecks vor dem Angebot.",
-    "material": "Materialverlust",
+    "financialDesc": "Fuites de marge, coûts et profits avant devalider un devis ou contrat.",
+    "material": "Perte matière",
     "materialTr": "Materialverlust",
-    "materialDesc": "Ausschuss, Abfall und Ertragslücken, die Standardrechner ignorieren.",
-    "time": "Zeitverlust",
+    "materialDesc": "Rebut, gaspillage et écarts de rendement ignorés par les calculateurs standards.",
+    "time": "Perte de temps",
     "timeTr": "Zeitverlust",
-    "timeDesc": "Rüstzeit, Verzögerungen und OEE-ähnliche Effizienzrisiken.",
-    "energy": "Energieverlust",
+    "timeDesc": "Temps de réglage, retards et risque d'efficacité type OEE.",
+    "energy": "Perte énergétique",
     "energyTr": "Energieverlust",
-    "energyDesc": "kWh, CO₂ und CBAM-ähnliche Compliance-Puffer."
+    "energyDesc": "kWh, carbone et risques de conformité type CBAM."
   },
   "sectors": {
-    "title": "Wählen Sie aus {count} aktiven Branchen",
-    "subtitle": "Neun Branchenkategorien — von CNC bis Landwirtschaft, Energie und Alltag.",
-    "viewAll": "Alle {count} Branchen ansehen →",
-    "browseByCategory": "Nach Kategorie",
-    "startFree": "Gratis-Check starten",
-    "viewPremium": "Premium-Analysator",
+    "title": "Choisissez parmi {count} secteurs actifs",
+    "subtitle": "Neuf catégories — de la CNC à l'agriculture, l'énergie et le quotidien.",
+    "viewAll": "Voir les {count} secteurs →",
+    "browseByCategory": "Par catégorie",
+    "startFree": "Check gratuit",
+    "viewPremium": "Analyse premium",
     "free": "Gratis",
     "premium": "Premium"
   },
   "pricing": {
     "eyebrow": "Tarifs",
     "title": "Choisissez comment protéger votre marge.",
-    "tagline": "Premium-Analysatoren verwandeln Risikosignale in Mindestpreise und exportierbare Berichte.",
+    "tagline": "Analyses premium : prix plancher, diagnostics et rapports exportables.",
     "singleReportNote": "Single decision reports from $9 for one-off analysis.",
-    "roiCopy": "Ein vermiedenes Fehlangebot kann ein ganzes Pro-Jahr finanzieren.",
-    "sampleReport": "Beispielbericht ansehen →",
-    "browsePremium": "Premium-Analysatoren →",
-    "startFree": "Mit Gratis-Tools starten →",
-    "availableNow": "Jetzt verfügbar",
-    "waitlist": "Warteliste",
+    "roiCopy": "Un mauvais devis évité peut financer une année Pro.",
+    "sampleReport": "Voir un exemple de rapport →",
+    "browsePremium": "Analyses premium →",
+    "startFree": "Commencer avec les outils gratuits →",
+    "availableNow": "Disponible",
+    "waitlist": "Liste d'attente",
     "free": "Gratis-Check",
     "freePrice": "$0",
     "freePeriod": "für immer",
@@ -131,16 +131,16 @@
   },
   "checkoutPages": {
     "successEyebrow": "Checkout",
-    "successTitle": "Payment received.",
+    "successTitle": "Paiement reçu.",
     "successText": "Your premium access is being prepared. If your report does not unlock immediately, refresh the page or contact support.",
     "successRefreshNote": "Payment confirmation received. Access is applied by our server — refresh in a few seconds if your report is still locked.",
     "successPrimaryCta": "Return to analyzer",
-    "successPremiumCta": "Open premium analyzers",
+    "successPremiumCta": "Ouvrir les analyses premium",
     "successSecondaryCta": "Go to pricing",
     "cancelEyebrow": "Checkout",
     "cancelTitle": "Checkout canceled.",
     "cancelText": "You can continue using free calculators or return to the premium analyzer when ready.",
-    "cancelPricingCta": "Return to pricing",
+    "cancelPricingCta": "Retour aux tarifs",
     "cancelReturnCta": "Return to analyzer",
     "cancelFreeCta": "View free calculators"
   },
@@ -436,12 +436,13 @@
     "followsLanguage": "Follows language → {region}"
   },
   "locale": {
-    "label": "Sprache",
+    "label": "Langue",
     "en": "English",
     "tr": "Türkçe",
     "es": "Español",
     "de": "Deutsch",
-    "ar": "العربية"
+    "ar": "العربية",
+    "fr": "Français"
   },
   "common": {
     "learnMore": "Learn more",
@@ -488,16 +489,16 @@
       "eyebrow": "Step 1",
       "title": "Run a free sector check",
       "subtitle": "{count} sector quick checks with 3–5 inputs. See visible risk in your browser — no account, no safe price, no final verdict.",
-      "cta": "Run a Free Margin Check",
+      "cta": "Check marge gratuit",
       "cardLabel": "Free check output",
       "cardRisk": "Risk signal: MEDIUM",
       "cardBody": "Visible setup and labor exposure — full safe price withheld on free tier."
     },
     "premiumStep": {
       "eyebrow": "Step 2",
-      "title": "Unlock the full verdict",
+      "title": "Rapport de décision complet",
       "subtitle": "Premium analyzers add minimum safe price, margin leak drivers, suggested action and PDF export — the decision layer operators need before quoting.",
-      "cta": "View Premium Analyzers",
+      "cta": "Analyses premium",
       "cardEyebrow": "Premium verdict",
       "cardTitle": "Minimum safe price + action",
       "cardBody": "Margin leak breakdown, accept / reprice verdict and exportable PDF report."
@@ -567,8 +568,8 @@
       "eyebrow": "Get started",
       "title": "Start calculating for your sector",
       "subtitle": "Begin with free tools, upgrade to premium reports when you need them.",
-      "primary": "Explore Free Tools",
-      "secondary": "View Sample Verdict Report"
+      "primary": "Outils gratuits",
+      "secondary": "Exemple de rapport"
     }
   },
   "homeDashboard": {
@@ -905,7 +906,7 @@
       "body": "Run a free sector check, then unlock a Single Verdict or SectorCalc Pro to save reports.",
       "bodyWithCredits": "Run your unlocked premium analyzer and save the verdict report here.",
       "ctaFree": "Explore free tools",
-      "ctaPremium": "Open premium analyzers",
+      "ctaPremium": "Ouvrir les analyses",
       "viewReport": "View report"
     },
     "purchases": {
@@ -916,7 +917,7 @@
       "eyebrow": "Sign in required",
       "title": "Sign in to view saved reports",
       "body": "Saved verdict reports are linked to your SectorCalc account.",
-      "cta": "Sign in"
+      "cta": "Se connecter"
     }
   },
   "betaPartner": {
@@ -991,73 +992,157 @@
     }
   },
   "premiumDecisionReport": {
-    "documentLabel": "Premium decision report",
-    "reportEyebrow": "Decision report",
-    "decisionDesk": "Decision desk",
-    "runPrompt": "Enter ledger entries and run the analysis.",
-    "ledgerEntries": "Ledger entries",
-    "runAnalysis": "Run analysis",
-    "whatThisMeans": "What this means",
-    "hiddenDriversTitle": "Hidden drivers behind the result",
-    "hiddenDriversIntro": "These secondary outputs explain what is pushing the main result up or down.",
-    "thresholdTitle": "Threshold check",
-    "suggestedActionTitle": "Suggested action",
-    "actionImmediate": "Immediate",
-    "actionMonitoring": "Monitor",
-    "actionDecision": "Decision",
-    "assumptionsTitle": "Assumptions used",
-    "legalTitle": "Legal note",
-    "exportTitle": "Premium report output",
-    "previewCta": "Preview report",
-    "bufferedExposure": "Buffered exposure",
+    "documentLabel": "Rapport de décision premium",
+    "reportEyebrow": "Rapport de décision",
+    "decisionDesk": "Table de décision",
+    "runPrompt": "Saisissez les valeurs et lancez l'analyse.",
+    "ledgerEntries": "Entrées comptables",
+    "runAnalysis": "Lancer l'analyse",
+    "whatThisMeans": "Ce que cela signifie",
+    "hiddenDriversTitle": "Facteurs cachés derrière le résultat",
+    "hiddenDriversIntro": "Ces sorties secondaires expliquent ce qui fait monter ou baisser le résultat principal.",
+    "thresholdTitle": "Contrôle des seuils",
+    "suggestedActionTitle": "Action recommandée",
+    "actionImmediate": "Immédiat",
+    "actionMonitoring": "Surveiller",
+    "actionDecision": "Décision",
+    "assumptionsTitle": "Hypothèses utilisées",
+    "legalTitle": "Note légale",
+    "exportTitle": "Sortie du rapport premium",
+    "previewCta": "Aperçu du rapport",
+    "bufferedExposure": "Exposition tamponnée",
     "status": {
-      "Critical": "Critical",
-      "Warning": "Warning",
+      "Critical": "Critique",
+      "Warning": "Alerte",
       "Acceptable": "Acceptable"
     },
     "export": {
-      "title": "Premium report output",
-      "sectionExecutive": "Executive summary",
-      "sectionDrivers": "Hidden drivers",
-      "sectionThreshold": "Threshold check",
-      "sectionAction": "Suggested action",
-      "sectionAssumptions": "Assumptions",
-      "sectionReady": "PDF/CSV ready",
-      "printPdf": "Print / Save as PDF",
-      "downloadCsv": "Download CSV",
-      "copySummary": "Copy report summary",
-      "copied": "Copied",
-      "copyFailed": "Copy failed",
-      "openPrintPage": "Open print page",
-      "backToReport": "Back to report"
+      "title": "Sortie du rapport premium",
+      "sectionExecutive": "Synthèse",
+      "sectionDrivers": "Facteurs cachés",
+      "sectionThreshold": "Contrôle des seuils",
+      "sectionAction": "Action recommandée",
+      "sectionAssumptions": "Hypothèses",
+      "sectionReady": "PDF/CSV prêt",
+      "printPdf": "Imprimer / Enregistrer PDF",
+      "downloadCsv": "Télécharger CSV",
+      "copySummary": "Copier le résumé",
+      "copied": "Copié",
+      "copyFailed": "Échec de la copie",
+      "openPrintPage": "Ouvrir la page d'impression",
+      "backToReport": "Retour au rapport"
     },
     "locked": {
-      "title": "Unlock the full decision report",
-      "text": "The preview shows the headline exposure. The full report shows the hidden drivers, threshold interpretation, suggested actions and export-ready output.",
-      "bulletBreakdown": "Full loss breakdown",
-      "bulletThreshold": "Threshold interpretation",
-      "bulletAction": "Suggested action plan",
-      "bulletExport": "PDF / CSV export",
-      "bulletSaved": "Saved report output",
-      "unlockCta": "Unlock full report",
-      "pricingCta": "View pricing",
-      "valueLine": "Best when the result affects pricing, operations or management decisions.",
-      "exportLocked": "Export is included with the full decision report.",
-      "unlockPrint": "Unlock to print / save PDF",
-      "unlockCsv": "Unlock to download CSV",
-      "samplePrintNote": "Sample preview — unlock the full report to print without the sample label."
+      "title": "Ouvrir le rapport de décision complet",
+      "text": "L'aperçu montre l'exposition principale. Le rapport complet montre les facteurs cachés, l'interprétation des seuils, les actions recommandées et la sortie exportable.",
+      "bulletBreakdown": "Ventilation complète des pertes",
+      "bulletThreshold": "Interprétation des seuils",
+      "bulletAction": "Plan d'action recommandé",
+      "bulletExport": "Export PDF / CSV",
+      "bulletSaved": "Rapport enregistré",
+      "unlockCta": "Ouvrir le rapport",
+      "pricingCta": "Voir les tarifs",
+      "valueLine": "Idéal lorsque le résultat influence tarifs, opérations ou décisions de gestion.",
+      "exportLocked": "L'export est inclus dans le rapport complet.",
+      "unlockPrint": "Ouvrir pour imprimer / enregistrer PDF",
+      "unlockCsv": "Ouvrir pour télécharger CSV",
+      "samplePrintNote": "Aperçu exemple — ouvrez le rapport complet pour imprimer sans mention d'exemple."
     },
     "decisionValue": {
-      "title": "Decision value",
-      "intro": "What this report helps you decide",
-      "bullet1": "Identify the main hidden-loss driver",
-      "bullet2": "Compare against warning and critical thresholds",
-      "bullet3": "Turn the result into a practical action",
-      "bullet4": "Export the report for management or client review"
+      "title": "Valeur décisionnelle",
+      "intro": "Ce que ce rapport aide à décider",
+      "bullet1": "Identifier le principal facteur de perte cachée",
+      "bullet2": "Comparer aux seuils d'alerte et critiques",
+      "bullet3": "Transformer le résultat en action concrète",
+      "bullet4": "Exporter le rapport pour la direction ou le client"
     }
   },
   "legal": {
-    "disclaimer": "Ce résultat est une estimation technique basée sur les valeurs saisies. Il ne remplace pas un conseil financier, juridique, médical ou d'ingénierie.",
-    "premiumDisclaimer": "Ce rapport est une simulation d'aide à la décision. Il ne remplace pas un conseil financier, juridique, médical ou d'ingénierie."
+    "disclaimer": "Ce résultat est une estimation technique basée sur vos saisies. Il ne remplace pas un conseil financier, juridique, médical ou d'ingénierie.",
+    "premiumDisclaimer": "Ce rapport est une aide à la décision. Il ne remplace pas un conseil financier, juridique, médical ou d'ingénierie.",
+    "reportNote": "Référence opérationnelle uniquement — vérifiez les hypothèses avant tout engagement tarifaire ou contractuel."
+  },
+  "navigation": {
+    "tools": "Calculateur",
+    "pricing": "Tarifs",
+    "account": "Compte",
+    "freeTools": "Calculateur gratuit",
+    "premiumTools": "Analyse premium",
+    "reports": "Rapport de décision"
+  },
+  "homepage": {
+    "headline": "Mesurez pertes cachées, exposition marge et risque opérationnel avec des outils sectoriels",
+    "primaryCta": "Commencer",
+    "secondaryCta": "Outils gratuits"
+  },
+  "freeTools": {
+    "title": "Calculateurs sectoriels gratuits",
+    "metaTitle": "Calculateurs sectoriels gratuits | SectorCalc",
+    "calculate": "Calculer"
+  },
+  "premiumTools": {
+    "title": "Analyse premium",
+    "openAnalyzer": "Ouvrir l'analyse"
+  },
+  "categories": {
+    "title": "Par catégorie",
+    "viewAll": "Toutes les catégories"
+  },
+  "industries": {
+    "title": "Par secteur",
+    "viewAll": "Choisir secteur"
+  },
+  "calculator": {
+    "calculate": "Calculer",
+    "awaiting": "Saisissez les valeurs pour voir le résultat",
+    "validationRequired": "Veuillez sélectionner une valeur.",
+    "validationNumber": "Saisissez un nombre valide."
+  },
+  "premiumReport": {
+    "executiveSummary": "Synthèse",
+    "mainExposure": "Exposition principale",
+    "hiddenDrivers": "Facteurs cachés",
+    "thresholdCheck": "Contrôle des seuils",
+    "suggestedActions": "Actions recommandées",
+    "assumptions": "Hypothèses",
+    "exportReady": "Rapport exportable",
+    "legalNote": "Note légale"
+  },
+  "export": {
+    "downloadCsv": "Télécharger CSV",
+    "printReport": "Imprimer / PDF",
+    "copySummary": "Copier le résumé"
+  },
+  "errors": {
+    "calculationFailed": "Le résultat n'a pas pu être calculé. Vérifiez les valeurs saisies.",
+    "invalidInput": "Une ou plusieurs valeurs sont invalides. Vérifiez les champs signalés.",
+    "networkError": "Connexion impossible. Vérifiez le réseau et réessayez.",
+    "accessDenied": "Un accès premium est requis pour ce rapport.",
+    "notFound": "Page ou outil introuvable.",
+    "generic": "Une erreur s'est produite. Veuillez réessayer."
+  },
+  "seo": {
+    "homeTitle": "SectorCalc — Calculateurs sectoriels et rapports de décision",
+    "homeDescription": "Mesurez pertes cachées, exposition marge et risque opérationnel avec des outils sectoriels — sans complexité ERP.",
+    "freeToolsTitle": "Calculateurs sectoriels gratuits | SectorCalc",
+    "freeToolsDescription": "Calculateurs gratuits pour coûts, mesures, énergie et décisions métier. Sans inscription.",
+    "pricingTitle": "Tarifs | SectorCalc",
+    "pricingDescription": "Outils gratuits et rapports premium — rapport unique dès 9 $, Pro dès 19 $/mois.",
+    "premiumToolsTitle": "Analyses premium | SectorCalc",
+    "premiumToolsDescription": "Diagnostic des pertes, contrôle des seuils et rapports exportables pour équipes opérationnelles."
+  },
+  "cta": {
+    "startFree": "Commencer",
+    "calculateNow": "Calculer",
+    "viewFreeTools": "Outils gratuits",
+    "openPremiumAnalyzer": "Ouvrir l'analyse",
+    "unlockFullReport": "Ouvrir le rapport",
+    "viewPricing": "Voir les tarifs",
+    "downloadCsv": "Télécharger CSV",
+    "printReport": "Imprimer / PDF",
+    "copySummary": "Copier le résumé",
+    "switchLanguage": "Langue",
+    "chooseSector": "Choisir secteur",
+    "seeWhatThisEstimateMisses": "Ce qui manque"
   }
 }

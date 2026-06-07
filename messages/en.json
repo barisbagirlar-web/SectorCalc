@@ -436,7 +436,8 @@
     "tr": "Türkçe",
     "es": "Español",
     "de": "Deutsch",
-    "ar": "العربية"
+    "ar": "العربية",
+    "fr": "Français"
   },
   "common": {
     "learnMore": "Learn more",
@@ -1050,5 +1051,93 @@
       "bullet3": "Turn the result into a practical action",
       "bullet4": "Export the report for management or client review"
     }
+  },
+  "navigation": {
+    "tools": "Tools",
+    "pricing": "Pricing",
+    "account": "Account",
+    "freeTools": "Free calculator",
+    "premiumTools": "Premium analyzer",
+    "reports": "Decision report"
+  },
+  "homepage": {
+    "headline": "Measure hidden loss across your sector",
+    "primaryCta": "Start free",
+    "secondaryCta": "View free tools"
+  },
+  "freeTools": {
+    "title": "Free Sector Calculators",
+    "metaTitle": "Free Sector Calculators | SectorCalc",
+    "calculate": "Calculate now"
+  },
+  "premiumTools": {
+    "title": "Premium analyzer",
+    "openAnalyzer": "Open analyzer"
+  },
+  "categories": {
+    "title": "Browse by category",
+    "viewAll": "View all categories"
+  },
+  "industries": {
+    "title": "Explore by industry",
+    "viewAll": "Choose sector"
+  },
+  "calculator": {
+    "calculate": "Calculate now",
+    "awaiting": "Enter values to see your result",
+    "validationRequired": "Please select a value.",
+    "validationNumber": "Enter a valid number."
+  },
+  "premiumReport": {
+    "executiveSummary": "Executive summary",
+    "mainExposure": "Main exposure",
+    "hiddenDrivers": "Hidden drivers",
+    "thresholdCheck": "Threshold check",
+    "suggestedActions": "Suggested actions",
+    "assumptions": "Assumptions",
+    "exportReady": "Export-ready report",
+    "legalNote": "Legal note"
+  },
+  "export": {
+    "downloadCsv": "Download CSV",
+    "printReport": "Print report",
+    "copySummary": "Copy summary"
+  },
+  "legal": {
+    "disclaimer": "This result is a technical estimate based on your inputs. It does not replace financial, legal, medical or engineering advice.",
+    "premiumDisclaimer": "This report is a decision-support simulation. It does not replace financial, legal, medical or engineering advice.",
+    "reportNote": "For operational reference only — verify assumptions before committing to pricing or contracts."
+  },
+  "errors": {
+    "calculationFailed": "We could not calculate this result. Check the inputs and try again.",
+    "invalidInput": "One or more values are invalid. Please review the highlighted fields.",
+    "networkError": "Connection failed. Check your network and try again.",
+    "accessDenied": "You need premium access for this report.",
+    "notFound": "This page or tool could not be found.",
+    "generic": "Something went wrong. Please try again."
+  },
+  "seo": {
+    "homeTitle": "SectorCalc — Sector calculators and decision reports",
+    "homeDescription": "Measure hidden loss, margin exposure and operational risk with sector-specific calculators — without ERP complexity.",
+    "freeToolsTitle": "Free Sector Calculators | SectorCalc",
+    "freeToolsDescription": "Free browser calculators for cost, measurement, energy and business decisions. No sign-up required.",
+    "pricingTitle": "Pricing | SectorCalc",
+    "pricingDescription": "Free calculators and premium decision reports — single reports from $9, Pro from $19/month.",
+    "premiumToolsTitle": "Premium Analyzers | SectorCalc",
+    "premiumToolsDescription": "Hidden-loss diagnostics, threshold checks and export-ready decision reports for operational teams."
+  },
+  "cta": {
+    "startFree": "Start free",
+    "calculateNow": "Calculate now",
+    "viewFreeTools": "View free tools",
+    "openPremiumAnalyzer": "Open analyzer",
+    "unlockFullReport": "Unlock full report",
+    "viewPricing": "View pricing",
+    "downloadCsv": "Download CSV",
+    "printReport": "Print report",
+    "copySummary": "Copy summary",
+    "switchLanguage": "Language",
+    "chooseSector": "Choose sector",
+    "seeWhatThisEstimateMisses": "See what's missing"
   }
 }

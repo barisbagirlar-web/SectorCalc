@@ -19,11 +19,11 @@
     "runFreeCheck": "فحص مجاني"
   },
   "osGate": {
-    "label": "Subscription required",
-    "message": "This operation requires Intelligence Layer. Unlock with Pro membership.",
+    "label": "الاشتراك مطلوب",
+    "message": "تتطلب هذه العملية طبقة Intelligence. افتح الوصول عبر Pro.",
     "single": "Single run {price}",
     "pro": "Pro {price}",
-    "singleCta": "Unlock run · {price}",
+    "singleCta": "تشغيل · {price}",
     "proCta": "Pro · {price}"
   },
   "hero": {
@@ -131,16 +131,16 @@
   },
   "checkoutPages": {
     "successEyebrow": "Checkout",
-    "successTitle": "Payment received.",
+    "successTitle": "تم استلام الدفع.",
     "successText": "Your premium access is being prepared. If your report does not unlock immediately, refresh the page or contact support.",
     "successRefreshNote": "Payment confirmation received. Access is applied by our server — refresh in a few seconds if your report is still locked.",
     "successPrimaryCta": "Return to analyzer",
-    "successPremiumCta": "Open premium analyzers",
+    "successPremiumCta": "فتح التحليل المتقدم",
     "successSecondaryCta": "Go to pricing",
     "cancelEyebrow": "Checkout",
     "cancelTitle": "Checkout canceled.",
     "cancelText": "You can continue using free calculators or return to the premium analyzer when ready.",
-    "cancelPricingCta": "Return to pricing",
+    "cancelPricingCta": "العودة إلى الأسعار",
     "cancelReturnCta": "Return to analyzer",
     "cancelFreeCta": "View free calculators"
   },
@@ -198,10 +198,10 @@
     "premiumPreview2": "تحليل المتغيرات المخفية",
     "premiumPreview3": "توصية خبير للعمل",
     "premiumPreview4": "تصدير PDF + Excel",
-    "unlockVerdictTitle": "Unlock full verdict",
-    "unlockVerdictBody": "See P90 safe price, margin leak breakdown and the recommended action — withheld from the free tier.",
-    "unlockVerdictCta": "Unlock full verdict",
-    "unlockVerdictLoading": "Checking access…"
+    "unlockVerdictTitle": "عرض الحكم الكامل",
+    "unlockVerdictBody": "سعر P90 الآمن وتحليل تسرب الهامش والإجراء الموصى به — غير متاح في المستوى المجاني.",
+    "unlockVerdictCta": "عرض الحكم",
+    "unlockVerdictLoading": "جارٍ التحقق من الوصول…"
   },
   "catalogExplorer": {
     "categories": {
@@ -441,7 +441,8 @@
     "tr": "Türkçe",
     "es": "Español",
     "de": "Deutsch",
-    "ar": "العربية"
+    "ar": "العربية",
+    "fr": "Français"
   },
   "common": {
     "learnMore": "Learn more",
@@ -488,16 +489,16 @@
       "eyebrow": "Step 1",
       "title": "Run a free sector check",
       "subtitle": "{count} sector quick checks with 3–5 inputs. See visible risk in your browser — no account, no safe price, no final verdict.",
-      "cta": "Run a Free Margin Check",
+      "cta": "فحص هامش مجاني",
       "cardLabel": "Free check output",
       "cardRisk": "Risk signal: MEDIUM",
       "cardBody": "Visible setup and labor exposure — full safe price withheld on free tier."
     },
     "premiumStep": {
       "eyebrow": "Step 2",
-      "title": "Unlock the full verdict",
+      "title": "الحكم الكامل",
       "subtitle": "Premium analyzers add minimum safe price, margin leak drivers, suggested action and PDF export — the decision layer operators need before quoting.",
-      "cta": "View Premium Analyzers",
+      "cta": "أدوات التحليل المتقدمة",
       "cardEyebrow": "Premium verdict",
       "cardTitle": "Minimum safe price + action",
       "cardBody": "Margin leak breakdown, accept / reprice verdict and exportable PDF report."
@@ -567,8 +568,8 @@
       "eyebrow": "Get started",
       "title": "Start calculating for your sector",
       "subtitle": "Begin with free tools, upgrade to premium reports when you need them.",
-      "primary": "Explore Free Tools",
-      "secondary": "View Sample Verdict Report"
+      "primary": "أدوات مجانية",
+      "secondary": "عرض تقرير نموذجي"
     }
   },
   "homeDashboard": {
@@ -905,7 +906,7 @@
       "body": "Run a free sector check, then unlock a Single Verdict or SectorCalc Pro to save reports.",
       "bodyWithCredits": "Run your unlocked premium analyzer and save the verdict report here.",
       "ctaFree": "Explore free tools",
-      "ctaPremium": "Open premium analyzers",
+      "ctaPremium": "فتح التحليل المتقدم",
       "viewReport": "View report"
     },
     "purchases": {
@@ -916,7 +917,7 @@
       "eyebrow": "Sign in required",
       "title": "Sign in to view saved reports",
       "body": "Saved verdict reports are linked to your SectorCalc account.",
-      "cta": "Sign in"
+      "cta": "تسجيل الدخول"
     }
   },
   "betaPartner": {
@@ -991,69 +992,157 @@
     }
   },
   "premiumDecisionReport": {
-    "documentLabel": "Premium decision report",
-    "reportEyebrow": "Decision report",
-    "decisionDesk": "Decision desk",
-    "runPrompt": "Enter ledger entries and run the analysis.",
-    "ledgerEntries": "Ledger entries",
-    "runAnalysis": "Run analysis",
-    "whatThisMeans": "What this means",
-    "hiddenDriversTitle": "Hidden drivers behind the result",
-    "hiddenDriversIntro": "These secondary outputs explain what is pushing the main result up or down.",
-    "thresholdTitle": "Threshold check",
-    "suggestedActionTitle": "Suggested action",
-    "actionImmediate": "Immediate",
-    "actionMonitoring": "Monitor",
-    "actionDecision": "Decision",
-    "assumptionsTitle": "Assumptions used",
-    "legalTitle": "Legal note",
-    "exportTitle": "Premium report output",
-    "previewCta": "Preview report",
-    "bufferedExposure": "Buffered exposure",
+    "documentLabel": "تقرير قرار متقدم",
+    "reportEyebrow": "تقرير القرار",
+    "decisionDesk": "مكتب القرار",
+    "runPrompt": "أدخل القيم وشغّل التحليل.",
+    "ledgerEntries": "إدخالات الدفتر",
+    "runAnalysis": "تشغيل التحليل",
+    "whatThisMeans": "ماذا يعني هذا",
+    "hiddenDriversTitle": "العوامل الخفية وراء النتيجة",
+    "hiddenDriversIntro": "هذه المخرجات الثانوية تشرح ما يرفع أو يخفض النتيجة الرئيسية.",
+    "thresholdTitle": "فحص الحدود",
+    "suggestedActionTitle": "الإجراء المقترح",
+    "actionImmediate": "فوري",
+    "actionMonitoring": "مراقبة",
+    "actionDecision": "قرار",
+    "assumptionsTitle": "الافتراضات المستخدمة",
+    "legalTitle": "إشعار قانوني",
+    "exportTitle": "مخرجات التقرير المتقدم",
+    "previewCta": "معاينة التقرير",
+    "bufferedExposure": "التعرض المخزّن",
     "status": {
-      "Critical": "Critical",
-      "Warning": "Warning",
-      "Acceptable": "Acceptable"
+      "Critical": "حرج",
+      "Warning": "تحذير",
+      "Acceptable": "مقبول"
     },
     "export": {
-      "title": "Premium report output",
-      "sectionExecutive": "Executive summary",
-      "sectionDrivers": "Hidden drivers",
-      "sectionThreshold": "Threshold check",
-      "sectionAction": "Suggested action",
-      "sectionAssumptions": "Assumptions",
-      "sectionReady": "PDF/CSV ready",
-      "printPdf": "Print / Save as PDF",
-      "downloadCsv": "Download CSV",
-      "copySummary": "Copy report summary",
-      "copied": "Copied",
-      "copyFailed": "Copy failed",
-      "openPrintPage": "Open print page",
-      "backToReport": "Back to report"
+      "title": "مخرجات التقرير المتقدم",
+      "sectionExecutive": "الملخص التنفيذي",
+      "sectionDrivers": "العوامل الخفية",
+      "sectionThreshold": "فحص الحدود",
+      "sectionAction": "الإجراء المقترح",
+      "sectionAssumptions": "الافتراضات",
+      "sectionReady": "PDF/CSV جاهز",
+      "printPdf": "طباعة / حفظ PDF",
+      "downloadCsv": "تنزيل CSV",
+      "copySummary": "نسخ ملخص التقرير",
+      "copied": "تم النسخ",
+      "copyFailed": "فشل النسخ",
+      "openPrintPage": "فتح صفحة الطباعة",
+      "backToReport": "العودة إلى التقرير"
     },
     "locked": {
-      "title": "Unlock the full decision report",
-      "text": "The preview shows the headline exposure. The full report shows the hidden drivers, threshold interpretation, suggested actions and export-ready output.",
-      "bulletBreakdown": "Full loss breakdown",
-      "bulletThreshold": "Threshold interpretation",
-      "bulletAction": "Suggested action plan",
-      "bulletExport": "PDF / CSV export",
-      "bulletSaved": "Saved report output",
-      "unlockCta": "Unlock full report",
-      "pricingCta": "View pricing",
-      "valueLine": "Best when the result affects pricing, operations or management decisions.",
-      "exportLocked": "Export is included with the full decision report.",
-      "unlockPrint": "Unlock to print / save PDF",
-      "unlockCsv": "Unlock to download CSV",
-      "samplePrintNote": "Sample preview — unlock the full report to print without the sample label."
+      "title": "فتح تقرير القرار الكامل",
+      "text": "المعاينة تعرض التعرض الرئيسي. التقرير الكامل يعرض العوامل الخفية وتفسير الحدود والإجراءات المقترحة والمخرجات القابلة للتصدير.",
+      "bulletBreakdown": "تفصيل كامل للخسائر",
+      "bulletThreshold": "تفسير الحدود",
+      "bulletAction": "خطة إجراء مقترحة",
+      "bulletExport": "تصدير PDF / CSV",
+      "bulletSaved": "تقرير محفوظ",
+      "unlockCta": "فتح التقرير",
+      "pricingCta": "الأسعار",
+      "valueLine": "الأفضل عندما تؤثر النتيجة على التسعير أو العمليات أو قرارات الإدارة.",
+      "exportLocked": "التصدير مشمول في تقرير القرار الكامل.",
+      "unlockPrint": "افتح للطباعة / حفظ PDF",
+      "unlockCsv": "افتح لتنزيل CSV",
+      "samplePrintNote": "معاينة نموذجية — افتح التقرير الكامل للطباعة دون تسمية نموذج."
     },
     "decisionValue": {
-      "title": "Decision value",
-      "intro": "What this report helps you decide",
-      "bullet1": "Identify the main hidden-loss driver",
-      "bullet2": "Compare against warning and critical thresholds",
-      "bullet3": "Turn the result into a practical action",
-      "bullet4": "Export the report for management or client review"
+      "title": "قيمة القرار",
+      "intro": "ما يساعدك هذا التقرير على تقريره",
+      "bullet1": "تحديد عامل الخسارة الخفية الرئيسي",
+      "bullet2": "المقارنة مع حدود التحذير والحرج",
+      "bullet3": "تحويل النتيجة إلى إجراء عملي",
+      "bullet4": "تصدير التقرير للإدارة أو العميل"
     }
+  },
+  "navigation": {
+    "tools": "حاسبة",
+    "pricing": "الأسعار",
+    "account": "الحساب",
+    "freeTools": "حاسبة مجانية",
+    "premiumTools": "أداة تحليل متقدمة",
+    "reports": "تقرير القرار"
+  },
+  "homepage": {
+    "headline": "قِس الخسائر غير المرئية وتعرّض الهامش والمخاطر التشغيلية بأدوات قطاعية",
+    "primaryCta": "ابدأ مجانًا",
+    "secondaryCta": "أدوات مجانية"
+  },
+  "freeTools": {
+    "title": "حاسبات قطاعية مجانية",
+    "metaTitle": "حاسبات قطاعية مجانية | SectorCalc",
+    "calculate": "احسب"
+  },
+  "premiumTools": {
+    "title": "أداة تحليل متقدمة",
+    "openAnalyzer": "فتح التحليل"
+  },
+  "categories": {
+    "title": "حسب الفئة",
+    "viewAll": "جميع الفئات"
+  },
+  "industries": {
+    "title": "حسب القطاع",
+    "viewAll": "اختر القطاع"
+  },
+  "calculator": {
+    "calculate": "احسب",
+    "awaiting": "أدخل القيم لعرض النتيجة",
+    "validationRequired": "يرجى اختيار قيمة.",
+    "validationNumber": "أدخل رقمًا صالحًا."
+  },
+  "premiumReport": {
+    "executiveSummary": "الملخص التنفيذي",
+    "mainExposure": "التعرض الرئيسي",
+    "hiddenDrivers": "العوامل الخفية",
+    "thresholdCheck": "فحص الحدود",
+    "suggestedActions": "الإجراءات المقترحة",
+    "assumptions": "الافتراضات",
+    "exportReady": "تقرير جاهز للتصدير",
+    "legalNote": "إشعار قانوني"
+  },
+  "export": {
+    "downloadCsv": "تنزيل CSV",
+    "printReport": "طباعة / PDF",
+    "copySummary": "نسخ الملخص"
+  },
+  "legal": {
+    "disclaimer": "هذه النتيجة تقدير فني يعتمد على القيم المدخلة. لا يُغني عن استشارة مالية أو قانونية أو طبية أو هندسية.",
+    "premiumDisclaimer": "هذا التقرير أداة دعم قرار. لا يُغني عن استشارة مالية أو قانونية أو طبية أو هندسية.",
+    "reportNote": "للمرجع التشغيلي فقط — تحقق من الافتراضات قبل اعتماد الأسعار أو العقود."
+  },
+  "errors": {
+    "calculationFailed": "تعذر حساب النتيجة. يرجى مراجعة القيم المدخلة والمحاولة مرة أخرى.",
+    "invalidInput": "قيمة واحدة أو أكثر غير صالحة. راجع الحقول المميزة.",
+    "networkError": "فشل الاتصال. تحقق من الشبكة وحاول مرة أخرى.",
+    "accessDenied": "يلزم وصول متقدم لهذا التقرير.",
+    "notFound": "تعذر العثور على الصفحة أو الأداة.",
+    "generic": "حدث خطأ. يرجى المحاولة مرة أخرى."
+  },
+  "seo": {
+    "homeTitle": "SectorCalc — حاسبات قطاعية وتقارير قرار",
+    "homeDescription": "قِس الخسائر غير المرئية وتعرّض الهامش والمخاطر التشغيلية بأدوات قطاعية — دون تعقيد ERP.",
+    "freeToolsTitle": "حاسبات قطاعية مجانية | SectorCalc",
+    "freeToolsDescription": "حاسبات مجانية للتكلفة والقياس والطاقة وقرارات الأعمال. بدون تسجيل.",
+    "pricingTitle": "الأسعار | SectorCalc",
+    "pricingDescription": "حاسبات مجانية وتقارير متقدمة — تقرير واحد من 9$، Pro من 19$/شهر.",
+    "premiumToolsTitle": "أدوات تحليل متقدمة | SectorCalc",
+    "premiumToolsDescription": "تشخيص الخسائر وفحص الحدود وتقارير جاهزة للتصدير للفرق التشغيلية."
+  },
+  "cta": {
+    "startFree": "ابدأ مجانًا",
+    "calculateNow": "احسب",
+    "viewFreeTools": "أدوات مجانية",
+    "openPremiumAnalyzer": "فتح التحليل",
+    "unlockFullReport": "فتح التقرير",
+    "viewPricing": "الأسعار",
+    "downloadCsv": "تنزيل CSV",
+    "printReport": "طباعة / PDF",
+    "copySummary": "نسخ الملخص",
+    "switchLanguage": "اللغة",
+    "chooseSector": "اختر القطاع",
+    "seeWhatThisEstimateMisses": "ما ينقص"
   }
 }
