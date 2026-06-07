@@ -1,5 +1,11 @@
 # SectorCalc Documentation Index
 
+## Launch operations
+
+- [Final Launch Command Center](./final-launch-command-center.md) — daily ops hub, blocker matrix, 14-day rhythm, KPI board
+- [Quick Launch Checklist](./quick-launch-checklist.md) — pre/post share smoke tests
+- [Launch Incident Response](./launch-incident-response.md) — Severity 1/2/3 response playbook
+
 ## Campaign & growth
 
 - [Week-1 Optimization Loop](./week-1-optimization-loop.md) — daily checklist, GSC/IndexNow, funnel review (first 7 days)
