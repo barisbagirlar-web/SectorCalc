@@ -11,6 +11,7 @@ import {
   buildAssuredCriticalContract,
   buildFinanceAssuredContract,
 } from "@/lib/formula-governance/contracts/shared";
+import { createWarningPolicy } from "@/lib/formula-governance/warning-policy";
 
 export const loanPaymentCalculatorContract: FormulaContract = buildFinanceAssuredContract({
   toolId: "free-traffic.loan-payment-calculator",
@@ -29,11 +30,17 @@ export const loanPaymentCalculatorContract: FormulaContract = buildFinanceAssure
   ],
   formulaSummary:
     "Monthly payment = principal × [r(1+r)^n] / [(1+r)^n − 1] where r = annualRate/100/12 and n = months.",
-  missingParameterWarnings: [
-    "Origination fees not modeled",
-    "Variable or adjustable rates not modeled",
-    "Insurance and tax escrow not included",
-  ],
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Fixed nominal APR with monthly compounding via standard amortization formula.",
+    ],
+    modelLimitations: [
+      "Origination fees not modeled",
+      "Variable or adjustable rates not modeled",
+    ],
+    futureExtensions: ["Insurance and tax escrow not included"],
+  }),
   validationRules: [
     { id: "principal-positive", description: "principal must be > 0", kind: "edge" },
     { id: "rate-bounds", description: "annualRate within 0–100%", kind: "dimensional" },
@@ -90,11 +97,18 @@ export const mortgageCalculatorContract: FormulaContract = buildFinanceAssuredCo
   ],
   formulaSummary:
     "Uses standard amortizing payment; totalPaid = payment × months; totalInterest = totalPaid − principal.",
-  missingParameterWarnings: [
-    "PMI not modeled",
-    "Property tax and insurance escrow not modeled",
-    "Adjustable-rate periods not modeled",
-  ],
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Fixed-rate amortizing mortgage with monthly payments only.",
+    ],
+    modelLimitations: [
+      "PMI not modeled",
+      "Property tax and insurance not modeled",
+      "Adjustable-rate periods not modeled",
+    ],
+    futureExtensions: ["Escrow collection and disbursement timing not modeled"],
+  }),
   validationRules: [
     { id: "principal-positive", description: "principal must be > 0", kind: "edge" },
     { id: "rate-percent", description: "annualRate is percent per year", kind: "dimensional" },
@@ -150,10 +164,13 @@ export const interestCalculatorContract: FormulaContract = buildFinanceAssuredCo
     "Rate is nominal annual percent applied linearly over years.",
   ],
   formulaSummary: "Interest = principal × (ratePercent/100) × years; total = principal + interest.",
-  missingParameterWarnings: [
-    "Compounding not modeled",
-    "Payment schedule and partial repayments not modeled",
-  ],
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Simple interest only; compounding not modeled by design.",
+    ],
+    modelLimitations: ["Payment schedule and partial repayments not modeled"],
+  }),
   validationRules: [
     { id: "principal-positive", description: "principal must be > 0", kind: "edge" },
     { id: "years-positive", description: "years must be > 0", kind: "edge" },
@@ -210,11 +227,17 @@ export const compoundInterestCalculatorContract: FormulaContract = buildFinanceA
   ],
   formulaSummary:
     "Future value = principal × (1 + annualRate/100/compoundsPerYear)^(compoundsPerYear × years).",
-  missingParameterWarnings: [
-    "Periodic contributions not modeled",
-    "Inflation adjustment not modeled",
-    "Tax on interest not modeled",
-  ],
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Nominal rate with discrete compounding; no contributions or withdrawals.",
+    ],
+    modelLimitations: ["Periodic contributions not modeled"],
+    futureExtensions: [
+      "Inflation adjustment not modeled",
+      "Tax on interest not modeled",
+    ],
+  }),
   validationRules: [
     { id: "compounds-positive", description: "compoundsPerYear must be ≥ 1", kind: "edge" },
     { id: "rate-bounds", description: "annualRate within reasonable percent bounds", kind: "dimensional" },
@@ -270,10 +293,16 @@ export const profitMarginCalculatorContract: FormulaContract = buildFinanceAssur
     "Margin % = (price − cost) ÷ price × 100.",
   ],
   formulaSummary: "Margin % = (sellingPrice − cost) ÷ sellingPrice × 100; markup on cost computed separately.",
-  missingParameterWarnings: [
-    "Fixed overhead not allocated",
-    "Returns and chargebacks not modeled",
-  ],
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Single-unit gross margin snapshot without allocated overhead.",
+    ],
+    modelLimitations: [
+      "Fixed overhead not allocated",
+      "Returns and chargebacks not modeled",
+    ],
+  }),
   validationRules: [
     { id: "price-positive", description: "sellingPrice must be > 0", kind: "edge" },
     { id: "cost-non-negative", description: "cost must be ≥ 0", kind: "edge" },
@@ -329,10 +358,17 @@ export const breakEvenCalculatorContract: FormulaContract = buildAssuredCritical
     "Break-even undefined when contribution margin ≤ 0.",
   ],
   formulaSummary: "Units = fixedCost ÷ (unitPrice − variableCost); undefined if contribution ≤ 0.",
-  missingParameterWarnings: [
-    "Step-fixed costs not modeled",
-    "Price elasticity and volume discounts not modeled",
-  ],
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Linear unit economics with constant price and variable cost per unit.",
+      "Step-fixed costs not modeled.",
+    ],
+    modelLimitations: [
+      "Price elasticity and volume discounts not modeled",
+      "Multi-product mix not modeled",
+    ],
+  }),
   validationRules: [
     { id: "contribution-check", description: "Reject or flag when unitPrice ≤ variableCost", kind: "edge" },
     { id: "fixed-non-negative", description: "fixedCost must be ≥ 0", kind: "edge" },
@@ -388,10 +424,14 @@ export const salaryCostCalculatorContract: FormulaContract = buildAssuredCritica
     "Benefits, payroll tax rules and regional compliance vary by jurisdiction.",
   ],
   formulaSummary: "Total employer cost = grossSalary × (1 + employerRatePercent/100).",
-  missingParameterWarnings: [
-    "Jurisdiction-specific payroll taxes not itemized",
-    "Benefits and bonuses not modeled separately",
-  ],
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Flat employer burden rate entered by user; not jurisdiction-specific tax tables.",
+    ],
+    modelLimitations: ["Jurisdiction-specific payroll taxes not itemized"],
+    futureExtensions: ["Benefits and bonuses not modeled separately"],
+  }),
   validationRules: [
     { id: "salary-positive", description: "grossSalary must be > 0", kind: "edge" },
     { id: "burden-percent", description: "employerRatePercent is percent not decimal", kind: "dimensional" },
@@ -447,10 +487,17 @@ export const cashFlowGapCalculatorContract: FormulaContract = buildAssuredCritic
     "Seasonality, credit limits and line-of-credit costs excluded.",
   ],
   formulaSummary: "Gap days = receivablesDays − payableDays; working capital gap = gapDays × dailyCost.",
-  missingParameterWarnings: [
-    "Interest on working capital line not modeled",
-    "Partial payments and bad debt not modeled",
-  ],
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Linear daily cost with simple receivable/payable timing model.",
+    ],
+    modelLimitations: [
+      "Seasonality not modeled",
+      "Partial payments and bad debt not modeled",
+    ],
+    futureExtensions: ["Interest on working capital line not modeled"],
+  }),
   validationRules: [
     { id: "days-non-negative", description: "Day inputs must be ≥ 0", kind: "edge" },
     { id: "daily-cost-positive", description: "dailyCost must be > 0 for meaningful gap", kind: "edge" },
@@ -507,11 +554,18 @@ export const machineTimeCalculatorContract: FormulaContract = buildAssuredCritic
   ],
   formulaSummary:
     "Total minutes = setupMinutes + (cycleSeconds × quantity) / 60; machine cost = (total minutes / 60) × machineRate.",
-  missingParameterWarnings: [
-    "Tooling and fixture amortization not modeled",
-    "Scrap and rework buffer not modeled",
-    "Operator labor not included in machine rate unless user embeds it",
-  ],
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Setup plus cycle × quantity machine cost model.",
+      "Operator labor not included unless user embeds it in machine rate.",
+    ],
+    modelLimitations: [
+      "Tooling and fixture amortization not modeled",
+      "Scrap and rework buffer not modeled",
+      "Downtime, maintenance and operator delay not modeled",
+    ],
+  }),
   validationRules: [
     { id: "quantity-positive", description: "quantity must be ≥ 1", kind: "edge" },
     { id: "rate-positive", description: "machineRate must be > 0", kind: "edge" },
@@ -585,10 +639,17 @@ export const cncQuoteRiskAnalyzerContract: FormulaContract = buildAssuredCritica
   ],
   formulaSummary:
     "Base cost from machine hours × rate plus tooling and material with scrap factor; safe price and verdict derived via MarginCore risk engine.",
-  missingParameterWarnings: [
-    "Customer-specific tolerance bands may require manual override",
-    "Multi-operation routing not fully modeled on v1",
-  ],
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Base cost layer (machine hours × rate plus tooling/material) verified against independent oracle.",
+    ],
+    modelLimitations: [
+      "Customer-specific tolerance bands may require manual override",
+      "Premium decision layer (p90, safe price, verdict) not fully oracle-compared",
+    ],
+    futureExtensions: ["Multi-operation routing not fully modeled on v1"],
+  }),
   validationRules: [
     { id: "quantity-min", description: "quantity must be ≥ 1", kind: "edge" },
     { id: "rate-positive", description: "machineRate must be > 0", kind: "edge" },

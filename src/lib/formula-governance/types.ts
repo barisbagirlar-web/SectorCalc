@@ -58,6 +58,23 @@ export type DecisionLanguageRule = {
   readonly requiredDisclaimer?: boolean;
 };
 
+/** Phase 5D — classified missing-parameter / model-scope warnings. */
+export type FormulaWarningPolicy = {
+  readonly acceptedAssumptions: readonly string[];
+  readonly modelLimitations: readonly string[];
+  readonly futureExtensions: readonly string[];
+  readonly hardFailWarnings: readonly string[];
+};
+
+export type WarningPolicySummary = {
+  readonly acceptedAssumptionsCount: number;
+  readonly modelLimitationsCount: number;
+  readonly futureExtensionsCount: number;
+  readonly hardFailWarningsCount: number;
+  readonly unclassifiedWarningsCount: number;
+  readonly statusChangeReason?: string;
+};
+
 export type FormulaContract = {
   readonly toolId: string;
   readonly toolName: string;
@@ -71,7 +88,10 @@ export type FormulaContract = {
   readonly outputs: readonly string[];
   readonly assumptions: readonly string[];
   readonly formulaSummary: string;
+  /** @deprecated Prefer warningPolicy buckets; legacy entries without policy still fail audit. */
   readonly missingParameterWarnings: readonly string[];
+  /** Phase 5D — classified warning policy; supersedes blind missingParameterWarnings audit. */
+  readonly warningPolicy?: FormulaWarningPolicy;
   readonly validationRules: readonly ValidationRule[];
   readonly scenarioTests: readonly ScenarioTestSpec[];
   readonly monotonicityRules: readonly MonotonicityRule[];
@@ -137,6 +157,8 @@ export type ContractAuditResult = {
   readonly riskLevel: RiskLevel;
   readonly status: AuditStatus;
   readonly findings: readonly AuditFinding[];
+  /** Phase 5D — warning policy breakdown when contract declares warningPolicy. */
+  readonly warningPolicySummary?: WarningPolicySummary;
 };
 
 export type GovernanceAuditReport = {

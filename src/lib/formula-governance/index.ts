@@ -6,11 +6,13 @@ export type {
   DecisionLanguageRule,
   FormulaContract,
   FormulaInventoryEntry,
+  FormulaWarningPolicy,
   GovernanceAuditReport,
   MonotonicityRule,
   RiskLevel,
   ScenarioTestSpec,
   ValidationRule,
+  WarningPolicySummary,
 } from "@/lib/formula-governance/types";
 
 export {
@@ -53,6 +55,13 @@ export {
   suggestDecisionImpact,
   suggestRiskLevel,
 } from "@/lib/formula-governance/risk-rules";
+
+export {
+  createWarningPolicy,
+  EMPTY_WARNING_POLICY,
+  evaluateWarningPolicy,
+  summarizeWarningPolicy,
+} from "@/lib/formula-governance/warning-policy";
 
 export {
   runContractScenarioTests,

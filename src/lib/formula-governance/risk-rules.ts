@@ -3,6 +3,7 @@
  */
 
 import type { AuditFinding, AuditStatus, FormulaContract, RiskLevel } from "@/lib/formula-governance/types";
+import { evaluateWarningPolicy } from "@/lib/formula-governance/warning-policy";
 
 export {
   CRITICAL_KEYWORDS,
@@ -91,13 +92,7 @@ export function evaluateCriticalPassPolicy(input: {
     });
   }
 
-  if (contract.missingParameterWarnings.length > 0) {
-    extra.push({
-      code: "CRIT_UNRESOLVED_WARNINGS",
-      severity: "blocker",
-      message: `Unresolved missing-parameter warnings: ${contract.missingParameterWarnings.join("; ")}`,
-    });
-  }
+  extra.push(...evaluateWarningPolicy(contract).findings);
 
   return extra;
 }

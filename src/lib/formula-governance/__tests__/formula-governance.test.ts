@@ -223,13 +223,24 @@ describe("formula-governance audit runner", () => {
     }
   });
 
-  test("phase 3 top critical audits are not blanket PASS", () => {
+  test("phase 3 top critical audits are NEEDS_REVIEW under warning policy (not blanket PASS or FAIL)", () => {
     const report = runGovernanceAudit();
     for (const slug of TOP_CRITICAL_SLUGS) {
       const result = report.results.find((r) => r.slug === slug);
       expect(result).toBeDefined();
-      expect(result?.status).not.toBe("PASS");
+      expect(result?.status).toBe("NEEDS_REVIEW");
+      expect(result?.findings.some((f) => f.code === "CRIT_UNRESOLVED_WARNINGS")).toBe(false);
+      expect(result?.warningPolicySummary).toBeDefined();
     }
+  });
+
+  test("phase 5D audit report includes warning policy breakdown", () => {
+    const report = runGovernanceAudit({ strict: false });
+    const text = formatGovernanceAuditReport(report);
+    expect(text).toContain("Critical NEEDS_REVIEW (warning policy):");
+    expect(text).toContain("accepted=");
+    expect(text).toContain("limitations=");
+    expect(text).toContain("loan-payment-calculator");
   });
 
   test("phase 3 reduces critical missing contracts to about 70", () => {

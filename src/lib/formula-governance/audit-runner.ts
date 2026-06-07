@@ -20,6 +20,7 @@ import {
   isCriticalRisk,
   resolveAuditStatus,
 } from "@/lib/formula-governance/risk-rules";
+import { evaluateWarningPolicy } from "@/lib/formula-governance/warning-policy";
 import { runContractScenarioTests } from "@/lib/formula-governance/scenario-runner";
 import {
   auditOracleComparisonForSlug,
@@ -130,6 +131,10 @@ function auditContract(
 
   findings.push(...auditOracleComparisonFindings(contract));
 
+  const warningEval = contract.warningPolicy
+    ? evaluateWarningPolicy(contract)
+    : undefined;
+
   return {
     toolId: contract.toolId,
     slug: contract.slug,
@@ -137,6 +142,7 @@ function auditContract(
     riskLevel: contract.riskLevel,
     status: resolveAuditStatus(findings),
     findings,
+    warningPolicySummary: warningEval?.summary,
   };
 }
 
@@ -161,7 +167,7 @@ function buildRecommendedActions(
     actions.push("Resolve critical FAIL findings before enabling strict deploy gate.");
   }
 
-  actions.push("Phase 5B: resolve CRIT_UNRESOLVED_WARNINGS and expand oracle comparison to remaining critical tools.");
+  actions.push("Phase 5D: address WARN_MODEL_LIMITATIONS on wired critical tools; wire oracle comparison for remaining contracts.");
 
   return actions;
 }
@@ -252,6 +258,46 @@ export function formatGovernanceAuditReport(report: GovernanceAuditReport): stri
       lines.push(`- ${fail.slug}`);
       for (const finding of fail.findings.filter((f) => f.severity === "blocker")) {
         lines.push(`  Reason: ${finding.message}`);
+      }
+    }
+    lines.push("");
+  }
+
+  const needsReviewCritical = report.results.filter(
+    (r) => isCriticalRisk(r.riskLevel) && r.status === "NEEDS_REVIEW",
+  );
+  if (needsReviewCritical.length > 0) {
+    lines.push("Critical NEEDS_REVIEW (warning policy):");
+    for (const result of needsReviewCritical) {
+      const summary = result.warningPolicySummary;
+      if (summary) {
+        lines.push(
+          `- ${result.slug}: accepted=${summary.acceptedAssumptionsCount}, limitations=${summary.modelLimitationsCount}, future=${summary.futureExtensionsCount}, hardFail=${summary.hardFailWarningsCount}`,
+        );
+        if (summary.statusChangeReason) {
+          lines.push(`  Status reason: ${summary.statusChangeReason}`);
+        }
+      } else {
+        lines.push(`- ${result.slug}`);
+        for (const finding of result.findings.filter((f) => f.severity === "warning")) {
+          lines.push(`  Reason: ${finding.message}`);
+        }
+      }
+    }
+    lines.push("");
+  }
+
+  const passCritical = report.results.filter(
+    (r) => isCriticalRisk(r.riskLevel) && r.status === "PASS",
+  );
+  if (passCritical.length > 0) {
+    lines.push("Critical PASS:");
+    for (const result of passCritical) {
+      const summary = result.warningPolicySummary;
+      if (summary?.statusChangeReason) {
+        lines.push(`- ${result.slug}: ${summary.statusChangeReason}`);
+      } else {
+        lines.push(`- ${result.slug}`);
       }
     }
     lines.push("");
