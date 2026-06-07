@@ -73,6 +73,19 @@ export function assertFiniteNumber(n: number, fallback = 0): number {
   return Number.isFinite(n) ? n : fallback;
 }
 
+const PREMIUM_LEAK_PATTERNS = [
+  /do not accept under/i,
+  /minimum safe price/i,
+  /\bp90\b/i,
+  /final verdict/i,
+  /\bpdf\b/i,
+  /saved report/i,
+] as const;
+
+export function containsPremiumLeakText(text: string): boolean {
+  return PREMIUM_LEAK_PATTERNS.some((pattern) => pattern.test(text));
+}
+
 function num(values: FreeTrafficInputValues, key: string): number {
   return normalizeNumber(values[key] ?? "");
 }

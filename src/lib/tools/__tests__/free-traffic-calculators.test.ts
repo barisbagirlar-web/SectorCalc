@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { calculateFreeTrafficTool, hasDedicatedTrafficCalculator } from "@/lib/tools/free-traffic-calculators";
+import { calculateFreeTrafficTool, containsPremiumLeakText, hasDedicatedTrafficCalculator } from "@/lib/tools/free-traffic-calculators";
 import {
   FREE_TRAFFIC_TOOLS,
   listFreeTrafficSlugs,
@@ -183,12 +183,39 @@ describe("free-traffic-calculators", () => {
     expect(fahrenheit?.value).toBe("32");
   });
 
+  test("time-duration-calculator — 10:30 to 12:00 is 90 minutes", () => {
+    const result = calculateFreeTrafficTool("time-duration-calculator", {
+      startHour: 10,
+      startMinute: 30,
+      endHour: 12,
+      endMinute: 0,
+    });
+    const minutesRow = result.secondaryValues.find((row) =>
+      row.label.toLowerCase().includes("minute"),
+    );
+    expect(minutesRow?.value).toBe("90");
+  });
+
+  test("time-duration-calculator — 22:00 to 01:00 wraps to 180 minutes", () => {
+    const result = calculateFreeTrafficTool("time-duration-calculator", {
+      startHour: 22,
+      startMinute: 0,
+      endHour: 1,
+      endMinute: 0,
+    });
+    const minutesRow = result.secondaryValues.find((row) =>
+      row.label.toLowerCase().includes("minute"),
+    );
+    expect(minutesRow?.value).toBe("180");
+  });
+
   test("free results do not contain premium leak terms", () => {
     for (const tool of FREE_TRAFFIC_TOOLS) {
       const result = calculateFreeTrafficTool(tool.slug, defaultValuesForTool(tool.slug));
-      const joined = collectResultStrings(result).join(" ").toLowerCase();
+      const joined = collectResultStrings(result).join(" ");
+      expect(containsPremiumLeakText(joined)).toBe(false);
       for (const term of PREMIUM_LEAK_TERMS) {
-        expect(joined).not.toContain(term.toLowerCase());
+        expect(joined.toLowerCase()).not.toContain(term.toLowerCase());
       }
     }
   });
