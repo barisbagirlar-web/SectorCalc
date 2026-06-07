@@ -360,3 +360,11 @@ export function worstThresholdSeverity(
   }
   return "ok";
 }
+
+/** Spec alias — schema-driven premium calculation entry point. */
+export function calculatePremiumSchema(
+  schema: PremiumCalculatorSchema,
+  values: SchemaInputValues
+): PremiumSchemaEngineResult {
+  return runPremiumSchemaEngine(schema, values);
+}
