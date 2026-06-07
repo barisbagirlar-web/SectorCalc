@@ -284,7 +284,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
           </>
         ) : (
           <aside className="sc-ledger-panel sc-industrial-panel p-4 sm:p-5">
-            <p className="sc-ledger-eyebrow">{schema.category}</p>
+            <p className="sc-ledger-eyebrow">Premium analyzer</p>
             <p className="mt-2 text-xs text-body-charcoal">{schema.painStatement}</p>
           </aside>
         )}
