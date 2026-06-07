@@ -4,6 +4,8 @@ Weekly tracking sheet for the [30-day monetization sprint](./monetization-sprint
 
 **Data sources:** Analytics conversion events, GSC, [Conversion Review Playbook](./conversion-review-playbook.md).
 
+**Live admin view:** `/admin/kpi` — [Live KPI Review Runbook](./live-kpi-review-runbook.md)
+
 ---
 
 ## Weekly metrics
@@ -18,8 +20,18 @@ Weekly tracking sheet for the [30-day monetization sprint](./monetization-sprint
 | Premium previews | | | | | |
 | Unlock clicks | | | | | |
 | Pricing CTA clicks | | | | | |
+| Checkout started | | | | | |
+| Payment completed | | | | | |
 | Beta partner submits | | | | | |
 | Export intents | | | | | |
+
+**Weekly decision fields** (from `/admin/kpi` executive verdict):
+
+| Field | Values |
+|---|---|
+| `verdict` | `needs_traffic`, `needs_free_tool_ux`, `needs_premium_value`, `needs_pricing_fix`, `needs_checkout_fix`, `ready_to_scale` |
+| `reason` | Human-readable funnel diagnosis |
+| `nextAction` | Single recommended action for the week |
 
 **Derived rates (calculate manually):**
 
