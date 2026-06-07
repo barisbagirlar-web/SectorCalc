@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { FreeToolsQuickLinks } from "@/components/account/FreeToolsQuickLinks";
-import { PremiumToolsGrid } from "@/components/account/PremiumToolsGrid";
+import { AccountFeaturedAccess } from "@/components/account/AccountFeaturedAccess";
+import { AccountQuickActions } from "@/components/account/AccountQuickActions";
 import { RecentReportsPanel } from "@/components/account/RecentReportsPanel";
 import { SubscriptionStatusCard } from "@/components/account/SubscriptionStatusCard";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -14,117 +14,149 @@ import { useUserReports } from "@/lib/reports/use-user-reports";
 import { getLoginHref } from "@/lib/tools/tool-links";
 
 function AccountSubscribedBanner() {
- const searchParams = useSearchParams();
- const subscribed = searchParams.get("subscribed") === "true";
+  const searchParams = useSearchParams();
+  const subscribed = searchParams.get("subscribed") === "true";
 
- if (!subscribed) {
- return null;
- }
+  if (!subscribed) {
+    return null;
+  }
 
- return (
- <div className="mb-6 rounded-sm border border-emerald/25 bg-emerald/10 px-4 py-4 sm:px-5">
- <p className="text-sm font-medium text-text-primary">
- Payment received. Your SectorCalc Pro access may take a few seconds to activate.
- </p>
- <p className="mt-2 text-sm text-text-secondary">
- Premium tools and saved reports will appear here once your subscription is active.
- </p>
- </div>
- );
+  return (
+    <div className="sc-account-hub__banner sc-account-hub__banner--success" role="status">
+      <p className="sc-account-hub__banner-title">Payment received</p>
+      <p className="sc-account-hub__banner-body">
+        SectorCalc Pro access may take a few seconds to activate. Refresh if premium tools
+        do not appear immediately.
+      </p>
+    </div>
+  );
 }
 
 function AccountDashboardLoginPrompt() {
- const loginHref = getLoginHref("/account");
+  const loginHref = getLoginHref("/account");
 
- return (
- <aside className="mx-auto max-w-2xl rounded-sm border border-border-subtle bg-white p-6 shadow-card sm:p-8">
- <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
- Sign in required
- </p>
- <h2 className="mt-3 text-xl font-bold text-text-primary sm:text-2xl">
- Sign in to your SectorCalc account
- </h2>
- <p className="mt-3 text-sm leading-relaxed text-text-secondary">
- Access premium decision tools, subscription status and saved verdict reports.
- </p>
- <Link
- href={loginHref}
- className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-deep-navy px-5 text-sm font-semibold text-white transition-colors hover:bg-black sm:w-auto"
- >
- Sign in
- </Link>
- </aside>
- );
+  return (
+    <div className="sc-account-hub__guest">
+      <aside className="sc-account-hub__guest-card">
+        <span className="sc-omni-hub__pro-badge">Account</span>
+        <h2 className="sc-account-hub__guest-title">Sign in to your workspace</h2>
+        <p className="sc-account-hub__guest-lead">
+          Access premium analyzers, subscription status and saved verdict reports from one
+          place.
+        </p>
+        <ul className="sc-account-hub__guest-benefits">
+          <li>Saved verdict reports & PDF history</li>
+          <li>SectorCalc Pro subscription status</li>
+          <li>Quick links to premium & free tools</li>
+        </ul>
+        <Link href={loginHref} className="sc-cta-primary sc-account-hub__guest-cta">
+          Sign in with Google
+        </Link>
+      </aside>
+    </div>
+  );
+}
+
+function formatUserLabel(email: string | null | undefined): string {
+  if (!email) {
+    return "Operator";
+  }
+  const local = email.split("@")[0];
+  return local.length > 0 ? local : "Operator";
 }
 
 export function AccountDashboard() {
- const { user, subscription, isActive, loading: authLoading } = useUserSubscription();
- const {
- reports,
- loading: reportsLoading,
- error: reportsError,
- } = useUserReports(user, 5);
+  const { user, subscription, isActive, loading: authLoading } = useUserSubscription();
+  const {
+    reports,
+    loading: reportsLoading,
+    error: reportsError,
+  } = useUserReports(user, 5);
 
- return (
- <PageLayout>
- <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
- <Container size="wide" className="min-w-0">
- <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
- Customer account
- </p>
- <h1 className="mt-2 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
- Your SectorCalc account
- </h1>
- <p className="mt-4 max-w-3xl text-base leading-relaxed text-text-secondary">
- Access premium decision tools, saved verdict reports and subscription status.
- </p>
- </Container>
- </section>
+  return (
+    <PageLayout>
+      <div className="sc-account-hub">
+        <section className="sc-account-hub__hero">
+          <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+            <div className="sc-account-hub__hero-inner">
+              <div className="sc-account-hub__hero-copy">
+                <p className="sc-pro-eyebrow">Customer account</p>
+                <h1 className="sc-account-hub__title">
+                  {authLoading
+                    ? "Your SectorCalc account"
+                    : user
+                      ? `Welcome, ${formatUserLabel(user.email)}`
+                      : "Your SectorCalc account"}
+                </h1>
+                <p className="sc-account-hub__subtitle">
+                  Premium decision tools, saved verdict reports and subscription — one
+                  dashboard.
+                </p>
+              </div>
+              {!authLoading && user ? (
+                <div className="sc-account-hub__status-pill" aria-live="polite">
+                  <span
+                    className={`sc-account-hub__status-badge${
+                      isActive ? " sc-account-hub__status-badge--pro" : ""
+                    }`}
+                  >
+                    {isActive ? "Pro active" : "Free plan"}
+                  </span>
+                  {user.email ? (
+                    <span className="sc-account-hub__status-email">{user.email}</span>
+                  ) : null}
+                </div>
+              ) : null}
+            </div>
+          </Container>
+        </section>
 
- <section className="bg-bg-subtle py-10 sm:py-12">
- <Container size="wide" className="min-w-0">
- {authLoading ? (
- <div className="rounded-sm border border-border-subtle bg-white p-6 text-sm text-text-secondary">
- Loading your account…
- </div>
- ) : !user ? (
- <AccountDashboardLoginPrompt />
- ) : (
- <>
- <Suspense fallback={null}>
- <AccountSubscribedBanner />
- </Suspense>
- <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
- <div className="min-w-0 space-y-6">
- <SubscriptionStatusCard
- subscription={subscription}
- isActive={isActive}
- loading={false}
- />
- <RecentReportsPanel
- reports={reports}
- loading={reportsLoading}
- error={reportsError}
- />
- <FreeToolsQuickLinks />
- </div>
- <PremiumToolsGrid isActive={isActive} />
- </div>
+        <section className="sc-account-hub__body">
+          <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+            {authLoading ? (
+              <div className="sc-account-hub__loading">
+                <p className="sc-account-hub__loading-text">Loading your account…</p>
+              </div>
+            ) : !user ? (
+              <AccountDashboardLoginPrompt />
+            ) : (
+              <>
+                <Suspense fallback={null}>
+                  <AccountSubscribedBanner />
+                </Suspense>
 
- <div className="mt-10 space-y-3 border-t border-border-subtle pt-6">
- <p className="text-xs leading-relaxed text-text-secondary">
- Saved reports are linked to your account. Free tool inputs are not saved
- unless you create a premium report.
- </p>
- <p className="text-xs leading-relaxed text-text-secondary">
- SectorCalc outputs are technical simulations and decision-support estimates,
- not financial, legal or engineering advice.
- </p>
- </div>
- </>
- )}
- </Container>
- </section>
- </PageLayout>
- );
+                <SubscriptionStatusCard
+                  subscription={subscription}
+                  isActive={isActive}
+                  loading={false}
+                />
+
+                <AccountQuickActions isActive={isActive} reportCount={reports.length} />
+
+                <div className="sc-account-hub__main-grid">
+                  <RecentReportsPanel
+                    reports={reports}
+                    loading={reportsLoading}
+                    error={reportsError}
+                  />
+                  <AccountFeaturedAccess isActive={isActive} />
+                </div>
+
+                <footer className="sc-account-hub__disclaimer">
+                  <p>
+                    Saved reports are linked to your account. Free tool inputs are not stored
+                    unless you save a premium report.
+                  </p>
+                  <p>
+                    SectorCalc outputs are decision-support estimates — not financial, legal
+                    or engineering advice.
+                  </p>
+                </footer>
+              </>
+            )}
+          </Container>
+        </section>
+      </div>
+    </PageLayout>
+  );
 }

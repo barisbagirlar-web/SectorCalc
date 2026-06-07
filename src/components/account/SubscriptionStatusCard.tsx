@@ -3,104 +3,97 @@
 import Link from "next/link";
 import type { UserSubscription } from "@/lib/billing/subscription";
 import { getPremiumToolsNavHref, getPricingHref } from "@/lib/tools/tool-links";
+import { sectorCalcProPricing } from "@/lib/tools/revenue-tools";
 
 function formatPeriodEnd(value: string | undefined): string | null {
- if (!value) {
- return null;
- }
+  if (!value) {
+    return null;
+  }
 
- const parsed = new Date(value);
- if (Number.isNaN(parsed.getTime())) {
- return null;
- }
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) {
+    return null;
+  }
 
- return parsed.toLocaleDateString("en-US", {
- dateStyle: "medium",
- });
+  return parsed.toLocaleDateString("en-US", {
+    dateStyle: "medium",
+  });
 }
 
 interface SubscriptionStatusCardProps {
- subscription: UserSubscription | null;
- isActive: boolean;
- loading: boolean;
+  subscription: UserSubscription | null;
+  isActive: boolean;
+  loading: boolean;
 }
 
 export function SubscriptionStatusCard({
- subscription,
- isActive,
- loading,
+  subscription,
+  isActive,
+  loading,
 }: SubscriptionStatusCardProps) {
- if (loading) {
- return (
- <section className="rounded-sm border border-border-subtle bg-white p-6 shadow-card">
- <p className="text-sm text-text-secondary">Loading subscription status…</p>
- </section>
- );
- }
+  if (loading) {
+    return (
+      <section className="sc-account-hub__subscription sc-account-hub__subscription--loading">
+        <p className="text-sm text-text-secondary">Loading subscription status…</p>
+      </section>
+    );
+  }
 
- const status = subscription?.status ?? "none";
- const periodEnd = formatPeriodEnd(subscription?.currentPeriodEnd);
+  const status = subscription?.status ?? "none";
+  const periodEnd = formatPeriodEnd(subscription?.currentPeriodEnd);
 
- if (status === "past_due") {
- return (
- <section className="rounded-sm border border-amber/25 bg-amber/[0.04] p-6 shadow-card">
- <p className="text-xs font-semibold uppercase tracking-wider text-amber">
- Subscription
- </p>
- <h2 className="mt-2 text-xl font-bold text-text-primary">Payment issue</h2>
- <p className="mt-3 text-sm leading-relaxed text-text-secondary">
- Your SectorCalc Pro subscription needs attention. Update billing to restore
- premium analyzer access.
- </p>
- <Link
- href={getPricingHref()}
- className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-deep-navy px-5 text-sm font-semibold text-white transition-colors hover:bg-black"
- >
- Go to pricing
- </Link>
- </section>
- );
- }
+  if (status === "past_due") {
+    return (
+      <section className="sc-account-hub__subscription sc-account-hub__subscription--warn">
+        <div className="sc-account-hub__subscription-copy">
+          <p className="sc-account-hub__subscription-eyebrow">Subscription</p>
+          <h2 className="sc-account-hub__subscription-title">Payment needs attention</h2>
+          <p className="sc-account-hub__subscription-lead">
+            Update billing to restore premium analyzer access and saved report exports.
+          </p>
+        </div>
+        <Link href={getPricingHref()} className="sc-cta-primary sc-account-hub__subscription-cta">
+          Update billing
+        </Link>
+      </section>
+    );
+  }
 
- if (isActive) {
- return (
- <section className="rounded-sm border border-border-subtle bg-bg-subtle p-6 shadow-card">
- <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
- Subscription
- </p>
- <h2 className="mt-2 text-xl font-bold text-text-primary">SectorCalc Pro active</h2>
- {periodEnd ? (
- <p className="mt-3 text-sm text-text-secondary">Current period ends {periodEnd}</p>
- ) : (
- <p className="mt-3 text-sm text-text-secondary">
- Premium decision tools and saved verdict reports are available on your account.
- </p>
- )}
- <Link
- href={getPremiumToolsNavHref()}
- className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-deep-navy px-5 text-sm font-semibold text-white transition-colors hover:bg-black"
- >
- Open premium tools
- </Link>
- </section>
- );
- }
+  if (isActive) {
+    return (
+      <section className="sc-account-hub__subscription sc-account-hub__subscription--pro">
+        <div className="sc-account-hub__subscription-copy">
+          <p className="sc-account-hub__subscription-eyebrow">SectorCalc Pro</p>
+          <h2 className="sc-account-hub__subscription-title">All premium analyzers unlocked</h2>
+          <p className="sc-account-hub__subscription-lead">
+            {periodEnd
+              ? `Current billing period ends ${periodEnd}.`
+              : "Verdict reports, field panels and PDF save are available on your account."}
+          </p>
+        </div>
+        <Link
+          href={getPremiumToolsNavHref()}
+          className="sc-cta-secondary sc-account-hub__subscription-cta sc-account-hub__subscription-cta--on-dark"
+        >
+          Open premium tools
+        </Link>
+      </section>
+    );
+  }
 
- return (
- <section className="rounded-sm border border-border-subtle bg-white p-6 shadow-card">
- <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
- Subscription
- </p>
- <h2 className="mt-2 text-xl font-bold text-text-primary">SectorCalc Pro not active</h2>
- <p className="mt-3 text-sm leading-relaxed text-text-secondary">
- Unlock sector-specific analyzers for safe price, bid risk and margin leak verdicts.
- </p>
- <Link
- href={getPricingHref()}
- className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-deep-navy px-5 text-sm font-semibold text-white transition-colors hover:bg-black"
- >
- Unlock SectorCalc Pro
- </Link>
- </section>
- );
+  return (
+    <section className="sc-account-hub__subscription sc-account-hub__subscription--free">
+      <div className="sc-account-hub__subscription-copy">
+        <p className="sc-account-hub__subscription-eyebrow">Upgrade</p>
+        <h2 className="sc-account-hub__subscription-title">Unlock SectorCalc Pro</h2>
+        <p className="sc-account-hub__subscription-lead">
+          Safe price floors, margin leak detection and accept / reprice verdicts —{" "}
+          {sectorCalcProPricing.planName} from ${sectorCalcProPricing.priceMonthly}/month.
+        </p>
+      </div>
+      <Link href={getPricingHref()} className="sc-cta-primary sc-account-hub__subscription-cta">
+        View pricing
+      </Link>
+    </section>
+  );
 }
