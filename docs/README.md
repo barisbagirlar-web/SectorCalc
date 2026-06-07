@@ -20,6 +20,16 @@
 - [Revenue Conversion Review Template](./revenue-conversion-review-template.md) — weekly monetization review shell
 - [Revenue Pricing Friction Rules](./revenue-pricing-friction-rules.md) — pricing/unlock/export friction decision tree
 
+## Week-2 scale-up
+
+- [Week-2 Scale-Up Plan](./week-2-scale-up-plan.md) — modes, inputs, scale-up rules after Week-1
+- [Week-2 Cluster Scale-Up Matrix](./week-2-cluster-scale-up-matrix.md) — 8-cluster scoring and top-3 selection
+- [Week-2 Top Tool Template](./week-2-top-tool-template.md) — top 10 free + top 5 premium review tables
+- [Week-2 SEO Scale-Up Rules](./week-2-seo-scale-up-rules.md) — indexed/discovered/crawled/conversion SEO actions
+- [Week-2 Beta Partner Outreach](./week-2-beta-partner-outreach.md) — 30–50 contact outreach system
+- [Paid Ads Readiness Gate](./paid-ads-readiness-gate.md) — minimum signals before any ad spend
+- [Week-2 Operating Calendar](./week-2-operating-calendar.md) — Days 8–14 daily operations
+
 ## SEO & authority
 
 - [Search Console & IndexNow Runbook](./search-console-indexnow-runbook.md)
