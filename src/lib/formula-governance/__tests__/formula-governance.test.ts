@@ -10,6 +10,10 @@ import {
 } from "@/lib/formula-governance/audit-runner";
 import { rentVsBuyContract, getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import { buildFormulaInventory, summarizeInventory } from "@/lib/formula-governance/inventory";
+import {
+  buildContractGapReport,
+  buildAuditPriorities,
+} from "@/lib/formula-governance/contract-gap";
 import { suggestRiskLevel } from "@/lib/formula-governance/risk-rules";
 import { hasOracleForTool } from "@/lib/formula-governance/oracle/registry";
 
@@ -34,10 +38,56 @@ describe("formula-governance inventory", () => {
     expect(summary.critical).toBeGreaterThan(0);
   });
 
+  test("inventory scans free and premium sources (phase 2)", () => {
+    const entries = buildFormulaInventory();
+    const summary = summarizeInventory(entries);
+
+    expect(summary.free).toBeGreaterThanOrEqual(100);
+    expect(summary.premium).toBeGreaterThanOrEqual(27);
+    expect(summary.premiumSchema).toBe(27);
+    expect(entries.some((e) => e.tier === "premium-schema")).toBe(true);
+    expect(entries.some((e) => e.tier === "revenue-premium")).toBe(true);
+    expect(entries.some((e) => e.source === "risk-engine")).toBe(true);
+  });
+
   test("rent vs buy is classified critical by heuristics", () => {
     expect(
       suggestRiskLevel({ slug: "rent-vs-buy-calculator", name: "Rent vs Buy Comparison" }),
     ).toBe("critical");
+  });
+
+  test("critical heuristics detect loan, mortgage, margin, break-even", () => {
+    expect(suggestRiskLevel({ slug: "loan-calculator", name: "Loan Payment" })).toBe("critical");
+    expect(suggestRiskLevel({ slug: "mortgage-estimator", name: "Mortgage Estimator" })).toBe(
+      "critical",
+    );
+    expect(suggestRiskLevel({ slug: "menu-margin-tool", name: "Menu Margin Check" })).toBe(
+      "critical",
+    );
+    expect(suggestRiskLevel({ slug: "break-even-calculator", name: "Break Even Point" })).toBe(
+      "critical",
+    );
+  });
+
+  test("high heuristics detect scrap, OEE, route, food waste", () => {
+    expect(suggestRiskLevel({ slug: "sheet-metal-scrap", name: "Scrap Risk" })).toBe("high");
+    expect(suggestRiskLevel({ slug: "cnc-oee-loss", name: "CNC OEE Loss" })).toBe("high");
+    expect(suggestRiskLevel({ slug: "logistics-route-loss", name: "Route Loss" })).toBe("high");
+    expect(suggestRiskLevel({ slug: "food-waste-tracker", name: "Food Waste Loss" })).toBe("high");
+  });
+
+  test("generated contract gap report has expected shape", () => {
+    const entries = buildFormulaInventory();
+    const gap = buildContractGapReport(entries);
+    const priorities = buildAuditPriorities(entries, 20);
+
+    expect(gap.generatedAt).toBeTruthy();
+    expect(Array.isArray(gap.criticalWithoutContract)).toBe(true);
+    expect(Array.isArray(gap.highWithoutContract)).toBe(true);
+    expect(Array.isArray(gap.premiumWithoutGovernance)).toBe(true);
+    expect(Array.isArray(gap.launchBlockers)).toBe(true);
+    expect(priorities.length).toBeLessThanOrEqual(20);
+    expect(priorities.every((entry) => !entry.hasContract)).toBe(true);
   });
 });
 

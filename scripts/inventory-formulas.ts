@@ -1,15 +1,19 @@
 #!/usr/bin/env npx tsx
 /**
- * SectorCalc Formula Governance — inventory scan (Phase 1 baseline).
+ * SectorCalc Formula Governance — full inventory + risk + contract gap (Phase 2).
  */
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import {
+  buildAuditPriorities,
+  buildContractGapReport,
+} from "../src/lib/formula-governance/contract-gap";
+import {
   buildFormulaInventory,
   summarizeInventory,
 } from "../src/lib/formula-governance/inventory";
-import { suggestRiskLevel } from "../src/lib/formula-governance/risk-rules";
+import { runGovernanceAudit } from "../src/lib/formula-governance/audit-runner";
 
 const rootDir = process.cwd();
 const cacheDir = join(rootDir, "scripts/.cache");
@@ -17,25 +21,13 @@ mkdirSync(cacheDir, { recursive: true });
 
 const inventory = buildFormulaInventory(rootDir);
 const summary = summarizeInventory(inventory);
+const gapReport = buildContractGapReport(inventory);
+const priorities = buildAuditPriorities(inventory, 20);
+const auditReport = runGovernanceAudit({ rootDir, strict: false });
 
-const suspicious = inventory.filter((entry) => {
-  if (entry.hasContract) {
-    return false;
-  }
-  const risk = suggestRiskLevel({
-    slug: entry.slug,
-    name: entry.name,
-    inputKeys: entry.inputKeys,
-  });
-  return risk === "critical" || risk === "high";
-});
-
-const priorities = suspicious
-  .sort((a, b) => {
-    const order = { critical: 0, high: 1, medium: 2, low: 3 };
-    return order[a.suggestedRiskLevel] - order[b.suggestedRiskLevel];
-  })
-  .slice(0, 20);
+const launchBlockers = [
+  ...new Set([...gapReport.launchBlockers, ...auditReport.launchBlockers]),
+];
 
 writeFileSync(join(cacheDir, "formula-inventory.json"), JSON.stringify(inventory, null, 2));
 writeFileSync(
@@ -44,25 +36,50 @@ writeFileSync(
     {
       generatedAt: new Date().toISOString(),
       summary,
-      suspiciousCount: suspicious.length,
-      first20AuditPriorities: priorities,
+      first20AuditPriorities: priorities.map((entry) => ({
+        toolId: entry.toolId,
+        slug: entry.slug,
+        name: entry.name,
+        tier: entry.tier,
+        suggestedRiskLevel: entry.suggestedRiskLevel,
+        suggestedDecisionImpact: entry.suggestedDecisionImpact,
+        hasContract: entry.hasContract,
+        riskFlags: entry.riskFlags,
+      })),
+      launchBlockers,
     },
     null,
     2,
   ),
 );
+writeFileSync(join(cacheDir, "formula-contract-gap.json"), JSON.stringify(gapReport, null, 2));
 
-console.log("Formula Inventory Report");
-console.log("------------------------");
+console.log("Formula Inventory Report (Phase 2)");
+console.log("=================================");
 console.log(`Total tools found: ${summary.total}`);
+console.log(`Free tools: ${summary.free}`);
+console.log(`Premium tools: ${summary.premium}`);
+console.log(`Premium schema tools: ${summary.premiumSchema}`);
 console.log(`Critical tools: ${summary.critical}`);
 console.log(`High tools: ${summary.high}`);
-console.log(`Missing contracts: ${summary.missingContracts.length}`);
-console.log(`Critical without contract: ${summary.criticalMissingContracts.length}`);
+console.log(`Medium tools: ${summary.medium}`);
+console.log(`Low tools: ${summary.low}`);
+console.log(`Critical missing contracts: ${summary.criticalMissingContracts.length}`);
+console.log(`High missing contracts: ${summary.highMissingContracts.length}`);
 console.log("");
 console.log("First 20 audit priorities:");
 for (const item of priorities) {
-  console.log(`- [${item.suggestedRiskLevel}] ${item.slug}`);
+  console.log(
+    `- [${item.suggestedRiskLevel}] ${item.slug} (${item.tier}, contract=${item.hasContract ? "yes" : "no"})`,
+  );
 }
 console.log("");
-console.log(`Cache: scripts/.cache/formula-inventory.json`);
+console.log("Launch blockers:");
+for (const slug of launchBlockers.slice(0, 30)) {
+  console.log(`- ${slug}`);
+}
+console.log("");
+console.log("Cache files:");
+console.log("- scripts/.cache/formula-inventory.json");
+console.log("- scripts/.cache/formula-risk-report.json");
+console.log("- scripts/.cache/formula-contract-gap.json");

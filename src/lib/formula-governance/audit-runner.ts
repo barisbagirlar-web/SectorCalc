@@ -106,7 +106,6 @@ function buildRecommendedActions(
     actions.push("Resolve critical FAIL findings before enabling strict deploy gate.");
   }
 
-  actions.push("Phase 2: run smart inventory risk scan across full catalog.");
   actions.push("Phase 3: add property-based and oracle tests for top critical tools.");
 
   return actions;

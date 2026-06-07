@@ -84,16 +84,44 @@ export type FormulaContract = {
   readonly auditStatus?: AuditStatus;
 };
 
+export type FormulaToolTier =
+  | "free"
+  | "premium"
+  | "premium-schema"
+  | "revenue-free"
+  | "revenue-premium"
+  | "other";
+
+export type FormulaInventorySource =
+  | "free-traffic"
+  | "revenue"
+  | "premium-schema"
+  | "legacy"
+  | "risk-engine"
+  | "report"
+  | "sector-calculator";
+
 export type FormulaInventoryEntry = {
   readonly toolId: string;
   readonly slug: string;
   readonly name: string;
-  readonly source: "free-traffic" | "revenue" | "premium-schema" | "legacy";
+  readonly tier: FormulaToolTier;
+  readonly source: FormulaInventorySource;
+  readonly category?: string;
+  readonly sector?: string;
+  readonly filePath: string;
   readonly inputKeys: readonly string[];
   readonly outputLabels: readonly string[];
   readonly formulaFile?: string;
-  readonly suggestedRiskLevel: RiskLevel;
+  readonly schemaFile?: string;
+  readonly hasVisibleDecisionWording: boolean;
+  readonly hasPdfOrReportOutput: boolean;
+  readonly isPaidFlowLinked: boolean;
   readonly hasContract: boolean;
+  readonly suggestedRiskLevel: RiskLevel;
+  readonly suggestedDecisionImpact: DecisionImpact;
+  readonly missingCriticalContractReason?: string;
+  readonly riskFlags: readonly string[];
 };
 
 export type AuditFinding = {

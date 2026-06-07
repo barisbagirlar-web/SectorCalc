@@ -22,10 +22,21 @@ export {
 } from "@/lib/formula-governance/contracts";
 
 export {
+  buildAuditPriorities,
+  buildContractGapReport,
+} from "@/lib/formula-governance/contract-gap";
+export type {
+  ContractGapEntry,
+  FormulaContractGapReport,
+} from "@/lib/formula-governance/contract-gap";
+
+export {
   buildFormulaInventory,
+  getInventoryEntriesByTier,
   getInventoryEntryBySlug,
   summarizeInventory,
 } from "@/lib/formula-governance/inventory";
+export type { InventorySummary } from "@/lib/formula-governance/inventory";
 
 export {
   formatGovernanceAuditReport,
@@ -37,6 +48,7 @@ export {
   evaluateCriticalPassPolicy,
   isCriticalRisk,
   resolveAuditStatus,
+  suggestDecisionImpact,
   suggestRiskLevel,
 } from "@/lib/formula-governance/risk-rules";
 

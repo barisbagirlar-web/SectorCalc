@@ -4,72 +4,18 @@
 
 import type { AuditFinding, AuditStatus, FormulaContract, RiskLevel } from "@/lib/formula-governance/types";
 
-const CRITICAL_KEYWORDS = [
-  "rent vs buy",
-  "rent-vs-buy",
-  "loan",
-  "mortgage",
-  "credit",
-  "investment",
-  "return",
-  "pricing",
-  "quote",
-  "bid",
-  "margin",
-  "profit",
-  "cash flow",
-  "cash-flow",
-  "break even",
-  "break-even",
-  "tax",
-  "salary",
-] as const;
-
-const HIGH_KEYWORDS = [
-  "scrap",
-  "waste",
-  "oee",
-  "rework",
-  "machine hour",
-  "machine-time",
-  "route",
-  "fuel",
-  "construction overrun",
-  "food waste",
-  "food-cost",
-  "cleaning margin",
-  "downtime",
-] as const;
-
-export function normalizeRiskText(value: string): string {
-  return value.toLowerCase().replace(/[_/]+/g, " ").trim();
-}
-
-export function matchesKeyword(haystack: string, keyword: string): boolean {
-  return normalizeRiskText(haystack).includes(normalizeRiskText(keyword));
-}
-
-export function suggestRiskLevel(input: {
-  slug: string;
-  name: string;
-  inputKeys?: readonly string[];
-}): RiskLevel {
-  const blob = [input.slug, input.name, ...(input.inputKeys ?? [])].join(" ");
-  if (CRITICAL_KEYWORDS.some((kw) => matchesKeyword(blob, kw))) {
-    return "critical";
-  }
-  if (HIGH_KEYWORDS.some((kw) => matchesKeyword(blob, kw))) {
-    return "high";
-  }
-  if (
-    matchesKeyword(blob, "converter") ||
-    matchesKeyword(blob, "percentage") ||
-    matchesKeyword(blob, "area")
-  ) {
-    return "low";
-  }
-  return "medium";
-}
+export {
+  CRITICAL_KEYWORDS,
+  HIGH_KEYWORDS,
+  buildRiskBlob,
+  detectRiskFlags,
+  hasVisibleDecisionWording,
+  matchesKeyword,
+  missingCriticalContractReason,
+  normalizeRiskText,
+  suggestDecisionImpact,
+  suggestRiskLevel,
+} from "@/lib/formula-governance/risk-scoring";
 
 export function isCriticalRisk(level: RiskLevel): boolean {
   return level === "critical";
