@@ -3,7 +3,15 @@
  *
  * Distinct from `@/lib/calculators/premium-types` (legacy scenario/report copy).
  * Consumed by `premium-tool-contracts.ts` and `premium-decision-engine.ts`.
+ *
+ * Architecture Reset v1: premium tools are loss / measurement / optimization
+ * decision reports — not quote-only calculators.
  */
+
+import type {
+  PremiumArchitectureProfile,
+  PremiumFieldPanel,
+} from "@/lib/premium/premium-architecture";
 
 /** Machine-readable verdict severity for premium decision reports. */
 export type PremiumSeverity = "accept" | "caution" | "reject";
@@ -114,4 +122,9 @@ export interface PremiumDecisionReport {
  readonly recommendation: string;
  readonly reportSections: readonly { readonly title: string; readonly body: string }[];
  readonly legalNote: string;
+ /** Architecture Reset v1 — loss-family context and 3-second field panel. */
+ readonly architecture: {
+  readonly profile: PremiumArchitectureProfile;
+  readonly fieldPanel: PremiumFieldPanel;
+ };
 }

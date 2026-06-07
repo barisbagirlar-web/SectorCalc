@@ -1,0 +1,56 @@
+---
+description: SectorCalc Premium Architecture — loss/efficiency platform, not quote-only SaaS
+globs:
+  - src/lib/premium/**
+  - src/lib/tools/premium-**
+  - src/components/tools/Premium*.tsx
+  - src/components/tools/IndustrialFieldPanel.tsx
+alwaysApply: false
+---
+
+# SectorCalc Premium Architecture Reset v1
+
+SectorCalc is **not** a quote/margin calculator site. It is an **Industrial Efficiency & Loss Management Calculation Universe** for businesses that cannot afford ERP, consulting, or expensive software.
+
+## Premium scope (8 decision families)
+
+1. Measurement & weighing accuracy
+2. Calibration & tolerance deviation
+3. Scrap, fire & defective product loss
+4. Time, setup, OEE & capacity loss
+5. Route, equipment & work-plan optimization
+6. Sector cost & profitability
+7. Energy, carbon, CBAM & efficiency
+8. Benchmark, health score & decision report
+
+## Every premium tool must answer ≥1 of:
+
+1. What is being measured?
+2. Where is the loss?
+3. Is deviation beyond tolerance?
+4. What is the money/time/material/energy impact?
+5. What should the operator do now?
+
+## Engine modes (per sector)
+
+Each premium analyzer exposes **Measurement**, **Loss Detection**, and **Optimization** logic via `SECTOR_LOSS_REGISTRY`.
+
+## UX standard
+
+- **Industrial Field Panel**: verdict + 4 KPI tiles readable in ~3 seconds (glove-friendly, min 44px targets).
+- No formula text in UI.
+- No jargon: CRITICAL DRIFT, intelligence layer, margincore.
+- Legal note on every report.
+
+## Product tiers
+
+- **Free**: quick calc, conversion, first risk signal.
+- **Premium Decision Reports**: loss analysis, tolerance, action report, PDF/save.
+- **Industrial OS**: audit, benchmark, variance (separate layer).
+
+## When adding or editing premium tools
+
+- Register architecture in `src/lib/premium/sector-loss-registry.ts`.
+- Wire contract in `premium-tool-contracts.ts` + calculator in `premium-decision-engine.ts`.
+- Use loss-family titles, not quote-only naming.
+- Preserve 27 slug registry — do not add parallel premium systems.

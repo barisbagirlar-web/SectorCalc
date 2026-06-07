@@ -8,7 +8,6 @@ import { FreeToolPrivacyNote } from "@/components/tools/FreeToolPrivacyNote";
 import { Container } from "@/components/ui/Container";
 import { IconListItem } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
-import { Button } from "@/components/ui/Button";
 import { FREE_TOOLS } from "@/data/tools";
 import { FREE_TRAFFIC_CATEGORIES, FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
 import { industryRegistry } from "@/lib/tools/industry-registry";
@@ -36,68 +35,56 @@ export default async function FreeToolsPage({ params }: PageProps) {
 
   return (
     <PageLayout>
-      <section className="border-b border-border-subtle bg-bg-subtle py-4 sm:py-6">
-        <Container>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-deep-navy">
-            {t("eyebrow")}
-          </p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
-            {t("title")}
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-secondary">
-            {t("lead")}
-          </p>
-          <p className="mt-3 text-sm font-medium text-text-primary">
+      <section className="sc-craft-section sc-craft-section--alt sc-craft-section--border">
+        <Container className="sc-craft-container">
+          <p className="sc-craft-eyebrow">{t("eyebrow")}</p>
+          <h1 className="sc-craft-headline">{t("title")}</h1>
+          <p className="sc-craft-lead">{t("lead")}</p>
+          <p className="mt-3 text-sm font-medium text-premium-velvet">
             {t("totalCount", {
               traffic: FREE_TRAFFIC_TOOLS.length,
               sectors: FREE_TOOLS.length,
               categories: FREE_TRAFFIC_CATEGORIES.length,
             })}
           </p>
-          <nav className="mt-4 flex flex-wrap gap-2" aria-label={t("categoryNavLabel")}>
-            <Link
-              href="#featured"
-              className="inline-flex min-h-[44px] items-center px-2 text-xs font-semibold uppercase tracking-wide text-text-secondary hover:text-deep-navy"
-            >
+          <nav className="mt-4 flex flex-wrap gap-1" aria-label={t("categoryNavLabel")}>
+            <Link href="#featured" className="sc-cta-secondary px-3 text-xs">
               {t("featuredTitle")}
             </Link>
             {FREE_TRAFFIC_CATEGORIES.map((category) => (
               <Link
                 key={category}
                 href={`#${category}`}
-                className="inline-flex min-h-[44px] items-center px-2 text-xs font-semibold uppercase tracking-wide text-text-secondary hover:text-deep-navy"
+                className="sc-cta-secondary px-3 text-xs"
               >
                 {t(`categories.${category}`)}
               </Link>
             ))}
-            <Link
-              href="#sector-tools"
-              className="inline-flex min-h-[44px] items-center px-2 text-xs font-semibold uppercase tracking-wide text-text-secondary hover:text-deep-navy"
-            >
+            <Link href="#sector-tools" className="sc-cta-secondary px-3 text-xs">
               {t("sectorToolsTitle")}
             </Link>
           </nav>
         </Container>
       </section>
 
-      <section className="border-b border-border-subtle bg-white py-4 sm:py-6">
-        <Container>
-          <div className="grid gap-6 md:grid-cols-2">
-            <div>
-              <h2 className="text-lg font-bold text-text-primary">{t("includesTitle")}</h2>
-              <ul className="mt-4 space-y-2.5">
+      <section className="sc-craft-section sc-craft-section--border">
+        <Container className="sc-craft-container">
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="sc-industrial-panel p-5">
+              <h2 className="sc-craft-headline text-lg">{t("includesTitle")}</h2>
+              <ul className="mt-4 space-y-2">
                 {[t("includes1"), t("includes2"), t("includes3"), t("includes4")].map((item) => (
-                  <IconListItem key={item} icon={UI_ICON.check} iconClassName="text-deep-navy">
+                  <IconListItem key={item} icon={UI_ICON.check} iconClassName="text-premium-velvet">
                     {item}
                   </IconListItem>
                 ))}
               </ul>
             </div>
-            <div>
-              <h2 className="text-lg font-bold text-text-primary">{t("excludesTitle")}</h2>
-              <ul className="mt-4 space-y-2.5">
+            <div className="sc-industrial-panel p-5">
+              <h2 className="sc-craft-headline text-lg">{t("excludesTitle")}</h2>
+              <ul className="mt-4 space-y-2">
                 {[t("excludes1"), t("excludes2"), t("excludes3"), t("excludes4")].map((item) => (
-                  <IconListItem key={item} icon={UI_ICON.exclude} iconClassName="text-text-secondary">
+                  <IconListItem key={item} icon={UI_ICON.exclude} iconClassName="text-body-charcoal">
                     {item}
                   </IconListItem>
                 ))}
@@ -112,14 +99,11 @@ export default async function FreeToolsPage({ params }: PageProps) {
 
       <FreeTrafficCatalogSection />
 
-      <section
-        id="sector-tools"
-        className="border-b border-border-subtle bg-white py-4 sm:py-6"
-      >
-        <Container size="wide">
-          <h2 className="text-xl font-bold text-text-primary">{t("sectorToolsTitle")}</h2>
-          <p className="mt-2 max-w-2xl text-sm text-text-secondary">{t("sectorToolsLead")}</p>
-          <p className="mt-2 text-sm text-text-secondary">
+      <section id="sector-tools" className="sc-craft-section sc-craft-section--alt sc-craft-section--border">
+        <Container size="wide" className="sc-craft-container sc-craft-container--wide">
+          <h2 className="sc-craft-headline text-xl sm:text-2xl">{t("sectorToolsTitle")}</h2>
+          <p className="sc-craft-lead text-sm">{t("sectorToolsLead")}</p>
+          <p className="mt-2 text-sm text-body-charcoal">
             {t("sectorToolsCount", {
               count: FREE_TOOLS.length,
               industries: industryRegistry.length,
@@ -131,21 +115,18 @@ export default async function FreeToolsPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="bg-bg-subtle py-4 sm:py-6">
-        <Container>
-          <div className="border border-border-subtle bg-white p-4 sm:p-6">
-            <h2 className="text-xl font-bold text-text-primary">{t("premiumUpsellTitle")}</h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-secondary">
+      <section className="sc-craft-section">
+        <Container className="sc-craft-container">
+          <div className="sc-decision-block">
+            <h2 className="sc-craft-headline text-lg">{t("premiumUpsellTitle")}</h2>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-body-charcoal">
               {t("premiumUpsellBody")}
             </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href={getPremiumToolsHref()} variant="primary" size="lg">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link href={getPremiumToolsHref()} className="sc-cta-primary">
                 {t("premiumUpsellCta")}
-              </Button>
-              <Link
-                href="/industries"
-                className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold text-text-secondary hover:text-deep-navy"
-              >
+              </Link>
+              <Link href="/industries" className="sc-cta-secondary">
                 {t("premiumUpsellIndustries")}
               </Link>
             </div>

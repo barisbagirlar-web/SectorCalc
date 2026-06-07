@@ -176,6 +176,16 @@ describe("premium-decision-engine", () => {
     }
   });
 
+  test("every report includes architecture field panel", () => {
+    for (const slug of listPremiumContractSlugs()) {
+      const report = calculatePremiumDecisionReport(slug, defaultValuesForSlug(slug));
+      expect(report.architecture.profile.slug).toBe(slug);
+      expect(report.architecture.fieldPanel.kpis.length).toBeGreaterThanOrEqual(4);
+      expect(report.architecture.fieldPanel.measuredLine.length).toBeGreaterThan(10);
+      expect(report.architecture.fieldPanel.actionLine.length).toBeGreaterThan(5);
+    }
+  });
+
   test("getPremiumToolContract resolves every slug", () => {
     for (const slug of listPremiumContractSlugs()) {
       expect(getPremiumToolContract(slug)?.slug).toBe(slug);

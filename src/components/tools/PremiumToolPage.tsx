@@ -9,7 +9,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { OsModuleHeader } from "@/components/os/OsModuleHeader";
 import { SectorToolSelect } from "@/components/os/SectorToolSelect";
-import { handleNumericInputChange, SC_NUMERIC_INPUT_CLASS } from "@/lib/input/numeric-input";
+import { handleNumericInputChange } from "@/lib/input/numeric-input";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
@@ -89,10 +89,6 @@ interface PremiumToolInputFieldProps {
  onChange: (key: string, value: number | string) => void;
 }
 
-function formatInputLabel(label: string, unit?: string): string {
- return unit ? `${label} (${unit})` : label;
-}
-
 function PremiumToolInputField({
  input,
  value,
@@ -101,22 +97,25 @@ function PremiumToolInputField({
 }: PremiumToolInputFieldProps) {
  const inputId = `premium-tool-${input.key}`;
  const errorId = `${inputId}-error`;
- const label = formatInputLabel(input.label, input.unit);
+ const helperId = `${inputId}-helper`;
+ const showUnit = Boolean(input.unit) && input.type !== "currency";
 
  if (input.type === "select" && input.options) {
  return (
- <div className="space-y-1">
- <label htmlFor={inputId} className="label-badge block text-body-charcoal">
- {label}
- {input.required ? <span className="text-crit-red">*</span> : null}
+ <div className="sc-industrial-field">
+ <div className="sc-industrial-field__label-row">
+ <label htmlFor={inputId} className="sc-industrial-field__label">
+ {input.label}
+ {input.required ? <span aria-hidden> *</span> : null}
  </label>
+ </div>
  <select
  id={inputId}
  value={String(value)}
  onChange={(event) => onChange(input.key, event.target.value)}
  aria-invalid={Boolean(error)}
- aria-describedby={error ? errorId : undefined}
- className={`sc-input min-h-[44px] ${error ? "sc-input-error" : ""}`}
+ aria-describedby={error ? errorId : helperId}
+ className={error ? "sc-industrial-input--error" : undefined}
  >
  {input.options.map((option) => (
  <option key={option.value} value={option.value}>
@@ -124,8 +123,11 @@ function PremiumToolInputField({
  </option>
  ))}
  </select>
+ {input.helperText ? (
+ <p id={helperId} className="sc-industrial-field__helper">{input.helperText}</p>
+ ) : null}
  {error ? (
- <p id={errorId} className="text-xs text-crit-red status-crit" role="alert">
+ <p id={errorId} className="sc-industrial-field__error" role="alert">
  {error}
  </p>
  ) : null}
@@ -134,19 +136,19 @@ function PremiumToolInputField({
  }
 
  const isCurrency = input.type === "currency";
- const showUnit = Boolean(input.unit) && input.type !== "currency";
 
  return (
- <div className="space-y-1">
- <label htmlFor={inputId} className="label-badge block text-body-charcoal">
- {label}
- {input.required ? <span className="text-crit-red">*</span> : null}
+ <div className="sc-industrial-field">
+ <div className="sc-industrial-field__label-row">
+ <label htmlFor={inputId} className="sc-industrial-field__label">
+ {input.label}
+ {input.required ? <span aria-hidden> *</span> : null}
  </label>
- <div className="relative">
+ {showUnit ? <span className="sc-industrial-field__unit">{input.unit}</span> : null}
+ </div>
+ <div className="sc-industrial-input-wrap">
  {isCurrency ? (
- <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 data-value text-xs text-body-charcoal">
- $
- </span>
+ <span className="sc-industrial-input-wrap__prefix" aria-hidden>$</span>
  ) : null}
  <input
  id={inputId}
@@ -159,19 +161,15 @@ function PremiumToolInputField({
  onChange(input.key, numeric);
  }}
  aria-invalid={Boolean(error)}
- aria-describedby={error ? errorId : undefined}
- className={`${SC_NUMERIC_INPUT_CLASS} min-h-[44px] ${isCurrency ? "pl-8 pr-4" : "px-4"} ${showUnit ? "pr-14" : ""} ${
- error ? "sc-input-error" : ""
- }`}
+ aria-describedby={error ? errorId : helperId}
+ className={`sc-industrial-input${isCurrency ? " sc-industrial-input--currency" : ""}${showUnit ? " sc-industrial-input--unit" : ""}${error ? " sc-industrial-input--error" : ""}`}
  />
- {showUnit ? (
- <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 data-value text-xs text-body-charcoal">
- {input.unit}
- </span>
- ) : null}
  </div>
+ {input.helperText ? (
+ <p id={helperId} className="sc-industrial-field__helper">{input.helperText}</p>
+ ) : null}
  {error ? (
- <p id={errorId} className="text-xs text-crit-red status-crit" role="alert">
+ <p id={errorId} className="sc-industrial-field__error" role="alert">
  {error}
  </p>
  ) : null}
@@ -307,10 +305,10 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
 
  return (
  <PageLayout>
- <section className="bg-industrial-matte py-3">
- <Container size="wide" className="min-w-0 font-mono">
+ <section className="sc-craft-section">
+ <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
  {loading ? (
- <p className="text-xs text-body-charcoal">…</p>
+ <p className="text-sm text-body-charcoal">Loading access…</p>
  ) : !user && !devPro && !isSuperUser ? (
  <PremiumLoginPrompt paidSlug={tool.paidSlug} />
  ) : !canAccessAnalyzer && !isSuperUser ? (
@@ -322,7 +320,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  </Suspense>
  <PremiumPaywall tool={tool} />
  {error ? (
- <p className="mt-2 text-xs text-crit-red status-crit" role="alert">
+ <p className="mt-2 text-sm text-crit-red status-crit" role="alert">
  {error}
  </p>
  ) : null}
@@ -331,8 +329,12 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  <>
  <SectorToolSelect tier="premium" currentSlug={tool.paidSlug} />
  <OsModuleHeader title={tool.paidTitle} tier="intelligence" />
- <div className="grid min-w-0 gap-4 lg:grid-cols-2 lg:items-start">
- <form onSubmit={handleSubmit} className="min-w-0 space-y-3" noValidate>
+ <div className="sc-tool-workspace mt-4">
+ <form
+ onSubmit={handleSubmit}
+ className="sc-tool-workspace__form sc-industrial-form sc-industrial-panel p-4 sm:p-5"
+ noValidate
+ >
  {tool.paidInputs.map((input) => (
  <PremiumToolInputField
  key={input.key}
@@ -342,17 +344,19 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  onChange={handleChange}
  />
  ))}
+ <div className="sc-industrial-form-actions">
  <button
  type="submit"
  disabled={isCalculating}
- className="sc-btn-primary w-full sm:w-auto disabled:opacity-60"
+ className="sc-cta-primary disabled:opacity-60"
  >
- {isCalculating ? "…" : "Run"}
+ {isCalculating ? "Calculating…" : "Run analysis"}
  </button>
+ </div>
  </form>
 
- <div className="min-w-0 space-y-4">
- {isCalculating ? <p className="text-xs text-body-charcoal">…</p> : null}
+ <div className="sc-tool-workspace__result min-w-0 space-y-4">
+ {isCalculating ? <p className="text-sm text-body-charcoal">Calculating…</p> : null}
  {!isCalculating && decisionReport && result && verdictReportData ? (
  <>
  <PremiumAnalyzerReportPanel report={decisionReport} />
@@ -377,6 +381,8 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  />
  ) : null}
  </>
+ ) : !isCalculating ? (
+ <p className="text-sm text-body-charcoal">Enter job inputs and run the analysis.</p>
  ) : null}
  </div>
  </div>

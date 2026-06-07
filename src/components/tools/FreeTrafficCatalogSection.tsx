@@ -24,32 +24,26 @@ export async function FreeTrafficCatalogSection() {
 
   return (
     <>
-      <section className="border-b border-border-subtle bg-white py-4 sm:py-6" id="featured">
-        <Container size="wide">
-          <h2 className="text-lg font-bold text-text-primary">{t("featuredTitle")}</h2>
-          <p className="mt-1 text-sm text-text-secondary">{t("featuredLead")}</p>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="sc-craft-section sc-craft-section--white sc-craft-section--border" id="featured">
+        <Container size="wide" className="sc-craft-container sc-craft-container--wide">
+          <h2 className="sc-craft-headline text-xl sm:text-2xl">{t("featuredTitle")}</h2>
+          <p className="sc-craft-lead text-sm">{t("featuredLead")}</p>
+          <ul className="sc-craft-grid sc-craft-grid--4 mt-5">
             {FEATURED_TRAFFIC_SLUGS.map((slug) => {
               const tool = FREE_TRAFFIC_TOOLS.find((entry) => entry.slug === slug);
               if (!tool) {
                 return null;
               }
               return (
-                <li key={slug} className="border border-[#D1D1D1] bg-[#FBFBFA] p-3">
-                  <p className="text-[10px] font-semibold uppercase tracking-wide text-text-secondary">
-                    {t(`categories.${tool.category}`)}
-                  </p>
-                  <h3 className="mt-1 text-sm font-semibold text-text-primary">{tool.title}</h3>
-                  <p className="mt-1 line-clamp-2 text-xs text-text-secondary">{tool.description}</p>
-                  {tool.relatedPremiumSlug ? (
-                    <p className="mt-2 text-[10px] text-text-secondary">{t("decisionAnalyzerNote")}</p>
-                  ) : null}
-                  <Link
-                    href={resolveToolHref(slug)}
-                    className="mt-3 inline-flex min-h-[44px] items-center text-xs font-semibold uppercase tracking-wide text-[#0A0A0A] underline underline-offset-2"
-                  >
-                    {t("openCalculator")}
-                  </Link>
+                <li key={slug}>
+                  <article className="sc-craft-card">
+                    <p className="sc-craft-eyebrow">{t(`categories.${tool.category}`)}</p>
+                    <h3 className="sc-craft-card__title mt-2">{tool.title}</h3>
+                    <p className="sc-craft-card__body">{tool.description}</p>
+                    <Link href={resolveToolHref(slug)} className="sc-craft-card__cta">
+                      {t("openCalculator")}
+                    </Link>
+                  </article>
                 </li>
               );
             })}
@@ -57,36 +51,30 @@ export async function FreeTrafficCatalogSection() {
         </Container>
       </section>
 
-      {FREE_TRAFFIC_CATEGORIES.map((category: FreeTrafficCategory) => {
+      {FREE_TRAFFIC_CATEGORIES.map((category: FreeTrafficCategory, index) => {
         const tools = listFreeTrafficToolsByCategory(category);
         const anchor = category;
         return (
           <section
             key={category}
             id={anchor}
-            className="border-b border-border-subtle bg-bg-subtle py-4 sm:py-6"
+            className={`sc-craft-section sc-craft-section--border ${index % 2 === 1 ? "sc-craft-section--alt" : ""}`}
           >
-            <Container size="wide">
-              <h2 className="text-lg font-bold text-text-primary">
+            <Container size="wide" className="sc-craft-container sc-craft-container--wide">
+              <h2 className="sc-craft-headline text-xl sm:text-2xl">
                 {t(getFreeTrafficCategoryLabelKey(category))}
               </h2>
-              <p className="mt-1 text-sm text-text-secondary">
-                {t("categoryCount", { count: tools.length })}
-              </p>
-              <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <p className="sc-craft-lead text-sm">{t("categoryCount", { count: tools.length })}</p>
+              <ul className="sc-craft-grid sc-craft-grid--3 mt-5">
                 {tools.map((tool) => (
-                  <li key={tool.slug} className="border border-[#D1D1D1] bg-white p-3">
-                    <h3 className="text-sm font-semibold text-text-primary">{tool.title}</h3>
-                    <p className="mt-1 line-clamp-2 text-xs text-text-secondary">{tool.description}</p>
-                    {tool.relatedPremiumSlug ? (
-                      <p className="mt-2 text-[10px] text-text-secondary">{t("decisionAnalyzerNote")}</p>
-                    ) : null}
-                    <Link
-                      href={resolveToolHref(tool.slug)}
-                      className="mt-3 inline-flex min-h-[44px] items-center text-xs font-semibold uppercase tracking-wide text-[#0A0A0A] underline underline-offset-2"
-                    >
-                      {t("openCalculator")}
-                    </Link>
+                  <li key={tool.slug}>
+                    <article className="sc-craft-card">
+                      <h3 className="sc-craft-card__title">{tool.title}</h3>
+                      <p className="sc-craft-card__body">{tool.description}</p>
+                      <Link href={resolveToolHref(tool.slug)} className="sc-craft-card__cta">
+                        {t("openCalculator")}
+                      </Link>
+                    </article>
                   </li>
                 ))}
               </ul>

@@ -4,11 +4,11 @@ import { DesktopHeaderNav } from "@/components/layout/HeaderNav";
 import { HeaderNavPrefetch } from "@/components/layout/HeaderNavPrefetch";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { MobileNav } from "@/components/layout/MobileNav";
-import { RegionIndicator, RegionSelector } from "@/components/layout/RegionSelector";
+import { RegionSelector } from "@/components/layout/RegionSelector";
 
 export function SiteHeader() {
   return (
-    <header id="header" className="apple-nav">
+    <header id="header" className="apple-nav sc-header-craft">
       <HeaderNavPrefetch />
       <div className="apple-nav__inner">
         <SiteLogo priority />
@@ -18,8 +18,7 @@ export function SiteHeader() {
         </div>
 
         <div className="apple-nav__utilities">
-          <div className="hidden items-center gap-3 lg:flex">
-            <RegionIndicator />
+          <div className="sc-header-util-compact hidden lg:flex">
             <RegionSelector />
             <LocaleSwitcher />
             <HeaderAuthCta />

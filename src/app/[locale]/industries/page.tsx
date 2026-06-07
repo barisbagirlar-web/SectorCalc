@@ -5,10 +5,10 @@ import { buildIndustryCardProps, type IndustryCardProps } from "@/components/ind
 import { IndustriesGrid } from "@/components/industries/IndustriesGrid";
 import { Container } from "@/components/ui/Container";
 import {
- FEATURED_INDUSTRY_SLUGS,
- getAllIndustryCategories,
- getIndustriesByCategory,
- INDUSTRY_CATEGORY_LABELS,
+  FEATURED_INDUSTRY_SLUGS,
+  getAllIndustryCategories,
+  getIndustriesByCategory,
+  INDUSTRY_CATEGORY_LABELS,
 } from "@/lib/tools/industry-registry";
 import { INDUSTRIES, getIndustryBySlug, type Industry } from "@/data/industries";
 import { createPageMetadata } from "@/lib/metadata";
@@ -17,94 +17,82 @@ import { getPremiumToolsHref, getPricingHref } from "@/lib/tools/tool-links";
 const SECTOR_COUNT = INDUSTRIES.length;
 
 export const metadata: Metadata = createPageMetadata({
- title: "Industry Cost and Margin Tools",
- description: `${SECTOR_COUNT} active industry packs with free cost calculators and premium margin analyzers for pricing and bid decisions.`,
- path: "/industries",
+  title: "Industry Tools — Free Checks & Premium Reports",
+  description: `${SECTOR_COUNT} industry packs with free calculators and premium loss decision reports.`,
+  path: "/industries",
 });
 
 function resolveIndustryCards(
- industries: Industry[],
- featured = false
+  industries: Industry[],
+  featured = false
 ): IndustryCardProps[] {
- return industries
- .map((industry) => buildIndustryCardProps(industry, { featured }))
- .filter((item): item is IndustryCardProps => item !== null);
+  return industries
+    .map((industry) => buildIndustryCardProps(industry, { featured }))
+    .filter((item): item is IndustryCardProps => item !== null);
 }
 
 export default function IndustriesPage() {
- const featured = FEATURED_INDUSTRY_SLUGS.map((slug) => getIndustryBySlug(slug)).filter(
- (industry): industry is Industry => industry !== undefined
- );
- const featuredCards = resolveIndustryCards(featured, true);
+  const featured = FEATURED_INDUSTRY_SLUGS.map((slug) => getIndustryBySlug(slug)).filter(
+    (industry): industry is Industry => industry !== undefined
+  );
+  const featuredCards = resolveIndustryCards(featured, true);
 
- return (
- <PageLayout>
- <section className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12">
- <Container>
- <p className="text-xs font-bold uppercase tracking-[0.2em] text-deep-navy">
- Sector decision tools
- </p>
- <h1 className="mt-3 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
- Choose the sector where margin risk starts
- </h1>
- <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-secondary">
- Start with a free quick check, then unlock premium analyzers for safe price, bid
- risk and margin leak decisions across {INDUSTRIES.length} active sectors.
- </p>
- </Container>
- </section>
+  return (
+    <PageLayout>
+      <section className="sc-craft-section sc-craft-section--alt sc-craft-section--border">
+        <Container className="sc-craft-container">
+          <p className="sc-craft-eyebrow">Industry packs</p>
+          <h1 className="sc-craft-headline">Where loss starts in your sector</h1>
+          <p className="sc-craft-lead">
+            Start with a free quick check, then unlock premium loss and efficiency reports across{" "}
+            {INDUSTRIES.length} active sectors.
+          </p>
+        </Container>
+      </section>
 
- <section className="border-b border-border-subtle bg-white py-10 sm:py-12">
- <Container>
- <h2 className="text-xl font-bold text-text-primary">Featured sectors</h2>
- <div className="mt-6">
- <IndustriesGrid items={featuredCards} />
- </div>
- </Container>
- </section>
+      <section className="sc-craft-section sc-craft-section--border">
+        <Container className="sc-craft-container">
+          <h2 className="sc-craft-headline text-xl">Featured sectors</h2>
+          <div className="mt-5">
+            <IndustriesGrid items={featuredCards} />
+          </div>
+        </Container>
+      </section>
 
- {getAllIndustryCategories().map((category) => {
- const entries = getIndustriesByCategory(category);
- const industries = entries
- .map((entry) => getIndustryBySlug(entry.slug))
- .filter((industry): industry is Industry => industry !== undefined);
- const cards = resolveIndustryCards(industries);
+      {getAllIndustryCategories().map((category, index) => {
+        const entries = getIndustriesByCategory(category);
+        const industries = entries
+          .map((entry) => getIndustryBySlug(entry.slug))
+          .filter((industry): industry is Industry => industry !== undefined);
+        const cards = resolveIndustryCards(industries);
 
- return (
- <section
- key={category}
- className="border-b border-border-subtle bg-bg-subtle py-10 sm:py-12 even:bg-white"
- >
- <Container>
- <h2 className="text-xl font-bold text-text-primary">
- {INDUSTRY_CATEGORY_LABELS[category]}
- </h2>
- <div className="mt-6">
- <IndustriesGrid items={cards} />
- </div>
- </Container>
- </section>
- );
- })}
+        return (
+          <section
+            key={category}
+            className={`sc-craft-section sc-craft-section--border ${index % 2 === 1 ? "sc-craft-section--alt" : ""}`}
+          >
+            <Container className="sc-craft-container">
+              <h2 className="sc-craft-headline text-xl">{INDUSTRY_CATEGORY_LABELS[category]}</h2>
+              <div className="mt-5">
+                <IndustriesGrid items={cards} />
+              </div>
+            </Container>
+          </section>
+        );
+      })}
 
- <section className="bg-bg-subtle py-8">
- <Container>
- <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
- <Link
- href={getPremiumToolsHref()}
- className="text-sm font-semibold text-deep-navy hover:underline"
- >
- Browse premium analyzers →
- </Link>
- <Link
- href={getPricingHref()}
- className="text-sm font-semibold text-text-secondary hover:text-deep-navy"
- >
- View SectorCalc Pro pricing →
- </Link>
- </div>
- </Container>
- </section>
- </PageLayout>
- );
+      <section className="sc-craft-section">
+        <Container className="sc-craft-container">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link href={getPremiumToolsHref()} className="sc-cta-primary">
+              Browse premium analyzers
+            </Link>
+            <Link href={getPricingHref()} className="sc-cta-secondary">
+              View pricing
+            </Link>
+          </div>
+        </Container>
+      </section>
+    </PageLayout>
+  );
 }

@@ -148,11 +148,22 @@ function FreeToolInputField({
 
 function FreeToolResultCard({ result }: { result: FreeToolResult }) {
  const status = riskLevelToStatus(result.riskLevel);
+ const primaryClass =
+  status === "safe"
+   ? "sc-result-primary sc-result-primary--safe"
+   : status === "warning"
+     ? "sc-result-primary sc-result-primary--warn"
+     : status === "critical"
+       ? "sc-result-primary sc-result-primary--danger"
+       : "sc-result-primary";
+
  return (
- <div className="calculation-result space-y-1 text-sm" aria-live="polite">
- <p className={STATUS_TEXT_CLASS[status]} data-status={status}>
+ <div className="sc-result-panel" aria-live="polite">
+ <p className="sc-craft-eyebrow">Risk signal</p>
+ <p className={`mt-2 text-base font-semibold leading-snug ${STATUS_TEXT_CLASS[status]}`} data-status={status}>
  {result.headline}
  </p>
+ <p className={`mt-3 text-lg font-medium text-body-charcoal ${primaryClass}`}>{result.summary}</p>
  </div>
  );
 }
@@ -242,13 +253,18 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
 
  return (
  <PageLayout>
- <section className="bg-industrial-matte py-3">
- <Container size="wide" className="min-w-0 !px-3 !py-0">
+ <section className="sc-craft-section">
+ <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
  <SectorToolSelect tier="free" currentSlug={tool.freeSlug} />
  <OsModuleHeader title={tool.freeTitle} tier="utility" />
 
- <div className="grid min-w-0 gap-3 lg:grid-cols-2 lg:items-start">
- <form ref={formRef} onSubmit={handleSubmit} className="min-w-0 space-y-3" noValidate>
+ <div className="sc-tool-workspace mt-4">
+ <form
+ ref={formRef}
+ onSubmit={handleSubmit}
+ className="sc-tool-workspace__form sc-industrial-form sc-industrial-panel p-4 sm:p-5"
+ noValidate
+ >
  {tool.freeInputs.map((input) => (
  <FreeToolInputField
  key={input.key}
@@ -258,20 +274,25 @@ export function FreeToolPage({ tool }: FreeToolPageProps) {
  onChange={handleChange}
  />
  ))}
+ <div className="sc-industrial-form-actions">
  <button
  type="submit"
  disabled={isCalculating}
- className="sc-btn-primary w-full sm:w-auto disabled:opacity-60"
+ className="sc-cta-primary disabled:opacity-60"
  >
  {isCalculating ? "…" : "Run"}
  </button>
+ </div>
  </form>
 
- <div className="min-w-0">
+ <div className="sc-tool-workspace__result min-w-0">
  {isCalculating ? (
- <p className="text-xs text-body-charcoal">…</p>
+ <p className="text-sm text-body-charcoal">Calculating…</p>
  ) : null}
  {!isCalculating && result ? <FreeToolResultCard result={result} /> : null}
+ {!isCalculating && !result ? (
+ <p className="text-sm text-body-charcoal">Enter values and run the calculator.</p>
+ ) : null}
  </div>
  </div>
  </Container>

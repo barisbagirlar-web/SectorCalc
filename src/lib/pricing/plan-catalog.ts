@@ -31,7 +31,7 @@ export const PLAN_CATALOG: Record<CheckoutPlanId | "free", PlanCatalogEntry> = {
  },
  single_verdict: {
  id: "single_verdict",
- name: "Single Tool Report",
+ name: "Single Decision Report",
  priceLabel: "$19",
  period: "one report",
  availability: "live",

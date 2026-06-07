@@ -1,67 +1,80 @@
 import Link from "next/link";
 import type { Tool } from "@/data/tools";
 import { getIndustryBySlug, type IndustrySlug } from "@/data/industries";
+import { getPremiumArchitectureProfile } from "@/lib/premium/sector-loss-registry";
+import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
 
 type ToolDiscoveryCardProps = {
- tool: Tool;
+  tool: Tool;
+  catalogVariant?: "default" | "premium";
 };
 
-export function ToolDiscoveryCard({ tool }: ToolDiscoveryCardProps) {
- const industry = getIndustryBySlug(tool.industrySlug as IndustrySlug);
- const isPremium = tool.tier === "premium";
+export function ToolDiscoveryCard({ tool, catalogVariant = "default" }: ToolDiscoveryCardProps) {
+  const industry = getIndustryBySlug(tool.industrySlug as IndustrySlug);
+  const isPremium = tool.tier === "premium" || catalogVariant === "premium";
+  const architecture = isPremium ? getPremiumArchitectureProfile(tool.slug) : null;
+  const revenue = isPremium ? getRevenueToolByPaidSlug(tool.slug) : null;
+  const verdictExample = revenue?.verdictLabels[0];
 
- return (
- <Link
- href={tool.href}
- className="group flex h-full min-h-[120px] flex-col justify-between rounded-sm border border-border-subtle bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-deep-navy/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep-navy/30 focus-visible:ring-offset-2"
- >
- <div className="min-w-0">
- <div className="flex flex-wrap items-center gap-2">
- <span
- className={`inline-flex rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] ring-1 ${
- isPremium
- ? "bg-amber/15 text-amber ring-amber/25"
- : "bg-emerald/10 text-deep-navy ring-emerald/20"
- }`}
- >
- {isPremium ? "Premium" : "Free"}
- </span>
- {industry ? (
- <span className="text-[10px] font-semibold uppercase tracking-wide text-text-secondary">
- {industry.name}
- </span>
- ) : null}
- </div>
- <h3 className="mt-3 break-words text-base font-bold leading-snug text-text-primary line-clamp-2 group-hover:text-deep-navy">
- {tool.name}
- </h3>
- <p className="mt-2 line-clamp-2 break-words text-sm leading-relaxed text-text-secondary">
- {tool.shortDescription}
- </p>
- </div>
- <span className="mt-4 text-sm font-semibold text-deep-navy transition group-hover:translate-x-0.5">
- Open tool →
- </span>
- </Link>
- );
+  if (isPremium && catalogVariant === "premium") {
+    return (
+      <article className="sc-craft-card">
+        <p className="sc-craft-eyebrow">{architecture?.sectorLabel ?? industry?.name ?? "Sector"}</p>
+        <h3 className="sc-craft-card__title mt-2">
+          {architecture?.reclassifiedTitle ?? tool.name}
+        </h3>
+        <p className="sc-craft-card__body">
+          {architecture?.reclassifiedPromise ?? tool.shortDescription}
+        </p>
+        {architecture ? (
+          <p className="mt-2 text-xs text-body-charcoal">
+            <span className="font-semibold text-premium-velvet">Measures:</span>{" "}
+            {architecture.whatIsMeasured}
+          </p>
+        ) : null}
+        {verdictExample ? (
+          <p className="mt-2 font-mono text-[10px] uppercase tracking-wide text-body-charcoal">
+            Example output: {verdictExample}
+          </p>
+        ) : null}
+        <Link href={tool.href} className="sc-craft-card__cta">
+          View analyzer →
+        </Link>
+      </article>
+    );
+  }
+
+  return (
+    <Link href={tool.href} className="sc-craft-card group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-premium-velvet/30">
+      <div className="min-w-0 flex-1">
+        {industry ? (
+          <p className="sc-craft-eyebrow">{industry.name}</p>
+        ) : null}
+        <h3 className="sc-craft-card__title mt-2 group-hover:text-[#E65100]">{tool.name}</h3>
+        <p className="sc-craft-card__body">{tool.shortDescription}</p>
+      </div>
+      <span className="sc-craft-card__cta">Open calculator →</span>
+    </Link>
+  );
 }
 
 type ToolDiscoveryGridProps = {
- tools: Tool[];
+  tools: Tool[];
+  catalogVariant?: "default" | "premium";
 };
 
-export function ToolDiscoveryGrid({ tools }: ToolDiscoveryGridProps) {
- if (tools.length === 0) {
- return null;
- }
+export function ToolDiscoveryGrid({ tools, catalogVariant = "default" }: ToolDiscoveryGridProps) {
+  if (tools.length === 0) {
+    return null;
+  }
 
- return (
- <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
- {tools.map((tool) => (
- <li key={tool.slug} className="min-w-0">
- <ToolDiscoveryCard tool={tool} />
- </li>
- ))}
- </ul>
- );
+  return (
+    <ul className="sc-craft-grid sc-craft-grid--3">
+      {tools.map((tool) => (
+        <li key={tool.slug} className="min-w-0">
+          <ToolDiscoveryCard tool={tool} catalogVariant={catalogVariant} />
+        </li>
+      ))}
+    </ul>
+  );
 }

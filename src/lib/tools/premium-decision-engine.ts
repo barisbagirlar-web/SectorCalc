@@ -17,6 +17,14 @@ import {
  PREMIUM_TOOL_CONTRACTS,
 } from "@/lib/tools/premium-tool-contracts";
 import {
+ getPremiumArchitectureProfile,
+} from "@/lib/premium/sector-loss-registry";
+import {
+ buildLossAwareSummary,
+ buildPremiumFieldPanel,
+} from "@/lib/premium/build-field-panel";
+import type { PremiumArchitectureProfile } from "@/lib/premium/premium-architecture";
+import {
  calculateCbamComplianceResult,
  calculateCropYieldOptimizerResult,
  calculateFuelConsumptionResult,
@@ -643,35 +651,42 @@ const BASE_COST_CALCULATORS: Record<string, BaseCostCalculator> = {
 function resolveVerdict(
  quotedPrice: number | null,
  minimumSafePrice: number,
- p90Cost: number
+ p90Cost: number,
+ profile: PremiumArchitectureProfile | null
 ): PremiumVerdict {
+ const isExposureTool =
+  profile?.reportFamily === "energy_carbon" ||
+  profile?.reportFamily === "loss_detection" ||
+  profile?.decisionFamily === "measurement_accuracy";
+
  if (quotedPrice === null || quotedPrice <= 0) {
- return {
- severity: "caution",
- label: "Add your quoted price for a full verdict",
- suggestedAction:
- "Enter the price you plan to charge so we can compare it to the safe floor.",
- };
+  return {
+   severity: "caution",
+   label: isExposureTool ? "Loss exposure calculated" : "Decision threshold calculated",
+   suggestedAction: profile
+    ? `Compare your plan against the ${profile.reclassifiedTitle} floor. ${profile.engineModes[2]?.operatorSummary ?? "Adjust inputs before committing."}`
+    : "Enter your planned price or budget so we can compare it to the safe floor.",
+  };
  }
  if (quotedPrice < p90Cost) {
- return {
- severity: "reject",
- label: "Reprice before accepting",
- suggestedAction: `Your price is below the buffered cost floor of ${formatCurrency(p90Cost)}. Raise the quote or reduce scope.`,
- };
+  return {
+   severity: "reject",
+   label: "High risk — hidden cost may erase the margin",
+   suggestedAction: `Exposure floor is ${formatCurrency(p90Cost)}. Reprice before accepting or reduce scope.`,
+  };
  }
  if (quotedPrice < minimumSafePrice) {
- return {
- severity: "caution",
- label: "Margin is thinner than your target",
- suggestedAction: `Quote at least ${formatCurrency(minimumSafePrice)} to hold your target margin after buffers.`,
- };
+  return {
+   severity: "caution",
+   label: "Watch band — tolerance pressure on margin",
+   suggestedAction: `Target floor is ${formatCurrency(minimumSafePrice)}. Energy and delay exposure are common risk drivers at this level.`,
+  };
  }
  return {
- severity: "accept",
- label: "Current inputs are inside acceptable range",
- suggestedAction:
- "Price holds above the safe floor at your target margin. Confirm assumptions before signing.",
+  severity: "accept",
+  label: "Current inputs are inside the acceptable range",
+  suggestedAction:
+   "Buffered cost holds at your target margin. Confirm measurement and loss assumptions before signing.",
  };
 }
 
@@ -832,7 +847,8 @@ export function calculatePremiumDecisionReport(
  const minimumSafePrice = safeDivide(p90Cost, marginDenom);
 
  const quotedPrice = resolveQuotedPrice(values);
- const verdict = resolveVerdict(quotedPrice, minimumSafePrice, p90Cost);
+ const architectureProfile = getPremiumArchitectureProfile(slug);
+ const verdict = resolveVerdict(quotedPrice, minimumSafePrice, p90Cost, architectureProfile);
 
  const hiddenLossDrivers = buildHiddenLossDrivers(baseCost, contract, hiddenMultiplier);
  const sensitivity = buildSensitivity(
@@ -842,15 +858,56 @@ export function calculatePremiumDecisionReport(
   contract.volatilityDefault
  );
 
- const summary = `Visible direct cost is ${formatCurrency(baseCost)}. After hidden buffers the adjusted cost is ${formatCurrency(adjustedCost)} and the 90th-percentile cost floor is ${formatCurrency(p90Cost)}.`;
+ const topLossLabel =
+  hiddenLossDrivers[0]?.label ?? architectureProfile?.lossTypeLabels[0] ?? "Operating buffer";
+
+ const summary = architectureProfile
+  ? buildLossAwareSummary(architectureProfile, formatCurrency(baseCost), formatCurrency(p90Cost))
+  : `Visible direct cost is ${formatCurrency(baseCost)}. After hidden buffers the adjusted cost is ${formatCurrency(adjustedCost)} and the 90th-percentile cost floor is ${formatCurrency(p90Cost)}.`;
 
  const recommendation = verdict.suggestedAction;
+
+ const fallbackProfile: PremiumArchitectureProfile = architectureProfile ?? {
+  slug,
+  sectorSlug: contract.sectorSlug,
+  sectorLabel: contract.sectorSlug,
+  decisionFamily: "sector_cost_profitability",
+  secondaryFamilies: [],
+  reportFamily: "cost_margin",
+  engineModes: [
+   { mode: "measurement", label: "Measurement", operatorSummary: contract.promise },
+   { mode: "loss", label: "Loss Detection", operatorSummary: "Hidden operating buffers." },
+   { mode: "optimization", label: "Optimization", operatorSummary: "Safe floor calculation." },
+  ],
+  lossImpacts: ["monetary"],
+  lossTypeLabels: ["Hidden cost"],
+  reclassifiedTitle: contract.title,
+  reclassifiedPromise: contract.promise,
+  whatIsMeasured: contract.primaryMetricLabel,
+  whereIsLoss: "Shop-floor buffers not visible in quick estimates.",
+  toleranceFocus: "Target margin band.",
+  mvpLossFamily: false,
+ };
+
+ const fieldPanel = buildPremiumFieldPanel({
+  profile: fallbackProfile,
+  verdictSeverity: verdict.severity,
+  verdictLabel: verdict.label,
+  primaryMetricLabel: contract.primaryMetricLabel,
+  primaryMetricValue: formatCurrency(minimumSafePrice),
+  baseCostDisplay: formatCurrency(baseCost),
+  p90CostDisplay: formatCurrency(p90Cost),
+  hiddenMultiplier: hiddenMultiplier * toleranceMultiplier,
+  quotedPriceDisplay: quotedPrice !== null ? formatCurrency(quotedPrice) : null,
+  recommendation,
+  topLossLabel,
+ });
 
  return {
  toolSlug: slug,
  sectorSlug: contract.sectorSlug,
  generatedAt: new Date().toISOString(),
- contractTitle: contract.title,
+ contractTitle: fallbackProfile.reclassifiedTitle,
  primaryMetricLabel: contract.primaryMetricLabel,
  primaryMetricValue: formatCurrency(minimumSafePrice),
  baseCost: round(baseCost),
@@ -881,6 +938,10 @@ export function calculatePremiumDecisionReport(
  sensitivity
  ),
  legalNote: LEGAL_NOTE,
+ architecture: {
+  profile: fallbackProfile,
+  fieldPanel,
+ },
  };
 }
 

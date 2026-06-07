@@ -17,9 +17,6 @@ import {
   type FreeTrafficTool,
 } from "@/lib/tools/free-traffic-catalog";
 
-const INPUT_CLASS =
-  "w-full min-h-[44px] rounded-none border border-[#A0A0A0] bg-white px-3 font-mono text-base tabular-nums text-[#0A0A0A] focus:border-[#0A0A0A] focus:outline-none focus:ring-0";
-
 function buildInitialValues(tool: FreeTrafficTool): FreeTrafficInputValues {
   const values: FreeTrafficInputValues = {};
   for (const input of tool.inputs) {
@@ -113,36 +110,44 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
   };
 
   const tone = result ? verdictTone(result.headline) : "neutral";
+  const primaryClass =
+    tone === "positive"
+      ? "sc-result-primary sc-result-primary--safe"
+      : tone === "caution"
+        ? "sc-result-primary sc-result-primary--warn"
+        : "sc-result-primary";
 
   return (
     <PageLayout>
-      <section className="border-b border-[#A0A0A0]/40 bg-white py-4">
-        <Container size="wide">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#2B2B2B]">
-            {t(`categories.${tool.category}`)}
-          </p>
-          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-[#0A0A0A] sm:text-3xl">
-            {tool.title}
-          </h1>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#2B2B2B]">{tool.description}</p>
+      <section className="sc-craft-section sc-craft-section--white sc-craft-section--border">
+        <Container size="wide" className="sc-craft-container sc-craft-container--wide">
+          <p className="sc-craft-eyebrow">{t(`categories.${tool.category}`)}</p>
+          <h1 className="sc-craft-headline">{tool.title}</h1>
+          <p className="sc-craft-lead">{tool.description}</p>
         </Container>
       </section>
 
-      <section className="overflow-x-hidden bg-[#FBFBFA] py-4">
-        <Container size="wide" className="min-w-0">
-          <div className="grid min-w-0 gap-4 lg:grid-cols-2 lg:items-start">
-            <form onSubmit={handleSubmit} className="min-w-0 space-y-3" noValidate>
+      <section className="sc-craft-section overflow-x-hidden">
+        <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
+          <div className="sc-tool-workspace">
+            <form
+              onSubmit={handleSubmit}
+              className="sc-tool-workspace__form sc-industrial-form sc-industrial-panel p-4 sm:p-5"
+              noValidate
+            >
               {tool.inputs.map((input) => {
                 const id = `ft-${tool.slug}-${input.key}`;
                 const error = errors[input.key];
-                const label = input.unit ? `${input.label} (${input.unit})` : input.label;
+                const showUnit = Boolean(input.unit);
 
                 if (input.type === "select" && input.options) {
                   return (
-                    <div key={input.key} className="space-y-1">
-                      <label htmlFor={id} className="text-[11px] font-medium uppercase tracking-wide text-[#2B2B2B]">
-                        {label}
-                      </label>
+                    <div key={input.key} className="sc-industrial-field">
+                      <div className="sc-industrial-field__label-row">
+                        <label htmlFor={id} className="sc-industrial-field__label">
+                          {input.label}
+                        </label>
+                      </div>
                       <select
                         id={id}
                         value={String(values[input.key] ?? "")}
@@ -150,7 +155,7 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                           setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
                           setSubmitted(false);
                         }}
-                        className={INPUT_CLASS}
+                        className={error ? "sc-industrial-input--error" : undefined}
                       >
                         {input.options.map((opt) => (
                           <option key={opt.value} value={opt.value}>
@@ -158,17 +163,26 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                           </option>
                         ))}
                       </select>
-                      <p className="text-xs text-[#2B2B2B]">{input.helper}</p>
-                      {error ? <p className="text-xs text-[#DC2626]">{error}</p> : null}
+                      <p className="sc-industrial-field__helper">{input.helper}</p>
+                      {error ? (
+                        <p className="sc-industrial-field__error" role="alert">
+                          {error}
+                        </p>
+                      ) : null}
                     </div>
                   );
                 }
 
                 return (
-                  <div key={input.key} className="space-y-1">
-                    <label htmlFor={id} className="text-[11px] font-medium uppercase tracking-wide text-[#2B2B2B]">
-                      {label}
-                    </label>
+                  <div key={input.key} className="sc-industrial-field">
+                    <div className="sc-industrial-field__label-row">
+                      <label htmlFor={id} className="sc-industrial-field__label">
+                        {input.label}
+                      </label>
+                      {showUnit ? (
+                        <span className="sc-industrial-field__unit">{input.unit}</span>
+                      ) : null}
+                    </div>
                     <input
                       id={id}
                       type="text"
@@ -179,81 +193,62 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                         setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
                         setSubmitted(false);
                       }}
-                      className={INPUT_CLASS}
+                      className={`sc-industrial-input${error ? " sc-industrial-input--error" : ""}`}
                       aria-invalid={Boolean(error)}
                     />
-                    <p className="text-xs text-[#2B2B2B]">{input.helper}</p>
-                    {error ? <p className="text-xs text-[#DC2626]">{error}</p> : null}
+                    <p className="sc-industrial-field__helper">{input.helper}</p>
+                    {error ? (
+                      <p className="sc-industrial-field__error" role="alert">
+                        {error}
+                      </p>
+                    ) : null}
                   </div>
                 );
               })}
 
-              <button
-                type="submit"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-none bg-[#E65100] px-5 text-xs font-semibold uppercase tracking-[0.1em] text-white hover:bg-[#BF360C]"
-              >
-                {t("tool.calculate")}
-              </button>
+              <div className="sc-industrial-form-actions">
+                <button type="submit" className="sc-cta-primary">
+                  {t("tool.calculate")}
+                </button>
+              </div>
             </form>
 
-            <div className="min-w-0 space-y-4" aria-live="polite">
+            <div className="sc-tool-workspace__result min-w-0 space-y-4" aria-live="polite">
               {result ? (
                 <>
-                  <div className="bg-white p-4">
-                    <p className="text-[11px] font-medium uppercase tracking-wide text-[#2B2B2B]">
-                      {result.headline}
-                    </p>
-                    <p className="mt-1 text-xs text-[#2B2B2B]">{result.primaryLabel}</p>
-                    <p
-                      className={`font-mono text-4xl font-medium tabular-nums tracking-tight ${
-                        tone === "positive"
-                          ? "text-[#10B981]"
-                          : tone === "caution"
-                            ? "text-[#F59E0B]"
-                            : "text-[#0A0A0A]"
-                      }`}
-                    >
-                      {result.primaryValue}
-                    </p>
+                  <div className="sc-result-panel">
+                    <p className="sc-craft-eyebrow">{result.headline}</p>
+                    <p className="mt-1 text-xs text-body-charcoal">{result.primaryLabel}</p>
+                    <p className={primaryClass}>{result.primaryValue}</p>
                     {result.secondaryValues.length > 0 ? (
                       <dl
-                        className={`mt-3 grid gap-2 ${
-                          isConversion
-                            ? "grid-cols-2 sm:grid-cols-3"
-                            : "sm:grid-cols-2"
-                        }`}
+                        className={`sc-result-secondary-grid${isConversion ? " sc-result-secondary-grid--3" : ""}`}
                       >
                         {result.secondaryValues.map((row) => (
                           <div key={row.label}>
-                            <dt className="text-[10px] uppercase tracking-wide text-[#2B2B2B]">
-                              {row.label}
-                            </dt>
-                            <dd className="font-mono text-sm tabular-nums text-[#0A0A0A]">
-                              {row.value}
-                            </dd>
+                            <dt>{row.label}</dt>
+                            <dd>{row.value}</dd>
                           </div>
                         ))}
                       </dl>
                     ) : null}
-                    <p className="mt-3 text-sm leading-relaxed text-[#2B2B2B]">{result.explanation}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-body-charcoal">
+                      {result.explanation}
+                    </p>
                   </div>
 
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="bg-white p-4">
-                      <h2 className="text-xs font-semibold uppercase tracking-wide text-[#0A0A0A]">
-                        {t("tool.includesTitle")}
-                      </h2>
-                      <ul className="mt-2 space-y-1 text-sm text-[#2B2B2B]">
+                  <div className="grid min-w-0 gap-3 sm:grid-cols-2">
+                    <div className="sc-industrial-panel p-4">
+                      <h2 className="sc-premium-report-section__title">{t("tool.includesTitle")}</h2>
+                      <ul className="mt-2 space-y-1.5 text-sm text-body-charcoal">
                         <li>{t("tool.includes1")}</li>
                         <li>{t("tool.includes2")}</li>
                         <li>{t("tool.includes3")}</li>
                       </ul>
                     </div>
-                    <div className="bg-white p-4">
-                      <h2 className="text-xs font-semibold uppercase tracking-wide text-[#0A0A0A]">
-                        {t("tool.excludesTitle")}
-                      </h2>
-                      <ul className="mt-2 space-y-1 text-sm text-[#2B2B2B]">
+                    <div className="sc-industrial-panel p-4">
+                      <h2 className="sc-premium-report-section__title">{t("tool.excludesTitle")}</h2>
+                      <ul className="mt-2 space-y-1.5 text-sm text-body-charcoal">
                         <li>{t("tool.excludes1")}</li>
                         <li>{t("tool.excludes2")}</li>
                         <li>{t("tool.excludes3")}</li>
@@ -263,45 +258,44 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                   </div>
 
                   {(result.relatedPremiumSlug ?? tool.relatedPremiumSlug) ? (
-                    <div className="bg-white p-4">
-                      <h2 className="text-xs font-semibold uppercase tracking-wide text-[#0A0A0A]">
-                        {t("tool.premiumBlockTitle")}
-                      </h2>
-                      <p className="mt-2 text-sm text-[#2B2B2B]">{t("tool.premiumBlockBody")}</p>
+                    <div className="sc-decision-block">
+                      <p className="sc-decision-block__title">{t("tool.premiumBlockTitle")}</p>
+                      <p className="mt-2 text-sm text-body-charcoal">{t("tool.premiumBlockBody")}</p>
                       <Link
-                        href={getToolHref("premium", result.relatedPremiumSlug ?? tool.relatedPremiumSlug ?? "")}
+                        href={getToolHref(
+                          "premium",
+                          result.relatedPremiumSlug ?? tool.relatedPremiumSlug ?? "",
+                        )}
                         onClick={() => {
                           trackEvent(ANALYTICS_EVENTS.premium_preview_viewed, {
                             toolSlug: tool.slug,
                             premiumSlug: result.relatedPremiumSlug ?? tool.relatedPremiumSlug ?? "",
                           });
                         }}
-                        className="mt-3 inline-flex min-h-[44px] items-center text-sm font-semibold text-[#0A0A0A] underline underline-offset-2"
+                        className="sc-craft-card__cta mt-3"
                       >
                         {t("tool.premiumCta")}
                       </Link>
                     </div>
                   ) : null}
 
-                  <p className="text-xs leading-relaxed text-[#2B2B2B]">{result.legalNote}</p>
+                  <p className="text-xs leading-relaxed text-body-charcoal">{result.legalNote}</p>
                 </>
               ) : (
-                <p className="text-sm text-[#2B2B2B]">{t("tool.awaiting")}</p>
+                <p className="text-sm text-body-charcoal">{t("tool.awaiting")}</p>
               )}
             </div>
           </div>
 
           {relatedTools.length > 0 ? (
-            <div className="mt-4 min-w-0 bg-white p-4">
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-[#0A0A0A]">
-                {t("tool.relatedTitle")}
-              </h2>
-              <ul className="mt-3 grid min-w-0 gap-2 sm:grid-cols-2">
+            <div className="sc-industrial-panel mt-4 p-4">
+              <h2 className="sc-premium-report-section__title">{t("tool.relatedTitle")}</h2>
+              <ul className="sc-craft-grid sc-craft-grid--2 mt-3">
                 {relatedTools.map((related) => (
                   <li key={related.slug} className="min-w-0">
                     <Link
                       href={getToolHref("free", related.slug)}
-                      className="block truncate text-sm font-medium text-[#0A0A0A] underline underline-offset-2 hover:text-[#E65100]"
+                      className="block break-words text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
                     >
                       {related.title}
                     </Link>
