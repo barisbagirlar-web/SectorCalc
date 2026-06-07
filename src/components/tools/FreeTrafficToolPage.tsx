@@ -8,10 +8,12 @@ import { Container } from "@/components/ui/Container";
 import { getToolHref } from "@/lib/tools/paths";
 import {
   calculateFreeTrafficTool,
-  hasDedicatedTrafficCalculator,
   type FreeTrafficInputValues,
 } from "@/lib/tools/free-traffic-calculators";
-import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
+import {
+  listRelatedTrafficTools,
+  type FreeTrafficTool,
+} from "@/lib/tools/free-traffic-catalog";
 
 const INPUT_CLASS =
   "w-full min-h-[44px] rounded-none border border-[#A0A0A0] bg-white px-3 font-mono text-base tabular-nums text-[#0A0A0A] focus:border-[#0A0A0A] focus:outline-none focus:ring-0";
@@ -28,14 +30,8 @@ function buildInitialValues(tool: FreeTrafficTool): FreeTrafficInputValues {
   return values;
 }
 
-function verdictTone(
-  headline: string,
-  isExpanded: boolean,
-): "neutral" | "positive" | "caution" {
-  if (!isExpanded) {
-    return "neutral";
-  }
-  if (headline.toLowerCase().includes("break-even") || headline.includes("BMI")) {
+function verdictTone(headline: string): "neutral" | "positive" | "caution" {
+  if (headline.toLowerCase().includes("break-even")) {
     return "caution";
   }
   return "positive";
@@ -58,7 +54,8 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
     return calculateFreeTrafficTool(tool.slug, values);
   }, [submitted, tool.slug, values]);
 
-  const hasFormula = hasDedicatedTrafficCalculator(tool.slug);
+  const relatedTools = listRelatedTrafficTools(tool);
+  const isConversion = tool.resultType === "conversion";
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -93,7 +90,7 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
     setSubmitted(true);
   };
 
-  const tone = result ? verdictTone(result.headline, result.isExpandedFormula) : "neutral";
+  const tone = result ? verdictTone(result.headline) : "neutral";
 
   return (
     <PageLayout>
@@ -197,7 +194,13 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                       {result.primaryValue}
                     </p>
                     {result.secondaryValues.length > 0 ? (
-                      <dl className="mt-3 grid gap-2 sm:grid-cols-2">
+                      <dl
+                        className={`mt-3 grid gap-2 ${
+                          isConversion
+                            ? "grid-cols-2 sm:grid-cols-3"
+                            : "sm:grid-cols-2"
+                        }`}
+                      >
                         {result.secondaryValues.map((row) => (
                           <div key={row.label}>
                             <dt className="text-[10px] uppercase tracking-wide text-[#2B2B2B]">
@@ -221,7 +224,7 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                       <ul className="mt-2 space-y-1 text-sm text-[#2B2B2B]">
                         <li>{t("tool.includes1")}</li>
                         <li>{t("tool.includes2")}</li>
-                        {hasFormula ? <li>{t("tool.includes3")}</li> : null}
+                        <li>{t("tool.includes3")}</li>
                       </ul>
                     </div>
                     <div className="bg-white p-4">
@@ -249,6 +252,26 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                       >
                         {t("tool.premiumCta")}
                       </Link>
+                    </div>
+                  ) : null}
+
+                  {relatedTools.length > 0 ? (
+                    <div className="bg-white p-4">
+                      <h2 className="text-xs font-semibold uppercase tracking-wide text-[#0A0A0A]">
+                        {t("tool.relatedTitle")}
+                      </h2>
+                      <ul className="mt-3 space-y-2">
+                        {relatedTools.map((related) => (
+                          <li key={related.slug}>
+                            <Link
+                              href={getToolHref("free", related.slug)}
+                              className="text-sm font-medium text-[#0A0A0A] underline underline-offset-2 hover:text-[#E65100]"
+                            >
+                              {related.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   ) : null}
 
