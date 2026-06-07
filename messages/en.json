@@ -325,6 +325,43 @@
       "max": "Must be at most {max}."
     }
   },
+  "contentAuthority": {
+    "freeTool": {
+      "howItWorksTitle": "How this calculator works",
+      "descriptionTitle": "What this tool does",
+      "formulaTitle": "Formula summary",
+      "inputsTitle": "What the inputs mean",
+      "includesTitle": "What this result includes",
+      "excludesTitle": "What this result does not include",
+      "faqTitle": "FAQ",
+      "faqUseTitle": "What is this calculator used for?",
+      "faqFreeTitle": "Is this calculator free?",
+      "faqPremiumTitle": "When should I use a premium analyzer?",
+      "faqUseAnswer": "{title} gives a quick formula-based estimate from the values you enter. Use it for sanity checks before quoting, ordering or planning.",
+      "faqFreeAnswer": "Yes. SectorCalc free calculators run in your browser with no sign-up required.",
+      "faqPremiumAnswer": "Use a premium analyzer when the estimate affects pricing, operations or management decisions and you need hidden drivers, thresholds and export-ready reports.",
+      "relatedGuideTitle": "Related authority guide",
+      "relatedHubTitle": "Browse SEO hub"
+    },
+    "premium": {
+      "whenToUseTitle": "When to use this analyzer",
+      "painTitle": "Problem this analyzer addresses",
+      "promiseTitle": "What you get",
+      "decidesTitle": "What this analyzer helps decide",
+      "reportTitle": "What the report includes",
+      "assumptionsTitle": "Assumptions used",
+      "faqTitle": "FAQ",
+      "faqMeasureTitle": "What does this analyzer measure?",
+      "faqReportTitle": "What is included in the premium decision report?",
+      "faqErpTitle": "Is this a replacement for ERP or professional advice?",
+      "faqMeasureAnswer": "{name} measures hidden loss exposure and operating drivers from the inputs you provide, with threshold interpretation against stated bands.",
+      "faqReportAnswer": "The decision report includes executive summary, hidden driver breakdown, threshold check, suggested actions, assumption notes and export-ready output on paid access.",
+      "faqErpAnswer": "No. SectorCalc is a calculator and decision-report layer. It does not replace ERP, accounting systems or professional financial, legal or engineering advice.",
+      "relatedGuideTitle": "Authority guide",
+      "relatedFreeTitle": "Free calculator",
+      "pricingCta": "View pricing"
+    }
+  },
   "trust": {
     "stripLabel": "Trust and security",
     "refund": "7-day refund policy",

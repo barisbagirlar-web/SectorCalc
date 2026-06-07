@@ -22,6 +22,7 @@ import {
   type FreeTrafficTool,
 } from "@/lib/tools/free-traffic-catalog";
 import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
+import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 
 function buildInitialValues(tool: FreeTrafficTool): FreeTrafficInputValues {
   const values: FreeTrafficInputValues = {};
@@ -49,6 +50,7 @@ export interface FreeTrafficToolPageProps {
 
 export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPageProps) {
   const t = useTranslations("freeTrafficCatalog");
+  const tAuthority = useTranslations("contentAuthority.freeTool");
   const locale = useLocale();
   const pathname = usePathname();
   const attribution = useAttributionContext();
@@ -375,6 +377,27 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
               </ul>
             </div>
           ) : null}
+
+          <FreeToolAuthorityBlock
+            tool={tool}
+            labels={{
+              howItWorksTitle: tAuthority("howItWorksTitle"),
+              descriptionTitle: tAuthority("descriptionTitle"),
+              formulaTitle: tAuthority("formulaTitle"),
+              inputsTitle: tAuthority("inputsTitle"),
+              includesTitle: tAuthority("includesTitle"),
+              excludesTitle: tAuthority("excludesTitle"),
+              faqTitle: tAuthority("faqTitle"),
+              faqUseTitle: tAuthority("faqUseTitle"),
+              faqFreeTitle: tAuthority("faqFreeTitle"),
+              faqPremiumTitle: tAuthority("faqPremiumTitle"),
+              faqUseAnswer: tAuthority("faqUseAnswer"),
+              faqFreeAnswer: tAuthority("faqFreeAnswer"),
+              faqPremiumAnswer: tAuthority("faqPremiumAnswer"),
+              relatedGuideTitle: tAuthority("relatedGuideTitle"),
+              relatedHubTitle: tAuthority("relatedHubTitle"),
+            }}
+          />
         </Container>
       </section>
     </PageLayout>

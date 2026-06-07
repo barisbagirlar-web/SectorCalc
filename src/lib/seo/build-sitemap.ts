@@ -6,6 +6,8 @@ import { locales } from "@/i18n/locales";
 import { listSectorRegistryKeys } from "@/lib/os/registry/sectors";
 import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
+import { listAuthorityGuideSlugs } from "@/lib/content/authority-guides";
+import { getAuthorityGuideRoutePath } from "@/lib/content/authority-links";
 import {
   getFreeToolRoutePath,
   listAllFreeToolSlugs,
@@ -47,7 +49,12 @@ const HIGH_PRIORITY_HUBS = new Set([
 const SEO_HUB_PRIORITY = 0.85;
 const FREE_TOOL_PRIORITY = 0.75;
 const PREMIUM_SCHEMA_PRIORITY = 0.8;
+const GUIDE_PRIORITY = 0.82;
 const DEFAULT_STATIC_PRIORITY = 0.8;
+
+function getGuideRoutePath(slug: string): string {
+  return getAuthorityGuideRoutePath(slug);
+}
 
 function getStaticPriority(path: string): number {
   if (path === "/") {
@@ -161,6 +168,17 @@ export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
         alternates: buildEnTrAlternates(base, auditPath),
       });
     }
+
+    for (const guideSlug of listAuthorityGuideSlugs()) {
+      const guidePath = getGuideRoutePath(guideSlug);
+      entries.push({
+        url: buildLocalizedUrl(base, locale, guidePath),
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: GUIDE_PRIORITY,
+        alternates: buildEnTrAlternates(base, guidePath),
+      });
+    }
   }
 
   return entries;
@@ -175,7 +193,12 @@ export function countExpectedSitemapMinimum(): number {
     ALL_TOOLS.length +
     listAllFreeToolSlugs().length +
     listPremiumSchemaSlugs().length +
-    listSectorRegistryKeys().length;
+    listSectorRegistryKeys().length +
+    listAuthorityGuideSlugs().length;
 
   return localeCount * perLocale;
+}
+
+export function countAuthorityGuideSitemapEntries(localeCount = locales.length): number {
+  return localeCount * listAuthorityGuideSlugs().length;
 }

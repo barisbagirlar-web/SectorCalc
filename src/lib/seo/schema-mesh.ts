@@ -248,6 +248,33 @@ export function buildEntityJsonLd(entity: SeoAuthorityEntity): JsonLdRecord {
   }) as JsonLdRecord;
 }
 
+export function buildArticleJsonLd(
+  article: {
+    readonly slug: string;
+    readonly title: string;
+    readonly description: string;
+    readonly headline: string;
+  },
+  locale = "en",
+): JsonLdRecord {
+  return sanitizeJsonLd({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.headline,
+    name: article.title,
+    description: article.description,
+    url: localizedUrl(locale, `/guides/${article.slug}`),
+    author: {
+      "@id": `${siteUrl}/#organization`,
+    },
+    publisher: {
+      "@id": `${siteUrl}/#organization`,
+    },
+    inLanguage: locale,
+    mainEntityOfPage: localizedUrl(locale, `/guides/${article.slug}`),
+  }) as JsonLdRecord;
+}
+
 export function buildHomepageJsonLd(locale = "en"): JsonLdRecord[] {
   return [
     buildOrganizationJsonLd(locale),

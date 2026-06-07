@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
+import { PremiumAnalyzerAuthorityBlock } from "@/components/content/PremiumAnalyzerAuthorityBlock";
+import { getTranslations } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
@@ -82,6 +84,21 @@ export default async function PremiumSchemaPilotPage({
 
   const featuredQuestion = buildPremiumFeaturedQuestion(schema.name);
   const featuredAnswer = trimFeaturedAnswer(schema.painStatement);
+  const tAuthority = await getTranslations("contentAuthority.premium");
+  const authorityFaq = [
+    {
+      question: tAuthority("faqMeasureTitle"),
+      answer: tAuthority("faqMeasureAnswer", { name: schema.name }),
+    },
+    {
+      question: tAuthority("faqReportTitle"),
+      answer: tAuthority("faqReportAnswer"),
+    },
+    {
+      question: tAuthority("faqErpTitle"),
+      answer: tAuthority("faqErpAnswer"),
+    },
+  ];
   const faqJsonLd = buildFAQJsonLd([
     { question: featuredQuestion, answer: featuredAnswer },
     {
@@ -89,6 +106,7 @@ export default async function PremiumSchemaPilotPage({
       answer:
         "No. SectorCalc premium reports are decision-support tools with transparent assumptions. They do not replace professional financial, legal, or engineering advice.",
     },
+    ...authorityFaq,
   ]);
   const jsonLd: JsonLdRecord[] = [
     buildBreadcrumbJsonLd(
@@ -141,6 +159,27 @@ export default async function PremiumSchemaPilotPage({
       </Container>
       <Container className="pb-12 pt-2 sm:pb-16">
         <DynamicPremiumCalculator schema={schema} locale={locale} />
+        <PremiumAnalyzerAuthorityBlock
+          schema={schema}
+          labels={{
+            whenToUseTitle: tAuthority("whenToUseTitle"),
+            painTitle: tAuthority("painTitle"),
+            promiseTitle: tAuthority("promiseTitle"),
+            decidesTitle: tAuthority("decidesTitle"),
+            reportTitle: tAuthority("reportTitle"),
+            assumptionsTitle: tAuthority("assumptionsTitle"),
+            faqTitle: tAuthority("faqTitle"),
+            faqMeasureTitle: tAuthority("faqMeasureTitle"),
+            faqReportTitle: tAuthority("faqReportTitle"),
+            faqErpTitle: tAuthority("faqErpTitle"),
+            faqMeasureAnswer: tAuthority("faqMeasureAnswer"),
+            faqReportAnswer: tAuthority("faqReportAnswer"),
+            faqErpAnswer: tAuthority("faqErpAnswer"),
+            relatedGuideTitle: tAuthority("relatedGuideTitle"),
+            relatedFreeTitle: tAuthority("relatedFreeTitle"),
+            pricingCta: tAuthority("pricingCta"),
+          }}
+        />
       </Container>
     </PageLayout>
   );

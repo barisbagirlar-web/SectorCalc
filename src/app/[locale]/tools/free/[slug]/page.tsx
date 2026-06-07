@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { FreeToolPage } from "@/components/tools/FreeToolPage";
 import { FreeTrafficToolPage } from "@/components/tools/FreeTrafficToolPage";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
@@ -124,16 +124,28 @@ export default async function FreeRevenueToolRoute({
     notFound();
   }
 
-  const featuredAnswer = (
-    <FeaturedAnswerBlock
-      question={buildFreeToolFeaturedQuestion(trafficTool.title)}
-      answer={buildFreeToolFeaturedAnswer(trafficTool.seoDescription || trafficTool.description)}
-    />
+  const tAuthority = await getTranslations("contentAuthority.freeTool");
+  const featuredQuestion = buildFreeToolFeaturedQuestion(trafficTool.title);
+  const featuredAnswer = buildFreeToolFeaturedAnswer(
+    trafficTool.seoDescription || trafficTool.description,
+  );
+
+  const featuredAnswerBlock = (
+    <FeaturedAnswerBlock question={featuredQuestion} answer={featuredAnswer} />
   );
   const faqJsonLd = buildFAQJsonLd([
+    { question: featuredQuestion, answer: featuredAnswer },
     {
-      question: buildFreeToolFeaturedQuestion(trafficTool.title),
-      answer: buildFreeToolFeaturedAnswer(trafficTool.seoDescription || trafficTool.description),
+      question: tAuthority("faqUseTitle"),
+      answer: tAuthority("faqUseAnswer", { title: trafficTool.title }),
+    },
+    {
+      question: tAuthority("faqFreeTitle"),
+      answer: tAuthority("faqFreeAnswer"),
+    },
+    {
+      question: tAuthority("faqPremiumTitle"),
+      answer: tAuthority("faqPremiumAnswer"),
     },
   ]);
   const jsonLd = [
@@ -152,7 +164,7 @@ export default async function FreeRevenueToolRoute({
   return (
     <>
       <JsonLd data={jsonLd} />
-      <FreeTrafficToolPage tool={trafficTool} featuredAnswer={featuredAnswer} />
+      <FreeTrafficToolPage tool={trafficTool} featuredAnswer={featuredAnswerBlock} />
     </>
   );
 }

@@ -1199,6 +1199,15 @@
   flex: 1 1 auto;
 }
 
+.sc-authority-block {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.sc-authority-block h3 {
+  font-size: 0.875rem;
+}
+
 @media (max-width: 390px) {
   .sc-header-locale-group .apple-locale__select {
     max-width: 6.5rem;
