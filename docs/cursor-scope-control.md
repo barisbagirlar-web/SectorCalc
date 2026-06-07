@@ -97,6 +97,30 @@ Cursor must not implement unmeasured ideas during the [product roadmap freeze](.
 
 ---
 
+## Controlled Scale Sprint boundary
+
+During [Controlled Scale Sprint](./controlled-scale-sprint.md), Cursor **may**:
+
+- fix tracked conversion blockers
+- improve CTA copy based on KPI / event data
+- improve internal links on existing pages
+- update SEO snippets from GSC query evidence
+- fix mobile / console / network errors on Tier-1 URLs
+- update campaign and scale sprint docs
+
+Cursor **must not**:
+
+- add new product surface (calculators, schemas, dashboards)
+- add calculators or premium schemas
+- redesign homepage
+- change pricing
+- start paid ads automatically
+- expand paid budget without measured results in [Controlled Scale Sprint Report](./controlled-scale-sprint-report.md)
+
+Paid micro-tests are **operator-only** — see [Paid Micro-Test Runbook](./paid-micro-test-runbook.md).
+
+---
+
 ## Related workflow
 
 - [Cursor Workflow](./cursor-workflow.md)
