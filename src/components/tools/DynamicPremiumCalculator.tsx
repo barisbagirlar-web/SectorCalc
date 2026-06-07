@@ -1,7 +1,11 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/routing";
+import { stripLocalePrefix } from "@/i18n/locales";
+import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import {
   BigNumberSummary,
   ExecutiveVerdictBlock,
@@ -36,11 +40,33 @@ export interface DynamicPremiumCalculatorProps {
 export function DynamicPremiumCalculator({ schema, locale: localeProp }: DynamicPremiumCalculatorProps) {
   const intlLocale = useLocale();
   const locale = localeProp ?? intlLocale;
+  const pathname = usePathname();
+  const attribution = useAttributionContext();
+  const pagePath = stripLocalePrefix(pathname);
   const t = useTranslations("premiumDecisionReport");
   const { entitlement, checkoutHref } = usePremiumSchemaEntitlement(schema);
   const isFullReport = entitlement.canViewFullReport;
   const [values, setValues] = useState<SchemaInputValues>(() => buildDefaultSchemaInputs(schema));
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    trackSectorCalcEvent({
+      eventName: "premium_analyzer_open",
+      locale,
+      pagePath,
+      premiumSlug: schema.id,
+      campaignId: attribution.utmCampaign,
+      source: attribution.utmSource,
+      medium: attribution.utmMedium,
+    });
+  }, [
+    attribution.utmCampaign,
+    attribution.utmMedium,
+    attribution.utmSource,
+    locale,
+    pagePath,
+    schema.id,
+  ]);
 
   const result = useMemo(() => {
     if (!submitted) {

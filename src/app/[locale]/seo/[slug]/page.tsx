@@ -5,6 +5,7 @@ import { setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
+import { SeoHubCampaignActions } from "@/components/campaign/SeoHubCampaignActions";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { AppLocale } from "@/i18n/routing";
@@ -96,42 +97,11 @@ export default async function ProgrammaticSeoPage({
 
       <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
         <Container className="sc-pro-container">
-          <div className="sc-craft-grid sc-craft-grid--2">
-            <div className="sc-industrial-panel p-4">
-              <h2 className="sc-pro-headline text-lg">Free calculators</h2>
-              <ul className="mt-3 space-y-2">
-                {page.freeToolLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="sc-crawl-index__link">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="sc-industrial-panel p-4">
-              <h2 className="sc-pro-headline text-lg">Premium analyzers</h2>
-              <ul className="mt-3 space-y-2">
-                {page.premiumAnalyzerLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="sc-crawl-index__link">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {page.industryLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="sc-cta-secondary">
-                {link.label}
-              </Link>
-            ))}
-            <Link href="/pricing" className="sc-cta-primary">
-              View pricing
-            </Link>
-          </div>
+          <SeoHubCampaignActions
+            freeToolLinks={page.freeToolLinks}
+            premiumAnalyzerLinks={page.premiumAnalyzerLinks}
+            industryLinks={page.industryLinks}
+          />
         </Container>
       </section>
 

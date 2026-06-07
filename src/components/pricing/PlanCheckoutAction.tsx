@@ -40,6 +40,7 @@ export function PlanCheckoutAction({
  className={className}
  source="pricing_grid"
  toolSlug={checkoutToolSlug}
+ ctaId={plan.id === "team" ? "pricing_team_contact" : "pricing_pro_start"}
  hideWhenProActive={plan.checkoutPlan === "pro" || plan.checkoutPlan === "pro_annual"}
  />
  );

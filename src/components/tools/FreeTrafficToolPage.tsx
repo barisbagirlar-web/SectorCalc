@@ -1,12 +1,16 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
+import { useLocale, useTranslations } from "next-intl";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
 import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics/events";
+import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { buildTrackedCtaHref } from "@/lib/campaigns/campaign-links";
+import { stripLocalePrefix } from "@/i18n/locales";
 import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/analytics/revenue-events";
 import { getToolHref } from "@/lib/tools/paths";
 import {
@@ -45,6 +49,10 @@ export interface FreeTrafficToolPageProps {
 
 export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPageProps) {
   const t = useTranslations("freeTrafficCatalog");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const attribution = useAttributionContext();
+  const pagePath = stripLocalePrefix(pathname);
   const [values, setValues] = useState<FreeTrafficInputValues>(() => buildInitialValues(tool));
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -56,7 +64,16 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
       tier: "free",
       source: "traffic_catalog",
     });
-  }, [tool.slug]);
+    trackSectorCalcEvent({
+      eventName: "free_tool_open",
+      locale,
+      pagePath,
+      toolSlug: tool.slug,
+      campaignId: attribution.utmCampaign,
+      source: attribution.utmSource,
+      medium: attribution.utmMedium,
+    });
+  }, [attribution.utmCampaign, attribution.utmMedium, attribution.utmSource, locale, pagePath, tool.slug]);
 
   const result = useMemo(() => {
     if (!submitted) {
@@ -66,10 +83,22 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
   }, [submitted, tool.slug, values]);
 
   const relatedPremiumSlug = result?.relatedPremiumSlug ?? tool.relatedPremiumSlug;
-  const premiumAnalyzerHref = useMemo(
-    () => (relatedPremiumSlug ? resolvePremiumAnalyzerHref(relatedPremiumSlug) : null),
-    [relatedPremiumSlug]
-  );
+  const premiumAnalyzerHref = useMemo(() => {
+    if (!relatedPremiumSlug) {
+      return null;
+    }
+    const baseHref = resolvePremiumAnalyzerHref(relatedPremiumSlug);
+    if (!baseHref) {
+      return null;
+    }
+    return buildTrackedCtaHref(
+      baseHref,
+      attribution.utmCampaign,
+      "free_tool",
+      "premium_upsell",
+      attribution
+    );
+  }, [attribution, relatedPremiumSlug]);
 
   const relatedTools = listRelatedTrafficTools(tool);
   const isConversion = tool.resultType === "conversion";
@@ -115,6 +144,15 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
     trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
       toolSlug: tool.slug,
       source: "traffic_catalog",
+    });
+    trackSectorCalcEvent({
+      eventName: "free_tool_calculate",
+      locale,
+      pagePath,
+      toolSlug: tool.slug,
+      campaignId: attribution.utmCampaign,
+      source: attribution.utmSource,
+      medium: attribution.utmMedium,
     });
   };
 
@@ -281,9 +319,16 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                       <Link
                         href={premiumAnalyzerHref}
                         onClick={() => {
-                          trackEvent(ANALYTICS_EVENTS.premium_preview_viewed, {
+                          trackSectorCalcEvent({
+                            eventName: "free_to_premium_click",
+                            locale,
+                            pagePath,
                             toolSlug: tool.slug,
-                            premiumSlug: relatedPremiumSlug ?? "",
+                            premiumSlug: relatedPremiumSlug ?? undefined,
+                            campaignId: attribution.utmCampaign,
+                            source: attribution.utmSource ?? "free_tool",
+                            medium: attribution.utmMedium ?? "premium_upsell",
+                            ctaId: "free_to_premium_click",
                           });
                         }}
                         className="sc-craft-card__cta mt-3"

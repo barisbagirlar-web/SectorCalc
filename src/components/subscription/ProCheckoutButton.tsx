@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/routing";
 import { startCheckoutSession, type CheckoutPlan } from "@/lib/billing/create-checkout-session";
 import {
  REVENUE_EVENTS,
@@ -12,6 +13,9 @@ import {
  ANALYTICS_EVENTS,
  trackEvent,
 } from "@/lib/analytics/events";
+import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { stripLocalePrefix } from "@/i18n/locales";
 
 interface StripePlanCheckoutButtonProps {
  plan: CheckoutPlan;
@@ -21,6 +25,7 @@ interface StripePlanCheckoutButtonProps {
  toolSlug?: string;
  returnPath?: string;
  hideWhenProActive?: boolean;
+ ctaId?: string;
 }
 
 export function StripePlanCheckoutButton({
@@ -31,9 +36,13 @@ export function StripePlanCheckoutButton({
  toolSlug,
  returnPath = "/pricing",
  hideWhenProActive = plan === "pro" || plan === "pro_annual" || plan === "team",
+ ctaId = "pricing_pro_start",
 }: StripePlanCheckoutButtonProps) {
  const t = useTranslations("checkout");
  const locale = useLocale();
+ const pathname = usePathname();
+ const attribution = useAttributionContext();
+ const pagePath = stripLocalePrefix(pathname);
  const { isPro, loading } = useProSubscription();
  const [pending, setPending] = useState(false);
  const [error, setError] = useState<string | null>(null);
@@ -54,6 +63,17 @@ export function StripePlanCheckoutButton({
  trackEvent(ANALYTICS_EVENTS.pricing_clicked, {
  plan,
  source,
+ });
+
+ trackSectorCalcEvent({
+ eventName: "pricing_cta_click",
+ locale,
+ pagePath,
+ toolSlug,
+ campaignId: attribution.utmCampaign,
+ source: attribution.utmSource ?? source,
+ medium: attribution.utmMedium ?? "checkout",
+ ctaId,
  });
 
  trackRevenueEvent(REVENUE_EVENTS.checkout_started, {
@@ -98,6 +118,7 @@ interface ProCheckoutButtonProps {
  className?: string;
  source?: string;
  toolSlug?: string;
+ ctaId?: string;
 }
 
 export function ProCheckoutButton({
@@ -105,6 +126,7 @@ export function ProCheckoutButton({
  className = "",
  source = "pricing",
  toolSlug,
+ ctaId = "pricing_pro_start",
 }: ProCheckoutButtonProps) {
  return (
  <StripePlanCheckoutButton
@@ -113,6 +135,7 @@ export function ProCheckoutButton({
  className={className}
  source={source}
  toolSlug={toolSlug}
+ ctaId={ctaId}
  returnPath={toolSlug ? `/pricing?tool=${encodeURIComponent(toolSlug)}` : "/pricing"}
  />
  );

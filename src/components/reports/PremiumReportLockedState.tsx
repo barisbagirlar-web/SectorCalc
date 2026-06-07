@@ -1,9 +1,13 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { useTranslations, useLocale } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
 import { startCheckoutSession } from "@/lib/billing/create-checkout-session";
 import { buildPremiumPricingHref } from "@/lib/entitlements/premium-entitlements";
+import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { buildTrackedCtaHref } from "@/lib/campaigns/campaign-links";
+import { stripLocalePrefix } from "@/i18n/locales";
 
 export interface PremiumReportLockedStateProps {
   schemaName: string;
@@ -20,9 +24,30 @@ export function PremiumReportLockedState({
   checkoutHref,
 }: PremiumReportLockedStateProps) {
   const t = useTranslations("premiumDecisionReport.locked");
-  const pricingHref = checkoutHref ?? buildPremiumPricingHref(schemaSlug);
+  const locale = useLocale();
+  const pathname = usePathname();
+  const attribution = useAttributionContext();
+  const pagePath = stripLocalePrefix(pathname);
+  const pricingHref = buildTrackedCtaHref(
+    checkoutHref ?? buildPremiumPricingHref(schemaSlug),
+    attribution.utmCampaign,
+    "premium_locked",
+    "pricing",
+    attribution
+  );
 
   const handleUnlock = () => {
+    trackSectorCalcEvent({
+      eventName: "premium_unlock_click",
+      locale,
+      pagePath,
+      premiumSlug: schemaSlug,
+      campaignId: attribution.utmCampaign,
+      source: attribution.utmSource,
+      medium: attribution.utmMedium,
+      ctaId: "unlock_full_report",
+    });
+
     void startCheckoutSession({
       toolSlug: schemaSlug,
       plan: "single_report",
@@ -65,6 +90,18 @@ export function PremiumReportLockedState({
           </button>
           <Link
             href={pricingHref}
+            onClick={() => {
+              trackSectorCalcEvent({
+                eventName: "pricing_cta_click",
+                locale,
+                pagePath,
+                premiumSlug: schemaSlug,
+                campaignId: attribution.utmCampaign,
+                source: attribution.utmSource ?? "premium_locked",
+                medium: attribution.utmMedium ?? "pricing",
+                ctaId: "unlock_pricing_link",
+              });
+            }}
             className="sc-ledger-cta-secondary sc-premium-report-locked__secondary min-h-[48px]"
           >
             {t("pricingCta")}

@@ -1,9 +1,12 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { useTranslations, useLocale } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
 import { startCheckoutSession } from "@/lib/billing/create-checkout-session";
+import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { stripLocalePrefix } from "@/i18n/locales";
 import type { PremiumEntitlement } from "@/lib/entitlements/premium-entitlements";
 import {
   buildPremiumReportSummaryText,
@@ -39,28 +42,51 @@ export function PremiumReportExportActions({
 }: PremiumReportExportActionsProps) {
   const t = useTranslations("premiumDecisionReport.export");
   const tLocked = useTranslations("premiumDecisionReport.locked");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const attribution = useAttributionContext();
+  const pagePath = stripLocalePrefix(pathname);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
 
+  const trackExportEvent = useCallback(
+    (eventName: "report_export_click" | "report_print_click" | "report_csv_click" | "premium_unlock_click") => {
+      trackSectorCalcEvent({
+        eventName,
+        locale,
+        pagePath,
+        premiumSlug: payload.schemaSlug,
+        campaignId: attribution.utmCampaign,
+        source: attribution.utmSource,
+        medium: attribution.utmMedium,
+        ctaId: eventName,
+      });
+    },
+    [attribution.utmCampaign, attribution.utmMedium, attribution.utmSource, locale, pagePath, payload.schemaSlug]
+  );
+
   const handleUnlock = useCallback(() => {
+    trackExportEvent("premium_unlock_click");
     void startCheckoutSession({
       toolSlug: payload.schemaSlug,
       plan: "single_report",
       returnPath: `/tools/premium-schema/${payload.schemaSlug}`,
     });
-  }, [payload.schemaSlug]);
+  }, [payload.schemaSlug, trackExportEvent]);
 
   const handleDownloadCsv = useCallback(() => {
     if (!entitlement.canExportCsv || typeof document === "undefined") {
       return;
     }
+    trackExportEvent("report_csv_click");
     const csv = serializePremiumReportCsv(payload);
     downloadCsv(`${payload.schemaSlug}-report.csv`, csv);
-  }, [entitlement.canExportCsv, payload]);
+  }, [entitlement.canExportCsv, payload, trackExportEvent]);
 
   const handleCopySummary = useCallback(async () => {
     if (!entitlement.canExportCsv) {
       return;
     }
+    trackExportEvent("report_export_click");
     if (typeof navigator === "undefined" || !navigator.clipboard) {
       setCopyState("failed");
       return;
@@ -72,14 +98,15 @@ export function PremiumReportExportActions({
     } catch {
       setCopyState("failed");
     }
-  }, [entitlement.canExportCsv, payload]);
+  }, [entitlement.canExportCsv, payload, trackExportEvent]);
 
   const handlePrint = useCallback(() => {
     if (!entitlement.canExportPdf || typeof window === "undefined") {
       return;
     }
+    trackExportEvent("report_print_click");
     window.open(printHref, "_blank", "noopener,noreferrer");
-  }, [entitlement.canExportPdf, printHref]);
+  }, [entitlement.canExportPdf, printHref, trackExportEvent]);
 
   const exportLocked = !entitlement.canExportPdf && !entitlement.canExportCsv;
 

@@ -1,3 +1,5 @@
+import { HomepageCampaignStrip } from "@/components/campaign/HomepageCampaignStrip";
+import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
 import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import { ProductScreenMockup } from "@/components/ui/ProductScreenMockup";
@@ -232,6 +234,10 @@ export async function HomepageHybrid() {
 
       <hr className="sc-ledger-separator" />
 
+      <HomepageCampaignStrip />
+
+      <hr className="sc-ledger-separator" />
+
       {/* 6b. Beta partner */}
       <section className="sc-home-hybrid__section" aria-labelledby="beta-partner-heading">
         <Container className="sc-pro-container">
@@ -240,9 +246,16 @@ export async function HomepageHybrid() {
               {t("betaPartner.title")}
             </h2>
             <p className="sc-home-hybrid__section-lead">{t("betaPartner.text")}</p>
-            <Link href="/beta-partner" className="sc-cta-secondary sc-home-hybrid__beta-cta mt-4 inline-flex min-h-[44px] items-center">
+            <TrackedCtaLink
+              href="/beta-partner"
+              eventName="homepage_cta_click"
+              ctaId="homepage_beta_partner"
+              source="homepage"
+              medium="beta_partner"
+              className="sc-cta-secondary sc-home-hybrid__beta-cta mt-4 inline-flex min-h-[44px] items-center"
+            >
               {t("betaPartner.cta")}
-            </Link>
+            </TrackedCtaLink>
           </div>
         </Container>
       </section>

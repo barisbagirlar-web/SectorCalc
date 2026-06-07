@@ -1,8 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState, type FormEvent } from "react";
-import { useTranslations } from "next-intl";
+import { useEffect, useState, type FormEvent } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import {
   BETA_COMPANY_SIZE_OPTIONS,
   BETA_INDUSTRY_OPTIONS,
@@ -14,6 +14,9 @@ import {
 } from "@/lib/benchmarks/create-beta-partner";
 import type { BetaPartnerFieldErrors, BetaPartnerInput } from "@/lib/benchmarks/benchmark-types";
 import { stripLocalePrefix } from "@/i18n/routing";
+import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { appendAttributionToNotes } from "@/lib/campaigns/campaign-links";
 
 const inputClass =
   "w-full min-h-[48px] rounded-lg border bg-white px-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-teal/20";
@@ -22,8 +25,10 @@ const inputOkClass = "border-slate/25 focus:border-deep-navy";
 
 export function BetaPartnerForm() {
   const t = useTranslations("betaPartner.form");
+  const locale = useLocale();
   const pathname = usePathname();
   const pagePath = stripLocalePrefix(pathname);
+  const attribution = useAttributionContext();
 
   const [form, setForm] = useState<BetaPartnerInput>(() =>
     buildDefaultBetaPartnerInput(pagePath)
@@ -32,6 +37,17 @@ export function BetaPartnerForm() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    trackSectorCalcEvent({
+      eventName: "beta_partner_open",
+      locale,
+      pagePath,
+      campaignId: attribution.utmCampaign,
+      source: attribution.utmSource,
+      medium: attribution.utmMedium,
+    });
+  }, [attribution.utmCampaign, attribution.utmMedium, attribution.utmSource, locale, pagePath]);
 
   const fieldClass = (field: keyof BetaPartnerInput): string =>
     [inputClass, errors[field] ? inputErrorClass : inputOkClass].join(" ");
@@ -42,7 +58,14 @@ export function BetaPartnerForm() {
     setSubmitError(null);
     setErrors({});
 
-    const result = await createBetaPartnerLead({ ...form, pagePath });
+    const result = await createBetaPartnerLead({
+      ...form,
+      pagePath,
+      notes: appendAttributionToNotes(form.notes, {
+        ...attribution,
+        landingPath: attribution.landingPath ?? pagePath,
+      }),
+    });
 
     setLoading(false);
 
@@ -53,6 +76,16 @@ export function BetaPartnerForm() {
       }
       return;
     }
+
+    trackSectorCalcEvent({
+      eventName: "beta_partner_submit",
+      locale,
+      pagePath,
+      campaignId: attribution.utmCampaign,
+      source: attribution.utmSource,
+      medium: attribution.utmMedium,
+      ctaId: "beta_partner_form_submit",
+    });
 
     setSuccess(true);
   };

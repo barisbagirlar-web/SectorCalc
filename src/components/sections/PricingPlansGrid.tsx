@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import {
   PlanAvailabilityBadge,
@@ -15,10 +16,10 @@ import {
   REVENUE_EVENTS,
   trackRevenueEvent,
 } from "@/lib/analytics/revenue-events";
-import {
-  ANALYTICS_EVENTS,
-  trackEvent,
-} from "@/lib/analytics/events";
+import { trackSectorCalcEvent } from "@/lib/analytics/event-taxonomy";
+import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
+import { usePathname } from "@/i18n/routing";
+import { stripLocalePrefix } from "@/i18n/locales";
 import { PRICING_CHECKOUT_LEGAL } from "@/lib/billing/subscription";
 import { PRICING_REFUND_POLICY } from "@/lib/pricing/plan-catalog";
 import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
@@ -53,6 +54,10 @@ export function PricingPlansGrid({
   tierMode = "default",
 }: PricingPlansGridProps) {
   const t = useTranslations();
+  const locale = useLocale();
+  const pathname = usePathname();
+  const attribution = useAttributionContext();
+  const pagePath = stripLocalePrefix(pathname);
   const searchParams = useSearchParams();
   const highlightPlanId = searchParams.get("plan") ?? undefined;
   const planRefs = useRef<Record<string, HTMLElement | null>>({});
@@ -86,7 +91,16 @@ export function PricingPlansGrid({
     trackRevenueEvent(REVENUE_EVENTS.pricing_viewed, {
       toolSlug: checkoutToolSlug,
     });
-  }, [checkoutToolSlug]);
+    trackSectorCalcEvent({
+      eventName: "pricing_view",
+      locale,
+      pagePath,
+      toolSlug: checkoutToolSlug,
+      campaignId: attribution.utmCampaign,
+      source: attribution.utmSource,
+      medium: attribution.utmMedium,
+    });
+  }, [attribution.utmCampaign, attribution.utmMedium, attribution.utmSource, checkoutToolSlug, locale, pagePath]);
 
   const isProFocused = tierMode === "pro-focused";
 
@@ -177,25 +191,27 @@ export function PricingPlansGrid({
               </ul>
               <div className="sc-pro-pricing-card__cta">
                 {plan.id === "free" && plan.primaryHref ? (
-                  <Link
+                  <TrackedCtaLink
                     href={plan.primaryHref}
+                    eventName="pricing_cta_click"
+                    ctaId="pricing_free_start"
+                    source="pricing"
+                    medium="free_plan"
                     className="sc-cta-secondary inline-flex w-full justify-center"
-                    onClick={() => {
-                      trackEvent(ANALYTICS_EVENTS.pricing_clicked, {
-                        plan: plan.id,
-                        source: "pricing_grid",
-                      });
-                    }}
                   >
                     {plan.primaryCta}
-                  </Link>
+                  </TrackedCtaLink>
                 ) : isEnterprise ? (
-                  <Link
+                  <TrackedCtaLink
                     href="/for-consultants"
+                    eventName="pricing_cta_click"
+                    ctaId="pricing_team_contact"
+                    source="pricing"
+                    medium="team_plan"
                     className="sc-cta-secondary inline-flex w-full justify-center"
                   >
                     Contact us
-                  </Link>
+                  </TrackedCtaLink>
                 ) : (
                   <PlanCheckoutAction
                     plan={plan}

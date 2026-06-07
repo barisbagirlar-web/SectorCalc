@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PricingPlansGrid } from "@/components/sections/PricingPlansGrid";
+import { PricingPageTracker } from "@/components/campaign/PricingPageTracker";
 import { Container } from "@/components/ui/Container";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
@@ -26,6 +27,7 @@ export default async function PricingPage({ params }: PageProps) {
 
   return (
     <PageLayout>
+      <PricingPageTracker />
       <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
         <Container className="sc-pro-container">
           <p className="sc-pro-eyebrow">{t("eyebrow")}</p>
