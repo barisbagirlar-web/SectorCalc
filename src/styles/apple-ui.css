@@ -390,6 +390,17 @@
   text-decoration: none;
 }
 
+.apple-nav__link--active {
+  color: var(--sc-navy, #1e40af);
+  font-weight: 600;
+}
+
+.apple-nav__dropdown-link--active {
+  color: var(--sc-navy, #1e40af);
+  font-weight: 600;
+  background: rgb(30 64 175 / 0.06);
+}
+
 .apple-nav__menu-btn {
   display: flex;
   align-items: center;

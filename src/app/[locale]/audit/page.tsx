@@ -30,7 +30,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function AuditHubPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("industrialHome");
+  const t = await getTranslations("auditHub");
+  const tHome = await getTranslations("industrialHome");
   const tSector = await getTranslations(MANUFACTURING_OS_I18N_NS);
   const appLocale = await getLocale();
   const keys = listSectorRegistryKeys();
@@ -49,18 +50,16 @@ export default async function AuditHubPage({ params }: PageProps) {
                 "No ERP required · Industrial-grade UX",
               ]}
             />
-            <p className="ind-os-eyebrow">{t("brand")} Audit Hub</p>
+            <p className="ind-os-eyebrow">{t("eyebrow")}</p>
             <h1 id="audit-hub-heading" className="ind-os-headline">
-              Master Audit Engine
+              {t("title")}
             </h1>
-            <p className="ind-os-lead">
-              27 industrial sectors · U-Engine diagnostics · hidden loss detection
-            </p>
+            <p className="ind-os-lead">{t("subtitle")}</p>
           </section>
 
           <section className="ind-os-section" aria-labelledby="audit-sectors-heading">
             <h2 id="audit-sectors-heading" className="ind-os-section-title">
-              {t("modulesTitle")}
+              {tHome("modulesTitle")}
             </h2>
             <div className="ind-os-module-grid">
               {keys.map((key) => {
@@ -71,7 +70,7 @@ export default async function AuditHubPage({ params }: PageProps) {
                   <HubLink key={key} href={`/audit/${key}`} className="ind-os-module">
                     <span className="ind-os-module__title">{title}</span>
                     <span className="ind-os-module__action">
-                      {t("initializeAudit")}
+                      {tHome("initializeAudit")}
                       <ChevronRight className="h-3 w-3" aria-hidden />
                     </span>
                   </HubLink>

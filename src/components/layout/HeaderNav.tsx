@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
-import { NavLinkWithIcon } from "@/components/icons/NavLinkWithIcon";
+import { ActiveNavLink } from "@/components/layout/ActiveNavLink";
 
 interface HeaderNavProps {
   onNavigate?: () => void;
@@ -25,7 +25,7 @@ export function DesktopHeaderNav() {
       <ul className="apple-nav__links">
         {OS_NAV_KEYS.map((item) => (
           <li key={item.href}>
-            <NavLinkWithIcon
+            <ActiveNavLink
               href={item.href}
               label={t(item.key)}
               className="apple-nav__link"
@@ -49,11 +49,12 @@ export function MobileHeaderNav({ onNavigate }: HeaderNavProps) {
     <>
       {OS_NAV_KEYS.map((item) => (
         <li key={item.href}>
-          <NavLinkWithIcon
+          <ActiveNavLink
             href={item.href}
             label={t(item.key)}
             onClick={onNavigate}
             className="apple-nav__dropdown-link"
+            activeClassName="apple-nav__dropdown-link--active"
             showIcon={false}
           />
         </li>
