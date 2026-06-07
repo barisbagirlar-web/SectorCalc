@@ -1187,3 +1187,69 @@
   margin-top: 1.25rem;
 }
 
+/* ── Free tools category explorer ── */
+.sc-free-tools-explorer {
+  min-width: 0;
+}
+
+.sc-free-tools-explorer__desktop {
+  grid-template-columns: minmax(220px, 0.32fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.sc-free-tools-explorer__sidebar {
+  position: sticky;
+  top: 5rem;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.sc-free-tools-explorer__category-btn {
+  display: block;
+  min-height: 44px;
+  padding: 0.875rem 1rem;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  border-radius: 0;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.sc-free-tools-explorer__category-btn:hover {
+  border-color: var(--sc-text);
+}
+
+.sc-free-tools-explorer__category-btn:focus-visible {
+  outline: 2px solid var(--sc-copper);
+  outline-offset: 2px;
+}
+
+.sc-free-tools-explorer__category-btn--active {
+  border-color: var(--sc-copper);
+  background: var(--sc-bg);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.85) inset,
+    0 -1px 0 rgb(26 26 26 / 0.04) inset;
+}
+
+.sc-free-tools-explorer__accordion-item {
+  border-bottom: 1px solid var(--sc-border);
+}
+
+.sc-free-tools-explorer__accordion-item:first-child {
+  border-top: 1px solid var(--sc-border);
+}
+
+.sc-free-tools-explorer__accordion-panel {
+  padding: 0 0 1.25rem;
+}
+
+.sc-free-tools-explorer__tool-grid {
+  margin-top: 0.5rem;
+}
+
+.sc-free-tools-explorer__tool-card {
+  height: 100%;
+}
+
