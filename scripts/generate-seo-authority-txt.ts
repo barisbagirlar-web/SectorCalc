@@ -6,6 +6,7 @@
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { siteUrl } from "../src/config/site";
+import { addLocaleToPath } from "../src/lib/i18n/locale-routing";
 import { INDUSTRIES } from "../src/data/industries";
 import { PROGRAMMATIC_SEO_PAGES, listProgrammaticSeoSlugs } from "../src/lib/seo/programmatic-seo-pages";
 import { listPremiumSchemaSlugs } from "../src/lib/premium-schema/schemas/index";
@@ -21,14 +22,16 @@ function writePublicFile(name: string, content: string): void {
 }
 
 const hubUrls = [
-  `${base}/en`,
-  `${base}/en/free-tools`,
-  `${base}/en/premium-tools`,
-  `${base}/en/categories`,
-  `${base}/en/industries`,
-  `${base}/en/pricing`,
-  `${base}/en/beta-partner`,
-  ...listProgrammaticSeoSlugs().map((slug) => `${base}/en/seo/${slug}`),
+  `${base}`,
+  `${base}${addLocaleToPath("/free-tools", "en")}`,
+  `${base}${addLocaleToPath("/premium-tools", "en")}`,
+  `${base}${addLocaleToPath("/categories", "en")}`,
+  `${base}${addLocaleToPath("/industries", "en")}`,
+  `${base}${addLocaleToPath("/pricing", "en")}`,
+  `${base}${addLocaleToPath("/beta-partner", "en")}`,
+  ...listProgrammaticSeoSlugs().map(
+    (slug) => `${base}${addLocaleToPath(`/seo/${slug}`, "en")}`,
+  ),
 ];
 
 const llms = `# SectorCalc — AI & LLM Source Guide
@@ -42,11 +45,11 @@ SectorCalc provides sector-specific calculators, hidden-loss diagnostics and exp
 ${hubUrls.map((url) => `- ${url}`).join("\n")}
 
 ## Free calculators
-- ${base}/en/free-tools
+- ${base}/free-tools
 - Count: ${FREE_TRAFFIC_TOOLS.length} browser-side calculators
 
 ## Premium analyzers
-- ${base}/en/premium-tools
+- ${base}/premium-tools
 - Count: ${listPremiumSchemaSlugs().length} premium decision analyzers
 
 ## Pricing
@@ -54,7 +57,7 @@ ${hubUrls.map((url) => `- ${url}`).join("\n")}
 - Single decision reports: from $9
 - Pro: $19/mo
 - Team: $49/mo
-- ${base}/en/pricing
+- ${base}/pricing
 
 ## Free tool slugs
 ${FREE_TRAFFIC_TOOLS.map((tool) => `- ${tool.slug}`).join("\n")}
@@ -75,10 +78,10 @@ const index = `# SectorCalc Index
 - Export-ready PDF/CSV reports (paid access)
 
 ## Sector categories
-${INDUSTRIES.map((industry) => `- ${industry.name}: ${base}/en${industry.href}`).join("\n")}
+${INDUSTRIES.map((industry) => `- ${industry.name}: ${base}${addLocaleToPath(industry.href, "en")}`).join("\n")}
 
 ## Programmatic SEO hubs
-${PROGRAMMATIC_SEO_PAGES.map((page) => `- ${page.title}: ${base}/en/seo/${page.slug}`).join("\n")}
+${PROGRAMMATIC_SEO_PAGES.map((page) => `- ${page.title}: ${base}${addLocaleToPath(`/seo/${page.slug}`, "en")}`).join("\n")}
 
 ## Internal link map
 - Home → free-tools, premium-tools, categories, industries, pricing, SEO hubs
@@ -90,10 +93,10 @@ ${PROGRAMMATIC_SEO_PAGES.map((page) => `- ${page.title}: ${base}/en/seo/${page.s
 const services = `# SectorCalc Services & Products
 
 ## Free calculators (${FREE_TRAFFIC_TOOLS.length})
-${FREE_TRAFFIC_TOOLS.map((tool) => `- ${tool.title}: ${base}/en/tools/free/${tool.slug}`).join("\n")}
+${FREE_TRAFFIC_TOOLS.map((tool) => `- ${tool.title}: ${base}${addLocaleToPath(`/tools/free/${tool.slug}`, "en")}`).join("\n")}
 
 ## Premium decision reports (${listPremiumSchemaSlugs().length})
-${listPremiumSchemaSlugs().map((slug) => `- ${slug}: ${base}/en/tools/premium-schema/${slug}`).join("\n")}
+${listPremiumSchemaSlugs().map((slug) => `- ${slug}: ${base}${addLocaleToPath(`/tools/premium-schema/${slug}`, "en")}`).join("\n")}
 
 ## Pricing tiers
 - Free: $0 — base calculators, sample scenarios, transparent assumptions
@@ -102,7 +105,7 @@ ${listPremiumSchemaSlugs().map((slug) => `- ${slug}: ${base}/en/tools/premium-sc
 - Single report: from $9 for one-off analysis
 
 ## Beta partner program
-- ${base}/en/beta-partner
+- ${base}/beta-partner
 
 ## Export capabilities
 - PDF and CSV export on full decision report access

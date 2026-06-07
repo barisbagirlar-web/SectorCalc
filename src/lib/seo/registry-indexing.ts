@@ -1,8 +1,8 @@
 import sectorConfig from "@/lib/os/registry/sector-registry.config.json";
 import { siteUrl } from "@/config/site";
+import { SUPPORTED_LOCALES } from "@/lib/i18n/locale-routing";
+import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
 import { pingIndexNow } from "@/lib/seo/indexNow";
-
-const LOCALES = ["en", "tr", "es", "de", "ar"] as const;
 
 const SEO_HUB_ROUTES = ["/os", "/audit", "/benchmarks", "/sustainability"] as const;
 
@@ -12,13 +12,13 @@ export function buildIndustrialRegistryIndexUrls(): string[] {
   const sectorKeys = Object.keys(sectorConfig.sectors);
   const urls = new Set<string>();
 
-  for (const locale of LOCALES) {
+  for (const locale of SUPPORTED_LOCALES) {
     for (const hub of SEO_HUB_ROUTES) {
-      urls.add(`${base}/${locale}${hub}`);
+      urls.add(buildLocalizedUrl(hub, locale, base));
     }
 
     for (const sectorKey of sectorKeys) {
-      urls.add(`${base}/${locale}/audit/${sectorKey}`);
+      urls.add(buildLocalizedUrl(`/audit/${sectorKey}`, locale, base));
     }
   }
 

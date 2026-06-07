@@ -10,6 +10,11 @@ import {
   SITE_BASE_URL,
   type SupportedLocale,
 } from "@/lib/seo/global-seo-config";
+import {
+  addLocaleToPath,
+  getCanonicalPathForLocale,
+  stripLocaleFromPath,
+} from "@/lib/i18n/locale-routing";
 import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 import {
@@ -44,6 +49,7 @@ const EXCLUDED_PATH_PATTERNS: readonly RegExp[] = [
   /^\/checkout(?:\/|$)/,
   /\/debug(?:\/|$)/,
   /\/preview(?:\/|$)/,
+  /^\/en(?:\/|$)/,
 ];
 
 function normalizePath(path: string): string {
@@ -157,20 +163,13 @@ export function buildLocalizedUrl(
   locale: SupportedLocale,
   baseUrl: string = SITE_BASE_URL,
 ): string {
-  const normalizedPath = normalizePath(path);
+  const localizedPath = getCanonicalPathForLocale(stripLocaleFromPath(path), locale);
   const base = baseUrl.replace(/\/$/, "");
-  if (normalizedPath === "/") {
-    return `${base}/${locale}`;
-  }
-  return `${base}/${locale}${normalizedPath}`;
+  return `${base}${localizedPath}`;
 }
 
 export function buildLocalizedPath(path: string, locale: SupportedLocale): string {
-  const normalizedPath = normalizePath(path);
-  if (normalizedPath === "/") {
-    return `/${locale}`;
-  }
-  return `/${locale}${normalizedPath}`;
+  return getCanonicalPathForLocale(stripLocaleFromPath(path), locale);
 }
 
 export function buildAlternates(
@@ -178,13 +177,17 @@ export function buildAlternates(
   locales: readonly SupportedLocale[],
   baseUrl: string = SITE_BASE_URL,
 ): { languages: Record<string, string> } {
+  const basePath = stripLocaleFromPath(path);
   const languages: Record<string, string> = {};
   for (const locale of locales) {
-    languages[locale] = buildLocalizedUrl(path, locale, baseUrl);
+    languages[locale] = buildLocalizedUrl(basePath, locale, baseUrl);
   }
-  languages["x-default"] = buildLocalizedUrl(path, DEFAULT_LOCALE, baseUrl);
+  languages["x-default"] = buildLocalizedUrl(basePath, DEFAULT_LOCALE, baseUrl);
   return { languages };
 }
+
+/** @internal re-export for tests that assert locale path helpers */
+export { addLocaleToPath };
 
 export function countSitemapEntries(): number {
   return getSitemapManifest().reduce((sum, item) => sum + item.locales.length, 0);

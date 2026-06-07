@@ -50,8 +50,9 @@ describe("seo-authority architecture", () => {
   test("public llms.txt exists with hub references", () => {
     const content = readPublicTxt("llms.txt");
     expect(content).toContain("SectorCalc");
-    expect(content).toContain("/en/free-tools");
-    expect(content).toContain("/en/premium-tools");
+    expect(content).toContain("/free-tools");
+    expect(content).toContain("/premium-tools");
+    expect(content).not.toContain("/en/free-tools");
     expect(content).not.toContain("[object Object]");
   });
 
@@ -92,8 +93,8 @@ describe("seo-authority architecture", () => {
     const entries = buildSitemapEntries();
     const urls = entries.map((entry) => entry.url);
     expect(entries.length).toBeGreaterThan(200);
-    expect(urls.some((url) => url.includes("/en/free-tools"))).toBe(true);
-    expect(urls.some((url) => url.includes("/en/seo/manufacturing-cost-calculators"))).toBe(true);
+    expect(urls.some((url) => url.includes("/free-tools") && !url.includes("/en/"))).toBe(true);
+    expect(urls.some((url) => url.includes("/seo/manufacturing-cost-calculators"))).toBe(true);
   });
 
   test("sitemap excludes admin, api and print routes", () => {

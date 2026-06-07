@@ -50,8 +50,8 @@ describe("week-1 optimization readiness", () => {
 
   test("tier-1 URL dokümanı var", () => {
     const matrix = readDoc("week-1-priority-url-matrix.md");
-    expect(matrix).toContain("/en/tools/free/oee-calculator");
-    expect(matrix).toContain("/en/tools/premium-schema/cnc-oee-loss");
+    expect(matrix).toContain("/tools/free/oee-calculator");
+    expect(matrix).toContain("/tools/premium-schema/cnc-oee-loss");
     expect(matrix).toContain("Tier 1");
     expect(matrix).toContain("Tier 2");
     expect(matrix).toContain("Tier 3");

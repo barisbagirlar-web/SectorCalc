@@ -1,4 +1,6 @@
 import { SITE, siteUrl } from "@/config/site";
+import { isSupportedLocale, type SupportedLocale } from "@/lib/i18n/locale-routing";
+import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
 import type { SeoAuthorityEntity } from "@/lib/seo/seo-authority-model";
 import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
@@ -17,11 +19,8 @@ export type FaqItem = {
 };
 
 function localizedUrl(locale: string, path: string): string {
-  const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (normalized === "/") {
-    return `${siteUrl}/${locale}`;
-  }
-  return `${siteUrl}/${locale}${normalized}`;
+  const normalizedLocale: SupportedLocale = isSupportedLocale(locale) ? locale : "en";
+  return buildLocalizedUrl(path, normalizedLocale, siteUrl);
 }
 
 /** Strip undefined/null recursively for safe JSON-LD output. */

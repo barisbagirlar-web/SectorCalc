@@ -27,16 +27,16 @@ describe("seo-refresh-priority", () => {
 
   test("tier 1 includes OEE guide", () => {
     const paths = getTierOneRefreshItems().map((item) => item.path);
-    expect(paths).toContain("/en/guides/what-is-oee-and-how-to-calculate-it");
+    expect(paths).toContain("/guides/what-is-oee-and-how-to-calculate-it");
   });
 
   test("tier 1 includes area converter free tool", () => {
     const paths = getTierOneRefreshItems().map((item) => item.path);
-    expect(paths).toContain("/en/tools/free/area-converter");
+    expect(paths).toContain("/tools/free/area-converter");
   });
 
   test("tier 1 includes cnc-oee-loss premium analyzer", () => {
     const paths = getTierOneRefreshItems().map((item) => item.path);
-    expect(paths).toContain("/en/tools/premium-schema/cnc-oee-loss");
+    expect(paths).toContain("/tools/premium-schema/cnc-oee-loss");
   });
 });

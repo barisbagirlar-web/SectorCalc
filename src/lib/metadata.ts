@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BRAND_ASSETS } from "@/config/brand";
 import { SITE } from "@/config/site";
 import { locales, type AppLocale } from "@/i18n/routing";
+import { getCanonicalPathForLocale } from "@/lib/i18n/locale-routing";
 import { normalizeLocale } from "@/lib/format/localization";
 
 const SITE_ICONS: Metadata["icons"] = {
@@ -36,11 +37,7 @@ export interface ToolMetadataOptions {
 }
 
 function buildLocalizedPath(path: string, locale: AppLocale): string {
-  const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (normalized === "/") {
-    return `/${locale}`;
-  }
-  return `/${locale}${normalized}`;
+  return getCanonicalPathForLocale(path, locale);
 }
 
 function buildHreflangAlternates(path: string): Metadata["alternates"] {

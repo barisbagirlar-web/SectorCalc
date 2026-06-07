@@ -7,7 +7,7 @@ import { getTierOneRefreshItems } from "@/lib/seo/seo-refresh-priority";
 
 const TIER_ONE_SEO_SLUGS = getTierOneRefreshItems()
   .filter((item) => item.type === "seo_landing")
-  .map((item) => item.path.replace("/en/seo/", ""));
+  .map((item) => item.path.replace(/^\/seo\//, ""));
 
 describe("programmatic-seo-pages tier-1 refresh", () => {
   test("tier 1 SEO landing pages have at least 4 FAQ items", () => {

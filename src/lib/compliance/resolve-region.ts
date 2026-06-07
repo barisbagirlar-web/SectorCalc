@@ -4,13 +4,14 @@ import {
   REGION_MANUAL_COOKIE,
   type RegionCode,
 } from "@/config/regions";
+import { isTurkishPath } from "@/lib/i18n/locale-routing";
 
-const LOCALE_PREFIX = /^\/(en|tr|es|de|ar)(\/|$)/;
-
-/** Extract locale segment from App Router pathname. */
+/** Extract locale from pathname — root paths are English. */
 export function extractLocaleFromPathname(pathname: string): string {
-  const match = pathname.match(LOCALE_PREFIX);
-  return match?.[1] ?? "en";
+  if (isTurkishPath(pathname)) {
+    return "tr";
+  }
+  return "en";
 }
 
 /** Manual cookie → else locale drives region (en/es/ar→EN, tr→TR, de→DE). */

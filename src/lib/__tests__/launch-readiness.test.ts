@@ -21,6 +21,7 @@ import {
   countExpectedSitemapMinimum,
   getPremiumSchemaRoutePath,
 } from "@/lib/seo/build-sitemap";
+import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
 import {
   assertPublicCatalogCopySafe,
   containsForbiddenPublicCatalogTerm,
@@ -161,11 +162,11 @@ describe("launch-readiness", () => {
     expect(entries.length).toBeGreaterThanOrEqual(countExpectedSitemapMinimum());
 
     for (const locale of SUPPORTED_LOCALES) {
-      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/categories`);
-      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/free-tools`);
-      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/premium-tools`);
-      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/industries`);
-      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/pricing`);
+      expect(urls).toContain(buildLocalizedUrl("/categories", locale, SITE_BASE_URL));
+      expect(urls).toContain(buildLocalizedUrl("/free-tools", locale, SITE_BASE_URL));
+      expect(urls).toContain(buildLocalizedUrl("/premium-tools", locale, SITE_BASE_URL));
+      expect(urls).toContain(buildLocalizedUrl("/industries", locale, SITE_BASE_URL));
+      expect(urls).toContain(buildLocalizedUrl("/pricing", locale, SITE_BASE_URL));
     }
 
     for (const slug of listFreeTrafficSlugs()) {

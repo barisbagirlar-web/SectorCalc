@@ -14,19 +14,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["lucide-react", "@heroicons/react"],
   },
   async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/en",
-        permanent: false,
-      },
-      {
-        source:
-          "/:path((?!en|tr|es|de|ar|admin|_next|api|robots\\.txt|sitemap\\.xml|.*\\..*).*)",
-        destination: "/en/:path",
-        permanent: false,
-      },
-    ];
+    return [];
   },
 };
 

@@ -1,4 +1,6 @@
 import { siteUrl } from "@/config/site";
+import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
+import type { SupportedLocale } from "@/lib/i18n/locale-routing";
 
 export type SeoEntityType =
   | "Organization"
@@ -24,12 +26,8 @@ export type SeoAuthorityEntity = {
   readonly keywords: readonly string[];
 };
 
-function entityUrl(locale: string, path: string): string {
-  const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (normalized === "/") {
-    return `${siteUrl}/${locale}`;
-  }
-  return `${siteUrl}/${locale}${normalized}`;
+function entityUrl(locale: SupportedLocale, path: string): string {
+  return buildLocalizedUrl(path, locale, siteUrl);
 }
 
 export const SECTORCALC_CORE_ENTITIES: readonly SeoAuthorityEntity[] = [

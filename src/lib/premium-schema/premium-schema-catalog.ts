@@ -21,6 +21,7 @@ import {
   getPremiumClaimCopy,
   getPremiumClaimTypeLabel,
 } from "@/lib/premium-schema/premium-claim-copy";
+import { addLocaleToPath, type SupportedLocale } from "@/lib/i18n/locale-routing";
 
 export type PremiumSchemaCatalogBadge =
   | "Decision report"
@@ -171,8 +172,8 @@ const INDUSTRY_SLUG_ANALYZERS: Partial<Record<IndustrySlug, readonly string[]>> 
 export const DEFAULT_PREMIUM_SCHEMA_CATALOG_GROUP: PremiumSchemaCatalogGroupId = "cost_margin";
 
 function buildPremiumSchemaHref(slug: string, locale: string): string {
-  const normalizedLocale = locale.trim() || "en";
-  return `/${normalizedLocale}/tools/premium-schema/${slug}`;
+  const normalizedLocale: SupportedLocale = locale.trim() === "tr" ? "tr" : "en";
+  return addLocaleToPath(`/tools/premium-schema/${slug}`, normalizedLocale);
 }
 
 function deriveBadge(schema: PremiumCalculatorSchema): PremiumSchemaCatalogBadge {

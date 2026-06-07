@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { listAuthorityGuideSlugs } from "@/lib/content/authority-guides";
+import { buildLocalizedPath } from "@/lib/seo/sitemap-manifest";
 import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
 import {
   getIndexableUrlManifest,
@@ -41,25 +42,32 @@ describe("indexable URL manifest", () => {
     expect(paths.some((path) => /\/print(?:\/|$)/.test(path))).toBe(false);
   });
 
-  test("/en/free-tools var", () => {
-    expect(getIndexableUrlManifest().some((item) => item.path === "/en/free-tools")).toBe(true);
+  test("/en path yok", () => {
+    const paths = getIndexableUrlManifest().map((item) => item.path);
+    expect(paths.some((path) => path === "/en" || path.startsWith("/en/"))).toBe(false);
   });
 
-  test("/en/premium-tools var", () => {
-    expect(getIndexableUrlManifest().some((item) => item.path === "/en/premium-tools")).toBe(
-      true,
-    );
+  test("English /free-tools var", () => {
+    expect(getIndexableUrlManifest().some((item) => item.path === "/free-tools")).toBe(true);
   });
 
-  test("free tool path count matches catalog (EN)", () => {
-    const enFreePaths = pathsForLocale("en").filter((path) => path.startsWith("/en/tools/free/"));
+  test("Turkish /tr/free-tools var", () => {
+    expect(getIndexableUrlManifest().some((item) => item.path === "/tr/free-tools")).toBe(true);
+  });
+
+  test("English /premium-tools var", () => {
+    expect(getIndexableUrlManifest().some((item) => item.path === "/premium-tools")).toBe(true);
+  });
+
+  test("free tool path count matches catalog (EN root)", () => {
+    const enFreePaths = pathsForLocale("en").filter((path) => path.startsWith("/tools/free/"));
     expect(enFreePaths.length).toBe(listAllFreeToolSlugs().length);
     expect(enFreePaths.length).toBeGreaterThanOrEqual(100);
   });
 
-  test("27 premium schema path var (EN)", () => {
+  test("27 premium schema path var (EN root)", () => {
     const enPremiumPaths = pathsForLocale("en").filter((path) =>
-      path.startsWith("/en/tools/premium-schema/"),
+      path.startsWith("/tools/premium-schema/"),
     );
     expect(enPremiumPaths.length).toBe(listPremiumSchemaSlugs().length);
     expect(enPremiumPaths.length).toBe(27);
@@ -70,7 +78,9 @@ describe("indexable URL manifest", () => {
     for (const locale of INDEXABLE_LOCALES) {
       for (const slug of seoSlugs) {
         expect(
-          getIndexableUrlManifest().some((item) => item.path === `/${locale}/seo/${slug}`),
+          getIndexableUrlManifest().some(
+            (item) => item.path === buildLocalizedPath(`/seo/${slug}`, locale),
+          ),
         ).toBe(true);
       }
     }
@@ -81,7 +91,9 @@ describe("indexable URL manifest", () => {
     for (const locale of INDEXABLE_LOCALES) {
       for (const slug of guideSlugs) {
         expect(
-          getIndexableUrlManifest().some((item) => item.path === `/${locale}/guides/${slug}`),
+          getIndexableUrlManifest().some(
+            (item) => item.path === buildLocalizedPath(`/guides/${slug}`, locale),
+          ),
         ).toBe(true);
       }
     }
@@ -95,16 +107,16 @@ describe("indexable URL manifest", () => {
 
   test("critical GSC paths included in EN manifest", () => {
     const enPaths = getManifestEnPathSet();
-    expect(enPaths.has("/en")).toBe(true);
-    expect(enPaths.has("/en/tools/free/oee-calculator")).toBe(true);
-    expect(enPaths.has("/en/tools/premium-schema/cnc-oee-loss")).toBe(true);
-    expect(enPaths.has("/en/guides/what-is-oee-and-how-to-calculate-it")).toBe(true);
+    expect(enPaths.has("/")).toBe(true);
+    expect(enPaths.has("/tools/free/oee-calculator")).toBe(true);
+    expect(enPaths.has("/tools/premium-schema/cnc-oee-loss")).toBe(true);
+    expect(enPaths.has("/guides/what-is-oee-and-how-to-calculate-it")).toBe(true);
   });
 
   test("isPathIndexable rejects admin api print", () => {
-    expect(isPathIndexable("/en/admin/leads")).toBe(false);
+    expect(isPathIndexable("/admin/leads")).toBe(false);
     expect(isPathIndexable("/api/health")).toBe(false);
-    expect(isPathIndexable("/en/tools/premium-schema/cnc-oee-loss/print")).toBe(false);
-    expect(isPathIndexable("/en/free-tools")).toBe(true);
+    expect(isPathIndexable("/tools/premium-schema/cnc-oee-loss/print")).toBe(false);
+    expect(isPathIndexable("/free-tools")).toBe(true);
   });
 });

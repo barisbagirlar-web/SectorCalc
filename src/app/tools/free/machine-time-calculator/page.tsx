@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-/** Locale-neutral entry — routes to English pilot page (i18n lives under /[locale]). */
+/** Locale-neutral entry — English canonical path (no /en prefix). */
 export default function MachineTimeCalculatorRedirectPage() {
-  redirect("/en/tools/free/machine-time-calculator");
+  redirect("/tools/free/machine-time-calculator");
 }

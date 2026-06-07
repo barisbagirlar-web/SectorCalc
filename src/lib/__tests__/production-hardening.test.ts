@@ -7,6 +7,7 @@ import {
   countExpectedSitemapMinimum,
   getPremiumSchemaRoutePath,
 } from "@/lib/seo/build-sitemap";
+import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
 import {
   assertPublicCatalogCopySafe,
   containsForbiddenPublicCatalogTerm,
@@ -108,10 +109,12 @@ describe("production-hardening", () => {
     expect(entries.length).toBeGreaterThanOrEqual(countExpectedSitemapMinimum());
 
     for (const locale of SUPPORTED_LOCALES) {
-      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/categories`);
-      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/premium-tools`);
-      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/tools/free/area-converter`);
-      expect(urls).toContain(`${SITE_BASE_URL}/${locale}/tools/premium-schema/cnc-oee-loss`);
+      expect(urls).toContain(buildLocalizedUrl("/categories", locale, SITE_BASE_URL));
+      expect(urls).toContain(buildLocalizedUrl("/premium-tools", locale, SITE_BASE_URL));
+      expect(urls).toContain(buildLocalizedUrl("/tools/free/area-converter", locale, SITE_BASE_URL));
+      expect(urls).toContain(
+        buildLocalizedUrl("/tools/premium-schema/cnc-oee-loss", locale, SITE_BASE_URL),
+      );
     }
 
     for (const slug of listAllFreeToolSlugs()) {

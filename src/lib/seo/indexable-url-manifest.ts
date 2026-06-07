@@ -37,21 +37,34 @@ export type IndexableUrlItem = {
 
 export const INDEXABLE_LOCALES: readonly IndexableLocale[] = SUPPORTED_LOCALES;
 
-/** GSC-critical paths (EN) — used to seed inspectionOrder. */
+/** GSC-critical paths — used to seed inspectionOrder (English root + Turkish). */
 const CRITICAL_INSPECTION_PATHS: readonly string[] = [
-  "/en",
-  "/en/free-tools",
-  "/en/premium-tools",
-  "/en/categories",
-  "/en/industries",
-  "/en/pricing",
-  "/en/seo/manufacturing-cost-calculators",
-  "/en/guides/what-is-oee-and-how-to-calculate-it",
-  "/en/tools/free/area-converter",
-  "/en/tools/free/oee-calculator",
-  "/en/tools/free/concrete-volume-calculator",
-  "/en/tools/premium-schema/cnc-oee-loss",
-  "/en/tools/premium-schema/carbon-footprint-compliance-risk",
+  "/",
+  "/tr",
+  "/free-tools",
+  "/tr/free-tools",
+  "/premium-tools",
+  "/tr/premium-tools",
+  "/categories",
+  "/tr/categories",
+  "/industries",
+  "/tr/industries",
+  "/pricing",
+  "/tr/pricing",
+  "/seo/manufacturing-cost-calculators",
+  "/tr/seo/manufacturing-cost-calculators",
+  "/guides/what-is-oee-and-how-to-calculate-it",
+  "/tr/guides/what-is-oee-and-how-to-calculate-it",
+  "/tools/free/area-converter",
+  "/tr/tools/free/area-converter",
+  "/tools/free/oee-calculator",
+  "/tr/tools/free/oee-calculator",
+  "/tools/free/concrete-volume-calculator",
+  "/tr/tools/free/concrete-volume-calculator",
+  "/tools/premium-schema/cnc-oee-loss",
+  "/tr/tools/premium-schema/cnc-oee-loss",
+  "/tools/premium-schema/carbon-footprint-compliance-risk",
+  "/tr/tools/premium-schema/carbon-footprint-compliance-risk",
 ] as const;
 
 const HIGH_PRIORITY_FREE_SLUGS = new Set([

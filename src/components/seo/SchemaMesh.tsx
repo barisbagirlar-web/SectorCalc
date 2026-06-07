@@ -1,4 +1,5 @@
 import { SITE } from "@/config/site";
+import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
 import { resolveSmartModuleLabel } from "@/lib/os/registry/smart-modules";
 import type { SectorEntry } from "@/lib/os/registry/sectors";
 
@@ -10,7 +11,11 @@ export interface SchemaMeshProps {
 }
 
 export function SchemaMesh({ sector, sectorKey, locale = "en", priceUsd = "19" }: SchemaMeshProps) {
-  const pageUrl = `${SITE.url}/${locale}/audit/${sectorKey}`;
+  const pageUrl = buildLocalizedUrl(
+    `/audit/${sectorKey}`,
+    locale === "tr" ? "tr" : "en",
+    SITE.url,
+  );
 
   const schema = {
     "@context": "https://schema.org",

@@ -45,7 +45,7 @@ describe("premium-schema-catalog", () => {
 
   test("href starts with locale and premium-schema path", () => {
     for (const item of getPremiumSchemaCatalogItems("en")) {
-      expect(item.href.startsWith("/en/tools/premium-schema/")).toBe(true);
+      expect(item.href.startsWith("/tools/premium-schema/")).toBe(true);
     }
   });
 
