@@ -21,6 +21,8 @@ export {
   rentVsBuyContract,
 } from "@/lib/formula-governance/contracts";
 
+export { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/top-critical";
+
 export {
   buildAuditPriorities,
   buildContractGapReport,
@@ -52,4 +54,10 @@ export {
   suggestRiskLevel,
 } from "@/lib/formula-governance/risk-rules";
 
-export { hasOracleForTool } from "@/lib/formula-governance/oracle/registry";
+export {
+  hasOracleForTool,
+  isOraclePending,
+  listImplementedOracleToolIds,
+  listPendingOracleToolIds,
+  listRegisteredOracleToolIds,
+} from "@/lib/formula-governance/oracle/registry";

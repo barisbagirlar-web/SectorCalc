@@ -8,14 +8,32 @@ import {
   runGovernanceAudit,
   shouldFailStrictAudit,
 } from "@/lib/formula-governance/audit-runner";
-import { rentVsBuyContract, getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
+import { rentVsBuyContract, getFormulaContractBySlug, FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts";
+import { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/top-critical";
 import { buildFormulaInventory, summarizeInventory } from "@/lib/formula-governance/inventory";
 import {
   buildContractGapReport,
   buildAuditPriorities,
 } from "@/lib/formula-governance/contract-gap";
 import { suggestRiskLevel } from "@/lib/formula-governance/risk-rules";
-import { hasOracleForTool } from "@/lib/formula-governance/oracle/registry";
+import {
+  hasOracleForTool,
+  isOraclePending,
+  listPendingOracleToolIds,
+} from "@/lib/formula-governance/oracle/registry";
+
+const TOP_CRITICAL_SLUGS = [
+  "loan-payment-calculator",
+  "mortgage-calculator",
+  "interest-calculator",
+  "compound-interest-calculator",
+  "profit-margin-calculator",
+  "break-even-calculator",
+  "salary-cost-calculator",
+  "cash-flow-gap-calculator",
+  "machine-time-calculator",
+  "cnc-quote-risk-analyzer",
+] as const;
 
 describe("formula-governance contracts", () => {
   test("rent vs buy contract is registered as critical", () => {
@@ -27,6 +45,28 @@ describe("formula-governance contracts", () => {
   test("rent vs buy contract declares mortgage and appreciation inputs", () => {
     expect(rentVsBuyContract.criticalInputs).toContain("mortgageInterestRate");
     expect(rentVsBuyContract.criticalInputs).toContain("annualHomeAppreciation");
+  });
+
+  test("phase 3 registers 11 formula contracts", () => {
+    expect(FORMULA_CONTRACTS.length).toBe(11);
+    expect(TOP_CRITICAL_FORMULA_CONTRACTS.length).toBe(10);
+  });
+
+  test("each top critical contract has scenario skeletons and monotonicity rules", () => {
+    for (const contract of TOP_CRITICAL_FORMULA_CONTRACTS) {
+      expect(contract.scenarioTests.length).toBeGreaterThanOrEqual(5);
+      expect(contract.monotonicityRules.length).toBeGreaterThanOrEqual(3);
+      expect(contract.scenarioTests.every((s) => s.present === false)).toBe(true);
+      expect(contract.auditStatus).toBe("NEEDS_REVIEW");
+      expect(contract.oracleRequired).toBe(true);
+      expect(contract.propertyTestsRegistered).toBe(false);
+    }
+  });
+
+  test("top critical slugs resolve from registry", () => {
+    for (const slug of TOP_CRITICAL_SLUGS) {
+      expect(getFormulaContractBySlug(slug)?.slug).toBe(slug);
+    }
   });
 });
 
@@ -117,5 +157,27 @@ describe("formula-governance audit runner", () => {
 
   test("rent vs buy oracle not registered in phase 1", () => {
     expect(hasOracleForTool("free-traffic.rent-vs-buy-calculator")).toBe(false);
+  });
+
+  test("phase 3 marks critical oracles as pending", () => {
+    const pending = listPendingOracleToolIds();
+    expect(pending.length).toBe(11);
+    expect(isOraclePending("free-traffic.loan-payment-calculator")).toBe(true);
+    expect(isOraclePending("revenue-premium.cnc-quote-risk-analyzer")).toBe(true);
+  });
+
+  test("phase 3 top critical audits are not blanket PASS", () => {
+    const report = runGovernanceAudit();
+    for (const slug of TOP_CRITICAL_SLUGS) {
+      const result = report.results.find((r) => r.slug === slug);
+      expect(result).toBeDefined();
+      expect(result?.status).not.toBe("PASS");
+    }
+  });
+
+  test("phase 3 reduces critical missing contracts to about 70", () => {
+    const summary = summarizeInventory(buildFormulaInventory());
+    expect(summary.criticalMissingContracts.length).toBeGreaterThanOrEqual(68);
+    expect(summary.criticalMissingContracts.length).toBeLessThanOrEqual(72);
   });
 });

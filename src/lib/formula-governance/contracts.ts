@@ -3,6 +3,7 @@
  */
 
 import type { FormulaContract } from "@/lib/formula-governance/types";
+import { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/top-critical";
 
 const RENT_VS_BUY_DISCLAIMER =
   "This is a simplified comparison model, not financial or legal advice. Verify assumptions before housing or investment decisions.";
@@ -109,6 +110,7 @@ export const rentVsBuyContract: FormulaContract = {
   ],
   oracleRequired: true,
   propertyTestsRegistered: false,
+  auditStatus: "FAIL",
   decisionLanguageRules: [
     {
       id: "no-definitive-verdict",
@@ -142,7 +144,10 @@ export const rentVsBuyContract: FormulaContract = {
   auditOwner: "formula-governance",
 };
 
-export const FORMULA_CONTRACTS: readonly FormulaContract[] = [rentVsBuyContract];
+export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
+  rentVsBuyContract,
+  ...TOP_CRITICAL_FORMULA_CONTRACTS,
+];
 
 export function getFormulaContractBySlug(slug: string): FormulaContract | undefined {
   return FORMULA_CONTRACTS.find((c) => c.slug === slug);

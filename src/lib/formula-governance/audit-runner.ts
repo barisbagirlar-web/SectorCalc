@@ -106,7 +106,7 @@ function buildRecommendedActions(
     actions.push("Resolve critical FAIL findings before enabling strict deploy gate.");
   }
 
-  actions.push("Phase 3: add property-based and oracle tests for top critical tools.");
+  actions.push("Phase 4: implement oracle baselines and wire scenario tests for top critical contracts.");
 
   return actions;
 }
