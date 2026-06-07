@@ -15,6 +15,13 @@ import {
   getFreeTrafficToolBySlug,
   listFreeTrafficSlugs,
 } from "@/lib/tools/free-traffic-catalog";
+import {
+  calculateRentVsBuyModel,
+  parseRentVsBuyValues,
+  RENT_VS_BUY_RESULT_WARNING,
+  RentVsBuyValidationError,
+  strongerScenarioLabel,
+} from "@/lib/tools/rent-vs-buy-model";
 
 export type FreeTrafficInputValues = Record<string, number | string>;
 
@@ -1300,22 +1307,54 @@ const CALCULATORS: Record<string, CalculatorFn> = {
     };
   },
   "rent-vs-buy-calculator": (values) => {
-    const monthlyRent = num(values, "monthlyRent");
-    const homePrice = num(values, "homePrice");
-    const years = num(values, "years");
-    const totalRent = monthlyRent * 12 * years;
-    const diff = homePrice - totalRent;
-    return {
-      headline: "Rent vs buy snapshot",
-      primaryLabel: "Total rent paid",
-      primaryValue: formatCurrency(totalRent),
-      secondaryValues: [
-        { label: "Home price", value: formatCurrency(homePrice) },
-        { label: "Difference vs price", value: formatCurrency(diff) },
-      ],
-      explanation: "Compares cumulative rent over the period with purchase price (simplified).",
-      missingFactors: [],
-    };
+    try {
+      const model = calculateRentVsBuyModel(parseRentVsBuyValues(values));
+      const verdict = strongerScenarioLabel(model.strongerScenario);
+      return {
+        headline: "Rent vs buy comparison",
+        primaryLabel: "Stronger scenario",
+        primaryValue: verdict,
+        secondaryValues: [
+          { label: "Rent net position", value: formatCurrency(model.rentNetPosition) },
+          { label: "Buy net position", value: formatCurrency(model.buyNetPosition) },
+          { label: "Net difference (buy − rent)", value: formatCurrency(model.netDifference) },
+          { label: "Total rent paid", value: formatCurrency(model.totalRentPaid) },
+          {
+            label: "Investment value if renting",
+            value: formatCurrency(model.investmentValueIfRenting),
+          },
+          { label: "Monthly mortgage payment", value: formatCurrency(model.monthlyMortgagePayment) },
+          { label: "Total mortgage paid", value: formatCurrency(model.totalMortgagePaid) },
+          {
+            label: "Remaining mortgage balance",
+            value: formatCurrency(model.remainingMortgageBalance),
+          },
+          { label: "Future home value", value: formatCurrency(model.futureHomeValue) },
+          {
+            label: "Estimated ownership costs",
+            value: formatCurrency(model.estimatedOwnershipCosts),
+          },
+          { label: "Estimated selling costs", value: formatCurrency(model.estimatedSellingCosts) },
+        ],
+        explanation: `${verdict} Small changes in rates, rent growth or home appreciation can change the result. ${RENT_VS_BUY_RESULT_WARNING}`,
+        missingFactors: [],
+      };
+    } catch (error) {
+      const message =
+        error instanceof RentVsBuyValidationError
+          ? error.message
+          : error instanceof Error
+            ? error.message
+            : "Invalid inputs for rent vs buy comparison.";
+      return {
+        headline: "Rent vs buy comparison",
+        primaryLabel: "Result",
+        primaryValue: "—",
+        secondaryValues: [],
+        explanation: message,
+        missingFactors: [],
+      };
+    }
   },
   "home-budget-calculator": (values) => {
     const income = num(values, "income");

@@ -26,7 +26,6 @@ import {
   comparisonStatusToAuditCode,
   runAllFinanceOracleComparisonAudits,
 } from "@/lib/formula-governance/oracle/compare-production-oracle";
-import { isFinanceOracleSlug } from "@/lib/formula-governance/oracle/finance-oracles";
 import type {
   AuditFinding,
   ContractAuditResult,
@@ -40,16 +39,6 @@ export type RunGovernanceAuditOptions = {
 };
 
 function auditOracleComparisonFindings(contract: FormulaContract): AuditFinding[] {
-  if (!isFinanceOracleSlug(contract.slug)) {
-    return [
-      {
-        code: "ORACLE_COMPARISON_NOT_WIRED",
-        severity: "info",
-        message: "Production vs oracle comparison not wired for this tool.",
-      },
-    ];
-  }
-
   const summary = auditOracleComparisonForSlug(contract.slug);
   if (!summary) {
     return [
@@ -158,8 +147,8 @@ function buildRecommendedActions(
   const actions: string[] = [];
 
   const failed = results.filter((r) => r.status === "FAIL");
-  if (failed.some((r) => r.slug === "rent-vs-buy-calculator")) {
-    actions.push("Fix rent-vs-buy formula and inputs before launch.");
+  if (failed.some((r) => r.slug === "rent-vs-buy-calculator" && r.status === "FAIL")) {
+    actions.push("Review remaining rent-vs-buy governance findings before launch.");
   }
 
   if (criticalMissingSlugs.length > 0) {

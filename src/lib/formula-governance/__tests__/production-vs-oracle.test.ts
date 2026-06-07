@@ -5,9 +5,12 @@
 import { describe, expect, test } from "vitest";
 import {
   compareProductionVsOracle,
+  compareRentVsBuyProductionVsOracle,
   FINANCE_COMPARISON_SCENARIOS,
+  RENT_VS_BUY_COMPARISON_SCENARIOS,
   runAllFinanceOracleComparisonAudits,
   runFinanceOracleComparisonAudit,
+  runRentVsBuyOracleComparisonAudit,
 } from "@/lib/formula-governance/oracle/compare-production-oracle";
 import { FINANCE_ORACLE_SLUGS } from "@/lib/formula-governance/oracle/finance-oracles";
 import { FINANCE_PRODUCTION_FORMULA_LOCATORS } from "@/lib/formula-governance/oracle/production-formula-locator";
@@ -62,7 +65,7 @@ describe("production vs oracle comparison", () => {
 
   test("finance audit summaries pass comparable scenarios", () => {
     const summaries = runAllFinanceOracleComparisonAudits();
-    expect(summaries).toHaveLength(5);
+    expect(summaries.length).toBeGreaterThanOrEqual(6);
     for (const summary of summaries) {
       expect(summary.status).toBe("PASS");
       expect(summary.failCount).toBe(0);
@@ -76,5 +79,41 @@ describe("production vs oracle comparison", () => {
       const summary = runFinanceOracleComparisonAudit(slug);
       expect(summary.status).toBe("PASS");
     }
+  });
+});
+
+describe("rent vs buy production vs oracle", () => {
+  test("audit summary passes comparable scenarios", () => {
+    const summary = runRentVsBuyOracleComparisonAudit();
+    expect(summary.status).toBe("PASS");
+    expect(summary.passCount).toBe(4);
+    expect(summary.failCount).toBe(0);
+  });
+
+  for (const scenario of RENT_VS_BUY_COMPARISON_SCENARIOS.filter(
+    (entry) => entry.kind === "normal" || entry.kind === "edge",
+  )) {
+    test(`${scenario.kind} scenario ${scenario.id} matches oracle`, () => {
+      const result = compareRentVsBuyProductionVsOracle({
+        scenarioId: scenario.id,
+        values: scenario.values,
+      });
+      expect(result.status).toBe("PASS");
+    });
+  }
+
+  test("invalid calendar year scenario diverges", () => {
+    const absurd = RENT_VS_BUY_COMPARISON_SCENARIOS.find((s) => s.id === "invalid-calendar-year");
+    expect(absurd).toBeDefined();
+    const result = compareRentVsBuyProductionVsOracle({
+      scenarioId: absurd!.id,
+      values: absurd!.values,
+    });
+    expect(result.status).not.toBe("PASS");
+  });
+
+  test("all audits include rent vs buy", () => {
+    const summaries = runAllFinanceOracleComparisonAudits();
+    expect(summaries.some((summary) => summary.slug === "rent-vs-buy-calculator")).toBe(true);
   });
 });

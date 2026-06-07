@@ -31,12 +31,27 @@ export type NormalizedProfitMarginProductionOutput = {
   readonly markupPercent: number;
 };
 
+export type NormalizedRentVsBuyProductionOutput = {
+  readonly totalRentPaid: number;
+  readonly investmentValueIfRenting: number;
+  readonly monthlyMortgagePayment: number;
+  readonly totalMortgagePaid: number;
+  readonly remainingMortgageBalance: number;
+  readonly futureHomeValue: number;
+  readonly estimatedOwnershipCosts: number;
+  readonly estimatedSellingCosts: number;
+  readonly rentNetPosition: number;
+  readonly buyNetPosition: number;
+  readonly netDifference: number;
+};
+
 export type NormalizedFinanceProductionOutput =
   | NormalizedLoanProductionOutput
   | NormalizedMortgageProductionOutput
   | NormalizedSimpleInterestProductionOutput
   | NormalizedCompoundInterestProductionOutput
-  | NormalizedProfitMarginProductionOutput;
+  | NormalizedProfitMarginProductionOutput
+  | NormalizedRentVsBuyProductionOutput;
 
 export type ProductionAdapterResult =
   | { readonly status: "ok"; readonly output: NormalizedFinanceProductionOutput }
@@ -140,6 +155,82 @@ function adaptProfitMarginProduction(
     };
   }
   return { status: "ok", output: { marginPercent, markupPercent } };
+}
+
+function adaptRentVsBuyProduction(values: FreeTrafficInputValues): ProductionAdapterResult {
+  const result = calculateFreeTrafficTool("rent-vs-buy-calculator", values, "en");
+  if (result.primaryValue === "—") {
+    return { status: "error", reason: result.explanation };
+  }
+
+  const rentNetPosition = parseCurrency(findSecondaryValue(result.secondaryValues, "rent net position") ?? "");
+  const buyNetPosition = parseCurrency(findSecondaryValue(result.secondaryValues, "buy net position") ?? "");
+  const netDifference = parseCurrency(findSecondaryValue(result.secondaryValues, "net difference") ?? "");
+  const totalRentPaid = parseCurrency(findSecondaryValue(result.secondaryValues, "total rent paid") ?? "");
+  const investmentValueIfRenting = parseCurrency(
+    findSecondaryValue(result.secondaryValues, "investment value if renting") ?? "",
+  );
+  const monthlyMortgagePayment = parseCurrency(
+    findSecondaryValue(result.secondaryValues, "monthly mortgage payment") ?? "",
+  );
+  const totalMortgagePaid = parseCurrency(findSecondaryValue(result.secondaryValues, "total mortgage paid") ?? "");
+  const remainingMortgageBalance = parseCurrency(
+    findSecondaryValue(result.secondaryValues, "remaining mortgage balance") ?? "",
+  );
+  const futureHomeValue = parseCurrency(findSecondaryValue(result.secondaryValues, "future home value") ?? "");
+  const estimatedOwnershipCosts = parseCurrency(
+    findSecondaryValue(result.secondaryValues, "estimated ownership costs") ?? "",
+  );
+  const estimatedSellingCosts = parseCurrency(
+    findSecondaryValue(result.secondaryValues, "estimated selling costs") ?? "",
+  );
+
+  if (
+    rentNetPosition === null ||
+    buyNetPosition === null ||
+    netDifference === null ||
+    totalRentPaid === null ||
+    investmentValueIfRenting === null ||
+    monthlyMortgagePayment === null ||
+    totalMortgagePaid === null ||
+    remainingMortgageBalance === null ||
+    futureHomeValue === null ||
+    estimatedOwnershipCosts === null ||
+    estimatedSellingCosts === null
+  ) {
+    return {
+      status: "needs_adapter",
+      reason: "Could not parse rent vs buy numeric outputs from production result.",
+    };
+  }
+
+  return {
+    status: "ok",
+    output: {
+      totalRentPaid,
+      investmentValueIfRenting,
+      monthlyMortgagePayment,
+      totalMortgagePaid,
+      remainingMortgageBalance,
+      futureHomeValue,
+      estimatedOwnershipCosts,
+      estimatedSellingCosts,
+      rentNetPosition,
+      buyNetPosition,
+      netDifference,
+    },
+  };
+}
+
+export function adaptProductionRentVsBuyOutput(
+  values: FreeTrafficInputValues,
+): ProductionAdapterResult {
+  try {
+    return adaptRentVsBuyProduction(values);
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    return { status: "error", reason };
+  }
 }
 
 export function adaptProductionFinanceOutput(

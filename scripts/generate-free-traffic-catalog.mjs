@@ -15,6 +15,10 @@ function n(key, label, unit, helper, extra = {}) {
   return { key, label, unit, type: "number", helper, min: 0.01, ...extra };
 }
 
+function p(key, label, helper, extra = {}) {
+  return { key, label, unit: "%", type: "number", helper, min: 0, max: 100, ...extra };
+}
+
 function s(key, label, unit, helper, options, defaultValue) {
   return { key, label, unit, type: "select", helper, options, defaultValue };
 }
@@ -801,11 +805,34 @@ const TOOLS = [
     slug: "rent-vs-buy-calculator",
     title: "Rent vs Buy Comparison",
     category: "everyday-life",
-    description: "Compare total rent paid vs home purchase reference.",
+    description: "Compare renting plus invested down payment against buying with mortgage and appreciation.",
     seoTitle: "Rent vs Buy Calculator | SectorCalc",
-    seoDescription: "Compare cumulative rent against home purchase price over years.",
+    seoDescription: "Model rent growth, mortgage payments, home appreciation and net position over your comparison horizon.",
     resultType: "cost",
-    inputs: [n("monthlyRent", "Monthly rent", "USD", "Rent payment"), n("homePrice", "Home price", "USD", "Purchase reference"), n("years", "Years", "years", "Comparison horizon", { min: 1 })],
+    inputs: [
+      n("monthlyRent", "Monthly rent", "USD", "Current monthly rent payment"),
+      n("homePrice", "Home price", "USD", "Purchase price reference"),
+      n("comparisonYears", "Comparison years", "years", "Number of years to compare (e.g. 10 or 20)", {
+        min: 1,
+        max: 40,
+        defaultValue: 10,
+      }),
+      p("annualRentIncrease", "Annual rent increase", "Expected yearly rent growth", { defaultValue: 3 }),
+      p("annualHomeAppreciation", "Home appreciation", "Expected yearly home value growth", { defaultValue: 3 }),
+      p("downPaymentPercent", "Down payment", "Percent of home price paid upfront", { defaultValue: 20 }),
+      p("mortgageInterestRate", "Mortgage rate", "Nominal annual mortgage interest rate", { defaultValue: 6.5 }),
+      n("mortgageTermYears", "Mortgage term", "years", "Mortgage amortization term", {
+        min: 1,
+        max: 40,
+        defaultValue: 30,
+      }),
+      p("investmentReturnRate", "Investment return", "Annual return if renting and investing cash", {
+        defaultValue: 5,
+      }),
+      p("ownershipCostPercent", "Ownership cost", "Annual ownership cost as % of home value", { defaultValue: 1.5 }),
+      p("purchaseCostPercent", "Purchase costs", "Closing and purchase transaction costs", { defaultValue: 2 }),
+      p("sellingCostPercent", "Selling costs", "Estimated selling transaction costs", { defaultValue: 6 }),
+    ],
   },
   {
     slug: "home-budget-calculator",

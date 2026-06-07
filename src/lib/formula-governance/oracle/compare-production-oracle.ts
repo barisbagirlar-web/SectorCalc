@@ -17,10 +17,17 @@ import {
 import { getProductionFormulaLocator } from "@/lib/formula-governance/oracle/production-formula-locator";
 import {
   adaptProductionFinanceOutput,
+  adaptProductionRentVsBuyOutput,
   type NormalizedFinanceProductionOutput,
+  type NormalizedRentVsBuyProductionOutput,
 } from "@/lib/formula-governance/oracle/production-adapters";
 import { hasOracleForTool } from "@/lib/formula-governance/oracle/registry";
 import { OracleValidationError } from "@/lib/formula-governance/oracle/oracle-types";
+import {
+  calculateRentVsBuyOracle,
+  isRentVsBuyOracleSlug,
+  RENT_VS_BUY_ORACLE_SLUG,
+} from "@/lib/formula-governance/oracle/rent-vs-buy-oracle";
 
 export type OracleComparisonStatus = "PASS" | "FAIL" | "NEEDS_ADAPTER" | "NOT_WIRED";
 
@@ -33,7 +40,7 @@ export type FieldComparisonDiff = {
 };
 
 export type OracleComparisonResult = {
-  readonly slug: FinanceOracleSlug;
+  readonly slug: string;
   readonly toolId: string;
   readonly scenarioId: string;
   readonly status: OracleComparisonStatus;
@@ -42,7 +49,7 @@ export type OracleComparisonResult = {
 };
 
 export type OracleComparisonAuditSummary = {
-  readonly slug: FinanceOracleSlug;
+  readonly slug: string;
   readonly toolId: string;
   readonly status: OracleComparisonStatus;
   readonly passCount: number;
@@ -254,6 +261,164 @@ function compareNormalizedOutputs(
     }
     default:
       return { passed: false, diffs: [] };
+  }
+}
+
+function buildRentVsBuyOracleOutput(values: FreeTrafficInputValues): NormalizedRentVsBuyProductionOutput {
+  const oracle = calculateRentVsBuyOracle({
+    monthlyRent: Number(values.monthlyRent),
+    homePrice: Number(values.homePrice),
+    comparisonYears: Number(values.comparisonYears),
+    annualRentIncrease: Number(values.annualRentIncrease),
+    annualHomeAppreciation: Number(values.annualHomeAppreciation),
+    downPaymentPercent: Number(values.downPaymentPercent),
+    mortgageInterestRate: Number(values.mortgageInterestRate),
+    mortgageTermYears: Number(values.mortgageTermYears),
+    investmentReturnRate: Number(values.investmentReturnRate),
+    ownershipCostPercent: Number(values.ownershipCostPercent),
+    purchaseCostPercent: Number(values.purchaseCostPercent),
+    sellingCostPercent: Number(values.sellingCostPercent),
+  });
+  return oracle;
+}
+
+function compareRentVsBuyNormalized(
+  production: NormalizedRentVsBuyProductionOutput,
+  oracle: NormalizedRentVsBuyProductionOutput,
+): { readonly passed: boolean; readonly diffs: readonly FieldComparisonDiff[] } {
+  return compareNumericFields([
+    { field: "totalRentPaid", production: production.totalRentPaid, oracle: oracle.totalRentPaid, tolerance: CURRENCY_TOLERANCE },
+    {
+      field: "investmentValueIfRenting",
+      production: production.investmentValueIfRenting,
+      oracle: oracle.investmentValueIfRenting,
+      tolerance: CURRENCY_TOLERANCE,
+    },
+    {
+      field: "monthlyMortgagePayment",
+      production: production.monthlyMortgagePayment,
+      oracle: oracle.monthlyMortgagePayment,
+      tolerance: CURRENCY_TOLERANCE,
+    },
+    {
+      field: "totalMortgagePaid",
+      production: production.totalMortgagePaid,
+      oracle: oracle.totalMortgagePaid,
+      tolerance: CURRENCY_TOLERANCE,
+    },
+    {
+      field: "remainingMortgageBalance",
+      production: production.remainingMortgageBalance,
+      oracle: oracle.remainingMortgageBalance,
+      tolerance: CURRENCY_TOLERANCE,
+    },
+    {
+      field: "futureHomeValue",
+      production: production.futureHomeValue,
+      oracle: oracle.futureHomeValue,
+      tolerance: CURRENCY_TOLERANCE,
+    },
+    {
+      field: "estimatedOwnershipCosts",
+      production: production.estimatedOwnershipCosts,
+      oracle: oracle.estimatedOwnershipCosts,
+      tolerance: CURRENCY_TOLERANCE,
+    },
+    {
+      field: "estimatedSellingCosts",
+      production: production.estimatedSellingCosts,
+      oracle: oracle.estimatedSellingCosts,
+      tolerance: CURRENCY_TOLERANCE,
+    },
+    {
+      field: "rentNetPosition",
+      production: production.rentNetPosition,
+      oracle: oracle.rentNetPosition,
+      tolerance: CURRENCY_TOLERANCE,
+    },
+    {
+      field: "buyNetPosition",
+      production: production.buyNetPosition,
+      oracle: oracle.buyNetPosition,
+      tolerance: CURRENCY_TOLERANCE,
+    },
+    {
+      field: "netDifference",
+      production: production.netDifference,
+      oracle: oracle.netDifference,
+      tolerance: CURRENCY_TOLERANCE,
+    },
+  ]);
+}
+
+export function compareRentVsBuyProductionVsOracle(input: {
+  readonly scenarioId: string;
+  readonly values: FreeTrafficInputValues;
+}): OracleComparisonResult {
+  const slug = RENT_VS_BUY_ORACLE_SLUG;
+  const toolId = "free-traffic.rent-vs-buy-calculator";
+
+  if (!hasOracleForTool(toolId)) {
+    return {
+      slug,
+      toolId,
+      scenarioId: input.scenarioId,
+      status: "NOT_WIRED",
+      diffs: [],
+    };
+  }
+
+  const adapted = adaptProductionRentVsBuyOutput(input.values);
+  if (adapted.status === "needs_adapter") {
+    return {
+      slug,
+      toolId,
+      scenarioId: input.scenarioId,
+      status: "NEEDS_ADAPTER",
+      diffs: [],
+      message: adapted.reason,
+    };
+  }
+  if (adapted.status === "error") {
+    return {
+      slug,
+      toolId,
+      scenarioId: input.scenarioId,
+      status: "FAIL",
+      diffs: [],
+      message: adapted.reason,
+    };
+  }
+
+  try {
+    const oracleOutput = buildRentVsBuyOracleOutput(input.values);
+    const comparison = compareRentVsBuyNormalized(
+      adapted.output as NormalizedRentVsBuyProductionOutput,
+      oracleOutput,
+    );
+    if (!comparison.passed) {
+      return {
+        slug,
+        toolId,
+        scenarioId: input.scenarioId,
+        status: "FAIL",
+        diffs: comparison.diffs,
+        message: `Field mismatch: ${comparison.diffs.map((d) => d.field).join(", ")}`,
+      };
+    }
+    return { slug, toolId, scenarioId: input.scenarioId, status: "PASS", diffs: [] };
+  } catch (error) {
+    if (error instanceof OracleValidationError) {
+      return {
+        slug,
+        toolId,
+        scenarioId: input.scenarioId,
+        status: "FAIL",
+        diffs: [],
+        message: error.message,
+      };
+    }
+    throw error;
   }
 }
 
@@ -483,6 +648,102 @@ export const FINANCE_COMPARISON_SCENARIOS: Record<FinanceOracleSlug, readonly Fi
   ],
 };
 
+export const RENT_VS_BUY_BASE_INPUT: FreeTrafficInputValues = {
+  monthlyRent: 2000,
+  homePrice: 400_000,
+  comparisonYears: 10,
+  annualRentIncrease: 3,
+  annualHomeAppreciation: 3,
+  downPaymentPercent: 20,
+  mortgageInterestRate: 6.5,
+  mortgageTermYears: 30,
+  investmentReturnRate: 5,
+  ownershipCostPercent: 1.5,
+  purchaseCostPercent: 2,
+  sellingCostPercent: 6,
+};
+
+export const RENT_VS_BUY_COMPARISON_SCENARIOS: readonly FinanceComparisonScenario[] = [
+  {
+    id: "normal-buy-stronger",
+    kind: "normal",
+    values: {
+      ...RENT_VS_BUY_BASE_INPUT,
+      annualHomeAppreciation: 6,
+      annualRentIncrease: 2,
+    },
+  },
+  {
+    id: "normal-rent-stronger",
+    kind: "normal",
+    values: {
+      ...RENT_VS_BUY_BASE_INPUT,
+      annualHomeAppreciation: 1,
+      annualRentIncrease: 5,
+      investmentReturnRate: 7,
+      mortgageInterestRate: 8,
+    },
+  },
+  {
+    id: "high-mortgage-rate",
+    kind: "normal",
+    values: {
+      ...RENT_VS_BUY_BASE_INPUT,
+      mortgageInterestRate: 9.5,
+    },
+  },
+  {
+    id: "high-home-appreciation",
+    kind: "edge",
+    values: {
+      ...RENT_VS_BUY_BASE_INPUT,
+      annualHomeAppreciation: 8,
+    },
+  },
+  {
+    id: "invalid-calendar-year",
+    kind: "absurd",
+    values: {
+      ...RENT_VS_BUY_BASE_INPUT,
+      comparisonYears: 2026,
+    },
+    expectPass: false,
+  },
+];
+
+export function runRentVsBuyOracleComparisonAudit(): OracleComparisonAuditSummary {
+  const slug = RENT_VS_BUY_ORACLE_SLUG;
+  const toolId = "free-traffic.rent-vs-buy-calculator";
+  const comparable = RENT_VS_BUY_COMPARISON_SCENARIOS.filter((scenario) => scenario.expectPass !== false);
+  const results = comparable.map((scenario) =>
+    compareRentVsBuyProductionVsOracle({ scenarioId: scenario.id, values: scenario.values }),
+  );
+
+  const passCount = results.filter((result) => result.status === "PASS").length;
+  const failCount = results.filter((result) => result.status === "FAIL").length;
+  const needsAdapterCount = results.filter((result) => result.status === "NEEDS_ADAPTER").length;
+
+  let status: OracleComparisonStatus = "PASS";
+  if (needsAdapterCount > 0) {
+    status = "NEEDS_ADAPTER";
+  } else if (failCount > 0) {
+    status = "FAIL";
+  } else if (passCount === 0) {
+    status = "NOT_WIRED";
+  }
+
+  return {
+    slug,
+    toolId,
+    status,
+    passCount,
+    failCount,
+    needsAdapterCount,
+    notWiredCount: 0,
+    results,
+  };
+}
+
 export function runFinanceOracleComparisonAudit(
   slug: FinanceOracleSlug,
 ): OracleComparisonAuditSummary {
@@ -544,10 +805,16 @@ export function runFinanceOracleComparisonAudit(
 }
 
 export function runAllFinanceOracleComparisonAudits(): readonly OracleComparisonAuditSummary[] {
-  return FINANCE_ORACLE_SLUGS.map((slug) => runFinanceOracleComparisonAudit(slug));
+  return [
+    ...FINANCE_ORACLE_SLUGS.map((slug) => runFinanceOracleComparisonAudit(slug)),
+    runRentVsBuyOracleComparisonAudit(),
+  ];
 }
 
 export function auditOracleComparisonForSlug(slug: string): OracleComparisonAuditSummary | null {
+  if (isRentVsBuyOracleSlug(slug)) {
+    return runRentVsBuyOracleComparisonAudit();
+  }
   if (!isFinanceOracleSlug(slug)) {
     return null;
   }

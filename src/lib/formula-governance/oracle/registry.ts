@@ -18,7 +18,6 @@ const ORACLE_MODULE_BY_TOOL: Record<string, string> = {
 
 /** Critical tools awaiting oracle module registration or file implementation. */
 const ORACLE_PENDING_TOOL_IDS: readonly string[] = [
-  "free-traffic.rent-vs-buy-calculator",
   "free-traffic.break-even-calculator",
   "free-traffic.salary-cost-calculator",
   "free-traffic.cash-flow-gap-calculator",

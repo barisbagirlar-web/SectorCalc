@@ -3,10 +3,12 @@
  */
 
 import type { FormulaContract } from "@/lib/formula-governance/types";
+import { scenarioRuntimeTests } from "@/lib/formula-governance/contracts/shared";
 import { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/top-critical";
+import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
 
 const RENT_VS_BUY_DISCLAIMER =
-  "This is a simplified comparison model, not financial or legal advice. Verify assumptions before housing or investment decisions.";
+  "Technical simulation only — not financial, legal, or tax advice. Verify assumptions before housing or investment decisions.";
 
 export const rentVsBuyContract: FormulaContract = {
   toolId: "free-traffic.rent-vs-buy-calculator",
@@ -46,32 +48,37 @@ export const rentVsBuyContract: FormulaContract = {
     "sellingCostPercent",
   ],
   outputs: [
-    "rentScenarioTotalCost",
-    "buyScenarioNetPosition",
-    "equityAtHorizon",
-    "recommendationBand",
+    "totalRentPaid",
+    "investmentValueIfRenting",
+    "monthlyMortgagePayment",
+    "totalMortgagePaid",
+    "remainingMortgageBalance",
+    "futureHomeValue",
+    "estimatedOwnershipCosts",
+    "estimatedSellingCosts",
+    "rentNetPosition",
+    "buyNetPosition",
+    "netDifference",
+    "strongerScenario",
   ],
   assumptions: [
     RENT_VS_BUY_DISCLAIMER,
+    RENT_VS_BUY_RESULT_WARNING,
     "Comparison horizon is held constant across scenarios.",
-    "Tax, insurance and maintenance may be approximated via ownership cost rate.",
+    "Ownership, tax and insurance effects are approximated via ownership cost percent.",
   ],
   formulaSummary:
-    "Current implementation compares cumulative rent paid against home purchase price only (simplified snapshot).",
-  missingParameterWarnings: [
-    "annualRentIncrease not modeled",
-    "annualHomeAppreciation not modeled",
-    "mortgageInterestRate not modeled",
-    "mortgageTermYears not modeled",
-    "investmentReturnRate not modeled",
-    "ownershipCostPercent not modeled",
-    "purchaseCostPercent not modeled",
-    "sellingCostPercent not modeled",
-  ],
+    "Rent scenario projects annual rent with growth, invests down payment plus purchase costs at the investment return rate, and compares rentNetPosition. Buy scenario amortizes mortgage, projects appreciation, ownership and selling costs, and compares buyNetPosition.",
+  missingParameterWarnings: [],
   validationRules: [
     {
       id: "years-range",
       description: "comparisonYears must be between 1 and 40",
+      kind: "edge",
+    },
+    {
+      id: "calendar-year-guard",
+      description: "comparisonYears must not be entered as a calendar year such as 2026",
       kind: "edge",
     },
     {
@@ -85,41 +92,62 @@ export const rentVsBuyContract: FormulaContract = {
       kind: "dimensional",
     },
   ],
-  scenarioTests: [
-    { id: "normal-7yr", description: "7-year horizon with moderate rates", present: false },
-    { id: "high-rent-growth", description: "High annual rent increase", present: false },
-    { id: "low-appreciation", description: "Flat home appreciation", present: false },
-    { id: "high-mortgage-rate", description: "Elevated mortgage interest", present: false },
-    { id: "invalid-years", description: "comparisonYears outside 1–40 rejected", present: false },
-  ],
+  scenarioTests: scenarioRuntimeTests([
+    { id: "normal-7yr", description: "7-year horizon with moderate rates" },
+    { id: "high-rent-growth", description: "High annual rent increase" },
+    { id: "low-appreciation", description: "Flat home appreciation" },
+    { id: "high-mortgage-rate", description: "Elevated mortgage interest" },
+    { id: "invalid-years", description: "comparisonYears outside 1–40 rejected" },
+  ]),
   monotonicityRules: [
     {
       id: "rent-increase",
-      description: "Higher annual rent increase must not reduce total rent scenario cost",
+      description: "Higher annual rent increase must not reduce total rent paid",
       inputKey: "annualRentIncrease",
       direction: "increase_should_increase",
-      outputKey: "rentScenarioTotalCost",
+      outputKey: "totalRentPaid",
     },
     {
-      id: "mortgage-rate",
-      description: "Higher mortgage interest must not improve buy scenario net position",
+      id: "investment-return",
+      description: "Higher investment return must not weaken rent net position",
+      inputKey: "investmentReturnRate",
+      direction: "increase_should_increase",
+      outputKey: "rentNetPosition",
+    },
+    {
+      id: "home-appreciation",
+      description: "Higher home appreciation must not weaken buy net position",
+      inputKey: "annualHomeAppreciation",
+      direction: "increase_should_increase",
+      outputKey: "buyNetPosition",
+    },
+    {
+      id: "mortgage-rate-payment",
+      description: "Higher mortgage interest must not decrease monthly payment",
       inputKey: "mortgageInterestRate",
+      direction: "increase_should_increase",
+      outputKey: "monthlyMortgagePayment",
+    },
+    {
+      id: "down-payment-payment",
+      description: "Higher down payment percent must not increase monthly mortgage payment",
+      inputKey: "downPaymentPercent",
       direction: "increase_should_decrease",
-      outputKey: "buyScenarioNetPosition",
+      outputKey: "monthlyMortgagePayment",
     },
   ],
   oracleRequired: true,
-  propertyTestsRegistered: false,
-  auditStatus: "FAIL",
+  propertyTestsRegistered: true,
+  auditStatus: "NEEDS_REVIEW",
   decisionLanguageRules: [
     {
       id: "no-definitive-verdict",
       description:
         "Rent vs Buy must not give a definitive buy/rent command; use assumption-qualified language only.",
       acceptablePhrases: [
-        "Under these assumptions...",
-        "Buying looks stronger under the numbers entered.",
-        "Renting and investing the difference looks stronger under the numbers entered.",
+        "Under these assumptions, buying looks stronger.",
+        "Under these assumptions, renting and investing the difference looks stronger.",
+        "Small changes in rates, rent growth or home appreciation can change the result.",
       ],
       requiredDisclaimer: true,
       forbiddenPhrases: [
@@ -129,6 +157,9 @@ export const rentVsBuyContract: FormulaContract = {
         "this is the best decision",
         "always buy",
         "always rent",
+        "guaranteed savings",
+        "guaranteed margin",
+        "guaranteed profit",
       ],
     },
   ],
@@ -140,6 +171,9 @@ export const rentVsBuyContract: FormulaContract = {
     "Guaranteed better option",
     "Certified financial advice",
     "Exact future home value",
+    "Guaranteed savings",
+    "Guaranteed margin",
+    "Guaranteed profit",
   ],
   auditOwner: "formula-governance",
 };

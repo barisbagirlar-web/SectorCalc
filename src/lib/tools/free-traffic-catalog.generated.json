@@ -3083,9 +3083,9 @@
     "slug": "rent-vs-buy-calculator",
     "title": "Rent vs Buy Comparison",
     "category": "everyday-life",
-    "description": "Compare total rent paid vs home purchase reference.",
+    "description": "Compare renting plus invested down payment against buying with mortgage and appreciation.",
     "seoTitle": "Rent vs Buy Calculator | SectorCalc",
-    "seoDescription": "Compare cumulative rent against home purchase price over years.",
+    "seoDescription": "Model rent growth, mortgage payments, home appreciation and net position over your comparison horizon.",
     "resultType": "cost",
     "inputs": [
       {
@@ -3093,7 +3093,7 @@
         "label": "Monthly rent",
         "unit": "USD",
         "type": "number",
-        "helper": "Rent payment",
+        "helper": "Current monthly rent payment",
         "min": 0.01
       },
       {
@@ -3101,16 +3101,108 @@
         "label": "Home price",
         "unit": "USD",
         "type": "number",
-        "helper": "Purchase reference",
+        "helper": "Purchase price reference",
         "min": 0.01
       },
       {
-        "key": "years",
-        "label": "Years",
+        "key": "comparisonYears",
+        "label": "Comparison years",
         "unit": "years",
         "type": "number",
-        "helper": "Comparison horizon",
-        "min": 1
+        "helper": "Number of years to compare (e.g. 10 or 20)",
+        "min": 1,
+        "max": 40,
+        "defaultValue": 10
+      },
+      {
+        "key": "annualRentIncrease",
+        "label": "Annual rent increase",
+        "unit": "%",
+        "type": "number",
+        "helper": "Expected yearly rent growth",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 3
+      },
+      {
+        "key": "annualHomeAppreciation",
+        "label": "Home appreciation",
+        "unit": "%",
+        "type": "number",
+        "helper": "Expected yearly home value growth",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 3
+      },
+      {
+        "key": "downPaymentPercent",
+        "label": "Down payment",
+        "unit": "%",
+        "type": "number",
+        "helper": "Percent of home price paid upfront",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 20
+      },
+      {
+        "key": "mortgageInterestRate",
+        "label": "Mortgage rate",
+        "unit": "%",
+        "type": "number",
+        "helper": "Nominal annual mortgage interest rate",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 6.5
+      },
+      {
+        "key": "mortgageTermYears",
+        "label": "Mortgage term",
+        "unit": "years",
+        "type": "number",
+        "helper": "Mortgage amortization term",
+        "min": 1,
+        "max": 40,
+        "defaultValue": 30
+      },
+      {
+        "key": "investmentReturnRate",
+        "label": "Investment return",
+        "unit": "%",
+        "type": "number",
+        "helper": "Annual return if renting and investing cash",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 5
+      },
+      {
+        "key": "ownershipCostPercent",
+        "label": "Ownership cost",
+        "unit": "%",
+        "type": "number",
+        "helper": "Annual ownership cost as % of home value",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 1.5
+      },
+      {
+        "key": "purchaseCostPercent",
+        "label": "Purchase costs",
+        "unit": "%",
+        "type": "number",
+        "helper": "Closing and purchase transaction costs",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 2
+      },
+      {
+        "key": "sellingCostPercent",
+        "label": "Selling costs",
+        "unit": "%",
+        "type": "number",
+        "helper": "Estimated selling transaction costs",
+        "min": 0,
+        "max": 100,
+        "defaultValue": 6
       }
     ]
   },

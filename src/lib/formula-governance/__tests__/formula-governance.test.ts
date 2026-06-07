@@ -153,13 +153,17 @@ describe("formula-governance inventory", () => {
 });
 
 describe("formula-governance audit runner", () => {
-  test("rent vs buy audit returns FAIL (purpose mismatch + missing inputs)", () => {
+  test("rent vs buy audit returns PASS or NEEDS_REVIEW after phase 5B model fix", () => {
     const report = runGovernanceAudit();
     const rent = report.results.find((r) => r.slug === "rent-vs-buy-calculator");
     expect(rent).toBeDefined();
-    expect(rent?.status).toBe("FAIL");
-    expect(rent?.findings.some((f) => f.code === "PURPOSE_MISMATCH")).toBe(true);
-    expect(rent?.findings.some((f) => f.code === "CRIT_MISSING_INPUTS")).toBe(true);
+    expect(rent?.status).not.toBe("FAIL");
+    expect(rent?.findings.some((f) => f.code === "PURPOSE_MISMATCH")).toBe(false);
+    expect(rent?.findings.some((f) => f.code === "CRIT_MISSING_INPUTS")).toBe(false);
+    expect(rent?.findings.some((f) => f.code === "CRIT_ORACLE_MISSING")).toBe(false);
+    expect(rent?.findings.some((f) => f.code === "CRIT_PROPERTY_TESTS")).toBe(false);
+    expect(rent?.findings.some((f) => f.code === "CRIT_SCENARIO_TESTS")).toBe(false);
+    expect(rent?.findings.some((f) => f.code === "ORACLE_COMPARISON_PASS")).toBe(true);
   });
 
   test("strict mode would fail while critical tools lack contracts", () => {
@@ -176,16 +180,17 @@ describe("formula-governance audit runner", () => {
     expect(text).toContain("Launch blockers");
   });
 
-  test("rent vs buy oracle not registered in phase 1", () => {
-    expect(hasOracleForTool("free-traffic.rent-vs-buy-calculator")).toBe(false);
+  test("rent vs buy oracle is registered in phase 5B", () => {
+    expect(hasOracleForTool("free-traffic.rent-vs-buy-calculator")).toBe(true);
   });
 
   test("phase 4 registers finance oracles and reduces pending count", () => {
     expect(listFinanceOracleToolIds().length).toBe(5);
-    expect(listPendingOracleToolIds().length).toBe(6);
+    expect(listPendingOracleToolIds().length).toBe(5);
     expect(isOraclePending("free-traffic.loan-payment-calculator")).toBe(false);
-    expect(isOraclePending("free-traffic.rent-vs-buy-calculator")).toBe(true);
+    expect(isOraclePending("free-traffic.rent-vs-buy-calculator")).toBe(false);
     expect(hasOracleForTool("free-traffic.loan-payment-calculator")).toBe(true);
+    expect(hasOracleForTool("free-traffic.rent-vs-buy-calculator")).toBe(true);
   });
 
   test("phase 4 finance tools no longer report oracle missing", () => {

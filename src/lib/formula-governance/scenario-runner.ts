@@ -12,6 +12,10 @@ import {
   calculateSimpleInterestOracle,
   isFinanceOracleSlug,
 } from "@/lib/formula-governance/oracle/finance-oracles";
+import {
+  calculateRentVsBuyOracle,
+  isRentVsBuyOracleSlug,
+} from "@/lib/formula-governance/oracle/rent-vs-buy-oracle";
 import { OracleValidationError } from "@/lib/formula-governance/oracle/oracle-types";
 
 export type ScenarioRunResult = {
@@ -279,12 +283,67 @@ const MARGIN_SCENARIOS: Record<string, ScenarioHandler> = {
   },
 };
 
+const RENT_VS_BUY_BASE = {
+  monthlyRent: 2000,
+  homePrice: 400_000,
+  comparisonYears: 7,
+  annualRentIncrease: 3,
+  annualHomeAppreciation: 3,
+  downPaymentPercent: 20,
+  mortgageInterestRate: 6.5,
+  mortgageTermYears: 30,
+  investmentReturnRate: 5,
+  ownershipCostPercent: 1.5,
+  purchaseCostPercent: 2,
+  sellingCostPercent: 6,
+};
+
+const RENT_VS_BUY_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-7yr": () => {
+    const result = calculateRentVsBuyOracle(RENT_VS_BUY_BASE);
+    if (result.totalRentPaid <= 0) {
+      throw new Error("Expected positive total rent paid.");
+    }
+  },
+  "high-rent-growth": () => {
+    const base = calculateRentVsBuyOracle(RENT_VS_BUY_BASE);
+    const high = calculateRentVsBuyOracle({ ...RENT_VS_BUY_BASE, annualRentIncrease: 8 });
+    if (high.totalRentPaid <= base.totalRentPaid) {
+      throw new Error("Higher rent growth must increase total rent paid.");
+    }
+  },
+  "low-appreciation": () => {
+    const result = calculateRentVsBuyOracle({ ...RENT_VS_BUY_BASE, annualHomeAppreciation: 0 });
+    if (result.futureHomeValue < RENT_VS_BUY_BASE.homePrice) {
+      throw new Error("Zero appreciation should not reduce future home value below purchase price.");
+    }
+  },
+  "high-mortgage-rate": () => {
+    const low = calculateRentVsBuyOracle({ ...RENT_VS_BUY_BASE, mortgageInterestRate: 4 });
+    const high = calculateRentVsBuyOracle({ ...RENT_VS_BUY_BASE, mortgageInterestRate: 9 });
+    if (high.monthlyMortgagePayment <= low.monthlyMortgagePayment) {
+      throw new Error("Higher mortgage rate must increase monthly payment.");
+    }
+  },
+  "invalid-years": () => {
+    try {
+      calculateRentVsBuyOracle({ ...RENT_VS_BUY_BASE, comparisonYears: 2026 });
+      throw new Error("Expected calendar year validation error.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+};
+
 const SCENARIO_HANDLERS: Record<string, Record<string, ScenarioHandler>> = {
   "loan-payment-calculator": LOAN_SCENARIOS,
   "mortgage-calculator": MORTGAGE_SCENARIOS,
   "interest-calculator": INTEREST_SCENARIOS,
   "compound-interest-calculator": COMPOUND_SCENARIOS,
   "profit-margin-calculator": MARGIN_SCENARIOS,
+  "rent-vs-buy-calculator": RENT_VS_BUY_SCENARIOS,
 };
 
 export function runScenarioSpec(
@@ -300,7 +359,7 @@ export function runScenarioSpec(
     };
   }
 
-  if (!isFinanceOracleSlug(slug)) {
+  if (!isFinanceOracleSlug(slug) && !isRentVsBuyOracleSlug(slug)) {
     return {
       scenarioId: spec.id,
       description: spec.description,
