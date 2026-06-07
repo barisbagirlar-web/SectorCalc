@@ -97,6 +97,8 @@ export function PremiumReportLockedState({
           <p className="sc-premium-report-locked__price">{priceHint}</p>
         ) : null}
 
+        <p className="mt-3 text-xs leading-relaxed text-body-charcoal">{t("valueLine")}</p>
+
         <div className="sc-premium-report-locked__actions">
           <button
             type="button"

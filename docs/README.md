@@ -11,6 +11,8 @@
 - [First Traffic Campaigns](./first-traffic-campaigns.md) — cluster overview, funnel events, 30-day summary
 - [GSC Campaign URL List](./gsc-campaign-url-list.md) — priority URLs for Search Console inspection and UTM QA
 - [Conversion Review Playbook](./conversion-review-playbook.md) — weekly funnel metrics and decision rules
+- [Revenue Conversion Review Template](./revenue-conversion-review-template.md) — weekly monetization review shell
+- [Revenue Pricing Friction Rules](./revenue-pricing-friction-rules.md) — pricing/unlock/export friction decision tree
 
 ## SEO & authority
 
