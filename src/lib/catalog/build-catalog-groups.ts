@@ -72,6 +72,19 @@ export const PREMIUM_CATALOG_SHORT_LABELS: Record<PremiumReportFamily, string> =
   benchmark_financial_health: "Benchmark & Health",
 };
 
+export const DEFAULT_PREMIUM_REPORT_FAMILY: PremiumReportFamily = "loss_detection";
+
+export const FEATURED_PREMIUM_SLUGS: readonly string[] = [
+  "cnc-quote-risk-analyzer",
+  "sheet-metal-quote-risk-tool",
+  "route-optimization-analyzer",
+  "change-order-impact-analyzer",
+  "energy-efficiency-report",
+  "menu-profit-leak-detector",
+  "office-cleaning-bid-optimizer",
+  "crop-yield-loss-analyzer",
+] as const;
+
 function toolToCatalogItem(tool: Tool, catalogVariant: "default" | "premium") {
   const industry = getIndustryBySlug(tool.industrySlug as IndustrySlug);
   const architecture =

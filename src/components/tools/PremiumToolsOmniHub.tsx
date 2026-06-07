@@ -1,0 +1,208 @@
+"use client";
+
+import { useMemo, useRef, useState } from "react";
+import Link from "next/link";
+import { Link as I18nLink } from "@/i18n/routing";
+import { ScIcon } from "@/components/icons/ScIcon";
+import { UI_ICON } from "@/lib/icons/icon-registry";
+import type { CatalogGroup } from "@/lib/catalog/catalog-types";
+import {
+  DEFAULT_PREMIUM_REPORT_FAMILY,
+  FEATURED_PREMIUM_SLUGS,
+} from "@/lib/catalog/build-catalog-groups";
+import { getSampleReportHref } from "@/lib/tools/tool-links";
+import { sectorCalcProPricing } from "@/lib/tools/revenue-tools";
+
+export type PremiumToolsOmniHubProps = {
+  groups: readonly CatalogGroup[];
+  toolCount: number;
+};
+
+function AnalyzerListRows({ items }: { items: readonly CatalogGroup["items"][number][] }) {
+  return (
+    <ul className="sc-omni-hub__tool-list sc-omni-hub__tool-list--premium">
+      {items.map((item) => (
+        <li key={item.href}>
+          <I18nLink href={item.href} className="sc-omni-hub__tool-row sc-omni-hub__tool-row--premium group">
+            <span className="sc-omni-hub__tool-copy min-w-0 flex-1">
+              <span className="sc-omni-hub__tool-title-row">
+                <span className="sc-omni-hub__tool-title">{item.title}</span>
+                <span className="sc-omni-hub__pro-badge">Pro</span>
+              </span>
+              <span className="sc-omni-hub__tool-desc">{item.description}</span>
+              {item.meta ? <span className="sc-omni-hub__tool-meta">{item.meta}</span> : null}
+            </span>
+            <ScIcon
+              icon={UI_ICON.chevronRight}
+              size="compact"
+              className="sc-omni-hub__tool-chevron shrink-0 text-body-charcoal transition group-hover:translate-x-0.5 group-hover:text-sc-copper"
+            />
+          </I18nLink>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function PremiumToolsOmniHub({ groups, toolCount }: PremiumToolsOmniHubProps) {
+  const toolsRef = useRef<HTMLElement>(null);
+  const [selected, setSelected] = useState<string>(DEFAULT_PREMIUM_REPORT_FAMILY);
+
+  const visibleGroups = useMemo(
+    () => groups.filter((group) => group.items.length > 0),
+    [groups]
+  );
+
+  const resolvedSelected = visibleGroups.some((group) => group.id === selected)
+    ? selected
+    : (visibleGroups[0]?.id ?? DEFAULT_PREMIUM_REPORT_FAMILY);
+
+  const featuredLinks = useMemo(() => {
+    const allItems = groups.flatMap((group) => group.items);
+    return FEATURED_PREMIUM_SLUGS.flatMap((slug) => {
+      const item = allItems.find((entry) => entry.href.endsWith(`/${slug}`));
+      if (!item) {
+        return [];
+      }
+      return [{ title: item.title, href: item.href }];
+    });
+  }, [groups]);
+
+  const selectCategory = (categoryId: string) => {
+    setSelected(categoryId);
+    toolsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const activeGroup =
+    visibleGroups.find((group) => group.id === resolvedSelected) ?? visibleGroups[0];
+
+  return (
+    <div className="sc-omni-hub sc-omni-hub--premium">
+      <header className="sc-omni-hub__hero sc-omni-hub__hero--premium">
+        <div className="sc-omni-hub__premium-ribbon">
+          <span className="sc-omni-hub__premium-ribbon-badge">Premium</span>
+          <span className="sc-omni-hub__premium-ribbon-copy">
+            {sectorCalcProPricing.planName} · ${sectorCalcProPricing.priceMonthly}/month · verdict
+            reports included
+          </span>
+        </div>
+        <p className="sc-pro-eyebrow">Premium decision reports</p>
+        <h1 className="sc-omni-hub__headline">
+          <span className="sc-omni-hub__headline-lead">Your sector in</span>
+          <span className="sc-omni-hub__headline-stat sc-omni-hub__headline-stat--premium">
+            {toolCount}
+          </span>
+          <span className="sc-omni-hub__headline-tail">paid analyzers</span>
+        </h1>
+        <p className="sc-pro-lead sc-omni-hub__sub">
+          Loss detection, safe price floors and accept / reprice verdicts — pick a report family,
+          then open the sector analyzer you need.
+        </p>
+        <div className="sc-omni-hub__premium-actions">
+          <Link href={getSampleReportHref()} className="sc-cta-secondary text-sm">
+            View sample report
+          </Link>
+        </div>
+      </header>
+
+      {featuredLinks.length > 0 ? (
+        <section
+          className="sc-omni-hub__featured sc-omni-hub__featured--premium"
+          aria-labelledby="premium-featured-heading"
+        >
+          <h2 id="premium-featured-heading" className="sc-omni-hub__section-title">
+            Featured decision analyzers
+          </h2>
+          <p className="sc-omni-hub__section-lead">
+            Most-used premium reports across manufacturing, logistics, energy and field services.
+          </p>
+          <ul className="sc-omni-hub__featured-grid">
+            {featuredLinks.map((item) => (
+              <li key={item.href}>
+                <I18nLink
+                  href={item.href}
+                  className="sc-omni-hub__featured-link sc-omni-hub__featured-link--premium"
+                >
+                  <span className="sc-omni-hub__featured-link-label">{item.title}</span>
+                  <span className="sc-omni-hub__pro-badge sc-omni-hub__pro-badge--inline">Pro</span>
+                </I18nLink>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      <section className="sc-omni-hub__categories" aria-labelledby="premium-categories-heading">
+        <h2 id="premium-categories-heading" className="sc-omni-hub__section-title">
+          Report categories
+        </h2>
+        <p className="sc-omni-hub__section-lead">
+          Each analyzer pairs with a free quick check in the same industry.
+        </p>
+        <ul className="sc-omni-hub__category-grid sc-omni-hub__category-grid--premium">
+          {visibleGroups.map((group) => {
+            const isActive = resolvedSelected === group.id;
+            const count = group.items.length;
+
+            return (
+              <li key={group.id}>
+                <button
+                  type="button"
+                  className={`sc-omni-hub__category-tile sc-omni-hub__category-tile--premium w-full text-left${
+                    isActive ? " sc-omni-hub__category-tile--active" : ""
+                  }`}
+                  aria-pressed={isActive}
+                  aria-controls={`premium-tools-${group.id}`}
+                  onClick={() => selectCategory(group.id)}
+                >
+                  <span className="sc-omni-hub__category-count">
+                    {count} {count === 1 ? "analyzer" : "analyzers"}
+                  </span>
+                  <span className="sc-omni-hub__category-label">{group.label}</span>
+                  <span className="sc-omni-hub__category-desc">{group.description}</span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <section
+        ref={toolsRef}
+        className="sc-omni-hub__tools"
+        aria-labelledby="premium-tools-active-heading"
+      >
+        {activeGroup ? (
+          <div className="sc-omni-hub__tools-active">
+            <div className="sc-omni-hub__tools-heading-row">
+              <h2 id="premium-tools-active-heading" className="sc-omni-hub__tools-heading">
+                {activeGroup.label}
+              </h2>
+              <span className="sc-omni-hub__pro-badge">Pro reports</span>
+            </div>
+            <p className="sc-omni-hub__tools-lead">{activeGroup.description}</p>
+            <AnalyzerListRows items={activeGroup.items} />
+          </div>
+        ) : null}
+
+        {visibleGroups
+          .filter((group) => group.id !== activeGroup?.id)
+          .map((group) => (
+            <section
+              key={group.id}
+              id={`premium-tools-${group.id}`}
+              hidden
+              aria-labelledby={`premium-tools-heading-${group.id}`}
+              className="sc-omni-hub__tools-panel"
+            >
+              <h2 id={`premium-tools-heading-${group.id}`} className="sc-omni-hub__tools-heading">
+                {group.label}
+              </h2>
+              <p className="sc-omni-hub__tools-lead">{group.description}</p>
+              <AnalyzerListRows items={group.items} />
+            </section>
+          ))}
+      </section>
+    </div>
+  );
+}

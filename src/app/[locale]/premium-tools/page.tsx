@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
+import { PremiumToolsOmniHub } from "@/components/tools/PremiumToolsOmniHub";
 import { buildPremiumToolCatalogGroups } from "@/lib/catalog/build-catalog-groups";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { Container } from "@/components/ui/Container";
 import { PREMIUM_TOOLS } from "@/data/tools";
 import { createPageMetadata } from "@/lib/metadata";
-import { getFreeToolsHref, getPricingHref, getSampleReportHref } from "@/lib/tools/tool-links";
+import { getFreeToolsHref, getPricingHref } from "@/lib/tools/tool-links";
 import { sectorCalcProPricing } from "@/lib/tools/revenue-tools";
 
 export const metadata: Metadata = createPageMetadata({
@@ -41,62 +41,9 @@ export default function PremiumToolsPage() {
 
   return (
     <PageLayout>
-      <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
-        <Container className="sc-pro-container">
-          <p className="sc-pro-eyebrow">Premium Decision Reports</p>
-          <h1 className="sc-pro-headline">Loss & efficiency analyzers</h1>
-          <p className="sc-pro-lead">
-            Sector-specific decision reports for measurement, scrap, OEE, routing, energy and
-            profitability — built for operators who need a clear verdict, not a spreadsheet.
-          </p>
-          <Link
-            href={getSampleReportHref()}
-            className="mt-4 inline-flex min-h-[44px] items-center text-sm font-semibold text-premium-velvet underline underline-offset-2"
-          >
-            View sample decision report →
-          </Link>
-        </Container>
-      </section>
-
       <section className="sc-pro-section sc-pro-section--border">
-        <Container className="sc-pro-container">
-          <h2 className="sc-pro-headline text-xl">What you get</h2>
-          <div className="mt-5 grid gap-4 md:grid-cols-2">
-            <div className="sc-industrial-panel p-5">
-              <p className="sc-pro-eyebrow">Free tools</p>
-              <ul className="mt-3 space-y-2 text-sm text-body-charcoal">
-                <li>Quick measurement and conversion</li>
-                <li>First risk signal in the browser</li>
-                <li>No account required</li>
-              </ul>
-              <Link href={getFreeToolsHref()} className="sc-craft-card__cta mt-4">
-                Browse free tools →
-              </Link>
-            </div>
-            <div className="sc-industrial-panel p-5">
-              <p className="sc-pro-eyebrow">Premium reports</p>
-              <ul className="mt-3 space-y-2 text-sm text-body-charcoal">
-                <li>Loss detection and tolerance interpretation</li>
-                <li>3-second field panel + PDF save</li>
-                <li>Suggested action on every run</li>
-              </ul>
-              <p className="mt-4 text-sm font-semibold text-premium-velvet">
-                {sectorCalcProPricing.planName} — ${sectorCalcProPricing.priceMonthly}/month
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="sc-pro-section sc-pro-section--border">
-        <Container size="wide" className="sc-pro-container sc-pro-container--wide">
-          <h2 className="sc-pro-headline text-xl">Decision analyzer catalog</h2>
-          <p className="sc-pro-lead text-sm">
-            Twenty-seven sector analyzers. Each pairs with a free quick check in the same industry.
-          </p>
-          <div className="mt-6 min-w-0">
-            <SectorCatalogExplorer groups={premiumGroups} variant="premium-tools" />
-          </div>
+        <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+          <PremiumToolsOmniHub groups={premiumGroups} toolCount={PREMIUM_TOOLS.length} />
         </Container>
       </section>
 
@@ -130,8 +77,8 @@ export default function PremiumToolsPage() {
               <Link href={getPricingHref()} className="sc-cta-primary">
                 View pricing — ${sectorCalcProPricing.priceMonthly}/month
               </Link>
-              <Link href={getSampleReportHref()} className="sc-cta-secondary">
-                Sample report
+              <Link href={getFreeToolsHref()} className="sc-cta-secondary">
+                Browse free tools
               </Link>
               <Link href="/industries" className="sc-cta-secondary">
                 Browse by industry
