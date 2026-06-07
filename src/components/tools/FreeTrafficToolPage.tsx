@@ -1,10 +1,12 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
+import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics/events";
+import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/analytics/revenue-events";
 import { getToolHref } from "@/lib/tools/paths";
 import {
   calculateFreeTrafficTool,
@@ -46,6 +48,15 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
   const [values, setValues] = useState<FreeTrafficInputValues>(() => buildInitialValues(tool));
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const startedTracked = useRef(false);
+
+  useEffect(() => {
+    trackEvent(ANALYTICS_EVENTS.tool_view, {
+      toolSlug: tool.slug,
+      tier: "free",
+      source: "traffic_catalog",
+    });
+  }, [tool.slug]);
 
   const result = useMemo(() => {
     if (!submitted) {
@@ -59,6 +70,13 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!startedTracked.current) {
+      startedTracked.current = true;
+      trackRevenueEvent(REVENUE_EVENTS.free_tool_started, {
+        toolSlug: tool.slug,
+        source: "traffic_catalog",
+      });
+    }
     const nextErrors: Record<string, string> = {};
 
     for (const input of tool.inputs) {
@@ -88,6 +106,10 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
       return;
     }
     setSubmitted(true);
+    trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
+      toolSlug: tool.slug,
+      source: "traffic_catalog",
+    });
   };
 
   const tone = result ? verdictTone(result.headline) : "neutral";
@@ -106,8 +128,8 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
         </Container>
       </section>
 
-      <section className="bg-[#FBFBFA] py-4">
-        <Container size="wide">
+      <section className="overflow-x-hidden bg-[#FBFBFA] py-4">
+        <Container size="wide" className="min-w-0">
           <div className="grid min-w-0 gap-4 lg:grid-cols-2 lg:items-start">
             <form onSubmit={handleSubmit} className="min-w-0 space-y-3" noValidate>
               {tool.inputs.map((input) => {
@@ -248,30 +270,16 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
                       <p className="mt-2 text-sm text-[#2B2B2B]">{t("tool.premiumBlockBody")}</p>
                       <Link
                         href={getToolHref("premium", result.relatedPremiumSlug ?? tool.relatedPremiumSlug ?? "")}
+                        onClick={() => {
+                          trackEvent(ANALYTICS_EVENTS.premium_preview_viewed, {
+                            toolSlug: tool.slug,
+                            premiumSlug: result.relatedPremiumSlug ?? tool.relatedPremiumSlug ?? "",
+                          });
+                        }}
                         className="mt-3 inline-flex min-h-[44px] items-center text-sm font-semibold text-[#0A0A0A] underline underline-offset-2"
                       >
                         {t("tool.premiumCta")}
                       </Link>
-                    </div>
-                  ) : null}
-
-                  {relatedTools.length > 0 ? (
-                    <div className="bg-white p-4">
-                      <h2 className="text-xs font-semibold uppercase tracking-wide text-[#0A0A0A]">
-                        {t("tool.relatedTitle")}
-                      </h2>
-                      <ul className="mt-3 space-y-2">
-                        {relatedTools.map((related) => (
-                          <li key={related.slug}>
-                            <Link
-                              href={getToolHref("free", related.slug)}
-                              className="text-sm font-medium text-[#0A0A0A] underline underline-offset-2 hover:text-[#E65100]"
-                            >
-                              {related.title}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   ) : null}
 
@@ -282,6 +290,26 @@ export function FreeTrafficToolPage({ tool }: FreeTrafficToolPageProps) {
               )}
             </div>
           </div>
+
+          {relatedTools.length > 0 ? (
+            <div className="mt-4 min-w-0 bg-white p-4">
+              <h2 className="text-xs font-semibold uppercase tracking-wide text-[#0A0A0A]">
+                {t("tool.relatedTitle")}
+              </h2>
+              <ul className="mt-3 grid min-w-0 gap-2 sm:grid-cols-2">
+                {relatedTools.map((related) => (
+                  <li key={related.slug} className="min-w-0">
+                    <Link
+                      href={getToolHref("free", related.slug)}
+                      className="block truncate text-sm font-medium text-[#0A0A0A] underline underline-offset-2 hover:text-[#E65100]"
+                    >
+                      {related.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </Container>
       </section>
     </PageLayout>

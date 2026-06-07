@@ -1,6 +1,16 @@
 import { describe, expect, test } from "vitest";
-import { calculateFreeTrafficTool } from "@/lib/tools/free-traffic-calculators";
-import { FREE_TRAFFIC_TOOLS, listFreeTrafficSlugs } from "@/lib/tools/free-traffic-catalog";
+import { calculateFreeTrafficTool, hasDedicatedTrafficCalculator } from "@/lib/tools/free-traffic-calculators";
+import {
+  FREE_TRAFFIC_TOOLS,
+  listFreeTrafficSlugs,
+  listRelatedTrafficTools,
+} from "@/lib/tools/free-traffic-catalog";
+import {
+  getFreeToolRoutePath,
+  listAllFreeToolSlugs,
+  listTrafficOnlyFreeSlugs,
+} from "@/lib/tools/free-traffic-routes";
+import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
 
 const PREMIUM_LEAK_TERMS = [
   "DO NOT ACCEPT UNDER",
@@ -41,6 +51,8 @@ function defaultValuesForTool(slug: string): Record<string, number | string> {
   return values;
 }
 
+const SITEMAP_LOCALE_COUNT = 5;
+
 describe("free-traffic-calculators", () => {
   test("FREE_TRAFFIC_TOOLS length === 100", () => {
     expect(FREE_TRAFFIC_TOOLS.length).toBe(100);
@@ -55,12 +67,52 @@ describe("free-traffic-calculators", () => {
   test("every tool has inputs, seoTitle and seoDescription", () => {
     for (const tool of FREE_TRAFFIC_TOOLS) {
       expect(tool.inputs.length).toBeGreaterThanOrEqual(1);
+      expect(tool.title.trim().length).toBeGreaterThan(0);
+      expect(tool.description.trim().length).toBeGreaterThan(0);
       expect(tool.seoTitle.trim().length).toBeGreaterThan(0);
       expect(tool.seoDescription.trim().length).toBeGreaterThan(0);
       for (const input of tool.inputs) {
+        expect(input.label.trim().length).toBeGreaterThan(0);
+        expect(input.helper.trim().length).toBeGreaterThan(0);
         expect(input.unit.length).toBeGreaterThan(0);
       }
     }
+  });
+
+  test("every tool has related calculators in the same category", () => {
+    for (const tool of FREE_TRAFFIC_TOOLS) {
+      expect(listRelatedTrafficTools(tool).length).toBeGreaterThan(0);
+    }
+  });
+
+  test("all 100 tools have active dedicated calculators", () => {
+    for (const slug of listFreeTrafficSlugs()) {
+      expect(hasDedicatedTrafficCalculator(slug)).toBe(true);
+    }
+  });
+
+  test("related premium slugs resolve to revenue paid tools", () => {
+    for (const tool of FREE_TRAFFIC_TOOLS) {
+      if (!tool.relatedPremiumSlug) {
+        continue;
+      }
+      expect(getRevenueToolByPaidSlug(tool.relatedPremiumSlug)).not.toBeNull();
+    }
+  });
+
+  test("sitemap route list includes all 100 traffic catalog slugs", () => {
+    const allFreeSlugs = new Set(listAllFreeToolSlugs());
+    for (const slug of listFreeTrafficSlugs()) {
+      expect(allFreeSlugs.has(slug)).toBe(true);
+      expect(getFreeToolRoutePath(slug)).toBe(`/tools/free/${slug}`);
+    }
+    expect(listTrafficOnlyFreeSlugs().length).toBeGreaterThan(0);
+    expect(allFreeSlugs.size).toBeGreaterThanOrEqual(100);
+  });
+
+  test("SEO route count scales with locales", () => {
+    const trafficRouteCount = listFreeTrafficSlugs().length * SITEMAP_LOCALE_COUNT;
+    expect(trafficRouteCount).toBe(100 * SITEMAP_LOCALE_COUNT);
   });
 
   test("all 100 tools return a result from calculateFreeTrafficTool", () => {

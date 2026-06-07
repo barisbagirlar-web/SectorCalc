@@ -254,7 +254,7 @@ const TOOLS = [
     seoTitle: "Profit Margin Calculator — % Margin | SectorCalc",
     seoDescription: "Calculate profit margin and markup from selling price and cost.",
     resultType: "ratio",
-    relatedPremiumSlug: "product-margin-calculator",
+    relatedPremiumSlug: "return-profit-erosion-tool",
     inputs: [n("sellingPrice", "Selling price", "USD", "Revenue per unit"), n("cost", "Cost", "USD", "Unit cost")],
   },
   {
@@ -783,7 +783,7 @@ const TOOLS = [
     seoTitle: "Food Cost Percentage Calculator | SectorCalc",
     seoDescription: "Calculate food cost as percent of menu price.",
     resultType: "ratio",
-    relatedPremiumSlug: "food-cost-calculator",
+    relatedPremiumSlug: "menu-profit-leak-detector",
     inputs: [n("ingredientCost", "Ingredient cost", "USD", "Plate cost"), n("menuPrice", "Menu price", "USD", "Selling price")],
   },
   {

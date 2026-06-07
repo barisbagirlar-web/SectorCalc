@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { ToolCatalogByCategory } from "@/components/tools/ToolCatalogByCategory";
 import { FreeTrafficCatalogSection } from "@/components/tools/FreeTrafficCatalogSection";
@@ -14,17 +14,24 @@ import { FREE_TRAFFIC_CATEGORIES, FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-tr
 import { industryRegistry } from "@/lib/tools/industry-registry";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref } from "@/lib/tools/tool-links";
+import type { AppLocale } from "@/i18n/routing";
 
-export async function generateMetadata(): Promise<Metadata> {
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations("freeTrafficCatalog");
   return createPageMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
     path: "/free-tools",
+    locale: locale as AppLocale,
   });
 }
 
-export default async function FreeToolsPage() {
+export default async function FreeToolsPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("freeTrafficCatalog");
 
   return (
