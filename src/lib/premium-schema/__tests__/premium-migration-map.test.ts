@@ -24,6 +24,13 @@ const SCHEMA_PILOT_IDS = [
   "energy-peak-cost",
   "food-waste-margin-loss",
   "construction-project-overrun",
+  "sheet-metal-scrap-risk",
+  "restaurant-menu-margin-leak",
+  "construction-subcontractor-margin-leak",
+  "logistics-fuel-route-drift",
+  "energy-compressor-leak-cost",
+  "cloud-api-cost-overrun",
+  "agriculture-irrigation-yield-loss",
 ] as const;
 
 describe("premium-migration-map", () => {
@@ -48,7 +55,7 @@ describe("premium-migration-map", () => {
 
   test("schema_pilot items include schemaSlug", () => {
     const pilots = PREMIUM_MIGRATION_MAP.filter((entry) => entry.status === "schema_pilot");
-    expect(pilots.length).toBe(5);
+    expect(pilots.length).toBe(12);
     for (const pilot of pilots) {
       expect(pilot.schemaSlug).toBeTruthy();
     }

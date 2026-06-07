@@ -5,7 +5,7 @@ export const FOOD_WASTE_MARGIN_LOSS_SCHEMA: PremiumCalculatorSchema = {
   name: "Food Waste Margin Loss Analyzer",
   sectorSlug: "food-retail",
   category: "scrap",
-  legacyPaidSlug: "menu-profit-leak-detector",
+  legacyPaidSlug: "meal-planning-verdict",
   painStatement:
     "Food operations can lose margin through waste, overportioning and spoilage before the loss appears in sales reports.",
 

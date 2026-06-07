@@ -13,7 +13,7 @@ import {
 } from "@/lib/premium-schema/schema-registry";
 
 describe("schema-linter", () => {
-  test("5 pilot schemas pass lint with zero errors", () => {
+  test("all premium schemas pass lint with zero errors", () => {
     assertSchemasLintClean(PREMIUM_CALCULATOR_SCHEMAS);
   });
 

@@ -247,6 +247,113 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) =>
       nonNegative(num(inputs, "a") + num(inputs, "b") + num(inputs, "c")),
   },
+  {
+    id: "time.rework_cost",
+    family: "time",
+    label: "Rework labor cost",
+    fn: (inputs) => nonNegative(num(inputs, "reworkHours") * num(inputs, "laborRate")),
+  },
+  {
+    id: "cost.food_cost_percent",
+    family: "cost",
+    label: "Food cost percent of revenue",
+    fn: (inputs) =>
+      nonNegative(safeDivide(num(inputs, "ingredientCost"), num(inputs, "monthlyRevenue")) * 100),
+  },
+  {
+    id: "cost.delivery_fee_cost",
+    family: "cost",
+    label: "Delivery platform fee cost",
+    fn: (inputs) =>
+      nonNegative(
+        num(inputs, "monthlyRevenue") * (num(inputs, "deliveryAppFeePercent") / 100)
+      ),
+  },
+  {
+    id: "cost.restaurant_margin_pressure",
+    family: "cost",
+    label: "Restaurant margin pressure percent",
+    fn: (inputs) =>
+      nonNegative(
+        safeDivide(
+          num(inputs, "ingredientCost") +
+            num(inputs, "deliveryFeeCost") +
+            num(inputs, "wasteExposure"),
+          num(inputs, "monthlyRevenue")
+        ) * 100
+      ),
+  },
+  {
+    id: "cost.variance",
+    family: "cost",
+    label: "Positive cost variance",
+    fn: (inputs) => nonNegative(num(inputs, "actual") - num(inputs, "planned")),
+  },
+  {
+    id: "route.distance_drift_cost",
+    family: "route",
+    label: "Distance drift fuel cost",
+    fn: (inputs) =>
+      nonNegative(
+        Math.max(0, num(inputs, "actualDistanceKm") - num(inputs, "plannedDistanceKm")) *
+          num(inputs, "fuelCostPerKm")
+      ),
+  },
+  {
+    id: "cost.sum2",
+    family: "cost",
+    label: "Two-component cost sum",
+    fn: (inputs) => nonNegative(num(inputs, "a") + num(inputs, "b")),
+  },
+  {
+    id: "cost.total2",
+    family: "cost",
+    label: "Two-component exposure total",
+    fn: (inputs) => nonNegative(num(inputs, "a") + num(inputs, "b")),
+  },
+  {
+    id: "cost.value",
+    family: "cost",
+    label: "Pass-through numeric value",
+    fn: (inputs) => nonNegative(num(inputs, "value")),
+  },
+  {
+    id: "energy.compressor_leak_kwh",
+    family: "energy",
+    label: "Compressor leak kWh",
+    fn: (inputs) =>
+      nonNegative(
+        num(inputs, "compressorKw") *
+          num(inputs, "operatingHours") *
+          (num(inputs, "leakPercent") / 100)
+      ),
+  },
+  {
+    id: "cost.annualize",
+    family: "cost",
+    label: "Annualize monthly cost",
+    fn: (inputs) => nonNegative(num(inputs, "monthlyCost") * 12),
+  },
+  {
+    id: "cloud.api_call_cost",
+    family: "cost",
+    label: "API call volume cost",
+    fn: (inputs) =>
+      nonNegative(
+        (num(inputs, "monthlyApiCalls") / 1000) * num(inputs, "costPerThousandCalls")
+      ),
+  },
+  {
+    id: "agriculture.yield_loss_revenue",
+    family: "benchmark",
+    label: "Yield loss revenue exposure",
+    fn: (inputs) =>
+      nonNegative(
+        num(inputs, "areaHa") *
+          Math.max(0, num(inputs, "expectedYieldTonPerHa") - num(inputs, "actualYieldTonPerHa")) *
+          num(inputs, "pricePerTon")
+      ),
+  },
 ];
 
 // Legacy aliases — stable ids for existing pilot schemas (same functions)
@@ -445,6 +552,71 @@ const FORMULA_META_DETAILS: Record<
   "cost.total_exposure": {
     description: "Sum of three exposure components.",
     requiredInputs: ["a", "b", "c"],
+    outputHint: "currency",
+  },
+  "time.rework_cost": {
+    description: "Rework hours multiplied by labor rate.",
+    requiredInputs: ["reworkHours", "laborRate"],
+    outputHint: "currency",
+  },
+  "cost.food_cost_percent": {
+    description: "Ingredient cost as percent of monthly revenue.",
+    requiredInputs: ["ingredientCost", "monthlyRevenue"],
+    outputHint: "percentage",
+  },
+  "cost.delivery_fee_cost": {
+    description: "Delivery platform fee from revenue and fee percent.",
+    requiredInputs: ["monthlyRevenue", "deliveryAppFeePercent"],
+    outputHint: "currency",
+  },
+  "cost.restaurant_margin_pressure": {
+    description: "Combined ingredient, delivery and waste pressure on revenue.",
+    requiredInputs: ["ingredientCost", "deliveryFeeCost", "wasteExposure", "monthlyRevenue"],
+    outputHint: "percentage",
+  },
+  "cost.variance": {
+    description: "Positive variance of actual over planned cost.",
+    requiredInputs: ["actual", "planned"],
+    outputHint: "currency",
+  },
+  "route.distance_drift_cost": {
+    description: "Fuel cost of distance driven above plan.",
+    requiredInputs: ["plannedDistanceKm", "actualDistanceKm", "fuelCostPerKm"],
+    outputHint: "currency",
+  },
+  "cost.sum2": {
+    description: "Sum of two exposure components.",
+    requiredInputs: ["a", "b"],
+    outputHint: "currency",
+  },
+  "cost.total2": {
+    description: "Total of two exposure components.",
+    requiredInputs: ["a", "b"],
+    outputHint: "currency",
+  },
+  "cost.value": {
+    description: "Pass-through of a single numeric input to pipeline output.",
+    requiredInputs: ["value"],
+    outputHint: "currency",
+  },
+  "energy.compressor_leak_kwh": {
+    description: "Compressor leak kWh from power, hours and leak percent.",
+    requiredInputs: ["compressorKw", "leakPercent", "operatingHours"],
+    outputHint: "number",
+  },
+  "cost.annualize": {
+    description: "Monthly cost multiplied by twelve.",
+    requiredInputs: ["monthlyCost"],
+    outputHint: "currency",
+  },
+  "cloud.api_call_cost": {
+    description: "API call volume cost from calls and per-thousand rate.",
+    requiredInputs: ["monthlyApiCalls", "costPerThousandCalls"],
+    outputHint: "currency",
+  },
+  "agriculture.yield_loss_revenue": {
+    description: "Revenue lost from yield gap per hectare.",
+    requiredInputs: ["areaHa", "expectedYieldTonPerHa", "actualYieldTonPerHa", "pricePerTon"],
     outputHint: "currency",
   },
 };

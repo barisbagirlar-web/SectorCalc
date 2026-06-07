@@ -22,24 +22,30 @@ describe("premium-schema-engine", () => {
     }
   });
 
-  test("5 pilot schemas are registered", () => {
+  test("12 premium schemas are registered", () => {
     const ids = listPremiumSchemaIds();
     expect(ids).toContain("cnc-oee-loss");
     expect(ids).toContain("logistics-route-loss");
     expect(ids).toContain("energy-peak-cost");
     expect(ids).toContain("food-waste-margin-loss");
     expect(ids).toContain("construction-project-overrun");
-    expect(ids.length).toBe(5);
+    expect(ids).toContain("sheet-metal-scrap-risk");
+    expect(ids).toContain("restaurant-menu-margin-leak");
+    expect(ids.length).toBe(12);
   });
 
-  test("slug map bridges 5 legacy premium routes", () => {
+  test("slug map bridges legacy premium routes", () => {
     expect(PREMIUM_SCHEMA_SLUG_MAP["cnc-quote-risk-analyzer"]).toBe("cnc-oee-loss");
     expect(PREMIUM_SCHEMA_SLUG_MAP["route-optimization-analyzer"]).toBe("logistics-route-loss");
     expect(PREMIUM_SCHEMA_SLUG_MAP["energy-efficiency-report"]).toBe("energy-peak-cost");
-    expect(PREMIUM_SCHEMA_SLUG_MAP["menu-profit-leak-detector"]).toBe("food-waste-margin-loss");
+    expect(PREMIUM_SCHEMA_SLUG_MAP["menu-profit-leak-detector"]).toBe(
+      "restaurant-menu-margin-leak"
+    );
+    expect(PREMIUM_SCHEMA_SLUG_MAP["meal-planning-verdict"]).toBe("food-waste-margin-loss");
     expect(PREMIUM_SCHEMA_SLUG_MAP["change-order-impact-analyzer"]).toBe(
       "construction-project-overrun"
     );
+    expect(PREMIUM_SCHEMA_SLUG_MAP["sheet-metal-quote-risk-tool"]).toBe("sheet-metal-scrap-risk");
   });
 
   for (const schemaId of [
