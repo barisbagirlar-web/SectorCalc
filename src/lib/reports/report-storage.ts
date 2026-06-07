@@ -1,315 +1,368 @@
 import {
-  addDoc,
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  orderBy,
-  query,
-  where,
+ addDoc,
+ collection,
+ doc,
+ getDoc,
+ getDocs,
+ orderBy,
+ query,
+ where,
 } from "firebase/firestore";
 import { getFirestoreDb } from "@/lib/firebase/client";
 import { buildVerdictReportData, type VerdictReportData, type VerdictReportInput } from "@/lib/reports/verdict-report";
+import type { MargincorePdfSnapshot } from "@/lib/reports/premium-pdf-data";
 import type {
-  PremiumSeverity,
-  PremiumToolInputValues,
-  PremiumToolResult,
+ PremiumSeverity,
+ PremiumToolInputValues,
+ PremiumToolResult,
 } from "@/lib/tools/premium-tool-results";
 import type { RevenueTool } from "@/lib/tools/revenue-tools";
 
 const COLLECTION_NAME = "reports";
 
 export type SavedVerdictReportResult = {
-  verdict: string;
-  headline: string;
-  primaryMetricLabel: string;
-  primaryMetricValue: string;
-  riskDrivers: string[];
-  suggestedAction: string;
-  severity: PremiumSeverity;
+ verdict: string;
+ headline: string;
+ primaryMetricLabel: string;
+ primaryMetricValue: string;
+ riskDrivers: string[];
+ suggestedAction: string;
+ severity: PremiumSeverity;
 };
 
 export type SavedVerdictReport = {
-  id: string;
-  uid: string;
-  toolSlug: string;
-  toolTitle: string;
-  sector: string;
-  createdAt: string;
-  updatedAt: string;
-  result: SavedVerdictReportResult;
-  inputs: VerdictReportInput[];
-  legalDisclaimer: string;
+ id: string;
+ uid: string;
+ toolSlug: string;
+ toolTitle: string;
+ sector: string;
+ createdAt: string;
+ updatedAt: string;
+ result: SavedVerdictReportResult;
+ inputs: VerdictReportInput[];
+ legalDisclaimer: string;
+ margincore?: MargincorePdfSnapshot;
 };
 
 export type SaveVerdictReportResult =
-  | { ok: true; id: string }
-  | { ok: false; error: string };
+ | { ok: true; id: string }
+ | { ok: false; error: string };
 
 function isPremiumSeverity(value: unknown): value is PremiumSeverity {
-  return value === "safe" || value === "watch" || value === "danger";
+ return value === "safe" || value === "watch" || value === "danger";
 }
 
 function normalizeInputSummary(value: unknown): VerdictReportInput[] {
-  if (!Array.isArray(value)) {
-    return [];
-  }
+ if (!Array.isArray(value)) {
+ return [];
+ }
 
-  const inputs: VerdictReportInput[] = [];
+ const inputs: VerdictReportInput[] = [];
 
-  for (const item of value) {
-    if (!item || typeof item !== "object") {
-      continue;
-    }
-    const record = item as Record<string, unknown>;
-    const label = typeof record.label === "string" ? record.label : "";
-    const inputValue = typeof record.value === "string" ? record.value : "";
-    if (label.length === 0) {
-      continue;
-    }
-    inputs.push({ label, value: inputValue });
-  }
+ for (const item of value) {
+ if (!item || typeof item !== "object") {
+ continue;
+ }
+ const record = item as Record<string, unknown>;
+ const label = typeof record.label === "string" ? record.label : "";
+ const inputValue = typeof record.value === "string" ? record.value : "";
+ if (label.length === 0) {
+ continue;
+ }
+ inputs.push({ label, value: inputValue });
+ }
 
-  return inputs;
+ return inputs;
+}
+
+function normalizeMargincoreSnapshot(value: unknown): MargincorePdfSnapshot | undefined {
+ if (!value || typeof value !== "object") {
+ return undefined;
+ }
+
+ const data = value as Record<string, unknown>;
+ const naivePrice = typeof data.naivePrice === "number" ? data.naivePrice : NaN;
+ const riskBuffer = typeof data.riskBuffer === "number" ? data.riskBuffer : NaN;
+ const p90SafePrice =
+ typeof data.p90SafePrice === "number" ? data.p90SafePrice : NaN;
+ const verdict = typeof data.verdict === "string" ? data.verdict : "";
+ const matrixRows = Array.isArray(data.matrixRows)
+ ? data.matrixRows.flatMap((row): MargincorePdfSnapshot["matrixRows"] => {
+ if (!row || typeof row !== "object") {
+ return [];
+ }
+ const record = row as Record<string, unknown>;
+ const scenario = typeof record.scenario === "string" ? record.scenario : "";
+ const deltaPercent =
+ typeof record.deltaPercent === "string" ? record.deltaPercent : "";
+ const deltaAmount =
+ typeof record.deltaAmount === "string" ? record.deltaAmount : "";
+ const p90Adjusted =
+ typeof record.p90Adjusted === "string" ? record.p90Adjusted : "";
+ if (!scenario) {
+ return [];
+ }
+ return [{ scenario, deltaPercent, deltaAmount, p90Adjusted }];
+ })
+ : [];
+
+ if (
+ !Number.isFinite(naivePrice) ||
+ !Number.isFinite(riskBuffer) ||
+ !Number.isFinite(p90SafePrice) ||
+ verdict.length === 0
+ ) {
+ return undefined;
+ }
+
+ return {
+ naivePrice,
+ riskBuffer,
+ p90SafePrice,
+ verdict,
+ matrixRows,
+ };
 }
 
 function normalizeSavedVerdictReportResult(
-  value: unknown
+ value: unknown
 ): SavedVerdictReportResult | null {
-  if (!value || typeof value !== "object") {
-    return null;
-  }
+ if (!value || typeof value !== "object") {
+ return null;
+ }
 
-  const data = value as Record<string, unknown>;
-  const verdict = typeof data.verdict === "string" ? data.verdict : "";
-  const headline = typeof data.headline === "string" ? data.headline : "";
-  const primaryMetricLabel =
-    typeof data.primaryMetricLabel === "string" ? data.primaryMetricLabel : "";
-  const primaryMetricValue =
-    typeof data.primaryMetricValue === "string" ? data.primaryMetricValue : "";
-  const suggestedAction =
-    typeof data.suggestedAction === "string" ? data.suggestedAction : "";
-  const severity = isPremiumSeverity(data.severity) ? data.severity : "watch";
-  const riskDrivers = Array.isArray(data.riskDrivers)
-    ? data.riskDrivers.filter((item): item is string => typeof item === "string")
-    : [];
+ const data = value as Record<string, unknown>;
+ const verdict = typeof data.verdict === "string" ? data.verdict : "";
+ const headline = typeof data.headline === "string" ? data.headline : "";
+ const primaryMetricLabel =
+ typeof data.primaryMetricLabel === "string" ? data.primaryMetricLabel : "";
+ const primaryMetricValue =
+ typeof data.primaryMetricValue === "string" ? data.primaryMetricValue : "";
+ const suggestedAction =
+ typeof data.suggestedAction === "string" ? data.suggestedAction : "";
+ const severity = isPremiumSeverity(data.severity) ? data.severity : "watch";
+ const riskDrivers = Array.isArray(data.riskDrivers)
+ ? data.riskDrivers.filter((item): item is string => typeof item === "string")
+ : [];
 
-  if (
-    verdict.length === 0 ||
-    headline.length === 0 ||
-    primaryMetricLabel.length === 0 ||
-    primaryMetricValue.length === 0 ||
-    suggestedAction.length === 0
-  ) {
-    return null;
-  }
+ if (
+ verdict.length === 0 ||
+ headline.length === 0 ||
+ primaryMetricLabel.length === 0 ||
+ primaryMetricValue.length === 0 ||
+ suggestedAction.length === 0
+ ) {
+ return null;
+ }
 
-  return {
-    verdict,
-    headline,
-    primaryMetricLabel,
-    primaryMetricValue,
-    riskDrivers,
-    suggestedAction,
-    severity,
-  };
+ return {
+ verdict,
+ headline,
+ primaryMetricLabel,
+ primaryMetricValue,
+ riskDrivers,
+ suggestedAction,
+ severity,
+ };
 }
 
 export function parseSavedVerdictReport(
-  id: string,
-  value: unknown
+ id: string,
+ value: unknown
 ): SavedVerdictReport | null {
-  if (!value || typeof value !== "object") {
-    return null;
-  }
+ if (!value || typeof value !== "object") {
+ return null;
+ }
 
-  const data = value as Record<string, unknown>;
-  const uid = typeof data.uid === "string" ? data.uid : "";
-  const toolSlug = typeof data.toolSlug === "string" ? data.toolSlug : "";
-  const toolTitle = typeof data.toolTitle === "string" ? data.toolTitle : "";
-  const sector = typeof data.sector === "string" ? data.sector : "";
-  const createdAt = typeof data.createdAt === "string" ? data.createdAt : "";
-  const updatedAt = typeof data.updatedAt === "string" ? data.updatedAt : "";
-  const legalDisclaimer =
-    typeof data.legalDisclaimer === "string" ? data.legalDisclaimer : "";
-  const result = normalizeSavedVerdictReportResult(data.result);
-  const inputs = normalizeInputSummary(data.inputs);
+ const data = value as Record<string, unknown>;
+ const uid = typeof data.uid === "string" ? data.uid : "";
+ const toolSlug = typeof data.toolSlug === "string" ? data.toolSlug : "";
+ const toolTitle = typeof data.toolTitle === "string" ? data.toolTitle : "";
+ const sector = typeof data.sector === "string" ? data.sector : "";
+ const createdAt = typeof data.createdAt === "string" ? data.createdAt : "";
+ const updatedAt = typeof data.updatedAt === "string" ? data.updatedAt : "";
+ const legalDisclaimer =
+ typeof data.legalDisclaimer === "string" ? data.legalDisclaimer : "";
+ const result = normalizeSavedVerdictReportResult(data.result);
+ const inputs = normalizeInputSummary(data.inputs);
+ const margincore = normalizeMargincoreSnapshot(data.margincore);
 
-  if (
-    uid.length === 0 ||
-    toolSlug.length === 0 ||
-    toolTitle.length === 0 ||
-    sector.length === 0 ||
-    createdAt.length === 0 ||
-    updatedAt.length === 0 ||
-    legalDisclaimer.length === 0 ||
-    !result
-  ) {
-    return null;
-  }
+ if (
+ uid.length === 0 ||
+ toolSlug.length === 0 ||
+ toolTitle.length === 0 ||
+ sector.length === 0 ||
+ createdAt.length === 0 ||
+ updatedAt.length === 0 ||
+ legalDisclaimer.length === 0 ||
+ !result
+ ) {
+ return null;
+ }
 
-  return {
-    id,
-    uid,
-    toolSlug,
-    toolTitle,
-    sector,
-    createdAt,
-    updatedAt,
-    result,
-    inputs,
-    legalDisclaimer,
-  };
+ return {
+ id,
+ uid,
+ toolSlug,
+ toolTitle,
+ sector,
+ createdAt,
+ updatedAt,
+ result,
+ inputs,
+ legalDisclaimer,
+ ...(margincore ? { margincore } : {}),
+ };
 }
 
 function buildReportDocument({
-  uid,
-  tool,
-  values,
-  result,
+ uid,
+ tool,
+ values,
+ result,
 }: {
-  uid: string;
-  tool: RevenueTool;
-  values: PremiumToolInputValues;
-  result: PremiumToolResult;
+ uid: string;
+ tool: RevenueTool;
+ values: PremiumToolInputValues;
+ result: PremiumToolResult;
 }) {
-  const reportData = buildVerdictReportData({ tool, values, result });
-  const timestamp = new Date().toISOString();
+ const reportData = buildVerdictReportData({ tool, values, result });
+ const timestamp = new Date().toISOString();
 
-  return {
-    uid,
-    toolSlug: tool.paidSlug,
-    toolTitle: reportData.toolTitle,
-    sector: reportData.sector,
-    createdAt: timestamp,
-    updatedAt: timestamp,
-    result: {
-      verdict: reportData.verdict,
-      headline: reportData.headline,
-      primaryMetricLabel: reportData.primaryMetricLabel,
-      primaryMetricValue: reportData.primaryMetricValue,
-      riskDrivers: reportData.riskDrivers,
-      suggestedAction: reportData.suggestedAction,
-      severity: result.severity,
-    },
-    inputs: reportData.inputs,
-    legalDisclaimer: reportData.legalDisclaimer,
-  };
+ return {
+ uid,
+ toolSlug: tool.paidSlug,
+ toolTitle: reportData.toolTitle,
+ sector: reportData.sector,
+ createdAt: timestamp,
+ updatedAt: timestamp,
+ result: {
+ verdict: reportData.verdict,
+ headline: reportData.headline,
+ primaryMetricLabel: reportData.primaryMetricLabel,
+ primaryMetricValue: reportData.primaryMetricValue,
+ riskDrivers: reportData.riskDrivers,
+ suggestedAction: reportData.suggestedAction,
+ severity: result.severity,
+ },
+ inputs: reportData.inputs,
+ legalDisclaimer: reportData.legalDisclaimer,
+ };
 }
 
 export async function saveVerdictReport({
-  uid,
-  tool,
-  values,
-  result,
+ uid,
+ tool,
+ values,
+ result,
 }: {
-  uid: string;
-  tool: RevenueTool;
-  values: PremiumToolInputValues;
-  result: PremiumToolResult;
+ uid: string;
+ tool: RevenueTool;
+ values: PremiumToolInputValues;
+ result: PremiumToolResult;
 }): Promise<SaveVerdictReportResult> {
-  if (!uid.trim()) {
-    return { ok: false, error: "User is not signed in." };
-  }
+ if (!uid.trim()) {
+ return { ok: false, error: "User is not signed in." };
+ }
 
-  const db = getFirestoreDb();
-  if (!db) {
-    return { ok: false, error: "Firestore is unavailable." };
-  }
+ const db = getFirestoreDb();
+ if (!db) {
+ return { ok: false, error: "Firestore is unavailable." };
+ }
 
-  try {
-    const payload = buildReportDocument({ uid, tool, values, result });
-    const docRef = await addDoc(collection(db, COLLECTION_NAME), payload);
-    return { ok: true, id: docRef.id };
-  } catch {
-    return { ok: false, error: "Could not save report." };
-  }
+ try {
+ const payload = buildReportDocument({ uid, tool, values, result });
+ const docRef = await addDoc(collection(db, COLLECTION_NAME), payload);
+ return { ok: true, id: docRef.id };
+ } catch {
+ return { ok: false, error: "Could not save report." };
+ }
 }
 
 export async function listUserVerdictReports(
-  uid: string
+ uid: string
 ): Promise<SavedVerdictReport[]> {
-  if (!uid.trim()) {
-    return [];
-  }
+ if (!uid.trim()) {
+ return [];
+ }
 
-  const db = getFirestoreDb();
-  if (!db) {
-    return [];
-  }
+ const db = getFirestoreDb();
+ if (!db) {
+ return [];
+ }
 
-  try {
-    const reportsQuery = query(
-      collection(db, COLLECTION_NAME),
-      where("uid", "==", uid),
-      orderBy("createdAt", "desc")
-    );
-    const snapshot = await getDocs(reportsQuery);
+ try {
+ const reportsQuery = query(
+ collection(db, COLLECTION_NAME),
+ where("uid", "==", uid),
+ orderBy("createdAt", "desc")
+ );
+ const snapshot = await getDocs(reportsQuery);
 
-    const reports: SavedVerdictReport[] = [];
-    for (const docSnapshot of snapshot.docs) {
-      const normalized = parseSavedVerdictReport(
-        docSnapshot.id,
-        docSnapshot.data()
-      );
-      if (normalized) {
-        reports.push(normalized);
-      }
-    }
-    return reports;
-  } catch {
-    return [];
-  }
+ const reports: SavedVerdictReport[] = [];
+ for (const docSnapshot of snapshot.docs) {
+ const normalized = parseSavedVerdictReport(
+ docSnapshot.id,
+ docSnapshot.data()
+ );
+ if (normalized) {
+ reports.push(normalized);
+ }
+ }
+ return reports;
+ } catch {
+ return [];
+ }
 }
 
 export async function getUserVerdictReport({
-  uid,
-  reportId,
+ uid,
+ reportId,
 }: {
-  uid: string;
-  reportId: string;
+ uid: string;
+ reportId: string;
 }): Promise<SavedVerdictReport | null> {
-  if (!uid.trim() || !reportId.trim()) {
-    return null;
-  }
+ if (!uid.trim() || !reportId.trim()) {
+ return null;
+ }
 
-  const db = getFirestoreDb();
-  if (!db) {
-    return null;
-  }
+ const db = getFirestoreDb();
+ if (!db) {
+ return null;
+ }
 
-  try {
-    const docRef = doc(db, COLLECTION_NAME, reportId);
-    const snapshot = await getDoc(docRef);
-    if (!snapshot.exists()) {
-      return null;
-    }
+ try {
+ const docRef = doc(db, COLLECTION_NAME, reportId);
+ const snapshot = await getDoc(docRef);
+ if (!snapshot.exists()) {
+ return null;
+ }
 
-    const normalized = parseSavedVerdictReport(reportId, snapshot.data());
-    if (!normalized || normalized.uid !== uid) {
-      return null;
-    }
+ const normalized = parseSavedVerdictReport(reportId, snapshot.data());
+ if (!normalized || normalized.uid !== uid) {
+ return null;
+ }
 
-    return normalized;
-  } catch {
-    return null;
-  }
+ return normalized;
+ } catch {
+ return null;
+ }
 }
 
 export function savedReportToVerdictReportData(
-  report: SavedVerdictReport
+ report: SavedVerdictReport
 ): VerdictReportData {
-  return {
-    toolTitle: report.toolTitle,
-    sector: report.sector,
-    generatedAt: report.createdAt,
-    verdict: report.result.verdict,
-    headline: report.result.headline,
-    primaryMetricLabel: report.result.primaryMetricLabel,
-    primaryMetricValue: report.result.primaryMetricValue,
-    riskDrivers: report.result.riskDrivers,
-    suggestedAction: report.result.suggestedAction,
-    inputs: report.inputs,
-    legalDisclaimer: report.legalDisclaimer,
-  };
+ return {
+ toolTitle: report.toolTitle,
+ sector: report.sector,
+ generatedAt: report.createdAt,
+ verdict: report.result.verdict,
+ headline: report.result.headline,
+ primaryMetricLabel: report.result.primaryMetricLabel,
+ primaryMetricValue: report.result.primaryMetricValue,
+ riskDrivers: report.result.riskDrivers,
+ suggestedAction: report.result.suggestedAction,
+ inputs: report.inputs,
+ legalDisclaimer: report.legalDisclaimer,
+ };
 }

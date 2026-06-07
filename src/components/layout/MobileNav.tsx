@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef } from "react";
+import { Link } from "@/i18n/routing";
 import { MobileHeaderNav } from "@/components/layout/HeaderNav";
+import { RegionSelector } from "@/components/layout/RegionSelector";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { getPricingHref } from "@/lib/tools/tool-links";
-import Link from "next/link";
 
 export function MobileNav() {
   const detailsRef = useRef<HTMLDetailsElement>(null);
@@ -19,23 +20,22 @@ export function MobileNav() {
   };
 
   return (
-    <details ref={detailsRef} className="lg:hidden">
-      <summary
-        className="flex min-h-[44px] min-w-[44px] cursor-pointer list-none items-center justify-center text-text-primary"
-        aria-label="Open menu"
-      >
-        <ScIcon icon={UI_ICON.menu} size="default" className="text-current" />
+    <details ref={detailsRef} className="relative lg:hidden">
+      <summary className="apple-nav__menu-btn" aria-label="Open menu">
+        <ScIcon icon={UI_ICON.menu} size="compact" className="text-current" />
       </summary>
-      <ul
-        className="absolute left-0 right-0 top-full z-50 border-b border-border-subtle bg-white px-4 py-3 shadow-lg"
-      >
+      <ul className="apple-nav__dropdown">
+        <li className="px-4 py-2">
+          <RegionSelector className="w-full" />
+        </li>
         <MobileHeaderNav onNavigate={closeMenu} />
         {!loading && !isActive ? (
           <li>
             <Link
               href={getPricingHref()}
+              prefetch={true}
               onClick={closeMenu}
-              className="block min-h-[44px] py-3 text-sm font-semibold text-accent-teal"
+              className="apple-nav__dropdown-link"
             >
               Unlock Pro
             </Link>

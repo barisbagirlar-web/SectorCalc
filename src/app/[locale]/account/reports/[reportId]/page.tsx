@@ -3,31 +3,31 @@ import { SavedReportDetailContent } from "@/components/reports/SavedReportDetail
 import { createPageMetadata } from "@/lib/metadata";
 
 interface SavedReportPageParams {
-  reportId: string;
+ reportId: string;
 }
 
 export async function generateMetadata({
-  params,
+ params,
 }: {
-  params: Promise<SavedReportPageParams>;
+ params: Promise<SavedReportPageParams>;
 }): Promise<Metadata> {
-  const { reportId } = await params;
+ const { reportId } = await params;
 
-  return {
-    ...createPageMetadata({
-      title: "Saved Report",
-      description: "View a saved SectorCalc Pro verdict report.",
-      path: `/account/reports/${reportId}`,
-    }),
-    robots: { index: false, follow: false },
-  };
+ return {
+ ...createPageMetadata({
+ title: "Saved Report",
+ description: "View a saved SectorCalc Pro verdict report.",
+ path: `/account/reports/${reportId}`,
+ }),
+ robots: { index: false, follow: false },
+ };
 }
 
 export default async function SavedReportPage({
-  params,
+ params,
 }: {
-  params: Promise<SavedReportPageParams>;
+ params: Promise<SavedReportPageParams>;
 }) {
-  const { reportId } = await params;
-  return <SavedReportDetailContent reportId={reportId} />;
+ const { reportId } = await params;
+ return <SavedReportDetailContent reportId={reportId} />;
 }

@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { BRAND_ASSETS } from "@/config/brand";
 
 type SiteLogoVariant = "default" | "on-dark";
@@ -21,14 +23,15 @@ export function SiteLogo({
   return (
     <Link
       href="/"
+      prefetch={true}
       className={`site-logo site-logo--${variant} ${className}`.trim()}
       aria-label="SectorCalc home"
     >
       <Image
         src={logo}
         alt="SectorCalc"
-        width={BRAND_ASSETS.logo.width}
-        height={BRAND_ASSETS.logo.height}
+        width={160}
+        height={42}
         priority={priority}
         unoptimized
         className="site-logo__img"

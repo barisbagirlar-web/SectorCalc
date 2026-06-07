@@ -1,0 +1,204 @@
+/**
+ * Contrast discipline — Apple / Industrial OS
+ * Light surface → dark text (#111 / #2b2b2b)
+ * Dark surface → white text (#fff)
+ */
+
+/* ── Light surfaces ── */
+:is(
+  .ind-page-hero,
+  .ind-os-page,
+  .ind-os-panel,
+  .surface-light,
+  .bg-white,
+  .bg-industrial-matte,
+  .bg-bg-subtle,
+  .bg-premium-surface,
+  .bg-bg-card,
+  .bg-light-gray
+) {
+  color: var(--text-premium-velvet);
+}
+
+.ind-page-hero :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--text-premium-velvet) !important;
+}
+
+.ind-page-hero :is(p, span, li) {
+  color: var(--text-body-charcoal) !important;
+}
+
+/* bg-bg-primary is matte white — never inherit “dark CTA” white copy */
+.bg-bg-primary:not(:is(.bg-deep-navy, .bg-black, .bg-premium)) {
+  color: var(--text-premium-velvet);
+}
+
+:is(
+  .ind-page-hero,
+  .ind-os-page,
+  .ind-os-panel,
+  .bg-white,
+  .bg-industrial-matte,
+  .bg-bg-subtle,
+  .bg-premium-surface,
+  .bg-bg-primary
+)
+  :is(.text-\[\#A3A3A3\], .text-neutral-400, .text-slate-300, .text-slate-400, .text-slate-500) {
+  color: var(--text-body-charcoal) !important;
+}
+
+/* Safety net: white copy on light surfaces → dark (except nested dark islands) */
+:is(
+  .ind-page-hero,
+  .ind-os-page,
+  .ind-os-panel,
+  .bg-white,
+  .bg-industrial-matte,
+  .bg-bg-subtle,
+  .bg-premium-surface,
+  .bg-bg-primary
+)
+  :is(.text-white, .text-white\/85, .text-white\/75, .text-white\/70, .text-white\/55) {
+  color: var(--text-premium-velvet) !important;
+}
+
+/* Restore white copy inside nested dark panels on light pages */
+:is(
+  .ind-page-hero,
+  .ind-os-page,
+  .ind-os-panel,
+  .bg-white,
+  .bg-industrial-matte,
+  .bg-bg-subtle,
+  .bg-premium-surface,
+  .bg-bg-primary
+)
+  :is(.bg-deep-navy, .bg-black, .bg-premium, .ind-terminal, .ind-terminal--inverse)
+  :is(.text-white, .text-white\/85) {
+  color: #ffffff !important;
+}
+
+:is(
+  .ind-page-hero,
+  .ind-os-page,
+  .ind-os-panel,
+  .bg-white,
+  .bg-industrial-matte,
+  .bg-bg-subtle,
+  .bg-premium-surface,
+  .bg-bg-primary
+)
+  :is(.bg-deep-navy, .bg-black, .bg-premium, .ind-terminal, .ind-terminal--inverse)
+  :is(.text-white\/75, .text-white\/70) {
+  color: rgb(255 255 255 / 0.75) !important;
+}
+
+:is(
+  .ind-page-hero,
+  .ind-os-page,
+  .ind-os-panel,
+  .bg-white,
+  .bg-industrial-matte,
+  .bg-bg-subtle,
+  .bg-premium-surface,
+  .bg-bg-primary
+)
+  :is(.bg-deep-navy, .bg-black, .bg-premium, .ind-terminal, .ind-terminal--inverse)
+  .text-white\/55 {
+  color: rgb(255 255 255 / 0.55) !important;
+}
+
+/* ── Dark surfaces ── */
+:is(.bg-black, .bg-premium, .ind-terminal, .ind-terminal--inverse, .surface-dark) {
+  color: #ffffff;
+}
+
+:is(.bg-black, .bg-premium, .ind-terminal, .surface-dark)
+  :where(
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    label,
+    span,
+    li,
+    dt,
+    dd,
+    td,
+    th,
+    button:not(.sc-btn-primary):not(.ind-os-btn-action)
+  ) {
+  color: inherit;
+}
+
+:is(.bg-black, .bg-premium, .ind-terminal, .surface-dark)
+  :is(
+    .text-\[\#A3A3A3\],
+    .text-body-charcoal,
+    .text-text-secondary,
+    .text-text-muted,
+    .text-slate-300,
+    .text-slate-400,
+    .text-slate-500,
+    .text-neutral-400
+  ) {
+  color: rgb(255 255 255 / 0.82) !important;
+}
+
+:is(.bg-black, .bg-premium, .ind-terminal, .surface-dark):not(:has(.ind-os-panel))
+  :is(h1, h2, h3, h4, h5, h6, .text-white, .text-premium-velvet) {
+  color: #ffffff !important;
+}
+
+:is(.bg-black, .bg-premium, .ind-terminal, .surface-dark)
+  a:not(.sc-btn-primary):not(.ind-os-btn-action):not(.ind-os-panel a) {
+  color: #ffffff;
+}
+
+:is(.bg-black, .bg-premium, .ind-terminal, .surface-dark)
+  a:not(.sc-btn-primary):not(.ind-os-btn-action):hover {
+  color: rgb(255 255 255 / 0.85);
+}
+
+/* Light panels nested inside dark sections */
+:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel {
+  color: var(--text-premium-velvet);
+  background: #ffffff;
+}
+
+:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel :is(h1, h2, h3, h4, h5, h6, p, span, label, button, a) {
+  color: var(--text-premium-velvet);
+}
+
+:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel :is(.label-badge, .text-body-charcoal) {
+  color: var(--text-body-charcoal) !important;
+}
+
+:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel input,
+:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel textarea,
+:is(.bg-black, .bg-premium, .ind-terminal) .ind-os-panel select {
+  color: var(--text-premium-velvet) !important;
+  background-color: #ffffff !important;
+}
+
+/* Terminal inverse — always white on black */
+.ind-terminal--inverse,
+.ind-terminal--inverse :is(h1, h2, h3, p, span, label, td, th, svg) {
+  color: #ffffff !important;
+}
+
+.ind-terminal--inverse .text-body-charcoal {
+  color: rgb(255 255 255 / 0.85) !important;
+}
+
+/* Primary CTAs keep white label on orange/dark buttons */
+.sc-btn-primary,
+.ind-os-btn-action,
+.ind-btn-primary,
+[class*="bg-deep-navy"],
+[class*="bg-action-orange"] {
+  color: #ffffff;
+}

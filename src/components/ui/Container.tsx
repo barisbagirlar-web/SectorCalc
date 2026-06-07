@@ -13,6 +13,7 @@ const sizeClasses = {
   wide: "max-w-7xl",
 };
 
+/** Dense industrial container — tight horizontal padding */
 export function Container({
   children,
   className = "",
@@ -21,7 +22,7 @@ export function Container({
 }: ContainerProps) {
   return (
     <Component
-      className={`mx-auto w-full px-4 sm:px-6 lg:px-8 ${sizeClasses[size]} ${className}`}
+      className={`mx-auto w-full bg-industrial-matte px-3 sm:px-4 lg:px-5 ${sizeClasses[size]} ${className}`}
     >
       {children}
     </Component>

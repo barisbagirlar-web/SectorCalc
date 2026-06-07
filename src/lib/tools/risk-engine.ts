@@ -8,22 +8,27 @@
  * to protect IP from reverse engineering.
  *
  * Formula references:
- *   P90 safe price:  P_safe = E[C] + Z_90 × σ
- *   CBAM liability:  L_cbam = emissionFactor × outputUnits × carbonPrice
- *   Sensitivity:     scenario_i = base × (1 + shock_i) → re-evaluate
+ * P90 safe price: P_safe = E[C] + Z_90 × σ
+ * CBAM liability: L_cbam = emissionFactor × outputUnits × carbonPrice
+ * Sensitivity: scenario_i = base × (1 + shock_i) → re-evaluate
  */
 
 import type {
-  CBAMCostBreakdown,
-  MarginCoreEngineInput,
-  MarginCoreInputValues,
-  MarginCoreRiskProfile,
-  MarginLeakItem,
-  PremiumVerdict,
-  PremiumVerdictReport,
-  SensitivityScenario,
-  VerdictSeverity,
+ CBAMCostBreakdown,
+ MarginCoreEngineInput,
+ MarginCoreInputValues,
+ MarginCoreRiskProfile,
+ MarginLeakItem,
+ PremiumVerdict,
+ PremiumVerdictReport,
+ SensitivityScenario,
+ VerdictSeverity,
 } from "@/lib/types/margincore-engine";
+import {
+ applyRegionalRiskProfileOverlay,
+ getRegionalCarbonPriceEur,
+} from "@/lib/compliance/compliance-engine";
+import type { RegionCode } from "@/config/regions";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -51,20 +56,20 @@ const EUR_USD_RATE = 1.08;
  * Formula: P_safe = E[C] + Z_90 × σ
  *
  * Where:
- *   E[C] = naive (expected) cost
- *   σ    = E[C] × baseVolatility (standard deviation of cost)
- *   Z_90 = 1.2816 (90th-percentile, one-tailed)
+ * E[C] = naive (expected) cost
+ * σ = E[C] × baseVolatility (standard deviation of cost)
+ * Z_90 = 1.2816 (90th-percentile, one-tailed)
  *
- * @param naiveCost  — expected (base) cost before risk adjustment
+ * @param naiveCost — expected (base) cost before risk adjustment
  * @param riskProfile — sector risk profile containing baseVolatility
  * @returns P90 safe cost (currency)
  */
 export function calculateP90SafeCost(
-  naiveCost: number,
-  riskProfile: MarginCoreRiskProfile,
+ naiveCost: number,
+ riskProfile: MarginCoreRiskProfile,
 ): number {
-  const sigma = naiveCost * riskProfile.baseVolatility;
-  return naiveCost + Z_P90 * sigma;
+ const sigma = naiveCost * riskProfile.baseVolatility;
+ return naiveCost + Z_P90 * sigma;
 }
 
 /**
@@ -72,11 +77,11 @@ export function calculateP90SafeCost(
  * If the market price is below this, the job should be rejected outright.
  */
 export function calculateP95RejectThreshold(
-  naiveCost: number,
-  riskProfile: MarginCoreRiskProfile,
+ naiveCost: number,
+ riskProfile: MarginCoreRiskProfile,
 ): number {
-  const sigma = naiveCost * riskProfile.baseVolatility;
-  return naiveCost + Z_P95 * sigma;
+ const sigma = naiveCost * riskProfile.baseVolatility;
+ return naiveCost + Z_P95 * sigma;
 }
 
 // ---------------------------------------------------------------------------
@@ -94,14 +99,14 @@ export function calculateP95RejectThreshold(
  * @returns cost after all sector risk multipliers applied
  */
 export function applySectorRiskMultipliers(
-  naiveCost: number,
-  riskProfile: MarginCoreRiskProfile,
+ naiveCost: number,
+ riskProfile: MarginCoreRiskProfile,
 ): number {
-  let adjusted = naiveCost;
-  for (const multiplier of Object.values(riskProfile.sectorRiskMultipliers)) {
-    adjusted *= multiplier;
-  }
-  return adjusted;
+ let adjusted = naiveCost;
+ for (const multiplier of Object.values(riskProfile.sectorRiskMultipliers)) {
+ adjusted *= multiplier;
+ }
+ return adjusted;
 }
 
 // ---------------------------------------------------------------------------
@@ -124,47 +129,47 @@ export function applySectorRiskMultipliers(
  * @returns CBAM liability in USD
  */
 export function applyCBAMShock(
-  baseCost: number,
-  sectorEmissionFactor: number,
-  cbamExposureIndex: number,
-  carbonPriceOverride?: number,
+ baseCost: number,
+ sectorEmissionFactor: number,
+ cbamExposureIndex: number,
+ carbonPriceOverride?: number,
 ): number {
-  if (cbamExposureIndex <= 0 || sectorEmissionFactor <= 0) {
-    return 0;
-  }
+ if (cbamExposureIndex <= 0 || sectorEmissionFactor <= 0) {
+ return 0;
+ }
 
-  const carbonPrice = carbonPriceOverride ?? DEFAULT_CARBON_PRICE_EUR;
-  const outputScale = baseCost / 1000;
-  const emissionsTons = sectorEmissionFactor * outputScale;
-  const liabilityEur = emissionsTons * carbonPrice * cbamExposureIndex;
+ const carbonPrice = carbonPriceOverride ?? DEFAULT_CARBON_PRICE_EUR;
+ const outputScale = baseCost / 1000;
+ const emissionsTons = sectorEmissionFactor * outputScale;
+ const liabilityEur = emissionsTons * carbonPrice * cbamExposureIndex;
 
-  return liabilityEur * EUR_USD_RATE;
+ return liabilityEur * EUR_USD_RATE;
 }
 
 /**
  * Build a full CBAM cost breakdown for the report.
  */
 export function buildCBAMBreakdown(
-  baseCost: number,
-  riskProfile: MarginCoreRiskProfile,
-  sectorEmissionFactor: number,
-  cbamLiability: number,
+ baseCost: number,
+ riskProfile: MarginCoreRiskProfile,
+ sectorEmissionFactor: number,
+ cbamLiability: number,
 ): CBAMCostBreakdown | null {
-  if (riskProfile.cbamExposureIndex <= 0) {
-    return null;
-  }
+ if (riskProfile.cbamExposureIndex <= 0) {
+ return null;
+ }
 
-  const inScope = riskProfile.cbamExposureIndex > 0.3;
+ const inScope = riskProfile.cbamExposureIndex > 0.3;
 
-  return {
-    emissionFactor: sectorEmissionFactor,
-    carbonPricePerTonne: DEFAULT_CARBON_PRICE_EUR,
-    cbamLiability: round2(cbamLiability),
-    inScope,
-    summary: inScope
-      ? `Sector is within CBAM scope. Estimated carbon border liability: $${round2(cbamLiability).toLocaleString()} at €${DEFAULT_CARBON_PRICE_EUR}/tCO₂e.`
-      : `Sector has low CBAM exposure. Monitor EU carbon border regulation for future scope changes.`,
-  };
+ return {
+ emissionFactor: sectorEmissionFactor,
+ carbonPricePerTonne: DEFAULT_CARBON_PRICE_EUR,
+ cbamLiability: round2(cbamLiability),
+ inScope,
+ summary: inScope
+ ? `Sector is within CBAM scope. Estimated carbon border liability: $${round2(cbamLiability).toLocaleString()} at €${DEFAULT_CARBON_PRICE_EUR}/tCO₂e.`
+ : `Sector has low CBAM exposure. Monitor EU carbon border regulation for future scope changes.`,
+ };
 }
 
 // ---------------------------------------------------------------------------
@@ -173,16 +178,16 @@ export function buildCBAMBreakdown(
 
 /** Standard sensitivity shock scenarios */
 interface ShockDefinition {
-  readonly label: string;
-  readonly costDriverKey: string;
-  readonly shockPercent: number;
+ readonly label: string;
+ readonly costDriverKey: string;
+ readonly shockPercent: number;
 }
 
 /** Default shocks applied across all sectors */
 const DEFAULT_SHOCKS: readonly ShockDefinition[] = [
-  { label: "Material costs rise 10%", costDriverKey: "material", shockPercent: 0.10 },
-  { label: "Labor/overhead costs rise 8%", costDriverKey: "labor", shockPercent: 0.08 },
-  { label: "Timeline delay (+20% duration)", costDriverKey: "time", shockPercent: 0.20 },
+ { label: "Material costs rise 10%", costDriverKey: "material", shockPercent: 0.10 },
+ { label: "Labor/overhead costs rise 8%", costDriverKey: "labor", shockPercent: 0.08 },
+ { label: "Timeline delay (+20% duration)", costDriverKey: "time", shockPercent: 0.20 },
 ];
 
 /**
@@ -198,39 +203,39 @@ const DEFAULT_SHOCKS: readonly ShockDefinition[] = [
  * @returns array of 3 sensitivity scenarios
  */
 export function generateSensitivityMatrix(
-  inputs: MarginCoreInputValues,
-  riskProfile: MarginCoreRiskProfile,
-  calculateNaiveCost: (inputs: MarginCoreInputValues) => number,
-  targetMarginPercent: number,
+ inputs: MarginCoreInputValues,
+ riskProfile: MarginCoreRiskProfile,
+ calculateNaiveCost: (inputs: MarginCoreInputValues) => number,
+ targetMarginPercent: number,
 ): readonly SensitivityScenario[] {
-  const baseNaive = calculateNaiveCost(inputs);
-  const baseP90 = calculateP90SafeCost(baseNaive, riskProfile);
-  const baseTargetRevenue = baseNaive / (1 - targetMarginPercent / 100);
+ const baseNaive = calculateNaiveCost(inputs);
+ const baseP90 = calculateP90SafeCost(baseNaive, riskProfile);
+ const baseTargetRevenue = baseNaive / (1 - targetMarginPercent / 100);
 
-  return DEFAULT_SHOCKS.map((shock) => {
-    // Create shocked inputs — apply shock to numeric inputs proportionally
-    const shockedInputs = applyShockToInputs(inputs, shock.shockPercent);
-    const shockedNaive = calculateNaiveCost(shockedInputs);
-    const shockedP90 = calculateP90SafeCost(shockedNaive, riskProfile);
-    const shockedTargetRevenue = shockedNaive / (1 - targetMarginPercent / 100);
+ return DEFAULT_SHOCKS.map((shock) => {
+ // Create shocked inputs — apply shock to numeric inputs proportionally
+ const shockedInputs = applyShockToInputs(inputs, shock.shockPercent);
+ const shockedNaive = calculateNaiveCost(shockedInputs);
+ const shockedP90 = calculateP90SafeCost(shockedNaive, riskProfile);
+ const shockedTargetRevenue = shockedNaive / (1 - targetMarginPercent / 100);
 
-    const marginImpact = shockedP90 - baseP90;
-    const suggestedSafePrice = shockedP90 / (1 - targetMarginPercent / 100);
+ const marginImpact = shockedP90 - baseP90;
+ const suggestedSafePrice = shockedP90 / (1 - targetMarginPercent / 100);
 
-    const severity: VerdictSeverity =
-      marginImpact > baseTargetRevenue * 0.15
-        ? "reject"
-        : marginImpact > baseTargetRevenue * 0.05
-          ? "caution"
-          : "accept";
+ const severity: VerdictSeverity =
+ marginImpact > baseTargetRevenue * 0.15
+ ? "reject"
+ : marginImpact > baseTargetRevenue * 0.05
+ ? "caution"
+ : "accept";
 
-    return {
-      scenario: shock.label,
-      impactOnMargin: round2(marginImpact),
-      suggestedSafePrice: round2(suggestedSafePrice),
-      scenarioVerdict: severity,
-    };
-  });
+ return {
+ scenario: shock.label,
+ impactOnMargin: round2(marginImpact),
+ suggestedSafePrice: round2(suggestedSafePrice),
+ scenarioVerdict: severity,
+ };
+ });
 }
 
 /**
@@ -238,23 +243,23 @@ export function generateSensitivityMatrix(
  * This is a simplified model; sector-specific implementations can override.
  */
 function applyShockToInputs(
-  inputs: MarginCoreInputValues,
-  shockPercent: number,
+ inputs: MarginCoreInputValues,
+ shockPercent: number,
 ): MarginCoreInputValues {
-  const shocked: MarginCoreInputValues = {};
-  for (const [key, value] of Object.entries(inputs)) {
-    if (typeof value === "number") {
-      // Shock cost-related inputs upward
-      const isCostInput =
-        /cost|price|rate|fee|expense|overhead/i.test(key) &&
-        !/margin|target|percent|quantity|count|time|freq|visit|staff|area|size|qty/i.test(key);
+ const shocked: MarginCoreInputValues = {};
+ for (const [key, value] of Object.entries(inputs)) {
+ if (typeof value === "number") {
+ // Shock cost-related inputs upward
+ const isCostInput =
+ /cost|price|rate|fee|expense|overhead/i.test(key) &&
+ !/margin|target|percent|quantity|count|time|freq|visit|staff|area|size|qty/i.test(key);
 
-      shocked[key] = isCostInput ? value * (1 + shockPercent) : value;
-    } else {
-      shocked[key] = value;
-    }
-  }
-  return shocked;
+ shocked[key] = isCostInput ? value * (1 + shockPercent) : value;
+ } else {
+ shocked[key] = value;
+ }
+ }
+ return shocked;
 }
 
 // ---------------------------------------------------------------------------
@@ -267,17 +272,17 @@ function applyShockToInputs(
  * E[shock] = Σ (probability_i × impactMultiplier_i − 1) × baseCost
  */
 export function calculateMacroShockExpectedValue(
-  baseCost: number,
-  riskProfile: MarginCoreRiskProfile,
+ baseCost: number,
+ riskProfile: MarginCoreRiskProfile,
 ): number {
-  if (!riskProfile.macroShockVectors) return 0;
+ if (!riskProfile.macroShockVectors) return 0;
 
-  let expectedImpact = 0;
-  for (const shock of Object.values(riskProfile.macroShockVectors)) {
-    expectedImpact +=
-      shock.probability * (shock.impactMultiplier - 1) * baseCost;
-  }
-  return expectedImpact;
+ let expectedImpact = 0;
+ for (const shock of Object.values(riskProfile.macroShockVectors)) {
+ expectedImpact +=
+ shock.probability * (shock.impactMultiplier - 1) * baseCost;
+ }
+ return expectedImpact;
 }
 
 // ---------------------------------------------------------------------------
@@ -287,37 +292,37 @@ export function calculateMacroShockExpectedValue(
 /**
  * Determine the final verdict based on P90 safe price vs. quoted price.
  *
- * - ACCEPT:  quoted price ≥ P90 safe price
+ * - ACCEPT: quoted price ≥ P90 safe price
  * - CAUTION: quoted price ≥ naive cost but < P90 safe price
- * - REJECT:  quoted price < naive cost
+ * - REJECT: quoted price < naive cost
  */
 export function resolveVerdict(
-  naiveCost: number,
-  p90SafePrice: number,
-  quotedPrice: number,
-  labels: { accept: string; caution: string; reject: string },
+ naiveCost: number,
+ p90SafePrice: number,
+ quotedPrice: number,
+ labels: { accept: string; caution: string; reject: string },
 ): PremiumVerdict {
-  if (quotedPrice >= p90SafePrice) {
-    return {
-      label: labels.accept,
-      severity: "accept",
-      suggestedAction: "Price covers P90 risk exposure. Safe to proceed.",
-    };
-  }
+ if (quotedPrice >= p90SafePrice) {
+ return {
+ label: labels.accept,
+ severity: "accept",
+ suggestedAction: "Price covers P90 risk exposure. Safe to proceed.",
+ };
+ }
 
-  if (quotedPrice >= naiveCost) {
-    return {
-      label: labels.caution,
-      severity: "caution",
-      suggestedAction: `Reprice to at least $${round2(p90SafePrice).toLocaleString()} to cover P90 risk buffer.`,
-    };
-  }
+ if (quotedPrice >= naiveCost) {
+ return {
+ label: labels.caution,
+ severity: "caution",
+ suggestedAction: `Reprice to at least $${round2(p90SafePrice).toLocaleString()} to cover P90 risk buffer.`,
+ };
+ }
 
-  return {
-    label: labels.reject,
-    severity: "reject",
-    suggestedAction: `Do not accept below $${round2(naiveCost).toLocaleString()} — naive cost not covered. Minimum safe price: $${round2(p90SafePrice).toLocaleString()}.`,
-  };
+ return {
+ label: labels.reject,
+ severity: "reject",
+ suggestedAction: `Do not accept below $${round2(naiveCost).toLocaleString()} — naive cost not covered. Minimum safe price: $${round2(p90SafePrice).toLocaleString()}.`,
+ };
 }
 
 // ---------------------------------------------------------------------------
@@ -328,107 +333,112 @@ export function resolveVerdict(
  * Run the full MarginCore engine pipeline.
  *
  * Pipeline:
- *   1. Calculate naive cost (sector-specific)
- *   2. Apply sector risk multipliers
- *   3. Calculate P90 safe cost
- *   4. Add CBAM shock (if applicable)
- *   5. Add macro shock expected value
- *   6. Detect margin leaks (sector-specific)
- *   7. Generate sensitivity matrix
- *   8. Resolve verdict
- *   9. Assemble PremiumVerdictReport
+ * 1. Calculate naive cost (sector-specific)
+ * 2. Apply sector risk multipliers
+ * 3. Calculate P90 safe cost
+ * 4. Add CBAM shock (if applicable)
+ * 5. Add macro shock expected value
+ * 6. Detect margin leaks (sector-specific)
+ * 7. Generate sensitivity matrix
+ * 8. Resolve verdict
+ * 9. Assemble PremiumVerdictReport
  */
 export function runMarginCoreEngine(
-  engineInput: MarginCoreEngineInput,
-  quotedPrice?: number,
+ engineInput: MarginCoreEngineInput,
+ quotedPrice?: number,
 ): PremiumVerdictReport {
-  const {
-    toolSlug,
-    sectorSlug,
-    inputs,
-    riskProfile,
-    calculateNaiveCost,
-    detectMarginLeaks,
-    verdictLabels,
-    targetMarginPercent,
-    currency,
-    legalDisclaimer,
-  } = engineInput;
+ const {
+ toolSlug,
+ sectorSlug,
+ inputs,
+ riskProfile: baseRiskProfile,
+ calculateNaiveCost,
+ detectMarginLeaks,
+ verdictLabels,
+ targetMarginPercent,
+ currency,
+ legalDisclaimer,
+ region = "EN",
+ } = engineInput;
 
-  // Step 1: Naive cost
-  const naiveCost = calculateNaiveCost(inputs);
+ const riskProfile = applyRegionalRiskProfileOverlay(baseRiskProfile, region);
+ const regionalCarbonPrice = getRegionalCarbonPriceEur(region);
 
-  // Step 2: Sector risk-adjusted cost
-  const riskAdjustedCost = applySectorRiskMultipliers(naiveCost, riskProfile);
+ // Step 1: Naive cost
+ const naiveCost = calculateNaiveCost(inputs);
 
-  // Step 3: P90 safe cost
-  const p90Base = calculateP90SafeCost(riskAdjustedCost, riskProfile);
+ // Step 2: Sector risk-adjusted cost
+ const riskAdjustedCost = applySectorRiskMultipliers(naiveCost, riskProfile);
 
-  // Step 4: CBAM shock
-  const sectorEmissionFactor = getSectorEmissionFactor(sectorSlug);
-  const cbamLiability = applyCBAMShock(
-    naiveCost,
-    sectorEmissionFactor,
-    riskProfile.cbamExposureIndex,
-  );
+ // Step 3: P90 safe cost
+ const p90Base = calculateP90SafeCost(riskAdjustedCost, riskProfile);
 
-  // Step 5: Macro shock expected value
-  const macroShockEV = calculateMacroShockExpectedValue(naiveCost, riskProfile);
+ // Step 4: CBAM shock
+ const sectorEmissionFactor = getSectorEmissionFactor(sectorSlug);
+ const cbamLiability = applyCBAMShock(
+ naiveCost,
+ sectorEmissionFactor,
+ riskProfile.cbamExposureIndex,
+ regionalCarbonPrice > 0 ? regionalCarbonPrice : undefined,
+ );
 
-  // Final P90 safe price includes CBAM + macro
-  const p90SafePrice = p90Base + cbamLiability + macroShockEV;
+ // Step 5: Macro shock expected value
+ const macroShockEV = calculateMacroShockExpectedValue(naiveCost, riskProfile);
 
-  // Step 6: Margin leak diagnosis
-  const marginLeaks = detectMarginLeaks(inputs, naiveCost);
-  const totalMarginLeak = marginLeaks.reduce((sum, l) => sum + l.leakAmount, 0);
+ // Final P90 safe price includes CBAM + macro
+ const p90SafePrice = p90Base + cbamLiability + macroShockEV;
 
-  // Step 7: Sensitivity matrix
-  const sensitivityMatrix = generateSensitivityMatrix(
-    inputs,
-    riskProfile,
-    calculateNaiveCost,
-    targetMarginPercent,
-  );
+ // Step 6: Margin leak diagnosis
+ const marginLeaks = detectMarginLeaks(inputs, naiveCost);
+ const totalMarginLeak = marginLeaks.reduce((sum, l) => sum + l.leakAmount, 0);
 
-  // Step 8: Verdict
-  const effectiveQuotedPrice = quotedPrice ?? naiveCost;
-  const verdict = resolveVerdict(
-    naiveCost,
-    p90SafePrice,
-    effectiveQuotedPrice,
-    verdictLabels,
-  );
+ // Step 7: Sensitivity matrix
+ const sensitivityMatrix = generateSensitivityMatrix(
+ inputs,
+ riskProfile,
+ calculateNaiveCost,
+ targetMarginPercent,
+ );
 
-  // Step 9: CBAM breakdown
-  const cbamBreakdown = buildCBAMBreakdown(
-    naiveCost,
-    riskProfile,
-    sectorEmissionFactor,
-    cbamLiability,
-  );
+ // Step 8: Verdict
+ const effectiveQuotedPrice = quotedPrice ?? naiveCost;
+ const verdict = resolveVerdict(
+ naiveCost,
+ p90SafePrice,
+ effectiveQuotedPrice,
+ verdictLabels,
+ );
 
-  // Risk buffer
-  const riskBufferAmount = p90SafePrice - naiveCost;
-  const riskBufferPercent =
-    naiveCost > 0 ? (riskBufferAmount / naiveCost) * 100 : 0;
+ // Step 9: CBAM breakdown
+ const cbamBreakdown = buildCBAMBreakdown(
+ naiveCost,
+ riskProfile,
+ sectorEmissionFactor,
+ cbamLiability,
+ );
 
-  return {
-    toolSlug,
-    sectorSlug,
-    generatedAt: new Date().toISOString(),
-    naiveCost: round2(naiveCost),
-    p90SafePrice: round2(p90SafePrice),
-    riskBufferAmount: round2(riskBufferAmount),
-    riskBufferPercent: round2(riskBufferPercent),
-    verdict,
-    marginLeakDiagnosis: marginLeaks,
-    totalMarginLeak: round2(totalMarginLeak),
-    sensitivityMatrix,
-    cbamBreakdown,
-    currency,
-    legalDisclaimer,
-    riskProfileUsed: riskProfile,
-  };
+ // Risk buffer
+ const riskBufferAmount = p90SafePrice - naiveCost;
+ const riskBufferPercent =
+ naiveCost > 0 ? (riskBufferAmount / naiveCost) * 100 : 0;
+
+ return {
+ toolSlug,
+ sectorSlug,
+ generatedAt: new Date().toISOString(),
+ naiveCost: round2(naiveCost),
+ p90SafePrice: round2(p90SafePrice),
+ riskBufferAmount: round2(riskBufferAmount),
+ riskBufferPercent: round2(riskBufferPercent),
+ verdict,
+ marginLeakDiagnosis: marginLeaks,
+ totalMarginLeak: round2(totalMarginLeak),
+ sensitivityMatrix,
+ cbamBreakdown,
+ currency,
+ legalDisclaimer,
+ riskProfileUsed: riskProfile,
+ };
 }
 
 // ---------------------------------------------------------------------------
@@ -437,7 +447,7 @@ export function runMarginCoreEngine(
 
 /** Round to 2 decimal places */
 function round2(n: number): number {
-  return Math.round(n * 100) / 100;
+ return Math.round(n * 100) / 100;
 }
 
 /**
@@ -445,35 +455,35 @@ function round2(n: number): number {
  * Based on IEA / EPA industry averages. Used as proxy for CBAM calculations.
  */
 function getSectorEmissionFactor(sectorSlug: string): number {
-  const factors: Record<string, number> = {
-    "cnc-manufacturing": 0.45,
-    "welding-fabrication": 0.52,
-    "sheet-metal": 0.48,
-    "3d-printing-service": 0.22,
-    "construction": 0.38,
-    "hvac": 0.30,
-    "electrical-contracting": 0.18,
-    "plumbing": 0.15,
-    "roofing": 0.42,
-    "painting": 0.12,
-    "cleaning": 0.05,
-    "landscaping-lawn-care": 0.08,
-    "auto-repair-shop": 0.25,
-    "restaurant": 0.10,
-    "ecommerce": 0.06,
-    "printing-signage": 0.20,
-    "carpentry-millwork": 0.18,
-    "logistics-transport": 0.55,
-    "agriculture-crops": 0.35,
-    "agriculture-irrigation": 0.28,
-    "agriculture-feed": 0.40,
-    "agriculture-dairy": 0.45,
-    "energy-consumption": 0.60,
-    "energy-carbon": 0.70,
-    "daily-renovation": 0.25,
-    "daily-fuel": 0.50,
-    "daily-meals": 0.04,
-  };
+ const factors: Record<string, number> = {
+ "cnc-manufacturing": 0.45,
+ "welding-fabrication": 0.52,
+ "sheet-metal": 0.48,
+ "3d-printing-service": 0.22,
+ "construction": 0.38,
+ "hvac": 0.30,
+ "electrical-contracting": 0.18,
+ "plumbing": 0.15,
+ "roofing": 0.42,
+ "painting": 0.12,
+ "cleaning": 0.05,
+ "landscaping-lawn-care": 0.08,
+ "auto-repair-shop": 0.25,
+ "restaurant": 0.10,
+ "ecommerce": 0.06,
+ "printing-signage": 0.20,
+ "carpentry-millwork": 0.18,
+ "logistics-transport": 0.55,
+ "agriculture-crops": 0.35,
+ "agriculture-irrigation": 0.28,
+ "agriculture-feed": 0.40,
+ "agriculture-dairy": 0.45,
+ "energy-consumption": 0.60,
+ "energy-carbon": 0.70,
+ "daily-renovation": 0.25,
+ "daily-fuel": 0.50,
+ "daily-meals": 0.04,
+ };
 
-  return factors[sectorSlug] ?? 0;
+ return factors[sectorSlug] ?? 0;
 }

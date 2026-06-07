@@ -21,14 +21,14 @@ export function LocaleSwitcher({ className = "" }: { className?: string }) {
   };
 
   return (
-    <label className={`inline-flex items-center gap-2 ${className}`.trim()}>
+    <label className={`apple-locale ${className}`.trim()}>
       <span className="sr-only">{t("label")}</span>
       <select
         value={locale}
         onChange={(event) => handleChange(event.target.value)}
         disabled={pending}
         aria-label={t("label")}
-        className="min-h-[44px] rounded-lg border border-border-subtle bg-white px-2 py-1 text-xs font-semibold text-text-primary"
+        className="apple-locale__select"
       >
         {locales.map((code) => (
           <option key={code} value={code}>

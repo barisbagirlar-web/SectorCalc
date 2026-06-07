@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged, type User } from "@/lib/firebase/auth";
 import { getFirebaseAuth } from "@/lib/firebase/auth";
 import { getFirestoreDb } from "@/lib/firebase/client";
 import {
-  hasActiveSubscription,
+  hasProAccess,
   normalizeUserSubscription,
   type UserSubscription,
 } from "@/lib/billing/subscription";
@@ -19,19 +19,69 @@ export type UseUserSubscriptionState = {
   error: string | null;
 };
 
-export function useUserSubscription(): UseUserSubscriptionState {
-  const [state, setState] = useState<UseUserSubscriptionState>({
-    user: null,
-    subscription: null,
-    isActive: false,
-    loading: true,
-    error: null,
-  });
+const INITIAL_STATE: UseUserSubscriptionState = {
+  user: null,
+  subscription: null,
+  isActive: false,
+  loading: true,
+  error: null,
+};
 
-  useEffect(() => {
-    const auth = getFirebaseAuth();
-    if (!auth) {
-      setState({
+type StoreListener = () => void;
+
+let storeState: UseUserSubscriptionState = INITIAL_STATE;
+const storeListeners = new Set<StoreListener>();
+let authBootstrapped = false;
+let unsubscribeAuth: (() => void) | null = null;
+let unsubscribeUserDoc: (() => void) | null = null;
+
+function emitStore() {
+  storeListeners.forEach((listener) => listener());
+}
+
+function setStoreState(next: UseUserSubscriptionState) {
+  storeState = next;
+  emitStore();
+}
+
+function subscribeStore(listener: StoreListener): () => void {
+  storeListeners.add(listener);
+  bootstrapAuthStore();
+  return () => {
+    storeListeners.delete(listener);
+  };
+}
+
+function getStoreSnapshot(): UseUserSubscriptionState {
+  return storeState;
+}
+
+function bootstrapAuthStore() {
+  if (authBootstrapped) {
+    return;
+  }
+  authBootstrapped = true;
+
+  const auth = getFirebaseAuth();
+  if (!auth) {
+    setStoreState({
+      user: null,
+      subscription: null,
+      isActive: false,
+      loading: false,
+      error: null,
+    });
+    return;
+  }
+
+  unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+    if (unsubscribeUserDoc) {
+      unsubscribeUserDoc();
+      unsubscribeUserDoc = null;
+    }
+
+    if (!user) {
+      setStoreState({
         user: null,
         subscription: null,
         isActive: false,
@@ -41,80 +91,61 @@ export function useUserSubscription(): UseUserSubscriptionState {
       return;
     }
 
-    let unsubscribeUserDoc: (() => void) | null = null;
+    setStoreState({
+      ...storeState,
+      user,
+      loading: true,
+      error: null,
+    });
 
-    const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
-      if (unsubscribeUserDoc) {
-        unsubscribeUserDoc();
-        unsubscribeUserDoc = null;
-      }
+    const db = getFirestoreDb();
+    if (!db) {
+      setStoreState({
+        user,
+        subscription: null,
+        isActive: false,
+        loading: false,
+        error: "Firestore is not configured.",
+      });
+      return;
+    }
 
-      if (!user) {
-        setState({
-          user: null,
-          subscription: null,
-          isActive: false,
+    const userRef = doc(db, "users", user.uid);
+
+    unsubscribeUserDoc = onSnapshot(
+      userRef,
+      (snapshot) => {
+        const subscription = normalizeUserSubscription(
+          snapshot.exists() ? snapshot.data().subscription : null,
+        );
+
+        setStoreState({
+          user,
+          subscription,
+          isActive: hasProAccess(subscription, user.email),
           loading: false,
           error: null,
         });
-        return;
-      }
-
-      setState((prev) => ({
-        ...prev,
-        user,
-        loading: true,
-        error: null,
-      }));
-
-      const db = getFirestoreDb();
-      if (!db) {
-        setState({
+      },
+      () => {
+        setStoreState({
           user,
           subscription: null,
-          isActive: false,
+          isActive: hasProAccess(null, user.email),
           loading: false,
-          error: "Firestore is not configured.",
+          error: "Subscription status could not be loaded.",
         });
-        return;
-      }
+      },
+    );
+  });
+}
 
-      const userRef = doc(db, "users", user.uid);
+/** Shared subscription store — one Firebase listener for the whole app. */
+export function useUserSubscription(): UseUserSubscriptionState {
+  return useSyncExternalStore(subscribeStore, getStoreSnapshot, () => INITIAL_STATE);
+}
 
-      unsubscribeUserDoc = onSnapshot(
-        userRef,
-        (snapshot) => {
-          const subscription = normalizeUserSubscription(
-            snapshot.exists() ? snapshot.data().subscription : null
-          );
-
-          setState({
-            user,
-            subscription,
-            isActive: hasActiveSubscription(subscription),
-            loading: false,
-            error: null,
-          });
-        },
-        () => {
-          setState({
-            user,
-            subscription: null,
-            isActive: false,
-            loading: false,
-            error: "Subscription status could not be loaded.",
-          });
-        }
-      );
-    });
-
-    return () => {
-      unsubscribeAuth();
-      if (unsubscribeUserDoc) {
-        unsubscribeUserDoc();
-      }
-    };
-  }, []);
-
-  return state;
+/** Warm auth/subscription listener early (header mount). */
+export function warmUserSubscriptionStore(): void {
+  bootstrapAuthStore();
 }

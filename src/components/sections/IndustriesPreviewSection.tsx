@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SectorCard } from "@/components/ui/SectorCard";
-import { SectorIcon } from "@/components/icons/SectorIcon";
 import { Link } from "@/i18n/routing";
 import { INDUSTRIES } from "@/data/industries";
 
@@ -10,7 +9,7 @@ export async function IndustriesPreviewSection() {
   const t = await getTranslations("home.industriesPreview");
 
   return (
-    <section className="border-y border-border-subtle bg-white py-16 md:py-24 lg:py-28">
+    <section className="border-b border-technical-gray bg-white py-6">
       <Container size="wide">
         <SectionHeader
           eyebrow={t("eyebrow")}
@@ -19,21 +18,15 @@ export async function IndustriesPreviewSection() {
           action={
             <Link
               href="/industries"
-              className="inline-flex min-h-[44px] shrink-0 items-center text-sm font-semibold text-accent-teal hover:underline"
+              className="inline-flex min-h-[44px] shrink-0 items-center text-sm font-semibold text-premium-velvet transition-colors hover:text-body-charcoal"
             >
               {t("viewAll")}
             </Link>
           }
         />
-        <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {INDUSTRIES.map((industry) => (
-            <SectorCard
-              key={industry.slug}
-              title={industry.name}
-              description={industry.businessPain}
-              icon={<SectorIcon slug={industry.slug} iconType={industry.icon} size="default" />}
-              href={industry.href}
-            />
+            <SectorCard key={industry.slug} title={industry.name} href={industry.href} />
           ))}
         </div>
       </Container>

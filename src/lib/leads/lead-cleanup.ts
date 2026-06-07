@@ -4,272 +4,272 @@ import type { LeadIntent } from "@/lib/leads/types";
 export type TestLeadConfidence = "high" | "medium" | "low";
 
 export interface TestLeadDetection {
-  isTestLead: boolean;
-  confidence: TestLeadConfidence;
-  reasons: string[];
-  isManualMark: boolean;
-  manualReason?: string;
-  manualOverrideNotTest: boolean;
+ isTestLead: boolean;
+ confidence: TestLeadConfidence;
+ reasons: string[];
+ isManualMark: boolean;
+ manualReason?: string;
+ manualOverrideNotTest: boolean;
 }
 
 export interface LeadCleanupSummary {
-  totalLeads: number;
-  testLeadCount: number;
-  excludedFromMetricsCount: number;
-  metricsLeadCount: number;
+ totalLeads: number;
+ testLeadCount: number;
+ excludedFromMetricsCount: number;
+ metricsLeadCount: number;
 }
 
 export interface FilterLeadsForMetricsOptions {
-  excludeTestLeads?: boolean;
+ excludeTestLeads?: boolean;
 }
 
 const TEST_PATTERNS = ["test", "deneme", "demo", "dfdf", "asdf", "qwer", "123"];
 const WEAK_MESSAGE_PATTERNS = ["test", "deneme", "123", "dddd", "dfdf"];
 
 function normalizeText(value: string | undefined): string {
-  return value?.trim().toLowerCase() ?? "";
+ return value?.trim().toLowerCase() ?? "";
 }
 
 function containsTestPattern(value: string): boolean {
-  const normalized = normalizeText(value);
-  if (!normalized) {
-    return false;
-  }
-  return TEST_PATTERNS.some(
-    (pattern) => normalized === pattern || normalized.includes(pattern)
-  );
+ const normalized = normalizeText(value);
+ if (!normalized) {
+ return false;
+ }
+ return TEST_PATTERNS.some(
+ (pattern) => normalized === pattern || normalized.includes(pattern)
+ );
 }
 
 function isTestEmail(email: string): boolean {
-  return normalizeText(email) === "test@test.com";
+ return normalizeText(email) === "test@test.com";
 }
 
 function isMeaninglessShortMessage(message: string | undefined): boolean {
-  const trimmed = message?.trim() ?? "";
-  if (trimmed.length === 0 || trimmed.length >= 5) {
-    return false;
-  }
+ const trimmed = message?.trim() ?? "";
+ if (trimmed.length === 0 || trimmed.length >= 5) {
+ return false;
+ }
 
-  if (/^(.)\1+$/.test(trimmed)) {
-    return true;
-  }
+ if (/^(.)\1+$/.test(trimmed)) {
+ return true;
+ }
 
-  if (/^[0-9]+$/.test(trimmed)) {
-    return true;
-  }
+ if (/^[0-9]+$/.test(trimmed)) {
+ return true;
+ }
 
-  return containsTestPattern(trimmed) || WEAK_MESSAGE_PATTERNS.some((pattern) =>
-    trimmed.toLowerCase().includes(pattern)
-  );
+ return containsTestPattern(trimmed) || WEAK_MESSAGE_PATTERNS.some((pattern) =>
+ trimmed.toLowerCase().includes(pattern)
+ );
 }
 
 function isSuspiciousCompany(company: string): boolean {
-  const normalized = normalizeText(company);
-  if (!normalized) {
-    return false;
-  }
+ const normalized = normalizeText(company);
+ if (!normalized) {
+ return false;
+ }
 
-  return (
-    /https?:\/\//.test(normalized) ||
-    normalized.includes("localhost") ||
-    normalized.includes("127.0.0.1") ||
-    normalized.startsWith("www.")
-  );
+ return (
+ /https?:\/\//.test(normalized) ||
+ normalized.includes("localhost") ||
+ normalized.includes("127.0.0.1") ||
+ normalized.startsWith("www.")
+ );
 }
 
 function hasWeakMessage(lead: LeadIntent): boolean {
-  const message = lead.message?.trim() ?? "";
-  if (!message) {
-    return true;
-  }
-  const normalized = message.toLowerCase();
-  return WEAK_MESSAGE_PATTERNS.some(
-    (pattern) => normalized === pattern || normalized.includes(pattern)
-  );
+ const message = lead.message?.trim() ?? "";
+ if (!message) {
+ return true;
+ }
+ const normalized = message.toLowerCase();
+ return WEAK_MESSAGE_PATTERNS.some(
+ (pattern) => normalized === pattern || normalized.includes(pattern)
+ );
 }
 
 function countPatternFields(lead: LeadIntent): number {
-  let count = 0;
-  if (containsTestPattern(lead.name)) count += 1;
-  if (containsTestPattern(lead.company)) count += 1;
-  if (containsTestPattern(lead.message ?? "")) count += 1;
-  return count;
+ let count = 0;
+ if (containsTestPattern(lead.name)) count += 1;
+ if (containsTestPattern(lead.company)) count += 1;
+ if (containsTestPattern(lead.message ?? "")) count += 1;
+ return count;
 }
 
 function resolveConfidence(
-  reasons: string[],
-  patternFieldCount: number
+ reasons: string[],
+ patternFieldCount: number
 ): TestLeadConfidence {
-  if (
-    reasons.some((reason) => reason.includes("test@test.com")) ||
-    patternFieldCount >= 3
-  ) {
-    return "high";
-  }
+ if (
+ reasons.some((reason) => reason.includes("test@test.com")) ||
+ patternFieldCount >= 3
+ ) {
+ return "high";
+ }
 
-  if (reasons.length >= 2 || patternFieldCount >= 2) {
-    return "medium";
-  }
+ if (reasons.length >= 2 || patternFieldCount >= 2) {
+ return "medium";
+ }
 
-  if (reasons.length === 1) {
-    return "medium";
-  }
+ if (reasons.length === 1) {
+ return "medium";
+ }
 
-  return "low";
+ return "low";
 }
 
 function resolveIsTestLead(
-  reasons: string[],
-  confidence: TestLeadConfidence,
-  patternFieldCount: number
+ reasons: string[],
+ confidence: TestLeadConfidence,
+ patternFieldCount: number
 ): boolean {
-  if (confidence === "high") {
-    return true;
-  }
+ if (confidence === "high") {
+ return true;
+ }
 
-  if (reasons.some((reason) => reason.includes("test@test.com"))) {
-    return true;
-  }
+ if (reasons.some((reason) => reason.includes("test@test.com"))) {
+ return true;
+ }
 
-  if (patternFieldCount >= 2) {
-    return true;
-  }
+ if (patternFieldCount >= 2) {
+ return true;
+ }
 
-  if (
-    reasons.some((reason) =>
-      reason.includes("Zayıf mesaj + düşük kalite skoru")
-    )
-  ) {
-    return true;
-  }
+ if (
+ reasons.some((reason) =>
+ reason.includes("Zayıf mesaj + düşük kalite skoru")
+ )
+ ) {
+ return true;
+ }
 
-  if (confidence === "medium" && reasons.length >= 2) {
-    return true;
-  }
+ if (confidence === "medium" && reasons.length >= 2) {
+ return true;
+ }
 
-  return false;
+ return false;
 }
 
 function detectAutomaticTestLead(lead: LeadIntent): TestLeadDetection {
-  const reasons: string[] = [];
+ const reasons: string[] = [];
 
-  if (isTestEmail(lead.email)) {
-    reasons.push("test@test.com e-postası");
-  }
+ if (isTestEmail(lead.email)) {
+ reasons.push("test@test.com e-postası");
+ }
 
-  const patternFieldCount = countPatternFields(lead);
-  if (patternFieldCount >= 2) {
-    reasons.push(
-      `Ad/şirket/mesajda test/deneme benzeri ifadeler (${patternFieldCount} alan)`
-    );
-  } else if (patternFieldCount === 1) {
-    if (containsTestPattern(lead.name)) {
-      reasons.push("İsimde test/deneme benzeri ifade");
-    } else if (containsTestPattern(lead.company)) {
-      reasons.push("Şirket adında test/deneme benzeri ifade");
-    } else if (containsTestPattern(lead.message ?? "")) {
-      reasons.push("Mesajda test/deneme benzeri ifade");
-    }
-  }
+ const patternFieldCount = countPatternFields(lead);
+ if (patternFieldCount >= 2) {
+ reasons.push(
+ `Ad/şirket/mesajda test/deneme benzeri ifadeler (${patternFieldCount} alan)`
+ );
+ } else if (patternFieldCount === 1) {
+ if (containsTestPattern(lead.name)) {
+ reasons.push("İsimde test/deneme benzeri ifade");
+ } else if (containsTestPattern(lead.company)) {
+ reasons.push("Şirket adında test/deneme benzeri ifade");
+ } else if (containsTestPattern(lead.message ?? "")) {
+ reasons.push("Mesajda test/deneme benzeri ifade");
+ }
+ }
 
-  if (isMeaninglessShortMessage(lead.message)) {
-    reasons.push("Mesaj 5 karakter altı ve anlamsız");
-  }
+ if (isMeaninglessShortMessage(lead.message)) {
+ reasons.push("Mesaj 5 karakter altı ve anlamsız");
+ }
 
-  if (isSuspiciousCompany(lead.company)) {
-    reasons.push("Şirket adı URL veya localhost benzeri");
-  }
+ if (isSuspiciousCompany(lead.company)) {
+ reasons.push("Şirket adı URL veya localhost benzeri");
+ }
 
-  const quality = computeLeadQualityScore(lead);
-  if (hasWeakMessage(lead) && quality.level === "low") {
-    reasons.push("Zayıf mesaj + düşük kalite skoru");
-  }
+ const quality = computeLeadQualityScore(lead);
+ if (hasWeakMessage(lead) && quality.level === "low") {
+ reasons.push("Zayıf mesaj + düşük kalite skoru");
+ }
 
-  const confidence =
-    reasons.length === 0 ? "low" : resolveConfidence(reasons, patternFieldCount);
+ const confidence =
+ reasons.length === 0 ? "low" : resolveConfidence(reasons, patternFieldCount);
 
-  const isTestLead = resolveIsTestLead(reasons, confidence, patternFieldCount);
+ const isTestLead = resolveIsTestLead(reasons, confidence, patternFieldCount);
 
-  return {
-    isTestLead,
-    confidence: isTestLead ? confidence : "low",
-    reasons,
-    isManualMark: false,
-    manualOverrideNotTest: false,
-  };
+ return {
+ isTestLead,
+ confidence: isTestLead ? confidence : "low",
+ reasons,
+ isManualMark: false,
+ manualOverrideNotTest: false,
+ };
 }
 
 export function detectTestLead(lead: LeadIntent): TestLeadDetection {
-  if (lead.isTestLead === true) {
-    const reasons = ["Admin tarafından test lead olarak işaretlendi"];
-    if (lead.testLeadReason?.trim()) {
-      reasons.push(lead.testLeadReason.trim());
-    }
-    return {
-      isTestLead: true,
-      confidence: "high",
-      reasons,
-      isManualMark: true,
-      manualReason: lead.testLeadReason?.trim() || undefined,
-      manualOverrideNotTest: false,
-    };
-  }
+ if (lead.isTestLead === true) {
+ const reasons = ["Admin tarafından test lead olarak işaretlendi"];
+ if (lead.testLeadReason?.trim()) {
+ reasons.push(lead.testLeadReason.trim());
+ }
+ return {
+ isTestLead: true,
+ confidence: "high",
+ reasons,
+ isManualMark: true,
+ manualReason: lead.testLeadReason?.trim() || undefined,
+ manualOverrideNotTest: false,
+ };
+ }
 
-  if (lead.isTestLead === false) {
-    return {
-      isTestLead: false,
-      confidence: "low",
-      reasons: ["Admin tarafından test lead değil olarak işaretlendi"],
-      isManualMark: false,
-      manualOverrideNotTest: true,
-    };
-  }
+ if (lead.isTestLead === false) {
+ return {
+ isTestLead: false,
+ confidence: "low",
+ reasons: ["Admin tarafından test lead değil olarak işaretlendi"],
+ isManualMark: false,
+ manualOverrideNotTest: true,
+ };
+ }
 
-  return detectAutomaticTestLead(lead);
+ return detectAutomaticTestLead(lead);
 }
 
 export function filterLeadsForMetrics(
-  leads: LeadIntent[],
-  options: FilterLeadsForMetricsOptions = {}
+ leads: LeadIntent[],
+ options: FilterLeadsForMetricsOptions = {}
 ): LeadIntent[] {
-  const excludeTestLeads = options.excludeTestLeads ?? true;
+ const excludeTestLeads = options.excludeTestLeads ?? true;
 
-  if (!excludeTestLeads) {
-    return leads;
-  }
+ if (!excludeTestLeads) {
+ return leads;
+ }
 
-  return leads.filter((lead) => !detectTestLead(lead).isTestLead);
+ return leads.filter((lead) => !detectTestLead(lead).isTestLead);
 }
 
 export function computeLeadCleanupSummary(
-  leads: LeadIntent[],
-  options: FilterLeadsForMetricsOptions = {}
+ leads: LeadIntent[],
+ options: FilterLeadsForMetricsOptions = {}
 ): LeadCleanupSummary {
-  const excludeTestLeads = options.excludeTestLeads ?? true;
-  let testLeadCount = 0;
+ const excludeTestLeads = options.excludeTestLeads ?? true;
+ let testLeadCount = 0;
 
-  for (const lead of leads) {
-    if (detectTestLead(lead).isTestLead) {
-      testLeadCount += 1;
-    }
-  }
+ for (const lead of leads) {
+ if (detectTestLead(lead).isTestLead) {
+ testLeadCount += 1;
+ }
+ }
 
-  const metricsLeads = filterLeadsForMetrics(leads, { excludeTestLeads });
-  const excludedFromMetricsCount = excludeTestLeads ? testLeadCount : 0;
+ const metricsLeads = filterLeadsForMetrics(leads, { excludeTestLeads });
+ const excludedFromMetricsCount = excludeTestLeads ? testLeadCount : 0;
 
-  return {
-    totalLeads: leads.length,
-    testLeadCount,
-    excludedFromMetricsCount,
-    metricsLeadCount: metricsLeads.length,
-  };
+ return {
+ totalLeads: leads.length,
+ testLeadCount,
+ excludedFromMetricsCount,
+ metricsLeadCount: metricsLeads.length,
+ };
 }
 
 export function formatTestLeadConfidence(confidence: TestLeadConfidence): string {
-  const labels: Record<TestLeadConfidence, string> = {
-    high: "Yüksek",
-    medium: "Orta",
-    low: "Düşük",
-  };
-  return labels[confidence];
+ const labels: Record<TestLeadConfidence, string> = {
+ high: "Yüksek",
+ medium: "Orta",
+ low: "Düşük",
+ };
+ return labels[confidence];
 }

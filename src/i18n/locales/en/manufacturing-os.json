@@ -1,0 +1,303 @@
+{
+  "sector": {
+    "cnc": {
+      "title": "CNC Machining Intelligence",
+      "params": {
+        "target_cycle_time": "Target Cycle Time (s)",
+        "actual_cycle_time": "Measured Cycle Time (s)",
+        "machine_rate": "Machine Hourly Rate ($)"
+      }
+    },
+    "construction": {
+      "title": "Construction Project Intelligence",
+      "params": {
+        "target_value": "Target Project Value ($)",
+        "earned_value": "Earned Value ($)",
+        "labor_cost": "Labor Cost Rate ($/hr)"
+      }
+    },
+    "cleaning": {
+      "title": "Cleaning Services Intelligence",
+      "params": {
+        "planned_hours": "Planned Hours (hr)",
+        "actual_hours": "Actual Hours (hr)",
+        "hourly_labor_cost": "Hourly Labor Cost ($)"
+      }
+    },
+    "restaurant": {
+      "title": "Restaurant Margin Intelligence",
+      "params": {
+        "target_food_cost_pct": "Target Food Cost (%)",
+        "actual_food_cost_pct": "Actual Food Cost (%)",
+        "avg_plate_revenue": "Average Plate Revenue ($)"
+      }
+    },
+    "ecommerce": {
+      "title": "E-commerce Margin Intelligence",
+      "params": {
+        "target_margin_pct": "Target Margin (%)",
+        "actual_margin_pct": "Actual Margin (%)",
+        "avg_order_value": "Average Order Value ($)"
+      }
+    },
+    "welding": {
+      "title": "Welding & Fabrication Intelligence",
+      "params": {
+        "estimated_hours": "Estimated Hours (hr)",
+        "actual_hours": "Actual Hours (hr)",
+        "welder_rate": "Welder Hourly Rate ($)"
+      }
+    },
+    "hvac": {
+      "title": "HVAC Project Intelligence",
+      "params": {
+        "planned_install_cost": "Planned Install Cost ($)",
+        "actual_install_cost": "Actual Install Cost ($)",
+        "crew_rate": "Crew Hourly Rate ($)"
+      }
+    },
+    "electrical": {
+      "title": "Electrical Contracting Intelligence",
+      "params": {
+        "bid_labor_hours": "Bid Labor Hours (hr)",
+        "actual_labor_hours": "Actual Labor Hours (hr)",
+        "electrician_rate": "Electrician Hourly Rate ($)"
+      }
+    },
+    "landscaping": {
+      "title": "Landscaping & Lawn Care Intelligence",
+      "params": {
+        "route_hours": "Planned Route Hours (hr)",
+        "actual_route_hours": "Actual Route Hours (hr)",
+        "crew_rate": "Crew Hourly Rate ($)"
+      }
+    },
+    "auto_repair": {
+      "title": "Auto Repair Shop Intelligence",
+      "params": {
+        "quoted_labor_hours": "Quoted Labor Hours (hr)",
+        "actual_labor_hours": "Actual Labor Hours (hr)",
+        "bay_rate": "Service Bay Hourly Rate ($)"
+      }
+    },
+    "printing": {
+      "title": "Printing & Signage Intelligence",
+      "params": {
+        "est_job_cost": "Estimated Job Cost ($)",
+        "actual_job_cost": "Actual Job Cost ($)",
+        "press_rate": "Press Hourly Rate ($)"
+      }
+    },
+    "plumbing": {
+      "title": "Plumbing Services Intelligence",
+      "params": {
+        "job_estimate": "Job Estimate ($)",
+        "job_actual": "Actual Job Cost ($)",
+        "service_rate": "Service Hourly Rate ($)"
+      }
+    },
+    "millwork": {
+      "title": "Carpentry & Millwork Intelligence",
+      "params": {
+        "est_material_cost": "Estimated Material Cost ($)",
+        "actual_material_cost": "Actual Material Cost ($)",
+        "shop_rate": "Shop Hourly Rate ($)"
+      }
+    },
+    "roofing": {
+      "title": "Roofing Contract Intelligence",
+      "params": {
+        "bid_per_square": "Bid Price per Square ($)",
+        "actual_per_square": "Actual Price per Square ($)",
+        "crew_rate": "Crew Hourly Rate ($)"
+      }
+    },
+    "painting": {
+      "title": "Painting Job Intelligence",
+      "params": {
+        "coverage_target": "Target Coverage (sq ft)",
+        "coverage_actual": "Actual Coverage (sq ft)",
+        "painter_rate": "Painter Hourly Rate ($)"
+      }
+    },
+    "sheet_metal": {
+      "title": "Sheet Metal & Laser Intelligence",
+      "params": {
+        "nest_cycle_time": "Ideal Nest Cycle (s)",
+        "measured_cycle_time": "Measured Nest Cycle (s)",
+        "laser_rate": "Laser Hourly Rate ($)"
+      }
+    },
+    "print_3d": {
+      "title": "3D Printing Service Intelligence",
+      "params": {
+        "print_time": "Planned Print Time (hr)",
+        "actual_print_time": "Actual Print Time (hr)",
+        "printer_rate": "Printer Hourly Rate ($)"
+      }
+    },
+    "logistics": {
+      "title": "Logistics & Routing Intelligence",
+      "params": {
+        "fuel_price": "Fuel Price ($/L)",
+        "planned_dist": "Planned Distance (km)",
+        "actual_dist": "Actual Distance (km)"
+      }
+    },
+    "ag_crops": {
+      "title": "Crop & Fertilizer Intelligence",
+      "params": {
+        "target_yield": "Target Yield (kg)",
+        "actual_yield": "Actual Yield (kg)",
+        "fertilizer_cost_per_kg": "Fertilizer Cost ($/kg)"
+      }
+    },
+    "ag_irrigation": {
+      "title": "Irrigation & Water Intelligence",
+      "params": {
+        "planned_water_use": "Planned Water Use (L)",
+        "actual_water_use": "Actual Water Use (L)",
+        "pump_cost_per_liter": "Pumping Cost ($/L)"
+      }
+    },
+    "ag_feed": {
+      "title": "Livestock Feed Intelligence",
+      "params": {
+        "feed_budget": "Feed Budget (kg)",
+        "feed_actual": "Actual Feed Used (kg)",
+        "feed_price_per_kg": "Feed Price ($/kg)"
+      }
+    },
+    "ag_dairy": {
+      "title": "Dairy Yield Intelligence",
+      "params": {
+        "target_milk_yield": "Target Milk Yield (L)",
+        "actual_milk_yield": "Actual Milk Yield (L)",
+        "feed_cost_per_liter": "Feed Cost per Liter ($)"
+      }
+    },
+    "energy": {
+      "title": "Energy Consumption Intelligence",
+      "params": {
+        "target_kwh": "Target Consumption (kWh)",
+        "actual_kwh": "Actual Consumption (kWh)",
+        "kwh_rate": "kWh Unit Price ($)"
+      }
+    },
+    "carbon": {
+      "title": "Carbon & CBAM Intelligence",
+      "params": {
+        "target_emissions": "Target Emissions (tCO₂e)",
+        "actual_emissions": "Actual Emissions (tCO₂e)",
+        "carbon_price_per_tonne": "Carbon Price ($/tCO₂e)"
+      }
+    },
+    "renovation": {
+      "title": "Home Renovation Intelligence",
+      "params": {
+        "budget_per_sqm": "Budget per m² ($)",
+        "actual_per_sqm": "Actual Cost per m² ($)",
+        "contractor_rate": "Contractor Hourly Rate ($)"
+      }
+    },
+    "fuel": {
+      "title": "Fuel & Travel Intelligence",
+      "params": {
+        "planned_consumption": "Planned Consumption (L)",
+        "actual_consumption": "Actual Consumption (L)",
+        "fuel_price_per_liter": "Fuel Price ($/L)"
+      }
+    },
+    "meals": {
+      "title": "Meals & Grocery Intelligence",
+      "params": {
+        "recipe_budget": "Recipe Budget ($)",
+        "actual_spend": "Actual Spend ($)",
+        "cost_per_serving": "Cost per Serving ($)"
+      }
+    }
+  },
+  "auditPanel": {
+    "operationalAudit": "Sector measurement",
+    "runAudit": "Run calculation",
+    "prescription": "Expert result",
+    "variance": "Variance",
+    "financialImpact": "Estimated impact",
+    "critical": "Action needed — variance exceeds tolerance",
+    "stable": "Within normal range — keep monitoring",
+    "invalidInput": "Enter valid numeric values for all fields."
+  },
+  "expertVerdict": {
+    "title": "Expert result",
+    "premiumBadge": "Premium report",
+    "statusHigh": "High risk",
+    "statusOk": "Stable",
+    "summaryHigh": "Variance is {variance}% — adjust price, routing or tolerance before the next batch.",
+    "summaryOk": "Parameters are within expert thresholds for this sector.",
+    "riskGauge": "Risk level",
+    "actionHigh": "Fire or drift is eating margin. Recalibrate cycle time, scrap allowance or quote buffer.",
+    "actionOk": "Continue monitoring variance against sector benchmarks."
+  },
+  "auditHistory": {
+    "title": "Operational Audit Archive",
+    "empty": "No audit records yet. Run a sector diagnostic to populate the archive.",
+    "columns": {
+      "timestamp": "Timestamp",
+      "sector": "Sector",
+      "financialImpact": "Financial Impact",
+      "status": "Status"
+    },
+    "statusCritical": "CRITICAL",
+    "statusOptimal": "OPTIMAL"
+  },
+  "intelligencePanel": {
+    "title": "Expert analysis",
+    "hiddenLoss": "Hidden Operational Loss",
+    "carbonImpact": "Carbon / CBAM Proxy",
+    "actionPlan": "Decision Support",
+    "actionRequired": "Immediate Calibration",
+    "monitorOptimal": "Monitor & Stable",
+    "actionRequiredDetail": "Tolerance drift exceeds 10%. Recalibrate cycle time, routing or environmental buffers before the next production batch.",
+    "monitorOptimalDetail": "Operational parameters remain within intelligence thresholds. Continue monitoring variance against sector benchmarks.",
+    "deadheadLoss": "Deadhead / Empty Return Loss",
+    "modules": {
+      "hiddenLoss": "Hidden Loss",
+      "energyOpt": "Energy Tariff",
+      "deadhead": "Deadhead Detector",
+      "compliance": "Compliance Risk",
+      "weatherRisk": "Weather / Route",
+      "carbonCbam": "Carbon / CBAM"
+    }
+  },
+  "smartModules": {
+    "decision_support": "Real-time Action Plans",
+    "tolerance_opt": "Tolerance-Cost Analysis",
+    "hidden_loss": "Hidden Loss Detector",
+    "benchmarking": "Industry Benchmark",
+    "prescriptions": "Actionable Prescriptions",
+    "offline_mode": "Offline-First UX",
+    "fiscal_multi": "Tax & Multi-Currency",
+    "seasonal_loss": "Seasonal Impact Engine",
+    "machine_age": "Asset Aging Analysis",
+    "energy_opt": "Energy Tariff Optimizer",
+    "deadhead": "Deadhead Detector",
+    "compliance": "Legal & Penalty Risk",
+    "soil_nutrients": "Soil-Nutrient Engine",
+    "feed_efficiency": "Feed Efficiency Module",
+    "carbon_cbam": "CBAM & Carbon Tracker"
+  },
+  "benchmarkPanel": {
+    "title": "Industry Intelligence",
+    "yourScore": "Your Efficiency Score",
+    "industryAverage": "Industry Average",
+    "topPerformer": "Top Performer",
+    "needsOptimization": "Needs Optimization",
+    "atAverage": "At Industry Average"
+  },
+  "premiumAudit": {
+    "stepLabel": "Step {current} of {total}",
+    "nextParameter": "Next Parameter",
+    "invalidValue": "Enter a valid number before continuing.",
+    "restart": "Run another audit"
+  }
+}

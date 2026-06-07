@@ -12,36 +12,36 @@ import { menuProfitLeakDetectorDefinition } from "@/data/tool-definitions/menu-p
 import { returnRateProfitErosionToolDefinition } from "@/data/tool-definitions/return-rate-profit-erosion-tool";
 
 const TOOL_DEFINITIONS: ToolDefinition[] = [
-  machineHourEstimatorDefinition,
-  cncMinimumSafeQuoteAnalyzerDefinition,
-  projectCostEstimatorDefinition,
-  cleaningCostEstimatorDefinition,
-  foodCostCalculatorDefinition,
-  productMarginCalculatorDefinition,
-  changeOrderImpactAnalyzerDefinition,
-  officeCleaningBidOptimizerDefinition,
-  menuProfitLeakDetectorDefinition,
-  returnRateProfitErosionToolDefinition,
+ machineHourEstimatorDefinition,
+ cncMinimumSafeQuoteAnalyzerDefinition,
+ projectCostEstimatorDefinition,
+ cleaningCostEstimatorDefinition,
+ foodCostCalculatorDefinition,
+ productMarginCalculatorDefinition,
+ changeOrderImpactAnalyzerDefinition,
+ officeCleaningBidOptimizerDefinition,
+ menuProfitLeakDetectorDefinition,
+ returnRateProfitErosionToolDefinition,
 ];
 
 const definitionKey = (tier: ToolTier, slug: ToolSlug): string =>
-  `${tier}:${slug}`;
+ `${tier}:${slug}`;
 
 const DEFINITION_MAP = new Map<string, ToolDefinition>(
-  TOOL_DEFINITIONS.map((d) => [definitionKey(d.tier, d.slug), d])
+ TOOL_DEFINITIONS.map((d) => [definitionKey(d.tier, d.slug), d])
 );
 
 export function getToolDefinition(
-  tier: ToolTier,
-  slug: ToolSlug
+ tier: ToolTier,
+ slug: ToolSlug
 ): ToolDefinition | undefined {
-  return DEFINITION_MAP.get(definitionKey(tier, slug));
+ return DEFINITION_MAP.get(definitionKey(tier, slug));
 }
 
 export function getAllToolDefinitions(): ToolDefinition[] {
-  return [...TOOL_DEFINITIONS];
+ return [...TOOL_DEFINITIONS];
 }
 
 export function isValidToolTier(tier: string): tier is ToolTier {
-  return tier === "free" || tier === "premium";
+ return tier === "free" || tier === "premium";
 }

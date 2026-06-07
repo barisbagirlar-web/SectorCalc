@@ -1,84 +1,30 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
 import { cn } from "@/lib/cn";
-
-export type SectorCardBadge = "free" | "premium" | "new";
 
 export interface SectorCardProps {
   title: string;
-  description: string;
-  icon: ReactNode;
-  badge?: SectorCardBadge;
   href: string;
-  variant?: "default" | "featured" | "compact";
+  actionLabel?: string;
   className?: string;
 }
 
-const badgeStyles: Record<SectorCardBadge, string> = {
-  free: "bg-emerald/15 text-emerald",
-  premium: "bg-amber/15 text-amber",
-  new: "bg-accent-teal/10 text-accent-teal",
-};
-
-export function SectorCard({
-  title,
-  description,
-  icon,
-  badge,
-  href,
-  variant = "default",
-  className,
-}: SectorCardProps) {
-  const t = useTranslations("sectorCard");
-
+export function SectorCard({ title, href, actionLabel, className }: SectorCardProps) {
   return (
     <Link
       href={href}
       className={cn(
-        "group relative flex min-h-[44px] flex-col rounded-2xl border transition-all duration-200",
-        "border-border-subtle bg-white shadow-sm hover:-translate-y-1 hover:shadow-card",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal focus-visible:ring-offset-2",
-        "dark:border-border-subtle",
-        variant === "featured" && "ring-2 ring-amber/20",
-        variant === "compact" ? "p-4" : "p-6",
-        className
+        "ind-os-module group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-premium-velvet",
+        className,
       )}
     >
-      <div
-        className={cn(
-          "mb-4 flex h-12 w-12 items-center justify-center rounded-xl",
-          "bg-accent-teal/10 text-accent-teal",
-          "dark:bg-accent-teal/15"
-        )}
-      >
-        {icon}
-      </div>
-
-      <h3 className="sc-h3 mb-2 text-lg font-bold sm:text-xl">{title}</h3>
-
-      <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-slate">
-        {description}
-      </p>
-
-      {badge ? (
-        <span
-          className={cn(
-            "inline-flex w-fit items-center rounded-full px-2.5 py-0.5 text-xs font-medium",
-            badgeStyles[badge]
-          )}
-        >
-          {t(`badge.${badge}`)}
-        </span>
-      ) : null}
-
-      <div className="mt-auto flex items-center pt-4 text-sm font-medium text-accent-teal opacity-0 transition-opacity group-hover:opacity-100">
-        {t("calculate")}
-        <ArrowRightIcon className="ml-1 h-4 w-4" aria-hidden />
-      </div>
+      <span className="ind-os-module__title">{title}</span>
+      <span className="ind-os-module__action">
+        {actionLabel ?? "Open"}
+        <ChevronRight className="h-3 w-3" aria-hidden />
+      </span>
     </Link>
   );
 }

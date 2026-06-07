@@ -9,56 +9,91 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Backgrounds (Warm, Light)
-        "bg-primary": "#FAFAF9",
+        /* Industrial OS — Engineering Override */
+        "industrial-matte": "#FBFBFA",
+        "premium-velvet": "#111111",
+        "body-charcoal": "#2B2B2B",
+        "technical-gray": "#D1D1D1",
+        "action-orange": "#E65100",
+        /* Status signals (data only — NOT action orange) */
+        "crit-red": "#DC2626",
+        "warn-amber": "#F59E0B",
+        "safe-green": "#10B981",
+        /* Legacy aliases → industrial mapping */
+        "base-black": "#111111",
+        "base-white": "#FFFFFF",
+        "slate-gray": "#2B2B2B",
+        "light-gray": "#FBFBFA",
+        "deep-navy": { DEFAULT: "#111111", foreground: "#FFFFFF" },
+        "dark-navy": "#111111",
+        "bg-primary": "#FBFBFA",
         "bg-card": "#FFFFFF",
-        "bg-subtle": "#F5F5F4",
-        
-        // Text (Warm, Readable)
-        "text-primary": "#292524",
-        "text-secondary": "#57534E",
-        "text-muted": "#A8A29E",
-        
-        // Accents (Natural, Engineering)
-        "accent-teal": {
-          DEFAULT: "#0D9488",
-          light: "#CCFBF1",
-        },
-        "accent-emerald": "#059669",
-        "accent-amber": "#D97706",
-        
-        // Borders (Minimal)
-        "border-subtle": "#E7E5E4",
-        "border-focus": "#0D9488",
-        
-        // Status
-        success: "#059669",
-        warning: "#D97706",
-        error: "#DC2626",
-        
-        // Legacy compat (will be removed)
-        cyan: "#06B6D4",
+        "bg-subtle": "#FBFBFA",
+        "text-primary": "#111111",
+        "text-secondary": "#2B2B2B",
+        "text-muted": "#2B2B2B",
+        terminal: { DEFAULT: "#111111", surface: "#FBFBFA", border: "#D1D1D1" },
+        amber: { DEFAULT: "#F59E0B", light: "#FBFBFA" },
+        "accent-teal": "#111111",
+        "accent-emerald": "#10B981",
+        "accent-amber": "#F59E0B",
         emerald: "#10B981",
-        amber: "#F59E0B",
+        "soft-red": "#DC2626",
+        cyan: "#2B2B2B",
+        slate: "#2B2B2B",
+        "professional-blue": "#111111",
+        "off-white": "#FBFBFA",
+        "border-subtle": "#D1D1D1",
+        "border-focus": "#111111",
+        success: "#10B981",
+        warning: "#F59E0B",
+        error: "#DC2626",
+        premium: { DEFAULT: "#111111", surface: "#FBFBFA", border: "#D1D1D1" },
       },
       fontFamily: {
         sans: [
           "var(--font-inter)",
-          "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
+          "Helvetica Neue",
+          "Helvetica",
+          "Arial",
           "sans-serif",
+        ],
+        display: [
+          "var(--font-barlow)",
+          "Barlow",
+          "DIN Alternate",
+          "Arial Narrow",
+          "sans-serif",
+        ],
+        mono: [
+          "var(--font-jetbrains)",
+          "JetBrains Mono",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Consolas",
+          "monospace",
         ],
       },
       boxShadow: {
-        card: "0 1px 3px rgba(41, 37, 36, 0.05), 0 1px 2px rgba(41, 37, 36, 0.03)",
-        "card-hover": "0 4px 12px rgba(41, 37, 36, 0.08), 0 2px 4px rgba(41, 37, 36, 0.04)",
-        "card-premium": "0 1px 3px rgba(41, 37, 36, 0.05), 0 1px 2px rgba(41, 37, 36, 0.03)",
+        card: "none",
+        "card-hover": "none",
+        "card-premium": "none",
+        "card-dark": "none",
+        sm: "none",
       },
       borderRadius: {
-        "card": "16px",
+        none: "0",
+        sm: "0",
+        DEFAULT: "0",
+        md: "0",
+        lg: "0",
+        xl: "0",
+        "2xl": "0",
+        "3xl": "0",
+        card: "0",
       },
     },
   },

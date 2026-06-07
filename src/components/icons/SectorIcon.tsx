@@ -4,18 +4,18 @@ import type { IndustryIcon } from "@/lib/tools/industry-registry";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
 
 type SectorIconProps = {
-  slug: IndustrySlug | string;
-  iconType: IndustryIcon;
-  size?: "compact" | "default" | "feature";
-  className?: string;
+ slug: IndustrySlug | string;
+ iconType: IndustryIcon;
+ size?: "compact" | "default" | "feature";
+ className?: string;
 };
 
 export function SectorIcon({
-  slug,
-  iconType,
-  size = "feature",
-  className = "text-accent-teal",
+ slug,
+ iconType,
+ size = "feature",
+ className = "text-deep-navy",
 }: SectorIconProps) {
-  const Icon = resolveSectorIcon(slug, iconType);
-  return <ScIcon icon={Icon} size={size} className={className} />;
+ const Icon = resolveSectorIcon(slug, iconType);
+ return <ScIcon icon={Icon} size={size} className={className} />;
 }

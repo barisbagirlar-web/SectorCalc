@@ -1,853 +1,1058 @@
 ================================================================================
-SECTORCALC — PRODUCT DNA (v1.0)
-Global sector-specific calculation & decision-tool platform
+SECTORCALC — PRODUCT DNA (v3.0)
+Tam anatomi: tasarım, mimari, formüller, kataloglar, bölge, deploy
 ================================================================================
-Generated: 2026-06-06
-Domain: sectorcalc.com
-Project: SectorCalc (Next.js 15 + Firebase)
+Oluşturulma: 2026-06-07 (güncelleme: positioning reset + locale→currency)
+Domain (hedef): https://sectorcalc.com
+Canlı staging: https://sectorcalc-bf412.web.app
+Firebase proje: sectorcalc-bf412
+Stack: Next.js 15 · React 19 · Firebase · Stripe · Tailwind · next-intl · Vitest
 
-================================================================================
-TABLE OF CONTENTS
-================================================================================
-1. Product Identity
-2. Design System
-3. Code Structure
-4. Product Catalog (27 Sectors)
-5. Formula Structures
-6. Revenue Model
-7. Technical Architecture
+Bu belge projenin tek kaynak anatomi haritasıdır. Kod değişince bu dosya güncellenir.
 
 ================================================================================
-1. PRODUCT IDENTITY
+ÖZET (TÜRKÇE)
 ================================================================================
 
-Mission: Turn sector pain into paid decision tools.
+SectorCalc = sektöre özel hesaplama, ölçüm, optimizasyon ve karar raporu platformu.
+SAP derinliği + Stripe sadeliği + saha paneli okunabilirliği hedeflenir.
 
-Core Model:
-- FREE tools = quick checks, SEO entry, trust building, visible risk signals
-- PAID analyzers = safe price, bid risk, margin leak, verdict, suggested action
-- PDF = export format of paid analyzer result (future phase)
+Katmanlar:
+  1. Ücretsiz araçlar (54 slug'un 27'si free) — tarayıcıda hızlı risk sinyali
+  2. Premium raporlar (27 paid) — P90 güvenli fiyat, marj sızıntısı, karar
+  3. Industrial OS audit (27 OS sektör) — varyans, uzman katmanı, kıyaslama
 
-Target Users:
-- CNC manufacturers, construction contractors, cleaning services
-- Restaurants, e-commerce sellers, welding shops
-- HVAC, electrical, plumbing, roofing contractors
-- Landscaping, auto repair, printing, carpentry
-- Logistics, agriculture, energy, daily life
-
-Value Proposition:
-"Avoid underpriced jobs, margin leaks and bad bids with premium analyzers 
-built for real operating decisions."
+Sayılar:
+  · 27 marketing sektör (industry-registry)
+  · 54 revenue slug (27 free + 27 premium)
+  · 27 OS audit sektör (sector-registry.config.json)
+  · 5 UI dili: en, tr, es, de, ar
+  · 3 bölge/para: TR→TRY, DE→EUR, EN→USD
 
 ================================================================================
-2. DESIGN SYSTEM
+İÇİNDEKİLER
 ================================================================================
-
-2.1 TYPOGRAPHY
-────────────────────────────────────────────────────────────────────────────
-Font: Inter (Google Fonts)
-Variable: --font-inter
-Fallback: system-ui, -apple-system, sans-serif
-Feature settings: "cv02", "cv03", "cv04", "cv11"
-
-Scale:
-  --sc-h1: clamp(2.25rem, 4vw, 3.5rem)   → 36-56px
-  --sc-h2: clamp(1.75rem, 3vw, 2.5rem)   → 28-40px  
-  --sc-h3: clamp(1.25rem, 2vw, 1.75rem)  → 20-28px
-  --sc-body: 1rem (16px)
-  --sc-small: 0.875rem (14px)
-  --sc-eyebrow: 0.75rem (12px) uppercase, tracking 0.12em
-
-Headings:
-  H1: font-weight 700, letter-spacing -0.025em, line-height 1.1
-  H2: font-weight 600, letter-spacing -0.02em, line-height 1.2
-  H3: font-weight 600, line-height 1.3
-
-2.2 COLOR PALETTE
-────────────────────────────────────────────────────────────────────────────
-
-LIGHT THEME (Primary - Engineering Aesthetic):
-
-Backgrounds (Warm, Light):
-  --bg-primary:    #FAFAF9  (Stone-50)  — page background
-  --bg-card:       #FFFFFF              — card background
-  --bg-subtle:     #F5F5F4  (Stone-100) — subtle sections
-
-Text (Warm, Readable):
-  --text-primary:  #292524  (Stone-800) — headings, body
-  --text-secondary:#57534E  (Stone-600) — secondary text
-  --text-muted:    #A8A29E  (Stone-400) — placeholders
-
-Accents (Natural, Engineering):
-  --accent-teal:       #0D9488  (Teal-600)  — primary accent, focus
-  --accent-teal-light: #CCFBF1  (Teal-100)  — teal backgrounds
-  --accent-emerald:    #059669  (Emerald-600) — success
-  --accent-amber:      #D97706  (Amber-600)   — warning
-
-Borders (Minimal):
-  --border-subtle: #E7E5E4  (Stone-200)
-  --border-focus:  #0D9488  (Teal-600)
-
-Status:
-  --success: #059669  (Emerald-600)
-  --warning: #D97706  (Amber-600)
-  --error:   #DC2626  (Red-600)
-
-DARK THEME (design-system.css):
-  --sc-text:       #f8fafc  (Slate-50)
-  --sc-text-muted: #cbd5e1  (Slate-300)
-  --sc-page-bg:    #0f172a  (Slate-900) — navy
-  --sc-card-bg:    #1e293b  (Slate-800)
-  --sc-border:     #334155  (Slate-700)
-  --sc-blue:       #60a5fa  (Blue-400)
-  --sc-blue-hover: #93c5fd  (Blue-300)
-
-Industry Accent Colors:
-  blue:   #2563eb — CNC, e-commerce, auto, plumbing, sheet metal
-  cyan:   #06b6d4 — cleaning, HVAC, landscaping, printing, painting, 3D print
-  emerald:#10b981 — restaurant, crop, dairy, carbon
-  amber:  #f59e0b — construction, electrical, roofing, carpentry, transport
-
-2.3 SPACING & LAYOUT
-────────────────────────────────────────────────────────────────────────────
-
-Section Padding:
-  Mobile:  --sc-section-py: 3.5rem (56px)
-  Tablet:  --sc-section-py: 4.5rem (72px)
-  Desktop: --sc-section-py: 6rem   (96px)
-
-Card Padding:
-  Mobile:  --sc-card-p: 1rem   (16px)
-  Desktop: --sc-card-p: 1.5rem (24px)
-
-Component Heights:
-  --sc-cta-h:   3.5rem (56px) — buttons
-  --sc-input-h: 3rem   (48px) — form inputs
-
-Border Radius:
-  --sc-radius-card:  1rem    (16px) — cards
-  --sc-radius-btn:   0.875rem(14px) — buttons
-  --sc-radius-input: 0.75rem (12px) — inputs
-
-Shadows:
-  Card:       0 1px 3px rgba(41,37,36,0.05), 0 1px 2px rgba(41,37,36,0.03)
-  Card Hover: 0 4px 12px rgba(41,37,36,0.08), 0 2px 4px rgba(41,37,36,0.04)
-  Premium:    0 4px 24px -4px rgb(15,23,42/0.12)
-
-2.4 COMPONENT CLASSES
-────────────────────────────────────────────────────────────────────────────
-
-Cards:
-  .card-premium   — white bg, subtle border, 16px radius, shadow
-  .sc-card        — design-system card with hover transform
-  .sc-card-interactive — adds hover lift (-3px translateY)
-
-Buttons:
-  .sc-btn-primary   — blue bg, white text, 56px height, 14px radius
-  .sc-btn-secondary — transparent, blue border, blue text
-
-Inputs:
-  .sc-input        — 48px height, 12px radius, slate border
-  .sc-input:focus  — blue border + 3px blue ring
-  .sc-input-error  — red border + 3px red ring
-
-Typography:
-  .sc-h1, .sc-h2, .sc-h3  — responsive headings
-  .sc-eyebrow              — uppercase label
-  .sc-body-muted           — secondary text
-
-Animations:
-  .sc-reveal        — fade-up (350ms)
-  .sc-result-reveal — fade-in (300ms)
-
-Transitions:
-  --sc-transition: 181ms ease
+ 1.  Ürün kimliği ve vizyon
+ 2.  Konumlandırma (v3 — güncel)
+ 3.  Tasarım sistemi — renk kodları (hex)
+ 4.  Tasarım sistemi — tipografi, ölçüler, motion
+ 5.  UI katman mimarisi (Industrial + Apple shell)
+ 6.  Bileşen envanteri
+ 7.  Uygulama mimarisi (anatomi diyagramı)
+ 8.  Rota haritası
+ 9.  Registry sistemleri (3 paralel katalog)
+10.  Endüstri kataloğu (27 sektör)
+11.  Revenue tools (54 slug)
+12.  Industrial OS registry (27 audit sektör — tam parametreler)
+13.  Marketing ↔ OS slug eşlemesi
+14.  Formül ve motor haritası (TAM)
+15.  Risk profilleri (MarginCore DNA)
+16.  Marj sızıntı dedektörleri
+17.  Veri akışları
+18.  Firebase, Firestore, Cloud Functions
+19.  i18n ve bölgesel uyum (locale→currency)
+20.  Fiyatlandırma
+21.  Uzman hesaplama protokolü (20 yıllık operatör kuralı)
+22.  Kaynak ağacı (src/)
+23.  Bilinen boşluklar ve teknik borç
+24.  Deploy ve ops
 
 ================================================================================
-3. CODE STRUCTURE
+1. ÜRÜN KİMLİĞİ VE VİZYON
 ================================================================================
 
-3.1 PROJECT ROOT
-────────────────────────────────────────────────────────────────────────────
-/
-├── src/                  # Next.js 15 App Router source
-│   ├── app/              # Routes & layouts
-│   ├── components/       # React components
-│   ├── config/           # App configuration
-│   ├── data/             # Static data & types
-│   ├── i18n/             # Internationalization
-│   ├── lib/              # Utilities & business logic
-│   └── styles/           # CSS files
-├── functions/            # Firebase Cloud Functions
-├── public/               # Static assets
-├── messages/             # i18n translations (JSON)
-├── scripts/              # Build & audit scripts
-└── docs/                 # Documentation
+Marka: SectorCalc
+Anlam: Sector + Calc — sektöre özel hesaplama platformu
 
-3.2 APP ROUTER STRUCTURE
-────────────────────────────────────────────────────────────────────────────
-src/app/
-├── layout.tsx            # Root layout
-├── page.tsx              # Landing redirect
-├── globals.css           # Global styles
-├── icon.png              # Favicon
-├── apple-icon.png        # Apple touch icon
-├── robots.ts             # Robots.txt generator
-├── sitemap.ts            # Sitemap generator
-├── admin/                # Admin panel
-│   ├── layout.tsx
-│   └── leads/            # Lead management
-├── debug/                # Debug tools
-│   └── firestore-write/
-└── [locale]/             # Internationalized routes
-    ├── layout.tsx        # Locale layout (Inter font, next-intl)
-    ├── page.tsx          # Homepage
-    ├── account/          # User account
-    ├── free-tools/       # Free calculator listing
-    ├── premium-tools/    # Premium analyzer listing
-    ├── industries/       # Sector hub pages
-    ├── pricing/          # Subscription plans
-    ├── login/            # Authentication
-    ├── reports/          # Saved reports
-    ├── how-it-works/     # Onboarding
-    ├── for-consultants/  # B2B landing
-    ├── tools/            # Tool detail pages
-    │   ├── [tier]/       # free | premium
-    │   └── [slug]/       # Tool slug
-    ├── tools/free/[slug]/     # Free tool pages
-    ├── tools/premium/[slug]/  # Premium tool pages
-    ├── disclaimer/       # Legal disclaimer
-    ├── privacy/          # Privacy policy
-    └── terms/            # Terms of service
+TR (kanonik):
+  SectorCalc; sektörlere ve mesleklere özel hesaplama, ölçüm, optimizasyon
+  ve karar araçları sunar — ERP karmaşası olmadan.
 
-3.3 COMPONENT ARCHITECTURE
-────────────────────────────────────────────────────────────────────────────
-src/components/
-├── account/              # Account dashboard components
-│   ├── AccountDashboard.tsx
-│   ├── FreeToolsQuickLinks.tsx
-│   ├── PremiumToolsGrid.tsx
-│   ├── RecentReportsPanel.tsx
-│   └── SubscriptionStatusCard.tsx
-├── admin/                # Admin panel components
-│   ├── AdminAuthPanel.tsx
-│   ├── LeadDashboardSummary.tsx
-│   ├── LeadDetailDrawer.tsx
-│   ├── LeadActionCenter.tsx
-│   ├── LeadActivityList.tsx
-│   ├── LeadQualityScore.tsx
-│   ├── LeadPriorityBadge.tsx
-│   ├── LeadFollowUpSla.tsx
-│   ├── LeadPipelineControls.tsx
-│   └── ... (20+ admin components)
-├── billing/              # Stripe & subscription
-│   ├── PremiumPaywall.tsx
-│   ├── CheckoutLoadingOverlay.tsx
-│   ├── ProUpsellBanner.tsx
-│   └── SubscriptionActivationBanner.tsx
-├── brand/                # Logo & branding
-│   └── SiteLogo.tsx
-├── cards/                # Reusable cards
-│   ├── ToolTile.tsx      # Compact tool listing tile
-│   └── ReportPreviewCard.tsx
-├── home/                 # Homepage sections
-│   └── SectorSelectorSection.tsx
-├── icons/                # SVG icons
-│   ├── ScIcon.tsx
-│   └── SectorIcon.tsx
-├── industries/           # Industry components
-│   └── IndustryCard.tsx
-├── launch/               # Landing pages
-│   └── SectorMarginLanding.tsx
-├── layout/               # Site chrome
-│   ├── SiteHeader.tsx
-│   ├── HeaderNav.tsx
-│   ├── HeaderAuthCta.tsx
-│   ├── MobileNav.tsx
-│   ├── SiteFooter.tsx
-│   ├── PageLayout.tsx
-│   └── LocaleSwitcher.tsx
-├── leads/                # Lead capture
-│   ├── LeadIntentModal.tsx
-│   └── RequestPremiumReportLeadButton.tsx
-├── legal/                # Legal pages
-│   └── LegalPageContent.tsx
-├── pricing/              # Pricing page
-├── providers/            # React context providers
-│   └── AppProviders.tsx
-├── reports/              # Report management
-│   ├── ReportsHistoryList.tsx
-│   ├── SavedReportDetailContent.tsx
-│   └── DownloadVerdictPdfButton.tsx
-├── sections/             # Homepage/marketing sections
-│   ├── CTASection.tsx
-│   ├── FaqPreviewSection.tsx
-│   ├── HowItWorksSection.tsx
-│   ├── IndustriesPreviewSection.tsx
-│   ├── PricingPlansGrid.tsx
-│   └── ToolFinder.tsx
-├── seo/                  # SEO components
-│   └── JsonLd.tsx
-├── subscription/         # Subscription UI
-│   ├── PremiumToolPaywall.tsx
-│   └── ProCheckoutButton.tsx
-├── tools/                # Calculator/analyzer UI
-│   ├── FreeToolPage.tsx
-│   ├── PremiumToolPage.tsx
-│   ├── FreeToolResultDisplay.tsx
-│   ├── PremiumDecisionReportPanel.tsx
-│   ├── PremiumTeaserPanel.tsx
-│   ├── RiskGauge.tsx
-│   ├── ResultCard.tsx
-│   ├── RelatedTools.tsx
-│   ├── DecisionToolLegalDisclaimer.tsx
-│   └── ExportToolbar.tsx
-└── ui/                   # Base UI components
-    ├── Button.tsx
-    └── SectorButton.tsx
+EN (kanonik):
+  Sector-specific calculators, measurement tools and decision reports —
+  without ERP complexity.
 
-3.4 DATA LAYER
-────────────────────────────────────────────────────────────────────────────
-src/data/
-├── tools.ts              # Tool catalog (derived from revenue-tools)
-├── tool-schema.ts        # ToolDefinition, ToolResult types
-├── industries.ts         # Industry metadata
-├── pricing-plans.ts      # Subscription plans
-├── faq.ts                # FAQ content
-├── reports.ts            # Report types
-├── lead-options.ts       # Lead form options
-├── tool-definitions/     # Calculator logic definitions
-├── industry-hub-content.ts
-└── sector-landing-pages.ts
+Hedef kullanıcılar:
+  · Saha operatörü (CNC, kaynak, baskı, sac metal)
+  · İnşaat keşif / proje yöneticisi
+  · Lojistik dispatcher, filo sahibi
+  · Restoran / F&B operatörü
+  · Tarım (ürün, süt, yem, sulama)
+  · Enerji / karbon analisti
+  · Zanaat (HVAC, elektrik, tesisat, çatı, boya)
+  · Perakende / e-ticaret
+  · Günlük hayat hesapları (m² tadilat, yakıt, yemek)
+  · ERP'ye binlerce dolar veremeyen KOBİ ve danışman
 
-3.5 LIB / BUSINESS LOGIC
-────────────────────────────────────────────────────────────────────────────
-src/lib/
-├── tools/
-│   ├── revenue-tools.ts          # 27-sector tool registry (CANONICAL)
-│   ├── revenue-tools-additional.ts # Extended sector tools
-│   ├── industry-registry.ts      # 27 industry definitions
-│   └── paths.ts                  # Tool URL generation
-├── metadata.ts           # SEO metadata builder
-├── firebase.ts           # Firebase client init
-├── stripe.ts             # Stripe integration
-└── auth.ts               # Firebase Auth helpers
+Dört kayıp boyutu (platform geneli):
+  1. Finansal  — marj, maliyet, fiyat sızıntısı
+  2. Malzeme   — fire, hurda, verim, israf
+  3. Zaman     — setup, gecikme, OEE, rota
+  4. Enerji    — kWh, karbon, CBAM maruziyeti
 
-3.6 INTERNATIONALIZATION
-────────────────────────────────────────────────────────────────────────────
-src/i18n/
-├── routing.ts            # Locale routing config
-└── request.ts            # Request locale handling
+Ürün katmanları:
+  FREE    → hızlı kontrol, görünür risk sinyali, tarayıcıda matematik, verdict yok
+  PREMIUM → P90 güvenli fiyat, marj sızıntısı, karar (accept/caution/reject), PDF
+  OS      → registry audit, kıyaslama, intelligence layer, arşiv
 
-messages/
-├── en.json               # English
-├── tr.json               # Turkish
-├── de.json               # German
-├── es.json               # Spanish
-└── ar.json               # Arabic (RTL)
-
-Supported Locales: en, tr, de, es, ar
-Default: en
-RTL: ar
+site.ts (src/config/site.ts):
+  defaultTitle: "SectorCalc — Sector-specific measurement, loss detection and decision reports"
+  defaultDescription: "Calculate costs, measure efficiency, detect losses, and optimize
+                       operations across 27 sectors — free calculators and premium verdict reports"
+  tagline TR: "Her sektör için özel hesaplama, ölçüm ve karar raporları."
+  secondaryTagline: "Calculate the number. Get the decision."
 
 ================================================================================
-4. PRODUCT CATALOG (27 SECTORS)
+2. KONUMLANDIRMA (v3 — GÜNCEL, 2026-06-07)
 ================================================================================
 
-4.1 SECTOR OVERVIEW
-────────────────────────────────────────────────────────────────────────────
+Ana vaat (homepage EN):
+  "Calculate, measure and optimize for your sector."
 
-CATEGORY: Heavy Industry
-────────────────────────────────────────────────────────────────────────────
-1. CNC / Manufacturing (cnc-manufacturing)
-   Free:  Machine Time Calculator (machine-time-calculator)
-   Paid:  CNC Quote Risk Analyzer (cnc-quote-risk-analyzer)
-   Pain:  "One-off job may look profitable but setup and tooling can destroy margin"
+Ana vaat (homepage TR):
+  "Sektörünüz için hesaplayın, ölçün, optimize edin"
 
-2. Welding & Fabrication (welding-fabrication)
-   Free:  Welding Cost Estimator
-   Paid:  Welding Bid Risk Analyzer
-   Pain:  "Fit-up time and rework risk can turn a busy fab shop quote into margin loss"
+Nav (HeaderNav.tsx):
+  Tools → /free-tools
+  Industries → /industries
+  Categories → /categories
+  Reports → /account/reports
+  Pricing → /pricing
+  Account → /account
 
-3. Sheet Metal (sheet-metal)
-   Free:  Laser Cutting Cost Calculator
-   Paid:  Sheet Metal Quote Risk Tool
-   Pain:  "Programming, setup and scrap can destroy margin on sheet metal quotes"
+Header utilities:
+  RegionIndicator — "Turkey · TRY" vb.
+  RegionSelector — Otomatik / Global·USD / Turkey·TRY / Germany·EUR
+  LocaleSwitcher — en, tr, es, de, ar
 
-4. 3D Printing Service (3d-printing-service)
-   Free:  3D Print Cost Calculator
-   Paid:  3D Print Margin Tool
-   Pain:  "Print failures and post-processing can erase profit on custom jobs"
+Quote/margin dikeyi:
+  Alt kategori sloganı — ana marka değil.
+  Örnek: "Protect your margin before you quote." (premium-tools altında)
 
-CATEGORY: Building Trades
-────────────────────────────────────────────────────────────────────────────
-5. Construction (construction)
-   Free:  Project Cost Calculator (project-cost-calculator)
-   Paid:  Change Order Impact Analyzer (change-order-impact-analyzer)
-   Pain:  "Small change orders can quietly erase project margin"
+Premium çıktı dili:
+  ExpertVerdictPanel — risk göstergesi, sade Türkçe/İngilizce aksiyon metni
+  "CRITICAL DRIFT" kaldırıldı → "Yüksek risk — fire marjı eritiyor, fiyatı güncelle"
 
-6. HVAC (hvac)
-   Free:  HVAC Tonnage Calculator
-   Paid:  HVAC Project Margin Guard
-   Pain:  "Equipment, ductwork and callback risk can compress project margin fast"
-
-7. Electrical Contracting (electrical-contracting)
-   Free:  Electrical Labor Estimator
-   Paid:  Panel Shop Bid Calculator
-   Pain:  "Material, testing time and inspection delays can underprice panel work"
-
-8. Plumbing (plumbing)
-   Free:  Plumbing Cost Calculator
-   Paid:  Plumbing Margin Verdict
-   Pain:  "Parts runs, callbacks and fixture complexity can underprice jobs"
-
-9. Roofing (roofing)
-   Free:  Roofing Cost Calculator
-   Paid:  Roofing Contract Margin Guard
-   Pain:  "Tear-off, dump fees and weather delays can turn bids into warranty risk"
-
-10. Painting (painting)
-    Free:  Painting Cost Calculator
-    Paid:  Painting Job Profit Verdict
-    Pain:  "Prep time, scaffold cost and touch-ups can underprice jobs"
-
-CATEGORY: Field Services
-────────────────────────────────────────────────────────────────────────────
-11. Cleaning (cleaning)
-    Free:  Cleaning Cost Calculator (cleaning-cost-calculator)
-    Paid:  Office Cleaning Bid Optimizer (office-cleaning-bid-optimizer)
-    Pain:  "Cleaning contract can look easy and still lose money every month"
-
-12. Landscaping & Lawn Care (landscaping-lawn-care)
-    Free:  Lawn Care Cost Calculator
-    Paid:  Landscaping Contract Profit Tool
-    Pain:  "Fuel, crew hours and equipment wear can underprice monthly contracts"
-
-13. Auto Repair Shop (auto-repair-shop)
-    Free:  Auto Repair Pricing Calculator
-    Paid:  Auto Shop Margin Leak Detector
-    Pain:  "Diagnostic time and comeback risk can leak profit on quoted repairs"
-
-CATEGORY: Food & Retail
-────────────────────────────────────────────────────────────────────────────
-14. Restaurant (restaurant)
-    Free:  Food Cost Calculator (food-cost-calculator)
-    Paid:  Menu Profit Leak Detector (menu-profit-leak-detector)
-    Pain:  "Popular menu item can still leak profit after waste, labor and commission"
-
-15. E-commerce (ecommerce)
-    Free:  Product Margin Calculator (product-margin-calculator)
-    Paid:  Return Profit Erosion Tool (return-profit-erosion-tool)
-    Pain:  "Sales can grow while returns, ads and fees erase the profit"
-
-CATEGORY: Custom Manufacturing
-────────────────────────────────────────────────────────────────────────────
-16. Printing & Signage (printing-signage)
-    Free:  Print Job Cost Calculator
-    Paid:  Signage Safe Price Tool
-    Pain:  "Design time, install labor and reprint risk can erase job margin"
-
-17. Carpentry & Millwork (carpentry-millwork)
-    Free:  Cabinet Cost Estimator
-    Paid:  Millwork Bid Risk Analyzer
-    Pain:  "Waste, finishing and install time can underprice custom millwork bids"
-
-CATEGORY: Logistics & Transport
-────────────────────────────────────────────────────────────────────────────
-18. Logistics & Transport (logistics-transport)
-    Free:  Desi / Volumetric Weight Calculator
-    Paid:  Freight Margin Risk Analyzer
-    Pain:  "Desi miscalculations and empty return miles can quietly erase freight margin"
-
-CATEGORY: Agriculture & Livestock
-────────────────────────────────────────────────────────────────────────────
-19. Crop & Fertilizer (agriculture-crops)
-    Free:  Fertilizer Dosage Calculator
-    Paid:  Crop Yield Analyzer
-    Pain:  "Fertilizer over-application and weather gaps can destroy crop margin"
-
-20. Irrigation & Water (agriculture-irrigation)
-    Free:  Irrigation Cost Calculator
-    Paid:  Water Efficiency Analyzer
-    Pain:  "Underestimated pumping and water rights cost can erase field margin"
-
-21. Livestock Feed (agriculture-feed)
-    Free:  Feed Cost Calculator
-    Paid:  Feed Efficiency Analyzer
-    Pain:  "Feed waste and storage loss can quietly exceed milk or meat revenue"
-
-22. Dairy & Milk Yield (agriculture-dairy)
-    Free:  Milk Yield Calculator
-    Paid:  Dairy Profit Analyzer
-    Pain:  "Low yield per cow with rising feed prices destroys dairy profitability"
-
-CATEGORY: Energy & Environment
-────────────────────────────────────────────────────────────────────────────
-23. Energy Consumption (energy-consumption)
-    Free:  kWh Consumption Calculator
-    Paid:  Energy Efficiency Report
-    Pain:  "Unmanaged kWh spikes and demand charges can blow operating budgets"
-
-24. Carbon & CBAM (energy-carbon)
-    Free:  Carbon Footprint Calculator
-    Paid:  CBAM Import Cost Analyzer
-    Pain:  "Carbon border costs can erase export margin if not modeled upfront"
-
-CATEGORY: Daily Life
-────────────────────────────────────────────────────────────────────────────
-25. Home Renovation (daily-renovation)
-    Free:  Renovation Cost Calculator
-    Paid:  Renovation Budget Analyzer
-    Pain:  "Renovation budgets blow up when weather delays and city premiums are ignored"
-
-26. Fuel & Travel (daily-fuel)
-    Free:  Fuel Consumption Calculator
-    Paid:  Trip Budget Analyzer
-    Pain:  "Fuel and toll surprises can wreck personal or small fleet travel budgets"
-
-27. Meals & Grocery (daily-meals)
-    Free:  Recipe Cost Calculator
-    Paid:  Meal Planning Budget Tool
-    Pain:  "Food waste and premium ingredient drift erode household food budgets"
+Hizalama skoru (v3):
+  Teknik omurga (registry, motorlar, 54 slug)     ~80%
+  Marketing / IA / homepage                        ~75% (reset uygulandı)
+  Saha paneli UX (44px dokunma, 3 sn okuma)        ~40%
+  Formül derinliği (20 yıl uzman standardı)        ~45% (CNC en iyi)
 
 ================================================================================
-5. FORMULA STRUCTURES
+3. TASARIM SİSTEMİ — RENK KODLARI (HEX)
 ================================================================================
 
-5.1 FREE TOOL INPUT/OUTPUT PATTERN
-────────────────────────────────────────────────────────────────────────────
+Kaynak dosyalar (yüklenme sırası — globals.css):
+  tailwind.config.ts
+  src/app/globals.css
+  src/styles/industrial-ui.css
+  src/styles/industrial-os.css
+  src/styles/apple-ui.css
+  src/styles/premium-minimal.css
+  src/styles/contrast-system.css
 
-Input Pattern (3-5 inputs):
-  - Basic operational metrics (time, cost, quantity)
-  - Simple select options (pressure levels, frequency)
-  - No advanced risk factors
+── ENDÜSTRİYEL PALET (KANONİK) ──
 
-Output Pattern:
-  - Quick check / risk signal
-  - NO safe price
-  - NO verdict
-  - NO PDF
-  - Privacy note: "Inputs processed in browser, not stored"
+Token                    Hex         CSS değişkeni              Tailwind alias
+─────────────────────────────────────────────────────────────────────────────
+Industrial matte (bg)    #FBFBFA     --bg-industrial-matte     industrial-matte,
+                                                                   bg-primary, bg-subtle
+Premium velvet (text)    #111111     --text-premium-velvet     premium-velvet,
+                                                                   text-primary, deep-navy
+Body charcoal            #2B2B2B     --text-body-charcoal      body-charcoal,
+                                                                   text-secondary
+Technical gray (border)  #D1D1D1     --border-technical-gray   technical-gray
+Action orange (CTA)      #E65100     --action-industrial-orange action-orange
+Card white               #FFFFFF     --ind-surface             bg-card, base-white
 
-5.2 PAID ANALYZER INPUT/OUTPUT PATTERN
-────────────────────────────────────────────────────────────────────────────
+── DURUM SİNYALLERİ (veri — CTA turuncu DEĞİL) ──
 
-Input Pattern (5-8 inputs):
-  - All free inputs PLUS:
-  - Detailed cost breakdowns (labor, materials, overhead)
-  - Risk factors (waste rate, margin target, delay days)
-  - Sector-specific variables
+Critical red             #DC2626     --crit-red                crit-red, error
+Warning amber            #F59E0B     --warn-amber              warn-amber, warning
+Safe green               #10B981     --safe-green              safe-green, success
 
-Output Pattern:
-  - Minimum safe price / bid
-  - Verdict: ACCEPT / REPRICE / REJECT (sector-specific labels)
-  - Key cost drivers identified
-  - Margin leak detection
-  - Suggested action
-  - Legal disclaimer
+── CTA DURUMLARI ──
 
-5.3 SECTOR-SPECIFIC FORMULAS
-────────────────────────────────────────────────────────────────────────────
+Orange hover             #BF360C     .sc-btn-primary:hover
+Pure black hover         #000000     deep-navy button hover
 
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ CNC MANUFACTURING                                                           │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ Free Inputs:                                                                │
-│   • setupTime (min)                                                         │
-│   • cycleTime (min)                                                         │
-│   • quantity (units)                                                        │
-│                                                                             │
-│ Free Output: Visible time exposure, setup-heavy warning                     │
-│                                                                             │
-│ Paid Inputs (additional):                                                   │
-│   • toolCost (USD)                                                          │
-│   • materialCost (USD)                                                      │
-│   • machineRate (USD/hr)                                                    │
-│   • riskMargin (%)                                                          │
-│                                                                             │
-│ Paid Formula:                                                               │
-│   machineTime = (setupTime + cycleTime × quantity) / 60                     │
-│   machineCost = machineTime × machineRate                                   │
-│   totalCost = machineCost + materialCost + toolCost                         │
-│   safePrice = totalCost × (1 + riskMargin/100)                             │
-│                                                                             │
-│ Paid Verdicts:                                                              │
-│   DO NOT ACCEPT UNDER [safePrice]                                           │
-│   REPRICE REQUIRED                                                          │
-│   SAFE TO QUOTE                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
+── APPLE KATMAN (nav/footer) ──
 
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ CONSTRUCTION                                                                │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ Free Inputs:                                                                │
-│   • originalBudget (USD)                                                    │
-│   • changeEstimate (USD)                                                    │
-│   • deadlinePressure (low/medium/high)                                      │
-│                                                                             │
-│ Free Output: Change cost margin risk signal                                 │
-│                                                                             │
-│ Paid Inputs (additional):                                                   │
-│   • delayDays (days)                                                        │
-│   • crewCostPerDay (USD/day)                                                │
-│   • marginTarget (%)                                                        │
-│                                                                             │
-│ Paid Formula:                                                               │
-│   delayCost = delayDays × crewCostPerDay                                    │
-│   changeImpact = changeEstimate + delayCost                                 │
-│   marginErosion = changeImpact / originalBudget × 100                       │
-│   safeChangePrice = changeEstimate × (1 + marginTarget/100) + delayCost    │
-│                                                                             │
-│ Paid Verdicts:                                                              │
-│   ACCEPT                                                                    │
-│   RENEGOTIATE                                                               │
-│   DO NOT ACCEPT WITHOUT PRICE ADJUSTMENT                                    │
-└─────────────────────────────────────────────────────────────────────────────┘
+Apple bg                 #FFFFFF     --apple-bg
+Apple bg secondary       #F5F5F7     --apple-bg-secondary
+Apple text               #1D1D1F     --apple-text
+Apple text secondary     #86868B     --apple-text-secondary
+Apple text tertiary      #6E6E73     --apple-text-tertiary
+Apple link               #0066CC     --apple-link
+Apple link hover         #0077ED     --apple-link-hover
+Apple divider            #D2D2D7     --apple-divider
+Nav frosted bg           rgba(251,251,253,0.8)
 
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ CLEANING                                                                    │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ Free Inputs:                                                                │
-│   • areaSize (sq ft)                                                        │
-│   • staffCount (people)                                                     │
-│   • visitFrequency (visits/month)                                           │
-│                                                                             │
-│ Free Output: Workload exposure, underprice warning                          │
-│                                                                             │
-│ Paid Inputs (additional):                                                   │
-│   • laborRate (USD/hr)                                                      │
-│   • hoursPerVisit (hr)                                                      │
-│   • supplyCost (USD/month)                                                  │
-│   • targetMargin (%)                                                        │
-│                                                                             │
-│ Paid Formula:                                                               │
-│   monthlyHours = hoursPerVisit × visitFrequency                             │
-│   laborCost = monthlyHours × laborRate                                      │
-│   totalCost = laborCost + supplyCost                                        │
-│   minimumBid = totalCost / (1 - targetMargin/100)                          │
-│                                                                             │
-│ Paid Verdicts:                                                              │
-│   SAFE BID                                                                  │
-│   LOW MARGIN                                                                │
-│   UNDERPRICED                                                               │
-└─────────────────────────────────────────────────────────────────────────────┘
+── RGB KULLANIMI ──
 
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ RESTAURANT                                                                  │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ Free Inputs:                                                                │
-│   • menuPrice (USD)                                                         │
-│   • foodCost (USD)                                                          │
-│   • deliveryCommission (%)                                                  │
-│                                                                             │
-│ Free Output: Food cost ratio, hidden cost warning                           │
-│                                                                             │
-│ Paid Inputs (additional):                                                   │
-│   • ingredientCost (USD)                                                    │
-│   • wasteRate (%)                                                           │
-│   • laborCostPerItem (USD)                                                  │
-│   • targetMargin (%)                                                        │
-│                                                                             │
-│ Paid Formula:                                                               │
-│   adjustedCost = ingredientCost × (1 + wasteRate/100)                      │
-│   commissionCost = menuPrice × deliveryCommission/100                       │
-│   trueCost = adjustedCost + laborCostPerItem + commissionCost               │
-│   trueMargin = (menuPrice - trueCost) / menuPrice × 100                    │
-│   profitLeak = menuPrice × targetMargin/100 - (menuPrice - trueCost)        │
-│                                                                             │
-│ Paid Verdicts:                                                              │
-│   PROFITABLE                                                                │
-│   LEAKING PROFIT                                                            │
-│   REMOVE OR REPRICE                                                         │
-└─────────────────────────────────────────────────────────────────────────────┘
+White @ 75%              rgb(255 255 255 / 0.75)   contrast-system dark text
+Status bg tint crit      rgb(220 38 38 / 0.06)       premium-minimal
+Status bg tint warn      rgb(245 158 11 / 0.06)
+Status bg tint safe      rgb(16 185 129 / 0.06)
+Terminal border            rgb(51 65 85)               industrial-ui
 
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ E-COMMERCE                                                                  │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ Free Inputs:                                                                │
-│   • productPrice (USD)                                                      │
-│   • productCost (USD)                                                       │
-│   • returnRate (%)                                                          │
-│                                                                             │
-│ Free Output: Gross margin, return risk signal                               │
-│                                                                             │
-│ Paid Inputs (additional):                                                   │
-│   • shippingCost (USD)                                                      │
-│   • paymentFeeRate (%)                                                      │
-│   • adCostPerSale (USD)                                                     │
-│                                                                             │
-│ Paid Formula:                                                               │
-│   returnLoss = productPrice × returnRate/100                                │
-│   paymentFee = productPrice × paymentFeeRate/100                            │
-│   netRevenue = productPrice - returnLoss - paymentFee                       │
-│   netCost = productCost + shippingCost + adCostPerSale                      │
-│   netProfit = netRevenue - netCost                                          │
-│   breakEvenReturnRate = (productPrice - netCost) / productPrice × 100       │
-│                                                                             │
-│ Paid Verdicts:                                                              │
-│   SCALABLE                                                                  │
-│   FRAGILE                                                                   │
-│   LOSS AFTER RETURNS                                                        │
-└─────────────────────────────────────────────────────────────────────────────┘
+── KONTRAST KURALLARI (contrast-system.css) ──
 
-5.4 VERDICT LABELS BY SECTOR
-────────────────────────────────────────────────────────────────────────────
+Açık yüzey → metin #111111 / #2B2B2B
+Koyu yüzey (.bg-black, .ind-terminal) → metin #FFFFFF
+Koyu içinde .ind-os-panel → beyaz panel, koyu metin
+Primary CTA (.sc-btn-primary) → beyaz etiket, turuncu zemin
 
-Sector              | Verdict 1           | Verdict 2         | Verdict 3
---------------------|---------------------|-------------------|------------------
-CNC                 | DO NOT ACCEPT UNDER | REPRICE REQUIRED  | SAFE TO QUOTE
-Construction        | ACCEPT              | RENEGOTIATE       | DO NOT ACCEPT
-Cleaning            | SAFE BID            | LOW MARGIN        | UNDERPRICED
-Restaurant          | PROFITABLE          | LEAKING PROFIT    | REMOVE OR REPRICE
-E-commerce          | SCALABLE            | FRAGILE           | LOSS AFTER RETURNS
-Welding             | SAFE TO QUOTE       | REPRICE NEEDED    | DO NOT ACCEPT
-HVAC                | MARGIN SAFE         | TIGHT MARGIN      | REBID REQUIRED
-Electrical          | BID ACCEPTED        | REPRICE REQUIRED  | REJECT
-Landscaping         | CONTRACT SAFE       | LOW MARGIN        | UNDERPRICED
-Auto Repair         | JOB PROFITABLE      | COMEBACK RISK     | REJECT OR REPRICE
-Printing            | SAFE PRICE          | DESIGN RISK       | DO NOT ACCEPT
-Plumbing            | JOB SAFE            | CALLBACK RISK     | REPRICE REQUIRED
-Carpentry           | BID SAFE            | WASTE RISK        | REPRICE REQUIRED
-Roofing             | CONTRACT SAFE       | WEATHER RISK      | REBID REQUIRED
-Painting            | JOB PROFITABLE      | PREP RISK         | REPRICE REQUIRED
-Sheet Metal         | QUOTE SAFE          | SETUP RISK        | DO NOT ACCEPT
-3D Printing         | PRINT SAFE          | FAIL RISK         | REPRICE REQUIRED
-Logistics           | LOAD PROFITABLE     | EMPTY RISK        | REPRICE REQUIRED
-Crop                | YIELD SAFE          | FERTILIZER RISK   | RECALCULATE
-Irrigation          | WATER EFFICIENT     | PUMP RISK         | REASSESS
-Feed                | FEED EFFICIENT      | STORAGE RISK      | RECALCULATE
-Dairy               | YIELD PROFITABLE    | FEED COST RISK    | REASSESS
-Energy              | CONSUMPTION OK      | DEMAND RISK       | OPTIMIZE REQUIRED
-Carbon              | COMPLIANT           | BORDER COST RISK  | RECALCULATE
-Renovation          | BUDGET SAFE         | DELAY RISK        | REBUDGET REQUIRED
-Fuel                | TRIP AFFORDABLE     | FUEL RISK         | RECALCULATE
-Meals               | BUDGET OK           | WASTE RISK        | ADJUST PORTIONS
+KURAL: Turuncu #E65100 YALNIZCA birincil aksiyon.
+       Amber #F59E0B YALNIZCA uyarı/veri durumu.
+
+Legacy alias (hepsi endüstriyel palete çözülür):
+  deep-navy, accent-teal, professional-blue → #111111
+  terminal.DEFAULT → #111111; terminal.surface → #FBFBFA
 
 ================================================================================
-6. REVENUE MODEL
+4. TASARIM SİSTEMİ — TİPOGRAFİ, ÖLÇÜLER, MOTION
 ================================================================================
 
-6.1 SUBSCRIPTION PLANS
-────────────────────────────────────────────────────────────────────────────
+── FONTlar (layout.tsx) ──
 
-FREE PLAN ($0 forever):
-  - 27 industry quick-check calculators
-  - 2-3 inputs per tool
-  - Risk or preview signals
-  - No account required
-  - NO safe price or verdict
-  - NO decision summaries
-  - NO export
+Rol           Font              Değişken           Ağırlık    Sınıf
+──────────────────────────────────────────────────────────────────
+UI / body     Inter             --font-inter       400+       font-sans
+Başlık        Barlow            --font-barlow      500–700    font-display
+Veri / mono   JetBrains Mono    --font-jetbrains   400–600    font-mono
 
-SECTORCALC PRO ($29/month):
-  - Safe price and bid risk verdicts
-  - Margin leak detection
-  - 27 sector-specific analyzer tools
-  - Report-style decision summaries
-  - Cancel anytime
-  - Digital product, no refunds
+Body varsayılan:
+  17px · line-height 1.47059 · letter-spacing -0.022em
+  Renk #111111 · arka plan #FBFBFA
+  font-feature-settings: "cv11", "ss01"
+  Sayısal: tabular-nums (.data-value, .calculation-result)
 
-6.2 PRICING DISPLAY
-────────────────────────────────────────────────────────────────────────────
+── ENDÜSTRİYEL TİP ÖLÇEĞİ ──
 
-Headline: "Unlock sector-specific decision tools."
-Description: "Avoid underpriced jobs, margin leaks and bad bids with premium 
-              analyzers built for real operating decisions."
+Sınıf                      Boyut              Not
+ind-os-eyebrow             11px (0.6875rem)   uppercase semibold
+ind-os-headline            clamp 24–36px      Barlow semibold
+ind-os-lead                13px               body charcoal
+ind-os-section-title       14px               Barlow uppercase
+ind-os-metric label        10px               uppercase mono
+ind-os-metric value        14px               JetBrains Mono
+label-badge                12px (text-xs)     uppercase tracking wider
 
-Bullets:
-  ✓ Safe price and bid risk verdicts
-  ✓ Margin leak detection
-  ✓ Sector-specific analyzer tools
-  ✓ Report-style decision summaries
-  ✓ Cancel anytime
-  ✓ Digital product, no refunds
-  ✓ Estimates only; verify before business decisions
+Industrial dense (industrial-ui.css):
+  --ind-h1: 14px · --ind-body: 13px · --ind-small: 12px · --ind-eyebrow: 11px
 
-6.3 LEGAL DISCLAIMER (Required on all tools)
-────────────────────────────────────────────────────────────────────────────
+Apple shell:
+  apple-headline: clamp 36–56px · nav link: 13–15px · footer: 12px
 
-"This is a technical simulation and decision-support output. It is not 
-financial, legal or engineering advice. Verify all results before making 
-business decisions."
+── BOŞLUKLAR ──
 
-6.4 PRIVACY NOTES
-────────────────────────────────────────────────────────────────────────────
+Industrial:
+  --ind-section-py: 12px mobil → 16px md+
+  --ind-card-p: 8px · --ind-gap: 4px
+  --ind-cta-h / --ind-input-h: 32px (kompakt saha)
 
-Free Tools:
-"Free tool inputs are processed in your browser and are not stored unless 
-you create an account or save a premium report."
+Apple:
+  --apple-section-py: 56px · --apple-max-width: 980px · wide 1200px
 
-Paid Tools:
-"Premium analyzer results may be saved to your account only when you choose 
-to save a report."
+Container:
+  default max-w-6xl (72rem) · narrow 48rem · wide 80rem
+  OS container max 72rem · padding 8–16px
 
-================================================================================
-7. TECHNICAL ARCHITECTURE
-================================================================================
+Nav:
+  apple-nav__inner: 56px mobil → 60px tablet+
+  Nav link min-height: 44px (dokunma hedefi)
+  Logo yükseklik: 26px → 30px → 34px (responsive)
 
-7.1 STACK
-────────────────────────────────────────────────────────────────────────────
+── BORDER RADIUS ──
 
-Frontend:
-  - Next.js 15 (App Router)
-  - React 19
-  - TypeScript 5
-  - Tailwind CSS 3.4
-  - next-intl (i18n)
-  - Framer Motion (animations)
+Endüstriyel: 0 (her yerde keskin köşe)
+Apple: sm 12px · default 18px · lg 28px · pill 980px
 
-Backend:
-  - Firebase Hosting
-  - Firebase Auth
-  - Firestore (database)
-  - Cloud Functions (Node.js 22)
-  - Stripe (payments)
+── GÖLGE ──
 
-7.2 DEPLOYMENT
-────────────────────────────────────────────────────────────────────────────
+Endüstriyel: YOK
+Apple kart: 0 2px 8px rgba(0,0,0,0.04)
+Nav: backdrop-filter saturate(180%) blur(20px)
 
-Hosting: Firebase Hosting (static export)
-Functions: Cloud Functions (us-central1)
-Region: nam5 (Firestore), us-central1 (Functions)
-Domain: sectorcalc.com
+── MOTION ──
 
-Deploy Command:
-  npm run deploy
-  → verify + build + firebase deploy --only hosting,functions
-
-7.3 URL STRUCTURE
-────────────────────────────────────────────────────────────────────────────
-
-Free Tools:  /[locale]/tools/free/[slug]
-Paid Tools:  /[locale]/tools/premium/[slug]
-Industries:  /[locale]/industries/[slug]
-Pricing:     /[locale]/pricing
-Account:     /[locale]/account
-Reports:     /[locale]/reports
-
-7.4 FIREBASE STRUCTURE
-────────────────────────────────────────────────────────────────────────────
-
-Collections:
-  - users (auth + subscription status)
-  - leadIntents (lead captures)
-  - reports (saved analyzer results)
-
-Functions:
-  - createStripeCheckout
-  - stripeWebhook
-  - updateLeadPipeline
-  - updateLeadTestClassification
-  - ssrsectorcalcbf412 (Next.js SSR)
-
-7.5 SECURITY RULES
-────────────────────────────────────────────────────────────────────────────
-
-- Client cannot write subscription status
-- Admin: Firebase Auth `admin: true` claim verification
-- Reports: owner-only access
-- Stripe: Bearer ID token on checkout; webhook raw signature verify
+Route loading bar: 2px üst, #E65100
+.sc-reveal: 350ms fade-up · .sc-result-reveal: 300ms fade-in
+Focus: 2px solid #111111 outline, offset 2px
 
 ================================================================================
-END OF PRODUCT DNA
+5. UI KATMAN MİMARİSİ
+================================================================================
+
+Katman A — INDUSTRIAL OS (ürün yüzeyleri)
+  Dosyalar: industrial-ui.css, industrial-os.css, premium-minimal.css, contrast-system.css
+  Görünüm: matte #FBFBFA, keskin köşe, gölge yok, turuncu CTA
+  Kullanım: araç sayfaları, audit, hesap, sektör hub, formlar, paneller
+
+Katman B — APPLE SHELL (krom)
+  Dosya: apple-ui.css
+  Görünüm: buzlu sticky nav, yuvarlak marketing kartları, mavi linkler
+  Kullanım: SiteHeader, EnterpriseFooter, LocaleSwitcher, bazı marketing bölümleri
+
+================================================================================
+6. BİLEŞEN ENVANTERİ (~172 .tsx)
+================================================================================
+
+layout/ (12): SiteHeader, SiteFooter, EnterpriseFooter, HeaderNav, HeaderNavPrefetch,
+  PageLayout, PageHero, HubLink, LocaleSwitcher, RegionSelector, RegionIndicator,
+  MobileNav, HeaderAuthCta
+
+os/ (17+): IndustrialHome, QuickAccessModules, SystemStatusWidget, PremiumAuditInput,
+  AuditInputPanel, AuditArchiveSection, BenchmarkPanel, IntelligencePanel,
+  OsModuleHeader, SectorToolSelect, TerminalDashboard, IndustryAuditModule
+
+reports/ (11): ExpertVerdictPanel, CncStochasticPremiumPanel, PremiumPdfTemplate,
+  VerdictPdfDocument, SaveVerdictReportButton, ReportsHistoryList, AccountReportsPageContent
+
+tools/ (28): FreeToolPage, PremiumToolPage, ToolCatalogByCategory, ToolForm,
+  RiskGauge, RiskVerdictCard, PremiumTeaserPanel, PremiumDecisionReportPanel,
+  pilot/CncMachineTimeCalculator
+
+ui/ (17+): Button, Container, Badge, SectorCard, industrial/*, terminal/TerminalContainer
+
+account/, billing/, subscription/, admin/, seo/, sections/, industries/, pricing/
+
+Kural: Katalog kutucukları → cards/ToolTile.tsx + ToolsTileGrid (ToolCard deprecated)
+
+================================================================================
+7. UYGULAMA MİMARİSİ
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         TARAYICI (Client)                                │
+│  FreeToolPage → calculateFreeToolResult() [client formulas]             │
+│  PremiumToolPage → gate + client veya server action                     │
+│  PremiumAuditInput → runIndustrialAudit() [MasterOS client]           │
+│  ExpertVerdictPanel → sade dil + risk gauge                             │
+│  Firebase Auth · Firestore read · Stripe checkout redirect              │
+└───────────────────────────────┬─────────────────────────────────────────┘
+                                │
+┌───────────────────────────────▼─────────────────────────────────────────┐
+│                    NEXT.JS 15 APP ROUTER (RSC + Actions)                 │
+│  Server Components: pages, metadata, generateStaticParams               │
+│  Server Actions: margincore.ts, calculate-premium.ts, generate-pdf.ts   │
+│  Middleware: next-intl + region cookie/header (locale→currency)         │
+└───────────────────────────────┬─────────────────────────────────────────┘
+                                │
+        ┌───────────────────────┼───────────────────────┐
+        ▼                       ▼                       ▼
+┌───────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│ MOTOR KATMANI │     │ REGISTRY        │     │ FIREBASE        │
+│ u-engine      │     │ industry-reg    │     │ Hosting SSR     │
+│ risk-engine   │     │ revenue-tools   │     │ Auth            │
+│ stochastic    │     │ os/registry JSON│     │ Firestore       │
+│ sector-calcs  │     │ risk-profiles   │     │ Cloud Functions │
+│ compliance    │     │ sector-registry │     │ Stripe webhook  │
+└───────────────┘     └─────────────────┘     └─────────────────┘
+
+Üç motor yığını (birleşmemiş — bilinçli):
+  A. Revenue Flow — lib/tools/* (free/premium karar araçları)
+  B. Industrial OS — lib/os/* (audit, U-Engine, benchmark)
+  C. Legacy — lib/calculators/* + data/tool-definitions/
+
+IP koruması:
+  Free formüller → client (tarayıcı)
+  Premium MarginCore / stochastic / P90 → server-only
+  CNC stochastic → TXT string (anti-scraping)
+
+API route YOK — Server Actions + Cloud Functions only.
+
+Motor dosya indeksi:
+  src/lib/os/core/u-engine.ts
+  src/lib/os/core/formulas/formula-repository.ts
+  src/lib/os/core/master-os.ts
+  src/lib/os/core/audit-engine.ts
+  src/lib/os/core/intel-engine.ts
+  src/lib/os/core/intelligence-layer.ts
+  src/lib/tools/risk-engine.ts
+  src/lib/math/stochastic-engine.ts
+  src/lib/tools/sectors/sector-calculators.ts
+  src/lib/tools/sectors/risk-profiles.ts
+  src/lib/compliance/compliance-engine.ts
+  src/app/actions/margincore.ts
+  src/lib/actions/calculate-premium.ts
+
+================================================================================
+8. ROTA HARİTASI
+================================================================================
+
+Diller: /en · /tr · /es · /de · /ar (prefix her zaman açık)
+
+Kök:
+  /                              → redirect /en
+  /admin/leads                   → lead pipeline (korumalı)
+  /robots.txt · /sitemap.xml
+
+Locale sayfaları:
+  /[locale]                      → IndustrialHome
+  /[locale]/free-tools           → ücretsiz katalog
+  /[locale]/categories           → fonksiyon kategorilerine göre katalog (YENİ v3)
+  /[locale]/premium-tools        → premium katalog
+  /[locale]/pricing
+  /[locale]/how-it-works · /for-consultants · /login
+
+  /[locale]/industries           → 27 sektör indeks
+  /[locale]/industries/[slug]    → sektör hub + audit modülü
+
+  /[locale]/tools/free/[slug]    → SSG × 27 free slug
+  /[locale]/tools/premium/[slug] → SSG × 27 premium slug
+  /[locale]/tools/[tier]/[slug]  → legacy calculator definitions
+
+  /[locale]/audit                → 27-sector audit hub
+  /[locale]/audit/[sectorKey]    → OS sektör audit (cnc, logistics, …)
+  /[locale]/benchmarks · /sustainability · /os
+
+  /[locale]/account · /account/archive · /account/reports · /account/reports/[id]
+  /[locale]/reports/sample-decision-report
+
+  Kampanya: /cnc-quote-risk · /construction-bid-margin · /cleaning-contract-margin
+  Legal: /privacy · /terms · /disclaimer
+
+================================================================================
+9. REGISTRY SİSTEMLERİ
+================================================================================
+
+Neden üç katalog? Marketing slug ≠ OS kısa anahtar ≠ legacy metrik şeması.
+
+A. industry-registry.ts — 27 IndustrySlug (SEO, hub, revenue-tools.sector)
+B. sector-registry.config.json — 27 OS key (audit params, tolerance, features)
+C. lib/registry/sector-registry.ts — 27 metrik şeması (target/actual/unit)
+D. revenue-tools.ts (+ additional + phase2) — 27 free+paid çift
+
+Bağlantı: slugToSectorKeyMap in src/lib/os/registry/sectors.ts
+
+================================================================================
+10. ENDÜSTRİ KATALOĞU (27)
+================================================================================
+
+#  Slug                      Ad                            Kategori
+──  ────────────────────────  ────────────────────────────  ──────────────────
+ 1  cnc-manufacturing         CNC / Manufacturing           heavy-industry
+ 2  construction              Construction                  building-trades
+ 3  cleaning                  Cleaning                      field-services
+ 4  restaurant                Restaurant                    food-retail
+ 5  ecommerce                 E-commerce                    food-retail
+ 6  welding-fabrication       Welding & Fabrication         heavy-industry
+ 7  hvac                      HVAC                          building-trades
+ 8  electrical-contracting    Electrical Contracting        building-trades
+ 9  landscaping-lawn-care     Landscaping & Lawn Care       field-services
+10  auto-repair-shop          Auto Repair Shop              field-services
+11  printing-signage          Printing & Signage            custom-manufacturing
+12  plumbing                  Plumbing                      building-trades
+13  carpentry-millwork        Carpentry & Millwork          custom-manufacturing
+14  roofing                   Roofing                       building-trades
+15  painting                  Painting                      building-trades
+16  sheet-metal               Machine Shop — Sheet Metal    heavy-industry
+17  3d-printing-service       3D Printing Service           heavy-industry
+18  logistics-transport       Logistics & Transport         logistics-transport
+19  agriculture-crops         Crop & Fertilizer             agriculture-livestock
+20  agriculture-irrigation    Irrigation & Water            agriculture-livestock
+21  agriculture-feed          Livestock Feed                agriculture-livestock
+22  agriculture-dairy         Dairy & Milk Yield            agriculture-livestock
+23  energy-consumption        Energy Consumption            energy-environment
+24  energy-carbon             Carbon & CBAM                 energy-environment
+25  daily-renovation          Home Renovation               daily-life
+26  daily-fuel                Fuel & Travel                 daily-life
+27  daily-meals               Meals & Grocery               daily-life
+
+9 kategori:
+  heavy-industry · building-trades · field-services · food-retail
+  custom-manufacturing · logistics-transport · agriculture-livestock
+  energy-environment · daily-life
+
+Featured: cnc-manufacturing, construction, cleaning, logistics-transport,
+          agriculture-crops, energy-carbon, daily-renovation
+
+================================================================================
+11. REVENUE TOOLS (54 SLUG)
+================================================================================
+
+Rota: /[locale]/tools/free/{freeSlug} · /[locale]/tools/premium/{paidSlug}
+
+#  Sektör                  Free slug                      Premium slug
+──  ──────────────────────  ─────────────────────────────  ─────────────────────────────
+ 1  cnc-manufacturing       machine-time-calculator          cnc-quote-risk-analyzer
+ 2  construction            project-cost-calculator          change-order-impact-analyzer
+ 3  cleaning                cleaning-cost-calculator         office-cleaning-bid-optimizer
+ 4  restaurant              food-cost-calculator             menu-profit-leak-detector
+ 5  ecommerce               product-margin-calculator        return-profit-erosion-tool
+ 6  welding-fabrication     welding-cost-estimator           welding-bid-risk-analyzer
+ 7  hvac                    hvac-tonnage-rule-check          hvac-project-margin-guard
+ 8  electrical-contracting  electrical-labor-estimator       panel-shop-margin-verdict
+ 9  landscaping-lawn-care   lawn-care-cost-check             landscaping-contract-profit-tool
+10  auto-repair-shop        repair-time-vs-price-check       auto-shop-margin-leak-detector
+11  printing-signage        print-job-cost-check             signage-bid-safe-price-tool
+12  plumbing                plumbing-fixture-cost-check      plumbing-job-margin-verdict
+13  carpentry-millwork      cabinet-cost-estimator           millwork-bid-risk-analyzer
+14  roofing                 roofing-square-cost-check        roofing-contract-margin-guard
+15  painting                paint-coverage-cost-check        painting-job-profit-verdict
+16  sheet-metal             laser-cutting-time-check         sheet-metal-quote-risk-tool
+17  3d-printing-service     3d-print-cost-check              3d-print-job-margin-tool
+18  logistics-transport     desi-calculator                  route-optimization-analyzer
+19  agriculture-crops       fertilizer-dosage-calculator     crop-yield-loss-analyzer
+20  agriculture-irrigation  irrigation-cost-check            water-optimization-verdict
+21  agriculture-feed        feed-cost-estimator              feed-efficiency-analyzer
+22  agriculture-dairy       milk-yield-check                 dairy-profit-detector
+23  energy-consumption      kwh-consumption-check            energy-efficiency-report
+24  energy-carbon           carbon-footprint-quick           cbam-compliance-verdict
+25  daily-renovation        home-renovation-m2               renovation-budget-optimizer
+26  daily-fuel              fuel-consumption-check           trip-budget-optimizer
+27  daily-meals             recipe-cost-check                meal-planning-verdict
+
+Free sözleşme: 2–5 input · risk sinyali · verdict/PDF yok · tarayıcıda math
+Premium sözleşme: tam input → naive cost → P90 → leaks → verdict → sensitivity → PDF
+
+Implementasyon:
+  ~10 tam client calculator (lib/calculators/registry.ts)
+  54 slug katalog + MarginCore server path hepsi için
+  CNC pilot: machine-time-calculator + CncStochasticPremiumPanel
+
+================================================================================
+12. INDUSTRIAL OS REGISTRY (27 — TAM PARAMETRELER)
+================================================================================
+
+Kaynak: src/lib/os/registry/sector-registry.config.json
+Rota: /[locale]/audit/[sectorKey]
+
+OS key          Ad (EN)                  Parametreler (3'lü)                    Tol.
+────────────────────────────────────────────────────────────────────────────────────────
+cnc             CNC                      Ideal_Cycle_Time, Actual_Cycle_Time,   5%
+                                         Machine_Rate
+logistics       Logistics & Routing      Planned_KM, Actual_KM, Fuel_Price       8%
+construction    Construction Project     Target_Cost, Actual_Cost, Labor_Hours  10%
+agriculture     Crop Yield Management    Target_Yield_Ha, Actual_Yield_Ha,       8%
+                                         Input_Cost
+textile         Textile Manufacturing    Target_Fabric_Usage, Actual_Usage,      2%
+                                         Fabric_Cost
+plastics        Plastic Injection        Target_Cycle_Time, Scrap_Rate,          3%
+                                         Material_Cost
+food_bev        Food & Beverage          Standard_Yield, Actual_Output,          1%
+                                         Batch_Cost
+automotive      Automotive Assembly      Target_Throughput, Actual_Throughput,    2%
+                                         Unit_Labor_Cost
+electronics     Electronics PCB          Yield_Rate, Defect_Count,               0.5%
+                                         Component_Cost
+metalworking    Metal Fabrication        Standard_Weight, Actual_Weight,         4%
+                                         Raw_Material_Cost
+pharma          Pharmaceuticals          Target_Potency, Actual_Potency,         0.1%
+                                         Batch_Cost
+warehousing     Warehouse Inventory      Target_Stock_Turn, Actual_Turn,          5%
+                                         Storage_Cost
+marine          Marine Shipping          Planned_Fuel, Actual_Fuel, Voyage_Cost  10%
+waste_mgmt      Waste Management         Target_Disposal_Cost, Actual_Disposal,  6%
+                                         Volume
+water_utility   Water Utility            Target_Flow_Rate, Actual_Flow_Rate,     2%
+                                         Operational_Cost
+energy_plant    Energy & Utilities       Target_Output_Kwh, Actual_Output_Kwh,  3%
+                                         Operational_Cost
+hvac            HVAC Facilities          Target_Energy_Consumption,              5%
+                                         Actual_Consumption, Cost_Per_Unit
+mining          Mining Operations        Target_Ore_Grade, Actual_Ore_Grade,     7%
+                                         Extraction_Cost
+printing        Printing & Packaging     Target_Ink_Usage, Actual_Ink_Usage,     4%
+                                         Material_Cost
+livestock       Livestock & Dairy        Target_Feed_Efficiency,                 6%
+                                         Actual_Efficiency, Feed_Cost
+hospitality     Hospitality / F&B        Target_Food_Cost_%, Actual_Food_Cost_%, 4%
+                                         Revenue
+retail          Retail Operations        Target_Margin_%, Actual_Margin_%,       5%
+                                         Operating_Cost
+finance         Corporate Finance        Target_Budget, Actual_Expenditure,      1%
+                                         Admin_Cost
+legal_it        IT & Software Services   Projected_Hours, Actual_Hours,         5%
+                                         Hourly_Rate
+facility_mgmt   Facility Maintenance     Planned_Maintenance_Cost, Actual_Cost,  5%
+                                         Downtime_Hrs
+aviation_mro    Aviation MRO             Target_Repair_Time, Actual_Repair_Time, 1%
+                                         Parts_Cost
+paper_pkg       Paper & Packaging        Target_GSM, Actual_GSM,                3%
+                                         Production_Cost
+
+Smart modüller (feature flags):
+  decision_support · tolerance_opt · hidden_loss · benchmarking · prescriptions
+  energy_opt · carbon_cbam · deadhead · compliance · fiscal_multi · seasonal_loss
+  soil_nutrients · feed_efficiency · machine_age · offline_mode
+
+Intelligence Layer çıktıları:
+  hiddenLoss · carbonImpact · actionPlan (IMMEDIATE_CALIBRATION | MONITOR)
+  ExpertVerdictPanel (v3) · BenchmarkPanel · IntelligencePanel
+
+================================================================================
+13. MARKETING ↔ OS SLUG EŞLEMESİ
+================================================================================
+
+Kaynak: src/lib/os/registry/sectors.ts → slugToSectorKeyMap
+
+IndustrySlug              → OS key
+─────────────────────────────────────
+cnc-manufacturing         → cnc
+construction              → construction
+cleaning                  → facility_mgmt
+restaurant                → hospitality
+ecommerce                 → retail
+welding-fabrication       → metalworking
+hvac                      → hvac
+electrical-contracting    → legal_it
+landscaping-lawn-care     → agriculture
+auto-repair-shop          → automotive
+printing-signage          → printing
+plumbing                  → construction
+carpentry-millwork        → construction
+roofing                   → construction
+painting                  → construction
+sheet-metal               → metalworking
+3d-printing-service       → plastics
+logistics-transport       → logistics
+agriculture-crops         → agriculture
+agriculture-irrigation    → agriculture
+agriculture-feed          → livestock
+agriculture-dairy         → livestock
+energy-consumption        → energy_plant
+energy-carbon             → energy_plant
+daily-renovation          → construction
+daily-fuel                → logistics
+daily-meals               → hospitality
+
+Not: Bir OS key birden fazla marketing slug'a hizmet edebilir (construction ← 5 slug).
+
+================================================================================
+14. FORMÜL VE MOTOR HARİTASI (TAM)
+================================================================================
+
+── A. U-ENGINE / AUDIT (lib/os/core/u-engine.ts) ──
+
+Girdi: target, actual, unitCost (cost), tolerance (varsayılan %5), region, features[]
+
+computeVarianceRatio(actual, target):
+  varianceRatio = (actual − target) / target   [target=0 özel durum]
+
+Financial loss (base):
+  financialLoss = |actual − target| × unitCost
+
+Severity:
+  CRITICAL if |varianceRatio| > tolerance
+  OPTIMAL otherwise
+
+Efficiency score (intel-engine):
+  score = clamp(100 − |((actual−target)/target)×100|, 0, 100)
+  OPTIMAL threshold: score > 80 (OPTIMAL_SCORE_THRESHOLD)
+
+Regional overlay (applyRegionalFinancialLoss — v3 kısmi ağırlık):
+  TR + energy module:
+    peakBlend = (energyPeak + energyOffPeak) / 2
+    energyFactor = peakBlend × hiddenLossEnergyWeight
+    adjusted ×= 1 + (energyFactor − 1) × 0.35
+  TR + fiscal module:
+    adjusted ×= 1 + (taxCoefficient − 1) × 0.45
+  TR (her zaman):
+    adjusted ×= 1 + (inflationCoefficient − 1) × 0.2
+  DE + CBAM:
+    adjusted ×= 1 + cbamExposureBoost × 0.5
+  DE:
+    adjusted ×= 1 + (euIndustrialEfficiencyFactor − 1) × 0.15
+
+Çıktı formatı: formatRegionalCurrency(loss, region, locale)
+
+── B. FORMULA REPOSITORY (lib/os/core/formulas/formula-repository.ts) ──
+
+Tüm 27 OS sektör → standardEfficiencyFormula (aynı mantık)
+executeFull → { efficiencyScore, varianceRatio, financialLoss }
+
+── C. INTELLIGENCE LAYER (lib/os/core/intelligence-layer.ts) ──
+
+hiddenLoss = f(variance, cost, sector coefficients)
+carbonImpact = kg CO₂e proxy
+actionPlan:
+  IMMEDIATE_CALIBRATION if variance > ACTION_PLAN_VARIANCE_THRESHOLD (10%)
+  else MONITOR
+
+── D. MARGINCORE / RISK ENGINE (lib/tools/risk-engine.ts) — SERVER ONLY ──
+
+Sabitler:
+  Z_P90 = 1.2816 · Z_P95 = 1.6449
+  DEFAULT_CARBON_PRICE_EUR = 85 · EUR_USD_RATE = 1.08
+
+9 adımlı pipeline (runMarginCoreEngine):
+  1. naiveCost = sector calculateNaiveCost(inputs)
+  2. adjustedCost = naiveCost × ∏(sectorRiskMultipliers) [regional overlay]
+  3. σ = adjustedCost × baseVolatility
+  4. P90 safe cost = adjustedCost + Z_P90 × σ
+  5. CBAM liability = emissionFactor × (output/1000) × carbonPrice × exposure × EUR_USD
+  6. macroShock EV = Σ probability × (impactMultiplier − 1) × baseCost
+  7. P90 safe price = P90 base + CBAM + macro EV
+  8. marginLeaks = detectMarginLeaks(sector, inputs, naiveCost)
+  9. sensitivity: material +10%, labor +8%, timeline +20%
+  Verdict: quotedPrice vs P90 → ACCEPT | CAUTION | REJECT
+
+── E. STOCHASTIC ENGINE (lib/math/stochastic-engine.ts) ──
+
+P_safe = E[C] + Z_90 × σ   where σ = expected × (volatility%/100)
+CBAM proxy: liability = base × emissionFactor × 0.08
+Sensitivity: +5% material, +10% labor, +3 day delay
+Verdict buffer: >50% reject · >25% caution · else accept
+Output: TXT report (formatEngineReport)
+
+── F. NAIVE COST FORMÜLLERİ (27 sektör — sector-calculators.ts) ──
+
+cnc-manufacturing:
+  machineHours = (setup + cycle×qty) / 60
+  cost = machineHours × machineRate + material + tooling
+
+welding-fabrication:
+  cost = (weld+prep)/60 × laborRate + consumable + material
+
+sheet-metal:
+  cost = (cut+bend+setup)/60 × machineRate + material
+
+3d-printing-service:
+  cost = (print+postProcess)/60 × machineRate + material
+
+construction:
+  cost = budget + changeEstimate + delayDays × crewCostPerDay
+
+hvac:
+  cost = equipment + laborHours×rate + duct + refrigerant
+
+electrical-contracting:
+  cost = material + (labor+testing)×rate + panel
+
+plumbing:
+  cost = parts + (labor + fixtures×fixtureTime/60) × rate
+
+roofing:
+  cost = material + tearOff + laborHours×rate + dumpFee
+
+painting:
+  paintHours = area/200
+  cost = paintCost + (prep + paintHours)×rate + scaffold
+
+cleaning:
+  cost = hoursPerVisit × visitFreq × rate × staff + supplies
+
+landscaping-lawn-care:
+  cost = (crewHours×rate + fuel + equip) × visits
+
+auto-repair-shop:
+  cost = (diag+repair)/60 × rate + parts
+
+restaurant:
+  cost = ingredient×(1+wasteRate) + labor + menuPrice×commission%
+
+ecommerce:
+  cost = product + shipping + ads + price×returnRate
+
+printing-signage:
+  cost = (design+print+install)/60 × rate + material
+
+carpentry-millwork:
+  cost = material×(1+wasteRate) + (cut+assembly+finish+install)/60 × rate
+
+logistics-transport:
+  cost = distance×fuelPerKm×(1+emptyReturn%) + driverHours×rate + tolls
+
+agriculture-crops:
+  cost = fertilizer + seed + labor + pesticide
+
+agriculture-irrigation:
+  cost = pumpingHours×pumpKw×energyRate + maintenance + water
+
+agriculture-feed:
+  cost = feedQty×feedPrice×(1+storageLoss) + transport
+
+agriculture-dairy:
+  cost = herd×feedPerCow + vet + labor + herd×cullRate×cowValue
+
+energy-consumption:
+  cost = kwh×rate + demandCharge + peakKwh×peakRate
+
+energy-carbon:
+  cost = emissions×carbonPrice + audit + verification
+
+daily-renovation:
+  cost = (material + laborDays×rate + permit) × (1+contingency)
+
+daily-fuel:
+  cost = (distance/100)×consumption×fuelPrice + tolls
+
+daily-meals:
+  cost = ingredientCost × (1+wasteRate)
+
+Desi (logistics free):
+  volumetric = L×W×H / divisor (3000 veya 5000)
+
+================================================================================
+15. RİSK PROFİLLERİ (MarginCore DNA — risk-profiles.ts)
+================================================================================
+
+Her sektör: baseVolatility, sectorRiskMultipliers{}, cbamExposureIndex, macroShockVectors{}
+
+Örnek CNC (cnc-manufacturing):
+  baseVolatility: 0.22
+  multipliers: toolBreakage 1.08, setupOverrun 1.06, materialScrap 1.05, supplyChainDelay 1.04
+  cbamExposureIndex: 0.75
+  macro: steelPrice 20%×1.18, energyCost 15%×1.12
+
+Örnek Construction:
+  baseVolatility: 0.28
+  multipliers: changeOrder 1.12, weatherDelay 1.08, subcontractorOverrun 1.06, ...
+  macro: lumber 18%×1.22, concrete 15%×1.12, laborShortage 20%×1.15
+
+Regional overlay (applyRegionalRiskProfileOverlay):
+  TR: energyTariff, localInflation, payrollTax eklenir; baseVolatility × inflation blend
+  DE: euEfficiency, industrialElectricity; cbamExposureIndex boost
+
+27 profil tamamı: src/lib/tools/sectors/risk-profiles.ts → SECTOR_RISK_PROFILES
+
+================================================================================
+16. MARJ SIZINTI DEDEKTÖRLERİ
+================================================================================
+
+Kaynak: MARGIN_LEAK_DETECTORS in sector-calculators.ts
+Çıktı: { driver, leakAmount, severity, suggestedAction }[]
+
+Her sektör için eşik tabanlı sürücüler (setup overrun, rework, scrap, deadhead,
+food waste, peak demand, callback, inspection failure, vb.)
+
+CNC örneği: setup overrun, tool wear, scrap rate, cycle drift
+Logistics: empty return, fuel variance, delay penalty
+Restaurant: food waste %, labor overrun, delivery commission leak
+
+getMarginLeakDetector(sectorSlug) → sector-specific detector function
+
+================================================================================
+17. VERİ AKIŞLARI
+================================================================================
+
+FREE TOOL:
+  Page (RSC) → FreeToolPage → calculateFreeToolResult() [browser]
+  → risk gauge + kısa yorum + upgrade panel
+  → analytics · optional lead modal
+
+PREMIUM (standard):
+  PremiumToolPage → usePremiumToolAccess gate
+  → runMarginCoreAnalysis (server) veya client premium-tool-results
+  → PremiumVerdictReport UI → SaveVerdictReportButton / PDF
+
+PREMIUM CNC STOCHASTIC:
+  CncStochasticPremiumPanel → calculatePremiumVerdict()
+  → verifyProSubscriber → stochastic-engine → TXT → parsePremiumVerdictTxt()
+
+AUDIT (Industrial OS):
+  /audit/[sectorKey] → PremiumAuditInput (3 adım wizard)
+  → useOperationalAudit → runIndustrialAudit(sectorId, inputs, locale, region)
+  → MasterOS pipeline → ExpertVerdictPanel (v3)
+  → submitAnonymizedBenchmark() → Firestore benchmarkPools/{sectorId}
+
+CHECKOUT:
+  createCheckoutSession → Cloud Function createStripeCheckout
+  → Stripe webhook → users/{uid}.subscription
+  → useProSubscription aktif
+
+================================================================================
+18. FIREBASE, FIRESTORE, CLOUD FUNCTIONS
+================================================================================
+
+firebase.json: firestore + functions + hosting (Next.js SSR framework)
+.firebaserc: sectorcalc-bf412
+Firestore region: nam5 · Functions: us-central1
+
+Cloud Functions (functions/src/index.ts):
+  createStripeCheckout — Firebase ID token → Stripe session URL
+  stripeWebhook — subscription + purchase sync (Admin SDK)
+  updateLeadPipeline — admin lead writes (secret-gated)
+
+Firestore koleksiyonları:
+  leadIntents/{id}         — public create only
+  users/{uid}              — read own; subscription Admin-only write
+  users/{uid}/purchases
+  reports/{id}             — owner read/write
+  benchmarkPools/{sector}  — server-only write
+
+Client SDK: auth, firestore (subscription read, reports R/W own)
+Admin SDK: server actions, functions, benchmark pool, Pro verification
+
+Env (repoda YOK):
+  Firebase service account · Stripe keys · ADMIN_LEAD_UPDATE_SECRET
+  NEXT_PUBLIC_SITE_URL
+
+================================================================================
+19. i18n VE BÖGESEL UYUM (v3 — locale→currency)
+================================================================================
+
+UI dilleri: en · tr · es · de · ar
+  messages/{locale}.json — ana namespace
+  src/i18n/locales/{en,tr}/manufacturing-os.json — audit/OS overlay
+
+Bölge kodları: TR · DE · EN (Global)
+Kaynak: src/config/regions.ts
+
+Para birimi eşlemesi (v3 — dil sürer, geo IP kullanılmaz):
+  Locale tr  → TR → TRY
+  Locale de  → DE → EUR
+  Locale en/es/ar/diğer → EN → USD
+
+Çözümleme sırası:
+  1. sc-region-manual cookie (kullanıcı seçimi: Global/Turkey/Germany)
+  2. Yoksa localeToRegion(locale)
+  3. middleware → x-region header + sc-region cookie (365 gün)
+
+Header UI:
+  RegionIndicator — "{region} · {currency}"
+  RegionSelector — Auto / Global·USD / Turkey·TRY / Germany·EUR
+
+REGION_PROFILES (tam katsayı tablosu):
+
+TR: TRY · inflation 1.52 · VAT 20% · peak energy 1.85× · off-peak 1.0
+    hiddenLossEnergy 1.35 · tax 1.2 · CBAM off · elec $0.12/kWh
+DE: EUR · inflation 1.08 · VAT 19% · peak 1.15× · CBAM on €85/t
+    EU efficiency 1.12× · elec $0.25/kWh · cbamExposureBoost 0.25
+EN: USD · inflation 1.0 · VAT 0 · CBAM off · elec $0.15/kWh · carbon ref €55
+
+formatRegionalCurrency → regionalFormatLocale (tr-TR, de-DE, en-US)
+
+Bilinen i18n boşlukları (build MISSING_MESSAGE):
+  manufacturingOs.sector.* (es, ar, tr partial)
+  enterpriseFooter (de)
+  Audit param labels (tr partial)
+
+================================================================================
+20. FİYATLANDIRMA
+================================================================================
+
+Kaynak: src/lib/pricing/plan-catalog.ts (checkout source of truth)
+
+Plan              ID               Fiyat           Stripe
+────────────────────────────────────────────────────────────
+Free Check        free             $0              Hayır
+Single Tool Report single_verdict  $19 tek sefer   Evet
+Pro Monthly       pro              $29/ay          Evet
+Pro Annual        pro_annual       $149/yıl        Evet
+Team              team             $49/ay          Evet
+
+SINGLE_VERDICT_PRICE = 19
+MONEY_BACK_GUARANTEE: 14 gün (ilk Single Verdict)
+Pro: tüm premium analizörler · kayıtlı raporlar · PDF export
+
+Gelecek (vizyon, implement değil):
+  Araç başı $9 · kredi/jeton · sektör paketi $49 (CNC pack)
+
+UI drift: messages/en.json pricing stringleri plan-catalog ile senkronize edilmeli.
+
+================================================================================
+21. UZMAN HESAPLAMA PROTOKOLÜ (20 YILLIK OPERATÖR KURALI)
+================================================================================
+
+Her yeni araç 5 kapıdan geçmeli:
+
+Kapı 1 — Fiziksel / operasyonel gerçeklik
+Kapı 2 — Gizli değişkenler (setup, deadhead, tool wear, fire, kalibrasyon drift)
+Kapı 3 — Endüstri standardı (RSMeans, SMACNA, OEE, CBAM — izlenebilir katsayı)
+Kapı 4 — Tolerans hassasiyeti (dar tolerans → daha yüksek fire/zaman çarpanı)
+Kapı 5 — Yorumlanmış çıktı ("Fire %8 — fiyatı %12 artır" — ham sayı yetmez)
+
+Amateur (red):  A + B = sonuç
+Expert (require): A + B + hiddenC + riskD + toleranceE → total + aksiyon
+
+Olgunluk:
+  CNC / MarginCore / stochastic     — en yakın uzman standardı
+  Generic free tools                — bilinçli olarak yönlendirici (amateur by design)
+  OS audit                          — varyans + regional loss + ExpertVerdictPanel (v3)
+  44 katalog aracı                  — şema var, derin formül bekliyor
+
+ExpertCalculationSpec hedef format (gelecek):
+  physicalInputs · hiddenVariables · industryConstants · toleranceEffect · verdictAction
+
+================================================================================
+22. KAYNAK AĞACI (src/)
+================================================================================
+
+src/
+├── app/
+│   ├── [locale]/          Tüm public sayfalar (§8)
+│   ├── actions/           margincore.ts
+│   ├── admin/             lead admin
+│   └── globals.css
+├── components/
+│   ├── brand/             SiteLogo
+│   ├── layout/            SiteHeader, nav, footer, RegionSelector
+│   ├── os/                Audit UI, IndustrialHome
+│   ├── tools/             FreeToolPage, PremiumToolPage
+│   ├── reports/           ExpertVerdictPanel, PDF, stochastic
+│   ├── account/           dashboard, subscription
+│   └── ui/                Button, industrial/*, terminal/*
+├── config/                site.ts, regions.ts, brand.ts, locales.ts
+├── data/                  industries, tool-definitions, sample-report
+├── i18n/                  routing.ts, locales/*/manufacturing-os.json
+├── lib/
+│   ├── actions/           calculate-premium, generate-pdf
+│   ├── billing/           Stripe, subscription hooks
+│   ├── compliance/        region, compliance-engine, RegionProvider
+│   ├── math/              stochastic-engine
+│   ├── os/                Industrial OS core
+│   ├── registry/          sector-registry (legacy metrics)
+│   ├── tools/             revenue-tools, risk-engine, sector-calculators
+│   ├── pricing/           plan-catalog
+│   └── firebase/          client + admin
+├── styles/                industrial-ui, industrial-os, apple-ui, contrast-system
+messages/                  en.json, tr.json, es.json, de.json, ar.json
+functions/                 Firebase Cloud Functions (Stripe)
+docs/                      sectorcalc-product-dna.txt (bu dosya)
+scripts/                   llms.txt, audit-revenue-tools, admin claim
+
+================================================================================
+23. BİLİNEN BOŞLUKLAR VE TEKNİK BORÇ
+================================================================================
+
+IMPLEMENTasyon:
+  54 slug katalog · ~10 tam client calculator
+  OS 27 sektör · i18n eksik (de/ar/es/tr partial)
+  Legacy /tools/[tier]/[slug] parallel route
+  Üç motor yığını tam birleşmemiş
+
+UX:
+  Saha paneli (büyük dokunma, 3 sn okuma) sistematik değil — her araç farklı
+  Fonksiyon kategori ağacı (OEE, Fire, Kalibrasyon) homepage'de kısmi
+  10–15 "gerçek uzman aracı" derinleştirme bekliyor
+
+TEKNİK:
+  build MISSING_MESSAGE uyarıları (es/ar/de/tr)
+  messages pricing ≠ plan-catalog (ara sıra)
+  Premium math: client vs server vs TXT — slug'a göre farklı
+  CSS --border-line bazı hero kurallarında tanımsız referans
+
+GÜÇLÜ YANLAR (KORU):
+  27-sektör registry altyapısı
+  Server-side IP koruması (premium math)
+  Design token disiplini (matte, turuncu CTA, sıfır radius industrial)
+  Stripe + Firebase + SSR hosting
+  Locale→currency bölge sistemi (v3)
+  Free/premium sınırı net
+
+================================================================================
+24. DEPLOY VE OPS
+================================================================================
+
+Build:   npm run build        (prebuild: npm run seo:llms → public/llms.txt)
+Lint:    npm run lint
+Test:    npm run test         (vitest — 30 test: formula, compliance, audit)
+Audit:   npm run audit:revenue-tools
+Deploy:  firebase deploy --only hosting
+Canlı:   https://sectorcalc-bf412.web.app
+Hedef:   https://sectorcalc.com (DNS henüz bağlı değil)
+
+next.config.ts: staleTimes · optimizePackageImports · Firebase framework
+
+Güncelleme kuralı:
+  Kodda mimari/formül/fiyat/renk değişince bu dosyayı v3.x olarak güncelle.
+  "Positioning reset" tamamlandı — v3.0 reflects live state as of 2026-06-07.
+
+================================================================================
+SON — PRODUCT DNA v3.0
 ================================================================================

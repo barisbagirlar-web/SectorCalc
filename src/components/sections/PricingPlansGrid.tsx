@@ -6,18 +6,18 @@ import { useEffect, useMemo, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import {
-  PlanAvailabilityBadge,
-  PlanCheckoutAction,
+ PlanAvailabilityBadge,
+ PlanCheckoutAction,
 } from "@/components/pricing/PlanCheckoutAction";
 import { IconListItem } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
 import {
-  REVENUE_EVENTS,
-  trackRevenueEvent,
+ REVENUE_EVENTS,
+ trackRevenueEvent,
 } from "@/lib/analytics/revenue-events";
 import {
-  ANALYTICS_EVENTS,
-  trackEvent,
+ ANALYTICS_EVENTS,
+ trackEvent,
 } from "@/lib/analytics/events";
 import { PRICING_CHECKOUT_LEGAL } from "@/lib/billing/subscription";
 import { PRICING_REFUND_POLICY } from "@/lib/pricing/plan-catalog";
@@ -28,238 +28,238 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import {
-  buildPricingPlans,
+ buildPricingPlans,
 } from "@/data/pricing-plans";
 
 interface PricingPlansGridProps {
-  showHeader?: boolean;
-  compact?: boolean;
-  embedded?: boolean;
-  /** Homepage teaser — show Free Check + Pro only */
-  featuredOnly?: boolean;
+ showHeader?: boolean;
+ compact?: boolean;
+ embedded?: boolean;
+ /** Homepage teaser — show Free Check + Pro only */
+ featuredOnly?: boolean;
 }
 
 export function PricingPlansGrid({
-  showHeader = true,
-  compact = false,
-  embedded = false,
-  featuredOnly = false,
+ showHeader = true,
+ compact = false,
+ embedded = false,
+ featuredOnly = false,
 }: PricingPlansGridProps) {
-  const t = useTranslations();
-  const searchParams = useSearchParams();
-  const highlightPlanId = searchParams.get("plan") ?? undefined;
-  const planRefs = useRef<Record<string, HTMLElement | null>>({});
+ const t = useTranslations();
+ const searchParams = useSearchParams();
+ const highlightPlanId = searchParams.get("plan") ?? undefined;
+ const planRefs = useRef<Record<string, HTMLElement | null>>({});
 
-  const pricingPlans = useMemo(() => buildPricingPlans(t), [t]);
+ const pricingPlans = useMemo(() => buildPricingPlans(t), [t]);
 
-  const checkoutToolSlug = useMemo(() => {
-    const tool = searchParams.get("tool");
-    return tool && getRevenueToolByPaidSlug(tool) ? tool : undefined;
-  }, [searchParams]);
+ const checkoutToolSlug = useMemo(() => {
+ const tool = searchParams.get("tool");
+ return tool && getRevenueToolByPaidSlug(tool) ? tool : undefined;
+ }, [searchParams]);
 
-  useEffect(() => {
-    if (!highlightPlanId) {
-      return;
-    }
-    const el = planRefs.current[highlightPlanId];
-    el?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, [highlightPlanId]);
+ useEffect(() => {
+ if (!highlightPlanId) {
+ return;
+ }
+ const el = planRefs.current[highlightPlanId];
+ el?.scrollIntoView({ behavior: "smooth", block: "center" });
+ }, [highlightPlanId]);
 
-  const visiblePlans = useMemo(
-    () =>
-      featuredOnly
-        ? pricingPlans.filter((plan) => plan.id === "free" || plan.id === "pro")
-        : pricingPlans,
-    [featuredOnly, pricingPlans]
-  );
+ const visiblePlans = useMemo(
+ () =>
+ featuredOnly
+ ? pricingPlans.filter((plan) => plan.id === "free" || plan.id === "pro")
+ : pricingPlans,
+ [featuredOnly, pricingPlans]
+ );
 
-  useEffect(() => {
-    trackRevenueEvent(REVENUE_EVENTS.pricing_viewed, {
-      toolSlug: checkoutToolSlug,
-    });
-  }, [checkoutToolSlug]);
+ useEffect(() => {
+ trackRevenueEvent(REVENUE_EVENTS.pricing_viewed, {
+ toolSlug: checkoutToolSlug,
+ });
+ }, [checkoutToolSlug]);
 
-  const inner = (
-      <Container className={embedded ? "px-0" : undefined}>
-        {showHeader && (
-          <SectionHeader
-            eyebrow={t("pricing.eyebrow")}
-            title={t("pricing.title")}
-            subtitle={t("pricing.tagline")}
-            align="center"
-          />
-        )}
+ const inner = (
+ <Container className={embedded ? "px-0" : undefined}>
+ {showHeader && (
+ <SectionHeader
+ eyebrow={t("pricing.eyebrow")}
+ title={t("pricing.title")}
+ subtitle={t("pricing.tagline")}
+ align="center"
+ />
+ )}
 
-        {!compact ? (
-          <p className="mx-auto mb-8 max-w-2xl text-center text-base font-semibold text-text-primary">
-            {t("pricing.roiCopy")}
-          </p>
-        ) : null}
+ {!compact ? (
+ <p className="mx-auto mb-8 max-w-2xl text-center text-base font-semibold text-text-primary">
+ {t("pricing.roiCopy")}
+ </p>
+ ) : null}
 
-        <div
-          className={`grid gap-6 ${
-            compact
-              ? "md:grid-cols-2"
-              : "md:grid-cols-2 xl:grid-cols-3"
-          }`}
-        >
-          {visiblePlans.map((plan) => (
-            <article
-              key={plan.id}
-              ref={(node) => {
-                planRefs.current[plan.id] = node;
-              }}
-              className={`flex flex-col rounded-2xl border p-6 md:p-7 ${
-                plan.highlighted || highlightPlanId === plan.id
-                  ? plan.highlighted
-                    ? "border-accent-teal bg-bg-primary text-white shadow-card-dark ring-1 ring-cyan/20"
-                    : "border-accent-teal bg-white shadow-card ring-2 ring-accent-teal/30"
-                  : "border-border-subtle bg-white shadow-card"
-              }`}
-            >
-              <div className="flex flex-wrap items-center gap-2">
-                <h3 className="text-lg font-bold">{plan.name}</h3>
-                {plan.planId && plan.planId !== "free" ? (
-                  <PlanAvailabilityBadge planId={plan.planId} />
-                ) : null}
-                {plan.badge ? (
-                  <Badge
-                    variant={plan.highlighted ? "premium" : "muted"}
-                    className="text-[10px]"
-                  >
-                    {plan.badge}
-                  </Badge>
-                ) : null}
-              </div>
-              <p
-                className={`mt-2 text-2xl font-bold sm:text-3xl ${
-                  plan.highlighted ? "text-accent-teal" : "text-text-primary"
-                }`}
-              >
-                {plan.price}
-              </p>
-              {plan.period ? (
-                <p
-                  className={`text-sm ${
-                    plan.highlighted ? "text-text-secondary" : "text-slate"
-                  }`}
-                >
-                  {plan.period}
-                </p>
-              ) : null}
-              <p
-                className={`mt-4 text-sm leading-relaxed ${
-                  plan.highlighted ? "text-text-secondary" : "text-slate"
-                }`}
-              >
-                {plan.description}
-              </p>
-              <ul className="mt-6 flex-1 space-y-2.5">
-                {plan.features.map((feature) => (
-                  <IconListItem
-                    key={feature}
-                    icon={UI_ICON.check}
-                    iconClassName={plan.highlighted ? "text-accent-teal" : "text-emerald"}
-                    className={plan.highlighted ? "text-text-secondary" : "text-text-primary"}
-                  >
-                    {feature}
-                  </IconListItem>
-                ))}
-              </ul>
-              {plan.id === "free" && plan.primaryHref ? (
-                <Button
-                  href={plan.primaryHref}
-                  variant="primary"
-                  size="md"
-                  className="mt-8 w-full"
-                  onClick={() => {
-                    trackEvent(ANALYTICS_EVENTS.pricing_clicked, {
-                      plan: plan.id,
-                      source: "pricing_grid",
-                    });
-                  }}
-                >
-                  {plan.primaryCta}
-                </Button>
-              ) : (
-                <PlanCheckoutAction
-                  plan={plan}
-                  checkoutToolSlug={checkoutToolSlug}
-                  highlighted={plan.highlighted}
-                  className="mt-8 w-full"
-                />
-              )}
-              {plan.checkoutPlan === "pro" && plan.checkoutReady ? (
-                <p
-                  className={`mt-4 text-xs leading-relaxed ${
-                    plan.highlighted ? "text-text-muted" : "text-slate"
-                  }`}
-                >
-                  {PRICING_CHECKOUT_LEGAL}
-                </p>
-              ) : null}
-            </article>
-          ))}
-        </div>
+ <div
+ className={`grid gap-6 ${
+ compact
+ ? "md:grid-cols-2"
+ : "md:grid-cols-2 xl:grid-cols-3"
+ }`}
+ >
+ {visiblePlans.map((plan) => (
+ <article
+ key={plan.id}
+ ref={(node) => {
+ planRefs.current[plan.id] = node;
+ }}
+ className={`flex flex-col rounded-sm border p-6 md:p-7 ${
+ plan.highlighted || highlightPlanId === plan.id
+ ? plan.highlighted
+ ? "border-accent-teal bg-bg-subtle ring-1 ring-amber/20"
+ : "border-accent-teal bg-white shadow-card ring-2 ring-accent-teal/30"
+ : "border-border-subtle bg-white shadow-card"
+ }`}
+ >
+ <div className="flex flex-wrap items-center gap-2">
+ <h3 className="text-lg font-bold">{plan.name}</h3>
+ {plan.planId && plan.planId !== "free" ? (
+ <PlanAvailabilityBadge planId={plan.planId} />
+ ) : null}
+ {plan.badge ? (
+ <Badge
+ variant={plan.highlighted ? "premium" : "muted"}
+ className="text-[10px]"
+ >
+ {plan.badge}
+ </Badge>
+ ) : null}
+ </div>
+ <p
+ className={`mt-2 text-2xl font-bold sm:text-3xl ${
+ plan.highlighted ? "text-deep-navy" : "text-text-primary"
+ }`}
+ >
+ {plan.price}
+ </p>
+ {plan.period ? (
+ <p
+ className={`text-sm ${
+ plan.highlighted ? "text-text-secondary" : "text-text-secondary"
+ }`}
+ >
+ {plan.period}
+ </p>
+ ) : null}
+ <p
+ className={`mt-4 text-sm leading-relaxed ${
+ plan.highlighted ? "text-text-secondary" : "text-text-secondary"
+ }`}
+ >
+ {plan.description}
+ </p>
+ <ul className="mt-6 flex-1 space-y-2.5">
+ {plan.features.map((feature) => (
+ <IconListItem
+ key={feature}
+ icon={UI_ICON.check}
+ iconClassName={plan.highlighted ? "text-deep-navy" : "text-deep-navy"}
+ className={plan.highlighted ? "text-text-secondary" : "text-text-primary"}
+ >
+ {feature}
+ </IconListItem>
+ ))}
+ </ul>
+ {plan.id === "free" && plan.primaryHref ? (
+ <Button
+ href={plan.primaryHref}
+ variant="primary"
+ size="md"
+ className="mt-8 w-full"
+ onClick={() => {
+ trackEvent(ANALYTICS_EVENTS.pricing_clicked, {
+ plan: plan.id,
+ source: "pricing_grid",
+ });
+ }}
+ >
+ {plan.primaryCta}
+ </Button>
+ ) : (
+ <PlanCheckoutAction
+ plan={plan}
+ checkoutToolSlug={checkoutToolSlug}
+ highlighted={plan.highlighted}
+ className="mt-8 w-full"
+ />
+ )}
+ {plan.checkoutPlan === "pro" && plan.checkoutReady ? (
+ <p
+ className={`mt-4 text-xs leading-relaxed ${
+ plan.highlighted ? "text-text-secondary" : "text-text-secondary"
+ }`}
+ >
+ {PRICING_CHECKOUT_LEGAL}
+ </p>
+ ) : null}
+ </article>
+ ))}
+ </div>
 
-        {!compact ? (
-          <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-slate">
-            {PRICING_REFUND_POLICY}
-          </p>
-        ) : null}
+ {!compact ? (
+ <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-text-secondary">
+ {PRICING_REFUND_POLICY}
+ </p>
+ ) : null}
 
-        {!compact ? (
-          <p className="mt-6 text-center text-sm text-slate">
-            <Link href={getSampleReportHref()} className="font-semibold text-accent-teal hover:underline">
-              {t("pricing.sampleReport")}
-            </Link>
-          </p>
-        ) : null}
+ {!compact ? (
+ <p className="mt-6 text-center text-sm text-text-secondary">
+ <Link href={getSampleReportHref()} className="font-semibold text-deep-navy hover:underline">
+ {t("pricing.sampleReport")}
+ </Link>
+ </p>
+ ) : null}
 
-        {!compact && (
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <div className="w-full max-w-md">
-              <ProCheckoutButton
-                label={t("pricing.proCta")}
-                source="pricing_footer"
-                toolSlug={checkoutToolSlug}
-              />
-              <p className="mt-3 text-center text-xs leading-relaxed text-slate">
-                {PRICING_CHECKOUT_LEGAL}
-              </p>
-            </div>
-            <Button href="/free-tools" variant="outline" size="lg">
-              Start with Free Tools
-            </Button>
-          </div>
-        )}
+ {!compact && (
+ <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+ <div className="w-full max-w-md">
+ <ProCheckoutButton
+ label={t("pricing.proCta")}
+ source="pricing_footer"
+ toolSlug={checkoutToolSlug}
+ />
+ <p className="mt-3 text-center text-xs leading-relaxed text-text-secondary">
+ {PRICING_CHECKOUT_LEGAL}
+ </p>
+ </div>
+ <Button href="/free-tools" variant="outline" size="lg">
+ Start with Free Tools
+ </Button>
+ </div>
+ )}
 
-        {compact && (
-          <p className="mt-8 text-center text-sm text-[#808080]">
-            <Link
-              href="/pricing"
-              className="font-semibold text-[#07b6ef] hover:underline"
-            >
-              View full plan comparison →
-            </Link>
-          </p>
-        )}
-      </Container>
-  );
+ {compact && (
+ <p className="mt-8 text-center text-sm text-[#808080]">
+ <Link
+ href="/pricing"
+ className="font-semibold text-[#07b6ef] hover:underline"
+ >
+ View full plan comparison →
+ </Link>
+ </p>
+ )}
+ </Container>
+ );
 
-  if (embedded) {
-    return inner;
-  }
+ if (embedded) {
+ return inner;
+ }
 
-  return (
-    <section
-      className={
-        compact
-          ? "border-y border-border-subtle bg-white py-20 md:py-28"
-          : "bg-bg-subtle py-16 md:py-24"
-      }
-    >
-      {inner}
-    </section>
-  );
+ return (
+ <section
+ className={
+ compact
+ ? "border-y border-border-subtle bg-white py-20 md:py-28"
+ : "bg-bg-subtle py-16 md:py-24"
+ }
+ >
+ {inner}
+ </section>
+ );
 }

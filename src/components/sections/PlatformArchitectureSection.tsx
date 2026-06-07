@@ -40,13 +40,12 @@ const SECONDARY_FEATURES = [
 
 export function PlatformArchitectureSection() {
   return (
-    <section className="border-y border-border-subtle bg-bg-primary py-20 md:py-28 lg:py-32">
+    <section className="border-b border-technical-gray bg-industrial-matte py-8">
       <Container>
         <SectionHeader
           eyebrow="Platform"
           title="Built as a sector decision platform"
           subtitle="SectorCalc is not a loose collection of calculators. It is a structured engine for cost, margin, capacity and pricing decisions — with a report layer for stakeholders who need more than a single number."
-          dark
           align="center"
         />
 
@@ -54,26 +53,30 @@ export function PlatformArchitectureSection() {
           {PRIMARY_FEATURES.map((feature) => (
             <article key={feature.title} className="text-center md:text-left">
               <div className="flex justify-center md:justify-start">
-                <PlatformFeatureIcon variant={feature.icon} dark />
+                <PlatformFeatureIcon variant={feature.icon} />
               </div>
-              <h3 className="mt-6 text-xl font-bold text-white">{feature.title}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-text-muted md:text-base">
+              <h3 className="font-display mt-6 text-xl font-semibold text-premium-velvet">
+                {feature.title}
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-body-charcoal md:text-base">
                 {feature.description}
               </p>
             </article>
           ))}
         </div>
 
-        <div className="mt-16 grid gap-8 border-t border-border-subtle pt-16 md:grid-cols-2 md:gap-12">
+        <div className="mt-16 grid gap-8 border-t border-technical-gray pt-16 md:grid-cols-2 md:gap-12">
           {SECONDARY_FEATURES.map((feature) => (
             <article
               key={feature.title}
               className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6"
             >
-              <PlatformFeatureIcon variant={feature.icon} dark />
+              <PlatformFeatureIcon variant={feature.icon} />
               <div>
-                <h3 className="text-lg font-bold text-white">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-text-muted">
+                <h3 className="font-display text-lg font-semibold text-premium-velvet">
+                  {feature.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-body-charcoal">
                   {feature.description}
                 </p>
               </div>

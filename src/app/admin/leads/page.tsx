@@ -6,28 +6,28 @@ import { Container } from "@/components/ui/Container";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = {
-  ...createPageMetadata({
-    title: "Lead Intents (Admin)",
-    description: "Authenticated admin panel for SectorCalc lead pipeline.",
-    path: "/admin/leads",
-  }),
-  robots: { index: false, follow: false },
+ ...createPageMetadata({
+ title: "Lead Intents (Admin)",
+ description: "Authenticated admin panel for SectorCalc lead pipeline.",
+ path: "/admin/leads",
+ }),
+ robots: { index: false, follow: false },
 };
 
 export default function AdminLeadsPage() {
-  return (
-    <PageLayout>
-      <PageHero
-        eyebrow="Admin"
-        title="Lead Intents"
-        subtitle="Lead requests from premium CTAs, pricing, export flows and sample reports. Authorized admin sign-in required."
-      />
+ return (
+ <PageLayout>
+ <PageHero
+ eyebrow="Admin"
+ title="Lead Intents"
+ subtitle="Lead requests from premium CTAs, pricing, export flows and sample reports. Authorized admin sign-in required."
+ />
 
-      <section className="bg-off-white py-10 md:py-14">
-        <Container>
-          <LeadIntentsClient />
-        </Container>
-      </section>
-    </PageLayout>
-  );
+ <section className="bg-off-white py-10 md:py-14">
+ <Container>
+ <LeadIntentsClient />
+ </Container>
+ </section>
+ </PageLayout>
+ );
 }

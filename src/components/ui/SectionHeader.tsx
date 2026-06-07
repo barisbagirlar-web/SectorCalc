@@ -5,7 +5,6 @@ interface SectionHeaderProps {
   subtitle?: string;
   eyebrow?: string;
   align?: "left" | "center";
-  dark?: boolean;
   action?: ReactNode;
 }
 
@@ -14,41 +13,19 @@ export function SectionHeader({
   subtitle,
   eyebrow,
   align = "left",
-  dark = false,
   action,
 }: SectionHeaderProps) {
   const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
-  const titleColor = dark ? "text-white" : "text-text-primary";
-  const subtitleColor = dark ? "text-text-secondary" : "text-slate";
-  const eyebrowColor = dark ? "text-accent-teal" : "text-accent-teal";
 
   return (
-    <div
-      className={`mb-12 md:mb-14 ${alignClass} ${align === "center" ? "max-w-3xl" : "max-w-2xl"}`}
-    >
-      {eyebrow && (
-        <p
-          className={`mb-3 text-xs font-semibold uppercase tracking-[0.2em] ${eyebrowColor}`}
-        >
-          {eyebrow}
-        </p>
-      )}
-      <div
-        className={
-          action ? "flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between" : ""
-        }
-      >
+    <div className={`mb-4 ${alignClass} ${align === "center" ? "max-w-3xl" : "max-w-2xl"}`}>
+      {eyebrow ? <p className="label-badge mb-1 text-body-charcoal">{eyebrow}</p> : null}
+      <div className={action ? "flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between" : ""}>
         <div>
-          <h2
-            className={`text-2xl font-bold tracking-tight sm:text-3xl lg:text-[2.5rem] lg:leading-tight ${titleColor}`}
-          >
-            {title}
-          </h2>
-          {subtitle && (
-            <p className={`mt-4 text-base leading-relaxed sm:text-lg ${subtitleColor}`}>
-              {subtitle}
-            </p>
-          )}
+          <h2 className="font-display text-lg font-semibold text-premium-velvet sm:text-xl">{title}</h2>
+          {subtitle ? (
+            <p className="mt-1 text-sm leading-relaxed text-body-charcoal">{subtitle}</p>
+          ) : null}
         </div>
         {action}
       </div>

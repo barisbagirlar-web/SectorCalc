@@ -7,49 +7,49 @@ import { industryRegistry, type IndustrySlug } from "@/lib/tools/industry-regist
 import { createPageMetadata } from "@/lib/metadata";
 
 interface IndustryPageParams {
-  slug: IndustrySlug;
+ slug: IndustrySlug;
 }
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<IndustryPageParams[]> {
-  return industryRegistry.map((entry) => ({ slug: entry.slug }));
+ return industryRegistry.map((entry) => ({ slug: entry.slug }));
 }
 
 export async function generateMetadata({
-  params,
+ params,
 }: {
-  params: Promise<IndustryPageParams>;
+ params: Promise<IndustryPageParams>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const industry = getIndustryBySlug(slug);
-  if (!industry) {
-    return {};
-  }
+ const { slug } = await params;
+ const industry = getIndustryBySlug(slug);
+ if (!industry) {
+ return {};
+ }
 
-  return createPageMetadata({
-    title: `${industry.name} Cost & Margin Tools`,
-    description: `Use SectorCalc tools to check ${industry.name} cost risk, bid margin and hidden profit leaks before accepting work.`,
-    path: industry.href,
-  });
+ return createPageMetadata({
+ title: `${industry.name} Cost & Margin Tools`,
+ description: `Use SectorCalc tools to check ${industry.name} cost risk, bid margin and hidden profit leaks before accepting work.`,
+ path: industry.href,
+ });
 }
 
 export default async function IndustryDetailPage({
-  params,
+ params,
 }: {
-  params: Promise<IndustryPageParams>;
+ params: Promise<IndustryPageParams>;
 }) {
-  const { slug } = await params;
-  const industry = getIndustryBySlug(slug);
+ const { slug } = await params;
+ const industry = getIndustryBySlug(slug);
 
-  if (!industry) {
-    notFound();
-  }
+ if (!industry) {
+ notFound();
+ }
 
-  return (
-    <PageLayout>
-      <IndustryPageContent industry={industry} />
-    </PageLayout>
-  );
+ return (
+ <PageLayout>
+ <IndustryPageContent industry={industry} />
+ </PageLayout>
+ );
 }

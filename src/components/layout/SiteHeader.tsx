@@ -1,22 +1,31 @@
 import { SiteLogo } from "@/components/brand/SiteLogo";
-import {
-  DesktopHeaderNav,
-  HeaderActions,
-} from "@/components/layout/HeaderNav";
+import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
+import { DesktopHeaderNav } from "@/components/layout/HeaderNav";
+import { HeaderNavPrefetch } from "@/components/layout/HeaderNavPrefetch";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { MobileNav } from "@/components/layout/MobileNav";
+import { RegionIndicator, RegionSelector } from "@/components/layout/RegionSelector";
 
 export function SiteHeader() {
   return (
-    <header id="header" className="mc-header sticky top-0 z-50 border-b border-border-subtle bg-white">
-      <div className="container">
+    <header id="header" className="apple-nav">
+      <HeaderNavPrefetch />
+      <div className="apple-nav__inner">
         <SiteLogo priority />
-        <DesktopHeaderNav />
-        <div className="hidden items-center gap-2 lg:flex">
-          <LocaleSwitcher />
-          <HeaderActions />
+
+        <div className="apple-nav__main">
+          <DesktopHeaderNav />
         </div>
-        <MobileNav />
+
+        <div className="apple-nav__utilities">
+          <div className="hidden items-center gap-3 lg:flex">
+            <RegionIndicator />
+            <RegionSelector />
+            <LocaleSwitcher />
+            <HeaderAuthCta />
+          </div>
+          <MobileNav />
+        </div>
       </div>
     </header>
   );

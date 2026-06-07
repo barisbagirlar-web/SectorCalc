@@ -1,51 +1,37 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
-import { getAccountHref, getPricingHref } from "@/lib/tools/tool-links";
 
 interface HeaderAuthCtaProps {
   onNavigate?: () => void;
+  mobile?: boolean;
 }
 
-export function HeaderAuthCta({ onNavigate }: HeaderAuthCtaProps) {
-  const { user, isActive, loading } = useUserSubscription();
+export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps) {
+  const { user, loading } = useUserSubscription();
 
-  const baseClass = "inline-flex min-h-[44px] items-center text-sm font-semibold text-text-secondary hover:text-accent-teal";
-
-  const mobileClass = "block min-h-[44px] py-3 text-sm font-semibold text-accent-teal";
+  const className = mobile ? "apple-nav__dropdown-link" : "apple-nav__link";
 
   if (loading) {
-    return null;
-  }
-
-  if (!user) {
     return (
-      <Link href="/login" onClick={onNavigate} className={onNavigate ? mobileClass : baseClass}>
+      <Link href="/login" prefetch={true} onClick={onNavigate} className={className}>
         Login
       </Link>
     );
   }
 
-  if (isActive) {
+  if (!user) {
     return (
-      <Link
-        href={getAccountHref()}
-        onClick={onNavigate}
-        className={onNavigate ? mobileClass : baseClass}
-      >
-        Account
+      <Link href="/login" prefetch={true} onClick={onNavigate} className={className}>
+        Login
       </Link>
     );
   }
 
   return (
-    <Link
-      href={getPricingHref()}
-      onClick={onNavigate}
-      className={onNavigate ? mobileClass : baseClass}
-    >
-      Unlock Pro
+    <Link href="/account" prefetch={true} onClick={onNavigate} className={className}>
+      Account
     </Link>
   );
 }

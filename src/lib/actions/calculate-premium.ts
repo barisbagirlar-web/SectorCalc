@@ -6,181 +6,286 @@
  * (not JSON) to prevent direct formula scraping from the browser.
  *
  * Auth flow:
- *   1. Client sends Firebase ID token
- *   2. Server verifies via firebase-admin SDK
- *   3. Checks Firestore users/{uid} for active subscription
- *   4. Runs stochastic calculation
- *   5. Returns TXT-formatted report
+ * 1. Client sends Firebase ID token
+ * 2. Server verifies via firebase-admin SDK
+ * 3. Checks Firestore users/{uid} for active subscription
+ * 4. Runs stochastic calculation
+ * 5. Returns TXT-formatted report
  */
 
 "use server";
 
-import { getAuth } from "firebase-admin/auth";
 import {
-  runEngine,
-  formatEngineReport,
-  type MarginCoreEngineOutput,
+ calculateP90SafeCost,
+ generateSensitivityMatrixText,
+ runEngine,
+ formatEngineReport,
+ type MarginCoreEngineOutput,
 } from "@/lib/math/stochastic-engine";
-import { getFirebaseAdminApp, getAdminFirestore } from "@/lib/firebase/admin";
+import { getAdminFirestore } from "@/lib/firebase/admin";
+import { verifyProSubscriber } from "@/lib/billing/verify-pro-subscriber";
+import { getSectorRiskProfile } from "@/lib/tools/sectors/risk-profiles";
+import {
+ getNaiveCostCalculator,
+ getVerdictLabels,
+} from "@/lib/tools/sectors/sector-calculators";
+import type { MarginCoreInputValues } from "@/lib/types/margincore-engine";
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
+/** Sector + numeric inputs + auth token for Pro gate. */
+export interface PremiumVerdictRequest {
+ sector: string;
+ inputs: Record<string, number>;
+ idToken: string;
+}
+
 /**
- * Client-submitted input for the premium calculation.
+ * Client-submitted input for the legacy CNC stochastic panel.
  */
 export interface PremiumCalcRequest {
-  /** Firebase ID token from the client (for server-side auth verification) */
-  idToken: string;
-  /** Naive (base) cost estimate */
-  expectedCost: number;
-  /** Cost volatility as a percentage (e.g. 18 for 18%) */
-  volatilityPercent: number;
-  /** CBAM emission intensity (0.0 = clean, 1.0 = max dirty) */
-  emissionFactor: number;
-  /** Currency code */
-  currency: string;
+ idToken: string;
+ expectedCost: number;
+ volatilityPercent: number;
+ emissionFactor: number;
+ currency: string;
 }
 
 /**
- * Server action return value.
- * Always includes a TXT-formatted string for display/export.
+ * Legacy server action return value (CNC panel).
+ * New callers should use `calculatePremiumVerdict` which returns TXT only.
  */
 export interface PremiumCalcResponse {
-  success: boolean;
-  txt: string;
-  output?: MarginCoreEngineOutput;
-  error?: string;
+ success: boolean;
+ txt: string;
+ output?: MarginCoreEngineOutput;
+ error?: string;
 }
 
 // ---------------------------------------------------------------------------
-// Auth helpers
+// TXT serialization
 // ---------------------------------------------------------------------------
 
+function formatCurrency(value: number): string {
+ return value.toLocaleString("en-US", {
+ minimumFractionDigits: 2,
+ maximumFractionDigits: 2,
+ });
+}
+
+function formatCompactMatrix(baseCost: number, volatilityPercent: number): string {
+ const iv = volatilityPercent / 100;
+ const matrix = generateSensitivityMatrixText(baseCost, iv);
+ return matrix
+ .split("\n")
+ .map((line) => line.trim())
+ .filter(Boolean)
+ .join(" || ");
+}
+
+function resolveVerdictLabel(
+ sector: string,
+ verdict: MarginCoreEngineOutput["verdict"],
+): string {
+ const labels = getVerdictLabels(sector);
+ switch (verdict) {
+ case "accept":
+ return labels.accept;
+ case "caution":
+ return labels.caution;
+ case "reject":
+ return labels.reject;
+ default:
+ return labels.caution;
+ }
+}
+
 /**
- * Verify the current user has an active Pro subscription.
- * Returns the uid if authorized, or null otherwise.
+ * Serialize engine output into the canonical single-line TXT verdict string.
  */
-async function getAuthorizedUser(idToken: string): Promise<string | null> {
-  try {
-    const app = getFirebaseAdminApp();
-    if (!app) return null;
+function serializePremiumVerdictTxt(
+ sector: string,
+ output: MarginCoreEngineOutput,
+ volatilityPercent: number,
+): string {
+ const baseCost = output.p90.expected;
+ const buffer = output.p90.buffer;
+ const p90Safe = output.p90.safe;
+ const verdictLabel = resolveVerdictLabel(sector, output.verdict);
+ const matrixString = formatCompactMatrix(baseCost, volatilityPercent);
 
-    const decoded = await getAuth(app).verifyIdToken(idToken);
-    if (!decoded || !decoded.uid) return null;
+ return [
+ `TEMEL MALIYET: ${formatCurrency(baseCost)}`,
+ `RİSK TAMPONU: ${formatCurrency(buffer)}`,
+ `P90 GÜVENLİ FİYAT: ${formatCurrency(p90Safe)}`,
+ `VERDİKT: ${verdictLabel}`,
+ `MATRİS: ${matrixString}`,
+ ].join(" | ");
+}
 
-    // Check Firestore for active subscription
-    const db = getAdminFirestore();
-    if (!db) return null;
+function authErrorTxt(): string {
+ return "HATA: Yetki hatası. Bu hesaplama yalnızca SectorCalc Pro üyelerine açıktır. Lütfen giriş yapın veya Pro aboneliğinizi aktifleştirin.";
+}
 
-    const userDoc = await db.collection("users").doc(decoded.uid).get();
-    if (!userDoc.exists) return null;
-
-    const userData = userDoc.data();
-    const subscription = userData?.subscription;
-    const status = subscription?.status;
-
-    if (status !== "active") return null;
-
-    return decoded.uid;
-  } catch {
-    return null;
-  }
+function invalidInputTxt(): string {
+ return "HATA: Geçersiz giriş. Sektör ve sayısal alanlar doğrulanamadı.";
 }
 
 // ---------------------------------------------------------------------------
-// Server Action
+// Server Actions
 // ---------------------------------------------------------------------------
 
 /**
- * Run the MarginCore premium stochastic calculation.
+ * Run MarginCore premium verdict for any sector.
  *
- * - Requires active Pro subscription (checked server-side)
- * - Returns structured TXT report + raw engine output
- * - All calculation happens on the server; formulas never reach the browser
+ * Accepts sector slug + numeric inputs, verifies Pro subscription server-side,
+ * and returns a human-readable TXT string (never raw JSON).
+ */
+export async function calculatePremiumVerdict(
+ request: PremiumVerdictRequest,
+): Promise<string> {
+ if (!request.idToken) {
+ return "HATA: Giriş yapılmamış. Bu hesaplama yalnızca SectorCalc Pro üyelerine açıktır.";
+ }
+
+ const uid = await verifyProSubscriber(request.idToken);
+ if (!uid) {
+ return authErrorTxt();
+ }
+
+ const sector = request.sector?.trim();
+ if (!sector || !request.inputs || typeof request.inputs !== "object") {
+ return invalidInputTxt();
+ }
+
+ const marginInputs: MarginCoreInputValues = request.inputs;
+ const calculateNaiveCost = getNaiveCostCalculator(sector);
+ const expectedCost = calculateNaiveCost(marginInputs);
+
+ if (!Number.isFinite(expectedCost) || expectedCost <= 0) {
+ return invalidInputTxt();
+ }
+
+ const riskProfile = getSectorRiskProfile(sector);
+ const volatilityPercent = Math.round(riskProfile.baseVolatility * 1000) / 10;
+ const emissionFactor = riskProfile.cbamExposureIndex ?? 0;
+
+ // Explicit P90 pass (engine also uses this internally via runEngine)
+ const p90 = calculateP90SafeCost(expectedCost, volatilityPercent);
+ if (p90.expected <= 0) {
+ return invalidInputTxt();
+ }
+
+ const output = runEngine(expectedCost, volatilityPercent, emissionFactor);
+ const txt = serializePremiumVerdictTxt(sector, output, volatilityPercent);
+
+ logSectorCalculation(uid, sector, expectedCost).catch(() => {
+ // Silent — logging failure must not break calculation
+ });
+
+ return txt;
+}
+
+/**
+ * Legacy CNC stochastic calculation (Big Four report format).
+ * Prefer `calculatePremiumVerdict` for sector-aware premium tools.
  */
 export async function calculatePremium(
-  request: PremiumCalcRequest,
+ request: PremiumCalcRequest,
 ): Promise<PremiumCalcResponse> {
-  // 1. Auth gate — verify Firebase ID token + check Pro subscription
-  if (!request.idToken) {
-    return {
-      success: false,
-      txt: "HATA: Giriş yapılmamış. Bu hesaplama yalnızca SectorCalc Pro üyelerine açıktır.",
-      error: "NO_TOKEN",
-    };
-  }
+ if (!request.idToken) {
+ return {
+ success: false,
+ txt: "HATA: Giriş yapılmamış. Bu hesaplama yalnızca SectorCalc Pro üyelerine açıktır.",
+ error: "NO_TOKEN",
+ };
+ }
 
-  const uid = await getAuthorizedUser(request.idToken);
-  if (!uid) {
-    return {
-      success: false,
-      txt: "HATA: Yetki hatası. Bu hesaplama yalnızca SectorCalc Pro üyelerine açıktır.\n\nLütfen giriş yapın veya Pro aboneliğinizi aktifleştirin.",
-      error: "PRO_REQUIRED",
-    };
-  }
+ const uid = await verifyProSubscriber(request.idToken);
+ if (!uid) {
+ return {
+ success: false,
+ txt: authErrorTxt(),
+ error: "PRO_REQUIRED",
+ };
+ }
 
-  // 2. Input validation
-  if (
-    !request.expectedCost ||
-    request.expectedCost <= 0 ||
-    !request.volatilityPercent ||
-    request.volatilityPercent <= 0
-  ) {
-    return {
-      success: false,
-      txt: "HATA: Geçersiz giriş. Beklenen maliyet > 0 ve volatilite > 0 olmalıdır.",
-      error: "INVALID_INPUT",
-    };
-  }
+ if (
+ !request.expectedCost ||
+ request.expectedCost <= 0 ||
+ !request.volatilityPercent ||
+ request.volatilityPercent <= 0
+ ) {
+ return {
+ success: false,
+ txt: invalidInputTxt(),
+ error: "INVALID_INPUT",
+ };
+ }
 
-  // 3. Run stochastic engine
-  const output = runEngine(
-    request.expectedCost,
-    request.volatilityPercent,
-    request.emissionFactor ?? 0,
-  );
+ const output = runEngine(
+ request.expectedCost,
+ request.volatilityPercent,
+ request.emissionFactor ?? 0,
+ );
 
-  // 4. Format as Big Four report TXT
-  const txt = formatEngineReport(output, request.currency || "USD");
+ const txt = formatEngineReport(output, request.currency || "USD");
 
-  // 5. Log calculation (fire-and-forget)
-  logCalculation(uid, request).catch(() => {
-    // Silent — logging failure must not break calculation
-  });
+ logCalculation(uid, request).catch(() => {
+ // Silent — logging failure must not break calculation
+ });
 
-  return {
-    success: true,
-    txt,
-    output,
-  };
+ return {
+ success: true,
+ txt,
+ output,
+ };
 }
 
 // ---------------------------------------------------------------------------
 // Logging
 // ---------------------------------------------------------------------------
 
-/**
- * Log the calculation to Firestore for audit/analytics.
- */
-async function logCalculation(
-  uid: string,
-  input: PremiumCalcRequest,
+async function logSectorCalculation(
+ uid: string,
+ sector: string,
+ expectedCost: number,
 ): Promise<void> {
-  try {
-    const db = getAdminFirestore();
-    if (!db) return;
+ try {
+ const db = getAdminFirestore();
+ if (!db) return;
 
-    await db.collection("calculations").add({
-      uid,
-      type: "margincore_premium",
-      expectedCost: input.expectedCost,
-      volatilityPercent: input.volatilityPercent,
-      currency: input.currency,
-      createdAt: new Date().toISOString(),
-    });
-  } catch {
-    // Silent — analytics logging must not throw
-  }
+ await db.collection("calculations").add({
+ uid,
+ type: "margincore_premium_verdict",
+ sector,
+ expectedCost,
+ createdAt: new Date().toISOString(),
+ });
+ } catch {
+ // Silent
+ }
+}
+
+async function logCalculation(
+ uid: string,
+ input: PremiumCalcRequest,
+): Promise<void> {
+ try {
+ const db = getAdminFirestore();
+ if (!db) return;
+
+ await db.collection("calculations").add({
+ uid,
+ type: "margincore_premium",
+ expectedCost: input.expectedCost,
+ volatilityPercent: input.volatilityPercent,
+ currency: input.currency,
+ createdAt: new Date().toISOString(),
+ });
+ } catch {
+ // Silent
+ }
 }

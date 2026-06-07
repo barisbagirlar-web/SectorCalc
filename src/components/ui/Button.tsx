@@ -1,29 +1,27 @@
 import Link from "next/link";
 import type { ReactNode, ButtonHTMLAttributes } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "outline" | "risk";
 type ButtonSize = "sm" | "md" | "lg" | "cta";
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary:
-    "bg-accent-teal text-white hover:bg-accent-teal/90 focus-visible:ring-accent-teal",
-  secondary:
-    "bg-accent-teal text-text-primary hover:bg-accent-teal/90 focus-visible:ring-cyan",
+  primary: "ind-os-btn-action",
+  secondary: "ind-os-btn-secondary",
   ghost:
-    "bg-transparent text-text-primary hover:bg-white/10 focus-visible:ring-white",
-  outline:
-    "border-2 border-accent-teal text-accent-teal bg-transparent hover:bg-accent-teal/5 focus-visible:ring-accent-teal",
+    "inline-flex items-center justify-center rounded-none border border-transparent bg-transparent px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-body-charcoal hover:bg-industrial-matte",
+  outline: "ind-os-btn-secondary",
+  risk: "ind-os-btn-action",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "min-h-[44px] px-4 py-2 text-sm",
-  md: "min-h-[44px] px-6 py-2.5 text-base",
-  lg: "min-h-[48px] px-8 py-3 text-base font-semibold",
-  cta: "min-h-[56px] px-6 py-3 text-base font-semibold rounded-[14px]",
+  sm: "!min-h-[32px] !px-3 !text-xs",
+  md: "",
+  lg: "!min-h-[40px] !px-6 !text-sm",
+  cta: "!min-h-[40px] !px-6 !text-sm",
 };
 
 const baseClasses =
-  "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex items-center justify-center font-mono focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-premium-velvet disabled:pointer-events-none disabled:opacity-50";
 
 function buildClasses(
   variant: ButtonVariant,

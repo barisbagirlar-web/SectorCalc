@@ -7,7 +7,6 @@ export interface PageHeroProps {
   subtitle?: string;
   eyebrow?: string;
   children?: ReactNode;
-  /** Compact band for inner pages; home keeps room for marketing CTAs on the homepage only */
   variant?: PageHeroVariant;
 }
 
@@ -18,24 +17,26 @@ export function PageHero({
   children,
   variant = "compact",
 }: PageHeroProps) {
+  const isHome = variant === "home";
+
   return (
-    <section
-      className={`mc-page-hero${variant === "home" ? " mc-page-hero--home" : " mc-page-hero--compact"}`}
-    >
-      <div className="container text-center">
-        <div className="mc-page-hero-head">
-          <header>
-            {eyebrow ? <p className="mc-page-eyebrow">{eyebrow}</p> : null}
-            <h1>{title}</h1>
-            {subtitle ? (
-              <div className="mc-page-hero-lead">
-                <span className="mc-page-hero-lead-rule" aria-hidden />
-                <p className="mc-page-hero-lead-text">{subtitle}</p>
-              </div>
-            ) : null}
-          </header>
-          {children}
-        </div>
+    <section className="ind-page-hero" aria-labelledby="layout-page-hero-title">
+      <div className={`ind-page-hero-inner text-center ${isHome ? "py-12 lg:py-16" : ""}`}>
+        {eyebrow ? <p className="label-badge mb-3 text-body-charcoal">{eyebrow}</p> : null}
+        <h1
+          id="layout-page-hero-title"
+          className={`font-display mx-auto max-w-4xl font-semibold tracking-tight text-premium-velvet ${
+            isHome ? "text-3xl sm:text-4xl lg:text-5xl" : "text-2xl sm:text-3xl"
+          }`}
+        >
+          {title}
+        </h1>
+        {subtitle ? (
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-body-charcoal sm:text-base">
+            {subtitle}
+          </p>
+        ) : null}
+        {children ? <div className="mt-6">{children}</div> : null}
       </div>
     </section>
   );

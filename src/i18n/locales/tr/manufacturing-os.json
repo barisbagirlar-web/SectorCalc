@@ -1,0 +1,303 @@
+{
+  "sector": {
+    "cnc": {
+      "title": "CNC & Talaşlı İmalat İstihbaratı",
+      "params": {
+        "target_cycle_time": "İdeal Çevrim Süresi (sn)",
+        "actual_cycle_time": "Ölçülen Süre (sn)",
+        "machine_rate": "Saatlik Tezgah Gideri ($)"
+      }
+    },
+    "construction": {
+      "title": "İnşaat & Proje İstihbaratı",
+      "params": {
+        "target_value": "Hedef Proje Değeri ($)",
+        "earned_value": "Kazanılmış Değer ($)",
+        "labor_cost": "İşçilik Maliyet Oranı ($/sa)"
+      }
+    },
+    "cleaning": {
+      "title": "Temizlik Hizmetleri İstihbaratı",
+      "params": {
+        "planned_hours": "Planlanan Süre (sa)",
+        "actual_hours": "Gerçekleşen Süre (sa)",
+        "hourly_labor_cost": "Saatlik Personel Gideri ($)"
+      }
+    },
+    "restaurant": {
+      "title": "Restoran Marj İstihbaratı",
+      "params": {
+        "target_food_cost_pct": "Hedef Gıda Maliyeti (%)",
+        "actual_food_cost_pct": "Gerçekleşen Gıda Maliyeti (%)",
+        "avg_plate_revenue": "Ortalama Tabak Geliri ($)"
+      }
+    },
+    "ecommerce": {
+      "title": "E-Ticaret Marj İstihbaratı",
+      "params": {
+        "target_margin_pct": "Hedef Marj (%)",
+        "actual_margin_pct": "Gerçekleşen Marj (%)",
+        "avg_order_value": "Ortalama Sipariş Değeri ($)"
+      }
+    },
+    "welding": {
+      "title": "Kaynak & Metal İşleme İstihbaratı",
+      "params": {
+        "estimated_hours": "Tahmini Süre (sa)",
+        "actual_hours": "Gerçekleşen Süre (sa)",
+        "welder_rate": "Kaynakçı Saatlik Gideri ($)"
+      }
+    },
+    "hvac": {
+      "title": "HVAC Proje İstihbaratı",
+      "params": {
+        "planned_install_cost": "Planlanan Kurulum Maliyeti ($)",
+        "actual_install_cost": "Gerçekleşen Kurulum Maliyeti ($)",
+        "crew_rate": "Ekip Saatlik Gideri ($)"
+      }
+    },
+    "electrical": {
+      "title": "Elektrik Taahhüt İstihbaratı",
+      "params": {
+        "bid_labor_hours": "Teklif İşçilik Saati (sa)",
+        "actual_labor_hours": "Gerçekleşen İşçilik Saati (sa)",
+        "electrician_rate": "Elektrikçi Saatlik Gideri ($)"
+      }
+    },
+    "landscaping": {
+      "title": "Peyzaj & Çim Bakımı İstihbaratı",
+      "params": {
+        "route_hours": "Planlanan Rota Süresi (sa)",
+        "actual_route_hours": "Gerçekleşen Rota Süresi (sa)",
+        "crew_rate": "Ekip Saatlik Gideri ($)"
+      }
+    },
+    "auto_repair": {
+      "title": "Oto Tamir Servisi İstihbaratı",
+      "params": {
+        "quoted_labor_hours": "Teklif İşçilik Saati (sa)",
+        "actual_labor_hours": "Gerçekleşen İşçilik Saati (sa)",
+        "bay_rate": "Servis Saatlik Gideri ($)"
+      }
+    },
+    "printing": {
+      "title": "Baskı & Tabela İstihbaratı",
+      "params": {
+        "est_job_cost": "Tahmini İş Maliyeti ($)",
+        "actual_job_cost": "Gerçekleşen İş Maliyeti ($)",
+        "press_rate": "Pres Saatlik Gideri ($)"
+      }
+    },
+    "plumbing": {
+      "title": "Tesisat Hizmetleri İstihbaratı",
+      "params": {
+        "job_estimate": "İş Tahmini ($)",
+        "job_actual": "Gerçekleşen Maliyet ($)",
+        "service_rate": "Servis Saatlik Gideri ($)"
+      }
+    },
+    "millwork": {
+      "title": "Marangozluk & Ahşap İşleme İstihbaratı",
+      "params": {
+        "est_material_cost": "Tahmini Malzeme Maliyeti ($)",
+        "actual_material_cost": "Gerçekleşen Malzeme Maliyeti ($)",
+        "shop_rate": "Atölye Saatlik Gideri ($)"
+      }
+    },
+    "roofing": {
+      "title": "Çatı Taahhüt İstihbaratı",
+      "params": {
+        "bid_per_square": "Teklif Kare Fiyatı ($)",
+        "actual_per_square": "Gerçekleşen Kare Fiyatı ($)",
+        "crew_rate": "Ekip Saatlik Gideri ($)"
+      }
+    },
+    "painting": {
+      "title": "Boya İşi İstihbaratı",
+      "params": {
+        "coverage_target": "Hedef Kaplama (m²)",
+        "coverage_actual": "Gerçekleşen Kaplama (m²)",
+        "painter_rate": "Boya Ekibi Saatlik Gideri ($)"
+      }
+    },
+    "sheet_metal": {
+      "title": "Sac Metal & Lazer İstihbaratı",
+      "params": {
+        "nest_cycle_time": "İdeal Nest Süresi (sn)",
+        "measured_cycle_time": "Ölçülen Nest Süresi (sn)",
+        "laser_rate": "Lazer Saatlik Gideri ($)"
+      }
+    },
+    "print_3d": {
+      "title": "3D Baskı Hizmeti İstihbaratı",
+      "params": {
+        "print_time": "Planlanan Baskı Süresi (sa)",
+        "actual_print_time": "Gerçekleşen Baskı Süresi (sa)",
+        "printer_rate": "Yazıcı Saatlik Gideri ($)"
+      }
+    },
+    "logistics": {
+      "title": "Lojistik & Rotalama İstihbaratı",
+      "params": {
+        "fuel_price": "Yakıt Fiyatı ($/L)",
+        "planned_dist": "Planlanan Mesafe (km)",
+        "actual_dist": "Gerçekleşen Mesafe (km)"
+      }
+    },
+    "ag_crops": {
+      "title": "Tarım & Gübre İstihbaratı",
+      "params": {
+        "target_yield": "Hedef Verim (kg)",
+        "actual_yield": "Gerçekleşen Verim (kg)",
+        "fertilizer_cost_per_kg": "Gübre Birim Maliyeti ($/kg)"
+      }
+    },
+    "ag_irrigation": {
+      "title": "Sulama & Su İstihbaratı",
+      "params": {
+        "planned_water_use": "Planlanan Su Kullanımı (L)",
+        "actual_water_use": "Gerçekleşen Su Kullanımı (L)",
+        "pump_cost_per_liter": "Pompa Birim Maliyeti ($/L)"
+      }
+    },
+    "ag_feed": {
+      "title": "Hayvancılık & Yem İstihbaratı",
+      "params": {
+        "feed_budget": "Yem Bütçesi (kg)",
+        "feed_actual": "Gerçekleşen Yem (kg)",
+        "feed_price_per_kg": "Yem Birim Fiyatı ($/kg)"
+      }
+    },
+    "ag_dairy": {
+      "title": "Süt Verimi İstihbaratı",
+      "params": {
+        "target_milk_yield": "Hedef Süt Verimi (L)",
+        "actual_milk_yield": "Gerçekleşen Süt Verimi (L)",
+        "feed_cost_per_liter": "Yem Birim Maliyeti ($/L)"
+      }
+    },
+    "energy": {
+      "title": "Enerji Tüketimi İstihbaratı",
+      "params": {
+        "target_kwh": "Hedef Tüketim (kWh)",
+        "actual_kwh": "Gerçekleşen Tüketim (kWh)",
+        "kwh_rate": "kWh Birim Fiyatı ($)"
+      }
+    },
+    "carbon": {
+      "title": "Karbon & CBAM İstihbaratı",
+      "params": {
+        "target_emissions": "Hedef Emisyon (tCO₂e)",
+        "actual_emissions": "Gerçekleşen Emisyon (tCO₂e)",
+        "carbon_price_per_tonne": "Karbon Birim Fiyatı ($/tCO₂e)"
+      }
+    },
+    "renovation": {
+      "title": "Ev Tadilatı İstihbaratı",
+      "params": {
+        "budget_per_sqm": "m² Başına Bütçe ($)",
+        "actual_per_sqm": "m² Başına Gerçekleşen ($)",
+        "contractor_rate": "Usta Saatlik Gideri ($)"
+      }
+    },
+    "fuel": {
+      "title": "Yakıt & Seyahat İstihbaratı",
+      "params": {
+        "planned_consumption": "Planlanan Tüketim (L)",
+        "actual_consumption": "Gerçekleşen Tüketim (L)",
+        "fuel_price_per_liter": "Yakıt Fiyatı ($/L)"
+      }
+    },
+    "meals": {
+      "title": "Yemek & Market İstihbaratı",
+      "params": {
+        "recipe_budget": "Tarif Bütçesi ($)",
+        "actual_spend": "Gerçekleşen Harcama ($)",
+        "cost_per_serving": "Porsiyon Başına Maliyet ($)"
+      }
+    }
+  },
+  "auditPanel": {
+    "operationalAudit": "Sektör ölçümü",
+    "runAudit": "Hesaplamayı çalıştır",
+    "prescription": "Uzman sonucu",
+    "variance": "Sapma",
+    "financialImpact": "Tahmini etki",
+    "critical": "Aksiyon gerekli — tolerans aşıldı",
+    "stable": "Normal aralıkta — izlemeye devam",
+    "invalidInput": "Tüm alanlar için geçerli sayısal değer girin."
+  },
+  "expertVerdict": {
+    "title": "Uzman sonucu",
+    "premiumBadge": "Premium rapor",
+    "statusHigh": "Yüksek risk",
+    "statusOk": "Stabil",
+    "summaryHigh": "Sapma %{variance} — sonraki partiden önce fiyat, rota veya toleransı güncelleyin.",
+    "summaryOk": "Parametreler bu sektör için uzman eşikleri içinde.",
+    "riskGauge": "Risk seviyesi",
+    "actionHigh": "Fire veya sapma marjı eritiyor. Çevrim süresi, fire payı veya teklif tamponunu kalibre edin.",
+    "actionOk": "Sektör kıyaslarına karşı sapmayı izlemeye devam edin."
+  },
+  "auditHistory": {
+    "title": "Operasyonel Denetim Arşivi",
+    "empty": "Henüz denetim kaydı yok. Arşivi doldurmak için sektör tanısal denetimi çalıştırın.",
+    "columns": {
+      "timestamp": "Zaman damgası",
+      "sector": "Sektör",
+      "financialImpact": "Finansal Etki",
+      "status": "Durum"
+    },
+    "statusCritical": "KRİTİK",
+    "statusOptimal": "OPTİMAL"
+  },
+  "intelligencePanel": {
+    "title": "Uzman analizi",
+    "hiddenLoss": "Gizli Operasyonel Kayıp",
+    "carbonImpact": "Karbon / CBAM Proxy",
+    "actionPlan": "Karar Desteği",
+    "actionRequired": "Acil Kalibrasyon",
+    "monitorOptimal": "İzle & Stabil",
+    "actionRequiredDetail": "Tolerans sapması %10'u aştı. Sonraki üretim partisi öncesinde çevrim süresi, rota veya çevresel tamponları yeniden kalibre edin.",
+    "monitorOptimalDetail": "Operasyonel parametreler istihbarat eşikleri içinde. Sektör kıyaslarına karşı sapmayı izlemeye devam edin.",
+    "deadheadLoss": "Boş Dönüş Kaybı",
+    "modules": {
+      "hiddenLoss": "Gizli Kayıp",
+      "energyOpt": "Enerji Tarifesi",
+      "deadhead": "Boş Dönüş Dedektörü",
+      "compliance": "Uyumluluk Riski",
+      "weatherRisk": "Hava / Rota",
+      "carbonCbam": "Karbon / CBAM"
+    }
+  },
+  "smartModules": {
+    "decision_support": "Gerçek Zamanlı Aksiyon Planları",
+    "tolerance_opt": "Tolerans-Maliyet Analizi",
+    "hidden_loss": "Gizli Kayıp Dedektörü",
+    "benchmarking": "Sektör Kıyaslaması",
+    "prescriptions": "Uygulanabilir Reçeteler",
+    "offline_mode": "Çevrimdışı Öncelikli UX",
+    "fiscal_multi": "Vergi & Çoklu Para Birimi",
+    "seasonal_loss": "Mevsimsel Etki Motoru",
+    "machine_age": "Varlık Yaşlanma Analizi",
+    "energy_opt": "Enerji Tarifesi Optimizasyonu",
+    "deadhead": "Boş Dönüş Dedektörü",
+    "compliance": "Yasal & Ceza Riski",
+    "soil_nutrients": "Toprak-Besin Motoru",
+    "feed_efficiency": "Yem Verimliliği Modülü",
+    "carbon_cbam": "CBAM & Karbon Takibi"
+  },
+  "benchmarkPanel": {
+    "title": "Sektör İstihbaratı",
+    "yourScore": "Verimlilik Skorunuz",
+    "industryAverage": "Sektör Ortalaması",
+    "topPerformer": "Üst Performans",
+    "needsOptimization": "Optimizasyon Gerekli",
+    "atAverage": "Sektör Ortalamasında"
+  },
+  "premiumAudit": {
+    "stepLabel": "Adım {current} / {total}",
+    "nextParameter": "Sonraki Parametre",
+    "invalidValue": "Devam etmeden önce geçerli bir sayı girin.",
+    "restart": "Yeni denetim çalıştır"
+  }
+}

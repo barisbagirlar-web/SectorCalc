@@ -1,17 +1,20 @@
-import { PricingPlansGrid } from "@/components/sections/PricingPlansGrid";
+import Link from "next/link";
+import { Container } from "@/components/ui/Container";
 
-/** Homepage pricing teaser */
 export function PricingPreview() {
   return (
-    <section className="seventh-tab seventh-tab--muted">
-      <div className="container">
-        <h2>Pricing</h2>
-        <p className="mc-home-pricing-roi">
-          One avoided bad quote can pay for a full year of Pro.
-        </p>
-        <p>Start with a free margin check. Upgrade when you need full verdicts, saved reports and PDF export.</p>
-        <PricingPlansGrid showHeader={false} compact embedded featuredOnly />
-      </div>
+    <section className="border-b border-technical-gray bg-white p-3">
+      <Container className="p-0">
+        <div className="ind-os-panel flex items-center justify-between gap-2 px-4 py-3">
+          <p className="text-xs font-medium text-body-charcoal">Intelligence Layer · Pro gate</p>
+          <Link
+            href="/premium-tools"
+            className="text-xs font-semibold text-premium-velvet transition-colors hover:text-body-charcoal"
+          >
+            Open →
+          </Link>
+        </div>
+      </Container>
     </section>
   );
 }

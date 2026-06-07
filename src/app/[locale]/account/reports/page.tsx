@@ -4,19 +4,19 @@ import { AccountReportsPageContent } from "@/components/reports/AccountReportsPa
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = {
-  ...createPageMetadata({
-    title: "Saved Reports",
-    description:
-      "View saved SectorCalc Pro verdict reports linked to your account.",
-    path: "/account/reports",
-  }),
-  robots: { index: false, follow: false },
+ ...createPageMetadata({
+ title: "Saved Reports",
+ description:
+ "View saved SectorCalc Pro verdict reports linked to your account.",
+ path: "/account/reports",
+ }),
+ robots: { index: false, follow: false },
 };
 
 export default function AccountReportsPage() {
-  return (
-    <Suspense fallback={null}>
-      <AccountReportsPageContent />
-    </Suspense>
-  );
+ return (
+ <Suspense fallback={null}>
+ <AccountReportsPageContent />
+ </Suspense>
+ );
 }

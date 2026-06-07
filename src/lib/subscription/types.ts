@@ -3,6 +3,6 @@ import type { SubscriptionStatus, UserSubscription } from "@/lib/billing/subscri
 export type { SubscriptionStatus, UserSubscription };
 
 export interface UserProfile {
-  email?: string;
-  subscription?: UserSubscription;
+ email?: string;
+ subscription?: UserSubscription;
 }

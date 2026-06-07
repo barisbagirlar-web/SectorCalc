@@ -95,6 +95,47 @@
     "overlayBody": "Espera — Stripe está abriendo tu página de pago.",
     "socialProof": "Confiado por más de 12.000 operadores en todo el mundo"
   },
+  "pilotCnc": {
+    "hero": { "eyebrow": "MarginCore Pilot · CNC Manufacturing" },
+    "form": {
+      "title": "Job inputs",
+      "subtitle": "Setup, cycle and quantity — naive machine-time exposure.",
+      "setupTime": "Setup time (min)",
+      "cycleTime": "Cycle time (min)",
+      "quantity": "Quantity (units)",
+      "submit": "Run naive exposure check",
+      "rateNote": "Naive machine cost uses ${rate}/hr until premium tooling and material are supplied."
+    },
+    "result": {
+      "title": "Naive exposure",
+      "empty": "Enter inputs and run the check.",
+      "totalMinutes": "Total machine time",
+      "machineHours": "Machine hours",
+      "setupBurden": "Setup burden",
+      "naiveCost": "Naive machine cost"
+    },
+    "premium": {
+      "eyebrow": "MarginCore Pro",
+      "title": "Stochastic P90 verdict",
+      "body": "Server-side MarginCore analysis — requires SectorCalc Pro.",
+      "cta": "Unlock Premium Verdict & Risk Report",
+      "loading": "Running MarginCore analysis…",
+      "disclaimer": "Premium defaults tooling and material to zero.",
+      "signInRequired": "Sign in with Pro to unlock the premium verdict.",
+      "signInLink": "Sign in →",
+      "failed": "Premium verdict could not be generated.",
+      "verdictLabel": "Verdict",
+      "naiveLabel": "Deterministic",
+      "bufferLabel": "P90 buffer",
+      "p90Label": "P90 safe",
+      "fullAnalyzerLink": "Open full CNC Quote Risk Analyzer →"
+    },
+    "phase2": {
+      "label": "MarginCore · Phase 2",
+      "reservedLabel": "Stochastic engine slot",
+      "reservedBody": "Full P90 sensitivity matrix and PDF export mount here after premium unlock."
+    }
+  },
   "freeTool": {
     "riskScoreLabel": "Puntuación de riesgo",
     "whatItMeans": "Qué significa esto",
@@ -243,6 +284,57 @@
       "title": "Sector packs for operational and commercial decisions",
       "subtitle": "Each industry module combines a quick estimate layer and a premium decision tool — aligned to how that sector prices work, measures margin and evaluates risk.",
       "viewAll": "View all industries →"
+    }
+  },
+  "homeDashboard": {
+    "meta": {
+      "title": "MarginCore — Professional Risk Analytics for SMEs",
+      "description": "Financial risk dashboard for sector margin analysis. Executive summaries by industry, construction and logistics with P90 stochastic verdicts."
+    },
+    "hero": {
+      "statusLine": "MarginCore · Risk Terminal",
+      "title": "MarginCore: Professional Risk Analytics for SMEs.",
+      "subtitle": "Deterministic cost exposure, P90 safe pricing and sensitivity matrices — server-side stochastic engine for operators who quote on margin.",
+      "primaryCta": "Access Premium Verdicts",
+      "secondaryCta": "View Sample Report",
+      "metrics": {
+        "sectors": { "label": "Sectors", "value": "27 LIVE" },
+        "engine": { "label": "Engine", "value": "P90 MC" },
+        "confidence": { "label": "Confidence", "value": "Z = 1.28" },
+        "gate": { "label": "Access", "value": "PRO GATE" }
+      }
+    },
+    "grid": {
+      "eyebrow": "Sector coverage",
+      "title": "Executive summaries by vertical",
+      "subtitle": "Grouped risk modules — free pre-checks and premium verdict analyzers.",
+      "sectorCount": "{count} modules",
+      "freeLabel": "Pre-check",
+      "proLabel": "Verdict"
+    },
+    "groups": {
+      "industry": "Industry",
+      "construction": "Construction",
+      "logistics": "Logistics"
+    },
+    "activity": {
+      "eyebrow": "Activity feed",
+      "title": "Recent reports",
+      "subtitle": "Sample activity stream — sign in to sync saved verdict reports.",
+      "viewAll": "Open report archive",
+      "disclaimer": "Illustrative rows only. Live report history requires SectorCalc Pro.",
+      "columns": {
+        "id": "Report ID",
+        "sector": "Sector",
+        "verdict": "Verdict",
+        "updated": "Updated",
+        "status": "Status"
+      },
+      "status": {
+        "complete": "Complete",
+        "pending": "Awaiting",
+        "sample": "Sample"
+      }
     }
   },
   "emptyStates": {
