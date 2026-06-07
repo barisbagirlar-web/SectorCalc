@@ -13,8 +13,9 @@
     "validate:premium-schemas": "vitest run src/lib/premium-schema/__tests__/schema-linter.test.ts src/lib/premium-schema/__tests__/premium-schema-engine.test.ts src/lib/premium-schema/__tests__/premium-migration-map.test.ts src/lib/premium-schema/__tests__/premium-report-ux.test.ts src/lib/premium-schema/__tests__/schema-draft.test.ts",
     "seo:llms": "npx tsx scripts/generate-seo-authority-txt.ts",
     "seo:authority-txt": "npx tsx scripts/generate-seo-authority-txt.ts",
-    "seo:indexnow": "npx tsx scripts/submit-indexnow.ts",
-    "prebuild": "npm run lint:schemas && npm run seo:authority-txt",
+    "seo:export-manifest": "npx tsx scripts/export-indexable-manifest.ts",
+    "seo:indexnow": "node scripts/submit-indexnow.mjs",
+    "prebuild": "npm run lint:schemas && npm run seo:authority-txt && npm run seo:export-manifest",
     "audit:revenue-tools": "node scripts/audit-revenue-tools.mjs",
     "check:secrets": "node scripts/check-commit-secrets.mjs",
     "admin:set-claim": "node scripts/set-admin-claim.mjs"

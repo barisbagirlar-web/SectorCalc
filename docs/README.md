@@ -9,7 +9,11 @@
 
 ## SEO & authority
 
+- [Search Console & IndexNow Runbook](./search-console-indexnow-runbook.md)
 - [GSC URL Inspection Checklist](./gsc-url-inspection-checklist.md)
+- [GSC Campaign URL List](./gsc-campaign-url-list.md)
+- [IndexNow Setup](./indexnow-setup.md)
+- [SEO Public File Checklist](./seo-public-file-checklist.md)
 
 ## Product & operations
 

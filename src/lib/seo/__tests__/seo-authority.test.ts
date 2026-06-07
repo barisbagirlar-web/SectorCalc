@@ -8,6 +8,7 @@ import {
   sanitizeJsonLd,
 } from "@/lib/seo/schema-mesh";
 import { buildSitemapEntries } from "@/lib/seo/build-sitemap";
+import { getManifestEnPathSet } from "@/lib/seo/indexable-url-manifest";
 import {
   PROGRAMMATIC_SEO_PAGES,
   listProgrammaticSeoSlugs,
@@ -22,7 +23,7 @@ import { PREMIUM_SCHEMAS, listPremiumSchemaSlugs } from "@/lib/premium-schema/sc
 import { getPremiumSchemaCatalogItems } from "@/lib/premium-schema/premium-schema-catalog";
 
 const PUBLIC_ROOT = join(process.cwd(), "public");
-const INDEXNOW_SCRIPT = join(process.cwd(), "scripts", "submit-indexnow.ts");
+const INDEXNOW_SCRIPT = join(process.cwd(), "scripts", "submit-indexnow.mjs");
 
 function readPublicTxt(name: string): string {
   const path = join(PUBLIC_ROOT, name);
@@ -159,5 +160,15 @@ describe("seo-authority architecture", () => {
     const script = readFileSync(INDEXNOW_SCRIPT, "utf8");
     expect(script).toContain("INDEXNOW_KEY not set");
     expect(script).toContain("process.exit(0)");
+  });
+
+  test("manifest EN paths appear in sitemap", () => {
+    const manifestPaths = getManifestEnPathSet();
+    const sitemapPaths = new Set(
+      buildSitemapEntries().map((entry) => new URL(entry.url).pathname),
+    );
+    for (const path of manifestPaths) {
+      expect(sitemapPaths.has(path)).toBe(true);
+    }
   });
 });
