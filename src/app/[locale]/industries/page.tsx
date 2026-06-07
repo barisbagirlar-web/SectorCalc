@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
+import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
 import { buildIndustryCardProps, type IndustryCardProps } from "@/components/industries/IndustryCard";
 import { IndustriesGrid } from "@/components/industries/IndustriesGrid";
 import { Container } from "@/components/ui/Container";
-import {
-  FEATURED_INDUSTRY_SLUGS,
-  getAllIndustryCategories,
-  getIndustriesByCategory,
-  INDUSTRY_CATEGORY_LABELS,
-} from "@/lib/tools/industry-registry";
+import { buildIndustryCatalogGroups } from "@/lib/catalog/build-catalog-groups";
+import { FEATURED_INDUSTRY_SLUGS } from "@/lib/tools/industry-registry";
 import { INDUSTRIES, getIndustryBySlug, type Industry } from "@/data/industries";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref, getPricingHref } from "@/lib/tools/tool-links";
@@ -36,6 +33,7 @@ export default function IndustriesPage() {
     (industry): industry is Industry => industry !== undefined
   );
   const featuredCards = resolveIndustryCards(featured, true);
+  const industryGroups = buildIndustryCatalogGroups();
 
   return (
     <PageLayout>
@@ -59,27 +57,18 @@ export default function IndustriesPage() {
         </Container>
       </section>
 
-      {getAllIndustryCategories().map((category, index) => {
-        const entries = getIndustriesByCategory(category);
-        const industries = entries
-          .map((entry) => getIndustryBySlug(entry.slug))
-          .filter((industry): industry is Industry => industry !== undefined);
-        const cards = resolveIndustryCards(industries);
-
-        return (
-          <section
-            key={category}
-            className={`sc-craft-section sc-craft-section--border ${index % 2 === 1 ? "sc-craft-section--alt" : ""}`}
-          >
-            <Container className="sc-craft-container">
-              <h2 className="sc-craft-headline text-xl">{INDUSTRY_CATEGORY_LABELS[category]}</h2>
-              <div className="mt-5">
-                <IndustriesGrid items={cards} />
-              </div>
-            </Container>
-          </section>
-        );
-      })}
+      <section className="sc-craft-section sc-craft-section--border">
+        <Container size="wide" className="sc-craft-container min-w-0">
+          <h2 className="sc-craft-headline text-xl">Browse by sector group</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-body-charcoal">
+            Pick your industry area first — free checks and premium analyzers open inside each
+            sector.
+          </p>
+          <div className="mt-6">
+            <SectorCatalogExplorer groups={industryGroups} variant="industries" />
+          </div>
+        </Container>
+      </section>
 
       <section className="sc-craft-section">
         <Container className="sc-craft-container">

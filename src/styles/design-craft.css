@@ -777,9 +777,29 @@
   gap: 0.25rem;
 }
 
+.sc-header-locale-group {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  border: 1px solid var(--sc-border);
+  background: var(--sc-surface);
+}
+
+.sc-header-locale-group .apple-locale__select {
+  max-width: 7.5rem;
+  padding-inline: 0.375rem;
+  font-size: 0.6875rem;
+}
+
 @media (min-width: 1024px) {
   .sc-header-util-compact {
     gap: 0.375rem;
+  }
+
+  .sc-header-locale-group .apple-locale__select {
+    max-width: 8.5rem;
+    font-size: 0.6875rem;
   }
 }
 
@@ -1187,17 +1207,20 @@
   margin-top: 1.25rem;
 }
 
-/* ── Free tools category explorer ── */
+/* ── Catalog category explorer (categories, free-tools, premium, industries) ── */
+.sc-catalog-explorer,
 .sc-free-tools-explorer {
   min-width: 0;
 }
 
+.sc-catalog-explorer__desktop,
 .sc-free-tools-explorer__desktop {
   grid-template-columns: minmax(220px, 0.32fr) minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
 
+.sc-catalog-explorer__sidebar,
 .sc-free-tools-explorer__sidebar {
   position: sticky;
   top: 5rem;
@@ -1206,6 +1229,7 @@
   padding-right: 0.25rem;
 }
 
+.sc-catalog-explorer__category-btn,
 .sc-free-tools-explorer__category-btn {
   display: block;
   min-height: 44px;
@@ -1216,15 +1240,18 @@
   transition: border-color 150ms ease, background-color 150ms ease;
 }
 
+.sc-catalog-explorer__category-btn:hover,
 .sc-free-tools-explorer__category-btn:hover {
   border-color: var(--sc-text);
 }
 
+.sc-catalog-explorer__category-btn:focus-visible,
 .sc-free-tools-explorer__category-btn:focus-visible {
   outline: 2px solid var(--sc-copper);
   outline-offset: 2px;
 }
 
+.sc-catalog-explorer__category-btn--active,
 .sc-free-tools-explorer__category-btn--active {
   border-color: var(--sc-copper);
   background: var(--sc-bg);
@@ -1233,22 +1260,27 @@
     0 -1px 0 rgb(26 26 26 / 0.04) inset;
 }
 
+.sc-catalog-explorer__accordion-item,
 .sc-free-tools-explorer__accordion-item {
   border-bottom: 1px solid var(--sc-border);
 }
 
+.sc-catalog-explorer__accordion-item:first-child,
 .sc-free-tools-explorer__accordion-item:first-child {
   border-top: 1px solid var(--sc-border);
 }
 
+.sc-catalog-explorer__accordion-panel,
 .sc-free-tools-explorer__accordion-panel {
   padding: 0 0 1.25rem;
 }
 
+.sc-catalog-explorer__item-grid,
 .sc-free-tools-explorer__tool-grid {
   margin-top: 0.5rem;
 }
 
+.sc-catalog-explorer__item-card,
 .sc-free-tools-explorer__tool-card {
   height: 100%;
 }

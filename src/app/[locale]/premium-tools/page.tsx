@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { ToolCatalogByCategory } from "@/components/tools/ToolCatalogByCategory";
+import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
+import { buildPremiumToolCatalogGroups } from "@/lib/catalog/build-catalog-groups";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { Container } from "@/components/ui/Container";
 import { PREMIUM_TOOLS } from "@/data/tools";
@@ -36,6 +37,8 @@ const VERDICT_EXAMPLES = [
 ] as const;
 
 export default function PremiumToolsPage() {
+  const premiumGroups = buildPremiumToolCatalogGroups(PREMIUM_TOOLS);
+
   return (
     <PageLayout>
       <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
@@ -91,8 +94,8 @@ export default function PremiumToolsPage() {
           <p className="sc-pro-lead text-sm">
             Twenty-seven sector analyzers. Each pairs with a free quick check in the same industry.
           </p>
-          <div className="mt-6">
-            <ToolCatalogByCategory tools={PREMIUM_TOOLS} catalogVariant="premium" />
+          <div className="mt-6 min-w-0">
+            <SectorCatalogExplorer groups={premiumGroups} variant="premium-tools" />
           </div>
         </Container>
       </section>

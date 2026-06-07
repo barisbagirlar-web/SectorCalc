@@ -19,8 +19,10 @@ export function SiteHeader() {
 
         <div className="apple-nav__utilities">
           <div className="sc-header-util-compact hidden lg:flex">
-            <RegionSelector />
-            <LocaleSwitcher />
+            <div className="sc-header-locale-group" aria-label="Region and language">
+              <RegionSelector />
+              <LocaleSwitcher />
+            </div>
             <HeaderAuthCta />
           </div>
           <MobileNav />
