@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { FreeToolsCategoryExplorer } from "@/components/tools/FreeToolsCategoryExplorer";
+import { FreeToolsOmniHub } from "@/components/tools/FreeToolsOmniHub";
 import { FreeToolPrivacyNote } from "@/components/tools/FreeToolPrivacyNote";
 import { Container } from "@/components/ui/Container";
 import { IconListItem } from "@/components/icons/ScIcon";
@@ -32,24 +32,9 @@ export default async function FreeToolsPage({ params }: PageProps) {
 
   return (
     <PageLayout>
-      <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
-        <Container size="wide" className="sc-pro-container sc-pro-container--wide">
-          <p className="sc-pro-eyebrow">{t("eyebrow")}</p>
-          <h1 className="sc-pro-title sc-pro-title--compact">{t("title")}</h1>
-          <p className="sc-pro-lead">{t("explorerSub")}</p>
-          <p className="mt-3 text-sm font-medium text-premium-velvet">
-            {t("totalCount", {
-              traffic: FREE_TRAFFIC_TOOLS.length,
-              sectors: 27,
-              categories: 10,
-            })}
-          </p>
-        </Container>
-      </section>
-
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-          <FreeToolsCategoryExplorer tools={FREE_TRAFFIC_TOOLS} />
+          <FreeToolsOmniHub tools={FREE_TRAFFIC_TOOLS} />
         </Container>
       </section>
 
