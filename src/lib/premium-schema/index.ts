@@ -6,3 +6,4 @@ export * from "@/lib/premium-schema/schema-linter";
 export * from "@/lib/premium-schema/schema-registry";
 export * from "@/lib/premium-schema/premium-migration-map";
 export * from "@/lib/premium-schema/get-premium-migration-status";
+export * from "@/lib/premium-schema/format-premium-result";

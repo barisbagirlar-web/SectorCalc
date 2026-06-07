@@ -72,7 +72,7 @@ export default async function PremiumSchemaPilotPage({
         </Container>
       </section>
       <Container className="pb-12 pt-6 sm:pb-16">
-        <DynamicPremiumCalculator schema={schema} />
+        <DynamicPremiumCalculator schema={schema} locale={locale} />
       </Container>
     </PageLayout>
   );
