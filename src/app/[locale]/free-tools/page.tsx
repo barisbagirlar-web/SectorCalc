@@ -35,8 +35,8 @@ export default async function FreeToolsPage({ params }: PageProps) {
 
   return (
     <PageLayout>
-      <section className="sc-craft-section sc-craft-section--alt sc-craft-section--border">
-        <Container className="sc-craft-container">
+      <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
+        <Container className="sc-pro-container">
           <p className="sc-craft-eyebrow">{t("eyebrow")}</p>
           <h1 className="sc-craft-headline">{t("title")}</h1>
           <p className="sc-craft-lead">{t("lead")}</p>

@@ -6,260 +6,256 @@ import { useEffect, useMemo, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { ProCheckoutButton } from "@/components/subscription/ProCheckoutButton";
 import {
- PlanAvailabilityBadge,
- PlanCheckoutAction,
+  PlanAvailabilityBadge,
+  PlanCheckoutAction,
 } from "@/components/pricing/PlanCheckoutAction";
 import { IconListItem } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
 import {
- REVENUE_EVENTS,
- trackRevenueEvent,
+  REVENUE_EVENTS,
+  trackRevenueEvent,
 } from "@/lib/analytics/revenue-events";
 import {
- ANALYTICS_EVENTS,
- trackEvent,
+  ANALYTICS_EVENTS,
+  trackEvent,
 } from "@/lib/analytics/events";
 import { PRICING_CHECKOUT_LEGAL } from "@/lib/billing/subscription";
 import { PRICING_REFUND_POLICY } from "@/lib/pricing/plan-catalog";
 import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
 import { getSampleReportHref } from "@/lib/tools/tool-links";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import {
- buildPricingPlans,
+  buildPricingPlans,
+  type PricingPlan,
 } from "@/data/pricing-plans";
 
 interface PricingPlansGridProps {
- showHeader?: boolean;
- compact?: boolean;
- embedded?: boolean;
- /** Homepage teaser — show Free Check + Pro only */
- featuredOnly?: boolean;
+  showHeader?: boolean;
+  compact?: boolean;
+  embedded?: boolean;
+  featuredOnly?: boolean;
+  /** Free + Pro (dominant) + Enterprise — Pro visually primary */
+  tierMode?: "default" | "pro-focused";
+}
+
+function pickProFocusedPlans(plans: PricingPlan[]): PricingPlan[] {
+  const free = plans.find((p) => p.id === "free");
+  const pro = plans.find((p) => p.id === "pro");
+  const enterprise = plans.find((p) => p.id === "team");
+  return [free, pro, enterprise].filter((p): p is PricingPlan => Boolean(p));
 }
 
 export function PricingPlansGrid({
- showHeader = true,
- compact = false,
- embedded = false,
- featuredOnly = false,
+  showHeader = true,
+  compact = false,
+  embedded = false,
+  featuredOnly = false,
+  tierMode = "default",
 }: PricingPlansGridProps) {
- const t = useTranslations();
- const searchParams = useSearchParams();
- const highlightPlanId = searchParams.get("plan") ?? undefined;
- const planRefs = useRef<Record<string, HTMLElement | null>>({});
+  const t = useTranslations();
+  const searchParams = useSearchParams();
+  const highlightPlanId = searchParams.get("plan") ?? undefined;
+  const planRefs = useRef<Record<string, HTMLElement | null>>({});
 
- const pricingPlans = useMemo(() => buildPricingPlans(t), [t]);
+  const pricingPlans = useMemo(() => buildPricingPlans(t), [t]);
 
- const checkoutToolSlug = useMemo(() => {
- const tool = searchParams.get("tool");
- return tool && getRevenueToolByPaidSlug(tool) ? tool : undefined;
- }, [searchParams]);
+  const checkoutToolSlug = useMemo(() => {
+    const tool = searchParams.get("tool");
+    return tool && getRevenueToolByPaidSlug(tool) ? tool : undefined;
+  }, [searchParams]);
 
- useEffect(() => {
- if (!highlightPlanId) {
- return;
- }
- const el = planRefs.current[highlightPlanId];
- el?.scrollIntoView({ behavior: "smooth", block: "center" });
- }, [highlightPlanId]);
+  useEffect(() => {
+    if (!highlightPlanId) {
+      return;
+    }
+    const el = planRefs.current[highlightPlanId];
+    el?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [highlightPlanId]);
 
- const visiblePlans = useMemo(
- () =>
- featuredOnly
- ? pricingPlans.filter((plan) => plan.id === "free" || plan.id === "pro")
- : pricingPlans,
- [featuredOnly, pricingPlans]
- );
+  const visiblePlans = useMemo(() => {
+    if (tierMode === "pro-focused") {
+      return pickProFocusedPlans(pricingPlans);
+    }
+    if (featuredOnly) {
+      return pricingPlans.filter((plan) => plan.id === "free" || plan.id === "pro");
+    }
+    return pricingPlans;
+  }, [featuredOnly, pricingPlans, tierMode]);
 
- useEffect(() => {
- trackRevenueEvent(REVENUE_EVENTS.pricing_viewed, {
- toolSlug: checkoutToolSlug,
- });
- }, [checkoutToolSlug]);
+  useEffect(() => {
+    trackRevenueEvent(REVENUE_EVENTS.pricing_viewed, {
+      toolSlug: checkoutToolSlug,
+    });
+  }, [checkoutToolSlug]);
 
- const inner = (
- <Container className={embedded ? "px-0" : undefined}>
- {showHeader && (
- <SectionHeader
- eyebrow={t("pricing.eyebrow")}
- title={t("pricing.title")}
- subtitle={t("pricing.tagline")}
- align="center"
- />
- )}
+  const isProFocused = tierMode === "pro-focused";
 
- {!compact ? (
- <p className="mx-auto mb-8 max-w-2xl text-center text-base font-semibold text-text-primary">
- {t("pricing.roiCopy")}
- </p>
- ) : null}
+  const inner = (
+    <Container className={`sc-pro-container ${embedded ? "px-0" : ""}`}>
+      {showHeader && (
+        <div className="mb-8 text-center">
+          <p className="sc-pro-eyebrow">{t("pricing.eyebrow")}</p>
+          <h2 className="sc-pro-title">{t("pricing.title")}</h2>
+          <p className="sc-pro-lead mx-auto">{t("pricing.tagline")}</p>
+        </div>
+      )}
 
- <div
- className={`grid gap-6 ${
- compact
- ? "md:grid-cols-2"
- : "md:grid-cols-2 xl:grid-cols-3"
- }`}
- >
- {visiblePlans.map((plan) => (
- <article
- key={plan.id}
- ref={(node) => {
- planRefs.current[plan.id] = node;
- }}
- className={`flex flex-col rounded-sm border p-6 md:p-7 ${
- plan.highlighted || highlightPlanId === plan.id
- ? plan.highlighted
- ? "border-accent-teal bg-bg-subtle ring-1 ring-amber/20"
- : "border-accent-teal bg-white shadow-card ring-2 ring-accent-teal/30"
- : "border-border-subtle bg-white shadow-card"
- }`}
- >
- <div className="flex flex-wrap items-center gap-2">
- <h3 className="text-lg font-bold">{plan.name}</h3>
- {plan.planId && plan.planId !== "free" ? (
- <PlanAvailabilityBadge planId={plan.planId} />
- ) : null}
- {plan.badge ? (
- <Badge
- variant={plan.highlighted ? "premium" : "muted"}
- className="text-[10px]"
- >
- {plan.badge}
- </Badge>
- ) : null}
- </div>
- <p
- className={`mt-2 text-2xl font-bold sm:text-3xl ${
- plan.highlighted ? "text-deep-navy" : "text-text-primary"
- }`}
- >
- {plan.price}
- </p>
- {plan.period ? (
- <p
- className={`text-sm ${
- plan.highlighted ? "text-text-secondary" : "text-text-secondary"
- }`}
- >
- {plan.period}
- </p>
- ) : null}
- <p
- className={`mt-4 text-sm leading-relaxed ${
- plan.highlighted ? "text-text-secondary" : "text-text-secondary"
- }`}
- >
- {plan.description}
- </p>
- <ul className="mt-6 flex-1 space-y-2.5">
- {plan.features.map((feature) => (
- <IconListItem
- key={feature}
- icon={UI_ICON.check}
- iconClassName={plan.highlighted ? "text-deep-navy" : "text-deep-navy"}
- className={plan.highlighted ? "text-text-secondary" : "text-text-primary"}
- >
- {feature}
- </IconListItem>
- ))}
- </ul>
- {plan.id === "free" && plan.primaryHref ? (
- <Button
- href={plan.primaryHref}
- variant="primary"
- size="md"
- className="mt-8 w-full"
- onClick={() => {
- trackEvent(ANALYTICS_EVENTS.pricing_clicked, {
- plan: plan.id,
- source: "pricing_grid",
- });
- }}
- >
- {plan.primaryCta}
- </Button>
- ) : (
- <PlanCheckoutAction
- plan={plan}
- checkoutToolSlug={checkoutToolSlug}
- highlighted={plan.highlighted}
- className="mt-8 w-full"
- />
- )}
- {plan.checkoutPlan === "pro" && plan.checkoutReady ? (
- <p
- className={`mt-4 text-xs leading-relaxed ${
- plan.highlighted ? "text-text-secondary" : "text-text-secondary"
- }`}
- >
- {PRICING_CHECKOUT_LEGAL}
- </p>
- ) : null}
- </article>
- ))}
- </div>
+      {!compact ? (
+        <p className="mx-auto mb-8 max-w-2xl text-center text-sm font-medium text-body-charcoal">
+          {t("pricing.roiCopy")}
+        </p>
+      ) : null}
 
- {!compact ? (
- <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-text-secondary">
- {PRICING_REFUND_POLICY}
- </p>
- ) : null}
+      <div
+        className={
+          isProFocused
+            ? "sc-pro-pricing-grid"
+            : `grid gap-6 ${compact ? "md:grid-cols-2" : "md:grid-cols-2 xl:grid-cols-3"}`
+        }
+      >
+        {visiblePlans.map((plan) => {
+          const isFeatured = isProFocused ? plan.id === "pro" : Boolean(plan.highlighted);
+          const isEnterprise = isProFocused && plan.id === "team";
+          const displayName =
+            isEnterprise ? t("pricing.matrix.colEnterprise") : plan.name;
 
- {!compact ? (
- <p className="mt-6 text-center text-sm text-text-secondary">
- <Link href={getSampleReportHref()} className="font-semibold text-deep-navy hover:underline">
- {t("pricing.sampleReport")}
- </Link>
- </p>
- ) : null}
+          return (
+            <article
+              key={plan.id}
+              ref={(node) => {
+                planRefs.current[plan.id] = node;
+              }}
+              className={
+                isProFocused
+                  ? `sc-pro-pricing-card sc-pro-letterpress${
+                      isFeatured
+                        ? " sc-pro-pricing-card--featured"
+                        : isEnterprise
+                          ? " sc-pro-pricing-card--enterprise"
+                          : " sc-pro-pricing-card--support"
+                    }`
+                  : `flex flex-col border p-6 md:p-7 ${
+                      plan.highlighted || highlightPlanId === plan.id
+                        ? plan.highlighted
+                          ? "border-technical-gray bg-industrial-matte"
+                          : "border-technical-gray bg-white"
+                        : "border-technical-gray bg-white"
+                    }`
+              }
+            >
+              {isFeatured && plan.badge ? (
+                <span className="sc-pro-pricing-card__badge">{plan.badge}</span>
+              ) : null}
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-lg font-semibold text-premium-velvet">{displayName}</h3>
+                {plan.planId && plan.planId !== "free" && !isEnterprise ? (
+                  <PlanAvailabilityBadge planId={plan.planId} />
+                ) : null}
+              </div>
+              <p className={`sc-pro-pricing-card__price mt-2 ${!isProFocused ? "text-2xl font-bold sm:text-3xl" : ""}`}>
+                {plan.price}
+              </p>
+              {plan.period ? (
+                <p className="text-sm text-body-charcoal">{plan.period}</p>
+              ) : null}
+              <p className="mt-3 text-sm leading-relaxed text-body-charcoal">
+                {isEnterprise
+                  ? t("pricing.teamDescription")
+                  : plan.description}
+              </p>
+              <ul className={`sc-pro-pricing-card__features space-y-2 ${!isProFocused ? "mt-6 flex-1" : ""}`}>
+                {plan.features.map((feature) => (
+                  <IconListItem
+                    key={feature}
+                    icon={UI_ICON.check}
+                    iconClassName="text-sc-navy"
+                    className="text-body-charcoal"
+                  >
+                    {feature}
+                  </IconListItem>
+                ))}
+              </ul>
+              <div className="sc-pro-pricing-card__cta">
+                {plan.id === "free" && plan.primaryHref ? (
+                  <Link
+                    href={plan.primaryHref}
+                    className="sc-cta-secondary inline-flex w-full justify-center"
+                    onClick={() => {
+                      trackEvent(ANALYTICS_EVENTS.pricing_clicked, {
+                        plan: plan.id,
+                        source: "pricing_grid",
+                      });
+                    }}
+                  >
+                    {plan.primaryCta}
+                  </Link>
+                ) : isEnterprise ? (
+                  <Link
+                    href="/for-consultants"
+                    className="sc-cta-secondary inline-flex w-full justify-center"
+                  >
+                    Contact us
+                  </Link>
+                ) : (
+                  <PlanCheckoutAction
+                    plan={plan}
+                    checkoutToolSlug={checkoutToolSlug}
+                    highlighted={isFeatured}
+                    className="w-full"
+                  />
+                )}
+              </div>
+              {plan.checkoutPlan === "pro" && plan.checkoutReady ? (
+                <p className="mt-3 text-xs leading-relaxed text-body-charcoal">
+                  {PRICING_CHECKOUT_LEGAL}
+                </p>
+              ) : null}
+            </article>
+          );
+        })}
+      </div>
 
- {!compact && (
- <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
- <div className="w-full max-w-md">
- <ProCheckoutButton
- label={t("pricing.proCta")}
- source="pricing_footer"
- toolSlug={checkoutToolSlug}
- />
- <p className="mt-3 text-center text-xs leading-relaxed text-text-secondary">
- {PRICING_CHECKOUT_LEGAL}
- </p>
- </div>
- <Button href="/free-tools" variant="outline" size="lg">
- Start with Free Tools
- </Button>
- </div>
- )}
+      {!compact ? (
+        <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-body-charcoal">
+          {PRICING_REFUND_POLICY}
+        </p>
+      ) : null}
 
- {compact && (
- <p className="mt-8 text-center text-sm text-[#808080]">
- <Link
- href="/pricing"
- className="font-semibold text-[#07b6ef] hover:underline"
- >
- View full plan comparison →
- </Link>
- </p>
- )}
- </Container>
- );
+      {!compact ? (
+        <p className="mt-6 text-center text-sm text-body-charcoal">
+          <Link href={getSampleReportHref()} className="font-semibold text-sc-navy underline underline-offset-2">
+            {t("pricing.sampleReport")}
+          </Link>
+        </p>
+      ) : null}
 
- if (embedded) {
- return inner;
- }
+      {!compact && !isProFocused && (
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="w-full max-w-md">
+            <ProCheckoutButton
+              label={t("pricing.proCta")}
+              source="pricing_footer"
+              toolSlug={checkoutToolSlug}
+            />
+            <p className="mt-3 text-center text-xs leading-relaxed text-body-charcoal">
+              {PRICING_CHECKOUT_LEGAL}
+            </p>
+          </div>
+          <Link href="/free-tools" className="sc-cta-secondary px-6">
+            Start with Free Tools
+          </Link>
+        </div>
+      )}
+    </Container>
+  );
 
- return (
- <section
- className={
- compact
- ? "border-y border-border-subtle bg-white py-20 md:py-28"
- : "bg-bg-subtle py-16 md:py-24"
- }
- >
- {inner}
- </section>
- );
+  if (embedded) {
+    return inner;
+  }
+
+  return (
+    <section className="sc-pro-section sc-pro-section--alt">
+      {inner}
+    </section>
+  );
 }

@@ -12,7 +12,7 @@ export function LedgerNumberTick({ value, className = "" }: LedgerNumberTickProp
   return (
     <span
       key={value}
-      className={`sc-ledger-number-tick sc-ledger-big-number ${className}`.trim()}
+      className={`sc-result-number-tick sc-ledger-number-tick sc-ledger-big-number sc-result-big-number ${className}`.trim()}
       aria-live="polite"
     >
       {value}

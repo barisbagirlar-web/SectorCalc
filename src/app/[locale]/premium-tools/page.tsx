@@ -38,11 +38,11 @@ const VERDICT_EXAMPLES = [
 export default function PremiumToolsPage() {
   return (
     <PageLayout>
-      <section className="sc-craft-section sc-craft-section--alt sc-craft-section--border">
-        <Container className="sc-craft-container">
-          <p className="sc-craft-eyebrow">Premium Decision Reports</p>
-          <h1 className="sc-craft-headline">Loss & efficiency analyzers</h1>
-          <p className="sc-craft-lead">
+      <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
+        <Container className="sc-pro-container">
+          <p className="sc-pro-eyebrow">Premium Decision Reports</p>
+          <h1 className="sc-pro-headline">Loss & efficiency analyzers</h1>
+          <p className="sc-pro-lead">
             Sector-specific decision reports for measurement, scrap, OEE, routing, energy and
             profitability — built for operators who need a clear verdict, not a spreadsheet.
           </p>
@@ -55,12 +55,12 @@ export default function PremiumToolsPage() {
         </Container>
       </section>
 
-      <section className="sc-craft-section sc-craft-section--border">
-        <Container className="sc-craft-container">
-          <h2 className="sc-craft-headline text-xl">What you get</h2>
+      <section className="sc-pro-section sc-pro-section--border">
+        <Container className="sc-pro-container">
+          <h2 className="sc-pro-headline text-xl">What you get</h2>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             <div className="sc-industrial-panel p-5">
-              <p className="sc-craft-eyebrow">Free tools</p>
+              <p className="sc-pro-eyebrow">Free tools</p>
               <ul className="mt-3 space-y-2 text-sm text-body-charcoal">
                 <li>Quick measurement and conversion</li>
                 <li>First risk signal in the browser</li>
@@ -71,7 +71,7 @@ export default function PremiumToolsPage() {
               </Link>
             </div>
             <div className="sc-industrial-panel p-5">
-              <p className="sc-craft-eyebrow">Premium reports</p>
+              <p className="sc-pro-eyebrow">Premium reports</p>
               <ul className="mt-3 space-y-2 text-sm text-body-charcoal">
                 <li>Loss detection and tolerance interpretation</li>
                 <li>3-second field panel + PDF save</li>
@@ -85,10 +85,10 @@ export default function PremiumToolsPage() {
         </Container>
       </section>
 
-      <section className="sc-craft-section sc-craft-section--border">
-        <Container size="wide" className="sc-craft-container sc-craft-container--wide">
-          <h2 className="sc-craft-headline text-xl">Decision analyzer catalog</h2>
-          <p className="sc-craft-lead text-sm">
+      <section className="sc-pro-section sc-pro-section--border">
+        <Container size="wide" className="sc-pro-container sc-pro-container--wide">
+          <h2 className="sc-pro-headline text-xl">Decision analyzer catalog</h2>
+          <p className="sc-pro-lead text-sm">
             Twenty-seven sector analyzers. Each pairs with a free quick check in the same industry.
           </p>
           <div className="mt-6">
@@ -97,10 +97,10 @@ export default function PremiumToolsPage() {
         </Container>
       </section>
 
-      <section className="sc-craft-section sc-craft-section--alt sc-craft-section--border">
-        <Container className="sc-craft-container">
-          <h2 className="sc-craft-headline text-xl">Verdict examples</h2>
-          <p className="sc-craft-lead text-sm">
+      <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
+        <Container className="sc-pro-container">
+          <h2 className="sc-pro-headline text-xl">Verdict examples</h2>
+          <p className="sc-pro-lead text-sm">
             Plain-language outputs — no formula dumps, no jargon.
           </p>
           <div className="sc-craft-grid sc-craft-grid--2 mt-5">
@@ -116,10 +116,10 @@ export default function PremiumToolsPage() {
         </Container>
       </section>
 
-      <section className="sc-craft-section">
-        <Container className="sc-craft-container">
+      <section className="sc-pro-section">
+        <Container className="sc-pro-container">
           <div className="sc-decision-block">
-            <h2 className="sc-craft-headline text-lg">Unlock all premium analyzers</h2>
+            <h2 className="sc-pro-headline text-lg">Unlock all premium analyzers</h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-body-charcoal">
               {sectorCalcProPricing.description}
             </p>

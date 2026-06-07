@@ -39,8 +39,8 @@ export default function IndustriesPage() {
 
   return (
     <PageLayout>
-      <section className="sc-craft-section sc-craft-section--alt sc-craft-section--border">
-        <Container className="sc-craft-container">
+      <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
+        <Container className="sc-pro-container">
           <p className="sc-craft-eyebrow">Industry packs</p>
           <h1 className="sc-craft-headline">Where loss starts in your sector</h1>
           <p className="sc-craft-lead">

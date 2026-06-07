@@ -1,8 +1,9 @@
 /**
- * SectorCalc Design Craft Layer v1.1 — Industrial Ledger
- * 85% industrial grid · 10% ledger feel · 5% craft detail
+ * SectorCalc Design System v1.3 — Industrial Professional + Ledger Craft Layer
+ * 85% Industrial Professional grid · 10% ledger feel · 5% craft detail
  *
- * DNA: cream paper · white cards · dark text · copper CTA · navy trust
+ * sc-pro-*  = primary professional system
+ * sc-ledger-* = craft / quick-entry detail layer
  */
 
 /* ── Ledger tokens ── */
@@ -781,3 +782,408 @@
     gap: 0.375rem;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   v1.3 — Industrial Professional (primary) + Ledger craft (secondary)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.sc-pro-page,
+.sc-ledger-page {
+  position: relative;
+  background-color: var(--sc-bg);
+  overflow-x: hidden;
+}
+
+.sc-pro-section,
+.sc-ledger-section,
+.sc-craft-section {
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+  background-color: var(--sc-bg);
+  overflow-x: hidden;
+}
+
+.sc-pro-section--alt,
+.sc-ledger-section--white,
+.sc-craft-section--white,
+.sc-ledger-section--alt,
+.sc-craft-section--alt {
+  background-color: var(--sc-surface);
+}
+
+.sc-pro-section--border,
+.sc-ledger-section--border,
+.sc-craft-section--border {
+  border-bottom: 1px solid var(--sc-border);
+}
+
+.sc-pro-container,
+.sc-ledger-container,
+.sc-craft-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 1.5rem);
+  min-width: 0;
+}
+
+.sc-pro-container--wide,
+.sc-ledger-container--wide,
+.sc-craft-container--wide {
+  max-width: 80rem;
+}
+
+.sc-pro-eyebrow,
+.sc-ledger-eyebrow,
+.sc-craft-eyebrow {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sc-muted);
+}
+
+.sc-pro-title,
+.sc-ledger-title,
+.sc-craft-headline {
+  margin-top: 0.75rem;
+  font-family: var(--font-barlow), sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: var(--sc-text);
+}
+
+.sc-pro-title--compact {
+  font-size: clamp(1.625rem, 3.5vw, 2.125rem);
+  line-height: 1.15;
+  max-width: 18ch;
+}
+
+.sc-pro-lead,
+.sc-ledger-lead,
+.sc-craft-lead {
+  margin-top: 1rem;
+  max-width: 42rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--sc-muted);
+}
+
+.sc-pro-card,
+.sc-ledger-card,
+.sc-craft-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 9.5rem;
+  padding: 1rem 1.125rem;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  border-radius: 0;
+  box-shadow: none;
+  transition: border-color 150ms ease;
+}
+
+.sc-pro-panel,
+.sc-ledger-panel,
+.sc-industrial-panel {
+  min-width: 0;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  border-radius: 0;
+}
+
+.sc-pro-letterpress,
+.sc-ledger-letterpress,
+.sc-ledger-card.sc-ledger-letterpress,
+.sc-craft-card.sc-ledger-letterpress,
+.sc-industrial-panel.sc-ledger-letterpress,
+.sc-ledger-panel.sc-ledger-letterpress {
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.85) inset,
+    0 -1px 0 rgb(26 26 26 / 0.04) inset;
+}
+
+/* Controlled ledger separator — not decorative hand-drawn */
+.sc-ledger-separator {
+  height: 0;
+  border: none;
+  margin-block: 1.25rem;
+  border-top: 1px solid var(--sc-border);
+  background: none;
+  opacity: 0.9;
+}
+
+.sc-ledger-separator::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 2px;
+  opacity: 0.25;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--sc-muted) 0,
+    var(--sc-muted) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.sc-ledger-divider {
+  height: 1px;
+  margin-block: 1rem;
+  background: var(--sc-border);
+  border: none;
+}
+
+.sc-result-big-number,
+.sc-ledger-big-number,
+.sc-result-primary {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--sc-text);
+}
+
+.sc-result-number-tick,
+.sc-ledger-number-tick {
+  display: inline-block;
+  animation: sc-ledger-tick 120ms ease-out;
+}
+
+.sc-result-threshold,
+.sc-ledger-threshold,
+.sc-risk-strip {
+  /* defined above */
+}
+
+.sc-report-panel,
+.sc-ledger-report,
+.sc-premium-report {
+  min-width: 0;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+}
+
+/* Compact hero — no 90vh */
+.sc-pro-hero-compact {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: clamp(1rem, 3vw, 2rem);
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .sc-pro-hero-compact {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.sc-pro-hero-compact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.sc-pro-hero-compact__mockup {
+  max-width: 100%;
+}
+
+/* Product screen mockup — real UI chrome, not AI art */
+.sc-pro-product-mockup {
+  border: 1px solid var(--sc-border);
+  background: var(--sc-surface);
+  overflow: hidden;
+}
+
+.sc-pro-product-mockup__chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--sc-border);
+  background: var(--sc-bg);
+}
+
+.sc-pro-product-mockup__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sc-border);
+}
+
+.sc-pro-product-mockup__title {
+  margin-left: 0.5rem;
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sc-muted);
+}
+
+.sc-pro-product-mockup__body {
+  display: grid;
+  gap: 0;
+}
+
+@media (min-width: 480px) {
+  .sc-pro-product-mockup__body {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.sc-pro-product-mockup__col {
+  padding: 1rem;
+  border-bottom: 1px solid var(--sc-border);
+}
+
+@media (min-width: 480px) {
+  .sc-pro-product-mockup__col:first-child {
+    border-right: 1px solid var(--sc-border);
+    border-bottom: none;
+  }
+}
+
+.sc-pro-product-mockup__field {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  min-height: 36px;
+  margin-top: 0.5rem;
+  padding-bottom: 0.375rem;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sc-muted);
+  border-bottom: 1px solid var(--sc-border);
+}
+
+.sc-pro-product-mockup__field--active {
+  border-bottom: 2px solid var(--sc-copper);
+  margin-bottom: -1px;
+}
+
+.sc-pro-product-mockup__unit,
+.sc-pro-product-mockup__value {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--sc-text);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.sc-pro-product-mockup__big {
+  margin-top: 0.5rem;
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 1.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--sc-text);
+}
+
+.sc-pro-product-mockup__alert {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--sc-warning);
+}
+
+.sc-pro-product-mockup__action {
+  margin-top: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sc-navy);
+}
+
+/* Header primary CTA */
+.sc-pro-header-cta {
+  min-height: 36px !important;
+  padding-inline: 0.875rem !important;
+  font-size: 0.6875rem !important;
+}
+
+/* Pricing — Pro dominant 3-tier */
+.sc-pro-pricing-grid {
+  display: grid;
+  gap: 1rem;
+  align-items: stretch;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .sc-pro-pricing-grid {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.2fr) minmax(0, 0.85fr);
+    gap: 1.25rem;
+  }
+}
+
+.sc-pro-pricing-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem 1.5rem;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+}
+
+.sc-pro-pricing-card--support {
+  opacity: 0.98;
+}
+
+.sc-pro-pricing-card--enterprise {
+  background: var(--sc-bg);
+}
+
+.sc-pro-pricing-card--featured {
+  border-color: var(--sc-copper);
+  border-width: 2px;
+  padding-block: 1.5rem;
+  transform: translateY(-2px);
+}
+
+.sc-pro-pricing-card__badge {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sc-copper);
+}
+
+.sc-pro-pricing-card__price {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--sc-text);
+}
+
+.sc-pro-pricing-card--featured .sc-pro-pricing-card__price {
+  font-size: 2rem;
+  color: var(--sc-navy);
+}
+
+.sc-pro-pricing-card__features {
+  flex: 1 1 auto;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--sc-muted);
+}
+
+.sc-pro-pricing-card__cta {
+  margin-top: 1.25rem;
+}
+

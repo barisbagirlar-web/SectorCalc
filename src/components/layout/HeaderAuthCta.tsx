@@ -11,26 +11,40 @@ interface HeaderAuthCtaProps {
 export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps) {
   const { user, loading } = useUserSubscription();
 
-  const className = mobile ? "apple-nav__dropdown-link" : "apple-nav__link";
+  const linkClass = mobile ? "apple-nav__dropdown-link" : "apple-nav__link";
 
   if (loading) {
     return (
-      <Link href="/login" prefetch={true} onClick={onNavigate} className={className}>
-        Login
-      </Link>
+      <>
+        <Link href="/login" prefetch onClick={onNavigate} className={linkClass}>
+          Login
+        </Link>
+        {!mobile ? (
+          <Link href="/pricing" prefetch onClick={onNavigate} className="sc-pro-header-cta sc-cta-primary">
+            Get Pro
+          </Link>
+        ) : null}
+      </>
     );
   }
 
   if (!user) {
     return (
-      <Link href="/login" prefetch={true} onClick={onNavigate} className={className}>
-        Login
-      </Link>
+      <>
+        <Link href="/login" prefetch onClick={onNavigate} className={linkClass}>
+          Login
+        </Link>
+        {!mobile ? (
+          <Link href="/pricing" prefetch onClick={onNavigate} className="sc-pro-header-cta sc-cta-primary">
+            Get Pro
+          </Link>
+        ) : null}
+      </>
     );
   }
 
   return (
-    <Link href="/account" prefetch={true} onClick={onNavigate} className={className}>
+    <Link href="/account" prefetch onClick={onNavigate} className={linkClass}>
       Account
     </Link>
   );
