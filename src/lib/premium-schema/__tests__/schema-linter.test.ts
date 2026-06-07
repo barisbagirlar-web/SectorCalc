@@ -13,11 +13,17 @@ import {
 } from "@/lib/premium-schema/schema-registry";
 
 describe("schema-linter", () => {
-  test("3 pilot schemas pass lint with zero errors", () => {
+  test("5 pilot schemas pass lint with zero errors", () => {
     assertSchemasLintClean(PREMIUM_CALCULATOR_SCHEMAS);
   });
 
-  for (const schemaId of ["cnc-oee-loss", "logistics-route-loss", "energy-peak-cost"] as const) {
+  for (const schemaId of [
+    "cnc-oee-loss",
+    "logistics-route-loss",
+    "energy-peak-cost",
+    "food-waste-margin-loss",
+    "construction-project-overrun",
+  ] as const) {
     test(`${schemaId} has valid category and pipeline`, () => {
       const schema = getPremiumCalculatorSchema(schemaId);
       expect(schema).not.toBeNull();

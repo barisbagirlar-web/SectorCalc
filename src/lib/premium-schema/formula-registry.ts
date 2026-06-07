@@ -30,6 +30,17 @@ function num(inputs: FormulaInputs, key: string, fallback = 0): number {
   return assertFinite(typeof value === "number" ? value : Number(value), fallback);
 }
 
+function safeDivide(numerator: number, denominator: number): number {
+  if (denominator === 0) {
+    return 0;
+  }
+  return assertFinite(numerator / denominator);
+}
+
+function nonNegative(value: number): number {
+  return assertFinite(Math.max(0, value));
+}
+
 // ---------------------------------------------------------------------------
 // Definitions (family → tested function)
 // ---------------------------------------------------------------------------
@@ -188,6 +199,52 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     family: "scrap",
     label: "Yield gap value",
     fn: (inputs) => assertFinite(num(inputs, "yieldGapTon") * num(inputs, "pricePerTon")),
+  },
+  {
+    id: "loss.waste_exposure",
+    family: "scrap",
+    label: "Ingredient waste exposure",
+    fn: (inputs) =>
+      nonNegative(
+        num(inputs, "monthlyIngredientCost") * (num(inputs, "wasteRate") / 100)
+      ),
+  },
+  {
+    id: "loss.excess_waste_cost",
+    family: "scrap",
+    label: "Excess waste cost above target",
+    fn: (inputs) =>
+      nonNegative(
+        num(inputs, "monthlyIngredientCost") *
+          (Math.max(0, num(inputs, "wasteRate") - num(inputs, "targetWasteRate")) / 100)
+      ),
+  },
+  {
+    id: "cost.margin_pressure",
+    family: "cost",
+    label: "Margin pressure from excess cost",
+    fn: (inputs) =>
+      nonNegative(safeDivide(num(inputs, "excessCost"), num(inputs, "monthlyRevenue")) * 100),
+  },
+  {
+    id: "time.delay_cost",
+    family: "time",
+    label: "Project delay cost",
+    fn: (inputs) => nonNegative(num(inputs, "dailySiteCost") * num(inputs, "delayDays")),
+  },
+  {
+    id: "cost.overrun_cost",
+    family: "cost",
+    label: "Budget overrun cost",
+    fn: (inputs) =>
+      nonNegative(num(inputs, "budget") * (num(inputs, "overrunPercent") / 100)),
+  },
+  {
+    id: "cost.total_exposure",
+    family: "cost",
+    label: "Combined exposure stack",
+    fn: (inputs) =>
+      nonNegative(num(inputs, "a") + num(inputs, "b") + num(inputs, "c")),
   },
 ];
 

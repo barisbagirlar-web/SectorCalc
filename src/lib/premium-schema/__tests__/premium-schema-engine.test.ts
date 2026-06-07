@@ -22,21 +22,33 @@ describe("premium-schema-engine", () => {
     }
   });
 
-  test("3 pilot schemas are registered", () => {
+  test("5 pilot schemas are registered", () => {
     const ids = listPremiumSchemaIds();
     expect(ids).toContain("cnc-oee-loss");
     expect(ids).toContain("logistics-route-loss");
     expect(ids).toContain("energy-peak-cost");
-    expect(ids.length).toBe(3);
+    expect(ids).toContain("food-waste-margin-loss");
+    expect(ids).toContain("construction-project-overrun");
+    expect(ids.length).toBe(5);
   });
 
-  test("slug map bridges 3 legacy premium routes", () => {
+  test("slug map bridges 5 legacy premium routes", () => {
     expect(PREMIUM_SCHEMA_SLUG_MAP["cnc-quote-risk-analyzer"]).toBe("cnc-oee-loss");
     expect(PREMIUM_SCHEMA_SLUG_MAP["route-optimization-analyzer"]).toBe("logistics-route-loss");
     expect(PREMIUM_SCHEMA_SLUG_MAP["energy-efficiency-report"]).toBe("energy-peak-cost");
+    expect(PREMIUM_SCHEMA_SLUG_MAP["menu-profit-leak-detector"]).toBe("food-waste-margin-loss");
+    expect(PREMIUM_SCHEMA_SLUG_MAP["change-order-impact-analyzer"]).toBe(
+      "construction-project-overrun"
+    );
   });
 
-  for (const schemaId of ["cnc-oee-loss", "logistics-route-loss", "energy-peak-cost"] as const) {
+  for (const schemaId of [
+    "cnc-oee-loss",
+    "logistics-route-loss",
+    "energy-peak-cost",
+    "food-waste-margin-loss",
+    "construction-project-overrun",
+  ] as const) {
     test(`${schemaId} produces big number and finite results`, () => {
       const schema = getPremiumCalculatorSchema(schemaId);
       expect(schema).not.toBeNull();

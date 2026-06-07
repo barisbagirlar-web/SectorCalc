@@ -4,3 +4,5 @@ export * from "@/lib/premium-schema/formula-registry";
 export * from "@/lib/premium-schema/premium-schema-engine";
 export * from "@/lib/premium-schema/schema-linter";
 export * from "@/lib/premium-schema/schema-registry";
+export * from "@/lib/premium-schema/premium-migration-map";
+export * from "@/lib/premium-schema/get-premium-migration-status";
