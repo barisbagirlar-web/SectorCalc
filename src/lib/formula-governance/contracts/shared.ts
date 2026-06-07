@@ -44,6 +44,12 @@ export function scenarioSkeletons(
   return specs.map((spec) => ({ ...spec, present: false }));
 }
 
+export function scenarioRuntimeTests(
+  specs: readonly { readonly id: string; readonly description: string }[],
+): readonly ScenarioTestSpec[] {
+  return specs.map((spec) => ({ ...spec, present: true }));
+}
+
 export function buildCriticalContract(
   config: Omit<
     FormulaContract,
@@ -55,6 +61,32 @@ export function buildCriticalContract(
     riskLevel: "critical",
     oracleRequired: true,
     propertyTestsRegistered: false,
+    auditOwner: "formula-governance",
+    auditStatus: "NEEDS_REVIEW",
+  };
+}
+
+/** Phase 4 — finance tools with oracle, property tests, and runtime scenarios wired. */
+export function buildFinanceAssuredContract(
+  config: Omit<
+    FormulaContract,
+    | "riskLevel"
+    | "oracleRequired"
+    | "propertyTestsRegistered"
+    | "auditOwner"
+    | "auditStatus"
+    | "scenarioTests"
+  > & {
+    readonly scenarioSpecs: readonly { readonly id: string; readonly description: string }[];
+  },
+): FormulaContract {
+  const { scenarioSpecs, ...rest } = config;
+  return {
+    ...rest,
+    scenarioTests: scenarioRuntimeTests(scenarioSpecs),
+    riskLevel: "critical",
+    oracleRequired: true,
+    propertyTestsRegistered: true,
     auditOwner: "formula-governance",
     auditStatus: "NEEDS_REVIEW",
   };

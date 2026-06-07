@@ -9,10 +9,11 @@ import {
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
   buildCriticalContract,
+  buildFinanceAssuredContract,
   scenarioSkeletons,
 } from "@/lib/formula-governance/contracts/shared";
 
-export const loanPaymentCalculatorContract: FormulaContract = buildCriticalContract({
+export const loanPaymentCalculatorContract: FormulaContract = buildFinanceAssuredContract({
   toolId: "free-traffic.loan-payment-calculator",
   toolName: "Loan Payment Calculator",
   slug: "loan-payment-calculator",
@@ -39,13 +40,13 @@ export const loanPaymentCalculatorContract: FormulaContract = buildCriticalContr
     { id: "rate-bounds", description: "annualRate within 0–100%", kind: "dimensional" },
     { id: "term-months", description: "months must be a positive integer", kind: "edge" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-30yr", description: "Normal case: 30-year fixed consumer loan" },
     { id: "edge-zero-rate", description: "Edge case: zero or near-zero interest rate" },
     { id: "absurd-term", description: "Absurd input: term outside 1–600 months rejected" },
     { id: "directional-rate-up", description: "Directional: higher rate increases payment" },
     { id: "sensitivity-principal", description: "Sensitivity: ±10% principal shifts payment proportionally" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "rate-up-payment",
@@ -73,7 +74,7 @@ export const loanPaymentCalculatorContract: FormulaContract = buildCriticalContr
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const mortgageCalculatorContract: FormulaContract = buildCriticalContract({
+export const mortgageCalculatorContract: FormulaContract = buildFinanceAssuredContract({
   toolId: "free-traffic.mortgage-calculator",
   toolName: "Mortgage Calculator",
   slug: "mortgage-calculator",
@@ -100,13 +101,13 @@ export const mortgageCalculatorContract: FormulaContract = buildCriticalContract
     { id: "rate-percent", description: "annualRate is percent per year", kind: "dimensional" },
     { id: "term-positive", description: "months must be ≥ 1", kind: "edge" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-360", description: "Normal case: 30-year mortgage at market rate" },
     { id: "edge-short-term", description: "Edge case: 15-year term" },
     { id: "absurd-rate", description: "Absurd input: negative or >100% rate rejected" },
     { id: "directional-principal", description: "Directional: higher loan amount increases payment" },
     { id: "sensitivity-rate", description: "Sensitivity: +1% rate increases total interest materially" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "rate-up-payment",
@@ -134,7 +135,7 @@ export const mortgageCalculatorContract: FormulaContract = buildCriticalContract
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const interestCalculatorContract: FormulaContract = buildCriticalContract({
+export const interestCalculatorContract: FormulaContract = buildFinanceAssuredContract({
   toolId: "free-traffic.interest-calculator",
   toolName: "Simple Interest Calculator",
   slug: "interest-calculator",
@@ -159,13 +160,13 @@ export const interestCalculatorContract: FormulaContract = buildCriticalContract
     { id: "years-positive", description: "years must be > 0", kind: "edge" },
     { id: "rate-percent", description: "ratePercent is annual percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-1yr", description: "Normal case: 1-year simple loan" },
     { id: "edge-low-rate", description: "Edge case: very low rate" },
     { id: "absurd-years", description: "Absurd input: zero or negative years rejected" },
     { id: "directional-rate", description: "Directional: higher rate increases interest" },
     { id: "sensitivity-principal", description: "Sensitivity: principal doubles → interest doubles" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "rate-up-interest",
@@ -193,7 +194,7 @@ export const interestCalculatorContract: FormulaContract = buildCriticalContract
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const compoundInterestCalculatorContract: FormulaContract = buildCriticalContract({
+export const compoundInterestCalculatorContract: FormulaContract = buildFinanceAssuredContract({
   toolId: "free-traffic.compound-interest-calculator",
   toolName: "Compound Interest Calculator",
   slug: "compound-interest-calculator",
@@ -220,13 +221,13 @@ export const compoundInterestCalculatorContract: FormulaContract = buildCritical
     { id: "rate-bounds", description: "annualRate within reasonable percent bounds", kind: "dimensional" },
     { id: "years-positive", description: "years must be > 0", kind: "edge" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-monthly", description: "Normal case: monthly compounding over 10 years" },
     { id: "edge-annual", description: "Edge case: annual compounding only" },
     { id: "absurd-frequency", description: "Absurd input: zero compounds per year rejected" },
     { id: "directional-rate", description: "Directional: higher rate increases future value" },
     { id: "sensitivity-horizon", description: "Sensitivity: longer horizon increases future value" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "rate-up-fv",
@@ -254,7 +255,7 @@ export const compoundInterestCalculatorContract: FormulaContract = buildCritical
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const profitMarginCalculatorContract: FormulaContract = buildCriticalContract({
+export const profitMarginCalculatorContract: FormulaContract = buildFinanceAssuredContract({
   toolId: "free-traffic.profit-margin-calculator",
   toolName: "Profit Margin Calculator",
   slug: "profit-margin-calculator",
@@ -279,13 +280,13 @@ export const profitMarginCalculatorContract: FormulaContract = buildCriticalCont
     { id: "cost-non-negative", description: "cost must be ≥ 0", kind: "edge" },
     { id: "margin-bounds", description: "margin percent stays within −100% to 100% for valid inputs", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-margin", description: "Normal case: profitable SKU with 30% margin" },
     { id: "edge-break-even", description: "Edge case: price equals cost → 0% margin" },
     { id: "absurd-negative-price", description: "Absurd input: zero price rejected" },
     { id: "directional-cost", description: "Directional: higher cost lowers margin" },
     { id: "sensitivity-price", description: "Sensitivity: +10% price improves margin" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "cost-up-margin",

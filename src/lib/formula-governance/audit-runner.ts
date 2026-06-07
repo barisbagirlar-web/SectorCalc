@@ -20,6 +20,7 @@ import {
   isCriticalRisk,
   resolveAuditStatus,
 } from "@/lib/formula-governance/risk-rules";
+import { runContractScenarioTests } from "@/lib/formula-governance/scenario-runner";
 import type {
   AuditFinding,
   ContractAuditResult,
@@ -75,6 +76,19 @@ function auditContract(
     });
   }
 
+  const scenarioSummary = runContractScenarioTests(contract);
+  if (scenarioSummary.total > 0 && scenarioSummary.failed > 0) {
+    const failedIds = scenarioSummary.results
+      .filter((result) => result.message !== "Skipped (not marked present)" && !result.passed)
+      .map((result) => result.scenarioId)
+      .join(", ");
+    findings.push({
+      code: "SCENARIO_RUNTIME_FAIL",
+      severity: "warning",
+      message: `Scenario runtime failures: ${failedIds}`,
+    });
+  }
+
   return {
     toolId: contract.toolId,
     slug: contract.slug,
@@ -106,7 +120,7 @@ function buildRecommendedActions(
     actions.push("Resolve critical FAIL findings before enabling strict deploy gate.");
   }
 
-  actions.push("Phase 4: implement oracle baselines and wire scenario tests for top critical contracts.");
+  actions.push("Phase 5: wire production-vs-oracle comparison and expand oracles to break-even, CNC, and rent vs buy.");
 
   return actions;
 }

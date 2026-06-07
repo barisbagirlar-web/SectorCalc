@@ -55,8 +55,26 @@ export {
 } from "@/lib/formula-governance/risk-rules";
 
 export {
+  runContractScenarioTests,
+  runScenarioSpec,
+} from "@/lib/formula-governance/scenario-runner";
+export type { ScenarioRunResult, ScenarioRunSummary } from "@/lib/formula-governance/scenario-runner";
+
+export {
+  calculateCompoundInterestOracle,
+  calculateLoanPaymentOracle,
+  calculateMortgagePaymentOracle,
+  calculateProfitMarginOracle,
+  calculateSimpleInterestOracle,
+  FINANCE_ORACLE_SLUGS,
+  isFinanceOracleSlug,
+} from "@/lib/formula-governance/oracle/finance-oracles";
+
+export {
   hasOracleForTool,
   isOraclePending,
+  isOracleRegistered,
+  listFinanceOracleToolIds,
   listImplementedOracleToolIds,
   listPendingOracleToolIds,
   listRegisteredOracleToolIds,
