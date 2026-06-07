@@ -199,6 +199,16 @@ describe("formula-governance audit runner", () => {
     }
   });
 
+  test("phase 5A finance tools report oracle comparison pass", () => {
+    const report = runGovernanceAudit();
+    for (const slug of FINANCE_ORACLE_SLUGS) {
+      const result = report.results.find((r) => r.slug === slug);
+      expect(result?.findings.some((f) => f.code === "ORACLE_COMPARISON_PASS")).toBe(true);
+      expect(result?.findings.some((f) => f.code === "ORACLE_COMPARISON_FAIL")).toBe(false);
+      expect(result?.findings.some((f) => f.code === "ORACLE_COMPARISON_NEEDS_ADAPTER")).toBe(false);
+    }
+  });
+
   test("phase 3 top critical audits are not blanket PASS", () => {
     const report = runGovernanceAudit();
     for (const slug of TOP_CRITICAL_SLUGS) {

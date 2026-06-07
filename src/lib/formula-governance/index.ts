@@ -61,6 +61,32 @@ export {
 export type { ScenarioRunResult, ScenarioRunSummary } from "@/lib/formula-governance/scenario-runner";
 
 export {
+  auditOracleComparisonForSlug,
+  compareProductionVsOracle,
+  comparisonStatusToAuditCode,
+  FINANCE_COMPARISON_SCENARIOS,
+  runAllFinanceOracleComparisonAudits,
+  runFinanceOracleComparisonAudit,
+} from "@/lib/formula-governance/oracle/compare-production-oracle";
+export type {
+  FieldComparisonDiff,
+  OracleComparisonAuditSummary,
+  OracleComparisonResult,
+  OracleComparisonStatus,
+} from "@/lib/formula-governance/oracle/compare-production-oracle";
+
+export {
+  adaptProductionFinanceOutput,
+  PRODUCTION_ADAPTER_EXPORTS,
+} from "@/lib/formula-governance/oracle/production-adapters";
+
+export {
+  FINANCE_PRODUCTION_FORMULA_LOCATORS,
+  getProductionFormulaLocator,
+} from "@/lib/formula-governance/oracle/production-formula-locator";
+export type { ProductionFormulaLocator } from "@/lib/formula-governance/oracle/production-formula-locator";
+
+export {
   calculateCompoundInterestOracle,
   calculateLoanPaymentOracle,
   calculateMortgagePaymentOracle,

@@ -21,6 +21,12 @@ import {
   resolveAuditStatus,
 } from "@/lib/formula-governance/risk-rules";
 import { runContractScenarioTests } from "@/lib/formula-governance/scenario-runner";
+import {
+  auditOracleComparisonForSlug,
+  comparisonStatusToAuditCode,
+  runAllFinanceOracleComparisonAudits,
+} from "@/lib/formula-governance/oracle/compare-production-oracle";
+import { isFinanceOracleSlug } from "@/lib/formula-governance/oracle/finance-oracles";
 import type {
   AuditFinding,
   ContractAuditResult,
@@ -32,6 +38,50 @@ export type RunGovernanceAuditOptions = {
   readonly rootDir?: string;
   readonly strict?: boolean;
 };
+
+function auditOracleComparisonFindings(contract: FormulaContract): AuditFinding[] {
+  if (!isFinanceOracleSlug(contract.slug)) {
+    return [
+      {
+        code: "ORACLE_COMPARISON_NOT_WIRED",
+        severity: "info",
+        message: "Production vs oracle comparison not wired for this tool.",
+      },
+    ];
+  }
+
+  const summary = auditOracleComparisonForSlug(contract.slug);
+  if (!summary) {
+    return [
+      {
+        code: "ORACLE_COMPARISON_NOT_WIRED",
+        severity: "info",
+        message: "Production vs oracle comparison not wired for this tool.",
+      },
+    ];
+  }
+
+  const code = comparisonStatusToAuditCode(summary.status);
+  const severity =
+    summary.status === "FAIL" || summary.status === "NEEDS_ADAPTER" ? "warning" : "info";
+
+  const detail =
+    summary.status === "PASS"
+      ? `${summary.passCount} comparable scenario(s) matched oracle within tolerance.`
+      : summary.status === "NEEDS_ADAPTER"
+        ? "Production output could not be normalized for oracle comparison."
+        : summary.status === "FAIL"
+          ? `${summary.failCount} comparable scenario(s) diverged from oracle.`
+          : "Comparison runner not wired.";
+
+  return [
+    {
+      code,
+      severity,
+      message: `${contract.slug}: ${detail}`,
+    },
+  ];
+}
 
 function auditContract(
   contract: FormulaContract,
@@ -89,6 +139,8 @@ function auditContract(
     });
   }
 
+  findings.push(...auditOracleComparisonFindings(contract));
+
   return {
     toolId: contract.toolId,
     slug: contract.slug,
@@ -120,7 +172,7 @@ function buildRecommendedActions(
     actions.push("Resolve critical FAIL findings before enabling strict deploy gate.");
   }
 
-  actions.push("Phase 5: wire production-vs-oracle comparison and expand oracles to break-even, CNC, and rent vs buy.");
+  actions.push("Phase 5B: resolve CRIT_UNRESOLVED_WARNINGS and expand oracle comparison to remaining critical tools.");
 
   return actions;
 }
@@ -241,6 +293,16 @@ export function formatGovernanceAuditReport(report: GovernanceAuditReport): stri
     lines.push("Warnings:");
     for (const warning of report.warnings.slice(0, 15)) {
       lines.push(`- ${warning}`);
+    }
+    lines.push("");
+  }
+
+  const comparisonSummaries = runAllFinanceOracleComparisonAudits();
+  if (comparisonSummaries.length > 0) {
+    lines.push("Oracle comparison (finance):");
+    for (const summary of comparisonSummaries) {
+      const code = comparisonStatusToAuditCode(summary.status);
+      lines.push(`- ${summary.slug}: ${code} (${summary.passCount} pass, ${summary.failCount} fail)`);
     }
     lines.push("");
   }
