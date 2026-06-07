@@ -5,7 +5,7 @@
 import type { DecisionLanguageRule, FormulaContract, ScenarioTestSpec } from "@/lib/formula-governance/types";
 
 export const FINANCIAL_SIMULATION_DISCLAIMER =
-  "Technical simulation only — not financial, legal, or tax advice. Verify assumptions before credit, pricing, or business decisions.";
+  "Job check only — not ERP, accounting, tax, legal or financial advice. Review your real numbers before credit, pricing or business decisions.";
 
 export const STANDARD_MUST_NOT_CLAIM: readonly string[] = [
   "Guaranteed savings",

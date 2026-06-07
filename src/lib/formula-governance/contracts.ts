@@ -8,7 +8,7 @@ import { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contrac
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
 
 const RENT_VS_BUY_DISCLAIMER =
-  "Technical simulation only — not financial, legal, or tax advice. Verify assumptions before housing or investment decisions.";
+  "Job check only — not ERP, accounting, tax, legal or financial advice. Review your real numbers before housing or investment decisions.";
 
 export const rentVsBuyContract: FormulaContract = {
   toolId: "free-traffic.rent-vs-buy-calculator",
