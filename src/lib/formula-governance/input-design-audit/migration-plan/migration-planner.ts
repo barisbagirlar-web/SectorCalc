@@ -21,6 +21,13 @@ import type {
   ToolMigrationPlanItem,
 } from "@/lib/formula-governance/input-design-audit/migration-plan/migration-plan-types";
 import { classifyPatchLevel } from "@/lib/formula-governance/input-design-audit/migration-plan/patch-level-classifier";
+import {
+  getControlledInputDesignPatch,
+} from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
+import {
+  isControlledInputDesignPatchCompleted,
+  listCompletedControlledInputDesignPatchSlugs,
+} from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-status";
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import type { BatchAlignmentAuditResult } from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
 import type { FormulaContract } from "@/lib/formula-governance/types";
@@ -194,6 +201,40 @@ function countByPriority(items: readonly ToolMigrationPlanItem[]): Pick<
   return counts;
 }
 
+function applyCompletedInputDesignPatchOverlay(
+  item: ToolMigrationPlanItem,
+): ToolMigrationPlanItem {
+  if (!isControlledInputDesignPatchCompleted(item.slug)) {
+    return { ...item, inputDesignPatchCompleted: false };
+  }
+
+  const patch = getControlledInputDesignPatch(item.slug);
+  if (!patch) {
+    return { ...item, inputDesignPatchCompleted: false };
+  }
+
+  return {
+    ...item,
+    inputDesignPatchCompleted: true,
+    recommendedPatchLevel: "none",
+    completedInputDesignPatchGate: patch.nextGate,
+    nextGate: patch.nextGate,
+    requiredActions: [
+      "Controlled input design patch completed — ready for smart form architecture gate.",
+      ...item.requiredActions.filter(
+        (action) => !action.includes("Map requirement-engine input design"),
+      ),
+    ],
+    expectedBenefit:
+      "Dual-Core input design mapping registered in governance registry; production math and UI unchanged.",
+    affectedAreas: ["requirement-engine", "input-design-audit", "controlled-input-patch"],
+    notes: [
+      ...item.notes,
+      `Phase 5H-F controlled input design patch applied (${patch.patchType}).`,
+    ],
+  };
+}
+
 export function buildExistingToolMigrationPlan(
   params: BuildExistingToolMigrationPlanParams,
 ): BatchMigrationPlan {
@@ -258,20 +299,25 @@ export function buildExistingToolMigrationPlan(
       testRequirements: buildTestRequirements(recommendedPatchLevel, fullCoverage),
       nextGate: "",
       notes: buildNotes(auditResult, recommendedPatchLevel, contract),
+      inputDesignPatchCompleted: false,
     };
 
-    items.push({
+    const withGate = {
       ...item,
       nextGate: buildNextGate(item),
-    });
+    };
+
+    items.push(applyCompletedInputDesignPatchOverlay(withGate));
   }
 
   const priorityCounts = countByPriority(items);
+  const completedInputDesignPatches = listCompletedControlledInputDesignPatchSlugs();
   const planWithoutBatch: BatchMigrationPlan = {
     totalTools: items.length,
     ...priorityCounts,
     items,
     recommendedFirstPatchBatch: [],
+    completedInputDesignPatches,
     warnings,
     blockers,
   };
@@ -303,6 +349,16 @@ export function formatMigrationPlanReport(plan: BatchMigrationPlan): string {
         `${index + 1}. ${item.slug} — ${item.recommendedPatchLevel} / ${item.migrationRiskLevel} risk`,
       );
     });
+  }
+
+  if (plan.completedInputDesignPatches.length > 0) {
+    lines.push("", "Completed input design patches:");
+    for (const slug of plan.completedInputDesignPatches) {
+      const item = plan.items.find((entry) => entry.slug === slug);
+      lines.push(
+        `- ${slug} — nextGate ${item?.nextGate ?? "smart_form_architecture"}`,
+      );
+    }
   }
 
   if (plan.warnings.length > 0) {

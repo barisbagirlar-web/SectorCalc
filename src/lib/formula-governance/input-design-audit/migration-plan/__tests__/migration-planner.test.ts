@@ -7,6 +7,7 @@ import { FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts";
 import { runBatchInputDesignAudit } from "@/lib/formula-governance/input-design-audit/batch-input-design-audit";
 import { buildExistingToolMigrationPlan } from "@/lib/formula-governance/input-design-audit/migration-plan/migration-planner";
 import { runBatchAlignmentAudit } from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
+import { FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-status";
 import type { ToolInputDesignAuditResult } from "@/lib/formula-governance/input-design-audit/input-design-audit-types";
 
 describe("buildExistingToolMigrationPlan", () => {
@@ -103,6 +104,29 @@ describe("buildExistingToolMigrationPlan", () => {
     for (const item of smartFormDefer) {
       expect(item.migrationPriority).toBe("defer");
     }
+  });
+
+  test("marks first batch tools as completed input design patch with smart form gate", () => {
+    const inputDesignAudit = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
+    const plan = buildExistingToolMigrationPlan({ inputDesignAudit });
+
+    for (const slug of FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
+      const item = plan.items.find((entry) => entry.slug === slug);
+      expect(item?.inputDesignPatchCompleted).toBe(true);
+      expect(item?.nextGate).toBe("smart_form_architecture");
+      expect(item?.recommendedPatchLevel).toBe("none");
+    }
+
+    expect(plan.completedInputDesignPatches).toEqual([
+      ...FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+    ]);
+    expect(
+      plan.recommendedFirstPatchBatch.some((item) =>
+        FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS.includes(
+          item.slug as (typeof FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number],
+        ),
+      ),
+    ).toBe(false);
   });
 
   test("is deterministic", () => {

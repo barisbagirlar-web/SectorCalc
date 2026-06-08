@@ -29,6 +29,7 @@ function buildItem(overrides: Partial<ToolMigrationPlanItem>): ToolMigrationPlan
     testRequirements: [],
     nextGate: "controlled_patch_ready",
     notes: [],
+    inputDesignPatchCompleted: false,
     ...overrides,
   };
 }
@@ -43,6 +44,7 @@ function buildPlan(items: readonly ToolMigrationPlanItem[]): BatchMigrationPlan 
     defer: 0,
     items,
     recommendedFirstPatchBatch: [],
+    completedInputDesignPatches: [],
     warnings: [],
     blockers: [],
   };
@@ -101,6 +103,18 @@ describe("selectFirstControlledPatchBatch", () => {
     const batch = selectFirstControlledPatchBatch(plan);
     expect(batch.some((item) => item.slug === "uncovered-tool")).toBe(false);
     expect(batch[0]?.slug).toBe("covered-tool");
+  });
+
+  test("does not re-select completed input design patch tools", () => {
+    const plan = buildPlan([
+      buildItem({ slug: "3d-print-cost-check", inputDesignPatchCompleted: true }),
+      buildItem({ slug: "electrical-labor-estimator" }),
+      buildItem({ slug: "print-job-cost-check" }),
+    ]);
+
+    const batch = selectFirstControlledPatchBatch(plan);
+    expect(batch.some((item) => item.slug === "3d-print-cost-check")).toBe(false);
+    expect(batch.length).toBeGreaterThan(0);
   });
 
   test("produces deterministic ordering", () => {

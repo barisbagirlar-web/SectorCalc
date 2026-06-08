@@ -9,6 +9,7 @@ import {
   buildExistingToolMigrationPlan,
   formatMigrationPlanReport,
 } from "@/lib/formula-governance/input-design-audit/migration-plan/migration-planner";
+import { FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-status";
 import { runBatchAlignmentAudit } from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
 
 describe("audit migration plan script shape", () => {
@@ -25,12 +26,18 @@ describe("audit migration plan script shape", () => {
     expect(plan.defer).toBeGreaterThanOrEqual(0);
   });
 
-  test("recommendedFirstPatchBatch is not empty", () => {
+  test("recommendedFirstPatchBatch is not empty and excludes completed patches", () => {
     const inputDesignAudit = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
     const plan = buildExistingToolMigrationPlan({ inputDesignAudit });
 
     expect(plan.recommendedFirstPatchBatch.length).toBeGreaterThan(0);
     expect(plan.recommendedFirstPatchBatch.length).toBeLessThanOrEqual(3);
+    expect(plan.completedInputDesignPatches).toEqual([
+      ...FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+    ]);
+    for (const slug of FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
+      expect(plan.recommendedFirstPatchBatch.some((item) => item.slug === slug)).toBe(false);
+    }
   });
 
   test("formatted report does not throw", () => {
@@ -42,5 +49,6 @@ describe("audit migration plan script shape", () => {
     const formatted = formatMigrationPlanReport(plan);
     expect(formatted).toContain("Migration Plan Summary");
     expect(formatted).toContain("Recommended first controlled patch batch:");
+    expect(formatted).toContain("Completed input design patches:");
   });
 });

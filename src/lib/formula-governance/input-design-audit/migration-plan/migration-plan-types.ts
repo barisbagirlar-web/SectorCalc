@@ -38,6 +38,8 @@ export type ToolMigrationPlanItem = {
   readonly testRequirements: readonly string[];
   readonly nextGate: string;
   readonly notes: readonly string[];
+  readonly inputDesignPatchCompleted: boolean;
+  readonly completedInputDesignPatchGate?: string;
 };
 
 export type BatchMigrationPlan = {
@@ -49,6 +51,7 @@ export type BatchMigrationPlan = {
   readonly defer: number;
   readonly items: readonly ToolMigrationPlanItem[];
   readonly recommendedFirstPatchBatch: readonly ToolMigrationPlanItem[];
+  readonly completedInputDesignPatches: readonly string[];
   readonly warnings: readonly string[];
   readonly blockers: readonly string[];
 };

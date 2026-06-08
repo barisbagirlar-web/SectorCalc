@@ -34,6 +34,9 @@ const RISK_ORDER: Record<ToolMigrationPlanItem["migrationRiskLevel"], number> = 
 };
 
 function isFirstPatchCandidate(item: ToolMigrationPlanItem): boolean {
+  if (item.inputDesignPatchCompleted) {
+    return false;
+  }
   if (item.recommendedPatchLevel === "blocked") {
     return false;
   }
