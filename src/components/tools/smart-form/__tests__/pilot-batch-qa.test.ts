@@ -18,6 +18,11 @@ import {
   getSmartFormPilotBatchEntryByGovernanceSlug,
 } from "@/components/tools/smart-form/pilot-batch-qa-registry";
 import { buildSmartFormPilotManualQaChecklist } from "@/components/tools/smart-form/pilot-manual-qa-checklist";
+import {
+  buildDefaultPendingManualQaResults,
+  buildPassedManualQaResult,
+} from "@/components/tools/smart-form/pilot-manual-qa-result";
+import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
 import { getPilotSmartFormManifest } from "@/components/tools/smart-form/getPilotSmartFormManifest";
 import {
   AUTO_SHOP_PILOT_FREE_ROUTE_SLUG,
@@ -93,6 +98,7 @@ describe("smart form pilot batch QA — Phase 5H-G-I", () => {
     ]);
 
     for (const pilot of checklist.pilots) {
+      expect(pilot.manualQaStatus).toBe("pending_manual_qa");
       expect(pilot.checks.length).toBeGreaterThanOrEqual(12);
       expect(pilot.checks.some((check) => check.label.includes("Flag false fallback"))).toBe(
         true,
@@ -150,17 +156,123 @@ describe("smart form pilot batch QA — Phase 5H-G-I", () => {
     expect(audit.analyticsReady).toBe(3);
     expect(audit.optionalExpansionBlocked).toBe(true);
     expect(audit.manualQaRequired).toBe(true);
+    expect(audit.manualQaStatus).toBe("pending_manual_qa");
+    expect(audit.stagingFlagReady).toBe(false);
+    expect(audit.deploymentReady).toBe(false);
     expect(audit.blockers).toHaveLength(0);
   });
 
-  test("QA audit report formatter includes manual QA URLs", () => {
+  test("QA audit report formatter includes manual QA and staging decision lines", () => {
     const report = formatSmartFormPilotBatchQaAuditReport(runSmartFormPilotBatchQaAudit());
 
     expect(report).toContain("Smart Form Pilot QA Audit");
     expect(report).toContain("Total pilots: 3");
     expect(report).toContain("Blockers: 0");
+    expect(report).toContain("Manual QA status: pending_manual_qa");
+    expect(report).toContain("Staging flag ready: false");
+    expect(report).toContain("Deployment ready: false");
     expect(report).toContain("/tools/free/3d-print-cost-check");
     expect(report).toContain("/tools/free/repair-time-vs-price-check");
     expect(report).toContain("/tools/free/cabinet-cost-estimator");
+  });
+});
+
+describe("smart form pilot QA decision gate — Phase 5H-G-J", () => {
+  test("pending QA keeps stagingFlagReady false", () => {
+    const pending = buildDefaultPendingManualQaResults().results;
+    const decision = evaluateSmartFormPilotQaDecision(pending);
+
+    expect(decision.manualQaStatus).toBe("pending_manual_qa");
+    expect(decision.stagingFlagReady).toBe(false);
+    expect(decision.deploymentReady).toBe(false);
+  });
+
+  test("all passed QA sets stagingFlagReady true and deploymentReady false", () => {
+    const passed = getSmartFormPilotBatchRegistry().map((entry) =>
+      buildPassedManualQaResult({
+        slug: entry.governanceSlug,
+        route: entry.routeSlug,
+      }),
+    );
+
+    const decision = evaluateSmartFormPilotQaDecision(passed);
+
+    expect(decision.manualQaStatus).toBe("passed");
+    expect(decision.stagingFlagReady).toBe(true);
+    expect(decision.deploymentReady).toBe(false);
+    expect(decision.blockedReasons).toHaveLength(0);
+  });
+
+  test("console failure blocks staging readiness", () => {
+    const base = buildPassedManualQaResult({
+      slug: THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
+      route: THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
+    });
+    const decision = evaluateSmartFormPilotQaDecision([
+      { ...base, consoleClean: false },
+    ]);
+
+    expect(decision.stagingFlagReady).toBe(false);
+    expect(decision.blockedReasons.some((reason) => reason.includes("console not clean"))).toBe(
+      true,
+    );
+  });
+
+  test("network failure blocks staging readiness", () => {
+    const base = buildPassedManualQaResult({
+      slug: THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
+      route: THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
+    });
+    const decision = evaluateSmartFormPilotQaDecision([
+      { ...base, networkClean: false },
+    ]);
+
+    expect(decision.stagingFlagReady).toBe(false);
+    expect(decision.blockedReasons.some((reason) => reason.includes("network not clean"))).toBe(
+      true,
+    );
+  });
+
+  test("flag false fallback failure blocks staging readiness", () => {
+    const base = buildPassedManualQaResult({
+      slug: AUTO_SHOP_PILOT_GOVERNANCE_SLUG,
+      route: AUTO_SHOP_PILOT_FREE_ROUTE_SLUG,
+    });
+    const decision = evaluateSmartFormPilotQaDecision([
+      { ...base, flagFalseFallbackPassed: false },
+    ]);
+
+    expect(decision.stagingFlagReady).toBe(false);
+    expect(
+      decision.blockedReasons.some((reason) => reason.includes("flag false fallback failed")),
+    ).toBe(true);
+  });
+
+  test("submit result failure blocks staging readiness", () => {
+    const base = buildPassedManualQaResult({
+      slug: CABINET_PILOT_GOVERNANCE_SLUG,
+      route: CABINET_PILOT_GOVERNANCE_SLUG,
+    });
+    const decision = evaluateSmartFormPilotQaDecision([
+      { ...base, submitResultPassed: false },
+    ]);
+
+    expect(decision.stagingFlagReady).toBe(false);
+    expect(decision.blockedReasons.some((reason) => reason.includes("submit result failed"))).toBe(
+      true,
+    );
+  });
+
+  test("default pending manual QA results include 3 pilots with full shape", () => {
+    const { results } = buildDefaultPendingManualQaResults();
+
+    expect(results).toHaveLength(3);
+    for (const result of results) {
+      expect(result.slug.length).toBeGreaterThan(0);
+      expect(result.route.length).toBeGreaterThan(0);
+      expect(result.status).toBe("pending_manual_qa");
+      expect(result.desktopPassed).toBe(false);
+      expect(result.resultCardConsistencyPassed).toBe(false);
+    }
   });
 });

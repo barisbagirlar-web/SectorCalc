@@ -1,5 +1,5 @@
 /**
- * Smart form pilot batch QA audit — Phase 5H-G-I.
+ * Smart form pilot batch QA audit — Phase 5H-G-I/J.
  */
 
 import { buildSmartFormPilotCalculationPayload } from "@/components/tools/smart-form/build-smart-form-pilot-calculation-payload";
@@ -9,6 +9,10 @@ import {
   isOptionalFieldExpansionBlocked,
 } from "@/components/tools/smart-form/optional-expansion-diff-gate";
 import { buildSmartFormPilotManualQaChecklist } from "@/components/tools/smart-form/pilot-manual-qa-checklist";
+import { buildDefaultPendingManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
+import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
+import type { SmartFormPilotManualQaResult } from "@/components/tools/smart-form/pilot-manual-qa-result";
+import type { SmartFormPilotQaDecisionResult } from "@/components/tools/smart-form/pilot-qa-decision-gate";
 import {
   getSmartFormPilotBatchRegistry,
   type SmartFormPilotBatchRegistryEntry,
@@ -35,6 +39,11 @@ export type SmartFormPilotBatchQaAuditResult = {
   readonly analyticsReady: number;
   readonly optionalExpansionBlocked: boolean;
   readonly manualQaRequired: boolean;
+  readonly manualQaStatus: SmartFormPilotManualQaResult["status"];
+  readonly stagingFlagReady: boolean;
+  readonly deploymentReady: false;
+  readonly manualQaResults: readonly SmartFormPilotManualQaResult[];
+  readonly qaDecision: SmartFormPilotQaDecisionResult;
   readonly pilots: readonly SmartFormPilotQaAuditPilotResult[];
   readonly warnings: readonly string[];
   readonly blockers: readonly string[];
@@ -136,6 +145,8 @@ function auditPilot(entry: SmartFormPilotBatchRegistryEntry): SmartFormPilotQaAu
 export function runSmartFormPilotBatchQaAudit(): SmartFormPilotBatchQaAuditResult {
   const registry = getSmartFormPilotBatchRegistry();
   const manualChecklist = buildSmartFormPilotManualQaChecklist();
+  const manualQaResults = buildDefaultPendingManualQaResults().results;
+  const qaDecision = evaluateSmartFormPilotQaDecision(manualQaResults);
   const pilots = registry.map((entry) => auditPilot(entry));
 
   const calculationBridgeReady = pilots.filter((pilot) => pilot.calculationBridgeReady).length;
@@ -183,6 +194,11 @@ export function runSmartFormPilotBatchQaAudit(): SmartFormPilotBatchQaAuditResul
     analyticsReady,
     optionalExpansionBlocked,
     manualQaRequired: manualChecklist.totalPilots > 0,
+    manualQaStatus: qaDecision.manualQaStatus,
+    stagingFlagReady: qaDecision.stagingFlagReady,
+    deploymentReady: false,
+    manualQaResults,
+    qaDecision,
     pilots,
     warnings,
     blockers,
@@ -200,6 +216,9 @@ export function formatSmartFormPilotBatchQaAuditReport(
     `Analytics ready: ${result.analyticsReady}`,
     `Optional expansion blocked: ${result.optionalExpansionBlocked}`,
     `Manual QA required: ${result.manualQaRequired}`,
+    `Manual QA status: ${result.manualQaStatus}`,
+    `Staging flag ready: ${result.stagingFlagReady}`,
+    `Deployment ready: ${result.deploymentReady}`,
     `Blockers: ${result.blockers.length}`,
     "",
     "Pilot manual QA URLs:",

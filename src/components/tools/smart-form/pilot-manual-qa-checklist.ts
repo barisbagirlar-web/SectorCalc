@@ -1,11 +1,12 @@
 /**
- * Smart form pilot manual QA checklist builder — Phase 5H-G-I.
+ * Smart form pilot manual QA checklist builder — Phase 5H-G-I/J.
  */
 
 import {
   getSmartFormPilotBatchRegistry,
   type SmartFormPilotBatchRegistryEntry,
 } from "@/components/tools/smart-form/pilot-batch-qa-registry";
+import type { SmartFormPilotManualQaResultStatus } from "@/components/tools/smart-form/pilot-manual-qa-result";
 
 export type SmartFormPilotManualQaCheckItem = {
   readonly id: string;
@@ -17,11 +18,13 @@ export type SmartFormPilotManualQaPilotChecklist = {
   readonly routeSlug: string;
   readonly governanceSlug: string;
   readonly manualQaUrl: string;
+  readonly manualQaStatus: SmartFormPilotManualQaResultStatus;
   readonly checks: readonly SmartFormPilotManualQaCheckItem[];
 };
 
 export type SmartFormPilotManualQaChecklist = {
   readonly totalPilots: number;
+  readonly manualQaStatus: SmartFormPilotManualQaResultStatus;
   readonly pilots: readonly SmartFormPilotManualQaPilotChecklist[];
   readonly manualQaUrls: readonly string[];
 };
@@ -54,11 +57,13 @@ export function buildSmartFormPilotManualQaChecklist(): SmartFormPilotManualQaCh
     routeSlug: entry.routeSlug,
     governanceSlug: entry.governanceSlug,
     manualQaUrl: entry.manualQaUrl,
+    manualQaStatus: "pending_manual_qa" as const,
     checks: buildChecksForPilot(entry),
   }));
 
   return {
     totalPilots: pilots.length,
+    manualQaStatus: "pending_manual_qa",
     pilots,
     manualQaUrls: pilots.map((pilot) => pilot.manualQaUrl),
   };
