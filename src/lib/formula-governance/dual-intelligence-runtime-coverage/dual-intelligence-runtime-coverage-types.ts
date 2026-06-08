@@ -3,6 +3,8 @@
  */
 
 export type DualIntelligenceRuntimeTier =
+  /** Full Mind 2 → calc → Mind 1 loop on premium calculate path. */
+  | "full_loop_runtime"
   /** Smart Form pilot live on route when NEXT_PUBLIC_SMART_FORM_PILOT is on. */
   | "live_smart_form_pilot"
   /** Calculation bridge registered; rollout pending or flag off. */

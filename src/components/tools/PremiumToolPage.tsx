@@ -24,7 +24,13 @@ import {
 import {
  PremiumAnalyzerReportPanel,
 } from "@/components/tools/PremiumAnalyzerReportPanel";
+import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
+import {
+ isPremiumFullLoopRuntimeSlug,
+ runPremiumFullLoopCalculation,
+ type PremiumFullLoopResult,
+} from "@/lib/formula-governance/runtime-validation/premium-full-loop-bridge";
 import { getPremiumSchemaForPaidSlug } from "@/lib/premium-schema/schema-registry";
 import {
  arePremiumToolInputsValid,
@@ -202,23 +208,38 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
 
  const isCncStochastic = tool.paidSlug === "cnc-quote-risk-analyzer";
  const schemaPilot = getPremiumSchemaForPaidSlug(tool.paidSlug);
+ const useFullLoopRuntime = isPremiumFullLoopRuntimeSlug(tool.paidSlug);
+ const showSchemaPilot = Boolean(schemaPilot) && !useFullLoopRuntime;
+
+ const fullLoopResult = useMemo((): PremiumFullLoopResult | null => {
+ if (!submitted || !canAccessAnalyzer || !useFullLoopRuntime) {
+ return null;
+ }
+ return runPremiumFullLoopCalculation(tool.paidSlug, values);
+ }, [submitted, canAccessAnalyzer, useFullLoopRuntime, tool.paidSlug, values]);
 
  const decisionReport = useMemo(() => {
  if (!submitted || !canAccessAnalyzer) {
  return null;
  }
+ if (useFullLoopRuntime) {
+ return fullLoopResult?.status === "success" ? fullLoopResult.report : null;
+ }
  if (!arePremiumToolInputsValid(tool, values)) {
  return null;
  }
  return calculatePremiumDecisionReport(tool.paidSlug, values);
- }, [submitted, canAccessAnalyzer, tool, values]);
+ }, [submitted, canAccessAnalyzer, useFullLoopRuntime, fullLoopResult, tool, values]);
 
  const result = useMemo((): PremiumToolResult | null => {
+ if (useFullLoopRuntime) {
+ return fullLoopResult?.status === "success" ? fullLoopResult.toolResult : null;
+ }
  if (!decisionReport) {
  return null;
  }
  return calculatePremiumToolResult(tool, values);
- }, [decisionReport, tool, values]);
+ }, [useFullLoopRuntime, fullLoopResult, decisionReport, tool, values]);
 
  const verdictReportData = useMemo(() => {
  if (!result || !canAccessAnalyzer) {
@@ -257,6 +278,72 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  }, [result, canAccessAnalyzer, tool.paidSlug]);
 
  const devPro = isDevelopmentProBypass();
+
+ const renderAnalysisOutput = (variant: "legacy" | "primary") => {
+ if (isCalculating) {
+ return variant === "primary" ? (
+ <p className="text-sm text-body-charcoal">Calculating…</p>
+ ) : null;
+ }
+
+ if (useFullLoopRuntime && submitted && fullLoopResult?.status === "blocked") {
+ return (
+ <>
+ <div
+ className="sc-industrial-panel border border-crit-red/30 bg-crit-red/5 p-4"
+ role="alert"
+ >
+ <p className="text-sm font-semibold text-crit-red">Analysis blocked</p>
+ <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-body-charcoal">
+ {fullLoopResult.blockers.map((blocker) => (
+ <li key={blocker}>{blocker}</li>
+ ))}
+ </ul>
+ </div>
+ <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+ </>
+ );
+ }
+
+ if (decisionReport && result && verdictReportData) {
+ return (
+ <>
+ <PremiumAnalyzerReportPanel report={decisionReport} />
+ <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+ <DownloadVerdictPdfButton
+ data={verdictReportData}
+ slug={tool.paidSlug}
+ severity={result.severity}
+ />
+ {user ? (
+ <SaveVerdictReportButton uid={user.uid} tool={tool} values={values} result={result} />
+ ) : null}
+ </div>
+ {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
+ <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+ ) : null}
+ {isCncStochastic ? (
+ <PremiumDecisionReportPanel
+ variant="stochastic"
+ sector={tool.sector}
+ inputs={toStochasticInputs(values)}
+ inputsReady={arePremiumToolInputsValid(tool, values)}
+ toolSlug={tool.paidSlug}
+ toolTitle={tool.paidTitle}
+ />
+ ) : null}
+ </>
+ );
+ }
+
+ if (!submitted) {
+ return (
+ <p className="text-sm text-body-charcoal">Enter job inputs and run the analysis.</p>
+ );
+ }
+
+ return null;
+ };
 
  const handleChange = (key: string, value: number | string) => {
  setValues((prev) => ({ ...prev, [key]: value }));
@@ -333,9 +420,9 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  <>
  <SectorToolSelect tier="premium" currentSlug={tool.paidSlug} />
  <OsModuleHeader title={tool.paidTitle} tier="intelligence" />
- {schemaPilot ? (
+ {showSchemaPilot ? (
  <>
- <DynamicPremiumCalculator schema={schemaPilot} />
+ <DynamicPremiumCalculator schema={schemaPilot!} />
  <details className="mt-4 sc-industrial-panel p-4">
  <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wider text-body-charcoal">
  Legacy contract engine (PDF-compatible)
@@ -362,31 +449,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  </div>
  </form>
  <div className="sc-tool-workspace__result min-w-0 space-y-4">
- {!isCalculating && decisionReport && result && verdictReportData ? (
- <>
- <PremiumAnalyzerReportPanel report={decisionReport} />
- <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
- <DownloadVerdictPdfButton
- data={verdictReportData}
- slug={tool.paidSlug}
- severity={result.severity}
- />
- {user ? (
- <SaveVerdictReportButton uid={user.uid} tool={tool} values={values} result={result} />
- ) : null}
- </div>
- {isCncStochastic ? (
- <PremiumDecisionReportPanel
- variant="stochastic"
- sector={tool.sector}
- inputs={toStochasticInputs(values)}
- inputsReady={arePremiumToolInputsValid(tool, values)}
- toolSlug={tool.paidSlug}
- toolTitle={tool.paidTitle}
- />
- ) : null}
- </>
- ) : null}
+ {renderAnalysisOutput("legacy")}
  </div>
  </div>
  </details>
@@ -420,34 +483,7 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
  </form>
 
  <div className="sc-ledger-karar-masasi__report min-w-0 space-y-4">
- {isCalculating ? <p className="text-sm text-body-charcoal">Calculating…</p> : null}
- {!isCalculating && decisionReport && result && verdictReportData ? (
- <>
- <PremiumAnalyzerReportPanel report={decisionReport} />
- <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
- <DownloadVerdictPdfButton
- data={verdictReportData}
- slug={tool.paidSlug}
- severity={result.severity}
- />
- {user ? (
- <SaveVerdictReportButton uid={user.uid} tool={tool} values={values} result={result} />
- ) : null}
- </div>
- {isCncStochastic ? (
- <PremiumDecisionReportPanel
- variant="stochastic"
- sector={tool.sector}
- inputs={toStochasticInputs(values)}
- inputsReady={arePremiumToolInputsValid(tool, values)}
- toolSlug={tool.paidSlug}
- toolTitle={tool.paidTitle}
- />
- ) : null}
- </>
- ) : !isCalculating ? (
- <p className="text-sm text-body-charcoal">Enter job inputs and run the analysis.</p>
- ) : null}
+ {renderAnalysisOutput("primary")}
  </div>
  </div>
  </>

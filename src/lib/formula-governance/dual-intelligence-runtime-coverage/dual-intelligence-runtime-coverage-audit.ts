@@ -15,6 +15,7 @@ import type {
 import {
   PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS,
 } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { isFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 
 function resolveRouteSlug(governanceSlug: string): string | null {
   const definition = ROLLOUT_BATCH_H_TOOL_DEFINITIONS.find(
@@ -24,6 +25,10 @@ function resolveRouteSlug(governanceSlug: string): string | null {
 }
 
 function resolveTier(governanceSlug: string): DualIntelligenceRuntimeTier {
+  if (isFullLoopRuntimeSlug(governanceSlug)) {
+    return "full_loop_runtime";
+  }
+
   const rolloutCategory = resolveRolloutCategory(governanceSlug);
 
   if (rolloutCategory === "live_already") {
@@ -52,6 +57,12 @@ function resolveTier(governanceSlug: string): DualIntelligenceRuntimeTier {
 
 function buildNotes(tier: DualIntelligenceRuntimeTier, routeSlug: string | null): readonly string[] {
   switch (tier) {
+    case "full_loop_runtime":
+      return [
+        "Premium calculate path runs runContractCalculationIntelligenceLoop before and after production calc.",
+        "Non-canonical input keys rejected; verdict blocked until Mind 1 validation passes.",
+        "Trust trace rendered on result panel.",
+      ];
     case "live_smart_form_pilot":
       return [
         "Smart Form pilot live when NEXT_PUBLIC_SMART_FORM_PILOT is on.",
@@ -91,8 +102,9 @@ export function runDualIntelligenceRuntimeCoverageAudit(): DualIntelligenceRunti
   const entries: DualIntelligenceRuntimeCoverageEntry[] = FORMULA_CONTRACTS.map((contract) => {
     const tier = resolveTier(contract.slug);
     const routeSlug = resolveRouteSlug(contract.slug);
-    const mind2Runtime = tier === "live_smart_form_pilot";
-    const mind1Runtime = tier === "live_smart_form_pilot";
+    const isFullLoop = tier === "full_loop_runtime";
+    const mind2Runtime = isFullLoop || tier === "live_smart_form_pilot";
+    const mind1Runtime = isFullLoop || tier === "live_smart_form_pilot";
 
     return {
       slug: contract.slug,
@@ -100,7 +112,7 @@ export function runDualIntelligenceRuntimeCoverageAudit(): DualIntelligenceRunti
       tier,
       mind1Runtime,
       mind2Runtime,
-      fullLoopRuntime: false,
+      fullLoopRuntime: isFullLoop,
       routeSlug,
       notes: buildNotes(tier, routeSlug),
     };
@@ -128,17 +140,24 @@ export function formatDualIntelligenceRuntimeCoverageReport(
     .filter((entry) => entry.tier === "live_smart_form_pilot")
     .map((entry) => entry.slug);
 
+  const fullLoopSlugs = result.entries
+    .filter((entry) => entry.tier === "full_loop_runtime")
+    .map((entry) => entry.slug);
+
   const lines = [
     "Dual-Intelligence Runtime Coverage",
     `Total formula contracts: ${result.totalContracts}`,
     "",
     "Summary",
+    `- Full loop runtime (Mind 2 → calc → Mind 1): ${result.fullLoopRuntimeCount}`,
     `- Live Smart Form pilot (Mind 1+2 partial runtime): ${result.liveSmartFormPilot}`,
     `- Staged calculation bridge: ${result.stagedCalculationBridge}`,
     `- Staged render only: ${result.stagedRenderOnly}`,
     `- Governed build-time only (controlled patch): ${result.governedBuildtimeOnly}`,
     `- Audit pipeline only: ${result.auditPipelineOnly}`,
-    `- Full loop runtime (runContractCalculationIntelligenceLoop): ${result.fullLoopRuntimeCount}`,
+    "",
+    "Full loop runtime slugs:",
+    ...(fullLoopSlugs.length > 0 ? fullLoopSlugs.map((slug) => `- ${slug}`) : ["- (none)"]),
     "",
     "Production-deployed pilot slugs:",
     ...PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS.map((slug) => `- ${slug}`),
@@ -150,6 +169,7 @@ export function formatDualIntelligenceRuntimeCoverageReport(
   ];
 
   const tierOrder: DualIntelligenceRuntimeTier[] = [
+    "full_loop_runtime",
     "live_smart_form_pilot",
     "staged_calculation_bridge",
     "staged_render_only",

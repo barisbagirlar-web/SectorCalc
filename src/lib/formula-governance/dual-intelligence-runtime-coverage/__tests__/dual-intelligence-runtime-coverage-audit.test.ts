@@ -11,6 +11,9 @@ import { FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts";
 import {
   PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS,
 } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { isFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+
+const WELDING_SLUG = "welding-bid-risk-analyzer";
 
 describe("dual-intelligence runtime coverage audit", () => {
   test("classifies all formula contracts", () => {
@@ -19,13 +22,26 @@ describe("dual-intelligence runtime coverage audit", () => {
     expect(result.entries).toHaveLength(FORMULA_CONTRACTS.length);
   });
 
-  test("only live pilots have partial Mind 1/2 runtime enforcement", () => {
+  test("welding-bid-risk-analyzer is full_loop_runtime", () => {
+    const result = runDualIntelligenceRuntimeCoverageAudit();
+    const welding = result.entries.find((item) => item.slug === WELDING_SLUG);
+
+    expect(isFullLoopRuntimeSlug(WELDING_SLUG)).toBe(true);
+    expect(welding?.tier).toBe("full_loop_runtime");
+    expect(welding?.fullLoopRuntime).toBe(true);
+    expect(welding?.mind1Runtime).toBe(true);
+    expect(welding?.mind2Runtime).toBe(true);
+    expect(result.fullLoopRuntimeCount).toBe(1);
+    expect(result.stagedCalculationBridge).toBe(6);
+  });
+
+  test("only live pilots have partial Mind 1/2 runtime without full loop", () => {
     const result = runDualIntelligenceRuntimeCoverageAudit();
 
     expect(result.liveSmartFormPilot).toBe(PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS.length);
-    expect(result.fullLoopRuntimeCount).toBe(0);
-    expect(result.mind1RuntimeCount).toBe(result.liveSmartFormPilot);
-    expect(result.mind2RuntimeCount).toBe(result.liveSmartFormPilot);
+    expect(result.fullLoopRuntimeCount).toBe(1);
+    expect(result.mind1RuntimeCount).toBe(result.liveSmartFormPilot + result.fullLoopRuntimeCount);
+    expect(result.mind2RuntimeCount).toBe(result.liveSmartFormPilot + result.fullLoopRuntimeCount);
 
     for (const slug of PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS) {
       const entry = result.entries.find((item) => item.slug === slug);
@@ -41,7 +57,8 @@ describe("dual-intelligence runtime coverage audit", () => {
 
     expect(report).toContain("Dual-Intelligence Runtime Coverage");
     expect(report).toContain("live_smart_form_pilot");
-    expect(report).toContain("Full loop runtime");
+    expect(report).toContain("full_loop_runtime");
+    expect(report).toContain(WELDING_SLUG);
   });
 
   test("is deterministic", () => {
