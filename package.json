@@ -20,6 +20,7 @@
     "audit:formulas": "npx tsx scripts/audit-formulas.ts",
     "audit:alignment": "npx tsx scripts/audit-alignment.ts",
     "audit:input-design": "npx tsx scripts/audit-input-design.ts",
+    "audit:migration-plan": "npx tsx scripts/audit-migration-plan.ts",
     "inventory:formulas": "npx tsx scripts/inventory-formulas.ts",
     "test:formulas": "vitest run src/lib/formula-governance",
     "check:secrets": "node scripts/check-commit-secrets.mjs",
