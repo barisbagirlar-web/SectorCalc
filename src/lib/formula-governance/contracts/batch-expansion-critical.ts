@@ -7,10 +7,12 @@ import type { FormulaContract } from "@/lib/formula-governance/types";
 import {
   FINANCIAL_SIMULATION_DISCLAIMER,
   GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+  PREMIUM_DECISION_PRODUCTION_FILE,
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
   buildAssuredCriticalContract,
   calculatorProductionAssumption,
+  freeTrafficProductionAssumption,
 } from "@/lib/formula-governance/contracts/shared";
 
 export const BATCH_FREE_ORACLE_WIRED_SLUGS = [
@@ -443,9 +445,10 @@ export const foodCostCalculatorContract: FormulaContract = buildAssuredCriticalC
   decisionImpact: "pricing",
   requiredInputs: ["ingredientCost", "menuPrice"],
   criticalInputs: ["ingredientCost", "menuPrice"],
-  outputs: ["foodCostPercent"],
+  outputs: ["recommendedPrice", "foodCostPercent"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("food-cost-calculator", "ingredient ÷ menu price × 100"),
     "Single menu item snapshot; food cost % = ingredientCost ÷ menuPrice × 100.",
     "Waste, labor, delivery commission and packaging excluded on free tier.",
   ],
@@ -454,19 +457,28 @@ export const foodCostCalculatorContract: FormulaContract = buildAssuredCriticalC
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Simple food cost ratio without waste or labor allocation.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals food cost percent (foodCostPercent).",
     ],
     modelLimitations: [
       "Kitchen labor and packaging not included",
       "Delivery commission and waste not modeled",
+      "Spoilage, overhead and supplier volatility excluded unless modeled",
     ],
     futureExtensions: [
       "Menu profit leak detector integration for true margin",
+      "Recipe-level waste and contribution margin modeling",
     ],
   }),
   validationRules: [
     { id: "ingredient-positive", description: "ingredientCost must be > 0", kind: "edge" },
     { id: "menu-price-positive", description: "menuPrice must be > 0", kind: "edge" },
     { id: "ratio-bounds", description: "Food cost percent stays within 0–100% for valid inputs", kind: "dimensional" },
+    {
+      id: "food-cost-percent-dimension",
+      description: "foodCostPercent and recommendedPrice use percent semantics for governance target",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-menu-item", description: "Normal case: standard plate at target food cost %" },
@@ -529,8 +541,13 @@ export const menuProfitLeakDetectorContract: FormulaContract = buildAssuredCriti
   outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "suggestedAction"],
   assumptions: [
     PREMIUM_DECISION_DISCLAIMER,
+    calculatorProductionAssumption(
+      "src/lib/calculators/menu-profit-leak-detector.ts",
+      'runCalculator("menu-profit-leak-detector") → item cost, margin and minimum safe price',
+    ),
     "True cost includes waste-inflated ingredients, labor per item and delivery commission on menu price.",
     "Portion variance and rush-hour labor loaded via hidden multipliers.",
+    "quoteVerdict and suggestedAction are narrative outputs; minimumSafePrice is numeric target.",
   ],
   formulaSummary:
     "Base cost = ingredient × (1 + waste%) + labor + menuPrice × commission% + overhead slice; safe price and verdict via MarginCore.",
@@ -543,16 +560,23 @@ export const menuProfitLeakDetectorContract: FormulaContract = buildAssuredCriti
       "Packaging and garnish costs not always itemized",
       "Third-party delivery mix modeled as flat commission only",
       "Premium decision layer not oracle-compared in Phase 5E",
+      "Demand mix, prep waste, platform commissions and shrinkage not fully modeled",
     ],
     futureExtensions: [
       "Independent oracle for minimum safe menu price",
       "Multi-item menu mix optimization",
+      "Menu engineering matrix and category contribution analysis",
     ],
   }),
   validationRules: [
     { id: "menu-price-positive", description: "menuPrice must be > 0", kind: "edge" },
     { id: "waste-percent", description: "wasteRate is percent 0–100", kind: "dimensional" },
     { id: "commission-percent", description: "deliveryCommission is percent", kind: "dimensional" },
+    {
+      id: "verdict-non-numeric",
+      description: "quoteVerdict and suggestedAction are narrative outputs; not numeric targets",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-item", description: "Normal case: dine-in item with moderate waste" },
@@ -605,9 +629,13 @@ export const productMarginCalculatorContract: FormulaContract = buildAssuredCrit
     "returnRate",
   ],
   criticalInputs: ["productPrice", "productCost", "returnRate"],
-  outputs: ["margin", "grossProfit", "totalCost", "returnImpact"],
+  outputs: ["recommendedPrice", "margin", "grossProfit", "totalCost", "returnImpact"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    calculatorProductionAssumption(
+      "src/lib/calculators/product-margin-calculator.ts",
+      'runCalculator("product-margin-calculator") → margin after fees and returns',
+    ),
     "Per-order snapshot; fees computed as percent of selling price.",
     "Ad spend, reverse logistics detail and cash cycle excluded on free tier.",
   ],
@@ -617,20 +645,29 @@ export const productMarginCalculatorContract: FormulaContract = buildAssuredCrit
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Single-SKU gross margin snapshot without ad spend.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals gross margin percent (margin).",
     ],
     modelLimitations: [
       "Ad cost per sale not included on free tier",
       "Reverse logistics and restocking labor not itemized",
       "Discount and promotional pricing not modeled",
+      "Returns, platform fees, shipping and tax excluded unless modeled",
     ],
     futureExtensions: [
       "Return profit erosion tool integration for net margin verdict",
+      "Channel-level contribution margin modeling",
     ],
   }),
   validationRules: [
     { id: "price-positive", description: "sellingPrice must be > 0", kind: "edge" },
     { id: "fee-percent", description: "Fee and return rates within 0–100%", kind: "dimensional" },
     { id: "cost-non-negative", description: "productCost and shippingCost must be ≥ 0", kind: "edge" },
+    {
+      id: "margin-percent-dimension",
+      description: "margin and recommendedPrice use percent semantics for governance target",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-sku", description: "Normal case: healthy margin SKU" },
@@ -693,8 +730,13 @@ export const returnProfitErosionToolContract: FormulaContract = buildAssuredCrit
   outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "suggestedAction"],
   assumptions: [
     PREMIUM_DECISION_DISCLAIMER,
+    calculatorProductionAssumption(
+      "src/lib/calculators/return-rate-profit-erosion-tool.ts",
+      'runCalculator("return-rate-profit-erosion-tool") → net profit, margin and return impact',
+    ),
     "Return drag, reverse logistics, payment fees and ad cost stacked on product cost.",
     "Fraud reserve and CAC recovery applied via hidden multipliers.",
+    "quoteVerdict and suggestedAction are narrative outputs; minimumSafePrice is numeric target.",
   ],
   formulaSummary:
     "Base cost = COGS + shipping + fees + return drag + ad cost + reverse logistics slice; safe price and scale verdict via MarginCore.",
@@ -707,16 +749,23 @@ export const returnProfitErosionToolContract: FormulaContract = buildAssuredCrit
       "SKU-specific return curves and seasonality not modeled",
       "Chargeback and fraud reserve applied via hidden buffer only",
       "Premium decision layer not oracle-compared in Phase 5E",
+      "Restocking, resale loss, shipping recovery, fraud risk and customer service cost not fully modeled",
     ],
     futureExtensions: [
       "Independent oracle for minimum viable selling price",
       "Break-even ROAS scenario wiring",
+      "SKU-level return risk scoring",
     ],
   }),
   validationRules: [
     { id: "price-positive", description: "productPrice must be > 0", kind: "edge" },
     { id: "return-percent", description: "returnRate within 0–100%", kind: "dimensional" },
     { id: "ad-cost-non-negative", description: "adCostPerSale must be ≥ 0", kind: "edge" },
+    {
+      id: "verdict-non-numeric",
+      description: "quoteVerdict and suggestedAction are narrative outputs; not numeric targets",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-sku", description: "Normal case: moderate return rate and ad spend" },
@@ -761,9 +810,10 @@ export const weldingCostEstimatorContract: FormulaContract = buildAssuredCritica
   decisionImpact: "pricing",
   requiredInputs: ["materialCost", "laborHours", "laborRate", "consumablesCost"],
   criticalInputs: ["materialCost", "laborHours", "laborRate", "consumablesCost"],
-  outputs: ["estimatedCost", "laborCost"],
+  outputs: ["recommendedPrice", "estimatedCost", "laborCost"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("welding-cost-estimator", "material + labor + consumables"),
     "Cost = material + laborHours × laborRate + consumables.",
     "Fit-up time, rework risk and NDT inspection excluded on free tier.",
   ],
@@ -773,13 +823,17 @@ export const weldingCostEstimatorContract: FormulaContract = buildAssuredCritica
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Visible material, labor and consumables only; no rework buffer.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals estimated job cost (estimatedCost).",
     ],
     modelLimitations: [
       "Fit-up hours and gas consumables split not fully modeled on free tier",
       "Rework probability and position factor not included",
+      "Setup, joint complexity, gas, rework and inspection excluded unless modeled",
     ],
     futureExtensions: [
       "Welding bid risk analyzer integration for safe bid floor",
+      "WPS-aware cost model and defect probability",
     ],
   }),
   validationRules: [
@@ -789,6 +843,11 @@ export const weldingCostEstimatorContract: FormulaContract = buildAssuredCritica
     {
       id: "currency-units",
       description: "Material, labor rate and consumables use consistent currency units",
+      kind: "dimensional",
+    },
+    {
+      id: "estimated-cost-dimension",
+      description: "estimatedCost and recommendedPrice use currency semantics for governance target",
       kind: "dimensional",
     },
   ],
@@ -855,8 +914,10 @@ export const weldingBidRiskAnalyzerContract: FormulaContract = buildAssuredCriti
   outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "suggestedAction"],
   assumptions: [
     PREMIUM_DECISION_DISCLAIMER,
+    `Production: ${PREMIUM_DECISION_PRODUCTION_FILE} → BASE_COST_CALCULATORS["welding-bid-risk-analyzer"] → calcWelding + MarginCore floor`,
     "Base cost includes material, weld labor, fit-up premium, gas/consumables and rework buffer.",
     "Overhead position factor and NDT inspection via hidden multipliers.",
+    "quoteVerdict and suggestedAction are narrative outputs; minimumSafePrice is numeric target.",
   ],
   formulaSummary:
     "Base = (material + labor + fit-up premium + gas) × shop buffer × (1 + rework%); safe bid via MarginCore.",
@@ -869,16 +930,23 @@ export const weldingBidRiskAnalyzerContract: FormulaContract = buildAssuredCriti
       "Overhead and out-of-position welding factor via hidden multipliers only",
       "NDT / inspection scope not itemized per joint",
       "Premium decision layer not oracle-compared in Phase 5E",
+      "Material grade, position, inspection, rework, heat treatment and certification not fully modeled",
     ],
     futureExtensions: [
       "Independent oracle for minimum safe welding bid",
       "Weld-length and procedure-specific consumable curves",
+      "Risk-adjusted bid floor and weld procedure trace",
     ],
   }),
   validationRules: [
     { id: "labor-positive", description: "laborHours must be > 0", kind: "edge" },
     { id: "rework-percent", description: "reworkRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+    {
+      id: "verdict-non-numeric",
+      description: "quoteVerdict and suggestedAction are narrative outputs; not numeric targets",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-fab", description: "Normal case: fabrication job with moderate rework risk" },
@@ -924,10 +992,10 @@ export const sampleSizeCalculatorContract: FormulaContract = buildAssuredCritica
   decisionImpact: "technical",
   requiredInputs: ["population", "confidenceZ", "marginErrorPercent", "proportionPercent"],
   criticalInputs: ["population", "confidenceZ", "marginErrorPercent", "proportionPercent"],
-  outputs: ["requiredSample", "infinitePopulationEstimate"],
+  outputs: ["recommendedPrice", "requiredSample", "infinitePopulationEstimate"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-traffic-calculators.ts → CALCULATORS[\"sample-size-calculator\"].",
+    freeTrafficProductionAssumption("sample-size-calculator", "Cochran sample size"),
     "Cochran-style sample size with finite population correction when population > 0.",
   ],
   formulaSummary:
@@ -936,21 +1004,30 @@ export const sampleSizeCalculatorContract: FormulaContract = buildAssuredCritica
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Simple random sampling with stated confidence z-score and proportion estimate.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals required sample count (requiredSample).",
     ],
     modelLimitations: [
       "Sampling bias and non-response not modeled",
       "Finite population correction only when population > 0",
       "Stratified or cluster sampling designs not supported",
+      "Population assumptions, response quality and design effect not fully modeled",
     ],
     futureExtensions: [
       "Independent oracle for sample size with confidence interval validation",
       "Design effect factor for cluster samples",
+      "Stratified sample and finite population correction modes",
     ],
   }),
   validationRules: [
     { id: "margin-positive", description: "marginErrorPercent must be > 0", kind: "edge" },
     { id: "proportion-percent", description: "proportionPercent within 0–100%", kind: "dimensional" },
     { id: "population-non-negative", description: "population must be ≥ 0", kind: "edge" },
+    {
+      id: "sample-count-dimension",
+      description: "requiredSample and recommendedPrice use count semantics for governance target",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-survey", description: "Normal case: finite population with 95% confidence" },
@@ -996,11 +1073,15 @@ export const hvacTonnageRuleCheckContract: FormulaContract = buildAssuredCritica
   decisionImpact: "technical",
   requiredInputs: ["squareFootage", "tonnage", "laborHours"],
   criticalInputs: ["squareFootage", "tonnage", "laborHours"],
-  outputs: ["riskLevel", "recommendedTons", "totalBtu"],
+  outputs: ["recommendedPrice", "recommendedTons", "totalBtu", "riskLevel"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-sector-calculations.ts → calculateHvacFreeResult → calculateHvacTonnageResult.",
+    calculatorProductionAssumption(
+      "src/lib/tools/free-sector-calculations.ts",
+      "calculateHvacFreeResult → calculateHvacTonnageResult (ASHRAE defaults)",
+    ),
     "Rule-of-thumb load model with average insulation and moderate climate defaults.",
+    "riskLevel is a narrative risk signal; recommendedTons is the primary numeric sizing target.",
   ],
   formulaSummary:
     "ASHRAE simplified BTU load from area, window and occupancy factors; tons = BTU ÷ 12000; compare specified tonnage to recommended sizing band.",
@@ -1008,15 +1089,19 @@ export const hvacTonnageRuleCheckContract: FormulaContract = buildAssuredCritica
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Average insulation, 15% window area and moderate climate unless overridden in premium tier.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals recommended tonnage (recommendedTons).",
     ],
     modelLimitations: [
       "Rule-of-thumb only — full Manual J / climate envelope not modeled",
       "Duct leakage, ventilation and latent load not itemized on free tier",
       "Equipment efficiency and line-set length excluded",
+      "Climate zone, insulation, window load and duct loss excluded unless modeled",
     ],
     futureExtensions: [
       "Oracle for ASHRAE tonnage baseline",
       "HVAC project margin guard integration for callback risk",
+      "Envelope-aware load model",
     ],
   }),
   validationRules: [
@@ -1024,6 +1109,11 @@ export const hvacTonnageRuleCheckContract: FormulaContract = buildAssuredCritica
     { id: "tonnage-non-negative", description: "tonnage must be ≥ 0", kind: "edge" },
     { id: "labor-non-negative", description: "laborHours must be ≥ 0", kind: "edge" },
     { id: "tonnage-ratio", description: "tonnage ratio vs ASHRAE load stays within 0–200%", kind: "dimensional" },
+    {
+      id: "risk-level-purpose",
+      description: "riskLevel is a narrative output; recommendedTons is the numeric sizing target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-office", description: "Normal case: mid-size office with matched tonnage" },

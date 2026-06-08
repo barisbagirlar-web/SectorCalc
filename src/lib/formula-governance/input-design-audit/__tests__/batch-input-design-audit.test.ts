@@ -37,7 +37,7 @@ describe("runBatchInputDesignAudit", () => {
     const result = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
 
     expect(result.recommendedNextBatch.length).toBeGreaterThan(0);
-    expect(result.recommendedNextBatch).toContain("food-cost-calculator");
+    expect(result.recommendedNextBatch).toContain("electrical-labor-estimator");
   });
 
   test("produces topRisks with roofing and cnc", () => {
