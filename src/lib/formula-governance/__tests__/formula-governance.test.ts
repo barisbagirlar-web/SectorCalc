@@ -55,10 +55,10 @@ describe("formula-governance contracts", () => {
     expect(rentVsBuyContract.criticalInputs).toContain("annualHomeAppreciation");
   });
 
-  test("phase 5G-A registers 31 formula contracts", () => {
-    expect(FORMULA_CONTRACTS.length).toBe(31);
+  test("phase 5G-C registers 41 formula contracts", () => {
+    expect(FORMULA_CONTRACTS.length).toBe(41);
     expect(TOP_CRITICAL_FORMULA_CONTRACTS.length).toBe(10);
-    expect(BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS.length).toBe(20);
+    expect(BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS.length).toBe(30);
   });
 
   test("phase 5C assured contracts wire runtime scenarios and property gate", () => {
@@ -248,9 +248,9 @@ describe("formula-governance audit runner", () => {
     expect(text).toContain("loan-payment-calculator");
   });
 
-  test("phase 5G-A reduces critical missing contracts by 20 from batch expansion", () => {
+  test("phase 5G-C reduces critical missing contracts after batch expansion", () => {
     const summary = summarizeInventory(buildFormulaInventory());
-    expect(summary.criticalMissingContracts.length).toBeGreaterThanOrEqual(43);
-    expect(summary.criticalMissingContracts.length).toBeLessThanOrEqual(47);
+    expect(summary.criticalMissingContracts.length).toBeGreaterThanOrEqual(23);
+    expect(summary.criticalMissingContracts.length).toBeLessThanOrEqual(27);
   });
 });

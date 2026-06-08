@@ -9,6 +9,8 @@ import {
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
   buildAssuredCriticalContract,
+  buildCriticalContract,
+  scenarioSkeletons,
 } from "@/lib/formula-governance/contracts/shared";
 
 export const BATCH_FREE_ORACLE_WIRED_SLUGS = [
@@ -39,6 +41,20 @@ export const BATCH_FREE_BATCH2_CRITICAL_SLUGS = [
   "cabinet-cost-estimator",
   "roofing-square-cost-check",
   "laser-cutting-time-check",
+] as const;
+
+/** Phase 5G-C — paired premium / sector critical contracts (skeleton only). */
+export const BATCH_PREMIUM_BATCH3_CRITICAL_SLUGS = [
+  "hvac-project-margin-guard",
+  "panel-shop-margin-verdict",
+  "landscaping-contract-profit-tool",
+  "auto-shop-margin-leak-detector",
+  "signage-bid-safe-price-tool",
+  "millwork-bid-risk-analyzer",
+  "roofing-contract-margin-guard",
+  "painting-job-profit-verdict",
+  "sheet-metal-quote-risk-tool",
+  "3d-print-cost-check",
 ] as const;
 
 import { createWarningPolicy } from "@/lib/formula-governance/warning-policy";
@@ -1591,6 +1607,885 @@ export const laserCuttingTimeCheckContract: FormulaContract = buildAssuredCritic
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed sheet metal quote"],
 });
 
+export const hvacProjectMarginGuardContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-premium.hvac-project-margin-guard",
+  toolName: "HVAC Project Margin Guard",
+  slug: "hvac-project-margin-guard",
+  purpose:
+    "Find minimum HVAC project price with equipment, ductwork, callback and commissioning risk included.",
+  userDecision: "Is this HVAC install priced safely given equipment, labor and callback exposure?",
+  decisionImpact: "pricing",
+  requiredInputs: [
+    "equipmentCost",
+    "ductworkCost",
+    "laborHours",
+    "laborRate",
+    "commissioningCost",
+    "callbackRiskPercent",
+    "targetMargin",
+  ],
+  criticalInputs: [
+    "equipmentCost",
+    "ductworkCost",
+    "laborHours",
+    "laborRate",
+    "commissioningCost",
+    "callbackRiskPercent",
+    "targetMargin",
+  ],
+  outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "baseCost"],
+  assumptions: [
+    PREMIUM_DECISION_DISCLAIMER,
+    "Production: src/lib/tools/premium-decision-engine.ts → calcHvac + MarginCore decision layer.",
+    "Base = equipment + ductwork + labor + commissioning + callback% on equipment + refrigerant 3% + seasonal labor 20%.",
+  ],
+  formulaSummary:
+    "baseCost = equipment + ductwork + laborHours×laborRate + commissioning + callback buffer + refrigerant + seasonal premium; safe price via hidden multipliers and volatility buffer.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Callback risk applied as percent of equipment cost; seasonal labor premium 20% of labor.",
+    ],
+    modelLimitations: [
+      "Site survey, permit fees and ductwork condition not fully modeled",
+      "Climate envelope and full Manual J/S load calculation not modeled",
+      "Line-set length, ventilation and latent load excluded from base cost",
+    ],
+    futureExtensions: [
+      "Independent oracle for minimum project price vs calcHvac",
+      "Integration with hvac-tonnage-rule-check free funnel",
+    ],
+  }),
+  validationRules: [
+    { id: "equipment-non-negative", description: "equipmentCost must be ≥ 0", kind: "edge" },
+    { id: "callback-percent", description: "callbackRiskPercent within 0–100%", kind: "dimensional" },
+    { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-install", description: "Normal case: mid-size HVAC install with moderate callback risk" },
+    { id: "edge-high-callback", description: "Edge case: callback risk above 12%" },
+    { id: "absurd-zero-rate", description: "Absurd input: zero labor rate rejected" },
+    { id: "directional-equipment", description: "Directional: higher equipmentCost raises base cost" },
+    { id: "sensitivity-margin", description: "Sensitivity: higher targetMargin raises minimum safe price" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "equipment-up-floor",
+      description: "Higher equipmentCost must not decrease minimum safe price",
+      inputKey: "equipmentCost",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "callback-up-floor",
+      description: "Higher callbackRiskPercent must not decrease minimum safe price",
+      inputKey: "callbackRiskPercent",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "margin-up-floor",
+      description: "Higher targetMargin must not decrease minimum safe price",
+      inputKey: "targetMargin",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "ASHRAE-certified project guarantee"],
+});
+
+export const panelShopMarginVerdictContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-premium.panel-shop-margin-verdict",
+  toolName: "Panel Shop Margin Verdict",
+  slug: "panel-shop-margin-verdict",
+  purpose:
+    "Find safe electrical panel bid with testing hours, permit revision and inspection risk included.",
+  userDecision: "Is this panel bid priced safely given material, labor and inspection exposure?",
+  decisionImpact: "pricing",
+  requiredInputs: [
+    "materialCost",
+    "laborHours",
+    "laborRate",
+    "testingHours",
+    "inspectionRiskPercent",
+    "targetMargin",
+  ],
+  criticalInputs: [
+    "materialCost",
+    "laborHours",
+    "laborRate",
+    "testingHours",
+    "inspectionRiskPercent",
+    "targetMargin",
+  ],
+  outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "baseCost"],
+  assumptions: [
+    PREMIUM_DECISION_DISCLAIMER,
+    "Production: src/lib/tools/premium-decision-engine.ts → calcElectrical + MarginCore decision layer.",
+    "Base = material + labor + testing + permit 4% of material; inspection risk multiplier on base.",
+  ],
+  formulaSummary:
+    "baseCost = (material + laborHours×laborRate + testingHours×laborRate + permit) × (1 + inspectionRisk%); safe price via hidden multipliers.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Permit revision reserve 4% of material; inspection risk entered as percent.",
+    ],
+    modelLimitations: [
+      "Panel complexity, wiring density and conduit fill not fully modeled",
+      "Inspection rework, AHJ revision cycles and supplier lead time not itemized",
+      "NEC derating and specialty gear excluded from free-tier base",
+    ],
+    futureExtensions: [
+      "Oracle for safe panel bid vs calcElectrical",
+      "electrical-labor-estimator funnel integration",
+    ],
+  }),
+  validationRules: [
+    { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "inspection-percent", description: "inspectionRiskPercent within 0–100%", kind: "dimensional" },
+    { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-panel-bid", description: "Normal case: panel job with balanced labor and testing" },
+    { id: "edge-high-inspection", description: "Edge case: inspection risk above 15%" },
+    { id: "absurd-negative-material", description: "Absurd input: negative material cost rejected" },
+    { id: "directional-labor", description: "Directional: higher laborHours raises base cost" },
+    { id: "sensitivity-testing", description: "Sensitivity: more testing hours raise base cost" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "material-up-floor",
+      description: "Higher materialCost must not decrease minimum safe price",
+      inputKey: "materialCost",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "inspection-up-floor",
+      description: "Higher inspectionRiskPercent must not decrease minimum safe price",
+      inputKey: "inspectionRiskPercent",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "margin-up-floor",
+      description: "Higher targetMargin must not decrease minimum safe price",
+      inputKey: "targetMargin",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "NEC-certified bid guarantee"],
+});
+
+export const landscapingContractProfitToolContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-premium.landscaping-contract-profit-tool",
+  toolName: "Landscaping Contract Profit Tool",
+  slug: "landscaping-contract-profit-tool",
+  purpose:
+    "Find minimum monthly landscaping contract price with fuel, supplies and equipment wear included.",
+  userDecision: "Is this recurring lawn contract priced safely for crew, fuel and wear exposure?",
+  decisionImpact: "pricing",
+  requiredInputs: [
+    "crewHoursPerVisit",
+    "laborRate",
+    "fuelCostPerVisit",
+    "supplyCostPerMonth",
+    "visitsPerMonth",
+    "equipmentWearCost",
+    "targetMargin",
+  ],
+  criticalInputs: [
+    "crewHoursPerVisit",
+    "laborRate",
+    "fuelCostPerVisit",
+    "supplyCostPerMonth",
+    "visitsPerMonth",
+    "equipmentWearCost",
+    "targetMargin",
+  ],
+  outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "baseCost"],
+  assumptions: [
+    PREMIUM_DECISION_DISCLAIMER,
+    "Production: src/lib/tools/premium-decision-engine.ts → calcLandscaping + MarginCore decision layer.",
+    "Monthly direct = crewHours×laborRate×visits + fuel×visits + supplies + equipment wear + 8% equip depreciation on labor.",
+  ],
+  formulaSummary:
+    "baseCost = monthly labor + fuel + supplies + equipment wear + equip depreciation; minimum monthly price via hidden multipliers and margin floor.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Flat visits per month; equipment depreciation 8% of monthly labor.",
+    ],
+    modelLimitations: [
+      "Seasonality, route density and weather delays not fully modeled",
+      "Crew utilization, travel between sites and supervision G&A excluded",
+      "Irrigation, fertilization and specialty services not itemized",
+    ],
+    futureExtensions: [
+      "Oracle for monthly contract floor vs calcLandscaping",
+      "lawn-care-cost-check funnel integration",
+    ],
+  }),
+  validationRules: [
+    { id: "visits-positive", description: "visitsPerMonth must be ≥ 1", kind: "edge" },
+    { id: "hours-non-negative", description: "crewHoursPerVisit must be ≥ 0", kind: "edge" },
+    { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-route", description: "Normal case: weekly visits with moderate crew hours" },
+    { id: "edge-heavy-route", description: "Edge case: high monthly crew-hour load" },
+    { id: "absurd-zero-visits", description: "Absurd input: zero visits per month rejected" },
+    { id: "directional-fuel", description: "Directional: higher fuelCostPerVisit raises base cost" },
+    { id: "sensitivity-wear", description: "Sensitivity: higher equipmentWearCost raises floor" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "visits-up-floor",
+      description: "Higher visitsPerMonth must not decrease minimum safe price",
+      inputKey: "visitsPerMonth",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "fuel-up-floor",
+      description: "Higher fuelCostPerVisit must not decrease minimum safe price",
+      inputKey: "fuelCostPerVisit",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "margin-up-floor",
+      description: "Higher targetMargin must not decrease minimum safe price",
+      inputKey: "targetMargin",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed contract profitability"],
+});
+
+export const autoShopMarginLeakDetectorContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-premium.auto-shop-margin-leak-detector",
+  toolName: "Auto Shop Margin Leak Detector",
+  slug: "auto-shop-margin-leak-detector",
+  purpose:
+    "Calculate true repair job profit with diagnostic time, parts markup, shop supplies and comeback risk.",
+  userDecision: "Is this quoted repair actually profitable after diagnostic and comeback exposure?",
+  decisionImpact: "pricing",
+  requiredInputs: [
+    "quotedPrice",
+    "diagnosticHours",
+    "repairHours",
+    "laborRate",
+    "partsCost",
+    "comebackRiskPercent",
+    "partsMarkupPercent",
+  ],
+  criticalInputs: [
+    "quotedPrice",
+    "diagnosticHours",
+    "repairHours",
+    "laborRate",
+    "partsCost",
+    "comebackRiskPercent",
+    "partsMarkupPercent",
+  ],
+  outputs: ["trueJobProfit", "quoteVerdict", "riskAdjustedCost", "baseCost"],
+  assumptions: [
+    PREMIUM_DECISION_DISCLAIMER,
+    "Production: src/lib/tools/premium-decision-engine.ts → calcAutoShop + MarginCore decision layer.",
+    "Base = diagnostic+repair labor + marked-up parts + shop supplies 5% + OEM gap 12%; comeback multiplier.",
+  ],
+  formulaSummary:
+    "baseCost = (labor + parts×(1+markup%) + supplies + OEM gap) × (1 + comeback%); true profit = quotedPrice − risk-adjusted cost.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Shop supplies 5% of labor; OEM/aftermarket gap 12% of parts cost on base path.",
+    ],
+    modelLimitations: [
+      "Diagnostic uncertainty and parts availability not fully modeled",
+      "Warranty reimbursement delay and appointment no-shows excluded",
+      "Vehicle-specific book time and comeback probability simplified",
+    ],
+    futureExtensions: [
+      "Oracle for true job profit vs calcAutoShop",
+      "repair-time-vs-price-check funnel integration",
+    ],
+  }),
+  validationRules: [
+    { id: "quote-positive", description: "quotedPrice must be > 0 for profit verdict", kind: "edge" },
+    { id: "comeback-percent", description: "comebackRiskPercent within 0–100%", kind: "dimensional" },
+    { id: "markup-percent", description: "partsMarkupPercent within 0–100%", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-brake-job", description: "Normal case: quoted job with visible profit headroom" },
+    { id: "edge-thin-quote", description: "Edge case: burdened cost near quoted price" },
+    { id: "absurd-zero-quote", description: "Absurd input: zero quoted price rejected" },
+    { id: "directional-comeback", description: "Directional: higher comeback risk worsens profit" },
+    { id: "sensitivity-diagnostic", description: "Sensitivity: unbilled diagnostic hours erode profit" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "parts-up-cost",
+      description: "Higher partsCost must not decrease risk-adjusted cost",
+      inputKey: "partsCost",
+      direction: "increase_should_increase",
+      outputKey: "baseCost",
+    },
+    {
+      id: "comeback-up-cost",
+      description: "Higher comebackRiskPercent must not decrease risk-adjusted cost",
+      inputKey: "comebackRiskPercent",
+      direction: "increase_should_increase",
+      outputKey: "baseCost",
+    },
+    {
+      id: "quote-up-profit",
+      description: "Higher quotedPrice must not decrease true job profit",
+      inputKey: "quotedPrice",
+      direction: "increase_should_increase",
+      outputKey: "trueJobProfit",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed shop profitability"],
+});
+
+export const signageBidSafePriceToolContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-premium.signage-bid-safe-price-tool",
+  toolName: "Signage Bid Safe Price Tool",
+  slug: "signage-bid-safe-price-tool",
+  purpose:
+    "Find minimum safe signage price with design, install, ink, RIP/proofing and reprint risk included.",
+  userDecision: "Is this signage bid priced safely given material, labor and reprint exposure?",
+  decisionImpact: "pricing",
+  requiredInputs: [
+    "materialCost",
+    "inkCost",
+    "designHours",
+    "laborRate",
+    "installHours",
+    "reprintRiskPercent",
+    "targetMargin",
+  ],
+  criticalInputs: [
+    "materialCost",
+    "inkCost",
+    "designHours",
+    "laborRate",
+    "installHours",
+    "reprintRiskPercent",
+    "targetMargin",
+  ],
+  outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "baseCost"],
+  assumptions: [
+    PREMIUM_DECISION_DISCLAIMER,
+    "Production: src/lib/tools/premium-decision-engine.ts → calcSignage + MarginCore decision layer.",
+    "Base = material + ink + (design+install)×laborRate + RIP 4%; reprint risk multiplier.",
+  ],
+  formulaSummary:
+    "baseCost = (material + ink + labor + RIP reserve) × (1 + reprintRisk%); safe price via hidden multipliers.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "RIP/proofing reserve 4% of base; design and install hours at flat labor rate.",
+    ],
+    modelLimitations: [
+      "Substrate type, install access and color calibration not fully modeled",
+      "Permit, electrical hook-up and rework risk loaded via multipliers only",
+      "Wide-format spoilage and finishing complexity may require override",
+    ],
+    futureExtensions: [
+      "Oracle for minimum safe signage price vs calcSignage",
+      "print-job-cost-check funnel integration",
+    ],
+  }),
+  validationRules: [
+    { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "reprint-percent", description: "reprintRiskPercent within 0–100%", kind: "dimensional" },
+    { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-signage-bid", description: "Normal case: balanced design and install load" },
+    { id: "edge-reprint-risk", description: "Edge case: reprint risk above 10%" },
+    { id: "absurd-negative-ink", description: "Absurd input: negative ink cost rejected" },
+    { id: "directional-design", description: "Directional: more design hours raise base cost" },
+    { id: "sensitivity-install", description: "Sensitivity: install hours increase labor exposure" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "material-up-floor",
+      description: "Higher materialCost must not decrease minimum safe price",
+      inputKey: "materialCost",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "reprint-up-floor",
+      description: "Higher reprintRiskPercent must not decrease minimum safe price",
+      inputKey: "reprintRiskPercent",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "margin-up-floor",
+      description: "Higher targetMargin must not decrease minimum safe price",
+      inputKey: "targetMargin",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed signage margin"],
+});
+
+export const millworkBidRiskAnalyzerContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-premium.millwork-bid-risk-analyzer",
+  toolName: "Millwork Bid Risk Analyzer",
+  slug: "millwork-bid-risk-analyzer",
+  purpose:
+    "Find minimum millwork bid with WWPA waste, finishing, install and schedule delay risk included.",
+  userDecision: "Is this custom millwork bid priced safely given material, labor and waste exposure?",
+  decisionImpact: "pricing",
+  requiredInputs: [
+    "sheetMaterialCost",
+    "laborHours",
+    "laborRate",
+    "finishingCost",
+    "installHours",
+    "wasteRatePercent",
+    "targetMargin",
+  ],
+  criticalInputs: [
+    "sheetMaterialCost",
+    "laborHours",
+    "laborRate",
+    "finishingCost",
+    "installHours",
+    "wasteRatePercent",
+    "targetMargin",
+  ],
+  outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "baseCost"],
+  assumptions: [
+    PREMIUM_DECISION_DISCLAIMER,
+    "Production: src/lib/tools/premium-decision-engine.ts → calcMillwork + MarginCore decision layer.",
+    "Material with waste%; labor = (shop+install)×rate + finishing + 10% finishing delay reserve.",
+  ],
+  formulaSummary:
+    "baseCost = sheetMaterial×(1+waste%) + (laborHours+installHours)×laborRate + finishing + delay reserve; safe bid via hidden multipliers.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Waste rate minimum 10%; finishing delay reserve 10% of finishing cost.",
+    ],
+    modelLimitations: [
+      "Finish grade, field measurement risk and custom hardware variation not fully modeled",
+      "Install complexity, humidity delays and punch-list rework excluded",
+      "Sheet yield and CNC programming time not itemized",
+    ],
+    futureExtensions: [
+      "Oracle for minimum millwork bid vs calcMillwork",
+      "cabinet-cost-estimator funnel integration",
+    ],
+  }),
+  validationRules: [
+    { id: "material-non-negative", description: "sheetMaterialCost must be ≥ 0", kind: "edge" },
+    { id: "waste-percent", description: "wasteRatePercent within 0–100%", kind: "dimensional" },
+    { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-millwork-bid", description: "Normal case: moderate shop and install hours" },
+    { id: "edge-high-waste", description: "Edge case: waste rate above 15%" },
+    { id: "absurd-negative-finishing", description: "Absurd input: negative finishing cost rejected" },
+    { id: "directional-material", description: "Directional: higher sheet cost raises base cost" },
+    { id: "sensitivity-install", description: "Sensitivity: install hours increase labor load" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "material-up-floor",
+      description: "Higher sheetMaterialCost must not decrease minimum safe price",
+      inputKey: "sheetMaterialCost",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "waste-up-floor",
+      description: "Higher wasteRatePercent must not decrease minimum safe price",
+      inputKey: "wasteRatePercent",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "margin-up-floor",
+      description: "Higher targetMargin must not decrease minimum safe price",
+      inputKey: "targetMargin",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed millwork bid acceptance"],
+});
+
+export const roofingContractMarginGuardContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-premium.roofing-contract-margin-guard",
+  toolName: "Roofing Contract Margin Guard",
+  slug: "roofing-contract-margin-guard",
+  purpose:
+    "Find minimum roofing bid with tear-off, dump fees, warranty reserve and weather delay risk included.",
+  userDecision: "Is this roofing contract priced safely given material, labor and delay exposure?",
+  decisionImpact: "pricing",
+  requiredInputs: [
+    "materialCost",
+    "laborHours",
+    "laborRate",
+    "tearOffCost",
+    "dumpFees",
+    "weatherDelayRiskPercent",
+    "targetMargin",
+  ],
+  criticalInputs: [
+    "materialCost",
+    "laborHours",
+    "laborRate",
+    "tearOffCost",
+    "dumpFees",
+    "weatherDelayRiskPercent",
+    "targetMargin",
+  ],
+  outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "baseCost"],
+  assumptions: [
+    PREMIUM_DECISION_DISCLAIMER,
+    "Production: src/lib/tools/premium-decision-engine.ts → calcRoofing + MarginCore decision layer.",
+    "Base = material + labor + tear-off + dump + 14% material reserves; weather delay multiplier.",
+  ],
+  formulaSummary:
+    "baseCost = (material + labor + tearOff + dump + reserves) × (1 + weatherDelayRisk%); safe bid via hidden multipliers.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Warranty and underlayment reserves 14% of material; weather delay entered as percent.",
+    ],
+    modelLimitations: [
+      "Pitch, tear-off layers, access and local code not fully modeled",
+      "Ice-dam membrane, ventilation specs and weather standby excluded",
+      "Warranty transferability and dump fee volatility simplified",
+    ],
+    futureExtensions: [
+      "Oracle for minimum roofing bid vs calcRoofing",
+      "roofing-square-cost-check funnel integration",
+    ],
+  }),
+  validationRules: [
+    { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "weather-percent", description: "weatherDelayRiskPercent within 0–100%", kind: "dimensional" },
+    { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-shingle-contract", description: "Normal case: tear-off job with balanced labor" },
+    { id: "edge-weather-risk", description: "Edge case: weather delay risk above 12%" },
+    { id: "absurd-negative-tearoff", description: "Absurd input: negative tear-off cost rejected" },
+    { id: "directional-labor", description: "Directional: more labor hours raise base cost" },
+    { id: "sensitivity-dump", description: "Sensitivity: dump fees increase direct cost" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "material-up-floor",
+      description: "Higher materialCost must not decrease minimum safe price",
+      inputKey: "materialCost",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "weather-up-floor",
+      description: "Higher weatherDelayRiskPercent must not decrease minimum safe price",
+      inputKey: "weatherDelayRiskPercent",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "margin-up-floor",
+      description: "Higher targetMargin must not decrease minimum safe price",
+      inputKey: "targetMargin",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "NRCA-certified contract guarantee"],
+});
+
+export const paintingJobProfitVerdictContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-premium.painting-job-profit-verdict",
+  toolName: "Painting Job Profit Verdict",
+  slug: "painting-job-profit-verdict",
+  purpose:
+    "Find minimum painting price with PDCA production model, scaffold, caulk/mask and touch-up risk included.",
+  userDecision: "Is this painting job priced safely given prep, production and touch-up exposure?",
+  decisionImpact: "pricing",
+  requiredInputs: [
+    "paintCost",
+    "prepHours",
+    "laborRate",
+    "scaffoldCost",
+    "touchUpRiskPercent",
+    "areaSize",
+    "targetMargin",
+  ],
+  criticalInputs: [
+    "paintCost",
+    "prepHours",
+    "laborRate",
+    "scaffoldCost",
+    "touchUpRiskPercent",
+    "areaSize",
+    "targetMargin",
+  ],
+  outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "baseCost"],
+  assumptions: [
+    PREMIUM_DECISION_DISCLAIMER,
+    "Production: src/lib/tools/premium-decision-engine.ts → calcPainting + MarginCore decision layer.",
+    "Production hours = area÷350 sqft/hr; base = paint + (prep+production)×rate + scaffold + caulk $0.08/sqft.",
+  ],
+  formulaSummary:
+    "baseCost = (paint + labor + scaffold + caulk reserve) × (1 + touchUpRisk%); safe price via hidden multipliers.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "PDCA 350 sqft/hr production rate; caulk/mask reserve $0.08 per sqft.",
+    ],
+    modelLimitations: [
+      "Surface prep depth, coat count and access complexity not fully modeled",
+      "Drying time, humidity and weather delays excluded",
+      "Lead abatement and specialty coatings not itemized",
+    ],
+    futureExtensions: [
+      "Oracle for minimum painting price vs calcPainting",
+      "paint-coverage-cost-check funnel integration",
+    ],
+  }),
+  validationRules: [
+    { id: "area-positive", description: "areaSize must be > 0", kind: "edge" },
+    { id: "touchup-percent", description: "touchUpRiskPercent within 0–100%", kind: "dimensional" },
+    { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-interior-job", description: "Normal case: moderate prep and area" },
+    { id: "edge-heavy-prep", description: "Edge case: prep intensity above PDCA threshold" },
+    { id: "absurd-zero-area", description: "Absurd input: zero area rejected" },
+    { id: "directional-prep", description: "Directional: more prep hours raise base cost" },
+    { id: "sensitivity-scaffold", description: "Sensitivity: scaffold cost increases floor" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "area-up-floor",
+      description: "Higher areaSize must not decrease minimum safe price",
+      inputKey: "areaSize",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "touchup-up-floor",
+      description: "Higher touchUpRiskPercent must not decrease minimum safe price",
+      inputKey: "touchUpRiskPercent",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "margin-up-floor",
+      description: "Higher targetMargin must not decrease minimum safe price",
+      inputKey: "targetMargin",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "PDCA-certified job guarantee"],
+});
+
+export const sheetMetalQuoteRiskToolContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-premium.sheet-metal-quote-risk-tool",
+  toolName: "Sheet Metal Quote Risk Tool",
+  slug: "sheet-metal-quote-risk-tool",
+  purpose:
+    "Find safe sheet metal quote with programming, setup, scrap, bend labor and finishing included.",
+  userDecision: "Is this sheet metal quote priced safely given machine time and scrap exposure?",
+  decisionImpact: "pricing",
+  requiredInputs: [
+    "programmingTime",
+    "setupTime",
+    "cutTime",
+    "bendCount",
+    "laborRate",
+    "materialCost",
+    "scrapRatePercent",
+    "finishingCost",
+    "targetMargin",
+  ],
+  criticalInputs: [
+    "programmingTime",
+    "setupTime",
+    "cutTime",
+    "bendCount",
+    "laborRate",
+    "materialCost",
+    "scrapRatePercent",
+    "finishingCost",
+    "targetMargin",
+  ],
+  outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "baseCost"],
+  assumptions: [
+    PREMIUM_DECISION_DISCLAIMER,
+    "Production: src/lib/tools/premium-decision-engine.ts → calcSheetMetal + MarginCore decision layer.",
+    "Labor minutes = programming + setup + cut + bends×2; material with scrap%; plus finishing.",
+  ],
+  formulaSummary:
+    "baseCost = (totalMinutes÷60)×laborRate + material×(1+scrap%) + finishing; safe quote via hidden multipliers.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Bend allowance 2 min per bend; scrap rate minimum 8% on material.",
+    ],
+    modelLimitations: [
+      "Nesting efficiency, setup amortization and material grade not fully modeled",
+      "Assist gas, pierce count and programming complexity simplified",
+      "Nest scrap volatility and rush-order premium excluded",
+    ],
+    futureExtensions: [
+      "Oracle for safe sheet metal quote vs calcSheetMetal",
+      "laser-cutting-time-check funnel integration",
+    ],
+  }),
+  validationRules: [
+    { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "scrap-percent", description: "scrapRatePercent within 0–100%", kind: "dimensional" },
+    { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-fab-quote", description: "Normal case: moderate programming and cut time" },
+    { id: "edge-high-scrap", description: "Edge case: scrap rate above 12%" },
+    { id: "absurd-zero-rate", description: "Absurd input: zero labor rate rejected" },
+    { id: "directional-bends", description: "Directional: more bends increase labor minutes" },
+    { id: "sensitivity-material", description: "Sensitivity: higher material cost raises base" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "material-up-floor",
+      description: "Higher materialCost must not decrease minimum safe price",
+      inputKey: "materialCost",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "scrap-up-floor",
+      description: "Higher scrapRatePercent must not decrease minimum safe price",
+      inputKey: "scrapRatePercent",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "margin-up-floor",
+      description: "Higher targetMargin must not decrease minimum safe price",
+      inputKey: "targetMargin",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed fabrication quote"],
+});
+
+export const threeDPrintCostCheckContract: FormulaContract = buildCriticalContract({
+  toolId: "free-traffic.3d-print-cost-check",
+  toolName: "3D Print Cost Check",
+  slug: "3d-print-cost-check",
+  purpose:
+    "Estimate visible 3D print job cost from material, machine time and post-processing before fail-rate modeling.",
+  userDecision: "Does machine time exposure look reasonable before fail-rate and margin risk?",
+  decisionImpact: "technical",
+  requiredInputs: ["materialCost", "printHours", "machineRate", "postProcessHours", "laborRate"],
+  criticalInputs: ["materialCost", "printHours", "machineRate", "postProcessHours", "laborRate"],
+  outputs: ["estimatedCost", "machineTimeCost", "riskLevel"],
+  assumptions: [
+    FINANCIAL_SIMULATION_DISCLAIMER,
+    "Production: src/lib/tools/free-traffic-calculators.ts → material + printHours×machineRate + postProcess×laborRate.",
+    "Revenue alternate: src/lib/tools/free-sector-calculations.ts → calculate3dPrintFreeResult (machine/material ratio risk).",
+  ],
+  formulaSummary:
+    "Free-traffic: estimatedCost = material + printHours×machineRate + postProcessHours×laborRate; revenue-free uses fail-probability risk bands on long prints.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Flat machine and labor rates; post-process hours on free-traffic path.",
+    ],
+    modelLimitations: [
+      "Machine calibration, support material and failed prints not fully modeled",
+      "Post-processing complexity and material-specific fail curves simplified on revenue path",
+      "Premium fail-rate and margin floor excluded on free tier",
+    ],
+    futureExtensions: [
+      "Unified oracle across free-traffic and revenue-free 3D print paths",
+      "3d-print-job-margin-tool integration",
+    ],
+  }),
+  validationRules: [
+    { id: "hours-non-negative", description: "printHours and postProcessHours must be ≥ 0", kind: "edge" },
+    { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "rate-positive", description: "machineRate and laborRate must be > 0 when hours > 0", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-print-job", description: "Normal case: short print with light post-process" },
+    { id: "edge-long-print", description: "Edge case: print hours above 12 trigger fail-risk signal" },
+    { id: "absurd-negative-material", description: "Absurd input: negative material cost rejected" },
+    { id: "directional-hours", description: "Directional: longer print hours increase estimated cost" },
+    { id: "sensitivity-post", description: "Sensitivity: post-process hours increase total cost" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "hours-up-cost",
+      description: "Higher printHours must not decrease estimated cost",
+      inputKey: "printHours",
+      direction: "increase_should_increase",
+      outputKey: "estimatedCost",
+    },
+    {
+      id: "material-up-cost",
+      description: "Higher materialCost must not decrease estimated cost",
+      inputKey: "materialCost",
+      direction: "increase_should_increase",
+      outputKey: "estimatedCost",
+    },
+    {
+      id: "post-up-cost",
+      description: "Higher postProcessHours must not decrease estimated cost",
+      inputKey: "postProcessHours",
+      direction: "increase_should_increase",
+      outputKey: "estimatedCost",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed print job success"],
+});
+
+export const BATCH_PREMIUM_BATCH3_CRITICAL_FORMULA_CONTRACTS: readonly FormulaContract[] = [
+  hvacProjectMarginGuardContract,
+  panelShopMarginVerdictContract,
+  landscapingContractProfitToolContract,
+  autoShopMarginLeakDetectorContract,
+  signageBidSafePriceToolContract,
+  millworkBidRiskAnalyzerContract,
+  roofingContractMarginGuardContract,
+  paintingJobProfitVerdictContract,
+  sheetMetalQuoteRiskToolContract,
+  threeDPrintCostCheckContract,
+];
+
 export const BATCH_FREE_BATCH2_CRITICAL_FORMULA_CONTRACTS: readonly FormulaContract[] = [
   sampleSizeCalculatorContract,
   hvacTonnageRuleCheckContract,
@@ -1616,6 +2511,7 @@ export const BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS: readonly FormulaContrac
   weldingCostEstimatorContract,
   weldingBidRiskAnalyzerContract,
   ...BATCH_FREE_BATCH2_CRITICAL_FORMULA_CONTRACTS,
+  ...BATCH_PREMIUM_BATCH3_CRITICAL_FORMULA_CONTRACTS,
 ];
 
 export const BATCH_FREE_BATCH2_ORACLE_WIRED_SLUGS = [
