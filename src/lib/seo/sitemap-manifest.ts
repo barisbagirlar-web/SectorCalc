@@ -106,6 +106,8 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/industries", "hub", 0.9, "monthly"),
     createItem("/beta-partner", "hub", 0.75, "monthly"),
     createItem("/how-it-works", "hub", 0.7, "monthly"),
+    createItem("/investor-demo", "hub", 0.65, "monthly"),
+    createItem("/operating-system", "hub", 0.65, "monthly"),
     createItem("/for-consultants", "hub", 0.7, "monthly"),
   ];
 }

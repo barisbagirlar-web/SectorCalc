@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
+import { CommercialTiersOverview } from "@/components/commercial/CommercialTiersOverview";
+import { LeadCaptureCta } from "@/components/commercial/LeadCaptureCta";
+import { PaywallPreview } from "@/components/commercial/PaywallPreview";
+import { PremiumLockedReportPreview } from "@/components/commercial/PremiumLockedReportPreview";
 import { PricingPlansGrid } from "@/components/sections/PricingPlansGrid";
 import { PricingPageTracker } from "@/components/campaign/PricingPageTracker";
 import { Container } from "@/components/ui/Container";
@@ -38,6 +42,10 @@ export default async function PricingPage({ params }: PageProps) {
         </Container>
       </section>
       <PricingPlansGrid showHeader={false} tierMode="pro-focused" />
+      <CommercialTiersOverview />
+      <PaywallPreview />
+      <PremiumLockedReportPreview />
+      <LeadCaptureCta />
     </PageLayout>
   );
 }
