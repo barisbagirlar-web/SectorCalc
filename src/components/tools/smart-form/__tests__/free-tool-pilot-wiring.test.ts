@@ -27,6 +27,10 @@ describe("free tool pilot wiring", () => {
     expect(autoShop).not.toBeNull();
     expect(autoShop?.slug).toBe("auto-shop-margin-leak-detector");
 
-    expect(resolveSmartFormPilotManifestForRoute("cabinet-cost-estimator")).toBeNull();
+    const cabinet = resolveSmartFormPilotManifestForRoute("cabinet-cost-estimator");
+    expect(cabinet).not.toBeNull();
+    expect(cabinet?.slug).toBe("cabinet-cost-estimator");
+
+    expect(resolveSmartFormPilotManifestForRoute("plumbing-job-margin-verdict")).toBeNull();
   });
 });

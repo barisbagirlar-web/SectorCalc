@@ -167,7 +167,7 @@ describe("smart form pilot analytics and gate — Phase 5H-G-F", () => {
     const candidate = getNextSmartFormPilotCandidate();
 
     expect(candidate.slug).toBe(NEXT_SMART_FORM_PILOT_CANDIDATE_SLUG);
-    expect(candidate.slug).toBe("auto-shop-margin-leak-detector");
+    expect(candidate.slug).toBe("cabinet-cost-estimator");
     expect(candidate.calculationBridgeEnabled).toBe(true);
     expect(candidate.uiBridgeReady).toBe(true);
     expect(candidate.inputDesignPatchCompleted).toBe(true);
@@ -179,5 +179,6 @@ describe("smart form pilot analytics and gate — Phase 5H-G-F", () => {
     vi.stubEnv("NEXT_PUBLIC_SMART_FORM_PILOT", "false");
     expect(shouldUseSmartFormPilot("3d-print-cost-check")).toBe(false);
     expect(shouldUseSmartFormPilot("repair-time-vs-price-check")).toBe(false);
+    expect(shouldUseSmartFormPilot("cabinet-cost-estimator")).toBe(false);
   });
 });

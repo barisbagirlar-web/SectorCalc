@@ -20,9 +20,9 @@ import {
 import {
   AUTO_SHOP_PILOT_GOVERNANCE_SLUG,
   AUTO_SHOP_PILOT_FREE_ROUTE_SLUG,
+  isPilotCalculationBridgeEnabled,
   THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
 } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
-import { getNextSmartFormPilotCandidate } from "@/lib/formula-governance/smart-form-ui-bridge/next-smart-form-pilot-candidate";
 import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
 import { REVENUE_EVENTS, trackRevenueEvent } from "@/lib/analytics/revenue-events";
 import { shouldUseSmartFormPilot } from "@/lib/feature-flags/smart-form-pilot";
@@ -157,8 +157,8 @@ describe("auto-shop smart form pilot calculation bridge — Phase 5H-G-G", () =>
 
   test("unsupported slug returns null unsupported payload", () => {
     const result = buildSmartFormPilotCalculationPayload({
-      slug: "cabinet-cost-estimator",
-      fieldValues: { sheetMaterialCost: "100" },
+      slug: "plumbing-job-margin-verdict",
+      fieldValues: { laborHours: "1" },
       manifest: getPilotSmartFormManifest("cabinet-cost-estimator")!,
     });
 
@@ -166,10 +166,8 @@ describe("auto-shop smart form pilot calculation bridge — Phase 5H-G-G", () =>
     expect(result.payload).toBeNull();
   });
 
-  test("auto-shop pilot candidate has calculation bridge enabled", () => {
-    const candidate = getNextSmartFormPilotCandidate();
-    expect(candidate.slug).toBe(AUTO_SHOP_PILOT_GOVERNANCE_SLUG);
-    expect(candidate.calculationBridgeEnabled).toBe(true);
+  test("auto-shop calculation bridge remains enabled via registry", () => {
+    expect(isPilotCalculationBridgeEnabled(AUTO_SHOP_PILOT_GOVERNANCE_SLUG)).toBe(true);
   });
 
   test("3d-print bridge remains enabled via registry", () => {

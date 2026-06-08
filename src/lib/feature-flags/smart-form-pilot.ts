@@ -1,9 +1,10 @@
 /**
- * Smart form pilot feature flag — Phase 5H-G-D/G (multi-pilot; single env flag).
+ * Smart form pilot feature flag — Phase 5H-G-D/G/H (multi-pilot; single env flag).
  */
 
 import {
   AUTO_SHOP_PILOT_FREE_ROUTE_SLUG,
+  CABINET_PILOT_GOVERNANCE_SLUG,
   resolvePilotGovernanceSlugFromRoute,
   THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
 } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
@@ -14,6 +15,7 @@ export const SMART_FORM_PILOT_SLUG = THREE_D_PRINT_PILOT_GOVERNANCE_SLUG;
 export const SMART_FORM_PILOT_FREE_ROUTE_SLUGS = [
   THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
   AUTO_SHOP_PILOT_FREE_ROUTE_SLUG,
+  CABINET_PILOT_GOVERNANCE_SLUG,
 ] as const;
 
 export function isSmartFormPilotEnabled(): boolean {

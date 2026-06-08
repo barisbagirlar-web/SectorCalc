@@ -90,7 +90,8 @@ describe("pilot calculation payload", () => {
     vi.stubEnv("NEXT_PUBLIC_SMART_FORM_PILOT", "true");
     expect(shouldUseSmartFormPilot("3d-print-cost-check")).toBe(true);
     expect(shouldUseSmartFormPilot("repair-time-vs-price-check")).toBe(true);
-    expect(shouldUseSmartFormPilot("cabinet-cost-estimator")).toBe(false);
+    expect(shouldUseSmartFormPilot("cabinet-cost-estimator")).toBe(true);
+    expect(shouldUseSmartFormPilot("plumbing-job-margin-verdict")).toBe(false);
   });
 
   test("submit keys match production free input shape", () => {
