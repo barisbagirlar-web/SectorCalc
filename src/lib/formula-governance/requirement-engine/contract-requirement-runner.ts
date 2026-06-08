@@ -9,7 +9,12 @@ import {
   buildProductionSourceReference,
   type ProductionSourceReference,
 } from "@/lib/formula-governance/calculation-ontology/production-source-reference";
-import { auditFormulaContractInputReadiness } from "@/lib/formula-governance/requirement-engine/contract-requirement-bridge";
+import {
+  auditFormulaContractInputReadiness,
+  type AuditFormulaContractInputReadinessParams,
+} from "@/lib/formula-governance/requirement-engine/contract-requirement-bridge";
+import { buildContractFixtureAlignmentContext } from "@/lib/formula-governance/requirement-engine/contract-fixture-alignment";
+import { getFixtureOntologyForSlug } from "@/lib/formula-governance/calculation-ontology/fixture-ontology-registry";
 import { buildInputDesignFromRequirementResult } from "@/lib/formula-governance/requirement-engine/input-design-bridge";
 import { solveRequiredInputs } from "@/lib/formula-governance/requirement-engine/requirement-engine";
 import type {
@@ -44,6 +49,41 @@ export type RunRequirementEngineForContractParams = {
   readonly knownInputs: KnownInputs;
   readonly productionSource?: ProductionSourceReference;
 };
+
+function buildReadinessAuditParams(
+  contract: FormulaContract,
+  ontologyDraft: ReturnType<typeof buildOntologyDraftFromFormulaContract>,
+  requirementResult: RequirementSolveResult,
+  compiledOntology: ReturnType<typeof compileOntologyDraftToCalculationOntology>["ontology"],
+): Pick<
+  AuditFormulaContractInputReadinessParams,
+  "aliasMap" | "alignmentPlan" | "contractOnlyAlignment"
+> {
+  const fixtureOntology = getFixtureOntologyForSlug(contract.slug);
+  if (!fixtureOntology) {
+    return {
+      contractOnlyAlignment: {
+        skippedReason: "No professional fixture ontology registered.",
+        safeToUseContractOntologyForRequirementEngine: ontologyDraft.blockers.length === 0,
+      },
+    };
+  }
+
+  const alignmentContext = buildContractFixtureAlignmentContext({
+    slug: contract.slug,
+    ontologyDraft,
+    compiledOntology,
+    fixtureOntology,
+  });
+  if (!alignmentContext) {
+    return {};
+  }
+
+  return {
+    aliasMap: alignmentContext.aliasMap,
+    alignmentPlan: alignmentContext.alignmentPlan,
+  };
+}
 
 function blockedRequirementResult(blockers: readonly string[]): RequirementSolveResult {
   return {
@@ -87,6 +127,7 @@ export function runRequirementEngineForContract(
       contract,
       ontologyDraft: draftWithSource,
       requirementResult,
+      ...buildReadinessAuditParams(contract, draftWithSource, requirementResult, null),
     });
 
     return {
@@ -120,6 +161,7 @@ export function runRequirementEngineForContract(
         contract,
         ontologyDraft: draftWithSource,
         requirementResult,
+        ...buildReadinessAuditParams(contract, draftWithSource, requirementResult, null),
       }),
       productionSource: source,
       warnings,
@@ -137,6 +179,12 @@ export function runRequirementEngineForContract(
     contract,
     ontologyDraft: draftWithSource,
     requirementResult,
+    ...buildReadinessAuditParams(
+      contract,
+      draftWithSource,
+      requirementResult,
+      compiled.ontology,
+    ),
   });
 
   const inputDesign = buildInputDesignFromRequirementResult(requirementResult, compiled.ontology, {

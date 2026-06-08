@@ -118,6 +118,50 @@ describe("contract requirement runner", () => {
     expect(result.blockers.some((blocker) => blocker.includes("Production:"))).toBe(true);
     expect(result.readinessAudit.slug).toBe(CNC_SLUG);
     expect(result.requirementStatus).toBe("skipped");
+    expect(result.readinessAudit.alignmentSummary?.alignmentStatus).toBe("blocked");
+    expect(result.readinessAudit.alignmentSummary?.safeToUseContractOntologyForRequirementEngine).toBe(
+      false,
+    );
+  });
+
+  test("auto-attaches alignment summary for roofing fixture contract", () => {
+    const contract = getFormulaContractBySlug(ROOFING_SLUG)!;
+    const result = runRequirementEngineForContract({ contract, knownInputs: {} });
+
+    expect(result.readinessAudit.alignmentSummary).toBeDefined();
+    expect(result.readinessAudit.alignmentSummary?.migrationRisk).toBeGreaterThan(0);
+    expect(result.readinessAudit.alignmentSummary?.alignmentStatus).toBe("needs_review");
+    expect(result.readinessAudit.alignmentSummary?.safeToUseContractOntologyForRequirementEngine).toBe(
+      true,
+    );
+    expect(result.readinessAudit.warnings.some((warning) => warning.includes("drift gate"))).toBe(
+      true,
+    );
+  });
+
+  test("keeps contract-only alignment for contracts without fixture ontology", () => {
+    const contract = getFormulaContractBySlug("rent-vs-buy-calculator")!;
+    const result = runRequirementEngineForContract({ contract, knownInputs: {} });
+
+    expect(result.readinessAudit.alignmentSummary?.alignmentStatus).toBe("contract_only_analysis");
+    expect(result.readinessAudit.alignmentSummary?.skippedReason).toContain("fixture ontology");
+    expect(result.requiredMissingInputs).toEqual(expect.any(Array));
+  });
+
+  test("does not change missing input decisions when alignment aliases exist", () => {
+    const contract = getFormulaContractBySlug(ROOFING_SLUG)!;
+    const withoutAlignment = runRequirementEngineForContract({ contract, knownInputs: {} });
+    const withPartial = runRequirementEngineForContract({
+      contract,
+      knownInputs: { materialCost: 5000, laborHours: 40, laborRate: 55 },
+    });
+
+    expect(withoutAlignment.requiredMissingInputs).toEqual(
+      expect.arrayContaining([...ROOFING_CRITICAL_INPUTS]),
+    );
+    expect(withPartial.requiredMissingInputs).not.toContain("materialCost");
+    expect(withPartial.requiredMissingInputs).not.toContain("baseCost");
+    expect(withPartial.requiredMissingInputs).not.toContain("minimumSafeContractPrice");
   });
 
   test("does not import or execute production calculators", () => {

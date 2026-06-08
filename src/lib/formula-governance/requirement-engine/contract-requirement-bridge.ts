@@ -8,6 +8,7 @@ import type {
   OntologyAliasConfidence,
   OntologyAliasMap,
 } from "@/lib/formula-governance/calculation-ontology/ontology-alias-types";
+import type { BatchAlignmentStatus } from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
 import { computeMigrationRiskScore } from "@/lib/formula-governance/requirement-engine/contract-fixture-drift";
 import { evaluateDriftScoreGate } from "@/lib/formula-governance/requirement-engine/drift-score-gate";
 import type { FormulaContract } from "@/lib/formula-governance/types";
@@ -30,6 +31,14 @@ export type InputReadinessAlignmentSummary = {
   readonly manualReviewRequired: boolean;
   readonly suggestedMetadataImprovements: readonly string[];
   readonly variableAliasContexts: readonly VariableAliasReadinessContext[];
+  readonly safeToUseContractOntologyForRequirementEngine?: boolean;
+  readonly alignmentStatus?: BatchAlignmentStatus;
+  readonly skippedReason?: string;
+};
+
+export type ContractOnlyAlignmentContext = {
+  readonly skippedReason: string;
+  readonly safeToUseContractOntologyForRequirementEngine: boolean;
 };
 
 export type InputReadinessAudit = {
@@ -51,6 +60,7 @@ export type AuditFormulaContractInputReadinessParams = {
   readonly requirementResult: RequirementSolveResult;
   readonly alignmentPlan?: OntologyAlignmentPlan;
   readonly aliasMap?: OntologyAliasMap;
+  readonly contractOnlyAlignment?: ContractOnlyAlignmentContext;
 };
 
 function collectDimensionalRuleGaps(contract: FormulaContract, draft: OntologyDraft): string[] {
@@ -166,12 +176,34 @@ function isManualReviewConfidence(confidence: OntologyAliasConfidence): boolean 
   return confidence === "manual_review" || confidence === "weak";
 }
 
+function buildContractOnlyAlignmentSummary(
+  params: AuditFormulaContractInputReadinessParams,
+): InputReadinessAlignmentSummary | undefined {
+  const { contractOnlyAlignment } = params;
+  if (!contractOnlyAlignment) {
+    return undefined;
+  }
+
+  return {
+    migrationRisk: 0,
+    driftGateStatus: "low_risk",
+    driftGateRecommendedAction: contractOnlyAlignment.skippedReason,
+    manualReviewRequired: false,
+    suggestedMetadataImprovements: [],
+    variableAliasContexts: [],
+    safeToUseContractOntologyForRequirementEngine:
+      contractOnlyAlignment.safeToUseContractOntologyForRequirementEngine,
+    alignmentStatus: "contract_only_analysis",
+    skippedReason: contractOnlyAlignment.skippedReason,
+  };
+}
+
 function buildAlignmentSummary(
   params: AuditFormulaContractInputReadinessParams,
 ): InputReadinessAlignmentSummary | undefined {
   const { aliasMap, alignmentPlan, requirementResult } = params;
   if (!aliasMap || !alignmentPlan) {
-    return undefined;
+    return buildContractOnlyAlignmentSummary(params);
   }
 
   const migrationRisk = computeMigrationRiskScore(aliasMap, aliasMap.aliases);
@@ -207,6 +239,14 @@ function buildAlignmentSummary(
     },
   );
 
+  const alignmentStatus: BatchAlignmentStatus =
+    driftGate.status === "blocked" || alignmentPlan.alignmentStatus === "blocked"
+      ? "blocked"
+      : driftGate.status === "needs_review" ||
+          alignmentPlan.alignmentStatus === "partially_aligned"
+        ? "needs_review"
+        : "low_risk";
+
   return {
     migrationRisk,
     driftGateStatus: driftGate.status,
@@ -216,6 +256,9 @@ function buildAlignmentSummary(
       aliasMap.compositeAliases.length > 0,
     suggestedMetadataImprovements: alignmentPlan.suggestedContractMetadataImprovements,
     variableAliasContexts,
+    safeToUseContractOntologyForRequirementEngine:
+      alignmentPlan.safeToUseContractOntologyForRequirementEngine,
+    alignmentStatus,
   };
 }
 

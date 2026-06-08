@@ -2,15 +2,14 @@
  * Batch alignment audit — read-only drift summary across FormulaContracts (Phase 5H-B-6).
  */
 
-import type { OntologyDraft } from "@/lib/formula-governance/calculation-ontology/contract-ontology-bridge";
 import { buildOntologyDraftFromFormulaContract } from "@/lib/formula-governance/calculation-ontology/contract-ontology-bridge";
-import { buildOntologyAliasMap } from "@/lib/formula-governance/calculation-ontology/ontology-alias-map";
-import { buildOntologyAlignmentPlan } from "@/lib/formula-governance/calculation-ontology/ontology-alignment-plan";
-import { createOntology } from "@/lib/formula-governance/calculation-ontology/ontology-builder";
-import { compileOntologyDraftToCalculationOntology } from "@/lib/formula-governance/calculation-ontology/ontology-compiler";
 import { getFixtureOntologyForSlug } from "@/lib/formula-governance/calculation-ontology/fixture-ontology-registry";
 import type { CalculationOntology } from "@/lib/formula-governance/calculation-ontology/ontology-types";
 import { compareContractOntologyWithFixture } from "@/lib/formula-governance/requirement-engine/contract-fixture-drift";
+import {
+  buildContractFixtureAlignmentContext,
+  resolveContractOntologyForAlignment,
+} from "@/lib/formula-governance/requirement-engine/contract-fixture-alignment";
 import type { OntologyAlignmentPlan } from "@/lib/formula-governance/calculation-ontology/ontology-alignment-plan";
 import type { OntologyAliasMap } from "@/lib/formula-governance/calculation-ontology/ontology-alias-types";
 import {
@@ -36,6 +35,7 @@ export type BatchAlignmentSummary = {
   readonly warningCount: number;
   readonly safeToUseContractOntologyForRequirementEngine: boolean;
   readonly recommendedAction: string;
+  readonly skippedReason?: string;
 };
 
 export type BatchAlignmentAuditResult = {
@@ -54,47 +54,6 @@ export type RunBatchAlignmentAuditParams = {
   readonly contracts: readonly FormulaContract[];
   readonly fixtureOntologies?: Readonly<Record<string, CalculationOntology>>;
 };
-
-function buildContractOntologyFromDraft(draft: OntologyDraft): CalculationOntology {
-  return createOntology({
-    slug: draft.slug,
-    sector: draft.sector,
-    defaultAssumptions: draft.assumptions,
-    variables: draft.variables.map((variable) => ({
-      id: variable.id,
-      label: variable.label,
-      role: variable.role,
-      dimension: variable.dimension,
-      unit: variable.unit,
-      knowledgeLevel: variable.knowledgeLevel,
-      requiredForOutputs: variable.requiredForOutputs,
-      constraints: variable.constraints,
-      description: variable.description,
-      missingRisk: variable.missingRisk,
-    })),
-    formulas: [],
-    goals: draft.goals.map((goal) => ({
-      id: goal.id,
-      slug: goal.slug,
-      targetVariable: goal.targetVariable,
-      acceptedFormulaNodes: [],
-      decisionGoal: goal.decisionGoal,
-      primaryOutput: goal.primaryOutput,
-      secondaryOutputs: goal.secondaryOutputs,
-    })),
-  });
-}
-
-function resolveContractOntology(draft: OntologyDraft): CalculationOntology | null {
-  const compiled = compileOntologyDraftToCalculationOntology(draft);
-  if (compiled.ontology) {
-    return compiled.ontology;
-  }
-  if (draft.variables.length === 0) {
-    return null;
-  }
-  return buildContractOntologyFromDraft(draft);
-}
 
 function countManualReviewAliases(aliasMap: OntologyAliasMap): number {
   return aliasMap.aliases.filter((alias) => alias.confidence === "manual_review").length;
@@ -148,6 +107,7 @@ export function runBatchAlignmentAudit(
         safeToUseContractOntologyForRequirementEngine: draft.blockers.length === 0,
         recommendedAction:
           "No professional fixture ontology registered — contract-only metadata analysis only.",
+        skippedReason: "No professional fixture ontology registered.",
       });
       if (draft.blockers.length > 0) {
         warnings.push(
@@ -157,8 +117,13 @@ export function runBatchAlignmentAudit(
       continue;
     }
 
-    const contractOntology = resolveContractOntology(draft);
-    if (!contractOntology) {
+    const alignmentContext = buildContractFixtureAlignmentContext({
+      slug: contract.slug,
+      ontologyDraft: draft,
+      compiledOntology: resolveContractOntologyForAlignment(draft),
+      fixtureOntology,
+    });
+    if (!alignmentContext) {
       skipped += 1;
       summaries.push({
         slug: contract.slug,
@@ -170,22 +135,14 @@ export function runBatchAlignmentAudit(
         warningCount: draft.warnings.length,
         safeToUseContractOntologyForRequirementEngine: false,
         recommendedAction: "Ontology draft could not be materialized for alignment audit.",
+        skippedReason: "Ontology draft could not be materialized for alignment audit.",
       });
       continue;
     }
 
     evaluatedContracts += 1;
 
-    const aliasMap = buildOntologyAliasMap({
-      contractOntology,
-      fixtureOntology,
-      slug: contract.slug,
-    });
-    const alignmentPlan = buildOntologyAlignmentPlan({
-      contractOntology,
-      fixtureOntology,
-      aliasMap,
-    });
+    const { aliasMap, alignmentPlan, contractOntology } = alignmentContext;
     const driftReport = compareContractOntologyWithFixture({
       contractOntology,
       fixtureOntology,
@@ -244,4 +201,58 @@ export function runBatchAlignmentAudit(
     warnings,
     blockers,
   };
+}
+
+function formatTopFindingLine(summary: BatchAlignmentSummary): string {
+  if (summary.status === "needs_review" || summary.status === "low_risk") {
+    return `- ${summary.slug}: ${summary.status}, risk ${summary.migrationRiskScore}, safeForRequirementEngine ${summary.safeToUseContractOntologyForRequirementEngine}`;
+  }
+  if (summary.status === "blocked") {
+    const productionHint = summary.blockerCount > 0 ? "missing Production assumption line" : summary.recommendedAction;
+    return `- ${summary.slug}: blocked, ${productionHint}`;
+  }
+  if (summary.status === "contract_only_analysis") {
+    return `- ${summary.slug}: contract_only_analysis, skippedReason ${summary.skippedReason ?? "no fixture"}`;
+  }
+  return `- ${summary.slug}: ${summary.status}`;
+}
+
+export function formatBatchAlignmentAuditReport(result: BatchAlignmentAuditResult): string {
+  const lines = [
+    "Alignment Audit Summary",
+    `Total contracts: ${result.totalContracts}`,
+    `Evaluated: ${result.evaluatedContracts}`,
+    `Low risk: ${result.lowRisk}`,
+    `Needs review: ${result.needsReview}`,
+    `Blocked: ${result.blocked}`,
+    `Skipped / contract-only: ${result.skipped}`,
+    "",
+    "Top findings:",
+  ];
+
+  const prioritySlugs = ["roofing-contract-margin-guard", "cnc-quote-risk-analyzer"];
+  const topSummaries = prioritySlugs
+    .map((slug) => result.summaries.find((summary) => summary.slug === slug))
+    .filter((summary): summary is BatchAlignmentSummary => summary !== undefined);
+
+  for (const summary of topSummaries) {
+    lines.push(formatTopFindingLine(summary));
+  }
+
+  const additionalFindings = result.summaries.filter(
+    (summary) =>
+      !prioritySlugs.includes(summary.slug) &&
+      (summary.status === "blocked" || summary.status === "needs_review"),
+  );
+  for (const summary of additionalFindings.slice(0, 3)) {
+    lines.push(formatTopFindingLine(summary));
+  }
+
+  return lines.join("\n");
+}
+
+export function exportBatchAlignmentAuditResult(
+  result: BatchAlignmentAuditResult,
+): BatchAlignmentAuditResult {
+  return result;
 }

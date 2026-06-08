@@ -30,6 +30,8 @@ export type {
   EvaluateDriftScoreGateParams,
 } from "@/lib/formula-governance/requirement-engine/drift-score-gate";
 export {
+  exportBatchAlignmentAuditResult,
+  formatBatchAlignmentAuditReport,
   runBatchAlignmentAudit,
 } from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
 export type {
@@ -38,6 +40,14 @@ export type {
   BatchAlignmentSummary,
   RunBatchAlignmentAuditParams,
 } from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
+export {
+  buildContractFixtureAlignmentContext,
+  resolveContractOntologyForAlignment,
+} from "@/lib/formula-governance/requirement-engine/contract-fixture-alignment";
+export type {
+  BuildContractFixtureAlignmentContextParams,
+  ContractFixtureAlignmentContext,
+} from "@/lib/formula-governance/requirement-engine/contract-fixture-alignment";
 export {
   buildInputDesignFromRequirementResult,
 } from "@/lib/formula-governance/requirement-engine/input-design-bridge";
@@ -69,6 +79,7 @@ export {
 } from "@/lib/formula-governance/requirement-engine/contract-requirement-bridge";
 export type {
   AuditFormulaContractInputReadinessParams,
+  ContractOnlyAlignmentContext,
   InputReadinessAlignmentSummary,
   InputReadinessAudit,
   InputReadinessStatus,

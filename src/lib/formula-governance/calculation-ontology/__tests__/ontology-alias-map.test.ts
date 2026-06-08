@@ -8,19 +8,34 @@ import { buildOntologyDraftFromFormulaContract } from "@/lib/formula-governance/
 import { compileOntologyDraftToCalculationOntology } from "@/lib/formula-governance/calculation-ontology/ontology-compiler";
 import { buildOntologyAliasMap } from "@/lib/formula-governance/calculation-ontology/ontology-alias-map";
 import { ROOFING_CONTRACT_MARGIN_ONTOLOGY } from "@/lib/formula-governance/calculation-ontology/fixtures/roofing-contract-margin-ontology";
+import { CNC_QUOTE_RISK_ONTOLOGY } from "@/lib/formula-governance/calculation-ontology/fixtures/cnc-quote-risk-ontology";
 import { createOntology } from "@/lib/formula-governance/calculation-ontology/ontology-builder";
 import type { CalculationOntology } from "@/lib/formula-governance/calculation-ontology/ontology-types";
+import { resolveContractOntologyForAlignment } from "@/lib/formula-governance/requirement-engine/contract-fixture-alignment";
 
 const ROOFING_SLUG = "roofing-contract-margin-guard";
+const CNC_SLUG = "cnc-quote-risk-analyzer";
 
 function roofingContractOntology() {
   const contract = getFormulaContractBySlug(ROOFING_SLUG)!;
   const draft = buildOntologyDraftFromFormulaContract(contract);
   const compiled = compileOntologyDraftToCalculationOntology(draft);
-  if (!compiled.ontology) {
-    throw new Error("Expected roofing contract ontology to compile.");
+  const ontology = resolveContractOntologyForAlignment(draft, compiled.ontology);
+  if (!ontology) {
+    throw new Error("Expected roofing contract ontology to materialize.");
   }
-  return compiled.ontology;
+  return ontology;
+}
+
+function cncContractOntology() {
+  const contract = getFormulaContractBySlug(CNC_SLUG)!;
+  const draft = buildOntologyDraftFromFormulaContract(contract);
+  const compiled = compileOntologyDraftToCalculationOntology(draft);
+  const ontology = resolveContractOntologyForAlignment(draft, compiled.ontology);
+  if (!ontology) {
+    throw new Error("Expected CNC contract ontology to materialize.");
+  }
+  return ontology;
 }
 
 function stubOntology(params: {
@@ -222,6 +237,60 @@ describe("buildOntologyAliasMap", () => {
     expect(aliasMap.unmatchedOntologyVariables).toEqual(
       expect.arrayContaining(["roofSquares", "wasteFactor"]),
     );
+  });
+
+  test("cnc riskMargin aliases riskBufferPercent", () => {
+    const aliasMap = buildOntologyAliasMap({
+      contractOntology: cncContractOntology(),
+      fixtureOntology: CNC_QUOTE_RISK_ONTOLOGY,
+      slug: CNC_SLUG,
+    });
+
+    const alias = aliasMap.aliases.find((entry) => entry.contractVariableId === "riskMargin");
+    expect(alias?.ontologyVariableId).toBe("riskBufferPercent");
+    expect(alias?.confidence).toBe("strong");
+  });
+
+  test("cnc toolCost aliases toolingCost", () => {
+    const aliasMap = buildOntologyAliasMap({
+      contractOntology: cncContractOntology(),
+      fixtureOntology: CNC_QUOTE_RISK_ONTOLOGY,
+      slug: CNC_SLUG,
+    });
+
+    const alias = aliasMap.aliases.find((entry) => entry.contractVariableId === "toolCost");
+    expect(alias?.ontologyVariableId).toBe("toolingCost");
+    expect(alias?.confidence).toBe("strong");
+  });
+
+  test("cnc cycleTime stays weak or manual_review", () => {
+    const aliasMap = buildOntologyAliasMap({
+      contractOntology: cncContractOntology(),
+      fixtureOntology: CNC_QUOTE_RISK_ONTOLOGY,
+      slug: CNC_SLUG,
+    });
+
+    const alias = aliasMap.aliases.find((entry) => entry.contractVariableId === "cycleTime");
+    expect(alias?.ontologyVariableId).toBe("machineHours");
+    expect(["weak", "manual_review"]).toContain(alias?.confidence);
+    expect(alias?.confidence).not.toBe("strong");
+    expect(alias?.confidence).not.toBe("exact");
+  });
+
+  test("ambiguous cnc aliases do not become strong", () => {
+    const aliasMap = buildOntologyAliasMap({
+      contractOntology: cncContractOntology(),
+      fixtureOntology: CNC_QUOTE_RISK_ONTOLOGY,
+      slug: CNC_SLUG,
+    });
+
+    const p90Alias = aliasMap.aliases.find((entry) => entry.contractVariableId === "p90Cost");
+    expect(p90Alias?.confidence).not.toBe("strong");
+    expect(p90Alias?.confidence).not.toBe("exact");
+
+    const cycleAlias = aliasMap.aliases.find((entry) => entry.contractVariableId === "cycleTime");
+    expect(cycleAlias?.confidence).not.toBe("strong");
+    expect(cycleAlias?.confidence).not.toBe("exact");
   });
 
   test("produces blocker when target variable alias is missing", () => {
