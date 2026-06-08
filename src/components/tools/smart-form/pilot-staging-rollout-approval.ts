@@ -2,9 +2,9 @@
  * Smart form pilot staging rollout approval record — Phase 5H-G-L/M.
  */
 
-import { getSmartFormPilotManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
+import { getProductionDeployedManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
 import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
-import { PILOT_CALCULATION_BRIDGE_GOVERNANCE_SLUGS } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
 export const SMART_FORM_PILOT_STAGING_FLAG_NAME = "NEXT_PUBLIC_SMART_FORM_PILOT" as const;
 
@@ -54,14 +54,14 @@ function buildApprovalBase(
     >
   > = {},
 ): SmartFormPilotStagingRolloutApproval {
-  const manualQaResults = getSmartFormPilotManualQaResults().results;
+  const manualQaResults = getProductionDeployedManualQaResults().results;
   const qaDecision = evaluateSmartFormPilotQaDecision(manualQaResults);
 
   return {
     approvedBy: overrides.approvedBy ?? "",
     approvedAt: overrides.approvedAt ?? "",
     scope: overrides.scope ?? "staging_flag_only",
-    pilotSlugs: [...PILOT_CALCULATION_BRIDGE_GOVERNANCE_SLUGS],
+    pilotSlugs: [...PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS],
     flagName: SMART_FORM_PILOT_STAGING_FLAG_NAME,
     manualQaStatus: overrides.manualQaStatus ?? qaDecision.manualQaStatus,
     stagingFlagReady: overrides.stagingFlagReady ?? qaDecision.stagingFlagReady,

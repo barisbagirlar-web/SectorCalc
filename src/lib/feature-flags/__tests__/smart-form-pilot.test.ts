@@ -27,6 +27,7 @@ describe("smart form pilot feature flag", () => {
     expect(shouldUseSmartFormPilot(SMART_FORM_PILOT_SLUG)).toBe(true);
     expect(shouldUseSmartFormPilot("repair-time-vs-price-check")).toBe(true);
     expect(shouldUseSmartFormPilot("cabinet-cost-estimator")).toBe(true);
+    expect(shouldUseSmartFormPilot("electrical-labor-estimator")).toBe(true);
     expect(shouldUseSmartFormPilot("plumbing-job-margin-verdict")).toBe(false);
   });
 
@@ -34,6 +35,7 @@ describe("smart form pilot feature flag", () => {
     expect(isSmartFormPilotSlug("3d-print-cost-check")).toBe(true);
     expect(isSmartFormPilotSlug("cabinet-cost-estimator")).toBe(true);
     expect(isSmartFormPilotSlug("repair-time-vs-price-check")).toBe(true);
+    expect(isSmartFormPilotSlug("electrical-labor-estimator")).toBe(true);
     expect(isSmartFormPilotSlug("plumbing-job-margin-verdict")).toBe(false);
   });
 });

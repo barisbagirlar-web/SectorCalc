@@ -2,7 +2,7 @@
  * Smart form pilot staging smoke test records — Phase 5H-G-N.
  */
 
-import { getSmartFormPilotBatchRegistry } from "@/components/tools/smart-form/pilot-batch-qa-registry";
+import { ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS } from "@/components/tools/smart-form/rollout-batch-h-catalog";
 
 export type SmartFormPilotSmokeTestStatus =
   | "pending_smoke_test"
@@ -48,8 +48,8 @@ function buildPendingSmokeTestResult(route: string): SmartFormPilotSmokeTestResu
 }
 
 export function buildDefaultPendingSmokeTestResults(): SmartFormPilotSmokeTestResultSet {
-  const results = getSmartFormPilotBatchRegistry().map((entry) =>
-    buildPendingSmokeTestResult(entry.manualQaUrl),
+  const results = ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS.map((routeSlug) =>
+    buildPendingSmokeTestResult(`/tools/free/${routeSlug}`),
   );
 
   return {
@@ -62,8 +62,8 @@ const STAGING_SMOKE_PASSED_NOTES =
   "Smoke test passed with NEXT_PUBLIC_SMART_FORM_PILOT=true after mobile header/menu blocker fix.";
 
 export function buildRecordedPassedSmokeTestResults(): SmartFormPilotSmokeTestResultSet {
-  const results = getSmartFormPilotBatchRegistry().map((entry) =>
-    buildPassedSmokeTestResult(entry.manualQaUrl, STAGING_SMOKE_PASSED_NOTES),
+  const results = ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS.map((routeSlug) =>
+    buildPassedSmokeTestResult(`/tools/free/${routeSlug}`, STAGING_SMOKE_PASSED_NOTES),
   );
 
   return {

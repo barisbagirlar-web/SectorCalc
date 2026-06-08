@@ -3,7 +3,7 @@
  */
 
 import { siteUrl } from "@/config/site";
-import { getSmartFormPilotBatchRegistry } from "@/components/tools/smart-form/pilot-batch-qa-registry";
+import { ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS } from "@/components/tools/smart-form/rollout-batch-h-catalog";
 
 export type SmartFormPilotPostDeploySmokeTestStatus =
   | "pending_post_deploy_smoke"
@@ -75,8 +75,8 @@ export function buildPassedPostDeploySmokeTestResult(
 }
 
 export function buildDefaultPendingPostDeploySmokeTestResults(): SmartFormPilotPostDeploySmokeTestResultSet {
-  const results = getSmartFormPilotBatchRegistry().map((entry) =>
-    buildPendingPostDeploySmokeTestResult(entry.manualQaUrl),
+  const results = ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS.map((routeSlug) =>
+    buildPendingPostDeploySmokeTestResult(`/tools/free/${routeSlug}`),
   );
 
   return {
@@ -86,8 +86,8 @@ export function buildDefaultPendingPostDeploySmokeTestResults(): SmartFormPilotP
 }
 
 export function buildRecordedPassedPostDeploySmokeTestResults(): SmartFormPilotPostDeploySmokeTestResultSet {
-  const results = getSmartFormPilotBatchRegistry().map((entry) =>
-    buildPassedPostDeploySmokeTestResult(entry.manualQaUrl),
+  const results = ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS.map((routeSlug) =>
+    buildPassedPostDeploySmokeTestResult(`/tools/free/${routeSlug}`),
   );
 
   return {

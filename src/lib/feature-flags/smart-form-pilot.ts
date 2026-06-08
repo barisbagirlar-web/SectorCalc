@@ -3,20 +3,17 @@
  */
 
 import {
-  AUTO_SHOP_PILOT_FREE_ROUTE_SLUG,
-  CABINET_PILOT_GOVERNANCE_SLUG,
   resolvePilotGovernanceSlugFromRoute,
   THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
 } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { getRolloutBatchHActiveRouteMappings } from "@/components/tools/smart-form/rollout-batch-h-catalog";
 
 /** @deprecated Use THREE_D_PRINT_PILOT_GOVERNANCE_SLUG — kept for backward-compatible imports. */
 export const SMART_FORM_PILOT_SLUG = THREE_D_PRINT_PILOT_GOVERNANCE_SLUG;
 
-export const SMART_FORM_PILOT_FREE_ROUTE_SLUGS = [
-  THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
-  AUTO_SHOP_PILOT_FREE_ROUTE_SLUG,
-  CABINET_PILOT_GOVERNANCE_SLUG,
-] as const;
+export const SMART_FORM_PILOT_FREE_ROUTE_SLUGS = Object.keys(
+  getRolloutBatchHActiveRouteMappings(),
+) as readonly string[];
 
 export function isSmartFormPilotEnabled(): boolean {
   const raw = process.env.NEXT_PUBLIC_SMART_FORM_PILOT?.trim().toLowerCase();

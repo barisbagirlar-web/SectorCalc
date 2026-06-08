@@ -21,6 +21,7 @@ import { buildSmartFormPilotManualQaChecklist } from "@/components/tools/smart-f
 import {
   buildDefaultPendingManualQaResults,
   buildPassedManualQaResult,
+  getProductionDeployedManualQaResults,
   getSmartFormPilotManualQaResults,
 } from "@/components/tools/smart-form/pilot-manual-qa-result";
 import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
@@ -37,9 +38,9 @@ describe("smart form pilot batch QA — Phase 5H-G-I", () => {
     vi.unstubAllEnvs();
   });
 
-  test("pilot registry contains 3 batch entries", () => {
+  test("pilot registry contains 10 rollout batch entries", () => {
     const registry = getSmartFormPilotBatchRegistry();
-    expect(registry).toHaveLength(3);
+    expect(registry).toHaveLength(10);
   });
 
   test("each pilot has correct route slug and governance slug", () => {
@@ -88,18 +89,21 @@ describe("smart form pilot batch QA — Phase 5H-G-I", () => {
     }
   });
 
-  test("manual QA checklist produces URLs for all 3 pilots", () => {
+  test("manual QA checklist produces URLs for all 10 pilots", () => {
     const checklist = buildSmartFormPilotManualQaChecklist();
 
-    expect(checklist.totalPilots).toBe(3);
-    expect(checklist.manualQaUrls).toEqual([
-      "/tools/free/3d-print-cost-check",
-      "/tools/free/repair-time-vs-price-check",
-      "/tools/free/cabinet-cost-estimator",
-    ]);
+    expect(checklist.totalPilots).toBe(10);
+    expect(checklist.manualQaUrls).toContain("/tools/free/electrical-labor-estimator");
+    expect(checklist.manualQaUrls).toContain("/tools/free/hvac-tonnage-rule-check");
+
+    const passedPilots = checklist.pilots.filter((pilot) => pilot.manualQaStatus === "passed");
+    const pendingPilots = checklist.pilots.filter(
+      (pilot) => pilot.manualQaStatus === "pending_manual_qa",
+    );
+    expect(passedPilots).toHaveLength(3);
+    expect(pendingPilots).toHaveLength(7);
 
     for (const pilot of checklist.pilots) {
-      expect(pilot.manualQaStatus).toBe("passed");
       expect(pilot.checks.length).toBeGreaterThanOrEqual(12);
       expect(pilot.checks.some((check) => check.label.includes("Flag false fallback"))).toBe(
         true,
@@ -148,17 +152,17 @@ describe("smart form pilot batch QA — Phase 5H-G-I", () => {
     ]);
   });
 
-  test("QA audit reports 3 pilots with zero blockers", () => {
+  test("QA audit reports 10 pilots with batch H expansion blockers cleared", () => {
     const audit = runSmartFormPilotBatchQaAudit();
 
-    expect(audit.totalPilots).toBe(3);
-    expect(audit.calculationBridgeReady).toBe(3);
-    expect(audit.fallbackReady).toBe(3);
-    expect(audit.analyticsReady).toBe(3);
+    expect(audit.totalPilots).toBe(10);
+    expect(audit.calculationBridgeReady).toBe(10);
+    expect(audit.fallbackReady).toBe(10);
+    expect(audit.analyticsReady).toBe(10);
     expect(audit.optionalExpansionBlocked).toBe(true);
     expect(audit.manualQaRequired).toBe(true);
-    expect(audit.manualQaStatus).toBe("passed");
-    expect(audit.stagingFlagReady).toBe(true);
+    expect(audit.manualQaStatus).toBe("pending_manual_qa");
+    expect(audit.stagingFlagReady).toBe(false);
     expect(audit.deploymentReady).toBe(false);
     expect(audit.blockers).toHaveLength(0);
   });
@@ -167,10 +171,10 @@ describe("smart form pilot batch QA — Phase 5H-G-I", () => {
     const report = formatSmartFormPilotBatchQaAuditReport(runSmartFormPilotBatchQaAudit());
 
     expect(report).toContain("Smart Form Pilot QA Audit");
-    expect(report).toContain("Total pilots: 3");
+    expect(report).toContain("Total pilots: 10");
     expect(report).toContain("Blockers: 0");
-    expect(report).toContain("Manual QA status: passed");
-    expect(report).toContain("Staging flag ready: true");
+    expect(report).toContain("Manual QA status: pending_manual_qa");
+    expect(report).toContain("Staging flag ready: false");
     expect(report).toContain("Deployment ready: false");
     expect(report).toContain("/tools/free/3d-print-cost-check");
     expect(report).toContain("/tools/free/repair-time-vs-price-check");
@@ -179,17 +183,20 @@ describe("smart form pilot batch QA — Phase 5H-G-I", () => {
 });
 
 describe("smart form pilot manual QA result entry — Phase 5H-G-K", () => {
-  test("canonical manual QA records are passed with no pending entries", () => {
+  test("canonical manual QA records keep production deployed passed and batch H pending", () => {
     const { results, aggregateStatus } = getSmartFormPilotManualQaResults();
 
-    expect(results).toHaveLength(3);
-    expect(aggregateStatus).toBe("passed");
-    expect(results.every((result) => result.status === "passed")).toBe(true);
-    expect(results.some((result) => result.status === "pending_manual_qa")).toBe(false);
+    expect(results).toHaveLength(10);
+    expect(aggregateStatus).toBe("pending_manual_qa");
+    expect(results.filter((result) => result.status === "passed")).toHaveLength(3);
+    expect(results.filter((result) => result.status === "pending_manual_qa")).toHaveLength(7);
+    expect(results.some((result) => result.status === "pending_manual_qa")).toBe(true);
   });
 
-  test("3 passed records enable staging flag while deployment stays false", () => {
-    const decision = evaluateSmartFormPilotQaDecision(getSmartFormPilotManualQaResults().results);
+  test("3 passed production deployed records enable staging flag while deployment stays false", () => {
+    const decision = evaluateSmartFormPilotQaDecision(
+      getProductionDeployedManualQaResults().results,
+    );
 
     expect(decision.stagingFlagReady).toBe(true);
     expect(decision.deploymentReady).toBe(false);
@@ -306,10 +313,10 @@ describe("smart form pilot QA decision gate — Phase 5H-G-J", () => {
     );
   });
 
-  test("default pending manual QA results include 3 pilots with full shape", () => {
+  test("default pending manual QA results include 10 pilots with full shape", () => {
     const { results } = buildDefaultPendingManualQaResults();
 
-    expect(results).toHaveLength(3);
+    expect(results).toHaveLength(10);
     for (const result of results) {
       expect(result.slug.length).toBeGreaterThan(0);
       expect(result.route.length).toBeGreaterThan(0);

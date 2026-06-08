@@ -2,14 +2,14 @@
  * Smart form pilot production deploy approval record — Phase 5H-G-Q.
  */
 
-import { getSmartFormPilotManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
+import { getProductionDeployedManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
 import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
 import { runSmartFormPilotStagingRolloutAudit } from "@/components/tools/smart-form/pilot-staging-rollout-audit";
 import { runSmartFormPilotStagingSmokeTestAudit } from "@/components/tools/smart-form/pilot-staging-smoke-test-audit";
 import {
   SMART_FORM_PILOT_STAGING_FLAG_NAME,
 } from "@/components/tools/smart-form/pilot-staging-rollout-approval";
-import { PILOT_CALCULATION_BRIDGE_GOVERNANCE_SLUGS } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
 export type SmartFormPilotProductionDeployApprovalStatus =
   | "pending_approval"
@@ -40,7 +40,7 @@ function resolveStagingSignals(): {
   readonly stagingRolloutReady: boolean;
   readonly stagingSmokePassed: boolean;
 } {
-  const manualQaResults = getSmartFormPilotManualQaResults().results;
+  const manualQaResults = getProductionDeployedManualQaResults().results;
   const qaDecision = evaluateSmartFormPilotQaDecision(manualQaResults);
   const rolloutAudit = runSmartFormPilotStagingRolloutAudit();
   const smokeAudit = runSmartFormPilotStagingSmokeTestAudit();
@@ -80,7 +80,7 @@ function buildApprovalBase(
     approvedBy: overrides.approvedBy ?? "",
     approvedAt: overrides.approvedAt ?? "",
     scope: overrides.scope ?? "production_deploy",
-    pilotSlugs: [...PILOT_CALCULATION_BRIDGE_GOVERNANCE_SLUGS],
+    pilotSlugs: [...PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS],
     flagName: SMART_FORM_PILOT_STAGING_FLAG_NAME,
     manualQaStatus: overrides.manualQaStatus ?? stagingSignals.manualQaStatus,
     stagingRolloutReady: overrides.stagingRolloutReady ?? stagingSignals.stagingRolloutReady,

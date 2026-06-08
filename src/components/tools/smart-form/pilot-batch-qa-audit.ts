@@ -102,7 +102,7 @@ function auditPilot(entry: SmartFormPilotBatchRegistryEntry): SmartFormPilotQaAu
 
   const fallbackReady =
     entry.expectedFallbackBehavior.length > 0 &&
-    resolvePilotGovernanceSlugFromRoute("plumbing-job-margin-verdict") === null;
+    resolvePilotGovernanceSlugFromRoute("machine-time-calculator") === null;
 
   let analyticsReady = false;
   try {
@@ -160,8 +160,8 @@ export function runSmartFormPilotBatchQaAudit(): SmartFormPilotBatchQaAuditResul
   }
   const blockers: string[] = [];
 
-  if (pilots.length !== 3) {
-    blockers.push(`Expected 3 pilots, found ${pilots.length}`);
+  if (pilots.length !== 10) {
+    blockers.push(`Expected 10 rollout batch pilots, found ${pilots.length}`);
   }
   if (calculationBridgeReady !== pilots.length) {
     blockers.push(

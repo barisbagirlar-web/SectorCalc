@@ -1,17 +1,14 @@
 /**
- * Smart form pilot batch QA registry — Phase 5H-G-I (deploy-pre QA metadata).
+ * Smart form pilot batch QA registry — Phase 5H-G-I / 5H-H batch rollout.
  */
 
 import { REVENUE_EVENTS } from "@/lib/analytics/revenue-events";
 import { getControlledInputDesignPatch } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
 import {
-  AUTO_SHOP_PILOT_FREE_ROUTE_SLUG,
-  AUTO_SHOP_PILOT_GOVERNANCE_SLUG,
-  CABINET_PILOT_GOVERNANCE_SLUG,
   getPilotMappedSubmitKeys,
   isPilotCalculationBridgeEnabled,
-  THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
 } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { getRolloutBatchHEligibleToolDefinitions } from "@/components/tools/smart-form/rollout-batch-h-catalog";
 
 export type SmartFormPilotExpectedAnalyticsEvent = {
   readonly eventName: string;
@@ -78,20 +75,13 @@ function buildRegistryEntry(params: {
   };
 }
 
-export const SMART_FORM_PILOT_BATCH_REGISTRY: readonly SmartFormPilotBatchRegistryEntry[] = [
-  buildRegistryEntry({
-    routeSlug: THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
-    governanceSlug: THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
-  }),
-  buildRegistryEntry({
-    routeSlug: AUTO_SHOP_PILOT_FREE_ROUTE_SLUG,
-    governanceSlug: AUTO_SHOP_PILOT_GOVERNANCE_SLUG,
-  }),
-  buildRegistryEntry({
-    routeSlug: CABINET_PILOT_GOVERNANCE_SLUG,
-    governanceSlug: CABINET_PILOT_GOVERNANCE_SLUG,
-  }),
-];
+export const SMART_FORM_PILOT_BATCH_REGISTRY: readonly SmartFormPilotBatchRegistryEntry[] =
+  getRolloutBatchHEligibleToolDefinitions().map((tool) =>
+    buildRegistryEntry({
+      routeSlug: tool.routeSlug,
+      governanceSlug: tool.governanceSlug,
+    }),
+  );
 
 export function getSmartFormPilotBatchRegistry(): readonly SmartFormPilotBatchRegistryEntry[] {
   return SMART_FORM_PILOT_BATCH_REGISTRY;

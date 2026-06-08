@@ -2,7 +2,7 @@
  * Smart form pilot staging rollout audit — Phase 5H-G-L.
  */
 
-import { getSmartFormPilotManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
+import { getProductionDeployedManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
 import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
 import { buildSmartFormPilotRolloutRollbackChecklist } from "@/components/tools/smart-form/pilot-rollout-checklist";
 import {
@@ -25,7 +25,7 @@ export type SmartFormPilotStagingRolloutAuditResult = {
 export function runSmartFormPilotStagingRolloutAudit(
   approval: SmartFormPilotStagingRolloutApproval = getDefaultSmartFormPilotStagingRolloutApproval(),
 ): SmartFormPilotStagingRolloutAuditResult {
-  const manualQaResults = getSmartFormPilotManualQaResults().results;
+  const manualQaResults = getProductionDeployedManualQaResults().results;
   const qaDecision = evaluateSmartFormPilotQaDecision(manualQaResults);
   const rolloutDecision = evaluateSmartFormPilotStagingRollout({
     qaDecision,

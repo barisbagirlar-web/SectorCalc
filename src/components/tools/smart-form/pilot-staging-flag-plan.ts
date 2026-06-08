@@ -3,7 +3,7 @@
  * Read-only plan; does not mutate env or deploy config.
  */
 
-import { getSmartFormPilotBatchRegistry } from "@/components/tools/smart-form/pilot-batch-qa-registry";
+import { ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS } from "@/components/tools/smart-form/rollout-batch-h-catalog";
 import { buildSmartFormPilotRolloutRollbackChecklist } from "@/components/tools/smart-form/pilot-rollout-checklist";
 import {
   getDefaultSmartFormPilotStagingRolloutApproval,
@@ -11,7 +11,7 @@ import {
 } from "@/components/tools/smart-form/pilot-staging-rollout-approval";
 import { evaluateSmartFormPilotStagingRollout } from "@/components/tools/smart-form/pilot-staging-rollout-gate";
 import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
-import { getSmartFormPilotManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
+import { getProductionDeployedManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
 
 export const SMART_FORM_PILOT_STAGING_FLAG_PLAN_ROLLBACK_REF =
   "pilot-rollout-checklist" as const;
@@ -34,11 +34,13 @@ export type SmartFormPilotStagingFlagPlan = {
 };
 
 export function buildSmartFormPilotStagingFlagPlan(): SmartFormPilotStagingFlagPlan {
-  const manualQaResults = getSmartFormPilotManualQaResults().results;
+  const manualQaResults = getProductionDeployedManualQaResults().results;
   const qaDecision = evaluateSmartFormPilotQaDecision(manualQaResults);
   const approval = getDefaultSmartFormPilotStagingRolloutApproval();
   const rolloutDecision = evaluateSmartFormPilotStagingRollout({ qaDecision, approval });
-  const pilotRoutes = getSmartFormPilotBatchRegistry().map((entry) => entry.manualQaUrl);
+  const pilotRoutes = ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS.map(
+    (routeSlug) => `/tools/free/${routeSlug}`,
+  );
 
   const rollbackChecklist = buildSmartFormPilotRolloutRollbackChecklist();
   const rollbackRoutesMatch =

@@ -2,7 +2,7 @@
  * Smart form pilot rollout rollback checklist — Phase 5H-G-L.
  */
 
-import { getSmartFormPilotBatchRegistry } from "@/components/tools/smart-form/pilot-batch-qa-registry";
+import { ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS } from "@/components/tools/smart-form/rollout-batch-h-catalog";
 import { SMART_FORM_PILOT_STAGING_FLAG_NAME } from "@/components/tools/smart-form/pilot-staging-rollout-approval";
 
 export type SmartFormPilotRolloutChecklistItem = {
@@ -49,7 +49,9 @@ const ROLLBACK_ITEMS: readonly Omit<SmartFormPilotRolloutChecklistItem, "id">[] 
 ];
 
 export function buildSmartFormPilotRolloutRollbackChecklist(): SmartFormPilotRolloutChecklist {
-  const pilotRoutes = getSmartFormPilotBatchRegistry().map((entry) => entry.manualQaUrl);
+  const pilotRoutes = ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_ROUTE_SLUGS.map(
+    (routeSlug) => `/tools/free/${routeSlug}`,
+  );
 
   return {
     flagName: SMART_FORM_PILOT_STAGING_FLAG_NAME,

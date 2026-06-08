@@ -157,7 +157,7 @@ describe("auto-shop smart form pilot calculation bridge — Phase 5H-G-G", () =>
 
   test("unsupported slug returns null unsupported payload", () => {
     const result = buildSmartFormPilotCalculationPayload({
-      slug: "plumbing-job-margin-verdict",
+      slug: "machine-time-calculator",
       fieldValues: { laborHours: "1" },
       manifest: getPilotSmartFormManifest("cabinet-cost-estimator")!,
     });

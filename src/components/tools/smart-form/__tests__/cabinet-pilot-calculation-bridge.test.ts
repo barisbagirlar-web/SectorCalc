@@ -171,7 +171,7 @@ describe("cabinet smart form pilot calculation bridge — Phase 5H-G-H", () => {
 
   test("unsupported slug returns null unsupported payload", () => {
     const result = buildSmartFormPilotCalculationPayload({
-      slug: "plumbing-job-margin-verdict",
+      slug: "machine-time-calculator",
       fieldValues: { laborHours: "1" },
       manifest: getPilotSmartFormManifest(CABINET_PILOT_GOVERNANCE_SLUG)!,
     });
@@ -180,9 +180,9 @@ describe("cabinet smart form pilot calculation bridge — Phase 5H-G-H", () => {
     expect(result.payload).toBeNull();
   });
 
-  test("cabinet pilot candidate has calculation bridge enabled", () => {
+  test("next batch H pilot candidate has calculation bridge enabled", () => {
     const candidate = getNextSmartFormPilotCandidate();
-    expect(candidate.slug).toBe(CABINET_PILOT_GOVERNANCE_SLUG);
+    expect(candidate.slug).toBe("electrical-labor-estimator");
     expect(candidate.calculationBridgeEnabled).toBe(true);
   });
 

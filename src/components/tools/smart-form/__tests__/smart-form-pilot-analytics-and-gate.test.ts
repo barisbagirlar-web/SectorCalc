@@ -167,7 +167,7 @@ describe("smart form pilot analytics and gate — Phase 5H-G-F", () => {
     const candidate = getNextSmartFormPilotCandidate();
 
     expect(candidate.slug).toBe(NEXT_SMART_FORM_PILOT_CANDIDATE_SLUG);
-    expect(candidate.slug).toBe("cabinet-cost-estimator");
+    expect(candidate.slug).toBe("electrical-labor-estimator");
     expect(candidate.calculationBridgeEnabled).toBe(true);
     expect(candidate.uiBridgeReady).toBe(true);
     expect(candidate.inputDesignPatchCompleted).toBe(true);

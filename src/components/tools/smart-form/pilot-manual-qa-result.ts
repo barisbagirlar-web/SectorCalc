@@ -3,6 +3,7 @@
  */
 
 import { getSmartFormPilotBatchRegistry } from "@/components/tools/smart-form/pilot-batch-qa-registry";
+import { ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_GOVERNANCE_SLUGS } from "@/components/tools/smart-form/rollout-batch-h-catalog";
 
 export type SmartFormPilotManualQaResultStatus =
   | "passed"
@@ -83,17 +84,47 @@ export function buildPassedManualQaResult(
   };
 }
 
-/**
- * Canonical manual QA records after local pilot batch execution (Phase 5H-G-K).
- */
-export const SMART_FORM_PILOT_MANUAL_QA_RESULTS: readonly SmartFormPilotManualQaResult[] =
-  getSmartFormPilotBatchRegistry().map((entry) =>
-    buildPassedManualQaResult({
+function isProductionDeployedPilot(governanceSlug: string): boolean {
+  return ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_GOVERNANCE_SLUGS.includes(
+    governanceSlug as (typeof ROLLOUT_BATCH_H_PRODUCTION_DEPLOYED_GOVERNANCE_SLUGS)[number],
+  );
+}
+
+function buildBatchHManualQaResult(entry: {
+  readonly governanceSlug: string;
+  readonly routeSlug: string;
+  readonly manualQaUrl: string;
+}): SmartFormPilotManualQaResult {
+  if (isProductionDeployedPilot(entry.governanceSlug)) {
+    return buildPassedManualQaResult({
       slug: entry.governanceSlug,
       route: entry.routeSlug,
       notes: `Local manual QA passed for ${entry.manualQaUrl} with NEXT_PUBLIC_SMART_FORM_PILOT=true.`,
-    }),
+    });
+  }
+
+  return buildPendingResult({
+    governanceSlug: entry.governanceSlug,
+    routeSlug: entry.routeSlug,
+  });
+}
+
+/**
+ * Canonical manual QA records — production deployed pilots passed; batch H expansion pending.
+ */
+export const SMART_FORM_PILOT_MANUAL_QA_RESULTS: readonly SmartFormPilotManualQaResult[] =
+  getSmartFormPilotBatchRegistry().map((entry) => buildBatchHManualQaResult(entry));
+
+export function getProductionDeployedManualQaResults(): SmartFormPilotManualQaResultSet {
+  const results = SMART_FORM_PILOT_MANUAL_QA_RESULTS.filter((result) =>
+    isProductionDeployedPilot(result.slug),
   );
+
+  return {
+    results,
+    aggregateStatus: deriveAggregateManualQaStatus(results),
+  };
+}
 
 export function getSmartFormPilotManualQaResults(): SmartFormPilotManualQaResultSet {
   return {

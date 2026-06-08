@@ -22,13 +22,15 @@ import { evaluateSmartFormPilotStagingRollout } from "@/components/tools/smart-f
 import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
 import {
   buildDefaultPendingManualQaResults,
-  getSmartFormPilotManualQaResults,
+  getProductionDeployedManualQaResults,
 } from "@/components/tools/smart-form/pilot-manual-qa-result";
-import { PILOT_CALCULATION_BRIDGE_GOVERNANCE_SLUGS } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
+import { PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
 describe("smart form staging rollout gate — Phase 5H-G-L/M", () => {
   test("approved default record enables stagingRolloutReady", () => {
-    const qaDecision = evaluateSmartFormPilotQaDecision(getSmartFormPilotManualQaResults().results);
+    const qaDecision = evaluateSmartFormPilotQaDecision(
+      getProductionDeployedManualQaResults().results,
+    );
     const approval = getDefaultSmartFormPilotStagingRolloutApproval();
     const decision = evaluateSmartFormPilotStagingRollout({ qaDecision, approval });
 
@@ -48,7 +50,9 @@ describe("smart form staging rollout gate — Phase 5H-G-L/M", () => {
   });
 
   test("non staging_flag_only scope blocks rollout", () => {
-    const qaDecision = evaluateSmartFormPilotQaDecision(getSmartFormPilotManualQaResults().results);
+    const qaDecision = evaluateSmartFormPilotQaDecision(
+      getProductionDeployedManualQaResults().results,
+    );
     const invalidApproval = {
       ...getDefaultSmartFormPilotStagingRolloutApproval(),
       scope: "production_deploy",
@@ -66,7 +70,9 @@ describe("smart form staging rollout gate — Phase 5H-G-L/M", () => {
   });
 
   test("rollbackRequired false blocks rollout", () => {
-    const qaDecision = evaluateSmartFormPilotQaDecision(getSmartFormPilotManualQaResults().results);
+    const qaDecision = evaluateSmartFormPilotQaDecision(
+      getProductionDeployedManualQaResults().results,
+    );
     const decision = evaluateSmartFormPilotStagingRollout({
       qaDecision,
       approval: buildApprovedSmartFormPilotStagingRolloutApproval({
@@ -79,7 +85,9 @@ describe("smart form staging rollout gate — Phase 5H-G-L/M", () => {
   });
 
   test("smokeTestRequired false blocks rollout", () => {
-    const qaDecision = evaluateSmartFormPilotQaDecision(getSmartFormPilotManualQaResults().results);
+    const qaDecision = evaluateSmartFormPilotQaDecision(
+      getProductionDeployedManualQaResults().results,
+    );
     const decision = evaluateSmartFormPilotStagingRollout({
       qaDecision,
       approval: buildApprovedSmartFormPilotStagingRolloutApproval({
@@ -94,7 +102,7 @@ describe("smart form staging rollout gate — Phase 5H-G-L/M", () => {
   test("approval pilotSlugs include all 3 governance pilots", () => {
     const approval = getDefaultSmartFormPilotStagingRolloutApproval();
 
-    expect(approval.pilotSlugs).toEqual([...PILOT_CALCULATION_BRIDGE_GOVERNANCE_SLUGS]);
+    expect(approval.pilotSlugs).toEqual([...PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS]);
     expect(approval.pilotSlugs).toEqual([
       "3d-print-cost-check",
       "auto-shop-margin-leak-detector",
@@ -117,7 +125,9 @@ describe("smart form staging rollout gate — Phase 5H-G-L/M", () => {
   });
 
   test("QA passed with pending approval keeps stagingRolloutReady false", () => {
-    const qaDecision = evaluateSmartFormPilotQaDecision(getSmartFormPilotManualQaResults().results);
+    const qaDecision = evaluateSmartFormPilotQaDecision(
+      getProductionDeployedManualQaResults().results,
+    );
     const decision = evaluateSmartFormPilotStagingRollout({
       qaDecision,
       approval: getPendingSmartFormPilotStagingRolloutApproval(),
@@ -161,13 +171,13 @@ describe("smart form staging rollout gate — Phase 5H-G-L/M", () => {
     expect(approval.notes).toBe(SMART_FORM_PILOT_STAGING_APPROVAL_NOTES);
   });
 
-  test("existing pilot QA audit metrics remain unchanged", () => {
+  test("batch H QA audit tracks 10 pilots with production deployed QA passed subset", () => {
     const audit = runSmartFormPilotBatchQaAudit();
 
-    expect(audit.totalPilots).toBe(3);
-    expect(audit.calculationBridgeReady).toBe(3);
-    expect(audit.manualQaStatus).toBe("passed");
-    expect(audit.stagingFlagReady).toBe(true);
+    expect(audit.totalPilots).toBe(10);
+    expect(audit.calculationBridgeReady).toBe(10);
+    expect(audit.manualQaStatus).toBe("pending_manual_qa");
+    expect(audit.stagingFlagReady).toBe(false);
     expect(audit.deploymentReady).toBe(false);
     expect(audit.blockers).toHaveLength(0);
   });
