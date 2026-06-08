@@ -1,17 +1,27 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import {
+  buildThreeDPrintPilotCalculationPayload,
+  isPilotCalculationField,
+  isThreeDPrintPilotSubmitDisabled,
+  type PilotFieldValues,
+} from "@/components/tools/smart-form/pilot-calculation-payload";
 import type {
   SmartFormFieldComponentProps,
   SmartFormSectionComponentProps,
   SmartFormUiBridgeManifest,
 } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 
-export const SMART_FORM_PILOT_RENDER_ONLY_LABEL =
-  "Smart form pilot — render only. Production calculator output path is unchanged.";
+export const SMART_FORM_PILOT_CONNECTED_LABEL =
+  "Smart form pilot — connected to existing calculation path.";
 
 type SmartFormBridgeRendererProps = {
   readonly manifest: SmartFormUiBridgeManifest;
+  readonly calculationConnected?: boolean;
+  readonly isCalculating?: boolean;
+  readonly fieldErrors?: Readonly<Record<string, string>>;
+  readonly onPilotCalculate?: (fieldValues: PilotFieldValues) => void;
 };
 
 function FieldBadges({ field }: { field: SmartFormFieldComponentProps }) {
@@ -36,10 +46,12 @@ function FieldBadges({ field }: { field: SmartFormFieldComponentProps }) {
 function SmartFormFieldRenderer({
   field,
   value,
+  error,
   onChange,
 }: {
   field: SmartFormFieldComponentProps;
   value: string;
+  error?: string;
   onChange: (next: string) => void;
 }) {
   const inputId = `smart-form-${field.key}`;
@@ -94,6 +106,7 @@ function SmartFormFieldRenderer({
           disabled={!field.editable}
           className="sc-ledger-input-underline sc-industrial-input w-full"
           aria-readonly={!field.editable}
+          aria-invalid={Boolean(error)}
         />
         {field.unitLabel ? (
           <span className="sc-industrial-input__unit text-sm text-text-secondary">
@@ -101,8 +114,10 @@ function SmartFormFieldRenderer({
           </span>
         ) : null}
       </div>
-      {field.validationMessages.length > 0 ? (
-        <p className="mt-1 text-xs text-text-secondary">{field.validationMessages[0]}</p>
+      {error ? (
+        <p className="sc-industrial-field__error mt-1" role="alert">
+          {error}
+        </p>
       ) : null}
       <FieldBadges field={field} />
     </div>
@@ -113,11 +128,13 @@ function SmartFormSectionRenderer({
   section,
   fields,
   fieldValues,
+  fieldErrors,
   onFieldChange,
 }: {
   section: SmartFormSectionComponentProps;
   fields: readonly SmartFormFieldComponentProps[];
   fieldValues: Readonly<Record<string, string>>;
+  fieldErrors: Readonly<Record<string, string>>;
   onFieldChange: (key: string, value: string) => void;
 }) {
   const [expanded, setExpanded] = useState(section.defaultExpanded);
@@ -158,6 +175,7 @@ function SmartFormSectionRenderer({
               key={field.key}
               field={field}
               value={fieldValues[field.key] ?? ""}
+              error={fieldErrors[field.key]}
               onChange={(next) => onFieldChange(field.key, next)}
             />
           ))}
@@ -195,36 +213,65 @@ function TrustTracePanel({
   );
 }
 
-export function SmartFormBridgeRenderer({ manifest }: SmartFormBridgeRendererProps) {
-  const editableFieldKeys = useMemo(
-    () =>
-      manifest.fields
-        .filter((field) => field.editable && field.componentKind === "field_input")
-        .map((field) => field.key),
+export function SmartFormBridgeRenderer({
+  manifest,
+  calculationConnected = false,
+  isCalculating = false,
+  fieldErrors = {},
+  onPilotCalculate,
+}: SmartFormBridgeRendererProps) {
+  const pilotInputFields = useMemo(
+    () => manifest.fields.filter((field) => isPilotCalculationField(field)),
     [manifest.fields],
   );
 
-  const [fieldValues, setFieldValues] = useState<Record<string, string>>(() => {
+  const [fieldValues, setFieldValues] = useState<PilotFieldValues>(() => {
     const initial: Record<string, string> = {};
-    for (const key of editableFieldKeys) {
-      initial[key] = "";
+    for (const field of pilotInputFields) {
+      initial[field.key] = "";
     }
     return initial;
   });
+
+  const [localErrors, setLocalErrors] = useState<Record<string, string>>({});
 
   const orderedSections = useMemo(
     () => [...manifest.sections].sort((left, right) => left.order - right.order),
     [manifest.sections],
   );
 
+  const mergedErrors = { ...localErrors, ...fieldErrors };
+  const submitDisabled =
+    isCalculating || isThreeDPrintPilotSubmitDisabled(fieldValues) || !calculationConnected;
+
   const handleFieldChange = (key: string, value: string) => {
+    const field = pilotInputFields.find((entry) => entry.key === key);
+    if (!field || !isPilotCalculationField(field)) {
+      return;
+    }
     setFieldValues((current) => ({ ...current, [key]: value }));
+    setLocalErrors((current) => {
+      const next = { ...current };
+      delete next[key];
+      return next;
+    });
+  };
+
+  const handlePilotCalculate = () => {
+    const validation = buildThreeDPrintPilotCalculationPayload(fieldValues);
+    if (!validation.payload) {
+      setLocalErrors({ ...validation.errors });
+      return;
+    }
+    onPilotCalculate?.(fieldValues);
   };
 
   return (
     <div className="smart-form-bridge space-y-4" data-pilot-slug={manifest.slug}>
       <div className="rounded border border-amber-200 bg-amber-50 p-3 text-sm text-amber-950">
-        {SMART_FORM_PILOT_RENDER_ONLY_LABEL}
+        {calculationConnected
+          ? SMART_FORM_PILOT_CONNECTED_LABEL
+          : "Smart form pilot — render only. Production calculator output path is unchanged."}
       </div>
 
       {orderedSections
@@ -235,11 +282,25 @@ export function SmartFormBridgeRenderer({ manifest }: SmartFormBridgeRendererPro
             section={section}
             fields={manifest.fields}
             fieldValues={fieldValues}
+            fieldErrors={mergedErrors}
             onFieldChange={handleFieldChange}
           />
         ))}
 
       <TrustTracePanel manifest={manifest} />
+
+      {calculationConnected ? (
+        <div className="sc-industrial-form-actions">
+          <button
+            type="button"
+            disabled={submitDisabled}
+            onClick={handlePilotCalculate}
+            className="sc-cta-primary disabled:opacity-60"
+          >
+            {isCalculating ? "…" : "Pilot calculate"}
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

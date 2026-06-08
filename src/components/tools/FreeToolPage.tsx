@@ -2,6 +2,10 @@
 
 import { useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
+import {
+  buildThreeDPrintPilotCalculationPayload,
+  type PilotFieldValues,
+} from "@/components/tools/smart-form/pilot-calculation-payload";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { OsModuleHeader } from "@/components/os/OsModuleHeader";
 import { SectorToolSelect } from "@/components/os/SectorToolSelect";
@@ -180,6 +184,8 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  const [submitted, setSubmitted] = useState(false);
  const [isCalculating, setIsCalculating] = useState(false);
  const [errors, setErrors] = useState<Record<string, string>>({});
+ const [pilotErrors, setPilotErrors] = useState<Record<string, string>>({});
+ const [pilotValues, setPilotValues] = useState<FreeToolInputValues | null>(null);
  const startedTracked = useRef(false);
  const formRef = useRef<HTMLFormElement>(null);
 
@@ -187,8 +193,37 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  if (!submitted) {
  return null;
  }
- return calculateFreeToolResult(tool, values);
- }, [submitted, tool, values]);
+ const calculationValues = useSmartFormPilot && pilotValues ? pilotValues : values;
+ return calculateFreeToolResult(tool, calculationValues);
+ }, [submitted, tool, useSmartFormPilot, pilotValues, values]);
+
+ const handlePilotCalculate = (fieldValues: PilotFieldValues) => {
+  if (!startedTracked.current) {
+   startedTracked.current = true;
+   trackRevenueEvent(REVENUE_EVENTS.free_tool_started, {
+    toolSlug: tool.freeSlug,
+   });
+  }
+
+  const { payload, errors: nextPilotErrors } = buildThreeDPrintPilotCalculationPayload(fieldValues);
+  if (!payload) {
+   setPilotErrors(nextPilotErrors);
+   setSubmitted(false);
+   return;
+  }
+
+  setPilotErrors({});
+  setPilotValues(payload);
+  setIsCalculating(true);
+  setSubmitted(false);
+  window.setTimeout(() => {
+   setIsCalculating(false);
+   setSubmitted(true);
+   trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
+    toolSlug: tool.freeSlug,
+   });
+  }, 400);
+ };
 
  const handleChange = (key: string, value: number | string) => {
  if (!startedTracked.current) {
@@ -264,11 +299,23 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  <div className="sc-ledger-cetele sc-tool-workspace mt-4">
  {useSmartFormPilot && smartFormPilotManifest ? (
   <>
-   <SmartFormBridgeRenderer manifest={smartFormPilotManifest} />
+   <SmartFormBridgeRenderer
+    manifest={smartFormPilotManifest}
+    calculationConnected
+    isCalculating={isCalculating}
+    fieldErrors={pilotErrors}
+    onPilotCalculate={handlePilotCalculate}
+   />
    <div className="sc-ledger-cetele__result sc-tool-workspace__result mt-4 min-w-0">
-    <p className="text-sm text-body-charcoal">
-     Pilot render only — standard calculator is available when SMART_FORM_PILOT is disabled.
-    </p>
+    {isCalculating ? (
+     <p className="text-sm text-body-charcoal">Calculating…</p>
+    ) : null}
+    {!isCalculating && result ? <FreeToolResultCard result={result} /> : null}
+    {!isCalculating && !result ? (
+     <p className="text-sm text-body-charcoal">
+      Enter mapped pilot inputs and run Pilot calculate.
+     </p>
+    ) : null}
    </div>
   </>
  ) : (
