@@ -1,0 +1,982 @@
+================================================================================
+SECTORCALC — TAM SİSTEM DNA DOKÜMANI
+================================================================================
+Oluşturulma: 2026-06-08
+Proje: SectorCalc
+Domain: https://sectorcalc.com
+Firebase Project ID: sectorcalc-bf412
+GitHub: https://github.com/barisbagirlar-web/SectorCalc.git
+Hosting (Firebase): https://sectorcalc-bf412.web.app
+
+Bu dosya SectorCalc platformunun mimarisini, veri akışlarını, katalog yapısını,
+güvenlik sınırlarını, gelir modelini ve operasyonel kurallarını uçtan uca tanımlar.
+Tek kaynak gerçeği (single source of truth) olarak kod tabanındaki registry dosyaları
+ve docs/ altındaki stabilite checkpoint'leri esas alınmıştır.
+
+================================================================================
+BÖLÜM 1 — KİMLİK VE İŞ MODELİ
+================================================================================
+
+1.1 Ürün Kimliği
+----------------
+SectorCalc, küresel sektör-spesifik hesaplama ve karar aracı platformudur.
+Ana marka/domain: SectorCalc.com
+
+Ana hedef: Sektör acısını ücretli karar araçlarına dönüştürmek.
+
+1.2 Çekirdek Gelir Modeli
+-------------------------
+ÜCRETSİZ ARAÇLAR (Free Tools):
+  - 3–5 input, hızlı risk sinyali
+  - SEO, güven, görünür risk
+  - Tarayıcıda işlenir; tam sonuç yok
+  - Safe price, verdict, PDF YOK
+  - Gizlilik notu zorunlu
+
+ÜCRETLİ ANALYZER'LAR (Paid / Premium):
+  - Tam input seti
+  - Verdict (karar)
+  - Metrik, risk sürücüleri, önerilen aksiyon
+  - Yasal disclaimer
+  - Abonelik varsa PDF export
+  - Paywall guard
+
+PDF:
+  - Ana ürün DEĞİL
+  - Ücretli analyzer sonucunun export formatı
+
+1.3 Yasal ve Gizlilik Standartları (Zorunlu)
+--------------------------------------------
+Yasal: Teknik simülasyon; finansal/hukuki/mühendislik tavsiyesi değildir;
+       iş kararlarından önce doğrulanmalıdır.
+
+Gizlilik: Ücretsiz inputlar tarayıcıda işlenir; hesap/kaydetme olmadıkça
+          saklanmaz.
+
+1.4 Sayısal Özet (2026-06-08 snapshot)
+--------------------------------------
+  - Aktif sektör (industry registry): 27
+  - Revenue tool çifti (free + paid): 27
+  - Ücretsiz trafik aracı slug: 115
+  - Premium schema slug: 27
+  - Formula contract: 41
+  - Dual-Intelligence full loop runtime: 1 (welding-bid-risk-analyzer)
+  - Live Smart Form pilot: 3
+  - Staged calculation bridge: 6
+  - Governed build-time only: 5
+  - Audit pipeline only: 26
+  - Desteklenen locale: 6 (en, tr, de, fr, es, ar)
+  - App route page.tsx sayısı: 45
+  - Admin sayfa: 4 (+ layout)
+
+================================================================================
+BÖLÜM 2 — TEKNOLOJİ YIĞINI (TECH STACK)
+================================================================================
+
+2.1 Frontend / App
+------------------
+  - Next.js 15 (App Router)
+  - React 19
+  - TypeScript (strict — `any` yasak)
+  - next-intl (i18n)
+  - Tailwind CSS
+  - lucide-react, @heroicons/react
+  - @react-pdf/renderer (PDF export — serverExternalPackages)
+
+2.2 Backend / Altyapı
+---------------------
+  - Firebase Hosting (Next.js SSR/SSG output)
+  - Firebase Auth (kullanıcı + admin custom claim)
+  - Cloud Firestore (location: nam5 — DEĞİŞTİRME)
+  - Cloud Functions (region: us-central1 — yeni fonksiyonlar buraya)
+  - Stripe (checkout + webhook — secret sadece Functions'ta)
+
+2.3 Bilinçli Olmayan / Yasak Desenler
+-------------------------------------
+  - src/app/api route YOK (bilinçli karar)
+  - Client Firestore yazımı subscription status için YOK
+  - NEXT_PUBLIC_* içinde Stripe secret YOK
+  - Service account JSON repoda YOK
+  - .env.local commit YOK
+  - LLM hesaplama motoru olarak konumlandırılmaz
+
+2.4 Test / Kalite Araçları
+--------------------------
+  - Vitest (formula-governance test suite)
+  - ESLint
+  - TypeScript --noEmit
+  - npm run check:secrets (commit öncesi)
+  - 30+ audit script (scripts/audit-*.ts)
+
+================================================================================
+BÖLÜM 3 — PROJE DİZİN YAPISI
+================================================================================
+
+3.1 Kök Dizin
+-------------
+  /src                    — Uygulama kaynak kodu
+  /functions              — Cloud Functions (TypeScript)
+  /public                 — Statik asset + SEO knowledge txt
+  /docs                   — Stabilite, QA, checkpoint dokümanları
+  /scripts                — Audit, build, secret check scriptleri
+  /.cursor/rules          — Cursor agent kuralları (sectorcalc.mdc vb.)
+  firestore.rules         — Firestore güvenlik kuralları
+  firestore.indexes.json  — Firestore index tanımları
+  firebase.json           — Firebase deploy config
+  next.config.ts          — Next.js + i18n rewrites/redirects
+
+3.2 src/app — Route Yapısı
+--------------------------
+  src/app/(english)/page.tsx              — İngilizce root alias
+  src/app/[locale]/                       — Tüm locale'li public sayfalar
+  src/app/[locale]/page.tsx               — Ana sayfa
+  src/app/[locale]/free-tools/            — Ücretsiz araç kataloğu
+  src/app/[locale]/premium-tools/         — Premium araç kataloğu
+  src/app/[locale]/tools/free/[slug]/     — Tekil ücretsiz araç
+  src/app/[locale]/tools/premium/[slug]/  — Legacy/canonical premium route
+  src/app/[locale]/tools/premium-schema/[slug]/     — Premium schema UI
+  src/app/[locale]/tools/premium-schema/[slug]/print/ — PDF print view
+  src/app/[locale]/tools/[tier]/[slug]/   — Generic tier route
+  src/app/[locale]/industries/            — Sektör hub listesi
+  src/app/[locale]/industries/[slug]/     — Sektör detay hub
+  src/app/[locale]/pricing/               — Fiyatlandırma
+  src/app/[locale]/login/                 — Giriş
+  src/app/[locale]/account/               — Hesap
+  src/app/[locale]/account/reports/       — Kayıtlı raporlar
+  src/app/[locale]/account/reports/[reportId]/
+  src/app/[locale]/account/archive/
+  src/app/[locale]/checkout/success|cancel/
+  src/app/[locale]/investor-demo/         — Yatırımcı demo metrikleri
+  src/app/[locale]/operating-system/      — OS landing
+  src/app/[locale]/os/                    — OS kısa route
+  src/app/[locale]/audit/                 — Audit hub
+  src/app/[locale]/audit/[sectorKey]/
+  src/app/[locale]/guides/[slug]/
+  src/app/[locale]/seo/[slug]/
+  src/app/[locale]/benchmarks/
+  src/app/[locale]/for-consultants/
+  src/app/[locale]/beta-partner/
+  src/app/[locale]/how-it-works/
+  src/app/[locale]/privacy|terms|disclaimer/
+  src/app/[locale]/sustainability/
+  src/app/[locale]/categories/
+  src/app/[locale]/reports/sample-decision-report/
+  src/app/[locale]/construction-bid-margin/   — Landing
+  src/app/[locale]/cleaning-contract-margin/
+  src/app/[locale]/cnc-quote-risk/
+  src/app/admin/leads/                    — Admin lead dashboard
+  src/app/admin/kpi/
+  src/app/admin/benchmarks/
+  src/app/admin/schema-generator/
+  src/app/admin/layout.tsx                — Admin shell + auth guard
+
+3.3 src/lib — Çekirdek Kütüphaneler
+----------------------------------
+  src/lib/tools/              — revenue-tools, industry-registry, tool-links
+  src/lib/formula-governance/ — Dual-Intelligence, oracle, requirement engine
+  src/lib/premium-schema/     — Premium schema tanımları (27 slug)
+  src/lib/firebase/           — Client Firebase init
+  src/lib/auth/               — Auth helpers
+  src/lib/billing/            — Stripe checkout client bridge
+  src/lib/entitlements/       — Premium entitlement okuma
+  src/lib/leads/              — Lead intent oluşturma
+  src/lib/commercial/         — Investor metrics, commercial copy
+  src/lib/i18n/               — Locale routing helpers
+  src/lib/calculators/        — Ücretsiz hesaplayıcı implementasyonları
+  src/lib/premium/            — Paid analyzer hesaplama motorları
+  src/lib/pricing/            — Plan/fiyat registry
+  src/lib/seo/                — Metadata, sitemap helpers
+  src/lib/manufacturing-os/   — Operating system modülü
+
+3.4 src/components — UI Katmanı
+-------------------------------
+  src/components/tools/       — FreeToolPage, PremiumToolPage, SmartForm
+  src/components/cards/ToolTile.tsx      — ZORUNLU: kompakt tool tile
+  src/components/tools/ToolsTileGrid.tsx — ZORUNLU: tool list grid
+  src/components/admin/       — Lead drawer, pipeline, SLA
+  src/components/brand/SiteLogo.tsx      — Kilitli logo component
+  src/components/billing/     — Checkout, subscription guard
+  src/components/reports/     — Report viewer, PDF trigger
+
+3.5 src/config — Merkezi Config
+-------------------------------
+  src/config/site.ts    — SITE, siteUrl, nav items
+  src/config/brand.ts   — BRAND_ASSETS, BRAND_METADATA_ICONS (KİLİTLİ)
+
+3.6 functions/ — Cloud Functions
+--------------------------------
+  functions/src/updateLeadPipeline.ts
+  functions/src/updateLeadTestClassification.ts
+  functions/src/createStripeCheckout.ts
+  functions/src/stripeWebhook.ts
+  (+ SSR hosting function: ssrsectorcalcbf412 — Firebase Next.js adapter)
+
+================================================================================
+BÖLÜM 4 — MARKA VARLIKLARI (KİLİTLİ — DEĞİŞTİRME)
+================================================================================
+
+Kaynak: src/config/brand.ts
+
+Logo:
+  /img/brand/sectorcalc-logo.png
+  /img/brand/sectorcalc-logo-on-dark.png
+
+Favicon:
+  /img/brand/sectorcalc-favicon.png
+  /img/brand/sectorcalc-favicon-32.png
+  /img/brand/sectorcalc-favicon-180.png
+
+Next.js metadata icons (brand.ts ile senkron):
+  src/app/icon.png
+  src/app/apple-icon.png
+
+Kurallar:
+  - Header text-only SectorCalc branding'e GERİ DÖNÜLMEZ
+  - Logo/favicon silinmez, external URL'e yönlendirilmez
+  - createPageMetadata + root layout BRAND_METADATA_ICONS içermeli
+
+================================================================================
+BÖLÜM 5 — LOCALE VE ROUTING
+================================================================================
+
+5.1 Desteklenen Diller
+----------------------
+  en (varsayılan, URL prefix YOK — root /)
+  tr, de, fr, es, ar (URL prefix: /tr/, /de/, vb.)
+
+Kaynak: src/i18n/locales.ts
+
+5.2 next.config.ts Rewrite/Redirect Mantığı
+-------------------------------------------
+  Redirect (permanent):
+    /en      → /
+    /en/*    → /*
+
+  Rewrite (beforeFiles):
+    /        → /en
+    /:path   → /en/:path  (tr|de|fr|es|ar|en|admin|api|_next hariç)
+
+5.3 Middleware
+--------------
+  src/middleware.ts — locale detection, prefix yönetimi
+  src/lib/i18n/locale-routing.ts — stripLocaleFromPath, path helpers
+
+5.4 Premium Route Çözümleme
+---------------------------
+  src/lib/tools/tool-links.ts:
+    - isFullLoopRuntimeSlug → /tools/premium/{slug}
+    - PREMIUM_SCHEMA_SLUG_MAP → /tools/premium-schema/{schemaSlug}
+    - Diğer paid slug'lar schema map'e göre yönlendirilir
+
+  Full loop runtime (2026-06-08):
+    welding-bid-risk-analyzer → /tools/premium/welding-bid-risk-analyzer
+
+5.5 SSR Notları
+---------------
+  - Premium sayfalar sr-only <h1> ile SSR body metni sağlar (smoke test)
+  - investor-demo: filesystem okuma SSR'da YASAK — static registry kullan
+  - App Router RSC payload'ında "404" string false positive olabilir;
+    body-only grep kullan
+
+================================================================================
+BÖLÜM 6 — FIREBASE ALTYAPISI
+================================================================================
+
+6.1 Proje Ayarları (Sabit — Dokunma)
+------------------------------------
+  Firebase Project: sectorcalc-bf412
+  Firestore location: nam5 (multi-region US)
+  Cloud Functions region: us-central1
+  Hosting: Firebase Web Frameworks (Next.js)
+
+  Referans: docs/sectorcalc-stability-settings.md
+
+6.2 firebase.json
+-----------------
+  firestore.rules + firestore.indexes.json deploy
+  functions predeploy: npm run build (functions/)
+  hosting source: . (root — Next.js Firebase adapter)
+
+6.3 Deploy Komutları
+--------------------
+  Hosting:
+    firebase deploy --only hosting --project sectorcalc-bf412
+
+  Functions:
+    cd functions && npm run build
+    firebase deploy --only functions --project sectorcalc-bf412
+
+  Firestore rules:
+    firebase deploy --only firestore:rules --project sectorcalc-bf412
+
+6.4 Ortam Değişkenleri (Frontend — Public)
+------------------------------------------
+  NEXT_PUBLIC_SITE_URL
+  NEXT_PUBLIC_FIREBASE_* (apiKey, authDomain, projectId, vb.)
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  NEXT_PUBLIC_SMART_FORM_PILOT (true/1 → pilot aktif)
+
+  Secret'lar SADECE functions/.env ve Firebase secrets — repoya GİRMEZ.
+
+================================================================================
+BÖLÜM 7 — FIRESTORE VERİ MODELİ VE GÜVENLİK
+================================================================================
+
+Kaynak: firestore.rules
+
+7.1 Varsayılan Politika
+-----------------------
+  match /{document=**} { allow read, write: if false; }
+  — Her koleksiyon açıkça tanımlanmalı
+
+7.2 leadIntents
+---------------
+  CREATE: Public — validate edilmiş alanlarla
+  READ:   Admin only (admin: true custom claim)
+  UPDATE/DELETE: Client YOK — Cloud Function (Admin SDK)
+
+  Alt koleksiyon activity/{activityId}:
+    READ: Admin
+    WRITE: Sadece Functions
+
+7.3 betaPartners
+----------------
+  CREATE: Public (validate)
+  READ: Admin
+  UPDATE/DELETE: YOK
+
+7.4 benchmarkSubmissions
+------------------------
+  CREATE: Public (validate)
+  READ: Admin
+
+7.5 reportFeedback
+------------------
+  CREATE: Public (validate)
+  READ: Admin
+
+7.6 users/{userId}
+------------------
+  READ: Kendi uid'si
+  WRITE: Client YOK
+
+  Alt: purchases/{purchaseId}
+    READ: Kendi uid'si
+    WRITE: YOK (Stripe webhook Admin SDK)
+
+7.7 premiumEntitlements/{entitlementId}
+---------------------------------------
+  READ: resource.data.userId == auth.uid
+  WRITE: YOK
+
+7.8 reports/{reportId}
+----------------------
+  CREATE: auth.uid == request.resource.data.uid
+  READ:   auth.uid == resource.data.uid
+  UPDATE/DELETE: YOK
+
+================================================================================
+BÖLÜM 8 — AUTH VE ADMIN
+================================================================================
+
+8.1 Kullanıcı Auth
+------------------
+  Firebase Auth (email/password veya provider)
+  Client: src/lib/firebase/, src/lib/auth/
+  Subscription/entitlement: Firestore read-only client
+
+8.2 Admin Auth
+--------------
+  Custom claim: admin: true
+  Admin panel: /admin/* (locale prefix YOK)
+  Cloud Functions: Bearer Firebase ID token + admin claim verify
+
+8.3 Admin Panel Özellikleri (Stabil Checkpoint)
+-----------------------------------------------
+  Kaynak: docs/admin-panel-stable-checkpoint.md
+
+  /admin/leads:
+    - Lead listesi, filtre, drawer
+    - Pipeline status güncelleme
+    - Admin note
+    - Activity log (pipeline_update, test_lead_marked/unmarked)
+    - SLA tracking
+    - Quality score
+    - Source ROI analizi
+    - Test lead classification (manuel)
+
+  /admin/kpi — KPI dashboard
+  /admin/benchmarks — Benchmark submission review
+  /admin/schema-generator — Schema üretim aracı
+
+8.4 Cloud Functions Detay
+-------------------------
+
+updateLeadPipeline:
+  Auth: Bearer token, admin === true
+  Yazar: status, adminNote, updatedAt
+  Activity: pipeline_update
+
+updateLeadTestClassification:
+  Endpoint: us-central1-sectorcalc-bf412.cloudfunctions.net/updateLeadTestClassification
+  Yazar: isTestLead, testLeadReason, testLeadMarkedAt, testLeadMarkedByUid/Email
+  Activity: test_lead_marked | test_lead_unmarked
+
+createStripeCheckout:
+  Auth: Bearer token (logged-in user)
+  Stripe Checkout Session oluşturur
+
+stripeWebhook:
+  Raw body + Stripe signature verify
+  Subscription sync — Admin SDK only
+  Client subscription yazımı YOK
+
+================================================================================
+BÖLÜM 9 — STRIPE VE GELİR AKIŞI
+================================================================================
+
+9.1 Akış
+--------
+  1. Kullanıcı /pricing veya paywall'dan plan seçer
+  2. createStripeCheckout Cloud Function (ID token ile)
+  3. Stripe Checkout redirect
+  4. stripeWebhook → Firestore users/purchases + premiumEntitlements
+  5. Client entitlement read → PremiumToolPage paywall kaldırılır
+  6. PDF export subscription guard ile açılır
+
+9.2 Koruma Kuralları
+--------------------
+  - Stripe secret key functions/.env'de
+  - Webhook secret verify zorunlu
+  - Checkout 401 token olmadan
+  - Webhook 400 signature olmadan
+  - Paid UI'da formül detayı gösterilmez (verdict/metric/risk drivers)
+
+9.3 Revenue Tools Registry
+--------------------------
+  Kaynak: src/lib/tools/revenue-tools.ts (+ additional, phase2)
+
+  Her çift: freeSlug + paidSlug + industry metadata
+  Toplam: 27 sektör çifti
+
+  FREE → PAID EŞLEŞMELERİ:
+  machine-time-calculator              → cnc-quote-risk-analyzer
+  project-cost-calculator              → change-order-impact-analyzer
+  cleaning-cost-calculator             → office-cleaning-bid-optimizer
+  food-cost-calculator                 → menu-profit-leak-detector
+  product-margin-calculator            → return-profit-erosion-tool
+  welding-cost-estimator               → welding-bid-risk-analyzer
+  hvac-tonnage-rule-check              → hvac-project-margin-guard
+  electrical-labor-estimator           → panel-shop-margin-verdict
+  lawn-care-cost-check                 → landscaping-contract-profit-tool
+  repair-time-vs-price-check           → auto-shop-margin-leak-detector
+  print-job-cost-check                 → signage-bid-safe-price-tool
+  plumbing-fixture-cost-check          → plumbing-job-margin-verdict
+  cabinet-cost-estimator               → millwork-bid-risk-analyzer
+  roofing-square-cost-check            → roofing-contract-margin-guard
+  paint-coverage-cost-check            → painting-job-profit-verdict
+  laser-cutting-time-check             → sheet-metal-quote-risk-tool
+  3d-print-cost-check                  → 3d-print-job-margin-tool
+  desi-calculator                      → route-optimization-analyzer
+  fertilizer-dosage-calculator         → crop-yield-loss-analyzer
+  irrigation-cost-check                → water-optimization-verdict
+  feed-cost-estimator                  → feed-efficiency-analyzer
+  milk-yield-check                     → dairy-profit-detector
+  kwh-consumption-check                → energy-efficiency-report
+  carbon-footprint-quick               → cbam-compliance-verdict
+  home-renovation-m2                   → renovation-budget-optimizer
+  fuel-consumption-check               → trip-budget-optimizer
+  recipe-cost-check                    → meal-planning-verdict
+
+================================================================================
+BÖLÜM 10 — 27 SEKTÖR REGISTRY
+================================================================================
+
+Kaynak: src/lib/tools/industry-registry.ts (industryRegistry)
+
+KATEGORİLER:
+  heavy-industry, building-trades, field-services, food-retail,
+  custom-manufacturing, logistics-transport, agriculture-livestock,
+  energy-environment, daily-life
+
+SEKTÖRLER (slug | ad | kategori):
+  cnc-manufacturing        | CNC / Manufacturing           | heavy-industry
+  construction             | Construction                  | building-trades
+  cleaning                 | Cleaning                      | field-services
+  restaurant               | Restaurant                    | food-retail
+  ecommerce                | E-commerce                    | food-retail
+  welding-fabrication      | Welding / Fabrication         | custom-manufacturing
+  hvac                     | HVAC                          | field-services
+  electrical-contracting   | Electrical Contracting        | building-trades
+  landscaping-lawn-care    | Landscaping / Lawn Care       | field-services
+  auto-repair-shop         | Auto Repair Shop              | field-services
+  printing-signage         | Printing / Signage            | custom-manufacturing
+  plumbing                 | Plumbing                      | building-trades
+  carpentry-millwork       | Carpentry / Millwork          | building-trades
+  roofing                  | Roofing                       | building-trades
+  painting                 | Painting                      | building-trades
+  sheet-metal              | Sheet Metal                   | custom-manufacturing
+  3d-printing-service      | 3D Printing Service           | custom-manufacturing
+  logistics-transport      | Logistics / Transport         | logistics-transport
+  agriculture-crops        | Agriculture / Crops           | agriculture-livestock
+  agriculture-irrigation   | Agriculture / Irrigation      | agriculture-livestock
+  agriculture-feed         | Agriculture / Feed            | agriculture-livestock
+  agriculture-dairy        | Agriculture / Dairy           | agriculture-livestock
+  energy-consumption       | Energy / Consumption          | energy-environment
+  energy-carbon            | Energy / Carbon               | energy-environment
+  daily-renovation         | Daily / Renovation            | daily-life
+  daily-fuel               | Daily / Fuel                  | daily-life
+  daily-meals              | Daily / Meals                 | daily-life
+
+FEATURED (ana sayfa / hub vurgusu):
+  cnc-manufacturing, construction, cleaning, logistics-transport,
+  agriculture-crops, energy-carbon, daily-renovation
+
+================================================================================
+BÖLÜM 11 — DUAL-CORE CALCULATION INTELLIGENCE (AKIL 1 + AKIL 2)
+================================================================================
+
+SectorCalc statik form generator DEĞİLDİR.
+Dual-core calculation intelligence sistemidir.
+
+11.1 Akıl 2 — Requirement / Constraint Engine (Mind 2)
+------------------------------------------------------
+  Soru: Hedef ve bilinen inputlarla hangi inputlar eksik, türetilebilir,
+        varsayılanlanabilir veya uzman girdisi gerektirir?
+
+  Kullanır:
+    - calculation ontology
+    - dependency graph, formula graph
+    - variable registry, unit/dimension metadata
+    - inverse mappings
+
+  Üretir:
+    requiredMissingInputs, optionalRecommendedInputs,
+    advancedRecommendedInputs, derivedResolutionPlan,
+    selectedFormulaPath, blockers, warnings
+
+  Kod: src/lib/formula-governance/requirement-engine/
+       src/lib/calculation-intelligence/ (ontology, bridges)
+
+11.2 Akıl 1 — Validation / Oracle / Audit Engine (Mind 1)
+---------------------------------------------------------
+  Soru: Input ve sonuçlar matematiksel, fiziksel ve iş mantığı açısından
+        geçerli mi?
+
+  Kullanır:
+    src/lib/formula-governance/** — FormulaContract, oracle comparison,
+    scenario tests, property tests, runtime invariants, dimension checks
+
+  Üretir:
+    ORACLE_COMPARISON_PASS/FAIL, invariant violations, dimension errors,
+    validation warnings, launch blockers, NEEDS_REVIEW/FAIL/PASS
+
+11.3 Çalışma Döngüsü
+--------------------
+  1. Kullanıcı hedef belirtir
+  2. Requirement Engine hedef değişkeni çözer
+  3. Dependency graph gerekli değişkenleri listeler
+  4. Bilinen vs eksik ayrımı
+  5. Eksik input sorulur
+  6. Deterministik hesaplama
+  7. Validation Engine invariant/dimension kontrol
+  8. Oracle/scenario/property audit
+  9. Güvenliyse sonuç döner
+
+11.4 LLM Sınırları (Interface Only)
+-----------------------------------
+  İZİNLİ:
+    extract_structured_inputs, normalize_units,
+    generate_missing_input_question, structured JSON drafts, intent classification
+
+  YASAK:
+    calculate_result, choose_formula, override_oracle, bypass_validation,
+    create_formula_from_prompt, change_production_output
+
+  LLM hesaplama motoru, formül seçici, oracle veya validation otoritesi DEĞİLDİR.
+
+11.5 Runtime Coverage Tier'ları (2026-06-08)
+--------------------------------------------
+  Kaynak: npm run audit:dual-intelligence-runtime-coverage
+
+  full_loop_runtime (1):
+    Mind 2 → calc → Mind 1 tam döngü
+    welding-bid-risk-analyzer
+
+  live_smart_form_pilot (3):
+    Mind 1+2 kısmi runtime (NEXT_PUBLIC_SMART_FORM_PILOT=true)
+    3d-print-cost-check
+    auto-shop-margin-leak-detector
+    cabinet-cost-estimator
+
+  staged_calculation_bridge (6):
+    electrical-labor-estimator
+    lawn-care-cost-check
+    print-job-cost-check
+    plumbing-job-margin-verdict
+    hvac-project-margin-guard
+    sheet-metal-quote-risk-tool
+
+  governed_buildtime_only (5):
+    repair-time-vs-price-check
+    panel-shop-margin-verdict
+    landscaping-contract-profit-tool
+    signage-bid-safe-price-tool
+    millwork-bid-risk-analyzer
+
+  audit_pipeline_only (26):
+    Genel finans araçları + sektör free check'ler (oracle audit build-time)
+
+11.6 Full Loop Runtime Pipeline (welding-bid-risk-analyzer)
+-----------------------------------------------------------
+  Kaynak:
+    src/lib/formula-governance/runtime-validation/full-loop-runtime-registry.ts
+    src/lib/formula-governance/runtime-validation/premium-full-loop-bridge.ts
+    src/components/tools/PremiumToolPage.tsx (useFullLoopRuntime)
+    src/components/tools/RuntimeTrustTracePanel.tsx
+
+  Akış:
+    1. sanitizeCanonicalInputs
+    2. pre-loop runContractCalculationIntelligenceLoop (Mind 2)
+    3. calculatePremiumDecisionReport (canonical inputs only)
+    4. post-loop validation (Mind 1)
+    5. SUCCESS değilse verdict block
+    6. RuntimeTrustTracePanel UI
+
+================================================================================
+BÖLÜM 12 — FORMULA GOVERNANCE VE TOOL FACTORY
+================================================================================
+
+12.1 Formula Contract Envanteri
+-------------------------------
+  Toplam: 41 contract
+  Her contract: oracle plan, scenario plan, property plan, dimension rules
+
+12.2 Tool Factory Pipeline Stages
+---------------------------------
+  Kaynak: src/lib/formula-governance/tool-factory-orchestrator/tool-factory-types.ts
+
+  ToolIdea → CalculationOntology → RequirementEngine → InputDesign →
+  FormulaContract → OraclePlan → ScenarioPlan → PropertyPlan →
+  SmartFormPlan → TrustTracePlan → ReportPlan → AuditGate → PatchPlan →
+  HumanApproval → DeployReady
+
+12.3 Tool Factory Gates
+-----------------------
+  input_intelligence_gate, formula_contract_gate, oracle_gate,
+  scenario_gate, property_gate, ui_form_gate, trust_trace_gate,
+  report_gate, build_gate, secret_gate, human_approval_gate, deploy_gate
+
+12.4 Phase Gate Sorusu (Her araç/faz için zorunlu)
+--------------------------------------------------
+  "Bu araçta hangi inputların gerektiğine sistem nasıl karar veriyor?"
+
+  Yetersiz: "formu elle yazdık"
+  Gerekli: ontology + dependency graph + requirement engine + validation loop
+
+12.5 Ana Governance Dizinleri
+-----------------------------
+  src/lib/formula-governance/
+    requirement-engine/
+    runtime-validation/
+    smart-form-ui-bridge/
+    dual-intelligence-runtime-coverage/
+    investor-demo/
+    tool-factory-orchestrator/
+    contracts/ (41 formula contract)
+    oracle/
+    scenario/
+    property/
+
+================================================================================
+BÖLÜM 13 — UI STANDARTLARI
+================================================================================
+
+13.1 Genel
+----------
+  Premium, temiz, sade
+  Mobile-first, yatay scroll YOK
+  Dokunma hedefi ≥ 44px
+  Premium kartlarda emoji YOK
+  Aşırı animasyon YOK
+
+13.2 Tool Listing (Kalıcı Kural)
+--------------------------------
+  Tüm araç listeleri:
+    ToolTile (src/components/cards/ToolTile.tsx)
+    ToolsTileGrid (src/components/tools/ToolsTileGrid.tsx)
+
+  YASAK:
+    ToolCard, büyük kart layout, ad-hoc Link + rounded-xl p-5
+
+  Grid: gap-2, grid-cols-2 → 2xl:grid-cols-7
+
+13.3 Premium Tool Sayfası
+-------------------------
+  Paywall guard (entitlement yoksa teaser)
+  Smart Form pilot (flag + slug match)
+  Full loop runtime bypass (schema pilot yerine)
+  Trust trace panel (full loop)
+  PDF butonu subscription guard
+
+13.4 Free Tool Sayfası
+----------------------
+  3–5 input
+  Risk sinyali (tam verdict yok)
+  Browser-first privacy note
+  Related tools → ToolsTileGrid
+
+================================================================================
+BÖLÜM 14 — SEO VE PUBLIC KNOWLEDGE DOSYALARI
+================================================================================
+
+14.1 SEO Standart
+-----------------
+  Index: çalışan sayfalar only
+  Free tools: indexable
+  Paid tools: teaser + paywall, value copy
+  title, description, canonical, sitemap zorunlu
+
+14.2 public/*.txt (LLM / Index / FAQ)
+-------------------------------------
+  public/llms.txt              — LLM crawler guidance
+  public/sectorcalc-index.txt  — Site index özeti
+  public/faq-knowledge.txt     — FAQ knowledge base
+  public/services-products.txt — Ürün/hizmet tanımları
+  public/indexnow-key-example.txt
+
+14.3 Metadata
+-------------
+  createPageMetadata helper
+  Locale-aware canonical (premium routes setRequestLocale)
+  BRAND_METADATA_ICONS root layout'ta
+
+================================================================================
+BÖLÜM 15 — LEAD SİSTEMİ VE KAMPANYA
+================================================================================
+
+15.1 Lead Intent
+----------------
+  Public create → leadIntents collection
+  Alanlar: id, source, UTM, tool context, contact, status, timestamps
+  Admin read + pipeline update via Cloud Function
+
+15.2 Activity Log
+-----------------
+  leadIntents/{id}/activity/{activityId}
+  Tipler: pipeline_update, test_lead_marked, test_lead_unmarked
+
+15.3 SLA / Quality / Source ROI
+-------------------------------
+  Admin dashboard hesaplamaları
+  Test lead classification (manuel admin)
+
+15.4 Campaign Tracking
+----------------------
+  UTM parametreleri lead payload'a
+  Phase lock: Campaign tracking + UTM (launch öncesi faz)
+
+================================================================================
+BÖLÜM 16 — KORUMALI YOLLAR (HARD NO / READ BEFORE EDIT)
+================================================================================
+
+16.1 Hard No (Açık istek olmadan)
+---------------------------------
+  - Yeni repo, npx create-next-app, yeni domain
+  - src/app/api routes
+  - Secret frontend'de, STRIPE_SECRET NEXT_PUBLIC_*
+  - Service account JSON repoda
+  - Whole-app rewrite
+  - Admin panel refactor (revenue work sırasında)
+  - Çalışan feature silme
+  - Client Firestore subscription yazımı
+  - Paid UI'da formül gösterme
+  - Free tool'da full paid result
+
+16.2 Protected Paths Tablosu
+----------------------------
+  Admin panel:     src/app/admin/**, src/components/admin/**
+  Lead system:     **/lead*, functions/src/updateLead*
+  Stripe:          functions/src/createStripeCheckout.ts, stripeWebhook.ts
+  Firestore rules: firestore.rules
+  Secrets:         .env.local, functions/.env, *service-account*
+
+16.3 Brand Lock
+---------------
+  src/config/brand.ts
+  src/components/brand/SiteLogo.tsx
+  public/img/brand/*
+  src/app/icon.png, apple-icon.png
+
+================================================================================
+BÖLÜM 17 — PHASE LOCK (LAUNCH SIRASI)
+================================================================================
+
+  1. Region + stability check                    ✓
+  2. 17-sector catalog → 27-sector expansion     ✓
+  3. Full catalog QA                             ✓
+  4. Campaign tracking + UTM                     (devam)
+  5. Launch decision gate
+  6. Stripe live readiness
+  7. First paid campaign
+
+  Bir faz / session — commit per phase — clean working tree
+
+================================================================================
+BÖLÜM 18 — ZORUNLU WORKFLOW (HER GÖREV)
+================================================================================
+
+  1. Mevcut dosyaları incele — tahmin etme
+  2. Değişecek dosyalar + risk listele
+  3. En küçük çalışan patch
+  4. Test çalıştır
+  5. Commit öncesi secret check
+  6. Rapor: dosyalar, testler, deploy, manual QA, riskler
+  7. Test geçmeden commit yok
+
+  Kod değişikliği sonrası:
+    npm run lint
+    npx tsc --noEmit
+    npm run build
+    npm run check:secrets
+
+  Formula değişikliği:
+    npm run test:formulas (vitest src/lib/formula-governance)
+
+  Katalog audit:
+    npm run audit:revenue-tools
+
+  Dual-Intelligence coverage:
+    npm run audit:dual-intelligence-runtime-coverage
+
+================================================================================
+BÖLÜM 19 — AUDIT SCRİPT ENVENTERİ
+================================================================================
+
+  audit:revenue-tools
+  audit:formulas
+  audit:alignment
+  audit:input-design
+  audit:migration-plan
+  audit:smart-form (+ architecture alias)
+  audit:smart-form-rendering
+  audit:smart-form-ui-bridge
+  audit:smart-form-pilot-qa
+  audit:smart-form-staging-rollout
+  audit:smart-form-staging-smoke
+  audit:smart-form-production-deploy
+  audit:smart-form-production-execution
+  audit:trust-trace
+  audit:full-tools
+  audit:tool-factory
+  audit:patch-plans
+  audit:trust-trace-export
+  audit:remediation-batch1
+  audit:controlled-patches
+  audit:report-renderers
+  audit:deploy-ready
+  audit:smart-form-rollout-expansion
+  audit:report-render-dry-run
+  audit:remediation-apply-gate
+  audit:fixture-expansion
+  audit:smart-form-production-rollout
+  audit:trust-trace-output-dry-run
+  audit:tool-factory-demo-flow
+  audit:investor-demo
+  audit:dual-intelligence-runtime-coverage
+  audit:production-readiness
+  audit:roadmap-debt
+
+  test:formulas — vitest run src/lib/formula-governance
+  check:secrets — scripts/check-commit-secrets.mjs
+
+================================================================================
+BÖLÜM 20 — INVESTOR DEMO
+================================================================================
+
+  Route: /investor-demo
+  Kaynak: src/lib/commercial/investor-metrics-bridge.ts (SSR-safe)
+  SSR: filesystem read YOK — static registry only
+  Metrikler: formula count, runtime tier dağılımı, trust trace readiness
+  Audit: npm run audit:investor-demo
+  Status (2026-06-08): investor_demo_ready = true
+
+================================================================================
+BÖLÜM 21 — OPERATING SYSTEM MODÜLÜ
+================================================================================
+
+  Routes: /operating-system, /os
+  Kaynak: src/lib/manufacturing-os/, src/components/operating-system/
+  Manufacturing decision OS landing — revenue flow'dan ayrı tanıtım katmanı
+
+================================================================================
+BÖLÜM 22 — REFERANS DOKÜMANLAR
+================================================================================
+
+  docs/sectorcalc-stability-settings.md     — Firebase, secrets, deploy
+  docs/cursor-workflow.md                   — Task prompt + report template
+  docs/full-catalog-qa.md                   — 17/27 sector QA
+  docs/revenue-flow-v1-production-readiness.md — Stripe go/no-go
+  docs/admin-panel-stable-checkpoint.md     — Admin stabil checkpoint
+  .cursor/rules/sectorcalc.mdc              — Agent project rules
+  .cursor/rules/brand-assets-lock.mdc
+  .cursor/rules/tool-listing-tiles.mdc
+  .cursor/rules/dual-core-calculation-intelligence.mdc
+  .cursor/rules/protected-infrastructure.mdc
+
+================================================================================
+BÖLÜM 23 — NAVİGASYON VE SITE CONFIG
+================================================================================
+
+  SITE (src/config/site.ts):
+    siteName: SectorCalc
+    domain: sectorcalc.com
+    url: NEXT_PUBLIC_SITE_URL || https://sectorcalc.com
+    defaultLocale: en
+    defaultCurrency: USD
+    contactEmail: hello@sectorcalc.com
+    privacyEmail: privacy@sectorcalc.com
+
+  PUBLIC_NAV_ITEMS:
+    Free Checks      → /free-tools
+    Premium Verdicts → /premium-tools
+    Industries       → /industries
+    Pricing          → /pricing
+
+  AUTH_NAV_ITEMS:
+    Reports  → /account/reports
+    Account  → /account
+
+================================================================================
+BÖLÜM 24 — BİLİNEN RİSKLER VE OPERASYONEL NOTLAR
+================================================================================
+
+  1. Firestore region (nam5) değiştirilirse tüm veri migration gerekir — YAPMA
+  2. Functions region us-central1 dışına taşıma — admin+Stripe kırılır
+  3. investor-demo SSR'da process.cwd() + src/ path — ENOENT riski (düzeltildi)
+  4. Premium route smoke: RSC script'te "404" string — body-only test kullan
+  5. getPremiumToolHref: full loop slug schema map'ten önce çözülmeli
+  6. Smart Form pilot tek env flag — NEXT_PUBLIC_SMART_FORM_PILOT
+  7. 26/41 formula contract hâlâ audit_pipeline_only — runtime genişletme borcu
+  8. Git working tree: public/*.txt değişiklikleri commit bekliyor olabilir
+
+================================================================================
+BÖLÜM 25 — ÖZET DNA (TEK PARAGRAF)
+================================================================================
+
+SectorCalc, Next.js 15 + Firebase + Stripe üzerinde çalışan, 27 sektörde
+115 ücretsiz trafik aracı ve 27 ücretli karar analyzer çifti sunan dual-core
+calculation intelligence platformudur. Akıl 2 (requirement engine) eksik
+inputları ontology ve dependency graph ile çözer; deterministik hesaplama
+sonrası Akıl 1 (oracle/scenario/property validation) sonucu denetler. Tek
+full-loop runtime pilot welding-bid-risk-analyzer; üç Smart Form pilot aktif
+(flag ile). Admin panel Firebase Auth admin claim + Cloud Functions ile lead
+pipeline, SLA ve test classification yönetir. Firestore nam5, Functions
+us-central1 sabittir. src/app/api yok; tüm secret'lar Functions'ta. UI kompakt
+ToolTile grid; marka asset'leri kilitli. Launch phase lock: UTM → gate → Stripe
+live → first campaign.
+
+================================================================================
+DOSYA SONU — sectorcalc-system-dna.txt
+Güncelleme: Kod tabanı snapshot 2026-06-08
+================================================================================

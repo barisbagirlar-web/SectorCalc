@@ -1,52 +1,69 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import { PremiumToolPage } from "@/components/tools/PremiumToolPage";
+import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
 import {
- getRevenueToolByPaidSlug,
- revenueTools,
+  getRevenueToolByPaidSlug,
+  revenueTools,
 } from "@/lib/tools/revenue-tools";
 
 interface PremiumToolPageParams {
- slug: string;
+  slug: string;
+}
+
+interface PremiumToolRouteParams extends PremiumToolPageParams {
+  locale: string;
 }
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<PremiumToolPageParams[]> {
- return revenueTools.map((tool) => ({ slug: tool.paidSlug }));
+  return revenueTools.map((tool) => ({ slug: tool.paidSlug }));
 }
 
 export async function generateMetadata({
- params,
+  params,
 }: {
- params: Promise<PremiumToolPageParams>;
+  params: Promise<PremiumToolRouteParams>;
 }): Promise<Metadata> {
- const { slug } = await params;
- const tool = getRevenueToolByPaidSlug(slug);
- if (!tool) {
- return {};
- }
+  const { slug, locale } = await params;
+  const tool = getRevenueToolByPaidSlug(slug);
+  if (!tool) {
+    return {};
+  }
 
- return createPageMetadata({
- title: `${tool.paidTitle} | SectorCalc Pro`,
- description: `${tool.paidValue} Premium decision tool for pricing, cost and margin risk.`,
- path: `/tools/premium/${tool.paidSlug}`,
- });
+  return createPageMetadata({
+    title: `${tool.paidTitle} | SectorCalc Pro`,
+    description: `${tool.paidValue} Premium decision tool for pricing, cost and margin risk.`,
+    path: `/tools/premium/${tool.paidSlug}`,
+    locale: locale as AppLocale,
+  });
 }
 
 export default async function PremiumRevenueToolRoute({
- params,
+  params,
 }: {
- params: Promise<PremiumToolPageParams>;
+  params: Promise<PremiumToolRouteParams>;
 }) {
- const { slug } = await params;
- const tool = getRevenueToolByPaidSlug(slug);
+  const { slug, locale } = await params;
+  setRequestLocale(locale);
 
- if (!tool) {
- notFound();
- }
+  const tool = getRevenueToolByPaidSlug(slug);
 
- return <PremiumToolPage tool={tool} />;
+  if (!tool) {
+    notFound();
+  }
+
+  return (
+    <>
+      <div className="sr-only">
+        <h1>{tool.paidTitle}</h1>
+        <p>{tool.paidValue}</p>
+      </div>
+      <PremiumToolPage tool={tool} />
+    </>
+  );
 }

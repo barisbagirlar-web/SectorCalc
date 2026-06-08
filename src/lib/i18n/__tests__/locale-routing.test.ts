@@ -73,5 +73,14 @@ describe("locale-routing", () => {
   test("rewritePathToEnglishLocale maps unprefixed paths", () => {
     expect(rewritePathToEnglishLocale("/")).toBe("/en");
     expect(rewritePathToEnglishLocale("/free-tools")).toBe("/en/free-tools");
+    expect(rewritePathToEnglishLocale("/tools/premium/welding-bid-risk-analyzer")).toBe(
+      "/en/tools/premium/welding-bid-risk-analyzer",
+    );
+  });
+
+  test("getLegacyEnRedirectPath strips /en prefix from premium tool routes", () => {
+    expect(getLegacyEnRedirectPath("/en/tools/premium/welding-bid-risk-analyzer")).toBe(
+      "/tools/premium/welding-bid-risk-analyzer",
+    );
   });
 });
