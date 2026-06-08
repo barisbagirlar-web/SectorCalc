@@ -44,6 +44,26 @@ export { ROOFING_CONTRACT_MARGIN_ONTOLOGY } from "@/lib/formula-governance/calcu
 export { CNC_QUOTE_RISK_ONTOLOGY } from "@/lib/formula-governance/calculation-ontology/fixtures/cnc-quote-risk-ontology";
 
 export {
+  inferVariableDimensionFromContractField,
+  inferVariableKnowledgeLevelFromContractField,
+  inferVariableRoleFromContractField,
+  isVerdictOutput,
+  normalizeContractInputsToVariables,
+  normalizeContractOutputsToVariables,
+  normalizeContractVariableKey,
+  resolveContractTargetOutput,
+} from "@/lib/formula-governance/calculation-ontology/contract-variable-normalizer";
+export type {
+  ContractFieldKind,
+  NormalizedContractVariable,
+} from "@/lib/formula-governance/calculation-ontology/contract-variable-normalizer";
+
+export {
+  compileOntologyDraftToCalculationOntology,
+} from "@/lib/formula-governance/calculation-ontology/ontology-compiler";
+export type { OntologyCompileResult } from "@/lib/formula-governance/calculation-ontology/ontology-compiler";
+
+export {
   buildOntologyDraftFromFormulaContract,
 } from "@/lib/formula-governance/calculation-ontology/contract-ontology-bridge";
 export type {

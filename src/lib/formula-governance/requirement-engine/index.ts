@@ -21,7 +21,19 @@ export type { RequirementAuditFinding } from "@/lib/formula-governance/requireme
 export {
   buildInputDesignFromRequirementResult,
 } from "@/lib/formula-governance/requirement-engine/input-design-bridge";
-export type { ToolInputDesign, ToolInputDesignField } from "@/lib/formula-governance/requirement-engine/input-design-bridge";
+export type {
+  BuildInputDesignOptions,
+  ToolInputDesign,
+  ToolInputDesignField,
+} from "@/lib/formula-governance/requirement-engine/input-design-bridge";
+export {
+  runRequirementEngineForContract,
+} from "@/lib/formula-governance/requirement-engine/contract-requirement-runner";
+export type {
+  ContractRequirementRunResult,
+  OntologyPipelineStatus,
+  RunRequirementEngineForContractParams,
+} from "@/lib/formula-governance/requirement-engine/contract-requirement-runner";
 export {
   auditFormulaContractInputReadiness,
 } from "@/lib/formula-governance/requirement-engine/contract-requirement-bridge";
