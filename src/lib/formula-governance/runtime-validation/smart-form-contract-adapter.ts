@@ -13,6 +13,8 @@ import {
   isPremiumFullLoopRuntimeSlug,
   resolveFullLoopContractSlug,
 } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import { resolveFieldUnitMetadata } from "@/lib/units/canonical-unit-normalizer";
+import type { UnitSystem } from "@/lib/units/unit-definitions";
 
 export type SmartFormContractFieldType = "number" | "currency" | "percent";
 
@@ -24,6 +26,9 @@ export type SmartFormContractFieldSpec = {
   readonly label: string;
   readonly type: SmartFormContractFieldType;
   readonly unit?: string;
+  readonly canonicalUnit?: string;
+  readonly displayUnit?: string;
+  readonly unitSystem?: UnitSystem;
   readonly required: boolean;
   readonly min?: number;
   readonly max?: number;
@@ -151,11 +156,12 @@ function buildFieldSpec(
   required: boolean,
   contract: FormulaContract,
   patch: ReturnType<typeof getControlledInputDesignPatch>,
+  locale?: string,
 ): SmartFormContractFieldSpec {
   const dimensionMeta = inferFieldDimension(key);
   const type = resolveFieldType(key, dimensionMeta.dimension);
   const bounds = inferFieldBounds(key, dimensionMeta.dimension, contract);
-  const unit =
+  const baseUnit =
     dimensionMeta.unit !== "value" && dimensionMeta.unit !== "USD"
       ? dimensionMeta.unit
       : type === "currency"
@@ -164,12 +170,21 @@ function buildFieldSpec(
           ? "%"
           : undefined;
 
+  const unitMetadata = locale
+    ? resolveFieldUnitMetadata(key, baseUnit, dimensionMeta.dimension, locale)
+    : null;
+
+  const unit = unitMetadata?.displayUnit ?? baseUnit;
+
   return {
     key,
     canonicalKey: key,
     label: humanizeFieldKey(key),
     type,
     unit,
+    canonicalUnit: unitMetadata?.canonicalUnit,
+    displayUnit: unitMetadata?.displayUnit,
+    unitSystem: unitMetadata?.unitSystem,
     required,
     ...bounds,
     placeholder: `Enter ${humanizeFieldKey(key).toLowerCase()}`,
@@ -184,7 +199,10 @@ function collectContractInputKeys(contract: FormulaContract): readonly string[] 
   return [...keys].sort((left, right) => left.localeCompare(right));
 }
 
-export function buildSmartFormFieldSpecsFromContract(slug: string): SmartFormContractFieldPlan | null {
+export function buildSmartFormFieldSpecsFromContract(
+  slug: string,
+  locale?: string,
+): SmartFormContractFieldPlan | null {
   const contractSlug = resolveSmartFormContractSlug(slug);
   const contract = getFormulaContractBySlug(contractSlug);
   if (!contract) {
@@ -204,7 +222,7 @@ export function buildSmartFormFieldSpecsFromContract(slug: string): SmartFormCon
       return;
     }
     seen.add(key);
-    fields.push(buildFieldSpec(key, group, required, contract, patch));
+    fields.push(buildFieldSpec(key, group, required, contract, patch, locale));
   };
 
   if (patch) {

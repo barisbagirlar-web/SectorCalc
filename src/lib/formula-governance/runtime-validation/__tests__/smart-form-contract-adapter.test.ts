@@ -74,4 +74,23 @@ describe("smart form contract adapter", () => {
     expect(typeof field?.required).toBe("boolean");
     expect(["required", "optional", "advanced"]).toContain(field?.group);
   });
+
+  test("locale enriches physical field specs with unit metadata", () => {
+    const plan = buildSmartFormFieldSpecsFromContract("cleaning-cost-calculator", "en");
+    const areaField = plan?.fields.find((field) => field.key.toLowerCase().includes("area"));
+
+    expect(areaField).toBeDefined();
+    expect(areaField?.canonicalUnit).toBe("m²");
+    expect(areaField?.displayUnit).toBe("sq ft");
+    expect(areaField?.unitSystem).toBe("imperial");
+    expect(areaField?.unit).toBe("sq ft");
+  });
+
+  test("without locale field specs remain backward compatible", () => {
+    const withLocale = buildSmartFormFieldSpecsFromContract("rent-vs-buy-calculator", "en");
+    const withoutLocale = buildSmartFormFieldSpecsFromContract("rent-vs-buy-calculator");
+
+    expect(withoutLocale?.fields.length).toBe(withLocale?.fields.length);
+    expect(withoutLocale?.fields.every((field) => field.canonicalUnit === undefined)).toBe(true);
+  });
 });
