@@ -40,6 +40,7 @@ export type ToolMigrationPlanItem = {
   readonly notes: readonly string[];
   readonly inputDesignPatchCompleted: boolean;
   readonly completedInputDesignPatchGate?: string;
+  readonly smartFormArchitectureReady: boolean;
 };
 
 export type BatchMigrationPlan = {
@@ -52,6 +53,7 @@ export type BatchMigrationPlan = {
   readonly items: readonly ToolMigrationPlanItem[];
   readonly recommendedFirstPatchBatch: readonly ToolMigrationPlanItem[];
   readonly completedInputDesignPatches: readonly string[];
+  readonly smartFormRenderingReadyCount: number;
   readonly warnings: readonly string[];
   readonly blockers: readonly string[];
 };

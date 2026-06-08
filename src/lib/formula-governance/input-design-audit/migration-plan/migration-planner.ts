@@ -28,6 +28,7 @@ import {
   isControlledInputDesignPatchCompleted,
   listCompletedControlledInputDesignPatchSlugs,
 } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-status";
+import { buildSmartFormArchitectureSpec } from "@/lib/formula-governance/input-design-audit/smart-form-architecture/smart-form-architecture-builder";
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import type { BatchAlignmentAuditResult } from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
 import type { FormulaContract } from "@/lib/formula-governance/types";
@@ -205,17 +206,18 @@ function applyCompletedInputDesignPatchOverlay(
   item: ToolMigrationPlanItem,
 ): ToolMigrationPlanItem {
   if (!isControlledInputDesignPatchCompleted(item.slug)) {
-    return { ...item, inputDesignPatchCompleted: false };
+    return { ...item, inputDesignPatchCompleted: false, smartFormArchitectureReady: false };
   }
 
   const patch = getControlledInputDesignPatch(item.slug);
   if (!patch) {
-    return { ...item, inputDesignPatchCompleted: false };
+    return { ...item, inputDesignPatchCompleted: false, smartFormArchitectureReady: false };
   }
 
   return {
     ...item,
     inputDesignPatchCompleted: true,
+    smartFormArchitectureReady: false,
     recommendedPatchLevel: "none",
     completedInputDesignPatchGate: patch.nextGate,
     nextGate: patch.nextGate,
@@ -231,6 +233,47 @@ function applyCompletedInputDesignPatchOverlay(
     notes: [
       ...item.notes,
       `Phase 5H-F controlled input design patch applied (${patch.patchType}).`,
+    ],
+  };
+}
+
+function applySmartFormArchitectureOverlay(
+  item: ToolMigrationPlanItem,
+): ToolMigrationPlanItem {
+  if (!item.inputDesignPatchCompleted) {
+    return item;
+  }
+
+  const spec = buildSmartFormArchitectureSpec(item.slug);
+  if (!spec || spec.blockers.length > 0) {
+    return {
+      ...item,
+      smartFormArchitectureReady: false,
+      nextGate: spec?.nextGate ?? "smart_form_architecture_pending",
+    };
+  }
+
+  return {
+    ...item,
+    smartFormArchitectureReady: true,
+    nextGate: "smart_form_rendering_ready",
+    completedInputDesignPatchGate: "smart_form_rendering_ready",
+    requiredActions: [
+      "Smart form architecture spec ready — smart form rendering gate only (governance; no production UI yet).",
+      ...item.requiredActions.filter(
+        (action) =>
+          !action.includes("Controlled input design patch completed") &&
+          !action.includes("ready for smart form architecture gate"),
+      ),
+    ],
+    expectedBenefit:
+      "Smart form field groups, section plan, trust trace mapping, and validation message plan registered in governance.",
+    affectedAreas: [
+      ...new Set([...item.affectedAreas, "smart-form-architecture"]),
+    ],
+    notes: [
+      ...item.notes,
+      `Phase 5H-G-A smart form architecture spec (${spec.sections.length} sections, ${spec.fields.length} fields).`,
     ],
   };
 }
@@ -300,6 +343,7 @@ export function buildExistingToolMigrationPlan(
       nextGate: "",
       notes: buildNotes(auditResult, recommendedPatchLevel, contract),
       inputDesignPatchCompleted: false,
+      smartFormArchitectureReady: false,
     };
 
     const withGate = {
@@ -307,17 +351,23 @@ export function buildExistingToolMigrationPlan(
       nextGate: buildNextGate(item),
     };
 
-    items.push(applyCompletedInputDesignPatchOverlay(withGate));
+    items.push(
+      applySmartFormArchitectureOverlay(applyCompletedInputDesignPatchOverlay(withGate)),
+    );
   }
 
   const priorityCounts = countByPriority(items);
   const completedInputDesignPatches = listCompletedControlledInputDesignPatchSlugs();
+  const smartFormRenderingReadyCount = items.filter(
+    (entry) => entry.smartFormArchitectureReady,
+  ).length;
   const planWithoutBatch: BatchMigrationPlan = {
     totalTools: items.length,
     ...priorityCounts,
     items,
     recommendedFirstPatchBatch: [],
     completedInputDesignPatches,
+    smartFormRenderingReadyCount,
     warnings,
     blockers,
   };
@@ -352,11 +402,16 @@ export function formatMigrationPlanReport(plan: BatchMigrationPlan): string {
   }
 
   if (plan.completedInputDesignPatches.length > 0) {
-    lines.push("", "Completed input design patches:");
+    lines.push(
+      "",
+      `Smart form rendering ready: ${plan.smartFormRenderingReadyCount}/${plan.completedInputDesignPatches.length}`,
+      "",
+      "Completed input design patches:",
+    );
     for (const slug of plan.completedInputDesignPatches) {
       const item = plan.items.find((entry) => entry.slug === slug);
       lines.push(
-        `- ${slug} — nextGate ${item?.nextGate ?? "smart_form_architecture"}`,
+        `- ${slug} — nextGate ${item?.nextGate ?? "smart_form_architecture_pending"}`,
       );
     }
   }

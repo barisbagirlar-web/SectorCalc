@@ -113,20 +113,22 @@ describe("buildExistingToolMigrationPlan", () => {
     }
   });
 
-  test("marks patched tools as completed input design patch with smart form gate", () => {
+  test("marks patched tools as completed with smart form rendering gate", () => {
     const inputDesignAudit = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
     const plan = buildExistingToolMigrationPlan({ inputDesignAudit });
 
     for (const slug of ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       const item = plan.items.find((entry) => entry.slug === slug);
       expect(item?.inputDesignPatchCompleted).toBe(true);
-      expect(item?.nextGate).toBe("smart_form_architecture");
+      expect(item?.nextGate).toBe("smart_form_rendering_ready");
+      expect(item?.smartFormArchitectureReady).toBe(true);
       expect(item?.recommendedPatchLevel).toBe("none");
     }
 
     expect(plan.completedInputDesignPatches).toEqual([
       ...ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
     ]);
+    expect(plan.smartFormRenderingReadyCount).toBe(15);
     expect(
       plan.recommendedFirstPatchBatch.some((item) =>
         ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS.includes(
@@ -143,7 +145,8 @@ describe("buildExistingToolMigrationPlan", () => {
     for (const slug of SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       const item = plan.items.find((entry) => entry.slug === slug);
       expect(item?.inputDesignPatchCompleted).toBe(true);
-      expect(item?.nextGate).toBe("smart_form_architecture");
+      expect(item?.nextGate).toBe("smart_form_rendering_ready");
+      expect(item?.smartFormArchitectureReady).toBe(true);
     }
 
     for (const slug of FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
@@ -158,7 +161,8 @@ describe("buildExistingToolMigrationPlan", () => {
     for (const slug of THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       const item = plan.items.find((entry) => entry.slug === slug);
       expect(item?.inputDesignPatchCompleted).toBe(true);
-      expect(item?.nextGate).toBe("smart_form_architecture");
+      expect(item?.nextGate).toBe("smart_form_rendering_ready");
+      expect(item?.smartFormArchitectureReady).toBe(true);
       expect(plan.recommendedFirstPatchBatch.some((entry) => entry.slug === slug)).toBe(false);
     }
   });
@@ -170,7 +174,8 @@ describe("buildExistingToolMigrationPlan", () => {
     for (const slug of FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       const item = plan.items.find((entry) => entry.slug === slug);
       expect(item?.inputDesignPatchCompleted).toBe(true);
-      expect(item?.nextGate).toBe("smart_form_architecture");
+      expect(item?.nextGate).toBe("smart_form_rendering_ready");
+      expect(item?.smartFormArchitectureReady).toBe(true);
       expect(plan.recommendedFirstPatchBatch.some((entry) => entry.slug === slug)).toBe(false);
     }
   });
@@ -184,7 +189,8 @@ describe("buildExistingToolMigrationPlan", () => {
     for (const slug of FIFTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       const item = plan.items.find((entry) => entry.slug === slug);
       expect(item?.inputDesignPatchCompleted).toBe(true);
-      expect(item?.nextGate).toBe("smart_form_architecture");
+      expect(item?.nextGate).toBe("smart_form_rendering_ready");
+      expect(item?.smartFormArchitectureReady).toBe(true);
       expect(plan.recommendedFirstPatchBatch.some((entry) => entry.slug === slug)).toBe(false);
     }
   });
