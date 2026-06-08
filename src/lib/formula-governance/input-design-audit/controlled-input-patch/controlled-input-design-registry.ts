@@ -29,11 +29,18 @@ export const FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
   "signage-bid-safe-price-tool",
 ] as const;
 
+export const FIFTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
+  "welding-bid-risk-analyzer",
+  "landscaping-contract-profit-tool",
+  "lawn-care-cost-check",
+] as const;
+
 export const ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
   ...FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   ...SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   ...THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   ...FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  ...FIFTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
 ] as const;
 
 export type FirstControlledInputDesignPatchSlug =
@@ -47,6 +54,9 @@ export type ThirdControlledInputDesignPatchSlug =
 
 export type FourthControlledInputDesignPatchSlug =
   (typeof FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
+
+export type FifthControlledInputDesignPatchSlug =
+  (typeof FIFTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
 
 export type ControlledInputDesignPatchSlug =
   (typeof ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
@@ -548,6 +558,130 @@ const SIGNAGE_BID_SAFE_PRICE_TOOL_PATCH: ControlledInputDesignPatch = {
   blockers: [],
 };
 
+const WELDING_BID_RISK_ANALYZER_PATCH: ControlledInputDesignPatch = {
+  slug: "welding-bid-risk-analyzer",
+  patchType: "input_design_only",
+  requiredInputs: [
+    "materialCost",
+    "laborHours",
+    "laborRate",
+    "gasConsumableCost",
+    "fitUpHours",
+    "reworkRiskPercent",
+    "targetMargin",
+  ],
+  optionalInputs: ["ndtInspectionCost", "positionFactor", "shopOverheadPercent", "heatTreatmentCost"],
+  advancedInputs: [
+    "weldProcedureComplexity",
+    "outOfPositionFactor",
+    "defectProbability",
+    "certificationTraceRisk",
+  ],
+  derivedInputs: ["minimumSafePrice", "p90Cost", "quoteVerdict", "suggestedAction"],
+  defaultAssumptions: [
+    "Base cost includes material, weld labor, fit-up premium, gas/consumables and rework buffer.",
+    "Fit-up hours billed at premium labor rate; rework applied via reworkRiskPercent multiplier.",
+    "Overhead position factor and NDT inspection loaded via hidden multipliers unless optional overrides are set.",
+    "quoteVerdict and suggestedAction are narrative outputs; minimumSafePrice is numeric governance target.",
+  ],
+  userBurdenNotes: [
+    "Premium welding bid keeps seven production-aligned required inputs; NDT and position factor optional for smart-form phase.",
+    "minimumSafePrice is governance margin floor target; integrates with welding-cost-estimator free funnel metadata.",
+  ],
+  professionalDepthNotes: [
+    "Advanced weld procedure and certification trace inputs prepare risk-adjusted bid floor and WPS-aware cost model.",
+    "calcWelding hidden multipliers unchanged — patch documents input taxonomy only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Optional ndtInspectionCost and positionFactor are governance-only — calcWelding production logic unchanged.",
+  ],
+  blockers: [],
+};
+
+const LANDSCAPING_CONTRACT_PROFIT_TOOL_PATCH: ControlledInputDesignPatch = {
+  slug: "landscaping-contract-profit-tool",
+  patchType: "input_design_only",
+  requiredInputs: [
+    "crewHoursPerVisit",
+    "laborRate",
+    "fuelCostPerVisit",
+    "supplyCostPerMonth",
+    "visitsPerMonth",
+    "equipmentWearCost",
+    "targetMargin",
+  ],
+  optionalInputs: ["travelTimePerVisit", "supervisionOverhead", "seasonalityFactor", "irrigationCost"],
+  advancedInputs: [
+    "routeDensityRisk",
+    "weatherDelayProbability",
+    "crewUtilization",
+    "specialtyServiceLoad",
+  ],
+  derivedInputs: ["minimumSafePrice", "baseCost", "p90Cost", "quoteVerdict"],
+  defaultAssumptions: [
+    "Monthly direct = crewHours×laborRate×visits + fuel×visits + supplies + equipment wear.",
+    "Equipment depreciation defaults to 8% of monthly labor when not overridden.",
+    "Flat visits per month; seasonality and route density excluded unless optional/advanced inputs are set.",
+    "Irrigation, fertilization and specialty services not itemized on base path.",
+  ],
+  userBurdenNotes: [
+    "Premium landscaping contract keeps seven production-aligned required inputs; travel and seasonality optional for smart-form phase.",
+    "minimumSafePrice is governance monthly contract floor target; integrates with lawn-care-cost-check free funnel metadata.",
+  ],
+  professionalDepthNotes: [
+    "Advanced route density and weather delay inputs prepare recurring route profitability and seasonality model.",
+    "calcLandscaping hidden multipliers unchanged — patch documents required/optional/advanced split only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Optional seasonalityFactor and routeDensityRisk are governance placeholders — calcLandscaping unchanged.",
+  ],
+  blockers: [],
+};
+
+const LAWN_CARE_COST_CHECK_PATCH: ControlledInputDesignPatch = {
+  slug: "lawn-care-cost-check",
+  patchType: "input_design_only",
+  requiredInputs: ["crewHoursPerVisit", "visitsPerMonth", "laborRate"],
+  optionalInputs: ["fuelCostPerVisit", "equipmentWearCost", "routeTravelMinutes", "seasonalityFactor"],
+  advancedInputs: [
+    "routeDensityRisk",
+    "crewProductivity",
+    "weatherDelayRisk",
+    "equipmentUtilization",
+  ],
+  derivedInputs: ["monthlyCrewHours", "recommendedPrice", "riskLevel"],
+  defaultAssumptions: [
+    "monthlyCrewHours = crewHoursPerVisit × visitsPerMonth; NALP-style route benchmarks for risk bands.",
+    "laborRate collected but not applied in free-tier risk signal — hour load is primary exposure metric.",
+    "Fuel, equipment wear and travel between sites excluded on free path unless optional inputs are provided.",
+    "HIGH risk when monthly load ≥ 40 hr/month; MEDIUM when ≥ 20 hr/month.",
+  ],
+  userBurdenNotes: [
+    "Free quick-check exposes three production-aligned inputs; fuel and equipment wear optional for smart-form phase.",
+    "recommendedPrice metadata alias equals monthlyCrewHours hour semantics; riskLevel is narrative underpricing signal.",
+  ],
+  professionalDepthNotes: [
+    "Advanced route density and crew productivity inputs prepare landscaping contract profit tool handoff.",
+    "calculateLandscapingFreeResult production logic unchanged — patch documents governance input taxonomy only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Optional fuelCostPerVisit and equipmentWearCost are governance-only — free-sector landscaping calculator unchanged.",
+  ],
+  blockers: [],
+};
+
 export const CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY: Readonly<
   Record<ControlledInputDesignPatchSlug, ControlledInputDesignPatch>
 > = {
@@ -563,6 +697,9 @@ export const CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY: Readonly<
   "repair-time-vs-price-check": REPAIR_TIME_VS_PRICE_CHECK_PATCH,
   "sheet-metal-quote-risk-tool": SHEET_METAL_QUOTE_RISK_TOOL_PATCH,
   "signage-bid-safe-price-tool": SIGNAGE_BID_SAFE_PRICE_TOOL_PATCH,
+  "welding-bid-risk-analyzer": WELDING_BID_RISK_ANALYZER_PATCH,
+  "landscaping-contract-profit-tool": LANDSCAPING_CONTRACT_PROFIT_TOOL_PATCH,
+  "lawn-care-cost-check": LAWN_CARE_COST_CHECK_PATCH,
 };
 
 export function getControlledInputDesignPatch(

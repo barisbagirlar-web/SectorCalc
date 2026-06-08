@@ -9,10 +9,11 @@ import {
   SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  FIFTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
 } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
 import type { ControlledInputDesignNextGate } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-patch-types";
 
-export const CONTROLLED_INPUT_DESIGN_PATCH_PHASE = "5H-F-4" as const;
+export const CONTROLLED_INPUT_DESIGN_PATCH_PHASE = "5H-F-5" as const;
 
 export {
   ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
@@ -20,6 +21,7 @@ export {
   SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  FIFTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
 };
 
 export function isControlledInputDesignPatchCompleted(slug: string): boolean {

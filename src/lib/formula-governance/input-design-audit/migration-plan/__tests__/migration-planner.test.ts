@@ -13,6 +13,7 @@ import {
   SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  FIFTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
 } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-status";
 import type { ToolInputDesignAuditResult } from "@/lib/formula-governance/input-design-audit/input-design-audit-types";
 
@@ -166,9 +167,21 @@ describe("buildExistingToolMigrationPlan", () => {
     const inputDesignAudit = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
     const plan = buildExistingToolMigrationPlan({ inputDesignAudit });
 
-    expect(plan.completedInputDesignPatches).toHaveLength(12);
-
     for (const slug of FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
+      const item = plan.items.find((entry) => entry.slug === slug);
+      expect(item?.inputDesignPatchCompleted).toBe(true);
+      expect(item?.nextGate).toBe("smart_form_architecture");
+      expect(plan.recommendedFirstPatchBatch.some((entry) => entry.slug === slug)).toBe(false);
+    }
+  });
+
+  test("marks fifth batch tools as completed and excludes them from first patch batch", () => {
+    const inputDesignAudit = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
+    const plan = buildExistingToolMigrationPlan({ inputDesignAudit });
+
+    expect(plan.completedInputDesignPatches).toHaveLength(15);
+
+    for (const slug of FIFTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       const item = plan.items.find((entry) => entry.slug === slug);
       expect(item?.inputDesignPatchCompleted).toBe(true);
       expect(item?.nextGate).toBe("smart_form_architecture");

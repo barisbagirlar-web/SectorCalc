@@ -10,6 +10,7 @@ import {
   SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  FIFTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   getControlledInputDesignPatch,
 } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
 
@@ -18,7 +19,7 @@ describe("controlled input design registry", () => {
     for (const slug of ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       expect(getControlledInputDesignPatch(slug)).toBeDefined();
     }
-    expect(Object.keys(CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY)).toHaveLength(12);
+    expect(Object.keys(CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY)).toHaveLength(15);
   });
 
   test("every patch declares productionImpact none", () => {
@@ -170,5 +171,38 @@ describe("controlled input design registry", () => {
     expect(patch.advancedInputs).toContain("wideFormatSpoilage");
     expect(patch.defaultAssumptions.some((line) => line.includes("4%"))).toBe(true);
     expect(patch.derivedInputs).toContain("minimumSafePrice");
+  });
+
+  test("fifth batch slugs are registered", () => {
+    for (const slug of FIFTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
+      expect(getControlledInputDesignPatch(slug)).toBeDefined();
+    }
+  });
+
+  test("welding bid risk analyzer fit-up and rework defaults are explicit", () => {
+    const patch = getControlledInputDesignPatch("welding-bid-risk-analyzer")!;
+    expect(patch.requiredInputs).toContain("fitUpHours");
+    expect(patch.requiredInputs).toContain("reworkRiskPercent");
+    expect(patch.advancedInputs).toContain("weldProcedureComplexity");
+    expect(patch.defaultAssumptions.some((line) => line.includes("fit-up"))).toBe(true);
+    expect(patch.derivedInputs).toContain("minimumSafePrice");
+  });
+
+  test("landscaping contract profit tool fuel and wear inputs are classified", () => {
+    const patch = getControlledInputDesignPatch("landscaping-contract-profit-tool")!;
+    expect(patch.requiredInputs).toContain("fuelCostPerVisit");
+    expect(patch.requiredInputs).toContain("equipmentWearCost");
+    expect(patch.advancedInputs).toContain("routeDensityRisk");
+    expect(patch.defaultAssumptions.some((line) => line.includes("8%"))).toBe(true);
+    expect(patch.derivedInputs).toContain("minimumSafePrice");
+  });
+
+  test("lawn care cost check route and monthly hours defaults are explicit", () => {
+    const patch = getControlledInputDesignPatch("lawn-care-cost-check")!;
+    expect(patch.requiredInputs).toEqual(["crewHoursPerVisit", "visitsPerMonth", "laborRate"]);
+    expect(patch.optionalInputs).toContain("fuelCostPerVisit");
+    expect(patch.advancedInputs).toContain("routeDensityRisk");
+    expect(patch.defaultAssumptions.some((line) => line.includes("monthlyCrewHours"))).toBe(true);
+    expect(patch.derivedInputs).toContain("monthlyCrewHours");
   });
 });
