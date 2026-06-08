@@ -88,7 +88,7 @@ export function resolveMigrationPriority(params: {
   }
 
   if (migrationRiskLevel === "critical") {
-    priority = auditResult.status === "blocked" ? "immediate" : "defer";
+    priority = auditResult.blockers.length > 0 ? "immediate" : "defer";
   } else if (migrationRiskLevel === "high" && priority === "immediate") {
     priority = "high";
   }

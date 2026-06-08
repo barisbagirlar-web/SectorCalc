@@ -15,6 +15,7 @@ import {
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import { getTierOneFreeToolMetadata } from "@/lib/seo/seo-refresh-priority";
+import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
 
 interface FreeToolPageParams {
@@ -117,7 +118,11 @@ export default async function FreeRevenueToolRoute({
     return (
       <>
         <JsonLd data={jsonLd} />
-        <FreeToolPage tool={revenueTool} featuredAnswer={featuredAnswer} />
+        <FreeToolPage
+          tool={revenueTool}
+          featuredAnswer={featuredAnswer}
+          smartFormPilotManifest={resolveSmartFormPilotManifestForRoute(revenueTool.freeSlug)}
+        />
       </>
     );
   }

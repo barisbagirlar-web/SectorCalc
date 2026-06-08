@@ -253,7 +253,8 @@ export type ProductionAdapterResult =
         | NormalizedBusinessOperationsProductionOutput
         | NormalizedBatchFreeProductionOutput
         | NormalizedBatchPremiumProductionOutput
-        | NormalizedBatchFreeBatch2ProductionOutput;
+        | NormalizedBatchFreeBatch2ProductionOutput
+        | NormalizedBatchPremiumBatch3ProductionOutput;
     }
   | { readonly status: "needs_adapter"; readonly reason: string }
   | { readonly status: "error"; readonly reason: string };

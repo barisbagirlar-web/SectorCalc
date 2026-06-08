@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { OsModuleHeader } from "@/components/os/OsModuleHeader";
 import { SectorToolSelect } from "@/components/os/SectorToolSelect";
@@ -18,6 +19,7 @@ import {
  type FreeToolInputValues,
  type FreeToolResult,
 } from "@/lib/tools/free-tool-results";
+import type { SmartFormUiBridgeManifest } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 import { type RevenueTool, type RevenueToolInput } from "@/lib/tools/revenue-tools";
 
 
@@ -166,9 +168,12 @@ function FreeToolResultCard({ result }: { result: FreeToolResult }) {
 interface FreeToolPageProps {
  tool: RevenueTool;
  featuredAnswer?: ReactNode;
+ smartFormPilotManifest?: SmartFormUiBridgeManifest | null;
 }
 
-export function FreeToolPage({ tool, featuredAnswer }: FreeToolPageProps) {
+export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: FreeToolPageProps) {
+ const useSmartFormPilot = Boolean(smartFormPilotManifest);
+
  const [values, setValues] = useState<FreeToolInputValues>(() =>
  buildInitialValues(tool)
  );
@@ -257,41 +262,54 @@ export function FreeToolPage({ tool, featuredAnswer }: FreeToolPageProps) {
  {featuredAnswer ? <div className="mt-5">{featuredAnswer}</div> : null}
 
  <div className="sc-ledger-cetele sc-tool-workspace mt-4">
- <form
- ref={formRef}
- onSubmit={handleSubmit}
- className="sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
- noValidate
- >
- {tool.freeInputs.map((input) => (
- <FreeToolInputField
- key={input.key}
- input={input}
- value={values[input.key] ?? (input.type === "select" ? "" : 0)}
- error={errors[input.key]}
- onChange={handleChange}
- />
- ))}
- <div className="sc-industrial-form-actions">
- <button
- type="submit"
- disabled={isCalculating}
- className="sc-cta-primary disabled:opacity-60"
- >
- {isCalculating ? "…" : "Run"}
- </button>
- </div>
- </form>
+ {useSmartFormPilot && smartFormPilotManifest ? (
+  <>
+   <SmartFormBridgeRenderer manifest={smartFormPilotManifest} />
+   <div className="sc-ledger-cetele__result sc-tool-workspace__result mt-4 min-w-0">
+    <p className="text-sm text-body-charcoal">
+     Pilot render only — standard calculator is available when SMART_FORM_PILOT is disabled.
+    </p>
+   </div>
+  </>
+ ) : (
+  <>
+   <form
+    ref={formRef}
+    onSubmit={handleSubmit}
+    className="sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
+    noValidate
+   >
+    {tool.freeInputs.map((input) => (
+     <FreeToolInputField
+      key={input.key}
+      input={input}
+      value={values[input.key] ?? (input.type === "select" ? "" : 0)}
+      error={errors[input.key]}
+      onChange={handleChange}
+     />
+    ))}
+    <div className="sc-industrial-form-actions">
+     <button
+      type="submit"
+      disabled={isCalculating}
+      className="sc-cta-primary disabled:opacity-60"
+     >
+      {isCalculating ? "…" : "Run"}
+     </button>
+    </div>
+   </form>
 
- <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0">
- {isCalculating ? (
- <p className="text-sm text-body-charcoal">Calculating…</p>
- ) : null}
- {!isCalculating && result ? <FreeToolResultCard result={result} /> : null}
- {!isCalculating && !result ? (
- <p className="text-sm text-body-charcoal">Enter values and run the calculator.</p>
- ) : null}
- </div>
+   <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0">
+    {isCalculating ? (
+     <p className="text-sm text-body-charcoal">Calculating…</p>
+    ) : null}
+    {!isCalculating && result ? <FreeToolResultCard result={result} /> : null}
+    {!isCalculating && !result ? (
+     <p className="text-sm text-body-charcoal">Enter values and run the calculator.</p>
+    ) : null}
+   </div>
+  </>
+ )}
  </div>
  </Container>
  </section>

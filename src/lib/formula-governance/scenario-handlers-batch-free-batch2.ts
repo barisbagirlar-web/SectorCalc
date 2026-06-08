@@ -671,14 +671,15 @@ export const LASER_CUTTING_SCENARIOS: Record<string, ScenarioHandler> = {
     }
   },
   "normal-prototype": () => {
+    const setupMinutes = 35;
     const result = calculateLaserCuttingTimeOracle({
-      setupMinutes: 35,
+      setupMinutes,
       cutLengthM: 4,
       cutSpeedMMin: 2,
       pierceCount: 12,
       pierceSeconds: 2.5,
     });
-    if (result.totalMinutes <= result.setupMinutes) {
+    if (result.totalMinutes <= setupMinutes) {
       throw new Error("Total minutes must exceed setup alone.");
     }
   },

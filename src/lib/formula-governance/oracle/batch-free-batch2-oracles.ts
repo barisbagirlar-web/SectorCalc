@@ -155,7 +155,8 @@ export function calculateRepairTimeVsPriceOracle(
   assertNonNegative(input.repairHours, "Repair hours");
   assertNonNegative(input.partsCost, "Parts cost");
 
-  const shopRate = input.shopRate > 0 ? input.shopRate : 80;
+  const shopRate =
+    input.shopRate !== undefined && input.shopRate > 0 ? input.shopRate : 80;
   const mitchellBaseHours = 1.2;
   const mitchellTotalHours = mitchellBaseHours * 1.0 * 1.0;
   const visibleCost = input.repairHours * shopRate + input.partsCost;

@@ -5,6 +5,7 @@
 import {
   ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY,
+  getControlledInputDesignPatch,
   FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
@@ -33,5 +34,5 @@ export function listCompletedControlledInputDesignPatchSlugs(): readonly string[
 }
 
 export function resolveCompletedPatchNextGate(slug: string): ControlledInputDesignNextGate | undefined {
-  return CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY[slug]?.nextGate;
+  return getControlledInputDesignPatch(slug)?.nextGate;
 }
