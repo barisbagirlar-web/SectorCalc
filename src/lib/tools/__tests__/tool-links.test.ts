@@ -30,6 +30,16 @@ describe("tool-links — premium hrefs", () => {
     expect(getPremiumToolHref(tool!)).toBe("/tools/premium/sheet-metal-quote-risk-tool");
   });
 
+  test("full-loop hvac slug uses revenue premium route", () => {
+    expect(resolvePremiumToolHref("hvac-project-margin-guard")).toBe(
+      "/tools/premium/hvac-project-margin-guard",
+    );
+
+    const tool = getRevenueToolByPaidSlug("hvac-project-margin-guard");
+    expect(tool).not.toBeNull();
+    expect(getPremiumToolHref(tool!)).toBe("/tools/premium/hvac-project-margin-guard");
+  });
+
   test("schema-mapped premium slugs still use premium-schema route", () => {
     expect(resolvePremiumToolHref("cnc-quote-risk-analyzer")).toBe(
       "/tools/premium-schema/cnc-oee-loss",

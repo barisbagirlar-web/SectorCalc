@@ -15,6 +15,7 @@ import { isFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validati
 
 const WELDING_SLUG = "welding-bid-risk-analyzer";
 const SHEET_METAL_SLUG = "sheet-metal-quote-risk-tool";
+const HVAC_SLUG = "hvac-project-margin-guard";
 
 describe("dual-intelligence runtime coverage audit", () => {
   test("classifies all formula contracts", () => {
@@ -23,28 +24,33 @@ describe("dual-intelligence runtime coverage audit", () => {
     expect(result.entries).toHaveLength(FORMULA_CONTRACTS.length);
   });
 
-  test("welding and sheet-metal are full_loop_runtime", () => {
+  test("welding, sheet-metal, and hvac are full_loop_runtime", () => {
     const result = runDualIntelligenceRuntimeCoverageAudit();
     const welding = result.entries.find((item) => item.slug === WELDING_SLUG);
     const sheetMetal = result.entries.find((item) => item.slug === SHEET_METAL_SLUG);
+    const hvac = result.entries.find((item) => item.slug === HVAC_SLUG);
 
     expect(isFullLoopRuntimeSlug(WELDING_SLUG)).toBe(true);
     expect(isFullLoopRuntimeSlug(SHEET_METAL_SLUG)).toBe(true);
+    expect(isFullLoopRuntimeSlug(HVAC_SLUG)).toBe(true);
     expect(welding?.tier).toBe("full_loop_runtime");
     expect(sheetMetal?.tier).toBe("full_loop_runtime");
+    expect(hvac?.tier).toBe("full_loop_runtime");
     expect(welding?.fullLoopRuntime).toBe(true);
     expect(sheetMetal?.fullLoopRuntime).toBe(true);
+    expect(hvac?.fullLoopRuntime).toBe(true);
     expect(welding?.mind1Runtime).toBe(true);
     expect(sheetMetal?.mind1Runtime).toBe(true);
-    expect(result.fullLoopRuntimeCount).toBe(2);
-    expect(result.stagedCalculationBridge).toBe(5);
+    expect(hvac?.mind1Runtime).toBe(true);
+    expect(result.fullLoopRuntimeCount).toBe(3);
+    expect(result.stagedCalculationBridge).toBe(4);
   });
 
   test("only live pilots have partial Mind 1/2 runtime without full loop", () => {
     const result = runDualIntelligenceRuntimeCoverageAudit();
 
     expect(result.liveSmartFormPilot).toBe(PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS.length);
-    expect(result.fullLoopRuntimeCount).toBe(2);
+    expect(result.fullLoopRuntimeCount).toBe(3);
     expect(result.mind1RuntimeCount).toBe(result.liveSmartFormPilot + result.fullLoopRuntimeCount);
     expect(result.mind2RuntimeCount).toBe(result.liveSmartFormPilot + result.fullLoopRuntimeCount);
 
@@ -65,6 +71,7 @@ describe("dual-intelligence runtime coverage audit", () => {
     expect(report).toContain("full_loop_runtime");
     expect(report).toContain(WELDING_SLUG);
     expect(report).toContain(SHEET_METAL_SLUG);
+    expect(report).toContain(HVAC_SLUG);
   });
 
   test("is deterministic", () => {

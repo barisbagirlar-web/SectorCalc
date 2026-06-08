@@ -5,6 +5,7 @@
 export const FULL_LOOP_RUNTIME_SLUGS = [
   "welding-bid-risk-analyzer",
   "sheet-metal-quote-risk-tool",
+  "hvac-project-margin-guard",
 ] as const;
 
 export type FullLoopRuntimeSlug = (typeof FULL_LOOP_RUNTIME_SLUGS)[number];

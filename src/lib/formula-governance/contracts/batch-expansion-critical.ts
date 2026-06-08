@@ -1889,6 +1889,7 @@ export const hvacProjectMarginGuardContract: FormulaContract = buildAssuredCriti
   }),
   validationRules: [
     { id: "equipment-non-negative", description: "equipmentCost must be ≥ 0", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0", kind: "edge" },
     { id: "callback-percent", description: "callbackRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],

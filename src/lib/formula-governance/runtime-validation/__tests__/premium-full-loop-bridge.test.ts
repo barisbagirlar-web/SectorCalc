@@ -1,5 +1,5 @@
 /**
- * Premium full-loop runtime bridge tests — welding + sheet-metal pilots.
+ * Premium full-loop runtime bridge tests — welding, sheet-metal, and HVAC pilots.
  */
 
 import { describe, expect, test } from "vitest";
@@ -11,6 +11,7 @@ import { isFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validati
 
 const WELDING_SLUG = "welding-bid-risk-analyzer";
 const SHEET_METAL_SLUG = "sheet-metal-quote-risk-tool";
+const HVAC_SLUG = "hvac-project-margin-guard";
 
 const WELDING_VALID_INPUTS = {
   materialCost: 1200,
@@ -32,6 +33,16 @@ const SHEET_METAL_VALID_INPUTS = {
   scrapRatePercent: 10,
   finishingCost: 35,
   targetMargin: 25,
+} as const;
+
+const HVAC_VALID_INPUTS = {
+  equipmentCost: 8500,
+  ductworkCost: 2200,
+  laborHours: 24,
+  laborRate: 75,
+  commissioningCost: 450,
+  callbackRiskPercent: 8,
+  targetMargin: 22,
 } as const;
 
 describe("premium full-loop runtime bridge — welding", () => {
@@ -157,6 +168,72 @@ describe("premium full-loop runtime bridge — sheet metal", () => {
     expect(result.trustTrace.validationPassed).toBe(true);
     expect(result.trustTrace.loopStatus).toBe("SUCCESS");
     expect(result.trustTrace.canonicalInputs).toContain("cutTime");
+    expect(result.trustTrace.validationSources.length).toBeGreaterThan(0);
+  });
+});
+
+describe("premium full-loop runtime bridge — HVAC", () => {
+  test("registers hvac as full-loop slug", () => {
+    expect(isFullLoopRuntimeSlug(HVAC_SLUG)).toBe(true);
+  });
+
+  test("rejects non-canonical input keys", () => {
+    const sanitized = sanitizeCanonicalInputs(HVAC_SLUG, {
+      ...HVAC_VALID_INPUTS,
+      rogueKey: 999,
+      manualJLoadVariance: 0.12,
+    });
+
+    expect(sanitized.rejectedKeys).toContain("rogueKey");
+    expect(sanitized.rejectedKeys).toContain("manualJLoadVariance");
+    expect(sanitized.canonical.equipmentCost).toBe(8500);
+    expect("rogueKey" in sanitized.canonical).toBe(false);
+  });
+
+  test("blocks calculation when required inputs are missing", () => {
+    const result = runPremiumFullLoopCalculation(HVAC_SLUG, {
+      equipmentCost: 5000,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.loopStatus).toBe("NEED_DATA");
+    expect(result.missingInputs.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(false);
+  });
+
+  test("blocks when labor rate is zero", () => {
+    const result = runPremiumFullLoopCalculation(HVAC_SLUG, {
+      ...HVAC_VALID_INPUTS,
+      laborRate: 0,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.blockers.some((blocker) => blocker.includes("Labor rate"))).toBe(true);
+  });
+
+  test("blocks when callback risk is out of range", () => {
+    const result = runPremiumFullLoopCalculation(HVAC_SLUG, {
+      ...HVAC_VALID_INPUTS,
+      callbackRiskPercent: 120,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.blockers.some((blocker) => blocker.includes("Callback risk"))).toBe(true);
+  });
+
+  test("returns report, verdict and trust trace on valid inputs", () => {
+    const result = runPremiumFullLoopCalculation(HVAC_SLUG, { ...HVAC_VALID_INPUTS });
+
+    expect(result.status).toBe("success");
+    if (result.status !== "success") {
+      return;
+    }
+
+    expect(result.report.minimumSafePrice).toBeGreaterThan(0);
+    expect(result.toolResult.verdict.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(true);
+    expect(result.trustTrace.loopStatus).toBe("SUCCESS");
+    expect(result.trustTrace.canonicalInputs).toContain("equipmentCost");
     expect(result.trustTrace.validationSources.length).toBeGreaterThan(0);
   });
 });

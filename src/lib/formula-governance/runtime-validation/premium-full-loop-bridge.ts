@@ -177,6 +177,12 @@ function validateContractEdgeRules(slug: string, knownInputs: KnownInputs): read
         errors.push("Scrap rate must be between 0% and 100%.");
       }
     }
+    if (rule.id === "callback-percent") {
+      const callback = knownInputs.callbackRiskPercent;
+      if (callback !== undefined && (callback < 0 || callback > 100)) {
+        errors.push("Callback risk must be between 0% and 100%.");
+      }
+    }
     if (rule.id === "rate-positive") {
       const laborRate = knownInputs.laborRate;
       if (laborRate !== undefined && laborRate <= 0) {
