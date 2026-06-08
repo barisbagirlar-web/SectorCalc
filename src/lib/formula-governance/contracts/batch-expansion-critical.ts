@@ -9,6 +9,8 @@ import {
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
   buildAssuredCriticalContract,
+  buildCriticalContract,
+  scenarioSkeletons,
 } from "@/lib/formula-governance/contracts/shared";
 
 export const BATCH_FREE_ORACLE_WIRED_SLUGS = [
@@ -25,6 +27,20 @@ export const BATCH_PREMIUM_ORACLE_WIRED_SLUGS = [
   "menu-profit-leak-detector",
   "return-profit-erosion-tool",
   "welding-bid-risk-analyzer",
+] as const;
+
+/** Phase 5G-A — next 10 critical contracts (skeleton only; oracle/property/scenario pending). */
+export const BATCH_FREE_BATCH2_CRITICAL_SLUGS = [
+  "sample-size-calculator",
+  "hvac-tonnage-rule-check",
+  "electrical-labor-estimator",
+  "lawn-care-cost-check",
+  "repair-time-vs-price-check",
+  "print-job-cost-check",
+  "plumbing-job-margin-verdict",
+  "cabinet-cost-estimator",
+  "roofing-square-cost-check",
+  "laser-cutting-time-check",
 ] as const;
 import { createWarningPolicy } from "@/lib/formula-governance/warning-policy";
 
@@ -833,6 +849,756 @@ export const weldingBidRiskAnalyzerContract: FormulaContract = buildAssuredCriti
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed weld bid acceptance"],
 });
 
+export const sampleSizeCalculatorContract: FormulaContract = buildCriticalContract({
+  toolId: "free-traffic.sample-size-calculator",
+  toolName: "Sample Size Calculator",
+  slug: "sample-size-calculator",
+  purpose:
+    "Estimate required survey sample size from population, confidence level, margin of error and expected proportion.",
+  userDecision: "How large a sample do I need for this population at the stated confidence and margin?",
+  decisionImpact: "technical",
+  requiredInputs: ["population", "confidenceZ", "marginErrorPercent", "proportionPercent"],
+  criticalInputs: ["population", "confidenceZ", "marginErrorPercent", "proportionPercent"],
+  outputs: ["requiredSample", "infinitePopulationEstimate"],
+  assumptions: [
+    FINANCIAL_SIMULATION_DISCLAIMER,
+    "Production: src/lib/tools/free-traffic-calculators.ts → CALCULATORS[\"sample-size-calculator\"].",
+    "Cochran-style sample size with finite population correction when population > 0.",
+  ],
+  formulaSummary:
+    "n₀ = z² × p × (1 − p) ÷ margin²; finite population n = n₀ ÷ (1 + (n₀ − 1) ÷ N); output ceil(sample).",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Simple random sampling with stated confidence z-score and proportion estimate.",
+    ],
+    modelLimitations: [
+      "Sampling bias and non-response not modeled",
+      "Finite population correction only when population > 0",
+      "Stratified or cluster sampling designs not supported",
+    ],
+    futureExtensions: [
+      "Independent oracle for sample size with confidence interval validation",
+      "Design effect factor for cluster samples",
+    ],
+  }),
+  validationRules: [
+    { id: "margin-positive", description: "marginErrorPercent must be > 0", kind: "edge" },
+    { id: "proportion-percent", description: "proportionPercent within 0–100%", kind: "dimensional" },
+    { id: "population-non-negative", description: "population must be ≥ 0", kind: "edge" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-survey", description: "Normal case: finite population with 95% confidence" },
+    { id: "edge-large-population", description: "Edge case: large population approaches infinite correction" },
+    { id: "absurd-zero-margin", description: "Absurd input: zero margin of error rejected" },
+    { id: "directional-confidence", description: "Directional: higher z widens required sample" },
+    { id: "sensitivity-proportion", description: "Sensitivity: proportion near 50% increases sample need" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "margin-down-sample",
+      description: "Lower marginErrorPercent must not decrease required sample size",
+      inputKey: "marginErrorPercent",
+      direction: "increase_should_decrease",
+      outputKey: "requiredSample",
+    },
+    {
+      id: "z-up-sample",
+      description: "Higher confidenceZ must not decrease required sample size",
+      inputKey: "confidenceZ",
+      direction: "increase_should_increase",
+      outputKey: "requiredSample",
+    },
+    {
+      id: "population-up-sample",
+      description: "Larger finite population must not decrease required sample below infinite estimate",
+      inputKey: "population",
+      direction: "increase_should_increase",
+      outputKey: "requiredSample",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Statistically valid survey guarantee"],
+});
+
+export const hvacTonnageRuleCheckContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-free.hvac-tonnage-rule-check",
+  toolName: "HVAC Tonnage Rule Check",
+  slug: "hvac-tonnage-rule-check",
+  purpose:
+    "Quick-check HVAC tonnage vs simplified ASHRAE/Manual J load estimate for visible sizing risk.",
+  userDecision: "Is the specified tonnage reasonable for this square footage and labor exposure?",
+  decisionImpact: "technical",
+  requiredInputs: ["squareFootage", "tonnage", "laborHours"],
+  criticalInputs: ["squareFootage", "tonnage", "laborHours"],
+  outputs: ["riskLevel", "recommendedTons", "totalBtu"],
+  assumptions: [
+    FINANCIAL_SIMULATION_DISCLAIMER,
+    "Production: src/lib/tools/free-sector-calculations.ts → calculateHvacFreeResult → calculateHvacTonnageResult.",
+    "Rule-of-thumb load model with average insulation and moderate climate defaults.",
+  ],
+  formulaSummary:
+    "ASHRAE simplified BTU load from area, window and occupancy factors; tons = BTU ÷ 12000; compare specified tonnage to recommended sizing band.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Average insulation, 15% window area and moderate climate unless overridden in premium tier.",
+    ],
+    modelLimitations: [
+      "Rule-of-thumb only — full Manual J / climate envelope not modeled",
+      "Duct leakage, ventilation and latent load not itemized on free tier",
+      "Equipment efficiency and line-set length excluded",
+    ],
+    futureExtensions: [
+      "Oracle for ASHRAE tonnage baseline",
+      "HVAC project margin guard integration for callback risk",
+    ],
+  }),
+  validationRules: [
+    { id: "area-positive", description: "squareFootage must be > 0", kind: "edge" },
+    { id: "tonnage-non-negative", description: "tonnage must be ≥ 0", kind: "edge" },
+    { id: "labor-non-negative", description: "laborHours must be ≥ 0", kind: "edge" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-office", description: "Normal case: mid-size office with matched tonnage" },
+    { id: "edge-undersized", description: "Edge case: tonnage below 70% of load estimate" },
+    { id: "absurd-zero-area", description: "Absurd input: zero square footage rejected" },
+    { id: "directional-area", description: "Directional: larger area increases recommended tons" },
+    { id: "sensitivity-labor", description: "Sensitivity: high labor hours raises margin check signal" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "area-up-load",
+      description: "Higher squareFootage must not decrease recommended tonnage",
+      inputKey: "squareFootage",
+      direction: "increase_should_increase",
+      outputKey: "recommendedTons",
+    },
+    {
+      id: "tonnage-ratio",
+      description: "Lower specified tonnage must not improve undersize risk signal",
+      inputKey: "tonnage",
+      direction: "increase_should_decrease",
+      outputKey: "riskLevel",
+    },
+    {
+      id: "labor-up-exposure",
+      description: "Higher laborHours must not decrease install exposure signal",
+      inputKey: "laborHours",
+      direction: "increase_should_increase",
+      outputKey: "riskLevel",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "ASHRAE-certified load calculation"],
+});
+
+export const electricalLaborEstimatorContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-free.electrical-labor-estimator",
+  toolName: "Electrical Labor Estimator",
+  slug: "electrical-labor-estimator",
+  purpose:
+    "Estimate visible electrical labor vs material ratio and flag under-scoped panel or shop work.",
+  userDecision: "Does labor cover material load before inspection and testing time?",
+  decisionImpact: "pricing",
+  requiredInputs: ["materialCost", "laborHours", "laborRate"],
+  criticalInputs: ["materialCost", "laborHours", "laborRate"],
+  outputs: ["riskLevel", "laborCost", "laborMaterialRatio"],
+  assumptions: [
+    FINANCIAL_SIMULATION_DISCLAIMER,
+    "Production: src/lib/tools/free-sector-calculations.ts → calculateElectricalFreeResult.",
+    "Labor cost = laborHours × laborRate; ratio compared to NEC estimating band (~40–65% commercial).",
+  ],
+  formulaSummary:
+    "Labor/material ratio = (laborHours × laborRate) ÷ materialCost; risk bands when ratio < 40% on long jobs or labor hours ≥ 16.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Flat labor rate and material cost snapshot per job.",
+    ],
+    modelLimitations: [
+      "Jurisdiction code requirements and permit time not modeled",
+      "Testing, inspection and rework hours excluded on free tier",
+      "Conduit fill, derating and specialty gear not itemized",
+    ],
+    futureExtensions: [
+      "Oracle for labor/material ratio bands",
+      "Panel shop margin verdict integration for inspection risk",
+    ],
+  }),
+  validationRules: [
+    { id: "hours-non-negative", description: "laborHours must be ≥ 0", kind: "edge" },
+    { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0 when hours > 0", kind: "edge" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-panel", description: "Normal case: balanced labor/material ratio" },
+    { id: "edge-labor-heavy", description: "Edge case: long labor hours trigger bid check" },
+    { id: "absurd-negative-cost", description: "Absurd input: negative material cost rejected" },
+    { id: "directional-labor", description: "Directional: more labor hours increase labor cost" },
+    { id: "sensitivity-rate", description: "Sensitivity: higher labor rate widens ratio" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "hours-up-labor",
+      description: "Higher laborHours must not decrease labor cost",
+      inputKey: "laborHours",
+      direction: "increase_should_increase",
+      outputKey: "laborCost",
+    },
+    {
+      id: "rate-up-labor",
+      description: "Higher laborRate must not decrease labor cost",
+      inputKey: "laborRate",
+      direction: "increase_should_increase",
+      outputKey: "laborCost",
+    },
+    {
+      id: "material-up-ratio",
+      description: "Higher materialCost must not increase labor/material ratio",
+      inputKey: "materialCost",
+      direction: "increase_should_decrease",
+      outputKey: "laborMaterialRatio",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "NEC code compliance certification"],
+});
+
+export const lawnCareCostCheckContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-free.lawn-care-cost-check",
+  toolName: "Lawn Care Cost Check",
+  slug: "lawn-care-cost-check",
+  purpose:
+    "Check monthly crew-hour load for recurring lawn routes and visible underpricing risk.",
+  userDecision: "Is this visit schedule likely underpriced before fuel and equipment wear?",
+  decisionImpact: "pricing",
+  requiredInputs: ["crewHoursPerVisit", "visitsPerMonth", "laborRate"],
+  criticalInputs: ["crewHoursPerVisit", "visitsPerMonth", "laborRate"],
+  outputs: ["riskLevel", "monthlyCrewHours"],
+  assumptions: [
+    FINANCIAL_SIMULATION_DISCLAIMER,
+    "Production: src/lib/tools/free-sector-calculations.ts → calculateLandscapingFreeResult.",
+    "Monthly load = crewHoursPerVisit × visitsPerMonth; NALP-style route benchmarks for risk bands.",
+  ],
+  formulaSummary:
+    "monthlyCrewHours = crewHoursPerVisit × visitsPerMonth; HIGH risk when load ≥ 40 hr/month; MEDIUM when ≥ 20 hr/month.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Single-route snapshot; crew hours per visit entered by operator.",
+    ],
+    modelLimitations: [
+      "Route density, weather and seasonality not modeled",
+      "Fuel, equipment wear and travel between sites excluded on free tier",
+      "laborRate collected but not applied in free risk signal",
+    ],
+    futureExtensions: [
+      "Oracle for monthly route cost floor",
+      "Landscaping contract profit tool integration",
+    ],
+  }),
+  validationRules: [
+    { id: "hours-non-negative", description: "crewHoursPerVisit must be ≥ 0", kind: "edge" },
+    { id: "visits-positive", description: "visitsPerMonth must be ≥ 1", kind: "edge" },
+    { id: "rate-non-negative", description: "laborRate must be ≥ 0", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-route", description: "Normal case: moderate weekly visit load" },
+    { id: "edge-heavy-route", description: "Edge case: monthly load above 40 crew-hours" },
+    { id: "absurd-negative-hours", description: "Absurd input: negative crew hours rejected" },
+    { id: "directional-visits", description: "Directional: more visits increase monthly load" },
+    { id: "sensitivity-hours", description: "Sensitivity: longer visits widen monthly load" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "visits-up-load",
+      description: "Higher visitsPerMonth must not decrease monthly crew hours",
+      inputKey: "visitsPerMonth",
+      direction: "increase_should_increase",
+      outputKey: "monthlyCrewHours",
+    },
+    {
+      id: "hours-up-load",
+      description: "Higher crewHoursPerVisit must not decrease monthly crew hours",
+      inputKey: "crewHoursPerVisit",
+      direction: "increase_should_increase",
+      outputKey: "monthlyCrewHours",
+    },
+    {
+      id: "load-up-risk",
+      description: "Higher monthly crew hours must not lower route risk severity",
+      inputKey: "crewHoursPerVisit",
+      direction: "increase_should_increase",
+      outputKey: "riskLevel",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed contract profitability"],
+});
+
+export const repairTimeVsPriceCheckContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-free.repair-time-vs-price-check",
+  toolName: "Repair Time vs Price Check",
+  slug: "repair-time-vs-price-check",
+  purpose:
+    "Compare quoted repair price to visible labor and parts burden using Mitchell-style book time reference.",
+  userDecision: "Does the quoted price cover visible labor and parts before diagnostic and comeback risk?",
+  decisionImpact: "pricing",
+  requiredInputs: ["quotedPrice", "repairHours", "partsCost"],
+  criticalInputs: ["quotedPrice", "repairHours", "partsCost"],
+  outputs: ["riskLevel", "burdenedCost", "bookHoursDelta"],
+  assumptions: [
+    FINANCIAL_SIMULATION_DISCLAIMER,
+    "Production: src/lib/tools/free-sector-calculations.ts → calculateAutoRepairFreeResult → calculateRepairTimeResult.",
+    "Default shop rate $80/hr; diagnostic allowance 0.75 hr added to burdened cost.",
+  ],
+  formulaSummary:
+    "visibleCost = repairHours × shopRate + partsCost; burdenedCost = visibleCost + diagnosticAllowance; compare to quotedPrice and Mitchell book hours.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Flat shop rate and parts cost per job; Mitchell brake-pad reference for book time delta.",
+    ],
+    modelLimitations: [
+      "Diagnostic uncertainty and parts availability not modeled",
+      "Comeback/warranty rework excluded on free tier",
+      "Vehicle-specific book time variance simplified",
+    ],
+    futureExtensions: [
+      "Oracle for burdened cost vs quote",
+      "Auto shop margin leak detector integration",
+    ],
+  }),
+  validationRules: [
+    { id: "quote-non-negative", description: "quotedPrice must be ≥ 0", kind: "edge" },
+    { id: "hours-non-negative", description: "repairHours must be ≥ 0", kind: "edge" },
+    { id: "parts-non-negative", description: "partsCost must be ≥ 0", kind: "edge" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-brake-job", description: "Normal case: quote above burdened cost" },
+    { id: "edge-thin-quote", description: "Edge case: burdened cost ≥ 75% of quoted price" },
+    { id: "absurd-negative-quote", description: "Absurd input: negative quoted price rejected" },
+    { id: "directional-hours", description: "Directional: more repair hours increase burdened cost" },
+    { id: "sensitivity-parts", description: "Sensitivity: higher parts cost widens burdened cost" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "hours-up-burden",
+      description: "Higher repairHours must not decrease burdened cost",
+      inputKey: "repairHours",
+      direction: "increase_should_increase",
+      outputKey: "burdenedCost",
+    },
+    {
+      id: "parts-up-burden",
+      description: "Higher partsCost must not decrease burdened cost",
+      inputKey: "partsCost",
+      direction: "increase_should_increase",
+      outputKey: "burdenedCost",
+    },
+    {
+      id: "quote-down-risk",
+      description: "Lower quotedPrice must not improve underpricing risk signal",
+      inputKey: "quotedPrice",
+      direction: "increase_should_decrease",
+      outputKey: "riskLevel",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed job profitability"],
+});
+
+export const printJobCostCheckContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-free.print-job-cost-check",
+  toolName: "Print Job Cost Check",
+  slug: "print-job-cost-check",
+  purpose:
+    "Estimate visible print/signage design and material exposure before reprint and install risk.",
+  userDecision: "Is design time likely to erode margin relative to material cost?",
+  decisionImpact: "pricing",
+  requiredInputs: ["materialCost", "designHours", "laborRate"],
+  criticalInputs: ["materialCost", "designHours", "laborRate"],
+  outputs: ["riskLevel", "designCost", "designMaterialRatio"],
+  assumptions: [
+    FINANCIAL_SIMULATION_DISCLAIMER,
+    "Production: src/lib/tools/free-sector-calculations.ts → calculatePrintingFreeResult.",
+    "Design cost = designHours × laborRate; SGIA-style design/material ratio thresholds.",
+  ],
+  formulaSummary:
+    "designCost = designHours × laborRate; ratio = designCost ÷ materialCost; HIGH when ratio ≥ 1.2.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Flat labor rate for design time; material cost entered as job snapshot.",
+    ],
+    modelLimitations: [
+      "Spoilage, color calibration and finishing complexity may require override",
+      "Ink coverage and reprint risk not modeled on free tier",
+      "Install labor excluded",
+    ],
+    futureExtensions: [
+      "Oracle for design/material ratio bands",
+      "Signage bid safe price tool integration",
+    ],
+  }),
+  validationRules: [
+    { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "hours-non-negative", description: "designHours must be ≥ 0", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0 when design hours > 0", kind: "edge" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-sign-job", description: "Normal case: balanced design/material ratio" },
+    { id: "edge-design-heavy", description: "Edge case: design/material ratio above 1.2" },
+    { id: "absurd-negative-material", description: "Absurd input: negative material cost rejected" },
+    { id: "directional-design", description: "Directional: more design hours increase design cost" },
+    { id: "sensitivity-rate", description: "Sensitivity: higher labor rate widens design cost" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "hours-up-design",
+      description: "Higher designHours must not decrease design cost",
+      inputKey: "designHours",
+      direction: "increase_should_increase",
+      outputKey: "designCost",
+    },
+    {
+      id: "rate-up-design",
+      description: "Higher laborRate must not decrease design cost",
+      inputKey: "laborRate",
+      direction: "increase_should_increase",
+      outputKey: "designCost",
+    },
+    {
+      id: "material-down-ratio",
+      description: "Lower materialCost must not decrease design/material ratio",
+      inputKey: "materialCost",
+      direction: "increase_should_decrease",
+      outputKey: "designMaterialRatio",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed print margin"],
+});
+
+export const plumbingJobMarginVerdictContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-premium.plumbing-job-margin-verdict",
+  toolName: "Plumbing Job Margin Verdict",
+  slug: "plumbing-job-margin-verdict",
+  purpose:
+    "Find safe plumbing job price with callback risk, material runs and access difficulty included.",
+  userDecision: "Is this plumbing job priced safely given parts, labor and callback exposure?",
+  decisionImpact: "pricing",
+  requiredInputs: [
+    "partsCost",
+    "laborHours",
+    "laborRate",
+    "fixtureCount",
+    "materialRunCost",
+    "callbackRiskPercent",
+    "targetMargin",
+  ],
+  criticalInputs: [
+    "partsCost",
+    "laborHours",
+    "laborRate",
+    "fixtureCount",
+    "materialRunCost",
+    "callbackRiskPercent",
+    "targetMargin",
+  ],
+  outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "baseCost"],
+  assumptions: [
+    PREMIUM_DECISION_DISCLAIMER,
+    "Production: src/lib/tools/premium-decision-engine.ts → calcPlumbing + MarginCore floor.",
+    "Base = parts + labor + material runs + fixture allowance + access/permit buffers × callback%.",
+  ],
+  formulaSummary:
+    "baseCost = (parts + labor + materialRun + fixtureAllowance + access + permit) × (1 + callback%); safe price via hidden multipliers and volatility buffer.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Fixture allowance $25 per fixture; access 15% and permit 10% of labor.",
+    ],
+    modelLimitations: [
+      "Emergency premium, permit fees and concealed damage not modeled explicitly",
+      "Water damage liability loaded via hidden multipliers only",
+      "Premium decision layer not oracle-compared in Phase 5G-A",
+    ],
+    futureExtensions: [
+      "Independent oracle for minimum safe job price",
+      "Multi-fixture complexity curves",
+    ],
+  }),
+  validationRules: [
+    { id: "labor-positive", description: "laborHours must be > 0 for priced jobs", kind: "edge" },
+    { id: "callback-percent", description: "callbackRiskPercent within 0–100%", kind: "dimensional" },
+    { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-fixture-job", description: "Normal case: multi-fixture job with moderate callback risk" },
+    { id: "edge-high-callback", description: "Edge case: callback risk above 15%" },
+    { id: "absurd-zero-rate", description: "Absurd input: zero labor rate rejected" },
+    { id: "directional-parts", description: "Directional: higher partsCost raises base cost" },
+    { id: "sensitivity-margin", description: "Sensitivity: higher targetMargin raises minimum safe price" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "parts-up-floor",
+      description: "Higher partsCost must not decrease minimum safe price",
+      inputKey: "partsCost",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "callback-up-floor",
+      description: "Higher callbackRiskPercent must not decrease minimum safe price",
+      inputKey: "callbackRiskPercent",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+    {
+      id: "margin-up-floor",
+      description: "Higher targetMargin must not decrease minimum safe price",
+      inputKey: "targetMargin",
+      direction: "increase_should_increase",
+      outputKey: "minimumSafePrice",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed plumbing job acceptance"],
+});
+
+export const cabinetCostEstimatorContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-free.cabinet-cost-estimator",
+  toolName: "Cabinet Cost Estimator",
+  slug: "cabinet-cost-estimator",
+  purpose:
+    "Estimate visible millwork shop and install hour exposure before waste and finishing buffers.",
+  userDecision: "Are shop and install hours adequate before waste and finishing risk?",
+  decisionImpact: "pricing",
+  requiredInputs: ["sheetMaterialCost", "laborHours", "installHours"],
+  criticalInputs: ["sheetMaterialCost", "laborHours", "installHours"],
+  outputs: ["riskLevel", "totalHours", "wasteAdjustedHours"],
+  assumptions: [
+    FINANCIAL_SIMULATION_DISCLAIMER,
+    "Production: src/lib/tools/free-sector-calculations.ts → calculateCarpentryFreeResult.",
+    "WWPA 12% waste factor applied to total shop+install hours for effective load.",
+  ],
+  formulaSummary:
+    "totalHours = laborHours + installHours; wasteAdjustedHours = totalHours × 1.12; risk bands at 12 hr and 24 hr thresholds.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Flat shop and install hours; 12% WWPA waste factor on free tier.",
+    ],
+    modelLimitations: [
+      "Finish grade, hardware variation and install complexity not fully modeled",
+      "Sheet material cost collected but not used in free risk signal",
+      "Finishing schedule delay excluded",
+    ],
+    futureExtensions: [
+      "Oracle for millwork hour and waste baseline",
+      "Millwork bid risk analyzer integration",
+    ],
+  }),
+  validationRules: [
+    { id: "hours-non-negative", description: "laborHours and installHours must be ≥ 0", kind: "edge" },
+    { id: "material-non-negative", description: "sheetMaterialCost must be ≥ 0", kind: "edge" },
+    { id: "total-hours-positive", description: "At least one of labor or install hours must be > 0", kind: "edge" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-cabinet-job", description: "Normal case: moderate shop+install hours" },
+    { id: "edge-long-install", description: "Edge case: total hours above 24" },
+    { id: "absurd-negative-hours", description: "Absurd input: negative labor hours rejected" },
+    { id: "directional-install", description: "Directional: more install hours increase total hours" },
+    { id: "sensitivity-waste", description: "Sensitivity: waste factor increases effective hours" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "labor-up-total",
+      description: "Higher laborHours must not decrease total hours",
+      inputKey: "laborHours",
+      direction: "increase_should_increase",
+      outputKey: "totalHours",
+    },
+    {
+      id: "install-up-total",
+      description: "Higher installHours must not decrease total hours",
+      inputKey: "installHours",
+      direction: "increase_should_increase",
+      outputKey: "totalHours",
+    },
+    {
+      id: "total-up-waste",
+      description: "Higher total hours must not decrease waste-adjusted hours",
+      inputKey: "laborHours",
+      direction: "increase_should_increase",
+      outputKey: "wasteAdjustedHours",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed millwork bid"],
+});
+
+export const roofingSquareCostCheckContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-free.roofing-square-cost-check",
+  toolName: "Roofing Square Cost Check",
+  slug: "roofing-square-cost-check",
+  purpose:
+    "Check roofing labor vs material ratio against NRCA square costing reference for tear-off risk signals.",
+  userDecision: "Does labor cover material load before tear-off, pitch and weather delay risk?",
+  decisionImpact: "pricing",
+  requiredInputs: ["materialCost", "laborHours", "laborRate"],
+  criticalInputs: ["materialCost", "laborHours", "laborRate"],
+  outputs: ["riskLevel", "laborCost", "nrcaEstimate"],
+  assumptions: [
+    FINANCIAL_SIMULATION_DISCLAIMER,
+    "Production: src/lib/tools/free-sector-calculations.ts → calculateRoofingFreeResult → calculateRoofingCostResult.",
+    "Area inferred from material cost; NRCA asphalt shingle reference with tear-off.",
+  ],
+  formulaSummary:
+    "laborCost = laborHours × laborRate; compare labor/material ratio to NRCA guide (~45%); HIGH when ratio low on long jobs.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Asphalt shingle, 22° pitch, single story and tear-off defaults in NRCA helper.",
+    ],
+    modelLimitations: [
+      "Pitch, tear-off layers, local code and access complexity may require override",
+      "Weather delay and warranty reserve not modeled on free tier",
+      "Dump fees and ice-dam membrane excluded",
+    ],
+    futureExtensions: [
+      "Oracle for NRCA square cost baseline",
+      "Roofing contract margin guard integration",
+    ],
+  }),
+  validationRules: [
+    { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "hours-non-negative", description: "laborHours must be ≥ 0", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0 when hours > 0", kind: "edge" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-shingle-job", description: "Normal case: balanced labor/material ratio" },
+    { id: "edge-long-labor", description: "Edge case: labor hours ≥ 24 trigger contract check" },
+    { id: "absurd-negative-material", description: "Absurd input: negative material cost rejected" },
+    { id: "directional-labor", description: "Directional: more labor hours increase labor cost" },
+    { id: "sensitivity-material", description: "Sensitivity: higher material shifts NRCA area inference" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "hours-up-labor",
+      description: "Higher laborHours must not decrease labor cost",
+      inputKey: "laborHours",
+      direction: "increase_should_increase",
+      outputKey: "laborCost",
+    },
+    {
+      id: "rate-up-labor",
+      description: "Higher laborRate must not decrease labor cost",
+      inputKey: "laborRate",
+      direction: "increase_should_increase",
+      outputKey: "laborCost",
+    },
+    {
+      id: "material-up-nrca",
+      description: "Higher materialCost must not decrease inferred NRCA estimate",
+      inputKey: "materialCost",
+      direction: "increase_should_increase",
+      outputKey: "nrcaEstimate",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "NRCA-certified bid guarantee"],
+});
+
+export const laserCuttingTimeCheckContract: FormulaContract = buildCriticalContract({
+  toolId: "revenue-free.laser-cutting-time-check",
+  toolName: "Laser Cutting Time Check",
+  slug: "laser-cutting-time-check",
+  purpose:
+    "Estimate laser cut time and setup burden for sheet metal jobs before scrap and programming risk.",
+  userDecision: "Is setup burden acceptable for this quantity before full quote risk modeling?",
+  decisionImpact: "technical",
+  requiredInputs: ["setupTime", "cutTime", "quantity"],
+  criticalInputs: ["setupTime", "cutTime", "quantity"],
+  outputs: ["riskLevel", "setupBurdenPercent", "totalMinutes"],
+  assumptions: [
+    FINANCIAL_SIMULATION_DISCLAIMER,
+    "Production: src/lib/tools/free-sector-calculations.ts → calculateSheetMetalFreeResult (revenue-free).",
+    "Alternate free-traffic path: src/lib/tools/free-traffic-calculators.ts uses cut length/speed/pierce inputs.",
+    "Setup burden = setupTime ÷ (setupTime + cycleTime × quantity).",
+  ],
+  formulaSummary:
+    "Revenue-free: setup burden ratio from setupTime and quantity (default 5 min cycle); free-traffic: setup + cutLength ÷ speed + pierce time.",
+  missingParameterWarnings: [],
+  warningPolicy: createWarningPolicy({
+    acceptedAssumptions: [
+      "Revenue funnel uses setupTime and quantity; cutTime input registered but not passed to free sector calc.",
+    ],
+    modelLimitations: [
+      "Material grade, pierce count, nesting, assist gas and programming not fully modeled",
+      "Nest scrap 8–12% not applied on free tier",
+      "Dual calculator paths (revenue vs free-traffic) use different input shapes",
+    ],
+    futureExtensions: [
+      "Unified oracle across revenue and free-traffic laser paths",
+      "Sheet metal quote risk tool integration",
+    ],
+  }),
+  validationRules: [
+    { id: "quantity-positive", description: "quantity must be ≥ 1", kind: "edge" },
+    { id: "setup-non-negative", description: "setupTime must be ≥ 0", kind: "edge" },
+    { id: "cut-non-negative", description: "cutTime must be ≥ 0", kind: "edge" },
+  ],
+  scenarioTests: scenarioSkeletons([
+    { id: "normal-batch", description: "Normal case: moderate setup with batch quantity" },
+    { id: "edge-setup-heavy", description: "Edge case: low qty with long setup" },
+    { id: "absurd-zero-qty", description: "Absurd input: zero quantity rejected" },
+    { id: "directional-setup", description: "Directional: longer setup increases burden percent" },
+    { id: "sensitivity-quantity", description: "Sensitivity: higher quantity dilutes setup burden" },
+  ]),
+  monotonicityRules: [
+    {
+      id: "setup-up-burden",
+      description: "Higher setupTime must not decrease setup burden percent",
+      inputKey: "setupTime",
+      direction: "increase_should_increase",
+      outputKey: "setupBurdenPercent",
+    },
+    {
+      id: "qty-down-burden",
+      description: "Lower quantity must not decrease setup burden percent",
+      inputKey: "quantity",
+      direction: "increase_should_decrease",
+      outputKey: "setupBurdenPercent",
+    },
+    {
+      id: "setup-up-risk",
+      description: "Higher setup burden must not lower quote risk severity",
+      inputKey: "setupTime",
+      direction: "increase_should_increase",
+      outputKey: "riskLevel",
+    },
+  ],
+  decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
+  mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed sheet metal quote"],
+});
+
+export const BATCH_FREE_BATCH2_CRITICAL_FORMULA_CONTRACTS: readonly FormulaContract[] = [
+  sampleSizeCalculatorContract,
+  hvacTonnageRuleCheckContract,
+  electricalLaborEstimatorContract,
+  lawnCareCostCheckContract,
+  repairTimeVsPriceCheckContract,
+  printJobCostCheckContract,
+  plumbingJobMarginVerdictContract,
+  cabinetCostEstimatorContract,
+  roofingSquareCostCheckContract,
+  laserCuttingTimeCheckContract,
+];
+
 export const BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS: readonly FormulaContract[] = [
   projectCostCalculatorContract,
   changeOrderImpactAnalyzerContract,
@@ -844,7 +1610,13 @@ export const BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS: readonly FormulaContrac
   returnProfitErosionToolContract,
   weldingCostEstimatorContract,
   weldingBidRiskAnalyzerContract,
+  ...BATCH_FREE_BATCH2_CRITICAL_FORMULA_CONTRACTS,
 ];
+
+export const BATCH_EXPANSION_ORACLE_WIRED_SLUGS = [
+  ...BATCH_FREE_ORACLE_WIRED_SLUGS,
+  ...BATCH_PREMIUM_ORACLE_WIRED_SLUGS,
+] as const;
 
 export const BATCH_EXPANSION_CRITICAL_SLUGS: readonly string[] =
   BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS.map((contract) => contract.slug);
