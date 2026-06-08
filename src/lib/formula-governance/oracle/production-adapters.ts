@@ -2,6 +2,9 @@
  * Production output adapters — normalize calculator UI output for oracle comparison (Phase 5A).
  */
 
+import type { CalculatorInputValues } from "@/lib/calculators/registry";
+import { runCalculator } from "@/lib/calculators/registry";
+import type { BatchFreeOracleSlug } from "@/lib/formula-governance/oracle/batch-free-oracles";
 import type { FreeTrafficInputValues } from "@/lib/tools/free-traffic-calculators";
 import { calculateFreeTrafficTool } from "@/lib/tools/free-traffic-calculators";
 import type { FinanceOracleSlug } from "@/lib/formula-governance/oracle/finance-oracles";
@@ -78,6 +81,42 @@ export type NormalizedBusinessOperationsProductionOutput =
   | NormalizedMachineTimeProductionOutput
   | NormalizedCncQuoteRiskProductionOutput;
 
+export type NormalizedProjectCostProductionOutput = {
+  readonly estimatedProjectCost: number;
+  readonly laborCost: number;
+  readonly overheadCost: number;
+  readonly contingencyCost: number;
+};
+
+export type NormalizedCleaningCostProductionOutput = {
+  readonly totalCost: number;
+  readonly laborCost: number;
+  readonly costPerSqFt: number;
+};
+
+export type NormalizedFoodCostProductionOutput = {
+  readonly foodCostPercent: number;
+};
+
+export type NormalizedProductMarginProductionOutput = {
+  readonly margin: number;
+  readonly grossProfit: number;
+  readonly totalCost: number;
+  readonly returnImpact: number;
+};
+
+export type NormalizedWeldingCostProductionOutput = {
+  readonly estimatedCost: number;
+  readonly laborCost: number;
+};
+
+export type NormalizedBatchFreeProductionOutput =
+  | NormalizedProjectCostProductionOutput
+  | NormalizedCleaningCostProductionOutput
+  | NormalizedFoodCostProductionOutput
+  | NormalizedProductMarginProductionOutput
+  | NormalizedWeldingCostProductionOutput;
+
 export type NormalizedFinanceProductionOutput =
   | NormalizedLoanProductionOutput
   | NormalizedMortgageProductionOutput
@@ -87,9 +126,26 @@ export type NormalizedFinanceProductionOutput =
   | NormalizedRentVsBuyProductionOutput;
 
 export type ProductionAdapterResult =
-  | { readonly status: "ok"; readonly output: NormalizedFinanceProductionOutput | NormalizedBusinessOperationsProductionOutput }
+  | {
+      readonly status: "ok";
+      readonly output:
+        | NormalizedFinanceProductionOutput
+        | NormalizedBusinessOperationsProductionOutput
+        | NormalizedBatchFreeProductionOutput;
+    }
   | { readonly status: "needs_adapter"; readonly reason: string }
   | { readonly status: "error"; readonly reason: string };
+
+function extractCalculatorResultValue(
+  results: readonly { readonly id: string; readonly value: number }[],
+  id: string,
+): number | null {
+  const entry = results.find((item) => item.id === id);
+  if (!entry || !Number.isFinite(entry.value)) {
+    return null;
+  }
+  return entry.value;
+}
 
 function parseCurrency(value: string): number | null {
   const cleaned = value.replace(/[^0-9.\-]/g, "");
@@ -348,6 +404,121 @@ export function adaptProductionBusinessOperationsOutput(
         return adaptMachineTimeProduction(values as FreeTrafficInputValues);
       case "cnc-quote-risk-analyzer":
         return adaptCncQuoteRiskProduction(values as PremiumInputValues);
+      default: {
+        const unsupported: never = slug;
+        return { status: "needs_adapter", reason: `No production adapter for slug "${unsupported}".` };
+      }
+    }
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    return { status: "error", reason };
+  }
+}
+
+function adaptProjectCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const run = runCalculator("project-cost-estimator", values);
+  if (!run) {
+    return { status: "error", reason: "Project cost calculator returned no result." };
+  }
+  if (Object.keys(run.errors).length > 0) {
+    return { status: "error", reason: Object.values(run.errors).join(" ") };
+  }
+  const estimatedProjectCost = extractCalculatorResultValue(run.results, "estimatedProjectCost");
+  const laborCost = extractCalculatorResultValue(run.results, "laborCost");
+  const overheadCost = extractCalculatorResultValue(run.results, "overheadCost");
+  const contingencyCost = extractCalculatorResultValue(run.results, "contingencyCost");
+  if (
+    estimatedProjectCost === null ||
+    laborCost === null ||
+    overheadCost === null ||
+    contingencyCost === null
+  ) {
+    return { status: "needs_adapter", reason: "Could not parse project cost calculator outputs." };
+  }
+  return {
+    status: "ok",
+    output: { estimatedProjectCost, laborCost, overheadCost, contingencyCost },
+  };
+}
+
+function adaptCleaningCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const run = runCalculator("cleaning-cost-estimator", values);
+  if (!run) {
+    return { status: "error", reason: "Cleaning cost calculator returned no result." };
+  }
+  if (Object.keys(run.errors).length > 0) {
+    return { status: "error", reason: Object.values(run.errors).join(" ") };
+  }
+  const totalCost = extractCalculatorResultValue(run.results, "totalCost");
+  const laborCost = extractCalculatorResultValue(run.results, "laborCost");
+  const costPerSqFt = extractCalculatorResultValue(run.results, "costPerSqFt");
+  if (totalCost === null || laborCost === null || costPerSqFt === null) {
+    return { status: "needs_adapter", reason: "Could not parse cleaning cost calculator outputs." };
+  }
+  return { status: "ok", output: { totalCost, laborCost, costPerSqFt } };
+}
+
+function adaptFoodCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const result = calculateFreeTrafficTool(
+    "food-cost-calculator",
+    values as FreeTrafficInputValues,
+    "en",
+  );
+  const foodCostPercent = parsePercent(result.primaryValue);
+  if (foodCostPercent === null) {
+    return { status: "needs_adapter", reason: "Could not parse food cost percent from production output." };
+  }
+  return { status: "ok", output: { foodCostPercent } };
+}
+
+function adaptProductMarginProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const run = runCalculator("product-margin-calculator", values);
+  if (!run) {
+    return { status: "error", reason: "Product margin calculator returned no result." };
+  }
+  if (Object.keys(run.errors).length > 0) {
+    return { status: "error", reason: Object.values(run.errors).join(" ") };
+  }
+  const margin = extractCalculatorResultValue(run.results, "margin");
+  const grossProfit = extractCalculatorResultValue(run.results, "grossProfit");
+  const totalCost = extractCalculatorResultValue(run.results, "totalCost");
+  const returnImpact = extractCalculatorResultValue(run.results, "returnImpact");
+  if (margin === null || grossProfit === null || totalCost === null || returnImpact === null) {
+    return { status: "needs_adapter", reason: "Could not parse product margin calculator outputs." };
+  }
+  return { status: "ok", output: { margin, grossProfit, totalCost, returnImpact } };
+}
+
+function adaptWeldingCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const result = calculateFreeTrafficTool(
+    "welding-cost-estimator",
+    values as FreeTrafficInputValues,
+    "en",
+  );
+  const estimatedCost = parseCurrency(result.primaryValue);
+  const laborCost = parseCurrency(findSecondaryValue(result.secondaryValues, "labor") ?? "");
+  if (estimatedCost === null || laborCost === null) {
+    return { status: "needs_adapter", reason: "Could not parse welding cost from production output." };
+  }
+  return { status: "ok", output: { estimatedCost, laborCost } };
+}
+
+export function adaptProductionBatchFreeOutput(
+  slug: BatchFreeOracleSlug,
+  values: CalculatorInputValues,
+): ProductionAdapterResult {
+  try {
+    switch (slug) {
+      case "project-cost-calculator":
+        return adaptProjectCostProduction(values);
+      case "cleaning-cost-calculator":
+        return adaptCleaningCostProduction(values);
+      case "food-cost-calculator":
+        return adaptFoodCostProduction(values);
+      case "product-margin-calculator":
+        return adaptProductMarginProduction(values);
+      case "welding-cost-estimator":
+        return adaptWeldingCostProduction(values);
       default: {
         const unsupported: never = slug;
         return { status: "needs_adapter", reason: `No production adapter for slug "${unsupported}".` };

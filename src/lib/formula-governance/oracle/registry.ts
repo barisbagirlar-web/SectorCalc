@@ -19,6 +19,11 @@ const ORACLE_MODULE_BY_TOOL: Record<string, string> = {
   "free-traffic.cash-flow-gap-calculator": "business-oracles.ts",
   "free-traffic.machine-time-calculator": "operations-oracles.ts",
   "revenue-premium.cnc-quote-risk-analyzer": "operations-oracles.ts",
+  "revenue-free.project-cost-calculator": "batch-free-oracles.ts",
+  "revenue-free.cleaning-cost-calculator": "batch-free-oracles.ts",
+  "free-traffic.food-cost-calculator": "batch-free-oracles.ts",
+  "revenue-free.product-margin-calculator": "batch-free-oracles.ts",
+  "free-traffic.welding-cost-estimator": "batch-free-oracles.ts",
 };
 
 /** Critical tools awaiting oracle module registration or file implementation. */

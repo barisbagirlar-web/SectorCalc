@@ -14,7 +14,11 @@ export type OracleValidationErrorCode =
   | "INVALID_SALARY"
   | "INVALID_DAYS"
   | "INVALID_QUANTITY"
-  | "INVALID_TIME_INPUT";
+  | "INVALID_TIME_INPUT"
+  | "INVALID_AREA"
+  | "INVALID_HOURS"
+  | "INVALID_PERCENT"
+  | "INVALID_CREW";
 
 export class OracleValidationError extends Error {
   readonly code: OracleValidationErrorCode;
@@ -75,4 +79,74 @@ export type ProfitMarginOracleInput = {
 export type ProfitMarginOracleOutput = {
   readonly marginPercent: number;
   readonly markupPercent: number;
+};
+
+export type ProjectCostOracleInput = {
+  readonly materialCost: number;
+  readonly laborHours: number;
+  readonly laborHourlyRate: number;
+  readonly equipmentCost: number;
+  readonly overheadRate: number;
+  readonly contingencyRate: number;
+};
+
+export type ProjectCostOracleOutput = {
+  readonly laborCost: number;
+  readonly baseCost: number;
+  readonly overheadCost: number;
+  readonly contingencyCost: number;
+  readonly estimatedProjectCost: number;
+};
+
+export type CleaningCostOracleInput = {
+  readonly area: number;
+  readonly estimatedHours: number;
+  readonly crewSize: number;
+  readonly laborHourlyCost: number;
+  readonly suppliesCost: number;
+  readonly travelCost: number;
+};
+
+export type CleaningCostOracleOutput = {
+  readonly laborCost: number;
+  readonly totalCost: number;
+  readonly costPerSqFt: number;
+};
+
+export type FoodCostOracleInput = {
+  readonly ingredientCost: number;
+  readonly menuPrice: number;
+};
+
+export type FoodCostOracleOutput = {
+  readonly foodCostPercent: number;
+  readonly grossMarginPercent: number;
+};
+
+export type ProductMarginOracleInput = {
+  readonly sellingPrice: number;
+  readonly productCost: number;
+  readonly shippingCost: number;
+  readonly platformFeeRate: number;
+  readonly paymentFeeRate: number;
+  readonly returnRate: number;
+};
+
+export type ProductMarginOracleOutput = {
+  readonly margin: number;
+  readonly grossProfit: number;
+  readonly totalCost: number;
+  readonly returnImpact: number;
+};
+
+export type WeldingCostOracleInput = {
+  readonly materialCost: number;
+  readonly laborHours: number;
+  readonly laborRate: number;
+  readonly consumablesCost: number;
+};
+
+export type WeldingCostOracleOutput = {
+  readonly estimatedCost: number;
+  readonly laborCost: number;
 };

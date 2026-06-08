@@ -4,6 +4,10 @@
 
 import type { FinanceOracleSlug } from "@/lib/formula-governance/oracle/finance-oracles";
 import {
+  BATCH_FREE_ORACLE_SLUGS,
+  type BatchFreeOracleSlug,
+} from "@/lib/formula-governance/oracle/batch-free-oracles";
+import {
   BUSINESS_ORACLE_SLUGS,
   type BusinessOracleSlug,
 } from "@/lib/formula-governance/oracle/business-oracles";
@@ -185,9 +189,114 @@ export function getBusinessOperationsProductionFormulaLocator(
   return BUSINESS_OPERATIONS_PRODUCTION_FORMULA_LOCATORS.find((entry) => entry.slug === slug);
 }
 
+export const BATCH_FREE_PRODUCTION_FORMULA_LOCATORS: readonly ProductionFormulaLocator[] = [
+  {
+    slug: "project-cost-calculator",
+    toolId: "revenue-free.project-cost-calculator",
+    productionFilePath: "src/lib/calculators/project-cost-estimator.ts",
+    productionFunctionName: "calculateProjectCostEstimator",
+    productionEntry: 'runCalculator("project-cost-estimator") → material + labor + overhead + contingency',
+    oracleFunctionName: "calculateProjectCostOracle",
+    inputShape: [
+      "materialCost",
+      "laborHours",
+      "laborHourlyRate",
+      "equipmentCost",
+      "overheadRate",
+      "contingencyRate",
+    ],
+    productionOutputShape: [
+      "estimatedProjectCost",
+      "laborCost",
+      "overheadCost",
+      "contingencyCost",
+    ],
+    oracleOutputShape: [
+      "estimatedProjectCost",
+      "laborCost",
+      "overheadCost",
+      "contingencyCost",
+    ],
+    comparisonWired: true,
+  },
+  {
+    slug: "cleaning-cost-calculator",
+    toolId: "revenue-free.cleaning-cost-calculator",
+    productionFilePath: "src/lib/calculators/cleaning-cost-estimator.ts",
+    productionFunctionName: "calculateCleaningCostEstimator",
+    productionEntry: 'runCalculator("cleaning-cost-estimator") → labor + supplies + travel',
+    oracleFunctionName: "calculateCleaningCostOracle",
+    inputShape: [
+      "area",
+      "estimatedHours",
+      "crewSize",
+      "laborHourlyCost",
+      "suppliesCost",
+      "travelCost",
+    ],
+    productionOutputShape: ["totalCost", "laborCost", "costPerSqFt"],
+    oracleOutputShape: ["totalCost", "laborCost", "costPerSqFt"],
+    comparisonWired: true,
+  },
+  {
+    slug: "food-cost-calculator",
+    toolId: "free-traffic.food-cost-calculator",
+    productionFilePath: "src/lib/tools/free-traffic-calculators.ts",
+    productionFunctionName: "calculateFreeTrafficTool",
+    productionEntry: 'CALCULATORS["food-cost-calculator"] → ingredient ÷ menu price × 100',
+    oracleFunctionName: "calculateFoodCostOracle",
+    inputShape: ["ingredientCost", "menuPrice"],
+    productionOutputShape: ["primaryValue: Food cost %"],
+    oracleOutputShape: ["foodCostPercent"],
+    comparisonWired: true,
+  },
+  {
+    slug: "product-margin-calculator",
+    toolId: "revenue-free.product-margin-calculator",
+    productionFilePath: "src/lib/calculators/product-margin-calculator.ts",
+    productionFunctionName: "calculateProductMarginCalculator",
+    productionEntry: 'runCalculator("product-margin-calculator") → margin after fees and returns',
+    oracleFunctionName: "calculateProductMarginOracle",
+    inputShape: [
+      "sellingPrice",
+      "productCost",
+      "shippingCost",
+      "platformFeeRate",
+      "paymentFeeRate",
+      "returnRate",
+    ],
+    productionOutputShape: ["margin", "grossProfit", "totalCost", "returnImpact"],
+    oracleOutputShape: ["margin", "grossProfit", "totalCost", "returnImpact"],
+    comparisonWired: true,
+  },
+  {
+    slug: "welding-cost-estimator",
+    toolId: "free-traffic.welding-cost-estimator",
+    productionFilePath: "src/lib/tools/free-traffic-calculators.ts",
+    productionFunctionName: "calculateFreeTrafficTool",
+    productionEntry: 'CALCULATORS["welding-cost-estimator"] → material + labor + consumables',
+    oracleFunctionName: "calculateWeldingCostOracle",
+    inputShape: ["materialCost", "laborHours", "laborRate", "consumablesCost"],
+    productionOutputShape: ["primaryValue: Estimated cost", "secondary: Labor"],
+    oracleOutputShape: ["estimatedCost", "laborCost"],
+    comparisonWired: true,
+  },
+];
+
+export function getBatchFreeProductionFormulaLocator(
+  slug: BatchFreeOracleSlug,
+): ProductionFormulaLocator | undefined {
+  return BATCH_FREE_PRODUCTION_FORMULA_LOCATORS.find((entry) => entry.slug === slug);
+}
+
+export function isBatchFreeProductionSlug(slug: string): slug is BatchFreeOracleSlug {
+  return (BATCH_FREE_ORACLE_SLUGS as readonly string[]).includes(slug);
+}
+
 export function getAnyProductionFormulaLocator(slug: string): ProductionFormulaLocator | undefined {
   return (
     getProductionFormulaLocator(slug as FinanceOracleSlug) ??
-    getBusinessOperationsProductionFormulaLocator(slug as BusinessOperationsOracleSlug)
+    getBusinessOperationsProductionFormulaLocator(slug as BusinessOperationsOracleSlug) ??
+    getBatchFreeProductionFormulaLocator(slug as BatchFreeOracleSlug)
   );
 }

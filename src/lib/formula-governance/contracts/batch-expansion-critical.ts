@@ -8,15 +8,24 @@ import {
   FINANCIAL_SIMULATION_DISCLAIMER,
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
+  buildAssuredCriticalContract,
   buildCriticalContract,
   scenarioSkeletons,
 } from "@/lib/formula-governance/contracts/shared";
+
+export const BATCH_FREE_ORACLE_WIRED_SLUGS = [
+  "project-cost-calculator",
+  "cleaning-cost-calculator",
+  "food-cost-calculator",
+  "product-margin-calculator",
+  "welding-cost-estimator",
+] as const;
 import { createWarningPolicy } from "@/lib/formula-governance/warning-policy";
 
 const PREMIUM_DECISION_DISCLAIMER =
   "Technical simulation only — not financial, legal, or engineering advice. Verify assumptions before bid, pricing or business decisions.";
 
-export const projectCostCalculatorContract: FormulaContract = buildCriticalContract({
+export const projectCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.project-cost-calculator",
   toolName: "Concrete / Project Cost Calculator",
   slug: "project-cost-calculator",
@@ -59,13 +68,13 @@ export const projectCostCalculatorContract: FormulaContract = buildCriticalContr
     { id: "labor-hours-positive", description: "laborHours must be ≥ 0", kind: "edge" },
     { id: "percent-bounds", description: "overheadRate and contingencyRate within 0–100%", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-build", description: "Normal case: mid-size project with standard overhead" },
     { id: "edge-labor-heavy", description: "Edge case: labor share dominates base cost" },
     { id: "absurd-negative-cost", description: "Absurd input: negative material or labor rejected" },
     { id: "directional-material", description: "Directional: higher material cost increases total project cost" },
     { id: "sensitivity-contingency", description: "Sensitivity: +5% contingency increases total cost" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "material-up-total",
@@ -177,7 +186,7 @@ export const changeOrderImpactAnalyzerContract: FormulaContract = buildCriticalC
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed change-order acceptance outcome"],
 });
 
-export const cleaningCostCalculatorContract: FormulaContract = buildCriticalContract({
+export const cleaningCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.cleaning-cost-calculator",
   toolName: "Cleaning Cost Calculator",
   slug: "cleaning-cost-calculator",
@@ -212,14 +221,19 @@ export const cleaningCostCalculatorContract: FormulaContract = buildCriticalCont
     { id: "area-positive", description: "area must be > 0", kind: "edge" },
     { id: "hours-positive", description: "estimatedHours must be > 0", kind: "edge" },
     { id: "crew-min-one", description: "crewSize must be ≥ 1", kind: "edge" },
+    {
+      id: "currency-units",
+      description: "Labor, supplies and travel costs use consistent currency units",
+      kind: "dimensional",
+    },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-office", description: "Normal case: office clean with standard crew hours" },
     { id: "edge-small-area", description: "Edge case: small high-touch area" },
     { id: "absurd-zero-area", description: "Absurd input: zero area rejected" },
     { id: "directional-area", description: "Directional: larger area increases total cost" },
     { id: "sensitivity-labor-rate", description: "Sensitivity: +10% labor rate increases total cost" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "area-up-cost",
@@ -333,7 +347,7 @@ export const officeCleaningBidOptimizerContract: FormulaContract = buildCritical
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed contract win"],
 });
 
-export const foodCostCalculatorContract: FormulaContract = buildCriticalContract({
+export const foodCostCalculatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "free-traffic.food-cost-calculator",
   toolName: "Food Cost Percentage Calculator",
   slug: "food-cost-calculator",
@@ -367,13 +381,13 @@ export const foodCostCalculatorContract: FormulaContract = buildCriticalContract
     { id: "menu-price-positive", description: "menuPrice must be > 0", kind: "edge" },
     { id: "ratio-bounds", description: "Food cost percent stays within 0–100% for valid inputs", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-menu-item", description: "Normal case: standard plate at target food cost %" },
     { id: "edge-thin-margin", description: "Edge case: ingredient cost near menu price" },
     { id: "absurd-zero-price", description: "Absurd input: zero menu price rejected" },
     { id: "directional-ingredient", description: "Directional: higher ingredient cost increases food cost %" },
     { id: "sensitivity-menu-price", description: "Sensitivity: +10% menu price lowers food cost %" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "ingredient-up-pct",
@@ -487,7 +501,7 @@ export const menuProfitLeakDetectorContract: FormulaContract = buildCriticalCont
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed menu profitability"],
 });
 
-export const productMarginCalculatorContract: FormulaContract = buildCriticalContract({
+export const productMarginCalculatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.product-margin-calculator",
   toolName: "Product Margin Calculator",
   slug: "product-margin-calculator",
@@ -531,13 +545,13 @@ export const productMarginCalculatorContract: FormulaContract = buildCriticalCon
     { id: "fee-percent", description: "Fee and return rates within 0–100%", kind: "dimensional" },
     { id: "cost-non-negative", description: "productCost and shippingCost must be ≥ 0", kind: "edge" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-sku", description: "Normal case: healthy margin SKU" },
     { id: "edge-high-returns", description: "Edge case: elevated return rate" },
     { id: "absurd-zero-price", description: "Absurd input: zero selling price rejected" },
     { id: "directional-cost", description: "Directional: higher productCost lowers margin" },
     { id: "sensitivity-discount", description: "Sensitivity: higher return rate erodes margin" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "cost-up-margin",
@@ -651,7 +665,7 @@ export const returnProfitErosionToolContract: FormulaContract = buildCriticalCon
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed scalable SKU"],
 });
 
-export const weldingCostEstimatorContract: FormulaContract = buildCriticalContract({
+export const weldingCostEstimatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "free-traffic.welding-cost-estimator",
   toolName: "Welding Cost Estimator",
   slug: "welding-cost-estimator",
@@ -685,14 +699,19 @@ export const weldingCostEstimatorContract: FormulaContract = buildCriticalContra
     { id: "material-positive", description: "materialCost must be > 0", kind: "edge" },
     { id: "hours-positive", description: "laborHours must be > 0", kind: "edge" },
     { id: "rate-positive", description: "laborRate must be > 0", kind: "edge" },
+    {
+      id: "currency-units",
+      description: "Material, labor rate and consumables use consistent currency units",
+      kind: "dimensional",
+    },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-job", description: "Normal case: standard weld job with consumables" },
     { id: "edge-material-heavy", description: "Edge case: material dominates labor" },
     { id: "absurd-zero-hours", description: "Absurd input: zero labor hours rejected" },
     { id: "directional-length", description: "Directional: longer weld labor hours increase cost" },
     { id: "sensitivity-consumables", description: "Sensitivity: higher consumablesCost increases total" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "length-up-cost",

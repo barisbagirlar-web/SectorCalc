@@ -24,6 +24,14 @@ import {
   isOperationsOracleSlug,
 } from "@/lib/formula-governance/oracle/operations-oracles";
 import {
+  calculateCleaningCostOracle,
+  calculateFoodCostOracle,
+  calculateProductMarginOracle,
+  calculateProjectCostOracle,
+  calculateWeldingCostOracle,
+  isBatchFreeOracleSlug,
+} from "@/lib/formula-governance/oracle/batch-free-oracles";
+import {
   calculateRentVsBuyOracle,
   isRentVsBuyOracleSlug,
 } from "@/lib/formula-governance/oracle/rent-vs-buy-oracle";
@@ -625,7 +633,397 @@ const CNC_SCENARIOS: Record<string, ScenarioHandler> = {
   },
 };
 
+const PROJECT_COST_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-build": () => {
+    const result = calculateProjectCostOracle({
+      materialCost: 45_000,
+      laborHours: 320,
+      laborHourlyRate: 55,
+      equipmentCost: 8_500,
+      overheadRate: 12,
+      contingencyRate: 8,
+    });
+    if (result.estimatedProjectCost <= 0) {
+      throw new Error("Expected positive project cost for normal build.");
+    }
+  },
+  "edge-labor-heavy": () => {
+    const result = calculateProjectCostOracle({
+      materialCost: 5_000,
+      laborHours: 600,
+      laborHourlyRate: 72,
+      equipmentCost: 1_500,
+      overheadRate: 15,
+      contingencyRate: 10,
+    });
+    if (result.laborCost <= result.baseCost * 0.5) {
+      throw new Error("Labor-heavy edge case should have labor share above 50% of base.");
+    }
+  },
+  "absurd-negative-cost": () => {
+    try {
+      calculateProjectCostOracle({
+        materialCost: -1_000,
+        laborHours: 100,
+        laborHourlyRate: 50,
+        equipmentCost: 0,
+        overheadRate: 10,
+        contingencyRate: 5,
+      });
+      throw new Error("Expected validation error for negative material cost.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-material": () => {
+    const base = calculateProjectCostOracle({
+      materialCost: 20_000,
+      laborHours: 120,
+      laborHourlyRate: 50,
+      equipmentCost: 3_000,
+      overheadRate: 10,
+      contingencyRate: 5,
+    });
+    const bumped = calculateProjectCostOracle({
+      materialCost: 25_000,
+      laborHours: 120,
+      laborHourlyRate: 50,
+      equipmentCost: 3_000,
+      overheadRate: 10,
+      contingencyRate: 5,
+    });
+    if (bumped.estimatedProjectCost <= base.estimatedProjectCost) {
+      throw new Error("Higher material cost must increase estimated project cost.");
+    }
+  },
+  "sensitivity-contingency": () => {
+    const base = calculateProjectCostOracle({
+      materialCost: 30_000,
+      laborHours: 200,
+      laborHourlyRate: 52,
+      equipmentCost: 4_000,
+      overheadRate: 12,
+      contingencyRate: 5,
+    });
+    const bumped = calculateProjectCostOracle({
+      materialCost: 30_000,
+      laborHours: 200,
+      laborHourlyRate: 52,
+      equipmentCost: 4_000,
+      overheadRate: 12,
+      contingencyRate: 10,
+    });
+    if (bumped.estimatedProjectCost <= base.estimatedProjectCost) {
+      throw new Error("+5% contingency must increase estimated project cost.");
+    }
+  },
+};
+
+const CLEANING_COST_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-office": () => {
+    const result = calculateCleaningCostOracle({
+      area: 12_000,
+      estimatedHours: 6,
+      crewSize: 2,
+      laborHourlyCost: 22,
+      suppliesCost: 85,
+      travelCost: 40,
+    });
+    if (result.totalCost <= 0) {
+      throw new Error("Expected positive cleaning cost for normal office.");
+    }
+  },
+  "edge-small-area": () => {
+    const result = calculateCleaningCostOracle({
+      area: 800,
+      estimatedHours: 3,
+      crewSize: 1,
+      laborHourlyCost: 26,
+      suppliesCost: 45,
+      travelCost: 35,
+    });
+    if (result.costPerSqFt <= 0) {
+      throw new Error("Small high-touch area should yield positive cost per sq ft.");
+    }
+  },
+  "absurd-zero-area": () => {
+    try {
+      calculateCleaningCostOracle({
+        area: 0,
+        estimatedHours: 4,
+        crewSize: 2,
+        laborHourlyCost: 22,
+        suppliesCost: 50,
+        travelCost: 20,
+      });
+      throw new Error("Expected validation error for zero area.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-area": () => {
+    const base = calculateCleaningCostOracle({
+      area: 5_000,
+      estimatedHours: 4,
+      crewSize: 2,
+      laborHourlyCost: 22,
+      suppliesCost: 60,
+      travelCost: 30,
+    });
+    const bumped = calculateCleaningCostOracle({
+      area: 5_000,
+      estimatedHours: 5,
+      crewSize: 2,
+      laborHourlyCost: 22,
+      suppliesCost: 60,
+      travelCost: 30,
+    });
+    if (bumped.totalCost <= base.totalCost) {
+      throw new Error("More estimated hours must increase total cleaning cost.");
+    }
+  },
+  "sensitivity-labor-rate": () => {
+    const base = calculateCleaningCostOracle({
+      area: 10_000,
+      estimatedHours: 5,
+      crewSize: 2,
+      laborHourlyCost: 20,
+      suppliesCost: 70,
+      travelCost: 25,
+    });
+    const bumped = calculateCleaningCostOracle({
+      area: 10_000,
+      estimatedHours: 5,
+      crewSize: 2,
+      laborHourlyCost: 22,
+      suppliesCost: 70,
+      travelCost: 25,
+    });
+    if (bumped.totalCost <= base.totalCost) {
+      throw new Error("+10% labor rate must increase total cleaning cost.");
+    }
+  },
+};
+
+const FOOD_COST_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-menu-item": () => {
+    const result = calculateFoodCostOracle({ ingredientCost: 4.5, menuPrice: 16 });
+    if (result.foodCostPercent <= 0 || result.foodCostPercent >= 100) {
+      throw new Error("Normal menu item should yield food cost percent between 0 and 100.");
+    }
+  },
+  "edge-thin-margin": () => {
+    const result = calculateFoodCostOracle({ ingredientCost: 14.5, menuPrice: 16 });
+    if (result.foodCostPercent < 80) {
+      throw new Error("Thin margin edge case should show high food cost percent.");
+    }
+  },
+  "absurd-zero-price": () => {
+    try {
+      calculateFoodCostOracle({ ingredientCost: 5, menuPrice: 0 });
+      throw new Error("Expected validation error for zero menu price.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-ingredient": () => {
+    const base = calculateFoodCostOracle({ ingredientCost: 4, menuPrice: 18 });
+    const bumped = calculateFoodCostOracle({ ingredientCost: 5, menuPrice: 18 });
+    if (bumped.foodCostPercent <= base.foodCostPercent) {
+      throw new Error("Higher ingredient cost must increase food cost percent.");
+    }
+  },
+  "sensitivity-menu-price": () => {
+    const base = calculateFoodCostOracle({ ingredientCost: 5, menuPrice: 20 });
+    const bumped = calculateFoodCostOracle({ ingredientCost: 5, menuPrice: 22 });
+    if (bumped.foodCostPercent >= base.foodCostPercent) {
+      throw new Error("+10% menu price must lower food cost percent.");
+    }
+  },
+};
+
+const PRODUCT_MARGIN_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-sku": () => {
+    const result = calculateProductMarginOracle({
+      sellingPrice: 79,
+      productCost: 28,
+      shippingCost: 6.5,
+      platformFeeRate: 12,
+      paymentFeeRate: 2.9,
+      returnRate: 5,
+    });
+    if (result.margin <= 0) {
+      throw new Error("Healthy SKU should yield positive margin.");
+    }
+  },
+  "edge-high-returns": () => {
+    const lowReturns = calculateProductMarginOracle({
+      sellingPrice: 65,
+      productCost: 22,
+      shippingCost: 7,
+      platformFeeRate: 10,
+      paymentFeeRate: 2.9,
+      returnRate: 5,
+    });
+    const highReturns = calculateProductMarginOracle({
+      sellingPrice: 65,
+      productCost: 22,
+      shippingCost: 7,
+      platformFeeRate: 10,
+      paymentFeeRate: 2.9,
+      returnRate: 22,
+    });
+    if (highReturns.margin >= lowReturns.margin) {
+      throw new Error("Higher return rate must erode margin.");
+    }
+  },
+  "absurd-zero-price": () => {
+    try {
+      calculateProductMarginOracle({
+        sellingPrice: 0,
+        productCost: 10,
+        shippingCost: 5,
+        platformFeeRate: 10,
+        paymentFeeRate: 3,
+        returnRate: 5,
+      });
+      throw new Error("Expected validation error for zero selling price.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-cost": () => {
+    const base = calculateProductMarginOracle({
+      sellingPrice: 80,
+      productCost: 25,
+      shippingCost: 6,
+      platformFeeRate: 10,
+      paymentFeeRate: 3,
+      returnRate: 5,
+    });
+    const bumped = calculateProductMarginOracle({
+      sellingPrice: 80,
+      productCost: 32,
+      shippingCost: 6,
+      platformFeeRate: 10,
+      paymentFeeRate: 3,
+      returnRate: 5,
+    });
+    if (bumped.margin >= base.margin) {
+      throw new Error("Higher product cost must lower margin.");
+    }
+  },
+  "sensitivity-discount": () => {
+    const base = calculateProductMarginOracle({
+      sellingPrice: 90,
+      productCost: 30,
+      shippingCost: 7,
+      platformFeeRate: 8,
+      paymentFeeRate: 2.5,
+      returnRate: 4,
+    });
+    const bumped = calculateProductMarginOracle({
+      sellingPrice: 90,
+      productCost: 30,
+      shippingCost: 7,
+      platformFeeRate: 8,
+      paymentFeeRate: 2.5,
+      returnRate: 12,
+    });
+    if (bumped.margin >= base.margin) {
+      throw new Error("Higher return rate must erode net margin.");
+    }
+  },
+};
+
+const WELDING_COST_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-job": () => {
+    const result = calculateWeldingCostOracle({
+      materialCost: 450,
+      laborHours: 12,
+      laborRate: 68,
+      consumablesCost: 95,
+    });
+    if (result.estimatedCost <= 0) {
+      throw new Error("Expected positive welding cost for normal job.");
+    }
+  },
+  "edge-material-heavy": () => {
+    const result = calculateWeldingCostOracle({
+      materialCost: 3_500,
+      laborHours: 6,
+      laborRate: 70,
+      consumablesCost: 120,
+    });
+    if (result.estimatedCost <= result.laborCost) {
+      throw new Error("Material-heavy edge case should have material dominate labor.");
+    }
+  },
+  "absurd-zero-hours": () => {
+    try {
+      calculateWeldingCostOracle({
+        materialCost: 500,
+        laborHours: 0,
+        laborRate: 65,
+        consumablesCost: 80,
+      });
+      throw new Error("Expected validation error for zero labor hours.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-length": () => {
+    const base = calculateWeldingCostOracle({
+      materialCost: 400,
+      laborHours: 8,
+      laborRate: 65,
+      consumablesCost: 70,
+    });
+    const bumped = calculateWeldingCostOracle({
+      materialCost: 400,
+      laborHours: 12,
+      laborRate: 65,
+      consumablesCost: 70,
+    });
+    if (bumped.estimatedCost <= base.estimatedCost) {
+      throw new Error("Longer weld labor hours must increase estimated cost.");
+    }
+  },
+  "sensitivity-consumables": () => {
+    const base = calculateWeldingCostOracle({
+      materialCost: 350,
+      laborHours: 10,
+      laborRate: 68,
+      consumablesCost: 80,
+    });
+    const bumped = calculateWeldingCostOracle({
+      materialCost: 350,
+      laborHours: 10,
+      laborRate: 68,
+      consumablesCost: 120,
+    });
+    if (bumped.estimatedCost <= base.estimatedCost) {
+      throw new Error("Higher consumables cost must increase estimated cost.");
+    }
+  },
+};
+
 const SCENARIO_HANDLERS: Record<string, Record<string, ScenarioHandler>> = {
+  "project-cost-calculator": PROJECT_COST_SCENARIOS,
+  "cleaning-cost-calculator": CLEANING_COST_SCENARIOS,
+  "food-cost-calculator": FOOD_COST_SCENARIOS,
+  "product-margin-calculator": PRODUCT_MARGIN_SCENARIOS,
+  "welding-cost-estimator": WELDING_COST_SCENARIOS,
   "loan-payment-calculator": LOAN_SCENARIOS,
   "mortgage-calculator": MORTGAGE_SCENARIOS,
   "interest-calculator": INTEREST_SCENARIOS,
@@ -652,7 +1050,13 @@ export function runScenarioSpec(
     };
   }
 
-  if (!isFinanceOracleSlug(slug) && !isRentVsBuyOracleSlug(slug) && !isBusinessOracleSlug(slug) && !isOperationsOracleSlug(slug)) {
+  if (
+    !isFinanceOracleSlug(slug) &&
+    !isRentVsBuyOracleSlug(slug) &&
+    !isBusinessOracleSlug(slug) &&
+    !isOperationsOracleSlug(slug) &&
+    !isBatchFreeOracleSlug(slug)
+  ) {
     return {
       scenarioId: spec.id,
       description: spec.description,
