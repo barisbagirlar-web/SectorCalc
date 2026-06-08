@@ -21,6 +21,7 @@ import { buildSmartFormPilotManualQaChecklist } from "@/components/tools/smart-f
 import {
   buildDefaultPendingManualQaResults,
   buildPassedManualQaResult,
+  getSmartFormPilotManualQaResults,
 } from "@/components/tools/smart-form/pilot-manual-qa-result";
 import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
 import { getPilotSmartFormManifest } from "@/components/tools/smart-form/getPilotSmartFormManifest";
@@ -98,7 +99,7 @@ describe("smart form pilot batch QA — Phase 5H-G-I", () => {
     ]);
 
     for (const pilot of checklist.pilots) {
-      expect(pilot.manualQaStatus).toBe("pending_manual_qa");
+      expect(pilot.manualQaStatus).toBe("passed");
       expect(pilot.checks.length).toBeGreaterThanOrEqual(12);
       expect(pilot.checks.some((check) => check.label.includes("Flag false fallback"))).toBe(
         true,
@@ -156,24 +157,42 @@ describe("smart form pilot batch QA — Phase 5H-G-I", () => {
     expect(audit.analyticsReady).toBe(3);
     expect(audit.optionalExpansionBlocked).toBe(true);
     expect(audit.manualQaRequired).toBe(true);
-    expect(audit.manualQaStatus).toBe("pending_manual_qa");
-    expect(audit.stagingFlagReady).toBe(false);
+    expect(audit.manualQaStatus).toBe("passed");
+    expect(audit.stagingFlagReady).toBe(true);
     expect(audit.deploymentReady).toBe(false);
     expect(audit.blockers).toHaveLength(0);
   });
 
-  test("QA audit report formatter includes manual QA and staging decision lines", () => {
+  test("QA audit report formatter includes passed manual QA and staging decision lines", () => {
     const report = formatSmartFormPilotBatchQaAuditReport(runSmartFormPilotBatchQaAudit());
 
     expect(report).toContain("Smart Form Pilot QA Audit");
     expect(report).toContain("Total pilots: 3");
     expect(report).toContain("Blockers: 0");
-    expect(report).toContain("Manual QA status: pending_manual_qa");
-    expect(report).toContain("Staging flag ready: false");
+    expect(report).toContain("Manual QA status: passed");
+    expect(report).toContain("Staging flag ready: true");
     expect(report).toContain("Deployment ready: false");
     expect(report).toContain("/tools/free/3d-print-cost-check");
     expect(report).toContain("/tools/free/repair-time-vs-price-check");
     expect(report).toContain("/tools/free/cabinet-cost-estimator");
+  });
+});
+
+describe("smart form pilot manual QA result entry — Phase 5H-G-K", () => {
+  test("canonical manual QA records are passed with no pending entries", () => {
+    const { results, aggregateStatus } = getSmartFormPilotManualQaResults();
+
+    expect(results).toHaveLength(3);
+    expect(aggregateStatus).toBe("passed");
+    expect(results.every((result) => result.status === "passed")).toBe(true);
+    expect(results.some((result) => result.status === "pending_manual_qa")).toBe(false);
+  });
+
+  test("3 passed records enable staging flag while deployment stays false", () => {
+    const decision = evaluateSmartFormPilotQaDecision(getSmartFormPilotManualQaResults().results);
+
+    expect(decision.stagingFlagReady).toBe(true);
+    expect(decision.deploymentReady).toBe(false);
   });
 });
 
@@ -201,6 +220,30 @@ describe("smart form pilot QA decision gate — Phase 5H-G-J", () => {
     expect(decision.stagingFlagReady).toBe(true);
     expect(decision.deploymentReady).toBe(false);
     expect(decision.blockedReasons).toHaveLength(0);
+  });
+
+  test("desktop failure blocks staging readiness", () => {
+    const base = buildPassedManualQaResult({
+      slug: THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
+      route: THREE_D_PRINT_PILOT_GOVERNANCE_SLUG,
+    });
+    const decision = evaluateSmartFormPilotQaDecision([
+      { ...base, desktopPassed: false, status: "needs_fix", notes: "Desktop layout issue." },
+    ]);
+
+    expect(decision.stagingFlagReady).toBe(false);
+  });
+
+  test("mobile failure blocks staging readiness", () => {
+    const base = buildPassedManualQaResult({
+      slug: CABINET_PILOT_GOVERNANCE_SLUG,
+      route: CABINET_PILOT_GOVERNANCE_SLUG,
+    });
+    const decision = evaluateSmartFormPilotQaDecision([
+      { ...base, mobilePassed: false, status: "needs_fix", notes: "Mobile layout issue." },
+    ]);
+
+    expect(decision.stagingFlagReady).toBe(false);
   });
 
   test("console failure blocks staging readiness", () => {

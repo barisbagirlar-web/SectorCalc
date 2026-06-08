@@ -9,7 +9,7 @@ import {
   isOptionalFieldExpansionBlocked,
 } from "@/components/tools/smart-form/optional-expansion-diff-gate";
 import { buildSmartFormPilotManualQaChecklist } from "@/components/tools/smart-form/pilot-manual-qa-checklist";
-import { buildDefaultPendingManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
+import { getSmartFormPilotManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
 import { evaluateSmartFormPilotQaDecision } from "@/components/tools/smart-form/pilot-qa-decision-gate";
 import type { SmartFormPilotManualQaResult } from "@/components/tools/smart-form/pilot-manual-qa-result";
 import type { SmartFormPilotQaDecisionResult } from "@/components/tools/smart-form/pilot-qa-decision-gate";
@@ -145,7 +145,7 @@ function auditPilot(entry: SmartFormPilotBatchRegistryEntry): SmartFormPilotQaAu
 export function runSmartFormPilotBatchQaAudit(): SmartFormPilotBatchQaAuditResult {
   const registry = getSmartFormPilotBatchRegistry();
   const manualChecklist = buildSmartFormPilotManualQaChecklist();
-  const manualQaResults = buildDefaultPendingManualQaResults().results;
+  const manualQaResults = getSmartFormPilotManualQaResults().results;
   const qaDecision = evaluateSmartFormPilotQaDecision(manualQaResults);
   const pilots = registry.map((entry) => auditPilot(entry));
 
@@ -155,6 +155,9 @@ export function runSmartFormPilotBatchQaAudit(): SmartFormPilotBatchQaAuditResul
   const optionalExpansionBlocked = pilots.every((pilot) => pilot.optionalExpansionBlocked);
 
   const warnings = pilots.flatMap((pilot) => pilot.warnings);
+  if (!qaDecision.stagingFlagReady && qaDecision.blockedReasons.length > 0) {
+    warnings.push(...qaDecision.blockedReasons);
+  }
   const blockers: string[] = [];
 
   if (pilots.length !== 3) {

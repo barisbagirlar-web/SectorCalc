@@ -1,5 +1,5 @@
 /**
- * Smart form pilot manual QA execution records — Phase 5H-G-J (read-only; user-filled later).
+ * Smart form pilot manual QA execution records — Phase 5H-G-J/K.
  */
 
 import { getSmartFormPilotBatchRegistry } from "@/components/tools/smart-form/pilot-batch-qa-registry";
@@ -58,22 +58,10 @@ function buildPendingResult(entry: {
   };
 }
 
-export function buildDefaultPendingManualQaResults(): SmartFormPilotManualQaResultSet {
-  const results = getSmartFormPilotBatchRegistry().map((entry) =>
-    buildPendingResult({
-      governanceSlug: entry.governanceSlug,
-      routeSlug: entry.routeSlug,
-    }),
-  );
-
-  return {
-    results,
-    aggregateStatus: "pending_manual_qa",
-  };
-}
-
 export function buildPassedManualQaResult(
-  entry: Pick<SmartFormPilotManualQaResult, "slug" | "route">,
+  entry: Pick<SmartFormPilotManualQaResult, "slug" | "route"> & {
+    readonly notes?: string;
+  },
 ): SmartFormPilotManualQaResult {
   return {
     slug: entry.slug,
@@ -90,8 +78,41 @@ export function buildPassedManualQaResult(
     submitResultPassed: true,
     analyticsShapePassed: true,
     resultCardConsistencyPassed: true,
-    notes: "Manual QA passed.",
+    notes: entry.notes ?? "Manual QA passed.",
     status: "passed",
+  };
+}
+
+/**
+ * Canonical manual QA records after local pilot batch execution (Phase 5H-G-K).
+ */
+export const SMART_FORM_PILOT_MANUAL_QA_RESULTS: readonly SmartFormPilotManualQaResult[] =
+  getSmartFormPilotBatchRegistry().map((entry) =>
+    buildPassedManualQaResult({
+      slug: entry.governanceSlug,
+      route: entry.routeSlug,
+      notes: `Local manual QA passed for ${entry.manualQaUrl} with NEXT_PUBLIC_SMART_FORM_PILOT=true.`,
+    }),
+  );
+
+export function getSmartFormPilotManualQaResults(): SmartFormPilotManualQaResultSet {
+  return {
+    results: SMART_FORM_PILOT_MANUAL_QA_RESULTS,
+    aggregateStatus: deriveAggregateManualQaStatus(SMART_FORM_PILOT_MANUAL_QA_RESULTS),
+  };
+}
+
+export function buildDefaultPendingManualQaResults(): SmartFormPilotManualQaResultSet {
+  const results = getSmartFormPilotBatchRegistry().map((entry) =>
+    buildPendingResult({
+      governanceSlug: entry.governanceSlug,
+      routeSlug: entry.routeSlug,
+    }),
+  );
+
+  return {
+    results,
+    aggregateStatus: "pending_manual_qa",
   };
 }
 

@@ -7,6 +7,7 @@ import {
   type SmartFormPilotBatchRegistryEntry,
 } from "@/components/tools/smart-form/pilot-batch-qa-registry";
 import type { SmartFormPilotManualQaResultStatus } from "@/components/tools/smart-form/pilot-manual-qa-result";
+import { getSmartFormPilotManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
 
 export type SmartFormPilotManualQaCheckItem = {
   readonly id: string;
@@ -53,17 +54,23 @@ function buildChecksForPilot(entry: SmartFormPilotBatchRegistryEntry): SmartForm
 
 export function buildSmartFormPilotManualQaChecklist(): SmartFormPilotManualQaChecklist {
   const registry = getSmartFormPilotBatchRegistry();
+  const manualQaResults = getSmartFormPilotManualQaResults();
+  const resultByRoute = new Map(
+    manualQaResults.results.map((result) => [result.route, result.status]),
+  );
+
   const pilots = registry.map((entry) => ({
     routeSlug: entry.routeSlug,
     governanceSlug: entry.governanceSlug,
     manualQaUrl: entry.manualQaUrl,
-    manualQaStatus: "pending_manual_qa" as const,
+    manualQaStatus: (resultByRoute.get(entry.routeSlug) ??
+      "pending_manual_qa") as SmartFormPilotManualQaResultStatus,
     checks: buildChecksForPilot(entry),
   }));
 
   return {
     totalPilots: pilots.length,
-    manualQaStatus: "pending_manual_qa",
+    manualQaStatus: manualQaResults.aggregateStatus,
     pilots,
     manualQaUrls: pilots.map((pilot) => pilot.manualQaUrl),
   };
