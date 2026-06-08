@@ -23,6 +23,9 @@ import {
 } from "@/lib/tools/free-traffic-catalog";
 import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
+import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
+import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/formula-governance/runtime-validation/free-full-loop-bridge";
+import { isFreeFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 
 function buildInitialValues(tool: FreeTrafficTool): FreeTrafficInputValues {
   const values: FreeTrafficInputValues = {};
@@ -58,6 +61,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
   const [values, setValues] = useState<FreeTrafficInputValues>(() => buildInitialValues(tool));
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [fullLoopResult, setFullLoopResult] = useState<FreeFullLoopResult | null>(null);
+  const useFullLoopRuntime = isFreeFullLoopRuntimeSlug(tool.slug);
   const startedTracked = useRef(false);
 
   useEffect(() => {
@@ -84,8 +89,14 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
     if (!submitted) {
       return null;
     }
+    if (useFullLoopRuntime) {
+      if (fullLoopResult?.status === "success" && fullLoopResult.trafficResult) {
+        return fullLoopResult.trafficResult;
+      }
+      return null;
+    }
     return calculateFreeTrafficTool(tool.slug, values, locale);
-  }, [locale, submitted, tool.slug, values]);
+  }, [fullLoopResult, locale, submitted, tool.slug, useFullLoopRuntime, values]);
 
   const relatedPremiumSlug = result?.relatedPremiumSlug ?? tool.relatedPremiumSlug;
   const premiumAnalyzerHref = useMemo(() => {
@@ -143,8 +154,21 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) {
       setSubmitted(false);
+      setFullLoopResult(null);
       return;
     }
+
+    if (useFullLoopRuntime) {
+      const loopResult = runFreeFullLoopCalculation(tool.slug, values, locale);
+      setFullLoopResult(loopResult);
+      if (loopResult.status === "blocked") {
+        setSubmitted(false);
+        return;
+      }
+    } else {
+      setFullLoopResult(null);
+    }
+
     setSubmitted(true);
     trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
       toolSlug: tool.slug,
@@ -277,6 +301,22 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
             </form>
 
             <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0 space-y-4" aria-live="polite">
+              {useFullLoopRuntime && fullLoopResult?.status === "blocked" ? (
+                <>
+                  <div
+                    className="sc-industrial-panel border border-crit-red/30 bg-crit-red/5 p-4"
+                    role="alert"
+                  >
+                    <p className="text-sm font-semibold text-crit-red">Result blocked</p>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-body-charcoal">
+                      {fullLoopResult.blockers.map((blocker) => (
+                        <li key={blocker}>{blocker}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+                </>
+              ) : null}
               {result ? (
                 <>
                   <div className="sc-ledger-result sc-result-panel sc-ledger-letterpress">
@@ -350,6 +390,10 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                         {t("tool.premiumBlockNote")}
                       </p>
                     </div>
+                  ) : null}
+
+                  {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
+                    <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
                   ) : null}
 
                   <p className="text-xs leading-relaxed text-body-charcoal">{result.legalNote}</p>

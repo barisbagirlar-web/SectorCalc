@@ -4,6 +4,7 @@
 
 import type { CalculationVariable } from "@/lib/formula-governance/calculation-ontology/ontology-types";
 import type { CalculationValues } from "@/lib/formula-governance/runtime-validation/invariant-types";
+import { allowsSignedCurrencyOutput } from "@/lib/formula-governance/runtime-validation/signed-currency-outputs";
 
 export function checkVariableBoundaries(
   variable: CalculationVariable,
@@ -26,7 +27,11 @@ export function checkVariableBoundaries(
     errors.push(`${variable.id} must be non-negative.`);
   }
 
-  if (variable.dimension === "currency" && value < 0) {
+  if (
+    variable.dimension === "currency" &&
+    value < 0 &&
+    !allowsSignedCurrencyOutput(variable.id)
+  ) {
     errors.push(`${variable.id} currency value must be non-negative.`);
   }
 

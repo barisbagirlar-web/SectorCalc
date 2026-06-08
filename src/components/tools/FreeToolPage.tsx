@@ -27,6 +27,9 @@ import {
 } from "@/lib/tools/free-tool-results";
 import type { SmartFormUiBridgeManifest } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 import { type RevenueTool, type RevenueToolInput } from "@/lib/tools/revenue-tools";
+import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
+import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/formula-governance/runtime-validation/free-full-loop-bridge";
+import { isFreeFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 
 
 function buildInitialValues(tool: RevenueTool): FreeToolInputValues {
@@ -179,6 +182,7 @@ interface FreeToolPageProps {
 
 export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: FreeToolPageProps) {
  const useSmartFormPilot = Boolean(smartFormPilotManifest);
+ const useFullLoopRuntime = isFreeFullLoopRuntimeSlug(tool.freeSlug);
 
  const [values, setValues] = useState<FreeToolInputValues>(() =>
  buildInitialValues(tool)
@@ -186,6 +190,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  const [submitted, setSubmitted] = useState(false);
  const [isCalculating, setIsCalculating] = useState(false);
  const [errors, setErrors] = useState<Record<string, string>>({});
+ const [fullLoopResult, setFullLoopResult] = useState<FreeFullLoopResult | null>(null);
  const [pilotErrors, setPilotErrors] = useState<Record<string, string>>({});
  const [pilotValues, setPilotValues] = useState<FreeToolInputValues | null>(null);
  const startedTracked = useRef(false);
@@ -195,9 +200,12 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  if (!submitted) {
  return null;
  }
+ if (useFullLoopRuntime && fullLoopResult?.status === "success" && fullLoopResult.revenueResult) {
+ return fullLoopResult.revenueResult;
+ }
  const calculationValues = useSmartFormPilot && pilotValues ? pilotValues : values;
  return calculateFreeToolResult(tool, calculationValues);
- }, [submitted, tool, useSmartFormPilot, pilotValues, values]);
+ }, [fullLoopResult, submitted, tool, useFullLoopRuntime, useSmartFormPilot, pilotValues, values]);
 
  const handlePilotCalculate = (fieldValues: PilotFieldValues) => {
   if (!smartFormPilotManifest) {
@@ -292,6 +300,17 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  return;
  }
  setErrors({});
+
+ if (useFullLoopRuntime) {
+ const loopResult = runFreeFullLoopCalculation(tool.freeSlug, values);
+ setFullLoopResult(loopResult);
+ if (loopResult.status === "blocked") {
+ setSubmitted(false);
+ setIsCalculating(false);
+ return;
+ }
+ }
+
  setIsCalculating(true);
  setSubmitted(false);
  window.setTimeout(() => {
@@ -300,7 +319,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
  toolSlug: tool.freeSlug,
  });
- }, 400);
+ }, useFullLoopRuntime ? 0 : 400);
  };
 
  return (
@@ -363,12 +382,35 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
     </div>
    </form>
 
-   <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0">
+   <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0 space-y-4">
+    {useFullLoopRuntime && fullLoopResult?.status === "blocked" ? (
+     <>
+      <div
+       className="sc-industrial-panel border border-crit-red/30 bg-crit-red/5 p-4"
+       role="alert"
+      >
+       <p className="text-sm font-semibold text-crit-red">Result blocked</p>
+       <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-body-charcoal">
+        {fullLoopResult.blockers.map((blocker) => (
+         <li key={blocker}>{blocker}</li>
+        ))}
+       </ul>
+      </div>
+      <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+     </>
+    ) : null}
     {isCalculating ? (
      <p className="text-sm text-body-charcoal">Calculating…</p>
     ) : null}
-    {!isCalculating && result ? <FreeToolResultCard result={result} /> : null}
-    {!isCalculating && !result ? (
+    {!isCalculating && result ? (
+     <>
+      <FreeToolResultCard result={result} />
+      {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
+       <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+      ) : null}
+     </>
+    ) : null}
+    {!isCalculating && !result && fullLoopResult?.status !== "blocked" ? (
      <p className="text-sm text-body-charcoal">Enter values and run the calculator.</p>
     ) : null}
    </div>

@@ -7,7 +7,7 @@ import {
   getRevenueToolByPaidSlug,
   getRevenueToolByPremiumRouteSlug,
 } from "@/lib/tools/revenue-tools";
-import { FULL_LOOP_RUNTIME_SLUGS } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import { PREMIUM_FULL_LOOP_RUNTIME_SLUGS } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import {
   getPremiumToolHref,
   resolvePremiumToolHref,
@@ -15,7 +15,7 @@ import {
 
 describe("tool-links — premium hrefs", () => {
   test("full-loop slugs use revenue premium route", () => {
-    for (const slug of FULL_LOOP_RUNTIME_SLUGS) {
+    for (const slug of PREMIUM_FULL_LOOP_RUNTIME_SLUGS) {
       expect(resolvePremiumToolHref(slug)).toBe(`/tools/premium/${slug}`);
     }
   });
@@ -51,8 +51,8 @@ describe("tool-links — premium hrefs", () => {
   });
 
   test("schema-mapped premium slugs still use premium-schema route when not full-loop", () => {
-    expect(resolvePremiumToolHref("panel-shop-margin-verdict")).toBe(
-      "/tools/premium-schema/electrical-panel-rework-cost",
+    expect(resolvePremiumToolHref("auto-shop-margin-leak-detector")).toBe(
+      "/tools/premium-schema/auto-repair-comeback-cost",
     );
     expect(resolvePremiumToolHref("change-order-impact-analyzer")).toBe(
       "/tools/premium/change-order-impact-analyzer",

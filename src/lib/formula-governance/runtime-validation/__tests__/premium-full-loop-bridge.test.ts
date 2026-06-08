@@ -7,8 +7,18 @@ import { describe, expect, test } from "vitest";
 import {
   runPremiumFullLoopCalculation,
   sanitizeCanonicalInputs,
+  type PremiumFullLoopBlockedResult,
+  type PremiumFullLoopResult,
 } from "@/lib/formula-governance/runtime-validation/premium-full-loop-bridge";
-import { isFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import { isPremiumFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+
+function expectBlockedResult(result: PremiumFullLoopResult): PremiumFullLoopBlockedResult {
+  expect(result.status).toBe("blocked");
+  if (result.status !== "blocked") {
+    throw new Error("Expected blocked premium full-loop result.");
+  }
+  return result;
+}
 
 const WELDING_SLUG = "welding-bid-risk-analyzer";
 const SHEET_METAL_SLUG = "sheet-metal-quote-risk-tool";
@@ -96,6 +106,10 @@ const CHANGE_ORDER_SLUG = "change-order-impact-analyzer";
 const OFFICE_CLEANING_SLUG = "office-cleaning-bid-optimizer";
 const MENU_SLUG = "menu-profit-leak-detector";
 const RETURN_SLUG = "return-profit-erosion-tool";
+const PANEL_SHOP_SLUG = "panel-shop-margin-verdict";
+const LANDSCAPING_SLUG = "landscaping-contract-profit-tool";
+const SIGNAGE_SLUG = "signage-bid-safe-price-tool";
+const MILLWORK_SLUG = "millwork-bid-risk-analyzer";
 
 const ROOFING_VALID_INPUTS = {
   materialCost: 4200,
@@ -162,9 +176,48 @@ const RETURN_VALID_INPUTS = {
   adCostPerSale: 14,
 } as const;
 
+const PANEL_SHOP_VALID_INPUTS = {
+  materialCost: 2400,
+  laborHours: 18,
+  laborRate: 78,
+  testingHours: 4,
+  inspectionRiskPercent: 12,
+  targetMargin: 24,
+} as const;
+
+const LANDSCAPING_VALID_INPUTS = {
+  crewHoursPerVisit: 3,
+  laborRate: 42,
+  fuelCostPerVisit: 18,
+  supplyCostPerMonth: 95,
+  visitsPerMonth: 4,
+  equipmentWearCost: 60,
+  targetMargin: 20,
+} as const;
+
+const SIGNAGE_VALID_INPUTS = {
+  materialCost: 850,
+  inkCost: 120,
+  designHours: 6,
+  laborRate: 72,
+  installHours: 4,
+  reprintRiskPercent: 8,
+  targetMargin: 28,
+} as const;
+
+const MILLWORK_VALID_INPUTS = {
+  sheetMaterialCost: 2200,
+  laborHours: 24,
+  laborRate: 68,
+  finishingCost: 450,
+  installHours: 8,
+  wasteRatePercent: 12,
+  targetMargin: 22,
+} as const;
+
 describe("premium full-loop runtime bridge — welding", () => {
   test("registers welding as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(WELDING_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(WELDING_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -185,10 +238,10 @@ describe("premium full-loop runtime bridge — welding", () => {
       materialCost: 500,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when labor hours are zero", () => {
@@ -197,8 +250,8 @@ describe("premium full-loop runtime bridge — welding", () => {
       laborHours: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Labor hours"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Labor hours"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -225,7 +278,7 @@ describe("premium full-loop runtime bridge — welding", () => {
 
 describe("premium full-loop runtime bridge — sheet metal", () => {
   test("registers sheet-metal as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(SHEET_METAL_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(SHEET_METAL_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -246,10 +299,10 @@ describe("premium full-loop runtime bridge — sheet metal", () => {
       materialCost: 500,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when labor rate is zero", () => {
@@ -258,8 +311,8 @@ describe("premium full-loop runtime bridge — sheet metal", () => {
       laborRate: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Labor rate"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Labor rate"))).toBe(true);
   });
 
   test("blocks when scrap rate is out of range", () => {
@@ -268,8 +321,8 @@ describe("premium full-loop runtime bridge — sheet metal", () => {
       scrapRatePercent: 120,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Scrap rate"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Scrap rate"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -291,7 +344,7 @@ describe("premium full-loop runtime bridge — sheet metal", () => {
 
 describe("premium full-loop runtime bridge — HVAC", () => {
   test("registers hvac as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(HVAC_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(HVAC_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -312,10 +365,10 @@ describe("premium full-loop runtime bridge — HVAC", () => {
       equipmentCost: 5000,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when labor rate is zero", () => {
@@ -324,8 +377,8 @@ describe("premium full-loop runtime bridge — HVAC", () => {
       laborRate: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Labor rate"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Labor rate"))).toBe(true);
   });
 
   test("blocks when callback risk is out of range", () => {
@@ -334,8 +387,8 @@ describe("premium full-loop runtime bridge — HVAC", () => {
       callbackRiskPercent: 120,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Callback risk"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Callback risk"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -357,7 +410,7 @@ describe("premium full-loop runtime bridge — HVAC", () => {
 
 describe("premium full-loop runtime bridge — plumbing", () => {
   test("registers plumbing as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(PLUMBING_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(PLUMBING_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -378,10 +431,10 @@ describe("premium full-loop runtime bridge — plumbing", () => {
       partsCost: 400,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when labor hours are zero", () => {
@@ -390,8 +443,8 @@ describe("premium full-loop runtime bridge — plumbing", () => {
       laborHours: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Labor hours"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Labor hours"))).toBe(true);
   });
 
   test("blocks when callback risk is out of range", () => {
@@ -400,8 +453,8 @@ describe("premium full-loop runtime bridge — plumbing", () => {
       callbackRiskPercent: 110,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Callback risk"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Callback risk"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -423,7 +476,7 @@ describe("premium full-loop runtime bridge — plumbing", () => {
 
 describe("premium full-loop runtime bridge — electrical labor estimator", () => {
   test("registers electrical-labor-estimator as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(ELECTRICAL_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(ELECTRICAL_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -444,10 +497,10 @@ describe("premium full-loop runtime bridge — electrical labor estimator", () =
       materialCost: 1500,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when labor rate is zero", () => {
@@ -456,8 +509,8 @@ describe("premium full-loop runtime bridge — electrical labor estimator", () =
       laborRate: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Labor rate"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Labor rate"))).toBe(true);
   });
 
   test("blocks when inspection risk is out of range", () => {
@@ -466,8 +519,8 @@ describe("premium full-loop runtime bridge — electrical labor estimator", () =
       inspectionRiskPercent: 150,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Inspection risk"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Inspection risk"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -490,7 +543,7 @@ describe("premium full-loop runtime bridge — electrical labor estimator", () =
 
 describe("premium full-loop runtime bridge — print job cost check", () => {
   test("registers print-job-cost-check as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(PRINT_JOB_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(PRINT_JOB_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -511,10 +564,10 @@ describe("premium full-loop runtime bridge — print job cost check", () => {
       materialCost: 400,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when labor rate is zero", () => {
@@ -523,8 +576,8 @@ describe("premium full-loop runtime bridge — print job cost check", () => {
       laborRate: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Labor rate"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Labor rate"))).toBe(true);
   });
 
   test("blocks when reprint risk is out of range", () => {
@@ -533,8 +586,8 @@ describe("premium full-loop runtime bridge — print job cost check", () => {
       reprintRiskPercent: 120,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Reprint risk"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Reprint risk"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -557,7 +610,7 @@ describe("premium full-loop runtime bridge — print job cost check", () => {
 
 describe("premium full-loop runtime bridge — lawn care cost check", () => {
   test("registers lawn-care-cost-check as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(LAWN_CARE_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(LAWN_CARE_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -578,10 +631,10 @@ describe("premium full-loop runtime bridge — lawn care cost check", () => {
       crewHoursPerVisit: 2,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when labor rate is zero", () => {
@@ -590,8 +643,8 @@ describe("premium full-loop runtime bridge — lawn care cost check", () => {
       laborRate: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Labor rate"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Labor rate"))).toBe(true);
   });
 
   test("blocks when visits per month is zero", () => {
@@ -600,8 +653,8 @@ describe("premium full-loop runtime bridge — lawn care cost check", () => {
       visitsPerMonth: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Visits per month"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Visits per month"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -624,7 +677,7 @@ describe("premium full-loop runtime bridge — lawn care cost check", () => {
 
 describe("premium full-loop runtime bridge — roofing", () => {
   test("registers roofing as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(ROOFING_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(ROOFING_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -647,10 +700,10 @@ describe("premium full-loop runtime bridge — roofing", () => {
       materialCost: 2000,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when weather delay risk is out of range", () => {
@@ -659,8 +712,8 @@ describe("premium full-loop runtime bridge — roofing", () => {
       weatherDelayRiskPercent: 120,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Weather delay risk"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Weather delay risk"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -682,7 +735,7 @@ describe("premium full-loop runtime bridge — roofing", () => {
 
 describe("premium full-loop runtime bridge — painting", () => {
   test("registers painting as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(PAINTING_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(PAINTING_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -705,10 +758,10 @@ describe("premium full-loop runtime bridge — painting", () => {
       paintCost: 400,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when labor rate is zero", () => {
@@ -717,8 +770,8 @@ describe("premium full-loop runtime bridge — painting", () => {
       laborRate: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Labor rate"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Labor rate"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -740,7 +793,7 @@ describe("premium full-loop runtime bridge — painting", () => {
 
 describe("premium full-loop runtime bridge — CNC", () => {
   test("registers cnc as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(CNC_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(CNC_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -763,10 +816,10 @@ describe("premium full-loop runtime bridge — CNC", () => {
       setupTime: 30,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when quantity is zero", () => {
@@ -775,8 +828,8 @@ describe("premium full-loop runtime bridge — CNC", () => {
       quantity: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Quantity"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Quantity"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -798,7 +851,7 @@ describe("premium full-loop runtime bridge — CNC", () => {
 
 describe("premium full-loop runtime bridge — change order", () => {
   test("registers change-order as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(CHANGE_ORDER_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(CHANGE_ORDER_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -821,10 +874,10 @@ describe("premium full-loop runtime bridge — change order", () => {
       originalBudget: 50000,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when margin target is out of range", () => {
@@ -833,8 +886,8 @@ describe("premium full-loop runtime bridge — change order", () => {
       marginTarget: 150,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Target margin"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Target margin"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -856,7 +909,7 @@ describe("premium full-loop runtime bridge — change order", () => {
 
 describe("premium full-loop runtime bridge — office cleaning", () => {
   test("registers office-cleaning as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(OFFICE_CLEANING_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(OFFICE_CLEANING_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -879,10 +932,10 @@ describe("premium full-loop runtime bridge — office cleaning", () => {
       areaSize: 5000,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when visit frequency is zero", () => {
@@ -891,8 +944,8 @@ describe("premium full-loop runtime bridge — office cleaning", () => {
       visitFrequency: 0,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Visit frequency"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Visit frequency"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -916,7 +969,7 @@ describe("premium full-loop runtime bridge — office cleaning", () => {
 
 describe("premium full-loop runtime bridge — menu profit leak", () => {
   test("registers menu as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(MENU_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(MENU_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -939,10 +992,10 @@ describe("premium full-loop runtime bridge — menu profit leak", () => {
       menuPrice: 15,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when waste rate is out of range", () => {
@@ -951,8 +1004,8 @@ describe("premium full-loop runtime bridge — menu profit leak", () => {
       wasteRate: 120,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Waste rate"))).toBe(true);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.blockers.some((blocker: string) => blocker.includes("Waste rate"))).toBe(true);
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -974,7 +1027,7 @@ describe("premium full-loop runtime bridge — menu profit leak", () => {
 
 describe("premium full-loop runtime bridge — return profit erosion", () => {
   test("registers return-profit as full-loop slug", () => {
-    expect(isFullLoopRuntimeSlug(RETURN_SLUG)).toBe(true);
+    expect(isPremiumFullLoopRuntimeSlug(RETURN_SLUG)).toBe(true);
   });
 
   test("rejects non-canonical input keys", () => {
@@ -997,10 +1050,10 @@ describe("premium full-loop runtime bridge — return profit erosion", () => {
       productPrice: 50,
     });
 
-    expect(result.status).toBe("blocked");
-    expect(result.loopStatus).toBe("NEED_DATA");
-    expect(result.missingInputs.length).toBeGreaterThan(0);
-    expect(result.trustTrace.validationPassed).toBe(false);
+    const blocked = expectBlockedResult(result);
+    expect(blocked.loopStatus).toBe("NEED_DATA");
+    expect(blocked.missingInputs.length).toBeGreaterThan(0);
+    expect(blocked.trustTrace.validationPassed).toBe(false);
   });
 
   test("blocks when return rate is out of range", () => {
@@ -1010,7 +1063,9 @@ describe("premium full-loop runtime bridge — return profit erosion", () => {
     });
 
     expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Return rate"))).toBe(true);
+    if (result.status === "blocked") {
+      expect(result.blockers.some((blocker: string) => blocker.includes("Return rate"))).toBe(true);
+    }
   });
 
   test("returns report, verdict and trust trace on valid inputs", () => {
@@ -1027,5 +1082,193 @@ describe("premium full-loop runtime bridge — return profit erosion", () => {
     expect(result.trustTrace.loopStatus).toBe("SUCCESS");
     expect(result.trustTrace.canonicalInputs).toContain("adCostPerSale");
     expect(result.trustTrace.validationSources.length).toBeGreaterThan(0);
+  });
+});
+
+describe("premium full-loop runtime bridge — panel shop", () => {
+  test("registers panel-shop as full-loop slug", () => {
+    expect(isPremiumFullLoopRuntimeSlug(PANEL_SHOP_SLUG)).toBe(true);
+  });
+
+  test("rejects non-canonical input keys", () => {
+    const sanitized = sanitizeCanonicalInputs(PANEL_SHOP_SLUG, {
+      ...PANEL_SHOP_VALID_INPUTS,
+      rogueKey: 999,
+      manualOverride: 1,
+      codeJurisdictionRisk: 0.15,
+    });
+
+    expect(sanitized.rejectedKeys).toContain("rogueKey");
+    expect(sanitized.rejectedKeys).toContain("manualOverride");
+    expect(sanitized.rejectedKeys).toContain("codeJurisdictionRisk");
+    expect("rogueKey" in sanitized.canonical).toBe(false);
+  });
+
+  test("blocks calculation when required inputs are missing", () => {
+    const result = runPremiumFullLoopCalculation(PANEL_SHOP_SLUG, {
+      materialCost: 1500,
+    });
+
+    expect(result.status).toBe("blocked");
+    if (result.status === "blocked") {
+      expect(result.loopStatus).toBe("NEED_DATA");
+      expect(result.trustTrace.validationPassed).toBe(false);
+    }
+  });
+
+  test("blocks when labor rate is zero", () => {
+    const result = runPremiumFullLoopCalculation(PANEL_SHOP_SLUG, {
+      ...PANEL_SHOP_VALID_INPUTS,
+      laborRate: 0,
+    });
+
+    expect(result.status).toBe("blocked");
+    if (result.status === "blocked") {
+      expect(result.blockers.some((blocker: string) => blocker.includes("Labor rate"))).toBe(true);
+    }
+  });
+
+  test("returns report, verdict and trust trace on valid inputs", () => {
+    const result = runPremiumFullLoopCalculation(PANEL_SHOP_SLUG, { ...PANEL_SHOP_VALID_INPUTS });
+
+    expect(result.status).toBe("success");
+    if (result.status !== "success") {
+      return;
+    }
+
+    expect(result.report.minimumSafePrice).toBeGreaterThan(0);
+    expect(result.toolResult.verdict.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(true);
+    expect(result.trustTrace.loopStatus).toBe("SUCCESS");
+  });
+});
+
+describe("premium full-loop runtime bridge — landscaping", () => {
+  test("registers landscaping as full-loop slug", () => {
+    expect(isPremiumFullLoopRuntimeSlug(LANDSCAPING_SLUG)).toBe(true);
+  });
+
+  test("rejects non-canonical input keys", () => {
+    const sanitized = sanitizeCanonicalInputs(LANDSCAPING_SLUG, {
+      ...LANDSCAPING_VALID_INPUTS,
+      rogueKey: 999,
+      advancedPatchKey: 1,
+      routeDensityRisk: 0.2,
+    });
+
+    expect(sanitized.rejectedKeys).toContain("rogueKey");
+    expect(sanitized.rejectedKeys).toContain("routeDensityRisk");
+    expect("rogueKey" in sanitized.canonical).toBe(false);
+  });
+
+  test("blocks when visits per month is zero", () => {
+    const result = runPremiumFullLoopCalculation(LANDSCAPING_SLUG, {
+      ...LANDSCAPING_VALID_INPUTS,
+      visitsPerMonth: 0,
+    });
+
+    expect(result.status).toBe("blocked");
+    if (result.status === "blocked") {
+      expect(result.blockers.some((blocker: string) => blocker.includes("Visits per month"))).toBe(true);
+    }
+  });
+
+  test("returns report, verdict and trust trace on valid inputs", () => {
+    const result = runPremiumFullLoopCalculation(LANDSCAPING_SLUG, { ...LANDSCAPING_VALID_INPUTS });
+
+    expect(result.status).toBe("success");
+    if (result.status !== "success") {
+      return;
+    }
+
+    expect(result.report.minimumSafePrice).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(true);
+    expect(result.trustTrace.loopStatus).toBe("SUCCESS");
+  });
+});
+
+describe("premium full-loop runtime bridge — signage", () => {
+  test("registers signage as full-loop slug", () => {
+    expect(isPremiumFullLoopRuntimeSlug(SIGNAGE_SLUG)).toBe(true);
+  });
+
+  test("rejects non-canonical input keys", () => {
+    const sanitized = sanitizeCanonicalInputs(SIGNAGE_SLUG, {
+      ...SIGNAGE_VALID_INPUTS,
+      rogueKey: 999,
+      wideFormatSpoilage: 0.12,
+    });
+
+    expect(sanitized.rejectedKeys).toContain("rogueKey");
+    expect(sanitized.rejectedKeys).toContain("wideFormatSpoilage");
+    expect("rogueKey" in sanitized.canonical).toBe(false);
+  });
+
+  test("blocks when reprint risk is out of range", () => {
+    const result = runPremiumFullLoopCalculation(SIGNAGE_SLUG, {
+      ...SIGNAGE_VALID_INPUTS,
+      reprintRiskPercent: 120,
+    });
+
+    expect(result.status).toBe("blocked");
+    if (result.status === "blocked") {
+      expect(result.blockers.some((blocker: string) => blocker.includes("Reprint risk"))).toBe(true);
+    }
+  });
+
+  test("returns report, verdict and trust trace on valid inputs", () => {
+    const result = runPremiumFullLoopCalculation(SIGNAGE_SLUG, { ...SIGNAGE_VALID_INPUTS });
+
+    expect(result.status).toBe("success");
+    if (result.status !== "success") {
+      return;
+    }
+
+    expect(result.report.minimumSafePrice).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(true);
+    expect(result.trustTrace.loopStatus).toBe("SUCCESS");
+  });
+});
+
+describe("premium full-loop runtime bridge — millwork", () => {
+  test("registers millwork as full-loop slug", () => {
+    expect(isPremiumFullLoopRuntimeSlug(MILLWORK_SLUG)).toBe(true);
+  });
+
+  test("rejects non-canonical input keys", () => {
+    const sanitized = sanitizeCanonicalInputs(MILLWORK_SLUG, {
+      ...MILLWORK_VALID_INPUTS,
+      rogueKey: 999,
+      fieldMeasurementRisk: 0.2,
+    });
+
+    expect(sanitized.rejectedKeys).toContain("rogueKey");
+    expect(sanitized.rejectedKeys).toContain("fieldMeasurementRisk");
+    expect("rogueKey" in sanitized.canonical).toBe(false);
+  });
+
+  test("blocks when waste rate is out of range", () => {
+    const result = runPremiumFullLoopCalculation(MILLWORK_SLUG, {
+      ...MILLWORK_VALID_INPUTS,
+      wasteRatePercent: 120,
+    });
+
+    expect(result.status).toBe("blocked");
+    if (result.status === "blocked") {
+      expect(result.blockers.some((blocker: string) => blocker.includes("Waste rate"))).toBe(true);
+    }
+  });
+
+  test("returns report, verdict and trust trace on valid inputs", () => {
+    const result = runPremiumFullLoopCalculation(MILLWORK_SLUG, { ...MILLWORK_VALID_INPUTS });
+
+    expect(result.status).toBe("success");
+    if (result.status !== "success") {
+      return;
+    }
+
+    expect(result.report.minimumSafePrice).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(true);
+    expect(result.trustTrace.loopStatus).toBe("SUCCESS");
   });
 });

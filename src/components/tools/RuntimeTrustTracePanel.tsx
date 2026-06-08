@@ -1,6 +1,6 @@
 "use client";
 
-import type { RuntimeTrustTraceView } from "@/lib/formula-governance/runtime-validation/premium-full-loop-bridge";
+import type { RuntimeTrustTraceView } from "@/lib/formula-governance/runtime-validation/full-loop-bridge-shared";
 
 type RuntimeTrustTracePanelProps = {
   readonly trustTrace: RuntimeTrustTraceView;

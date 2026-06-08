@@ -4,6 +4,7 @@
 
 import type { CalculationOntology } from "@/lib/formula-governance/calculation-ontology/ontology-types";
 import type { CalculationValues } from "@/lib/formula-governance/runtime-validation/invariant-types";
+import { allowsSignedCurrencyOutput } from "@/lib/formula-governance/runtime-validation/signed-currency-outputs";
 
 const RATE_EXPECTED_NUMERATOR: Record<string, string> = {
   "USD/hour": "currency",
@@ -29,7 +30,11 @@ export function checkDimensionConsistency(
       errors.push(`${variable.id} percent dimension out of range.`);
     }
 
-    if (variable.dimension === "currency" && value < 0) {
+    if (
+      variable.dimension === "currency" &&
+      value < 0 &&
+      !allowsSignedCurrencyOutput(variable.id)
+    ) {
       errors.push(`${variable.id} currency dimension cannot be negative.`);
     }
 

@@ -15,6 +15,7 @@ import type {
   ValidateCalculationParams,
   ValidationResult,
 } from "@/lib/formula-governance/runtime-validation/invariant-types";
+import { allowsSignedCurrencyOutput } from "@/lib/formula-governance/runtime-validation/signed-currency-outputs";
 
 function validateContractDerivedTargets(
   ontology: CalculationOntology,
@@ -33,7 +34,11 @@ function validateContractDerivedTargets(
       continue;
     }
     const value = result[targetId];
-    if (variable.dimension === "currency" && value < 0) {
+    if (
+      variable.dimension === "currency" &&
+      value < 0 &&
+      !allowsSignedCurrencyOutput(targetId)
+    ) {
       errors.push(`${targetId} target currency result must be non-negative.`);
     }
     if (variable.dimension === "percent" && (value < 0 || value > 100)) {
@@ -49,7 +54,11 @@ function validateContractDerivedTargets(
       continue;
     }
     const value = result[variable.id];
-    if (variable.dimension === "currency" && value < 0) {
+    if (
+      variable.dimension === "currency" &&
+      value < 0 &&
+      !allowsSignedCurrencyOutput(variable.id)
+    ) {
       errors.push(`${variable.id} derived currency must be non-negative.`);
     }
     if (variable.dimension === "percent" && (value < 0 || value > 100)) {
