@@ -67,7 +67,7 @@ function catalogFixture(slug: string): Record<string, number> {
   return fixture;
 }
 
-const VALID_INPUTS: Record<string, Record<string, number>> = {
+const VALID_INPUTS: Record<string, Record<string, number | string>> = {
   "repair-time-vs-price-check": {
     quotedPrice: 850,
     repairHours: 2.5,
@@ -165,19 +165,34 @@ const VALID_INPUTS: Record<string, Record<string, number>> = {
     ingredientCost: 4.5,
     menuPrice: 18,
   },
+  "project-cost-calculator": {
+    originalBudget: 500_000,
+    changeEstimate: 25_000,
+    deadlinePressure: "medium",
+  },
+  "cleaning-cost-calculator": {
+    areaSize: 12_000,
+    staffCount: 2,
+    visitFrequency: 20,
+  },
+  "product-margin-calculator": {
+    productPrice: 79,
+    productCost: 28,
+    returnRate: 5,
+  },
 };
 
 for (const slug of BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS) {
   VALID_INPUTS[slug] = catalogFixture(slug);
 }
 
-function resolveValidInputs(slug: string): Record<string, number> {
+function resolveValidInputs(slug: string): Record<string, number | string> {
   return VALID_INPUTS[slug] ?? catalogFixture(slug);
 }
 
 describe("free full-loop runtime bridge", () => {
   test("registry exposes legacy + traffic catalog free full-loop slugs", () => {
-    expect(FREE_FULL_LOOP_RUNTIME_SLUGS.length).toBe(17 + BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS.length);
+    expect(FREE_FULL_LOOP_RUNTIME_SLUGS.length).toBe(20 + BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS.length);
     for (const slug of FREE_FULL_LOOP_RUNTIME_SLUGS) {
       expect(isFreeFullLoopRuntimeSlug(slug)).toBe(true);
     }
@@ -234,7 +249,10 @@ describe("free full-loop runtime bridge", () => {
           if (
             slug === "repair-time-vs-price-check" ||
             slug === "hvac-tonnage-rule-check" ||
-            slug === "roofing-square-cost-check"
+            slug === "roofing-square-cost-check" ||
+            slug === "project-cost-calculator" ||
+            slug === "cleaning-cost-calculator" ||
+            slug === "product-margin-calculator"
           ) {
             expect(result.revenueResult).toBeDefined();
           } else {

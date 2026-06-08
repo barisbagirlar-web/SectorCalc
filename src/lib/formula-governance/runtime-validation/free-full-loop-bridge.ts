@@ -29,6 +29,8 @@ import {
 import { isBatchFreeBatch2OracleSlug } from "@/lib/formula-governance/oracle/batch-free-batch2-oracles";
 import { isBatchTrafficCatalogOracleSlug } from "@/lib/formula-governance/oracle/batch-traffic-catalog-oracles";
 import { isBatchFreeOracleSlug } from "@/lib/formula-governance/oracle/batch-free-oracles";
+import { isRevenueDriftFreeOracleSlug } from "@/lib/formula-governance/oracle/revenue-drift-free-oracles";
+import { sanitizeRevenueDriftCanonicalInputs } from "@/lib/formula-governance/runtime-validation/revenue-drift-form-canonical";
 import { isFinanceOracleSlug } from "@/lib/formula-governance/oracle/finance-oracles";
 import { isBusinessOperationsOracleSlug } from "@/lib/formula-governance/oracle/production-formula-locator";
 import {
@@ -82,6 +84,9 @@ const REVENUE_FREE_FULL_LOOP_SLUGS = new Set<string>([
   "repair-time-vs-price-check",
   "hvac-tonnage-rule-check",
   "roofing-square-cost-check",
+  "project-cost-calculator",
+  "cleaning-cost-calculator",
+  "product-margin-calculator",
 ]);
 
 function resolveFreeContractSlug(slug: string): string {
@@ -121,8 +126,18 @@ export function sanitizeFreeCanonicalInputs(
   slug: string,
   rawValues: FreeRawInputValues,
 ): SanitizeFreeCanonicalInputsResult {
-  const aliased = applyFormToContractAliases(slug, rawValues);
   const allowedKeys = resolveFreeCanonicalInputKeys(slug);
+
+  if (isRevenueDriftFreeOracleSlug(slug)) {
+    const drift = sanitizeRevenueDriftCanonicalInputs(slug, rawValues, allowedKeys);
+    return {
+      canonical: drift.canonical,
+      rejectedKeys: drift.rejectedKeys,
+      allowedKeys,
+    };
+  }
+
+  const aliased = applyFormToContractAliases(slug, rawValues);
   const allowedSet = new Set(allowedKeys);
   const canonical: Record<string, number> = {};
   const rejectedKeys: string[] = [];
@@ -168,7 +183,7 @@ function toFreeToolValues(canonical: KnownInputs): FreeToolInputValues {
 
 function runFreeDisplayCalculation(
   slug: string,
-  canonical: KnownInputs,
+  values: FreeRawInputValues,
   locale: string,
 ): FreeTrafficResult | FreeToolResult {
   if (isRevenueFreeSlug(slug)) {
@@ -176,7 +191,18 @@ function runFreeDisplayCalculation(
     if (!tool) {
       throw new Error(`Revenue free tool not found for "${slug}".`);
     }
-    return calculateFreeToolResult(tool, toFreeToolValues(canonical));
+    const displayValues: FreeToolInputValues = {};
+    for (const [key, value] of Object.entries(values)) {
+      displayValues[key] = value;
+    }
+    return calculateFreeToolResult(tool, displayValues);
+  }
+  const canonical: Record<string, number> = {};
+  for (const [key, value] of Object.entries(values)) {
+    const numeric = normalizeInputNumber(value);
+    if (numeric !== undefined) {
+      canonical[key] = numeric;
+    }
   }
   return calculateFreeTrafficTool(slug, toFreeTrafficValues(canonical), locale);
 }
@@ -211,8 +237,26 @@ const GOVERNANCE_TARGET_ALIASES: Readonly<Partial<Record<string, string>>> = {
   minimumSafeBid: "breakEvenUnits",
 };
 
-function inputsForFreeValidationLoop(canonical: KnownInputs): KnownInputs {
-  const next = { ...canonical };
+function inputsForFreeMind2Loop(slug: string, canonical: KnownInputs): Record<string, number> {
+  const next: Record<string, number> = { ...canonical };
+  if (
+    slug === "project-cost-calculator" &&
+    next.deadlinePressureWastePercent !== undefined &&
+    next.deadlinePressure === undefined
+  ) {
+    next.deadlinePressure = next.deadlinePressureWastePercent;
+  }
+  if (
+    slug === "product-margin-calculator" &&
+    next.returnRate === undefined
+  ) {
+    next.returnRate = 0;
+  }
+  return next;
+}
+
+function inputsForFreeValidationLoop(slug: string, canonical: KnownInputs): Record<string, number> {
+  const next = inputsForFreeMind2Loop(slug, canonical);
   if (!Number.isFinite(next.targetMargin)) {
     next.targetMargin = 25;
   }
@@ -313,11 +357,13 @@ export function runFreeFullLoopCalculation(
   const { canonical, rejectedKeys } = sanitizeFreeCanonicalInputs(slug, rawValues);
   const canonicalKeys = Object.keys(canonical).sort((left, right) => left.localeCompare(right));
 
+  const mind2Inputs = inputsForFreeMind2Loop(slug, canonical);
+
   const edgeBlockers = validateContractEdgeRules(slug, canonical, resolveFreeContractSlug);
   if (edgeBlockers.length > 0) {
     const preLoop = runContractCalculationIntelligenceLoop({
       contract,
-      knownInputs: canonical,
+      knownInputs: mind2Inputs,
     });
     return blockedResult({
       slug,
@@ -331,7 +377,7 @@ export function runFreeFullLoopCalculation(
 
   const preLoop = runContractCalculationIntelligenceLoop({
     contract,
-    knownInputs: canonical,
+    knownInputs: mind2Inputs,
   });
 
   if (preLoop.status === "NEED_DATA" || preLoop.status === "BLOCKED") {
@@ -353,7 +399,8 @@ export function runFreeFullLoopCalculation(
     });
   }
 
-  const displayResult = runFreeDisplayCalculation(slug, canonical, locale);
+  const displayValues = isRevenueFreeSlug(slug) ? rawValues : canonical;
+  const displayResult = runFreeDisplayCalculation(slug, displayValues, locale);
   const adapterResult = adaptFreeProductionOutput(slug, canonical);
 
   if (adapterResult.status !== "ok") {
@@ -381,7 +428,7 @@ export function runFreeFullLoopCalculation(
 
   const postLoop = runContractCalculationIntelligenceLoop({
     contract,
-    knownInputs: inputsForFreeValidationLoop(canonical),
+    knownInputs: inputsForFreeValidationLoop(slug, canonical),
     calculatedResult,
   });
 

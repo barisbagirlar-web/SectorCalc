@@ -187,9 +187,24 @@ export function validateContractEdgeRules(
       }
     }
     if (rule.id === "waste-percent") {
-      const waste = knownInputs.wasteRate ?? knownInputs.wasteRatePercent;
+      const waste =
+        knownInputs.wasteRate ??
+        knownInputs.wasteRatePercent ??
+        knownInputs.deadlinePressureWastePercent;
       if (waste !== undefined && (waste < 0 || waste > 100)) {
         errors.push("Waste rate must be between 0% and 100%.");
+      }
+    }
+    if (rule.id === "change-non-negative") {
+      const changeEstimate = knownInputs.changeEstimate;
+      if (changeEstimate !== undefined && changeEstimate < 0) {
+        errors.push("Change estimate must be non-negative.");
+      }
+    }
+    if (rule.id === "staff-positive") {
+      const staffCount = knownInputs.staffCount;
+      if (staffCount !== undefined && staffCount <= 0) {
+        errors.push("Staff count must be greater than 0.");
       }
     }
     if (rule.id === "commission-percent") {

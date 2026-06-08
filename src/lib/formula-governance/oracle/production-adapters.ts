@@ -16,6 +16,12 @@ import {
 import type { FreeTrafficInputValues } from "@/lib/tools/free-traffic-calculators";
 import { calculateFreeTrafficTool } from "@/lib/tools/free-traffic-calculators";
 import type { FinanceOracleSlug } from "@/lib/formula-governance/oracle/finance-oracles";
+import {
+  calculateCleaningIssaFreeOracle,
+  calculateProductMarginDtcFreeOracle,
+  calculateProjectChangeOrderFreeOracle,
+  mapDeadlinePressureToWastePercent,
+} from "@/lib/formula-governance/oracle/revenue-drift-free-oracles";
 import type { BusinessOperationsOracleSlug } from "@/lib/formula-governance/oracle/production-formula-locator";
 import { calculatePremiumDecisionReport } from "@/lib/tools/premium-decision-engine";
 import type { PremiumInputValues } from "@/lib/tools/premium-decision-engine";
@@ -90,16 +96,15 @@ export type NormalizedBusinessOperationsProductionOutput =
   | NormalizedCncQuoteRiskProductionOutput;
 
 export type NormalizedProjectCostProductionOutput = {
-  readonly estimatedProjectCost: number;
-  readonly laborCost: number;
-  readonly overheadCost: number;
-  readonly contingencyCost: number;
+  readonly adjustedChange: number;
+  readonly changeRatioPercent: number;
+  readonly wastePercent: number;
 };
 
 export type NormalizedCleaningCostProductionOutput = {
-  readonly totalCost: number;
-  readonly laborCost: number;
-  readonly costPerSqFt: number;
+  readonly monthlyHours: number;
+  readonly workloadIndex: number;
+  readonly hoursPerVisit: number;
 };
 
 export type NormalizedFoodCostProductionOutput = {
@@ -107,10 +112,9 @@ export type NormalizedFoodCostProductionOutput = {
 };
 
 export type NormalizedProductMarginProductionOutput = {
-  readonly margin: number;
-  readonly grossProfit: number;
+  readonly marginPercent: number;
+  readonly grossMargin: number;
   readonly totalCost: number;
-  readonly returnImpact: number;
 };
 
 export type NormalizedWeldingCostProductionOutput = {
@@ -545,46 +549,37 @@ export function adaptProductionBusinessOperationsOutput(
 }
 
 function adaptProjectCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
-  const run = runCalculator("project-cost-estimator", values);
-  if (!run) {
-    return { status: "error", reason: "Project cost calculator returned no result." };
+  try {
+    const wastePercent =
+      values.deadlinePressureWastePercent !== undefined
+        ? Number(values.deadlinePressureWastePercent)
+        : mapDeadlinePressureToWastePercent(
+            values.deadlinePressure as string | number | undefined,
+          ) ?? 5;
+    const output = calculateProjectChangeOrderFreeOracle({
+      originalBudget: Number(values.originalBudget),
+      changeEstimate: Number(values.changeEstimate),
+      deadlinePressureWastePercent: wastePercent,
+    });
+    return { status: "ok", output };
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    return { status: "error", reason };
   }
-  if (Object.keys(run.errors).length > 0) {
-    return { status: "error", reason: Object.values(run.errors).join(" ") };
-  }
-  const estimatedProjectCost = extractCalculatorResultValue(run.results, "estimatedProjectCost");
-  const laborCost = extractCalculatorResultValue(run.results, "laborCost");
-  const overheadCost = extractCalculatorResultValue(run.results, "overheadCost");
-  const contingencyCost = extractCalculatorResultValue(run.results, "contingencyCost");
-  if (
-    estimatedProjectCost === null ||
-    laborCost === null ||
-    overheadCost === null ||
-    contingencyCost === null
-  ) {
-    return { status: "needs_adapter", reason: "Could not parse project cost calculator outputs." };
-  }
-  return {
-    status: "ok",
-    output: { estimatedProjectCost, laborCost, overheadCost, contingencyCost },
-  };
 }
 
 function adaptCleaningCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
-  const run = runCalculator("cleaning-cost-estimator", values);
-  if (!run) {
-    return { status: "error", reason: "Cleaning cost calculator returned no result." };
+  try {
+    const output = calculateCleaningIssaFreeOracle({
+      areaSize: Number(values.areaSize),
+      staffCount: Number(values.staffCount),
+      visitFrequency: Number(values.visitFrequency),
+    });
+    return { status: "ok", output };
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    return { status: "error", reason };
   }
-  if (Object.keys(run.errors).length > 0) {
-    return { status: "error", reason: Object.values(run.errors).join(" ") };
-  }
-  const totalCost = extractCalculatorResultValue(run.results, "totalCost");
-  const laborCost = extractCalculatorResultValue(run.results, "laborCost");
-  const costPerSqFt = extractCalculatorResultValue(run.results, "costPerSqFt");
-  if (totalCost === null || laborCost === null || costPerSqFt === null) {
-    return { status: "needs_adapter", reason: "Could not parse cleaning cost calculator outputs." };
-  }
-  return { status: "ok", output: { totalCost, laborCost, costPerSqFt } };
 }
 
 function adaptFoodCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
@@ -601,21 +596,22 @@ function adaptFoodCostProduction(values: CalculatorInputValues): ProductionAdapt
 }
 
 function adaptProductMarginProduction(values: CalculatorInputValues): ProductionAdapterResult {
-  const run = runCalculator("product-margin-calculator", values);
-  if (!run) {
-    return { status: "error", reason: "Product margin calculator returned no result." };
+  try {
+    const returnRateRaw = values.returnRate;
+    const returnRate =
+      returnRateRaw === undefined || returnRateRaw === ""
+        ? 0
+        : Number(returnRateRaw);
+    const output = calculateProductMarginDtcFreeOracle({
+      productPrice: Number(values.productPrice),
+      productCost: Number(values.productCost),
+      returnRate,
+    });
+    return { status: "ok", output };
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    return { status: "error", reason };
   }
-  if (Object.keys(run.errors).length > 0) {
-    return { status: "error", reason: Object.values(run.errors).join(" ") };
-  }
-  const margin = extractCalculatorResultValue(run.results, "margin");
-  const grossProfit = extractCalculatorResultValue(run.results, "grossProfit");
-  const totalCost = extractCalculatorResultValue(run.results, "totalCost");
-  const returnImpact = extractCalculatorResultValue(run.results, "returnImpact");
-  if (margin === null || grossProfit === null || totalCost === null || returnImpact === null) {
-    return { status: "needs_adapter", reason: "Could not parse product margin calculator outputs." };
-  }
-  return { status: "ok", output: { margin, grossProfit, totalCost, returnImpact } };
 }
 
 function adaptWeldingCostProduction(values: CalculatorInputValues): ProductionAdapterResult {

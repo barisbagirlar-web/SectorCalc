@@ -5,14 +5,17 @@
 import type { CalculatorInputValues } from "@/lib/calculators/registry";
 import {
   BATCH_FREE_ORACLE_SLUGS,
-  calculateCleaningCostOracle,
   calculateFoodCostOracle,
-  calculateProductMarginOracle,
-  calculateProjectCostOracle,
   calculateWeldingCostOracle,
   isBatchFreeOracleSlug,
   type BatchFreeOracleSlug,
 } from "@/lib/formula-governance/oracle/batch-free-oracles";
+import {
+  calculateCleaningIssaFreeOracle,
+  calculateProductMarginDtcFreeOracle,
+  calculateProjectChangeOrderFreeOracle,
+  mapDeadlinePressureToWastePercent,
+} from "@/lib/formula-governance/oracle/revenue-drift-free-oracles";
 import {
   adaptProductionBatchFreeOutput,
   type NormalizedBatchFreeProductionOutput,
@@ -78,24 +81,23 @@ function buildBatchFreeOracleOutput(
 ): NormalizedBatchFreeProductionOutput {
   switch (slug) {
     case "project-cost-calculator": {
-      const oracle = calculateProjectCostOracle({
-        materialCost: Number(values.materialCost),
-        laborHours: Number(values.laborHours),
-        laborHourlyRate: Number(values.laborHourlyRate),
-        equipmentCost: Number(values.equipmentCost),
-        overheadRate: Number(values.overheadRate),
-        contingencyRate: Number(values.contingencyRate),
+      const wastePercent =
+        values.deadlinePressureWastePercent !== undefined
+          ? Number(values.deadlinePressureWastePercent)
+          : mapDeadlinePressureToWastePercent(
+              values.deadlinePressure as string | number | undefined,
+            ) ?? 5;
+      return calculateProjectChangeOrderFreeOracle({
+        originalBudget: Number(values.originalBudget),
+        changeEstimate: Number(values.changeEstimate),
+        deadlinePressureWastePercent: wastePercent,
       });
-      return oracle;
     }
     case "cleaning-cost-calculator": {
-      return calculateCleaningCostOracle({
-        area: Number(values.area),
-        estimatedHours: Number(values.estimatedHours),
-        crewSize: Number(values.crewSize),
-        laborHourlyCost: Number(values.laborHourlyCost),
-        suppliesCost: Number(values.suppliesCost),
-        travelCost: Number(values.travelCost),
+      return calculateCleaningIssaFreeOracle({
+        areaSize: Number(values.areaSize),
+        staffCount: Number(values.staffCount),
+        visitFrequency: Number(values.visitFrequency),
       });
     }
     case "food-cost-calculator": {
@@ -105,13 +107,13 @@ function buildBatchFreeOracleOutput(
       });
     }
     case "product-margin-calculator": {
-      return calculateProductMarginOracle({
-        sellingPrice: Number(values.sellingPrice),
+      const returnRateRaw = values.returnRate;
+      const returnRate =
+        returnRateRaw === undefined || returnRateRaw === "" ? 0 : Number(returnRateRaw);
+      return calculateProductMarginDtcFreeOracle({
+        productPrice: Number(values.productPrice),
         productCost: Number(values.productCost),
-        shippingCost: Number(values.shippingCost),
-        platformFeeRate: Number(values.platformFeeRate),
-        paymentFeeRate: Number(values.paymentFeeRate),
-        returnRate: Number(values.returnRate),
+        returnRate,
       });
     }
     case "welding-cost-estimator": {
@@ -140,28 +142,22 @@ function compareBatchFreeNormalized(
       const orc = oracle as NormalizedProjectCostProductionOutput;
       return compareNumericFields([
         {
-          field: "estimatedProjectCost",
-          production: prod.estimatedProjectCost,
-          oracle: orc.estimatedProjectCost,
+          field: "adjustedChange",
+          production: prod.adjustedChange,
+          oracle: orc.adjustedChange,
           tolerance: BATCH_FREE_CURRENCY_TOLERANCE,
         },
         {
-          field: "laborCost",
-          production: prod.laborCost,
-          oracle: orc.laborCost,
-          tolerance: BATCH_FREE_CURRENCY_TOLERANCE,
+          field: "changeRatioPercent",
+          production: prod.changeRatioPercent,
+          oracle: orc.changeRatioPercent,
+          tolerance: PERCENT_TOLERANCE,
         },
         {
-          field: "overheadCost",
-          production: prod.overheadCost,
-          oracle: orc.overheadCost,
-          tolerance: BATCH_FREE_CURRENCY_TOLERANCE,
-        },
-        {
-          field: "contingencyCost",
-          production: prod.contingencyCost,
-          oracle: orc.contingencyCost,
-          tolerance: BATCH_FREE_CURRENCY_TOLERANCE,
+          field: "wastePercent",
+          production: prod.wastePercent,
+          oracle: orc.wastePercent,
+          tolerance: PERCENT_TOLERANCE,
         },
       ]);
     }
@@ -170,21 +166,21 @@ function compareBatchFreeNormalized(
       const orc = oracle as NormalizedCleaningCostProductionOutput;
       return compareNumericFields([
         {
-          field: "totalCost",
-          production: prod.totalCost,
-          oracle: orc.totalCost,
+          field: "monthlyHours",
+          production: prod.monthlyHours,
+          oracle: orc.monthlyHours,
           tolerance: BATCH_FREE_CURRENCY_TOLERANCE,
         },
         {
-          field: "laborCost",
-          production: prod.laborCost,
-          oracle: orc.laborCost,
+          field: "workloadIndex",
+          production: prod.workloadIndex,
+          oracle: orc.workloadIndex,
           tolerance: BATCH_FREE_CURRENCY_TOLERANCE,
         },
         {
-          field: "costPerSqFt",
-          production: prod.costPerSqFt,
-          oracle: orc.costPerSqFt,
+          field: "hoursPerVisit",
+          production: prod.hoursPerVisit,
+          oracle: orc.hoursPerVisit,
           tolerance: BATCH_FREE_CURRENCY_TOLERANCE,
         },
       ]);
@@ -206,27 +202,21 @@ function compareBatchFreeNormalized(
       const orc = oracle as NormalizedProductMarginProductionOutput;
       return compareNumericFields([
         {
-          field: "margin",
-          production: prod.margin,
-          oracle: orc.margin,
+          field: "marginPercent",
+          production: prod.marginPercent,
+          oracle: orc.marginPercent,
           tolerance: PERCENT_TOLERANCE,
         },
         {
-          field: "grossProfit",
-          production: prod.grossProfit,
-          oracle: orc.grossProfit,
+          field: "grossMargin",
+          production: prod.grossMargin,
+          oracle: orc.grossMargin,
           tolerance: BATCH_FREE_CURRENCY_TOLERANCE,
         },
         {
           field: "totalCost",
           production: prod.totalCost,
           oracle: orc.totalCost,
-          tolerance: BATCH_FREE_CURRENCY_TOLERANCE,
-        },
-        {
-          field: "returnImpact",
-          production: prod.returnImpact,
-          oracle: orc.returnImpact,
           tolerance: BATCH_FREE_CURRENCY_TOLERANCE,
         },
       ]);
@@ -262,63 +252,48 @@ export const BATCH_FREE_COMPARISON_SCENARIOS: Record<
 > = {
   "project-cost-calculator": [
     {
-      id: "normal-build",
+      id: "normal-change",
       kind: "normal",
       values: {
-        materialCost: 45_000,
-        laborHours: 320,
-        laborHourlyRate: 55,
-        equipmentCost: 8_500,
-        overheadRate: 12,
-        contingencyRate: 8,
+        originalBudget: 500_000,
+        changeEstimate: 25_000,
+        deadlinePressure: "low",
       },
     },
     {
-      id: "normal-renovation",
+      id: "normal-medium-pressure",
       kind: "normal",
       values: {
-        materialCost: 18_000,
-        laborHours: 180,
-        laborHourlyRate: 48,
-        equipmentCost: 2_200,
-        overheadRate: 10,
-        contingencyRate: 5,
+        originalBudget: 320_000,
+        changeEstimate: 18_000,
+        deadlinePressure: "medium",
       },
     },
     {
-      id: "normal-small-job",
-      kind: "normal",
-      values: {
-        materialCost: 6_500,
-        laborHours: 64,
-        laborHourlyRate: 62,
-        equipmentCost: 900,
-        overheadRate: 8,
-        contingencyRate: 6,
-      },
-    },
-    {
-      id: "edge-labor-heavy",
+      id: "edge-high-pressure",
       kind: "edge",
       values: {
-        materialCost: 5_000,
-        laborHours: 600,
-        laborHourlyRate: 72,
-        equipmentCost: 1_500,
-        overheadRate: 15,
-        contingencyRate: 10,
+        originalBudget: 200_000,
+        changeEstimate: 40_000,
+        deadlinePressure: "high",
       },
     },
     {
-      id: "absurd-negative-cost",
+      id: "normal-low-pressure",
+      kind: "normal",
+      values: {
+        originalBudget: 400_000,
+        changeEstimate: 12_000,
+        deadlinePressure: "low",
+      },
+    },
+    {
+      id: "absurd-zero-budget",
       kind: "absurd",
       values: {
-        materialCost: -1_000,
-        laborHours: 100,
-        laborHourlyRate: 50,
-        equipmentCost: 0,
-        overheadRate: 10,
-        contingencyRate: 5,
+        originalBudget: 0,
+        changeEstimate: 10_000,
+        deadlinePressure: "low",
       },
       expectPass: false,
     },
@@ -328,60 +303,45 @@ export const BATCH_FREE_COMPARISON_SCENARIOS: Record<
       id: "normal-office",
       kind: "normal",
       values: {
-        area: 12_000,
-        estimatedHours: 6,
-        crewSize: 2,
-        laborHourlyCost: 22,
-        suppliesCost: 85,
-        travelCost: 40,
+        areaSize: 12_000,
+        staffCount: 2,
+        visitFrequency: 20,
       },
     },
     {
       id: "normal-retail",
       kind: "normal",
       values: {
-        area: 8_500,
-        estimatedHours: 5,
-        crewSize: 2,
-        laborHourlyCost: 20,
-        suppliesCost: 60,
-        travelCost: 25,
+        areaSize: 8_500,
+        staffCount: 2,
+        visitFrequency: 12,
+      },
+    },
+    {
+      id: "edge-high-frequency",
+      kind: "edge",
+      values: {
+        areaSize: 6_000,
+        staffCount: 1,
+        visitFrequency: 30,
       },
     },
     {
       id: "normal-clinic",
       kind: "normal",
       values: {
-        area: 6_000,
-        estimatedHours: 4.5,
-        crewSize: 1,
-        laborHourlyCost: 24,
-        suppliesCost: 110,
-        travelCost: 30,
-      },
-    },
-    {
-      id: "edge-small-area",
-      kind: "edge",
-      values: {
-        area: 800,
-        estimatedHours: 3,
-        crewSize: 1,
-        laborHourlyCost: 26,
-        suppliesCost: 45,
-        travelCost: 35,
+        areaSize: 6_000,
+        staffCount: 1,
+        visitFrequency: 22,
       },
     },
     {
       id: "absurd-zero-area",
       kind: "absurd",
       values: {
-        area: 0,
-        estimatedHours: 4,
-        crewSize: 2,
-        laborHourlyCost: 22,
-        suppliesCost: 50,
-        travelCost: 20,
+        areaSize: 0,
+        staffCount: 2,
+        visitFrequency: 12,
       },
       expectPass: false,
     },
@@ -419,11 +379,8 @@ export const BATCH_FREE_COMPARISON_SCENARIOS: Record<
       id: "normal-sku",
       kind: "normal",
       values: {
-        sellingPrice: 79,
+        productPrice: 79,
         productCost: 28,
-        shippingCost: 6.5,
-        platformFeeRate: 12,
-        paymentFeeRate: 2.9,
         returnRate: 5,
       },
     },
@@ -431,35 +388,25 @@ export const BATCH_FREE_COMPARISON_SCENARIOS: Record<
       id: "normal-healthy-margin",
       kind: "normal",
       values: {
-        sellingPrice: 120,
+        productPrice: 120,
         productCost: 35,
-        shippingCost: 8,
-        platformFeeRate: 8,
-        paymentFeeRate: 2.5,
         returnRate: 3,
       },
     },
     {
-      id: "normal-marketplace",
+      id: "normal-no-returns",
       kind: "normal",
       values: {
-        sellingPrice: 45,
+        productPrice: 45,
         productCost: 18,
-        shippingCost: 4.25,
-        platformFeeRate: 15,
-        paymentFeeRate: 3.2,
-        returnRate: 8,
       },
     },
     {
       id: "edge-high-returns",
       kind: "edge",
       values: {
-        sellingPrice: 65,
+        productPrice: 65,
         productCost: 22,
-        shippingCost: 7,
-        platformFeeRate: 10,
-        paymentFeeRate: 2.9,
         returnRate: 22,
       },
     },
@@ -467,11 +414,8 @@ export const BATCH_FREE_COMPARISON_SCENARIOS: Record<
       id: "absurd-zero-price",
       kind: "absurd",
       values: {
-        sellingPrice: 0,
+        productPrice: 0,
         productCost: 10,
-        shippingCost: 5,
-        platformFeeRate: 10,
-        paymentFeeRate: 3,
         returnRate: 5,
       },
       expectPass: false,
