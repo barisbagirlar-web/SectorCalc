@@ -8,7 +8,7 @@ import { buildSmartFormPlan } from "@/lib/formula-governance/smart-form-architec
 import { buildPilotUiBridgeManifestForSlug } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-ui-bridge-manifest";
 import { isPilotCalculationBridgeEnabled } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
-export const NEXT_SMART_FORM_PILOT_CANDIDATE_SLUG = "cabinet-cost-estimator" as const;
+export const NEXT_SMART_FORM_PILOT_CANDIDATE_SLUG = "electrical-labor-estimator" as const;
 
 export type NextSmartFormPilotCandidate = {
   readonly slug: string;

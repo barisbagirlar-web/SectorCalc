@@ -42,7 +42,7 @@ describe("batch UI bridge audit", () => {
     expect(result.renderingReady).toBe(15);
     expect(result.uiBridgeReady).toBe(15);
     expect(result.blocked).toBe(0);
-    expect(result.pilotManifestsReady).toBe(3);
+    expect(result.pilotManifestsReady).toBe(10);
     expect(result.derivedReadonlyViolations).toBe(0);
 
     for (const slug of ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {

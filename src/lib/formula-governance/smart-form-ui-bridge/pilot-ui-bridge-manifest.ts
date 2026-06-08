@@ -13,6 +13,13 @@ export const PILOT_UI_BRIDGE_SLUGS = [
   "3d-print-cost-check",
   "auto-shop-margin-leak-detector",
   "cabinet-cost-estimator",
+  "electrical-labor-estimator",
+  "hvac-project-margin-guard",
+  "lawn-care-cost-check",
+  "print-job-cost-check",
+  "plumbing-job-margin-verdict",
+  "sheet-metal-quote-risk-tool",
+  "welding-bid-risk-analyzer",
 ] as const;
 
 export type PilotUiBridgeSlug = (typeof PILOT_UI_BRIDGE_SLUGS)[number];

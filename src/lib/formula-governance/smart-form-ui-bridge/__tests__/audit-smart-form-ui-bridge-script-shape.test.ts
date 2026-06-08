@@ -41,7 +41,7 @@ describe("audit smart form UI bridge script shape", () => {
     expect(result.renderingReady).toBe(15);
     expect(result.uiBridgeReady).toBe(15);
     expect(result.blocked).toBe(0);
-    expect(result.pilotManifestsReady).toBe(3);
+    expect(result.pilotManifestsReady).toBe(10);
     expect(result.recommendedFirstUiPilot.length).toBe(3);
   });
 
@@ -64,7 +64,7 @@ describe("audit smart form UI bridge script shape", () => {
     const formatted = formatBatchSmartFormUiBridgeAuditReport(result);
     expect(formatted).toContain("Smart Form UI Bridge Audit");
     expect(formatted).toContain("UI bridge ready: 15");
-    expect(formatted).toContain("Pilot manifests ready: 3");
+    expect(formatted).toContain("Pilot manifests ready: 10");
     expect(formatted).toContain("3d-print-cost-check");
   });
 });

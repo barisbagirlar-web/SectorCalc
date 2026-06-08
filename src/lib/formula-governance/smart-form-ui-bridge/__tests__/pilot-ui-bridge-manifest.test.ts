@@ -12,7 +12,7 @@ describe("pilot UI bridge manifest", () => {
   test("builds 3 pilot manifests", () => {
     const manifests = buildPilotUiBridgeManifests({ slugs: PILOT_UI_BRIDGE_SLUGS });
 
-    expect(manifests).toHaveLength(3);
+    expect(manifests).toHaveLength(10);
     expect(manifests.map((manifest) => manifest.slug)).toEqual([...PILOT_UI_BRIDGE_SLUGS]);
   });
 
