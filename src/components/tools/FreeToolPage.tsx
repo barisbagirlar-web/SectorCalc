@@ -1,7 +1,10 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { usePathname } from "@/i18n/routing";
+import { CalculatorFeedbackBox } from "@/components/tools/CalculatorFeedbackBox";
 import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
+import { stripLocalePrefix } from "@/i18n/locales";
 import { buildSmartFormPilotCalculationPayload } from "@/components/tools/smart-form/build-smart-form-pilot-calculation-payload";
 import type { PilotFieldValues } from "@/components/tools/smart-form/pilot-calculation-payload";
 import { PageLayout } from "@/components/layout/PageLayout";
@@ -187,6 +190,8 @@ interface FreeToolPageProps {
 }
 
 export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: FreeToolPageProps) {
+ const pathname = usePathname();
+ const pagePath = stripLocalePrefix(pathname);
  const useSmartFormPilot = Boolean(smartFormPilotManifest);
  const useFullLoopRuntime = isFreeFullLoopRuntimeSlug(tool.freeSlug);
 
@@ -214,6 +219,21 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  const calculationValues = useSmartFormPilot && pilotValues ? pilotValues : values;
  return calculateFreeToolResult(tool, calculationValues);
  }, [fullLoopResult, submitted, tool, useFullLoopRuntime, useSmartFormPilot, pilotValues, values]);
+
+ const feedbackInputSnapshot = useMemo(
+  () => ({ ...values }),
+  [values]
+ );
+ const feedbackResultSnapshot = useMemo(() => {
+  if (!result) {
+   return undefined;
+  }
+  return {
+   headline: result.headline,
+   summary: result.summary,
+   riskLevel: result.riskLevel,
+  };
+ }, [result]);
 
  const handlePilotCalculate = (fieldValues: PilotFieldValues) => {
   if (!smartFormPilotManifest) {
@@ -426,7 +446,16 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
      <>
       <FreeToolResultCard result={result} />
       {fullLoopResult?.status === "success" ? (
-       <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+       <>
+        <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+        <CalculatorFeedbackBox
+         toolSlug={tool.freeSlug}
+         tier="free"
+         pagePath={pagePath}
+         inputSnapshot={feedbackInputSnapshot}
+         resultSnapshot={feedbackResultSnapshot}
+        />
+       </>
       ) : null}
      </>
     ) : null}
@@ -480,7 +509,16 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
      <>
       <FreeToolResultCard result={result} />
       {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
-       <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+       <>
+        <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+        <CalculatorFeedbackBox
+         toolSlug={tool.freeSlug}
+         tier="free"
+         pagePath={pagePath}
+         inputSnapshot={feedbackInputSnapshot}
+         resultSnapshot={feedbackResultSnapshot}
+        />
+       </>
       ) : null}
      </>
     ) : null}

@@ -53,6 +53,14 @@ service cloud.firestore {
         && isValidReportFeedbackCreate(request.resource.data);
     }
 
+    match /calculator_feedback/{feedbackId} {
+      allow read: if isAuthenticatedAdmin();
+      allow update, delete: if false;
+      allow create: if
+        feedbackId == request.resource.data.id
+        && isValidCalculatorFeedbackCreate(request.resource.data);
+    }
+
     match /users/{userId} {
       allow read: if request.auth != null && request.auth.uid == userId;
       allow write: if false;
@@ -346,4 +354,59 @@ function isValidReportFeedbackId(id) {
     && id.size() >= 8
     && id.size() <= 80
     && id.matches('^feedback_[A-Za-z0-9._-]+$');
+}
+
+function isValidCalculatorFeedbackCreate(data) {
+  return hasValidCalculatorFeedbackKeys(data)
+    && isValidCalculatorFeedbackId(data.id)
+    && isValidShortText(data.toolSlug, 2, 80)
+    && isValidCalculatorFeedbackTier(data.tier)
+    && isValidCalculatorFeedbackCategory(data.category)
+    && isValidShortText(data.comment, 0, 800)
+    && isValidPagePath(data.pagePath)
+    && isValidCreatedAt(data.createdAt)
+    && isValidOptionalCalculatorFeedbackSnapshot(data, 'inputSnapshot')
+    && isValidOptionalCalculatorFeedbackSnapshot(data, 'resultSnapshot');
+}
+
+function hasValidCalculatorFeedbackKeys(data) {
+  let keys = data.keys();
+  return keys.hasAll([
+      'id',
+      'createdAt',
+      'toolSlug',
+      'tier',
+      'category',
+      'comment',
+      'pagePath',
+    ])
+    && keys.size() >= 7
+    && keys.size() <= 9;
+}
+
+function isValidCalculatorFeedbackId(id) {
+  return id is string
+    && id.size() >= 8
+    && id.size() <= 80
+    && id.matches('^calcfb_[A-Za-z0-9._-]+$');
+}
+
+function isValidCalculatorFeedbackTier(tier) {
+  return tier in ['free', 'premium', 'traffic'];
+}
+
+function isValidCalculatorFeedbackCategory(category) {
+  return category in [
+    'formula_not_matching_field',
+    'missing_input',
+    'wrong_unit',
+    'result_unrealistic',
+    'industry_assumption_wrong',
+    'other',
+  ];
+}
+
+function isValidOptionalCalculatorFeedbackSnapshot(data, field) {
+  return !(field in data)
+    || (data[field] is map && data[field].size() <= 40);
 }

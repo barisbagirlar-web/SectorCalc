@@ -24,6 +24,7 @@ import {
 import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
+import { CalculatorFeedbackBox } from "@/components/tools/CalculatorFeedbackBox";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/formula-governance/runtime-validation/free-full-loop-bridge";
@@ -107,6 +108,18 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
     }
     return calculateFreeTrafficTool(tool.slug, values, locale);
   }, [fullLoopResult, locale, submitted, tool.slug, useFullLoopRuntime, values]);
+
+  const feedbackInputSnapshot = useMemo(() => ({ ...values }), [values]);
+  const feedbackResultSnapshot = useMemo(() => {
+    if (!result) {
+      return undefined;
+    }
+    return {
+      headline: result.headline,
+      primaryValue: result.primaryValue,
+      primaryLabel: result.primaryLabel,
+    };
+  }, [result]);
 
   const relatedPremiumSlug = result?.relatedPremiumSlug ?? tool.relatedPremiumSlug;
   const premiumAnalyzerHref = useMemo(() => {
@@ -448,7 +461,16 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                   ) : null}
 
                   {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
-                    <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+                    <>
+                      <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+                      <CalculatorFeedbackBox
+                        toolSlug={tool.slug}
+                        tier="traffic"
+                        pagePath={pagePath}
+                        inputSnapshot={feedbackInputSnapshot}
+                        resultSnapshot={feedbackResultSnapshot}
+                      />
+                    </>
                   ) : null}
 
                   <p className="text-xs leading-relaxed text-body-charcoal">{result.legalNote}</p>

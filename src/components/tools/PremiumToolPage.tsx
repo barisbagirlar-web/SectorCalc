@@ -2,6 +2,8 @@
 
 import dynamic from "next/dynamic";
 import { Suspense, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { usePathname } from "@/i18n/routing";
+import { stripLocalePrefix } from "@/i18n/locales";
 import { PremiumLoginPrompt } from "@/components/billing/CustomerSignInPanel";
 import { PremiumPaywall } from "@/components/subscription/PremiumPaywall";
 import { PremiumSubscribedBanner } from "@/components/billing/SubscriptionActivationBanner";
@@ -25,6 +27,7 @@ import {
  PremiumAnalyzerReportPanel,
 } from "@/components/tools/PremiumAnalyzerReportPanel";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
+import { CalculatorFeedbackBox } from "@/components/tools/CalculatorFeedbackBox";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
@@ -199,6 +202,8 @@ interface PremiumToolPageProps {
 }
 
 export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
+ const pathname = usePathname();
+ const pagePath = stripLocalePrefix(pathname);
  const runtimeSlug = routeSlug ?? tool.paidSlug;
  const useFullLoopRuntime = isPremiumFullLoopRuntimeSlug(runtimeSlug);
  const {
@@ -258,6 +263,19 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  }
  return buildVerdictReportData({ tool, values, result });
  }, [result, canAccessAnalyzer, tool, values]);
+
+ const feedbackInputSnapshot = useMemo(() => ({ ...values }), [values]);
+ const feedbackResultSnapshot = useMemo(() => {
+  if (!result) {
+   return undefined;
+  }
+  return {
+   severity: result.severity,
+   verdict: result.verdict,
+   headline: result.headline,
+   primaryMetricValue: result.primaryMetricValue,
+  };
+ }, [result]);
 
  const resultTracked = useRef(false);
 
@@ -324,7 +342,16 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  ) : null}
  </div>
  {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
- <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+  <>
+   <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+   <CalculatorFeedbackBox
+    toolSlug={runtimeSlug}
+    tier="premium"
+    pagePath={pagePath}
+    inputSnapshot={feedbackInputSnapshot}
+    resultSnapshot={feedbackResultSnapshot}
+   />
+  </>
  ) : null}
  {isCncStochastic ? (
  <PremiumDecisionReportPanel
