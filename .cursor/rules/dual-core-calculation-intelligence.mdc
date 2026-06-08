@@ -1,0 +1,63 @@
+---
+description: Dual-Core Calculation Intelligence — Mind 2 requirement engine + Mind 1 validation engine; LLM interface only.
+alwaysApply: true
+---
+
+# Dual-Core Calculation Intelligence (permanent)
+
+SectorCalc is not a static calculator form generator.
+SectorCalc is a dual-core calculation intelligence system.
+
+## Mind 2 — Requirement / Constraint Engine (Akıl 2)
+
+**Question:** Given a goal and known inputs, which inputs are missing, derivable, defaultable, or require expert input?
+
+**Uses:** calculation ontology, dependency graph, formula graph, variable registry, unit/dimension metadata, inverse mappings, known inputs, target output.
+
+**Produces:** `requiredMissingInputs`, `optionalRecommendedInputs`, `advancedRecommendedInputs`, `derivedResolutionPlan`, `selectedFormulaPath`, `blockers`, `warnings`.
+
+**Build order (Phase 5H-B+):**
+1. `calculation-ontology`
+2. `requirement-engine`
+3. `runtime-validation`
+4. `llm-interface`
+5. `input-intelligence` bridge
+
+Input fields must **not** be chosen by manual prompt taste. Derive from: target output, ontology, dependency graph, dimension rules, required/derived/defaultable split, sector pattern, missing-input risk, oracle/property/scenario testability.
+
+## Mind 1 — Validation / Oracle / Audit Engine (Akıl 1)
+
+**Question:** Are inputs and results mathematically, physically, and business-logic valid?
+
+**Uses:** `src/lib/formula-governance/**` — FormulaContract, oracle comparison, scenario tests, property tests, runtime invariants, boundary constraints, dimension checks, accepted assumptions, model limitations.
+
+**Produces:** ORACLE_COMPARISON_PASS/FAIL, invariant violations, dimension errors, validation warnings, launch blockers, NEEDS_REVIEW / FAIL / PASS.
+
+Existing Formula Governance work maps here. Do not discard or bypass it.
+
+## LLM / ChatGPT API — interface only
+
+**Allowed:** `extract_structured_inputs`, `normalize_units`, `generate_missing_input_question`, structured JSON drafts, intent classification.
+
+**Forbidden:** `calculate_result`, `choose_formula`, `override_oracle`, `bypass_validation`, `create_formula_from_prompt`, `change_production_output`.
+
+Never position LLM as calculation engine, formula selector, oracle, or validation authority in prompts or product copy.
+
+## Working loop
+
+1. User states goal → 2. Requirement Engine resolves target variable → 3. Dependency graph lists required variables → 4. Known vs missing split → 5. Ask missing inputs → 6. Run deterministic calculation → 7. Validation Engine checks invariants/dimensions → 8. Oracle/scenario/property audit → 9. Return if safe.
+
+## Phase / prompt gate
+
+Every tool or phase must answer:
+
+> "Bu araçta hangi inputların gerektiğine sistem nasıl karar veriyor?"
+
+Insufficient: "we wrote the form manually."
+Required: "ontology + dependency graph + requirement engine + validation loop."
+
+## Allowed code areas
+
+- Mind 1: `src/lib/formula-governance/**`
+- Mind 2 (new): `src/lib/calculation-intelligence/**` (ontology, requirement-engine, runtime-validation, llm-interface, bridges)
+- Production calculators: read-only unless phase explicitly authorizes change
