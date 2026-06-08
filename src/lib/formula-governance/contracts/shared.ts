@@ -7,6 +7,24 @@ import type { DecisionLanguageRule, FormulaContract, ScenarioTestSpec } from "@/
 export const FINANCIAL_SIMULATION_DISCLAIMER =
   "Job check only — not ERP, accounting, tax, legal or financial advice. Review your real numbers before credit, pricing or business decisions.";
 
+export const FREE_TRAFFIC_PRODUCTION_FILE = "src/lib/tools/free-traffic-calculators.ts";
+
+export const PREMIUM_DECISION_PRODUCTION_FILE = "src/lib/tools/premium-decision-engine.ts";
+
+/** Phase 5H-D-A — governance ontology target alias notes (metadata only; production unchanged). */
+export const GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE =
+  "Governance ontology target `recommendedPrice` maps to the primary numeric decision output documented in formulaSummary.";
+
+export const GOVERNANCE_MINIMUM_SAFE_BID_TARGET_NOTE =
+  "Governance ontology target `minimumSafeBid` maps to break-even unit volume (`breakEvenUnits`).";
+
+export const GOVERNANCE_RECOMMENDED_PRICE_DIFFERENCE_TARGET_NOTE =
+  "Governance ontology target `recommendedPriceDifference` maps to netDifference (buy net position minus rent net position).";
+
+export function freeTrafficProductionAssumption(slug: string, entry: string): string {
+  return `Production: ${FREE_TRAFFIC_PRODUCTION_FILE} → CALCULATORS["${slug}"] → ${entry}`;
+}
+
 export const STANDARD_MUST_NOT_CLAIM: readonly string[] = [
   "Guaranteed savings",
   "This is the best decision",

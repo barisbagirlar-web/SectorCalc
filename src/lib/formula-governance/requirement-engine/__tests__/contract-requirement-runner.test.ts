@@ -111,16 +111,16 @@ describe("contract requirement runner", () => {
     expect(result.productionSource?.productionFilePath).toContain("premium-decision-engine.ts");
   });
 
-  test("preserves CNC metadata blocker while still reporting readiness audit", () => {
+  test("cnc clears production metadata blocker and reports fixture alignment", () => {
     const contract = getFormulaContractBySlug(CNC_SLUG)!;
     const result = runRequirementEngineForContract({ contract, knownInputs: {} });
 
-    expect(result.blockers.some((blocker) => blocker.includes("Production:"))).toBe(true);
+    expect(result.blockers.some((blocker) => blocker.includes("Production:"))).toBe(false);
     expect(result.readinessAudit.slug).toBe(CNC_SLUG);
-    expect(result.requirementStatus).toBe("skipped");
-    expect(result.readinessAudit.alignmentSummary?.alignmentStatus).toBe("blocked");
+    expect(result.requirementStatus).toBe("need_more_data");
+    expect(result.readinessAudit.alignmentSummary?.alignmentStatus).toBe("needs_review");
     expect(result.readinessAudit.alignmentSummary?.safeToUseContractOntologyForRequirementEngine).toBe(
-      false,
+      true,
     );
   });
 

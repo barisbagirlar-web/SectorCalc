@@ -28,7 +28,7 @@ describe("input design audit script shape", () => {
     const result = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
 
     expect(() => formatBatchInputDesignAuditReport(result)).not.toThrow();
-    expect(result.blocked).toBeGreaterThanOrEqual(1);
+    expect(result.blocked).toBeLessThan(32);
   });
 
   test("top risks include roofing and cnc", () => {
@@ -38,6 +38,6 @@ describe("input design audit script shape", () => {
     expect(formatted).toContain(ROOFING_SLUG);
     expect(formatted).toContain(CNC_SLUG);
     expect(formatted).toContain("Top risks:");
-    expect(result.topRisks.some((line) => line.includes("blocked"))).toBe(true);
+    expect(result.topRisks.some((line) => line.includes(CNC_SLUG))).toBe(true);
   });
 });

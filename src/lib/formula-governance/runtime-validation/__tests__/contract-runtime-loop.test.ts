@@ -119,7 +119,10 @@ describe("contract-mode runtime intelligence loop", () => {
   test("returns BLOCKED when contract pipeline has blockers", () => {
     const contract = getFormulaContractBySlug(CNC_SLUG)!;
     const loop = runContractCalculationIntelligenceLoop({
-      contract,
+      contract: {
+        ...contract,
+        assumptions: contract.assumptions.filter((line) => !line.startsWith("Production:")),
+      },
       knownInputs: {},
     });
 

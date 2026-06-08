@@ -26,8 +26,8 @@ describe("alignment audit script shape", () => {
 
     expect(first.evaluatedContracts).toBe(2);
     expect(first.lowRisk).toBe(0);
-    expect(first.needsReview).toBe(1);
-    expect(first.blocked).toBe(1);
+    expect(first.needsReview).toBe(2);
+    expect(first.blocked).toBe(0);
     expect(first.skipped).toBe(39);
     expect(second).toEqual(first);
   });
@@ -38,7 +38,7 @@ describe("alignment audit script shape", () => {
     expect(() => formatBatchAlignmentAuditReport(result)).not.toThrow();
     const formatted = formatBatchAlignmentAuditReport(result);
     expect(formatted).toContain("Alignment Audit Summary");
-    expect(formatted).toContain("Blocked: 1");
+    expect(formatted).toContain("Blocked: 0");
   });
 
   test("top findings include roofing and cnc", () => {
@@ -48,6 +48,5 @@ describe("alignment audit script shape", () => {
     expect(formatted).toContain(ROOFING_SLUG);
     expect(formatted).toContain(CNC_SLUG);
     expect(formatted).toContain("needs_review");
-    expect(formatted).toContain("blocked");
   });
 });

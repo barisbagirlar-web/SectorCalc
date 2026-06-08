@@ -37,7 +37,7 @@ describe("runBatchInputDesignAudit", () => {
     const result = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
 
     expect(result.recommendedNextBatch.length).toBeGreaterThan(0);
-    expect(result.recommendedNextBatch).toContain(CNC_SLUG);
+    expect(result.recommendedNextBatch).toContain("rent-vs-buy-calculator");
   });
 
   test("produces topRisks with roofing and cnc", () => {

@@ -180,10 +180,10 @@ describe("buildOntologyAlignmentPlan", () => {
     expect(plan.safeToUseContractOntologyForRequirementEngine).toBe(false);
   });
 
-  test("preserves CNC metadata blocker", () => {
+  test("cnc production metadata blocker cleared in contract draft", () => {
     const contract = getFormulaContractBySlug(CNC_SLUG)!;
     const draft = buildOntologyDraftFromFormulaContract(contract);
-    expect(draft.blockers.some((blocker) => blocker.includes("Production:"))).toBe(true);
+    expect(draft.blockers.some((blocker) => blocker.includes("Production:"))).toBe(false);
 
     const cncContractOntology = createOntology({
       slug: CNC_SLUG,
@@ -238,7 +238,9 @@ describe("buildOntologyAlignmentPlan", () => {
       aliasMap,
     });
 
-    expect(plan.blockers.some((blocker) => blocker.includes("Production:"))).toBe(true);
-    expect(plan.suggestedContractMetadataImprovements.length).toBeGreaterThan(0);
+    expect(plan.blockers.some((blocker) => blocker.includes("Production:"))).toBe(false);
+    expect(plan.suggestedContractMetadataImprovements.some((line) => line.includes("Production:"))).toBe(
+      false,
+    );
   });
 });

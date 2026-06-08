@@ -6,10 +6,14 @@
 import type { FormulaContract } from "@/lib/formula-governance/types";
 import {
   FINANCIAL_SIMULATION_DISCLAIMER,
+  GOVERNANCE_MINIMUM_SAFE_BID_TARGET_NOTE,
+  GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+  PREMIUM_DECISION_PRODUCTION_FILE,
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
   buildAssuredCriticalContract,
   buildFinanceAssuredContract,
+  freeTrafficProductionAssumption,
 } from "@/lib/formula-governance/contracts/shared";
 import { createWarningPolicy } from "@/lib/formula-governance/warning-policy";
 
@@ -22,9 +26,10 @@ export const loanPaymentCalculatorContract: FormulaContract = buildFinanceAssure
   decisionImpact: "credit",
   requiredInputs: ["principal", "annualRate", "months"],
   criticalInputs: ["principal", "annualRate", "months"],
-  outputs: ["monthlyPayment"],
+  outputs: ["recommendedPrice", "monthlyPayment"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("loan-payment-calculator", "amortizingPayment"),
     "Fixed nominal APR with monthly compounding via standard amortization.",
     "Taxes, insurance, origination fees and prepayment penalties are excluded.",
   ],
@@ -34,10 +39,13 @@ export const loanPaymentCalculatorContract: FormulaContract = buildFinanceAssure
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Fixed nominal APR with monthly compounding via standard amortization formula.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals amortizing monthly payment (monthlyPayment).",
     ],
     modelLimitations: [
       "Origination fees not modeled",
       "Variable or adjustable rates not modeled",
+      "Property tax and insurance escrow not included unless modeled separately",
     ],
     futureExtensions: ["Insurance and tax escrow not included"],
   }),
@@ -45,6 +53,11 @@ export const loanPaymentCalculatorContract: FormulaContract = buildFinanceAssure
     { id: "principal-positive", description: "principal must be > 0", kind: "edge" },
     { id: "rate-bounds", description: "annualRate within 0–100%", kind: "dimensional" },
     { id: "term-months", description: "months must be a positive integer", kind: "edge" },
+    {
+      id: "payment-currency",
+      description: "monthlyPayment and recommendedPrice use consistent currency units",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-30yr", description: "Normal case: 30-year fixed consumer loan" },
@@ -89,9 +102,10 @@ export const mortgageCalculatorContract: FormulaContract = buildFinanceAssuredCo
   decisionImpact: "credit",
   requiredInputs: ["principal", "annualRate", "months"],
   criticalInputs: ["principal", "annualRate", "months"],
-  outputs: ["monthlyPayment", "totalPaid", "totalInterest"],
+  outputs: ["recommendedPrice", "monthlyPayment", "totalPaid", "totalInterest"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("mortgage-calculator", "amortizingPayment + totals"),
     "Fixed-rate amortizing mortgage; monthly payments only.",
     "Property tax, insurance, PMI and closing costs excluded unless added later.",
   ],
@@ -101,11 +115,14 @@ export const mortgageCalculatorContract: FormulaContract = buildFinanceAssuredCo
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Fixed-rate amortizing mortgage with monthly payments only.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals primary mortgage payment (monthlyPayment).",
     ],
     modelLimitations: [
       "PMI not modeled",
       "Property tax and insurance not modeled",
       "Adjustable-rate periods not modeled",
+      "Closing costs and regional underwriting rules not modeled",
     ],
     futureExtensions: ["Escrow collection and disbursement timing not modeled"],
   }),
@@ -113,6 +130,11 @@ export const mortgageCalculatorContract: FormulaContract = buildFinanceAssuredCo
     { id: "principal-positive", description: "principal must be > 0", kind: "edge" },
     { id: "rate-percent", description: "annualRate is percent per year", kind: "dimensional" },
     { id: "term-positive", description: "months must be ≥ 1", kind: "edge" },
+    {
+      id: "payment-currency",
+      description: "monthlyPayment and recommendedPrice use consistent currency units",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-360", description: "Normal case: 30-year mortgage at market rate" },
@@ -157,9 +179,10 @@ export const interestCalculatorContract: FormulaContract = buildFinanceAssuredCo
   decisionImpact: "financial",
   requiredInputs: ["principal", "ratePercent", "years"],
   criticalInputs: ["principal", "ratePercent", "years"],
-  outputs: ["interestAmount", "totalRepayment"],
+  outputs: ["recommendedPrice", "interestAmount", "totalRepayment"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("interest-calculator", "simple interest"),
     "Simple interest only; no compounding within the period.",
     "Rate is nominal annual percent applied linearly over years.",
   ],
@@ -168,13 +191,24 @@ export const interestCalculatorContract: FormulaContract = buildFinanceAssuredCo
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Simple interest only; compounding not modeled by design.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals total repayment (totalRepayment).",
     ],
-    modelLimitations: ["Payment schedule and partial repayments not modeled"],
+    modelLimitations: [
+      "Payment schedule and partial repayments not modeled",
+      "Compounding and reinvestment excluded unless modeled separately",
+    ],
+    futureExtensions: ["Amortizing payment schedule and partial prepayment paths"],
   }),
   validationRules: [
     { id: "principal-positive", description: "principal must be > 0", kind: "edge" },
     { id: "years-positive", description: "years must be > 0", kind: "edge" },
     { id: "rate-percent", description: "ratePercent is annual percent", kind: "dimensional" },
+    {
+      id: "repayment-currency",
+      description: "totalRepayment and recommendedPrice use consistent currency units",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-1yr", description: "Normal case: 1-year simple loan" },
@@ -219,9 +253,10 @@ export const compoundInterestCalculatorContract: FormulaContract = buildFinanceA
   decisionImpact: "investment",
   requiredInputs: ["principal", "annualRate", "years", "compoundsPerYear"],
   criticalInputs: ["principal", "annualRate", "years", "compoundsPerYear"],
-  outputs: ["futureValue", "interestEarned"],
+  outputs: ["recommendedPrice", "futureValue", "interestEarned"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("compound-interest-calculator", "compound FV"),
     "Nominal rate with discrete compounding; no contributions or withdrawals.",
     "Tax, inflation and fees excluded.",
   ],
@@ -231,17 +266,28 @@ export const compoundInterestCalculatorContract: FormulaContract = buildFinanceA
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Nominal rate with discrete compounding; no contributions or withdrawals.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals projected future value (futureValue).",
     ],
-    modelLimitations: ["Periodic contributions not modeled"],
+    modelLimitations: [
+      "Periodic contributions not modeled",
+      "Market volatility and sequence-of-returns risk not modeled",
+    ],
     futureExtensions: [
       "Inflation adjustment not modeled",
       "Tax on interest not modeled",
+      "Contribution timing and withdrawal schedules",
     ],
   }),
   validationRules: [
     { id: "compounds-positive", description: "compoundsPerYear must be ≥ 1", kind: "edge" },
     { id: "rate-bounds", description: "annualRate within reasonable percent bounds", kind: "dimensional" },
     { id: "years-positive", description: "years must be > 0", kind: "edge" },
+    {
+      id: "future-value-currency",
+      description: "futureValue and recommendedPrice use consistent currency units",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-monthly", description: "Normal case: monthly compounding over 10 years" },
@@ -286,9 +332,10 @@ export const profitMarginCalculatorContract: FormulaContract = buildFinanceAssur
   decisionImpact: "pricing",
   requiredInputs: ["sellingPrice", "cost"],
   criticalInputs: ["sellingPrice", "cost"],
-  outputs: ["marginPercent", "markupPercent"],
+  outputs: ["recommendedPrice", "marginPercent", "markupPercent"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("profit-margin-calculator", "margin % + markup %"),
     "Single-unit snapshot; excludes volume discounts, returns and overhead allocation.",
     "Margin % = (price − cost) ÷ price × 100.",
   ],
@@ -297,16 +344,25 @@ export const profitMarginCalculatorContract: FormulaContract = buildFinanceAssur
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Single-unit gross margin snapshot without allocated overhead.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals gross margin percent (marginPercent).",
     ],
     modelLimitations: [
       "Fixed overhead not allocated",
       "Returns and chargebacks not modeled",
+      "Volume discounts and tax effects excluded unless modeled",
     ],
+    futureExtensions: ["Allocated overhead and multi-SKU mix margin"],
   }),
   validationRules: [
     { id: "price-positive", description: "sellingPrice must be > 0", kind: "edge" },
     { id: "cost-non-negative", description: "cost must be ≥ 0", kind: "edge" },
     { id: "margin-bounds", description: "margin percent stays within −100% to 100% for valid inputs", kind: "dimensional" },
+    {
+      id: "margin-percent-dimension",
+      description: "marginPercent and recommendedPrice use percent semantics for governance target",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-margin", description: "Normal case: profitable SKU with 30% margin" },
@@ -351,9 +407,10 @@ export const breakEvenCalculatorContract: FormulaContract = buildAssuredCritical
   decisionImpact: "financial",
   requiredInputs: ["fixedCost", "unitPrice", "variableCost"],
   criticalInputs: ["fixedCost", "unitPrice", "variableCost"],
-  outputs: ["breakEvenUnits", "contributionMargin"],
+  outputs: ["minimumSafeBid", "breakEvenUnits", "contributionMargin"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("break-even-calculator", "fixed ÷ contribution"),
     "Linear unit economics; constant price and variable cost per unit.",
     "Break-even undefined when contribution margin ≤ 0.",
   ],
@@ -363,16 +420,25 @@ export const breakEvenCalculatorContract: FormulaContract = buildAssuredCritical
     acceptedAssumptions: [
       "Linear unit economics with constant price and variable cost per unit.",
       "Step-fixed costs not modeled.",
+      GOVERNANCE_MINIMUM_SAFE_BID_TARGET_NOTE,
     ],
     modelLimitations: [
       "Price elasticity and volume discounts not modeled",
       "Multi-product mix not modeled",
+      "Capacity constraints and demand saturation not modeled",
+      "Fixed versus variable cost classification assumed by user inputs",
     ],
+    futureExtensions: ["Multi-product break-even and capacity ceiling modeling"],
   }),
   validationRules: [
     { id: "contribution-check", description: "Reject or flag when unitPrice ≤ variableCost", kind: "edge" },
     { id: "fixed-non-negative", description: "fixedCost must be ≥ 0", kind: "edge" },
     { id: "currency-units", description: "Price and cost use consistent currency", kind: "dimensional" },
+    {
+      id: "break-even-units-count",
+      description: "breakEvenUnits and minimumSafeBid use consistent count units",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-volume", description: "Normal case: positive contribution margin" },
@@ -634,6 +700,7 @@ export const cncQuoteRiskAnalyzerContract: FormulaContract = buildAssuredCritica
   outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "suggestedAction"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    `Production: ${PREMIUM_DECISION_PRODUCTION_FILE} → BASE_COST_CALCULATORS["cnc-quote-risk-analyzer"] → calcCnc baseCost.`,
     "Premium analyzer adds hidden loss buffers and probabilistic safe price via risk engine.",
     "Under these assumptions, verdict bands are indicative — not a binding shop-floor guarantee.",
   ],

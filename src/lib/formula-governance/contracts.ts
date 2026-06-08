@@ -3,7 +3,11 @@
  */
 
 import type { FormulaContract } from "@/lib/formula-governance/types";
-import { scenarioRuntimeTests } from "@/lib/formula-governance/contracts/shared";
+import {
+  GOVERNANCE_RECOMMENDED_PRICE_DIFFERENCE_TARGET_NOTE,
+  freeTrafficProductionAssumption,
+  scenarioRuntimeTests,
+} from "@/lib/formula-governance/contracts/shared";
 import { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/top-critical";
 import { BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/batch-expansion-critical";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
@@ -49,6 +53,7 @@ export const rentVsBuyContract: FormulaContract = {
     "sellingCostPercent",
   ],
   outputs: [
+    "recommendedPriceDifference",
     "totalRentPaid",
     "investmentValueIfRenting",
     "monthlyMortgagePayment",
@@ -64,9 +69,20 @@ export const rentVsBuyContract: FormulaContract = {
   ],
   assumptions: [
     RENT_VS_BUY_DISCLAIMER,
+    freeTrafficProductionAssumption(
+      "rent-vs-buy-calculator",
+      "calculateRentVsBuyComparison",
+    ),
     RENT_VS_BUY_RESULT_WARNING,
     "Comparison horizon is held constant across scenarios.",
     "Ownership, tax and insurance effects are approximated via ownership cost percent.",
+    GOVERNANCE_RECOMMENDED_PRICE_DIFFERENCE_TARGET_NOTE,
+    "Model limitation: property tax, insurance, maintenance and opportunity cost approximated via ownership cost percent.",
+    "Model limitation: local market conditions, rent control and transaction timing not modeled.",
+    "Model limitation: investment return on down payment uses flat rate; tax treatment of rent vs buy excluded.",
+    "Future extension: itemized tax deduction and capital-gains modeling.",
+    "Future extension: regional insurance, PMI and maintenance schedules.",
+    "Numeric decision target is net cost comparison (netDifference); strongerScenario is narrative verdict only.",
   ],
   formulaSummary:
     "Rent scenario projects annual rent with growth, invests down payment plus purchase costs at the investment return rate, and compares rentNetPosition. Buy scenario amortizes mortgage, projects appreciation, ownership and selling costs, and compares buyNetPosition.",
@@ -91,6 +107,16 @@ export const rentVsBuyContract: FormulaContract = {
       id: "currency-units",
       description: "Rent and price inputs must use consistent currency units",
       kind: "dimensional",
+    },
+    {
+      id: "net-difference-currency",
+      description: "netDifference and recommendedPriceDifference use consistent currency units",
+      kind: "dimensional",
+    },
+    {
+      id: "verdict-non-numeric",
+      description: "strongerScenario is narrative verdict output; not a numeric calculation target",
+      kind: "purpose",
     },
   ],
   scenarioTests: scenarioRuntimeTests([

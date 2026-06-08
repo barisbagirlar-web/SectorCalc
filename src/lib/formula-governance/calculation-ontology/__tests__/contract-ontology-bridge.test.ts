@@ -67,9 +67,11 @@ describe("contract → ontology draft bridge", () => {
   });
 
   test("emits blocker when production source assumption is missing", () => {
-    const contract = getFormulaContractBySlug(CNC_SLUG);
-    expect(contract).toBeDefined();
-    const draft = buildOntologyDraftFromFormulaContract(contract!);
+    const contract = getFormulaContractBySlug(CNC_SLUG)!;
+    const draft = buildOntologyDraftFromFormulaContract({
+      ...contract,
+      assumptions: contract.assumptions.filter((line) => !line.startsWith("Production:")),
+    });
 
     expect(draft.blockers.some((blocker) => blocker.includes("Production:"))).toBe(true);
   });
@@ -131,7 +133,7 @@ describe("contract → ontology draft bridge", () => {
     expect(withSource.productionSource?.productionFunctionName).toBe(
       "calculatePremiumDecisionReport",
     );
-    expect(withSource.blockers.some((blocker) => blocker.includes("Production:"))).toBe(true);
+    expect(withSource.blockers.some((blocker) => blocker.includes("Production:"))).toBe(false);
     expect(withSource.variables.map((variable) => variable.id)).toEqual(
       expect.arrayContaining(["setupTime", "machineRate", "minimumSafePrice"] as const),
     );

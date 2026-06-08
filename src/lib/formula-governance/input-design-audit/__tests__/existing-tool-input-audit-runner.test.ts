@@ -37,13 +37,14 @@ describe("auditExistingToolInputDesign", () => {
     expect(result.migrationRiskScore).toBeGreaterThan(0);
   });
 
-  test("CNC metadata blocker returns blocked status", () => {
+  test("CNC clears production metadata blocker and returns usable audit", () => {
     const contract = getFormulaContractBySlug(CNC_SLUG)!;
     const result = auditExistingToolInputDesign({ contract });
 
-    expect(result.status).toBe("blocked");
-    expect(result.blockers.some((blocker) => blocker.includes("Production:"))).toBe(true);
-    expect(result.recommendedPatchLevel).toBe("blocked");
+    expect(result.status).toBe("usable");
+    expect(result.blockers.some((blocker) => blocker.includes("Production:"))).toBe(false);
+    expect(result.alignmentStatus).toBe("needs_review");
+    expect(result.recommendedPatchLevel).not.toBe("blocked");
   });
 
   test("contract without fixture produces contract-only audit", () => {

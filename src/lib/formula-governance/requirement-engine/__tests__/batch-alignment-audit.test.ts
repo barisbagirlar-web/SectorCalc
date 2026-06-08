@@ -32,15 +32,15 @@ describe("runBatchAlignmentAudit", () => {
     expect(result.evaluatedContracts).toBeGreaterThanOrEqual(2);
   });
 
-  test("preserves CNC metadata blocker", () => {
+  test("evaluates CNC with production metadata and needs_review alignment", () => {
     const result = runBatchAlignmentAudit({ contracts: FORMULA_CONTRACTS });
     const cnc = result.summaries.find((summary) => summary.slug === CNC_SLUG);
 
     expect(cnc).toBeDefined();
-    expect(cnc?.blockerCount).toBeGreaterThan(0);
-    expect(["blocked", "needs_review"]).toContain(cnc?.status);
-    expect(cnc?.safeToUseContractOntologyForRequirementEngine).toBe(false);
-    expect(result.warnings.some((warning) => warning.includes(CNC_SLUG))).toBe(true);
+    expect(cnc?.status).toBe("needs_review");
+    expect(cnc?.safeToUseContractOntologyForRequirementEngine).toBe(true);
+    expect(cnc?.blockerCount).toBe(0);
+    expect(result.blocked).toBe(0);
   });
 
   test("marks contracts without fixture as contract_only_analysis", () => {
