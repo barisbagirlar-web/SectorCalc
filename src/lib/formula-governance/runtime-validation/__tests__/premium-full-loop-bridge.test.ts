@@ -1,5 +1,5 @@
 /**
- * Premium full-loop runtime bridge tests — welding, sheet-metal, and HVAC pilots.
+ * Premium full-loop runtime bridge tests — welding, sheet-metal, HVAC, plumbing, panel shop.
  */
 
 import { describe, expect, test } from "vitest";
@@ -12,6 +12,10 @@ import { isFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validati
 const WELDING_SLUG = "welding-bid-risk-analyzer";
 const SHEET_METAL_SLUG = "sheet-metal-quote-risk-tool";
 const HVAC_SLUG = "hvac-project-margin-guard";
+const PLUMBING_SLUG = "plumbing-job-margin-verdict";
+const ELECTRICAL_SLUG = "electrical-labor-estimator";
+const PRINT_JOB_SLUG = "print-job-cost-check";
+const LAWN_CARE_SLUG = "lawn-care-cost-check";
 
 const WELDING_VALID_INPUTS = {
   materialCost: 1200,
@@ -43,6 +47,45 @@ const HVAC_VALID_INPUTS = {
   commissioningCost: 450,
   callbackRiskPercent: 8,
   targetMargin: 22,
+} as const;
+
+const PLUMBING_VALID_INPUTS = {
+  partsCost: 680,
+  laborHours: 6,
+  laborRate: 85,
+  fixtureCount: 3,
+  materialRunCost: 120,
+  callbackRiskPercent: 10,
+  targetMargin: 25,
+} as const;
+
+const ELECTRICAL_VALID_INPUTS = {
+  materialCost: 2400,
+  laborHours: 18,
+  laborRate: 78,
+  testingHours: 4,
+  inspectionRiskPercent: 12,
+  targetMargin: 24,
+} as const;
+
+const PRINT_JOB_VALID_INPUTS = {
+  materialCost: 850,
+  inkCost: 120,
+  designHours: 6,
+  laborRate: 72,
+  installHours: 4,
+  reprintRiskPercent: 8,
+  targetMargin: 28,
+} as const;
+
+const LAWN_CARE_VALID_INPUTS = {
+  crewHoursPerVisit: 3,
+  laborRate: 42,
+  fuelCostPerVisit: 18,
+  supplyCostPerMonth: 95,
+  visitsPerMonth: 4,
+  equipmentWearCost: 60,
+  targetMargin: 20,
 } as const;
 
 describe("premium full-loop runtime bridge — welding", () => {
@@ -234,6 +277,273 @@ describe("premium full-loop runtime bridge — HVAC", () => {
     expect(result.trustTrace.validationPassed).toBe(true);
     expect(result.trustTrace.loopStatus).toBe("SUCCESS");
     expect(result.trustTrace.canonicalInputs).toContain("equipmentCost");
+    expect(result.trustTrace.validationSources.length).toBeGreaterThan(0);
+  });
+});
+
+describe("premium full-loop runtime bridge — plumbing", () => {
+  test("registers plumbing as full-loop slug", () => {
+    expect(isFullLoopRuntimeSlug(PLUMBING_SLUG)).toBe(true);
+  });
+
+  test("rejects non-canonical input keys", () => {
+    const sanitized = sanitizeCanonicalInputs(PLUMBING_SLUG, {
+      ...PLUMBING_VALID_INPUTS,
+      rogueKey: 999,
+      concealedDamageRisk: 0.2,
+    });
+
+    expect(sanitized.rejectedKeys).toContain("rogueKey");
+    expect(sanitized.rejectedKeys).toContain("concealedDamageRisk");
+    expect(sanitized.canonical.partsCost).toBe(680);
+    expect("rogueKey" in sanitized.canonical).toBe(false);
+  });
+
+  test("blocks calculation when required inputs are missing", () => {
+    const result = runPremiumFullLoopCalculation(PLUMBING_SLUG, {
+      partsCost: 400,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.loopStatus).toBe("NEED_DATA");
+    expect(result.missingInputs.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(false);
+  });
+
+  test("blocks when labor hours are zero", () => {
+    const result = runPremiumFullLoopCalculation(PLUMBING_SLUG, {
+      ...PLUMBING_VALID_INPUTS,
+      laborHours: 0,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.blockers.some((blocker) => blocker.includes("Labor hours"))).toBe(true);
+  });
+
+  test("blocks when callback risk is out of range", () => {
+    const result = runPremiumFullLoopCalculation(PLUMBING_SLUG, {
+      ...PLUMBING_VALID_INPUTS,
+      callbackRiskPercent: 110,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.blockers.some((blocker) => blocker.includes("Callback risk"))).toBe(true);
+  });
+
+  test("returns report, verdict and trust trace on valid inputs", () => {
+    const result = runPremiumFullLoopCalculation(PLUMBING_SLUG, { ...PLUMBING_VALID_INPUTS });
+
+    expect(result.status).toBe("success");
+    if (result.status !== "success") {
+      return;
+    }
+
+    expect(result.report.minimumSafePrice).toBeGreaterThan(0);
+    expect(result.toolResult.verdict.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(true);
+    expect(result.trustTrace.loopStatus).toBe("SUCCESS");
+    expect(result.trustTrace.canonicalInputs).toContain("partsCost");
+    expect(result.trustTrace.validationSources.length).toBeGreaterThan(0);
+  });
+});
+
+describe("premium full-loop runtime bridge — electrical labor estimator", () => {
+  test("registers electrical-labor-estimator as full-loop slug", () => {
+    expect(isFullLoopRuntimeSlug(ELECTRICAL_SLUG)).toBe(true);
+  });
+
+  test("rejects non-canonical input keys", () => {
+    const sanitized = sanitizeCanonicalInputs(ELECTRICAL_SLUG, {
+      ...ELECTRICAL_VALID_INPUTS,
+      rogueKey: 999,
+      codeJurisdictionRisk: 0.15,
+    });
+
+    expect(sanitized.rejectedKeys).toContain("rogueKey");
+    expect(sanitized.rejectedKeys).toContain("codeJurisdictionRisk");
+    expect(sanitized.canonical.materialCost).toBe(2400);
+    expect("rogueKey" in sanitized.canonical).toBe(false);
+  });
+
+  test("blocks calculation when required inputs are missing", () => {
+    const result = runPremiumFullLoopCalculation(ELECTRICAL_SLUG, {
+      materialCost: 1500,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.loopStatus).toBe("NEED_DATA");
+    expect(result.missingInputs.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(false);
+  });
+
+  test("blocks when labor rate is zero", () => {
+    const result = runPremiumFullLoopCalculation(ELECTRICAL_SLUG, {
+      ...ELECTRICAL_VALID_INPUTS,
+      laborRate: 0,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.blockers.some((blocker) => blocker.includes("Labor rate"))).toBe(true);
+  });
+
+  test("blocks when inspection risk is out of range", () => {
+    const result = runPremiumFullLoopCalculation(ELECTRICAL_SLUG, {
+      ...ELECTRICAL_VALID_INPUTS,
+      inspectionRiskPercent: 150,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.blockers.some((blocker) => blocker.includes("Inspection risk"))).toBe(true);
+  });
+
+  test("returns report, verdict and trust trace on valid inputs", () => {
+    const result = runPremiumFullLoopCalculation(ELECTRICAL_SLUG, { ...ELECTRICAL_VALID_INPUTS });
+
+    expect(result.status).toBe("success");
+    if (result.status !== "success") {
+      return;
+    }
+
+    expect(result.report.minimumSafePrice).toBeGreaterThan(0);
+    expect(result.toolResult.verdict.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(true);
+    expect(result.trustTrace.loopStatus).toBe("SUCCESS");
+    expect(result.trustTrace.slug).toBe(ELECTRICAL_SLUG);
+    expect(result.trustTrace.canonicalInputs).toContain("testingHours");
+    expect(result.trustTrace.validationSources.length).toBeGreaterThan(0);
+  });
+});
+
+describe("premium full-loop runtime bridge — print job cost check", () => {
+  test("registers print-job-cost-check as full-loop slug", () => {
+    expect(isFullLoopRuntimeSlug(PRINT_JOB_SLUG)).toBe(true);
+  });
+
+  test("rejects non-canonical input keys", () => {
+    const sanitized = sanitizeCanonicalInputs(PRINT_JOB_SLUG, {
+      ...PRINT_JOB_VALID_INPUTS,
+      rogueKey: 999,
+      wideFormatSpoilage: 0.12,
+    });
+
+    expect(sanitized.rejectedKeys).toContain("rogueKey");
+    expect(sanitized.rejectedKeys).toContain("wideFormatSpoilage");
+    expect(sanitized.canonical.materialCost).toBe(850);
+    expect("rogueKey" in sanitized.canonical).toBe(false);
+  });
+
+  test("blocks calculation when required inputs are missing", () => {
+    const result = runPremiumFullLoopCalculation(PRINT_JOB_SLUG, {
+      materialCost: 400,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.loopStatus).toBe("NEED_DATA");
+    expect(result.missingInputs.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(false);
+  });
+
+  test("blocks when labor rate is zero", () => {
+    const result = runPremiumFullLoopCalculation(PRINT_JOB_SLUG, {
+      ...PRINT_JOB_VALID_INPUTS,
+      laborRate: 0,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.blockers.some((blocker) => blocker.includes("Labor rate"))).toBe(true);
+  });
+
+  test("blocks when reprint risk is out of range", () => {
+    const result = runPremiumFullLoopCalculation(PRINT_JOB_SLUG, {
+      ...PRINT_JOB_VALID_INPUTS,
+      reprintRiskPercent: 120,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.blockers.some((blocker) => blocker.includes("Reprint risk"))).toBe(true);
+  });
+
+  test("returns report, verdict and trust trace on valid inputs", () => {
+    const result = runPremiumFullLoopCalculation(PRINT_JOB_SLUG, { ...PRINT_JOB_VALID_INPUTS });
+
+    expect(result.status).toBe("success");
+    if (result.status !== "success") {
+      return;
+    }
+
+    expect(result.report.minimumSafePrice).toBeGreaterThan(0);
+    expect(result.toolResult.verdict.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(true);
+    expect(result.trustTrace.loopStatus).toBe("SUCCESS");
+    expect(result.trustTrace.slug).toBe(PRINT_JOB_SLUG);
+    expect(result.trustTrace.canonicalInputs).toContain("inkCost");
+    expect(result.trustTrace.validationSources.length).toBeGreaterThan(0);
+  });
+});
+
+describe("premium full-loop runtime bridge — lawn care cost check", () => {
+  test("registers lawn-care-cost-check as full-loop slug", () => {
+    expect(isFullLoopRuntimeSlug(LAWN_CARE_SLUG)).toBe(true);
+  });
+
+  test("rejects non-canonical input keys", () => {
+    const sanitized = sanitizeCanonicalInputs(LAWN_CARE_SLUG, {
+      ...LAWN_CARE_VALID_INPUTS,
+      rogueKey: 999,
+      routeDensityRisk: 0.2,
+    });
+
+    expect(sanitized.rejectedKeys).toContain("rogueKey");
+    expect(sanitized.rejectedKeys).toContain("routeDensityRisk");
+    expect(sanitized.canonical.crewHoursPerVisit).toBe(3);
+    expect("rogueKey" in sanitized.canonical).toBe(false);
+  });
+
+  test("blocks calculation when required inputs are missing", () => {
+    const result = runPremiumFullLoopCalculation(LAWN_CARE_SLUG, {
+      crewHoursPerVisit: 2,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.loopStatus).toBe("NEED_DATA");
+    expect(result.missingInputs.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(false);
+  });
+
+  test("blocks when labor rate is zero", () => {
+    const result = runPremiumFullLoopCalculation(LAWN_CARE_SLUG, {
+      ...LAWN_CARE_VALID_INPUTS,
+      laborRate: 0,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.blockers.some((blocker) => blocker.includes("Labor rate"))).toBe(true);
+  });
+
+  test("blocks when visits per month is zero", () => {
+    const result = runPremiumFullLoopCalculation(LAWN_CARE_SLUG, {
+      ...LAWN_CARE_VALID_INPUTS,
+      visitsPerMonth: 0,
+    });
+
+    expect(result.status).toBe("blocked");
+    expect(result.blockers.some((blocker) => blocker.includes("Visits per month"))).toBe(true);
+  });
+
+  test("returns report, verdict and trust trace on valid inputs", () => {
+    const result = runPremiumFullLoopCalculation(LAWN_CARE_SLUG, { ...LAWN_CARE_VALID_INPUTS });
+
+    expect(result.status).toBe("success");
+    if (result.status !== "success") {
+      return;
+    }
+
+    expect(result.report.minimumSafePrice).toBeGreaterThan(0);
+    expect(result.toolResult.verdict.length).toBeGreaterThan(0);
+    expect(result.trustTrace.validationPassed).toBe(true);
+    expect(result.trustTrace.loopStatus).toBe("SUCCESS");
+    expect(result.trustTrace.slug).toBe(LAWN_CARE_SLUG);
+    expect(result.trustTrace.canonicalInputs).toContain("fuelCostPerVisit");
     expect(result.trustTrace.validationSources.length).toBeGreaterThan(0);
   });
 });

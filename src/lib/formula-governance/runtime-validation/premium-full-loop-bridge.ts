@@ -8,7 +8,10 @@ import {
   type ContractCalculationIntelligenceLoopResult,
   type ContractLoopStatus,
 } from "@/lib/formula-governance/runtime-validation/contract-runtime-loop";
-import { isFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import {
+  isFullLoopRuntimeSlug,
+  resolveFullLoopContractSlug,
+} from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import type { KnownInputs } from "@/lib/formula-governance/requirement-engine/requirement-engine-types";
 import { calculatePremiumDecisionReport } from "@/lib/tools/premium-decision-engine";
 import type { PremiumInputValues } from "@/lib/tools/premium-decision-engine";
@@ -77,7 +80,7 @@ function normalizeInputNumber(value: number | string | undefined): number | unde
 }
 
 export function resolveCanonicalInputKeys(slug: string): readonly string[] {
-  const contract = getFormulaContractBySlug(slug);
+  const contract = getFormulaContractBySlug(resolveFullLoopContractSlug(slug));
   if (!contract) {
     return [];
   }
@@ -151,7 +154,7 @@ function buildTrustTraceView(input: {
 }
 
 function validateContractEdgeRules(slug: string, knownInputs: KnownInputs): readonly string[] {
-  const contract = getFormulaContractBySlug(slug);
+  const contract = getFormulaContractBySlug(resolveFullLoopContractSlug(slug));
   if (!contract) {
     return [`Formula contract not found for "${slug}".`];
   }
@@ -181,6 +184,24 @@ function validateContractEdgeRules(slug: string, knownInputs: KnownInputs): read
       const callback = knownInputs.callbackRiskPercent;
       if (callback !== undefined && (callback < 0 || callback > 100)) {
         errors.push("Callback risk must be between 0% and 100%.");
+      }
+    }
+    if (rule.id === "inspection-percent") {
+      const inspection = knownInputs.inspectionRiskPercent;
+      if (inspection !== undefined && (inspection < 0 || inspection > 100)) {
+        errors.push("Inspection risk must be between 0% and 100%.");
+      }
+    }
+    if (rule.id === "reprint-percent") {
+      const reprint = knownInputs.reprintRiskPercent;
+      if (reprint !== undefined && (reprint < 0 || reprint > 100)) {
+        errors.push("Reprint risk must be between 0% and 100%.");
+      }
+    }
+    if (rule.id === "visits-positive") {
+      const visits = knownInputs.visitsPerMonth;
+      if (visits !== undefined && visits < 1) {
+        errors.push("Visits per month must be at least 1.");
       }
     }
     if (rule.id === "rate-positive") {
@@ -247,9 +268,10 @@ export function runPremiumFullLoopCalculation(
     throw new Error(`Slug "${slug}" is not registered for full-loop runtime enforcement.`);
   }
 
-  const contract = getFormulaContractBySlug(slug);
+  const contractSlug = resolveFullLoopContractSlug(slug);
+  const contract = getFormulaContractBySlug(contractSlug);
   if (!contract) {
-    throw new Error(`Formula contract not found for "${slug}".`);
+    throw new Error(`Formula contract not found for "${contractSlug}".`);
   }
 
   const { canonical, rejectedKeys, allowedKeys } = sanitizeCanonicalInputs(slug, rawValues);
@@ -295,7 +317,7 @@ export function runPremiumFullLoopCalculation(
     });
   }
 
-  const report = calculatePremiumDecisionReport(slug, canonical);
+  const report = calculatePremiumDecisionReport(contractSlug, canonical);
   const calculatedResult = {
     baseCost: report.baseCost,
     p90Cost: report.p90Cost,

@@ -1541,6 +1541,7 @@ export const plumbingJobMarginVerdictContract: FormulaContract = buildAssuredCri
   }),
   validationRules: [
     { id: "labor-positive", description: "laborHours must be > 0 for priced jobs", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0", kind: "edge" },
     { id: "callback-percent", description: "callbackRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
     {
@@ -1976,6 +1977,7 @@ export const panelShopMarginVerdictContract: FormulaContract = buildAssuredCriti
   }),
   validationRules: [
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0", kind: "edge" },
     { id: "inspection-percent", description: "inspectionRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
@@ -2065,6 +2067,7 @@ export const landscapingContractProfitToolContract: FormulaContract = buildAssur
   validationRules: [
     { id: "visits-positive", description: "visitsPerMonth must be ≥ 1", kind: "edge" },
     { id: "hours-non-negative", description: "crewHoursPerVisit must be ≥ 0", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0", kind: "edge" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
   scenarioSpecs: [
@@ -2251,6 +2254,7 @@ export const signageBidSafePriceToolContract: FormulaContract = buildAssuredCrit
   }),
   validationRules: [
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0", kind: "edge" },
     { id: "reprint-percent", description: "reprintRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],

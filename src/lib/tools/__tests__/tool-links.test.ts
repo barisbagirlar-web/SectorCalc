@@ -4,45 +4,43 @@
 
 import { describe, expect, test } from "vitest";
 import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import { FULL_LOOP_RUNTIME_SLUGS } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import {
   getPremiumToolHref,
   resolvePremiumToolHref,
 } from "@/lib/tools/tool-links";
 
 describe("tool-links — premium hrefs", () => {
-  test("full-loop welding slug uses revenue premium route", () => {
-    expect(resolvePremiumToolHref("welding-bid-risk-analyzer")).toBe(
-      "/tools/premium/welding-bid-risk-analyzer",
-    );
+  test("full-loop slugs use revenue premium route", () => {
+    for (const slug of FULL_LOOP_RUNTIME_SLUGS) {
+      expect(resolvePremiumToolHref(slug)).toBe(`/tools/premium/${slug}`);
+    }
+  });
 
+  test("full-loop welding slug resolves from revenue tool", () => {
     const tool = getRevenueToolByPaidSlug("welding-bid-risk-analyzer");
     expect(tool).not.toBeNull();
     expect(getPremiumToolHref(tool!)).toBe("/tools/premium/welding-bid-risk-analyzer");
   });
 
-  test("full-loop sheet-metal slug uses revenue premium route", () => {
-    expect(resolvePremiumToolHref("sheet-metal-quote-risk-tool")).toBe(
-      "/tools/premium/sheet-metal-quote-risk-tool",
+  test("full-loop funnel slugs use governance premium routes", () => {
+    expect(resolvePremiumToolHref("electrical-labor-estimator")).toBe(
+      "/tools/premium/electrical-labor-estimator",
     );
-
-    const tool = getRevenueToolByPaidSlug("sheet-metal-quote-risk-tool");
-    expect(tool).not.toBeNull();
-    expect(getPremiumToolHref(tool!)).toBe("/tools/premium/sheet-metal-quote-risk-tool");
-  });
-
-  test("full-loop hvac slug uses revenue premium route", () => {
-    expect(resolvePremiumToolHref("hvac-project-margin-guard")).toBe(
-      "/tools/premium/hvac-project-margin-guard",
+    expect(resolvePremiumToolHref("print-job-cost-check")).toBe(
+      "/tools/premium/print-job-cost-check",
     );
-
-    const tool = getRevenueToolByPaidSlug("hvac-project-margin-guard");
-    expect(tool).not.toBeNull();
-    expect(getPremiumToolHref(tool!)).toBe("/tools/premium/hvac-project-margin-guard");
+    expect(resolvePremiumToolHref("lawn-care-cost-check")).toBe(
+      "/tools/premium/lawn-care-cost-check",
+    );
   });
 
   test("schema-mapped premium slugs still use premium-schema route", () => {
     expect(resolvePremiumToolHref("cnc-quote-risk-analyzer")).toBe(
       "/tools/premium-schema/cnc-oee-loss",
+    );
+    expect(resolvePremiumToolHref("panel-shop-margin-verdict")).toBe(
+      "/tools/premium-schema/electrical-panel-rework-cost",
     );
   });
 });
