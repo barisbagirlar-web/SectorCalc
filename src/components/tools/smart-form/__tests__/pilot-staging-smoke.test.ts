@@ -47,12 +47,17 @@ describe("smart form staging smoke gate — Phase 5H-G-N", () => {
     expect(plan.approvedForStaging).toBe(true);
   });
 
-  test("default smoke results are pending_smoke_test for all pilots", () => {
+  test("default smoke results are passed for all 3 pilots", () => {
     const results = getSmartFormPilotStagingSmokeTestResults();
 
     expect(results.results).toHaveLength(3);
-    expect(results.aggregateStatus).toBe("pending_smoke_test");
-    expect(results.results.every((result) => result.status === "pending_smoke_test")).toBe(true);
+    expect(results.aggregateStatus).toBe("passed");
+    expect(results.results.every((result) => result.status === "passed")).toBe(true);
+    expect(results.results.every((result) => result.desktopPassed)).toBe(true);
+    expect(results.results.every((result) => result.mobilePassed)).toBe(true);
+    expect(results.results.every((result) => result.consoleClean)).toBe(true);
+    expect(results.results.every((result) => result.networkClean)).toBe(true);
+    expect(results.results.every((result) => result.fallbackVerified)).toBe(true);
   });
 
   test("pending smoke keeps stagingSmokePassed false", () => {
@@ -66,16 +71,61 @@ describe("smart form staging smoke gate — Phase 5H-G-N", () => {
     expect(decision.status).toBe("pending");
   });
 
-  test("all passed smoke enables stagingSmokePassed", () => {
-    const passedResults = getSmartFormPilotStagingSmokeTestResults().results.map((result) =>
-      buildPassedSmokeTestResult(result.route),
+  test("3 passed smoke records enable stagingSmokePassed", () => {
+    const decision = evaluateSmartFormPilotStagingSmokeTestGate(
+      getSmartFormPilotStagingSmokeTestResults().results,
     );
-    const decision = evaluateSmartFormPilotStagingSmokeTestGate(passedResults);
 
     expect(decision.smokeTestStatus).toBe("passed");
     expect(decision.stagingSmokePassed).toBe(true);
     expect(decision.productionDeploymentReady).toBe(false);
     expect(decision.status).toBe("passed");
+    expect(decision.blockedReasons).toHaveLength(0);
+  });
+
+  test("desktop fail marks gate blocked", () => {
+    const [first, ...rest] = getSmartFormPilotStagingSmokeTestResults().results;
+    const results = [
+      withSmokeOverrides(buildPassedSmokeTestResult(first.route), {
+        desktopPassed: false,
+        status: "blocked",
+      }),
+      ...rest,
+    ];
+    const decision = evaluateSmartFormPilotStagingSmokeTestGate(results);
+
+    expect(decision.status).toBe("blocked");
+    expect(decision.stagingSmokePassed).toBe(false);
+  });
+
+  test("mobile fail marks gate blocked", () => {
+    const [first, ...rest] = getSmartFormPilotStagingSmokeTestResults().results;
+    const results = [
+      withSmokeOverrides(buildPassedSmokeTestResult(first.route), {
+        mobilePassed: false,
+        status: "blocked",
+      }),
+      ...rest,
+    ];
+    const decision = evaluateSmartFormPilotStagingSmokeTestGate(results);
+
+    expect(decision.status).toBe("blocked");
+    expect(decision.stagingSmokePassed).toBe(false);
+  });
+
+  test("fallback fail marks gate blocked", () => {
+    const [first, ...rest] = getSmartFormPilotStagingSmokeTestResults().results;
+    const results = [
+      withSmokeOverrides(buildPassedSmokeTestResult(first.route), {
+        fallbackVerified: false,
+        status: "blocked",
+      }),
+      ...rest,
+    ];
+    const decision = evaluateSmartFormPilotStagingSmokeTestGate(results);
+
+    expect(decision.status).toBe("blocked");
+    expect(decision.stagingSmokePassed).toBe(false);
   });
 
   test("console fail marks gate blocked", () => {
@@ -132,7 +182,7 @@ describe("smart form staging smoke gate — Phase 5H-G-N", () => {
     );
   });
 
-  test("CLI audit prints pending smoke status", () => {
+  test("CLI audit prints passed smoke status", () => {
     const report = formatSmartFormPilotStagingSmokeTestReport(runSmartFormPilotStagingSmokeTestAudit());
 
     expect(report).toContain("Smart Form Staging Smoke Test Gate");
@@ -140,8 +190,8 @@ describe("smart form staging smoke gate — Phase 5H-G-N", () => {
     expect(report).toContain("Scope: staging_only");
     expect(report).toContain("Approved for staging: true");
     expect(report).toContain("Production deploy approved: false");
-    expect(report).toContain("Smoke test status: pending_smoke_test");
-    expect(report).toContain("Staging smoke passed: false");
+    expect(report).toContain("Smoke test status: passed");
+    expect(report).toContain("Staging smoke passed: true");
     expect(report).toContain("Production deployment ready: false");
     expect(report).toContain("/tools/free/3d-print-cost-check");
     expect(report).toContain("/tools/free/repair-time-vs-price-check");
@@ -161,14 +211,14 @@ describe("smart form staging smoke gate — Phase 5H-G-N", () => {
     ]);
   });
 
-  test("npm audit:smart-form-staging-smoke CLI exits 0 with pending output", () => {
+  test("npm audit:smart-form-staging-smoke CLI exits 0 with passed output", () => {
     const output = execSync("npm run audit:smart-form-staging-smoke", {
       cwd: process.cwd(),
       encoding: "utf8",
     });
 
-    expect(output).toContain("Smoke test status: pending_smoke_test");
-    expect(output).toContain("Staging smoke passed: false");
+    expect(output).toContain("Smoke test status: passed");
+    expect(output).toContain("Staging smoke passed: true");
     expect(output).toContain("Production deployment ready: false");
   });
 });

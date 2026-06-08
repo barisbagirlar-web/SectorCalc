@@ -58,8 +58,22 @@ export function buildDefaultPendingSmokeTestResults(): SmartFormPilotSmokeTestRe
   };
 }
 
+const STAGING_SMOKE_PASSED_NOTES =
+  "Smoke test passed with NEXT_PUBLIC_SMART_FORM_PILOT=true after mobile header/menu blocker fix.";
+
+export function buildRecordedPassedSmokeTestResults(): SmartFormPilotSmokeTestResultSet {
+  const results = getSmartFormPilotBatchRegistry().map((entry) =>
+    buildPassedSmokeTestResult(entry.manualQaUrl, STAGING_SMOKE_PASSED_NOTES),
+  );
+
+  return {
+    results,
+    aggregateStatus: "passed",
+  };
+}
+
 export function getSmartFormPilotStagingSmokeTestResults(): SmartFormPilotSmokeTestResultSet {
-  return buildDefaultPendingSmokeTestResults();
+  return buildRecordedPassedSmokeTestResults();
 }
 
 export function buildPassedSmokeTestResult(
