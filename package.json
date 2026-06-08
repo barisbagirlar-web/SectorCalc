@@ -25,6 +25,7 @@
     "audit:smart-form-architecture": "npm run audit:smart-form",
     "audit:smart-form-rendering": "npx tsx scripts/audit-smart-form-rendering.ts",
     "audit:smart-form-ui-bridge": "npx tsx scripts/audit-smart-form-ui-bridge.ts",
+    "audit:smart-form-pilot-qa": "npx tsx scripts/audit-smart-form-pilot-qa.ts",
     "inventory:formulas": "npx tsx scripts/inventory-formulas.ts",
     "test:formulas": "vitest run src/lib/formula-governance",
     "check:secrets": "node scripts/check-commit-secrets.mjs",
