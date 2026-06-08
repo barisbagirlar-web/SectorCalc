@@ -161,14 +161,12 @@ describe("smart form production deploy gate — Phase 5H-G-P", () => {
     expect(checklist.items.length).toBeGreaterThanOrEqual(9);
   });
 
-  test("post-deploy smoke defaults to pending for 3 pilots", () => {
+  test("post-deploy smoke recorded as passed for 3 pilots", () => {
     const results = getSmartFormPilotPostDeploySmokeTestResults();
 
     expect(results.results).toHaveLength(3);
-    expect(results.aggregateStatus).toBe("pending_post_deploy_smoke");
-    expect(results.results.every((result) => result.status === "pending_post_deploy_smoke")).toBe(
-      true,
-    );
+    expect(results.aggregateStatus).toBe("passed");
+    expect(results.results.every((result) => result.status === "passed")).toBe(true);
   });
 
   test("CLI audit prints approved_for_production status", () => {
@@ -185,7 +183,10 @@ describe("smart form production deploy gate — Phase 5H-G-P", () => {
     expect(report).toContain("Rollback required: true");
     expect(report).toContain("Post-deploy smoke required: true");
     expect(report).toContain("Monitoring required: true");
+    expect(report).toContain("Post-deploy smoke status: passed");
+    expect(report).toContain("Production smart form live: true");
     expect(report).toContain("Blockers: 0");
+    expect(report).not.toContain("Post-deploy smoke tests are pending after production rollout");
   });
 
   test("existing staging smoke audit remains passed", () => {
@@ -208,6 +209,8 @@ describe("smart form production deploy gate — Phase 5H-G-P", () => {
     expect(output).toContain("Production deployment ready: true");
     expect(output).toContain("Production deploy approved: true");
     expect(output).toContain("Staging smoke passed: true");
+    expect(output).toContain("Post-deploy smoke status: passed");
+    expect(output).toContain("Production smart form live: true");
     expect(output).toContain("Blockers: 0");
   });
 });

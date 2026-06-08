@@ -11,6 +11,7 @@ import {
   type SmartFormPilotProductionDeployGateDecision,
 } from "@/components/tools/smart-form/pilot-production-deploy-gate";
 import { buildSmartFormPilotProductionRollbackChecklist } from "@/components/tools/smart-form/pilot-production-rollback-checklist";
+import { evaluateSmartFormPilotPostDeploySmokeTestGate } from "@/components/tools/smart-form/pilot-post-deploy-smoke-test-gate";
 import { getSmartFormPilotPostDeploySmokeTestResults } from "@/components/tools/smart-form/pilot-post-deploy-smoke-test";
 import {
   evaluateSmartFormPilotStagingSmokeTestGate,
@@ -20,6 +21,8 @@ import { getSmartFormPilotStagingSmokeTestResults } from "@/components/tools/sma
 export type SmartFormPilotProductionDeployAuditResult = {
   readonly approval: SmartFormPilotProductionDeployApproval;
   readonly deployDecision: SmartFormPilotProductionDeployGateDecision;
+  readonly postDeploySmokeStatus: string;
+  readonly productionSmartFormLive: boolean;
   readonly rollbackChecklistRouteCount: number;
   readonly postDeploySmokePendingCount: number;
   readonly warnings: readonly string[];
@@ -37,6 +40,7 @@ export function runSmartFormPilotProductionDeployAudit(
   });
   const rollbackChecklist = buildSmartFormPilotProductionRollbackChecklist();
   const postDeploySmoke = getSmartFormPilotPostDeploySmokeTestResults();
+  const postDeploySmokeGate = evaluateSmartFormPilotPostDeploySmokeTestGate(postDeploySmoke.results);
 
   const warnings: string[] = [];
   const blockers: string[] = [];
@@ -59,13 +63,19 @@ export function runSmartFormPilotProductionDeployAudit(
     );
   }
 
-  if (postDeploySmoke.aggregateStatus === "pending_post_deploy_smoke") {
+  if (postDeploySmokeGate.postDeploySmokeStatus === "pending_post_deploy_smoke") {
     warnings.push("Post-deploy smoke tests are pending after production rollout");
+  }
+
+  if (postDeploySmokeGate.blockedReasons.length > 0) {
+    blockers.push(...postDeploySmokeGate.blockedReasons);
   }
 
   return {
     approval,
     deployDecision,
+    postDeploySmokeStatus: postDeploySmokeGate.postDeploySmokeStatus,
+    productionSmartFormLive: postDeploySmokeGate.productionSmartFormLive,
     rollbackChecklistRouteCount: rollbackChecklist.pilotRoutes.length,
     postDeploySmokePendingCount: postDeploySmoke.results.filter(
       (result) => result.status === "pending_post_deploy_smoke",
@@ -89,6 +99,8 @@ export function formatSmartFormPilotProductionDeployReport(
     `Rollback required: ${decision.rollbackRequired}`,
     `Post-deploy smoke required: ${decision.postDeploySmokeRequired}`,
     `Monitoring required: ${decision.monitoringRequired}`,
+    `Post-deploy smoke status: ${result.postDeploySmokeStatus}`,
+    `Production smart form live: ${result.productionSmartFormLive}`,
     `Blockers: ${result.blockers.length}`,
     "",
     "Production rollback pilot routes:",

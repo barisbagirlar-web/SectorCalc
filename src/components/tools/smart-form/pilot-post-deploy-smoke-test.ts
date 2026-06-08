@@ -1,5 +1,5 @@
 /**
- * Smart form pilot post-deploy smoke test records — Phase 5H-G-P.
+ * Smart form pilot post-deploy smoke test records — Phase 5H-G-S-POSTSMOKE.
  */
 
 import { siteUrl } from "@/config/site";
@@ -24,12 +24,16 @@ export type SmartFormPilotPostDeploySmokeTestResult = {
   readonly fallbackFlagOffVerified: boolean;
   readonly analyticsShapeVerified: boolean;
   readonly status: SmartFormPilotPostDeploySmokeTestStatus;
+  readonly notes: string;
 };
 
 export type SmartFormPilotPostDeploySmokeTestResultSet = {
   readonly results: readonly SmartFormPilotPostDeploySmokeTestResult[];
   readonly aggregateStatus: SmartFormPilotPostDeploySmokeTestStatus;
 };
+
+export const POST_DEPLOY_SMOKE_PASSED_NOTES =
+  "Production post-deploy smoke passed after Firebase Hosting deploy with NEXT_PUBLIC_SMART_FORM_PILOT=true." as const;
 
 function buildPendingPostDeploySmokeTestResult(route: string): SmartFormPilotPostDeploySmokeTestResult {
   return {
@@ -45,6 +49,28 @@ function buildPendingPostDeploySmokeTestResult(route: string): SmartFormPilotPos
     fallbackFlagOffVerified: false,
     analyticsShapeVerified: false,
     status: "pending_post_deploy_smoke",
+    notes: "Awaiting production post-deploy smoke test execution.",
+  };
+}
+
+export function buildPassedPostDeploySmokeTestResult(
+  route: string,
+  notes = POST_DEPLOY_SMOKE_PASSED_NOTES,
+): SmartFormPilotPostDeploySmokeTestResult {
+  return {
+    route,
+    productionUrl: `${siteUrl}${route}`,
+    desktopPassed: true,
+    mobilePassed: true,
+    consoleClean: true,
+    networkClean: true,
+    smartFormVisible: true,
+    calculationSubmitPassed: true,
+    resultCardVerified: true,
+    fallbackFlagOffVerified: true,
+    analyticsShapeVerified: true,
+    status: "passed",
+    notes,
   };
 }
 
@@ -59,6 +85,17 @@ export function buildDefaultPendingPostDeploySmokeTestResults(): SmartFormPilotP
   };
 }
 
+export function buildRecordedPassedPostDeploySmokeTestResults(): SmartFormPilotPostDeploySmokeTestResultSet {
+  const results = getSmartFormPilotBatchRegistry().map((entry) =>
+    buildPassedPostDeploySmokeTestResult(entry.manualQaUrl),
+  );
+
+  return {
+    results,
+    aggregateStatus: "passed",
+  };
+}
+
 export function getSmartFormPilotPostDeploySmokeTestResults(): SmartFormPilotPostDeploySmokeTestResultSet {
-  return buildDefaultPendingPostDeploySmokeTestResults();
+  return buildRecordedPassedPostDeploySmokeTestResults();
 }

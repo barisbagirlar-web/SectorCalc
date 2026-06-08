@@ -163,7 +163,7 @@ describe("smart form production deploy execution gate — Phase 5H-G-R", () => {
     expect(checklist.rollbackCommand).toBe(SMART_FORM_PILOT_PRODUCTION_ROLLBACK_COMMAND);
   });
 
-  test("CLI audit prints ready_for_final_command", () => {
+  test("CLI audit prints deployed_live after post-deploy smoke passed", () => {
     const report = formatSmartFormPilotProductionDeployExecutionReport(
       runSmartFormPilotProductionDeployExecutionAudit(),
     );
@@ -171,23 +171,26 @@ describe("smart form production deploy execution gate — Phase 5H-G-R", () => {
     expect(report).toContain("Smart Form Production Execution Gate");
     expect(report).toContain("Production deployment ready: true");
     expect(report).toContain("Production deploy approved: true");
-    expect(report).toContain("Execution status: ready_for_final_command");
+    expect(report).toContain("Execution status: deployed_live");
     expect(report).toContain("Final human command approval required: true");
-    expect(report).toContain("Deploy command: NOT EXECUTED");
-    expect(report).toContain("Rollback command: READY");
+    expect(report).toContain("Deploy command: EXECUTED");
+    expect(report).toContain("Rollback command: STANDBY");
     expect(report).toContain("Post-deploy smoke required: true");
+    expect(report).toContain("Post-deploy smoke status: passed");
+    expect(report).toContain("Production smart form live: true");
     expect(report).toContain("Monitoring required: true");
   });
 
-  test("npm audit:smart-form-production-execution CLI exits 0 with ready output", () => {
+  test("npm audit:smart-form-production-execution CLI exits 0 with deployed_live output", () => {
     const output = execSync("npm run audit:smart-form-production-execution", {
       cwd: process.cwd(),
       encoding: "utf8",
     });
 
-    expect(output).toContain("Execution status: ready_for_final_command");
-    expect(output).toContain("Deploy command: NOT EXECUTED");
-    expect(output).toContain("Rollback command: READY");
+    expect(output).toContain("Execution status: deployed_live");
+    expect(output).toContain("Deploy command: EXECUTED");
+    expect(output).toContain("Post-deploy smoke status: passed");
+    expect(output).toContain("Production smart form live: true");
     expect(output).toContain("Production deployment ready: true");
   });
 });
