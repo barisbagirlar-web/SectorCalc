@@ -1,5 +1,5 @@
 /**
- * Phase 5H-G-P — smart form production deploy approval gate tests.
+ * Phase 5H-G-Q — smart form production deploy approval gate tests.
  */
 
 import { execSync } from "node:child_process";
@@ -44,12 +44,32 @@ describe("smart form production deploy gate — Phase 5H-G-P", () => {
     expect(decision.status).toBe("pending");
   });
 
+  test("default approved record enables productionDeploymentReady", () => {
+    const approval = getDefaultSmartFormPilotProductionDeployApproval();
+    const decision = evaluateSmartFormPilotProductionDeployGate({
+      stagingSmokeGate: passedStagingSmokeGate(),
+      approval,
+    });
+
+    expect(approval.status).toBe("approved_for_production");
+    expect(approval.productionDeployApproved).toBe(true);
+    expect(approval.approvedBy).toBe("Barış Bağırlar");
+    expect(approval.approvedAt).toBe("2026-06-08T19:55:00.000Z");
+    expect(decision.productionDeploymentReady).toBe(true);
+    expect(decision.productionDeployApproved).toBe(true);
+    expect(decision.rollbackRequired).toBe(true);
+    expect(decision.postDeploySmokeRequired).toBe(true);
+    expect(decision.monitoringRequired).toBe(true);
+    expect(decision.status).toBe("ready");
+    expect(decision.blockedReasons).toHaveLength(0);
+  });
+
   test("staging smoke passed + approved_for_production enables productionDeploymentReady", () => {
     const decision = evaluateSmartFormPilotProductionDeployGate({
       stagingSmokeGate: passedStagingSmokeGate(),
       approval: buildApprovedSmartFormPilotProductionDeployApproval({
         approvedBy: "Barış Bağırlar",
-        approvedAt: "2026-06-08T20:00:00.000Z",
+        approvedAt: "2026-06-08T19:55:00.000Z",
       }),
     });
 
@@ -151,7 +171,7 @@ describe("smart form production deploy gate — Phase 5H-G-P", () => {
     );
   });
 
-  test("CLI audit prints pending approval status", () => {
+  test("CLI audit prints approved_for_production status", () => {
     const report = formatSmartFormPilotProductionDeployReport(
       runSmartFormPilotProductionDeployAudit(),
     );
@@ -159,11 +179,13 @@ describe("smart form production deploy gate — Phase 5H-G-P", () => {
     expect(report).toContain("Smart Form Production Deploy Gate");
     expect(report).toContain("Manual QA status: passed");
     expect(report).toContain("Staging smoke passed: true");
-    expect(report).toContain("Production approval: pending_approval");
-    expect(report).toContain("Production deployment ready: false");
+    expect(report).toContain("Production approval: approved_for_production");
+    expect(report).toContain("Production deployment ready: true");
+    expect(report).toContain("Production deploy approved: true");
     expect(report).toContain("Rollback required: true");
     expect(report).toContain("Post-deploy smoke required: true");
     expect(report).toContain("Monitoring required: true");
+    expect(report).toContain("Blockers: 0");
   });
 
   test("existing staging smoke audit remains passed", () => {
@@ -176,14 +198,16 @@ describe("smart form production deploy gate — Phase 5H-G-P", () => {
     expect(report).toContain("Production deployment ready: false");
   });
 
-  test("npm audit:smart-form-production-deploy CLI exits 0 with pending output", () => {
+  test("npm audit:smart-form-production-deploy CLI exits 0 with approved output", () => {
     const output = execSync("npm run audit:smart-form-production-deploy", {
       cwd: process.cwd(),
       encoding: "utf8",
     });
 
-    expect(output).toContain("Production approval: pending_approval");
-    expect(output).toContain("Production deployment ready: false");
+    expect(output).toContain("Production approval: approved_for_production");
+    expect(output).toContain("Production deployment ready: true");
+    expect(output).toContain("Production deploy approved: true");
     expect(output).toContain("Staging smoke passed: true");
+    expect(output).toContain("Blockers: 0");
   });
 });

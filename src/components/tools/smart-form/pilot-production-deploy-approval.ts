@@ -1,5 +1,5 @@
 /**
- * Smart form pilot production deploy approval record — Phase 5H-G-P.
+ * Smart form pilot production deploy approval record — Phase 5H-G-Q.
  */
 
 import { getSmartFormPilotManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
@@ -101,7 +101,15 @@ export function getPendingSmartFormPilotProductionDeployApproval(): SmartFormPil
 }
 
 export function getDefaultSmartFormPilotProductionDeployApproval(): SmartFormPilotProductionDeployApproval {
-  return getPendingSmartFormPilotProductionDeployApproval();
+  return buildApprovedSmartFormPilotProductionDeployApproval({
+    approvedBy: "Barış Bağırlar",
+    approvedAt: "2026-06-08T19:55:00.000Z",
+    manualQaStatus: "passed",
+    stagingRolloutReady: true,
+    stagingSmokePassed: true,
+    notes:
+      "Manual QA, staging rollout approval and staging smoke passed for 3 Smart Form pilots. Approval is limited to production deployment gate readiness. Actual Firebase deploy requires separate execution step.",
+  });
 }
 
 export function buildApprovedSmartFormPilotProductionDeployApproval(
@@ -114,6 +122,9 @@ export function buildApprovedSmartFormPilotProductionDeployApproval(
       | "rollbackRequired"
       | "postDeploySmokeRequired"
       | "monitoringRequired"
+      | "manualQaStatus"
+      | "stagingRolloutReady"
+      | "stagingSmokePassed"
     >
   > = {},
 ): SmartFormPilotProductionDeployApproval {
