@@ -2431,6 +2431,7 @@ export const roofingContractMarginGuardContract: FormulaContract = buildAssuredC
   }),
   validationRules: [
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0", kind: "edge" },
     { id: "weather-percent", description: "weatherDelayRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
@@ -2519,6 +2520,7 @@ export const paintingJobProfitVerdictContract: FormulaContract = buildAssuredCri
   }),
   validationRules: [
     { id: "area-positive", description: "areaSize must be > 0", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0", kind: "edge" },
     { id: "touchup-percent", description: "touchUpRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],

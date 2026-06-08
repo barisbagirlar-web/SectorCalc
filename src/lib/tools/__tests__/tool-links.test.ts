@@ -50,12 +50,15 @@ describe("tool-links — premium hrefs", () => {
     expect(lawnCare?.paidSlug).toBe("landscaping-contract-profit-tool");
   });
 
-  test("schema-mapped premium slugs still use premium-schema route", () => {
-    expect(resolvePremiumToolHref("cnc-quote-risk-analyzer")).toBe(
-      "/tools/premium-schema/cnc-oee-loss",
-    );
+  test("schema-mapped premium slugs still use premium-schema route when not full-loop", () => {
     expect(resolvePremiumToolHref("panel-shop-margin-verdict")).toBe(
       "/tools/premium-schema/electrical-panel-rework-cost",
+    );
+    expect(resolvePremiumToolHref("change-order-impact-analyzer")).toBe(
+      "/tools/premium/change-order-impact-analyzer",
+    );
+    expect(resolvePremiumToolHref("menu-profit-leak-detector")).toBe(
+      "/tools/premium/menu-profit-leak-detector",
     );
   });
 });

@@ -10,6 +10,13 @@ export const FULL_LOOP_RUNTIME_SLUGS = [
   "electrical-labor-estimator",
   "print-job-cost-check",
   "lawn-care-cost-check",
+  "roofing-contract-margin-guard",
+  "painting-job-profit-verdict",
+  "cnc-quote-risk-analyzer",
+  "change-order-impact-analyzer",
+  "office-cleaning-bid-optimizer",
+  "menu-profit-leak-detector",
+  "return-profit-erosion-tool",
 ] as const;
 
 export type FullLoopRuntimeSlug = (typeof FULL_LOOP_RUNTIME_SLUGS)[number];

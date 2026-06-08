@@ -35,15 +35,16 @@ describe("dual-intelligence runtime coverage audit", () => {
       expect(entry?.mind2Runtime).toBe(true);
     }
 
-    expect(result.fullLoopRuntimeCount).toBe(7);
+    expect(result.fullLoopRuntimeCount).toBe(14);
     expect(result.stagedCalculationBridge).toBe(0);
+    expect(result.auditPipelineOnly).toBe(19);
   });
 
   test("only live pilots have partial Mind 1/2 runtime without full loop", () => {
     const result = runDualIntelligenceRuntimeCoverageAudit();
 
     expect(result.liveSmartFormPilot).toBe(PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS.length);
-    expect(result.fullLoopRuntimeCount).toBe(7);
+    expect(result.fullLoopRuntimeCount).toBe(14);
     expect(result.mind1RuntimeCount).toBe(result.liveSmartFormPilot + result.fullLoopRuntimeCount);
     expect(result.mind2RuntimeCount).toBe(result.liveSmartFormPilot + result.fullLoopRuntimeCount);
 

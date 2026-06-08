@@ -206,12 +206,87 @@ function validateContractEdgeRules(slug: string, knownInputs: KnownInputs): read
     }
     if (rule.id === "rate-positive") {
       const laborRate = knownInputs.laborRate;
+      const machineRate = knownInputs.machineRate;
+      if (laborRate !== undefined && laborRate <= 0) {
+        errors.push("Labor rate must be greater than 0.");
+      }
+      if (machineRate !== undefined && machineRate <= 0) {
+        errors.push("Machine rate must be greater than 0.");
+      }
+    }
+    if (rule.id === "labor-rate-positive") {
+      const laborRate = knownInputs.laborRate;
       if (laborRate !== undefined && laborRate <= 0) {
         errors.push("Labor rate must be greater than 0.");
       }
     }
+    if (rule.id === "quantity-min") {
+      const quantity = knownInputs.quantity;
+      if (quantity !== undefined && quantity < 1) {
+        errors.push("Quantity must be at least 1.");
+      }
+    }
+    if (rule.id === "budget-positive") {
+      const budget = knownInputs.originalBudget;
+      if (budget !== undefined && budget <= 0) {
+        errors.push("Original budget must be greater than 0.");
+      }
+    }
+    if (rule.id === "frequency-positive") {
+      const frequency = knownInputs.visitFrequency;
+      if (frequency !== undefined && frequency < 1) {
+        errors.push("Visit frequency must be at least 1.");
+      }
+    }
+    if (rule.id === "menu-price-positive" || rule.id === "price-positive") {
+      const menuPrice = knownInputs.menuPrice;
+      const productPrice = knownInputs.productPrice;
+      if (menuPrice !== undefined && menuPrice <= 0) {
+        errors.push("Menu price must be greater than 0.");
+      }
+      if (productPrice !== undefined && productPrice <= 0) {
+        errors.push("Product price must be greater than 0.");
+      }
+    }
+    if (rule.id === "area-positive") {
+      const areaSize = knownInputs.areaSize;
+      if (areaSize !== undefined && areaSize <= 0) {
+        errors.push("Area size must be greater than 0.");
+      }
+    }
+    if (rule.id === "weather-percent") {
+      const weather = knownInputs.weatherDelayRiskPercent;
+      if (weather !== undefined && (weather < 0 || weather > 100)) {
+        errors.push("Weather delay risk must be between 0% and 100%.");
+      }
+    }
+    if (rule.id === "touchup-percent") {
+      const touchUp = knownInputs.touchUpRiskPercent;
+      if (touchUp !== undefined && (touchUp < 0 || touchUp > 100)) {
+        errors.push("Touch-up risk must be between 0% and 100%.");
+      }
+    }
+    if (rule.id === "waste-percent") {
+      const waste = knownInputs.wasteRate;
+      if (waste !== undefined && (waste < 0 || waste > 100)) {
+        errors.push("Waste rate must be between 0% and 100%.");
+      }
+    }
+    if (rule.id === "commission-percent") {
+      const commission = knownInputs.deliveryCommission;
+      if (commission !== undefined && (commission < 0 || commission > 100)) {
+        errors.push("Delivery commission must be between 0% and 100%.");
+      }
+    }
+    if (rule.id === "return-percent") {
+      const returnRate = knownInputs.returnRate;
+      if (returnRate !== undefined && (returnRate < 0 || returnRate > 100)) {
+        errors.push("Return rate must be between 0% and 100%.");
+      }
+    }
     if (rule.id === "margin-percent") {
-      const margin = knownInputs.targetMargin;
+      const margin =
+        knownInputs.targetMargin ?? knownInputs.marginTarget ?? knownInputs.riskMargin;
       if (margin !== undefined && (margin < 0 || margin > 100)) {
         errors.push("Target margin must be between 0% and 100%.");
       }
@@ -228,6 +303,24 @@ function validateContractEdgeRules(slug: string, knownInputs: KnownInputs): read
   }
 
   return errors;
+}
+
+/** Maps marginTarget/riskMargin to targetMargin for Mind 1 invariant checks only. */
+function inputsForValidationLoop(canonical: KnownInputs): KnownInputs {
+  const next = { ...canonical };
+  if (Number.isFinite(next.targetMargin)) {
+    return next;
+  }
+  if (Number.isFinite(next.marginTarget)) {
+    next.targetMargin = next.marginTarget;
+    return next;
+  }
+  if (Number.isFinite(next.riskMargin)) {
+    next.targetMargin = next.riskMargin;
+    return next;
+  }
+  next.targetMargin = 25;
+  return next;
 }
 
 function blockedResult(input: {
@@ -326,7 +419,7 @@ export function runPremiumFullLoopCalculation(
 
   const postLoop = runContractCalculationIntelligenceLoop({
     contract,
-    knownInputs: canonical,
+    knownInputs: inputsForValidationLoop(canonical),
     calculatedResult,
   });
 
