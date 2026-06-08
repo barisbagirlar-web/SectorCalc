@@ -1,10 +1,14 @@
 /**
- * Bridge governance audit metrics into product pages — Phase 6A read-only.
+ * Bridge governance metrics into product pages — Phase 6A read-only.
+ * SSR-safe: no filesystem scans (Cloud Run cwd lacks src/ tree).
  */
 
-import { collectInvestorDemoMetrics } from "@/lib/formula-governance/investor-demo/investor-demo-metrics";
-import { runRoadmapDebtAudit } from "@/lib/formula-governance/roadmap-debt-register/roadmap-debt-audit";
-import { runSmartFormRolloutExpansionAudit } from "@/components/tools/smart-form/rollout-expansion/smart-form-rollout-batch-audit";
+import { ROLLOUT_BATCH_H_LIVE_GOVERNANCE_SLUGS } from "@/components/tools/smart-form/rollout-batch-h-catalog";
+import { FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts";
+import { ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
+import { buildDebtRegister } from "@/lib/formula-governance/roadmap-debt-register/debt-register-builder";
+import { getCalculationBridgeEligibleSlugs } from "@/components/tools/smart-form/rollout-expansion/smart-form-rollout-eligibility";
+import { INVESTOR_PAGE_TRUST_TRACE_READY } from "@/lib/commercial/investor-page-metrics-snapshot";
 
 export type InvestorPageMetrics = {
   readonly livePilotCount: number;
@@ -17,17 +21,13 @@ export type InvestorPageMetrics = {
 };
 
 export function loadInvestorPageMetrics(): InvestorPageMetrics {
-  const metrics = collectInvestorDemoMetrics();
-  const rollout = runSmartFormRolloutExpansionAudit();
-  const debt = runRoadmapDebtAudit();
-
   return {
-    livePilotCount: rollout.liveAlready,
-    rolloutPotential: rollout.totalCompletedPatchTools,
-    calculationBridgeEligible: rollout.eligibleForCalculationBridge,
-    formulaContracts: metrics.formulaGovernanceCoverage,
-    trustTraceReady: metrics.trustTraceCoverage,
-    remainingDebtCount: debt.totalRemainingDebt,
+    livePilotCount: ROLLOUT_BATCH_H_LIVE_GOVERNANCE_SLUGS.length,
+    rolloutPotential: ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS.length,
+    calculationBridgeEligible: getCalculationBridgeEligibleSlugs().length,
+    formulaContracts: FORMULA_CONTRACTS.length,
+    trustTraceReady: INVESTOR_PAGE_TRUST_TRACE_READY,
+    remainingDebtCount: buildDebtRegister().length,
     toolFactoryStatus: "skeleton_ready",
   };
 }
