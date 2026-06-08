@@ -25,7 +25,8 @@ describe("smart form pilot feature flag", () => {
     vi.stubEnv("NEXT_PUBLIC_SMART_FORM_PILOT", "true");
     expect(isSmartFormPilotEnabled()).toBe(true);
     expect(shouldUseSmartFormPilot(SMART_FORM_PILOT_SLUG)).toBe(true);
-    expect(shouldUseSmartFormPilot("auto-shop-margin-leak-detector")).toBe(false);
+    expect(shouldUseSmartFormPilot("repair-time-vs-price-check")).toBe(true);
+    expect(shouldUseSmartFormPilot("cabinet-cost-estimator")).toBe(false);
   });
 
   test("recognizes pilot slug constant", () => {

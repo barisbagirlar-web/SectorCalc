@@ -163,21 +163,21 @@ describe("smart form pilot analytics and gate — Phase 5H-G-F", () => {
     ]);
   });
 
-  test("auto-shop is next candidate but calculation bridge is not enabled", () => {
+  test("auto-shop pilot candidate has calculation bridge enabled", () => {
     const candidate = getNextSmartFormPilotCandidate();
 
     expect(candidate.slug).toBe(NEXT_SMART_FORM_PILOT_CANDIDATE_SLUG);
     expect(candidate.slug).toBe("auto-shop-margin-leak-detector");
-    expect(candidate.calculationBridgeEnabled).toBe(false);
+    expect(candidate.calculationBridgeEnabled).toBe(true);
     expect(candidate.uiBridgeReady).toBe(true);
     expect(candidate.inputDesignPatchCompleted).toBe(true);
     expect(candidate.smartFormReadyForSpec).toBe(true);
-    expect(candidate.reason).toContain("calculation bridge is not enabled");
+    expect(candidate.reason).toContain("calculation bridge are ready");
   });
 
   test("feature flag false keeps classic path fallback", () => {
     vi.stubEnv("NEXT_PUBLIC_SMART_FORM_PILOT", "false");
     expect(shouldUseSmartFormPilot("3d-print-cost-check")).toBe(false);
-    expect(shouldUseSmartFormPilot(NEXT_SMART_FORM_PILOT_CANDIDATE_SLUG)).toBe(false);
+    expect(shouldUseSmartFormPilot("repair-time-vs-price-check")).toBe(false);
   });
 });

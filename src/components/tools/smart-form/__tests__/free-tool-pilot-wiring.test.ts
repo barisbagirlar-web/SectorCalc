@@ -17,11 +17,16 @@ describe("free tool pilot wiring", () => {
     expect(resolveSmartFormPilotManifestForRoute("3d-print-cost-check")).toBeNull();
   });
 
-  test("flag true resolves manifest for 3d-print-cost-check only", () => {
+  test("flag true resolves manifest for pilot free routes", () => {
     vi.stubEnv("NEXT_PUBLIC_SMART_FORM_PILOT", "true");
-    const manifest = resolveSmartFormPilotManifestForRoute("3d-print-cost-check");
-    expect(manifest).not.toBeNull();
-    expect(manifest?.slug).toBe("3d-print-cost-check");
+    const threeDPrint = resolveSmartFormPilotManifestForRoute("3d-print-cost-check");
+    expect(threeDPrint).not.toBeNull();
+    expect(threeDPrint?.slug).toBe("3d-print-cost-check");
+
+    const autoShop = resolveSmartFormPilotManifestForRoute("repair-time-vs-price-check");
+    expect(autoShop).not.toBeNull();
+    expect(autoShop?.slug).toBe("auto-shop-margin-leak-detector");
+
     expect(resolveSmartFormPilotManifestForRoute("cabinet-cost-estimator")).toBeNull();
   });
 });

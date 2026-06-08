@@ -1,12 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { buildSmartFormPilotCalculationPayload } from "@/components/tools/smart-form/build-smart-form-pilot-calculation-payload";
 import {
-  buildThreeDPrintPilotCalculationPayload,
-  isPilotCalculationField,
-  isThreeDPrintPilotSubmitDisabled,
-  type PilotFieldValues,
-} from "@/components/tools/smart-form/pilot-calculation-payload";
+  isEditablePilotField,
+  isPilotMappedCalculationField,
+  isPilotSubmitDisabled,
+} from "@/components/tools/smart-form/pilot-field-utils";
+import type { PilotFieldValues } from "@/components/tools/smart-form/pilot-calculation-payload";
 import type {
   SmartFormFieldComponentProps,
   SmartFormSectionComponentProps,
@@ -223,7 +224,7 @@ export function SmartFormBridgeRenderer({
   onPilotStarted,
 }: SmartFormBridgeRendererProps) {
   const pilotInputFields = useMemo(
-    () => manifest.fields.filter((field) => isPilotCalculationField(field)),
+    () => manifest.fields.filter((field) => isEditablePilotField(field)),
     [manifest.fields],
   );
 
@@ -244,14 +245,16 @@ export function SmartFormBridgeRenderer({
 
   const mergedErrors = { ...localErrors, ...fieldErrors };
   const submitDisabled =
-    isCalculating || isThreeDPrintPilotSubmitDisabled(fieldValues) || !calculationConnected;
+    isCalculating || isPilotSubmitDisabled(fieldValues, manifest.slug) || !calculationConnected;
 
   const handleFieldChange = (key: string, value: string) => {
     const field = pilotInputFields.find((entry) => entry.key === key);
-    if (!field || !isPilotCalculationField(field)) {
+    if (!field || !isEditablePilotField(field)) {
       return;
     }
-    onPilotStarted?.();
+    if (isPilotMappedCalculationField(field, manifest.slug)) {
+      onPilotStarted?.();
+    }
     setFieldValues((current) => ({ ...current, [key]: value }));
     setLocalErrors((current) => {
       const next = { ...current };
@@ -261,8 +264,12 @@ export function SmartFormBridgeRenderer({
   };
 
   const handlePilotCalculate = () => {
-    const validation = buildThreeDPrintPilotCalculationPayload(fieldValues);
-    if (!validation.payload) {
+    const validation = buildSmartFormPilotCalculationPayload({
+      slug: manifest.slug,
+      fieldValues,
+      manifest,
+    });
+    if (!validation.supported || !validation.payload) {
       setLocalErrors({ ...validation.errors });
       return;
     }

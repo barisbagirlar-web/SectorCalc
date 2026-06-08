@@ -86,9 +86,10 @@ describe("pilot calculation payload", () => {
     expect(shouldUseSmartFormPilot("3d-print-cost-check")).toBe(false);
   });
 
-  test("flag true enables bridge only for 3d-print slug", () => {
+  test("flag true enables bridge for pilot free routes only", () => {
     vi.stubEnv("NEXT_PUBLIC_SMART_FORM_PILOT", "true");
     expect(shouldUseSmartFormPilot("3d-print-cost-check")).toBe(true);
+    expect(shouldUseSmartFormPilot("repair-time-vs-price-check")).toBe(true);
     expect(shouldUseSmartFormPilot("cabinet-cost-estimator")).toBe(false);
   });
 

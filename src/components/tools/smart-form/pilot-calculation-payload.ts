@@ -1,20 +1,22 @@
 /**
- * Smart form pilot calculation payload — Phase 5H-G-E (pure mapper; no calculator imports).
+ * Smart form pilot calculation payload — Phase 5H-G-E/G (pure mapper; no calculator imports).
  */
 
 import type { FreeToolInputValues } from "@/lib/tools/free-tool-results";
 import type { SmartFormFieldComponentProps } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 import { canIncludeOptionalPilotField } from "@/components/tools/smart-form/optional-field-expansion-gate";
+import {
+  THREE_D_PRINT_PILOT_SUBMIT_KEYS,
+  type ThreeDPrintPilotSubmitKey,
+} from "@/components/tools/smart-form/pilot-calculation-bridge-keys";
+import { isPilotMappedCalculationField } from "@/components/tools/smart-form/pilot-field-utils";
+
+export {
+  THREE_D_PRINT_PILOT_SUBMIT_KEYS,
+  type ThreeDPrintPilotSubmitKey,
+} from "@/components/tools/smart-form/pilot-calculation-bridge-keys";
 
 export const THREE_D_PRINT_PILOT_SLUG = "3d-print-cost-check" as const;
-
-export const THREE_D_PRINT_PILOT_SUBMIT_KEYS = [
-  "materialCost",
-  "printHours",
-  "machineRate",
-] as const;
-
-export type ThreeDPrintPilotSubmitKey = (typeof THREE_D_PRINT_PILOT_SUBMIT_KEYS)[number];
 
 export type PilotFieldValues = Readonly<Record<string, string>>;
 
@@ -37,12 +39,9 @@ export function parsePilotNumericField(value: string): number | null {
   return parsed;
 }
 
+/** @deprecated Use isPilotMappedCalculationField(field, governanceSlug) */
 export function isPilotCalculationField(field: SmartFormFieldComponentProps): boolean {
-  return (
-    field.componentKind === "field_input" &&
-    field.editable &&
-    THREE_D_PRINT_PILOT_SUBMIT_KEYS.includes(field.key as ThreeDPrintPilotSubmitKey)
-  );
+  return isPilotMappedCalculationField(field, THREE_D_PRINT_PILOT_SLUG);
 }
 
 export function isThreeDPrintPilotSubmitDisabled(fieldValues: PilotFieldValues): boolean {

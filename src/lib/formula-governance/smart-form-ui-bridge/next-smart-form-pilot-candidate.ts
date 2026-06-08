@@ -6,6 +6,7 @@ import { getControlledInputDesignPatch } from "@/lib/formula-governance/input-de
 import { isControlledInputDesignPatchCompleted } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-status";
 import { buildSmartFormPlan } from "@/lib/formula-governance/smart-form-architecture/smart-form-plan-builder";
 import { buildPilotUiBridgeManifestForSlug } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-ui-bridge-manifest";
+import { isPilotCalculationBridgeEnabled } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
 export const NEXT_SMART_FORM_PILOT_CANDIDATE_SLUG = "auto-shop-margin-leak-detector" as const;
 
@@ -55,11 +56,12 @@ export function getNextSmartFormPilotCandidate(): NextSmartFormPilotCandidate {
 
   return {
     slug,
-    calculationBridgeEnabled: false,
+    calculationBridgeEnabled: isPilotCalculationBridgeEnabled(slug),
     uiBridgeReady,
     inputDesignPatchCompleted,
     smartFormReadyForSpec: smartFormPlan.readinessStatus === "ready_for_spec",
-    reason:
-      "Smart form spec, UI bridge manifest, and controlled input design patch are ready; calculation bridge is not enabled for this slug.",
+    reason: isPilotCalculationBridgeEnabled(slug)
+      ? "Smart form spec, UI bridge manifest, controlled input patch, and calculation bridge are ready for this slug."
+      : "Smart form spec, UI bridge manifest, and controlled input design patch are ready; calculation bridge is not enabled for this slug.",
   };
 }

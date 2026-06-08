@@ -18,18 +18,22 @@ describe("smart form pilot selection", () => {
     expect(getPilotSmartFormManifest("3d-print-cost-check")?.status).toBe("ui_bridge_ready");
   });
 
-  test("flag true selects pilot for 3d-print-cost-check", () => {
+  test("flag true selects pilot for 3d-print and auto-shop free routes", () => {
     vi.stubEnv("NEXT_PUBLIC_SMART_FORM_PILOT", "true");
     expect(shouldUseSmartFormPilot("3d-print-cost-check")).toBe(true);
-    const manifest = getPilotSmartFormManifest("3d-print-cost-check");
-    expect(manifest).not.toBeNull();
-    expect(manifest?.slug).toBe("3d-print-cost-check");
-    expect(manifest?.status).toBe("ui_bridge_ready");
+    expect(shouldUseSmartFormPilot("repair-time-vs-price-check")).toBe(true);
+
+    const threeDPrint = getPilotSmartFormManifest("3d-print-cost-check");
+    expect(threeDPrint).not.toBeNull();
+    expect(threeDPrint?.slug).toBe("3d-print-cost-check");
+
+    const autoShop = getPilotSmartFormManifest("repair-time-vs-price-check");
+    expect(autoShop).not.toBeNull();
+    expect(autoShop?.slug).toBe("auto-shop-margin-leak-detector");
   });
 
-  test("flag true does not select other slugs", () => {
+  test("flag true does not select non-pilot slugs", () => {
     vi.stubEnv("NEXT_PUBLIC_SMART_FORM_PILOT", "true");
-    expect(shouldUseSmartFormPilot("auto-shop-margin-leak-detector")).toBe(false);
-    expect(getPilotSmartFormManifest("auto-shop-margin-leak-detector")).toBeNull();
+    expect(shouldUseSmartFormPilot("cabinet-cost-estimator")).toBe(false);
   });
 });

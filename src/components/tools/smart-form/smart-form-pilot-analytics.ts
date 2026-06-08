@@ -1,5 +1,5 @@
 /**
- * Smart form pilot analytics — Phase 5H-G-F (aligned with REVENUE_EVENTS; no new deps).
+ * Smart form pilot analytics — Phase 5H-G-F/G (aligned with REVENUE_EVENTS; no new deps).
  */
 
 import {
@@ -7,7 +7,8 @@ import {
   trackRevenueEvent,
   type RevenueEventPayload,
 } from "@/lib/analytics/revenue-events";
-import { THREE_D_PRINT_PILOT_SLUG, THREE_D_PRINT_PILOT_SUBMIT_KEYS } from "@/components/tools/smart-form/pilot-calculation-payload";
+import { THREE_D_PRINT_PILOT_SLUG } from "@/components/tools/smart-form/pilot-calculation-payload";
+import { getPilotCalculationBridgeMappedInputCount } from "@/lib/formula-governance/smart-form-ui-bridge/pilot-calculation-bridge-registry";
 
 export type SmartFormPilotAnalyticsPayload = RevenueEventPayload & {
   readonly slug: string;
@@ -24,7 +25,7 @@ export function buildSmartFormPilotAnalyticsPayload(
     slug,
     mode: "smart_form_pilot",
     featureFlag: true,
-    mappedInputCount: THREE_D_PRINT_PILOT_SUBMIT_KEYS.length,
+    mappedInputCount: getPilotCalculationBridgeMappedInputCount(slug),
     advancedInputSubmitted: false,
     toolSlug: slug,
   };

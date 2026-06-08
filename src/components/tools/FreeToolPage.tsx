@@ -2,10 +2,8 @@
 
 import { useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
-import {
-  buildThreeDPrintPilotCalculationPayload,
-  type PilotFieldValues,
-} from "@/components/tools/smart-form/pilot-calculation-payload";
+import { buildSmartFormPilotCalculationPayload } from "@/components/tools/smart-form/build-smart-form-pilot-calculation-payload";
+import type { PilotFieldValues } from "@/components/tools/smart-form/pilot-calculation-payload";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { OsModuleHeader } from "@/components/os/OsModuleHeader";
 import { SectorToolSelect } from "@/components/os/SectorToolSelect";
@@ -202,13 +200,23 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  }, [submitted, tool, useSmartFormPilot, pilotValues, values]);
 
  const handlePilotCalculate = (fieldValues: PilotFieldValues) => {
-  if (!startedTracked.current) {
-   startedTracked.current = true;
-   trackSmartFormPilotStarted(tool.freeSlug);
+  if (!smartFormPilotManifest) {
+   return;
   }
 
-  const { payload, errors: nextPilotErrors } = buildThreeDPrintPilotCalculationPayload(fieldValues);
-  if (!payload) {
+  const pilotSlug = smartFormPilotManifest.slug;
+
+  if (!startedTracked.current) {
+   startedTracked.current = true;
+   trackSmartFormPilotStarted(pilotSlug);
+  }
+
+  const { payload, errors: nextPilotErrors, supported } = buildSmartFormPilotCalculationPayload({
+   slug: pilotSlug,
+   fieldValues,
+   manifest: smartFormPilotManifest,
+  });
+  if (!supported || !payload) {
    setPilotErrors(nextPilotErrors);
    setSubmitted(false);
    return;
@@ -221,16 +229,16 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
   window.setTimeout(() => {
    setIsCalculating(false);
    setSubmitted(true);
-   trackSmartFormPilotCompleted(tool.freeSlug);
+   trackSmartFormPilotCompleted(pilotSlug);
   }, 400);
  };
 
  const handlePilotStarted = () => {
-  if (startedTracked.current) {
+  if (!smartFormPilotManifest || startedTracked.current) {
    return;
   }
   startedTracked.current = true;
-  trackSmartFormPilotStarted(tool.freeSlug);
+  trackSmartFormPilotStarted(smartFormPilotManifest.slug);
  };
 
  const handleChange = (key: string, value: number | string) => {
