@@ -18,15 +18,15 @@ import {
 import type { ToolInputDesignAuditResult } from "@/lib/formula-governance/input-design-audit/input-design-audit-types";
 
 describe("buildExistingToolMigrationPlan", () => {
-  test("builds plan for 41 tools", () => {
+  test("builds plan for 120 tools", () => {
     const inputDesignAudit = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
     const plan = buildExistingToolMigrationPlan({ inputDesignAudit });
 
-    expect(plan.totalTools).toBe(41);
-    expect(plan.items).toHaveLength(41);
+    expect(plan.totalTools).toBe(120);
+    expect(plan.items).toHaveLength(120);
     expect(
       plan.immediate + plan.high + plan.medium + plan.low + plan.defer,
-    ).toBe(41);
+    ).toBe(120);
   });
 
   test("professional_ready tools can be immediate or high priority", () => {

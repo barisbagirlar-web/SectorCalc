@@ -10,6 +10,7 @@ import {
 } from "@/lib/formula-governance/contracts/shared";
 import { TOP_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/top-critical";
 import { BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/batch-expansion-critical";
+import { BATCH_TRAFFIC_CATALOG_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/batch-traffic-catalog-critical";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
 
 const RENT_VS_BUY_DISCLAIMER =
@@ -211,6 +212,7 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   rentVsBuyContract,
   ...TOP_CRITICAL_FORMULA_CONTRACTS,
   ...BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS,
+  ...BATCH_TRAFFIC_CATALOG_CRITICAL_FORMULA_CONTRACTS,
 ];
 
 export function getFormulaContractBySlug(slug: string): FormulaContract | undefined {

@@ -2,7 +2,10 @@
  * Free full-loop runtime bridge tests — traffic catalog + aligned revenue free tools.
  */
 
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, test } from "vitest";
+import { BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS } from "@/lib/formula-governance/contracts/batch-traffic-catalog-critical";
 import {
   runFreeFullLoopCalculation,
   sanitizeFreeCanonicalInputs,
@@ -17,6 +20,52 @@ const ROGUE_KEYS = {
   manualOverride: 1,
   advancedPatchKey: 42,
 } as const;
+
+type CatalogInput = { readonly key: string; readonly min?: number };
+type CatalogEntry = { readonly slug: string; readonly inputs: readonly CatalogInput[] };
+
+function loadCatalog(): CatalogEntry[] {
+  const path = join(process.cwd(), "src/lib/tools/free-traffic-catalog.generated.json");
+  return JSON.parse(readFileSync(path, "utf8")) as CatalogEntry[];
+}
+
+function catalogFixture(slug: string): Record<string, number> {
+  const entry = loadCatalog().find((item) => item.slug === slug);
+  if (!entry) {
+    return { value: 10 };
+  }
+  const fixture: Record<string, number> = {};
+  for (const input of entry.inputs) {
+    fixture[input.key] = input.min !== undefined ? Math.max(input.min, 1) : 10;
+  }
+  if (slug === "average-calculator" || slug === "median-calculator" || slug === "standard-deviation-calculator") {
+    fixture.value1 = 10;
+    fixture.value2 = 20;
+    fixture.value3 = 30;
+    fixture.value4 = 40;
+    fixture.value5 = 50;
+  }
+  if (slug === "linear-regression-calculator") {
+    fixture.x1 = 1;
+    fixture.y1 = 2;
+    fixture.x2 = 2;
+    fixture.y2 = 4;
+    fixture.x3 = 3;
+    fixture.y3 = 6;
+  }
+  if (slug === "age-calculator") {
+    fixture.birthYear = 1990;
+    fixture.currentYear = 2026;
+  }
+  if (slug === "home-budget-calculator") {
+    fixture.income = 5000;
+    fixture.rent = 1200;
+    fixture.food = 600;
+    fixture.transport = 300;
+    fixture.utilities = 200;
+  }
+  return fixture;
+}
 
 const VALID_INPUTS: Record<string, Record<string, number>> = {
   "repair-time-vs-price-check": {
@@ -118,9 +167,17 @@ const VALID_INPUTS: Record<string, Record<string, number>> = {
   },
 };
 
+for (const slug of BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS) {
+  VALID_INPUTS[slug] = catalogFixture(slug);
+}
+
+function resolveValidInputs(slug: string): Record<string, number> {
+  return VALID_INPUTS[slug] ?? catalogFixture(slug);
+}
+
 describe("free full-loop runtime bridge", () => {
-  test("registry exposes 17 free full-loop slugs", () => {
-    expect(FREE_FULL_LOOP_RUNTIME_SLUGS).toHaveLength(17);
+  test("registry exposes legacy + traffic catalog free full-loop slugs", () => {
+    expect(FREE_FULL_LOOP_RUNTIME_SLUGS.length).toBe(17 + BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS.length);
     for (const slug of FREE_FULL_LOOP_RUNTIME_SLUGS) {
       expect(isFreeFullLoopRuntimeSlug(slug)).toBe(true);
     }
@@ -128,7 +185,7 @@ describe("free full-loop runtime bridge", () => {
 
   for (const slug of FREE_FULL_LOOP_RUNTIME_SLUGS) {
     describe(slug, () => {
-      const valid = VALID_INPUTS[slug];
+      const valid = resolveValidInputs(slug);
 
       test("missing input → blocked without result", () => {
         const result = runFreeFullLoopCalculation(slug, {});
@@ -143,9 +200,10 @@ describe("free full-loop runtime bridge", () => {
       });
 
       test("invalid input → blocked with explicit error", () => {
-        const invalid = { ...valid, ...Object.fromEntries(
-          Object.keys(valid).slice(0, 1).map((key) => [key, -1]),
-        ) };
+        const invalid = {
+          ...valid,
+          ...Object.fromEntries(Object.keys(valid).slice(0, 1).map((key) => [key, -1])),
+        };
         const result = runFreeFullLoopCalculation(slug, invalid);
         expect(result.status).toBe("blocked");
         if (result.status === "blocked") {
@@ -173,7 +231,11 @@ describe("free full-loop runtime bridge", () => {
         if (result.status === "success") {
           expect(result.trustTrace.validationPassed).toBe(true);
           expect(result.trustTrace.loopStatus).toBe("SUCCESS");
-          if (slug === "repair-time-vs-price-check" || slug === "hvac-tonnage-rule-check" || slug === "roofing-square-cost-check") {
+          if (
+            slug === "repair-time-vs-price-check" ||
+            slug === "hvac-tonnage-rule-check" ||
+            slug === "roofing-square-cost-check"
+          ) {
             expect(result.revenueResult).toBeDefined();
           } else {
             expect(result.trafficResult).toBeDefined();

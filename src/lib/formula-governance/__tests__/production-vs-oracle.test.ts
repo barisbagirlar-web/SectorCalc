@@ -112,7 +112,7 @@ describe("production vs oracle comparison", () => {
 
   test("all wired oracle audit summaries pass comparable scenarios", () => {
     const summaries = runAllFinanceOracleComparisonAudits();
-    expect(summaries.length).toBe(41);
+    expect(summaries.length).toBe(120);
     for (const summary of summaries) {
       expect(summary.status).toBe("PASS");
       expect(summary.failCount).toBe(0);

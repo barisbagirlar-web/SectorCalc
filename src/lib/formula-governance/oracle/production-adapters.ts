@@ -8,6 +8,11 @@ import type { BatchFreeBatch2OracleSlug } from "@/lib/formula-governance/oracle/
 import type { BatchFreeOracleSlug } from "@/lib/formula-governance/oracle/batch-free-oracles";
 import type { BatchPremiumOracleSlug } from "@/lib/formula-governance/oracle/batch-premium-oracles";
 import type { BatchPremiumBatch3OracleSlug } from "@/lib/formula-governance/oracle/batch-premium-batch3-oracles";
+import {
+  getBatchTrafficCatalogOracleSpec,
+  isBatchTrafficCatalogOracleSlug,
+  type BatchTrafficCatalogOracleSlug,
+} from "@/lib/formula-governance/oracle/batch-traffic-catalog-oracles";
 import type { FreeTrafficInputValues } from "@/lib/tools/free-traffic-calculators";
 import { calculateFreeTrafficTool } from "@/lib/tools/free-traffic-calculators";
 import type { FinanceOracleSlug } from "@/lib/formula-governance/oracle/finance-oracles";
@@ -254,7 +259,8 @@ export type ProductionAdapterResult =
         | NormalizedBatchFreeProductionOutput
         | NormalizedBatchPremiumProductionOutput
         | NormalizedBatchFreeBatch2ProductionOutput
-        | NormalizedBatchPremiumBatch3ProductionOutput;
+        | NormalizedBatchPremiumBatch3ProductionOutput
+        | NormalizedBatchTrafficCatalogProductionOutput;
     }
   | { readonly status: "needs_adapter"; readonly reason: string }
   | { readonly status: "error"; readonly reason: string };
@@ -1015,6 +1021,68 @@ export function adaptProductionBatchFreeOutput(
         return { status: "needs_adapter", reason: `No production adapter for slug "${unsupported}".` };
       }
     }
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    return { status: "error", reason };
+  }
+}
+
+export type NormalizedBatchTrafficCatalogProductionOutput = Readonly<Record<string, number>>;
+
+function parseTrafficCatalogPrimaryValue(
+  value: string,
+  parseKind: "plain" | "currency" | "percent" | "integer",
+): number | null {
+  switch (parseKind) {
+    case "currency":
+      return parseCurrency(value);
+    case "percent":
+      return parsePercent(value);
+    case "integer":
+      return parsePlainNumber(value);
+    case "plain":
+    default:
+      return parsePlainNumber(value);
+  }
+}
+
+function adaptBatchTrafficCatalogProduction(
+  slug: BatchTrafficCatalogOracleSlug,
+  values: FreeTrafficInputValues,
+): ProductionAdapterResult {
+  const spec = getBatchTrafficCatalogOracleSpec(slug);
+  const result = calculateFreeTrafficTool(slug, values, "en");
+  if (result.primaryValue === "—") {
+    return { status: "error", reason: "Production returned unavailable output for invalid inputs." };
+  }
+
+  let primary = parseTrafficCatalogPrimaryValue(result.primaryValue, spec.parseKind);
+  if (primary === null && slug === "time-duration-calculator") {
+    primary = parsePlainNumber(findSecondaryValue(result.secondaryValues, "total minutes") ?? "");
+  }
+  if (primary === null && slug === "cnc-cycle-time-calculator") {
+    primary = parsePlainNumber(result.primaryValue.replace(/[^\d.]/g, ""));
+  }
+  if (primary === null) {
+    return {
+      status: "needs_adapter",
+      reason: `Could not parse ${spec.primaryKey} from production primaryValue.`,
+    };
+  }
+
+  const output: Record<string, number> = { [spec.primaryKey]: primary };
+  return { status: "ok", output };
+}
+
+export function adaptProductionBatchTrafficCatalogOutput(
+  slug: BatchTrafficCatalogOracleSlug,
+  values: FreeTrafficInputValues,
+): ProductionAdapterResult {
+  if (!isBatchTrafficCatalogOracleSlug(slug)) {
+    return { status: "needs_adapter", reason: `Slug "${slug}" is not a traffic catalog oracle slug.` };
+  }
+  try {
+    return adaptBatchTrafficCatalogProduction(slug, values);
   } catch (error) {
     const reason = error instanceof Error ? error.message : String(error);
     return { status: "error", reason };

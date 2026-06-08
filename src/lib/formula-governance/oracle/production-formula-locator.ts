@@ -24,6 +24,10 @@ import {
   type BusinessOracleSlug,
 } from "@/lib/formula-governance/oracle/business-oracles";
 import {
+  getBatchTrafficCatalogProductionFormulaLocator,
+  isBatchTrafficCatalogProductionSlug,
+} from "@/lib/formula-governance/oracle/batch-traffic-catalog-production-locators";
+import {
   OPERATIONS_ORACLE_SLUGS,
   type OperationsOracleSlug,
 } from "@/lib/formula-governance/oracle/operations-oracles";
@@ -829,6 +833,9 @@ export function getAnyProductionFormulaLocator(slug: string): ProductionFormulaL
     getBatchFreeProductionFormulaLocator(slug as BatchFreeOracleSlug) ??
     getBatchPremiumProductionFormulaLocator(slug as BatchPremiumOracleSlug) ??
     getBatchFreeBatch2ProductionFormulaLocator(slug as BatchFreeBatch2OracleSlug) ??
-    getBatchPremiumBatch3ProductionFormulaLocator(slug as BatchPremiumBatch3OracleSlug)
+    getBatchPremiumBatch3ProductionFormulaLocator(slug as BatchPremiumBatch3OracleSlug) ??
+    (isBatchTrafficCatalogProductionSlug(slug)
+      ? getBatchTrafficCatalogProductionFormulaLocator(slug)
+      : undefined)
   );
 }

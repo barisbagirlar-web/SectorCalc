@@ -2,6 +2,8 @@
  * Slugs with production full-loop runtime enforcement (Mind 2 gate → calc → Mind 1 validation).
  */
 
+import { BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS } from "@/lib/formula-governance/contracts/batch-traffic-catalog-critical";
+
 export const PREMIUM_FULL_LOOP_RUNTIME_SLUGS = [
   "welding-bid-risk-analyzer",
   "sheet-metal-quote-risk-tool",
@@ -42,6 +44,7 @@ export const FREE_FULL_LOOP_RUNTIME_SLUGS = [
   "hvac-tonnage-rule-check",
   "roofing-square-cost-check",
   "laser-cutting-time-check",
+  ...BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS,
 ] as const;
 
 export const FULL_LOOP_RUNTIME_SLUGS = [

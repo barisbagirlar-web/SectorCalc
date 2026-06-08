@@ -5,6 +5,7 @@
 
 import { existsSync } from "node:fs";
 import { join } from "node:path";
+import { BATCH_TRAFFIC_CATALOG_ORACLE_TOOL_IDS } from "@/lib/formula-governance/oracle/batch-traffic-catalog-oracles";
 
 /** toolId → oracle module filename under src/lib/formula-governance/oracle/ */
 const ORACLE_MODULE_BY_TOOL: Record<string, string> = {
@@ -49,6 +50,11 @@ const ORACLE_MODULE_BY_TOOL: Record<string, string> = {
   "revenue-premium.painting-job-profit-verdict": "batch-premium-batch3-oracles.ts",
   "revenue-premium.sheet-metal-quote-risk-tool": "batch-premium-batch3-oracles.ts",
   "free-traffic.3d-print-cost-check": "batch-premium-batch3-oracles.ts",
+  ...Object.fromEntries(
+    Object.values(BATCH_TRAFFIC_CATALOG_ORACLE_TOOL_IDS).map(
+      (toolId) => [toolId, "batch-traffic-catalog-oracles.ts"] as const,
+    ),
+  ),
 };
 
 /** Critical tools awaiting oracle module registration or file implementation. */

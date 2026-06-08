@@ -16,7 +16,7 @@ describe("batch trust trace export audit — Phase 5I-C", () => {
     const first = runBatchTrustTraceExportAudit(trustAudit.reports);
     const second = runBatchTrustTraceExportAudit(trustAudit.reports);
 
-    expect(first.totalContracts).toBe(41);
+    expect(first.totalContracts).toBe(120);
     expect(first.pdfReady).toBe(second.pdfReady);
     expect(first.excelReady).toBe(second.excelReady);
   });
@@ -28,6 +28,6 @@ describe("batch trust trace export audit — Phase 5I-C", () => {
     );
 
     expect(report).toContain("Trust Trace Export Contract Audit");
-    expect(report).toContain("Total contracts: 41");
+    expect(report).toContain("Total contracts: 120");
   });
 });

@@ -20,12 +20,14 @@ import type { CalculationValues } from "@/lib/formula-governance/runtime-validat
 import {
   adaptProductionBatchFreeBatch2Output,
   adaptProductionBatchFreeOutput,
+  adaptProductionBatchTrafficCatalogOutput,
   adaptProductionBusinessOperationsOutput,
   adaptProductionFinanceOutput,
   adaptProductionRentVsBuyOutput,
   type ProductionAdapterResult,
 } from "@/lib/formula-governance/oracle/production-adapters";
 import { isBatchFreeBatch2OracleSlug } from "@/lib/formula-governance/oracle/batch-free-batch2-oracles";
+import { isBatchTrafficCatalogOracleSlug } from "@/lib/formula-governance/oracle/batch-traffic-catalog-oracles";
 import { isBatchFreeOracleSlug } from "@/lib/formula-governance/oracle/batch-free-oracles";
 import { isFinanceOracleSlug } from "@/lib/formula-governance/oracle/finance-oracles";
 import { isBusinessOperationsOracleSlug } from "@/lib/formula-governance/oracle/production-formula-locator";
@@ -196,6 +198,9 @@ function adaptFreeProductionOutput(slug: string, values: KnownInputs): Productio
   }
   if (isBatchFreeBatch2OracleSlug(slug)) {
     return adaptProductionBatchFreeBatch2Output(slug, values);
+  }
+  if (isBatchTrafficCatalogOracleSlug(slug)) {
+    return adaptProductionBatchTrafficCatalogOutput(slug, toFreeTrafficValues(values));
   }
   return { status: "needs_adapter", reason: `No production adapter registered for "${slug}".` };
 }

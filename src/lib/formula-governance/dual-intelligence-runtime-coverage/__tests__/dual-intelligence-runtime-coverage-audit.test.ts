@@ -35,7 +35,7 @@ describe("dual-intelligence runtime coverage audit", () => {
       expect(entry?.mind2Runtime).toBe(true);
     }
 
-    expect(result.fullLoopRuntimeCount).toBe(35);
+    expect(result.fullLoopRuntimeCount).toBe(114);
     expect(result.stagedCalculationBridge).toBe(0);
     expect(result.governedBuildtimeOnly).toBe(0);
     expect(result.auditPipelineOnly).toBe(3);
@@ -45,7 +45,7 @@ describe("dual-intelligence runtime coverage audit", () => {
     const result = runDualIntelligenceRuntimeCoverageAudit();
 
     expect(result.liveSmartFormPilot).toBe(PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS.length);
-    expect(result.fullLoopRuntimeCount).toBe(35);
+    expect(result.fullLoopRuntimeCount).toBe(114);
     expect(result.mind1RuntimeCount).toBe(result.liveSmartFormPilot + result.fullLoopRuntimeCount);
     expect(result.mind2RuntimeCount).toBe(result.liveSmartFormPilot + result.fullLoopRuntimeCount);
 
