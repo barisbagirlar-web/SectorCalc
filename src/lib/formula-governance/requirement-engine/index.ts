@@ -22,3 +22,11 @@ export {
   buildInputDesignFromRequirementResult,
 } from "@/lib/formula-governance/requirement-engine/input-design-bridge";
 export type { ToolInputDesign, ToolInputDesignField } from "@/lib/formula-governance/requirement-engine/input-design-bridge";
+export {
+  auditFormulaContractInputReadiness,
+} from "@/lib/formula-governance/requirement-engine/contract-requirement-bridge";
+export type {
+  AuditFormulaContractInputReadinessParams,
+  InputReadinessAudit,
+  InputReadinessStatus,
+} from "@/lib/formula-governance/requirement-engine/contract-requirement-bridge";
