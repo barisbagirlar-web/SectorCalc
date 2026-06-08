@@ -1,5 +1,5 @@
 /**
- * Controlled input design patch registry — Phase 5H-F first batch.
+ * Controlled input design patch registry — Phase 5H-F batches.
  * Metadata-only; production calculator and UI unchanged.
  */
 
@@ -11,8 +11,25 @@ export const FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
   "cabinet-cost-estimator",
 ] as const;
 
+export const SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
+  "electrical-labor-estimator",
+  "hvac-project-margin-guard",
+  "millwork-bid-risk-analyzer",
+] as const;
+
+export const ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
+  ...FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  ...SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+] as const;
+
 export type FirstControlledInputDesignPatchSlug =
   (typeof FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
+
+export type SecondControlledInputDesignPatchSlug =
+  (typeof SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
+
+export type ControlledInputDesignPatchSlug =
+  (typeof ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
 
 const THREE_D_PRINT_COST_CHECK_PATCH: ControlledInputDesignPatch = {
   slug: "3d-print-cost-check",
@@ -138,18 +155,145 @@ const CABINET_COST_ESTIMATOR_PATCH: ControlledInputDesignPatch = {
   blockers: [],
 };
 
+const ELECTRICAL_LABOR_ESTIMATOR_PATCH: ControlledInputDesignPatch = {
+  slug: "electrical-labor-estimator",
+  patchType: "input_design_only",
+  requiredInputs: ["materialCost", "laborHours", "laborRate"],
+  optionalInputs: ["permitCost", "inspectionHours", "panelComplexity", "conduitLength"],
+  advancedInputs: [
+    "codeJurisdictionRisk",
+    "accessConstraint",
+    "deratingFactor",
+    "reworkProbability",
+  ],
+  derivedInputs: ["laborCost", "laborMaterialRatio", "recommendedPrice", "riskLevel"],
+  defaultAssumptions: [
+    "Labor cost = laborHours × laborRate; material cost entered as job snapshot.",
+    "NEC estimating band (~40–65% commercial) used for labor/material ratio risk bands on free tier.",
+    "Permit, inspection and testing hours excluded unless optional inputs are provided.",
+    "Panel complexity and conduit derating not modeled on free path — advanced inputs are governance placeholders only.",
+  ],
+  userBurdenNotes: [
+    "Free quick-check exposes three production-aligned inputs; permit and inspection optional for smart-form phase.",
+    "recommendedPrice metadata alias equals laborCost; riskLevel remains narrative-only on free tier.",
+  ],
+  professionalDepthNotes: [
+    "Advanced code jurisdiction and access constraint inputs prepare panel shop margin verdict handoff.",
+    "laborMaterialRatio derived for NEC band comparison; production calculateElectricalFreeResult unchanged.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Optional permitCost and inspectionHours are governance-only — not wired to free-sector calculator in Phase 5H-F-2.",
+  ],
+  blockers: [],
+};
+
+const HVAC_PROJECT_MARGIN_GUARD_PATCH: ControlledInputDesignPatch = {
+  slug: "hvac-project-margin-guard",
+  patchType: "input_design_only",
+  requiredInputs: [
+    "equipmentCost",
+    "ductworkCost",
+    "laborHours",
+    "laborRate",
+    "commissioningCost",
+    "callbackRiskPercent",
+    "targetMargin",
+  ],
+  optionalInputs: ["permitFees", "refrigerantCharge", "seasonalLaborPremium"],
+  advancedInputs: [
+    "manualJLoadVariance",
+    "ductLeakageRisk",
+    "latentLoadFactor",
+    "lineSetLength",
+  ],
+  derivedInputs: ["minimumSafePrice", "baseCost", "p90Cost", "quoteVerdict"],
+  defaultAssumptions: [
+    "Callback risk applied as callbackRiskPercent on equipment burden; seasonal labor premium defaults to 20% of labor on premium base path.",
+    "Refrigerant charge defaults to 3% of equipment cost when refrigerantCharge optional override is not provided.",
+    "Commissioning cost entered explicitly; ductwork and equipment summed into base before MarginCore floor.",
+    "Site survey, permit fees and full Manual J load excluded unless optional/advanced inputs are set.",
+  ],
+  userBurdenNotes: [
+    "Premium decision layer keeps seven required inputs visible; permit and refrigerant remain defaulted until optional overrides are exposed.",
+    "minimumSafePrice is governance primary margin target; quoteVerdict is narrative verdict output.",
+  ],
+  professionalDepthNotes: [
+    "Advanced Manual J variance, duct leakage and latent load inputs prepare envelope-aware HVAC estimator extension.",
+    "calcHvac hidden multipliers unchanged — patch documents input taxonomy only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Advanced load-calculation inputs are governance placeholders — calcHvac production logic unchanged in Phase 5H-F-2.",
+  ],
+  blockers: [],
+};
+
+const MILLWORK_BID_RISK_ANALYZER_PATCH: ControlledInputDesignPatch = {
+  slug: "millwork-bid-risk-analyzer",
+  patchType: "input_design_only",
+  requiredInputs: [
+    "sheetMaterialCost",
+    "laborHours",
+    "laborRate",
+    "finishingCost",
+    "installHours",
+    "wasteRatePercent",
+    "targetMargin",
+  ],
+  optionalInputs: ["hardwareCost", "fieldMeasureAllowance", "humidityDelayReserve"],
+  advancedInputs: [
+    "fieldMeasurementRisk",
+    "finishGrade",
+    "customHardwareComplexity",
+    "punchListRework",
+  ],
+  derivedInputs: ["minimumSafePrice", "baseCost", "p90Cost", "quoteVerdict"],
+  defaultAssumptions: [
+    "Waste rate minimum 10% on premium path; wasteRatePercent entered by operator may exceed WWPA baseline.",
+    "Finishing delay reserve defaults to 10% of finishingCost when humidityDelayReserve optional override is not provided.",
+    "Labor burden = (laborHours + installHours) × laborRate + finishingCost + delay reserve.",
+    "Finish grade, field measurement and custom hardware variation excluded unless advanced inputs are modeled.",
+  ],
+  userBurdenNotes: [
+    "Premium millwork bid keeps seven production-aligned required inputs; hardware and field measure optional for smart-form phase.",
+    "minimumSafePrice is governance margin floor target; integrates with cabinet-cost-estimator free funnel metadata.",
+  ],
+  professionalDepthNotes: [
+    "Advanced finish grade, field measurement and punch-list rework inputs prepare cut-list aware cost model.",
+    "calcMillwork hidden multipliers unchanged — patch documents required/optional/advanced split only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Optional hardwareCost and fieldMeasureAllowance are governance-only — calcMillwork production logic unchanged.",
+  ],
+  blockers: [],
+};
+
 export const CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY: Readonly<
-  Record<FirstControlledInputDesignPatchSlug, ControlledInputDesignPatch>
+  Record<ControlledInputDesignPatchSlug, ControlledInputDesignPatch>
 > = {
   "3d-print-cost-check": THREE_D_PRINT_COST_CHECK_PATCH,
   "auto-shop-margin-leak-detector": AUTO_SHOP_MARGIN_LEAK_DETECTOR_PATCH,
   "cabinet-cost-estimator": CABINET_COST_ESTIMATOR_PATCH,
+  "electrical-labor-estimator": ELECTRICAL_LABOR_ESTIMATOR_PATCH,
+  "hvac-project-margin-guard": HVAC_PROJECT_MARGIN_GUARD_PATCH,
+  "millwork-bid-risk-analyzer": MILLWORK_BID_RISK_ANALYZER_PATCH,
 };
 
 export function getControlledInputDesignPatch(
   slug: string,
 ): ControlledInputDesignPatch | undefined {
   return CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY[
-    slug as FirstControlledInputDesignPatchSlug
+    slug as ControlledInputDesignPatchSlug
   ];
 }

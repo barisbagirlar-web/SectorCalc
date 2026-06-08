@@ -4,21 +4,23 @@
 
 import { describe, expect, test } from "vitest";
 import {
+  ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY,
   FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   getControlledInputDesignPatch,
 } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
 
 describe("controlled input design registry", () => {
   test("target slugs are registered", () => {
-    for (const slug of FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
+    for (const slug of ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       expect(getControlledInputDesignPatch(slug)).toBeDefined();
     }
-    expect(Object.keys(CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY)).toHaveLength(3);
+    expect(Object.keys(CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY)).toHaveLength(6);
   });
 
   test("every patch declares productionImpact none", () => {
-    for (const slug of FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
+    for (const slug of ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       const patch = getControlledInputDesignPatch(slug)!;
       expect(patch.productionImpact).toBe("none");
       expect(patch.oracleImpact).toBe("none");
@@ -27,7 +29,7 @@ describe("controlled input design registry", () => {
   });
 
   test("required optional advanced derived classifications are populated", () => {
-    for (const slug of FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
+    for (const slug of ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       const patch = getControlledInputDesignPatch(slug)!;
       expect(patch.requiredInputs.length).toBeGreaterThan(0);
       expect(patch.optionalInputs.length).toBeGreaterThan(0);
@@ -66,5 +68,39 @@ describe("controlled input design registry", () => {
     expect(patch.advancedInputs).toContain("fieldMeasurementRisk");
     expect(patch.defaultAssumptions.some((line) => line.includes("12% waste"))).toBe(true);
     expect(patch.derivedInputs).toContain("wasteAdjustedHours");
+  });
+
+  test("second batch slugs are registered", () => {
+    for (const slug of SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
+      expect(getControlledInputDesignPatch(slug)).toBeDefined();
+    }
+  });
+
+  test("electrical labor estimator NEC and permit defaults are explicit", () => {
+    const patch = getControlledInputDesignPatch("electrical-labor-estimator")!;
+    expect(patch.requiredInputs).toEqual(["materialCost", "laborHours", "laborRate"]);
+    expect(patch.optionalInputs).toContain("permitCost");
+    expect(patch.advancedInputs).toContain("codeJurisdictionRisk");
+    expect(patch.defaultAssumptions.some((line) => line.includes("NEC"))).toBe(true);
+    expect(patch.derivedInputs).toContain("laborMaterialRatio");
+  });
+
+  test("hvac project margin guard callback and seasonal defaults are explicit", () => {
+    const patch = getControlledInputDesignPatch("hvac-project-margin-guard")!;
+    expect(patch.requiredInputs).toContain("equipmentCost");
+    expect(patch.requiredInputs).toContain("callbackRiskPercent");
+    expect(patch.advancedInputs).toContain("manualJLoadVariance");
+    expect(patch.defaultAssumptions.some((line) => line.includes("seasonal labor"))).toBe(true);
+    expect(patch.derivedInputs).toContain("minimumSafePrice");
+  });
+
+  test("millwork bid risk analyzer waste and finish inputs are classified", () => {
+    const patch = getControlledInputDesignPatch("millwork-bid-risk-analyzer")!;
+    expect(patch.requiredInputs).toContain("wasteRatePercent");
+    expect(patch.requiredInputs).toContain("finishingCost");
+    expect(patch.optionalInputs).toContain("hardwareCost");
+    expect(patch.advancedInputs).toContain("finishGrade");
+    expect(patch.defaultAssumptions.some((line) => line.includes("Waste rate"))).toBe(true);
+    expect(patch.derivedInputs).toContain("minimumSafePrice");
   });
 });
