@@ -14,3 +14,15 @@ export {
   runCalculationIntelligenceLoop,
   validateCalculationInputsAndResult,
 } from "@/lib/formula-governance/runtime-validation/validation-loop";
+export { mapContractLoopStatus } from "@/lib/formula-governance/runtime-validation/contract-loop-status";
+export type {
+  ContractLoopStatus,
+  MapContractLoopStatusParams,
+} from "@/lib/formula-governance/runtime-validation/contract-loop-status";
+export {
+  runContractCalculationIntelligenceLoop,
+} from "@/lib/formula-governance/runtime-validation/contract-runtime-loop";
+export type {
+  ContractCalculationIntelligenceLoopResult,
+  RunContractCalculationIntelligenceLoopParams,
+} from "@/lib/formula-governance/runtime-validation/contract-runtime-loop";

@@ -27,6 +27,14 @@ export type {
   ToolInputDesignField,
 } from "@/lib/formula-governance/requirement-engine/input-design-bridge";
 export {
+  compareContractOntologyWithFixture,
+} from "@/lib/formula-governance/requirement-engine/contract-fixture-drift";
+export type {
+  CompareContractOntologyWithFixtureParams,
+  ContractFixtureDriftReport,
+  OntologyVariableAlias,
+} from "@/lib/formula-governance/requirement-engine/contract-fixture-drift";
+export {
   runRequirementEngineForContract,
 } from "@/lib/formula-governance/requirement-engine/contract-requirement-runner";
 export type {

@@ -164,6 +164,18 @@ export function inferVariableKnowledgeLevelFromContractField(
   return "estimable";
 }
 
+function ruleAppliesToInput(ruleDescription: string, inputKey: string): boolean {
+  const normalizedRule = ruleDescription.toLowerCase();
+  const normalizedInput = inputKey.toLowerCase();
+  return (
+    normalizedRule.includes(normalizedInput) ||
+    normalizedInput.split(/(?=[A-Z])/).some((segment) => {
+      const token = segment.toLowerCase();
+      return token.length > 2 && normalizedRule.includes(token);
+    })
+  );
+}
+
 function buildInputConstraints(
   contract: FormulaContract,
   inputKey: string,
@@ -173,15 +185,25 @@ function buildInputConstraints(
   const normalized = inputKey.toLowerCase();
 
   const draft: { nonNegative?: boolean; min?: number; max?: number } = {};
-  if (edgeRules.some((rule) => rule.description.toLowerCase().includes("non-negative"))) {
-    draft.nonNegative = true;
+  for (const rule of edgeRules) {
+    if (!ruleAppliesToInput(rule.description, inputKey)) {
+      continue;
+    }
+    if (rule.description.toLowerCase().includes("non-negative")) {
+      draft.nonNegative = true;
+    }
+    if (rule.description.includes("≥ 1") || rule.description.includes("> 0")) {
+      draft.min = rule.description.includes("≥ 1") ? 1 : 0;
+    }
   }
-  if (edgeRules.some((rule) => rule.description.includes("≥ 1"))) {
-    draft.min = 1;
-  }
-  if (dimensionalRules.some((rule) => rule.description.includes("0–100"))) {
-    draft.max = 100;
-    draft.min = 0;
+  for (const rule of dimensionalRules) {
+    if (!ruleAppliesToInput(rule.description, inputKey)) {
+      continue;
+    }
+    if (rule.description.includes("0–100") || rule.description.includes("percent")) {
+      draft.max = 100;
+      draft.min = 0;
+    }
   }
   if (PERCENT_HINTS.some((hint) => normalized.includes(hint))) {
     draft.max = 100;
