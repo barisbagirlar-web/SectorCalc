@@ -125,6 +125,43 @@ export const BUSINESS_OPERATIONS_PRODUCTION_FORMULA_LOCATORS: readonly Productio
 
 export const FINANCE_PRODUCTION_FORMULA_LOCATORS: readonly ProductionFormulaLocator[] = [
   {
+    slug: "rent-vs-buy-calculator",
+    toolId: "free-traffic.rent-vs-buy-calculator",
+    productionFilePath: "src/lib/tools/free-traffic-calculators.ts",
+    productionFunctionName: "calculateFreeTrafficTool",
+    productionEntry: 'CALCULATORS["rent-vs-buy-calculator"] → calculateRentVsBuyComparison',
+    oracleFunctionName: "calculateRentVsBuyOracle",
+    inputShape: [
+      "monthlyRent",
+      "homePrice",
+      "comparisonYears",
+      "annualRentIncrease",
+      "annualHomeAppreciation",
+      "downPaymentPercent",
+      "mortgageInterestRate",
+      "mortgageTermYears",
+      "investmentReturnRate",
+      "ownershipCostPercent",
+      "purchaseCostPercent",
+      "sellingCostPercent",
+    ],
+    productionOutputShape: [
+      "rentNetPosition",
+      "buyNetPosition",
+      "netDifference",
+      "strongerScenario (narrative)",
+    ],
+    oracleOutputShape: [
+      "rentNetPosition",
+      "buyNetPosition",
+      "netDifference",
+      "strongerScenario",
+      "totalRentPaid",
+      "futureHomeValue",
+    ],
+    comparisonWired: true,
+  },
+  {
     slug: "loan-payment-calculator",
     toolId: "free-traffic.loan-payment-calculator",
     productionFilePath: "src/lib/tools/free-traffic-calculators.ts",

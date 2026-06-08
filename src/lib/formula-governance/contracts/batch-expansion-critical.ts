@@ -6,9 +6,11 @@
 import type { FormulaContract } from "@/lib/formula-governance/types";
 import {
   FINANCIAL_SIMULATION_DISCLAIMER,
+  GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
   buildAssuredCriticalContract,
+  calculatorProductionAssumption,
 } from "@/lib/formula-governance/contracts/shared";
 
 export const BATCH_FREE_ORACLE_WIRED_SLUGS = [
@@ -77,9 +79,13 @@ export const projectCostCalculatorContract: FormulaContract = buildAssuredCritic
     "contingencyRate",
   ],
   criticalInputs: ["originalBudget", "changeEstimate", "deadlinePressure"],
-  outputs: ["estimatedProjectCost", "laborCost", "overheadCost", "contingencyCost"],
+  outputs: ["recommendedPrice", "estimatedProjectCost", "laborCost", "overheadCost", "contingencyCost"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    calculatorProductionAssumption(
+      "src/lib/calculators/project-cost-estimator.ts",
+      'runCalculator("project-cost-estimator") → material + labor + overhead + contingency',
+    ),
     "Linear material, labor and equipment base cost with percent overhead and contingency.",
     "Schedule delay, change-order knock-on effects and subcontractor risk excluded on free tier.",
   ],
@@ -89,19 +95,28 @@ export const projectCostCalculatorContract: FormulaContract = buildAssuredCritic
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Flat overhead and contingency percentages applied to base cost.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals total project cost (estimatedProjectCost).",
     ],
     modelLimitations: [
       "Change-order delay and crew standby cost not modeled on free tier",
       "Subcontractor markup and permit fees not itemized",
+      "Scope creep, labor productivity and permit/inspection costs not modeled",
     ],
     futureExtensions: [
       "Integration with change-order impact analyzer for margin verdict",
+      "Risk-adjusted contingency model",
     ],
   }),
   validationRules: [
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
     { id: "labor-hours-positive", description: "laborHours must be ≥ 0", kind: "edge" },
     { id: "percent-bounds", description: "overheadRate and contingencyRate within 0–100%", kind: "dimensional" },
+    {
+      id: "project-cost-currency",
+      description: "estimatedProjectCost and recommendedPrice use consistent currency units",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-build", description: "Normal case: mid-size project with standard overhead" },
@@ -162,8 +177,13 @@ export const changeOrderImpactAnalyzerContract: FormulaContract = buildAssuredCr
   outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "suggestedAction"],
   assumptions: [
     PREMIUM_DECISION_DISCLAIMER,
+    calculatorProductionAssumption(
+      "src/lib/calculators/change-order-impact-analyzer.ts",
+      'runCalculator("change-order-impact-analyzer") → extra direct cost + minimum safe change price',
+    ),
     "Change cost plus delay days × crew cost plus site overhead buffer.",
     "Hidden productivity slip and permit revision fees applied via risk engine multipliers.",
+    "quoteVerdict and suggestedAction are narrative outputs; minimumSafePrice is numeric target.",
   ],
   formulaSummary:
     "Base cost = changeEstimate + delayDays × crewCostPerDay + originalBudget overhead slice; safe price and verdict via MarginCore risk engine with volatility buffer.",
@@ -176,16 +196,23 @@ export const changeOrderImpactAnalyzerContract: FormulaContract = buildAssuredCr
       "Weather and seasonal productivity not modeled explicitly",
       "Subcontractor pass-through and owner-directed acceleration costs not itemized",
       "Premium decision layer not oracle-compared in Phase 5E",
+      "Contractual approval, delay penalties and indirect cost recovery not modeled",
     ],
     futureExtensions: [
       "Independent oracle for minimum safe change price",
       "Multi-trade ripple delay modeling",
+      "Claim documentation score",
     ],
   }),
   validationRules: [
     { id: "budget-positive", description: "originalBudget must be > 0", kind: "edge" },
     { id: "delay-non-negative", description: "delayDays must be ≥ 0", kind: "edge" },
     { id: "margin-percent", description: "marginTarget is percent not decimal", kind: "dimensional" },
+    {
+      id: "verdict-non-numeric",
+      description: "quoteVerdict and suggestedAction are narrative outputs; not numeric targets",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-change", description: "Normal case: moderate change with short delay" },
@@ -230,9 +257,13 @@ export const cleaningCostCalculatorContract: FormulaContract = buildAssuredCriti
   decisionImpact: "pricing",
   requiredInputs: ["area", "estimatedHours", "crewSize", "laborHourlyCost", "suppliesCost", "travelCost"],
   criticalInputs: ["areaSize", "staffCount", "visitFrequency"],
-  outputs: ["totalCost", "laborCost", "costPerSqFt"],
+  outputs: ["recommendedPrice", "totalCost", "laborCost", "costPerSqFt"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    calculatorProductionAssumption(
+      "src/lib/calculators/cleaning-cost-estimator.ts",
+      'runCalculator("cleaning-cost-estimator") → labor + supplies + travel',
+    ),
     "Labor = estimated hours × crew size × hourly cost; supplies and travel added flat.",
     "Recurring contract margin, supervision and travel between sites excluded on free tier.",
   ],
@@ -242,14 +273,18 @@ export const cleaningCostCalculatorContract: FormulaContract = buildAssuredCriti
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Single-visit snapshot; linear labor hours per area.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals total cleaning job cost (totalCost).",
     ],
     modelLimitations: [
       "Supervision, G&A and multi-site travel not allocated",
       "Supply inflation and restocking frequency not modeled",
+      "Travel time, access complexity and crew productivity variation not modeled",
     ],
     futureExtensions: [
       "Monthly recurring bid optimizer integration",
       "Frequency-adjusted labor loading",
+      "Recurring contract profitability modeling",
     ],
   }),
   validationRules: [
@@ -259,6 +294,11 @@ export const cleaningCostCalculatorContract: FormulaContract = buildAssuredCriti
     {
       id: "currency-units",
       description: "Labor, supplies and travel costs use consistent currency units",
+      kind: "dimensional",
+    },
+    {
+      id: "total-cost-currency",
+      description: "totalCost and recommendedPrice use consistent currency units",
       kind: "dimensional",
     },
   ],
@@ -323,8 +363,13 @@ export const officeCleaningBidOptimizerContract: FormulaContract = buildAssuredC
   outputs: ["minimumSafePrice", "quoteVerdict", "p90Cost", "suggestedAction"],
   assumptions: [
     PREMIUM_DECISION_DISCLAIMER,
+    calculatorProductionAssumption(
+      "src/lib/calculators/office-cleaning-bid-optimizer.ts",
+      'runCalculator("office-cleaning-bid-optimizer") → monthly direct cost + minimum safe bid',
+    ),
     "Monthly labor = laborRate × hoursPerVisit × visitFrequency; supplies and overhead buffer added.",
     "Travel between sites and supervision G&A applied via hidden multipliers.",
+    "quoteVerdict and suggestedAction are narrative outputs; minimumSafePrice is numeric target.",
   ],
   formulaSummary:
     "Base cost = labor + supply + overhead slice; minimum monthly bid and verdict via MarginCore with volatility buffer.",
@@ -337,9 +382,11 @@ export const officeCleaningBidOptimizerContract: FormulaContract = buildAssuredC
       "Multi-site travel time not modeled explicitly",
       "Supply cost drift and QA supervision loaded via hidden buffers only",
       "Premium decision layer not oracle-compared in Phase 5E",
+      "Frequency, scope variation, churn risk and supply inflation not modeled explicitly",
     ],
     futureExtensions: [
       "Independent oracle for minimum monthly bid",
+      "Route density and staff utilization modeling",
       "Seasonal visit intensity adjustments",
     ],
   }),
@@ -347,6 +394,11 @@ export const officeCleaningBidOptimizerContract: FormulaContract = buildAssuredC
     { id: "frequency-positive", description: "visitFrequency must be ≥ 1", kind: "edge" },
     { id: "labor-rate-positive", description: "laborRate must be > 0", kind: "edge" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+    {
+      id: "verdict-non-numeric",
+      description: "quoteVerdict and suggestedAction are narrative outputs; not numeric targets",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-contract", description: "Normal case: weekly office visits with target margin" },

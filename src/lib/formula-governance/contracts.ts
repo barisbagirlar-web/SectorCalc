@@ -77,11 +77,13 @@ export const rentVsBuyContract: FormulaContract = {
     "Comparison horizon is held constant across scenarios.",
     "Ownership, tax and insurance effects are approximated via ownership cost percent.",
     GOVERNANCE_RECOMMENDED_PRICE_DIFFERENCE_TARGET_NOTE,
+    "Model limitation: property tax, insurance, maintenance, financing and appreciation assumptions simplified.",
     "Model limitation: property tax, insurance, maintenance and opportunity cost approximated via ownership cost percent.",
     "Model limitation: local market conditions, rent control and transaction timing not modeled.",
     "Model limitation: investment return on down payment uses flat rate; tax treatment of rent vs buy excluded.",
     "Future extension: itemized tax deduction and capital-gains modeling.",
     "Future extension: regional insurance, PMI and maintenance schedules.",
+    "Future extension: scenario-based ownership and financing stress tests.",
     "Numeric decision target is net cost comparison (netDifference); strongerScenario is narrative verdict only.",
   ],
   formulaSummary:

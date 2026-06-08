@@ -25,6 +25,10 @@ export function freeTrafficProductionAssumption(slug: string, entry: string): st
   return `Production: ${FREE_TRAFFIC_PRODUCTION_FILE} → CALCULATORS["${slug}"] → ${entry}`;
 }
 
+export function calculatorProductionAssumption(filePath: string, entry: string): string {
+  return `Production: ${filePath} → ${entry}`;
+}
+
 export const STANDARD_MUST_NOT_CLAIM: readonly string[] = [
   "Guaranteed savings",
   "This is the best decision",

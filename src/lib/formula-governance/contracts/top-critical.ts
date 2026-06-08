@@ -483,9 +483,10 @@ export const salaryCostCalculatorContract: FormulaContract = buildAssuredCritica
   decisionImpact: "financial",
   requiredInputs: ["grossSalary", "employerRatePercent"],
   criticalInputs: ["grossSalary", "employerRatePercent"],
-  outputs: ["totalEmployerCost"],
+  outputs: ["recommendedPrice", "totalEmployerCost"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("salary-cost-calculator", "gross × (1 + burden%)"),
     "Monthly gross salary with flat employer load percent.",
     "Benefits, payroll tax rules and regional compliance vary by jurisdiction.",
   ],
@@ -494,14 +495,27 @@ export const salaryCostCalculatorContract: FormulaContract = buildAssuredCritica
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Flat employer burden rate entered by user; not jurisdiction-specific tax tables.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals total employer payroll cost (totalEmployerCost).",
     ],
-    modelLimitations: ["Jurisdiction-specific payroll taxes not itemized"],
-    futureExtensions: ["Benefits and bonuses not modeled separately"],
+    modelLimitations: [
+      "Jurisdiction-specific payroll taxes not itemized",
+      "Benefits, insurance and local labor rules excluded unless modeled",
+    ],
+    futureExtensions: [
+      "Benefits and bonuses not modeled separately",
+      "Region-specific payroll tax tables",
+    ],
   }),
   validationRules: [
     { id: "salary-positive", description: "grossSalary must be > 0", kind: "edge" },
     { id: "burden-percent", description: "employerRatePercent is percent not decimal", kind: "dimensional" },
     { id: "burden-bounds", description: "employerRatePercent within 0–200% sanity band", kind: "edge" },
+    {
+      id: "employer-cost-currency",
+      description: "totalEmployerCost and recommendedPrice use consistent currency units",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-burden", description: "Normal case: 20% employer load" },
@@ -546,9 +560,10 @@ export const cashFlowGapCalculatorContract: FormulaContract = buildAssuredCritic
   decisionImpact: "financial",
   requiredInputs: ["receivablesDays", "payableDays", "dailyCost"],
   criticalInputs: ["receivablesDays", "payableDays", "dailyCost"],
-  outputs: ["gapDays", "workingCapitalGap"],
+  outputs: ["recommendedPrice", "gapDays", "workingCapitalGap"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("cash-flow-gap-calculator", "gap days × daily cost"),
     "Linear daily cost; constant payment terms across the period.",
     "Seasonality, credit limits and line-of-credit costs excluded.",
   ],
@@ -557,17 +572,28 @@ export const cashFlowGapCalculatorContract: FormulaContract = buildAssuredCritic
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Linear daily cost with simple receivable/payable timing model.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals working capital gap amount (workingCapitalGap).",
     ],
     modelLimitations: [
       "Seasonality not modeled",
       "Partial payments and bad debt not modeled",
+      "Collection uncertainty and credit line availability not modeled",
     ],
-    futureExtensions: ["Interest on working capital line not modeled"],
+    futureExtensions: [
+      "Interest on working capital line not modeled",
+      "Rolling 13-week cash forecast",
+    ],
   }),
   validationRules: [
     { id: "days-non-negative", description: "Day inputs must be ≥ 0", kind: "edge" },
     { id: "daily-cost-positive", description: "dailyCost must be > 0 for meaningful gap", kind: "edge" },
     { id: "day-units", description: "Receivables and payables measured in days", kind: "dimensional" },
+    {
+      id: "gap-currency",
+      description: "workingCapitalGap and recommendedPrice use consistent currency units",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-gap", description: "Normal case: receivables longer than payables" },
@@ -612,9 +638,10 @@ export const machineTimeCalculatorContract: FormulaContract = buildAssuredCritic
   decisionImpact: "pricing",
   requiredInputs: ["setupMinutes", "cycleSeconds", "quantity", "machineRate"],
   criticalInputs: ["setupMinutes", "cycleSeconds", "quantity", "machineRate"],
-  outputs: ["totalMinutes", "machineCost"],
+  outputs: ["recommendedPrice", "totalMinutes", "machineCost"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
+    freeTrafficProductionAssumption("machine-time-calculator", "setup + cycle × qty"),
     "Setup plus cycle × quantity converted to hours × machine rate.",
     "Tooling, scrap, labor burden and overhead excluded on free tier.",
   ],
@@ -625,17 +652,26 @@ export const machineTimeCalculatorContract: FormulaContract = buildAssuredCritic
     acceptedAssumptions: [
       "Setup plus cycle × quantity machine cost model.",
       "Operator labor not included unless user embeds it in machine rate.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals direct machine cost (machineCost).",
     ],
     modelLimitations: [
       "Tooling and fixture amortization not modeled",
       "Scrap and rework buffer not modeled",
       "Downtime, maintenance and operator delay not modeled",
+      "Tool change, operator availability and queue time not modeled",
     ],
+    futureExtensions: ["OEE-adjusted runtime and shop-floor queue modeling"],
   }),
   validationRules: [
     { id: "quantity-positive", description: "quantity must be ≥ 1", kind: "edge" },
     { id: "rate-positive", description: "machineRate must be > 0", kind: "edge" },
     { id: "time-units", description: "Setup in minutes, cycle in seconds", kind: "dimensional" },
+    {
+      id: "machine-cost-currency",
+      description: "machineCost and recommendedPrice use consistent currency units",
+      kind: "dimensional",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-job", description: "Normal case: batch with setup and cycle time" },

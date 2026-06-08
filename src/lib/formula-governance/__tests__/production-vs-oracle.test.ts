@@ -48,14 +48,20 @@ import {
 } from "@/lib/formula-governance/oracle/compare-batch-premium-oracle";
 
 describe("production formula locator", () => {
-  test("documents all five finance production paths", () => {
-    expect(FINANCE_PRODUCTION_FORMULA_LOCATORS).toHaveLength(5);
+  test("documents finance production paths including rent-vs-buy locator", () => {
+    expect(FINANCE_PRODUCTION_FORMULA_LOCATORS).toHaveLength(6);
     for (const slug of FINANCE_ORACLE_SLUGS) {
       const locator = FINANCE_PRODUCTION_FORMULA_LOCATORS.find((entry) => entry.slug === slug);
       expect(locator?.productionFilePath).toBe("src/lib/tools/free-traffic-calculators.ts");
       expect(locator?.productionFunctionName).toBe("calculateFreeTrafficTool");
       expect(locator?.comparisonWired).toBe(true);
     }
+    const rentVsBuy = FINANCE_PRODUCTION_FORMULA_LOCATORS.find(
+      (entry) => entry.slug === "rent-vs-buy-calculator",
+    );
+    expect(rentVsBuy?.productionFilePath).toBe("src/lib/tools/free-traffic-calculators.ts");
+    expect(rentVsBuy?.oracleFunctionName).toBe("calculateRentVsBuyOracle");
+    expect(rentVsBuy?.comparisonWired).toBe(true);
   });
 
   test("documents all five business and operations production paths", () => {
