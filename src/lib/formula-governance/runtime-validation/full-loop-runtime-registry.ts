@@ -23,6 +23,18 @@ export const PREMIUM_FULL_LOOP_RUNTIME_SLUGS = [
   "landscaping-contract-profit-tool",
   "signage-bid-safe-price-tool",
   "millwork-bid-risk-analyzer",
+  "auto-shop-margin-leak-detector",
+  "route-optimization-analyzer",
+  "energy-efficiency-report",
+  "meal-planning-verdict",
+  "trip-budget-optimizer",
+  "cbam-compliance-verdict",
+  "crop-yield-loss-analyzer",
+  "feed-efficiency-analyzer",
+  "dairy-profit-detector",
+  "water-optimization-verdict",
+  "renovation-budget-optimizer",
+  "3d-print-job-margin-tool",
 ] as const;
 
 /** Free / audit tools promoted to full-loop runtime (traffic catalog + aligned revenue free tools). */

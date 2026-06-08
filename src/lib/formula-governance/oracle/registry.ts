@@ -50,6 +50,17 @@ const ORACLE_MODULE_BY_TOOL: Record<string, string> = {
   "revenue-premium.painting-job-profit-verdict": "batch-premium-batch3-oracles.ts",
   "revenue-premium.sheet-metal-quote-risk-tool": "batch-premium-batch3-oracles.ts",
   "free-traffic.3d-print-cost-check": "batch-premium-batch3-oracles.ts",
+  "revenue-premium.route-optimization-analyzer": "batch-premium-schema-oracles.ts",
+  "revenue-premium.energy-efficiency-report": "batch-premium-schema-oracles.ts",
+  "revenue-premium.meal-planning-verdict": "batch-premium-schema-oracles.ts",
+  "revenue-premium.trip-budget-optimizer": "batch-premium-schema-oracles.ts",
+  "revenue-premium.cbam-compliance-verdict": "batch-premium-schema-oracles.ts",
+  "revenue-premium.crop-yield-loss-analyzer": "batch-premium-schema-oracles.ts",
+  "revenue-premium.feed-efficiency-analyzer": "batch-premium-schema-oracles.ts",
+  "revenue-premium.dairy-profit-detector": "batch-premium-schema-oracles.ts",
+  "revenue-premium.water-optimization-verdict": "batch-premium-schema-oracles.ts",
+  "revenue-premium.renovation-budget-optimizer": "batch-premium-schema-oracles.ts",
+  "revenue-premium.3d-print-job-margin-tool": "batch-premium-schema-oracles.ts",
   ...Object.fromEntries(
     Object.values(BATCH_TRAFFIC_CATALOG_ORACLE_TOOL_IDS).map(
       (toolId) => [toolId, "batch-traffic-catalog-oracles.ts"] as const,

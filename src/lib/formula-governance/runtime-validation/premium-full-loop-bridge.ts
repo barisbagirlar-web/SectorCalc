@@ -16,6 +16,10 @@ import {
   resolveFullLoopContractSlug,
 } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import type { KnownInputs } from "@/lib/formula-governance/requirement-engine/requirement-engine-types";
+import {
+  isPremiumSchemaFormSlug,
+  sanitizePremiumSchemaCanonicalInputs,
+} from "@/lib/formula-governance/runtime-validation/premium-schema-form-canonical";
 import { calculatePremiumDecisionReport } from "@/lib/tools/premium-decision-engine";
 import type { PremiumInputValues } from "@/lib/tools/premium-decision-engine";
 import type { PremiumDecisionReport } from "@/lib/tools/premium-tool-contract";
@@ -76,6 +80,16 @@ export function sanitizeCanonicalInputs(
   rawValues: PremiumInputValues,
 ): SanitizeCanonicalInputsResult {
   const allowedKeys = resolveCanonicalInputKeys(slug);
+
+  if (isPremiumSchemaFormSlug(slug)) {
+    const schema = sanitizePremiumSchemaCanonicalInputs(slug, rawValues, allowedKeys);
+    return {
+      canonical: schema.canonical,
+      rejectedKeys: schema.rejectedKeys,
+      allowedKeys,
+    };
+  }
+
   const allowedSet = new Set(allowedKeys);
   const canonical: Record<string, number> = {};
   const rejectedKeys: string[] = [];
@@ -97,6 +111,18 @@ export function sanitizeCanonicalInputs(
     rejectedKeys: rejectedKeys.sort((left, right) => left.localeCompare(right)),
     allowedKeys,
   };
+}
+
+function buildCalcInputValues(
+  slug: string,
+  rawValues: PremiumInputValues,
+  canonical: KnownInputs,
+): PremiumInputValues {
+  if (!isPremiumSchemaFormSlug(slug)) {
+    return canonical;
+  }
+  const schema = sanitizePremiumSchemaCanonicalInputs(slug, rawValues, Object.keys(canonical));
+  return schema.calcValues;
 }
 
 /** Maps marginTarget/riskMargin to targetMargin for Mind 1 invariant checks only. */
@@ -204,7 +230,8 @@ export function runPremiumFullLoopCalculation(
     });
   }
 
-  const report = calculatePremiumDecisionReport(contractSlug, canonical);
+  const calcValues = buildCalcInputValues(slug, rawValues, canonical);
+  const report = calculatePremiumDecisionReport(contractSlug, calcValues);
   const calculatedResult = {
     baseCost: report.baseCost,
     p90Cost: report.p90Cost,

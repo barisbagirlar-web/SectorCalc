@@ -17,8 +17,8 @@ describe("runBatchAlignmentAudit", () => {
   test("counts totalContracts", () => {
     const result = runBatchAlignmentAudit({ contracts: FORMULA_CONTRACTS });
 
-    expect(result.totalContracts).toBe(120);
-    expect(result.summaries.length).toBe(120);
+    expect(result.totalContracts).toBe(131);
+    expect(result.summaries.length).toBe(131);
   });
 
   test("produces roofing evaluated summary", () => {
@@ -80,7 +80,7 @@ describe("runBatchAlignmentAudit", () => {
     const inventoryBefore = summarizeInventory(buildFormulaInventory());
     const report = runGovernanceAudit({ strict: false });
 
-    expect(FORMULA_CONTRACTS.length).toBe(120);
+    expect(FORMULA_CONTRACTS.length).toBe(131);
     expect(report.results.filter((result) => result.status === "FAIL").length).toBe(0);
     expect(report.criticalToolsWithoutContract.length).toBe(
       inventoryBefore.criticalMissingContracts.length,

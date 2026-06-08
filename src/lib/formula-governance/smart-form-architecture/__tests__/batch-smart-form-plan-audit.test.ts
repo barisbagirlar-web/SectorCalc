@@ -30,9 +30,9 @@ describe("batch smart form plan audit", () => {
       alignmentAudit,
     });
 
-    expect(result.totalTools).toBe(120);
+    expect(result.totalTools).toBe(131);
     expect(result.readyForSpec).toBe(15);
-    expect(result.needsInputDesignPatch).toBe(105);
+    expect(result.needsInputDesignPatch).toBe(116);
     expect(result.blocked).toBe(0);
 
     for (const slug of ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {

@@ -19,7 +19,8 @@ import {
 describe("dual-intelligence runtime coverage audit", () => {
   test("classifies all formula contracts", () => {
     const result = runDualIntelligenceRuntimeCoverageAudit();
-    expect(result.totalContracts).toBe(FORMULA_CONTRACTS.length);
+    expect(result.totalContracts).toBe(131);
+    expect(FORMULA_CONTRACTS.length).toBe(131);
     expect(result.entries).toHaveLength(FORMULA_CONTRACTS.length);
   });
 
@@ -35,7 +36,7 @@ describe("dual-intelligence runtime coverage audit", () => {
       expect(entry?.mind2Runtime).toBe(true);
     }
 
-    expect(result.fullLoopRuntimeCount).toBe(117);
+    expect(result.fullLoopRuntimeCount).toBe(129);
     expect(result.stagedCalculationBridge).toBe(0);
     expect(result.governedBuildtimeOnly).toBe(0);
     expect(result.auditPipelineOnly).toBe(0);
@@ -43,17 +44,25 @@ describe("dual-intelligence runtime coverage audit", () => {
 
   test("only live pilots have partial Mind 1/2 runtime without full loop", () => {
     const result = runDualIntelligenceRuntimeCoverageAudit();
+    const activePilotCount = PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS.filter(
+      (slug) => !isFullLoopRuntimeSlug(slug),
+    ).length;
 
-    expect(result.liveSmartFormPilot).toBe(PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS.length);
-    expect(result.fullLoopRuntimeCount).toBe(117);
+    expect(result.liveSmartFormPilot).toBe(activePilotCount);
+    expect(result.fullLoopRuntimeCount).toBe(129);
     expect(result.mind1RuntimeCount).toBe(result.liveSmartFormPilot + result.fullLoopRuntimeCount);
     expect(result.mind2RuntimeCount).toBe(result.liveSmartFormPilot + result.fullLoopRuntimeCount);
 
     for (const slug of PRODUCTION_DEPLOYED_PILOT_GOVERNANCE_SLUGS) {
       const entry = result.entries.find((item) => item.slug === slug);
-      expect(entry?.tier).toBe("live_smart_form_pilot");
       expect(entry?.mind1Runtime).toBe(true);
       expect(entry?.mind2Runtime).toBe(true);
+      if (isFullLoopRuntimeSlug(slug)) {
+        expect(entry?.tier).toBe("full_loop_runtime");
+        expect(entry?.fullLoopRuntime).toBe(true);
+        continue;
+      }
+      expect(entry?.tier).toBe("live_smart_form_pilot");
     }
   });
 

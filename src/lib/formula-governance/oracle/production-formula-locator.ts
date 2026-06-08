@@ -20,6 +20,10 @@ import {
   type BatchPremiumBatch3OracleSlug,
 } from "@/lib/formula-governance/oracle/batch-premium-batch3-oracles";
 import {
+  BATCH_PREMIUM_SCHEMA_ORACLE_SLUGS,
+  type BatchPremiumSchemaOracleSlug,
+} from "@/lib/formula-governance/oracle/batch-premium-schema-oracles";
+import {
   BUSINESS_ORACLE_SLUGS,
   type BusinessOracleSlug,
 } from "@/lib/formula-governance/oracle/business-oracles";
@@ -787,6 +791,44 @@ export function isBatchPremiumBatch3ProductionSlug(slug: string): slug is BatchP
   return (BATCH_PREMIUM_BATCH3_ORACLE_SLUGS as readonly string[]).includes(slug);
 }
 
+const PREMIUM_SCHEMA_ORACLE_FN: Record<BatchPremiumSchemaOracleSlug, string> = {
+  "route-optimization-analyzer": "calculateRouteOptimizationAnalyzerOracle",
+  "energy-efficiency-report": "calculateEnergyEfficiencyReportOracle",
+  "meal-planning-verdict": "calculateMealPlanningVerdictOracle",
+  "trip-budget-optimizer": "calculateTripBudgetOptimizerOracle",
+  "cbam-compliance-verdict": "calculateCbamComplianceVerdictOracle",
+  "crop-yield-loss-analyzer": "calculateCropYieldLossAnalyzerOracle",
+  "feed-efficiency-analyzer": "calculateFeedEfficiencyAnalyzerOracle",
+  "dairy-profit-detector": "calculateDairyProfitDetectorOracle",
+  "water-optimization-verdict": "calculateWaterOptimizationVerdictOracle",
+  "renovation-budget-optimizer": "calculateRenovationBudgetOptimizerOracle",
+  "3d-print-job-margin-tool": "calculate3dPrintJobMarginToolOracle",
+};
+
+export const BATCH_PREMIUM_SCHEMA_PRODUCTION_FORMULA_LOCATORS: readonly ProductionFormulaLocator[] =
+  BATCH_PREMIUM_SCHEMA_ORACLE_SLUGS.map((slug) => ({
+    slug,
+    toolId: `revenue-premium.${slug}`,
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry: `BASE_COST_CALCULATORS["${slug}"] + MarginCore`,
+    oracleFunctionName: PREMIUM_SCHEMA_ORACLE_FN[slug],
+    inputShape: ["paid revenue inputs per slug"],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  }));
+
+export function getBatchPremiumSchemaProductionFormulaLocator(
+  slug: BatchPremiumSchemaOracleSlug,
+): ProductionFormulaLocator | undefined {
+  return BATCH_PREMIUM_SCHEMA_PRODUCTION_FORMULA_LOCATORS.find((entry) => entry.slug === slug);
+}
+
+export function isBatchPremiumSchemaProductionSlug(slug: string): slug is BatchPremiumSchemaOracleSlug {
+  return (BATCH_PREMIUM_SCHEMA_ORACLE_SLUGS as readonly string[]).includes(slug);
+}
+
 export function getBatchFreeBatch2ProductionFormulaLocator(
   slug: BatchFreeBatch2OracleSlug,
 ): ProductionFormulaLocator | undefined {
@@ -805,6 +847,7 @@ export function getAnyProductionFormulaLocator(slug: string): ProductionFormulaL
     getBatchPremiumProductionFormulaLocator(slug as BatchPremiumOracleSlug) ??
     getBatchFreeBatch2ProductionFormulaLocator(slug as BatchFreeBatch2OracleSlug) ??
     getBatchPremiumBatch3ProductionFormulaLocator(slug as BatchPremiumBatch3OracleSlug) ??
+    getBatchPremiumSchemaProductionFormulaLocator(slug as BatchPremiumSchemaOracleSlug) ??
     (isBatchTrafficCatalogProductionSlug(slug)
       ? getBatchTrafficCatalogProductionFormulaLocator(slug)
       : undefined)

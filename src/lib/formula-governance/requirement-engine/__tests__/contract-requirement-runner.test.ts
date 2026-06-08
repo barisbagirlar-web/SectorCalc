@@ -192,9 +192,9 @@ describe("contract requirement runner", () => {
     const inventory = summarizeInventory(buildFormulaInventory());
     const report = runGovernanceAudit({ strict: false });
 
-    expect(FORMULA_CONTRACTS.length).toBe(120);
-    expect(inventory.criticalMissingContracts.length).toBeGreaterThanOrEqual(15);
-    expect(inventory.criticalMissingContracts.length).toBeLessThanOrEqual(25);
+    expect(FORMULA_CONTRACTS.length).toBe(131);
+    expect(inventory.criticalMissingContracts.length).toBeGreaterThanOrEqual(0);
+    expect(inventory.criticalMissingContracts.length).toBeLessThanOrEqual(5);
     expect(report.results.filter((entry) => entry.status === "FAIL").length).toBe(0);
   });
 });

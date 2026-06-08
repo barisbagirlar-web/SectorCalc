@@ -8,6 +8,7 @@ import type { BatchFreeBatch2OracleSlug } from "@/lib/formula-governance/oracle/
 import type { BatchFreeOracleSlug } from "@/lib/formula-governance/oracle/batch-free-oracles";
 import type { BatchPremiumOracleSlug } from "@/lib/formula-governance/oracle/batch-premium-oracles";
 import type { BatchPremiumBatch3OracleSlug } from "@/lib/formula-governance/oracle/batch-premium-batch3-oracles";
+import type { BatchPremiumSchemaOracleSlug } from "@/lib/formula-governance/oracle/batch-premium-schema-oracles";
 import {
   getBatchTrafficCatalogOracleSpec,
   isBatchTrafficCatalogOracleSlug,
@@ -990,6 +991,18 @@ export function adaptProductionBatchPremiumBatch3Output(
         return { status: "needs_adapter", reason: `No production adapter for slug "${unsupported}".` };
       }
     }
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    return { status: "error", reason };
+  }
+}
+
+export function adaptProductionBatchPremiumSchemaOutput(
+  slug: BatchPremiumSchemaOracleSlug,
+  values: PremiumInputValues,
+): ProductionAdapterResult {
+  try {
+    return adaptPremiumMarginProduction(slug, values);
   } catch (error) {
     const reason = error instanceof Error ? error.message : String(error);
     return { status: "error", reason };

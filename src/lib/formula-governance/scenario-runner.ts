@@ -43,8 +43,10 @@ import {
 } from "@/lib/formula-governance/oracle/batch-premium-oracles";
 import { isBatchFreeBatch2OracleSlug } from "@/lib/formula-governance/oracle/batch-free-batch2-oracles";
 import { isBatchPremiumBatch3OracleSlug } from "@/lib/formula-governance/oracle/batch-premium-batch3-oracles";
+import { isBatchPremiumSchemaOracleSlug } from "@/lib/formula-governance/oracle/batch-premium-schema-oracles";
 import { BATCH_FREE_BATCH2_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-batch-free-batch2";
 import { BATCH_PREMIUM_BATCH3_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-batch-premium-batch3";
+import { BATCH_PREMIUM_SCHEMA_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-batch-premium-schema";
 import { BATCH_TRAFFIC_CATALOG_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-batch-traffic-catalog";
 import { isBatchTrafficCatalogOracleSlug } from "@/lib/formula-governance/oracle/batch-traffic-catalog-oracles";
 import {
@@ -1582,6 +1584,7 @@ const SCENARIO_HANDLERS: Record<string, Record<string, ScenarioHandler>> = {
   "welding-bid-risk-analyzer": WELDING_BID_SCENARIOS,
   ...BATCH_FREE_BATCH2_SCENARIO_HANDLERS,
   ...BATCH_PREMIUM_BATCH3_SCENARIO_HANDLERS,
+  ...BATCH_PREMIUM_SCHEMA_SCENARIO_HANDLERS,
   ...BATCH_TRAFFIC_CATALOG_SCENARIO_HANDLERS,
 };
 
@@ -1607,6 +1610,7 @@ export function runScenarioSpec(
     !isBatchPremiumOracleSlug(slug) &&
     !isBatchFreeBatch2OracleSlug(slug) &&
     !isBatchPremiumBatch3OracleSlug(slug) &&
+    !isBatchPremiumSchemaOracleSlug(slug) &&
     !isBatchTrafficCatalogOracleSlug(slug)
   ) {
     return {

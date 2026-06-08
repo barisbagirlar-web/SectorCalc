@@ -22,11 +22,11 @@ describe("buildExistingToolMigrationPlan", () => {
     const inputDesignAudit = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
     const plan = buildExistingToolMigrationPlan({ inputDesignAudit });
 
-    expect(plan.totalTools).toBe(120);
-    expect(plan.items).toHaveLength(120);
+    expect(plan.totalTools).toBe(131);
+    expect(plan.items).toHaveLength(131);
     expect(
       plan.immediate + plan.high + plan.medium + plan.low + plan.defer,
-    ).toBe(120);
+    ).toBe(131);
   });
 
   test("professional_ready tools can be immediate or high priority", () => {
