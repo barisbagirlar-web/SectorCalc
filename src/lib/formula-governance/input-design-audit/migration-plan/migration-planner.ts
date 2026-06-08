@@ -28,7 +28,7 @@ import {
   isControlledInputDesignPatchCompleted,
   listCompletedControlledInputDesignPatchSlugs,
 } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-status";
-import { buildSmartFormArchitectureSpec } from "@/lib/formula-governance/input-design-audit/smart-form-architecture/smart-form-architecture-builder";
+import { buildSmartFormPlan } from "@/lib/formula-governance/smart-form-architecture/smart-form-plan-builder";
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import type { BatchAlignmentAuditResult } from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
 import type { FormulaContract } from "@/lib/formula-governance/types";
@@ -244,20 +244,25 @@ function applySmartFormArchitectureOverlay(
     return item;
   }
 
-  const spec = buildSmartFormArchitectureSpec(item.slug);
-  if (!spec || spec.blockers.length > 0) {
+  const patch = getControlledInputDesignPatch(item.slug);
+  const plan = buildSmartFormPlan({
+    migrationPlanItem: item,
+    controlledInputPatch: patch,
+  });
+
+  if (plan.readinessStatus !== "ready_for_spec" || plan.blockers.length > 0) {
     return {
       ...item,
       smartFormArchitectureReady: false,
-      nextGate: spec?.nextGate ?? "smart_form_architecture_pending",
+      nextGate: plan.nextGate,
     };
   }
 
   return {
     ...item,
     smartFormArchitectureReady: true,
-    nextGate: "smart_form_rendering_ready",
-    completedInputDesignPatchGate: "smart_form_rendering_ready",
+    nextGate: plan.nextGate,
+    completedInputDesignPatchGate: plan.nextGate,
     requiredActions: [
       "Smart form architecture spec ready — smart form rendering gate only (governance; no production UI yet).",
       ...item.requiredActions.filter(
@@ -273,7 +278,7 @@ function applySmartFormArchitectureOverlay(
     ],
     notes: [
       ...item.notes,
-      `Phase 5H-G-A smart form architecture spec (${spec.sections.length} sections, ${spec.fields.length} fields).`,
+      `Phase 5H-G-A smart form plan (${plan.sections.length} sections, ${plan.fields.length} fields, ${plan.readinessStatus}).`,
     ],
   };
 }
