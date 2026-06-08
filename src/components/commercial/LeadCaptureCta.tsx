@@ -60,7 +60,7 @@ export function LeadCaptureCta() {
               type="submit"
               className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-deep-navy px-5 text-sm font-semibold text-white sm:w-auto"
             >
-              Submit preview request
+              Request early access
             </button>
           </form>
         )}

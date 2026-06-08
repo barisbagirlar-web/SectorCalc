@@ -63,6 +63,12 @@ export function EnterpriseFooter() {
               <li>
                 <Link href="/account/archive">{t("vaultLink")}</Link>
               </li>
+              <li>
+                <Link href="/investor-demo">Investor demo</Link>
+              </li>
+              <li>
+                <Link href="/operating-system">Operating system</Link>
+              </li>
             </ul>
           </div>
         </div>

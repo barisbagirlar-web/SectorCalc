@@ -7,6 +7,7 @@ import {
 } from "@/data/operating-system-content";
 import { buildDebtRegister } from "@/lib/formula-governance/roadmap-debt-register/debt-register-builder";
 import { compressRoadmapToNext3Batches } from "@/lib/formula-governance/roadmap-debt-register/roadmap-compressor";
+import { PublicDemoCrossLinks } from "@/components/commercial/PublicDemoCrossLinks";
 import { Container } from "@/components/ui/Container";
 
 export function OperatingSystemPageContent() {
@@ -14,9 +15,9 @@ export function OperatingSystemPageContent() {
   const nextBatches = compressRoadmapToNext3Batches();
 
   return (
-    <div className="sc-pro-page">
+    <div className="sc-pro-page public-demo-page">
       <section className="bg-deep-navy text-white">
-        <Container className="sc-pro-container py-14 md:py-20">
+        <Container className="sc-pro-container public-demo-hero">
           <p className="sc-pro-eyebrow text-white/70">Calculation operating system</p>
           <h1 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight md:text-4xl">
             Tool Factory — from idea to controlled deploy
@@ -25,12 +26,20 @@ export function OperatingSystemPageContent() {
             SectorCalc accelerates sector tool production with governed pipelines — not infinite
             audit loops. Every stage has a gate; deploy requires human approval.
           </p>
-          <Link
-            href="/investor-demo"
-            className="mt-8 inline-flex min-h-[44px] items-center rounded-lg bg-white px-5 text-sm font-semibold text-deep-navy"
-          >
-            Investor demo pack
-          </Link>
+          <div className="public-demo-cta-row mt-8">
+            <Link
+              href="/investor-demo"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-white px-5 text-sm font-semibold text-deep-navy"
+            >
+              Investor demo pack
+            </Link>
+            <Link
+              href="/pricing"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-white/30 px-5 text-sm font-semibold text-white"
+            >
+              Commercial model
+            </Link>
+          </div>
         </Container>
       </section>
 
@@ -40,7 +49,7 @@ export function OperatingSystemPageContent() {
           <h2 className="sc-pro-title sc-pro-title--compact">ToolIdea → DeployReady</h2>
           <ol className="mt-8 grid gap-3 md:grid-cols-2">
             {OPERATING_SYSTEM_PIPELINE_STAGES.map((stage, index) => (
-              <li key={stage.id} className="sc-pro-panel flex gap-4 p-4">
+              <li key={stage.id} className="public-demo-pipeline-step sc-pro-panel flex gap-4 p-4">
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-deep-navy text-sm font-semibold text-white">
                   {index + 1}
                 </span>
@@ -132,6 +141,12 @@ export function OperatingSystemPageContent() {
               <li key={step}>— {step}</li>
             ))}
           </ul>
+        </Container>
+      </section>
+
+      <section className="sc-pro-section sc-pro-section--border">
+        <Container className="sc-pro-container pb-10">
+          <PublicDemoCrossLinks current="operating-system" />
         </Container>
       </section>
     </div>

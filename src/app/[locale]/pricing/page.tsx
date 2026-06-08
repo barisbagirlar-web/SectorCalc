@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CommercialTiersOverview } from "@/components/commercial/CommercialTiersOverview";
+import { PublicDemoCrossLinks } from "@/components/commercial/PublicDemoCrossLinks";
+import Link from "next/link";
 import { LeadCaptureCta } from "@/components/commercial/LeadCaptureCta";
 import { PaywallPreview } from "@/components/commercial/PaywallPreview";
 import { PremiumLockedReportPreview } from "@/components/commercial/PremiumLockedReportPreview";
@@ -18,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createPageMetadata({
     title: "Pricing for Sector Calculators and Decision Reports | SectorCalc",
     description:
-      "Start free and upgrade to premium decision reports, hidden-loss diagnostics, threshold checks and export-ready outputs.",
+      "Free sector checks, premium decision reports, sector packs, and Pro workspace. Paywall preview and early-access CTAs — no live payment wiring in this phase.",
     path: "/pricing",
     locale: locale as AppLocale,
   });
@@ -31,6 +33,7 @@ export default async function PricingPage({ params }: PageProps) {
 
   return (
     <PageLayout>
+      <div className="public-demo-page">
       <PricingPageTracker />
       <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
         <Container className="sc-pro-container">
@@ -38,6 +41,19 @@ export default async function PricingPage({ params }: PageProps) {
           <h1 className="sc-pro-title sc-pro-title--compact">{t("title")}</h1>
           <p className="sc-pro-lead">{t("tagline")}</p>
           <p className="sc-pro-lead mt-2 text-sm">{t("singleReportNote")}</p>
+          <p className="mt-4 text-sm text-text-secondary">
+            <Link href="/investor-demo" className="font-semibold text-deep-navy hover:underline">
+              Investor demo pack
+            </Link>
+            {" · "}
+            <Link href="/operating-system" className="font-semibold text-deep-navy hover:underline">
+              Operating system
+            </Link>
+            {" · "}
+            <Link href="/reports/sample-decision-report" className="font-semibold text-deep-navy hover:underline">
+              Sample report preview
+            </Link>
+          </p>
           <hr className="sc-ledger-separator" />
         </Container>
       </section>
@@ -46,6 +62,12 @@ export default async function PricingPage({ params }: PageProps) {
       <PaywallPreview />
       <PremiumLockedReportPreview />
       <LeadCaptureCta />
+      <section className="sc-pro-section sc-pro-section--border">
+        <Container className="sc-pro-container pb-10">
+          <PublicDemoCrossLinks current="pricing" />
+        </Container>
+      </section>
+      </div>
     </PageLayout>
   );
 }

@@ -11,8 +11,8 @@ export function PaywallPreview() {
           Free tier shows risk signal and directional summary. Premium insight, trust trace preview,
           exports, and recommendation layers stay locked until purchase or subscription.
         </p>
-        <div className="mt-8 overflow-hidden rounded-xl border border-border-subtle bg-white">
-          <table className="w-full text-left text-sm">
+        <div className="public-demo-table-wrap mt-8 rounded-xl border border-border-subtle bg-white">
+          <table className="public-demo-table text-left text-sm">
             <thead className="bg-bg-secondary text-text-secondary">
               <tr>
                 <th className="px-4 py-3 font-semibold">Capability</th>

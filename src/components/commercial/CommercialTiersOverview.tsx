@@ -17,7 +17,7 @@ export function CommercialTiersOverview() {
               key={tier.id}
               className={`sc-pro-panel flex flex-col p-5 ${tier.id === "pro_workspace" ? "ring-2 ring-deep-navy/15" : ""}`}
             >
-              <div className="flex items-baseline justify-between gap-2">
+              <div className="public-demo-tier-header">
                 <h3 className="font-semibold text-deep-navy">{tier.name}</h3>
                 <p className="text-sm font-semibold text-deep-navy">
                   {tier.priceLabel}
@@ -36,7 +36,9 @@ export function CommercialTiersOverview() {
                 ))}
               </ul>
               <p className="mt-4 text-xs text-text-secondary">
-                Checkout: {tier.checkoutLive ? "Stripe path exists (not wired in this preview)" : "Inquiry / free"}
+                {tier.checkoutLive
+                  ? "Early access / request CTA — Stripe checkout reserved for live phase"
+                  : "Inquiry-led or free tier"}
               </p>
             </article>
           ))}
