@@ -19,7 +19,7 @@
     "audit:revenue-tools": "node scripts/audit-revenue-tools.mjs",
     "audit:formulas": "npx tsx scripts/audit-formulas.ts",
     "inventory:formulas": "npx tsx scripts/inventory-formulas.ts",
-    "test:formulas": "vitest run src/lib/formula-governance/__tests__",
+    "test:formulas": "vitest run src/lib/formula-governance",
     "check:secrets": "node scripts/check-commit-secrets.mjs",
     "admin:set-claim": "node scripts/set-admin-claim.mjs"
   },
