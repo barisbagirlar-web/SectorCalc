@@ -13,10 +13,14 @@ import { Container } from "@/components/ui/Container";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
 import {
+  trackSmartFormPilotCompleted,
+  trackSmartFormPilotStarted,
+} from "@/components/tools/smart-form/smart-form-pilot-analytics";
+import { riskLevelToStatus, STATUS_TEXT_CLASS } from "@/lib/ui/status-colors";
+import {
  REVENUE_EVENTS,
  trackRevenueEvent,
 } from "@/lib/analytics/revenue-events";
-import { riskLevelToStatus, STATUS_TEXT_CLASS } from "@/lib/ui/status-colors";
 import {
  areFreeToolInputsValid,
  calculateFreeToolResult,
@@ -200,9 +204,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  const handlePilotCalculate = (fieldValues: PilotFieldValues) => {
   if (!startedTracked.current) {
    startedTracked.current = true;
-   trackRevenueEvent(REVENUE_EVENTS.free_tool_started, {
-    toolSlug: tool.freeSlug,
-   });
+   trackSmartFormPilotStarted(tool.freeSlug);
   }
 
   const { payload, errors: nextPilotErrors } = buildThreeDPrintPilotCalculationPayload(fieldValues);
@@ -219,10 +221,16 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
   window.setTimeout(() => {
    setIsCalculating(false);
    setSubmitted(true);
-   trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
-    toolSlug: tool.freeSlug,
-   });
+   trackSmartFormPilotCompleted(tool.freeSlug);
   }, 400);
+ };
+
+ const handlePilotStarted = () => {
+  if (startedTracked.current) {
+   return;
+  }
+  startedTracked.current = true;
+  trackSmartFormPilotStarted(tool.freeSlug);
  };
 
  const handleChange = (key: string, value: number | string) => {
@@ -305,6 +313,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
     isCalculating={isCalculating}
     fieldErrors={pilotErrors}
     onPilotCalculate={handlePilotCalculate}
+    onPilotStarted={handlePilotStarted}
    />
    <div className="sc-ledger-cetele__result sc-tool-workspace__result mt-4 min-w-0">
     {isCalculating ? (

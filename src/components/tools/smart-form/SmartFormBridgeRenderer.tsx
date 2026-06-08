@@ -22,6 +22,7 @@ type SmartFormBridgeRendererProps = {
   readonly isCalculating?: boolean;
   readonly fieldErrors?: Readonly<Record<string, string>>;
   readonly onPilotCalculate?: (fieldValues: PilotFieldValues) => void;
+  readonly onPilotStarted?: () => void;
 };
 
 function FieldBadges({ field }: { field: SmartFormFieldComponentProps }) {
@@ -219,6 +220,7 @@ export function SmartFormBridgeRenderer({
   isCalculating = false,
   fieldErrors = {},
   onPilotCalculate,
+  onPilotStarted,
 }: SmartFormBridgeRendererProps) {
   const pilotInputFields = useMemo(
     () => manifest.fields.filter((field) => isPilotCalculationField(field)),
@@ -249,6 +251,7 @@ export function SmartFormBridgeRenderer({
     if (!field || !isPilotCalculationField(field)) {
       return;
     }
+    onPilotStarted?.();
     setFieldValues((current) => ({ ...current, [key]: value }));
     setLocalErrors((current) => {
       const next = { ...current };

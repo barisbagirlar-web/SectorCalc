@@ -4,6 +4,7 @@
 
 import type { FreeToolInputValues } from "@/lib/tools/free-tool-results";
 import type { SmartFormFieldComponentProps } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
+import { canIncludeOptionalPilotField } from "@/components/tools/smart-form/optional-field-expansion-gate";
 
 export const THREE_D_PRINT_PILOT_SLUG = "3d-print-cost-check" as const;
 
@@ -65,6 +66,26 @@ export function buildThreeDPrintPilotCalculationPayload(
       continue;
     }
     payload[key] = parsed;
+  }
+
+  for (const [fieldKey, rawValue] of Object.entries(fieldValues)) {
+    if (THREE_D_PRINT_PILOT_SUBMIT_KEYS.includes(fieldKey as ThreeDPrintPilotSubmitKey)) {
+      continue;
+    }
+
+    if (
+      canIncludeOptionalPilotField({
+        slug: THREE_D_PRINT_PILOT_SLUG,
+        fieldKey,
+        hasOutputDiffTest: false,
+        isProductionMapped: false,
+      })
+    ) {
+      const parsed = parsePilotNumericField(rawValue);
+      if (parsed !== null && parsed > 0) {
+        payload[fieldKey] = parsed;
+      }
+    }
   }
 
   return {
