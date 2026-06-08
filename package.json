@@ -28,6 +28,7 @@
     "audit:smart-form-pilot-qa": "npx tsx scripts/audit-smart-form-pilot-qa.ts",
     "audit:smart-form-staging-rollout": "npx tsx scripts/audit-smart-form-staging-rollout.ts",
     "audit:smart-form-staging-smoke": "npx tsx scripts/audit-smart-form-staging-smoke.ts",
+    "audit:smart-form-production-deploy": "npx tsx scripts/audit-smart-form-production-deploy.ts",
     "inventory:formulas": "npx tsx scripts/inventory-formulas.ts",
     "test:formulas": "vitest run src/lib/formula-governance",
     "check:secrets": "node scripts/check-commit-secrets.mjs",
