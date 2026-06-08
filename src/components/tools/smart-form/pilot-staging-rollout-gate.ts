@@ -3,6 +3,7 @@
  */
 
 import type { SmartFormPilotStagingRolloutApproval } from "@/components/tools/smart-form/pilot-staging-rollout-approval";
+import { isStagingFlagOnlyApprovalScope } from "@/components/tools/smart-form/pilot-staging-rollout-approval";
 import type { SmartFormPilotQaDecisionResult } from "@/components/tools/smart-form/pilot-qa-decision-gate";
 
 export type SmartFormPilotStagingRolloutGateStatus = "ready" | "blocked" | "pending";
@@ -29,6 +30,10 @@ export function evaluateSmartFormPilotStagingRollout(
 ): SmartFormPilotStagingRolloutDecision {
   const blockedReasons: string[] = [];
 
+  if (!isStagingFlagOnlyApprovalScope(params.approval.scope)) {
+    blockedReasons.push("Approval scope is not limited to staging_flag_only");
+  }
+
   if (!params.qaDecision.stagingFlagReady) {
     blockedReasons.push("Manual QA staging flag gate is not ready");
   }
@@ -51,6 +56,7 @@ export function evaluateSmartFormPilotStagingRollout(
 
   const stagingRolloutReady =
     params.approval.status === "approved_for_staging" &&
+    isStagingFlagOnlyApprovalScope(params.approval.scope) &&
     params.qaDecision.stagingFlagReady &&
     params.approval.rollbackRequired &&
     params.approval.smokeTestRequired;

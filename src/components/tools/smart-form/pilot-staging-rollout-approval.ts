@@ -1,5 +1,5 @@
 /**
- * Smart form pilot staging rollout approval record — Phase 5H-G-L.
+ * Smart form pilot staging rollout approval record — Phase 5H-G-L/M.
  */
 
 import { getSmartFormPilotManualQaResults } from "@/components/tools/smart-form/pilot-manual-qa-result";
@@ -8,15 +8,25 @@ import { PILOT_CALCULATION_BRIDGE_GOVERNANCE_SLUGS } from "@/lib/formula-governa
 
 export const SMART_FORM_PILOT_STAGING_FLAG_NAME = "NEXT_PUBLIC_SMART_FORM_PILOT" as const;
 
+export const SMART_FORM_PILOT_STAGING_APPROVED_BY = "Barış Bağırlar" as const;
+
+/** Deterministic ISO timestamp for tests and rollout record. */
+export const SMART_FORM_PILOT_STAGING_APPROVAL_AT = "2026-06-08T18:00:00.000Z" as const;
+
+export const SMART_FORM_PILOT_STAGING_APPROVAL_NOTES =
+  "Manual QA passed for 3 Smart Form pilots. Approval is limited to staging flag rollout only. Production deployment requires separate explicit approval." as const;
+
 export type SmartFormPilotStagingRolloutApprovalStatus =
   | "pending_approval"
   | "approved_for_staging"
   | "blocked";
 
+export type SmartFormPilotStagingRolloutScope = "staging_flag_only";
+
 export type SmartFormPilotStagingRolloutApproval = {
   readonly approvedBy: string;
   readonly approvedAt: string;
-  readonly scope: "staging_flag_only";
+  readonly scope: SmartFormPilotStagingRolloutScope;
   readonly pilotSlugs: readonly string[];
   readonly flagName: typeof SMART_FORM_PILOT_STAGING_FLAG_NAME;
   readonly manualQaStatus: string;
@@ -33,7 +43,14 @@ function buildApprovalBase(
   overrides: Partial<
     Pick<
       SmartFormPilotStagingRolloutApproval,
-      "approvedBy" | "approvedAt" | "notes" | "rollbackRequired" | "smokeTestRequired"
+      | "approvedBy"
+      | "approvedAt"
+      | "notes"
+      | "rollbackRequired"
+      | "smokeTestRequired"
+      | "scope"
+      | "manualQaStatus"
+      | "stagingFlagReady"
     >
   > = {},
 ): SmartFormPilotStagingRolloutApproval {
@@ -43,11 +60,11 @@ function buildApprovalBase(
   return {
     approvedBy: overrides.approvedBy ?? "",
     approvedAt: overrides.approvedAt ?? "",
-    scope: "staging_flag_only",
+    scope: overrides.scope ?? "staging_flag_only",
     pilotSlugs: [...PILOT_CALCULATION_BRIDGE_GOVERNANCE_SLUGS],
     flagName: SMART_FORM_PILOT_STAGING_FLAG_NAME,
-    manualQaStatus: qaDecision.manualQaStatus,
-    stagingFlagReady: qaDecision.stagingFlagReady,
+    manualQaStatus: overrides.manualQaStatus ?? qaDecision.manualQaStatus,
+    stagingFlagReady: overrides.stagingFlagReady ?? qaDecision.stagingFlagReady,
     deploymentReady: false,
     rollbackRequired: overrides.rollbackRequired ?? true,
     smokeTestRequired: overrides.smokeTestRequired ?? true,
@@ -58,24 +75,41 @@ function buildApprovalBase(
   };
 }
 
-export function getDefaultSmartFormPilotStagingRolloutApproval(): SmartFormPilotStagingRolloutApproval {
+export function getPendingSmartFormPilotStagingRolloutApproval(): SmartFormPilotStagingRolloutApproval {
   return buildApprovalBase("pending_approval");
+}
+
+export function getDefaultSmartFormPilotStagingRolloutApproval(): SmartFormPilotStagingRolloutApproval {
+  return buildApprovedSmartFormPilotStagingRolloutApproval();
 }
 
 export function buildApprovedSmartFormPilotStagingRolloutApproval(
   overrides: Partial<
     Pick<
       SmartFormPilotStagingRolloutApproval,
-      "approvedBy" | "approvedAt" | "notes" | "rollbackRequired" | "smokeTestRequired"
+      | "approvedBy"
+      | "approvedAt"
+      | "notes"
+      | "rollbackRequired"
+      | "smokeTestRequired"
+      | "scope"
+      | "manualQaStatus"
+      | "stagingFlagReady"
     >
   > = {},
 ): SmartFormPilotStagingRolloutApproval {
   return buildApprovalBase("approved_for_staging", {
-    approvedBy: overrides.approvedBy ?? "staging-ops",
-    approvedAt: overrides.approvedAt ?? "2026-06-08T00:00:00.000Z",
-    notes:
-      overrides.notes ??
-      "Explicit human approval recorded for staging flag rollout only.",
+    approvedBy: overrides.approvedBy ?? SMART_FORM_PILOT_STAGING_APPROVED_BY,
+    approvedAt: overrides.approvedAt ?? SMART_FORM_PILOT_STAGING_APPROVAL_AT,
+    manualQaStatus: overrides.manualQaStatus ?? "passed",
+    stagingFlagReady: overrides.stagingFlagReady ?? true,
+    notes: overrides.notes ?? SMART_FORM_PILOT_STAGING_APPROVAL_NOTES,
     ...overrides,
   });
+}
+
+export function isStagingFlagOnlyApprovalScope(
+  scope: SmartFormPilotStagingRolloutApproval["scope"],
+): boolean {
+  return scope === "staging_flag_only";
 }
