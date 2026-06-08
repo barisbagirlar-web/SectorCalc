@@ -48,6 +48,11 @@ import {
   runAllBatchPremiumOracleComparisonAudits,
   runBatchPremiumOracleComparisonAudit,
 } from "@/lib/formula-governance/oracle/compare-batch-premium-oracle";
+import {
+  isBatchPremiumBatch3ComparisonSlug,
+  runAllBatchPremiumBatch3OracleComparisonAudits,
+  runBatchPremiumBatch3OracleComparisonAudit,
+} from "@/lib/formula-governance/oracle/compare-batch-premium-batch3-oracle";
 
 export type OracleComparisonStatus = "PASS" | "FAIL" | "NEEDS_ADAPTER" | "NOT_WIRED";
 
@@ -836,6 +841,7 @@ export function runAllFinanceOracleComparisonAudits(): readonly OracleComparison
     ...runAllBatchFreeOracleComparisonAudits(),
     ...runAllBatchPremiumOracleComparisonAudits(),
     ...runAllBatchFreeBatch2OracleComparisonAudits(),
+    ...runAllBatchPremiumBatch3OracleComparisonAudits(),
   ];
 }
 
@@ -854,6 +860,9 @@ export function auditOracleComparisonForSlug(slug: string): OracleComparisonAudi
   }
   if (isBatchFreeBatch2ComparisonSlug(slug)) {
     return runBatchFreeBatch2OracleComparisonAudit(slug);
+  }
+  if (isBatchPremiumBatch3ComparisonSlug(slug)) {
+    return runBatchPremiumBatch3OracleComparisonAudit(slug);
   }
   if (!isFinanceOracleSlug(slug)) {
     return null;

@@ -40,7 +40,9 @@ import {
   isBatchPremiumOracleSlug,
 } from "@/lib/formula-governance/oracle/batch-premium-oracles";
 import { isBatchFreeBatch2OracleSlug } from "@/lib/formula-governance/oracle/batch-free-batch2-oracles";
+import { isBatchPremiumBatch3OracleSlug } from "@/lib/formula-governance/oracle/batch-premium-batch3-oracles";
 import { BATCH_FREE_BATCH2_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-batch-free-batch2";
+import { BATCH_PREMIUM_BATCH3_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-batch-premium-batch3";
 import {
   calculateRentVsBuyOracle,
   isRentVsBuyOracleSlug,
@@ -1631,6 +1633,7 @@ const SCENARIO_HANDLERS: Record<string, Record<string, ScenarioHandler>> = {
   "return-profit-erosion-tool": RETURN_PROFIT_EROSION_SCENARIOS,
   "welding-bid-risk-analyzer": WELDING_BID_SCENARIOS,
   ...BATCH_FREE_BATCH2_SCENARIO_HANDLERS,
+  ...BATCH_PREMIUM_BATCH3_SCENARIO_HANDLERS,
 };
 
 export function runScenarioSpec(
@@ -1653,7 +1656,8 @@ export function runScenarioSpec(
     !isOperationsOracleSlug(slug) &&
     !isBatchFreeOracleSlug(slug) &&
     !isBatchPremiumOracleSlug(slug) &&
-    !isBatchFreeBatch2OracleSlug(slug)
+    !isBatchFreeBatch2OracleSlug(slug) &&
+    !isBatchPremiumBatch3OracleSlug(slug)
   ) {
     return {
       scenarioId: spec.id,

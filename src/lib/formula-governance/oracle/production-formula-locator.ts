@@ -16,6 +16,10 @@ import {
   type BatchPremiumOracleSlug,
 } from "@/lib/formula-governance/oracle/batch-premium-oracles";
 import {
+  BATCH_PREMIUM_BATCH3_ORACLE_SLUGS,
+  type BatchPremiumBatch3OracleSlug,
+} from "@/lib/formula-governance/oracle/batch-premium-batch3-oracles";
+import {
   BUSINESS_ORACLE_SLUGS,
   type BusinessOracleSlug,
 } from "@/lib/formula-governance/oracle/business-oracles";
@@ -559,6 +563,218 @@ export const BATCH_FREE_BATCH2_PRODUCTION_FORMULA_LOCATORS: readonly ProductionF
   },
 ];
 
+export const BATCH_PREMIUM_BATCH3_PRODUCTION_FORMULA_LOCATORS: readonly ProductionFormulaLocator[] = [
+  {
+    slug: "hvac-project-margin-guard",
+    toolId: "revenue-premium.hvac-project-margin-guard",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry: 'BASE_COST_CALCULATORS["hvac-project-margin-guard"] → calcHvac + MarginCore',
+    oracleFunctionName: "calculateHvacProjectMarginGuardOracle",
+    inputShape: [
+      "equipmentCost",
+      "ductworkCost",
+      "laborHours",
+      "laborRate",
+      "commissioningCost",
+      "callbackRiskPercent",
+      "targetMargin",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "panel-shop-margin-verdict",
+    toolId: "revenue-premium.panel-shop-margin-verdict",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry: 'BASE_COST_CALCULATORS["panel-shop-margin-verdict"] → calcElectrical + MarginCore',
+    oracleFunctionName: "calculatePanelShopMarginVerdictOracle",
+    inputShape: [
+      "materialCost",
+      "laborHours",
+      "laborRate",
+      "testingHours",
+      "inspectionRiskPercent",
+      "targetMargin",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "landscaping-contract-profit-tool",
+    toolId: "revenue-premium.landscaping-contract-profit-tool",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry:
+      'BASE_COST_CALCULATORS["landscaping-contract-profit-tool"] → calcLandscaping + MarginCore',
+    oracleFunctionName: "calculateLandscapingContractProfitOracle",
+    inputShape: [
+      "crewHoursPerVisit",
+      "laborRate",
+      "fuelCostPerVisit",
+      "supplyCostPerMonth",
+      "visitsPerMonth",
+      "equipmentWearCost",
+      "targetMargin",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "auto-shop-margin-leak-detector",
+    toolId: "revenue-premium.auto-shop-margin-leak-detector",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry:
+      'BASE_COST_CALCULATORS["auto-shop-margin-leak-detector"] → calcAutoShop + MarginCore',
+    oracleFunctionName: "calculateAutoShopMarginLeakOracle",
+    inputShape: [
+      "quotedPrice",
+      "diagnosticHours",
+      "repairHours",
+      "laborRate",
+      "partsCost",
+      "comebackRiskPercent",
+      "partsMarkupPercent",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "signage-bid-safe-price-tool",
+    toolId: "revenue-premium.signage-bid-safe-price-tool",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry: 'BASE_COST_CALCULATORS["signage-bid-safe-price-tool"] → calcSignage + MarginCore',
+    oracleFunctionName: "calculateSignageBidSafePriceOracle",
+    inputShape: [
+      "materialCost",
+      "inkCost",
+      "designHours",
+      "laborRate",
+      "installHours",
+      "reprintRiskPercent",
+      "targetMargin",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "millwork-bid-risk-analyzer",
+    toolId: "revenue-premium.millwork-bid-risk-analyzer",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry: 'BASE_COST_CALCULATORS["millwork-bid-risk-analyzer"] → calcMillwork + MarginCore',
+    oracleFunctionName: "calculateMillworkBidRiskOracle",
+    inputShape: [
+      "sheetMaterialCost",
+      "laborHours",
+      "laborRate",
+      "finishingCost",
+      "installHours",
+      "wasteRatePercent",
+      "targetMargin",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "roofing-contract-margin-guard",
+    toolId: "revenue-premium.roofing-contract-margin-guard",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry:
+      'BASE_COST_CALCULATORS["roofing-contract-margin-guard"] → calcRoofing + MarginCore',
+    oracleFunctionName: "calculateRoofingContractMarginGuardOracle",
+    inputShape: [
+      "materialCost",
+      "laborHours",
+      "laborRate",
+      "tearOffCost",
+      "dumpFees",
+      "weatherDelayRiskPercent",
+      "targetMargin",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "painting-job-profit-verdict",
+    toolId: "revenue-premium.painting-job-profit-verdict",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry:
+      'BASE_COST_CALCULATORS["painting-job-profit-verdict"] → calcPainting + MarginCore',
+    oracleFunctionName: "calculatePaintingJobProfitVerdictOracle",
+    inputShape: [
+      "paintCost",
+      "prepHours",
+      "laborRate",
+      "scaffoldCost",
+      "touchUpRiskPercent",
+      "areaSize",
+      "targetMargin",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "sheet-metal-quote-risk-tool",
+    toolId: "revenue-premium.sheet-metal-quote-risk-tool",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry:
+      'BASE_COST_CALCULATORS["sheet-metal-quote-risk-tool"] → calcSheetMetal + MarginCore',
+    oracleFunctionName: "calculateSheetMetalQuoteRiskOracle",
+    inputShape: [
+      "programmingTime",
+      "setupTime",
+      "cutTime",
+      "bendCount",
+      "laborRate",
+      "materialCost",
+      "scrapRatePercent",
+      "finishingCost",
+      "targetMargin",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "3d-print-cost-check",
+    toolId: "free-traffic.3d-print-cost-check",
+    productionFilePath: "src/lib/tools/free-traffic-calculators.ts",
+    productionFunctionName: "calculateFreeTrafficTool",
+    productionEntry:
+      'CALCULATORS["3d-print-cost-check"] → material + printHours×machineRate + postProcess×laborRate',
+    oracleFunctionName: "calculate3dPrintCostOracle",
+    inputShape: ["materialCost", "printHours", "machineRate", "postProcessHours", "laborRate"],
+    productionOutputShape: ["primaryValue: Estimated cost", "secondary: Machine time cost"],
+    oracleOutputShape: ["estimatedCost", "machineTimeCost"],
+    comparisonWired: true,
+  },
+];
+
+export function getBatchPremiumBatch3ProductionFormulaLocator(
+  slug: BatchPremiumBatch3OracleSlug,
+): ProductionFormulaLocator | undefined {
+  return BATCH_PREMIUM_BATCH3_PRODUCTION_FORMULA_LOCATORS.find((entry) => entry.slug === slug);
+}
+
+export function isBatchPremiumBatch3ProductionSlug(slug: string): slug is BatchPremiumBatch3OracleSlug {
+  return (BATCH_PREMIUM_BATCH3_ORACLE_SLUGS as readonly string[]).includes(slug);
+}
+
 export function getBatchFreeBatch2ProductionFormulaLocator(
   slug: BatchFreeBatch2OracleSlug,
 ): ProductionFormulaLocator | undefined {
@@ -575,6 +791,7 @@ export function getAnyProductionFormulaLocator(slug: string): ProductionFormulaL
     getBusinessOperationsProductionFormulaLocator(slug as BusinessOperationsOracleSlug) ??
     getBatchFreeProductionFormulaLocator(slug as BatchFreeOracleSlug) ??
     getBatchPremiumProductionFormulaLocator(slug as BatchPremiumOracleSlug) ??
-    getBatchFreeBatch2ProductionFormulaLocator(slug as BatchFreeBatch2OracleSlug)
+    getBatchFreeBatch2ProductionFormulaLocator(slug as BatchFreeBatch2OracleSlug) ??
+    getBatchPremiumBatch3ProductionFormulaLocator(slug as BatchPremiumBatch3OracleSlug)
   );
 }

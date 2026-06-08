@@ -7,6 +7,7 @@ import { runCalculator } from "@/lib/calculators/registry";
 import type { BatchFreeBatch2OracleSlug } from "@/lib/formula-governance/oracle/batch-free-batch2-oracles";
 import type { BatchFreeOracleSlug } from "@/lib/formula-governance/oracle/batch-free-oracles";
 import type { BatchPremiumOracleSlug } from "@/lib/formula-governance/oracle/batch-premium-oracles";
+import type { BatchPremiumBatch3OracleSlug } from "@/lib/formula-governance/oracle/batch-premium-batch3-oracles";
 import type { FreeTrafficInputValues } from "@/lib/tools/free-traffic-calculators";
 import { calculateFreeTrafficTool } from "@/lib/tools/free-traffic-calculators";
 import type { FinanceOracleSlug } from "@/lib/formula-governance/oracle/finance-oracles";
@@ -220,6 +221,21 @@ export type NormalizedBatchFreeBatch2ProductionOutput =
   | NormalizedCabinetCostProductionOutput
   | NormalizedRoofingSquareCostProductionOutput
   | NormalizedLaserCuttingTimeProductionOutput;
+
+export type NormalizedPremiumMarginProductionOutput = {
+  readonly baseCost: number;
+  readonly p90Cost: number;
+  readonly minimumSafePrice: number;
+};
+
+export type Normalized3dPrintCostProductionOutput = {
+  readonly estimatedCost: number;
+  readonly machineTimeCost: number;
+};
+
+export type NormalizedBatchPremiumBatch3ProductionOutput =
+  | NormalizedPremiumMarginProductionOutput
+  | Normalized3dPrintCostProductionOutput;
 
 export type NormalizedFinanceProductionOutput =
   | NormalizedLoanProductionOutput
@@ -903,6 +919,69 @@ export function adaptProductionBatchFreeBatch2Output(
         return adaptRoofingSquareCostProduction(values as CalculatorInputValues);
       case "laser-cutting-time-check":
         return adaptLaserCuttingTimeProduction(values as FreeTrafficInputValues);
+      default: {
+        const unsupported: never = slug;
+        return { status: "needs_adapter", reason: `No production adapter for slug "${unsupported}".` };
+      }
+    }
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    return { status: "error", reason };
+  }
+}
+
+function adaptPremiumMarginProduction(
+  slug: string,
+  values: PremiumInputValues,
+): ProductionAdapterResult {
+  const report = calculatePremiumDecisionReport(slug, values);
+  if (
+    !Number.isFinite(report.baseCost) ||
+    !Number.isFinite(report.p90Cost) ||
+    !Number.isFinite(report.minimumSafePrice)
+  ) {
+    return { status: "needs_adapter", reason: `Could not read numeric premium report outputs for ${slug}.` };
+  }
+  return {
+    status: "ok",
+    output: {
+      baseCost: report.baseCost,
+      p90Cost: report.p90Cost,
+      minimumSafePrice: report.minimumSafePrice,
+    },
+  };
+}
+
+function adapt3dPrintCostProduction(values: FreeTrafficInputValues): ProductionAdapterResult {
+  const result = calculateFreeTrafficTool("3d-print-cost-check", values, "en");
+  const estimatedCost = parseCurrency(result.primaryValue);
+  const machineTimeCost = parseCurrency(
+    findSecondaryValue(result.secondaryValues, "machine time") ?? "",
+  );
+  if (estimatedCost === null || machineTimeCost === null) {
+    return { status: "needs_adapter", reason: "Could not parse 3D print cost outputs." };
+  }
+  return { status: "ok", output: { estimatedCost, machineTimeCost } };
+}
+
+export function adaptProductionBatchPremiumBatch3Output(
+  slug: BatchPremiumBatch3OracleSlug,
+  values: CalculatorInputValues | FreeTrafficInputValues | PremiumInputValues,
+): ProductionAdapterResult {
+  try {
+    switch (slug) {
+      case "hvac-project-margin-guard":
+      case "panel-shop-margin-verdict":
+      case "landscaping-contract-profit-tool":
+      case "auto-shop-margin-leak-detector":
+      case "signage-bid-safe-price-tool":
+      case "millwork-bid-risk-analyzer":
+      case "roofing-contract-margin-guard":
+      case "painting-job-profit-verdict":
+      case "sheet-metal-quote-risk-tool":
+        return adaptPremiumMarginProduction(slug, values as PremiumInputValues);
+      case "3d-print-cost-check":
+        return adapt3dPrintCostProduction(values as FreeTrafficInputValues);
       default: {
         const unsupported: never = slug;
         return { status: "needs_adapter", reason: `No production adapter for slug "${unsupported}".` };

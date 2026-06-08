@@ -9,8 +9,6 @@ import {
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
   buildAssuredCriticalContract,
-  buildCriticalContract,
-  scenarioSkeletons,
 } from "@/lib/formula-governance/contracts/shared";
 
 export const BATCH_FREE_ORACLE_WIRED_SLUGS = [
@@ -1607,7 +1605,7 @@ export const laserCuttingTimeCheckContract: FormulaContract = buildAssuredCritic
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed sheet metal quote"],
 });
 
-export const hvacProjectMarginGuardContract: FormulaContract = buildCriticalContract({
+export const hvacProjectMarginGuardContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.hvac-project-margin-guard",
   toolName: "HVAC Project Margin Guard",
   slug: "hvac-project-margin-guard",
@@ -1661,13 +1659,13 @@ export const hvacProjectMarginGuardContract: FormulaContract = buildCriticalCont
     { id: "callback-percent", description: "callbackRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-install", description: "Normal case: mid-size HVAC install with moderate callback risk" },
     { id: "edge-high-callback", description: "Edge case: callback risk above 12%" },
     { id: "absurd-zero-rate", description: "Absurd input: zero labor rate rejected" },
     { id: "directional-equipment", description: "Directional: higher equipmentCost raises base cost" },
     { id: "sensitivity-margin", description: "Sensitivity: higher targetMargin raises minimum safe price" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "equipment-up-floor",
@@ -1695,7 +1693,7 @@ export const hvacProjectMarginGuardContract: FormulaContract = buildCriticalCont
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "ASHRAE-certified project guarantee"],
 });
 
-export const panelShopMarginVerdictContract: FormulaContract = buildCriticalContract({
+export const panelShopMarginVerdictContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.panel-shop-margin-verdict",
   toolName: "Panel Shop Margin Verdict",
   slug: "panel-shop-margin-verdict",
@@ -1747,13 +1745,13 @@ export const panelShopMarginVerdictContract: FormulaContract = buildCriticalCont
     { id: "inspection-percent", description: "inspectionRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-panel-bid", description: "Normal case: panel job with balanced labor and testing" },
     { id: "edge-high-inspection", description: "Edge case: inspection risk above 15%" },
     { id: "absurd-negative-material", description: "Absurd input: negative material cost rejected" },
     { id: "directional-labor", description: "Directional: higher laborHours raises base cost" },
     { id: "sensitivity-testing", description: "Sensitivity: more testing hours raise base cost" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "material-up-floor",
@@ -1781,7 +1779,7 @@ export const panelShopMarginVerdictContract: FormulaContract = buildCriticalCont
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "NEC-certified bid guarantee"],
 });
 
-export const landscapingContractProfitToolContract: FormulaContract = buildCriticalContract({
+export const landscapingContractProfitToolContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.landscaping-contract-profit-tool",
   toolName: "Landscaping Contract Profit Tool",
   slug: "landscaping-contract-profit-tool",
@@ -1835,13 +1833,13 @@ export const landscapingContractProfitToolContract: FormulaContract = buildCriti
     { id: "hours-non-negative", description: "crewHoursPerVisit must be ≥ 0", kind: "edge" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-route", description: "Normal case: weekly visits with moderate crew hours" },
     { id: "edge-heavy-route", description: "Edge case: high monthly crew-hour load" },
     { id: "absurd-zero-visits", description: "Absurd input: zero visits per month rejected" },
     { id: "directional-fuel", description: "Directional: higher fuelCostPerVisit raises base cost" },
     { id: "sensitivity-wear", description: "Sensitivity: higher equipmentWearCost raises floor" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "visits-up-floor",
@@ -1869,7 +1867,7 @@ export const landscapingContractProfitToolContract: FormulaContract = buildCriti
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed contract profitability"],
 });
 
-export const autoShopMarginLeakDetectorContract: FormulaContract = buildCriticalContract({
+export const autoShopMarginLeakDetectorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.auto-shop-margin-leak-detector",
   toolName: "Auto Shop Margin Leak Detector",
   slug: "auto-shop-margin-leak-detector",
@@ -1923,13 +1921,13 @@ export const autoShopMarginLeakDetectorContract: FormulaContract = buildCritical
     { id: "comeback-percent", description: "comebackRiskPercent within 0–100%", kind: "dimensional" },
     { id: "markup-percent", description: "partsMarkupPercent within 0–100%", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-brake-job", description: "Normal case: quoted job with visible profit headroom" },
     { id: "edge-thin-quote", description: "Edge case: burdened cost near quoted price" },
     { id: "absurd-zero-quote", description: "Absurd input: zero quoted price rejected" },
     { id: "directional-comeback", description: "Directional: higher comeback risk worsens profit" },
     { id: "sensitivity-diagnostic", description: "Sensitivity: unbilled diagnostic hours erode profit" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "parts-up-cost",
@@ -1957,7 +1955,7 @@ export const autoShopMarginLeakDetectorContract: FormulaContract = buildCritical
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed shop profitability"],
 });
 
-export const signageBidSafePriceToolContract: FormulaContract = buildCriticalContract({
+export const signageBidSafePriceToolContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.signage-bid-safe-price-tool",
   toolName: "Signage Bid Safe Price Tool",
   slug: "signage-bid-safe-price-tool",
@@ -2011,13 +2009,13 @@ export const signageBidSafePriceToolContract: FormulaContract = buildCriticalCon
     { id: "reprint-percent", description: "reprintRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-signage-bid", description: "Normal case: balanced design and install load" },
     { id: "edge-reprint-risk", description: "Edge case: reprint risk above 10%" },
     { id: "absurd-negative-ink", description: "Absurd input: negative ink cost rejected" },
     { id: "directional-design", description: "Directional: more design hours raise base cost" },
     { id: "sensitivity-install", description: "Sensitivity: install hours increase labor exposure" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "material-up-floor",
@@ -2045,7 +2043,7 @@ export const signageBidSafePriceToolContract: FormulaContract = buildCriticalCon
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed signage margin"],
 });
 
-export const millworkBidRiskAnalyzerContract: FormulaContract = buildCriticalContract({
+export const millworkBidRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.millwork-bid-risk-analyzer",
   toolName: "Millwork Bid Risk Analyzer",
   slug: "millwork-bid-risk-analyzer",
@@ -2099,13 +2097,13 @@ export const millworkBidRiskAnalyzerContract: FormulaContract = buildCriticalCon
     { id: "waste-percent", description: "wasteRatePercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-millwork-bid", description: "Normal case: moderate shop and install hours" },
     { id: "edge-high-waste", description: "Edge case: waste rate above 15%" },
     { id: "absurd-negative-finishing", description: "Absurd input: negative finishing cost rejected" },
     { id: "directional-material", description: "Directional: higher sheet cost raises base cost" },
     { id: "sensitivity-install", description: "Sensitivity: install hours increase labor load" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "material-up-floor",
@@ -2133,7 +2131,7 @@ export const millworkBidRiskAnalyzerContract: FormulaContract = buildCriticalCon
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed millwork bid acceptance"],
 });
 
-export const roofingContractMarginGuardContract: FormulaContract = buildCriticalContract({
+export const roofingContractMarginGuardContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.roofing-contract-margin-guard",
   toolName: "Roofing Contract Margin Guard",
   slug: "roofing-contract-margin-guard",
@@ -2187,13 +2185,13 @@ export const roofingContractMarginGuardContract: FormulaContract = buildCritical
     { id: "weather-percent", description: "weatherDelayRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-shingle-contract", description: "Normal case: tear-off job with balanced labor" },
     { id: "edge-weather-risk", description: "Edge case: weather delay risk above 12%" },
     { id: "absurd-negative-tearoff", description: "Absurd input: negative tear-off cost rejected" },
     { id: "directional-labor", description: "Directional: more labor hours raise base cost" },
     { id: "sensitivity-dump", description: "Sensitivity: dump fees increase direct cost" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "material-up-floor",
@@ -2221,7 +2219,7 @@ export const roofingContractMarginGuardContract: FormulaContract = buildCritical
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "NRCA-certified contract guarantee"],
 });
 
-export const paintingJobProfitVerdictContract: FormulaContract = buildCriticalContract({
+export const paintingJobProfitVerdictContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.painting-job-profit-verdict",
   toolName: "Painting Job Profit Verdict",
   slug: "painting-job-profit-verdict",
@@ -2275,13 +2273,13 @@ export const paintingJobProfitVerdictContract: FormulaContract = buildCriticalCo
     { id: "touchup-percent", description: "touchUpRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-interior-job", description: "Normal case: moderate prep and area" },
     { id: "edge-heavy-prep", description: "Edge case: prep intensity above PDCA threshold" },
     { id: "absurd-zero-area", description: "Absurd input: zero area rejected" },
     { id: "directional-prep", description: "Directional: more prep hours raise base cost" },
     { id: "sensitivity-scaffold", description: "Sensitivity: scaffold cost increases floor" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "area-up-floor",
@@ -2309,7 +2307,7 @@ export const paintingJobProfitVerdictContract: FormulaContract = buildCriticalCo
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "PDCA-certified job guarantee"],
 });
 
-export const sheetMetalQuoteRiskToolContract: FormulaContract = buildCriticalContract({
+export const sheetMetalQuoteRiskToolContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.sheet-metal-quote-risk-tool",
   toolName: "Sheet Metal Quote Risk Tool",
   slug: "sheet-metal-quote-risk-tool",
@@ -2367,13 +2365,13 @@ export const sheetMetalQuoteRiskToolContract: FormulaContract = buildCriticalCon
     { id: "scrap-percent", description: "scrapRatePercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-fab-quote", description: "Normal case: moderate programming and cut time" },
     { id: "edge-high-scrap", description: "Edge case: scrap rate above 12%" },
     { id: "absurd-zero-rate", description: "Absurd input: zero labor rate rejected" },
     { id: "directional-bends", description: "Directional: more bends increase labor minutes" },
     { id: "sensitivity-material", description: "Sensitivity: higher material cost raises base" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "material-up-floor",
@@ -2401,7 +2399,7 @@ export const sheetMetalQuoteRiskToolContract: FormulaContract = buildCriticalCon
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed fabrication quote"],
 });
 
-export const threeDPrintCostCheckContract: FormulaContract = buildCriticalContract({
+export const threeDPrintCostCheckContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "free-traffic.3d-print-cost-check",
   toolName: "3D Print Cost Check",
   slug: "3d-print-cost-check",
@@ -2439,13 +2437,13 @@ export const threeDPrintCostCheckContract: FormulaContract = buildCriticalContra
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
     { id: "rate-positive", description: "machineRate and laborRate must be > 0 when hours > 0", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-print-job", description: "Normal case: short print with light post-process" },
     { id: "edge-long-print", description: "Edge case: print hours above 12 trigger fail-risk signal" },
     { id: "absurd-negative-material", description: "Absurd input: negative material cost rejected" },
     { id: "directional-hours", description: "Directional: longer print hours increase estimated cost" },
     { id: "sensitivity-post", description: "Sensitivity: post-process hours increase total cost" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "hours-up-cost",
@@ -2518,10 +2516,15 @@ export const BATCH_FREE_BATCH2_ORACLE_WIRED_SLUGS = [
   ...BATCH_FREE_BATCH2_CRITICAL_SLUGS,
 ] as const;
 
+export const BATCH_PREMIUM_BATCH3_ORACLE_WIRED_SLUGS = [
+  ...BATCH_PREMIUM_BATCH3_CRITICAL_SLUGS,
+] as const;
+
 export const BATCH_EXPANSION_ORACLE_WIRED_SLUGS = [
   ...BATCH_FREE_ORACLE_WIRED_SLUGS,
   ...BATCH_PREMIUM_ORACLE_WIRED_SLUGS,
   ...BATCH_FREE_BATCH2_ORACLE_WIRED_SLUGS,
+  ...BATCH_PREMIUM_BATCH3_ORACLE_WIRED_SLUGS,
 ] as const;
 
 export const BATCH_EXPANSION_CRITICAL_SLUGS: readonly string[] =
