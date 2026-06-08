@@ -9,6 +9,7 @@ import {
   FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   getControlledInputDesignPatch,
 } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
 
@@ -17,7 +18,7 @@ describe("controlled input design registry", () => {
     for (const slug of ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       expect(getControlledInputDesignPatch(slug)).toBeDefined();
     }
-    expect(Object.keys(CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY)).toHaveLength(9);
+    expect(Object.keys(CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY)).toHaveLength(12);
   });
 
   test("every patch declares productionImpact none", () => {
@@ -136,5 +137,38 @@ describe("controlled input design registry", () => {
     expect(patch.advancedInputs).toContain("colorCalibrationRisk");
     expect(patch.defaultAssumptions.some((line) => line.includes("SGIA"))).toBe(true);
     expect(patch.derivedInputs).toContain("designMaterialRatio");
+  });
+
+  test("fourth batch slugs are registered", () => {
+    for (const slug of FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
+      expect(getControlledInputDesignPatch(slug)).toBeDefined();
+    }
+  });
+
+  test("repair time vs price check shop rate and diagnostic defaults are explicit", () => {
+    const patch = getControlledInputDesignPatch("repair-time-vs-price-check")!;
+    expect(patch.requiredInputs).toEqual(["quotedPrice", "repairHours", "partsCost"]);
+    expect(patch.optionalInputs).toContain("shopRate");
+    expect(patch.advancedInputs).toContain("technicianEfficiency");
+    expect(patch.defaultAssumptions.some((line) => line.includes("$80/hr"))).toBe(true);
+    expect(patch.derivedInputs).toContain("burdenedCost");
+  });
+
+  test("sheet metal quote risk tool scrap and bend defaults are explicit", () => {
+    const patch = getControlledInputDesignPatch("sheet-metal-quote-risk-tool")!;
+    expect(patch.requiredInputs).toContain("scrapRatePercent");
+    expect(patch.requiredInputs).toContain("bendCount");
+    expect(patch.advancedInputs).toContain("nestScrapVolatility");
+    expect(patch.defaultAssumptions.some((line) => line.includes("2 minutes per bend"))).toBe(true);
+    expect(patch.derivedInputs).toContain("minimumSafePrice");
+  });
+
+  test("signage bid safe price tool reprint and RIP defaults are explicit", () => {
+    const patch = getControlledInputDesignPatch("signage-bid-safe-price-tool")!;
+    expect(patch.requiredInputs).toContain("reprintRiskPercent");
+    expect(patch.requiredInputs).toContain("inkCost");
+    expect(patch.advancedInputs).toContain("wideFormatSpoilage");
+    expect(patch.defaultAssumptions.some((line) => line.includes("4%"))).toBe(true);
+    expect(patch.derivedInputs).toContain("minimumSafePrice");
   });
 });

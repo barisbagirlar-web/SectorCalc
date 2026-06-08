@@ -23,10 +23,17 @@ export const THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
   "print-job-cost-check",
 ] as const;
 
+export const FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
+  "repair-time-vs-price-check",
+  "sheet-metal-quote-risk-tool",
+  "signage-bid-safe-price-tool",
+] as const;
+
 export const ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
   ...FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   ...SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   ...THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  ...FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
 ] as const;
 
 export type FirstControlledInputDesignPatchSlug =
@@ -37,6 +44,9 @@ export type SecondControlledInputDesignPatchSlug =
 
 export type ThirdControlledInputDesignPatchSlug =
   (typeof THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
+
+export type FourthControlledInputDesignPatchSlug =
+  (typeof FOURTH_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
 
 export type ControlledInputDesignPatchSlug =
   (typeof ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
@@ -412,6 +422,132 @@ const PRINT_JOB_COST_CHECK_PATCH: ControlledInputDesignPatch = {
   blockers: [],
 };
 
+const REPAIR_TIME_VS_PRICE_CHECK_PATCH: ControlledInputDesignPatch = {
+  slug: "repair-time-vs-price-check",
+  patchType: "input_design_only",
+  requiredInputs: ["quotedPrice", "repairHours", "partsCost"],
+  optionalInputs: ["shopRate", "diagnosticHours", "warrantyComebackRate", "bayUtilization"],
+  advancedInputs: [
+    "technicianEfficiency",
+    "partsAvailabilityRisk",
+    "bookTimeVariance",
+    "comebackProbability",
+  ],
+  derivedInputs: ["burdenedCost", "bookHoursDelta", "recommendedPrice", "riskLevel"],
+  defaultAssumptions: [
+    "Default shop rate $80/hr when shopRate optional override is not provided.",
+    "Diagnostic allowance defaults to 0.75 hr added to burdened cost on free-tier path.",
+    "visibleCost = repairHours × shopRate + partsCost; burdenedCost = visibleCost + diagnostic allowance.",
+    "Mitchell brake-pad reference used for bookHoursDelta; warranty comeback excluded on free tier unless optional inputs are set.",
+  ],
+  userBurdenNotes: [
+    "Free quick-check exposes three production-aligned inputs; shop rate and diagnostic hours defaulted until smart-form phase.",
+    "recommendedPrice metadata alias equals burdenedCost; riskLevel is narrative underpricing signal.",
+  ],
+  professionalDepthNotes: [
+    "Advanced technician efficiency and comeback probability inputs prepare auto-shop margin leak detector handoff.",
+    "calculateRepairTimeResult production logic unchanged — patch documents governance input taxonomy only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Optional shopRate and diagnosticHours are governance-only — free-sector auto repair calculator unchanged.",
+  ],
+  blockers: [],
+};
+
+const SHEET_METAL_QUOTE_RISK_TOOL_PATCH: ControlledInputDesignPatch = {
+  slug: "sheet-metal-quote-risk-tool",
+  patchType: "input_design_only",
+  requiredInputs: [
+    "programmingTime",
+    "setupTime",
+    "cutTime",
+    "bendCount",
+    "laborRate",
+    "materialCost",
+    "scrapRatePercent",
+    "finishingCost",
+    "targetMargin",
+  ],
+  optionalInputs: ["assistGasCost", "pierceCount", "nestingEfficiency", "rushOrderPremium"],
+  advancedInputs: [
+    "materialGradeRisk",
+    "programmingComplexity",
+    "nestScrapVolatility",
+    "setupAmortization",
+  ],
+  derivedInputs: ["minimumSafePrice", "baseCost", "p90Cost", "quoteVerdict"],
+  defaultAssumptions: [
+    "Bend allowance defaults to 2 minutes per bend when not itemized separately.",
+    "Scrap rate minimum 8% on material; scrapRatePercent entered by operator may exceed baseline.",
+    "Labor minutes = programmingTime + setupTime + cutTime + bendCount × 2; base includes finishing cost.",
+    "Nesting efficiency, assist gas and pierce count excluded unless optional/advanced inputs are modeled.",
+  ],
+  userBurdenNotes: [
+    "Premium sheet metal quote keeps nine production-aligned required inputs; rush and nesting optional for smart-form phase.",
+    "minimumSafePrice is governance margin floor target; integrates with laser-cutting-time-check free funnel metadata.",
+  ],
+  professionalDepthNotes: [
+    "Advanced nesting scrap volatility and programming complexity inputs prepare nesting-aware quote model.",
+    "calcSheetMetal hidden multipliers unchanged — patch documents required/optional/advanced split only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Optional nestingEfficiency and assistGasCost are governance placeholders — calcSheetMetal unchanged.",
+  ],
+  blockers: [],
+};
+
+const SIGNAGE_BID_SAFE_PRICE_TOOL_PATCH: ControlledInputDesignPatch = {
+  slug: "signage-bid-safe-price-tool",
+  patchType: "input_design_only",
+  requiredInputs: [
+    "materialCost",
+    "inkCost",
+    "designHours",
+    "laborRate",
+    "installHours",
+    "reprintRiskPercent",
+    "targetMargin",
+  ],
+  optionalInputs: ["substrateType", "electricalHookupCost", "permitFees", "colorCalibrationCost"],
+  advancedInputs: [
+    "installAccessRisk",
+    "wideFormatSpoilage",
+    "finishingComplexity",
+    "reworkProbability",
+  ],
+  derivedInputs: ["minimumSafePrice", "baseCost", "p90Cost", "quoteVerdict"],
+  defaultAssumptions: [
+    "RIP/proofing reserve defaults to 4% of base when not overridden.",
+    "Design and install labor billed at flat laborRate; base = material + ink + labor + RIP reserve.",
+    "Reprint risk applied via reprintRiskPercent multiplier on burdened base cost.",
+    "Substrate type, install access and color calibration excluded unless optional/advanced inputs are set.",
+  ],
+  userBurdenNotes: [
+    "Premium signage bid keeps seven production-aligned required inputs; permit and electrical hookup optional for smart-form phase.",
+    "minimumSafePrice is governance margin floor target; integrates with print-job-cost-check free funnel metadata.",
+  ],
+  professionalDepthNotes: [
+    "Advanced wide-format spoilage and install access inputs prepare press-specific finishing complexity model.",
+    "calcSignage hidden multipliers unchanged — patch documents input taxonomy only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Advanced finishing complexity inputs are governance-only — calcSignage production logic unchanged.",
+  ],
+  blockers: [],
+};
+
 export const CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY: Readonly<
   Record<ControlledInputDesignPatchSlug, ControlledInputDesignPatch>
 > = {
@@ -424,6 +560,9 @@ export const CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY: Readonly<
   "panel-shop-margin-verdict": PANEL_SHOP_MARGIN_VERDICT_PATCH,
   "plumbing-job-margin-verdict": PLUMBING_JOB_MARGIN_VERDICT_PATCH,
   "print-job-cost-check": PRINT_JOB_COST_CHECK_PATCH,
+  "repair-time-vs-price-check": REPAIR_TIME_VS_PRICE_CHECK_PATCH,
+  "sheet-metal-quote-risk-tool": SHEET_METAL_QUOTE_RISK_TOOL_PATCH,
+  "signage-bid-safe-price-tool": SIGNAGE_BID_SAFE_PRICE_TOOL_PATCH,
 };
 
 export function getControlledInputDesignPatch(
