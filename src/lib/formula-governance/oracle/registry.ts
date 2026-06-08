@@ -29,6 +29,16 @@ const ORACLE_MODULE_BY_TOOL: Record<string, string> = {
   "revenue-premium.menu-profit-leak-detector": "batch-premium-oracles.ts",
   "revenue-premium.return-profit-erosion-tool": "batch-premium-oracles.ts",
   "revenue-premium.welding-bid-risk-analyzer": "batch-premium-oracles.ts",
+  "free-traffic.sample-size-calculator": "batch-free-batch2-oracles.ts",
+  "revenue-free.hvac-tonnage-rule-check": "batch-free-batch2-oracles.ts",
+  "revenue-free.electrical-labor-estimator": "batch-free-batch2-oracles.ts",
+  "revenue-free.lawn-care-cost-check": "batch-free-batch2-oracles.ts",
+  "revenue-free.repair-time-vs-price-check": "batch-free-batch2-oracles.ts",
+  "revenue-free.print-job-cost-check": "batch-free-batch2-oracles.ts",
+  "revenue-premium.plumbing-job-margin-verdict": "batch-free-batch2-oracles.ts",
+  "revenue-free.cabinet-cost-estimator": "batch-free-batch2-oracles.ts",
+  "revenue-free.roofing-square-cost-check": "batch-free-batch2-oracles.ts",
+  "free-traffic.laser-cutting-time-check": "batch-free-batch2-oracles.ts",
 };
 
 /** Critical tools awaiting oracle module registration or file implementation. */

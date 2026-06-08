@@ -242,3 +242,125 @@ export type WeldingBidRiskOracleOutput = {
   readonly p90Cost: number;
   readonly minimumSafePrice: number;
 };
+
+export type SampleSizeOracleInput = {
+  readonly population: number;
+  readonly confidenceZ: number;
+  readonly marginErrorPercent: number;
+  readonly proportionPercent: number;
+};
+
+export type SampleSizeOracleOutput = {
+  readonly requiredSample: number;
+  readonly infinitePopulationEstimate: number;
+};
+
+export type HvacTonnageRuleOracleInput = {
+  readonly squareFootage: number;
+  readonly tonnage: number;
+  readonly laborHours: number;
+};
+
+export type HvacTonnageRuleOracleOutput = {
+  readonly totalBtu: number;
+  readonly totalTons: number;
+  readonly recommendedTons: number;
+};
+
+export type ElectricalLaborOracleInput = {
+  readonly laborHours: number;
+  readonly laborRate: number;
+  readonly materialCost: number;
+};
+
+export type ElectricalLaborOracleOutput = {
+  readonly laborCost: number;
+  readonly laborMaterialRatio: number;
+};
+
+export type LawnCareCostOracleInput = {
+  readonly crewHoursPerVisit: number;
+  readonly visitsPerMonth: number;
+  readonly laborRate: number;
+};
+
+export type LawnCareCostOracleOutput = {
+  readonly monthlyLoad: number;
+  readonly monthlyLaborCost: number;
+};
+
+export type RepairTimeVsPriceOracleInput = {
+  readonly quotedPrice: number;
+  readonly repairHours: number;
+  readonly partsCost: number;
+  readonly shopRate?: number;
+};
+
+export type RepairTimeVsPriceOracleOutput = {
+  readonly visibleCost: number;
+  readonly burdenedCost: number;
+  readonly mitchellTotalHours: number;
+};
+
+export type PrintJobCostOracleInput = {
+  readonly designHours: number;
+  readonly laborRate: number;
+  readonly materialCost: number;
+};
+
+export type PrintJobCostOracleOutput = {
+  readonly designCost: number;
+  readonly designMaterialRatio: number;
+};
+
+export type PlumbingJobMarginOracleInput = {
+  readonly partsCost: number;
+  readonly laborHours: number;
+  readonly laborRate: number;
+  readonly fixtureCount: number;
+  readonly materialRunCost: number;
+  readonly callbackRiskPercent: number;
+  readonly targetMargin: number;
+};
+
+export type PlumbingJobMarginOracleOutput = {
+  readonly baseCost: number;
+  readonly p90Cost: number;
+  readonly minimumSafePrice: number;
+};
+
+export type CabinetCostOracleInput = {
+  readonly laborHours: number;
+  readonly installHours: number;
+  readonly sheetMaterialCost: number;
+};
+
+export type CabinetCostOracleOutput = {
+  readonly totalHours: number;
+  readonly wasteAdjustedHours: number;
+};
+
+export type RoofingSquareCostOracleInput = {
+  readonly laborHours: number;
+  readonly laborRate: number;
+  readonly materialCost: number;
+};
+
+export type RoofingSquareCostOracleOutput = {
+  readonly laborCost: number;
+  readonly nrcaEstimate: number;
+  readonly laborMaterialRatio: number;
+};
+
+export type LaserCuttingTimeOracleInput = {
+  readonly setupMinutes: number;
+  readonly cutLengthM: number;
+  readonly cutSpeedMMin: number;
+  readonly pierceCount: number;
+  readonly pierceSeconds: number;
+};
+
+export type LaserCuttingTimeOracleOutput = {
+  readonly totalMinutes: number;
+  readonly cutMinutes: number;
+};

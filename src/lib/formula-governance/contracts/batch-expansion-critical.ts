@@ -9,8 +9,6 @@ import {
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
   buildAssuredCriticalContract,
-  buildCriticalContract,
-  scenarioSkeletons,
 } from "@/lib/formula-governance/contracts/shared";
 
 export const BATCH_FREE_ORACLE_WIRED_SLUGS = [
@@ -42,6 +40,7 @@ export const BATCH_FREE_BATCH2_CRITICAL_SLUGS = [
   "roofing-square-cost-check",
   "laser-cutting-time-check",
 ] as const;
+
 import { createWarningPolicy } from "@/lib/formula-governance/warning-policy";
 
 const PREMIUM_DECISION_DISCLAIMER =
@@ -849,7 +848,7 @@ export const weldingBidRiskAnalyzerContract: FormulaContract = buildAssuredCriti
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed weld bid acceptance"],
 });
 
-export const sampleSizeCalculatorContract: FormulaContract = buildCriticalContract({
+export const sampleSizeCalculatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "free-traffic.sample-size-calculator",
   toolName: "Sample Size Calculator",
   slug: "sample-size-calculator",
@@ -887,13 +886,13 @@ export const sampleSizeCalculatorContract: FormulaContract = buildCriticalContra
     { id: "proportion-percent", description: "proportionPercent within 0–100%", kind: "dimensional" },
     { id: "population-non-negative", description: "population must be ≥ 0", kind: "edge" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-survey", description: "Normal case: finite population with 95% confidence" },
     { id: "edge-large-population", description: "Edge case: large population approaches infinite correction" },
     { id: "absurd-zero-margin", description: "Absurd input: zero margin of error rejected" },
     { id: "directional-confidence", description: "Directional: higher z widens required sample" },
     { id: "sensitivity-proportion", description: "Sensitivity: proportion near 50% increases sample need" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "margin-down-sample",
@@ -921,7 +920,7 @@ export const sampleSizeCalculatorContract: FormulaContract = buildCriticalContra
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Statistically valid survey guarantee"],
 });
 
-export const hvacTonnageRuleCheckContract: FormulaContract = buildCriticalContract({
+export const hvacTonnageRuleCheckContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.hvac-tonnage-rule-check",
   toolName: "HVAC Tonnage Rule Check",
   slug: "hvac-tonnage-rule-check",
@@ -958,14 +957,15 @@ export const hvacTonnageRuleCheckContract: FormulaContract = buildCriticalContra
     { id: "area-positive", description: "squareFootage must be > 0", kind: "edge" },
     { id: "tonnage-non-negative", description: "tonnage must be ≥ 0", kind: "edge" },
     { id: "labor-non-negative", description: "laborHours must be ≥ 0", kind: "edge" },
+    { id: "tonnage-ratio", description: "tonnage ratio vs ASHRAE load stays within 0–200%", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-office", description: "Normal case: mid-size office with matched tonnage" },
     { id: "edge-undersized", description: "Edge case: tonnage below 70% of load estimate" },
     { id: "absurd-zero-area", description: "Absurd input: zero square footage rejected" },
     { id: "directional-area", description: "Directional: larger area increases recommended tons" },
     { id: "sensitivity-labor", description: "Sensitivity: high labor hours raises margin check signal" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "area-up-load",
@@ -993,7 +993,7 @@ export const hvacTonnageRuleCheckContract: FormulaContract = buildCriticalContra
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "ASHRAE-certified load calculation"],
 });
 
-export const electricalLaborEstimatorContract: FormulaContract = buildCriticalContract({
+export const electricalLaborEstimatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.electrical-labor-estimator",
   toolName: "Electrical Labor Estimator",
   slug: "electrical-labor-estimator",
@@ -1030,14 +1030,15 @@ export const electricalLaborEstimatorContract: FormulaContract = buildCriticalCo
     { id: "hours-non-negative", description: "laborHours must be ≥ 0", kind: "edge" },
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
     { id: "rate-positive", description: "laborRate must be > 0 when hours > 0", kind: "edge" },
+    { id: "ratio-percent", description: "laborMaterialRatio stays within 0–500%", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
-    { id: "normal-panel", description: "Normal case: balanced labor/material ratio" },
+  scenarioSpecs: [
+    { id: "normal-panel-job", description: "Normal case: balanced labor/material ratio" },
     { id: "edge-labor-heavy", description: "Edge case: long labor hours trigger bid check" },
     { id: "absurd-negative-cost", description: "Absurd input: negative material cost rejected" },
     { id: "directional-labor", description: "Directional: more labor hours increase labor cost" },
     { id: "sensitivity-rate", description: "Sensitivity: higher labor rate widens ratio" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "hours-up-labor",
@@ -1065,7 +1066,7 @@ export const electricalLaborEstimatorContract: FormulaContract = buildCriticalCo
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "NEC code compliance certification"],
 });
 
-export const lawnCareCostCheckContract: FormulaContract = buildCriticalContract({
+export const lawnCareCostCheckContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.lawn-care-cost-check",
   toolName: "Lawn Care Cost Check",
   slug: "lawn-care-cost-check",
@@ -1103,13 +1104,13 @@ export const lawnCareCostCheckContract: FormulaContract = buildCriticalContract(
     { id: "visits-positive", description: "visitsPerMonth must be ≥ 1", kind: "edge" },
     { id: "rate-non-negative", description: "laborRate must be ≥ 0", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-route", description: "Normal case: moderate weekly visit load" },
     { id: "edge-heavy-route", description: "Edge case: monthly load above 40 crew-hours" },
     { id: "absurd-negative-hours", description: "Absurd input: negative crew hours rejected" },
     { id: "directional-visits", description: "Directional: more visits increase monthly load" },
     { id: "sensitivity-hours", description: "Sensitivity: longer visits widen monthly load" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "visits-up-load",
@@ -1137,7 +1138,7 @@ export const lawnCareCostCheckContract: FormulaContract = buildCriticalContract(
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed contract profitability"],
 });
 
-export const repairTimeVsPriceCheckContract: FormulaContract = buildCriticalContract({
+export const repairTimeVsPriceCheckContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.repair-time-vs-price-check",
   toolName: "Repair Time vs Price Check",
   slug: "repair-time-vs-price-check",
@@ -1174,14 +1175,15 @@ export const repairTimeVsPriceCheckContract: FormulaContract = buildCriticalCont
     { id: "quote-non-negative", description: "quotedPrice must be ≥ 0", kind: "edge" },
     { id: "hours-non-negative", description: "repairHours must be ≥ 0", kind: "edge" },
     { id: "parts-non-negative", description: "partsCost must be ≥ 0", kind: "edge" },
+    { id: "burden-ratio", description: "burdenedCost ÷ quotedPrice stays within 0–200%", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-brake-job", description: "Normal case: quote above burdened cost" },
     { id: "edge-thin-quote", description: "Edge case: burdened cost ≥ 75% of quoted price" },
     { id: "absurd-negative-quote", description: "Absurd input: negative quoted price rejected" },
     { id: "directional-hours", description: "Directional: more repair hours increase burdened cost" },
     { id: "sensitivity-parts", description: "Sensitivity: higher parts cost widens burdened cost" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "hours-up-burden",
@@ -1209,7 +1211,7 @@ export const repairTimeVsPriceCheckContract: FormulaContract = buildCriticalCont
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed job profitability"],
 });
 
-export const printJobCostCheckContract: FormulaContract = buildCriticalContract({
+export const printJobCostCheckContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.print-job-cost-check",
   toolName: "Print Job Cost Check",
   slug: "print-job-cost-check",
@@ -1246,14 +1248,15 @@ export const printJobCostCheckContract: FormulaContract = buildCriticalContract(
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
     { id: "hours-non-negative", description: "designHours must be ≥ 0", kind: "edge" },
     { id: "rate-positive", description: "laborRate must be > 0 when design hours > 0", kind: "edge" },
+    { id: "ratio-bounds", description: "designMaterialRatio stays within 0–5.0", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
-    { id: "normal-sign-job", description: "Normal case: balanced design/material ratio" },
+  scenarioSpecs: [
+    { id: "normal-signage", description: "Normal case: balanced design/material ratio" },
     { id: "edge-design-heavy", description: "Edge case: design/material ratio above 1.2" },
     { id: "absurd-negative-material", description: "Absurd input: negative material cost rejected" },
     { id: "directional-design", description: "Directional: more design hours increase design cost" },
     { id: "sensitivity-rate", description: "Sensitivity: higher labor rate widens design cost" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "hours-up-design",
@@ -1281,7 +1284,7 @@ export const printJobCostCheckContract: FormulaContract = buildCriticalContract(
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed print margin"],
 });
 
-export const plumbingJobMarginVerdictContract: FormulaContract = buildCriticalContract({
+export const plumbingJobMarginVerdictContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.plumbing-job-margin-verdict",
   toolName: "Plumbing Job Margin Verdict",
   slug: "plumbing-job-margin-verdict",
@@ -1335,13 +1338,13 @@ export const plumbingJobMarginVerdictContract: FormulaContract = buildCriticalCo
     { id: "callback-percent", description: "callbackRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-fixture-job", description: "Normal case: multi-fixture job with moderate callback risk" },
     { id: "edge-high-callback", description: "Edge case: callback risk above 15%" },
     { id: "absurd-zero-rate", description: "Absurd input: zero labor rate rejected" },
     { id: "directional-parts", description: "Directional: higher partsCost raises base cost" },
     { id: "sensitivity-margin", description: "Sensitivity: higher targetMargin raises minimum safe price" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "parts-up-floor",
@@ -1369,7 +1372,7 @@ export const plumbingJobMarginVerdictContract: FormulaContract = buildCriticalCo
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed plumbing job acceptance"],
 });
 
-export const cabinetCostEstimatorContract: FormulaContract = buildCriticalContract({
+export const cabinetCostEstimatorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.cabinet-cost-estimator",
   toolName: "Cabinet Cost Estimator",
   slug: "cabinet-cost-estimator",
@@ -1406,14 +1409,15 @@ export const cabinetCostEstimatorContract: FormulaContract = buildCriticalContra
     { id: "hours-non-negative", description: "laborHours and installHours must be ≥ 0", kind: "edge" },
     { id: "material-non-negative", description: "sheetMaterialCost must be ≥ 0", kind: "edge" },
     { id: "total-hours-positive", description: "At least one of labor or install hours must be > 0", kind: "edge" },
+    { id: "waste-factor", description: "wasteAdjustedHours = totalHours × 1.12", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-cabinet-job", description: "Normal case: moderate shop+install hours" },
     { id: "edge-long-install", description: "Edge case: total hours above 24" },
     { id: "absurd-negative-hours", description: "Absurd input: negative labor hours rejected" },
     { id: "directional-install", description: "Directional: more install hours increase total hours" },
     { id: "sensitivity-waste", description: "Sensitivity: waste factor increases effective hours" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "labor-up-total",
@@ -1441,7 +1445,7 @@ export const cabinetCostEstimatorContract: FormulaContract = buildCriticalContra
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "Guaranteed millwork bid"],
 });
 
-export const roofingSquareCostCheckContract: FormulaContract = buildCriticalContract({
+export const roofingSquareCostCheckContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-free.roofing-square-cost-check",
   toolName: "Roofing Square Cost Check",
   slug: "roofing-square-cost-check",
@@ -1478,14 +1482,15 @@ export const roofingSquareCostCheckContract: FormulaContract = buildCriticalCont
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
     { id: "hours-non-negative", description: "laborHours must be ≥ 0", kind: "edge" },
     { id: "rate-positive", description: "laborRate must be > 0 when hours > 0", kind: "edge" },
+    { id: "labor-ratio", description: "laborMaterialRatio stays within 0–500%", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-shingle-job", description: "Normal case: balanced labor/material ratio" },
     { id: "edge-long-labor", description: "Edge case: labor hours ≥ 24 trigger contract check" },
     { id: "absurd-negative-material", description: "Absurd input: negative material cost rejected" },
     { id: "directional-labor", description: "Directional: more labor hours increase labor cost" },
     { id: "sensitivity-material", description: "Sensitivity: higher material shifts NRCA area inference" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "hours-up-labor",
@@ -1513,34 +1518,33 @@ export const roofingSquareCostCheckContract: FormulaContract = buildCriticalCont
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM, "NRCA-certified bid guarantee"],
 });
 
-export const laserCuttingTimeCheckContract: FormulaContract = buildCriticalContract({
-  toolId: "revenue-free.laser-cutting-time-check",
+export const laserCuttingTimeCheckContract: FormulaContract = buildAssuredCriticalContract({
+  toolId: "free-traffic.laser-cutting-time-check",
   toolName: "Laser Cutting Time Check",
   slug: "laser-cutting-time-check",
   purpose:
-    "Estimate laser cut time and setup burden for sheet metal jobs before scrap and programming risk.",
-  userDecision: "Is setup burden acceptable for this quantity before full quote risk modeling?",
+    "Estimate laser cut time from setup, cut path, speed and pierce count before scrap and programming risk.",
+  userDecision: "Is total cut time reasonable for this path length and pierce load?",
   decisionImpact: "technical",
-  requiredInputs: ["setupTime", "cutTime", "quantity"],
-  criticalInputs: ["setupTime", "cutTime", "quantity"],
-  outputs: ["riskLevel", "setupBurdenPercent", "totalMinutes"],
+  requiredInputs: ["setupMinutes", "cutLengthM", "cutSpeedMMin", "pierceCount", "pierceSeconds"],
+  criticalInputs: ["setupMinutes", "cutLengthM", "cutSpeedMMin", "pierceCount", "pierceSeconds"],
+  outputs: ["totalMinutes", "cutMinutes"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-sector-calculations.ts → calculateSheetMetalFreeResult (revenue-free).",
-    "Alternate free-traffic path: src/lib/tools/free-traffic-calculators.ts uses cut length/speed/pierce inputs.",
-    "Setup burden = setupTime ÷ (setupTime + cycleTime × quantity).",
+    "Production: src/lib/tools/free-traffic-calculators.ts → setup + cutLength ÷ speed + pierce time.",
+    "Revenue-free alternate path uses setupTime/quantity via calculateSheetMetalFreeResult (not oracle-compared).",
   ],
   formulaSummary:
-    "Revenue-free: setup burden ratio from setupTime and quantity (default 5 min cycle); free-traffic: setup + cutLength ÷ speed + pierce time.",
+    "totalMinutes = setupMinutes + cutLengthM ÷ cutSpeedMMin + (pierceCount × pierceSeconds) ÷ 60.",
   missingParameterWarnings: [],
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
-      "Revenue funnel uses setupTime and quantity; cutTime input registered but not passed to free sector calc.",
+      "Flat cut speed and pierce seconds per hole on free-traffic path.",
     ],
     modelLimitations: [
-      "Material grade, pierce count, nesting, assist gas and programming not fully modeled",
+      "Material grade, nesting, assist gas and programming not fully modeled",
       "Nest scrap 8–12% not applied on free tier",
-      "Dual calculator paths (revenue vs free-traffic) use different input shapes",
+      "Revenue funnel uses different input shape (setupTime/quantity)",
     ],
     futureExtensions: [
       "Unified oracle across revenue and free-traffic laser paths",
@@ -1548,38 +1552,39 @@ export const laserCuttingTimeCheckContract: FormulaContract = buildCriticalContr
     ],
   }),
   validationRules: [
-    { id: "quantity-positive", description: "quantity must be ≥ 1", kind: "edge" },
-    { id: "setup-non-negative", description: "setupTime must be ≥ 0", kind: "edge" },
-    { id: "cut-non-negative", description: "cutTime must be ≥ 0", kind: "edge" },
+    { id: "setup-positive", description: "setupMinutes must be > 0", kind: "edge" },
+    { id: "speed-positive", description: "cutSpeedMMin must be > 0", kind: "edge" },
+    { id: "length-positive", description: "cutLengthM must be > 0", kind: "edge" },
+    { id: "pierce-non-negative", description: "pierceCount and pierceSeconds must be ≥ 0", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
-    { id: "normal-batch", description: "Normal case: moderate setup with batch quantity" },
-    { id: "edge-setup-heavy", description: "Edge case: low qty with long setup" },
-    { id: "absurd-zero-qty", description: "Absurd input: zero quantity rejected" },
-    { id: "directional-setup", description: "Directional: longer setup increases burden percent" },
-    { id: "sensitivity-quantity", description: "Sensitivity: higher quantity dilutes setup burden" },
-  ]),
+  scenarioSpecs: [
+    { id: "normal-batch", description: "Normal case: moderate setup with batch cut path" },
+    { id: "normal-sheet", description: "Normal case: standard sheet cut job" },
+    { id: "normal-prototype", description: "Normal case: prototype with many pierces" },
+    { id: "edge-setup-heavy", description: "Edge case: long setup with short cut path" },
+    { id: "absurd-zero-speed", description: "Absurd input: zero cut speed rejected" },
+  ],
   monotonicityRules: [
     {
-      id: "setup-up-burden",
-      description: "Higher setupTime must not decrease setup burden percent",
-      inputKey: "setupTime",
+      id: "length-up-time",
+      description: "Higher cutLengthM must not decrease total minutes",
+      inputKey: "cutLengthM",
       direction: "increase_should_increase",
-      outputKey: "setupBurdenPercent",
+      outputKey: "totalMinutes",
     },
     {
-      id: "qty-down-burden",
-      description: "Lower quantity must not decrease setup burden percent",
-      inputKey: "quantity",
-      direction: "increase_should_decrease",
-      outputKey: "setupBurdenPercent",
+      id: "pierce-up-time",
+      description: "Higher pierceCount must not decrease total minutes",
+      inputKey: "pierceCount",
+      direction: "increase_should_increase",
+      outputKey: "totalMinutes",
     },
     {
-      id: "setup-up-risk",
-      description: "Higher setup burden must not lower quote risk severity",
-      inputKey: "setupTime",
+      id: "setup-up-time",
+      description: "Higher setupMinutes must not decrease total minutes",
+      inputKey: "setupMinutes",
       direction: "increase_should_increase",
-      outputKey: "riskLevel",
+      outputKey: "totalMinutes",
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
@@ -1613,9 +1618,14 @@ export const BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS: readonly FormulaContrac
   ...BATCH_FREE_BATCH2_CRITICAL_FORMULA_CONTRACTS,
 ];
 
+export const BATCH_FREE_BATCH2_ORACLE_WIRED_SLUGS = [
+  ...BATCH_FREE_BATCH2_CRITICAL_SLUGS,
+] as const;
+
 export const BATCH_EXPANSION_ORACLE_WIRED_SLUGS = [
   ...BATCH_FREE_ORACLE_WIRED_SLUGS,
   ...BATCH_PREMIUM_ORACLE_WIRED_SLUGS,
+  ...BATCH_FREE_BATCH2_ORACLE_WIRED_SLUGS,
 ] as const;
 
 export const BATCH_EXPANSION_CRITICAL_SLUGS: readonly string[] =

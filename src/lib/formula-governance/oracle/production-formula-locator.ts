@@ -8,6 +8,10 @@ import {
   type BatchFreeOracleSlug,
 } from "@/lib/formula-governance/oracle/batch-free-oracles";
 import {
+  BATCH_FREE_BATCH2_ORACLE_SLUGS,
+  type BatchFreeBatch2OracleSlug,
+} from "@/lib/formula-governance/oracle/batch-free-batch2-oracles";
+import {
   BATCH_PREMIUM_ORACLE_SLUGS,
   type BatchPremiumOracleSlug,
 } from "@/lib/formula-governance/oracle/batch-premium-oracles";
@@ -424,11 +428,153 @@ export function isBatchPremiumProductionSlug(slug: string): slug is BatchPremium
   return (BATCH_PREMIUM_ORACLE_SLUGS as readonly string[]).includes(slug);
 }
 
+export const BATCH_FREE_BATCH2_PRODUCTION_FORMULA_LOCATORS: readonly ProductionFormulaLocator[] = [
+  {
+    slug: "sample-size-calculator",
+    toolId: "free-traffic.sample-size-calculator",
+    productionFilePath: "src/lib/tools/free-traffic-calculators.ts",
+    productionFunctionName: "calculateFreeTrafficTool",
+    productionEntry: 'CALCULATORS["sample-size-calculator"] → Cochran sample size',
+    oracleFunctionName: "calculateSampleSizeOracle",
+    inputShape: ["population", "confidenceZ", "marginErrorPercent", "proportionPercent"],
+    productionOutputShape: ["primaryValue: Required sample", "secondary: Infinite population estimate"],
+    oracleOutputShape: ["requiredSample", "infinitePopulationEstimate"],
+    comparisonWired: true,
+  },
+  {
+    slug: "hvac-tonnage-rule-check",
+    toolId: "revenue-free.hvac-tonnage-rule-check",
+    productionFilePath: "src/lib/tools/free-sector-calculations.ts",
+    productionFunctionName: "calculateHvacFreeResult",
+    productionEntry: "calculateHvacFreeResult → calculateHvacTonnageResult (ASHRAE defaults)",
+    oracleFunctionName: "calculateHvacTonnageRuleOracle",
+    inputShape: ["squareFootage", "tonnage", "laborHours"],
+    productionOutputShape: ["totalBtu", "totalTons", "recommendedTons"],
+    oracleOutputShape: ["totalBtu", "totalTons", "recommendedTons"],
+    comparisonWired: true,
+  },
+  {
+    slug: "electrical-labor-estimator",
+    toolId: "revenue-free.electrical-labor-estimator",
+    productionFilePath: "src/lib/tools/free-sector-calculations.ts",
+    productionFunctionName: "calculateElectricalFreeResult",
+    productionEntry: "calculateElectricalFreeResult → labor/material ratio",
+    oracleFunctionName: "calculateElectricalLaborOracle",
+    inputShape: ["materialCost", "laborHours", "laborRate"],
+    productionOutputShape: ["laborCost", "laborMaterialRatio"],
+    oracleOutputShape: ["laborCost", "laborMaterialRatio"],
+    comparisonWired: true,
+  },
+  {
+    slug: "lawn-care-cost-check",
+    toolId: "revenue-free.lawn-care-cost-check",
+    productionFilePath: "src/lib/tools/free-sector-calculations.ts",
+    productionFunctionName: "calculateLandscapingFreeResult",
+    productionEntry: "calculateLandscapingFreeResult → monthly crew-hour load",
+    oracleFunctionName: "calculateLawnCareCostOracle",
+    inputShape: ["crewHoursPerVisit", "visitsPerMonth", "laborRate"],
+    productionOutputShape: ["monthlyLoad"],
+    oracleOutputShape: ["monthlyLoad", "monthlyLaborCost"],
+    comparisonWired: true,
+  },
+  {
+    slug: "repair-time-vs-price-check",
+    toolId: "revenue-free.repair-time-vs-price-check",
+    productionFilePath: "src/lib/tools/free-sector-calculations.ts",
+    productionFunctionName: "calculateAutoRepairFreeResult",
+    productionEntry: "calculateAutoRepairFreeResult → Mitchell burdened cost",
+    oracleFunctionName: "calculateRepairTimeVsPriceOracle",
+    inputShape: ["quotedPrice", "repairHours", "partsCost"],
+    productionOutputShape: ["burdenedCost", "mitchellTotalHours"],
+    oracleOutputShape: ["burdenedCost", "mitchellTotalHours"],
+    comparisonWired: true,
+  },
+  {
+    slug: "print-job-cost-check",
+    toolId: "revenue-free.print-job-cost-check",
+    productionFilePath: "src/lib/tools/free-sector-calculations.ts",
+    productionFunctionName: "calculatePrintingFreeResult",
+    productionEntry: "calculatePrintingFreeResult → design/material ratio",
+    oracleFunctionName: "calculatePrintJobCostOracle",
+    inputShape: ["materialCost", "designHours", "laborRate"],
+    productionOutputShape: ["designCost", "designMaterialRatio"],
+    oracleOutputShape: ["designCost", "designMaterialRatio"],
+    comparisonWired: true,
+  },
+  {
+    slug: "plumbing-job-margin-verdict",
+    toolId: "revenue-premium.plumbing-job-margin-verdict",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry: 'BASE_COST_CALCULATORS["plumbing-job-margin-verdict"] → calcPlumbing',
+    oracleFunctionName: "calculatePlumbingJobMarginOracle",
+    inputShape: [
+      "partsCost",
+      "laborHours",
+      "laborRate",
+      "fixtureCount",
+      "materialRunCost",
+      "callbackRiskPercent",
+      "targetMargin",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "cabinet-cost-estimator",
+    toolId: "revenue-free.cabinet-cost-estimator",
+    productionFilePath: "src/lib/tools/free-sector-calculations.ts",
+    productionFunctionName: "calculateCarpentryFreeResult",
+    productionEntry: "calculateCarpentryFreeResult → WWPA waste-adjusted hours",
+    oracleFunctionName: "calculateCabinetCostOracle",
+    inputShape: ["sheetMaterialCost", "laborHours", "installHours"],
+    productionOutputShape: ["totalHours", "wasteAdjustedHours"],
+    oracleOutputShape: ["totalHours", "wasteAdjustedHours"],
+    comparisonWired: true,
+  },
+  {
+    slug: "roofing-square-cost-check",
+    toolId: "revenue-free.roofing-square-cost-check",
+    productionFilePath: "src/lib/tools/free-sector-calculations.ts",
+    productionFunctionName: "calculateRoofingFreeResult",
+    productionEntry: "calculateRoofingFreeResult → NRCA estimate + labor cost",
+    oracleFunctionName: "calculateRoofingSquareCostOracle",
+    inputShape: ["materialCost", "laborHours", "laborRate"],
+    productionOutputShape: ["laborCost", "nrcaEstimate"],
+    oracleOutputShape: ["laborCost", "nrcaEstimate"],
+    comparisonWired: true,
+  },
+  {
+    slug: "laser-cutting-time-check",
+    toolId: "free-traffic.laser-cutting-time-check",
+    productionFilePath: "src/lib/tools/free-traffic-calculators.ts",
+    productionFunctionName: "calculateFreeTrafficTool",
+    productionEntry: 'CALCULATORS["laser-cutting-time-check"] → setup + cut + pierce minutes',
+    oracleFunctionName: "calculateLaserCuttingTimeOracle",
+    inputShape: ["setupMinutes", "cutLengthM", "cutSpeedMMin", "pierceCount", "pierceSeconds"],
+    productionOutputShape: ["primaryValue: Total minutes", "secondary: Cut path time"],
+    oracleOutputShape: ["totalMinutes", "cutMinutes"],
+    comparisonWired: true,
+  },
+];
+
+export function getBatchFreeBatch2ProductionFormulaLocator(
+  slug: BatchFreeBatch2OracleSlug,
+): ProductionFormulaLocator | undefined {
+  return BATCH_FREE_BATCH2_PRODUCTION_FORMULA_LOCATORS.find((entry) => entry.slug === slug);
+}
+
+export function isBatchFreeBatch2ProductionSlug(slug: string): slug is BatchFreeBatch2OracleSlug {
+  return (BATCH_FREE_BATCH2_ORACLE_SLUGS as readonly string[]).includes(slug);
+}
+
 export function getAnyProductionFormulaLocator(slug: string): ProductionFormulaLocator | undefined {
   return (
     getProductionFormulaLocator(slug as FinanceOracleSlug) ??
     getBusinessOperationsProductionFormulaLocator(slug as BusinessOperationsOracleSlug) ??
     getBatchFreeProductionFormulaLocator(slug as BatchFreeOracleSlug) ??
-    getBatchPremiumProductionFormulaLocator(slug as BatchPremiumOracleSlug)
+    getBatchPremiumProductionFormulaLocator(slug as BatchPremiumOracleSlug) ??
+    getBatchFreeBatch2ProductionFormulaLocator(slug as BatchFreeBatch2OracleSlug)
   );
 }

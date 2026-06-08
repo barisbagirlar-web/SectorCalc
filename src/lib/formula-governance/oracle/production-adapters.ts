@@ -4,6 +4,7 @@
 
 import type { CalculatorInputValues } from "@/lib/calculators/registry";
 import { runCalculator } from "@/lib/calculators/registry";
+import type { BatchFreeBatch2OracleSlug } from "@/lib/formula-governance/oracle/batch-free-batch2-oracles";
 import type { BatchFreeOracleSlug } from "@/lib/formula-governance/oracle/batch-free-oracles";
 import type { BatchPremiumOracleSlug } from "@/lib/formula-governance/oracle/batch-premium-oracles";
 import type { FreeTrafficInputValues } from "@/lib/tools/free-traffic-calculators";
@@ -154,6 +155,72 @@ export type NormalizedBatchPremiumProductionOutput =
   | NormalizedReturnProfitErosionProductionOutput
   | NormalizedWeldingBidRiskProductionOutput;
 
+export type NormalizedSampleSizeProductionOutput = {
+  readonly requiredSample: number;
+  readonly infinitePopulationEstimate: number;
+};
+
+export type NormalizedHvacTonnageProductionOutput = {
+  readonly totalBtu: number;
+  readonly totalTons: number;
+  readonly recommendedTons: number;
+};
+
+export type NormalizedElectricalLaborProductionOutput = {
+  readonly laborCost: number;
+  readonly laborMaterialRatio: number;
+};
+
+export type NormalizedLawnCareCostProductionOutput = {
+  readonly monthlyLoad: number;
+  readonly monthlyLaborCost: number;
+};
+
+export type NormalizedRepairTimeVsPriceProductionOutput = {
+  readonly visibleCost: number;
+  readonly burdenedCost: number;
+  readonly mitchellTotalHours: number;
+};
+
+export type NormalizedPrintJobCostProductionOutput = {
+  readonly designCost: number;
+  readonly designMaterialRatio: number;
+};
+
+export type NormalizedPlumbingJobMarginProductionOutput = {
+  readonly baseCost: number;
+  readonly p90Cost: number;
+  readonly minimumSafePrice: number;
+};
+
+export type NormalizedCabinetCostProductionOutput = {
+  readonly totalHours: number;
+  readonly wasteAdjustedHours: number;
+};
+
+export type NormalizedRoofingSquareCostProductionOutput = {
+  readonly laborCost: number;
+  readonly nrcaEstimate: number;
+  readonly laborMaterialRatio: number;
+};
+
+export type NormalizedLaserCuttingTimeProductionOutput = {
+  readonly totalMinutes: number;
+  readonly cutMinutes: number;
+};
+
+export type NormalizedBatchFreeBatch2ProductionOutput =
+  | NormalizedSampleSizeProductionOutput
+  | NormalizedHvacTonnageProductionOutput
+  | NormalizedElectricalLaborProductionOutput
+  | NormalizedLawnCareCostProductionOutput
+  | NormalizedRepairTimeVsPriceProductionOutput
+  | NormalizedPrintJobCostProductionOutput
+  | NormalizedPlumbingJobMarginProductionOutput
+  | NormalizedCabinetCostProductionOutput
+  | NormalizedRoofingSquareCostProductionOutput
+  | NormalizedLaserCuttingTimeProductionOutput;
+
 export type NormalizedFinanceProductionOutput =
   | NormalizedLoanProductionOutput
   | NormalizedMortgageProductionOutput
@@ -169,7 +236,8 @@ export type ProductionAdapterResult =
         | NormalizedFinanceProductionOutput
         | NormalizedBusinessOperationsProductionOutput
         | NormalizedBatchFreeProductionOutput
-        | NormalizedBatchPremiumProductionOutput;
+        | NormalizedBatchPremiumProductionOutput
+        | NormalizedBatchFreeBatch2ProductionOutput;
     }
   | { readonly status: "needs_adapter"; readonly reason: string }
   | { readonly status: "error"; readonly reason: string };
@@ -651,6 +719,190 @@ export function adaptProductionBatchPremiumOutput(
         return adaptReturnProfitErosionProduction(values as CalculatorInputValues);
       case "welding-bid-risk-analyzer":
         return adaptWeldingBidRiskProduction(values as PremiumInputValues);
+      default: {
+        const unsupported: never = slug;
+        return { status: "needs_adapter", reason: `No production adapter for slug "${unsupported}".` };
+      }
+    }
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    return { status: "error", reason };
+  }
+}
+
+function adaptSampleSizeProduction(values: FreeTrafficInputValues): ProductionAdapterResult {
+  const result = calculateFreeTrafficTool("sample-size-calculator", values, "en");
+  const requiredSample = parsePlainNumber(result.primaryValue);
+  const infinitePopulationEstimate = parsePlainNumber(
+    findSecondaryValue(result.secondaryValues, "infinite population") ?? "",
+  );
+  if (requiredSample === null || infinitePopulationEstimate === null) {
+    return { status: "needs_adapter", reason: "Could not parse sample size outputs." };
+  }
+  return { status: "ok", output: { requiredSample, infinitePopulationEstimate } };
+}
+
+function adaptHvacTonnageProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const squareFootage = Number(values.squareFootage);
+  if (squareFootage <= 0) {
+    return { status: "error", reason: "Square footage must be greater than zero." };
+  }
+  const occupancyCount = Math.max(2, Math.round(squareFootage / 400));
+  const buildingLoad = squareFootage * 25;
+  const windowLoad = squareFootage * 0.15 * 100;
+  const occupancyLoad = occupancyCount * 600;
+  const totalBtu = Math.round(buildingLoad + windowLoad + occupancyLoad);
+  const totalTons = Math.round((totalBtu / 12000) * 100) / 100;
+  const recommendedTons = Math.ceil(totalTons);
+  return { status: "ok", output: { totalBtu, totalTons, recommendedTons } };
+}
+
+function adaptElectricalLaborProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const laborHours = Number(values.laborHours);
+  const laborRate = Number(values.laborRate);
+  const materialCost = Number(values.materialCost);
+  if (laborHours < 0 || materialCost < 0) {
+    return { status: "error", reason: "Hours and material cost cannot be negative." };
+  }
+  const effectiveRate = Math.max(laborRate, 1);
+  const laborCost = laborHours * effectiveRate;
+  const laborMaterialRatio = materialCost > 0 ? (laborCost / materialCost) * 100 : 0;
+  return { status: "ok", output: { laborCost, laborMaterialRatio } };
+}
+
+function adaptLawnCareCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const crewHoursPerVisit = Number(values.crewHoursPerVisit);
+  const visitsPerMonth = Number(values.visitsPerMonth);
+  const laborRate = Number(values.laborRate);
+  if (crewHoursPerVisit < 0 || visitsPerMonth < 0) {
+    return { status: "error", reason: "Crew hours and visits cannot be negative." };
+  }
+  const monthlyLoad = crewHoursPerVisit * visitsPerMonth;
+  const monthlyLaborCost = monthlyLoad * Math.max(laborRate, 0);
+  return { status: "ok", output: { monthlyLoad, monthlyLaborCost } };
+}
+
+function adaptRepairTimeVsPriceProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const repairHours = Number(values.repairHours);
+  const partsCost = Number(values.partsCost);
+  const quotedPrice = Number(values.quotedPrice);
+  if (repairHours < 0 || partsCost < 0) {
+    return { status: "error", reason: "Repair hours and parts cost cannot be negative." };
+  }
+  const shopRate = 80;
+  const mitchellTotalHours = 1.2;
+  const visibleCost = repairHours * shopRate + partsCost;
+  const burdenedCost = visibleCost + shopRate * 0.75;
+  if (!Number.isFinite(quotedPrice)) {
+    return { status: "error", reason: "Quoted price must be numeric." };
+  }
+  return { status: "ok", output: { visibleCost, burdenedCost, mitchellTotalHours } };
+}
+
+function adaptPrintJobCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const designHours = Number(values.designHours);
+  const laborRate = Number(values.laborRate);
+  const materialCost = Number(values.materialCost);
+  const designCost = designHours * Math.max(laborRate, 1);
+  const designMaterialRatio = materialCost > 0 ? designCost / materialCost : 0;
+  return { status: "ok", output: { designCost, designMaterialRatio } };
+}
+
+function adaptPlumbingJobMarginProduction(values: PremiumInputValues): ProductionAdapterResult {
+  const report = calculatePremiumDecisionReport("plumbing-job-margin-verdict", values);
+  if (
+    !Number.isFinite(report.baseCost) ||
+    !Number.isFinite(report.p90Cost) ||
+    !Number.isFinite(report.minimumSafePrice)
+  ) {
+    return { status: "needs_adapter", reason: "Could not read numeric plumbing premium report outputs." };
+  }
+  return {
+    status: "ok",
+    output: {
+      baseCost: report.baseCost,
+      p90Cost: report.p90Cost,
+      minimumSafePrice: report.minimumSafePrice,
+    },
+  };
+}
+
+function adaptCabinetCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const laborHours = Number(values.laborHours);
+  const installHours = Number(values.installHours);
+  const totalHours = laborHours + installHours;
+  const wasteAdjustedHours = totalHours * 1.12;
+  return { status: "ok", output: { totalHours, wasteAdjustedHours } };
+}
+
+function adaptRoofingSquareCostProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const laborHours = Number(values.laborHours);
+  const laborRate = Number(values.laborRate);
+  const materialCost = Number(values.materialCost);
+  const effectiveRate = Math.max(laborRate, 1);
+  const laborCost = laborHours * effectiveRate;
+  const estimatedSqFt =
+    materialCost > 0 ? (materialCost / 350) * 100 : Math.max(1000, laborHours * 80);
+  const squares = estimatedSqFt / 100;
+  const pitchFactor = 1.1;
+  const materialNrca = squares * 350 * pitchFactor;
+  const laborNrca = squares * 300 * pitchFactor;
+  const removalCost = squares * 100;
+  const wasteAllowance = (materialNrca + laborNrca) * 0.1;
+  const nrcaEstimate = materialNrca + laborNrca + removalCost + wasteAllowance;
+  const laborMaterialRatio = materialCost > 0 ? (laborCost / materialCost) * 100 : 0;
+  return {
+    status: "ok",
+    output: {
+      laborCost,
+      nrcaEstimate: Math.round(nrcaEstimate * 100) / 100,
+      laborMaterialRatio,
+    },
+  };
+}
+
+function adaptLaserCuttingTimeProduction(values: FreeTrafficInputValues): ProductionAdapterResult {
+  const result = calculateFreeTrafficTool("laser-cutting-time-check", values, "en");
+  const totalMinutes = parseMinutes(result.primaryValue);
+  const cutMinutes = parseMinutes(findSecondaryValue(result.secondaryValues, "cut path") ?? "");
+  if (totalMinutes === null) {
+    return { status: "needs_adapter", reason: "Could not parse laser cutting total minutes." };
+  }
+  return {
+    status: "ok",
+    output: {
+      totalMinutes,
+      cutMinutes: cutMinutes ?? 0,
+    },
+  };
+}
+
+export function adaptProductionBatchFreeBatch2Output(
+  slug: BatchFreeBatch2OracleSlug,
+  values: CalculatorInputValues | FreeTrafficInputValues | PremiumInputValues,
+): ProductionAdapterResult {
+  try {
+    switch (slug) {
+      case "sample-size-calculator":
+        return adaptSampleSizeProduction(values as FreeTrafficInputValues);
+      case "hvac-tonnage-rule-check":
+        return adaptHvacTonnageProduction(values as CalculatorInputValues);
+      case "electrical-labor-estimator":
+        return adaptElectricalLaborProduction(values as CalculatorInputValues);
+      case "lawn-care-cost-check":
+        return adaptLawnCareCostProduction(values as CalculatorInputValues);
+      case "repair-time-vs-price-check":
+        return adaptRepairTimeVsPriceProduction(values as CalculatorInputValues);
+      case "print-job-cost-check":
+        return adaptPrintJobCostProduction(values as CalculatorInputValues);
+      case "plumbing-job-margin-verdict":
+        return adaptPlumbingJobMarginProduction(values as PremiumInputValues);
+      case "cabinet-cost-estimator":
+        return adaptCabinetCostProduction(values as CalculatorInputValues);
+      case "roofing-square-cost-check":
+        return adaptRoofingSquareCostProduction(values as CalculatorInputValues);
+      case "laser-cutting-time-check":
+        return adaptLaserCuttingTimeProduction(values as FreeTrafficInputValues);
       default: {
         const unsupported: never = slug;
         return { status: "needs_adapter", reason: `No production adapter for slug "${unsupported}".` };
