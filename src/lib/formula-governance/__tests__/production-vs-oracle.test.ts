@@ -29,7 +29,16 @@ import {
   compareBatchFreeProductionVsOracle,
   runBatchFreeOracleComparisonAudit,
 } from "@/lib/formula-governance/oracle/compare-batch-free-oracle";
-import { BATCH_FREE_PRODUCTION_FORMULA_LOCATORS } from "@/lib/formula-governance/oracle/production-formula-locator";
+import {
+  BATCH_FREE_PRODUCTION_FORMULA_LOCATORS,
+  BATCH_PREMIUM_PRODUCTION_FORMULA_LOCATORS,
+} from "@/lib/formula-governance/oracle/production-formula-locator";
+import {
+  BATCH_PREMIUM_COMPARISON_SCENARIOS,
+  BATCH_PREMIUM_ORACLE_SLUGS,
+  compareBatchPremiumProductionVsOracle,
+  runBatchPremiumOracleComparisonAudit,
+} from "@/lib/formula-governance/oracle/compare-batch-premium-oracle";
 
 describe("production formula locator", () => {
   test("documents all five finance production paths", () => {
@@ -90,7 +99,7 @@ describe("production vs oracle comparison", () => {
 
   test("all wired oracle audit summaries pass comparable scenarios", () => {
     const summaries = runAllFinanceOracleComparisonAudits();
-    expect(summaries.length).toBe(16);
+    expect(summaries.length).toBe(21);
     for (const summary of summaries) {
       expect(summary.status).toBe("PASS");
       expect(summary.failCount).toBe(0);
@@ -233,6 +242,58 @@ describe("batch free production vs oracle", () => {
 
       test("audit summary passes comparable scenarios", () => {
         const summary = runBatchFreeOracleComparisonAudit(slug);
+        expect(summary.status).toBe("PASS");
+        expect(summary.passCount).toBe(4);
+      });
+    });
+  }
+});
+
+describe("batch premium production vs oracle", () => {
+  test("documents all five batch premium production paths", () => {
+    expect(BATCH_PREMIUM_PRODUCTION_FORMULA_LOCATORS).toHaveLength(5);
+    for (const slug of BATCH_PREMIUM_ORACLE_SLUGS) {
+      const locator = BATCH_PREMIUM_PRODUCTION_FORMULA_LOCATORS.find((entry) => entry.slug === slug);
+      expect(locator?.comparisonWired).toBe(true);
+      expect(locator?.oracleFunctionName.length).toBeGreaterThan(0);
+    }
+  });
+
+  for (const slug of BATCH_PREMIUM_ORACLE_SLUGS) {
+    describe(slug, () => {
+      const scenarios = BATCH_PREMIUM_COMPARISON_SCENARIOS[slug];
+
+      test("has 3 normal, 1 edge, and 1 absurd scenario", () => {
+        expect(scenarios.filter((s) => s.kind === "normal")).toHaveLength(3);
+        expect(scenarios.filter((s) => s.kind === "edge")).toHaveLength(1);
+        expect(scenarios.filter((s) => s.kind === "absurd")).toHaveLength(1);
+      });
+
+      for (const scenario of scenarios.filter((s) => s.kind === "normal" || s.kind === "edge")) {
+        test(`${scenario.kind} scenario ${scenario.id} matches oracle`, () => {
+          const result = compareBatchPremiumProductionVsOracle({
+            slug,
+            scenarioId: scenario.id,
+            values: scenario.values,
+          });
+          expect(result.status).toBe("PASS");
+          expect(result.diffs).toHaveLength(0);
+        });
+      }
+
+      test("absurd scenario diverges or rejects as expected", () => {
+        const absurd = scenarios.find((s) => s.kind === "absurd");
+        expect(absurd).toBeDefined();
+        const result = compareBatchPremiumProductionVsOracle({
+          slug,
+          scenarioId: absurd!.id,
+          values: absurd!.values,
+        });
+        expect(result.status).not.toBe("PASS");
+      });
+
+      test("audit summary passes comparable scenarios", () => {
+        const summary = runBatchPremiumOracleComparisonAudit(slug);
         expect(summary.status).toBe("PASS");
         expect(summary.passCount).toBe(4);
       });

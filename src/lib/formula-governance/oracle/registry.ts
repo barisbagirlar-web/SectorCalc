@@ -24,6 +24,11 @@ const ORACLE_MODULE_BY_TOOL: Record<string, string> = {
   "free-traffic.food-cost-calculator": "batch-free-oracles.ts",
   "revenue-free.product-margin-calculator": "batch-free-oracles.ts",
   "free-traffic.welding-cost-estimator": "batch-free-oracles.ts",
+  "revenue-premium.change-order-impact-analyzer": "batch-premium-oracles.ts",
+  "revenue-premium.office-cleaning-bid-optimizer": "batch-premium-oracles.ts",
+  "revenue-premium.menu-profit-leak-detector": "batch-premium-oracles.ts",
+  "revenue-premium.return-profit-erosion-tool": "batch-premium-oracles.ts",
+  "revenue-premium.welding-bid-risk-analyzer": "batch-premium-oracles.ts",
 };
 
 /** Critical tools awaiting oracle module registration or file implementation. */

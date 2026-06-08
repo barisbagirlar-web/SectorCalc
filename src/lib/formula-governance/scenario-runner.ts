@@ -32,6 +32,14 @@ import {
   isBatchFreeOracleSlug,
 } from "@/lib/formula-governance/oracle/batch-free-oracles";
 import {
+  calculateChangeOrderImpactOracle,
+  calculateMenuProfitLeakDetectorOracle,
+  calculateOfficeCleaningBidOptimizerOracle,
+  calculateReturnProfitErosionOracle,
+  calculateWeldingBidRiskOracle,
+  isBatchPremiumOracleSlug,
+} from "@/lib/formula-governance/oracle/batch-premium-oracles";
+import {
   calculateRentVsBuyOracle,
   isRentVsBuyOracleSlug,
 } from "@/lib/formula-governance/oracle/rent-vs-buy-oracle";
@@ -1018,6 +1026,586 @@ const WELDING_COST_SCENARIOS: Record<string, ScenarioHandler> = {
   },
 };
 
+const CHANGE_ORDER_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-change": () => {
+    const result = calculateChangeOrderImpactOracle({
+      originalContractValue: 25000,
+      originalEstimatedCost: 18500,
+      extraLaborHours: 24,
+      laborHourlyRate: 42,
+      extraMaterialCost: 1800,
+      extraEquipmentCost: 450,
+      delayDays: 5,
+      dailyOverheadCost: 350,
+      targetChangeMargin: 18,
+      customerOfferedPrice: 4500,
+    });
+    if (result.extraDirectCost <= 0) {
+      throw new Error("Expected positive extra direct cost for normal change.");
+    }
+  },
+  "edge-zero-delay": () => {
+    const result = calculateChangeOrderImpactOracle({
+      originalContractValue: 40000,
+      originalEstimatedCost: 30000,
+      extraLaborHours: 16,
+      laborHourlyRate: 45,
+      extraMaterialCost: 2200,
+      extraEquipmentCost: 600,
+      delayDays: 0,
+      dailyOverheadCost: 300,
+      targetChangeMargin: 22,
+      customerOfferedPrice: 5200,
+    });
+    if (result.delayCost !== 0) {
+      throw new Error("Zero delay days should yield zero delay cost.");
+    }
+  },
+  "absurd-negative-delay": () => {
+    try {
+      calculateChangeOrderImpactOracle({
+        originalContractValue: 20000,
+        originalEstimatedCost: 15000,
+        extraLaborHours: 10,
+        laborHourlyRate: 40,
+        extraMaterialCost: 500,
+        extraEquipmentCost: 100,
+        delayDays: -2,
+        dailyOverheadCost: 200,
+        targetChangeMargin: 18,
+        customerOfferedPrice: 2000,
+      });
+      throw new Error("Expected validation error for negative delay days.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-change-cost": () => {
+    const base = calculateChangeOrderImpactOracle({
+      originalContractValue: 25000,
+      originalEstimatedCost: 18500,
+      extraLaborHours: 20,
+      laborHourlyRate: 42,
+      extraMaterialCost: 1500,
+      extraEquipmentCost: 400,
+      delayDays: 3,
+      dailyOverheadCost: 300,
+      targetChangeMargin: 18,
+      customerOfferedPrice: 4000,
+    });
+    const bumped = calculateChangeOrderImpactOracle({
+      originalContractValue: 25000,
+      originalEstimatedCost: 18500,
+      extraLaborHours: 28,
+      laborHourlyRate: 42,
+      extraMaterialCost: 1500,
+      extraEquipmentCost: 400,
+      delayDays: 3,
+      dailyOverheadCost: 300,
+      targetChangeMargin: 18,
+      customerOfferedPrice: 4000,
+    });
+    if (bumped.extraDirectCost <= base.extraDirectCost) {
+      throw new Error("More extra labor hours must increase extra direct cost.");
+    }
+  },
+  "sensitivity-crew-rate": () => {
+    const base = calculateChangeOrderImpactOracle({
+      originalContractValue: 25000,
+      originalEstimatedCost: 18500,
+      extraLaborHours: 20,
+      laborHourlyRate: 40,
+      extraMaterialCost: 1500,
+      extraEquipmentCost: 400,
+      delayDays: 4,
+      dailyOverheadCost: 320,
+      targetChangeMargin: 18,
+      customerOfferedPrice: 4000,
+    });
+    const bumped = calculateChangeOrderImpactOracle({
+      originalContractValue: 25000,
+      originalEstimatedCost: 18500,
+      extraLaborHours: 20,
+      laborHourlyRate: 48,
+      extraMaterialCost: 1500,
+      extraEquipmentCost: 400,
+      delayDays: 4,
+      dailyOverheadCost: 320,
+      targetChangeMargin: 18,
+      customerOfferedPrice: 4000,
+    });
+    if (bumped.minimumSafeChangePrice <= base.minimumSafeChangePrice) {
+      throw new Error("Higher labor hourly rate must widen minimum safe change price.");
+    }
+  },
+};
+
+const OFFICE_CLEANING_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-contract": () => {
+    const result = calculateOfficeCleaningBidOptimizerOracle({
+      area: 6000,
+      frequencyPerMonth: 12,
+      hoursPerVisit: 3,
+      crewSize: 2,
+      laborHourlyCost: 19,
+      suppliesCostPerVisit: 18,
+      travelCostPerVisit: 22,
+      monthlyOverhead: 180,
+      targetMargin: 30,
+      customerBudget: 1800,
+    });
+    if (result.minimumSafeMonthlyBid <= result.monthlyDirectCost) {
+      throw new Error("Minimum safe bid must exceed monthly direct cost.");
+    }
+  },
+  "edge-high-frequency": () => {
+    const low = calculateOfficeCleaningBidOptimizerOracle({
+      area: 8000,
+      frequencyPerMonth: 12,
+      hoursPerVisit: 3,
+      crewSize: 2,
+      laborHourlyCost: 20,
+      suppliesCostPerVisit: 15,
+      travelCostPerVisit: 20,
+      monthlyOverhead: 200,
+      targetMargin: 22,
+      customerBudget: 2000,
+    });
+    const high = calculateOfficeCleaningBidOptimizerOracle({
+      area: 8000,
+      frequencyPerMonth: 22,
+      hoursPerVisit: 2,
+      crewSize: 2,
+      laborHourlyCost: 20,
+      suppliesCostPerVisit: 15,
+      travelCostPerVisit: 20,
+      monthlyOverhead: 200,
+      targetMargin: 22,
+      customerBudget: 2500,
+    });
+    if (high.monthlyDirectCost <= low.monthlyDirectCost) {
+      throw new Error("Higher visit frequency must increase monthly direct cost.");
+    }
+  },
+  "absurd-zero-visits": () => {
+    try {
+      calculateOfficeCleaningBidOptimizerOracle({
+        area: 5000,
+        frequencyPerMonth: 0,
+        hoursPerVisit: 3,
+        crewSize: 2,
+        laborHourlyCost: 19,
+        suppliesCostPerVisit: 18,
+        travelCostPerVisit: 22,
+        monthlyOverhead: 180,
+        targetMargin: 30,
+        customerBudget: 1800,
+      });
+      throw new Error("Expected validation error for zero visit frequency.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-labor-hours": () => {
+    const base = calculateOfficeCleaningBidOptimizerOracle({
+      area: 6000,
+      frequencyPerMonth: 12,
+      hoursPerVisit: 2.5,
+      crewSize: 2,
+      laborHourlyCost: 19,
+      suppliesCostPerVisit: 18,
+      travelCostPerVisit: 22,
+      monthlyOverhead: 180,
+      targetMargin: 28,
+      customerBudget: 1700,
+    });
+    const bumped = calculateOfficeCleaningBidOptimizerOracle({
+      area: 6000,
+      frequencyPerMonth: 12,
+      hoursPerVisit: 3.5,
+      crewSize: 2,
+      laborHourlyCost: 19,
+      suppliesCostPerVisit: 18,
+      travelCostPerVisit: 22,
+      monthlyOverhead: 180,
+      targetMargin: 28,
+      customerBudget: 1700,
+    });
+    if (bumped.minimumSafeMonthlyBid <= base.minimumSafeMonthlyBid) {
+      throw new Error("More hours per visit must raise minimum safe bid.");
+    }
+  },
+  "sensitivity-supply": () => {
+    const base = calculateOfficeCleaningBidOptimizerOracle({
+      area: 6000,
+      frequencyPerMonth: 12,
+      hoursPerVisit: 3,
+      crewSize: 2,
+      laborHourlyCost: 19,
+      suppliesCostPerVisit: 18,
+      travelCostPerVisit: 22,
+      monthlyOverhead: 180,
+      targetMargin: 30,
+      customerBudget: 1800,
+    });
+    const bumped = calculateOfficeCleaningBidOptimizerOracle({
+      area: 6000,
+      frequencyPerMonth: 12,
+      hoursPerVisit: 3,
+      crewSize: 2,
+      laborHourlyCost: 19,
+      suppliesCostPerVisit: 28,
+      travelCostPerVisit: 22,
+      monthlyOverhead: 180,
+      targetMargin: 30,
+      customerBudget: 1800,
+    });
+    if (bumped.minimumSafeMonthlyBid <= base.minimumSafeMonthlyBid) {
+      throw new Error("Higher supply cost must raise minimum safe bid.");
+    }
+  },
+};
+
+const MENU_PROFIT_LEAK_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-item": () => {
+    const result = calculateMenuProfitLeakDetectorOracle({
+      sellingPrice: 14.5,
+      ingredientCost: 3.8,
+      wasteRate: 8,
+      packagingCost: 0.45,
+      laborCostPerItem: 1.2,
+      deliveryCommissionRate: 22,
+      targetMargin: 55,
+      monthlyUnitsSold: 420,
+    });
+    if (result.actualMargin <= 0) {
+      throw new Error("Normal menu item should yield positive margin.");
+    }
+  },
+  "edge-high-delivery": () => {
+    const low = calculateMenuProfitLeakDetectorOracle({
+      sellingPrice: 15,
+      ingredientCost: 3.5,
+      wasteRate: 6,
+      packagingCost: 0.5,
+      laborCostPerItem: 1,
+      deliveryCommissionRate: 12,
+      targetMargin: 52,
+      monthlyUnitsSold: 500,
+    });
+    const high = calculateMenuProfitLeakDetectorOracle({
+      sellingPrice: 15,
+      ingredientCost: 3.5,
+      wasteRate: 6,
+      packagingCost: 0.5,
+      laborCostPerItem: 1,
+      deliveryCommissionRate: 32,
+      targetMargin: 52,
+      monthlyUnitsSold: 500,
+    });
+    if (high.actualMargin >= low.actualMargin) {
+      throw new Error("Higher delivery commission must erode actual margin.");
+    }
+  },
+  "absurd-waste": () => {
+    try {
+      calculateMenuProfitLeakDetectorOracle({
+        sellingPrice: 12,
+        ingredientCost: 3,
+        wasteRate: 150,
+        packagingCost: 0.3,
+        laborCostPerItem: 0.9,
+        deliveryCommissionRate: 15,
+        targetMargin: 50,
+        monthlyUnitsSold: 200,
+      });
+      throw new Error("Expected validation error for waste rate above 100%.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-waste": () => {
+    const base = calculateMenuProfitLeakDetectorOracle({
+      sellingPrice: 16,
+      ingredientCost: 4,
+      wasteRate: 5,
+      packagingCost: 0.4,
+      laborCostPerItem: 1.1,
+      deliveryCommissionRate: 18,
+      targetMargin: 55,
+      monthlyUnitsSold: 300,
+    });
+    const bumped = calculateMenuProfitLeakDetectorOracle({
+      sellingPrice: 16,
+      ingredientCost: 4,
+      wasteRate: 12,
+      packagingCost: 0.4,
+      laborCostPerItem: 1.1,
+      deliveryCommissionRate: 18,
+      targetMargin: 55,
+      monthlyUnitsSold: 300,
+    });
+    if (bumped.minimumSafePrice <= base.minimumSafePrice) {
+      throw new Error("Higher waste rate must increase minimum safe price.");
+    }
+  },
+  "sensitivity-labor": () => {
+    const base = calculateMenuProfitLeakDetectorOracle({
+      sellingPrice: 18,
+      ingredientCost: 4.2,
+      wasteRate: 6,
+      packagingCost: 0.35,
+      laborCostPerItem: 1,
+      deliveryCommissionRate: 15,
+      targetMargin: 58,
+      monthlyUnitsSold: 250,
+    });
+    const bumped = calculateMenuProfitLeakDetectorOracle({
+      sellingPrice: 18,
+      ingredientCost: 4.2,
+      wasteRate: 6,
+      packagingCost: 0.35,
+      laborCostPerItem: 1.6,
+      deliveryCommissionRate: 15,
+      targetMargin: 58,
+      monthlyUnitsSold: 250,
+    });
+    if (bumped.minimumSafePrice <= base.minimumSafePrice) {
+      throw new Error("Higher labor cost per item must widen minimum safe price.");
+    }
+  },
+};
+
+const RETURN_PROFIT_EROSION_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-sku": () => {
+    const result = calculateReturnProfitErosionOracle({
+      sellingPrice: 79,
+      productCost: 28,
+      shippingCost: 6.5,
+      platformFeeRate: 12,
+      paymentFeeRate: 2.9,
+      returnRate: 8,
+      returnHandlingCost: 4.5,
+      adCostPerOrder: 9,
+      targetMargin: 25,
+    });
+    if (!Number.isFinite(result.netProfit)) {
+      throw new Error("Expected finite net profit for normal SKU.");
+    }
+  },
+  "edge-high-returns": () => {
+    const low = calculateReturnProfitErosionOracle({
+      sellingPrice: 65,
+      productCost: 22,
+      shippingCost: 7,
+      platformFeeRate: 10,
+      paymentFeeRate: 2.9,
+      returnRate: 5,
+      returnHandlingCost: 4,
+      adCostPerOrder: 8,
+      targetMargin: 22,
+    });
+    const high = calculateReturnProfitErosionOracle({
+      sellingPrice: 65,
+      productCost: 22,
+      shippingCost: 7,
+      platformFeeRate: 10,
+      paymentFeeRate: 2.9,
+      returnRate: 22,
+      returnHandlingCost: 4,
+      adCostPerOrder: 8,
+      targetMargin: 22,
+    });
+    if (high.netProfit >= low.netProfit) {
+      throw new Error("Higher return rate must reduce net profit.");
+    }
+  },
+  "absurd-return-rate": () => {
+    try {
+      calculateReturnProfitErosionOracle({
+        sellingPrice: 50,
+        productCost: 18,
+        shippingCost: 5,
+        platformFeeRate: 10,
+        paymentFeeRate: 3,
+        returnRate: 110,
+        returnHandlingCost: 4,
+        adCostPerOrder: 8,
+        targetMargin: 25,
+      });
+      throw new Error("Expected validation error for return rate above 100%.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-return": () => {
+    const base = calculateReturnProfitErosionOracle({
+      sellingPrice: 80,
+      productCost: 28,
+      shippingCost: 6,
+      platformFeeRate: 10,
+      paymentFeeRate: 3,
+      returnRate: 6,
+      returnHandlingCost: 4,
+      adCostPerOrder: 9,
+      targetMargin: 25,
+    });
+    const bumped = calculateReturnProfitErosionOracle({
+      sellingPrice: 80,
+      productCost: 28,
+      shippingCost: 6,
+      platformFeeRate: 10,
+      paymentFeeRate: 3,
+      returnRate: 14,
+      returnHandlingCost: 4,
+      adCostPerOrder: 9,
+      targetMargin: 25,
+    });
+    if (bumped.returnImpact <= base.returnImpact) {
+      throw new Error("Higher return rate must increase return impact.");
+    }
+  },
+  "sensitivity-shipping": () => {
+    const base = calculateReturnProfitErosionOracle({
+      sellingPrice: 75,
+      productCost: 26,
+      shippingCost: 5,
+      platformFeeRate: 10,
+      paymentFeeRate: 3,
+      returnRate: 8,
+      returnHandlingCost: 4,
+      adCostPerOrder: 8,
+      targetMargin: 24,
+    });
+    const bumped = calculateReturnProfitErosionOracle({
+      sellingPrice: 75,
+      productCost: 26,
+      shippingCost: 9,
+      platformFeeRate: 10,
+      paymentFeeRate: 3,
+      returnRate: 8,
+      returnHandlingCost: 4,
+      adCostPerOrder: 8,
+      targetMargin: 24,
+    });
+    if (bumped.requiredPriceForTargetMargin <= base.requiredPriceForTargetMargin) {
+      throw new Error("Higher shipping cost must widen required price for target margin.");
+    }
+  },
+};
+
+const WELDING_BID_SCENARIOS: Record<string, ScenarioHandler> = {
+  "normal-fab": () => {
+    const result = calculateWeldingBidRiskOracle({
+      materialCost: 850,
+      laborHours: 14,
+      laborRate: 72,
+      gasConsumableCost: 95,
+      fitUpHours: 3,
+      reworkRiskPercent: 10,
+      targetMargin: 25,
+    });
+    if (result.minimumSafePrice <= result.baseCost) {
+      throw new Error("Minimum safe bid must exceed visible base cost.");
+    }
+  },
+  "edge-fit-up-heavy": () => {
+    const low = calculateWeldingBidRiskOracle({
+      materialCost: 600,
+      laborHours: 8,
+      laborRate: 70,
+      gasConsumableCost: 80,
+      fitUpHours: 2,
+      reworkRiskPercent: 10,
+      targetMargin: 25,
+    });
+    const high = calculateWeldingBidRiskOracle({
+      materialCost: 600,
+      laborHours: 8,
+      laborRate: 70,
+      gasConsumableCost: 80,
+      fitUpHours: 12,
+      reworkRiskPercent: 10,
+      targetMargin: 25,
+    });
+    if (high.baseCost <= low.baseCost) {
+      throw new Error("Fit-up-heavy edge case must increase base cost.");
+    }
+  },
+  "absurd-zero-rate": () => {
+    try {
+      calculateWeldingBidRiskOracle({
+        materialCost: 500,
+        laborHours: 10,
+        laborRate: 0,
+        gasConsumableCost: 60,
+        fitUpHours: 2,
+        reworkRiskPercent: 10,
+        targetMargin: 25,
+      });
+      throw new Error("Expected validation error for zero labor rate.");
+    } catch (error) {
+      if (!(error instanceof OracleValidationError)) {
+        throw error;
+      }
+    }
+  },
+  "directional-rework": () => {
+    const low = calculateWeldingBidRiskOracle({
+      materialCost: 700,
+      laborHours: 12,
+      laborRate: 70,
+      gasConsumableCost: 90,
+      fitUpHours: 4,
+      reworkRiskPercent: 5,
+      targetMargin: 25,
+    });
+    const high = calculateWeldingBidRiskOracle({
+      materialCost: 700,
+      laborHours: 12,
+      laborRate: 70,
+      gasConsumableCost: 90,
+      fitUpHours: 4,
+      reworkRiskPercent: 18,
+      targetMargin: 25,
+    });
+    if (high.minimumSafePrice <= low.minimumSafePrice) {
+      throw new Error("Higher rework risk must raise minimum safe bid.");
+    }
+  },
+  "sensitivity-margin": () => {
+    const low = calculateWeldingBidRiskOracle({
+      materialCost: 850,
+      laborHours: 14,
+      laborRate: 72,
+      gasConsumableCost: 95,
+      fitUpHours: 3,
+      reworkRiskPercent: 10,
+      targetMargin: 18,
+    });
+    const high = calculateWeldingBidRiskOracle({
+      materialCost: 850,
+      laborHours: 14,
+      laborRate: 72,
+      gasConsumableCost: 95,
+      fitUpHours: 3,
+      reworkRiskPercent: 10,
+      targetMargin: 28,
+    });
+    if (high.minimumSafePrice <= low.minimumSafePrice) {
+      throw new Error("Higher target margin must raise minimum safe bid.");
+    }
+  },
+};
+
 const SCENARIO_HANDLERS: Record<string, Record<string, ScenarioHandler>> = {
   "project-cost-calculator": PROJECT_COST_SCENARIOS,
   "cleaning-cost-calculator": CLEANING_COST_SCENARIOS,
@@ -1035,6 +1623,11 @@ const SCENARIO_HANDLERS: Record<string, Record<string, ScenarioHandler>> = {
   "cash-flow-gap-calculator": CASH_FLOW_SCENARIOS,
   "machine-time-calculator": MACHINE_TIME_SCENARIOS,
   "cnc-quote-risk-analyzer": CNC_SCENARIOS,
+  "change-order-impact-analyzer": CHANGE_ORDER_SCENARIOS,
+  "office-cleaning-bid-optimizer": OFFICE_CLEANING_SCENARIOS,
+  "menu-profit-leak-detector": MENU_PROFIT_LEAK_SCENARIOS,
+  "return-profit-erosion-tool": RETURN_PROFIT_EROSION_SCENARIOS,
+  "welding-bid-risk-analyzer": WELDING_BID_SCENARIOS,
 };
 
 export function runScenarioSpec(
@@ -1055,7 +1648,8 @@ export function runScenarioSpec(
     !isRentVsBuyOracleSlug(slug) &&
     !isBusinessOracleSlug(slug) &&
     !isOperationsOracleSlug(slug) &&
-    !isBatchFreeOracleSlug(slug)
+    !isBatchFreeOracleSlug(slug) &&
+    !isBatchPremiumOracleSlug(slug)
   ) {
     return {
       scenarioId: spec.id,

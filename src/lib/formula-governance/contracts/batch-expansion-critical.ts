@@ -9,8 +9,6 @@ import {
   STANDARD_DECISION_LANGUAGE_RULE,
   STANDARD_MUST_NOT_CLAIM,
   buildAssuredCriticalContract,
-  buildCriticalContract,
-  scenarioSkeletons,
 } from "@/lib/formula-governance/contracts/shared";
 
 export const BATCH_FREE_ORACLE_WIRED_SLUGS = [
@@ -19,6 +17,14 @@ export const BATCH_FREE_ORACLE_WIRED_SLUGS = [
   "food-cost-calculator",
   "product-margin-calculator",
   "welding-cost-estimator",
+] as const;
+
+export const BATCH_PREMIUM_ORACLE_WIRED_SLUGS = [
+  "change-order-impact-analyzer",
+  "office-cleaning-bid-optimizer",
+  "menu-profit-leak-detector",
+  "return-profit-erosion-tool",
+  "welding-bid-risk-analyzer",
 ] as const;
 import { createWarningPolicy } from "@/lib/formula-governance/warning-policy";
 
@@ -102,7 +108,7 @@ export const projectCostCalculatorContract: FormulaContract = buildAssuredCritic
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const changeOrderImpactAnalyzerContract: FormulaContract = buildCriticalContract({
+export const changeOrderImpactAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.change-order-impact-analyzer",
   toolName: "Change Order Impact Analyzer",
   slug: "change-order-impact-analyzer",
@@ -152,34 +158,34 @@ export const changeOrderImpactAnalyzerContract: FormulaContract = buildCriticalC
     { id: "delay-non-negative", description: "delayDays must be ≥ 0", kind: "edge" },
     { id: "margin-percent", description: "marginTarget is percent not decimal", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-change", description: "Normal case: moderate change with short delay" },
     { id: "edge-zero-delay", description: "Edge case: change cost only, zero delay days" },
     { id: "absurd-negative-delay", description: "Absurd input: negative delay days rejected" },
-    { id: "directional-change-cost", description: "Directional: higher changeEstimate increases impact" },
-    { id: "sensitivity-crew-rate", description: "Sensitivity: higher crewCostPerDay widens minimum safe price" },
-  ]),
+    { id: "directional-change-cost", description: "Directional: higher extra labor hours increase impact" },
+    { id: "sensitivity-crew-rate", description: "Sensitivity: higher labor hourly rate widens minimum safe price" },
+  ],
   monotonicityRules: [
     {
       id: "change-up-impact",
-      description: "Higher changeEstimate must not decrease minimum safe price",
-      inputKey: "changeEstimate",
+      description: "Higher extraLaborHours must not decrease minimum safe change price",
+      inputKey: "extraLaborHours",
       direction: "increase_should_increase",
-      outputKey: "minimumSafePrice",
+      outputKey: "minimumSafeChangePrice",
     },
     {
       id: "delay-up-impact",
       description: "Higher delayDays must not decrease schedule/cost impact",
       inputKey: "delayDays",
       direction: "increase_should_increase",
-      outputKey: "minimumSafePrice",
+      outputKey: "minimumSafeChangePrice",
     },
     {
       id: "margin-up-floor",
-      description: "Higher marginTarget must not decrease minimum safe price",
-      inputKey: "marginTarget",
+      description: "Higher targetChangeMargin must not decrease minimum safe change price",
+      inputKey: "targetChangeMargin",
       direction: "increase_should_increase",
-      outputKey: "minimumSafePrice",
+      outputKey: "minimumSafeChangePrice",
     },
   ],
   decisionLanguageRules: [STANDARD_DECISION_LANGUAGE_RULE],
@@ -261,7 +267,7 @@ export const cleaningCostCalculatorContract: FormulaContract = buildAssuredCriti
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const officeCleaningBidOptimizerContract: FormulaContract = buildCriticalContract({
+export const officeCleaningBidOptimizerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.office-cleaning-bid-optimizer",
   toolName: "Office Cleaning Bid Optimizer",
   slug: "office-cleaning-bid-optimizer",
@@ -313,13 +319,13 @@ export const officeCleaningBidOptimizerContract: FormulaContract = buildCritical
     { id: "labor-rate-positive", description: "laborRate must be > 0", kind: "edge" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-contract", description: "Normal case: weekly office visits with target margin" },
     { id: "edge-high-frequency", description: "Edge case: daily visit frequency" },
     { id: "absurd-zero-visits", description: "Absurd input: zero visit frequency rejected" },
     { id: "directional-labor-hours", description: "Directional: more hours per visit raises bid floor" },
     { id: "sensitivity-supply", description: "Sensitivity: higher supply cost raises minimum bid" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "hours-up-bid",
@@ -415,7 +421,7 @@ export const foodCostCalculatorContract: FormulaContract = buildAssuredCriticalC
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const menuProfitLeakDetectorContract: FormulaContract = buildCriticalContract({
+export const menuProfitLeakDetectorContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.menu-profit-leak-detector",
   toolName: "Menu Profit Leak Detector",
   slug: "menu-profit-leak-detector",
@@ -467,13 +473,13 @@ export const menuProfitLeakDetectorContract: FormulaContract = buildCriticalCont
     { id: "waste-percent", description: "wasteRate is percent 0–100", kind: "dimensional" },
     { id: "commission-percent", description: "deliveryCommission is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-item", description: "Normal case: dine-in item with moderate waste" },
     { id: "edge-high-delivery", description: "Edge case: high delivery commission mix" },
     { id: "absurd-waste", description: "Absurd input: waste rate above 100% rejected" },
     { id: "directional-waste", description: "Directional: higher wasteRate increases profit leak" },
     { id: "sensitivity-labor", description: "Sensitivity: higher laborCostPerItem widens leak" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "waste-up-leak",
@@ -579,7 +585,7 @@ export const productMarginCalculatorContract: FormulaContract = buildAssuredCrit
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const returnProfitErosionToolContract: FormulaContract = buildCriticalContract({
+export const returnProfitErosionToolContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.return-profit-erosion-tool",
   toolName: "Return Profit Erosion Tool",
   slug: "return-profit-erosion-tool",
@@ -631,13 +637,13 @@ export const returnProfitErosionToolContract: FormulaContract = buildCriticalCon
     { id: "return-percent", description: "returnRate within 0–100%", kind: "dimensional" },
     { id: "ad-cost-non-negative", description: "adCostPerSale must be ≥ 0", kind: "edge" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-sku", description: "Normal case: moderate return rate and ad spend" },
     { id: "edge-high-returns", description: "Edge case: return rate above category norm" },
     { id: "absurd-return-rate", description: "Absurd input: return rate above 100% rejected" },
     { id: "directional-return", description: "Directional: higher returnRate increases erosion" },
     { id: "sensitivity-shipping", description: "Sensitivity: higher shippingCost widens erosion" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "return-up-erosion",
@@ -739,7 +745,7 @@ export const weldingCostEstimatorContract: FormulaContract = buildAssuredCritica
   mustNotClaim: [...STANDARD_MUST_NOT_CLAIM],
 });
 
-export const weldingBidRiskAnalyzerContract: FormulaContract = buildCriticalContract({
+export const weldingBidRiskAnalyzerContract: FormulaContract = buildAssuredCriticalContract({
   toolId: "revenue-premium.welding-bid-risk-analyzer",
   toolName: "Welding Bid Risk Analyzer",
   slug: "welding-bid-risk-analyzer",
@@ -793,13 +799,13 @@ export const weldingBidRiskAnalyzerContract: FormulaContract = buildCriticalCont
     { id: "rework-percent", description: "reworkRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],
-  scenarioTests: scenarioSkeletons([
+  scenarioSpecs: [
     { id: "normal-fab", description: "Normal case: fabrication job with moderate rework risk" },
     { id: "edge-fit-up-heavy", description: "Edge case: fit-up hours dominate weld time" },
     { id: "absurd-zero-rate", description: "Absurd input: zero labor rate rejected" },
     { id: "directional-rework", description: "Directional: higher reworkRiskPercent raises safe bid" },
     { id: "sensitivity-margin", description: "Sensitivity: higher targetMargin raises minimum bid" },
-  ]),
+  ],
   monotonicityRules: [
     {
       id: "rework-up-risk",

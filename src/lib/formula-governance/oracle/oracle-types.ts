@@ -150,3 +150,95 @@ export type WeldingCostOracleOutput = {
   readonly estimatedCost: number;
   readonly laborCost: number;
 };
+
+export type ChangeOrderImpactOracleInput = {
+  readonly originalContractValue: number;
+  readonly originalEstimatedCost: number;
+  readonly extraLaborHours: number;
+  readonly laborHourlyRate: number;
+  readonly extraMaterialCost: number;
+  readonly extraEquipmentCost: number;
+  readonly delayDays: number;
+  readonly dailyOverheadCost: number;
+  readonly targetChangeMargin: number;
+  readonly customerOfferedPrice: number;
+};
+
+export type ChangeOrderImpactOracleOutput = {
+  readonly extraLaborCost: number;
+  readonly delayCost: number;
+  readonly extraDirectCost: number;
+  readonly minimumSafeChangePrice: number;
+};
+
+export type OfficeCleaningBidOptimizerOracleInput = {
+  readonly area: number;
+  readonly frequencyPerMonth: number;
+  readonly hoursPerVisit: number;
+  readonly crewSize: number;
+  readonly laborHourlyCost: number;
+  readonly suppliesCostPerVisit: number;
+  readonly travelCostPerVisit: number;
+  readonly monthlyOverhead: number;
+  readonly targetMargin: number;
+  readonly customerBudget: number;
+};
+
+export type OfficeCleaningBidOptimizerOracleOutput = {
+  readonly monthlyDirectCost: number;
+  readonly minimumSafeMonthlyBid: number;
+  readonly marginAtBudget: number;
+};
+
+export type MenuProfitLeakDetectorOracleInput = {
+  readonly sellingPrice: number;
+  readonly ingredientCost: number;
+  readonly wasteRate: number;
+  readonly packagingCost: number;
+  readonly laborCostPerItem: number;
+  readonly deliveryCommissionRate: number;
+  readonly targetMargin: number;
+  readonly monthlyUnitsSold: number;
+};
+
+export type MenuProfitLeakDetectorOracleOutput = {
+  readonly totalCostPerItem: number;
+  readonly actualMargin: number;
+  readonly minimumSafePrice: number;
+  readonly grossProfitPerItem: number;
+};
+
+export type ReturnProfitErosionOracleInput = {
+  readonly sellingPrice: number;
+  readonly productCost: number;
+  readonly shippingCost: number;
+  readonly platformFeeRate: number;
+  readonly paymentFeeRate: number;
+  readonly returnRate: number;
+  readonly returnHandlingCost: number;
+  readonly adCostPerOrder: number;
+  readonly targetMargin: number;
+};
+
+export type ReturnProfitErosionOracleOutput = {
+  readonly netProfit: number;
+  readonly netMargin: number;
+  readonly returnImpact: number;
+  readonly requiredPriceForTargetMargin: number;
+};
+
+export type WeldingBidRiskOracleInput = {
+  readonly materialCost: number;
+  readonly laborHours: number;
+  readonly laborRate: number;
+  readonly gasConsumableCost: number;
+  readonly fitUpHours: number;
+  readonly reworkRiskPercent: number;
+  readonly targetMargin: number;
+};
+
+export type WeldingBidRiskOracleOutput = {
+  readonly baseCost: number;
+  readonly p90Cost: number;
+  readonly minimumSafePrice: number;
+};

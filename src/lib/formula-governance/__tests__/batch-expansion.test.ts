@@ -9,12 +9,14 @@ import {
   BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS,
   BATCH_EXPANSION_CRITICAL_SLUGS,
   BATCH_FREE_ORACLE_WIRED_SLUGS,
+  BATCH_PREMIUM_ORACLE_WIRED_SLUGS,
 } from "@/lib/formula-governance/contracts/batch-expansion-critical";
 import { buildFormulaInventory, summarizeInventory } from "@/lib/formula-governance/inventory";
 
-const BATCH_PREMIUM_PENDING_SLUGS = BATCH_EXPANSION_CRITICAL_SLUGS.filter(
-  (slug) => !(BATCH_FREE_ORACLE_WIRED_SLUGS as readonly string[]).includes(slug),
-);
+const BATCH_ORACLE_WIRED_SLUGS = [
+  ...BATCH_FREE_ORACLE_WIRED_SLUGS,
+  ...BATCH_PREMIUM_ORACLE_WIRED_SLUGS,
+] as const;
 
 describe("phase 5E batch expansion contracts", () => {
   test("all 10 slugs resolve from registry", () => {
@@ -23,7 +25,7 @@ describe("phase 5E batch expansion contracts", () => {
     }
   });
 
-  test("wired free tools have assured coverage; premium batch tools remain skeletons", () => {
+  test("all 10 batch expansion tools have assured oracle coverage", () => {
     for (const contract of BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS) {
       expect(contract.riskLevel).toBe("critical");
       expect(contract.warningPolicy).toBeDefined();
@@ -31,14 +33,10 @@ describe("phase 5E batch expansion contracts", () => {
       expect(contract.monotonicityRules.length).toBeGreaterThanOrEqual(3);
       expect(contract.oracleRequired).toBe(true);
 
-      const isWired = (BATCH_FREE_ORACLE_WIRED_SLUGS as readonly string[]).includes(contract.slug);
-      if (isWired) {
-        expect(contract.scenarioTests.every((s) => s.present === true)).toBe(true);
-        expect(contract.propertyTestsRegistered).toBe(true);
-      } else {
-        expect(contract.scenarioTests.every((s) => s.present === false)).toBe(true);
-        expect(contract.propertyTestsRegistered).toBe(false);
-      }
+      const isWired = (BATCH_ORACLE_WIRED_SLUGS as readonly string[]).includes(contract.slug);
+      expect(isWired).toBe(true);
+      expect(contract.scenarioTests.every((s) => s.present === true)).toBe(true);
+      expect(contract.propertyTestsRegistered).toBe(true);
     }
   });
 
@@ -51,27 +49,15 @@ describe("phase 5E batch expansion contracts", () => {
     }
   });
 
-  test("first 5 batch free tools clear oracle, property and scenario blockers", () => {
+  test("all 10 batch expansion tools clear oracle, property and scenario blockers", () => {
     const report = runGovernanceAudit();
-    for (const slug of BATCH_FREE_ORACLE_WIRED_SLUGS) {
+    for (const slug of BATCH_ORACLE_WIRED_SLUGS) {
       const result = report.results.find((r) => r.slug === slug);
       expect(result).toBeDefined();
       expect(result?.findings.some((f) => f.code === "CRIT_ORACLE_MISSING")).toBe(false);
       expect(result?.findings.some((f) => f.code === "CRIT_PROPERTY_TESTS")).toBe(false);
       expect(result?.findings.some((f) => f.code === "CRIT_SCENARIO_TESTS")).toBe(false);
       expect(result?.findings.some((f) => f.code === "ORACLE_COMPARISON_PASS")).toBe(true);
-    }
-  });
-
-  test("remaining premium batch tools still fail assurance gates", () => {
-    const report = runGovernanceAudit();
-    for (const slug of BATCH_PREMIUM_PENDING_SLUGS) {
-      const result = report.results.find((r) => r.slug === slug);
-      expect(result).toBeDefined();
-      expect(result?.status).toBe("FAIL");
-      expect(result?.findings.some((f) => f.code === "CRIT_ORACLE_MISSING")).toBe(true);
-      expect(result?.findings.some((f) => f.code === "CRIT_PROPERTY_TESTS")).toBe(true);
-      expect(result?.findings.some((f) => f.code === "CRIT_SCENARIO_TESTS")).toBe(true);
     }
   });
 });

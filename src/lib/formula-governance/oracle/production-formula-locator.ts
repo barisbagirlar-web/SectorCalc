@@ -8,6 +8,10 @@ import {
   type BatchFreeOracleSlug,
 } from "@/lib/formula-governance/oracle/batch-free-oracles";
 import {
+  BATCH_PREMIUM_ORACLE_SLUGS,
+  type BatchPremiumOracleSlug,
+} from "@/lib/formula-governance/oracle/batch-premium-oracles";
+import {
   BUSINESS_ORACLE_SLUGS,
   type BusinessOracleSlug,
 } from "@/lib/formula-governance/oracle/business-oracles";
@@ -293,10 +297,138 @@ export function isBatchFreeProductionSlug(slug: string): slug is BatchFreeOracle
   return (BATCH_FREE_ORACLE_SLUGS as readonly string[]).includes(slug);
 }
 
+export const BATCH_PREMIUM_PRODUCTION_FORMULA_LOCATORS: readonly ProductionFormulaLocator[] = [
+  {
+    slug: "change-order-impact-analyzer",
+    toolId: "revenue-premium.change-order-impact-analyzer",
+    productionFilePath: "src/lib/calculators/change-order-impact-analyzer.ts",
+    productionFunctionName: "calculateChangeOrderAnalyzer",
+    productionEntry:
+      'runCalculator("change-order-impact-analyzer") → extra direct cost + minimum safe change price',
+    oracleFunctionName: "calculateChangeOrderImpactOracle",
+    inputShape: [
+      "originalContractValue",
+      "originalEstimatedCost",
+      "extraLaborHours",
+      "laborHourlyRate",
+      "extraMaterialCost",
+      "extraEquipmentCost",
+      "delayDays",
+      "dailyOverheadCost",
+      "targetChangeMargin",
+      "customerOfferedPrice",
+    ],
+    productionOutputShape: ["extraDirectCost", "minimumSafeChangePrice", "delayCost"],
+    oracleOutputShape: ["extraDirectCost", "minimumSafeChangePrice", "delayCost"],
+    comparisonWired: true,
+  },
+  {
+    slug: "office-cleaning-bid-optimizer",
+    toolId: "revenue-premium.office-cleaning-bid-optimizer",
+    productionFilePath: "src/lib/calculators/office-cleaning-bid-optimizer.ts",
+    productionFunctionName: "calculateCleaningBidOptimizer",
+    productionEntry:
+      'runCalculator("office-cleaning-bid-optimizer") → monthly direct cost + minimum safe bid',
+    oracleFunctionName: "calculateOfficeCleaningBidOptimizerOracle",
+    inputShape: [
+      "area",
+      "frequencyPerMonth",
+      "hoursPerVisit",
+      "crewSize",
+      "laborHourlyCost",
+      "suppliesCostPerVisit",
+      "travelCostPerVisit",
+      "monthlyOverhead",
+      "targetMargin",
+      "customerBudget",
+    ],
+    productionOutputShape: ["monthlyDirectCost", "minimumSafeMonthlyBid"],
+    oracleOutputShape: ["monthlyDirectCost", "minimumSafeMonthlyBid"],
+    comparisonWired: true,
+  },
+  {
+    slug: "menu-profit-leak-detector",
+    toolId: "revenue-premium.menu-profit-leak-detector",
+    productionFilePath: "src/lib/calculators/menu-profit-leak-detector.ts",
+    productionFunctionName: "calculateMenuProfitLeak",
+    productionEntry:
+      'runCalculator("menu-profit-leak-detector") → item cost, margin and minimum safe price',
+    oracleFunctionName: "calculateMenuProfitLeakDetectorOracle",
+    inputShape: [
+      "sellingPrice",
+      "ingredientCost",
+      "wasteRate",
+      "packagingCost",
+      "laborCostPerItem",
+      "deliveryCommissionRate",
+      "targetMargin",
+      "monthlyUnitsSold",
+    ],
+    productionOutputShape: ["totalCostPerItem", "actualMargin", "minimumSafePrice"],
+    oracleOutputShape: ["totalCostPerItem", "actualMargin", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "return-profit-erosion-tool",
+    toolId: "revenue-premium.return-profit-erosion-tool",
+    productionFilePath: "src/lib/calculators/return-rate-profit-erosion-tool.ts",
+    productionFunctionName: "calculateReturnRateErosion",
+    productionEntry:
+      'runCalculator("return-rate-profit-erosion-tool") → net profit, margin and return impact',
+    oracleFunctionName: "calculateReturnProfitErosionOracle",
+    inputShape: [
+      "sellingPrice",
+      "productCost",
+      "shippingCost",
+      "platformFeeRate",
+      "paymentFeeRate",
+      "returnRate",
+      "returnHandlingCost",
+      "adCostPerOrder",
+      "targetMargin",
+    ],
+    productionOutputShape: ["netProfit", "netMargin", "returnImpact"],
+    oracleOutputShape: ["netProfit", "netMargin", "returnImpact"],
+    comparisonWired: true,
+  },
+  {
+    slug: "welding-bid-risk-analyzer",
+    toolId: "revenue-premium.welding-bid-risk-analyzer",
+    productionFilePath: "src/lib/tools/premium-decision-engine.ts",
+    productionFunctionName: "calculatePremiumDecisionReport",
+    productionEntry:
+      'BASE_COST_CALCULATORS["welding-bid-risk-analyzer"] → calcWelding + MarginCore floor',
+    oracleFunctionName: "calculateWeldingBidRiskOracle",
+    inputShape: [
+      "materialCost",
+      "laborHours",
+      "laborRate",
+      "gasConsumableCost",
+      "fitUpHours",
+      "reworkRiskPercent",
+      "targetMargin",
+    ],
+    productionOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    oracleOutputShape: ["baseCost", "p90Cost", "minimumSafePrice"],
+    comparisonWired: true,
+  },
+];
+
+export function getBatchPremiumProductionFormulaLocator(
+  slug: BatchPremiumOracleSlug,
+): ProductionFormulaLocator | undefined {
+  return BATCH_PREMIUM_PRODUCTION_FORMULA_LOCATORS.find((entry) => entry.slug === slug);
+}
+
+export function isBatchPremiumProductionSlug(slug: string): slug is BatchPremiumOracleSlug {
+  return (BATCH_PREMIUM_ORACLE_SLUGS as readonly string[]).includes(slug);
+}
+
 export function getAnyProductionFormulaLocator(slug: string): ProductionFormulaLocator | undefined {
   return (
     getProductionFormulaLocator(slug as FinanceOracleSlug) ??
     getBusinessOperationsProductionFormulaLocator(slug as BusinessOperationsOracleSlug) ??
-    getBatchFreeProductionFormulaLocator(slug as BatchFreeOracleSlug)
+    getBatchFreeProductionFormulaLocator(slug as BatchFreeOracleSlug) ??
+    getBatchPremiumProductionFormulaLocator(slug as BatchPremiumOracleSlug)
   );
 }

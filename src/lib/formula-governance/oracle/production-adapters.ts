@@ -5,6 +5,7 @@
 import type { CalculatorInputValues } from "@/lib/calculators/registry";
 import { runCalculator } from "@/lib/calculators/registry";
 import type { BatchFreeOracleSlug } from "@/lib/formula-governance/oracle/batch-free-oracles";
+import type { BatchPremiumOracleSlug } from "@/lib/formula-governance/oracle/batch-premium-oracles";
 import type { FreeTrafficInputValues } from "@/lib/tools/free-traffic-calculators";
 import { calculateFreeTrafficTool } from "@/lib/tools/free-traffic-calculators";
 import type { FinanceOracleSlug } from "@/lib/formula-governance/oracle/finance-oracles";
@@ -117,6 +118,42 @@ export type NormalizedBatchFreeProductionOutput =
   | NormalizedProductMarginProductionOutput
   | NormalizedWeldingCostProductionOutput;
 
+export type NormalizedChangeOrderImpactProductionOutput = {
+  readonly extraDirectCost: number;
+  readonly minimumSafeChangePrice: number;
+  readonly delayCost: number;
+};
+
+export type NormalizedOfficeCleaningBidProductionOutput = {
+  readonly monthlyDirectCost: number;
+  readonly minimumSafeMonthlyBid: number;
+};
+
+export type NormalizedMenuProfitLeakProductionOutput = {
+  readonly totalCostPerItem: number;
+  readonly actualMargin: number;
+  readonly minimumSafePrice: number;
+};
+
+export type NormalizedReturnProfitErosionProductionOutput = {
+  readonly netProfit: number;
+  readonly netMargin: number;
+  readonly returnImpact: number;
+};
+
+export type NormalizedWeldingBidRiskProductionOutput = {
+  readonly baseCost: number;
+  readonly p90Cost: number;
+  readonly minimumSafePrice: number;
+};
+
+export type NormalizedBatchPremiumProductionOutput =
+  | NormalizedChangeOrderImpactProductionOutput
+  | NormalizedOfficeCleaningBidProductionOutput
+  | NormalizedMenuProfitLeakProductionOutput
+  | NormalizedReturnProfitErosionProductionOutput
+  | NormalizedWeldingBidRiskProductionOutput;
+
 export type NormalizedFinanceProductionOutput =
   | NormalizedLoanProductionOutput
   | NormalizedMortgageProductionOutput
@@ -131,7 +168,8 @@ export type ProductionAdapterResult =
       readonly output:
         | NormalizedFinanceProductionOutput
         | NormalizedBusinessOperationsProductionOutput
-        | NormalizedBatchFreeProductionOutput;
+        | NormalizedBatchFreeProductionOutput
+        | NormalizedBatchPremiumProductionOutput;
     }
   | { readonly status: "needs_adapter"; readonly reason: string }
   | { readonly status: "error"; readonly reason: string };
@@ -501,6 +539,127 @@ function adaptWeldingCostProduction(values: CalculatorInputValues): ProductionAd
     return { status: "needs_adapter", reason: "Could not parse welding cost from production output." };
   }
   return { status: "ok", output: { estimatedCost, laborCost } };
+}
+
+function adaptChangeOrderImpactProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const run = runCalculator("change-order-impact-analyzer", values);
+  if (!run) {
+    return { status: "error", reason: "Change order calculator returned no result." };
+  }
+  if (Object.keys(run.errors).length > 0) {
+    return { status: "error", reason: Object.values(run.errors).join(" ") };
+  }
+  const extraDirectCost = extractCalculatorResultValue(run.results, "extraDirectCost");
+  const minimumSafeChangePrice = extractCalculatorResultValue(run.results, "minimumSafeChangePrice");
+  const delayCost = extractCalculatorResultValue(run.results, "delayCost");
+  if (extraDirectCost === null || minimumSafeChangePrice === null || delayCost === null) {
+    return { status: "needs_adapter", reason: "Could not parse change order calculator outputs." };
+  }
+  return { status: "ok", output: { extraDirectCost, minimumSafeChangePrice, delayCost } };
+}
+
+function adaptOfficeCleaningBidProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const run = runCalculator("office-cleaning-bid-optimizer", values);
+  if (!run) {
+    return { status: "error", reason: "Office cleaning bid calculator returned no result." };
+  }
+  if (Object.keys(run.errors).length > 0) {
+    return { status: "error", reason: Object.values(run.errors).join(" ") };
+  }
+  const monthlyDirectCost = extractCalculatorResultValue(run.results, "monthlyDirectCost");
+  const minimumSafeMonthlyBid = extractCalculatorResultValue(run.results, "minimumSafeMonthlyBid");
+  if (monthlyDirectCost === null || minimumSafeMonthlyBid === null) {
+    return { status: "needs_adapter", reason: "Could not parse office cleaning bid outputs." };
+  }
+  return { status: "ok", output: { monthlyDirectCost, minimumSafeMonthlyBid } };
+}
+
+function adaptMenuProfitLeakProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const run = runCalculator("menu-profit-leak-detector", values);
+  if (!run) {
+    return { status: "error", reason: "Menu profit leak calculator returned no result." };
+  }
+  if (Object.keys(run.errors).length > 0) {
+    return { status: "error", reason: Object.values(run.errors).join(" ") };
+  }
+  const actualMargin = extractCalculatorResultValue(run.results, "actualMargin");
+  const minimumSafePrice = extractCalculatorResultValue(run.results, "minimumSafePrice");
+  if (actualMargin === null || minimumSafePrice === null) {
+    return { status: "needs_adapter", reason: "Could not parse menu profit leak margin outputs." };
+  }
+  const grossProfitPerItem = extractCalculatorResultValue(run.results, "grossProfitPerItem");
+  const sellingPrice = Number(values.sellingPrice);
+  const totalCostPerItem =
+    grossProfitPerItem !== null && Number.isFinite(sellingPrice)
+      ? sellingPrice - grossProfitPerItem
+      : null;
+  if (totalCostPerItem === null) {
+    return { status: "needs_adapter", reason: "Could not derive menu total cost per item." };
+  }
+  return { status: "ok", output: { totalCostPerItem, actualMargin, minimumSafePrice } };
+}
+
+function adaptReturnProfitErosionProduction(values: CalculatorInputValues): ProductionAdapterResult {
+  const run = runCalculator("return-rate-profit-erosion-tool", values);
+  if (!run) {
+    return { status: "error", reason: "Return profit erosion calculator returned no result." };
+  }
+  if (Object.keys(run.errors).length > 0) {
+    return { status: "error", reason: Object.values(run.errors).join(" ") };
+  }
+  const netProfit = extractCalculatorResultValue(run.results, "netProfit");
+  const netMargin = extractCalculatorResultValue(run.results, "netMargin");
+  const returnImpact = extractCalculatorResultValue(run.results, "returnImpact");
+  if (netProfit === null || netMargin === null || returnImpact === null) {
+    return { status: "needs_adapter", reason: "Could not parse return profit erosion outputs." };
+  }
+  return { status: "ok", output: { netProfit, netMargin, returnImpact } };
+}
+
+function adaptWeldingBidRiskProduction(values: PremiumInputValues): ProductionAdapterResult {
+  const report = calculatePremiumDecisionReport("welding-bid-risk-analyzer", values);
+  if (
+    !Number.isFinite(report.baseCost) ||
+    !Number.isFinite(report.p90Cost) ||
+    !Number.isFinite(report.minimumSafePrice)
+  ) {
+    return { status: "needs_adapter", reason: "Could not read numeric welding bid report outputs." };
+  }
+  return {
+    status: "ok",
+    output: {
+      baseCost: report.baseCost,
+      p90Cost: report.p90Cost,
+      minimumSafePrice: report.minimumSafePrice,
+    },
+  };
+}
+
+export function adaptProductionBatchPremiumOutput(
+  slug: BatchPremiumOracleSlug,
+  values: CalculatorInputValues | PremiumInputValues,
+): ProductionAdapterResult {
+  try {
+    switch (slug) {
+      case "change-order-impact-analyzer":
+        return adaptChangeOrderImpactProduction(values as CalculatorInputValues);
+      case "office-cleaning-bid-optimizer":
+        return adaptOfficeCleaningBidProduction(values as CalculatorInputValues);
+      case "menu-profit-leak-detector":
+        return adaptMenuProfitLeakProduction(values as CalculatorInputValues);
+      case "return-profit-erosion-tool":
+        return adaptReturnProfitErosionProduction(values as CalculatorInputValues);
+      case "welding-bid-risk-analyzer":
+        return adaptWeldingBidRiskProduction(values as PremiumInputValues);
+      default: {
+        const unsupported: never = slug;
+        return { status: "needs_adapter", reason: `No production adapter for slug "${unsupported}".` };
+      }
+    }
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    return { status: "error", reason };
+  }
 }
 
 export function adaptProductionBatchFreeOutput(
