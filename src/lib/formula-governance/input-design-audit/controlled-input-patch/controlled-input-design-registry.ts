@@ -17,9 +17,16 @@ export const SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
   "millwork-bid-risk-analyzer",
 ] as const;
 
+export const THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
+  "panel-shop-margin-verdict",
+  "plumbing-job-margin-verdict",
+  "print-job-cost-check",
+] as const;
+
 export const ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS = [
   ...FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   ...SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  ...THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
 ] as const;
 
 export type FirstControlledInputDesignPatchSlug =
@@ -27,6 +34,9 @@ export type FirstControlledInputDesignPatchSlug =
 
 export type SecondControlledInputDesignPatchSlug =
   (typeof SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
+
+export type ThirdControlledInputDesignPatchSlug =
+  (typeof THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
 
 export type ControlledInputDesignPatchSlug =
   (typeof ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS)[number];
@@ -279,6 +289,129 @@ const MILLWORK_BID_RISK_ANALYZER_PATCH: ControlledInputDesignPatch = {
   blockers: [],
 };
 
+const PANEL_SHOP_MARGIN_VERDICT_PATCH: ControlledInputDesignPatch = {
+  slug: "panel-shop-margin-verdict",
+  patchType: "input_design_only",
+  requiredInputs: [
+    "materialCost",
+    "laborHours",
+    "laborRate",
+    "testingHours",
+    "inspectionRiskPercent",
+    "targetMargin",
+  ],
+  optionalInputs: ["permitRevisionReserve", "conduitFillComplexity", "supplierLeadTime"],
+  advancedInputs: [
+    "panelComplexity",
+    "wiringDensity",
+    "ahjRevisionRisk",
+    "necDeratingFactor",
+  ],
+  derivedInputs: ["minimumSafePrice", "baseCost", "p90Cost", "quoteVerdict"],
+  defaultAssumptions: [
+    "Permit revision reserve defaults to 4% of material cost when permitRevisionReserve optional override is not provided.",
+    "Testing labor billed at laborRate; base = material + shop labor + testing labor + permit reserve.",
+    "Inspection risk applied via inspectionRiskPercent multiplier on burdened base cost.",
+    "Panel complexity, NEC derating and AHJ revision cycles excluded unless advanced inputs are modeled.",
+  ],
+  userBurdenNotes: [
+    "Premium panel bid keeps six production-aligned required inputs; conduit and supplier lead time optional for smart-form phase.",
+    "minimumSafePrice is governance margin floor target; integrates with electrical-labor-estimator free funnel metadata.",
+  ],
+  professionalDepthNotes: [
+    "Advanced panel complexity and wiring density inputs prepare code-aware panel and circuit complexity model.",
+    "calcElectrical hidden multipliers unchanged — patch documents input taxonomy only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Optional permitRevisionReserve is governance-only — calcElectrical production logic unchanged in Phase 5H-F-3.",
+  ],
+  blockers: [],
+};
+
+const PLUMBING_JOB_MARGIN_VERDICT_PATCH: ControlledInputDesignPatch = {
+  slug: "plumbing-job-margin-verdict",
+  patchType: "input_design_only",
+  requiredInputs: [
+    "partsCost",
+    "laborHours",
+    "laborRate",
+    "fixtureCount",
+    "materialRunCost",
+    "callbackRiskPercent",
+    "targetMargin",
+  ],
+  optionalInputs: ["emergencyPremium", "permitFees", "accessDifficulty"],
+  advancedInputs: [
+    "concealedDamageRisk",
+    "waterDamageLiability",
+    "partsAvailabilityRisk",
+    "callbackProbability",
+  ],
+  derivedInputs: ["minimumSafePrice", "baseCost", "p90Cost", "quoteVerdict"],
+  defaultAssumptions: [
+    "Fixture allowance defaults to $25 per fixture when not itemized separately.",
+    "Access buffer defaults to 15% and permit buffer to 10% of labor on premium base path.",
+    "Callback risk applied via callbackRiskPercent on burdened base including parts, labor and material runs.",
+    "Concealed damage, emergency premium and water damage liability loaded via hidden multipliers unless advanced inputs are set.",
+  ],
+  userBurdenNotes: [
+    "Premium plumbing verdict keeps seven production-aligned required inputs; emergency and permit fees optional for smart-form phase.",
+    "minimumSafePrice is governance primary margin target; quoteVerdict is narrative verdict output.",
+  ],
+  professionalDepthNotes: [
+    "Advanced concealed damage and parts availability inputs prepare risk-adjusted plumbing bid floor model.",
+    "calcPlumbing hidden multipliers unchanged — patch documents required/optional/advanced split only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Advanced water damage and concealed damage inputs are governance placeholders — calcPlumbing unchanged.",
+  ],
+  blockers: [],
+};
+
+const PRINT_JOB_COST_CHECK_PATCH: ControlledInputDesignPatch = {
+  slug: "print-job-cost-check",
+  patchType: "input_design_only",
+  requiredInputs: ["materialCost", "designHours", "laborRate"],
+  optionalInputs: ["setupTime", "spoilageRate", "inkCoverage", "installLaborHours"],
+  advancedInputs: [
+    "colorCalibrationRisk",
+    "finishingComplexity",
+    "reprintRisk",
+    "pressDowntime",
+  ],
+  derivedInputs: ["designCost", "designMaterialRatio", "recommendedPrice", "riskLevel"],
+  defaultAssumptions: [
+    "Design cost = designHours × laborRate; SGIA-style design/material ratio thresholds on free tier.",
+    "Spoilage, color calibration and setup time excluded on free path unless optional inputs are provided.",
+    "Install labor and press downtime not modeled on free tier — optional installLaborHours for smart-form handoff.",
+    "HIGH risk when designMaterialRatio ≥ 1.2; recommendedPrice metadata alias equals designCost.",
+  ],
+  userBurdenNotes: [
+    "Free quick-check exposes three production-aligned inputs; spoilage and setup remain optional until smart-form phase.",
+    "riskLevel is narrative-only; designCost is primary numeric print job cost target.",
+  ],
+  professionalDepthNotes: [
+    "Advanced color calibration, finishing complexity and reprint risk inputs prepare press-specific spoilage model.",
+    "calculatePrintingFreeResult production logic unchanged — patch documents governance input taxonomy only.",
+  ],
+  nextGate: "smart_form_architecture",
+  productionImpact: "none",
+  uiImpact: "future_smart_form_required",
+  oracleImpact: "none",
+  warnings: [
+    "Optional spoilageRate and pressDowntime are governance-only — free-sector print calculator unchanged.",
+  ],
+  blockers: [],
+};
+
 export const CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY: Readonly<
   Record<ControlledInputDesignPatchSlug, ControlledInputDesignPatch>
 > = {
@@ -288,6 +421,9 @@ export const CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY: Readonly<
   "electrical-labor-estimator": ELECTRICAL_LABOR_ESTIMATOR_PATCH,
   "hvac-project-margin-guard": HVAC_PROJECT_MARGIN_GUARD_PATCH,
   "millwork-bid-risk-analyzer": MILLWORK_BID_RISK_ANALYZER_PATCH,
+  "panel-shop-margin-verdict": PANEL_SHOP_MARGIN_VERDICT_PATCH,
+  "plumbing-job-margin-verdict": PLUMBING_JOB_MARGIN_VERDICT_PATCH,
+  "print-job-cost-check": PRINT_JOB_COST_CHECK_PATCH,
 };
 
 export function getControlledInputDesignPatch(

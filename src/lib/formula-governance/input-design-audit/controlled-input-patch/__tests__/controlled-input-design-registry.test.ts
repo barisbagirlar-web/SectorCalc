@@ -8,6 +8,7 @@ import {
   CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY,
   FIRST_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   SECOND_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
+  THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS,
   getControlledInputDesignPatch,
 } from "@/lib/formula-governance/input-design-audit/controlled-input-patch/controlled-input-design-registry";
 
@@ -16,7 +17,7 @@ describe("controlled input design registry", () => {
     for (const slug of ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       expect(getControlledInputDesignPatch(slug)).toBeDefined();
     }
-    expect(Object.keys(CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY)).toHaveLength(6);
+    expect(Object.keys(CONTROLLED_INPUT_DESIGN_PATCH_REGISTRY)).toHaveLength(9);
   });
 
   test("every patch declares productionImpact none", () => {
@@ -102,5 +103,38 @@ describe("controlled input design registry", () => {
     expect(patch.advancedInputs).toContain("finishGrade");
     expect(patch.defaultAssumptions.some((line) => line.includes("Waste rate"))).toBe(true);
     expect(patch.derivedInputs).toContain("minimumSafePrice");
+  });
+
+  test("third batch slugs are registered", () => {
+    for (const slug of THIRD_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
+      expect(getControlledInputDesignPatch(slug)).toBeDefined();
+    }
+  });
+
+  test("panel shop margin verdict inspection and permit defaults are explicit", () => {
+    const patch = getControlledInputDesignPatch("panel-shop-margin-verdict")!;
+    expect(patch.requiredInputs).toContain("testingHours");
+    expect(patch.requiredInputs).toContain("inspectionRiskPercent");
+    expect(patch.advancedInputs).toContain("panelComplexity");
+    expect(patch.defaultAssumptions.some((line) => line.includes("4%"))).toBe(true);
+    expect(patch.derivedInputs).toContain("minimumSafePrice");
+  });
+
+  test("plumbing job margin verdict fixture and callback defaults are explicit", () => {
+    const patch = getControlledInputDesignPatch("plumbing-job-margin-verdict")!;
+    expect(patch.requiredInputs).toContain("fixtureCount");
+    expect(patch.requiredInputs).toContain("callbackRiskPercent");
+    expect(patch.advancedInputs).toContain("concealedDamageRisk");
+    expect(patch.defaultAssumptions.some((line) => line.includes("$25 per fixture"))).toBe(true);
+    expect(patch.derivedInputs).toContain("minimumSafePrice");
+  });
+
+  test("print job cost check design and spoilage inputs are classified", () => {
+    const patch = getControlledInputDesignPatch("print-job-cost-check")!;
+    expect(patch.requiredInputs).toEqual(["materialCost", "designHours", "laborRate"]);
+    expect(patch.optionalInputs).toContain("spoilageRate");
+    expect(patch.advancedInputs).toContain("colorCalibrationRisk");
+    expect(patch.defaultAssumptions.some((line) => line.includes("SGIA"))).toBe(true);
+    expect(patch.derivedInputs).toContain("designMaterialRatio");
   });
 });
