@@ -25,12 +25,18 @@ import {
  PremiumAnalyzerReportPanel,
 } from "@/components/tools/PremiumAnalyzerReportPanel";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
+import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
+import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
 import {
  isPremiumFullLoopRuntimeSlug,
  runPremiumFullLoopCalculation,
  type PremiumFullLoopResult,
 } from "@/lib/formula-governance/runtime-validation/premium-full-loop-bridge";
+import {
+  buildSmartFormInitialValues,
+  validateSmartFormFieldValues,
+} from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
 import { getPremiumSchemaForPaidSlug } from "@/lib/premium-schema/schema-registry";
 import {
  arePremiumToolInputsValid,
@@ -194,6 +200,7 @@ interface PremiumToolPageProps {
 
 export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  const runtimeSlug = routeSlug ?? tool.paidSlug;
+ const useFullLoopRuntime = isPremiumFullLoopRuntimeSlug(runtimeSlug);
  const {
  user,
  canAccessAnalyzer,
@@ -203,7 +210,9 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  } = usePremiumToolAccess(tool.paidSlug);
 
  const [values, setValues] = useState<PremiumToolInputValues>(() =>
- buildInitialValues(tool)
+ useFullLoopRuntime
+  ? buildSmartFormInitialValues(runtimeSlug)
+  : buildInitialValues(tool)
  );
  const [submitted, setSubmitted] = useState(false);
  const [isCalculating, setIsCalculating] = useState(false);
@@ -211,7 +220,6 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
 
  const isCncStochastic = tool.paidSlug === "cnc-quote-risk-analyzer";
  const schemaPilot = getPremiumSchemaForPaidSlug(tool.paidSlug);
- const useFullLoopRuntime = isPremiumFullLoopRuntimeSlug(runtimeSlug);
  const showSchemaPilot = Boolean(schemaPilot) && !useFullLoopRuntime;
 
  const fullLoopResult = useMemo((): PremiumFullLoopResult | null => {
@@ -292,17 +300,10 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  if (useFullLoopRuntime && submitted && fullLoopResult?.status === "blocked") {
  return (
  <>
- <div
- className="sc-industrial-panel border border-crit-red/30 bg-crit-red/5 p-4"
- role="alert"
- >
- <p className="text-sm font-semibold text-crit-red">Analysis blocked</p>
- <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-body-charcoal">
- {fullLoopResult.blockers.map((blocker) => (
- <li key={blocker}>{blocker}</li>
- ))}
- </ul>
- </div>
+ <SmartFormValidationSummary
+  title="Analysis blocked"
+  blockers={fullLoopResult.blockers}
+ />
  <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
  </>
  );
@@ -360,6 +361,24 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
 
  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
  event.preventDefault();
+
+ if (useFullLoopRuntime) {
+  const nextErrors = validateSmartFormFieldValues(runtimeSlug, values);
+  setErrors(nextErrors);
+  if (Object.keys(nextErrors).length > 0) {
+   setSubmitted(false);
+   return;
+  }
+  setErrors({});
+  setIsCalculating(true);
+  setSubmitted(false);
+  window.setTimeout(() => {
+   setIsCalculating(false);
+   setSubmitted(true);
+  }, 400);
+  return;
+ }
+
  if (!arePremiumToolInputsValid(tool, values)) {
  const nextErrors: Record<string, string> = {};
  for (const input of tool.paidInputs) {
@@ -460,6 +479,21 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  ) : (
  <>
  <div className="sc-ledger-karar-masasi mt-4">
+ {useFullLoopRuntime ? (
+  <SmartToolForm
+   slug={runtimeSlug}
+   values={values}
+   errors={errors}
+   onChange={handleChange}
+   onSubmit={handleSubmit}
+   calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
+   blocked={submitted && fullLoopResult?.status === "blocked"}
+   blockers={
+    submitted && fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []
+   }
+   isCalculating={isCalculating}
+  />
+ ) : (
  <form
  onSubmit={handleSubmit}
  className="sc-ledger-karar-masasi__entries sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
@@ -484,6 +518,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  </button>
  </div>
  </form>
+ )}
 
  <div className="sc-ledger-karar-masasi__report min-w-0 space-y-4">
  {renderAnalysisOutput("primary")}

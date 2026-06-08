@@ -24,8 +24,14 @@ import {
 import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
+import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
+import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/formula-governance/runtime-validation/free-full-loop-bridge";
 import { isFreeFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import {
+  buildSmartFormInitialValues,
+  validateSmartFormFieldValues,
+} from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
 
 function buildInitialValues(tool: FreeTrafficTool): FreeTrafficInputValues {
   const values: FreeTrafficInputValues = {};
@@ -58,7 +64,11 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
   const pathname = usePathname();
   const attribution = useAttributionContext();
   const pagePath = stripLocalePrefix(pathname);
-  const [values, setValues] = useState<FreeTrafficInputValues>(() => buildInitialValues(tool));
+  const [values, setValues] = useState<FreeTrafficInputValues>(() =>
+    isFreeFullLoopRuntimeSlug(tool.slug)
+      ? buildSmartFormInitialValues(tool.slug)
+      : buildInitialValues(tool),
+  );
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [fullLoopResult, setFullLoopResult] = useState<FreeFullLoopResult | null>(null);
@@ -119,6 +129,17 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
   const relatedTools = listRelatedTrafficTools(tool);
   const isConversion = tool.resultType === "conversion";
 
+  const handleSmartFormChange = (key: string, value: number | string) => {
+    setValues((prev) => ({ ...prev, [key]: value }));
+    setSubmitted(false);
+    setFullLoopResult(null);
+    setErrors((prev) => {
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
+  };
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!startedTracked.current) {
@@ -128,6 +149,43 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
         source: "traffic_catalog",
       });
     }
+
+    if (useFullLoopRuntime) {
+      const nextErrors = validateSmartFormFieldValues(tool.slug, values);
+      setErrors(nextErrors);
+      if (Object.keys(nextErrors).length > 0) {
+        setSubmitted(false);
+        setFullLoopResult(null);
+        return;
+      }
+
+      const loopResult = runFreeFullLoopCalculation(tool.slug, values, locale);
+      setFullLoopResult(loopResult);
+      if (loopResult.status === "blocked") {
+        setSubmitted(false);
+        return;
+      }
+
+      setSubmitted(true);
+      trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
+        toolSlug: tool.slug,
+        source: "traffic_catalog",
+      });
+      trackConversionEvent({
+        stage: "calculation",
+        eventName: "free_tool_calculate",
+        locale,
+        pagePath,
+        toolSlug: tool.slug,
+        campaignId: attribution.utmCampaign,
+        source: attribution.utmSource,
+        medium: attribution.utmMedium,
+        valueType: "free",
+        category: tool.category,
+      });
+      return;
+    }
+
     const nextErrors: Record<string, string> = {};
 
     for (const input of tool.inputs) {
@@ -158,17 +216,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
       return;
     }
 
-    if (useFullLoopRuntime) {
-      const loopResult = runFreeFullLoopCalculation(tool.slug, values, locale);
-      setFullLoopResult(loopResult);
-      if (loopResult.status === "blocked") {
-        setSubmitted(false);
-        return;
-      }
-    } else {
-      setFullLoopResult(null);
-    }
-
+    setFullLoopResult(null);
     setSubmitted(true);
     trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
       toolSlug: tool.slug,
@@ -217,6 +265,19 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
       <section className="sc-craft-section overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
           <div className="sc-ledger-cetele sc-tool-workspace">
+            {useFullLoopRuntime ? (
+              <SmartToolForm
+                slug={tool.slug}
+                values={values}
+                errors={errors}
+                onChange={handleSmartFormChange}
+                onSubmit={handleSubmit}
+                calculateLabel={t("tool.calculate")}
+                blocked={fullLoopResult?.status === "blocked"}
+                blockers={fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []}
+                inputIdPrefix={`ft-${tool.slug}`}
+              />
+            ) : (
             <form
               onSubmit={handleSubmit}
               className="sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
@@ -299,21 +360,15 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                 </button>
               </div>
             </form>
+            )}
 
             <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0 space-y-4" aria-live="polite">
               {useFullLoopRuntime && fullLoopResult?.status === "blocked" ? (
                 <>
-                  <div
-                    className="sc-industrial-panel border border-crit-red/30 bg-crit-red/5 p-4"
-                    role="alert"
-                  >
-                    <p className="text-sm font-semibold text-crit-red">Result blocked</p>
-                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-body-charcoal">
-                      {fullLoopResult.blockers.map((blocker) => (
-                        <li key={blocker}>{blocker}</li>
-                      ))}
-                    </ul>
-                  </div>
+                  <SmartFormValidationSummary
+                    title="Result blocked"
+                    blockers={fullLoopResult.blockers}
+                  />
                   <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
                 </>
               ) : null}

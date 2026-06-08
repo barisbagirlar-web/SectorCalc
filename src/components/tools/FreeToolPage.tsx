@@ -28,8 +28,14 @@ import {
 import type { SmartFormUiBridgeManifest } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 import { type RevenueTool, type RevenueToolInput } from "@/lib/tools/revenue-tools";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
+import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
+import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/formula-governance/runtime-validation/free-full-loop-bridge";
 import { isFreeFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import {
+  buildSmartFormInitialValues,
+  validateSmartFormFieldValues,
+} from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
 
 
 function buildInitialValues(tool: RevenueTool): FreeToolInputValues {
@@ -185,7 +191,9 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  const useFullLoopRuntime = isFreeFullLoopRuntimeSlug(tool.freeSlug);
 
  const [values, setValues] = useState<FreeToolInputValues>(() =>
- buildInitialValues(tool)
+ useFullLoopRuntime
+  ? buildSmartFormInitialValues(tool.freeSlug)
+  : buildInitialValues(tool)
  );
  const [submitted, setSubmitted] = useState(false);
  const [isCalculating, setIsCalculating] = useState(false);
@@ -267,6 +275,49 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
 
  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
  event.preventDefault();
+
+ if (useFullLoopRuntime) {
+  if (!startedTracked.current) {
+   startedTracked.current = true;
+   trackRevenueEvent(REVENUE_EVENTS.free_tool_started, {
+    toolSlug: tool.freeSlug,
+   });
+  }
+
+  const nextErrors = validateSmartFormFieldValues(tool.freeSlug, values);
+  setErrors(nextErrors);
+  if (Object.keys(nextErrors).length > 0) {
+   setSubmitted(false);
+   setFullLoopResult(null);
+   const firstKey = Object.keys(nextErrors)[0];
+   if (firstKey && formRef.current) {
+    const el = formRef.current.querySelector(`#smart-form-${firstKey}`);
+    el?.scrollIntoView({ behavior: "smooth", block: "center" });
+   }
+   return;
+  }
+  setErrors({});
+
+  const loopResult = runFreeFullLoopCalculation(tool.freeSlug, values);
+  setFullLoopResult(loopResult);
+  if (loopResult.status === "blocked") {
+   setSubmitted(false);
+   setIsCalculating(false);
+   return;
+  }
+
+  setIsCalculating(true);
+  setSubmitted(false);
+  window.setTimeout(() => {
+   setIsCalculating(false);
+   setSubmitted(true);
+   trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
+    toolSlug: tool.freeSlug,
+   });
+  }, 0);
+  return;
+ }
+
  if (!areFreeToolInputsValid(tool, values)) {
  const nextErrors: Record<string, string> = {};
  for (const input of tool.freeInputs) {
@@ -301,16 +352,6 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  }
  setErrors({});
 
- if (useFullLoopRuntime) {
- const loopResult = runFreeFullLoopCalculation(tool.freeSlug, values);
- setFullLoopResult(loopResult);
- if (loopResult.status === "blocked") {
- setSubmitted(false);
- setIsCalculating(false);
- return;
- }
- }
-
  setIsCalculating(true);
  setSubmitted(false);
  window.setTimeout(() => {
@@ -319,7 +360,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  trackRevenueEvent(REVENUE_EVENTS.free_tool_completed, {
  toolSlug: tool.freeSlug,
  });
- }, useFullLoopRuntime ? 0 : 400);
+ }, 400);
  };
 
  return (
@@ -354,6 +395,46 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
     ) : null}
    </div>
   </>
+ ) : useFullLoopRuntime ? (
+  <>
+   <SmartToolForm
+    slug={tool.freeSlug}
+    values={values}
+    errors={errors}
+    onChange={handleChange}
+    onSubmit={handleSubmit}
+    calculateLabel={isCalculating ? "…" : "Run"}
+    blocked={fullLoopResult?.status === "blocked"}
+    blockers={fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []}
+    isCalculating={isCalculating}
+   />
+
+   <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0 space-y-4">
+    {fullLoopResult?.status === "blocked" ? (
+     <>
+      <SmartFormValidationSummary
+       title="Result blocked"
+       blockers={fullLoopResult.blockers}
+      />
+      <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+     </>
+    ) : null}
+    {isCalculating ? (
+     <p className="text-sm text-body-charcoal">Calculating…</p>
+    ) : null}
+    {!isCalculating && result ? (
+     <>
+      <FreeToolResultCard result={result} />
+      {fullLoopResult?.status === "success" ? (
+       <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+      ) : null}
+     </>
+    ) : null}
+    {!isCalculating && !result && fullLoopResult?.status !== "blocked" ? (
+     <p className="text-sm text-body-charcoal">Enter values and run the calculator.</p>
+    ) : null}
+   </div>
+  </>
  ) : (
   <>
    <form
@@ -385,17 +466,10 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
    <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0 space-y-4">
     {useFullLoopRuntime && fullLoopResult?.status === "blocked" ? (
      <>
-      <div
-       className="sc-industrial-panel border border-crit-red/30 bg-crit-red/5 p-4"
-       role="alert"
-      >
-       <p className="text-sm font-semibold text-crit-red">Result blocked</p>
-       <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-body-charcoal">
-        {fullLoopResult.blockers.map((blocker) => (
-         <li key={blocker}>{blocker}</li>
-        ))}
-       </ul>
-      </div>
+      <SmartFormValidationSummary
+       title="Result blocked"
+       blockers={fullLoopResult.blockers}
+      />
       <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
      </>
     ) : null}
