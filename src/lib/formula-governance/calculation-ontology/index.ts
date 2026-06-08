@@ -78,6 +78,27 @@ export {
   buildOntologyDraftWithProductionSource,
   buildProductionSourceReference,
 } from "@/lib/formula-governance/calculation-ontology/production-source-reference";
+
+export type {
+  BuildOntologyAliasMapParams,
+  CompositeOntologyAlias,
+  OntologyAliasConfidence,
+  OntologyAliasMap,
+  OntologyAliasSource,
+  OntologyVariableAlias,
+} from "@/lib/formula-governance/calculation-ontology/ontology-alias-types";
+
+export { buildOntologyAliasMap } from "@/lib/formula-governance/calculation-ontology/ontology-alias-map";
+
+export {
+  buildOntologyAlignmentPlan,
+} from "@/lib/formula-governance/calculation-ontology/ontology-alignment-plan";
+export type {
+  AlignmentStatus,
+  BuildOntologyAlignmentPlanParams,
+  ManualReviewItem,
+  OntologyAlignmentPlan,
+} from "@/lib/formula-governance/calculation-ontology/ontology-alignment-plan";
 export type {
   OntologyDraftWithProductionSource,
   ProductionSourceReference,

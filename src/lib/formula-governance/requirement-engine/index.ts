@@ -32,8 +32,10 @@ export {
 export type {
   CompareContractOntologyWithFixtureParams,
   ContractFixtureDriftReport,
-  OntologyVariableAlias,
+  PossibleAliasReport,
 } from "@/lib/formula-governance/requirement-engine/contract-fixture-drift";
+export type { OntologyVariableAlias } from "@/lib/formula-governance/calculation-ontology/ontology-alias-types";
+export { computeMigrationRiskScore } from "@/lib/formula-governance/requirement-engine/contract-fixture-drift";
 export {
   runRequirementEngineForContract,
 } from "@/lib/formula-governance/requirement-engine/contract-requirement-runner";

@@ -1,21 +1,37 @@
 /**
- * Contract vs fixture ontology drift report (Phase 5H-B-4).
+ * Contract vs fixture ontology drift report v2 (Phase 5H-B-4 + 5H-B-5).
  */
 
+import { buildOntologyAliasMap } from "@/lib/formula-governance/calculation-ontology/ontology-alias-map";
+import type {
+  CompositeOntologyAlias,
+  OntologyAliasConfidence,
+  OntologyAliasMap,
+  OntologyVariableAlias,
+} from "@/lib/formula-governance/calculation-ontology/ontology-alias-types";
 import type { CalculationOntology } from "@/lib/formula-governance/calculation-ontology/ontology-types";
 
-export type OntologyVariableAlias = {
+export type { OntologyVariableAlias } from "@/lib/formula-governance/calculation-ontology/ontology-alias-types";
+
+export type PossibleAliasReport = {
   readonly contractVariable: string;
   readonly fixtureVariable: string;
+  readonly confidence: OntologyAliasConfidence;
   readonly reason: string;
+  readonly warning?: string;
 };
 
 export type ContractFixtureDriftReport = {
+  readonly slug: string;
   readonly matchingVariables: readonly string[];
+  readonly aliases: readonly OntologyVariableAlias[];
   readonly contractOnlyVariables: readonly string[];
   readonly fixtureOnlyVariables: readonly string[];
-  readonly possibleAliases: readonly OntologyVariableAlias[];
+  readonly possibleAliases: readonly PossibleAliasReport[];
+  readonly compositeAliases: readonly CompositeOntologyAlias[];
+  readonly migrationRiskScore: number;
   readonly warnings: readonly string[];
+  readonly blockers: readonly string[];
 };
 
 export type CompareContractOntologyWithFixtureParams = {
@@ -23,109 +39,97 @@ export type CompareContractOntologyWithFixtureParams = {
   readonly fixtureOntology: CalculationOntology;
 };
 
-const ALIAS_RULES: readonly {
-  readonly contractVariables: readonly string[];
-  readonly fixtureVariable: string;
-  readonly reason: string;
-}[] = [
-  {
-    contractVariables: ["materialCost"],
-    fixtureVariable: "materialCostPerSquare",
-    reason: "Contract uses lump material cost; fixture uses per-square material rate.",
-  },
-  {
-    contractVariables: ["laborHours", "laborRate"],
-    fixtureVariable: "laborCostPerSquare",
-    reason: "Contract splits labor into hours and rate; fixture uses per-square labor cost.",
-  },
-  {
-    contractVariables: ["targetMargin"],
-    fixtureVariable: "targetMarginPercent",
-    reason: "Margin field naming differs between contract and fixture.",
-  },
-  {
-    contractVariables: ["minimumSafePrice"],
-    fixtureVariable: "minimumSafeContractPrice",
-    reason: "Target output naming differs between contract and fixture.",
-  },
-  {
-    contractVariables: ["dumpFees"],
-    fixtureVariable: "permitCost",
-    reason: "Disposal/permit fees may be modeled under different variable names.",
-  },
-  {
-    contractVariables: ["weatherDelayRiskPercent"],
-    fixtureVariable: "riskBufferPercent",
-    reason: "Weather delay risk may overlap with fixture risk buffer percent.",
-  },
-];
-
-function collectVariableIds(ontology: CalculationOntology): Set<string> {
-  return new Set(ontology.variables.map((variable) => variable.id));
+function collectExactMatches(
+  contractOntology: CalculationOntology,
+  fixtureOntology: CalculationOntology,
+): string[] {
+  const fixtureIds = new Set(fixtureOntology.variables.map((variable) => variable.id));
+  return contractOntology.variables
+    .map((variable) => variable.id)
+    .filter((id) => fixtureIds.has(id))
+    .sort();
 }
 
-function suggestAliases(
-  contractOnly: readonly string[],
-  fixtureOnly: readonly string[],
-): OntologyVariableAlias[] {
-  const aliases: OntologyVariableAlias[] = [];
-  const fixtureSet = new Set(fixtureOnly);
+function toPossibleAliases(aliases: readonly OntologyVariableAlias[]): PossibleAliasReport[] {
+  return aliases
+    .filter((alias) => alias.confidence !== "exact")
+    .map((alias) => ({
+      contractVariable: alias.contractVariableId,
+      fixtureVariable: alias.ontologyVariableId,
+      confidence: alias.confidence,
+      reason: alias.reason,
+      warning: alias.warning,
+    }));
+}
 
-  for (const rule of ALIAS_RULES) {
-    const contractPresent = rule.contractVariables.every((variableId) => contractOnly.includes(variableId));
-    if (contractPresent && fixtureSet.has(rule.fixtureVariable)) {
-      for (const contractVariable of rule.contractVariables) {
-        aliases.push({
-          contractVariable,
-          fixtureVariable: rule.fixtureVariable,
-          reason: rule.reason,
-        });
-      }
+export function computeMigrationRiskScore(
+  aliasMap: OntologyAliasMap,
+  aliases: readonly OntologyVariableAlias[],
+): number {
+  if (aliases.length === 0 && aliasMap.unmatchedContractVariables.length > 0) {
+    return 100;
+  }
+
+  const weights: Record<OntologyAliasConfidence, number> = {
+    exact: 0,
+    strong: 10,
+    weak: 40,
+    manual_review: 60,
+  };
+
+  let score = 0;
+  for (const alias of aliases) {
+    score += weights[alias.confidence];
+    if (!alias.dimensionCompatible) {
+      score += 15;
+    }
+    if (!alias.roleCompatible) {
+      score += 25;
     }
   }
 
-  return aliases;
+  score += aliasMap.unmatchedContractVariables.length * 12;
+  score += aliasMap.unmatchedOntologyVariables.length * 8;
+  score += aliasMap.compositeAliases.length * 10;
+  score += aliasMap.blockers.length * 30;
+
+  const maxScore = Math.max(aliases.length * 100, 100);
+  return Math.min(100, Math.round((score / maxScore) * 100));
 }
 
 export function compareContractOntologyWithFixture(
   params: CompareContractOntologyWithFixtureParams,
 ): ContractFixtureDriftReport {
   const { contractOntology, fixtureOntology } = params;
-  const warnings: string[] = [];
+  const slug = contractOntology.slug;
 
-  if (contractOntology.slug !== fixtureOntology.slug) {
-    warnings.push(
-      `Slug mismatch: contract "${contractOntology.slug}" vs fixture "${fixtureOntology.slug}".`,
-    );
-  }
+  const aliasMap = buildOntologyAliasMap({
+    contractOntology,
+    fixtureOntology,
+    slug,
+  });
 
-  const contractIds = collectVariableIds(contractOntology);
-  const fixtureIds = collectVariableIds(fixtureOntology);
+  const matchingVariables = collectExactMatches(contractOntology, fixtureOntology);
+  const possibleAliases = toPossibleAliases(aliasMap.aliases);
+  const migrationRiskScore = computeMigrationRiskScore(aliasMap, aliasMap.aliases);
 
-  const matchingVariables = [...contractIds].filter((id) => fixtureIds.has(id)).sort();
-  const contractOnlyVariables = [...contractIds].filter((id) => !fixtureIds.has(id)).sort();
-  const fixtureOnlyVariables = [...fixtureIds].filter((id) => !contractIds.has(id)).sort();
-  const possibleAliases = suggestAliases(contractOnlyVariables, fixtureOnlyVariables);
-
-  if (contractOnlyVariables.length > 0) {
-    warnings.push(
-      `${contractOnlyVariables.length} variable(s) exist only in contract-derived ontology.`,
-    );
-  }
-  if (fixtureOnlyVariables.length > 0) {
-    warnings.push(
-      `${fixtureOnlyVariables.length} variable(s) exist only in fixture ontology.`,
-    );
-  }
-  if (possibleAliases.length > 0) {
-    warnings.push(`${possibleAliases.length} possible alias mapping(s) detected.`);
+  const warnings = [...aliasMap.warnings];
+  if (migrationRiskScore >= 60) {
+    warnings.push(`Migration risk score is high (${migrationRiskScore}/100).`);
+  } else if (migrationRiskScore >= 30) {
+    warnings.push(`Migration risk score is moderate (${migrationRiskScore}/100).`);
   }
 
   return {
+    slug,
     matchingVariables,
-    contractOnlyVariables,
-    fixtureOnlyVariables,
+    aliases: aliasMap.aliases,
+    contractOnlyVariables: aliasMap.unmatchedContractVariables,
+    fixtureOnlyVariables: aliasMap.unmatchedOntologyVariables,
     possibleAliases,
+    compositeAliases: aliasMap.compositeAliases,
+    migrationRiskScore,
     warnings,
+    blockers: aliasMap.blockers,
   };
 }
