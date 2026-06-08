@@ -64,6 +64,7 @@ describe("buildTrustTraceReportPayload", () => {
     expect(payload.coverageSummary.scenario).toBeDefined();
     expect(payload.coverageSummary.property).toBeDefined();
     expect(payload.disclaimer.length).toBeGreaterThan(20);
+    expect(payload.usageAgreement.length).toBeGreaterThan(0);
     expect(["export_ready", "needs_review"]).toContain(payload.exportStatus);
   });
 

@@ -14,6 +14,7 @@ import {
   buildScenarioCoverageTrace,
 } from "@/lib/formula-governance/trust-trace-report/trust-trace-coverage";
 import { VERDICT_REPORT_LEGAL_DISCLAIMER } from "@/lib/reports/verdict-report";
+import { REPORT_DISCLAIMER } from "@/lib/legal/report-disclaimer";
 import type {
   BuildTrustTraceReportPayloadInput,
   TrustTraceCanonicalInputClassification,
@@ -283,6 +284,7 @@ export function buildTrustTraceReportPayload(
     exportFormats: ["pdf", "excel", "word"],
     exportStatus,
     fileOutputGenerated: false,
+    usageAgreement: [...REPORT_DISCLAIMER.paragraphs, REPORT_DISCLAIMER.professionalReviewNote],
   };
 }
 

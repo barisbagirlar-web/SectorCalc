@@ -92,6 +92,7 @@ export type TrustTraceReportPayload = {
   readonly exportFormats: readonly TrustTraceExportFormat[];
   readonly exportStatus: TrustTraceReportExportStatus;
   readonly fileOutputGenerated: false;
+  readonly usageAgreement: readonly string[];
 };
 
 export type BuildTrustTraceReportPayloadInput = {
