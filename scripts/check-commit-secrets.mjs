@@ -9,6 +9,12 @@ import { execSync } from "node:child_process";
 const SENSITIVE_FILE_PATTERN =
   /(?:^|\/)(?:\.env\.local|\.env(?:\..+)?$|.*service-account.*\.json|.*firebase-adminsdk.*\.json|credentials\.json|.*\.pem|.*\.key)$/i;
 
+/** Public template only — not a runtime secret file. */
+const SENSITIVE_FILENAME_ALLOWLIST = new Set([".env.example"]);
+
+const ENV_EXAMPLE_PUBLIC_FLAG_LINE =
+  /^\s*#?\s*NEXT_PUBLIC_[A-Z0-9_]+\s*=\s*(?:true|false)\s*$/;
+
 const DIFF_SECRET_PATTERNS = [
   /BEGIN PRIVATE KEY/,
   /BEGIN RSA PRIVATE KEY/,
@@ -34,13 +40,52 @@ function checkSensitiveFilenames() {
   const staged = run("git diff --cached --name-only");
   const unstaged = run("git diff --name-only");
   const names = [...new Set([...staged.split("\n"), ...unstaged.split("\n")].filter(Boolean))];
-  const hits = names.filter((name) => SENSITIVE_FILE_PATTERN.test(name));
+  const hits = names.filter(
+    (name) => SENSITIVE_FILE_PATTERN.test(name) && !SENSITIVE_FILENAME_ALLOWLIST.has(name),
+  );
   return hits;
 }
 
+function getAddedDiffLines(path) {
+  const stagedDiff = run(`git diff --cached -- ${path}`);
+  const unstagedDiff = run(`git diff -- ${path}`);
+  const combined = `${stagedDiff}\n${unstagedDiff}`;
+
+  return combined
+    .split("\n")
+    .filter((line) => line.startsWith("+") && !line.startsWith("+++"))
+    .map((line) => line.slice(1));
+}
+
+function checkEnvExampleDiff() {
+  const staged = run("git diff --cached --name-only");
+  const unstaged = run("git diff --name-only");
+  const names = [...new Set([...staged.split("\n"), ...unstaged.split("\n")].filter(Boolean))];
+
+  if (!names.includes(".env.example")) {
+    return [];
+  }
+
+  const violations = [];
+  for (const line of getAddedDiffLines(".env.example")) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) {
+      continue;
+    }
+
+    if (!ENV_EXAMPLE_PUBLIC_FLAG_LINE.test(trimmed)) {
+      violations.push(trimmed);
+    }
+  }
+
+  return violations;
+}
+
+const SELF_SCAN_EXCLUDE_PATH = "scripts/check-commit-secrets.mjs";
+
 function checkDiffContent() {
-  const stagedDiff = run("git diff --cached");
-  const unstagedDiff = run("git diff");
+  const stagedDiff = run(`git diff --cached -- . ':!${SELF_SCAN_EXCLUDE_PATH}'`);
+  const unstagedDiff = run(`git diff -- . ':!${SELF_SCAN_EXCLUDE_PATH}'`);
   const combined = `${stagedDiff}\n${unstagedDiff}`;
   const hits = [];
 
@@ -58,6 +103,7 @@ function main() {
 
   const fileHits = checkSensitiveFilenames();
   const diffHits = checkDiffContent();
+  const envExampleHits = checkEnvExampleDiff();
   let failed = false;
 
   if (fileHits.length > 0) {
@@ -80,6 +126,27 @@ function main() {
     console.error("");
   } else {
     console.log("✓ No secret patterns in diff content");
+  }
+
+  if (envExampleHits.length > 0) {
+    failed = true;
+    console.error("✗ .env.example diff contains non-allowlisted uncommented lines:");
+    for (const hit of envExampleHits) {
+      console.error(`  - ${hit}`);
+    }
+    console.error("");
+  } else if (run("git diff --name-only") || run("git diff --cached --name-only")) {
+    const names = [
+      ...new Set(
+        [
+          ...run("git diff --cached --name-only").split("\n"),
+          ...run("git diff --name-only").split("\n"),
+        ].filter(Boolean),
+      ),
+    ];
+    if (names.includes(".env.example")) {
+      console.log("✓ .env.example diff limited to comments or public NEXT_PUBLIC_* flags");
+    }
   }
 
   if (failed) {
