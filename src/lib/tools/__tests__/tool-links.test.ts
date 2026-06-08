@@ -3,7 +3,10 @@
  */
 
 import { describe, expect, test } from "vitest";
-import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import {
+  getRevenueToolByPaidSlug,
+  getRevenueToolByPremiumRouteSlug,
+} from "@/lib/tools/revenue-tools";
 import { FULL_LOOP_RUNTIME_SLUGS } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import {
   getPremiumToolHref,
@@ -33,6 +36,18 @@ describe("tool-links — premium hrefs", () => {
     expect(resolvePremiumToolHref("lawn-care-cost-check")).toBe(
       "/tools/premium/lawn-care-cost-check",
     );
+  });
+
+  test("funnel premium route slugs resolve to paired revenue tools", () => {
+    const electrical = getRevenueToolByPremiumRouteSlug("electrical-labor-estimator");
+    expect(electrical?.paidSlug).toBe("panel-shop-margin-verdict");
+    expect(electrical?.freeSlug).toBe("electrical-labor-estimator");
+
+    const printJob = getRevenueToolByPremiumRouteSlug("print-job-cost-check");
+    expect(printJob?.paidSlug).toBe("signage-bid-safe-price-tool");
+
+    const lawnCare = getRevenueToolByPremiumRouteSlug("lawn-care-cost-check");
+    expect(lawnCare?.paidSlug).toBe("landscaping-contract-profit-tool");
   });
 
   test("schema-mapped premium slugs still use premium-schema route", () => {

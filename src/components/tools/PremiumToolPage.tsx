@@ -188,9 +188,12 @@ function PremiumToolInputField({
 
 interface PremiumToolPageProps {
  tool: RevenueTool;
+ /** URL slug — funnel alias routes use governance runtime slug, not paidSlug. */
+ routeSlug?: string;
 }
 
-export function PremiumToolPage({ tool }: PremiumToolPageProps) {
+export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
+ const runtimeSlug = routeSlug ?? tool.paidSlug;
  const {
  user,
  canAccessAnalyzer,
@@ -208,15 +211,15 @@ export function PremiumToolPage({ tool }: PremiumToolPageProps) {
 
  const isCncStochastic = tool.paidSlug === "cnc-quote-risk-analyzer";
  const schemaPilot = getPremiumSchemaForPaidSlug(tool.paidSlug);
- const useFullLoopRuntime = isPremiumFullLoopRuntimeSlug(tool.paidSlug);
+ const useFullLoopRuntime = isPremiumFullLoopRuntimeSlug(runtimeSlug);
  const showSchemaPilot = Boolean(schemaPilot) && !useFullLoopRuntime;
 
  const fullLoopResult = useMemo((): PremiumFullLoopResult | null => {
  if (!submitted || !canAccessAnalyzer || !useFullLoopRuntime) {
  return null;
  }
- return runPremiumFullLoopCalculation(tool.paidSlug, values);
- }, [submitted, canAccessAnalyzer, useFullLoopRuntime, tool.paidSlug, values]);
+ return runPremiumFullLoopCalculation(runtimeSlug, values);
+ }, [submitted, canAccessAnalyzer, useFullLoopRuntime, runtimeSlug, values]);
 
  const decisionReport = useMemo(() => {
  if (!submitted || !canAccessAnalyzer) {
