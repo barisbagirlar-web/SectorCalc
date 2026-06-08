@@ -1159,11 +1159,15 @@ export const electricalLaborEstimatorContract: FormulaContract = buildAssuredCri
   decisionImpact: "pricing",
   requiredInputs: ["materialCost", "laborHours", "laborRate"],
   criticalInputs: ["materialCost", "laborHours", "laborRate"],
-  outputs: ["riskLevel", "laborCost", "laborMaterialRatio"],
+  outputs: ["recommendedPrice", "riskLevel", "laborCost", "laborMaterialRatio"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-sector-calculations.ts → calculateElectricalFreeResult.",
+    calculatorProductionAssumption(
+      "src/lib/tools/free-sector-calculations.ts",
+      "calculateElectricalFreeResult → laborHours × laborRate",
+    ),
     "Labor cost = laborHours × laborRate; ratio compared to NEC estimating band (~40–65% commercial).",
+    "riskLevel is a narrative risk signal; laborCost is the primary numeric labor estimate target.",
   ],
   formulaSummary:
     "Labor/material ratio = (laborHours × laborRate) ÷ materialCost; risk bands when ratio < 40% on long jobs or labor hours ≥ 16.",
@@ -1171,13 +1175,16 @@ export const electricalLaborEstimatorContract: FormulaContract = buildAssuredCri
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Flat labor rate and material cost snapshot per job.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals electrical labor cost estimate (laborCost).",
     ],
     modelLimitations: [
-      "Jurisdiction code requirements and permit time not modeled",
-      "Testing, inspection and rework hours excluded on free tier",
+      "Local code, permit and panel complexity not modeled",
+      "Inspection, rework and access constraints excluded on free tier",
       "Conduit fill, derating and specialty gear not itemized",
     ],
     futureExtensions: [
+      "Code-aware panel and circuit complexity model",
       "Oracle for labor/material ratio bands",
       "Panel shop margin verdict integration for inspection risk",
     ],
@@ -1187,6 +1194,11 @@ export const electricalLaborEstimatorContract: FormulaContract = buildAssuredCri
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
     { id: "rate-positive", description: "laborRate must be > 0 when hours > 0", kind: "edge" },
     { id: "ratio-percent", description: "laborMaterialRatio stays within 0–500%", kind: "dimensional" },
+    {
+      id: "labor-cost-dimension",
+      description: "laborCost and recommendedPrice use currency semantics for governance target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-panel-job", description: "Normal case: balanced labor/material ratio" },
@@ -1232,11 +1244,15 @@ export const lawnCareCostCheckContract: FormulaContract = buildAssuredCriticalCo
   decisionImpact: "pricing",
   requiredInputs: ["crewHoursPerVisit", "visitsPerMonth", "laborRate"],
   criticalInputs: ["crewHoursPerVisit", "visitsPerMonth", "laborRate"],
-  outputs: ["riskLevel", "monthlyCrewHours"],
+  outputs: ["recommendedPrice", "riskLevel", "monthlyCrewHours"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-sector-calculations.ts → calculateLandscapingFreeResult.",
+    calculatorProductionAssumption(
+      "src/lib/tools/free-sector-calculations.ts",
+      "calculateLandscapingFreeResult → crewHoursPerVisit × visitsPerMonth",
+    ),
     "Monthly load = crewHoursPerVisit × visitsPerMonth; NALP-style route benchmarks for risk bands.",
+    "riskLevel is a narrative risk signal; monthlyCrewHours is the primary numeric visit-load target.",
   ],
   formulaSummary:
     "monthlyCrewHours = crewHoursPerVisit × visitsPerMonth; HIGH risk when load ≥ 40 hr/month; MEDIUM when ≥ 20 hr/month.",
@@ -1244,13 +1260,16 @@ export const lawnCareCostCheckContract: FormulaContract = buildAssuredCriticalCo
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Single-route snapshot; crew hours per visit entered by operator.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals monthly crew-hour load (monthlyCrewHours).",
     ],
     modelLimitations: [
-      "Route density, weather and seasonality not modeled",
+      "Route density, seasonality and weather not modeled",
+      "Equipment utilization and crew productivity excluded on free tier",
       "Fuel, equipment wear and travel between sites excluded on free tier",
-      "laborRate collected but not applied in free risk signal",
     ],
     futureExtensions: [
+      "Recurring route profitability and seasonality model",
       "Oracle for monthly route cost floor",
       "Landscaping contract profit tool integration",
     ],
@@ -1259,6 +1278,11 @@ export const lawnCareCostCheckContract: FormulaContract = buildAssuredCriticalCo
     { id: "hours-non-negative", description: "crewHoursPerVisit must be ≥ 0", kind: "edge" },
     { id: "visits-positive", description: "visitsPerMonth must be ≥ 1", kind: "edge" },
     { id: "rate-non-negative", description: "laborRate must be ≥ 0", kind: "dimensional" },
+    {
+      id: "monthly-hours-dimension",
+      description: "monthlyCrewHours and recommendedPrice use hour semantics for governance target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-route", description: "Normal case: moderate weekly visit load" },
@@ -1304,11 +1328,15 @@ export const repairTimeVsPriceCheckContract: FormulaContract = buildAssuredCriti
   decisionImpact: "pricing",
   requiredInputs: ["quotedPrice", "repairHours", "partsCost"],
   criticalInputs: ["quotedPrice", "repairHours", "partsCost"],
-  outputs: ["riskLevel", "burdenedCost", "bookHoursDelta"],
+  outputs: ["recommendedPrice", "riskLevel", "burdenedCost", "bookHoursDelta"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-sector-calculations.ts → calculateAutoRepairFreeResult → calculateRepairTimeResult.",
+    calculatorProductionAssumption(
+      "src/lib/tools/free-sector-calculations.ts",
+      "calculateAutoRepairFreeResult → calculateRepairTimeResult",
+    ),
     "Default shop rate $80/hr; diagnostic allowance 0.75 hr added to burdened cost.",
+    "riskLevel is a narrative risk signal; burdenedCost is the primary numeric time/cost vs price target.",
   ],
   formulaSummary:
     "visibleCost = repairHours × shopRate + partsCost; burdenedCost = visibleCost + diagnosticAllowance; compare to quotedPrice and Mitchell book hours.",
@@ -1316,13 +1344,16 @@ export const repairTimeVsPriceCheckContract: FormulaContract = buildAssuredCriti
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Flat shop rate and parts cost per job; Mitchell brake-pad reference for book time delta.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals visible burdened repair cost (burdenedCost).",
     ],
     modelLimitations: [
       "Diagnostic uncertainty and parts availability not modeled",
-      "Comeback/warranty rework excluded on free tier",
+      "Warranty comeback and shop utilization excluded on free tier",
       "Vehicle-specific book time variance simplified",
     ],
     futureExtensions: [
+      "Warranty comeback and technician efficiency model",
       "Oracle for burdened cost vs quote",
       "Auto shop margin leak detector integration",
     ],
@@ -1332,6 +1363,11 @@ export const repairTimeVsPriceCheckContract: FormulaContract = buildAssuredCriti
     { id: "hours-non-negative", description: "repairHours must be ≥ 0", kind: "edge" },
     { id: "parts-non-negative", description: "partsCost must be ≥ 0", kind: "edge" },
     { id: "burden-ratio", description: "burdenedCost ÷ quotedPrice stays within 0–200%", kind: "dimensional" },
+    {
+      id: "burdened-cost-dimension",
+      description: "burdenedCost and recommendedPrice use currency semantics for governance target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-brake-job", description: "Normal case: quote above burdened cost" },
@@ -1377,11 +1413,15 @@ export const printJobCostCheckContract: FormulaContract = buildAssuredCriticalCo
   decisionImpact: "pricing",
   requiredInputs: ["materialCost", "designHours", "laborRate"],
   criticalInputs: ["materialCost", "designHours", "laborRate"],
-  outputs: ["riskLevel", "designCost", "designMaterialRatio"],
+  outputs: ["recommendedPrice", "riskLevel", "designCost", "designMaterialRatio"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-sector-calculations.ts → calculatePrintingFreeResult.",
+    calculatorProductionAssumption(
+      "src/lib/tools/free-sector-calculations.ts",
+      "calculatePrintingFreeResult → designHours × laborRate",
+    ),
     "Design cost = designHours × laborRate; SGIA-style design/material ratio thresholds.",
+    "riskLevel is a narrative risk signal; designCost is the primary numeric print job cost target.",
   ],
   formulaSummary:
     "designCost = designHours × laborRate; ratio = designCost ÷ materialCost; HIGH when ratio ≥ 1.2.",
@@ -1389,13 +1429,16 @@ export const printJobCostCheckContract: FormulaContract = buildAssuredCriticalCo
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Flat labor rate for design time; material cost entered as job snapshot.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals visible print job design cost (designCost).",
     ],
     modelLimitations: [
-      "Spoilage, color calibration and finishing complexity may require override",
-      "Ink coverage and reprint risk not modeled on free tier",
+      "Spoilage, color calibration and finishing complexity not modeled",
+      "Setup time and machine downtime excluded on free tier",
       "Install labor excluded",
     ],
     futureExtensions: [
+      "Press-specific spoilage and finishing complexity model",
       "Oracle for design/material ratio bands",
       "Signage bid safe price tool integration",
     ],
@@ -1405,6 +1448,11 @@ export const printJobCostCheckContract: FormulaContract = buildAssuredCriticalCo
     { id: "hours-non-negative", description: "designHours must be ≥ 0", kind: "edge" },
     { id: "rate-positive", description: "laborRate must be > 0 when design hours > 0", kind: "edge" },
     { id: "ratio-bounds", description: "designMaterialRatio stays within 0–5.0", kind: "dimensional" },
+    {
+      id: "design-cost-dimension",
+      description: "designCost and recommendedPrice use currency semantics for governance target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-signage", description: "Normal case: balanced design/material ratio" },
@@ -1478,13 +1526,15 @@ export const plumbingJobMarginVerdictContract: FormulaContract = buildAssuredCri
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Fixture allowance $25 per fixture; access 15% and permit 10% of labor.",
+      "Governance ontology target minimumSafePrice maps to the premium margin floor output documented in formulaSummary.",
     ],
     modelLimitations: [
-      "Emergency premium, permit fees and concealed damage not modeled explicitly",
-      "Water damage liability loaded via hidden multipliers only",
-      "Premium decision layer not oracle-compared in Phase 5G-A",
+      "Concealed damage discovery and emergency premium not modeled explicitly",
+      "Permit fees and call-back risk loaded via hidden multipliers only",
+      "Parts availability and water damage liability simplified",
     ],
     futureExtensions: [
+      "Risk-adjusted plumbing bid floor model",
       "Independent oracle for minimum safe job price",
       "Multi-fixture complexity curves",
     ],
@@ -1493,6 +1543,11 @@ export const plumbingJobMarginVerdictContract: FormulaContract = buildAssuredCri
     { id: "labor-positive", description: "laborHours must be > 0 for priced jobs", kind: "edge" },
     { id: "callback-percent", description: "callbackRiskPercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
+    {
+      id: "safe-price-dimension",
+      description: "minimumSafePrice uses currency semantics for governance margin verdict target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-fixture-job", description: "Normal case: multi-fixture job with moderate callback risk" },
@@ -1538,11 +1593,15 @@ export const cabinetCostEstimatorContract: FormulaContract = buildAssuredCritica
   decisionImpact: "pricing",
   requiredInputs: ["sheetMaterialCost", "laborHours", "installHours"],
   criticalInputs: ["sheetMaterialCost", "laborHours", "installHours"],
-  outputs: ["riskLevel", "totalHours", "wasteAdjustedHours"],
+  outputs: ["recommendedPrice", "riskLevel", "totalHours", "wasteAdjustedHours"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-sector-calculations.ts → calculateCarpentryFreeResult.",
+    calculatorProductionAssumption(
+      "src/lib/tools/free-sector-calculations.ts",
+      "calculateCarpentryFreeResult → shop+install hours × waste factor",
+    ),
     "WWPA 12% waste factor applied to total shop+install hours for effective load.",
+    "riskLevel is a narrative risk signal; wasteAdjustedHours is the primary numeric carpentry load target.",
   ],
   formulaSummary:
     "totalHours = laborHours + installHours; wasteAdjustedHours = totalHours × 1.12; risk bands at 12 hr and 24 hr thresholds.",
@@ -1550,13 +1609,16 @@ export const cabinetCostEstimatorContract: FormulaContract = buildAssuredCritica
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Flat shop and install hours; 12% WWPA waste factor on free tier.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals waste-adjusted shop+install hours (wasteAdjustedHours).",
     ],
     modelLimitations: [
-      "Finish grade, hardware variation and install complexity not fully modeled",
+      "Finish grade, hardware variation and field measurement risk not fully modeled",
+      "Install complexity and finishing schedule delay excluded on free tier",
       "Sheet material cost collected but not used in free risk signal",
-      "Finishing schedule delay excluded",
     ],
     futureExtensions: [
+      "Cut-list and hardware-aware cost model",
       "Oracle for millwork hour and waste baseline",
       "Millwork bid risk analyzer integration",
     ],
@@ -1566,6 +1628,11 @@ export const cabinetCostEstimatorContract: FormulaContract = buildAssuredCritica
     { id: "material-non-negative", description: "sheetMaterialCost must be ≥ 0", kind: "edge" },
     { id: "total-hours-positive", description: "At least one of labor or install hours must be > 0", kind: "edge" },
     { id: "waste-factor", description: "wasteAdjustedHours = totalHours × 1.12", kind: "dimensional" },
+    {
+      id: "waste-hours-dimension",
+      description: "wasteAdjustedHours and recommendedPrice use hour semantics for governance target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-cabinet-job", description: "Normal case: moderate shop+install hours" },
@@ -1611,11 +1678,15 @@ export const roofingSquareCostCheckContract: FormulaContract = buildAssuredCriti
   decisionImpact: "pricing",
   requiredInputs: ["materialCost", "laborHours", "laborRate"],
   criticalInputs: ["materialCost", "laborHours", "laborRate"],
-  outputs: ["riskLevel", "laborCost", "nrcaEstimate"],
+  outputs: ["recommendedPrice", "riskLevel", "laborCost", "nrcaEstimate"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-sector-calculations.ts → calculateRoofingFreeResult → calculateRoofingCostResult.",
+    calculatorProductionAssumption(
+      "src/lib/tools/free-sector-calculations.ts",
+      "calculateRoofingFreeResult → calculateRoofingCostResult",
+    ),
     "Area inferred from material cost; NRCA asphalt shingle reference with tear-off.",
+    "riskLevel is a narrative risk signal; nrcaEstimate is the primary numeric square cost target.",
   ],
   formulaSummary:
     "laborCost = laborHours × laborRate; compare labor/material ratio to NRCA guide (~45%); HIGH when ratio low on long jobs.",
@@ -1623,13 +1694,16 @@ export const roofingSquareCostCheckContract: FormulaContract = buildAssuredCriti
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Asphalt shingle, 22° pitch, single story and tear-off defaults in NRCA helper.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals NRCA square cost estimate (nrcaEstimate).",
     ],
     modelLimitations: [
-      "Pitch, tear-off layers, local code and access complexity may require override",
-      "Weather delay and warranty reserve not modeled on free tier",
+      "Pitch, tear-off layers and access complexity may require override",
+      "Disposal, weather delay and local code not modeled on free tier",
       "Dump fees and ice-dam membrane excluded",
     ],
     futureExtensions: [
+      "Pitch and tear-off adjusted roofing estimator",
       "Oracle for NRCA square cost baseline",
       "Roofing contract margin guard integration",
     ],
@@ -1639,6 +1713,11 @@ export const roofingSquareCostCheckContract: FormulaContract = buildAssuredCriti
     { id: "hours-non-negative", description: "laborHours must be ≥ 0", kind: "edge" },
     { id: "rate-positive", description: "laborRate must be > 0 when hours > 0", kind: "edge" },
     { id: "labor-ratio", description: "laborMaterialRatio stays within 0–500%", kind: "dimensional" },
+    {
+      id: "nrca-cost-dimension",
+      description: "nrcaEstimate and recommendedPrice use currency semantics for governance target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-shingle-job", description: "Normal case: balanced labor/material ratio" },
@@ -1684,11 +1763,15 @@ export const laserCuttingTimeCheckContract: FormulaContract = buildAssuredCritic
   decisionImpact: "technical",
   requiredInputs: ["setupMinutes", "cutLengthM", "cutSpeedMMin", "pierceCount", "pierceSeconds"],
   criticalInputs: ["setupMinutes", "cutLengthM", "cutSpeedMMin", "pierceCount", "pierceSeconds"],
-  outputs: ["totalMinutes", "cutMinutes"],
+  outputs: ["recommendedPrice", "totalMinutes", "cutMinutes"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-traffic-calculators.ts → setup + cutLength ÷ speed + pierce time.",
+    freeTrafficProductionAssumption(
+      "laser-cutting-time-check",
+      "setup + cutLength ÷ speed + pierce time",
+    ),
     "Revenue-free alternate path uses setupTime/quantity via calculateSheetMetalFreeResult (not oracle-compared).",
+    "totalMinutes is the primary numeric laser cutting time/cost estimate target.",
   ],
   formulaSummary:
     "totalMinutes = setupMinutes + cutLengthM ÷ cutSpeedMMin + (pierceCount × pierceSeconds) ÷ 60.",
@@ -1696,13 +1779,16 @@ export const laserCuttingTimeCheckContract: FormulaContract = buildAssuredCritic
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Flat cut speed and pierce seconds per hole on free-traffic path.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals total laser cut minutes (totalMinutes).",
     ],
     modelLimitations: [
-      "Material grade, nesting, assist gas and programming not fully modeled",
-      "Nest scrap 8–12% not applied on free tier",
+      "Material grade, pierce count and nesting not fully modeled",
+      "Assist gas, setup and machine condition excluded on free tier",
       "Revenue funnel uses different input shape (setupTime/quantity)",
     ],
     futureExtensions: [
+      "Nesting-aware and assist-gas adjusted quote model",
       "Unified oracle across revenue and free-traffic laser paths",
       "Sheet metal quote risk tool integration",
     ],
@@ -1712,6 +1798,11 @@ export const laserCuttingTimeCheckContract: FormulaContract = buildAssuredCritic
     { id: "speed-positive", description: "cutSpeedMMin must be > 0", kind: "edge" },
     { id: "length-positive", description: "cutLengthM must be > 0", kind: "edge" },
     { id: "pierce-non-negative", description: "pierceCount and pierceSeconds must be ≥ 0", kind: "dimensional" },
+    {
+      id: "cut-time-dimension",
+      description: "totalMinutes and recommendedPrice use minute semantics for governance target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-batch", description: "Normal case: moderate setup with batch cut path" },
@@ -2035,11 +2126,15 @@ export const autoShopMarginLeakDetectorContract: FormulaContract = buildAssuredC
     "comebackRiskPercent",
     "partsMarkupPercent",
   ],
-  outputs: ["trueJobProfit", "quoteVerdict", "riskAdjustedCost", "baseCost"],
+  outputs: ["recommendedPrice", "trueJobProfit", "quoteVerdict", "riskAdjustedCost", "baseCost"],
   assumptions: [
     PREMIUM_DECISION_DISCLAIMER,
-    "Production: src/lib/tools/premium-decision-engine.ts → calcAutoShop + MarginCore decision layer.",
+    calculatorProductionAssumption(
+      PREMIUM_DECISION_PRODUCTION_FILE,
+      "calcAutoShop + MarginCore decision layer",
+    ),
     "Base = diagnostic+repair labor + marked-up parts + shop supplies 5% + OEM gap 12%; comeback multiplier.",
+    "quoteVerdict is a narrative verdict signal; trueJobProfit is the primary numeric margin target.",
   ],
   formulaSummary:
     "baseCost = (labor + parts×(1+markup%) + supplies + OEM gap) × (1 + comeback%); true profit = quotedPrice − risk-adjusted cost.",
@@ -2047,6 +2142,8 @@ export const autoShopMarginLeakDetectorContract: FormulaContract = buildAssuredC
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Shop supplies 5% of labor; OEM/aftermarket gap 12% of parts cost on base path.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals true repair job profit (trueJobProfit).",
     ],
     modelLimitations: [
       "Diagnostic uncertainty and parts availability not fully modeled",
@@ -2062,6 +2159,11 @@ export const autoShopMarginLeakDetectorContract: FormulaContract = buildAssuredC
     { id: "quote-positive", description: "quotedPrice must be > 0 for profit verdict", kind: "edge" },
     { id: "comeback-percent", description: "comebackRiskPercent within 0–100%", kind: "dimensional" },
     { id: "markup-percent", description: "partsMarkupPercent within 0–100%", kind: "dimensional" },
+    {
+      id: "job-profit-dimension",
+      description: "trueJobProfit and recommendedPrice use currency semantics for governance target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-brake-job", description: "Normal case: quoted job with visible profit headroom" },
@@ -2551,11 +2653,15 @@ export const threeDPrintCostCheckContract: FormulaContract = buildAssuredCritica
   decisionImpact: "technical",
   requiredInputs: ["materialCost", "printHours", "machineRate", "postProcessHours", "laborRate"],
   criticalInputs: ["materialCost", "printHours", "machineRate", "postProcessHours", "laborRate"],
-  outputs: ["estimatedCost", "machineTimeCost", "riskLevel"],
+  outputs: ["recommendedPrice", "estimatedCost", "machineTimeCost", "riskLevel"],
   assumptions: [
     FINANCIAL_SIMULATION_DISCLAIMER,
-    "Production: src/lib/tools/free-traffic-calculators.ts → material + printHours×machineRate + postProcess×laborRate.",
+    freeTrafficProductionAssumption(
+      "3d-print-cost-check",
+      "material + printHours×machineRate + postProcess×laborRate",
+    ),
     "Revenue alternate: src/lib/tools/free-sector-calculations.ts → calculate3dPrintFreeResult (machine/material ratio risk).",
+    "riskLevel is a narrative risk signal; estimatedCost is the primary numeric print job cost target.",
   ],
   formulaSummary:
     "Free-traffic: estimatedCost = material + printHours×machineRate + postProcessHours×laborRate; revenue-free uses fail-probability risk bands on long prints.",
@@ -2563,6 +2669,8 @@ export const threeDPrintCostCheckContract: FormulaContract = buildAssuredCritica
   warningPolicy: createWarningPolicy({
     acceptedAssumptions: [
       "Flat machine and labor rates; post-process hours on free-traffic path.",
+      GOVERNANCE_RECOMMENDED_PRICE_TARGET_NOTE,
+      "recommendedPrice metadata alias equals visible 3D print job cost (estimatedCost).",
     ],
     modelLimitations: [
       "Machine calibration, support material and failed prints not fully modeled",
@@ -2578,6 +2686,11 @@ export const threeDPrintCostCheckContract: FormulaContract = buildAssuredCritica
     { id: "hours-non-negative", description: "printHours and postProcessHours must be ≥ 0", kind: "edge" },
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
     { id: "rate-positive", description: "machineRate and laborRate must be > 0 when hours > 0", kind: "dimensional" },
+    {
+      id: "print-cost-dimension",
+      description: "estimatedCost and recommendedPrice use currency semantics for governance target",
+      kind: "purpose",
+    },
   ],
   scenarioSpecs: [
     { id: "normal-print-job", description: "Normal case: short print with light post-process" },
