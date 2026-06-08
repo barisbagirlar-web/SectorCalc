@@ -1,12 +1,36 @@
 /**
- * Contract ↔ requirement readiness bridge (Phase 5H-B-2).
+ * Contract ↔ requirement readiness bridge (Phase 5H-B-2 + 5H-B-6).
  */
 
 import type { OntologyDraft } from "@/lib/formula-governance/calculation-ontology/contract-ontology-bridge";
+import type { OntologyAlignmentPlan } from "@/lib/formula-governance/calculation-ontology/ontology-alignment-plan";
+import type {
+  OntologyAliasConfidence,
+  OntologyAliasMap,
+} from "@/lib/formula-governance/calculation-ontology/ontology-alias-types";
+import { computeMigrationRiskScore } from "@/lib/formula-governance/requirement-engine/contract-fixture-drift";
+import { evaluateDriftScoreGate } from "@/lib/formula-governance/requirement-engine/drift-score-gate";
 import type { FormulaContract } from "@/lib/formula-governance/types";
 import type { RequirementSolveResult } from "@/lib/formula-governance/requirement-engine/requirement-engine-types";
 
 export type InputReadinessStatus = "input_ready" | "needs_input_design" | "blocked";
+
+export type VariableAliasReadinessContext = {
+  readonly contractVariableId: string;
+  readonly professionalOntologyAlias?: string;
+  readonly aliasConfidence?: OntologyAliasConfidence;
+  readonly manualReviewRequired?: boolean;
+  readonly suggestedMetadataImprovement?: string;
+};
+
+export type InputReadinessAlignmentSummary = {
+  readonly migrationRisk: number;
+  readonly driftGateStatus: "low_risk" | "needs_review" | "blocked";
+  readonly driftGateRecommendedAction: string;
+  readonly manualReviewRequired: boolean;
+  readonly suggestedMetadataImprovements: readonly string[];
+  readonly variableAliasContexts: readonly VariableAliasReadinessContext[];
+};
 
 export type InputReadinessAudit = {
   readonly slug: string;
@@ -18,12 +42,15 @@ export type InputReadinessAudit = {
   readonly professionalUpgradeGaps: readonly string[];
   readonly warnings: readonly string[];
   readonly blockers: readonly string[];
+  readonly alignmentSummary?: InputReadinessAlignmentSummary;
 };
 
 export type AuditFormulaContractInputReadinessParams = {
   readonly contract: FormulaContract;
   readonly ontologyDraft: OntologyDraft;
   readonly requirementResult: RequirementSolveResult;
+  readonly alignmentPlan?: OntologyAlignmentPlan;
+  readonly aliasMap?: OntologyAliasMap;
 };
 
 function collectDimensionalRuleGaps(contract: FormulaContract, draft: OntologyDraft): string[] {
@@ -135,6 +162,69 @@ function collectProfessionalUpgradeGaps(
     .map((variableId) => `Professional upgrade input "${variableId}" is not in contract input list.`);
 }
 
+function isManualReviewConfidence(confidence: OntologyAliasConfidence): boolean {
+  return confidence === "manual_review" || confidence === "weak";
+}
+
+function buildAlignmentSummary(
+  params: AuditFormulaContractInputReadinessParams,
+): InputReadinessAlignmentSummary | undefined {
+  const { aliasMap, alignmentPlan, requirementResult } = params;
+  if (!aliasMap || !alignmentPlan) {
+    return undefined;
+  }
+
+  const migrationRisk = computeMigrationRiskScore(aliasMap, aliasMap.aliases);
+  const driftGate = evaluateDriftScoreGate({
+    migrationRiskScore: migrationRisk,
+    blockers: aliasMap.blockers,
+    warnings: aliasMap.warnings,
+    aliasMap,
+  });
+
+  const variableIds = new Set([
+    ...requirementResult.requiredMissingInputs,
+    ...requirementResult.defaultedInputs,
+    ...contractInputsFromDraft(params),
+  ]);
+
+  const variableAliasContexts: VariableAliasReadinessContext[] = [...variableIds].map(
+    (contractVariableId) => {
+      const alias = aliasMap.aliases.find(
+        (entry) => entry.contractVariableId === contractVariableId,
+      );
+      const metadataSuggestion = alignmentPlan.suggestedContractMetadataImprovements.find((line) =>
+        line.includes(`"${contractVariableId}"`),
+      );
+
+      return {
+        contractVariableId,
+        professionalOntologyAlias: alias?.ontologyVariableId,
+        aliasConfidence: alias?.confidence,
+        manualReviewRequired: alias ? isManualReviewConfidence(alias.confidence) : undefined,
+        suggestedMetadataImprovement: metadataSuggestion,
+      };
+    },
+  );
+
+  return {
+    migrationRisk,
+    driftGateStatus: driftGate.status,
+    driftGateRecommendedAction: driftGate.recommendedAction,
+    manualReviewRequired:
+      aliasMap.aliases.some((alias) => isManualReviewConfidence(alias.confidence)) ||
+      aliasMap.compositeAliases.length > 0,
+    suggestedMetadataImprovements: alignmentPlan.suggestedContractMetadataImprovements,
+    variableAliasContexts,
+  };
+}
+
+function contractInputsFromDraft(params: AuditFormulaContractInputReadinessParams): string[] {
+  return params.ontologyDraft.variables
+    .filter((variable) => variable.role === "input")
+    .map((variable) => variable.id);
+}
+
 export function auditFormulaContractInputReadiness(
   params: AuditFormulaContractInputReadinessParams,
 ): InputReadinessAudit {
@@ -177,6 +267,13 @@ export function auditFormulaContractInputReadiness(
     status = "input_ready";
   }
 
+  const alignmentSummary = buildAlignmentSummary(params);
+  if (alignmentSummary) {
+    warnings.push(
+      `Alignment drift gate: ${alignmentSummary.driftGateStatus} (migration risk ${alignmentSummary.migrationRisk}/100).`,
+    );
+  }
+
   return {
     slug: contract.slug,
     status,
@@ -187,5 +284,6 @@ export function auditFormulaContractInputReadiness(
     professionalUpgradeGaps,
     warnings,
     blockers,
+    alignmentSummary,
   };
 }

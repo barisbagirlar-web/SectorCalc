@@ -7,6 +7,10 @@ import { FORMULA_CONTRACTS, getFormulaContractBySlug } from "@/lib/formula-gover
 import { runGovernanceAudit } from "@/lib/formula-governance/audit-runner";
 import { buildFormulaInventory, summarizeInventory } from "@/lib/formula-governance/inventory";
 import { buildOntologyDraftFromFormulaContract } from "@/lib/formula-governance/calculation-ontology/contract-ontology-bridge";
+import { compileOntologyDraftToCalculationOntology } from "@/lib/formula-governance/calculation-ontology/ontology-compiler";
+import { buildOntologyAliasMap } from "@/lib/formula-governance/calculation-ontology/ontology-alias-map";
+import { buildOntologyAlignmentPlan } from "@/lib/formula-governance/calculation-ontology/ontology-alignment-plan";
+import { getFixtureOntologyForSlug } from "@/lib/formula-governance/calculation-ontology/fixture-ontology-registry";
 import {
   auditFormulaContractInputReadiness,
 } from "@/lib/formula-governance/requirement-engine/contract-requirement-bridge";
@@ -98,6 +102,108 @@ describe("requirement result → contract readiness audit", () => {
 
     expect(audit.status).toBe("blocked");
     expect(audit.blockers.some((blocker) => blocker.includes("Circular"))).toBe(true);
+  });
+
+  test("preserves existing behavior when alias and alignment plan are omitted", () => {
+    const contract = getFormulaContractBySlug(ROOFING_SLUG)!;
+    const ontologyDraft = buildOntologyDraftFromFormulaContract(contract);
+
+    const audit = auditFormulaContractInputReadiness({
+      contract,
+      ontologyDraft,
+      requirementResult: makeRequirementResult({
+        status: "ready_to_calculate",
+        requiredMissingInputs: [],
+      }),
+    });
+
+    expect(audit.alignmentSummary).toBeUndefined();
+    expect(audit.status).toBe("input_ready");
+    expect(audit.missingInputMetadata).toEqual([]);
+  });
+
+  test("enriches readiness audit with migration risk when alignment is provided", () => {
+    const contract = getFormulaContractBySlug(ROOFING_SLUG)!;
+    const ontologyDraft = buildOntologyDraftFromFormulaContract(contract);
+    const compiled = compileOntologyDraftToCalculationOntology(ontologyDraft);
+    const fixtureOntology = getFixtureOntologyForSlug(ROOFING_SLUG)!;
+
+    const aliasMap = buildOntologyAliasMap({
+      contractOntology: compiled.ontology!,
+      fixtureOntology,
+      slug: ROOFING_SLUG,
+    });
+    const alignmentPlan = buildOntologyAlignmentPlan({
+      contractOntology: compiled.ontology!,
+      fixtureOntology,
+      aliasMap,
+    });
+
+    const audit = auditFormulaContractInputReadiness({
+      contract,
+      ontologyDraft,
+      requirementResult: makeRequirementResult({
+        status: "need_more_data",
+        requiredMissingInputs: ["materialCost", "laborHours"],
+      }),
+      aliasMap,
+      alignmentPlan,
+    });
+
+    expect(audit.alignmentSummary).toBeDefined();
+    expect(audit.alignmentSummary?.migrationRisk).toBeGreaterThan(0);
+    expect(audit.alignmentSummary?.driftGateStatus).toBe("needs_review");
+    expect(
+      audit.alignmentSummary?.variableAliasContexts.some(
+        (context) =>
+          context.contractVariableId === "materialCost" &&
+          context.professionalOntologyAlias === "materialCostPerSquare",
+      ),
+    ).toBe(true);
+    expect(audit.warnings.some((warning) => warning.includes("drift gate"))).toBe(true);
+  });
+
+  test("keeps contract shape as source of truth for missing input decisions", () => {
+    const contract = getFormulaContractBySlug(ROOFING_SLUG)!;
+    const ontologyDraft = buildOntologyDraftFromFormulaContract(contract);
+    const compiled = compileOntologyDraftToCalculationOntology(ontologyDraft);
+    const fixtureOntology = getFixtureOntologyForSlug(ROOFING_SLUG)!;
+    const aliasMap = buildOntologyAliasMap({
+      contractOntology: compiled.ontology!,
+      fixtureOntology,
+      slug: ROOFING_SLUG,
+    });
+    const alignmentPlan = buildOntologyAlignmentPlan({
+      contractOntology: compiled.ontology!,
+      fixtureOntology,
+      aliasMap,
+    });
+
+    const withoutAlignment = auditFormulaContractInputReadiness({
+      contract,
+      ontologyDraft,
+      requirementResult: makeRequirementResult({
+        status: "need_more_data",
+        requiredMissingInputs: ["materialCost"],
+      }),
+    });
+
+    const withAlignment = auditFormulaContractInputReadiness({
+      contract,
+      ontologyDraft,
+      requirementResult: makeRequirementResult({
+        status: "need_more_data",
+        requiredMissingInputs: ["materialCost"],
+      }),
+      aliasMap,
+      alignmentPlan,
+    });
+
+    expect(withAlignment.status).toBe(withoutAlignment.status);
+    expect(withAlignment.missingInputMetadata).toEqual(withoutAlignment.missingInputMetadata);
+    expect(withAlignment.missingInputMetadata.some((gap) => gap.includes("materialCost"))).toBe(
+      false,
+    );
   });
 
   test("does not change existing formula audit contract and failure counts", () => {

@@ -17,7 +17,27 @@ export {
 } from "@/lib/formula-governance/requirement-engine/dependency-resolver";
 export type { ResolvedRequirementSet } from "@/lib/formula-governance/requirement-engine/dependency-resolver";
 export { auditRequirementSolveResult } from "@/lib/formula-governance/requirement-engine/requirement-auditor";
-export type { RequirementAuditFinding } from "@/lib/formula-governance/requirement-engine/requirement-auditor";
+export type {
+  AuditRequirementSolveResultParams,
+  RequirementAuditFinding,
+} from "@/lib/formula-governance/requirement-engine/requirement-auditor";
+export {
+  evaluateDriftScoreGate,
+} from "@/lib/formula-governance/requirement-engine/drift-score-gate";
+export type {
+  DriftGateStatus,
+  DriftScoreGateResult,
+  EvaluateDriftScoreGateParams,
+} from "@/lib/formula-governance/requirement-engine/drift-score-gate";
+export {
+  runBatchAlignmentAudit,
+} from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
+export type {
+  BatchAlignmentAuditResult,
+  BatchAlignmentStatus,
+  BatchAlignmentSummary,
+  RunBatchAlignmentAuditParams,
+} from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
 export {
   buildInputDesignFromRequirementResult,
 } from "@/lib/formula-governance/requirement-engine/input-design-bridge";
@@ -49,6 +69,8 @@ export {
 } from "@/lib/formula-governance/requirement-engine/contract-requirement-bridge";
 export type {
   AuditFormulaContractInputReadinessParams,
+  InputReadinessAlignmentSummary,
   InputReadinessAudit,
   InputReadinessStatus,
+  VariableAliasReadinessContext,
 } from "@/lib/formula-governance/requirement-engine/contract-requirement-bridge";
