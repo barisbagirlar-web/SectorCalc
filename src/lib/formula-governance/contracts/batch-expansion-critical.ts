@@ -2606,6 +2606,7 @@ export const sheetMetalQuoteRiskToolContract: FormulaContract = buildAssuredCrit
   }),
   validationRules: [
     { id: "material-non-negative", description: "materialCost must be ≥ 0", kind: "edge" },
+    { id: "rate-positive", description: "laborRate must be > 0", kind: "edge" },
     { id: "scrap-percent", description: "scrapRatePercent within 0–100%", kind: "dimensional" },
     { id: "margin-percent", description: "targetMargin is percent", kind: "dimensional" },
   ],

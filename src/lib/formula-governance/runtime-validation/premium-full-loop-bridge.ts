@@ -171,6 +171,18 @@ function validateContractEdgeRules(slug: string, knownInputs: KnownInputs): read
         errors.push("Rework risk must be between 0% and 100%.");
       }
     }
+    if (rule.id === "scrap-percent") {
+      const scrap = knownInputs.scrapRatePercent;
+      if (scrap !== undefined && (scrap < 0 || scrap > 100)) {
+        errors.push("Scrap rate must be between 0% and 100%.");
+      }
+    }
+    if (rule.id === "rate-positive") {
+      const laborRate = knownInputs.laborRate;
+      if (laborRate !== undefined && laborRate <= 0) {
+        errors.push("Labor rate must be greater than 0.");
+      }
+    }
     if (rule.id === "margin-percent") {
       const margin = knownInputs.targetMargin;
       if (margin !== undefined && (margin < 0 || margin > 100)) {

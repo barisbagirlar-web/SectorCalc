@@ -2,7 +2,10 @@
  * Slugs with production full-loop runtime enforcement (Mind 2 gate → calc → Mind 1 validation).
  */
 
-export const FULL_LOOP_RUNTIME_SLUGS = ["welding-bid-risk-analyzer"] as const;
+export const FULL_LOOP_RUNTIME_SLUGS = [
+  "welding-bid-risk-analyzer",
+  "sheet-metal-quote-risk-tool",
+] as const;
 
 export type FullLoopRuntimeSlug = (typeof FULL_LOOP_RUNTIME_SLUGS)[number];
 

@@ -20,6 +20,16 @@ describe("tool-links — premium hrefs", () => {
     expect(getPremiumToolHref(tool!)).toBe("/tools/premium/welding-bid-risk-analyzer");
   });
 
+  test("full-loop sheet-metal slug uses revenue premium route", () => {
+    expect(resolvePremiumToolHref("sheet-metal-quote-risk-tool")).toBe(
+      "/tools/premium/sheet-metal-quote-risk-tool",
+    );
+
+    const tool = getRevenueToolByPaidSlug("sheet-metal-quote-risk-tool");
+    expect(tool).not.toBeNull();
+    expect(getPremiumToolHref(tool!)).toBe("/tools/premium/sheet-metal-quote-risk-tool");
+  });
+
   test("schema-mapped premium slugs still use premium-schema route", () => {
     expect(resolvePremiumToolHref("cnc-quote-risk-analyzer")).toBe(
       "/tools/premium-schema/cnc-oee-loss",
