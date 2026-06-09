@@ -15,12 +15,14 @@ import {
 } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import { resolveFieldUnitMetadata } from "@/lib/units/canonical-unit-normalizer";
 import type { UnitSystem } from "@/lib/units/unit-definitions";
+import { enrichLoanPaymentRegionalDisplay } from "@/lib/regional/pilot/loan-payment-regional-pilot";
+import type { RegionalSmartFormInputExtension } from "@/lib/regional/types";
 
 export type SmartFormContractFieldType = "number" | "currency" | "percent";
 
 export type SmartFormContractFieldGroup = "required" | "optional" | "advanced";
 
-export type SmartFormContractFieldSpec = {
+export type SmartFormContractFieldSpec = RegionalSmartFormInputExtension & {
   readonly key: string;
   readonly canonicalKey: string;
   readonly label: string;
@@ -246,7 +248,7 @@ export function buildSmartFormFieldSpecsFromContract(
     }
   }
 
-  return {
+  const plan: SmartFormContractFieldPlan = {
     slug,
     contractSlug,
     decisionGoal: contract.userDecision,
@@ -257,6 +259,8 @@ export function buildSmartFormFieldSpecsFromContract(
       description: rule.description,
     })),
   };
+
+  return enrichLoanPaymentRegionalDisplay(plan, locale);
 }
 
 export function buildSmartFormInitialValues(slug: string): SmartFormRawValues {
