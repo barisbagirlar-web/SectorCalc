@@ -60,7 +60,7 @@ export function ExportToolbar({
  key={action}
  type="button"
  onClick={() => handleExportClick(action)}
- className="min-h-[44px] w-full rounded-lg border border-slate/25 bg-bg-subtle px-4 text-sm font-medium text-text-secondary transition-colors hover:border-deep-navy/40 hover:bg-white hover:text-text-primary sm:w-auto sm:min-w-[100px]"
+ className="min-h-[44px] w-full rounded-lg border border-slate/25 bg-bg-subtle px-4 text-sm font-medium text-text-secondary transition-colors hover:border-ink-black/40 hover:bg-white hover:text-text-primary sm:w-auto sm:min-w-[100px]"
  aria-describedby={message ? "export-message" : undefined}
  >
  {action}
@@ -71,7 +71,7 @@ export function ExportToolbar({
  {message ? (
  <p
  id="export-message"
- className="mt-4 rounded-lg border border-deep-navy/15 bg-bg-subtle px-4 py-3 text-sm leading-relaxed text-text-primary"
+ className="mt-4 rounded-lg border border-ink-black/15 bg-bg-subtle px-4 py-3 text-sm leading-relaxed text-text-primary"
  role="status"
  >
  {message}

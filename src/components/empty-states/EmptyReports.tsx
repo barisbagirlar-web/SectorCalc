@@ -27,7 +27,7 @@ export function EmptyReports({ hasPurchaseCredits = false }: EmptyReportsProps) 
  </p>
  <Link
  href={hasPurchaseCredits ? "/premium-tools" : "/free-tools"}
- className="inline-flex min-h-[44px] items-center rounded-sm bg-accent-teal px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-teal/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep-navy focus-visible:ring-offset-2"
+ className="inline-flex min-h-[44px] items-center rounded-sm bg-accent-teal px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-teal/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2"
  >
  {hasPurchaseCredits ? t("ctaPremium") : t("ctaFree")}
  <ArrowRightIcon className="ml-2 h-4 w-4" aria-hidden />

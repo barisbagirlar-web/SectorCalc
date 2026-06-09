@@ -1,6 +1,7 @@
 /** Status accent classes — use ONLY for data signals, never decoration */
 export type StatusLevel = "critical" | "warning" | "safe" | "neutral";
 
+/** Report / PDF / badge — dark tones (Tailwind crit-red, warn-amber, safe-green) */
 export const STATUS_TEXT_CLASS: Record<StatusLevel, string> = {
   critical: "status-crit text-crit-red",
   warning: "status-warn text-warn-amber",
@@ -12,6 +13,19 @@ export const STATUS_BG_CLASS: Record<Exclude<StatusLevel, "neutral">, string> = 
   critical: "status-crit-bg",
   warning: "status-warn-bg",
   safe: "status-safe-bg",
+};
+
+/** Terminal / HMI / screen signals — vibrant tones for field readability */
+export const TERMINAL_STATUS_TEXT_CLASS: Record<Exclude<StatusLevel, "neutral">, string> = {
+  critical: "terminal-status-crit text-soft-red",
+  warning: "terminal-status-warn text-warning",
+  safe: "terminal-status-safe text-success",
+};
+
+export const TERMINAL_STATUS_BG_CLASS: Record<Exclude<StatusLevel, "neutral">, string> = {
+  critical: "terminal-status-crit-bg",
+  warning: "terminal-status-warn-bg",
+  safe: "terminal-status-safe-bg",
 };
 
 export function riskLevelToStatus(level: string): StatusLevel {

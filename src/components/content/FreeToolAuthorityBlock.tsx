@@ -83,7 +83,7 @@ export function FreeToolAuthorityBlock({ tool, labels }: FreeToolAuthorityBlockP
           <h3 className="font-semibold text-premium-velvet">{labels.relatedPremiumTitle}</h3>
           <Link
             href={premiumHref}
-            className="mt-2 inline-block text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
+            className="mt-2 inline-block text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#C2410C]"
           >
             {labels.relatedPremiumCta}
           </Link>
@@ -95,7 +95,7 @@ export function FreeToolAuthorityBlock({ tool, labels }: FreeToolAuthorityBlockP
           <h3 className="font-semibold text-premium-velvet">{labels.relatedGuideTitle}</h3>
           <Link
             href={getAuthorityGuideRoutePath(guide.slug)}
-            className="mt-2 inline-block text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
+            className="mt-2 inline-block text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#C2410C]"
           >
             {guide.title}
           </Link>

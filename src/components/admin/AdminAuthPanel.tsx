@@ -15,17 +15,17 @@ import {
 import { useAdminAuth } from "@/lib/admin/use-admin-auth";
 
 const fieldClass =
- "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
+ "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-ink-black focus:border-ink-black focus:outline-none focus:ring-2 focus:ring-ink-black/20";
 
 const NOT_ADMIN_EMAIL_MESSAGE = "Bu kullanıcı admin yetkisine sahip değil.";
 const NOT_ADMIN_GOOGLE_MESSAGE =
  "Bu Google hesabı admin yetkisine sahip değil.";
 
 const buttonPrimaryClass =
- "inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50";
+ "inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-ink-black px-4 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50";
 
 const buttonGoogleClass =
- "inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-lg border border-slate/25 bg-white px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:cursor-not-allowed disabled:opacity-50";
+ "inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-lg border border-slate/25 bg-white px-4 text-sm font-semibold text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white disabled:cursor-not-allowed disabled:opacity-50";
 
 export function AdminLoginForm() {
  const router = useRouter();
@@ -111,7 +111,7 @@ export function AdminLoginForm() {
  return (
  <div className="mx-auto w-full max-w-md space-y-5 rounded-sm border border-slate/20 bg-white p-6 shadow-card sm:p-8">
  <div className="space-y-1 text-center">
- <h2 className="text-lg font-bold text-deep-navy">Admin girişi</h2>
+ <h2 className="text-lg font-bold text-ink-black">Admin girişi</h2>
  <p className="text-sm text-text-secondary">
  Yalnızca admin claim&apos;i verilmiş hesaplar panele erişebilir.
  </p>
@@ -243,7 +243,7 @@ export function AdminAuthBar() {
  if (!user) {
  return (
  <div
- className="flex flex-col gap-3 rounded-sm border border-amber/35 bg-amber/10 px-5 py-4 text-sm text-deep-navy sm:flex-row sm:items-center sm:justify-between"
+ className="flex flex-col gap-3 rounded-sm border border-amber/35 bg-amber/10 px-5 py-4 text-sm text-ink-black sm:flex-row sm:items-center sm:justify-between"
  role="alert"
  >
  <p>
@@ -252,7 +252,7 @@ export function AdminAuthBar() {
  </p>
  <Link
  href="/login"
- className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-black"
+ className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg bg-ink-black px-4 text-sm font-semibold text-white transition-colors hover:bg-black"
  >
  Giriş yap
  </Link>
@@ -263,21 +263,21 @@ export function AdminAuthBar() {
  if (!isAdmin) {
  return (
  <div
- className="flex flex-col gap-3 rounded-sm border border-amber/25 bg-amber/5 px-5 py-4 text-sm text-deep-navy sm:flex-row sm:items-center sm:justify-between"
+ className="flex flex-col gap-3 rounded-sm border border-amber/25 bg-amber/5 px-5 py-4 text-sm text-ink-black sm:flex-row sm:items-center sm:justify-between"
  role="alert"
  >
  <div className="space-y-1">
  <p className="font-semibold">Bu işlem için admin yetkisi gerekli.</p>
  <p className="text-text-secondary">
  Giriş yapılan hesap:{" "}
- <span className="font-medium text-deep-navy">{user.email ?? "—"}</span>
+ <span className="font-medium text-ink-black">{user.email ?? "—"}</span>
  </p>
  </div>
  <button
  type="button"
  onClick={() => void handleSignOut()}
  disabled={signingOut}
- className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg border border-slate/25 px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:opacity-50"
+ className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg border border-slate/25 px-4 text-sm font-semibold text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white disabled:opacity-50"
  >
  {signingOut ? "Çıkış yapılıyor…" : "Çıkış yap"}
  </button>
@@ -286,7 +286,7 @@ export function AdminAuthBar() {
  }
 
  return (
- <div className="flex flex-col gap-3 rounded-sm border border-slate/20 bg-white px-5 py-4 text-sm text-deep-navy shadow-card sm:flex-row sm:items-center sm:justify-between">
+ <div className="flex flex-col gap-3 rounded-sm border border-slate/20 bg-white px-5 py-4 text-sm text-ink-black shadow-card sm:flex-row sm:items-center sm:justify-between">
  <p>
  <span className="text-text-secondary">Giriş yapıldı:</span>{" "}
  <span className="font-medium">{user.email ?? "—"}</span>
@@ -295,7 +295,7 @@ export function AdminAuthBar() {
  type="button"
  onClick={() => void handleSignOut()}
  disabled={signingOut}
- className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg border border-slate/25 px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:opacity-50"
+ className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg border border-slate/25 px-4 text-sm font-semibold text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white disabled:opacity-50"
  >
  {signingOut ? "Çıkış yapılıyor…" : "Çıkış yap"}
  </button>

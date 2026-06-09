@@ -21,7 +21,7 @@ import { appendAttributionToNotes } from "@/lib/campaigns/campaign-links";
 const inputClass =
   "w-full min-h-[48px] rounded-lg border bg-white px-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-teal/20";
 const inputErrorClass = "border-soft-red";
-const inputOkClass = "border-slate/25 focus:border-deep-navy";
+const inputOkClass = "border-slate/25 focus:border-ink-black";
 
 export function BetaPartnerForm() {
   const t = useTranslations("betaPartner.form");
@@ -96,8 +96,8 @@ export function BetaPartnerForm() {
 
   if (success) {
     return (
-      <div className="sc-beta-partner__success rounded-lg border border-professional-blue/30 bg-white p-8 text-center">
-        <h2 className="text-xl font-bold text-deep-navy">{t("successTitle")}</h2>
+      <div className="sc-beta-partner__success rounded-lg border border-ink-black/30 bg-white p-8 text-center">
+        <h2 className="text-xl font-bold text-ink-black">{t("successTitle")}</h2>
         <p className="mt-3 text-sm text-body-charcoal">{t("successBody")}</p>
       </div>
     );
@@ -117,7 +117,7 @@ export function BetaPartnerForm() {
 
       <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label htmlFor="beta-company" className="mb-1 block text-sm font-medium text-deep-navy">
+          <label htmlFor="beta-company" className="mb-1 block text-sm font-medium text-ink-black">
             {t("companyName")} *
           </label>
           <input
@@ -134,7 +134,7 @@ export function BetaPartnerForm() {
         </div>
 
         <div>
-          <label htmlFor="beta-contact" className="mb-1 block text-sm font-medium text-deep-navy">
+          <label htmlFor="beta-contact" className="mb-1 block text-sm font-medium text-ink-black">
             {t("contactName")} *
           </label>
           <input
@@ -151,7 +151,7 @@ export function BetaPartnerForm() {
         </div>
 
         <div>
-          <label htmlFor="beta-email" className="mb-1 block text-sm font-medium text-deep-navy">
+          <label htmlFor="beta-email" className="mb-1 block text-sm font-medium text-ink-black">
             {t("email")} *
           </label>
           <input
@@ -168,7 +168,7 @@ export function BetaPartnerForm() {
         </div>
 
         <div>
-          <label htmlFor="beta-country" className="mb-1 block text-sm font-medium text-deep-navy">
+          <label htmlFor="beta-country" className="mb-1 block text-sm font-medium text-ink-black">
             {t("country")} *
           </label>
           <input
@@ -185,7 +185,7 @@ export function BetaPartnerForm() {
         </div>
 
         <div>
-          <label htmlFor="beta-industry" className="mb-1 block text-sm font-medium text-deep-navy">
+          <label htmlFor="beta-industry" className="mb-1 block text-sm font-medium text-ink-black">
             {t("industry")} *
           </label>
           <select
@@ -207,7 +207,7 @@ export function BetaPartnerForm() {
         </div>
 
         <div>
-          <label htmlFor="beta-size" className="mb-1 block text-sm font-medium text-deep-navy">
+          <label htmlFor="beta-size" className="mb-1 block text-sm font-medium text-ink-black">
             {t("companySize")} *
           </label>
           <select
@@ -229,7 +229,7 @@ export function BetaPartnerForm() {
         </div>
 
         <div>
-          <label htmlFor="beta-role" className="mb-1 block text-sm font-medium text-deep-navy">
+          <label htmlFor="beta-role" className="mb-1 block text-sm font-medium text-ink-black">
             {t("role")} *
           </label>
           <input
@@ -245,7 +245,7 @@ export function BetaPartnerForm() {
         </div>
 
         <div>
-          <label htmlFor="beta-loss-area" className="mb-1 block text-sm font-medium text-deep-navy">
+          <label htmlFor="beta-loss-area" className="mb-1 block text-sm font-medium text-ink-black">
             {t("mainLossArea")} *
           </label>
           <input
@@ -261,7 +261,7 @@ export function BetaPartnerForm() {
         </div>
 
         <div>
-          <label htmlFor="beta-method" className="mb-1 block text-sm font-medium text-deep-navy">
+          <label htmlFor="beta-method" className="mb-1 block text-sm font-medium text-ink-black">
             {t("currentMethod")} *
           </label>
           <input
@@ -277,7 +277,7 @@ export function BetaPartnerForm() {
         </div>
 
         <div>
-          <label htmlFor="beta-loss-range" className="mb-1 block text-sm font-medium text-deep-navy">
+          <label htmlFor="beta-loss-range" className="mb-1 block text-sm font-medium text-ink-black">
             {t("monthlyEstimatedLossRange")} *
           </label>
           <select
@@ -302,7 +302,7 @@ export function BetaPartnerForm() {
       </div>
 
       <div>
-        <label htmlFor="beta-notes" className="mb-1 block text-sm font-medium text-deep-navy">
+        <label htmlFor="beta-notes" className="mb-1 block text-sm font-medium text-ink-black">
           {t("notes")}
         </label>
         <textarea

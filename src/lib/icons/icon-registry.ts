@@ -131,14 +131,14 @@ export const STATUS_ICON = {
 } as const;
 
 export const STATUS_COLOR_CLASS = {
- free: "text-deep-navy",
+ free: "text-ink-black",
  premium: "text-amber",
- safe: "text-deep-navy",
+ safe: "text-ink-black",
  review: "text-amber",
  highRisk: "text-amber",
  doNotAccept: "text-amber",
- saved: "text-professional-blue",
- download: "text-professional-blue",
+ saved: "text-ink-black",
+ download: "text-ink-black",
  neutral: "text-text-secondary",
 } as const;
 

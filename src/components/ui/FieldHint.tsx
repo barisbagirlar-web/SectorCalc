@@ -15,7 +15,7 @@ export function FieldHint({ text }: FieldHintProps) {
  <span className="relative inline-flex align-middle">
  <button
  type="button"
- className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-text-secondary hover:text-deep-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep-navy/40"
+ className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-text-secondary hover:text-ink-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black/40"
  aria-describedby={open ? hintId : undefined}
  aria-expanded={open}
  aria-label="Field help"

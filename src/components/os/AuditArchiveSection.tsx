@@ -27,7 +27,7 @@ export function AuditArchiveSection({
       ) : null}
 
       {error ? (
-        <p className="text-xs text-crit-red status-crit" role="alert">
+        <p className="text-xs text-soft-red terminal-status-crit" role="alert">
           {error}
         </p>
       ) : null}

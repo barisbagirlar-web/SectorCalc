@@ -65,7 +65,7 @@ export function FreeToolResultDisplay({
  <p className="text-sm leading-relaxed text-text-secondary">{explanation}</p>
  </div>
 
- <div className="overflow-hidden rounded-sm border border-amber/25 bg-deep-navy p-6">
+ <div className="overflow-hidden rounded-sm border border-amber/25 bg-ink-black p-6">
  <p className="text-xs font-semibold uppercase tracking-wider text-amber">
  Withheld from free tier
  </p>
@@ -92,7 +92,7 @@ export function FreeToolResultDisplay({
  type="button"
  onClick={handleUnlock}
  disabled={authLoading}
- className="mt-5 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg border border-amber/40 bg-amber px-6 text-sm font-semibold text-deep-navy transition-colors hover:bg-amber/90 disabled:opacity-60 sm:w-auto"
+ className="mt-5 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg border border-amber/40 bg-amber px-6 text-sm font-semibold text-ink-black transition-colors hover:bg-amber/90 disabled:opacity-60 sm:w-auto"
  >
  {authLoading ? t("unlockVerdictLoading") : t("unlockVerdictCta")}
  </button>

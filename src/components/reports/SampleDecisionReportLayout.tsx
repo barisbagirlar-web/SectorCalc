@@ -26,7 +26,7 @@ import { revenueLegalDisclaimer } from "@/lib/tools/revenue-tools";
 const toneClasses = {
  danger: "border-amber/30 bg-amber/[0.06] text-amber",
  warning: "border-amber/30 bg-amber/5 text-amber",
- success: "border-deep-navy/20 bg-bg-subtle text-deep-navy",
+ success: "border-ink-black/20 bg-bg-subtle text-ink-black",
 };
 
 export function SampleDecisionReportLayout() {
@@ -35,7 +35,7 @@ export function SampleDecisionReportLayout() {
  <Container>
  <div className="overflow-hidden rounded-sm border border-border-subtle bg-white shadow-card">
  <header className="border-b border-border-subtle bg-bg-primary px-6 py-8 sm:px-10">
- <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
+ <p className="text-xs font-semibold uppercase tracking-wider text-ink-black">
  Premium verdict report · Illustrative sample
  </p>
  <h2 className="mt-2 text-2xl font-bold text-premium-velvet sm:text-3xl">
@@ -87,7 +87,7 @@ export function SampleDecisionReportLayout() {
  </article>
 
  <article>
- <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-deep-navy">
+ <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-ink-black">
  <ScIcon icon={TOOL_CATEGORY_ICON.cost} size="compact" />
  Input summary
  </h3>
@@ -107,8 +107,8 @@ export function SampleDecisionReportLayout() {
  </article>
 
  <article className="sc-card border-emerald/30 bg-emerald/[0.04]">
- <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-deep-navy">
- <ScIcon icon={TOOL_CATEGORY_ICON.safePrice} size="compact" className="text-deep-navy" />
+ <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-ink-black">
+ <ScIcon icon={TOOL_CATEGORY_ICON.safePrice} size="compact" className="text-ink-black" />
  Minimum safe price
  </h3>
  <p className="mt-3 text-3xl font-bold text-text-primary">
@@ -123,7 +123,7 @@ export function SampleDecisionReportLayout() {
  </article>
 
  <article>
- <h3 className="text-sm font-semibold uppercase tracking-wider text-deep-navy">
+ <h3 className="text-sm font-semibold uppercase tracking-wider text-ink-black">
  Margin leak diagnosis
  </h3>
  <ul className="mt-4 space-y-3">
@@ -149,7 +149,7 @@ export function SampleDecisionReportLayout() {
  </article>
 
  <article>
- <h3 className="text-sm font-semibold uppercase tracking-wider text-deep-navy">
+ <h3 className="text-sm font-semibold uppercase tracking-wider text-ink-black">
  Scenario comparison
  </h3>
  <div className="mt-4 overflow-x-auto">
@@ -183,7 +183,7 @@ export function SampleDecisionReportLayout() {
  </article>
 
  <article className="sc-card border-accent-teal/25 bg-accent-teal/[0.04]">
- <h3 className="text-sm font-semibold uppercase tracking-wider text-deep-navy">
+ <h3 className="text-sm font-semibold uppercase tracking-wider text-ink-black">
  Suggested action
  </h3>
  <p className="mt-3 text-base font-semibold text-text-primary">
@@ -221,11 +221,11 @@ export function SampleDecisionReportLayout() {
  </Button>
  </div>
  <p className="text-sm text-text-secondary">
- <Link href={getFreeToolsHref()} className="font-semibold text-deep-navy hover:underline">
+ <Link href={getFreeToolsHref()} className="font-semibold text-ink-black hover:underline">
  Run a free margin check
  </Link>
  {" · "}
- <Link href={getPremiumToolsHref()} className="font-semibold text-deep-navy hover:underline">
+ <Link href={getPremiumToolsHref()} className="font-semibold text-ink-black hover:underline">
  Browse premium analyzers
  </Link>
  </p>

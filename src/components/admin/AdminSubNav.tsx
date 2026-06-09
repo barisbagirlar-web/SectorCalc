@@ -14,8 +14,8 @@ const linkClass = (active: boolean): string =>
   [
     "inline-flex min-h-[44px] items-center rounded-lg border px-4 text-sm font-semibold transition-colors",
     active
-      ? "border-professional-blue bg-professional-blue text-white"
-      : "border-slate/25 bg-white text-deep-navy hover:border-professional-blue/40 hover:bg-off-white",
+      ? "border-ink-black bg-ink-black text-white"
+      : "border-slate/25 bg-white text-ink-black hover:border-ink-black/40 hover:bg-off-white",
   ].join(" ");
 
 export function AdminSubNav() {

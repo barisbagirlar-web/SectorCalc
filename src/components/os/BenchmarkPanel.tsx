@@ -57,8 +57,8 @@ export function BenchmarkPanel({
             isEqual
               ? "border border-technical-gray bg-industrial-matte text-body-charcoal"
               : isBetter
-                ? "status-safe-bg text-safe-green"
-                : "status-crit-bg text-crit-red"
+                ? "terminal-status-safe-bg text-success"
+                : "terminal-status-crit-bg text-soft-red"
           }`}
         >
           {isEqual ? null : isBetter ? (

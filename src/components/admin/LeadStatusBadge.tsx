@@ -3,10 +3,10 @@ import type { LeadStatus } from "@/lib/leads/types";
 
 const statusClasses: Record<LeadStatus, string> = {
  new: "bg-cyan/10 text-cyan",
- reviewed: "bg-professional-blue/10 text-professional-blue",
+ reviewed: "bg-ink-black/10 text-ink-black",
  contacted: "bg-amber/10 text-amber",
  qualified: "bg-bg-subtle text-text-secondary",
- converted: "bg-professional-blue/15 text-deep-navy",
+ converted: "bg-ink-black/15 text-ink-black",
  lost: "bg-slate/10 text-text-secondary",
 };
 

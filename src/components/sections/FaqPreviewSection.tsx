@@ -27,7 +27,7 @@ export function FaqPreviewSection() {
  More questions?{" "}
  <a
  href={`mailto:${CONTACT_EMAILS.hello}`}
- className="font-semibold text-deep-navy hover:underline"
+ className="font-semibold text-ink-black hover:underline"
  >
  Contact support
  </a>

@@ -11,7 +11,7 @@ export function LeadContactCell({ lead }: LeadContactCellProps) {
  <div className="space-y-1 break-words text-sm">
  <a
  href={`mailto:${lead.email}`}
- className="break-all text-professional-blue hover:underline"
+ className="break-all text-ink-black hover:underline"
  >
  {lead.email}
  </a>

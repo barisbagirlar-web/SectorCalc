@@ -116,7 +116,7 @@ export function IntelligencePanel({
               </span>
               <div
                 className={`mt-1 text-xs font-bold uppercase tracking-wider ${
-                  isActionRequired ? "text-crit-red status-crit" : "text-safe-green status-safe"
+                  isActionRequired ? "text-soft-red terminal-status-crit" : "text-success terminal-status-safe"
                 }`}
               >
                 {isActionRequired

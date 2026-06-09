@@ -31,7 +31,7 @@ export function LeadCleanupControls({
  >
  <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
  <div>
- <h2 className="text-sm font-bold text-deep-navy">Lead Cleanup</h2>
+ <h2 className="text-sm font-bold text-ink-black">Lead Cleanup</h2>
  <p className="mt-1 text-xs text-text-secondary">
  Test/deneme kayıtlarını metriklerden hariç tut — tablo tüm lead&apos;leri gösterir.
  </p>
@@ -42,9 +42,9 @@ export function LeadCleanupControls({
  type="checkbox"
  checked={excludeTestLeadsFromMetrics}
  onChange={(event) => onExcludeTestLeadsChange(event.target.checked)}
- className="h-4 w-4 rounded border-slate/30 text-professional-blue focus:ring-professional-blue/30"
+ className="h-4 w-4 rounded border-slate/30 text-ink-black focus:ring-ink-black/30"
  />
- <span className="text-sm font-medium text-deep-navy">
+ <span className="text-sm font-medium text-ink-black">
  Test lead&apos;leri metriklerden hariç tut
  </span>
  </label>
@@ -55,7 +55,7 @@ export function LeadCleanupControls({
  <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
  Toplam test lead
  </p>
- <p className="mt-1 text-xl font-bold tabular-nums text-deep-navy">
+ <p className="mt-1 text-xl font-bold tabular-nums text-ink-black">
  {loading ? "…" : summary.testLeadCount}
  </p>
  </div>
@@ -63,7 +63,7 @@ export function LeadCleanupControls({
  <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
  Hariç tutulan
  </p>
- <p className="mt-1 text-xl font-bold tabular-nums text-deep-navy">
+ <p className="mt-1 text-xl font-bold tabular-nums text-ink-black">
  {loading ? "…" : summary.excludedFromMetricsCount}
  </p>
  </div>
@@ -71,7 +71,7 @@ export function LeadCleanupControls({
  <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
  Metrikte kullanılan
  </p>
- <p className="mt-1 text-xl font-bold tabular-nums text-deep-navy">
+ <p className="mt-1 text-xl font-bold tabular-nums text-ink-black">
  {loading ? "…" : summary.metricsLeadCount}
  </p>
  </div>
@@ -138,7 +138,7 @@ export function LeadDataQualityDetail({
  />
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-3">
  <dt className="font-medium text-text-secondary">Tespit nedenleri</dt>
- <dd className="break-words text-deep-navy">
+ <dd className="break-words text-ink-black">
  {detection.reasons.length > 0 ? (
  <ul className="list-inside list-disc space-y-1">
  {detection.reasons.map((reason) => (
@@ -165,7 +165,7 @@ function DetailRow({ label, value }: { label: string; value: string }) {
  return (
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-3">
  <dt className="font-medium text-text-secondary">{label}</dt>
- <dd className="break-words text-deep-navy">{value}</dd>
+ <dd className="break-words text-ink-black">{value}</dd>
  </div>
  );
 }

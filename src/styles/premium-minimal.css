@@ -2,40 +2,77 @@
  * Industrial OS — status signals + global input/button rules
  */
 
-/* ── Status signals (NOT action orange) ── */
+/* ── Status signals — report / PDF / badge (dark tones) ── */
 .status-crit,
 .text-crit-red[data-status],
 [data-status="critical"] {
-  color: var(--crit-red, #dc2626) !important;
+  color: #991b1b !important;
 }
 
 .status-warn,
 .text-warn-amber[data-status],
 [data-status="warning"] {
-  color: var(--warn-amber, #f59e0b) !important;
+  color: #d97706 !important;
 }
 
 .status-safe,
 .text-safe-green[data-status],
 [data-status="safe"] {
-  color: var(--safe-green, #10b981) !important;
+  color: #166534 !important;
 }
 
 .status-crit-bg {
-  background-color: rgb(220 38 38 / 0.06);
-  color: var(--crit-red, #dc2626);
+  background-color: rgb(153 27 27 / 0.06);
+  color: #991b1b;
   border-radius: 0;
 }
 
 .status-warn-bg {
-  background-color: rgb(245 158 11 / 0.06);
-  color: var(--warn-amber, #f59e0b);
+  background-color: rgb(217 119 6 / 0.06);
+  color: #d97706;
   border-radius: 0;
 }
 
 .status-safe-bg {
+  background-color: rgb(22 101 52 / 0.06);
+  color: #166534;
+  border-radius: 0;
+}
+
+/* ── Terminal / HMI screen signals (vibrant tones) ── */
+.terminal-status-crit,
+.terminal-status-crit[data-status],
+[data-terminal-status="critical"] {
+  color: #dc2626 !important;
+}
+
+.terminal-status-warn,
+.terminal-status-warn[data-status],
+[data-terminal-status="warning"] {
+  color: #f59e0b !important;
+}
+
+.terminal-status-safe,
+.terminal-status-safe[data-status],
+[data-terminal-status="safe"] {
+  color: #10b981 !important;
+}
+
+.terminal-status-crit-bg {
+  background-color: rgb(220 38 38 / 0.06);
+  color: #dc2626;
+  border-radius: 0;
+}
+
+.terminal-status-warn-bg {
+  background-color: rgb(245 158 11 / 0.06);
+  color: #f59e0b;
+  border-radius: 0;
+}
+
+.terminal-status-safe-bg {
   background-color: rgb(16 185 129 / 0.06);
-  color: var(--safe-green, #10b981);
+  color: #10b981;
   border-radius: 0;
 }
 

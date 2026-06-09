@@ -120,7 +120,7 @@ export function PremiumAuditInput({ sectorId }: PremiumAuditInputProps) {
       />
 
       {stepError || inputError ? (
-        <p className="mt-4 text-xs text-crit-red status-crit" role="alert">
+        <p className="mt-4 text-xs text-soft-red terminal-status-crit" role="alert">
           {t("premiumAudit.invalidValue")}
         </p>
       ) : null}

@@ -17,7 +17,7 @@ export function CncCampaignHomeCta() {
  </div>
  <Link
  href="/cnc-quote-risk"
- className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg border border-deep-navy px-6 text-sm font-semibold text-deep-navy transition-colors hover:bg-accent-teal/5"
+ className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg border border-ink-black px-6 text-sm font-semibold text-ink-black transition-colors hover:bg-accent-teal/5"
  >
  View CNC quote risk tools
  </Link>

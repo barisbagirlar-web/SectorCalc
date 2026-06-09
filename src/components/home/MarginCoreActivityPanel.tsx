@@ -36,7 +36,7 @@ export async function MarginCoreActivityPanel({ locale }: { locale: string }) {
             </p>
             <h2
               id="activity-panel-heading"
-              className="mt-2 text-xl font-semibold tracking-tight text-deep-navy sm:text-2xl"
+              className="mt-2 text-xl font-semibold tracking-tight text-ink-black sm:text-2xl"
             >
               {t("activity.title")}
             </h2>
@@ -46,7 +46,7 @@ export async function MarginCoreActivityPanel({ locale }: { locale: string }) {
           </div>
           <Link
             href="/account/reports"
-            className="inline-flex min-h-[44px] items-center border border-border-subtle bg-white px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-deep-navy/30"
+            className="inline-flex min-h-[44px] items-center border border-border-subtle bg-white px-4 text-sm font-semibold text-ink-black transition-colors hover:border-ink-black/30"
           >
             {t("activity.viewAll")}
           </Link>
@@ -73,7 +73,7 @@ export async function MarginCoreActivityPanel({ locale }: { locale: string }) {
                     className={
                       row.status === "pending"
                         ? "text-text-secondary"
-                        : "font-medium text-deep-navy"
+                        : "font-medium text-ink-black"
                     }
                   >
                     {row.verdict}
@@ -88,7 +88,7 @@ export async function MarginCoreActivityPanel({ locale }: { locale: string }) {
                           ? "font-mono text-[10px] uppercase tracking-wide text-amber"
                           : row.status === "pending"
                             ? "font-mono text-[10px] uppercase tracking-wide text-text-secondary"
-                            : "font-mono text-[10px] uppercase tracking-wide text-deep-navy"
+                            : "font-mono text-[10px] uppercase tracking-wide text-ink-black"
                       }
                     >
                       {t(`activity.status.${row.status}`)}

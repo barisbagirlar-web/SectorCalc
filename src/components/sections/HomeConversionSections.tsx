@@ -16,7 +16,7 @@ const PAIN_ITEM_CONFIG = [
  {
  key: "material",
  icon: PAIN_RISK_ICONS.material,
- iconClass: "text-deep-navy",
+ iconClass: "text-ink-black",
  },
  {
  key: "labor",
@@ -143,7 +143,7 @@ export async function HomeSampleVerdictSection() {
  >
  <div className="container">
  <p className="mc-home-conversion-eyebrow flex items-center justify-center gap-2">
- <ScIcon icon={DocumentMagnifyingGlassIcon} size="compact" className="text-deep-navy" />
+ <ScIcon icon={DocumentMagnifyingGlassIcon} size="compact" className="text-ink-black" />
  {t("sample.eyebrow")}
  </p>
  <h2 id="home-sample-heading" className="sc-h2">
@@ -203,10 +203,10 @@ export async function HomeFreeVsProSection() {
  <article className="sc-card sc-card-interactive">
  <StatusIconBadge status="free" label={t("compare.freeLabel")} className="mb-4" />
  <ul className="space-y-3 text-sm leading-relaxed text-text-secondary">
- <IconListItem icon={STATUS_ICON.free} iconClassName="text-deep-navy">
+ <IconListItem icon={STATUS_ICON.free} iconClassName="text-ink-black">
  {t("compare.freeItem1")}
  </IconListItem>
- <IconListItem icon={TOOL_CATEGORY_ICON.margin} iconClassName="text-deep-navy">
+ <IconListItem icon={TOOL_CATEGORY_ICON.margin} iconClassName="text-ink-black">
  {t("compare.freeItem2")}
  </IconListItem>
  <IconListItem icon={UI_ICON.exclude} iconClassName="text-text-secondary">

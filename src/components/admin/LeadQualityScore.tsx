@@ -8,7 +8,7 @@ import {
 } from "@/lib/leads/lead-quality-score";
 
 const levelClasses: Record<LeadQualityLevel, string> = {
- high: "border-border-subtle bg-bg-subtle text-deep-navy",
+ high: "border-border-subtle bg-bg-subtle text-ink-black",
  medium: "border-amber/30 bg-amber/10 text-amber",
  low: "border-slate/25 bg-off-white text-text-secondary",
 };
@@ -48,7 +48,7 @@ export function LeadQualitySection({
  return (
  <section className="space-y-4" aria-label="Lead Quality">
  <div>
- <h2 className="text-lg font-bold text-deep-navy">Lead Quality</h2>
+ <h2 className="text-lg font-bold text-ink-black">Lead Quality</h2>
  <p className="mt-1 text-sm text-text-secondary">
  Kalite skoru — hangi lead&apos;e önce dönüleceğini belirlemeye yardımcı olur.
  </p>
@@ -93,7 +93,7 @@ export function LeadQualityDetail({ quality }: LeadQualityDetailProps) {
  <div className="space-y-3">
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:items-center sm:gap-3">
  <dt className="font-medium text-text-secondary">Skor</dt>
- <dd className="tabular-nums text-deep-navy">{quality.score} / 100</dd>
+ <dd className="tabular-nums text-ink-black">{quality.score} / 100</dd>
  </div>
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:items-center sm:gap-3">
  <dt className="font-medium text-text-secondary">Seviye</dt>
@@ -103,7 +103,7 @@ export function LeadQualityDetail({ quality }: LeadQualityDetailProps) {
  </div>
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-3">
  <dt className="font-medium text-text-secondary">Nedenler</dt>
- <dd className="break-words text-deep-navy">
+ <dd className="break-words text-ink-black">
  {quality.reasons.length > 0 ? (
  <ul className="list-inside list-disc space-y-1">
  {quality.reasons.map((reason) => (
@@ -117,7 +117,7 @@ export function LeadQualityDetail({ quality }: LeadQualityDetailProps) {
  </div>
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-3">
  <dt className="font-medium text-text-secondary">Uyarılar</dt>
- <dd className="break-words text-deep-navy">
+ <dd className="break-words text-ink-black">
  {quality.warnings.length > 0 ? (
  <ul className="list-inside list-disc space-y-1 text-text-secondary">
  {quality.warnings.map((warning) => (

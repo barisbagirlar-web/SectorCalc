@@ -7,7 +7,7 @@ const toneStyles: Record<
  success: {
  border: "border-emerald/40",
  bg: "bg-emerald/10",
- title: "text-deep-navy",
+ title: "text-ink-black",
  text: "text-text-primary",
  },
  warning: {

@@ -11,7 +11,7 @@ const slaLevelClasses: Record<FollowUpSlaLevel, string> = {
  ok: "border-slate/20 bg-off-white/80 text-text-secondary",
  watch: "border-amber/30 bg-amber/10 text-amber",
  urgent: "border-amber/30 bg-amber/10 text-amber",
- done: "border-border-subtle bg-bg-subtle text-deep-navy",
+ done: "border-border-subtle bg-bg-subtle text-ink-black",
 };
 
 interface LeadFollowUpSlaProps {
@@ -49,7 +49,7 @@ export function LeadFollowUpSlaSection({
  return (
  <section className="space-y-4" aria-label="Follow-up SLA">
  <div>
- <h2 className="text-lg font-bold text-deep-navy">Follow-up SLA</h2>
+ <h2 className="text-lg font-bold text-ink-black">Follow-up SLA</h2>
  <p className="mt-1 text-sm text-text-secondary">
  Lead takip gecikmesi — son güncelleme veya oluşturma tarihine göre.
  </p>

@@ -25,7 +25,7 @@ const WRITE_ENABLED_HINT =
  "Kaydet, Firebase Auth ile doğrulanmış admin hesabı üzerinden yazar.";
 
 const fieldClass =
- "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
+ "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-ink-black focus:border-ink-black focus:outline-none focus:ring-2 focus:ring-ink-black/20";
 
 export interface LeadPipelinePatch {
  status: LeadStatus;
@@ -181,7 +181,7 @@ export function LeadPipelineControls({
  onClick={() => void handleSave()}
  disabled={saveDisabled}
  title={statusMessage}
- className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-professional-blue px-3 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50"
+ className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-ink-black px-3 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50"
  >
  {saving ? "Kaydediliyor…" : "Kaydet"}
  </button>
@@ -190,7 +190,7 @@ export function LeadPipelineControls({
  href={whatsAppUrl}
  target="_blank"
  rel="noopener noreferrer"
- className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-deep-navy/20 bg-bg-subtle px-3 text-sm font-semibold text-text-secondary transition-colors hover:bg-bg-subtle"
+ className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-ink-black/20 bg-bg-subtle px-3 text-sm font-semibold text-text-secondary transition-colors hover:bg-bg-subtle"
  >
  WhatsApp Aç
  </a>
@@ -208,7 +208,7 @@ export function LeadPipelineControls({
  </p>
 
  {feedback === "saved" ? (
- <p className="text-xs font-medium text-deep-navy" role="status">
+ <p className="text-xs font-medium text-ink-black" role="status">
  Kaydedildi
  </p>
  ) : null}

@@ -73,7 +73,7 @@ export function PremiumLoginPrompt({ paidSlug }: PremiumLoginPromptProps) {
 
  return (
  <aside className="mx-auto max-w-2xl rounded-sm border border-border-subtle bg-white p-6 shadow-card sm:p-8">
- <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
+ <p className="text-xs font-semibold uppercase tracking-wider text-ink-black">
  Sign in required
  </p>
  <h2 className="mt-3 text-xl font-bold text-text-primary sm:text-2xl">
@@ -85,7 +85,7 @@ export function PremiumLoginPrompt({ paidSlug }: PremiumLoginPromptProps) {
  </p>
  <Link
  href={loginHref}
- className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-deep-navy px-5 text-sm font-semibold text-white transition-colors hover:bg-black sm:w-auto"
+ className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-ink-black px-5 text-sm font-semibold text-white transition-colors hover:bg-black sm:w-auto"
  >
  Sign in
  </Link>

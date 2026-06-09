@@ -24,7 +24,7 @@ export function FreeToolUpgradePanel({ revenue }: FreeToolUpgradePanelProps) {
  </ul>
  <Link
  href={getToolHref("premium", revenue.paidSlug)}
- className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-deep-navy px-5 text-sm font-semibold text-white transition-colors hover:bg-black"
+ className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-ink-black px-5 text-sm font-semibold text-white transition-colors hover:bg-black"
  >
  {revenue.premiumCtaLabel}
  </Link>

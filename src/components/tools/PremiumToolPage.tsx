@@ -460,7 +460,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  </Suspense>
  <PremiumPaywall tool={tool} />
  {error ? (
- <p className="mt-2 text-sm text-crit-red status-crit" role="alert">
+ <p className="mt-2 text-sm text-soft-red terminal-status-crit" role="alert">
  {error}
  </p>
  ) : null}

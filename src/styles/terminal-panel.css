@@ -7,7 +7,7 @@
   --tp-black: #0a0a0a;
   --tp-white: #ffffff;
   --tp-border: #a0a0a0;
-  --tp-orange: #e65100;
+  --tp-orange: #c2410c;
   --tp-red: #dc2626;
   --tp-amber: #f59e0b;
   --tp-green: #10b981;
@@ -146,8 +146,8 @@
 }
 
 .terminal-panel__btn--calc:hover:not(:disabled) {
-  background: #bf360c;
-  border-color: #bf360c;
+  background: #9a3412;
+  border-color: #9a3412;
 }
 
 .terminal-panel__btn--ghost {

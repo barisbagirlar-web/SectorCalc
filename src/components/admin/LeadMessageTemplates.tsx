@@ -68,7 +68,7 @@ export function LeadMessageTemplates({ lead }: LeadMessageTemplatesProps) {
 
  return (
  <section className="rounded-sm border border-slate/20 bg-white p-4 sm:p-5">
- <h3 className="text-sm font-bold text-deep-navy">Mesaj Şablonları</h3>
+ <h3 className="text-sm font-bold text-ink-black">Mesaj Şablonları</h3>
  <p className="mt-1 text-xs leading-relaxed text-text-secondary">
  Hazır metinleri panoya kopyalayın. Otomatik gönderim yapılmaz.
  </p>
@@ -81,7 +81,7 @@ export function LeadMessageTemplates({ lead }: LeadMessageTemplatesProps) {
  key={button.target}
  type="button"
  onClick={() => void handleCopy(button.target, button.build)}
- className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-slate/25 bg-white px-3 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white"
+ className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-slate/25 bg-white px-3 text-sm font-semibold text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white"
  >
  {copied ? "Kopyalandı" : button.label}
  </button>
@@ -98,7 +98,7 @@ export function LeadMessageTemplates({ lead }: LeadMessageTemplatesProps) {
  readOnly
  value={fallbackText}
  rows={8}
- className="w-full resize-y rounded-lg border border-slate/25 bg-off-white px-3 py-2 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20"
+ className="w-full resize-y rounded-lg border border-slate/25 bg-off-white px-3 py-2 text-sm text-ink-black focus:border-ink-black focus:outline-none focus:ring-2 focus:ring-ink-black/20"
  aria-label="Kopyalanacak metin"
  />
  </div>

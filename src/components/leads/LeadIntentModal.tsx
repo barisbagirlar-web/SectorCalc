@@ -36,7 +36,7 @@ import { useLeadIntent } from "@/components/leads/LeadIntentContext";
 const inputClass =
  "w-full min-h-[48px] rounded-lg border bg-white px-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-teal/20";
 const inputErrorClass = "border-soft-red";
-const inputOkClass = "border-slate/25 focus:border-deep-navy";
+const inputOkClass = "border-slate/25 focus:border-ink-black";
 
 interface FormState {
  name: string;
@@ -320,7 +320,7 @@ export function LeadIntentModal() {
  {checkoutPending ? <CheckoutLoadingOverlay /> : null}
  <button
  type="button"
- className="absolute inset-0 bg-deep-navy/70 backdrop-blur-[2px]"
+ className="absolute inset-0 bg-ink-black/70 backdrop-blur-[2px]"
  aria-label="Close dialog"
  onClick={closeLeadModal}
  />
@@ -331,7 +331,7 @@ export function LeadIntentModal() {
  aria-labelledby={titleId}
  className={`relative z-10 flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-2xl border sm:max-h-[90vh] sm:rounded-sm ${
  flow === "paywall"
- ? "max-w-xl border-amber/25 bg-deep-navy"
+ ? "max-w-xl border-amber/25 bg-ink-black"
  : "max-w-lg border-border-subtle bg-white"
  }`}
  >
@@ -402,7 +402,7 @@ export function LeadIntentModal() {
  <Link
  href="/free-tools"
  onClick={closeLeadModal}
- className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-deep-navy px-6 text-sm font-semibold text-white transition-colors hover:bg-black sm:w-auto"
+ className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-ink-black px-6 text-sm font-semibold text-white transition-colors hover:bg-black sm:w-auto"
  >
  Continue exploring tools
  </Link>
@@ -442,7 +442,7 @@ export function LeadIntentModal() {
  <button
  type="submit"
  disabled={loading || checkoutPending}
- className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg border border-amber/40 bg-amber px-6 text-sm font-semibold text-deep-navy transition-colors hover:bg-amber/90 disabled:opacity-60"
+ className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg border border-amber/40 bg-amber px-6 text-sm font-semibold text-ink-black transition-colors hover:bg-amber/90 disabled:opacity-60"
  >
  {loading || checkoutPending ? "Redirecting to checkout…" : "Continue to checkout"}
  </button>
@@ -604,7 +604,7 @@ export function LeadIntentModal() {
  <button
  type="submit"
  disabled={loading}
- className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-deep-navy px-6 text-sm font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
+ className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-ink-black px-6 text-sm font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
  >
  {loading ? "Submitting…" : "Submit request"}
  </button>

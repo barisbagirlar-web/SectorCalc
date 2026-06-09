@@ -204,7 +204,7 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
                 </div>
 
                 {formError ? (
-                  <p className="text-xs text-crit-red status-crit" role="alert">
+                  <p className="text-xs text-soft-red terminal-status-crit" role="alert">
                     {formError}
                   </p>
                 ) : null}
@@ -241,9 +241,9 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
               </div>
 
               {premiumParsed?.isError ? (
-                <p className="text-xs text-crit-red status-crit" role="alert">
+                <p className="text-xs text-soft-red terminal-status-crit" role="alert">
                   {premiumParsed.errorMessage}{" "}
-                  <Link href="/login" className="text-deep-navy underline">
+                  <Link href="/login" className="text-ink-black underline">
                     {t("premium.signInLink")}
                   </Link>
                 </p>

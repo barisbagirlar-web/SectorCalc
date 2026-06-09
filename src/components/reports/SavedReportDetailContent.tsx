@@ -36,9 +36,9 @@ const severityStyles: Record<
  { border: string; bg: string; verdict: string }
 > = {
  safe: {
- border: "border-deep-navy/25",
+ border: "border-ink-black/25",
  bg: "bg-bg-subtle",
- verdict: "text-deep-navy",
+ verdict: "text-ink-black",
  },
  watch: {
  border: "border-amber/35",
@@ -128,11 +128,11 @@ export function SavedReportDetailContent({ reportId }: SavedReportDetailContentP
  <Container size="wide" className="min-w-0">
  <Link
  href="/account/reports"
- className="text-sm font-medium text-deep-navy hover:underline"
+ className="text-sm font-medium text-ink-black hover:underline"
  >
  Back to saved reports
  </Link>
- <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-deep-navy">
+ <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-ink-black">
  {report.sector}
  </p>
  <h1 className="mt-2 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">

@@ -17,7 +17,7 @@ export function LeadCaptureCta() {
         </p>
 
         {submitted ? (
-          <p className="mt-6 rounded-lg border border-border-subtle bg-white p-4 text-sm text-deep-navy">
+          <p className="mt-6 rounded-lg border border-border-subtle bg-white p-4 text-sm text-ink-black">
             Thank you. This preview form does not transmit data. Connect your lead pipeline when ready.
           </p>
         ) : (
@@ -29,7 +29,7 @@ export function LeadCaptureCta() {
             }}
           >
             <label className="block text-sm">
-              <span className="font-medium text-deep-navy">Email</span>
+              <span className="font-medium text-ink-black">Email</span>
               <input
                 type="email"
                 required
@@ -39,7 +39,7 @@ export function LeadCaptureCta() {
               />
             </label>
             <label className="block text-sm">
-              <span className="font-medium text-deep-navy">Company</span>
+              <span className="font-medium text-ink-black">Company</span>
               <input
                 type="text"
                 className="mt-1 w-full min-h-[44px] rounded-lg border border-border-subtle px-3 text-sm"
@@ -47,7 +47,7 @@ export function LeadCaptureCta() {
               />
             </label>
             <label className="block text-sm">
-              <span className="font-medium text-deep-navy">Intent</span>
+              <span className="font-medium text-ink-black">Intent</span>
               <select className="mt-1 w-full min-h-[44px] rounded-lg border border-border-subtle px-3 text-sm">
                 {LEAD_CAPTURE_CONTRACTS.map((contract) => (
                   <option key={contract.intent} value={contract.intent}>
@@ -58,7 +58,7 @@ export function LeadCaptureCta() {
             </label>
             <button
               type="submit"
-              className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-deep-navy px-5 text-sm font-semibold text-white sm:w-auto"
+              className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-ink-black px-5 text-sm font-semibold text-white sm:w-auto"
             >
               Request early access
             </button>

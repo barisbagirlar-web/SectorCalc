@@ -2217,7 +2217,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   color: inherit;
 }
 
-.sc-inverse-surface :is(.text-text-primary, .text-text-secondary, .text-body-charcoal, .text-premium-velvet, .text-deep-navy) {
+.sc-inverse-surface :is(.text-text-primary, .text-text-secondary, .text-body-charcoal, .text-premium-velvet, .text-ink-black) {
   color: var(--sc-inverse-muted, rgb(255 255 255 / 0.78)) !important;
 }
 

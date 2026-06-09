@@ -14,7 +14,7 @@ export function FreeToolsQuickLinks() {
  <li key={tool.freeSlug}>
  <Link
  href={getFreeToolHref(tool)}
- className="flex min-h-[44px] items-center py-3 text-sm font-semibold text-text-primary transition-colors hover:text-deep-navy"
+ className="flex min-h-[44px] items-center py-3 text-sm font-semibold text-text-primary transition-colors hover:text-ink-black"
  >
  {tool.freeTitle}
  </Link>

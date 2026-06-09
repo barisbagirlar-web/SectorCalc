@@ -9,7 +9,7 @@
   --text-premium-velvet: #111111;
   --text-body-charcoal: #2b2b2b;
   --border-technical-gray: #d1d1d1;
-  --action-industrial-orange: #e65100;
+  --action-industrial-orange: #c2410c;
 
   --ind-bg: var(--bg-industrial-matte);
   --ind-surface: #ffffff;
@@ -441,8 +441,8 @@
 /* Dark surface readability                                                   */
 /* -------------------------------------------------------------------------- */
 
-.bg-deep-navy,
-.bg-dark-navy,
+.bg-ink-black,
+.bg-midnight-black,
 .bg-slate-900,
 .bg-navy,
 .bf-panel-navy,
@@ -450,8 +450,8 @@
   color: #ffffff;
 }
 
-.bg-deep-navy :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
-.bg-dark-navy :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
+.bg-ink-black :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
+.bg-midnight-black :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
 .bg-slate-900 :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
 .bg-navy :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
 .bf-panel-navy :is(h1, h2, h3, h4, h5, h6, p, label, span, dt, dd, li, td, th),
@@ -459,13 +459,13 @@
   color: #ffffff;
 }
 
-.bg-deep-navy :is(.text-text-secondary, .text-text-primary, .text-text-muted),
-.bg-dark-navy :is(.text-text-secondary, .text-text-primary, .text-text-muted) {
+.bg-ink-black :is(.text-text-secondary, .text-text-primary, .text-text-muted),
+.bg-midnight-black :is(.text-text-secondary, .text-text-primary, .text-text-muted) {
   color: rgb(255 255 255 / 0.78) !important;
 }
 
-.bg-deep-navy .text-amber,
-.bg-dark-navy .text-amber {
+.bg-ink-black .text-amber,
+.bg-midnight-black .text-amber {
   color: var(--ind-amber) !important;
 }
 

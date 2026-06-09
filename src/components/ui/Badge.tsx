@@ -9,10 +9,10 @@ interface BadgeProps {
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
- default: "bg-deep-navy/10 text-deep-navy border border-deep-navy/15",
+ default: "bg-ink-black/10 text-ink-black border border-ink-black/15",
  free: "bg-bg-subtle text-text-secondary border border-border-subtle",
  premium: "bg-amber/10 text-amber border border-amber/25",
- new: "bg-deep-navy/10 text-deep-navy border border-deep-navy/15",
+ new: "bg-ink-black/10 text-ink-black border border-ink-black/15",
  muted: "bg-bg-subtle text-text-secondary border border-border-subtle",
 };
 

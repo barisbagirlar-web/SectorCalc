@@ -53,7 +53,7 @@ export function StripePlanCheckoutButton({
 
  if (hideWhenProActive && !loading && isPro) {
  return (
- <p className={`text-sm font-semibold text-deep-navy ${className}`.trim()}>
+ <p className={`text-sm font-semibold text-ink-black ${className}`.trim()}>
  {t("proActive")}
  </p>
  );

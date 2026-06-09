@@ -137,7 +137,7 @@ export default function HowItWorksPage() {
  <ul className="mt-4 space-y-2">
  {section.bullets.map((item) => (
  <li key={item} className="flex gap-2 text-sm text-text-secondary">
- <span className="text-deep-navy" aria-hidden>
+ <span className="text-ink-black" aria-hidden>
  —
  </span>
  {item}
@@ -156,7 +156,7 @@ export default function HowItWorksPage() {
  <h2 className="text-xl font-bold text-text-primary">Free vs premium at a glance</h2>
  <div className="mt-6 grid gap-6 md:grid-cols-2">
  <article className="sc-card">
- <p className="sc-eyebrow text-deep-navy">Free check</p>
+ <p className="sc-eyebrow text-ink-black">Free check</p>
  <ul className="mt-4 space-y-2 text-sm text-text-secondary">
  <li>Visible risk level and summary</li>
  <li>Browser-side processing</li>
@@ -187,25 +187,25 @@ export default function HowItWorksPage() {
  <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
  <Link
  href={getFreeToolsHref()}
- className="inline-flex min-h-[44px] items-center text-sm font-semibold text-deep-navy hover:underline"
+ className="inline-flex min-h-[44px] items-center text-sm font-semibold text-ink-black hover:underline"
  >
  Run a free check →
  </Link>
  <Link
  href={getSampleReportHref()}
- className="inline-flex min-h-[44px] items-center text-sm font-semibold text-text-secondary hover:text-deep-navy"
+ className="inline-flex min-h-[44px] items-center text-sm font-semibold text-text-secondary hover:text-ink-black"
  >
  View sample verdict report →
  </Link>
  <Link
  href={getPremiumToolsHref()}
- className="inline-flex min-h-[44px] items-center text-sm font-semibold text-text-secondary hover:text-deep-navy"
+ className="inline-flex min-h-[44px] items-center text-sm font-semibold text-text-secondary hover:text-ink-black"
  >
  Browse premium analyzers →
  </Link>
  <Link
  href={getPricingHref()}
- className="inline-flex min-h-[44px] items-center text-sm font-semibold text-text-secondary hover:text-deep-navy"
+ className="inline-flex min-h-[44px] items-center text-sm font-semibold text-text-secondary hover:text-ink-black"
  >
  View pricing →
  </Link>

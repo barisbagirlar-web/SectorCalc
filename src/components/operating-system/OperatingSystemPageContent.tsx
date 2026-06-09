@@ -16,7 +16,7 @@ export function OperatingSystemPageContent() {
 
   return (
     <div className="sc-pro-page public-demo-page">
-      <section className="bg-deep-navy text-white">
+      <section className="bg-ink-black text-white">
         <Container className="sc-pro-container public-demo-hero">
           <p className="sc-pro-eyebrow text-white/70">Calculation operating system</p>
           <h1 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight md:text-4xl">
@@ -29,7 +29,7 @@ export function OperatingSystemPageContent() {
           <div className="public-demo-cta-row mt-8">
             <Link
               href="/investor-demo"
-              className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-white px-5 text-sm font-semibold text-deep-navy"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-white px-5 text-sm font-semibold text-ink-black"
             >
               Investor demo pack
             </Link>
@@ -50,11 +50,11 @@ export function OperatingSystemPageContent() {
           <ol className="mt-8 grid gap-3 md:grid-cols-2">
             {OPERATING_SYSTEM_PIPELINE_STAGES.map((stage, index) => (
               <li key={stage.id} className="public-demo-pipeline-step sc-pro-panel flex gap-4 p-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-deep-navy text-sm font-semibold text-white">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink-black text-sm font-semibold text-white">
                   {index + 1}
                 </span>
                 <div>
-                  <p className="font-semibold text-deep-navy">{stage.label}</p>
+                  <p className="font-semibold text-ink-black">{stage.label}</p>
                   <p className="mt-1 text-xs text-text-secondary">
                     {stage.automated === true
                       ? "Automated governance"
@@ -76,7 +76,7 @@ export function OperatingSystemPageContent() {
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {OPERATING_SYSTEM_GATES.map((gate) => (
               <article key={gate.id} className="sc-pro-panel p-5">
-                <h3 className="font-semibold text-deep-navy">{gate.title}</h3>
+                <h3 className="font-semibold text-ink-black">{gate.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">{gate.body}</p>
               </article>
             ))}
@@ -90,7 +90,7 @@ export function OperatingSystemPageContent() {
           <h2 className="sc-pro-title sc-pro-title--compact">Automated vs not automated</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-deep-navy">Automated</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-black">Automated</h3>
               <ul className="mt-3 space-y-2 text-sm text-text-secondary">
                 {AUTOMATION_BOUNDARY.automated.map((item) => (
                   <li key={item}>— {item}</li>
@@ -98,7 +98,7 @@ export function OperatingSystemPageContent() {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-deep-navy">Not automated</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-black">Not automated</h3>
               <ul className="mt-3 space-y-2 text-sm text-text-secondary">
                 {AUTOMATION_BOUNDARY.notAutomated.map((item) => (
                   <li key={item}>— {item}</li>
@@ -121,7 +121,7 @@ export function OperatingSystemPageContent() {
               </li>
             ))}
           </ul>
-          <h3 className="mt-8 text-sm font-semibold text-deep-navy">Next 3 batches</h3>
+          <h3 className="mt-8 text-sm font-semibold text-ink-black">Next 3 batches</h3>
           <ul className="mt-3 space-y-2 text-sm text-text-secondary">
             {nextBatches.map((batch) => (
               <li key={batch.batchId}>
@@ -132,7 +132,7 @@ export function OperatingSystemPageContent() {
         </Container>
       </section>
 
-      <section className="bg-deep-navy text-white">
+      <section className="bg-ink-black text-white">
         <Container className="sc-pro-container py-14">
           <p className="sc-pro-eyebrow text-white/70">Business steps</p>
           <h2 className="text-2xl font-semibold">Next 3 real steps</h2>

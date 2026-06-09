@@ -51,7 +51,7 @@ export function ScenarioAnalysisPanel({
  <td className="py-3 pr-4 text-text-secondary">
  {formatSecondary(scenario)}
  </td>
- <td className="py-3 font-medium text-deep-navy">
+ <td className="py-3 font-medium text-ink-black">
  {formatCurrency(scenario.profitValue)}
  </td>
  </tr>

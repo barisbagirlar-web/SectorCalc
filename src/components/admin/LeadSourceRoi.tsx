@@ -17,7 +17,7 @@ const cardClass =
  "rounded-sm border border-slate/20 bg-white p-4 shadow-card sm:p-5";
 
 const efficiencyClasses: Record<SourceRoiEfficiencyLevel, string> = {
- strong: "border-border-subtle bg-bg-subtle text-deep-navy",
+ strong: "border-border-subtle bg-bg-subtle text-ink-black",
  watch: "border-amber/30 bg-amber/10 text-amber",
  weak: "border-slate/25 bg-off-white text-text-secondary",
 };
@@ -44,7 +44,7 @@ function SourceRoiRowCard({ row, loading }: { row: SourceRoiRow; loading?: boole
  <article className="rounded-lg border border-slate/15 bg-off-white/40 p-4">
  <div className="flex flex-wrap items-start justify-between gap-2">
  <div className="min-w-0 flex-1">
- <p className="break-words font-semibold text-deep-navy">
+ <p className="break-words font-semibold text-ink-black">
  {row.sourceLabel}
  </p>
  <p className="mt-0.5 text-xs text-text-secondary">
@@ -60,31 +60,31 @@ function SourceRoiRowCard({ row, loading }: { row: SourceRoiRow; loading?: boole
  <dl className="mt-3 grid grid-cols-2 gap-x-3 gap-y-2 text-sm">
  <div>
  <dt className="text-xs text-text-secondary">Leads</dt>
- <dd className="tabular-nums font-medium text-deep-navy">
+ <dd className="tabular-nums font-medium text-ink-black">
  {loading ? "…" : row.total}
  </dd>
  </div>
  <div>
  <dt className="text-xs text-text-secondary">Avg Quality</dt>
- <dd className="tabular-nums font-medium text-deep-navy">
+ <dd className="tabular-nums font-medium text-ink-black">
  {loading ? "…" : row.averageQualityScore}
  </dd>
  </div>
  <div>
  <dt className="text-xs text-text-secondary">Qualified</dt>
- <dd className="tabular-nums text-deep-navy">
+ <dd className="tabular-nums text-ink-black">
  {loading ? "…" : row.qualifiedCount}
  </dd>
  </div>
  <div>
  <dt className="text-xs text-text-secondary">Converted</dt>
- <dd className="tabular-nums text-deep-navy">
+ <dd className="tabular-nums text-ink-black">
  {loading ? "…" : row.convertedCount}
  </dd>
  </div>
  <div>
  <dt className="text-xs text-text-secondary">Urgent</dt>
- <dd className="tabular-nums text-deep-navy">
+ <dd className="tabular-nums text-ink-black">
  {loading ? "…" : row.urgentFollowUpCount}
  </dd>
  </div>
@@ -128,7 +128,7 @@ export function LeadSourceRoiSection({ roi, loading }: LeadSourceRoiProps) {
  return (
  <section className="space-y-4" aria-label="Source ROI">
  <div>
- <h2 className="text-lg font-bold text-deep-navy">Source ROI</h2>
+ <h2 className="text-lg font-bold text-ink-black">Source ROI</h2>
  <p className="mt-1 text-sm text-text-secondary">
  Kaynak verim skoru — kalite, dönüşüm ve takip sağlığına göre (parasal ROI değil).
  </p>
@@ -136,7 +136,7 @@ export function LeadSourceRoiSection({ roi, loading }: LeadSourceRoiProps) {
 
  {roi.showLowSampleWarning ? (
  <p
- className="rounded-lg border border-amber/30 bg-amber/5 px-4 py-3 text-sm text-deep-navy"
+ className="rounded-lg border border-amber/30 bg-amber/5 px-4 py-3 text-sm text-ink-black"
  role="status"
  >
  Bu skorlar yüklü lead verisine göre hesaplanır; düşük örneklemde yön gösterici
@@ -185,7 +185,7 @@ export function LeadSourceRoiSection({ roi, loading }: LeadSourceRoiProps) {
  key={`${row.groupType}-${row.sourceLabel}`}
  className="border-b border-slate/10 last:border-0"
  >
- <td className="py-2.5 pr-3 break-words text-deep-navy">
+ <td className="py-2.5 pr-3 break-words text-ink-black">
  {loading ? "…" : row.sourceLabel}
  </td>
  <td className="py-2.5 px-2 text-text-secondary">

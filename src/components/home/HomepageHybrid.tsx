@@ -241,7 +241,7 @@ export async function HomepageHybrid() {
       {/* 6b. Beta partner */}
       <section className="sc-home-hybrid__section" aria-labelledby="beta-partner-heading">
         <Container className="sc-pro-container">
-          <div className="sc-home-hybrid__beta-block rounded-lg border border-professional-blue/25 bg-white p-6 md:p-8">
+          <div className="sc-home-hybrid__beta-block rounded-lg border border-ink-black/25 bg-white p-6 md:p-8">
             <h2 id="beta-partner-heading" className="sc-home-hybrid__section-title">
               {t("betaPartner.title")}
             </h2>

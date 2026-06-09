@@ -56,7 +56,7 @@ export function LeadConversionMetrics({
  return (
  <section className="space-y-4" aria-label="Conversion metrics">
  <div>
- <h2 className="text-lg font-bold text-deep-navy">Conversion metrics</h2>
+ <h2 className="text-lg font-bold text-ink-black">Conversion metrics</h2>
  <p className="mt-1 text-sm text-text-secondary">
  Satış hunisi ve dönüşüm oranları — yüklü lead listesinden (salt okunur).
  </p>
@@ -86,9 +86,9 @@ export function LeadConversionMetrics({
  →
  </span>
  ) : null}
- <span className="font-medium text-deep-navy">{step.label}</span>
+ <span className="font-medium text-ink-black">{step.label}</span>
  </div>
- <p className="mt-1 text-xl font-bold tabular-nums text-deep-navy">
+ <p className="mt-1 text-xl font-bold tabular-nums text-ink-black">
  {loading ? "…" : String(step.count)}
  </p>
  <div
@@ -96,7 +96,7 @@ export function LeadConversionMetrics({
  aria-hidden
  >
  <div
- className="h-full rounded-full bg-professional-blue/70"
+ className="h-full rounded-full bg-ink-black/70"
  style={{
  width: loading
  ? "0%"
@@ -134,7 +134,7 @@ export function LeadConversionMetrics({
  key={row.sourceLabel}
  className="border-b border-slate/10 last:border-0"
  >
- <td className="max-w-[12rem] py-2.5 pr-3 break-words text-deep-navy">
+ <td className="max-w-[12rem] py-2.5 pr-3 break-words text-ink-black">
  {row.sourceLabel}
  </td>
  <td className="py-2.5 px-2 text-right tabular-nums">
@@ -178,7 +178,7 @@ export function LeadConversionMetrics({
  <p className="text-[10px] font-semibold uppercase tracking-wide text-text-secondary">
  {item.label}
  </p>
- <p className="mt-1 text-lg font-bold tabular-nums text-deep-navy">
+ <p className="mt-1 text-lg font-bold tabular-nums text-ink-black">
  {loading ? "…" : String(item.value)}
  </p>
  </div>

@@ -14,7 +14,7 @@ function gaugeColor(score: number): { text: string; bg: string; bar: string } {
  if (score > 40) {
  return { text: "text-amber", bg: "bg-amber/10", bar: "bg-amber" };
  }
- return { text: "text-deep-navy", bg: "bg-emerald/10", bar: "bg-deep-navy" };
+ return { text: "text-ink-black", bg: "bg-emerald/10", bar: "bg-ink-black" };
 }
 
 export function RiskGauge({ score, label }: RiskGaugeProps) {

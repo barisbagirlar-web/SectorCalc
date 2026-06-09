@@ -79,7 +79,7 @@ export function PlanAvailabilityBadge({
  const entry = PLAN_CATALOG[planId];
  if (entry.availability === "live") {
  return (
- <span className="text-[10px] font-bold uppercase tracking-wider text-deep-navy">
+ <span className="text-[10px] font-bold uppercase tracking-wider text-ink-black">
  {t("availableNow")}
  </span>
  );

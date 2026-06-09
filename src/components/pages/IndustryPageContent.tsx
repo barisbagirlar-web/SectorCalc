@@ -125,7 +125,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
  </li>
  ))}
  </ul>
- <Link href={getPremiumToolsHref()} className="mt-6 inline-flex text-sm font-semibold text-deep-navy underline">
+ <Link href={getPremiumToolsHref()} className="mt-6 inline-flex text-sm font-semibold text-ink-black underline">
  View all analyzers →
  </Link>
  </Container>
@@ -161,26 +161,26 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
  <Container size="narrow">
  <p className="text-sm leading-relaxed text-text-secondary">{revenueLegalDisclaimer}</p>
  <nav className="mt-6 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-4">
- <Link href="/industries" className="font-medium text-deep-navy hover:underline">
+ <Link href="/industries" className="font-medium text-ink-black hover:underline">
  All industries
  </Link>
  {tool ? (
  <>
  <Link
  href={getFreeToolHref(tool)}
- className="font-medium text-deep-navy hover:underline"
+ className="font-medium text-ink-black hover:underline"
  >
  Free calculator
  </Link>
  <Link
  href={primaryPremiumHref}
- className="font-medium text-deep-navy hover:underline"
+ className="font-medium text-ink-black hover:underline"
  >
  Premium analyzer
  </Link>
  <Link
  href={getPricingHref(tool)}
- className="font-medium text-deep-navy hover:underline"
+ className="font-medium text-ink-black hover:underline"
  >
  SectorCalc Pro pricing
  </Link>
@@ -188,7 +188,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
  ) : null}
  <Link
  href={getAccountHref()}
- className="font-medium text-deep-navy hover:underline"
+ className="font-medium text-ink-black hover:underline"
  >
  Account
  </Link>

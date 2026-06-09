@@ -37,7 +37,7 @@ export function LeadExportButton({ leads, disabled }: LeadExportButtonProps) {
  type="button"
  onClick={handleExport}
  disabled={isDisabled}
- className="inline-flex min-h-[44px] w-full shrink-0 items-center justify-center rounded-lg border border-slate/25 bg-white px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+ className="inline-flex min-h-[44px] w-full shrink-0 items-center justify-center rounded-lg border border-slate/25 bg-white px-4 text-sm font-semibold text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
  >
  CSV İndir
  </button>

@@ -60,7 +60,7 @@ function DetailSection({
 }) {
  return (
  <section className="rounded-sm border border-slate/20 bg-white p-4 sm:p-5">
- <h3 className="text-sm font-bold text-deep-navy">{title}</h3>
+ <h3 className="text-sm font-bold text-ink-black">{title}</h3>
  <dl className="mt-3 space-y-3 text-sm">{children}</dl>
  </section>
  );
@@ -70,7 +70,7 @@ function DetailRow({ label, value }: { label: string; value: string }) {
  return (
  <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-3">
  <dt className="font-medium text-text-secondary">{label}</dt>
- <dd className="break-words text-deep-navy">{value}</dd>
+ <dd className="break-words text-ink-black">{value}</dd>
  </div>
  );
 }
@@ -121,7 +121,7 @@ export function LeadDetailDrawer({
  <div className="fixed inset-0 z-50 flex justify-end" role="presentation">
  <button
  type="button"
- className="absolute inset-0 bg-deep-navy/30"
+ className="absolute inset-0 bg-ink-black/30"
  aria-label="Detayı kapat"
  onClick={onClose}
  />
@@ -139,7 +139,7 @@ export function LeadDetailDrawer({
  </p>
  <h2
  id="lead-detail-drawer-title"
- className="mt-1 text-lg font-bold text-deep-navy"
+ className="mt-1 text-lg font-bold text-ink-black"
  >
  {lead.name}
  </h2>
@@ -148,7 +148,7 @@ export function LeadDetailDrawer({
  <button
  type="button"
  onClick={onClose}
- className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate/20 text-text-secondary transition-colors hover:bg-off-white hover:text-deep-navy"
+ className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate/20 text-text-secondary transition-colors hover:bg-off-white hover:text-ink-black"
  aria-label="Kapat"
  >
  <span aria-hidden className="text-xl leading-none">
@@ -174,7 +174,7 @@ export function LeadDetailDrawer({
  <time
  dateTime={lead.createdAt}
  title={lead.createdAt}
- className="text-deep-navy"
+ className="text-ink-black"
  >
  {formatLocalDateTime(lead.createdAt)}
  </time>
@@ -316,7 +316,7 @@ export function LeadDetailDrawer({
  <summary className="cursor-pointer font-medium text-text-secondary">
  Ham kayıt (JSON)
  </summary>
- <pre className="mt-3 max-h-48 overflow-auto break-words rounded-lg border border-slate/15 bg-white p-3 text-xs text-deep-navy">
+ <pre className="mt-3 max-h-48 overflow-auto break-words rounded-lg border border-slate/15 bg-white p-3 text-xs text-ink-black">
  {JSON.stringify(lead, null, 2)}
  </pre>
  </details>

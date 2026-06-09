@@ -33,7 +33,7 @@ type IconListItemProps = {
 
 export function IconListItem({
  icon,
- iconClassName = "text-deep-navy",
+ iconClassName = "text-ink-black",
  children,
  className = "",
 }: IconListItemProps) {
@@ -54,13 +54,13 @@ type FeatureIconHeaderProps = {
 
 export function FeatureIconHeader({
  icon,
- iconClassName = "text-deep-navy",
+ iconClassName = "text-ink-black",
  title,
  subtitle,
 }: FeatureIconHeaderProps) {
  return (
  <div className="flex items-start gap-3">
- <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-border-subtle bg-bg-subtle text-deep-navy">
+ <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-border-subtle bg-bg-subtle text-ink-black">
  <ScIcon icon={icon} size="feature" className={iconClassName} />
  </span>
  <div>

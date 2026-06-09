@@ -37,7 +37,7 @@ export function HowItWorksSection() {
  key={item.step}
  className="relative rounded-sm border border-border-subtle bg-white p-8 shadow-card"
  >
- <span className="text-4xl font-bold text-deep-navy/20">
+ <span className="text-4xl font-bold text-ink-black/20">
  {item.step}
  </span>
  <h3 className="mt-4 text-xl font-bold text-text-primary">{item.title}</h3>

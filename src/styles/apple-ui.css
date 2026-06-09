@@ -10,8 +10,8 @@
   --apple-text: #1d1d1f;
   --apple-text-secondary: #86868b;
   --apple-text-tertiary: #6e6e73;
-  --apple-link: #0066cc;
-  --apple-link-hover: #0077ed;
+  --apple-link: #1e40af;
+  --apple-link-hover: #2563eb;
   --apple-border: rgba(0, 0, 0, 0.08);
   --apple-divider: #d2d2d7;
   --apple-radius-sm: 12px;
@@ -779,7 +779,7 @@
 }
 
 .apple-btn--secondary:hover {
-  background: rgba(0, 102, 204, 0.06);
+  background: rgba(30, 64, 175, 0.06);
 }
 
 .apple-btn--neutral {

@@ -42,15 +42,15 @@ export default async function PricingPage({ params }: PageProps) {
           <p className="sc-pro-lead">{t("tagline")}</p>
           <p className="sc-pro-lead mt-2 text-sm">{t("singleReportNote")}</p>
           <p className="mt-4 text-sm text-text-secondary">
-            <Link href="/investor-demo" className="font-semibold text-deep-navy hover:underline">
+            <Link href="/investor-demo" className="font-semibold text-ink-black hover:underline">
               Investor demo pack
             </Link>
             {" · "}
-            <Link href="/operating-system" className="font-semibold text-deep-navy hover:underline">
+            <Link href="/operating-system" className="font-semibold text-ink-black hover:underline">
               Operating system
             </Link>
             {" · "}
-            <Link href="/reports/sample-decision-report" className="font-semibold text-deep-navy hover:underline">
+            <Link href="/reports/sample-decision-report" className="font-semibold text-ink-black hover:underline">
               Sample report preview
             </Link>
           </p>
