@@ -192,65 +192,56 @@ B.5 Component Kategorileri (src/components — 35 dizin)
 C — CANLI vs LOCAL GIT / DEPLOY DURUMU
 ================================================================================
 
-C.1 Git Snapshot (2026-06-09, post-deploy)
------------------------------------------
-  Local HEAD:     2c1961a  Add package positioning model for verified reports
-  origin/main:    2c1961a  (push edildi — 99441d0..2c1961a, 16 commit)
-  Ahead:          0 (test-fix commit sonrası güncellenecek)
-  Working tree:   CLEAN (deploy gate öncesi)
+UYARI: Bu bölüm repo envanteridir. Production gerçekliği için bkz.
+docs/production-reality.md + smoke script çıktıları.
 
-C.2 Canlı Baseline (99441d0 — production)
-------------------------------------------
-  FormulaContract:       120
-  full_loop_runtime:     117
-  audit_pipeline_only:   0
+C.1 Git Snapshot (2026-06-09, production lock)
+-----------------------------------------------
+  Local HEAD:     8d63660  Fix EN premium tool 500s from legacy route collision
+  origin/main:    8d63660  (aligned)
+  Ahead/Behind:   0
+  Untracked WIP:  docs/sectorcalc-tam-yapi-raporu.txt (inventory only)
+  Stash:          12 entries — LIST ONLY, do not apply/deploy
 
-C.3 Local HEAD (2c1961a — deploy edilmedi)
-------------------------------------------
-  FormulaContract:       131
-  full_loop_runtime:     129
-  live_smart_form_pilot:   2
-  staged_calculation_bridge: 0
-  governed_buildtime_only:   0
-  audit_pipeline_only:       0
+C.2 Production Baseline Commits
+--------------------------------
+  P0 revert baseline:        6775934  (IA/categories/header reverts)
+  Premium route collision:   8d63660  (current live HEAD)
 
-  test:formulas:  1279/1279 PASS (99 test files)
-  release proof:  SYSTEM_APPROVABLE, proofScore 100/100, 8/8 required gates
+C.3 Canonical URLs
+------------------
+  Production:     https://sectorcalc.com
+  Firebase test:  https://sectorcalc-bf412.web.app
 
-C.4 16 Local Commit Zinciri (99441d0 → 2c1961a)
-------------------------------------------------
-  GECE ÇEKİRDEK (7):
-    2cd563a  Add schema full-loop governance coverage
-    01dca79  Add contract-driven smart form architecture
-    a6bf7e6  Add trust trace export layer
-    aefe7fa  Add calculator feedback workflow
-    20ab41e  Add controlled AI assistant layer
-    88f579c  Add autonomous release gate proof engine
-    ccb5ebe  Add regional unit normalization engine
+C.4 Last P0 Incident Summary
+-----------------------------
+  - White page / slowness reported
+  - Header IA, categories function-index, color docs reverted
+  - Live returned to stable baseline (6775934 chain)
+  - Premium EN 500s fixed in 8d63660
 
-  MANİFESTO DELTA (+9):
-    36c1a9e  Add SectorCalc manifesto and methodology pages
-    aeed3c2  Add sector case study proof layer
-    b84db51  Add methodology and standard reference layer
-    c530913  Add sourced benchmark data model
-    9c0fb3b  Add offline calculator capability policy
-    84670ff  Add digital seal and public verification foundation
-    4e4acac  Add report disclaimer and usage agreement layer
-    01c1285  Add enterprise report branding model
-    2c1961a  Add package positioning model for verified reports
+C.5 Smoke-Confirmed Stable Routes
+----------------------------------
+  EN/default: /, /pricing, /free-tools, /premium-tools, /industries, /categories
+              /login, /account, /account/reports
+  Locales:    tr, ar, de, fr, es prefixed routes
+  Premium:    27/27 at /tools/premium/{slug} (no /en prefix)
+  Known risk: /tr first-hit SSR cold-start may be slow
 
-C.5 Deploy Durumu (2026-06-09)
-------------------------------
-  git push:              PASS (99441d0..2c1961a)
-  firestore:rules:       PASS (calculator_feedback canlı)
-  hosting deploy:        PASS (ssrsectorcalcbf412 güncellendi)
-  production smoke:      PASS (curl HTTP 200)
+C.6 NOT Live (unless git re-confirms)
+--------------------------------------
+  Regional Unit Engine (foundation only)
+  Enterprise footer v2, Header manifesto IA, Categories function-index
+  Campaign/locale WIP, Smart Form global wrapper, Trust Trace Export, Verify backend
 
-C.6 Değişen Dosya Hacmi (99441d0..HEAD)
----------------------------------------
-  Toplam: 107 dosya, +10188 / −113 satır
-  Gece çekirdek (99441d0..88f579c): 65 dosya
-  Manifesto delta (88f579c..HEAD):  47 dosya
+C.7 Audit Standard (2026-06-09 lock)
+-------------------------------------
+  BASE_URL:     https://sectorcalc.com (SECTORCALC_AUDIT_BASE_URL override)
+  EN routes:    NO /en prefix (localePrefix: as-needed)
+  Retry:        6 attempts, backoff 500–6000ms, 18s timeout
+  Scripts:      audit:revenue-tools, smoke:premium-routes, smoke:locale-routes
+
+  Detay: docs/production-reality.md
 
 ================================================================================
 D — DUAL-INTELLIGENCE CALCULATION ENGINE (AKIL 1 + AKIL 2)

@@ -1170,7 +1170,47 @@ hosting) — Firestore rules client subscription write'ı bloklar; admin panel
 /admin/leads'te dondurulmuştur.
 
 ================================================================================
+BÖLÜM 30 — CURRENT PRODUCTION REALITY (2026-06-09 LOCK)
+================================================================================
+
+UYARI: Bu rapor repo teknik envanteridir; production gerçekliği current live commit
++ smoke raporuyla birlikte değerlendirilmelidir.
+
+Canonical live domain     : https://sectorcalc.com
+Firebase fallback/test    : https://sectorcalc-bf412.web.app
+P0 revert baseline        : 6775934
+Premium route collision   : 8d63660 (current HEAD = origin/main)
+
+Son P0 incident:
+  - Beyaz sayfa / yavaşlık raporlandı
+  - IA/categories/header geniş değişiklikleri revert edildi
+  - Premium route collision fix uygulandı (8d63660)
+
+Stable smoke assumptions:
+  - /, /tr, /pricing, /free-tools, /premium-tools, /industries, /categories
+  - /login, /account, /account/reports → HTTP 200
+  - 27 premium EN route → HTTP 200
+  - /tr first-hit SSR cold-start yavaş olabilir
+
+Canlı DEĞİL (git/stash/revert ile doğrulanmadıkça):
+  Regional Unit Engine, Enterprise footer v2, Header manifesto IA,
+  Categories function-index, Campaign/locale WIP, Smart Form global wrapper
+
+Audit standard:
+  BASE_URL default https://sectorcalc.com (SECTORCALC_AUDIT_BASE_URL override)
+  EN/default route /en prefix KULLANMAZ (localePrefix: as-needed)
+  Retry/backoff: 6 attempt, 500–6000ms, 18s timeout
+
+Scripts:
+  npm run audit:revenue-tools
+  npm run smoke:premium-routes
+  npm run smoke:locale-routes
+
+Detay: docs/production-reality.md
+
+================================================================================
 RAPOR SONU
 ================================================================================
 Dosya yolu: docs/sectorcalc-full-structure-report.txt
 Güncelleme : Her major faz sonrası bu dosyayı yenile.
+Production   : docs/production-reality.md ile birlikte oku.

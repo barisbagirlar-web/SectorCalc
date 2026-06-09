@@ -2,13 +2,24 @@
 /**
  * Static + smoke audit for Revenue Flow 27-sector catalog.
  * No npm dependencies — reads TS source and optionally smoke-tests live routes.
+ *
+ * Env:
+ *   SECTORCALC_AUDIT_BASE_URL=https://sectorcalc.com  (default)
+ *   CATALOG_QA_BASE_URL=...                           (legacy alias)
+ *   CATALOG_QA_LOCALE=en|tr|...                       (default: en = no prefix)
  */
 
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import {
+  assertNoEnPrefix,
+  fetchRouteWithRetry,
+  getBaseUrl,
+  localePath,
+} from "./smoke-utils.mjs";
 
 const ROOT = process.cwd();
-const BASE_URL = process.env.CATALOG_QA_BASE_URL ?? "https://sectorcalc-bf412.web.app";
+const LOCALE = (process.env.CATALOG_QA_LOCALE ?? "en").toLowerCase();
 
 const EXPECTED_SECTORS = [
   "cnc-manufacturing",
@@ -40,17 +51,12 @@ const EXPECTED_SECTORS = [
   "daily-meals",
 ];
 
-const LOCALE_PREFIX = process.env.CATALOG_QA_LOCALE ?? "en";
-
 function read(relPath) {
   return readFileSync(resolve(ROOT, relPath), "utf8");
 }
 
 function localizedPath(path) {
-  if (path.startsWith("/admin")) {
-    return path;
-  }
-  return `/${LOCALE_PREFIX}${path === "/" ? "" : path}`;
+  return localePath(LOCALE, path);
 }
 
 function extractArraySection(source, marker) {
@@ -170,21 +176,6 @@ function check(name, pass, detail = "") {
   return { name, pass, detail };
 }
 
-async function smokeRoute(path) {
-  const url = `${BASE_URL}${path}`;
-  try {
-    const response = await fetch(url, {
-      method: "GET",
-      redirect: "follow",
-      headers: { "User-Agent": "SectorCalc-Catalog-Audit/1.0" },
-    });
-    return { path, ok: response.ok, status: response.status };
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    return { path, ok: false, status: 0, error: message };
-  }
-}
-
 function buildToolsFromSections(sections) {
   const tools = [];
   for (const section of sections) {
@@ -201,7 +192,27 @@ function buildToolsFromSections(sections) {
   return tools;
 }
 
+async function smokeRoute(path) {
+  try {
+    assertNoEnPrefix(path);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    return { path, ok: false, status: 0, error: message, auditBug: true };
+  }
+
+  const result = await fetchRouteWithRetry(path);
+  return {
+    path,
+    ok: result.ok,
+    status: result.status,
+    error: result.error,
+    attempts: result.attempts,
+    durationMs: result.durationMs,
+  };
+}
+
 async function main() {
+  const baseUrl = getBaseUrl();
   const revenueCore = read("src/lib/tools/revenue-tools.ts");
   const revenueAdditional = read("src/lib/tools/revenue-tools-additional.ts");
   const revenuePhase2 = read("src/lib/tools/revenue-tools-phase2.ts");
@@ -291,19 +302,27 @@ async function main() {
   ];
   const allRoutes = [...industryRoutes, ...freeRoutes, ...premiumRoutes, ...extraRoutes];
 
-  console.log(`\n=== Route Smoke (${BASE_URL}) ===\n`);
+  console.log(`\n=== Route Smoke (${baseUrl}, locale=${LOCALE}) ===\n`);
   const smokeResults = [];
   for (const path of allRoutes) {
     const result = await smokeRoute(path);
     smokeResults.push(result);
-    const label = result.ok ? "✓" : "✗";
-    console.log(`${label} ${path} → ${result.status || result.error}`);
-    if (!result.ok) failed += 1;
+    const label = result.ok && result.status === 200 ? "✓" : "✗";
+    const timing = result.durationMs ? ` ${result.durationMs}ms` : "";
+    const attempts = result.attempts > 1 ? ` (${result.attempts} attempts)` : "";
+    const bug = result.auditBug ? " [AUDIT BUG]" : "";
+    console.log(
+      `${label} ${path} → ${result.status || result.error}${timing}${attempts}${bug}`
+    );
+    if (!result.ok || result.status !== 200 || result.auditBug) failed += 1;
   }
 
   const LOCALE_PATH_PREFIX = /^\/[a-z]{2}(\/|$)/;
 
   function pathWithoutLocale(path) {
+    if (path === "/en" || path.startsWith("/en/")) {
+      return path.replace(/^\/en/, "") || "/";
+    }
     return path.replace(LOCALE_PATH_PREFIX, "/");
   }
 
@@ -326,13 +345,6 @@ async function main() {
   console.log(`Industry routes: ${industryPassed}/${expectedIndustryCount}`);
   console.log(`Free tools: ${freePassed}/${expectedFreeCount}`);
   console.log(`Premium analyzers: ${premiumPassed}/${expectedPremiumCount}`);
-
-  if (industryPassed === 0 || freePassed === 0 || premiumPassed === 0) {
-    console.error(
-      "\n⚠️  WARNING: Summary shows 0 — likely a counter bug, not a route failure. Check individual ✓ lines above."
-    );
-    process.exit(1);
-  }
 
   if (failed > 0) {
     console.error(`\nCatalog audit failed: ${failed} issue(s).`);
