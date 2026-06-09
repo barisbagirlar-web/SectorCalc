@@ -28,6 +28,9 @@ type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
+export const revalidate = 3600;
+export const dynamic = "force-static";
+
 export default async function IndustriesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -73,10 +76,10 @@ export default async function IndustriesPage({ params }: PageProps) {
       <section className="sc-pro-section">
         <Container className="sc-pro-container">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link href={getPremiumToolsHref()} className="sc-cta-primary">
+            <Link href={getPremiumToolsHref()} prefetch={false} className="sc-cta-primary">
               Browse premium analyzers
             </Link>
-            <Link href="/free-tools" className="sc-cta-secondary">
+            <Link href="/free-tools" prefetch={false} className="sc-cta-secondary">
               Browse free calculators
             </Link>
           </div>

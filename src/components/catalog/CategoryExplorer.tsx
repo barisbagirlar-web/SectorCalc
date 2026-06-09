@@ -65,7 +65,7 @@ function CatalogItemCard({
           {item.upgradeReason}
         </p>
       ) : null}
-      <Link href={item.href} className="sc-craft-card__cta">
+      <Link href={item.href} prefetch={false} className="sc-craft-card__cta">
         {ctaLabel}
       </Link>
       {variant === "industries" && item.relatedPremium && item.relatedPremium.length > 0 ? (
@@ -74,7 +74,7 @@ function CatalogItemCard({
           <ul className="sc-catalog-explorer__related-list">
             {item.relatedPremium.map((related) => (
               <li key={related.href}>
-                <Link href={related.href} className="sc-catalog-explorer__related-link">
+                <Link href={related.href} prefetch={false} className="sc-catalog-explorer__related-link">
                   {related.title}
                 </Link>
               </li>
@@ -126,7 +126,11 @@ export function CategoryExplorer({
     visibleGroups.some((group) => group.id === selected) ? selected : initialGroupId;
 
   if (visibleGroups.length === 0) {
-    return null;
+    return (
+      <p className="text-sm text-body-charcoal" role="status">
+        No catalog items are available right now.
+      </p>
+    );
   }
 
   const panelPrefix = `catalog-${variant}`;

@@ -25,9 +25,11 @@ export function SectorCatalogExplorer({
     openItem: t(`labels.${variant}.openItem`),
   };
 
+  const safeGroups = groups ?? [];
+
   return (
     <CategoryExplorer
-      groups={groups}
+      groups={safeGroups}
       variant={variant}
       defaultGroupId={defaultGroupId}
       labels={labels}

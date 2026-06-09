@@ -14,6 +14,7 @@ export function ToolTile({ tool, onDark = false }: ToolTileProps) {
   return (
     <Link
       href={tool.href}
+      prefetch={false}
       className={`group flex h-full min-h-[44px] items-center justify-between gap-2 border border-technical-gray bg-white p-2 transition-colors ${
         onDark
           ? "text-white hover:text-white/85"

@@ -49,6 +49,9 @@ type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
+export const revalidate = 3600;
+export const dynamic = "force-static";
+
 export default async function PremiumToolsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -144,13 +147,13 @@ export default async function PremiumToolsPage({ params }: PageProps) {
               Pick an analyzer above, or review a sample verdict before you commit.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link href={getSampleReportHref()} className="sc-cta-primary">
+              <Link href={getSampleReportHref()} prefetch={false} className="sc-cta-primary">
                 View sample report
               </Link>
-              <Link href={getPricingHref()} className="sc-cta-secondary">
+              <Link href={getPricingHref()} prefetch={false} className="sc-cta-secondary">
                 View pricing
               </Link>
-              <Link href={getFreeToolsHref()} className="sc-cta-secondary">
+              <Link href={getFreeToolsHref()} prefetch={false} className="sc-cta-secondary">
                 Browse free tools
               </Link>
             </div>

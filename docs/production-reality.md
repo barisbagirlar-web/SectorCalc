@@ -172,8 +172,19 @@ Note: Theoretical 127 (100+27) overcounts 12 overlapping slugs. Use registry fun
 npm run audit:revenue-tools
 npm run smoke:premium-routes
 npm run smoke:locale-routes
+npm run smoke:browser-routes
 node scripts/smoke-premium-routes.mjs --locale tr
 ```
+
+**Browser route smoke (`smoke:browser-routes`):** Playwright is **not** a repo devDependency. The script exits with code 2 and skips when Playwright is missing. To run locally or in CI:
+
+```bash
+npm install -D @playwright/test
+npx playwright install chromium
+SECTORCALC_AUDIT_BASE_URL=http://localhost:3000 npm run smoke:browser-routes
+```
+
+Optional WebKit: `node scripts/smoke-browser-routes.mjs --browser webkit`
 
 ## Next Allowed Work
 

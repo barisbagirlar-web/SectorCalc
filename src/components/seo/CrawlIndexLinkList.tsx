@@ -29,7 +29,7 @@ export function CrawlIndexLinkList({
             <ul className="sc-crawl-index__list">
               {group.links.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="sc-crawl-index__link">
+                  <Link href={link.href} prefetch={false} className="sc-crawl-index__link">
                     {link.label}
                   </Link>
                 </li>

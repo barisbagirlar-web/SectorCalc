@@ -26,6 +26,9 @@ type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
+export const revalidate = 3600;
+export const dynamic = "force-static";
+
 export default async function CategoriesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);

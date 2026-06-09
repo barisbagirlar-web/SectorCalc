@@ -19,6 +19,7 @@
     "audit:revenue-tools": "node scripts/audit-revenue-tools.mjs",
     "smoke:premium-routes": "node scripts/smoke-premium-routes.mjs",
     "smoke:locale-routes": "node scripts/smoke-locale-routes.mjs",
+    "smoke:browser-routes": "node scripts/smoke-browser-routes.mjs",
     "audit:formulas": "npx tsx scripts/audit-formulas.ts",
     "audit:alignment": "npx tsx scripts/audit-alignment.ts",
     "audit:input-design": "npx tsx scripts/audit-input-design.ts",

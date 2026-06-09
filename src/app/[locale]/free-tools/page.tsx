@@ -24,6 +24,9 @@ import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
+export const revalidate = 3600;
+export const dynamic = "force-static";
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations("freeTrafficCatalog");
@@ -126,10 +129,10 @@ export default async function FreeToolsPage({ params }: PageProps) {
               {t("premiumUpsellBody")}
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link href={getPremiumToolsHref()} className="sc-cta-primary">
+              <Link href={getPremiumToolsHref()} prefetch={false} className="sc-cta-primary">
                 {t("premiumUpsellCta")}
               </Link>
-              <Link href="/industries" className="sc-cta-secondary">
+              <Link href="/industries" prefetch={false} className="sc-cta-secondary">
                 {t("premiumUpsellIndustries")}
               </Link>
             </div>
