@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useClientSearchParam } from "@/lib/navigation/use-client-search-params";
 import {
  mapCustomerSignInError,
  signInCustomerWithGoogle,
@@ -54,8 +55,7 @@ export function CustomerSignInPanel({ nextPath }: CustomerSignInPanelProps) {
 }
 
 export function CustomerSignInFromNextParam() {
- const searchParams = useSearchParams();
- const next = searchParams.get("next");
+ const next = useClientSearchParam("next");
 
  if (!next || !next.startsWith("/")) {
  return null;

@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CommercialTiersOverview } from "@/components/commercial/CommercialTiersOverview";
 import { PublicDemoCrossLinks } from "@/components/commercial/PublicDemoCrossLinks";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { LeadCaptureCta } from "@/components/commercial/LeadCaptureCta";
 import { PaywallPreview } from "@/components/commercial/PaywallPreview";
 import { PremiumLockedReportPreview } from "@/components/commercial/PremiumLockedReportPreview";

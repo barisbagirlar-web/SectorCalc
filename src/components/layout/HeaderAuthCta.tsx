@@ -20,7 +20,7 @@ export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps
           Login
         </Link>
         {!mobile ? (
-          <Link href="/pricing" prefetch onClick={onNavigate} className="sc-pro-header-cta sc-cta-primary">
+          <Link href="/pricing" prefetch={false} onClick={onNavigate} className="sc-pro-header-cta sc-cta-primary">
             Get Pro
           </Link>
         ) : null}
@@ -35,7 +35,7 @@ export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps
           Login
         </Link>
         {!mobile ? (
-          <Link href="/pricing" prefetch onClick={onNavigate} className="sc-pro-header-cta sc-cta-primary">
+          <Link href="/pricing" prefetch={false} onClick={onNavigate} className="sc-pro-header-cta sc-cta-primary">
             Get Pro
           </Link>
         ) : null}

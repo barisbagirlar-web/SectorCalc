@@ -23,7 +23,7 @@ export function ActiveNavLink({
   activeClassName = "apple-nav__link--active",
   onClick,
   showIcon = true,
-  prefetch = true,
+  prefetch = false,
 }: ActiveNavLinkProps) {
   const pathname = usePathname();
   const isActive = isNavLinkActive(pathname, href);

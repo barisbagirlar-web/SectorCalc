@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useClientSearchParam } from "@/lib/navigation/use-client-search-params";
 import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
 
 const PRICING_UNLOCK_SUBTITLES: Partial<Record<string, string>> = {
@@ -9,8 +9,7 @@ const PRICING_UNLOCK_SUBTITLES: Partial<Record<string, string>> = {
 };
 
 export function PricingToolUnlockBanner() {
- const searchParams = useSearchParams();
- const toolParam = searchParams.get("tool");
+ const toolParam = useClientSearchParam("tool");
  const tool = toolParam ? getRevenueToolByPaidSlug(toolParam) : null;
 
  if (!tool) {

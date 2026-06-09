@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/routing";
-import { readLocaleCookie } from "@/lib/i18n/locale-client";
+import { readLocaleCookie, setLocaleCookie } from "@/lib/i18n/locale-client";
 import {
   stripLocaleFromPath,
   type SupportedLocale,
@@ -47,6 +47,7 @@ export function RootLocaleAutoRedirect() {
 
     const prefix = getLocalePathPrefix(targetLocale);
     if (prefix && window.location.pathname !== prefix) {
+      setLocaleCookie(targetLocale);
       window.location.replace(prefix);
     }
   }, [locale, pathname]);

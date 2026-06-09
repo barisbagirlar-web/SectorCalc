@@ -37,7 +37,7 @@ export function MobileNav() {
           <li>
             <Link
               href={getPricingHref()}
-              prefetch={true}
+              prefetch={false}
               onClick={closeMenu}
               className="apple-nav__dropdown-link"
             >

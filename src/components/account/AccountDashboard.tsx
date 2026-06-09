@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useClientSearchParam } from "@/lib/navigation/use-client-search-params";
 import { AccountFeaturedAccess } from "@/components/account/AccountFeaturedAccess";
 import { AccountQuickActions } from "@/components/account/AccountQuickActions";
 import { RecentReportsPanel } from "@/components/account/RecentReportsPanel";
@@ -14,8 +14,7 @@ import { useUserReports } from "@/lib/reports/use-user-reports";
 import { getLoginHref } from "@/lib/tools/tool-links";
 
 function AccountSubscribedBanner() {
-  const searchParams = useSearchParams();
-  const subscribed = searchParams.get("subscribed") === "true";
+  const subscribed = useClientSearchParam("subscribed") === "true";
 
   if (!subscribed) {
     return null;

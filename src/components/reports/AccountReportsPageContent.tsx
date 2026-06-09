@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import {
+  useClientSearchParam,
+} from "@/lib/navigation/use-client-search-params";
 import {
  AccountLoginPrompt,
  ReportsHistoryList,
@@ -23,9 +25,8 @@ import {
 import { getAccountHref, getReportsHref } from "@/lib/tools/tool-links";
 
 export function AccountReportsPageContent() {
- const searchParams = useSearchParams();
- const purchased = searchParams.get("purchased");
- const purchasedTool = searchParams.get("tool") ?? undefined;
+ const purchased = useClientSearchParam("purchased");
+ const purchasedTool = useClientSearchParam("tool") ?? undefined;
  const { user, loading: authLoading, isActive } = useUserSubscription();
  const { purchases, loading: purchasesLoading } = useUserPurchases();
  const [reports, setReports] = useState<SavedVerdictReport[]>([]);

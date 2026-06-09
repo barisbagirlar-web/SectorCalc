@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import {
+  useClientSearchParam,
+} from "@/lib/navigation/use-client-search-params";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import {
  REVENUE_EVENTS,
@@ -14,10 +17,10 @@ import { getRevenueToolByPaidSlug, revenueTools } from "@/lib/tools/revenue-tool
 
 export function PricingSubscribedBanner() {
  const router = useRouter();
- const searchParams = useSearchParams();
- const subscribed = searchParams.get("subscribed") === "true";
+ const subscribedParam = useClientSearchParam("subscribed");
+ const subscribed = subscribedParam === "true";
  const { user, isActive, loading } = useUserSubscription();
- const toolParam = searchParams.get("tool");
+ const toolParam = useClientSearchParam("tool");
  const tool = toolParam ? getRevenueToolByPaidSlug(toolParam) : null;
  const premiumHref = tool
  ? getPremiumToolHref(tool)
@@ -90,8 +93,7 @@ export function PricingSubscribedBanner() {
 }
 
 export function PricingCheckoutCanceledBanner() {
- const searchParams = useSearchParams();
- const canceled = searchParams.get("canceled") === "true";
+ const canceled = useClientSearchParam("canceled") === "true";
 
  if (!canceled) {
  return null;
@@ -112,8 +114,7 @@ export function PricingCheckoutCanceledBanner() {
 }
 
 export function PremiumSubscribedBanner({ toolSlug }: { toolSlug?: string }) {
- const searchParams = useSearchParams();
- const subscribed = searchParams.get("subscribed") === "true";
+ const subscribed = useClientSearchParam("subscribed") === "true";
  const { isActive, loading } = useUserSubscription();
 
  useEffect(() => {
