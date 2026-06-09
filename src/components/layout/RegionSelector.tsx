@@ -1,6 +1,6 @@
 "use client";
 
-import { useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   getRegionProfile,
@@ -36,7 +36,12 @@ export function RegionSelector({ className = "" }: { className?: string }) {
   const locale = useLocale();
   const { region } = useRegion();
   const [pending, startTransition] = useTransition();
-  const manual = readManualRegionCookie();
+  const [manual, setManual] = useState<RegionCode | null>(null);
+
+  useEffect(() => {
+    setManual(readManualRegionCookie());
+  }, []);
+
   const localeDefault = localeToRegion(locale);
   const selectValue = manual ?? "auto";
 
