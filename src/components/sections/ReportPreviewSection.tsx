@@ -20,7 +20,7 @@ export function ReportPreviewSection() {
  Illustrative layout based on live premium tool structure.{" "}
  <Link
  href="/reports/sample-decision-report"
- className="font-semibold text-ink-black hover:underline"
+ className="font-semibold text-deep-navy hover:underline"
  >
  Open the full sample report →
  </Link>

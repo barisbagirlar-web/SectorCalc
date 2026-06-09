@@ -37,7 +37,7 @@
 }
 
 /* bg-bg-primary is matte white — never inherit “dark CTA” white copy */
-.bg-bg-primary:not(:is(.bg-ink-black, .bg-black, .bg-premium)) {
+.bg-bg-primary:not(:is(.bg-deep-navy, .bg-black, .bg-premium)) {
   color: var(--text-premium-velvet);
 }
 
@@ -69,8 +69,8 @@
 )
   :is(.text-white, .text-white\/85, .text-white\/75, .text-white\/70, .text-white\/55):not(
     :is(
-      .bg-ink-black,
-      .bg-midnight-black,
+      .bg-deep-navy,
+      .bg-dark-navy,
       .bg-black,
       .bg-premium,
       .ind-terminal,
@@ -80,8 +80,8 @@
     )
   ):not(
     :is(
-      .bg-ink-black,
-      .bg-midnight-black,
+      .bg-deep-navy,
+      .bg-dark-navy,
       .bg-black,
       .bg-premium,
       .ind-terminal,
@@ -107,8 +107,8 @@
   .sc-app-main
 )
   :is(
-    .bg-ink-black,
-    .bg-midnight-black,
+    .bg-deep-navy,
+    .bg-dark-navy,
     .bg-black,
     .bg-premium,
     .ind-terminal,
@@ -132,8 +132,8 @@
   .sc-app-main
 )
   :is(
-    .bg-ink-black,
-    .bg-midnight-black,
+    .bg-deep-navy,
+    .bg-dark-navy,
     .bg-black,
     .bg-premium,
     .ind-terminal,
@@ -157,8 +157,8 @@
   .sc-app-main
 )
   :is(
-    .bg-ink-black,
-    .bg-midnight-black,
+    .bg-deep-navy,
+    .bg-dark-navy,
     .bg-black,
     .bg-premium,
     .ind-terminal,
@@ -172,8 +172,8 @@
 
 /* ── Dark surfaces (inverse contrast) ── */
 :is(
-  .bg-ink-black,
-  .bg-midnight-black,
+  .bg-deep-navy,
+  .bg-dark-navy,
   .bg-black,
   .bg-premium,
   .ind-terminal,
@@ -185,8 +185,8 @@
 }
 
 :is(
-  .bg-ink-black,
-  .bg-midnight-black,
+  .bg-deep-navy,
+  .bg-dark-navy,
   .bg-black,
   .bg-premium,
   .ind-terminal,
@@ -215,8 +215,8 @@
 }
 
 :is(
-  .bg-ink-black,
-  .bg-midnight-black,
+  .bg-deep-navy,
+  .bg-dark-navy,
   .bg-black,
   .bg-premium,
   .ind-terminal,
@@ -231,7 +231,7 @@
     .text-text-muted,
     .text-text-primary,
     .text-premium-velvet,
-    .text-ink-black,
+    .text-deep-navy,
     .text-slate-300,
     .text-slate-400,
     .text-slate-500,
@@ -241,8 +241,8 @@
 }
 
 :is(
-  .bg-ink-black,
-  .bg-midnight-black,
+  .bg-deep-navy,
+  .bg-dark-navy,
   .bg-black,
   .bg-premium,
   .ind-terminal,
@@ -255,8 +255,8 @@
 }
 
 :is(
-  .bg-ink-black,
-  .bg-midnight-black,
+  .bg-deep-navy,
+  .bg-dark-navy,
   .bg-black,
   .bg-premium,
   .ind-terminal,
@@ -269,8 +269,8 @@
 }
 
 :is(
-  .bg-ink-black,
-  .bg-midnight-black,
+  .bg-deep-navy,
+  .bg-dark-navy,
   .bg-black,
   .bg-premium,
   .ind-terminal,
@@ -283,7 +283,7 @@
 }
 
 /* Light panels nested inside dark sections */
-:is(.bg-ink-black, .bg-midnight-black, .bg-black, .bg-premium, .ind-terminal) .ind-os-panel {
+:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .ind-terminal) .ind-os-panel {
   color: var(--text-premium-velvet);
   background: #ffffff;
 }
@@ -317,8 +317,8 @@
 .sc-btn-primary,
 .ind-os-btn-action,
 .ind-btn-primary,
-:is(.bg-ink-black, .bg-midnight-black, .bg-black, .bg-premium, .sc-inverse-surface),
-[class*="bg-ink-black"],
+:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .sc-inverse-surface),
+[class*="bg-deep-navy"],
 [class*="bg-action-orange"] {
   color: var(--sc-inverse-text) !important;
 }

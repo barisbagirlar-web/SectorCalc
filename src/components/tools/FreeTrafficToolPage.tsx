@@ -489,7 +489,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                   <li key={related.slug} className="min-w-0">
                     <Link
                       href={getToolHref("free", related.slug)}
-                      className="block break-words text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#C2410C]"
+                      className="block break-words text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
                     >
                       {related.title}
                     </Link>

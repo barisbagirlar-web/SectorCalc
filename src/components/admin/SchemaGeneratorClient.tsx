@@ -26,16 +26,16 @@ import {
 import { lintPremiumCalculatorSchema } from "@/lib/premium-schema/schema-linter";
 
 const FIELD =
-  "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-ink-black focus:border-ink-black focus:outline-none focus:ring-2 focus:ring-ink-black/20";
+  "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
 
 const TEXTAREA =
-  "w-full min-h-[88px] rounded-lg border border-slate/25 bg-white px-3 py-2 text-sm text-ink-black focus:border-ink-black focus:outline-none focus:ring-2 focus:ring-ink-black/20";
+  "w-full min-h-[88px] rounded-lg border border-slate/25 bg-white px-3 py-2 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
 
 const BTN =
-  "inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/25 bg-white px-4 text-sm font-semibold text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white";
+  "inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/25 bg-white px-4 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white";
 
 const BTN_PRIMARY =
-  "inline-flex min-h-[44px] items-center justify-center rounded-lg bg-ink-black px-4 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex min-h-[44px] items-center justify-center rounded-lg bg-professional-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-50";
 
 const OUTPUT_FORMATS: PremiumOutputFormat[] = [
   "currency",
@@ -89,7 +89,7 @@ function SectionCard({
 }) {
   return (
     <section className="sc-admin-schema-section rounded-sm border border-slate/20 bg-white p-4 shadow-card sm:p-5">
-      <h3 className="text-sm font-bold text-ink-black">{title}</h3>
+      <h3 className="text-sm font-bold text-deep-navy">{title}</h3>
       <div className="mt-4 space-y-4">{children}</div>
     </section>
   );
@@ -187,7 +187,7 @@ export function SchemaGeneratorClient() {
         </p>
       ) : (
         <>
-          <div className="rounded-sm border border-slate/20 bg-off-white px-4 py-3 text-sm text-ink-black">
+          <div className="rounded-sm border border-slate/20 bg-off-white px-4 py-3 text-sm text-deep-navy">
             <p className="font-semibold">Authoring only — no auto-publish</p>
             <p className="mt-1 text-text-secondary">
               Drafts stay in this session. Production schemas require developer review and git commit.
@@ -368,7 +368,7 @@ export function SchemaGeneratorClient() {
                               setDraft(updateDraftInput(draft, index, { required: event.target.checked }))
                             }
                           />
-                          <span className="text-sm text-ink-black">Required</span>
+                          <span className="text-sm text-deep-navy">Required</span>
                         </label>
                         <label className="block space-y-1.5">
                           <Label>Min</Label>
@@ -498,7 +498,7 @@ export function SchemaGeneratorClient() {
                               setDraft(updateOutput(draft, index, { isBigNumber: event.target.checked }))
                             }
                           />
-                          <span className="text-sm text-ink-black">Primary big number</span>
+                          <span className="text-sm text-deep-navy">Primary big number</span>
                         </label>
                         <label className="block space-y-1.5 sm:col-span-2">
                           <Label>Description (authoring)</Label>
@@ -806,7 +806,7 @@ export function SchemaGeneratorClient() {
                             });
                           }}
                         />
-                        <span className="text-sm text-ink-black">{section}</span>
+                        <span className="text-sm text-deep-navy">{section}</span>
                       </label>
                     ))}
                   </fieldset>
@@ -829,7 +829,7 @@ export function SchemaGeneratorClient() {
                             });
                           }}
                         />
-                        <span className="text-sm text-ink-black">{format}</span>
+                        <span className="text-sm text-deep-navy">{format}</span>
                       </label>
                     ))}
                   </fieldset>
@@ -951,7 +951,7 @@ export function SchemaGeneratorClient() {
                   </SectionCard>
 
                   <SectionCard title="Formula registry">
-                    <ul className="max-h-64 space-y-2 overflow-y-auto text-xs text-ink-black">
+                    <ul className="max-h-64 space-y-2 overflow-y-auto text-xs text-deep-navy">
                       {FORMULA_REGISTRY_META.map((item) => (
                         <li key={item.formulaId} className="rounded border border-slate/15 p-2">
                           <p className="font-semibold">{item.formulaId}</p>
@@ -965,7 +965,7 @@ export function SchemaGeneratorClient() {
                   </SectionCard>
 
                   <SectionCard title="Schema JSON preview">
-                    <pre className="max-h-80 overflow-auto rounded-lg border border-slate/15 bg-off-white p-3 text-xs font-mono text-ink-black">
+                    <pre className="max-h-80 overflow-auto rounded-lg border border-slate/15 bg-off-white p-3 text-xs font-mono text-deep-navy">
                       {draftToJson(draft)}
                     </pre>
                     <div className="flex flex-wrap gap-2">

@@ -24,7 +24,7 @@ export function ReportsHistoryList({ reports, hasPurchaseCredits = false }: Repo
  {reports.map((report) => (
  <li key={report.id}>
  <article className="sc-card sc-card-interactive flex h-full flex-col">
- <p className="text-xs font-semibold uppercase tracking-wider text-ink-black">
+ <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
  {report.sector}
  </p>
  <h2 className="mt-2 text-lg font-bold text-text-primary">
@@ -62,7 +62,7 @@ export function AccountLoginPrompt({ nextPath }: AccountLoginPromptProps) {
 
  return (
  <aside className="sc-card mx-auto max-w-2xl">
- <p className="text-xs font-semibold uppercase tracking-wider text-ink-black">
+ <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
  {t("eyebrow")}
  </p>
  <h2 className="mt-3 text-xl font-bold text-text-primary sm:text-2xl">

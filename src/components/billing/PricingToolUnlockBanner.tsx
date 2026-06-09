@@ -24,7 +24,7 @@ export function PricingToolUnlockBanner() {
  <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6">
  <p className="text-sm font-medium text-text-primary">
  You are unlocking:{" "}
- <span className="font-semibold text-ink-black">{tool.paidTitle}</span>
+ <span className="font-semibold text-deep-navy">{tool.paidTitle}</span>
  </p>
  <p className="mt-1 text-sm text-text-secondary">{subtitle}</p>
  </div>

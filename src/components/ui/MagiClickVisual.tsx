@@ -109,13 +109,13 @@ export function MagiClickVisual({ variant, className = "" }: MagiClickVisualProp
  return (
  <div className={`${base} aspect-[5/4] w-full`} aria-hidden>
  <div className="absolute inset-8 rounded-lg border border-border-subtle bg-white p-5 shadow-card">
- <p className="text-[10px] font-bold uppercase tracking-wider text-ink-black">
+ <p className="text-[10px] font-bold uppercase tracking-wider text-deep-navy">
  Decision report
  </p>
  <div className="mt-4 space-y-2">
  {[1, 2, 3, 4].map((i) => (
  <div key={i} className="flex gap-2">
- <span className="flex h-6 w-6 items-center justify-center rounded bg-ink-black text-[10px] font-bold text-white">
+ <span className="flex h-6 w-6 items-center justify-center rounded bg-deep-navy text-[10px] font-bold text-white">
  {i}
  </span>
  <span className="mt-1 h-2 flex-1 rounded bg-slate/15" />
@@ -134,7 +134,7 @@ export function MagiClickVisual({ variant, className = "" }: MagiClickVisualProp
  {[30, 50, 40, 75, 55, 85, 60].map((h, i) => (
  <span
  key={i}
- className="w-6 rounded-t-md bg-gradient-to-t from-ink-black to-cyan"
+ className="w-6 rounded-t-md bg-gradient-to-t from-professional-blue to-cyan"
  style={{ height: `${h}%` }}
  />
  ))}

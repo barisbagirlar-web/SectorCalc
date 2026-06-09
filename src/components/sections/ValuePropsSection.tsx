@@ -24,7 +24,7 @@ export async function ValuePropsSection() {
  >
  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div className="mx-auto max-w-3xl text-center">
- <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-black">
+ <p className="text-xs font-semibold uppercase tracking-[0.2em] text-deep-navy">
  {t("valueProps.eyebrow")}
  </p>
  <h2
@@ -40,7 +40,7 @@ export async function ValuePropsSection() {
  <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
  {LOSS_DIMENSION_KEYS.map((item) => (
  <li key={item.titleKey} className="sc-card h-full">
- <ScIcon icon={item.icon} size="feature" className="text-ink-black" />
+ <ScIcon icon={item.icon} size="feature" className="text-deep-navy" />
  <h3 className="mt-4 text-base font-bold text-text-primary">{t(item.titleKey)}</h3>
  <p className="mt-1 text-xs font-medium text-text-secondary">{t(item.trKey)}</p>
  <p className="mt-3 text-sm leading-relaxed text-text-secondary">{t(item.descKey)}</p>

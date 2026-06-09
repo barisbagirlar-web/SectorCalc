@@ -80,7 +80,7 @@ export function ToolFinder() {
  onClick={() => setProblemFilter("all")}
  className={`${chipBase} ${
  problemFilter === "all"
- ? "bg-ink-black text-white"
+ ? "bg-deep-navy text-white"
  : "border border-border-subtle bg-white text-text-secondary hover:border-slate/30"
  }`}
  >
@@ -94,7 +94,7 @@ export function ToolFinder() {
  title={problem.description}
  className={`${chipBase} ${
  problemFilter === problem.id
- ? "bg-ink-black text-white"
+ ? "bg-deep-navy text-white"
  : "border border-border-subtle bg-white text-text-secondary hover:border-slate/30"
  }`}
  >
@@ -115,7 +115,7 @@ export function ToolFinder() {
  value={query}
  onChange={(e) => setQuery(e.target.value)}
  onFocus={handleSearchFocus}
- className="w-full min-h-[48px] rounded-lg border border-border-subtle bg-bg-subtle px-4 text-text-primary placeholder:text-placeholder focus:border-ink-black focus:outline-none focus:ring-2 focus:ring-accent-teal/15"
+ className="w-full min-h-[48px] rounded-lg border border-border-subtle bg-bg-subtle px-4 text-text-primary placeholder:text-placeholder focus:border-deep-navy focus:outline-none focus:ring-2 focus:ring-accent-teal/15"
  />
  </div>
 

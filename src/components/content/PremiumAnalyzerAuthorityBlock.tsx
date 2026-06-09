@@ -122,7 +122,7 @@ export function PremiumAnalyzerAuthorityBlock({
         {relatedFreeTool ? (
           <Link
             href={getToolHref("free", relatedFreeTool.slug)}
-            className="text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#C2410C]"
+            className="text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
           >
             {labels.relatedFreeTitle}: {relatedFreeTool.title}
           </Link>
@@ -130,7 +130,7 @@ export function PremiumAnalyzerAuthorityBlock({
         {guide ? (
           <Link
             href={getAuthorityGuideRoutePath(guide.slug)}
-            className="text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#C2410C]"
+            className="text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
           >
             {labels.relatedGuideTitle}: {guide.title}
           </Link>
@@ -153,7 +153,7 @@ export function PremiumAnalyzerAuthorityBlock({
         ) : null}
         <Link
           href="/pricing"
-          className="text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#C2410C]"
+          className="text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
         >
           {labels.pricingCta}
         </Link>

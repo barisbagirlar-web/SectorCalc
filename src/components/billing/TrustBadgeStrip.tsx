@@ -35,7 +35,7 @@ export function TrustBadgeStrip() {
  role="listitem"
  className="flex items-center gap-2 text-xs text-text-secondary"
  >
- <Icon className="h-4 w-4 shrink-0 text-ink-black" aria-hidden />
+ <Icon className="h-4 w-4 shrink-0 text-deep-navy" aria-hidden />
  <span className="font-medium">{t(key)}</span>
  </div>
  );

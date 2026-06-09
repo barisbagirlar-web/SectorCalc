@@ -54,7 +54,7 @@ export function PricingSubscribedBanner() {
  {!loading && user ? (
  <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center">
  {isActive ? (
- <p className="text-sm text-ink-black">SectorCalc Pro is active on your account.</p>
+ <p className="text-sm text-deep-navy">SectorCalc Pro is active on your account.</p>
  ) : (
  <p className="text-sm text-text-secondary">
  Waiting for subscription activation… this page updates automatically.
@@ -70,7 +70,7 @@ export function PricingSubscribedBanner() {
  {!tool ? (
  <Link
  href={getAccountHref()}
- className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-border-subtle bg-white px-4 text-sm font-semibold text-text-primary transition-colors hover:border-ink-black hover:text-ink-black"
+ className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-border-subtle bg-white px-4 text-sm font-semibold text-text-primary transition-colors hover:border-deep-navy hover:text-deep-navy"
  >
  Go to account
  </Link>
@@ -79,7 +79,7 @@ export function PricingSubscribedBanner() {
  <button
  type="button"
  onClick={() => router.refresh()}
- className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-border-subtle bg-white px-4 text-sm font-semibold text-text-primary transition-colors hover:border-ink-black hover:text-ink-black"
+ className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-border-subtle bg-white px-4 text-sm font-semibold text-text-primary transition-colors hover:border-deep-navy hover:text-deep-navy"
  >
  Refresh access
  </button>
@@ -136,7 +136,7 @@ export function PremiumSubscribedBanner({ toolSlug }: { toolSlug?: string }) {
  Payment received. Your SectorCalc Pro access may take a few seconds to activate.
  </p>
  {!loading && isActive ? (
- <p className="mt-2 text-sm text-ink-black">Access is active — run the analyzer below.</p>
+ <p className="mt-2 text-sm text-deep-navy">Access is active — run the analyzer below.</p>
  ) : (
  <p className="mt-2 text-sm text-text-secondary">
  Waiting for activation… this page updates automatically when your subscription is ready.

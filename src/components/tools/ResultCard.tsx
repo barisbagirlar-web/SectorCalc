@@ -4,14 +4,14 @@ import type { ToolResult } from "@/data/tool-schema";
 
 const toneClasses = {
  neutral: "border-border-subtle bg-bg-subtle",
- success: "border-ink-black/20 bg-bg-subtle",
+ success: "border-deep-navy/20 bg-bg-subtle",
  warning: "border-amber/30 bg-amber/5",
  danger: "border-amber/30 bg-amber/[0.06]",
 };
 
 const toneValueClasses = {
  neutral: "text-text-primary",
- success: "text-ink-black",
+ success: "text-deep-navy",
  warning: "text-amber",
  danger: "text-amber",
 };

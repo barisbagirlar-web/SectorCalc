@@ -27,7 +27,7 @@ interface LeadTestClassificationControlsProps {
 type SaveFeedback = "saved" | "error" | null;
 
 const fieldClass =
- "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-ink-black focus:border-ink-black focus:outline-none focus:ring-2 focus:ring-ink-black/20";
+ "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
 
 export function LeadTestClassificationControls({
  lead,
@@ -154,7 +154,7 @@ export function LeadTestClassificationControls({
  type="button"
  disabled={saving || authLoading || !canMark}
  onClick={() => void handleMark(true)}
- className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-lg border border-slate/25 bg-white px-3 text-sm font-semibold text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white disabled:opacity-50"
+ className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-lg border border-slate/25 bg-white px-3 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:opacity-50"
  >
  {saving ? "Kaydediliyor…" : "Test Lead Olarak İşaretle"}
  </button>
@@ -162,7 +162,7 @@ export function LeadTestClassificationControls({
  type="button"
  disabled={saving || authLoading || !canUnmark}
  onClick={() => void handleMark(false)}
- className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-lg border border-slate/25 bg-white px-3 text-sm font-semibold text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white disabled:opacity-50"
+ className="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-lg border border-slate/25 bg-white px-3 text-sm font-semibold text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:opacity-50"
  >
  {saving ? "Kaydediliyor…" : "Test Lead İşaretini Kaldır"}
  </button>

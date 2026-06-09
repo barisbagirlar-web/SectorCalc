@@ -32,7 +32,7 @@ export async function MarginCoreExecutiveGrid() {
           </p>
           <h2
             id="executive-grid-heading"
-            className="mt-2 text-xl font-semibold tracking-tight text-ink-black sm:text-2xl"
+            className="mt-2 text-xl font-semibold tracking-tight text-deep-navy sm:text-2xl"
           >
             {t("grid.title")}
           </h2>
@@ -50,7 +50,7 @@ export async function MarginCoreExecutiveGrid() {
                 key={group.id}
                 className="flex flex-col border border-border-subtle bg-bg-subtle"
               >
-                <header className="border-b border-border-subtle bg-ink-black px-4 py-3">
+                <header className="border-b border-border-subtle bg-deep-navy px-4 py-3">
                   <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-white">
                     {groupLabels[group.id]}
                   </h3>
@@ -62,7 +62,7 @@ export async function MarginCoreExecutiveGrid() {
                 <ul className="flex flex-1 flex-col divide-y divide-border-subtle">
                   {rows.map((row) => (
                     <li key={row.slug} className="px-4 py-4">
-                      <p className="text-sm font-semibold text-ink-black">
+                      <p className="text-sm font-semibold text-deep-navy">
                         {row.sectorName}
                       </p>
                       <ul className="mt-3 space-y-1.5 text-sm text-text-secondary">
@@ -72,7 +72,7 @@ export async function MarginCoreExecutiveGrid() {
                           </span>
                           <Link
                             href={row.freeHref}
-                            className="mt-0.5 block text-text-primary underline-offset-2 hover:text-ink-black hover:underline"
+                            className="mt-0.5 block text-text-primary underline-offset-2 hover:text-deep-navy hover:underline"
                           >
                             {row.freeTool}
                           </Link>
@@ -83,7 +83,7 @@ export async function MarginCoreExecutiveGrid() {
                           </span>
                           <Link
                             href={row.premiumHref}
-                            className="mt-0.5 block font-medium text-ink-black underline-offset-2 hover:underline"
+                            className="mt-0.5 block font-medium text-deep-navy underline-offset-2 hover:underline"
                           >
                             {row.premiumTool}
                           </Link>

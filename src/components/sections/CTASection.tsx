@@ -22,7 +22,7 @@ export function CTASection({
  secondaryHref = "/reports/sample-decision-report",
 }: CTASectionProps) {
  return (
- <section className="relative overflow-hidden border-t border-amber/15 bg-gradient-to-br from-midnight-black via-ink-black to-[#0c1929]">
+ <section className="relative overflow-hidden border-t border-amber/15 bg-gradient-to-br from-dark-navy via-deep-navy to-[#0c1929]">
  <div
  className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(245,158,11,0.08),transparent_55%)]"
  aria-hidden

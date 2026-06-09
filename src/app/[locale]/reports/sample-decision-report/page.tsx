@@ -30,7 +30,7 @@ export default function SampleDecisionReportPage() {
  <ul className="mt-6 space-y-2 text-sm text-text-secondary">
  {SAMPLE_REPORT_INCLUDES.map((item) => (
  <li key={item} className="flex gap-2">
- <span className="font-semibold text-ink-black" aria-hidden>
+ <span className="font-semibold text-deep-navy" aria-hidden>
  —
  </span>
  {item}
@@ -38,11 +38,11 @@ export default function SampleDecisionReportPage() {
  ))}
  </ul>
  <p className="mt-6 text-sm text-text-secondary">
- <Link href={getPricingHref()} className="font-semibold text-ink-black hover:underline">
+ <Link href={getPricingHref()} className="font-semibold text-deep-navy hover:underline">
  {SINGLE_VERDICT_CTA}
  </Link>
  {" · "}
- <Link href={getFreeToolsHref()} className="font-semibold text-ink-black hover:underline">
+ <Link href={getFreeToolsHref()} className="font-semibold text-deep-navy hover:underline">
  Start with a free check
  </Link>
  </p>

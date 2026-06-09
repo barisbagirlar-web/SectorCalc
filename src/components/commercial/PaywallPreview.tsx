@@ -23,8 +23,8 @@ export function PaywallPreview() {
             <tbody>
               <tr className="border-t border-border-subtle">
                 <td className="px-4 py-3">Risk signal + summary</td>
-                <td className="px-4 py-3 text-ink-black">Visible</td>
-                <td className="px-4 py-3 text-ink-black">Visible</td>
+                <td className="px-4 py-3 text-deep-navy">Visible</td>
+                <td className="px-4 py-3 text-deep-navy">Visible</td>
               </tr>
               {PAYWALL_LOCKED_FEATURES.map((feature) => (
                 <tr key={feature.id} className="border-t border-border-subtle">
@@ -32,7 +32,7 @@ export function PaywallPreview() {
                   <td className="px-4 py-3 text-text-secondary">
                     {feature.freeVisible ? "Visible" : "Locked"}
                   </td>
-                  <td className="px-4 py-3 text-ink-black">Unlocked</td>
+                  <td className="px-4 py-3 text-deep-navy">Unlocked</td>
                 </tr>
               ))}
             </tbody>

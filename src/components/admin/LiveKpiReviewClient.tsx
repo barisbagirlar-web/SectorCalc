@@ -29,7 +29,7 @@ function formatCount(value: number): string {
 function SectionHeading({ title, description }: { title: string; description?: string }) {
   return (
     <div className="mb-4">
-      <h2 className="text-lg font-semibold text-ink-black">{title}</h2>
+      <h2 className="text-lg font-semibold text-deep-navy">{title}</h2>
       {description ? <p className="mt-1 text-sm text-text-secondary">{description}</p> : null}
     </div>
   );
@@ -53,14 +53,14 @@ function TopItemsTable({
       <table className="min-w-full text-left text-sm">
         <thead className="border-b border-slate/15 bg-off-white">
           <tr>
-            <th className="px-4 py-3 font-semibold text-ink-black">{columns[0]}</th>
-            <th className="px-4 py-3 font-semibold text-ink-black">{columns[1]}</th>
+            <th className="px-4 py-3 font-semibold text-deep-navy">{columns[0]}</th>
+            <th className="px-4 py-3 font-semibold text-deep-navy">{columns[1]}</th>
           </tr>
         </thead>
         <tbody>
           {rows.map((row) => (
             <tr key={row.key} className="border-b border-slate/10 last:border-b-0">
-              <td className="px-4 py-3 text-ink-black">{row.primary}</td>
+              <td className="px-4 py-3 text-deep-navy">{row.primary}</td>
               <td className="px-4 py-3 text-text-secondary">{row.secondary}</td>
             </tr>
           ))}
@@ -130,7 +130,7 @@ export function LiveKpiReviewClient() {
 
           {empty ? (
             <div
-              className="rounded-sm border border-slate/20 bg-white px-5 py-4 text-sm text-ink-black shadow-card"
+              className="rounded-sm border border-slate/20 bg-white px-5 py-4 text-sm text-deep-navy shadow-card"
               role="status"
             >
               <p className="font-semibold">No live KPI data yet.</p>
@@ -154,11 +154,11 @@ export function LiveKpiReviewClient() {
               <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
                 Verdict
               </p>
-              <p id="kpi-verdict-heading" className="mt-2 text-2xl font-bold text-ink-black">
+              <p id="kpi-verdict-heading" className="mt-2 text-2xl font-bold text-deep-navy">
                 {VERDICT_LABELS[decision.verdict] ?? decision.verdict}
               </p>
-              <p className="mt-3 text-sm text-ink-black">{decision.reason}</p>
-              <p className="mt-2 text-sm font-medium text-ink-black">{decision.nextAction}</p>
+              <p className="mt-3 text-sm text-deep-navy">{decision.reason}</p>
+              <p className="mt-2 text-sm font-medium text-professional-blue">{decision.nextAction}</p>
             </article>
           </section>
 
@@ -315,8 +315,8 @@ export function LiveKpiReviewClient() {
             <h2 id="kpi-next-action-heading" className="sr-only">
               Next action
             </h2>
-            <article className="rounded-sm border border-ink-black/20 bg-off-white p-5">
-              <p className="text-sm font-semibold text-ink-black">{decision.nextAction}</p>
+            <article className="rounded-sm border border-professional-blue/20 bg-off-white p-5">
+              <p className="text-sm font-semibold text-deep-navy">{decision.nextAction}</p>
             </article>
           </section>
         </>

@@ -86,12 +86,12 @@ const PLAN_OPTIONS: { value: LeadPlan | typeof ALL_FILTER; label: string }[] = [
 const pipelineTabClass =
  "inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg border px-3.5 text-sm font-medium transition-colors";
 const pipelineTabActiveClass =
- "border-ink-black bg-ink-black text-white";
+ "border-professional-blue bg-professional-blue text-white";
 const pipelineTabIdleClass =
- "border-slate/25 bg-white text-ink-black hover:border-ink-black/40 hover:bg-off-white";
+ "border-slate/25 bg-white text-deep-navy hover:border-professional-blue/40 hover:bg-off-white";
 
 const filterSelectClass =
- "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-ink-black focus:border-ink-black focus:outline-none focus:ring-2 focus:ring-ink-black/20";
+ "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
 
 function matchesSearch(lead: LeadIntent, query: string): boolean {
  const q = query.trim().toLowerCase();
@@ -315,7 +315,7 @@ export function LeadIntentsClient() {
 
  {!firebaseConfigured && (
  <div
- className="rounded-sm border border-ink-black/20 bg-ink-black/5 px-5 py-4 text-sm text-ink-black"
+ className="rounded-sm border border-professional-blue/20 bg-professional-blue/5 px-5 py-4 text-sm text-deep-navy"
  role="status"
  >
  Firebase is not configured. Showing leads from this browser&apos;s
@@ -352,7 +352,7 @@ export function LeadIntentsClient() {
  className="rounded-sm border border-slate/20 bg-white p-5 shadow-card sm:p-6"
  aria-label="Lead pipeline"
  >
- <h2 className="text-lg font-bold text-ink-black">Lead pipeline</h2>
+ <h2 className="text-lg font-bold text-deep-navy">Lead pipeline</h2>
  <p className="mt-1 text-sm text-text-secondary">
  Satış takibi — duruma göre filtrele (istemci tarafı).
  </p>
@@ -382,12 +382,12 @@ export function LeadIntentsClient() {
 
  <section className="rounded-sm border border-slate/20 bg-white p-5 shadow-card sm:p-6">
  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
- <h2 className="text-lg font-bold text-ink-black">Filters</h2>
+ <h2 className="text-lg font-bold text-deep-navy">Filters</h2>
  <button
  type="button"
  onClick={() => void loadLeads()}
  disabled={loading}
- className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/25 px-4 text-sm font-medium text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white disabled:opacity-50"
+ className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate/25 px-4 text-sm font-medium text-deep-navy transition-colors hover:border-professional-blue/40 hover:bg-off-white disabled:opacity-50"
  >
  {loading ? "Refreshing…" : "Refresh"}
  </button>
@@ -471,7 +471,7 @@ export function LeadIntentsClient() {
  <p className="text-sm text-text-secondary">Loading lead intents…</p>
  ) : filteredLeads.length === 0 ? (
  <div className="rounded-sm border border-dashed border-slate/25 bg-white px-6 py-12 text-center shadow-card">
- <p className="text-lg font-semibold text-ink-black">No lead intents yet.</p>
+ <p className="text-lg font-semibold text-deep-navy">No lead intents yet.</p>
  <p className="mt-2 text-sm text-text-secondary">
  Submit a test lead from a premium tool or the pricing page, then refresh.
  </p>
@@ -539,7 +539,7 @@ function LeadCreatedAt({ createdAt }: { createdAt: string }) {
  <span className="block text-[10px] font-medium uppercase tracking-wide text-slate/80">
  Local time
  </span>
- <time dateTime={createdAt} title={createdAt} className="text-ink-black">
+ <time dateTime={createdAt} title={createdAt} className="text-deep-navy">
  {formatLocalDateTime(createdAt)}
  </time>
  </div>
@@ -568,7 +568,7 @@ function LeadTableRow({
  <LeadCreatedAt createdAt={lead.createdAt} />
  </td>
  <td className="max-w-[160px] px-4 py-3 align-top">
- <p className="font-medium text-ink-black">{lead.name}</p>
+ <p className="font-medium text-deep-navy">{lead.name}</p>
  <p className="mt-0.5 truncate text-xs text-text-secondary" title={lead.company}>
  {lead.company}
  </p>
@@ -615,7 +615,7 @@ function LeadTableRow({
  <button
  type="button"
  onClick={onOpenDetail}
- className="min-h-[44px] rounded-lg border border-slate/20 px-3 text-xs font-semibold text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white"
+ className="min-h-[44px] rounded-lg border border-slate/20 px-3 text-xs font-semibold text-professional-blue transition-colors hover:border-professional-blue/40 hover:bg-off-white"
  >
  Detay
  </button>
@@ -645,7 +645,7 @@ function LeadMobileCard({
  <div className="space-y-4 p-5">
  <div className="flex flex-wrap items-start justify-between gap-3">
  <div className="min-w-0 flex-1">
- <p className="font-bold text-ink-black">{lead.name}</p>
+ <p className="font-bold text-deep-navy">{lead.name}</p>
  <p className="text-sm text-text-secondary">{lead.company}</p>
  </div>
  <div className="flex flex-wrap gap-2">
@@ -662,7 +662,7 @@ function LeadMobileCard({
  <LeadCreatedAt createdAt={lead.createdAt} />
  </dd>
  <dt className="text-text-secondary">Intent</dt>
- <dd className="break-words text-ink-black">{intent}</dd>
+ <dd className="break-words text-deep-navy">{intent}</dd>
  <dt className="text-text-secondary">Tool</dt>
  <dd className="break-words">{lead.toolRequested}</dd>
  <dt className="text-text-secondary">Önerilen aksiyon</dt>
@@ -682,7 +682,7 @@ function LeadMobileCard({
  <button
  type="button"
  onClick={onOpenDetail}
- className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-slate/20 text-sm font-semibold text-ink-black transition-colors hover:border-ink-black/40 hover:bg-off-white"
+ className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg border border-slate/20 text-sm font-semibold text-professional-blue transition-colors hover:border-professional-blue/40 hover:bg-off-white"
  >
  Detay
  </button>

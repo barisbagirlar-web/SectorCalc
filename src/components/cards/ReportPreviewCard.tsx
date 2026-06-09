@@ -22,7 +22,7 @@ export function ReportPreviewCard() {
  <div className="border-b border-border-subtle bg-bg-primary px-6 py-5 sm:px-8">
  <div className="flex flex-wrap items-start justify-between gap-4">
  <div>
- <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-black">
+ <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-deep-navy">
  Decision report
  </p>
  <h3 className="mt-2 text-xl font-bold text-premium-velvet sm:text-2xl">
@@ -53,7 +53,7 @@ export function ReportPreviewCard() {
  key={section.title}
  className="flex gap-4 rounded-lg border border-border-subtle bg-bg-subtle px-4 py-4"
  >
- <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-ink-black text-sm font-bold text-white">
+ <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-deep-navy text-sm font-bold text-white">
  {section.num}
  </span>
  <div className="min-w-0">
@@ -64,8 +64,8 @@ export function ReportPreviewCard() {
  ))}
  </ol>
 
- <div className="mt-6 rounded-sm border border-ink-black/15 bg-bg-subtle p-5">
- <p className="text-xs font-semibold uppercase tracking-wider text-ink-black">
+ <div className="mt-6 rounded-sm border border-deep-navy/15 bg-bg-subtle p-5">
+ <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
  Recommendation
  </p>
  <p className="mt-2 text-sm leading-relaxed text-text-primary">
@@ -93,7 +93,7 @@ export function ReportPreviewCard() {
  </div>
  <Link
  href="/reports/sample-decision-report"
- className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-ink-black px-6 text-sm font-semibold text-white transition-colors hover:bg-black sm:w-auto"
+ className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-deep-navy px-6 text-sm font-semibold text-white transition-colors hover:bg-black sm:w-auto"
  >
  View full sample report
  </Link>

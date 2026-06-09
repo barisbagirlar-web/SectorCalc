@@ -16,7 +16,7 @@ type SectorMarginLandingProps = {
 const severityClass = {
  HIGH: "text-amber",
  MEDIUM: "text-amber",
- LOW: "text-ink-black",
+ LOW: "text-deep-navy",
 };
 
 export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
@@ -140,7 +140,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
  <h2 className="text-2xl font-bold text-premium-velvet sm:text-3xl">Choose how you protect margin</h2>
  <div className="mt-8 grid gap-6 sm:grid-cols-2">
  <article className="rounded-sm border border-border-subtle bg-white/5 p-6">
- <p className="text-sm font-semibold text-ink-black">Single Verdict</p>
+ <p className="text-sm font-semibold text-deep-navy">Single Verdict</p>
  <p className="mt-2 text-3xl font-bold">$9</p>
  <p className="mt-2 text-sm text-text-secondary">One premium analyzer report</p>
  <Link
@@ -151,12 +151,12 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
  </Link>
  </article>
  <article className="rounded-sm border border-cyan/30 bg-white/5 p-6">
- <p className="text-sm font-semibold text-ink-black">Pro Monthly</p>
+ <p className="text-sm font-semibold text-deep-navy">Pro Monthly</p>
  <p className="mt-2 text-3xl font-bold">$19<span className="text-lg">/mo</span></p>
  <p className="mt-2 text-sm text-text-secondary">All 27 sector analyzers</p>
  <Link
  href={config.pricingHref}
- className="sc-btn-secondary mt-4 inline-flex w-full justify-center !border-cyan/40 !text-ink-black hover:!bg-accent-teal/10"
+ className="sc-btn-secondary mt-4 inline-flex w-full justify-center !border-cyan/40 !text-deep-navy hover:!bg-accent-teal/10"
  >
  View pricing
  </Link>
@@ -187,16 +187,16 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
  decisions. Business data is not sold.
  </p>
  <nav className="mt-6 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-4">
- <Link href={config.freeToolHref} className="font-medium text-ink-black hover:underline">
+ <Link href={config.freeToolHref} className="font-medium text-deep-navy hover:underline">
  Free margin check
  </Link>
- <Link href={config.premiumToolHref} className="font-medium text-ink-black hover:underline">
+ <Link href={config.premiumToolHref} className="font-medium text-deep-navy hover:underline">
  Premium analyzer
  </Link>
- <Link href={SAMPLE_REPORT_HREF} className="font-medium text-ink-black hover:underline">
+ <Link href={SAMPLE_REPORT_HREF} className="font-medium text-deep-navy hover:underline">
  Sample verdict report
  </Link>
- <Link href={config.pricingHref} className="font-medium text-ink-black hover:underline">
+ <Link href={config.pricingHref} className="font-medium text-deep-navy hover:underline">
  Pricing
  </Link>
  </nav>

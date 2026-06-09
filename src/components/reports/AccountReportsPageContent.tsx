@@ -62,11 +62,11 @@ export function AccountReportsPageContent() {
  <Container size="wide" className="min-w-0">
  <Link
  href={getAccountHref()}
- className="text-sm font-medium text-ink-black hover:underline"
+ className="text-sm font-medium text-deep-navy hover:underline"
  >
  Back to account
  </Link>
- <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-ink-black">
+ <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-deep-navy">
  {isActive ? "SectorCalc Pro" : "Verdict reports"}
  </p>
  <h1 className="mt-2 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">

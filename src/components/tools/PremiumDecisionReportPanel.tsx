@@ -117,7 +117,7 @@ function AuditVerdictReportContent({ data }: { data: AuditVerdictReportData }) {
  </div>
  </div>
 
- <div className="bg-ink-black p-6 text-white">
+ <div className="bg-deep-navy p-6 text-white">
  <p className="text-xs font-bold uppercase text-white/70">{MARGINCORE_TERMS.safeBidLimit}</p>
  <p className="mt-2 text-4xl font-bold text-amber">{formatUsd(data.safePrice)}</p>
  <div className="mt-4 border-t border-white/20 pt-4 text-sm leading-relaxed text-white/75">
@@ -410,7 +410,7 @@ function LegacyDecisionReportPanel({
  {
  title: "Key Findings",
  content: (
- <ul className="list-disc space-y-2.5 pl-5 marker:text-ink-black">
+ <ul className="list-disc space-y-2.5 pl-5 marker:text-deep-navy">
  {report.keyFindings.map((finding) => (
  <li key={finding}>{finding}</li>
  ))}
@@ -449,10 +449,10 @@ function LegacyDecisionReportPanel({
  className="relative border border-border-subtle bg-bg-subtle p-5 sm:p-6"
  >
  <div className="mb-4 flex items-center gap-3">
- <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-ink-black/10 text-sm font-bold text-ink-black">
+ <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-deep-navy/10 text-sm font-bold text-deep-navy">
  {index + 1}
  </span>
- <h3 className="text-sm font-semibold uppercase tracking-wider text-ink-black">
+ <h3 className="text-sm font-semibold uppercase tracking-wider text-deep-navy">
  {section.title}
  </h3>
  </div>

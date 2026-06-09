@@ -87,12 +87,12 @@ export default function ForConsultantsPage() {
  <ToolsTileGrid tools={ALL_TOOLS} />
  </div>
  <p className="mt-4 text-sm text-text-secondary">
- <Link href="/pricing" className="font-semibold text-ink-black hover:underline">
+ <Link href="/pricing" className="font-semibold text-deep-navy hover:underline">
  View pricing and plans →
  </Link>
  </p>
  </div>
- <div className="mt-12 rounded-sm border border-ink-black/30 bg-bg-primary p-8 text-center md:p-12">
+ <div className="mt-12 rounded-sm border border-professional-blue/30 bg-bg-primary p-8 text-center md:p-12">
  <h2 className="text-2xl font-bold text-premium-velvet">Consultant program — coming soon</h2>
  <p className="mx-auto mt-4 max-w-xl text-body-charcoal">
  White-label branding, client workspaces and embed flows are not live yet. We are

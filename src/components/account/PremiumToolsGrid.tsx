@@ -27,7 +27,7 @@ export function PremiumToolsGrid({ isActive }: PremiumToolsGridProps) {
  return (
  <li key={tool.paidSlug}>
  <article className="rounded-sm border border-border-subtle bg-white p-5 shadow-card">
- <p className="text-xs font-semibold uppercase tracking-wider text-ink-black">
+ <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
  {getIndustryDisplayName(tool.sector)}
  </p>
  <h3 className="mt-2 text-base font-bold text-text-primary">{tool.paidTitle}</h3>
@@ -35,7 +35,7 @@ export function PremiumToolsGrid({ isActive }: PremiumToolsGridProps) {
  <p className="mt-2 text-sm text-text-primary">{tool.paidValue}</p>
  <Link
  href={href}
- className="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-lg border border-border-subtle px-4 text-sm font-semibold text-text-primary transition-colors hover:border-ink-black hover:text-ink-black"
+ className="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-lg border border-border-subtle px-4 text-sm font-semibold text-text-primary transition-colors hover:border-deep-navy hover:text-deep-navy"
  >
  {ctaLabel}
  </Link>

@@ -133,7 +133,7 @@ export function AuditInputPanel({ sectorId }: AuditInputPanelProps) {
       </div>
 
       {inputError ? (
-        <p className="mb-4 text-xs text-soft-red terminal-status-crit" role="alert">
+        <p className="mb-4 text-xs text-crit-red status-crit" role="alert">
           {t("auditPanel.invalidInput")}
         </p>
       ) : null}

@@ -14,7 +14,7 @@ export function SectorIcon({
  slug,
  iconType,
  size = "feature",
- className = "text-ink-black",
+ className = "text-deep-navy",
 }: SectorIconProps) {
  const Icon = resolveSectorIcon(slug, iconType);
  return <ScIcon icon={Icon} size={size} className={className} />;

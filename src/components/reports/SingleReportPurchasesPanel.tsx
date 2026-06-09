@@ -68,7 +68,7 @@ export function SingleReportPurchaseSuccessBanner({
 
  return (
  <aside className="mb-8 rounded-sm border border-emerald/30 bg-bg-subtle p-5 sm:p-6">
- <p className="text-xs font-semibold uppercase tracking-wider text-ink-black">
+ <p className="text-xs font-semibold uppercase tracking-wider text-deep-navy">
  Payment received
  </p>
  <h2 className="mt-2 text-lg font-bold text-text-primary">

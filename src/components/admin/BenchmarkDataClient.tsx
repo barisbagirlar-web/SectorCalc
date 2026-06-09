@@ -19,8 +19,8 @@ const tabClass = (active: boolean): string =>
   [
     "inline-flex min-h-[44px] shrink-0 items-center rounded-lg border px-4 text-sm font-medium transition-colors",
     active
-      ? "border-ink-black bg-ink-black text-white"
-      : "border-slate/25 bg-white text-ink-black hover:border-ink-black/40 hover:bg-off-white",
+      ? "border-professional-blue bg-professional-blue text-white"
+      : "border-slate/25 bg-white text-deep-navy hover:border-professional-blue/40 hover:bg-off-white",
   ].join(" ");
 
 const statusBadgeClass = (status: string): string => {
@@ -109,7 +109,7 @@ export function BenchmarkDataClient() {
               type="button"
               onClick={() => void loadData()}
               disabled={loading}
-              className="min-h-[44px] rounded-lg border border-slate/25 bg-white px-4 text-sm font-medium text-ink-black hover:bg-off-white"
+              className="min-h-[44px] rounded-lg border border-slate/25 bg-white px-4 text-sm font-medium text-deep-navy hover:bg-off-white"
             >
               {loading ? "Refreshing…" : "Refresh"}
             </button>
@@ -264,7 +264,7 @@ function BenchmarkTable({ headers, rows, loading, emptyMessage }: BenchmarkTable
           {rows.map((row) => (
             <tr key={row.id} className="border-b border-slate/10">
               {row.cells.map((cell, index) => (
-                <td key={`${row.id}-${index}`} className="px-3 py-3 text-sm text-ink-black">
+                <td key={`${row.id}-${index}`} className="px-3 py-3 text-sm text-deep-navy">
                   {cell}
                 </td>
               ))}
@@ -282,7 +282,7 @@ function BenchmarkTable({ headers, rows, loading, emptyMessage }: BenchmarkTable
             {headers.map((header, index) => (
               <div key={`${row.id}-${header}`} className="flex justify-between gap-3 py-1 text-sm">
                 <span className="font-medium text-body-charcoal">{header}</span>
-                <span className="text-right text-ink-black">{row.cells[index]}</span>
+                <span className="text-right text-deep-navy">{row.cells[index]}</span>
               </div>
             ))}
           </li>

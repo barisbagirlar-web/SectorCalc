@@ -11,14 +11,14 @@ const verdictStripClass: Record<PremiumSeverity, string> = {
 
 const kpiStyles = {
   ok: "",
-  warn: "border-warning/40 bg-terminal-status-warn-bg",
-  bad: "border-soft-red/40 bg-terminal-status-crit-bg",
+  warn: "border-warn-amber/40 bg-status-warn-bg",
+  bad: "border-crit-red/40 bg-status-crit-bg",
 } as const;
 
 const toleranceBadge: Record<ToleranceStatus, string> = {
-  within: "text-success terminal-status-safe",
-  watch: "text-warning terminal-status-warn",
-  breach: "text-soft-red terminal-status-crit",
+  within: "text-safe-green",
+  watch: "text-warn-amber",
+  breach: "text-crit-red",
 };
 
 export interface IndustrialFieldPanelProps {

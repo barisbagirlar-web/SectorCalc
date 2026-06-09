@@ -101,7 +101,7 @@ export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
  className="rounded-lg border border-slate/15 bg-off-white/60 px-3 py-3 text-sm"
  >
  <div className="flex flex-wrap items-start justify-between gap-2">
- <p className="font-medium text-ink-black">
+ <p className="font-medium text-deep-navy">
  {formatActivitySummary(entry)}
  </p>
  <time
@@ -121,7 +121,7 @@ export function LeadActivityList({ lead, refreshKey }: LeadActivityListProps) {
  Değişen alanlar: {formatChangedFieldsLabel(entry.changedFields)}
  </p>
  {entryShowsAdminNote(entry) ? (
- <p className="mt-2 line-clamp-2 text-xs text-ink-black">
+ <p className="mt-2 line-clamp-2 text-xs text-deep-navy">
  Not: {getEntryAdminNote(entry)}
  </p>
  ) : null}

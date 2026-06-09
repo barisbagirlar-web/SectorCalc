@@ -70,14 +70,14 @@ export default function TermsPage() {
  Read our{" "}
  <Link
  href="/disclaimer"
- className="font-semibold text-ink-black hover:underline"
+ className="font-semibold text-deep-navy hover:underline"
  >
  Disclaimer
  </Link>{" "}
  and{" "}
  <Link
  href="/privacy"
- className="font-semibold text-ink-black hover:underline"
+ className="font-semibold text-deep-navy hover:underline"
  >
  Privacy Policy
  </Link>

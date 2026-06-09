@@ -19,7 +19,7 @@ export function UrgencyBanner() {
  className="rounded-sm border border-border-subtle bg-bg-subtle px-4 py-2 text-center"
  aria-hidden="true"
  >
- <p className="text-sm font-medium text-ink-black">
+ <p className="text-sm font-medium text-deep-navy">
  {t("urgencyBanner", { count })}
  </p>
  </div>

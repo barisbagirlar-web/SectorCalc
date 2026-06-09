@@ -26,14 +26,14 @@ export function PremiumLockedReportPreview() {
               <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
                 Executive summary
               </p>
-              <p className="mt-2 text-sm text-ink-black">
+              <p className="mt-2 text-sm text-deep-navy">
                 Verdict headline and risk classification — visible in sample.
               </p>
             </div>
             {LOCKED_SECTIONS.map((section) => (
               <div key={section} className="relative rounded-lg bg-bg-secondary px-4 py-3">
-                <p className="text-sm font-medium text-ink-black/40 blur-[2px] select-none">{section}</p>
-                <p className="absolute inset-0 flex items-center justify-center text-xs font-semibold uppercase tracking-wide text-ink-black/70">
+                <p className="text-sm font-medium text-deep-navy/40 blur-[2px] select-none">{section}</p>
+                <p className="absolute inset-0 flex items-center justify-center text-xs font-semibold uppercase tracking-wide text-deep-navy/70">
                   Premium locked
                 </p>
               </div>
@@ -41,7 +41,7 @@ export function PremiumLockedReportPreview() {
           </div>
         </div>
         <p className="mt-4 text-sm">
-          <Link href={getSampleReportHref()} className="font-semibold text-ink-black hover:underline">
+          <Link href={getSampleReportHref()} className="font-semibold text-deep-navy hover:underline">
             View full sample verdict report →
           </Link>
         </p>

@@ -15,11 +15,11 @@ export function CommercialTiersOverview() {
           {COMMERCIAL_TIERS.map((tier) => (
             <article
               key={tier.id}
-              className={`sc-pro-panel flex flex-col p-5 ${tier.id === "pro_workspace" ? "ring-2 ring-ink-black/15" : ""}`}
+              className={`sc-pro-panel flex flex-col p-5 ${tier.id === "pro_workspace" ? "ring-2 ring-deep-navy/15" : ""}`}
             >
               <div className="public-demo-tier-header">
-                <h3 className="font-semibold text-ink-black">{tier.name}</h3>
-                <p className="text-sm font-semibold text-ink-black">
+                <h3 className="font-semibold text-deep-navy">{tier.name}</h3>
+                <p className="text-sm font-semibold text-deep-navy">
                   {tier.priceLabel}
                   <span className="ml-1 font-normal text-text-secondary">/ {tier.period}</span>
                 </p>
@@ -28,7 +28,7 @@ export function CommercialTiersOverview() {
               <ul className="mt-4 flex-1 space-y-2 text-sm text-text-secondary">
                 {tier.includes.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <span className="text-ink-black" aria-hidden>
+                    <span className="text-deep-navy" aria-hidden>
                       —
                     </span>
                     {item}

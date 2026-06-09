@@ -10,7 +10,7 @@ export function AdminMetricCard({ label, value, hint }: AdminMetricCardProps) {
  <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
  {label}
  </p>
- <p className="mt-2 text-2xl font-bold text-ink-black">{value}</p>
+ <p className="mt-2 text-2xl font-bold text-deep-navy">{value}</p>
  {hint ? (
  <p className="mt-1 text-xs text-text-secondary">{hint}</p>
  ) : null}

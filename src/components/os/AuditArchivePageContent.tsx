@@ -51,7 +51,7 @@ export function AuditArchivePageContent() {
             ) : (
               <>
                 {error ? (
-                  <p className="mb-4 text-sm text-soft-red terminal-status-crit" role="alert">
+                  <p className="mb-4 text-sm text-crit-red status-crit" role="alert">
                     {error}
                   </p>
                 ) : null}

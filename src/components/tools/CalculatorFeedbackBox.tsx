@@ -13,7 +13,7 @@ import {
 import { submitCalculatorFeedback } from "@/lib/feedback/submit-calculator-feedback";
 
 const inputClass =
-  "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-ink-black focus:border-ink-black focus:outline-none focus:ring-2 focus:ring-ink-black/20";
+  "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
 
 export interface CalculatorFeedbackBoxProps {
   toolSlug: string;
@@ -90,7 +90,7 @@ export function CalculatorFeedbackBox(props: CalculatorFeedbackBoxProps) {
         <button
           type="button"
           onClick={() => setExpanded(true)}
-          className="mt-3 min-h-[44px] text-sm font-semibold text-ink-black hover:underline"
+          className="mt-3 min-h-[44px] text-sm font-semibold text-professional-blue hover:underline"
         >
           Report an issue
         </button>
@@ -103,13 +103,13 @@ export function CalculatorFeedbackBox(props: CalculatorFeedbackBoxProps) {
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="sc-ledger-eyebrow">Calculator feedback</p>
-          <h3 className="mt-1 text-sm font-semibold text-ink-black">Report a mismatch</h3>
+          <h3 className="mt-1 text-sm font-semibold text-deep-navy">Report a mismatch</h3>
           <p className="mt-1 text-xs text-body-charcoal">Optional — helps tune formulas and inputs.</p>
         </div>
         <button
           type="button"
           onClick={() => setExpanded(false)}
-          className="min-h-[44px] shrink-0 text-xs font-medium text-body-charcoal hover:text-ink-black"
+          className="min-h-[44px] shrink-0 text-xs font-medium text-body-charcoal hover:text-deep-navy"
         >
           Dismiss
         </button>
@@ -119,7 +119,7 @@ export function CalculatorFeedbackBox(props: CalculatorFeedbackBoxProps) {
         {submitError ? <p className="text-xs text-soft-red">{submitError}</p> : null}
 
         <div>
-          <label htmlFor="calc-feedback-category" className="mb-1 block text-xs font-medium text-ink-black">
+          <label htmlFor="calc-feedback-category" className="mb-1 block text-xs font-medium text-deep-navy">
             Issue type
           </label>
           <select
@@ -146,7 +146,7 @@ export function CalculatorFeedbackBox(props: CalculatorFeedbackBoxProps) {
         </div>
 
         <div>
-          <label htmlFor="calc-feedback-comment" className="mb-1 block text-xs font-medium text-ink-black">
+          <label htmlFor="calc-feedback-comment" className="mb-1 block text-xs font-medium text-deep-navy">
             Details {form.category === "other" ? "(required)" : "(optional)"}
           </label>
           <textarea

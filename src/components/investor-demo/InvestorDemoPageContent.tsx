@@ -21,7 +21,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
 
   return (
     <div className="sc-pro-page public-demo-page">
-      <section className="bg-ink-black text-white">
+      <section className="bg-deep-navy text-white">
         <Container className="sc-pro-container public-demo-hero">
           <p className="sc-pro-eyebrow text-white/70">Investor demo pack</p>
           <h1 className="mt-3 max-w-3xl text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-tight">
@@ -33,7 +33,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <div className="public-demo-cta-row mt-8">
             <Link
               href="/operating-system"
-              className="inline-flex min-h-[44px] items-center rounded-lg bg-white px-5 text-sm font-semibold text-ink-black"
+              className="inline-flex min-h-[44px] items-center rounded-lg bg-white px-5 text-sm font-semibold text-deep-navy"
             >
               View operating system
             </Link>
@@ -66,11 +66,11 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <h2 className="sc-pro-title sc-pro-title--compact">Two engines, one loop</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             <article className="sc-pro-panel p-6">
-              <h3 className="text-lg font-semibold text-ink-black">Mind 2 — Requirements</h3>
+              <h3 className="text-lg font-semibold text-deep-navy">Mind 2 — Requirements</h3>
               <p className="mt-3 text-sm leading-relaxed text-text-secondary">{INVESTOR_DUAL_CORE.mind2}</p>
             </article>
             <article className="sc-pro-panel p-6">
-              <h3 className="text-lg font-semibold text-ink-black">Mind 1 — Validation</h3>
+              <h3 className="text-lg font-semibold text-deep-navy">Mind 1 — Validation</h3>
               <p className="mt-3 text-sm leading-relaxed text-text-secondary">{INVESTOR_DUAL_CORE.mind1}</p>
             </article>
           </div>
@@ -90,8 +90,8 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
             {INVESTOR_LIVE_PILOTS.map((pilot) => (
               <li key={pilot.governanceSlug} className="sc-pro-panel p-4">
                 <p className="text-xs font-medium uppercase tracking-wide text-text-secondary">Live pilot</p>
-                <p className="mt-2 font-semibold text-ink-black">{pilot.label}</p>
-                <Link href={pilot.href} className="mt-3 inline-block text-sm font-semibold text-ink-black hover:underline">
+                <p className="mt-2 font-semibold text-deep-navy">{pilot.label}</p>
+                <Link href={pilot.href} className="mt-3 inline-block text-sm font-semibold text-deep-navy hover:underline">
                   Open route →
                 </Link>
               </li>
@@ -117,7 +117,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
             ].map((item) => (
               <div key={item.label} className="sc-pro-panel p-4">
                 <dt className="text-xs uppercase tracking-wide text-text-secondary">{item.label}</dt>
-                <dd className="mt-2 text-2xl font-semibold text-ink-black">{item.value}</dd>
+                <dd className="mt-2 text-2xl font-semibold text-deep-navy">{item.value}</dd>
               </div>
             ))}
           </dl>
@@ -159,7 +159,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <ol className="mt-6 space-y-3">
             {INVESTOR_DEMO_FLOW_STEPS.map((step, index) => (
               <li key={step} className="flex gap-3 text-sm leading-relaxed text-text-secondary">
-                <span className="font-semibold text-ink-black">{index + 1}.</span>
+                <span className="font-semibold text-deep-navy">{index + 1}.</span>
                 {step}
               </li>
             ))}
@@ -174,7 +174,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <ul className="mt-6 space-y-3">
             {INVESTOR_MOAT_BULLETS.map((bullet) => (
               <li key={bullet} className="flex gap-2 text-sm leading-relaxed text-text-secondary">
-                <span className="text-ink-black" aria-hidden>
+                <span className="text-deep-navy" aria-hidden>
                   —
                 </span>
                 {bullet}
@@ -191,7 +191,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <ul className="mt-6 divide-y divide-border-subtle rounded-xl border border-border-subtle bg-white">
             {debtEntries.map((entry) => (
               <li key={entry.id} className="flex flex-wrap items-center justify-between gap-2 px-4 py-3 text-sm">
-                <span className="font-medium text-ink-black">{entry.category.replace(/_/g, " ")}</span>
+                <span className="font-medium text-deep-navy">{entry.category.replace(/_/g, " ")}</span>
                 <span className="text-text-secondary">{entry.severity}</span>
               </li>
             ))}
@@ -199,7 +199,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
         </Container>
       </section>
 
-      <section className="bg-ink-black text-white">
+      <section className="bg-deep-navy text-white">
         <Container className="sc-pro-container py-10 md:py-14">
           <p className="sc-pro-eyebrow text-white/70">Next 90 days</p>
           <h2 className="text-xl font-semibold tracking-tight md:text-2xl lg:text-3xl">Productization path</h2>

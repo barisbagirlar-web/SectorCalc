@@ -29,8 +29,8 @@ function DistributionBlock({
  {items.map((item) => (
  <li key={item.key}>
  <div className="flex items-center justify-between gap-2 text-sm">
- <span className="min-w-0 truncate text-ink-black">{item.label}</span>
- <span className="shrink-0 font-semibold tabular-nums text-ink-black">
+ <span className="min-w-0 truncate text-deep-navy">{item.label}</span>
+ <span className="shrink-0 font-semibold tabular-nums text-deep-navy">
  {item.count}
  </span>
  </div>
@@ -39,7 +39,7 @@ function DistributionBlock({
  aria-hidden
  >
  <div
- className="h-full rounded-full bg-ink-black/70"
+ className="h-full rounded-full bg-professional-blue/70"
  style={{ width: `${(item.count / max) * 100}%` }}
  />
  </div>
@@ -69,7 +69,7 @@ export function LeadDashboardSummary({ stats, loading }: LeadDashboardSummaryPro
  aria-label="Lead dashboard"
  >
  <div>
- <h2 className="text-lg font-bold text-ink-black">Lead dashboard</h2>
+ <h2 className="text-lg font-bold text-deep-navy">Lead dashboard</h2>
  <p className="mt-1 text-sm text-text-secondary">
  Yönetim özeti — yüklü lead listesinden (salt okunur).
  </p>
@@ -115,10 +115,10 @@ export function LeadDashboardSummary({ stats, loading }: LeadDashboardSummaryPro
  return (
  <li key={item.key}>
  <div className="flex items-center justify-between gap-2 text-sm">
- <span className="min-w-0 break-words text-ink-black">
+ <span className="min-w-0 break-words text-deep-navy">
  {item.label}
  </span>
- <span className="shrink-0 font-semibold tabular-nums text-ink-black">
+ <span className="shrink-0 font-semibold tabular-nums text-deep-navy">
  {item.count}
  </span>
  </div>
@@ -127,7 +127,7 @@ export function LeadDashboardSummary({ stats, loading }: LeadDashboardSummaryPro
  aria-hidden
  >
  <div
- className="h-full rounded-full bg-ink-black/70"
+ className="h-full rounded-full bg-professional-blue/70"
  style={{ width: `${(item.count / max) * 100}%` }}
  />
  </div>

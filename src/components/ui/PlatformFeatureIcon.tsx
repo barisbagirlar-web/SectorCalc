@@ -49,7 +49,7 @@ export function PlatformFeatureIcon({ variant, dark = false }: PlatformFeatureIc
  case "locale":
  return (
  <div className={frame} aria-hidden>
- <span className={`text-lg font-bold ${dark ? "text-ink-black" : "text-ink-black"}`}>
+ <span className={`text-lg font-bold ${dark ? "text-deep-navy" : "text-deep-navy"}`}>
  EN
  </span>
  </div>

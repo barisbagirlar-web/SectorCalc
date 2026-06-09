@@ -37,7 +37,7 @@ export default async function BetaPartnerPage({ params }: PageProps) {
           <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
             <div className="space-y-8">
               <article>
-                <h2 className="text-lg font-bold text-ink-black">{t("who.title")}</h2>
+                <h2 className="text-lg font-bold text-deep-navy">{t("who.title")}</h2>
                 <ul className="mt-3 space-y-2 text-sm text-body-charcoal">
                   <li>{t("who.item1")}</li>
                   <li>{t("who.item2")}</li>
@@ -47,7 +47,7 @@ export default async function BetaPartnerPage({ params }: PageProps) {
               </article>
 
               <article>
-                <h2 className="text-lg font-bold text-ink-black">{t("data.title")}</h2>
+                <h2 className="text-lg font-bold text-deep-navy">{t("data.title")}</h2>
                 <ul className="mt-3 space-y-2 text-sm text-body-charcoal">
                   <li>{t("data.item1")}</li>
                   <li>{t("data.item2")}</li>
@@ -56,7 +56,7 @@ export default async function BetaPartnerPage({ params }: PageProps) {
               </article>
 
               <article>
-                <h2 className="text-lg font-bold text-ink-black">{t("benefits.title")}</h2>
+                <h2 className="text-lg font-bold text-deep-navy">{t("benefits.title")}</h2>
                 <ul className="mt-3 space-y-2 text-sm text-body-charcoal">
                   <li>{t("benefits.item1")}</li>
                   <li>{t("benefits.item2")}</li>
@@ -66,7 +66,7 @@ export default async function BetaPartnerPage({ params }: PageProps) {
             </div>
 
             <div className="rounded-lg border border-slate/20 bg-white p-5 sm:p-8">
-              <h2 className="text-lg font-bold text-ink-black">{t("form.heading")}</h2>
+              <h2 className="text-lg font-bold text-deep-navy">{t("form.heading")}</h2>
               <p className="mt-2 text-sm text-body-charcoal">{t("form.intro")}</p>
               <div className="mt-6">
                 <BetaPartnerForm />

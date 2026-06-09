@@ -15,7 +15,7 @@ import type {
 import { createReportFeedback } from "@/lib/benchmarks/create-report-feedback";
 
 const inputClass =
-  "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-ink-black focus:border-ink-black focus:outline-none focus:ring-2 focus:ring-ink-black/20";
+  "w-full min-h-[44px] rounded-lg border border-slate/25 bg-white px-3 text-sm text-deep-navy focus:border-professional-blue focus:outline-none focus:ring-2 focus:ring-professional-blue/20";
 
 export interface PremiumReportFeedbackProps {
   schemaSlug: string;
@@ -96,7 +96,7 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
         <button
           type="button"
           onClick={() => setExpanded(true)}
-          className="mt-3 min-h-[44px] text-sm font-semibold text-ink-black hover:underline"
+          className="mt-3 min-h-[44px] text-sm font-semibold text-professional-blue hover:underline"
         >
           {t("open")}
         </button>
@@ -109,13 +109,13 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="sc-ledger-eyebrow">{t("eyebrow")}</p>
-          <h3 className="mt-1 text-sm font-semibold text-ink-black">{t("title")}</h3>
+          <h3 className="mt-1 text-sm font-semibold text-deep-navy">{t("title")}</h3>
           <p className="mt-1 text-xs text-body-charcoal">{t("optional")}</p>
         </div>
         <button
           type="button"
           onClick={() => setExpanded(false)}
-          className="min-h-[44px] shrink-0 text-xs font-medium text-body-charcoal hover:text-ink-black"
+          className="min-h-[44px] shrink-0 text-xs font-medium text-body-charcoal hover:text-deep-navy"
         >
           {t("dismiss")}
         </button>
@@ -127,15 +127,15 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
         ) : null}
 
         <fieldset>
-          <legend className="mb-2 text-xs font-medium text-ink-black">{t("rating")}</legend>
+          <legend className="mb-2 text-xs font-medium text-deep-navy">{t("rating")}</legend>
           <div className="flex flex-wrap gap-2">
             {RATING_OPTIONS.map((value) => (
               <label
                 key={value}
                 className={`inline-flex min-h-[44px] min-w-[44px] cursor-pointer items-center justify-center rounded-lg border px-3 text-sm ${
                   form.rating === value
-                    ? "border-ink-black bg-ink-black text-white"
-                    : "border-slate/25 bg-white text-ink-black"
+                    ? "border-professional-blue bg-professional-blue text-white"
+                    : "border-slate/25 bg-white text-deep-navy"
                 }`}
               >
                 <input
@@ -157,7 +157,7 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="feedback-usefulness" className="mb-1 block text-xs font-medium text-ink-black">
+            <label htmlFor="feedback-usefulness" className="mb-1 block text-xs font-medium text-deep-navy">
               {t("usefulness")}
             </label>
             <select
@@ -179,7 +179,7 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
           </div>
 
           <div>
-            <label htmlFor="feedback-formula-fit" className="mb-1 block text-xs font-medium text-ink-black">
+            <label htmlFor="feedback-formula-fit" className="mb-1 block text-xs font-medium text-deep-navy">
               {t("formulaFit")}
             </label>
             <select
@@ -202,7 +202,7 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
         </div>
 
         <div>
-          <label htmlFor="feedback-missing" className="mb-1 block text-xs font-medium text-ink-black">
+          <label htmlFor="feedback-missing" className="mb-1 block text-xs font-medium text-deep-navy">
             {t("missingVariable")}
           </label>
           <input
@@ -215,7 +215,7 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
         </div>
 
         <div>
-          <label htmlFor="feedback-comment" className="mb-1 block text-xs font-medium text-ink-black">
+          <label htmlFor="feedback-comment" className="mb-1 block text-xs font-medium text-deep-navy">
             {t("comment")}
           </label>
           <textarea
