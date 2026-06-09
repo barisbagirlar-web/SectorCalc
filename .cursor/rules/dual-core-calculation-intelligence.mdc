@@ -58,6 +58,14 @@ Required: "ontology + dependency graph + requirement engine + validation loop."
 
 ## Allowed code areas
 
-- Mind 1: `src/lib/formula-governance/**`
-- Mind 2 (new): `src/lib/calculation-intelligence/**` (ontology, requirement-engine, runtime-validation, llm-interface, bridges)
+- Mind 1: `src/lib/formula-governance/**` (oracle, audit-runner, runtime-validation, contracts)
+- Mind 2: `src/lib/formula-governance/**` (calculation-ontology, requirement-engine, input-intelligence, llm-interface, smart-form-*)
 - Production calculators: read-only unless phase explicitly authorizes change
+
+## Path safety (Cursor — do not hallucinate)
+
+**DO NOT USE** `src/lib/calculation-intelligence/`. **This path does not exist.**
+
+All Dual-Core / Mind 1 / Mind 2 implementation lives under:
+
+`src/lib/formula-governance/`

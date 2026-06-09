@@ -333,13 +333,19 @@ BÖLÜM 5 — UI BİLEŞEN SİSTEMİ
     KURAL: ToolCard veya büyük kart layout YASAK
 
   Hesaplayıcı UI:
-    tools/FreeToolPage.tsx           Revenue free araçlar
-    tools/FreeTrafficToolPage.tsx    Traffic-only free araçlar
-    tools/PremiumToolPage.tsx        Revenue premium araçlar
-    tools/ToolCalculatorEngine.tsx   Legacy [tier]/[slug]
-    tools/DynamicPremiumCalculator.tsx  Schema-driven premium
-    tools/SmartToolForm.tsx          Contract-driven pilot form
-    tools/RuntimeTrustTracePanel.tsx Governance trust trace
+    tools/FreeToolPage.tsx           Revenue free araçlar (production)
+    tools/FreeTrafficToolPage.tsx    Traffic-only free araçlar (production)
+    tools/PremiumToolPage.tsx        Revenue premium araçlar (production)
+    tools/ToolCalculatorEngine.tsx   Legacy [tier]/[slug] (production)
+    tools/DynamicPremiumCalculator.tsx  Schema-driven premium — NOT universal Smart Form
+    tools/SmartToolForm.tsx          PILOT / SPEC-DRIVEN — NOT production-wide
+    tools/RuntimeTrustTracePanel.tsx Production trust trace (pilot slugs)
+
+  SMART FORM UYARISI:
+    Production-wide Smart Form Architecture: NOT LIVE
+    Most production calculator UIs still use manually wired forms
+    Akıl 2 dynamic form generation is not universally visible in production yet
+    WARNING: Do not claim universal production Smart Forms exist today
 
   Raporlar:
     reports/PremiumDecisionReportPanel.tsx
@@ -439,8 +445,10 @@ BÖLÜM 7 — DUAL-CORE CALCULATION INTELLIGENCE (AKIL 1 + AKIL 2)
 SectorCalc statik bir hesap makinesi form generator DEĞİLDİR.
 Dual-core calculation intelligence sistemi olarak tasarlanmıştır.
 
-UYARI: .cursor/rules dual-core kuralı src/lib/calculation-intelligence/** yolunu
-referans eder; gerçek implementasyon src/lib/formula-governance/ altındadır.
+CURSOR PATH SAFETY (DO NOT HALLUCINATE):
+  DO NOT USE src/lib/calculation-intelligence/ — THIS PATH DOES NOT EXIST.
+  All Dual-Core / Mind 1 / Mind 2 implementation lives under:
+  src/lib/formula-governance/
 
 7.1 AKIL 2 — REQUIREMENT / CONSTRAINT ENGINE
 Soru: Verilen hedef ve bilinen inputlarla hangi inputlar eksik, türetilebilir,
@@ -696,7 +704,8 @@ governance layer olarak organize edilmiştir.
     health-body
 
   Route: /tools/free/[slug]
-  Toplam unique free route: ~100
+  Unique /tools/free/[slug] routes (registry): 115
+    (100 traffic catalog − 12 overlap + 27 revenue = 115 via listAllFreeToolSlugs)
 
 10.4 KATMAN D — PREMIUM SCHEMA ENGINE (27 schema, 49 formula ID)
 
@@ -866,7 +875,18 @@ Güncel kanonik registry 27 sektördür.
   logistics-transport, agriculture-crops
   energy-carbon, daily-renovation
 
-11.3 TAM SEKTÖR LİSTESİ (sector | free slug | paid slug)
+11.3 CASE STUDY PROOF DURUMU
+
+  STATUS: INCOMPLETE — Target 27/27, current registry 8 representative scenarios
+  caseStudyStatus kolonu (varsayılan: missing, kanıt yoksa):
+
+  Sektörlerde representative draft olanlar (draft): cnc, welding, hvac, plumbing
+  (bkz. src/lib/case-studies/case-study-registry.ts — illustrative, not verified proof)
+  Kalan 19+ sektör: missing
+
+  Do not claim "20-year expert proof" is complete until 27/27 sector case studies exist.
+
+11.4 TAM SEKTÖR LİSTESİ (sector | free slug | paid slug | caseStudyStatus)
 
   cnc-manufacturing        | machine-time-calculator          | cnc-quote-risk-analyzer
   construction             | project-cost-calculator          | change-order-impact-analyzer
@@ -894,9 +914,11 @@ Güncel kanonik registry 27 sektördür.
   energy-carbon            | carbon-footprint-quick           | cbam-compliance-verdict
   daily-renovation         | home-renovation-m2               | renovation-budget-optimizer
   daily-fuel               | fuel-consumption-check           | trip-budget-optimizer
-  daily-meals              | recipe-cost-check                | meal-planning-verdict
+  daily-meals              | recipe-cost-check                | meal-planning-verdict | missing
 
-11.4 REVENUE TOOL REGISTRY YAPISI
+  (Yukarıdaki listede caseStudyStatus belirtilmeyen satırlar: missing)
+
+11.5 REVENUE TOOL REGISTRY YAPISI
 
   revenue-tools.ts              5 core sektör
   revenue-tools-additional.ts   13 sektör
@@ -1157,7 +1179,7 @@ BÖLÜM 17 — HESAPLAMA DISPATCH AKIŞLARI
 
 
 ================================================================================
-BÖLÜM 18 — SAYISAL ÖZET
+BÖLÜM 18 — SAYISAL ÖZET (REGISTRY-GERÇEKLİĞİ)
 ================================================================================
 
   TypeScript/TSX dosyası (src/)         1104
@@ -1166,9 +1188,14 @@ BÖLÜM 18 — SAYISAL ÖZET
   Revenue free/paid çifti               27 / 27
   Katalog girişi (free+premium)         54
   Free traffic catalog slug             100
-  Toplam /tools/free/[slug] route       ~100
+  Revenue free slug                     27
+  Traffic∩Revenue overlap slug          12
+  Unique /tools/free/[slug] route       115  (listAllFreeToolSlugs)
   Legacy tool definition                10
   Legacy calculator modül               10
+  Legacy route pattern                  /tools/[tier]/[slug]
+  Overall calculator inventory          125  (10 legacy + 115 free-route)
+  Case study registry entries           8 representative (NOT 27/27 proof)
   Premium schema dosyası                27
   Premium schema formula ID             49 (FORMULA_REGISTRY: 53 key)
   Formula ailesi                        10
@@ -1242,6 +1269,39 @@ Dual-Core Loop:
     → Oracle comparison + scenario tests
     → PASS / NEEDS_REVIEW / FAIL
 
+
+================================================================================
+BÖLÜM 21 — OLGUNLUK ETİKETLERİ & BORÇ ENVANTERİ
+================================================================================
+
+21.1 REGIONAL UNIT & PARAMETER ENGINE
+  STATUS: P2/P3 DEBT / NOT PRODUCTION-WIDE LIVE
+  CalculationVariable.unit = metadata only
+  Production-wide regional conversion: NOT LIVE unless HEAD confirms
+  LLM must never invent regional coefficients, benchmarks, or formula assumptions
+
+21.2 /verify ROUTE
+  Route: /[locale]/verify, /[locale]/verify/[verificationId]
+  STATUS: PLACEHOLDER / P2 DEBT — UI exists, backend lookup NOT wired
+  validationStatus: lookup_pending
+  Future: Trust Trace hash verify via Server Component / Cloud Function / Firestore
+
+21.3 AI ASSISTANT
+  STATUS: NOT LIVE (src/lib/ai-assistant/ boundary + tests only)
+  Allowed: explain, normalize, guide, draft report language
+  Forbidden: calculate, choose formula, invent coefficients, override validation
+  No AI calculation authority in production
+
+21.4 UNRESOLVED COLOR TOKEN DEBT
+  Canonical:
+    Copper CTA #C2410C | hover #9A3412
+    Navy/link #1E40AF | Success #166534 | Warning #D97706 | Danger #991B1B
+  Known debt:
+    #E65100 → review vs #C2410C (industrial-ui, authority block hovers)
+    #0066CC / #0077ED → review vs #1E40AF (apple-ui.css links)
+    PDF NAVY was #000000 → fixed to #1E40AF (PremiumPdfTemplate)
+    VerdictPdf brand was #2563EB → fixed to #1E40AF (VerdictPdfDocument)
+    Status vivid vs report-grade tone split (industrial-os vs design-craft)
 
 ================================================================================
 SON — RAPOR NOTLARI

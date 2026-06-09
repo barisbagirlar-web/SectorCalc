@@ -19,7 +19,7 @@ const baseStyles = StyleSheet.create({
  },
  brand: {
  fontSize: 11,
- color: "#2563eb",
+ color: "#1E40AF",
  marginBottom: 8,
  fontWeight: 700,
  },

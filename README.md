@@ -2,7 +2,15 @@
 
 English-first B2B platform with sector-specific calculators and premium decision-report previews for construction, cleaning, restaurant, e-commerce, and CNC manufacturing.
 
-**Live domain (target):** [sectorcalc.com](https://sectorcalc.com)
+**Live domain:** [sectorcalc.com](https://sectorcalc.com)  
+**Firebase test URL:** [sectorcalc-bf412.web.app](https://sectorcalc-bf412.web.app)
+
+> Production reality is documented in [`docs/production-reality.md`](docs/production-reality.md).
+> Repo inventory docs are not live reality by themselves — always cross-check with
+> current HEAD + smoke test results (`npm run audit:revenue-tools`, `npm run smoke:premium-routes`, `npm run smoke:locale-routes`).
+
+> **Cursor path safety:** Do not use `src/lib/calculation-intelligence/` — it does not exist.
+> All Dual-Core logic lives under `src/lib/formula-governance/`.
 
 ## MVP scope (shipped)
 

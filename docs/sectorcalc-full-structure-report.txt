@@ -1179,7 +1179,8 @@ UYARI: Bu rapor repo teknik envanteridir; production gerçekliği current live c
 Canonical live domain     : https://sectorcalc.com
 Firebase fallback/test    : https://sectorcalc-bf412.web.app
 P0 revert baseline        : 6775934
-Premium route collision   : 8d63660 (current HEAD = origin/main)
+Premium route collision   : 8d63660
+Production audit/smoke lock: b01dc9d (current HEAD = origin/main)
 
 Son P0 incident:
   - Beyaz sayfa / yavaşlık raporlandı
@@ -1193,8 +1194,14 @@ Stable smoke assumptions:
   - /tr first-hit SSR cold-start yavaş olabilir
 
 Canlı DEĞİL (git/stash/revert ile doğrulanmadıkça):
-  Regional Unit Engine, Enterprise footer v2, Header manifesto IA,
-  Categories function-index, Campaign/locale WIP, Smart Form global wrapper
+  Regional Unit Engine (P2/P3), Enterprise footer v2, Header manifesto IA,
+  Categories function-index, Campaign/locale WIP, Smart Form global wrapper,
+  Verify backend (placeholder UI), AI assistant, Case study 27/27 proof
+
+Cursor path: DO NOT USE src/lib/calculation-intelligence/ — use formula-governance/
+Free routes (registry): 115 unique /tools/free/[slug] (100 traffic + 27 revenue − 12 overlap)
+Case studies: 8 representative drafts only (NOT 27/27)
+PDF NAVY fixed to #1E40AF in PremiumPdfTemplate + VerdictPdfDocument
 
 Audit standard:
   BASE_URL default https://sectorcalc.com (SECTORCALC_AUDIT_BASE_URL override)

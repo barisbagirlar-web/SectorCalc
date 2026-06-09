@@ -11,7 +11,7 @@ export const DEFAULT_BASE_URL = "https://sectorcalc.com";
 
 export const RETRY_BACKOFF_MS = [500, 1000, 1500, 2500, 4000, 6000];
 
-export const REQUEST_TIMEOUT_MS = 18_000;
+export const REQUEST_TIMEOUT_MS = 20_000;
 
 export const SLOW_WARNING_MS = 5_000;
 

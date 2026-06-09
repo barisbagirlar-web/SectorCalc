@@ -11,7 +11,7 @@ import {
  type PremiumPdfData,
 } from "@/lib/reports/premium-pdf-data";
 
-const NAVY = "#000000";
+const NAVY = "#1E40AF";
 const AMBER = "#D97706";
 const SLATE = "#999999";
 const BORDER = "#E2E8F0";

@@ -322,9 +322,10 @@ D.5 Ana Kod Yolları
     contracts/                   — FormulaContract registry (131)
     llm-interface/               — LLM boundary policy
 
-  src/lib/calculation-intelligence/  — ontology, bridges (Mind 2 genişleme)
-  src/components/tools/smart-form/SmartToolForm.tsx
-  src/components/tools/RuntimeTrustTracePanel.tsx
+  DO NOT USE src/lib/calculation-intelligence/ — PATH DOES NOT EXIST.
+  Mind 2 ontology: src/lib/formula-governance/calculation-ontology/
+  src/components/tools/smart-form/SmartToolForm.tsx  — PILOT/SPEC only, NOT production-wide
+  src/components/tools/RuntimeTrustTracePanel.tsx    — production trust trace (pilot slugs)
   src/lib/formula-governance/runtime-validation/full-loop-runtime-registry.ts
 
 D.6 Phase Gate Sorusu (Her araç/faz için zorunlu)
