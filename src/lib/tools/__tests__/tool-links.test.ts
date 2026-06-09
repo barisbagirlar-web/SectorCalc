@@ -50,9 +50,9 @@ describe("tool-links — premium hrefs", () => {
     expect(lawnCare?.paidSlug).toBe("landscaping-contract-profit-tool");
   });
 
-  test("schema-mapped premium slugs still use premium-schema route when not full-loop", () => {
+  test("full-loop registry takes precedence over premium-schema slug map", () => {
     expect(resolvePremiumToolHref("auto-shop-margin-leak-detector")).toBe(
-      "/tools/premium-schema/auto-repair-comeback-cost",
+      "/tools/premium/auto-shop-margin-leak-detector",
     );
     expect(resolvePremiumToolHref("change-order-impact-analyzer")).toBe(
       "/tools/premium/change-order-impact-analyzer",
