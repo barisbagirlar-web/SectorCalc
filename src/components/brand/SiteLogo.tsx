@@ -30,19 +30,13 @@ export function SiteLogo({
       <Image
         src={BRAND_ASSETS.favicon.master}
         alt=""
-        width={48}
-        height={48}
+        width={40}
+        height={40}
         priority={priority}
         unoptimized
         className="sc-site-logo__mark"
         aria-hidden
       />
-      <span className="sc-site-logo__combo">
-        <span className="sc-site-logo__text">
-          <span className="sc-site-logo__text-sector">Sector</span>
-          <span className="sc-site-logo__text-calc">Calc</span>
-        </span>
-      </span>
       <Image
         src={wordmark}
         alt="SectorCalc"
@@ -50,7 +44,7 @@ export function SiteLogo({
         height={42}
         priority={priority}
         unoptimized
-        className="site-logo__img sc-site-logo__wordmark sr-only"
+        className="site-logo__img sc-site-logo__wordmark"
       />
     </Link>
   );
