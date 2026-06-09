@@ -186,6 +186,44 @@ SECTORCALC_AUDIT_BASE_URL=http://localhost:3000 npm run smoke:browser-routes
 
 Optional WebKit: `node scripts/smoke-browser-routes.mjs --browser webkit`
 
+### Hub route cache policy (permanent)
+
+Catalog hub pages **must** stay static/ISR — never dynamic SSR:
+
+```ts
+export const dynamic = "force-static";
+export const revalidate = 3600;
+```
+
+Routes: `/free-tools`, `/premium-tools`, `/industries`, `/categories` (+ locale prefixes).
+
+Catalog group builders are memoized in `src/lib/catalog/cached-catalog-groups.ts` (module cache, deploy-only invalidation).
+
+Hub/catalog `Link` components use `prefetch={false}` to avoid RSC prefetch storms.
+
+Verify before deploy:
+
+```bash
+npm run assert:route-cache-policy
+```
+
+After deploy (mandatory):
+
+```bash
+npm run smoke:premium-routes
+npm run smoke:locale-routes
+npm run smoke:browser-routes   # requires Playwright; exit 2 if not installed
+npm run assert:route-cache-policy
+```
+
+### Firebase SSR infra (separate from this patch)
+
+If cold-start persists after static/ISR hub pages, review separately (do not change in code patch):
+
+- SSR function: `ssrsectorcalcbf412` (us-central1)
+- Min instances, memory, timeout, concurrency
+- Region must remain us-central1 (match existing admin + Stripe)
+
 ## Next Allowed Work
 
 1. Audit/smoke lock ✓

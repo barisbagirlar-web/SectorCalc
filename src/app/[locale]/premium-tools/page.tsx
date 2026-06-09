@@ -11,10 +11,10 @@ import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import {
-  buildPremiumSchemaCatalogGroups,
   DEFAULT_PREMIUM_SCHEMA_CATALOG_GROUP,
   getPremiumSchemaCatalogItems,
 } from "@/lib/premium-schema/premium-schema-catalog";
+import { getCachedPremiumSchemaCatalogGroups } from "@/lib/catalog/cached-catalog-groups";
 import { buildPremiumToolsCrawlGroups, buildCoreHubCrawlGroups, buildSeoHubCrawlGroups } from "@/lib/seo/crawl-index";
 import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { getFreeToolsHref, getPricingHref, getSampleReportHref } from "@/lib/tools/tool-links";
@@ -56,7 +56,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
-  const premiumGroups = buildPremiumSchemaCatalogGroups(locale);
+  const premiumGroups = getCachedPremiumSchemaCatalogGroups(locale);
   const catalogItems = getPremiumSchemaCatalogItems(locale);
   const jsonLd = [
     buildBreadcrumbJsonLd(

@@ -7,7 +7,7 @@ import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplore
 import { Container } from "@/components/ui/Container";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildIndustryCatalogGroups } from "@/lib/catalog/build-catalog-groups";
+import { getCachedIndustryCatalogGroups } from "@/lib/catalog/cached-catalog-groups";
 import { INDUSTRIES } from "@/data/industries";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
@@ -35,7 +35,7 @@ export default async function IndustriesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
-  const industryGroups = buildIndustryCatalogGroups(locale);
+  const industryGroups = getCachedIndustryCatalogGroups(locale);
   const jsonLd = [
     buildBreadcrumbJsonLd(
       [

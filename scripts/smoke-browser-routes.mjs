@@ -84,6 +84,7 @@ async function auditRoute(page, baseUrl, path) {
   const consoleErrors = [];
   const pageErrors = [];
   const network5xx = [];
+  const asset404 = [];
 
   const onConsole = (msg) => {
     if (msg.type() === "error") {
@@ -98,8 +99,15 @@ async function auditRoute(page, baseUrl, path) {
 
   const onResponse = (response) => {
     const status = response.status();
+    const url = response.url();
     if (status === 500 || status === 502 || status === 503) {
-      network5xx.push(`${status} ${response.url()}`);
+      network5xx.push(`${status} ${url}`);
+    }
+    if (
+      status === 404 &&
+      /\/_next\/static\/|\.js(?:\?|$)|\.css(?:\?|$)|\.woff2?(?:\?|$)/.test(url)
+    ) {
+      asset404.push(`${status} ${url}`);
     }
   };
 
@@ -109,12 +117,14 @@ async function auditRoute(page, baseUrl, path) {
 
   const started = Date.now();
   let gotoError = null;
+  let httpStatus = 0;
 
   try {
-    await page.goto(url, {
+    const response = await page.goto(url, {
       waitUntil: "domcontentloaded",
       timeout: NAV_TIMEOUT_MS,
     });
+    httpStatus = response?.status() ?? 0;
   } catch (error) {
     gotoError = error instanceof Error ? error.message : String(error);
   }
@@ -140,23 +150,27 @@ async function auditRoute(page, baseUrl, path) {
 
   const failed =
     Boolean(gotoError) ||
+    (httpStatus !== 0 && httpStatus !== 200) ||
     blankBody ||
     hasApplicationError ||
     fatalConsole.length > 0 ||
     fatalPageErrors.length > 0 ||
-    network5xx.length > 0;
+    network5xx.length > 0 ||
+    asset404.length > 0;
 
   return {
     path,
     url,
     durationMs,
     bodyTextLen,
+    httpStatus,
     gotoError,
     blankBody,
     hasApplicationError,
     consoleErrors: fatalConsole,
     pageErrors: fatalPageErrors,
     network5xx,
+    asset404,
     slow: durationMs > SLOW_WARNING_MS,
     criticalSlow: durationMs > CRITICAL_SLOW_MS,
     failed,
@@ -200,6 +214,7 @@ async function main() {
   const blankBodies = results.filter((r) => r.blankBody);
   const pageErrorHits = results.filter((r) => r.pageErrors.length > 0);
   const networkHits = results.filter((r) => r.network5xx.length > 0);
+  const assetHits = results.filter((r) => r.asset404.length > 0);
   const slowRoutes = results.filter((r) => r.slow);
 
   console.log("\n--- Summary ---");
@@ -227,6 +242,13 @@ async function main() {
     }
   }
 
+  if (assetHits.length > 0) {
+    console.log("\nAsset 404 (JS/CSS chunks):");
+    for (const r of assetHits) {
+      console.log(`  ${r.path}: ${r.asset404.join(" | ")}`);
+    }
+  }
+
   if (slowRoutes.length > 0) {
     console.log("\nSlow routes (>${SLOW_WARNING_MS}ms):");
     for (const r of slowRoutes) {
@@ -244,6 +266,8 @@ async function main() {
       if (r.consoleErrors.length) reasons.push(`console: ${r.consoleErrors.join("; ")}`);
       if (r.pageErrors.length) reasons.push(`pageerror: ${r.pageErrors.join("; ")}`);
       if (r.network5xx.length) reasons.push(`5xx: ${r.network5xx.join("; ")}`);
+      if (r.asset404.length) reasons.push(`asset404: ${r.asset404.join("; ")}`);
+      if (r.httpStatus && r.httpStatus !== 200) reasons.push(`http: ${r.httpStatus}`);
       console.log(`  ${r.path} — ${reasons.join(", ")}`);
     }
     process.exit(1);

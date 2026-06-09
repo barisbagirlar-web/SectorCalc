@@ -9,10 +9,9 @@ import { Container } from "@/components/ui/Container";
 import { IconListItem } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
 import {
-  buildFreeTrafficCatalogGroups,
   DEFAULT_FREE_TRAFFIC_CATEGORY,
-} from "@/lib/catalog/build-catalog-groups";
-import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
+  getCachedFreeTrafficCatalogGroups,
+} from "@/lib/catalog/cached-catalog-groups";
 import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -44,8 +43,8 @@ export default async function FreeToolsPage({ params }: PageProps) {
   const tCatalog = await getTranslations("catalogExplorer");
   const t = await getTranslations("freeTrafficCatalog");
 
-  const groups = buildFreeTrafficCatalogGroups(
-    FREE_TRAFFIC_TOOLS,
+  const groups = getCachedFreeTrafficCatalogGroups(
+    locale,
     (meta: FreeTrafficCategoryMeta) => ({
       label: t(meta.labelKey),
       description: t(meta.descriptionKey),
@@ -63,10 +62,12 @@ export default async function FreeToolsPage({ params }: PageProps) {
       locale
     ),
     buildItemListJsonLd(
-      FREE_TRAFFIC_TOOLS.map((tool) => ({
-        name: tool.title,
-        path: `/tools/free/${tool.slug}`,
-      })),
+      groups.flatMap((group) =>
+        group.items.map((item) => ({
+          name: item.title,
+          path: item.href,
+        }))
+      ),
       "Free sector calculators",
       locale
     ),

@@ -4,9 +4,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
 import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
 import { Container } from "@/components/ui/Container";
-import { FREE_TOOLS } from "@/data/tools";
-import { buildSectorToolCatalogGroups } from "@/lib/catalog/build-catalog-groups";
-import { buildCategoryPageCatalogGroups } from "@/lib/premium-schema/premium-schema-catalog";
+import { getCachedCategoryPageCatalogGroups } from "@/lib/catalog/cached-catalog-groups";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
@@ -33,7 +31,7 @@ export default async function CategoriesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
-  const groups = buildCategoryPageCatalogGroups(buildSectorToolCatalogGroups(FREE_TOOLS), locale);
+  const groups = getCachedCategoryPageCatalogGroups(locale);
   const jsonLd = [
     buildBreadcrumbJsonLd(
       [
