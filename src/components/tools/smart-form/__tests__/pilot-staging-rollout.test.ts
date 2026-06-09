@@ -56,7 +56,7 @@ describe("smart form staging rollout gate — Phase 5H-G-L/M", () => {
     const invalidApproval = {
       ...getDefaultSmartFormPilotStagingRolloutApproval(),
       scope: "production_deploy",
-    } as SmartFormPilotStagingRolloutApproval;
+    } as unknown as SmartFormPilotStagingRolloutApproval;
 
     const decision = evaluateSmartFormPilotStagingRollout({
       qaDecision,

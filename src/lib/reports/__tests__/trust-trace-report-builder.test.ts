@@ -86,7 +86,9 @@ describe("buildTrustTraceReportPayload", () => {
     expect(payload.exportStatus).toBe("blocked");
     expect(payload.blockers.length).toBeGreaterThan(0);
     expect(payload.mind2Precalc.requiredMissingInputs.length).toBeGreaterThan(0);
-    expect(payload.trustTrace.loopStatus).toBe(loopResult.loopStatus);
+    if (loopResult.status === "blocked") {
+      expect(payload.trustTrace.loopStatus).toBe(loopResult.loopStatus);
+    }
   });
 
   test("builds payload from free full-loop success", () => {

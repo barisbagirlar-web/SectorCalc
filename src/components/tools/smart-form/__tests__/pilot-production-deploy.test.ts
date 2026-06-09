@@ -139,7 +139,7 @@ describe("smart form production deploy gate — Phase 5H-G-P", () => {
     const invalidApproval = {
       ...getDefaultSmartFormPilotProductionDeployApproval(),
       scope: "staging_flag_only",
-    } as SmartFormPilotProductionDeployApproval;
+    } as unknown as SmartFormPilotProductionDeployApproval;
 
     const decision = evaluateSmartFormPilotProductionDeployGate({
       stagingSmokeGate: passedStagingSmokeGate(),

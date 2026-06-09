@@ -56,12 +56,14 @@ describe("revenue drift full-loop runtime", () => {
     });
 
     test(`${slug} blocks invalid primary input`, () => {
-      const invalid =
-        slug === "project-cost-calculator"
-          ? { originalBudget: 0, changeEstimate: 10_000, deadlinePressure: "low" }
-          : slug === "cleaning-cost-calculator"
-            ? { areaSize: 0, staffCount: 2, visitFrequency: 12 }
-            : { productPrice: 0, productCost: 10, returnRate: 0 };
+      let invalid: Record<string, number | string>;
+      if (slug === "project-cost-calculator") {
+        invalid = { originalBudget: 0, changeEstimate: 10_000, deadlinePressure: "low" };
+      } else if (slug === "cleaning-cost-calculator") {
+        invalid = { areaSize: 0, staffCount: 2, visitFrequency: 12 };
+      } else {
+        invalid = { productPrice: 0, productCost: 10, returnRate: 0 };
+      }
       const result = runFreeFullLoopCalculation(slug, invalid);
       expect(result.status).toBe("blocked");
     });

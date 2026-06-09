@@ -30,6 +30,7 @@ function buildItem(overrides: Partial<ToolMigrationPlanItem>): ToolMigrationPlan
     nextGate: "controlled_patch_ready",
     notes: [],
     inputDesignPatchCompleted: false,
+    smartFormArchitectureReady: false,
     ...overrides,
   };
 }
@@ -45,6 +46,7 @@ function buildPlan(items: readonly ToolMigrationPlanItem[]): BatchMigrationPlan 
     items,
     recommendedFirstPatchBatch: [],
     completedInputDesignPatches: [],
+    smartFormRenderingReadyCount: 0,
     warnings: [],
     blockers: [],
   };
