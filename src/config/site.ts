@@ -31,7 +31,6 @@ export const PRIMARY_HEADER_NAV = [
  { key: "tools", href: "/free-tools" },
  { key: "premiumVerdicts", href: "/premium-tools" },
  { key: "industries", href: "/industries" },
- { key: "byFunction", href: "/categories" },
 ] as const;
 
 export const PUBLIC_NAV_ITEMS = [
