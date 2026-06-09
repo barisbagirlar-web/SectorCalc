@@ -1,10 +1,14 @@
 {
   "nav": {
-    "tools": "Araçlar",
+    "tools": "Ücretsiz Araçlar",
+    "premiumVerdicts": "Premium Raporlar",
     "industries": "Sektörler",
+    "byFunction": "Hesaplama Türleri",
     "categories": "Kategoriler",
     "reports": "Raporlar",
     "pricing": "Fiyatlandırma",
+    "login": "Giriş",
+    "getPro": "Pro'ya Geç",
     "account": "Hesap",
     "auditEngine": "Araçlar",
     "intelligenceLayer": "Premium",
@@ -200,9 +204,11 @@
   },
   "catalogExplorer": {
     "categories": {
-      "eyebrow": "Kategoriler",
-      "title": "Doğru hesaplayıcı kategorisini bulun.",
-      "subtitle": "Önce ihtiyacınız olan kayıp, ölçüm veya karar türünü seçin."
+      "eyebrow": "Hesaplama türü",
+      "title": "Neyi ölçmek veya hesaplamak istiyorsunuz?",
+      "subtitle": "Önce hesaplama türünü seçin: verimlilik, fire, maliyet, rota, enerji, ölçüm veya finans. Sonra doğru ücretsiz kontrolü ya da premium raporu açın.",
+      "metaTitle": "Fonksiyona Göre Hesaplayıcılar — OEE, Fire, Rota, Enerji",
+      "metaDescription": "Ölçtüğünüz şeye göre SectorCalc araçları: OEE, fire, rota, kalibrasyon, enerji, marj, finans ve günlük hesaplamalar."
     },
     "freeTools": {
       "eyebrow": "Ücretsiz araçlar",
@@ -217,11 +223,13 @@
     "industries": {
       "eyebrow": "Sektörler",
       "title": "Sektöre göre hesaplayıcıları keşfedin.",
-      "subtitle": "Sektörünüzden başlayın, ardından hesaplama veya raporu seçin."
+      "subtitle": "Önce sektörünüzü seçin; ardından o iş akışı için hazırlanmış ücretsiz kontrolü veya premium karar raporunu açın.",
+      "metaTitle": "Sektör Hesaplayıcı Paketleri — 27 Sektör",
+      "metaDescription": "27 sektör paketi: ücretsiz kontroller ve premium kayıp karar raporları. Sektör iş akışınızdan başlayın."
     },
     "labels": {
       "categories": {
-        "navLabel": "Kategoriye göre göz at",
+        "navLabel": "İşleve göre göz at",
         "countLabel": "{count, plural, one {# araç} other {# araç}}",
         "viewCategory": "Araçları gör",
         "viewCategoryOpen": "Araçlar gösteriliyor",
@@ -247,6 +255,44 @@
         "viewCategory": "Sektörleri gör",
         "viewCategoryOpen": "Sektörler gösteriliyor",
         "openItem": "Sektörü aç →"
+      }
+    },
+    "functionCategories": {
+      "oee-productivity": {
+        "label": "OEE ve Verimlilik",
+        "description": "Setup süresi, çevrim süresi, makine oranları ve atölye verimi."
+      },
+      "scrap-waste": {
+        "label": "Fire, Atık ve Malzeme Kaybı",
+        "description": "Fire oranı, malzeme israfı, verim kaybı ve rework riski."
+      },
+      "cost-margin": {
+        "label": "Maliyet, Marj ve Kârlılık",
+        "description": "Marj, başabaş, birim maliyet, reçete ve menü kâr kontrolleri."
+      },
+      "routing-logistics": {
+        "label": "Rota, Lojistik ve Yakıt",
+        "description": "Rota maliyeti, yakıt, navlun, desi ve teslimat marjı."
+      },
+      "energy-carbon": {
+        "label": "Enerji, Karbon ve Uyumluluk",
+        "description": "kWh maliyeti, pik yük, karbon ayak izi ve uyumluluk riski."
+      },
+      "measurement-units": {
+        "label": "Ölçüm, Kalibrasyon ve Birimler",
+        "description": "Birim dönüşümü, tolerans sapması, kalibrasyon riski ve istatistik."
+      },
+      "finance-business": {
+        "label": "Finans ve İş",
+        "description": "Kredi, faiz, KDV, maaş maliyeti ve nakit akışı boşlukları."
+      },
+      "construction-field": {
+        "label": "İnşaat ve Saha Tahminleri",
+        "description": "Beton, çatı, boya, fayans ve proje maliyet tahminleri."
+      },
+      "daily-practical": {
+        "label": "Günlük Pratik Hesaplayıcılar",
+        "description": "Bütçe, seyahat, bahşiş ve tarih hesaplamaları."
       }
     }
   },
@@ -417,7 +463,19 @@
     "authorityTitle": "YETKİ",
     "copyright": "© {year} {site}. Tüm hakları saklıdır.",
     "authorityLine": "Saha için tasarlandı.",
-    "vaultLink": "Kişisel Veri Kasası →"
+    "vaultLink": "Kişisel Veri Kasası →",
+    "investorDemo": "Yatırımcı demosu",
+    "operatingSystem": "İşletim sistemi",
+    "authorityLinks": {
+      "manifesto": "Manifesto",
+      "methodology": "Metodoloji",
+      "trust": "Güven ve Doğrulama",
+      "verify": "Rapor Doğrula",
+      "caseStudies": "Vaka Çalışmaları",
+      "howItWorks": "Nasıl Çalışır",
+      "about": "Hakkımızda",
+      "categories": "Hesaplama Türleri"
+    }
   },
   "region": {
     "label": "Bölge",
@@ -642,7 +700,7 @@
       "subtitleLine2": "Sektöre özel girdileri hesaplayıcılar, teşhisler ve karar raporlarına dönüştürün — ERP karmaşası olmadan.",
       "supporting": "ERP fiyatının dışında kalan işletmeler için tasarlandı.",
       "ctaPrimary": "Kayıp alanınızı bulun",
-      "ctaSecondary": "Ücretsiz hesaplayıcıları görün"
+      "ctaSecondary": "Premium karar raporlarını görün"
     },
     "positioning": {
       "title": "ERP karmaşıklığı olmadan ERP seviyesinde hesaplama mantığı.",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { PRIMARY_HEADER_NAV } from "@/config/site";
 import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { ActiveNavLink } from "@/components/layout/ActiveNavLink";
 
@@ -8,28 +9,20 @@ interface HeaderNavProps {
   onNavigate?: () => void;
 }
 
-const OS_NAV_KEYS = [
-  { key: "tools", href: "/free-tools", prefetch: false },
-  { key: "industries", href: "/industries", prefetch: false },
-  { key: "categories", href: "/categories", prefetch: false },
-  { key: "reports", href: "/account/reports", prefetch: false },
-  { key: "pricing", href: "/pricing", prefetch: false },
-] as const;
-
 export function DesktopHeaderNav() {
   const t = useTranslations("nav");
 
   return (
     <nav id="main-navigation" aria-label="Main">
       <ul className="apple-nav__links">
-        {OS_NAV_KEYS.map((item) => (
+        {PRIMARY_HEADER_NAV.map((item) => (
           <li key={item.href}>
             <ActiveNavLink
               href={item.href}
               label={t(item.key)}
               className="apple-nav__link"
               showIcon={false}
-              prefetch={item.prefetch}
+              prefetch={false}
             />
           </li>
         ))}
@@ -47,7 +40,7 @@ export function MobileHeaderNav({ onNavigate }: HeaderNavProps) {
 
   return (
     <>
-      {OS_NAV_KEYS.map((item) => (
+      {PRIMARY_HEADER_NAV.map((item) => (
         <li key={item.href}>
           <ActiveNavLink
             href={item.href}
@@ -56,7 +49,7 @@ export function MobileHeaderNav({ onNavigate }: HeaderNavProps) {
             className="apple-nav__dropdown-link"
             activeClassName="apple-nav__dropdown-link--active"
             showIcon={false}
-            prefetch={item.prefetch}
+            prefetch={false}
           />
         </li>
       ))}

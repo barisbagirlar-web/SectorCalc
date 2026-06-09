@@ -26,16 +26,23 @@ export const SITE = {
  defaultCurrency: "USD" as const,
 } as const;
 
+/** Primary header nav — manifesto funnel: Free Checks → Premium Verdicts → Industries. */
+export const PRIMARY_HEADER_NAV = [
+ { key: "tools", href: "/free-tools" },
+ { key: "premiumVerdicts", href: "/premium-tools" },
+ { key: "industries", href: "/industries" },
+ { key: "byFunction", href: "/categories" },
+] as const;
+
 export const PUBLIC_NAV_ITEMS = [
  { label: "Free Checks", href: "/free-tools" },
  { label: "Premium Verdicts", href: "/premium-tools" },
  { label: "Industries", href: "/industries" },
- { label: "Pricing", href: "/pricing" },
 ] as const;
 
 export const AUTH_NAV_ITEMS = [
- { label: "Reports", href: "/account/reports" },
  { label: "Account", href: "/account" },
+ { label: "Reports", href: "/account/reports" },
 ] as const;
 
 /** @deprecated Use PUBLIC_NAV_ITEMS + AUTH_NAV_ITEMS */

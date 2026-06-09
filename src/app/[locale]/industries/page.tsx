@@ -13,20 +13,26 @@ import { createPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildCoreHubCrawlGroups, buildFreeToolsCrawlGroups, buildSeoHubCrawlGroups } from "@/lib/seo/crawl-index";
 import { getPremiumToolsHref } from "@/lib/tools/tool-links";
+import type { AppLocale } from "@/i18n/routing";
 import type { IndustryCategory } from "@/lib/tools/industry-registry";
 
-const SECTOR_COUNT = INDUSTRIES.length;
 const DEFAULT_INDUSTRY_CATEGORY: IndustryCategory = "heavy-industry";
-
-export const metadata: Metadata = createPageMetadata({
-  title: "Industry Tools — Free Checks & Premium Reports",
-  description: `${SECTOR_COUNT} industry packs with free calculators and premium loss decision reports.`,
-  path: "/industries",
-});
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations("catalogExplorer.industries");
+
+  return createPageMetadata({
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    path: "/industries",
+    locale: locale as AppLocale,
+  });
+}
 
 export default async function IndustriesPage({ params }: PageProps) {
   const { locale } = await params;

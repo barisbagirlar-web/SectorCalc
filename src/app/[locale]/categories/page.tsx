@@ -4,38 +4,53 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
 import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
 import { Container } from "@/components/ui/Container";
-import { FREE_TOOLS } from "@/data/tools";
-import { buildSectorToolCatalogGroups } from "@/lib/catalog/build-catalog-groups";
-import { buildCategoryPageCatalogGroups } from "@/lib/premium-schema/premium-schema-catalog";
+import {
+  buildCalculatorFunctionGroups,
+  DEFAULT_FUNCTION_CATEGORY_ID,
+  type FunctionCategoryId,
+} from "@/lib/catalog/calculator-function-categories";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildCoreHubCrawlGroups, buildFreeToolsCrawlGroups, buildPremiumToolsCrawlGroups } from "@/lib/seo/crawl-index";
-
-export async function generateMetadata(): Promise<Metadata> {
-  return createPageMetadata({
-    title: "Calculator Categories",
-    description:
-      "Browse SectorCalc tools by function: OEE, scrap, routing, calibration, energy, margin and more.",
-    path: "/categories",
-  });
-}
+import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations("catalogExplorer.categories");
+
+  return createPageMetadata({
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    path: "/categories",
+    locale: locale as AppLocale,
+  });
+}
+
 export default async function CategoriesPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("catalogExplorer");
-  const groups = buildCategoryPageCatalogGroups(buildSectorToolCatalogGroups(FREE_TOOLS), locale);
+  const tFunction = await getTranslations("catalogExplorer.functionCategories");
+
+  const groups = buildCalculatorFunctionGroups({
+    locale,
+    resolveGroupCopy: (id: FunctionCategoryId) => ({
+      label: tFunction(`${id}.label`),
+      description: tFunction(`${id}.description`),
+    }),
+  });
+
   const jsonLd = [
     buildBreadcrumbJsonLd(
       [
         { name: "Home", path: "/" },
-        { name: "Categories", path: "/categories" },
+        { name: "By function", path: "/categories" },
       ],
       locale
     ),
@@ -43,7 +58,7 @@ export default async function CategoriesPage({ params }: PageProps) {
       groups.flatMap((group) =>
         group.items.map((item) => ({ name: item.title, path: item.href }))
       ),
-      "Calculator categories",
+      "Calculators by function",
       locale
     ),
   ];
@@ -59,7 +74,11 @@ export default async function CategoriesPage({ params }: PageProps) {
 
       <section className="sc-pro-section sc-pro-section--border">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-          <SectorCatalogExplorer groups={groups} variant="categories" />
+          <SectorCatalogExplorer
+            groups={groups}
+            variant="categories"
+            defaultGroupId={DEFAULT_FUNCTION_CATEGORY_ID}
+          />
         </Container>
       </section>
 

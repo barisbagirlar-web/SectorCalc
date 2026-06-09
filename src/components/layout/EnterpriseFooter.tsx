@@ -16,6 +16,17 @@ const COMPLIANCE_LINKS = [
   { key: "disclaimer", href: "/disclaimer" },
 ] as const;
 
+const AUTHORITY_LINKS = [
+  { key: "manifesto", href: "/manifesto" },
+  { key: "methodology", href: "/methodology" },
+  { key: "trust", href: "/trust" },
+  { key: "verify", href: "/verify" },
+  { key: "caseStudies", href: "/case-studies" },
+  { key: "howItWorks", href: "/how-it-works" },
+  { key: "about", href: "/about" },
+  { key: "categories", href: "/categories" },
+] as const;
+
 export function EnterpriseFooter() {
   const t = useTranslations("enterpriseFooter");
   const year = new Date().getFullYear();
@@ -38,7 +49,7 @@ export function EnterpriseFooter() {
                 </li>
               ))}
               <li>
-                <Link href="/">{t("allSectors")}</Link>
+                <Link href="/industries">{t("allSectors")}</Link>
               </li>
             </ul>
           </div>
@@ -60,14 +71,19 @@ export function EnterpriseFooter() {
             <h2 className="apple-footer__title">{t("authorityTitle")}</h2>
             <p className="apple-footer__text">{t("authorityLine")}</p>
             <ul className="apple-footer__list mt-2">
+              {AUTHORITY_LINKS.map((item) => (
+                <li key={item.key}>
+                  <Link href={item.href}>{t(`authorityLinks.${item.key}`)}</Link>
+                </li>
+              ))}
               <li>
                 <Link href="/account/archive">{t("vaultLink")}</Link>
               </li>
               <li>
-                <Link href="/investor-demo">Investor demo</Link>
+                <Link href="/investor-demo">{t("investorDemo")}</Link>
               </li>
               <li>
-                <Link href="/operating-system">Operating system</Link>
+                <Link href="/operating-system">{t("operatingSystem")}</Link>
               </li>
             </ul>
           </div>

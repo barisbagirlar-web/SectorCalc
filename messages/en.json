@@ -1,10 +1,14 @@
 {
   "nav": {
-    "tools": "Tools",
+    "tools": "Free Tools",
+    "premiumVerdicts": "Premium Reports",
     "industries": "Industries",
+    "byFunction": "By Function",
     "categories": "Categories",
     "reports": "Reports",
     "pricing": "Pricing",
+    "login": "Login",
+    "getPro": "Get Pro",
     "account": "Account",
     "auditEngine": "Tools",
     "intelligenceLayer": "Premium",
@@ -200,9 +204,11 @@
   },
   "catalogExplorer": {
     "categories": {
-      "eyebrow": "Categories",
-      "title": "Find the right calculator category.",
-      "subtitle": "Choose the type of loss, measurement or decision you need first."
+      "eyebrow": "By function",
+      "title": "Find calculators by what you need to measure.",
+      "subtitle": "Choose a calculation type first — productivity, waste, cost, routing, energy, measurement or finance — then open the right free check or premium report.",
+      "metaTitle": "Calculators by Function — OEE, Scrap, Route, Energy",
+      "metaDescription": "Find SectorCalc tools by what you measure: OEE, scrap, waste, routing, calibration, energy, margin, finance and daily calculations."
     },
     "freeTools": {
       "eyebrow": "Free tools",
@@ -217,11 +223,13 @@
     "industries": {
       "eyebrow": "Industries",
       "title": "Explore calculators by sector.",
-      "subtitle": "Start from your industry, then choose the calculation or report."
+      "subtitle": "Start from your industry, then choose the free check or premium decision report built for that workflow.",
+      "metaTitle": "Industry Calculator Packs — 27 Sectors",
+      "metaDescription": "27 sector packs with free checks and premium loss decision reports. Start from your industry workflow."
     },
     "labels": {
       "categories": {
-        "navLabel": "Browse by category",
+        "navLabel": "Browse by function",
         "countLabel": "{count, plural, one {# tool} other {# tools}}",
         "viewCategory": "View tools",
         "viewCategoryOpen": "Showing tools",
@@ -247,6 +255,44 @@
         "viewCategory": "View sectors",
         "viewCategoryOpen": "Showing sectors",
         "openItem": "Open industry →"
+      }
+    },
+    "functionCategories": {
+      "oee-productivity": {
+        "label": "OEE & Productivity",
+        "description": "Setup time, cycle time, machine rates and shop-floor throughput."
+      },
+      "scrap-waste": {
+        "label": "Scrap, Waste & Material Loss",
+        "description": "Scrap rate, material waste, yield loss and rework exposure."
+      },
+      "cost-margin": {
+        "label": "Cost, Margin & Profitability",
+        "description": "Margin, break-even, unit cost, recipe and menu profit checks."
+      },
+      "routing-logistics": {
+        "label": "Routing, Logistics & Fuel",
+        "description": "Route cost, fuel, freight, desi and delivery margin."
+      },
+      "energy-carbon": {
+        "label": "Energy, Carbon & Compliance",
+        "description": "kWh cost, peak load, carbon footprint and compliance exposure."
+      },
+      "measurement-units": {
+        "label": "Measurement, Calibration & Units",
+        "description": "Unit conversion, tolerance drift, calibration risk and statistics."
+      },
+      "finance-business": {
+        "label": "Finance & Business",
+        "description": "Loans, interest, VAT, salary cost and cash-flow gaps."
+      },
+      "construction-field": {
+        "label": "Construction & Field Estimates",
+        "description": "Concrete, roofing, paint, tile and project cost estimates."
+      },
+      "daily-practical": {
+        "label": "Daily Practical Calculators",
+        "description": "Everyday budget, travel, tip and date calculators."
       }
     }
   },
@@ -417,7 +463,19 @@
     "authorityTitle": "AUTHORITY",
     "copyright": "© {year} {site}. All rights reserved.",
     "authorityLine": "Built for the shop floor.",
-    "vaultLink": "Personal Data Vault →"
+    "vaultLink": "Personal Data Vault →",
+    "investorDemo": "Investor demo",
+    "operatingSystem": "Operating system",
+    "authorityLinks": {
+      "manifesto": "Manifesto",
+      "methodology": "Methodology",
+      "trust": "Trust & Verification",
+      "verify": "Verify Report",
+      "caseStudies": "Case Studies",
+      "howItWorks": "How It Works",
+      "about": "About",
+      "categories": "By Function"
+    }
   },
   "region": {
     "label": "Region",
@@ -642,7 +700,7 @@
       "subtitleLine2": "Turn sector-specific inputs into calculators, diagnostics and decision reports — without ERP complexity.",
       "supporting": "Built for businesses priced out of ERP.",
       "ctaPrimary": "Find your loss area",
-      "ctaSecondary": "View free calculators"
+      "ctaSecondary": "View premium verdicts"
     },
     "positioning": {
       "title": "ERP-level calculation logic without ERP complexity.",
