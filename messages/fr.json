@@ -1,10 +1,18 @@
 {
   "nav": {
-    "tools": "Outils",
+    "calculators": "Calculateurs",
+    "caseStudies": "Études de cas",
+    "resources": "Ressources",
+    "signUp": "S'inscrire",
+    "tools": "Contrôles gratuits",
+    "premiumVerdicts": "Verdicts premium",
     "industries": "Secteurs",
+    "byFunction": "Par fonction",
     "categories": "Catégories",
     "reports": "Rapports",
     "pricing": "Tarifs",
+    "login": "Connexion",
+    "getPro": "PASSER PRO",
     "account": "Compte",
     "auditEngine": "Outils",
     "intelligenceLayer": "Intelligence",
@@ -403,26 +411,68 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "Sector-specific calculators, measurement tools and decision reports.",
-    "sectorsTitle": "SECTORS",
-    "allSectors": "All 27 Sectors",
+    "tagline": "Moteur de décision industriel",
+    "productTitle": "PRODUIT",
+    "product": {
+      "freeChecks": "Contrôles gratuits",
+      "premiumTools": "Outils premium",
+      "industries": "Secteurs",
+      "pricing": "Tarifs",
+      "categories": "Catégories"
+    },
+    "sectorsTitle": "SECTEURS",
+    "allSectors": "Les 27 secteurs",
     "sectors": {
-      "manufacturing": "Manufacturing",
-      "logistics": "Logistics",
+      "manufacturing": "Industrie",
+      "logistics": "Logistique",
       "construction": "Construction"
     },
-    "complianceTitle": "COMPLIANCE",
-    "compliance": {
-      "iso": "ISO 27001 Ready",
-      "sla": "SLA: 99.9% Uptime",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "disclaimer": "Disclaimer"
+    "companyTitle": "ENTREPRISE",
+    "company": {
+      "about": "À propos",
+      "manifesto": "Manifeste",
+      "caseStudies": "Études de cas",
+      "howItWorks": "Comment ça marche",
+      "methodology": "Méthodologie",
+      "blog": "Blog"
     },
-    "authorityTitle": "AUTHORITY",
-    "copyright": "© {year} {site}. All rights reserved.",
-    "authorityLine": "Built for the shop floor.",
-    "vaultLink": "Personal Data Vault →"
+    "trustLegalTitle": "CONFIANCE & LÉGAL",
+    "compliance": {
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation",
+      "disclaimer": "Avertissement"
+    },
+    "authorityTitle": "AUTORITÉ",
+    "authority": {
+      "trust": "Confiance et vérification",
+      "vault": "Coffre de données personnelles →",
+      "investorDemo": "Démo investisseur",
+      "operatingSystem": "Système d'exploitation"
+    },
+    "trustTrace": {
+      "title": "Trust Trace",
+      "link": "Vérifier un rapport",
+      "subtext": "Scannez pour vérifier tout rapport"
+    },
+    "trustBar": {
+      "iso": "ISO 27001 Ready",
+      "sla": "SLA : 99,9 % de disponibilité",
+      "kvkk": "Conforme KVKK",
+      "gdpr": "Prêt RGPD"
+    },
+    "newsletter": {
+      "title": "Insights sectoriels hebdomadaires",
+      "placeholder": "vous@entreprise.fr",
+      "button": "S'abonner",
+      "note": "Requête navigateur uniquement — ouvre votre client e-mail. Aucune liste sans consentement."
+    },
+    "social": {
+      "linkedin": "SectorCalc sur LinkedIn",
+      "twitter": "SectorCalc sur X",
+      "github": "SectorCalc sur GitHub"
+    },
+    "copyright": "© {year} {site}. Tous droits réservés.",
+    "copyrightManifesto": "© {year} SectorCalc. Moteur de décision industriel. Tous droits réservés."
   },
   "region": {
     "label": "Region",
@@ -1063,8 +1113,15 @@
     "reportNote": "Référence opérationnelle uniquement — vérifiez les hypothèses avant tout engagement tarifaire ou contractuel."
   },
   "navigation": {
-    "tools": "Calculateur",
+    "calculators": "Calculateurs",
+    "industries": "Secteurs",
+    "caseStudies": "Études de cas",
     "pricing": "Tarifs",
+    "resources": "Ressources",
+    "login": "Connexion",
+    "signUp": "S'inscrire",
+    "getPro": "PASSER PRO",
+    "tools": "Calculateur",
     "account": "Compte",
     "freeTools": "Calculateur gratuit",
     "premiumTools": "Analyse premium",
@@ -1130,6 +1187,27 @@
     "pricingDescription": "Outils gratuits et rapports premium — rapport unique dès 9 $, Pro dès 19 $/mois.",
     "premiumToolsTitle": "Analyses premium | SectorCalc",
     "premiumToolsDescription": "Diagnostic des pertes, contrôle des seuils et rapports exportables pour équipes opérationnelles."
+  },
+  "campaign": {
+    "homepageStrip": {
+      "title": "Commencez par un guide sectoriel",
+      "lead": "Choisissez une page d'atterrissage pour l'industrie, la construction, la logistique ou l'énergie."
+    },
+    "seoHub": {
+      "freeCalculators": "Calculateurs gratuits",
+      "premiumAnalyzers": "Analyseurs premium",
+      "viewPricing": "Voir les tarifs"
+    },
+    "clusters": {
+      "manufacturing-hidden-loss": "Pertes cachées en fabrication",
+      "construction-cost-overrun": "Dépassement de coûts BTP",
+      "logistics-route-cost": "Coût des routes logistiques",
+      "restaurant-food-margin": "Marge alimentaire restauration",
+      "energy-carbon-exposure": "Exposition énergie et carbone",
+      "agriculture-yield-loss": "Perte de rendement agricole",
+      "business-finance-calculators": "Calculateurs finance entreprise",
+      "unit-conversion-traffic": "Conversion d'unités"
+    }
   },
   "cta": {
     "startFree": "Commencer",

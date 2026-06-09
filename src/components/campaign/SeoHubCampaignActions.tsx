@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 
@@ -19,13 +20,14 @@ export function SeoHubCampaignActions({
   premiumAnalyzerLinks,
   industryLinks,
 }: SeoHubCampaignActionsProps) {
+  const t = useTranslations("campaign.seoHub");
   const attribution = useAttributionContext();
   const campaignId = attribution.utmCampaign;
 
   return (
     <div className="sc-craft-grid sc-craft-grid--2">
       <div className="sc-industrial-panel p-4">
-        <h2 className="sc-pro-headline text-lg">Free calculators</h2>
+        <h2 className="sc-pro-headline text-lg">{t("freeCalculators")}</h2>
         <ul className="mt-3 space-y-2">
           {freeToolLinks.map((link) => (
             <li key={link.href}>
@@ -45,7 +47,7 @@ export function SeoHubCampaignActions({
         </ul>
       </div>
       <div className="sc-industrial-panel p-4">
-        <h2 className="sc-pro-headline text-lg">Premium analyzers</h2>
+        <h2 className="sc-pro-headline text-lg">{t("premiumAnalyzers")}</h2>
         <ul className="mt-3 space-y-2">
           {premiumAnalyzerLinks.map((link) => (
             <li key={link.href}>
@@ -88,7 +90,7 @@ export function SeoHubCampaignActions({
           medium="pricing"
           className="sc-cta-primary"
         >
-          View pricing
+          {t("viewPricing")}
         </TrackedCtaLink>
       </div>
     </div>

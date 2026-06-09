@@ -1,10 +1,18 @@
 {
   "nav": {
-    "tools": "Tools",
+    "calculators": "Calculadoras",
+    "caseStudies": "Casos de estudio",
+    "resources": "Recursos",
+    "signUp": "Registrarse",
+    "tools": "Controles gratuitos",
+    "premiumVerdicts": "Veredictos premium",
     "industries": "Industrias",
+    "byFunction": "Por función",
     "categories": "Categories",
     "reports": "Informes",
     "pricing": "Precios",
+    "login": "Iniciar sesión",
+    "getPro": "OBTENER PRO",
     "account": "Cuenta",
     "auditEngine": "Tools",
     "intelligenceLayer": "Premium",
@@ -403,26 +411,68 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "Sector-specific calculators, measurement tools and decision reports.",
-    "sectorsTitle": "SECTORS",
-    "allSectors": "All 27 Sectors",
+    "tagline": "Motor de decisión industrial",
+    "productTitle": "PRODUCTO",
+    "product": {
+      "freeChecks": "Controles gratuitos",
+      "premiumTools": "Herramientas premium",
+      "industries": "Industrias",
+      "pricing": "Precios",
+      "categories": "Categorías"
+    },
+    "sectorsTitle": "SECTORES",
+    "allSectors": "Los 27 sectores",
     "sectors": {
-      "manufacturing": "Manufacturing",
-      "logistics": "Logistics",
-      "construction": "Construction"
+      "manufacturing": "Manufactura",
+      "logistics": "Logística",
+      "construction": "Construcción"
     },
-    "complianceTitle": "COMPLIANCE",
+    "companyTitle": "EMPRESA",
+    "company": {
+      "about": "Acerca de",
+      "manifesto": "Manifiesto",
+      "caseStudies": "Casos de estudio",
+      "howItWorks": "Cómo funciona",
+      "methodology": "Metodología",
+      "blog": "Blog"
+    },
+    "trustLegalTitle": "CONFIANZA Y LEGAL",
     "compliance": {
-      "iso": "ISO 27001 Ready",
-      "sla": "SLA: 99.9% Uptime",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "disclaimer": "Disclaimer"
+      "privacy": "Política de privacidad",
+      "terms": "Términos de servicio",
+      "disclaimer": "Aviso legal"
     },
-    "authorityTitle": "AUTHORITY",
-    "copyright": "© {year} {site}. All rights reserved.",
-    "authorityLine": "Built for the shop floor.",
-    "vaultLink": "Personal Data Vault →"
+    "authorityTitle": "AUTORIDAD",
+    "authority": {
+      "trust": "Confianza y verificación",
+      "vault": "Bóveda de datos personales →",
+      "investorDemo": "Demo para inversores",
+      "operatingSystem": "Sistema operativo"
+    },
+    "trustTrace": {
+      "title": "Trust Trace",
+      "link": "Verificar cualquier informe",
+      "subtext": "Escanee para verificar cualquier informe"
+    },
+    "trustBar": {
+      "iso": "ISO 27001 Ready",
+      "sla": "SLA: 99.9% de disponibilidad",
+      "kvkk": "Conforme KVKK",
+      "gdpr": "Listo para GDPR"
+    },
+    "newsletter": {
+      "title": "Insights sectoriales semanales",
+      "placeholder": "usted@empresa.com",
+      "button": "Suscribirse",
+      "note": "Solo solicitud en navegador — abre su cliente de correo. Sin almacenamiento sin consentimiento."
+    },
+    "social": {
+      "linkedin": "SectorCalc en LinkedIn",
+      "twitter": "SectorCalc en X",
+      "github": "SectorCalc en GitHub"
+    },
+    "copyright": "© {year} {site}. Todos los derechos reservados.",
+    "copyrightManifesto": "© {year} SectorCalc. Motor de decisión industrial. Todos los derechos reservados."
   },
   "region": {
     "label": "Region",
@@ -1058,8 +1108,15 @@
     }
   },
   "navigation": {
-    "tools": "Calculadora",
+    "calculators": "Calculadoras",
+    "industries": "Industrias",
+    "caseStudies": "Casos de estudio",
     "pricing": "Precios",
+    "resources": "Recursos",
+    "login": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "getPro": "OBTENER PRO",
+    "tools": "Calculadora",
     "account": "Cuenta",
     "freeTools": "Calculadora gratuita",
     "premiumTools": "Análisis premium",
@@ -1130,6 +1187,27 @@
     "pricingDescription": "Calculadoras gratis e informes premium — informe único desde 9 $, Pro desde 19 $/mes.",
     "premiumToolsTitle": "Análisis premium | SectorCalc",
     "premiumToolsDescription": "Diagnóstico de pérdidas, control de umbrales e informes listos para exportar."
+  },
+  "campaign": {
+    "homepageStrip": {
+      "title": "Empieza con una guía sectorial",
+      "lead": "Elige una página de campaña para manufactura, construcción, logística o energía."
+    },
+    "seoHub": {
+      "freeCalculators": "Calculadoras gratuitas",
+      "premiumAnalyzers": "Analizadores premium",
+      "viewPricing": "Ver precios"
+    },
+    "clusters": {
+      "manufacturing-hidden-loss": "Pérdida oculta en manufactura",
+      "construction-cost-overrun": "Sobrecosto en construcción",
+      "logistics-route-cost": "Costo de ruta logística",
+      "restaurant-food-margin": "Margen alimentario en restaurantes",
+      "energy-carbon-exposure": "Exposición energética y de carbono",
+      "agriculture-yield-loss": "Pérdida de rendimiento agrícola",
+      "business-finance-calculators": "Calculadoras financieras empresariales",
+      "unit-conversion-traffic": "Conversión de unidades"
+    }
   },
   "cta": {
     "startFree": "Empezar gratis",

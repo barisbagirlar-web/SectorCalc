@@ -1,10 +1,18 @@
 {
   "nav": {
-    "tools": "Tools",
+    "calculators": "Rechner",
+    "caseStudies": "Fallstudien",
+    "resources": "Ressourcen",
+    "signUp": "Registrieren",
+    "tools": "Gratis-Checks",
+    "premiumVerdicts": "Premium-Urteile",
     "industries": "Branchen",
+    "byFunction": "Nach Funktion",
     "categories": "Categories",
     "reports": "Berichte",
     "pricing": "Preise",
+    "login": "Anmelden",
+    "getPro": "PRO HOLEN",
     "account": "Konto",
     "auditEngine": "Tools",
     "intelligenceLayer": "Premium",
@@ -403,26 +411,68 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "Sector-specific calculators, measurement tools and decision reports.",
-    "sectorsTitle": "SECTORS",
-    "allSectors": "All 27 Sectors",
-    "sectors": {
-      "manufacturing": "Manufacturing",
-      "logistics": "Logistics",
-      "construction": "Construction"
+    "tagline": "Industrial Decision Engine",
+    "productTitle": "PRODUKT",
+    "product": {
+      "freeChecks": "Gratis-Checks",
+      "premiumTools": "Premium-Tools",
+      "industries": "Branchen",
+      "pricing": "Preise",
+      "categories": "Kategorien"
     },
-    "complianceTitle": "COMPLIANCE",
+    "sectorsTitle": "BRANCHEN",
+    "allSectors": "Alle 27 Branchen",
+    "sectors": {
+      "manufacturing": "Fertigung",
+      "logistics": "Logistik",
+      "construction": "Bau"
+    },
+    "companyTitle": "UNTERNEHMEN",
+    "company": {
+      "about": "Über uns",
+      "manifesto": "Manifest",
+      "caseStudies": "Fallstudien",
+      "howItWorks": "So funktioniert's",
+      "methodology": "Methodik",
+      "blog": "Blog"
+    },
+    "trustLegalTitle": "VERTRAUEN & RECHT",
     "compliance": {
+      "privacy": "Datenschutz",
+      "terms": "Nutzungsbedingungen",
+      "disclaimer": "Haftungsausschluss"
+    },
+    "authorityTitle": "AUTORITÄT",
+    "authority": {
+      "trust": "Vertrauen & Verifizierung",
+      "vault": "Personal Data Vault →",
+      "investorDemo": "Investor-Demo",
+      "operatingSystem": "Betriebssystem"
+    },
+    "trustTrace": {
+      "title": "Trust Trace",
+      "link": "Bericht verifizieren",
+      "subtext": "Scannen, um jeden Bericht zu verifizieren"
+    },
+    "trustBar": {
       "iso": "ISO 27001 Ready",
       "sla": "SLA: 99.9% Uptime",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "disclaimer": "Disclaimer"
+      "kvkk": "KVKK Compliant",
+      "gdpr": "GDPR Ready"
     },
-    "authorityTitle": "AUTHORITY",
-    "copyright": "© {year} {site}. All rights reserved.",
-    "authorityLine": "Built for the shop floor.",
-    "vaultLink": "Personal Data Vault →"
+    "newsletter": {
+      "title": "Wöchentliche Brancheneinblicke",
+      "placeholder": "sie@firma.de",
+      "button": "Abonnieren",
+      "note": "Nur Browser-Anfrage — öffnet Ihren E-Mail-Client. Keine Speicherung ohne Zustimmung."
+    },
+    "social": {
+      "linkedin": "SectorCalc auf LinkedIn",
+      "twitter": "SectorCalc auf X",
+      "github": "SectorCalc auf GitHub"
+    },
+    "copyright": "© {year} {site}. Alle Rechte vorbehalten.",
+    "copyrightManifesto": "© {year} SectorCalc. Industrial Decision Engine. Alle Rechte vorbehalten."
   },
   "region": {
     "label": "Region",
@@ -1058,8 +1108,15 @@
     }
   },
   "navigation": {
-    "tools": "Rechner",
+    "calculators": "Rechner",
+    "industries": "Branchen",
+    "caseStudies": "Fallstudien",
     "pricing": "Preise",
+    "resources": "Ressourcen",
+    "login": "Anmelden",
+    "signUp": "Registrieren",
+    "getPro": "PRO HOLEN",
+    "tools": "Rechner",
     "account": "Konto",
     "freeTools": "Gratis-Rechner",
     "premiumTools": "Premium-Analyse",
@@ -1130,6 +1187,27 @@
     "pricingDescription": "Gratis-Rechner und Premium-Entscheidungsberichte — Einzelberichte ab $9, Pro ab $19/Monat.",
     "premiumToolsTitle": "Premium-Analysen | SectorCalc",
     "premiumToolsDescription": "Verlustdiagnose, Schwellenwertprüfung und exportfähige Entscheidungsberichte für Betriebsteams."
+  },
+  "campaign": {
+    "homepageStrip": {
+      "title": "Mit einem Branchenleitfaden starten",
+      "lead": "Wählen Sie eine Kampagnen-Landingpage für Fertigung, Bau, Logistik oder Energie."
+    },
+    "seoHub": {
+      "freeCalculators": "Kostenlose Rechner",
+      "premiumAnalyzers": "Premium-Analysen",
+      "viewPricing": "Preise ansehen"
+    },
+    "clusters": {
+      "manufacturing-hidden-loss": "Verborgene Fertigungsverluste",
+      "construction-cost-overrun": "Baukostenüberschreitung",
+      "logistics-route-cost": "Logistik-Routenkosten",
+      "restaurant-food-margin": "Restaurant-Lebensmittelmarge",
+      "energy-carbon-exposure": "Energie- und CO₂-Risiko",
+      "agriculture-yield-loss": "Landwirtschaftlicher Ertragsverlust",
+      "business-finance-calculators": "Business-Finanzrechner",
+      "unit-conversion-traffic": "Einheitenumrechnung"
+    }
   },
   "cta": {
     "startFree": "Gratis starten",

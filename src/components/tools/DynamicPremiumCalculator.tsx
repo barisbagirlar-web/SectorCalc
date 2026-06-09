@@ -28,6 +28,7 @@ import { handleNumericInputChange } from "@/lib/input/numeric-input";
 import type { BenchmarkSnapshotValue } from "@/lib/benchmarks/benchmark-types";
 import { usePremiumSchemaEntitlement } from "@/lib/entitlements/use-premium-schema-entitlement";
 import { limitPreviewThresholdCount } from "@/lib/entitlements/premium-entitlements";
+import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
 
 export interface DynamicPremiumCalculatorProps {
   schema: PremiumCalculatorSchema;
@@ -126,6 +127,12 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   };
 
   return (
+    <SmartFormShell
+      title={schema.name}
+      description={schema.painStatement}
+      tier="premium"
+      fallback
+      formContent={
     <div className="sc-ledger-karar-masasi mt-4">
       {result && reportData ? (
         <div className="sc-ledger-karar-masasi__decision-stack">
@@ -329,5 +336,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
         )}
       </div>
     </div>
+      }
+    />
   );
 }

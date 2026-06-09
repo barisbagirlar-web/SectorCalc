@@ -1,0 +1,67 @@
+/**
+ * Mobile-first calculator page layout — form zone priority on small screens.
+ */
+
+.sc-calc-tool-page {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sc-calc-tool-page__chrome {
+  min-width: 0;
+}
+
+.sc-calc-tool-page__form-zone {
+  min-width: 0;
+}
+
+@media (max-width: 1023px) {
+  .sc-calc-tool-page {
+    gap: 0;
+  }
+
+  .sc-calc-tool-page__chrome {
+    padding-bottom: 0.5rem;
+  }
+
+  .sc-calc-tool-page__form-zone {
+    padding-top: 0.25rem;
+  }
+
+  .sc-ledger-karar-masasi__verdict {
+    order: 1;
+  }
+
+  .sc-ledger-karar-masasi__big-number {
+    order: 2;
+  }
+
+  .sc-ledger-karar-masasi__threshold {
+    order: 3;
+  }
+
+  .sc-ledger-karar-masasi__entries {
+    order: 4;
+  }
+
+  .sc-ledger-karar-masasi__drivers {
+    order: 5;
+  }
+
+  .sc-ledger-karar-masasi__action {
+    order: 6;
+  }
+
+  .sc-ledger-karar-masasi__report {
+    order: 7;
+  }
+
+  .sc-ledger-karar-masasi__alert {
+    order: 2;
+  }
+
+  .sc-ledger-karar-masasi__actions {
+    order: 5;
+  }
+}

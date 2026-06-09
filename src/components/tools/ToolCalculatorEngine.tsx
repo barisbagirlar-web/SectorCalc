@@ -175,7 +175,10 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
  return (
  <div className="flex min-w-0 flex-col gap-8">
  <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start">
- <div className="order-1 min-w-0 rounded-sm border border-border-subtle bg-white p-6 shadow-card sm:p-7">
+ <div
+  className="order-1 min-w-0 rounded-sm border border-border-subtle bg-white p-6 shadow-card sm:p-7"
+  data-calc-form="true"
+ >
  <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
  {MARGINCORE_TERMS.riskVariables}
  </p>
@@ -198,7 +201,7 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
  />
  </div>
  </div>
- <div className="order-2 min-w-0 space-y-4">
+ <div className="order-2 min-w-0 space-y-4" data-calc-result="true">
  {premiumLocked ? (
  <PremiumToolPaywall toolTitle={definition.title} toolSlug={toolSlug} />
  ) : (

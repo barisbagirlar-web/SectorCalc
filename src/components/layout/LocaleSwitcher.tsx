@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransition } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { LOCALE_DEFINITION_LIST } from "@/lib/i18n/locale-config";
 import {
@@ -14,6 +14,7 @@ import { setLocaleCookie } from "@/lib/i18n/locale-client";
 export function LocaleSwitcher({ className = "" }: { className?: string }) {
   const locale = useLocale() as SupportedLocale;
   const pathname = usePathname();
+  const t = useTranslations("locale");
   const [pending, startTransition] = useTransition();
 
   const handleChange = (nextLocale: SupportedLocale) => {
@@ -29,19 +30,25 @@ export function LocaleSwitcher({ className = "" }: { className?: string }) {
     });
   };
 
+  const currentLabel = t(locale);
+
   return (
-    <label className={`apple-locale ${className}`.trim()}>
-      <span className="sr-only">Language</span>
+    <label className={`apple-locale language-selector ${className}`.trim()}>
+      <span className="language-selector__icon" aria-hidden>
+        🌐
+      </span>
+      <span className="sr-only">{t("label")}</span>
       <select
         value={locale}
         onChange={(event) => handleChange(event.target.value as SupportedLocale)}
         disabled={pending}
-        aria-label="Language"
-        className="apple-locale__select min-w-[3rem] max-w-[4.5rem]"
+        aria-label={t("label")}
+        className="apple-locale__select language-selector__select"
+        title={currentLabel}
       >
         {LOCALE_DEFINITION_LIST.map((option) => (
-          <option key={option.code} value={option.code} title={option.nativeName}>
-            {option.shortLabel}
+          <option key={option.code} value={option.code}>
+            {t(option.code)}
           </option>
         ))}
       </select>

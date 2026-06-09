@@ -1,10 +1,18 @@
 {
   "nav": {
-    "tools": "Araçlar",
+    "calculators": "Hesaplayıcılar",
+    "caseStudies": "Vaka Çalışmaları",
+    "resources": "Kaynaklar",
+    "signUp": "Kayıt Ol",
+    "tools": "Ücretsiz Kontroller",
+    "premiumVerdicts": "Premium Kararlar",
     "industries": "Sektörler",
+    "byFunction": "Hesaplama Türleri",
     "categories": "Kategoriler",
     "reports": "Raporlar",
     "pricing": "Fiyatlandırma",
+    "login": "Giriş",
+    "getPro": "PRO'YA GEÇ",
     "account": "Hesap",
     "auditEngine": "Araçlar",
     "intelligenceLayer": "Premium",
@@ -200,9 +208,11 @@
   },
   "catalogExplorer": {
     "categories": {
-      "eyebrow": "Kategoriler",
-      "title": "Doğru hesaplayıcı kategorisini bulun.",
-      "subtitle": "Önce ihtiyacınız olan kayıp, ölçüm veya karar türünü seçin."
+      "eyebrow": "Hesaplama türü",
+      "title": "Neyi ölçmek veya hesaplamak istiyorsunuz?",
+      "subtitle": "Önce hesaplama türünü seçin: verimlilik, fire, maliyet, rota, enerji, ölçüm veya finans. Sonra doğru ücretsiz kontrolü ya da premium raporu açın.",
+      "metaTitle": "Fonksiyona Göre Hesaplayıcılar — OEE, Fire, Rota, Enerji",
+      "metaDescription": "Ölçtüğünüz şeye göre SectorCalc araçları: OEE, fire, rota, kalibrasyon, enerji, marj, finans ve günlük hesaplamalar."
     },
     "freeTools": {
       "eyebrow": "Ücretsiz araçlar",
@@ -217,11 +227,13 @@
     "industries": {
       "eyebrow": "Sektörler",
       "title": "Sektöre göre hesaplayıcıları keşfedin.",
-      "subtitle": "Sektörünüzden başlayın, ardından hesaplama veya raporu seçin."
+      "subtitle": "Önce sektörünüzü seçin; ardından o iş akışı için hazırlanmış ücretsiz kontrolü veya premium karar raporunu açın.",
+      "metaTitle": "Sektör Hesaplayıcı Paketleri — 27 Sektör",
+      "metaDescription": "27 sektör paketi: ücretsiz kontroller ve premium kayıp karar raporları. Sektör iş akışınızdan başlayın."
     },
     "labels": {
       "categories": {
-        "navLabel": "Kategoriye göre göz at",
+        "navLabel": "İşleve göre göz at",
         "countLabel": "{count, plural, one {# araç} other {# araç}}",
         "viewCategory": "Araçları gör",
         "viewCategoryOpen": "Araçlar gösteriliyor",
@@ -247,6 +259,44 @@
         "viewCategory": "Sektörleri gör",
         "viewCategoryOpen": "Sektörler gösteriliyor",
         "openItem": "Sektörü aç →"
+      }
+    },
+    "functionCategories": {
+      "oee-productivity": {
+        "label": "OEE ve Verimlilik",
+        "description": "Setup süresi, çevrim süresi, makine oranları ve atölye verimi."
+      },
+      "scrap-waste": {
+        "label": "Fire, Atık ve Malzeme Kaybı",
+        "description": "Fire oranı, malzeme israfı, verim kaybı ve rework riski."
+      },
+      "cost-margin": {
+        "label": "Maliyet, Marj ve Kârlılık",
+        "description": "Marj, başabaş, birim maliyet, reçete ve menü kâr kontrolleri."
+      },
+      "routing-logistics": {
+        "label": "Rota, Lojistik ve Yakıt",
+        "description": "Rota maliyeti, yakıt, navlun, desi ve teslimat marjı."
+      },
+      "energy-carbon": {
+        "label": "Enerji, Karbon ve Uyumluluk",
+        "description": "kWh maliyeti, pik yük, karbon ayak izi ve uyumluluk riski."
+      },
+      "measurement-units": {
+        "label": "Ölçüm, Kalibrasyon ve Birimler",
+        "description": "Birim dönüşümü, tolerans sapması, kalibrasyon riski ve istatistik."
+      },
+      "finance-business": {
+        "label": "Finans ve İş",
+        "description": "Kredi, faiz, KDV, maaş maliyeti ve nakit akışı boşlukları."
+      },
+      "construction-field": {
+        "label": "İnşaat ve Saha Tahminleri",
+        "description": "Beton, çatı, boya, fayans ve proje maliyet tahminleri."
+      },
+      "daily-practical": {
+        "label": "Günlük Pratik Hesaplayıcılar",
+        "description": "Bütçe, seyahat, bahşiş ve tarih hesaplamaları."
       }
     }
   },
@@ -398,7 +448,15 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "Sektöre özel hesaplayıcılar, ölçüm araçları ve karar raporları.",
+    "tagline": "Endüstriyel Karar Motoru",
+    "productTitle": "ÜRÜN",
+    "product": {
+      "freeChecks": "Ücretsiz Kontroller",
+      "premiumTools": "Premium Araçlar",
+      "industries": "Sektörler",
+      "pricing": "Fiyatlandırma",
+      "categories": "Kategoriler"
+    },
     "sectorsTitle": "SEKTÖRLER",
     "allSectors": "27 Sektörün Tümü",
     "sectors": {
@@ -406,22 +464,56 @@
       "logistics": "Lojistik",
       "construction": "İnşaat"
     },
-    "complianceTitle": "UYUMLULUK",
+    "companyTitle": "ŞİRKET",
+    "company": {
+      "about": "Hakkımızda",
+      "manifesto": "Manifesto",
+      "caseStudies": "Vaka Çalışmaları",
+      "howItWorks": "Nasıl Çalışır",
+      "methodology": "Metodoloji",
+      "blog": "Blog"
+    },
+    "trustLegalTitle": "GÜVEN VE HUKUK",
     "compliance": {
-      "iso": "ISO 27001 Hazır",
-      "sla": "SLA: %99.9 Çalışma Süresi",
       "privacy": "Gizlilik Politikası",
       "terms": "Kullanım Koşulları",
       "disclaimer": "Sorumluluk Reddi"
     },
     "authorityTitle": "YETKİ",
+    "authority": {
+      "trust": "Güven ve Doğrulama",
+      "vault": "Kişisel Veri Kasası →",
+      "investorDemo": "Yatırımcı Demosu",
+      "operatingSystem": "İşletim Sistemi"
+    },
+    "trustTrace": {
+      "title": "Trust Trace",
+      "link": "Herhangi bir raporu doğrula",
+      "subtext": "Herhangi bir raporu doğrulamak için tara"
+    },
+    "trustBar": {
+      "iso": "ISO 27001 Hazır",
+      "sla": "SLA: %99.9 Çalışma Süresi",
+      "kvkk": "KVKK Uyumlu",
+      "gdpr": "GDPR Hazır"
+    },
+    "newsletter": {
+      "title": "Haftalık sektör içgörüleri",
+      "placeholder": "siz@sirket.com",
+      "button": "Abone ol",
+      "note": "Yalnızca tarayıcı isteği — e-posta istemcinizi açar. Onay olmadan liste saklanmaz."
+    },
+    "social": {
+      "linkedin": "SectorCalc LinkedIn",
+      "twitter": "SectorCalc X",
+      "github": "SectorCalc GitHub"
+    },
     "copyright": "© {year} {site}. Tüm hakları saklıdır.",
-    "authorityLine": "Saha için tasarlandı.",
-    "vaultLink": "Kişisel Veri Kasası →"
+    "copyrightManifesto": "© {year} SectorCalc. Endüstriyel Karar Motoru. Tüm hakları saklıdır."
   },
   "region": {
     "label": "Bölge",
-    "auto": "Otomatik (dile göre)",
+    "auto": "Otomatik",
     "global": "Global · USD",
     "turkey": "Türkiye · TRY",
     "germany": "Almanya · EUR",
@@ -642,7 +734,7 @@
       "subtitleLine2": "Sektöre özel girdileri hesaplayıcılar, teşhisler ve karar raporlarına dönüştürün — ERP karmaşası olmadan.",
       "supporting": "ERP fiyatının dışında kalan işletmeler için tasarlandı.",
       "ctaPrimary": "Kayıp alanınızı bulun",
-      "ctaSecondary": "Ücretsiz hesaplayıcıları görün"
+      "ctaSecondary": "Premium karar raporlarını görün"
     },
     "positioning": {
       "title": "ERP karmaşıklığı olmadan ERP seviyesinde hesaplama mantığı.",
@@ -1053,8 +1145,15 @@
     }
   },
   "navigation": {
-    "tools": "Hesaplama aracı",
+    "calculators": "Hesaplayıcılar",
+    "industries": "Sektörler",
+    "caseStudies": "Vaka Çalışmaları",
     "pricing": "Fiyatlandırma",
+    "resources": "Kaynaklar",
+    "login": "Giriş",
+    "signUp": "Kayıt Ol",
+    "getPro": "PRO'YA GEÇ",
+    "tools": "Hesaplama aracı",
     "account": "Hesap",
     "freeTools": "Ücretsiz hesaplama aracı",
     "premiumTools": "Premium analiz aracı",
@@ -1125,6 +1224,27 @@
     "pricingDescription": "Ücretsiz hesaplayıcılar ve premium karar raporları — tek rapor $9'dan, Pro $19/ay.",
     "premiumToolsTitle": "Premium Analiz Araçları | SectorCalc",
     "premiumToolsDescription": "Görünmeyen kayıp analizi, eşik kontrolü ve dışa aktarmaya hazır karar raporları."
+  },
+  "campaign": {
+    "homepageStrip": {
+      "title": "Sektör rehberiyle başlayın",
+      "lead": "Üretim, inşaat, lojistik veya enerji için kampanya açılış sayfası seçin."
+    },
+    "seoHub": {
+      "freeCalculators": "Ücretsiz hesaplayıcılar",
+      "premiumAnalyzers": "Premium analizörler",
+      "viewPricing": "Fiyatlandırmayı görüntüle"
+    },
+    "clusters": {
+      "manufacturing-hidden-loss": "Üretimde Gizli Kayıp",
+      "construction-cost-overrun": "İnşaat Maliyet Aşımı",
+      "logistics-route-cost": "Lojistik Rota Maliyeti",
+      "restaurant-food-margin": "Restoran Gıda Marjı",
+      "energy-carbon-exposure": "Enerji ve Karbon Riski",
+      "agriculture-yield-loss": "Tarımda Verim Kaybı",
+      "business-finance-calculators": "İş Finansı Hesaplayıcıları",
+      "unit-conversion-traffic": "Birim Dönüşüm Trafiği"
+    }
   },
   "cta": {
     "startFree": "Ücretsiz başla",

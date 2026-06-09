@@ -1,10 +1,18 @@
 {
   "nav": {
-    "tools": "Tools",
+    "calculators": "الحاسبات",
+    "caseStudies": "دراسات الحالة",
+    "resources": "الموارد",
+    "signUp": "إنشاء حساب",
+    "tools": "فحوصات مجانية",
+    "premiumVerdicts": "أحكام مميزة",
     "industries": "القطاعات",
+    "byFunction": "حسب الوظيفة",
     "categories": "Categories",
     "reports": "التقارير",
     "pricing": "الأسعار",
+    "login": "تسجيل الدخول",
+    "getPro": "احصل على PRO",
     "account": "الحساب",
     "auditEngine": "Tools",
     "intelligenceLayer": "Premium",
@@ -403,26 +411,68 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "Sector-specific calculators, measurement tools and decision reports.",
-    "sectorsTitle": "SECTORS",
-    "allSectors": "All 27 Sectors",
-    "sectors": {
-      "manufacturing": "Manufacturing",
-      "logistics": "Logistics",
-      "construction": "Construction"
+    "tagline": "محرك القرار الصناعي",
+    "productTitle": "المنتج",
+    "product": {
+      "freeChecks": "فحوصات مجانية",
+      "premiumTools": "أدوات متقدمة",
+      "industries": "القطاعات",
+      "pricing": "الأسعار",
+      "categories": "الفئات"
     },
-    "complianceTitle": "COMPLIANCE",
+    "sectorsTitle": "القطاعات",
+    "allSectors": "جميع القطاعات الـ27",
+    "sectors": {
+      "manufacturing": "التصنيع",
+      "logistics": "اللوجستيات",
+      "construction": "الإنشاء"
+    },
+    "companyTitle": "الشركة",
+    "company": {
+      "about": "من نحن",
+      "manifesto": "البيان",
+      "caseStudies": "دراسات الحالة",
+      "howItWorks": "كيف يعمل",
+      "methodology": "المنهجية",
+      "blog": "المدونة"
+    },
+    "trustLegalTitle": "الثقة والقانون",
     "compliance": {
+      "privacy": "سياسة الخصوصية",
+      "terms": "شروط الخدمة",
+      "disclaimer": "إخلاء المسؤولية"
+    },
+    "authorityTitle": "السلطة",
+    "authority": {
+      "trust": "الثقة والتحقق",
+      "vault": "خزنة البيانات الشخصية →",
+      "investorDemo": "عرض المستثمر",
+      "operatingSystem": "نظام التشغيل"
+    },
+    "trustTrace": {
+      "title": "Trust Trace",
+      "link": "تحقق من أي تقرير",
+      "subtext": "امسح للتحقق من أي تقرير"
+    },
+    "trustBar": {
       "iso": "ISO 27001 Ready",
       "sla": "SLA: 99.9% Uptime",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "disclaimer": "Disclaimer"
+      "kvkk": "متوافق مع KVKK",
+      "gdpr": "جاهز لـ GDPR"
     },
-    "authorityTitle": "AUTHORITY",
-    "copyright": "© {year} {site}. All rights reserved.",
-    "authorityLine": "Built for the shop floor.",
-    "vaultLink": "Personal Data Vault →"
+    "newsletter": {
+      "title": "رؤى صناعية أسبوعية",
+      "placeholder": "you@company.com",
+      "button": "اشترك",
+      "note": "طلب متصفح فقط — يفتح بريدك الإلكتروني. لا تخزين دون موافقة."
+    },
+    "social": {
+      "linkedin": "SectorCalc على LinkedIn",
+      "twitter": "SectorCalc على X",
+      "github": "SectorCalc على GitHub"
+    },
+    "copyright": "© {year} {site}. جميع الحقوق محفوظة.",
+    "copyrightManifesto": "© {year} SectorCalc. محرك القرار الصناعي. جميع الحقوق محفوظة."
   },
   "region": {
     "label": "Region",
@@ -1058,8 +1108,15 @@
     }
   },
   "navigation": {
-    "tools": "حاسبة",
+    "calculators": "الحاسبات",
+    "industries": "القطاعات",
+    "caseStudies": "دراسات الحالة",
     "pricing": "الأسعار",
+    "resources": "الموارد",
+    "login": "تسجيل الدخول",
+    "signUp": "إنشاء حساب",
+    "getPro": "احصل على PRO",
+    "tools": "حاسبة",
     "account": "الحساب",
     "freeTools": "حاسبة مجانية",
     "premiumTools": "أداة تحليل متقدمة",
@@ -1130,6 +1187,27 @@
     "pricingDescription": "حاسبات مجانية وتقارير متقدمة — تقرير واحد من 9$، Pro من 19$/شهر.",
     "premiumToolsTitle": "أدوات تحليل متقدمة | SectorCalc",
     "premiumToolsDescription": "تشخيص الخسائر وفحص الحدود وتقارير جاهزة للتصدير للفرق التشغيلية."
+  },
+  "campaign": {
+    "homepageStrip": {
+      "title": "ابدأ بدليل قطاعي",
+      "lead": "اختر صفحة حملة للتصنيع أو الإنشاء أو اللوجستيات أو الطاقة."
+    },
+    "seoHub": {
+      "freeCalculators": "حاسبات مجانية",
+      "premiumAnalyzers": "أدوات تحليل متقدمة",
+      "viewPricing": "عرض الأسعار"
+    },
+    "clusters": {
+      "manufacturing-hidden-loss": "خسائر التصنيع الخفية",
+      "construction-cost-overrun": "تجاوز تكلفة الإنشاء",
+      "logistics-route-cost": "تكلفة مسار اللوجستيات",
+      "restaurant-food-margin": "هامش الطعام في المطاعم",
+      "energy-carbon-exposure": "تعرض الطاقة والكربون",
+      "agriculture-yield-loss": "فقدان المحصول الزراعي",
+      "business-finance-calculators": "حاسبات الأعمال المالية",
+      "unit-conversion-traffic": "تحويل الوحدات"
+    }
   },
   "cta": {
     "startFree": "ابدأ مجانًا",

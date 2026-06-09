@@ -10,6 +10,11 @@ import type { ToolDefinition } from "@/data/tool-schema";
 import { getIndustryBySlug } from "@/data/industries";
 import { applyRevenueToolDisplay } from "@/lib/tools/revenue-tools";
 import { MARGINCORE_TERMS } from "@/lib/terminology/margincore-identity";
+import {
+  CALC_TOOL_PAGE_CHROME_CLASS,
+  CALC_TOOL_PAGE_CLASS,
+  CALC_TOOL_PAGE_FORM_ZONE_CLASS,
+} from "@/lib/layout/calculation-tool-mobile-layout";
 
 interface ToolPageShellProps {
  definition: ToolDefinition;
@@ -34,21 +39,25 @@ export function ToolPageShell({ definition: rawDefinition }: ToolPageShellProps)
 
  return (
  <PageLayout>
+ <div id="sector-product">
+ <div className={CALC_TOOL_PAGE_CLASS}>
+ <div className={CALC_TOOL_PAGE_CHROME_CLASS}>
  <PageHero
  eyebrow={classificationLabel}
  title={definition.title}
  description={definition.longDescription}
  />
-
- <div id="sector-product">
- <section className="fourth-tab border-t border-border-subtle bg-white">
- <Container size="wide" className="min-w-0 py-4">
  <p className="mb-6 text-sm leading-relaxed text-text-secondary">
  {isPremium
  ? MARGINCORE_TERMS.premiumVerdict
  : MARGINCORE_TERMS.freePreCheck}
  </p>
  <Breadcrumb items={breadcrumbItems} />
+ </div>
+
+ <section className="fourth-tab border-t border-border-subtle bg-white">
+ <Container size="wide" className="min-w-0 py-4">
+ <div className={CALC_TOOL_PAGE_FORM_ZONE_CLASS}>
  <ToolCalculatorEngine definition={definition} />
  {definition.premiumTeaser && !definition.features?.decisionReport && (
  <div className="mt-10">
@@ -58,8 +67,10 @@ export function ToolPageShell({ definition: rawDefinition }: ToolPageShellProps)
  />
  </div>
  )}
+ </div>
  </Container>
  </section>
+ </div>
 
  <section className="seventh-tab">
  <Container>

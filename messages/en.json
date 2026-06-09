@@ -1,10 +1,18 @@
 {
   "nav": {
-    "tools": "Tools",
+    "calculators": "Calculators",
+    "caseStudies": "Case Studies",
+    "resources": "Resources",
+    "signUp": "Sign Up",
+    "tools": "Free Checks",
+    "premiumVerdicts": "Premium Verdicts",
     "industries": "Industries",
+    "byFunction": "By Function",
     "categories": "Categories",
     "reports": "Reports",
     "pricing": "Pricing",
+    "login": "Login",
+    "getPro": "GET PRO",
     "account": "Account",
     "auditEngine": "Tools",
     "intelligenceLayer": "Premium",
@@ -200,9 +208,11 @@
   },
   "catalogExplorer": {
     "categories": {
-      "eyebrow": "Categories",
-      "title": "Find the right calculator category.",
-      "subtitle": "Choose the type of loss, measurement or decision you need first."
+      "eyebrow": "By function",
+      "title": "Find calculators by what you need to measure.",
+      "subtitle": "Choose a calculation type first — productivity, waste, cost, routing, energy, measurement or finance — then open the right free check or premium report.",
+      "metaTitle": "Calculators by Function — OEE, Scrap, Route, Energy",
+      "metaDescription": "Find SectorCalc tools by what you measure: OEE, scrap, waste, routing, calibration, energy, margin, finance and daily calculations."
     },
     "freeTools": {
       "eyebrow": "Free tools",
@@ -217,11 +227,13 @@
     "industries": {
       "eyebrow": "Industries",
       "title": "Explore calculators by sector.",
-      "subtitle": "Start from your industry, then choose the calculation or report."
+      "subtitle": "Start from your industry, then choose the free check or premium decision report built for that workflow.",
+      "metaTitle": "Industry Calculator Packs — 27 Sectors",
+      "metaDescription": "27 sector packs with free checks and premium loss decision reports. Start from your industry workflow."
     },
     "labels": {
       "categories": {
-        "navLabel": "Browse by category",
+        "navLabel": "Browse by function",
         "countLabel": "{count, plural, one {# tool} other {# tools}}",
         "viewCategory": "View tools",
         "viewCategoryOpen": "Showing tools",
@@ -247,6 +259,44 @@
         "viewCategory": "View sectors",
         "viewCategoryOpen": "Showing sectors",
         "openItem": "Open industry →"
+      }
+    },
+    "functionCategories": {
+      "oee-productivity": {
+        "label": "OEE & Productivity",
+        "description": "Setup time, cycle time, machine rates and shop-floor throughput."
+      },
+      "scrap-waste": {
+        "label": "Scrap, Waste & Material Loss",
+        "description": "Scrap rate, material waste, yield loss and rework exposure."
+      },
+      "cost-margin": {
+        "label": "Cost, Margin & Profitability",
+        "description": "Margin, break-even, unit cost, recipe and menu profit checks."
+      },
+      "routing-logistics": {
+        "label": "Routing, Logistics & Fuel",
+        "description": "Route cost, fuel, freight, desi and delivery margin."
+      },
+      "energy-carbon": {
+        "label": "Energy, Carbon & Compliance",
+        "description": "kWh cost, peak load, carbon footprint and compliance exposure."
+      },
+      "measurement-units": {
+        "label": "Measurement, Calibration & Units",
+        "description": "Unit conversion, tolerance drift, calibration risk and statistics."
+      },
+      "finance-business": {
+        "label": "Finance & Business",
+        "description": "Loans, interest, VAT, salary cost and cash-flow gaps."
+      },
+      "construction-field": {
+        "label": "Construction & Field Estimates",
+        "description": "Concrete, roofing, paint, tile and project cost estimates."
+      },
+      "daily-practical": {
+        "label": "Daily Practical Calculators",
+        "description": "Everyday budget, travel, tip and date calculators."
       }
     }
   },
@@ -398,7 +448,15 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "Sector-specific calculators, measurement tools and decision reports.",
+    "tagline": "Industrial Decision Engine",
+    "productTitle": "PRODUCT",
+    "product": {
+      "freeChecks": "Free Checks",
+      "premiumTools": "Premium Tools",
+      "industries": "Industries",
+      "pricing": "Pricing",
+      "categories": "Categories"
+    },
     "sectorsTitle": "SECTORS",
     "allSectors": "All 27 Sectors",
     "sectors": {
@@ -406,22 +464,56 @@
       "logistics": "Logistics",
       "construction": "Construction"
     },
-    "complianceTitle": "COMPLIANCE",
+    "companyTitle": "COMPANY",
+    "company": {
+      "about": "About",
+      "manifesto": "Manifesto",
+      "caseStudies": "Case Studies",
+      "howItWorks": "How It Works",
+      "methodology": "Methodology",
+      "blog": "Blog"
+    },
+    "trustLegalTitle": "TRUST & LEGAL",
     "compliance": {
-      "iso": "ISO 27001 Ready",
-      "sla": "SLA: 99.9% Uptime",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "disclaimer": "Disclaimer"
     },
     "authorityTitle": "AUTHORITY",
+    "authority": {
+      "trust": "Trust & Verification",
+      "vault": "Personal Data Vault →",
+      "investorDemo": "Investor Demo",
+      "operatingSystem": "Operating System"
+    },
+    "trustTrace": {
+      "title": "Trust Trace",
+      "link": "Verify any report",
+      "subtext": "Scan to verify any report"
+    },
+    "trustBar": {
+      "iso": "ISO 27001 Ready",
+      "sla": "SLA: 99.9% Uptime",
+      "kvkk": "KVKK Compliant",
+      "gdpr": "GDPR Ready"
+    },
+    "newsletter": {
+      "title": "Weekly industry insights",
+      "placeholder": "you@company.com",
+      "button": "Subscribe",
+      "note": "Browser-only request — opens your email client. No list stored without consent."
+    },
+    "social": {
+      "linkedin": "SectorCalc on LinkedIn",
+      "twitter": "SectorCalc on X",
+      "github": "SectorCalc on GitHub"
+    },
     "copyright": "© {year} {site}. All rights reserved.",
-    "authorityLine": "Built for the shop floor.",
-    "vaultLink": "Personal Data Vault →"
+    "copyrightManifesto": "© {year} SectorCalc. Industrial Decision Engine. All rights reserved."
   },
   "region": {
     "label": "Region",
-    "auto": "Auto (by language)",
+    "auto": "Auto",
     "global": "Global · USD",
     "turkey": "Turkey · TRY",
     "germany": "Germany · EUR",
@@ -642,7 +734,7 @@
       "subtitleLine2": "Turn sector-specific inputs into calculators, diagnostics and decision reports — without ERP complexity.",
       "supporting": "Built for businesses priced out of ERP.",
       "ctaPrimary": "Find your loss area",
-      "ctaSecondary": "View free calculators"
+      "ctaSecondary": "View premium verdicts"
     },
     "positioning": {
       "title": "ERP-level calculation logic without ERP complexity.",
@@ -1053,8 +1145,15 @@
     }
   },
   "navigation": {
-    "tools": "Tools",
+    "calculators": "Calculators",
+    "industries": "Industries",
+    "caseStudies": "Case Studies",
     "pricing": "Pricing",
+    "resources": "Resources",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "getPro": "GET PRO",
+    "tools": "Tools",
     "account": "Account",
     "freeTools": "Free calculator",
     "premiumTools": "Premium analyzer",
@@ -1125,6 +1224,27 @@
     "pricingDescription": "Free calculators and premium decision reports — single reports from $9, Pro from $19/month.",
     "premiumToolsTitle": "Premium Analyzers | SectorCalc",
     "premiumToolsDescription": "Hidden-loss diagnostics, threshold checks and export-ready decision reports for operational teams."
+  },
+  "campaign": {
+    "homepageStrip": {
+      "title": "Start with a sector guide",
+      "lead": "Pick a campaign landing page for manufacturing, construction, logistics or energy."
+    },
+    "seoHub": {
+      "freeCalculators": "Free calculators",
+      "premiumAnalyzers": "Premium analyzers",
+      "viewPricing": "View pricing"
+    },
+    "clusters": {
+      "manufacturing-hidden-loss": "Manufacturing Hidden Loss",
+      "construction-cost-overrun": "Construction Cost Overrun",
+      "logistics-route-cost": "Logistics Route Cost",
+      "restaurant-food-margin": "Restaurant Food Margin",
+      "energy-carbon-exposure": "Energy & Carbon Exposure",
+      "agriculture-yield-loss": "Agriculture Yield Loss",
+      "business-finance-calculators": "Business Finance Calculators",
+      "unit-conversion-traffic": "Unit Conversion Traffic"
+    }
   },
   "cta": {
     "startFree": "Start free",

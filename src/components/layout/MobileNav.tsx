@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useEffect, useId, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "@/i18n/routing";
 import { MobileHeaderNav } from "@/components/layout/HeaderNav";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
@@ -10,42 +11,140 @@ import { UI_ICON } from "@/lib/icons/icon-registry";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import { getPricingHref } from "@/lib/tools/tool-links";
 
+const DEFAULT_PANEL_TOP_PX = 58;
+
+function readHeaderBottomOffset(): number {
+  if (typeof document === "undefined") {
+    return DEFAULT_PANEL_TOP_PX;
+  }
+
+  const header = document.getElementById("header");
+  if (!header) {
+    return DEFAULT_PANEL_TOP_PX;
+  }
+
+  return Math.round(header.getBoundingClientRect().bottom);
+}
+
 export function MobileNav() {
-  const detailsRef = useRef<HTMLDetailsElement>(null);
+  const panelId = useId();
+  const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [panelTop, setPanelTop] = useState(DEFAULT_PANEL_TOP_PX);
   const { isActive, loading } = useUserSubscription();
 
-  const closeMenu = () => {
-    if (detailsRef.current) {
-      detailsRef.current.open = false;
+  const closeMenu = useCallback(() => {
+    setOpen(false);
+  }, []);
+
+  const toggleMenu = useCallback(() => {
+    setPanelTop(readHeaderBottomOffset());
+    setOpen((current) => !current);
+  }, []);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!open) {
+      return;
     }
-  };
+
+    const syncPanelTop = () => {
+      setPanelTop(readHeaderBottomOffset());
+    };
+
+    syncPanelTop();
+    window.addEventListener("resize", syncPanelTop);
+    window.addEventListener("scroll", syncPanelTop, { passive: true });
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("resize", syncPanelTop);
+      window.removeEventListener("scroll", syncPanelTop);
+    };
+  }, [closeMenu, open]);
+
+  const drawer =
+    open && mounted
+      ? createPortal(
+          <div className="sc-mobile-drawer lg:hidden" data-open>
+            <button
+              type="button"
+              className="sc-mobile-drawer__backdrop"
+              aria-label="Close menu"
+              onClick={closeMenu}
+            />
+            <nav
+              id={panelId}
+              className="sc-mobile-drawer__panel"
+              role="navigation"
+              aria-label="Mobile"
+              style={{ top: panelTop }}
+            >
+              <div className="sc-mobile-drawer__section sc-mobile-drawer__section--locale">
+                <div className="sc-header-locale-group flex w-full flex-wrap gap-2">
+                  <RegionSelector className="min-w-0 flex-1" />
+                  <LocaleSwitcher className="min-w-0 flex-1" />
+                </div>
+              </div>
+              <ul className="sc-mobile-drawer__links">
+                <MobileHeaderNav
+                  onNavigate={closeMenu}
+                  linkClassName="sc-mobile-drawer__link"
+                  activeLinkClassName="sc-mobile-drawer__link sc-mobile-drawer__link--active"
+                />
+                {!loading && !isActive ? (
+                  <li>
+                    <Link
+                      href={getPricingHref()}
+                      prefetch={true}
+                      onClick={closeMenu}
+                      className="sc-mobile-drawer__link sc-mobile-drawer__link--accent"
+                    >
+                      Unlock Pro
+                    </Link>
+                  </li>
+                ) : null}
+              </ul>
+            </nav>
+          </div>,
+          document.body,
+        )
+      : null;
 
   return (
-    <details ref={detailsRef} className="relative lg:hidden">
-      <summary className="apple-nav__menu-btn min-h-[44px] min-w-[44px]" aria-label="Open menu">
-        <ScIcon icon={UI_ICON.menu} size="compact" className="text-current" />
-      </summary>
-      <ul className="apple-nav__dropdown">
-        <li className="px-4 py-2">
-          <div className="sc-header-locale-group flex w-full flex-wrap gap-2">
-            <RegionSelector className="min-w-0 flex-1" />
-            <LocaleSwitcher className="min-w-0 flex-1" />
-          </div>
-        </li>
-        <MobileHeaderNav onNavigate={closeMenu} />
-        {!loading && !isActive ? (
-          <li>
-            <Link
-              href={getPricingHref()}
-              prefetch={false}
-              onClick={closeMenu}
-              className="apple-nav__dropdown-link"
-            >
-              Unlock Pro
-            </Link>
-          </li>
-        ) : null}
-      </ul>
-    </details>
+    <>
+      <div className="apple-nav__mobile-menu relative z-[2] shrink-0 lg:hidden">
+        <button
+          type="button"
+          className="apple-nav__menu-btn sc-mobile-menu-trigger min-h-[44px] min-w-[44px]"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls={panelId}
+          onClick={toggleMenu}
+        >
+          <ScIcon
+            icon={open ? UI_ICON.close : UI_ICON.menu}
+            size="compact"
+            className="text-current"
+          />
+        </button>
+      </div>
+      {drawer}
+    </>
   );
 }

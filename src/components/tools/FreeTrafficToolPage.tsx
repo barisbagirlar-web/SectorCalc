@@ -23,6 +23,7 @@ import {
 } from "@/lib/tools/free-traffic-catalog";
 import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
+import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { CalculatorFeedbackBox } from "@/components/tools/CalculatorFeedbackBox";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
@@ -278,19 +279,32 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
       <section className="sc-craft-section overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
           <div className="sc-ledger-cetele sc-tool-workspace">
-            {useFullLoopRuntime ? (
-              <SmartToolForm
-                slug={tool.slug}
-                values={values}
-                errors={errors}
-                onChange={handleSmartFormChange}
-                onSubmit={handleSubmit}
-                calculateLabel={t("tool.calculate")}
-                blocked={fullLoopResult?.status === "blocked"}
-                blockers={fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []}
-                inputIdPrefix={`ft-${tool.slug}`}
-              />
-            ) : (
+            <SmartFormWorkspace
+              toolSlug={tool.slug}
+              tier="free"
+              title={tool.title}
+              description={tool.description}
+              inputConfig={{ kind: "traffic", inputs: tool.inputs }}
+              values={values}
+              errors={errors}
+              onChange={handleSmartFormChange}
+              onSubmit={handleSubmit}
+              calculateLabel={t("tool.calculate")}
+              nativeContractForm={useFullLoopRuntime}
+              formFallback={
+                useFullLoopRuntime ? (
+                  <SmartToolForm
+                    slug={tool.slug}
+                    values={values}
+                    errors={errors}
+                    onChange={handleSmartFormChange}
+                    onSubmit={handleSubmit}
+                    calculateLabel={t("tool.calculate")}
+                    blocked={fullLoopResult?.status === "blocked"}
+                    blockers={fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []}
+                    inputIdPrefix={`ft-${tool.slug}`}
+                  />
+                ) : (
             <form
               onSubmit={handleSubmit}
               className="sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
@@ -373,9 +387,10 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                 </button>
               </div>
             </form>
-            )}
-
-            <div className="sc-ledger-cetele__result sc-tool-workspace__result min-w-0 space-y-4" aria-live="polite">
+                )
+              }
+              resultPanel={
+            <div className="min-w-0 space-y-4" aria-live="polite">
               {useFullLoopRuntime && fullLoopResult?.status === "blocked" ? (
                 <>
                   <SmartFormValidationSummary
@@ -479,6 +494,13 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                 <p className="text-sm text-body-charcoal">{t("tool.awaiting")}</p>
               )}
             </div>
+              }
+              trustTraceSlot={
+                fullLoopResult?.status === "success" || fullLoopResult?.status === "blocked" ? (
+                  <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+                ) : undefined
+              }
+            />
           </div>
 
           {relatedTools.length > 0 ? (

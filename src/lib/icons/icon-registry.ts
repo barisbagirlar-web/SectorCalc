@@ -29,6 +29,7 @@ import {
  Squares2X2Icon,
  UserCircleIcon,
  WrenchScrewdriverIcon,
+ XMarkIcon,
  XCircleIcon,
  ArrowDownTrayIcon,
  UserGroupIcon,
@@ -151,6 +152,7 @@ export const PAIN_RISK_ICONS = {
 
 export const UI_ICON = {
  menu: Bars3Icon,
+ close: XMarkIcon,
  chevronRight: ChevronRightIcon,
  check: CheckCircleIcon,
  exclude: MinusCircleIcon,

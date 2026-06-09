@@ -58,14 +58,17 @@ export function RegionSelector({ className = "" }: { className?: string }) {
   };
 
   return (
-    <label className={`apple-locale ${className}`.trim()}>
+    <label className={`apple-locale language-selector language-selector--region ${className}`.trim()}>
+      <span className="language-selector__icon" aria-hidden>
+        🌐
+      </span>
       <span className="sr-only">{t("label")}</span>
       <select
         value={selectValue}
         onChange={(event) => handleChange(event.target.value)}
         disabled={pending}
         aria-label={t("label")}
-        className="apple-locale__select max-w-[7rem] min-w-0 text-[11px] sm:max-w-[8rem]"
+        className="apple-locale__select language-selector__select"
         title={
           manual
             ? t("manualActive", { region: getRegionProfile(region).label })

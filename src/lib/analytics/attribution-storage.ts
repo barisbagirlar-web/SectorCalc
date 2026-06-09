@@ -5,6 +5,7 @@ import {
   sanitizeAttributionContext,
   type AttributionContext,
 } from "@/lib/analytics/attribution";
+import { resolveCampaignIdForPath } from "@/lib/campaigns/campaign-path-resolver";
 
 const STORAGE_KEY = "sc_attr_v1";
 
@@ -53,9 +54,24 @@ export function captureAttributionFromLocation(
     referrer: readReferrer(),
   });
 
-  if (hasAttributionSignals(fromUrl) || fromUrl.referrer) {
-    persistAttributionContext(fromUrl);
+  const inferredCampaign = fromUrl.utmCampaign
+    ? undefined
+    : resolveCampaignIdForPath(landingPath);
+
+  const captured = mergeAttributionContext(
+    fromUrl,
+    inferredCampaign
+      ? {
+          utmCampaign: inferredCampaign,
+          utmSource: fromUrl.utmSource ?? "sectorcalc",
+          utmMedium: fromUrl.utmMedium ?? "organic",
+        }
+      : undefined,
+  );
+
+  if (hasAttributionSignals(captured) || captured.referrer || captured.landingPath) {
+    persistAttributionContext(captured);
   }
 
-  return mergeAttributionContext(readStoredAttributionContext(), fromUrl);
+  return mergeAttributionContext(readStoredAttributionContext(), captured);
 }

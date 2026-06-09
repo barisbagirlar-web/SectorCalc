@@ -38,10 +38,20 @@ const REQUIRED_TOP_LEVEL = [
   "errors",
   "emptyStates",
   "seo",
+  "campaign",
   "cta",
 ] as const;
 
-const REQUIRED_NAV_KEYS = ["tools", "pricing", "freeTools", "premiumTools"] as const;
+const REQUIRED_NAV_KEYS = [
+  "calculators",
+  "industries",
+  "caseStudies",
+  "pricing",
+  "resources",
+  "login",
+  "signUp",
+  "getPro",
+] as const;
 
 const REQUIRED_PRICING_KEYS = ["title", "freeCta", "proCta"] as const;
 

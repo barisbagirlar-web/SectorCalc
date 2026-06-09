@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { Suspense, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { PremiumLoginPrompt } from "@/components/billing/CustomerSignInPanel";
@@ -12,6 +13,8 @@ import { Container } from "@/components/ui/Container";
 import { OsModuleHeader } from "@/components/os/OsModuleHeader";
 import { SectorToolSelect } from "@/components/os/SectorToolSelect";
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
+import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
 import {
  REVENUE_EVENTS,
  trackRevenueEvent,
@@ -26,6 +29,9 @@ import {
 import {
  PremiumAnalyzerReportPanel,
 } from "@/components/tools/PremiumAnalyzerReportPanel";
+import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
+import { SmartResultPanel } from "@/components/smart-form/SmartResultPanel";
+import { buildSmartFormForTool } from "@/lib/smart-form/smart-form-adapter";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { CalculatorFeedbackBox } from "@/components/tools/CalculatorFeedbackBox";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
@@ -202,7 +208,9 @@ interface PremiumToolPageProps {
 }
 
 export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
+ const locale = useLocale();
  const pathname = usePathname();
+ const attribution = useAttributionContext();
  const pagePath = stripLocalePrefix(pathname);
  const runtimeSlug = routeSlug ?? tool.paidSlug;
  const useFullLoopRuntime = isPremiumFullLoopRuntimeSlug(runtimeSlug);
@@ -226,6 +234,11 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  const isCncStochastic = tool.paidSlug === "cnc-quote-risk-analyzer";
  const schemaPilot = getPremiumSchemaForPaidSlug(tool.paidSlug);
  const showSchemaPilot = Boolean(schemaPilot) && !useFullLoopRuntime;
+ const smartFormAdapter = useMemo(
+  () =>
+   buildSmartFormForTool(runtimeSlug, { kind: "revenue", inputs: tool.paidInputs }),
+  [runtimeSlug, tool.paidInputs],
+ );
 
  const fullLoopResult = useMemo((): PremiumFullLoopResult | null => {
  if (!submitted || !canAccessAnalyzer || !useFullLoopRuntime) {
@@ -284,6 +297,33 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  toolSlug: tool.paidSlug,
  });
  }, [tool.paidSlug]);
+
+ useEffect(() => {
+  if (showSchemaPilot) {
+   return;
+  }
+  trackConversionEvent({
+   stage: "premium_preview",
+   eventName: "premium_analyzer_open",
+   locale,
+   pagePath,
+   premiumSlug: tool.paidSlug,
+   campaignId: attribution.utmCampaign,
+   source: attribution.utmSource,
+   medium: attribution.utmMedium,
+   valueType: "premium",
+   category: tool.sector,
+  });
+ }, [
+  attribution.utmCampaign,
+  attribution.utmMedium,
+  attribution.utmSource,
+  locale,
+  pagePath,
+  showSchemaPilot,
+  tool.paidSlug,
+  tool.sector,
+ ]);
 
  useEffect(() => {
  if (!loading && user && !canAccessAnalyzer) {
@@ -386,6 +426,24 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  });
  };
 
+ const trackPremiumCalculate = () => {
+  if (showSchemaPilot) {
+   return;
+  }
+  trackConversionEvent({
+   stage: "premium_preview",
+   eventName: "premium_calculate",
+   locale,
+   pagePath,
+   premiumSlug: tool.paidSlug,
+   campaignId: attribution.utmCampaign,
+   source: attribution.utmSource,
+   medium: attribution.utmMedium,
+   valueType: "premium",
+   category: tool.sector,
+  });
+ };
+
  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
  event.preventDefault();
 
@@ -402,6 +460,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   window.setTimeout(() => {
    setIsCalculating(false);
    setSubmitted(true);
+   trackPremiumCalculate();
   }, 400);
   return;
  }
@@ -440,6 +499,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  window.setTimeout(() => {
  setIsCalculating(false);
  setSubmitted(true);
+ trackPremiumCalculate();
  }, 400);
  };
 
@@ -505,52 +565,73 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  </>
  ) : (
  <>
- <div className="sc-ledger-karar-masasi mt-4">
- {useFullLoopRuntime ? (
-  <SmartToolForm
-   slug={runtimeSlug}
-   values={values}
-   errors={errors}
-   onChange={handleChange}
-   onSubmit={handleSubmit}
-   calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
-   blocked={submitted && fullLoopResult?.status === "blocked"}
-   blockers={
-    submitted && fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []
-   }
-   isCalculating={isCalculating}
-  />
- ) : (
- <form
- onSubmit={handleSubmit}
- className="sc-ledger-karar-masasi__entries sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
- noValidate
- >
- {tool.paidInputs.map((input) => (
- <PremiumToolInputField
- key={input.key}
- input={input}
- value={values[input.key] ?? (input.type === "select" ? "" : 0)}
- error={errors[input.key]}
- onChange={handleChange}
+ <SmartFormShell
+  title={tool.paidTitle}
+  description={tool.paidValue}
+  tier="premium"
+  fallback={useFullLoopRuntime || !smartFormAdapter.ok}
+  formContent={
+   <div className="sc-ledger-karar-masasi mt-4">
+    {useFullLoopRuntime ? (
+     <SmartToolForm
+      slug={runtimeSlug}
+      values={values}
+      errors={errors}
+      onChange={handleChange}
+      onSubmit={handleSubmit}
+      calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
+      blocked={submitted && fullLoopResult?.status === "blocked"}
+      blockers={
+       submitted && fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []
+      }
+      isCalculating={isCalculating}
+     />
+    ) : (
+     <form
+      onSubmit={handleSubmit}
+      className="sc-ledger-karar-masasi__entries sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
+      noValidate
+     >
+      {tool.paidInputs.map((input) => (
+       <PremiumToolInputField
+        key={input.key}
+        input={input}
+        value={values[input.key] ?? (input.type === "select" ? "" : 0)}
+        error={errors[input.key]}
+        onChange={handleChange}
+       />
+      ))}
+      <div className="sc-industrial-form-actions">
+       <button
+        type="submit"
+        disabled={isCalculating}
+        className="sc-ledger-cta-primary sc-cta-primary disabled:opacity-60"
+       >
+        {isCalculating ? "Calculating…" : "Run analysis"}
+       </button>
+      </div>
+     </form>
+    )}
+    <SmartResultPanel
+     calculationSteps={smartFormAdapter.ok ? smartFormAdapter.calculationSteps : []}
+     trustTraceSlot={
+      useFullLoopRuntime && fullLoopResult ? (
+       <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+      ) : undefined
+     }
+    >
+     <div className="sc-ledger-karar-masasi__report min-w-0 space-y-4">
+      {renderAnalysisOutput("primary")}
+     </div>
+    </SmartResultPanel>
+   </div>
+  }
+  trustTraceContent={
+   useFullLoopRuntime && fullLoopResult ? (
+    <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+   ) : undefined
+  }
  />
- ))}
- <div className="sc-industrial-form-actions">
- <button
- type="submit"
- disabled={isCalculating}
- className="sc-ledger-cta-primary sc-cta-primary disabled:opacity-60"
- >
- {isCalculating ? "Calculating…" : "Run analysis"}
- </button>
- </div>
- </form>
- )}
-
- <div className="sc-ledger-karar-masasi__report min-w-0 space-y-4">
- {renderAnalysisOutput("primary")}
- </div>
- </div>
  </>
  )}
  </>

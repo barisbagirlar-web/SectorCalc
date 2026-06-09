@@ -6,6 +6,7 @@ import { LlmsTxtLink, SeoHeadLinks } from "@/components/seo/SeoHeadLinks";
 import type { AppLocale } from "@/i18n/routing";
 import { getLocaleTextDirection } from "@/lib/i18n/locale-config";
 import { getServerRegion } from "@/lib/compliance/server-region";
+import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap";
 import { RegionProvider } from "@/lib/compliance/region-context";
 
 const inter = Inter({
@@ -54,7 +55,10 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
       <body className="min-w-0 overflow-x-hidden bg-industrial-matte font-sans text-[17px] leading-[1.47059] text-premium-velvet antialiased">
         <JsonLd data={buildHomepageJsonLd(locale)} />
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <RegionProvider region={region}>{children}</RegionProvider>
+          <RegionProvider region={region}>
+            <AttributionBootstrap />
+            {children}
+          </RegionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

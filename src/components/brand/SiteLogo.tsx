@@ -17,24 +17,40 @@ export function SiteLogo({
   priority = false,
   className = "",
 }: SiteLogoProps) {
-  const logo =
+  const wordmark =
     variant === "on-dark" ? BRAND_ASSETS.logo.onDark : BRAND_ASSETS.logo.default;
 
   return (
     <Link
       href="/"
       prefetch={false}
-      className={`site-logo site-logo--${variant} ${className}`.trim()}
+      className={`site-logo sc-site-logo site-logo--${variant} sc-logo ${className}`.trim()}
       aria-label="SectorCalc home"
     >
       <Image
-        src={logo}
+        src={BRAND_ASSETS.favicon.master}
+        alt=""
+        width={48}
+        height={48}
+        priority={priority}
+        unoptimized
+        className="sc-site-logo__mark"
+        aria-hidden
+      />
+      <span className="sc-site-logo__combo">
+        <span className="sc-site-logo__text">
+          <span className="sc-site-logo__text-sector">Sector</span>
+          <span className="sc-site-logo__text-calc">Calc</span>
+        </span>
+      </span>
+      <Image
+        src={wordmark}
         alt="SectorCalc"
         width={160}
         height={42}
         priority={priority}
         unoptimized
-        className="site-logo__img"
+        className="site-logo__img sc-site-logo__wordmark sr-only"
       />
     </Link>
   );

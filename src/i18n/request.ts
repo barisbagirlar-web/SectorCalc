@@ -1,5 +1,10 @@
 import { getRequestConfig } from "next-intl/server";
 import { routing, isAppLocale } from "@/i18n/routing";
+import {
+  collectMissingTranslationKeys,
+  formatMissingTranslationReport,
+  mergeLocaleMessages,
+} from "@/lib/i18n/merge-locale-messages";
 
 async function loadManufacturingOsMessages(locale: string) {
   try {
@@ -17,29 +22,22 @@ async function loadBaseMessages(locale: string): Promise<Record<string, unknown>
   }
 }
 
-function mergeMessages(
-  fallback: Record<string, unknown>,
-  primary: Record<string, unknown>,
-): Record<string, unknown> {
-  const merged: Record<string, unknown> = { ...fallback };
-  for (const [key, value] of Object.entries(primary)) {
-    if (
-      value &&
-      typeof value === "object" &&
-      !Array.isArray(value) &&
-      merged[key] &&
-      typeof merged[key] === "object" &&
-      !Array.isArray(merged[key])
-    ) {
-      merged[key] = mergeMessages(
-        merged[key] as Record<string, unknown>,
-        value as Record<string, unknown>,
-      );
-    } else {
-      merged[key] = value;
-    }
+const reportedMissingLocales = new Set<string>();
+
+function reportMissingTranslations(locale: string, missingKeys: ReturnType<typeof collectMissingTranslationKeys>): void {
+  if (locale === "en" || missingKeys.length === 0 || reportedMissingLocales.has(locale)) {
+    return;
   }
-  return merged;
+
+  reportedMissingLocales.add(locale);
+  const report = formatMissingTranslationReport(missingKeys);
+  if (!report) {
+    return;
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    console.warn(`[i18n] English fallback keys for locale "${locale}":\n${report}`);
+  }
 }
 
 export default getRequestConfig(async ({ requestLocale }) => {
@@ -55,7 +53,13 @@ export default getRequestConfig(async ({ requestLocale }) => {
     loadManufacturingOsMessages(locale),
   ]);
 
-  const messages = locale === "en" ? localeMessages : mergeMessages(enMessages, localeMessages);
+  const messages =
+    locale === "en" ? localeMessages : mergeLocaleMessages(enMessages, localeMessages);
+
+  if (locale !== "en") {
+    const missingKeys = collectMissingTranslationKeys(enMessages, localeMessages, locale);
+    reportMissingTranslations(locale, missingKeys);
+  }
 
   return {
     locale,

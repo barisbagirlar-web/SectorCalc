@@ -28,6 +28,8 @@ export function isNavLinkActive(pathname: string, href: string): boolean {
       return path === "/industries" || path.startsWith("/industries/");
     case "/categories":
       return path === "/categories";
+    case "/case-studies":
+      return path === "/case-studies" || path.startsWith("/case-studies/");
     case "/account/reports":
       return path === "/account/reports" || path.startsWith("/account/reports/");
     case "/pricing":
