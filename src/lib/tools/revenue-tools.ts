@@ -11,7 +11,10 @@
  */
 
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
-import { FULL_LOOP_CONTRACT_ALIAS } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import {
+  FULL_LOOP_CONTRACT_ALIAS,
+  FULL_LOOP_RUNTIME_SLUGS,
+} from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
 import { additionalRevenueTools } from "@/lib/tools/revenue-tools-additional";
 import { getToolHref } from "@/lib/tools/paths";
@@ -749,6 +752,7 @@ export function getPremiumRevenueRouteSlugs(): readonly string[] {
  ...new Set([
  ...revenueTools.map((tool) => tool.paidSlug),
  ...funnelSlugs,
+ ...FULL_LOOP_RUNTIME_SLUGS,
  ]),
  ];
 }

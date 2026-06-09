@@ -8,8 +8,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const ROOT = process.cwd();
-/** Canonical production origin — web.app SSR can 500/503 on locale redirects. */
-const BASE_URL = process.env.CATALOG_QA_BASE_URL ?? "https://sectorcalc.com";
+const BASE_URL = process.env.CATALOG_QA_BASE_URL ?? "https://sectorcalc-bf412.web.app";
 
 const EXPECTED_SECTORS = [
   "cnc-manufacturing",
@@ -42,8 +41,6 @@ const EXPECTED_SECTORS = [
 ];
 
 const LOCALE_PREFIX = process.env.CATALOG_QA_LOCALE ?? "en";
-/** next-intl localePrefix: "as-needed" — default locale (en) has no URL prefix. */
-const USE_LOCALE_PREFIX = LOCALE_PREFIX !== "en";
 
 function read(relPath) {
   return readFileSync(resolve(ROOT, relPath), "utf8");
@@ -51,9 +48,6 @@ function read(relPath) {
 
 function localizedPath(path) {
   if (path.startsWith("/admin")) {
-    return path;
-  }
-  if (!USE_LOCALE_PREFIX) {
     return path;
   }
   return `/${LOCALE_PREFIX}${path === "/" ? "" : path}`;
@@ -178,21 +172,12 @@ function check(name, pass, detail = "") {
 
 async function smokeRoute(path) {
   const url = `${BASE_URL}${path}`;
-  const fetchOnce = async () =>
-    fetch(url, {
+  try {
+    const response = await fetch(url, {
       method: "GET",
       redirect: "follow",
       headers: { "User-Agent": "SectorCalc-Catalog-Audit/1.0" },
     });
-
-  try {
-    let response = await fetchOnce();
-    // Retry transient Firebase SSR cold-start failures (first miss can 500/503).
-    const retryable = new Set([500, 502, 503]);
-    for (let attempt = 0; attempt < 3 && !response.ok && retryable.has(response.status); attempt += 1) {
-      await new Promise((resolve) => setTimeout(resolve, 1500 * (attempt + 1)));
-      response = await fetchOnce();
-    }
     return { path, ok: response.ok, status: response.status };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -311,7 +296,6 @@ async function main() {
   for (const path of allRoutes) {
     const result = await smokeRoute(path);
     smokeResults.push(result);
-    await new Promise((resolve) => setTimeout(resolve, 120));
     const label = result.ok ? "✓" : "✗";
     console.log(`${label} ${path} → ${result.status || result.error}`);
     if (!result.ok) failed += 1;
