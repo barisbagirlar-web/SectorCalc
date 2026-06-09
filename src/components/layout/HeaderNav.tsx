@@ -9,11 +9,11 @@ interface HeaderNavProps {
 }
 
 const OS_NAV_KEYS = [
-  { key: "tools", href: "/free-tools" },
-  { key: "industries", href: "/industries" },
-  { key: "categories", href: "/categories" },
-  { key: "reports", href: "/account/reports" },
-  { key: "pricing", href: "/pricing" },
+  { key: "tools", href: "/free-tools", prefetch: true },
+  { key: "industries", href: "/industries", prefetch: false },
+  { key: "categories", href: "/categories", prefetch: false },
+  { key: "reports", href: "/account/reports", prefetch: false },
+  { key: "pricing", href: "/pricing", prefetch: false },
 ] as const;
 
 export function DesktopHeaderNav() {
@@ -29,6 +29,7 @@ export function DesktopHeaderNav() {
               label={t(item.key)}
               className="apple-nav__link"
               showIcon={false}
+              prefetch={item.prefetch}
             />
           </li>
         ))}
@@ -55,6 +56,7 @@ export function MobileHeaderNav({ onNavigate }: HeaderNavProps) {
             className="apple-nav__dropdown-link"
             activeClassName="apple-nav__dropdown-link--active"
             showIcon={false}
+            prefetch={item.prefetch}
           />
         </li>
       ))}

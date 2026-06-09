@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
@@ -29,6 +28,7 @@ import {
   buildPricingPlans,
   type PricingPlan,
 } from "@/data/pricing-plans";
+import { useClientSearchParams } from "@/lib/navigation/use-client-search-params";
 
 interface PricingPlansGridProps {
   showHeader?: boolean;
@@ -58,7 +58,7 @@ export function PricingPlansGrid({
   const pathname = usePathname();
   const attribution = useAttributionContext();
   const pagePath = stripLocalePrefix(pathname);
-  const searchParams = useSearchParams();
+  const searchParams = useClientSearchParams();
   const highlightPlanId = searchParams.get("plan") ?? undefined;
   const planRefs = useRef<Record<string, HTMLElement | null>>({});
 

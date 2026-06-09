@@ -16,7 +16,7 @@ export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps
   if (loading) {
     return (
       <>
-        <Link href="/login" prefetch onClick={onNavigate} className={linkClass}>
+        <Link href="/login" prefetch={false} onClick={onNavigate} className={linkClass}>
           Login
         </Link>
         {!mobile ? (
@@ -31,7 +31,7 @@ export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps
   if (!user) {
     return (
       <>
-        <Link href="/login" prefetch onClick={onNavigate} className={linkClass}>
+        <Link href="/login" prefetch={false} onClick={onNavigate} className={linkClass}>
           Login
         </Link>
         {!mobile ? (
@@ -44,7 +44,7 @@ export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps
   }
 
   return (
-    <Link href="/account" prefetch onClick={onNavigate} className={linkClass}>
+    <Link href="/account" prefetch={false} onClick={onNavigate} className={linkClass}>
       Account
     </Link>
   );

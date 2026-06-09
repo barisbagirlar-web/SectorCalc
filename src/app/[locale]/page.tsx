@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
+import { RootLocaleAutoRedirect } from "@/components/i18n/RootLocaleAutoRedirect";
 import { HomepageHybrid } from "@/components/home/HomepageHybrid";
 import { getHomepageSectorAreaCount } from "@/lib/home/homepage-stats";
 import { createPageMetadata } from "@/lib/metadata";
@@ -26,6 +27,7 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <PageLayout>
+      <RootLocaleAutoRedirect />
       <HomepageHybrid />
     </PageLayout>
   );

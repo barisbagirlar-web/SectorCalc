@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
+import { useClientSearchParams } from "@/lib/navigation/use-client-search-params";
 import { PlanCheckoutAction } from "@/components/pricing/PlanCheckoutAction";
 import { PRICING_MATRIX_PLANS, PRICING_MATRIX_ROWS } from "@/data/pricing-matrix";
 import { buildPricingPlans } from "@/data/pricing-plans";
@@ -21,7 +21,7 @@ function CellValue({ value }: { value: boolean | "partial" }) {
 
 export function PricingFeatureMatrix() {
   const t = useTranslations();
-  const searchParams = useSearchParams();
+  const searchParams = useClientSearchParams();
   const checkoutToolSlug = useMemo(() => {
     const tool = searchParams.get("tool");
     return tool && getRevenueToolByPaidSlug(tool) ? tool : undefined;
