@@ -185,19 +185,23 @@ async function smokeRoute(path) {
       headers: { "User-Agent": "SectorCalc-Catalog-Audit/1.0" },
     });
 
-  try {
-    let response = await fetchOnce();
-    // Retry transient Firebase SSR cold-start failures (first miss can 500/503).
-    const retryable = new Set([500, 502, 503]);
-    for (let attempt = 0; attempt < 3 && !response.ok && retryable.has(response.status); attempt += 1) {
-      await new Promise((resolve) => setTimeout(resolve, 1500 * (attempt + 1)));
-      response = await fetchOnce();
+  const retryableStatus = new Set([500, 502, 503]);
+  let lastError = "";
+
+  for (let attempt = 0; attempt < 6; attempt += 1) {
+    try {
+      const response = await fetchOnce();
+      if (response.ok || !retryableStatus.has(response.status)) {
+        return { path, ok: response.ok, status: response.status };
+      }
+      lastError = `HTTP ${response.status}`;
+    } catch (error) {
+      lastError = error instanceof Error ? error.message : String(error);
     }
-    return { path, ok: response.ok, status: response.status };
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    return { path, ok: false, status: 0, error: message };
+    await new Promise((resolve) => setTimeout(resolve, 2000 * (attempt + 1)));
   }
+
+  return { path, ok: false, status: 0, error: lastError };
 }
 
 function buildToolsFromSections(sections) {
@@ -311,7 +315,7 @@ async function main() {
   for (const path of allRoutes) {
     const result = await smokeRoute(path);
     smokeResults.push(result);
-    await new Promise((resolve) => setTimeout(resolve, 120));
+    await new Promise((resolve) => setTimeout(resolve, 250));
     const label = result.ok ? "✓" : "✗";
     console.log(`${label} ${path} → ${result.status || result.error}`);
     if (!result.ok) failed += 1;
