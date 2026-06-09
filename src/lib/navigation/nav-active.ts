@@ -1,5 +1,5 @@
 function stripLocalePrefix(pathname: string): string {
-  const match = pathname.match(/^\/(en|tr|es|de|ar)(\/.*)?$/);
+  const match = pathname.match(/^\/(en|tr|de|fr|es|ar)(\/.*)?$/);
   if (!match) {
     return pathname;
   }

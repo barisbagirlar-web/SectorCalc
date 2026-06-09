@@ -27,7 +27,7 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <PageLayout>
-      <RootLocaleAutoRedirect />
+      {locale === "en" ? <RootLocaleAutoRedirect /> : null}
       <HomepageHybrid />
     </PageLayout>
   );

@@ -9,7 +9,7 @@ interface HeaderNavProps {
 }
 
 const OS_NAV_KEYS = [
-  { key: "tools", href: "/free-tools", prefetch: true },
+  { key: "tools", href: "/free-tools", prefetch: false },
   { key: "industries", href: "/industries", prefetch: false },
   { key: "categories", href: "/categories", prefetch: false },
   { key: "reports", href: "/account/reports", prefetch: false },

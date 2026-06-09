@@ -23,7 +23,7 @@ export function SiteLogo({
   return (
     <Link
       href="/"
-      prefetch={true}
+      prefetch={false}
       className={`site-logo site-logo--${variant} ${className}`.trim()}
       aria-label="SectorCalc home"
     >
