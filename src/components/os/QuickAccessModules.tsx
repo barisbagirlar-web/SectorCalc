@@ -4,8 +4,9 @@ import { HubLink } from "@/components/layout/HubLink";
 
 const MODULES = [
   { key: "tools" as const, href: "/free-tools" },
-  { key: "premium" as const, href: "/premium-tools" },
   { key: "industries" as const, href: "/industries" },
+  { key: "categories" as const, href: "/categories" },
+  { key: "premium" as const, href: "/premium-tools" },
 ] as const;
 
 export async function QuickAccessModules() {

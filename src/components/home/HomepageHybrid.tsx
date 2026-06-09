@@ -60,10 +60,10 @@ export async function HomepageHybrid() {
               </p>
               <p className="sc-home-hybrid__supporting">{t("hero.supporting")}</p>
               <div className="sc-pro-hero-compact__actions">
-                <Link href="/free-tools" className="sc-cta-primary">
+                <Link href="/categories" className="sc-cta-primary">
                   {t("hero.ctaPrimary")}
                 </Link>
-                <Link href="/premium-tools" className="sc-cta-secondary">
+                <Link href="/free-tools" className="sc-cta-secondary">
                   {t("hero.ctaSecondary")}
                 </Link>
               </div>
@@ -324,7 +324,7 @@ export async function HomepageHybrid() {
             <li>{t("final.bullet3")}</li>
             <li>{t("final.bullet4")}</li>
           </ul>
-          <Link href="/pricing" className="sc-cta-primary sc-home-hybrid__final-cta">
+          <Link href="/categories" className="sc-cta-primary sc-home-hybrid__final-cta">
             {t("final.cta")}
           </Link>
         </Container>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   useClientSearchParam,

@@ -1,14 +1,18 @@
 "use client";
 
 import { useRef } from "react";
+import { Link } from "@/i18n/routing";
 import { MobileHeaderNav } from "@/components/layout/HeaderNav";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { RegionSelector } from "@/components/layout/RegionSelector";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
+import { useUserSubscription } from "@/lib/billing/use-user-subscription";
+import { getPricingHref } from "@/lib/tools/tool-links";
 
 export function MobileNav() {
   const detailsRef = useRef<HTMLDetailsElement>(null);
+  const { isActive, loading } = useUserSubscription();
 
   const closeMenu = () => {
     if (detailsRef.current) {
@@ -29,6 +33,18 @@ export function MobileNav() {
           </div>
         </li>
         <MobileHeaderNav onNavigate={closeMenu} />
+        {!loading && !isActive ? (
+          <li>
+            <Link
+              href={getPricingHref()}
+              prefetch={false}
+              onClick={closeMenu}
+              className="apple-nav__dropdown-link"
+            >
+              Unlock Pro
+            </Link>
+          </li>
+        ) : null}
       </ul>
     </details>
   );

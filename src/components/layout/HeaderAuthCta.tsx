@@ -1,7 +1,6 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
 import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 
 interface HeaderAuthCtaProps {
@@ -10,23 +9,21 @@ interface HeaderAuthCtaProps {
 }
 
 export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps) {
-  const t = useTranslations("nav");
   const { user, loading } = useUserSubscription();
 
   const linkClass = mobile ? "apple-nav__dropdown-link" : "apple-nav__link";
-  const ctaClass = mobile
-    ? "apple-nav__dropdown-link font-semibold text-sc-copper"
-    : "sc-pro-header-cta sc-cta-primary";
 
   if (loading) {
     return (
       <>
         <Link href="/login" prefetch={false} onClick={onNavigate} className={linkClass}>
-          {t("login")}
+          Login
         </Link>
-        <Link href="/pricing" prefetch={false} onClick={onNavigate} className={ctaClass}>
-          {t("getPro")}
-        </Link>
+        {!mobile ? (
+          <Link href="/pricing" prefetch={false} onClick={onNavigate} className="sc-pro-header-cta sc-cta-primary">
+            Get Pro
+          </Link>
+        ) : null}
       </>
     );
   }
@@ -35,23 +32,20 @@ export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps
     return (
       <>
         <Link href="/login" prefetch={false} onClick={onNavigate} className={linkClass}>
-          {t("login")}
+          Login
         </Link>
-        <Link href="/pricing" prefetch={false} onClick={onNavigate} className={ctaClass}>
-          {t("getPro")}
-        </Link>
+        {!mobile ? (
+          <Link href="/pricing" prefetch={false} onClick={onNavigate} className="sc-pro-header-cta sc-cta-primary">
+            Get Pro
+          </Link>
+        ) : null}
       </>
     );
   }
 
   return (
-    <>
-      <Link href="/account" prefetch={false} onClick={onNavigate} className={linkClass}>
-        {t("account")}
-      </Link>
-      <Link href="/account/reports" prefetch={false} onClick={onNavigate} className={linkClass}>
-        {t("myReports")}
-      </Link>
-    </>
+    <Link href="/account" prefetch={false} onClick={onNavigate} className={linkClass}>
+      Account
+    </Link>
   );
 }
