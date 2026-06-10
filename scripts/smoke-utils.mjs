@@ -298,3 +298,58 @@ export function formatSlowLabel(durationMs) {
   if (durationMs > SLOW_WARNING_MS) return "SLOW";
   return "OK";
 }
+
+/**
+ * Parse revenue freeSlug list from revenue registry source files.
+ */
+export function loadRevenueFreeSlugsFromRegistry() {
+  const revenueCore = read("src/lib/tools/revenue-tools.ts");
+  const revenueAdditional = read("src/lib/tools/revenue-tools-additional.ts");
+  const revenuePhase2 = read("src/lib/tools/revenue-tools-phase2.ts");
+
+  const slugs = [];
+  for (const section of [
+    extractArraySection(revenueCore, "const revenueToolsCore"),
+    extractArraySection(revenueAdditional, "export const additionalRevenueTools"),
+    extractArraySection(revenuePhase2, "export const phase2RevenueTools"),
+  ]) {
+    for (const block of splitToolBlocks(section)) {
+      const freeSlug = block.match(/freeSlug:\s*"([^"]+)"/)?.[1];
+      if (freeSlug) slugs.push(freeSlug);
+    }
+  }
+  return [...new Set(slugs)];
+}
+
+/**
+ * Parse traffic-only free tool slugs from generated catalog JSON.
+ */
+export function loadTrafficFreeSlugsFromCatalog() {
+  const catalog = read("src/lib/tools/free-traffic-catalog.generated.json");
+  const parsed = JSON.parse(catalog);
+  if (!Array.isArray(parsed)) {
+    throw new Error("Expected free-traffic-catalog.generated.json to be an array");
+  }
+  return parsed
+    .map((entry) => (typeof entry?.slug === "string" ? entry.slug : null))
+    .filter((slug) => slug !== null);
+}
+
+export function loadAllFreeToolSlugsFromRegistry() {
+  const revenue = new Set(loadRevenueFreeSlugsFromRegistry());
+  const traffic = loadTrafficFreeSlugsFromCatalog().filter((slug) => !revenue.has(slug));
+  return [...revenue, ...traffic];
+}
+
+/** Legacy `/tools/[tier]/[slug]` calculator routes (not revenue premium paths). */
+export function loadLegacyCalculatorRoutes() {
+  return [
+    { tier: "free", slug: "machine-hour-estimator" },
+    { tier: "free", slug: "project-cost-estimator" },
+    { tier: "free", slug: "cleaning-cost-estimator" },
+    { tier: "free", slug: "food-cost-calculator" },
+    { tier: "free", slug: "product-margin-calculator" },
+    { tier: "premium", slug: "cnc-minimum-safe-quote-analyzer" },
+    { tier: "premium", slug: "return-rate-profit-erosion-tool" },
+  ].map(({ tier, slug }) => `/tools/${tier}/${slug}`);
+}

@@ -565,8 +565,9 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  <div className="sc-tool-workspace mt-4">
  <form
  onSubmit={handleSubmit}
- className="sc-tool-workspace__form sc-industrial-form sc-industrial-panel p-4 sm:p-5"
+ className="sc-form-shell sc-form-grid sc-tool-workspace__form sc-industrial-form sc-industrial-panel p-4 sm:p-5"
  noValidate
+ data-calculation-form="true"
  >
  {tool.paidInputs.map((input) => (
  <PremiumToolInputField
@@ -626,8 +627,9 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    ) : (
     <form
      onSubmit={handleSubmit}
-     className="sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
+     className="sc-form-shell sc-form-grid sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
      noValidate
+     data-calculation-form="true"
     >
      {tool.paidInputs.map((input) => (
       <PremiumToolInputField

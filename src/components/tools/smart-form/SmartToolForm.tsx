@@ -60,7 +60,7 @@ function renderFieldGrid(
   }
 
   return (
-    <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+    <div className="sc-form-grid grid grid-cols-1 gap-3 md:grid-cols-2">
       {fields.map((field) => (
         <SmartFormField
           key={field.key}
@@ -112,10 +112,11 @@ export function SmartToolForm({
   return (
     <form
       onSubmit={onSubmit}
-      className="sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress space-y-4 p-4 sm:p-5"
+      className="sc-form-shell sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress space-y-4 p-4 sm:p-5"
       noValidate
       data-smart-form-slug={slug}
       data-contract-slug={plan.contractSlug}
+      data-calculation-form="true"
     >
       <SmartFormTrustSummary
         decisionGoal={plan.decisionGoal}

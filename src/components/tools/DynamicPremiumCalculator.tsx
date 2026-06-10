@@ -205,8 +205,9 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
 
       <form
         onSubmit={handleSubmit}
-        className="sc-ledger-karar-masasi__entries sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
+        className="sc-form-shell sc-form-grid sc-ledger-karar-masasi__entries sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
         noValidate
+        data-calculation-form="true"
       >
         <p className="sc-ledger-eyebrow">{t("ledgerEntries")}</p>
         <h2 className="mt-1 text-base font-semibold text-premium-velvet">{schema.name}</h2>

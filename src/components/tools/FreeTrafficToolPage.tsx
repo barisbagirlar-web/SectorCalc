@@ -307,8 +307,9 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                 ) : (
             <form
               onSubmit={handleSubmit}
-              className="sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
+              className="sc-form-shell sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
               noValidate
+              data-calculation-form="true"
             >
               {tool.inputs.map((input) => {
                 const id = `ft-${tool.slug}-${input.key}`;
@@ -317,7 +318,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
 
                 if (input.type === "select" && input.options) {
                   return (
-                    <div key={input.key} className="sc-industrial-field">
+                    <div key={input.key} className="sc-industrial-field sc-form-field">
                       <div className="sc-industrial-field__label-row">
                         <label htmlFor={id} className="sc-industrial-field__label">
                           {input.label}

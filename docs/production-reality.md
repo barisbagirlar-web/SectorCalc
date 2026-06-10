@@ -13,6 +13,16 @@
 - **Firebase fallback/test:** https://sectorcalc-bf412.web.app
 - **Audit/smoke scripts must default to:** https://sectorcalc.com
 
+## P2.4 — Full Calculation Form Repair Sweep
+
+| Item | Value |
+|------|--------|
+| **P2.4 commit** | pending deploy — shared form CSS + layout sweep |
+| **Form standard** | `.sc-form-shell`, `.sc-form-grid`, `.sc-form-field`, `.sc-form-result-layout` in `design-craft.css` |
+| **Surfaces** | Premium legacy fallback, free revenue/traffic, legacy `/tools/[tier]/[slug]`, `ToolCalculatorEngine` |
+| **Smoke** | `npm run smoke:all-calculation-forms` |
+| **Formula/runtime** | **Unchanged** |
+
 ## P3 — Feedback / Formula Objection System
 
 | Item | Value |

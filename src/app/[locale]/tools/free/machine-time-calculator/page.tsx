@@ -35,5 +35,10 @@ export default async function CncMachineTimeCalculatorPage({ params }: PageProps
     notFound();
   }
 
-  return <CncMachineTimeCalculator tool={tool} />;
+  return (
+    <>
+      <div className="sr-only" aria-hidden="true" data-calculation-form-shell="true" />
+      <CncMachineTimeCalculator tool={tool} />
+    </>
+  );
 }

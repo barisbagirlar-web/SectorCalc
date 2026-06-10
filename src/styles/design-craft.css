@@ -299,6 +299,171 @@
   }
 }
 
+/* ── P2.4: Shared calculation form standard ── */
+.sc-form-shell,
+.sc-industrial-form,
+.sc-ledger-cetele-form,
+form[data-calculation-form="true"] {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1280px;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+.sc-form-grid,
+.sc-industrial-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .sc-form-grid,
+  .sc-industrial-form {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+.sc-form-field,
+.sc-industrial-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.sc-form-label,
+.sc-ledger-label,
+.sc-industrial-field__label {
+  display: block;
+  max-width: 100%;
+  line-height: 1.4;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  white-space: normal;
+  text-wrap: pretty;
+}
+
+.sc-form-control,
+.sc-industrial-form select,
+.sc-industrial-form textarea,
+.sc-form-shell textarea,
+.sc-ledger-cetele-form textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+}
+
+.sc-form-shell textarea,
+.sc-industrial-form textarea,
+.sc-ledger-cetele-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.sc-form-help,
+.sc-ledger-helper,
+.sc-industrial-field__helper {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.sc-form-error,
+.sc-industrial-field__error {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.sc-form-actions,
+.sc-industrial-form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  min-width: 0;
+  padding-top: 0.25rem;
+}
+
+.sc-form-actions .sc-cta-primary,
+.sc-form-actions .sc-ledger-cta-primary,
+.sc-form-actions .sc-cta-secondary,
+.sc-industrial-form-actions .sc-cta-primary,
+.sc-industrial-form-actions .sc-ledger-cta-primary,
+.sc-industrial-form-actions .sc-cta-secondary {
+  width: 100%;
+  min-height: 44px;
+}
+
+@media (min-width: 640px) {
+  .sc-form-actions,
+  .sc-industrial-form-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .sc-form-actions .sc-cta-primary,
+  .sc-form-actions .sc-ledger-cta-primary,
+  .sc-form-actions .sc-cta-secondary,
+  .sc-industrial-form-actions .sc-cta-primary,
+  .sc-industrial-form-actions .sc-ledger-cta-primary,
+  .sc-industrial-form-actions .sc-cta-secondary {
+    width: auto;
+    min-width: min(100%, 12rem);
+  }
+}
+
+.sc-form-result-layout,
+.sc-tool-workspace,
+.sc-ledger-cetele {
+  display: grid;
+  min-width: 0;
+  gap: 1.25rem;
+  overflow-x: clip;
+  width: 100%;
+  max-width: 1280px;
+}
+
+@media (min-width: 901px) {
+  .sc-form-result-layout,
+  .sc-tool-workspace:not(.sc-tool-workspace--stacked),
+  .sc-ledger-cetele:not(.sc-ledger-cetele--stacked) {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+    align-items: start;
+  }
+}
+
+.sc-form-result-panel,
+.sc-tool-workspace__result,
+.sc-ledger-cetele__result {
+  min-width: 0;
+  width: 100%;
+}
+
+[dir="rtl"] .sc-industrial-field__label-row,
+[dir="rtl"] .sc-smart-form-field__label-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sc-industrial-input-wrap__prefix {
+  left: auto;
+  right: 0.75rem;
+}
+
+[dir="rtl"] .sc-industrial-input-wrap__suffix {
+  right: auto;
+  left: 0.75rem;
+}
+
+[dir="rtl"] .sc-industrial-input-wrap .sc-industrial-input--currency {
+  padding-left: 0.875rem;
+  padding-right: 1.75rem;
+}
+
 .sc-industrial-field {
   display: flex;
   flex-direction: column;
@@ -606,13 +771,13 @@
   display: grid;
   min-width: 0;
   gap: 1.25rem;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
-@media (min-width: 1024px) {
-  .sc-ledger-cetele,
-  .sc-tool-workspace {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+@media (min-width: 901px) {
+  .sc-ledger-cetele:not(.sc-ledger-cetele--stacked),
+  .sc-tool-workspace:not(.sc-tool-workspace--stacked) {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
     align-items: start;
   }
 }
@@ -2107,15 +2272,15 @@
 
 .sc-smart-form-fields {
   display: grid;
-  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
   width: 100%;
   min-width: 0;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 640px) {
   .sc-smart-form-fields {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
   }
 }
 

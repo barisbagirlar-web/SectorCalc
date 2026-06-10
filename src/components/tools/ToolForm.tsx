@@ -22,9 +22,10 @@ export function ToolForm({
 }: ToolFormProps) {
   return (
     <form
-      className={`sc-industrial-form sc-ledger-panel sc-industrial-panel p-4 sm:p-5 sc-ledger-letterpress${variant === "underline" ? " sc-ledger-cetele-form" : ""}`}
+      className={`sc-form-shell sc-form-grid sc-industrial-form sc-ledger-panel sc-industrial-panel p-4 sm:p-5 sc-ledger-letterpress${variant === "underline" ? " sc-ledger-cetele-form" : ""}`}
       onSubmit={(e) => e.preventDefault()}
       noValidate
+      data-calculation-form="true"
     >
       {inputs.map((input) => (
         <ToolInputField

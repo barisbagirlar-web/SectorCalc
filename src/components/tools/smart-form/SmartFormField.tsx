@@ -25,7 +25,7 @@ export function SmartFormField({
   const isCurrency = field.type === "currency";
 
   return (
-    <div className="sc-industrial-field" data-field-key={field.key} data-field-group={field.group}>
+    <div className="sc-industrial-field sc-form-field" data-field-key={field.key} data-field-group={field.group}>
       <div className="sc-industrial-field__label-row">
         <label htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">
           {field.label}

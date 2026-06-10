@@ -64,7 +64,7 @@ export function SmartFormShell({
       {viewMode === "expert" ? (expertContent ?? formContent) : null}
       {viewMode === "trust" ? trustTraceContent ?? resultContent : null}
       {showSubmit && onSubmit ? (
-        <form onSubmit={onSubmit} noValidate className="mt-4">
+        <form onSubmit={onSubmit} noValidate className="mt-4" data-calculation-form="true">
           <div className="sc-industrial-form-actions">
             <button
               type="submit"

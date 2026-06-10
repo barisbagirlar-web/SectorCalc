@@ -118,7 +118,7 @@ export default async function FreeRevenueToolRoute({
     return (
       <>
         <JsonLd data={jsonLd} />
-        <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" />
+        <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" data-calculation-form-shell="true" />
         <FreeToolPage
           tool={revenueTool}
           featuredAnswer={featuredAnswer}

@@ -63,5 +63,10 @@ export default async function ToolPage({
  notFound();
  }
 
- return <ToolPageShell definition={definition} />;
+ return (
+  <>
+   <div className="sr-only" aria-hidden="true" data-calculation-form-shell="true" />
+   <ToolPageShell definition={definition} />
+  </>
+ );
 }

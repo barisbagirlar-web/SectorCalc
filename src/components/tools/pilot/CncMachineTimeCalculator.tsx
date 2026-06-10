@@ -25,8 +25,6 @@ import {
 import type { RevenueTool } from "@/lib/tools/revenue-tools";
 import { getPremiumToolHref } from "@/lib/tools/tool-links";
 
-const INPUT_CLASS = `${SC_NUMERIC_INPUT_CLASS} mt-1 w-full min-h-[40px] px-3 font-mono text-sm text-premium-velvet`;
-
 const VERDICT_TONE = {
   safe: "text-safe-green",
   watch: "text-warn-amber",
@@ -140,12 +138,17 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
         <Container size="wide" className="min-w-0 font-mono">
           <SectorToolSelect tier="free" currentSlug={tool.freeSlug} />
 
-          <div className="grid min-w-0 gap-6 lg:grid-cols-2 lg:items-start">
-            <div>
+          <div className="sc-form-result-layout min-w-0 gap-6 lg:items-start">
+            <div className="sc-form-shell min-w-0">
               <OsModuleHeader title={tool.freeTitle} tier="utility" />
-              <form onSubmit={handleCalculate} className="space-y-3" noValidate>
-                <div>
-                  <label htmlFor="cnc-setup-time" className="block text-xs text-body-charcoal">
+              <form
+                onSubmit={handleCalculate}
+                className="sc-form-shell sc-ledger-cetele-form space-y-4"
+                noValidate
+                data-calculation-form="true"
+              >
+                <div className="sc-form-field sc-industrial-field">
+                  <label htmlFor="cnc-setup-time" className="sc-form-label sc-industrial-field__label">
                     {t("form.setupTime")}
                   </label>
                   <input
@@ -154,7 +157,7 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
                     inputMode="numeric"
                     autoComplete="off"
                     required
-                    className={INPUT_CLASS}
+                    className={`sc-form-control sc-ledger-input-boxed sc-industrial-input ${SC_NUMERIC_INPUT_CLASS}`}
                     value={String(setupTime)}
                     onChange={(event) => {
                       const { numeric } = handleNumericInputChange(event.target.value, {
@@ -164,8 +167,8 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
                     }}
                   />
                 </div>
-                <div>
-                  <label htmlFor="cnc-cycle-time" className="block text-xs text-body-charcoal">
+                <div className="sc-form-field sc-industrial-field">
+                  <label htmlFor="cnc-cycle-time" className="sc-form-label sc-industrial-field__label">
                     {t("form.cycleTime")}
                   </label>
                   <input
@@ -174,7 +177,7 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
                     inputMode="decimal"
                     autoComplete="off"
                     required
-                    className={INPUT_CLASS}
+                    className={`sc-form-control sc-ledger-input-boxed sc-industrial-input ${SC_NUMERIC_INPUT_CLASS}`}
                     value={String(cycleTime)}
                     onChange={(event) => {
                       const { numeric } = handleNumericInputChange(event.target.value);
@@ -182,8 +185,8 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
                     }}
                   />
                 </div>
-                <div>
-                  <label htmlFor="cnc-quantity" className="block text-xs text-body-charcoal">
+                <div className="sc-form-field sc-industrial-field">
+                  <label htmlFor="cnc-quantity" className="sc-form-label sc-industrial-field__label">
                     {t("form.quantity")}
                   </label>
                   <input
@@ -192,7 +195,7 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
                     inputMode="numeric"
                     autoComplete="off"
                     required
-                    className={INPUT_CLASS}
+                    className={`sc-form-control sc-ledger-input-boxed sc-industrial-input ${SC_NUMERIC_INPUT_CLASS}`}
                     value={String(quantity)}
                     onChange={(event) => {
                       const { numeric } = handleNumericInputChange(event.target.value, {
@@ -204,18 +207,20 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
                 </div>
 
                 {formError ? (
-                  <p className="text-xs text-crit-red status-crit" role="alert">
+                  <p className="sc-form-error sc-industrial-field__error" role="alert">
                     {formError}
                   </p>
                 ) : null}
 
-                <button type="submit" className="sc-btn-primary w-full sm:w-auto">
-                  Run
-                </button>
+                <div className="sc-form-actions sc-industrial-form-actions">
+                  <button type="submit" className="sc-cta-primary">
+                    Run
+                  </button>
+                </div>
               </form>
             </div>
 
-            <div className="space-y-4">
+            <div className="sc-form-result-panel min-w-0 space-y-4">
               {submitted && naiveResult ? (
                 <div className="space-y-2 text-sm">
                   <p className="font-semibold text-premium-velvet">{formatUsd(naiveResult.naiveCost)}</p>
@@ -234,7 +239,7 @@ export function CncMachineTimeCalculator({ tool }: CncMachineTimeCalculatorProps
                   type="button"
                   disabled={!submitted || premiumLoading}
                   onClick={() => void handleUnlockPremium()}
-                  className="sc-btn-primary w-full sm:w-auto disabled:opacity-50"
+                  className="sc-cta-primary disabled:opacity-50"
                 >
                   {premiumLoading ? "…" : "Run"}
                 </button>

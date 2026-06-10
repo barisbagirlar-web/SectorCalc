@@ -33,7 +33,7 @@ export function ToolInputField({
 
   if (input.type === "select" && input.options) {
     return (
-      <div className="sc-industrial-field">
+      <div className="sc-industrial-field sc-form-field">
         <div className="sc-industrial-field__label-row">
           <label htmlFor={inputId} className="sc-ledger-label sc-industrial-field__label">
             {input.label}

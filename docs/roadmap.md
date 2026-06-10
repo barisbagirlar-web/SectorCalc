@@ -16,6 +16,7 @@
 | **P2.1** Public Preview + Auth Gate Fix | **DONE** | Hard gate kaldırıldı; Pro-only aksiyonlar kilitli |
 | **P2.2** Smart Form Layout Stabilization | **DONE** | Desktop 2-col, mobile 375px, decision output panel |
 | **P2.3** Smart Form Full Premium Rollout | **DONE** | 27/27 premium analyzer Smart Form + runtime compatibility |
+| **P2.4** Full Calculation Form Repair Sweep | **DONE** | Shared form CSS standard + layout fixes |
 | **P3** Feedback / Formula Objection System | **DONE** | Tool feedback panel, admin queue, Firestore `toolFeedback` |
 
 **Current active phase:** **P4 — Trust Trace / Validation Stamp / Public Verify**
@@ -55,6 +56,20 @@ P0 Stabilization ──► P1 Catalog ──► P2 Smart Form (pilot → layout 
 - [x] Sign-in required **hard gate yok**  
 - [x] Runtime compatibility audit PASS  
 - [x] Build + formula + dual-intelligence + locale + browser smoke PASS  
+
+---
+
+## P2.4 — Full Calculation Form Repair Sweep *(DONE)*
+
+**Goal:** Premium Smart Form dışındaki tüm hesaplama form yüzeylerinde layout/overflow/mobile düzeltmesi; formula logic değişmeden.
+
+| Deliverable | Durum |
+|-------------|--------|
+| Ortak `.sc-form-*` CSS standardı | **DONE** — `design-craft.css` + `calculation-tool-mobile-layout.css` |
+| Free tool forms | **DONE** — `sc-form-shell`, label wrap, mobile actions |
+| Legacy calculator forms | **DONE** — `ToolForm`, `ToolCalculatorEngine`, tier routes |
+| Premium Smart Form regresyon | **PASS** — 27/27 smoke unchanged |
+| Smoke gate | **DONE** — `npm run smoke:all-calculation-forms` |
 
 ---
 

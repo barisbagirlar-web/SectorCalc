@@ -25,6 +25,7 @@
     "smoke:locale-routes": "node scripts/smoke-locale-routes.mjs",
     "smoke:browser-routes": "node scripts/smoke-browser-routes.mjs",
     "smoke:feedback-ui": "node scripts/smoke-feedback-ui.mjs",
+    "smoke:all-calculation-forms": "node scripts/smoke-all-calculation-forms.mjs",
     "assert:route-cache-policy": "node scripts/assert-route-cache-policy.mjs",
     "audit:formulas": "npx tsx scripts/audit-formulas.ts",
     "audit:alignment": "npx tsx scripts/audit-alignment.ts",
