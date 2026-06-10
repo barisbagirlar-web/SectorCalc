@@ -4,10 +4,14 @@
  * Requires Playwright (not bundled): npm install -D @playwright/test && npx playwright install chromium
  *
  * Env: SECTORCALC_AUDIT_BASE_URL=https://sectorcalc.com
- * Optional: node scripts/smoke-browser-routes.mjs --browser webkit
+ * Optional:
+ *   node scripts/smoke-browser-routes.mjs --browser webkit
+ *   node scripts/smoke-browser-routes.mjs --probe   (isolated fresh-browser probe of known flaky routes)
  */
 
 import { createRequire } from "node:module";
+import { mkdirSync } from "node:fs";
+import { join } from "node:path";
 import {
   CRITICAL_SLOW_MS,
   getBaseUrl,
@@ -44,10 +48,22 @@ const ROUTES = [
   "/tools/premium/millwork-bid-risk-analyzer",
 ];
 
-const BODY_WAIT_MS = 10_000;
+const PROBE_ROUTES = [
+  "/fr",
+  "/es",
+  "/de/free-tools",
+  "/fr/free-tools",
+  "/es/free-tools",
+];
+
+const BODY_WAIT_MS = 3_000;
+const BODY_REMEASURE_WAIT_MS = 1_500;
+const SUSPECT_BODY_LEN = 500;
 const NAV_TIMEOUT_MS = 30_000;
-const ROUTE_COOLDOWN_MS = 750;
+const ROUTE_COOLDOWN_MS = 1_250;
 const ROUTE_MAX_ATTEMPTS = 2;
+const CONTEXT_REFRESH_EVERY = 5;
+const FAIL_SCREENSHOT_DIR = join("/tmp", "sectorcalc-smoke-failures");
 
 function parseBrowserArg(argv) {
   const idx = argv.indexOf("--browser");
@@ -58,6 +74,10 @@ function parseBrowserArg(argv) {
     }
   }
   return "chromium";
+}
+
+function hasFlag(argv, flag) {
+  return argv.includes(flag);
 }
 
 function resolvePlaywright() {
@@ -72,6 +92,10 @@ function resolvePlaywright() {
   }
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function isFatalConsoleMessage(text) {
   return (
     /Application error/i.test(text) ||
@@ -81,7 +105,22 @@ function isFatalConsoleMessage(text) {
   );
 }
 
-async function auditRoute(page, baseUrl, path) {
+function isRscPressureSignal(result) {
+  return (
+    result.consoleErrors.some((msg) => /Connection closed|Failed to fetch RSC payload/i.test(msg)) ||
+    result.pageErrors.some((msg) => /Connection closed/i.test(msg)) ||
+    (result.bodyTextLen > 0 && result.bodyTextLen < SUSPECT_BODY_LEN) ||
+    result.hasApplicationError
+  );
+}
+
+async function measureBodyTextLen(page) {
+  return page.evaluate(() => {
+    return (document.body?.innerText ?? "").replace(/\s+/g, " ").trim().length;
+  });
+}
+
+async function auditRoute(page, baseUrl, path, options = {}) {
   const url = `${baseUrl}${path}`;
   const consoleErrors = [];
   const pageErrors = [];
@@ -90,8 +129,7 @@ async function auditRoute(page, baseUrl, path) {
 
   const onConsole = (msg) => {
     if (msg.type() === "error") {
-      const text = msg.text();
-      consoleErrors.push(text);
+      consoleErrors.push(msg.text());
     }
   };
 
@@ -101,15 +139,15 @@ async function auditRoute(page, baseUrl, path) {
 
   const onResponse = (response) => {
     const status = response.status();
-    const url = response.url();
+    const responseUrl = response.url();
     if (status === 500 || status === 502 || status === 503) {
-      network5xx.push(`${status} ${url}`);
+      network5xx.push(`${status} ${responseUrl}`);
     }
     if (
       status === 404 &&
-      /\/_next\/static\/|\.js(?:\?|$)|\.css(?:\?|$)|\.woff2?(?:\?|$)/.test(url)
+      /\/_next\/static\/|\.js(?:\?|$)|\.css(?:\?|$)|\.woff2?(?:\?|$)/.test(responseUrl)
     ) {
-      asset404.push(`${status} ${url}`);
+      asset404.push(`${status} ${responseUrl}`);
     }
   };
 
@@ -133,12 +171,27 @@ async function auditRoute(page, baseUrl, path) {
 
   await page.waitForTimeout(BODY_WAIT_MS);
 
-  const bodyTextLen = await page.evaluate(() => {
-    return (document.body?.innerText ?? "").replace(/\s+/g, " ").trim().length;
-  });
+  let bodyTextLen = await measureBodyTextLen(page);
+  if (bodyTextLen < SUSPECT_BODY_LEN) {
+    await page.waitForTimeout(BODY_REMEASURE_WAIT_MS);
+    bodyTextLen = await measureBodyTextLen(page);
+  }
 
   const html = await page.content();
   const durationMs = Date.now() - started;
+
+  if (options.captureScreenshot) {
+    try {
+      mkdirSync(FAIL_SCREENSHOT_DIR, { recursive: true });
+      const fileName = `${path.replace(/^\//, "").replace(/\//g, "_") || "root"}.png`;
+      await page.screenshot({
+        path: join(FAIL_SCREENSHOT_DIR, fileName),
+        fullPage: true,
+      });
+    } catch {
+      // Screenshot is diagnostic only.
+    }
+  }
 
   page.off("console", onConsole);
   page.off("pageerror", onPageError);
@@ -179,49 +232,67 @@ async function auditRoute(page, baseUrl, path) {
   };
 }
 
-async function main() {
-  const playwright = resolvePlaywright();
-  if (!playwright) {
-    console.error(
-      "Playwright not installed. Skipping browser smoke.\n" +
-        "Install: npm install -D @playwright/test && npx playwright install chromium\n" +
-        "See docs/production-reality.md § Browser route smoke."
-    );
-    process.exit(2);
-  }
-
-  const browserName = parseBrowserArg(process.argv.slice(2));
-  const launcher = browserName === "webkit" ? playwright.webkit : playwright.chromium;
-  const baseUrl = getBaseUrl();
-
-  console.log(`Browser smoke (${browserName}) → ${baseUrl}`);
-  console.log(`Routes: ${ROUTES.length}\n`);
-
-  const browser = await launcher.launch({ headless: true });
-  const context = await browser.newContext();
+async function withFreshPage(context, baseUrl, path, options = {}) {
   const page = await context.newPage();
-
-  const results = [];
-  for (const path of ROUTES) {
-    let result = await auditRoute(page, baseUrl, path);
-    let attempts = 1;
-
-    if (result.failed && ROUTE_MAX_ATTEMPTS > 1) {
-      await page.waitForTimeout(ROUTE_COOLDOWN_MS);
-      result = await auditRoute(page, baseUrl, path);
-      attempts = 2;
+  try {
+    const result = await auditRoute(page, baseUrl, path, options);
+    if (result.failed && !options.captureScreenshot) {
+      try {
+        mkdirSync(FAIL_SCREENSHOT_DIR, { recursive: true });
+        const fileName = `${path.replace(/^\//, "").replace(/\//g, "_") || "root"}.png`;
+        await page.screenshot({
+          path: join(FAIL_SCREENSHOT_DIR, fileName),
+          fullPage: true,
+        });
+      } catch {
+        // Screenshot is diagnostic only.
+      }
     }
+    return result;
+  } finally {
+    await page.close();
+  }
+}
 
-    results.push({ ...result, attempts });
-    const status = result.failed ? "FAIL" : "OK";
-    const retryNote = attempts > 1 ? `, attempts=${attempts}` : "";
-    console.log(`${status} ${path} (${result.durationMs}ms, body=${result.bodyTextLen}${retryNote})`);
+async function createContext(browser) {
+  return browser.newContext();
+}
 
-    await page.waitForTimeout(ROUTE_COOLDOWN_MS);
+async function auditRouteIsolated(browser, baseUrl, path) {
+  const context = await createContext(browser);
+  try {
+    const result = await withFreshPage(context, baseUrl, path, { captureScreenshot: true });
+    return { ...result, attempts: 1, isolated: true };
+  } finally {
+    await context.close();
+  }
+}
+
+async function auditRouteWithRetry(browser, contextRef, baseUrl, path, routeIndex) {
+  let attempts = 1;
+  let result = await withFreshPage(contextRef.current, baseUrl, path);
+
+  if (result.failed && ROUTE_MAX_ATTEMPTS > 1 && isRscPressureSignal(result)) {
+    await sleep(ROUTE_COOLDOWN_MS);
+    await contextRef.current.close();
+    contextRef.current = await createContext(browser);
+    result = await withFreshPage(contextRef.current, baseUrl, path);
+    attempts = 2;
   }
 
-  await browser.close();
+  return { ...result, attempts, routeIndex };
+}
 
+function printResultLine(result) {
+  const status = result.failed ? "FAIL" : "OK";
+  const retryNote = result.attempts > 1 ? `, attempts=${result.attempts}` : "";
+  const isolatedNote = result.isolated ? ", isolated" : "";
+  console.log(
+    `${status} ${result.path} (${result.durationMs}ms, body=${result.bodyTextLen}${retryNote}${isolatedNote})`,
+  );
+}
+
+function printSummary(results) {
   const failed = results.filter((r) => r.failed);
   const ok = results.filter((r) => !r.failed);
   const blankBodies = results.filter((r) => r.blankBody);
@@ -263,7 +334,7 @@ async function main() {
   }
 
   if (slowRoutes.length > 0) {
-    console.log("\nSlow routes (>${SLOW_WARNING_MS}ms):");
+    console.log(`\nSlow routes (>${SLOW_WARNING_MS}ms):`);
     for (const r of slowRoutes) {
       console.log(`  ${r.path}: ${r.durationMs}ms`);
     }
@@ -283,10 +354,96 @@ async function main() {
       if (r.httpStatus && r.httpStatus !== 200) reasons.push(`http: ${r.httpStatus}`);
       console.log(`  ${r.path} — ${reasons.join(", ")}`);
     }
-    process.exit(1);
+    console.log(`\nFail screenshots (if any): ${FAIL_SCREENSHOT_DIR}`);
+    return 1;
   }
 
   console.log("\nAll browser smoke routes passed.");
+  return 0;
+}
+
+async function runProbe(browserName, baseUrl) {
+  const playwright = resolvePlaywright();
+  const launcher = browserName === "webkit" ? playwright.webkit : playwright.chromium;
+  const browser = await launcher.launch({ headless: true });
+
+  console.log(`Browser probe (${browserName}) → ${baseUrl}`);
+  console.log(`Routes: ${PROBE_ROUTES.length} (fresh context each)\n`);
+
+  const results = [];
+  for (const path of PROBE_ROUTES) {
+    const result = await auditRouteIsolated(browser, baseUrl, path);
+    results.push(result);
+    printResultLine(result);
+    if (result.consoleErrors.length > 0) {
+      console.log(`  console: ${result.consoleErrors.join(" | ")}`);
+    }
+    if (result.pageErrors.length > 0) {
+      console.log(`  pageerror: ${result.pageErrors.join(" | ")}`);
+    }
+    if (result.network5xx.length > 0) {
+      console.log(`  5xx: ${result.network5xx.join(" | ")}`);
+    }
+    await sleep(ROUTE_COOLDOWN_MS);
+  }
+
+  await browser.close();
+  return printSummary(results);
+}
+
+async function runSmoke(browserName, baseUrl) {
+  const playwright = resolvePlaywright();
+  const launcher = browserName === "webkit" ? playwright.webkit : playwright.chromium;
+  const browser = await launcher.launch({ headless: true });
+
+  console.log(`Browser smoke (${browserName}) → ${baseUrl}`);
+  console.log(
+    `Routes: ${ROUTES.length} | fresh page/route | context refresh every ${CONTEXT_REFRESH_EVERY} | cooldown ${ROUTE_COOLDOWN_MS}ms\n`,
+  );
+
+  const contextRef = { current: await createContext(browser) };
+  const results = [];
+
+  for (let index = 0; index < ROUTES.length; index += 1) {
+    const path = ROUTES[index];
+
+    if (index > 0 && index % CONTEXT_REFRESH_EVERY === 0) {
+      await contextRef.current.close();
+      contextRef.current = await createContext(browser);
+    }
+
+    const result = await auditRouteWithRetry(browser, contextRef, baseUrl, path, index);
+    results.push(result);
+    printResultLine(result);
+
+    await sleep(ROUTE_COOLDOWN_MS);
+  }
+
+  await contextRef.current.close();
+  await browser.close();
+
+  return printSummary(results);
+}
+
+async function main() {
+  const argv = process.argv.slice(2);
+  const playwright = resolvePlaywright();
+  if (!playwright) {
+    console.error(
+      "Playwright not installed. Skipping browser smoke.\n" +
+        "Install: npm install -D @playwright/test && npx playwright install chromium\n" +
+        "See docs/production-reality.md § Browser route smoke.",
+    );
+    process.exit(2);
+  }
+
+  const browserName = parseBrowserArg(argv);
+  const baseUrl = getBaseUrl();
+  const exitCode = hasFlag(argv, "--probe")
+    ? await runProbe(browserName, baseUrl)
+    : await runSmoke(browserName, baseUrl);
+
+  process.exit(exitCode);
 }
 
 main().catch((error) => {
