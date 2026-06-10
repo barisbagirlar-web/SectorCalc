@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 
 const REFERENCE_LOGO_PATH = "/img/home/industry-reference-logos.png";
 const REFERENCE_LOGO_WIDTH = 1024;
-const REFERENCE_LOGO_HEIGHT = 502;
+const REFERENCE_LOGO_HEIGHT = 479;
 
 const REFERENCE_NAMES = [
   "Bosch",
