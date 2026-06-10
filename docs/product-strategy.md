@@ -143,8 +143,8 @@ Layer 5 ─ Business / Enterprise (white-label, API, audit trail)
 
 ## Current strategic focus (Q2 2026)
 
-1. **Complete P2.4** — full calculation form inventory, repair, locale/mobile QA, `smoke:all-calculation-forms` PASS  
-2. **P3 live and risk-gated** — Feedback / Formula Objection deployed under commit `40bd28b`, passed initial smoke testing. Requires post-P2.4 revalidation on all repaired form surfaces.
+1. **Close P2.4** — Full Calculation Form Repair Sweep with full closure evidence: complete inventory, form repair coverage, mobile/locale/RTL QA, and smoke:all-calculation-forms PASS  
+2. **Revalidate live P3** — Feedback / Formula Objection deployed under commit `40bd28b` is live in production. Requires post-P2.4 revalidation on all repaired form surfaces before P4 can start.
 3. **Maintain P2.3 baseline** — 27/27 premium Smart Form smoke must stay PASS while P2.4 runs  
 4. **Defer P10 AI** until deterministic loop + Trust Trace foundation solid  
 

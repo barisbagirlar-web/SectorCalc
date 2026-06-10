@@ -20,19 +20,20 @@
 | P0 Final Stabilization | **DONE** |
 | P1 Grouped Catalog Search | **DONE** |
 | P2.3 Premium Smart Form Full Rollout | **DONE** (27/27 premium Smart Form only) |
-| **P2.4 Full Calculation Form Repair Sweep** | **DONE** |
+| **P2.4 Full Calculation Form Repair Sweep** | **ACTIVE / OPEN** |
 | P3 Feedback / Formula Objection | **EARLY IMPLEMENTED / RISK-GATED** |
 | **P4 Trust Trace / Validation Stamp / Public Verify** | **WAITING UNTIL P2.4 PASS + P3 REVALIDATION** |
 
-## P2.4 — Full Calculation Form Repair Sweep *(DONE)*
+## P2.4 — Full Calculation Form Repair Sweep *(ACTIVE / OPEN)*
 
 | Item | Value |
 |------|--------|
 | **Prompt IDs** | PROMPT-P2.4-001 · AUDITFIX-P2.4-001 |
-| **P2.4 commits** | `bea180e` (form CSS + repair) · closure commit pending deploy |
+| **P2.4 commits** | `bea180e` (form CSS + repair) · closure commit required for DONE status |
 | **Inventory** | [form-surface-inventory.md](./form-surface-inventory.md) |
 | **Form standard** | `.sc-form-*` in `design-craft.css` + `calculation-tool-mobile-layout.css` |
 | **Formula/runtime** | **Unchanged** |
+| **Closure Status** | Requires complete evidence: inventory, form repair coverage, mobile/locale/RTL QA, smoke:all-calculation-forms PASS |
 
 ### Coverage numbers
 
@@ -59,7 +60,10 @@
 | `smoke:browser-calculation-forms` | 10 routes × 2 viewports | *run after deploy* |
 | `smoke:feedback-ui` | premium + account | *run after deploy* |
 
-**Remaining risk:** Browser hydration edge cases; cold SSR >5s on `/tr`. Full-form certification requires post-deploy smoke table update with commit SHA.
+**Remaining risk:** Browser hydration edge cases; cold SSR >5s on `/tr`. P2.4 closure requires full form-surface inventory, repaired free/legacy/premium/report form coverage, mobile/locale/RTL QA complete, and smoke:all-calculation-forms PASS confirmed.
+
+**Production Reality Note:**
+P2.4 is ACTIVE / OPEN unless a complete closure report proves full form-surface inventory, repaired free/legacy/premium/report form coverage, mobile/locale/RTL QA, and smoke:all-calculation-forms PASS. Any previous P2.4 DONE wording without this evidence is deprecated. P2.4 cannot be marked DONE until all closure evidence is compiled and verified.
 
 ## P3 — Feedback / Formula Objection System *(EARLY IMPLEMENTED / RISK-GATED)*
 
