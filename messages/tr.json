@@ -1260,6 +1260,100 @@
       "unit-conversion-traffic": "Birim Dönüşüm Trafiği"
     }
   },
+  "smartForm": {
+    "mode": {
+      "simple": "Basit",
+      "advanced": "Gelişmiş"
+    },
+    "actions": {
+      "calculate": "Analizi çalıştır",
+      "fixMissing": "Zorunlu alanları tamamla",
+      "showAdvanced": "Gelişmiş alanları göster",
+      "hideAdvanced": "Gelişmiş alanları gizle"
+    },
+    "validation": {
+      "required": "Bu alan zorunludur.",
+      "invalidNumber": "Geçerli bir sayı girin.",
+      "min": "Değer en az {min} olmalı.",
+      "max": "Değer en fazla {max} olmalı.",
+      "missingInputs": "{count, plural, one {# zorunlu alan eksik} other {# zorunlu alan eksik}}",
+      "invalidCombination": "Bu girdiler geçerli bir analiz üretemez."
+    },
+    "scenario": {
+      "label": "İş senaryosu",
+      "placeholder": "Senaryo seçin"
+    },
+    "notices": {
+      "requiredInputReason": "Her alan bu analizörün doğrulanmış sözleşme girdisine karşılık gelir.",
+      "calculationBlocked": "Analizi çalıştırmadan önce zorunlu alanları tamamlayın.",
+      "validatedInputSet": "Girdi seti hazır — değerleri onayladıktan sonra analizi çalıştırın."
+    },
+    "tools": {
+      "cncQuoteRiskAnalyzer": {
+        "scenarios": {
+          "quick_quote_check": {
+            "label": "Hızlı teklif kontrolü",
+            "description": "Temel süre ve oran girdileriyle hızlı taban kontrolü."
+          },
+          "detailed_margin_review": {
+            "label": "Detaylı marj incelemesi",
+            "description": "Takım ve malzeme dahil tam iş maliyeti."
+          }
+        },
+        "inputs": {
+          "setupTime": { "label": "Setup süresi", "help": "Üretim öncesi tek seferlik setup dakikası." },
+          "cycleTime": { "label": "Çevrim süresi", "help": "Bu iş için parça başına makine süresi." },
+          "quantity": { "label": "Adet", "help": "Teklifteki parça lotu." },
+          "toolCost": { "label": "Takım maliyeti", "help": "Bu işe ayrılan fixture, insert ve takım." },
+          "materialCost": { "label": "Malzeme maliyeti", "help": "Teklif adedi için stok ve malzeme." },
+          "machineRate": { "label": "Makine oranı", "help": "Saatlik yüklenmiş makine oranı." },
+          "riskMargin": { "label": "Risk marjı", "help": "Fire, setup ve teklif riski için yüzde tampon." }
+        }
+      },
+      "weldingBidRiskAnalyzer": {
+        "scenarios": {
+          "field_repair": {
+            "label": "Saha onarımı",
+            "description": "Fit-up ve işçilik odaklı yerinde kaynak onarımı."
+          },
+          "production_weld_bid": {
+            "label": "Üretim kaynak teklifi",
+            "description": "Sarf malzemesi ve rework riski içeren fab teklifi."
+          }
+        },
+        "inputs": {
+          "materialCost": { "label": "Malzeme maliyeti", "help": "Dolgu, ana metal ve sarf malzemeleri." },
+          "laborHours": { "label": "Kaynak işçilik saati", "help": "Eklem üzerindeki ark ve kaynak işçiliği." },
+          "laborRate": { "label": "İşçilik oranı", "help": "Saatlik yüklenmiş kaynak işçilik oranı." },
+          "gasConsumableCost": { "label": "Gaz ve sarf", "help": "Koruyucu gaz, tel ve uçlar." },
+          "fitUpHours": { "label": "Fit-up saati", "help": "Hizalama, tack ve kaynak öncesi hazırlık." },
+          "reworkRiskPercent": { "label": "Rework riski", "help": "Bu iş tipi için hata düzeltme payı." },
+          "targetMargin": { "label": "Hedef marj", "help": "Teklifi kabul etmeden önce minimum marj bandı." }
+        }
+      },
+      "hvacProjectMarginGuard": {
+        "scenarios": {
+          "small_service_job": {
+            "label": "Küçük servis işi",
+            "description": "Temel ekipman ve işçilik ile değişim veya servis."
+          },
+          "commercial_project": {
+            "label": "Ticari proje",
+            "description": "Kanal ve devreye alma dahil tam kurulum."
+          }
+        },
+        "inputs": {
+          "equipmentCost": { "label": "Ekipman maliyeti", "help": "Üniteler, soğutucu ve ana ekipman." },
+          "ductworkCost": { "label": "Kanal maliyeti", "help": "Kanal, fitting ve dağıtım malzemeleri." },
+          "laborHours": { "label": "İşçilik saati", "help": "Kurulum veya servis saha işçiliği." },
+          "laborRate": { "label": "İşçilik oranı", "help": "Saatlik yüklenmiş HVAC işçilik oranı." },
+          "commissioningCost": { "label": "Devreye alma maliyeti", "help": "Start-up, test ve TAB çalışması." },
+          "callbackRiskPercent": { "label": "Callback riski", "help": "Bu iş için garanti callback payı." },
+          "targetMargin": { "label": "Hedef marj", "help": "Projeyi kabul etmeden önce minimum marj." }
+        }
+      }
+    }
+  },
   "cta": {
     "startFree": "Ücretsiz başla",
     "calculateNow": "Hesapla",

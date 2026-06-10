@@ -1260,6 +1260,100 @@
       "unit-conversion-traffic": "Unit Conversion Traffic"
     }
   },
+  "smartForm": {
+    "mode": {
+      "simple": "Simple",
+      "advanced": "Advanced"
+    },
+    "actions": {
+      "calculate": "Run analysis",
+      "fixMissing": "Complete required fields",
+      "showAdvanced": "Show advanced fields",
+      "hideAdvanced": "Hide advanced fields"
+    },
+    "validation": {
+      "required": "This field is required.",
+      "invalidNumber": "Enter a valid number.",
+      "min": "Value must be at least {min}.",
+      "max": "Value must be at most {max}.",
+      "missingInputs": "{count, plural, one {# required field is missing} other {# required fields are missing}}",
+      "invalidCombination": "These inputs cannot produce a valid analysis."
+    },
+    "scenario": {
+      "label": "Job scenario",
+      "placeholder": "Select scenario"
+    },
+    "notices": {
+      "requiredInputReason": "Each field maps to a verified contract input for this analyzer.",
+      "calculationBlocked": "Complete required fields before running the analysis.",
+      "validatedInputSet": "Input set ready — run analysis when values are confirmed."
+    },
+    "tools": {
+      "cncQuoteRiskAnalyzer": {
+        "scenarios": {
+          "quick_quote_check": {
+            "label": "Quick quote check",
+            "description": "Fast floor check with core time and rate inputs."
+          },
+          "detailed_margin_review": {
+            "label": "Detailed margin review",
+            "description": "Full job cost stack including tooling and material."
+          }
+        },
+        "inputs": {
+          "setupTime": { "label": "Setup time", "help": "One-off setup minutes before production starts." },
+          "cycleTime": { "label": "Cycle time", "help": "Per-part machine time for this job." },
+          "quantity": { "label": "Quantity", "help": "Parts in this quote lot." },
+          "toolCost": { "label": "Tooling cost", "help": "Fixtures, inserts and tooling allocated to this job." },
+          "materialCost": { "label": "Material cost", "help": "Stock and material for the quoted quantity." },
+          "machineRate": { "label": "Machine rate", "help": "Shop burdened machine rate per hour." },
+          "riskMargin": { "label": "Risk margin", "help": "Percent buffer for scrap, setup and quote risk." }
+        }
+      },
+      "weldingBidRiskAnalyzer": {
+        "scenarios": {
+          "field_repair": {
+            "label": "Field repair",
+            "description": "On-site weld repair with fit-up and labor focus."
+          },
+          "production_weld_bid": {
+            "label": "Production weld bid",
+            "description": "Fab shop bid with consumables and rework risk."
+          }
+        },
+        "inputs": {
+          "materialCost": { "label": "Material cost", "help": "Filler, base metal and consumables for the job." },
+          "laborHours": { "label": "Weld labor hours", "help": "Arc time and weld labor on the joint." },
+          "laborRate": { "label": "Labor rate", "help": "Burdened weld labor rate per hour." },
+          "gasConsumableCost": { "label": "Gas and consumables", "help": "Shielding gas, wire and tips for the bid." },
+          "fitUpHours": { "label": "Fit-up hours", "help": "Alignment, tack and prep before welding." },
+          "reworkRiskPercent": { "label": "Rework risk", "help": "Allowance for defect rework on this job type." },
+          "targetMargin": { "label": "Target margin", "help": "Minimum margin band before accepting the bid." }
+        }
+      },
+      "hvacProjectMarginGuard": {
+        "scenarios": {
+          "small_service_job": {
+            "label": "Small service job",
+            "description": "Replace or service call with core equipment and labor."
+          },
+          "commercial_project": {
+            "label": "Commercial project",
+            "description": "Full install with ductwork and commissioning."
+          }
+        },
+        "inputs": {
+          "equipmentCost": { "label": "Equipment cost", "help": "Units, refrigerant and major equipment." },
+          "ductworkCost": { "label": "Ductwork cost", "help": "Duct, fittings and distribution materials." },
+          "laborHours": { "label": "Labor hours", "help": "Field labor for install or service." },
+          "laborRate": { "label": "Labor rate", "help": "Burdened HVAC labor rate per hour." },
+          "commissioningCost": { "label": "Commissioning cost", "help": "Start-up, testing and TAB work." },
+          "callbackRiskPercent": { "label": "Callback risk", "help": "Warranty callback allowance for this job." },
+          "targetMargin": { "label": "Target margin", "help": "Minimum margin before accepting the project." }
+        }
+      }
+    }
+  },
   "cta": {
     "startFree": "Start free",
     "calculateNow": "Calculate now",

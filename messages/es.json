@@ -1223,6 +1223,100 @@
       "unit-conversion-traffic": "Conversión de unidades"
     }
   },
+  "smartForm": {
+    "mode": {
+      "simple": "Simple",
+      "advanced": "Avanzado"
+    },
+    "actions": {
+      "calculate": "Ejecutar análisis",
+      "fixMissing": "Completar campos obligatorios",
+      "showAdvanced": "Mostrar campos avanzados",
+      "hideAdvanced": "Ocultar campos avanzados"
+    },
+    "validation": {
+      "required": "Este campo es obligatorio.",
+      "invalidNumber": "Introduzca un número válido.",
+      "min": "El valor debe ser al menos {min}.",
+      "max": "El valor debe ser como máximo {max}.",
+      "missingInputs": "{count, plural, one {Falta # campo obligatorio} other {Faltan # campos obligatorios}}",
+      "invalidCombination": "Estas entradas no pueden producir un análisis válido."
+    },
+    "scenario": {
+      "label": "Escenario del trabajo",
+      "placeholder": "Seleccionar escenario"
+    },
+    "notices": {
+      "requiredInputReason": "Cada campo corresponde a una entrada contractual verificada para este analizador.",
+      "calculationBlocked": "Complete los campos obligatorios antes de ejecutar el análisis.",
+      "validatedInputSet": "Conjunto de entradas listo — ejecute el análisis cuando confirme los valores."
+    },
+    "tools": {
+      "cncQuoteRiskAnalyzer": {
+        "scenarios": {
+          "quick_quote_check": {
+            "label": "Revisión rápida del presupuesto",
+            "description": "Comprobación rápida del mínimo con entradas de tiempo y tarifa principales."
+          },
+          "detailed_margin_review": {
+            "label": "Revisión detallada del margen",
+            "description": "Pila de costes completa del trabajo, incluida herramienta y material."
+          }
+        },
+        "inputs": {
+          "setupTime": { "label": "Tiempo de preparación", "help": "Minutos de preparación únicos antes de iniciar la producción." },
+          "cycleTime": { "label": "Tiempo de ciclo", "help": "Tiempo de máquina por pieza para este trabajo." },
+          "quantity": { "label": "Cantidad", "help": "Piezas en este lote del presupuesto." },
+          "toolCost": { "label": "Coste de herramientas", "help": "Utillajes, insertos y herramientas asignados a este trabajo." },
+          "materialCost": { "label": "Coste de material", "help": "Stock y material para la cantidad presupuestada." },
+          "machineRate": { "label": "Tarifa de máquina", "help": "Tarifa de máquina cargada por hora." },
+          "riskMargin": { "label": "Margen de riesgo", "help": "Porcentaje de margen para rechazos, preparación y riesgo del presupuesto." }
+        }
+      },
+      "weldingBidRiskAnalyzer": {
+        "scenarios": {
+          "field_repair": {
+            "label": "Reparación en campo",
+            "description": "Reparación de soldadura in situ centrada en ajuste y mano de obra."
+          },
+          "production_weld_bid": {
+            "label": "Presupuesto de soldadura en producción",
+            "description": "Presupuesto de taller con consumibles y riesgo de retrabajo."
+          }
+        },
+        "inputs": {
+          "materialCost": { "label": "Coste de material", "help": "Aporte, metal base y consumibles para el trabajo." },
+          "laborHours": { "label": "Horas de soldadura", "help": "Tiempo de arco y mano de obra de soldadura en la junta." },
+          "laborRate": { "label": "Tarifa laboral", "help": "Tarifa laboral de soldadura cargada por hora." },
+          "gasConsumableCost": { "label": "Gas y consumibles", "help": "Gas de protección, alambre y puntas para el presupuesto." },
+          "fitUpHours": { "label": "Horas de ajuste", "help": "Alineación, punteo y preparación antes de soldar." },
+          "reworkRiskPercent": { "label": "Riesgo de retrabajo", "help": "Margen para retrabajo de defectos en este tipo de trabajo." },
+          "targetMargin": { "label": "Margen objetivo", "help": "Banda de margen mínima antes de aceptar el presupuesto." }
+        }
+      },
+      "hvacProjectMarginGuard": {
+        "scenarios": {
+          "small_service_job": {
+            "label": "Trabajo de servicio pequeño",
+            "description": "Sustitución o visita de servicio con equipo y mano de obra básicos."
+          },
+          "commercial_project": {
+            "label": "Proyecto comercial",
+            "description": "Instalación completa con conductos y puesta en marcha."
+          }
+        },
+        "inputs": {
+          "equipmentCost": { "label": "Coste de equipos", "help": "Unidades, refrigerante y equipos principales." },
+          "ductworkCost": { "label": "Coste de conductos", "help": "Conductos, accesorios y materiales de distribución." },
+          "laborHours": { "label": "Horas de mano de obra", "help": "Mano de obra en campo para instalación o servicio." },
+          "laborRate": { "label": "Tarifa laboral", "help": "Tarifa laboral de HVAC cargada por hora." },
+          "commissioningCost": { "label": "Coste de puesta en marcha", "help": "Arranque, pruebas y trabajos TAB." },
+          "callbackRiskPercent": { "label": "Riesgo de devolución", "help": "Margen de devolución por garantía para este trabajo." },
+          "targetMargin": { "label": "Margen objetivo", "help": "Margen mínimo antes de aceptar el proyecto." }
+        }
+      }
+    }
+  },
   "cta": {
     "startFree": "Empezar gratis",
     "calculateNow": "Calcular",

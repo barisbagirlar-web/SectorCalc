@@ -1223,6 +1223,100 @@
       "unit-conversion-traffic": "Einheitenumrechnung"
     }
   },
+  "smartForm": {
+    "mode": {
+      "simple": "Einfach",
+      "advanced": "Erweitert"
+    },
+    "actions": {
+      "calculate": "Analyse starten",
+      "fixMissing": "Pflichtfelder ausfüllen",
+      "showAdvanced": "Erweiterte Felder anzeigen",
+      "hideAdvanced": "Erweiterte Felder ausblenden"
+    },
+    "validation": {
+      "required": "Dieses Feld ist erforderlich.",
+      "invalidNumber": "Geben Sie eine gültige Zahl ein.",
+      "min": "Der Wert muss mindestens {min} sein.",
+      "max": "Der Wert darf höchstens {max} sein.",
+      "missingInputs": "{count, plural, one {# Pflichtfeld fehlt} other {# Pflichtfelder fehlen}}",
+      "invalidCombination": "Diese Eingaben können keine gültige Analyse erzeugen."
+    },
+    "scenario": {
+      "label": "Auftragsszenario",
+      "placeholder": "Szenario auswählen"
+    },
+    "notices": {
+      "requiredInputReason": "Jedes Feld entspricht einer verifizierten Vertragseingabe für diesen Analyzer.",
+      "calculationBlocked": "Füllen Sie die Pflichtfelder aus, bevor Sie die Analyse starten.",
+      "validatedInputSet": "Eingabesatz bereit — starten Sie die Analyse, wenn die Werte bestätigt sind."
+    },
+    "tools": {
+      "cncQuoteRiskAnalyzer": {
+        "scenarios": {
+          "quick_quote_check": {
+            "label": "Schnelle Angebotsprüfung",
+            "description": "Schnelle Untergrenzenprüfung mit Kernzeit- und Rateneingaben."
+          },
+          "detailed_margin_review": {
+            "label": "Detaillierte Margenprüfung",
+            "description": "Vollständiger Auftragskostenstapel inkl. Werkzeugen und Material."
+          }
+        },
+        "inputs": {
+          "setupTime": { "label": "Rüstzeit", "help": "Einmalige Rüstminuten vor Produktionsstart." },
+          "cycleTime": { "label": "Zykluszeit", "help": "Maschinenzeit pro Teil für diesen Auftrag." },
+          "quantity": { "label": "Menge", "help": "Teile in diesem Angebotslos." },
+          "toolCost": { "label": "Werkzeugkosten", "help": "Vorrichtungen, Einsätze und Werkzeuge für diesen Auftrag." },
+          "materialCost": { "label": "Materialkosten", "help": "Rohmaterial und Material für die angebotene Menge." },
+          "machineRate": { "label": "Maschinensatz", "help": "Belasteter Maschinensatz pro Stunde." },
+          "riskMargin": { "label": "Risikomarge", "help": "Prozentpuffer für Ausschuss, Rüstung und Angebotsrisiko." }
+        }
+      },
+      "weldingBidRiskAnalyzer": {
+        "scenarios": {
+          "field_repair": {
+            "label": "Feldreparatur",
+            "description": "Vor-Ort-Schweißreparatur mit Fokus auf Passung und Arbeit."
+          },
+          "production_weld_bid": {
+            "label": "Produktionsschweißangebot",
+            "description": "Werkstattangebot mit Verbrauchsmaterial und Nacharbeitsrisiko."
+          }
+        },
+        "inputs": {
+          "materialCost": { "label": "Materialkosten", "help": "Zusatz-, Grundmaterial und Verbrauchsmaterial für den Auftrag." },
+          "laborHours": { "label": "Schweißarbeitsstunden", "help": "Lichtbogenzeit und Schweißarbeit an der Naht." },
+          "laborRate": { "label": "Arbeitslohnsatz", "help": "Belasteter Schweißarbeitslohnsatz pro Stunde." },
+          "gasConsumableCost": { "label": "Gas und Verbrauchsmaterial", "help": "Schutzgas, Draht und Kontaktdüsen für das Angebot." },
+          "fitUpHours": { "label": "Passungsstunden", "help": "Ausrichtung, Heften und Vorbereitung vor dem Schweißen." },
+          "reworkRiskPercent": { "label": "Nacharbeitsrisiko", "help": "Puffer für Fehlernacharbeit bei diesem Auftragstyp." },
+          "targetMargin": { "label": "Zielmarge", "help": "Mindestmargenband vor Annahme des Angebots." }
+        }
+      },
+      "hvacProjectMarginGuard": {
+        "scenarios": {
+          "small_service_job": {
+            "label": "Kleiner Serviceauftrag",
+            "description": "Austausch oder Serviceeinsatz mit Kernequipment und Arbeit."
+          },
+          "commercial_project": {
+            "label": "Gewerbeprojekt",
+            "description": "Vollinstallation mit Kanalnetz und Inbetriebnahme."
+          }
+        },
+        "inputs": {
+          "equipmentCost": { "label": "Gerätekosten", "help": "Geräte, Kältemittel und Hauptausstattung." },
+          "ductworkCost": { "label": "Kanalkosten", "help": "Kanäle, Formstücke und Verteilungsmaterial." },
+          "laborHours": { "label": "Arbeitsstunden", "help": "Montage- oder Servicearbeit vor Ort." },
+          "laborRate": { "label": "Arbeitslohnsatz", "help": "Belasteter HVAC-Arbeitslohnsatz pro Stunde." },
+          "commissioningCost": { "label": "Inbetriebnahmekosten", "help": "Start-up, Prüfung und TAB-Arbeit." },
+          "callbackRiskPercent": { "label": "Rückrufrisiko", "help": "Garantierückruf-Puffer für diesen Auftrag." },
+          "targetMargin": { "label": "Zielmarge", "help": "Mindestmarge vor Annahme des Projekts." }
+        }
+      }
+    }
+  },
   "cta": {
     "startFree": "Gratis starten",
     "calculateNow": "Berechnen",

@@ -31,7 +31,9 @@ import {
 } from "@/components/tools/PremiumAnalyzerReportPanel";
 import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
 import { SmartResultPanel } from "@/components/smart-form/SmartResultPanel";
+import { DynamicSmartFormPilot } from "@/components/smart-form/DynamicSmartFormPilot";
 import { buildSmartFormForTool } from "@/lib/smart-form/smart-form-adapter";
+import { isDynamicSmartFormPilotSlug } from "@/lib/smart-form/dynamic-form-types";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { CalculatorFeedbackBox } from "@/components/tools/CalculatorFeedbackBox";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
@@ -231,6 +233,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  const [isCalculating, setIsCalculating] = useState(false);
  const [errors, setErrors] = useState<Record<string, string>>({});
 
+ const useDynamicSmartFormPilot = isDynamicSmartFormPilotSlug(runtimeSlug);
  const isCncStochastic = tool.paidSlug === "cnc-quote-risk-analyzer";
  const schemaPilot = getPremiumSchemaForPaidSlug(tool.paidSlug);
  const showSchemaPilot = Boolean(schemaPilot) && !useFullLoopRuntime;
@@ -448,13 +451,16 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  event.preventDefault();
 
  if (useFullLoopRuntime) {
-  const nextErrors = validateSmartFormFieldValues(runtimeSlug, values);
-  setErrors(nextErrors);
-  if (Object.keys(nextErrors).length > 0) {
-   setSubmitted(false);
-   return;
+  if (!useDynamicSmartFormPilot) {
+   const nextErrors = validateSmartFormFieldValues(runtimeSlug, values);
+   setErrors(nextErrors);
+   if (Object.keys(nextErrors).length > 0) {
+    setSubmitted(false);
+    return;
+   }
+  } else {
+   setErrors({});
   }
-  setErrors({});
   setIsCalculating(true);
   setSubmitted(false);
   window.setTimeout(() => {
@@ -573,19 +579,31 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   formContent={
    <div className="sc-ledger-karar-masasi mt-4">
     {useFullLoopRuntime ? (
-     <SmartToolForm
-      slug={runtimeSlug}
-      values={values}
-      errors={errors}
-      onChange={handleChange}
-      onSubmit={handleSubmit}
-      calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
-      blocked={submitted && fullLoopResult?.status === "blocked"}
-      blockers={
-       submitted && fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []
-      }
-      isCalculating={isCalculating}
-     />
+     useDynamicSmartFormPilot ? (
+      <DynamicSmartFormPilot
+       slug={runtimeSlug}
+       values={values}
+       errors={errors}
+       onChange={handleChange}
+       onSubmit={handleSubmit}
+       calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
+       isCalculating={isCalculating}
+      />
+     ) : (
+      <SmartToolForm
+       slug={runtimeSlug}
+       values={values}
+       errors={errors}
+       onChange={handleChange}
+       onSubmit={handleSubmit}
+       calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
+       blocked={submitted && fullLoopResult?.status === "blocked"}
+       blockers={
+        submitted && fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []
+       }
+       isCalculating={isCalculating}
+      />
+     )
     ) : (
      <form
       onSubmit={handleSubmit}

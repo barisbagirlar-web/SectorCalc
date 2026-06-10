@@ -2013,6 +2013,28 @@
   max-width: 36rem;
 }
 
+.sc-dynamic-smart-form {
+  min-width: 0;
+}
+
+.sc-smart-form-mode {
+  min-width: 0;
+}
+
+.sc-smart-form-notice {
+  border: 1px solid var(--sc-border);
+  padding: 0.75rem 0.875rem;
+  background: var(--sc-surface);
+}
+
+.sc-smart-form-notice--ok {
+  border-color: rgb(34 139 34 / 0.35);
+}
+
+.sc-smart-form-notice--warn {
+  border-color: rgb(180 83 9 / 0.35);
+}
+
 /* ── Page canvas — theme fill, no white viewport gutters ── */
 .sc-app-main,
 .sc-pro-page,

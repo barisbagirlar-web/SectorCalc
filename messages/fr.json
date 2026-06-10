@@ -1223,6 +1223,100 @@
       "unit-conversion-traffic": "Conversion d'unités"
     }
   },
+  "smartForm": {
+    "mode": {
+      "simple": "Simple",
+      "advanced": "Avancé"
+    },
+    "actions": {
+      "calculate": "Lancer l'analyse",
+      "fixMissing": "Compléter les champs obligatoires",
+      "showAdvanced": "Afficher les champs avancés",
+      "hideAdvanced": "Masquer les champs avancés"
+    },
+    "validation": {
+      "required": "Ce champ est obligatoire.",
+      "invalidNumber": "Saisissez un nombre valide.",
+      "min": "La valeur doit être au moins {min}.",
+      "max": "La valeur doit être au plus {max}.",
+      "missingInputs": "{count, plural, one {# champ obligatoire manquant} other {# champs obligatoires manquants}}",
+      "invalidCombination": "Ces entrées ne peuvent pas produire une analyse valide."
+    },
+    "scenario": {
+      "label": "Scénario de chantier",
+      "placeholder": "Sélectionner un scénario"
+    },
+    "notices": {
+      "requiredInputReason": "Chaque champ correspond à une entrée contractuelle vérifiée pour cet analyseur.",
+      "calculationBlocked": "Complétez les champs obligatoires avant de lancer l'analyse.",
+      "validatedInputSet": "Jeu d'entrées prêt — lancez l'analyse une fois les valeurs confirmées."
+    },
+    "tools": {
+      "cncQuoteRiskAnalyzer": {
+        "scenarios": {
+          "quick_quote_check": {
+            "label": "Vérification rapide du devis",
+            "description": "Contrôle rapide du plancher avec les entrées de temps et de taux essentielles."
+          },
+          "detailed_margin_review": {
+            "label": "Revue détaillée de la marge",
+            "description": "Pile de coûts complète incluant outillage et matière."
+          }
+        },
+        "inputs": {
+          "setupTime": { "label": "Temps de préparation", "help": "Minutes de préparation ponctuelles avant le démarrage de la production." },
+          "cycleTime": { "label": "Temps de cycle", "help": "Temps machine par pièce pour ce chantier." },
+          "quantity": { "label": "Quantité", "help": "Pièces dans ce lot de devis." },
+          "toolCost": { "label": "Coût d'outillage", "help": "Montages, plaquettes et outils alloués à ce chantier." },
+          "materialCost": { "label": "Coût matière", "help": "Stock et matière pour la quantité devisée." },
+          "machineRate": { "label": "Taux machine", "help": "Taux machine chargé par heure." },
+          "riskMargin": { "label": "Marge de risque", "help": "Pourcentage de marge pour rebuts, préparation et risque de devis." }
+        }
+      },
+      "weldingBidRiskAnalyzer": {
+        "scenarios": {
+          "field_repair": {
+            "label": "Réparation sur site",
+            "description": "Réparation de soudure sur site axée sur l'ajustement et la main-d'œuvre."
+          },
+          "production_weld_bid": {
+            "label": "Devis de soudure en production",
+            "description": "Devis d'atelier avec consommables et risque de retouche."
+          }
+        },
+        "inputs": {
+          "materialCost": { "label": "Coût matière", "help": "Apport, métal de base et consommables pour le chantier." },
+          "laborHours": { "label": "Heures de soudure", "help": "Temps d'arc et main-d'œuvre de soudure sur le joint." },
+          "laborRate": { "label": "Taux horaire", "help": "Taux horaire de soudure chargé par heure." },
+          "gasConsumableCost": { "label": "Gaz et consommables", "help": "Gaz de protection, fil et embouts pour le devis." },
+          "fitUpHours": { "label": "Heures d'ajustement", "help": "Alignement, pointage et préparation avant soudure." },
+          "reworkRiskPercent": { "label": "Risque de retouche", "help": "Marge pour retouche des défauts sur ce type de chantier." },
+          "targetMargin": { "label": "Marge cible", "help": "Bande de marge minimale avant d'accepter le devis." }
+        }
+      },
+      "hvacProjectMarginGuard": {
+        "scenarios": {
+          "small_service_job": {
+            "label": "Petit chantier de service",
+            "description": "Remplacement ou intervention avec équipement et main-d'œuvre de base."
+          },
+          "commercial_project": {
+            "label": "Projet commercial",
+            "description": "Installation complète avec réseau aéraulique et mise en service."
+          }
+        },
+        "inputs": {
+          "equipmentCost": { "label": "Coût équipement", "help": "Unités, réfrigérant et équipement principal." },
+          "ductworkCost": { "label": "Coût réseau aéraulique", "help": "Conduits, raccords et matériaux de distribution." },
+          "laborHours": { "label": "Heures de main-d'œuvre", "help": "Main-d'œuvre sur site pour installation ou service." },
+          "laborRate": { "label": "Taux horaire", "help": "Taux horaire CVC chargé par heure." },
+          "commissioningCost": { "label": "Coût de mise en service", "help": "Démarrage, essais et travaux TAB." },
+          "callbackRiskPercent": { "label": "Risque de rappel", "help": "Marge de rappel garantie pour ce chantier." },
+          "targetMargin": { "label": "Marge cible", "help": "Marge minimale avant d'accepter le projet." }
+        }
+      }
+    }
+  },
   "cta": {
     "startFree": "Commencer",
     "calculateNow": "Calculer",
