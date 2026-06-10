@@ -1,6 +1,6 @@
 # SectorCalc Product Strategy
 
-> Companion docs: [manifesto.md](./manifesto.md) · [roadmap.md](./roadmap.md) · [production-reality.md](./production-reality.md)
+> Companion docs: [manifesto.md](./manifesto.md) · [roadmap.md](./roadmap.md) · [multilingual-seo-acquisition-funnel.md](./multilingual-seo-acquisition-funnel.md) · [production-reality.md](./production-reality.md)
 
 ---
 
@@ -122,6 +122,8 @@ Layer 5 ─ Business / Enterprise (white-label, API, audit trail)
 - PDF is export of paid result — not the main product  
 - Main product = **decision verdict + loss visibility**  
 - Stripe + subscription guard already in production — packaging evolution P9  
+
+**Primary acquisition channel:** Multilingual, intent-driven SEO — not ads or brand alone. Free tools capture search intent; premium Smart Form and Pro Trust Trace monetize verified decisions. Full funnel: [multilingual-seo-acquisition-funnel.md](./multilingual-seo-acquisition-funnel.md).
 
 ---
 

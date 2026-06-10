@@ -32,6 +32,7 @@
 
 ## SEO & authority
 
+- [Multilingual SEO & Acquisition Funnel](./multilingual-seo-acquisition-funnel.md) — intent-driven SEO, 6-locale funnel Free → Pro → Trust Trace
 - [Search Console & IndexNow Runbook](./search-console-indexnow-runbook.md)
 - [GSC URL Inspection Checklist](./gsc-url-inspection-checklist.md)
 - [GSC Campaign URL List](./gsc-campaign-url-list.md)
@@ -40,6 +41,9 @@
 
 ## Product & operations
 
+- [SectorCalc Manifesto v2.0](./manifesto.md) — vision, personas, dual-intelligence, Smart Form standard
+- [Product Roadmap](./roadmap.md) — P0–P11 phase plan (manifesto-aligned)
+- [Product Strategy](./product-strategy.md) — market position, layers, revenue logic
 - [Product Roadmap Freeze](./product-roadmap-freeze.md) — 30-day feature freeze and allowed work boundaries
 - [30-Day Monetization Sprint](./monetization-sprint-30-day-plan.md) — revenue sprint goal, KPIs, weekly plan
 - [Monetization Decision Gates](./monetization-decision-gates.md) — data gates before product changes
