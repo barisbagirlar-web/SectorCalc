@@ -111,7 +111,7 @@ export function MobileNav() {
                   <li>
                     <Link
                       href={getPricingHref()}
-                      prefetch={true}
+                      prefetch={false}
                       onClick={closeMenu}
                       className="sc-mobile-drawer__link sc-mobile-drawer__link--accent"
                     >

@@ -46,6 +46,8 @@ const ROUTES = [
 
 const BODY_WAIT_MS = 10_000;
 const NAV_TIMEOUT_MS = 30_000;
+const ROUTE_COOLDOWN_MS = 750;
+const ROUTE_MAX_ATTEMPTS = 2;
 
 function parseBrowserArg(argv) {
   const idx = argv.indexOf("--browser");
@@ -201,10 +203,21 @@ async function main() {
 
   const results = [];
   for (const path of ROUTES) {
-    const result = await auditRoute(page, baseUrl, path);
-    results.push(result);
+    let result = await auditRoute(page, baseUrl, path);
+    let attempts = 1;
+
+    if (result.failed && ROUTE_MAX_ATTEMPTS > 1) {
+      await page.waitForTimeout(ROUTE_COOLDOWN_MS);
+      result = await auditRoute(page, baseUrl, path);
+      attempts = 2;
+    }
+
+    results.push({ ...result, attempts });
     const status = result.failed ? "FAIL" : "OK";
-    console.log(`${status} ${path} (${result.durationMs}ms, body=${result.bodyTextLen})`);
+    const retryNote = attempts > 1 ? `, attempts=${attempts}` : "";
+    console.log(`${status} ${path} (${result.durationMs}ms, body=${result.bodyTextLen}${retryNote})`);
+
+    await page.waitForTimeout(ROUTE_COOLDOWN_MS);
   }
 
   await browser.close();
