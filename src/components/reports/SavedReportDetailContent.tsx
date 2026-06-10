@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AccountLoginPrompt } from "@/components/reports/ReportsHistoryList";

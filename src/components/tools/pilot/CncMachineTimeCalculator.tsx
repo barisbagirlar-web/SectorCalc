@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { useCallback, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { PageLayout } from "@/components/layout/PageLayout";

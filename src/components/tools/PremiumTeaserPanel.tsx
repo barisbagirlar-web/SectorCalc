@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import type { ToolPremiumTeaser } from "@/data/tool-schema";
 import { Badge } from "@/components/ui/Badge";
 import {

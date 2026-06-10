@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { revenueTools } from "@/lib/tools/revenue-tools";
 import { getFreeToolHref } from "@/lib/tools/tool-links";
 

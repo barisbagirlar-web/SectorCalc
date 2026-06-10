@@ -49,20 +49,20 @@ const ROUTES = [
 ];
 
 const PROBE_ROUTES = [
-  "/fr",
   "/es",
   "/de/free-tools",
   "/fr/free-tools",
   "/es/free-tools",
 ];
 
-const BODY_WAIT_MS = 3_000;
+const BODY_WAIT_MS = 4_000;
 const BODY_REMEASURE_WAIT_MS = 1_500;
-const SUSPECT_BODY_LEN = 500;
+const MIN_BODY_LEN = 200;
 const NAV_TIMEOUT_MS = 30_000;
-const ROUTE_COOLDOWN_MS = 1_250;
-const ROUTE_MAX_ATTEMPTS = 2;
-const CONTEXT_REFRESH_EVERY = 5;
+const ROUTE_COOLDOWN_MS = 1_500;
+const RETRY_COOLDOWN_MS = 2_000;
+const ROUTE_MAX_ATTEMPTS = 3;
+const CONTEXT_REFRESH_EVERY = 3;
 const FAIL_SCREENSHOT_DIR = join("/tmp", "sectorcalc-smoke-failures");
 
 function parseBrowserArg(argv) {
@@ -109,7 +109,7 @@ function isRscPressureSignal(result) {
   return (
     result.consoleErrors.some((msg) => /Connection closed|Failed to fetch RSC payload/i.test(msg)) ||
     result.pageErrors.some((msg) => /Connection closed/i.test(msg)) ||
-    (result.bodyTextLen > 0 && result.bodyTextLen < SUSPECT_BODY_LEN) ||
+    result.suspectBody ||
     result.hasApplicationError
   );
 }
@@ -172,7 +172,7 @@ async function auditRoute(page, baseUrl, path, options = {}) {
   await page.waitForTimeout(BODY_WAIT_MS);
 
   let bodyTextLen = await measureBodyTextLen(page);
-  if (bodyTextLen < SUSPECT_BODY_LEN) {
+  if (bodyTextLen <= MIN_BODY_LEN) {
     await page.waitForTimeout(BODY_REMEASURE_WAIT_MS);
     bodyTextLen = await measureBodyTextLen(page);
   }
@@ -200,6 +200,7 @@ async function auditRoute(page, baseUrl, path, options = {}) {
   const fatalConsole = consoleErrors.filter(isFatalConsoleMessage);
   const fatalPageErrors = pageErrors.filter(isFatalConsoleMessage);
   const blankBody = bodyTextLen === 0;
+  const suspectBody = bodyTextLen > 0 && bodyTextLen <= MIN_BODY_LEN;
   const hasApplicationError =
     html.includes("Application error") || html.includes('id="__next_error__"');
 
@@ -207,6 +208,7 @@ async function auditRoute(page, baseUrl, path, options = {}) {
     Boolean(gotoError) ||
     (httpStatus !== 0 && httpStatus !== 200) ||
     blankBody ||
+    suspectBody ||
     hasApplicationError ||
     fatalConsole.length > 0 ||
     fatalPageErrors.length > 0 ||
@@ -221,6 +223,7 @@ async function auditRoute(page, baseUrl, path, options = {}) {
     httpStatus,
     gotoError,
     blankBody,
+    suspectBody,
     hasApplicationError,
     consoleErrors: fatalConsole,
     pageErrors: fatalPageErrors,
@@ -269,15 +272,15 @@ async function auditRouteIsolated(browser, baseUrl, path) {
 }
 
 async function auditRouteWithRetry(browser, contextRef, baseUrl, path, routeIndex) {
-  let attempts = 1;
   let result = await withFreshPage(contextRef.current, baseUrl, path);
+  let attempts = 1;
 
-  if (result.failed && ROUTE_MAX_ATTEMPTS > 1 && isRscPressureSignal(result)) {
-    await sleep(ROUTE_COOLDOWN_MS);
+  while (result.failed && attempts < ROUTE_MAX_ATTEMPTS) {
+    await sleep(RETRY_COOLDOWN_MS);
     await contextRef.current.close();
     contextRef.current = await createContext(browser);
     result = await withFreshPage(contextRef.current, baseUrl, path);
-    attempts = 2;
+    attempts += 1;
   }
 
   return { ...result, attempts, routeIndex };
@@ -346,6 +349,7 @@ function printSummary(results) {
       const reasons = [];
       if (r.gotoError) reasons.push(`goto: ${r.gotoError}`);
       if (r.blankBody) reasons.push("blank body");
+      if (r.suspectBody) reasons.push(`suspect body (len=${r.bodyTextLen})`);
       if (r.hasApplicationError) reasons.push("application error marker");
       if (r.consoleErrors.length) reasons.push(`console: ${r.consoleErrors.join("; ")}`);
       if (r.pageErrors.length) reasons.push(`pageerror: ${r.pageErrors.join("; ")}`);

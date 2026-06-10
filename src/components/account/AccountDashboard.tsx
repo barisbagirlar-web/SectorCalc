@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { Suspense } from "react";
 import { useClientSearchParam } from "@/lib/navigation/use-client-search-params";
 import { AccountFeaturedAccess } from "@/components/account/AccountFeaturedAccess";

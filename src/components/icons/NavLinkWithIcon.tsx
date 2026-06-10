@@ -18,7 +18,7 @@ export function NavLinkWithIcon({
  className = "",
  onClick,
  showIcon = true,
- prefetch = true,
+ prefetch = false,
 }: NavLinkWithIconProps) {
  const Icon = resolveNavIcon(stripLocalePrefix(href));
 

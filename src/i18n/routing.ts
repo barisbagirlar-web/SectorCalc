@@ -1,3 +1,4 @@
+import { createElement, type ComponentProps } from "react";
 import { defineRouting } from "next-intl/routing";
 import { createNavigation } from "next-intl/navigation";
 import { locales, type AppLocale, isAppLocale, stripLocalePrefix } from "@/i18n/locales";
@@ -11,5 +12,15 @@ export const routing = defineRouting({
   localeDetection: false,
 });
 
-export const { Link, redirect, usePathname, useRouter, getPathname } =
-  createNavigation(routing);
+const navigation = createNavigation(routing);
+
+const IntlLink = navigation.Link;
+
+type IntlLinkProps = ComponentProps<typeof IntlLink>;
+
+/** Platform policy: internal navigation must not parallel-prefetch RSC streams. */
+export function Link({ prefetch = false, ...props }: IntlLinkProps) {
+  return createElement(IntlLink, { prefetch, ...props });
+}
+
+export const { redirect, usePathname, useRouter, getPathname } = navigation;

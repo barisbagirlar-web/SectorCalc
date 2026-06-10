@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { revenueTools } from "@/lib/tools/revenue-tools";
 import { getIndustryDisplayName } from "@/lib/tools/industry-registry";
 import {

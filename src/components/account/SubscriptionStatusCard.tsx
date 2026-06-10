@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import type { UserSubscription } from "@/lib/billing/subscription";
 import { getPremiumToolsNavHref, getPricingHref } from "@/lib/tools/tool-links";
 import { sectorCalcProPricing } from "@/lib/tools/revenue-tools";

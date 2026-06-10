@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import type { CaseStudyEntry } from "@/lib/case-studies/case-study-types";
 
 type CaseStudyCardProps = {

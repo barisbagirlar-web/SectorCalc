@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 import { PremiumPaywall } from "@/components/subscription/PremiumPaywall";

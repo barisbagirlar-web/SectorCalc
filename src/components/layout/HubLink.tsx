@@ -8,14 +8,12 @@ export interface HubLinkProps {
   prefetch?: boolean;
 }
 
-/**
- * Hub navigation link — prefetch enabled for crawl budget & UX signals.
- */
+/** Hub navigation link — prefetch off to avoid RSC stream pressure. */
 export function HubLink({
   href,
   children,
   className = "transition-colors hover:text-amber",
-  prefetch = true,
+  prefetch = false,
 }: HubLinkProps) {
   return (
     <Link href={href} prefetch={prefetch} className={className}>

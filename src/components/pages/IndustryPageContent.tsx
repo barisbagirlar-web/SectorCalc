@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import PageHero from "@/components/shared/PageHero";
 import { IndustryAuditModule } from "@/components/os/IndustryAuditModule";
 import { Button } from "@/components/ui/Button";

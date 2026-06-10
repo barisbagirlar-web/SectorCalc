@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import {
   INVESTOR_DEMO_FLOW_STEPS,
   INVESTOR_DUAL_CORE,

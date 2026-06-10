@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { ReportPreviewCard } from "@/components/cards/ReportPreviewCard";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
 import type { Tool } from "@/data/tools";

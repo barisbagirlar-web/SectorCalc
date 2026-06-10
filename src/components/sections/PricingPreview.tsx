@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { Container } from "@/components/ui/Container";
 
 export function PricingPreview() {

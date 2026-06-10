@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { getToolHref } from "@/lib/tools/paths";

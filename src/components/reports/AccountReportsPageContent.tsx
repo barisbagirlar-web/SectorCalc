@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { useEffect, useState } from "react";
 import {
   useClientSearchParam,

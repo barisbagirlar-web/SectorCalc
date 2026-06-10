@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { IntelligenceSubscriptionGate } from "@/components/os/IntelligenceSubscriptionGate";
 import { isProBypassEmail } from "@/lib/billing/subscription";
 import { useProSubscription } from "@/lib/subscription/use-pro-subscription";

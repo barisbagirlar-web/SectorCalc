@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import { FEATURED_PREMIUM_SLUGS } from "@/lib/catalog/build-catalog-groups";
 import { getIndustryDisplayName } from "@/lib/tools/industry-registry";
 import { revenueTools } from "@/lib/tools/revenue-tools";

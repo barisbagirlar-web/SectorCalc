@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import type { Tool } from "@/data/tools";
 import { getIndustryBySlug, type IndustrySlug } from "@/data/industries";
 import { getPremiumArchitectureProfile } from "@/lib/premium/sector-loss-registry";

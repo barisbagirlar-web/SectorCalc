@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/lib/navigation/next-link";
 import type { Industry } from "@/data/industries";
 import { getIndustryBySlug } from "@/data/industries";
 import { ScIcon } from "@/components/icons/ScIcon";
