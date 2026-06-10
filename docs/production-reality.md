@@ -87,8 +87,8 @@
 | Gate | Target | Result |
 |------|--------|--------|
 | `npm run build` | clean | **PASS** (local) |
-| `smoke:approved-reports` | 9 premium routes | *post-deploy verify* |
-| `smoke:verify-report` | 6 locales + API guards | *post-deploy verify* |
+| `smoke:approved-reports` | 9 premium routes | **PASS** (`11fbfab` post-deploy) |
+| `smoke:verify-report` | 6 locales + API guards | **PASS** (`11fbfab` post-deploy) |
 
 ---
 
@@ -136,7 +136,7 @@
 | P2.4 partial work | `bea180e` | Form CSS sweep |
 | P2.4 closure | `cc4153d` | PROMPT-P2.4-001 completion + post-deploy smoke PASS |
 | P3 feedback | `40bd28b` | ToolFeedback + admin queue |
-| P4 Trust Trace | — | COMPLETE — PROMPT-P4-001 + PROMPT-P4-002; tsc clean, 43 unit tests PASS |
+| P4 FIX closure | `11fbfab` | Build + smoke gates |
 | **Active product phase** | — | **P5 NEXT** (P4 COMPLETE) |
 
 P2.4 closure evidence: inventory, 13 repaired component groups, post-deploy smoke PASS at `cc4153d`.
