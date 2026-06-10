@@ -21,8 +21,8 @@
 | P1 Grouped Catalog Search | **DONE** |
 | P2.3 Premium Smart Form Full Rollout | **DONE** (27/27 premium Smart Form only) |
 | **P2.4 Full Calculation Form Repair Sweep** | **DONE** |
-| P3 Feedback / Formula Objection | **COMPLETE** |
-| **P4 Trust Trace / Validation Stamp / Public Verify** | **NEXT ACTIVE PHASE** |
+| P3 Feedback / Formula Objection | **EARLY IMPLEMENTED / RISK-GATED** |
+| **P4 Trust Trace / Validation Stamp / Public Verify** | **WAITING UNTIL P2.4 PASS + P3 REVALIDATION** |
 
 ## P2.4 — Full Calculation Form Repair Sweep *(DONE)*
 
@@ -61,7 +61,7 @@
 
 **Remaining risk:** Browser hydration edge cases; cold SSR >5s on `/tr`. Full-form certification requires post-deploy smoke table update with commit SHA.
 
-## P3 — Feedback / Formula Objection System *(COMPLETE)*
+## P3 — Feedback / Formula Objection System *(EARLY IMPLEMENTED / RISK-GATED)*
 
 | Item | Value |
 |------|--------|
@@ -69,6 +69,13 @@
 | **Collection** | `toolFeedback` (Firestore) |
 | **Admin queue** | `/account/feedback` |
 | **Smoke** | `smoke:feedback-ui` PASS (2026-06-10) |
+| **Status** | Deployed and live; revalidation required after P2.4 |
+
+**Production Reality Note:**
+P3 Feedback / Formula Objection system is **not** a future planning item — it was merged and deployed earlier under commit `40bd28b` and passed reported smoke testing. System is live in production. However, because P2.4 full calculation form repair sweep evidence was missing at the time of P3 deployment, P3 is classified as **EARLY IMPLEMENTED / RISK-GATED**. After P2.4 is fully closed and form repair evidence is confirmed, P3 must be revalidated on all repaired free, legacy, premium, mobile, locale, and RTL form surfaces.
+
+---
+
 ## P2.3 — Smart Form Full Premium Rollout (27/27) *(DONE — premium scope only)*
 
 | Item | Value |
@@ -113,7 +120,7 @@
 | P2.4 partial work | `bea180e` | Form CSS sweep |
 | P2.4 closure | pending | PROMPT-P2.4-001 completion commit |
 | P3 feedback | `40bd28b` | ToolFeedback + admin queue |
-| **Active product phase** | — | **P4 NEXT** (P2.4 DONE) |
+| **Active product phase** | — | **P2.4 ACTIVE** (P3 deployed, P4 waiting) |
 
 Do not assume P2.3 or partial P2.4 work certifies all calculation forms are repaired.
 
@@ -148,9 +155,9 @@ Do not assume P2.3 or partial P2.4 work certifies all calculation forms are repa
 | AI assistant | Lib boundary only — P10 |
 | Case study proof layer | Partial drafts — P7 |
 | Trust Trace Export (full) | Pro pilot — P4 expansion |
-| Feedback / formula objection queue | P3 — not started |
+| P3 live but post-P2.4 revalidation required | P3 EARLY IMPLEMENTED / RISK-GATED |
 
-## Cursor Path Safety
+## C‍ursor Path Safety
 
 **DO NOT USE** `src/lib/calculation-intelligence/`. **This path does not exist.**
 
@@ -198,8 +205,8 @@ gcloud run services update ssrsectorcalcbf412 \
 ## Next Allowed Work
 
 1. ~~P2.3 Smart Form 27/27~~ **DONE** (2026-06-10)
-2. **P3 — Feedback / Formula Objection System**
-3. P4 Trust Trace / Public Verify
+2. ~~P3 — Feedback / Formula Objection System~~ **EARLY IMPLEMENTED / RISK-GATED** (40bd28b)
+3. **P4 Trust Trace / Public Verify** (waiting for P2.4 + P3 revalidation)
 4. P5 Regional Unit Engine
 5. P6 Regional Benchmark Engine
 
@@ -208,6 +215,7 @@ gcloud run services update ssrsectorcalcbf412 \
 - Manual visual QA on 1440px / 375px for sample routes recommended each release
 - Non-EN scenario labels may use EN fallback for some tools (locale sync script — improve in P3+)
 - Browser-only interactions (scenario toggle, calculate block) not fully covered by curl smoke
+- P3 revalidation required after P2.4 closes before P4 can start
 
 ---
 

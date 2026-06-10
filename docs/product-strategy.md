@@ -144,21 +144,21 @@ Layer 5 ─ Business / Enterprise (white-label, API, audit trail)
 ## Current strategic focus (Q2 2026)
 
 1. **Complete P2.4** — full calculation form inventory, repair, locale/mobile QA, `smoke:all-calculation-forms` PASS  
-2. **Hold P3** — Feedback / Formula Objection **blocked until P2.4 closes**; do not add feedback UI on broken forms  
+2. **P3 live and risk-gated** — Feedback / Formula Objection deployed under commit `40bd28b`, passed initial smoke testing. Requires post-P2.4 revalidation on all repaired form surfaces.
 3. **Maintain P2.3 baseline** — 27/27 premium Smart Form smoke must stay PASS while P2.4 runs  
 4. **Defer P10 AI** until deterministic loop + Trust Trace foundation solid  
 
 ### Phase gate (EN)
 
-P2.3 closed only the premium Smart Form rollout scope. It does not certify that every calculation-related form in the product is visually repaired, mobile-safe, locale-safe, and layout-stable. Therefore P2.4 — Full Calculation Form Repair Sweep is now the active phase and P3 must not start before P2.4 closure evidence is produced.
+P2.3 closed only the premium Smart Form rollout scope. It does not certify that every calculation-related form in the product is visually repaired, mobile-safe, locale-safe, and layout-stable. Therefore P2.4 — Full Calculation Form Repair Sweep is now the active phase. P3 Feedback / Formula Objection was deployed early (commit `40bd28b`) and is live in production. However, because P2.4 form repair evidence was missing at P3 deployment time, P3 is classified as **EARLY IMPLEMENTED / RISK-GATED** and must be revalidated after P2.4 closure evidence is produced, especially on repaired free, legacy, premium, mobile, locale, and RTL form surfaces.
 
 ### Faz kapısı (TR)
 
-P2.3 yalnızca premium Smart Form kapsamını kapatır. Bu kapanış, sitedeki tüm hesaplama formlarının düzeldiği anlamına gelmez. Free tool formları, legacy calculator formları, eski hesaplama componentleri ve locale/mobile kaynaklı form kırıkları P2.4 kapsamında ayrıca taranıp kapatılacaktır. P2.4 kapanmadan P3 başlatılmayacaktır.
+P2.3 yalnızca premium Smart Form kapsamını kapatır. Bu kapanış, sitedeki tüm hesaplama formlarının düzeldiği anlamına gelmez. Free tool formları, legacy calculator formları, eski hesaplama componentleri ve locale/mobile kaynaklı form kırıkları P2.4 kapsamında ayrıca taranıp kapatılacaktır. P3 Feedback / Formula Objection sistemi daha önceden deploy edilmiş (40bd28b commit) ve canlıda çalışmaktadır. Ancak P3 deploy edildiği sırada P2.4 form onarımı kanıtı eksik olduğu için P3, **EARLY IMPLEMENTED / RISK-GATED** olarak sınıflandırılmıştır ve P2.4 kapanış kanıtı üretildikten sonra, özellikle onarılmış free, legacy, premium, mobil, locale ve RTL form yüzeyleri üzerinde yeniden doğrulanacaktır.
 
-> **P3 note (EN):** P3 Feedback / Formula Objection is blocked until P2.4 completes. Feedback UI must not be added on top of broken forms.
+> **P3 note (EN):** P3 Feedback / Formula Objection is live and deployed under commit `40bd28b`. It passed initial smoke testing but is classified as EARLY IMPLEMENTED / RISK-GATED because P2.4 form repair evidence was missing at deployment time. P3 must be revalidated after P2.4 closes, especially across all repaired calculation form surfaces.
 >
-> **P3 notu (TR):** P3, P2.4 tamamlanmadan başlatılmayacak. Kırık formların üzerine feedback UI eklenmeyecek.
+> **P3 notu (TR):** P3 Feedback / Formula Objection canlıda, 40bd28b commit'i ile deploy edilmiştir. İlk smoke testini geçmiştir ancak P3 deploy edilirken P2.4 form repair kanıtı eksik olduğu için EARLY IMPLEMENTED / RISK-GATED olarak sınıflandırılmıştır. P2.4 kapandıktan sonra P3, özellikle onarılmış tüm hesaplama form yüzeyleri üzerinde yeniden doğrulanacaktır.
 
 ---
 

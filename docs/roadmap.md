@@ -17,18 +17,18 @@
 | **P2.2** Smart Form Layout Stabilization | **DONE** | Desktop 2-col, mobile 375px, decision output panel |
 | **P2.3** Smart Form Full Premium Rollout | **DONE** | 27/27 premium analyzer Smart Form + runtime compatibility |
 | **P2.4** Full Calculation Form Repair Sweep | **DONE** | PROMPT-P2.4-001 + AUDITFIX-P2.4-001 — inventory, repair, smoke PASS |
-| **P3** Feedback / Formula Objection System | **COMPLETE** | `40bd28b` — ToolFeedbackPanel, admin queue, `toolFeedback` |
-| **P4** Trust Trace / Validation Stamp / Public Verify | **NEXT ACTIVE PHASE** | Blocked until P2.4 PASS — now unblocked |
+| **P3** Feedback / Formula Objection System | **EARLY IMPLEMENTED / RISK-GATED** | `40bd28b` — ToolFeedbackPanel, admin queue, `toolFeedback` |
+| **P4** Trust Trace / Validation Stamp / Public Verify | **WAITING UNTIL P2.4 PASS + P3 REVALIDATION** | P2.4 closes all calc forms; P3 live but requires post-repair revalidation |
 
-**Current active phase:** **P4 — Trust Trace / Validation Stamp / Public Verify**
+**Current active phase:** **P2.4 — Full Calculation Form Repair Sweep** (P3 already deployed, P4 waiting)
 
 ### Phase gate (EN)
 
-P2.4 closed the full calculation form repair sweep: inventory, `.sc-form-*` standard, free/legacy wiring, `smoke:all-calculation-forms` PASS. P3 feedback shipped in `40bd28b`. **Next:** P4 Trust Trace / Validation Stamp / Public Verify.
+P2.4 full calculation form repair sweep closes the inventory, `.sc-form-*` standard, free/legacy wiring, and `smoke:all-calculation-forms` PASS. P3 feedback system was deployed in `40bd28b` and passed smoke testing — now classified as EARLY IMPLEMENTED / RISK-GATED, pending post-repair revalidation. **P4 waits until P2.4 closure is confirmed and P3 revalidation is complete.**
 
 ### Faz kapısı (TR)
 
-P2.4 tüm hesaplama form yüzeylerini envantere aldı, layout/mobile/locale onarımını kapattı, smoke PASS aldı. P3 feedback tamamlandı. **Sıradaki:** P4 Trust Trace / Validation Stamp / Public Verify.
+P2.4 tüm hesaplama form yüzeylerini envantere aldı, `.sc-form-*` standardını uyguladı, free/legacy wiring'i kapattı ve `smoke:all-calculation-forms` PASS aldı. P3 feedback sistemi 40bd28b commit'i ile daha önceden deploy edilmiş ve smoke testini geçmiş — artık EARLY IMPLEMENTED / RISK-GATED olarak sınıflandırılmıştır, form onarımı sonrası yeniden doğrulanmaya beklenmektedir. **P4, P2.4 kapanış teyidi ve P3 yeniden doğrulanma tamamlandığında başlayacaktır.**
 
 ---
 
@@ -98,20 +98,28 @@ P0 Stabilization ──► P1 Catalog ──► P2 Smart Form (pilot → layout 
 
 ---
 
-## P3 — Feedback / Formula Objection System *(COMPLETE)*
+## P3 — Feedback / Formula Objection System *(EARLY IMPLEMENTED / RISK-GATED)*
 
-**Goal:** Kullanıcı geri bildirimi ve formül itirazı admin queue’ya düşer.
+**Goal:** Kullanıcı geri bildirimi ve formül itirazı admin queue'ya düşer. Sistem canlıda ancak P2.4 form onarımı kapandıktan sonra yeniden doğrulanmalıdır.
 
-| Feature | Status |
-|---------|--------|
-| Tool feedback form (8 kinds) | **DONE** — `ToolFeedbackPanel` |
-| Formula objection | **DONE** |
-| Firestore `toolFeedback` | **DONE** |
-| Admin queue `/account/feedback` | **DONE** |
-| 6 locale i18n | **DONE** |
-| Smoke `smoke:feedback-ui` | **DONE** |
+**Status:** Already merged and deployed under commit `40bd28b`. System passed initial smoke testing. However, because P2.4 full calculation form repair sweep evidence was missing at P3 deployment time, P3 is now classified as **EARLY IMPLEMENTED / RISK-GATED** and must be revalidated after P2.4 closes, especially across repaired free, legacy, premium, mobile, locale and RTL form surfaces.
 
-Commit: `40bd28b` · Deploy evidence in `production-reality.md` P3 section.
+| Work Item | Status |
+|-----------|--------|
+| Feedback UI | ✅ Implemented / revalidation required after P2.4 |
+| Formula objection | ✅ Implemented / revalidation required after P2.4 |
+| Wrong result report | ✅ Implemented / revalidation required after P2.4 |
+| Missing input suggestion | ✅ Implemented / revalidation required after P2.4 |
+| Improvement request | ✅ Implemented / revalidation required after P2.4 |
+| Feedback admin queue | ✅ Implemented |
+| Firestore toolFeedback collection | ✅ Implemented |
+| 6 locale feedback UI | ✅ Implemented |
+| Feedback smoke | ✅ PASS |
+| P2.4 post-repair revalidation | 🔴 Required |
+
+**Commit:** `40bd28b` — ToolFeedbackPanel, admin queue `/account/feedback`, `toolFeedback` Firestore collection, 6 locale i18n coverage.
+
+**Historical note:** P3 was planned to start after P2.4 closure. However, P3 code was merged and deployed earlier than planned (commit `40bd28b`). Therefore, P3 must not be described as "not started" or "blocked" — it is live and passed smoke testing. Yet because P2.4 form repair evidence was missing at deployment time, P3 is risk-gated and requires full revalidation on the repaired calculation form surfaces after P2.4 closes.
 
 ---
 
@@ -150,7 +158,7 @@ Commit: `40bd28b` · Deploy evidence in `production-reality.md` P3 section.
 - TÜİK / TSE / ISO / sektör odası / akademik kaynak yapısı  
 - Tool bazlı benchmark  
 - Ülke bazlı benchmark  
-- Kaynakça zorunlu — kaynaksız “sektör ortalaması” yok  
+- Kaynakça zorunlu — kaynaksız "sektör ortalaması" yok  
 
 ---
 
@@ -225,11 +233,11 @@ Future: rollback / canary automation.
 
 Aşağıdaki eski ifadeler **artık geçerli değildir** — bu roadmap ile değiştirilmiştir:
 
-- ~~“Smart Form global wrapper — NOT production-wide”~~ → P2.3 hedefi production-wide 27/27  
-- ~~“P0 açık — Smart Form rollout bekliyor”~~ → P2.0–P2.3 DONE, **P2.4 ACTIVE**  
-- ~~“P2.3 = all forms complete”~~ → P2.3 closes **premium Smart Form only**; P2.4 sweeps all calculation forms  
-- ~~“P3 Feedback DONE”~~ → P3 **BLOCKED** until P2.4 closure evidence  
-- ~~“Universal Smart Form Architecture NOT LIVE”~~ → rollout fazında; live durum `production-reality.md` ile doğrulanır  
+- ~~"Smart Form global wrapper — NOT production-wide"~~ → P2.3 hedefi production-wide 27/27  
+- ~~"P0 açık — Smart Form rollout bekliyor"~~ → P2.0–P2.3 DONE, **P2.4 ACTIVE**  
+- ~~"P2.3 = all forms complete"~~ → P2.3 closes **premium Smart Form only**; P2.4 sweeps all calculation forms  
+- ~~"P3 Feedback BLOCKED until P2.4 closure"~~ → P3 **EARLY IMPLEMENTED / RISK-GATED** under commit `40bd28b`; historical planning note superseded by early deployment  
+- ~~"Universal Smart Form Architecture NOT LIVE"~~ → rollout fazında; live durum `production-reality.md` ile doğrulanır  
 
 Operational freeze docs ([product-roadmap-freeze.md](./product-roadmap-freeze.md)) revenue measurement dönemi için geçerlidir; manifesto fazları ile çelişirse **manifesto-aligned roadmap** product direction için üstündür.
 
