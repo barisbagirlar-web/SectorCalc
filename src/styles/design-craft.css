@@ -1870,6 +1870,149 @@
   padding-top: 0.875rem;
 }
 
+.sc-catalog-explorer-stack {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.sc-catalog-search {
+  min-width: 0;
+}
+
+.sc-catalog-search__field {
+  display: block;
+  min-width: 0;
+}
+
+.sc-catalog-search__input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--sc-border);
+  border-radius: 0;
+  background: var(--sc-surface);
+  color: var(--sc-text);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.sc-catalog-search__input::placeholder {
+  color: var(--sc-muted);
+}
+
+.sc-catalog-search__input:focus-visible {
+  outline: 2px solid var(--sc-copper);
+  outline-offset: 2px;
+}
+
+.sc-catalog-search__results {
+  min-width: 0;
+  border: 1px solid var(--sc-border);
+  background: var(--sc-surface);
+}
+
+.sc-catalog-search__empty,
+.sc-catalog-search__more {
+  margin: 0;
+  padding: 0.75rem 0.875rem;
+  font-size: 0.875rem;
+  color: var(--sc-muted);
+}
+
+.sc-catalog-search__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sc-catalog-search__result {
+  display: block;
+  min-width: 0;
+  padding: 0.75rem 0.875rem;
+  border-top: 1px solid var(--sc-border);
+  text-decoration: none;
+  color: inherit;
+}
+
+.sc-catalog-search__list li:first-child .sc-catalog-search__result {
+  border-top: 0;
+}
+
+.sc-catalog-search__result:hover {
+  background: var(--sc-bg);
+}
+
+.sc-catalog-search__result:focus-visible {
+  outline: 2px solid var(--sc-copper);
+  outline-offset: -2px;
+}
+
+.sc-catalog-search__result-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.sc-catalog-search__result-title {
+  margin: 0;
+  min-width: 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--sc-text);
+  word-break: break-word;
+}
+
+.sc-catalog-search__result-desc {
+  margin: 0.35rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--sc-muted);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.sc-catalog-search__result-meta {
+  margin: 0.35rem 0 0;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  color: var(--sc-navy, #1e3a5f);
+  word-break: break-word;
+}
+
+.sc-catalog-search__badge {
+  flex-shrink: 0;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.sc-catalog-search__badge--free {
+  color: var(--sc-muted);
+}
+
+.sc-catalog-search__badge--premium {
+  color: var(--sc-copper);
+}
+
+.sc-catalog-search__badge--neutral {
+  color: var(--sc-muted);
+}
+
+.sc-home-hybrid__catalog-search {
+  margin-top: 1rem;
+  max-width: 36rem;
+}
+
 /* ── Page canvas — theme fill, no white viewport gutters ── */
 .sc-app-main,
 .sc-pro-page,

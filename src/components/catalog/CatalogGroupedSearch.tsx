@@ -1,0 +1,108 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import {
+  CATALOG_SEARCH_MAX_RESULTS,
+  filterCatalogSearchEntries,
+  type CatalogSearchEntry,
+  type CatalogSearchTier,
+} from "@/lib/catalog/catalog-search";
+import type { CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
+
+export type CatalogGroupedSearchScope = CategoryExplorerVariant | "homepage";
+
+type CatalogGroupedSearchProps = {
+  entries: readonly CatalogSearchEntry[];
+  scope: CatalogGroupedSearchScope;
+  className?: string;
+};
+
+function useDebouncedValue<T>(value: T, delayMs: number): T {
+  const [debounced, setDebounced] = useState(value);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setDebounced(value), delayMs);
+    return () => window.clearTimeout(timer);
+  }, [value, delayMs]);
+
+  return debounced;
+}
+
+function tierBadgeClass(tier: CatalogSearchTier): string {
+  if (tier === "premium") {
+    return "sc-catalog-search__badge sc-catalog-search__badge--premium";
+  }
+  if (tier === "free") {
+    return "sc-catalog-search__badge sc-catalog-search__badge--free";
+  }
+  return "sc-catalog-search__badge sc-catalog-search__badge--neutral";
+}
+
+export function CatalogGroupedSearch({ entries, scope, className }: CatalogGroupedSearchProps) {
+  const t = useTranslations("catalogExplorer.search");
+  const [query, setQuery] = useState("");
+  const debouncedQuery = useDebouncedValue(query, 120);
+
+  const result = useMemo(
+    () => filterCatalogSearchEntries(entries, debouncedQuery, CATALOG_SEARCH_MAX_RESULTS),
+    [entries, debouncedQuery]
+  );
+
+  const showResults = debouncedQuery.trim().length >= 1;
+  const listId = `catalog-search-results-${scope}`;
+
+  return (
+    <div className={`sc-catalog-search min-w-0${className ? ` ${className}` : ""}`}>
+      <label className="sc-catalog-search__field">
+        <span className="sr-only">{t("label")}</span>
+        <input
+          type="search"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder={t(`placeholder.${scope}`)}
+          className="sc-catalog-search__input"
+          autoComplete="off"
+          enterKeyHint="search"
+          aria-controls={showResults ? listId : undefined}
+        />
+      </label>
+
+      {showResults ? (
+        <div className="sc-catalog-search__results" id={listId} role="region" aria-live="polite">
+          {result.totalMatches === 0 ? (
+            <p className="sc-catalog-search__empty">{t("noResults")}</p>
+          ) : (
+            <>
+              <ul className="sc-catalog-search__list">
+                {result.visible.map((entry) => (
+                  <li key={`${entry.href}-${entry.title}`} className="min-w-0">
+                    <Link href={entry.href} prefetch={false} className="sc-catalog-search__result">
+                      <div className="sc-catalog-search__result-head">
+                        <p className="sc-catalog-search__result-title">{entry.title}</p>
+                        {entry.tier === "free" || entry.tier === "premium" ? (
+                          <span className={tierBadgeClass(entry.tier)}>
+                            {entry.tier === "premium" ? t("badgePremium") : t("badgeFree")}
+                          </span>
+                        ) : null}
+                      </div>
+                      <p className="sc-catalog-search__result-desc">{entry.description}</p>
+                      <p className="sc-catalog-search__result-meta">
+                        {entry.groupLabel}
+                        {entry.meta ? ` · ${entry.meta}` : ""}
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              {result.hiddenCount > 0 ? (
+                <p className="sc-catalog-search__more">{t("moreResults", { count: result.hiddenCount })}</p>
+              ) : null}
+            </>
+          )}
+        </div>
+      ) : null}
+    </div>
+  );
+}

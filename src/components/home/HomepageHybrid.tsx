@@ -1,10 +1,12 @@
 import { HomepageCampaignStrip } from "@/components/campaign/HomepageCampaignStrip";
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
+import { HomepageCatalogSearch } from "@/components/home/HomepageCatalogSearch";
 import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import { ProductScreenMockup } from "@/components/ui/ProductScreenMockup";
 import { Container } from "@/components/ui/Container";
 import { getHomepageSectorAreaCount } from "@/lib/home/homepage-stats";
+import type { CatalogSearchEntry } from "@/lib/catalog/catalog-search";
 
 const SCENARIO_IDS = ["cnc", "route", "energy", "food"] as const;
 const MEASURE_IDS = ["money", "material", "time", "energy"] as const;
@@ -37,7 +39,11 @@ const PLATFORM_CATEGORY_HREFS = [
   { id: "healthcare", href: "/categories" },
 ] as const;
 
-export async function HomepageHybrid() {
+type HomepageHybridProps = {
+  catalogSearchEntries?: readonly CatalogSearchEntry[];
+};
+
+export async function HomepageHybrid({ catalogSearchEntries = [] }: HomepageHybridProps) {
   const t = await getTranslations("homepageHybrid");
   const sectorAreaCount = getHomepageSectorAreaCount();
 
@@ -59,6 +65,9 @@ export async function HomepageHybrid() {
                 {t("hero.subtitleLine2")}
               </p>
               <p className="sc-home-hybrid__supporting">{t("hero.supporting")}</p>
+              {catalogSearchEntries.length > 0 ? (
+                <HomepageCatalogSearch entries={catalogSearchEntries} />
+              ) : null}
               <div className="sc-pro-hero-compact__actions">
                 <Link href="/categories" className="sc-cta-primary">
                   {t("hero.ctaPrimary")}
