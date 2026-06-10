@@ -132,12 +132,13 @@ export function DynamicSmartFormPilot({
 
   return (
     <form
-      onSubmit={handleSubmit}
-      className="sc-dynamic-smart-form sc-smart-form-pilot sc-ledger-panel sc-industrial-panel sc-ledger-letterpress"
+      onSubmit={onSubmit}
+      className="sc-form-shell sc-dynamic-smart-form sc-smart-form-pilot sc-ledger-panel sc-industrial-panel sc-ledger-letterpress"
       noValidate
       data-smart-form-slug={slug}
       data-smart-form-mode={mode}
       data-smart-form-scenario={scenarioId}
+      data-calculation-form="true"
     >
       <div className="sc-smart-form-controls">
         <div className="sc-smart-form-scenario min-w-0">

@@ -63,7 +63,13 @@ export function SmartFormWorkspace({
     Boolean(onSubmit);
 
   const formContent = useAdapter ? (
-    <form onSubmit={onSubmit} className="space-y-4" noValidate data-smart-form-adapter="true">
+    <form
+      onSubmit={onSubmit}
+      className="sc-form-shell sc-ledger-cetele-form space-y-4"
+      noValidate
+      data-smart-form-adapter="true"
+      data-calculation-form="true"
+    >
       <SmartFormFieldsRenderer
         sections={adapter.simpleSections}
         values={values}

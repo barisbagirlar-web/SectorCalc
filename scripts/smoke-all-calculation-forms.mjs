@@ -51,16 +51,18 @@ async function auditRoute(path, kind) {
   const result = await fetchRouteWithRetry(path);
   const body = result.body ?? "";
   const fatals = checkFatalMarkers(body, result.status);
+  const bodyTooShort = body.length > 0 && body.length < 500;
   const formMarker = hasFormMarker(body, kind);
   const hardGate = kind === "premium" ? hasHardGate(body) : false;
   const ok =
     result.ok &&
     result.status === 200 &&
     fatals.length === 0 &&
+    !bodyTooShort &&
     formMarker &&
     !hardGate;
 
-  return { ...result, fatals, formMarker, hardGate, ok };
+  return { ...result, fatals, bodyTooShort, formMarker, hardGate, ok };
 }
 
 async function main() {

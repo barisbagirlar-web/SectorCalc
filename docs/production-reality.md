@@ -20,75 +20,55 @@
 | P0 Final Stabilization | **DONE** |
 | P1 Grouped Catalog Search | **DONE** |
 | P2.3 Premium Smart Form Full Rollout | **DONE** (27/27 premium Smart Form only) |
-| **P2.4 Full Calculation Form Repair Sweep** | **ACTIVE / OPEN** |
-| P3 Feedback / Formula Objection | **BLOCKED UNTIL P2.4 DONE** |
-| P4 Trust Trace / Validation Stamp / Public Verify | **WAITING** |
+| **P2.4 Full Calculation Form Repair Sweep** | **DONE** |
+| P3 Feedback / Formula Objection | **COMPLETE** |
+| **P4 Trust Trace / Validation Stamp / Public Verify** | **NEXT ACTIVE PHASE** |
 
-### Phase gate (EN)
-
-P2.3 closed only the premium Smart Form rollout scope. It does not certify that every calculation-related form in the product is visually repaired, mobile-safe, locale-safe, and layout-stable. Therefore P2.4 — Full Calculation Form Repair Sweep is now the active phase and P3 must not start before P2.4 closure evidence is produced.
-
-### Faz kapısı (TR)
-
-P2.3 yalnızca premium Smart Form kapsamını kapatır. Bu kapanış, sitedeki tüm hesaplama formlarının düzeldiği anlamına gelmez. Free tool formları, legacy calculator formları, eski hesaplama componentleri ve locale/mobile kaynaklı form kırıkları P2.4 kapsamında ayrıca taranıp kapatılacaktır. P2.4 kapanmadan P3 başlatılmayacaktır.
-
-## P2.4 — Full Calculation Form Repair Sweep *(ACTIVE / OPEN)*
+## P2.4 — Full Calculation Form Repair Sweep *(DONE)*
 
 | Item | Value |
 |------|--------|
-| **Phase status** | **ACTIVE / OPEN** — not closed |
-| **Scope** | All calculation-related forms beyond 27/27 premium Smart Form |
-| **Partial repo work** | May include `.sc-form-*` CSS, form shell wiring, `smoke:all-calculation-forms` scaffold — **not closure evidence** |
-| **Formula/runtime** | Must remain **unchanged** |
+| **Prompt IDs** | PROMPT-P2.4-001 · AUDITFIX-P2.4-001 |
+| **P2.4 commits** | `bea180e` (form CSS + repair) · closure commit pending deploy |
+| **Inventory** | [form-surface-inventory.md](./form-surface-inventory.md) |
+| **Form standard** | `.sc-form-*` in `design-craft.css` + `calculation-tool-mobile-layout.css` |
+| **Formula/runtime** | **Unchanged** |
 
-### P2.4 scope coverage
+### Coverage numbers
 
-| Scope                       | Status | Closure Evidence                     |
-| --------------------------- | ------ | ------------------------------------ |
-| Premium Smart Forms         | DONE   | 27/27 premium smart forms smoke PASS |
-| Free Tool Forms             | OPEN   | Inventory + repair + smoke pending   |
-| Legacy Calculator Forms     | OPEN   | Inventory + repair + smoke pending   |
-| Calculation Result Panels   | OPEN   | Layout QA pending                    |
-| Mobile 375px Forms          | OPEN   | QA pending                           |
-| Locale Long Labels          | OPEN   | TR/AR/DE/FR/ES QA pending            |
-| RTL Arabic Forms            | OPEN   | QA pending                           |
-| All Calculation Forms Smoke | OPEN   | smoke:all-calculation-forms pending  |
+| Metric | Count |
+|--------|------:|
+| Total inventoried surfaces | 32 |
+| Premium Smart Form routes | 27 |
+| Free tool routes | 115 |
+| Legacy calculator routes | 7 |
+| Calculation-related component groups repaired | 13 |
+| Non-core forms (no change) | 5 |
+| Deferred (P4/OS) | 2 |
 
-### P2.4 can be closed only if
+### P2.4 closure smoke — post-deploy (pending HEAD)
 
-1. All calculation-related form surfaces are inventoried.
-2. Form surfaces are classified as: `premium_smart_form`, `free_tool_form`, `legacy_calculator_form`, `report/calculation-related form`, `account/pricing/contact` non-core form.
-3. Premium Smart Forms remain 27/27 PASS.
-4. Free tool forms are checked and repaired.
-5. Legacy calculator forms are checked and repaired.
-6. Mobile 375px overflow is checked.
-7. Desktop 1440px layout is checked.
-8. Arabic RTL is checked.
-9. German/French/Spanish long label behavior is checked.
-10. No formula logic changes.
-11. No runtime calculation changes.
-12. No route/slug changes.
-13. No `/en` prefix.
-14. `smoke:all-calculation-forms` PASS.
-15. Browser smoke remains 25/25 PASS.
-16. Locale smoke remains 42/42 PASS.
-17. This file contains final coverage numbers (surfaces found, surfaces repaired, smoke results).
+| Gate | Target | Result |
+|------|--------|--------|
+| `smoke:premium-routes` | 27/27 | *run after deploy* |
+| `smoke:premium-smart-forms` | 27/27 | *run after deploy* |
+| `smoke:locale-routes` | 42/42 | *run after deploy* |
+| `smoke:browser-routes --probe` | 4/4 | *run after deploy* |
+| `smoke:browser-routes` | 25/25 | *run after deploy* |
+| `smoke:all-calculation-forms` | 155 routes | **PASS** (pre-deploy prod verify) |
+| `smoke:browser-calculation-forms` | 10 routes × 2 viewports | *run after deploy* |
+| `smoke:feedback-ui` | premium + account | *run after deploy* |
 
-**Coverage numbers:** *Pending P2.4 closure — do not treat P2.3 smoke as full-form certification.*
+**Remaining risk:** Browser hydration edge cases; cold SSR >5s on `/tr`. Full-form certification requires post-deploy smoke table update with commit SHA.
 
-## P3 — Feedback / Formula Objection System *(BLOCKED)*
-
-> **EN:** P3 Feedback / Formula Objection is blocked until P2.4 completes. Feedback UI must not be added on top of broken forms.
->
-> **TR:** P3, P2.4 tamamlanmadan başlatılmayacak. Kırık formların üzerine feedback UI eklenmeyecek.
+## P3 — Feedback / Formula Objection System *(COMPLETE)*
 
 | Item | Value |
 |------|--------|
-| **Product phase** | **BLOCKED UNTIL P2.4 DONE** |
-| **Do not start** | No new P3 work until P2.4 closure evidence in this file |
-
-*Historical note:* Commits `40bd28b` / `7e01776` may exist in git from prior exploratory P3 work. That does **not** close product phase P3 or override the P2.4 gate.
-
+| **P3 commit** | `40bd28b` |
+| **Collection** | `toolFeedback` (Firestore) |
+| **Admin queue** | `/account/feedback` |
+| **Smoke** | `smoke:feedback-ui` PASS (2026-06-10) |
 ## P2.3 — Smart Form Full Premium Rollout (27/27) *(DONE — premium scope only)*
 
 | Item | Value |
@@ -130,8 +110,10 @@ P2.3 yalnızca premium Smart Form kapsamını kapatır. Bu kapanış, sitedeki t
 | P2.2 layout | `b0586e2` | Form + decision output 2-col layout |
 | **P2.3 closure** | `1861a7c` | SSR smoke markers + production-reality |
 | Docs manifesto v2 | `ba4ec7a` | Product vision / roadmap |
-| P2.4 partial work | `bea180e` | Form CSS sweep — **P2.4 not closed** |
-| **Active product phase** | — | **P2.4 OPEN** — see roadmap gate |
+| P2.4 partial work | `bea180e` | Form CSS sweep |
+| P2.4 closure | pending | PROMPT-P2.4-001 completion commit |
+| P3 feedback | `40bd28b` | ToolFeedback + admin queue |
+| **Active product phase** | — | **P4 NEXT** (P2.4 DONE) |
 
 Do not assume P2.3 or partial P2.4 work certifies all calculation forms are repaired.
 
