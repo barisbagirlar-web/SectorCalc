@@ -7,8 +7,20 @@ import {
 import { CASE_STUDY_REPRESENTATIVE_LABEL } from "@/lib/case-studies/case-study-types";
 
 describe("case study registry", () => {
-  test("includes eight representative sector scenarios", () => {
-    expect(listCaseStudies()).toHaveLength(8);
+  test("includes eleven representative sector scenarios", () => {
+    expect(listCaseStudies()).toHaveLength(11);
+  });
+
+  test("covers the named premium proof tools", () => {
+    const toolSlugs = new Set(listCaseStudies().map((entry) => entry.toolSlug));
+    for (const slug of [
+      "cnc-quote-risk-analyzer",
+      "change-order-impact-analyzer",
+      "energy-efficiency-report",
+      "cbam-compliance-verdict",
+    ]) {
+      expect(toolSlugs.has(slug)).toBe(true);
+    }
   });
 
   test("every entry is labeled representative scenario", () => {

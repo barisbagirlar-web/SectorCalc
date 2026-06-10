@@ -11,7 +11,10 @@ export type CaseStudySector =
   | "sheet-metal"
   | "cleaning"
   | "restaurant"
-  | "ecommerce";
+  | "ecommerce"
+  | "construction"
+  | "energy"
+  | "sustainability";
 
 export type CaseStudyLossType =
   | "material_scrap"
@@ -21,7 +24,8 @@ export type CaseStudyLossType =
   | "food_waste"
   | "return_erosion"
   | "energy_demand"
-  | "margin_leak";
+  | "margin_leak"
+  | "carbon_cost";
 
 export type CaseStudyScenarioKind = "representative_scenario";
 

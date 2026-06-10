@@ -169,6 +169,76 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     assumptions: [CASE_STUDY_REPRESENTATIVE_LABEL],
     disclaimer: CASE_STUDY_DISCLAIMER,
   },
+  {
+    slug: "representative-change-order-impact",
+    sector: "construction",
+    sectorLabel: "Construction",
+    title: "Representative change order scenario",
+    scenarioKind: "representative_scenario",
+    problem:
+      "Change orders are approved on scope alone; schedule disruption, re-mobilization, and margin dilution are not priced in.",
+    toolSlug: "change-order-impact-analyzer",
+    toolTitle: "Change Order Impact Analyzer",
+    inputSummary: [
+      "Original contract value, change order value",
+      "Added days, crew size, daily burn",
+      "Target margin",
+    ],
+    calculationLogic:
+      "Direct change cost loaded with schedule-disruption and re-mobilization buffers; net margin impact vs target band.",
+    lossType: "schedule_delay",
+    lossTypeLabel: "Schedule disruption leak",
+    suggestedAction: "Reprice the change order if net margin falls below the target floor.",
+    expectedImpact: "Modeled margin dilution range from delay exposure — illustrative only.",
+    assumptions: ["User-provided schedule and burn rate", CASE_STUDY_REPRESENTATIVE_LABEL],
+    disclaimer: CASE_STUDY_DISCLAIMER,
+  },
+  {
+    slug: "representative-energy-efficiency",
+    sector: "energy",
+    sectorLabel: "Energy",
+    title: "Representative energy efficiency scenario",
+    scenarioKind: "representative_scenario",
+    problem:
+      "Facilities track energy spend but not avoidable demand from idle load, off-spec operation, and peak tariff exposure.",
+    toolSlug: "energy-efficiency-report",
+    toolTitle: "Energy Efficiency Report",
+    inputSummary: [
+      "Baseline consumption, tariff, peak share",
+      "Idle load %, target reduction",
+    ],
+    calculationLogic:
+      "Baseline demand split into avoidable vs structural load; indicative savings band against reference intensity.",
+    lossType: "energy_demand",
+    lossTypeLabel: "Avoidable energy demand",
+    suggestedAction: "Prioritize the highest avoidable-demand drivers before capital upgrades.",
+    expectedImpact: "Estimated annual energy cost exposure range — representative only.",
+    assumptions: ["Tariff and consumption as entered", CASE_STUDY_REPRESENTATIVE_LABEL],
+    disclaimer: CASE_STUDY_DISCLAIMER,
+  },
+  {
+    slug: "representative-cbam-compliance",
+    sector: "sustainability",
+    sectorLabel: "Sustainability / Compliance",
+    title: "Representative CBAM exposure scenario",
+    scenarioKind: "representative_scenario",
+    problem:
+      "Exporters price product cost but overlook embedded-carbon cost exposure under carbon border mechanisms.",
+    toolSlug: "cbam-compliance-verdict",
+    toolTitle: "CBAM Compliance Verdict",
+    inputSummary: [
+      "Product tonnage, embedded emissions factor",
+      "Carbon price, exported volume",
+    ],
+    calculationLogic:
+      "Embedded-carbon cost estimate from tonnage × emissions factor × carbon price; exposure verdict vs margin.",
+    lossType: "carbon_cost",
+    lossTypeLabel: "Embedded carbon cost exposure",
+    suggestedAction: "Factor embedded-carbon cost into export pricing before committing volumes.",
+    expectedImpact: "Indicative carbon cost exposure range — not a regulatory determination.",
+    assumptions: ["Emissions factor and carbon price as entered", CASE_STUDY_REPRESENTATIVE_LABEL],
+    disclaimer: CASE_STUDY_DISCLAIMER,
+  },
 ];
 
 export function listCaseStudies(): readonly CaseStudyEntry[] {
