@@ -18,7 +18,7 @@
 | Item | Value |
 |------|--------|
 | **P2.3 code commit** | `5c4e528` — Roll out smart forms to all premium tools |
-| **P2.3 SSR smoke marker commit** | *(see HEAD after closure commit)* |
+| **P2.3 closure commit** | `1861a7c` — SSR smoke markers + production-reality |
 | **Layout commit** | `b0586e2` — Smart Form layout stabilization |
 | **Public preview commit** | `39311e6` — Premium public preview gate fix |
 | **Registry** | `src/lib/smart-form/premium-smart-form-definitions.ts` (27 slugs) |
@@ -28,16 +28,17 @@
 | **Hard auth gate** | **Removed** from premium tool pages — public preview + Pro-locked actions |
 | **Locales** | EN root + `/tr` `/ar` `/de` `/fr` `/es` — `smartForm.tools.*` for 27 tools |
 
-### P2.3 closure smoke results *(post-deploy — update timestamps after each run)*
+### P2.3 closure smoke results — 2026-06-10 post-deploy (`1861a7c`)
 
 | Gate | Target | Result |
 |------|--------|--------|
-| `smoke:premium-routes` | 27/27 HTTP 200 | *(run post-deploy)* |
-| `smoke:premium-smart-forms` | 27/27 markers + no hard gate | *(run post-deploy)* |
-| `smoke:locale-routes` | 42/42 HTTP 200 | *(run post-deploy)* |
-| `smoke:browser-routes --probe` | 4/4 | *(run post-deploy)* |
-| `smoke:browser-routes` | 25/25 | *(run post-deploy)* |
-| Cloud Run `minInstances=1` | `ssrsectorcalcbf412` us-central1 | *(apply post-deploy)* |
+| `smoke:premium-routes` | 27/27 HTTP 200 | **PASS** |
+| `smoke:premium-smart-forms` | 27/27 markers + no hard gate | **PASS** |
+| `smoke:locale-routes` | 42/42 HTTP 200 | **PASS** |
+| `smoke:browser-routes --probe` | 4/4 | **PASS** |
+| `smoke:browser-routes` | 25/25 | **PASS** |
+| Cloud Run `minInstances=1` | `ssrsectorcalcbf412` us-central1 | **APPLIED** (revision `ssrsectorcalcbf412-00266-hv9`) |
+| Firebase Hosting deploy | `sectorcalc-bf412` | **PASS** |
 
 **SSR audit markers** (curl smoke): `src/app/[locale]/tools/premium/[slug]/page.tsx` emits `data-smart-form-shell="true"` and `data-premium-access-mode="public-preview"` for all 27 Smart Form slugs in static HTML (client shell hydrates full UI).
 
@@ -51,9 +52,9 @@
 | P2 Smart Form pilot | `ba8139e` | 3-tool dynamic form |
 | P2.1 public preview | `39311e6` | No hard sign-in gate on premium pages |
 | P2.2 layout | `b0586e2` | Form + decision output 2-col layout |
-| **P2.3 rollout** | `5c4e528` | 27/27 Smart Form registry + runtime compatibility |
+| **P2.3 closure** | `1861a7c` | SSR smoke markers + production-reality |
 | Docs manifesto v2 | `ba4ec7a` | Product vision / roadmap |
-| **Current HEAD** | *(git rev-parse --short HEAD)* | Verify before deploy claims |
+| **Current HEAD** | `1861a7c` | P2.3 production closure |
 
 Do not assume reverted WIP is live unless current git confirms it.
 
@@ -137,7 +138,7 @@ gcloud run services update ssrsectorcalcbf412 \
 
 ## Next Allowed Work
 
-1. ~~P2.3 Smart Form 27/27~~ *(closure pending smoke PASS)*
+1. ~~P2.3 Smart Form 27/27~~ **DONE** (2026-06-10)
 2. **P3 — Feedback / Formula Objection System**
 3. P4 Trust Trace / Public Verify
 4. P5 Regional Unit Engine
