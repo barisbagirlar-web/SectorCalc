@@ -1,12 +1,14 @@
+import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { SITE } from "@/config/site";
-import { TrustTraceLabyrinthSeal } from "@/components/layout/footer/TrustTraceLabyrinthSeal";
 
 type FooterTrustTraceProps = {
   readonly title: string;
   readonly linkLabel: string;
   readonly subtext: string;
 };
+
+const VERIFY_QR_SRC = "/img/trust-trace/verify-qr.png";
 
 function TrustTraceCheckIcon() {
   return (
@@ -29,11 +31,23 @@ function TrustTraceCheckIcon() {
   );
 }
 
-function TrustTraceLabyrinthMark() {
+function TrustTraceVerifyQr({ label }: { readonly label: string }) {
   return (
-    <div className="verify-report-box__mark verify-report-box__mark--labyrinth" aria-hidden>
-      <TrustTraceLabyrinthSeal />
-    </div>
+    <Link
+      href="/verify"
+      prefetch={false}
+      aria-label={label}
+      className="verify-report-box__mark verify-report-box__mark--qr"
+    >
+      <Image
+        src={VERIFY_QR_SRC}
+        alt={label}
+        width={400}
+        height={400}
+        unoptimized
+        className="verify-report-box__qr-img"
+      />
+    </Link>
   );
 }
 
@@ -42,7 +56,7 @@ export function FooterTrustTrace({ title, linkLabel, subtext }: FooterTrustTrace
 
   return (
     <section className="verify-report-box" aria-labelledby="footer-trust-trace-heading">
-      <TrustTraceLabyrinthMark />
+      <TrustTraceVerifyQr label={linkLabel} />
       <div className="verify-report-box__copy">
         <div className="verify-report-box__label">
           <TrustTraceCheckIcon />
