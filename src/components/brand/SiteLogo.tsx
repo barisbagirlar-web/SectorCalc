@@ -28,20 +28,10 @@ export function SiteLogo({
       aria-label="SectorCalc home"
     >
       <Image
-        src={BRAND_ASSETS.favicon.master}
-        alt=""
-        width={40}
-        height={40}
-        priority={priority}
-        unoptimized
-        className="sc-site-logo__mark"
-        aria-hidden
-      />
-      <Image
         src={wordmark}
         alt="SectorCalc"
-        width={160}
-        height={42}
+        width={BRAND_ASSETS.logo.width}
+        height={BRAND_ASSETS.logo.height}
         priority={priority}
         unoptimized
         className="site-logo__img sc-site-logo__wordmark"

@@ -95,7 +95,7 @@ export function EnterpriseFooter() {
             <ul className="footer-link-list">
               {PRODUCT_LINKS.map((item) => (
                 <li key={item.key}>
-                  <Link href={item.href} className="footer-link">
+                  <Link href={item.href} prefetch={false} className="footer-link">
                     {t(`product.${item.key}`)}
                   </Link>
                 </li>
@@ -107,13 +107,13 @@ export function EnterpriseFooter() {
             <ul className="footer-link-list">
               {SECTOR_LINKS.map((item) => (
                 <li key={item.key}>
-                  <Link href={item.href} className="footer-link">
+                  <Link href={item.href} prefetch={false} className="footer-link">
                     {t(`sectors.${item.key}`)}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/industries" className="footer-link">
+                <Link href="/industries" prefetch={false} className="footer-link">
                   {t("allSectors")}
                 </Link>
               </li>
@@ -124,7 +124,7 @@ export function EnterpriseFooter() {
             <ul className="footer-link-list">
               {COMPANY_LINKS.map((item) => (
                 <li key={item.key}>
-                  <Link href={item.href} className="footer-link">
+                  <Link href={item.href} prefetch={false} className="footer-link">
                     {t(`company.${item.key}`)}
                   </Link>
                 </li>
@@ -136,7 +136,7 @@ export function EnterpriseFooter() {
             <ul className="footer-link-list">
               {TRUST_LEGAL_LINKS.map((item) => (
                 <li key={item.key}>
-                  <Link href={item.href} className="footer-link">
+                  <Link href={item.href} prefetch={false} className="footer-link">
                     {t(`compliance.${item.key}`)}
                   </Link>
                 </li>
@@ -148,7 +148,7 @@ export function EnterpriseFooter() {
             <ul className="footer-link-list">
               {AUTHORITY_LINKS.map((item) => (
                 <li key={item.key}>
-                  <Link href={item.href} className="footer-link">
+                  <Link href={item.href} prefetch={false} className="footer-link">
                     {t(`authority.${item.key}`)}
                   </Link>
                 </li>
