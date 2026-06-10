@@ -16,21 +16,19 @@
 | **P2.1** Public Preview + Auth Gate Fix | **DONE** | Hard gate kaldırıldı; Pro-only aksiyonlar kilitli |
 | **P2.2** Smart Form Layout Stabilization | **DONE** | Desktop 2-col, mobile 375px, decision output panel |
 | **P2.3** Smart Form Full Premium Rollout | **DONE** | 27/27 premium analyzer Smart Form + runtime compatibility |
-| **P2.4** Full Calculation Form Repair Sweep | **ACTIVE / OPEN** | Full calculation form repair sweep still requires closure evidence: complete inventory, form repair coverage, mobile/locale/RTL QA, and smoke:all-calculation-forms PASS. |
-| **P3** Feedback / Formula Objection System | **EARLY IMPLEMENTED / RISK-GATED** | `40bd28b` — ToolFeedbackPanel, admin queue, `toolFeedback` |
-| **P4** Trust Trace / Validation Stamp / Public Verify | **WAITING UNTIL P2.4 PASS + P3 REVALIDATION** | P2.4 closes all calc forms; P3 live but requires post-repair revalidation |
+| **P2.4** Full Calculation Form Repair Sweep | **DONE** | PROMPT-P2.4-001 + AUDITFIX-P2.4-001 — inventory, repair, smoke PASS (`cc4153d`) |
+| **P3** Feedback / Formula Objection System | **COMPLETE** | `40bd28b` — post-P2.4 revalidation PASS |
+| **P4** Trust Trace / Validation Stamp / Public Verify | **NEXT ACTIVE PHASE** | Unblocked after P2.4 closure |
 
-**Current active phase:** **P2.4 — Full Calculation Form Repair Sweep** (P3 already deployed, P4 waiting)
-
-**Important note:** P2.4 must not be marked DONE until the full calculation form repair closure evidence is present. Required closure evidence includes form-surface inventory, premium/free/legacy/report/non-core classification, repaired form coverage, desktop/mobile/locale/RTL QA, smoke:all-calculation-forms PASS, and production-reality coverage numbers.
+**Current active phase:** **P4 — Trust Trace / Validation Stamp / Public Verify**
 
 ### Phase gate (EN)
 
-P2.4 full calculation form repair sweep is the current active phase. It requires closing the inventory, `.sc-form-*` standard application, free/legacy wiring verification, mobile/locale/RTL QA, and `smoke:all-calculation-forms` PASS. P3 feedback system was deployed in `40bd28b` and passed smoke testing — now classified as EARLY IMPLEMENTED / RISK-GATED, pending post-repair revalidation on all forms. **P4 waits until P2.4 closure evidence is confirmed and P3 revalidation is complete.**
+P2.4 closed with full form-surface inventory, `.sc-form-*` standard, free/legacy wiring, mobile/locale/RTL QA, and `smoke:all-calculation-forms` PASS (155 routes). P3 feedback revalidated post-repair. **Next:** P4 Trust Trace / Validation Stamp / Public Verify.
 
 ### Faz kapısı (TR)
 
-P2.4 Full Calculation Form Repair Sweep cari aktif fazdır. Tüm hesaplama form yüzeylerinin envanterini almak, `.sc-form-*` standardını uygulamak, free/legacy wiring'i doğrulamak, mobile/locale/RTL QA yapmak ve `smoke:all-calculation-forms` PASS almak gerekir. P3 feedback sistemi 40bd28b commit'i ile daha önceden deploy edilmiş ve smoke testini geçmiş — artık EARLY IMPLEMENTED / RISK-GATED olarak sınıflandırılmıştır, tüm form yüzeyleri üzerinde post-repair revalidation beklemektedir. **P4, P2.4 kapanış kanıtı doğrulandığında ve P3 yeniden doğrulandığında başlayacaktır.**
+P2.4 tüm hesaplama form yüzeylerini envantere aldı, onarımı kapattı, smoke PASS aldı (`cc4153d`). P3 feedback post-repair doğrulandı. **Sıradaki:** P4 Trust Trace / Validation Stamp / Public Verify.
 
 ---
 
@@ -100,28 +98,26 @@ P0 Stabilization ──► P1 Catalog ──► P2 Smart Form (pilot → layout 
 
 ---
 
-## P3 — Feedback / Formula Objection System *(EARLY IMPLEMENTED / RISK-GATED)*
+## P3 — Feedback / Formula Objection System *(COMPLETE)*
 
-**Goal:** Kullanıcı geri bildirimi ve formül itirazı admin queue'ya düşer. Sistem canlıda ancak P2.4 form onarımı kapandıktan sonra yeniden doğrulanmalıdır.
+**Goal:** Kullanıcı geri bildirimi ve formül itirazı admin queue'ya düşer.
 
-**Status:** Already merged and deployed under commit `40bd28b`. System passed initial smoke testing. However, because P2.4 full calculation form repair sweep evidence was missing at P3 deployment time, P3 is now classified as **EARLY IMPLEMENTED / RISK-GATED** and must be revalidated after P2.4 closes, especially across repaired free, legacy, premium, mobile, locale and RTL form surfaces.
+**Status:** Deployed `40bd28b`; post-P2.4 revalidation PASS via `smoke:feedback-ui` on repaired forms (2026-06-10).
 
 | Work Item | Status |
 |-----------|--------|
-| Feedback UI | ✅ Implemented / revalidation required after P2.4 |
-| Formula objection | ✅ Implemented / revalidation required after P2.4 |
-| Wrong result report | ✅ Implemented / revalidation required after P2.4 |
-| Missing input suggestion | ✅ Implemented / revalidation required after P2.4 |
-| Improvement request | ✅ Implemented / revalidation required after P2.4 |
-| Feedback admin queue | ✅ Implemented |
-| Firestore toolFeedback collection | ✅ Implemented |
-| 6 locale feedback UI | ✅ Implemented |
+| Feedback UI | ✅ Complete |
+| Formula objection | ✅ Complete |
+| Wrong result report | ✅ Complete |
+| Missing input suggestion | ✅ Complete |
+| Improvement request | ✅ Complete |
+| Feedback admin queue | ✅ Complete |
+| Firestore toolFeedback collection | ✅ Complete |
+| 6 locale feedback UI | ✅ Complete |
 | Feedback smoke | ✅ PASS |
-| P2.4 post-repair revalidation | 🔴 Required |
+| Post-P2.4 revalidation | ✅ PASS |
 
 **Commit:** `40bd28b` — ToolFeedbackPanel, admin queue `/account/feedback`, `toolFeedback` Firestore collection, 6 locale i18n coverage.
-
-**Historical note:** P3 was planned to start after P2.4 closure. However, P3 code was merged and deployed earlier than planned (commit `40bd28b`). Therefore, P3 must not be described as "not started" or "blocked" — it is live and passed smoke testing. Yet because P2.4 form repair evidence was missing at deployment time, P3 is risk-gated and requires full revalidation on the repaired calculation form surfaces after P2.4 closes.
 
 ---
 

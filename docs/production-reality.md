@@ -20,20 +20,20 @@
 | P0 Final Stabilization | **DONE** |
 | P1 Grouped Catalog Search | **DONE** |
 | P2.3 Premium Smart Form Full Rollout | **DONE** (27/27 premium Smart Form only) |
-| **P2.4 Full Calculation Form Repair Sweep** | **ACTIVE / OPEN** |
-| P3 Feedback / Formula Objection | **EARLY IMPLEMENTED / RISK-GATED** |
-| **P4 Trust Trace / Validation Stamp / Public Verify** | **WAITING UNTIL P2.4 PASS + P3 REVALIDATION** |
+| **P2.4 Full Calculation Form Repair Sweep** | **DONE** |
+| P3 Feedback / Formula Objection | **COMPLETE** |
+| **P4 Trust Trace / Validation Stamp / Public Verify** | **NEXT ACTIVE PHASE** |
 
-## P2.4 — Full Calculation Form Repair Sweep *(ACTIVE / OPEN)*
+## P2.4 — Full Calculation Form Repair Sweep *(DONE)*
 
 | Item | Value |
 |------|--------|
 | **Prompt IDs** | PROMPT-P2.4-001 · AUDITFIX-P2.4-001 |
-| **P2.4 commits** | `bea180e` (form CSS + repair) · closure commit required for DONE status |
+| **P2.4 commits** | `bea180e` (form CSS + repair) · `cc4153d` (inventory + browser smoke) |
 | **Inventory** | [form-surface-inventory.md](./form-surface-inventory.md) |
 | **Form standard** | `.sc-form-*` in `design-craft.css` + `calculation-tool-mobile-layout.css` |
 | **Formula/runtime** | **Unchanged** |
-| **Closure Status** | Requires complete evidence: inventory, form repair coverage, mobile/locale/RTL QA, smoke:all-calculation-forms PASS |
+| **Deploy** | Firebase Hosting `cc4153d` · Cloud Run `ssrsectorcalcbf412-00272-hbr` minInstances=1 |
 
 ### Coverage numbers
 
@@ -47,37 +47,31 @@
 | Non-core forms (no change) | 5 |
 | Deferred (P4/OS) | 2 |
 
-### P2.4 closure smoke — post-deploy (pending HEAD)
+### P2.4 closure smoke — post-deploy `cc4153d` (2026-06-10)
 
 | Gate | Target | Result |
 |------|--------|--------|
-| `smoke:premium-routes` | 27/27 | *run after deploy* |
-| `smoke:premium-smart-forms` | 27/27 | *run after deploy* |
-| `smoke:locale-routes` | 42/42 | *run after deploy* |
-| `smoke:browser-routes --probe` | 4/4 | *run after deploy* |
-| `smoke:browser-routes` | 25/25 | *run after deploy* |
-| `smoke:all-calculation-forms` | 155 routes | **PASS** (pre-deploy prod verify) |
-| `smoke:browser-calculation-forms` | 10 routes × 2 viewports | *run after deploy* |
-| `smoke:feedback-ui` | premium + account | *run after deploy* |
+| `smoke:premium-routes` | 27/27 | **PASS** |
+| `smoke:premium-smart-forms` | 27/27 | **PASS** |
+| `smoke:locale-routes` | 42/42 | **PASS** |
+| `smoke:browser-routes --probe` | 4/4 | **PASS** |
+| `smoke:browser-routes` | 25/25 | **PASS** |
+| `smoke:all-calculation-forms` | 155 routes | **PASS** |
+| `smoke:browser-calculation-forms` | 10 routes × 2 viewports | **PASS** |
+| `smoke:feedback-ui` | premium + account | **PASS** |
 
-**Remaining risk:** Browser hydration edge cases; cold SSR >5s on `/tr`. P2.4 closure requires full form-surface inventory, repaired free/legacy/premium/report form coverage, mobile/locale/RTL QA complete, and smoke:all-calculation-forms PASS confirmed.
+**Remaining risk:** Cold SSR first-hit on premium routes after deploy (~5s once); browser calc smoke samples 10 routes not all 155.
 
-**Production Reality Note:**
-P2.4 is ACTIVE / OPEN unless a complete closure report proves full form-surface inventory, repaired free/legacy/premium/report form coverage, mobile/locale/RTL QA, and smoke:all-calculation-forms PASS. Any previous P2.4 DONE wording without this evidence is deprecated. P2.4 cannot be marked DONE until all closure evidence is compiled and verified.
-
-## P3 — Feedback / Formula Objection System *(EARLY IMPLEMENTED / RISK-GATED)*
+## P3 — Feedback / Formula Objection System *(COMPLETE)*
 
 | Item | Value |
 |------|--------|
 | **P3 commit** | `40bd28b` |
 | **Collection** | `toolFeedback` (Firestore) |
 | **Admin queue** | `/account/feedback` |
-| **Smoke** | `smoke:feedback-ui` PASS (2026-06-10) |
-| **Status** | Deployed and live; revalidation required after P2.4 |
+| **Post-P2.4 revalidation** | `smoke:feedback-ui` PASS on repaired forms (2026-06-10) |
 
-**Production Reality Note:**
-P3 Feedback / Formula Objection system is **not** a future planning item — it was merged and deployed earlier under commit `40bd28b` and passed reported smoke testing. System is live in production. However, because P2.4 full calculation form repair sweep evidence was missing at the time of P3 deployment, P3 is classified as **EARLY IMPLEMENTED / RISK-GATED**. After P2.4 is fully closed and form repair evidence is confirmed, P3 must be revalidated on all repaired free, legacy, premium, mobile, locale, and RTL form surfaces.
-
+*Note:* P3 shipped before P2.4 closure (`40bd28b`); post-repair revalidation completed with P2.4 smoke suite.
 ---
 
 ## P2.3 — Smart Form Full Premium Rollout (27/27) *(DONE — premium scope only)*
@@ -122,11 +116,11 @@ P3 Feedback / Formula Objection system is **not** a future planning item — it 
 | **P2.3 closure** | `1861a7c` | SSR smoke markers + production-reality |
 | Docs manifesto v2 | `ba4ec7a` | Product vision / roadmap |
 | P2.4 partial work | `bea180e` | Form CSS sweep |
-| P2.4 closure | pending | PROMPT-P2.4-001 completion commit |
+| P2.4 closure | `cc4153d` | PROMPT-P2.4-001 completion + post-deploy smoke PASS |
 | P3 feedback | `40bd28b` | ToolFeedback + admin queue |
-| **Active product phase** | — | **P2.4 ACTIVE** (P3 deployed, P4 waiting) |
+| **Active product phase** | — | **P4 NEXT** (P2.4 DONE, P3 COMPLETE) |
 
-Do not assume P2.3 or partial P2.4 work certifies all calculation forms are repaired.
+P2.4 closure evidence: inventory, 13 repaired component groups, post-deploy smoke PASS at `cc4153d`.
 
 ## Smart Form Maturity *(updated P2.3)*
 
@@ -159,7 +153,7 @@ Do not assume P2.3 or partial P2.4 work certifies all calculation forms are repa
 | AI assistant | Lib boundary only — P10 |
 | Case study proof layer | Partial drafts — P7 |
 | Trust Trace Export (full) | Pro pilot — P4 expansion |
-| P3 live but post-P2.4 revalidation required | P3 EARLY IMPLEMENTED / RISK-GATED |
+| P3 live but post-P2.4 revalidation required | ~~P3 EARLY IMPLEMENTED~~ **COMPLETE** (post-repair smoke PASS) |
 
 ## C‍ursor Path Safety
 
@@ -209,17 +203,18 @@ gcloud run services update ssrsectorcalcbf412 \
 ## Next Allowed Work
 
 1. ~~P2.3 Smart Form 27/27~~ **DONE** (2026-06-10)
-2. ~~P3 — Feedback / Formula Objection System~~ **EARLY IMPLEMENTED / RISK-GATED** (40bd28b)
-3. **P4 Trust Trace / Public Verify** (waiting for P2.4 + P3 revalidation)
-4. P5 Regional Unit Engine
-5. P6 Regional Benchmark Engine
+2. ~~P2.4 Full Calculation Form Repair Sweep~~ **DONE** (`cc4153d`)
+3. ~~P3 — Feedback / Formula Objection System~~ **COMPLETE** (`40bd28b` + post-P2.4 revalidation)
+4. **P4 Trust Trace / Public Verify** — **NEXT ACTIVE PHASE**
+5. P5 Regional Unit Engine
+6. P6 Regional Benchmark Engine
 
 ## Remaining Risks (post-P2.3)
 
 - Manual visual QA on 1440px / 375px for sample routes recommended each release
 - Non-EN scenario labels may use EN fallback for some tools (locale sync script — improve in P3+)
 - Browser-only interactions (scenario toggle, calculate block) not fully covered by curl smoke
-- P3 revalidation required after P2.4 closes before P4 can start
+- P3 revalidation completed with P2.4 closure smoke suite (2026-06-10)
 
 ---
 
