@@ -85,10 +85,6 @@ export async function HomepageHybrid({ catalogSearchEntries = [] }: HomepageHybr
 
       <hr className="sc-ledger-separator" />
 
-      <HomepageCredibilitySection />
-
-      <hr className="sc-ledger-separator" />
-
       {/* 2. Positioning */}
       <section className="sc-home-hybrid__section" aria-labelledby="positioning-heading">
         <Container className="sc-pro-container">
@@ -323,6 +319,10 @@ export async function HomepageHybrid({ catalogSearchEntries = [] }: HomepageHybr
           </div>
         </Container>
       </section>
+
+      <hr className="sc-ledger-separator" />
+
+      <HomepageCredibilitySection />
 
       <hr className="sc-ledger-separator" />
 

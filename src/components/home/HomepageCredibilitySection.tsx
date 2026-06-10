@@ -3,6 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 
 const REFERENCE_LOGO_PATH = "/img/home/industry-reference-logos.png";
+const REFERENCE_LOGO_WIDTH = 1024;
+const REFERENCE_LOGO_HEIGHT = 571;
 
 const REFERENCE_NAMES = [
   "Bosch",
@@ -34,54 +36,42 @@ export async function HomepageCredibilitySection() {
   const t = await getTranslations("homepageHybrid");
 
   return (
-    <>
-      <section
-        className="sc-home-hybrid__references"
-        aria-labelledby="home-references-heading"
-      >
-        <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+    <section
+      className="sc-home-hybrid__credibility sc-home-hybrid__section sc-home-hybrid__section--alt"
+      aria-labelledby="home-about-heading"
+    >
+      <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+        <div className="sc-home-hybrid__about-inner">
+          <p className="sc-pro-eyebrow sc-home-hybrid__about-eyebrow">
+            {t("aboutUs.eyebrow")}
+          </p>
+          <h2 id="home-about-heading" className="sc-home-hybrid__about-punchline">
+            {t("aboutUs.punchline")}
+          </h2>
+          <p className="sc-home-hybrid__about-opening">{t("aboutUs.opening")}</p>
+          <p className="sc-home-hybrid__about-body">{t("aboutUs.body")}</p>
+        </div>
+
+        <div className="sc-home-hybrid__references" aria-labelledby="home-references-heading">
           <p id="home-references-heading" className="sc-home-hybrid__references-eyebrow">
             {t("references.eyebrow")}
           </p>
           <figure className="sc-home-hybrid__references-figure">
             <Image
               src={REFERENCE_LOGO_PATH}
-              alt=""
-              width={1200}
-              height={720}
+              alt={t("references.imageAlt")}
+              width={REFERENCE_LOGO_WIDTH}
+              height={REFERENCE_LOGO_HEIGHT}
               className="sc-home-hybrid__references-img"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 92vw, 1100px"
-              priority={false}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 92vw, 960px"
+              unoptimized
             />
             <figcaption className="sr-only">
               {t("references.ariaLabel")}: {REFERENCE_NAMES.join(", ")}
             </figcaption>
           </figure>
-        </Container>
-      </section>
-
-      <hr className="sc-ledger-separator" />
-
-      <section
-        className="sc-home-hybrid__about"
-        aria-labelledby="home-about-heading"
-      >
-        <Container className="sc-pro-container">
-          <div className="sc-home-hybrid__about-inner">
-            <p className="sc-pro-eyebrow sc-home-hybrid__about-eyebrow">
-              {t("aboutUs.eyebrow")}
-            </p>
-            <h2 id="home-about-heading" className="sr-only">
-              {t("aboutUs.eyebrow")}
-            </h2>
-            <p className="sc-home-hybrid__about-opening">{t("aboutUs.opening")}</p>
-            <p className="sc-home-hybrid__about-question">{t("aboutUs.question")}</p>
-            <p className="sc-home-hybrid__about-punchline">{t("aboutUs.punchline")}</p>
-            <p className="sc-home-hybrid__about-body">{t("aboutUs.mission")}</p>
-            <p className="sc-home-hybrid__about-body">{t("aboutUs.vision")}</p>
-          </div>
-        </Container>
-      </section>
-    </>
+        </div>
+      </Container>
+    </section>
   );
 }
