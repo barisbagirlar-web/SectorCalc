@@ -13,6 +13,7 @@ import {
 } from "./smoke-utils.mjs";
 
 const SMART_FORM_MARKER = 'data-smart-form-shell="true"';
+const PUBLIC_PREVIEW_MARKER = 'data-premium-access-mode="public-preview"';
 const HARD_GATE_MARKERS = [
   "Sign in to check SectorCalc Pro access",
   "Sign in required to use this analyzer",
@@ -45,6 +46,21 @@ async function main() {
     const body = result.body ?? "";
     if (!body.includes(SMART_FORM_MARKER)) {
       failures.push({ path, reason: "missing Smart Form shell marker" });
+      continue;
+    }
+
+    if (!body.includes(PUBLIC_PREVIEW_MARKER)) {
+      failures.push({ path, reason: "missing public preview access mode marker" });
+      continue;
+    }
+
+    if (body.includes("Application error") || body.includes("__next_error__")) {
+      failures.push({ path, reason: "fatal application error marker in body" });
+      continue;
+    }
+
+    if (body.length < 1500) {
+      failures.push({ path, reason: `body too short (${body.length} bytes)` });
       continue;
     }
 

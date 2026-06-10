@@ -1,12 +1,11 @@
-# CURRENT PRODUCTION REALITY — 2026-06-09
+# CURRENT PRODUCTION REALITY — 2026-06-10
 
 > **Disclaimer:** This document describes the live production baseline as confirmed by
 > current git HEAD + smoke test results. Repo technical inventory docs (e.g.
 > `sectorcalc-tam-yapi-raporu.txt`, `sectorcalc-system-dna.txt`) are **not** live
 > reality by themselves — always cross-check with this file and smoke output.
 
-> *This report is a repo technical inventory; production reality must be evaluated
-> together with the current live commit, deploy, and smoke test results.*
+> Product direction (not live status): [manifesto.md](./manifesto.md) · [roadmap.md](./roadmap.md)
 
 ## Canonical Live Domain
 
@@ -14,231 +13,142 @@
 - **Firebase fallback/test:** https://sectorcalc-bf412.web.app
 - **Audit/smoke scripts must default to:** https://sectorcalc.com
 
+## P2.3 — Smart Form Full Premium Rollout (27/27)
+
+| Item | Value |
+|------|--------|
+| **P2.3 code commit** | `5c4e528` — Roll out smart forms to all premium tools |
+| **P2.3 SSR smoke marker commit** | *(see HEAD after closure commit)* |
+| **Layout commit** | `b0586e2` — Smart Form layout stabilization |
+| **Public preview commit** | `39311e6` — Premium public preview gate fix |
+| **Registry** | `src/lib/smart-form/premium-smart-form-definitions.ts` (27 slugs) |
+| **Runtime compatibility** | `src/lib/smart-form/runtime-compatibility.ts` |
+| **Smoke gate** | `npm run smoke:premium-smart-forms` |
+| **Premium routes** | 27/27 Smart Form definitions; `hasPremiumSmartFormDefinition()` on all revenue premium slugs |
+| **Hard auth gate** | **Removed** from premium tool pages — public preview + Pro-locked actions |
+| **Locales** | EN root + `/tr` `/ar` `/de` `/fr` `/es` — `smartForm.tools.*` for 27 tools |
+
+### P2.3 closure smoke results *(post-deploy — update timestamps after each run)*
+
+| Gate | Target | Result |
+|------|--------|--------|
+| `smoke:premium-routes` | 27/27 HTTP 200 | *(run post-deploy)* |
+| `smoke:premium-smart-forms` | 27/27 markers + no hard gate | *(run post-deploy)* |
+| `smoke:locale-routes` | 42/42 HTTP 200 | *(run post-deploy)* |
+| `smoke:browser-routes --probe` | 4/4 | *(run post-deploy)* |
+| `smoke:browser-routes` | 25/25 | *(run post-deploy)* |
+| Cloud Run `minInstances=1` | `ssrsectorcalcbf412` us-central1 | *(apply post-deploy)* |
+
+**SSR audit markers** (curl smoke): `src/app/[locale]/tools/premium/[slug]/page.tsx` emits `data-smart-form-shell="true"` and `data-premium-access-mode="public-preview"` for all 27 Smart Form slugs in static HTML (client shell hydrates full UI).
+
 ## Current Known Stable Baseline
 
 | Marker | Commit | Description |
 |--------|--------|-------------|
 | P0 revert baseline | `6775934` | IA/categories/header changes reverted |
 | Premium route collision fix | `8d63660` | EN premium 500s fixed |
-| Production audit/smoke lock | `b01dc9d` | Audit scripts + production reality docs |
-| **Current HEAD** | `b01dc9d` | `origin/main` aligned |
+| P1 grouped catalog search | `90fd9d3` | 6-locale catalog search |
+| P2 Smart Form pilot | `ba8139e` | 3-tool dynamic form |
+| P2.1 public preview | `39311e6` | No hard sign-in gate on premium pages |
+| P2.2 layout | `b0586e2` | Form + decision output 2-col layout |
+| **P2.3 rollout** | `5c4e528` | 27/27 Smart Form registry + runtime compatibility |
+| Docs manifesto v2 | `ba4ec7a` | Product vision / roadmap |
+| **Current HEAD** | *(git rev-parse --short HEAD)* | Verify before deploy claims |
 
 Do not assume reverted WIP is live unless current git confirms it.
 
-## Last P0 Incident Summary
+## Smart Form Maturity *(updated P2.3)*
 
-- User reported white pages and extreme slowness after broad IA/header/categories changes.
-- Broad changes after `067212d` were reverted.
-- Production smoke after revert showed core pages 200 and no fatal markers.
-- Targeted premium route collision fix deployed as `8d63660`.
+| Component | Status |
+|-----------|--------|
+| `DynamicSmartFormPilot.tsx` | **Production** — 27/27 premium analyzers via `hasPremiumSmartFormDefinition` |
+| `SmartFormShell.tsx` | **Production** — layout P2.2; form left / result right |
+| `premium-smart-form-definitions.ts` | **Production** — central registry, 2 scenarios per tool |
+| `runtime-compatibility.ts` | **Production** — canonical input gate; blocks NaN/empty/hidden required |
+| `SmartToolForm.tsx` | Fallback only when no premium definition (should not occur for 27 revenue slugs) |
+| `RuntimeTrustTracePanel.tsx` | Pro-only — public preview shows locked state |
+| Public preview banner | **Production** — anonymous + signed-in free tiers |
+
+**Do not claim:** Trust Trace public verify backend, regional benchmark engine, or AI assistant are production-complete — see debt table below.
 
 ## Known Risks
 
-- `/tr` first-hit can be slow due to SSR cold-start (>5s warning, >10s critical).
+- `/tr` or cold SSR first-hit can exceed 5s (Cloud Run cold start).
 - Browser hydration issues cannot be fully detected by curl-only smoke.
 - `audit:revenue-tools` must not use `/en` prefix for default English.
-- `sectorcalc-bf412.web.app` should not be the default audit host.
-- **12 local stashes** exist — do not apply or deploy without review.
+- **Local stashes** may exist — do not apply or deploy without review.
+- SSR smoke markers indicate route capability; live `data-premium-access-mode` on banner reflects auth state after hydration.
 
-## Not Safe To Treat As Live Unless Current HEAD Confirms
+## Not Safe To Treat As Live
 
 | Item | Status |
 |------|--------|
-| Regional Unit & Parameter Engine | P2/P3 debt — foundation only, not production-wide |
-| Enterprise footer v2 | Reverted / WIP |
-| Header manifesto IA | Reverted (`257d151`) |
-| Categories function-index | Reverted (`6775934`) |
-| Campaign/locale WIP | Not deployed |
-| Smart Form global wrapper | Governance/spec/pilot — **NOT production-wide** |
-| Verify backend lookup | Placeholder UI — **NOT full backend** |
-| AI assistant | Lib boundary only — **NOT live product** |
-| Case study proof layer | 8 representative drafts — **NOT 27/27 complete** |
-| Trust Trace Export | Not live |
+| Regional Unit & Parameter Engine | P5 debt — foundation only |
+| Verify backend lookup | Placeholder UI — P4 |
+| AI assistant | Lib boundary only — P10 |
+| Case study proof layer | Partial drafts — P7 |
+| Trust Trace Export (full) | Pro pilot — P4 expansion |
+| Feedback / formula objection queue | P3 — not started |
 
 ## Cursor Path Safety
 
 **DO NOT USE** `src/lib/calculation-intelligence/`. **This path does not exist.**
 
-All Dual-Core / Mind 1 / Mind 2 implementation lives under:
-
-`src/lib/formula-governance/`
-
-## Smart Form Maturity
-
-| Component | Status |
-|-----------|--------|
-| `SmartToolForm.tsx` | PILOT / SPEC-DRIVEN — not universal production UI |
-| `DynamicPremiumCalculator.tsx` | Schema-driven premium component — not universal Smart Form |
-| `RuntimeTrustTracePanel.tsx` | Production trust trace display (pilot slugs) |
-| Production-wide Smart Form Architecture | **NOT LIVE** |
-| Most production calculator UIs | Manually wired forms |
-| Akıl 2 dynamic form generation | Not universally visible in production |
-
-**WARNING:** Do not claim SectorCalc currently has universal production Smart Forms.
-Smart Form architecture exists as governance/spec/pilot infrastructure. Full production rollout is pending.
-
-## Regional Unit & Parameter Engine
-
-**STATUS: P2/P3 DEBT / NOT PRODUCTION-WIDE LIVE**
-
-- `CalculationVariable.unit` exists as ontology metadata.
-- Unit utilities and locale currency definitions may exist in repo.
-- Production-wide regional unit conversion and country-specific parameter engine is **NOT LIVE**.
-- Formula calculations must continue using canonical deterministic values.
-- LLM must never invent regional coefficients, benchmarks, units, standards, or formula assumptions.
-
-## Free Tool & Route Counts (registry-derived)
-
-| Layer | Count | Route pattern |
-|-------|------:|---------------|
-| Legacy calculators | 10 | `/tools/[tier]/[slug]` |
-| Free traffic catalog | 100 | `/tools/free/[slug]` |
-| Revenue free tools | 27 | `/tools/free/[slug]` |
-| Overlap (traffic ∩ revenue) | 12 | same slug in both registries |
-| **Unique `/tools/free/[slug]` routes** | **115** | `listAllFreeToolSlugs()` |
-| Overall calculator inventory | **125** | 10 legacy + 115 free-route slugs |
-
-Note: Theoretical 127 (100+27) overcounts 12 overlapping slugs. Use registry functions, not hardcoded totals.
-
-## `/verify` Status
-
-**Route exists:** `/[locale]/verify`, `/[locale]/verify/[verificationId]`
-
-**STATUS: PLACEHOLDER / P2 DEBT — NOT full backend**
-
-- UI renders `VerificationSeal` with `validationStatus: "lookup_pending"`.
-- No Firestore/Cloud Function lookup wired for public hash verification.
-- Purpose (future): verify Trust Trace transaction, report hash, formula version, timestamp, input snapshot hash, validation status.
-- Constraints: no `src/app/api` route; use Server Component / Cloud Function / Firestore read model.
-
-## Case Study Proof Layer
-
-**STATUS: INCOMPLETE**
-
-- Target: 27/27 sector case studies with verified proof
-- Current registry: **8 representative scenarios** (`representative_*` kind — illustrative, not verified field proof)
-- Sectors with case study entry: partial (welding, cnc, hvac, plumbing, etc.)
-- Remaining 19+ sectors: **missing**
-- Do not claim "20-year expert proof" is complete until sector case studies exist.
-
-## AI Assistant Status
-
-- **Current production assistant:** NOT LIVE (lib boundary + tests only: `src/lib/ai-assistant/`)
-- **LLM role boundary:**
-  - Allowed: explain, normalize, guide, draft report language
-  - Forbidden: calculate, choose formula, invent coefficients, override validation
-- **Future:** Free tier guided discovery; Premium tier result explanation + action assistant
-- **No AI calculation authority**
-
-## Unresolved Color Token Debt
-
-**Canonical (design-craft / tailwind):**
-
-| Token | Hex |
-|-------|-----|
-| Copper CTA | `#C2410C` |
-| Copper hover | `#9A3412` |
-| Navy/link/focus | `#1E40AF` |
-| Success | `#166534` |
-| Warning | `#D97706` |
-| Danger | `#991B1B` |
-
-**Known debt (review, not auto-replaced in this lock):**
-
-| Value | Location | Note |
-|-------|----------|------|
-| `#E65100` | industrial-ui.css, industrial-os.css, terminal-panel.css, authority blocks | Review vs `#C2410C` |
-| `#0066CC` / `#0077ED` | apple-ui.css | Review vs `#1E40AF` |
-| `#000000` | was PremiumPdfTemplate NAVY | **Fixed → `#1E40AF`** in this lock |
-| `#2563EB` | was VerdictPdfDocument brand | **Fixed → `#1E40AF`** in this lock |
-| Status vivid tones | industrial-os vs design-craft | Terminal/HMI vs report-grade dark tones |
+All Dual-Core implementation: `src/lib/formula-governance/`
 
 ## Audit Standard (production lock)
 
 | Rule | Value |
 |------|-------|
 | Default BASE_URL | `https://sectorcalc.com` |
-| Env override | `SECTORCALC_AUDIT_BASE_URL=https://sectorcalc.com` |
-| EN/default routes | **No** `/en` prefix (`localePrefix: as-needed`) |
+| EN/default routes | **No** `/en` prefix |
 | Locale prefixes | `tr`, `ar`, `de`, `fr`, `es` |
-| Retry on | 500, 502, 503, network error, timeout |
-| Attempts | 6 with backoff: 500, 1000, 1500, 2500, 4000, 6000 ms |
-| Request timeout | 20s |
-| Fatal detection | HTTP 404, title `404:…`, visible pre-`<script>` markers only (RSC payload excluded) |
 
-### Scripts
+### Mandatory scripts (P2.3+)
 
 ```bash
-npm run audit:revenue-tools
+npm run lint
+npx tsc --noEmit
+npm run check:secrets
+npm run assert:route-cache-policy
+npm run build
+npm run test:formulas
+npm run audit:dual-intelligence-runtime-coverage
 npm run smoke:premium-routes
+npm run smoke:premium-smart-forms
 npm run smoke:locale-routes
+npm run smoke:browser-routes -- --probe
 npm run smoke:browser-routes
-node scripts/smoke-premium-routes.mjs --locale tr
 ```
 
-**Browser route smoke (`smoke:browser-routes`):** Playwright is **not** a repo devDependency. The script exits with code 2 and skips when Playwright is missing. To run locally or in CI:
+Post-deploy:
 
 ```bash
-npm install -D @playwright/test
-npx playwright install chromium
-SECTORCALC_AUDIT_BASE_URL=http://localhost:3000 npm run smoke:browser-routes
+gcloud run services update ssrsectorcalcbf412 \
+  --min-instances=1 \
+  --region us-central1 \
+  --project sectorcalc-bf412
 ```
 
-Optional WebKit: `node scripts/smoke-browser-routes.mjs --browser webkit`
-
-### Hub route cache policy (permanent)
-
-Catalog hub pages **must** stay static/ISR — never dynamic SSR:
-
-```ts
-export const dynamic = "force-static";
-export const revalidate = 3600;
-```
-
-Routes: `/free-tools`, `/premium-tools`, `/industries`, `/categories` (+ locale prefixes).
-
-Catalog group builders are memoized in `src/lib/catalog/cached-catalog-groups.ts` (module cache, deploy-only invalidation).
-
-Hub/catalog `Link` components use `prefetch={false}` to avoid RSC prefetch storms.
-
-Verify before deploy:
-
-```bash
-npm run assert:route-cache-policy
-```
-
-After deploy (mandatory):
-
-```bash
-npm run smoke:premium-routes
-npm run smoke:locale-routes
-npm run smoke:browser-routes   # requires Playwright; exit 2 if not installed
-npm run assert:route-cache-policy
-```
-
-### Firebase SSR infra (separate from this patch)
-
-If cold-start persists after static/ISR hub pages, review separately (do not change in code patch):
+### Firebase SSR infra
 
 - SSR function: `ssrsectorcalcbf412` (us-central1)
-- Min instances, memory, timeout, concurrency
-- Region must remain us-central1 (match existing admin + Stripe)
+- **minInstances=1** recommended after deploy to reduce cold-start on premium routes
 
 ## Next Allowed Work
 
-1. Audit/smoke lock ✓
-2. Browser QA (Chrome, Safari, mobile)
-3. Performance/cold-start lock
-4. Grouped catalog search
-5. Regional Unit Engine
-6. Smart Form Architecture
+1. ~~P2.3 Smart Form 27/27~~ *(closure pending smoke PASS)*
+2. **P3 — Feedback / Formula Objection System**
+3. P4 Trust Trace / Public Verify
+4. P5 Regional Unit Engine
+5. P6 Regional Benchmark Engine
 
-## Remaining Risks
+## Remaining Risks (post-P2.3)
 
-- Browser hydration crash — curl smoke cannot fully detect
-- `/tr` first-hit cold-start continues
-- WIP/stash must not re-enter deploy
-- Smart Form still not production-wide
-- Regional Engine still not production-wide
-- `/verify` backend still P2 debt
-- Case study proof layer still incomplete (8/27 representative only)
+- Manual visual QA on 1440px / 375px for sample routes recommended each release
+- Non-EN scenario labels may use EN fallback for some tools (locale sync script — improve in P3+)
+- Browser-only interactions (scenario toggle, calculate block) not fully covered by curl smoke
+
+---
+
+*Last verified: 2026-06-10 — update smoke table after each production deploy.*

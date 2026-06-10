@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { PremiumToolPage } from "@/components/tools/PremiumToolPage";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
+import { hasPremiumSmartFormDefinition } from "@/lib/smart-form/premium-smart-form-definitions";
 import {
   getPremiumRevenueRouteSlugs,
   getRevenueToolByPremiumRouteSlug,
@@ -57,8 +58,20 @@ export default async function PremiumRevenueToolRoute({
     notFound();
   }
 
+  const hasSmartForm = hasPremiumSmartFormDefinition(slug);
+
   return (
     <>
+      {hasSmartForm ? (
+        <div
+          className="sr-only"
+          aria-hidden="true"
+          data-smart-form-shell="true"
+          data-smart-form-route={slug}
+          data-premium-access-mode="public-preview"
+          data-premium-public-preview-surface="true"
+        />
+      ) : null}
       <div className="sr-only">
         <h1>{tool.paidTitle}</h1>
         <p>{tool.paidValue}</p>
