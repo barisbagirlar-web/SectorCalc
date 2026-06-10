@@ -95,6 +95,18 @@ service cloud.firestore {
 
       allow update, delete: if false;
     }
+
+    // Approved calculation reports (Trust Trace / Validation Stamp)
+    // Writes are performed server-side via Admin SDK only.
+    // Public read is allowed for the /verify endpoint (public_verify visibility).
+    // Private fields (userEmail, userId) must be stripped before returning to public callers.
+    match /approvedReports/{reportId} {
+      // Public read: any issued/revoked report with public_verify visibility
+      allow read: if resource.data.visibility == 'public_verify';
+
+      // Client writes are forbidden — Admin SDK only
+      allow create, update, delete: if false;
+    }
   }
 }
 
