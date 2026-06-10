@@ -34,9 +34,6 @@ export function LocaleSwitcher({ className = "" }: { className?: string }) {
 
   return (
     <label className={`apple-locale language-selector ${className}`.trim()}>
-      <span className="language-selector__icon" aria-hidden>
-        🌐
-      </span>
       <span className="sr-only">{t("label")}</span>
       <select
         value={locale}

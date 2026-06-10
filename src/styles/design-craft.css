@@ -1244,6 +1244,17 @@
   display: none;
 }
 
+.sc-header-locale-group .language-selector--region.apple-header__region-trigger {
+  gap: 0.5rem;
+  padding-inline: 0.75rem 0.625rem;
+}
+
+.sc-header-locale-group .language-selector--region .apple-header__globe-icon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--sc-muted, rgb(0 0 0 / 0.62));
+}
+
 .sc-header-locale-group .language-selector__select {
   min-width: 0;
   max-width: 6.5rem;

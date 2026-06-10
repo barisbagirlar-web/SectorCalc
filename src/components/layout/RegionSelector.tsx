@@ -10,6 +10,17 @@ import {
 import { readManualRegionCookie, setManualRegion } from "@/lib/compliance/region-client";
 import { useRegion } from "@/lib/compliance/region-context";
 
+function HeaderGlobeIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="apple-header__globe-icon">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3a15 15 0 0 1 0 18" />
+      <path d="M12 3a15 15 0 0 0 0 18" />
+    </svg>
+  );
+}
+
 const REGION_OPTIONS: readonly { code: RegionCode | "auto"; labelKey: string }[] = [
   { code: "auto", labelKey: "auto" },
   { code: "EN", labelKey: "global" },
@@ -58,10 +69,10 @@ export function RegionSelector({ className = "" }: { className?: string }) {
   };
 
   return (
-    <label className={`apple-locale language-selector language-selector--region ${className}`.trim()}>
-      <span className="language-selector__icon" aria-hidden>
-        🌐
-      </span>
+    <label
+      className={`apple-locale language-selector language-selector--region apple-header__region-trigger ${className}`.trim()}
+    >
+      <HeaderGlobeIcon />
       <span className="sr-only">{t("label")}</span>
       <select
         value={selectValue}

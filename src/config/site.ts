@@ -32,13 +32,19 @@ export const SITE = {
  defaultCurrency: "USD" as const,
 } as const;
 
-/** Primary header nav — manifesto v2: Calculators → Industries → Case Studies → Pricing → Resources. */
-export const PRIMARY_HEADER_NAV = [
+/** Desktop header nav — Calculators → Industries → Pricing → Resources. */
+export const DESKTOP_HEADER_NAV = [
  { key: "calculators", href: "/free-tools" },
  { key: "industries", href: "/industries" },
- { key: "caseStudies", href: "/case-studies" },
  { key: "pricing", href: "/pricing" },
  { key: "resources", href: "/categories" },
+] as const;
+
+/** Mobile drawer nav — includes Case Studies (hidden on desktop header). */
+export const PRIMARY_HEADER_NAV = [
+ ...DESKTOP_HEADER_NAV.slice(0, 2),
+ { key: "caseStudies", href: "/case-studies" },
+ ...DESKTOP_HEADER_NAV.slice(2),
 ] as const;
 
 export const PUBLIC_NAV_ITEMS = [

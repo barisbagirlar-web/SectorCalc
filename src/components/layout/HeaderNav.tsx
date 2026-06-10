@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { PRIMARY_HEADER_NAV } from "@/config/site";
+import { DESKTOP_HEADER_NAV, PRIMARY_HEADER_NAV } from "@/config/site";
 import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { ActiveNavLink } from "@/components/layout/ActiveNavLink";
 
@@ -17,7 +17,7 @@ export function DesktopHeaderNav() {
   return (
     <nav id="main-navigation" aria-label="Main">
       <ul className="apple-nav__links">
-        {PRIMARY_HEADER_NAV.map((item) => (
+        {DESKTOP_HEADER_NAV.map((item) => (
           <li key={item.href}>
             <ActiveNavLink
               href={item.href}
