@@ -2500,5 +2500,44 @@
     "visibilityNote": "Rend visible les pertes cachées et enregistre la réalité terrain.",
     "trustTraceNote": "Les objections de formule améliorent les calculs vérifiés.",
     "formulaObjectionNote": "Dites-nous si cette formule ne correspond pas à votre réalité terrain."
+  },
+  "regionalUnits": {
+    "eyebrow": "Unités régionales",
+    "title": "Convertisseur d'unités et de mesures",
+    "subtitle": "Convertissez entre unités métriques, impériales et régionales. Affichage uniquement — vos résultats de calcul restent inchangés.",
+    "value": "Valeur",
+    "from": "De",
+    "to": "Vers",
+    "notConvertible": "Ces unités ne peuvent pas être converties directement.",
+    "conversionTrace": "Trace de conversion",
+    "canonicalNote": "Les valeurs sont normalisées vers une unité canonique avant toute comparaison.",
+    "region": {
+      "label": "Région",
+      "global": "Global",
+      "us": "États-Unis",
+      "uk": "Royaume-Uni",
+      "eu": "Europe",
+      "tr": "Turquie",
+      "mena": "MENA",
+      "latam": "Amérique latine"
+    },
+    "system": {
+      "label": "Système de mesure",
+      "metric": "Métrique",
+      "imperial": "Impérial",
+      "mixed": "Mixte"
+    },
+    "dimension": {
+      "label": "Grandeur",
+      "length": "Longueur",
+      "area": "Surface",
+      "volume": "Volume",
+      "weight": "Poids",
+      "temperature": "Température",
+      "speed": "Vitesse",
+      "energy": "Énergie",
+      "power": "Puissance",
+      "time": "Temps"
+    }
   }
 }

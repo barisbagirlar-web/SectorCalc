@@ -2537,5 +2537,44 @@
     "visibilityNote": "Kaçakları bulur ve mühürler — sahadaki farklılığı görünür kılar.",
     "trustTraceNote": "Formül itirazları doğrulanmış hesaplama standardını güçlendirir.",
     "formulaObjectionNote": "Bu formül sahadaki uygulamanıza uymuyorsa bize bildirin."
+  },
+  "regionalUnits": {
+    "eyebrow": "Bölgesel birimler",
+    "title": "Birim ve ölçü dönüştürücü",
+    "subtitle": "Metrik, imperial ve bölgesel birimler arasında dönüştürün. Yalnızca gösterim — hesaplama sonuçlarınız değişmez.",
+    "value": "Değer",
+    "from": "Kaynak",
+    "to": "Hedef",
+    "notConvertible": "Bu birimler doğrudan dönüştürülemez.",
+    "conversionTrace": "Dönüşüm izi",
+    "canonicalNote": "Değerler karşılaştırmadan önce kanonik birime normalize edilir.",
+    "region": {
+      "label": "Bölge",
+      "global": "Global",
+      "us": "Amerika Birleşik Devletleri",
+      "uk": "Birleşik Krallık",
+      "eu": "Avrupa",
+      "tr": "Türkiye",
+      "mena": "MENA",
+      "latam": "Latin Amerika"
+    },
+    "system": {
+      "label": "Ölçü sistemi",
+      "metric": "Metrik",
+      "imperial": "Imperial",
+      "mixed": "Karma"
+    },
+    "dimension": {
+      "label": "Büyüklük",
+      "length": "Uzunluk",
+      "area": "Alan",
+      "volume": "Hacim",
+      "weight": "Ağırlık",
+      "temperature": "Sıcaklık",
+      "speed": "Hız",
+      "energy": "Enerji",
+      "power": "Güç",
+      "time": "Süre"
+    }
   }
 }

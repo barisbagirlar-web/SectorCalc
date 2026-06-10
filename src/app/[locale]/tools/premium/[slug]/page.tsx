@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PremiumToolPage } from "@/components/tools/PremiumToolPage";
+import { RegionalUnitsSection } from "@/components/regional-units/RegionalUnitsSection";
+import { resolveRegionForLocale } from "@/lib/units/regional-unit-engine";
 import { Link } from "@/i18n/routing";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
@@ -89,6 +91,9 @@ export default async function PremiumRevenueToolRoute({
         <p>{tool.paidValue}</p>
       </div>
       <PremiumToolPage tool={tool} routeSlug={slug} />
+      <div className="mx-auto w-full max-w-5xl px-4 pb-10 sm:px-6">
+        <RegionalUnitsSection defaultRegion={resolveRegionForLocale(locale)} />
+      </div>
     </>
   );
 }

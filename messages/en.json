@@ -2537,5 +2537,44 @@
     "visibilityNote": "Surface hidden loss and record what the field actually shows.",
     "trustTraceNote": "Formula objections help improve verified calculations.",
     "formulaObjectionNote": "Tell us if this formula does not match your field reality."
+  },
+  "regionalUnits": {
+    "eyebrow": "Regional units",
+    "title": "Unit & measurement converter",
+    "subtitle": "Convert between metric, imperial and regional units. Display only — your calculation results are unchanged.",
+    "value": "Value",
+    "from": "From",
+    "to": "To",
+    "notConvertible": "These units cannot be converted directly.",
+    "conversionTrace": "Conversion trace",
+    "canonicalNote": "Values normalize to a canonical unit before any comparison.",
+    "region": {
+      "label": "Region",
+      "global": "Global",
+      "us": "United States",
+      "uk": "United Kingdom",
+      "eu": "Europe",
+      "tr": "Türkiye",
+      "mena": "MENA",
+      "latam": "Latin America"
+    },
+    "system": {
+      "label": "Measurement system",
+      "metric": "Metric",
+      "imperial": "Imperial",
+      "mixed": "Mixed"
+    },
+    "dimension": {
+      "label": "Quantity",
+      "length": "Length",
+      "area": "Area",
+      "volume": "Volume",
+      "weight": "Weight",
+      "temperature": "Temperature",
+      "speed": "Speed",
+      "energy": "Energy",
+      "power": "Power",
+      "time": "Time"
+    }
   }
 }

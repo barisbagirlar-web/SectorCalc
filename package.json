@@ -29,6 +29,7 @@
     "smoke:browser-calculation-forms": "node scripts/smoke-browser-calculation-forms.mjs",
     "smoke:approved-reports": "node scripts/smoke-approved-reports.mjs",
     "smoke:verify-report": "node scripts/smoke-verify-report.mjs",
+    "smoke:regional-units": "node scripts/smoke-regional-units.mjs",
     "assert:route-cache-policy": "node scripts/assert-route-cache-policy.mjs",
     "audit:formulas": "npx tsx scripts/audit-formulas.ts",
     "audit:alignment": "npx tsx scripts/audit-alignment.ts",
