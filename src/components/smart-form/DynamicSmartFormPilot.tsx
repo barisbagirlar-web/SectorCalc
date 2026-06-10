@@ -6,9 +6,13 @@ import { SmartFormModeToggle } from "@/components/smart-form/SmartFormModeToggle
 import { SmartFormRequirementNotice } from "@/components/smart-form/SmartFormRequirementNotice";
 import { SmartInputField } from "@/components/smart-form/SmartInputField";
 import type { SmartFormMode } from "@/lib/smart-form/dynamic-form-types";
-import { isDynamicSmartFormPilotSlug } from "@/lib/smart-form/dynamic-form-types";
+import {
+  getDefaultScenarioId,
+  getPremiumSmartFormDefinition,
+  hasPremiumSmartFormDefinition,
+} from "@/lib/smart-form/premium-smart-form-definitions";
 import { getRequiredInputs, getVisibleInputs } from "@/lib/smart-form/requirements";
-import { getDefaultScenarioId, getSmartFormDefinition } from "@/lib/smart-form/scenarios";
+import { validateSmartFormRuntimeCompatibility } from "@/lib/smart-form/runtime-compatibility";
 import { validateSmartForm } from "@/lib/smart-form/validation";
 import type { SmartFormRawValues } from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
 
@@ -49,7 +53,7 @@ export function DynamicSmartFormPilot({
   isCalculating = false,
 }: DynamicSmartFormPilotProps) {
   const t = useTranslations("smartForm");
-  const definition = useMemo(() => getSmartFormDefinition(slug), [slug]);
+  const definition = useMemo(() => getPremiumSmartFormDefinition(slug), [slug]);
   const [mode, setMode] = useState<SmartFormMode>("simple");
   const [scenarioId, setScenarioId] = useState(() => getDefaultScenarioId(slug));
 
@@ -96,14 +100,21 @@ export function DynamicSmartFormPilot({
     return next;
   }, [errors, validation, definition, t]);
 
-  const isValid = validation?.ok ?? false;
+  const runtimeCompatibility = useMemo(() => {
+    if (!definition) {
+      return null;
+    }
+    return validateSmartFormRuntimeCompatibility(slug, definition, values as Record<string, unknown>, mode, scenarioId);
+  }, [definition, slug, values, mode, scenarioId]);
+
+  const isValid = (validation?.ok ?? false) && (runtimeCompatibility?.ok ?? false);
   const activeScenario = definition?.scenarios.find((scenario) => scenario.id === scenarioId);
 
   useEffect(() => {
     onValidationChange?.(isValid);
   }, [isValid, onValidationChange]);
 
-  if (!definition || !isDynamicSmartFormPilotSlug(slug)) {
+  if (!definition || !hasPremiumSmartFormDefinition(slug)) {
     return (
       <div className="sc-industrial-panel p-4" role="alert">
         <p className="text-sm text-crit-red">{t("notices.calculationBlocked")}</p>

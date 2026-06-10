@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { getRequiredInputs, getVisibleInputs } from "@/lib/smart-form/requirements";
-import { getSmartFormDefinition } from "@/lib/smart-form/scenarios";
+import { getSmartFormDefinition } from "@/lib/smart-form/premium-smart-form-definitions";
 import { validateSmartForm } from "@/lib/smart-form/validation";
 
 describe("dynamic smart form requirements", () => {

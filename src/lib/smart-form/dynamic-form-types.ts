@@ -66,6 +66,7 @@ export const DYNAMIC_SMART_FORM_PILOT_SLUGS = [
 
 export type DynamicSmartFormPilotSlug = (typeof DYNAMIC_SMART_FORM_PILOT_SLUGS)[number];
 
+/** @deprecated Use hasPremiumSmartFormDefinition from premium-smart-form-definitions */
 export function isDynamicSmartFormPilotSlug(slug: string): slug is DynamicSmartFormPilotSlug {
   return (DYNAMIC_SMART_FORM_PILOT_SLUGS as readonly string[]).includes(slug);
 }

@@ -93,7 +93,7 @@ export function SmartFormShell({
           </span>
           {fallback ? (
             <span className="rounded-sm border border-border-subtle px-2 py-1 text-[11px] text-text-secondary">
-              Legacy form fallback
+              Classic form
             </span>
           ) : (
             <span className="rounded-sm border border-safe-green/40 px-2 py-1 text-[11px] text-safe-green">

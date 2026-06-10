@@ -1276,66 +1276,1111 @@
       "cncQuoteRiskAnalyzer": {
         "scenarios": {
           "quick_quote_check": {
-            "label": "Revisión rápida del presupuesto",
-            "description": "Comprobación rápida del mínimo con entradas de tiempo y tarifa principales."
+            "label": "Revisión rápida de cotización",
+            "description": "Comprobación rápida con tiempo y tarifa base."
           },
           "detailed_margin_review": {
-            "label": "Revisión detallada del margen",
-            "description": "Pila de costes completa del trabajo, incluida herramienta y material."
+            "label": "Revisión de margen detallada",
+            "description": "Coste completo con herramientas y material."
           }
         },
         "inputs": {
-          "setupTime": { "label": "Tiempo de preparación", "help": "Minutos de preparación únicos antes de iniciar la producción." },
-          "cycleTime": { "label": "Tiempo de ciclo", "help": "Tiempo de máquina por pieza para este trabajo." },
-          "quantity": { "label": "Cantidad", "help": "Piezas en este lote del presupuesto." },
-          "toolCost": { "label": "Coste de herramientas", "help": "Utillajes, insertos y herramientas asignados a este trabajo." },
-          "materialCost": { "label": "Coste de material", "help": "Stock y material para la cantidad presupuestada." },
-          "machineRate": { "label": "Tarifa de máquina", "help": "Tarifa de máquina cargada por hora." },
-          "riskMargin": { "label": "Margen de riesgo", "help": "Porcentaje de margen para rechazos, preparación y riesgo del presupuesto." }
+          "setupTime": {
+            "label": "Setup time",
+            "help": "Setup time"
+          },
+          "cycleTime": {
+            "label": "Cycle time",
+            "help": "Cycle time"
+          },
+          "quantity": {
+            "label": "Quantity",
+            "help": "Quantity"
+          },
+          "toolCost": {
+            "label": "Tooling and fixture cost",
+            "help": "Tooling and fixture cost"
+          },
+          "materialCost": {
+            "label": "Material cost",
+            "help": "Material cost"
+          },
+          "machineRate": {
+            "label": "Machine rate",
+            "help": "Machine rate"
+          },
+          "riskMargin": {
+            "label": "Risk margin",
+            "help": "Risk margin"
+          }
+        }
+      },
+      "changeOrderImpactAnalyzer": {
+        "scenarios": {
+          "small_change_order": {
+            "label": "Small change order",
+            "description": "Minor scope tweak with delay and crew cost focus."
+          },
+          "major_scope_change": {
+            "label": "Major scope change",
+            "description": "Large scope shift with margin and schedule risk."
+          }
+        },
+        "inputs": {
+          "originalBudget": {
+            "label": "Original budget",
+            "help": "Original budget"
+          },
+          "changeEstimate": {
+            "label": "Change cost estimate",
+            "help": "Change cost estimate"
+          },
+          "delayDays": {
+            "label": "Delay days",
+            "help": "Delay days"
+          },
+          "crewCostPerDay": {
+            "label": "Crew cost per day",
+            "help": "Crew cost per day"
+          },
+          "marginTarget": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "officeCleaningBidOptimizer": {
+        "scenarios": {
+          "recurring_cleaning": {
+            "label": "Recurring cleaning",
+            "description": "Monthly contract with visit frequency and labor stack."
+          },
+          "one_time_deep_clean": {
+            "label": "One-time deep clean",
+            "description": "Single deep-clean bid with supply and labor load."
+          }
+        },
+        "inputs": {
+          "areaSize": {
+            "label": "Area size",
+            "help": "Area size"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "hoursPerVisit": {
+            "label": "Hours per visit",
+            "help": "Hours per visit"
+          },
+          "supplyCost": {
+            "label": "Supply cost",
+            "help": "Supply cost"
+          },
+          "visitFrequency": {
+            "label": "Visits per month",
+            "help": "Visits per month"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "menuProfitLeakDetector": {
+        "scenarios": {
+          "single_menu_item": {
+            "label": "Single menu item",
+            "description": "One dish margin after waste and delivery fees."
+          },
+          "full_menu_review": {
+            "label": "Full menu review",
+            "description": "Menu-wide leak check with labor and supplier drift."
+          }
+        },
+        "inputs": {
+          "menuPrice": {
+            "label": "Menu price",
+            "help": "Menu price"
+          },
+          "ingredientCost": {
+            "label": "Ingredient cost",
+            "help": "Ingredient cost"
+          },
+          "wasteRate": {
+            "label": "Waste rate",
+            "help": "Waste rate"
+          },
+          "deliveryCommission": {
+            "label": "Delivery commission",
+            "help": "Delivery commission"
+          },
+          "laborCostPerItem": {
+            "label": "Labor cost per item",
+            "help": "Labor cost per item"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "returnProfitErosionTool": {
+        "scenarios": {
+          "product_return_check": {
+            "label": "Product return check",
+            "description": "Single SKU return impact on net profit."
+          },
+          "monthly_return_impact": {
+            "label": "Monthly return impact",
+            "description": "Monthly return volume with ad and logistics cost."
+          }
+        },
+        "inputs": {
+          "productPrice": {
+            "label": "Product price",
+            "help": "Product price"
+          },
+          "productCost": {
+            "label": "Product cost",
+            "help": "Product cost"
+          },
+          "shippingCost": {
+            "label": "Shipping cost",
+            "help": "Shipping cost"
+          },
+          "returnRate": {
+            "label": "Return rate",
+            "help": "Return rate"
+          },
+          "paymentFeeRate": {
+            "label": "Payment fee",
+            "help": "Payment fee"
+          },
+          "adCostPerSale": {
+            "label": "Ad cost per sale",
+            "help": "Ad cost per sale"
+          }
         }
       },
       "weldingBidRiskAnalyzer": {
         "scenarios": {
           "field_repair": {
-            "label": "Reparación en campo",
-            "description": "Reparación de soldadura in situ centrada en ajuste y mano de obra."
+            "label": "Field repair",
+            "description": "On-site weld repair with fit-up and labor focus."
           },
           "production_weld_bid": {
-            "label": "Presupuesto de soldadura en producción",
-            "description": "Presupuesto de taller con consumibles y riesgo de retrabajo."
+            "label": "Production weld bid",
+            "description": "Fab shop bid with consumables and rework risk."
           }
         },
         "inputs": {
-          "materialCost": { "label": "Coste de material", "help": "Aporte, metal base y consumibles para el trabajo." },
-          "laborHours": { "label": "Horas de soldadura", "help": "Tiempo de arco y mano de obra de soldadura en la junta." },
-          "laborRate": { "label": "Tarifa laboral", "help": "Tarifa laboral de soldadura cargada por hora." },
-          "gasConsumableCost": { "label": "Gas y consumibles", "help": "Gas de protección, alambre y puntas para el presupuesto." },
-          "fitUpHours": { "label": "Horas de ajuste", "help": "Alineación, punteo y preparación antes de soldar." },
-          "reworkRiskPercent": { "label": "Riesgo de retrabajo", "help": "Margen para retrabajo de defectos en este tipo de trabajo." },
-          "targetMargin": { "label": "Margen objetivo", "help": "Banda de margen mínima antes de aceptar el presupuesto." }
+          "materialCost": {
+            "label": "Material cost",
+            "help": "Material cost"
+          },
+          "laborHours": {
+            "label": "Labor hours",
+            "help": "Labor hours"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "gasConsumableCost": {
+            "label": "Gas and consumable cost",
+            "help": "Gas and consumable cost"
+          },
+          "fitUpHours": {
+            "label": "Fit-up hours",
+            "help": "Fit-up hours"
+          },
+          "reworkRiskPercent": {
+            "label": "Rework risk",
+            "help": "Rework risk"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
         }
       },
       "hvacProjectMarginGuard": {
         "scenarios": {
           "small_service_job": {
-            "label": "Trabajo de servicio pequeño",
-            "description": "Sustitución o visita de servicio con equipo y mano de obra básicos."
+            "label": "Small service job",
+            "description": "Replace or service call with core equipment and labor."
           },
           "commercial_project": {
-            "label": "Proyecto comercial",
-            "description": "Instalación completa con conductos y puesta en marcha."
+            "label": "Commercial project",
+            "description": "Full install with ductwork and commissioning."
           }
         },
         "inputs": {
-          "equipmentCost": { "label": "Coste de equipos", "help": "Unidades, refrigerante y equipos principales." },
-          "ductworkCost": { "label": "Coste de conductos", "help": "Conductos, accesorios y materiales de distribución." },
-          "laborHours": { "label": "Horas de mano de obra", "help": "Mano de obra en campo para instalación o servicio." },
-          "laborRate": { "label": "Tarifa laboral", "help": "Tarifa laboral de HVAC cargada por hora." },
-          "commissioningCost": { "label": "Coste de puesta en marcha", "help": "Arranque, pruebas y trabajos TAB." },
-          "callbackRiskPercent": { "label": "Riesgo de devolución", "help": "Margen de devolución por garantía para este trabajo." },
-          "targetMargin": { "label": "Margen objetivo", "help": "Margen mínimo antes de aceptar el proyecto." }
+          "equipmentCost": {
+            "label": "Equipment cost",
+            "help": "Equipment cost"
+          },
+          "ductworkCost": {
+            "label": "Ductwork cost",
+            "help": "Ductwork cost"
+          },
+          "laborHours": {
+            "label": "Labor hours",
+            "help": "Labor hours"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "commissioningCost": {
+            "label": "Commissioning cost",
+            "help": "Commissioning cost"
+          },
+          "callbackRiskPercent": {
+            "label": "Callback risk",
+            "help": "Callback risk"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "panelShopMarginVerdict": {
+        "scenarios": {
+          "small_control_panel": {
+            "label": "Small control panel",
+            "description": "Compact panel build with core labor and material."
+          },
+          "industrial_panel_project": {
+            "label": "Industrial panel project",
+            "description": "Multi-bay panel job with engineering and test load."
+          }
+        },
+        "inputs": {
+          "materialCost": {
+            "label": "Material cost",
+            "help": "Material cost"
+          },
+          "laborHours": {
+            "label": "Labor hours",
+            "help": "Labor hours"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "testingHours": {
+            "label": "Testing hours",
+            "help": "Testing hours"
+          },
+          "inspectionRiskPercent": {
+            "label": "Inspection risk",
+            "help": "Inspection risk"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "landscapingContractProfitTool": {
+        "scenarios": {
+          "maintenance_contract": {
+            "label": "Maintenance contract",
+            "description": "Recurring grounds maintenance with crew and fuel."
+          },
+          "installation_project": {
+            "label": "Installation project",
+            "description": "Install bid with material, labor and margin guard."
+          }
+        },
+        "inputs": {
+          "crewHoursPerVisit": {
+            "label": "Crew hours per visit",
+            "help": "Crew hours per visit"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "fuelCostPerVisit": {
+            "label": "Fuel cost per visit",
+            "help": "Fuel cost per visit"
+          },
+          "supplyCostPerMonth": {
+            "label": "Supply cost per month",
+            "help": "Supply cost per month"
+          },
+          "visitsPerMonth": {
+            "label": "Visits per month",
+            "help": "Visits per month"
+          },
+          "equipmentWearCost": {
+            "label": "Equipment wear cost",
+            "help": "Equipment wear cost"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "autoShopMarginLeakDetector": {
+        "scenarios": {
+          "repair_order": {
+            "label": "Repair order",
+            "description": "Single repair order with parts and bay labor."
+          },
+          "service_package": {
+            "label": "Service package",
+            "description": "Bundled service package with margin leak check."
+          }
+        },
+        "inputs": {
+          "quotedPrice": {
+            "label": "Quoted price",
+            "help": "Quoted price"
+          },
+          "diagnosticHours": {
+            "label": "Diagnostic hours",
+            "help": "Diagnostic hours"
+          },
+          "repairHours": {
+            "label": "Repair hours",
+            "help": "Repair hours"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "partsCost": {
+            "label": "Parts cost",
+            "help": "Parts cost"
+          },
+          "comebackRiskPercent": {
+            "label": "Comeback risk",
+            "help": "Comeback risk"
+          },
+          "partsMarkupPercent": {
+            "label": "Parts markup",
+            "help": "Parts markup"
+          }
+        }
+      },
+      "signageBidSafePriceTool": {
+        "scenarios": {
+          "indoor_signage": {
+            "label": "Indoor signage",
+            "description": "Interior sign bid with material and install labor."
+          },
+          "outdoor_installation": {
+            "label": "Outdoor installation",
+            "description": "Exterior sign with weatherproofing and rigging risk."
+          }
+        },
+        "inputs": {
+          "materialCost": {
+            "label": "Material cost",
+            "help": "Material cost"
+          },
+          "inkCost": {
+            "label": "Ink cost",
+            "help": "Ink cost"
+          },
+          "designHours": {
+            "label": "Design hours",
+            "help": "Design hours"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "installHours": {
+            "label": "Install hours",
+            "help": "Install hours"
+          },
+          "reprintRiskPercent": {
+            "label": "Reprint risk",
+            "help": "Reprint risk"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "plumbingJobMarginVerdict": {
+        "scenarios": {
+          "service_repair_job": {
+            "label": "Service repair job",
+            "description": "Service call with labor, parts and callback risk."
+          },
+          "installation_project": {
+            "label": "Installation project",
+            "description": "Rough-in or repipe project with full cost stack."
+          }
+        },
+        "inputs": {
+          "partsCost": {
+            "label": "Parts cost",
+            "help": "Parts cost"
+          },
+          "laborHours": {
+            "label": "Labor hours",
+            "help": "Labor hours"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "fixtureCount": {
+            "label": "Fixture count",
+            "help": "Fixture count"
+          },
+          "materialRunCost": {
+            "label": "Material run cost",
+            "help": "Material run cost"
+          },
+          "callbackRiskPercent": {
+            "label": "Callback risk",
+            "help": "Callback risk"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "millworkBidRiskAnalyzer": {
+        "scenarios": {
+          "custom_cabinet_job": {
+            "label": "Custom cabinet job",
+            "description": "Custom millwork bid with shop labor and material."
+          },
+          "commercial_millwork_bid": {
+            "label": "Commercial millwork bid",
+            "description": "Commercial package with tolerance and rework risk."
+          }
+        },
+        "inputs": {
+          "sheetMaterialCost": {
+            "label": "Sheet material cost",
+            "help": "Sheet material cost"
+          },
+          "laborHours": {
+            "label": "Labor hours",
+            "help": "Labor hours"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "finishingCost": {
+            "label": "Finishing cost",
+            "help": "Finishing cost"
+          },
+          "installHours": {
+            "label": "Install hours",
+            "help": "Install hours"
+          },
+          "wasteRatePercent": {
+            "label": "Waste rate",
+            "help": "Waste rate"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "roofingContractMarginGuard": {
+        "scenarios": {
+          "residential_roofing": {
+            "label": "Residential roofing",
+            "description": "Residential re-roof with square and labor inputs."
+          },
+          "commercial_roofing": {
+            "label": "Commercial roofing",
+            "description": "Commercial roof scope with tear-off and margin guard."
+          }
+        },
+        "inputs": {
+          "materialCost": {
+            "label": "Material cost",
+            "help": "Material cost"
+          },
+          "laborHours": {
+            "label": "Labor hours",
+            "help": "Labor hours"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "tearOffCost": {
+            "label": "Tear-off cost",
+            "help": "Tear-off cost"
+          },
+          "dumpFees": {
+            "label": "Dump fees",
+            "help": "Dump fees"
+          },
+          "weatherDelayRiskPercent": {
+            "label": "Weather delay risk",
+            "help": "Weather delay risk"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "paintingJobProfitVerdict": {
+        "scenarios": {
+          "interior_painting": {
+            "label": "Interior painting",
+            "description": "Interior coat bid with prep and labor hours."
+          },
+          "exterior_project": {
+            "label": "Exterior project",
+            "description": "Exterior project with weather and access risk."
+          }
+        },
+        "inputs": {
+          "paintCost": {
+            "label": "Paint cost",
+            "help": "Paint cost"
+          },
+          "prepHours": {
+            "label": "Prep hours",
+            "help": "Prep hours"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "scaffoldCost": {
+            "label": "Scaffold cost",
+            "help": "Scaffold cost"
+          },
+          "touchUpRiskPercent": {
+            "label": "Touch-up risk",
+            "help": "Touch-up risk"
+          },
+          "areaSize": {
+            "label": "Area size",
+            "help": "Area size"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "sheetMetalQuoteRiskTool": {
+        "scenarios": {
+          "quick_sheet_quote": {
+            "label": "Quick sheet quote",
+            "description": "Fast fab quote with material and run time."
+          },
+          "detailed_fabrication_margin": {
+            "label": "Detailed fabrication margin",
+            "description": "Full fab stack with setup, scrap and margin band."
+          }
+        },
+        "inputs": {
+          "programmingTime": {
+            "label": "Programming time",
+            "help": "Programming time"
+          },
+          "setupTime": {
+            "label": "Setup time",
+            "help": "Setup time"
+          },
+          "cutTime": {
+            "label": "Cut time",
+            "help": "Cut time"
+          },
+          "bendCount": {
+            "label": "Bend count",
+            "help": "Bend count"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "materialCost": {
+            "label": "Material cost",
+            "help": "Material cost"
+          },
+          "scrapRatePercent": {
+            "label": "Scrap rate",
+            "help": "Scrap rate"
+          },
+          "finishingCost": {
+            "label": "Finishing cost",
+            "help": "Finishing cost"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "3dPrintJobMarginTool": {
+        "scenarios": {
+          "prototype_print": {
+            "label": "Prototype print",
+            "description": "Single prototype job with machine and material time."
+          },
+          "batch_production_print": {
+            "label": "Batch production print",
+            "description": "Batch run with amortized setup and failure risk."
+          }
+        },
+        "inputs": {
+          "materialCost": {
+            "label": "Material cost",
+            "help": "Material cost"
+          },
+          "printHours": {
+            "label": "Print hours",
+            "help": "Print hours"
+          },
+          "machineRate": {
+            "label": "Machine rate",
+            "help": "Machine rate"
+          },
+          "postProcessHours": {
+            "label": "Post-process hours",
+            "help": "Post-process hours"
+          },
+          "laborRate": {
+            "label": "Labor rate",
+            "help": "Labor rate"
+          },
+          "failRatePercent": {
+            "label": "Fail rate",
+            "help": "Fail rate"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "routeOptimizationAnalyzer": {
+        "scenarios": {
+          "daily_delivery_route": {
+            "label": "Daily delivery route",
+            "description": "Daily route with stops, fuel and driver cost."
+          },
+          "multi_stop_route_plan": {
+            "label": "Multi-stop route plan",
+            "description": "Multi-stop plan with freight loss and margin guard."
+          }
+        },
+        "inputs": {
+          "distanceKm": {
+            "label": "Distance",
+            "help": "Distance"
+          },
+          "fuelPricePerKm": {
+            "label": "Fuel cost per km",
+            "help": "Fuel cost per km"
+          },
+          "driverHourlyRate": {
+            "label": "Driver hourly rate",
+            "help": "Driver hourly rate"
+          },
+          "estimatedHours": {
+            "label": "Estimated drive hours",
+            "help": "Estimated drive hours"
+          },
+          "returnEmpty": {
+            "label": "Empty return (deadhead)",
+            "help": "Empty return (deadhead)"
+          },
+          "hasTolls": {
+            "label": "Toll roads on route",
+            "help": "Toll roads on route"
+          },
+          "overweightRisk": {
+            "label": "Overweight / fine risk",
+            "help": "Overweight / fine risk"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "cropYieldLossAnalyzer": {
+        "scenarios": {
+          "field_yield_check": {
+            "label": "Field yield check",
+            "description": "Field-level yield gap vs expected output."
+          },
+          "seasonal_loss_review": {
+            "label": "Seasonal loss review",
+            "description": "Season-wide loss review with input and revenue impact."
+          }
+        },
+        "inputs": {
+          "areaHectares": {
+            "label": "Field area",
+            "help": "Field area"
+          },
+          "expectedYieldTonnes": {
+            "label": "Expected yield",
+            "help": "Expected yield"
+          },
+          "fertilizerCost": {
+            "label": "Fertilizer cost",
+            "help": "Fertilizer cost"
+          },
+          "irrigationCost": {
+            "label": "Irrigation cost",
+            "help": "Irrigation cost"
+          },
+          "soilMoisturePercent": {
+            "label": "Soil moisture",
+            "help": "Soil moisture"
+          },
+          "weatherRiskIndex": {
+            "label": "Weather risk index",
+            "help": "Weather risk index"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "waterOptimizationVerdict": {
+        "scenarios": {
+          "irrigation_efficiency": {
+            "label": "Irrigation efficiency",
+            "description": "Irrigation system efficiency and cost leak check."
+          },
+          "facility_water_usage": {
+            "label": "Facility water usage",
+            "description": "Facility water use with utility and waste drivers."
+          }
+        },
+        "inputs": {
+          "areaHectares": {
+            "label": "Irrigated area",
+            "help": "Irrigated area"
+          },
+          "pumpingHours": {
+            "label": "Pumping hours",
+            "help": "Pumping hours"
+          },
+          "electricityRate": {
+            "label": "Electricity rate",
+            "help": "Electricity rate"
+          },
+          "waterRightsFee": {
+            "label": "Water rights fee",
+            "help": "Water rights fee"
+          },
+          "evaporationLossPercent": {
+            "label": "Evaporation loss",
+            "help": "Evaporation loss"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "feedEfficiencyAnalyzer": {
+        "scenarios": {
+          "daily_feed_check": {
+            "label": "Daily feed check",
+            "description": "Daily ration efficiency vs production output."
+          },
+          "herd_feed_performance": {
+            "label": "Herd feed performance",
+            "description": "Herd-level feed cost and conversion review."
+          }
+        },
+        "inputs": {
+          "animalCount": {
+            "label": "Animal count",
+            "help": "Animal count"
+          },
+          "dailyFeedKg": {
+            "label": "Daily feed per head",
+            "help": "Daily feed per head"
+          },
+          "feedPricePerKg": {
+            "label": "Feed price",
+            "help": "Feed price"
+          },
+          "milkYieldPerDay": {
+            "label": "Milk yield per head",
+            "help": "Milk yield per head"
+          },
+          "feedWastePercent": {
+            "label": "Feed waste / spoilage",
+            "help": "Feed waste / spoilage"
+          },
+          "waterQualityIndex": {
+            "label": "Water quality index",
+            "help": "Water quality index"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "dairyProfitDetector": {
+        "scenarios": {
+          "milk_batch_margin": {
+            "label": "Milk batch margin",
+            "description": "Batch margin after feed, labor and shrink."
+          },
+          "monthly_dairy_profit": {
+            "label": "Monthly dairy profit",
+            "description": "Monthly dairy profit with overhead and price risk."
+          }
+        },
+        "inputs": {
+          "cowCount": {
+            "label": "Cow count",
+            "help": "Cow count"
+          },
+          "litersPerCowPerDay": {
+            "label": "Milk per cow",
+            "help": "Milk per cow"
+          },
+          "milkPricePerLiter": {
+            "label": "Milk price",
+            "help": "Milk price"
+          },
+          "monthlyFeedCost": {
+            "label": "Monthly feed cost",
+            "help": "Monthly feed cost"
+          },
+          "laborCost": {
+            "label": "Monthly labor cost",
+            "help": "Monthly labor cost"
+          },
+          "vetAndHealth": {
+            "label": "Vet & health",
+            "help": "Vet & health"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "energyEfficiencyReport": {
+        "scenarios": {
+          "facility_energy_check": {
+            "label": "Facility energy check",
+            "description": "Facility kWh cost and baseline efficiency review."
+          },
+          "equipment_efficiency_review": {
+            "label": "Equipment efficiency review",
+            "description": "Equipment-level efficiency and upgrade ROI signal."
+          }
+        },
+        "inputs": {
+          "monthlyKwh": {
+            "label": "Monthly kWh",
+            "help": "Monthly kWh"
+          },
+          "tariffPerKwh": {
+            "label": "Tariff",
+            "help": "Tariff"
+          },
+          "demandCharge": {
+            "label": "Peak demand charge",
+            "help": "Peak demand charge"
+          },
+          "powerFactorPenalty": {
+            "label": "Power factor penalty",
+            "help": "Power factor penalty"
+          },
+          "efficiencyTargetPercent": {
+            "label": "Efficiency target",
+            "help": "Efficiency target"
+          },
+          "targetSavings": {
+            "label": "Target savings",
+            "help": "Target savings"
+          }
+        }
+      },
+      "cbamComplianceVerdict": {
+        "scenarios": {
+          "shipment_cbam_check": {
+            "label": "Shipment CBAM check",
+            "description": "Single shipment embedded emissions exposure."
+          },
+          "annual_export_exposure": {
+            "label": "Annual export exposure",
+            "description": "Annual export volume with CBAM cost exposure."
+          }
+        },
+        "inputs": {
+          "productionTons": {
+            "label": "Production volume",
+            "help": "Production volume"
+          },
+          "energySource": {
+            "label": "Energy source",
+            "help": "Energy source"
+          },
+          "euImportValue": {
+            "label": "EU import value",
+            "help": "EU import value"
+          },
+          "processEmissionsFactor": {
+            "label": "Process emissions factor",
+            "help": "Process emissions factor"
+          },
+          "includesTransport": {
+            "label": "Include transport leg",
+            "help": "Include transport leg"
+          },
+          "targetMargin": {
+            "label": "Target margin",
+            "help": "Target margin"
+          }
+        }
+      },
+      "renovationBudgetOptimizer": {
+        "scenarios": {
+          "small_renovation": {
+            "label": "Small renovation",
+            "description": "Room or partial remodel budget guard."
+          },
+          "full_project_budget": {
+            "label": "Full project budget",
+            "description": "Whole-home or full fit-out budget optimization."
+          }
+        },
+        "inputs": {
+          "areaM2": {
+            "label": "Renovation area",
+            "help": "Renovation area"
+          },
+          "materialQuality": {
+            "label": "Material quality",
+            "help": "Material quality"
+          },
+          "includeLabor": {
+            "label": "Include labor",
+            "help": "Include labor"
+          },
+          "season": {
+            "label": "Season",
+            "help": "Season"
+          },
+          "cityTier": {
+            "label": "City cost tier",
+            "help": "City cost tier"
+          },
+          "contingencyPercent": {
+            "label": "Contingency",
+            "help": "Contingency"
+          }
+        }
+      },
+      "tripBudgetOptimizer": {
+        "scenarios": {
+          "simple_trip_budget": {
+            "label": "Simple trip budget",
+            "description": "Core travel cost stack for a short trip."
+          },
+          "detailed_travel_plan": {
+            "label": "Detailed travel plan",
+            "description": "Multi-segment travel plan with margin-safe budget."
+          }
+        },
+        "inputs": {
+          "distanceKm": {
+            "label": "Distance",
+            "help": "Distance"
+          },
+          "consumptionPer100Km": {
+            "label": "Consumption",
+            "help": "Consumption"
+          },
+          "fuelPricePerLiter": {
+            "label": "Fuel price",
+            "help": "Fuel price"
+          },
+          "tollEstimate": {
+            "label": "Toll estimate",
+            "help": "Toll estimate"
+          },
+          "returnTrip": {
+            "label": "Return trip",
+            "help": "Return trip"
+          },
+          "parkingPerDay": {
+            "label": "Parking per day",
+            "help": "Parking per day"
+          },
+          "bufferPercent": {
+            "label": "Budget buffer",
+            "help": "Budget buffer"
+          }
+        }
+      },
+      "mealPlanningVerdict": {
+        "scenarios": {
+          "weekly_meal_plan": {
+            "label": "Weekly meal plan",
+            "description": "Weekly grocery and meal cost verdict."
+          },
+          "family_budget_plan": {
+            "label": "Family budget plan",
+            "description": "Family-scale meal budget with waste and delivery risk."
+          }
+        },
+        "inputs": {
+          "mealsPerWeek": {
+            "label": "Meals per week",
+            "help": "Meals per week"
+          },
+          "weeklyGroceryBudget": {
+            "label": "Weekly grocery budget",
+            "help": "Weekly grocery budget"
+          },
+          "foodWastePercent": {
+            "label": "Food waste",
+            "help": "Food waste"
+          },
+          "inflationBuffer": {
+            "label": "Price inflation buffer",
+            "help": "Price inflation buffer"
+          },
+          "householdSize": {
+            "label": "Household size",
+            "help": "Household size"
+          },
+          "targetSavings": {
+            "label": "Target savings",
+            "help": "Target savings"
+          }
         }
       }
+    },
+    "compatibility": {
+      "missingContractField": "Falta una entrada de contrato requerida en Smart Form.",
+      "hiddenRequiredSimple": "Cambie a modo Avanzado para ingresar todos los campos requeridos.",
+      "missingRequired": "Complete todos los campos requeridos antes de ejecutar el análisis.",
+      "invalidInput": "Corrija entradas inválidas antes de ejecutar el análisis."
     }
   },
   "cta": {

@@ -38,7 +38,7 @@ import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
 import { SmartResultPanel } from "@/components/smart-form/SmartResultPanel";
 import { DynamicSmartFormPilot } from "@/components/smart-form/DynamicSmartFormPilot";
 import { buildSmartFormForTool } from "@/lib/smart-form/smart-form-adapter";
-import { isDynamicSmartFormPilotSlug } from "@/lib/smart-form/dynamic-form-types";
+import { hasPremiumSmartFormDefinition } from "@/lib/smart-form/premium-smart-form-definitions";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { CalculatorFeedbackBox } from "@/components/tools/CalculatorFeedbackBox";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
@@ -238,7 +238,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  const [isCalculating, setIsCalculating] = useState(false);
  const [errors, setErrors] = useState<Record<string, string>>({});
 
- const useDynamicSmartFormPilot = isDynamicSmartFormPilotSlug(runtimeSlug);
+ const usePremiumSmartForm = hasPremiumSmartFormDefinition(runtimeSlug);
  const isCncStochastic = tool.paidSlug === "cnc-quote-risk-analyzer";
  const schemaPilot = getPremiumSchemaForPaidSlug(tool.paidSlug);
  const showSchemaPilot = Boolean(schemaPilot) && !useFullLoopRuntime;
@@ -481,7 +481,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  event.preventDefault();
 
  if (useFullLoopRuntime) {
-  if (!useDynamicSmartFormPilot) {
+  if (!usePremiumSmartForm) {
    const nextErrors = validateSmartFormFieldValues(runtimeSlug, values);
    setErrors(nextErrors);
    if (Object.keys(nextErrors).length > 0) {
@@ -605,7 +605,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   fallback={useFullLoopRuntime || !smartFormAdapter.ok}
   formContent={
    useFullLoopRuntime ? (
-    useDynamicSmartFormPilot ? (
+    usePremiumSmartForm ? (
      <DynamicSmartFormPilot
       slug={runtimeSlug}
       values={values}
