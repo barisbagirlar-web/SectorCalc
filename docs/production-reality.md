@@ -17,6 +17,7 @@
 
 | Item | Value |
 |------|--------|
+| **P3 commit** | `40bd28b` — Tool feedback + formula objection system |
 | **Collection** | `toolFeedback` (Firestore) |
 | **Public submit** | Client Firestore create-only via `submitToolFeedback()` |
 | **Admin queue** | `/account/feedback` — admin claim required for list + status update |
@@ -25,9 +26,21 @@
 | **Smoke** | `npm run smoke:feedback-ui` |
 | **Formula/runtime** | **Unchanged** |
 
-### P3 closure — pending deploy smoke
+### P3 closure — 2026-06-10 post-deploy (`40bd28b`)
 
-Post-deploy: update this section with commit SHA, deploy timestamp, and smoke table (same gates as P2.3 + `smoke:feedback-ui`).
+| Gate | Target | Result |
+|------|--------|--------|
+| `smoke:premium-routes` | 27/27 HTTP 200 | **PASS** |
+| `smoke:premium-smart-forms` | 27/27 markers + no hard gate | **PASS** |
+| `smoke:locale-routes` | 42/42 HTTP 200 | **PASS** |
+| `smoke:browser-routes --probe` | 4/4 | **PASS** |
+| `smoke:browser-routes` | 25/25 | **PASS** |
+| `smoke:feedback-ui` | 4 premium + 6 locale + account route | **PASS** |
+| Firestore rules deploy | `toolFeedback` create + admin update | **PASS** |
+| Firebase Hosting deploy | `sectorcalc-bf412` | **PASS** |
+| Cloud Run `minInstances=1` | `ssrsectorcalcbf412` us-central1 | **APPLIED** (revision `ssrsectorcalcbf412-00268-zqq`) |
+
+**Remaining risk:** Admin queue requires Firebase admin claim; non-admin signed-in users see auth-only message. Firestore composite index not required (client-side filter on last 50 docs). Legacy `calculator_feedback` collection retained; new submissions use `toolFeedback`.
 
 ## P2.3 — Smart Form Full Premium Rollout (27/27)
 
