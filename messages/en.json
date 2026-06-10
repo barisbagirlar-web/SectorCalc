@@ -2576,5 +2576,48 @@
       "power": "Power",
       "time": "Time"
     }
+  },
+  "regionalBenchmarks": {
+    "eyebrow": "Regional benchmarks",
+    "title": "Indicative benchmark ranges",
+    "subtitle": "Reference bands for decision support. Indicative only — not official statistics or financial advice.",
+    "referenceBand": "Reference band",
+    "typical": "Typical",
+    "sourceNote": "Source",
+    "disclaimer": "Benchmarks are indicative decision-support ranges, not official statistics or financial advice. Verify against your own data before any business decision.",
+    "position": {
+      "belowRange": "Below range",
+      "withinRange": "Within range",
+      "aboveRange": "Above range",
+      "unknown": "Unknown"
+    },
+    "severity": {
+      "good": "Favorable",
+      "watch": "Monitor",
+      "risk": "Risk"
+    },
+    "confidence": {
+      "low": "Low confidence",
+      "medium": "Medium confidence",
+      "high": "High confidence"
+    },
+    "unit": {
+      "percent": "%",
+      "ratio": "ratio",
+      "days": "days",
+      "months": "months",
+      "score": "score"
+    },
+    "metric": {
+      "gross_margin": "Gross margin",
+      "net_margin": "Net margin",
+      "scrap_rate": "Scrap rate",
+      "labor_share": "Labor share",
+      "energy_intensity": "Energy intensity",
+      "material_share": "Material share",
+      "capacity_utilization": "Capacity utilization",
+      "quote_risk": "Quote risk",
+      "payback_period": "Payback period"
+    }
   }
 }

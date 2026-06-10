@@ -2539,5 +2539,48 @@
       "power": "القدرة",
       "time": "الزمن"
     }
+  },
+  "regionalBenchmarks": {
+    "eyebrow": "المعايير الإقليمية",
+    "title": "نطاقات مرجعية استرشادية",
+    "subtitle": "نطاقات مرجعية لدعم القرار. استرشادية فقط — ليست إحصاءات رسمية ولا نصيحة مالية.",
+    "referenceBand": "النطاق المرجعي",
+    "typical": "نموذجي",
+    "sourceNote": "المصدر",
+    "disclaimer": "المعايير نطاقات استرشادية لدعم القرار، وليست إحصاءات رسمية ولا نصيحة مالية. تحقق من بياناتك قبل أي قرار تجاري.",
+    "position": {
+      "belowRange": "أقل من النطاق",
+      "withinRange": "ضمن النطاق",
+      "aboveRange": "أعلى من النطاق",
+      "unknown": "غير معروف"
+    },
+    "severity": {
+      "good": "ملائم",
+      "watch": "مراقبة",
+      "risk": "خطر"
+    },
+    "confidence": {
+      "low": "ثقة منخفضة",
+      "medium": "ثقة متوسطة",
+      "high": "ثقة عالية"
+    },
+    "unit": {
+      "percent": "%",
+      "ratio": "نسبة",
+      "days": "أيام",
+      "months": "أشهر",
+      "score": "درجة"
+    },
+    "metric": {
+      "gross_margin": "الهامش الإجمالي",
+      "net_margin": "صافي الهامش",
+      "scrap_rate": "معدل الهدر",
+      "labor_share": "حصة العمالة",
+      "energy_intensity": "كثافة الطاقة",
+      "material_share": "حصة المواد",
+      "capacity_utilization": "استغلال الطاقة الإنتاجية",
+      "quote_risk": "مخاطر التسعير",
+      "payback_period": "فترة الاسترداد"
+    }
   }
 }

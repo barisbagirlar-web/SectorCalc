@@ -2576,5 +2576,48 @@
       "power": "Güç",
       "time": "Süre"
     }
+  },
+  "regionalBenchmarks": {
+    "eyebrow": "Bölgesel kıyaslamalar",
+    "title": "Gösterge niteliğinde kıyas aralıkları",
+    "subtitle": "Karar desteği için referans bantları. Yalnızca gösterge — resmi istatistik veya finansal tavsiye değildir.",
+    "referenceBand": "Referans bandı",
+    "typical": "Tipik",
+    "sourceNote": "Kaynak",
+    "disclaimer": "Kıyaslamalar gösterge niteliğinde karar destek aralıklarıdır; resmi istatistik veya finansal tavsiye değildir. İş kararından önce kendi verinizle doğrulayın.",
+    "position": {
+      "belowRange": "Aralığın altında",
+      "withinRange": "Aralık içinde",
+      "aboveRange": "Aralığın üstünde",
+      "unknown": "Bilinmiyor"
+    },
+    "severity": {
+      "good": "Olumlu",
+      "watch": "İzle",
+      "risk": "Risk"
+    },
+    "confidence": {
+      "low": "Düşük güven",
+      "medium": "Orta güven",
+      "high": "Yüksek güven"
+    },
+    "unit": {
+      "percent": "%",
+      "ratio": "oran",
+      "days": "gün",
+      "months": "ay",
+      "score": "puan"
+    },
+    "metric": {
+      "gross_margin": "Brüt marj",
+      "net_margin": "Net marj",
+      "scrap_rate": "Fire oranı",
+      "labor_share": "İşçilik payı",
+      "energy_intensity": "Enerji yoğunluğu",
+      "material_share": "Malzeme payı",
+      "capacity_utilization": "Kapasite kullanımı",
+      "quote_risk": "Teklif riski",
+      "payback_period": "Geri ödeme süresi"
+    }
   }
 }

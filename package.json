@@ -30,6 +30,7 @@
     "smoke:approved-reports": "node scripts/smoke-approved-reports.mjs",
     "smoke:verify-report": "node scripts/smoke-verify-report.mjs",
     "smoke:regional-units": "node scripts/smoke-regional-units.mjs",
+    "smoke:regional-benchmarks": "node scripts/smoke-regional-benchmarks.mjs",
     "assert:route-cache-policy": "node scripts/assert-route-cache-policy.mjs",
     "audit:formulas": "npx tsx scripts/audit-formulas.ts",
     "audit:alignment": "npx tsx scripts/audit-alignment.ts",

@@ -4,6 +4,8 @@ import { setRequestLocale } from "next-intl/server";
 import { PremiumToolPage } from "@/components/tools/PremiumToolPage";
 import { RegionalUnitsSection } from "@/components/regional-units/RegionalUnitsSection";
 import { resolveRegionForLocale } from "@/lib/units/regional-unit-engine";
+import { BenchmarkPanel } from "@/components/regional-benchmarks/BenchmarkPanel";
+import { resolveBenchmarkRegionForLocale } from "@/lib/regional-benchmarks/benchmark-registry";
 import { Link } from "@/i18n/routing";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
@@ -92,6 +94,7 @@ export default async function PremiumRevenueToolRoute({
       </div>
       <PremiumToolPage tool={tool} routeSlug={slug} />
       <div className="mx-auto w-full max-w-5xl px-4 pb-10 sm:px-6">
+        <BenchmarkPanel region={resolveBenchmarkRegionForLocale(locale)} />
         <RegionalUnitsSection defaultRegion={resolveRegionForLocale(locale)} />
       </div>
     </>

@@ -2539,5 +2539,48 @@
       "power": "Puissance",
       "time": "Temps"
     }
+  },
+  "regionalBenchmarks": {
+    "eyebrow": "Références régionales",
+    "title": "Plages de référence indicatives",
+    "subtitle": "Bandes de référence pour l'aide à la décision. Indicatif uniquement — ni statistiques officielles ni conseil financier.",
+    "referenceBand": "Plage de référence",
+    "typical": "Typique",
+    "sourceNote": "Source",
+    "disclaimer": "Les références sont des plages indicatives d'aide à la décision, ni statistiques officielles ni conseil financier. Vérifiez avec vos propres données avant toute décision.",
+    "position": {
+      "belowRange": "Sous la plage",
+      "withinRange": "Dans la plage",
+      "aboveRange": "Au-dessus de la plage",
+      "unknown": "Inconnu"
+    },
+    "severity": {
+      "good": "Favorable",
+      "watch": "À surveiller",
+      "risk": "Risque"
+    },
+    "confidence": {
+      "low": "Faible confiance",
+      "medium": "Confiance moyenne",
+      "high": "Confiance élevée"
+    },
+    "unit": {
+      "percent": "%",
+      "ratio": "ratio",
+      "days": "jours",
+      "months": "mois",
+      "score": "score"
+    },
+    "metric": {
+      "gross_margin": "Marge brute",
+      "net_margin": "Marge nette",
+      "scrap_rate": "Taux de rebut",
+      "labor_share": "Part de main-d'œuvre",
+      "energy_intensity": "Intensité énergétique",
+      "material_share": "Part des matériaux",
+      "capacity_utilization": "Utilisation des capacités",
+      "quote_risk": "Risque de devis",
+      "payback_period": "Période de retour"
+    }
   }
 }

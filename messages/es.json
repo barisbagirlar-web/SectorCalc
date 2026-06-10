@@ -2539,5 +2539,48 @@
       "power": "Potencia",
       "time": "Tiempo"
     }
+  },
+  "regionalBenchmarks": {
+    "eyebrow": "Referencias regionales",
+    "title": "Rangos de referencia indicativos",
+    "subtitle": "Bandas de referencia para apoyo a la decisión. Solo indicativo — no son estadísticas oficiales ni asesoramiento financiero.",
+    "referenceBand": "Banda de referencia",
+    "typical": "Típico",
+    "sourceNote": "Fuente",
+    "disclaimer": "Las referencias son rangos indicativos de apoyo a la decisión, no estadísticas oficiales ni asesoramiento financiero. Verifique con sus propios datos antes de decidir.",
+    "position": {
+      "belowRange": "Por debajo del rango",
+      "withinRange": "Dentro del rango",
+      "aboveRange": "Por encima del rango",
+      "unknown": "Desconocido"
+    },
+    "severity": {
+      "good": "Favorable",
+      "watch": "Vigilar",
+      "risk": "Riesgo"
+    },
+    "confidence": {
+      "low": "Confianza baja",
+      "medium": "Confianza media",
+      "high": "Confianza alta"
+    },
+    "unit": {
+      "percent": "%",
+      "ratio": "ratio",
+      "days": "días",
+      "months": "meses",
+      "score": "puntuación"
+    },
+    "metric": {
+      "gross_margin": "Margen bruto",
+      "net_margin": "Margen neto",
+      "scrap_rate": "Tasa de desecho",
+      "labor_share": "Cuota de mano de obra",
+      "energy_intensity": "Intensidad energética",
+      "material_share": "Cuota de material",
+      "capacity_utilization": "Utilización de capacidad",
+      "quote_risk": "Riesgo de cotización",
+      "payback_period": "Periodo de recuperación"
+    }
   }
 }

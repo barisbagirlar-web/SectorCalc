@@ -2539,5 +2539,48 @@
       "power": "Leistung",
       "time": "Zeit"
     }
+  },
+  "regionalBenchmarks": {
+    "eyebrow": "Regionale Benchmarks",
+    "title": "Indikative Benchmark-Bereiche",
+    "subtitle": "Referenzbänder zur Entscheidungsunterstützung. Nur indikativ — keine offiziellen Statistiken oder Finanzberatung.",
+    "referenceBand": "Referenzbereich",
+    "typical": "Typisch",
+    "sourceNote": "Quelle",
+    "disclaimer": "Benchmarks sind indikative Entscheidungsbereiche, keine offiziellen Statistiken oder Finanzberatung. Vor geschäftlichen Entscheidungen mit eigenen Daten prüfen.",
+    "position": {
+      "belowRange": "Unter dem Bereich",
+      "withinRange": "Im Bereich",
+      "aboveRange": "Über dem Bereich",
+      "unknown": "Unbekannt"
+    },
+    "severity": {
+      "good": "Günstig",
+      "watch": "Beobachten",
+      "risk": "Risiko"
+    },
+    "confidence": {
+      "low": "Geringe Konfidenz",
+      "medium": "Mittlere Konfidenz",
+      "high": "Hohe Konfidenz"
+    },
+    "unit": {
+      "percent": "%",
+      "ratio": "Verhältnis",
+      "days": "Tage",
+      "months": "Monate",
+      "score": "Punkte"
+    },
+    "metric": {
+      "gross_margin": "Bruttomarge",
+      "net_margin": "Nettomarge",
+      "scrap_rate": "Ausschussquote",
+      "labor_share": "Lohnanteil",
+      "energy_intensity": "Energieintensität",
+      "material_share": "Materialanteil",
+      "capacity_utilization": "Kapazitätsauslastung",
+      "quote_risk": "Angebotsrisiko",
+      "payback_period": "Amortisationszeit"
+    }
   }
 }
