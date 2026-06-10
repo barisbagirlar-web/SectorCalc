@@ -4,32 +4,38 @@ import { Container } from "@/components/ui/Container";
 
 const REFERENCE_LOGO_PATH = "/img/home/industry-reference-logos.png";
 const REFERENCE_LOGO_WIDTH = 1024;
-const REFERENCE_LOGO_HEIGHT = 479;
+const REFERENCE_LOGO_HEIGHT = 571;
 
 const REFERENCE_NAMES = [
   "Bosch",
-  "Caterpillar",
+  "MIT",
   "3M",
   "Bloomberg",
   "Reuters",
-  "Honeywell",
+  "Caterpillar",
+  "Imperial College London",
   "Parker",
-  "Festo",
   "AP News",
   "AFP",
+  "ETH Zürich",
+  "Honeywell",
+  "Festo",
+  "Manufacturing.net",
+  "Tsinghua University",
+  "ABB",
   "Schneider Electric",
   "UPI",
-  "Manufacturing.net",
-  "ABB",
+  "Industry Week",
   "KUKA",
   "Fanuc",
-  "Industry Week",
   "ThomasNet",
   "Siemens",
   "Rockwell Automation",
-  "Mitsubishi Electric",
+  "Delft University of Technology",
   "Engineering.com",
   "Machine Design",
+  "Nanyang Technological University (NTU)",
+  "Mitsubishi Electric",
 ] as const;
 
 export async function HomepageCredibilitySection() {
