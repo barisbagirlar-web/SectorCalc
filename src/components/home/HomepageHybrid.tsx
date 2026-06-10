@@ -1,3 +1,4 @@
+import { HomepageCredibilitySection } from "@/components/home/HomepageCredibilitySection";
 import { HomepageCampaignStrip } from "@/components/campaign/HomepageCampaignStrip";
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
 import { HomepageCatalogSearch } from "@/components/home/HomepageCatalogSearch";
@@ -81,6 +82,10 @@ export async function HomepageHybrid({ catalogSearchEntries = [] }: HomepageHybr
           </div>
         </Container>
       </section>
+
+      <hr className="sc-ledger-separator" />
+
+      <HomepageCredibilitySection />
 
       <hr className="sc-ledger-separator" />
 
