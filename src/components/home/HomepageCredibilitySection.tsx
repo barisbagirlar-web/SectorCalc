@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 
 const REFERENCE_LOGO_PATH = "/img/home/industry-reference-logos.png";
 const REFERENCE_LOGO_WIDTH = 1024;
-const REFERENCE_LOGO_HEIGHT = 571;
+const REFERENCE_LOGO_HEIGHT = 502;
 
 const REFERENCE_NAMES = [
   "Bosch",
@@ -37,7 +37,7 @@ export async function HomepageCredibilitySection() {
 
   return (
     <section
-      className="sc-home-hybrid__credibility sc-home-hybrid__section sc-home-hybrid__section--alt"
+      className="sc-home-hybrid__credibility sc-home-hybrid__section"
       aria-labelledby="home-about-heading"
     >
       <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
