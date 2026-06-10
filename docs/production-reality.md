@@ -13,46 +13,83 @@
 - **Firebase fallback/test:** https://sectorcalc-bf412.web.app
 - **Audit/smoke scripts must default to:** https://sectorcalc.com
 
-## P2.4 — Full Calculation Form Repair Sweep
+## Active product phase
+
+| Phase | Status |
+|-------|--------|
+| P0 Final Stabilization | **DONE** |
+| P1 Grouped Catalog Search | **DONE** |
+| P2.3 Premium Smart Form Full Rollout | **DONE** (27/27 premium Smart Form only) |
+| **P2.4 Full Calculation Form Repair Sweep** | **ACTIVE / OPEN** |
+| P3 Feedback / Formula Objection | **BLOCKED UNTIL P2.4 DONE** |
+| P4 Trust Trace / Validation Stamp / Public Verify | **WAITING** |
+
+### Phase gate (EN)
+
+P2.3 closed only the premium Smart Form rollout scope. It does not certify that every calculation-related form in the product is visually repaired, mobile-safe, locale-safe, and layout-stable. Therefore P2.4 — Full Calculation Form Repair Sweep is now the active phase and P3 must not start before P2.4 closure evidence is produced.
+
+### Faz kapısı (TR)
+
+P2.3 yalnızca premium Smart Form kapsamını kapatır. Bu kapanış, sitedeki tüm hesaplama formlarının düzeldiği anlamına gelmez. Free tool formları, legacy calculator formları, eski hesaplama componentleri ve locale/mobile kaynaklı form kırıkları P2.4 kapsamında ayrıca taranıp kapatılacaktır. P2.4 kapanmadan P3 başlatılmayacaktır.
+
+## P2.4 — Full Calculation Form Repair Sweep *(ACTIVE / OPEN)*
 
 | Item | Value |
 |------|--------|
-| **P2.4 commit** | pending deploy — shared form CSS + layout sweep |
-| **Form standard** | `.sc-form-shell`, `.sc-form-grid`, `.sc-form-field`, `.sc-form-result-layout` in `design-craft.css` |
-| **Surfaces** | Premium legacy fallback, free revenue/traffic, legacy `/tools/[tier]/[slug]`, `ToolCalculatorEngine` |
-| **Smoke** | `npm run smoke:all-calculation-forms` |
-| **Formula/runtime** | **Unchanged** |
+| **Phase status** | **ACTIVE / OPEN** — not closed |
+| **Scope** | All calculation-related forms beyond 27/27 premium Smart Form |
+| **Partial repo work** | May include `.sc-form-*` CSS, form shell wiring, `smoke:all-calculation-forms` scaffold — **not closure evidence** |
+| **Formula/runtime** | Must remain **unchanged** |
 
-## P3 — Feedback / Formula Objection System
+### P2.4 scope coverage
+
+| Scope                       | Status | Closure Evidence                     |
+| --------------------------- | ------ | ------------------------------------ |
+| Premium Smart Forms         | DONE   | 27/27 premium smart forms smoke PASS |
+| Free Tool Forms             | OPEN   | Inventory + repair + smoke pending   |
+| Legacy Calculator Forms     | OPEN   | Inventory + repair + smoke pending   |
+| Calculation Result Panels   | OPEN   | Layout QA pending                    |
+| Mobile 375px Forms          | OPEN   | QA pending                           |
+| Locale Long Labels          | OPEN   | TR/AR/DE/FR/ES QA pending            |
+| RTL Arabic Forms            | OPEN   | QA pending                           |
+| All Calculation Forms Smoke | OPEN   | smoke:all-calculation-forms pending  |
+
+### P2.4 can be closed only if
+
+1. All calculation-related form surfaces are inventoried.
+2. Form surfaces are classified as: `premium_smart_form`, `free_tool_form`, `legacy_calculator_form`, `report/calculation-related form`, `account/pricing/contact` non-core form.
+3. Premium Smart Forms remain 27/27 PASS.
+4. Free tool forms are checked and repaired.
+5. Legacy calculator forms are checked and repaired.
+6. Mobile 375px overflow is checked.
+7. Desktop 1440px layout is checked.
+8. Arabic RTL is checked.
+9. German/French/Spanish long label behavior is checked.
+10. No formula logic changes.
+11. No runtime calculation changes.
+12. No route/slug changes.
+13. No `/en` prefix.
+14. `smoke:all-calculation-forms` PASS.
+15. Browser smoke remains 25/25 PASS.
+16. Locale smoke remains 42/42 PASS.
+17. This file contains final coverage numbers (surfaces found, surfaces repaired, smoke results).
+
+**Coverage numbers:** *Pending P2.4 closure — do not treat P2.3 smoke as full-form certification.*
+
+## P3 — Feedback / Formula Objection System *(BLOCKED)*
+
+> **EN:** P3 Feedback / Formula Objection is blocked until P2.4 completes. Feedback UI must not be added on top of broken forms.
+>
+> **TR:** P3, P2.4 tamamlanmadan başlatılmayacak. Kırık formların üzerine feedback UI eklenmeyecek.
 
 | Item | Value |
 |------|--------|
-| **P3 commit** | `40bd28b` — Tool feedback + formula objection system |
-| **Collection** | `toolFeedback` (Firestore) |
-| **Public submit** | Client Firestore create-only via `submitToolFeedback()` |
-| **Admin queue** | `/account/feedback` — admin claim required for list + status update |
-| **UI** | `ToolFeedbackPanel` on all premium + free revenue tool pages |
-| **Locales** | EN root + `/tr` `/ar` `/de` `/fr` `/es` — `feedback.*` |
-| **Smoke** | `npm run smoke:feedback-ui` |
-| **Formula/runtime** | **Unchanged** |
+| **Product phase** | **BLOCKED UNTIL P2.4 DONE** |
+| **Do not start** | No new P3 work until P2.4 closure evidence in this file |
 
-### P3 closure — 2026-06-10 post-deploy (`40bd28b`)
+*Historical note:* Commits `40bd28b` / `7e01776` may exist in git from prior exploratory P3 work. That does **not** close product phase P3 or override the P2.4 gate.
 
-| Gate | Target | Result |
-|------|--------|--------|
-| `smoke:premium-routes` | 27/27 HTTP 200 | **PASS** |
-| `smoke:premium-smart-forms` | 27/27 markers + no hard gate | **PASS** |
-| `smoke:locale-routes` | 42/42 HTTP 200 | **PASS** |
-| `smoke:browser-routes --probe` | 4/4 | **PASS** |
-| `smoke:browser-routes` | 25/25 | **PASS** |
-| `smoke:feedback-ui` | 4 premium + 6 locale + account route | **PASS** |
-| Firestore rules deploy | `toolFeedback` create + admin update | **PASS** |
-| Firebase Hosting deploy | `sectorcalc-bf412` | **PASS** |
-| Cloud Run `minInstances=1` | `ssrsectorcalcbf412` us-central1 | **APPLIED** (revision `ssrsectorcalcbf412-00268-zqq`) |
-
-**Remaining risk:** Admin queue requires Firebase admin claim; non-admin signed-in users see auth-only message. Firestore composite index not required (client-side filter on last 50 docs). Legacy `calculator_feedback` collection retained; new submissions use `toolFeedback`.
-
-## P2.3 — Smart Form Full Premium Rollout (27/27)
+## P2.3 — Smart Form Full Premium Rollout (27/27) *(DONE — premium scope only)*
 
 | Item | Value |
 |------|--------|
@@ -93,9 +130,10 @@
 | P2.2 layout | `b0586e2` | Form + decision output 2-col layout |
 | **P2.3 closure** | `1861a7c` | SSR smoke markers + production-reality |
 | Docs manifesto v2 | `ba4ec7a` | Product vision / roadmap |
-| **Current HEAD** | `1861a7c` | P2.3 production closure |
+| P2.4 partial work | `bea180e` | Form CSS sweep — **P2.4 not closed** |
+| **Active product phase** | — | **P2.4 OPEN** — see roadmap gate |
 
-Do not assume reverted WIP is live unless current git confirms it.
+Do not assume P2.3 or partial P2.4 work certifies all calculation forms are repaired.
 
 ## Smart Form Maturity *(updated P2.3)*
 

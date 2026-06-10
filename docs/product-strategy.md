@@ -143,9 +143,22 @@ Layer 5 ─ Business / Enterprise (white-label, API, audit trail)
 
 ## Current strategic focus (Q2 2026)
 
-1. **Complete P2.3** — 27/27 Smart Form + smoke gate + production verify  
-2. **Stabilize revenue path** — public preview → Pro conversion without hard gate  
-3. **Defer P10 AI** until deterministic loop + Trust Trace foundation solid  
+1. **Complete P2.4** — full calculation form inventory, repair, locale/mobile QA, `smoke:all-calculation-forms` PASS  
+2. **Hold P3** — Feedback / Formula Objection **blocked until P2.4 closes**; do not add feedback UI on broken forms  
+3. **Maintain P2.3 baseline** — 27/27 premium Smart Form smoke must stay PASS while P2.4 runs  
+4. **Defer P10 AI** until deterministic loop + Trust Trace foundation solid  
+
+### Phase gate (EN)
+
+P2.3 closed only the premium Smart Form rollout scope. It does not certify that every calculation-related form in the product is visually repaired, mobile-safe, locale-safe, and layout-stable. Therefore P2.4 — Full Calculation Form Repair Sweep is now the active phase and P3 must not start before P2.4 closure evidence is produced.
+
+### Faz kapısı (TR)
+
+P2.3 yalnızca premium Smart Form kapsamını kapatır. Bu kapanış, sitedeki tüm hesaplama formlarının düzeldiği anlamına gelmez. Free tool formları, legacy calculator formları, eski hesaplama componentleri ve locale/mobile kaynaklı form kırıkları P2.4 kapsamında ayrıca taranıp kapatılacaktır. P2.4 kapanmadan P3 başlatılmayacaktır.
+
+> **P3 note (EN):** P3 Feedback / Formula Objection is blocked until P2.4 completes. Feedback UI must not be added on top of broken forms.
+>
+> **P3 notu (TR):** P3, P2.4 tamamlanmadan başlatılmayacak. Kırık formların üzerine feedback UI eklenmeyecek.
 
 ---
 
@@ -154,7 +167,8 @@ Layer 5 ─ Business / Enterprise (white-label, API, audit trail)
 | Metric | Signal |
 |--------|--------|
 | Premium route smoke 27/27 | Availability |
-| Smart form smoke 27/27 | Product surface complete |
+| Smart form smoke 27/27 | Premium Smart Form surface complete (P2.3 — not all forms) |
+| All calculation forms smoke | P2.4 closure gate — pending |
 | Locale smoke 42/42 | Global readiness |
 | Formula + dual-intelligence audit PASS | Engineering trust |
 | Conversion: preview → calculate → Pro | Revenue learning |
