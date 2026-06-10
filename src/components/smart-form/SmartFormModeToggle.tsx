@@ -13,7 +13,7 @@ export function SmartFormModeToggle({ mode, onChange }: SmartFormModeToggleProps
 
   return (
     <div
-      className="sc-smart-form-mode flex min-w-0 flex-wrap gap-2"
+      className="sc-smart-form-mode sc-smart-form-mode-toggle"
       role="group"
       aria-label={t("simple")}
     >
@@ -22,10 +22,8 @@ export function SmartFormModeToggle({ mode, onChange }: SmartFormModeToggleProps
           key={option}
           type="button"
           onClick={() => onChange(option)}
-          className={`min-h-[44px] min-w-0 flex-1 rounded-sm px-3 text-sm font-medium sm:flex-none sm:px-4 ${
-            mode === option
-              ? "bg-navy text-white"
-              : "border border-border-subtle bg-white text-body-charcoal"
+          className={`sc-smart-form-mode-toggle__btn${
+            mode === option ? " sc-smart-form-mode-toggle__btn--active" : ""
           }`}
           aria-pressed={mode === option}
         >

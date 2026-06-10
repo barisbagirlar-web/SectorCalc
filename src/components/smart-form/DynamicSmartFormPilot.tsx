@@ -97,6 +97,7 @@ export function DynamicSmartFormPilot({
   }, [errors, validation, definition, t]);
 
   const isValid = validation?.ok ?? false;
+  const activeScenario = definition?.scenarios.find((scenario) => scenario.id === scenarioId);
 
   useEffect(() => {
     onValidationChange?.(isValid);
@@ -121,34 +122,33 @@ export function DynamicSmartFormPilot({
   return (
     <form
       onSubmit={handleSubmit}
-      className="sc-dynamic-smart-form sc-ledger-karar-masasi__entries sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress min-w-0 space-y-4 p-4 sm:p-5"
+      className="sc-dynamic-smart-form sc-smart-form-pilot sc-ledger-panel sc-industrial-panel sc-ledger-letterpress"
       noValidate
       data-smart-form-slug={slug}
       data-smart-form-mode={mode}
       data-smart-form-scenario={scenarioId}
     >
-      <div className="min-w-0 space-y-2">
-        <p className="sc-ledger-eyebrow">{t("scenario.label")}</p>
-        <select
-          value={scenarioId}
-          onChange={(event) => setScenarioId(event.target.value)}
-          className="sc-ledger-input-boxed min-h-[44px] w-full min-w-0"
-          aria-label={t("scenario.label")}
-        >
-          {definition.scenarios.map((scenario) => (
-            <option key={scenario.id} value={scenario.id}>
-              {t(scenario.labelKey)}
-            </option>
-          ))}
-        </select>
-        {definition.scenarios.find((scenario) => scenario.id === scenarioId)?.descriptionKey ? (
-          <p className="text-sm text-body-charcoal">
-            {t(definition.scenarios.find((scenario) => scenario.id === scenarioId)!.descriptionKey!)}
-          </p>
-        ) : null}
+      <div className="sc-smart-form-controls">
+        <div className="sc-smart-form-scenario min-w-0">
+          <p className="sc-ledger-eyebrow">{t("scenario.label")}</p>
+          <select
+            value={scenarioId}
+            onChange={(event) => setScenarioId(event.target.value)}
+            className="sc-ledger-input-boxed sc-smart-form-scenario__select"
+            aria-label={t("scenario.label")}
+          >
+            {definition.scenarios.map((scenario) => (
+              <option key={scenario.id} value={scenario.id}>
+                {t(scenario.labelKey)}
+              </option>
+            ))}
+          </select>
+          {activeScenario?.descriptionKey ? (
+            <p className="sc-smart-form-scenario__desc">{t(activeScenario.descriptionKey)}</p>
+          ) : null}
+        </div>
+        <SmartFormModeToggle mode={mode} onChange={setMode} />
       </div>
-
-      <SmartFormModeToggle mode={mode} onChange={setMode} />
 
       <SmartFormRequirementNotice
         missingCount={validation?.missing.length ?? 0}
@@ -156,7 +156,7 @@ export function DynamicSmartFormPilot({
         blocked={!isValid}
       />
 
-      <div className="grid min-w-0 grid-cols-1 gap-3 md:grid-cols-2">
+      <div className="sc-smart-form-fields">
         {visibleInputs.map((input) => (
           <SmartInputField
             key={input.key}
@@ -169,11 +169,11 @@ export function DynamicSmartFormPilot({
         ))}
       </div>
 
-      <div className="sc-industrial-form-actions">
+      <div className="sc-smart-form-actions sc-industrial-form-actions">
         <button
           type="submit"
           disabled={isCalculating || !isValid}
-          className="sc-ledger-cta-primary sc-cta-primary min-h-[44px] disabled:opacity-60"
+          className="sc-ledger-cta-primary sc-cta-primary sc-smart-form-submit disabled:opacity-60"
         >
           {isCalculating ? "…" : calculateLabel}
         </button>

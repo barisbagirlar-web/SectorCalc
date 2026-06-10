@@ -604,72 +604,72 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   tier="premium"
   fallback={useFullLoopRuntime || !smartFormAdapter.ok}
   formContent={
-   <div className="sc-ledger-karar-masasi mt-4">
-    {useFullLoopRuntime ? (
-     useDynamicSmartFormPilot ? (
-      <DynamicSmartFormPilot
-       slug={runtimeSlug}
-       values={values}
-       errors={errors}
-       onChange={handleChange}
-       onSubmit={handleSubmit}
-       calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
-       isCalculating={isCalculating}
-      />
-     ) : (
-      <SmartToolForm
-       slug={runtimeSlug}
-       values={values}
-       errors={errors}
-       onChange={handleChange}
-       onSubmit={handleSubmit}
-       calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
-       blocked={submitted && fullLoopResult?.status === "blocked"}
-       blockers={
-        submitted && fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []
-       }
-       isCalculating={isCalculating}
-      />
-     )
-    ) : (
-     <form
+   useFullLoopRuntime ? (
+    useDynamicSmartFormPilot ? (
+     <DynamicSmartFormPilot
+      slug={runtimeSlug}
+      values={values}
+      errors={errors}
+      onChange={handleChange}
       onSubmit={handleSubmit}
-      className="sc-ledger-karar-masasi__entries sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
-      noValidate
-     >
-      {tool.paidInputs.map((input) => (
-       <PremiumToolInputField
-        key={input.key}
-        input={input}
-        value={values[input.key] ?? (input.type === "select" ? "" : 0)}
-        error={errors[input.key]}
-        onChange={handleChange}
-       />
-      ))}
-      <div className="sc-industrial-form-actions">
-       <button
-        type="submit"
-        disabled={isCalculating}
-        className="sc-ledger-cta-primary sc-cta-primary disabled:opacity-60"
-       >
-        {isCalculating ? "Calculating…" : "Run analysis"}
-       </button>
-      </div>
-     </form>
-    )}
-    <SmartResultPanel
-     calculationSteps={smartFormAdapter.ok ? smartFormAdapter.calculationSteps : []}
-     trustTraceSlot={
-      useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
-       <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-      ) : undefined
-     }
+      calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
+      isCalculating={isCalculating}
+     />
+    ) : (
+     <SmartToolForm
+      slug={runtimeSlug}
+      values={values}
+      errors={errors}
+      onChange={handleChange}
+      onSubmit={handleSubmit}
+      calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
+      blocked={submitted && fullLoopResult?.status === "blocked"}
+      blockers={
+       submitted && fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []
+      }
+      isCalculating={isCalculating}
+     />
+    )
+   ) : (
+    <form
+     onSubmit={handleSubmit}
+     className="sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
+     noValidate
     >
-     <div className="sc-ledger-karar-masasi__report min-w-0 space-y-4">
-      {renderAnalysisOutput("primary")}
+     {tool.paidInputs.map((input) => (
+      <PremiumToolInputField
+       key={input.key}
+       input={input}
+       value={values[input.key] ?? (input.type === "select" ? "" : 0)}
+       error={errors[input.key]}
+       onChange={handleChange}
+      />
+     ))}
+     <div className="sc-industrial-form-actions">
+      <button
+       type="submit"
+       disabled={isCalculating}
+       className="sc-ledger-cta-primary sc-cta-primary disabled:opacity-60"
+      >
+       {isCalculating ? "Calculating…" : "Run analysis"}
+      </button>
      </div>
-    </SmartResultPanel>
-   </div>
+    </form>
+   )
+  }
+  resultContent={
+   <SmartResultPanel
+    calculationSteps={smartFormAdapter.ok ? smartFormAdapter.calculationSteps : []}
+    trustTraceSlot={
+     useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
+      <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+     ) : undefined
+    }
+   >
+    <div className="sc-ledger-karar-masasi__report min-w-0 space-y-4">
+     {renderAnalysisOutput("primary")}
+    </div>
+   </SmartResultPanel>
   }
   trustTraceContent={
    useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (

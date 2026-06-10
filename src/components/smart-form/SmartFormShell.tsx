@@ -81,7 +81,7 @@ export function SmartFormShell({
 
   return (
     <div
-      className="min-w-0 space-y-4"
+      className="sc-smart-form-shell min-w-0"
       data-smart-form-shell="true"
       data-smart-form-tier={tier}
       data-smart-form-fallback={fallback ? "true" : "false"}
@@ -124,10 +124,10 @@ export function SmartFormShell({
         </div>
       </header>
 
-      <div className="grid min-w-0 gap-4 lg:grid-cols-2 lg:items-start">
-        <div className="min-w-0 space-y-4">{formBody}</div>
+      <div className="sc-smart-form-layout">
+        <div className="sc-smart-form-panel min-w-0">{formBody}</div>
         {viewMode !== "trust" && resultContent ? (
-          <div className="min-w-0">{resultContent}</div>
+          <div className="sc-smart-form-output min-w-0">{resultContent}</div>
         ) : null}
       </div>
     </div>

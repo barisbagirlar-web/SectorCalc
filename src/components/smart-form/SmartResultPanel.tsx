@@ -29,7 +29,7 @@ export function SmartResultPanel({
   verifyPlaceholder = "Verification link will appear when report verification is enabled for this tool.",
 }: SmartResultPanelProps) {
   return (
-    <section className="sc-ledger-panel sc-industrial-panel min-w-0 space-y-4 rounded-sm border border-border-subtle bg-white p-4 sm:p-5">
+    <section className="sc-smart-form-output sc-ledger-panel sc-industrial-panel min-w-0 space-y-4 rounded-sm border border-border-subtle bg-white p-4 sm:p-5">
       <header>
         <p className="sc-ledger-eyebrow text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
           Decision output
