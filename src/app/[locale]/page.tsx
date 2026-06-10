@@ -6,6 +6,9 @@ import { HomepageHybrid } from "@/components/home/HomepageHybrid";
 import { getHomepageSectorAreaCount } from "@/lib/home/homepage-stats";
 import { createPageMetadata } from "@/lib/metadata";
 
+export const revalidate = 3600;
+export const dynamic = "force-static";
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("homepageHybrid");
   const sectorCount = getHomepageSectorAreaCount();

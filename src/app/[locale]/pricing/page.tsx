@@ -13,6 +13,9 @@ import { Container } from "@/components/ui/Container";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
+export const revalidate = 3600;
+export const dynamic = "force-static";
+
 type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

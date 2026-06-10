@@ -10,6 +10,8 @@ import { resolve } from "node:path";
 const ROOT = process.cwd();
 
 const HUB_ROUTE_FILES = [
+  "src/app/[locale]/page.tsx",
+  "src/app/[locale]/pricing/page.tsx",
   "src/app/[locale]/free-tools/page.tsx",
   "src/app/[locale]/premium-tools/page.tsx",
   "src/app/[locale]/industries/page.tsx",
