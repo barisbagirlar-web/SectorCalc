@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/routing";
-import { CalculatorFeedbackBox } from "@/components/tools/CalculatorFeedbackBox";
+import { ToolFeedbackPanel } from "@/components/feedback/ToolFeedbackPanel";
 import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { buildSmartFormPilotCalculationPayload } from "@/components/tools/smart-form/build-smart-form-pilot-calculation-payload";
@@ -527,15 +527,6 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
      {!isCalculating && result ? (
       <>
        <FreeToolResultCard result={result} />
-       {fullLoopResult?.status === "success" ? (
-        <CalculatorFeedbackBox
-         toolSlug={tool.freeSlug}
-         tier="free"
-         pagePath={pagePath}
-         inputSnapshot={feedbackInputSnapshot}
-         resultSnapshot={feedbackResultSnapshot}
-        />
-       ) : null}
       </>
      ) : null}
      {!isCalculating && !result && fullLoopResult?.status !== "blocked" ? (
@@ -552,6 +543,16 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
      <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
     ) : undefined
    }
+  />
+  <ToolFeedbackPanel
+   toolSlug={tool.freeSlug}
+   toolType="free"
+   source={useSmartFormPilot ? "smart_form" : "free_tool"}
+   locale={locale}
+   routePath={pagePath}
+   formulaContractId={useFullLoopRuntime ? tool.freeSlug : undefined}
+   inputSnapshot={feedbackInputSnapshot}
+   resultSnapshot={feedbackResultSnapshot}
   />
  </div>
  </Container>

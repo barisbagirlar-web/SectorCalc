@@ -15,9 +15,10 @@
 | **P2.0** Smart Form Pilot (3 tool) | **DONE** | CNC, welding, HVAC dynamic form |
 | **P2.1** Public Preview + Auth Gate Fix | **DONE** | Hard gate kaldırıldı; Pro-only aksiyonlar kilitli |
 | **P2.2** Smart Form Layout Stabilization | **DONE** | Desktop 2-col, mobile 375px, decision output panel |
-| **P2.3** Smart Form Full Premium Rollout | **ACTIVE** | 27/27 premium analyzer Smart Form + runtime compatibility |
+| **P2.3** Smart Form Full Premium Rollout | **DONE** | 27/27 premium analyzer Smart Form + runtime compatibility |
+| **P3** Feedback / Formula Objection System | **DONE** | Tool feedback panel, admin queue, Firestore `toolFeedback` |
 
-**Current active phase:** **P2 — Smart Form Full Premium Rollout (27/27)**
+**Current active phase:** **P4 — Trust Trace / Validation Stamp / Public Verify**
 
 ---
 
@@ -35,7 +36,7 @@ P0 Stabilization ──► P1 Catalog ──► P2 Smart Form (pilot → layout 
 
 ---
 
-## P2 — Smart Form Full Premium Rollout *(ACTIVE)*
+## P2 — Smart Form Full Premium Rollout *(DONE)*
 
 **Goal:** 27/27 premium analyzer Smart Form kapsamında; formula logic değişmeden.
 
@@ -46,27 +47,29 @@ P0 Stabilization ──► P1 Catalog ──► P2 Smart Form (pilot → layout 
 - [x] 27 tool × 2 scenario, simple/advanced, contract-aligned input keys  
 - [x] 6 locale `smartForm.*` message coverage  
 - [x] `npm run smoke:premium-smart-forms` gate  
-- [ ] Production deploy + post-deploy smoke PASS (verify via `production-reality.md`)  
+- [x] Production deploy + post-deploy smoke PASS (verify via `production-reality.md`)  
 
 ### Exit criteria
 
-- 27/27 premium route public preview + Smart Form marker  
-- Sign-in required **hard gate yok**  
-- Runtime compatibility audit PASS  
-- Build + formula + dual-intelligence + locale + browser smoke PASS  
+- [x] 27/27 premium route public preview + Smart Form marker  
+- [x] Sign-in required **hard gate yok**  
+- [x] Runtime compatibility audit PASS  
+- [x] Build + formula + dual-intelligence + locale + browser smoke PASS  
 
 ---
 
-## P3 — Feedback / Formula Objection System
+## P3 — Feedback / Formula Objection System *(DONE)*
 
 **Goal:** Kullanıcı geri bildirimi ve formül itirazı admin queue’ya düşer.
 
-| Feature | Açıklama |
-|---------|----------|
-| Tool feedback form | Öneri, hata, feature request |
-| Formula objection | “Bu formül sektörümde farklı” |
-| Admin queue | Triage, status, SLA |
-| Status tracking | Kullanıcıya durum (opsiyonel) |
+| Feature | Durum |
+|---------|--------|
+| Tool feedback form (8 kinds) | **DONE** — `ToolFeedbackPanel` on premium + free tool pages |
+| Formula objection | **DONE** — dedicated kind + extended fields |
+| Firestore collection | **DONE** — `toolFeedback` create-only + admin read/update status |
+| Admin queue | **DONE** — `/account/feedback` (admin auth, filters, status update) |
+| 6 locale i18n | **DONE** — `feedback.*` namespace |
+| Smoke gate | **DONE** — `npm run smoke:feedback-ui` |
 
 ---
 

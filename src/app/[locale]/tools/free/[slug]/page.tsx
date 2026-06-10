@@ -118,6 +118,7 @@ export default async function FreeRevenueToolRoute({
     return (
       <>
         <JsonLd data={jsonLd} />
+        <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" />
         <FreeToolPage
           tool={revenueTool}
           featuredAnswer={featuredAnswer}
@@ -172,6 +173,7 @@ export default async function FreeRevenueToolRoute({
   return (
     <>
       <JsonLd data={jsonLd} />
+      <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" />
       <FreeTrafficToolPage tool={trafficTool} featuredAnswer={featuredAnswerBlock} />
     </>
   );

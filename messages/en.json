@@ -2433,5 +2433,98 @@
     "switchLanguage": "Language",
     "chooseSector": "Choose sector",
     "seeWhatThisEstimateMisses": "See what's missing"
+  },
+  "feedback": {
+    "title": "Feedback & formula objection",
+    "subtitle": "Tell us if this formula does not match your field reality.",
+    "openButton": "Send feedback",
+    "closeButton": "Close",
+    "kind": {
+      "label": "Feedback type",
+      "selectPlaceholder": "Select…",
+      "formula_objection": "Formula objection",
+      "wrong_result": "Wrong result report",
+      "missing_input": "Missing input suggestion",
+      "improvement_request": "Improvement request",
+      "sector_adjustment": "Sector-specific adjustment",
+      "data_source_suggestion": "Data source suggestion",
+      "usability_issue": "Usability issue",
+      "other": "Other feedback"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Describe what does not match your operation or sector practice."
+    },
+    "expectedBehavior": {
+      "label": "Expected behavior"
+    },
+    "actualBehavior": {
+      "label": "Actual behavior you observe"
+    },
+    "sectorContext": {
+      "label": "Sector / field context"
+    },
+    "suggestedFormulaChange": {
+      "label": "Suggested formula or assumption change"
+    },
+    "suggestedInput": {
+      "label": "Suggested missing input"
+    },
+    "dataSourceUrl": {
+      "label": "Reference URL (optional)"
+    },
+    "submit": "Submit feedback",
+    "submitting": "Submitting…",
+    "success": {
+      "title": "Feedback recorded",
+      "description": "Thank you. Your feedback helps strengthen verified calculations."
+    },
+    "error": {
+      "validation": "Please check the form and try again.",
+      "submitFailed": "Could not submit feedback. Please try again shortly.",
+      "tooShort": "Message must be at least 10 characters.",
+      "tooLong": "Message is too long.",
+      "rateLimited": "Please wait before submitting again."
+    },
+    "admin": {
+      "title": "Tool feedback queue",
+      "subtitle": "Review formula objections, wrong results, and improvement requests.",
+      "empty": "No feedback entries yet.",
+      "loading": "Checking access…",
+      "signInRequired": "Sign in to open the feedback queue.",
+      "signInCta": "Sign in",
+      "adminOnly": "Sign in with an admin account to view the feedback queue.",
+      "firebaseMissing": "Firebase is not configured — no live records will load.",
+      "refresh": "Refresh",
+      "refreshing": "Refreshing…",
+      "selectItem": "Select an item to view details.",
+      "updateStatus": "Update status",
+      "filters": {
+        "kind": "Kind",
+        "locale": "Locale",
+        "tool": "Tool slug",
+        "severity": "Severity",
+        "status": "Status",
+        "all": "All"
+      },
+      "status": {
+        "new": "New",
+        "triaged": "Triaged",
+        "in_review": "In review",
+        "accepted": "Accepted",
+        "rejected": "Rejected",
+        "implemented": "Implemented",
+        "closed": "Closed"
+      },
+      "severity": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "critical": "Critical"
+      }
+    },
+    "visibilityNote": "Surface hidden loss and record what the field actually shows.",
+    "trustTraceNote": "Formula objections help improve verified calculations.",
+    "formulaObjectionNote": "Tell us if this formula does not match your field reality."
   }
 }

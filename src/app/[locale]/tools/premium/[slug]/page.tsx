@@ -72,6 +72,7 @@ export default async function PremiumRevenueToolRoute({
           data-premium-public-preview-surface="true"
         />
       ) : null}
+      <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" />
       <div className="sr-only">
         <h1>{tool.paidTitle}</h1>
         <p>{tool.paidValue}</p>

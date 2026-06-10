@@ -61,6 +61,16 @@ service cloud.firestore {
         && isValidCalculatorFeedbackCreate(request.resource.data);
     }
 
+    match /toolFeedback/{feedbackId} {
+      allow read: if isAuthenticatedAdmin();
+      allow update: if isAuthenticatedAdmin()
+        && isValidToolFeedbackAdminUpdate(request.resource.data, resource.data);
+      allow delete: if false;
+      allow create: if
+        feedbackId == request.resource.data.id
+        && isValidToolFeedbackCreate(request.resource.data);
+    }
+
     match /users/{userId} {
       allow read: if request.auth != null && request.auth.uid == userId;
       allow write: if false;
@@ -409,4 +419,140 @@ function isValidCalculatorFeedbackCategory(category) {
 function isValidOptionalCalculatorFeedbackSnapshot(data, field) {
   return !(field in data)
     || (data[field] is map && data[field].size() <= 40);
+}
+
+function isValidToolFeedbackId(id) {
+  return id is string
+    && id.size() >= 8
+    && id.size() <= 80
+    && id.matches('^tfb_[A-Za-z0-9._-]+$');
+}
+
+function isValidToolFeedbackKind(kind) {
+  return kind in [
+    'formula_objection',
+    'wrong_result',
+    'missing_input',
+    'improvement_request',
+    'sector_adjustment',
+    'data_source_suggestion',
+    'usability_issue',
+    'other',
+  ];
+}
+
+function isValidToolFeedbackStatus(status) {
+  return status in [
+    'new',
+    'triaged',
+    'in_review',
+    'accepted',
+    'rejected',
+    'implemented',
+    'closed',
+  ];
+}
+
+function isValidToolFeedbackSeverity(severity) {
+  return severity in ['low', 'medium', 'high', 'critical'];
+}
+
+function isValidToolFeedbackSource(source) {
+  return source in [
+    'premium_tool',
+    'free_tool',
+    'smart_form',
+    'report',
+    'verify',
+    'unknown',
+  ];
+}
+
+function isValidToolFeedbackToolType(toolType) {
+  return toolType in ['free', 'premium', 'unknown'];
+}
+
+function isValidToolFeedbackMessage(message) {
+  return message is string
+    && message.size() >= 10
+    && message.size() <= 2000;
+}
+
+function isValidOptionalToolFeedbackText(data, field, maxLen) {
+  return !(field in data)
+    || (data[field] is string && data[field].size() <= maxLen);
+}
+
+function isValidOptionalToolFeedbackUrl(data) {
+  return !('dataSourceUrl' in data)
+    || (data.dataSourceUrl is string && data.dataSourceUrl.size() <= 512);
+}
+
+function isValidOptionalToolFeedbackSnapshot(data, field) {
+  return !(field in data)
+    || (data[field] is map && data[field].size() <= 40);
+}
+
+function isValidOptionalToolFeedbackNullableString(data, field, maxLen) {
+  return !(field in data)
+    || data[field] == null
+    || (data[field] is string && data[field].size() <= maxLen);
+}
+
+function hasValidToolFeedbackKeys(data) {
+  let keys = data.keys();
+  return keys.hasAll([
+      'id',
+      'kind',
+      'status',
+      'severity',
+      'source',
+      'toolSlug',
+      'toolType',
+      'locale',
+      'routePath',
+      'message',
+      'createdAt',
+      'updatedAt',
+    ])
+    && keys.size() >= 12
+    && keys.size() <= 28;
+}
+
+function isValidToolFeedbackCreate(data) {
+  return hasValidToolFeedbackKeys(data)
+    && isValidToolFeedbackId(data.id)
+    && isValidToolFeedbackKind(data.kind)
+    && data.status == 'new'
+    && isValidToolFeedbackSeverity(data.severity)
+    && isValidToolFeedbackSource(data.source)
+    && isValidShortText(data.toolSlug, 2, 80)
+    && isValidToolFeedbackToolType(data.toolType)
+    && isValidShortText(data.locale, 2, 8)
+    && isValidPagePath(data.routePath)
+    && isValidToolFeedbackMessage(data.message)
+    && isValidCreatedAt(data.createdAt)
+    && isValidCreatedAt(data.updatedAt)
+    && isValidOptionalToolFeedbackText(data, 'expectedBehavior', 1000)
+    && isValidOptionalToolFeedbackText(data, 'actualBehavior', 1000)
+    && isValidOptionalToolFeedbackText(data, 'sectorContext', 500)
+    && isValidOptionalToolFeedbackText(data, 'suggestedFormulaChange', 1500)
+    && isValidOptionalToolFeedbackText(data, 'suggestedInput', 500)
+    && isValidOptionalToolFeedbackUrl(data)
+    && isValidOptionalToolFeedbackText(data, 'formulaVersion', 80)
+    && isValidOptionalToolFeedbackText(data, 'formulaContractId', 120)
+    && isValidOptionalToolFeedbackText(data, 'calculationHash', 128)
+    && isValidOptionalToolFeedbackText(data, 'reportId', 80)
+    && isValidOptionalToolFeedbackSnapshot(data, 'inputSnapshot')
+    && isValidOptionalToolFeedbackSnapshot(data, 'resultSnapshot')
+    && isValidOptionalToolFeedbackNullableString(data, 'userId', 128)
+    && isValidOptionalToolFeedbackNullableString(data, 'userEmail', 254)
+    && isValidOptionalToolFeedbackNullableString(data, 'sessionId', 80)
+    && isValidOptionalToolFeedbackText(data, 'userAgent', 256);
+}
+
+function isValidToolFeedbackAdminUpdate(newData, oldData) {
+  return newData.diff(oldData).affectedKeys().hasOnly(['status', 'updatedAt'])
+    && isValidToolFeedbackStatus(newData.status)
+    && isValidCreatedAt(newData.updatedAt);
 }

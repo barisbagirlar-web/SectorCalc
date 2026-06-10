@@ -40,7 +40,7 @@ import { DynamicSmartFormPilot } from "@/components/smart-form/DynamicSmartFormP
 import { buildSmartFormForTool } from "@/lib/smart-form/smart-form-adapter";
 import { hasPremiumSmartFormDefinition } from "@/lib/smart-form/premium-smart-form-definitions";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
-import { CalculatorFeedbackBox } from "@/components/tools/CalculatorFeedbackBox";
+import { ToolFeedbackPanel } from "@/components/feedback/ToolFeedbackPanel";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
@@ -405,13 +405,6 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
     <>
      <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-     <CalculatorFeedbackBox
-      toolSlug={runtimeSlug}
-      tier="premium"
-      pagePath={pagePath}
-      inputSnapshot={feedbackInputSnapshot}
-      resultSnapshot={feedbackResultSnapshot}
-     />
     </>
    ) : null}
   </>
@@ -681,6 +674,20 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  )}
  </>
  )}
+ </Container>
+ </section>
+ <section className="border-t border-technical-gray/20 bg-white py-6">
+ <Container>
+ <ToolFeedbackPanel
+  toolSlug={runtimeSlug}
+  toolType="premium"
+  source={usePremiumSmartForm ? "smart_form" : "premium_tool"}
+  locale={locale}
+  routePath={pagePath}
+  formulaContractId={useFullLoopRuntime ? runtimeSlug : undefined}
+  inputSnapshot={feedbackInputSnapshot}
+  resultSnapshot={feedbackResultSnapshot}
+ />
  </Container>
  </section>
  <section className="border-t border-technical-gray/40 bg-off-white py-6">

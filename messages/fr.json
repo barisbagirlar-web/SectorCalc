@@ -2396,5 +2396,98 @@
     "switchLanguage": "Langue",
     "chooseSector": "Choisir secteur",
     "seeWhatThisEstimateMisses": "Ce qui manque"
+  },
+  "feedback": {
+    "title": "Retour et objection de formule",
+    "subtitle": "Dites-nous si cette formule ne correspond pas à votre réalité terrain.",
+    "openButton": "Envoyer un retour",
+    "closeButton": "Fermer",
+    "kind": {
+      "label": "Type de retour",
+      "selectPlaceholder": "Sélectionner…",
+      "formula_objection": "Objection de formule",
+      "wrong_result": "Résultat incorrect",
+      "missing_input": "Entrée manquante suggérée",
+      "improvement_request": "Demande d'amélioration",
+      "sector_adjustment": "Ajustement sectoriel",
+      "data_source_suggestion": "Suggestion de source de données",
+      "usability_issue": "Problème d'utilisabilité",
+      "other": "Autre retour"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Décrivez ce qui ne correspond pas à votre exploitation ou pratique sectorielle."
+    },
+    "expectedBehavior": {
+      "label": "Comportement attendu"
+    },
+    "actualBehavior": {
+      "label": "Comportement observé sur le terrain"
+    },
+    "sectorContext": {
+      "label": "Contexte secteur / terrain"
+    },
+    "suggestedFormulaChange": {
+      "label": "Changement de formule ou d'hypothèse suggéré"
+    },
+    "suggestedInput": {
+      "label": "Entrée manquante suggérée"
+    },
+    "dataSourceUrl": {
+      "label": "URL de référence (optionnel)"
+    },
+    "submit": "Envoyer le retour",
+    "submitting": "Envoi…",
+    "success": {
+      "title": "Retour enregistré",
+      "description": "Merci. Votre retour renforce les calculs vérifiés."
+    },
+    "error": {
+      "validation": "Veuillez vérifier le formulaire et réessayer.",
+      "submitFailed": "Impossible d'envoyer le retour. Réessayez plus tard.",
+      "tooShort": "Le message doit contenir au moins 10 caractères.",
+      "tooLong": "Le message est trop long.",
+      "rateLimited": "Veuillez patienter avant de renvoyer."
+    },
+    "admin": {
+      "title": "File d'attente des retours",
+      "subtitle": "Examiner objections, résultats incorrects et demandes d'amélioration.",
+      "empty": "Aucun retour pour le moment.",
+      "loading": "Vérification de l'accès…",
+      "signInRequired": "Connectez-vous pour ouvrir la file d'attente.",
+      "signInCta": "Se connecter",
+      "adminOnly": "Connectez-vous avec un compte admin pour voir la file d'attente.",
+      "firebaseMissing": "Firebase non configuré — aucun enregistrement en direct.",
+      "refresh": "Actualiser",
+      "refreshing": "Actualisation…",
+      "selectItem": "Sélectionnez un élément pour voir les détails.",
+      "updateStatus": "Mettre à jour le statut",
+      "filters": {
+        "kind": "Type",
+        "locale": "Langue",
+        "tool": "Slug outil",
+        "severity": "Gravité",
+        "status": "Statut",
+        "all": "Tous"
+      },
+      "status": {
+        "new": "Nouveau",
+        "triaged": "Trié",
+        "in_review": "En revue",
+        "accepted": "Accepté",
+        "rejected": "Rejeté",
+        "implemented": "Implémenté",
+        "closed": "Fermé"
+      },
+      "severity": {
+        "low": "Faible",
+        "medium": "Moyen",
+        "high": "Élevé",
+        "critical": "Critique"
+      }
+    },
+    "visibilityNote": "Rend visible les pertes cachées et enregistre la réalité terrain.",
+    "trustTraceNote": "Les objections de formule améliorent les calculs vérifiés.",
+    "formulaObjectionNote": "Dites-nous si cette formule ne correspond pas à votre réalité terrain."
   }
 }

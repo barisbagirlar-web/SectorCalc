@@ -2396,5 +2396,98 @@
     "switchLanguage": "Sprache",
     "chooseSector": "Branche wählen",
     "seeWhatThisEstimateMisses": "Was fehlt?"
+  },
+  "feedback": {
+    "title": "Feedback & Formeleinwand",
+    "subtitle": "Sagen Sie uns, wenn diese Formel nicht zu Ihrer Praxis passt.",
+    "openButton": "Feedback senden",
+    "closeButton": "Schließen",
+    "kind": {
+      "label": "Feedback-Typ",
+      "selectPlaceholder": "Auswählen…",
+      "formula_objection": "Formeleinwand",
+      "wrong_result": "Falsches Ergebnis",
+      "missing_input": "Fehlende Eingabe",
+      "improvement_request": "Verbesserungswunsch",
+      "sector_adjustment": "Branchenspezifische Anpassung",
+      "data_source_suggestion": "Datenquellen-Vorschlag",
+      "usability_issue": "Bedienungsproblem",
+      "other": "Sonstiges Feedback"
+    },
+    "message": {
+      "label": "Nachricht",
+      "placeholder": "Beschreiben Sie, was nicht zu Ihrem Betrieb oder Ihrer Branche passt."
+    },
+    "expectedBehavior": {
+      "label": "Erwartetes Verhalten"
+    },
+    "actualBehavior": {
+      "label": "Beobachtetes Verhalten vor Ort"
+    },
+    "sectorContext": {
+      "label": "Branchen- / Feldkontext"
+    },
+    "suggestedFormulaChange": {
+      "label": "Vorgeschlagene Formel- oder Annahmeänderung"
+    },
+    "suggestedInput": {
+      "label": "Vorgeschlagene fehlende Eingabe"
+    },
+    "dataSourceUrl": {
+      "label": "Referenz-URL (optional)"
+    },
+    "submit": "Feedback absenden",
+    "submitting": "Wird gesendet…",
+    "success": {
+      "title": "Feedback gespeichert",
+      "description": "Vielen Dank. Ihr Feedback stärkt verifizierte Berechnungen."
+    },
+    "error": {
+      "validation": "Bitte prüfen Sie das Formular und versuchen Sie es erneut.",
+      "submitFailed": "Feedback konnte nicht gesendet werden. Bitte später erneut versuchen.",
+      "tooShort": "Die Nachricht muss mindestens 10 Zeichen haben.",
+      "tooLong": "Die Nachricht ist zu lang.",
+      "rateLimited": "Bitte warten Sie, bevor Sie erneut senden."
+    },
+    "admin": {
+      "title": "Tool-Feedback-Warteschlange",
+      "subtitle": "Formeleinwände, falsche Ergebnisse und Verbesserungswünsche prüfen.",
+      "empty": "Noch keine Feedback-Einträge.",
+      "loading": "Zugriff wird geprüft…",
+      "signInRequired": "Melden Sie sich an, um die Feedback-Warteschlange zu öffnen.",
+      "signInCta": "Anmelden",
+      "adminOnly": "Melden Sie sich mit einem Admin-Konto an, um die Warteschlange zu sehen.",
+      "firebaseMissing": "Firebase ist nicht konfiguriert — keine Live-Daten.",
+      "refresh": "Aktualisieren",
+      "refreshing": "Wird aktualisiert…",
+      "selectItem": "Eintrag auswählen, um Details zu sehen.",
+      "updateStatus": "Status aktualisieren",
+      "filters": {
+        "kind": "Art",
+        "locale": "Sprache",
+        "tool": "Tool-Slug",
+        "severity": "Schwere",
+        "status": "Status",
+        "all": "Alle"
+      },
+      "status": {
+        "new": "Neu",
+        "triaged": "Eingeteilt",
+        "in_review": "In Prüfung",
+        "accepted": "Akzeptiert",
+        "rejected": "Abgelehnt",
+        "implemented": "Umgesetzt",
+        "closed": "Geschlossen"
+      },
+      "severity": {
+        "low": "Niedrig",
+        "medium": "Mittel",
+        "high": "Hoch",
+        "critical": "Kritisch"
+      }
+    },
+    "visibilityNote": "Macht versteckte Verluste sichtbar und erfasst die Praxis vor Ort.",
+    "trustTraceNote": "Formeleinwände verbessern verifizierte Berechnungsstandards.",
+    "formulaObjectionNote": "Sagen Sie uns, wenn diese Formel nicht zu Ihrer Praxis passt."
   }
 }

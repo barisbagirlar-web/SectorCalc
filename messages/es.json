@@ -2396,5 +2396,98 @@
     "switchLanguage": "Idioma",
     "chooseSector": "Elegir sector",
     "seeWhatThisEstimateMisses": "Qué falta"
+  },
+  "feedback": {
+    "title": "Comentarios y objeción de fórmula",
+    "subtitle": "Cuéntenos si esta fórmula no coincide con su realidad operativa.",
+    "openButton": "Enviar comentario",
+    "closeButton": "Cerrar",
+    "kind": {
+      "label": "Tipo de comentario",
+      "selectPlaceholder": "Seleccionar…",
+      "formula_objection": "Objeción de fórmula",
+      "wrong_result": "Resultado incorrecto",
+      "missing_input": "Entrada faltante sugerida",
+      "improvement_request": "Solicitud de mejora",
+      "sector_adjustment": "Ajuste específico del sector",
+      "data_source_suggestion": "Sugerencia de fuente de datos",
+      "usability_issue": "Problema de usabilidad",
+      "other": "Otro comentario"
+    },
+    "message": {
+      "label": "Mensaje",
+      "placeholder": "Describa lo que no coincide con su operación o práctica sectorial."
+    },
+    "expectedBehavior": {
+      "label": "Comportamiento esperado"
+    },
+    "actualBehavior": {
+      "label": "Comportamiento observado en campo"
+    },
+    "sectorContext": {
+      "label": "Contexto sector / campo"
+    },
+    "suggestedFormulaChange": {
+      "label": "Cambio sugerido de fórmula o supuesto"
+    },
+    "suggestedInput": {
+      "label": "Entrada faltante sugerida"
+    },
+    "dataSourceUrl": {
+      "label": "URL de referencia (opcional)"
+    },
+    "submit": "Enviar comentario",
+    "submitting": "Enviando…",
+    "success": {
+      "title": "Comentario registrado",
+      "description": "Gracias. Sus comentarios fortalecen los cálculos verificados."
+    },
+    "error": {
+      "validation": "Revise el formulario e inténtelo de nuevo.",
+      "submitFailed": "No se pudo enviar el comentario. Inténtelo más tarde.",
+      "tooShort": "El mensaje debe tener al menos 10 caracteres.",
+      "tooLong": "El mensaje es demasiado largo.",
+      "rateLimited": "Espere antes de enviar de nuevo."
+    },
+    "admin": {
+      "title": "Cola de comentarios de herramientas",
+      "subtitle": "Revisar objeciones, resultados incorrectos y solicitudes de mejora.",
+      "empty": "Aún no hay comentarios.",
+      "loading": "Comprobando acceso…",
+      "signInRequired": "Inicie sesión para abrir la cola de comentarios.",
+      "signInCta": "Iniciar sesión",
+      "adminOnly": "Inicie sesión con una cuenta admin para ver la cola.",
+      "firebaseMissing": "Firebase no configurado — no se cargarán registros en vivo.",
+      "refresh": "Actualizar",
+      "refreshing": "Actualizando…",
+      "selectItem": "Seleccione un elemento para ver detalles.",
+      "updateStatus": "Actualizar estado",
+      "filters": {
+        "kind": "Tipo",
+        "locale": "Idioma",
+        "tool": "Slug de herramienta",
+        "severity": "Gravedad",
+        "status": "Estado",
+        "all": "Todos"
+      },
+      "status": {
+        "new": "Nuevo",
+        "triaged": "Clasificado",
+        "in_review": "En revisión",
+        "accepted": "Aceptado",
+        "rejected": "Rechazado",
+        "implemented": "Implementado",
+        "closed": "Cerrado"
+      },
+      "severity": {
+        "low": "Baja",
+        "medium": "Media",
+        "high": "Alta",
+        "critical": "Crítica"
+      }
+    },
+    "visibilityNote": "Hace visibles las pérdidas ocultas y registra la realidad de campo.",
+    "trustTraceNote": "Las objeciones de fórmula mejoran los cálculos verificados.",
+    "formulaObjectionNote": "Cuéntenos si esta fórmula no coincide con su realidad operativa."
   }
 }

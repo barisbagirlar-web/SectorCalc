@@ -25,7 +25,7 @@ import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
-import { CalculatorFeedbackBox } from "@/components/tools/CalculatorFeedbackBox";
+import { ToolFeedbackPanel } from "@/components/feedback/ToolFeedbackPanel";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/formula-governance/runtime-validation/free-full-loop-bridge";
@@ -476,16 +476,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
                   ) : null}
 
                   {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
-                    <>
-                      <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-                      <CalculatorFeedbackBox
-                        toolSlug={tool.slug}
-                        tier="traffic"
-                        pagePath={pagePath}
-                        inputSnapshot={feedbackInputSnapshot}
-                        resultSnapshot={feedbackResultSnapshot}
-                      />
-                    </>
+                    <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
                   ) : null}
 
                   <p className="text-xs leading-relaxed text-body-charcoal">{result.legalNote}</p>
@@ -520,6 +511,17 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
               </ul>
             </div>
           ) : null}
+
+          <ToolFeedbackPanel
+            toolSlug={tool.slug}
+            toolType="free"
+            source={useFullLoopRuntime ? "smart_form" : "free_tool"}
+            locale={locale}
+            routePath={pagePath}
+            formulaContractId={useFullLoopRuntime ? tool.slug : undefined}
+            inputSnapshot={feedbackInputSnapshot}
+            resultSnapshot={feedbackResultSnapshot}
+          />
 
           <FreeToolAuthorityBlock
             tool={tool}

@@ -2396,5 +2396,98 @@
     "switchLanguage": "اللغة",
     "chooseSector": "اختر القطاع",
     "seeWhatThisEstimateMisses": "ما ينقص"
+  },
+  "feedback": {
+    "title": "الملاحظات واعتراض الصيغة",
+    "subtitle": "أخبرنا إذا كانت هذه الصيغة لا تطابق واقع عملك الميداني.",
+    "openButton": "إرسال ملاحظة",
+    "closeButton": "إغلاق",
+    "kind": {
+      "label": "نوع الملاحظة",
+      "selectPlaceholder": "اختر…",
+      "formula_objection": "اعتراض على الصيغة",
+      "wrong_result": "تقرير نتيجة خاطئة",
+      "missing_input": "اقتراح إدخال مفقود",
+      "improvement_request": "طلب تحسين",
+      "sector_adjustment": "تعديل خاص بالقطاع",
+      "data_source_suggestion": "اقتراح مصدر بيانات",
+      "usability_issue": "مشكلة في سهولة الاستخدام",
+      "other": "ملاحظة أخرى"
+    },
+    "message": {
+      "label": "الرسالة",
+      "placeholder": "صف ما لا يطابق عملياتك أو ممارسة قطاعك."
+    },
+    "expectedBehavior": {
+      "label": "السلوك المتوقع"
+    },
+    "actualBehavior": {
+      "label": "السلوك الذي تلاحظه ميدانياً"
+    },
+    "sectorContext": {
+      "label": "سياق القطاع / الميدان"
+    },
+    "suggestedFormulaChange": {
+      "label": "تغيير مقترح للصيغة أو الافتراض"
+    },
+    "suggestedInput": {
+      "label": "إدخال مفقود مقترح"
+    },
+    "dataSourceUrl": {
+      "label": "رابط مرجعي (اختياري)"
+    },
+    "submit": "إرسال الملاحظة",
+    "submitting": "جارٍ الإرسال…",
+    "success": {
+      "title": "تم تسجيل الملاحظة",
+      "description": "شكراً لك. ملاحظاتك تساعد على تقوية الحسابات الموثقة."
+    },
+    "error": {
+      "validation": "يرجى مراجعة النموذج والمحاولة مرة أخرى.",
+      "submitFailed": "تعذر إرسال الملاحظة. يرجى المحاولة لاحقاً.",
+      "tooShort": "يجب أن تكون الرسالة 10 أحرف على الأقل.",
+      "tooLong": "الرسالة طويلة جداً.",
+      "rateLimited": "يرجى الانتظار قبل الإرسال مرة أخرى."
+    },
+    "admin": {
+      "title": "قائمة ملاحظات الأدوات",
+      "subtitle": "مراجعة اعتراضات الصيغ والنتائج الخاطئة وطلبات التحسين.",
+      "empty": "لا توجد ملاحظات بعد.",
+      "loading": "جارٍ التحقق من الوصول…",
+      "signInRequired": "سجّل الدخول لفتح قائمة الملاحظات.",
+      "signInCta": "تسجيل الدخول",
+      "adminOnly": "سجّل الدخول بحساب مسؤول لعرض قائمة الملاحظات.",
+      "firebaseMissing": "Firebase غير مُعد — لن تُحمَّل سجلات حية.",
+      "refresh": "تحديث",
+      "refreshing": "جارٍ التحديث…",
+      "selectItem": "اختر عنصراً لعرض التفاصيل.",
+      "updateStatus": "تحديث الحالة",
+      "filters": {
+        "kind": "النوع",
+        "locale": "اللغة",
+        "tool": "معرّف الأداة",
+        "severity": "الخطورة",
+        "status": "الحالة",
+        "all": "الكل"
+      },
+      "status": {
+        "new": "جديد",
+        "triaged": "مُصنَّف",
+        "in_review": "قيد المراجعة",
+        "accepted": "مقبول",
+        "rejected": "مرفوض",
+        "implemented": "مُنفَّذ",
+        "closed": "مغلق"
+      },
+      "severity": {
+        "low": "منخفض",
+        "medium": "متوسط",
+        "high": "مرتفع",
+        "critical": "حرج"
+      }
+    },
+    "visibilityNote": "يكشف الخسائر الخفية ويسجّل واقع الميدان.",
+    "trustTraceNote": "اعتراضات الصيغ تساعد على تحسين الحسابات الموثقة.",
+    "formulaObjectionNote": "أخبرنا إذا كانت هذه الصيغة لا تطابق واقع عملك الميداني."
   }
 }

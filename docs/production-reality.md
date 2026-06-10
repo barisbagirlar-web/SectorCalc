@@ -13,6 +13,22 @@
 - **Firebase fallback/test:** https://sectorcalc-bf412.web.app
 - **Audit/smoke scripts must default to:** https://sectorcalc.com
 
+## P3 — Feedback / Formula Objection System
+
+| Item | Value |
+|------|--------|
+| **Collection** | `toolFeedback` (Firestore) |
+| **Public submit** | Client Firestore create-only via `submitToolFeedback()` |
+| **Admin queue** | `/account/feedback` — admin claim required for list + status update |
+| **UI** | `ToolFeedbackPanel` on all premium + free revenue tool pages |
+| **Locales** | EN root + `/tr` `/ar` `/de` `/fr` `/es` — `feedback.*` |
+| **Smoke** | `npm run smoke:feedback-ui` |
+| **Formula/runtime** | **Unchanged** |
+
+### P3 closure — pending deploy smoke
+
+Post-deploy: update this section with commit SHA, deploy timestamp, and smoke table (same gates as P2.3 + `smoke:feedback-ui`).
+
 ## P2.3 — Smart Form Full Premium Rollout (27/27)
 
 | Item | Value |

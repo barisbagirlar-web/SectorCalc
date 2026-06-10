@@ -2433,5 +2433,98 @@
     "switchLanguage": "Dil",
     "chooseSector": "Sektör seç",
     "seeWhatThisEstimateMisses": "Eksikleri gör"
+  },
+  "feedback": {
+    "title": "Geri bildirim ve formül itirazı",
+    "subtitle": "Bu formül sahadaki uygulamanıza uymuyorsa bize bildirin.",
+    "openButton": "Geri bildirim gönder",
+    "closeButton": "Kapat",
+    "kind": {
+      "label": "Bildirim türü",
+      "selectPlaceholder": "Seçin…",
+      "formula_objection": "Formül itirazı",
+      "wrong_result": "Yanlış sonuç bildirimi",
+      "missing_input": "Eksik girdi önerisi",
+      "improvement_request": "Geliştirme isteği",
+      "sector_adjustment": "Sektöre özel düzeltme",
+      "data_source_suggestion": "Veri kaynağı önerisi",
+      "usability_issue": "Kullanılabilirlik sorunu",
+      "other": "Diğer geri bildirim"
+    },
+    "message": {
+      "label": "Mesaj",
+      "placeholder": "Operasyonunuz veya sektör uygulamanızla uyuşmayan durumu açıklayın."
+    },
+    "expectedBehavior": {
+      "label": "Beklenen davranış"
+    },
+    "actualBehavior": {
+      "label": "Sahada gözlemlediğiniz davranış"
+    },
+    "sectorContext": {
+      "label": "Sektör / saha bağlamı"
+    },
+    "suggestedFormulaChange": {
+      "label": "Önerilen formül veya varsayım değişikliği"
+    },
+    "suggestedInput": {
+      "label": "Önerilen eksik girdi"
+    },
+    "dataSourceUrl": {
+      "label": "Referans URL (isteğe bağlı)"
+    },
+    "submit": "Geri bildirimi gönder",
+    "submitting": "Gönderiliyor…",
+    "success": {
+      "title": "Geri bildirim kaydedildi",
+      "description": "Teşekkürler. Geri bildiriminiz doğrulanmış hesaplama standardını güçlendirir."
+    },
+    "error": {
+      "validation": "Lütfen formu kontrol edip tekrar deneyin.",
+      "submitFailed": "Geri bildirim gönderilemedi. Lütfen kısa süre sonra tekrar deneyin.",
+      "tooShort": "Mesaj en az 10 karakter olmalıdır.",
+      "tooLong": "Mesaj çok uzun.",
+      "rateLimited": "Tekrar göndermeden önce lütfen bekleyin."
+    },
+    "admin": {
+      "title": "Araç geri bildirim kuyruğu",
+      "subtitle": "Formül itirazlarını, yanlış sonuçları ve geliştirme isteklerini inceleyin.",
+      "empty": "Henüz geri bildirim kaydı yok.",
+      "loading": "Erişim kontrol ediliyor…",
+      "signInRequired": "Geri bildirim kuyruğunu açmak için giriş yapın.",
+      "signInCta": "Giriş yap",
+      "adminOnly": "Geri bildirim kuyruğunu görüntülemek için yönetici hesabıyla giriş yapın.",
+      "firebaseMissing": "Firebase yapılandırılmadı — canlı kayıtlar yüklenmez.",
+      "refresh": "Yenile",
+      "refreshing": "Yenileniyor…",
+      "selectItem": "Ayrıntıları görmek için bir kayıt seçin.",
+      "updateStatus": "Durumu güncelle",
+      "filters": {
+        "kind": "Tür",
+        "locale": "Dil",
+        "tool": "Araç slug",
+        "severity": "Önem",
+        "status": "Durum",
+        "all": "Tümü"
+      },
+      "status": {
+        "new": "Yeni",
+        "triaged": "Sınıflandırıldı",
+        "in_review": "İncelemede",
+        "accepted": "Kabul edildi",
+        "rejected": "Reddedildi",
+        "implemented": "Uygulandı",
+        "closed": "Kapatıldı"
+      },
+      "severity": {
+        "low": "Düşük",
+        "medium": "Orta",
+        "high": "Yüksek",
+        "critical": "Kritik"
+      }
+    },
+    "visibilityNote": "Kaçakları bulur ve mühürler — sahadaki farklılığı görünür kılar.",
+    "trustTraceNote": "Formül itirazları doğrulanmış hesaplama standardını güçlendirir.",
+    "formulaObjectionNote": "Bu formül sahadaki uygulamanıza uymuyorsa bize bildirin."
   }
 }
