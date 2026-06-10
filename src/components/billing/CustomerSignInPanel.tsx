@@ -3,10 +3,11 @@
 import Link from "@/lib/navigation/next-link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { useClientSearchParam } from "@/lib/navigation/use-client-search-params";
 import {
- mapCustomerSignInError,
- signInCustomerWithGoogle,
+  getCustomerSignInErrorCode,
+  signInCustomerWithGoogle,
 } from "@/lib/firebase/customer-auth";
 
 const buttonClass =
@@ -18,6 +19,7 @@ interface CustomerSignInPanelProps {
 
 export function CustomerSignInPanel({ nextPath }: CustomerSignInPanelProps) {
  const router = useRouter();
+ const t = useTranslations("premiumAccess");
  const [pending, setPending] = useState(false);
  const [error, setError] = useState<string | null>(null);
 
@@ -26,10 +28,15 @@ export function CustomerSignInPanel({ nextPath }: CustomerSignInPanelProps) {
  setPending(true);
 
  try {
- await signInCustomerWithGoogle();
+ const result = await signInCustomerWithGoogle();
+ if (!result.redirected) {
  router.replace(nextPath);
+ return;
+ }
+ setPending(true);
  } catch (caught) {
- setError(mapCustomerSignInError(caught));
+ const code = getCustomerSignInErrorCode(caught);
+ setError(t(`signInErrors.${code}`));
  setPending(false);
  }
  };

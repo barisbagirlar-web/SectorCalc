@@ -2035,6 +2035,15 @@
   border-color: rgb(180 83 9 / 0.35);
 }
 
+.sc-premium-access-banner {
+  min-width: 0;
+}
+
+.sc-pro-locked-action,
+.sc-pro-feature-notice {
+  min-width: 0;
+}
+
 /* ── Page canvas — theme fill, no white viewport gutters ── */
 .sc-app-main,
 .sc-pro-page,

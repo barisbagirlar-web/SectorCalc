@@ -1223,6 +1223,27 @@
       "unit-conversion-traffic": "Conversión de unidades"
     }
   },
+  "premiumAccess": {
+    "previewEyebrow": "Vista previa pública",
+    "publicPreviewTitle": "Prueba este analizador antes de suscribirte",
+    "publicPreviewDescription": "Introduce los datos del trabajo, valida el formulario y ejecuta un análisis de vista previa. La exportación, los informes guardados y Trust Trace requieren SectorCalc Pro.",
+    "signedInPreviewTitle": "Modo vista previa — Pro desbloquea informes completos",
+    "signedInPreviewDescription": "Puedes ejecutar el analizador y revisar el veredicto de vista previa. La exportación PDF, el historial guardado y Trust Trace requieren un plan Pro activo o la compra de un informe individual.",
+    "signIn": "Iniciar sesión",
+    "getPro": "Obtener Pro",
+    "lockedExport": "La exportación PDF y hoja de cálculo está disponible en los planes Pro.",
+    "lockedReportHistory": "El historial de informes guardados requiere una cuenta Pro con sesión iniciada.",
+    "lockedTrustTrace": "Trust Trace y el sello de validación son funciones de auditoría exclusivas de Pro.",
+    "fullReportRequiresPro": "El informe completo exportable requiere SectorCalc Pro.",
+    "signInErrors": {
+      "cancelled": "Se canceló el inicio de sesión.",
+      "unauthorized-domain": "Este dominio no está autorizado para el inicio de sesión con Google. Usa sectorcalc.com o añade el dominio en Firebase Console → Authentication → Settings → Authorized domains.",
+      "popup-blocked": "Se bloqueó la ventana emergente. Se intentó el inicio de sesión por redirección — permite ventanas emergentes o inténtalo de nuevo.",
+      "network": "Error de red durante el inicio de sesión. Comprueba tu conexión e inténtalo de nuevo.",
+      "not-configured": "El inicio de sesión no está disponible porque Firebase Auth no está configurado en este entorno.",
+      "generic": "Error al iniciar sesión. Inténtalo de nuevo o usa otro navegador."
+    }
+  },
   "smartForm": {
     "mode": {
       "simple": "Simple",

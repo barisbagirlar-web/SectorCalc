@@ -1223,6 +1223,27 @@
       "unit-conversion-traffic": "Conversion d'unités"
     }
   },
+  "premiumAccess": {
+    "previewEyebrow": "Aperçu public",
+    "publicPreviewTitle": "Essayez cet analyseur avant de vous abonner",
+    "publicPreviewDescription": "Saisissez vos données de chantier, validez le formulaire et lancez une analyse d'aperçu. L'export, les rapports enregistrés et Trust Trace nécessitent SectorCalc Pro.",
+    "signedInPreviewTitle": "Mode aperçu — Pro débloque les rapports complets",
+    "signedInPreviewDescription": "Vous pouvez lancer l'analyseur et consulter le verdict d'aperçu. L'export PDF, l'historique enregistré et Trust Trace nécessitent un plan Pro actif ou l'achat d'un rapport unique.",
+    "signIn": "Se connecter",
+    "getPro": "Passer Pro",
+    "lockedExport": "L'export PDF et tableur est disponible avec les formules Pro.",
+    "lockedReportHistory": "L'historique des rapports enregistrés nécessite un compte Pro connecté.",
+    "lockedTrustTrace": "Trust Trace et le tampon de validation sont des fonctionnalités d'audit réservées à Pro.",
+    "fullReportRequiresPro": "Le rapport complet exportable nécessite SectorCalc Pro.",
+    "signInErrors": {
+      "cancelled": "La connexion a été annulée.",
+      "unauthorized-domain": "Ce domaine n'est pas autorisé pour la connexion Google. Utilisez sectorcalc.com ou ajoutez le domaine dans Firebase Console → Authentication → Settings → Authorized domains.",
+      "popup-blocked": "La fenêtre contextuelle a été bloquée. Une connexion par redirection a été tentée — autorisez les popups ou réessayez.",
+      "network": "Erreur réseau lors de la connexion. Vérifiez votre connexion et réessayez.",
+      "not-configured": "La connexion est indisponible car Firebase Auth n'est pas configuré dans cet environnement.",
+      "generic": "Échec de la connexion. Réessayez ou utilisez un autre navigateur."
+    }
+  },
   "smartForm": {
     "mode": {
       "simple": "Simple",

@@ -1223,6 +1223,27 @@
       "unit-conversion-traffic": "Einheitenumrechnung"
     }
   },
+  "premiumAccess": {
+    "previewEyebrow": "Öffentliche Vorschau",
+    "publicPreviewTitle": "Analysator vor dem Abonnement testen",
+    "publicPreviewDescription": "Geben Sie Ihre Auftragseingaben ein, validieren Sie das Formular und führen Sie eine Vorschauanalyse durch. Export, gespeicherte Berichte und Trust Trace erfordern SectorCalc Pro.",
+    "signedInPreviewTitle": "Vorschau-Modus — Pro schaltet vollständige Berichte frei",
+    "signedInPreviewDescription": "Sie können den Analysator ausführen und das Vorschaurteil einsehen. PDF-Export, gespeicherter Verlauf und Trust Trace erfordern einen aktiven Pro-Plan oder den Kauf einzelner Berichte.",
+    "signIn": "Anmelden",
+    "getPro": "Pro holen",
+    "lockedExport": "PDF- und Tabellenkalkulationsexport sind in Pro-Plänen verfügbar.",
+    "lockedReportHistory": "Gespeicherter Berichtsverlauf erfordert ein angemeldetes Pro-Konto.",
+    "lockedTrustTrace": "Trust Trace und Validierungsstempel sind Pro-exklusive Audit-Funktionen.",
+    "fullReportRequiresPro": "Vollständiger exportierbarer Bericht erfordert SectorCalc Pro.",
+    "signInErrors": {
+      "cancelled": "Anmeldung wurde abgebrochen.",
+      "unauthorized-domain": "Diese Domain ist für Google-Anmeldung nicht autorisiert. Verwenden Sie sectorcalc.com oder fügen Sie die Domain in Firebase Console → Authentication → Settings → Authorized domains hinzu.",
+      "popup-blocked": "Popup wurde blockiert. Weiterleitungs-Anmeldung wurde versucht — Popups erlauben oder erneut versuchen.",
+      "network": "Netzwerkfehler bei der Anmeldung. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+      "not-configured": "Anmeldung ist nicht verfügbar, da Firebase Auth in dieser Umgebung nicht konfiguriert ist.",
+      "generic": "Anmeldung fehlgeschlagen. Versuchen Sie es erneut oder verwenden Sie einen anderen Browser."
+    }
+  },
   "smartForm": {
     "mode": {
       "simple": "Einfach",

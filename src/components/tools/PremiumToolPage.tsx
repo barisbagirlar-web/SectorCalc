@@ -5,9 +5,10 @@ import { Suspense, useEffect, useMemo, useRef, useState, type FormEvent } from "
 import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { stripLocalePrefix } from "@/i18n/locales";
-import { PremiumLoginPrompt } from "@/components/billing/CustomerSignInPanel";
-import { PremiumPaywall } from "@/components/subscription/PremiumPaywall";
 import { PremiumSubscribedBanner } from "@/components/billing/SubscriptionActivationBanner";
+import { PremiumAccessBanner } from "@/components/premium/PremiumAccessBanner";
+import { ProFeatureNotice } from "@/components/premium/ProFeatureNotice";
+import { ProLockedAction } from "@/components/premium/ProLockedAction";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { OsModuleHeader } from "@/components/os/OsModuleHeader";
@@ -20,6 +21,10 @@ import {
  trackRevenueEvent,
 } from "@/lib/analytics/revenue-events";
 import { isDevelopmentProBypass } from "@/lib/billing/subscription";
+import {
+  canAccessPremiumFullFeatures,
+  resolvePremiumAccessMode,
+} from "@/lib/billing/premium-access-mode";
 import { usePremiumToolAccess } from "@/lib/billing/use-premium-tool-access";
 import { buildVerdictReportData } from "@/lib/reports/verdict-report";
 import {
@@ -243,15 +248,24 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   [runtimeSlug, tool.paidInputs],
  );
 
+ const devPro = isDevelopmentProBypass();
+ const accessMode = resolvePremiumAccessMode({
+  user,
+  canAccessAnalyzer,
+  isSuperUser,
+  devPro,
+ });
+ const hasFullPremiumFeatures = canAccessPremiumFullFeatures(accessMode);
+
  const fullLoopResult = useMemo((): PremiumFullLoopResult | null => {
- if (!submitted || !canAccessAnalyzer || !useFullLoopRuntime) {
+ if (!submitted || !useFullLoopRuntime) {
  return null;
  }
  return runPremiumFullLoopCalculation(runtimeSlug, values);
- }, [submitted, canAccessAnalyzer, useFullLoopRuntime, runtimeSlug, values]);
+ }, [submitted, useFullLoopRuntime, runtimeSlug, values]);
 
  const decisionReport = useMemo(() => {
- if (!submitted || !canAccessAnalyzer) {
+ if (!submitted) {
  return null;
  }
  if (useFullLoopRuntime) {
@@ -261,7 +275,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  return null;
  }
  return calculatePremiumDecisionReport(tool.paidSlug, values);
- }, [submitted, canAccessAnalyzer, useFullLoopRuntime, fullLoopResult, tool, values]);
+ }, [submitted, useFullLoopRuntime, fullLoopResult, tool, values]);
 
  const result = useMemo((): PremiumToolResult | null => {
  if (useFullLoopRuntime) {
@@ -274,11 +288,11 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  }, [useFullLoopRuntime, fullLoopResult, decisionReport, tool, values]);
 
  const verdictReportData = useMemo(() => {
- if (!result || !canAccessAnalyzer) {
+ if (!result) {
  return null;
  }
  return buildVerdictReportData({ tool, values, result });
- }, [result, canAccessAnalyzer, tool, values]);
+ }, [result, tool, values]);
 
  const feedbackInputSnapshot = useMemo(() => ({ ...values }), [values]);
  const feedbackResultSnapshot = useMemo(() => {
@@ -349,8 +363,6 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  }
  }, [result, canAccessAnalyzer, tool.paidSlug]);
 
- const devPro = isDevelopmentProBypass();
-
  const renderAnalysisOutput = (variant: "legacy" | "primary") => {
  if (isCalculating) {
  return variant === "primary" ? (
@@ -365,37 +377,55 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   title="Analysis blocked"
   blockers={fullLoopResult.blockers}
  />
- <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+ {hasFullPremiumFeatures ? (
+  <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+ ) : (
+  <ProFeatureNotice messageKey="lockedTrustTrace" />
+ )}
  </>
  );
  }
 
- if (decisionReport && result && verdictReportData) {
+ if (decisionReport && result) {
  return (
  <>
  <PremiumAnalyzerReportPanel report={decisionReport} />
- <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
- <DownloadVerdictPdfButton
- data={verdictReportData}
- slug={tool.paidSlug}
- severity={result.severity}
- />
- {user ? (
- <SaveVerdictReportButton uid={user.uid} tool={tool} values={values} result={result} />
- ) : null}
- </div>
- {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
+ {hasFullPremiumFeatures && verdictReportData ? (
   <>
-   <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-   <CalculatorFeedbackBox
-    toolSlug={runtimeSlug}
-    tier="premium"
-    pagePath={pagePath}
-    inputSnapshot={feedbackInputSnapshot}
-    resultSnapshot={feedbackResultSnapshot}
-   />
+   <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+    <DownloadVerdictPdfButton
+     data={verdictReportData}
+     slug={tool.paidSlug}
+     severity={result.severity}
+    />
+    {user ? (
+     <SaveVerdictReportButton uid={user.uid} tool={tool} values={values} result={result} />
+    ) : null}
+   </div>
+   {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
+    <>
+     <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+     <CalculatorFeedbackBox
+      toolSlug={runtimeSlug}
+      tier="premium"
+      pagePath={pagePath}
+      inputSnapshot={feedbackInputSnapshot}
+      resultSnapshot={feedbackResultSnapshot}
+     />
+    </>
+   ) : null}
   </>
- ) : null}
+ ) : (
+  <ProLockedAction paidSlug={tool.paidSlug} messageKey="lockedExport">
+   {verdictReportData ? (
+    <DownloadVerdictPdfButton
+     data={verdictReportData}
+     slug={tool.paidSlug}
+     severity={result.severity}
+    />
+   ) : null}
+  </ProLockedAction>
+ )}
  {isCncStochastic ? (
  <PremiumDecisionReportPanel
  variant="stochastic"
@@ -515,26 +545,23 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
  {loading ? (
  <p className="text-sm text-body-charcoal">Loading access…</p>
- ) : !user && !devPro && !isSuperUser ? (
- <PremiumLoginPrompt paidSlug={tool.paidSlug} />
- ) : !canAccessAnalyzer && !isSuperUser ? (
- <div className="mx-auto max-w-2xl">
- <SectorToolSelect tier="premium" currentSlug={tool.paidSlug} />
- <OsModuleHeader title={tool.paidTitle} tier="intelligence" />
- <Suspense fallback={null}>
- <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
- </Suspense>
- <PremiumPaywall tool={tool} />
- {error ? (
- <p className="mt-2 text-sm text-crit-red status-crit" role="alert">
- {error}
- </p>
- ) : null}
- </div>
  ) : (
  <>
  <SectorToolSelect tier="premium" currentSlug={tool.paidSlug} />
  <OsModuleHeader title={tool.paidTitle} tier="intelligence" />
+ {!hasFullPremiumFeatures ? (
+  <PremiumAccessBanner mode={accessMode} paidSlug={tool.paidSlug} />
+ ) : null}
+ {user && !hasFullPremiumFeatures && !isSuperUser ? (
+  <Suspense fallback={null}>
+   <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
+  </Suspense>
+ ) : null}
+ {error ? (
+  <p className="mt-2 text-sm text-crit-red status-crit" role="alert">
+   {error}
+  </p>
+ ) : null}
  {showSchemaPilot ? (
  <>
  <DynamicPremiumCalculator schema={schemaPilot!} />
@@ -633,7 +660,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
     <SmartResultPanel
      calculationSteps={smartFormAdapter.ok ? smartFormAdapter.calculationSteps : []}
      trustTraceSlot={
-      useFullLoopRuntime && fullLoopResult ? (
+      useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
        <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
       ) : undefined
      }
@@ -645,7 +672,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    </div>
   }
   trustTraceContent={
-   useFullLoopRuntime && fullLoopResult ? (
+   useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
     <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
    ) : undefined
   }

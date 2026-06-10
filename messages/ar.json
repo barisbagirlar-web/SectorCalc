@@ -1223,6 +1223,27 @@
       "unit-conversion-traffic": "تحويل الوحدات"
     }
   },
+  "premiumAccess": {
+    "previewEyebrow": "معاينة عامة",
+    "publicPreviewTitle": "جرّب المحلّل قبل الاشتراك",
+    "publicPreviewDescription": "أدخل مدخلات المشروع، وتحقق من النموذج، وشغّل تحليل المعاينة. التصدير والتقارير المحفوظة وTrust Trace يتطلب SectorCalc Pro.",
+    "signedInPreviewTitle": "وضع المعاينة — Pro يفتح التقارير الكاملة",
+    "signedInPreviewDescription": "يمكنك تشغيل المحلّل ومراجعة حكم المعاينة. تصدير PDF والسجل المحفوظ وTrust Trace يتطلب خطة Pro نشطة أو شراء تقرير واحد.",
+    "signIn": "تسجيل الدخول",
+    "getPro": "احصل على Pro",
+    "lockedExport": "تصدير PDF وجداول البيانات متاح في خطط Pro.",
+    "lockedReportHistory": "سجل التقارير المحفوظة يتطلب حساب Pro مسجّل الدخول.",
+    "lockedTrustTrace": "Trust Trace وختم التحقق من ميزات التدقيق الحصرية لـ Pro.",
+    "fullReportRequiresPro": "التقرير الكامل القابل للتصدير يتطلب SectorCalc Pro.",
+    "signInErrors": {
+      "cancelled": "تم إلغاء تسجيل الدخول.",
+      "unauthorized-domain": "هذا النطاق غير مصرّح به لتسجيل الدخول عبر Google. استخدم sectorcalc.com أو أضف النطاق في Firebase Console → Authentication → Settings → Authorized domains.",
+      "popup-blocked": "تم حظر النافذة المنبثقة. تمت محاولة تسجيل الدخول بالتحويل — اسمح بالنوافذ المنبثقة أو حاول مرة أخرى.",
+      "network": "خطأ في الشبكة أثناء تسجيل الدخول. تحقق من اتصالك وحاول مرة أخرى.",
+      "not-configured": "تسجيل الدخول غير متاح لأن Firebase Auth غير مُعدّ في هذه البيئة.",
+      "generic": "فشل تسجيل الدخول. حاول مرة أخرى أو استخدم متصفحاً آخر."
+    }
+  },
   "smartForm": {
     "mode": {
       "simple": "بسيط",

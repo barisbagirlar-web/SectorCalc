@@ -1260,6 +1260,27 @@
       "unit-conversion-traffic": "Unit Conversion Traffic"
     }
   },
+  "premiumAccess": {
+    "previewEyebrow": "Public preview",
+    "publicPreviewTitle": "Try this analyzer before you subscribe",
+    "publicPreviewDescription": "Enter your job inputs, validate the form and run a preview analysis. Export, saved reports and trust trace require SectorCalc Pro.",
+    "signedInPreviewTitle": "Preview mode — Pro unlocks full reports",
+    "signedInPreviewDescription": "You can run the analyzer and review the preview verdict. PDF export, saved history and trust trace require an active Pro plan or single-report purchase.",
+    "signIn": "Sign in",
+    "getPro": "Get Pro",
+    "lockedExport": "PDF and spreadsheet export are available on Pro plans.",
+    "lockedReportHistory": "Saved report history requires a signed-in Pro account.",
+    "lockedTrustTrace": "Trust trace and validation stamp are Pro-only audit features.",
+    "fullReportRequiresPro": "Full exportable report requires SectorCalc Pro.",
+    "signInErrors": {
+      "cancelled": "Sign-in was cancelled.",
+      "unauthorized-domain": "This domain is not authorized for Google sign-in. Use sectorcalc.com or add the domain in Firebase Console → Authentication → Settings → Authorized domains.",
+      "popup-blocked": "Popup was blocked. Redirect sign-in was attempted — allow popups or try again.",
+      "network": "Network error during sign-in. Check your connection and try again.",
+      "not-configured": "Sign-in is unavailable because Firebase Auth is not configured in this environment.",
+      "generic": "Sign-in failed. Try again or use a different browser."
+    }
+  },
   "smartForm": {
     "mode": {
       "simple": "Simple",

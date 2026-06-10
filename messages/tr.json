@@ -1260,6 +1260,27 @@
       "unit-conversion-traffic": "Birim Dönüşüm Trafiği"
     }
   },
+  "premiumAccess": {
+    "previewEyebrow": "Herkese açık önizleme",
+    "publicPreviewTitle": "Abone olmadan analizörü deneyin",
+    "publicPreviewDescription": "İş girdilerinizi girin, formu doğrulayın ve önizleme analizi çalıştırın. Dışa aktarma, kayıtlı raporlar ve trust trace SectorCalc Pro gerektirir.",
+    "signedInPreviewTitle": "Önizleme modu — tam rapor için Pro",
+    "signedInPreviewDescription": "Analizörü çalıştırabilir ve önizleme kararını görebilirsiniz. PDF dışa aktarma, kayıt geçmişi ve trust trace aktif Pro plan veya tek rapor satın alımı gerektirir.",
+    "signIn": "Giriş yap",
+    "getPro": "Pro'ya geç",
+    "lockedExport": "PDF ve Excel dışa aktarma Pro planlarda kullanılabilir.",
+    "lockedReportHistory": "Kayıtlı rapor geçmişi için giriş yapmış Pro hesabı gerekir.",
+    "lockedTrustTrace": "Trust trace ve doğrulama damgası Pro audit özellikleridir.",
+    "fullReportRequiresPro": "Tam dışa aktarılabilir rapor SectorCalc Pro gerektirir.",
+    "signInErrors": {
+      "cancelled": "Giriş iptal edildi.",
+      "unauthorized-domain": "Bu domain Google girişi için yetkili değil. sectorcalc.com kullanın veya Firebase Console → Authentication → Authorized domains listesine ekleyin.",
+      "popup-blocked": "Popup engellendi. Yönlendirmeli giriş denendi — popup izni verin veya tekrar deneyin.",
+      "network": "Giriş sırasında ağ hatası. Bağlantınızı kontrol edin.",
+      "not-configured": "Firebase Auth yapılandırılmadığı için giriş kullanılamıyor.",
+      "generic": "Giriş başarısız. Tekrar deneyin veya farklı tarayıcı kullanın."
+    }
+  },
   "smartForm": {
     "mode": {
       "simple": "Basit",
