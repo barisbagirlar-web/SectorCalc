@@ -1,29 +1,12 @@
-import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { BRAND_ASSETS } from "@/config/brand";
 import { SITE } from "@/config/site";
+import { TrustTraceLabyrinthSeal } from "@/components/layout/footer/TrustTraceLabyrinthSeal";
 
 type FooterTrustTraceProps = {
   readonly title: string;
   readonly linkLabel: string;
   readonly subtext: string;
 };
-
-/** Brand mark — stable favicon frame (QR lives on PDF reports only). */
-function TrustVerifyMark() {
-  return (
-    <div className="verify-report-box__mark" aria-hidden>
-      <Image
-        src={BRAND_ASSETS.favicon.master}
-        alt=""
-        width={56}
-        height={56}
-        unoptimized
-        className="verify-report-box__mark-img"
-      />
-    </div>
-  );
-}
 
 function TrustTraceCheckIcon() {
   return (
@@ -46,12 +29,20 @@ function TrustTraceCheckIcon() {
   );
 }
 
+function TrustTraceLabyrinthMark() {
+  return (
+    <div className="verify-report-box__mark verify-report-box__mark--labyrinth" aria-hidden>
+      <TrustTraceLabyrinthSeal />
+    </div>
+  );
+}
+
 export function FooterTrustTrace({ title, linkLabel, subtext }: FooterTrustTraceProps) {
   const verifyUrl = `${SITE.domain}/verify`;
 
   return (
     <section className="verify-report-box" aria-labelledby="footer-trust-trace-heading">
-      <TrustVerifyMark />
+      <TrustTraceLabyrinthMark />
       <div className="verify-report-box__copy">
         <div className="verify-report-box__label">
           <TrustTraceCheckIcon />

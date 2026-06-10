@@ -1255,6 +1255,34 @@
   padding-inline: 0;
   font-size: 0.8125rem;
   color: rgb(0 0 0 / 0.72);
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-family: inherit !important;
+  outline: none !important;
+}
+
+.sc-header-locale-group .language-selector:focus-within {
+  border-color: rgb(0 0 0 / 0.12);
+  box-shadow: none;
+}
+
+.language-selector--footer .apple-locale__select {
+  min-height: auto;
+  font-size: 0.8125rem;
+  color: #1a1a1a;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-family: inherit !important;
+  outline: none !important;
+}
+
+.language-selector--footer:focus-within {
+  border-color: #b8b8b8;
+  box-shadow: none;
 }
 
 .sc-authority-block {

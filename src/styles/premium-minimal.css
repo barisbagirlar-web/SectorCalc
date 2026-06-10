@@ -93,10 +93,10 @@
   border-radius: 0;
 }
 
-/* ── Inputs — technical gray border, sharp corners ── */
-input:not([type="checkbox"]):not([type="radio"]),
-textarea,
-select {
+/* ── Inputs — technical gray border, sharp corners (form fields only; not shell locale controls) ── */
+input:not([type="checkbox"]):not([type="radio"]):not(.footer-newsletter__input),
+textarea:not(.footer-newsletter__input),
+select:not(.apple-locale__select) {
   border: 1px solid var(--border-technical-gray) !important;
   background-color: #ffffff !important;
   color: var(--text-premium-velvet) !important;
@@ -107,12 +107,12 @@ select {
   box-shadow: none !important;
 }
 
-input:not([type="checkbox"]):not([type="radio"]):focus,
-input:not([type="checkbox"]):not([type="radio"]):focus-visible,
-textarea:focus,
-textarea:focus-visible,
-select:focus,
-select:focus-visible {
+input:not([type="checkbox"]):not([type="radio"]):not(.footer-newsletter__input):focus,
+input:not([type="checkbox"]):not([type="radio"]):not(.footer-newsletter__input):focus-visible,
+textarea:not(.footer-newsletter__input):focus,
+textarea:not(.footer-newsletter__input):focus-visible,
+select:not(.apple-locale__select):focus,
+select:not(.apple-locale__select):focus-visible {
   border-color: var(--text-premium-velvet) !important;
   box-shadow: none !important;
 }
