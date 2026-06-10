@@ -26,6 +26,12 @@
       "**/debug.log",
       "**/*.log",
       ".git/**"
-    ]
+    ],
+    "frameworksBackend": {
+      "region": "us-central1",
+      "memory": "512MiB",
+      "concurrency": 20,
+      "maxInstances": 3
+    }
   }
 }
