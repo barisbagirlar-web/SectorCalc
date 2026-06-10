@@ -592,15 +592,15 @@
   text-decoration: none;
   min-height: 44px;
   height: auto;
-  max-width: min(9.5rem, 32vw);
+  max-width: min(11.25rem, 34vw);
 }
 
 .site-logo__img,
 .sc-site-logo__wordmark {
   display: block;
-  height: 1.875rem;
+  height: 2.625rem;
   width: auto;
-  max-width: 9.5rem;
+  max-width: 11.25rem;
   object-fit: contain;
   object-position: left center;
 }
@@ -634,8 +634,8 @@
   }
 
   .sc-site-logo__wordmark {
-    height: 1.5rem;
-    max-width: 7.75rem;
+    height: 2.125rem;
+    max-width: 9rem;
   }
 
   .apple-nav__menu-btn {
