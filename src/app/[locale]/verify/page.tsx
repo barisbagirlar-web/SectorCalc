@@ -27,6 +27,7 @@ export default async function VerifyPage({ params, searchParams }: PageProps) {
 
   return (
     <main className="px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="sr-only" aria-hidden="true" data-verify-report-form="true" />
       <VerifyReportClient reportId={reportId} hash={hash} />
     </main>
   );

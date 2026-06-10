@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
       static: 300,
     },
     optimizePackageImports: ["lucide-react", "@heroicons/react"],
+    staticGenerationRetryCount: 3,
   },
   async redirects() {
     return [

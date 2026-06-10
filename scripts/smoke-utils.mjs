@@ -33,6 +33,7 @@ const ROOT = process.cwd();
 
 export function getBaseUrl() {
   return (
+    process.env.SMOKE_BASE_URL ??
     process.env.SECTORCALC_AUDIT_BASE_URL ??
     process.env.CATALOG_QA_BASE_URL ??
     DEFAULT_BASE_URL

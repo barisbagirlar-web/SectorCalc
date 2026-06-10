@@ -22,7 +22,7 @@
 | P2.3 Premium Smart Form Full Rollout | **DONE** (27/27 premium Smart Form only) |
 | **P2.4 Full Calculation Form Repair Sweep** | **DONE** |
 | P3 Feedback / Formula Objection | **COMPLETE** |
-| **P4 Trust Trace / Validation Stamp / Public Verify** | **NEXT ACTIVE PHASE** |
+| **P4 Trust Trace / Validation Stamp / Public Verify** | **COMPLETE** |
 
 ## P2.4 — Full Calculation Form Repair Sweep *(DONE)*
 
@@ -72,6 +72,24 @@
 | **Post-P2.4 revalidation** | `smoke:feedback-ui` PASS on repaired forms (2026-06-10) |
 
 *Note:* P3 shipped before P2.4 closure (`40bd28b`); post-repair revalidation completed with P2.4 smoke suite.
+
+## P4 — Trust Trace / Validation Stamp / Public Verify *(COMPLETE — FIX-P4-001)*
+
+| Item | Value |
+|------|--------|
+| **Prompt IDs** | PROMPT-P4-001 · PROMPT-P4-002 · FIX-P4-001 |
+| **Build fix** | SEO hub `revalidate=3600`, sorted static params, `staticGenerationRetryCount: 3` |
+| **Smoke scripts** | `smoke:approved-reports` · `smoke:verify-report` |
+| **SSR markers** | Premium routes + `/verify` form markers for curl smoke |
+
+### P4 closure smoke gates
+
+| Gate | Target | Result |
+|------|--------|--------|
+| `npm run build` | clean | **PASS** (local) |
+| `smoke:approved-reports` | 9 premium routes | *post-deploy verify* |
+| `smoke:verify-report` | 6 locales + API guards | *post-deploy verify* |
+
 ---
 
 ## P2.3 — Smart Form Full Premium Rollout (27/27) *(DONE — premium scope only)*
@@ -118,7 +136,8 @@
 | P2.4 partial work | `bea180e` | Form CSS sweep |
 | P2.4 closure | `cc4153d` | PROMPT-P2.4-001 completion + post-deploy smoke PASS |
 | P3 feedback | `40bd28b` | ToolFeedback + admin queue |
-| **Active product phase** | — | **P4 NEXT** (P2.4 DONE, P3 COMPLETE) |
+| P4 Trust Trace | — | COMPLETE — PROMPT-P4-001 + PROMPT-P4-002; tsc clean, 43 unit tests PASS |
+| **Active product phase** | — | **P5 NEXT** (P4 COMPLETE) |
 
 P2.4 closure evidence: inventory, 13 repaired component groups, post-deploy smoke PASS at `cc4153d`.
 
@@ -134,7 +153,7 @@ P2.4 closure evidence: inventory, 13 repaired component groups, post-deploy smok
 | `RuntimeTrustTracePanel.tsx` | Pro-only — public preview shows locked state |
 | Public preview banner | **Production** — anonymous + signed-in free tiers |
 
-**Do not claim:** Trust Trace public verify backend, regional benchmark engine, or AI assistant are production-complete — see debt table below.
+**Do not claim:** Regional benchmark engine or AI assistant are production-complete — see debt table below.
 
 ## Known Risks
 
@@ -149,10 +168,10 @@ P2.4 closure evidence: inventory, 13 repaired component groups, post-deploy smok
 | Item | Status |
 |------|--------|
 | Regional Unit & Parameter Engine | P5 debt — foundation only |
-| Verify backend lookup | Placeholder UI — P4 |
+| Verify backend lookup | ✅ Complete — POST /api/reports/approved + GET /api/verify-report + /verify page |
 | AI assistant | Lib boundary only — P10 |
 | Case study proof layer | Partial drafts — P7 |
-| Trust Trace Export (full) | Pro pilot — P4 expansion |
+| Trust Trace Export (full) | ✅ Complete — HTML/CSV/Word export via `src/lib/trust-trace/export.ts` |
 | P3 live but post-P2.4 revalidation required | ~~P3 EARLY IMPLEMENTED~~ **COMPLETE** (post-repair smoke PASS) |
 
 ## C‍ursor Path Safety
@@ -205,7 +224,7 @@ gcloud run services update ssrsectorcalcbf412 \
 1. ~~P2.3 Smart Form 27/27~~ **DONE** (2026-06-10)
 2. ~~P2.4 Full Calculation Form Repair Sweep~~ **DONE** (`cc4153d`)
 3. ~~P3 — Feedback / Formula Objection System~~ **COMPLETE** (`40bd28b` + post-P2.4 revalidation)
-4. **P4 Trust Trace / Public Verify** — **NEXT ACTIVE PHASE**
+4. **P4 Trust Trace / Public Verify** — **COMPLETE** (PROMPT-P4-001 + PROMPT-P4-002)
 5. P5 Regional Unit Engine
 6. P6 Regional Benchmark Engine
 

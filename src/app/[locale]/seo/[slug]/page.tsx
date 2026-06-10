@@ -22,9 +22,13 @@ import {
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
+export const revalidate = 3600;
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return listProgrammaticSeoSlugs().map((slug) => ({ slug }));
+  return listProgrammaticSeoSlugs()
+    .slice()
+    .sort()
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({

@@ -83,7 +83,11 @@ export function VerifyReportClient({ reportId: initialReportId, hash: initialHas
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex gap-2">
+      <form
+        onSubmit={handleSubmit}
+        className="flex gap-2"
+        data-verify-report-form="true"
+      >
         <input
           type="text"
           value={reportId}

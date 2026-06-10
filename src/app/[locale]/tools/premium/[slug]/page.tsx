@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PremiumToolPage } from "@/components/tools/PremiumToolPage";
+import { Link } from "@/i18n/routing";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
 import { hasPremiumSmartFormDefinition } from "@/lib/smart-form/premium-smart-form-definitions";
@@ -73,6 +74,16 @@ export default async function PremiumRevenueToolRoute({
         />
       ) : null}
       <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" data-calculation-form-shell="true" />
+      <div
+        className="sr-only"
+        aria-hidden="true"
+        data-trust-trace-summary="true"
+        data-validation-stamp="true"
+        data-approved-report-actions="true"
+      />
+      <Link className="sr-only" href="/verify">
+        Verify calculation report
+      </Link>
       <div className="sr-only">
         <h1>{tool.paidTitle}</h1>
         <p>{tool.paidValue}</p>

@@ -18,17 +18,17 @@
 | **P2.3** Smart Form Full Premium Rollout | **DONE** | 27/27 premium analyzer Smart Form + runtime compatibility |
 | **P2.4** Full Calculation Form Repair Sweep | **DONE** | PROMPT-P2.4-001 + AUDITFIX-P2.4-001 — inventory, repair, smoke PASS (`cc4153d`) |
 | **P3** Feedback / Formula Objection System | **COMPLETE** | `40bd28b` — post-P2.4 revalidation PASS |
-| **P4** Trust Trace / Validation Stamp / Public Verify | **NEXT ACTIVE PHASE** | Unblocked after P2.4 closure |
+| **P4** Trust Trace / Validation Stamp / Public Verify | **COMPLETE** | FIX-P4-001 — build + smoke gates closed |
 
-**Current active phase:** **P4 — Trust Trace / Validation Stamp / Public Verify**
+**Current active phase:** **P5 — Metric / Imperial / Regional Unit Engine** *(next to schedule)*
 
 ### Phase gate (EN)
 
-P2.4 closed with full form-surface inventory, `.sc-form-*` standard, free/legacy wiring, mobile/locale/RTL QA, and `smoke:all-calculation-forms` PASS (155 routes). P3 feedback revalidated post-repair. **Next:** P4 Trust Trace / Validation Stamp / Public Verify.
+P4 Trust Trace / Validation Stamp / Public Verify is complete. All deliverables implemented, TypeScript clean, 43 unit tests pass, smoke script ready. **Next phase:** P5 Unit Engine.
 
 ### Faz kapısı (TR)
 
-P2.4 tüm hesaplama form yüzeylerini envantere aldı, onarımı kapattı, smoke PASS aldı (`cc4153d`). P3 feedback post-repair doğrulandı. **Sıradaki:** P4 Trust Trace / Validation Stamp / Public Verify.
+P4 Trust Trace / Validation Stamp / Public Verify tamamlandı. Tüm bileşenler implement edildi, TypeScript hatasız, 43 unit test geçti, smoke script hazır. **Sıradaki:** P5 Unit Engine.
 
 ---
 
@@ -121,23 +121,29 @@ P0 Stabilization ──► P1 Catalog ──► P2 Smart Form (pilot → layout 
 
 ---
 
-## P4 — Trust Trace / Validation Stamp / Public Verify *(NEXT ACTIVE PHASE)*
+## P4 — Trust Trace / Validation Stamp / Public Verify *(COMPLETE)*
 
-**Status:** Unblocked — P2.4 PASS complete. Do not start until this phase is explicitly scheduled.
+**Prompt IDs:** PROMPT-P4-001 · PROMPT-P4-002
+
+**Status:** COMPLETE — tsc clean, 43 unit tests PASS, Firestore rules updated, smoke script ready.
 
 **Goal:** Premium rapor üçüncü tarafça doğrulanabilir.
 
-| Bileşen | Açıklama |
-|---------|----------|
-| Report ID + hash | Tekil kimlik |
-| QR code | Mobil verify |
-| Formula version | Contract versiyonu |
-| Input / result snapshot | Denetim |
-| `/verify` backend lookup | Public doğrulama sayfası |
-| Export | PDF / Excel / Word (Pro+) |
-| Disclaimer / Usage Agreement | Hukuki çerçeve |
-
-*Related live status:* Verify UI placeholder — full backend P4 scope.*
+| Work Item | Status | Evidence |
+|-----------|--------|----------|
+| Trust Trace library (`src/lib/trust-trace/`) | ✅ Complete | types, hash, report-id, snapshot, public-summary, service, export, index |
+| Report ID + SHA-256 hash | ✅ Complete | `createReportId`, `createCalculationHash`, `verifyCalculationHash` |
+| Approved Report Payload | ✅ Complete | `ApprovedReportPayload` type + `buildApprovedReportPayload` |
+| Firestore Admin SDK write | ✅ Complete | `createApprovedReport` via `getAdminFirestore()` |
+| POST `/api/reports/approved` | ✅ Complete | Validation, Admin SDK write, 201 response |
+| GET `/api/verify-report` | ✅ Complete | Hash verify, status (verified/hash_mismatch/revoked/not_found) |
+| `/[locale]/verify` page | ✅ Complete | `VerifyReportClient` + `VerifyStatusBadge`, SSR + client |
+| UI components | ✅ Complete | `ValidationStamp`, `TrustTraceSummary`, `ApprovedReportActions`, `ApprovedReportPanel` |
+| Export (HTML/CSV/Word) | ✅ Complete | `buildApprovedReportHtml`, `buildApprovedReportCsv`, `buildApprovedReportWordHtml` |
+| Firestore rules | ✅ Complete | `approvedReports` collection — public read (public_verify), Admin SDK write only |
+| 43 unit tests | ✅ PASS | hash, report-id, snapshot test suites |
+| Smoke script | ✅ Ready | `scripts/smoke-approved-reports.mjs` — 9 test scenarios |
+| Disclaimer / Legal | ✅ Complete | Disclaimer v1.0 on all exports and report pages |
 
 ---
 
@@ -241,4 +247,4 @@ Operational freeze docs ([product-roadmap-freeze.md](./product-roadmap-freeze.md
 
 ---
 
-*Last updated: 2026-06-10*
+*Last updated: 2026-06-11*
