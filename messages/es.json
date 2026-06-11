@@ -1389,6 +1389,26 @@
       "unit-conversion-traffic": "Conversión de unidades"
     }
   },
+  "industryPage": {
+    "whoItsForLabel": "Para quién es:",
+    "decisionLabel": "En qué decisión ayuda:",
+    "freeCalculatorHeading": "Calculadora gratuita",
+    "freeCalculatorNote": "Solo verificación rápida — sin precio mínimo seguro ni veredicto de aceptar/rechazar.",
+    "openTool": "Abrir {tool}",
+    "premiumHeading": "Analizador premium",
+    "startPro": "Empezar con SectorCalc Pro",
+    "relatedHeading": "Analizadores premium relacionados",
+    "relatedNote": "Diagnósticos de pérdidas ocultas con comprobaciones de umbral, acciones sugeridas e informes listos para exportar.",
+    "openAnalyzer": "Abrir analizador →",
+    "viewAll": "Ver todos los analizadores →",
+    "additionalHeading": "Analizadores adicionales",
+    "additionalNote": "Herramientas de decisión relacionadas en la hoja de ruta de SectorCalc para este sector.",
+    "allIndustries": "Todos los sectores",
+    "freeCalculatorLink": "Calculadora gratuita",
+    "premiumAnalyzerLink": "Analizador premium",
+    "proPricing": "Precios de SectorCalc Pro",
+    "account": "Cuenta"
+  },
   "premiumAccess": {
     "previewEyebrow": "Vista previa pública",
     "publicPreviewTitle": "Prueba este analizador antes de suscribirte",
@@ -1401,6 +1421,10 @@
     "lockedReportHistory": "El historial de informes guardados requiere una cuenta Pro con sesión iniciada.",
     "lockedTrustTrace": "Trust Trace y el sello de validación son funciones de auditoría exclusivas de Pro.",
     "fullReportRequiresPro": "El informe completo exportable requiere SectorCalc Pro.",
+    "panelTitle": "Inicio de sesión en SectorCalc Pro",
+    "panelDescription": "Inicia sesión con Google para acceder a los analizadores premium o continuar con el pago. El inicio de sesión de administrador está separado arriba.",
+    "signInButton": "Continuar con Google",
+    "signingIn": "Iniciando sesión…",
     "signInErrors": {
       "cancelled": "Se canceló el inicio de sesión.",
       "unauthorized-domain": "Este dominio no está autorizado para el inicio de sesión con Google. Usa sectorcalc.com o añade el dominio en Firebase Console → Authentication → Settings → Authorized domains.",

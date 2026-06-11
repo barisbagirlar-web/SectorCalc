@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import Link from "@/lib/navigation/next-link";
 import PageHero from "@/components/shared/PageHero";
 import { IndustryAuditModule } from "@/components/os/IndustryAuditModule";
@@ -5,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import type { Industry } from "@/data/industries";
 import { getIndustryHubContent } from "@/data/industry-hub-content";
+import { getLocalizedIndustryHub } from "@/data/industry-hub-i18n";
 import { revenueLegalDisclaimer } from "@/lib/tools/revenue-tools";
 import { getIndustryRegistryEntry } from "@/lib/tools/industry-registry";
 import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
@@ -22,13 +24,18 @@ import {
 
 interface IndustryPageContentProps {
  industry: Industry;
+ locale: string;
 }
 
-export function IndustryPageContent({ industry }: IndustryPageContentProps) {
- const hub = getIndustryHubContent(industry.slug);
+export async function IndustryPageContent({ industry, locale }: IndustryPageContentProps) {
+ const t = await getTranslations({ locale, namespace: "industryPage" });
+ const baseHub = getIndustryHubContent(industry.slug);
+ const localizedHub = getLocalizedIndustryHub(industry.slug, locale);
+ const hub = { ...baseHub, ...localizedHub };
+ const eyebrow = localizedHub?.eyebrow ?? industry.name;
  const registryEntry = getIndustryRegistryEntry(industry.slug);
  const tool = getRevenueToolBySector(industry.slug);
- const schemaAnalyzers = getPremiumSchemasForIndustrySlug(industry.slug, "en", 3);
+ const schemaAnalyzers = getPremiumSchemasForIndustrySlug(industry.slug, locale, 3);
  const mappedSchema = tool ? getPremiumSchemaForPaidSlug(tool.paidSlug) : null;
  const primaryPremiumHref = mappedSchema
    ? `/tools/premium-schema/${mappedSchema.id}`
@@ -37,42 +44,50 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
      : getPremiumToolsHref();
 
  return (
- <>
+ <div data-industry-page="true">
+ <div data-industry-title="true">
  <PageHero
- eyebrow={industry.name}
+ eyebrow={eyebrow}
  title={hub.hubTitle}
  description={hub.painStatement}
  align="left"
  />
+ </div>
 
- <section className="border-b border-technical-gray bg-industrial-matte py-5 sm:py-7">
+ <section
+ data-industry-smart-form="true"
+ className="border-b border-technical-gray bg-industrial-matte py-5 sm:py-7"
+ >
  <IndustryAuditModule industrySlug={industry.slug} />
  </section>
 
  <section className="border-b border-border-subtle bg-white py-5 sm:py-6">
  <Container size="narrow">
  <p className="text-sm leading-relaxed text-text-secondary">
- <strong className="text-text-primary">Who it is for:</strong> {hub.whoItsFor}
+ <strong className="text-text-primary">{t("whoItsForLabel")}</strong> {hub.whoItsFor}
  </p>
  <p className="mt-3 text-sm leading-relaxed text-text-secondary">
- <strong className="text-text-primary">What decision it helps with:</strong>{" "}
+ <strong className="text-text-primary">{t("decisionLabel")}</strong>{" "}
  {hub.decisionHelp}
  </p>
  </Container>
  </section>
 
  {tool ? (
- <section className="border-b border-border-subtle bg-bg-subtle py-5 sm:py-6">
+ <section
+ data-free-calculator-section="true"
+ className="border-b border-border-subtle bg-bg-subtle py-5 sm:py-6"
+ >
  <Container>
- <h2 className="text-2xl font-bold text-text-primary">Free calculator</h2>
+ <h2 className="text-2xl font-bold text-text-primary">{t("freeCalculatorHeading")}</h2>
  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-text-secondary">
  {hub.freeToolExplanation}
  </p>
  <p className="mt-2 text-xs text-text-secondary">
- Quick check only — no minimum safe price or accept/reject verdict.
+ {t("freeCalculatorNote")}
  </p>
  <Button href={getFreeToolHref(tool)} size="lg" className="mt-6">
- Open {tool.freeTitle}
+ {t("openTool", { tool: tool.freeTitle })}
  </Button>
  </Container>
  </section>
@@ -81,16 +96,16 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
  {tool ? (
  <section className="border-b border-border-subtle bg-white py-5 sm:py-6">
  <Container>
- <h2 className="text-2xl font-bold text-text-primary">Premium analyzer</h2>
+ <h2 className="text-2xl font-bold text-text-primary">{t("premiumHeading")}</h2>
  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-text-secondary">
  {hub.premiumToolExplanation}
  </p>
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <Button href={primaryPremiumHref} size="lg">
- Open {tool.paidTitle}
+ {t("openTool", { tool: tool.paidTitle })}
  </Button>
  <Button href={getPricingHref(tool)} variant="outline" size="lg">
- Start SectorCalc Pro
+ {t("startPro")}
  </Button>
  </div>
  </Container>
@@ -100,9 +115,9 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
  {schemaAnalyzers.length > 0 ? (
  <section className="border-b border-border-subtle bg-bg-subtle py-5 sm:py-6">
  <Container>
- <h2 className="text-2xl font-bold text-text-primary">Related premium analyzers</h2>
+ <h2 className="text-2xl font-bold text-text-primary">{t("relatedHeading")}</h2>
  <p className="mt-2 max-w-2xl text-sm text-text-secondary">
- Hidden-loss diagnostics with threshold checks, suggested actions and export-ready reports.
+ {t("relatedNote")}
  </p>
  <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
  {schemaAnalyzers.map((analyzer) => (
@@ -120,13 +135,13 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
  href={analyzer.href.replace(/^\/[a-z]{2}\//, "/")}
  className="sc-craft-card__cta mt-auto pt-4"
  >
- Open analyzer →
+ {t("openAnalyzer")}
  </Link>
  </li>
  ))}
  </ul>
  <Link href={getPremiumToolsHref()} className="mt-6 inline-flex text-sm font-semibold text-deep-navy underline">
- View all analyzers →
+ {t("viewAll")}
  </Link>
  </Container>
  </section>
@@ -136,9 +151,9 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
  registryEntry.additionalAnalyzers.length > 0 ? (
  <section className="border-b border-border-subtle bg-bg-subtle py-5 sm:py-6">
  <Container>
- <h2 className="text-2xl font-bold text-text-primary">Additional analyzers</h2>
+ <h2 className="text-2xl font-bold text-text-primary">{t("additionalHeading")}</h2>
  <p className="mt-2 text-sm text-text-secondary">
- Related decision tools on the SectorCalc roadmap for this sector.
+ {t("additionalNote")}
  </p>
  <ul className="mt-6 grid gap-4 sm:grid-cols-2">
  {registryEntry.additionalAnalyzers.map((analyzer) => (
@@ -162,7 +177,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
  <p className="text-sm leading-relaxed text-text-secondary">{revenueLegalDisclaimer}</p>
  <nav className="mt-6 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-4">
  <Link href="/industries" className="font-medium text-deep-navy hover:underline">
- All industries
+ {t("allIndustries")}
  </Link>
  {tool ? (
  <>
@@ -170,19 +185,19 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
  href={getFreeToolHref(tool)}
  className="font-medium text-deep-navy hover:underline"
  >
- Free calculator
+ {t("freeCalculatorLink")}
  </Link>
  <Link
  href={primaryPremiumHref}
  className="font-medium text-deep-navy hover:underline"
  >
- Premium analyzer
+ {t("premiumAnalyzerLink")}
  </Link>
  <Link
  href={getPricingHref(tool)}
  className="font-medium text-deep-navy hover:underline"
  >
- SectorCalc Pro pricing
+ {t("proPricing")}
  </Link>
  </>
  ) : null}
@@ -190,11 +205,11 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
  href={getAccountHref()}
  className="font-medium text-deep-navy hover:underline"
  >
- Account
+ {t("account")}
  </Link>
  </nav>
  </Container>
  </section>
- </>
+ </div>
  );
 }

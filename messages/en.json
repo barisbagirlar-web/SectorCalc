@@ -1426,6 +1426,26 @@
       "unit-conversion-traffic": "Unit Conversion Traffic"
     }
   },
+  "industryPage": {
+    "whoItsForLabel": "Who it is for:",
+    "decisionLabel": "What decision it helps with:",
+    "freeCalculatorHeading": "Free calculator",
+    "freeCalculatorNote": "Quick check only — no minimum safe price or accept/reject verdict.",
+    "openTool": "Open {tool}",
+    "premiumHeading": "Premium analyzer",
+    "startPro": "Start SectorCalc Pro",
+    "relatedHeading": "Related premium analyzers",
+    "relatedNote": "Hidden-loss diagnostics with threshold checks, suggested actions and export-ready reports.",
+    "openAnalyzer": "Open analyzer →",
+    "viewAll": "View all analyzers →",
+    "additionalHeading": "Additional analyzers",
+    "additionalNote": "Related decision tools on the SectorCalc roadmap for this sector.",
+    "allIndustries": "All industries",
+    "freeCalculatorLink": "Free calculator",
+    "premiumAnalyzerLink": "Premium analyzer",
+    "proPricing": "SectorCalc Pro pricing",
+    "account": "Account"
+  },
   "premiumAccess": {
     "previewEyebrow": "Public preview",
     "publicPreviewTitle": "Try this analyzer before you subscribe",
@@ -1438,6 +1458,10 @@
     "lockedReportHistory": "Saved report history requires a signed-in Pro account.",
     "lockedTrustTrace": "Trust trace and validation stamp are Pro-only audit features.",
     "fullReportRequiresPro": "Full exportable report requires SectorCalc Pro.",
+    "panelTitle": "SectorCalc Pro sign-in",
+    "panelDescription": "Sign in with Google to access premium analyzers or continue checkout. Admin sign-in is separate above.",
+    "signInButton": "Continue with Google",
+    "signingIn": "Signing in…",
     "signInErrors": {
       "cancelled": "Sign-in was cancelled.",
       "unauthorized-domain": "This domain is not authorized for Google sign-in. Use sectorcalc.com or add the domain in Firebase Console → Authentication → Settings → Authorized domains.",

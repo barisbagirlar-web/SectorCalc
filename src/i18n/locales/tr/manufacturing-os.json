@@ -1,11 +1,11 @@
 {
   "sector": {
     "cnc": {
-      "title": "CNC Intelligence",
+      "title": "CNC Üretim Zekâsı",
       "params": {
-        "Ideal_Cycle_Time": "Ideal Cycle Time",
-        "Actual_Cycle_Time": "Actual Cycle Time",
-        "Machine_Rate": "Machine Rate"
+        "Ideal_Cycle_Time": "İdeal Çevrim Süresi",
+        "Actual_Cycle_Time": "Gerçek Çevrim Süresi",
+        "Machine_Rate": "Makine Saat Ücreti"
       }
     },
     "logistics": {
@@ -17,19 +17,19 @@
       }
     },
     "construction": {
-      "title": "Construction Project Intelligence",
+      "title": "İnşaat Proje Zekâsı",
       "params": {
-        "Target_Cost": "Target Cost",
-        "Actual_Cost": "Actual Cost",
-        "Labor_Hours": "Labor Hours"
+        "Target_Cost": "Hedef Maliyet",
+        "Actual_Cost": "Gerçek Maliyet",
+        "Labor_Hours": "İşçilik Saati"
       }
     },
     "agriculture": {
-      "title": "Crop Yield Management Intelligence",
+      "title": "Ürün Verimi Yönetim Zekâsı",
       "params": {
-        "Target_Yield_Ha": "Target Yield Ha",
-        "Actual_Yield_Ha": "Actual Yield Ha",
-        "Input_Cost": "Input Cost"
+        "Target_Yield_Ha": "Hedef Verim (ha)",
+        "Actual_Yield_Ha": "Gerçek Verim (ha)",
+        "Input_Cost": "Girdi Maliyeti"
       }
     },
     "textile": {
@@ -73,11 +73,11 @@
       }
     },
     "metalworking": {
-      "title": "Metal Fabrication Intelligence",
+      "title": "Metal İmalat Zekâsı",
       "params": {
-        "Standard_Weight": "Standard Weight",
-        "Actual_Weight": "Actual Weight",
-        "Raw_Material_Cost": "Raw Material Cost"
+        "Standard_Weight": "Standart Ağırlık",
+        "Actual_Weight": "Gerçek Ağırlık",
+        "Raw_Material_Cost": "Hammadde Maliyeti"
       }
     },
     "pharma": {
@@ -129,11 +129,11 @@
       }
     },
     "hvac": {
-      "title": "HVAC Facilities Intelligence",
+      "title": "HVAC Tesis Zekâsı",
       "params": {
-        "Target_Energy_Consumption": "Target Energy Consumption",
-        "Actual_Consumption": "Actual Consumption",
-        "Cost_Per_Unit": "Cost Per Unit"
+        "Target_Energy_Consumption": "Hedef Enerji Tüketimi",
+        "Actual_Consumption": "Gerçek Tüketim",
+        "Cost_Per_Unit": "Birim Maliyet"
       }
     },
     "mining": {
@@ -161,11 +161,11 @@
       }
     },
     "hospitality": {
-      "title": "Hospitality / F&B Intelligence",
+      "title": "Konaklama / Yeme-İçme Zekâsı",
       "params": {
-        "Target_Food_Cost_%": "Target Food Cost %",
-        "Actual_Food_Cost_%": "Actual Food Cost %",
-        "Revenue": "Revenue"
+        "Target_Food_Cost_%": "Hedef Gıda Maliyeti %",
+        "Actual_Food_Cost_%": "Gerçek Gıda Maliyeti %",
+        "Revenue": "Ciro"
       }
     },
     "retail": {

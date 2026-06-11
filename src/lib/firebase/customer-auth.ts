@@ -1,4 +1,5 @@
 import {
+  getRedirectResult,
   GoogleAuthProvider,
   signInWithPopup,
   signInWithRedirect,
@@ -81,6 +82,25 @@ export async function signInCustomerWithGoogle(): Promise<{ readonly redirected:
     }
     throw error;
   }
+}
+
+/**
+ * Completes a pending {@link signInWithRedirect} flow.
+ *
+ * Must run on page load: when the popup is blocked the sign-in falls back to a
+ * full redirect to Google and back, and the result is only available via
+ * getRedirectResult on return. Without this the redirect flow silently fails.
+ *
+ * Returns true when a redirect sign-in just completed, false otherwise.
+ */
+export async function completeCustomerGoogleRedirect(): Promise<boolean> {
+  const auth = getFirebaseAuth();
+  if (!auth) {
+    return false;
+  }
+
+  const result = await getRedirectResult(auth);
+  return result !== null;
 }
 
 /** @deprecated Use getCustomerSignInErrorCode + i18n messages. */

@@ -37,6 +37,8 @@
     "smoke:business-packaging": "node scripts/smoke-business-packaging.mjs",
     "smoke:premium-seo-landings": "node scripts/smoke-premium-seo-landings.mjs",
     "smoke:ai-assistant": "node scripts/smoke-ai-assistant.mjs",
+    "smoke:google-auth-ui": "node scripts/smoke-google-auth-ui.mjs",
+    "smoke:tr-content-localization": "node scripts/smoke-tr-content-localization.mjs",
     "smoke:release-gate": "node scripts/smoke-release-gate.mjs",
     "release:gate": "node scripts/release-gate.mjs",
     "assert:route-cache-policy": "node scripts/assert-route-cache-policy.mjs",
