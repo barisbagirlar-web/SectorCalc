@@ -32,25 +32,21 @@ export const SITE = {
  defaultCurrency: "USD" as const,
 } as const;
 
-/** Desktop header nav — Calculators → Industries → Pricing → Resources. */
+/** Desktop header nav — Free → Premium → Industry → Pricing. */
 export const DESKTOP_HEADER_NAV = [
- { key: "calculators", href: "/free-tools" },
- { key: "industries", href: "/industries" },
+ { key: "freeCalculators", href: "/free-tools" },
+ { key: "premiumCalculators", href: "/premium-tools" },
+ { key: "industryCalculators", href: "/industries" },
  { key: "pricing", href: "/pricing" },
- { key: "resources", href: "/categories" },
 ] as const;
 
-/** Mobile drawer nav — includes Case Studies (hidden on desktop header). */
-export const PRIMARY_HEADER_NAV = [
- ...DESKTOP_HEADER_NAV.slice(0, 2),
- { key: "caseStudies", href: "/case-studies" },
- ...DESKTOP_HEADER_NAV.slice(2),
-] as const;
+/** Mobile drawer nav — same order as desktop header. */
+export const PRIMARY_HEADER_NAV = [...DESKTOP_HEADER_NAV] as const;
 
 export const PUBLIC_NAV_ITEMS = [
- { label: "Free Checks", href: "/free-tools" },
- { label: "Premium Verdicts", href: "/premium-tools" },
- { label: "Industries", href: "/industries" },
+ { label: "Free Calculators", href: "/free-tools" },
+ { label: "Premium Calculators", href: "/premium-tools" },
+ { label: "Industry Calculators", href: "/industries" },
 ] as const;
 
 export const AUTH_NAV_ITEMS = [

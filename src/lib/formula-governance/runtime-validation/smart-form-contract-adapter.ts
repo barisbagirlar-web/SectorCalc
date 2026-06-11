@@ -17,6 +17,7 @@ import { resolveFieldUnitMetadata } from "@/lib/units/canonical-unit-normalizer"
 import type { UnitSystem } from "@/lib/units/unit-definitions";
 import { enrichLoanPaymentRegionalDisplay } from "@/lib/regional/pilot/loan-payment-regional-pilot";
 import type { RegionalSmartFormInputExtension } from "@/lib/regional/types";
+import { resolveFreeToolFieldDisplay, resolveSmartFormDecisionGoal } from "@/lib/i18n/free-tool-form-i18n";
 
 export type SmartFormContractFieldType = "number" | "currency" | "percent";
 
@@ -153,6 +154,7 @@ function findHelperText(
 }
 
 function buildFieldSpec(
+  slug: string,
   key: string,
   group: SmartFormContractFieldGroup,
   required: boolean,
@@ -178,10 +180,19 @@ function buildFieldSpec(
 
   const unit = unitMetadata?.displayUnit ?? baseUnit;
 
+  const baseLabel = humanizeFieldKey(key);
+  const basePlaceholder = `Enter ${baseLabel.toLowerCase()}`;
+  const localizedDisplay = locale
+    ? resolveFreeToolFieldDisplay(slug, key, locale, {
+        label: baseLabel,
+        placeholder: basePlaceholder,
+      })
+    : { label: baseLabel, placeholder: basePlaceholder };
+
   return {
     key,
     canonicalKey: key,
-    label: humanizeFieldKey(key),
+    label: localizedDisplay.label,
     type,
     unit,
     canonicalUnit: unitMetadata?.canonicalUnit,
@@ -189,7 +200,7 @@ function buildFieldSpec(
     unitSystem: unitMetadata?.unitSystem,
     required,
     ...bounds,
-    placeholder: `Enter ${humanizeFieldKey(key).toLowerCase()}`,
+    placeholder: localizedDisplay.placeholder,
     helperText: findHelperText(key, patch),
     group,
     validationHint: findValidationHint(key, contract),
@@ -224,7 +235,7 @@ export function buildSmartFormFieldSpecsFromContract(
       return;
     }
     seen.add(key);
-    fields.push(buildFieldSpec(key, group, required, contract, patch, locale));
+    fields.push(buildFieldSpec(slug, key, group, required, contract, patch, locale));
   };
 
   if (patch) {
@@ -251,7 +262,9 @@ export function buildSmartFormFieldSpecsFromContract(
   const plan: SmartFormContractFieldPlan = {
     slug,
     contractSlug,
-    decisionGoal: contract.userDecision,
+    decisionGoal: locale
+      ? resolveSmartFormDecisionGoal(slug, locale, contract.userDecision)
+      : contract.userDecision,
     fields,
     assumptions: contract.assumptions.slice(0, 4),
     validationRules: contract.validationRules.map((rule) => ({

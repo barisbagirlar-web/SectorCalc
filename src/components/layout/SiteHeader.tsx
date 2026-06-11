@@ -1,5 +1,4 @@
 import { SiteLogo } from "@/components/brand/SiteLogo";
-import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { DesktopHeaderNav } from "@/components/layout/HeaderNav";
 import { HeaderNavPrefetch } from "@/components/layout/HeaderNavPrefetch";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
@@ -25,7 +24,6 @@ export function SiteHeader() {
               </div>
               <LocaleSwitcher className="sc-header-locale-control" />
             </div>
-            <HeaderAuthCta />
           </div>
           <MobileNav />
         </div>

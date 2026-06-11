@@ -30,7 +30,7 @@ export function buildPremiumToolsCrawlGroups(locale = "en"): readonly CrawlIndex
 export function buildIndustriesCrawlGroups(): readonly CrawlIndexGroup[] {
   return [
     {
-      label: "Industries",
+      label: "Industry Calculators",
       links: INDUSTRIES.map((industry) => ({
         href: industry.href,
         label: industry.name,
@@ -56,10 +56,10 @@ export function buildCoreHubCrawlGroups(): readonly CrawlIndexGroup[] {
     {
       label: "Core pages",
       links: [
-        { href: "/free-tools", label: "Free tools" },
-        { href: "/premium-tools", label: "Premium tools" },
+        { href: "/free-tools", label: "Free Calculators" },
+        { href: "/premium-tools", label: "Premium Calculators" },
         { href: "/categories", label: "Categories" },
-        { href: "/industries", label: "Industries" },
+        { href: "/industries", label: "Industry Calculators" },
         { href: "/pricing", label: "Pricing" },
         { href: "/beta-partner", label: "Beta partner" },
         ...listProgrammaticSeoSlugs().map((slug) => ({

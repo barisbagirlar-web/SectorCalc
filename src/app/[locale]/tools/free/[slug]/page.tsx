@@ -17,6 +17,7 @@ import { getTierOneFreeToolMetadata } from "@/lib/seo/seo-refresh-priority";
 import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
 import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
+import { localizeFreeTrafficToolInputs } from "@/lib/i18n/free-tool-form-i18n";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 
@@ -222,6 +223,11 @@ export default async function FreeRevenueToolRoute({
           description: localizedDescription,
           seoTitle: localizedCopy.seoTitle ?? trafficTool.seoTitle,
           seoDescription: localizedCopy.seoDescription ?? trafficTool.seoDescription,
+          inputs: localizeFreeTrafficToolInputs(
+            trafficTool.slug,
+            locale,
+            trafficTool.inputs,
+          ),
         }}
         featuredAnswer={featuredAnswerBlock}
         localizedContent={{

@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 type SmartFormTrustSummaryProps = {
   readonly decisionGoal: string;
   readonly assumptions: readonly string[];
@@ -11,24 +13,28 @@ export function SmartFormTrustSummary({
   assumptions,
   validationRuleCount,
 }: SmartFormTrustSummaryProps) {
+  const t = useTranslations("freeToolUi");
+
   return (
     <aside
       className="rounded border border-border-subtle bg-surface-muted p-3"
       data-component-kind="smart_form_trust_summary"
-      aria-label="Smart form trust summary"
+      aria-label={t("contractFormTrustAria")}
     >
       <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
-        Contract-driven form
+        {t("contractFormEyebrow")}
       </p>
       <p className="mt-1 text-sm text-text-primary">{decisionGoal}</p>
       {assumptions.length > 0 ? (
         <p className="mt-2 text-xs text-text-secondary">
-          {assumptions.length} governed assumption{assumptions.length === 1 ? "" : "s"} ·{" "}
-          {validationRuleCount} validation rule{validationRuleCount === 1 ? "" : "s"}
+          {t("contractFormAssumptionsRules", {
+            assumptionCount: assumptions.length,
+            ruleCount: validationRuleCount,
+          })}
         </p>
       ) : (
         <p className="mt-2 text-xs text-text-secondary">
-          {validationRuleCount} validation rule{validationRuleCount === 1 ? "" : "s"} active
+          {t("contractFormRulesOnly", { ruleCount: validationRuleCount })}
         </p>
       )}
     </aside>

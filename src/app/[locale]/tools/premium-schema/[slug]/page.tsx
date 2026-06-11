@@ -12,12 +12,12 @@ import type { AppLocale } from "@/i18n/routing";
 import { siteUrl } from "@/config/site";
 import { createPageMetadata } from "@/lib/metadata";
 import {
-  buildBreadcrumbJsonLd,
   buildFAQJsonLd,
   buildPremiumAnalyzerJsonLd,
   sanitizeJsonLd,
   type JsonLdRecord,
 } from "@/lib/seo/schema-mesh";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { getTierOnePremiumMetadata } from "@/lib/seo/seo-refresh-priority";
 import {
   getPremiumSchemaBySlug,
@@ -112,10 +112,10 @@ export default async function PremiumSchemaPilotPage({
     ...authorityFaq,
   ]);
   const jsonLd: JsonLdRecord[] = [
-    buildBreadcrumbJsonLd(
+    await buildLocalizedBreadcrumbJsonLd(
       [
-        { name: "Home", path: "/" },
-        { name: "Premium tools", path: "/premium-tools" },
+        { key: "home", path: "/" },
+        { key: "premiumTools", path: "/premium-tools" },
         { name: schema.name, path: `/tools/premium-schema/${schema.id}` },
       ],
       locale

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, type FormEvent, type ReactNode } from "react";
+import { useLocale } from "next-intl";
 import { SmartExpertPanel } from "@/components/smart-form/SmartExpertPanel";
 import { SmartFormFieldsRenderer } from "@/components/smart-form/SmartFormFieldsRenderer";
 import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
@@ -50,9 +51,10 @@ export function SmartFormWorkspace({
   forceFallback = false,
   nativeContractForm = false,
 }: SmartFormWorkspaceProps) {
+  const locale = useLocale();
   const adapter = useMemo(
-    () => buildSmartFormForTool(toolSlug, inputConfig),
-    [toolSlug, inputConfig],
+    () => buildSmartFormForTool(toolSlug, inputConfig, locale),
+    [toolSlug, inputConfig, locale],
   );
 
   const useAdapter =

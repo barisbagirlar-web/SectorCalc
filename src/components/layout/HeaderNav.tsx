@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { DESKTOP_HEADER_NAV, PRIMARY_HEADER_NAV } from "@/config/site";
-import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { ActiveNavLink } from "@/components/layout/ActiveNavLink";
 
 interface HeaderNavProps {
@@ -59,9 +58,6 @@ export function MobileHeaderNav({
           />
         </li>
       ))}
-      <li>
-        <HeaderAuthCta onNavigate={onNavigate} mobile />
-      </li>
     </>
   );
 }

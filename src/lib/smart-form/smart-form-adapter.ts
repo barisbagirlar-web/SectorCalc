@@ -28,6 +28,10 @@ import type {
   SmartFormSectionConfig,
 } from "@/lib/smart-form/types";
 import type { FreeTrafficInput } from "@/lib/tools/free-traffic-catalog";
+import {
+  readFreeToolUiString,
+  resolveSmartFormDecisionGoal,
+} from "@/lib/i18n/free-tool-form-i18n";
 import type { RevenueToolInput } from "@/lib/tools/revenue-tools";
 
 export type SmartFormExistingInputConfig =
@@ -186,7 +190,10 @@ function mapToolDefinitionInput(input: ToolInput, toolSlug: string): SmartFormIn
   };
 }
 
-function buildCalculationStepsFromContract(slug: string): SmartFormCalculationStep[] {
+function buildCalculationStepsFromContract(
+  slug: string,
+  locale?: string,
+): SmartFormCalculationStep[] {
   const contractSlug = isPremiumFullLoopRuntimeSlug(slug)
     ? resolveFullLoopContractSlug(slug)
     : slug;
@@ -195,15 +202,25 @@ function buildCalculationStepsFromContract(slug: string): SmartFormCalculationSt
     return [];
   }
 
+  const decisionGoal = locale
+    ? resolveSmartFormDecisionGoal(slug, locale, contract.userDecision)
+    : contract.userDecision;
+  const decisionGoalLabel =
+    (locale ? readFreeToolUiString(locale, "calculationStepDecisionGoal") : undefined) ??
+    "Decision goal";
+  const formulaSummaryLabel =
+    (locale ? readFreeToolUiString(locale, "calculationStepFormulaSummary") : undefined) ??
+    "Formula summary";
+
   return [
     {
       id: "contract-purpose",
-      label: "Decision goal",
-      description: contract.userDecision,
+      label: decisionGoalLabel,
+      description: decisionGoal,
     },
     {
       id: "contract-formula",
-      label: "Formula summary",
+      label: formulaSummaryLabel,
       formulaText: contract.formulaSummary,
     },
     ...contract.validationRules.slice(0, 4).map((rule) => ({
@@ -229,6 +246,7 @@ function successResult(
   source: "contract" | "revenue" | "traffic" | "schema" | "tool-definition",
   inputs: readonly SmartFormInput[],
   decisionGoal?: string,
+  locale?: string,
 ): SmartFormAdapterResult {
   if (inputs.length === 0) {
     return { ok: false, slug, reason: "No inputs resolved for adapter." };
@@ -243,23 +261,24 @@ function successResult(
     expertSections,
     allInputs: inputs,
     decisionGoal,
-    calculationSteps: buildCalculationStepsFromContract(slug),
+    calculationSteps: buildCalculationStepsFromContract(slug, locale),
   };
 }
 
 export function buildSmartFormForTool(
   toolSlug: string,
   existingInputConfig?: SmartFormExistingInputConfig,
+  locale?: string,
 ): SmartFormAdapterResult {
   try {
     const contractSlug = isPremiumFullLoopRuntimeSlug(toolSlug)
       ? resolveFullLoopContractSlug(toolSlug)
       : toolSlug;
 
-    const contractPlan = buildSmartFormFieldSpecsFromContract(contractSlug);
+    const contractPlan = buildSmartFormFieldSpecsFromContract(contractSlug, locale);
     if (contractPlan && (isFreeFullLoopRuntimeSlug(toolSlug) || isPremiumFullLoopRuntimeSlug(toolSlug))) {
       const inputs = contractPlan.fields.map((field) => mapContractField(field, toolSlug));
-      return successResult(toolSlug, "contract", inputs, contractPlan.decisionGoal);
+      return successResult(toolSlug, "contract", inputs, contractPlan.decisionGoal, locale);
     }
 
     if (!existingInputConfig) {
@@ -269,21 +288,21 @@ export function buildSmartFormForTool(
     switch (existingInputConfig.kind) {
       case "revenue": {
         const inputs = existingInputConfig.inputs.map((input) => mapRevenueInput(input, toolSlug));
-        return successResult(toolSlug, "revenue", inputs);
+        return successResult(toolSlug, "revenue", inputs, undefined, locale);
       }
       case "traffic": {
         const inputs = existingInputConfig.inputs.map((input) => mapTrafficInput(input, toolSlug));
-        return successResult(toolSlug, "traffic", inputs);
+        return successResult(toolSlug, "traffic", inputs, undefined, locale);
       }
       case "schema": {
         const inputs = existingInputConfig.inputs.map((input) => mapSchemaInput(input, toolSlug));
-        return successResult(toolSlug, "schema", inputs);
+        return successResult(toolSlug, "schema", inputs, undefined, locale);
       }
       case "tool-definition": {
         const inputs = existingInputConfig.inputs.map((input) =>
           mapToolDefinitionInput(input, toolSlug),
         );
-        return successResult(toolSlug, "tool-definition", inputs);
+        return successResult(toolSlug, "tool-definition", inputs, undefined, locale);
       }
       default:
         return { ok: false, slug: toolSlug, reason: "Unsupported input config kind." };

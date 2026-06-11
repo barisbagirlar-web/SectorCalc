@@ -24,4 +24,11 @@ describe("nav-active", () => {
     expect(isNavLinkActive("/tr/free-tools", "/free-tools")).toBe(true);
     expect(isNavLinkActive("/tr/tools/free/area-converter", "/free-tools")).toBe(true);
   });
+
+  test("premium tools active on premium catalog and premium tool pages", () => {
+    expect(isNavLinkActive("/premium-tools", "/premium-tools")).toBe(true);
+    expect(isNavLinkActive("/tr/premium-tools", "/premium-tools")).toBe(true);
+    expect(isNavLinkActive("/tools/premium-schema/margin-leak", "/premium-tools")).toBe(true);
+    expect(isNavLinkActive("/free-tools", "/premium-tools")).toBe(false);
+  });
 });

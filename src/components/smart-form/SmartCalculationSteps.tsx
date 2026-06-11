@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { SmartFormCalculationStep } from "@/lib/smart-form/types";
 
 export type SmartCalculationStepsProps = {
@@ -7,10 +8,12 @@ export type SmartCalculationStepsProps = {
 };
 
 export function SmartCalculationSteps({ steps }: SmartCalculationStepsProps) {
+  const t = useTranslations("freeToolUi");
+
   if (steps.length === 0) {
     return (
       <p className="text-xs leading-relaxed text-text-secondary">
-        Calculation steps will appear when this contract exposes deterministic trace.
+        {t("calculationStepsEmpty")}
       </p>
     );
   }
@@ -18,7 +21,7 @@ export function SmartCalculationSteps({ steps }: SmartCalculationStepsProps) {
   return (
     <details className="rounded-sm border border-border-subtle bg-white p-4">
       <summary className="cursor-pointer text-sm font-semibold text-text-primary">
-        Calculation steps
+        {t("calculationSteps")}
       </summary>
       <ol className="mt-3 space-y-3">
         {steps.map((step, index) => (

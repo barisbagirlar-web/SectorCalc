@@ -1,12 +1,15 @@
 {
   "nav": {
+    "freeCalculators": "Ücretsiz Hesaplayıcılar",
+    "premiumCalculators": "Premium Hesaplayıcılar",
+    "industryCalculators": "Sektör Hesaplayıcıları",
     "calculators": "Hesaplayıcılar",
     "caseStudies": "Vaka Çalışmaları",
     "resources": "Kaynaklar",
     "signUp": "Kayıt Ol",
     "tools": "Ücretsiz Kontroller",
     "premiumVerdicts": "Premium Kararlar",
-    "industries": "Sektörler",
+    "industries": "Sektör Hesaplayıcıları",
     "byFunction": "Hesaplama Türleri",
     "categories": "Kategoriler",
     "reports": "Raporlar",
@@ -39,7 +42,7 @@
     "subtitle": "SectorCalc, işletmelerin maliyetleri hesaplamasına, verimliliği ölçmesine, kayıpları tespit etmesine ve operasyonları optimize etmesine yardımcı olur — pahalı ERP sistemlerine gerek kalmadan.",
     "primaryCta": "Ücretsiz Marj Kontrolü",
     "secondaryCta": "Örnek Karar Raporunu Gör",
-    "exploreFreeCta": "Ücretsiz Araçları Keşfet",
+    "exploreFreeCta": "Ücretsiz Hesaplayıcıları Keşfet",
     "viewPremiumCta": "Karar Raporlarını Gör",
     "trustStrip": "27 sektör · Ücretsiz hesaplayıcılar · Premium raporlar · Ölçüm mantığı · ERP gerekmez"
   },
@@ -215,23 +218,25 @@
       "metaDescription": "Ölçtüğünüz şeye göre SectorCalc araçları: OEE, fire, rota, kalibrasyon, enerji, marj, finans ve günlük hesaplamalar."
     },
     "freeTools": {
-      "eyebrow": "Ücretsiz araçlar",
-      "title": "Ücretsiz Hesaplama Araçları",
-      "subtitle": "Maliyet, alan, zaman, fire, enerji, rota ve marj gibi temel hesaplamaları hızlıca yapın. Kart gerekmez."
+      "eyebrow": "Ücretsiz hesaplayıcılar",
+      "title": "Ücretsiz Hesaplayıcılar",
+      "subtitle": "İhtiyacınız olan hesaplamayı kategoriye göre bulun.",
+      "metaTitle": "Ücretsiz Hesaplayıcılar | SectorCalc",
+      "metaDescription": "Kategoriye göre ücretsiz hesaplayıcılar — ölçüm, maliyet, finans, enerji, dönüşüm ve günlük kararlar."
     },
     "premiumTools": {
-      "eyebrow": "Premium analizörler",
-      "title": "Premium Analiz Araçları",
-      "subtitle": "Marj riski, teklif güvenliği, operasyon kaybı ve maliyet sapmasını daha derin analiz edin. Sonuçları karar özeti olarak kullanın.",
-      "metaTitle": "Premium Analiz Araçları — Karar Özetleri",
-      "metaDescription": "Marj riski, teklif güvenliği, operasyon kaybı ve maliyet sapması için premium analiz araçları. Sonuçları karar özeti olarak kullanın."
+      "eyebrow": "Premium hesaplayıcılar",
+      "title": "Premium Hesaplayıcılar",
+      "subtitle": "Senaryo, risk ve karar özeti üreten gelişmiş hesaplayıcıları keşfedin.",
+      "metaTitle": "Premium Hesaplayıcılar | SectorCalc",
+      "metaDescription": "Senaryo, risk kontrolü ve karar özeti üreten premium hesaplayıcılar."
     },
     "industries": {
-      "eyebrow": "Sektörler",
-      "title": "Sektörlere Göre Hesaplama Araçları",
-      "subtitle": "Sektörünüzü seçin. İlgili ücretsiz hesaplayıcıları ve premium analiz araçlarını tek yerde görün.",
-      "metaTitle": "Sektör Hesaplayıcı Paketleri — 27 Sektör",
-      "metaDescription": "27 sektör paketi: ücretsiz kontroller ve premium kayıp karar raporları. Sektör iş akışınızdan başlayın."
+      "eyebrow": "Sektör hesaplayıcıları",
+      "title": "Sektör Hesaplayıcıları",
+      "subtitle": "Sektörünüze, mesleğinize ve iş modelinize göre hesaplama araçlarını bulun.",
+      "metaTitle": "Sektör Hesaplayıcıları | SectorCalc",
+      "metaDescription": "Sektör, meslek ve iş modelinize göre hesaplama araçlarını bulun — 27 sektör paketi."
     },
     "labels": {
       "categories": {
@@ -267,9 +272,9 @@
       "label": "Katalogda ara",
       "placeholder": {
         "categories": "İşlev, sektör veya araç adına göre ara…",
-        "free-tools": "Hesaplayıcı ara…",
-        "premium-tools": "Premium analiz ara…",
-        "industries": "Sektör ara…",
+        "free-tools": "Ücretsiz hesaplayıcı ara...",
+        "premium-tools": "Premium hesaplayıcı ara...",
+        "industries": "Sektör hesaplayıcısı ara...",
         "homepage": "Hesaplayıcı ve analizör ara…"
       },
       "noResults": "Eşleşen araç bulunamadı.",
@@ -305,7 +310,7 @@
     },
     "discoveryFooter": {
       "freeToolsLead": "Daha detaylı analiz mi gerekiyor?",
-      "freeToolsCta": "Premium araçları görüntüle"
+      "freeToolsCta": "Premium hesaplayıcıları görüntüle"
     },
     "functionCategories": {
       "oee-productivity": {
@@ -347,7 +352,7 @@
     }
   },
   "freeTrafficCatalog": {
-    "metaTitle": "Ücretsiz Sektör Hesaplayıcıları — 100 Araç",
+    "metaTitle": "Ücretsiz Hesaplayıcılar | SectorCalc",
     "metaDescription": "Ölçüm, maliyet, finans, enerji, dönüşüm ve günlük kararlar için 100 aktif ücretsiz hesaplayıcı. Kayıt gerekmez.",
     "eyebrow": "Ücretsiz hesaplayıcılar",
     "title": "Ücretsiz sektör hesaplayıcıları",
@@ -494,68 +499,21 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "Endüstriyel Karar Motoru",
-    "productTitle": "ÜRÜN",
+    "tagline": "İşletmeler için pratik hesaplama araçları.",
+    "productTitle": "Ürün",
+    "legalTitle": "Yasal",
     "product": {
-      "freeChecks": "Ücretsiz Kontroller",
-      "premiumTools": "Premium Araçlar",
-      "industries": "Sektörler",
-      "pricing": "Fiyatlandırma",
-      "categories": "Kategoriler"
+      "freeChecks": "Ücretsiz Hesaplayıcılar",
+      "premiumTools": "Premium Hesaplayıcılar",
+      "industries": "Sektör Hesaplayıcıları",
+      "pricing": "Fiyatlandırma"
     },
-    "sectorsTitle": "SEKTÖRLER",
-    "allSectors": "27 Sektörün Tümü",
-    "sectors": {
-      "manufacturing": "İmalat",
-      "logistics": "Lojistik",
-      "construction": "İnşaat"
-    },
-    "companyTitle": "ŞİRKET",
-    "company": {
-      "about": "Hakkımızda",
-      "manifesto": "Manifesto",
-      "caseStudies": "Vaka Çalışmaları",
-      "howItWorks": "Nasıl Çalışır",
-      "methodology": "Metodoloji",
-      "blog": "Blog"
-    },
-    "trustLegalTitle": "GÜVEN VE HUKUK",
     "compliance": {
       "privacy": "Gizlilik Politikası",
       "terms": "Kullanım Koşulları",
       "disclaimer": "Sorumluluk Reddi"
     },
-    "authorityTitle": "YETKİ",
-    "authority": {
-      "trust": "Güven ve Doğrulama",
-      "vault": "Kişisel Veri Kasası →",
-      "investorDemo": "Yatırımcı Demosu",
-      "operatingSystem": "İşletim Sistemi"
-    },
-    "trustTrace": {
-      "title": "Hesaplama Özeti",
-      "link": "Herhangi bir raporu doğrula",
-      "subtext": "Raporların doğruluğunu kamuya açık doğrulama sayfamızda kontrol edin."
-    },
-    "trustBar": {
-      "iso": "ISO 27001 Hazır",
-      "sla": "SLA: %99.9 Çalışma Süresi",
-      "kvkk": "KVKK Uyumlu",
-      "gdpr": "GDPR Hazır"
-    },
-    "newsletter": {
-      "title": "Haftalık sektör içgörüleri",
-      "placeholder": "siz@sirket.com",
-      "button": "Abone ol",
-      "note": "Yalnızca tarayıcı isteği — e-posta istemcinizi açar. Onay olmadan liste saklanmaz."
-    },
-    "social": {
-      "linkedin": "SectorCalc LinkedIn",
-      "twitter": "SectorCalc X",
-      "github": "SectorCalc GitHub"
-    },
-    "copyright": "© {year} {site}. Tüm hakları saklıdır.",
-    "copyrightManifesto": "© {year} SectorCalc. Endüstriyel Karar Motoru. Tüm hakları saklıdır."
+    "copyrightSimple": "© {year} SectorCalc. Tüm hakları saklıdır."
   },
   "region": {
     "label": "Bölge",
@@ -701,7 +659,7 @@
       "eyebrow": "Hemen başlayın",
       "title": "Sektörünüze özel hesaplamaya başlayın",
       "subtitle": "Ücretsiz araçlarla hemen başlayın, ihtiyacınız olduğunda premium raporlara yükseltin.",
-      "primary": "Ücretsiz Araçları Keşfet",
+      "primary": "Ücretsiz Hesaplayıcıları Keşfet",
       "secondary": "Örnek Karar Raporunu Gör"
     }
   },
@@ -994,8 +952,8 @@
       "subtitleLine1": "SectorCalc; üretim, lojistik, inşaat, enerji, restoran, saha hizmetleri ve küçük ekipler için hazırlanmış pratik hesaplama araçları sunar.",
       "subtitleLine2": "Amaç karmaşık yazılım kurmak değil; karar vermeden önce sayıların ne söylediğini net görmektir.",
       "supporting": "",
-      "ctaPrimary": "Hesaplayıcıları Gör",
-      "ctaSecondary": "Premium Araçları İncele"
+      "ctaPrimary": "Ücretsiz Hesaplayıcılar",
+      "ctaSecondary": "Premium Hesaplayıcılar"
     },
     "references": {
       "eyebrow": "Endüstriyel referans standartları",
@@ -1090,9 +1048,8 @@
     },
     "platform": {
       "title": "Ücretsiz hesaplayıcılar ve premium karar özetleri",
-      "stat": "{sectorCount} sektör alanı",
-      "text": "Ücretsiz araçlarla temel hesaplamaları yapabilir, premium araçlarla daha detaylı senaryo, risk ve karar özeti alabilirsiniz.",
-      "cta": "Tüm sektörleri görün",
+      "text": "Ücretsiz hesaplayıcılarla temel hesaplamaları yapabilir, premium hesaplayıcılarla daha detaylı senaryo, risk ve karar özeti alabilirsiniz.",
+      "cta": "Tüm sektör hesaplayıcılarını görün",
       "categories": {
         "manufacturing": "Üretim",
         "logistics": "Lojistik",
@@ -1188,18 +1145,10 @@
         }
       }
     },
-    "betaPartner": {
+    "final": {
       "title": "SectorCalc gelişen bir hesaplama platformudur",
       "text": "Araçlar sektör ihtiyaçlarına göre geliştirilmeye devam eder. Amaç her işletmeye karmaşık sistemler satmak değil; doğru hesaplama sorusunu daha kolay sordurmaktır.",
-      "cta": "Daha fazla bilgi"
-    },
-    "final": {
-      "title": "İlk hesaplamayı seçin, sonucu görün, gerekiyorsa daha detaylı analizle devam edin.",
-      "bullet1": "{sectorCount} sektör alanı",
-      "bullet2": "50+ hesaplayıcı",
-      "bullet3": "Ücretsiz katman mevcut",
-      "bullet4": "Kredi kartı gerekmez",
-      "cta": "Hesaplayıcıları Gör"
+      "cta": "Ücretsiz Hesaplayıcılar"
     }
   },
   "industrialHome": {
@@ -1233,7 +1182,7 @@
       "open": "Aç",
       "modules": {
         "tools": "Ücretsiz araçlar",
-        "industries": "Sektörler",
+        "industries": "Sektör Hesaplayıcıları",
         "categories": "Kategoriler",
         "premium": "Premium raporlar",
         "archive": "Audit archive"
@@ -1432,7 +1381,10 @@
   },
   "navigation": {
     "calculators": "Hesaplayıcılar",
-    "industries": "Sektörler",
+    "freeCalculators": "Ücretsiz Hesaplayıcılar",
+    "premiumCalculators": "Premium Hesaplayıcılar",
+    "industryCalculators": "Sektör Hesaplayıcıları",
+    "industries": "Sektör Hesaplayıcıları",
     "caseStudies": "Vaka Çalışmaları",
     "pricing": "Fiyatlandırma",
     "resources": "Kaynaklar",
@@ -1448,11 +1400,11 @@
   "homepage": {
     "headline": "Görünmeyen kayıp, marj maruziyeti ve operasyonel riski sektöre özel hesaplama araçlarıyla ölçün",
     "primaryCta": "Ücretsiz başla",
-    "secondaryCta": "Ücretsiz araçlar"
+    "secondaryCta": "Ücretsiz hesaplayıcıları gör"
   },
   "freeTools": {
-    "title": "Ücretsiz Sektörel Hesaplama Araçları",
-    "metaTitle": "Ücretsiz Sektörel Hesaplama Araçları | SectorCalc",
+    "title": "Ücretsiz Hesaplayıcılar",
+    "metaTitle": "Ücretsiz Hesaplayıcılar | SectorCalc",
     "calculate": "Hesapla"
   },
   "premiumTools": {
@@ -2720,7 +2672,7 @@
   "cta": {
     "startFree": "Ücretsiz başla",
     "calculateNow": "Hesapla",
-    "viewFreeTools": "Ücretsiz araçlar",
+    "viewFreeTools": "Ücretsiz hesaplayıcılar",
     "openPremiumAnalyzer": "Analiz aracını aç",
     "unlockFullReport": "Raporu aç",
     "viewPricing": "Fiyatlandırma",
@@ -2934,9 +2886,9 @@
   },
   "schemaBreadcrumbs": {
     "home": "Ana sayfa",
-    "freeTools": "Ücretsiz hesaplayıcılar",
-    "premiumTools": "Premium araçlar",
-    "industries": "Sektörler"
+    "freeTools": "Ücretsiz Hesaplayıcılar",
+    "premiumTools": "Premium Hesaplayıcılar",
+    "industries": "Sektör Hesaplayıcıları"
   },
   "freeToolUi": {
     "preCheck": "Ücretsiz Ön Kontrol",
@@ -2951,7 +2903,38 @@
     "whatIs": "{title} Nedir?",
     "decisionOutput": "Karar çıktısı",
     "exportLabel": "Dışa aktar:",
-    "exportNote": "PDF dışa aktarma mevcut abonelik ve rapor akışını kullanır."
+    "exportNote": "PDF dışa aktarma mevcut abonelik ve rapor akışını kullanır.",
+    "contractFormEyebrow": "FORMÜLE DAYALI HESAPLAMA",
+    "contractFormDecisionGoal": "Bu girdiler formüle göre hangi sonucu üretir?",
+    "contractFormAssumptionsRules": "{assumptionCount} varsayım · {ruleCount} kontrol kuralı",
+    "contractFormRulesOnly": "{ruleCount} kontrol kuralı aktif",
+    "contractFormTrustAria": "Formül güven özeti",
+    "requiredInputsTitle": "Gerekli girdiler",
+    "requiredInputsDescription": "Hesaplamanın yapılması için gerekli temel girdiler.",
+    "optionalInputsTitle": "İsteğe bağlı iyileştirmeler",
+    "optionalInputsDescription": "Varsayılanları bozmadan tahmin doğruluğunu artırır.",
+    "advancedInputsTitle": "Gelişmiş girdiler",
+    "advancedInputsDescription": "Mevcut olduğunda profesyonel derinlik geçersiz kılmaları.",
+    "analysisBlockedTitle": "Analiz engellendi",
+    "contractNotFound": "Bu araç için akıllı form sözleşmesi bulunamadı.",
+    "calculationSteps": "Hesaplama adımları",
+    "calculationStepsEmpty": "Bu sözleşme deterministik izleme sunduğunda hesaplama adımları burada görünür.",
+    "calculationStepDecisionGoal": "Karar hedefi",
+    "calculationStepFormulaSummary": "Formül özeti"
+  },
+  "freeToolInputs": {
+    "square-meter-calculator": {
+      "length": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Oda veya döşeme uzunluğu"
+      },
+      "width": {
+        "label": "Genişlik",
+        "placeholder": "Genişlik girin",
+        "helper": "Oda veya döşeme genişliği"
+      }
+    }
   },
   "freeToolContent": {
     "square-meter-calculator": {
@@ -2959,6 +2942,24 @@
       "description": "Dikdörtgen alanı metrekare cinsinden hesaplayın.",
       "seoTitle": "Metrekare Hesaplayıcı — m² Alan | SectorCalc",
       "seoDescription": "Dikdörtgen alan hesaplama: uzunluk × genişlik, ft² ve yd² dönüşümleriyle."
+    },
+    "square-footage-calculator": {
+      "title": "Metrekare / Alan Hesaplayıcı"
+    },
+    "concrete-bag-calculator": {
+      "title": "Beton Torba Hesaplayıcı"
+    },
+    "tile-calculator": {
+      "title": "Fayans Hesaplayıcı"
+    },
+    "concrete-volume-calculator": {
+      "title": "Beton Hacim Hesaplayıcı"
+    },
+    "paint-coverage-calculator": {
+      "title": "Boya Kaplama Hesaplayıcı"
+    },
+    "flooring-calculator": {
+      "title": "Zemin Kaplama Hesaplayıcı"
     }
   }
 }

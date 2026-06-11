@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, type FormEvent } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { SmartFormField } from "@/components/tools/smart-form/SmartFormField";
 import { SmartFormSection } from "@/components/tools/smart-form/SmartFormSection";
 import { SmartFormTrustSummary } from "@/components/tools/smart-form/SmartFormTrustSummary";
@@ -22,30 +23,6 @@ export type SmartToolFormProps = {
   readonly blockers?: readonly string[];
   readonly isCalculating?: boolean;
   readonly inputIdPrefix?: string;
-};
-
-const SECTION_META: Record<
-  SmartFormContractFieldSpec["group"],
-  { readonly title: string; readonly description: string; readonly collapsible: boolean; readonly defaultExpanded: boolean }
-> = {
-  required: {
-    title: "Required inputs",
-    description: "Core contract inputs for a valid calculation path.",
-    collapsible: false,
-    defaultExpanded: true,
-  },
-  optional: {
-    title: "Optional refinements",
-    description: "Improve estimate fidelity without breaking defaults.",
-    collapsible: true,
-    defaultExpanded: false,
-  },
-  advanced: {
-    title: "Advanced inputs",
-    description: "Professional depth overrides when available.",
-    collapsible: true,
-    defaultExpanded: false,
-  },
 };
 
 function renderFieldGrid(
@@ -87,7 +64,44 @@ export function SmartToolForm({
   isCalculating = false,
   inputIdPrefix = "smart-form",
 }: SmartToolFormProps) {
-  const plan = useMemo(() => buildSmartFormFieldSpecsFromContract(slug), [slug]);
+  const locale = useLocale();
+  const t = useTranslations("freeToolUi");
+  const plan = useMemo(
+    () => buildSmartFormFieldSpecsFromContract(slug, locale),
+    [slug, locale],
+  );
+
+  const sectionMeta = useMemo(
+    (): Record<
+      SmartFormContractFieldSpec["group"],
+      {
+        readonly title: string;
+        readonly description: string;
+        readonly collapsible: boolean;
+        readonly defaultExpanded: boolean;
+      }
+    > => ({
+      required: {
+        title: t("requiredInputsTitle"),
+        description: t("requiredInputsDescription"),
+        collapsible: false,
+        defaultExpanded: true,
+      },
+      optional: {
+        title: t("optionalInputsTitle"),
+        description: t("optionalInputsDescription"),
+        collapsible: true,
+        defaultExpanded: false,
+      },
+      advanced: {
+        title: t("advancedInputsTitle"),
+        description: t("advancedInputsDescription"),
+        collapsible: true,
+        defaultExpanded: false,
+      },
+    }),
+    [t],
+  );
 
   const fieldsByGroup = useMemo(() => {
     const groups: Record<SmartFormContractFieldSpec["group"], SmartFormContractFieldSpec[]> = {
@@ -104,7 +118,7 @@ export function SmartToolForm({
   if (!plan) {
     return (
       <div className="sc-industrial-panel p-4" role="alert">
-        <p className="text-sm text-crit-red">Smart form contract not found for this tool.</p>
+        <p className="text-sm text-crit-red">{t("contractNotFound")}</p>
       </div>
     );
   }
@@ -124,12 +138,12 @@ export function SmartToolForm({
         validationRuleCount={plan.validationRules.length}
       />
 
-      {(Object.keys(SECTION_META) as SmartFormContractFieldSpec["group"][]).map((group) => {
+      {(Object.keys(sectionMeta) as SmartFormContractFieldSpec["group"][]).map((group) => {
         const sectionFields = fieldsByGroup[group];
         if (sectionFields.length === 0) {
           return null;
         }
-        const meta = SECTION_META[group];
+        const meta = sectionMeta[group];
         return (
           <SmartFormSection
             key={group}
@@ -146,7 +160,7 @@ export function SmartToolForm({
 
       {blocked ? (
         <SmartFormValidationSummary
-          title="Analysis blocked"
+          title={t("analysisBlockedTitle")}
           blockers={blockers}
           errors={errors}
         />

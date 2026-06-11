@@ -2,14 +2,11 @@
 
 import { useCallback, useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
-import { Link } from "@/i18n/routing";
 import { MobileHeaderNav } from "@/components/layout/HeaderNav";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { RegionSelector } from "@/components/layout/RegionSelector";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
-import { getPricingHref } from "@/lib/tools/tool-links";
 
 const DEFAULT_PANEL_TOP_PX = 58;
 
@@ -31,7 +28,6 @@ export function MobileNav() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [panelTop, setPanelTop] = useState(DEFAULT_PANEL_TOP_PX);
-  const { isActive, loading } = useUserSubscription();
 
   const closeMenu = useCallback(() => {
     setOpen(false);
@@ -107,18 +103,6 @@ export function MobileNav() {
                   linkClassName="sc-mobile-drawer__link"
                   activeLinkClassName="sc-mobile-drawer__link sc-mobile-drawer__link--active"
                 />
-                {!loading && !isActive ? (
-                  <li>
-                    <Link
-                      href={getPricingHref()}
-                      prefetch={false}
-                      onClick={closeMenu}
-                      className="sc-mobile-drawer__link sc-mobile-drawer__link--accent"
-                    >
-                      Unlock Pro
-                    </Link>
-                  </li>
-                ) : null}
               </ul>
             </nav>
           </div>,

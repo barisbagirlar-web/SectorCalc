@@ -33,7 +33,7 @@ export const LOCALE_CTA: Record<SupportedLocale, LocaleCtaMap> = {
   en: {
     startFree: "Start free",
     calculateNow: "Calculate now",
-    viewFreeTools: "View free tools",
+    viewFreeTools: "View free calculators",
     openPremiumAnalyzer: "Open analyzer",
     unlockFullReport: "Unlock full report",
     viewPricing: "View pricing",
@@ -47,7 +47,7 @@ export const LOCALE_CTA: Record<SupportedLocale, LocaleCtaMap> = {
   tr: {
     startFree: "Ücretsiz başla",
     calculateNow: "Hesapla",
-    viewFreeTools: "Ücretsiz araçlar",
+    viewFreeTools: "Ücretsiz hesaplayıcılar",
     openPremiumAnalyzer: "Analiz aracını aç",
     unlockFullReport: "Raporu aç",
     viewPricing: "Fiyatlandırma",

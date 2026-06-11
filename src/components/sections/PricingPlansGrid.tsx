@@ -255,7 +255,7 @@ export function PricingPlansGrid({
             </p>
           </div>
           <Link href="/free-tools" className="sc-cta-secondary px-6">
-            Start with Free Tools
+            Start with Free Calculators
           </Link>
         </div>
       )}

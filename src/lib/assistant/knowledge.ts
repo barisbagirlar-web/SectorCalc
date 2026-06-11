@@ -77,8 +77,8 @@ export function matchTools(message: string): AssistantSuggestion[] {
 /** Default navigation suggestions used by the fallback topic. */
 export function defaultNavigationSuggestions(): AssistantSuggestion[] {
   return [
-    { slug: "free-tools", label: "Free tools", href: "/free-tools" },
-    { slug: "premium-tools", label: "Premium tools", href: "/premium-tools" },
+    { slug: "free-tools", label: "Free Calculators", href: "/free-tools" },
+    { slug: "premium-tools", label: "Premium Calculators", href: "/premium-tools" },
     { slug: "pricing", label: "Pricing", href: "/pricing" },
   ];
 }

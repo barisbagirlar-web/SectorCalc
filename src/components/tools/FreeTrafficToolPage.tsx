@@ -23,6 +23,7 @@ import {
 } from "@/lib/tools/free-traffic-catalog";
 import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
+import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
 import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { ToolFeedbackPanel } from "@/components/feedback/ToolFeedbackPanel";
@@ -516,7 +517,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
                       href={getToolHref("free", related.slug)}
                       className="block break-words text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
                     >
-                      {related.title}
+                      {resolveFreeToolDisplayTitle(related.slug, locale, related.title)}
                     </Link>
                   </li>
                 ))}
