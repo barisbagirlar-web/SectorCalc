@@ -1,12 +1,8 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import {
-  getRegionProfile,
-  localeToRegion,
-  type RegionCode,
-} from "@/config/regions";
+import { useTranslations } from "next-intl";
+import { type RegionCode } from "@/config/regions";
 import { readManualRegionCookie, setManualRegion } from "@/lib/compliance/region-client";
 import { useRegion } from "@/lib/compliance/region-context";
 
@@ -47,7 +43,6 @@ export function RegionIndicator({ className = "" }: { className?: string }) {
 
 export function RegionSelector({ className = "" }: { className?: string }) {
   const t = useTranslations("region");
-  const locale = useLocale();
   const { region, profile, source } = useRegion();
   const [pending, startTransition] = useTransition();
   const [manual, setManual] = useState<RegionCode | null>(null);
@@ -56,16 +51,17 @@ export function RegionSelector({ className = "" }: { className?: string }) {
     setManual(readManualRegionCookie());
   }, []);
 
-  const localeDefault = localeToRegion(locale);
-  const selectValue = manual ?? "auto";
+  const selectValue = manual ?? region;
 
   const handleChange = (next: string) => {
     startTransition(() => {
       if (next === "auto") {
+        setManual(null);
         setManualRegion("auto");
         return;
       }
       if (next === "EN" || next === "TR" || next === "DE") {
+        setManual(next);
         setManualRegion(next);
       }
     });
@@ -89,8 +85,8 @@ export function RegionSelector({ className = "" }: { className?: string }) {
         className="apple-locale__select language-selector__select"
         title={
           manual
-            ? t("manualActive", { region: getRegionProfile(region).label })
-            : t("followsLanguage", { region: getRegionProfile(localeDefault).label })
+            ? t("manualActive", { region: profile.label })
+            : t("followsLanguage", { region: profile.label })
         }
       >
         {REGION_OPTIONS.map((opt) => (
