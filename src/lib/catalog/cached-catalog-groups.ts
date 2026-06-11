@@ -67,6 +67,7 @@ export function getCachedFreeTrafficCatalogGroups(
   }
   const groups = buildFreeTrafficCatalogGroups(
     FREE_TRAFFIC_TOOLS,
+    locale,
     resolveCategoryCopy,
     premiumNote,
     openCalculatorLabel

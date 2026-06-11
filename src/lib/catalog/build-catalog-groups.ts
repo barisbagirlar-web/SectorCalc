@@ -19,6 +19,7 @@ import {
   type FreeTrafficCategoryMeta,
 } from "@/lib/tools/free-traffic-categories";
 import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
+import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
 import type { CatalogGroup, CatalogItem } from "@/lib/catalog/catalog-types";
 import {
   getIndustryRelatedPremiumItems,
@@ -201,8 +202,20 @@ export function resolveDefaultGroupId(groups: readonly CatalogGroup[]): string |
 
 export { DEFAULT_FREE_TRAFFIC_CATEGORY };
 
+function resolveFreeTrafficToolCardCopy(
+  tool: FreeTrafficTool,
+  locale: string
+): Pick<CatalogItem, "title" | "description"> {
+  const localizedCopy = resolveFreeToolLocalizedCopy(tool.slug, locale);
+  return {
+    title: localizedCopy.title ?? tool.title,
+    description: localizedCopy.description ?? tool.description,
+  };
+}
+
 export function buildFreeTrafficCatalogGroups(
   tools: readonly FreeTrafficTool[],
+  locale: string,
   resolveCategoryCopy: (
     meta: FreeTrafficCategoryMeta
   ) => { label: string; description: string },
@@ -217,8 +230,7 @@ export function buildFreeTrafficCatalogGroups(
       items: tools
         .filter((tool) => tool.category === meta.id)
         .map((tool) => ({
-          title: tool.title,
-          description: tool.description,
+          ...resolveFreeTrafficToolCardCopy(tool, locale),
           href: getToolHref("free", tool.slug),
           meta: tool.relatedPremiumSlug ? premiumNote : undefined,
           ctaLabel: openCalculatorLabel,
