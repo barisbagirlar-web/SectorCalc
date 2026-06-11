@@ -111,7 +111,7 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
           <dl className="public-demo-metric-grid mt-8 grid gap-4">
             {[
               { label: "Formula contracts", value: metrics.formulaContracts },
-              { label: "Trust trace ready", value: metrics.trustTraceReady },
+              { label: "Calculation summary ready", value: metrics.trustTraceReady },
               { label: "Tool Factory", value: metrics.toolFactoryStatus },
               { label: "Remaining debt items", value: metrics.remainingDebtCount },
             ].map((item) => (
@@ -126,15 +126,15 @@ export function InvestorDemoPageContent({ metrics }: InvestorDemoPageContentProp
 
       <section className="sc-pro-section sc-pro-section--border">
         <Container className="sc-pro-container">
-          <p className="sc-pro-eyebrow">Trust Trace & reports</p>
+          <p className="sc-pro-eyebrow">Calculation summary & reports</p>
           <h2 className="sc-pro-title sc-pro-title--compact">Report layer vision</h2>
           <p className="sc-pro-lead mt-3 max-w-3xl">
-            Trust Trace documents inputs, assumptions, validation coverage, and limitations before
-            any customer-facing export. Report renderer and output dry-runs are contracted — PDF,
+            Calculation Summary documents inputs, assumptions, validation coverage, and limitations before
+            any export. Report renderer and output dry-runs are contracted — PDF,
             Excel, and Word export remain gated behind premium subscription.
           </p>
           <p className="mt-4 text-sm text-text-secondary">
-            {metrics.trustTraceReady} tools trust-trace ready · export contracts defined · no fake
+            {metrics.trustTraceReady} tools calculation-summary ready · export contracts defined · no fake
             revenue or user claims.
           </p>
         </Container>

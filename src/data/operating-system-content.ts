@@ -9,7 +9,7 @@ export const OPERATING_SYSTEM_PIPELINE_STAGES = [
   { id: "formula", label: "Formula contract", automated: true },
   { id: "validation", label: "Oracle / scenario / property", automated: true },
   { id: "smart-form", label: "Smart Form", automated: "partial" as const },
-  { id: "trust-trace", label: "Trust Trace report", automated: true },
+  { id: "trust-trace", label: "Calculation summary report", automated: true },
   { id: "patch-plan", label: "Patch plan", automated: true },
   { id: "approval", label: "Human approval", automated: false },
   { id: "deploy", label: "Controlled deploy", automated: false },
@@ -34,7 +34,7 @@ export const OPERATING_SYSTEM_GATES = [
   {
     id: "audit-trail",
     title: "Audit trail",
-    body: "Trust trace reports document inputs, assumptions, limitations, and validation coverage — not black-box scores.",
+    body: "Calculation summary reports document inputs, assumptions, limitations, and validation coverage — not black-box scores.",
   },
 ] as const;
 
@@ -42,7 +42,7 @@ export const AUTOMATION_BOUNDARY = {
   automated: [
     "Input design audits and migration plans",
     "Patch plan and controlled patch dry-runs",
-    "Trust trace and export renderer contracts",
+    "Calculation summary and export renderer contracts",
     "Report render dry-runs (no file output)",
     "Deploy-ready gate evaluation",
   ],

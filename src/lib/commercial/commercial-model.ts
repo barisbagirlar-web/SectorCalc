@@ -82,7 +82,7 @@ export const PAYWALL_LOCKED_FEATURES: readonly {
   readonly freeVisible: boolean;
 }[] = [
   { id: "premium_insight", label: "Premium insight and verdict", freeVisible: false },
-  { id: "trust_trace_report", label: "Trust Trace report preview", freeVisible: false },
+  { id: "trust_trace_report", label: "Calculation summary preview", freeVisible: false },
   { id: "pdf_export", label: "PDF export", freeVisible: false },
   { id: "excel_export", label: "Excel export", freeVisible: false },
   { id: "word_export", label: "Word export", freeVisible: false },

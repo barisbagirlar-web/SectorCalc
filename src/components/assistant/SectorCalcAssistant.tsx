@@ -15,7 +15,7 @@ type ChatMessage = {
 const QUICK_ACTIONS = [
   { key: "findTool", message: "Which tool should I use for my job?" },
   { key: "explainInputs", message: "What inputs do I need to enter?" },
-  { key: "approvedReport", message: "What is an approved report and trust trace?" },
+  { key: "decisionSummary", message: "What is a premium decision summary?" },
   { key: "enterprise", message: "Tell me about enterprise and team usage." },
 ] as const;
 

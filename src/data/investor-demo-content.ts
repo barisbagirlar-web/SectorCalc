@@ -41,7 +41,7 @@ export const INVESTOR_DUAL_CORE = {
 export const INVESTOR_DEMO_FLOW_STEPS = [
   "Open a live Smart Form pilot on a production free route",
   "Run a governed free check with browser-side inputs",
-  "Show trust trace readiness and report export contract (dry-run)",
+  "Show calculation summary readiness and report export contract (dry-run)",
   "Walk the Tool Factory pipeline through patch plan and human approval gate",
   "Close with deploy-ready gate — command disabled until approved",
 ] as const;
@@ -49,7 +49,7 @@ export const INVESTOR_DEMO_FLOW_STEPS = [
 export const INVESTOR_MOAT_BULLETS = [
   "Deterministic calculation boundary — LLM does not compute results or override oracle",
   "Formula governance with oracle/scenario/property validation loop",
-  "Trust trace and export renderer contracts before customer-facing reports",
+  "Calculation summary and export renderer contracts before customer-facing reports",
   "Controlled patch and deploy gates with mandatory human approval",
   "Smart Form pilots live on production routes behind a feature flag",
 ] as const;
@@ -57,7 +57,7 @@ export const INVESTOR_MOAT_BULLETS = [
 export const INVESTOR_NINETY_DAY_PLAN = [
   "Ship investor demo pack and commercial clarity layer",
   "Expand Smart Form staging rollout for calculation-bridge candidates",
-  "Wire premium report preview to trust trace dry-run output",
+  "Wire premium report preview to calculation summary dry-run output",
   "Complete remediation batch apply sandbox with human approval",
   "Prepare Stripe live readiness gate — no auto-deploy",
 ] as const;

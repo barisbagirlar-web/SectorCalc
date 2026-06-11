@@ -27,7 +27,7 @@ const ALL_SECTIONS: readonly Section[] = [
     id: "what",
     title: "What we do",
     body:
-      "We turn sector pain into structured calculation workflows: measure inputs, surface hidden loss, suggest action, and attach a trust trace to results.",
+      "We turn sector pain into structured calculation workflows: measure inputs, surface hidden loss, suggest action, and attach a calculation summary to results.",
     bullets: [
       "Free checks for quick exposure signals",
       "Premium analyzers for verdict-grade outputs",
@@ -83,14 +83,14 @@ const ALL_SECTIONS: readonly Section[] = [
   },
   {
     id: "trust-trace",
-    title: "Trust Trace",
+    title: "Calculation Summary",
     body:
-      "Trust Trace shows canonical inputs, assumptions, formula contract reference, validation status, and coverage notes alongside results — so operators can see why a number appeared, not just the headline.",
+      "Calculation Summary shows canonical inputs, assumptions, formula contract reference, validation status, and coverage notes alongside results — so operators can see why a number appeared, not just the headline.",
     bullets: [
       "Canonical input list with rejected keys",
       "Mind 2 pre-calc and Mind 1 post-calc summaries",
-      "Export payload for PDF/Excel/Word (data layer)",
-      "Verification seal foundation for report lookup",
+      "Export payload for PDF decision summaries (data layer)",
+      "Governance metadata for saved premium results",
     ],
   },
   {

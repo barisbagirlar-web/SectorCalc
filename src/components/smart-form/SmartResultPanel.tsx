@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { SmartCalculationSteps } from "@/components/smart-form/SmartCalculationSteps";
 import type { SmartFormCalculationStep, SmartFormResult } from "@/lib/smart-form/types";
 
@@ -10,7 +11,6 @@ export type SmartResultPanelProps = {
   readonly trustTraceSlot?: ReactNode;
   readonly children?: ReactNode;
   readonly exportPlaceholder?: string;
-  readonly verifyPlaceholder?: string;
 };
 
 const STATUS_CLASS: Record<NonNullable<SmartFormResult["status"]>, string> = {
@@ -25,14 +25,15 @@ export function SmartResultPanel({
   calculationSteps = [],
   trustTraceSlot,
   children,
-  exportPlaceholder = "PDF export uses existing entitlement and report pipeline.",
-  verifyPlaceholder = "Verification link will appear when report verification is enabled for this tool.",
+  exportPlaceholder,
 }: SmartResultPanelProps) {
+  const t = useTranslations("freeToolUi");
+  const exportNote = exportPlaceholder ?? t("exportNote");
   return (
     <section className="sc-smart-form-output sc-ledger-panel sc-industrial-panel min-w-0 space-y-4 rounded-sm border border-border-subtle bg-white p-4 sm:p-5">
       <header>
         <p className="sc-ledger-eyebrow text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
-          Decision output
+          {t("decisionOutput")}
         </p>
         {result?.primaryLabel && result.primaryValue ? (
           <div className="mt-2">
@@ -72,15 +73,14 @@ export function SmartResultPanel({
       {trustTraceSlot ? (
         <div data-smart-form-trust-trace="true" className="space-y-2">
           <p className="text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
-            Trust trace
+            {t("calculationSummary")}
           </p>
           {trustTraceSlot}
         </div>
       ) : null}
 
-      <div className="grid gap-2 border-t border-border-subtle pt-3 text-xs text-text-secondary md:grid-cols-2">
-        <p><strong className="text-text-primary">Export:</strong> {exportPlaceholder}</p>
-        <p><strong className="text-text-primary">Verify:</strong> {verifyPlaceholder}</p>
+      <div className="border-t border-border-subtle pt-3 text-xs text-text-secondary">
+        <p><strong className="text-text-primary">{t("exportLabel")}</strong> {exportNote}</p>
       </div>
     </section>
   );

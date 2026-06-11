@@ -20,7 +20,10 @@ import {
 } from "@/lib/tools/free-traffic-categories";
 import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
 import type { CatalogGroup, CatalogItem } from "@/lib/catalog/catalog-types";
-import { getIndustryRelatedPremiumItems } from "@/lib/premium-schema/premium-schema-catalog";
+import {
+  getIndustryRelatedPremiumItems,
+  getPremiumSchemasForIndustrySlug,
+} from "@/lib/premium-schema/premium-schema-catalog";
 
 export const INDUSTRY_CATEGORY_DESCRIPTIONS: Record<IndustryCategory, string> = {
   "heavy-industry":
@@ -168,12 +171,15 @@ export function buildIndustryCatalogGroups(locale = "en"): CatalogGroup[] {
             return null;
           }
           const relatedPremium = getIndustryRelatedPremiumItems(entry.slug, locale, 3);
+          const premiumToolCount = getPremiumSchemasForIndustrySlug(entry.slug, locale, 50).length;
           return {
             title: industry.name,
-            description: industry.businessPain,
+            description: industry.shortDescription || industry.businessPain,
             href: `/industries/${industry.slug}`,
             meta: `${tool.freeTitle} · ${tool.paidTitle}`,
             ctaLabel: "Open industry →",
+            freeToolCount: 1,
+            premiumToolCount,
             relatedPremium: relatedPremium.length > 0 ? relatedPremium : undefined,
           };
         })
@@ -216,6 +222,7 @@ export function buildFreeTrafficCatalogGroups(
           href: getToolHref("free", tool.slug),
           meta: tool.relatedPremiumSlug ? premiumNote : undefined,
           ctaLabel: openCalculatorLabel,
+          itemKind: "free-calculator" as const,
         })),
     }))
     .filter((group) => group.items.length > 0);

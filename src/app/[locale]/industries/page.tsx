@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Link } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
@@ -12,17 +11,10 @@ import { INDUSTRIES } from "@/data/industries";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
 import { buildCoreHubCrawlGroups, buildFreeToolsCrawlGroups, buildSeoHubCrawlGroups } from "@/lib/seo/crawl-index";
-import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 import type { IndustryCategory } from "@/lib/tools/industry-registry";
+import type { AppLocale } from "@/i18n/routing";
 
-const SECTOR_COUNT = INDUSTRIES.length;
 const DEFAULT_INDUSTRY_CATEGORY: IndustryCategory = "heavy-industry";
-
-export const metadata: Metadata = createPageMetadata({
-  title: "Industry Tools — Free Checks & Premium Reports",
-  description: `${SECTOR_COUNT} industry packs with free calculators and premium loss decision reports.`,
-  path: "/industries",
-});
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -30,6 +22,17 @@ type PageProps = {
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "catalogExplorer" });
+  return createPageMetadata({
+    title: t("industries.metaTitle"),
+    description: t("industries.metaDescription"),
+    path: "/industries",
+    locale: locale as AppLocale,
+  });
+}
 
 export default async function IndustriesPage({ params }: PageProps) {
   const { locale } = await params;
@@ -58,7 +61,6 @@ export default async function IndustriesPage({ params }: PageProps) {
     <PageLayout>
       <JsonLd data={jsonLd} />
       <CatalogPageHero
-        eyebrow={t("industries.eyebrow")}
         title={t("industries.title")}
         subtitle={t("industries.subtitle")}
       />
@@ -70,19 +72,6 @@ export default async function IndustriesPage({ params }: PageProps) {
             variant="industries"
             defaultGroupId={DEFAULT_INDUSTRY_CATEGORY}
           />
-        </Container>
-      </section>
-
-      <section className="sc-pro-section">
-        <Container className="sc-pro-container">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link href={getPremiumToolsHref()} prefetch={false} className="sc-cta-primary">
-              Browse premium analyzers
-            </Link>
-            <Link href="/free-tools" prefetch={false} className="sc-cta-secondary">
-              Browse free calculators
-            </Link>
-          </div>
         </Container>
       </section>
 

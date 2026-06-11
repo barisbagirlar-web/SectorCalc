@@ -216,18 +216,20 @@
     },
     "freeTools": {
       "eyebrow": "Free tools",
-      "title": "Free calculators by category.",
-      "subtitle": "Start with the calculation area you need, then open the tool."
+      "title": "Free Calculation Tools",
+      "subtitle": "Run quick checks for cost, area, time, scrap, energy, routing and margin. No card required."
     },
     "premiumTools": {
       "eyebrow": "Premium analyzers",
-      "title": "Decision reports by loss type.",
-      "subtitle": "Choose the hidden-loss area, then open the analyzer that matches your operation."
+      "title": "Premium Analysis Tools",
+      "subtitle": "Go deeper on margin risk, quote safety, operational loss and cost drift. Use the output as a decision summary.",
+      "metaTitle": "Premium Analysis Tools — Decision Summaries",
+      "metaDescription": "Premium analyzers for margin risk, quote safety, operational loss and cost drift. Use results as decision summaries."
     },
     "industries": {
       "eyebrow": "Industries",
-      "title": "Explore calculators by sector.",
-      "subtitle": "Start from your industry, then choose the free check or premium decision report built for that workflow.",
+      "title": "Calculation Tools by Industry",
+      "subtitle": "Pick your sector. See related free calculators and premium analysis tools in one place.",
       "metaTitle": "Industry Calculator Packs — 27 Sectors",
       "metaDescription": "27 sector packs with free checks and premium loss decision reports. Start from your industry workflow."
     },
@@ -265,15 +267,45 @@
       "label": "Search catalog",
       "placeholder": {
         "categories": "Search by function, industry, or tool name…",
-        "free-tools": "Search free calculators…",
-        "premium-tools": "Search premium analyzers…",
-        "industries": "Search sectors, categories, or tools…",
+        "free-tools": "Search calculators…",
+        "premium-tools": "Search premium tools…",
+        "industries": "Search sectors…",
         "homepage": "Search calculators and analyzers…"
       },
       "noResults": "No matching tools found.",
       "moreResults": "+ {count} more results",
       "badgeFree": "Free",
       "badgePremium": "Premium"
+    },
+    "discoveryTabs": {
+      "all": "All",
+      "free-tools": {
+        "cost-margin": "Cost & Margin",
+        "scrap-oee": "Material, Scrap & OEE",
+        "energy-carbon": "Energy & Carbon",
+        "routing-logistics": "Routing & Logistics",
+        "construction-field": "Construction & Field",
+        "daily-practical": "Daily Practical"
+      },
+      "premium-tools": {
+        "pricing": "Quote & Pricing",
+        "loss": "Loss & Scrap",
+        "operations": "Operations & Efficiency",
+        "routing": "Routing & Logistics",
+        "energy": "Energy & Carbon",
+        "construction": "Construction & Projects"
+      }
+    },
+    "discoveryCards": {
+      "ctaCalculate": "Calculate",
+      "ctaOpenAnalysis": "Open analysis",
+      "ctaOpenSector": "Open sector",
+      "freeCount": "{count} free",
+      "premiumCount": "{count} premium"
+    },
+    "discoveryFooter": {
+      "freeToolsLead": "Need a deeper analysis?",
+      "freeToolsCta": "View premium tools"
     },
     "functionCategories": {
       "oee-productivity": {
@@ -501,9 +533,9 @@
       "operatingSystem": "Operating System"
     },
     "trustTrace": {
-      "title": "Trust Trace",
+      "title": "Calculation Summary",
       "link": "Verify any report",
-      "subtext": "Confirm report authenticity on our public verification page."
+      "subtext": "Review the saved calculation summary and its key assumptions."
     },
     "trustBar": {
       "iso": "ISO 27001 Ready",
@@ -748,8 +780,9 @@
     "quickActions": {
       "findTool": "Which tool do I need?",
       "explainInputs": "What inputs are required?",
-      "approvedReport": "Approved reports & Trust Trace",
-      "enterprise": "Enterprise & team usage"
+      "approvedReport": "Premium decision summaries & Calculation Summary",
+      "enterprise": "Enterprise & team usage",
+      "decisionSummary": "Premium decision summaries & Calculation Summary"
     },
     "guardrail": {
       "formula": "I can't run calculations or share formulas. Open the relevant tool and it will compute the result for you.",
@@ -760,8 +793,8 @@
       "explainTool": "This tool turns your job inputs into a clear verdict with the risk drivers behind it:",
       "inputs": "You enter the core costs, quantities, and rates for your job. Required fields are kept minimal, and optional fields sharpen the result.",
       "results": "The result is a verdict with the metrics and risk drivers behind it, so you can see why it lands where it does and what to adjust.",
-      "approvedReports": "Premium results can be saved as approved reports you can share, and each can be verified independently.",
-      "trustTrace": "Trust Trace records inputs, assumptions, and validation so a result can be checked by customers, banks, or auditors.",
+      "approvedReports": "Premium results can be saved as exportable decision summaries your team can review internally.",
+      "trustTrace": "Calculation Summary records inputs, assumptions, and validation steps so you can see how the result was derived.",
       "regionalUnits": "SectorCalc supports metric, imperial, and regional units, and shows the conversions it used.",
       "benchmarks": "SectorCalc shows indicative regional benchmark context next to your result — for orientation, not official figures.",
       "pricing": "You can see the plans and what each includes on the pricing page:",
@@ -789,53 +822,112 @@
     "inputs": "You provide the core costs, quantities, rates, and assumptions specific to your job. Required fields are kept minimal, and optional fields sharpen the result when you have the data.",
     "outputsTitle": "What the result means",
     "outputs": "The {tool} returns a clear verdict with the metrics and risk drivers behind it, so you can see not just the number but why it lands where it does and what to adjust.",
-    "trustTitle": "Premium reports and calculation trace",
-    "trust": "Premium results can be saved as decision reports with a calculation trace showing inputs, assumptions, and logic steps.",
+    "trustTitle": "Premium decision summaries & Calculation Summary",
+    "trust": "Premium results can include a Calculation Summary of inputs, assumptions, and validation — saved as exportable decision summaries for internal review.",
     "faqTitle": "Frequently asked questions",
     "relatedTitle": "Related premium tools",
     "faq": [
-      { "q": "Is the {tool} free?", "a": "You can preview the approach for free, while the full verdict, metrics, and detailed report are part of SectorCalc Pro." },
-      { "q": "Does the {tool} replace professional advice?", "a": "No. It is a technical simulation and decision-support tool, not financial, legal, or engineering advice. Verify results before business decisions." },
-      { "q": "How accurate is the result?", "a": "Results reflect the inputs you provide and SectorCalc's deterministic engine. Better inputs produce a sharper, more defensible read." },
-      { "q": "Can I share the result?", "a": "Yes. Premium results can be exported as approved reports with a verifiable Trust Trace." },
-      { "q": "Which sector is the {tool} for?", "a": "It is tuned for its sector's pricing and margin patterns, and it sits alongside the rest of SectorCalc's 27-sector toolset." }
+      {
+        "q": "Is the {tool} free?",
+        "a": "You can preview the approach for free; full verdict, metrics, and premium decision summary are included in SectorCalc Pro."
+      },
+      {
+        "q": "Does the {tool} replace professional advice?",
+        "a": "No. It is a technical simulation and decision-support tool, not financial, legal, or engineering advice. Verify results before business decisions."
+      },
+      {
+        "q": "How accurate is the result?",
+        "a": "Results reflect the inputs you provide and SectorCalc's deterministic engine. Better inputs produce a sharper, more defensible read."
+      },
+      {
+        "q": "Can I share the result?",
+        "a": "Yes. Premium results can be exported as decision summaries with a Calculation Summary of how the numbers were derived."
+      },
+      {
+        "q": "Which sector is the {tool} for?",
+        "a": "It is tuned for its sector's pricing and margin patterns, and it sits alongside the rest of SectorCalc's 27-sector toolset."
+      }
     ]
   },
   "enterprise": {
     "metaTitle": "SectorCalc for Business & Enterprise | Verified Calculation & Decision Support",
-    "metaDescription": "Business and enterprise packaging for SectorCalc: team usage, approved reports, trust trace, industry bundles, and procurement-friendly decision support.",
+    "metaDescription": "Business and enterprise packaging for SectorCalc: team usage, premium decision summaries, calculation summary, industry bundles, and procurement-friendly decision support.",
     "title": "Verified calculation and decision support for teams and organizations.",
-    "subtitle": "SectorCalc packages sector calculators, approved reports, and trust trace into a workflow your teams, customers, and auditors can rely on.",
+    "subtitle": "SectorCalc packages sector calculators, premium decision summaries, and calculation summary into a workflow your teams can rely on for decision support.",
     "demoCta": "Request a demo",
     "contactCta": "Contact sales",
-    "hero": { "eyebrow": "Business & Enterprise" },
+    "hero": {
+      "eyebrow": "Business & Enterprise"
+    },
     "businessPlan": {
       "badge": "Business",
       "title": "Business",
-      "body": "For operators and teams that need repeatable calculations, approved reports, regional units, benchmark context, and field-ready workflows.",
-      "features": ["Premium analyzers across 27 sectors", "Approved reports with trust trace", "Regional units and indicative benchmarks", "Saved reports and field mode"],
+      "body": "For operators and teams that need repeatable calculations, premium decision summaries, regional units, benchmark context, and field-ready workflows.",
+      "features": [
+        "Premium analyzers across 27 sectors",
+        "Premium decision summaries with calculation summary",
+        "Regional units and indicative benchmarks",
+        "Saved reports and field mode"
+      ],
       "availability": "Available now"
     },
     "enterprisePlan": {
       "badge": "Enterprise",
       "title": "Enterprise",
       "body": "For organizations that need verified calculation workflows, team usage, reporting governance, auditability, custom industry bundles, and procurement-friendly decision support.",
-      "features": ["Team and organization usage", "Reporting governance and auditability", "Custom industry bundles", "Procurement-friendly onboarding"],
+      "features": [
+        "Team and organization usage",
+        "Reporting governance and auditability",
+        "Custom industry bundles",
+        "Procurement-friendly onboarding"
+      ],
       "availability": "Enterprise discussion — contact us"
     },
-    "bundles": { "title": "Industry bundles", "body": "Group the analyzers your sector uses most into a focused bundle, so teams reach the right tool without noise." },
-    "approvedReports": { "title": "Approved reports", "body": "Turn results into shareable, verifiable reports your customers, banks, and auditors can check independently." },
-    "trustTrace": { "title": "Trust Trace", "body": "Every result can carry a transparent trace of inputs, assumptions, and validation, so decisions stand up to review." },
-    "team": { "title": "Team & organization", "body": "Bring estimators, field crews, and managers onto one consistent calculation baseline." },
-    "security": { "title": "Security & data handling", "body": "Free inputs are processed in the browser unless saved. Account data is handled under our privacy policy, and we never place secrets in the frontend." },
-    "demo": { "title": "Talk to us about your rollout", "body": "Tell us your sectors and team size, and we will walk you through bundles, approved reports, and enterprise discussion.", "cta": "Request a demo", "pricingLink": "View pricing" },
+    "bundles": {
+      "title": "Industry bundles",
+      "body": "Group the analyzers your sector uses most into a focused bundle, so teams reach the right tool without noise."
+    },
+    "approvedReports": {
+      "title": "Premium decision summaries",
+      "body": "Turn results into shareable decision summaries your team can review internally before bids or operational changes."
+    },
+    "trustTrace": {
+      "title": "Calculation Summary",
+      "body": "Every result can carry a transparent trace of inputs, assumptions, and validation, so decisions stand up to review."
+    },
+    "team": {
+      "title": "Team & organization",
+      "body": "Bring estimators, field crews, and managers onto one consistent calculation baseline."
+    },
+    "security": {
+      "title": "Security & data handling",
+      "body": "Free inputs are processed in the browser unless saved. Account data is handled under our privacy policy, and we never place secrets in the frontend."
+    },
+    "demo": {
+      "title": "Talk to us about your rollout",
+      "body": "Tell us your sectors and team size, and we will walk you through bundles, premium decision summaries, and enterprise discussion.",
+      "cta": "Request a demo",
+      "pricingLink": "View pricing"
+    },
     "faq": {
       "title": "Enterprise FAQ",
       "items": [
-        { "q": "How is Business different from Enterprise?", "a": "Business covers premium analyzers, approved reports, and field workflows for teams. Enterprise adds organization usage, reporting governance, custom bundles, and procurement-friendly onboarding." },
-        { "q": "Can we use SectorCalc across multiple sectors?", "a": "Yes. SectorCalc covers 27 sectors, and industry bundles group the analyzers your teams use most." },
-        { "q": "Are results auditable?", "a": "Approved reports carry a trust trace of inputs, assumptions, and validation that third parties can verify." },
-        { "q": "How do we get started?", "a": "Request a demo and we will discuss your sectors, team size, and rollout. Pricing for individual plans is on the pricing page." }
+        {
+          "q": "How is Business different from Enterprise?",
+          "a": "Business covers premium analyzers, premium decision summaries, and field workflows for teams. Enterprise adds organization usage, reporting governance, custom bundles, and procurement-friendly onboarding."
+        },
+        {
+          "q": "Can we use SectorCalc across multiple sectors?",
+          "a": "Yes. SectorCalc covers 27 sectors, and industry bundles group the analyzers your teams use most."
+        },
+        {
+          "q": "Are results auditable?",
+          "a": "Premium decision summaries include a calculation summary of inputs, assumptions, and validation for internal review."
+        },
+        {
+          "q": "How do we get started?",
+          "a": "Request a demo and we will discuss your sectors, team size, and rollout. Pricing for individual plans is on the pricing page."
+        }
       ]
     }
   },
@@ -876,7 +968,7 @@
     },
     "different": {
       "title": "What makes us different",
-      "body": "Every result carries a transparent trust trace, indicative regional benchmarks, and documented assumptions, calculation you can present to banks, customers, and auditors."
+      "body": "Every result carries a transparent calculation summary, indicative regional benchmarks, and documented assumptions you can review with your team before acting."
     },
     "who": {
       "title": "Who it is built for",
@@ -1201,7 +1293,7 @@
       "title": "Who should apply",
       "item1": "Operators tracking scrap, setup, route, energy or margin loss",
       "item2": "Consultants preparing client-facing sector assessments",
-      "item3": "Early-stage businesses without ERP-level tooling",
+      "item3": "Small teams that need clear calculations before adopting complex software",
       "item4": "Teams willing to give structured feedback on calculator fit"
     },
     "data": {
@@ -1351,7 +1443,8 @@
   },
   "premiumTools": {
     "title": "Premium analyzer",
-    "openAnalyzer": "Open analyzer"
+    "openAnalyzer": "Open analyzer",
+    "lockedTrustTrace": "Calculation summary is a Pro-only premium feature."
   },
   "categories": {
     "title": "Browse by category",
@@ -1449,14 +1542,14 @@
   "premiumAccess": {
     "previewEyebrow": "Public preview",
     "publicPreviewTitle": "Try this analyzer before you subscribe",
-    "publicPreviewDescription": "Enter your job inputs, validate the form and run a preview analysis. Export, saved reports and trust trace require SectorCalc Pro.",
+    "publicPreviewDescription": "Enter your job inputs, validate the form and run a preview analysis. Export, saved reports and calculation summary require SectorCalc Pro.",
     "signedInPreviewTitle": "Preview mode — Pro unlocks full reports",
-    "signedInPreviewDescription": "You can run the analyzer and review the preview verdict. PDF export, saved history and trust trace require an active Pro plan or single-report purchase.",
+    "signedInPreviewDescription": "You can run the analyzer and review the preview verdict. PDF export, saved history and calculation summary require an active Pro plan or single-report purchase.",
     "signIn": "Sign in",
     "getPro": "Get Pro",
     "lockedExport": "PDF and spreadsheet export are available on Pro plans.",
     "lockedReportHistory": "Saved report history requires a signed-in Pro account.",
-    "lockedTrustTrace": "Trust trace and validation stamp are Pro-only audit features.",
+    "lockedTrustTrace": "Calculation summary is a Pro-only premium feature.",
     "fullReportRequiresPro": "Full exportable report requires SectorCalc Pro.",
     "panelTitle": "SectorCalc Pro sign-in",
     "panelDescription": "Sign in with Google to access premium analyzers or continue checkout. Admin sign-in is separate above.",
@@ -2824,5 +2917,20 @@
     "clearData": "Clear local data",
     "staleDataWarning": "Saved data may be out of date — verify before using it for decisions.",
     "privacyNote": "Stored only on this device. No secrets or sensitive personal data."
+  },
+  "freeToolUi": {
+    "preCheck": "Free pre-check",
+    "premiumAnalyzer": "Premium analyzer",
+    "classicForm": "Classic form",
+    "smartFormMeta": "Smart form metadata",
+    "simple": "Simple",
+    "expert": "Expert",
+    "calculationSummary": "Calculation summary",
+    "runAnalysis": "Run analysis",
+    "calculating": "Calculating…",
+    "whatIs": "What is {title}?",
+    "decisionOutput": "Decision output",
+    "exportLabel": "Export:",
+    "exportNote": "PDF export uses your existing subscription and report pipeline."
   }
 }

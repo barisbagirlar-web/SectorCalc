@@ -9,9 +9,9 @@ type PageProps = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   return createPageMetadata({
-    title: "Trust & Verification — SectorCalc",
+    title: "Calculation Governance — SectorCalc",
     description:
-      "Trust Trace, validation metadata, and report verification foundations. SectorCalc confirms calculation structure when a matching record exists — not a substitute for official documents.",
+      "Calculation summary metadata, validation coverage, and governed export foundations. SectorCalc documents how results were derived — not a substitute for official documents.",
     path: "/trust",
     locale: locale as AppLocale,
   });
@@ -24,8 +24,8 @@ export default async function TrustPage({ params }: PageProps) {
   return (
     <ManifestoPageContent
       variant="trust"
-      headline="Trust & Verification"
-      lead="Every governed result can carry a trust trace: canonical inputs, formula contract reference, validation status, and optional verification seal for export lookup."
+      headline="Calculation Governance"
+      lead="Every governed result can carry a calculation summary: canonical inputs, formula contract reference, validation status, and export-ready decision context."
     />
   );
 }

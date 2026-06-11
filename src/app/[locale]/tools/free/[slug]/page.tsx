@@ -17,6 +17,7 @@ import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import { getTierOneFreeToolMetadata } from "@/lib/seo/seo-refresh-priority";
 import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
+import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
 
 interface FreeToolPageParams {
   slug: string;
@@ -70,27 +71,14 @@ export async function generateMetadata({
 
   const tierOneMeta = getTierOneFreeToolMetadata(slug);
 
-  // Load messages for localization
-  let localizedTitle = tierOneMeta?.metaTitle ?? trafficTool.seoTitle;
-  let localizedDescription = tierOneMeta?.metaDescription ?? trafficTool.seoDescription;
-
-  if (locale !== "en") {
-    try {
-      const messages = (await import(`@/../../messages/${locale}.json`)).default;
-      const seoTitleKey = `tools.free.${slug}.seoTitle`;
-      const seoDescriptionKey = `tools.free.${slug}.seoDescription`;
-      
-      if (messages[seoTitleKey]) {
-        localizedTitle = messages[seoTitleKey];
-      }
-      if (messages[seoDescriptionKey]) {
-        localizedDescription = messages[seoDescriptionKey];
-      }
-    } catch (error) {
-      // Fallback to English registry if translation file missing
-      console.warn(`Translation file not found for locale: ${locale}`);
-    }
-  }
+  // Fallback chain: locale message > tier-one SEO metadata > English registry.
+  const localizedCopy = resolveFreeToolLocalizedCopy(slug, locale);
+  const localizedTitle =
+    localizedCopy.seoTitle ?? tierOneMeta?.metaTitle ?? trafficTool.seoTitle;
+  const localizedDescription =
+    localizedCopy.seoDescription ??
+    tierOneMeta?.metaDescription ??
+    trafficTool.seoDescription;
 
   return createPageMetadata({
     title: localizedTitle,
@@ -156,39 +144,16 @@ export default async function FreeRevenueToolRoute({
   }
 
   const tAuthority = await getTranslations("contentAuthority.freeTool");
+  const tFreeToolUi = await getTranslations("freeToolUi");
 
-  // Load localized content
-  let localizedTitle = trafficTool.title;
-  let localizedDescription = trafficTool.description;
-  let localizedInfoBoxTitle: string | undefined;
-  let localizedInfoBoxContent: string | undefined;
+  // Load localized content (locale message > English registry fallback).
+  const localizedCopy = resolveFreeToolLocalizedCopy(slug, locale);
+  const localizedTitle = localizedCopy.title ?? trafficTool.title;
+  const localizedDescription = localizedCopy.description ?? trafficTool.description;
+  const localizedInfoBoxTitle = localizedCopy.infoBoxTitle;
+  const localizedInfoBoxContent = localizedCopy.infoBoxContent;
 
-  if (locale !== "en") {
-    try {
-      const messages = (await import(`@/../../messages/${locale}.json`)).default;
-      const titleKey = `tools.free.${slug}.title`;
-      const descriptionKey = `tools.free.${slug}.description`;
-      const infoBoxTitleKey = `tools.free.${slug}.infoBox.title`;
-      const infoBoxContentKey = `tools.free.${slug}.infoBox.content`;
-
-      if (messages[titleKey]) {
-        localizedTitle = messages[titleKey];
-      }
-      if (messages[descriptionKey]) {
-        localizedDescription = messages[descriptionKey];
-      }
-      if (messages[infoBoxTitleKey]) {
-        localizedInfoBoxTitle = messages[infoBoxTitleKey];
-      }
-      if (messages[infoBoxContentKey]) {
-        localizedInfoBoxContent = messages[infoBoxContentKey];
-      }
-    } catch (error) {
-      // Fallback to English registry if translation missing
-    }
-  }
-
-  const featuredQuestion = buildFreeToolFeaturedQuestion(localizedTitle);
+  const featuredQuestion = tFreeToolUi("whatIs", { title: localizedTitle });
   const featuredAnswer = buildFreeToolFeaturedAnswer(
     localizedDescription,
   );
@@ -220,7 +185,15 @@ export default async function FreeRevenueToolRoute({
       ],
       locale
     ),
-    buildCalculatorJsonLd(trafficTool, locale),
+    buildCalculatorJsonLd(
+      {
+        slug: trafficTool.slug,
+        title: localizedTitle,
+        description: localizedDescription,
+        seoDescription: localizedCopy.seoDescription ?? trafficTool.seoDescription,
+      },
+      locale,
+    ),
     ...(faqJsonLd ? [faqJsonLd] : []),
   ];
 
@@ -229,7 +202,13 @@ export default async function FreeRevenueToolRoute({
       <JsonLd data={jsonLd} />
       <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" />
       <FreeTrafficToolPage 
-        tool={trafficTool} 
+        tool={{
+          ...trafficTool,
+          title: localizedTitle,
+          description: localizedDescription,
+          seoTitle: localizedCopy.seoTitle ?? trafficTool.seoTitle,
+          seoDescription: localizedCopy.seoDescription ?? trafficTool.seoDescription,
+        }}
         featuredAnswer={featuredAnswerBlock}
         localizedContent={{
           title: localizedTitle,

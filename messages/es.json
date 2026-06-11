@@ -219,18 +219,20 @@
     },
     "freeTools": {
       "eyebrow": "Free tools",
-      "title": "Free calculators by category.",
-      "subtitle": "Start with the calculation area you need, then open the tool."
+      "title": "Herramientas de cálculo gratuitas",
+      "subtitle": "Compruebe rápido coste, área, tiempo, merma, energía, rutas y margen. No se requiere tarjeta."
     },
     "premiumTools": {
       "eyebrow": "Premium analyzers",
-      "title": "Decision reports by loss type.",
-      "subtitle": "Choose the decision area before opening the analyzer."
+      "title": "Herramientas de análisis premium",
+      "subtitle": "Profundice en riesgo de margen, seguridad de cotización, pérdida operativa y desviación de costes. Use el resultado como resumen de decisión.",
+      "metaTitle": "Herramientas de análisis premium — Resúmenes de decisión",
+      "metaDescription": "Análisis premium para riesgo de margen, seguridad de cotización, pérdida operativa y desviación de costes."
     },
     "industries": {
       "eyebrow": "Industries",
-      "title": "Explore calculators by sector.",
-      "subtitle": "Start from your industry, then choose the calculation or report."
+      "title": "Herramientas de cálculo por sector",
+      "subtitle": "Elija su sector. Vea calculadoras gratuitas y análisis premium relacionados en un solo lugar."
     },
     "labels": {
       "categories": {
@@ -266,15 +268,45 @@
       "label": "Buscar en el catálogo",
       "placeholder": {
         "categories": "Buscar por función, sector o nombre de herramienta…",
-        "free-tools": "Buscar calculadoras gratuitas…",
-        "premium-tools": "Buscar analizadores premium…",
-        "industries": "Buscar sectores, categorías o herramientas…",
+        "free-tools": "Buscar calculadora…",
+        "premium-tools": "Buscar análisis premium…",
+        "industries": "Buscar sector…",
         "homepage": "Buscar calculadoras y analizadores…"
       },
       "noResults": "No se encontraron herramientas.",
       "moreResults": "+ {count} resultados más",
       "badgeFree": "Gratis",
       "badgePremium": "Premium"
+    },
+    "discoveryTabs": {
+      "all": "Todo",
+      "free-tools": {
+        "cost-margin": "Coste y margen",
+        "scrap-oee": "Material, merma y OEE",
+        "energy-carbon": "Energía y carbono",
+        "routing-logistics": "Ruta y logística",
+        "construction-field": "Construcción y obra",
+        "daily-practical": "Práctica diaria"
+      },
+      "premium-tools": {
+        "pricing": "Cotización y precios",
+        "loss": "Pérdida y merma",
+        "operations": "Operaciones y eficiencia",
+        "routing": "Ruta y logística",
+        "energy": "Energía y carbono",
+        "construction": "Construcción y proyecto"
+      }
+    },
+    "discoveryCards": {
+      "ctaCalculate": "Calcular",
+      "ctaOpenAnalysis": "Abrir análisis",
+      "ctaOpenSector": "Abrir sector",
+      "freeCount": "{count} gratis",
+      "premiumCount": "{count} premium"
+    },
+    "discoveryFooter": {
+      "freeToolsLead": "¿Necesita un análisis más detallado?",
+      "freeToolsCta": "Ver herramientas premium"
     }
   },
   "freeTrafficCatalog": {
@@ -464,7 +496,7 @@
       "operatingSystem": "Sistema operativo"
     },
     "trustTrace": {
-      "title": "Trust Trace",
+      "title": "Resumen del cálculo",
       "link": "Verificar cualquier informe",
       "subtext": "Confirme la autenticidad de los informes en nuestra página pública de verificación."
     },
@@ -711,8 +743,9 @@
     "quickActions": {
       "findTool": "¿Qué herramienta necesito?",
       "explainInputs": "¿Qué entradas se requieren?",
-      "approvedReport": "Informes aprobados y Trust Trace",
-      "enterprise": "Enterprise y uso en equipo"
+      "approvedReport": "Resúmenes de decisión premium y Resumen del cálculo",
+      "enterprise": "Enterprise y uso en equipo",
+      "decisionSummary": "¿Qué es un resumen de decisión premium?"
     },
     "guardrail": {
       "formula": "No puedo realizar cálculos ni compartir fórmulas. Abre la herramienta correspondiente y calculará el resultado por ti.",
@@ -723,8 +756,8 @@
       "explainTool": "Esta herramienta convierte las entradas de tu trabajo en un veredicto claro con los factores de riesgo que lo sustentan:",
       "inputs": "Introduces los costes, cantidades y tarifas esenciales de tu trabajo. Los campos obligatorios se mantienen al mínimo y los opcionales afinan el resultado.",
       "results": "El resultado es un veredicto con las métricas y los factores de riesgo que lo sustentan, para ver por qué queda donde queda y qué ajustar.",
-      "approvedReports": "Los resultados premium pueden guardarse como informes aprobados que puedes compartir, y cada uno puede verificarse de forma independiente.",
-      "trustTrace": "Trust Trace registra entradas, supuestos y validación para que un resultado pueda ser comprobado por clientes, bancos o auditores.",
+      "approvedReports": "Los resultados premium pueden guardarse como resúmenes de decisión exportables para revisión interna del equipo.",
+      "trustTrace": "El Resumen del cálculo registra entradas, supuestos y pasos de validación para mostrar cómo se produjo el resultado.",
       "regionalUnits": "SectorCalc admite unidades métricas, imperiales y regionales, y muestra las conversiones que utilizó.",
       "benchmarks": "SectorCalc muestra un contexto de referencia regional indicativo junto a tu resultado — para orientación, no son cifras oficiales.",
       "pricing": "Puedes ver los planes y qué incluye cada uno en la página de precios:",
@@ -752,53 +785,112 @@
     "inputs": "Aportas los costes, cantidades, tarifas y supuestos esenciales propios de tu trabajo. Los campos obligatorios se mantienen al mínimo, y los opcionales afinan el resultado cuando tienes los datos.",
     "outputsTitle": "Qué significa el resultado",
     "outputs": "{tool} devuelve un veredicto claro con las métricas y los factores de riesgo que lo sustentan, para que veas no solo el número sino por qué queda donde queda y qué ajustar.",
-    "trustTitle": "Informes aprobados y Trust Trace",
-    "trust": "Los resultados premium pueden guardarse como informes aprobados con una traza Trust Trace de entradas, supuestos y validación, para que clientes, bancos y auditores verifiquen el trabajo de forma independiente.",
+    "trustTitle": "Resúmenes de decisión premium y Resumen del cálculo",
+    "trust": "Los resultados premium pueden incluir un Resumen del cálculo guardado como resumen de decisión exportable.",
     "faqTitle": "Preguntas frecuentes",
     "relatedTitle": "Herramientas premium relacionadas",
     "faq": [
-      { "q": "¿{tool} es gratis?", "a": "Puedes previsualizar el enfoque gratis, mientras que el veredicto completo, las métricas y el informe aprobado forman parte de SectorCalc Pro." },
-      { "q": "¿{tool} sustituye al asesoramiento profesional?", "a": "No. Es una simulación técnica y una herramienta de apoyo a la decisión, no asesoramiento financiero, legal ni de ingeniería. Verifica los resultados antes de decidir." },
-      { "q": "¿Qué precisión tiene el resultado?", "a": "Los resultados reflejan tus entradas y el motor determinista de SectorCalc. Mejores entradas producen una lectura más fina y defendible." },
-      { "q": "¿Puedo compartir el resultado?", "a": "Sí. Los resultados premium pueden exportarse como informes aprobados con una Trust Trace verificable." },
-      { "q": "¿Para qué sector es {tool}?", "a": "Está ajustada a los patrones de precio y margen de su sector y convive con el resto del conjunto de 27 sectores de SectorCalc." }
+      {
+        "q": "¿{tool} es gratis?",
+        "a": "Puede previsualizar el enfoque gratis; veredicto completo, métricas y resumen de decisión premium están incluidos en SectorCalc Pro."
+      },
+      {
+        "q": "¿{tool} sustituye al asesoramiento profesional?",
+        "a": "No. Es una simulación técnica y una herramienta de apoyo a la decisión, no asesoramiento financiero, legal ni de ingeniería. Verifica los resultados antes de decidir."
+      },
+      {
+        "q": "¿Qué precisión tiene el resultado?",
+        "a": "Los resultados reflejan tus entradas y el motor determinista de SectorCalc. Mejores entradas producen una lectura más fina y defendible."
+      },
+      {
+        "q": "¿Puedo compartir el resultado?",
+        "a": "Sí. Los resultados premium pueden exportarse como resúmenes de decisión con un Resumen del cálculo."
+      },
+      {
+        "q": "¿Para qué sector es {tool}?",
+        "a": "Está ajustada a los patrones de precio y margen de su sector y convive con el resto del conjunto de 27 sectores de SectorCalc."
+      }
     ]
   },
   "enterprise": {
     "metaTitle": "SectorCalc para empresas y organizaciones | Cálculo verificado y soporte a la decisión",
-    "metaDescription": "Paquetes Business y Enterprise de SectorCalc: uso en equipo, informes aprobados, trust trace, paquetes sectoriales y soporte a la decisión apto para compras.",
+    "metaDescription": "Paquetes Business y Enterprise de SectorCalc: uso en equipo, resúmenes de decisión premium, resumen del cálculo y apoyo a la decisión.",
     "title": "Cálculo verificado y soporte a la decisión para equipos y organizaciones.",
-    "subtitle": "SectorCalc reúne calculadoras sectoriales, informes aprobados y trust trace en un flujo en el que tus equipos, clientes y auditores pueden confiar.",
+    "subtitle": "SectorCalc agrupa calculadoras sectoriales, resúmenes de decisión premium y resumen del cálculo para sus equipos.",
     "demoCta": "Solicitar una demo",
     "contactCta": "Contactar con ventas",
-    "hero": { "eyebrow": "Business y Enterprise" },
+    "hero": {
+      "eyebrow": "Business y Enterprise"
+    },
     "businessPlan": {
       "badge": "Business",
       "title": "Business",
-      "body": "Para operadores y equipos que necesitan cálculos repetibles, informes aprobados, unidades regionales, contexto de referencia y flujos listos para el campo.",
-      "features": ["Analizadores premium en 27 sectores", "Informes aprobados con trust trace", "Unidades regionales y referencias indicativas", "Informes guardados y modo de campo"],
+      "body": "Para equipos que necesitan cálculos repetibles, resúmenes de decisión premium y flujos de campo.",
+      "features": [
+        "Analizadores premium en 27 sectores",
+        "Resúmenes de decisión premium con resumen del cálculo",
+        "Unidades regionales y referencias indicativas",
+        "Informes guardados y modo de campo"
+      ],
       "availability": "Disponible ahora"
     },
     "enterprisePlan": {
       "badge": "Enterprise",
       "title": "Enterprise",
       "body": "Para organizaciones que necesitan flujos de cálculo verificados, uso en equipo, gobernanza de informes, auditabilidad, paquetes sectoriales personalizados y soporte a la decisión apto para compras.",
-      "features": ["Uso en equipo y organización", "Gobernanza de informes y auditabilidad", "Paquetes sectoriales personalizados", "Incorporación apta para compras"],
+      "features": [
+        "Uso en equipo y organización",
+        "Gobernanza de informes y auditabilidad",
+        "Paquetes sectoriales personalizados",
+        "Incorporación apta para compras"
+      ],
       "availability": "Conversación Enterprise — contáctanos"
     },
-    "bundles": { "title": "Paquetes sectoriales", "body": "Agrupa los analizadores que tu sector usa más en un paquete enfocado, para que los equipos lleguen a la herramienta correcta sin ruido." },
-    "approvedReports": { "title": "Informes aprobados", "body": "Convierte los resultados en informes compartibles y verificables que tus clientes, bancos y auditores pueden comprobar de forma independiente." },
-    "trustTrace": { "title": "Trust Trace", "body": "Cada resultado puede llevar una traza transparente de entradas, supuestos y validación, para que las decisiones resistan la revisión." },
-    "team": { "title": "Equipo y organización", "body": "Reúne a estimadores, equipos de campo y responsables en una base de cálculo única y coherente." },
-    "security": { "title": "Seguridad y tratamiento de datos", "body": "Las entradas gratuitas se procesan en el navegador salvo que se guarden. Los datos de cuenta se tratan según nuestra política de privacidad, y nunca colocamos secretos en el frontend." },
-    "demo": { "title": "Hablemos de tu despliegue", "body": "Cuéntanos tus sectores y el tamaño de tu equipo, y te guiaremos por los paquetes, los informes aprobados y la conversación Enterprise.", "cta": "Solicitar una demo", "pricingLink": "Ver precios" },
+    "bundles": {
+      "title": "Paquetes sectoriales",
+      "body": "Agrupa los analizadores que tu sector usa más en un paquete enfocado, para que los equipos lleguen a la herramienta correcta sin ruido."
+    },
+    "approvedReports": {
+      "title": "Resúmenes de decisión premium",
+      "body": "Convierta resultados en resúmenes de decisión compartibles para revisión interna."
+    },
+    "trustTrace": {
+      "title": "Resumen del cálculo",
+      "body": "Cada resultado puede llevar una traza transparente de entradas, supuestos y validación, para que las decisiones resistan la revisión."
+    },
+    "team": {
+      "title": "Equipo y organización",
+      "body": "Reúne a estimadores, equipos de campo y responsables en una base de cálculo única y coherente."
+    },
+    "security": {
+      "title": "Seguridad y tratamiento de datos",
+      "body": "Las entradas gratuitas se procesan en el navegador salvo que se guarden. Los datos de cuenta se tratan según nuestra política de privacidad, y nunca colocamos secretos en el frontend."
+    },
+    "demo": {
+      "title": "Hablemos de tu despliegue",
+      "body": "Cuéntenos sus sectores y tamaño de equipo; le mostraremos paquetes y resúmenes de decisión premium.",
+      "cta": "Solicitar una demo",
+      "pricingLink": "Ver precios"
+    },
     "faq": {
       "title": "Preguntas frecuentes de Enterprise",
       "items": [
-        { "q": "¿En qué se diferencia Business de Enterprise?", "a": "Business cubre analizadores premium, informes aprobados y flujos de campo para equipos. Enterprise añade uso en organización, gobernanza de informes, paquetes personalizados e incorporación apta para compras." },
-        { "q": "¿Podemos usar SectorCalc en varios sectores?", "a": "Sí. SectorCalc cubre 27 sectores, y los paquetes sectoriales agrupan los analizadores que tus equipos usan más." },
-        { "q": "¿Los resultados son auditables?", "a": "Los informes aprobados llevan una traza trust trace de entradas, supuestos y validación que terceros pueden verificar." },
-        { "q": "¿Cómo empezamos?", "a": "Solicita una demo y hablaremos de tus sectores, el tamaño de tu equipo y tu despliegue. Los precios de los planes individuales están en la página de precios." }
+        {
+          "q": "¿En qué se diferencia Business de Enterprise?",
+          "a": "Business cubre analizadores premium, resúmenes de decisión premium y flujos de campo. Enterprise añade gobernanza y paquetes."
+        },
+        {
+          "q": "¿Podemos usar SectorCalc en varios sectores?",
+          "a": "Sí. SectorCalc cubre 27 sectores, y los paquetes sectoriales agrupan los analizadores que tus equipos usan más."
+        },
+        {
+          "q": "¿Los resultados son auditables?",
+          "a": "Los resúmenes de decisión premium incluyen un resumen del cálculo para revisión interna."
+        },
+        {
+          "q": "¿Cómo empezamos?",
+          "a": "Solicita una demo y hablaremos de tus sectores, el tamaño de tu equipo y tu despliegue. Los precios de los planes individuales están en la página de precios."
+        }
       ]
     }
   },
@@ -839,7 +931,7 @@
     },
     "different": {
       "title": "Qué nos hace diferentes",
-      "body": "Cada resultado lleva una traza de confianza transparente, referencias regionales indicativas y supuestos documentados, un cálculo que puedes presentar a bancos, clientes y auditores."
+      "body": "Cada resultado incluye un resumen del cálculo transparente, benchmarks regionales indicativos y supuestos documentados que su equipo puede revisar antes de decidir."
     },
     "who": {
       "title": "Para quién está hecho",
@@ -880,7 +972,7 @@
       "body": "We turn sector-specific operational knowledge into calculators and decision reports from $19/month: OEE, scrap, routing, carbon, and tolerance. Every result includes a calculation trace showing how numbers were derived."
     },
     "positioning": {
-      "title": "ERP-level calculation logic without ERP complexity.",
+      "title": "Lógica de cálculo específica por sector, sin la complejidad del software empresarial.",
       "text": "Most teams still calculate loss, waste, cost and efficiency in spreadsheets, notebooks or guesswork. SectorCalc gives them focused calculators and decision reports they can use immediately."
     },
     "scenarios": {
@@ -1164,7 +1256,7 @@
       "title": "Who should apply",
       "item1": "Operators tracking scrap, setup, route, energy or margin loss",
       "item2": "Consultants preparing client-facing sector assessments",
-      "item3": "Early-stage businesses without ERP-level tooling",
+      "item3": "Equipos pequeños que necesitan cálculos claros antes de adoptar software complejo",
       "item4": "Teams willing to give structured feedback on calculator fit"
     },
     "data": {
@@ -1314,7 +1406,8 @@
   },
   "premiumTools": {
     "title": "Análisis premium",
-    "openAnalyzer": "Abrir análisis"
+    "openAnalyzer": "Abrir análisis",
+    "lockedTrustTrace": "El resumen del cálculo es una función premium Pro."
   },
   "categories": {
     "title": "Por categoría",
@@ -1412,14 +1505,14 @@
   "premiumAccess": {
     "previewEyebrow": "Vista previa pública",
     "publicPreviewTitle": "Prueba este analizador antes de suscribirte",
-    "publicPreviewDescription": "Introduce los datos del trabajo, valida el formulario y ejecuta un análisis de vista previa. La exportación, los informes guardados y Trust Trace requieren SectorCalc Pro.",
+    "publicPreviewDescription": "Introduce los datos del trabajo, valida el formulario y ejecuta un análisis de vista previa. La exportación, los informes guardados y Resumen del cálculo requieren SectorCalc Pro.",
     "signedInPreviewTitle": "Modo vista previa — Pro desbloquea informes completos",
-    "signedInPreviewDescription": "Puedes ejecutar el analizador y revisar el veredicto de vista previa. La exportación PDF, el historial guardado y Trust Trace requieren un plan Pro activo o la compra de un informe individual.",
+    "signedInPreviewDescription": "Puedes ejecutar el analizador y revisar el veredicto de vista previa. La exportación PDF, el historial guardado y Resumen del cálculo requieren un plan Pro activo o la compra de un informe individual.",
     "signIn": "Iniciar sesión",
     "getPro": "Obtener Pro",
     "lockedExport": "La exportación PDF y hoja de cálculo está disponible en los planes Pro.",
     "lockedReportHistory": "El historial de informes guardados requiere una cuenta Pro con sesión iniciada.",
-    "lockedTrustTrace": "Trust Trace y el sello de validación son funciones de auditoría exclusivas de Pro.",
+    "lockedTrustTrace": "El resumen del cálculo es una función premium Pro.",
     "fullReportRequiresPro": "El informe completo exportable requiere SectorCalc Pro.",
     "panelTitle": "Inicio de sesión en SectorCalc Pro",
     "panelDescription": "Inicia sesión con Google para acceder a los analizadores premium o continuar con el pago. El inicio de sesión de administrador está separado arriba.",
@@ -2787,5 +2880,28 @@
     "clearData": "Borrar datos locales",
     "staleDataWarning": "Los datos guardados pueden estar desactualizados — verifique antes de decidir.",
     "privacyNote": "Almacenado solo en este dispositivo. Sin secretos ni datos personales sensibles."
+  },
+  "freeToolUi": {
+    "preCheck": "Comprobación gratuita",
+    "premiumAnalyzer": "Analizador premium",
+    "classicForm": "Formulario clásico",
+    "smartFormMeta": "Formulario inteligente",
+    "simple": "Simple",
+    "expert": "Experto",
+    "calculationSummary": "Resumen del cálculo",
+    "runAnalysis": "Ejecutar análisis",
+    "calculating": "Calculando…",
+    "whatIs": "¿Qué es {title}?",
+    "decisionOutput": "Resultado de decisión",
+    "exportLabel": "Exportar:",
+    "exportNote": "La exportación a PDF usa tu suscripción y tu flujo de informes existentes."
+  },
+  "freeToolContent": {
+    "square-meter-calculator": {
+      "title": "Calculadora de metros cuadrados",
+      "description": "Calcula el área de un rectángulo en metros cuadrados.",
+      "seoTitle": "Calculadora de metros cuadrados — área en m² | SectorCalc",
+      "seoDescription": "Cálculo de área rectangular: largo × ancho con conversiones ft² y yd²."
+    }
   }
 }

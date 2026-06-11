@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createPageMetadata({
     title: "SectorCalc Manifesto — Industrial Micro-SaaS App Store",
     description:
-      "SectorCalc is not a generic calculator site. We measure, detect loss, validate, and report with trust trace — for operators who need decision tools without ERP complexity.",
+      "SectorCalc is not a generic calculator site. We measure, detect loss, validate, and report with calculation transparency — for operators who need decision tools without ERP complexity.",
     path: "/manifesto",
     locale: locale as AppLocale,
   });

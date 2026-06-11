@@ -11,6 +11,8 @@ import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
 
 export interface FreeToolAuthorityBlockProps {
   readonly tool: FreeTrafficTool;
+  readonly localizedTitle?: string;
+  readonly localizedDescription?: string;
   readonly labels: {
     readonly howItWorksTitle: string;
     readonly descriptionTitle: string;
@@ -32,15 +34,23 @@ export interface FreeToolAuthorityBlockProps {
   };
 }
 
-export function FreeToolAuthorityBlock({ tool, labels }: FreeToolAuthorityBlockProps) {
+export function FreeToolAuthorityBlock({
+  tool,
+  localizedTitle,
+  localizedDescription,
+  labels,
+}: FreeToolAuthorityBlockProps) {
   const copy = getFreeToolAuthorityCopy(tool);
   const guide = getAuthorityGuideForFreeTool(tool.slug);
   const premiumHref = tool.relatedPremiumSlug
     ? resolvePremiumAnalyzerHref(tool.relatedPremiumSlug)
     : null;
 
+  const displayTitle = localizedTitle ?? tool.title;
+  const displayDescription = localizedDescription ?? copy.description;
+
   const faq = [
-    { question: labels.faqUseTitle, answer: labels.faqUseAnswer.replace("{title}", tool.title) },
+    { question: labels.faqUseTitle, answer: labels.faqUseAnswer.replace("{title}", displayTitle) },
     { question: labels.faqFreeTitle, answer: labels.faqFreeAnswer },
     { question: labels.faqPremiumTitle, answer: labels.faqPremiumAnswer },
   ];
@@ -54,7 +64,7 @@ export function FreeToolAuthorityBlock({ tool, labels }: FreeToolAuthorityBlockP
       <div className="mt-4 space-y-4 text-sm leading-relaxed text-body-charcoal">
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.descriptionTitle}</h3>
-          <p className="mt-1">{copy.description}</p>
+          <p className="mt-1">{displayDescription}</p>
         </div>
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.inputsTitle}</h3>

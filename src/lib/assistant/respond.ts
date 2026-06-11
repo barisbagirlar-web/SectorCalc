@@ -22,8 +22,8 @@ const ENGLISH_REPLY: Record<AssistantTopic, string> = {
   explainTool: "That tool turns your job inputs into a clear verdict with the risk drivers behind it.",
   inputs: "You enter the core costs, quantities, and rates for your job. Required fields are minimal; optional fields sharpen the result.",
   results: "The result is a verdict with the metrics and risk drivers behind it, so you can see why it lands where it does.",
-  approvedReports: "Premium results can be saved as approved reports you can share and verify.",
-  trustTrace: "Trust Trace records inputs, assumptions, and validation so a result can be verified independently.",
+  approvedReports: "Premium results can be saved as exportable decision summaries your team can review internally.",
+  trustTrace: "Calculation Summary records inputs, assumptions, and validation steps so you can see how the result was derived.",
   regionalUnits: "SectorCalc supports metric, imperial, and regional units, and shows the conversions it used.",
   benchmarks: "SectorCalc shows indicative regional benchmark context next to your result, not official figures.",
   pricing: "See plans and what is included on the pricing page.",
@@ -47,13 +47,13 @@ const NAV_TOPICS: ReadonlyArray<{ topic: AssistantTopic; patterns: RegExp[]; sug
   },
   {
     topic: "approvedReports",
-    patterns: [/\bapproved report\b/, /\breport\b/],
-    suggestion: { slug: "reports", label: "Reports", href: "/account/reports" },
+    patterns: [/\bdecision summary\b/, /\bpremium report\b/, /\bsaved report\b/],
+    suggestion: { slug: "reports", label: "Saved summaries", href: "/account/reports" },
   },
   {
     topic: "trustTrace",
-    patterns: [/\btrust trace\b/, /\bverif/],
-    suggestion: { slug: "verify", label: "Verify a report", href: "/verify" },
+    patterns: [/\bcalculation summary\b/, /\bcalculation governance\b/],
+    suggestion: { slug: "methodology", label: "Methodology", href: "/methodology" },
   },
   {
     topic: "about",

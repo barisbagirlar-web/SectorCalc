@@ -30,7 +30,7 @@ describe("investor metrics bridge — Phase 6A", () => {
     }
   });
 
-  test("trust trace snapshot matches dev audit from repo root", () => {
+  test("calculation summary snapshot matches dev audit from repo root", () => {
     const auditMetrics = collectInvestorDemoMetrics();
     expect(INVESTOR_PAGE_TRUST_TRACE_READY).toBe(auditMetrics.trustTraceCoverage);
   });

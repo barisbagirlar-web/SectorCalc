@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { RuntimeTrustTraceView } from "@/lib/formula-governance/runtime-validation/full-loop-bridge-shared";
 
 type RuntimeTrustTracePanelProps = {
@@ -24,14 +25,15 @@ function statusLabel(status: RuntimeTrustTraceView["loopStatus"]): string {
 }
 
 export function RuntimeTrustTracePanel({ trustTrace }: RuntimeTrustTracePanelProps) {
+  const t = useTranslations("freeToolUi");
   return (
     <section
       className="sc-ledger-panel sc-industrial-panel border border-dashed border-border-subtle p-4"
       data-component-kind="runtime_trust_trace_panel"
-      aria-label="Trust trace"
+      aria-label={t("calculationSummary")}
     >
       <div className="flex flex-wrap items-start justify-between gap-2">
-        <h3 className="text-base font-semibold text-text-primary">Trust trace</h3>
+        <h3 className="text-base font-semibold text-text-primary">{t("calculationSummary")}</h3>
         <span className="rounded border border-border-subtle bg-surface-muted px-2 py-0.5 text-xs font-medium text-text-secondary">
           {statusLabel(trustTrace.loopStatus)}
         </span>

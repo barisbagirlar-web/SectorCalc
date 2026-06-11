@@ -1,19 +1,19 @@
 {
   "nav": {
-    "calculators": "الحاسبات",
-    "caseStudies": "دراسات الحالة",
-    "resources": "الموارد",
-    "signUp": "إنشاء حساب",
-    "tools": "فحوصات مجانية",
-    "premiumVerdicts": "أحكام مميزة",
-    "industries": "القطاعات",
-    "byFunction": "حسب الوظيفة",
+    "calculators": "Calculators",
+    "caseStudies": "Case Studies",
+    "resources": "Resources",
+    "signUp": "Sign Up",
+    "tools": "Free Checks",
+    "premiumVerdicts": "Premium Verdicts",
+    "industries": "Industries",
+    "byFunction": "By Function",
     "categories": "Categories",
-    "reports": "التقارير",
-    "pricing": "الأسعار",
-    "login": "تسجيل الدخول",
-    "getPro": "احصل على PRO",
-    "account": "الحساب",
+    "reports": "Reports",
+    "pricing": "Pricing",
+    "login": "Login",
+    "getPro": "GET PRO",
+    "account": "Account",
     "auditEngine": "Tools",
     "intelligenceLayer": "Premium",
     "myReports": "Reports",
@@ -21,97 +21,97 @@
     "audit": "Audit",
     "intelligence": "Intelligence",
     "archive": "Archive",
-    "freeTools": "فحوصات مجانية",
-    "premiumTools": "حكمات مميزة",
-    "unlockPro": "فتح Pro",
-    "runFreeCheck": "فحص مجاني"
+    "freeTools": "Utilities",
+    "premiumTools": "Intelligence",
+    "unlockPro": "Pro",
+    "runFreeCheck": "Run"
   },
   "osGate": {
-    "label": "الاشتراك مطلوب",
-    "message": "تتطلب هذه العملية طبقة Intelligence. افتح الوصول عبر Pro.",
+    "label": "Subscription required",
+    "message": "This operation requires Intelligence Layer. Unlock with Pro membership.",
     "single": "Single run {price}",
     "pro": "Pro {price}",
-    "singleCta": "تشغيل · {price}",
+    "singleCta": "Unlock run · {price}",
     "proCta": "Pro · {price}"
   },
   "hero": {
-    "title": "قِس بدقة لقطاعك. اكتشف كل خسارة. قرّر بثقة.",
-    "subtitle": "SectorCalc يساعدك على حساب التكاليف وقياس الكفاءة واكتشاف الخسائر وتحسين العمليات — دون أنظمة ERP مكلفة.",
-    "primaryCta": "فحص هامش مجاني",
-    "secondaryCta": "عرض تقرير حكم نموذجي",
-    "exploreFreeCta": "استكشف الأدوات المجانية",
-    "viewPremiumCta": "عرض تقارير القرار",
-    "trustStrip": "27 قطاعًا · حاسبات مجانية · تقارير مميزة · بدون ERP"
+    "title": "Measure precisely for your sector. Detect every loss. Decide with confidence.",
+    "subtitle": "SectorCalc helps businesses calculate costs, measure efficiency, detect losses, and optimize operations — without expensive ERP systems.",
+    "primaryCta": "Run a Free Margin Check",
+    "secondaryCta": "View Sample Verdict Report",
+    "exploreFreeCta": "Explore Free Tools",
+    "viewPremiumCta": "View Decision Reports",
+    "trustStrip": "27 sectors · Free pre-checks · P90 verdicts · Margin leak intelligence · No ERP required"
   },
   "valueProps": {
-    "eyebrow": "قياس شامل",
-    "title": "أربعة أبعاد للخسارة — منصة واحدة",
-    "subtitle": "SectorCalc يكشف تسرب المال والمواد والوقت والطاقة عبر فحوصات مجانية وحكمات خبراء.",
-    "financial": "خسارة مالية",
-    "financialTr": "خسارة مالية",
-    "financialDesc": "تسرب الهامش والتكلفة والربح قبل الالتزام بعرض.",
-    "material": "خسارة مواد",
-    "materialTr": "خسارة مواد",
-    "materialDesc": "الهدر والفاقد وفجوات الإنتاج التي تتجاهلها الحاسبات العادية.",
-    "time": "خسارة وقت",
-    "timeTr": "خسارة وقت",
-    "timeDesc": "الإعداد والتأخير ونوافذ الراحة ومخاطر الكفاءة.",
-    "energy": "خسارة طاقة",
-    "energyTr": "خسارة طاقة",
-    "energyDesc": "kWh والكربون ومخاطر الامتثال بما في ذلك CBAM."
+    "eyebrow": "Universal measurement",
+    "title": "Four loss dimensions — one platform",
+    "subtitle": "SectorCalc surfaces money, material, time and energy leaks with free checks and premium expert verdicts.",
+    "financial": "Financial loss",
+    "financialTr": "Parasal kayıp",
+    "financialDesc": "Margin, cost and profit leaks before you commit to a quote or contract.",
+    "material": "Material loss",
+    "materialTr": "Malzeme kaybı",
+    "materialDesc": "Scrap, waste and yield gaps that standard calculators ignore.",
+    "time": "Time loss",
+    "timeTr": "Zaman kaybı",
+    "timeDesc": "Setup, delay, rest windows and OEE-style efficiency exposure.",
+    "energy": "Energy loss",
+    "energyTr": "Enerji kaybı",
+    "energyDesc": "kWh, carbon and compliance buffers including CBAM-style cost risk."
   },
   "sectors": {
-    "title": "اختر من {count} قطاعًا نشطًا",
-    "subtitle": "تسع فئات — من CNC إلى الزراعة والطاقة والحياة اليومية.",
-    "viewAll": "عرض كل {count} قطاع →",
-    "browseByCategory": "تصفح حسب الفئة",
-    "startFree": "بدء فحص مجاني",
-    "viewPremium": "عرض المحلل المميز",
-    "free": "مجاني",
-    "premium": "مميز"
+    "title": "Choose from {count} active sectors",
+    "subtitle": "Nine industry categories — from CNC and construction to agriculture, energy and daily life tools. Free checks surface risk; premium analyzers deliver expert verdicts.",
+    "viewAll": "View all {count} industries →",
+    "browseByCategory": "Browse by category",
+    "startFree": "Start Free Margin Check",
+    "viewPremium": "View Premium Analyzer",
+    "free": "Free",
+    "premium": "Premium"
   },
   "pricing": {
-    "eyebrow": "الأسعار",
-    "title": "اختر كيف تحمي هامشك.",
-    "tagline": "المحللات المميزة تحوّل إشارات المخاطر إلى أسعار دنيا آمنة وتقارير قابلة للتصدير.",
+    "eyebrow": "Pricing",
+    "title": "Priced for teams priced out of enterprise software.",
+    "tagline": "Start with free calculators. Upgrade when you need hidden-loss diagnostics, benchmark models and export-ready decision reports.",
     "singleReportNote": "Single decision reports from $9 for one-off analysis.",
-    "roiCopy": "تجنب عرض واحد سيئ قد يغطي سنة كاملة من Pro.",
-    "sampleReport": "عرض تقرير نموذجي →",
-    "browsePremium": "تصفح المحللات المميزة →",
-    "startFree": "ابدأ بالأدوات المجانية →",
-    "availableNow": "متاح الآن",
-    "waitlist": "قائمة انتظار",
-    "free": "فحص مجاني",
+    "roiCopy": "One avoided bad quote can pay for a full year of Pro.",
+    "sampleReport": "View sample verdict report →",
+    "browsePremium": "Browse premium analyzers →",
+    "startFree": "Start with free tools →",
+    "availableNow": "Available now",
+    "waitlist": "Waitlist",
+    "free": "Free",
     "freePrice": "$0",
-    "freePeriod": "للأبد",
-    "freeDescription": "فحوصات يومية مع إشارات مخاطر مرئية — بدون حكم أو PDF.",
-    "freeFeatures": "حاسبات قطاعية|تحذيرات مخاطر|صفحات القطاع|لا سعر دنيا آمن",
-    "freeCta": "فحص هامش مجاني",
-    "single": "تقرير أداة واحدة",
+    "freePeriod": "forever",
+    "freeDescription": "For quick estimates.",
+    "freeFeatures": "Base calculators|Sample scenarios|Transparent assumptions|No card required",
+    "freeCta": "Run a Free Margin Check",
+    "single": "Single Tool Report",
     "singlePrice": "$9",
-    "singlePeriod": "تقرير واحد",
-    "singleDescription": "تشغيل مميز واحد مع حكم كامل — مثالي لقرار حاسم.",
-    "singleFeatures": "حكم مميز واحد|سعر دنيا آمن|تحليل تسرب الهامش|تقرير PDF",
-    "singleCta": "الحكم الكامل مقابل $9",
-    "pro": "Pro شهري",
-    "proPrice": "$19",
-    "proPeriod": "شهريًا",
-    "proDescription": "محللات مميزة غير محدودة في كل القطاعات مع تقارير محفوظة.",
-    "proFeatures": "كل المحللات|تقارير محفوظة|تصدير PDF|إلغاء في أي وقت",
-    "proCta": "ابدأ SectorCalc Pro",
-    "proBadge": "الأكثر شعبية",
-    "proAnnual": "Pro سنوي",
+    "singlePeriod": "one report",
+    "singleDescription": "One premium analyzer run with full verdict output — ideal for a single high-stakes decision.",
+    "singleFeatures": "One premium analyzer verdict|Minimum safe price where applicable|Margin leak breakdown|PDF-ready report for that run",
+    "singleCta": "Get Full Verdict for $9",
+    "pro": "Pro",
+    "proPrice": "$19/mo",
+    "proPeriod": "",
+    "proDescription": "For operators and owners who need decision reports.",
+    "proFeatures": "Premium analyzers|Hidden-loss diagnostics|Threshold checks|PDF / CSV export|Saved report outputs",
+    "proCta": "Start Pro report access",
+    "proBadge": "Most popular",
+    "proAnnual": "Pro Annual",
     "proAnnualPrice": "$149",
-    "proAnnualPeriod": "سنويًا",
-    "proAnnualDescription": "وصول Pro كامل سنويًا — أفضل قيمة للفرق.",
-    "proAnnualFeatures": "كل المحللات|تقارير محفوظة|PDF|أولوية onboarding",
-    "proAnnualCta": "ابدأ Pro سنوي",
-    "team": "فريق",
-    "teamPrice": "$49",
-    "teamPeriod": "شهريًا",
-    "teamDescription": "وصول متعدد المستخدمين للمقدّرين وقادة العمليات.",
-    "teamFeatures": "وصول مشترك|سجل تقارير الفريق|مقاعد admin (قريبًا)|تسعير حجم",
-    "teamCta": "ابدأ خطة الفريق",
+    "proAnnualPeriod": "per year",
+    "proAnnualDescription": "Full Pro access billed annually — best value for teams quoting weekly.",
+    "proAnnualFeatures": "All premium analyzers|Saved verdict reports|PDF export|Priority onboarding when available",
+    "proAnnualCta": "Start Pro Annual",
+    "team": "Team",
+    "teamPrice": "$49/mo",
+    "teamPeriod": "",
+    "teamDescription": "For teams and consultants.",
+    "teamFeatures": "Multi-user access|Shared report workflow|Custom templates|Priority support",
+    "teamCta": "Start Team Plan",
     "matrix": {
       "pageTitle": "Plan & Feature Matrix",
       "pageSubtitle": "Compare access tiers across the Industrial OS.",
@@ -130,25 +130,25 @@
     }
   },
   "checkout": {
-    "redirecting": "جاري التوجيه للدفع…",
-    "proActive": "SectorCalc Pro نشط على حسابك.",
-    "error": "تعذر بدء الدفع.",
-    "overlayTitle": "جاري التوجيه للدفع الآمن",
-    "overlayBody": "يرجى الانتظار — Stripe يفتح صفحة الدفع.",
-    "socialProof": "موثوق من أكثر من 12,000 مشغّل حول العالم"
+    "redirecting": "Redirecting to checkout…",
+    "proActive": "SectorCalc Pro is active on your account.",
+    "error": "Unable to start checkout.",
+    "overlayTitle": "Redirecting to secure checkout",
+    "overlayBody": "Please wait — Stripe is opening your payment page.",
+    "socialProof": "Trusted by 12,000+ operators worldwide"
   },
   "checkoutPages": {
     "successEyebrow": "Checkout",
-    "successTitle": "تم استلام الدفع.",
+    "successTitle": "Payment received.",
     "successText": "Your premium access is being prepared. If your report does not unlock immediately, refresh the page or contact support.",
     "successRefreshNote": "Payment confirmation received. Access is applied by our server — refresh in a few seconds if your report is still locked.",
     "successPrimaryCta": "Return to analyzer",
-    "successPremiumCta": "فتح التحليل المتقدم",
+    "successPremiumCta": "Open premium analyzers",
     "successSecondaryCta": "Go to pricing",
     "cancelEyebrow": "Checkout",
     "cancelTitle": "Checkout canceled.",
     "cancelText": "You can continue using free calculators or return to the premium analyzer when ready.",
-    "cancelPricingCta": "العودة إلى الأسعار",
+    "cancelPricingCta": "Return to pricing",
     "cancelReturnCta": "Return to analyzer",
     "cancelFreeCta": "View free calculators"
   },
@@ -157,37 +157,32 @@
       "eyebrow": "MarginCore Pilot · CNC Manufacturing"
     },
     "form": {
-      "title": "Job inputs",
+      "title": "Job variables",
       "setupTime": "Setup time (min)",
       "cycleTime": "Cycle time (min)",
       "quantity": "Quantity (units)",
-      "submit": "Run naive exposure check",
-      "subtitle": "Setup, cycle and quantity — naive machine-time exposure.",
-      "rateNote": "Naive machine cost uses ${rate}/hr until premium tooling and material are supplied."
+      "submit": "Run"
     },
     "result": {
-      "title": "Naive exposure",
-      "empty": "Enter inputs and run the check.",
-      "totalMinutes": "Total machine time",
+      "title": "Output",
+      "empty": "—",
+      "totalMinutes": "Total time",
       "machineHours": "Machine hours",
       "setupBurden": "Setup burden",
-      "naiveCost": "Naive machine cost"
+      "naiveCost": "Baseline"
     },
     "premium": {
-      "title": "Stochastic P90 verdict",
-      "cta": "Unlock Premium Verdict & Risk Report",
-      "loading": "Running MarginCore analysis…",
-      "signInRequired": "Sign in with Pro to unlock the premium verdict.",
-      "signInLink": "Sign in →",
-      "failed": "Premium verdict could not be generated.",
+      "title": "CNC Audit Engine",
+      "cta": "Run",
+      "loading": "…",
+      "signInRequired": "Sign in required.",
+      "signInLink": "Sign in",
+      "failed": "Run failed.",
       "verdictLabel": "Verdict",
       "naiveLabel": "Deterministic",
       "bufferLabel": "P90 buffer",
       "p90Label": "P90 safe",
-      "fullAnalyzerLink": "Open full CNC Quote Risk Analyzer →",
-      "eyebrow": "MarginCore Pro",
-      "body": "Server-side MarginCore analysis — requires SectorCalc Pro.",
-      "disclaimer": "Premium defaults tooling and material to zero."
+      "fullAnalyzerLink": "Open CNC Audit Engine →"
     },
     "phase2": {
       "label": "MarginCore · Phase 2",
@@ -196,45 +191,51 @@
     }
   },
   "freeTool": {
-    "riskScoreLabel": "درجة المخاطر",
+    "riskScoreLabel": "Risk score",
     "riskScoreAria": "Risk score: {score} percent",
-    "whatItMeans": "ماذا يعني هذا",
-    "premiumPreviewTitle": "في التقرير الكامل تحصل على:",
-    "premiumBadge": "مميز",
-    "urgencyBanner": "🔥 {count} تقريرًا مميزًا تم شراؤه هذا الأسبوع",
-    "premiumPreview1": "تفصيل تكلفة مفصل",
-    "premiumPreview2": "تحليل المتغيرات المخفية",
-    "premiumPreview3": "توصية خبير للعمل",
-    "premiumPreview4": "تصدير PDF + Excel",
-    "unlockVerdictTitle": "عرض الحكم الكامل",
-    "unlockVerdictBody": "سعر P90 الآمن وتحليل تسرب الهامش والإجراء الموصى به — غير متاح في المستوى المجاني.",
-    "unlockVerdictCta": "عرض الحكم",
-    "unlockVerdictLoading": "جارٍ التحقق من الوصول…"
+    "whatItMeans": "What this means",
+    "premiumPreviewTitle": "In the full report you get:",
+    "premiumBadge": "Premium",
+    "urgencyBanner": "🔥 {count} premium reports purchased this week",
+    "premiumPreview1": "Detailed cost breakdown",
+    "premiumPreview2": "Hidden variable analysis",
+    "premiumPreview3": "Expert action recommendation",
+    "premiumPreview4": "PDF + Excel export",
+    "unlockVerdictTitle": "Unlock full verdict",
+    "unlockVerdictBody": "See P90 safe price, margin leak breakdown and the recommended action — withheld from the free tier.",
+    "unlockVerdictCta": "Unlock full verdict",
+    "unlockVerdictLoading": "Checking access…"
   },
   "catalogExplorer": {
     "categories": {
-      "eyebrow": "Categories",
-      "title": "Find the right calculator category.",
-      "subtitle": "Choose the type of loss, measurement or decision you need first."
+      "eyebrow": "By function",
+      "title": "Find calculators by what you need to measure.",
+      "subtitle": "Choose a calculation type first — productivity, waste, cost, routing, energy, measurement or finance — then open the right free check or premium report.",
+      "metaTitle": "Calculators by Function — OEE, Scrap, Route, Energy",
+      "metaDescription": "Find SectorCalc tools by what you measure: OEE, scrap, waste, routing, calibration, energy, margin, finance and daily calculations."
     },
     "freeTools": {
       "eyebrow": "Free tools",
-      "title": "Free calculators by category.",
-      "subtitle": "Start with the calculation area you need, then open the tool."
+      "title": "أدوات حساب مجانية",
+      "subtitle": "تحقق سريعًا من التكلفة والمساحة والوقت والهدر والطاقة والمسارات والهامش. لا يلزم بطاقة."
     },
     "premiumTools": {
       "eyebrow": "Premium analyzers",
-      "title": "Decision reports by loss type.",
-      "subtitle": "Choose the decision area before opening the analyzer."
+      "title": "أدوات تحليل مميزة",
+      "subtitle": "حلّل بعمق مخاطر الهامش وأمان العروض والخسائر التشغيلية وانحراف التكلفة. استخدم النتيجة كملخص قرار.",
+      "metaTitle": "أدوات تحليل مميزة — ملخصات قرار",
+      "metaDescription": "تحليلات مميزة لمخاطر الهامش وأمان العروض والخسائر التشغيلية وانحراف التكلفة."
     },
     "industries": {
       "eyebrow": "Industries",
-      "title": "Explore calculators by sector.",
-      "subtitle": "Start from your industry, then choose the calculation or report."
+      "title": "أدوات حساب حسب القطاع",
+      "subtitle": "اختر قطاعك. اعرض الحاسبات المجانية وأدوات التحليل المميزة ذات الصلة في مكان واحد.",
+      "metaTitle": "Industry Calculator Packs — 27 Sectors",
+      "metaDescription": "27 sector packs with free checks and premium loss decision reports. Start from your industry workflow."
     },
     "labels": {
       "categories": {
-        "navLabel": "Browse by category",
+        "navLabel": "Browse by function",
         "countLabel": "{count, plural, one {# tool} other {# tools}}",
         "viewCategory": "View tools",
         "viewCategoryOpen": "Showing tools",
@@ -263,18 +264,86 @@
       }
     },
     "search": {
-      "label": "البحث في الفهرس",
+      "label": "Search catalog",
       "placeholder": {
-        "categories": "ابحث حسب الوظيفة أو القطاع أو اسم الأداة…",
-        "free-tools": "ابحث في الحاسبات المجانية…",
-        "premium-tools": "ابحث في محللات Premium…",
-        "industries": "ابحث في القطاعات أو الفئات أو الأدوات…",
-        "homepage": "ابحث في الحاسبات والمحللات…"
+        "categories": "Search by function, industry, or tool name…",
+        "free-tools": "ابحث عن حاسبة…",
+        "premium-tools": "ابحث عن تحليل مميز…",
+        "industries": "ابحث عن قطاع…",
+        "homepage": "Search calculators and analyzers…"
       },
-      "noResults": "لم يتم العثور على أدوات مطابقة.",
-      "moreResults": "+ {count} نتائج أخرى",
-      "badgeFree": "مجاني",
+      "noResults": "No matching tools found.",
+      "moreResults": "+ {count} more results",
+      "badgeFree": "Free",
       "badgePremium": "Premium"
+    },
+    "discoveryTabs": {
+      "all": "الكل",
+      "free-tools": {
+        "cost-margin": "التكلفة والهامش",
+        "scrap-oee": "المواد والهدر وOEE",
+        "energy-carbon": "الطاقة والكربون",
+        "routing-logistics": "المسار واللوجستيات",
+        "construction-field": "البناء والموقع",
+        "daily-practical": "عملي يومي"
+      },
+      "premium-tools": {
+        "pricing": "العروض والتسعير",
+        "loss": "الخسارة والهدر",
+        "operations": "العمليات والكفاءة",
+        "routing": "المسار واللوجستيات",
+        "energy": "الطاقة والكربون",
+        "construction": "البناء والمشاريع"
+      }
+    },
+    "discoveryCards": {
+      "ctaCalculate": "احسب",
+      "ctaOpenAnalysis": "افتح التحليل",
+      "ctaOpenSector": "افتح القطاع",
+      "freeCount": "{count} مجاني",
+      "premiumCount": "{count} مميز"
+    },
+    "discoveryFooter": {
+      "freeToolsLead": "هل تحتاج تحليلًا أعمق؟",
+      "freeToolsCta": "عرض الأدوات المميزة"
+    },
+    "functionCategories": {
+      "oee-productivity": {
+        "label": "OEE & Productivity",
+        "description": "Setup time, cycle time, machine rates and shop-floor throughput."
+      },
+      "scrap-waste": {
+        "label": "Scrap, Waste & Material Loss",
+        "description": "Scrap rate, material waste, yield loss and rework exposure."
+      },
+      "cost-margin": {
+        "label": "Cost, Margin & Profitability",
+        "description": "Margin, break-even, unit cost, recipe and menu profit checks."
+      },
+      "routing-logistics": {
+        "label": "Routing, Logistics & Fuel",
+        "description": "Route cost, fuel, freight, desi and delivery margin."
+      },
+      "energy-carbon": {
+        "label": "Energy, Carbon & Compliance",
+        "description": "kWh cost, peak load, carbon footprint and compliance exposure."
+      },
+      "measurement-units": {
+        "label": "Measurement, Calibration & Units",
+        "description": "Unit conversion, tolerance drift, calibration risk and statistics."
+      },
+      "finance-business": {
+        "label": "Finance & Business",
+        "description": "Loans, interest, VAT, salary cost and cash-flow gaps."
+      },
+      "construction-field": {
+        "label": "Construction & Field Estimates",
+        "description": "Concrete, roofing, paint, tile and project cost estimates."
+      },
+      "daily-practical": {
+        "label": "Daily Practical Calculators",
+        "description": "Everyday budget, travel, tip and date calculators."
+      }
     }
   },
   "freeTrafficCatalog": {
@@ -365,132 +434,132 @@
   },
   "contentAuthority": {
     "freeTool": {
-      "howItWorksTitle": "كيف تعمل هذه الآلة الحاسبة",
-      "descriptionTitle": "ماذا تفعل هذه الآلة الحاسبة",
-      "formulaTitle": "ملخص الصيغة",
-      "inputsTitle": "المدخلات المستخدمة",
-      "includesTitle": "ما يتضمنه الناتج",
-      "estimateMissesTitle": "ما تفوته هذه التقديرات",
-      "faqTitle": "الأسئلة الشائعة",
-      "faqUseTitle": "ما استخدام هذه الآلة الحاسبة؟",
-      "faqFreeTitle": "هل هذه الآلة الحاسبة مجانية؟",
-      "faqPremiumTitle": "متى أستخدم محللًا مميزًا؟",
-      "faqUseAnswer": "يوفر {title} تقديرًا سريعًا قائمًا على الصيغة من القيم التي تدخلها. استخدمه للتحقق قبل التسعير أو الطلب أو التخطيط.",
-      "faqFreeAnswer": "نعم. تعمل حاسبات SectorCalc المجانية في المتصفح دون تسجيل.",
-      "faqPremiumAnswer": "استخدم محللًا مميزًا عندما يؤثر التقدير على التسعير أو العمليات أو قرارات الإدارة وتحتاج إلى عوامل مخفية وعتبات وتقارير قابلة للتصدير.",
-      "relatedGuideTitle": "تعلّم كيف تعمل هذه الحسابات",
-      "relatedHubTitle": "قارن الحاسبات في هذه الفئة",
-      "relatedPremiumTitle": "المحلل المميز المرتبط",
-      "relatedPremiumCta": "عرض المحلل المميز المرتبط"
+      "howItWorksTitle": "How this calculator works",
+      "descriptionTitle": "What this calculator does",
+      "formulaTitle": "Formula summary",
+      "inputsTitle": "Inputs used",
+      "includesTitle": "What the result includes",
+      "estimateMissesTitle": "What this estimate misses",
+      "faqTitle": "FAQ",
+      "faqUseTitle": "What is this calculator used for?",
+      "faqFreeTitle": "Is this calculator free?",
+      "faqPremiumTitle": "When should I use a premium analyzer?",
+      "faqUseAnswer": "{title} gives a quick formula-based estimate from the values you enter. Use it for sanity checks before quoting, ordering or planning.",
+      "faqFreeAnswer": "Yes. SectorCalc free calculators run in your browser with no sign-up required.",
+      "faqPremiumAnswer": "Use a premium analyzer when the estimate affects pricing, operations or management decisions and you need hidden drivers, thresholds and export-ready reports.",
+      "relatedGuideTitle": "Learn how this calculation works",
+      "relatedHubTitle": "Compare calculators in this category",
+      "relatedPremiumTitle": "Related premium analyzer",
+      "relatedPremiumCta": "View the related premium analyzer"
     },
     "premium": {
-      "whenToUseTitle": "متى تستخدم هذا المحلل",
-      "whenToUseBody": "استخدم هذا المحلل عندما يؤثر الناتج على التسعير أو العمليات أو السعة أو الجدولة أو تقارير الإدارة.",
-      "measuresTitle": "ما يقيسه هذا المحلل",
-      "promiseTitle": "ما الذي تحصل عليه",
-      "decidesTitle": "ما القرار الذي يساعد هذا المحلل في اتخاذه",
-      "reportTitle": "ما يتضمنه التقرير",
-      "previewExcludesTitle": "ما لا تتضمنه المعاينة",
-      "previewExcludesBody": "تُظهر المعاينة المجانية هيكلًا نموذجيًا فقط. تتطلب فحوصات العتبات الكاملة والعوامل المخفية والإجراءات المقترحة وPDF أو CSV قابلاً للتصدير وصولًا مدفوعًا.",
-      "assumptionsTitle": "الافتراضات المستخدمة",
-      "faqTitle": "الأسئلة الشائعة",
-      "faqMeasureTitle": "ماذا يقيس هذا المحلل؟",
-      "faqReportTitle": "ما المدرج في تقرير القرار المميز؟",
-      "faqErpTitle": "هل يحل محل ERP أو المشورة المهنية؟",
-      "faqMeasureAnswer": "يقيس {name} التعرض للخسائر المخفية وعوامل التشغيل من مدخلاتك مع تفسير العتبات مقابل النطاقات المحددة.",
-      "faqReportAnswer": "يتضمن تقرير القرار ملخصًا تنفيذيًا وتفصيل العوامل المخفية وفحص العتبات وإجراءات مقترحة وملاحظات افتراضات وإخراجًا قابلًا للتصدير مع الوصول المدفوع.",
-      "faqErpAnswer": "لا. SectorCalc طبقة حاسبات وتقارير قرار. لا يحل محل ERP أو أنظمة المحاسبة أو المشورة المالية أو القانونية أو الهندسية المهنية.",
-      "relatedGuideTitle": "دليل السلطة",
-      "relatedFreeTitle": "فتح الحاسبة المجانية المرتبطة",
-      "relatedHubTitle": "قارن الحاسبات في هذه الفئة",
-      "relatedIndustryTitle": "تصفح حاسبات القطاع",
-      "pricingCta": "فتح تقرير القرار الكامل"
+      "whenToUseTitle": "When to use this analyzer",
+      "whenToUseBody": "Use this analyzer when the result affects pricing, operations, capacity, scheduling or management reporting.",
+      "measuresTitle": "What this analyzer measures",
+      "promiseTitle": "What you get",
+      "decidesTitle": "What this analyzer helps decide",
+      "reportTitle": "What the report includes",
+      "previewExcludesTitle": "What the preview does not include",
+      "previewExcludesBody": "The free preview shows sample structure only. Full threshold checks, hidden driver breakdown, suggested actions and export-ready PDF or CSV require paid access.",
+      "assumptionsTitle": "Assumptions used",
+      "faqTitle": "FAQ",
+      "faqMeasureTitle": "What does this analyzer measure?",
+      "faqReportTitle": "What is included in the premium decision report?",
+      "faqErpTitle": "Is this a replacement for ERP or professional advice?",
+      "faqMeasureAnswer": "{name} measures hidden loss exposure and operating drivers from the inputs you provide, with threshold interpretation against stated bands.",
+      "faqReportAnswer": "The decision report includes executive summary, hidden driver breakdown, threshold check, suggested actions, assumption notes and export-ready output on paid access.",
+      "faqErpAnswer": "No. SectorCalc is a calculator and decision-report layer. It does not replace ERP, accounting systems or professional financial, legal or engineering advice.",
+      "relatedGuideTitle": "Authority guide",
+      "relatedFreeTitle": "Open the related free calculator",
+      "relatedHubTitle": "Compare calculators in this category",
+      "relatedIndustryTitle": "Browse industry calculators",
+      "pricingCta": "Unlock the full decision report"
     }
   },
   "trust": {
     "stripLabel": "Trust and security",
-    "refund": "سياسة استرداد 7 أيام",
-    "ssl": "دفع آمن SSL 256-bit",
-    "instant": "وصول فوري",
-    "support": "دعم بالبريد الإلكتروني"
+    "refund": "7-day refund policy",
+    "ssl": "256-bit SSL secure checkout",
+    "instant": "Instant access",
+    "support": "Email support"
   },
   "purchaseSuccess": {
-    "proUpsellTitle": "هل تريد وصولًا غير محدود لكل الأدوات؟",
-    "proUpsellBody": "27 قطاعًا، محللات مميزة غير محدودة وتقارير محفوظة — Pro من $19/شهر.",
-    "proUpsellCta": "الترقية إلى Pro →"
+    "proUpsellTitle": "Want unlimited access to every tool?",
+    "proUpsellBody": "27 sectors, unlimited premium analyzers and saved reports — Pro from $19/month.",
+    "proUpsellCta": "Upgrade to Pro →"
   },
   "footer": {
-    "tagline": "حاسبات وأدوات قياس وتقارير قرار حسب القطاع.",
-    "trustNote": "لا حاجة لـ ERP. بيانات عملك لا تُباع."
+    "tagline": "Sector-specific calculators, measurement tools and decision reports.",
+    "trustNote": "No ERP required. Business data is not sold."
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "محرك القرار الصناعي",
-    "productTitle": "المنتج",
+    "tagline": "Industrial Decision Engine",
+    "productTitle": "PRODUCT",
     "product": {
-      "freeChecks": "فحوصات مجانية",
-      "premiumTools": "أدوات متقدمة",
-      "industries": "القطاعات",
-      "pricing": "الأسعار",
-      "categories": "الفئات"
+      "freeChecks": "Free Checks",
+      "premiumTools": "Premium Tools",
+      "industries": "Industries",
+      "pricing": "Pricing",
+      "categories": "Categories"
     },
-    "sectorsTitle": "القطاعات",
-    "allSectors": "جميع القطاعات الـ27",
+    "sectorsTitle": "SECTORS",
+    "allSectors": "All 27 Sectors",
     "sectors": {
-      "manufacturing": "التصنيع",
-      "logistics": "اللوجستيات",
-      "construction": "الإنشاء"
+      "manufacturing": "Manufacturing",
+      "logistics": "Logistics",
+      "construction": "Construction"
     },
-    "companyTitle": "الشركة",
+    "companyTitle": "COMPANY",
     "company": {
-      "about": "من نحن",
-      "manifesto": "البيان",
-      "caseStudies": "دراسات الحالة",
-      "howItWorks": "كيف يعمل",
-      "methodology": "المنهجية",
-      "blog": "المدونة"
+      "about": "About",
+      "manifesto": "Manifesto",
+      "caseStudies": "Case Studies",
+      "howItWorks": "How It Works",
+      "methodology": "Methodology",
+      "blog": "Blog"
     },
-    "trustLegalTitle": "الثقة والقانون",
+    "trustLegalTitle": "TRUST & LEGAL",
     "compliance": {
-      "privacy": "سياسة الخصوصية",
-      "terms": "شروط الخدمة",
-      "disclaimer": "إخلاء المسؤولية"
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "disclaimer": "Disclaimer"
     },
-    "authorityTitle": "السلطة",
+    "authorityTitle": "AUTHORITY",
     "authority": {
-      "trust": "الثقة والتحقق",
-      "vault": "خزنة البيانات الشخصية →",
-      "investorDemo": "عرض المستثمر",
-      "operatingSystem": "نظام التشغيل"
+      "trust": "Calculation Transparency",
+      "vault": "Personal Data Vault →",
+      "investorDemo": "Investor Demo",
+      "operatingSystem": "Operating System"
     },
     "trustTrace": {
-      "title": "Trust Trace",
-      "link": "تحقق من أي تقرير",
-      "subtext": "تحقق من صحة التقارير على صفحة التحقق العامة لدينا."
+      "title": "ملخص الحساب",
+      "link": "Verify any report",
+      "subtext": "راجع ملخص الحساب المحفوظ والافتراضات الرئيسية."
     },
     "trustBar": {
       "iso": "ISO 27001 Ready",
       "sla": "SLA: 99.9% Uptime",
-      "kvkk": "متوافق مع KVKK",
-      "gdpr": "جاهز لـ GDPR"
+      "kvkk": "KVKK Compliant",
+      "gdpr": "GDPR Ready"
     },
     "newsletter": {
-      "title": "رؤى صناعية أسبوعية",
+      "title": "Weekly industry insights",
       "placeholder": "you@company.com",
-      "button": "اشترك",
-      "note": "طلب متصفح فقط — يفتح بريدك الإلكتروني. لا تخزين دون موافقة."
+      "button": "Subscribe",
+      "note": "Browser-only request — opens your email client. No list stored without consent."
     },
     "social": {
-      "linkedin": "SectorCalc على LinkedIn",
-      "twitter": "SectorCalc على X",
-      "github": "SectorCalc على GitHub"
+      "linkedin": "SectorCalc on LinkedIn",
+      "twitter": "SectorCalc on X",
+      "github": "SectorCalc on GitHub"
     },
-    "copyright": "© {year} {site}. جميع الحقوق محفوظة.",
-    "copyrightManifesto": "© {year} SectorCalc. محرك القرار الصناعي. جميع الحقوق محفوظة."
+    "copyright": "© {year} {site}. All rights reserved.",
+    "copyrightManifesto": "© {year} SectorCalc. Industrial Decision Engine. All rights reserved."
   },
   "region": {
     "label": "Region",
-    "auto": "Auto (by language)",
+    "auto": "Auto",
     "global": "Global · USD",
     "turkey": "Turkey · TRY",
     "germany": "Germany · EUR",
@@ -500,7 +569,7 @@
     "followsLanguage": "Follows language → {region}"
   },
   "locale": {
-    "label": "اللغة",
+    "label": "Language",
     "en": "English",
     "tr": "Türkçe",
     "es": "Español",
@@ -513,7 +582,7 @@
     "loading": "Loading..."
   },
   "sectorCard": {
-    "calculate": "Calculate",
+    "calculate": "Analyze",
     "badge": {
       "free": "Free",
       "premium": "Premium",
@@ -553,16 +622,16 @@
       "eyebrow": "Step 1",
       "title": "Run a free sector check",
       "subtitle": "{count} sector quick checks with 3–5 inputs. See visible risk in your browser — no account, no safe price, no final verdict.",
-      "cta": "فحص هامش مجاني",
+      "cta": "Run a Free Margin Check",
       "cardLabel": "Free check output",
       "cardRisk": "Risk signal: MEDIUM",
       "cardBody": "Visible setup and labor exposure — full safe price withheld on free tier."
     },
     "premiumStep": {
       "eyebrow": "Step 2",
-      "title": "الحكم الكامل",
+      "title": "Unlock the full verdict",
       "subtitle": "Premium analyzers add minimum safe price, margin leak drivers, suggested action and PDF export — the decision layer operators need before quoting.",
-      "cta": "أدوات التحليل المتقدمة",
+      "cta": "View Premium Analyzers",
       "cardEyebrow": "Premium verdict",
       "cardTitle": "Minimum safe price + action",
       "cardBody": "Margin leak breakdown, accept / reprice verdict and exportable PDF report."
@@ -632,8 +701,8 @@
       "eyebrow": "Get started",
       "title": "Start calculating for your sector",
       "subtitle": "Begin with free tools, upgrade to premium reports when you need them.",
-      "primary": "أدوات مجانية",
-      "secondary": "عرض تقرير نموذجي"
+      "primary": "Explore Free Tools",
+      "secondary": "View Sample Verdict Report"
     }
   },
   "homeDashboard": {
@@ -644,7 +713,7 @@
     "hero": {
       "statusLine": "MarginCore · Risk Terminal",
       "title": "MarginCore: Professional Risk Analytics for SMEs.",
-      "subtitle": "Deterministic cost exposure, P90 safe pricing and sensitivity matrices — server-side stochastic engine for operators who quote on margin.",
+      "subtitle": "Deterministic exposure, P90 safe bid limits and sensitivity matrices — why margin leaks, not what to charge.",
       "primaryCta": "Access Premium Verdicts",
       "secondaryCta": "View Sample Report",
       "metrics": {
@@ -669,7 +738,7 @@
     "grid": {
       "eyebrow": "Sector coverage",
       "title": "Executive summaries by vertical",
-      "subtitle": "Grouped risk modules — free pre-checks and premium verdict analyzers.",
+      "subtitle": "Grouped risk modules — free pre-checks and premium verdict analyzers. No icons, no noise: read the exposure, open the module.",
       "sectorCount": "{count} modules",
       "freeLabel": "Pre-check",
       "proLabel": "Verdict"
@@ -682,9 +751,9 @@
     "activity": {
       "eyebrow": "Activity feed",
       "title": "Recent reports",
-      "subtitle": "Sample activity stream — sign in to sync saved verdict reports.",
+      "subtitle": "Sample activity stream — sign in to sync saved verdict reports from your account.",
       "viewAll": "Open report archive",
-      "disclaimer": "Illustrative rows only. Live report history requires SectorCalc Pro.",
+      "disclaimer": "Illustrative rows only. Live report history requires SectorCalc Pro and a signed-in session.",
       "columns": {
         "id": "Report ID",
         "sector": "Sector",
@@ -700,158 +769,218 @@
     }
   },
   "assistant": {
-    "title": "مساعد SectorCalc",
-    "subtitle": "اعثر على الأداة المناسبة وافهم نتائجك.",
-    "launcher": "اسأل SectorCalc",
-    "placeholder": "اسأل عن الأدوات أو المدخلات أو النتائج…",
-    "send": "إرسال",
-    "loading": "جارٍ التفكير…",
-    "error": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
-    "disclaimer": "إرشاد فقط. لا تقدّم SectorCalc استشارة مالية أو قانونية أو هندسية، والمساعد لا يجري أي حسابات.",
+    "title": "SectorCalc Assistant",
+    "subtitle": "Find the right tool and understand your results.",
+    "launcher": "Ask SectorCalc",
+    "placeholder": "Ask about tools, inputs, or results…",
+    "send": "Send",
+    "loading": "Thinking…",
+    "error": "Something went wrong. Please try again.",
+    "disclaimer": "Guidance only. SectorCalc does not provide financial, legal, or engineering advice, and the assistant never runs calculations.",
     "quickActions": {
-      "findTool": "أي أداة أحتاج؟",
-      "explainInputs": "ما المدخلات المطلوبة؟",
-      "approvedReport": "التقارير المعتمدة وتتبّع الثقة",
-      "enterprise": "استخدام المؤسسات والفِرق"
+      "findTool": "Which tool do I need?",
+      "explainInputs": "What inputs are required?",
+      "approvedReport": "ملخصات قرار متميزة وملخص الحساب",
+      "enterprise": "Enterprise & team usage",
+      "decisionSummary": "ما هو ملخص القرار المتميز؟"
     },
     "guardrail": {
-      "formula": "لا أستطيع إجراء الحسابات أو مشاركة الصيغ. افتح الأداة المناسبة وستحسب النتيجة لك.",
-      "privateData": "لا أستطيع الوصول إلى البيانات الخاصة أو الحسابات أو المفاتيح السرية، ولا يمكنني تجاوز أي قيد."
+      "formula": "I can't run calculations or share formulas. Open the relevant tool and it will compute the result for you.",
+      "privateData": "I can't access private data, accounts, or secrets, and I can't bypass any gate."
     },
     "reply": {
-      "findTool": "إليك أدوات تطابق ما وصفته:",
-      "explainTool": "تحوّل هذه الأداة مدخلات مهمتك إلى حكم واضح مع عوامل المخاطر الكامنة وراءه:",
-      "inputs": "تُدخل التكاليف والكميات والمعدلات الأساسية لمهمتك. تُبقى الحقول المطلوبة عند الحد الأدنى، وتزيد الحقول الاختيارية من دقة النتيجة.",
-      "results": "النتيجة حكم مع المقاييس وعوامل المخاطر الكامنة وراءه، حتى ترى سبب وصوله إلى ما هو عليه وما الذي ينبغي تعديله.",
-      "approvedReports": "يمكن حفظ النتائج المتميزة كتقارير معتمدة يمكنك مشاركتها، ويمكن التحقق من كل منها بشكل مستقل.",
-      "trustTrace": "يسجّل تتبّع الثقة المدخلات والافتراضات والتحقق، حتى يتمكن العملاء أو البنوك أو المدققون من فحص النتيجة.",
-      "regionalUnits": "تدعم SectorCalc الوحدات المترية والإمبراطورية والإقليمية، وتعرض التحويلات التي استخدمتها.",
-      "benchmarks": "تعرض SectorCalc سياق معايير إقليمية استرشادية بجانب نتيجتك — للتوجيه، وليست أرقامًا رسمية.",
-      "pricing": "يمكنك رؤية الخطط وما تتضمنه كل منها في صفحة الأسعار:",
-      "enterprise": "لاستخدام الفِرق وحوكمة التقارير والحزم والمشتريات، اطّلع على صفحة المؤسسات:",
-      "about": "SectorCalc منصة عالمية للحساب الصناعي ودعم القرار تكشف الخسائر الخفية وتحوّل الحساب إلى قرارات موثوقة:",
-      "blockedFormula": "لا أستطيع إجراء الحسابات أو مشاركة الصيغ. افتح الأداة المناسبة وستحسب النتيجة لك.",
-      "blockedPrivate": "لا أستطيع الوصول إلى البيانات الخاصة أو الحسابات أو المفاتيح السرية، ولا يمكنني تجاوز أي قيد.",
-      "fallback": "يمكنني مساعدتك في العثور على الأداة المناسبة وفهم المدخلات والنتائج والتنقل في SectorCalc. جرّب أحد هذه:"
+      "findTool": "Here are tools that match what you described:",
+      "explainTool": "This tool turns your job inputs into a clear verdict with the risk drivers behind it:",
+      "inputs": "You enter the core costs, quantities, and rates for your job. Required fields are kept minimal, and optional fields sharpen the result.",
+      "results": "The result is a verdict with the metrics and risk drivers behind it, so you can see why it lands where it does and what to adjust.",
+      "approvedReports": "يمكن حفظ نتائج Premium كملخصات قرار قابلة للتصدير لمراجعة الفريق داخليًا.",
+      "trustTrace": "يسجل ملخص الحساب المدخلات والافتراضات وخطوات التحقق لتوضيح كيفية إنتاج النتيجة.",
+      "regionalUnits": "SectorCalc supports metric, imperial, and regional units, and shows the conversions it used.",
+      "benchmarks": "SectorCalc shows indicative regional benchmark context next to your result — for orientation, not official figures.",
+      "pricing": "You can see the plans and what each includes on the pricing page:",
+      "enterprise": "For team usage, reporting governance, bundles, and procurement, see the enterprise page:",
+      "about": "SectorCalc is a global industrial calculation and decision-support platform that exposes hidden losses and turns computation into reliable decisions:",
+      "blockedFormula": "I can't run calculations or share formulas. Open the relevant tool and it will compute the result for you.",
+      "blockedPrivate": "I can't access private data, accounts, or secrets, and I can't bypass any gate.",
+      "fallback": "I can help you find the right tool, understand inputs and results, and navigate SectorCalc. Try one of these:"
     }
   },
   "premiumSeo": {
-    "eyebrow": "دليل الأداة المتميزة",
-    "metaTitle": "{tool} | دليل التسعير والهامش والمخاطر | SectorCalc",
-    "metaDescription": "كيف تعمل {tool}، ولمن هي، وما الذي تُدخله، وكيف تقرأ النتيجة. دعم قرار للتسعير ومخاطر الهامش من SectorCalc.",
-    "h1": "{tool}: سعّر المهمة واحمِ الهامش",
-    "intro": "تساعدك {tool} على اختبار المهمة قبل الالتزام بسعر. تحوّل تكاليفك وكمياتك ومعدلاتك إلى قراءة واضحة للهامش والمخاطر، حتى تكتشف العوامل الخفية التي تستنزف الربح بهدوء وتقرر بثقة بدلاً من التخمين في العرض.",
-    "ctaLabel": "افتح {tool}",
-    "problemTitle": "المشكلة التي تحلّها",
-    "problem": "تخسر معظم المهام هامشها قبل الفاتورة بوقت طويل، عندما لا تُحتسب أعمال الإعداد وإعادة العمل والتجاوزات والبنود المسعّرة بأقل من قيمتها قبل إرسال العرض. تجعل {tool} هذه العوامل مرئية حتى لا تفاجئك.",
-    "helpTitle": "كيف تساعد {tool}",
-    "help": "تطبّق محرك الحساب الحتمي في SectorCalc على مدخلاتك، ثم تُبرز العوامل الأكثر تأثيرًا في النتيجة. تحصل على قراءة منظّمة يمكنك الدفاع عنها، لا رقمًا من صندوق أسود.",
-    "whoTitle": "من ينبغي أن يستخدمها",
-    "who": "المشغّلون والمقدِّرون والملاك والمديرون الذين يسعّرون الأعمال أو يراجعون العروض أو يحتاجون إلى أساس متّسق عبر الفريق هم الأكثر استفادة من {tool}.",
-    "inputsTitle": "ما الذي ستُدخله",
-    "inputs": "تُدخل التكاليف والكميات والمعدلات والافتراضات الأساسية الخاصة بمهمتك. تُبقى الحقول المطلوبة عند الحد الأدنى، وتزيد الحقول الاختيارية من دقة النتيجة عند توفر البيانات.",
-    "outputsTitle": "ماذا تعني النتيجة",
-    "outputs": "تُرجع {tool} حكمًا واضحًا مع المقاييس وعوامل المخاطر الكامنة وراءه، حتى ترى ليس الرقم فحسب بل سبب وصوله إلى ما هو عليه وما الذي ينبغي تعديله.",
-    "trustTitle": "التقارير المعتمدة وتتبّع الثقة",
-    "trust": "يمكن حفظ النتائج المتميزة كتقارير معتمدة مع أثر تتبّع الثقة للمدخلات والافتراضات والتحقق، حتى يتمكن العملاء والبنوك والمدققون من التحقق من العمل بشكل مستقل.",
-    "faqTitle": "الأسئلة الشائعة",
-    "relatedTitle": "أدوات متميزة ذات صلة",
+    "eyebrow": "Premium tool guide",
+    "metaTitle": "{tool} | Pricing, Margin & Risk Guide | SectorCalc",
+    "metaDescription": "How the {tool} works, who it is for, what to enter, and how to read the result. Pricing and margin-risk decision support from SectorCalc.",
+    "h1": "{tool}: price the job and protect the margin",
+    "intro": "The {tool} helps you pressure-test a job before you commit to a price. It turns your costs, quantities, and rates into a clear margin and risk read, so you can spot the hidden drivers that quietly erode profit and decide with confidence instead of guessing on the bid.",
+    "ctaLabel": "Open the {tool}",
+    "problemTitle": "The problem it solves",
+    "problem": "Most jobs lose margin long before the invoice, when setup, rework, overruns, and underpriced line items are never added up before the quote goes out. The {tool} makes those drivers visible so they stop surprising you.",
+    "helpTitle": "How the {tool} helps",
+    "help": "It applies SectorCalc's deterministic calculation engine to your inputs, then highlights the factors that move the result the most. You get a structured read you can defend, not a black-box number.",
+    "whoTitle": "Who should use it",
+    "who": "Operators, estimators, owners, and managers who price work, review bids, or need a consistent baseline across a team will get the most from the {tool}.",
+    "inputsTitle": "What you will enter",
+    "inputs": "You provide the core costs, quantities, rates, and assumptions specific to your job. Required fields are kept minimal, and optional fields sharpen the result when you have the data.",
+    "outputsTitle": "What the result means",
+    "outputs": "The {tool} returns a clear verdict with the metrics and risk drivers behind it, so you can see not just the number but why it lands where it does and what to adjust.",
+    "trustTitle": "ملخصات قرار متميزة وملخص الحساب",
+    "trust": "يمكن أن تتضمن نتائج Premium ملخص حساب محفوظًا كملخص قرار قابل للتصدير.",
+    "faqTitle": "Frequently asked questions",
+    "relatedTitle": "Related premium tools",
     "faq": [
-      { "q": "هل {tool} مجانية؟", "a": "يمكنك معاينة النهج مجانًا، بينما يكون الحكم الكامل والمقاييس والتقرير المعتمد ضمن SectorCalc Pro." },
-      { "q": "هل تحل {tool} محل الاستشارة المهنية؟", "a": "لا. إنها محاكاة تقنية وأداة دعم قرار، وليست استشارة مالية أو قانونية أو هندسية. تحقق من النتائج قبل اتخاذ قرارات الأعمال." },
-      { "q": "ما مدى دقة النتيجة؟", "a": "تعكس النتائج المدخلات التي تقدّمها ومحرك SectorCalc الحتمي. المدخلات الأفضل تنتج قراءة أدق وأكثر قابلية للدفاع." },
-      { "q": "هل يمكنني مشاركة النتيجة؟", "a": "نعم. يمكن تصدير النتائج المتميزة كتقارير معتمدة مع أثر تتبّع ثقة قابل للتحقق." },
-      { "q": "لأي قطاع {tool}؟", "a": "إنها مضبوطة على أنماط التسعير والهامش في قطاعها، وتعمل جنبًا إلى جنب مع بقية مجموعة أدوات SectorCalc لـ 27 قطاعًا." }
+      {
+        "q": "Is the {tool} free?",
+        "a": "يمكنك معاينة النهج مجانًا؛ الحكم الكامل والمقاييس وملخص القرار المتميز مشمول في SectorCalc Pro."
+      },
+      {
+        "q": "Does the {tool} replace professional advice?",
+        "a": "No. It is a technical simulation and decision-support tool, not financial, legal, or engineering advice. Verify results before business decisions."
+      },
+      {
+        "q": "How accurate is the result?",
+        "a": "Results reflect the inputs you provide and SectorCalc's deterministic engine. Better inputs produce a sharper, more defensible read."
+      },
+      {
+        "q": "Can I share the result?",
+        "a": "نعم. يمكن تصدير نتائج Premium كملخصات قرار مع ملخص الحساب."
+      },
+      {
+        "q": "Which sector is the {tool} for?",
+        "a": "It is tuned for its sector's pricing and margin patterns, and it sits alongside the rest of SectorCalc's 27-sector toolset."
+      }
     ]
   },
   "enterprise": {
-    "metaTitle": "SectorCalc للأعمال والمؤسسات | حساب موثوق ودعم للقرار",
-    "metaDescription": "تغليف SectorCalc للأعمال والمؤسسات: استخدام الفريق، التقارير المعتمدة، تتبّع الثقة، حزم القطاعات، ودعم قرار ملائم للمشتريات.",
-    "title": "حساب موثوق ودعم للقرار للفِرق والمؤسسات.",
-    "subtitle": "تجمع SectorCalc حاسبات القطاعات والتقارير المعتمدة وتتبّع الثقة في سير عمل يمكن لفِرقك وعملائك ومدققيك الاعتماد عليه.",
-    "demoCta": "اطلب عرضًا توضيحيًا",
-    "contactCta": "تواصل مع المبيعات",
-    "hero": { "eyebrow": "الأعمال والمؤسسات" },
+    "metaTitle": "SectorCalc for Business & Enterprise | Verified Calculation & Decision Support",
+    "metaDescription": "حزم Business وEnterprise من SectorCalc: استخدام الفريق، ملخصات قرار متميزة، ملخص الحساب، وحزم القطاعات.",
+    "title": "Verified calculation and decision support for teams and organizations.",
+    "subtitle": "يجمع SectorCalc حاسبات القطاعات وملخصات القرار المتميزة وملخص الحساب لفرقك.",
+    "demoCta": "Request a demo",
+    "contactCta": "Contact sales",
+    "hero": {
+      "eyebrow": "Business & Enterprise"
+    },
     "businessPlan": {
-      "badge": "الأعمال",
-      "title": "الأعمال",
-      "body": "للمشغّلين والفِرق الذين يحتاجون إلى حسابات قابلة للتكرار وتقارير معتمدة ووحدات إقليمية وسياق مرجعي وسير عمل جاهز للميدان.",
-      "features": ["محلّلات متميزة عبر 27 قطاعًا", "تقارير معتمدة مع تتبّع الثقة", "وحدات إقليمية ومعايير استرشادية", "تقارير محفوظة ووضع ميداني"],
-      "availability": "متاح الآن"
+      "badge": "Business",
+      "title": "Business",
+      "body": "للفرق التي تحتاج حسابات متكررة وملخصات قرار متميزة وسياق معياري.",
+      "features": [
+        "Premium analyzers across 27 sectors",
+        "ملخصات قرار متميزة مع ملخص الحساب",
+        "Regional units and indicative benchmarks",
+        "Saved reports and field mode"
+      ],
+      "availability": "Available now"
     },
     "enterprisePlan": {
-      "badge": "المؤسسات",
-      "title": "المؤسسات",
-      "body": "للمؤسسات التي تحتاج إلى سير عمل حسابي موثوق واستخدام للفريق وحوكمة للتقارير وقابلية للتدقيق وحزم قطاعية مخصّصة ودعم قرار ملائم للمشتريات.",
-      "features": ["استخدام الفريق والمؤسسة", "حوكمة التقارير وقابلية التدقيق", "حزم قطاعية مخصّصة", "بدء ملائم للمشتريات"],
-      "availability": "نقاش مؤسسي — تواصل معنا"
+      "badge": "Enterprise",
+      "title": "Enterprise",
+      "body": "For organizations that need verified calculation workflows, team usage, reporting governance, auditability, custom industry bundles, and procurement-friendly decision support.",
+      "features": [
+        "Team and organization usage",
+        "Reporting governance and auditability",
+        "Custom industry bundles",
+        "Procurement-friendly onboarding"
+      ],
+      "availability": "Enterprise discussion — contact us"
     },
-    "bundles": { "title": "حزم القطاعات", "body": "اجمع المحلّلات الأكثر استخدامًا في قطاعك ضمن حزمة مركّزة، حتى تصل الفِرق إلى الأداة الصحيحة دون تشتيت." },
-    "approvedReports": { "title": "التقارير المعتمدة", "body": "حوّل النتائج إلى تقارير قابلة للمشاركة والتحقق يمكن لعملائك والبنوك والمدققين فحصها بشكل مستقل." },
-    "trustTrace": { "title": "تتبّع الثقة", "body": "يمكن لكل نتيجة أن تحمل أثرًا شفافًا للمدخلات والافتراضات والتحقق، بحيث تصمد القرارات أمام المراجعة." },
-    "team": { "title": "الفريق والمؤسسة", "body": "اجمع المقدِّرين وفِرق الميدان والمديرين على أساس حسابي واحد ومتّسق." },
-    "security": { "title": "الأمان ومعالجة البيانات", "body": "تُعالَج المدخلات المجانية في المتصفح ما لم تُحفَظ. تُعالَج بيانات الحساب وفق سياسة الخصوصية، ولا نضع المفاتيح السرية في الواجهة الأمامية أبدًا." },
-    "demo": { "title": "لنتحدث عن نشرك للمنتج", "body": "أخبرنا بقطاعاتك وحجم فريقك، وسنرشدك عبر الحزم والتقارير المعتمدة والنقاش المؤسسي.", "cta": "اطلب عرضًا توضيحيًا", "pricingLink": "اعرض الأسعار" },
+    "bundles": {
+      "title": "Industry bundles",
+      "body": "Group the analyzers your sector uses most into a focused bundle, so teams reach the right tool without noise."
+    },
+    "approvedReports": {
+      "title": "ملخصات قرار متميزة",
+      "body": "حوّل النتائج إلى ملخصات قرار قابلة للمشاركة للمراجعة الداخلية."
+    },
+    "trustTrace": {
+      "title": "ملخص الحساب",
+      "body": "Every result can carry a transparent trace of inputs, assumptions, and validation, so decisions stand up to review."
+    },
+    "team": {
+      "title": "Team & organization",
+      "body": "Bring estimators, field crews, and managers onto one consistent calculation baseline."
+    },
+    "security": {
+      "title": "Security & data handling",
+      "body": "Free inputs are processed in the browser unless saved. Account data is handled under our privacy policy, and we never place secrets in the frontend."
+    },
+    "demo": {
+      "title": "Talk to us about your rollout",
+      "body": "أخبرنا بقطاعاتك وحجم فريقك — سنعرض الحزم وملخصات القرار المتميزة.",
+      "cta": "Request a demo",
+      "pricingLink": "View pricing"
+    },
     "faq": {
-      "title": "الأسئلة الشائعة للمؤسسات",
+      "title": "Enterprise FAQ",
       "items": [
-        { "q": "ما الفرق بين الأعمال والمؤسسات؟", "a": "تغطي خطة الأعمال المحلّلات المتميزة والتقارير المعتمدة وسير العمل الميداني للفِرق. وتضيف خطة المؤسسات استخدام المؤسسة وحوكمة التقارير والحزم المخصّصة والبدء الملائم للمشتريات." },
-        { "q": "هل يمكننا استخدام SectorCalc عبر قطاعات متعددة؟", "a": "نعم. تغطي SectorCalc 27 قطاعًا، وتجمع حزم القطاعات المحلّلات الأكثر استخدامًا لدى فِرقك." },
-        { "q": "هل النتائج قابلة للتدقيق؟", "a": "تحمل التقارير المعتمدة أثر تتبّع الثقة للمدخلات والافتراضات والتحقق الذي يمكن لأطراف ثالثة التحقق منه." },
-        { "q": "كيف نبدأ؟", "a": "اطلب عرضًا توضيحيًا وسنناقش قطاعاتك وحجم فريقك ونشرك للمنتج. أسعار الخطط الفردية موجودة في صفحة الأسعار." }
+        {
+          "q": "How is Business different from Enterprise?",
+          "a": "Business يغطي المحللات المتميزة وملخصات القرار المتميزة. Enterprise يضيف الحوكمة والحزم."
+        },
+        {
+          "q": "Can we use SectorCalc across multiple sectors?",
+          "a": "Yes. SectorCalc covers 27 sectors, and industry bundles group the analyzers your teams use most."
+        },
+        {
+          "q": "Are results auditable?",
+          "a": "تتضمن ملخصات القرار المتميزة ملخص حساب للمراجعة الداخلية."
+        },
+        {
+          "q": "How do we get started?",
+          "a": "Request a demo and we will discuss your sectors, team size, and rollout. Pricing for individual plans is on the pricing page."
+        }
       ]
     }
   },
   "homeAbout": {
-    "title": "من نحن",
-    "paragraph1": "غالبًا ما يتسرّب الربح من الشركات عبر تكاليف غير ملحوظة، لا من المبيعات. فالتسعير الخاطئ وأخطاء الحساب والهدر وفقدان الكفاءة وضعف انضباط التسعير تؤدي بمرور الوقت إلى تآكل الهوامش بصمت.",
-    "paragraph2": "صُمِّم SectorCalc لجعل هذه الخسائر الخفية قابلة للقياس. فهو يرتقي بقرارات التكلفة والعروض والكفاءة والمخاطر إلى أساس أسرع وأكثر شفافية وموثوقية.",
-    "beliefTitle": "إيماننا الأساسي",
-    "beliefSubtitle": "الدقة في الحساب هي أساس الأداء الموثوق.",
-    "highlightPrimary": "منصّة تكشف الخسائر الخفية،",
-    "highlightSecondary": "وتحوّل الحساب إلى دعم قرار موثوق.",
-    "cta": "اكتشف SectorCalc عن قرب",
-    "ctaAria": "اقرأ قصة SectorCalc كاملة"
+    "title": "About Us",
+    "paragraph1": "Profit often leaks from businesses through unnoticed costs, not sales. Incorrect pricing, calculation errors, waste, efficiency loss, and weak quoting discipline silently erode margins over time.",
+    "paragraph2": "SectorCalc is engineered to make these invisible losses quantifiable. It elevates cost, proposal, efficiency, and risk decisions onto a faster, more transparent, and reliable baseline.",
+    "beliefTitle": "Our Foundational Belief",
+    "beliefSubtitle": "Precision in calculation is the foundation of reliable performance.",
+    "highlightPrimary": "A platform to expose hidden losses,",
+    "highlightSecondary": "and transform computation into reliable decision support.",
+    "cta": "START YOUR OPTIMIZATION JOURNEY",
+    "ctaAria": "Read the full SectorCalc story"
   },
   "aboutPage": {
-    "seoTitle": "عن SectorCalc | الحساب الصناعي ودعم القرار",
-    "seoDescription": "يساعد SectorCalc الشركات على كشف الخسائر الخفية وقياس المخاطر التشغيلية وتحويل الحسابات الصناعية إلى دعم قرار موثوق.",
+    "seoTitle": "About SectorCalc | Industrial Calculation & Decision Support",
+    "seoDescription": "SectorCalc helps businesses expose hidden losses, quantify operational risks, and turn industrial calculations into reliable decision support.",
     "hero": {
-      "eyebrow": "عن SectorCalc",
-      "title": "نحوّل الحساب إلى قرارات موثوقة.",
-      "lead": "SectorCalc منصّة عالمية للحساب الصناعي ودعم القرار تساعد الشركات على كشف الخسائر الخفية واتخاذ إجراءات بشأنها بثقة."
+      "eyebrow": "About SectorCalc",
+      "title": "Computation, turned into reliable decisions.",
+      "lead": "SectorCalc is a global industrial calculation and decision support platform that helps businesses expose hidden losses and act on them with confidence."
     },
     "why": {
-      "title": "لماذا وُجد SectorCalc",
-      "body": "معظم الخسائر التشغيلية لا تظهر في الفاتورة. فهي تختبئ في التسعير والهدر ووقت الإعداد وانخفاض الكفاءة وضعف انضباط التسعير، وتأكل الهوامش بهدوء لسنوات."
+      "title": "Why SectorCalc exists",
+      "body": "Most operational losses never appear on an invoice. They hide in pricing, scrap, setup time, efficiency drops, and weak quoting discipline, and they erode margins quietly for years."
     },
     "what": {
-      "title": "ما هو SectorCalc",
-      "body": "مجموعة مركّزة من حاسبات القطاعات وتقارير القرار تحوّل المدخلات التشغيلية الخام إلى أرقام واضحة وقابلة للدفاع عنها، لا جدول بيانات آخر ولا نظام ERP ثقيل."
+      "title": "What SectorCalc is",
+      "body": "A focused suite of sector calculators and decision reports that turn raw operational inputs into clear, defensible numbers, not another spreadsheet or a heavyweight ERP."
     },
     "problem": {
-      "title": "المشكلة التي نحلّها",
-      "body": "تتخذ الفرق قرارات التكلفة والعروض والمخاطر بمعلومات ناقصة. يجعل SectorCalc غير المرئي قابلًا للقياس، فتستند القرارات إلى الأدلة بدل التخمين."
+      "title": "The problem we solve",
+      "body": "Teams make cost, quote, and risk decisions on incomplete information. SectorCalc makes the invisible measurable, so decisions rest on evidence instead of guesswork."
     },
     "how": {
-      "title": "كيف يعمل نظامنا",
-      "body": "تقدّم المدخلات التي تعرفها؛ ويحدّد النظام المطلوب، ويشغّل حسابات حتمية محكومة، ويتحقق من كل نتيجة مقابل الثوابت والمعايير قبل عرضها."
+      "title": "How our system works",
+      "body": "You provide the inputs you know; the system resolves what is required, runs governed deterministic calculations, and validates every result against invariants and benchmarks before showing it."
     },
     "different": {
-      "title": "ما الذي يميّزنا",
-      "body": "تحمل كل نتيجة أثر ثقة شفافًا ومعايير إقليمية إرشادية وافتراضات موثّقة؛ حساب يمكنك تقديمه للبنوك والعملاء والمدققين."
+      "title": "What makes us different",
+      "body": "كل نتيجة تحمل ملخص حساب شفافًا ومعايير إقليمية استرشادية وافتراضات موثقة يمكن لفريقك مراجعتها قبل اتخاذ القرار."
     },
     "who": {
-      "title": "لمن صُمِّم",
-      "body": "لأصحاب الأعمال والمقدّرين وفرق الميدان والمستشارين الذين يحتاجون إجابات سريعة وموثوقة دون توظيف فريق تسعير كامل أو نشر برمجيات مؤسسية."
+      "title": "Who it is built for",
+      "body": "Owner-operators, estimators, field teams, and consultants who need fast, reliable answers without hiring a full pricing desk or deploying enterprise software."
     },
     "building": {
-      "title": "ما الذي نبنيه",
-      "body": "معيار عالمي لذكاء الحساب الخاص بكل قطاع، يتوسّع عبر الصناعات مع إبقاء كل معادلة محكومة وقابلة للتدقيق وجديرة بالثقة."
+      "title": "What we are building",
+      "body": "A global standard for sector-specific calculation intelligence, expanding across industries while keeping every formula governed, auditable, and trustworthy."
     },
     "manifesto": {
-      "primary": "منصّة تكشف الخسائر الخفية،",
-      "secondary": "وتحوّل الحساب إلى دعم قرار موثوق."
+      "primary": "A platform to expose hidden losses,",
+      "secondary": "and transform computation into reliable decision support."
     }
   },
   "homepageHybrid": {
@@ -866,7 +995,7 @@
       "subtitleLine2": "Turn sector-specific inputs into calculators, diagnostics and decision reports — without ERP complexity.",
       "supporting": "Built for businesses priced out of ERP.",
       "ctaPrimary": "Find your loss area",
-      "ctaSecondary": "View free calculators"
+      "ctaSecondary": "View premium verdicts"
     },
     "references": {
       "eyebrow": "Industrial intelligence standards",
@@ -880,7 +1009,7 @@
       "body": "We turn sector-specific operational knowledge into calculators and decision reports from $19/month: OEE, scrap, routing, carbon, and tolerance. Every result includes a calculation trace showing how numbers were derived."
     },
     "positioning": {
-      "title": "ERP-level calculation logic without ERP complexity.",
+      "title": "Sector-specific calculation logic without enterprise complexity.",
       "text": "Most teams still calculate loss, waste, cost and efficiency in spreadsheets, notebooks or guesswork. SectorCalc gives them focused calculators and decision reports they can use immediately."
     },
     "scenarios": {
@@ -1136,7 +1265,7 @@
       "body": "Run a free sector check, then unlock a Single Verdict or SectorCalc Pro to save reports.",
       "bodyWithCredits": "Run your unlocked premium analyzer and save the verdict report here.",
       "ctaFree": "Explore free tools",
-      "ctaPremium": "فتح التحليل المتقدم",
+      "ctaPremium": "Open premium analyzers",
       "viewReport": "View report"
     },
     "purchases": {
@@ -1147,7 +1276,7 @@
       "eyebrow": "Sign in required",
       "title": "Sign in to view saved reports",
       "body": "Saved verdict reports are linked to your SectorCalc account.",
-      "cta": "تسجيل الدخول"
+      "cta": "Sign in"
     }
   },
   "betaPartner": {
@@ -1164,7 +1293,7 @@
       "title": "Who should apply",
       "item1": "Operators tracking scrap, setup, route, energy or margin loss",
       "item2": "Consultants preparing client-facing sector assessments",
-      "item3": "Early-stage businesses without ERP-level tooling",
+      "item3": "فرق صغيرة تحتاج إلى حسابات واضحة قبل اعتماد برامج معقدة",
       "item4": "Teams willing to give structured feedback on calculator fit"
     },
     "data": {
@@ -1222,256 +1351,257 @@
     }
   },
   "premiumDecisionReport": {
-    "documentLabel": "تقرير قرار متقدم",
-    "reportEyebrow": "تقرير القرار",
-    "decisionDesk": "مكتب القرار",
-    "runPrompt": "أدخل القيم وشغّل التحليل.",
-    "ledgerEntries": "إدخالات الدفتر",
-    "runAnalysis": "تشغيل التحليل",
-    "whatThisMeans": "ماذا يعني هذا",
-    "hiddenDriversTitle": "العوامل الخفية وراء النتيجة",
-    "hiddenDriversIntro": "هذه المخرجات الثانوية تشرح ما يرفع أو يخفض النتيجة الرئيسية.",
-    "thresholdTitle": "فحص الحدود",
-    "suggestedActionTitle": "الإجراء المقترح",
-    "actionImmediate": "فوري",
-    "actionMonitoring": "مراقبة",
-    "actionDecision": "قرار",
-    "assumptionsTitle": "الافتراضات المستخدمة",
-    "legalTitle": "إشعار قانوني",
-    "exportTitle": "مخرجات التقرير المتقدم",
-    "previewCta": "معاينة التقرير",
-    "bufferedExposure": "التعرض المخزّن",
+    "documentLabel": "Premium decision report",
+    "reportEyebrow": "Decision report",
+    "decisionDesk": "Decision desk",
+    "runPrompt": "Enter ledger entries and run the analysis.",
+    "ledgerEntries": "Ledger entries",
+    "runAnalysis": "Run analysis",
+    "whatThisMeans": "What this means",
+    "hiddenDriversTitle": "Hidden drivers behind the result",
+    "hiddenDriversIntro": "These secondary outputs explain what is pushing the main result up or down.",
+    "thresholdTitle": "Threshold check",
+    "suggestedActionTitle": "Suggested action",
+    "actionImmediate": "Immediate",
+    "actionMonitoring": "Monitor",
+    "actionDecision": "Decision",
+    "assumptionsTitle": "Assumptions used",
+    "legalTitle": "Legal note",
+    "exportTitle": "Premium report output",
+    "previewCta": "Preview report",
+    "bufferedExposure": "Buffered exposure",
     "status": {
-      "Critical": "حرج",
-      "Warning": "تحذير",
-      "Acceptable": "مقبول"
+      "Critical": "Critical",
+      "Warning": "Warning",
+      "Acceptable": "Acceptable"
     },
     "export": {
-      "title": "مخرجات التقرير المتقدم",
-      "sectionExecutive": "الملخص التنفيذي",
-      "sectionDrivers": "العوامل الخفية",
-      "sectionThreshold": "فحص الحدود",
-      "sectionAction": "الإجراء المقترح",
-      "sectionAssumptions": "الافتراضات",
-      "sectionReady": "PDF/CSV جاهز",
-      "printPdf": "طباعة / حفظ PDF",
-      "downloadCsv": "تنزيل CSV",
-      "copySummary": "نسخ ملخص التقرير",
-      "copied": "تم النسخ",
-      "copyFailed": "فشل النسخ",
-      "openPrintPage": "فتح صفحة الطباعة",
-      "backToReport": "العودة إلى التقرير"
+      "title": "Premium report output",
+      "sectionExecutive": "Executive summary",
+      "sectionDrivers": "Hidden drivers",
+      "sectionThreshold": "Threshold check",
+      "sectionAction": "Suggested action",
+      "sectionAssumptions": "Assumptions",
+      "sectionReady": "PDF/CSV ready",
+      "printPdf": "Print / Save as PDF",
+      "downloadCsv": "Download CSV",
+      "copySummary": "Copy report summary",
+      "copied": "Copied",
+      "copyFailed": "Copy failed",
+      "openPrintPage": "Open print page",
+      "backToReport": "Back to report"
     },
     "locked": {
-      "title": "فتح تقرير القرار الكامل",
-      "text": "المعاينة تعرض التعرض الرئيسي. التقرير الكامل يعرض العوامل الخفية وتفسير الحدود والإجراءات المقترحة والمخرجات القابلة للتصدير.",
-      "bulletBreakdown": "تفصيل كامل للخسائر",
-      "bulletThreshold": "تفسير الحدود",
-      "bulletAction": "خطة إجراء مقترحة",
-      "bulletExport": "تصدير PDF / CSV",
-      "bulletSaved": "تقرير محفوظ",
-      "unlockCta": "فتح التقرير",
-      "pricingCta": "الأسعار",
-      "valueLine": "الأفضل عندما تؤثر النتيجة على التسعير أو العمليات أو قرارات الإدارة.",
-      "exportLocked": "التصدير مشمول في تقرير القرار الكامل.",
-      "unlockPrint": "افتح للطباعة / حفظ PDF",
-      "unlockCsv": "افتح لتنزيل CSV",
-      "samplePrintNote": "معاينة نموذجية — افتح التقرير الكامل للطباعة دون تسمية نموذج."
+      "title": "Unlock the full decision report",
+      "text": "The preview shows the headline exposure. The full report shows the hidden drivers, threshold interpretation, suggested actions and export-ready output.",
+      "bulletBreakdown": "Full loss breakdown",
+      "bulletThreshold": "Threshold interpretation",
+      "bulletAction": "Suggested action plan",
+      "bulletExport": "PDF / CSV export",
+      "bulletSaved": "Saved report output",
+      "unlockCta": "Unlock full report",
+      "pricingCta": "View pricing",
+      "valueLine": "Best when the result affects pricing, operations or management decisions.",
+      "exportLocked": "Export is included with the full decision report.",
+      "unlockPrint": "Unlock to print / save PDF",
+      "unlockCsv": "Unlock to download CSV",
+      "samplePrintNote": "Sample preview — unlock the full report to print without the sample label."
     },
     "decisionValue": {
-      "title": "قيمة القرار",
-      "intro": "ما يساعدك هذا التقرير على تقريره",
-      "bullet1": "تحديد عامل الخسارة الخفية الرئيسي",
-      "bullet2": "المقارنة مع حدود التحذير والحرج",
-      "bullet3": "تحويل النتيجة إلى إجراء عملي",
-      "bullet4": "تصدير التقرير للإدارة أو العميل"
+      "title": "Decision value",
+      "intro": "What this report helps you decide",
+      "bullet1": "Identify the main hidden-loss driver",
+      "bullet2": "Compare against warning and critical thresholds",
+      "bullet3": "Turn the result into a practical action",
+      "bullet4": "Export the report for management or client review"
     }
   },
   "navigation": {
-    "calculators": "الحاسبات",
-    "industries": "القطاعات",
-    "caseStudies": "دراسات الحالة",
-    "pricing": "الأسعار",
-    "resources": "الموارد",
-    "login": "تسجيل الدخول",
-    "signUp": "إنشاء حساب",
-    "getPro": "احصل على PRO",
-    "tools": "حاسبة",
-    "account": "الحساب",
-    "freeTools": "حاسبة مجانية",
-    "premiumTools": "أداة تحليل متقدمة",
-    "reports": "تقرير القرار"
+    "calculators": "Calculators",
+    "industries": "Industries",
+    "caseStudies": "Case Studies",
+    "pricing": "Pricing",
+    "resources": "Resources",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "getPro": "GET PRO",
+    "tools": "Tools",
+    "account": "Account",
+    "freeTools": "Free calculator",
+    "premiumTools": "Premium analyzer",
+    "reports": "Decision report"
   },
   "homepage": {
-    "headline": "قِس الخسائر غير المرئية وتعرّض الهامش والمخاطر التشغيلية بأدوات قطاعية",
-    "primaryCta": "ابدأ مجانًا",
-    "secondaryCta": "أدوات مجانية"
+    "headline": "Measure hidden loss across your sector",
+    "primaryCta": "Start free",
+    "secondaryCta": "View free tools"
   },
   "freeTools": {
-    "title": "حاسبات قطاعية مجانية",
-    "metaTitle": "حاسبات قطاعية مجانية | SectorCalc",
-    "calculate": "احسب"
+    "title": "Free Sector Calculators",
+    "metaTitle": "Free Sector Calculators | SectorCalc",
+    "calculate": "Calculate now"
   },
   "premiumTools": {
-    "title": "أداة تحليل متقدمة",
-    "openAnalyzer": "فتح التحليل"
+    "title": "Premium analyzer",
+    "openAnalyzer": "Open analyzer",
+    "lockedTrustTrace": "ملخص الحساب ميزة Premium Pro."
   },
   "categories": {
-    "title": "حسب الفئة",
-    "viewAll": "جميع الفئات"
+    "title": "Browse by category",
+    "viewAll": "View all categories"
   },
   "industries": {
-    "title": "حسب القطاع",
-    "viewAll": "اختر القطاع"
+    "title": "Explore by industry",
+    "viewAll": "Choose sector"
   },
   "calculator": {
-    "calculate": "احسب",
-    "awaiting": "أدخل القيم لعرض النتيجة",
-    "validationRequired": "يرجى اختيار قيمة.",
-    "validationNumber": "أدخل رقمًا صالحًا."
+    "calculate": "Calculate now",
+    "awaiting": "Enter values to see your result",
+    "validationRequired": "Please select a value.",
+    "validationNumber": "Enter a valid number."
   },
   "premiumReport": {
-    "executiveSummary": "الملخص التنفيذي",
-    "mainExposure": "التعرض الرئيسي",
-    "hiddenDrivers": "العوامل الخفية",
-    "thresholdCheck": "فحص الحدود",
-    "suggestedActions": "الإجراءات المقترحة",
-    "assumptions": "الافتراضات",
-    "exportReady": "تقرير جاهز للتصدير",
-    "legalNote": "إشعار قانوني"
+    "executiveSummary": "Executive summary",
+    "mainExposure": "Main exposure",
+    "hiddenDrivers": "Hidden drivers",
+    "thresholdCheck": "Threshold check",
+    "suggestedActions": "Suggested actions",
+    "assumptions": "Assumptions",
+    "exportReady": "Export-ready report",
+    "legalNote": "Legal note"
   },
   "export": {
-    "downloadCsv": "تنزيل CSV",
-    "printReport": "طباعة / PDF",
-    "copySummary": "نسخ الملخص"
+    "downloadCsv": "Download CSV",
+    "printReport": "Print report",
+    "copySummary": "Copy summary"
   },
   "legal": {
-    "disclaimer": "هذه النتيجة تقدير فني يعتمد على القيم المدخلة. لا يُغني عن استشارة مالية أو قانونية أو طبية أو هندسية.",
-    "premiumDisclaimer": "هذا التقرير أداة دعم قرار. لا يُغني عن استشارة مالية أو قانونية أو طبية أو هندسية.",
-    "reportNote": "للمرجع التشغيلي فقط — تحقق من الافتراضات قبل اعتماد الأسعار أو العقود."
+    "disclaimer": "This result is a technical estimate based on your inputs. It does not replace financial, legal, medical or engineering advice.",
+    "premiumDisclaimer": "This report is a decision-support simulation. It does not replace financial, legal, medical or engineering advice.",
+    "reportNote": "For operational reference only — verify assumptions before committing to pricing or contracts."
   },
   "errors": {
-    "calculationFailed": "تعذر حساب النتيجة. يرجى مراجعة القيم المدخلة والمحاولة مرة أخرى.",
-    "invalidInput": "قيمة واحدة أو أكثر غير صالحة. راجع الحقول المميزة.",
-    "networkError": "فشل الاتصال. تحقق من الشبكة وحاول مرة أخرى.",
-    "accessDenied": "يلزم وصول متقدم لهذا التقرير.",
-    "notFound": "تعذر العثور على الصفحة أو الأداة.",
-    "generic": "حدث خطأ. يرجى المحاولة مرة أخرى."
+    "calculationFailed": "We could not calculate this result. Check the inputs and try again.",
+    "invalidInput": "One or more values are invalid. Please review the highlighted fields.",
+    "networkError": "Connection failed. Check your network and try again.",
+    "accessDenied": "You need premium access for this report.",
+    "notFound": "This page or tool could not be found.",
+    "generic": "Something went wrong. Please try again."
   },
   "seo": {
-    "homeTitle": "SectorCalc — حاسبات قطاعية وتقارير قرار",
-    "homeDescription": "قِس الخسائر غير المرئية وتعرّض الهامش والمخاطر التشغيلية بأدوات قطاعية — دون تعقيد ERP.",
-    "freeToolsTitle": "حاسبات قطاعية مجانية | SectorCalc",
-    "freeToolsDescription": "حاسبات مجانية للتكلفة والقياس والطاقة وقرارات الأعمال. بدون تسجيل.",
-    "pricingTitle": "الأسعار | SectorCalc",
-    "pricingDescription": "حاسبات مجانية وتقارير متقدمة — تقرير واحد من 9$، Pro من 19$/شهر.",
-    "premiumToolsTitle": "أدوات تحليل متقدمة | SectorCalc",
-    "premiumToolsDescription": "تشخيص الخسائر وفحص الحدود وتقارير جاهزة للتصدير للفرق التشغيلية."
+    "homeTitle": "SectorCalc — Sector calculators and decision reports",
+    "homeDescription": "Measure hidden loss, margin exposure and operational risk with sector-specific calculators — without ERP complexity.",
+    "freeToolsTitle": "Free Sector Calculators | SectorCalc",
+    "freeToolsDescription": "Free browser calculators for cost, measurement, energy and business decisions. No sign-up required.",
+    "pricingTitle": "Pricing | SectorCalc",
+    "pricingDescription": "Free calculators and premium decision reports — single reports from $9, Pro from $19/month.",
+    "premiumToolsTitle": "Premium Analyzers | SectorCalc",
+    "premiumToolsDescription": "Hidden-loss diagnostics, threshold checks and export-ready decision reports for operational teams."
   },
   "campaign": {
     "homepageStrip": {
-      "title": "ابدأ بدليل قطاعي",
-      "lead": "اختر صفحة حملة للتصنيع أو الإنشاء أو اللوجستيات أو الطاقة."
+      "title": "Start with a sector guide",
+      "lead": "Pick a campaign landing page for manufacturing, construction, logistics or energy."
     },
     "seoHub": {
-      "freeCalculators": "حاسبات مجانية",
-      "premiumAnalyzers": "أدوات تحليل متقدمة",
-      "viewPricing": "عرض الأسعار"
+      "freeCalculators": "Free calculators",
+      "premiumAnalyzers": "Premium analyzers",
+      "viewPricing": "View pricing"
     },
     "clusters": {
-      "manufacturing-hidden-loss": "خسائر التصنيع الخفية",
-      "construction-cost-overrun": "تجاوز تكلفة الإنشاء",
-      "logistics-route-cost": "تكلفة مسار اللوجستيات",
-      "restaurant-food-margin": "هامش الطعام في المطاعم",
-      "energy-carbon-exposure": "تعرض الطاقة والكربون",
-      "agriculture-yield-loss": "فقدان المحصول الزراعي",
-      "business-finance-calculators": "حاسبات الأعمال المالية",
-      "unit-conversion-traffic": "تحويل الوحدات"
+      "manufacturing-hidden-loss": "Manufacturing Hidden Loss",
+      "construction-cost-overrun": "Construction Cost Overrun",
+      "logistics-route-cost": "Logistics Route Cost",
+      "restaurant-food-margin": "Restaurant Food Margin",
+      "energy-carbon-exposure": "Energy & Carbon Exposure",
+      "agriculture-yield-loss": "Agriculture Yield Loss",
+      "business-finance-calculators": "Business Finance Calculators",
+      "unit-conversion-traffic": "Unit Conversion Traffic"
     }
   },
   "industryPage": {
-    "whoItsForLabel": "لمن هذه الأداة؟",
-    "decisionLabel": "ما القرار الذي تساعد عليه؟",
-    "freeCalculatorHeading": "أداة حساب مجانية",
-    "freeCalculatorNote": "فحص سريع فقط — بدون حد أدنى للسعر الآمن أو حكم قبول/رفض.",
-    "openTool": "افتح {tool}",
-    "premiumHeading": "أداة التحليل المتقدمة",
-    "startPro": "ابدأ مع SectorCalc Pro",
-    "relatedHeading": "أدوات تحليل متقدمة ذات صلة",
-    "relatedNote": "تشخيصات الخسارة الخفية مع فحوص العتبات وإجراءات مقترحة وتقارير جاهزة للتصدير.",
-    "openAnalyzer": "افتح أداة التحليل ←",
-    "viewAll": "عرض جميع أدوات التحليل ←",
-    "additionalHeading": "أدوات تحليل إضافية",
-    "additionalNote": "أدوات قرار ذات صلة على خارطة طريق SectorCalc لهذا القطاع.",
-    "allIndustries": "جميع القطاعات",
-    "freeCalculatorLink": "أداة حساب مجانية",
-    "premiumAnalyzerLink": "أداة التحليل المتقدمة",
-    "proPricing": "أسعار SectorCalc Pro",
-    "account": "الحساب"
+    "whoItsForLabel": "Who it is for:",
+    "decisionLabel": "What decision it helps with:",
+    "freeCalculatorHeading": "Free calculator",
+    "freeCalculatorNote": "Quick check only — no minimum safe price or accept/reject verdict.",
+    "openTool": "Open {tool}",
+    "premiumHeading": "Premium analyzer",
+    "startPro": "Start SectorCalc Pro",
+    "relatedHeading": "Related premium analyzers",
+    "relatedNote": "Hidden-loss diagnostics with threshold checks, suggested actions and export-ready reports.",
+    "openAnalyzer": "Open analyzer →",
+    "viewAll": "View all analyzers →",
+    "additionalHeading": "Additional analyzers",
+    "additionalNote": "Related decision tools on the SectorCalc roadmap for this sector.",
+    "allIndustries": "All industries",
+    "freeCalculatorLink": "Free calculator",
+    "premiumAnalyzerLink": "Premium analyzer",
+    "proPricing": "SectorCalc Pro pricing",
+    "account": "Account"
   },
   "premiumAccess": {
-    "previewEyebrow": "معاينة عامة",
-    "publicPreviewTitle": "جرّب المحلّل قبل الاشتراك",
-    "publicPreviewDescription": "أدخل مدخلات المشروع، وتحقق من النموذج، وشغّل تحليل المعاينة. التصدير والتقارير المحفوظة وTrust Trace يتطلب SectorCalc Pro.",
-    "signedInPreviewTitle": "وضع المعاينة — Pro يفتح التقارير الكاملة",
-    "signedInPreviewDescription": "يمكنك تشغيل المحلّل ومراجعة حكم المعاينة. تصدير PDF والسجل المحفوظ وTrust Trace يتطلب خطة Pro نشطة أو شراء تقرير واحد.",
-    "signIn": "تسجيل الدخول",
-    "getPro": "احصل على Pro",
-    "lockedExport": "تصدير PDF وجداول البيانات متاح في خطط Pro.",
-    "lockedReportHistory": "سجل التقارير المحفوظة يتطلب حساب Pro مسجّل الدخول.",
-    "lockedTrustTrace": "Trust Trace وختم التحقق من ميزات التدقيق الحصرية لـ Pro.",
-    "fullReportRequiresPro": "التقرير الكامل القابل للتصدير يتطلب SectorCalc Pro.",
-    "panelTitle": "تسجيل الدخول إلى SectorCalc Pro",
-    "panelDescription": "سجّل الدخول عبر Google للوصول إلى أدوات التحليل المتقدمة أو لمتابعة الدفع. تسجيل دخول المشرف منفصل في الأعلى.",
-    "signInButton": "المتابعة عبر Google",
-    "signingIn": "جارٍ تسجيل الدخول…",
+    "previewEyebrow": "Public preview",
+    "publicPreviewTitle": "Try this analyzer before you subscribe",
+    "publicPreviewDescription": "Enter your job inputs, validate the form and run a preview analysis. Export, saved reports and ملخص الحساب require SectorCalc Pro.",
+    "signedInPreviewTitle": "Preview mode — Pro unlocks full reports",
+    "signedInPreviewDescription": "You can run the analyzer and review the preview verdict. PDF export, saved history and ملخص الحساب require an active Pro plan or single-report purchase.",
+    "signIn": "Sign in",
+    "getPro": "Get Pro",
+    "lockedExport": "PDF and spreadsheet export are available on Pro plans.",
+    "lockedReportHistory": "Saved report history requires a signed-in Pro account.",
+    "lockedTrustTrace": "ملخص الحساب ميزة Premium Pro.",
+    "fullReportRequiresPro": "Full exportable report requires SectorCalc Pro.",
+    "panelTitle": "SectorCalc Pro sign-in",
+    "panelDescription": "Sign in with Google to access premium analyzers or continue checkout. Admin sign-in is separate above.",
+    "signInButton": "Continue with Google",
+    "signingIn": "Signing in…",
     "signInErrors": {
-      "cancelled": "تم إلغاء تسجيل الدخول.",
-      "unauthorized-domain": "هذا النطاق غير مصرّح به لتسجيل الدخول عبر Google. استخدم sectorcalc.com أو أضف النطاق في Firebase Console → Authentication → Settings → Authorized domains.",
-      "popup-blocked": "تم حظر النافذة المنبثقة. تمت محاولة تسجيل الدخول بالتحويل — اسمح بالنوافذ المنبثقة أو حاول مرة أخرى.",
-      "network": "خطأ في الشبكة أثناء تسجيل الدخول. تحقق من اتصالك وحاول مرة أخرى.",
-      "not-configured": "تسجيل الدخول غير متاح لأن Firebase Auth غير مُعدّ في هذه البيئة.",
-      "generic": "فشل تسجيل الدخول. حاول مرة أخرى أو استخدم متصفحاً آخر."
+      "cancelled": "Sign-in was cancelled.",
+      "unauthorized-domain": "This domain is not authorized for Google sign-in. Use sectorcalc.com or add the domain in Firebase Console → Authentication → Settings → Authorized domains.",
+      "popup-blocked": "Popup was blocked. Redirect sign-in was attempted — allow popups or try again.",
+      "network": "Network error during sign-in. Check your connection and try again.",
+      "not-configured": "Sign-in is unavailable because Firebase Auth is not configured in this environment.",
+      "generic": "Sign-in failed. Try again or use a different browser."
     }
   },
   "smartForm": {
     "mode": {
-      "simple": "بسيط",
-      "advanced": "متقدم"
+      "simple": "Simple",
+      "advanced": "Advanced"
     },
     "actions": {
-      "calculate": "تشغيل التحليل",
-      "fixMissing": "إكمال الحقول المطلوبة",
-      "showAdvanced": "إظهار الحقول المتقدمة",
-      "hideAdvanced": "إخفاء الحقول المتقدمة"
+      "calculate": "Run analysis",
+      "fixMissing": "Complete required fields",
+      "showAdvanced": "Show advanced fields",
+      "hideAdvanced": "Hide advanced fields"
     },
     "validation": {
-      "required": "هذا الحقل مطلوب.",
-      "invalidNumber": "أدخل رقمًا صالحًا.",
-      "min": "يجب أن تكون القيمة {min} على الأقل.",
-      "max": "يجب ألا تتجاوز القيمة {max}.",
-      "missingInputs": "{count, plural, one {# حقل مطلوب مفقود} other {# حقول مطلوبة مفقودة}}",
-      "invalidCombination": "لا يمكن لهذه المدخلات إنتاج تحليل صالح."
+      "required": "This field is required.",
+      "invalidNumber": "Enter a valid number.",
+      "min": "Value must be at least {min}.",
+      "max": "Value must be at most {max}.",
+      "missingInputs": "{count, plural, one {# required field is missing} other {# required fields are missing}}",
+      "invalidCombination": "These inputs cannot produce a valid analysis."
     },
     "scenario": {
-      "label": "سيناريو العمل",
-      "placeholder": "اختر السيناريو"
+      "label": "Job scenario",
+      "placeholder": "Select scenario"
     },
     "notices": {
-      "requiredInputReason": "كل حقل يقابل مدخلًا تعاقديًا موثقًا لهذا المحلل.",
-      "calculationBlocked": "أكمل الحقول المطلوبة قبل تشغيل التحليل.",
-      "validatedInputSet": "مجموعة المدخلات جاهزة — شغّل التحليل بعد تأكيد القيم."
+      "requiredInputReason": "Each field maps to a verified contract input for this analyzer.",
+      "calculationBlocked": "Complete required fields before running the analysis.",
+      "validatedInputSet": "Input set ready — run analysis when values are confirmed."
     },
     "tools": {
       "cncQuoteRiskAnalyzer": {
         "scenarios": {
           "quick_quote_check": {
-            "label": "فحص عرض سريع",
-            "description": "فحص أرضي سريع بمدخلات الوقت والمعدل الأساسية."
+            "label": "Quick quote check",
+            "description": "Fast floor check with core time and rate inputs."
           },
           "detailed_margin_review": {
-            "label": "مراجعة هامش مفصلة",
-            "description": "كامل تكلفة العمل بما في ذلك الأدوات والمواد."
+            "label": "Detailed margin review",
+            "description": "Full job cost stack including tooling and material."
           }
         },
         "inputs": {
@@ -2567,225 +2697,248 @@
       }
     },
     "compatibility": {
-      "missingContractField": "حقل عقد مطلوب مفقود في النموذج الذكي.",
-      "hiddenRequiredSimple": "انتقل إلى الوضع المتقدم لإدخال جميع حقول العقد المطلوبة.",
-      "missingRequired": "أكمل جميع الحقول المطلوبة قبل تشغيل التحليل.",
-      "invalidInput": "صحح المدخلات غير الصالحة قبل تشغيل التحليل."
+      "missingContractField": "This analyzer is missing a required contract input in Smart Form.",
+      "hiddenRequiredSimple": "Switch to Advanced mode to enter all required contract fields.",
+      "missingRequired": "Complete all required fields before running the analysis.",
+      "invalidInput": "Fix invalid inputs before running the analysis."
     }
   },
   "cta": {
-    "startFree": "ابدأ مجانًا",
-    "calculateNow": "احسب",
-    "viewFreeTools": "أدوات مجانية",
-    "openPremiumAnalyzer": "فتح التحليل",
-    "unlockFullReport": "فتح التقرير",
-    "viewPricing": "الأسعار",
-    "downloadCsv": "تنزيل CSV",
-    "printReport": "طباعة / PDF",
-    "copySummary": "نسخ الملخص",
-    "switchLanguage": "اللغة",
-    "chooseSector": "اختر القطاع",
-    "seeWhatThisEstimateMisses": "ما ينقص"
+    "startFree": "Start free",
+    "calculateNow": "Calculate now",
+    "viewFreeTools": "View free tools",
+    "openPremiumAnalyzer": "Open analyzer",
+    "unlockFullReport": "Unlock full report",
+    "viewPricing": "View pricing",
+    "downloadCsv": "Download CSV",
+    "printReport": "Print report",
+    "copySummary": "Copy summary",
+    "switchLanguage": "Language",
+    "chooseSector": "Choose sector",
+    "seeWhatThisEstimateMisses": "See what's missing"
   },
   "feedback": {
-    "title": "الملاحظات واعتراض الصيغة",
-    "subtitle": "أخبرنا إذا كانت هذه الصيغة لا تطابق واقع عملك الميداني.",
-    "openButton": "إرسال ملاحظة",
-    "closeButton": "إغلاق",
+    "title": "Feedback & formula objection",
+    "subtitle": "Tell us if this formula does not match your field reality.",
+    "openButton": "Send feedback",
+    "closeButton": "Close",
     "kind": {
-      "label": "نوع الملاحظة",
-      "selectPlaceholder": "اختر…",
-      "formula_objection": "اعتراض على الصيغة",
-      "wrong_result": "تقرير نتيجة خاطئة",
-      "missing_input": "اقتراح إدخال مفقود",
-      "improvement_request": "طلب تحسين",
-      "sector_adjustment": "تعديل خاص بالقطاع",
-      "data_source_suggestion": "اقتراح مصدر بيانات",
-      "usability_issue": "مشكلة في سهولة الاستخدام",
-      "other": "ملاحظة أخرى"
+      "label": "Feedback type",
+      "selectPlaceholder": "Select…",
+      "formula_objection": "Formula objection",
+      "wrong_result": "Wrong result report",
+      "missing_input": "Missing input suggestion",
+      "improvement_request": "Improvement request",
+      "sector_adjustment": "Sector-specific adjustment",
+      "data_source_suggestion": "Data source suggestion",
+      "usability_issue": "Usability issue",
+      "other": "Other feedback"
     },
     "message": {
-      "label": "الرسالة",
-      "placeholder": "صف ما لا يطابق عملياتك أو ممارسة قطاعك."
+      "label": "Message",
+      "placeholder": "Describe what does not match your operation or sector practice."
     },
     "expectedBehavior": {
-      "label": "السلوك المتوقع"
+      "label": "Expected behavior"
     },
     "actualBehavior": {
-      "label": "السلوك الذي تلاحظه ميدانياً"
+      "label": "Actual behavior you observe"
     },
     "sectorContext": {
-      "label": "سياق القطاع / الميدان"
+      "label": "Sector / field context"
     },
     "suggestedFormulaChange": {
-      "label": "تغيير مقترح للصيغة أو الافتراض"
+      "label": "Suggested formula or assumption change"
     },
     "suggestedInput": {
-      "label": "إدخال مفقود مقترح"
+      "label": "Suggested missing input"
     },
     "dataSourceUrl": {
-      "label": "رابط مرجعي (اختياري)"
+      "label": "Reference URL (optional)"
     },
-    "submit": "إرسال الملاحظة",
-    "submitting": "جارٍ الإرسال…",
+    "submit": "Submit feedback",
+    "submitting": "Submitting…",
     "success": {
-      "title": "تم تسجيل الملاحظة",
-      "description": "شكراً لك. ملاحظاتك تساعد على تقوية الحسابات الموثقة."
+      "title": "Feedback recorded",
+      "description": "Thank you. Your feedback helps strengthen verified calculations."
     },
     "error": {
-      "validation": "يرجى مراجعة النموذج والمحاولة مرة أخرى.",
-      "submitFailed": "تعذر إرسال الملاحظة. يرجى المحاولة لاحقاً.",
-      "tooShort": "يجب أن تكون الرسالة 10 أحرف على الأقل.",
-      "tooLong": "الرسالة طويلة جداً.",
-      "rateLimited": "يرجى الانتظار قبل الإرسال مرة أخرى."
+      "validation": "Please check the form and try again.",
+      "submitFailed": "Could not submit feedback. Please try again shortly.",
+      "tooShort": "Message must be at least 10 characters.",
+      "tooLong": "Message is too long.",
+      "rateLimited": "Please wait before submitting again."
     },
     "admin": {
-      "title": "قائمة ملاحظات الأدوات",
-      "subtitle": "مراجعة اعتراضات الصيغ والنتائج الخاطئة وطلبات التحسين.",
-      "empty": "لا توجد ملاحظات بعد.",
-      "loading": "جارٍ التحقق من الوصول…",
-      "signInRequired": "سجّل الدخول لفتح قائمة الملاحظات.",
-      "signInCta": "تسجيل الدخول",
-      "adminOnly": "سجّل الدخول بحساب مسؤول لعرض قائمة الملاحظات.",
-      "firebaseMissing": "Firebase غير مُعد — لن تُحمَّل سجلات حية.",
-      "refresh": "تحديث",
-      "refreshing": "جارٍ التحديث…",
-      "selectItem": "اختر عنصراً لعرض التفاصيل.",
-      "updateStatus": "تحديث الحالة",
+      "title": "Tool feedback queue",
+      "subtitle": "Review formula objections, wrong results, and improvement requests.",
+      "empty": "No feedback entries yet.",
+      "loading": "Checking access…",
+      "signInRequired": "Sign in to open the feedback queue.",
+      "signInCta": "Sign in",
+      "adminOnly": "Sign in with an admin account to view the feedback queue.",
+      "firebaseMissing": "Firebase is not configured — no live records will load.",
+      "refresh": "Refresh",
+      "refreshing": "Refreshing…",
+      "selectItem": "Select an item to view details.",
+      "updateStatus": "Update status",
       "filters": {
-        "kind": "النوع",
-        "locale": "اللغة",
-        "tool": "معرّف الأداة",
-        "severity": "الخطورة",
-        "status": "الحالة",
-        "all": "الكل"
+        "kind": "Kind",
+        "locale": "Locale",
+        "tool": "Tool slug",
+        "severity": "Severity",
+        "status": "Status",
+        "all": "All"
       },
       "status": {
-        "new": "جديد",
-        "triaged": "مُصنَّف",
-        "in_review": "قيد المراجعة",
-        "accepted": "مقبول",
-        "rejected": "مرفوض",
-        "implemented": "مُنفَّذ",
-        "closed": "مغلق"
+        "new": "New",
+        "triaged": "Triaged",
+        "in_review": "In review",
+        "accepted": "Accepted",
+        "rejected": "Rejected",
+        "implemented": "Implemented",
+        "closed": "Closed"
       },
       "severity": {
-        "low": "منخفض",
-        "medium": "متوسط",
-        "high": "مرتفع",
-        "critical": "حرج"
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "critical": "Critical"
       }
     },
-    "visibilityNote": "يكشف الخسائر الخفية ويسجّل واقع الميدان.",
-    "trustTraceNote": "اعتراضات الصيغ تساعد على تحسين الحسابات الموثقة.",
-    "formulaObjectionNote": "أخبرنا إذا كانت هذه الصيغة لا تطابق واقع عملك الميداني."
+    "visibilityNote": "Surface hidden loss and record what the field actually shows.",
+    "trustTraceNote": "Formula objections help improve verified calculations.",
+    "formulaObjectionNote": "Tell us if this formula does not match your field reality."
   },
   "regionalUnits": {
-    "eyebrow": "الوحدات الإقليمية",
-    "title": "محوّل الوحدات والقياسات",
-    "subtitle": "حوّل بين الوحدات المترية والإمبراطورية والإقليمية. للعرض فقط — نتائج حساباتك لا تتغيّر.",
-    "value": "القيمة",
-    "from": "من",
-    "to": "إلى",
-    "notConvertible": "لا يمكن تحويل هذه الوحدات مباشرة.",
-    "conversionTrace": "أثر التحويل",
-    "canonicalNote": "تُطبَّع القيم إلى وحدة قياسية قبل أي مقارنة.",
+    "eyebrow": "Regional units",
+    "title": "Unit & measurement converter",
+    "subtitle": "Convert between metric, imperial and regional units. Display only — your calculation results are unchanged.",
+    "value": "Value",
+    "from": "From",
+    "to": "To",
+    "notConvertible": "These units cannot be converted directly.",
+    "conversionTrace": "Conversion trace",
+    "canonicalNote": "Values normalize to a canonical unit before any comparison.",
     "region": {
-      "label": "المنطقة",
-      "global": "عالمي",
-      "us": "الولايات المتحدة",
-      "uk": "المملكة المتحدة",
-      "eu": "أوروبا",
-      "tr": "تركيا",
-      "mena": "الشرق الأوسط وشمال إفريقيا",
-      "latam": "أمريكا اللاتينية"
+      "label": "Region",
+      "global": "Global",
+      "us": "United States",
+      "uk": "United Kingdom",
+      "eu": "Europe",
+      "tr": "Türkiye",
+      "mena": "MENA",
+      "latam": "Latin America"
     },
     "system": {
-      "label": "نظام القياس",
-      "metric": "متري",
-      "imperial": "إمبراطوري",
-      "mixed": "مختلط"
+      "label": "Measurement system",
+      "metric": "Metric",
+      "imperial": "Imperial",
+      "mixed": "Mixed"
     },
     "dimension": {
-      "label": "الكمية",
-      "length": "الطول",
-      "area": "المساحة",
-      "volume": "الحجم",
-      "weight": "الوزن",
-      "temperature": "الحرارة",
-      "speed": "السرعة",
-      "energy": "الطاقة",
-      "power": "القدرة",
-      "time": "الزمن"
+      "label": "Quantity",
+      "length": "Length",
+      "area": "Area",
+      "volume": "Volume",
+      "weight": "Weight",
+      "temperature": "Temperature",
+      "speed": "Speed",
+      "energy": "Energy",
+      "power": "Power",
+      "time": "Time"
     }
   },
   "regionalBenchmarks": {
-    "eyebrow": "المعايير الإقليمية",
-    "title": "نطاقات مرجعية استرشادية",
-    "subtitle": "نطاقات مرجعية لدعم القرار. استرشادية فقط — ليست إحصاءات رسمية ولا نصيحة مالية.",
-    "referenceBand": "النطاق المرجعي",
-    "typical": "نموذجي",
-    "sourceNote": "المصدر",
-    "disclaimer": "المعايير نطاقات استرشادية لدعم القرار، وليست إحصاءات رسمية ولا نصيحة مالية. تحقق من بياناتك قبل أي قرار تجاري.",
+    "eyebrow": "Regional benchmarks",
+    "title": "Indicative benchmark ranges",
+    "subtitle": "Reference bands for decision support. Indicative only — not official statistics or financial advice.",
+    "referenceBand": "Reference band",
+    "typical": "Typical",
+    "sourceNote": "Source",
+    "disclaimer": "Benchmarks are indicative decision-support ranges, not official statistics or financial advice. Verify against your own data before any business decision.",
     "position": {
-      "belowRange": "أقل من النطاق",
-      "withinRange": "ضمن النطاق",
-      "aboveRange": "أعلى من النطاق",
-      "unknown": "غير معروف"
+      "belowRange": "Below range",
+      "withinRange": "Within range",
+      "aboveRange": "Above range",
+      "unknown": "Unknown"
     },
     "severity": {
-      "good": "ملائم",
-      "watch": "مراقبة",
-      "risk": "خطر"
+      "good": "Favorable",
+      "watch": "Monitor",
+      "risk": "Risk"
     },
     "confidence": {
-      "low": "ثقة منخفضة",
-      "medium": "ثقة متوسطة",
-      "high": "ثقة عالية"
+      "low": "Low confidence",
+      "medium": "Medium confidence",
+      "high": "High confidence"
     },
     "unit": {
       "percent": "%",
-      "ratio": "نسبة",
-      "days": "أيام",
-      "months": "أشهر",
-      "score": "درجة"
+      "ratio": "ratio",
+      "days": "days",
+      "months": "months",
+      "score": "score"
     },
     "metric": {
-      "gross_margin": "الهامش الإجمالي",
-      "net_margin": "صافي الهامش",
-      "scrap_rate": "معدل الهدر",
-      "labor_share": "حصة العمالة",
-      "energy_intensity": "كثافة الطاقة",
-      "material_share": "حصة المواد",
-      "capacity_utilization": "استغلال الطاقة الإنتاجية",
-      "quote_risk": "مخاطر التسعير",
-      "payback_period": "فترة الاسترداد"
+      "gross_margin": "Gross margin",
+      "net_margin": "Net margin",
+      "scrap_rate": "Scrap rate",
+      "labor_share": "Labor share",
+      "energy_intensity": "Energy intensity",
+      "material_share": "Material share",
+      "capacity_utilization": "Capacity utilization",
+      "quote_risk": "Quote risk",
+      "payback_period": "Payback period"
     }
   },
   "caseStudies": {
-    "eyebrow": "طبقة الإثبات",
-    "title": "دراسات حالة تمثيلية",
-    "subtitle": "سيناريوهات تركيبية تُظهر صياغة المشكلة ومدخلات الأداة وأنواع الخسارة — موسومة كتمثيلية، وليست وفورات عملاء موثقة.",
-    "problem": "المشكلة",
-    "exampleInput": "أمثلة المدخلات",
-    "result": "كيف تعالجها الأداة",
-    "decisionImpact": "أثر القرار",
-    "representativeNote": "سيناريو تمثيلي — تعرّض مُنمذج، وليس نتيجة عميل موثقة.",
-    "viewRelatedTool": "افتح الأداة ذات الصلة"
+    "eyebrow": "Proof layer",
+    "title": "Representative case studies",
+    "subtitle": "Synthetic scenarios showing problem framing, tool inputs and loss types — labeled representative, never verified client savings.",
+    "problem": "Problem",
+    "exampleInput": "Example inputs",
+    "result": "How the tool resolves it",
+    "decisionImpact": "Decision impact",
+    "representativeNote": "Representative scenario — modeled exposure, not a verified customer outcome.",
+    "viewRelatedTool": "Open the related tool"
   },
   "fieldMode": {
-    "eyebrow": "وضع الميدان",
-    "title": "وضع الميدان والعمل دون اتصال",
-    "subtitle": "ثبّت للاستخدام في الموقع. يعرض وضع عدم الاتصال هيكلاً مخزّناً فقط — تتطلب الحسابات الحية والتقارير الموثقة اتصالاً.",
-    "install": "تثبيت التطبيق",
-    "offlineReady": "قابل للتثبيت للوصول السريع في الموقع.",
-    "recentTools": "الأدوات الأخيرة",
-    "noRecentTools": "لا توجد أدوات حديثة بعد.",
-    "savedDrafts": "المسودات المحفوظة",
-    "noDrafts": "لا توجد مسودات محفوظة.",
-    "lowBandwidth": "وضع النطاق الترددي المنخفض",
-    "clearData": "مسح البيانات المحلية",
-    "staleDataWarning": "قد تكون البيانات المحفوظة قديمة — تحقق قبل استخدامها في القرارات.",
-    "privacyNote": "مخزّنة على هذا الجهاز فقط. لا أسرار ولا بيانات شخصية حساسة."
+    "eyebrow": "Field mode",
+    "title": "Field mode & offline",
+    "subtitle": "Install for on-site use. Offline shows a cached shell only — live calculations and verified reports need a connection.",
+    "install": "Install app",
+    "offlineReady": "Installable for quick on-site access.",
+    "recentTools": "Recent tools",
+    "noRecentTools": "No recent tools yet.",
+    "savedDrafts": "Saved drafts",
+    "noDrafts": "No saved drafts.",
+    "lowBandwidth": "Low-bandwidth mode",
+    "clearData": "Clear local data",
+    "staleDataWarning": "Saved data may be out of date — verify before using it for decisions.",
+    "privacyNote": "Stored only on this device. No secrets or sensitive personal data."
+  },
+  "freeToolUi": {
+    "preCheck": "فحص مجاني أولي",
+    "premiumAnalyzer": "محلل متميز",
+    "classicForm": "نموذج كلاسيكي",
+    "smartFormMeta": "نموذج ذكي",
+    "simple": "بسيط",
+    "expert": "خبير",
+    "calculationSummary": "ملخص الحساب",
+    "runAnalysis": "تشغيل التحليل",
+    "calculating": "جارٍ الحساب…",
+    "whatIs": "ما هو {title}؟",
+    "decisionOutput": "نتيجة القرار",
+    "exportLabel": "تصدير:",
+    "exportNote": "يستخدم تصدير PDF اشتراكك الحالي وخط إنتاج التقارير."
+  },
+  "freeToolContent": {
+    "square-meter-calculator": {
+      "title": "حاسبة المتر المربع",
+      "description": "احسب مساحة المستطيل بالمتر المربع.",
+      "seoTitle": "حاسبة المتر المربع — المساحة بالمتر المربع | SectorCalc",
+      "seoDescription": "حساب مساحة مستطيلة: الطول × العرض مع تحويلات القدم المربعة واليارد المربعة."
+    }
   }
 }

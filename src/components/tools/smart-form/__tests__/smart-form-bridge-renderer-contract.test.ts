@@ -6,7 +6,7 @@ import { describe, expect, test } from "vitest";
 import { getPilotSmartFormManifest } from "@/components/tools/smart-form/getPilotSmartFormManifest";
 
 describe("smart form bridge renderer contract", () => {
-  test("manifest includes sections, fields, and trust trace props", () => {
+  test("manifest includes sections, fields, and calculation summary props", () => {
     const manifest = getPilotSmartFormManifest("3d-print-cost-check");
     expect(manifest).not.toBeNull();
     expect(manifest?.sections.length).toBeGreaterThan(0);

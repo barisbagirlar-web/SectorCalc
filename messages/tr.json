@@ -216,18 +216,20 @@
     },
     "freeTools": {
       "eyebrow": "Ücretsiz araçlar",
-      "title": "Kategoriye göre ücretsiz hesaplayıcılar.",
-      "subtitle": "İhtiyacınız olan hesaplama alanıyla başlayın, ardından aracı açın."
+      "title": "Ücretsiz Hesaplama Araçları",
+      "subtitle": "Maliyet, alan, zaman, fire, enerji, rota ve marj gibi temel hesaplamaları hızlıca yapın. Kart gerekmez."
     },
     "premiumTools": {
       "eyebrow": "Premium analizörler",
-      "title": "Kayıp türüne göre karar raporları.",
-      "subtitle": "Gizli kayıp alanını seçin, ardından operasyonunuza uyan analizörü açın."
+      "title": "Premium Analiz Araçları",
+      "subtitle": "Marj riski, teklif güvenliği, operasyon kaybı ve maliyet sapmasını daha derin analiz edin. Sonuçları karar özeti olarak kullanın.",
+      "metaTitle": "Premium Analiz Araçları — Karar Özetleri",
+      "metaDescription": "Marj riski, teklif güvenliği, operasyon kaybı ve maliyet sapması için premium analiz araçları. Sonuçları karar özeti olarak kullanın."
     },
     "industries": {
       "eyebrow": "Sektörler",
-      "title": "Sektöre göre hesaplayıcıları keşfedin.",
-      "subtitle": "Önce sektörünüzü seçin; ardından o iş akışı için hazırlanmış ücretsiz kontrolü veya premium karar raporunu açın.",
+      "title": "Sektörlere Göre Hesaplama Araçları",
+      "subtitle": "Sektörünüzü seçin. İlgili ücretsiz hesaplayıcıları ve premium analiz araçlarını tek yerde görün.",
       "metaTitle": "Sektör Hesaplayıcı Paketleri — 27 Sektör",
       "metaDescription": "27 sektör paketi: ücretsiz kontroller ve premium kayıp karar raporları. Sektör iş akışınızdan başlayın."
     },
@@ -265,15 +267,45 @@
       "label": "Katalogda ara",
       "placeholder": {
         "categories": "İşlev, sektör veya araç adına göre ara…",
-        "free-tools": "Ücretsiz hesaplayıcılarda ara…",
-        "premium-tools": "Premium analizörlerde ara…",
-        "industries": "Sektör, kategori veya araç ara…",
+        "free-tools": "Hesaplayıcı ara…",
+        "premium-tools": "Premium analiz ara…",
+        "industries": "Sektör ara…",
         "homepage": "Hesaplayıcı ve analizör ara…"
       },
       "noResults": "Eşleşen araç bulunamadı.",
       "moreResults": "+ {count} diğer sonuç",
       "badgeFree": "Ücretsiz",
       "badgePremium": "Premium"
+    },
+    "discoveryTabs": {
+      "all": "Tümü",
+      "free-tools": {
+        "cost-margin": "Maliyet & Marj",
+        "scrap-oee": "Malzeme, Fire & OEE",
+        "energy-carbon": "Enerji & Karbon",
+        "routing-logistics": "Rota & Lojistik",
+        "construction-field": "İnşaat & Saha",
+        "daily-practical": "Günlük Pratik"
+      },
+      "premium-tools": {
+        "pricing": "Teklif & Fiyatlama",
+        "loss": "Kayıp & Fire",
+        "operations": "Operasyon & Verimlilik",
+        "routing": "Rota & Lojistik",
+        "energy": "Enerji & Karbon",
+        "construction": "İnşaat & Proje"
+      }
+    },
+    "discoveryCards": {
+      "ctaCalculate": "Hesapla",
+      "ctaOpenAnalysis": "Analizi aç",
+      "ctaOpenSector": "Sektörü aç",
+      "freeCount": "{count} ücretsiz",
+      "premiumCount": "{count} premium"
+    },
+    "discoveryFooter": {
+      "freeToolsLead": "Daha detaylı analiz mi gerekiyor?",
+      "freeToolsCta": "Premium araçları görüntüle"
     },
     "functionCategories": {
       "oee-productivity": {
@@ -501,7 +533,7 @@
       "operatingSystem": "İşletim Sistemi"
     },
     "trustTrace": {
-      "title": "Trust Trace",
+      "title": "Hesaplama Özeti",
       "link": "Herhangi bir raporu doğrula",
       "subtext": "Raporların doğruluğunu kamuya açık doğrulama sayfamızda kontrol edin."
     },
@@ -748,8 +780,9 @@
     "quickActions": {
       "findTool": "Hangi araca ihtiyacım var?",
       "explainInputs": "Hangi girdiler gerekli?",
-      "approvedReport": "Onaylı raporlar ve Trust Trace",
-      "enterprise": "Kurumsal ve ekip kullanımı"
+      "approvedReport": "Premium karar özeti ve Hesaplama Özeti",
+      "enterprise": "Kurumsal ve ekip kullanımı",
+      "decisionSummary": "Premium karar özeti nedir?"
     },
     "guardrail": {
       "formula": "Hesaplama yapamam veya formül paylaşamam. İlgili aracı açın, sonucu sizin için o hesaplar.",
@@ -760,8 +793,8 @@
       "explainTool": "Bu araç, iş girdilerinizi ardındaki risk etkenleriyle birlikte net bir karara dönüştürür:",
       "inputs": "İşinize ait temel maliyetleri, miktarları ve oranları girersiniz. Zorunlu alanlar asgaride tutulur, isteğe bağlı alanlar sonucu keskinleştirir.",
       "results": "Sonuç; ardındaki metrikler ve risk etkenleriyle birlikte bir karardır; böylece neden oraya geldiğini ve neyi ayarlamanız gerektiğini görürsünüz.",
-      "approvedReports": "Premium sonuçlar, paylaşabileceğiniz onaylı raporlar olarak kaydedilebilir ve her biri bağımsız olarak doğrulanabilir.",
-      "trustTrace": "Trust Trace; girdileri, varsayımları ve doğrulamayı kaydeder, böylece sonuç müşteriler, bankalar veya denetçiler tarafından kontrol edilebilir.",
+      "approvedReports": "Premium sonuçlar, ekip içinde paylaşabileceğiniz dışa aktarılabilir karar özetleri olarak kaydedilebilir.",
+      "trustTrace": "Hesaplama Özeti; girdileri, varsayımları ve doğrulama adımlarını kaydeder, böylece sonucun nasıl üretildiğini görebilirsiniz.",
       "regionalUnits": "SectorCalc metrik, imperial ve bölgesel birimleri destekler ve kullandığı dönüşümleri gösterir.",
       "benchmarks": "SectorCalc, sonucunuzun yanında gösterge niteliğinde bölgesel kıyaslama bağlamı sunar — yön bulmak için, resmi rakamlar değil.",
       "pricing": "Planları ve her birinin neleri kapsadığını fiyatlandırma sayfasında görebilirsiniz:",
@@ -789,53 +822,112 @@
     "inputs": "İşinize özgü temel maliyetleri, miktarları, oranları ve varsayımları girersiniz. Zorunlu alanlar asgaride tutulur ve verisi olduğunda isteğe bağlı alanlar sonucu keskinleştirir.",
     "outputsTitle": "Sonuç ne anlama gelir",
     "outputs": "{tool}, ardındaki metrikler ve risk etkenleriyle birlikte net bir karar döndürür; böylece yalnızca sayıyı değil, neden oraya geldiğini ve neyi ayarlamanız gerektiğini de görürsünüz.",
-    "trustTitle": "Onaylı raporlar ve Trust Trace",
-    "trust": "Premium sonuçlar; girdilerin, varsayımların ve doğrulamanın Trust Trace izi ile onaylı raporlar olarak kaydedilebilir; böylece müşteriler, bankalar ve denetçiler işi bağımsız olarak doğrulayabilir.",
+    "trustTitle": "Premium karar özeti ve Hesaplama Özeti",
+    "trust": "Premium sonuçlar; girdilerin, varsayımların ve doğrulamanın Hesaplama Özeti ile birlikte dışa aktarılabilir karar özetleri olarak kaydedilebilir.",
     "faqTitle": "Sık sorulan sorular",
     "relatedTitle": "İlgili premium araçlar",
     "faq": [
-      { "q": "{tool} ücretsiz mi?", "a": "Yaklaşımı ücretsiz önizleyebilirsiniz; tam karar, metrikler ve onaylı rapor SectorCalc Pro kapsamındadır." },
-      { "q": "{tool} profesyonel danışmanlığın yerine geçer mi?", "a": "Hayır. Bu, finansal, hukuki veya mühendislik tavsiyesi değil; teknik bir simülasyon ve karar destek aracıdır. İş kararlarından önce sonuçları doğrulayın." },
-      { "q": "Sonuç ne kadar doğru?", "a": "Sonuçlar; sağladığınız girdileri ve SectorCalc'in deterministik motorunu yansıtır. Daha iyi girdiler daha keskin ve savunulabilir bir okuma üretir." },
-      { "q": "Sonucu paylaşabilir miyim?", "a": "Evet. Premium sonuçlar, doğrulanabilir bir Trust Trace ile onaylı raporlar olarak dışa aktarılabilir." },
-      { "q": "{tool} hangi sektör için?", "a": "Kendi sektörünün fiyatlandırma ve marj kalıplarına göre ayarlanmıştır ve SectorCalc'in 27 sektörlük araç setinin geri kalanıyla birlikte çalışır." }
+      {
+        "q": "{tool} ücretsiz mi?",
+        "a": "Yaklaşımı ücretsiz önizleyebilirsiniz; tam karar, metrikler ve premium karar özeti SectorCalc Pro kapsamındadır."
+      },
+      {
+        "q": "{tool} profesyonel danışmanlığın yerine geçer mi?",
+        "a": "Hayır. Bu, finansal, hukuki veya mühendislik tavsiyesi değil; teknik bir simülasyon ve karar destek aracıdır. İş kararlarından önce sonuçları doğrulayın."
+      },
+      {
+        "q": "Sonuç ne kadar doğru?",
+        "a": "Sonuçlar; sağladığınız girdileri ve SectorCalc'in deterministik motorunu yansıtır. Daha iyi girdiler daha keskin ve savunulabilir bir okuma üretir."
+      },
+      {
+        "q": "Sonucu paylaşabilir miyim?",
+        "a": "Evet. Premium sonuçlar, sayıların nasıl üretildiğini gösteren Hesaplama Özeti ile karar özeti olarak dışa aktarılabilir."
+      },
+      {
+        "q": "{tool} hangi sektör için?",
+        "a": "Kendi sektörünün fiyatlandırma ve marj kalıplarına göre ayarlanmıştır ve SectorCalc'in 27 sektörlük araç setinin geri kalanıyla birlikte çalışır."
+      }
     ]
   },
   "enterprise": {
     "metaTitle": "İşletmeler ve Kurumlar için SectorCalc | Doğrulanabilir Hesaplama ve Karar Desteği",
-    "metaDescription": "SectorCalc işletme ve kurumsal paketleme: ekip kullanımı, onaylı raporlar, trust trace, sektör paketleri ve satın almaya uygun karar desteği.",
+    "metaDescription": "SectorCalc işletme ve kurumsal paketleme: ekip kullanımı, premium karar özetleri, hesaplama özeti, sektör paketleri ve satın almaya uygun karar desteği.",
     "title": "Ekipler ve kurumlar için doğrulanabilir hesaplama ve karar desteği.",
-    "subtitle": "SectorCalc; sektör hesaplayıcılarını, onaylı raporları ve trust trace'i ekiplerinizin, müşterilerinizin ve denetçilerinizin güvenebileceği bir akışta bir araya getirir.",
+    "subtitle": "SectorCalc; sektör hesaplayıcılarını, premium karar özetlerini ve hesaplama özetini ekiplerinizin karar desteği için kullanabileceği bir akışta bir araya getirir.",
     "demoCta": "Demo talep et",
     "contactCta": "Satışla iletişime geç",
-    "hero": { "eyebrow": "İşletme ve Kurumsal" },
+    "hero": {
+      "eyebrow": "İşletme ve Kurumsal"
+    },
     "businessPlan": {
       "badge": "İşletme",
       "title": "İşletme",
-      "body": "Tekrarlanabilir hesaplamalara, onaylı raporlara, bölgesel birimlere, kıyaslama bağlamına ve sahaya hazır akışlara ihtiyaç duyan operatörler ve ekipler için.",
-      "features": ["27 sektörde premium analizörler", "Trust trace ile onaylı raporlar", "Bölgesel birimler ve gösterge niteliğinde kıyaslamalar", "Kayıtlı raporlar ve saha modu"],
+      "body": "Tekrarlanabilir hesaplamalara, premium karar özetlerine, bölgesel birimlere, kıyaslama bağlamına ve sahaya hazır akışlara ihtiyaç duyan operatörler ve ekipler için.",
+      "features": [
+        "27 sektörde premium analizörler",
+        "Hesaplama özeti ile premium karar özetleri",
+        "Bölgesel birimler ve gösterge niteliğinde kıyaslamalar",
+        "Kayıtlı raporlar ve saha modu"
+      ],
       "availability": "Şu anda mevcut"
     },
     "enterprisePlan": {
       "badge": "Kurumsal",
       "title": "Kurumsal",
       "body": "Doğrulanabilir hesaplama akışlarına, ekip kullanımına, raporlama yönetişimine, denetlenebilirliğe, özel sektör paketlerine ve satın almaya uygun karar desteğine ihtiyaç duyan kuruluşlar için.",
-      "features": ["Ekip ve organizasyon kullanımı", "Raporlama yönetişimi ve denetlenebilirlik", "Özel sektör paketleri", "Satın almaya uygun başlangıç"],
+      "features": [
+        "Ekip ve organizasyon kullanımı",
+        "Raporlama yönetişimi ve denetlenebilirlik",
+        "Özel sektör paketleri",
+        "Satın almaya uygun başlangıç"
+      ],
       "availability": "Kurumsal görüşme — bizimle iletişime geçin"
     },
-    "bundles": { "title": "Sektör paketleri", "body": "Sektörünüzün en çok kullandığı analizörleri odaklı bir pakette toplayın; böylece ekipler gürültü olmadan doğru araca ulaşır." },
-    "approvedReports": { "title": "Onaylı raporlar", "body": "Sonuçları; müşterilerinizin, bankaların ve denetçilerin bağımsız olarak doğrulayabileceği paylaşılabilir raporlara dönüştürün." },
-    "trustTrace": { "title": "Trust Trace", "body": "Her sonuç; girdilerin, varsayımların ve doğrulamanın şeffaf bir izini taşıyabilir, böylece kararlar incelemeye dayanır." },
-    "team": { "title": "Ekip ve organizasyon", "body": "Tahmincileri, saha ekiplerini ve yöneticileri tek ve tutarlı bir hesaplama temelinde buluşturun." },
-    "security": { "title": "Güvenlik ve veri işleme", "body": "Ücretsiz girdiler kaydedilmediği sürece tarayıcıda işlenir. Hesap verileri gizlilik politikamıza göre işlenir ve gizli anahtarları asla ön yüze koymayız." },
-    "demo": { "title": "Yaygınlaştırmanızı konuşalım", "body": "Sektörlerinizi ve ekip büyüklüğünüzü paylaşın; paketler, onaylı raporlar ve kurumsal görüşme konusunda size yol gösterelim.", "cta": "Demo talep et", "pricingLink": "Fiyatlandırmayı gör" },
+    "bundles": {
+      "title": "Sektör paketleri",
+      "body": "Sektörünüzün en çok kullandığı analizörleri odaklı bir pakette toplayın; böylece ekipler gürültü olmadan doğru araca ulaşır."
+    },
+    "approvedReports": {
+      "title": "Premium karar özetleri",
+      "body": "Sonuçları; teklif veya operasyon kararı öncesi ekip içinde inceleyebileceğiniz paylaşılabilir karar özetlerine dönüştürün."
+    },
+    "trustTrace": {
+      "title": "Hesaplama Özeti",
+      "body": "Her sonuç; girdilerin, varsayımların ve doğrulamanın şeffaf bir izini taşıyabilir, böylece kararlar incelemeye dayanır."
+    },
+    "team": {
+      "title": "Ekip ve organizasyon",
+      "body": "Tahmincileri, saha ekiplerini ve yöneticileri tek ve tutarlı bir hesaplama temelinde buluşturun."
+    },
+    "security": {
+      "title": "Güvenlik ve veri işleme",
+      "body": "Ücretsiz girdiler kaydedilmediği sürece tarayıcıda işlenir. Hesap verileri gizlilik politikamıza göre işlenir ve gizli anahtarları asla ön yüze koymayız."
+    },
+    "demo": {
+      "title": "Yaygınlaştırmanızı konuşalım",
+      "body": "Sektörlerinizi ve ekip büyüklüğünüzü paylaşın; paketler, premium karar özetleri ve kurumsal görüşme konusunda size yol gösterelim.",
+      "cta": "Demo talep et",
+      "pricingLink": "Fiyatlandırmayı gör"
+    },
     "faq": {
       "title": "Kurumsal SSS",
       "items": [
-        { "q": "İşletme ile Kurumsal arasındaki fark nedir?", "a": "İşletme; ekipler için premium analizörleri, onaylı raporları ve saha akışlarını kapsar. Kurumsal ise organizasyon kullanımı, raporlama yönetişimi, özel paketler ve satın almaya uygun başlangıç ekler." },
-        { "q": "SectorCalc'i birden fazla sektörde kullanabilir miyiz?", "a": "Evet. SectorCalc 27 sektörü kapsar ve sektör paketleri ekiplerinizin en çok kullandığı analizörleri gruplar." },
-        { "q": "Sonuçlar denetlenebilir mi?", "a": "Onaylı raporlar; üçüncü tarafların doğrulayabileceği girdi, varsayım ve doğrulama izini taşır." },
-        { "q": "Nasıl başlarız?", "a": "Bir demo talep edin; sektörlerinizi, ekip büyüklüğünüzü ve yaygınlaştırmanızı görüşelim. Bireysel planların fiyatlandırması fiyatlandırma sayfasındadır." }
+        {
+          "q": "İşletme ile Kurumsal arasındaki fark nedir?",
+          "a": "İşletme; ekipler için premium analizörleri, premium karar özetlerini ve saha akışlarını kapsar. Kurumsal ise organizasyon kullanımı, raporlama yönetişimi, özel paketler ve satın almaya uygun başlangıç ekler."
+        },
+        {
+          "q": "SectorCalc'i birden fazla sektörde kullanabilir miyiz?",
+          "a": "Evet. SectorCalc 27 sektörü kapsar ve sektör paketleri ekiplerinizin en çok kullandığı analizörleri gruplar."
+        },
+        {
+          "q": "Sonuçlar denetlenebilir mi?",
+          "a": "Premium karar özetleri; ekip içinde inceleme için girdi, varsayım ve doğrulama adımlarını içeren bir hesaplama özeti taşır."
+        },
+        {
+          "q": "Nasıl başlarız?",
+          "a": "Bir demo talep edin; sektörlerinizi, ekip büyüklüğünüzü ve yaygınlaştırmanızı görüşelim. Bireysel planların fiyatlandırması fiyatlandırma sayfasındadır."
+        }
       ]
     }
   },
@@ -876,7 +968,7 @@
     },
     "different": {
       "title": "Bizi farklı kılan",
-      "body": "Her sonuç şeffaf bir izlenebilirlik kaydı, gösterge niteliğinde bölgesel benchmark’lar ve belgelenmiş varsayımlar taşır; bankalara, müşterilere ve denetçilere sunabileceğiniz bir hesaplama."
+      "body": "Her sonuç şeffaf bir hesaplama özeti, gösterge niteliğinde bölgesel benchmark’lar ve belgelenmiş varsayımlar taşır; karar vermeden önce ekibinizle birlikte inceleyebilirsiniz."
     },
     "who": {
       "title": "Kimler için tasarlandı",
@@ -917,7 +1009,7 @@
       "body": "Sektöre özel operasyonel bilgiyi ayda 19 dolardan hesaplayıcılar ve karar raporlarına dönüştürüyoruz: OEE, fire, rota, karbon, tolerans. Her sonuç, sayıların nasıl türetildiğini gösteren bir hesaplama izi içerir."
     },
     "positioning": {
-      "title": "ERP karmaşıklığı olmadan ERP seviyesinde hesaplama mantığı.",
+      "title": "Sektöre özel hesaplama mantığı, kurumsal yazılım karmaşıklığı olmadan.",
       "text": "Çoğu ekip hâlâ kayıp, fire, maliyet ve verimliliği elektronik tablolar, defterler veya tahminle hesaplıyor. SectorCalc, hemen kullanabilecekleri odaklı hesaplayıcılar ve karar raporları sunar."
     },
     "scenarios": {
@@ -1201,7 +1293,7 @@
       "title": "Kimler başvurmalı",
       "item1": "Fire, setup, rota, enerji veya marj kaybını takip eden operatörler",
       "item2": "Müşteri odaklı sektör değerlendirmeleri hazırlayan danışmanlar",
-      "item3": "ERP seviyesinde araçları olmayan erken dönem işletmeler",
+      "item3": "Karmaşık yazılıma geçmeden önce net hesaplamaya ihtiyaç duyan küçük ekipler",
       "item4": "Hesaplayıcı uyumuna yapılandırılmış geri bildirim vermeye istekli ekipler"
     },
     "data": {
@@ -1351,7 +1443,8 @@
   },
   "premiumTools": {
     "title": "Premium analiz aracı",
-    "openAnalyzer": "Analiz aracını aç"
+    "openAnalyzer": "Analiz aracını aç",
+    "lockedTrustTrace": "Hesaplama özeti Pro premium özelliklerindendir."
   },
   "categories": {
     "title": "Kategoriye göre göz at",
@@ -1449,14 +1542,14 @@
   "premiumAccess": {
     "previewEyebrow": "Herkese açık önizleme",
     "publicPreviewTitle": "Abone olmadan analizörü deneyin",
-    "publicPreviewDescription": "İş girdilerinizi girin, formu doğrulayın ve önizleme analizi çalıştırın. Dışa aktarma, kayıtlı raporlar ve trust trace SectorCalc Pro gerektirir.",
+    "publicPreviewDescription": "İş girdilerinizi girin, formu doğrulayın ve önizleme analizi çalıştırın. Dışa aktarma, kayıtlı raporlar ve hesaplama özeti SectorCalc Pro gerektirir.",
     "signedInPreviewTitle": "Önizleme modu — tam rapor için Pro",
-    "signedInPreviewDescription": "Analizörü çalıştırabilir ve önizleme kararını görebilirsiniz. PDF dışa aktarma, kayıt geçmişi ve trust trace aktif Pro plan veya tek rapor satın alımı gerektirir.",
+    "signedInPreviewDescription": "Analizörü çalıştırabilir ve önizleme kararını görebilirsiniz. PDF dışa aktarma, kayıt geçmişi ve hesaplama özeti aktif Pro plan veya tek rapor satın alımı gerektirir.",
     "signIn": "Giriş yap",
     "getPro": "Pro'ya geç",
     "lockedExport": "PDF ve Excel dışa aktarma Pro planlarda kullanılabilir.",
     "lockedReportHistory": "Kayıtlı rapor geçmişi için giriş yapmış Pro hesabı gerekir.",
-    "lockedTrustTrace": "Trust trace ve doğrulama damgası Pro audit özellikleridir.",
+    "lockedTrustTrace": "Hesaplama özeti Pro premium özelliklerindendir.",
     "fullReportRequiresPro": "Tam dışa aktarılabilir rapor SectorCalc Pro gerektirir.",
     "panelTitle": "SectorCalc Pro girişi",
     "panelDescription": "Premium analiz araçlarına erişmek veya ödemeye devam etmek için Google ile giriş yapın. Yönetici girişi yukarıda ayrıdır.",
@@ -2825,8 +2918,27 @@
     "staleDataWarning": "Kayıtlı veri güncel olmayabilir — karar için kullanmadan önce doğrulayın.",
     "privacyNote": "Yalnızca bu cihazda saklanır. Gizli bilgi veya hassas kişisel veri yok."
   },
-  "tools.free.square-meter-calculator.seoTitle": "Metrekare Hesaplayıcı — m² Alan | SectorCalc",
-  "tools.free.square-meter-calculator.seoDescription": "Dikdörtgen alan hesaplama - metrekare ve imperial dönüşümler.",
-  "tools.free.square-meter-calculator.title": "Metrekare Hesaplayıcı",
-  "tools.free.square-meter-calculator.description": "Dikdörtgen zemin alanını metrekare cinsinden imperial dönüşümlerle hesaplayın."
+  "freeToolUi": {
+    "preCheck": "Ücretsiz Ön Kontrol",
+    "premiumAnalyzer": "Premium Analiz",
+    "classicForm": "Klasik form",
+    "smartFormMeta": "Akıllı form",
+    "simple": "Basit",
+    "expert": "Uzman",
+    "calculationSummary": "Hesaplama özeti",
+    "runAnalysis": "Hesapla",
+    "calculating": "Hesaplanıyor…",
+    "whatIs": "{title} Nedir?",
+    "decisionOutput": "Karar çıktısı",
+    "exportLabel": "Dışa aktar:",
+    "exportNote": "PDF dışa aktarma mevcut abonelik ve rapor akışını kullanır."
+  },
+  "freeToolContent": {
+    "square-meter-calculator": {
+      "title": "Metrekare Hesaplayıcı",
+      "description": "Dikdörtgen alanı metrekare cinsinden hesaplayın.",
+      "seoTitle": "Metrekare Hesaplayıcı — m² Alan | SectorCalc",
+      "seoDescription": "Dikdörtgen alan hesaplama: uzunluk × genişlik, ft² ve yd² dönüşümleriyle."
+    }
+  }
 }

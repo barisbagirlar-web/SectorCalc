@@ -219,18 +219,20 @@
     },
     "freeTools": {
       "eyebrow": "Free tools",
-      "title": "Free calculators by category.",
-      "subtitle": "Start with the calculation area you need, then open the tool."
+      "title": "Kostenlose Rechenwerkzeuge",
+      "subtitle": "Schnelle Checks für Kosten, Fläche, Zeit, Ausschuss, Energie, Routen und Marge. Keine Karte nötig."
     },
     "premiumTools": {
       "eyebrow": "Premium analyzers",
-      "title": "Decision reports by loss type.",
-      "subtitle": "Choose the decision area before opening the analyzer."
+      "title": "Premium-Analysewerkzeuge",
+      "subtitle": "Vertiefen Sie Margenrisiko, Angebotssicherheit, Betriebsverlust und Kostenabweichung. Nutzen Sie das Ergebnis als Entscheidungszusammenfassung.",
+      "metaTitle": "Premium-Analysewerkzeuge — Entscheidungszusammenfassungen",
+      "metaDescription": "Premium-Analysen für Margenrisiko, Angebotssicherheit, Betriebsverlust und Kostenabweichung."
     },
     "industries": {
       "eyebrow": "Industries",
-      "title": "Explore calculators by sector.",
-      "subtitle": "Start from your industry, then choose the calculation or report."
+      "title": "Rechenwerkzeuge nach Branche",
+      "subtitle": "Wählen Sie Ihre Branche. Sehen Sie passende kostenlose Rechner und Premium-Analysen an einem Ort."
     },
     "labels": {
       "categories": {
@@ -266,15 +268,45 @@
       "label": "Katalog durchsuchen",
       "placeholder": {
         "categories": "Nach Funktion, Branche oder Tool-Name suchen…",
-        "free-tools": "Kostenlose Rechner durchsuchen…",
-        "premium-tools": "Premium-Analysen durchsuchen…",
-        "industries": "Branchen, Kategorien oder Tools suchen…",
+        "free-tools": "Rechner suchen…",
+        "premium-tools": "Premium-Analysen suchen…",
+        "industries": "Branche suchen…",
         "homepage": "Rechner und Analysen suchen…"
       },
       "noResults": "Keine passenden Tools gefunden.",
       "moreResults": "+ {count} weitere Ergebnisse",
       "badgeFree": "Kostenlos",
       "badgePremium": "Premium"
+    },
+    "discoveryTabs": {
+      "all": "Alle",
+      "free-tools": {
+        "cost-margin": "Kosten & Marge",
+        "scrap-oee": "Material, Ausschuss & OEE",
+        "energy-carbon": "Energie & CO₂",
+        "routing-logistics": "Route & Logistik",
+        "construction-field": "Bau & Baustelle",
+        "daily-practical": "Alltag & Praxis"
+      },
+      "premium-tools": {
+        "pricing": "Angebot & Preis",
+        "loss": "Verlust & Ausschuss",
+        "operations": "Betrieb & Effizienz",
+        "routing": "Route & Logistik",
+        "energy": "Energie & CO₂",
+        "construction": "Bau & Projekt"
+      }
+    },
+    "discoveryCards": {
+      "ctaCalculate": "Berechnen",
+      "ctaOpenAnalysis": "Analyse öffnen",
+      "ctaOpenSector": "Branche öffnen",
+      "freeCount": "{count} kostenlos",
+      "premiumCount": "{count} premium"
+    },
+    "discoveryFooter": {
+      "freeToolsLead": "Brauchen Sie eine tiefere Analyse?",
+      "freeToolsCta": "Premium-Werkzeuge ansehen"
     }
   },
   "freeTrafficCatalog": {
@@ -464,7 +496,7 @@
       "operatingSystem": "Betriebssystem"
     },
     "trustTrace": {
-      "title": "Trust Trace",
+      "title": "Berechnungsübersicht",
       "link": "Bericht verifizieren",
       "subtext": "Bestätigen Sie die Echtheit von Berichten auf unserer öffentlichen Verifizierungsseite."
     },
@@ -711,8 +743,9 @@
     "quickActions": {
       "findTool": "Welches Tool brauche ich?",
       "explainInputs": "Welche Eingaben sind erforderlich?",
-      "approvedReport": "Geprüfte Berichte & Trust Trace",
-      "enterprise": "Enterprise & Teamnutzung"
+      "approvedReport": "Premium-Entscheidungsübersichten & Berechnungsübersicht",
+      "enterprise": "Enterprise & Teamnutzung",
+      "decisionSummary": "Was ist eine Premium-Entscheidungsübersicht?"
     },
     "guardrail": {
       "formula": "Ich kann keine Berechnungen ausführen oder Formeln teilen. Öffnen Sie das passende Tool, es berechnet das Ergebnis für Sie.",
@@ -723,8 +756,8 @@
       "explainTool": "Dieses Tool verwandelt Ihre Auftragsdaten in ein klares Urteil mit den dahinterliegenden Risikotreibern:",
       "inputs": "Sie geben die zentralen Kosten, Mengen und Sätze Ihres Auftrags ein. Pflichtfelder bleiben minimal, optionale Felder schärfen das Ergebnis.",
       "results": "Das Ergebnis ist ein Urteil mit den zugrunde liegenden Kennzahlen und Risikotreibern, sodass Sie sehen, warum es so ausfällt und was anzupassen ist.",
-      "approvedReports": "Premium-Ergebnisse können als geprüfte Berichte gespeichert und geteilt werden, und jeder kann unabhängig überprüft werden.",
-      "trustTrace": "Trust Trace erfasst Eingaben, Annahmen und Validierung, sodass ein Ergebnis von Kunden, Banken oder Prüfern kontrolliert werden kann.",
+      "approvedReports": "Premium-Ergebnisse können als exportierbare Entscheidungsübersichten für die interne Teamprüfung gespeichert werden.",
+      "trustTrace": "Die Berechnungsübersicht erfasst Eingaben, Annahmen und Validierungsschritte, damit Sie nachvollziehen können, wie das Ergebnis entstanden ist.",
       "regionalUnits": "SectorCalc unterstützt metrische, imperiale und regionale Einheiten und zeigt die verwendeten Umrechnungen an.",
       "benchmarks": "SectorCalc zeigt neben Ihrem Ergebnis einen indikativen regionalen Benchmark-Kontext — zur Orientierung, keine offiziellen Zahlen.",
       "pricing": "Die Pläne und ihre Inhalte sehen Sie auf der Preisseite:",
@@ -752,53 +785,112 @@
     "inputs": "Sie geben die zentralen Kosten, Mengen, Sätze und Annahmen Ihres Auftrags ein. Pflichtfelder werden minimal gehalten, und optionale Felder schärfen das Ergebnis, wenn Ihnen die Daten vorliegen.",
     "outputsTitle": "Was das Ergebnis bedeutet",
     "outputs": "{tool} liefert ein klares Urteil mit den zugrunde liegenden Kennzahlen und Risikotreibern, sodass Sie nicht nur die Zahl sehen, sondern auch, warum sie so ausfällt und was anzupassen ist.",
-    "trustTitle": "Geprüfte Berichte und Trust Trace",
-    "trust": "Premium-Ergebnisse können als geprüfte Berichte mit einer Trust-Trace-Spur aus Eingaben, Annahmen und Validierung gespeichert werden, sodass Kunden, Banken und Prüfer die Arbeit unabhängig überprüfen können.",
+    "trustTitle": "Premium-Entscheidungsübersichten & Berechnungsübersicht",
+    "trust": "Premium-Ergebnisse können als exportierbare Entscheidungsübersichten mit Berechnungsübersicht gespeichert werden.",
     "faqTitle": "Häufige Fragen",
     "relatedTitle": "Verwandte Premium-Tools",
     "faq": [
-      { "q": "Ist {tool} kostenlos?", "a": "Sie können den Ansatz kostenlos in der Vorschau ansehen, während das vollständige Urteil, die Kennzahlen und der geprüfte Bericht Teil von SectorCalc Pro sind." },
-      { "q": "Ersetzt {tool} professionelle Beratung?", "a": "Nein. Es ist eine technische Simulation und ein Entscheidungswerkzeug, keine Finanz-, Rechts- oder Ingenieurberatung. Prüfen Sie Ergebnisse vor Geschäftsentscheidungen." },
-      { "q": "Wie genau ist das Ergebnis?", "a": "Die Ergebnisse spiegeln Ihre Eingaben und die deterministische Engine von SectorCalc wider. Bessere Eingaben liefern eine schärfere, belastbarere Einschätzung." },
-      { "q": "Kann ich das Ergebnis teilen?", "a": "Ja. Premium-Ergebnisse können als geprüfte Berichte mit einer überprüfbaren Trust Trace exportiert werden." },
-      { "q": "Für welche Branche ist {tool}?", "a": "Es ist auf die Preis- und Margenmuster seiner Branche abgestimmt und steht neben dem übrigen 27-Branchen-Toolset von SectorCalc." }
+      {
+        "q": "Ist {tool} kostenlos?",
+        "a": "Sie können den Ansatz kostenlos ansehen; vollständiges Urteil, Metriken und Premium-Entscheidungsübersicht sind in SectorCalc Pro enthalten."
+      },
+      {
+        "q": "Ersetzt {tool} professionelle Beratung?",
+        "a": "Nein. Es ist eine technische Simulation und ein Entscheidungswerkzeug, keine Finanz-, Rechts- oder Ingenieurberatung. Prüfen Sie Ergebnisse vor Geschäftsentscheidungen."
+      },
+      {
+        "q": "Wie genau ist das Ergebnis?",
+        "a": "Die Ergebnisse spiegeln Ihre Eingaben und die deterministische Engine von SectorCalc wider. Bessere Eingaben liefern eine schärfere, belastbarere Einschätzung."
+      },
+      {
+        "q": "Kann ich das Ergebnis teilen?",
+        "a": "Ja. Premium-Ergebnisse können als Entscheidungsübersichten mit Berechnungsübersicht exportiert werden."
+      },
+      {
+        "q": "Für welche Branche ist {tool}?",
+        "a": "Es ist auf die Preis- und Margenmuster seiner Branche abgestimmt und steht neben dem übrigen 27-Branchen-Toolset von SectorCalc."
+      }
     ]
   },
   "enterprise": {
     "metaTitle": "SectorCalc für Business & Enterprise | Verifizierte Berechnung und Entscheidungsunterstützung",
-    "metaDescription": "Business- und Enterprise-Pakete für SectorCalc: Teamnutzung, geprüfte Berichte, Trust Trace, Branchenpakete und beschaffungsfreundliche Entscheidungsunterstützung.",
+    "metaDescription": "Business- und Enterprise-Pakete für SectorCalc: Teamnutzung, Premium-Entscheidungsübersichten, Berechnungsübersicht, Branchenpakete und beschaffungsfreundliche Entscheidungsunterstützung.",
     "title": "Verifizierte Berechnung und Entscheidungsunterstützung für Teams und Organisationen.",
-    "subtitle": "SectorCalc bündelt Branchenrechner, geprüfte Berichte und Trust Trace zu einem Workflow, auf den sich Ihre Teams, Kunden und Prüfer verlassen können.",
+    "subtitle": "SectorCalc bündelt Branchenrechner, Premium-Entscheidungsübersichten und Berechnungsübersicht in einem Workflow für Ihre Teams.",
     "demoCta": "Demo anfragen",
     "contactCta": "Vertrieb kontaktieren",
-    "hero": { "eyebrow": "Business & Enterprise" },
+    "hero": {
+      "eyebrow": "Business & Enterprise"
+    },
     "businessPlan": {
       "badge": "Business",
       "title": "Business",
-      "body": "Für Betriebe und Teams, die wiederholbare Berechnungen, geprüfte Berichte, regionale Einheiten, Benchmark-Kontext und feldtaugliche Workflows benötigen.",
-      "features": ["Premium-Analyzer in 27 Branchen", "Geprüfte Berichte mit Trust Trace", "Regionale Einheiten und Richtwert-Benchmarks", "Gespeicherte Berichte und Feldmodus"],
+      "body": "Für Betreiber und Teams, die wiederholbare Berechnungen, Premium-Entscheidungsübersichten, regionale Einheiten und Feldbereitschaft benötigen.",
+      "features": [
+        "Premium-Analyzer in 27 Branchen",
+        "Premium-Entscheidungsübersichten mit Berechnungsübersicht",
+        "Regionale Einheiten und Richtwert-Benchmarks",
+        "Gespeicherte Berichte und Feldmodus"
+      ],
       "availability": "Jetzt verfügbar"
     },
     "enterprisePlan": {
       "badge": "Enterprise",
       "title": "Enterprise",
       "body": "Für Organisationen, die verifizierte Berechnungs-Workflows, Teamnutzung, Berichts-Governance, Auditierbarkeit, individuelle Branchenpakete und beschaffungsfreundliche Entscheidungsunterstützung benötigen.",
-      "features": ["Team- und Organisationsnutzung", "Berichts-Governance und Auditierbarkeit", "Individuelle Branchenpakete", "Beschaffungsfreundliches Onboarding"],
+      "features": [
+        "Team- und Organisationsnutzung",
+        "Berichts-Governance und Auditierbarkeit",
+        "Individuelle Branchenpakete",
+        "Beschaffungsfreundliches Onboarding"
+      ],
       "availability": "Enterprise-Gespräch — kontaktieren Sie uns"
     },
-    "bundles": { "title": "Branchenpakete", "body": "Bündeln Sie die von Ihrer Branche am häufigsten genutzten Analyzer in einem fokussierten Paket, damit Teams ohne Ablenkung das richtige Werkzeug finden." },
-    "approvedReports": { "title": "Geprüfte Berichte", "body": "Verwandeln Sie Ergebnisse in teilbare, überprüfbare Berichte, die Ihre Kunden, Banken und Prüfer unabhängig kontrollieren können." },
-    "trustTrace": { "title": "Trust Trace", "body": "Jedes Ergebnis kann eine transparente Spur von Eingaben, Annahmen und Validierung tragen, sodass Entscheidungen einer Prüfung standhalten." },
-    "team": { "title": "Team & Organisation", "body": "Bringen Sie Kalkulatoren, Feldteams und Manager auf eine einheitliche Berechnungsbasis." },
-    "security": { "title": "Sicherheit & Datenverarbeitung", "body": "Kostenlose Eingaben werden im Browser verarbeitet, sofern sie nicht gespeichert werden. Kontodaten werden gemäß unserer Datenschutzrichtlinie verarbeitet, und wir legen niemals Geheimnisse im Frontend ab." },
-    "demo": { "title": "Sprechen Sie mit uns über Ihren Rollout", "body": "Nennen Sie uns Ihre Branchen und Teamgröße, und wir führen Sie durch Pakete, geprüfte Berichte und das Enterprise-Gespräch.", "cta": "Demo anfragen", "pricingLink": "Preise ansehen" },
+    "bundles": {
+      "title": "Branchenpakete",
+      "body": "Bündeln Sie die von Ihrer Branche am häufigsten genutzten Analyzer in einem fokussierten Paket, damit Teams ohne Ablenkung das richtige Werkzeug finden."
+    },
+    "approvedReports": {
+      "title": "Premium-Entscheidungsübersichten",
+      "body": "Ergebnisse in teilbare Entscheidungsübersichten für die interne Teamprüfung umwandeln."
+    },
+    "trustTrace": {
+      "title": "Berechnungsübersicht",
+      "body": "Jedes Ergebnis kann eine transparente Spur von Eingaben, Annahmen und Validierung tragen, sodass Entscheidungen einer Prüfung standhalten."
+    },
+    "team": {
+      "title": "Team & Organisation",
+      "body": "Bringen Sie Kalkulatoren, Feldteams und Manager auf eine einheitliche Berechnungsbasis."
+    },
+    "security": {
+      "title": "Sicherheit & Datenverarbeitung",
+      "body": "Kostenlose Eingaben werden im Browser verarbeitet, sofern sie nicht gespeichert werden. Kontodaten werden gemäß unserer Datenschutzrichtlinie verarbeitet, und wir legen niemals Geheimnisse im Frontend ab."
+    },
+    "demo": {
+      "title": "Sprechen Sie mit uns über Ihren Rollout",
+      "body": "Nennen Sie Ihre Branchen und Teamgröße — wir zeigen Pakete, Premium-Entscheidungsübersichten und Enterprise-Gespräch.",
+      "cta": "Demo anfragen",
+      "pricingLink": "Preise ansehen"
+    },
     "faq": {
       "title": "Enterprise-FAQ",
       "items": [
-        { "q": "Worin unterscheiden sich Business und Enterprise?", "a": "Business umfasst Premium-Analyzer, geprüfte Berichte und Feld-Workflows für Teams. Enterprise ergänzt Organisationsnutzung, Berichts-Governance, individuelle Pakete und beschaffungsfreundliches Onboarding." },
-        { "q": "Können wir SectorCalc branchenübergreifend nutzen?", "a": "Ja. SectorCalc deckt 27 Branchen ab, und Branchenpakete gruppieren die von Ihren Teams am häufigsten genutzten Analyzer." },
-        { "q": "Sind Ergebnisse auditierbar?", "a": "Geprüfte Berichte tragen eine Trust-Trace-Spur von Eingaben, Annahmen und Validierung, die Dritte überprüfen können." },
-        { "q": "Wie starten wir?", "a": "Fragen Sie eine Demo an, und wir besprechen Ihre Branchen, Teamgröße und Ihren Rollout. Die Preise für Einzelpläne finden Sie auf der Preisseite." }
+        {
+          "q": "Worin unterscheiden sich Business und Enterprise?",
+          "a": "Business umfasst Premium-Analysen, Premium-Entscheidungsübersichten und Feldbereitschaft. Enterprise ergänzt Organisation, Reporting-Governance und Pakete."
+        },
+        {
+          "q": "Können wir SectorCalc branchenübergreifend nutzen?",
+          "a": "Ja. SectorCalc deckt 27 Branchen ab, und Branchenpakete gruppieren die von Ihren Teams am häufigsten genutzten Analyzer."
+        },
+        {
+          "q": "Sind Ergebnisse auditierbar?",
+          "a": "Premium-Entscheidungsübersichten enthalten eine Berechnungsübersicht für die interne Prüfung."
+        },
+        {
+          "q": "Wie starten wir?",
+          "a": "Fragen Sie eine Demo an, und wir besprechen Ihre Branchen, Teamgröße und Ihren Rollout. Die Preise für Einzelpläne finden Sie auf der Preisseite."
+        }
       ]
     }
   },
@@ -839,7 +931,7 @@
     },
     "different": {
       "title": "Was uns unterscheidet",
-      "body": "Jedes Ergebnis trägt eine transparente Trust Trace, indikative regionale Benchmarks und dokumentierte Annahmen, eine Berechnung, die Sie Banken, Kunden und Prüfern vorlegen können."
+      "body": "Jedes Ergebnis enthält eine transparente Berechnungsübersicht, indikative regionale Benchmarks und dokumentierte Annahmen, die Ihr Team vor der Entscheidung prüfen kann."
     },
     "who": {
       "title": "Für wen es gebaut ist",
@@ -880,7 +972,7 @@
       "body": "We turn sector-specific operational knowledge into calculators and decision reports from $19/month: OEE, scrap, routing, carbon, and tolerance. Every result includes a calculation trace showing how numbers were derived."
     },
     "positioning": {
-      "title": "ERP-level calculation logic without ERP complexity.",
+      "title": "Sektorspezifische Berechnungslogik ohne die Komplexität von Unternehmenssoftware.",
       "text": "Most teams still calculate loss, waste, cost and efficiency in spreadsheets, notebooks or guesswork. SectorCalc gives them focused calculators and decision reports they can use immediately."
     },
     "scenarios": {
@@ -1164,7 +1256,7 @@
       "title": "Who should apply",
       "item1": "Operators tracking scrap, setup, route, energy or margin loss",
       "item2": "Consultants preparing client-facing sector assessments",
-      "item3": "Early-stage businesses without ERP-level tooling",
+      "item3": "Kleine Teams, die klare Berechnungen benötigen, bevor sie komplexe Software einsetzen",
       "item4": "Teams willing to give structured feedback on calculator fit"
     },
     "data": {
@@ -1314,7 +1406,8 @@
   },
   "premiumTools": {
     "title": "Premium-Analyse",
-    "openAnalyzer": "Analyse öffnen"
+    "openAnalyzer": "Analyse öffnen",
+    "lockedTrustTrace": "Berechnungsübersicht ist eine Pro-Premium-Funktion."
   },
   "categories": {
     "title": "Nach Kategorie",
@@ -1412,14 +1505,14 @@
   "premiumAccess": {
     "previewEyebrow": "Öffentliche Vorschau",
     "publicPreviewTitle": "Analysator vor dem Abonnement testen",
-    "publicPreviewDescription": "Geben Sie Ihre Auftragseingaben ein, validieren Sie das Formular und führen Sie eine Vorschauanalyse durch. Export, gespeicherte Berichte und Trust Trace erfordern SectorCalc Pro.",
+    "publicPreviewDescription": "Geben Sie Ihre Auftragseingaben ein, validieren Sie das Formular und führen Sie eine Vorschauanalyse durch. Export, gespeicherte Berichte und Berechnungsübersicht erfordern SectorCalc Pro.",
     "signedInPreviewTitle": "Vorschau-Modus — Pro schaltet vollständige Berichte frei",
-    "signedInPreviewDescription": "Sie können den Analysator ausführen und das Vorschaurteil einsehen. PDF-Export, gespeicherter Verlauf und Trust Trace erfordern einen aktiven Pro-Plan oder den Kauf einzelner Berichte.",
+    "signedInPreviewDescription": "Sie können den Analysator ausführen und das Vorschaurteil einsehen. PDF-Export, gespeicherter Verlauf und Berechnungsübersicht erfordern einen aktiven Pro-Plan oder den Kauf einzelner Berichte.",
     "signIn": "Anmelden",
     "getPro": "Pro holen",
     "lockedExport": "PDF- und Tabellenkalkulationsexport sind in Pro-Plänen verfügbar.",
     "lockedReportHistory": "Gespeicherter Berichtsverlauf erfordert ein angemeldetes Pro-Konto.",
-    "lockedTrustTrace": "Trust Trace und Validierungsstempel sind Pro-exklusive Audit-Funktionen.",
+    "lockedTrustTrace": "Berechnungsübersicht ist eine Pro-Premium-Funktion.",
     "fullReportRequiresPro": "Vollständiger exportierbarer Bericht erfordert SectorCalc Pro.",
     "panelTitle": "SectorCalc Pro-Anmeldung",
     "panelDescription": "Melden Sie sich mit Google an, um auf Premium-Analysetools zuzugreifen oder den Checkout fortzusetzen. Die Admin-Anmeldung ist oben separat.",
@@ -2787,5 +2880,28 @@
     "clearData": "Lokale Daten löschen",
     "staleDataWarning": "Gespeicherte Daten können veraltet sein — vor Entscheidungen prüfen.",
     "privacyNote": "Nur auf diesem Gerät gespeichert. Keine Geheimnisse oder sensiblen personenbezogenen Daten."
+  },
+  "freeToolUi": {
+    "preCheck": "Kostenlose Vorprüfung",
+    "premiumAnalyzer": "Premium-Analyse",
+    "classicForm": "Klassisches Formular",
+    "smartFormMeta": "Smart-Formular",
+    "simple": "Einfach",
+    "expert": "Experte",
+    "calculationSummary": "Berechnungsübersicht",
+    "runAnalysis": "Analyse starten",
+    "calculating": "Wird berechnet…",
+    "whatIs": "Was ist {title}?",
+    "decisionOutput": "Entscheidungsergebnis",
+    "exportLabel": "Export:",
+    "exportNote": "Der PDF-Export nutzt Ihr bestehendes Abo und den Berichts-Workflow."
+  },
+  "freeToolContent": {
+    "square-meter-calculator": {
+      "title": "Quadratmeter-Rechner",
+      "description": "Berechnen Sie die Fläche eines Rechtecks in Quadratmetern.",
+      "seoTitle": "Quadratmeter-Rechner — Fläche in m² | SectorCalc",
+      "seoDescription": "Rechteckfläche berechnen: Länge × Breite mit ft²- und yd²-Umrechnung."
+    }
   }
 }

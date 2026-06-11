@@ -13,7 +13,7 @@ export function TrustTraceSummary({ report }: Props) {
       className="space-y-2 rounded-md border border-gray-200 bg-gray-50 p-3 text-xs text-gray-600"
     >
       <div className="flex items-center justify-between gap-2">
-        <span className="font-semibold text-gray-700">Calculation Trust Trace</span>
+        <span className="font-semibold text-gray-700">Calculation Summary</span>
         <span className="rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">
           {report.status.toUpperCase()}
         </span>

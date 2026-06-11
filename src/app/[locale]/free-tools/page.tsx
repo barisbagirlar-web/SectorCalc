@@ -4,10 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageHero } from "@/components/catalog/CatalogPageHero";
 import { SectorCatalogExplorer } from "@/components/catalog/SectorCatalogExplorer";
-import { FreeToolPrivacyNote } from "@/components/tools/FreeToolPrivacyNote";
 import { Container } from "@/components/ui/Container";
-import { IconListItem } from "@/components/icons/ScIcon";
-import { UI_ICON } from "@/lib/icons/icon-registry";
 import {
   DEFAULT_FREE_TRAFFIC_CATEGORY,
   getCachedFreeTrafficCatalogGroups,
@@ -77,7 +74,6 @@ export default async function FreeToolsPage({ params }: PageProps) {
     <PageLayout>
       <JsonLd data={jsonLd} />
       <CatalogPageHero
-        eyebrow={tCatalog("freeTools.eyebrow")}
         title={tCatalog("freeTools.title")}
         subtitle={tCatalog("freeTools.subtitle")}
       />
@@ -89,54 +85,11 @@ export default async function FreeToolsPage({ params }: PageProps) {
             variant="free-tools"
             defaultGroupId={DEFAULT_FREE_TRAFFIC_CATEGORY}
           />
-        </Container>
-      </section>
-
-      <section className="sc-pro-section sc-pro-section--alt sc-pro-section--border">
-        <Container className="sc-pro-container">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="sc-pro-panel sc-pro-letterpress p-5">
-              <h2 className="sc-pro-title text-lg">{t("includesTitle")}</h2>
-              <ul className="mt-4 space-y-2">
-                {[t("includes1"), t("includes2"), t("includes3"), t("includes4")].map((item) => (
-                  <IconListItem key={item} icon={UI_ICON.check} iconClassName="text-premium-velvet">
-                    {item}
-                  </IconListItem>
-                ))}
-              </ul>
-            </div>
-            <div className="sc-pro-panel sc-pro-letterpress p-5">
-              <h2 className="sc-pro-title text-lg">{t("excludesTitle")}</h2>
-              <ul className="mt-4 space-y-2">
-                {[t("excludes1"), t("excludes2"), t("excludes3"), t("excludes4")].map((item) => (
-                  <IconListItem key={item} icon={UI_ICON.exclude} iconClassName="text-body-charcoal">
-                    {item}
-                  </IconListItem>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="mt-6">
-            <FreeToolPrivacyNote />
-          </div>
-        </Container>
-      </section>
-
-      <section className="sc-pro-section">
-        <Container className="sc-pro-container">
-          <div className="sc-decision-block">
-            <h2 className="sc-pro-title text-lg">{t("premiumUpsellTitle")}</h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-body-charcoal">
-              {t("premiumUpsellBody")}
-            </p>
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link href={getPremiumToolsHref()} prefetch={false} className="sc-cta-primary">
-                {t("premiumUpsellCta")}
-              </Link>
-              <Link href="/industries" prefetch={false} className="sc-cta-secondary">
-                {t("premiumUpsellIndustries")}
-              </Link>
-            </div>
+          <div className="sc-discovery-footer">
+            <p className="sc-discovery-footer__lead">{tCatalog("discoveryFooter.freeToolsLead")}</p>
+            <Link href={getPremiumToolsHref()} prefetch={false} className="sc-discovery-footer__link">
+              {tCatalog("discoveryFooter.freeToolsCta")}
+            </Link>
           </div>
         </Container>
       </section>

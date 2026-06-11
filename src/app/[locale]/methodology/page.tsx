@@ -9,9 +9,9 @@ type PageProps = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   return createPageMetadata({
-    title: "SectorCalc Methodology — Dual-Intelligence & Trust Trace",
+    title: "SectorCalc Methodology — Dual-Intelligence & Calculation Governance",
     description:
-      "How SectorCalc uses contract-driven requirements, deterministic calculation, validation oracles, and trust trace metadata — LLM is interface-only, never the math engine.",
+      "How SectorCalc uses contract-driven requirements, deterministic calculation, validation oracles, and calculation summary metadata — LLM is interface-only, never the math engine.",
     path: "/methodology",
     locale: locale as AppLocale,
   });
@@ -25,7 +25,7 @@ export default async function MethodologyPage({ params }: PageProps) {
     <ManifestoPageContent
       variant="methodology"
       headline="Methodology"
-      lead="Dual-Intelligence governance: requirement resolution before calculation, validation and oracle coverage after — with trust trace on every full-loop result."
+      lead="Dual-Intelligence governance: requirement resolution before calculation, validation and oracle coverage after — with a calculation summary on every full-loop result."
     />
   );
 }

@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createPageMetadata({
     title: "Operating System — Tool Factory Pipeline | SectorCalc",
     description:
-      "How SectorCalc builds sector tools: ontology, formula contracts, validation gates, Smart Form, trust trace, human approval, and controlled deploy.",
+      "How SectorCalc builds sector tools: ontology, formula contracts, validation gates, Smart Form, calculation summary mapping, human approval, and controlled deploy.",
     path: "/operating-system",
     locale: locale as AppLocale,
   });

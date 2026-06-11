@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import type { SmartFormTier, SmartFormViewMode } from "@/lib/smart-form/types";
 
 export type SmartFormShellProps = {
@@ -20,15 +21,18 @@ export type SmartFormShellProps = {
   readonly showSubmit?: boolean;
 };
 
-const TIER_LABEL: Record<SmartFormTier, string> = {
-  free: "Free pre-check",
-  premium: "Premium analyzer",
+const TIER_LABEL_KEY: Record<SmartFormTier, "preCheck" | "premiumAnalyzer"> = {
+  free: "preCheck",
+  premium: "premiumAnalyzer",
 };
 
-const VIEW_TABS: readonly { id: SmartFormViewMode; label: string }[] = [
-  { id: "simple", label: "Simple" },
-  { id: "expert", label: "Expert" },
-  { id: "trust", label: "Trust trace" },
+const VIEW_TAB_KEYS: readonly {
+  id: SmartFormViewMode;
+  key: "simple" | "expert" | "calculationSummary";
+}[] = [
+  { id: "simple", key: "simple" },
+  { id: "expert", key: "expert" },
+  { id: "trust", key: "calculationSummary" },
 ];
 
 export function SmartFormShell({
@@ -43,12 +47,14 @@ export function SmartFormShell({
   resultContent,
   trustTraceContent,
   onSubmit,
-  calculateLabel = "Run analysis",
+  calculateLabel,
   isCalculating = false,
   showSubmit = false,
 }: SmartFormShellProps) {
+  const t = useTranslations("freeToolUi");
   const [internalView, setInternalView] = useState<SmartFormViewMode>("simple");
   const viewMode = controlledViewMode ?? internalView;
+  const submitLabel = calculateLabel ?? t("runAnalysis");
 
   const setViewMode = (mode: SmartFormViewMode) => {
     if (onViewModeChange) {
@@ -71,7 +77,7 @@ export function SmartFormShell({
               disabled={isCalculating}
               className="sc-cta-primary min-h-[48px] disabled:opacity-60"
             >
-              {isCalculating ? "Calculating…" : calculateLabel}
+              {isCalculating ? t("calculating") : submitLabel}
             </button>
           </div>
         </form>
@@ -89,15 +95,15 @@ export function SmartFormShell({
       <header className="rounded-sm border border-border-subtle bg-off-white p-4">
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-sm bg-navy px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
-            {TIER_LABEL[tier]}
+            {t(TIER_LABEL_KEY[tier])}
           </span>
           {fallback ? (
             <span className="rounded-sm border border-border-subtle px-2 py-1 text-[11px] text-text-secondary">
-              Classic form
+              {t("classicForm")}
             </span>
           ) : (
             <span className="rounded-sm border border-safe-green/40 px-2 py-1 text-[11px] text-safe-green">
-              Smart form metadata
+              {t("smartFormMeta")}
             </span>
           )}
         </div>
@@ -106,7 +112,7 @@ export function SmartFormShell({
           <p className="mt-1 text-sm leading-relaxed text-text-secondary">{description}</p>
         ) : null}
         <div className="mt-4 flex flex-wrap gap-2">
-          {VIEW_TABS.map((tab) => (
+          {VIEW_TAB_KEYS.map((tab) => (
             <button
               key={tab.id}
               type="button"
@@ -118,7 +124,7 @@ export function SmartFormShell({
               }`}
               aria-pressed={viewMode === tab.id}
             >
-              {tab.label}
+              {t(tab.key)}
             </button>
           ))}
         </div>

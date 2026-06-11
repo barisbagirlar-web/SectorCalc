@@ -537,6 +537,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
 
           <FreeToolAuthorityBlock
             tool={tool}
+            localizedTitle={displayTitle}
+            localizedDescription={displayDescription}
             labels={{
               howItWorksTitle: tAuthority("howItWorksTitle"),
               descriptionTitle: tAuthority("descriptionTitle"),

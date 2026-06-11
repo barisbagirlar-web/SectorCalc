@@ -201,7 +201,7 @@ function TrustTracePanel({
       className="sc-ledger-panel sc-industrial-panel border border-dashed border-border-subtle p-4"
       data-component-kind="trust_trace_panel"
     >
-      <h3 className="text-base font-semibold text-text-primary">Trust trace (pilot placeholder)</h3>
+      <h3 className="text-base font-semibold text-text-primary">Calculation summary</h3>
       <p className="mt-1 text-sm text-text-secondary">
         Governance mapping preview — no report output in this phase.
       </p>

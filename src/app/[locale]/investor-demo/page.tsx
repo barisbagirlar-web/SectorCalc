@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createPageMetadata({
     title: "Investor Demo — SectorCalc Operating System",
     description:
-      "Investor-ready overview: live Smart Form pilots, dual-core calculation intelligence, formula governance proof, trust trace vision, and Tool Factory scale path.",
+      "Investor-ready overview: live Smart Form pilots, dual-core calculation intelligence, formula governance proof, calculation summary vision, and Tool Factory scale path.",
     path: "/investor-demo",
     locale: locale as AppLocale,
   });

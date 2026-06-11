@@ -105,16 +105,6 @@ export function ApprovedReportActions({ report }: Props) {
       >
         Print
       </button>
-
-      <a
-        href={report.qrTargetUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 rounded border border-blue-300 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        data-report-qr-block="true"
-      >
-        Verify Online
-      </a>
     </div>
   );
 }

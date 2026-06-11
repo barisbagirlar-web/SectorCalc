@@ -6,7 +6,7 @@ const LOCKED_SECTIONS = [
   "Minimum safe price floor",
   "Margin leak drivers",
   "Scenario comparison rows",
-  "Trust Trace audit appendix",
+  "Calculation summary appendix",
   "PDF / Excel / Word export",
 ] as const;
 

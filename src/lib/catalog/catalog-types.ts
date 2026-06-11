@@ -22,6 +22,8 @@ export type CatalogItem = {
   readonly priceHint?: string;
   readonly primaryOutputLabel?: string;
   readonly relatedPremium?: readonly CatalogRelatedPremiumItem[];
+  readonly freeToolCount?: number;
+  readonly premiumToolCount?: number;
 };
 
 export type CatalogGroup = {

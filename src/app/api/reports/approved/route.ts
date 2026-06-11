@@ -1,6 +1,6 @@
 /**
  * POST /api/reports/approved
- * Creates an approved report and returns the report ID, hash, stamp, and verify URL.
+ * Creates a premium decision summary record and returns the report ID and calculation hash.
  */
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
