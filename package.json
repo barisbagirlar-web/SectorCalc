@@ -32,6 +32,7 @@
     "smoke:regional-units": "node scripts/smoke-regional-units.mjs",
     "smoke:regional-benchmarks": "node scripts/smoke-regional-benchmarks.mjs",
     "smoke:case-study-proof": "node scripts/smoke-case-study-proof.mjs",
+    "smoke:pwa-field-mode": "node scripts/smoke-pwa-field-mode.mjs",
     "assert:route-cache-policy": "node scripts/assert-route-cache-policy.mjs",
     "audit:formulas": "npx tsx scripts/audit-formulas.ts",
     "audit:alignment": "npx tsx scripts/audit-alignment.ts",

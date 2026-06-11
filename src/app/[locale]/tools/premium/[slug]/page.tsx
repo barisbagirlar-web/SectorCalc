@@ -6,6 +6,7 @@ import { RegionalUnitsSection } from "@/components/regional-units/RegionalUnitsS
 import { resolveRegionForLocale } from "@/lib/units/regional-unit-engine";
 import { BenchmarkPanel } from "@/components/regional-benchmarks/BenchmarkPanel";
 import { resolveBenchmarkRegionForLocale } from "@/lib/regional-benchmarks/benchmark-registry";
+import { FieldModePanel } from "@/components/field-mode/FieldModePanel";
 import { Link } from "@/i18n/routing";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
@@ -96,6 +97,7 @@ export default async function PremiumRevenueToolRoute({
       <div className="mx-auto w-full max-w-5xl px-4 pb-10 sm:px-6">
         <BenchmarkPanel region={resolveBenchmarkRegionForLocale(locale)} />
         <RegionalUnitsSection defaultRegion={resolveRegionForLocale(locale)} />
+        <FieldModePanel />
       </div>
     </>
   );

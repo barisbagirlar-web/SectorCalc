@@ -8,6 +8,7 @@ import { getLocaleTextDirection } from "@/lib/i18n/locale-config";
 import { getServerRegion } from "@/lib/compliance/server-region";
 import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap";
 import { RegionProvider } from "@/lib/compliance/region-context";
+import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegister";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,13 +51,17 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
       <head>
         <SeoHeadLinks />
         <LlmsTxtLink />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="theme-color" content="#C2410C" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <body className="min-w-0 overflow-x-hidden bg-industrial-matte font-sans text-[17px] leading-[1.47059] text-premium-velvet antialiased">
         <JsonLd data={buildHomepageJsonLd(locale)} />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <RegionProvider region={region}>
             <AttributionBootstrap />
+            <ServiceWorkerRegister />
             {children}
           </RegionProvider>
         </NextIntlClientProvider>
