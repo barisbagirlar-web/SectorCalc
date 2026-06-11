@@ -2,7 +2,7 @@
 /**
  * CI gate: strategic premium + free traffic roadmap integrity.
  */
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -37,18 +37,29 @@ function loadLiveSlugs() {
   const traffic = JSON.parse(
     readFileSync(join(ROOT, "src/lib/tools/free-traffic-catalog.generated.json"), "utf8"),
   ).map((t) => t.slug);
+  const batch1 = JSON.parse(
+    readFileSync(join(ROOT, "src/lib/tools/roadmap-free-batch1-catalog.generated.json"), "utf8"),
+  ).map((t) => t.slug);
+  const batch2 = JSON.parse(
+    readFileSync(join(ROOT, "src/lib/tools/roadmap-free-batch2-catalog.generated.json"), "utf8"),
+  ).map((t) => t.slug);
   const revenueFree = [];
   const revenuePaid = [];
   const revenueText = readFileSync(join(ROOT, "src/lib/tools/revenue-tools.ts"), "utf8");
   for (const m of revenueText.matchAll(/freeSlug:\s*"([^"]+)"/g)) revenueFree.push(m[1]);
   for (const m of revenueText.matchAll(/paidSlug:\s*"([^"]+)"/g)) revenuePaid.push(m[1]);
-  const schemaText = readFileSync(
-    join(ROOT, "src/lib/premium-schema/schema-registry.ts"),
-    "utf8",
-  );
-  const schemaSlugs = [];
-  for (const m of schemaText.matchAll(/id:\s*"([^"]+)"/g)) schemaSlugs.push(m[1]);
-  return new Set([...traffic, ...revenueFree, ...revenuePaid, ...schemaSlugs]);
+  const schemaDir = join(ROOT, "src/lib/premium-schema/schemas");
+  const schemaSlugs = readdirSync(schemaDir)
+    .filter((name) => name.endsWith(".ts") && name !== "index.ts")
+    .map((name) => {
+      const text = readFileSync(join(schemaDir, name), "utf8");
+      const match = text.match(/\bid:\s*"([^"]+)"/);
+      if (!match) {
+        throw new Error(`Missing schema id in ${name}`);
+      }
+      return match[1];
+    });
+  return new Set([...traffic, ...batch1, ...batch2, ...revenueFree, ...revenuePaid, ...schemaSlugs]);
 }
 
 function extractConstArray(tsPath, constName) {

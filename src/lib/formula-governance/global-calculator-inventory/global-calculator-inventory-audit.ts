@@ -88,8 +88,17 @@ const BEFORE_CONTRACT_COUNT = 41;
 const BEFORE_FULL_LOOP_COUNT = 35;
 
 function loadCatalog(rootDir: string): CatalogEntry[] {
-  const path = join(rootDir, "src/lib/tools/free-traffic-catalog.generated.json");
-  return JSON.parse(readFileSync(path, "utf8")) as CatalogEntry[];
+  const basePath = join(rootDir, "src/lib/tools/free-traffic-catalog.generated.json");
+  const batch1Path = join(rootDir, "src/lib/tools/roadmap-free-batch1-catalog.generated.json");
+  const batch2Path = join(rootDir, "src/lib/tools/roadmap-free-batch2-catalog.generated.json");
+  const base = JSON.parse(readFileSync(basePath, "utf8")) as CatalogEntry[];
+  const batch1 = JSON.parse(readFileSync(batch1Path, "utf8")) as CatalogEntry[];
+  const batch2 = JSON.parse(readFileSync(batch2Path, "utf8")) as CatalogEntry[];
+  const merged = new Map<string, CatalogEntry>();
+  for (const entry of [...base, ...batch1, ...batch2]) {
+    merged.set(entry.slug, entry);
+  }
+  return [...merged.values()];
 }
 
 function catalogBySlug(rootDir: string): Map<string, CatalogEntry> {

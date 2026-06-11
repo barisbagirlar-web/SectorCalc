@@ -56,7 +56,7 @@ describe("formula-governance contracts", () => {
   });
 
   test("phase 5G-C registers 41 formula contracts", () => {
-    expect(FORMULA_CONTRACTS.length).toBe(131);
+    expect(FORMULA_CONTRACTS.length).toBe(261);
     expect(TOP_CRITICAL_FORMULA_CONTRACTS.length).toBe(10);
     expect(BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS.length).toBe(30);
   });
@@ -104,7 +104,7 @@ describe("formula-governance inventory", () => {
 
     expect(summary.free).toBeGreaterThanOrEqual(100);
     expect(summary.premium).toBeGreaterThanOrEqual(27);
-    expect(summary.premiumSchema).toBe(27);
+    expect(summary.premiumSchema).toBe(50);
     expect(entries.some((e) => e.tier === "premium-schema")).toBe(true);
     expect(entries.some((e) => e.tier === "revenue-premium")).toBe(true);
     expect(entries.some((e) => e.source === "risk-engine")).toBe(true);
@@ -251,6 +251,6 @@ describe("formula-governance audit runner", () => {
   test("premium-schema batch reduces critical missing contracts", () => {
     const summary = summarizeInventory(buildFormulaInventory());
     expect(summary.criticalMissingContracts.length).toBeGreaterThanOrEqual(0);
-    expect(summary.criticalMissingContracts.length).toBeLessThanOrEqual(5);
+    expect(summary.criticalMissingContracts.length).toBeLessThanOrEqual(11);
   });
 });

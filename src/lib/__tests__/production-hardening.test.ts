@@ -91,15 +91,15 @@ function collectFreeResultStrings(
 }
 
 describe("production-hardening", () => {
-  test("FREE_TRAFFIC_TOOLS length === 100", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(100);
-    expect(listFreeTrafficSlugs().length).toBe(100);
+  test("FREE_TRAFFIC_TOOLS length === 230", () => {
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(230);
+    expect(listFreeTrafficSlugs().length).toBe(230);
   });
 
   test("PREMIUM_SCHEMAS length === 27", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(27);
-    expect(listPremiumSchemaSlugs().length).toBe(27);
-    expect(new Set(listPremiumSchemaSlugs()).size).toBe(27);
+    expect(PREMIUM_SCHEMAS.length).toBe(50);
+    expect(listPremiumSchemaSlugs().length).toBe(50);
+    expect(new Set(listPremiumSchemaSlugs()).size).toBe(50);
   });
 
   test("sitemap includes core public routes and expected minimum count", () => {

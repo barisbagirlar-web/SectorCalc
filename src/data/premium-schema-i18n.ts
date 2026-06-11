@@ -153,6 +153,121 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
     painStatement:
       "Faiz, gecikme ve masraf maruziyeti birlikte özetlenmediğinde hukuki ve tahsilat dosyalarında karar netliği kaybolur.",
   },
+  "quote-price-profit-margin-calculator": {
+    title: "Teklif Fiyatı ve Kâr Marjı Hesaplayıcı",
+    painStatement:
+      "Tekliflerde fire, kurulum süresi, vade maliyeti ve enerji yükü sıkça atlanır; marj buna göre incelir.",
+  },
+  "shop-rate-hourly-cost-calculator": {
+    title: "Makine Saat Ücreti Hesaplayıcı",
+    painStatement:
+      "Atölyelerin çoğu shop rate'i yalnızca işçilik ve elektrikle hesaplar; gerçek yük eksik kalır.",
+  },
+  "break-even-safety-margin-calculator": {
+    title: "Başabaş Noktası ve Güvenlik Marjı Hesaplayıcı",
+    painStatement:
+      "İşletmeler kâr/zararı çoğu zaman ay sonu tabloları gelince öğrenir.",
+  },
+  "auto-repair-parts-labor-quote-calculator": {
+    title: "Tamirhane Parça ve İşçilik Teklif Hesaplayıcı",
+    painStatement:
+      "Tamir teklifleri ustaya göre değişir; fiyat tutarlılığı zorlaşır.",
+  },
+  "cbam-unit-product-carbon-footprint-calculator": {
+    title: "SKDM Birim Ürün Karbon Ayak İzi Hesaplayıcı",
+    painStatement:
+      "İhracatçılar ürün bazlı karbon kanıtına ihtiyaç duyar; uygun araç azdır.",
+  },
+  "oee-equipment-effectiveness-calculator": {
+    title: "OEE Hesaplayıcı",
+    painStatement:
+      "OEE takibi olmadan kronik duruş ve kalite kaybı görünmez kalır.",
+  },
+  "compressor-leak-cost-calculator": {
+    title: "Kompresör Kaçağı Maliyet Hesaplayıcı",
+    painStatement:
+      "Basınçlı hava kaçakları elektriği görünmez üretim maliyetine çevirir.",
+  },
+  "employee-total-cost-calculator": {
+    title: "Personel Tam Maliyet Hesaplayıcı",
+    painStatement:
+      "İşe alım ve fiyatlama kararlarında net maaş kullanılır; tam maliyet eksik kalır.",
+  },
+  "downtime-minute-cost-calculator": {
+    title: "Duruş Dakika Maliyeti Hesaplayıcı",
+    painStatement:
+      "Bakım bütçeleri makinenin üretmediği fırsat maliyetini yok sayar.",
+  },
+  "product-customer-profitability-calculator": {
+    title: "Ürün ve Müşteri Kârlılığı Hesaplayıcı",
+    painStatement:
+      "Yüksek cirolu müşteriler iade, gecikme ve rework ile marjı eritebilir.",
+  },
+  "inventory-carrying-cost-eoq-calculator": {
+    title: "Stok Taşıma Maliyeti ve EOQ Hesaplayıcı",
+    painStatement:
+      "Stok maliyeti yalnızca depo kirası sayıldığında eksik kalır.",
+  },
+  "welded-bolted-connection-calculator": {
+    title: "Kaynaklı ve Bulonlu Bağlantı Hesaplayıcı",
+    painStatement:
+      "Bağlantı boyutlandırması hızlı kontrol olmadan sezgiye kalır.",
+  },
+  "tolerance-stack-up-calculator": {
+    title: "Tolerans Yığılma Hesaplayıcı",
+    painStatement:
+      "Uyumsuzluklar çoğu zaman belgelenmiş zincir kontrolü olmadan birikir.",
+  },
+  "bolt-tightening-torque-calculator": {
+    title: "Civata Sıkma Torku Hesaplayıcı",
+    painStatement:
+      "Montaj ekipleri belgelenmiş sıkma yöntemi olmadan tork tahmin eder.",
+  },
+  "fire-system-flow-hydrant-calculator": {
+    title: "Yangın Tesisatı Debi ve Hidrant Hesaplayıcı",
+    painStatement:
+      "Yangın koruma tekliflerinde debi ihtiyacı hidrant boyutlandırmadan önce atlanır.",
+  },
+  "hydraulic-pneumatic-cylinder-force-calculator": {
+    title: "Hidrolik ve Pnömatik Silindir Kuvvet Hesaplayıcı",
+    painStatement:
+      "Silindir seçimi basınç ve alan hesabı olmadan yapıldığında kapasite riski oluşur.",
+  },
+  "quality-cost-paf-calculator": {
+    title: "Kalite Maliyeti PAF Hesaplayıcı",
+    painStatement:
+      "Kalite bütçeleri hata maliyetleri yükselene kadar önleme ve değerlendirme kalemlerini gizler.",
+  },
+  "pressure-vessel-wall-thickness-calculator": {
+    title: "Basınçlı Kap Cidar Kalınlığı Hesaplayıcı",
+    painStatement:
+      "Basınçlı kap tasarım taraması basınç ve çap verisi olmadan ilerler.",
+  },
+  "value-stream-map-vsm-calculator": {
+    title: "Değer Akış Haritası VSM Hesaplayıcı",
+    painStatement:
+      "Lead time ve bekleme süreleri birlikte ölçülmediğinde VSM iyileştirmesi eksik kalır.",
+  },
+  "energy-savings-package-calculator": {
+    title: "Enerji Tasarruf Hesaplayıcı",
+    painStatement:
+      "Verimlilik projeleri tasarruf ve geri ödeme tabanı olmadan onaylanır.",
+  },
+  "investment-payback-npv-calculator": {
+    title: "Yatırım Geri Dönüş ve NPV Hesaplayıcı",
+    painStatement:
+      "Yatırım talepleri iskonto oranı ve ufuk olmadan yalnızca geri ödeme gösterir.",
+  },
+  "annual-leave-severance-notice-calculator": {
+    title: "Yıllık İzin, Kıdem ve İhbar Tazminatı Hesaplayıcı",
+    painStatement:
+      "İşten çıkış maliyetleri bordro ve hukuk incelemesine gelene kadar eksik kalır.",
+  },
+  "belt-pulley-speed-length-calculator": {
+    title: "Kayış Kasnak Devir ve Uzunluk Hesaplayıcı",
+    painStatement:
+      "Tahrik değişiklikleri belgelenmiş hız ve kayış uzunluğu olmadan yapılır.",
+  },
 };
 
 const PREMIUM_SCHEMA_I18N: Partial<Record<AppLocale, Record<string, LocalizedPremiumSchema>>> = {

@@ -65,12 +65,12 @@ describe("indexable URL manifest", () => {
     expect(enFreePaths.length).toBeGreaterThanOrEqual(100);
   });
 
-  test("27 premium schema path var (EN root)", () => {
+  test("40 premium schema path var (EN root)", () => {
     const enPremiumPaths = pathsForLocale("en").filter((path) =>
       path.startsWith("/tools/premium-schema/"),
     );
     expect(enPremiumPaths.length).toBe(listPremiumSchemaSlugs().length);
-    expect(enPremiumPaths.length).toBe(27);
+    expect(enPremiumPaths.length).toBe(50);
   });
 
   test("SEO landing pathleri var", () => {

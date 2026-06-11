@@ -4,4 +4,4 @@
  */
 
 /** Last aligned with audit:investor-demo / batch-trust-trace from repo root (Phase 6E). */
-export const INVESTOR_PAGE_TRUST_TRACE_READY = 25 as const;
+export const INVESTOR_PAGE_TRUST_TRACE_READY = 113 as const;

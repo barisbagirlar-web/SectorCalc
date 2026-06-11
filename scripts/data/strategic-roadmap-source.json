@@ -81,7 +81,7 @@
       "score": 9.7,
       "categoryId": "cost-margin",
       "trTitle": "Teklif Fiyatı ve Kâr Marjı Hesaplayıcı",
-      "mappedLiveSlug": "product-margin-calculator",
+      "mappedLiveSlug": "quote-price-profit-margin-calculator",
       "status": "live"
     },
     {
@@ -111,7 +111,8 @@
       "score": 9,
       "categoryId": "cost-margin",
       "trTitle": "Tamirhane Parça ve İşçilik Teklif Hesaplayıcı",
-      "status": "planned"
+      "mappedLiveSlug": "auto-repair-parts-labor-quote-calculator",
+      "status": "live"
     },
     {
       "id": "sp-005",
@@ -160,7 +161,8 @@
       "score": 8.4,
       "categoryId": "operations-oee",
       "trTitle": "Duruş Dakika Maliyeti Hesaplayıcı",
-      "status": "planned"
+      "mappedLiveSlug": "downtime-minute-cost-calculator",
+      "status": "live"
     },
     {
       "id": "sp-010",
@@ -189,7 +191,8 @@
       "score": 7.7,
       "categoryId": "manufacturing-engineering",
       "trTitle": "Kaynaklı ve Bulonlu Bağlantı Hesaplayıcı",
-      "status": "planned"
+      "mappedLiveSlug": "welded-bolted-connection-calculator",
+      "status": "live"
     },
     {
       "id": "sp-013",
@@ -198,7 +201,7 @@
       "score": 7.7,
       "categoryId": "manufacturing-engineering",
       "trTitle": "Tolerans Yığılma Hesaplayıcı",
-      "mappedLiveSlug": "tolerance-drift-calculator",
+      "mappedLiveSlug": "tolerance-stack-up-calculator",
       "status": "live"
     },
     {
@@ -208,7 +211,8 @@
       "score": 7.4,
       "categoryId": "manufacturing-engineering",
       "trTitle": "Civata Sıkma Torku Hesaplayıcı",
-      "status": "planned"
+      "mappedLiveSlug": "bolt-tightening-torque-calculator",
+      "status": "live"
     },
     {
       "id": "sp-015",
@@ -217,7 +221,7 @@
       "score": 7.4,
       "categoryId": "energy-carbon",
       "trTitle": "Enerji Tasarruf Hesaplayıcı",
-      "mappedLiveSlug": "kwh-cost-calculator",
+      "mappedLiveSlug": "energy-savings-package-calculator",
       "status": "live"
     },
     {
@@ -227,7 +231,7 @@
       "score": 7.1,
       "categoryId": "finance-hr",
       "trTitle": "Yatırım Geri Dönüş ve NPV Hesaplayıcı",
-      "mappedLiveSlug": "roi-calculator",
+      "mappedLiveSlug": "investment-payback-npv-calculator",
       "status": "live"
     },
     {
@@ -237,7 +241,8 @@
       "score": 6.7,
       "categoryId": "engineering-technical",
       "trTitle": "Yangın Tesisatı Debi ve Hidrant Hesaplayıcı",
-      "status": "planned"
+      "mappedLiveSlug": "fire-system-flow-hydrant-calculator",
+      "status": "live"
     },
     {
       "id": "sp-018",
@@ -246,7 +251,7 @@
       "score": 6.6,
       "categoryId": "finance-hr",
       "trTitle": "Yıllık İzin, Kıdem ve İhbar Tazminatı Hesaplayıcı",
-      "mappedLiveSlug": "salary-cost-calculator",
+      "mappedLiveSlug": "annual-leave-severance-notice-calculator",
       "status": "live"
     },
     {
@@ -256,7 +261,8 @@
       "score": 6.4,
       "categoryId": "engineering-technical",
       "trTitle": "Hidrolik ve Pnömatik Silindir Kuvvet Hesaplayıcı",
-      "status": "planned"
+      "mappedLiveSlug": "hydraulic-pneumatic-cylinder-force-calculator",
+      "status": "live"
     },
     {
       "id": "sp-020",
@@ -265,7 +271,7 @@
       "score": 6.2,
       "categoryId": "engineering-technical",
       "trTitle": "Kayış Kasnak Devir ve Uzunluk Hesaplayıcı",
-      "mappedLiveSlug": "cutting-speed-calculator",
+      "mappedLiveSlug": "belt-pulley-speed-length-calculator",
       "status": "live"
     },
     {
@@ -275,7 +281,8 @@
       "score": 6.1,
       "categoryId": "quality-lean",
       "trTitle": "Kalite Maliyeti PAF Hesaplayıcı",
-      "status": "planned"
+      "mappedLiveSlug": "quality-cost-paf-calculator",
+      "status": "live"
     },
     {
       "id": "sp-022",
@@ -284,7 +291,8 @@
       "score": 5.9,
       "categoryId": "engineering-technical",
       "trTitle": "Basınçlı Kap Cidar Kalınlığı Hesaplayıcı",
-      "status": "planned"
+      "mappedLiveSlug": "pressure-vessel-wall-thickness-calculator",
+      "status": "live"
     },
     {
       "id": "sp-023",
@@ -293,7 +301,8 @@
       "score": 5.7,
       "categoryId": "quality-lean",
       "trTitle": "Değer Akış Haritası VSM Hesaplayıcı",
-      "status": "planned"
+      "mappedLiveSlug": "value-stream-map-vsm-calculator",
+      "status": "live"
     }
   ],
   "free": [
@@ -390,8 +399,8 @@
       "trAudience": "Bakım, otomasyon",
       "enAudience": "Maintenance and automation",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "bar-psi-pascal-cevirici",
+      "status": "live"
     },
     {
       "id": "ft-009",
@@ -402,8 +411,8 @@
       "trAudience": "Mühendis, teknisyen",
       "enAudience": "Mühendis, teknisyen",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "newton-kilogram-kuvvet-cevirici",
+      "status": "live"
     },
     {
       "id": "ft-010",
@@ -414,8 +423,8 @@
       "trAudience": "Enerji, mühendis",
       "enAudience": "Energy and engineers",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "joule-kalori-watt-saat-cevirici",
+      "status": "live"
     },
     {
       "id": "ft-011",
@@ -426,8 +435,8 @@
       "trAudience": "Otomotiv, makine",
       "enAudience": "Otomotiv, makine",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "beygir-gucu-kilowatt-cevirici",
+      "status": "live"
     },
     {
       "id": "ft-012",
@@ -534,8 +543,8 @@
       "trAudience": "Muhasebe, stok",
       "enAudience": "Muhasebe, stok",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "agirlikli-ortalama-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-021",
@@ -558,8 +567,8 @@
       "trAudience": "Herkes",
       "enAudience": "Everyone",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kesir-ondalik-cevirici",
+      "status": "live"
     },
     {
       "id": "ft-023",
@@ -570,8 +579,8 @@
       "trAudience": "Kalite, numune seçimi",
       "enAudience": "Quality teams, numune seçimi",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "rastgele-sayi-ureteci",
+      "status": "live"
     },
     {
       "id": "ft-024",
@@ -582,8 +591,8 @@
       "trAudience": "Teknik resim, imalat",
       "enAudience": "Technical drawing and manufacturing",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "daire-alani-cevresi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-025",
@@ -606,8 +615,8 @@
       "trAudience": "Teknik resim",
       "enAudience": "Technical drawing",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "ucgen-alani-cevresi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-027",
@@ -618,8 +627,8 @@
       "trAudience": "Teknik resim",
       "enAudience": "Technical drawing",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "yamuk-alani-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-028",
@@ -630,8 +639,8 @@
       "trAudience": "Tank, depo imalatı",
       "enAudience": "Tank, depo imalatı",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "silindir-hacmi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-029",
@@ -642,8 +651,8 @@
       "trAudience": "Tank imalatı",
       "enAudience": "Tank imalatı",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kure-hacmi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-030",
@@ -654,8 +663,8 @@
       "trAudience": "İmalat, döküm",
       "enAudience": "İmalat, döküm",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "koni-hacmi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-031",
@@ -714,8 +723,8 @@
       "trAudience": "Çelik konstrüksiyon",
       "enAudience": "Çelik konstrüksiyon",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "npu-npi-profil-agirlik-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-036",
@@ -726,8 +735,8 @@
       "trAudience": "Çelik atölyesi",
       "enAudience": "Çelik atölyesi",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kosebent-lama-agirlik-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-037",
@@ -750,8 +759,8 @@
       "trAudience": "Tesisat, imalat",
       "enAudience": "Tesisat, imalat",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "boru-agirlik-hesaplama-celik-paslanmaz",
+      "status": "live"
     },
     {
       "id": "ft-039",
@@ -798,8 +807,8 @@
       "trAudience": "Tadilat",
       "enAudience": "Tadilat",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "duvar-kagidi-seramik-adet-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-043",
@@ -870,8 +879,8 @@
       "trAudience": "İnşaat, çelik",
       "enAudience": "Construction, çelik",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kiris-kolon-yaklasik-agirlik-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-049",
@@ -882,8 +891,8 @@
       "trAudience": "Atölye çevre düzeni",
       "enAudience": "Atölye çevre düzeni",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "cit-korkuluk-malzeme-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-050",
@@ -894,8 +903,8 @@
       "trAudience": "Şantiye, depo",
       "enAudience": "Şantiye, depo",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "prefabrik-konteyner-olcu-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-051",
@@ -906,8 +915,8 @@
       "trAudience": "Çelik atölyesi",
       "enAudience": "Çelik atölyesi",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "celik-cati-makas-yaklasik-agirligi",
+      "status": "live"
     },
     {
       "id": "ft-052",
@@ -918,8 +927,8 @@
       "trAudience": "Atölye, tesisat",
       "enAudience": "Atölye, tesisat",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "su-deposu-hacmi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-053",
@@ -930,8 +939,8 @@
       "trAudience": "Tadilat",
       "enAudience": "Tadilat",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "asma-tavan-malzeme-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-054",
@@ -942,8 +951,8 @@
       "trAudience": "Enerji, tadilat",
       "enAudience": "Energy teams, tadilat",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "yalitim-malzemesi-m-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-055",
@@ -954,8 +963,8 @@
       "trAudience": "İnşaat, peyzaj",
       "enAudience": "Construction, peyzaj",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "istinat-duvari-yaklasik-beton-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-056",
@@ -990,8 +999,8 @@
       "trAudience": "Elektrikçi, bakım",
       "enAudience": "Electricians, bakım",
       "trafficPotential": "very-high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "amper-kilowatt-kw-cevirici",
+      "status": "live"
     },
     {
       "id": "ft-059",
@@ -1002,8 +1011,8 @@
       "trAudience": "Makine, otomotiv",
       "enAudience": "Machinery and automotive",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "motor-gucu-kw-hp-cevirici",
+      "status": "live"
     },
     {
       "id": "ft-060",
@@ -1014,8 +1023,8 @@
       "trAudience": "İşletme, atölye",
       "enAudience": "Business teams, atölye",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "jenerator-kapasitesi-secim-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-061",
@@ -1026,8 +1035,8 @@
       "trAudience": "Ofis, sunucu odası",
       "enAudience": "Office teams, sunucu odası",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "ups-kesintisiz-guc-kaynagi-secimi",
+      "status": "live"
     },
     {
       "id": "ft-062",
@@ -1038,8 +1047,8 @@
       "trAudience": "Elektrikçi",
       "enAudience": "Electricians",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kablo-kesiti-mm-secim-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-063",
@@ -1050,8 +1059,8 @@
       "trAudience": "Elektrikçi",
       "enAudience": "Electricians",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "gerilim-dusumu-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-064",
@@ -1062,8 +1071,8 @@
       "trAudience": "Elektrikçi",
       "enAudience": "Electricians",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "topraklama-direnci-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-065",
@@ -1074,8 +1083,8 @@
       "trAudience": "Bakım, operasyon",
       "enAudience": "Maintenance, operasyon",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "aku-kapasitesi-calisma-suresi-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-066",
@@ -1098,8 +1107,8 @@
       "trAudience": "Atölye, ofis",
       "enAudience": "Atölye, ofis",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "aydinlatma-armatur-sayisi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-068",
@@ -1110,8 +1119,8 @@
       "trAudience": "Atölye, bakım",
       "enAudience": "Atölye, bakım",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kompresor-debisi-tank-hacmi-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-069",
@@ -1134,8 +1143,8 @@
       "trAudience": "Otomasyon, bakım",
       "enAudience": "Otomasyon, bakım",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "hidrolik-silindir-itme-kuvveti-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-071",
@@ -1146,8 +1155,8 @@
       "trAudience": "Otomasyon, bakım",
       "enAudience": "Otomasyon, bakım",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "pnomatik-silindir-kuvvet-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-072",
@@ -1158,8 +1167,8 @@
       "trAudience": "Bakım, tasarım",
       "enAudience": "Maintenance, tasarım",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "hidrolik-pompa-gucu-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-073",
@@ -1170,8 +1179,8 @@
       "trAudience": "Tesisat, proses",
       "enAudience": "Tesisat, proses",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "boru-capi-akis-hizi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-074",
@@ -1182,8 +1191,8 @@
       "trAudience": "Tesisat",
       "enAudience": "Tesisat",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "pompa-gucu-basma-yuksekligi-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-075",
@@ -1194,8 +1203,8 @@
       "trAudience": "Tesisat",
       "enAudience": "Tesisat",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "su-debisi-litre-dakika-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-076",
@@ -1206,8 +1215,8 @@
       "trAudience": "İklimlendirme",
       "enAudience": "İklimlendirme",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "isitma-sogutma-yuku-kcal-kw-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-077",
@@ -1218,8 +1227,8 @@
       "trAudience": "Tesisat, ısıtma",
       "enAudience": "Tesisat, ısıtma",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "radyator-petek-boyu-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-078",
@@ -1230,8 +1239,8 @@
       "trAudience": "Ofis, ev",
       "enAudience": "Office and home",
       "trafficPotential": "very-high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "klima-btu-secim-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-079",
@@ -1242,8 +1251,8 @@
       "trAudience": "İşletme, ev",
       "enAudience": "Business and home",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "dogalgaz-tuketimi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-080",
@@ -1278,8 +1287,8 @@
       "trAudience": "Araç, lojistik",
       "enAudience": "Fleet and logistics",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "lpg-benzin-tasarruf-karsilastirma",
+      "status": "live"
     },
     {
       "id": "ft-083",
@@ -1290,8 +1299,8 @@
       "trAudience": "Araç, lojistik",
       "enAudience": "Fleet and logistics",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "dizel-benzin-maliyet-karsilastirma",
+      "status": "live"
     },
     {
       "id": "ft-084",
@@ -1302,8 +1311,8 @@
       "trAudience": "Lojistik",
       "enAudience": "Logistics",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "akaryakit-fiyati-ile-yol-butcesi",
+      "status": "live"
     },
     {
       "id": "ft-085",
@@ -1314,8 +1323,8 @@
       "trAudience": "Filo yönetimi",
       "enAudience": "Fleet managers yönetimi",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "arac-amortisman-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-086",
@@ -1350,8 +1359,8 @@
       "trAudience": "Kaynak atölyesi",
       "enAudience": "Welding shops",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kaynak-dikis-hacmi-maliyeti-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-089",
@@ -1362,8 +1371,8 @@
       "trAudience": "Sac metal",
       "enAudience": "Sheet metal shops",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kesme-bukme-abkant-tonaj-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-090",
@@ -1374,8 +1383,8 @@
       "trAudience": "Makine imalat",
       "enAudience": "Makine imalat",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "disli-modul-cap-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-091",
@@ -1410,8 +1419,8 @@
       "trAudience": "Bakım, tasarım",
       "enAudience": "Maintenance, tasarım",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "rulman-omur-hesabi-l10",
+      "status": "live"
     },
     {
       "id": "ft-094",
@@ -1422,8 +1431,8 @@
       "trAudience": "Montaj, bakım",
       "enAudience": "Montaj, bakım",
       "trafficPotential": "very-high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "civata-sikma-torku-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-095",
@@ -1434,8 +1443,8 @@
       "trAudience": "Montaj",
       "enAudience": "Montaj",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "civata-on-germe-kuvveti-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-096",
@@ -1446,8 +1455,8 @@
       "trAudience": "Kalite, satın alma",
       "enAudience": "Quality teams, satın alma",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli",
+      "status": "live"
     },
     {
       "id": "ft-097",
@@ -1458,8 +1467,8 @@
       "trAudience": "Kalıp, döküm",
       "enAudience": "Kalıp, döküm",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "enjeksiyon-dokum-cekme-payi-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-098",
@@ -1470,8 +1479,8 @@
       "trAudience": "Bakım, CNC",
       "enAudience": "Maintenance, CNC",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-099",
@@ -1482,8 +1491,8 @@
       "trAudience": "Boyahane, atölye",
       "enAudience": "Boyahane, atölye",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "boya-kaplama-sarfiyati-m-basina-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-100",
@@ -1506,8 +1515,8 @@
       "trAudience": "Yüzey işlem",
       "enAudience": "Yüzey işlem",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kumlama-raspa-kum-sarfiyati-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-102",
@@ -1530,8 +1539,8 @@
       "trAudience": "Lojistik, ambalaj",
       "enAudience": "Logistics, ambalaj",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "palet-ambalaj-kereste-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-104",
@@ -1542,8 +1551,8 @@
       "trAudience": "Mobilya, atölye",
       "enAudience": "Mobilya, atölye",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "tahta-mdf-sunta-m-agirlik-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-105",
@@ -1554,8 +1563,8 @@
       "trAudience": "Plastik enjeksiyon",
       "enAudience": "Plastik enjeksiyon",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "plastik-enjeksiyon-cevrim-suresi-tahmini",
+      "status": "live"
     },
     {
       "id": "ft-106",
@@ -1566,8 +1575,8 @@
       "trAudience": "Elektrik, imalat",
       "enAudience": "Elektrik, imalat",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "tel-kablo-uzunlugu-agirlik-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-107",
@@ -1578,8 +1587,8 @@
       "trAudience": "İmalat, bakım",
       "enAudience": "İmalat, bakım",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "vida-somun-adim-dis-ustu-cap-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-108",
@@ -1614,8 +1623,8 @@
       "trAudience": "Bakım, imalat",
       "enAudience": "Maintenance, imalat",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "matkap-kilavuz-delik-capi-tablosu",
+      "status": "live"
     },
     {
       "id": "ft-111",
@@ -1638,8 +1647,8 @@
       "trAudience": "Muhasebeci",
       "enAudience": "Accountants",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kdv-tevkifati-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-113",
@@ -1650,8 +1659,8 @@
       "trAudience": "Muhasebeci",
       "enAudience": "Accountants",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "stopaj-hesaplama-kira-serbest-meslek",
+      "status": "live"
     },
     {
       "id": "ft-114",
@@ -1662,8 +1671,8 @@
       "trAudience": "Muhasebeci, İK",
       "enAudience": "Accountants, HR",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "gelir-vergisi-dilimleri-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-115",
@@ -1698,8 +1707,8 @@
       "trAudience": "İK, çalışan",
       "enAudience": "HR and employees",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "fazla-mesai-ucreti-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-118",
@@ -1746,8 +1755,8 @@
       "trAudience": "İK",
       "enAudience": "HR",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "ise-giris-cikis-bildirgesi-sureleri",
+      "status": "live"
     },
     {
       "id": "ft-122",
@@ -1758,8 +1767,8 @@
       "trAudience": "İK, muhasebe",
       "enAudience": "HR, muhasebe",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "sgk-prim-hesaplama-isci-plus-isveren",
+      "status": "live"
     },
     {
       "id": "ft-123",
@@ -1770,8 +1779,8 @@
       "trAudience": "İK, patron",
       "enAudience": "HR and owners",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "personel-devamsizlik-maliyeti-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-124",
@@ -1782,8 +1791,8 @@
       "trAudience": "İSG, İK",
       "enAudience": "İSG, HR",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "is-kazasi-maliyeti-gun-kaybi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-125",
@@ -1806,8 +1815,8 @@
       "trAudience": "Patron, satın alma",
       "enAudience": "Business owners, satın alma",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "makine-ekonomik-omru-hurda-deger-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-127",
@@ -1818,8 +1827,8 @@
       "trAudience": "Finans",
       "enAudience": "Finance teams",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "leasing-kiralama-maliyet-karsilastirma",
+      "status": "live"
     },
     {
       "id": "ft-128",
@@ -1842,8 +1851,8 @@
       "trAudience": "Finans",
       "enAudience": "Finance teams",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kredi-erken-kapama-cezasi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-130",
@@ -1854,8 +1863,8 @@
       "trAudience": "Satış, satın alma",
       "enAudience": "Satış, satın alma",
       "trafficPotential": "high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "enflasyon-fiyat-eskalasyonu-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-131",
@@ -1878,8 +1887,8 @@
       "trAudience": "Finans, patron",
       "enAudience": "Finance teams, patron",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "doviz-pozisyonu-kur-farki-riski-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-133",
@@ -1902,8 +1911,8 @@
       "trAudience": "Finans, patron",
       "enAudience": "Finance teams, patron",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "cek-senet-vade-kirma-maliyeti-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-135",
@@ -1914,8 +1923,8 @@
       "trAudience": "Patron",
       "enAudience": "Business owners",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "nakit-akisi-basit-gunluk-haftalik-panosu",
+      "status": "live"
     },
     {
       "id": "ft-136",
@@ -1974,8 +1983,8 @@
       "trAudience": "Finans",
       "enAudience": "Finance teams",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "ic-verim-orani-irr-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-141",
@@ -2010,8 +2019,8 @@
       "trAudience": "İhracat, lojistik",
       "enAudience": "İhracat, lojistik",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "konteyner-yukleme-kapasitesi-teu-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-144",
@@ -2022,8 +2031,8 @@
       "trAudience": "Lojistik, nakliye",
       "enAudience": "Logistics, nakliye",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "tir-kamyon-yuk-kapasitesi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-145",
@@ -2070,8 +2079,8 @@
       "trAudience": "Filo, servis",
       "enAudience": "Fleet managers, servis",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "arac-bakim-periyodu-takip-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-149",
@@ -2082,8 +2091,8 @@
       "trAudience": "Filo, lojistik",
       "enAudience": "Fleet managers, lojistik",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "lastik-omru-degisim-km-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-150",
@@ -2094,8 +2103,8 @@
       "trAudience": "Depo, lojistik",
       "enAudience": "Depo, lojistik",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "forklift-transpalet-kullanim-maliyeti",
+      "status": "live"
     },
     {
       "id": "ft-151",
@@ -2106,8 +2115,8 @@
       "trAudience": "Depo, lojistik",
       "enAudience": "Depo, lojistik",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "depo-raf-palet-yerlesim-optimizasyonu",
+      "status": "live"
     },
     {
       "id": "ft-152",
@@ -2130,8 +2139,8 @@
       "trAudience": "Depo, sevkiyat",
       "enAudience": "Depo, sevkiyat",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "paketleme-malzemesi-strec-koli-sarfiyati",
+      "status": "live"
     },
     {
       "id": "ft-154",
@@ -2142,8 +2151,8 @@
       "trAudience": "Lojistik",
       "enAudience": "Logistics",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "irsaliye-fatura-adedi-basina-sevkiyat-maliyeti",
+      "status": "live"
     },
     {
       "id": "ft-155",
@@ -2166,8 +2175,8 @@
       "trAudience": "Filo, araç",
       "enAudience": "Fleet managers, araç",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "trafik-cezasi-gecikme-faizi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-157",
@@ -2178,8 +2187,8 @@
       "trAudience": "Filo, araç",
       "enAudience": "Fleet managers, araç",
       "trafficPotential": "very-high",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "mtv-motorlu-tasitlar-vergisi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-158",
@@ -2190,8 +2199,8 @@
       "trAudience": "Filo, araç",
       "enAudience": "Fleet managers, araç",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kasko-sigorta-prim-karsilastirma",
+      "status": "live"
     },
     {
       "id": "ft-159",
@@ -2202,8 +2211,8 @@
       "trAudience": "Lojistik, İK",
       "enAudience": "Logistics, HR",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "sofor-operator-gunluk-yevmiye-maliyeti",
+      "status": "live"
     },
     {
       "id": "ft-160",
@@ -2214,8 +2223,8 @@
       "trAudience": "Filo, finans",
       "enAudience": "Fleet managers, finans",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "arac-kira-satin-alma-karsilastirma",
+      "status": "live"
     },
     {
       "id": "ft-161",
@@ -2226,8 +2235,8 @@
       "trAudience": "İşletme, mutfak",
       "enAudience": "Business teams, mutfak",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "yemek-tabldot-maliyet-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-162",
@@ -2238,8 +2247,8 @@
       "trAudience": "Ofis, atölye",
       "enAudience": "Office and workshop",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "cay-kahve-su-tuketim-maliyeti",
+      "status": "live"
     },
     {
       "id": "ft-163",
@@ -2250,8 +2259,8 @@
       "trAudience": "Yönetici",
       "enAudience": "Yönetici",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "toplanti-saati-maliyeti-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-164",
@@ -2262,8 +2271,8 @@
       "trAudience": "İSG, satın alma",
       "enAudience": "İSG, satın alma",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati",
+      "status": "live"
     },
     {
       "id": "ft-165",
@@ -2274,8 +2283,8 @@
       "trAudience": "Satın alma",
       "enAudience": "Satın alma",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "temizlik-malzemesi-sarfiyat-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-166",
@@ -2286,8 +2295,8 @@
       "trAudience": "Satın alma",
       "enAudience": "Satın alma",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "ofis-kirtasiye-sarfiyat-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-167",
@@ -2298,8 +2307,8 @@
       "trAudience": "Ofis",
       "enAudience": "Office teams",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "fotokopi-yazici-toner-sayfa-maliyeti",
+      "status": "live"
     },
     {
       "id": "ft-168",
@@ -2310,8 +2319,8 @@
       "trAudience": "Ofis, satın alma",
       "enAudience": "Office teams, satın alma",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "internet-telefon-paketi-karsilastirma",
+      "status": "live"
     },
     {
       "id": "ft-169",
@@ -2322,8 +2331,8 @@
       "trAudience": "Ofis, satın alma",
       "enAudience": "Office teams, satın alma",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "sirket-telefon-faturasi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-170",
@@ -2334,8 +2343,8 @@
       "trAudience": "BT, satın alma",
       "enAudience": "BT, satın alma",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "abonelik-yazilim-cloud-yillik-maliyet-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-171",
@@ -2346,8 +2355,8 @@
       "trAudience": "İSG",
       "enAudience": "İSG",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "is-sagligi-ve-guvenligi-ceza-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-172",
@@ -2358,8 +2367,8 @@
       "trAudience": "İSG, tesisat",
       "enAudience": "İSG, tesisat",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "yangin-tupu-dolap-debisi-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-173",
@@ -2370,8 +2379,8 @@
       "trAudience": "İSG, mimari",
       "enAudience": "İSG, mimari",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "yangin-merdiveni-kacis-yolu-genisligi-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-174",
@@ -2382,8 +2391,8 @@
       "trAudience": "Çevre görevlisi",
       "enAudience": "Çevre görevlisi",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "cevre-atik-beyani-maliyet-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-175",
@@ -2406,8 +2415,8 @@
       "trAudience": "İşletme",
       "enAudience": "Business teams",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "cop-atik-konteyner-hacim-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-177",
@@ -2418,8 +2427,8 @@
       "trAudience": "İşletme, çevre",
       "enAudience": "Business teams, çevre",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "geri-donusum-gelir-maliyet-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-178",
@@ -2430,8 +2439,8 @@
       "trAudience": "Şantiye, atölye",
       "enAudience": "Şantiye, atölye",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "prefabrik-konteyner-ofis-m-maliyeti",
+      "status": "live"
     },
     {
       "id": "ft-179",
@@ -2442,8 +2451,8 @@
       "trAudience": "Depo, satın alma",
       "enAudience": "Depo, satın alma",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "celik-raf-depo-rafi-yuk-kapasitesi",
+      "status": "live"
     },
     {
       "id": "ft-180",
@@ -2454,8 +2463,8 @@
       "trAudience": "Depo, bakım",
       "enAudience": "Depo, bakım",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "merdiven-platform-yukseklik-erisim-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-181",
@@ -2466,8 +2475,8 @@
       "trAudience": "Çelik atölyesi",
       "enAudience": "Çelik atölyesi",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kaynakli-baglanti-kose-kut-mukavemet-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-182",
@@ -2478,8 +2487,8 @@
       "trAudience": "Çelik atölyesi",
       "enAudience": "Çelik atölyesi",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "bulonlu-baglanti-kesme-ezilme-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-183",
@@ -2490,8 +2499,8 @@
       "trAudience": "Makine tasarım",
       "enAudience": "Makine tasarım",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "mil-aks-capi-hesabi-egilme-burulma",
+      "status": "live"
     },
     {
       "id": "ft-184",
@@ -2502,8 +2511,8 @@
       "trAudience": "Makine bakım",
       "enAudience": "Makine bakım",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "yatak-rulman-omur-hesabi-l10",
+      "status": "live"
     },
     {
       "id": "ft-185",
@@ -2514,8 +2523,8 @@
       "trAudience": "Makine, kalıp",
       "enAudience": "Makine, kalıp",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "yay-helisel-kuvvet-uzama-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-186",
@@ -2526,8 +2535,8 @@
       "trAudience": "Tank, kompresör",
       "enAudience": "Tank, kompresör",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "basincli-kap-cidar-kalinligi-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-187",
@@ -2538,8 +2547,8 @@
       "trAudience": "Proses, enerji",
       "enAudience": "Proses, enerji",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "isi-degistirici-esanjor-kapasite-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-188",
@@ -2550,8 +2559,8 @@
       "trAudience": "Havalandırma",
       "enAudience": "Havalandırma",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "baca-havalandirma-kanali-cap-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-189",
@@ -2562,8 +2571,8 @@
       "trAudience": "Gürültü kontrolü",
       "enAudience": "Gürültü kontrolü",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "ses-yalitimi-desibel-azaltimi-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-190",
@@ -2574,8 +2583,8 @@
       "trAudience": "Bakım, test",
       "enAudience": "Maintenance, test",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "titresim-frekans-periyot-hesaplama",
+      "status": "live"
     },
     {
       "id": "ft-191",
@@ -2598,8 +2607,8 @@
       "trAudience": "Enerji",
       "enAudience": "Energy teams",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "ruzgar-turbini-yaklasik-uretim-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-193",
@@ -2610,8 +2619,8 @@
       "trAudience": "Tesisat, enerji",
       "enAudience": "Tesisat, enerji",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "su-isitma-kazan-boyler-kapasite-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-194",
@@ -2622,8 +2631,8 @@
       "trAudience": "Soğutma, gıda",
       "enAudience": "Soğutma, gıda",
       "trafficPotential": "medium",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "soguk-oda-sogutma-yuku-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-195",
@@ -2634,8 +2643,8 @@
       "trAudience": "Kaynak mühendisi",
       "enAudience": "Kaynak mühendisi",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "kaynak-proseduru-wps-on-isitma-sicakligi-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-196",
@@ -2658,8 +2667,8 @@
       "trAudience": "Kalite kontrol",
       "enAudience": "Quality control",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "istatistiksel-proses-kontrol-spc-limit-hesabi",
+      "status": "live"
     },
     {
       "id": "ft-198",
@@ -2670,8 +2679,8 @@
       "trAudience": "Kalite",
       "enAudience": "Quality teams",
       "trafficPotential": "low",
-      "mappedLiveSlug": null,
-      "status": "planned"
+      "mappedLiveSlug": "alti-sigma-dpmo-sigma-seviyesi-cevirici",
+      "status": "live"
     },
     {
       "id": "ft-199",

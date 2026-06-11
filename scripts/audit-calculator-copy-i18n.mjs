@@ -8,10 +8,31 @@ import { join } from "node:path";
 const ROOT = join(import.meta.dirname, "..");
 const LOCALES = ["en", "tr", "de", "fr", "es", "ar"];
 const NON_EN_LOCALES = LOCALES.filter((l) => l !== "en");
-const CATALOG = JSON.parse(
-  readFileSync(join(ROOT, "src/lib/tools/free-traffic-catalog.generated.json"), "utf8"),
+function loadMergedCatalogSlugs() {
+  const base = JSON.parse(
+    readFileSync(join(ROOT, "src/lib/tools/free-traffic-catalog.generated.json"), "utf8"),
+  );
+  const batch1 = JSON.parse(
+    readFileSync(join(ROOT, "src/lib/tools/roadmap-free-batch1-catalog.generated.json"), "utf8"),
+  );
+  const batch2 = JSON.parse(
+    readFileSync(join(ROOT, "src/lib/tools/roadmap-free-batch2-catalog.generated.json"), "utf8"),
+  );
+  const slugs = [...base, ...batch1, ...batch2].map((t) => t.slug);
+  return [...new Set(slugs)];
+}
+
+const BATCH1_I18N = JSON.parse(
+  readFileSync(join(ROOT, "src/data/roadmap-free-batch1-i18n.generated.json"), "utf8"),
 );
-const SLUGS = CATALOG.map((t) => t.slug);
+const BATCH2_I18N = JSON.parse(
+  readFileSync(join(ROOT, "src/data/roadmap-free-batch2-i18n.generated.json"), "utf8"),
+);
+const CATALOG_I18N = JSON.parse(
+  readFileSync(join(ROOT, "src/data/free-tool-catalog-i18n.generated.json"), "utf8"),
+);
+
+const SLUGS = loadMergedCatalogSlugs();
 
 const BANNED_VISIBLE = [
   /\bAnalyzers?\b/i,
@@ -101,6 +122,27 @@ function scanText(label, text, failures) {
   }
 }
 
+function resolveFreeToolCopy(locale, slug) {
+  const messages = loadMessages(locale);
+  const fromMessages = messages.freeToolContent?.[slug];
+  if (fromMessages?.title && fromMessages?.description) {
+    return { title: fromMessages.title, description: fromMessages.description };
+  }
+  const bundle =
+    CATALOG_I18N[locale]?.[slug] ?? BATCH1_I18N[locale]?.[slug] ?? BATCH2_I18N[locale]?.[slug];
+  if (bundle?.title && bundle?.description) {
+    return { title: bundle.title, description: bundle.description };
+  }
+  if (locale !== "en") {
+    const enMessages = loadMessages("en");
+    const enEntry = enMessages.freeToolContent?.[slug];
+    if (enEntry?.title && enEntry?.description) {
+      return { title: enEntry.title, description: enEntry.description };
+    }
+  }
+  return null;
+}
+
 function scanSourceFile(relPath, text, failures) {
   const literalRe = /"([^"\\]|\\.)*"/g;
   let match;
@@ -117,12 +159,11 @@ const failures = [];
 
 for (const locale of NON_EN_LOCALES) {
   const messages = loadMessages(locale);
-  const content = messages.freeToolContent ?? {};
 
   for (const slug of SLUGS) {
-    const entry = content[slug];
+    const entry = resolveFreeToolCopy(locale, slug);
     if (!entry?.title || !entry?.description) {
-      failures.push(`${locale}: missing freeToolContent.${slug}.title/description`);
+      failures.push(`${locale}: missing localized copy for ${slug} (title/description)`);
       continue;
     }
     if (locale === "tr") {
@@ -132,7 +173,7 @@ for (const locale of NON_EN_LOCALES) {
         }
       }
     }
-    scanText(`${locale}: freeToolContent.${slug}`, `${entry.title} ${entry.description}`, failures);
+    scanText(`${locale}: freeTool.${slug}`, `${entry.title} ${entry.description}`, failures);
   }
 
   for (const [path, value] of flatten(messages)) {

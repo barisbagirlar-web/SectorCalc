@@ -167,7 +167,7 @@ export const SECTORCALC_CORE_ENTITIES: readonly SeoAuthorityEntity[] = [
   {
     id: "energy-peak-cost-analyzer",
     type: "SoftwareApplication",
-    name: "Energy Peak Cost Analyzer",
+    name: "Energy Peak Cost Calculator",
     description: "Premium calculator for peak-hour load, blended kWh and threshold pressure.",
     url: entityUrl("en", "/tools/premium-schema/energy-peak-cost"),
     keywords: ["energy peak", "kWh", "utility cost"],

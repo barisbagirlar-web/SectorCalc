@@ -236,7 +236,7 @@ const LIVE_FREE_SLUG_MAP = {
   "warehouse-rent-per-sqm-calculator": "warehouse-storage-cost-calculator",
   "vehicle-depreciation-calculator": "vehicle-depreciation-calculator",
   "water-bill-wastewater-calculator": "water-usage-calculator",
-  "tolerance-stack-up-calculator": "tolerance-drift-calculator",
+  "tolerance-stack-up-calculator": "tolerance-stack-up-calculator",
   "safety-stock-calculator": "batch-yield-calculator",
   "economic-order-quantity-calculator": "unit-cost-calculator",
   "oee-calculator": "oee-calculator",
@@ -387,7 +387,7 @@ const PREMIUM_ITEMS = [
     score: 9.7,
     categoryId: "cost-margin",
     trTitle: "Teklif Fiyatı ve Kâr Marjı Hesaplayıcı",
-    mappedLiveSlug: "product-margin-calculator",
+    mappedLiveSlug: "quote-price-profit-margin-calculator",
     status: "live",
   },
   {
@@ -504,7 +504,7 @@ const PREMIUM_ITEMS = [
     score: 7.7,
     categoryId: "manufacturing-engineering",
     trTitle: "Tolerans Yığılma Hesaplayıcı",
-    mappedLiveSlug: "tolerance-drift-calculator",
+    mappedLiveSlug: "tolerance-stack-up-calculator",
     status: "live",
   },
   {
@@ -523,7 +523,7 @@ const PREMIUM_ITEMS = [
     score: 7.4,
     categoryId: "energy-carbon",
     trTitle: "Enerji Tasarruf Hesaplayıcı",
-    mappedLiveSlug: "kwh-cost-calculator",
+    mappedLiveSlug: "energy-savings-package-calculator",
     status: "live",
   },
   {
@@ -533,7 +533,7 @@ const PREMIUM_ITEMS = [
     score: 7.1,
     categoryId: "finance-hr",
     trTitle: "Yatırım Geri Dönüş ve NPV Hesaplayıcı",
-    mappedLiveSlug: "roi-calculator",
+    mappedLiveSlug: "investment-payback-npv-calculator",
     status: "live",
   },
   {
@@ -552,7 +552,7 @@ const PREMIUM_ITEMS = [
     score: 6.6,
     categoryId: "finance-hr",
     trTitle: "Yıllık İzin, Kıdem ve İhbar Tazminatı Hesaplayıcı",
-    mappedLiveSlug: "salary-cost-calculator",
+    mappedLiveSlug: "annual-leave-severance-notice-calculator",
     status: "live",
   },
   {
@@ -571,7 +571,7 @@ const PREMIUM_ITEMS = [
     score: 6.2,
     categoryId: "engineering-technical",
     trTitle: "Kayış Kasnak Devir ve Uzunluk Hesaplayıcı",
-    mappedLiveSlug: "cutting-speed-calculator",
+    mappedLiveSlug: "belt-pulley-speed-length-calculator",
     status: "live",
   },
   {

@@ -19,10 +19,10 @@ import { runBatchPremiumSchemaOracleComparisonAudit } from "@/lib/formula-govern
 import { PREMIUM_FULL_LOOP_RUNTIME_SLUGS } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 
 describe("premium-schema batch governance", () => {
-  test("classifies all 27 premium schemas", () => {
-    expect(PREMIUM_SCHEMA_CLASSIFICATION).toHaveLength(27);
+  test("classifies all premium schemas", () => {
+    expect(PREMIUM_SCHEMA_CLASSIFICATION).toHaveLength(50);
     const summary = summarizePremiumSchemaClassification();
-    expect(summary.totalSchemas).toBe(27);
+    expect(summary.totalSchemas).toBe(50);
     expect(summary.groupCounts.A).toBe(11);
   });
 

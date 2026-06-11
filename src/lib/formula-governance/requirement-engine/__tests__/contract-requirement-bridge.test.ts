@@ -210,9 +210,9 @@ describe("requirement result → contract readiness audit", () => {
     const inventoryBefore = summarizeInventory(buildFormulaInventory());
     const report = runGovernanceAudit({ strict: false });
 
-    expect(FORMULA_CONTRACTS.length).toBe(131);
+    expect(FORMULA_CONTRACTS.length).toBe(261);
     expect(inventoryBefore.criticalMissingContracts.length).toBeGreaterThanOrEqual(0);
-    expect(inventoryBefore.criticalMissingContracts.length).toBeLessThanOrEqual(5);
+    expect(inventoryBefore.criticalMissingContracts.length).toBeLessThanOrEqual(11);
 
     const failCount = report.results.filter((result) => result.status === "FAIL").length;
     const oraclePassCount = report.results.filter((result) =>

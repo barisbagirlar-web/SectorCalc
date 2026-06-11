@@ -30,9 +30,17 @@ type CatalogTool = {
 };
 
 function loadFreeTrafficCatalog(rootDir: string): CatalogTool[] {
-  const path = join(rootDir, "src/lib/tools/free-traffic-catalog.generated.json");
-  const raw = JSON.parse(readFileSync(path, "utf8")) as CatalogTool[];
-  return raw;
+  const basePath = join(rootDir, "src/lib/tools/free-traffic-catalog.generated.json");
+  const batch1Path = join(rootDir, "src/lib/tools/roadmap-free-batch1-catalog.generated.json");
+  const batch2Path = join(rootDir, "src/lib/tools/roadmap-free-batch2-catalog.generated.json");
+  const base = JSON.parse(readFileSync(basePath, "utf8")) as CatalogTool[];
+  const batch1 = JSON.parse(readFileSync(batch1Path, "utf8")) as CatalogTool[];
+  const batch2 = JSON.parse(readFileSync(batch2Path, "utf8")) as CatalogTool[];
+  const merged = new Map<string, CatalogTool>();
+  for (const entry of [...base, ...batch1, ...batch2]) {
+    merged.set(entry.slug, entry);
+  }
+  return [...merged.values()];
 }
 
 function countByRisk(entries: FormulaInventoryEntry[]): Record<RiskLevel, number> {

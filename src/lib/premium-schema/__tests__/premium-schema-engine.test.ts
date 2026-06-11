@@ -33,7 +33,8 @@ describe("premium-schema-engine", () => {
     expect(ids).toContain("restaurant-menu-margin-leak");
     expect(ids).toContain("cnc-tool-wear-cost");
     expect(ids).toContain("carbon-footprint-compliance-risk");
-    expect(ids.length).toBe(27);
+    expect(ids).toContain("quote-price-profit-margin-calculator");
+    expect(ids.length).toBe(50);
   });
 
   test("slug map bridges legacy premium routes", () => {
@@ -135,6 +136,23 @@ describe("premium-schema-engine", () => {
 
     const excess = result.outputs.find((o) => o.id === "excessKwhCost");
     expect(excess?.raw).toBeGreaterThan(0);
+  });
+
+  test("quote-price-profit-margin-calculator produces target sales price big number", () => {
+    const schema = getPremiumCalculatorSchema("quote-price-profit-margin-calculator");
+    expect(schema).not.toBeNull();
+    if (!schema) {
+      return;
+    }
+
+    const result = runPremiumSchemaEngine(schema, buildDefaultSchemaInputs(schema));
+    expect(result.bigNumber.id).toBe("targetSalesPrice");
+    expect(result.bigNumber.raw).toBeGreaterThan(0);
+    expect(schemaHasFiniteResults(result)).toBe(true);
+
+    const minimumSafe = result.outputs.find((o) => o.id === "minimumSafePrice");
+    const targetPrice = result.outputs.find((o) => o.id === "targetSalesPrice");
+    expect(minimumSafe?.raw).toBeGreaterThan(targetPrice?.raw ?? 0);
   });
 
   test("unknown formulaId throws", () => {

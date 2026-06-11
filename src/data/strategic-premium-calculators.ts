@@ -63,7 +63,7 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "ar": "نظّم كل عرض بالبنود التي تُنسى قبل تثبيت الهامش."
     },
     "internalSourceNote": "Strategic report tool 1 — quote margin; safe copy replaces aggressive margin guarantee.",
-    "mappedLiveSlug": "product-margin-calculator"
+    "mappedLiveSlug": "quote-price-profit-margin-calculator"
   },
   {
     "id": "sp-002",
@@ -154,7 +154,7 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
     "slug": "auto-repair-parts-labor-quote-calculator",
     "phase": 1,
     "score": 9,
-    "status": "planned",
+    "status": "live",
     "categoryId": "cost-margin",
     "title": {
       "en": "Auto Repair Parts and Labor Quote Calculator",
@@ -188,7 +188,8 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "es": "Emite cotizaciones repetibles con estructura común.",
       "ar": "قدّم عروض إصلاح مت repeatable ببنية مشتركة."
     },
-    "internalSourceNote": "Strategic report tool 4 — auto repair quote; planned premium build."
+    "internalSourceNote": "Strategic report tool 4 — auto repair quote; planned premium build.",
+    "mappedLiveSlug": "auto-repair-parts-labor-quote-calculator"
   },
   {
     "id": "sp-005",
@@ -363,7 +364,7 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
     "slug": "downtime-minute-cost-calculator",
     "phase": 2,
     "score": 8.4,
-    "status": "planned",
+    "status": "live",
     "categoryId": "operations-oee",
     "title": {
       "en": "Downtime Minute Cost Calculator",
@@ -397,7 +398,8 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "es": "Cuantifique paradas en moneda para justificar mantenimiento preventivo.",
       "ar": "قِس التوقف بالعملة لتبرير الصيانة الوقائية."
     },
-    "internalSourceNote": "Strategic report tool 9 — downtime minute cost; planned."
+    "internalSourceNote": "Strategic report tool 9 — downtime minute cost; planned.",
+    "mappedLiveSlug": "downtime-minute-cost-calculator"
   },
   {
     "id": "sp-010",
@@ -488,7 +490,7 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
     "slug": "welded-bolted-connection-calculator",
     "phase": 2,
     "score": 7.7,
-    "status": "planned",
+    "status": "live",
     "categoryId": "manufacturing-engineering",
     "title": {
       "en": "Welded and Bolted Connection Calculator",
@@ -522,7 +524,8 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "es": "Evalúe capacidad de soldadura y pernos en minutos.",
       "ar": "افحص سعة اللحام والبراغي في دقائق."
     },
-    "internalSourceNote": "Strategic report tool 12 — weld/bolt; planned."
+    "internalSourceNote": "Strategic report tool 12 — weld/bolt; planned.",
+    "mappedLiveSlug": "welded-bolted-connection-calculator"
   },
   {
     "id": "sp-013",
@@ -564,14 +567,14 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "ar": "حدّد القطعة المسببة للمخاطر قبل الهدر."
     },
     "internalSourceNote": "Strategic report tool 13 — tolerance stack-up.",
-    "mappedLiveSlug": "tolerance-drift-calculator"
+    "mappedLiveSlug": "tolerance-stack-up-calculator"
   },
   {
     "id": "sp-014",
     "slug": "bolt-tightening-torque-calculator",
     "phase": 3,
     "score": 7.4,
-    "status": "planned",
+    "status": "live",
     "categoryId": "manufacturing-engineering",
     "title": {
       "en": "Bolt Tightening Torque Calculator",
@@ -605,7 +608,8 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "es": "Ajuste par de apriete en móvil con clase y lubricación.",
       "ar": "اضبط عزم الهدف على الجوال مع الدرجة والتزييت."
     },
-    "internalSourceNote": "Strategic report tool 14 — bolt torque; planned."
+    "internalSourceNote": "Strategic report tool 14 — bolt torque; planned.",
+    "mappedLiveSlug": "bolt-tightening-torque-calculator"
   },
   {
     "id": "sp-015",
@@ -647,7 +651,7 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "ar": "اعرض التوفير الشهري وأشهر الاسترداد قبل الاستثمار."
     },
     "internalSourceNote": "Strategic report tool 15 — energy savings package.",
-    "mappedLiveSlug": "kwh-cost-calculator"
+    "mappedLiveSlug": "energy-savings-package-calculator"
   },
   {
     "id": "sp-016",
@@ -689,14 +693,14 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "ar": "قارن الخيارات الاستثمارية بملخص قرار واحد."
     },
     "internalSourceNote": "Strategic report tool 16 — payback NPV.",
-    "mappedLiveSlug": "roi-calculator"
+    "mappedLiveSlug": "investment-payback-npv-calculator"
   },
   {
     "id": "sp-017",
     "slug": "fire-system-flow-hydrant-calculator",
     "phase": 3,
     "score": 6.7,
-    "status": "planned",
+    "status": "live",
     "categoryId": "engineering-technical",
     "title": {
       "en": "Fire System Flow and Hydrant Calculator",
@@ -730,7 +734,8 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "es": "Produzca primer caudal incendio alineado con checklist local.",
       "ar": "أنتج أرقام تدفق أولية متوافقة مع قائمة التحقق."
     },
-    "internalSourceNote": "Strategic report tool 17 — fire system; planned."
+    "internalSourceNote": "Strategic report tool 17 — fire system; planned.",
+    "mappedLiveSlug": "fire-system-flow-hydrant-calculator"
   },
   {
     "id": "sp-018",
@@ -772,14 +777,14 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "ar": "نمذج حزم المغادرة brut/net قبل التوقيع."
     },
     "internalSourceNote": "Strategic report tool 18 — leave severance notice.",
-    "mappedLiveSlug": "salary-cost-calculator"
+    "mappedLiveSlug": "annual-leave-severance-notice-calculator"
   },
   {
     "id": "sp-019",
     "slug": "hydraulic-pneumatic-cylinder-force-calculator",
     "phase": 4,
     "score": 6.4,
-    "status": "planned",
+    "status": "live",
     "categoryId": "engineering-technical",
     "title": {
       "en": "Hydraulic and Pneumatic Cylinder Force Calculator",
@@ -813,7 +818,8 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "es": "Valide cilindro con biblioteca de diámetros y factor de seguridad.",
       "ar": "تحقق من اختيار الأسطوانة بمكتبة الأقطار وعامل الأمان."
     },
-    "internalSourceNote": "Strategic report tool 19 — cylinder force; planned."
+    "internalSourceNote": "Strategic report tool 19 — cylinder force; planned.",
+    "mappedLiveSlug": "hydraulic-pneumatic-cylinder-force-calculator"
   },
   {
     "id": "sp-020",
@@ -855,14 +861,14 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "ar": "حدّد أحزمة النقل في دقائق."
     },
     "internalSourceNote": "Strategic report tool 20 — belt pulley; partial live mapping.",
-    "mappedLiveSlug": "cutting-speed-calculator"
+    "mappedLiveSlug": "belt-pulley-speed-length-calculator"
   },
   {
     "id": "sp-021",
     "slug": "quality-cost-paf-calculator",
     "phase": 4,
     "score": 6.1,
-    "status": "planned",
+    "status": "live",
     "categoryId": "quality-lean",
     "title": {
       "en": "Quality Cost PAF Calculator",
@@ -896,14 +902,15 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "es": "Visualice mix PAF para priorizar prevención.",
       "ar": "اعرض mix PAF ل prioritize الميزانية."
     },
-    "internalSourceNote": "Strategic report tool 21 — quality PAF; planned."
+    "internalSourceNote": "Strategic report tool 21 — quality PAF; planned.",
+    "mappedLiveSlug": "quality-cost-paf-calculator"
   },
   {
     "id": "sp-022",
     "slug": "pressure-vessel-wall-thickness-calculator",
     "phase": 4,
     "score": 5.9,
-    "status": "planned",
+    "status": "live",
     "categoryId": "engineering-technical",
     "title": {
       "en": "Pressure Vessel Wall Thickness Calculator",
@@ -937,14 +944,15 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "es": "Evalúe vasijas cilíndricas y esféricas con material y seguridad.",
       "ar": "افحص الأوعية الأسطوانية والكروية."
     },
-    "internalSourceNote": "Strategic report tool 22 — pressure vessel; planned."
+    "internalSourceNote": "Strategic report tool 22 — pressure vessel; planned.",
+    "mappedLiveSlug": "pressure-vessel-wall-thickness-calculator"
   },
   {
     "id": "sp-023",
     "slug": "value-stream-map-vsm-calculator",
     "phase": 4,
     "score": 5.7,
-    "status": "planned",
+    "status": "live",
     "categoryId": "quality-lean",
     "title": {
       "en": "Value Stream Map VSM Calculator",
@@ -978,6 +986,7 @@ export const STRATEGIC_PREMIUM_CALCULATORS: readonly StrategicPremiumCalculator[
       "es": "Capture ratio VA y lead time en plantilla digital.",
       "ar": "سجّل نسبة القيمة المضافة وlead time."
     },
-    "internalSourceNote": "Strategic report tool 23 — VSM; planned."
+    "internalSourceNote": "Strategic report tool 23 — VSM; planned.",
+    "mappedLiveSlug": "value-stream-map-vsm-calculator"
   }
 ] as const;

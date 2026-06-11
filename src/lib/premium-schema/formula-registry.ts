@@ -76,6 +76,20 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     fn: (inputs) => assertFinite(num(inputs, "hourlyCost") * num(inputs, "lossHours")),
   },
   {
+    id: "time.downtime_minute_cost",
+    family: "time",
+    label: "Downtime cost from minutes and hourly rate",
+    fn: (inputs) =>
+      assertFinite((num(inputs, "downtimeMinutes") / 60) * num(inputs, "hourlyRate")),
+  },
+  {
+    id: "time.downtime_units_lost",
+    family: "time",
+    label: "Output units lost during downtime",
+    fn: (inputs) =>
+      nonNegative((num(inputs, "downtimeMinutes") / 60) * num(inputs, "outputUnitsPerHour")),
+  },
+  {
     id: "scrap.material_cost",
     family: "scrap",
     label: "Scrap material cost",
@@ -380,6 +394,90 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       nonNegative(num(inputs, "amount") * (num(inputs, "percent") / 100)),
   },
   {
+    id: "cost.difference",
+    family: "cost",
+    label: "Difference between two amounts",
+    fn: (inputs) => assertFinite(num(inputs, "a") - num(inputs, "b")),
+  },
+  {
+    id: "cost.margin_rate_on_price",
+    family: "cost",
+    label: "Margin rate on price",
+    fn: (inputs) =>
+      assertFinite(
+        safeDivide(num(inputs, "price") - num(inputs, "cost"), num(inputs, "price")) * 100,
+      ),
+  },
+  {
+    id: "cost.quote_target_price",
+    family: "cost",
+    label: "Quote target sales price",
+    fn: (inputs) => {
+      const denom = Math.max(5, 100 - num(inputs, "targetMarginPercent"));
+      return assertFinite(num(inputs, "totalCost") / (denom / 100));
+    },
+  },
+  {
+    id: "cost.quote_safe_floor_price",
+    family: "cost",
+    label: "Quote minimum safe floor price",
+    fn: (inputs) => {
+      const margin = num(inputs, "targetMarginPercent") + num(inputs, "safetyMarginUplift");
+      const denom = Math.max(5, 100 - margin);
+      return assertFinite(num(inputs, "totalCost") / (denom / 100));
+    },
+  },
+  {
+    id: "cost.shop_hourly_rate",
+    family: "cost",
+    label: "Loaded machine shop hourly rate",
+    fn: (inputs) =>
+      assertFinite(
+        safeDivide(num(inputs, "fixedMonthlyCost"), num(inputs, "monthlyMachineHours")) +
+          num(inputs, "variableCostPerHour"),
+      ),
+  },
+  {
+    id: "cost.break_even_units",
+    family: "cost",
+    label: "Break-even volume in units",
+    fn: (inputs) => {
+      const contribution = num(inputs, "unitPrice") - num(inputs, "variableCostPerUnit");
+      if (contribution <= 0) {
+        return 0;
+      }
+      return assertFinite(num(inputs, "fixedCost") / contribution);
+    },
+  },
+  {
+    id: "cost.safety_margin_rate",
+    family: "cost",
+    label: "Safety margin above break-even",
+    fn: (inputs) => {
+      const current = num(inputs, "currentVolume");
+      if (current <= 0) {
+        return 0;
+      }
+      return assertFinite(
+        Math.max(0, (current - num(inputs, "breakEvenUnits")) / current) * 100,
+      );
+    },
+  },
+  {
+    id: "carbon.unit_product_emissions",
+    family: "carbon",
+    label: "Unit product embedded emissions",
+    fn: (inputs) =>
+      nonNegative(safeDivide(num(inputs, "totalEmissionsTon"), num(inputs, "productionUnits"))),
+  },
+  {
+    id: "carbon.unit_exposure_cost",
+    family: "carbon",
+    label: "Unit carbon cost at reference price",
+    fn: (inputs) =>
+      assertFinite(num(inputs, "unitEmissionsTon") * num(inputs, "carbonPrice")),
+  },
+  {
     id: "time.hour_overrun_cost",
     family: "time",
     label: "Hour overrun labor cost",
@@ -427,6 +525,31 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       nonNegative(safeDivide(num(inputs, "annualCOGS"), num(inputs, "averageInventory"))),
   },
   {
+    id: "inventory.eoq_units",
+    family: "benchmark",
+    label: "Economic order quantity in units",
+    fn: (inputs) => {
+      const holdingCost =
+        num(inputs, "unitCost") * (num(inputs, "carryingCostPercent") / 100);
+      if (holdingCost <= 0) {
+        return 0;
+      }
+      return assertFinite(
+        Math.sqrt((2 * num(inputs, "annualDemand") * num(inputs, "orderCost")) / holdingCost),
+      );
+    },
+  },
+  {
+    id: "inventory.carrying_cost_annual",
+    family: "benchmark",
+    label: "Annual inventory carrying cost from EOQ",
+    fn: (inputs) => {
+      const averageUnits = num(inputs, "eoqUnits") / 2;
+      const averageValue = averageUnits * num(inputs, "unitCost");
+      return nonNegative(averageValue * (num(inputs, "carryingCostPercent") / 100));
+    },
+  },
+  {
     id: "warehouse.unused_space_cost",
     family: "cost",
     label: "Unused warehouse space cost",
@@ -462,6 +585,263 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       }
       return nonNegative(
         (Math.abs(num(inputs, "actual") - num(inputs, "target")) / tolerance) * 100
+      );
+    },
+  },
+  {
+    id: "calibration.tolerance_worst_case_stack",
+    family: "calibration",
+    label: "Worst-case tolerance stack",
+    fn: (inputs) =>
+      assertFinite(
+        num(inputs, "t1") + num(inputs, "t2") + num(inputs, "t3") + num(inputs, "t4"),
+      ),
+  },
+  {
+    id: "calibration.tolerance_rss_stack",
+    family: "calibration",
+    label: "RSS tolerance stack",
+    fn: (inputs) =>
+      assertFinite(
+        Math.sqrt(
+          num(inputs, "t1") ** 2 +
+            num(inputs, "t2") ** 2 +
+            num(inputs, "t3") ** 2 +
+            num(inputs, "t4") ** 2,
+        ),
+      ),
+  },
+  {
+    id: "measurement.weld_throat_capacity",
+    family: "measurement",
+    label: "Simplified fillet weld throat capacity",
+    fn: (inputs) => {
+      const area = num(inputs, "throatMm") * num(inputs, "weldLengthMm");
+      const safety = Math.max(1, num(inputs, "safetyFactor"));
+      return nonNegative((area * num(inputs, "allowableStressMpa")) / safety);
+    },
+  },
+  {
+    id: "measurement.bolt_shear_capacity",
+    family: "measurement",
+    label: "Simplified bolt shear capacity",
+    fn: (inputs) => {
+      const radius = num(inputs, "boltDiameterMm") / 2;
+      const area = Math.PI * radius * radius * num(inputs, "boltCount");
+      const safety = Math.max(1, num(inputs, "safetyFactor"));
+      return nonNegative((area * num(inputs, "allowableStressMpa")) / safety);
+    },
+  },
+  {
+    id: "measurement.bolt_tightening_torque",
+    family: "measurement",
+    label: "Bolt tightening torque estimate",
+    fn: (inputs) => {
+      const forceN = num(inputs, "clampForceKn") * 1000;
+      const diameterM = num(inputs, "boltDiameterMm") / 1000;
+      const friction = Math.max(0.01, num(inputs, "frictionFactor", 0.2));
+      return nonNegative(forceN * diameterM * friction);
+    },
+  },
+  {
+    id: "measurement.fire_flow_demand",
+    family: "measurement",
+    label: "Fire system flow demand",
+    fn: (inputs) =>
+      nonNegative(num(inputs, "protectedAreaM2") * num(inputs, "designDensityLpmM2")),
+  },
+  {
+    id: "measurement.hydrant_count",
+    family: "measurement",
+    label: "Hydrant count from flow demand",
+    fn: (inputs) => {
+      const demand = num(inputs, "flowDemandLpm");
+      const capacity = Math.max(1, num(inputs, "hydrantCapacityLpm"));
+      return Math.ceil(demand / capacity);
+    },
+  },
+  {
+    id: "measurement.cylinder_force",
+    family: "measurement",
+    label: "Hydraulic or pneumatic cylinder force",
+    fn: (inputs) => {
+      const pressureNmm2 = num(inputs, "pressureBar") * 0.1;
+      const area = Math.PI * (num(inputs, "boreMm") / 2) ** 2;
+      return nonNegative(pressureNmm2 * area);
+    },
+  },
+  {
+    id: "measurement.cylinder_retract_force",
+    family: "measurement",
+    label: "Cylinder retract force on rod side",
+    fn: (inputs) => {
+      const pressureNmm2 = num(inputs, "pressureBar") * 0.1;
+      const bore = num(inputs, "boreMm");
+      const rod = num(inputs, "rodMm");
+      const area = (Math.PI / 4) * Math.max(bore * bore - rod * rod, 0);
+      return nonNegative(pressureNmm2 * area);
+    },
+  },
+  {
+    id: "measurement.vessel_wall_thickness",
+    family: "measurement",
+    label: "Pressure vessel wall thickness screening",
+    fn: (inputs) => {
+      const pressure = num(inputs, "designPressureBar");
+      const diameter = num(inputs, "diameterMm");
+      const stress = Math.max(1, num(inputs, "allowableStressMpa"));
+      const efficiency = Math.max(0.1, num(inputs, "weldEfficiency", 0.85));
+      return nonNegative((pressure * diameter) / (2 * stress * efficiency * 10));
+    },
+  },
+  {
+    id: "cost.sum3",
+    family: "cost",
+    label: "Three-component cost sum",
+    fn: (inputs) => nonNegative(num(inputs, "a") + num(inputs, "b") + num(inputs, "c")),
+  },
+  {
+    id: "cost.ratio_percent",
+    family: "cost",
+    label: "Ratio as percent of denominator",
+    fn: (inputs) =>
+      nonNegative(safeDivide(num(inputs, "numerator"), num(inputs, "denominator")) * 100),
+  },
+  {
+    id: "time.vsm_total_lead_time",
+    family: "time",
+    label: "Value stream total lead time",
+    fn: (inputs) =>
+      nonNegative(
+        num(inputs, "processMinutes") + num(inputs, "waitMinutes") + num(inputs, "transportMinutes"),
+      ),
+  },
+  {
+    id: "benchmark.value_added_percent",
+    family: "benchmark",
+    label: "Value-added time percent of lead time",
+    fn: (inputs) => {
+      const total = num(inputs, "totalLeadMinutes");
+      if (total === 0) return 0;
+      return assertFinite((num(inputs, "valueAddedMinutes") / total) * 100);
+    },
+  },
+  {
+    id: "energy.monthly_kwh_savings",
+    family: "energy",
+    label: "Monthly kWh savings from baseline minus proposed",
+    fn: (inputs) =>
+      nonNegative(num(inputs, "baselineKwhMonthly") - num(inputs, "proposedKwhMonthly")),
+  },
+  {
+    id: "finance.payback_years",
+    family: "cost",
+    label: "Simple payback years from investment and annual savings",
+    fn: (inputs) => {
+      const savings = num(inputs, "annualSavings");
+      if (savings <= 0) return 0;
+      return assertFinite(num(inputs, "initialInvestment") / savings);
+    },
+  },
+  {
+    id: "finance.simple_npv",
+    family: "cost",
+    label: "Simple NPV with fixed annual cash flow",
+    fn: (inputs) => {
+      const investment = num(inputs, "initialInvestment");
+      const annual = num(inputs, "annualCashFlow");
+      const rate = num(inputs, "discountRatePercent") / 100;
+      const years = Math.max(1, Math.round(num(inputs, "horizonYears", 5)));
+      let pv = -investment;
+      for (let year = 1; year <= years; year += 1) {
+        pv += annual / (1 + rate) ** year;
+      }
+      return assertFinite(pv);
+    },
+  },
+  {
+    id: "finance.annual_yield_percent",
+    family: "cost",
+    label: "Annual cash flow as percent of investment",
+    fn: (inputs) => {
+      const investment = num(inputs, "initialInvestment");
+      if (investment <= 0) return 0;
+      return assertFinite((num(inputs, "annualCashFlow") / investment) * 100);
+    },
+  },
+  {
+    id: "finance.roi_percent",
+    family: "cost",
+    label: "Return on investment percent",
+    fn: (inputs) => {
+      const investment = num(inputs, "initialInvestment");
+      if (investment <= 0) return 0;
+      const net = num(inputs, "totalReturn") - investment;
+      return assertFinite((net / investment) * 100);
+    },
+  },
+  {
+    id: "cost.employer_burden_total",
+    family: "cost",
+    label: "Employer total payroll with burden percent",
+    fn: (inputs) => {
+      const gross = num(inputs, "grossMonthlySalary");
+      const burden = num(inputs, "employerBurdenPercent");
+      return nonNegative(gross * (1 + burden / 100));
+    },
+  },
+  {
+    id: "cost.severance_screening",
+    family: "cost",
+    label: "Screening severance estimate from salary and service years",
+    fn: (inputs) => {
+      const gross = num(inputs, "grossMonthlySalary");
+      const years = num(inputs, "yearsOfService");
+      const weeksPerYear = num(inputs, "severanceWeeksPerYear", 4);
+      return nonNegative(gross * (weeksPerYear / 4) * years);
+    },
+  },
+  {
+    id: "cost.notice_screening",
+    family: "cost",
+    label: "Screening notice-period cost estimate",
+    fn: (inputs) => {
+      const gross = num(inputs, "grossMonthlySalary");
+      const weeks = num(inputs, "noticeWeeks", 4);
+      return nonNegative(gross * (weeks / 4));
+    },
+  },
+  {
+    id: "measurement.pulley_driven_rpm",
+    family: "measurement",
+    label: "Driven pulley RPM from driver RPM and diameters",
+    fn: (inputs) => {
+      const driver = num(inputs, "driverDiameterMm");
+      const driven = Math.max(1, num(inputs, "drivenDiameterMm"));
+      return nonNegative((num(inputs, "driverRpm") * driver) / driven);
+    },
+  },
+  {
+    id: "measurement.belt_speed_mpm",
+    family: "measurement",
+    label: "Belt speed from driver diameter and RPM",
+    fn: (inputs) => {
+      const diameter = num(inputs, "driverDiameterMm");
+      const rpm = num(inputs, "driverRpm");
+      return nonNegative((Math.PI * diameter * rpm) / 1000);
+    },
+  },
+  {
+    id: "measurement.open_belt_length_mm",
+    family: "measurement",
+    label: "Open belt length estimate from pulley diameters and center distance",
+    fn: (inputs) => {
+      const driver = num(inputs, "driverDiameterMm");
+      const driven = num(inputs, "drivenDiameterMm");
+      const center = Math.max(driver + driven, num(inputs, "centerDistanceMm"));
+      const diff = driver - driven;
+      return nonNegative(
+        2 * center + (Math.PI / 2) * (driver + driven) + (diff * diff) / (4 * center),
       );
     },
   },
@@ -559,6 +939,16 @@ const FORMULA_META_DETAILS: Record<
     description: "Labor or machine time converted to cost exposure.",
     requiredInputs: ["hourlyCost", "lossHours"],
     outputHint: "currency",
+  },
+  "time.downtime_minute_cost": {
+    description: "Downtime minutes converted to cost at an hourly shop rate.",
+    requiredInputs: ["downtimeMinutes", "hourlyRate"],
+    outputHint: "currency",
+  },
+  "time.downtime_units_lost": {
+    description: "Good units not produced during downtime.",
+    requiredInputs: ["downtimeMinutes", "outputUnitsPerHour"],
+    outputHint: "number",
   },
   "scrap.material_cost": {
     description: "Material cost multiplied by scrap rate percent.",
@@ -745,6 +1135,51 @@ const FORMULA_META_DETAILS: Record<
     requiredInputs: ["amount", "percent"],
     outputHint: "currency",
   },
+  "cost.difference": {
+    description: "Signed difference between two numeric amounts.",
+    requiredInputs: ["a", "b"],
+    outputHint: "currency",
+  },
+  "cost.margin_rate_on_price": {
+    description: "Gross margin percent based on price and cost.",
+    requiredInputs: ["price", "cost"],
+    outputHint: "percentage",
+  },
+  "cost.quote_target_price": {
+    description: "Target sales price from loaded cost and target margin.",
+    requiredInputs: ["totalCost", "targetMarginPercent"],
+    outputHint: "currency",
+  },
+  "cost.quote_safe_floor_price": {
+    description: "Minimum safe price with extra margin uplift.",
+    requiredInputs: ["totalCost", "targetMarginPercent", "safetyMarginUplift"],
+    outputHint: "currency",
+  },
+  "cost.shop_hourly_rate": {
+    description: "Fixed monthly burden per hour plus variable hourly cost.",
+    requiredInputs: ["fixedMonthlyCost", "monthlyMachineHours", "variableCostPerHour"],
+    outputHint: "currency",
+  },
+  "cost.break_even_units": {
+    description: "Units required to cover fixed costs at contribution margin.",
+    requiredInputs: ["fixedCost", "unitPrice", "variableCostPerUnit"],
+    outputHint: "number",
+  },
+  "cost.safety_margin_rate": {
+    description: "Percent volume cushion above break-even.",
+    requiredInputs: ["breakEvenUnits", "currentVolume"],
+    outputHint: "percentage",
+  },
+  "carbon.unit_product_emissions": {
+    description: "Total emissions divided by production units.",
+    requiredInputs: ["totalEmissionsTon", "productionUnits"],
+    outputHint: "number",
+  },
+  "carbon.unit_exposure_cost": {
+    description: "Unit emissions multiplied by reference carbon price.",
+    requiredInputs: ["unitEmissionsTon", "carbonPrice"],
+    outputHint: "currency",
+  },
   "time.hour_overrun_cost": {
     description: "Labor cost of hours above planned estimate.",
     requiredInputs: ["actualHours", "plannedHours", "hourlyCost"],
@@ -776,6 +1211,16 @@ const FORMULA_META_DETAILS: Record<
     requiredInputs: ["annualCOGS", "averageInventory"],
     outputHint: "score",
   },
+  "inventory.eoq_units": {
+    description: "Classic EOQ from demand, order cost and holding cost percent.",
+    requiredInputs: ["annualDemand", "orderCost", "unitCost", "carryingCostPercent"],
+    outputHint: "number",
+  },
+  "inventory.carrying_cost_annual": {
+    description: "Annual carrying cost from average EOQ inventory.",
+    requiredInputs: ["eoqUnits", "unitCost", "carryingCostPercent"],
+    outputHint: "currency",
+  },
   "warehouse.unused_space_cost": {
     description: "Rent allocated to unused warehouse space.",
     requiredInputs: ["monthlyRent", "unusedSpacePercent"],
@@ -795,6 +1240,131 @@ const FORMULA_META_DETAILS: Record<
     description: "Percent of tolerance band consumed by deviation.",
     requiredInputs: ["target", "actual", "tolerance"],
     outputHint: "percentage",
+  },
+  "calibration.tolerance_worst_case_stack": {
+    description: "Linear worst-case sum of four tolerance contributions.",
+    requiredInputs: ["t1", "t2", "t3", "t4"],
+    outputHint: "number",
+  },
+  "calibration.tolerance_rss_stack": {
+    description: "Root-sum-square stack of four tolerance contributions.",
+    requiredInputs: ["t1", "t2", "t3", "t4"],
+    outputHint: "number",
+  },
+  "measurement.weld_throat_capacity": {
+    description: "Screening-level fillet weld capacity estimate.",
+    requiredInputs: ["throatMm", "weldLengthMm", "allowableStressMpa", "safetyFactor"],
+    outputHint: "number",
+  },
+  "measurement.bolt_shear_capacity": {
+    description: "Screening-level bolt shear capacity estimate.",
+    requiredInputs: ["boltDiameterMm", "boltCount", "allowableStressMpa", "safetyFactor"],
+    outputHint: "number",
+  },
+  "measurement.bolt_tightening_torque": {
+    description: "Torque estimate from clamp force, bolt diameter and friction factor.",
+    requiredInputs: ["clampForceKn", "boltDiameterMm", "frictionFactor"],
+    outputHint: "number",
+  },
+  "measurement.fire_flow_demand": {
+    description: "Required fire flow from protected area and design density.",
+    requiredInputs: ["protectedAreaM2", "designDensityLpmM2"],
+    outputHint: "number",
+  },
+  "measurement.hydrant_count": {
+    description: "Hydrant count from total flow demand and per-hydrant capacity.",
+    requiredInputs: ["flowDemandLpm", "hydrantCapacityLpm"],
+    outputHint: "number",
+  },
+  "measurement.cylinder_force": {
+    description: "Cylinder force from pressure and bore diameter.",
+    requiredInputs: ["pressureBar", "boreMm"],
+    outputHint: "number",
+  },
+  "measurement.cylinder_retract_force": {
+    description: "Retract force from pressure, bore and rod diameters.",
+    requiredInputs: ["pressureBar", "boreMm", "rodMm"],
+    outputHint: "number",
+  },
+  "measurement.vessel_wall_thickness": {
+    description: "Screening wall thickness from pressure, diameter and allowable stress.",
+    requiredInputs: ["designPressureBar", "diameterMm", "allowableStressMpa", "weldEfficiency"],
+    outputHint: "number",
+  },
+  "cost.sum3": {
+    description: "Sum of three cost components.",
+    requiredInputs: ["a", "b", "c"],
+    outputHint: "currency",
+  },
+  "cost.ratio_percent": {
+    description: "Numerator as percent of denominator.",
+    requiredInputs: ["numerator", "denominator"],
+    outputHint: "percentage",
+  },
+  "time.vsm_total_lead_time": {
+    description: "Total lead time from process, wait and transport minutes.",
+    requiredInputs: ["processMinutes", "waitMinutes", "transportMinutes"],
+    outputHint: "number",
+  },
+  "benchmark.value_added_percent": {
+    description: "Value-added minutes as percent of total lead time.",
+    requiredInputs: ["valueAddedMinutes", "totalLeadMinutes"],
+    outputHint: "percentage",
+  },
+  "energy.monthly_kwh_savings": {
+    description: "Monthly kWh reduction from baseline to proposed consumption.",
+    requiredInputs: ["baselineKwhMonthly", "proposedKwhMonthly"],
+    outputHint: "number",
+  },
+  "finance.payback_years": {
+    description: "Initial investment divided by annual savings.",
+    requiredInputs: ["initialInvestment", "annualSavings"],
+    outputHint: "number",
+  },
+  "finance.simple_npv": {
+    description: "NPV with fixed annual cash flow and discount rate.",
+    requiredInputs: ["initialInvestment", "annualCashFlow", "discountRatePercent", "horizonYears"],
+    outputHint: "currency",
+  },
+  "finance.annual_yield_percent": {
+    description: "Annual cash flow divided by initial investment.",
+    requiredInputs: ["initialInvestment", "annualCashFlow"],
+    outputHint: "percentage",
+  },
+  "finance.roi_percent": {
+    description: "Return on investment as percent of initial investment.",
+    requiredInputs: ["initialInvestment", "totalReturn"],
+    outputHint: "percentage",
+  },
+  "cost.employer_burden_total": {
+    description: "Gross monthly salary with employer burden percent.",
+    requiredInputs: ["grossMonthlySalary", "employerBurdenPercent"],
+    outputHint: "currency",
+  },
+  "cost.severance_screening": {
+    description: "Screening severance estimate from salary and service years.",
+    requiredInputs: ["grossMonthlySalary", "yearsOfService", "severanceWeeksPerYear"],
+    outputHint: "currency",
+  },
+  "cost.notice_screening": {
+    description: "Screening notice-period cost from weekly salary factor.",
+    requiredInputs: ["grossMonthlySalary", "noticeWeeks"],
+    outputHint: "currency",
+  },
+  "measurement.pulley_driven_rpm": {
+    description: "Driven pulley RPM from driver speed and pulley diameters.",
+    requiredInputs: ["driverRpm", "driverDiameterMm", "drivenDiameterMm"],
+    outputHint: "number",
+  },
+  "measurement.belt_speed_mpm": {
+    description: "Linear belt speed from driver pulley diameter and RPM.",
+    requiredInputs: ["driverDiameterMm", "driverRpm"],
+    outputHint: "number",
+  },
+  "measurement.open_belt_length_mm": {
+    description: "Open belt length from pulley diameters and center distance.",
+    requiredInputs: ["driverDiameterMm", "drivenDiameterMm", "centerDistanceMm"],
+    outputHint: "number",
   },
 };
 

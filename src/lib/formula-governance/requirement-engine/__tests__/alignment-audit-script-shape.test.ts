@@ -16,8 +16,8 @@ describe("alignment audit script shape", () => {
   test("audit summary totalContracts is deterministic", () => {
     const result = runBatchAlignmentAudit({ contracts: FORMULA_CONTRACTS });
 
-    expect(result.totalContracts).toBe(131);
-    expect(result.summaries.length).toBe(131);
+    expect(result.totalContracts).toBe(261);
+    expect(result.summaries.length).toBe(261);
   });
 
   test("evaluated / needsReview / blocked / skipped counts are deterministic", () => {
@@ -28,7 +28,7 @@ describe("alignment audit script shape", () => {
     expect(first.lowRisk).toBe(0);
     expect(first.needsReview).toBe(2);
     expect(first.blocked).toBe(0);
-    expect(first.skipped).toBe(129);
+    expect(first.skipped).toBe(259);
     expect(second).toEqual(first);
   });
 

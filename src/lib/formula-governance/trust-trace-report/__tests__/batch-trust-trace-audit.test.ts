@@ -13,9 +13,9 @@ describe("batch trust trace audit — Phase 5H-I", () => {
   test("batch audit returns 120 contracts", () => {
     const result = runBatchTrustTraceAudit({ contracts: FORMULA_CONTRACTS });
 
-    expect(result.totalContracts).toBe(131);
-    expect(result.reports).toHaveLength(131);
-    expect(result.trustTraceReady + result.needsReview + result.blocked).toBe(131);
+    expect(result.totalContracts).toBe(261);
+    expect(result.reports).toHaveLength(261);
+    expect(result.trustTraceReady + result.needsReview + result.blocked).toBe(261);
   });
 
   test("formatted report includes summary lines", () => {
@@ -24,7 +24,7 @@ describe("batch trust trace audit — Phase 5H-I", () => {
     );
 
     expect(report).toContain("Trust Trace Report Audit");
-    expect(report).toContain("Total contracts: 131");
+    expect(report).toContain("Total contracts: 261");
     expect(report).toContain("Average trust score:");
   });
 

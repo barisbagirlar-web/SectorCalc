@@ -10,6 +10,7 @@ import {
 import { PREMIUM_FULL_LOOP_RUNTIME_SLUGS } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import {
   getPremiumToolHref,
+  getPremiumSchemaToolHref,
   resolvePremiumToolHref,
 } from "@/lib/tools/tool-links";
 
@@ -50,15 +51,21 @@ describe("tool-links — premium hrefs", () => {
     expect(lawnCare?.paidSlug).toBe("landscaping-contract-profit-tool");
   });
 
-  test("schema-mapped premium slugs still use premium-schema route when not full-loop", () => {
+  test("schema-mapped full-loop slugs prefer revenue premium route", () => {
     expect(resolvePremiumToolHref("auto-shop-margin-leak-detector")).toBe(
-      "/tools/premium-schema/auto-repair-comeback-cost",
+      "/tools/premium/auto-shop-margin-leak-detector",
     );
     expect(resolvePremiumToolHref("change-order-impact-analyzer")).toBe(
       "/tools/premium/change-order-impact-analyzer",
     );
     expect(resolvePremiumToolHref("menu-profit-leak-detector")).toBe(
       "/tools/premium/menu-profit-leak-detector",
+    );
+  });
+
+  test("premium-schema href helper resolves schema slug path", () => {
+    expect(getPremiumSchemaToolHref("auto-repair-comeback-cost")).toBe(
+      "/tools/premium-schema/auto-repair-comeback-cost",
     );
   });
 });

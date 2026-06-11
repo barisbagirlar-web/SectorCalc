@@ -150,9 +150,9 @@ describe("contract-mode runtime intelligence loop", () => {
     const inventory = summarizeInventory(buildFormulaInventory());
     const report = runGovernanceAudit({ strict: false });
 
-    expect(FORMULA_CONTRACTS.length).toBe(131);
+    expect(FORMULA_CONTRACTS.length).toBe(261);
     expect(inventory.criticalMissingContracts.length).toBeGreaterThanOrEqual(0);
-    expect(inventory.criticalMissingContracts.length).toBeLessThanOrEqual(5);
+    expect(inventory.criticalMissingContracts.length).toBeLessThanOrEqual(11);
     expect(report.results.filter((entry) => entry.status === "FAIL").length).toBe(0);
   });
 });

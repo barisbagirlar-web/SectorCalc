@@ -16,6 +16,16 @@ import {
   listFreeTrafficSlugs,
 } from "@/lib/tools/free-traffic-catalog";
 import {
+  calculateRoadmapFreeBatch1Tool,
+  hasRoadmapFreeBatch1Calculator,
+  ROADMAP_FREE_BATCH1_SLUGS,
+} from "@/lib/tools/roadmap-free-batch1-calculators";
+import {
+  calculateRoadmapFreeBatch2Tool,
+  hasRoadmapFreeBatch2Calculator,
+  ROADMAP_FREE_BATCH2_SLUGS,
+} from "@/lib/tools/roadmap-free-batch2-calculators";
+import {
   calculateRentVsBuyModel,
   parseRentVsBuyValues,
   RENT_VS_BUY_RESULT_WARNING,
@@ -1704,13 +1714,19 @@ export function calculateFreeTrafficTool(
   values: FreeTrafficInputValues,
   locale: SupportedLocale | string = "en",
 ): FreeTrafficResult {
-  const calculator = CALCULATORS[slug];
-  if (!calculator) {
-    throw new Error(`Unknown free traffic calculator slug: ${slug}`);
-  }
   const previousLocale = _activeFormatLocale;
   _activeFormatLocale = normalizeLocale(locale);
   try {
+    if (hasRoadmapFreeBatch2Calculator(slug)) {
+      return meta(slug, calculateRoadmapFreeBatch2Tool(slug, values, _activeFormatLocale));
+    }
+    if (hasRoadmapFreeBatch1Calculator(slug)) {
+      return meta(slug, calculateRoadmapFreeBatch1Tool(slug, values, _activeFormatLocale));
+    }
+    const calculator = CALCULATORS[slug];
+    if (!calculator) {
+      throw new Error(`Unknown free traffic calculator slug: ${slug}`);
+    }
     return meta(slug, calculator(values));
   } finally {
     _activeFormatLocale = previousLocale;
@@ -1720,18 +1736,21 @@ export function calculateFreeTrafficTool(
 export { NOT_AVAILABLE as FREE_RESULT_NOT_AVAILABLE };
 
 export function hasDedicatedTrafficCalculator(slug: string): boolean {
-  return slug in CALCULATORS;
+  return slug in CALCULATORS || hasRoadmapFreeBatch1Calculator(slug) || hasRoadmapFreeBatch2Calculator(slug);
 }
 
 const _registeredSlugs = Object.keys(CALCULATORS);
+const _batchSlugs = [...ROADMAP_FREE_BATCH1_SLUGS, ...ROADMAP_FREE_BATCH2_SLUGS];
 const _catalogSlugs = listFreeTrafficSlugs();
-if (_registeredSlugs.length !== _catalogSlugs.length) {
+const _expectedCalculatorCount = _catalogSlugs.length;
+const _actualCalculatorCount = _registeredSlugs.length + _batchSlugs.length;
+if (_actualCalculatorCount !== _expectedCalculatorCount) {
   throw new Error(
-    `Calculator count mismatch: registered ${_registeredSlugs.length}, catalog ${_catalogSlugs.length}`,
+    `Calculator count mismatch: registered ${_actualCalculatorCount}, catalog ${_expectedCalculatorCount}`,
   );
 }
 for (const catalogSlug of _catalogSlugs) {
-  if (!(catalogSlug in CALCULATORS)) {
+  if (!hasDedicatedTrafficCalculator(catalogSlug)) {
     throw new Error(`Missing calculator for slug: ${catalogSlug}`);
   }
 }

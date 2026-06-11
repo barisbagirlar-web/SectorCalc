@@ -77,6 +77,6 @@ describe("core finance metadata hygiene (Phase 5H-D-A)", () => {
   });
 
   test("batch size unchanged at 41 contracts", () => {
-    expect(FORMULA_CONTRACTS.length).toBe(131);
+    expect(FORMULA_CONTRACTS.length).toBe(261);
   });
 });

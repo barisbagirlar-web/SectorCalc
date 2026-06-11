@@ -92,15 +92,15 @@ function collectFreeResultStrings(result: ReturnType<typeof calculateFreeTraffic
 }
 
 describe("launch-readiness", () => {
-  test("FREE_TRAFFIC_TOOLS length === 100", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(100);
-    expect(listFreeTrafficSlugs().length).toBe(100);
-    expect(new Set(listFreeTrafficSlugs()).size).toBe(100);
+  test("FREE_TRAFFIC_TOOLS length === 230", () => {
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(230);
+    expect(listFreeTrafficSlugs().length).toBe(230);
+    expect(new Set(listFreeTrafficSlugs()).size).toBe(230);
   });
 
   test("PREMIUM_SCHEMAS length === 27", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(27);
-    expect(listPremiumSchemaSlugs().length).toBe(27);
+    expect(PREMIUM_SCHEMAS.length).toBe(50);
+    expect(listPremiumSchemaSlugs().length).toBe(50);
   });
 
   test("pricing copy is consistent and not ambiguous", () => {
@@ -114,7 +114,7 @@ describe("launch-readiness", () => {
 
   test("premium catalog has 27 items with no forbidden public terms", () => {
     const items = getPremiumSchemaCatalogItems("en");
-    expect(items.length).toBe(27);
+    expect(items.length).toBe(50);
     for (const item of items) {
       expect(assertPublicCatalogCopySafe(item)).toBe(true);
       expect(containsForbiddenPublicCatalogTerm(item.title)).toBe(false);

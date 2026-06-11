@@ -273,7 +273,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الصيانة and automation"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "bar-psi-pascal-cevirici"
   },
   {
     "id": "ft-009",
@@ -304,7 +305,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Mühendis, teknisyen"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "newton-kilogram-kuvvet-cevirici"
   },
   {
     "id": "ft-010",
@@ -335,7 +337,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Energy and engineers"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "joule-kalori-watt-saat-cevirici"
   },
   {
     "id": "ft-011",
@@ -366,7 +369,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Otomotiv, makine"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "beygir-gucu-kilowatt-cevirici"
   },
   {
     "id": "ft-012",
@@ -653,7 +657,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Muhasebe, stok"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "agirlikli-ortalama-hesaplama"
   },
   {
     "id": "ft-021",
@@ -716,7 +721,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الجميع"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kesir-ondalik-cevirici"
   },
   {
     "id": "ft-023",
@@ -747,7 +753,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "فرق الجودة, numune seçimi"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "rastgele-sayi-ureteci"
   },
   {
     "id": "ft-024",
@@ -778,7 +785,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Technical drawing and manufacturing"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "daire-alani-cevresi-hesaplama"
   },
   {
     "id": "ft-025",
@@ -841,7 +849,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Technical drawing"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "ucgen-alani-cevresi-hesaplama"
   },
   {
     "id": "ft-027",
@@ -872,7 +881,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Technical drawing"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "yamuk-alani-hesaplama"
   },
   {
     "id": "ft-028",
@@ -903,7 +913,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tank, depo imalatı"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "silindir-hacmi-hesaplama"
   },
   {
     "id": "ft-029",
@@ -934,7 +945,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tank imalatı"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kure-hacmi-hesaplama"
   },
   {
     "id": "ft-030",
@@ -965,7 +977,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "İmalat, döküm"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "koni-hacmi-hesaplama"
   },
   {
     "id": "ft-031",
@@ -1124,7 +1137,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Çelik konstrüksiyon"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "npu-npi-profil-agirlik-hesaplama"
   },
   {
     "id": "ft-036",
@@ -1155,7 +1169,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Çelik atölyesi"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kosebent-lama-agirlik-hesaplama"
   },
   {
     "id": "ft-037",
@@ -1218,7 +1233,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tesisat, imalat"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "boru-agirlik-hesaplama-celik-paslanmaz"
   },
   {
     "id": "ft-039",
@@ -1345,7 +1361,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tadilat"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "duvar-kagidi-seramik-adet-hesaplama"
   },
   {
     "id": "ft-043",
@@ -1536,7 +1553,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "البناء, çelik"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kiris-kolon-yaklasik-agirlik-hesabi"
   },
   {
     "id": "ft-049",
@@ -1567,7 +1585,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Atölye çevre düzeni"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "cit-korkuluk-malzeme-hesabi"
   },
   {
     "id": "ft-050",
@@ -1598,7 +1617,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Şantiye, depo"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "prefabrik-konteyner-olcu-hesaplama"
   },
   {
     "id": "ft-051",
@@ -1629,7 +1649,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Çelik atölyesi"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "celik-cati-makas-yaklasik-agirligi"
   },
   {
     "id": "ft-052",
@@ -1660,7 +1681,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Atölye, tesisat"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "su-deposu-hacmi-hesaplama"
   },
   {
     "id": "ft-053",
@@ -1691,7 +1713,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tadilat"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "asma-tavan-malzeme-hesabi"
   },
   {
     "id": "ft-054",
@@ -1722,7 +1745,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Energy teams, tadilat"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "yalitim-malzemesi-m-hesaplama"
   },
   {
     "id": "ft-055",
@@ -1753,7 +1777,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "البناء, peyzaj"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "istinat-duvari-yaklasik-beton-hesabi"
   },
   {
     "id": "ft-056",
@@ -1848,7 +1873,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الكهربائيون, bakım"
     },
     "trafficPotential": "very-high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "amper-kilowatt-kw-cevirici"
   },
   {
     "id": "ft-059",
@@ -1879,7 +1905,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Machinery and automotive"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "motor-gucu-kw-hp-cevirici"
   },
   {
     "id": "ft-060",
@@ -1910,7 +1937,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Business teams, atölye"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "jenerator-kapasitesi-secim-hesaplama"
   },
   {
     "id": "ft-061",
@@ -1941,7 +1969,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "فرق المكاتب, sunucu odası"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "ups-kesintisiz-guc-kaynagi-secimi"
   },
   {
     "id": "ft-062",
@@ -1972,7 +2001,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الكهربائيون"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kablo-kesiti-mm-secim-hesaplama"
   },
   {
     "id": "ft-063",
@@ -2003,7 +2033,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الكهربائيون"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "gerilim-dusumu-hesaplama"
   },
   {
     "id": "ft-064",
@@ -2034,7 +2065,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الكهربائيون"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "topraklama-direnci-hesaplama"
   },
   {
     "id": "ft-065",
@@ -2065,7 +2097,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الصيانة, operasyon"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "aku-kapasitesi-calisma-suresi-hesabi"
   },
   {
     "id": "ft-066",
@@ -2128,7 +2161,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Atölye, ofis"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "aydinlatma-armatur-sayisi-hesaplama"
   },
   {
     "id": "ft-068",
@@ -2159,7 +2193,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Atölye, bakım"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kompresor-debisi-tank-hacmi-hesabi"
   },
   {
     "id": "ft-069",
@@ -2222,7 +2257,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Otomasyon, bakım"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "hidrolik-silindir-itme-kuvveti-hesabi"
   },
   {
     "id": "ft-071",
@@ -2253,7 +2289,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Otomasyon, bakım"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "pnomatik-silindir-kuvvet-hesabi"
   },
   {
     "id": "ft-072",
@@ -2284,7 +2321,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الصيانة, tasarım"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "hidrolik-pompa-gucu-hesaplama"
   },
   {
     "id": "ft-073",
@@ -2315,7 +2353,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tesisat, proses"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "boru-capi-akis-hizi-hesaplama"
   },
   {
     "id": "ft-074",
@@ -2346,7 +2385,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tesisat"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "pompa-gucu-basma-yuksekligi-hesabi"
   },
   {
     "id": "ft-075",
@@ -2377,7 +2417,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tesisat"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "su-debisi-litre-dakika-hesaplama"
   },
   {
     "id": "ft-076",
@@ -2408,7 +2449,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "İklimlendirme"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "isitma-sogutma-yuku-kcal-kw-hesabi"
   },
   {
     "id": "ft-077",
@@ -2439,7 +2481,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tesisat, ısıtma"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "radyator-petek-boyu-hesaplama"
   },
   {
     "id": "ft-078",
@@ -2470,7 +2513,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Office and home"
     },
     "trafficPotential": "very-high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "klima-btu-secim-hesaplama"
   },
   {
     "id": "ft-079",
@@ -2501,7 +2545,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Business and home"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "dogalgaz-tuketimi-hesaplama"
   },
   {
     "id": "ft-080",
@@ -2596,7 +2641,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Fleet and logistics"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "lpg-benzin-tasarruf-karsilastirma"
   },
   {
     "id": "ft-083",
@@ -2627,7 +2673,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Fleet and logistics"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "dizel-benzin-maliyet-karsilastirma"
   },
   {
     "id": "ft-084",
@@ -2658,7 +2705,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "اللوجستيات"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "akaryakit-fiyati-ile-yol-butcesi"
   },
   {
     "id": "ft-085",
@@ -2689,7 +2737,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "مديرو الأساطيل yönetimi"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "arac-amortisman-hesaplama"
   },
   {
     "id": "ft-086",
@@ -2784,7 +2833,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Welding shops"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kaynak-dikis-hacmi-maliyeti-hesabi"
   },
   {
     "id": "ft-089",
@@ -2815,7 +2865,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Sheet metal shops"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kesme-bukme-abkant-tonaj-hesabi"
   },
   {
     "id": "ft-090",
@@ -2846,7 +2897,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Makine imalat"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "disli-modul-cap-hesaplama"
   },
   {
     "id": "ft-091",
@@ -2941,7 +2993,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الصيانة, tasarım"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "rulman-omur-hesabi-l10"
   },
   {
     "id": "ft-094",
@@ -2972,7 +3025,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Montaj, bakım"
     },
     "trafficPotential": "very-high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "civata-sikma-torku-hesaplama"
   },
   {
     "id": "ft-095",
@@ -3003,7 +3057,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Montaj"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "civata-on-germe-kuvveti-hesabi"
   },
   {
     "id": "ft-096",
@@ -3034,7 +3089,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "فرق الجودة, satın alma"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli"
   },
   {
     "id": "ft-097",
@@ -3065,7 +3121,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Kalıp, döküm"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "enjeksiyon-dokum-cekme-payi-hesabi"
   },
   {
     "id": "ft-098",
@@ -3096,7 +3153,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الصيانة, CNC"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama"
   },
   {
     "id": "ft-099",
@@ -3127,7 +3185,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Boyahane, atölye"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "boya-kaplama-sarfiyati-m-basina-hesabi"
   },
   {
     "id": "ft-100",
@@ -3190,7 +3249,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Yüzey işlem"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kumlama-raspa-kum-sarfiyati-hesabi"
   },
   {
     "id": "ft-102",
@@ -3253,7 +3313,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "اللوجستيات, ambalaj"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "palet-ambalaj-kereste-hesabi"
   },
   {
     "id": "ft-104",
@@ -3284,7 +3345,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Mobilya, atölye"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "tahta-mdf-sunta-m-agirlik-hesabi"
   },
   {
     "id": "ft-105",
@@ -3315,7 +3377,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Plastik enjeksiyon"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "plastik-enjeksiyon-cevrim-suresi-tahmini"
   },
   {
     "id": "ft-106",
@@ -3346,7 +3409,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Elektrik, imalat"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "tel-kablo-uzunlugu-agirlik-hesabi"
   },
   {
     "id": "ft-107",
@@ -3377,7 +3441,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "İmalat, bakım"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "vida-somun-adim-dis-ustu-cap-hesabi"
   },
   {
     "id": "ft-108",
@@ -3472,7 +3537,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الصيانة, imalat"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "matkap-kilavuz-delik-capi-tablosu"
   },
   {
     "id": "ft-111",
@@ -3535,7 +3601,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "المحاسبون"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kdv-tevkifati-hesaplama"
   },
   {
     "id": "ft-113",
@@ -3566,7 +3633,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "المحاسبون"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "stopaj-hesaplama-kira-serbest-meslek"
   },
   {
     "id": "ft-114",
@@ -3597,7 +3665,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "المحاسبون, الموارد البشرية"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "gelir-vergisi-dilimleri-hesaplama"
   },
   {
     "id": "ft-115",
@@ -3692,7 +3761,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الموارد البشرية and employees"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "fazla-mesai-ucreti-hesaplama"
   },
   {
     "id": "ft-118",
@@ -3819,7 +3889,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الموارد البشرية"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "ise-giris-cikis-bildirgesi-sureleri"
   },
   {
     "id": "ft-122",
@@ -3850,7 +3921,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الموارد البشرية, muhasebe"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "sgk-prim-hesaplama-isci-plus-isveren"
   },
   {
     "id": "ft-123",
@@ -3881,7 +3953,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الموارد البشرية and owners"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "personel-devamsizlik-maliyeti-hesaplama"
   },
   {
     "id": "ft-124",
@@ -3912,7 +3985,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "İSG, الموارد البشرية"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "is-kazasi-maliyeti-gun-kaybi-hesaplama"
   },
   {
     "id": "ft-125",
@@ -3975,7 +4049,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "أصحاب الأعمال, satın alma"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "makine-ekonomik-omru-hurda-deger-hesabi"
   },
   {
     "id": "ft-127",
@@ -4006,7 +4081,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الفرق المالية"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "leasing-kiralama-maliyet-karsilastirma"
   },
   {
     "id": "ft-128",
@@ -4069,7 +4145,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الفرق المالية"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kredi-erken-kapama-cezasi-hesaplama"
   },
   {
     "id": "ft-130",
@@ -4100,7 +4177,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Satış, satın alma"
     },
     "trafficPotential": "high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "enflasyon-fiyat-eskalasyonu-hesaplama"
   },
   {
     "id": "ft-131",
@@ -4163,7 +4241,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الفرق المالية, patron"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "doviz-pozisyonu-kur-farki-riski-hesabi"
   },
   {
     "id": "ft-133",
@@ -4226,7 +4305,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الفرق المالية, patron"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "cek-senet-vade-kirma-maliyeti-hesabi"
   },
   {
     "id": "ft-135",
@@ -4257,7 +4337,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "أصحاب الأعمال"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "nakit-akisi-basit-gunluk-haftalik-panosu"
   },
   {
     "id": "ft-136",
@@ -4416,7 +4497,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الفرق المالية"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "ic-verim-orani-irr-hesaplama"
   },
   {
     "id": "ft-141",
@@ -4511,7 +4593,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "İhracat, lojistik"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "konteyner-yukleme-kapasitesi-teu-hesabi"
   },
   {
     "id": "ft-144",
@@ -4542,7 +4625,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "اللوجستيات, nakliye"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "tir-kamyon-yuk-kapasitesi-hesaplama"
   },
   {
     "id": "ft-145",
@@ -4669,7 +4753,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "مديرو الأساطيل, servis"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "arac-bakim-periyodu-takip-hesaplama"
   },
   {
     "id": "ft-149",
@@ -4700,7 +4785,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "مديرو الأساطيل, lojistik"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "lastik-omru-degisim-km-hesaplama"
   },
   {
     "id": "ft-150",
@@ -4731,7 +4817,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Depo, lojistik"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "forklift-transpalet-kullanim-maliyeti"
   },
   {
     "id": "ft-151",
@@ -4762,7 +4849,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Depo, lojistik"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "depo-raf-palet-yerlesim-optimizasyonu"
   },
   {
     "id": "ft-152",
@@ -4825,7 +4913,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Depo, sevkiyat"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "paketleme-malzemesi-strec-koli-sarfiyati"
   },
   {
     "id": "ft-154",
@@ -4856,7 +4945,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "اللوجستيات"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "irsaliye-fatura-adedi-basina-sevkiyat-maliyeti"
   },
   {
     "id": "ft-155",
@@ -4919,7 +5009,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "مديرو الأساطيل, araç"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "trafik-cezasi-gecikme-faizi-hesaplama"
   },
   {
     "id": "ft-157",
@@ -4950,7 +5041,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "مديرو الأساطيل, araç"
     },
     "trafficPotential": "very-high",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "mtv-motorlu-tasitlar-vergisi-hesaplama"
   },
   {
     "id": "ft-158",
@@ -4981,7 +5073,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "مديرو الأساطيل, araç"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kasko-sigorta-prim-karsilastirma"
   },
   {
     "id": "ft-159",
@@ -5012,7 +5105,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "اللوجستيات, الموارد البشرية"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "sofor-operator-gunluk-yevmiye-maliyeti"
   },
   {
     "id": "ft-160",
@@ -5043,7 +5137,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "مديرو الأساطيل, finans"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "arac-kira-satin-alma-karsilastirma"
   },
   {
     "id": "ft-161",
@@ -5074,7 +5169,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Business teams, mutfak"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "yemek-tabldot-maliyet-hesaplama"
   },
   {
     "id": "ft-162",
@@ -5105,7 +5201,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Office and workshop"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "cay-kahve-su-tuketim-maliyeti"
   },
   {
     "id": "ft-163",
@@ -5136,7 +5233,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Yönetici"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "toplanti-saati-maliyeti-hesaplama"
   },
   {
     "id": "ft-164",
@@ -5167,7 +5265,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "İSG, satın alma"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati"
   },
   {
     "id": "ft-165",
@@ -5198,7 +5297,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Satın alma"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "temizlik-malzemesi-sarfiyat-hesabi"
   },
   {
     "id": "ft-166",
@@ -5229,7 +5329,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Satın alma"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "ofis-kirtasiye-sarfiyat-hesabi"
   },
   {
     "id": "ft-167",
@@ -5260,7 +5361,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "فرق المكاتب"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "fotokopi-yazici-toner-sayfa-maliyeti"
   },
   {
     "id": "ft-168",
@@ -5291,7 +5393,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "فرق المكاتب, satın alma"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "internet-telefon-paketi-karsilastirma"
   },
   {
     "id": "ft-169",
@@ -5322,7 +5425,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "فرق المكاتب, satın alma"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "sirket-telefon-faturasi-hesaplama"
   },
   {
     "id": "ft-170",
@@ -5353,7 +5457,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "BT, satın alma"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "abonelik-yazilim-cloud-yillik-maliyet-hesabi"
   },
   {
     "id": "ft-171",
@@ -5384,7 +5489,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "İSG"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "is-sagligi-ve-guvenligi-ceza-hesaplama"
   },
   {
     "id": "ft-172",
@@ -5415,7 +5521,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "İSG, tesisat"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "yangin-tupu-dolap-debisi-hesaplama"
   },
   {
     "id": "ft-173",
@@ -5446,7 +5553,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "İSG, mimari"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "yangin-merdiveni-kacis-yolu-genisligi-hesabi"
   },
   {
     "id": "ft-174",
@@ -5477,7 +5585,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Çevre görevlisi"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "cevre-atik-beyani-maliyet-hesaplama"
   },
   {
     "id": "ft-175",
@@ -5540,7 +5649,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Business teams"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "cop-atik-konteyner-hacim-hesabi"
   },
   {
     "id": "ft-177",
@@ -5571,7 +5681,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Business teams, çevre"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "geri-donusum-gelir-maliyet-hesabi"
   },
   {
     "id": "ft-178",
@@ -5602,7 +5713,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Şantiye, atölye"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "prefabrik-konteyner-ofis-m-maliyeti"
   },
   {
     "id": "ft-179",
@@ -5633,7 +5745,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Depo, satın alma"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "celik-raf-depo-rafi-yuk-kapasitesi"
   },
   {
     "id": "ft-180",
@@ -5664,7 +5777,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Depo, bakım"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "merdiven-platform-yukseklik-erisim-hesabi"
   },
   {
     "id": "ft-181",
@@ -5695,7 +5809,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Çelik atölyesi"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kaynakli-baglanti-kose-kut-mukavemet-hesabi"
   },
   {
     "id": "ft-182",
@@ -5726,7 +5841,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Çelik atölyesi"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "bulonlu-baglanti-kesme-ezilme-hesabi"
   },
   {
     "id": "ft-183",
@@ -5757,7 +5873,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Makine tasarım"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "mil-aks-capi-hesabi-egilme-burulma"
   },
   {
     "id": "ft-184",
@@ -5788,7 +5905,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Makine bakım"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "yatak-rulman-omur-hesabi-l10"
   },
   {
     "id": "ft-185",
@@ -5819,7 +5937,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Makine, kalıp"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "yay-helisel-kuvvet-uzama-hesabi"
   },
   {
     "id": "ft-186",
@@ -5850,7 +5969,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tank, kompresör"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "basincli-kap-cidar-kalinligi-hesabi"
   },
   {
     "id": "ft-187",
@@ -5881,7 +6001,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Proses, enerji"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "isi-degistirici-esanjor-kapasite-hesabi"
   },
   {
     "id": "ft-188",
@@ -5912,7 +6033,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Havalandırma"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "baca-havalandirma-kanali-cap-hesabi"
   },
   {
     "id": "ft-189",
@@ -5943,7 +6065,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Gürültü kontrolü"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "ses-yalitimi-desibel-azaltimi-hesabi"
   },
   {
     "id": "ft-190",
@@ -5974,7 +6097,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "الصيانة, test"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "titresim-frekans-periyot-hesaplama"
   },
   {
     "id": "ft-191",
@@ -6037,7 +6161,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Energy teams"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "ruzgar-turbini-yaklasik-uretim-hesabi"
   },
   {
     "id": "ft-193",
@@ -6068,7 +6193,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Tesisat, enerji"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "su-isitma-kazan-boyler-kapasite-hesabi"
   },
   {
     "id": "ft-194",
@@ -6099,7 +6225,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Soğutma, gıda"
     },
     "trafficPotential": "medium",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "soguk-oda-sogutma-yuku-hesabi"
   },
   {
     "id": "ft-195",
@@ -6130,7 +6257,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Kaynak mühendisi"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "kaynak-proseduru-wps-on-isitma-sicakligi-hesabi"
   },
   {
     "id": "ft-196",
@@ -6193,7 +6321,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "Quality control"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "istatistiksel-proses-kontrol-spc-limit-hesabi"
   },
   {
     "id": "ft-198",
@@ -6224,7 +6353,8 @@ export const FREE_TRAFFIC_TOOL_ROADMAP: readonly FreeTrafficToolRoadmapItem[] = 
       "ar": "فرق الجودة"
     },
     "trafficPotential": "low",
-    "status": "planned"
+    "status": "live",
+    "mappedLiveSlug": "alti-sigma-dpmo-sigma-seviyesi-cevirici"
   },
   {
     "id": "ft-199",

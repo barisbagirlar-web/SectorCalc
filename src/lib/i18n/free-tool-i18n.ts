@@ -5,6 +5,8 @@ import frMessages from "../../../messages/fr.json";
 import esMessages from "../../../messages/es.json";
 import arMessages from "../../../messages/ar.json";
 import catalogI18nBundle from "../../data/free-tool-catalog-i18n.generated.json";
+import batch1I18nBundle from "../../data/roadmap-free-batch1-i18n.generated.json";
+import batch2I18nBundle from "../../data/roadmap-free-batch2-i18n.generated.json";
 
 type MessageRecord = Record<string, unknown>;
 
@@ -18,6 +20,16 @@ const LOCALE_MESSAGES: Record<string, MessageRecord> = {
 };
 
 const CATALOG_I18N = catalogI18nBundle as Record<
+  string,
+  Record<string, { title?: string; description?: string; seoTitle?: string; seoDescription?: string }>
+>;
+
+const BATCH1_I18N = batch1I18nBundle as Record<
+  string,
+  Record<string, { title?: string; description?: string; seoTitle?: string; seoDescription?: string }>
+>;
+
+const BATCH2_I18N = batch2I18nBundle as Record<
   string,
   Record<string, { title?: string; description?: string; seoTitle?: string; seoDescription?: string }>
 >;
@@ -73,7 +85,7 @@ function readFreeToolsItem(
 }
 
 function readCatalogOverride(locale: string, slug: string): FreeToolLocalizedCopy | undefined {
-  const bucket = CATALOG_I18N[locale]?.[slug];
+  const bucket = CATALOG_I18N[locale]?.[slug] ?? BATCH1_I18N[locale]?.[slug] ?? BATCH2_I18N[locale]?.[slug];
   if (!bucket) {
     return undefined;
   }

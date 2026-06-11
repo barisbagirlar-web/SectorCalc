@@ -38,6 +38,23 @@ const BATCH3_FORMULA_IDS = [
   "cost.unit_cost",
   "time.setup_loss",
   "cost.percent_of_amount",
+  "cost.difference",
+  "cost.margin_rate_on_price",
+  "cost.quote_target_price",
+  "cost.quote_safe_floor_price",
+  "cost.shop_hourly_rate",
+  "cost.break_even_units",
+  "cost.safety_margin_rate",
+  "carbon.unit_product_emissions",
+  "carbon.unit_exposure_cost",
+  "time.downtime_minute_cost",
+  "time.downtime_units_lost",
+  "inventory.eoq_units",
+  "inventory.carrying_cost_annual",
+  "calibration.tolerance_worst_case_stack",
+  "calibration.tolerance_rss_stack",
+  "measurement.weld_throat_capacity",
+  "measurement.bolt_shear_capacity",
   "time.hour_overrun_cost",
   "cost.count_cost",
   "agriculture.feed_monthly_cost",
@@ -50,9 +67,9 @@ const BATCH3_FORMULA_IDS = [
 ] as const;
 
 describe("premium-schema-batch3", () => {
-  test("PREMIUM_SCHEMAS length === 27", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(27);
-    expect(listPremiumSchemaIds().length).toBe(27);
+  test("PREMIUM_SCHEMAS length === 50", () => {
+    expect(PREMIUM_SCHEMAS.length).toBe(50);
+    expect(listPremiumSchemaIds().length).toBe(50);
   });
 
   test("new 15 slugs exist in schema index", () => {
@@ -144,7 +161,7 @@ describe("premium-schema-batch3", () => {
     expect(fullGated.hiddenDrivers.length).toBeGreaterThanOrEqual(previewGated.hiddenDrivers.length);
   });
 
-  test("all 27 schemas produce finite results", () => {
+  test("all 50 schemas produce finite results", () => {
     for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
       const result = runPremiumSchemaEngine(schema, buildDefaultSchemaInputs(schema));
       expect(schemaHasFiniteResults(result)).toBe(true);

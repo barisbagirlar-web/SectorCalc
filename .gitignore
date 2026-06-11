@@ -12,6 +12,10 @@ functions/lib/
 .vercel/
 scripts/.cache/
 
+# IndexNow verification keys (real keys must not be committed)
+public/[0-9a-f][0-9a-f-]*.txt
+!public/indexnow-key-example.txt
+
 # env / secrets
 .env
 .env.local

@@ -1,8 +1,10 @@
 /**
- * Free Traffic Catalog — 100 active browser-side calculators (Omni-style library).
+ * Free Traffic Catalog — 230 active browser-side calculators (Omni-style library).
  */
 
 import catalogData from "@/lib/tools/free-traffic-catalog.generated.json";
+import batch1CatalogData from "@/lib/tools/roadmap-free-batch1-catalog.generated.json";
+import batch2CatalogData from "@/lib/tools/roadmap-free-batch2-catalog.generated.json";
 
 export type FreeTrafficCategory =
   | "construction-measurement"
@@ -55,8 +57,11 @@ export type FreeTrafficTool = {
 /** @deprecated All catalog tools are active; kept for backward compatibility */
 export type FreeTrafficToolInput = FreeTrafficInput;
 
-export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] =
-  catalogData as FreeTrafficTool[];
+export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
+  ...(catalogData as FreeTrafficTool[]),
+  ...(batch1CatalogData as FreeTrafficTool[]),
+  ...(batch2CatalogData as FreeTrafficTool[]),
+];
 
 export const FREE_TRAFFIC_CATEGORIES: readonly FreeTrafficCategory[] = [
   "construction-measurement",

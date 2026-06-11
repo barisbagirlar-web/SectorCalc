@@ -29,9 +29,9 @@ describe("audit smart form script shape", () => {
       alignmentAudit,
     });
 
-    expect(result.totalTools).toBe(131);
+    expect(result.totalTools).toBe(261);
     expect(result.readyForSpec).toBe(15);
-    expect(result.needsInputDesignPatch).toBe(116);
+    expect(result.needsInputDesignPatch).toBe(246);
     expect(result.blocked).toBe(0);
     expect(result.recommendedFirstSmartFormBatch.length).toBe(3);
   });

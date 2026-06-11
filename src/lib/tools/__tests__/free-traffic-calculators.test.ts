@@ -54,14 +54,14 @@ function defaultValuesForTool(slug: string): Record<string, number | string> {
 const SITEMAP_LOCALE_COUNT = 5;
 
 describe("free-traffic-calculators", () => {
-  test("FREE_TRAFFIC_TOOLS length === 100", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(100);
-    expect(listFreeTrafficSlugs().length).toBe(100);
+  test("FREE_TRAFFIC_TOOLS length === 230", () => {
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(230);
+    expect(listFreeTrafficSlugs().length).toBe(230);
   });
 
   test("every slug is unique", () => {
     const slugs = listFreeTrafficSlugs();
-    expect(new Set(slugs).size).toBe(100);
+    expect(new Set(slugs).size).toBe(230);
   });
 
   test("every tool has inputs, seoTitle and seoDescription", () => {
@@ -85,7 +85,7 @@ describe("free-traffic-calculators", () => {
     }
   });
 
-  test("all 100 tools have active dedicated calculators", () => {
+  test("all 230 tools have active dedicated calculators", () => {
     for (const slug of listFreeTrafficSlugs()) {
       expect(hasDedicatedTrafficCalculator(slug)).toBe(true);
     }
@@ -100,22 +100,22 @@ describe("free-traffic-calculators", () => {
     }
   });
 
-  test("sitemap route list includes all 100 traffic catalog slugs", () => {
+  test("sitemap route list includes all 230 traffic catalog slugs", () => {
     const allFreeSlugs = new Set(listAllFreeToolSlugs());
     for (const slug of listFreeTrafficSlugs()) {
       expect(allFreeSlugs.has(slug)).toBe(true);
       expect(getFreeToolRoutePath(slug)).toBe(`/tools/free/${slug}`);
     }
     expect(listTrafficOnlyFreeSlugs().length).toBeGreaterThan(0);
-    expect(allFreeSlugs.size).toBeGreaterThanOrEqual(100);
+    expect(allFreeSlugs.size).toBeGreaterThanOrEqual(230);
   });
 
   test("SEO route count scales with locales", () => {
     const trafficRouteCount = listFreeTrafficSlugs().length * SITEMAP_LOCALE_COUNT;
-    expect(trafficRouteCount).toBe(100 * SITEMAP_LOCALE_COUNT);
+    expect(trafficRouteCount).toBe(230 * SITEMAP_LOCALE_COUNT);
   });
 
-  test("all 100 tools return a result from calculateFreeTrafficTool", () => {
+  test("all 230 tools return a result from calculateFreeTrafficTool", () => {
     for (const tool of FREE_TRAFFIC_TOOLS) {
       const result = calculateFreeTrafficTool(tool.slug, defaultValuesForTool(tool.slug));
       expect(result.primaryValue.length).toBeGreaterThan(0);
