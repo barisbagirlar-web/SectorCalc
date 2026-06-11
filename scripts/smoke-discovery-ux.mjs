@@ -29,7 +29,7 @@ const DISCOVERY_ROUTES = [
     label: "/premium-tools",
     requiresSearch: true,
     requiresSsrLinks: true,
-    linkPattern: /tools\/premium\//,
+    linkPattern: /\/tools\/premium-schema\//,
   },
   {
     locale: "en",
@@ -168,13 +168,16 @@ async function main() {
   for (const testCase of DISCOVERY_ROUTES) {
     const result = await fetchRouteWithRetry(testCase.path, {
       skipEnPrefixCheck: testCase.skipEnPrefixCheck,
+      followRedirects: !testCase.expectNot200, // Don't follow redirects for /en checks
     });
     const fatalHits = checkFatalMarkers(result.body, result.status);
     const searchMarkers = extractSearchMarkers(result.body);
     const ssrLinks = checkSsrLinks(result.body, testCase.linkPattern);
 
     const checks = {
-      status200: testCase.expectNot200 ? result.status !== 200 : result.ok && result.status === 200,
+      status200: testCase.expectNot200 
+        ? (result.status !== 200 && (result.status === 301 || result.status === 307 || result.status === 308))
+        : (result.ok && result.status === 200),
       noFatal: fatalHits.length === 0 || testCase.expectNot200,
       hasSearch: !testCase.requiresSearch || searchMarkers !== null,
       hasSsrLinks: !testCase.requiresSsrLinks || ssrLinks.hasSsrLinks,
