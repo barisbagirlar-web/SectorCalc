@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import type { Industry } from "@/data/industries";
 import { getIndustryHubContent } from "@/data/industry-hub-content";
 import { getLocalizedIndustryHub } from "@/data/industry-hub-i18n";
+import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { revenueLegalDisclaimer } from "@/lib/tools/revenue-tools";
 import { getIndustryRegistryEntry } from "@/lib/tools/industry-registry";
 import { getRevenueToolBySector } from "@/lib/tools/revenue-tools";
@@ -35,6 +36,12 @@ export async function IndustryPageContent({ industry, locale }: IndustryPageCont
  const eyebrow = localizedHub?.eyebrow ?? industry.name;
  const registryEntry = getIndustryRegistryEntry(industry.slug);
  const tool = getRevenueToolBySector(industry.slug);
+ const localizedFreeTitle = tool
+   ? getLocalizedRevenueToolTitle(tool.freeSlug, "free", locale, tool.freeTitle)
+   : "";
+ const localizedPaidTitle = tool
+   ? getLocalizedRevenueToolTitle(tool.paidSlug, "paid", locale, tool.paidTitle)
+   : "";
  const schemaAnalyzers = getPremiumSchemasForIndustrySlug(industry.slug, locale, 3);
  const mappedSchema = tool ? getPremiumSchemaForPaidSlug(tool.paidSlug) : null;
  const primaryPremiumHref = mappedSchema
@@ -86,9 +93,9 @@ export async function IndustryPageContent({ industry, locale }: IndustryPageCont
  <p className="mt-2 text-xs text-text-secondary">
  {t("freeCalculatorNote")}
  </p>
- <Button href={getFreeToolHref(tool)} size="lg" className="mt-6">
- {t("openTool", { tool: tool.freeTitle })}
- </Button>
+<Button href={getFreeToolHref(tool)} size="lg" className="mt-6">
+{t("openTool", { tool: localizedFreeTitle })}
+</Button>
  </Container>
  </section>
  ) : null}
@@ -101,9 +108,9 @@ export async function IndustryPageContent({ industry, locale }: IndustryPageCont
  {hub.premiumToolExplanation}
  </p>
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
- <Button href={primaryPremiumHref} size="lg">
- {t("openTool", { tool: tool.paidTitle })}
- </Button>
+<Button href={primaryPremiumHref} size="lg">
+{t("openTool", { tool: localizedPaidTitle })}
+</Button>
  <Button href={getPricingHref(tool)} variant="outline" size="lg">
  {t("startPro")}
  </Button>

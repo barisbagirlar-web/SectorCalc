@@ -9,6 +9,7 @@ import type {
   PremiumCalculatorSchema,
   ReportSectionId,
 } from "@/lib/premium-schema/premium-calculator-schema";
+import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
 import {
   getPremiumCalculatorSchema,
   PREMIUM_CALCULATOR_SCHEMAS,
@@ -213,14 +214,15 @@ function formatReportSectionsShort(sections: readonly string[]): string {
 
 function schemaToCatalogItem(schema: PremiumCalculatorSchema, locale: string): PremiumSchemaCatalogItem {
   const reportSections = formatReportSections(schema.reportTemplate.sections);
+  const localized = getLocalizedPremiumSchema(schema.id, locale);
 
   return {
     slug: schema.id,
     href: buildPremiumSchemaHref(schema.id, locale),
-    title: schema.name,
+    title: localized?.title ?? schema.name,
     sectorSlug: schema.sectorSlug,
     category: schema.category,
-    painStatement: schema.painStatement,
+    painStatement: localized?.painStatement ?? schema.painStatement,
     promise: derivePromise(schema),
     primaryOutputLabel: getPrimaryOutputLabel(schema),
     reportSections,

@@ -9,11 +9,11 @@
       }
     },
     "logistics": {
-      "title": "Logistics & Routing Intelligence",
+      "title": "Lojistik ve Rota Zekâsı",
       "params": {
-        "Planned_KM": "Planned KM",
-        "Actual_KM": "Actual KM",
-        "Fuel_Price": "Fuel Price"
+        "Planned_KM": "Planlanan Mesafe (km)",
+        "Actual_KM": "Gerçek Mesafe (km)",
+        "Fuel_Price": "Yakıt Fiyatı"
       }
     },
     "construction": {
@@ -25,7 +25,7 @@
       }
     },
     "agriculture": {
-      "title": "Ürün Verimi Yönetim Zekâsı",
+      "title": "Bitkisel Üretim Verim Zekâsı",
       "params": {
         "Target_Yield_Ha": "Hedef Verim (ha)",
         "Actual_Yield_Ha": "Gerçek Verim (ha)",
@@ -33,43 +33,43 @@
       }
     },
     "textile": {
-      "title": "Textile Manufacturing Intelligence",
+      "title": "Tekstil Üretim Zekâsı",
       "params": {
-        "Target_Fabric_Usage": "Target Fabric Usage",
-        "Actual_Usage": "Actual Usage",
-        "Fabric_Cost": "Fabric Cost"
+        "Target_Fabric_Usage": "Hedef Kumaş Tüketimi",
+        "Actual_Usage": "Gerçek Tüketim",
+        "Fabric_Cost": "Kumaş Maliyeti"
       }
     },
     "plastics": {
-      "title": "Plastic Injection Intelligence",
+      "title": "Plastik Enjeksiyon Zekâsı",
       "params": {
-        "Target_Cycle_Time": "Target Cycle Time",
-        "Scrap_Rate": "Scrap Rate",
-        "Material_Cost": "Material Cost"
+        "Target_Cycle_Time": "Hedef Çevrim Süresi",
+        "Scrap_Rate": "Fire Oranı",
+        "Material_Cost": "Malzeme Maliyeti"
       }
     },
     "food_bev": {
-      "title": "Food & Beverage Intelligence",
+      "title": "Gıda ve İçecek Üretim Zekâsı",
       "params": {
-        "Standard_Yield": "Standard Yield",
-        "Actual_Output": "Actual Output",
-        "Batch_Cost": "Batch Cost"
+        "Standard_Yield": "Standart Verim",
+        "Actual_Output": "Gerçek Üretim",
+        "Batch_Cost": "Parti Maliyeti"
       }
     },
     "automotive": {
-      "title": "Automotive Assembly Intelligence",
+      "title": "Otomotiv Montaj Zekâsı",
       "params": {
-        "Target_Throughput": "Target Throughput",
-        "Actual_Throughput": "Actual Throughput",
-        "Unit_Labor_Cost": "Unit Labor Cost"
+        "Target_Throughput": "Hedef Üretim Hızı",
+        "Actual_Throughput": "Gerçek Üretim Hızı",
+        "Unit_Labor_Cost": "Birim İşçilik Maliyeti"
       }
     },
     "electronics": {
-      "title": "Electronics PCB Intelligence",
+      "title": "Elektronik PCB Üretim Zekâsı",
       "params": {
-        "Yield_Rate": "Yield Rate",
-        "Defect_Count": "Defect Count",
-        "Component_Cost": "Component Cost"
+        "Yield_Rate": "Üretim Verimi",
+        "Defect_Count": "Hatalı Ürün Adedi",
+        "Component_Cost": "Komponent Maliyeti"
       }
     },
     "metalworking": {
@@ -81,51 +81,51 @@
       }
     },
     "pharma": {
-      "title": "Pharmaceuticals Intelligence",
+      "title": "İlaç Üretim Zekâsı",
       "params": {
-        "Target_Potency": "Target Potency",
-        "Actual_Potency": "Actual Potency",
-        "Batch_Cost": "Batch Cost"
+        "Target_Potency": "Hedef Etkinlik",
+        "Actual_Potency": "Gerçek Etkinlik",
+        "Batch_Cost": "Parti Maliyeti"
       }
     },
     "warehousing": {
-      "title": "Warehouse Inventory Intelligence",
+      "title": "Depo ve Stok Zekâsı",
       "params": {
-        "Target_Stock_Turn": "Target Stock Turn",
-        "Actual_Turn": "Actual Turn",
-        "Storage_Cost": "Storage Cost"
+        "Target_Stock_Turn": "Hedef Stok Devir Hızı",
+        "Actual_Turn": "Gerçek Stok Devir Hızı",
+        "Storage_Cost": "Depolama Maliyeti"
       }
     },
     "marine": {
-      "title": "Marine Shipping Intelligence",
+      "title": "Deniz Taşımacılığı Zekâsı",
       "params": {
-        "Planned_Fuel": "Planned Fuel",
-        "Actual_Fuel": "Actual Fuel",
-        "Voyage_Cost": "Voyage Cost"
+        "Planned_Fuel": "Planlanan Yakıt",
+        "Actual_Fuel": "Gerçek Yakıt",
+        "Voyage_Cost": "Sefer Maliyeti"
       }
     },
     "waste_mgmt": {
-      "title": "Waste Management Intelligence",
+      "title": "Atık Yönetimi Zekâsı",
       "params": {
-        "Target_Disposal_Cost": "Target Disposal Cost",
-        "Actual_Disposal_Cost": "Actual Disposal Cost",
-        "Volume": "Volume"
+        "Target_Disposal_Cost": "Hedef Bertaraf Maliyeti",
+        "Actual_Disposal_Cost": "Gerçek Bertaraf Maliyeti",
+        "Volume": "Hacim"
       }
     },
     "water_utility": {
-      "title": "Water Utility Intelligence",
+      "title": "Su Şebekesi Zekâsı",
       "params": {
-        "Target_Flow_Rate": "Target Flow Rate",
-        "Actual_Flow_Rate": "Actual Flow Rate",
-        "Operational_Cost": "Operational Cost"
+        "Target_Flow_Rate": "Hedef Debi",
+        "Actual_Flow_Rate": "Gerçek Debi",
+        "Operational_Cost": "Operasyonel Maliyet"
       }
     },
     "energy_plant": {
-      "title": "Energy & Utilities Intelligence",
+      "title": "Enerji ve Tesis Zekâsı",
       "params": {
-        "Target_Output_Kwh": "Target Output Kwh",
-        "Actual_Output_Kwh": "Actual Output Kwh",
-        "Operational_Cost": "Operational Cost"
+        "Target_Output_Kwh": "Hedef Üretim (kWh)",
+        "Actual_Output_Kwh": "Gerçek Üretim (kWh)",
+        "Operational_Cost": "Operasyonel Maliyet"
       }
     },
     "hvac": {
@@ -137,31 +137,31 @@
       }
     },
     "mining": {
-      "title": "Mining Operations Intelligence",
+      "title": "Madencilik Operasyon Zekâsı",
       "params": {
-        "Target_Ore_Grade": "Target Ore Grade",
-        "Actual_Ore_Grade": "Actual Ore Grade",
-        "Extraction_Cost": "Extraction Cost"
+        "Target_Ore_Grade": "Hedef Cevher Tenörü",
+        "Actual_Ore_Grade": "Gerçek Cevher Tenörü",
+        "Extraction_Cost": "Çıkarma Maliyeti"
       }
     },
     "printing": {
-      "title": "Printing & Packaging Intelligence",
+      "title": "Baskı ve Ambalaj Zekâsı",
       "params": {
-        "Target_Ink_Usage": "Target Ink Usage",
-        "Actual_Ink_Usage": "Actual Ink Usage",
-        "Material_Cost": "Material Cost"
+        "Target_Ink_Usage": "Hedef Mürekkep Kullanımı",
+        "Actual_Ink_Usage": "Gerçek Mürekkep Kullanımı",
+        "Material_Cost": "Malzeme Maliyeti"
       }
     },
     "livestock": {
-      "title": "Livestock & Dairy Intelligence",
+      "title": "Hayvancılık ve Süt Üretim Zekâsı",
       "params": {
-        "Target_Feed_Efficiency": "Target Feed Efficiency",
-        "Actual_Efficiency": "Actual Efficiency",
-        "Feed_Cost": "Feed Cost"
+        "Target_Feed_Efficiency": "Hedef Yem Verimliliği",
+        "Actual_Efficiency": "Gerçek Verimlilik",
+        "Feed_Cost": "Yem Maliyeti"
       }
     },
     "hospitality": {
-      "title": "Konaklama / Yeme-İçme Zekâsı",
+      "title": "Konaklama ve Yeme-İçme Zekâsı",
       "params": {
         "Target_Food_Cost_%": "Hedef Gıda Maliyeti %",
         "Actual_Food_Cost_%": "Gerçek Gıda Maliyeti %",
@@ -169,51 +169,51 @@
       }
     },
     "retail": {
-      "title": "Retail Operations Intelligence",
+      "title": "Perakende Operasyon Zekâsı",
       "params": {
-        "Target_Margin_%": "Target Margin %",
-        "Actual_Margin_%": "Actual Margin %",
-        "Operating_Cost": "Operating Cost"
+        "Target_Margin_%": "Hedef Marj %",
+        "Actual_Margin_%": "Gerçek Marj %",
+        "Operating_Cost": "İşletme Maliyeti"
       }
     },
     "finance": {
-      "title": "Corporate Finance Intelligence",
+      "title": "Kurumsal Finans Zekâsı",
       "params": {
-        "Target_Budget": "Target Budget",
-        "Actual_Expenditure": "Actual Expenditure",
-        "Admin_Cost": "Admin Cost"
+        "Target_Budget": "Hedef Bütçe",
+        "Actual_Expenditure": "Gerçek Harcama",
+        "Admin_Cost": "Yönetim Gideri"
       }
     },
     "legal_it": {
-      "title": "IT & Software Services Intelligence",
+      "title": "BT ve Yazılım Hizmetleri Zekâsı",
       "params": {
-        "Projected_Hours": "Projected Hours",
-        "Actual_Hours": "Actual Hours",
-        "Hourly_Rate": "Hourly Rate"
+        "Projected_Hours": "Tahmin Edilen Saat",
+        "Actual_Hours": "Gerçek Saat",
+        "Hourly_Rate": "Saatlik Ücret"
       }
     },
     "facility_mgmt": {
-      "title": "Facility Maintenance Intelligence",
+      "title": "Tesis Bakım Zekâsı",
       "params": {
-        "Planned_Maintenance_Cost": "Planned Maintenance Cost",
-        "Actual_Cost": "Actual Cost",
-        "Downtime_Hrs": "Downtime Hrs"
+        "Planned_Maintenance_Cost": "Planlanan Bakım Maliyeti",
+        "Actual_Cost": "Gerçek Maliyet",
+        "Downtime_Hrs": "Duruş Süresi (saat)"
       }
     },
     "aviation_mro": {
-      "title": "Aviation MRO Intelligence",
+      "title": "Havacılık MRO Zekâsı",
       "params": {
-        "Target_Repair_Time": "Target Repair Time",
-        "Actual_Repair_Time": "Actual Repair Time",
-        "Parts_Cost": "Parts Cost"
+        "Target_Repair_Time": "Hedef Onarım Süresi",
+        "Actual_Repair_Time": "Gerçek Onarım Süresi",
+        "Parts_Cost": "Parça Maliyeti"
       }
     },
     "paper_pkg": {
-      "title": "Paper & Packaging Intelligence",
+      "title": "Kâğıt ve Ambalaj Üretim Zekâsı",
       "params": {
-        "Target_GSM": "Target GSM",
-        "Actual_GSM": "Actual GSM",
-        "Production_Cost": "Production Cost"
+        "Target_GSM": "Hedef Gramaj (GSM)",
+        "Actual_GSM": "Gerçek Gramaj (GSM)",
+        "Production_Cost": "Üretim Maliyeti"
       }
     }
   },

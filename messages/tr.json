@@ -1513,1092 +1513,1092 @@
         },
         "inputs": {
           "setupTime": {
-            "label": "Setup time",
-            "help": "Setup time"
+            "label": "Hazırlık süresi",
+            "help": "Hazırlık süresi"
           },
           "cycleTime": {
-            "label": "Cycle time",
-            "help": "Cycle time"
+            "label": "Çevrim süresi",
+            "help": "Çevrim süresi"
           },
           "quantity": {
-            "label": "Quantity",
-            "help": "Quantity"
+            "label": "Adet",
+            "help": "Adet"
           },
           "toolCost": {
-            "label": "Tooling and fixture cost",
-            "help": "Tooling and fixture cost"
+            "label": "Takım ve aparat maliyeti",
+            "help": "Takım ve aparat maliyeti"
           },
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "Malzeme maliyeti",
+            "help": "Malzeme maliyeti"
           },
           "machineRate": {
-            "label": "Machine rate",
-            "help": "Machine rate"
+            "label": "Makine saat ücreti",
+            "help": "Makine saat ücreti"
           },
           "riskMargin": {
-            "label": "Risk margin",
-            "help": "Risk margin"
+            "label": "Risk marjı",
+            "help": "Risk marjı"
           }
         }
       },
       "changeOrderImpactAnalyzer": {
         "scenarios": {
           "small_change_order": {
-            "label": "Small change order",
-            "description": "Minor scope tweak with delay and crew cost focus."
+            "label": "Küçük iş değişikliği",
+            "description": "Gecikme ve ekip maliyetine odaklı küçük kapsam değişikliği."
           },
           "major_scope_change": {
-            "label": "Major scope change",
-            "description": "Large scope shift with margin and schedule risk."
+            "label": "Büyük kapsam değişikliği",
+            "description": "Marj ve takvim riski yüksek geniş kapsam değişikliği."
           }
         },
         "inputs": {
           "originalBudget": {
-            "label": "Original budget",
-            "help": "Original budget"
+            "label": "Orijinal bütçe",
+            "help": "Orijinal bütçe"
           },
           "changeEstimate": {
-            "label": "Change cost estimate",
-            "help": "Change cost estimate"
+            "label": "Değişiklik maliyeti tahmini",
+            "help": "Değişiklik maliyeti tahmini"
           },
           "delayDays": {
-            "label": "Delay days",
-            "help": "Delay days"
+            "label": "Gecikme gün sayısı",
+            "help": "Gecikme gün sayısı"
           },
           "crewCostPerDay": {
-            "label": "Crew cost per day",
-            "help": "Crew cost per day"
+            "label": "Günlük ekip maliyeti",
+            "help": "Günlük ekip maliyeti"
           },
           "marginTarget": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "officeCleaningBidOptimizer": {
         "scenarios": {
           "recurring_cleaning": {
-            "label": "Recurring cleaning",
-            "description": "Monthly contract with visit frequency and labor stack."
+            "label": "Düzenli temizlik",
+            "description": "Aylık sözleşme — ziyaret sıklığı ve işçilik yükü."
           },
           "one_time_deep_clean": {
-            "label": "One-time deep clean",
-            "description": "Single deep-clean bid with supply and labor load."
+            "label": "Tek seferlik derin temizlik",
+            "description": "Tek sefer derin temizlik teklifi — sarf ve işçilik yükü."
           }
         },
         "inputs": {
           "areaSize": {
-            "label": "Area size",
-            "help": "Area size"
+            "label": "Temizlenecek alan",
+            "help": "Temizlenecek alan"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "hoursPerVisit": {
-            "label": "Hours per visit",
-            "help": "Hours per visit"
+            "label": "Ziyaret başına süre",
+            "help": "Ziyaret başına süre"
           },
           "supplyCost": {
-            "label": "Supply cost",
-            "help": "Supply cost"
+            "label": "Sarf malzeme maliyeti",
+            "help": "Sarf malzeme maliyeti"
           },
           "visitFrequency": {
-            "label": "Visits per month",
-            "help": "Visits per month"
+            "label": "Aylık ziyaret sayısı",
+            "help": "Aylık ziyaret sayısı"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "menuProfitLeakDetector": {
         "scenarios": {
           "single_menu_item": {
-            "label": "Single menu item",
-            "description": "One dish margin after waste and delivery fees."
+            "label": "Tek menü ürünü",
+            "description": "Fire ve teslimat ücretleri sonrası tek tabak marjı."
           },
           "full_menu_review": {
-            "label": "Full menu review",
-            "description": "Menu-wide leak check with labor and supplier drift."
+            "label": "Tüm menü incelemesi",
+            "description": "İşçilik ve tedarikçi sapması dahil menü genelinde kâr kaçağı kontrolü."
           }
         },
         "inputs": {
           "menuPrice": {
-            "label": "Menu price",
-            "help": "Menu price"
+            "label": "Menü fiyatı",
+            "help": "Menü fiyatı"
           },
           "ingredientCost": {
-            "label": "Ingredient cost",
-            "help": "Ingredient cost"
+            "label": "Malzeme maliyeti",
+            "help": "Malzeme maliyeti"
           },
           "wasteRate": {
-            "label": "Waste rate",
-            "help": "Waste rate"
+            "label": "Fire oranı",
+            "help": "Fire oranı"
           },
           "deliveryCommission": {
-            "label": "Delivery commission",
-            "help": "Delivery commission"
+            "label": "Teslimat komisyonu",
+            "help": "Teslimat komisyonu"
           },
           "laborCostPerItem": {
-            "label": "Labor cost per item",
-            "help": "Labor cost per item"
+            "label": "Tabak başı işçilik maliyeti",
+            "help": "Tabak başı işçilik maliyeti"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "returnProfitErosionTool": {
         "scenarios": {
           "product_return_check": {
-            "label": "Product return check",
-            "description": "Single SKU return impact on net profit."
+            "label": "Ürün iade kontrolü",
+            "description": "Tek ürün iadesinin net kâra etkisi."
           },
           "monthly_return_impact": {
-            "label": "Monthly return impact",
-            "description": "Monthly return volume with ad and logistics cost."
+            "label": "Aylık iade etkisi",
+            "description": "Aylık iade hacmi — reklam ve lojistik maliyetiyle birlikte."
           }
         },
         "inputs": {
           "productPrice": {
-            "label": "Product price",
-            "help": "Product price"
+            "label": "Ürün satış fiyatı",
+            "help": "Ürün satış fiyatı"
           },
           "productCost": {
-            "label": "Product cost",
-            "help": "Product cost"
+            "label": "Ürün maliyeti",
+            "help": "Ürün maliyeti"
           },
           "shippingCost": {
-            "label": "Shipping cost",
-            "help": "Shipping cost"
+            "label": "Kargo maliyeti",
+            "help": "Kargo maliyeti"
           },
           "returnRate": {
-            "label": "Return rate",
-            "help": "Return rate"
+            "label": "İade oranı",
+            "help": "İade oranı"
           },
           "paymentFeeRate": {
-            "label": "Payment fee",
-            "help": "Payment fee"
+            "label": "Ödeme komisyonu",
+            "help": "Ödeme komisyonu"
           },
           "adCostPerSale": {
-            "label": "Ad cost per sale",
-            "help": "Ad cost per sale"
+            "label": "Satış başı reklam maliyeti",
+            "help": "Satış başı reklam maliyeti"
           }
         }
       },
       "weldingBidRiskAnalyzer": {
         "scenarios": {
           "field_repair": {
-            "label": "Field repair",
-            "description": "On-site weld repair with fit-up and labor focus."
+            "label": "Saha onarımı",
+            "description": "Yerinde kaynak onarımı — montaj ve işçilik odaklı."
           },
           "production_weld_bid": {
-            "label": "Production weld bid",
-            "description": "Fab shop bid with consumables and rework risk."
+            "label": "Seri kaynak teklifi",
+            "description": "Atölye teklifi — sarf ve yeniden işçilik riski dahil."
           }
         },
         "inputs": {
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "Malzeme maliyeti",
+            "help": "Malzeme maliyeti"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "İşçilik saati",
+            "help": "İşçilik saati"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "gasConsumableCost": {
-            "label": "Gas and consumable cost",
-            "help": "Gas and consumable cost"
+            "label": "Gaz ve sarf malzeme maliyeti",
+            "help": "Gaz ve sarf malzeme maliyeti"
           },
           "fitUpHours": {
-            "label": "Fit-up hours",
-            "help": "Fit-up hours"
+            "label": "Montaj/hazırlık saati",
+            "help": "Montaj/hazırlık saati"
           },
           "reworkRiskPercent": {
-            "label": "Rework risk",
-            "help": "Rework risk"
+            "label": "Yeniden işçilik riski",
+            "help": "Yeniden işçilik riski"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "hvacProjectMarginGuard": {
         "scenarios": {
           "small_service_job": {
-            "label": "Small service job",
-            "description": "Replace or service call with core equipment and labor."
+            "label": "Küçük servis işi",
+            "description": "Değişim veya servis çağrısı — temel ekipman ve işçilik."
           },
           "commercial_project": {
-            "label": "Commercial project",
-            "description": "Full install with ductwork and commissioning."
+            "label": "Ticari proje",
+            "description": "Kanal tesisatı ve devreye alma dahil tam montaj."
           }
         },
         "inputs": {
           "equipmentCost": {
-            "label": "Equipment cost",
-            "help": "Equipment cost"
+            "label": "Ekipman maliyeti",
+            "help": "Ekipman maliyeti"
           },
           "ductworkCost": {
-            "label": "Ductwork cost",
-            "help": "Ductwork cost"
+            "label": "Kanal tesisat maliyeti",
+            "help": "Kanal tesisat maliyeti"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "İşçilik saati",
+            "help": "İşçilik saati"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "commissioningCost": {
-            "label": "Commissioning cost",
-            "help": "Commissioning cost"
+            "label": "Devreye alma maliyeti",
+            "help": "Devreye alma maliyeti"
           },
           "callbackRiskPercent": {
-            "label": "Callback risk",
-            "help": "Callback risk"
+            "label": "Geri çağrı riski",
+            "help": "Geri çağrı riski"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "panelShopMarginVerdict": {
         "scenarios": {
           "small_control_panel": {
-            "label": "Small control panel",
-            "description": "Compact panel build with core labor and material."
+            "label": "Küçük kontrol panosu",
+            "description": "Kompakt pano üretimi — temel işçilik ve malzeme."
           },
           "industrial_panel_project": {
-            "label": "Industrial panel project",
-            "description": "Multi-bay panel job with engineering and test load."
+            "label": "Endüstriyel pano projesi",
+            "description": "Çok hücreli pano işi — mühendislik ve test yükü dahil."
           }
         },
         "inputs": {
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "Malzeme maliyeti",
+            "help": "Malzeme maliyeti"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "İşçilik saati",
+            "help": "İşçilik saati"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "testingHours": {
-            "label": "Testing hours",
-            "help": "Testing hours"
+            "label": "Test süresi",
+            "help": "Test süresi"
           },
           "inspectionRiskPercent": {
-            "label": "Inspection risk",
-            "help": "Inspection risk"
+            "label": "Denetim ret riski",
+            "help": "Denetim ret riski"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "landscapingContractProfitTool": {
         "scenarios": {
           "maintenance_contract": {
-            "label": "Maintenance contract",
-            "description": "Recurring grounds maintenance with crew and fuel."
+            "label": "Bakım sözleşmesi",
+            "description": "Düzenli saha bakımı — ekip ve yakıt yükü dahil."
           },
           "installation_project": {
-            "label": "Installation project",
-            "description": "Install bid with material, labor and margin guard."
+            "label": "Uygulama projesi",
+            "description": "Malzeme, işçilik ve kâr koruması içeren uygulama teklifi."
           }
         },
         "inputs": {
           "crewHoursPerVisit": {
-            "label": "Crew hours per visit",
-            "help": "Crew hours per visit"
+            "label": "Ziyaret başına ekip saati",
+            "help": "Ziyaret başına ekip saati"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "fuelCostPerVisit": {
-            "label": "Fuel cost per visit",
-            "help": "Fuel cost per visit"
+            "label": "Ziyaret başına yakıt maliyeti",
+            "help": "Ziyaret başına yakıt maliyeti"
           },
           "supplyCostPerMonth": {
-            "label": "Supply cost per month",
-            "help": "Supply cost per month"
+            "label": "Aylık sarf malzeme maliyeti",
+            "help": "Aylık sarf malzeme maliyeti"
           },
           "visitsPerMonth": {
-            "label": "Visits per month",
-            "help": "Visits per month"
+            "label": "Aylık ziyaret sayısı",
+            "help": "Aylık ziyaret sayısı"
           },
           "equipmentWearCost": {
-            "label": "Equipment wear cost",
-            "help": "Equipment wear cost"
+            "label": "Ekipman aşınma maliyeti",
+            "help": "Ekipman aşınma maliyeti"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "autoShopMarginLeakDetector": {
         "scenarios": {
           "repair_order": {
-            "label": "Repair order",
-            "description": "Single repair order with parts and bay labor."
+            "label": "Onarım siparişi",
+            "description": "Tek onarım siparişi — parça ve lift işçiliği."
           },
           "service_package": {
-            "label": "Service package",
-            "description": "Bundled service package with margin leak check."
+            "label": "Servis paketi",
+            "description": "Paketli servis — kâr kaçağı kontrolü dahil."
           }
         },
         "inputs": {
           "quotedPrice": {
-            "label": "Quoted price",
-            "help": "Quoted price"
+            "label": "Verilen fiyat",
+            "help": "Verilen fiyat"
           },
           "diagnosticHours": {
-            "label": "Diagnostic hours",
-            "help": "Diagnostic hours"
+            "label": "Teşhis süresi",
+            "help": "Teşhis süresi"
           },
           "repairHours": {
-            "label": "Repair hours",
-            "help": "Repair hours"
+            "label": "Onarım süresi",
+            "help": "Onarım süresi"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "partsCost": {
-            "label": "Parts cost",
-            "help": "Parts cost"
+            "label": "Parça maliyeti",
+            "help": "Parça maliyeti"
           },
           "comebackRiskPercent": {
-            "label": "Comeback risk",
-            "help": "Comeback risk"
+            "label": "Geri dönen iş riski",
+            "help": "Geri dönen iş riski"
           },
           "partsMarkupPercent": {
-            "label": "Parts markup",
-            "help": "Parts markup"
+            "label": "Parça kâr oranı",
+            "help": "Parça kâr oranı"
           }
         }
       },
       "signageBidSafePriceTool": {
         "scenarios": {
           "indoor_signage": {
-            "label": "Indoor signage",
-            "description": "Interior sign bid with material and install labor."
+            "label": "İç mekân tabela",
+            "description": "İç mekân tabela teklifi — malzeme ve montaj işçiliği."
           },
           "outdoor_installation": {
-            "label": "Outdoor installation",
-            "description": "Exterior sign with weatherproofing and rigging risk."
+            "label": "Dış mekân uygulama",
+            "description": "Dış mekân tabela — hava koruması ve montaj riski dahil."
           }
         },
         "inputs": {
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "Malzeme maliyeti",
+            "help": "Malzeme maliyeti"
           },
           "inkCost": {
-            "label": "Ink cost",
-            "help": "Ink cost"
+            "label": "Mürekkep maliyeti",
+            "help": "Mürekkep maliyeti"
           },
           "designHours": {
-            "label": "Design hours",
-            "help": "Design hours"
+            "label": "Tasarım süresi",
+            "help": "Tasarım süresi"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "installHours": {
-            "label": "Install hours",
-            "help": "Install hours"
+            "label": "Montaj süresi",
+            "help": "Montaj süresi"
           },
           "reprintRiskPercent": {
-            "label": "Reprint risk",
-            "help": "Reprint risk"
+            "label": "Yeniden baskı riski",
+            "help": "Yeniden baskı riski"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "plumbingJobMarginVerdict": {
         "scenarios": {
           "service_repair_job": {
-            "label": "Service repair job",
-            "description": "Service call with labor, parts and callback risk."
+            "label": "Servis onarım işi",
+            "description": "Servis çağrısı — işçilik, parça ve geri çağrı riski."
           },
           "installation_project": {
-            "label": "Installation project",
-            "description": "Rough-in or repipe project with full cost stack."
+            "label": "Montaj projesi",
+            "description": "Kaba tesisat veya yeniden borulama projesi — tüm maliyet yığını."
           }
         },
         "inputs": {
           "partsCost": {
-            "label": "Parts cost",
-            "help": "Parts cost"
+            "label": "Parça maliyeti",
+            "help": "Parça maliyeti"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "İşçilik saati",
+            "help": "İşçilik saati"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "fixtureCount": {
-            "label": "Fixture count",
-            "help": "Fixture count"
+            "label": "Armatür sayısı",
+            "help": "Armatür sayısı"
           },
           "materialRunCost": {
-            "label": "Material run cost",
-            "help": "Material run cost"
+            "label": "Malzeme tedarik maliyeti",
+            "help": "Malzeme tedarik maliyeti"
           },
           "callbackRiskPercent": {
-            "label": "Callback risk",
-            "help": "Callback risk"
+            "label": "Geri çağrı riski",
+            "help": "Geri çağrı riski"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "millworkBidRiskAnalyzer": {
         "scenarios": {
           "custom_cabinet_job": {
-            "label": "Custom cabinet job",
-            "description": "Custom millwork bid with shop labor and material."
+            "label": "Özel mobilya işi",
+            "description": "Özel ahşap imalat teklifi — atölye işçiliği ve malzeme."
           },
           "commercial_millwork_bid": {
-            "label": "Commercial millwork bid",
-            "description": "Commercial package with tolerance and rework risk."
+            "label": "Ticari ahşap imalat teklifi",
+            "description": "Ticari paket — tolerans ve yeniden işçilik riski dahil."
           }
         },
         "inputs": {
           "sheetMaterialCost": {
-            "label": "Sheet material cost",
-            "help": "Sheet material cost"
+            "label": "Levha malzeme maliyeti",
+            "help": "Levha malzeme maliyeti"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "İşçilik saati",
+            "help": "İşçilik saati"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "finishingCost": {
-            "label": "Finishing cost",
-            "help": "Finishing cost"
+            "label": "Finiş/cila maliyeti",
+            "help": "Finiş/cila maliyeti"
           },
           "installHours": {
-            "label": "Install hours",
-            "help": "Install hours"
+            "label": "Montaj süresi",
+            "help": "Montaj süresi"
           },
           "wasteRatePercent": {
-            "label": "Waste rate",
-            "help": "Waste rate"
+            "label": "Fire oranı",
+            "help": "Fire oranı"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "roofingContractMarginGuard": {
         "scenarios": {
           "residential_roofing": {
-            "label": "Residential roofing",
-            "description": "Residential re-roof with square and labor inputs."
+            "label": "Konut çatı işi",
+            "description": "Konut çatı yenileme — metrekare ve işçilik girdileriyle."
           },
           "commercial_roofing": {
-            "label": "Commercial roofing",
-            "description": "Commercial roof scope with tear-off and margin guard."
+            "label": "Ticari çatı işi",
+            "description": "Ticari çatı kapsamı — söküm ve kâr koruması dahil."
           }
         },
         "inputs": {
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "Malzeme maliyeti",
+            "help": "Malzeme maliyeti"
           },
           "laborHours": {
-            "label": "Labor hours",
-            "help": "Labor hours"
+            "label": "İşçilik saati",
+            "help": "İşçilik saati"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "tearOffCost": {
-            "label": "Tear-off cost",
-            "help": "Tear-off cost"
+            "label": "Eski çatı söküm maliyeti",
+            "help": "Eski çatı söküm maliyeti"
           },
           "dumpFees": {
-            "label": "Dump fees",
-            "help": "Dump fees"
+            "label": "Atık döküm ücreti",
+            "help": "Atık döküm ücreti"
           },
           "weatherDelayRiskPercent": {
-            "label": "Weather delay risk",
-            "help": "Weather delay risk"
+            "label": "Hava koşulu gecikme riski",
+            "help": "Hava koşulu gecikme riski"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "paintingJobProfitVerdict": {
         "scenarios": {
           "interior_painting": {
-            "label": "Interior painting",
-            "description": "Interior coat bid with prep and labor hours."
+            "label": "İç mekân boya",
+            "description": "İç mekân boya teklifi — hazırlık ve işçilik saatleri."
           },
           "exterior_project": {
-            "label": "Exterior project",
-            "description": "Exterior project with weather and access risk."
+            "label": "Dış cephe projesi",
+            "description": "Dış cephe projesi — hava ve erişim riski dahil."
           }
         },
         "inputs": {
           "paintCost": {
-            "label": "Paint cost",
-            "help": "Paint cost"
+            "label": "Boya maliyeti",
+            "help": "Boya maliyeti"
           },
           "prepHours": {
-            "label": "Prep hours",
-            "help": "Prep hours"
+            "label": "Hazırlık süresi",
+            "help": "Hazırlık süresi"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "scaffoldCost": {
-            "label": "Scaffold cost",
-            "help": "Scaffold cost"
+            "label": "İskele maliyeti",
+            "help": "İskele maliyeti"
           },
           "touchUpRiskPercent": {
-            "label": "Touch-up risk",
-            "help": "Touch-up risk"
+            "label": "Rötuş riski",
+            "help": "Rötuş riski"
           },
           "areaSize": {
-            "label": "Area size",
-            "help": "Area size"
+            "label": "Alan büyüklüğü",
+            "help": "Alan büyüklüğü"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "sheetMetalQuoteRiskTool": {
         "scenarios": {
           "quick_sheet_quote": {
-            "label": "Quick sheet quote",
-            "description": "Fast fab quote with material and run time."
+            "label": "Hızlı sac teklifi",
+            "description": "Hızlı imalat teklifi — malzeme ve üretim süresi."
           },
           "detailed_fabrication_margin": {
-            "label": "Detailed fabrication margin",
-            "description": "Full fab stack with setup, scrap and margin band."
+            "label": "Detaylı imalat marjı",
+            "description": "Hazırlık, fire ve marj bandı içeren tam imalat yığını."
           }
         },
         "inputs": {
           "programmingTime": {
-            "label": "Programming time",
-            "help": "Programming time"
+            "label": "Programlama süresi",
+            "help": "Programlama süresi"
           },
           "setupTime": {
-            "label": "Setup time",
-            "help": "Setup time"
+            "label": "Hazırlık süresi",
+            "help": "Hazırlık süresi"
           },
           "cutTime": {
-            "label": "Cut time",
-            "help": "Cut time"
+            "label": "Kesim süresi",
+            "help": "Kesim süresi"
           },
           "bendCount": {
-            "label": "Bend count",
-            "help": "Bend count"
+            "label": "Büküm adedi",
+            "help": "Büküm adedi"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "Malzeme maliyeti",
+            "help": "Malzeme maliyeti"
           },
           "scrapRatePercent": {
-            "label": "Scrap rate",
-            "help": "Scrap rate"
+            "label": "Fire oranı",
+            "help": "Fire oranı"
           },
           "finishingCost": {
-            "label": "Finishing cost",
-            "help": "Finishing cost"
+            "label": "Finiş maliyeti",
+            "help": "Finiş maliyeti"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "3dPrintJobMarginTool": {
         "scenarios": {
           "prototype_print": {
-            "label": "Prototype print",
-            "description": "Single prototype job with machine and material time."
+            "label": "Prototip baskı",
+            "description": "Tek prototip işi — makine ve malzeme süresi."
           },
           "batch_production_print": {
-            "label": "Batch production print",
-            "description": "Batch run with amortized setup and failure risk."
+            "label": "Seri üretim baskı",
+            "description": "Seri baskı — amortize hazırlık ve başarısızlık riski."
           }
         },
         "inputs": {
           "materialCost": {
-            "label": "Material cost",
-            "help": "Material cost"
+            "label": "Malzeme maliyeti",
+            "help": "Malzeme maliyeti"
           },
           "printHours": {
-            "label": "Print hours",
-            "help": "Print hours"
+            "label": "Baskı süresi",
+            "help": "Baskı süresi"
           },
           "machineRate": {
-            "label": "Machine rate",
-            "help": "Machine rate"
+            "label": "Makine saat ücreti",
+            "help": "Makine saat ücreti"
           },
           "postProcessHours": {
-            "label": "Post-process hours",
-            "help": "Post-process hours"
+            "label": "Son işlem süresi",
+            "help": "Son işlem süresi"
           },
           "laborRate": {
-            "label": "Labor rate",
-            "help": "Labor rate"
+            "label": "İşçilik saat ücreti",
+            "help": "İşçilik saat ücreti"
           },
           "failRatePercent": {
-            "label": "Fail rate",
-            "help": "Fail rate"
+            "label": "Başarısızlık oranı",
+            "help": "Başarısızlık oranı"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "routeOptimizationAnalyzer": {
         "scenarios": {
           "daily_delivery_route": {
-            "label": "Daily delivery route",
-            "description": "Daily route with stops, fuel and driver cost."
+            "label": "Günlük teslimat rotası",
+            "description": "Günlük rota — duraklar, yakıt ve sürücü maliyetiyle."
           },
           "multi_stop_route_plan": {
-            "label": "Multi-stop route plan",
-            "description": "Multi-stop plan with freight loss and margin guard."
+            "label": "Çok duraklı rota planı",
+            "description": "Çok duraklı plan — yük kaybı ve kâr koruması dahil."
           }
         },
         "inputs": {
           "distanceKm": {
-            "label": "Distance",
-            "help": "Distance"
+            "label": "Mesafe",
+            "help": "Mesafe"
           },
           "fuelPricePerKm": {
-            "label": "Fuel cost per km",
-            "help": "Fuel cost per km"
+            "label": "Km başı yakıt maliyeti",
+            "help": "Km başı yakıt maliyeti"
           },
           "driverHourlyRate": {
-            "label": "Driver hourly rate",
-            "help": "Driver hourly rate"
+            "label": "Sürücü saat ücreti",
+            "help": "Sürücü saat ücreti"
           },
           "estimatedHours": {
-            "label": "Estimated drive hours",
-            "help": "Estimated drive hours"
+            "label": "Tahmini sürüş süresi",
+            "help": "Tahmini sürüş süresi"
           },
           "returnEmpty": {
-            "label": "Empty return (deadhead)",
-            "help": "Empty return (deadhead)"
+            "label": "Boş dönüş",
+            "help": "Boş dönüş"
           },
           "hasTolls": {
-            "label": "Toll roads on route",
-            "help": "Toll roads on route"
+            "label": "Rotada paralı yol var",
+            "help": "Rotada paralı yol var"
           },
           "overweightRisk": {
-            "label": "Overweight / fine risk",
-            "help": "Overweight / fine risk"
+            "label": "Aşırı yük / ceza riski",
+            "help": "Aşırı yük / ceza riski"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "cropYieldLossAnalyzer": {
         "scenarios": {
           "field_yield_check": {
-            "label": "Field yield check",
-            "description": "Field-level yield gap vs expected output."
+            "label": "Tarla verim kontrolü",
+            "description": "Tarla bazında verim açığı ile beklenen üretim karşılaştırması."
           },
           "seasonal_loss_review": {
-            "label": "Seasonal loss review",
-            "description": "Season-wide loss review with input and revenue impact."
+            "label": "Sezonluk kayıp incelemesi",
+            "description": "Sezon genelinde kayıp incelemesi — girdi ve gelir etkisi dahil."
           }
         },
         "inputs": {
           "areaHectares": {
-            "label": "Field area",
-            "help": "Field area"
+            "label": "Tarla alanı",
+            "help": "Tarla alanı"
           },
           "expectedYieldTonnes": {
-            "label": "Expected yield",
-            "help": "Expected yield"
+            "label": "Beklenen verim",
+            "help": "Beklenen verim"
           },
           "fertilizerCost": {
-            "label": "Fertilizer cost",
-            "help": "Fertilizer cost"
+            "label": "Gübre maliyeti",
+            "help": "Gübre maliyeti"
           },
           "irrigationCost": {
-            "label": "Irrigation cost",
-            "help": "Irrigation cost"
+            "label": "Sulama maliyeti",
+            "help": "Sulama maliyeti"
           },
           "soilMoisturePercent": {
-            "label": "Soil moisture",
-            "help": "Soil moisture"
+            "label": "Toprak nemi",
+            "help": "Toprak nemi"
           },
           "weatherRiskIndex": {
-            "label": "Weather risk index",
-            "help": "Weather risk index"
+            "label": "Hava riski endeksi",
+            "help": "Hava riski endeksi"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "waterOptimizationVerdict": {
         "scenarios": {
           "irrigation_efficiency": {
-            "label": "Irrigation efficiency",
-            "description": "Irrigation system efficiency and cost leak check."
+            "label": "Sulama verimliliği",
+            "description": "Sulama sistemi verimliliği ve maliyet kaçağı kontrolü."
           },
           "facility_water_usage": {
-            "label": "Facility water usage",
-            "description": "Facility water use with utility and waste drivers."
+            "label": "Tesis su kullanımı",
+            "description": "Tesis su kullanımı — su tarifesi ve israf etkenleri."
           }
         },
         "inputs": {
           "areaHectares": {
-            "label": "Irrigated area",
-            "help": "Irrigated area"
+            "label": "Sulanan alan",
+            "help": "Sulanan alan"
           },
           "pumpingHours": {
-            "label": "Pumping hours",
-            "help": "Pumping hours"
+            "label": "Pompa süresi",
+            "help": "Pompa süresi"
           },
           "electricityRate": {
-            "label": "Electricity rate",
-            "help": "Electricity rate"
+            "label": "Elektrik tarifesi",
+            "help": "Elektrik tarifesi"
           },
           "waterRightsFee": {
-            "label": "Water rights fee",
-            "help": "Water rights fee"
+            "label": "Su hakları bedeli",
+            "help": "Su hakları bedeli"
           },
           "evaporationLossPercent": {
-            "label": "Evaporation loss",
-            "help": "Evaporation loss"
+            "label": "Buharlaşma kaybı",
+            "help": "Buharlaşma kaybı"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "feedEfficiencyAnalyzer": {
         "scenarios": {
           "daily_feed_check": {
-            "label": "Daily feed check",
-            "description": "Daily ration efficiency vs production output."
+            "label": "Günlük yem kontrolü",
+            "description": "Günlük rasyon verimliliği ile üretim çıktısı karşılaştırması."
           },
           "herd_feed_performance": {
-            "label": "Herd feed performance",
-            "description": "Herd-level feed cost and conversion review."
+            "label": "Sürü yem performansı",
+            "description": "Sürü bazında yem maliyeti ve dönüşüm incelemesi."
           }
         },
         "inputs": {
           "animalCount": {
-            "label": "Animal count",
-            "help": "Animal count"
+            "label": "Hayvan sayısı",
+            "help": "Hayvan sayısı"
           },
           "dailyFeedKg": {
-            "label": "Daily feed per head",
-            "help": "Daily feed per head"
+            "label": "Hayvan başı günlük yem",
+            "help": "Hayvan başı günlük yem"
           },
           "feedPricePerKg": {
-            "label": "Feed price",
-            "help": "Feed price"
+            "label": "Yem fiyatı",
+            "help": "Yem fiyatı"
           },
           "milkYieldPerDay": {
-            "label": "Milk yield per head",
-            "help": "Milk yield per head"
+            "label": "Hayvan başı süt verimi",
+            "help": "Hayvan başı süt verimi"
           },
           "feedWastePercent": {
-            "label": "Feed waste / spoilage",
-            "help": "Feed waste / spoilage"
+            "label": "Yem firesi / bozulma",
+            "help": "Yem firesi / bozulma"
           },
           "waterQualityIndex": {
-            "label": "Water quality index",
-            "help": "Water quality index"
+            "label": "Su kalitesi endeksi",
+            "help": "Su kalitesi endeksi"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "dairyProfitDetector": {
         "scenarios": {
           "milk_batch_margin": {
-            "label": "Milk batch margin",
-            "description": "Batch margin after feed, labor and shrink."
+            "label": "Süt parti marjı",
+            "description": "Yem, işçilik ve fire sonrası parti marjı."
           },
           "monthly_dairy_profit": {
-            "label": "Monthly dairy profit",
-            "description": "Monthly dairy profit with overhead and price risk."
+            "label": "Aylık süt üretim kârı",
+            "description": "Aylık süt üretim kârı — genel gider ve fiyat riski dahil."
           }
         },
         "inputs": {
           "cowCount": {
-            "label": "Cow count",
-            "help": "Cow count"
+            "label": "İnek sayısı",
+            "help": "İnek sayısı"
           },
           "litersPerCowPerDay": {
-            "label": "Milk per cow",
-            "help": "Milk per cow"
+            "label": "İnek başı süt",
+            "help": "İnek başı süt"
           },
           "milkPricePerLiter": {
-            "label": "Milk price",
-            "help": "Milk price"
+            "label": "Süt fiyatı",
+            "help": "Süt fiyatı"
           },
           "monthlyFeedCost": {
-            "label": "Monthly feed cost",
-            "help": "Monthly feed cost"
+            "label": "Aylık yem maliyeti",
+            "help": "Aylık yem maliyeti"
           },
           "laborCost": {
-            "label": "Monthly labor cost",
-            "help": "Monthly labor cost"
+            "label": "Aylık işçilik maliyeti",
+            "help": "Aylık işçilik maliyeti"
           },
           "vetAndHealth": {
-            "label": "Vet & health",
-            "help": "Vet & health"
+            "label": "Veteriner ve sağlık",
+            "help": "Veteriner ve sağlık"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "energyEfficiencyReport": {
         "scenarios": {
           "facility_energy_check": {
-            "label": "Facility energy check",
-            "description": "Facility kWh cost and baseline efficiency review."
+            "label": "Tesis enerji kontrolü",
+            "description": "Tesis kWh maliyeti ve temel verimlilik incelemesi."
           },
           "equipment_efficiency_review": {
-            "label": "Equipment efficiency review",
-            "description": "Equipment-level efficiency and upgrade ROI signal."
+            "label": "Ekipman verimlilik incelemesi",
+            "description": "Ekipman bazında verimlilik ve yatırım geri dönüş sinyali."
           }
         },
         "inputs": {
           "monthlyKwh": {
-            "label": "Monthly kWh",
-            "help": "Monthly kWh"
+            "label": "Aylık kWh",
+            "help": "Aylık kWh"
           },
           "tariffPerKwh": {
-            "label": "Tariff",
-            "help": "Tariff"
+            "label": "Tarife",
+            "help": "Tarife"
           },
           "demandCharge": {
-            "label": "Peak demand charge",
-            "help": "Peak demand charge"
+            "label": "Tepe talep ücreti",
+            "help": "Tepe talep ücreti"
           },
           "powerFactorPenalty": {
-            "label": "Power factor penalty",
-            "help": "Power factor penalty"
+            "label": "Güç faktörü cezası",
+            "help": "Güç faktörü cezası"
           },
           "efficiencyTargetPercent": {
-            "label": "Efficiency target",
-            "help": "Efficiency target"
+            "label": "Verimlilik hedefi",
+            "help": "Verimlilik hedefi"
           },
           "targetSavings": {
-            "label": "Target savings",
-            "help": "Target savings"
+            "label": "Hedef tasarruf",
+            "help": "Hedef tasarruf"
           }
         }
       },
       "cbamComplianceVerdict": {
         "scenarios": {
           "shipment_cbam_check": {
-            "label": "Shipment CBAM check",
-            "description": "Single shipment embedded emissions exposure."
+            "label": "Sevkiyat CBAM kontrolü",
+            "description": "Tek sevkiyatın gömülü karbon maruziyeti."
           },
           "annual_export_exposure": {
-            "label": "Annual export exposure",
-            "description": "Annual export volume with CBAM cost exposure."
+            "label": "Yıllık ihracat maruziyeti",
+            "description": "Yıllık ihracat hacmi — CBAM maliyet maruziyetiyle."
           }
         },
         "inputs": {
           "productionTons": {
-            "label": "Production volume",
-            "help": "Production volume"
+            "label": "Üretim hacmi",
+            "help": "Üretim hacmi"
           },
           "energySource": {
-            "label": "Energy source",
-            "help": "Energy source"
+            "label": "Enerji kaynağı",
+            "help": "Enerji kaynağı"
           },
           "euImportValue": {
-            "label": "EU import value",
-            "help": "EU import value"
+            "label": "AB ithalat değeri",
+            "help": "AB ithalat değeri"
           },
           "processEmissionsFactor": {
-            "label": "Process emissions factor",
-            "help": "Process emissions factor"
+            "label": "Süreç emisyon faktörü",
+            "help": "Süreç emisyon faktörü"
           },
           "includesTransport": {
-            "label": "Include transport leg",
-            "help": "Include transport leg"
+            "label": "Taşıma ayağını dahil et",
+            "help": "Taşıma ayağını dahil et"
           },
           "targetMargin": {
-            "label": "Target margin",
-            "help": "Target margin"
+            "label": "Hedef marj",
+            "help": "Hedef marj"
           }
         }
       },
       "renovationBudgetOptimizer": {
         "scenarios": {
           "small_renovation": {
-            "label": "Small renovation",
-            "description": "Room or partial remodel budget guard."
+            "label": "Küçük tadilat",
+            "description": "Oda veya kısmi yenileme için bütçe koruması."
           },
           "full_project_budget": {
-            "label": "Full project budget",
-            "description": "Whole-home or full fit-out budget optimization."
+            "label": "Tüm proje bütçesi",
+            "description": "Tam ev veya tam uygulama için bütçe optimizasyonu."
           }
         },
         "inputs": {
           "areaM2": {
-            "label": "Renovation area",
-            "help": "Renovation area"
+            "label": "Tadilat alanı",
+            "help": "Tadilat alanı"
           },
           "materialQuality": {
-            "label": "Material quality",
-            "help": "Material quality"
+            "label": "Malzeme kalitesi",
+            "help": "Malzeme kalitesi"
           },
           "includeLabor": {
-            "label": "Include labor",
-            "help": "Include labor"
+            "label": "İşçilik dahil",
+            "help": "İşçilik dahil"
           },
           "season": {
-            "label": "Season",
-            "help": "Season"
+            "label": "Mevsim",
+            "help": "Mevsim"
           },
           "cityTier": {
-            "label": "City cost tier",
-            "help": "City cost tier"
+            "label": "Şehir maliyet kademesi",
+            "help": "Şehir maliyet kademesi"
           },
           "contingencyPercent": {
-            "label": "Contingency",
-            "help": "Contingency"
+            "label": "Beklenmedik durum payı",
+            "help": "Beklenmedik durum payı"
           }
         }
       },
       "tripBudgetOptimizer": {
         "scenarios": {
           "simple_trip_budget": {
-            "label": "Simple trip budget",
-            "description": "Core travel cost stack for a short trip."
+            "label": "Basit yolculuk bütçesi",
+            "description": "Kısa yolculuk için temel maliyet yığını."
           },
           "detailed_travel_plan": {
-            "label": "Detailed travel plan",
-            "description": "Multi-segment travel plan with margin-safe budget."
+            "label": "Detaylı seyahat planı",
+            "description": "Çok bölümlü seyahat planı — marj güvenli bütçe ile."
           }
         },
         "inputs": {
           "distanceKm": {
-            "label": "Distance",
-            "help": "Distance"
+            "label": "Mesafe",
+            "help": "Mesafe"
           },
           "consumptionPer100Km": {
-            "label": "Consumption",
-            "help": "Consumption"
+            "label": "Tüketim",
+            "help": "Tüketim"
           },
           "fuelPricePerLiter": {
-            "label": "Fuel price",
-            "help": "Fuel price"
+            "label": "Yakıt fiyatı",
+            "help": "Yakıt fiyatı"
           },
           "tollEstimate": {
-            "label": "Toll estimate",
-            "help": "Toll estimate"
+            "label": "Geçiş ücreti tahmini",
+            "help": "Geçiş ücreti tahmini"
           },
           "returnTrip": {
-            "label": "Return trip",
-            "help": "Return trip"
+            "label": "Dönüş seferi",
+            "help": "Dönüş seferi"
           },
           "parkingPerDay": {
-            "label": "Parking per day",
-            "help": "Parking per day"
+            "label": "Günlük otopark",
+            "help": "Günlük otopark"
           },
           "bufferPercent": {
-            "label": "Budget buffer",
-            "help": "Budget buffer"
+            "label": "Bütçe tamponu",
+            "help": "Bütçe tamponu"
           }
         }
       },
       "mealPlanningVerdict": {
         "scenarios": {
           "weekly_meal_plan": {
-            "label": "Weekly meal plan",
-            "description": "Weekly grocery and meal cost verdict."
+            "label": "Haftalık yemek planı",
+            "description": "Haftalık market ve yemek maliyeti değerlendirmesi."
           },
           "family_budget_plan": {
-            "label": "Family budget plan",
-            "description": "Family-scale meal budget with waste and delivery risk."
+            "label": "Aile bütçe planı",
+            "description": "Aile ölçeğinde yemek bütçesi — fire ve teslimat riski dahil."
           }
         },
         "inputs": {
           "mealsPerWeek": {
-            "label": "Meals per week",
-            "help": "Meals per week"
+            "label": "Haftalık öğün sayısı",
+            "help": "Haftalık öğün sayısı"
           },
           "weeklyGroceryBudget": {
-            "label": "Weekly grocery budget",
-            "help": "Weekly grocery budget"
+            "label": "Haftalık market bütçesi",
+            "help": "Haftalık market bütçesi"
           },
           "foodWastePercent": {
-            "label": "Food waste",
-            "help": "Food waste"
+            "label": "Gıda firesi",
+            "help": "Gıda firesi"
           },
           "inflationBuffer": {
-            "label": "Price inflation buffer",
-            "help": "Price inflation buffer"
+            "label": "Fiyat enflasyonu tamponu",
+            "help": "Fiyat enflasyonu tamponu"
           },
           "householdSize": {
-            "label": "Household size",
-            "help": "Household size"
+            "label": "Hane büyüklüğü",
+            "help": "Hane büyüklüğü"
           },
           "targetSavings": {
-            "label": "Target savings",
-            "help": "Target savings"
+            "label": "Hedef tasarruf",
+            "help": "Hedef tasarruf"
           }
         }
       }

@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { buildBreadcrumbJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
 import type { PremiumToolSeoLanding } from "@/lib/seo/premium-tool-seo-landings";
+import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 
 type FaqItem = { readonly q: string; readonly a: string };
 
@@ -26,17 +27,23 @@ export async function PremiumToolSeoLandingView({
   locale: string;
 }) {
   const t = await getTranslations("premiumSeo");
-  const fill = (key: string) => (t.raw(key) as string).replace(/\{tool\}/g, landing.toolName);
+  const localizedToolName = getLocalizedRevenueToolTitle(
+    landing.slug,
+    "paid",
+    locale,
+    landing.toolName,
+  );
+  const fill = (key: string) => (t.raw(key) as string).replace(/\{tool\}/g, localizedToolName);
   const faq = ((t.raw("faq") as FaqItem[]) ?? []).map((item) => ({
-    q: item.q.replace(/\{tool\}/g, landing.toolName),
-    a: item.a.replace(/\{tool\}/g, landing.toolName),
+    q: item.q.replace(/\{tool\}/g, localizedToolName),
+    a: item.a.replace(/\{tool\}/g, localizedToolName),
   }));
 
   const jsonLd: JsonLdRecord[] = [
     buildBreadcrumbJsonLd(
       [
         { name: "Home", path: "/" },
-        { name: landing.toolName, path: landing.seoHref },
+        { name: localizedToolName, path: landing.seoHref },
       ],
       locale
     ),
