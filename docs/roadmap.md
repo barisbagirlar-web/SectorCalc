@@ -6,7 +6,7 @@
 
 ---
 
-## Güncel durum (2026-06-10)
+## Güncel durum (2026-06-11)
 
 | Phase | Durum | Not |
 |-------|--------|-----|
@@ -19,16 +19,20 @@
 | **P2.4** Full Calculation Form Repair Sweep | **DONE** | PROMPT-P2.4-001 + AUDITFIX-P2.4-001 — inventory, repair, smoke PASS (`cc4153d`) |
 | **P3** Feedback / Formula Objection System | **COMPLETE** | `40bd28b` — post-P2.4 revalidation PASS |
 | **P4** Trust Trace / Validation Stamp / Public Verify | **COMPLETE** | FIX-P4-001 — build + smoke gates closed |
+| **P5** Metric / Imperial / Regional Unit Engine | **COMPLETE** | `2182af1` — display-only unit engine, no formula/runtime change, smoke PASS |
+| **P6** Regional Benchmark Engine | **COMPLETE** | `d17bbd0` — indicative reference bands, decision support only, smoke PASS |
+| **P7** Case Study Proof Layer | **COMPLETE** | `49f0613` — representative examples (no fake clients), smoke PASS |
+| **P8** PWA / Field Mode | **COMPLETE** | `15e7fb7` — installable PWA, offline shell, field mode, smoke PASS |
 
-**Current active phase:** **P5 — Metric / Imperial / Regional Unit Engine** *(next to schedule)*
+**Current active phase:** **P9 — Packaging** *(next to schedule)*
 
 ### Phase gate (EN)
 
-P4 Trust Trace / Validation Stamp / Public Verify is complete. All deliverables implemented, TypeScript clean, 43 unit tests pass, smoke script ready. **Next phase:** P5 Unit Engine.
+P5–P8 are complete and verified in production (deploy revision `ssrsectorcalcbf412-00284-ppt`, Cloud Run min-instances=1). All build gates, regression smokes, and new phase smokes (regional-units, regional-benchmarks, case-study-proof, pwa-field-mode) pass on `https://sectorcalc.com` across EN root + /tr /ar /de /fr /es. No formula/runtime change, no `/en` prefix. **Next phase:** P9 Packaging.
 
 ### Faz kapısı (TR)
 
-P4 Trust Trace / Validation Stamp / Public Verify tamamlandı. Tüm bileşenler implement edildi, TypeScript hatasız, 43 unit test geçti, smoke script hazır. **Sıradaki:** P5 Unit Engine.
+P5–P8 tamamlandı ve production'da doğrulandı (deploy revision `ssrsectorcalcbf412-00284-ppt`, Cloud Run min-instances=1). Tüm build kapıları, regresyon smoke'ları ve yeni faz smoke'ları (regional-units, regional-benchmarks, case-study-proof, pwa-field-mode) `https://sectorcalc.com` üzerinde 6 locale (EN root + /tr /ar /de /fr /es) için geçti. Formula/runtime değişmedi, `/en` prefix yok. **Sıradaki:** P9 Packaging.
 
 ---
 
@@ -44,7 +48,7 @@ P0 Stabilization ──► P1 Catalog ──► P2 Smart Form (pilot → layout 
                                     P11 Autonomous Release Gate
 ```
 
-**Active now:** P2.4 (Full Calculation Form Repair Sweep). **Closed:** P2.3 (Premium Smart Form rollout).
+**Active now:** P9 (Packaging). **Closed:** P0–P8 (through PWA / Field Mode).
 
 ---
 

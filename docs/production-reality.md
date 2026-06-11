@@ -1,4 +1,4 @@
-# CURRENT PRODUCTION REALITY — 2026-06-10
+# CURRENT PRODUCTION REALITY — 2026-06-11
 
 > **Disclaimer:** This document describes the live production baseline as confirmed by
 > current git HEAD + smoke test results. Repo technical inventory docs (e.g.
@@ -22,7 +22,11 @@
 | P2.3 Premium Smart Form Full Rollout | **DONE** (27/27 premium Smart Form only) |
 | **P2.4 Full Calculation Form Repair Sweep** | **DONE** |
 | P3 Feedback / Formula Objection | **COMPLETE** |
-| **P4 Trust Trace / Validation Stamp / Public Verify** | **COMPLETE** |
+| P4 Trust Trace / Validation Stamp / Public Verify | **COMPLETE** |
+| P5 Metric / Imperial / Regional Unit Engine | **COMPLETE** |
+| P6 Regional Benchmark Engine | **COMPLETE** |
+| P7 Case Study Proof Layer | **COMPLETE** |
+| **P8 PWA / Field Mode** | **COMPLETE** |
 
 ## P2.4 — Full Calculation Form Repair Sweep *(DONE)*
 
@@ -89,6 +93,50 @@
 | `npm run build` | clean | **PASS** (local) |
 | `smoke:approved-reports` | 9 premium routes | **PASS** (`11fbfab` post-deploy) |
 | `smoke:verify-report` | 6 locales + API guards | **PASS** (`11fbfab` post-deploy) |
+
+---
+
+## P5 / P6 / P7 / P8 — Global Layers + Field Mode *(COMPLETE — 2026-06-11)*
+
+| Item | Value |
+|------|--------|
+| **Prompt IDs** | PROMPT-P5-001 · PROMPT-P6-001 · PROMPT-P7-001 · PROMPT-P8-001 |
+| **Commits** | P5 `2182af1` · P6 `d17bbd0` · P7 `49f0613` · P8 `15e7fb7` |
+| **Deploy** | Firebase Hosting (frameworksBackend) · Cloud Run revision `ssrsectorcalcbf412-00284-ppt` minInstances=1 |
+| **Formula/runtime** | **Unchanged** — unit engine is display/normalize only; benchmarks are decision support; case studies are representative |
+| **Locale coverage** | EN root + /tr /ar /de /fr /es — no `/en` prefix |
+
+### Phase deliverables
+
+| Phase | New library | New UI markers | Notes |
+|-------|-------------|----------------|-------|
+| **P5** Regional Unit Engine | `src/lib/regional-units/*` (+ tests) | `data-unit-system-selector`, `data-conversion-trace` | Canonical inputs untouched; conversion trace is display-only |
+| **P6** Regional Benchmark Engine | `src/lib/regional-benchmarks/*` (+ tests) | `data-regional-benchmark-panel` | Indicative reference bands; `sourceNote` + disclaimer; confidence low/medium |
+| **P7** Case Study Proof Layer | `src/lib/case-studies/*` (extended, +tests) | `data-case-study-proof-panel` | "Representative example" labelled; no fake clients/logos/claims |
+| **P8** PWA / Field Mode | `src/lib/field-mode/*` (+ tests) + `public/manifest.webmanifest`, `public/sw.js`, `public/offline.html`, `public/icons/*` | `data-field-mode-panel`, `data-pwa-install-prompt` | Offline shell ≠ live calculation; stale data flagged; localStorage only, clear button |
+
+### Production smoke — post-deploy `ssrsectorcalcbf412-00284-ppt` (2026-06-11, https://sectorcalc.com)
+
+| Gate | Target | Result |
+|------|--------|--------|
+| `smoke:premium-routes` | 27/27 | **PASS** |
+| `smoke:premium-smart-forms` | 27/27 | **PASS** |
+| `smoke:locale-routes` | 42/42 | **PASS** |
+| `smoke:browser-routes --probe` | 4/4 | **PASS** |
+| `smoke:browser-routes` | 25/25 | **PASS** |
+| `smoke:all-calculation-forms` | 155 routes | **PASS** |
+| `smoke:browser-calculation-forms` | 10 routes × 2 viewports | **PASS** |
+| `smoke:feedback-ui` | premium + account | **PASS** |
+| `smoke:approved-reports` | premium routes | **PASS** |
+| `smoke:verify-report` | 6 locales + API guards | **PASS** |
+| `smoke:regional-units` | 6 locales | **PASS** |
+| `smoke:regional-benchmarks` | 6 locales | **PASS** |
+| `smoke:case-study-proof` | index + detail × 6 locales | **PASS** |
+| `smoke:pwa-field-mode` | assets 200 + markers × 6 locales | **PASS** |
+
+**Local-only artifact (resolved in prod):** under `next start`, `/manifest.webmanifest`, `/offline.html`, `/sw.js` 404 (Next rewrite layer); these are served by Firebase Hosting CDN — verified 200 in production. This caused `smoke:browser-calculation-forms` console-error failures locally only; production run is clean.
+
+**Remaining risk:** Benchmark bands are indicative (low/medium confidence), not official statistics; PWA offline shell serves cached chrome only, not live calculation results.
 
 ---
 
