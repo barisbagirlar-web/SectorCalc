@@ -24,6 +24,7 @@ import {
   listPremiumToolSeoLandingSlugs,
 } from "@/lib/seo/premium-tool-seo-landings";
 import { PremiumToolSeoLandingView } from "@/components/seo/PremiumToolSeoLanding";
+import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { getTranslations } from "next-intl/server";
 
 export const dynamic = "force-static";
@@ -47,8 +48,14 @@ export async function generateMetadata({
   const premiumLanding = getPremiumToolSeoLandingBySlug(slug);
   if (premiumLanding) {
     const t = await getTranslations({ locale, namespace: "premiumSeo" });
+    const localizedToolName = getLocalizedRevenueToolTitle(
+      premiumLanding.slug,
+      "paid",
+      locale,
+      premiumLanding.toolName,
+    );
     const fill = (key: string) =>
-      (t.raw(key) as string).replace(/\{tool\}/g, premiumLanding.toolName);
+      (t.raw(key) as string).replace(/\{tool\}/g, localizedToolName);
     return createPageMetadata({
       title: fill("metaTitle"),
       description: fill("metaDescription"),
