@@ -3423,7 +3423,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 
 /* Credibility block — before final CTA */
 .sc-home-hybrid__credibility {
-  padding-block: clamp(2rem, 5vw, 3rem);
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
   background: #ffffff;
 }
 
@@ -3494,7 +3494,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 .sc-home-hybrid__references-img {
   display: block;
   width: 100%;
-  max-width: 56rem;
+  max-width: 38rem;
   height: auto;
   margin-inline: auto;
   object-fit: contain;
@@ -4464,60 +4464,60 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 
 /* Homepage premium About section + About detail manifesto */
 .sc-about-container {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: clamp(3.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 2rem);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 4vw, 2rem);
   background: #ffffff;
   text-align: center;
   color: #202124;
 }
 
 .sc-about-title {
-  margin: 0 0 2rem;
+  margin: 0 0 1.25rem;
   font-family: var(--font-barlow), sans-serif;
-  font-size: clamp(2.25rem, 5vw, 4.5rem);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .sc-about-text {
-  max-width: 60rem;
-  margin: 0 auto 1.5rem;
-  font-size: clamp(1.05rem, 2vw, 1.5rem);
-  line-height: 1.5;
-  color: #111111;
+  max-width: 52rem;
+  margin: 0 auto 1rem;
+  font-size: clamp(0.9375rem, 1.5vw, 1rem);
+  line-height: 1.6;
+  color: #3c3f44;
 }
 
 .sc-about-belief {
-  margin-top: clamp(2.25rem, 4vw, 3rem);
+  margin-top: clamp(1.25rem, 3vw, 1.75rem);
 }
 
 .sc-about-belief-title {
   margin: 0;
   font-family: var(--font-barlow), sans-serif;
   color: #0b2f6b;
-  font-size: clamp(1.6rem, 3vw, 2.6rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-size: clamp(1rem, 2vw, 1.375rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .sc-about-belief-subtitle {
-  margin: 0.65rem auto 0;
-  max-width: 48rem;
+  margin: 0.5rem auto 0;
+  max-width: 42rem;
   color: #6f7278;
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  line-height: 1.4;
+  font-size: clamp(0.875rem, 1.5vw, 0.9375rem);
+  line-height: 1.5;
 }
 
 .sc-about-highlight {
-  margin: clamp(1.75rem, 4vw, 2.25rem) auto 0;
-  max-width: 60rem;
+  margin: clamp(1.25rem, 3vw, 1.75rem) auto 0;
+  max-width: 52rem;
   font-family: var(--font-barlow), sans-serif;
-  font-size: clamp(1.85rem, 5vw, 4rem);
-  line-height: 1.08;
-  font-weight: 900;
-  letter-spacing: -0.05em;
+  font-size: clamp(1.125rem, 2.5vw, 1.625rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.025em;
   text-wrap: balance;
 }
 
@@ -4533,8 +4533,8 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: clamp(2rem, 4vw, 2.5rem);
-  min-height: 56px;
+  margin-top: clamp(1.25rem, 3vw, 1.75rem);
+  min-height: 44px;
   padding: 0 2rem;
   border-radius: 6px;
   background: #b54a23;
