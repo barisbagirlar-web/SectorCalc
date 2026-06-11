@@ -44,20 +44,9 @@ export async function HomepageCredibilitySection() {
   return (
     <section
       className="sc-home-hybrid__credibility sc-home-hybrid__section"
-      aria-labelledby="home-about-heading"
+      aria-labelledby="home-references-heading"
     >
       <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-        <div className="sc-home-hybrid__about-inner">
-          <p className="sc-pro-eyebrow sc-home-hybrid__about-eyebrow">
-            {t("aboutUs.eyebrow")}
-          </p>
-          <h2 id="home-about-heading" className="sc-home-hybrid__about-punchline">
-            {t("aboutUs.punchline")}
-          </h2>
-          <p className="sc-home-hybrid__about-opening">{t("aboutUs.opening")}</p>
-          <p className="sc-home-hybrid__about-body">{t("aboutUs.body")}</p>
-        </div>
-
         <div className="sc-home-hybrid__references" aria-labelledby="home-references-heading">
           <p id="home-references-heading" className="sc-home-hybrid__references-eyebrow">
             {t("references.eyebrow")}

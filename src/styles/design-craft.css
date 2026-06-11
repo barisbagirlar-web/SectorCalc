@@ -4462,3 +4462,138 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   opacity: 0.85;
 }
 
+/* Homepage premium About section + About detail manifesto */
+.sc-about-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 2rem);
+  background: #ffffff;
+  text-align: center;
+  color: #202124;
+}
+
+.sc-about-title {
+  margin: 0 0 2rem;
+  font-family: var(--font-barlow), sans-serif;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.sc-about-text {
+  max-width: 60rem;
+  margin: 0 auto 1.5rem;
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  color: #111111;
+}
+
+.sc-about-belief {
+  margin-top: clamp(2.25rem, 4vw, 3rem);
+}
+
+.sc-about-belief-title {
+  margin: 0;
+  font-family: var(--font-barlow), sans-serif;
+  color: #0b2f6b;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.sc-about-belief-subtitle {
+  margin: 0.65rem auto 0;
+  max-width: 48rem;
+  color: #6f7278;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1.4;
+}
+
+.sc-about-highlight {
+  margin: clamp(1.75rem, 4vw, 2.25rem) auto 0;
+  max-width: 60rem;
+  font-family: var(--font-barlow), sans-serif;
+  font-size: clamp(1.85rem, 5vw, 4rem);
+  line-height: 1.08;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.sc-about-highlight-primary {
+  color: #b54a23;
+}
+
+.sc-about-highlight-secondary {
+  color: #202124;
+}
+
+.sc-about-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: clamp(2rem, 4vw, 2.5rem);
+  min-height: 56px;
+  padding: 0 2rem;
+  border-radius: 6px;
+  background: #b54a23;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 16px 36px rgba(181, 74, 35, 0.22);
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.sc-about-cta:hover {
+  background: #9f3f1d;
+  transform: translateY(-1px);
+  box-shadow: 0 20px 44px rgba(181, 74, 35, 0.28);
+}
+
+.sc-about-cta:focus-visible {
+  outline: 3px solid rgba(181, 74, 35, 0.28);
+  outline-offset: 4px;
+}
+
+.sc-about-detail-manifesto {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  font-family: var(--font-barlow), sans-serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.sc-about-detail-manifesto-primary {
+  color: #b54a23;
+}
+
+.sc-about-detail-manifesto-secondary {
+  color: #202124;
+}
+
+@media (max-width: 768px) {
+  .sc-about-cta {
+    width: 100%;
+    max-width: 360px;
+    padding: 0 1.25rem;
+    font-size: 0.86rem;
+    letter-spacing: 0.06em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-about-cta {
+    transition: none;
+  }
+
+  .sc-about-cta:hover {
+    transform: none;
+  }
+}
+

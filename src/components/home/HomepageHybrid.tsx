@@ -1,4 +1,5 @@
 import { HomepageCredibilitySection } from "@/components/home/HomepageCredibilitySection";
+import { HomeAboutSection } from "@/components/about/HomeAboutSection";
 import { HomepageCampaignStrip } from "@/components/campaign/HomepageCampaignStrip";
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
 import { HomepageCatalogSearch } from "@/components/home/HomepageCatalogSearch";
@@ -324,7 +325,7 @@ export async function HomepageHybrid({ catalogSearchEntries = [] }: HomepageHybr
 
       <HomepageCredibilitySection />
 
-      <hr className="sc-ledger-separator" />
+      <HomeAboutSection />
 
       {/* 8. Final CTA */}
       <section className="sc-home-hybrid__final" aria-labelledby="final-cta-heading">
