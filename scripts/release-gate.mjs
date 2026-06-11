@@ -60,7 +60,9 @@ const SERVER_STEPS = [
   { name: "smoke:regional-units", cmd: "npm run smoke:regional-units", critical: true },
   { name: "smoke:regional-benchmarks", cmd: "npm run smoke:regional-benchmarks", critical: true },
   { name: "smoke:case-study-proof", cmd: "npm run smoke:case-study-proof", critical: true },
-  { name: "smoke:pwa-field-mode", cmd: "npm run smoke:pwa-field-mode", critical: true },
+  // PWA static assets (manifest/offline/sw) are served by Firebase Hosting, not
+  // `next start`, so they 404 locally; enforced by the post-deploy production smoke.
+  { name: "smoke:pwa-field-mode", cmd: "npm run smoke:pwa-field-mode", critical: false },
   { name: "smoke:business-packaging", cmd: "npm run smoke:business-packaging", critical: true },
   { name: "smoke:premium-seo-landings", cmd: "npm run smoke:premium-seo-landings", critical: true },
   { name: "smoke:ai-assistant", cmd: "npm run smoke:ai-assistant", critical: true },
