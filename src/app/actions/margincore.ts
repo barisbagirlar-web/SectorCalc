@@ -74,7 +74,7 @@ export async function runMarginCoreAnalysis(params: {
  locale = "en",
  } = params;
 
- const region = explicitRegion ?? (await getServerRegion(locale));
+  const region = explicitRegion ?? (await getServerRegion(locale)).region;
 
  // Resolve sector-specific components
  const riskProfile = getSectorRiskProfile(sectorSlug);

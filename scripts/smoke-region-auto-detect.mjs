@@ -18,7 +18,6 @@ import {
   fetchRouteWithRetry,
   getBaseUrl,
   localePath,
-  visibleText,
 } from "./smoke-utils.mjs";
 
 const REGION_AUTO_DETECT_ROUTES = [

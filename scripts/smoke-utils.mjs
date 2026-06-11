@@ -100,6 +100,7 @@ export async function fetchRoute(path, options = {}) {
       headers: {
         "User-Agent": options.userAgent ?? "SectorCalc-Smoke/1.0",
         Accept: "text/html,application/xhtml+xml",
+        ...(options.headers ?? {}),
       },
     });
 

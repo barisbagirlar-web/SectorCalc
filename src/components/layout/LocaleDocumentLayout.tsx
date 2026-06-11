@@ -39,7 +39,7 @@ type LocaleDocumentLayoutProps = Readonly<{
 export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentLayoutProps) {
   setRequestLocale(locale);
   const messages = await getMessages();
-  const region = await getServerRegion(locale);
+  const { region, source } = await getServerRegion(locale);
   const direction = getLocaleTextDirection(locale);
 
   return (
@@ -60,7 +60,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
       <body className="min-w-0 overflow-x-hidden bg-industrial-matte font-sans text-[17px] leading-[1.47059] text-premium-velvet antialiased">
         <JsonLd data={buildHomepageJsonLd(locale)} />
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <RegionProvider region={region}>
+          <RegionProvider region={region} source={source}>
             <AttributionBootstrap />
             <ServiceWorkerRegister />
             {children}

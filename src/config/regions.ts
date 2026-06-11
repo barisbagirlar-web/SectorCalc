@@ -9,6 +9,7 @@ export const REGION_COOKIE = "sc-region";
 /** User explicitly chose a region (overrides locale default until cleared). */
 export const REGION_MANUAL_COOKIE = "sc-region-manual";
 export const REGION_HEADER = "x-region";
+export const REGION_SOURCE_HEADER = "x-region-source";
 
 export const SUPPORTED_REGIONS: readonly RegionCode[] = ["TR", "DE", "EN"] as const;
 

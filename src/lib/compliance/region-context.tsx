@@ -11,24 +11,27 @@ import {
   type RegionCode,
   type RegionalComplianceProfile,
 } from "@/config/regions";
+import type { RegionSource } from "@/lib/compliance/detect-region";
 
 interface RegionContextValue {
   region: RegionCode;
   profile: RegionalComplianceProfile;
+  source: RegionSource;
 }
 
 const RegionContext = createContext<RegionContextValue | null>(null);
 
 interface RegionProviderProps {
   region: RegionCode;
+  source: RegionSource;
   children: ReactNode;
 }
 
 /** Global OS state — region from middleware geo detection. */
-export function RegionProvider({ region, children }: RegionProviderProps) {
+export function RegionProvider({ region, source, children }: RegionProviderProps) {
   const value = useMemo(
-    () => ({ region, profile: getRegionProfile(region) }),
-    [region],
+    () => ({ region, profile: getRegionProfile(region), source }),
+    [region, source],
   );
 
   return <RegionContext.Provider value={value}>{children}</RegionContext.Provider>;
@@ -37,7 +40,7 @@ export function RegionProvider({ region, children }: RegionProviderProps) {
 export function useRegion(): RegionContextValue {
   const ctx = useContext(RegionContext);
   if (!ctx) {
-    return { region: "EN", profile: getRegionProfile("EN") };
+    return { region: "EN", profile: getRegionProfile("EN"), source: "global-default" };
   }
   return ctx;
 }

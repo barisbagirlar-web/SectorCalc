@@ -1,7 +1,7 @@
 import createIntlMiddleware from "next-intl/middleware";
 import { type NextRequest, NextResponse } from "next/server";
 import { routing } from "@/i18n/routing";
-import { REGION_COOKIE, REGION_HEADER } from "@/config/regions";
+import { REGION_COOKIE, REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
 import { detectCountryFromHeaders, detectRegionFromRequest } from "@/lib/compliance/detect-region";
 import { getLocalePathPrefix } from "@/lib/i18n/locale-config";
 import {
@@ -20,8 +20,9 @@ import {
 const intlMiddleware = createIntlMiddleware(routing);
 
 function applyRegionHeaders(response: NextResponse, request: NextRequest): NextResponse {
-  const region = detectRegionFromRequest(request);
+  const { region, source } = detectRegionFromRequest(request);
   response.headers.set(REGION_HEADER, region);
+  response.headers.set(REGION_SOURCE_HEADER, source);
   response.cookies.set(REGION_COOKIE, region, {
     path: "/",
     maxAge: 60 * 60 * 24 * 365,

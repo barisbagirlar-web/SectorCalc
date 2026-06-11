@@ -16,6 +16,17 @@ const GEO_COUNTRY_HEADERS = [
   "cloudfront-viewer-country",
 ] as const;
 
+export type RegionSource =
+  | "manual-cookie"
+  | "request-country"
+  | "locale-fallback"
+  | "global-default";
+
+export interface RegionResolutionResult {
+  region: RegionCode;
+  source: RegionSource;
+}
+
 /** Read ISO country from Vercel Geo, Cloudflare, or CDN edge headers. */
 export function detectCountryFromHeaders(
   headers: Headers | { get(name: string): string | null },
@@ -38,11 +49,11 @@ export function detectCountryFromHeaders(
  *
  * Manual selection always wins. Auto-detection never overwrites manual choice.
  */
-export function detectRegionFromRequest(request: NextRequest): RegionCode {
+export function detectRegionFromRequest(request: NextRequest): RegionResolutionResult {
   // 1. Manual cookie wins
   const manual = request.cookies.get(REGION_MANUAL_COOKIE)?.value;
   if (manual && isRegionCode(manual)) {
-    return manual;
+    return { region: manual, source: "manual-cookie" };
   }
 
   // 2. Request country header (auto-detection)
@@ -52,10 +63,15 @@ export function detectRegionFromRequest(request: NextRequest): RegionCode {
     // Use country header only if it maps to a specific supported region (TR, DE)
     // Unknown countries get EN from countryToRegion, but we prefer locale fallback in that case
     if (detectedCountry === "TR" || detectedCountry === "DE") {
-      return regionFromCountry;
+      return { region: regionFromCountry, source: "request-country" };
     }
   }
 
   // 3. Locale fallback
-  return resolveRegionFromRequestContext(request.nextUrl.pathname, null);
+  const localeRegion = resolveRegionFromRequestContext(request.nextUrl.pathname, null);
+  const isGlobalDefault = localeRegion === "EN" && !detectedCountry;
+  return {
+    region: localeRegion,
+    source: isGlobalDefault ? "global-default" : "locale-fallback",
+  };
 }
