@@ -736,6 +736,44 @@
       }
     }
   },
+  "enterprise": {
+    "metaTitle": "SectorCalc for Business & Enterprise | Verified Calculation & Decision Support",
+    "metaDescription": "Business and enterprise packaging for SectorCalc: team usage, approved reports, trust trace, industry bundles, and procurement-friendly decision support.",
+    "title": "Verified calculation and decision support for teams and organizations.",
+    "subtitle": "SectorCalc packages sector calculators, approved reports, and trust trace into a workflow your teams, customers, and auditors can rely on.",
+    "demoCta": "Request a demo",
+    "contactCta": "Contact sales",
+    "hero": { "eyebrow": "Business & Enterprise" },
+    "businessPlan": {
+      "badge": "Business",
+      "title": "Business",
+      "body": "For operators and teams that need repeatable calculations, approved reports, regional units, benchmark context, and field-ready workflows.",
+      "features": ["Premium analyzers across 27 sectors", "Approved reports with trust trace", "Regional units and indicative benchmarks", "Saved reports and field mode"],
+      "availability": "Available now"
+    },
+    "enterprisePlan": {
+      "badge": "Enterprise",
+      "title": "Enterprise",
+      "body": "For organizations that need verified calculation workflows, team usage, reporting governance, auditability, custom industry bundles, and procurement-friendly decision support.",
+      "features": ["Team and organization usage", "Reporting governance and auditability", "Custom industry bundles", "Procurement-friendly onboarding"],
+      "availability": "Enterprise discussion — contact us"
+    },
+    "bundles": { "title": "Industry bundles", "body": "Group the analyzers your sector uses most into a focused bundle, so teams reach the right tool without noise." },
+    "approvedReports": { "title": "Approved reports", "body": "Turn results into shareable, verifiable reports your customers, banks, and auditors can check independently." },
+    "trustTrace": { "title": "Trust Trace", "body": "Every result can carry a transparent trace of inputs, assumptions, and validation, so decisions stand up to review." },
+    "team": { "title": "Team & organization", "body": "Bring estimators, field crews, and managers onto one consistent calculation baseline." },
+    "security": { "title": "Security & data handling", "body": "Free inputs are processed in the browser unless saved. Account data is handled under our privacy policy, and we never place secrets in the frontend." },
+    "demo": { "title": "Talk to us about your rollout", "body": "Tell us your sectors and team size, and we will walk you through bundles, approved reports, and enterprise discussion.", "cta": "Request a demo", "pricingLink": "View pricing" },
+    "faq": {
+      "title": "Enterprise FAQ",
+      "items": [
+        { "q": "How is Business different from Enterprise?", "a": "Business covers premium analyzers, approved reports, and field workflows for teams. Enterprise adds organization usage, reporting governance, custom bundles, and procurement-friendly onboarding." },
+        { "q": "Can we use SectorCalc across multiple sectors?", "a": "Yes. SectorCalc covers 27 sectors, and industry bundles group the analyzers your teams use most." },
+        { "q": "Are results auditable?", "a": "Approved reports carry a trust trace of inputs, assumptions, and validation that third parties can verify." },
+        { "q": "How do we get started?", "a": "Request a demo and we will discuss your sectors, team size, and rollout. Pricing for individual plans is on the pricing page." }
+      ]
+    }
+  },
   "homeAbout": {
     "title": "About Us",
     "paragraph1": "Profit often leaks from businesses through unnoticed costs, not sales. Incorrect pricing, calculation errors, waste, efficiency loss, and weak quoting discipline silently erode margins over time.",

@@ -34,6 +34,7 @@
     "smoke:case-study-proof": "node scripts/smoke-case-study-proof.mjs",
     "smoke:pwa-field-mode": "node scripts/smoke-pwa-field-mode.mjs",
     "smoke:about-page": "node scripts/smoke-about-page.mjs",
+    "smoke:business-packaging": "node scripts/smoke-business-packaging.mjs",
     "assert:route-cache-policy": "node scripts/assert-route-cache-policy.mjs",
     "audit:formulas": "npx tsx scripts/audit-formulas.ts",
     "audit:alignment": "npx tsx scripts/audit-alignment.ts",

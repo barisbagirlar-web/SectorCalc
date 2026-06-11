@@ -699,6 +699,44 @@
       }
     }
   },
+  "enterprise": {
+    "metaTitle": "SectorCalc para empresas y organizaciones | Cálculo verificado y soporte a la decisión",
+    "metaDescription": "Paquetes Business y Enterprise de SectorCalc: uso en equipo, informes aprobados, trust trace, paquetes sectoriales y soporte a la decisión apto para compras.",
+    "title": "Cálculo verificado y soporte a la decisión para equipos y organizaciones.",
+    "subtitle": "SectorCalc reúne calculadoras sectoriales, informes aprobados y trust trace en un flujo en el que tus equipos, clientes y auditores pueden confiar.",
+    "demoCta": "Solicitar una demo",
+    "contactCta": "Contactar con ventas",
+    "hero": { "eyebrow": "Business y Enterprise" },
+    "businessPlan": {
+      "badge": "Business",
+      "title": "Business",
+      "body": "Para operadores y equipos que necesitan cálculos repetibles, informes aprobados, unidades regionales, contexto de referencia y flujos listos para el campo.",
+      "features": ["Analizadores premium en 27 sectores", "Informes aprobados con trust trace", "Unidades regionales y referencias indicativas", "Informes guardados y modo de campo"],
+      "availability": "Disponible ahora"
+    },
+    "enterprisePlan": {
+      "badge": "Enterprise",
+      "title": "Enterprise",
+      "body": "Para organizaciones que necesitan flujos de cálculo verificados, uso en equipo, gobernanza de informes, auditabilidad, paquetes sectoriales personalizados y soporte a la decisión apto para compras.",
+      "features": ["Uso en equipo y organización", "Gobernanza de informes y auditabilidad", "Paquetes sectoriales personalizados", "Incorporación apta para compras"],
+      "availability": "Conversación Enterprise — contáctanos"
+    },
+    "bundles": { "title": "Paquetes sectoriales", "body": "Agrupa los analizadores que tu sector usa más en un paquete enfocado, para que los equipos lleguen a la herramienta correcta sin ruido." },
+    "approvedReports": { "title": "Informes aprobados", "body": "Convierte los resultados en informes compartibles y verificables que tus clientes, bancos y auditores pueden comprobar de forma independiente." },
+    "trustTrace": { "title": "Trust Trace", "body": "Cada resultado puede llevar una traza transparente de entradas, supuestos y validación, para que las decisiones resistan la revisión." },
+    "team": { "title": "Equipo y organización", "body": "Reúne a estimadores, equipos de campo y responsables en una base de cálculo única y coherente." },
+    "security": { "title": "Seguridad y tratamiento de datos", "body": "Las entradas gratuitas se procesan en el navegador salvo que se guarden. Los datos de cuenta se tratan según nuestra política de privacidad, y nunca colocamos secretos en el frontend." },
+    "demo": { "title": "Hablemos de tu despliegue", "body": "Cuéntanos tus sectores y el tamaño de tu equipo, y te guiaremos por los paquetes, los informes aprobados y la conversación Enterprise.", "cta": "Solicitar una demo", "pricingLink": "Ver precios" },
+    "faq": {
+      "title": "Preguntas frecuentes de Enterprise",
+      "items": [
+        { "q": "¿En qué se diferencia Business de Enterprise?", "a": "Business cubre analizadores premium, informes aprobados y flujos de campo para equipos. Enterprise añade uso en organización, gobernanza de informes, paquetes personalizados e incorporación apta para compras." },
+        { "q": "¿Podemos usar SectorCalc en varios sectores?", "a": "Sí. SectorCalc cubre 27 sectores, y los paquetes sectoriales agrupan los analizadores que tus equipos usan más." },
+        { "q": "¿Los resultados son auditables?", "a": "Los informes aprobados llevan una traza trust trace de entradas, supuestos y validación que terceros pueden verificar." },
+        { "q": "¿Cómo empezamos?", "a": "Solicita una demo y hablaremos de tus sectores, el tamaño de tu equipo y tu despliegue. Los precios de los planes individuales están en la página de precios." }
+      ]
+    }
+  },
   "homeAbout": {
     "title": "Sobre nosotros",
     "paragraph1": "La rentabilidad suele escaparse de las empresas a través de costos inadvertidos, no de las ventas. Precios incorrectos, errores de cálculo, desperdicio, pérdida de eficiencia y una débil disciplina de cotización erosionan los márgenes en silencio con el tiempo.",
