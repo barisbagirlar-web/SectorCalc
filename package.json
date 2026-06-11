@@ -22,6 +22,7 @@
     "audit:revenue-tools": "node scripts/audit-revenue-tools.mjs",
     "smoke:premium-routes": "node scripts/smoke-premium-routes.mjs",
     "smoke:premium-smart-forms": "node scripts/smoke-premium-smart-forms.mjs",
+    "smoke:discovery-ux": "node scripts/smoke-discovery-ux.mjs",
     "smoke:locale-routes": "node scripts/smoke-locale-routes.mjs",
     "smoke:browser-routes": "node scripts/smoke-browser-routes.mjs",
     "smoke:feedback-ui": "node scripts/smoke-feedback-ui.mjs",

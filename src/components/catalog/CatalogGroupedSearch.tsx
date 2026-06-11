@@ -54,7 +54,13 @@ export function CatalogGroupedSearch({ entries, scope, className }: CatalogGroup
   const listId = `catalog-search-results-${scope}`;
 
   return (
-    <div className={`sc-catalog-search min-w-0${className ? ` ${className}` : ""}`}>
+    <div
+      className={`sc-catalog-search min-w-0${className ? ` ${className}` : ""}`}
+      data-tool-search="true"
+      data-search-scope={scope}
+      data-search-result-count={showResults ? result.totalMatches : 0}
+      data-search-has-more={showResults && result.hiddenCount > 0}
+    >
       <label className="sc-catalog-search__field">
         <span className="sr-only">{t("label")}</span>
         <input
@@ -78,7 +84,20 @@ export function CatalogGroupedSearch({ entries, scope, className }: CatalogGroup
               <ul className="sc-catalog-search__list">
                 {result.visible.map((entry) => (
                   <li key={`${entry.href}-${entry.title}`} className="min-w-0">
-                    <Link href={entry.href} prefetch={false} className="sc-catalog-search__result">
+                    <Link
+                      href={entry.href}
+                      prefetch={false}
+                      className="sc-catalog-search__result"
+                      data-search-result-slug={entry.slug}
+                      data-search-result-tier={entry.tier}
+                      data-search-result-kind={
+                        entry.tier === "industry"
+                          ? "industry"
+                          : entry.tier === "free" || entry.tier === "premium"
+                            ? "tool"
+                            : "other"
+                      }
+                    >
                       <div className="sc-catalog-search__result-head">
                         <p className="sc-catalog-search__result-title">{entry.title}</p>
                         {entry.tier === "free" || entry.tier === "premium" ? (

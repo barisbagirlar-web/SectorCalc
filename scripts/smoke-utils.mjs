@@ -86,7 +86,9 @@ export async function fetchRoute(path, options = {}) {
   const timeoutMs = options.timeoutMs ?? REQUEST_TIMEOUT_MS;
   const followRedirects = options.followRedirects !== false;
 
-  assertNoEnPrefix(path);
+  if (!options.skipEnPrefixCheck) {
+    assertNoEnPrefix(path);
+  }
 
   const url = `${baseUrl}${path}`;
   const controller = new AbortController();
