@@ -699,6 +699,35 @@
       }
     }
   },
+  "premiumSeo": {
+    "eyebrow": "Guide de l'outil premium",
+    "metaTitle": "{tool} | Guide prix, marge et risque | SectorCalc",
+    "metaDescription": "Comment fonctionne {tool}, à qui il s'adresse, ce que vous saisissez et comment lire le résultat. Aide à la décision sur le prix et le risque de marge par SectorCalc.",
+    "h1": "{tool} : chiffrez le chantier et protégez la marge",
+    "intro": "{tool} vous aide à éprouver un chantier avant de vous engager sur un prix. Il transforme vos coûts, quantités et taux en une lecture claire de la marge et du risque, pour repérer les facteurs cachés qui érodent discrètement le profit et décider avec confiance plutôt que de deviner sur le devis.",
+    "ctaLabel": "Ouvrir {tool}",
+    "problemTitle": "Le problème qu'il résout",
+    "problem": "La plupart des chantiers perdent leur marge bien avant la facture, lorsque la préparation, les reprises, les dépassements et les postes sous-évalués ne sont jamais additionnés avant l'envoi du devis. {tool} rend ces facteurs visibles pour qu'ils cessent de vous surprendre.",
+    "helpTitle": "Comment {tool} aide",
+    "help": "Il applique le moteur de calcul déterministe de SectorCalc à vos saisies, puis met en évidence les facteurs qui pèsent le plus sur le résultat. Vous obtenez une lecture structurée et défendable, pas un chiffre opaque.",
+    "whoTitle": "Pour qui",
+    "who": "Les exploitants, métreurs, dirigeants et responsables qui chiffrent des travaux, examinent des offres ou ont besoin d'une base cohérente en équipe tirent le meilleur parti de {tool}.",
+    "inputsTitle": "Ce que vous saisirez",
+    "inputs": "Vous indiquez les coûts, quantités, taux et hypothèses essentiels propres à votre chantier. Les champs obligatoires restent minimaux, et les champs optionnels affinent le résultat lorsque vous avez les données.",
+    "outputsTitle": "Ce que signifie le résultat",
+    "outputs": "{tool} renvoie un verdict clair avec les indicateurs et facteurs de risque qui le sous-tendent, pour voir non seulement le chiffre mais aussi pourquoi il se situe là et ce qu'il faut ajuster.",
+    "trustTitle": "Rapports approuvés et Trust Trace",
+    "trust": "Les résultats premium peuvent être enregistrés comme rapports approuvés avec une trace Trust Trace des saisies, hypothèses et validations, afin que clients, banques et auditeurs vérifient le travail de façon indépendante.",
+    "faqTitle": "Questions fréquentes",
+    "relatedTitle": "Outils premium associés",
+    "faq": [
+      { "q": "{tool} est-il gratuit ?", "a": "Vous pouvez prévisualiser l'approche gratuitement, tandis que le verdict complet, les indicateurs et le rapport approuvé font partie de SectorCalc Pro." },
+      { "q": "{tool} remplace-t-il un conseil professionnel ?", "a": "Non. C'est une simulation technique et un outil d'aide à la décision, pas un conseil financier, juridique ou d'ingénierie. Vérifiez les résultats avant toute décision." },
+      { "q": "Quelle est la précision du résultat ?", "a": "Les résultats reflètent vos saisies et le moteur déterministe de SectorCalc. De meilleures saisies donnent une lecture plus fine et plus défendable." },
+      { "q": "Puis-je partager le résultat ?", "a": "Oui. Les résultats premium peuvent être exportés en rapports approuvés avec une Trust Trace vérifiable." },
+      { "q": "Pour quel secteur est {tool} ?", "a": "Il est calibré sur les schémas de prix et de marge de son secteur et s'intègre au reste de la boîte à outils SectorCalc de 27 secteurs." }
+    ]
+  },
   "enterprise": {
     "metaTitle": "SectorCalc pour les entreprises et les organisations | Calcul vérifié et aide à la décision",
     "metaDescription": "Offres Business et Enterprise de SectorCalc : usage en équipe, rapports approuvés, trust trace, packs sectoriels et aide à la décision adaptée aux achats.",

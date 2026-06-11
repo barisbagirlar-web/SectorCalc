@@ -736,6 +736,35 @@
       }
     }
   },
+  "premiumSeo": {
+    "eyebrow": "Premium araç rehberi",
+    "metaTitle": "{tool} | Fiyatlandırma, Marj ve Risk Rehberi | SectorCalc",
+    "metaDescription": "{tool} nasıl çalışır, kimler için uygundur, ne girmelisiniz ve sonucu nasıl okumalısınız. SectorCalc'ten fiyatlandırma ve marj riski karar desteği.",
+    "h1": "{tool}: işi fiyatlandırın, marjı koruyun",
+    "intro": "{tool}, bir fiyat vermeden önce işi test etmenize yardımcı olur. Maliyetlerinizi, miktarlarınızı ve oranlarınızı net bir marj ve risk okumasına dönüştürür; böylece kârı sessizce eriten gizli etkenleri fark eder ve teklifte tahmin yürütmek yerine güvenle karar verirsiniz.",
+    "ctaLabel": "{tool} aracını aç",
+    "problemTitle": "Çözdüğü sorun",
+    "problem": "Çoğu iş, faturadan çok önce marj kaybeder; kurulum, yeniden işleme, aşımlar ve eksik fiyatlandırılmış kalemler teklif çıkmadan önce hiç toplanmadığında. {tool} bu etkenleri görünür kılar, böylece sizi şaşırtmazlar.",
+    "helpTitle": "{tool} nasıl yardımcı olur",
+    "help": "Girdilerinize SectorCalc'in deterministik hesaplama motorunu uygular ve sonucu en çok etkileyen etkenleri öne çıkarır. Kara kutu bir sayı değil, savunabileceğiniz yapılandırılmış bir okuma elde edersiniz.",
+    "whoTitle": "Kimler kullanmalı",
+    "who": "İş fiyatlandıran, teklifleri inceleyen veya ekip genelinde tutarlı bir temele ihtiyaç duyan operatörler, tahminciler, sahipler ve yöneticiler {tool} aracından en çok faydayı görür.",
+    "inputsTitle": "Ne gireceksiniz",
+    "inputs": "İşinize özgü temel maliyetleri, miktarları, oranları ve varsayımları girersiniz. Zorunlu alanlar asgaride tutulur ve verisi olduğunda isteğe bağlı alanlar sonucu keskinleştirir.",
+    "outputsTitle": "Sonuç ne anlama gelir",
+    "outputs": "{tool}, ardındaki metrikler ve risk etkenleriyle birlikte net bir karar döndürür; böylece yalnızca sayıyı değil, neden oraya geldiğini ve neyi ayarlamanız gerektiğini de görürsünüz.",
+    "trustTitle": "Onaylı raporlar ve Trust Trace",
+    "trust": "Premium sonuçlar; girdilerin, varsayımların ve doğrulamanın Trust Trace izi ile onaylı raporlar olarak kaydedilebilir; böylece müşteriler, bankalar ve denetçiler işi bağımsız olarak doğrulayabilir.",
+    "faqTitle": "Sık sorulan sorular",
+    "relatedTitle": "İlgili premium araçlar",
+    "faq": [
+      { "q": "{tool} ücretsiz mi?", "a": "Yaklaşımı ücretsiz önizleyebilirsiniz; tam karar, metrikler ve onaylı rapor SectorCalc Pro kapsamındadır." },
+      { "q": "{tool} profesyonel danışmanlığın yerine geçer mi?", "a": "Hayır. Bu, finansal, hukuki veya mühendislik tavsiyesi değil; teknik bir simülasyon ve karar destek aracıdır. İş kararlarından önce sonuçları doğrulayın." },
+      { "q": "Sonuç ne kadar doğru?", "a": "Sonuçlar; sağladığınız girdileri ve SectorCalc'in deterministik motorunu yansıtır. Daha iyi girdiler daha keskin ve savunulabilir bir okuma üretir." },
+      { "q": "Sonucu paylaşabilir miyim?", "a": "Evet. Premium sonuçlar, doğrulanabilir bir Trust Trace ile onaylı raporlar olarak dışa aktarılabilir." },
+      { "q": "{tool} hangi sektör için?", "a": "Kendi sektörünün fiyatlandırma ve marj kalıplarına göre ayarlanmıştır ve SectorCalc'in 27 sektörlük araç setinin geri kalanıyla birlikte çalışır." }
+    ]
+  },
   "enterprise": {
     "metaTitle": "İşletmeler ve Kurumlar için SectorCalc | Doğrulanabilir Hesaplama ve Karar Desteği",
     "metaDescription": "SectorCalc işletme ve kurumsal paketleme: ekip kullanımı, onaylı raporlar, trust trace, sektör paketleri ve satın almaya uygun karar desteği.",

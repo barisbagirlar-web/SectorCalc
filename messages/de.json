@@ -699,6 +699,35 @@
       }
     }
   },
+  "premiumSeo": {
+    "eyebrow": "Premium-Tool-Leitfaden",
+    "metaTitle": "{tool} | Leitfaden zu Preis, Marge & Risiko | SectorCalc",
+    "metaDescription": "Wie {tool} funktioniert, für wen es ist, was Sie eingeben und wie Sie das Ergebnis lesen. Entscheidungsunterstützung zu Preis und Margenrisiko von SectorCalc.",
+    "h1": "{tool}: den Auftrag kalkulieren und die Marge schützen",
+    "intro": "Mit {tool} prüfen Sie einen Auftrag, bevor Sie sich auf einen Preis festlegen. Es verwandelt Ihre Kosten, Mengen und Sätze in eine klare Margen- und Risikoeinschätzung, sodass Sie die verborgenen Faktoren erkennen, die den Gewinn still aufzehren, und sicher entscheiden statt beim Angebot zu raten.",
+    "ctaLabel": "{tool} öffnen",
+    "problemTitle": "Das gelöste Problem",
+    "problem": "Die meisten Aufträge verlieren ihre Marge lange vor der Rechnung, wenn Rüstzeiten, Nacharbeit, Überschreitungen und unterkalkulierte Positionen vor dem Angebot nie zusammengerechnet werden. {tool} macht diese Faktoren sichtbar, damit sie Sie nicht mehr überraschen.",
+    "helpTitle": "Wie {tool} hilft",
+    "help": "Es wendet die deterministische Rechen-Engine von SectorCalc auf Ihre Eingaben an und hebt die Faktoren hervor, die das Ergebnis am stärksten beeinflussen. Sie erhalten eine strukturierte, belastbare Einschätzung statt einer Blackbox-Zahl.",
+    "whoTitle": "Wer es nutzen sollte",
+    "who": "Betriebe, Kalkulatoren, Inhaber und Manager, die Arbeiten kalkulieren, Angebote prüfen oder eine einheitliche Basis im Team brauchen, profitieren am meisten von {tool}.",
+    "inputsTitle": "Was Sie eingeben",
+    "inputs": "Sie geben die zentralen Kosten, Mengen, Sätze und Annahmen Ihres Auftrags ein. Pflichtfelder werden minimal gehalten, und optionale Felder schärfen das Ergebnis, wenn Ihnen die Daten vorliegen.",
+    "outputsTitle": "Was das Ergebnis bedeutet",
+    "outputs": "{tool} liefert ein klares Urteil mit den zugrunde liegenden Kennzahlen und Risikotreibern, sodass Sie nicht nur die Zahl sehen, sondern auch, warum sie so ausfällt und was anzupassen ist.",
+    "trustTitle": "Geprüfte Berichte und Trust Trace",
+    "trust": "Premium-Ergebnisse können als geprüfte Berichte mit einer Trust-Trace-Spur aus Eingaben, Annahmen und Validierung gespeichert werden, sodass Kunden, Banken und Prüfer die Arbeit unabhängig überprüfen können.",
+    "faqTitle": "Häufige Fragen",
+    "relatedTitle": "Verwandte Premium-Tools",
+    "faq": [
+      { "q": "Ist {tool} kostenlos?", "a": "Sie können den Ansatz kostenlos in der Vorschau ansehen, während das vollständige Urteil, die Kennzahlen und der geprüfte Bericht Teil von SectorCalc Pro sind." },
+      { "q": "Ersetzt {tool} professionelle Beratung?", "a": "Nein. Es ist eine technische Simulation und ein Entscheidungswerkzeug, keine Finanz-, Rechts- oder Ingenieurberatung. Prüfen Sie Ergebnisse vor Geschäftsentscheidungen." },
+      { "q": "Wie genau ist das Ergebnis?", "a": "Die Ergebnisse spiegeln Ihre Eingaben und die deterministische Engine von SectorCalc wider. Bessere Eingaben liefern eine schärfere, belastbarere Einschätzung." },
+      { "q": "Kann ich das Ergebnis teilen?", "a": "Ja. Premium-Ergebnisse können als geprüfte Berichte mit einer überprüfbaren Trust Trace exportiert werden." },
+      { "q": "Für welche Branche ist {tool}?", "a": "Es ist auf die Preis- und Margenmuster seiner Branche abgestimmt und steht neben dem übrigen 27-Branchen-Toolset von SectorCalc." }
+    ]
+  },
   "enterprise": {
     "metaTitle": "SectorCalc für Business & Enterprise | Verifizierte Berechnung und Entscheidungsunterstützung",
     "metaDescription": "Business- und Enterprise-Pakete für SectorCalc: Teamnutzung, geprüfte Berichte, Trust Trace, Branchenpakete und beschaffungsfreundliche Entscheidungsunterstützung.",

@@ -19,13 +19,19 @@ import {
   getProgrammaticSeoPageBySlug,
   listProgrammaticSeoSlugs,
 } from "@/lib/seo/programmatic-seo-pages";
+import {
+  getPremiumToolSeoLandingBySlug,
+  listPremiumToolSeoLandingSlugs,
+} from "@/lib/seo/premium-tool-seo-landings";
+import { PremiumToolSeoLandingView } from "@/components/seo/PremiumToolSeoLanding";
+import { getTranslations } from "next-intl/server";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
 export const revalidate = 3600;
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return listProgrammaticSeoSlugs()
+  return [...listProgrammaticSeoSlugs(), ...listPremiumToolSeoLandingSlugs()]
     .slice()
     .sort()
     .map((slug) => ({ slug }));
@@ -37,6 +43,20 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { slug, locale } = await params;
+
+  const premiumLanding = getPremiumToolSeoLandingBySlug(slug);
+  if (premiumLanding) {
+    const t = await getTranslations({ locale, namespace: "premiumSeo" });
+    const fill = (key: string) =>
+      (t.raw(key) as string).replace(/\{tool\}/g, premiumLanding.toolName);
+    return createPageMetadata({
+      title: fill("metaTitle"),
+      description: fill("metaDescription"),
+      path: premiumLanding.seoHref,
+      locale: locale as AppLocale,
+    });
+  }
+
   const page = getProgrammaticSeoPageBySlug(slug);
   if (!page) {
     return {};
@@ -57,6 +77,11 @@ export default async function ProgrammaticSeoPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
+
+  const premiumLanding = getPremiumToolSeoLandingBySlug(slug);
+  if (premiumLanding) {
+    return <PremiumToolSeoLandingView landing={premiumLanding} locale={locale} />;
+  }
 
   const page = getProgrammaticSeoPageBySlug(slug);
   if (!page) {
