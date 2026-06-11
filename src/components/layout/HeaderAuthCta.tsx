@@ -13,25 +13,22 @@ export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps
   const t = useTranslations("nav");
   const { user, loading } = useUserSubscription();
 
-  const linkClass = mobile ? "apple-nav__dropdown-link" : "apple-nav__link sc-header-auth-link";
+  const linkClass = mobile
+    ? "sc-mobile-drawer__link sc-mobile-drawer__link--auth"
+    : "apple-nav__link sc-header-auth-link";
   const signUpClass = mobile
-    ? "apple-nav__dropdown-link sc-header-signup"
+    ? "sc-mobile-drawer__link sc-mobile-drawer__link--auth sc-mobile-drawer__link--signup"
     : "sc-header-signup";
-  const ctaClass = mobile
-    ? "apple-nav__dropdown-link get-pro-btn get-pro-btn--mobile"
-    : "get-pro-btn";
+  const groupClass = mobile ? "sc-mobile-drawer__auth-group" : "sc-header-auth-group";
 
   if (loading) {
     return (
-      <div className="sc-header-auth-group">
+      <div className={groupClass}>
         <Link href="/login" prefetch={false} onClick={onNavigate} className={linkClass}>
           {t("login")}
         </Link>
         <Link href="/login?next=/pricing" prefetch={false} onClick={onNavigate} className={signUpClass}>
           {t("signUp")}
-        </Link>
-        <Link href="/pricing" prefetch={false} onClick={onNavigate} className={ctaClass}>
-          {t("getPro")}
         </Link>
       </div>
     );
@@ -39,22 +36,19 @@ export function HeaderAuthCta({ onNavigate, mobile = false }: HeaderAuthCtaProps
 
   if (!user) {
     return (
-      <div className="sc-header-auth-group">
+      <div className={groupClass}>
         <Link href="/login" prefetch={false} onClick={onNavigate} className={linkClass}>
           {t("login")}
         </Link>
         <Link href="/login?next=/pricing" prefetch={false} onClick={onNavigate} className={signUpClass}>
           {t("signUp")}
         </Link>
-        <Link href="/pricing" prefetch={false} onClick={onNavigate} className={ctaClass}>
-          {t("getPro")}
-        </Link>
       </div>
     );
   }
 
   return (
-    <div className="sc-header-auth-group">
+    <div className={groupClass}>
       <Link href="/account" prefetch={false} onClick={onNavigate} className={linkClass}>
         {t("account")}
       </Link>

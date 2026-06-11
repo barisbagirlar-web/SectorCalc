@@ -41,11 +41,18 @@ export function RegionIndicator({ className = "" }: { className?: string }) {
   );
 }
 
-export function RegionSelector({ className = "" }: { className?: string }) {
+export function RegionSelector({
+  className = "",
+  variant = "default",
+}: {
+  className?: string;
+  variant?: "default" | "compact";
+}) {
   const t = useTranslations("region");
   const { region, profile, source } = useRegion();
   const [pending, startTransition] = useTransition();
   const [manual, setManual] = useState<RegionCode | null>(null);
+  const compact = variant === "compact";
 
   useEffect(() => {
     setManual(readManualRegionCookie());
@@ -67,13 +74,18 @@ export function RegionSelector({ className = "" }: { className?: string }) {
     });
   };
 
+  const regionTitle = manual
+    ? t("manualActive", { region: profile.label })
+    : t("followsLanguage", { region: profile.label });
+
   return (
     <label
-      className={`apple-locale language-selector language-selector--region apple-header__region-trigger ${className}`.trim()}
+      className={`apple-locale language-selector language-selector--region apple-header__region-trigger${compact ? " language-selector--compact-region" : ""} ${className}`.trim()}
       data-region-selector="true"
       data-region-code={region}
       data-currency-code={profile.currency}
       data-region-source={source}
+      title={compact ? t("label") : regionTitle}
     >
       <HeaderGlobeIcon />
       <span className="sr-only">{t("label")}</span>
@@ -82,12 +94,8 @@ export function RegionSelector({ className = "" }: { className?: string }) {
         onChange={(event) => handleChange(event.target.value)}
         disabled={pending}
         aria-label={t("label")}
-        className="apple-locale__select language-selector__select"
-        title={
-          manual
-            ? t("manualActive", { region: profile.label })
-            : t("followsLanguage", { region: profile.label })
-        }
+        className={`apple-locale__select language-selector__select${compact ? " language-selector__select--overlay" : ""}`}
+        title={regionTitle}
       >
         {REGION_OPTIONS.map((opt) => (
           <option key={opt.code} value={opt.code}>

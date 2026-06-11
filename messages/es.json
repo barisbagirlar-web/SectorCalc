@@ -1,15 +1,15 @@
 {
   "nav": {
-    "freeCalculators": "Calculadoras gratis",
+    "freeCalculators": "Calculadoras gratuitas",
     "premiumCalculators": "Calculadoras premium",
-    "industryCalculators": "Calculadoras sectoriales",
+    "industryCalculators": "Calculadoras por industria",
     "calculators": "Calculadoras",
     "caseStudies": "Casos de estudio",
     "resources": "Recursos",
     "signUp": "Registrarse",
     "tools": "Controles gratuitos",
     "premiumVerdicts": "Veredictos premium",
-    "industries": "Industrias",
+    "industries": "Calculadoras por industria",
     "byFunction": "Por función",
     "categories": "Categories",
     "reports": "Informes",
@@ -221,21 +221,25 @@
       "subtitle": "Choose the type of loss, measurement or decision you need first."
     },
     "freeTools": {
-      "eyebrow": "Free tools",
-      "title": "Herramientas de cálculo gratuitas",
-      "subtitle": "Compruebe rápido coste, área, tiempo, merma, energía, rutas y margen. No se requiere tarjeta."
+      "eyebrow": "Calculadoras gratuitas",
+      "title": "Calculadoras gratuitas",
+      "subtitle": "Encuentre la calculadora que necesita por categoría.",
+      "metaTitle": "Calculadoras gratuitas | SectorCalc",
+      "metaDescription": "Calculadoras gratuitas por categoría — medición, coste, finanzas, energía, conversión y decisiones diarias."
     },
     "premiumTools": {
-      "eyebrow": "Premium analyzers",
-      "title": "Herramientas de análisis premium",
-      "subtitle": "Profundice en riesgo de margen, seguridad de cotización, pérdida operativa y desviación de costes. Use el resultado como resumen de decisión.",
-      "metaTitle": "Herramientas de análisis premium — Resúmenes de decisión",
-      "metaDescription": "Análisis premium para riesgo de margen, seguridad de cotización, pérdida operativa y desviación de costes."
+      "eyebrow": "Calculadoras premium",
+      "title": "Calculadoras premium",
+      "subtitle": "Explore calculadoras avanzadas para escenarios, controles de riesgo y resúmenes de decisión.",
+      "metaTitle": "Calculadoras premium | SectorCalc",
+      "metaDescription": "Calculadoras premium para escenarios, controles de riesgo y resúmenes de decisión."
     },
     "industries": {
-      "eyebrow": "Industries",
-      "title": "Herramientas de cálculo por sector",
-      "subtitle": "Elija su sector. Vea calculadoras gratuitas y análisis premium relacionados en un solo lugar."
+      "eyebrow": "Calculadoras sectoriales",
+      "title": "Calculadoras sectoriales",
+      "subtitle": "Encuentre calculadoras por sector, oficio, profesión y modelo operativo.",
+      "metaTitle": "Calculadoras sectoriales | SectorCalc",
+      "metaDescription": "Calculadoras por sector, oficio, profesión y modelo operativo — 27 paquetes sectoriales."
     },
     "labels": {
       "categories": {
@@ -271,9 +275,9 @@
       "label": "Buscar en el catálogo",
       "placeholder": {
         "categories": "Buscar por función, sector o nombre de herramienta…",
-        "free-tools": "Buscar calculadora…",
-        "premium-tools": "Buscar análisis premium…",
-        "industries": "Buscar sector…",
+        "free-tools": "Buscar calculadoras gratuitas...",
+        "premium-tools": "Buscar calculadoras premium...",
+        "industries": "Buscar calculadoras sectoriales...",
         "homepage": "Buscar calculadoras y analizadores…"
       },
       "noResults": "No se encontraron herramientas.",
@@ -309,11 +313,11 @@
     },
     "discoveryFooter": {
       "freeToolsLead": "¿Necesita un análisis más detallado?",
-      "freeToolsCta": "Ver herramientas premium"
+      "freeToolsCta": "Ver calculadoras premium"
     }
   },
   "freeTrafficCatalog": {
-    "metaTitle": "Free Sector Calculators — 100 Tools",
+    "metaTitle": "Calculadoras gratuitas | SectorCalc",
     "metaDescription": "Free browser calculators for measurement, cost, finance, energy, conversion and everyday decisions. 100 active tools — no sign-up required.",
     "eyebrow": "Free calculators",
     "title": "Free sector calculators",
@@ -460,68 +464,21 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "Motor de decisión industrial",
-    "productTitle": "PRODUCTO",
+    "tagline": "Calculadoras prácticas para empresas.",
+    "productTitle": "Producto",
+    "legalTitle": "Legal",
     "product": {
-      "freeChecks": "Controles gratuitos",
-      "premiumTools": "Herramientas premium",
-      "industries": "Industrias",
-      "pricing": "Precios",
-      "categories": "Categorías"
+      "freeChecks": "Calculadoras gratuitas",
+      "premiumTools": "Calculadoras premium",
+      "industries": "Calculadoras por industria",
+      "pricing": "Precios"
     },
-    "sectorsTitle": "SECTORES",
-    "allSectors": "Los 27 sectores",
-    "sectors": {
-      "manufacturing": "Manufactura",
-      "logistics": "Logística",
-      "construction": "Construcción"
-    },
-    "companyTitle": "EMPRESA",
-    "company": {
-      "about": "Acerca de",
-      "manifesto": "Manifiesto",
-      "caseStudies": "Casos de estudio",
-      "howItWorks": "Cómo funciona",
-      "methodology": "Metodología",
-      "blog": "Blog"
-    },
-    "trustLegalTitle": "CONFIANZA Y LEGAL",
     "compliance": {
       "privacy": "Política de privacidad",
       "terms": "Términos de servicio",
       "disclaimer": "Aviso legal"
     },
-    "authorityTitle": "AUTORIDAD",
-    "authority": {
-      "trust": "Confianza y verificación",
-      "vault": "Bóveda de datos personales →",
-      "investorDemo": "Demo para inversores",
-      "operatingSystem": "Sistema operativo"
-    },
-    "trustTrace": {
-      "title": "Resumen del cálculo",
-      "link": "Verificar cualquier informe",
-      "subtext": "Confirme la autenticidad de los informes en nuestra página pública de verificación."
-    },
-    "trustBar": {
-      "iso": "ISO 27001 Ready",
-      "sla": "SLA: 99.9% de disponibilidad",
-      "kvkk": "Conforme KVKK",
-      "gdpr": "Listo para GDPR"
-    },
-    "newsletter": {
-      "title": "Insights sectoriales semanales",
-      "placeholder": "usted@empresa.com",
-      "button": "Suscribirse",
-      "note": "Solo solicitud en navegador — abre su cliente de correo. Sin almacenamiento sin consentimiento."
-    },
-    "social": {
-      "linkedin": "SectorCalc en LinkedIn",
-      "twitter": "SectorCalc en X",
-      "github": "SectorCalc en GitHub"
-    },
-    "copyright": "© {year} {site}. Todos los derechos reservados.",
-    "copyrightManifesto": "© {year} SectorCalc. Motor de decisión industrial. Todos los derechos reservados."
+    "copyrightSimple": "© {year} SectorCalc. Todos los derechos reservados."
   },
   "region": {
     "label": "Region",
@@ -951,207 +908,54 @@
   },
   "homepageHybrid": {
     "meta": {
-      "title": "SectorCalc — Measure hidden loss across {sectorCount} sector areas",
-      "description": "Your operation is leaking money. SectorCalc helps teams measure hidden loss with sector calculators and premium decision reports — without ERP complexity."
+      "title": "SectorCalc — Calculadoras gratuitas y premium",
+      "description": "Calculadoras prácticas para coste, merma, margen y pérdida operativa — comprobaciones gratuitas y resúmenes de decisión premium."
     },
     "hero": {
-      "eyebrow": "Hidden loss detection",
-      "headline": "Your operation is leaking money. Measure where.",
-      "subtitleLine1": "SectorCalc helps teams measure hidden loss in scrap, setup, routes, energy, OEE and margins.",
-      "subtitleLine2": "Turn sector-specific inputs into calculators, diagnostics and decision reports — without ERP complexity.",
-      "supporting": "Built for businesses priced out of ERP.",
-      "ctaPrimary": "Find your loss area",
-      "ctaSecondary": "View free calculators"
-    },
-    "references": {
-      "eyebrow": "Industrial intelligence standards",
-      "ariaLabel": "Industrial and media reference organizations",
-      "imageAlt": "Industrial and manufacturing reference organizations"
-    },
-    "aboutUs": {
-      "eyebrow": "About us",
-      "punchline": "SectorCalc is here to change that.",
-      "opening": "Scrap in your quote. Setup time you never priced. Deadhead routes. Margin that appears only at month-end. Most teams cannot see these losses until the spreadsheet says so.",
-      "body": "We turn sector-specific operational knowledge into calculators and decision reports from $19/month: OEE, scrap, routing, carbon, and tolerance. Every result includes a calculation trace showing how numbers were derived."
+      "eyebrow": "Calculadoras sectoriales",
+      "headline": "Calcule coste, merma, margen y pérdida operativa antes de que crezcan.",
+      "subtitleLine1": "SectorCalc ofrece calculadoras prácticas para fabricación, logística, construcción, energía, restauración, servicios de campo y equipos pequeños.",
+      "subtitleLine2": "El objetivo no es un software complejo — es una lectura clara de los números antes de decidir.",
+      "ctaPrimary": "Calculadoras gratuitas",
+      "ctaSecondary": "Calculadoras premium"
     },
     "positioning": {
-      "title": "Lógica de cálculo específica por sector, sin la complejidad del software empresarial.",
-      "text": "Most teams still calculate loss, waste, cost and efficiency in spreadsheets, notebooks or guesswork. SectorCalc gives them focused calculators and decision reports they can use immediately."
+      "title": "Lógica de cálculo sectorial. Uso sencillo. Resultados claros.",
+      "text": "Muchas empresas siguen calculando costes, mermas, tiempos, rutas, energía, mano de obra y margen en hojas de cálculo, cuadernos o estimaciones. SectorCalc hace esos cálculos más estructurados, comprensibles y rápidos."
     },
-    "scenarios": {
-      "eyebrow": "Sample hidden-loss scenarios",
-      "cnc": {
-        "label": "Sample hidden-loss scenario",
-        "title": "CNC scrap and setup loss",
-        "text": "A typical CNC shop can lose margin through scrap drift, setup overruns and tooling cost that never appears in the first quote.",
-        "metric": "Example exposure: $4,280/month",
-        "action": "Track scrap threshold, setup drift and tool wear before accepting similar jobs.",
-        "cta": "Try CNC calculator"
-      },
-      "route": {
-        "label": "Sample hidden-loss scenario",
-        "title": "Route deadhead cost",
-        "text": "Logistics teams often underestimate the cost of empty return trips and non-optimized routing.",
-        "metric": "Example exposure: $6,120/month",
-        "action": "Calculate actual cost per kilometer including deadhead and reoptimize routes quarterly.",
-        "cta": "Try route calculator"
-      },
-      "energy": {
-        "label": "Benchmark model",
-        "title": "Energy peak cost exposure",
-        "text": "Industrial operations can pay 3–5× base rate during peak demand hours without tracking when those hours are.",
-        "metric": "Typical exposure: $2,890/month",
-        "action": "Map your peak consumption hours and shift non-critical loads to off-peak windows.",
-        "cta": "Try energy calculator"
-      },
-      "food": {
-        "label": "Benchmark model",
-        "title": "Food waste and portion drift",
-        "text": "Restaurant and catering operations can lose revenue to untracked waste, overportioning and ingredient spoilage.",
-        "metric": "Typical exposure: $3,450/month",
-        "action": "Track portion cost variance and waste by shift to identify training gaps.",
-        "cta": "Try food waste calculator"
-      }
-    },
-    "measure": {
-      "title": "What you can measure with SectorCalc",
-      "money": {
-        "title": "Money & margin",
-        "bullet1": "Hidden cost layers",
-        "bullet2": "Margin leaks",
-        "bullet3": "Pricing gaps"
-      },
-      "material": {
-        "title": "Material & scrap",
-        "bullet1": "Scrap drift",
-        "bullet2": "Waste you cannot see",
-        "bullet3": "Inventory loss"
-      },
-      "time": {
-        "title": "Time & OEE",
-        "bullet1": "Setup overruns",
-        "bullet2": "Downtime cost",
-        "bullet3": "Throughput loss"
-      },
-      "energy": {
-        "title": "Energy & carbon",
-        "bullet1": "Peak cost exposure",
-        "bullet2": "Efficiency gaps",
-        "bullet3": "Carbon footprint"
+    "useCases": {
+      "title": "¿Dónde se utiliza?",
+      "items": {
+        "scrap": "Tasa de merma y desperdicio",
+        "area": "Metros cuadrados y área",
+        "machineTime": "Tiempo de máquina",
+        "labor": "Coste laboral",
+        "route": "Coste de ruta y transporte",
+        "energy": "Consumo de energía",
+        "quoteMargin": "Presupuesto y riesgo de margen",
+        "oee": "OEE y eficiencia",
+        "carbon": "Cálculos de carbono y sostenibilidad"
       }
     },
     "platform": {
-      "title": "Industrial calculators. Sector-specific.",
-      "stat": "{sectorCount} sector areas → 50+ calculator roadmap → Decision reports",
-      "text": "Free calculators and premium decision reports — manufacturing, logistics, construction, energy and more.",
-      "cta": "View all sectors",
+      "title": "Calculadoras gratuitas y resúmenes de decisión premium",
+      "text": "Use calculadoras gratuitas para cálculos básicos; calculadoras premium para escenarios, riesgos y resúmenes de decisión más profundos.",
+      "cta": "Ver todas las calculadoras sectoriales",
       "categories": {
-        "manufacturing": "Manufacturing",
-        "logistics": "Logistics",
-        "construction": "Construction",
-        "energy": "Energy",
-        "food": "Food & Beverage",
-        "textile": "Textile",
-        "automotive": "Automotive",
-        "healthcare": "Healthcare"
+        "manufacturing": "Fabricación",
+        "logistics": "Logística",
+        "construction": "Construcción",
+        "energy": "Energía",
+        "food": "Alimentación",
+        "textile": "Textil",
+        "automotive": "Automoción",
+        "healthcare": "Sanidad"
       }
-    },
-    "comparison": {
-      "title": "How teams calculate loss today",
-      "rowLabel": "Comparison dimension",
-      "columns": {
-        "excel": "Excel",
-        "notebook": "Notebook",
-        "erp": "ERP/SAP",
-        "sectorcalc": "SectorCalc"
-      },
-      "rows": {
-        "setup": {
-          "label": "Setup time",
-          "excel": "Hours",
-          "notebook": "N/A",
-          "erp": "Months",
-          "sectorcalc": "5 min"
-        },
-        "cost": {
-          "label": "Cost",
-          "excel": "Free",
-          "notebook": "Free",
-          "erp": "$50K+",
-          "sectorcalc": "From $9"
-        },
-        "sectorLogic": {
-          "label": "Sector logic",
-          "excel": "Manual",
-          "notebook": "Manual",
-          "erp": "Generic",
-          "sectorcalc": "Built-in"
-        },
-        "mobile": {
-          "label": "Mobile",
-          "excel": "Limited",
-          "notebook": "No",
-          "erp": "Limited",
-          "sectorcalc": "Yes"
-        },
-        "assumptions": {
-          "label": "Assumptions",
-          "excel": "Hidden",
-          "notebook": "Hidden",
-          "erp": "Configured",
-          "sectorcalc": "Transparent"
-        },
-        "updates": {
-          "label": "Updates",
-          "excel": "Manual",
-          "notebook": "Manual",
-          "erp": "Expensive",
-          "sectorcalc": "Auto"
-        }
-      }
-    },
-    "pricing": {
-      "title": "Priced for teams priced out of enterprise software",
-      "cta": "Start free — no card required",
-      "viewPlans": "View full pricing →",
-      "singleReport": "Single decision reports from $9.",
-      "plans": {
-        "free": {
-          "name": "Free",
-          "price": "$0",
-          "feature1": "Base calculators",
-          "feature2": "Sample scenarios",
-          "feature3": "No card required"
-        },
-        "pro": {
-          "name": "Pro",
-          "price": "$19/mo",
-          "cta": "Get Pro",
-          "feature1": "Advanced diagnostics",
-          "feature2": "Benchmark models",
-          "feature3": "Export & reports"
-        },
-        "team": {
-          "name": "Team",
-          "price": "$49/mo",
-          "feature1": "Multi-user access",
-          "feature2": "Custom templates",
-          "feature3": "Priority support"
-        }
-      }
-    },
-    "betaPartner": {
-      "title": "Help build verified sector benchmarks.",
-      "text": "SectorCalc is building benchmark-backed calculators with operators, consultants and early businesses. Beta partners can receive premium reports in exchange for structured feedback.",
-      "cta": "Apply for beta partner access"
     },
     "final": {
-      "title": "Find the loss area. Measure the exposure. Make the call.",
-      "bullet1": "{sectorCount} sector areas",
-      "bullet2": "50+ calculator roadmap",
-      "bullet3": "Free tier available",
-      "bullet4": "No credit card required",
-      "cta": "Find your loss area"
+      "title": "SectorCalc es una plataforma de cálculo en evolución",
+      "text": "Las herramientas siguen creciendo con las necesidades sectoriales. El objetivo no es vender sistemas complejos a cada empresa — es facilitar la pregunta de cálculo correcta.",
+      "cta": "Calculadoras gratuitas"
     }
   },
   "industrialHome": {
@@ -1384,7 +1188,7 @@
   },
   "navigation": {
     "calculators": "Calculadoras",
-    "industries": "Industrias",
+    "industries": "Calculadoras por industria",
     "caseStudies": "Casos de estudio",
     "pricing": "Precios",
     "resources": "Recursos",
@@ -1395,7 +1199,10 @@
     "account": "Cuenta",
     "freeTools": "Calculadora gratuita",
     "premiumTools": "Análisis premium",
-    "reports": "Informe de decisión"
+    "reports": "Informe de decisión",
+    "freeCalculators": "Calculadoras gratuitas",
+    "premiumCalculators": "Calculadoras premium",
+    "industryCalculators": "Calculadoras por industria"
   },
   "homepage": {
     "headline": "Mida pérdidas ocultas, exposición de margen y riesgo operativo con herramientas sectoriales",
@@ -2906,5 +2713,11 @@
       "seoTitle": "Calculadora de metros cuadrados — área en m² | SectorCalc",
       "seoDescription": "Cálculo de área rectangular: largo × ancho con conversiones ft² y yd²."
     }
+  },
+  "schemaBreadcrumbs": {
+    "home": "Inicio",
+    "freeTools": "Calculadoras gratuitas",
+    "premiumTools": "Calculadoras premium",
+    "industries": "Calculadoras sectoriales"
   }
 }

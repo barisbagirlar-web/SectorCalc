@@ -1414,6 +1414,53 @@ form[data-calculation-form="true"] {
   padding-inline: 0.75rem 0.625rem;
 }
 
+.sc-header-locale-group .language-selector--compact-region {
+  position: relative;
+  gap: 0;
+  justify-content: center;
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  padding: 0;
+  flex: 0 0 36px;
+}
+
+.sc-header-locale-group .language-selector--compact-region .apple-header__globe-icon {
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.sc-header-locale-group .language-selector--compact-code {
+  position: relative;
+  justify-content: center;
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  padding: 0;
+  flex: 0 0 36px;
+}
+
+.sc-header-locale-group .language-selector__code {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  color: rgb(0 0 0 / 0.72);
+  pointer-events: none;
+  user-select: none;
+}
+
+.sc-header-locale-group .language-selector__select--overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 36px;
+  opacity: 0;
+  cursor: pointer;
+}
+
 .sc-header-locale-group .language-selector--region .apple-header__globe-icon {
   width: 16px;
   height: 16px;
@@ -1423,6 +1470,11 @@ form[data-calculation-form="true"] {
 .sc-header-locale-group .language-selector__select {
   min-width: 0;
   max-width: 6.5rem;
+}
+
+.sc-header-locale-group .language-selector--compact-region .language-selector__select,
+.sc-header-locale-group .language-selector--compact-code .language-selector__select {
+  max-width: none;
 }
 
 .sc-header-locale-group .apple-locale__select {

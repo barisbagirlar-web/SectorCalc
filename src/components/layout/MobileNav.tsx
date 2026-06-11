@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
+import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { MobileHeaderNav } from "@/components/layout/HeaderNav";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { RegionSelector } from "@/components/layout/RegionSelector";
@@ -92,9 +93,9 @@ export function MobileNav() {
               style={{ top: panelTop }}
             >
               <div className="sc-mobile-drawer__section sc-mobile-drawer__section--locale">
-                <div className="sc-header-locale-group flex w-full flex-wrap gap-2">
-                  <RegionSelector className="min-w-0 flex-1" />
-                  <LocaleSwitcher className="min-w-0 flex-1" />
+                <div className="sc-header-locale-group flex w-full items-center justify-end gap-2">
+                  <RegionSelector className="sc-header-locale-control" variant="compact" />
+                  <LocaleSwitcher className="sc-header-locale-control" variant="compact" />
                 </div>
               </div>
               <ul className="sc-mobile-drawer__links">
@@ -104,6 +105,9 @@ export function MobileNav() {
                   activeLinkClassName="sc-mobile-drawer__link sc-mobile-drawer__link--active"
                 />
               </ul>
+              <div className="sc-mobile-drawer__section sc-mobile-drawer__section--auth">
+                <HeaderAuthCta mobile onNavigate={closeMenu} />
+              </div>
             </nav>
           </div>,
           document.body,

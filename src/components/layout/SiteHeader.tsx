@@ -1,4 +1,5 @@
 import { SiteLogo } from "@/components/brand/SiteLogo";
+import { HeaderAuthCta } from "@/components/layout/HeaderAuthCta";
 import { DesktopHeaderNav } from "@/components/layout/HeaderNav";
 import { HeaderNavPrefetch } from "@/components/layout/HeaderNavPrefetch";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
@@ -20,10 +21,11 @@ export function SiteHeader() {
           <div className="sc-header-util-compact hidden lg:flex">
             <div className="sc-header-locale-group" aria-label="Region and language">
               <div className="hidden xl:block">
-                <RegionSelector className="sc-header-locale-control" />
+                <RegionSelector className="sc-header-locale-control" variant="compact" />
               </div>
-              <LocaleSwitcher className="sc-header-locale-control" />
+              <LocaleSwitcher className="sc-header-locale-control" variant="compact" />
             </div>
+            <HeaderAuthCta />
           </div>
           <MobileNav />
         </div>
