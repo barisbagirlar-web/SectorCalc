@@ -36,6 +36,7 @@
     "smoke:about-page": "node scripts/smoke-about-page.mjs",
     "smoke:business-packaging": "node scripts/smoke-business-packaging.mjs",
     "smoke:premium-seo-landings": "node scripts/smoke-premium-seo-landings.mjs",
+    "smoke:ai-assistant": "node scripts/smoke-ai-assistant.mjs",
     "assert:route-cache-policy": "node scripts/assert-route-cache-policy.mjs",
     "audit:formulas": "npx tsx scripts/audit-formulas.ts",
     "audit:alignment": "npx tsx scripts/audit-alignment.ts",

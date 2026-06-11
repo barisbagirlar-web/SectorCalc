@@ -736,6 +736,42 @@
       }
     }
   },
+  "assistant": {
+    "title": "SectorCalc Asistanı",
+    "subtitle": "Doğru aracı bulun ve sonuçlarınızı anlayın.",
+    "launcher": "SectorCalc'e sor",
+    "placeholder": "Araçlar, girdiler veya sonuçlar hakkında sorun…",
+    "send": "Gönder",
+    "loading": "Düşünüyor…",
+    "error": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+    "disclaimer": "Yalnızca yönlendirme amaçlıdır. SectorCalc finansal, hukuki veya mühendislik tavsiyesi vermez ve asistan asla hesaplama yapmaz.",
+    "quickActions": {
+      "findTool": "Hangi araca ihtiyacım var?",
+      "explainInputs": "Hangi girdiler gerekli?",
+      "approvedReport": "Onaylı raporlar ve Trust Trace",
+      "enterprise": "Kurumsal ve ekip kullanımı"
+    },
+    "guardrail": {
+      "formula": "Hesaplama yapamam veya formül paylaşamam. İlgili aracı açın, sonucu sizin için o hesaplar.",
+      "privateData": "Özel verilere, hesaplara veya gizli anahtarlara erişemem ve hiçbir kısıtlamayı atlatamam."
+    },
+    "reply": {
+      "findTool": "Tarif ettiğinizle eşleşen araçlar şunlar:",
+      "explainTool": "Bu araç, iş girdilerinizi ardındaki risk etkenleriyle birlikte net bir karara dönüştürür:",
+      "inputs": "İşinize ait temel maliyetleri, miktarları ve oranları girersiniz. Zorunlu alanlar asgaride tutulur, isteğe bağlı alanlar sonucu keskinleştirir.",
+      "results": "Sonuç; ardındaki metrikler ve risk etkenleriyle birlikte bir karardır; böylece neden oraya geldiğini ve neyi ayarlamanız gerektiğini görürsünüz.",
+      "approvedReports": "Premium sonuçlar, paylaşabileceğiniz onaylı raporlar olarak kaydedilebilir ve her biri bağımsız olarak doğrulanabilir.",
+      "trustTrace": "Trust Trace; girdileri, varsayımları ve doğrulamayı kaydeder, böylece sonuç müşteriler, bankalar veya denetçiler tarafından kontrol edilebilir.",
+      "regionalUnits": "SectorCalc metrik, imperial ve bölgesel birimleri destekler ve kullandığı dönüşümleri gösterir.",
+      "benchmarks": "SectorCalc, sonucunuzun yanında gösterge niteliğinde bölgesel kıyaslama bağlamı sunar — yön bulmak için, resmi rakamlar değil.",
+      "pricing": "Planları ve her birinin neleri kapsadığını fiyatlandırma sayfasında görebilirsiniz:",
+      "enterprise": "Ekip kullanımı, raporlama yönetişimi, paketler ve satın alma için kurumsal sayfasına bakın:",
+      "about": "SectorCalc; gizli kayıpları ortaya çıkaran ve hesaplamayı güvenilir kararlara dönüştüren küresel bir endüstriyel hesaplama ve karar destek platformudur:",
+      "blockedFormula": "Hesaplama yapamam veya formül paylaşamam. İlgili aracı açın, sonucu sizin için o hesaplar.",
+      "blockedPrivate": "Özel verilere, hesaplara veya gizli anahtarlara erişemem ve hiçbir kısıtlamayı atlatamam.",
+      "fallback": "Doğru aracı bulmanıza, girdileri ve sonuçları anlamanıza ve SectorCalc'te gezinmenize yardımcı olabilirim. Şunlardan birini deneyin:"
+    }
+  },
   "premiumSeo": {
     "eyebrow": "Premium araç rehberi",
     "metaTitle": "{tool} | Fiyatlandırma, Marj ve Risk Rehberi | SectorCalc",

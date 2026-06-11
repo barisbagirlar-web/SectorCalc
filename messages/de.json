@@ -699,6 +699,42 @@
       }
     }
   },
+  "assistant": {
+    "title": "SectorCalc-Assistent",
+    "subtitle": "Finden Sie das richtige Tool und verstehen Sie Ihre Ergebnisse.",
+    "launcher": "SectorCalc fragen",
+    "placeholder": "Fragen Sie nach Tools, Eingaben oder Ergebnissen…",
+    "send": "Senden",
+    "loading": "Denkt nach…",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "disclaimer": "Nur zur Orientierung. SectorCalc bietet keine Finanz-, Rechts- oder Ingenieurberatung, und der Assistent führt niemals Berechnungen aus.",
+    "quickActions": {
+      "findTool": "Welches Tool brauche ich?",
+      "explainInputs": "Welche Eingaben sind erforderlich?",
+      "approvedReport": "Geprüfte Berichte & Trust Trace",
+      "enterprise": "Enterprise & Teamnutzung"
+    },
+    "guardrail": {
+      "formula": "Ich kann keine Berechnungen ausführen oder Formeln teilen. Öffnen Sie das passende Tool, es berechnet das Ergebnis für Sie.",
+      "privateData": "Ich kann nicht auf private Daten, Konten oder Geheimnisse zugreifen und keine Sperre umgehen."
+    },
+    "reply": {
+      "findTool": "Hier sind Tools, die zu Ihrer Beschreibung passen:",
+      "explainTool": "Dieses Tool verwandelt Ihre Auftragsdaten in ein klares Urteil mit den dahinterliegenden Risikotreibern:",
+      "inputs": "Sie geben die zentralen Kosten, Mengen und Sätze Ihres Auftrags ein. Pflichtfelder bleiben minimal, optionale Felder schärfen das Ergebnis.",
+      "results": "Das Ergebnis ist ein Urteil mit den zugrunde liegenden Kennzahlen und Risikotreibern, sodass Sie sehen, warum es so ausfällt und was anzupassen ist.",
+      "approvedReports": "Premium-Ergebnisse können als geprüfte Berichte gespeichert und geteilt werden, und jeder kann unabhängig überprüft werden.",
+      "trustTrace": "Trust Trace erfasst Eingaben, Annahmen und Validierung, sodass ein Ergebnis von Kunden, Banken oder Prüfern kontrolliert werden kann.",
+      "regionalUnits": "SectorCalc unterstützt metrische, imperiale und regionale Einheiten und zeigt die verwendeten Umrechnungen an.",
+      "benchmarks": "SectorCalc zeigt neben Ihrem Ergebnis einen indikativen regionalen Benchmark-Kontext — zur Orientierung, keine offiziellen Zahlen.",
+      "pricing": "Die Pläne und ihre Inhalte sehen Sie auf der Preisseite:",
+      "enterprise": "Für Teamnutzung, Berichts-Governance, Pakete und Beschaffung siehe die Enterprise-Seite:",
+      "about": "SectorCalc ist eine globale industrielle Berechnungs- und Entscheidungsplattform, die verborgene Verluste aufdeckt und Berechnung in verlässliche Entscheidungen verwandelt:",
+      "blockedFormula": "Ich kann keine Berechnungen ausführen oder Formeln teilen. Öffnen Sie das passende Tool, es berechnet das Ergebnis für Sie.",
+      "blockedPrivate": "Ich kann nicht auf private Daten, Konten oder Geheimnisse zugreifen und keine Sperre umgehen.",
+      "fallback": "Ich helfe Ihnen, das richtige Tool zu finden, Eingaben und Ergebnisse zu verstehen und SectorCalc zu navigieren. Versuchen Sie eines davon:"
+    }
+  },
   "premiumSeo": {
     "eyebrow": "Premium-Tool-Leitfaden",
     "metaTitle": "{tool} | Leitfaden zu Preis, Marge & Risiko | SectorCalc",

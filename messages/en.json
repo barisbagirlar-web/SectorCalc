@@ -736,6 +736,42 @@
       }
     }
   },
+  "assistant": {
+    "title": "SectorCalc Assistant",
+    "subtitle": "Find the right tool and understand your results.",
+    "launcher": "Ask SectorCalc",
+    "placeholder": "Ask about tools, inputs, or results…",
+    "send": "Send",
+    "loading": "Thinking…",
+    "error": "Something went wrong. Please try again.",
+    "disclaimer": "Guidance only. SectorCalc does not provide financial, legal, or engineering advice, and the assistant never runs calculations.",
+    "quickActions": {
+      "findTool": "Which tool do I need?",
+      "explainInputs": "What inputs are required?",
+      "approvedReport": "Approved reports & Trust Trace",
+      "enterprise": "Enterprise & team usage"
+    },
+    "guardrail": {
+      "formula": "I can't run calculations or share formulas. Open the relevant tool and it will compute the result for you.",
+      "privateData": "I can't access private data, accounts, or secrets, and I can't bypass any gate."
+    },
+    "reply": {
+      "findTool": "Here are tools that match what you described:",
+      "explainTool": "This tool turns your job inputs into a clear verdict with the risk drivers behind it:",
+      "inputs": "You enter the core costs, quantities, and rates for your job. Required fields are kept minimal, and optional fields sharpen the result.",
+      "results": "The result is a verdict with the metrics and risk drivers behind it, so you can see why it lands where it does and what to adjust.",
+      "approvedReports": "Premium results can be saved as approved reports you can share, and each can be verified independently.",
+      "trustTrace": "Trust Trace records inputs, assumptions, and validation so a result can be checked by customers, banks, or auditors.",
+      "regionalUnits": "SectorCalc supports metric, imperial, and regional units, and shows the conversions it used.",
+      "benchmarks": "SectorCalc shows indicative regional benchmark context next to your result — for orientation, not official figures.",
+      "pricing": "You can see the plans and what each includes on the pricing page:",
+      "enterprise": "For team usage, reporting governance, bundles, and procurement, see the enterprise page:",
+      "about": "SectorCalc is a global industrial calculation and decision-support platform that exposes hidden losses and turns computation into reliable decisions:",
+      "blockedFormula": "I can't run calculations or share formulas. Open the relevant tool and it will compute the result for you.",
+      "blockedPrivate": "I can't access private data, accounts, or secrets, and I can't bypass any gate.",
+      "fallback": "I can help you find the right tool, understand inputs and results, and navigate SectorCalc. Try one of these:"
+    }
+  },
   "premiumSeo": {
     "eyebrow": "Premium tool guide",
     "metaTitle": "{tool} | Pricing, Margin & Risk Guide | SectorCalc",

@@ -699,6 +699,42 @@
       }
     }
   },
+  "assistant": {
+    "title": "Assistant SectorCalc",
+    "subtitle": "Trouvez le bon outil et comprenez vos résultats.",
+    "launcher": "Demander à SectorCalc",
+    "placeholder": "Posez une question sur les outils, les saisies ou les résultats…",
+    "send": "Envoyer",
+    "loading": "Réflexion…",
+    "error": "Une erreur s'est produite. Veuillez réessayer.",
+    "disclaimer": "À titre indicatif uniquement. SectorCalc ne fournit pas de conseil financier, juridique ou d'ingénierie, et l'assistant n'effectue jamais de calculs.",
+    "quickActions": {
+      "findTool": "De quel outil ai-je besoin ?",
+      "explainInputs": "Quelles saisies sont requises ?",
+      "approvedReport": "Rapports approuvés et Trust Trace",
+      "enterprise": "Enterprise et usage en équipe"
+    },
+    "guardrail": {
+      "formula": "Je ne peux pas effectuer de calculs ni partager de formules. Ouvrez l'outil concerné, il calculera le résultat pour vous.",
+      "privateData": "Je ne peux pas accéder aux données privées, aux comptes ou aux secrets, et je ne peux contourner aucune restriction."
+    },
+    "reply": {
+      "findTool": "Voici des outils qui correspondent à votre description :",
+      "explainTool": "Cet outil transforme les saisies de votre chantier en un verdict clair avec les facteurs de risque sous-jacents :",
+      "inputs": "Vous saisissez les coûts, quantités et taux essentiels de votre chantier. Les champs obligatoires restent minimaux, les champs optionnels affinent le résultat.",
+      "results": "Le résultat est un verdict avec les indicateurs et facteurs de risque sous-jacents, pour voir pourquoi il se situe là et ce qu'il faut ajuster.",
+      "approvedReports": "Les résultats premium peuvent être enregistrés comme rapports approuvés et partagés, chacun pouvant être vérifié indépendamment.",
+      "trustTrace": "Trust Trace enregistre les saisies, hypothèses et validations afin qu'un résultat puisse être contrôlé par des clients, banques ou auditeurs.",
+      "regionalUnits": "SectorCalc prend en charge les unités métriques, impériales et régionales, et affiche les conversions utilisées.",
+      "benchmarks": "SectorCalc affiche un contexte de référence régional indicatif à côté de votre résultat — pour l'orientation, pas des chiffres officiels.",
+      "pricing": "Vous pouvez voir les offres et leur contenu sur la page des tarifs :",
+      "enterprise": "Pour l'usage en équipe, la gouvernance des rapports, les packs et les achats, consultez la page Enterprise :",
+      "about": "SectorCalc est une plateforme mondiale de calcul industriel et d'aide à la décision qui révèle les pertes cachées et transforme le calcul en décisions fiables :",
+      "blockedFormula": "Je ne peux pas effectuer de calculs ni partager de formules. Ouvrez l'outil concerné, il calculera le résultat pour vous.",
+      "blockedPrivate": "Je ne peux pas accéder aux données privées, aux comptes ou aux secrets, et je ne peux contourner aucune restriction.",
+      "fallback": "Je peux vous aider à trouver le bon outil, à comprendre les saisies et les résultats, et à naviguer dans SectorCalc. Essayez l'un de ceux-ci :"
+    }
+  },
   "premiumSeo": {
     "eyebrow": "Guide de l'outil premium",
     "metaTitle": "{tool} | Guide prix, marge et risque | SectorCalc",
