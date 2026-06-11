@@ -26,7 +26,41 @@
 | P5 Metric / Imperial / Regional Unit Engine | **COMPLETE** |
 | P6 Regional Benchmark Engine | **COMPLETE** |
 | P7 Case Study Proof Layer | **COMPLETE** |
-| **P8 PWA / Field Mode** | **COMPLETE** |
+| P8 PWA / Field Mode | **COMPLETE** |
+| P9 Business / Enterprise Packaging | **COMPLETE** |
+| SEO-P2 27 Premium Tool SEO Landings | **COMPLETE** |
+| P10 Controlled AI Assistant | **COMPLETE** |
+| **P11 Autonomous Release Gate** | **COMPLETE** |
+
+## P9 / SEO-P2 / P10 / P11 — Master chain *(DONE)*
+
+| Item | Value |
+|------|--------|
+| **Prompt IDs** | PROMPT-P9-001 · PROMPT-SEO-P2-001 · PROMPT-P10-001 · PROMPT-P11-001 |
+| **Commits** | P9 `d57e44e` · SEO-P2 `b5e6af6` · P10 `ece2ad0` · P11 `764b92b` · gate fix `d2ae9fc` |
+| **Formula/runtime/FormulaContract** | **Unchanged** |
+| **Secrets** | None added/changed; assistant has no API key (deterministic) |
+| **Deploy** | Firebase Hosting `d2ae9fc` · Cloud Run `ssrsectorcalcbf412-00290-llz` minInstances=1 |
+
+### What shipped
+
+- **P9** — Locale-aware `/enterprise` page (`src/app/[locale]/enterprise`, `src/components/enterprise/EnterprisePageContent.tsx`) with business + enterprise plan cards, approved-reports / trust-trace / team / security value blocks, demo + contact CTAs, enterprise FAQ. Markers: `data-enterprise-page`, `data-business-plan-card`, `data-enterprise-plan-card`, `data-approved-reports-value`, `data-trust-trace-value`, `data-enterprise-demo-cta`. i18n `enterprise` × 6 locales. Smoke: `smoke:business-packaging`.
+- **SEO-P2** — 27 premium-tool SEO landings rendered through the **existing** `/seo/[slug]` route (extended, not duplicated) via `src/lib/seo/premium-tool-seo-landings.ts` + `src/components/seo/PremiumToolSeoLanding.tsx`. Localized templates (`premiumSeo` namespace × 6 locales) filled with tool name from the canonical revenue-tools registry. Markers: `data-premium-seo-landing`, `data-seo-tool-cta`; CTA → `/tools/premium/<slug>`. Smoke: `smoke:premium-seo-landings`.
+- **P10** — Deterministic, guardrailed assistant (`src/lib/assistant/*`, `src/app/api/assistant/route.ts`, `src/components/assistant/SectorCalcAssistant.tsx`, mounted globally in `LocaleDocumentLayout`). No external AI, no calculation, no secrets; guardrails block formula/private-data/gate-bypass intents. i18n `assistant` × 6 locales. Markers: `data-sectorcalc-assistant`, `data-assistant-launcher`, `data-assistant-panel`. Smoke: `smoke:ai-assistant`.
+- **P11** — `scripts/release-gate.mjs` (`release:gate`) orchestrates the full gate command list, manages a local server for the smoke suite, runs an anti-regression manifest `/en` check, and emits `docs/release-gate-report.md` (PASS/FAIL, exit 1 blocks deploy). Complements the existing `scripts/release-gate-check.ts` proof scorer. Smoke: `smoke:release-gate` (dry-run).
+
+### Release gate result
+
+`npm run release:gate` → **PASS** (234.8s). Warnings (environment-sensitive, enforced by production smoke): `smoke:browser-calculation-forms`, `smoke:pwa-field-mode` (PWA static assets are served by Firebase Hosting, not `next start`).
+
+### Post-deploy production smoke — `d2ae9fc` (2026-06-11, https://sectorcalc.com)
+
+PASS: business-packaging · premium-seo-landings · ai-assistant · pwa-field-mode · premium-routes · locale-routes · verify-report · approved-reports · regional-units · regional-benchmarks · case-study-proof. `/en/*` guards return 308 (no `/en` prefix).
+
+### Remaining risks / follow-ups
+
+- Premium SEO landings are not yet in the curated sitemap/indexable manifest (`indexable-url-manifest.ts`) — discoverable via internal links + canonical metadata; sitemap inclusion is a low-risk follow-up.
+- Assistant is deterministic only; optional server-side LLM remains future work (guardrails already in place).
 
 ## P2.4 — Full Calculation Form Repair Sweep *(DONE)*
 

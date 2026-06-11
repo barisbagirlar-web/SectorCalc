@@ -237,6 +237,25 @@ Future: rollback / canary automation.
 
 ---
 
+## P9 → SEO-P2 → P10 → P11 master chain — DONE (2026-06-11)
+
+Sıra korundu: **P9 → SEO-P2 → P10 → P11**. Her faz: audit → minimal implementation → local test → smoke → commit.
+
+| Faz | Durum | Commit | Smoke |
+|-----|-------|--------|-------|
+| P9 Business / Enterprise Packaging | **DONE** | `d57e44e` | `smoke:business-packaging` |
+| SEO-P2 27 Premium Tool SEO Landings | **DONE** | `b5e6af6` | `smoke:premium-seo-landings` |
+| P10 Controlled AI Assistant | **DONE** | `ece2ad0` | `smoke:ai-assistant` |
+| P11 Autonomous Release Gate | **DONE** | `764b92b` (+ `d2ae9fc`) | `smoke:release-gate` |
+
+- Mevcut mimari genişletildi (yeni `/seo` sistemi veya rakip release sistemi yaratılmadı).
+- Formula / runtime / FormulaContract değişmedi. `/en` prefix yok. Secret yok.
+- Deploy: Firebase Hosting `d2ae9fc` · Cloud Run `ssrsectorcalcbf412-00290-llz` minInstances=1.
+- `npm run release:gate` → PASS. Detay: [production-reality.md](./production-reality.md).
+- **Next single task:** Growth / Analytics / Conversion Optimization Phase.
+
+---
+
 ## Deprecated / superseded notes
 
 Aşağıdaki eski ifadeler **artık geçerli değildir** — bu roadmap ile değiştirilmiştir:
