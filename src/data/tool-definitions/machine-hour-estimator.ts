@@ -117,9 +117,9 @@ export const machineHourEstimatorDefinition: ToolDefinition = {
  },
  ],
  premiumTeaser: {
- title: "Need decision-level analysis?",
- text: "Open the CNC Minimum Safe Quote Analyzer to see minimum safe quote, setup and scrap risk, scenario analysis, risk level and a packaged decision report.",
- ctaLabel: "Open CNC Minimum Safe Quote Analyzer",
+ title: "Need decision-level calculation?",
+ text: "Open the CNC Minimum Safe Quote Calculator to see minimum safe quote, setup and scrap risk, scenario calculation, risk level and a packaged decision report.",
+ ctaLabel: "Open CNC Minimum Safe Quote Calculator",
  ctaHref: "/tools/premium/cnc-minimum-safe-quote-analyzer",
  },
  relatedToolIds: ["cnc-minimum-safe-quote-analyzer"],
@@ -133,5 +133,5 @@ export const machineHourEstimatorDefinition: ToolDefinition = {
  interpretationNote:
  "Your estimated machine hour cost is based on productive hours, not total available hours. Lower utilization increases the real hourly cost because fixed costs are spread over fewer productive hours.",
  faqPlaceholder:
- "Who it is for: CNC shops, job shops and production managers estimating hourly machine cost. What to do with the result: use it as a baseline rate before quoting; open the CNC Minimum Safe Quote Analyzer when a specific job’s setup, scrap and margin matter. Assumptions depend on your monthly cost and productive-hour inputs — results are indicative, not certified accounting.",
+ "Who it is for: CNC shops, job shops and production managers estimating hourly machine cost. What to do with the result: use it as a baseline rate before quoting; open the CNC Minimum Safe Quote Calculator when a specific job’s setup, scrap and margin matter. Assumptions depend on your monthly cost and productive-hour inputs — results are indicative, not certified accounting.",
 };

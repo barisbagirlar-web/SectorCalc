@@ -10,7 +10,7 @@ export function PlatformIntroSection() {
  <p>
  SectorCalc is not a generic calculator directory. It is a structured sector
  calculation and decision-report platform. Start with a simple estimate, then move
- into sector-specific analysis when a number affects margin, pricing, capacity or
+ into sector-specific calculation when a number affects margin, pricing, capacity or
  operational risk.
  </p>
  </div>

@@ -26,18 +26,18 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
     title: "Manufacturing Cost Calculators",
     metaTitle: "Manufacturing Cost Calculators & OEE Tools | SectorCalc",
     metaDescription:
-      "Calculate manufacturing cost per unit, OEE, scrap rate and machine time. Free shop-floor calculators plus premium hidden-loss analyzers for quoting decisions.",
+      "Calculate manufacturing cost per unit, OEE, scrap rate and machine time. Free shop-floor calculators plus premium hidden-loss calculators for quoting decisions.",
     intro:
       "Use these calculators to estimate unit cost, machine time, scrap exposure and OEE before you quote a job or change shift plans.",
     helpsYouCalculate:
       "Machine time, unit cost, scrap rate, OEE, cycle time and material yield for CNC, fabrication and assembly jobs.",
     featuredQuestion: "What is a manufacturing cost calculator?",
     featuredAnswer:
-      "A manufacturing cost calculator estimates machine time, material use, labor, scrap and unit cost from your inputs. It helps you sanity-check quotes before setup loss, tool wear or downtime erode margin. Pair free calculators with premium analyzers when pricing, capacity or scheduling decisions need hidden-driver diagnostics.",
+      "A manufacturing cost calculator estimates machine time, material use, labor, scrap and unit cost from your inputs. It helps you sanity-check quotes before setup loss, tool wear or downtime erode margin. Pair free calculators with premium calculators when pricing, capacity or scheduling decisions need hidden-driver diagnostics.",
     featuredBullets: [
       "Unit cost, machine hour rate and machine time estimates",
       "OEE and scrap rate checks for shop-floor visibility",
-      "Premium analyzers for CNC capacity loss and tool wear exposure",
+      "Premium calculators for CNC capacity loss and tool wear exposure",
     ],
     freeToolLinks: [
       { href: "/tools/free/oee-calculator", label: "Open the OEE calculator" },
@@ -46,9 +46,9 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       { href: "/tools/free/machine-time-calculator", label: "Open the machine time calculator" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/cnc-oee-loss", label: "View the CNC OEE Loss Analyzer" },
-      { href: "/tools/premium-schema/cnc-tool-wear-cost", label: "View the CNC Tool Wear Cost Analyzer" },
-      { href: "/tools/premium-schema/sheet-metal-scrap-risk", label: "View the Sheet Metal Scrap Risk Analyzer" },
+      { href: "/tools/premium-schema/cnc-oee-loss", label: "View the CNC OEE Loss Calculator" },
+      { href: "/tools/premium-schema/cnc-tool-wear-cost", label: "View the CNC Tool Wear Cost Calculator" },
+      { href: "/tools/premium-schema/sheet-metal-scrap-risk", label: "View the Sheet Metal Scrap Risk Calculator" },
     ],
     industryLinks: [
       { href: "/industries/cnc-manufacturing", label: "Browse CNC manufacturing tools" },
@@ -58,7 +58,7 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       {
         question: "What is a manufacturing cost calculator?",
         answer:
-          "A manufacturing cost calculator estimates machine time, material use, labor, scrap and unit cost. SectorCalc connects these base calculators with premium analyzers for OEE loss, tool wear and sheet metal scrap risk.",
+          "A manufacturing cost calculator estimates machine time, material use, labor, scrap and unit cost. SectorCalc connects these base calculators with premium calculators for OEE loss, tool wear and sheet metal scrap risk.",
       },
       {
         question: "How do I calculate manufacturing cost per unit?",
@@ -71,9 +71,9 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
           "Jobs usually lose margin when setup time, scrap, tool wear, inspection delays or machine downtime are not included before pricing.",
       },
       {
-        question: "When should I use a premium analyzer?",
+        question: "When should I use a premium calculator?",
         answer:
-          "Use a premium analyzer when the result affects quoting, capacity planning, production scheduling or management reporting and you need hidden drivers, thresholds and export-ready output.",
+          "Use a premium calculator when the result affects quoting, capacity planning, production scheduling or management reporting and you need hidden drivers, thresholds and export-ready output.",
       },
     ],
     relatedHubSlugs: [
@@ -87,18 +87,18 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
     title: "Construction Cost Calculators",
     metaTitle: "Construction Cost Calculators & Concrete Tools | SectorCalc",
     metaDescription:
-      "Estimate concrete volume, labor cost, renovation area and project margin. Free construction calculators plus premium overrun and subcontractor margin analyzers.",
+      "Estimate concrete volume, labor cost, renovation area and project margin. Free construction calculators plus premium overrun and subcontractor margin calculators.",
     intro:
       "Contractors and estimators use these tools to validate quantities, labor exposure and margin before bidding or approving change orders.",
     helpsYouCalculate:
       "Concrete volume, floor area, roofing coverage, labor cost ratios and quick renovation quantity checks for field estimates.",
     featuredQuestion: "What does a construction cost calculator help you estimate?",
     featuredAnswer:
-      "Construction cost calculators estimate material quantities, labor exposure and margin pressure from your project inputs. They help you catch takeoff errors and budget drift before subcontractor packages or client pricing are locked. Use premium overrun analyzers when forecast cost threatens project margin.",
+      "Construction cost calculators estimate material quantities, labor exposure and margin pressure from your project inputs. They help you catch takeoff errors and budget drift before subcontractor packages or client pricing are locked. Use premium overrun calculators when forecast cost threatens project margin.",
     featuredBullets: [
       "Concrete, area and roofing quantity calculators",
       "Labor and margin checks for bid sanity",
-      "Premium overrun and subcontractor margin analyzers",
+      "Premium overrun and subcontractor margin calculators",
     ],
     freeToolLinks: [
       { href: "/tools/free/concrete-volume-calculator", label: "Open the concrete volume calculator" },
@@ -107,9 +107,9 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       { href: "/tools/free/roofing-area-calculator", label: "Open the roofing area calculator" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/construction-project-overrun", label: "View the Construction Project Overrun Analyzer" },
-      { href: "/tools/premium-schema/construction-subcontractor-margin-leak", label: "View the Subcontractor Margin Leak Analyzer" },
-      { href: "/tools/premium-schema/roofing-weather-delay-risk", label: "View the Roofing Weather Delay Analyzer" },
+      { href: "/tools/premium-schema/construction-project-overrun", label: "View the Construction Project Overrun Calculator" },
+      { href: "/tools/premium-schema/construction-subcontractor-margin-leak", label: "View the Subcontractor Margin Leak Calculator" },
+      { href: "/tools/premium-schema/roofing-weather-delay-risk", label: "View the Roofing Weather Delay Risk Calculator" },
     ],
     industryLinks: [
       { href: "/industries/construction", label: "Browse construction calculators" },
@@ -132,9 +132,9 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
           "SectorCalc is a calculator and decision-report layer, not a full ERP or estimating system. Use it for quick checks and hidden-loss diagnostics.",
       },
       {
-        question: "When should I use a premium construction analyzer?",
+        question: "When should I use a premium construction calculator?",
         answer:
-          "Use a premium analyzer when forecast overrun, subcontractor margin leak or weather delay exposure threatens project margin and you need export-ready decision output.",
+          "Use a premium calculator when forecast overrun, subcontractor margin leak or weather delay exposure threatens project margin and you need export-ready decision output.",
       },
     ],
     relatedHubSlugs: ["manufacturing-cost-calculators", "finance-business-calculators"],
@@ -144,18 +144,18 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
     title: "Logistics & Route Calculators",
     metaTitle: "Logistics Route Cost Calculators | SectorCalc",
     metaDescription:
-      "Calculate route cost, fuel use, freight margin and deadhead exposure. Free logistics calculators plus premium route loss and fuel drift analyzers.",
+      "Calculate route cost, fuel use, freight margin and deadhead exposure. Free logistics calculators plus premium route loss and fuel drift calculators.",
     intro:
       "Dispatchers and owner-operators compare trip cost, fuel drift and route margin before accepting loads or repricing lanes.",
     helpsYouCalculate:
       "Route cost, fuel consumption, freight cost per trip, delivery stop economics and deadhead exposure on recurring lanes.",
     featuredQuestion: "How do logistics calculators help with route margin?",
     featuredAnswer:
-      "Logistics calculators estimate trip cost, fuel use and time exposure from distance, consumption and stop inputs. They separate loaded miles from deadhead so you can see when a lane looks profitable on average but loses money on empty return legs. Premium route analyzers add threshold pressure for repricing decisions.",
+      "Logistics calculators estimate trip cost, fuel use and time exposure from distance, consumption and stop inputs. They separate loaded miles from deadhead so you can see when a lane looks profitable on average but loses money on empty return legs. Premium route calculators add threshold pressure for repricing decisions.",
     featuredBullets: [
       "Route cost and fuel calculators for quick lane checks",
       "Deadhead and stop-time visibility",
-      "Premium route loss and fuel drift analyzers",
+      "Premium route loss and fuel drift calculators",
     ],
     freeToolLinks: [
       { href: "/tools/free/route-cost-calculator", label: "Open the route cost calculator" },
@@ -164,8 +164,8 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       { href: "/tools/free/fuel-consumption-calculator", label: "Open the fuel consumption calculator" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/logistics-route-loss", label: "View the Logistics Route Loss Analyzer" },
-      { href: "/tools/premium-schema/logistics-fuel-route-drift", label: "View the Fuel Route Drift Analyzer" },
+      { href: "/tools/premium-schema/logistics-route-loss", label: "View the Logistics Route Loss Calculator" },
+      { href: "/tools/premium-schema/logistics-fuel-route-drift", label: "View the Fuel Route Drift Calculator" },
     ],
     industryLinks: [{ href: "/industries/logistics-transport", label: "Browse logistics calculators" }],
     faq: [
@@ -185,9 +185,9 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
           "Reprice when deadhead percentage, fuel drift or stop density pushes effective margin below your cost floor for several consecutive weeks.",
       },
       {
-        question: "When should I use a premium route analyzer?",
+        question: "When should I use a premium route calculator?",
         answer:
-          "Use a premium analyzer when recurring routes show stable revenue but eroding margin and you need hidden driver breakdown with export-ready output.",
+          "Use a premium calculator when recurring routes show stable revenue but eroding margin and you need hidden driver breakdown with export-ready output.",
       },
     ],
     relatedHubSlugs: ["energy-carbon-calculators", "finance-business-calculators"],
@@ -197,7 +197,7 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
     title: "Energy & Carbon Calculators",
     metaTitle: "Energy & Carbon Calculators — kWh and Peak Load | SectorCalc",
     metaDescription:
-      "Calculate electricity cost, kWh exposure, peak load pressure and carbon footprint. Free energy calculators plus premium peak cost and compliance analyzers.",
+      "Calculate electricity cost, kWh exposure, peak load pressure and carbon footprint. Free energy calculators plus premium peak cost and compliance calculators.",
     intro:
       "Facilities and energy teams compare blended kWh cost against peak-hour exposure and carbon pressure before operational or compliance decisions.",
     helpsYouCalculate:
@@ -208,7 +208,7 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
     featuredBullets: [
       "Free kWh and electricity bill calculators",
       "Peak load and carbon quick checks",
-      "Premium peak cost and carbon compliance analyzers",
+      "Premium peak cost and carbon compliance calculators",
     ],
     freeToolLinks: [
       { href: "/tools/free/kwh-cost-calculator", label: "Open the kWh cost calculator" },
@@ -217,9 +217,9 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       { href: "/tools/free/energy-consumption-check", label: "Open the energy consumption check" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/energy-peak-cost", label: "View the Energy Peak Cost Analyzer" },
-      { href: "/tools/premium-schema/energy-compressor-leak-cost", label: "View the Compressor Leak Cost Analyzer" },
-      { href: "/tools/premium-schema/carbon-footprint-compliance-risk", label: "View the Carbon Compliance Risk Analyzer" },
+      { href: "/tools/premium-schema/energy-peak-cost", label: "View the Energy Peak Cost Calculator" },
+      { href: "/tools/premium-schema/energy-compressor-leak-cost", label: "View the Compressor Leak Cost Calculator" },
+      { href: "/tools/premium-schema/carbon-footprint-compliance-risk", label: "View the Carbon Compliance Risk Calculator" },
     ],
     industryLinks: [
       { href: "/industries/energy-consumption", label: "Browse energy consumption tools" },
@@ -242,9 +242,9 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
           "No. SectorCalc provides structured estimates and decision reports. Confirm critical compliance and engineering decisions with qualified professionals.",
       },
       {
-        question: "When should I use a premium energy analyzer?",
+        question: "When should I use a premium energy calculator?",
         answer:
-          "Use a premium analyzer when peak load, compressor leaks or carbon compliance exposure affects operational budgeting or customer reporting requirements.",
+          "Use a premium calculator when peak load, compressor leaks or carbon compliance exposure affects operational budgeting or customer reporting requirements.",
       },
     ],
     relatedHubSlugs: ["logistics-route-calculators", "hidden-loss-decision-reports"],
@@ -254,17 +254,17 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
     title: "Agriculture Calculators",
     metaTitle: "Agriculture Calculators — Irrigation, Yield & Feed Efficiency",
     metaDescription:
-      "Free agriculture calculators and premium analyzers for irrigation yield loss, feed efficiency and farm margin exposure.",
+      "Free agriculture calculators and premium calculators for irrigation yield loss, feed efficiency and farm margin exposure.",
     intro:
       "Farm operators use SectorCalc to estimate irrigation cost, yield gaps and feed efficiency before season or contract decisions.",
     helpsYouCalculate:
       "Crop yield, irrigation cost, feed ratios, water usage and quick farm margin checks from field inputs.",
     featuredQuestion: "What agriculture tools does SectorCalc offer?",
     featuredAnswer:
-      "SectorCalc includes free agriculture calculators for crop planning, irrigation and cost ratios, plus premium analyzers for irrigation yield loss and dairy feed efficiency with threshold checks and export-ready reports.",
+      "SectorCalc includes free agriculture calculators for crop planning, irrigation and cost ratios, plus premium calculators for irrigation yield loss and dairy feed efficiency with threshold checks and export-ready reports.",
     featuredBullets: [
       "Crop and irrigation calculators for quick field estimates",
-      "Premium yield and feed efficiency analyzers",
+      "Premium yield and feed efficiency calculators",
       "Industry pages for crops, dairy and irrigation",
     ],
     freeToolLinks: [
@@ -274,8 +274,8 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       { href: "/tools/free/water-usage-calculator", label: "Water Usage Calculator" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/agriculture-irrigation-yield-loss", label: "Irrigation Yield Loss Analyzer" },
-      { href: "/tools/premium-schema/dairy-feed-efficiency-loss", label: "Dairy Feed Efficiency Analyzer" },
+      { href: "/tools/premium-schema/agriculture-irrigation-yield-loss", label: "Irrigation Yield Loss Calculator" },
+      { href: "/tools/premium-schema/dairy-feed-efficiency-loss", label: "Dairy Feed Efficiency Calculator" },
     ],
     industryLinks: [
       { href: "/industries/agriculture-crops", label: "Agriculture Crops" },
@@ -315,8 +315,8 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       { href: "/tools/free/profit-margin-calculator", label: "Profit Margin Calculator" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/restaurant-menu-margin-leak", label: "Restaurant Menu Margin Analyzer" },
-      { href: "/tools/premium-schema/cloud-api-cost-overrun", label: "Cloud API Cost Overrun Analyzer" },
+      { href: "/tools/premium-schema/restaurant-menu-margin-leak", label: "Restaurant Menu Margin Calculator" },
+      { href: "/tools/premium-schema/cloud-api-cost-overrun", label: "Cloud API Cost Overrun Calculator" },
     ],
     industryLinks: [
       { href: "/industries/restaurant", label: "Restaurant" },
@@ -356,7 +356,7 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       { href: "/tools/free/length-converter", label: "Length Converter" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/calibration-drift-risk", label: "Calibration Drift Risk Analyzer" },
+      { href: "/tools/premium-schema/calibration-drift-risk", label: "Calibration Drift Risk Calculator" },
     ],
     industryLinks: [{ href: "/categories", label: "All Categories" }],
     faq: [
@@ -371,18 +371,18 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
   {
     slug: "hidden-loss-decision-reports",
     title: "Hidden Loss Decision Reports",
-    metaTitle: "Hidden Loss Decision Reports — Premium Analyzers & Export-Ready Output",
+    metaTitle: "Hidden Loss Decision Reports — Premium Calculators & Export-Ready Output",
     metaDescription:
-      "Premium SectorCalc analyzers for hidden-loss diagnostics, threshold checks, suggested actions and export-ready decision reports.",
+      "Premium SectorCalc calculators for hidden-loss diagnostics, threshold checks, suggested actions and export-ready decision reports.",
     intro:
-      "When a free estimate is not enough, premium analyzers show hidden drivers, threshold pressure and practical next actions.",
+      "When a free estimate is not enough, premium calculators show hidden drivers, threshold pressure and practical next actions.",
     helpsYouCalculate:
       "Hidden-loss exposure, threshold interpretation, suggested actions and export-ready decision reports across sectors.",
     featuredQuestion: "What is a hidden-loss decision report?",
     featuredAnswer:
       "A hidden-loss decision report starts from your inputs, surfaces the main exposure driver, compares warning and critical thresholds, suggests an action and can be exported for management or client review on paid plans.",
     featuredBullets: [
-      "27 premium analyzers across manufacturing, logistics, energy and more",
+      "27 premium calculators across manufacturing, logistics, energy and more",
       "Threshold checks and suggested action plans",
       "PDF and CSV export on paid access",
     ],
@@ -392,12 +392,12 @@ export const PROGRAMMATIC_SEO_PAGES: readonly ProgrammaticSeoPage[] = [
       { href: "/tools/free/route-cost-calculator", label: "Route Cost Calculator" },
     ],
     premiumAnalyzerLinks: [
-      { href: "/tools/premium-schema/cnc-oee-loss", label: "CNC OEE Loss Analyzer" },
-      { href: "/tools/premium-schema/carbon-footprint-compliance-risk", label: "Carbon Compliance Risk Analyzer" },
-      { href: "/tools/premium-schema/restaurant-menu-margin-leak", label: "Restaurant Menu Margin Analyzer" },
+      { href: "/tools/premium-schema/cnc-oee-loss", label: "CNC OEE Loss Calculator" },
+      { href: "/tools/premium-schema/carbon-footprint-compliance-risk", label: "Carbon Compliance Risk Calculator" },
+      { href: "/tools/premium-schema/restaurant-menu-margin-leak", label: "Restaurant Menu Margin Calculator" },
     ],
     industryLinks: [
-      { href: "/premium-tools", label: "All Premium Analyzers" },
+      { href: "/premium-tools", label: "All Premium Calculators" },
       { href: "/pricing", label: "Pricing" },
     ],
     faq: [

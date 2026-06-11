@@ -47,10 +47,10 @@ export function RecentReportsPanel({
         <div className="sc-account-hub__empty">
           <p className="sc-account-hub__empty-title">No saved reports yet</p>
           <p className="sc-account-hub__empty-text">
-            Run a premium analyzer and save the verdict to build your decision history here.
+            Run a premium calculator and save the verdict to build your decision history here.
           </p>
           <Link href={defaultPremiumHref} className="sc-cta-primary mt-4 inline-flex">
-            Run premium analyzer
+            Run premium calculator
           </Link>
         </div>
       ) : (

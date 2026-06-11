@@ -19,7 +19,7 @@ export const SAMPLE_REPORT_SECTIONS: ReportSection[] = [
  },
  {
  id: "scenario-analysis",
- title: "Scenario Analysis",
+ title: "Scenario calculation",
  description:
  "Side-by-side comparison of best-case, base-case, and worst-case outcomes for informed trade-offs.",
  },

@@ -26,7 +26,7 @@ export function getIndustryHubContent(slug: IndustrySlug): IndustryHubContent {
  seoDescription: buildIndustrySeoDescription("your sector"),
  painStatement: "Hidden cost and margin leaks can turn accepted work into a loss.",
  freeToolExplanation: "Start with a free quick check for visible risk signals.",
- premiumToolExplanation: "Unlock the premium analyzer for safe price and bid verdicts.",
+ premiumToolExplanation: "Unlock the premium calculator for safe price and bid verdicts.",
  whoItsFor: "Business owners, estimators and operators making pricing decisions.",
  decisionHelp: "Decide whether to accept, reprice or reject work before committing.",
  };

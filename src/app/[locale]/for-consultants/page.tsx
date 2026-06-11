@@ -13,7 +13,7 @@ const benefits = [
  {
  title: "Client-facing calculations",
  description:
- "Run sector-specific free estimates and premium analyzers to support preliminary assessments, workshops and advisory engagements.",
+ "Run sector-specific free estimates and premium calculators to support preliminary assessments, workshops and advisory engagements.",
  },
  {
  title: "Structured report requests",

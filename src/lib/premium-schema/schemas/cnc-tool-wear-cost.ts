@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const CNC_TOOL_WEAR_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "cnc-tool-wear-cost",
-  name: "CNC Tool Wear Cost Analyzer",
+  name: "CNC Tool Wear Cost Calculator",
   sectorSlug: "manufacturing",
   category: "cost",
   legacyPaidSlug: "welding-bid-risk-analyzer",

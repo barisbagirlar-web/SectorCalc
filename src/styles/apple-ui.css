@@ -908,11 +908,38 @@
   color: #6b6b6b;
 }
 
-.footer-columns {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
+.footer-columns--omni {
+  margin-bottom: 2.5rem;
+}
+
+.footer-column--brand {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px) {
+  .footer-column--brand {
+    grid-column: auto;
+  }
+}
+
+.footer-bottom--omni {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(0 0 0 / 0.08);
+}
+
+.footer-bottom--omni .copyright {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #6b6b6b;
+}
+
+.apple-footer--v2 .apple-footer__inner {
+  max-width: 72rem;
 }
 
 @media (min-width: 640px) {

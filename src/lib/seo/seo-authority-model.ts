@@ -61,7 +61,7 @@ export const SECTORCALC_CORE_ENTITIES: readonly SeoAuthorityEntity[] = [
     description:
       "Premium analyzers with hidden drivers, threshold checks, suggested actions and export-ready output.",
     url: entityUrl("en", "/premium-tools"),
-    keywords: ["decision report", "premium analyzer", "hidden drivers", "PDF export"],
+    keywords: ["decision report", "premium calculator", "hidden drivers", "PDF export"],
     relatedEntityIds: ["sectorcalc", "free-calculators", "hidden-loss-diagnostics"],
   },
   {
@@ -168,7 +168,7 @@ export const SECTORCALC_CORE_ENTITIES: readonly SeoAuthorityEntity[] = [
     id: "energy-peak-cost-analyzer",
     type: "SoftwareApplication",
     name: "Energy Peak Cost Analyzer",
-    description: "Premium analyzer for peak-hour load, blended kWh and threshold pressure.",
+    description: "Premium calculator for peak-hour load, blended kWh and threshold pressure.",
     url: entityUrl("en", "/tools/premium-schema/energy-peak-cost"),
     keywords: ["energy peak", "kWh", "utility cost"],
     relatedEntityIds: ["energy-carbon-calculators", "carbon-compliance-risk-analyzer"],
@@ -176,7 +176,7 @@ export const SECTORCALC_CORE_ENTITIES: readonly SeoAuthorityEntity[] = [
   {
     id: "cnc-oee-loss-analyzer",
     type: "SoftwareApplication",
-    name: "CNC OEE Loss Analyzer",
+    name: "CNC OEE Loss Calculator",
     description: "Premium decision report for lost machine hours, OEE drivers and export-ready output.",
     url: entityUrl("en", "/tools/premium-schema/cnc-oee-loss"),
     keywords: ["CNC OEE", "machine hours", "capacity loss"],
@@ -185,8 +185,8 @@ export const SECTORCALC_CORE_ENTITIES: readonly SeoAuthorityEntity[] = [
   {
     id: "carbon-compliance-risk-analyzer",
     type: "SoftwareApplication",
-    name: "Carbon Compliance Risk Analyzer",
-    description: "Premium analyzer for carbon exposure, compliance cost pressure and threshold checks.",
+    name: "Carbon Compliance Risk Calculator",
+    description: "Premium calculator for carbon exposure, compliance cost pressure and threshold checks.",
     url: entityUrl("en", "/tools/premium-schema/carbon-footprint-compliance-risk"),
     keywords: ["carbon footprint", "compliance", "emissions exposure"],
     relatedEntityIds: ["energy-carbon-calculators", "energy-peak-cost-analyzer"],

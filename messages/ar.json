@@ -65,11 +65,11 @@
   },
   "sectors": {
     "title": "Choose from {count} active sectors",
-    "subtitle": "Nine industry categories — from CNC and construction to agriculture, energy and daily life tools. Free checks surface risk; premium analyzers deliver expert verdicts.",
+    "subtitle": "Nine industry categories — from CNC and construction to agriculture, energy and daily life tools. Free checks surface risk; premium calculators deliver expert verdicts.",
     "viewAll": "View all {count} industries →",
     "browseByCategory": "Browse by category",
     "startFree": "Start Free Margin Check",
-    "viewPremium": "View Premium Analyzer",
+    "viewPremium": "View Premium Calculator",
     "free": "Free",
     "premium": "Premium"
   },
@@ -77,10 +77,10 @@
     "eyebrow": "Pricing",
     "title": "Priced for teams priced out of enterprise software.",
     "tagline": "Start with free calculators. Upgrade when you need hidden-loss diagnostics, benchmark models and export-ready decision reports.",
-    "singleReportNote": "Single decision reports from $9 for one-off analysis.",
+    "singleReportNote": "Single decision reports from $9 for one-off calculation.",
     "roiCopy": "One avoided bad quote can pay for a full year of Pro.",
     "sampleReport": "View sample verdict report →",
-    "browsePremium": "Browse premium analyzers →",
+    "browsePremium": "Browse premium calculators →",
     "startFree": "Start with free tools →",
     "availableNow": "Available now",
     "waitlist": "Waitlist",
@@ -93,21 +93,21 @@
     "single": "Single Tool Report",
     "singlePrice": "$9",
     "singlePeriod": "one report",
-    "singleDescription": "One premium analyzer run with full verdict output — ideal for a single high-stakes decision.",
-    "singleFeatures": "One premium analyzer verdict|Minimum safe price where applicable|Margin leak breakdown|PDF-ready report for that run",
+    "singleDescription": "One premium calculator run with full verdict output — ideal for a single high-stakes decision.",
+    "singleFeatures": "One premium calculator verdict|Minimum safe price where applicable|Margin leak breakdown|PDF-ready report for that run",
     "singleCta": "Get Full Verdict for $9",
     "pro": "Pro",
     "proPrice": "$19/mo",
     "proPeriod": "",
     "proDescription": "For operators and owners who need decision reports.",
-    "proFeatures": "Premium analyzers|Hidden-loss diagnostics|Threshold checks|PDF / CSV export|Saved report outputs",
+    "proFeatures": "Premium calculators|Hidden-loss diagnostics|Threshold checks|PDF / CSV export|Saved report outputs",
     "proCta": "Start Pro report access",
     "proBadge": "Most popular",
     "proAnnual": "Pro Annual",
     "proAnnualPrice": "$149",
     "proAnnualPeriod": "per year",
     "proAnnualDescription": "Full Pro access billed annually — best value for teams quoting weekly.",
-    "proAnnualFeatures": "All premium analyzers|Saved verdict reports|PDF export|Priority onboarding when available",
+    "proAnnualFeatures": "All premium calculators|Saved verdict reports|PDF export|Priority onboarding when available",
     "proAnnualCta": "Start Pro Annual",
     "team": "Team",
     "teamPrice": "$49/mo",
@@ -125,7 +125,7 @@
       "colEnterprise": "Enterprise",
       "sectorCalculators": "Sector utility modules",
       "riskSignals": "Risk signal output",
-      "premiumAnalyzers": "Intelligence analyzers",
+      "premiumAnalyzers": "Intelligence calculators",
       "savedReports": "Saved verdict archive",
       "pdfExport": "PDF export",
       "teamSeats": "Multi-seat access",
@@ -145,14 +145,14 @@
     "successTitle": "Payment received.",
     "successText": "Your premium access is being prepared. If your report does not unlock immediately, refresh the page or contact support.",
     "successRefreshNote": "Payment confirmation received. Access is applied by our server — refresh in a few seconds if your report is still locked.",
-    "successPrimaryCta": "Return to analyzer",
-    "successPremiumCta": "Open premium analyzers",
+    "successPrimaryCta": "Return to calculator",
+    "successPremiumCta": "Open premium calculators",
     "successSecondaryCta": "Go to pricing",
     "cancelEyebrow": "Checkout",
     "cancelTitle": "Checkout canceled.",
-    "cancelText": "You can continue using free calculators or return to the premium analyzer when ready.",
+    "cancelText": "You can continue using free calculators or return to the premium calculator when ready.",
     "cancelPricingCta": "Return to pricing",
-    "cancelReturnCta": "Return to analyzer",
+    "cancelReturnCta": "Return to calculator",
     "cancelFreeCta": "View free calculators"
   },
   "pilotCnc": {
@@ -201,7 +201,7 @@
     "premiumBadge": "Premium",
     "urgencyBanner": "🔥 {count} premium reports purchased this week",
     "premiumPreview1": "Detailed cost breakdown",
-    "premiumPreview2": "Hidden variable analysis",
+    "premiumPreview2": "Hidden variable calculation",
     "premiumPreview3": "Expert action recommendation",
     "premiumPreview4": "PDF + Excel export",
     "unlockVerdictTitle": "Unlock full verdict",
@@ -240,28 +240,28 @@
     },
     "labels": {
       "categories": {
-        "navLabel": "Browse by function",
-        "countLabel": "{count, plural, one {# tool} other {# tools}}",
-        "viewCategory": "View tools",
-        "viewCategoryOpen": "Showing tools",
+        "navLabel": "تصفح حسب الوظيفة",
+        "countLabel": "{count, plural, one {# أداة} other {# أدوات}}",
+        "viewCategory": "عرض الأدوات",
+        "viewCategoryOpen": "الأدوات معروضة",
         "openItem": "Open calculator →"
       },
       "free-tools": {
-        "navLabel": "Browse by category",
+        "navLabel": "تصفح حسب الفئة",
         "countLabel": "{count, plural, one {# calculator} other {# calculators}}",
         "viewCategory": "View calculators",
         "viewCategoryOpen": "Showing calculators",
         "openItem": "Open calculator →"
       },
       "premium-tools": {
-        "navLabel": "Browse by report type",
-        "countLabel": "{count, plural, one {# analyzer} other {# analyzers}}",
-        "viewCategory": "View analyzers",
-        "viewCategoryOpen": "Showing analyzers",
-        "openItem": "View analyzer →"
+        "navLabel": "تصفح حسب نوع التقرير",
+        "countLabel": "{count, plural, one {# حاسبة} other {# حاسبات}}",
+        "viewCategory": "عرض الحاسبات",
+        "viewCategoryOpen": "الحاسبات معروضة",
+        "openItem": "فتح الحاسبة →"
       },
       "industries": {
-        "navLabel": "Browse by sector group",
+        "navLabel": "تصفح حسب مجموعة القطاع",
         "countLabel": "{count, plural, one {# sector} other {# sectors}}",
         "viewCategory": "View sectors",
         "viewCategoryOpen": "Showing sectors",
@@ -275,7 +275,7 @@
         "free-tools": "البحث في الحاسبات المجانية...",
         "premium-tools": "البحث في الحاسبات المميزة...",
         "industries": "البحث في الحاسبات القطاعية...",
-        "homepage": "Search calculators and analyzers…"
+        "homepage": "البحث في الحاسبات…"
       },
       "noResults": "No matching tools found.",
       "moreResults": "+ {count} more results",
@@ -303,13 +303,13 @@
     },
     "discoveryCards": {
       "ctaCalculate": "احسب",
-      "ctaOpenAnalysis": "افتح التحليل",
+      "ctaOpenAnalysis": "فتح الحساب",
       "ctaOpenSector": "افتح القطاع",
       "freeCount": "{count} مجاني",
       "premiumCount": "{count} مميز"
     },
     "discoveryFooter": {
-      "freeToolsLead": "هل تحتاج تحليلًا أعمق؟",
+      "freeToolsLead": "هل تحتاج حسابًا أعمق؟",
       "freeToolsCta": "عرض الحاسبات المميزة"
     },
     "functionCategories": {
@@ -369,24 +369,24 @@
     "featuredTitle": "Featured calculators",
     "featuredLead": "Most searched free tools across finance, health, construction and industry.",
     "openCalculator": "Open calculator",
-    "decisionAnalyzerNote": "Decision analyzer available",
+    "decisionAnalyzerNote": "Decision calculator available",
     "categoryCount": "{count} calculators",
     "includesTitle": "What free tools include",
     "includes1": "2–5 inputs with units on every field",
     "includes2": "Instant browser-side result",
     "includes3": "Short plain-language explanation",
-    "includes4": "Link to related premium analyzer when available",
+    "includes4": "Link to related premium calculator when available",
     "excludesTitle": "What free tools do not include",
     "excludes1": "P90 safe price or accept / reject verdict",
     "excludes2": "PDF export or saved report history",
     "excludes3": "Margin leak diagnosis or sensitivity matrix",
     "excludes4": "Account storage of free-tier inputs",
     "sectorToolsTitle": "Sector decision tools",
-    "sectorToolsLead": "Industry-specific free checks tied to premium verdict analyzers across 27 sectors.",
+    "sectorToolsLead": "Industry-specific free checks tied to premium verdict calculators across 27 sectors.",
     "sectorToolsCount": "{count} sector free tools across {industries} industries",
     "premiumUpsellTitle": "Need a verdict, not just a number?",
-    "premiumUpsellBody": "Premium analyzers add safe price floors, margin leak detection and accept / reprice verdicts — included with SectorCalc Pro.",
-    "premiumUpsellCta": "Explore premium analyzers",
+    "premiumUpsellBody": "Premium calculators add safe price floors, margin leak detection and accept / reprice verdicts — included with SectorCalc Pro.",
+    "premiumUpsellCta": "Explore premium calculators",
     "premiumUpsellIndustries": "Browse by industry →",
     "categories": {
       "construction-measurement": "Construction & measurement",
@@ -425,7 +425,7 @@
       "excludes3": "Saved reports",
       "excludes4": "Hidden-variable margin diagnosis",
       "premiumBlockTitle": "See what this estimate misses",
-      "premiumBlockBody": "Free calculators show the first number. Premium analyzers add hidden drivers, thresholds, suggested actions and export-ready decision reports.",
+      "premiumBlockBody": "Free calculators show the first number. Premium calculators add hidden drivers, thresholds, suggested actions and export-ready decision reports.",
       "premiumCta": "See what this estimate misses →",
       "premiumBlockNote": "Best when the result affects pricing, operations or management decisions.",
       "relatedTitle": "Related calculators"
@@ -494,7 +494,7 @@
   },
   "purchaseSuccess": {
     "proUpsellTitle": "Want unlimited access to every tool?",
-    "proUpsellBody": "27 sectors, unlimited premium analyzers and saved reports — Pro from $19/month.",
+    "proUpsellBody": "27 sectors, unlimited premium calculators and saved reports — Pro from $19/month.",
     "proUpsellCta": "Upgrade to Pro →"
   },
   "footer": {
@@ -503,7 +503,7 @@
   },
   "enterpriseFooter": {
     "brand": "SectorCalc",
-    "tagline": "حاسبات عملية للشركات.",
+    "tagline": "أدوات حساب موجهة للقطاعات للشركات.",
     "productTitle": "المنتج",
     "legalTitle": "قانوني",
     "product": {
@@ -517,7 +517,22 @@
       "terms": "شروط الخدمة",
       "disclaimer": "إخلاء المسؤولية"
     },
-    "copyrightSimple": "© {year} SectorCalc. جميع الحقوق محفوظة."
+    "copyrightSimple": "© {year} SectorCalc. جميع الحقوق محفوظة.",
+    "areasTitle": "مجالات الحساب",
+    "accountTitle": "الحساب",
+    "account": {
+      "login": "تسجيل الدخول",
+      "signUp": "إنشاء حساب",
+      "premiumTools": "حاسبات مميزة",
+      "pricing": "الأسعار"
+    },
+    "areas": {
+      "costMargin": "التكلفة والهامش",
+      "scrapOee": "الهدر وOEE",
+      "energyCarbon": "الطاقة والكربون",
+      "routingLogistics": "المسار واللوجستيات",
+      "constructionField": "البناء والموقع"
+    }
   },
   "region": {
     "label": "Region",
@@ -544,7 +559,7 @@
     "loading": "Loading..."
   },
   "sectorCard": {
-    "calculate": "Analyze",
+    "calculate": "Calculate",
     "badge": {
       "free": "Free",
       "premium": "Premium",
@@ -572,7 +587,7 @@
         },
         "labor": {
           "title": "Labor & time risk",
-          "text": "Free checks expose visible risk — premium analyzers deliver the full verdict."
+          "text": "Free checks expose visible risk — premium calculators deliver the full verdict."
         },
         "overhead": {
           "title": "Overhead & scope risk",
@@ -592,8 +607,8 @@
     "premiumStep": {
       "eyebrow": "Step 2",
       "title": "Unlock the full verdict",
-      "subtitle": "Premium analyzers add minimum safe price, margin leak drivers, suggested action and PDF export — the decision layer operators need before quoting.",
-      "cta": "View Premium Analyzers",
+      "subtitle": "Premium calculators add minimum safe price, margin leak drivers, suggested action and PDF export — the decision layer operators need before quoting.",
+      "cta": "View Premium Calculators",
       "cardEyebrow": "Premium verdict",
       "cardTitle": "Minimum safe price + action",
       "cardBody": "Margin leak breakdown, accept / reprice verdict and exportable PDF report."
@@ -611,7 +626,7 @@
       "actionLabel": "Suggested action",
       "actionValue": "Reprice or reduce scope before sending the quote.",
       "primaryCta": "View Sample Verdict Report",
-      "secondaryCta": "Open CNC Quote Risk Analyzer"
+      "secondaryCta": "Open CNC Quote Risk Calculator"
     },
     "compare": {
       "eyebrow": "Free vs Pro",
@@ -670,7 +685,7 @@
   "homeDashboard": {
     "meta": {
       "title": "MarginCore — Professional Risk Analytics for SMEs",
-      "description": "Financial risk dashboard for sector margin analysis. Executive summaries by industry, construction and logistics with P90 stochastic verdicts."
+      "description": "Financial risk dashboard for sector margin calculation. Executive summaries by industry, construction and logistics with P90 stochastic verdicts."
     },
     "hero": {
       "statusLine": "MarginCore · Risk Terminal",
@@ -700,7 +715,7 @@
     "grid": {
       "eyebrow": "Sector coverage",
       "title": "Executive summaries by vertical",
-      "subtitle": "Grouped risk modules — free pre-checks and premium verdict analyzers. No icons, no noise: read the exposure, open the module.",
+      "subtitle": "Grouped risk modules — free pre-checks and premium verdict calculators. No icons, no noise: read the exposure, open the module.",
       "sectorCount": "{count} modules",
       "freeLabel": "Pre-check",
       "proLabel": "Verdict"
@@ -826,7 +841,7 @@
       "title": "Business",
       "body": "للفرق التي تحتاج حسابات متكررة وملخصات قرار متميزة وسياق معياري.",
       "features": [
-        "Premium analyzers across 27 sectors",
+        "Premium calculators across 27 sectors",
         "ملخصات قرار متميزة مع ملخص الحساب",
         "Regional units and indicative benchmarks",
         "Saved reports and field mode"
@@ -847,7 +862,7 @@
     },
     "bundles": {
       "title": "Industry bundles",
-      "body": "Group the analyzers your sector uses most into a focused bundle, so teams reach the right tool without noise."
+      "body": "Group the calculators your sector uses most into a focused bundle, so teams reach the right tool without noise."
     },
     "approvedReports": {
       "title": "ملخصات قرار متميزة",
@@ -876,11 +891,11 @@
       "items": [
         {
           "q": "How is Business different from Enterprise?",
-          "a": "Business يغطي المحللات المتميزة وملخصات القرار المتميزة. Enterprise يضيف الحوكمة والحزم."
+          "a": "Business يغطي الحاسبةات المتميزة وملخصات القرار المتميزة. Enterprise يضيف الحوكمة والحزم."
         },
         {
           "q": "Can we use SectorCalc across multiple sectors?",
-          "a": "Yes. SectorCalc covers 27 sectors, and industry bundles group the analyzers your teams use most."
+          "a": "Yes. SectorCalc covers 27 sectors, and industry bundles group the calculators your teams use most."
         },
         {
           "q": "Are results auditable?",
@@ -947,40 +962,102 @@
   },
   "homepageHybrid": {
     "meta": {
-      "title": "SectorCalc — حاسبات مجانية ومميزة",
-      "description": "حاسبات عملية للتكلفة والهدر والهامش والخسارة التشغيلية — فحوصات مجانية وملخصات قرار مميزة."
+      "title": "SectorCalc — حاسبات قطاعية مجانية ومميزة",
+      "description": "تكلفة، هدر، هامش، طاقة، مسار، بناء وعمليات — منصة حسابية موجهة للقطاعات."
     },
     "hero": {
-      "eyebrow": "حاسبات قطاعية",
-      "headline": "احسب التكلفة والهدر والهامش والخسارة التشغيلية قبل أن تتفاقم.",
-      "subtitleLine1": "يوفر SectorCalc حاسبات عملية للتصنيع واللوجستيات والبناء والطاقة والمطاعم وخدمات الميدان والفرق الصغيرة.",
-      "subtitleLine2": "الهدف ليس برمجيات معقدة — بل قراءة واضحة للأرقام قبل اتخاذ القرار.",
+      "headline": "نفّذ حسابات عملك أسرع وأدق",
+      "highlight": "حاسبات قطاعية مجانية ومميزة",
+      "subtitle": "يجمع SectorCalc حسابات التكلفة والهدر والهامش والطاقة والمسار والبناء والمالية والعمليات في منصة واحدة موجهة للقطاعات.",
       "ctaPrimary": "حاسبات مجانية",
-      "ctaSecondary": "حاسبات مميزة"
+      "ctaSecondary": "حاسبات مميزة",
+      "toolCount": "{count}+ أداة حساب"
     },
-    "positioning": {
-      "title": "منطق حسابي خاص بالقطاع. استخدام بسيط. نتائج واضحة.",
-      "text": "لا تزال كثير من الشركات تحسب التكلفة والهدر والوقت والمسارات والطاقة والعمالة والهامش في جداول أو دفاتر أو تقديرات. يجعل SectorCalc هذه الحسابات أكثر تنظيماً ووضوحاً وسرعة."
-    },
-    "useCases": {
-      "title": "أين يُستخدم؟",
+    "categories": {
+      "title": "تصفح حسب مجال الحساب",
+      "subtitle": "اختر نوع التكلفة أو القياس أو القرار أولاً.",
+      "countLabel": "{count} حاسبة",
       "items": {
-        "scrap": "معدل الهدر والفاقد",
-        "area": "المتر المربع والمساحة",
-        "machineTime": "وقت الآلة",
-        "labor": "تكلفة العمالة",
-        "route": "تكلفة المسار والنقل",
-        "energy": "استهلاك الطاقة",
-        "quoteMargin": "عرض السعر ومخاطر الهامش",
-        "oee": "OEE والكفاءة",
-        "carbon": "حسابات الكربون والاستدامة"
+        "costMargin": {
+          "title": "التكلفة والهامش",
+          "description": "الهامش، نقطة التعادل، تكلفة الوحدة وفحوصات التسعير."
+        },
+        "scrapOee": {
+          "title": "الهدر وOEE",
+          "description": "معدل الهدر، فقدان المواد، وقت الإعداد وكفاءة الورشة."
+        },
+        "energyCarbon": {
+          "title": "الطاقة والكربون",
+          "description": "تكلفة kWh، الذروة، البصمة الكربونية والامتثال."
+        },
+        "routingLogistics": {
+          "title": "المسار واللوجستيات",
+          "description": "تكلفة المسار، الوقود، الشحن وهامش التسليم."
+        },
+        "constructionField": {
+          "title": "البناء والموقع",
+          "description": "خرسانة، سقف، دهان، مساحة وكميات المشروع."
+        },
+        "financeBusiness": {
+          "title": "المالية والأعمال",
+          "description": "قروض، رواتب، ضرائب، تدفق نقدي وحسابات يومية."
+        },
+        "dailyPractical": {
+          "title": "عملي يومي",
+          "description": "منزل، سفر، إكرامية وقرارات يومية."
+        },
+        "premium": {
+          "title": "حاسبات مميزة",
+          "description": "مدخلات أكثر، مقارنة سينarios وملخصات قرار."
+        }
       }
     },
-    "platform": {
-      "title": "حاسبات مجانية وملخصات قرار مميزة",
-      "text": "استخدم الحاسبات المجانية للحسابات الأساسية؛ والحاسبات المميزة للسيناريوهات وفحص المخاطر وملخصات القرار الأعمق.",
-      "cta": "عرض جميع الحاسبات القطاعية",
-      "categories": {
+    "popular": {
+      "title": "الحاسبات الأكثر استخداماً",
+      "subtitle": "وصول سريع إلى أدوات الحساب التي تحتاجها الشركات غالباً.",
+      "badgeFree": "مجاني",
+      "badgePremium": "مميز"
+    },
+    "freePremium": {
+      "title": "الحسابات الأساسية مجانية. ملخصات القرار الأعمق مميزة.",
+      "freeTitle": "حاسبات مجانية",
+      "freeItems": {
+        "fast": "نتيجة سريعة",
+        "formula": "صيغة أساسية",
+        "daily": "استخدام يومي",
+        "discover": "استكشاف دون تسجيل"
+      },
+      "freeCta": "فتح الحاسبات المجانية",
+      "premiumTitle": "حاسبات مميزة",
+      "premiumItems": {
+        "inputs": "مدخلات أكثر",
+        "scenario": "مقارنة سينarios",
+        "summary": "ملخص قرار",
+        "export": "تصدير PDF/CSV عند التوفر"
+      },
+      "premiumCta": "استعراض الحاسبات المميزة"
+    },
+    "why": {
+      "title": "لماذا SectorCalc بدلاً من ملفات Excel المتفرقة؟",
+      "cards": {
+        "unify": {
+          "title": "يجمع الحسابات المتفرقة",
+          "text": "توقف عن إعادة بناء نفس الصيغ في دفاتر ومحادثات وجداول."
+        },
+        "discover": {
+          "title": "يسهّل إيجاد الأداة القطاعية الصحيحة",
+          "text": "تصفح حسب التكلفة أو الهدر أو الطاقة أو المسار أو القطاع."
+        },
+        "upgrade": {
+          "title": "من الاستكشاف المجاني إلى الملخص المميز",
+          "text": "ابدأ برقم سريع ثم افتح مخرجات أعمق عند ارتفاع المخاطر."
+        }
+      }
+    },
+    "sectors": {
+      "title": "اعثر على حاسبات لقطاعك",
+      "cta": "عرض جميع حاسبات القطاعات",
+      "items": {
         "manufacturing": "التصنيع",
         "logistics": "اللوجستيات",
         "construction": "البناء",
@@ -991,10 +1068,10 @@
         "healthcare": "الرعاية الصحية"
       }
     },
-    "final": {
-      "title": "SectorCalc منصة حسابية متطورة",
-      "text": "تستمر الأدوات في النمو مع احتياجات القطاعات. الهدف ليس بيع أنظمة معقدة لكل شركة — بل تسهيل طرح سؤال الحساب الصحيح.",
-      "cta": "حاسبات مجانية"
+    "mission": {
+      "title": "التكلفة غير المحسوبة غالباً خسارة غير مرئية.",
+      "text": "كثير من الشركات تدير العروض والهدر والعمالة والطاقة والنقل والهامش في ملفات منفصلة أو بالتقدير. يهدف SectorCalc إلى جعل هذه الحسابات أوضح وقابلة للمقارنة والتكرار.",
+      "cta": "استكشف الحاسبات"
     }
   },
   "industrialHome": {
@@ -1066,20 +1143,20 @@
     "signInPrompt": "Sign in to load your personal audit vault from Firestore.",
     "signInCta": "Sign in",
     "viewFullArchive": "Open full archive",
-    "emptySignedIn": "No saved audits yet. Run a premium analyzer and save the verdict to populate your vault."
+    "emptySignedIn": "No saved audits yet. Run a premium calculator and save the verdict to populate your vault."
   },
   "emptyStates": {
     "reports": {
       "title": "No saved reports yet",
       "body": "Run a free sector check, then unlock a Single Verdict or SectorCalc Pro to save reports.",
-      "bodyWithCredits": "Run your unlocked premium analyzer and save the verdict report here.",
+      "bodyWithCredits": "Run your unlocked premium calculator and save the verdict report here.",
       "ctaFree": "Explore free tools",
-      "ctaPremium": "Open premium analyzers",
+      "ctaPremium": "Open premium calculators",
       "viewReport": "View report"
     },
     "purchases": {
       "title": "Single verdict credits",
-      "body": "One-time purchases unlock the premium analyzer for that sector tool."
+      "body": "One-time purchases unlock the premium calculator for that sector tool."
     },
     "login": {
       "eyebrow": "Sign in required",
@@ -1237,7 +1314,7 @@
     "tools": "Tools",
     "account": "Account",
     "freeTools": "Free calculator",
-    "premiumTools": "Premium analyzer",
+    "premiumTools": "Premium calculator",
     "reports": "Decision report",
     "freeCalculators": "الحاسبات المجانية",
     "premiumCalculators": "الحاسبات المميزة",
@@ -1254,8 +1331,8 @@
     "calculate": "Calculate now"
   },
   "premiumTools": {
-    "title": "Premium analyzer",
-    "openAnalyzer": "Open analyzer",
+    "title": "Premium calculator",
+    "openAnalyzer": "Open calculator",
     "lockedTrustTrace": "ملخص الحساب ميزة Premium Pro."
   },
   "categories": {
@@ -1307,7 +1384,7 @@
     "freeToolsDescription": "Free browser calculators for cost, measurement, energy and business decisions. No sign-up required.",
     "pricingTitle": "Pricing | SectorCalc",
     "pricingDescription": "Free calculators and premium decision reports — single reports from $9, Pro from $19/month.",
-    "premiumToolsTitle": "Premium Analyzers | SectorCalc",
+    "premiumToolsTitle": "Premium Calculators | SectorCalc",
     "premiumToolsDescription": "Hidden-loss diagnostics, threshold checks and export-ready decision reports for operational teams."
   },
   "campaign": {
@@ -1317,7 +1394,7 @@
     },
     "seoHub": {
       "freeCalculators": "Free calculators",
-      "premiumAnalyzers": "Premium analyzers",
+      "premiumAnalyzers": "Premium calculators",
       "viewPricing": "View pricing"
     },
     "clusters": {
@@ -1337,26 +1414,26 @@
     "freeCalculatorHeading": "Free calculator",
     "freeCalculatorNote": "Quick check only — no minimum safe price or accept/reject verdict.",
     "openTool": "Open {tool}",
-    "premiumHeading": "Premium analyzer",
+    "premiumHeading": "Premium calculator",
     "startPro": "Start SectorCalc Pro",
-    "relatedHeading": "Related premium analyzers",
+    "relatedHeading": "Related premium calculators",
     "relatedNote": "Hidden-loss diagnostics with threshold checks, suggested actions and export-ready reports.",
-    "openAnalyzer": "Open analyzer →",
-    "viewAll": "View all analyzers →",
-    "additionalHeading": "Additional analyzers",
+    "openAnalyzer": "Open calculator →",
+    "viewAll": "View all calculators →",
+    "additionalHeading": "Additional calculators",
     "additionalNote": "Related decision tools on the SectorCalc roadmap for this sector.",
     "allIndustries": "All industries",
     "freeCalculatorLink": "Free calculator",
-    "premiumAnalyzerLink": "Premium analyzer",
+    "premiumAnalyzerLink": "Premium calculator",
     "proPricing": "SectorCalc Pro pricing",
     "account": "Account"
   },
   "premiumAccess": {
     "previewEyebrow": "Public preview",
-    "publicPreviewTitle": "Try this analyzer before you subscribe",
-    "publicPreviewDescription": "Enter your job inputs, validate the form and run a preview analysis. Export, saved reports and ملخص الحساب require SectorCalc Pro.",
+    "publicPreviewTitle": "Try this calculator before you subscribe",
+    "publicPreviewDescription": "Enter your job inputs, validate the form and run a preview calculation. Export, saved reports and ملخص الحساب require SectorCalc Pro.",
     "signedInPreviewTitle": "Preview mode — Pro unlocks full reports",
-    "signedInPreviewDescription": "You can run the analyzer and review the preview verdict. PDF export, saved history and ملخص الحساب require an active Pro plan or single-report purchase.",
+    "signedInPreviewDescription": "You can run the calculator and review the preview verdict. PDF export, saved history and ملخص الحساب require an active Pro plan or single-report purchase.",
     "signIn": "Sign in",
     "getPro": "Get Pro",
     "lockedExport": "PDF and spreadsheet export are available on Pro plans.",
@@ -1364,7 +1441,7 @@
     "lockedTrustTrace": "ملخص الحساب ميزة Premium Pro.",
     "fullReportRequiresPro": "Full exportable report requires SectorCalc Pro.",
     "panelTitle": "SectorCalc Pro sign-in",
-    "panelDescription": "Sign in with Google to access premium analyzers or continue checkout. Admin sign-in is separate above.",
+    "panelDescription": "Sign in with Google to access premium calculators or continue checkout. Admin sign-in is separate above.",
     "signInButton": "Continue with Google",
     "signingIn": "Signing in…",
     "signInErrors": {
@@ -1382,7 +1459,7 @@
       "advanced": "Advanced"
     },
     "actions": {
-      "calculate": "Run analysis",
+      "calculate": "Run calculation",
       "fixMissing": "Complete required fields",
       "showAdvanced": "Show advanced fields",
       "hideAdvanced": "Hide advanced fields"
@@ -1393,16 +1470,16 @@
       "min": "Value must be at least {min}.",
       "max": "Value must be at most {max}.",
       "missingInputs": "{count, plural, one {# required field is missing} other {# required fields are missing}}",
-      "invalidCombination": "These inputs cannot produce a valid analysis."
+      "invalidCombination": "These inputs cannot produce a valid calculation."
     },
     "scenario": {
       "label": "Job scenario",
       "placeholder": "Select scenario"
     },
     "notices": {
-      "requiredInputReason": "Each field maps to a verified contract input for this analyzer.",
-      "calculationBlocked": "Complete required fields before running the analysis.",
-      "validatedInputSet": "Input set ready — run analysis when values are confirmed."
+      "requiredInputReason": "Each field maps to a verified contract input for this calculator.",
+      "calculationBlocked": "Complete required fields before running the calculation.",
+      "validatedInputSet": "Input set ready — run calculation when values are confirmed."
     },
     "tools": {
       "cncQuoteRiskAnalyzer": {
@@ -2509,17 +2586,17 @@
       }
     },
     "compatibility": {
-      "missingContractField": "This analyzer is missing a required contract input in Smart Form.",
+      "missingContractField": "This calculator is missing a required contract input in Smart Form.",
       "hiddenRequiredSimple": "Switch to Advanced mode to enter all required contract fields.",
-      "missingRequired": "Complete all required fields before running the analysis.",
-      "invalidInput": "Fix invalid inputs before running the analysis."
+      "missingRequired": "Complete all required fields before running the calculation.",
+      "invalidInput": "Fix invalid inputs before running the calculation."
     }
   },
   "cta": {
     "startFree": "Start free",
     "calculateNow": "Calculate now",
     "viewFreeTools": "View free tools",
-    "openPremiumAnalyzer": "Open analyzer",
+    "openPremiumAnalyzer": "Open calculator",
     "unlockFullReport": "Unlock full report",
     "viewPricing": "View pricing",
     "downloadCsv": "Download CSV",

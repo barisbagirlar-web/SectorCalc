@@ -1,26 +1,29 @@
 #!/usr/bin/env node
 /**
- * CI gate: calculator copy i18n integrity + banned analyzer terminology in visible keys.
+ * CI gate: calculator copy i18n integrity + banned analyzer terminology in visible copy.
  */
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
-const LOCALES = ["tr", "de", "fr", "es", "ar"];
+const LOCALES = ["en", "tr", "de", "fr", "es", "ar"];
+const NON_EN_LOCALES = LOCALES.filter((l) => l !== "en");
 const CATALOG = JSON.parse(
   readFileSync(join(ROOT, "src/lib/tools/free-traffic-catalog.generated.json"), "utf8"),
 );
 const SLUGS = CATALOG.map((t) => t.slug);
 
 const BANNED_VISIBLE = [
-  /\bAnalyzer\b/i,
+  /\bAnalyzers?\b/i,
   /\bAnalysis\b/i,
   /\bAnalyze\b/i,
-  /\bAnaliz\b/i,
+  /\banalyses\b/i,
+  /\banalizör/i,
   /\banalizi\b/i,
-  /\bAnalyse\b/i,
-  /\bAnalyseur\b/i,
-  /\bAnalizador\b/i,
+  /\banaliz\b/i,
+  /\bAnalyseurs?\b/i,
+  /\bAnalysatoren?\b/i,
+  /\bAnalizadores?\b/i,
   /\bAnálisis\b/i,
   /\bتحليل\b/,
   /\bمحلل\b/,
@@ -35,7 +38,29 @@ const EN_CARD_LEAKS = [
   "with waste factor",
 ];
 
+const SKIP_PATH_SUFFIXES = [
+  "Analyzer",
+  "Analyzers",
+  "cncQuoteRiskAnalyzer",
+  "changeOrderImpactAnalyzer",
+  "weldingBidRiskAnalyzer",
+  "millworkBidRiskAnalyzer",
+  "routeOptimizationAnalyzer",
+  "cropYieldLossAnalyzer",
+  "feedEfficiencyAnalyzer",
+];
+
 const SKIP_PATH_PREFIXES = ["nav.getPro", "nav.unlockPro", "osGate", "auditEngine"];
+
+const SOURCE_SCAN_FILES = [
+  "src/lib/seo/programmatic-seo-pages.ts",
+  "src/lib/catalog/build-catalog-groups.ts",
+  "src/lib/i18n/locale-cta.ts",
+  "src/components/catalog/CategoryExplorer.tsx",
+  "src/components/account/RecentReportsPanel.tsx",
+  "src/data/tool-definitions/project-cost-estimator.ts",
+  "src/data/tool-definitions/cnc-minimum-safe-quote-analyzer.ts",
+];
 
 function loadMessages(locale) {
   return JSON.parse(readFileSync(join(ROOT, "messages", `${locale}.json`), "utf8"));
@@ -56,9 +81,41 @@ function flatten(obj, prefix = "") {
   return out;
 }
 
+function shouldSkipPath(path) {
+  if (SKIP_PATH_PREFIXES.some((p) => path.startsWith(p))) {
+    return true;
+  }
+  const leaf = path.split(".").pop() ?? path;
+  if (SKIP_PATH_SUFFIXES.some((s) => leaf.includes(s))) {
+    return true;
+  }
+  return false;
+}
+
+function scanText(label, text, failures) {
+  for (const banned of BANNED_VISIBLE) {
+    if (banned.test(text)) {
+      failures.push(`${label} → "${text.slice(0, 100)}"`);
+      break;
+    }
+  }
+}
+
+function scanSourceFile(relPath, text, failures) {
+  const literalRe = /"([^"\\]|\\.)*"/g;
+  let match;
+  while ((match = literalRe.exec(text)) !== null) {
+    const literal = match[0].slice(1, -1);
+    if (literal.includes("-analyzer") || literal.includes("premiumAnalyzerLinks")) {
+      continue;
+    }
+    scanText(relPath, literal, failures);
+  }
+}
+
 const failures = [];
 
-for (const locale of LOCALES) {
+for (const locale of NON_EN_LOCALES) {
   const messages = loadMessages(locale);
   const content = messages.freeToolContent ?? {};
 
@@ -75,22 +132,20 @@ for (const locale of LOCALES) {
         }
       }
     }
+    scanText(`${locale}: freeToolContent.${slug}`, `${entry.title} ${entry.description}`, failures);
   }
 
   for (const [path, value] of flatten(messages)) {
-    if (!path.startsWith("freeToolUi") && !path.startsWith("premiumSchemaPage") && !path.startsWith("premiumDecisionReport") && !path.startsWith("contentAuthority")) {
+    if (shouldSkipPath(path)) {
       continue;
     }
-    if (SKIP_PATH_PREFIXES.some((p) => path.startsWith(p))) {
-      continue;
-    }
-    for (const banned of BANNED_VISIBLE) {
-      if (banned.test(value)) {
-        failures.push(`${locale}: banned term in ${path} → "${value.slice(0, 80)}"`);
-        break;
-      }
-    }
+    scanText(`${locale}: messages.${path}`, value, failures);
   }
+}
+
+for (const relPath of SOURCE_SCAN_FILES) {
+  const text = readFileSync(join(ROOT, relPath), "utf8");
+  scanSourceFile(relPath, text, failures);
 }
 
 console.log("audit:calculator-copy");
@@ -101,10 +156,10 @@ if (failures.length === 0) {
 }
 
 console.log(`FAIL — ${failures.length} issue(s):`);
-for (const line of failures.slice(0, 40)) {
+for (const line of failures.slice(0, 50)) {
   console.log(`  - ${line}`);
 }
-if (failures.length > 40) {
-  console.log(`  - … +${failures.length - 40} more`);
+if (failures.length > 50) {
+  console.log(`  - … +${failures.length - 50} more`);
 }
 process.exit(1);

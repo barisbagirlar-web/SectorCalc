@@ -49,7 +49,7 @@ export function SubscriptionStatusCard({
           <p className="sc-account-hub__subscription-eyebrow">Subscription</p>
           <h2 className="sc-account-hub__subscription-title">Payment needs attention</h2>
           <p className="sc-account-hub__subscription-lead">
-            Update billing to restore premium analyzer access and saved report exports.
+            Update billing to restore premium calculator access and saved report exports.
           </p>
         </div>
         <Link href={getPricingHref()} className="sc-cta-primary sc-account-hub__subscription-cta">
@@ -64,7 +64,7 @@ export function SubscriptionStatusCard({
       <section className="sc-account-hub__subscription sc-account-hub__subscription--pro">
         <div className="sc-account-hub__subscription-copy">
           <p className="sc-account-hub__subscription-eyebrow">SectorCalc Pro</p>
-          <h2 className="sc-account-hub__subscription-title">All premium analyzers unlocked</h2>
+          <h2 className="sc-account-hub__subscription-title">All premium calculators unlocked</h2>
           <p className="sc-account-hub__subscription-lead">
             {periodEnd
               ? `Current billing period ends ${periodEnd}.`

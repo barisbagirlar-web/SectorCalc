@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const DAIRY_FEED_EFFICIENCY_LOSS_SCHEMA: PremiumCalculatorSchema = {
   id: "dairy-feed-efficiency-loss",
-  name: "Dairy Feed Efficiency Loss Analyzer",
+  name: "Dairy Feed Efficiency Loss Calculator",
   sectorSlug: "dairy",
   category: "benchmark",
   legacyPaidSlug: "feed-efficiency-analyzer",
@@ -73,7 +73,7 @@ export const DAIRY_FEED_EFFICIENCY_LOSS_SCHEMA: PremiumCalculatorSchema = {
       required: true,
       smartDefault: 30,
       validation: { min: 1 },
-      helper: "Analysis period in days.",
+      helper: "Calculation period in days.",
       expertMeaning: "Time horizon for feed and yield stack.",
     },
   ],

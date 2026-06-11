@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const LOGISTICS_FUEL_ROUTE_DRIFT_SCHEMA: PremiumCalculatorSchema = {
   id: "logistics-fuel-route-drift",
-  name: "Fuel and Route Drift Analyzer",
+  name: "Fuel and Route Drift Calculator",
   sectorSlug: "logistics-transport",
   category: "route",
   legacyPaidSlug: "trip-budget-optimizer",

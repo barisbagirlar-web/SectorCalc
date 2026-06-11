@@ -91,9 +91,9 @@ export const projectCostEstimatorDefinition: ToolDefinition = {
  { id: "contingencyCost", label: "Contingency amount", currency: true },
  ],
  premiumTeaser: {
- title: "Need decision-level analysis?",
- text: "Open the Change Order Impact Analyzer to see minimum safe change price, margin impact on the full project, risk level, scenario analysis and a packaged decision report.",
- ctaLabel: "Open Change Order Impact Analyzer",
+ title: "Need decision-level calculation?",
+ text: "Open the Change Order Impact Calculator to see minimum safe change price, margin impact on the full project, risk level, scenario calculation and a packaged decision report.",
+ ctaLabel: "Open Change Order Impact Calculator",
  ctaHref: "/tools/premium/change-order-impact-analyzer",
  },
  relatedToolIds: [
@@ -109,7 +109,7 @@ export const projectCostEstimatorDefinition: ToolDefinition = {
  },
  calculatorId: "project-cost-estimator",
  interpretationNote:
- "This estimate is based on direct project costs plus overhead and contingency. It does not replace a full bid analysis, but it helps reveal whether labor, materials or overhead are driving the project cost.",
+ "This estimate is based on direct project costs plus overhead and contingency. It does not replace a full bid calculation, but it helps reveal whether labor, materials or overhead are driving the project cost.",
  faqPlaceholder:
- "Who it is for: contractors, estimators and project managers needing a fast project cost range. What to do with the result: sanity-check bid components before submitting; use the Change Order Impact Analyzer when scope changes affect total margin. Assumptions follow your entered costs — indicative only.",
+ "Who it is for: contractors, estimators and project managers needing a fast project cost range. What to do with the result: sanity-check bid components before submitting; use the Change Order Impact Calculator when scope changes affect total margin. Assumptions follow your entered costs — indicative only.",
 };

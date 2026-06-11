@@ -99,7 +99,7 @@ const TR_CATALOG_CTA: CatalogCtaLabels = {
 
 const EN_CATALOG_CTA: CatalogCtaLabels = {
   openIndustry: "Open industry →",
-  viewAnalyzer: "View analyzer →",
+  viewAnalyzer: "View calculator →",
   openCalculator: "Open calculator →",
   premiumBadge: "Premium analyzer",
 };

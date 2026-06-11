@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const AUTO_REPAIR_COMEBACK_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "auto-repair-comeback-cost",
-  name: "Auto Repair Comeback Cost Analyzer",
+  name: "Auto Repair Comeback Cost Calculator",
   sectorSlug: "auto-repair",
   category: "cost",
   legacyPaidSlug: "auto-shop-margin-leak-detector",

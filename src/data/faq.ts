@@ -9,7 +9,7 @@ export const HOME_FAQ: FaqItem[] = [
  id: "free-vs-premium",
  question: "What is the difference between free and premium tools?",
  answer:
- "Free tools provide quick estimates for everyday business decisions. Premium sector tools add scenario analysis, risk assessment, and exportable decision reports designed for high-stakes pricing and operational choices.",
+ "Free tools provide quick estimates for everyday business decisions. Premium sector tools add scenario calculation, risk assessment, and exportable decision reports designed for high-stakes pricing and operational choices.",
  },
  {
  id: "reports",

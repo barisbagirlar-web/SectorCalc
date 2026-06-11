@@ -24,7 +24,7 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
       "Boş dönüş kilometresi, yakıt sapması ve gecikmeler; yük kabul edilmeden önce nakliye marjını eritir.",
   },
   "logistics-fuel-route-drift": {
-    title: "Yakıt ve Rota Sapma Analizi",
+    title: "Yakıt ve Rota Sapma Hesaplayıcısı",
     painStatement:
       "Yakıt sapması, rölanti süresi ve rota kayması normal maliyet sayıldığında lojistik kârı sessizce erir.",
   },
@@ -34,7 +34,7 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
       "Tepe talep, fazla kWh ve tarife sapması; sayaç değerinin ötesinde faturayı şişirir.",
   },
   "energy-compressor-leak-cost": {
-    title: "Kompresör Hava Kaçağı Maliyet Analizi",
+    title: "Kompresör Hava Kaçağı Maliyet Hesaplayıcısı",
     painStatement:
       "Sürekli kompresör kaçakları, görünür sebep olmadan kWh tüketimini ve enerji maliyetini artırır.",
   },
@@ -44,27 +44,27 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
       "Makine duruşu, fire ve çevrim süresi sapması; teklif kabul edilmeden önce kâr marjını siler.",
   },
   "cnc-tool-wear-cost": {
-    title: "CNC Takım Aşınması Maliyet Analizi",
+    title: "CNC Takım Aşınması Maliyet Hesaplayıcısı",
     painStatement:
       "Takım aşınması, takım değişim süresi ve soğutma sıvısı maliyeti; CNC iş kârını sessizce eritir.",
   },
   "calibration-drift-risk": {
-    title: "Kalibrasyon Sapma Riski Analizi",
+    title: "Kalibrasyon Sapma Riski Hesaplayıcısı",
     painStatement:
       "Ölçüm sapması; sorun üretimde görünmeden önce fire, ret ve uyumsuzluk riski oluşturur.",
   },
   "sheet-metal-scrap-risk": {
-    title: "Sac Metal Fire Riski Analizi",
+    title: "Sac Metal Fire Riski Hesaplayıcısı",
     painStatement:
       "Sac metal işlerinde kesim firesi, büküm hatası ve finiş yeniden işlemi teklif öncesi fiyatlanmazsa kâr erir.",
   },
   "construction-project-overrun": {
-    title: "İnşaat Proje Aşımı Analizi",
+    title: "İnşaat Proje Aşımı Hesaplayıcısı",
     painStatement:
       "İşçilik kayması, gecikme günleri ve malzeme aşımı uygulama öncesi fiyatlanmazsa inşaat projesi kârı kaybeder.",
   },
   "construction-subcontractor-margin-leak": {
-    title: "Taşeron Marj Kaçağı Analizi",
+    title: "Taşeron Marj Kaçağı Hesaplayıcısı",
     painStatement:
       "Taşeron tekliflerindeki sıkışma, ana yüklenicinin marjını sessizce daraltır ve sözleşme öncesi fark edilmez.",
   },
@@ -74,82 +74,82 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
       "Fire, fazla porsiyon ve bozulma; satış raporlarına yansımadan önce gıda işletmesinin marjını eritebilir.",
   },
   "restaurant-menu-margin-leak": {
-    title: "Restoran Menü Marj Kaçağı Analizi",
+    title: "Restoran Menü Marj Kaçağı Hesaplayıcısı",
     painStatement:
       "Yüksek malzeme oranı, teslimat komisyonu ve fire; menü fiyatları doğru görünse bile restoran kârını eritir.",
   },
   "retail-inventory-turnover-risk": {
-    title: "Perakende Stok Devir Riski Analizi",
+    title: "Perakende Stok Devir Riski Hesaplayıcısı",
     painStatement:
       "Yavaş stok, indirimler ve taşıma maliyeti birlikte ölçülmediğinde perakendeci nakit akışını kaybeder.",
   },
   "cloud-api-cost-overrun": {
-    title: "Bulut API Maliyet Aşımı Analizi",
+    title: "Bulut API Maliyet Aşımı Hesaplayıcısı",
     painStatement:
       "Bulut ve API ürünleri; çağrı, token, depolama ve işlem gücü gelirden hızlı büyüdüğünde marj kaybeder.",
   },
   "plumbing-leak-callback-cost": {
-    title: "Tesisat Geri Çağrı Maliyet Analizi",
+    title: "Tesisat Geri Çağrı Maliyet Hesaplayıcısı",
     painStatement:
       "Sızıntı geri çağrıları, malzeme seferleri ve garanti ziyaretleri fiyatlanmazsa tesisat işi kârını kaybeder.",
   },
   "electrical-panel-rework-cost": {
-    title: "Elektrik Pano Yeniden İşçilik Maliyet Analizi",
+    title: "Elektrik Pano Yeniden İşçilik Maliyet Hesaplayıcısı",
     painStatement:
       "Pano kablo işçiliği, test ve denetim ret kaynaklı yeniden çalışma saatleri fiyatlanmazsa elektrikçi kâr kaybeder.",
   },
   "warehouse-space-cost-leak": {
-    title: "Depo Alan Maliyet Kaçağı Analizi",
+    title: "Depo Alan Maliyet Kaçağı Hesaplayıcısı",
     painStatement:
       "Kullanılmayan alan, yavaş paletler ve elleçleme sapması normal genel gider sayıldığında depo operasyonu kâr kaybeder.",
   },
   "dairy-feed-efficiency-loss": {
-    title: "Süt Üretimi Yem Verimliliği Kayıp Analizi",
+    title: "Süt Üretimi Yem Verimliliği Kayıp Hesaplayıcısı",
     painStatement:
       "Yem maliyeti, süt veriminden daha hızlı arttığında süt çiftliği kâr marjını kaybeder.",
   },
   "agriculture-irrigation-yield-loss": {
-    title: "Sulama Verim Kaybı Analizi",
+    title: "Sulama Verim Kaybı Hesaplayıcısı",
     painStatement:
       "Sulama kararları üretim öncesinde nem ve hava verisiyle modellenmediğinde tarla verim kaybı yaşar.",
   },
   "printing-reprint-margin-leak": {
-    title: "Baskı Yeniden Üretim Marj Kaçağı Analizi",
+    title: "Baskı Yeniden Üretim Marj Kaçağı Hesaplayıcısı",
     painStatement:
       "Yeniden baskı, tasarım revizyonu, mürekkep sapması ve montaj yeniden işçiliği baskı ve tabela işlerinde kâr kaybına yol açar.",
   },
   "textile-fabric-waste-risk": {
-    title: "Tekstil Kumaş Fire Riski Analizi",
+    title: "Tekstil Kumaş Fire Riski Hesaplayıcısı",
     painStatement:
       "Tekstil üretimi; kesim firesi, çekme, boya kaybı ve kumaş tüketim sapması üzerinden marj kaybeder.",
   },
   "auto-repair-comeback-cost": {
-    title: "Oto Servis Geri Dönen İş Maliyet Analizi",
+    title: "Oto Servis Geri Dönen İş Maliyet Hesaplayıcısı",
     painStatement:
       "Oto servisi; teşhis süresi, geri dönen iş oranı ve parça elleçleme maliyeti birlikte fiyatlanmazsa kârını kaybeder.",
   },
   "hvac-callback-margin-risk": {
-    title: "HVAC Geri Çağrı Marj Riski Analizi",
+    title: "HVAC Geri Çağrı Marj Riski Hesaplayıcısı",
     painStatement:
       "HVAC projelerinde devreye alma süresi ve geri çağrı riski fiyatlanmazsa proje marjı hızla daralır.",
   },
   "roofing-weather-delay-risk": {
-    title: "Çatı İşi Hava Koşulu Gecikme Riski Analizi",
+    title: "Çatı İşi Hava Koşulu Gecikme Riski Hesaplayıcısı",
     painStatement:
       "Hava koşulu gecikmeleri, döküm ücretleri ve garanti rezervleri çatı sözleşme tekliflerinde marjı zorlar.",
   },
   "painting-rework-coverage-risk": {
-    title: "Boya İşi Yeniden İşçilik ve Kaplama Riski Analizi",
+    title: "Boya İşi Yeniden İşçilik ve Kaplama Riski Hesaplayıcısı",
     painStatement:
       "Boya işlerinde hazırlık yeniden işçiliği, iskele maliyeti ve kaplama sapması fiyatlanmazsa marj kaybedilir.",
   },
   "carbon-footprint-compliance-risk": {
-    title: "Karbon Ayak İzi Uyum Riski Analizi",
+    title: "Karbon Ayak İzi Uyum Riski Hesaplayıcısı",
     painStatement:
       "Süreç, enerji ve taşımacılıktan gelen karbon maliyeti uyum öncesi modellenmezse ihracat marjı kaybedilir.",
   },
   "legal-interest-fee-calculator-pro": {
-    title: "Hukuki Faiz ve Masraf Maruziyet Analizi",
+    title: "Hukuki Faiz ve Masraf Maruziyet Hesaplayıcısı",
     painStatement:
       "Faiz, gecikme ve masraf maruziyeti birlikte özetlenmediğinde hukuki ve tahsilat dosyalarında karar netliği kaybolur.",
   },

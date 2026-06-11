@@ -9,7 +9,7 @@ export const menuProfitLeakDetectorDefinition: ToolDefinition = {
  shortDescription:
  "Identify whether a menu item loses margin after ingredient cost, waste, labor and delivery commission.",
  longDescription:
- "Detect menu profit leaks by modeling ingredient cost, waste, packaging, kitchen labor and delivery commission against your target margin — with monthly leak estimate and scenario analysis.",
+ "Detect menu profit leaks by modeling ingredient cost, waste, packaging, kitchen labor and delivery commission against your target margin — with monthly leak estimate and scenario calculation.",
  inputs: [
  {
  id: "sellingPrice",

@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const FOOD_WASTE_MARGIN_LOSS_SCHEMA: PremiumCalculatorSchema = {
   id: "food-waste-margin-loss",
-  name: "Food Waste Margin Loss Analyzer",
+  name: "Food Waste Margin Loss Calculator",
   sectorSlug: "food-retail",
   category: "scrap",
   legacyPaidSlug: "meal-planning-verdict",

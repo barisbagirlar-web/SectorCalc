@@ -103,8 +103,8 @@ function stageForEvent(eventName: string): RevenueFunnelStage {
 const SIGNAL_DESCRIPTIONS: Record<string, string> = {
   free_tool_open: "Visitor opened a free calculator page.",
   free_tool_calculate: "User completed a free calculation.",
-  free_to_premium_click: "User clicked from free tool to premium analyzer.",
-  premium_analyzer_open: "User opened a premium analyzer preview.",
+  free_to_premium_click: "User clicked from free tool to premium calculator.",
+  premium_analyzer_open: "User opened a premium calculator preview.",
   premium_unlock_click: "User clicked unlock on a locked report.",
   pricing_view: "User viewed the pricing page.",
   pricing_cta_click: "User clicked a pricing plan CTA.",

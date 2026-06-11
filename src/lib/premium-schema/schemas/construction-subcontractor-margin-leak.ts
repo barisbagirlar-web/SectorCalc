@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const CONSTRUCTION_SUBCONTRACTOR_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
   id: "construction-subcontractor-margin-leak",
-  name: "Subcontractor Margin Leak Analyzer",
+  name: "Subcontractor Margin Leak Calculator",
   sectorSlug: "construction",
   category: "cost",
   legacyPaidSlug: "roofing-contract-margin-guard",

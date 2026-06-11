@@ -88,7 +88,7 @@ export const productMarginCalculatorDefinition: ToolDefinition = {
  { id: "returnImpact", label: "Return impact", currency: true },
  ],
  premiumTeaser: {
- title: "Need decision-level analysis?",
+ title: "Need decision-level calculation?",
  text: "Open the Return Rate Profit Erosion Tool to see net margin after returns and ad cost, break-even ad spend, required price for target margin, risk level and a decision report.",
  ctaLabel: "Open Return Rate Profit Erosion Tool",
  ctaHref: "/tools/premium/return-rate-profit-erosion-tool",

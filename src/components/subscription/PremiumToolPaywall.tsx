@@ -23,7 +23,7 @@ export function PremiumToolPaywall({
  }
 
  const revenue = toolSlug ? getRevenueToolByPremiumSlug(toolSlug) : undefined;
- const ctaHint = revenue?.premiumCtaLabel ?? "Unlock paid analyzer";
+ const ctaHint = revenue?.premiumCtaLabel ?? "Unlock paid calculator";
 
  return (
  <div className="rounded-sm border border-amber/30 bg-premium-surface p-6 md:p-8">

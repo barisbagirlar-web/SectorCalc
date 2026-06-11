@@ -5,11 +5,11 @@ export const changeOrderImpactAnalyzerDefinition: ToolDefinition = {
  slug: "change-order-impact-analyzer",
  tier: "premium",
  industryId: "construction",
- title: "Change Order Impact Analyzer",
+ title: "Change Order Impact Calculator",
  shortDescription:
  "Analyze how scope changes, extra labor, material increases and delays affect construction project margin.",
  longDescription:
- "Use this premium analyzer to understand whether a change order protects your project margin. It estimates the extra cost, minimum change order price, margin impact and risk level before you accept additional work.",
+ "Use this premium calculator to understand whether a change order protects your project margin. It estimates the extra cost, minimum change order price, margin impact and risk level before you accept additional work.",
  inputs: [
  {
  id: "originalContractValue",
@@ -136,7 +136,7 @@ export const changeOrderImpactAnalyzerDefinition: ToolDefinition = {
  "cleaning-cost-estimator",
  ],
  seo: {
- title: "Change Order Impact Analyzer",
+ title: "Change Order Impact Calculator",
  description:
  "Analyze construction change order cost, minimum safe price, margin impact and risk before approving scope changes.",
  canonicalPath: "/tools/premium/change-order-impact-analyzer",

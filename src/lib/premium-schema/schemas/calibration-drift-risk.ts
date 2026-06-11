@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const CALIBRATION_DRIFT_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "calibration-drift-risk",
-  name: "Calibration Drift Risk Analyzer",
+  name: "Calibration Drift Risk Calculator",
   sectorSlug: "measurement-calibration",
   category: "calibration",
   legacyPaidSlug: "3d-print-job-margin-tool",

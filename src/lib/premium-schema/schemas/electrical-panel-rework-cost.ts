@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const ELECTRICAL_PANEL_REWORK_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "electrical-panel-rework-cost",
-  name: "Electrical Panel Rework Cost Analyzer",
+  name: "Electrical Panel Rework Cost Calculator",
   sectorSlug: "electrical",
   category: "cost",
   legacyPaidSlug: "panel-shop-margin-verdict",

@@ -22,7 +22,7 @@ export function ToolResultPanel({
  <h2 className="text-lg font-bold text-text-primary">{MARGINCORE_TERMS.decisionVerdict}</h2>
  {hasErrors ? (
  <p className="mt-4 text-sm text-text-secondary">
- Fix highlighted risk variables to run the analysis.
+ Fix highlighted risk variables to run the calculation.
  </p>
  ) : results.length === 0 ? (
  <p className="mt-4 text-sm text-text-secondary">

@@ -102,13 +102,13 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  name: "CNC / Manufacturing",
  category: "heavy-industry",
  description:
- "Estimate machine time, analyze quote risk and protect shop-floor margin on CNC and job-shop work.",
+ "Estimate machine time, calculate quote risk and protect shop-floor margin on CNC and job-shop work.",
  painStatement:
  "This one-off job may look profitable but setup and tooling can destroy the margin.",
  seoKeywords: [
  "cnc cost calculator",
  "machine shop quote calculator",
- "cnc quote risk analyzer",
+ "cnc quote risk calculator",
  ],
  priority: 1,
  icon: "manufacturing",
@@ -126,11 +126,11 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  name: "Construction",
  category: "building-trades",
  description:
- "Estimate project costs, analyze change order impact and protect margin on contractor bids.",
+ "Estimate project costs, calculate change order impact and protect margin on contractor bids.",
  painStatement: "Small change orders can quietly erase project margin.",
  seoKeywords: [
  "construction cost calculator",
- "change order impact analyzer",
+ "change order impact calculator",
  "project margin risk",
  ],
  priority: 2,
@@ -227,7 +227,7 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  seoKeywords: [
  "welding cost estimator",
  "fabrication bid calculator",
- "welding bid risk analyzer",
+ "welding bid risk calculator",
  ],
  priority: 6,
  icon: "manufacturing",
@@ -346,7 +346,7 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  seoKeywords: [
  "cabinet cost estimator",
  "millwork bid calculator",
- "millwork bid risk analyzer",
+ "millwork bid risk calculator",
  ],
  priority: 13,
  icon: "custom",
@@ -431,7 +431,7 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  seoKeywords: [
  "desi calculator",
  "freight cost calculator",
- "route optimization analyzer",
+ "route optimization calculator",
  "volumetric weight shipping",
  ],
  priority: 18,
@@ -448,7 +448,7 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  "Fertilizer over-application and weather gaps can destroy crop margin before harvest.",
  seoKeywords: [
  "fertilizer dosage calculator",
- "crop yield analyzer",
+ "crop yield calculator",
  "mahsul verimi",
  "gübre dozaj",
  ],
@@ -494,7 +494,7 @@ export const industryRegistry: readonly IndustryRegistryEntry[] = [
  "Check milk yield versus feed cost and detect dairy profit leaks.",
  painStatement:
  "Low yield per cow with rising feed prices destroys dairy profitability.",
- seoKeywords: ["milk yield calculator", "dairy profit analyzer", "süt verimi"],
+ seoKeywords: ["milk yield calculator", "dairy profit calculator", "süt verimi"],
  priority: 22,
  icon: "agriculture",
  accentColor: "emerald",

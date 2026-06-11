@@ -154,7 +154,7 @@ function AuditVerdictReportContent({ data }: { data: AuditVerdictReportData }) {
  </table>
  ) : (
  <p className="text-sm text-text-secondary">
- Sensitivity scenarios will appear after margin risk analysis completes.
+ Sensitivity scenarios will appear after margin risk calculation completes.
  </p>
  )}
  </div>
@@ -165,7 +165,7 @@ function AuditVerdictReportContent({ data }: { data: AuditVerdictReportData }) {
 /** Big Four audit layout — premium-panel + report-heading. */
 export function AuditVerdictReportView({
  data,
- heading = "Audit Verdict & Risk Analysis",
+ heading = "Audit Verdict & Risk Calculation",
  className = "premium-panel mx-auto max-w-4xl shadow-none",
 }: AuditVerdictReportViewProps) {
  return (
@@ -208,7 +208,7 @@ function StochasticMarginReportPanel({
  setParsed({
  isError: true,
  errorMessage:
- "HATA: Giriş yapılmamış. Bu analiz yalnızca SectorCalc Pro üyelerine açıktır.",
+ "HATA: Giriş yapılmamış. Bu hesaplama yalnızca SectorCalc Pro üyelerine açıktır.",
  naivePrice: 0,
  riskBuffer: 0,
  p90SafePrice: 0,
@@ -235,7 +235,7 @@ function StochasticMarginReportPanel({
  } catch {
  setParsed({
  isError: true,
- errorMessage: "Margin risk analysis failed. Please try again.",
+ errorMessage: "Margin risk calculation failed. Please try again.",
  naivePrice: 0,
  riskBuffer: 0,
  p90SafePrice: 0,
@@ -297,16 +297,16 @@ function StochasticMarginReportPanel({
 
  return (
  <div className="premium-panel mx-auto min-w-0 max-w-4xl shadow-none">
- <h2 className="report-heading">Audit Verdict &amp; Risk Analysis</h2>
+ <h2 className="report-heading">Audit Verdict &amp; Risk Calculation</h2>
  <p className="mt-1 text-sm text-text-secondary">{toolTitle}</p>
  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-secondary">
- Stochastic P90 margin analysis — naive exposure vs safe price with sensitivity
+ Stochastic P90 margin calculation — naive exposure vs safe price with sensitivity
  scenarios. Formulas run server-side; only the verdict is shown.
  </p>
 
  {!inputsReady ? (
  <p className="mt-6 text-sm text-text-secondary">
- Complete and validate analyzer inputs before running margin risk analysis.
+ Complete and validate calculator inputs before running margin risk calculation.
  </p>
  ) : null}
 
@@ -353,7 +353,7 @@ function StochasticMarginReportPanel({
  <div className="mt-8 border-t border-border-subtle pt-8">
  <h3 className="text-sm font-bold uppercase text-text-primary">Export Verdict</h3>
             <p className="mt-2 text-sm text-text-secondary">
-              Download a decision summary PDF with P90 analysis and sensitivity matrix.
+              Download a decision summary PDF with P90 calculation and sensitivity matrix.
             </p>
  <div className="mt-4">
  <Button
@@ -416,7 +416,7 @@ function LegacyDecisionReportPanel({
  </ul>
  ),
  },
- { title: "Scenario Analysis", content: scenariosSummary },
+ { title: "Scenario calculation", content: scenariosSummary },
  {
  title: "Risk Level",
  content: (
@@ -437,7 +437,7 @@ function LegacyDecisionReportPanel({
  <h2 className="report-heading">Decision Summary</h2>
  <p className="mt-1 text-sm text-text-secondary">{toolTitle}</p>
  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-secondary">
- Export-ready view of your paid analyzer result — verdict, key drivers and
+ Export-ready view of your paid calculator result — verdict, key drivers and
  suggested action.
  </p>
 

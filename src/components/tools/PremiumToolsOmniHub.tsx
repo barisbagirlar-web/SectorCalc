@@ -92,11 +92,11 @@ export function PremiumToolsOmniHub({ groups, toolCount }: PremiumToolsOmniHubPr
           <span className="sc-omni-hub__headline-stat sc-omni-hub__headline-stat--premium">
             {toolCount}
           </span>
-          <span className="sc-omni-hub__headline-tail">paid analyzers</span>
+          <span className="sc-omni-hub__headline-tail">paid calculators</span>
         </h1>
         <p className="sc-pro-lead sc-omni-hub__sub">
           Loss detection, safe price floors and accept / reprice verdicts — pick a report family,
-          then open the sector analyzer you need.
+          then open the sector calculator you need.
         </p>
         <div className="sc-omni-hub__premium-actions">
           <Link href={getSampleReportHref()} className="sc-cta-secondary text-sm">
@@ -111,7 +111,7 @@ export function PremiumToolsOmniHub({ groups, toolCount }: PremiumToolsOmniHubPr
           aria-labelledby="premium-featured-heading"
         >
           <h2 id="premium-featured-heading" className="sc-omni-hub__section-title">
-            Featured decision analyzers
+            Featured decision calculators
           </h2>
           <p className="sc-omni-hub__section-lead">
             Most-used premium reports across manufacturing, logistics, energy and field services.
@@ -137,7 +137,7 @@ export function PremiumToolsOmniHub({ groups, toolCount }: PremiumToolsOmniHubPr
           Report categories
         </h2>
         <p className="sc-omni-hub__section-lead">
-          Each analyzer pairs with a free quick check in the same industry.
+          Each calculator pairs with a free quick check in the same industry.
         </p>
         <ul className="sc-omni-hub__category-grid sc-omni-hub__category-grid--premium">
           {visibleGroups.map((group) => {
@@ -156,7 +156,7 @@ export function PremiumToolsOmniHub({ groups, toolCount }: PremiumToolsOmniHubPr
                   onClick={() => selectCategory(group.id)}
                 >
                   <span className="sc-omni-hub__category-count">
-                    {count} {count === 1 ? "analyzer" : "analyzers"}
+                    {count} {count === 1 ? "calculator" : "calculators"}
                   </span>
                   <span className="sc-omni-hub__category-label">{group.label}</span>
                   <span className="sc-omni-hub__category-desc">{group.description}</span>

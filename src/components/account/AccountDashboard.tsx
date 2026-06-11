@@ -40,7 +40,7 @@ function AccountDashboardLoginPrompt() {
         <span className="sc-omni-hub__pro-badge">Account</span>
         <h2 className="sc-account-hub__guest-title">Sign in to your workspace</h2>
         <p className="sc-account-hub__guest-lead">
-          Access premium analyzers, subscription status and saved verdict reports from one
+          Access premium calculators, subscription status and saved verdict reports from one
           place.
         </p>
         <ul className="sc-account-hub__guest-benefits">

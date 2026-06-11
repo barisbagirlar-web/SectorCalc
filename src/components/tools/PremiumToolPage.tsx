@@ -374,7 +374,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  return (
  <>
  <SmartFormValidationSummary
-  title="Analysis blocked"
+  title="Calculation blocked"
   blockers={fullLoopResult.blockers}
  />
  {hasFullPremiumFeatures ? (
@@ -435,7 +435,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
 
  if (!submitted) {
  return (
- <p className="text-sm text-body-charcoal">Enter job inputs and run the analysis.</p>
+ <p className="text-sm text-body-charcoal">Enter job inputs and run the calculation.</p>
  );
  }
 
@@ -580,7 +580,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  ))}
  <div className="sc-industrial-form-actions">
  <button type="submit" disabled={isCalculating} className="sc-cta-primary disabled:opacity-60">
- {isCalculating ? "Calculating…" : "Run legacy analysis"}
+ {isCalculating ? "Calculating…" : "Run legacy calculation"}
  </button>
  </div>
  </form>
@@ -606,7 +606,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
       errors={errors}
       onChange={handleChange}
       onSubmit={handleSubmit}
-      calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
+      calculateLabel={isCalculating ? "Calculating…" : "Run calculation"}
       isCalculating={isCalculating}
      />
     ) : (
@@ -616,7 +616,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
       errors={errors}
       onChange={handleChange}
       onSubmit={handleSubmit}
-      calculateLabel={isCalculating ? "Calculating…" : "Run analysis"}
+      calculateLabel={isCalculating ? "Calculating…" : "Run calculation"}
       blocked={submitted && fullLoopResult?.status === "blocked"}
       blockers={
        submitted && fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []
@@ -646,7 +646,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
        disabled={isCalculating}
        className="sc-ledger-cta-primary sc-cta-primary disabled:opacity-60"
       >
-       {isCalculating ? "Calculating…" : "Run analysis"}
+       {isCalculating ? "Calculating…" : "Run calculation"}
       </button>
      </div>
     </form>

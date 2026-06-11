@@ -116,7 +116,7 @@ export function PremiumLoginPrompt({ paidSlug }: PremiumLoginPromptProps) {
  Sign in to check SectorCalc Pro access
  </h2>
  <p className="mt-3 text-sm leading-relaxed text-text-secondary">
- Premium analyzers require a signed-in account with an active SectorCalc Pro
+ Premium calculators require a signed-in account with an active SectorCalc Pro
  subscription.
  </p>
  <Link

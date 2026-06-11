@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return createPageMetadata({
     title: tool.freeTitle,
-    description: `${tool.freeValue} Free machine-time estimate — upgrade to the premium analyzer for hidden drivers, thresholds and export-ready reports.`,
+    description: `${tool.freeValue} Free machine-time estimate — upgrade to the premium calculator for hidden drivers, thresholds and export-ready reports.`,
     path: `/tools/free/${PILOT_FREE_SLUG}`,
   });
 }

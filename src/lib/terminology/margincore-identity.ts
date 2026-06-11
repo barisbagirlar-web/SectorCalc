@@ -4,8 +4,8 @@
  */
 
 export const MARGINCORE_TERMS = {
- riskAnalyzer: "Risk Analyzer",
- riskAnalyzers: "Risk Analyzers",
+ riskAnalyzer: "Risk Calculator",
+ riskAnalyzers: "Risk Calculators",
  analysis: "Analysis",
  runAnalysis: "Run margin leak analysis",
  riskVariable: "Risk Variable",

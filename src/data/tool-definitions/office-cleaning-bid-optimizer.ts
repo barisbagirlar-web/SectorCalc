@@ -9,7 +9,7 @@ export const officeCleaningBidOptimizerDefinition: ToolDefinition = {
  shortDescription:
  "Calculate a safer cleaning bid using crew hours, supplies, travel, overhead and target margin.",
  longDescription:
- "Optimize recurring office cleaning bids by modeling monthly labor, supplies, travel and overhead against customer budget and target margin — with scenario analysis and risk verdict.",
+ "Optimize recurring office cleaning bids by modeling monthly labor, supplies, travel and overhead against customer budget and target margin — with scenario calculation and risk verdict.",
  inputs: [
  {
  id: "area",
@@ -138,7 +138,7 @@ export const officeCleaningBidOptimizerDefinition: ToolDefinition = {
  seo: {
  title: "Office Cleaning Bid Optimizer",
  description:
- "Optimize office cleaning bids with crew hours, supplies, travel, overhead and margin scenario analysis.",
+ "Optimize office cleaning bids with crew hours, supplies, travel, overhead and margin scenario calculation.",
  canonicalPath: "/tools/premium/office-cleaning-bid-optimizer",
  },
  calculatorId: "office-cleaning-bid-optimizer",

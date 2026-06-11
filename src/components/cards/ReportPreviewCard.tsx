@@ -11,7 +11,7 @@ const PREVIEW_KPIS = [
 const REPORT_SECTIONS = [
  { num: 1, title: "Executive Summary", preview: "Quote sits below safe floor at current utilization." },
  { num: 2, title: "Key Findings", preview: "Setup and scrap assumptions drive margin sensitivity." },
- { num: 3, title: "Scenario Analysis", preview: "Conservative, base and aggressive margin paths." },
+ { num: 3, title: "Scenario calculation", preview: "Conservative, base and aggressive margin paths." },
  { num: 4, title: "Risk Assessment", preview: "Structured risk signal for bid approval." },
  { num: 5, title: "Recommendation", preview: "Actionable guidance for quote and capacity." },
 ] as const;

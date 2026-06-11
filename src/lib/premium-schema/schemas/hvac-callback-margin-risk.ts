@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const HVAC_CALLBACK_MARGIN_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "hvac-callback-margin-risk",
-  name: "HVAC Callback Margin Risk Analyzer",
+  name: "HVAC Callback Margin Risk Calculator",
   sectorSlug: "hvac",
   category: "cost",
   legacyPaidSlug: "hvac-project-margin-guard",

@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const TEXTILE_FABRIC_WASTE_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "textile-fabric-waste-risk",
-  name: "Textile Fabric Waste Risk Analyzer",
+  name: "Textile Fabric Waste Risk Calculator",
   sectorSlug: "textile",
   category: "scrap",
   legacyPaidSlug: "millwork-bid-risk-analyzer",

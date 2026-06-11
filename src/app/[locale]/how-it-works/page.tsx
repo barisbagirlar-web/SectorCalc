@@ -69,7 +69,7 @@ const METHODOLOGY_SECTIONS = [
  {
  id: "safe-price",
  title: "Safe price logic",
- body: "Where applicable, premium analyzers compute a minimum safe price or bid floor from direct cost, target margin and sector-specific buffers (setup, scrap, tooling, delay). The exact model varies by sector — CNC machine shops, construction change orders and cleaning contracts use different drivers.",
+ body: "Where applicable, premium calculators compute a minimum safe price or bid floor from direct cost, target margin and sector-specific buffers (setup, scrap, tooling, delay). The exact model varies by sector — CNC machine shops, construction change orders and cleaning contracts use different drivers.",
  bullets: [
  "Target margin applied to loaded direct cost",
  "Sector buffers for setup, scrap or delay",
@@ -167,7 +167,7 @@ export default function HowItWorksPage() {
  <article className="sc-card border-amber/30">
  <p className="sc-eyebrow text-amber">Premium verdict</p>
  <ul className="mt-4 space-y-2 text-sm text-text-secondary">
- <li>Full analyzer inputs</li>
+ <li>Full calculator inputs</li>
  <li>Verdict label and suggested action</li>
  <li>PDF export for saved reports</li>
  <li>Single Verdict ($9) or Pro ($19/month)</li>
@@ -201,7 +201,7 @@ export default function HowItWorksPage() {
  href={getPremiumToolsHref()}
  className="inline-flex min-h-[44px] items-center text-sm font-semibold text-text-secondary hover:text-deep-navy"
  >
- Browse premium analyzers →
+ Browse premium calculators →
  </Link>
  <Link
  href={getPricingHref()}

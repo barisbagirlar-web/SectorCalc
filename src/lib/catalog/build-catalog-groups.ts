@@ -110,7 +110,7 @@ function toolToCatalogItem(tool: Tool, catalogVariant: "default" | "premium") {
     catalogVariant === "premium" ? getPremiumArchitectureProfile(tool.slug) : null;
 
   const ctaLabel =
-    catalogVariant === "premium" ? "View analyzer →" : "Open calculator →";
+    catalogVariant === "premium" ? "View calculator →" : "Open calculator →";
 
   return {
     title: architecture?.reclassifiedTitle ?? tool.name,

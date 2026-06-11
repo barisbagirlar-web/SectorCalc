@@ -24,7 +24,7 @@ export function SingleReportPurchasesPanel({
  Single verdict credits
  </h2>
  <p className="mt-2 text-sm text-text-secondary">
- One-time purchases unlock the premium analyzer for that sector tool.
+ One-time purchases unlock the premium calculator for that sector tool.
  </p>
  <ul className="mt-5 grid min-w-0 gap-4 sm:grid-cols-2">
  {purchases.map((purchase) => {
@@ -45,7 +45,7 @@ export function SingleReportPurchasesPanel({
  Purchased {formatVerdictReportDate(purchase.createdAt)}
  </p>
  <Link href={analyzerHref} className="sc-btn-primary mt-5 inline-flex">
- Run premium analyzer
+ Run premium calculator
  </Link>
  </article>
  </li>
@@ -76,11 +76,11 @@ export function SingleReportPurchaseSuccessBanner({
  </h2>
  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
  {tool
- ? `Open ${tool.paidTitle}, run the analyzer and save or export your verdict report.`
- : "Open your premium analyzer, run the tool and save or export your verdict report."}
+ ? `Open ${tool.paidTitle}, run the calculator and save or export your verdict report.`
+ : "Open your premium calculator, run the tool and save or export your verdict report."}
  </p>
  <Link href={analyzerHref} className="sc-btn-primary mt-4 inline-flex">
- {tool ? `Open ${tool.paidTitle}` : "Browse premium analyzers"}
+ {tool ? `Open ${tool.paidTitle}` : "Browse premium calculators"}
  </Link>
  </aside>
  );

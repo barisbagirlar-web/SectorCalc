@@ -122,7 +122,7 @@ const TIER_ONE_FREE_TOOL_METADATA: Record<string, TierOneSeoMetadataOverride> = 
   "oee-calculator": {
     metaTitle: "OEE Calculator and OEE Loss Guide | SectorCalc",
     metaDescription:
-      "Calculate OEE from availability, performance and quality. Understand production effectiveness and find related premium analyzers for hidden capacity loss.",
+      "Calculate OEE from availability, performance and quality. Understand production effectiveness and find related premium calculators for hidden capacity loss.",
   },
   "concrete-volume-calculator": {
     metaTitle: "Concrete Volume Calculator — Slab m³ Estimate | SectorCalc",
@@ -133,12 +133,12 @@ const TIER_ONE_FREE_TOOL_METADATA: Record<string, TierOneSeoMetadataOverride> = 
 
 const TIER_ONE_PREMIUM_METADATA: Record<string, TierOneSeoMetadataOverride> = {
   "cnc-oee-loss": {
-    metaTitle: "CNC OEE Loss Analyzer — Capacity Exposure Report | SectorCalc",
+    metaTitle: "CNC OEE Loss Calculator — Capacity Exposure Report | SectorCalc",
     metaDescription:
       "Analyze CNC OEE loss drivers, threshold pressure and hidden capacity exposure. Premium decision report with export-ready output.",
   },
   "carbon-footprint-compliance-risk": {
-    metaTitle: "Carbon Compliance Risk Analyzer | SectorCalc",
+    metaTitle: "Carbon Compliance Risk Calculator | SectorCalc",
     metaDescription:
       "Estimate carbon compliance exposure from energy use and emission factors. Premium analyzer with threshold checks and export-ready decision output.",
   },

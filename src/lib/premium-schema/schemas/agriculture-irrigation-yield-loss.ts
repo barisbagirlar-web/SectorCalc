@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const AGRICULTURE_IRRIGATION_YIELD_LOSS_SCHEMA: PremiumCalculatorSchema = {
   id: "agriculture-irrigation-yield-loss",
-  name: "Irrigation Yield Loss Analyzer",
+  name: "Irrigation Yield Loss Calculator",
   sectorSlug: "agriculture-crops",
   category: "benchmark",
   legacyPaidSlug: "crop-yield-loss-analyzer",

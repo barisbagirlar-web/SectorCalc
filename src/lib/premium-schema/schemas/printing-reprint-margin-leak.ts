@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const PRINTING_REPRINT_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
   id: "printing-reprint-margin-leak",
-  name: "Printing Reprint Margin Leak Analyzer",
+  name: "Printing Reprint Margin Leak Calculator",
   sectorSlug: "printing-signage",
   category: "scrap",
   legacyPaidSlug: "signage-bid-safe-price-tool",

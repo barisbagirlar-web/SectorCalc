@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const PAINTING_REWORK_COVERAGE_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "painting-rework-coverage-risk",
-  name: "Painting Rework and Coverage Risk Analyzer",
+  name: "Painting Rework and Coverage Risk Calculator",
   sectorSlug: "painting",
   category: "cost",
   legacyPaidSlug: "painting-job-profit-verdict",

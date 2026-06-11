@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const LEGAL_INTEREST_FEE_CALCULATOR_PRO_SCHEMA: PremiumCalculatorSchema = {
   id: "legal-interest-fee-calculator-pro",
-  name: "Legal Interest and Fee Exposure Analyzer",
+  name: "Legal Interest and Fee Exposure Calculator",
   sectorSlug: "legal-tax",
   category: "cost",
   legacyPaidSlug: "renovation-budget-optimizer",

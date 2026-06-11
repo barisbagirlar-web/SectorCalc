@@ -42,7 +42,7 @@ export function SmartFormWorkspace({
   errors = {},
   onChange,
   onSubmit,
-  calculateLabel = "Run analysis",
+  calculateLabel = "Run calculation",
   isCalculating = false,
   formFallback,
   resultPanel,

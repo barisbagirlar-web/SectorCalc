@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const CONSTRUCTION_PROJECT_OVERRUN_SCHEMA: PremiumCalculatorSchema = {
   id: "construction-project-overrun",
-  name: "Construction Project Overrun Analyzer",
+  name: "Construction Project Overrun Calculator",
   sectorSlug: "construction",
   category: "time",
   legacyPaidSlug: "change-order-impact-analyzer",

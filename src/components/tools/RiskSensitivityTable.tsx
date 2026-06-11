@@ -9,7 +9,7 @@ export function RiskSensitivityTable({ rows, className = "" }: RiskSensitivityTa
  if (rows.length === 0) {
  return (
  <p className="text-sm text-text-secondary">
- Sensitivity scenarios will appear after margin risk analysis completes.
+ Sensitivity scenarios will appear after margin risk calculation completes.
  </p>
  );
  }

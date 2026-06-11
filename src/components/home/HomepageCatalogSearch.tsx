@@ -10,7 +10,7 @@ export function HomepageCatalogSearch({ entries }: HomepageCatalogSearchProps) {
     <CatalogGroupedSearch
       entries={entries}
       scope="homepage"
-      className="sc-home-hybrid__catalog-search"
+      className="sc-home-hybrid__catalog-search sc-home-omni__search"
     />
   );
 }

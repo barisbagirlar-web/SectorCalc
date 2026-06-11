@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const CARBON_FOOTPRINT_COMPLIANCE_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "carbon-footprint-compliance-risk",
-  name: "Carbon Footprint Compliance Risk Analyzer",
+  name: "Carbon Footprint Compliance Risk Calculator",
   sectorSlug: "energy-carbon",
   category: "carbon",
   legacyPaidSlug: "cbam-compliance-verdict",

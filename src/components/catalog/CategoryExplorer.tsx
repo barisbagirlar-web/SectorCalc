@@ -28,11 +28,11 @@ function CatalogItemCard({
   const ctaLabel =
     item.ctaLabel ??
     (variant === "premium-tools"
-      ? "View analyzer →"
+      ? "View calculator →"
       : variant === "industries"
         ? "Open industry →"
         : item.itemKind === "premium-analyzer"
-          ? "View analyzer →"
+          ? "View calculator →"
           : openLabel);
 
   const isPremiumCard = variant === "premium-tools" || item.itemKind === "premium-analyzer";
@@ -70,7 +70,7 @@ function CatalogItemCard({
       </Link>
       {variant === "industries" && item.relatedPremium && item.relatedPremium.length > 0 ? (
         <div className="sc-catalog-explorer__related-premium">
-          <p className="sc-catalog-explorer__related-label">Premium analyzers</p>
+          <p className="sc-catalog-explorer__related-label">Premium calculators</p>
           <ul className="sc-catalog-explorer__related-list">
             {item.relatedPremium.map((related) => (
               <li key={related.href}>

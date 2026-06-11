@@ -136,7 +136,7 @@ export const returnRateProfitErosionToolDefinition: ToolDefinition = {
  seo: {
  title: "Return Rate Profit Erosion Tool",
  description:
- "Analyze e-commerce profit erosion from returns, fees, shipping and ad cost with scenario analysis.",
+ "Calculate e-commerce profit erosion from returns, fees, shipping and ad cost with scenario calculation.",
  canonicalPath: "/tools/premium/return-rate-profit-erosion-tool",
  },
  calculatorId: "return-rate-profit-erosion-tool",

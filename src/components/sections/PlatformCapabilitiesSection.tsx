@@ -50,7 +50,7 @@ const CAPABILITIES: {
  ],
  },
  {
- title: "Scenario Analysis",
+ title: "Scenario calculation",
  color: "orange",
  icon: "ico-orange",
  summary:

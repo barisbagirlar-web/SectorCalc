@@ -225,7 +225,7 @@ function AnalysisTable({ data }: { data: PremiumPdfData }) {
  <View style={styles.tableHeader}>
  <Text style={styles.tableHeaderCellWide}>Metric</Text>
  <Text style={styles.tableHeaderCell}>Deterministic</Text>
- <Text style={styles.tableHeaderCell}>P90 analysis</Text>
+ <Text style={styles.tableHeaderCell}>P90 calculation</Text>
  </View>
  {rows.map((row) => (
  <View key={row.metric} style={row.alt ? styles.tableRowAlt : styles.tableRow}>
@@ -294,7 +294,7 @@ export function PremiumPdfTemplate({ data }: PremiumPdfTemplateProps) {
  <Text style={styles.verdictText}>{data.verdict}</Text>
  </View>
 
- <Text style={styles.sectionTitle}>Deterministic vs P90 analysis</Text>
+ <Text style={styles.sectionTitle}>Deterministic vs P90 calculation</Text>
  <AnalysisTable data={data} />
  <Text style={styles.footnote}>
  Deterministic cost reflects naive exposure. P90 safe price includes a Z = 1.28

@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const WAREHOUSE_SPACE_COST_LEAK_SCHEMA: PremiumCalculatorSchema = {
   id: "warehouse-space-cost-leak",
-  name: "Warehouse Space Cost Leak Analyzer",
+  name: "Warehouse Space Cost Leak Calculator",
   sectorSlug: "warehouse",
   category: "cost",
   legacyPaidSlug: "office-cleaning-bid-optimizer",

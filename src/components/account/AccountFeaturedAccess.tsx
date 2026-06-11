@@ -63,7 +63,7 @@ export function AccountFeaturedAccess({ isActive }: AccountFeaturedAccessProps) 
           ))}
         </ul>
         <Link href={isActive ? getPremiumToolsHref() : getPricingHref()} className="sc-account-hub__panel-footer">
-          {isActive ? "Browse all premium analyzers →" : "View Pro pricing →"}
+          {isActive ? "Browse all premium calculators →" : "View Pro pricing →"}
         </Link>
       </section>
 

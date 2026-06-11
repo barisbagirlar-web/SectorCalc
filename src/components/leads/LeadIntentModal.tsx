@@ -168,7 +168,7 @@ export function LeadIntentModal() {
 
  const proceedToSingleVerdictCheckout = useCallback(async () => {
  if (!context?.toolSlug) {
- setSubmitError("Tool context missing. Please try again from the analyzer page.");
+ setSubmitError("Tool context missing. Please try again from the calculator page.");
  return;
  }
 

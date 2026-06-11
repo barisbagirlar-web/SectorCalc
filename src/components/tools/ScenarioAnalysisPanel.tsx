@@ -22,7 +22,7 @@ export function ScenarioAnalysisPanel({
 }: ScenarioAnalysisPanelProps) {
  return (
  <section className="rounded-sm border border-border-subtle bg-white p-5 shadow-card sm:p-6">
- <h2 className="text-lg font-bold text-text-primary">Scenario analysis</h2>
+ <h2 className="text-lg font-bold text-text-primary">Scenario calculation</h2>
  <p className="mt-1 text-sm text-text-secondary">{labels.subtitle}</p>
  <div className="mt-6 -mx-1 overflow-x-auto px-1 pb-1">
  <table className="w-full min-w-[520px] text-left text-sm">

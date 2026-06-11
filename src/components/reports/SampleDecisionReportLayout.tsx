@@ -226,7 +226,7 @@ export function SampleDecisionReportLayout() {
  </Link>
  {" · "}
  <Link href={getPremiumToolsHref()} className="font-semibold text-deep-navy hover:underline">
- Browse premium analyzers
+ Browse premium calculators
  </Link>
  </p>
  </div>

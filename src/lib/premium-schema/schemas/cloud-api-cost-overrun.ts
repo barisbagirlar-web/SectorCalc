@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const CLOUD_API_COST_OVERRUN_SCHEMA: PremiumCalculatorSchema = {
   id: "cloud-api-cost-overrun",
-  name: "Cloud API Cost Overrun Analyzer",
+  name: "Cloud API Cost Overrun Calculator",
   sectorSlug: "it-cloud",
   category: "cost",
   legacyPaidSlug: "return-profit-erosion-tool",

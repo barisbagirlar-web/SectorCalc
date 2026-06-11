@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const RETAIL_INVENTORY_TURNOVER_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "retail-inventory-turnover-risk",
-  name: "Retail Inventory Turnover Risk Analyzer",
+  name: "Retail Inventory Turnover Risk Calculator",
   sectorSlug: "retail",
   category: "benchmark",
   legacyPaidSlug: "water-optimization-verdict",

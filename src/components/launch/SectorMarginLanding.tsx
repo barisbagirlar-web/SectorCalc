@@ -94,7 +94,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
  <div>
  <h2 className="sc-h3">Sample verdict preview</h2>
  <p className="mt-4 sc-body-muted">
- Premium analyzers deliver decision-ready reports — not spreadsheet dumps.
+ Premium calculators deliver decision-ready reports — not spreadsheet dumps.
  </p>
  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
  <Button href={SAMPLE_REPORT_HREF} variant="outline" size="md">
@@ -142,7 +142,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
  <article className="rounded-sm border border-border-subtle bg-white/5 p-6">
  <p className="text-sm font-semibold text-deep-navy">Single Verdict</p>
  <p className="mt-2 text-3xl font-bold">$9</p>
- <p className="mt-2 text-sm text-text-secondary">One premium analyzer report</p>
+ <p className="mt-2 text-sm text-text-secondary">One premium calculator report</p>
  <Link
  href={singleVerdictHref}
  className="sc-btn-primary mt-4 inline-flex w-full justify-center !text-sm"
@@ -153,7 +153,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
  <article className="rounded-sm border border-cyan/30 bg-white/5 p-6">
  <p className="text-sm font-semibold text-deep-navy">Pro Monthly</p>
  <p className="mt-2 text-3xl font-bold">$19<span className="text-lg">/mo</span></p>
- <p className="mt-2 text-sm text-text-secondary">All 27 sector analyzers</p>
+ <p className="mt-2 text-sm text-text-secondary">All 27 sector calculators</p>
  <Link
  href={config.pricingHref}
  className="sc-btn-secondary mt-4 inline-flex w-full justify-center !border-cyan/40 !text-deep-navy hover:!bg-accent-teal/10"
@@ -191,7 +191,7 @@ export function SectorMarginLanding({ config }: SectorMarginLandingProps) {
  Free margin check
  </Link>
  <Link href={config.premiumToolHref} className="font-medium text-deep-navy hover:underline">
- Premium analyzer
+ Premium calculator
  </Link>
  <Link href={SAMPLE_REPORT_HREF} className="font-medium text-deep-navy hover:underline">
  Sample verdict report

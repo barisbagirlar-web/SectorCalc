@@ -12,7 +12,7 @@ export function CncCampaignHomeCta() {
  </p>
  <p className="mt-1 text-sm leading-relaxed text-text-secondary">
  Start with the free machine time calculator or unlock the CNC Quote Risk
- Analyzer.
+ Calculator.
  </p>
  </div>
  <Link

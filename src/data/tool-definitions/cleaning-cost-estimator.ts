@@ -85,7 +85,7 @@ export const cleaningCostEstimatorDefinition: ToolDefinition = {
  { id: "costPerCrewHour", label: "Cost per crew hour", currency: true },
  ],
  premiumTeaser: {
- title: "Need decision-level analysis?",
+ title: "Need decision-level calculation?",
  text: "Open the Office Cleaning Bid Optimizer to see minimum safe monthly bid, customer budget gap, margin at budget, risk level, scenarios and a decision report.",
  ctaLabel: "Open Office Cleaning Bid Optimizer",
  ctaHref: "/tools/premium/office-cleaning-bid-optimizer",

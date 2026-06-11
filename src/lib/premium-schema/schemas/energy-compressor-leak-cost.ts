@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const ENERGY_COMPRESSOR_LEAK_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "energy-compressor-leak-cost",
-  name: "Compressor Leak Cost Analyzer",
+  name: "Compressor Leak Cost Calculator",
   sectorSlug: "energy-carbon",
   category: "energy",
   legacyPaidSlug: "cbam-compliance-verdict",

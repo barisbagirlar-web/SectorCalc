@@ -20,9 +20,9 @@ const MESSAGES_DIR = join(process.cwd(), "messages");
 const ENGLISH_CTA_PATTERNS = [
   /^Unlock full report$/i,
   /^View pricing$/i,
-  /^Open premium analyzer$/i,
+  /^Open premium calculator$/i,
   /^Run a Free Margin Check$/i,
-  /^View Premium Analyzers$/i,
+  /^View Premium Calculators$/i,
   /^Sign in$/i,
   /^Calculate now$/i,
   /^Loading\.\.\.$/i,

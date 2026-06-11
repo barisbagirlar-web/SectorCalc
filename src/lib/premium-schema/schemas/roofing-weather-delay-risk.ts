@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const ROOFING_WEATHER_DELAY_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "roofing-weather-delay-risk",
-  name: "Roofing Weather Delay Risk Analyzer",
+  name: "Roofing Weather Delay Risk Calculator",
   sectorSlug: "roofing",
   category: "time",
   legacyPaidSlug: "landscaping-contract-profit-tool",

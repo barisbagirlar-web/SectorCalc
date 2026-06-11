@@ -52,8 +52,8 @@ export const COMMERCIAL_TIERS: readonly CommercialTier[] = [
     name: "Sector Pack",
     priceLabel: "From $29/mo",
     period: "monthly or annual",
-    summary: "Sector-specific analyzer access with saved history.",
-    includes: ["Premium analyzers in pack", "Saved reports", "Export-ready outputs"],
+    summary: "Sector-specific calculator access with saved history.",
+    includes: ["Premium calculators in pack", "Saved reports", "Export-ready outputs"],
     checkoutLive: true,
   },
   {
@@ -86,7 +86,7 @@ export const PAYWALL_LOCKED_FEATURES: readonly {
   { id: "pdf_export", label: "PDF export", freeVisible: false },
   { id: "excel_export", label: "Excel export", freeVisible: false },
   { id: "word_export", label: "Word export", freeVisible: false },
-  { id: "scenario_analysis", label: "Scenario analysis rows", freeVisible: false },
+  { id: "scenario_analysis", label: "Scenario calculation rows", freeVisible: false },
   { id: "recommendation_layer", label: "Recommendation layer", freeVisible: false },
 ] as const;
 

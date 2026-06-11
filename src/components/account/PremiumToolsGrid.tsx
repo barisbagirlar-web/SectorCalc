@@ -22,7 +22,7 @@ export function PremiumToolsGrid({ isActive }: PremiumToolsGridProps) {
  <ul className="mt-5 grid min-w-0 gap-4">
  {revenueTools.map((tool) => {
  const href = isActive ? getPremiumToolHref(tool) : getPricingHref(tool);
- const ctaLabel = isActive ? "Open analyzer" : "Unlock Pro";
+ const ctaLabel = isActive ? "Open calculator" : "Unlock Pro";
 
  return (
  <li key={tool.paidSlug}>

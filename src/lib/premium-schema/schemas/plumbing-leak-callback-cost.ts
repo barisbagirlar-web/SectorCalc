@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const PLUMBING_LEAK_CALLBACK_COST_SCHEMA: PremiumCalculatorSchema = {
   id: "plumbing-leak-callback-cost",
-  name: "Plumbing Leak Callback Cost Analyzer",
+  name: "Plumbing Leak Callback Cost Calculator",
   sectorSlug: "plumbing",
   category: "cost",
   legacyPaidSlug: "plumbing-job-margin-verdict",

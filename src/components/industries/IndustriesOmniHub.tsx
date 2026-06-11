@@ -106,7 +106,7 @@ export function IndustriesOmniHub({ groups, sectorCount }: IndustriesOmniHubProp
             Featured sectors
           </h2>
           <p className="sc-omni-hub__section-lead">
-            High-traffic industry packs with free tools and premium analyzers.
+            High-traffic industry packs with free tools and premium calculators.
           </p>
           <ul className="sc-omni-hub__featured-grid">
             {featuredLinks.map((item) => (

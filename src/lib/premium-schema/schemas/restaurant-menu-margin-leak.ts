@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const RESTAURANT_MENU_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
   id: "restaurant-menu-margin-leak",
-  name: "Restaurant Menu Margin Leak Analyzer",
+  name: "Restaurant Menu Margin Leak Calculator",
   sectorSlug: "restaurant",
   category: "cost",
   legacyPaidSlug: "menu-profit-leak-detector",

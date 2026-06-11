@@ -5,11 +5,11 @@ export const cncMinimumSafeQuoteAnalyzerDefinition: ToolDefinition = {
  slug: "cnc-minimum-safe-quote-analyzer",
  tier: "premium",
  industryId: "cnc-manufacturing",
- title: "CNC Minimum Safe Quote Analyzer",
+ title: "CNC Minimum Safe Quote Calculator",
  shortDescription:
  "Calculate the minimum safe quote for a CNC job using setup time, machine time, tooling, material, scrap and target margin.",
  longDescription:
- "Estimate whether a CNC job can be accepted safely. This premium analyzer helps identify the minimum price needed to protect margin after setup time, machining time, tooling cost, material cost and scrap risk.",
+ "Estimate whether a CNC job can be accepted safely. This premium calculator helps identify the minimum price needed to protect margin after setup time, machining time, tooling cost, material cost and scrap risk.",
  inputs: [
  {
  id: "quantity",
@@ -143,14 +143,14 @@ export const cncMinimumSafeQuoteAnalyzerDefinition: ToolDefinition = {
  "project-cost-estimator",
  ],
  seo: {
- title: "CNC Minimum Safe Quote Analyzer",
+ title: "CNC Minimum Safe Quote Calculator",
  description:
  "Calculate a minimum safe CNC job quote using setup time, cycle time, tooling, scrap, material and target margin with scenarios and risk signals.",
  canonicalPath: "/tools/premium/cnc-minimum-safe-quote-analyzer",
  },
  calculatorId: "cnc-minimum-safe-quote-analyzer",
  interpretationNote:
- "This analyzer estimates a minimum safe quote based on the cost structure you entered. It is indicative and does not replace professional cost accounting, but it helps reveal whether setup time, scrap, tooling or batch size are making the job risky.",
+ "This calculator estimates a minimum safe quote based on the cost structure you entered. It is indicative and does not replace professional cost accounting, but it helps reveal whether setup time, scrap, tooling or batch size are making the job risky.",
  faqPlaceholder:
  "Who it is for: CNC shops, job shops, production managers and manufacturing consultants pricing discrete jobs. What to do with the result: compare minimum safe quote to your offer before sending; adjust setup, scrap or batch assumptions if risk is elevated. Premium adds scenarios, risk level and report-ready structure — indicative only, not a substitute for cost accounting or contract review.",
  features: { decisionReport: true },

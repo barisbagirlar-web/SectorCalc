@@ -103,7 +103,7 @@ function buildGuideJsonLd(guide: AuthorityGuide, locale: string): JsonLdRecord[]
       locale,
     ),
     buildItemListJsonLd(freeItems, `${guide.title} — free calculators`, locale),
-    buildItemListJsonLd(premiumItems, `${guide.title} — premium analyzers`, locale),
+    buildItemListJsonLd(premiumItems, `${guide.title} — premium calculators`, locale),
   ];
 
   const faq = buildFAQJsonLd(guide.faq);
@@ -206,7 +206,7 @@ export default async function AuthorityGuidePage({
 
       <section className="sc-pro-section">
         <Container className="sc-pro-container min-w-0">
-          <h2 className="sc-pro-headline text-lg">Related premium analyzers</h2>
+          <h2 className="sc-pro-headline text-lg">Related premium calculators</h2>
           <ul className="mt-3 flex flex-wrap gap-3">
             {guide.relatedPremiumSchemaSlugs.map((premiumSlug) => {
               const schema = getPremiumSchemaBySlug(premiumSlug);
@@ -287,7 +287,7 @@ export default async function AuthorityGuidePage({
               href="/premium-tools"
               className="sc-craft-card__cta min-h-[44px] inline-flex items-center px-4"
             >
-              View premium analyzers
+              View premium calculators
             </Link>
           </div>
           <p className="mt-4 text-xs leading-relaxed text-body-charcoal">

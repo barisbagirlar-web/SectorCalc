@@ -122,7 +122,7 @@ export function IndustryCard({
             Try free tool
           </Link>
           <Link href={premiumHref} className="sc-cta-primary flex-1 text-center text-sm">
-            View analyzer
+            View calculator
           </Link>
         </div>
         <Link

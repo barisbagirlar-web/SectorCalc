@@ -86,7 +86,7 @@ export const CNC_QUOTE_RISK_LANDING = buildConfig("cnc-manufacturing", "/cnc-quo
  suggestedAction: "Reprice or reduce scope before sending the quote.",
  },
  freeToolCta: "Run Free CNC Margin Check",
- premiumToolCta: "Unlock CNC Quote Risk Analyzer",
+ premiumToolCta: "Unlock CNC Quote Risk Calculator",
  faq: [
  {
  question: "What does the free CNC check show?",
@@ -94,7 +94,7 @@ export const CNC_QUOTE_RISK_LANDING = buildConfig("cnc-manufacturing", "/cnc-quo
  "Visible risk level and cost exposure signals from machine time, material and setup inputs — not a minimum safe price or final verdict.",
  },
  {
- question: "What does the premium analyzer add?",
+ question: "What does the premium calculator add?",
  answer:
  "Minimum safe price, margin leak breakdown, accept / reprice verdict and PDF-ready report output.",
  },
@@ -105,7 +105,7 @@ export const CNC_QUOTE_RISK_LANDING = buildConfig("cnc-manufacturing", "/cnc-quo
  {
  question: "Can I buy one report instead of Pro?",
  answer:
- "Single Verdict ($9) covers one premium analyzer run. Pro ($19/month) unlocks all sector analyzers.",
+ "Single Verdict ($9) covers one premium calculator run. Pro ($19/month) unlocks all sector calculators.",
  },
  ],
 });
@@ -146,7 +146,7 @@ export const CONSTRUCTION_BID_MARGIN_LANDING = buildConfig(
  "Visible cost exposure from budget and change estimate inputs — not a full change-order verdict or safe price floor.",
  },
  {
- question: "What does the premium analyzer add?",
+ question: "What does the premium calculator add?",
  answer:
  "Delay cost, crew impact, margin risk and accept / renegotiate / reject verdict with exportable report.",
  },
@@ -158,7 +158,7 @@ export const CONSTRUCTION_BID_MARGIN_LANDING = buildConfig(
  {
  question: "How is pricing structured?",
  answer:
- "Start free. Single Verdict ($9) for one report, or Pro ($19/month) for all sector analyzers.",
+ "Start free. Single Verdict ($9) for one report, or Pro ($19/month) for all sector calculators.",
  },
  ],
  }

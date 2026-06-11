@@ -2,7 +2,7 @@ import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calcu
 
 export const SHEET_METAL_SCRAP_RISK_SCHEMA: PremiumCalculatorSchema = {
   id: "sheet-metal-scrap-risk",
-  name: "Sheet Metal Scrap Risk Analyzer",
+  name: "Sheet Metal Scrap Risk Calculator",
   sectorSlug: "sheet-metal",
   category: "scrap",
   legacyPaidSlug: "sheet-metal-quote-risk-tool",

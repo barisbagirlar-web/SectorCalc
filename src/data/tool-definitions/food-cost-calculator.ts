@@ -75,7 +75,7 @@ export const foodCostCalculatorDefinition: ToolDefinition = {
  { id: "adjustedIngredientCost", label: "Adjusted ingredient cost", currency: true },
  ],
  premiumTeaser: {
- title: "Need decision-level analysis?",
+ title: "Need decision-level calculation?",
  text: "Open the Menu Profit Leak Detector to see minimum safe price, delivery commission impact, monthly profit leak, risk level, scenarios and a decision report.",
  ctaLabel: "Open Menu Profit Leak Detector",
  ctaHref: "/tools/premium/menu-profit-leak-detector",

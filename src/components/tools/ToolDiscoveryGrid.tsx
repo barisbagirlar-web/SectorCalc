@@ -38,7 +38,7 @@ export function ToolDiscoveryCard({ tool, catalogVariant = "default" }: ToolDisc
           </p>
         ) : null}
         <Link href={tool.href} className="sc-craft-card__cta">
-          View analyzer →
+          View calculator →
         </Link>
       </article>
     );
