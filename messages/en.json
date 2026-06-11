@@ -495,7 +495,7 @@
     },
     "authorityTitle": "AUTHORITY",
     "authority": {
-      "trust": "Trust & Verification",
+      "trust": "Calculation Transparency",
       "vault": "Personal Data Vault →",
       "investorDemo": "Investor Demo",
       "operatingSystem": "Operating System"
@@ -789,12 +789,12 @@
     "inputs": "You provide the core costs, quantities, rates, and assumptions specific to your job. Required fields are kept minimal, and optional fields sharpen the result when you have the data.",
     "outputsTitle": "What the result means",
     "outputs": "The {tool} returns a clear verdict with the metrics and risk drivers behind it, so you can see not just the number but why it lands where it does and what to adjust.",
-    "trustTitle": "Approved reports and Trust Trace",
-    "trust": "Premium results can be saved as approved reports with a Trust Trace of inputs, assumptions, and validation, so customers, banks, and auditors can verify the work independently.",
+    "trustTitle": "Premium reports and calculation trace",
+    "trust": "Premium results can be saved as decision reports with a calculation trace showing inputs, assumptions, and logic steps.",
     "faqTitle": "Frequently asked questions",
     "relatedTitle": "Related premium tools",
     "faq": [
-      { "q": "Is the {tool} free?", "a": "You can preview the approach for free, while the full verdict, metrics, and approved report are part of SectorCalc Pro." },
+      { "q": "Is the {tool} free?", "a": "You can preview the approach for free, while the full verdict, metrics, and detailed report are part of SectorCalc Pro." },
       { "q": "Does the {tool} replace professional advice?", "a": "No. It is a technical simulation and decision-support tool, not financial, legal, or engineering advice. Verify results before business decisions." },
       { "q": "How accurate is the result?", "a": "Results reflect the inputs you provide and SectorCalc's deterministic engine. Better inputs produce a sharper, more defensible read." },
       { "q": "Can I share the result?", "a": "Yes. Premium results can be exported as approved reports with a verifiable Trust Trace." },
@@ -914,10 +914,10 @@
       "eyebrow": "About us",
       "punchline": "SectorCalc is here to change that.",
       "opening": "Scrap in your quote. Setup time you never priced. Deadhead routes. Margin that appears only at month-end. Most teams cannot see these losses until the spreadsheet says so.",
-      "body": "We turn Fortune 500-grade industrial intelligence into sector calculators and decision reports from $19/month: OEE, scrap, routing, carbon, and tolerance. Every result carries a Trust Trace seal you can present to banks, customers, and auditors."
+      "body": "We turn sector-specific operational knowledge into calculators and decision reports from $19/month: OEE, scrap, routing, carbon, and tolerance. Every result includes a calculation trace showing how numbers were derived."
     },
     "positioning": {
-      "title": "ERP-level calculation logic without ERP complexity.",
+      "title": "Sector-specific calculation logic without enterprise complexity.",
       "text": "Most teams still calculate loss, waste, cost and efficiency in spreadsheets, notebooks or guesswork. SectorCalc gives them focused calculators and decision reports they can use immediately."
     },
     "scenarios": {

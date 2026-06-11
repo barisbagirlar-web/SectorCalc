@@ -200,17 +200,29 @@ export function resolveRootVisitLocale(options: {
   readonly countryCode: string | null;
   readonly acceptLanguage: string | null;
 }): SupportedLocale {
-  // Priority: manual cookie > accept-language > default (English root)
-  // Country header is used for REGION only, not locale/language redirection
+  // Priority: manual cookie > country geolocation > accept-language > default (English root)
+  // FIXED: Country-based locale detection is now ENABLED for automatic language selection
+  
+  // 1. Manual cookie (explicit user choice) - highest priority
   if (options.cookieLocale && isSupportedLocale(options.cookieLocale)) {
     return options.cookieLocale;
   }
 
+  // 2. Country-based geolocation - auto-detect locale from user's country
+  if (options.countryCode && options.countryCode in COUNTRY_TO_LOCALE) {
+    const localeFromCountry = COUNTRY_TO_LOCALE[options.countryCode];
+    if (localeFromCountry) {
+      return localeFromCountry;
+    }
+  }
+
+  // 3. Accept-Language header fallback
   const fromAccept = detectLocaleFromAcceptLanguage(options.acceptLanguage);
   if (fromAccept) {
     return fromAccept;
   }
 
+  // 4. Default to English
   return ROOT_LOCALE;
 }
 

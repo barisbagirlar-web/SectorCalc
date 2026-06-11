@@ -54,7 +54,14 @@ export default function middleware(request: NextRequest) {
     if (targetLocale !== null) {
       const url = request.nextUrl.clone();
       url.pathname = getLocalePathPrefix(targetLocale);
-      return applyRegionHeaders(NextResponse.redirect(url, 307), request);
+      const response = NextResponse.redirect(url, 307);
+      // Set locale cookie to persist user's auto-detected language
+      response.cookies.set(LOCALE_COOKIE, targetLocale, {
+        path: "/",
+        maxAge: 60 * 60 * 24 * 365, // 1 year
+        sameSite: "lax",
+      });
+      return applyRegionHeaders(response, request);
     }
   }
 

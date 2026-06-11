@@ -352,10 +352,9 @@ function StochasticMarginReportPanel({
  <>
  <div className="mt-8 border-t border-border-subtle pt-8">
  <h3 className="text-sm font-bold uppercase text-text-primary">Export Verdict</h3>
- <p className="mt-2 text-sm text-text-secondary">
- Download a Big Four–style decision report with deterministic vs P90 analysis
- and sensitivity matrix.
- </p>
+            <p className="mt-2 text-sm text-text-secondary">
+              Download a decision summary PDF with P90 analysis and sensitivity matrix.
+            </p>
  <div className="mt-4">
  <Button
  type="button"
@@ -364,7 +363,7 @@ function StochasticMarginReportPanel({
  disabled={pdfLoading}
  onClick={() => void handleDownloadPdf()}
  >
- {pdfLoading ? "Preparing PDF…" : "Download Premium PDF"}
+              {pdfLoading ? "Preparing PDF…" : "Download Decision Summary PDF"}
  </Button>
  </div>
  {exportMessage ? (

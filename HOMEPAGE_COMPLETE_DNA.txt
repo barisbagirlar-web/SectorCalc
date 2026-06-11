@@ -1,0 +1,1391 @@
+═══════════════════════════════════════════════════════════════════════════
+  SECTORCALC ANA SAYFA — TAM DNA & İÇERİK DOKÜMANI
+  https://sectorcalc.com/
+  Hazırlanma Tarihi: 11 Haziran 2026
+═══════════════════════════════════════════════════════════════════════════
+
+Bu doküman SectorCalc ana sayfasının eksiksiz tasarım DNA'sını ve tüm içerik 
+metinlerini içermektedir. Layout, renkler, tipografi, spacing, içerik metinleri 
+ve responsive davranışlar dahil her şey bu dokümanda bulunmaktadır.
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 1: RENK PALETİ
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ ANA RENKLER (CSS Variables) ──────────────────────────────────────────┐
+│                                                                         │
+│  --sc-bg: #FAF7F2              Arka plan (Industrial Matte)            │
+│  --sc-bg-muted: #F5F0E8         Alternatif arka plan                   │
+│  --sc-surface: #FFFFFF          Kart/panel yüzeyi (beyaz)              │
+│  --sc-text: #1A1A1A            Ana metin (neredeyse siyah)            │
+│  --sc-muted: #6B6B6B           İkincil metin (gri)                    │
+│  --sc-border: #D1D1D1          Kenarlık rengi (açık gri)              │
+│  --sc-copper: #C2410C          Ana aksiyon rengi (turuncu)            │
+│  --sc-copper-hover: #9A3412    Hover durumu turuncu                   │
+│  --sc-navy: #1E40AF            Mavi vurgu                             │
+│  --sc-success: #166534         Başarı yeşili                          │
+│  --sc-warning: #D97706         Uyarı sarısı                           │
+│  --sc-danger: #991B1B          Hata kırmızısı                         │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ HEADER RENKLERİ ──────────────────────────────────────────────────────┐
+│                                                                         │
+│  Background: rgba(250, 247, 242, 0.96)  (%96 opaklık + 12px blur)     │
+│  Border: rgba(0, 0, 0, 0.12)                                           │
+│  Link color: rgba(0, 0, 0, 0.72)                                       │
+│  Link hover: #1A1A1A                                                   │
+│  Height (desktop): 80px                                                │
+│  Height (tablet ≤1067px): 72px                                         │
+│  Height (mobile ≤767px): 64px                                          │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 2: TİPOGRAFİ SİSTEMİ
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ FONT AİLELERİ ────────────────────────────────────────────────────────┐
+│                                                                         │
+│  1. ANA FONT (Body text):                                              │
+│     --font-sans: Inter, -apple-system, BlinkMacSystemFont,            │
+│                  "Helvetica Neue", Helvetica, Arial, sans-serif       │
+│     font-size: 17px                                                    │
+│     line-height: 1.47059                                               │
+│     letter-spacing: -0.022em                                           │
+│     font-feature-settings: "cv11", "ss01"                              │
+│     -webkit-font-smoothing: antialiased                                │
+│     -moz-osx-font-smoothing: grayscale                                 │
+│                                                                         │
+│  2. BAŞLIK FONTU (h1-h6):                                              │
+│     --font-display: Barlow, "Barlow", "DIN Alternate",                │
+│                     "Arial Narrow", sans-serif                        │
+│     font-weight: 600                                                   │
+│     letter-spacing: -0.02em                                            │
+│     line-height: 1.15                                                  │
+│     color: #1A1A1A                                                     │
+│                                                                         │
+│  3. MONOSPACE (Sayılar, kod, eyebrow):                                 │
+│     --font-mono: JetBrains Mono, "JetBrains Mono", ui-monospace,      │
+│                  SFMono-Regular, Menlo, Consolas, monospace           │
+│     font-variant-numeric: tabular-nums                                 │
+│     font-feature-settings: "tnum" 1                                    │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ BAŞLIK BOYUTLARI & STİLLER ──────────────────────────────────────────┐
+│                                                                         │
+│  HERO BAŞLIK (.sc-home-hybrid__headline):                             │
+│    font-family: Barlow                                                 │
+│    font-size: clamp(1.875rem, 4.5vw, 2.75rem) → 30px - 44px           │
+│    font-weight: 600                                                    │
+│    letter-spacing: -0.025em                                            │
+│    line-height: 1.08                                                   │
+│    color: #1A1A1A                                                      │
+│    max-width: 16em                                                     │
+│    margin-top: 0.5rem                                                  │
+│                                                                         │
+│    Mobil (≤429px):                                                     │
+│    font-size: clamp(1.625rem, 7vw, 2rem) → 26px - 32px                │
+│    line-height: 1.12                                                   │
+│                                                                         │
+│  SECTION TITLE (.sc-home-hybrid__section-title):                      │
+│    font-family: Barlow                                                 │
+│    font-size: clamp(1.25rem, 3vw, 1.625rem) → 20px - 26px             │
+│    font-weight: 600                                                    │
+│    letter-spacing: -0.02em                                             │
+│    line-height: 1.2                                                    │
+│    color: #1A1A1A                                                      │
+│                                                                         │
+│  EYEBROW TEXT (.sc-pro-eyebrow):                                       │
+│    font-family: JetBrains Mono                                         │
+│    font-size: 0.6875rem → 11px                                         │
+│    font-weight: 600                                                    │
+│    letter-spacing: 0.14em                                              │
+│    text-transform: uppercase                                           │
+│    color: #6B6B6B                                                      │
+│                                                                         │
+│  SUPPORTING TEXT (.sc-home-hybrid__supporting):                        │
+│    font-family: JetBrains Mono                                         │
+│    font-size: 0.75rem → 12px                                           │
+│    font-weight: 600                                                    │
+│    letter-spacing: 0.04em                                              │
+│    text-transform: uppercase                                           │
+│    color: #1E40AF (Navy blue)                                          │
+│    margin-top: 0.75rem                                                 │
+│                                                                         │
+│  LEAD TEXT (.sc-pro-lead):                                             │
+│    font-size: 1rem → 16px                                              │
+│    line-height: 1.55                                                   │
+│    color: #6B6B6B                                                      │
+│    max-width: 42rem → 672px                                            │
+│    margin-top: 1rem                                                    │
+│                                                                         │
+│    Mobil (≤429px):                                                     │
+│    font-size: 0.875rem → 14px                                          │
+│    line-height: 1.45                                                   │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 3: LAYOUT & SPACING
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ CONTAINER GENİŞLİKLERİ ───────────────────────────────────────────────┐
+│                                                                         │
+│  .sc-pro-container (normal):                                           │
+│    width: 100%                                                         │
+│    max-width: 72rem → 1152px                                           │
+│    margin-inline: auto                                                 │
+│    padding-inline: clamp(1rem, 3vw, 1.5rem) → 16px - 24px             │
+│    min-width: 0                                                        │
+│                                                                         │
+│  .sc-pro-container--wide:                                              │
+│    max-width: 80rem → 1280px                                           │
+│    (Diğer özellikler aynı)                                             │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ SECTION PADDING ──────────────────────────────────────────────────────┐
+│                                                                         │
+│  .sc-home-hybrid__section:                                             │
+│    padding-block: clamp(1.5rem, 4vw, 2.5rem) → 24px - 40px            │
+│    min-width: 0                                                        │
+│    background: #FAF7F2 (default)                                       │
+│                                                                         │
+│  .sc-home-hybrid__section--alt:                                        │
+│    background: #FFFFFF (beyaz arka plan)                               │
+│                                                                         │
+│  .sc-home-hybrid__hero:                                                │
+│    padding-block: clamp(1rem, 3vw, 2rem) → 16px - 32px                │
+│    background: #FFFFFF                                                 │
+│    border-bottom: 1px solid #D1D1D1                                    │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ GRID DÜZENLERI ───────────────────────────────────────────────────────┐
+│                                                                         │
+│  HERO LAYOUT (.sc-pro-hero-compact):                                   │
+│    display: grid                                                       │
+│    gap: 1.5rem → 24px                                                  │
+│    padding-block: clamp(1rem, 3vw, 2rem)                               │
+│    min-width: 0                                                        │
+│                                                                         │
+│    Desktop (≥1024px):                                                  │
+│    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr)         │
+│    align-items: center                                                 │
+│    gap: 2rem → 32px                                                    │
+│                                                                         │
+│  SCENARIO GRID (.sc-home-hybrid__scenario-grid):                      │
+│    display: grid                                                       │
+│    gap: 0.875rem → 14px                                                │
+│    margin: 1rem 0 0                                                    │
+│                                                                         │
+│    Mobil: grid-template-columns: 1fr                                   │
+│    Tablet (≥640px): grid-template-columns: repeat(2, 1fr)             │
+│    Desktop (≥1024px): grid-template-columns: repeat(4, 1fr)           │
+│                                                                         │
+│  MEASURE GRID (.sc-home-hybrid__measure-grid):                        │
+│    (Aynı grid yapısı)                                                  │
+│                                                                         │
+│  PRICING GRID (.sc-home-hybrid__pricing-grid):                        │
+│    Mobil: grid-template-columns: 1fr                                   │
+│    Tablet (≥768px): grid-template-columns: repeat(3, 1fr)             │
+│    align-items: stretch                                                │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 4: BUTON STİLLERİ
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ PRIMARY CTA (.sc-cta-primary) ────────────────────────────────────────┐
+│                                                                         │
+│  display: inline-flex                                                  │
+│  min-height: 44px                                                      │
+│  align-items: center                                                   │
+│  justify-content: center                                               │
+│  padding: 0 1.25rem → 0 20px                                           │
+│  font-family: JetBrains Mono                                           │
+│  font-size: 0.75rem → 12px                                             │
+│  font-weight: 600                                                      │
+│  letter-spacing: 0.08em                                                │
+│  text-transform: uppercase                                             │
+│  color: #FFFFFF                                                        │
+│  background: #C2410C (Copper)                                          │
+│  border: 1px solid #C2410C                                             │
+│  border-radius: 0 (keskin köşeler)                                     │
+│  box-shadow: none                                                      │
+│  transition: background-color 150ms ease, border-color 150ms ease     │
+│                                                                         │
+│  :hover (not disabled):                                                │
+│    background: #9A3412                                                 │
+│    border-color: #9A3412                                               │
+│                                                                         │
+│  :disabled:                                                            │
+│    opacity: 0.55                                                       │
+│    cursor: not-allowed                                                 │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ SECONDARY CTA (.sc-cta-secondary) ────────────────────────────────────┐
+│                                                                         │
+│  display: inline-flex                                                  │
+│  min-height: 44px                                                      │
+│  align-items: center                                                   │
+│  justify-content: center                                               │
+│  padding: 0 1rem → 0 16px                                              │
+│  font-size: 0.875rem → 14px                                            │
+│  font-weight: 600                                                      │
+│  color: #1A1A1A                                                        │
+│  background: transparent                                               │
+│  border: 1px solid #D1D1D1                                             │
+│  border-radius: 0                                                      │
+│  transition: border-color 150ms ease, color 150ms ease                │
+│                                                                         │
+│  :hover:                                                               │
+│    border-color: #1A1A1A                                               │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 5: ANA SAYFA YAPISININ FULL BREAKDOWN + İÇERİKLER
+═══════════════════════════════════════════════════════════════════════════
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 1: HERO (Ana Giriş Bölümü)                                      │
+│  Class: .sc-home-hybrid__hero                                            │
+│  Background: #FFFFFF                                                      │
+│  Border-bottom: 1px solid #D1D1D1                                         │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  YAPISI:                                                                  │
+│  ┌─────────────────────────────────────────────────────────────┐         │
+│  │  Container (max-width: 1280px, padding: 16-24px)           │         │
+│  │  ┌───────────────────────────────────────────────────────┐  │         │
+│  │  │ .sc-pro-hero-compact (2-column grid on desktop)      │  │         │
+│  │  │ ┌────────────────┐   ┌──────────────────────────┐   │  │         │
+│  │  │ │  COPY          │   │  PRODUCT MOCKUP          │   │  │         │
+│  │  │ │  (Sol kolon)   │   │  (Sağ kolon)             │   │  │         │
+│  │  │ └────────────────┘   └──────────────────────────┘   │  │         │
+│  │  └───────────────────────────────────────────────────────┘  │         │
+│  └─────────────────────────────────────────────────────────────┘         │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  İÇERİK (Sol Kolon - Copy):                                               │
+│                                                                           │
+│  1. EYEBROW TEXT:                                                         │
+│     Class: .sc-pro-eyebrow                                                │
+│     İçerik: "Hidden loss detection"                                       │
+│     Font: JetBrains Mono, 11px, uppercase, #6B6B6B                        │
+│                                                                           │
+│  2. HEADLINE:                                                             │
+│     Class: .sc-home-hybrid__headline                                      │
+│     İçerik: "Your operation is leaking money. Measure where."             │
+│     Font: Barlow, 30-44px (responsive), 600 weight, #1A1A1A               │
+│                                                                           │
+│  3. SUBTITLE LINE 1:                                                      │
+│     Class: .sc-pro-lead .sc-home-hybrid__subtitle-line                    │
+│     İçerik: "SectorCalc helps teams measure hidden loss in scrap,         │
+│              setup, routes, energy, OEE and margins."                     │
+│     Font: Inter, 16px (14px mobile), #6B6B6B                              │
+│                                                                           │
+│  4. SUBTITLE LINE 2:                                                      │
+│     Class: .sc-pro-lead .sc-home-hybrid__subtitle-line                    │
+│     İçerik: "Turn sector-specific inputs into calculators, diagnostics    │
+│              and decision reports — without ERP complexity."              │
+│     Font: Inter, 16px (14px mobile), #6B6B6B                              │
+│     Margin-top: 0.5rem                                                    │
+│                                                                           │
+│  5. SUPPORTING TEXT:                                                      │
+│     Class: .sc-home-hybrid__supporting                                    │
+│     İçerik: "Built for businesses priced out of ERP."                     │
+│     Font: JetBrains Mono, 12px, uppercase, #1E40AF (navy)                 │
+│     Margin-top: 0.75rem                                                   │
+│                                                                           │
+│  6. CATALOG SEARCH (varsa):                                               │
+│     Class: .sc-home-hybrid__catalog-search                                │
+│     Margin-top: 1rem                                                      │
+│     Max-width: 36rem                                                      │
+│     (Search input component)                                              │
+│                                                                           │
+│  7. CTA BUTONLARI:                                                        │
+│     Class: .sc-pro-hero-compact__actions                                  │
+│     Display: flex, gap: 0.75rem, margin-top: 1.25rem                      │
+│                                                                           │
+│     PRIMARY:                                                              │
+│       İçerik: "Find your loss area"                                       │
+│       Link: /categories                                                   │
+│       Style: .sc-cta-primary (turuncu, #C2410C)                           │
+│                                                                           │
+│     SECONDARY:                                                            │
+│       İçerik: "View premium verdicts"                                     │
+│       Link: /free-tools                                                   │
+│       Style: .sc-cta-secondary (beyaz kenarlıklı)                         │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  İÇERİK (Sağ Kolon - Mockup):                                             │
+│                                                                           │
+│  PRODUCT SCREEN MOCKUP:                                                   │
+│  Class: .sc-pro-hero-compact__mockup                                      │
+│  Component: ProductScreenMockup                                           │
+│                                                                           │
+│  Yapısı:                                                                  │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Chrome Bar:                                             │             │
+│  │ • • •  SectorCalc · Decision desk                       │             │
+│  ├─────────────────────────────────────────────────────────┤             │
+│  │ Grid (2 columns):                                       │             │
+│  │ ┌──────────────┐  ┌──────────────┐                     │             │
+│  │ │ Ledger       │  │ Exposure     │                     │             │
+│  │ │ entries:     │  │              │                     │             │
+│  │ │              │  │ $4,280       │                     │             │
+│  │ │ Machine rate │  │              │                     │             │
+│  │ │ $/h          │  │ Threshold    │                     │             │
+│  │ │              │  │ alert —      │                     │             │
+│  │ │ Scrap rate   │  │ tolerance    │                     │             │
+│  │ │ 6.0          │  │ pressure     │                     │             │
+│  │ │              │  │              │                     │             │
+│  │ │ Planned hours│  │ Suggested    │                     │             │
+│  │ │ 8            │  │ action:      │                     │             │
+│  │ │              │  │ Reprice      │                     │             │
+│  │ │              │  │ before       │                     │             │
+│  │ │              │  │ accepting    │                     │             │
+│  │ │              │  │              │                     │             │
+│  │ │              │  │ ───────────  │                     │             │
+│  │ │              │  │ Report       │                     │             │
+│  │ │              │  │ preview ·    │                     │             │
+│  │ │              │  │ PDF-ready    │                     │             │
+│  │ └──────────────┘  └──────────────┘                     │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+│  Mockup Styling:                                                          │
+│  • Border: 1px solid #D1D1D1                                              │
+│  • Chrome bar background: #FAF7F2                                         │
+│  • Dots: 6px × 6px circles, #D1D1D1                                       │
+│  • Title: JetBrains Mono, 10px, uppercase, #6B6B6B                        │
+│  • Field borders: 1px solid #D1D1D1, 2px #C2410C when active              │
+│  • Big number: JetBrains Mono, 28px, 600 weight, #1A1A1A                  │
+│  • Alert: 12px, 600 weight, #D97706 (warning color)                       │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  DIVIDER: LEDGER SEPARATOR                                                │
+│  Class: .sc-ledger-separator                                              │
+│                                                                           │
+│  • Height: 0                                                              │
+│  • Border-top: 1px solid #D1D1D1                                          │
+│  • Margin-block: 1.25rem                                                  │
+│  • Opacity: 0.9                                                           │
+│  • ::after pseudo-element: Noktalı dekoratif çizgi (dashed pattern)       │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 2: POSITIONING                                                   │
+│  Class: .sc-home-hybrid__section                                          │
+│  Background: #FAF7F2                                                      │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  SECTION TITLE:                                                           │
+│  İçerik: "ERP-level calculation logic without ERP complexity."            │
+│  Font: Barlow, 20-26px, 600 weight, #1A1A1A                               │
+│                                                                           │
+│  SECTION LEAD:                                                            │
+│  İçerik: "Most teams still calculate loss, waste, cost and efficiency     │
+│           in spreadsheets, notebooks or guesswork. SectorCalc gives       │
+│           them focused calculators and decision reports they can use      │
+│           immediately."                                                   │
+│  Font: Inter, 15px, #6B6B6B                                               │
+│  Margin-top: 0.75rem                                                      │
+│  Max-width: 42rem                                                         │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  DIVIDER: LEDGER SEPARATOR                                                │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 3: SAMPLE SCENARIOS                                              │
+│  Class: .sc-home-hybrid__section                                          │
+│  Container: wide (max-width: 1280px)                                      │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  EYEBROW:                                                                 │
+│  Class: .sc-pro-eyebrow                                                   │
+│  İçerik: "Sample hidden-loss scenarios"                                   │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  GRID LAYOUT:                                                             │
+│  Class: .sc-home-hybrid__scenario-grid                                    │
+│  Mobil: 1 column, Tablet: 2 columns, Desktop: 4 columns                   │
+│  Gap: 0.875rem (14px)                                                     │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  KART 1: CNC SCRAP AND SETUP LOSS                                         │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Label: "Sample hidden-loss scenario"                    │             │
+│  │ (JetBrains Mono, 9px, uppercase, #6B6B6B)              │             │
+│  │                                                         │             │
+│  │ Title: "CNC scrap and setup loss"                       │             │
+│  │ (15px, 600 weight, #1A1A1A)                            │             │
+│  │                                                         │             │
+│  │ Text: "A typical CNC shop can lose margin through      │             │
+│  │        scrap drift, setup overruns and tooling cost    │             │
+│  │        that never appears in the first quote."         │             │
+│  │ (13px, #6B6B6B)                                        │             │
+│  │                                                         │             │
+│  │ Metric: "Example exposure: $4,280/month"               │             │
+│  │ (JetBrains Mono, 13px, 600 weight, #C2410C)           │             │
+│  │                                                         │             │
+│  │ Action: "Track scrap threshold, setup drift and tool   │             │
+│  │          wear before accepting similar jobs."          │             │
+│  │ (12px, #1A1A1A)                                        │             │
+│  │                                                         │             │
+│  │ CTA: "Try CNC calculator" → /tools/free/scrap-rate-   │             │
+│  │      calculator                                        │             │
+│  │ (13px, 600 weight, #1E40AF, underline on hover)       │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  KART 2: ROUTE DEADHEAD COST                                              │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Label: "Sample hidden-loss scenario"                    │             │
+│  │ Title: "Route deadhead cost"                            │             │
+│  │                                                         │             │
+│  │ Text: "Logistics teams often underestimate the cost of │             │
+│  │        empty return trips and non-optimized routing."  │             │
+│  │                                                         │             │
+│  │ Metric: "Example exposure: $6,120/month"               │             │
+│  │                                                         │             │
+│  │ Action: "Calculate actual cost per kilometer including │             │
+│  │          deadhead and reoptimize routes quarterly."    │             │
+│  │                                                         │             │
+│  │ CTA: "Try route calculator" → /tools/free/route-cost-  │             │
+│  │      calculator                                        │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  KART 3: ENERGY PEAK COST EXPOSURE                                        │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Label: "Benchmark model"                                │             │
+│  │ Title: "Energy peak cost exposure"                      │             │
+│  │                                                         │             │
+│  │ Text: "Industrial operations can pay 3–5× base rate    │             │
+│  │        during peak demand hours without tracking when  │             │
+│  │        those hours are."                               │             │
+│  │                                                         │             │
+│  │ Metric: "Typical exposure: $2,890/month"               │             │
+│  │                                                         │             │
+│  │ Action: "Map your peak consumption hours and shift     │             │
+│  │          non-critical loads to off-peak windows."      │             │
+│  │                                                         │             │
+│  │ CTA: "Try energy calculator" → /tools/free/energy-     │             │
+│  │      consumption-check                                 │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  KART 4: FOOD WASTE AND PORTION DRIFT                                     │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Label: "Benchmark model"                                │             │
+│  │ Title: "Food waste and portion drift"                   │             │
+│  │                                                         │             │
+│  │ Text: "Restaurant and catering operations can lose     │             │
+│  │        revenue to untracked waste, overportioning and  │             │
+│  │        ingredient spoilage."                           │             │
+│  │                                                         │             │
+│  │ Metric: "Typical exposure: $3,450/month"               │             │
+│  │                                                         │             │
+│  │ Action: "Track portion cost variance and waste by      │             │
+│  │          shift to identify training gaps."             │             │
+│  │                                                         │             │
+│  │ CTA: "Try food waste calculator" → /tools/free/food-   │             │
+│  │      cost-calculator                                   │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+│  Kart Styling (hepsi için):                                               │
+│  • Padding: 1rem (16px)                                                   │
+│  • Background: #FFFFFF                                                    │
+│  • Border: 1px solid #D1D1D1                                              │
+│  • Border-radius: 0 (keskin köşeler)                                      │
+│  • Display: flex, flex-direction: column                                  │
+│  • Height: 100%                                                           │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  DIVIDER: LEDGER SEPARATOR                                                │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 4: WHAT YOU CAN MEASURE                                          │
+│  Class: .sc-home-hybrid__section .sc-home-hybrid__section--alt           │
+│  Background: #FFFFFF (beyaz - alternatif section)                         │
+│  Container: wide                                                          │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  SECTION TITLE:                                                           │
+│  İçerik: "What you can measure with SectorCalc"                           │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  GRID LAYOUT:                                                             │
+│  Class: .sc-home-hybrid__measure-grid                                     │
+│  Mobil: 1 column, Tablet: 2 columns, Desktop: 4 columns                   │
+│  Gap: 0.875rem                                                            │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  KART 1: MONEY & MARGIN                                                   │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Title: "Money & margin"                                 │             │
+│  │ (15px, 600 weight, #1A1A1A)                            │             │
+│  │                                                         │             │
+│  │ • Hidden cost layers                                    │             │
+│  │ • Margin leaks                                          │             │
+│  │ • Pricing gaps                                          │             │
+│  │                                                         │             │
+│  │ (13px, #6B6B6B, bullet list, padding-left: 1rem)      │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+│  KART 2: MATERIAL & SCRAP                                                 │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Title: "Material & scrap"                               │             │
+│  │                                                         │             │
+│  │ • Scrap drift                                           │             │
+│  │ • Waste you cannot see                                  │             │
+│  │ • Inventory loss                                        │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+│  KART 3: TIME & OEE                                                       │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Title: "Time & OEE"                                     │             │
+│  │                                                         │             │
+│  │ • Setup overruns                                        │             │
+│  │ • Downtime cost                                         │             │
+│  │ • Throughput loss                                       │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+│  KART 4: ENERGY & CARBON                                                  │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Title: "Energy & carbon"                                │             │
+│  │                                                         │             │
+│  │ • Peak cost exposure                                    │             │
+│  │ • Efficiency gaps                                       │             │
+│  │ • Carbon footprint                                      │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+│  Kart Styling:                                                            │
+│  • Padding: 1rem                                                          │
+│  • Background: #FAF7F2 (bu section beyaz olduğu için kartlar krem)        │
+│  • Border: 1px solid #D1D1D1                                              │
+│  • Height: 100%                                                           │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  DIVIDER: LEDGER SEPARATOR                                                │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 5: PLATFORM APPROACH                                             │
+│  Class: .sc-home-hybrid__section                                          │
+│  Background: #FAF7F2                                                      │
+│  Container: wide                                                          │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  SECTION TITLE:                                                           │
+│  İçerik: "Industrial calculators. Sector-specific."                       │
+│                                                                           │
+│  STAT:                                                                    │
+│  Class: .sc-home-hybrid__platform-stat                                    │
+│  İçerik: "27 sector areas → 50+ calculator roadmap → Decision reports"    │
+│  Font: JetBrains Mono, 13px, 600 weight, #1E40AF                          │
+│  Margin-top: 0.5rem                                                       │
+│                                                                           │
+│  SECTION LEAD:                                                            │
+│  İçerik: "Free calculators and premium decision reports —                 │
+│           manufacturing, logistics, construction, energy and more."       │
+│  Margin-top: 0.75rem                                                      │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  CATEGORY CHIPS:                                                          │
+│  Class: .sc-home-hybrid__platform-categories                              │
+│  Display: flex, flex-wrap, gap: 0.5rem, margin: 1rem 0 0                  │
+│                                                                           │
+│  • Manufacturing → /industries/cnc-manufacturing                           │
+│  • Logistics → /industries/logistics-transport                            │
+│  • Construction → /industries/construction                                │
+│  • Energy → /industries/energy-carbon                                     │
+│  • Food & Beverage → /industries/restaurant                               │
+│  • Textile → /industries/welding-fabrication                              │
+│  • Automotive → /industries/auto-repair-shop                              │
+│  • Healthcare → /categories                                               │
+│                                                                           │
+│  Chip Styling:                                                            │
+│  • Min-height: 36px                                                       │
+│  • Padding: 0.375rem 0.75rem (6px 12px)                                   │
+│  • Background: #FFFFFF                                                    │
+│  • Border: 1px solid #D1D1D1                                              │
+│  • Font-size: 13px, 600 weight, #1A1A1A                                   │
+│  • Hover: border-color #C2410C, color #C2410C                             │
+│                                                                           │
+│  PLATFORM CTA:                                                            │
+│  Class: .sc-home-hybrid__platform-cta                                     │
+│  İçerik: "View all sectors"                                               │
+│  Link: /industries                                                        │
+│  Style: Text link, 14px, 600 weight, #1E40AF, underline on hover          │
+│  Margin-top: 1rem                                                         │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  DIVIDER: LEDGER SEPARATOR                                                │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 6: COMPARISON TABLE                                              │
+│  Class: .sc-home-hybrid__section .sc-home-hybrid__section--alt           │
+│  Background: #FFFFFF                                                      │
+│  Container: wide                                                          │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  SECTION TITLE:                                                           │
+│  İçerik: "How teams calculate loss today"                                 │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  TABLE:                                                                   │
+│  Class: .sc-home-hybrid__comparison-table                                 │
+│  Background: #FAF7F2                                                      │
+│  Border: 1px solid #D1D1D1                                                │
+│  Font-size: 13px                                                          │
+│                                                                           │
+│  HEADER ROW:                                                              │
+│  ┌────────────┬────────┬──────────┬─────────┬────────────┐               │
+│  │ (köşe)     │ Excel  │ Notebook │ ERP/SAP │ SectorCalc │               │
+│  ├────────────┼────────┼──────────┼─────────┼────────────┤               │
+│                                                                           │
+│  ROWS:                                                                    │
+│  1. Setup time    │ Hours  │ N/A      │ Months  │ 5 min      │           │
+│  2. Cost          │ Free   │ Free     │ $50K+   │ From $9    │           │
+│  3. Sector logic  │ Manual │ Manual   │ Generic │ Built-in   │           │
+│  4. Mobile        │ Limited│ No       │ Limited │ Yes        │           │
+│  5. Assumptions   │ Hidden │ Hidden   │ Config  │ Transparent│           │
+│  6. Updates       │ Manual │ Manual   │ Expensive│ Auto      │           │
+│  └───────────┴────────┴──────────┴─────────┴────────────┘               │
+│                                                                           │
+│  Styling:                                                                 │
+│  • th, td padding: 0.625rem 0.75rem (10px 12px)                           │
+│  • All cells: border 1px solid #D1D1D1                                    │
+│  • thead th: background #FFFFFF, JetBrains Mono, 11px, uppercase          │
+│  • tbody th: background #FFFFFF, 600 weight, #1A1A1A                      │
+│  • SectorCalc column: background rgba(30,64,175,0.06), 600 weight,        │
+│    color #1E40AF                                                          │
+│                                                                           │
+│  MOBİL DÜZEN (≤767px):                                                    │
+│  • Header gizlenir (position: absolute, clip)                             │
+│  • Her satır card olarak görüntülenir                                     │
+│  • td::before ile sütun adı eklenir (data-label attribute)                │
+│  • Display: block, width: 100%                                            │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  DIVIDER: LEDGER SEPARATOR                                                │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 7: HOMEPAGE CAMPAIGN STRIP                                       │
+│  Component: HomepageCampaignStrip                                         │
+│  (External component - industry campaign links)                           │
+│                                                                           │
+│  İçerik:                                                                  │
+│  "Start with a sector guide"                                              │
+│  "Pick a campaign landing page for manufacturing, construction,           │
+│   logistics or energy."                                                   │
+│                                                                           │
+│  • Manufacturing Hidden Loss                                              │
+│  • Construction Cost Overrun                                              │
+│  • Logistics Route Cost                                                   │
+│  • Restaurant Food Margin                                                 │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  DIVIDER: LEDGER SEPARATOR                                                │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 8: BETA PARTNER                                                  │
+│  Class: .sc-home-hybrid__section                                          │
+│  Background: #FAF7F2                                                      │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  BETA BLOCK:                                                              │
+│  Class: .sc-home-hybrid__beta-block                                       │
+│  Max-width: 48rem                                                         │
+│  Padding: 0.875rem 1rem (MD: 1rem 1.25rem)                                │
+│  Background: #FFFFFF                                                      │
+│  Border: 1px solid rgba(30,64,175,0.25)                                   │
+│  Border-left: 3px solid #1E40AF                                           │
+│  Border-radius: 8px                                                       │
+│                                                                           │
+│  SECTION TITLE:                                                           │
+│  İçerik: "Help build verified sector benchmarks."                         │
+│                                                                           │
+│  SECTION LEAD:                                                            │
+│  İçerik: "SectorCalc is building benchmark-backed calculators with        │
+│           operators, consultants and early businesses. Beta partners      │
+│           can receive premium reports in exchange for structured          │
+│           feedback."                                                      │
+│                                                                           │
+│  CTA:                                                                     │
+│  Class: .sc-cta-secondary                                                 │
+│  İçerik: "Apply for beta partner access"                                  │
+│  Link: /beta-partner                                                      │
+│  Style: Secondary button (border, transparent bg)                         │
+│  Margin-top: 1rem                                                         │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  DIVIDER: LEDGER SEPARATOR                                                │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 9: PRICING PREVIEW                                               │
+│  Class: .sc-home-hybrid__section                                          │
+│  Background: #FAF7F2                                                      │
+│  Container: wide                                                          │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  SECTION TITLE:                                                           │
+│  İçerik: "Priced for teams priced out of enterprise software"             │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  PRICING GRID:                                                            │
+│  Class: .sc-home-hybrid__pricing-grid                                     │
+│  Mobil: 1 column, Tablet (≥768px): 3 columns                              │
+│  Gap: 0.875rem                                                            │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  KART 1: FREE PLAN                                                        │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Name: "Free"                                            │             │
+│  │ (Barlow, 18px, 600 weight, #1A1A1A)                    │             │
+│  │                                                         │             │
+│  │ Price: "$0"                                             │             │
+│  │ (JetBrains Mono, 14px, 600 weight, #C2410C)           │             │
+│  │ Margin-top: 0.375rem                                   │             │
+│  │                                                         │             │
+│  │ Features:                                               │             │
+│  │ • Base calculators                                      │             │
+│  │ • Sample scenarios                                      │             │
+│  │ • No card required                                      │             │
+│  │ (13px, #6B6B6B, bullet list)                           │             │
+│  │                                                         │             │
+│  │ (No CTA button for free plan)                          │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+│  Styling:                                                                 │
+│  • Padding: 1.25rem (20px)                                                │
+│  • Background: #FFFFFF                                                    │
+│  • Border: 1px solid #D1D1D1                                              │
+│  • Height: 100%                                                           │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  KART 2: PRO PLAN (Featured)                                              │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Name: "Pro"                                             │             │
+│  │                                                         │             │
+│  │ Price: "$19/mo"                                         │             │
+│  │                                                         │             │
+│  │ Features:                                               │             │
+│  │ • Advanced diagnostics                                  │             │
+│  │ • Benchmark models                                      │             │
+│  │ • Export & reports                                      │             │
+│  │                                                         │             │
+│  │ ┌─────────────────────────────────────────┐            │             │
+│  │ │ "Get Pro" (Primary CTA button)          │            │             │
+│  │ │ Link: /pricing                          │            │             │
+│  │ │ (Turuncu, #C2410C, uppercase)           │            │             │
+│  │ └─────────────────────────────────────────┘            │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+│  Styling (Featured):                                                      │
+│  • Border-color: rgba(30,64,175,0.35)                                     │
+│  • Box-shadow: 0 1px 0 rgba(255,255,255,0.85) inset,                      │
+│                0 0 0 1px rgba(30,64,175,0.08)                             │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  KART 3: TEAM PLAN                                                        │
+│  ┌─────────────────────────────────────────────────────────┐             │
+│  │ Name: "Team"                                            │             │
+│  │                                                         │             │
+│  │ Price: "$49/mo"                                         │             │
+│  │                                                         │             │
+│  │ Features:                                               │             │
+│  │ • Multi-user access                                     │             │
+│  │ • Custom templates                                      │             │
+│  │ • Priority support                                      │             │
+│  │                                                         │             │
+│  │ (No CTA button)                                        │             │
+│  └─────────────────────────────────────────────────────────┘             │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  SINGLE REPORT NOTE:                                                      │
+│  Class: .sc-home-hybrid__pricing-single                                   │
+│  İçerik: "Single decision reports from $9."                               │
+│  Font: 13px, #6B6B6B                                                      │
+│  Margin-top: 1rem                                                         │
+│                                                                           │
+│  PRICING ACTIONS:                                                         │
+│  Class: .sc-home-hybrid__pricing-actions                                  │
+│  Display: flex, flex-wrap, gap: 1rem, margin-top: 1.25rem                 │
+│                                                                           │
+│  • "Start free — no card required" (Secondary CTA) → /free-tools          │
+│  • "View full pricing →" (Text link, #1E40AF) → /pricing                  │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  DIVIDER: LEDGER SEPARATOR                                                │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 10: CREDIBILITY / REFERENCES                                     │
+│  Component: HomepageCredibilitySection                                    │
+│  Class: .sc-home-hybrid__credibility                                      │
+│  Background: #FFFFFF                                                      │
+│  Padding: clamp(1.5rem, 3vw, 2.25rem)                                     │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  EYEBROW:                                                                 │
+│  İçerik: "Industrial intelligence standards"                              │
+│  Font: JetBrains Mono, 11px, uppercase, #6B6B6B                           │
+│  Text-align: center                                                       │
+│  Margin-bottom: 1rem                                                      │
+│                                                                           │
+│  REFERENCE LOGOS IMAGE:                                                   │
+│  Path: /img/home/industry-reference-logos.png                             │
+│  Alt: "Industrial and manufacturing reference organizations"              │
+│  Size: 1024 × 571 px                                                      │
+│  Max-width: 38rem (608px) desktop, 100% mobile                            │
+│  Display: block, margin-inline: auto                                      │
+│                                                                           │
+│  REFERENCE NAMES (screen reader only):                                    │
+│  Bosch, MIT, 3M, Bloomberg, Reuters, Caterpillar, Imperial College        │
+│  London, Parker, AP News, AFP, ETH Zürich, Honeywell, Festo,              │
+│  Manufacturing.net, Tsinghua University, ABB, Schneider Electric, UPI,    │
+│  Industry Week, KUKA, Fanuc, ThomasNet, Siemens, Rockwell Automation,     │
+│  Delft University of Technology, Engineering.com, Machine Design,         │
+│  Nanyang Technological University (NTU), Mitsubishi Electric              │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 11: ABOUT US                                                     │
+│  Component: HomeAboutSection                                              │
+│  Background: #FFFFFF                                                      │
+│  Max-width: 38rem, centered                                               │
+│  Text-align: center                                                       │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  EYEBROW:                                                                 │
+│  İçerik: "About us"                                                       │
+│  Font: JetBrains Mono, 11px, uppercase, #6B6B6B                           │
+│  Margin-bottom: 0.75rem                                                   │
+│                                                                           │
+│  OPENING:                                                                 │
+│  İçerik: "Scrap in your quote. Setup time you never priced. Deadhead      │
+│           routes. Margin that appears only at month-end. Most teams       │
+│           cannot see these losses until the spreadsheet says so."         │
+│  Font: 15-16px, #6B6B6B                                                   │
+│  Margin: 1rem 0 0                                                         │
+│                                                                           │
+│  PUNCHLINE:                                                               │
+│  İçerik: "SectorCalc is here to change that."                             │
+│  Font: Barlow, 22-28px, 600 weight, #1E40AF (navy)                        │
+│  Margin: 0                                                                │
+│                                                                           │
+│  BODY:                                                                    │
+│  İçerik: "We turn Fortune 500-grade industrial intelligence into sector   │
+│           calculators and decision reports from $19/month: OEE, scrap,    │
+│           routing, carbon, and tolerance. Every result carries a Trust    │
+│           Trace seal you can present to banks, customers, and auditors."  │
+│  Font: 15-16px, #1A1A1A                                                   │
+│  Margin: 1rem 0 0                                                         │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  SECTION 12: FINAL CTA                                                    │
+│  Class: .sc-home-hybrid__final                                            │
+│  Background: #FFFFFF                                                      │
+│  Border-top: 1px solid #D1D1D1                                            │
+│  Padding: clamp(2rem, 5vw, 3rem) → 32px - 48px                            │
+│  Text-align: center                                                       │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│                                                                           │
+│  FINAL TITLE:                                                             │
+│  Class: .sc-home-hybrid__final-title                                      │
+│  İçerik: "Find the loss area. Measure the exposure. Make the call."       │
+│  Font: Barlow, 22-32px, 600 weight, #1A1A1A                               │
+│  Letter-spacing: -0.02em, line-height: 1.15                               │
+│  Max-width: 28rem, margin-inline: auto                                    │
+│                                                                           │
+│  BULLETS:                                                                 │
+│  Class: .sc-home-hybrid__final-bullets                                    │
+│  Display: flex, flex-wrap, justify-content: center                        │
+│  Gap: 0.5rem 1.25rem                                                      │
+│  Margin: 1rem 0 0                                                         │
+│  Font: JetBrains Mono, 11px, 600 weight, uppercase, #6B6B6B               │
+│                                                                           │
+│  İçerik:                                                                  │
+│  • "27 sector areas"                                                      │
+│  • "50+ calculator roadmap"                                               │
+│  • "Free tier available"                                                  │
+│  • "No credit card required"                                              │
+│                                                                           │
+│  FINAL CTA:                                                               │
+│  Class: .sc-cta-primary                                                   │
+│  İçerik: "Find your loss area"                                            │
+│  Link: /categories                                                        │
+│  Margin-top: 1.25rem                                                      │
+│  Style: Primary button (turuncu, #C2410C)                                 │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 6: RESPONSIVE BREAKPOINTS
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ BREAKPOINT LİSTESİ ───────────────────────────────────────────────────┐
+│                                                                         │
+│  max-width: 390px    → Mobil çok küçük ekran                           │
+│  max-width: 429px    → Mobil küçük                                     │
+│  min-width: 480px    → Mockup 2-column grid başlangıcı                 │
+│  min-width: 640px    → Tablet küçük (2-column grids)                   │
+│  min-width: 768px    → Tablet (pricing 3-column, measure 2-column)     │
+│  min-width: 901px    → Desktop layout değişimleri                      │
+│  min-width: 1024px   → Desktop küçük (4-column grids, hero 2-col)      │
+│  max-width: 1067px   → Header height değişimi                          │
+│  min-width: 1280px   → Desktop geniş                                    │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ RESPONSIVE DAVRANIŞLAR ──────────────────────────────────────────────┐
+│                                                                         │
+│  HERO:                                                                  │
+│  Mobil: Stacked (copy üstte, mockup altta)                             │
+│  Desktop (≥1024px): Side-by-side 2-column                              │
+│                                                                         │
+│  SCENARIO / MEASURE / PRICING GRIDS:                                    │
+│  Mobil: 1 column                                                        │
+│  Tablet (≥640px): 2 columns                                             │
+│  Desktop (≥1024px): 4 columns (scenario/measure), 3 columns (pricing)   │
+│                                                                         │
+│  COMPARISON TABLE:                                                      │
+│  Desktop: Normal table                                                  │
+│  Mobil (≤767px): Card-based layout, thead hidden, data-label prepend    │
+│                                                                         │
+│  CONTAINERS:                                                            │
+│  Padding-inline: clamp(1rem, 3vw, 1.5rem) → 16px - 24px                │
+│                                                                         │
+│  TYPOGRAPHY:                                                            │
+│  Font sizes: clamp() fonksiyonu ile responsive                          │
+│  Hero headline: 26-44px                                                 │
+│  Section title: 20-26px                                                 │
+│  Body: 14-17px                                                          │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 7: ÖZEL EFEKTLER & DETAYLAR
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ BACKGROUND NOISE (Body) ──────────────────────────────────────────────┐
+│                                                                         │
+│  body::before {                                                         │
+│    content: ""                                                          │
+│    position: fixed                                                      │
+│    inset: 0                                                             │
+│    pointer-events: none                                                 │
+│    z-index: 0                                                           │
+│    opacity: 0.018  ← Çok hafif texture                                  │
+│    background-image: repeating-linear-gradient(                         │
+│      0deg,                                                              │
+│      transparent,                                                       │
+│      transparent 2px,                                                   │
+│      rgba(26, 26, 26, 0.03) 2px,                                        │
+│      rgba(26, 26, 26, 0.03) 3px                                         │
+│    )                                                                    │
+│  }                                                                      │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ LETTERPRESS EFFECT ───────────────────────────────────────────────────┐
+│                                                                         │
+│  .sc-ledger-letterpress {                                               │
+│    box-shadow:                                                          │
+│      0 1px 0 rgba(255, 255, 255, 0.85) inset,  ← Üst highlight         │
+│      0 -1px 0 rgba(26, 26, 26, 0.04) inset      ← Alt shadow           │
+│  }                                                                      │
+│                                                                         │
+│  Kullanım: Featured pricing card gibi vurgulu elementlerde              │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ LEDGER SEPARATOR DETAYI ─────────────────────────────────────────────┐
+│                                                                         │
+│  .sc-ledger-separator {                                                 │
+│    height: 0                                                            │
+│    border-top: 1px solid #D1D1D1                                        │
+│    margin-block: 1.25rem                                                │
+│    opacity: 0.9                                                         │
+│  }                                                                      │
+│                                                                         │
+│  .sc-ledger-separator::after {                                          │
+│    content: ""                                                          │
+│    display: block                                                       │
+│    height: 1px                                                          │
+│    margin-top: 2px                                                      │
+│    opacity: 0.25                                                        │
+│    background: repeating-linear-gradient(                               │
+│      90deg,                                                             │
+│      #6B6B6B 0,                                                         │
+│      #6B6B6B 1px,                                                       │
+│      transparent 1px,                                                   │
+│      transparent 6px                                                    │
+│    )                                                                    │
+│    mask-image: linear-gradient(                                         │
+│      90deg,                                                             │
+│      transparent,                                                       │
+│      #000 12%,                                                          │
+│      #000 88%,                                                          │
+│      transparent                                                        │
+│    )                                                                    │
+│  }                                                                      │
+│                                                                         │
+│  → Sonuç: Düz çizgi + soluk noktalı dekoratif alt çizgi                 │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ HOVER TRANSITIONS ────────────────────────────────────────────────────┐
+│                                                                         │
+│  Kartlar (.sc-home-hybrid__scenario-card, .sc-home-hybrid__measure-card):│
+│    transition: border-color 150ms ease                                  │
+│    hover → border-color: #1A1A1A                                        │
+│                                                                         │
+│  Butonlar (.sc-cta-primary, .sc-cta-secondary):                         │
+│    transition: background-color 150ms ease, border-color 150ms ease    │
+│                                                                         │
+│  Platform chips:                                                        │
+│    hover → border-color: #C2410C, color: #C2410C                        │
+│                                                                         │
+│  Text links:                                                            │
+│    hover → text-decoration: underline                                   │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ FOCUS STATES ─────────────────────────────────────────────────────────┐
+│                                                                         │
+│  Inputs (.sc-ledger-input-boxed:focus):                                 │
+│    outline: none                                                        │
+│    border-color: #C2410C                                                │
+│    box-shadow: 0 0 0 1px #C2410C                                        │
+│                                                                         │
+│  Links (:focus-visible):                                                │
+│    outline: 2px solid #C2410C                                           │
+│    outline-offset: 2px                                                  │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 8: NAVIGATION (Header) DETAYI
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ HEADER YAPISI ────────────────────────────────────────────────────────┐
+│                                                                         │
+│  Class: .apple-nav, .sc-header-craft                                    │
+│  Position: Fixed top                                                    │
+│  Background: rgba(250, 247, 242, 0.96)                                  │
+│  Backdrop-filter: blur(12px)                                            │
+│  Border-bottom: 1px solid rgba(0, 0, 0, 0.12)                           │
+│  Height: 80px (desktop), 72px (tablet), 64px (mobile)                   │
+│  Z-index: 50                                                            │
+│                                                                         │
+│  İÇERİK:                                                                │
+│  ┌────────────────────────────────────────────────────────┐            │
+│  │ [LOGO]  Calculators  Industries  Pricing  Resources    │            │
+│  │                              [Region] [Lang] Login Pro │            │
+│  └────────────────────────────────────────────────────────┘            │
+│                                                                         │
+│  NAVIGATION LINKS:                                                      │
+│  • Calculators → /categories                                            │
+│  • Industries → /industries                                             │
+│  • Pricing → /pricing                                                   │
+│  • Resources → (dropdown/mega menu)                                     │
+│                                                                         │
+│  UTILITIES:                                                             │
+│  • Region selector: Auto/Global·USD, Turkey·TRY, Germany·EUR            │
+│  • Language: EN, TR, DE, FR, ES, AR                                     │
+│  • Login → /login                                                       │
+│  • GET PRO → /pricing (turuncu buton)                                   │
+│                                                                         │
+│  STYLING:                                                               │
+│  Links:                                                                 │
+│    font-size: 14-15px (responsive)                                      │
+│    color: rgba(0, 0, 0, 0.72)                                           │
+│    font-weight: 500                                                     │
+│    hover: color #1A1A1A                                                 │
+│    gap: 20-28px (responsive)                                            │
+│                                                                         │
+│  GET PRO button:                                                        │
+│    background: #C2410C                                                  │
+│    color: #FFFFFF                                                       │
+│    padding: 0.5rem 1rem                                                 │
+│    border-radius: 8px                                                   │
+│    font-weight: 600                                                     │
+│    hover: filter brightness(1.05)                                       │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 9: ACCESSIBILITY & SEMANTIC HTML
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ ARIA LABELS & SEMANTIC STRUCTURE ────────────────────────────────────┐
+│                                                                         │
+│  • Her section aria-labelledby ile ilişkilendirilmiş                    │
+│  • Headings doğru hiyerarşi (h1 → h2 → h3)                              │
+│  • sr-only class: Ekran okuyucu için görünmez içerik                    │
+│  • Min touch target: 44px (WCAG 2.1 AA standardı)                       │
+│  • Focus indicators: 2px solid outline, 2px offset                      │
+│  • Color contrast ratios: WCAG AA uyumlu                                │
+│    - Text on bg: 4.5:1 minimum                                          │
+│    - Large text: 3:1 minimum                                            │
+│  • Skip links (klavye navigasyonu için)                                 │
+│                                                                         │
+│  SEMANTIC ELEMENTS:                                                     │
+│  <main> - Ana içerik wrapper                                            │
+│  <section> - Her bölüm                                                  │
+│  <article> - Senaryo kartları, fiyatlandırma kartları                   │
+│  <nav> - Header navigasyon                                              │
+│  <figure> + <figcaption> - Logo grid                                    │
+│  <dl>, <dt>, <dd> - Definition lists (uygunsa)                          │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 10: PERFORMANS OPTİMİZASYONU
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ GÖRSEL OPTİMİZASYONLARI ─────────────────────────────────────────────┐
+│                                                                         │
+│  REFERENCE LOGOS IMAGE:                                                 │
+│  • Next.js Image component kullanılıyor                                 │
+│  • Sizes: (max-width: 640px) 100vw, (max-width: 1024px) 92vw, 960px    │
+│  • Lazy loading: implicit (Next.js default)                             │
+│  • Width: 1024px, Height: 571px                                         │
+│                                                                         │
+│  LOGO (Header):                                                         │
+│  • SVG veya optimized PNG                                               │
+│  • Priority loading: true (above-the-fold)                              │
+│                                                                         │
+│  GENEL STRATEJİ:                                                        │
+│  • Critical CSS inline                                                  │
+│  • Font preload (Inter, Barlow, JetBrains Mono)                         │
+│  • No external dependencies (self-hosted fonts)                         │
+│  • Static generation (SSG) where possible                               │
+│  • Revalidate: 3600s (1 hour ISR)                                       │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ LOADING STRATEGY ─────────────────────────────────────────────────────┐
+│                                                                         │
+│  ÖNCELIK SIRASI:                                                        │
+│  1. Header (Critical)                                                   │
+│  2. Hero section (Above-the-fold)                                       │
+│  3. Catalog search component                                            │
+│  4. Diğer sections (Progressive loading)                                │
+│  5. Reference logos (Lazy load)                                         │
+│  6. Footer (Defer)                                                      │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 11: ANIMATION & INTERACTION DETAYLARI
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ ANIMASYONLAR ─────────────────────────────────────────────────────────┐
+│                                                                         │
+│  NUMBER TICK ANIMATION (.sc-ledger-number-tick):                        │
+│  @keyframes sc-ledger-tick {                                            │
+│    0% {                                                                 │
+│      opacity: 0.45                                                      │
+│      transform: translateY(3px)                                         │
+│    }                                                                    │
+│    100% {                                                               │
+│      opacity: 1                                                         │
+│      transform: translateY(0)                                           │
+│    }                                                                    │
+│  }                                                                      │
+│  Duration: 120ms ease-out                                               │
+│                                                                         │
+│  ROUTE LOADING BAR:                                                     │
+│  Position: fixed top                                                    │
+│  Height: 2px                                                            │
+│  Background: #C2410C                                                    │
+│  Animation: pulse 900ms infinite                                        │
+│  (Scale X: 0.08 → 0.72 → 1, Opacity: 0.55 → 1 → 0.35)                  │
+│                                                                         │
+│  PREFERS-REDUCED-MOTION:                                                │
+│  @media (prefers-reduced-motion: reduce) {                              │
+│    .sc-ledger-number-tick { animation: none; }                          │
+│  }                                                                      │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ INTERACTION STATES ───────────────────────────────────────────────────┐
+│                                                                         │
+│  BUTTONS:                                                               │
+│  • Default → Border/background transition (150ms)                       │
+│  • Hover → Color change                                                 │
+│  • Active → Subtle scale (optional)                                     │
+│  • Disabled → opacity 0.55, cursor not-allowed                          │
+│  • Focus-visible → 2px outline, 2px offset                              │
+│                                                                         │
+│  CARDS:                                                                 │
+│  • Default → border #D1D1D1                                             │
+│  • Hover → border #1A1A1A (or #C2410C for chips)                        │
+│  • Transition: 150ms ease                                               │
+│                                                                         │
+│  LINKS:                                                                 │
+│  • Default → No underline                                               │
+│  • Hover → Underline, color may change                                  │
+│  • Visited → Same as default (no distinction)                           │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+BÖLÜM 12: META DATA & SEO
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ PAGE META ────────────────────────────────────────────────────────────┐
+│                                                                         │
+│  TITLE:                                                                 │
+│  "SectorCalc — Measure hidden loss across 27 sector areas"              │
+│                                                                         │
+│  DESCRIPTION:                                                           │
+│  "Your operation is leaking money. SectorCalc helps teams measure       │
+│   hidden loss with sector calculators and premium decision reports —    │
+│   without ERP complexity."                                              │
+│                                                                         │
+│  CANONICAL:                                                             │
+│  https://sectorcalc.com/                                                │
+│                                                                         │
+│  OPEN GRAPH:                                                            │
+│  og:title: Same as title                                                │
+│  og:description: Same as description                                    │
+│  og:image: [Homepage OG image]                                          │
+│  og:url: https://sectorcalc.com/                                        │
+│  og:type: website                                                       │
+│                                                                         │
+│  TWITTER CARD:                                                          │
+│  twitter:card: summary_large_image                                      │
+│  twitter:title: Same as title                                           │
+│  twitter:description: Same as description                               │
+│                                                                         │
+│  STRUCTURED DATA (JSON-LD):                                             │
+│  @type: Organization                                                    │
+│  @type: WebSite                                                         │
+│  (Product/Service schema'lar)                                           │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+SON NOTLAR
+═══════════════════════════════════════════════════════════════════════════
+
+Bu doküman SectorCalc ana sayfasının eksiksiz DNA'sını içermektedir:
+
+✓ Tüm renkler (hex kodları ve CSS variables)
+✓ Tüm fontlar (aileler, boyutlar, ağırlıklar, letter-spacing)
+✓ Tüm spacing değerleri (padding, margin, gap)
+✓ Tüm içerik metinleri (başlıklar, açıklamalar, CTA'lar)
+✓ Tüm layout yapıları (grid, flex, responsive breakpoints)
+✓ Tüm buton stilleri ve hover states
+✓ Tüm özel efektler (noise, letterpress, separators)
+✓ Tüm responsive davranışlar
+✓ Accessibility detayları
+✓ SEO meta data
+✓ Animation detayları
+✓ Navigation yapısı
+✓ Mockup component detayları
+
+Doküman güncellemesi: 11 Haziran 2026
+Framework: Next.js 14+ (App Router)
+Styling: CSS Modules + Tailwind (hybrid)
+Fonts: Inter (body), Barlow (headings), JetBrains Mono (mono)
+Color System: Industrial Ledger v1.1
+
+═══════════════════════════════════════════════════════════════════════════
+                            DOKÜMAN SONU
+═══════════════════════════════════════════════════════════════════════════

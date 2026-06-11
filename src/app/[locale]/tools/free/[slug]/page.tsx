@@ -70,9 +70,31 @@ export async function generateMetadata({
 
   const tierOneMeta = getTierOneFreeToolMetadata(slug);
 
+  // Load messages for localization
+  let localizedTitle = tierOneMeta?.metaTitle ?? trafficTool.seoTitle;
+  let localizedDescription = tierOneMeta?.metaDescription ?? trafficTool.seoDescription;
+
+  if (locale !== "en") {
+    try {
+      const messages = (await import(`@/../../messages/${locale}.json`)).default;
+      const seoTitleKey = `tools.free.${slug}.seoTitle`;
+      const seoDescriptionKey = `tools.free.${slug}.seoDescription`;
+      
+      if (messages[seoTitleKey]) {
+        localizedTitle = messages[seoTitleKey];
+      }
+      if (messages[seoDescriptionKey]) {
+        localizedDescription = messages[seoDescriptionKey];
+      }
+    } catch (error) {
+      // Fallback to English registry if translation file missing
+      console.warn(`Translation file not found for locale: ${locale}`);
+    }
+  }
+
   return createPageMetadata({
-    title: tierOneMeta?.metaTitle ?? trafficTool.seoTitle,
-    description: tierOneMeta?.metaDescription ?? trafficTool.seoDescription,
+    title: localizedTitle,
+    description: localizedDescription,
     path: `/tools/free/${trafficTool.slug}`,
     locale: appLocale,
   });
@@ -134,9 +156,41 @@ export default async function FreeRevenueToolRoute({
   }
 
   const tAuthority = await getTranslations("contentAuthority.freeTool");
-  const featuredQuestion = buildFreeToolFeaturedQuestion(trafficTool.title);
+
+  // Load localized content
+  let localizedTitle = trafficTool.title;
+  let localizedDescription = trafficTool.description;
+  let localizedInfoBoxTitle: string | undefined;
+  let localizedInfoBoxContent: string | undefined;
+
+  if (locale !== "en") {
+    try {
+      const messages = (await import(`@/../../messages/${locale}.json`)).default;
+      const titleKey = `tools.free.${slug}.title`;
+      const descriptionKey = `tools.free.${slug}.description`;
+      const infoBoxTitleKey = `tools.free.${slug}.infoBox.title`;
+      const infoBoxContentKey = `tools.free.${slug}.infoBox.content`;
+
+      if (messages[titleKey]) {
+        localizedTitle = messages[titleKey];
+      }
+      if (messages[descriptionKey]) {
+        localizedDescription = messages[descriptionKey];
+      }
+      if (messages[infoBoxTitleKey]) {
+        localizedInfoBoxTitle = messages[infoBoxTitleKey];
+      }
+      if (messages[infoBoxContentKey]) {
+        localizedInfoBoxContent = messages[infoBoxContentKey];
+      }
+    } catch (error) {
+      // Fallback to English registry if translation missing
+    }
+  }
+
+  const featuredQuestion = buildFreeToolFeaturedQuestion(localizedTitle);
   const featuredAnswer = buildFreeToolFeaturedAnswer(
-    trafficTool.seoDescription || trafficTool.description,
+    localizedDescription,
   );
 
   const featuredAnswerBlock = (
@@ -146,7 +200,7 @@ export default async function FreeRevenueToolRoute({
     { question: featuredQuestion, answer: featuredAnswer },
     {
       question: tAuthority("faqUseTitle"),
-      answer: tAuthority("faqUseAnswer", { title: trafficTool.title }),
+      answer: tAuthority("faqUseAnswer", { title: localizedTitle }),
     },
     {
       question: tAuthority("faqFreeTitle"),
@@ -162,7 +216,7 @@ export default async function FreeRevenueToolRoute({
       [
         { name: "Home", path: "/" },
         { name: "Free tools", path: "/free-tools" },
-        { name: trafficTool.title, path: `/tools/free/${trafficTool.slug}` },
+        { name: localizedTitle, path: `/tools/free/${trafficTool.slug}` },
       ],
       locale
     ),
@@ -174,7 +228,16 @@ export default async function FreeRevenueToolRoute({
     <>
       <JsonLd data={jsonLd} />
       <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" />
-      <FreeTrafficToolPage tool={trafficTool} featuredAnswer={featuredAnswerBlock} />
+      <FreeTrafficToolPage 
+        tool={trafficTool} 
+        featuredAnswer={featuredAnswerBlock}
+        localizedContent={{
+          title: localizedTitle,
+          description: localizedDescription,
+          infoBoxTitle: localizedInfoBoxTitle,
+          infoBoxContent: localizedInfoBoxContent,
+        }}
+      />
     </>
   );
 }

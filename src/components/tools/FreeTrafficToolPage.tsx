@@ -57,15 +57,26 @@ function verdictTone(headline: string): "neutral" | "positive" | "caution" {
 export interface FreeTrafficToolPageProps {
   tool: FreeTrafficTool;
   featuredAnswer?: ReactNode;
+  localizedContent?: {
+    title: string;
+    description: string;
+    infoBoxTitle?: string;
+    infoBoxContent?: string;
+  };
 }
 
-export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPageProps) {
+export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: FreeTrafficToolPageProps) {
   const t = useTranslations("freeTrafficCatalog");
   const tAuthority = useTranslations("contentAuthority.freeTool");
   const locale = useLocale();
   const pathname = usePathname();
   const attribution = useAttributionContext();
   const pagePath = stripLocalePrefix(pathname);
+  
+  // Use localized content if provided, otherwise fallback to tool registry
+  const displayTitle = localizedContent?.title ?? tool.title;
+  const displayDescription = localizedContent?.description ?? tool.description;
+  
   const [values, setValues] = useState<FreeTrafficInputValues>(() =>
     isFreeFullLoopRuntimeSlug(tool.slug)
       ? buildSmartFormInitialValues(tool.slug)
@@ -263,8 +274,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
       <section className="sc-craft-section sc-craft-section--white sc-craft-section--border">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide">
           <p className="sc-craft-eyebrow">{t(`categories.${tool.category}`)}</p>
-          <h1 className="sc-craft-headline">{tool.title}</h1>
-          <p className="sc-craft-lead">{tool.description}</p>
+          <h1 className="sc-craft-headline">{displayTitle}</h1>
+          <p className="sc-craft-lead">{displayDescription}</p>
         </Container>
       </section>
 
@@ -282,8 +293,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer }: FreeTrafficToolPag
             <SmartFormWorkspace
               toolSlug={tool.slug}
               tier="free"
-              title={tool.title}
-              description={tool.description}
+              title={displayTitle}
+              description={displayDescription}
               inputConfig={{ kind: "traffic", inputs: tool.inputs }}
               values={values}
               errors={errors}
