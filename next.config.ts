@@ -3,6 +3,10 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
+/** Paths that must not be rewritten to /en/* (static assets + locale/admin/api). */
+const LOCALE_REWRITE_EXCLUDE =
+  "tr(?:/|$)|de(?:/|$)|fr(?:/|$)|es(?:/|$)|ar(?:/|$)|en(?:/|$)|admin(?:/|$)|api(?:/|$)|_next(?:/|$)|img(?:/|$)|images(?:/|$)|icons(?:/|$)|.*\\.[^/]+$";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   serverExternalPackages: ["@react-pdf/renderer"],
@@ -25,8 +29,7 @@ const nextConfig: NextConfig = {
       beforeFiles: [
         { source: "/", destination: "/en" },
         {
-          source:
-            "/:path((?!tr(?:/|$)|de(?:/|$)|fr(?:/|$)|es(?:/|$)|ar(?:/|$)|en(?:/|$)|admin(?:/|$)|api(?:/|$)|_next(?:/|$)).*)",
+          source: `/:path((?!${LOCALE_REWRITE_EXCLUDE}).*)`,
           destination: "/en/:path",
         },
       ],

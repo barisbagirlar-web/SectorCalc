@@ -7,10 +7,11 @@ import { Container } from "@/components/ui/Container";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCachedIndustryCatalogGroups } from "@/lib/catalog/cached-catalog-groups";
-import { INDUSTRIES } from "@/data/industries";
 import { createPageMetadata } from "@/lib/metadata";
-import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
+import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { buildCoreHubCrawlGroups, buildFreeToolsCrawlGroups, buildSeoHubCrawlGroups } from "@/lib/seo/crawl-index";
+import { shouldRenderCrawlIndexForLocale } from "@/lib/i18n/catalog-labels-i18n";
 import type { IndustryCategory } from "@/lib/tools/industry-registry";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -40,19 +41,21 @@ export default async function IndustriesPage({ params }: PageProps) {
   const t = await getTranslations("catalogExplorer");
   const industryGroups = getCachedIndustryCatalogGroups(locale);
   const jsonLd = [
-    buildBreadcrumbJsonLd(
+    await buildLocalizedBreadcrumbJsonLd(
       [
-        { name: "Home", path: "/" },
-        { name: "Industries", path: "/industries" },
+        { key: "home", path: "/" },
+        { key: "industries", path: "/industries" },
       ],
       locale
     ),
     buildItemListJsonLd(
-      INDUSTRIES.map((industry) => ({
-        name: industry.name,
-        path: `/industries/${industry.slug}`,
-      })),
-      "Industry tool packs",
+      industryGroups.flatMap((group) =>
+        group.items.map((item) => ({
+          name: item.title,
+          path: item.href,
+        }))
+      ),
+      t("industries.title"),
       locale
     ),
   ];
@@ -75,17 +78,19 @@ export default async function IndustriesPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="sc-pro-section sc-pro-section--border">
-        <Container className="sc-pro-container">
-          <CrawlIndexLinkList
-            groups={[
-              ...buildCoreHubCrawlGroups(),
-              ...buildFreeToolsCrawlGroups(),
-              ...buildSeoHubCrawlGroups(),
-            ]}
-          />
-        </Container>
-      </section>
+      {shouldRenderCrawlIndexForLocale(locale) ? (
+        <section className="sc-pro-section sc-pro-section--border">
+          <Container className="sc-pro-container">
+            <CrawlIndexLinkList
+              groups={[
+                ...buildCoreHubCrawlGroups(),
+                ...buildFreeToolsCrawlGroups(),
+                ...buildSeoHubCrawlGroups(),
+              ]}
+            />
+          </Container>
+        </section>
+      ) : null}
     </PageLayout>
   );
 }

@@ -25,6 +25,13 @@ import {
   getIndustryRelatedPremiumItems,
   getPremiumSchemasForIndustrySlug,
 } from "@/lib/premium-schema/premium-schema-catalog";
+import { getLocalizedIndustryHub } from "@/data/industry-hub-i18n";
+import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
+import {
+  resolveCatalogCtaLabels,
+  resolveIndustryCategoryDescription,
+  resolveIndustryCategoryLabel,
+} from "@/lib/i18n/catalog-labels-i18n";
 
 export const INDUSTRY_CATEGORY_DESCRIPTIONS: Record<IndustryCategory, string> = {
   "heavy-industry":
@@ -161,6 +168,8 @@ export function buildPremiumToolCatalogGroups(tools: readonly Tool[]): CatalogGr
 }
 
 export function buildIndustryCatalogGroups(locale = "en"): CatalogGroup[] {
+  const ctaLabels = resolveCatalogCtaLabels(locale);
+
   return getAllIndustryCategories()
     .map((category) => {
       const entries = getIndustriesByCategory(category);
@@ -171,14 +180,30 @@ export function buildIndustryCatalogGroups(locale = "en"): CatalogGroup[] {
           if (!industry || !tool) {
             return null;
           }
+          const hubCopy = getLocalizedIndustryHub(entry.slug, locale);
+          const freeTitle = getLocalizedRevenueToolTitle(
+            tool.freeSlug,
+            "free",
+            locale,
+            tool.freeTitle
+          );
+          const paidTitle = getLocalizedRevenueToolTitle(
+            tool.paidSlug,
+            "paid",
+            locale,
+            tool.paidTitle
+          );
           const relatedPremium = getIndustryRelatedPremiumItems(entry.slug, locale, 3);
           const premiumToolCount = getPremiumSchemasForIndustrySlug(entry.slug, locale, 50).length;
           return {
-            title: industry.name,
-            description: industry.shortDescription || industry.businessPain,
+            title: hubCopy?.eyebrow ?? industry.name,
+            description:
+              hubCopy?.painStatement ??
+              industry.shortDescription ??
+              industry.businessPain,
             href: `/industries/${industry.slug}`,
-            meta: `${tool.freeTitle} · ${tool.paidTitle}`,
-            ctaLabel: "Open industry →",
+            meta: `${freeTitle} · ${paidTitle}`,
+            ctaLabel: ctaLabels.openIndustry,
             freeToolCount: 1,
             premiumToolCount,
             relatedPremium: relatedPremium.length > 0 ? relatedPremium : undefined,
@@ -188,8 +213,8 @@ export function buildIndustryCatalogGroups(locale = "en"): CatalogGroup[] {
 
       return {
         id: category,
-        label: INDUSTRY_CATEGORY_LABELS[category],
-        description: INDUSTRY_CATEGORY_DESCRIPTIONS[category],
+        label: resolveIndustryCategoryLabel(category, locale),
+        description: resolveIndustryCategoryDescription(category, locale),
         items,
       };
     })

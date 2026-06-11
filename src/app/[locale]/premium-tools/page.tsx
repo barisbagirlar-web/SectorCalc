@@ -12,8 +12,10 @@ import {
   getPremiumSchemaCatalogItems,
 } from "@/lib/premium-schema/premium-schema-catalog";
 import { getCachedPremiumSchemaCatalogGroups } from "@/lib/catalog/cached-catalog-groups";
+import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { buildPremiumToolsCrawlGroups, buildCoreHubCrawlGroups, buildSeoHubCrawlGroups } from "@/lib/seo/crawl-index";
-import { buildBreadcrumbJsonLd, buildItemListJsonLd } from "@/lib/seo/schema-mesh";
+import { shouldRenderCrawlIndexForLocale } from "@/lib/i18n/catalog-labels-i18n";
 import type { AppLocale } from "@/i18n/routing";
 
 type PageProps = {
@@ -41,10 +43,10 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   const premiumGroups = getCachedPremiumSchemaCatalogGroups(locale);
   const catalogItems = getPremiumSchemaCatalogItems(locale);
   const jsonLd = [
-    buildBreadcrumbJsonLd(
+    await buildLocalizedBreadcrumbJsonLd(
       [
-        { name: "Home", path: "/" },
-        { name: "Premium tools", path: "/premium-tools" },
+        { key: "home", path: "/" },
+        { key: "premiumTools", path: "/premium-tools" },
       ],
       locale
     ),
@@ -53,7 +55,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
         name: item.title,
         path: item.href.replace(/^\/[a-z]{2}\//, "/"),
       })),
-      "Premium decision analyzers",
+      t("premiumTools.title"),
       locale
     ),
   ];
@@ -76,17 +78,19 @@ export default async function PremiumToolsPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="sc-pro-section sc-pro-section--border">
-        <Container className="sc-pro-container">
-          <CrawlIndexLinkList
-            groups={[
-              ...buildCoreHubCrawlGroups(),
-              ...buildPremiumToolsCrawlGroups(locale),
-              ...buildSeoHubCrawlGroups(),
-            ]}
-          />
-        </Container>
-      </section>
+      {shouldRenderCrawlIndexForLocale(locale) ? (
+        <section className="sc-pro-section sc-pro-section--border">
+          <Container className="sc-pro-container">
+            <CrawlIndexLinkList
+              groups={[
+                ...buildCoreHubCrawlGroups(),
+                ...buildPremiumToolsCrawlGroups(locale),
+                ...buildSeoHubCrawlGroups(),
+              ]}
+            />
+          </Container>
+        </section>
+      ) : null}
     </PageLayout>
   );
 }

@@ -23,6 +23,11 @@ import {
   getPremiumClaimTypeLabel,
 } from "@/lib/premium-schema/premium-claim-copy";
 import { addLocaleToPath, isSupportedLocale, type SupportedLocale } from "@/lib/i18n/locale-routing";
+import {
+  resolveCatalogCtaLabels,
+  resolvePremiumCatalogGroupDescription,
+  resolvePremiumCatalogGroupLabel,
+} from "@/lib/i18n/catalog-labels-i18n";
 
 export type PremiumSchemaCatalogBadge =
   | "Decision report"
@@ -233,17 +238,19 @@ function schemaToCatalogItem(schema: PremiumCalculatorSchema, locale: string): P
 
 export function catalogItemFromPremiumSchema(
   item: PremiumSchemaCatalogItem,
-  readiness: ClaimReadiness = "sample_only"
+  readiness: ClaimReadiness = "sample_only",
+  locale = "en"
 ): CatalogItem {
   const claim = getPremiumClaimCopy(item.slug, readiness);
+  const ctaLabels = resolveCatalogCtaLabels(locale);
 
   return {
     title: item.title,
     description: item.painStatement,
     href: item.href.replace(/^\/[a-z]{2}\//, "/"),
     meta: item.primaryOutputLabel,
-    badge: "Premium analyzer",
-    ctaLabel: "View analyzer →",
+    badge: ctaLabels.premiumBadge,
+    ctaLabel: ctaLabels.viewAnalyzer,
     itemKind: "premium-analyzer",
     promise: claim.valueStatement,
     claimHeadline: claim.headline,
@@ -337,7 +344,7 @@ export function buildPremiumSchemaCatalogGroups(locale = "en"): CatalogGroup[] {
     const list = byGroup.get(groupId);
     if (list) {
       list.push({
-        ...catalogItemFromPremiumSchema(item),
+        ...catalogItemFromPremiumSchema(item, "sample_only", locale),
         meta: `${item.primaryOutputLabel} · ${formatReportSectionsShort(item.reportSections)}`,
       });
     }
@@ -345,8 +352,8 @@ export function buildPremiumSchemaCatalogGroups(locale = "en"): CatalogGroup[] {
 
   return PREMIUM_SCHEMA_CATALOG_GROUP_ORDER.map((groupId) => ({
     id: groupId,
-    label: PREMIUM_SCHEMA_CATALOG_GROUP_LABELS[groupId],
-    description: PREMIUM_SCHEMA_CATALOG_GROUP_DESCRIPTIONS[groupId],
+    label: resolvePremiumCatalogGroupLabel(groupId, locale),
+    description: resolvePremiumCatalogGroupDescription(groupId, locale),
     items: byGroup.get(groupId) ?? [],
   })).filter((group) => group.items.length > 0);
 }
@@ -373,7 +380,7 @@ export function buildCategoryPageCatalogGroups(
       group.id as IndustryCategory,
       locale,
       4
-    ).map((item) => catalogItemFromPremiumSchema(item));
+    ).map((item) => catalogItemFromPremiumSchema(item, "sample_only", locale));
 
     return {
       ...group,

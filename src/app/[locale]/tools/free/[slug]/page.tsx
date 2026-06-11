@@ -8,7 +8,6 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
 import {
-  buildBreadcrumbJsonLd,
   buildCalculatorJsonLd,
   buildFAQJsonLd,
 } from "@/lib/seo/schema-mesh";
@@ -18,6 +17,8 @@ import { getTierOneFreeToolMetadata } from "@/lib/seo/seo-refresh-priority";
 import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
 import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
+import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 
 interface FreeToolPageParams {
   slug: string;
@@ -25,10 +26,6 @@ interface FreeToolPageParams {
 
 interface FreeToolRouteParams extends FreeToolPageParams {
   locale: string;
-}
-
-function buildFreeToolFeaturedQuestion(title: string): string {
-  return `What is ${title}?`;
 }
 
 function buildFreeToolFeaturedAnswer(description: string): string {
@@ -56,9 +53,19 @@ export async function generateMetadata({
   const appLocale = locale as AppLocale;
   const revenueTool = getRevenueToolByFreeSlug(slug);
   if (revenueTool) {
+    const localizedTitle = getLocalizedRevenueToolTitle(
+      slug,
+      "free",
+      locale,
+      revenueTool.freeTitle
+    );
+    const localizedDescription =
+      locale === "tr"
+        ? `${localizedTitle} — hızlı ücretsiz sektör kontrolü.`
+        : `${revenueTool.freeValue} Unlock premium decision tools for pricing, cost and margin risk.`;
     return createPageMetadata({
-      title: `${revenueTool.freeTitle} | SectorCalc`,
-      description: `${revenueTool.freeValue} Unlock premium decision tools for pricing, cost and margin risk.`,
+      title: `${localizedTitle} | SectorCalc`,
+      description: localizedDescription,
       path: `/tools/free/${revenueTool.freeSlug}`,
       locale: appLocale,
     });
@@ -99,25 +106,32 @@ export default async function FreeRevenueToolRoute({
   const revenueTool = getRevenueToolByFreeSlug(slug);
 
   if (revenueTool) {
+    const localizedTitle = getLocalizedRevenueToolTitle(
+      slug,
+      "free",
+      locale,
+      revenueTool.freeTitle
+    );
+    const tFreeToolUi = await getTranslations("freeToolUi");
     const featuredAnswer = (
       <FeaturedAnswerBlock
-        question={buildFreeToolFeaturedQuestion(revenueTool.freeTitle)}
+        question={tFreeToolUi("whatIs", { title: localizedTitle })}
         answer={buildFreeToolFeaturedAnswer(revenueTool.freeValue)}
       />
     );
     const jsonLd = [
-      buildBreadcrumbJsonLd(
+      await buildLocalizedBreadcrumbJsonLd(
         [
-          { name: "Home", path: "/" },
-          { name: "Free tools", path: "/free-tools" },
-          { name: revenueTool.freeTitle, path: `/tools/free/${revenueTool.freeSlug}` },
+          { key: "home", path: "/" },
+          { key: "freeTools", path: "/free-tools" },
+          { name: localizedTitle, path: `/tools/free/${revenueTool.freeSlug}` },
         ],
         locale
       ),
       buildCalculatorJsonLd(
         {
           slug: revenueTool.freeSlug,
-          title: revenueTool.freeTitle,
+          title: localizedTitle,
           description: revenueTool.freeValue,
           seoDescription: revenueTool.freeValue,
         },
@@ -177,10 +191,10 @@ export default async function FreeRevenueToolRoute({
     },
   ]);
   const jsonLd = [
-    buildBreadcrumbJsonLd(
+    await buildLocalizedBreadcrumbJsonLd(
       [
-        { name: "Home", path: "/" },
-        { name: "Free tools", path: "/free-tools" },
+        { key: "home", path: "/" },
+        { key: "freeTools", path: "/free-tools" },
         { name: localizedTitle, path: `/tools/free/${trafficTool.slug}` },
       ],
       locale

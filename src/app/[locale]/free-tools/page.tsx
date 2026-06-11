@@ -12,8 +12,10 @@ import {
 import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
 import { CrawlIndexLinkList } from "@/components/seo/CrawlIndexLinkList";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { buildItemListJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/schema-mesh";
+import { buildItemListJsonLd } from "@/lib/seo/schema-mesh";
+import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { buildFreeToolsCrawlGroups, buildCoreHubCrawlGroups } from "@/lib/seo/crawl-index";
+import { shouldRenderCrawlIndexForLocale } from "@/lib/i18n/catalog-labels-i18n";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPremiumToolsHref } from "@/lib/tools/tool-links";
 import type { AppLocale } from "@/i18n/routing";
@@ -51,10 +53,10 @@ export default async function FreeToolsPage({ params }: PageProps) {
   );
 
   const jsonLd = [
-    buildBreadcrumbJsonLd(
+    await buildLocalizedBreadcrumbJsonLd(
       [
-        { name: "Home", path: "/" },
-        { name: "Free tools", path: "/free-tools" },
+        { key: "home", path: "/" },
+        { key: "freeTools", path: "/free-tools" },
       ],
       locale
     ),
@@ -65,7 +67,7 @@ export default async function FreeToolsPage({ params }: PageProps) {
           path: item.href,
         }))
       ),
-      "Free sector calculators",
+      tCatalog("freeTools.title"),
       locale
     ),
   ];
@@ -94,11 +96,15 @@ export default async function FreeToolsPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="sc-pro-section sc-pro-section--border">
-        <Container className="sc-pro-container">
-          <CrawlIndexLinkList groups={[...buildCoreHubCrawlGroups(), ...buildFreeToolsCrawlGroups()]} />
-        </Container>
-      </section>
+      {shouldRenderCrawlIndexForLocale(locale) ? (
+        <section className="sc-pro-section sc-pro-section--border">
+          <Container className="sc-pro-container">
+            <CrawlIndexLinkList
+              groups={[...buildCoreHubCrawlGroups(), ...buildFreeToolsCrawlGroups()]}
+            />
+          </Container>
+        </section>
+      ) : null}
     </PageLayout>
   );
 }

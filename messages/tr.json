@@ -18,20 +18,20 @@
     "intelligenceLayer": "Premium",
     "myReports": "Raporlar",
     "settings": "Hesap",
-    "audit": "Audit",
-    "intelligence": "Intelligence",
+    "audit": "Araçlar",
+    "intelligence": "Premium",
     "archive": "Arşiv",
-    "freeTools": "Utility",
-    "premiumTools": "Intelligence",
+    "freeTools": "Ücretsiz",
+    "premiumTools": "Premium",
     "unlockPro": "Pro",
-    "runFreeCheck": "Run"
+    "runFreeCheck": "Hesapla"
   },
   "osGate": {
     "label": "Abonelik gerekli",
-    "message": "Bu işlem Intelligence Layer gerektirir. Pro üyeliği ile açılır.",
+    "message": "Bu işlem Pro abonelik gerektirir.",
     "single": "Tekil {price}",
     "pro": "Pro {price}",
-    "singleCta": "Run aç · {price}",
+    "singleCta": "Analizi aç · {price}",
     "proCta": "Pro · {price}"
   },
   "hero": {
@@ -2931,6 +2931,12 @@
     "clearData": "Yerel veriyi temizle",
     "staleDataWarning": "Kayıtlı veri güncel olmayabilir — karar için kullanmadan önce doğrulayın.",
     "privacyNote": "Yalnızca bu cihazda saklanır. Gizli bilgi veya hassas kişisel veri yok."
+  },
+  "schemaBreadcrumbs": {
+    "home": "Ana sayfa",
+    "freeTools": "Ücretsiz hesaplayıcılar",
+    "premiumTools": "Premium araçlar",
+    "industries": "Sektörler"
   },
   "freeToolUi": {
     "preCheck": "Ücretsiz Ön Kontrol",

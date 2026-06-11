@@ -53,7 +53,7 @@ function readFreeToolContent(
  *
  * Fallback chain per field:
  *   1. locale-specific `freeToolContent[slug]` key
- *   2. English `freeToolContent[slug]` key (generic fallback namespace)
+ *   2. English `freeToolContent[slug]` key (EN locale only)
  *   3. undefined — caller must fall back to the English registry value
  *
  * Uses static JSON imports so it resolves deterministically at build time
@@ -73,7 +73,9 @@ export function resolveFreeToolLocalizedCopy(
         return localeValue;
       }
     }
-    if (englishContent) {
+    // English message namespace is only a fallback for the EN locale.
+    // Other locales fall through to the registry copy at the call site.
+    if (locale === "en" && englishContent) {
       return readString(englishContent, key);
     }
     return undefined;
