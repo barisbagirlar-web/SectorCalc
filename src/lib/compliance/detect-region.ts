@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import {
+  countryToRegion,
   isRegionCode,
   REGION_COOKIE,
   REGION_HEADER,
@@ -29,10 +30,32 @@ export function detectCountryFromHeaders(
 }
 
 /**
- * Resolve region: manual override cookie → UI locale (/en→USD, /tr→TRY, /de→EUR).
- * Geo IP is intentionally NOT used so language and currency stay aligned.
+ * Resolve region with proper priority order:
+ * 1. Manual cookie (user explicitly chose a region)
+ * 2. Request country header (Cloudflare, Vercel, CDN geo detection)
+ * 3. Locale fallback (URL path → region)
+ * 4. Global default (EN)
+ *
+ * Manual selection always wins. Auto-detection never overwrites manual choice.
  */
 export function detectRegionFromRequest(request: NextRequest): RegionCode {
+  // 1. Manual cookie wins
   const manual = request.cookies.get(REGION_MANUAL_COOKIE)?.value;
-  return resolveRegionFromRequestContext(request.nextUrl.pathname, manual);
+  if (manual && isRegionCode(manual)) {
+    return manual;
+  }
+
+  // 2. Request country header (auto-detection)
+  const detectedCountry = detectCountryFromHeaders(request.headers);
+  if (detectedCountry) {
+    const regionFromCountry = countryToRegion(detectedCountry);
+    // Use country header only if it maps to a specific supported region (TR, DE)
+    // Unknown countries get EN from countryToRegion, but we prefer locale fallback in that case
+    if (detectedCountry === "TR" || detectedCountry === "DE") {
+      return regionFromCountry;
+    }
+  }
+
+  // 3. Locale fallback
+  return resolveRegionFromRequestContext(request.nextUrl.pathname, null);
 }

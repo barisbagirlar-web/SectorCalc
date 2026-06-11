@@ -31,6 +31,7 @@
     "smoke:verify-report": "node scripts/smoke-verify-report.mjs",
     "smoke:regional-units": "node scripts/smoke-regional-units.mjs",
     "smoke:regional-benchmarks": "node scripts/smoke-regional-benchmarks.mjs",
+    "smoke:region-auto-detect": "node scripts/smoke-region-auto-detect.mjs",
     "smoke:case-study-proof": "node scripts/smoke-case-study-proof.mjs",
     "smoke:pwa-field-mode": "node scripts/smoke-pwa-field-mode.mjs",
     "smoke:about-page": "node scripts/smoke-about-page.mjs",

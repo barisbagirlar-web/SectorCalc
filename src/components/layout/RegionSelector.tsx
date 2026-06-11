@@ -31,11 +31,21 @@ const REGION_OPTIONS: readonly { code: RegionCode | "auto"; labelKey: string }[]
 export function RegionIndicator({ className = "" }: { className?: string }) {
   const t = useTranslations("region");
   const { profile } = useRegion();
+  const [manual, setManual] = useState<RegionCode | null>(null);
+
+  useEffect(() => {
+    setManual(readManualRegionCookie());
+  }, []);
+
+  const regionSource = manual ? "manual-cookie" : "locale-fallback";
 
   return (
     <span
       className={`hidden font-mono text-[10px] uppercase tracking-wide text-body-charcoal xl:inline ${className}`.trim()}
       title={t("indicatorHint")}
+      data-region-code={profile.code}
+      data-currency-code={profile.currency}
+      data-region-source={regionSource}
     >
       {t("indicator", { region: profile.label, currency: profile.currency })}
     </span>
@@ -45,7 +55,7 @@ export function RegionIndicator({ className = "" }: { className?: string }) {
 export function RegionSelector({ className = "" }: { className?: string }) {
   const t = useTranslations("region");
   const locale = useLocale();
-  const { region } = useRegion();
+  const { region, profile } = useRegion();
   const [pending, startTransition] = useTransition();
   const [manual, setManual] = useState<RegionCode | null>(null);
 
@@ -55,6 +65,7 @@ export function RegionSelector({ className = "" }: { className?: string }) {
 
   const localeDefault = localeToRegion(locale);
   const selectValue = manual ?? "auto";
+  const regionSource = manual ? "manual-cookie" : "locale-fallback";
 
   const handleChange = (next: string) => {
     startTransition(() => {
@@ -71,6 +82,10 @@ export function RegionSelector({ className = "" }: { className?: string }) {
   return (
     <label
       className={`apple-locale language-selector language-selector--region apple-header__region-trigger ${className}`.trim()}
+      data-region-selector="true"
+      data-region-code={region}
+      data-currency-code={profile.currency}
+      data-region-source={regionSource}
     >
       <HeaderGlobeIcon />
       <span className="sr-only">{t("label")}</span>
