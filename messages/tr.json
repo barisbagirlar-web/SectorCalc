@@ -172,7 +172,7 @@
       "naiveCost": "Baseline"
     },
     "premium": {
-      "title": "CNC Audit Engine",
+      "title": "CNC Karar Analizi",
       "cta": "Run",
       "loading": "…",
       "signInRequired": "Giriş gerekli.",
@@ -182,7 +182,7 @@
       "naiveLabel": "Deterministik",
       "bufferLabel": "P90 tampon",
       "p90Label": "P90 güvenli",
-      "fullAnalyzerLink": "CNC Audit Engine →"
+      "fullAnalyzerLink": "CNC analiz aracı →"
     },
     "phase2": {
       "label": "MarginCore · Faz 2",
@@ -985,20 +985,20 @@
   },
   "homepageHybrid": {
     "meta": {
-      "title": "SectorCalc — {sectorCount} sektör alanında gizli kaybı ölçün",
-      "description": "Operasyonunuz para kaybediyor. SectorCalc, sektör hesaplayıcıları ve premium karar raporlarıyla gizli kaybı ölçmenize yardımcı olur — ERP karmaşası olmadan."
+      "title": "SectorCalc — Sektör hesaplayıcıları",
+      "description": "Maliyet, fire, marj ve operasyonel kayıp için sektöre özel hesaplama araçları. Ücretsiz hesaplayıcılar ve premium karar özetleri."
     },
     "hero": {
-      "eyebrow": "Gizli kayıp tespiti",
-      "headline": "Operasyonunuz para kaybediyor. Nerede olduğunu ölçün.",
-      "subtitleLine1": "SectorCalc, fire, setup, rota, enerji, OEE ve marjdaki gizli kaybı ölçmenize yardımcı olur.",
-      "subtitleLine2": "Sektöre özel girdileri hesaplayıcılar, teşhisler ve karar raporlarına dönüştürün — ERP karmaşası olmadan.",
-      "supporting": "ERP fiyatının dışında kalan işletmeler için tasarlandı.",
-      "ctaPrimary": "Kayıp alanınızı bulun",
-      "ctaSecondary": "Premium karar raporlarını görün"
+      "eyebrow": "Sektör hesaplayıcıları",
+      "headline": "Maliyet, fire, marj ve operasyonel kaybı büyümeden hesaplayın.",
+      "subtitleLine1": "SectorCalc; üretim, lojistik, inşaat, enerji, restoran, saha hizmetleri ve küçük ekipler için hazırlanmış pratik hesaplama araçları sunar.",
+      "subtitleLine2": "Amaç karmaşık yazılım kurmak değil; karar vermeden önce sayıların ne söylediğini net görmektir.",
+      "supporting": "",
+      "ctaPrimary": "Hesaplayıcıları Gör",
+      "ctaSecondary": "Premium Araçları İncele"
     },
     "references": {
-      "eyebrow": "Endüstriyel zeka standartları",
+      "eyebrow": "Endüstriyel referans standartları",
       "ariaLabel": "Endüstriyel ve medya referans kuruluşları",
       "imageAlt": "Endüstriyel ve üretim referans kuruluşları"
     },
@@ -1006,11 +1006,25 @@
       "eyebrow": "Hakkımızda",
       "punchline": "SectorCalc bunu değiştirmek için burada.",
       "opening": "Teklifinizdeki fire. Fiyatlandırmadığınız setup süresi. Boş dönüş rotaları. Ay sonunda ancak görünen marj. Çoğu ekip bu kayıpları tablo söyleyene kadar göremez.",
-      "body": "Sektöre özel operasyonel bilgiyi ayda 19 dolardan hesaplayıcılar ve karar raporlarına dönüştürüyoruz: OEE, fire, rota, karbon, tolerans. Her sonuç, sayıların nasıl türetildiğini gösteren bir hesaplama izi içerir."
+      "body": "Sektöre özel operasyonel bilgiyi hesaplayıcılar ve karar özetlerine dönüştürüyoruz: OEE, fire, rota, karbon, tolerans."
     },
     "positioning": {
-      "title": "Sektöre özel hesaplama mantığı, kurumsal yazılım karmaşıklığı olmadan.",
-      "text": "Çoğu ekip hâlâ kayıp, fire, maliyet ve verimliliği elektronik tablolar, defterler veya tahminle hesaplıyor. SectorCalc, hemen kullanabilecekleri odaklı hesaplayıcılar ve karar raporları sunar."
+      "title": "Sektöre özel hesaplama mantığı. Sade kullanım. Net sonuç.",
+      "text": "Birçok işletme maliyet, fire, süre, rota, enerji, işçilik ve marj hesabını hâlâ Excel, not defteri veya tahminle yürütüyor. SectorCalc bu hesapları daha düzenli, anlaşılır ve hızlı yapılabilir hale getirir."
+    },
+    "useCases": {
+      "title": "Hangi alanlarda kullanılır?",
+      "items": {
+        "scrap": "Fire ve hurda oranı",
+        "area": "Metrekare ve alan hesabı",
+        "machineTime": "Makine süresi",
+        "labor": "İşçilik maliyeti",
+        "route": "Rota ve taşıma maliyeti",
+        "energy": "Enerji tüketimi",
+        "quoteMargin": "Teklif ve marj riski",
+        "oee": "OEE ve verimlilik",
+        "carbon": "Karbon ve sürdürülebilirlik hesapları"
+      }
     },
     "scenarios": {
       "eyebrow": "Örnek gizli kayıp senaryoları",
@@ -1075,9 +1089,9 @@
       }
     },
     "platform": {
-      "title": "Endüstriyel hesaplayıcılar. Sektöre özel.",
-      "stat": "{sectorCount} sektör alanı → 50+ hesaplayıcı yol haritası → Karar raporları",
-      "text": "Ücretsiz hesaplayıcılar ve premium karar raporları — üretim, lojistik, inşaat, enerji ve daha fazlası.",
+      "title": "Ücretsiz hesaplayıcılar ve premium karar özetleri",
+      "stat": "{sectorCount} sektör alanı",
+      "text": "Ücretsiz araçlarla temel hesaplamaları yapabilir, premium araçlarla daha detaylı senaryo, risk ve karar özeti alabilirsiniz.",
       "cta": "Tüm sektörleri görün",
       "categories": {
         "manufacturing": "Üretim",
@@ -1175,17 +1189,17 @@
       }
     },
     "betaPartner": {
-      "title": "Doğrulanmış sektör kıyaslamaları oluşturmaya yardım edin.",
-      "text": "SectorCalc, operatörler, danışmanlar ve erken dönem işletmelerle kıyaslama destekli hesaplayıcılar geliştiriyor. Beta ortakları, yapılandırılmış geri bildirim karşılığında premium raporlar alabilir.",
-      "cta": "Beta ortak erişimi için başvur"
+      "title": "SectorCalc gelişen bir hesaplama platformudur",
+      "text": "Araçlar sektör ihtiyaçlarına göre geliştirilmeye devam eder. Amaç her işletmeye karmaşık sistemler satmak değil; doğru hesaplama sorusunu daha kolay sordurmaktır.",
+      "cta": "Daha fazla bilgi"
     },
     "final": {
-      "title": "Kayıp alanını bulun. Maruziyeti ölçün. Kararı verin.",
+      "title": "İlk hesaplamayı seçin, sonucu görün, gerekiyorsa daha detaylı analizle devam edin.",
       "bullet1": "{sectorCount} sektör alanı",
-      "bullet2": "50+ hesaplayıcı yol haritası",
+      "bullet2": "50+ hesaplayıcı",
       "bullet3": "Ücretsiz katman mevcut",
       "bullet4": "Kredi kartı gerekmez",
-      "cta": "Kayıp alanınızı bulun"
+      "cta": "Hesaplayıcıları Gör"
     }
   },
   "industrialHome": {
@@ -1240,8 +1254,8 @@
   },
   "auditHub": {
     "eyebrow": "SectorCalc Denetim Merkezi",
-    "title": "Master Audit Engine",
-    "subtitle": "27 endüstriyel sektör · U-Engine teşhis · gizli kayıp tespiti"
+    "title": "Sektör Denetim Merkezi",
+    "subtitle": "27 endüstriyel sektör · formül tabanlı teşhis · operasyonel kayıp ölçümü"
   },
   "auditArchive": {
     "meta": {

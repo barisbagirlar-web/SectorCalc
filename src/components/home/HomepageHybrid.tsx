@@ -4,7 +4,7 @@ import { HomepageCampaignStrip } from "@/components/campaign/HomepageCampaignStr
 import { TrackedCtaLink } from "@/components/campaign/TrackedCtaLink";
 import { HomepageCatalogSearch } from "@/components/home/HomepageCatalogSearch";
 import { Link } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { ProductScreenMockup } from "@/components/ui/ProductScreenMockup";
 import { Container } from "@/components/ui/Container";
 import { getHomepageSectorAreaCount } from "@/lib/home/homepage-stats";
@@ -41,12 +41,140 @@ const PLATFORM_CATEGORY_HREFS = [
   { id: "healthcare", href: "/categories" },
 ] as const;
 
+const TR_USE_CASE_IDS = [
+  "scrap",
+  "area",
+  "machineTime",
+  "labor",
+  "route",
+  "energy",
+  "quoteMargin",
+  "oee",
+  "carbon",
+] as const;
+
 type HomepageHybridProps = {
   catalogSearchEntries?: readonly CatalogSearchEntry[];
 };
 
+type HomepageTranslator = (key: string, values?: Record<string, string | number>) => string;
+
+function HomepageTrClean({ t }: { t: HomepageTranslator }) {
+  return (
+    <div className="sc-home-hybrid">
+      <section className="sc-home-hybrid__hero" aria-labelledby="home-hero-heading">
+        <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+          <div className="sc-pro-hero-compact">
+            <div className="sc-pro-hero-compact__copy sc-pro-hero-compact__copy--solo">
+              <p className="sc-pro-eyebrow">{t("hero.eyebrow")}</p>
+              <h1 id="home-hero-heading" className="sc-home-hybrid__headline">
+                {t("hero.headline")}
+              </h1>
+              <p className="sc-pro-lead sc-home-hybrid__subtitle-line">
+                {t("hero.subtitleLine1")}
+              </p>
+              <p className="sc-pro-lead sc-home-hybrid__subtitle-line">
+                {t("hero.subtitleLine2")}
+              </p>
+              <div className="sc-pro-hero-compact__actions">
+                <Link href="/free-tools" className="sc-cta-primary">
+                  {t("hero.ctaPrimary")}
+                </Link>
+                <Link href="/premium-tools" className="sc-cta-secondary">
+                  {t("hero.ctaSecondary")}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <hr className="sc-ledger-separator" />
+
+      <section className="sc-home-hybrid__section" aria-labelledby="positioning-heading">
+        <Container className="sc-pro-container">
+          <h2 id="positioning-heading" className="sc-home-hybrid__section-title">
+            {t("positioning.title")}
+          </h2>
+          <p className="sc-home-hybrid__section-lead">{t("positioning.text")}</p>
+        </Container>
+      </section>
+
+      <hr className="sc-ledger-separator" />
+
+      <section className="sc-home-hybrid__section" aria-labelledby="use-cases-heading">
+        <Container className="sc-pro-container">
+          <h2 id="use-cases-heading" className="sc-home-hybrid__section-title">
+            {t("useCases.title")}
+          </h2>
+          <ul className="sc-home-hybrid__measure-list">
+            {TR_USE_CASE_IDS.map((id) => (
+              <li key={id}>{t(`useCases.items.${id}`)}</li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <hr className="sc-ledger-separator" />
+
+      <section className="sc-home-hybrid__section" aria-labelledby="platform-heading">
+        <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+          <h2 id="platform-heading" className="sc-home-hybrid__section-title">
+            {t("platform.title")}
+          </h2>
+          <p className="sc-home-hybrid__section-lead">{t("platform.text")}</p>
+          <ul className="sc-home-hybrid__platform-categories">
+            {PLATFORM_CATEGORY_HREFS.map(({ id, href }) => (
+              <li key={id}>
+                <Link href={href} className="sc-home-hybrid__platform-chip">
+                  {t(`platform.categories.${id}`)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link href="/industries" className="sc-home-hybrid__platform-cta">
+            {t("platform.cta")}
+          </Link>
+        </Container>
+      </section>
+
+      <hr className="sc-ledger-separator" />
+
+      <section className="sc-home-hybrid__section" aria-labelledby="beta-partner-heading">
+        <Container className="sc-pro-container">
+          <div className="sc-home-hybrid__beta-block rounded-lg border border-professional-blue/25 bg-white p-6 md:p-8">
+            <h2 id="beta-partner-heading" className="sc-home-hybrid__section-title">
+              {t("betaPartner.title")}
+            </h2>
+            <p className="sc-home-hybrid__section-lead">{t("betaPartner.text")}</p>
+          </div>
+        </Container>
+      </section>
+
+      <hr className="sc-ledger-separator" />
+
+      <section className="sc-home-hybrid__final" aria-labelledby="final-cta-heading">
+        <Container className="sc-pro-container">
+          <h2 id="final-cta-heading" className="sc-home-hybrid__final-title">
+            {t("final.title")}
+          </h2>
+          <Link href="/free-tools" className="sc-cta-primary sc-home-hybrid__final-cta">
+            {t("final.cta")}
+          </Link>
+        </Container>
+      </section>
+    </div>
+  );
+}
+
 export async function HomepageHybrid({ catalogSearchEntries = [] }: HomepageHybridProps) {
+  const locale = await getLocale();
   const t = await getTranslations("homepageHybrid");
+
+  if (locale === "tr") {
+    return <HomepageTrClean t={t} />;
+  }
+
   const sectorAreaCount = getHomepageSectorAreaCount();
 
   return (

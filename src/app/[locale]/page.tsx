@@ -13,29 +13,33 @@ import {
   getCachedFreeTrafficCatalogGroups,
   getCachedPremiumSchemaCatalogGroups,
 } from "@/lib/catalog/cached-catalog-groups";
+import type { AppLocale } from "@/i18n/routing";
 import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
+import type { CatalogSearchEntry } from "@/lib/catalog/catalog-search";
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("homepageHybrid");
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "homepageHybrid" });
   const sectorCount = getHomepageSectorAreaCount();
 
   return createPageMetadata({
     title: t("meta.title", { sectorCount }),
     description: t("meta.description"),
     path: "/",
+    locale: locale as AppLocale,
   });
 }
 
-type PageProps = {
-  params: Promise<{ locale: string }>;
-};
-
-export default async function HomePage({ params }: PageProps) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+async function buildHomepageCatalogSearchEntries(
+  locale: string
+): Promise<readonly CatalogSearchEntry[]> {
   const tFree = await getTranslations("freeTrafficCatalog");
   const freeGroups = getCachedFreeTrafficCatalogGroups(
     locale,
@@ -46,11 +50,22 @@ export default async function HomePage({ params }: PageProps) {
     tFree("decisionAnalyzerNote"),
     tFree("openCalculator")
   );
-  const premiumGroups = getCachedPremiumSchemaCatalogGroups(locale);
-  const catalogSearchEntries = mergeSearchEntries(
+
+  return mergeSearchEntries(
     buildSearchEntriesFromGroups(freeGroups, "free-tools"),
-    buildSearchEntriesFromGroups(premiumGroups, "premium-tools")
+    buildSearchEntriesFromGroups(
+      getCachedPremiumSchemaCatalogGroups(locale),
+      "premium-tools"
+    )
   );
+}
+
+export default async function HomePage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const catalogSearchEntries =
+    locale === "tr" ? [] : await buildHomepageCatalogSearchEntries(locale);
 
   return (
     <PageLayout>
