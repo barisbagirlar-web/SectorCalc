@@ -17,15 +17,6 @@ const LOCALE_MESSAGES: Record<string, MessageRecord> = {
   ar: arMessages as MessageRecord,
 };
 
-const TR_FREE_TOOL_TITLE_FALLBACKS: Record<string, string> = {
-  "square-footage-calculator": "Metrekare / Alan Hesaplayıcı",
-  "concrete-bag-calculator": "Beton Torba Hesaplayıcı",
-  "tile-calculator": "Fayans Hesaplayıcı",
-  "concrete-volume-calculator": "Beton Hacim Hesaplayıcı",
-  "paint-coverage-calculator": "Boya Kaplama Hesaplayıcı",
-  "flooring-calculator": "Zemin Kaplama Hesaplayıcı",
-};
-
 const TR_FIELD_DISPLAY_FALLBACKS: Record<
   string,
   Record<string, { readonly label: string; readonly placeholder: string; readonly helper?: string }>
@@ -96,14 +87,7 @@ export function resolveFreeToolDisplayTitle(
   locale: string,
   registryTitle: string,
 ): string {
-  const localized = resolveFreeToolLocalizedCopy(slug, locale);
-  if (localized.title) {
-    return localized.title;
-  }
-  if (locale === "tr" && TR_FREE_TOOL_TITLE_FALLBACKS[slug]) {
-    return TR_FREE_TOOL_TITLE_FALLBACKS[slug];
-  }
-  return registryTitle;
+  return resolveFreeToolLocalizedCopy(slug, locale).title ?? registryTitle;
 }
 
 export function readFreeToolUiString(locale: string, key: string): string | undefined {

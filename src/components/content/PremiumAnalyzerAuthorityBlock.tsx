@@ -11,13 +11,20 @@ import { getToolHref } from "@/lib/tools/paths";
 
 export interface PremiumAnalyzerAuthorityBlockProps {
   readonly schema: PremiumCalculatorSchema;
+  readonly displayName?: string;
+  readonly displayPain?: string;
   readonly labels: {
     readonly whenToUseTitle: string;
     readonly whenToUseBody: string;
     readonly measuresTitle: string;
     readonly promiseTitle: string;
     readonly decidesTitle: string;
+    readonly decidesBody: string;
     readonly reportTitle: string;
+    readonly reportBullet1: string;
+    readonly reportBullet2: string;
+    readonly reportBullet3: string;
+    readonly reportBullet4: string;
     readonly previewExcludesTitle: string;
     readonly previewExcludesBody: string;
     readonly assumptionsTitle: string;
@@ -44,25 +51,29 @@ function resolveRelatedFreeSlug(schema: PremiumCalculatorSchema): string | null 
   return null;
 }
 
-function getAnalyzerPromise(schema: PremiumCalculatorSchema): string {
+function getCalculatorPromise(schema: PremiumCalculatorSchema, displayName: string): string {
   const title = schema.reportTemplate.title.trim();
   if (title.length > 0) {
     return `${title} with threshold alerts, hidden drivers and export-ready output.`;
   }
-  return `Structured hidden-loss analysis for ${schema.name}.`;
+  return `Structured hidden-loss calculation summary for ${displayName}.`;
 }
 
 export function PremiumAnalyzerAuthorityBlock({
   schema,
+  displayName,
+  displayPain,
   labels,
 }: PremiumAnalyzerAuthorityBlockProps) {
+  const resolvedName = displayName ?? schema.name;
+  const resolvedPain = displayPain ?? schema.painStatement;
   const guide = getAuthorityGuideForPremiumSchema(schema.id);
   const relatedFreeSlug = resolveRelatedFreeSlug(schema);
   const relatedFreeTool = relatedFreeSlug ? getFreeTrafficToolBySlug(relatedFreeSlug) : null;
   const assumptionNotes = schema.assumptions.assumptionNotes;
 
   const faq = [
-    { question: labels.faqMeasureTitle, answer: labels.faqMeasureAnswer.replace("{name}", schema.name) },
+    { question: labels.faqMeasureTitle, answer: labels.faqMeasureAnswer.replace("{name}", resolvedName) },
     { question: labels.faqReportTitle, answer: labels.faqReportAnswer },
     { question: labels.faqErpTitle, answer: labels.faqErpAnswer },
   ];
@@ -81,27 +92,23 @@ export function PremiumAnalyzerAuthorityBlock({
       <div className="mt-4 space-y-4 text-sm leading-relaxed text-body-charcoal">
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.measuresTitle}</h3>
-          <p className="mt-1">{schema.painStatement}</p>
+          <p className="mt-1">{resolvedPain}</p>
         </div>
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.promiseTitle}</h3>
-          <p className="mt-1">{getAnalyzerPromise(schema)}</p>
+          <p className="mt-1">{getCalculatorPromise(schema, resolvedName)}</p>
         </div>
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.decidesTitle}</h3>
-          <p className="mt-1">
-            Use this analyzer when you need to decide whether current inputs sit inside acceptable
-            exposure bands, which driver to investigate first, and whether to reprice, reschedule or
-            redesign before repeating the work.
-          </p>
+          <p className="mt-1">{labels.decidesBody}</p>
         </div>
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.reportTitle}</h3>
           <ul className="mt-2 list-disc space-y-1 pl-5">
-            <li>Executive summary with threshold status</li>
-            <li>Hidden loss driver breakdown</li>
-            <li>Suggested actions and assumption notes</li>
-            <li>Export-ready PDF and CSV on paid access</li>
+            <li>{labels.reportBullet1}</li>
+            <li>{labels.reportBullet2}</li>
+            <li>{labels.reportBullet3}</li>
+            <li>{labels.reportBullet4}</li>
           </ul>
         </div>
         <div>

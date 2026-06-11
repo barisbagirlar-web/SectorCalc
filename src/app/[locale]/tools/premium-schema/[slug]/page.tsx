@@ -20,6 +20,10 @@ import {
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import { getTierOnePremiumMetadata } from "@/lib/seo/seo-refresh-priority";
 import {
+  resolvePremiumSchemaDisplayName,
+  resolvePremiumSchemaPainStatement,
+} from "@/lib/i18n/premium-schema-display-i18n";
+import {
   getPremiumSchemaBySlug,
   listPremiumSchemaSlugs,
 } from "@/lib/premium-schema/schemas/index";
@@ -32,8 +36,8 @@ interface PremiumSchemaRouteParams extends PremiumSchemaPageParams {
   locale: string;
 }
 
-function buildPremiumFeaturedQuestion(name: string): string {
-  return `What does ${name} analyze?`;
+function buildPremiumFeaturedQuestion(name: string, template: string): string {
+  return template.replace("{name}", name);
 }
 
 function trimFeaturedAnswer(text: string): string {
@@ -63,10 +67,12 @@ export async function generateMetadata({
   }
 
   const tierOneMeta = getTierOnePremiumMetadata(slug);
+  const displayName = resolvePremiumSchemaDisplayName(schema.id, schema.name, locale);
+  const displayPain = resolvePremiumSchemaPainStatement(schema.id, schema.painStatement, locale);
 
   return createPageMetadata({
-    title: tierOneMeta?.metaTitle ?? `${schema.name} | SectorCalc`,
-    description: tierOneMeta?.metaDescription ?? schema.painStatement,
+    title: tierOneMeta?.metaTitle ?? `${displayName} | SectorCalc`,
+    description: tierOneMeta?.metaDescription ?? displayPain,
     path: `/tools/premium-schema/${schema.id}`,
     locale: locale as AppLocale,
   });
@@ -85,13 +91,17 @@ export default async function PremiumSchemaPilotPage({
     notFound();
   }
 
-  const featuredQuestion = buildPremiumFeaturedQuestion(schema.name);
-  const featuredAnswer = trimFeaturedAnswer(schema.painStatement);
+  const tPage = await getTranslations("premiumSchemaPage");
+  const displayName = resolvePremiumSchemaDisplayName(schema.id, schema.name, locale);
+  const displayPain = resolvePremiumSchemaPainStatement(schema.id, schema.painStatement, locale);
+
+  const featuredQuestion = buildPremiumFeaturedQuestion(displayName, tPage("featuredQuestion"));
+  const featuredAnswer = trimFeaturedAnswer(displayPain);
   const tAuthority = await getTranslations("contentAuthority.premium");
   const authorityFaq = [
     {
       question: tAuthority("faqMeasureTitle"),
-      answer: tAuthority("faqMeasureAnswer", { name: schema.name }),
+      answer: tAuthority("faqMeasureAnswer", { name: displayName }),
     },
     {
       question: tAuthority("faqReportTitle"),
@@ -105,9 +115,8 @@ export default async function PremiumSchemaPilotPage({
   const faqJsonLd = buildFAQJsonLd([
     { question: featuredQuestion, answer: featuredAnswer },
     {
-      question: "Is this financial or engineering advice?",
-      answer:
-        "No. SectorCalc premium reports are decision-support tools with transparent assumptions. They do not replace professional financial, legal, or engineering advice.",
+      question: tPage("legalQuestion"),
+      answer: tPage("legalAnswer"),
     },
     ...authorityFaq,
   ]);
@@ -116,19 +125,19 @@ export default async function PremiumSchemaPilotPage({
       [
         { key: "home", path: "/" },
         { key: "premiumTools", path: "/premium-tools" },
-        { name: schema.name, path: `/tools/premium-schema/${schema.id}` },
+        { name: displayName, path: `/tools/premium-schema/${schema.id}` },
       ],
       locale
     ),
-    buildPremiumAnalyzerJsonLd(schema, locale),
+    buildPremiumAnalyzerJsonLd({ ...schema, name: displayName, painStatement: displayPain }, locale),
     sanitizeJsonLd({
       "@context": "https://schema.org",
       "@type": "Service",
-      name: schema.name,
-      description: schema.painStatement,
+      name: displayName,
+      description: displayPain,
       provider: { "@id": `${siteUrl}/#organization` },
       areaServed: "Worldwide",
-      serviceType: "Operational decision analysis",
+      serviceType: tPage("serviceType"),
     }) as JsonLdRecord,
   ];
   if (faqJsonLd) {
@@ -140,12 +149,12 @@ export default async function PremiumSchemaPilotPage({
       <JsonLd data={jsonLd} />
       <section className="border-b border-technical-gray bg-surface-cream">
         <Container className="py-8 sm:py-10">
-          <p className="sc-ledger-eyebrow">Premium analyzer</p>
+          <p className="sc-ledger-eyebrow">{tPage("eyebrow")}</p>
           <h1 className="mt-2 text-2xl font-semibold text-premium-velvet sm:text-3xl">
-            {schema.name}
+            {displayName}
           </h1>
           <p className="mt-3 max-w-2xl text-sm text-body-charcoal sm:text-base">
-            {schema.painStatement}
+            {displayPain}
           </p>
         </Container>
       </section>
@@ -153,24 +162,27 @@ export default async function PremiumSchemaPilotPage({
         <FeaturedAnswerBlock
           question={featuredQuestion}
           answer={featuredAnswer}
-          bullets={[
-            "Hidden-loss drivers and threshold checks",
-            "Suggested actions for operational review",
-            "Export-ready PDF and CSV on paid plans",
-          ]}
+          bullets={[tPage("bullet1"), tPage("bullet2"), tPage("bullet3")]}
         />
       </Container>
       <Container className="pb-12 pt-2 sm:pb-16">
         <DynamicPremiumCalculator schema={schema} locale={locale} />
         <PremiumAnalyzerAuthorityBlock
           schema={schema}
+          displayName={displayName}
+          displayPain={displayPain}
           labels={{
             whenToUseTitle: tAuthority("whenToUseTitle"),
             whenToUseBody: tAuthority("whenToUseBody"),
             measuresTitle: tAuthority("measuresTitle"),
             promiseTitle: tAuthority("promiseTitle"),
             decidesTitle: tAuthority("decidesTitle"),
+            decidesBody: tAuthority("decidesBody"),
             reportTitle: tAuthority("reportTitle"),
+            reportBullet1: tAuthority("reportBullet1"),
+            reportBullet2: tAuthority("reportBullet2"),
+            reportBullet3: tAuthority("reportBullet3"),
+            reportBullet4: tAuthority("reportBullet4"),
             previewExcludesTitle: tAuthority("previewExcludesTitle"),
             previewExcludesBody: tAuthority("previewExcludesBody"),
             assumptionsTitle: tAuthority("assumptionsTitle"),

@@ -29,6 +29,10 @@ import type { BenchmarkSnapshotValue } from "@/lib/benchmarks/benchmark-types";
 import { usePremiumSchemaEntitlement } from "@/lib/entitlements/use-premium-schema-entitlement";
 import { limitPreviewThresholdCount } from "@/lib/entitlements/premium-entitlements";
 import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
+import {
+  resolvePremiumSchemaDisplayName,
+  resolvePremiumSchemaPainStatement,
+} from "@/lib/i18n/premium-schema-display-i18n";
 
 export interface DynamicPremiumCalculatorProps {
   schema: PremiumCalculatorSchema;
@@ -45,6 +49,9 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   const attribution = useAttributionContext();
   const pagePath = stripLocalePrefix(pathname);
   const t = useTranslations("premiumDecisionReport");
+  const tUi = useTranslations("freeToolUi");
+  const displayName = resolvePremiumSchemaDisplayName(schema.id, schema.name, locale);
+  const displayPain = resolvePremiumSchemaPainStatement(schema.id, schema.painStatement, locale);
   const { entitlement, checkoutHref } = usePremiumSchemaEntitlement(schema);
   const isFullReport = entitlement.canViewFullReport;
   const [values, setValues] = useState<SchemaInputValues>(() => buildDefaultSchemaInputs(schema));
@@ -128,8 +135,8 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
 
   return (
     <SmartFormShell
-      title={schema.name}
-      description={schema.painStatement}
+      title={displayName}
+      description={displayPain}
       tier="premium"
       fallback
       formContent={
@@ -169,7 +176,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
           <div className="sc-ledger-karar-masasi__big-number min-w-0">
             <div className="sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-5">
               <p className="sc-ledger-eyebrow">{t("decisionDesk")}</p>
-              <p className="mt-2 text-sm text-body-charcoal">{schema.painStatement}</p>
+              <p className="mt-2 text-sm text-body-charcoal">{displayPain}</p>
               <p className="mt-4 text-sm text-body-charcoal">{t("runPrompt")}</p>
             </div>
           </div>
@@ -210,7 +217,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
         data-calculation-form="true"
       >
         <p className="sc-ledger-eyebrow">{t("ledgerEntries")}</p>
-        <h2 className="mt-1 text-base font-semibold text-premium-velvet">{schema.name}</h2>
+        <h2 className="mt-1 text-base font-semibold text-premium-velvet">{displayName}</h2>
         <hr className="sc-ledger-divider" />
 
         {schema.inputs.map((input) => {
@@ -331,8 +338,8 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
           </>
         ) : (
           <aside className="sc-ledger-panel sc-industrial-panel p-4 sm:p-5">
-            <p className="sc-ledger-eyebrow">Premium analyzer</p>
-            <p className="mt-2 text-xs text-body-charcoal">{schema.painStatement}</p>
+            <p className="sc-ledger-eyebrow">{tUi("premiumAnalyzer")}</p>
+            <p className="mt-2 text-xs text-body-charcoal">{displayPain}</p>
           </aside>
         )}
       </div>

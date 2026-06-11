@@ -69,7 +69,7 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
       "Taşeron tekliflerindeki sıkışma, ana yüklenicinin marjını sessizce daraltır ve sözleşme öncesi fark edilmez.",
   },
   "food-waste-margin-loss": {
-    title: "Gıda Fire Marj Kayıp Analizi",
+    title: "Gıda Fire Marj Kaybı Hesaplayıcı",
     painStatement:
       "Fire, fazla porsiyon ve bozulma; satış raporlarına yansımadan önce gıda işletmesinin marjını eritebilir.",
   },

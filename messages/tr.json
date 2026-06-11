@@ -448,27 +448,27 @@
       "faqTitle": "SSS",
       "faqUseTitle": "Bu hesaplama aracı ne için kullanılır?",
       "faqFreeTitle": "Bu hesaplama aracı ücretsiz mi?",
-      "faqPremiumTitle": "Premium analiz aracını ne zaman kullanmalıyım?",
+      "faqPremiumTitle": "Premium hesaplayıcı ne zaman kullanılmalı?",
       "faqUseAnswer": "{title}, girdiğiniz değerlerden hızlı bir formül tabanlı tahmin üretir. Teklif, sipariş veya planlama öncesi kontrol için kullanın.",
       "faqFreeAnswer": "Evet. SectorCalc ücretsiz hesaplama araçları tarayıcınızda çalışır; kayıt gerekmez.",
-      "faqPremiumAnswer": "Tahmin fiyatlandırma, operasyon veya yönetim kararlarını etkiliyorsa ve görünmeyen kayıp kalemleri, eşik kontrolü ve dışa aktarılabilir rapor gerekiyorsa premium analiz aracını kullanın.",
+      "faqPremiumAnswer": "Tahmin fiyatlandırma, operasyon veya yönetim kararlarını etkilediğinde ve gizli sürücüler, eşikler ve dışa aktarılabilir raporlar gerektiğinde premium hesaplayıcı kullanın.",
       "relatedGuideTitle": "Bu hesaplama nasıl çalışır",
       "relatedHubTitle": "Bu kategorideki hesaplayıcıları karşılaştır",
-      "relatedPremiumTitle": "İlgili premium analiz aracı",
-      "relatedPremiumCta": "İlgili premium analiz aracını görüntüle"
+      "relatedPremiumTitle": "İlgili premium hesaplayıcı",
+      "relatedPremiumCta": "İlgili premium hesaplayıcıyı görüntüle"
     },
     "premium": {
-      "whenToUseTitle": "Bu analiz aracını ne zaman kullanmalısınız?",
-      "whenToUseBody": "Sonuç fiyatlandırma, operasyon, kapasite, planlama veya yönetim raporlamasını etkilediğinde bu analiz aracını kullanın.",
-      "measuresTitle": "Bu analiz aracı ne ölçer",
+      "whenToUseTitle": "Bu hesaplayıcı ne zaman kullanılır?",
+      "whenToUseBody": "Sonuç fiyatlandırma, operasyon, kapasite, planlama veya yönetim raporlamasını etkilediğinde bu hesaplayıcıyı kullanın.",
+      "measuresTitle": "Bu hesaplayıcı ne ölçer?",
       "promiseTitle": "Ne elde edersiniz",
-      "decidesTitle": "Bu analiz aracı hangi karara yardımcı olur",
+      "decidesTitle": "Bu hesaplayıcı hangi karara yardımcı olur?",
       "reportTitle": "Rapor neleri içerir",
       "previewExcludesTitle": "Önizleme neleri içermez",
       "previewExcludesBody": "Ücretsiz önizleme yalnızca örnek yapıyı gösterir. Tam eşik kontrolleri, görünmeyen kayıp kalemleri, önerilen adımlar ve dışa aktarılabilir PDF veya CSV ücretli erişim gerektirir.",
       "assumptionsTitle": "Kullanılan varsayımlar",
       "faqTitle": "SSS",
-      "faqMeasureTitle": "Bu analiz aracı ne ölçer?",
+      "faqMeasureTitle": "Bu hesaplayıcı ne ölçer?",
       "faqReportTitle": "Premium karar raporunda neler var?",
       "faqErpTitle": "Bu ERP veya profesyonel danışmanlık yerine geçer mi?",
       "faqMeasureAnswer": "{name}, girdiğiniz değerlerden görünmeyen kayıp maruziyetini ve belirtilen bantlara göre eşik yorumunu ölçer.",
@@ -478,7 +478,16 @@
       "relatedFreeTitle": "İlgili ücretsiz hesaplayıcıyı aç",
       "relatedHubTitle": "Bu kategorideki hesaplayıcıları karşılaştır",
       "relatedIndustryTitle": "Sektör hesaplayıcılarına göz at",
-      "pricingCta": "Tam karar raporunun kilidini aç"
+      "pricingCta": "Tam karar raporunun kilidini aç",
+      "faqPremiumTitle": "Premium hesaplayıcı ne zaman kullanılmalı?",
+      "faqPremiumAnswer": "Tahmin fiyatlandırma, operasyon veya yönetim kararlarını etkilediğinde ve gizli sürücüler, eşikler ve dışa aktarılabilir raporlar gerektiğinde premium hesaplayıcı kullanın.",
+      "relatedPremiumTitle": "İlgili premium hesaplayıcı",
+      "relatedPremiumCta": "İlgili premium hesaplayıcıyı görüntüle",
+      "decidesBody": "Mevcut girdilerin kabul edilebilir maruziyet bantlarında olup olmadığına, önce hangi sürücünün inceleneceğine ve işi tekrarlamadan önce yeniden fiyatlandırma, yeniden planlama veya yeniden tasarım yapılıp yapılmayacağına karar vermek için bu hesaplayıcıyı kullanın.",
+      "reportBullet1": "Eşik durumu ile yönetici özeti",
+      "reportBullet2": "Gizli kayıp sürücülerinin dökümü",
+      "reportBullet3": "Önerilen aksiyonlar ve varsayım notları",
+      "reportBullet4": "Ücretli erişimde PDF ve CSV dışa aktarma"
     }
   },
   "trust": {
@@ -1317,9 +1326,9 @@
     "documentLabel": "Premium karar raporu",
     "reportEyebrow": "Karar raporu",
     "decisionDesk": "Karar masası",
-    "runPrompt": "Defter kayıtlarını girin ve analizi çalıştırın.",
+    "runPrompt": "İşletme değerlerini girin ve hesaplamayı çalıştırın.",
     "ledgerEntries": "Defter kayıtları",
-    "runAnalysis": "Analizi çalıştır",
+    "runAnalysis": "Hesaplamayı çalıştır",
     "whatThisMeans": "Ne anlama geliyor",
     "hiddenDriversTitle": "Sonucun ardındaki gizli sürücüler",
     "hiddenDriversIntro": "Bu ikincil çıktılar ana sonucu yukarı veya aşağı iten faktörleri açıklar.",
@@ -2892,13 +2901,13 @@
   },
   "freeToolUi": {
     "preCheck": "Ücretsiz Ön Kontrol",
-    "premiumAnalyzer": "Premium Analiz",
+    "premiumAnalyzer": "Premium hesaplayıcı",
     "classicForm": "Klasik form",
     "smartFormMeta": "Akıllı form",
     "simple": "Basit",
     "expert": "Uzman",
     "calculationSummary": "Hesaplama özeti",
-    "runAnalysis": "Hesapla",
+    "runAnalysis": "Hesaplamayı çalıştır",
     "calculating": "Hesaplanıyor…",
     "whatIs": "{title} Nedir?",
     "decisionOutput": "Karar çıktısı",
@@ -2915,7 +2924,7 @@
     "optionalInputsDescription": "Varsayılanları bozmadan tahmin doğruluğunu artırır.",
     "advancedInputsTitle": "Gelişmiş girdiler",
     "advancedInputsDescription": "Mevcut olduğunda profesyonel derinlik geçersiz kılmaları.",
-    "analysisBlockedTitle": "Analiz engellendi",
+    "analysisBlockedTitle": "Hesaplama engellendi",
     "contractNotFound": "Bu araç için akıllı form sözleşmesi bulunamadı.",
     "calculationSteps": "Hesaplama adımları",
     "calculationStepsEmpty": "Bu sözleşme deterministik izleme sunduğunda hesaplama adımları burada görünür.",
@@ -2939,27 +2948,413 @@
   "freeToolContent": {
     "square-meter-calculator": {
       "title": "Metrekare Hesaplayıcı",
-      "description": "Dikdörtgen alanı metrekare cinsinden hesaplayın.",
-      "seoTitle": "Metrekare Hesaplayıcı — m² Alan | SectorCalc",
-      "seoDescription": "Dikdörtgen alan hesaplama: uzunluk × genişlik, ft² ve yd² dönüşümleriyle."
+      "description": "Dikdörtgen zemin alanını metrekare cinsinden hesaplayın; birim dönüşümleri dahildir."
     },
     "square-footage-calculator": {
-      "title": "Metrekare / Alan Hesaplayıcı"
-    },
-    "concrete-bag-calculator": {
-      "title": "Beton Torba Hesaplayıcı"
-    },
-    "tile-calculator": {
-      "title": "Fayans Hesaplayıcı"
+      "title": "Metrekare / Alan Hesaplayıcı",
+      "description": "Zemin alanını fit kare cinsinden hesaplayın; metrik ve dönüm dönüşümleri dahildir."
     },
     "concrete-volume-calculator": {
-      "title": "Beton Hacim Hesaplayıcı"
+      "title": "Beton Hacim Hesaplayıcı",
+      "description": "Döşeme dökümü için beton hacmini metreküp cinsinden tahmin edin."
+    },
+    "concrete-bag-calculator": {
+      "title": "Beton Torba Hesaplayıcı",
+      "description": "Döküm hacmi, torba verimi ve fire payı ile gereken beton torba sayısını tahmin edin."
     },
     "paint-coverage-calculator": {
-      "title": "Boya Kaplama Hesaplayıcı"
+      "title": "Boya Kaplama Hesaplayıcı",
+      "description": "Duvar alanı ve kat sayısına göre gereken boya litresini tahmin edin."
+    },
+    "tile-calculator": {
+      "title": "Fayans Hesaplayıcı",
+      "description": "Zemin alanı ve fire payı ile gereken fayans adedini hesaplayın."
     },
     "flooring-calculator": {
-      "title": "Zemin Kaplama Hesaplayıcı"
+      "title": "Zemin Kaplama Hesaplayıcı",
+      "description": "Oda zemin alanını fire payı ile birlikte malzeme siparişi için hesaplayın."
+    },
+    "roofing-area-calculator": {
+      "title": "Çatı Alanı Hesaplayıcı",
+      "description": "Ayak izi alanı ve eğim katsayısı ile çatı yüzey alanını tahmin edin."
+    },
+    "stair-calculator": {
+      "title": "Merdiven Hesaplayıcı",
+      "description": "Merdiven basamak sayısını ve toplam yatay mesafeyi tahmin edin."
+    },
+    "drywall-calculator": {
+      "title": "Alçıpan Hesaplayıcı",
+      "description": "Duvar alanı için gereken alçıpan levha sayısını hesaplayın."
+    },
+    "brick-calculator": {
+      "title": "Tuğla Hesaplayıcı",
+      "description": "Duvar alanı ve fire payı ile gereken tuğla adedini hesaplayın."
+    },
+    "rebar-weight-calculator": {
+      "title": "İnşaat Demiri Ağırlık Hesaplayıcı",
+      "description": "Çap, uzunluk ve adet bilgisinden inşaat demiri ağırlığını tahmin edin."
+    },
+    "excavation-volume-calculator": {
+      "title": "Kazı Hacmi Hesaplayıcı",
+      "description": "Dikdörtgen kazı hacmini metreküp cinsinden hesaplayın."
+    },
+    "plaster-calculator": {
+      "title": "Sıva Hesaplayıcı",
+      "description": "Alan ve kalınlık bilgisinden sıva hacmi ve ağırlığını hesaplayın."
+    },
+    "home-renovation-m2-calculator": {
+      "title": "m² Ev Yenileme Maliyeti",
+      "description": "Alan, m² birim maliyeti ve yedek pay ile ev yenileme bütçesini tahmin edin."
+    },
+    "loan-payment-calculator": {
+      "title": "Kredi Taksit Hesaplayıcı",
+      "description": "Ana para, faiz oranı ve vade ile aylık eşit taksitli kredi ödemesini hesaplayın."
+    },
+    "mortgage-calculator": {
+      "title": "Konut Kredisi Hesaplayıcı",
+      "description": "Aylık konut kredisi taksitini ve toplam faiz tutarını hesaplayın."
+    },
+    "interest-calculator": {
+      "title": "Basit Faiz Hesaplayıcı",
+      "description": "Basit faiz tutarını ve toplam geri ödemeyi süre boyunca hesaplayın."
+    },
+    "compound-interest-calculator": {
+      "title": "Bileşik Faiz Hesaplayıcı",
+      "description": "Bileşik büyüme ile gelecekteki değeri hesaplayın."
+    },
+    "vat-calculator": {
+      "title": "KDV Hesaplayıcı",
+      "description": "Net tutara KDV ekleyin."
+    },
+    "discount-calculator": {
+      "title": "İndirim Hesaplayıcı",
+      "description": "Yüzde indirim sonrası satış fiyatını hesaplayın."
+    },
+    "percentage-calculator": {
+      "title": "Yüzde Hesaplayıcı",
+      "description": "Bir değerin belirli yüzdesini bulun."
+    },
+    "profit-margin-calculator": {
+      "title": "Kâr Marjı Hesaplayıcı",
+      "description": "Satış fiyatı ve maliyetten kâr marjı yüzdesini hesaplayın."
+    },
+    "break-even-calculator": {
+      "title": "Başabaş Noktası Hesaplayıcı",
+      "description": "Sabit maliyetleri karşılamak için gereken birim adedini hesaplayın."
+    },
+    "roi-calculator": {
+      "title": "ROI Hesaplayıcı",
+      "description": "Yatırım getirisi yüzdesini hesaplayın."
+    },
+    "salary-cost-calculator": {
+      "title": "İşveren Maaş Maliyeti Hesaplayıcı",
+      "description": "İşveren payları dahil toplam işveren maliyetini hesaplayın."
+    },
+    "hourly-rate-calculator": {
+      "title": "Saatlik Ücret Hesaplayıcı",
+      "description": "Aylık gelirden faturalandırılabilir saatlik ücreti hesaplayın."
+    },
+    "depreciation-calculator": {
+      "title": "Doğrusal Amortisman Hesaplayıcı",
+      "description": "Varlık maliyeti ve hurda değerinden yıllık amortismanı hesaplayın."
+    },
+    "cash-flow-gap-calculator": {
+      "title": "Nakit Akış Açığı Hesaplayıcı",
+      "description": "Alacak ve borç vadelerinden işletme sermayesi açığını hesaplayın."
+    },
+    "unit-cost-calculator": {
+      "title": "Birim Maliyet Hesaplayıcı",
+      "description": "Toplam maliyet ve miktardan birim başına maliyeti hesaplayın."
+    },
+    "machine-time-calculator": {
+      "title": "Makine Süresi Hesaplayıcı",
+      "description": "Hazırlık ve çevrim süresini makine maliyetine dönüştürün."
+    },
+    "cnc-cycle-time-calculator": {
+      "title": "CNC Çevrim Süresi Hesaplayıcı",
+      "description": "Yükleme ve boşaltma dahil parti başına toplam CNC saniyesini hesaplayın."
+    },
+    "welding-cost-estimator": {
+      "title": "Kaynak Maliyeti Tahmin Aracı",
+      "description": "Bir kaynak işi için malzeme, işçilik ve sarf maliyetlerini hesaplayın."
+    },
+    "laser-cutting-time-check": {
+      "title": "Lazer Kesim Süresi Kontrolü",
+      "description": "Lazer işleri için kesim yolu, delme ve hazırlık dakikalarını hesaplayın."
+    },
+    "3d-print-cost-check": {
+      "title": "3B Baskı Maliyet Kontrolü",
+      "description": "Bir baskı işi için malzeme, makine ve son işlem maliyetini hesaplayın."
+    },
+    "sheet-metal-weight-calculator": {
+      "title": "Sac Metal Ağırlık Hesaplayıcı",
+      "description": "Boyut, kalınlık ve yoğunluktan levha ağırlığını hesaplayın."
+    },
+    "material-waste-calculator": {
+      "title": "Malzeme Fire Hesaplayıcı",
+      "description": "Girdi ve iyi çıktıdan fire kilogramı ve yüzdesini hesaplayın."
+    },
+    "scrap-rate-calculator": {
+      "title": "Hurda Oranı Hesaplayıcı",
+      "description": "Hurda ve toplam birimlerden hurda oranı yüzdesini hesaplayın."
+    },
+    "oee-calculator": {
+      "title": "OEE Hesaplayıcı",
+      "description": "Kullanılabilirlik, performans ve kalite çarpımından genel ekipman etkinliğini hesaplayın."
+    },
+    "machine-hour-rate-calculator": {
+      "title": "Makine Saat Ücreti Hesaplayıcı",
+      "description": "Tam yüklenmiş makine saatlik ücretini hesaplayın."
+    },
+    "tool-life-calculator": {
+      "title": "Takım Ömrü Maliyet Hesaplayıcı",
+      "description": "İyi parça başına düşen takım maliyetini hesaplayın."
+    },
+    "cutting-speed-calculator": {
+      "title": "Kesme Hızı Hesaplayıcı",
+      "description": "Çap ve devirden yüzey hızını hesaplayın."
+    },
+    "feed-rate-calculator": {
+      "title": "İlerleme Hızı Hesaplayıcı",
+      "description": "Devir, diş sayısı ve diş başına ilerlemeden tabla beslemesini hesaplayın."
+    },
+    "tolerance-drift-calculator": {
+      "title": "Tolerans Sapma Hesaplayıcı",
+      "description": "Hedef ölçüden sapmayı ve sapma yüzdesini hesaplayın."
+    },
+    "batch-yield-calculator": {
+      "title": "Parti Verimi Hesaplayıcı",
+      "description": "Girdi ve iyi çıktı miktarından süreç verimi yüzdesini hesaplayın."
+    },
+    "kwh-cost-calculator": {
+      "title": "kWh Maliyet Hesaplayıcı",
+      "description": "Tüketim ve tarifeden elektrik maliyetini hesaplayın."
+    },
+    "electricity-bill-calculator": {
+      "title": "Elektrik Faturası Hesaplayıcı",
+      "description": "Kullanım, birim fiyat ve sabit bedelden aylık faturayı hesaplayın."
+    },
+    "energy-consumption-check": {
+      "title": "Enerji Tüketimi Kontrolü",
+      "description": "Güç, saat ve gün sayısından kWh ve maliyeti hesaplayın."
+    },
+    "carbon-footprint-quick": {
+      "title": "Karbon Ayak İzi Hızlı Kontrol",
+      "description": "Enerji kullanımı ve emisyon katsayısından CO₂ miktarını hesaplayın."
+    },
+    "fuel-emission-calculator": {
+      "title": "Yakıt Emisyon Hesaplayıcı",
+      "description": "Yakıt litresi ve emisyon katsayısından CO₂ miktarını hesaplayın."
+    },
+    "solar-panel-output-calculator": {
+      "title": "Güneş Paneli Çıktı Hesaplayıcı",
+      "description": "Sistem boyutu, güneş saati ve verimden enerji üretimini hesaplayın."
+    },
+    "heat-loss-calculator": {
+      "title": "Isı Kaybı Hesaplayıcı",
+      "description": "Durağan halde ısı kaybını watt cinsinden hesaplayın."
+    },
+    "boiler-efficiency-calculator": {
+      "title": "Kazan Verimi Hesaplayıcı",
+      "description": "Faydalı enerji ve yakıt girdisinden yanma verimini hesaplayın."
+    },
+    "compressor-energy-cost-calculator": {
+      "title": "Kompresör Enerji Maliyeti Hesaplayıcı",
+      "description": "Kompresör gücü, çalışma saati ve birim fiyattan işletme maliyetini hesaplayın."
+    },
+    "cbam-exposure-quick-check": {
+      "title": "CBAM Maruziyet Hızlı Kontrol",
+      "description": "Emisyon ve karbon fiyatından sınırda karbon maliyeti maruziyetini hesaplayın."
+    },
+    "fuel-consumption-calculator": {
+      "title": "Yakıt Tüketimi Hesaplayıcı",
+      "description": "Mesafe ve tüketim değerinden yolculuk yakıt litresi ve maliyetini hesaplayın."
+    },
+    "fuel-cost-calculator": {
+      "title": "Yakıt Maliyeti Hesaplayıcı",
+      "description": "Mesafe ve tüketim değerinden yakıt litresi ve toplam maliyeti hesaplayın."
+    },
+    "desi-calculator": {
+      "title": "Desi Hesaplayıcı",
+      "description": "Koli boyutlarından hacimsel ağırlığı (desi) hesaplayın."
+    },
+    "volumetric-weight-calculator": {
+      "title": "Hacimsel Ağırlık Hesaplayıcı",
+      "description": "Nakliye için ücretlendirilebilir hacimsel ağırlığı hesaplayın."
+    },
+    "route-cost-calculator": {
+      "title": "Güzergah Maliyeti Hesaplayıcı",
+      "description": "Yakıt, sürücü süresi ve geçiş ücretlerinden yolculuk maliyetini hesaplayın."
+    },
+    "delivery-cost-calculator": {
+      "title": "Teslimat Maliyeti Hesaplayıcı",
+      "description": "Mesafe ve durak ücretlerinden son mil maliyetini hesaplayın."
+    },
+    "freight-cost-calculator": {
+      "title": "Navlun Maliyeti Hesaplayıcı",
+      "description": "Ağırlık birim fiyatı ve sabit bedelden navlun ücretini hesaplayın."
+    },
+    "warehouse-storage-cost-calculator": {
+      "title": "Depo Saklama Maliyeti Hesaplayıcı",
+      "description": "Palet sayısı, günlük ücret ve gün sayısından saklama maliyetini hesaplayın."
+    },
+    "vehicle-depreciation-calculator": {
+      "title": "Araç Amortisman Hesaplayıcı",
+      "description": "Doğrusal yöntemle yıllık araç amortismanını hesaplayın."
+    },
+    "trip-budget-calculator": {
+      "title": "Seyahat Bütçesi Hesaplayıcı",
+      "description": "Yakıt, konaklama, yemek ve ek harcamalardan toplam seyahat bütçesini hesaplayın."
+    },
+    "fertilizer-dosage-calculator": {
+      "title": "Gübre Dozaj Hesaplayıcı",
+      "description": "Tarla alanı ve doz oranından toplam gübre miktarını hesaplayın."
+    },
+    "seed-rate-calculator": {
+      "title": "Tohum Ekim Oranı Hesaplayıcı",
+      "description": "Alan ve ekim oranından tohum miktarını hesaplayın."
+    },
+    "irrigation-cost-check": {
+      "title": "Sulama Maliyeti Kontrolü",
+      "description": "Pompa enerjisi ve su maliyetini sulama için hesaplayın."
+    },
+    "water-usage-calculator": {
+      "title": "Su Kullanımı Hesaplayıcı",
+      "description": "Debi ve süreden litre cinsinden su miktarını hesaplayın."
+    },
+    "feed-cost-estimator": {
+      "title": "Yem Maliyeti Tahmin Aracı",
+      "description": "Taşıma dahil toplam yem maliyetini hesaplayın."
+    },
+    "milk-yield-check": {
+      "title": "Süt Verimi Kontrolü",
+      "description": "Günlük süt litresi ve gelir tahminini hesaplayın."
+    },
+    "crop-yield-calculator": {
+      "title": "Ürün Verimi Hesaplayıcı",
+      "description": "Hektar başına verimden hasat tonajı ve geliri hesaplayın."
+    },
+    "recipe-cost-check": {
+      "title": "Tarif Maliyeti Kontrolü",
+      "description": "Toplam malzeme harcamasından porsiyon maliyetini hesaplayın."
+    },
+    "food-cost-calculator": {
+      "title": "Yemek Maliyet Yüzdesi Hesaplayıcı",
+      "description": "Malzeme maliyeti ve menü fiyatından yemek maliyet yüzdesini hesaplayın."
+    },
+    "portion-cost-calculator": {
+      "title": "Porsiyon Maliyeti Hesaplayıcı",
+      "description": "Parti maliyetinden porsiyon başına maliyeti hesaplayın."
+    },
+    "rent-vs-buy-calculator": {
+      "title": "Kira mı Satın Alma mı Karşılaştırması",
+      "description": "Kira artı yatırılan peşinat ile ipotekli satın almayı karşılaştırın."
+    },
+    "home-budget-calculator": {
+      "title": "Ev Bütçesi Hesaplayıcı",
+      "description": "Aylık giderleri gelirle karşılaştırın ve kalan bakiyeyi hesaplayın."
+    },
+    "time-duration-calculator": {
+      "title": "Süre Hesaplayıcı",
+      "description": "İki saat arasındaki geçen dakikayı hesaplayın."
+    },
+    "age-calculator": {
+      "title": "Yaş Hesaplayıcı",
+      "description": "Doğum yılından yaşını yıl cinsinden hesaplayın."
+    },
+    "date-difference-calculator": {
+      "title": "Tarih Farkı Hesaplayıcı",
+      "description": "İki gün numarası arasındaki gün farkını hesaplayın."
+    },
+    "shopping-budget-calculator": {
+      "title": "Alışveriş Bütçesi Hesaplayıcı",
+      "description": "En fazla beş alışveriş kaleminin toplamını hesaplayın."
+    },
+    "fuel-travel-calculator": {
+      "title": "Yakıt Seyahat Hesaplayıcı",
+      "description": "Kişisel seyahat için yolculuk yakıtı ve maliyetini hesaplayın."
+    },
+    "unit-price-calculator": {
+      "title": "Birim Fiyat Hesaplayıcı",
+      "description": "Toplam fiyat ve miktardan birim fiyatı hesaplayın."
+    },
+    "tip-calculator": {
+      "title": "Bahşiş Hesaplayıcı",
+      "description": "Bahşiş yüzdesi ile bahşiş tutarı ve toplam faturayı hesaplayın."
+    },
+    "savings-goal-calculator": {
+      "title": "Birikim Hedefi Hesaplayıcı",
+      "description": "Birikim hedefine ulaşmak için gereken ay sayısını hesaplayın."
+    },
+    "percentage-increase-calculator": {
+      "title": "Yüzde Artış Hesaplayıcı",
+      "description": "Eski değerden yeni değere yüzde değişimini hesaplayın."
+    },
+    "average-calculator": {
+      "title": "Ortalama Hesaplayıcı",
+      "description": "En fazla beş değerin aritmetik ortalamasını hesaplayın."
+    },
+    "median-calculator": {
+      "title": "Medyan Hesaplayıcı",
+      "description": "En fazla beş sayısal değerin medyanını hesaplayın."
+    },
+    "standard-deviation-calculator": {
+      "title": "Standart Sapma Hesaplayıcı",
+      "description": "En fazla beş değer için popülasyon standart sapmasını hesaplayın."
+    },
+    "ratio-calculator": {
+      "title": "Oran Hesaplayıcı",
+      "description": "a:b oranını ve sadeleştirilmiş halini hesaplayın."
+    },
+    "proportion-calculator": {
+      "title": "Orantı Hesaplayıcı",
+      "description": "a/b = c/x orantısında x değerini çözün."
+    },
+    "probability-calculator": {
+      "title": "Olasılık Hesaplayıcı",
+      "description": "Uygun ve toplam sonuçlardan olasılık yüzdesini hesaplayın."
+    },
+    "sample-size-calculator": {
+      "title": "Örneklem Büyüklüğü Hesaplayıcı",
+      "description": "Hata payı ve güven düzeyinden sonlu popülasyon örneklem büyüklüğünü hesaplayın."
+    },
+    "z-score-calculator": {
+      "title": "Z Skoru Hesaplayıcı",
+      "description": "Değer, ortalama ve standart sapmadan standart puanı hesaplayın."
+    },
+    "linear-regression-calculator": {
+      "title": "Doğrusal Regresyon Hesaplayıcı",
+      "description": "Üç (x,y) noktasından en küçük kareler doğrusunu hesaplayın."
+    },
+    "length-converter": {
+      "title": "Uzunluk Dönüştürücü",
+      "description": "mm, cm, m, km, inç, fit, yard ve mil arasında uzunluk dönüştürün."
+    },
+    "weight-converter": {
+      "title": "Ağırlık Dönüştürücü",
+      "description": "g, kg, ton, ons ve pound arasında kütle dönüştürün."
+    },
+    "area-converter": {
+      "title": "Alan Dönüştürücü",
+      "description": "m², ft², dönüm ve hektar dahil alan birimlerini dönüştürün."
+    },
+    "volume-converter": {
+      "title": "Hacim Dönüştürücü",
+      "description": "ml, L, m³, in³, ft³ ve ABD galonu arasında hacim dönüştürün."
+    },
+    "temperature-converter": {
+      "title": "Sıcaklık Dönüştürücü",
+      "description": "Celsius, Fahrenheit ve Kelvin arasında dönüştürün."
     }
+  },
+  "premiumSchemaPage": {
+    "eyebrow": "Premium hesaplayıcı",
+    "featuredQuestion": "{name} neyi hesaplar?",
+    "bullet1": "Gizli kayıp sürücüleri ve eşik kontrolleri",
+    "bullet2": "Operasyonel inceleme için önerilen aksiyonlar",
+    "bullet3": "Ücretli planlarda PDF ve CSV dışa aktarma",
+    "legalQuestion": "Bu finansal veya mühendislik tavsiyesi midir?",
+    "legalAnswer": "Hayır. SectorCalc premium hesaplayıcıları şeffaf varsayımlarla karar destek aracıdır. Profesyonel finans, hukuk veya mühendislik tavsiyesinin yerini almaz.",
+    "serviceType": "Operasyonel karar hesaplaması"
   }
 }

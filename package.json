@@ -19,6 +19,8 @@
     "audit:campaign": "npx tsx scripts/audit-campaign-utm.ts",
     "audit:locale-catalog": "npx tsx scripts/audit-locale-catalog-smoke.ts",
     "audit:locale-messages": "npx tsx scripts/audit-locale-messages.ts",
+    "audit:calculator-copy": "node scripts/audit-calculator-copy-i18n.mjs",
+    "generate:free-tool-i18n": "node scripts/generate-free-tool-catalog-i18n.mjs",
     "audit:revenue-tools": "node scripts/audit-revenue-tools.mjs",
     "smoke:premium-routes": "node scripts/smoke-premium-routes.mjs",
     "smoke:premium-smart-forms": "node scripts/smoke-premium-smart-forms.mjs",

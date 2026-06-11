@@ -413,27 +413,27 @@
       "faqTitle": "FAQ",
       "faqUseTitle": "¿Para qué se usa esta calculadora?",
       "faqFreeTitle": "¿Es gratuita esta calculadora?",
-      "faqPremiumTitle": "¿Cuándo debo usar un analizador premium?",
+      "faqPremiumTitle": "¿Cuándo usar una calculadora premium?",
       "faqUseAnswer": "{title} ofrece una estimación rápida basada en fórmulas a partir de los valores que introduces. Úsala para comprobaciones antes de cotizar, pedir o planificar.",
       "faqFreeAnswer": "Sí. Las calculadoras gratuitas de SectorCalc funcionan en el navegador sin registro.",
-      "faqPremiumAnswer": "Usa un analizador premium cuando la estimación afecte precios, operaciones o decisiones de gestión y necesites drivers ocultos, umbrales e informes exportables.",
+      "faqPremiumAnswer": "Use una calculadora premium cuando la estimación afecte precios, operaciones o decisiones de gestión y necesite impulsores ocultos, umbrales e informes exportables.",
       "relatedGuideTitle": "Aprende cómo funciona este cálculo",
       "relatedHubTitle": "Comparar calculadoras de esta categoría",
-      "relatedPremiumTitle": "Analizador premium relacionado",
-      "relatedPremiumCta": "Ver el analizador premium relacionado"
+      "relatedPremiumTitle": "Calculadora premium relacionada",
+      "relatedPremiumCta": "Ver la calculadora premium relacionada"
     },
     "premium": {
-      "whenToUseTitle": "Cuándo usar este analizador",
-      "whenToUseBody": "Usa este analizador cuando el resultado afecte precios, operaciones, capacidad, planificación o informes de gestión.",
-      "measuresTitle": "Qué mide este analizador",
+      "whenToUseTitle": "Cuándo usar esta calculadora",
+      "whenToUseBody": "Use esta calculadora cuando el resultado afecte precios, operaciones, capacidad, planificación o informes de gestión.",
+      "measuresTitle": "Qué mide esta calculadora",
       "promiseTitle": "Qué obtienes",
-      "decidesTitle": "Qué decisión ayuda a tomar este analizador",
+      "decidesTitle": "Qué decisión ayuda esta calculadora",
       "reportTitle": "Qué incluye el informe",
       "previewExcludesTitle": "Qué no incluye la vista previa",
       "previewExcludesBody": "La vista previa gratuita muestra solo la estructura de ejemplo. Las comprobaciones de umbral completas, drivers ocultos, acciones sugeridas y PDF o CSV exportables requieren acceso de pago.",
       "assumptionsTitle": "Supuestos utilizados",
       "faqTitle": "FAQ",
-      "faqMeasureTitle": "¿Qué mide este analizador?",
+      "faqMeasureTitle": "¿Qué mide esta calculadora?",
       "faqReportTitle": "¿Qué incluye el informe de decisión premium?",
       "faqErpTitle": "¿Sustituye al ERP o al asesoramiento profesional?",
       "faqMeasureAnswer": "{name} mide la exposición a pérdidas ocultas y los drivers operativos a partir de tus entradas, con interpretación de umbrales frente a bandas definidas.",
@@ -443,7 +443,11 @@
       "relatedFreeTitle": "Abrir la calculadora gratuita relacionada",
       "relatedHubTitle": "Comparar calculadoras de esta categoría",
       "relatedIndustryTitle": "Explorar calculadoras del sector",
-      "pricingCta": "Desbloquear el informe de decisión completo"
+      "pricingCta": "Desbloquear el informe de decisión completo",
+      "faqPremiumTitle": "¿Cuándo usar una calculadora premium?",
+      "faqPremiumAnswer": "Use una calculadora premium cuando la estimación afecte precios, operaciones o decisiones de gestión y necesite impulsores ocultos, umbrales e informes exportables.",
+      "relatedPremiumTitle": "Calculadora premium relacionada",
+      "relatedPremiumCta": "Ver la calculadora premium relacionada"
     }
   },
   "trust": {
@@ -1124,9 +1128,9 @@
     "documentLabel": "Informe de decisión premium",
     "reportEyebrow": "Informe de decisión",
     "decisionDesk": "Mesa de decisión",
-    "runPrompt": "Introduzca los valores y ejecute el análisis.",
+    "runPrompt": "Introduzca sus valores operativos e inicie el cálculo.",
     "ledgerEntries": "Entradas contables",
-    "runAnalysis": "Ejecutar análisis",
+    "runAnalysis": "Iniciar cálculo",
     "whatThisMeans": "Qué significa",
     "hiddenDriversTitle": "Factores ocultos detrás del resultado",
     "hiddenDriversIntro": "Estas salidas secundarias explican qué empuja el resultado principal hacia arriba o abajo.",
@@ -2693,25 +2697,436 @@
   },
   "freeToolUi": {
     "preCheck": "Comprobación gratuita",
-    "premiumAnalyzer": "Analizador premium",
+    "premiumAnalyzer": "Calculadora premium",
     "classicForm": "Formulario clásico",
     "smartFormMeta": "Formulario inteligente",
     "simple": "Simple",
     "expert": "Experto",
     "calculationSummary": "Resumen del cálculo",
-    "runAnalysis": "Ejecutar análisis",
+    "runAnalysis": "Iniciar cálculo",
     "calculating": "Calculando…",
     "whatIs": "¿Qué es {title}?",
     "decisionOutput": "Resultado de decisión",
     "exportLabel": "Exportar:",
-    "exportNote": "La exportación a PDF usa tu suscripción y tu flujo de informes existentes."
+    "exportNote": "La exportación a PDF usa tu suscripción y tu flujo de informes existentes.",
+    "analysisBlockedTitle": "Cálculo bloqueado",
+    "contractFormEyebrow": "Cálculo basado en contrato",
+    "contractFormDecisionGoal": "¿Qué resultado producen estas entradas según la fórmula documentada?",
+    "contractFormAssumptionsRules": "{assumptionCount} supuesto(s) gobernado(s) · {ruleCount} regla(s) de validación",
+    "contractFormRulesOnly": "{ruleCount} regla(s) de validación activa(s)",
+    "contractFormTrustAria": "Resumen de confianza del formulario inteligente",
+    "requiredInputsTitle": "Entradas requeridas",
+    "requiredInputsDescription": "Entradas básicas para una ruta de cálculo válida.",
+    "optionalInputsTitle": "Refinamientos opcionales",
+    "optionalInputsDescription": "Mejora la fidelidad de la estimación sin romper valores predeterminados.",
+    "advancedInputsTitle": "Entradas avanzadas",
+    "advancedInputsDescription": "Profundidad profesional cuando esté disponible.",
+    "contractNotFound": "Contrato de formulario inteligente no encontrado para esta herramienta.",
+    "calculationSteps": "Pasos de cálculo",
+    "calculationStepsEmpty": "Los pasos aparecerán cuando este contrato exponga trazabilidad determinista.",
+    "calculationStepDecisionGoal": "Objetivo de decisión",
+    "calculationStepFormulaSummary": "Resumen de fórmula"
   },
   "freeToolContent": {
     "square-meter-calculator": {
       "title": "Calculadora de metros cuadrados",
-      "description": "Calcula el área de un rectángulo en metros cuadrados.",
-      "seoTitle": "Calculadora de metros cuadrados — área en m² | SectorCalc",
-      "seoDescription": "Cálculo de área rectangular: largo × ancho con conversiones ft² y yd²."
+      "description": "Calcule el área rectangular del suelo en metros cuadrados con conversiones de unidades."
+    },
+    "square-footage-calculator": {
+      "title": "Calculadora de pies cuadrados",
+      "description": "Calcule el área del suelo en pies cuadrados con conversiones métricas y a acres."
+    },
+    "concrete-volume-calculator": {
+      "title": "Calculadora de volumen de hormigón",
+      "description": "Estime el volumen de hormigón para losas y cimentaciones en metros cúbicos."
+    },
+    "concrete-bag-calculator": {
+      "title": "Calculadora de sacos de hormigón",
+      "description": "Estime los sacos necesarios para un vertido, incluido el factor de merma."
+    },
+    "paint-coverage-calculator": {
+      "title": "Calculadora de cobertura de pintura",
+      "description": "Estime los litros de pintura según el área de pared y el número de capas."
+    },
+    "tile-calculator": {
+      "title": "Calculadora de azulejos",
+      "description": "Calcule la cantidad de azulejos necesaria para un suelo con margen de merma."
+    },
+    "flooring-calculator": {
+      "title": "Calculadora de suelos",
+      "description": "Calcule el área del suelo de una habitación con factor de merma para pedir material."
+    },
+    "roofing-area-calculator": {
+      "title": "Calculadora de área de tejado",
+      "description": "Estime el área de la cubierta a partir de la huella y el factor de inclinación."
+    },
+    "stair-calculator": {
+      "title": "Calculadora de escaleras",
+      "description": "Estime el número de peldaños y la carrera horizontal total de una escalera."
+    },
+    "drywall-calculator": {
+      "title": "Calculadora de pladur",
+      "description": "Calcule las placas de yeso laminado necesarias para un área de pared."
+    },
+    "brick-calculator": {
+      "title": "Calculadora de ladrillos",
+      "description": "Calcule la cantidad de ladrillos para un muro con margen de merma."
+    },
+    "rebar-weight-calculator": {
+      "title": "Calculadora de peso de armadura",
+      "description": "Estime el peso del acero de refuerzo según diámetro, longitud y cantidad."
+    },
+    "excavation-volume-calculator": {
+      "title": "Calculadora de volumen de excavación",
+      "description": "Calcule el volumen de excavación rectangular en metros cúbicos."
+    },
+    "plaster-calculator": {
+      "title": "Calculadora de yeso",
+      "description": "Calcule el volumen y peso del yeso según área y espesor."
+    },
+    "home-renovation-m2-calculator": {
+      "title": "Calculadora de coste de reforma por m²",
+      "description": "Estime el presupuesto según área, coste por m² y contingencia."
+    },
+    "loan-payment-calculator": {
+      "title": "Calculadora de cuota de préstamo",
+      "description": "Calcule la cuota mensual amortizable según capital, tipo y plazo."
+    },
+    "mortgage-calculator": {
+      "title": "Calculadora de hipoteca",
+      "description": "Calcule la cuota hipotecaria mensual con el desglose de intereses totales."
+    },
+    "interest-calculator": {
+      "title": "Calculadora de interés simple",
+      "description": "Calcule el interés simple y el reembolso total a lo largo del tiempo."
+    },
+    "compound-interest-calculator": {
+      "title": "Calculadora de interés compuesto",
+      "description": "Calcule el valor futuro con crecimiento compuesto."
+    },
+    "vat-calculator": {
+      "title": "Calculadora de IVA",
+      "description": "Añada el IVA a un importe neto."
+    },
+    "discount-calculator": {
+      "title": "Calculadora de descuento",
+      "description": "Calcule el precio de venta tras un descuento porcentual."
+    },
+    "percentage-calculator": {
+      "title": "Calculadora de porcentaje",
+      "description": "Encuentre el X por ciento de un valor."
+    },
+    "profit-margin-calculator": {
+      "title": "Calculadora de margen de beneficio",
+      "description": "Calcule el margen de venta en porcentaje a partir del precio y coste."
+    },
+    "break-even-calculator": {
+      "title": "Calculadora de punto de equilibrio",
+      "description": "Calcule las unidades necesarias para cubrir los costes fijos."
+    },
+    "roi-calculator": {
+      "title": "Calculadora de ROI",
+      "description": "Calcule el retorno de la inversión en porcentaje."
+    },
+    "salary-cost-calculator": {
+      "title": "Calculadora de coste salarial del empleador",
+      "description": "Calcule el coste total del empleador incluyendo cotizaciones patronales."
+    },
+    "hourly-rate-calculator": {
+      "title": "Calculadora de tarifa por hora",
+      "description": "Calcule la tarifa por hora facturable a partir del ingreso mensual."
+    },
+    "depreciation-calculator": {
+      "title": "Calculadora de amortización lineal",
+      "description": "Calcule la amortización anual a partir del coste del activo y valor residual."
+    },
+    "cash-flow-gap-calculator": {
+      "title": "Calculadora de brecha de flujo de caja",
+      "description": "Calcule la brecha de capital de trabajo según plazos de cobros y pagos."
+    },
+    "unit-cost-calculator": {
+      "title": "Calculadora de coste unitario",
+      "description": "Calcule el coste por unidad a partir del coste total y la cantidad."
+    },
+    "machine-time-calculator": {
+      "title": "Calculadora de tiempo de máquina",
+      "description": "Convierta el tiempo de preparación y ciclo en coste de máquina."
+    },
+    "cnc-cycle-time-calculator": {
+      "title": "Calculadora de tiempo de ciclo CNC",
+      "description": "Calcule los segundos CNC totales por lote incluyendo carga y descarga."
+    },
+    "welding-cost-estimator": {
+      "title": "Estimador de coste de soldadura",
+      "description": "Calcule material, mano de obra y consumibles para un trabajo de soldadura."
+    },
+    "laser-cutting-time-check": {
+      "title": "Control de tiempo de corte láser",
+      "description": "Calcule trayectoria de corte, perforación y minutos de preparación para trabajos láser."
+    },
+    "3d-print-cost-check": {
+      "title": "Control de coste de impresión 3D",
+      "description": "Calcule material, máquina y postproceso para un trabajo de impresión."
+    },
+    "sheet-metal-weight-calculator": {
+      "title": "Calculadora de peso de chapa metálica",
+      "description": "Calcule el peso de la placa según dimensiones, espesor y densidad."
+    },
+    "material-waste-calculator": {
+      "title": "Calculadora de merma de material",
+      "description": "Calcule la merma en kg y porcentaje a partir de entrada y salida buena."
+    },
+    "scrap-rate-calculator": {
+      "title": "Calculadora de tasa de rechazo",
+      "description": "Calcule el porcentaje de rechazo a partir de unidades defectuosas y totales."
+    },
+    "oee-calculator": {
+      "title": "Calculadora OEE",
+      "description": "Calcule la efectividad global del equipo mediante disponibilidad × rendimiento × calidad."
+    },
+    "machine-hour-rate-calculator": {
+      "title": "Calculadora de tarifa horaria de máquina",
+      "description": "Calcule la tarifa horaria de máquina con todos los costes incluidos."
+    },
+    "tool-life-calculator": {
+      "title": "Calculadora de coste de vida útil de herramienta",
+      "description": "Calcule el coste de herramienta asignado por pieza buena."
+    },
+    "cutting-speed-calculator": {
+      "title": "Calculadora de velocidad de corte",
+      "description": "Calcule la velocidad de corte Vc a partir del diámetro y RPM."
+    },
+    "feed-rate-calculator": {
+      "title": "Calculadora de avance",
+      "description": "Calcule el avance de mesa a partir de RPM, dientes y avance por diente."
+    },
+    "tolerance-drift-calculator": {
+      "title": "Calculadora de deriva de tolerancia",
+      "description": "Calcule la desviación respecto a la cota objetivo y el porcentaje de deriva."
+    },
+    "batch-yield-calculator": {
+      "title": "Calculadora de rendimiento de lote",
+      "description": "Calcule el rendimiento del proceso en porcentaje a partir de entrada y salida buena."
+    },
+    "kwh-cost-calculator": {
+      "title": "Calculadora de coste kWh",
+      "description": "Calcule el coste eléctrico según consumo y tarifa."
+    },
+    "electricity-bill-calculator": {
+      "title": "Calculadora de factura eléctrica",
+      "description": "Calcule la factura mensual según consumo, tarifa y cargo fijo."
+    },
+    "energy-consumption-check": {
+      "title": "Control de consumo energético",
+      "description": "Calcule kWh y coste a partir de potencia, horas y días."
+    },
+    "carbon-footprint-quick": {
+      "title": "Control rápido de huella de carbono",
+      "description": "Calcule CO₂ según uso energético y factor de emisión."
+    },
+    "fuel-emission-calculator": {
+      "title": "Calculadora de emisiones de combustible",
+      "description": "Calcule CO₂ según litros de combustible y factor de emisión."
+    },
+    "solar-panel-output-calculator": {
+      "title": "Calculadora de producción de paneles solares",
+      "description": "Calcule la producción según tamaño del sistema, horas solares y eficiencia."
+    },
+    "heat-loss-calculator": {
+      "title": "Calculadora de pérdida de calor",
+      "description": "Calcule la pérdida de calor en régimen permanente en vatios."
+    },
+    "boiler-efficiency-calculator": {
+      "title": "Calculadora de eficiencia de caldera",
+      "description": "Calcule la eficiencia de combustión según energía útil y combustible."
+    },
+    "compressor-energy-cost-calculator": {
+      "title": "Calculadora de coste energético de compresor",
+      "description": "Calcule el coste de funcionamiento según kW, horas y tarifa."
+    },
+    "cbam-exposure-quick-check": {
+      "title": "Control rápido de exposición CBAM",
+      "description": "Calcule la exposición al coste fronterizo del carbono según emisiones y precio."
+    },
+    "fuel-consumption-calculator": {
+      "title": "Calculadora de consumo de combustible",
+      "description": "Calcule litros y coste del viaje según distancia y consumo."
+    },
+    "fuel-cost-calculator": {
+      "title": "Calculadora de coste de combustible",
+      "description": "Calcule litros y coste total según distancia y consumo."
+    },
+    "desi-calculator": {
+      "title": "Calculadora de desi",
+      "description": "Calcule el peso volumétrico (desi) a partir de las dimensiones del paquete."
+    },
+    "volumetric-weight-calculator": {
+      "title": "Calculadora de peso volumétrico",
+      "description": "Calcule el peso volumétrico facturable para transporte."
+    },
+    "route-cost-calculator": {
+      "title": "Calculadora de coste de ruta",
+      "description": "Calcule el coste del viaje según combustible, tiempo del conductor y peajes."
+    },
+    "delivery-cost-calculator": {
+      "title": "Calculadora de coste de entrega",
+      "description": "Calcule el coste de última milla según distancia y tarifas por parada."
+    },
+    "freight-cost-calculator": {
+      "title": "Calculadora de coste de flete",
+      "description": "Calcule el cargo de flete según tarifa por peso y tarifa fija."
+    },
+    "warehouse-storage-cost-calculator": {
+      "title": "Calculadora de coste de almacenamiento",
+      "description": "Calcule el coste de almacén según palés, tarifa diaria y días."
+    },
+    "vehicle-depreciation-calculator": {
+      "title": "Calculadora de depreciación de vehículo",
+      "description": "Calcule la depreciación anual del vehículo en línea recta."
+    },
+    "trip-budget-calculator": {
+      "title": "Calculadora de presupuesto de viaje",
+      "description": "Calcule el presupuesto total según combustible, alojamiento, comida y extras."
+    },
+    "fertilizer-dosage-calculator": {
+      "title": "Calculadora de dosis de fertilizante",
+      "description": "Calcule el fertilizante total según área del campo y tasa de dosificación."
+    },
+    "seed-rate-calculator": {
+      "title": "Calculadora de tasa de semilla",
+      "description": "Calcule la cantidad de semilla según área y tasa de siembra."
+    },
+    "irrigation-cost-check": {
+      "title": "Control de coste de riego",
+      "description": "Calcule la energía de bombeo y el coste del agua para el riego."
+    },
+    "water-usage-calculator": {
+      "title": "Calculadora de uso de agua",
+      "description": "Calcule los litros según caudal y duración."
+    },
+    "feed-cost-estimator": {
+      "title": "Estimador de coste de pienso",
+      "description": "Calcule el coste total del pienso incluyendo transporte."
+    },
+    "milk-yield-check": {
+      "title": "Control de rendimiento lechero",
+      "description": "Calcule litros diarios de leche y estimación de ingresos."
+    },
+    "crop-yield-calculator": {
+      "title": "Calculadora de rendimiento de cultivo",
+      "description": "Calcule tonelaje de cosecha e ingresos según rendimiento por hectárea."
+    },
+    "recipe-cost-check": {
+      "title": "Control de coste de receta",
+      "description": "Calcule el coste por porción a partir del gasto total en ingredientes."
+    },
+    "food-cost-calculator": {
+      "title": "Calculadora de coste de alimentos",
+      "description": "Calcule el porcentaje de coste de comida según ingredientes y precio del menú."
+    },
+    "portion-cost-calculator": {
+      "title": "Calculadora de coste por porción",
+      "description": "Calcule el coste por ración a partir del coste del lote."
+    },
+    "rent-vs-buy-calculator": {
+      "title": "Calculadora alquiler vs compra",
+      "description": "Compare alquiler más entrada invertida frente a compra con hipoteca y revalorización."
+    },
+    "home-budget-calculator": {
+      "title": "Calculadora de presupuesto doméstico",
+      "description": "Compare gastos mensuales con ingresos y calcule el saldo restante."
+    },
+    "time-duration-calculator": {
+      "title": "Calculadora de duración de tiempo",
+      "description": "Calcule los minutos transcurridos entre dos horas."
+    },
+    "age-calculator": {
+      "title": "Calculadora de edad",
+      "description": "Calcule la edad en años a partir del año de nacimiento."
+    },
+    "date-difference-calculator": {
+      "title": "Calculadora de diferencia de fechas",
+      "description": "Calcule la diferencia en días entre dos números de día."
+    },
+    "shopping-budget-calculator": {
+      "title": "Calculadora de presupuesto de compras",
+      "description": "Calcule el total de hasta cinco partidas de compra."
+    },
+    "fuel-travel-calculator": {
+      "title": "Calculadora de combustible de viaje",
+      "description": "Calcule combustible y coste del viaje para desplazamientos personales."
+    },
+    "unit-price-calculator": {
+      "title": "Calculadora de precio unitario",
+      "description": "Calcule el precio por unidad a partir del precio total y la cantidad."
+    },
+    "tip-calculator": {
+      "title": "Calculadora de propina",
+      "description": "Calcule la propina y la cuenta total con el porcentaje de propina."
+    },
+    "savings-goal-calculator": {
+      "title": "Calculadora de meta de ahorro",
+      "description": "Calcule los meses para alcanzar una meta de ahorro."
+    },
+    "percentage-increase-calculator": {
+      "title": "Calculadora de aumento porcentual",
+      "description": "Calcule el cambio porcentual del valor antiguo al nuevo."
+    },
+    "average-calculator": {
+      "title": "Calculadora de promedio",
+      "description": "Calcule la media aritmética de hasta cinco valores."
+    },
+    "median-calculator": {
+      "title": "Calculadora de mediana",
+      "description": "Calcule la mediana de hasta cinco valores numéricos."
+    },
+    "standard-deviation-calculator": {
+      "title": "Calculadora de desviación estándar",
+      "description": "Calcule la desviación estándar poblacional para hasta cinco valores."
+    },
+    "ratio-calculator": {
+      "title": "Calculadora de razón",
+      "description": "Calcule la razón a:b y su forma simplificada."
+    },
+    "proportion-calculator": {
+      "title": "Calculadora de proporción",
+      "description": "Resuelva x en la proporción a/b = c/x."
+    },
+    "probability-calculator": {
+      "title": "Calculadora de probabilidad",
+      "description": "Calcule la probabilidad en porcentaje a partir de resultados favorables y totales."
+    },
+    "sample-size-calculator": {
+      "title": "Calculadora de tamaño muestral",
+      "description": "Calcule el tamaño muestral de población finita según margen y confianza."
+    },
+    "z-score-calculator": {
+      "title": "Calculadora de puntuación Z",
+      "description": "Calcule la puntuación estándar a partir del valor, media y desviación estándar."
+    },
+    "linear-regression-calculator": {
+      "title": "Calculadora de regresión lineal",
+      "description": "Calcule la recta de mínimos cuadrados a través de tres puntos (x,y)."
+    },
+    "length-converter": {
+      "title": "Convertidor de longitud",
+      "description": "Convierta longitudes entre mm, cm, m, km, pulgada, pie, yarda y milla."
+    },
+    "weight-converter": {
+      "title": "Convertidor de peso",
+      "description": "Convierta masa entre g, kg, tonelada, onza y libra."
+    },
+    "area-converter": {
+      "title": "Convertidor de área",
+      "description": "Convierta unidades de área incluyendo m², ft², acres y hectáreas."
+    },
+    "volume-converter": {
+      "title": "Convertidor de volumen",
+      "description": "Convierta volumen entre ml, L, m³, in³, ft³ y galones US."
+    },
+    "temperature-converter": {
+      "title": "Convertidor de temperatura",
+      "description": "Convierta entre Celsius, Fahrenheit y Kelvin."
     }
   },
   "schemaBreadcrumbs": {
@@ -2719,5 +3134,15 @@
     "freeTools": "Calculadoras gratuitas",
     "premiumTools": "Calculadoras premium",
     "industries": "Calculadoras sectoriales"
+  },
+  "premiumSchemaPage": {
+    "eyebrow": "Calculadora premium",
+    "featuredQuestion": "¿Qué calcula {name}?",
+    "bullet1": "Impulsores de pérdida oculta y controles de umbral",
+    "bullet2": "Acciones sugeridas para revisión operativa",
+    "bullet3": "PDF y CSV listos para exportar en planes de pago",
+    "legalQuestion": "¿Es asesoramiento financiero o de ingeniería?",
+    "legalAnswer": "No. Las calculadoras premium de SectorCalc son herramientas de apoyo a decisiones con supuestos transparentes. No sustituyen asesoramiento financiero, legal o de ingeniería profesional.",
+    "serviceType": "Cálculo de decisión operativa"
   }
 }

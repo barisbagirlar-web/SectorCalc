@@ -413,27 +413,27 @@
       "faqTitle": "FAQ",
       "faqUseTitle": "Wofür wird dieser Rechner verwendet?",
       "faqFreeTitle": "Ist dieser Rechner kostenlos?",
-      "faqPremiumTitle": "Wann sollte ich einen Premium-Analysator nutzen?",
+      "faqPremiumTitle": "Wann sollte ich einen Premium-Rechner nutzen?",
       "faqUseAnswer": "{title} liefert eine schnelle formelbasierte Schätzung aus Ihren Eingaben. Nutzen Sie ihn zur Plausibilitätsprüfung vor Angebot, Bestellung oder Planung.",
       "faqFreeAnswer": "Ja. SectorCalc Gratis-Rechner laufen im Browser ohne Anmeldung.",
-      "faqPremiumAnswer": "Nutzen Sie einen Premium-Analysator, wenn die Schätzung Preisgestaltung, Betrieb oder Managemententscheidungen beeinflusst und Sie versteckte Treiber, Schwellenwerte und exportfähige Berichte benötigen.",
+      "faqPremiumAnswer": "Nutzen Sie einen Premium-Rechner, wenn die Schätzung Preise, Betrieb oder Management-Entscheidungen beeinflusst und Sie versteckte Treiber, Schwellen und exportfähige Berichte benötigen.",
       "relatedGuideTitle": "So funktioniert diese Berechnung",
       "relatedHubTitle": "Rechner in dieser Kategorie vergleichen",
-      "relatedPremiumTitle": "Zugehöriger Premium-Analysator",
-      "relatedPremiumCta": "Zugehörigen Premium-Analysator ansehen"
+      "relatedPremiumTitle": "Verwandter Premium-Rechner",
+      "relatedPremiumCta": "Verwandten Premium-Rechner ansehen"
     },
     "premium": {
-      "whenToUseTitle": "Wann dieser Analysator sinnvoll ist",
-      "whenToUseBody": "Nutzen Sie diesen Analysator, wenn das Ergebnis Preisgestaltung, Betrieb, Kapazität, Planung oder Management-Reporting beeinflusst.",
-      "measuresTitle": "Was dieser Analysator misst",
+      "whenToUseTitle": "Wann dieser Rechner sinnvoll ist",
+      "whenToUseBody": "Nutzen Sie diesen Rechner, wenn das Ergebnis Preise, Betrieb, Kapazität, Planung oder Management-Reporting beeinflusst.",
+      "measuresTitle": "Was dieser Rechner misst",
       "promiseTitle": "Was Sie erhalten",
-      "decidesTitle": "Welche Entscheidung dieser Analysator unterstützt",
+      "decidesTitle": "Bei welcher Entscheidung dieser Rechner hilft",
       "reportTitle": "Was der Bericht enthält",
       "previewExcludesTitle": "Was die Vorschau nicht enthält",
       "previewExcludesBody": "Die kostenlose Vorschau zeigt nur die Beispielstruktur. Vollständige Schwellenprüfungen, versteckte Treiber, empfohlene Maßnahmen und exportfähiges PDF oder CSV erfordern kostenpflichtigen Zugang.",
       "assumptionsTitle": "Verwendete Annahmen",
       "faqTitle": "FAQ",
-      "faqMeasureTitle": "Was misst dieser Analysator?",
+      "faqMeasureTitle": "Was misst dieser Rechner?",
       "faqReportTitle": "Was enthält der Premium-Entscheidungsbericht?",
       "faqErpTitle": "Ersetzt das ERP oder professionelle Beratung?",
       "faqMeasureAnswer": "{name} misst versteckte Verlustexposition und Betriebstreiber aus Ihren Eingaben mit Schwelleninterpretation gegen definierte Bänder.",
@@ -443,7 +443,11 @@
       "relatedFreeTitle": "Zugehörigen Gratis-Rechner öffnen",
       "relatedHubTitle": "Rechner in dieser Kategorie vergleichen",
       "relatedIndustryTitle": "Branchenrechner durchsuchen",
-      "pricingCta": "Vollständigen Entscheidungsbericht freischalten"
+      "pricingCta": "Vollständigen Entscheidungsbericht freischalten",
+      "faqPremiumTitle": "Wann sollte ich einen Premium-Rechner nutzen?",
+      "faqPremiumAnswer": "Nutzen Sie einen Premium-Rechner, wenn die Schätzung Preise, Betrieb oder Management-Entscheidungen beeinflusst und Sie versteckte Treiber, Schwellen und exportfähige Berichte benötigen.",
+      "relatedPremiumTitle": "Verwandter Premium-Rechner",
+      "relatedPremiumCta": "Verwandten Premium-Rechner ansehen"
     }
   },
   "trust": {
@@ -1124,9 +1128,9 @@
     "documentLabel": "Premium-Entscheidungsbericht",
     "reportEyebrow": "Entscheidungsbericht",
     "decisionDesk": "Entscheidungstisch",
-    "runPrompt": "Buchungswerte eingeben und Analyse starten.",
+    "runPrompt": "Geben Sie Ihre Betriebswerte ein und starten Sie die Berechnung.",
     "ledgerEntries": "Buchungswerte",
-    "runAnalysis": "Analyse starten",
+    "runAnalysis": "Berechnung starten",
     "whatThisMeans": "Was das bedeutet",
     "hiddenDriversTitle": "Verlusttreiber hinter dem Ergebnis",
     "hiddenDriversIntro": "Diese Sekundärwerte erklären, was das Hauptergebnis nach oben oder unten drückt.",
@@ -2693,25 +2697,436 @@
   },
   "freeToolUi": {
     "preCheck": "Kostenlose Vorprüfung",
-    "premiumAnalyzer": "Premium-Analyse",
+    "premiumAnalyzer": "Premium-Rechner",
     "classicForm": "Klassisches Formular",
     "smartFormMeta": "Smart-Formular",
     "simple": "Einfach",
     "expert": "Experte",
     "calculationSummary": "Berechnungsübersicht",
-    "runAnalysis": "Analyse starten",
+    "runAnalysis": "Berechnung starten",
     "calculating": "Wird berechnet…",
     "whatIs": "Was ist {title}?",
     "decisionOutput": "Entscheidungsergebnis",
     "exportLabel": "Export:",
-    "exportNote": "Der PDF-Export nutzt Ihr bestehendes Abo und den Berichts-Workflow."
+    "exportNote": "Der PDF-Export nutzt Ihr bestehendes Abo und den Berichts-Workflow.",
+    "analysisBlockedTitle": "Berechnung blockiert",
+    "contractFormEyebrow": "Formelbasierte Berechnung",
+    "contractFormDecisionGoal": "Welches Ergebnis liefern diese Eingaben nach der dokumentierten Formel?",
+    "contractFormAssumptionsRules": "{assumptionCount} geregelte Annahme(n) · {ruleCount} Validierungsregel(n)",
+    "contractFormRulesOnly": "{ruleCount} Validierungsregel(n) aktiv",
+    "contractFormTrustAria": "Smart-Formular-Vertrauensübersicht",
+    "requiredInputsTitle": "Erforderliche Eingaben",
+    "requiredInputsDescription": "Kern-Eingaben für einen gültigen Berechnungspfad.",
+    "optionalInputsTitle": "Optionale Verfeinerungen",
+    "optionalInputsDescription": "Verbessert die Schätzgenauigkeit ohne Standardwerte zu brechen.",
+    "advancedInputsTitle": "Erweiterte Eingaben",
+    "advancedInputsDescription": "Professionelle Tiefe, wenn verfügbar.",
+    "contractNotFound": "Smart-Formular-Vertrag für dieses Tool nicht gefunden.",
+    "calculationSteps": "Berechnungsschritte",
+    "calculationStepsEmpty": "Berechnungsschritte erscheinen, wenn dieser Vertrag deterministische Spur liefert.",
+    "calculationStepDecisionGoal": "Entscheidungsziel",
+    "calculationStepFormulaSummary": "Formelübersicht"
   },
   "freeToolContent": {
     "square-meter-calculator": {
       "title": "Quadratmeter-Rechner",
-      "description": "Berechnen Sie die Fläche eines Rechtecks in Quadratmetern.",
-      "seoTitle": "Quadratmeter-Rechner — Fläche in m² | SectorCalc",
-      "seoDescription": "Rechteckfläche berechnen: Länge × Breite mit ft²- und yd²-Umrechnung."
+      "description": "Berechnen Sie die rechteckige Bodenfläche in Quadratmetern mit Umrechnungen in andere Maßeinheiten."
+    },
+    "square-footage-calculator": {
+      "title": "Quadratfuß-Rechner",
+      "description": "Berechnen Sie die Bodenfläche in Quadratfuß mit metrischen Umrechnungen und Acres."
+    },
+    "concrete-volume-calculator": {
+      "title": "Betonvolumen-Rechner",
+      "description": "Schätzen Sie das Betonvolumen für Platten und Fundamente in Kubikmetern."
+    },
+    "concrete-bag-calculator": {
+      "title": "Betonsack-Rechner",
+      "description": "Schätzen Sie die benötigten Betonsäcke inklusive Verschnittfaktor für einen Guss."
+    },
+    "paint-coverage-calculator": {
+      "title": "Farbanstrich-Rechner",
+      "description": "Schätzen Sie die benötigten Farbliter für Wandfläche und Anzahl der Anstriche."
+    },
+    "tile-calculator": {
+      "title": "Fliesen-Rechner",
+      "description": "Berechnen Sie die benötigte Fliesenanzahl für eine Bodenfläche mit Verschnittzuschlag."
+    },
+    "flooring-calculator": {
+      "title": "Bodenbelag-Rechner",
+      "description": "Berechnen Sie die Bodenfläche eines Raums mit Verschnittfaktor für die Materialbestellung."
+    },
+    "roofing-area-calculator": {
+      "title": "Dachflächen-Rechner",
+      "description": "Schätzen Sie die Dachoberfläche aus Grundrissfläche und Neigungsfaktor."
+    },
+    "stair-calculator": {
+      "title": "Treppen-Rechner",
+      "description": "Schätzen Sie die Anzahl der Stufen und den gesamten horizontalen Lauf einer Treppe."
+    },
+    "drywall-calculator": {
+      "title": "Trockenbau-Rechner",
+      "description": "Berechnen Sie die benötigten Gipskartonplatten für eine Wandfläche."
+    },
+    "brick-calculator": {
+      "title": "Ziegel-Rechner",
+      "description": "Berechnen Sie die Ziegelanzahl für eine Wandfläche mit Verschnittzuschlag."
+    },
+    "rebar-weight-calculator": {
+      "title": "Bewehrungsstahl-Gewichtsrechner",
+      "description": "Schätzen Sie das Gewicht von Bewehrungsstahl aus Durchmesser, Länge und Stückzahl."
+    },
+    "excavation-volume-calculator": {
+      "title": "Aushubvolumen-Rechner",
+      "description": "Berechnen Sie das rechteckige Aushubvolumen in Kubikmetern."
+    },
+    "plaster-calculator": {
+      "title": "Putz-Rechner",
+      "description": "Berechnen Sie Putzvolumen und -gewicht aus Fläche und Schichtdicke."
+    },
+    "home-renovation-m2-calculator": {
+      "title": "Renovierungskosten pro m²-Rechner",
+      "description": "Schätzen Sie das Budget aus Fläche, Kosten pro m² und Risikopuffer."
+    },
+    "loan-payment-calculator": {
+      "title": "Kreditraten-Rechner",
+      "description": "Berechnen Sie die monatliche Annuität aus Kapital, Zinssatz und Laufzeit."
+    },
+    "mortgage-calculator": {
+      "title": "Hypotheken-Rechner",
+      "description": "Berechnen Sie die monatliche Hypothekenrate mit Aufschlüsselung der Gesamtzinsen."
+    },
+    "interest-calculator": {
+      "title": "Einfachzins-Rechner",
+      "description": "Berechnen Sie einfachen Zins und Gesamtrückzahlung über die Laufzeit."
+    },
+    "compound-interest-calculator": {
+      "title": "Zinseszins-Rechner",
+      "description": "Berechnen Sie den Endwert mit Zinseszinswachstum."
+    },
+    "vat-calculator": {
+      "title": "MwSt-Rechner",
+      "description": "Addieren Sie die Mehrwertsteuer zu einem Nettobetrag."
+    },
+    "discount-calculator": {
+      "title": "Rabatt-Rechner",
+      "description": "Berechnen Sie den Verkaufspreis nach prozentualem Rabatt."
+    },
+    "percentage-calculator": {
+      "title": "Prozent-Rechner",
+      "description": "Finden Sie X Prozent eines Wertes."
+    },
+    "profit-margin-calculator": {
+      "title": "Gewinnmargen-Rechner",
+      "description": "Berechnen Sie die Verkaufsmarge in Prozent aus Preis und Kosten."
+    },
+    "break-even-calculator": {
+      "title": "Break-even-Rechner",
+      "description": "Berechnen Sie die Einheiten, die nötig sind, um Fixkosten zu decken."
+    },
+    "roi-calculator": {
+      "title": "ROI-Rechner",
+      "description": "Berechnen Sie die Kapitalrendite in Prozent."
+    },
+    "salary-cost-calculator": {
+      "title": "Arbeitgeber-Lohnkosten-Rechner",
+      "description": "Berechnen Sie die Gesamtkosten des Arbeitgebers inklusive Arbeitgeberbeiträge."
+    },
+    "hourly-rate-calculator": {
+      "title": "Stundensatz-Rechner",
+      "description": "Berechnen Sie den abrechenbaren Stundensatz aus dem Monatseinkommen."
+    },
+    "depreciation-calculator": {
+      "title": "Lineare Abschreibungs-Rechner",
+      "description": "Berechnen Sie die jährliche Abschreibung aus Anschaffungskosten und Restwert."
+    },
+    "cash-flow-gap-calculator": {
+      "title": "Liquiditätslücken-Rechner",
+      "description": "Berechnen Sie die Working-Capital-Lücke aus Forderungs- und Verbindlichkeitsterminen."
+    },
+    "unit-cost-calculator": {
+      "title": "Stückkosten-Rechner",
+      "description": "Berechnen Sie die Kosten pro Einheit aus Gesamtkosten und Menge."
+    },
+    "machine-time-calculator": {
+      "title": "Maschinenzeit-Rechner",
+      "description": "Wandeln Sie Rüst- und Zykluszeit in Maschinenkosten um."
+    },
+    "cnc-cycle-time-calculator": {
+      "title": "CNC-Zykluszeit-Rechner",
+      "description": "Berechnen Sie die gesamten CNC-Sekunden pro Charge inklusive Be- und Entladen."
+    },
+    "welding-cost-estimator": {
+      "title": "Schweißkosten-Schätzer",
+      "description": "Berechnen Sie Material-, Arbeits- und Verbrauchskosten für einen Schweißauftrag."
+    },
+    "laser-cutting-time-check": {
+      "title": "Laser-Schneidzeit-Check",
+      "description": "Berechnen Sie Schnittweg, Piercing- und Rüstminuten für Laseraufträge."
+    },
+    "3d-print-cost-check": {
+      "title": "3D-Druck-Kosten-Check",
+      "description": "Berechnen Sie Material-, Maschinen- und Nachbearbeitungskosten für einen Druckauftrag."
+    },
+    "sheet-metal-weight-calculator": {
+      "title": "Blechgewicht-Rechner",
+      "description": "Berechnen Sie das Plattengewicht aus Abmessungen, Dicke und Dichte."
+    },
+    "material-waste-calculator": {
+      "title": "Materialverschnitt-Rechner",
+      "description": "Berechnen Sie Verschnitt in kg und Prozent aus Input und guter Ausbringung."
+    },
+    "scrap-rate-calculator": {
+      "title": "Ausschussquote-Rechner",
+      "description": "Berechnen Sie die Ausschussquote in Prozent aus Ausschuss- und Gesamteinheiten."
+    },
+    "oee-calculator": {
+      "title": "OEE-Rechner",
+      "description": "Berechnen Sie die Gesamtanlageneffektivität aus Verfügbarkeit × Leistung × Qualität."
+    },
+    "machine-hour-rate-calculator": {
+      "title": "Maschinenstundensatz-Rechner",
+      "description": "Berechnen Sie den voll belasteten Maschinenstundensatz."
+    },
+    "tool-life-calculator": {
+      "title": "Werkzeuglebensdauer-Kostenrechner",
+      "description": "Berechnen Sie die Werkzeugkosten pro gutem Teil."
+    },
+    "cutting-speed-calculator": {
+      "title": "Schnittgeschwindigkeits-Rechner",
+      "description": "Berechnen Sie die Schnittgeschwindigkeit Vc aus Durchmesser und U/min."
+    },
+    "feed-rate-calculator": {
+      "title": "Vorschub-Rechner",
+      "description": "Berechnen Sie den Tischvorschub aus U/min, Zähnezahl und Vorschub pro Zahn."
+    },
+    "tolerance-drift-calculator": {
+      "title": "Toleranzdrift-Rechner",
+      "description": "Berechnen Sie die Abweichung von der Sollmaß und die Drift in Prozent."
+    },
+    "batch-yield-calculator": {
+      "title": "Chargenausbeute-Rechner",
+      "description": "Berechnen Sie die Prozessausbeute in Prozent aus Input und guter Ausbringung."
+    },
+    "kwh-cost-calculator": {
+      "title": "kWh-Kosten-Rechner",
+      "description": "Berechnen Sie die Stromkosten aus Verbrauch und Tarif."
+    },
+    "electricity-bill-calculator": {
+      "title": "Stromrechnungs-Rechner",
+      "description": "Berechnen Sie die monatliche Rechnung aus Verbrauch, Tarif und Grundgebühr."
+    },
+    "energy-consumption-check": {
+      "title": "Energieverbrauchs-Check",
+      "description": "Berechnen Sie kWh und Kosten aus Leistung, Stunden und Tagen."
+    },
+    "carbon-footprint-quick": {
+      "title": "CO₂-Fußabdruck-Schnellcheck",
+      "description": "Berechnen Sie CO₂ aus Energieverbrauch und Emissionsfaktor."
+    },
+    "fuel-emission-calculator": {
+      "title": "Kraftstoffemissions-Rechner",
+      "description": "Berechnen Sie CO₂ aus Kraftstofflitern und Emissionsfaktor."
+    },
+    "solar-panel-output-calculator": {
+      "title": "Solarmodul-Ertrags-Rechner",
+      "description": "Berechnen Sie die Energieausbeute aus Anlagengröße, Sonnenstunden und Wirkungsgrad."
+    },
+    "heat-loss-calculator": {
+      "title": "Wärmeverlust-Rechner",
+      "description": "Berechnen Sie den stationären Wärmeverlust in Watt."
+    },
+    "boiler-efficiency-calculator": {
+      "title": "Kesselwirkungsgrad-Rechner",
+      "description": "Berechnen Sie den Brennwirkungsgrad aus Nutz- und Brennstoffenergie."
+    },
+    "compressor-energy-cost-calculator": {
+      "title": "Kompressor-Energiekosten-Rechner",
+      "description": "Berechnen Sie die Betriebskosten aus Kompressor-kW, Stunden und Tarif."
+    },
+    "cbam-exposure-quick-check": {
+      "title": "CBAM-Expositions-Schnellcheck",
+      "description": "Berechnen Sie die CO₂-Grenzkostenexposition aus Emissionen und CO₂-Preis."
+    },
+    "fuel-consumption-calculator": {
+      "title": "Kraftstoffverbrauchs-Rechner",
+      "description": "Berechnen Sie Reisekraftstoff in Litern und Kosten aus Strecke und Verbrauch."
+    },
+    "fuel-cost-calculator": {
+      "title": "Kraftstoffkosten-Rechner",
+      "description": "Berechnen Sie Liter und Gesamtkosten aus Strecke und Verbrauch."
+    },
+    "desi-calculator": {
+      "title": "Desi-Rechner",
+      "description": "Berechnen Sie das Volumengewicht (Desi) aus Paketabmessungen."
+    },
+    "volumetric-weight-calculator": {
+      "title": "Volumengewicht-Rechner",
+      "description": "Berechnen Sie das abrechenbare Volumengewicht für Fracht."
+    },
+    "route-cost-calculator": {
+      "title": "Routenkosten-Rechner",
+      "description": "Berechnen Sie die Reisekosten aus Kraftstoff, Fahrerzeit und Maut."
+    },
+    "delivery-cost-calculator": {
+      "title": "Lieferkosten-Rechner",
+      "description": "Berechnen Sie die Last-Mile-Kosten aus Entfernung und Stoppgebühren."
+    },
+    "freight-cost-calculator": {
+      "title": "Frachtkosten-Rechner",
+      "description": "Berechnen Sie die Frachtgebühr aus Gewichtstarif und Festgebühr."
+    },
+    "warehouse-storage-cost-calculator": {
+      "title": "Lagerkosten-Rechner",
+      "description": "Berechnen Sie die Lagerkosten aus Paletten, Tagesrate und Tagen."
+    },
+    "vehicle-depreciation-calculator": {
+      "title": "Fahrzeugabschreibungs-Rechner",
+      "description": "Berechnen Sie die jährliche Fahrzeugabschreibung linear."
+    },
+    "trip-budget-calculator": {
+      "title": "Reisebudget-Rechner",
+      "description": "Berechnen Sie das Gesamtreisebudget aus Kraftstoff, Unterkunft, Essen und Extras."
+    },
+    "fertilizer-dosage-calculator": {
+      "title": "Düngemitteldosierungs-Rechner",
+      "description": "Berechnen Sie die Gesamtdüngermenge aus Feldfläche und Dosierungsrate."
+    },
+    "seed-rate-calculator": {
+      "title": "Saatgutrate-Rechner",
+      "description": "Berechnen Sie die Saatgutmenge aus Fläche und Aussaatrate."
+    },
+    "irrigation-cost-check": {
+      "title": "Bewässerungskosten-Check",
+      "description": "Berechnen Sie Pumpenenergie plus Wasserkosten für die Bewässerung."
+    },
+    "water-usage-calculator": {
+      "title": "Wasserverbrauchs-Rechner",
+      "description": "Berechnen Sie Liter aus Durchflussrate und Dauer."
+    },
+    "feed-cost-estimator": {
+      "title": "Futterkosten-Schätzer",
+      "description": "Berechnen Sie die Gesamtfutterkosten inklusive Transport."
+    },
+    "milk-yield-check": {
+      "title": "Milchleistungs-Check",
+      "description": "Berechnen Sie tägliche Milchliter und Umsatzschätzung."
+    },
+    "crop-yield-calculator": {
+      "title": "Ernteertrags-Rechner",
+      "description": "Berechnen Sie Erntetonnage und Umsatz aus Ertrag pro Hektar."
+    },
+    "recipe-cost-check": {
+      "title": "Rezeptkosten-Check",
+      "description": "Berechnen Sie die Portionskosten aus den Gesamtzutatenkosten."
+    },
+    "food-cost-calculator": {
+      "title": "Wareneinsatz-Rechner",
+      "description": "Berechnen Sie den Speisenkostenprozentsatz aus Zutatenkosten und Menüpreis."
+    },
+    "portion-cost-calculator": {
+      "title": "Portionskosten-Rechner",
+      "description": "Berechnen Sie die Kosten pro Portion aus den Chargenkosten."
+    },
+    "rent-vs-buy-calculator": {
+      "title": "Mieten vs. Kaufen-Rechner",
+      "description": "Vergleichen Sie Miete plus angelegte Anzahlung mit Kauf per Hypothek und Wertsteigerung."
+    },
+    "home-budget-calculator": {
+      "title": "Haushaltsbudget-Rechner",
+      "description": "Vergleichen Sie monatliche Ausgaben mit Einkommen und berechnen Sie den Restsaldo."
+    },
+    "time-duration-calculator": {
+      "title": "Zeitdauer-Rechner",
+      "description": "Berechnen Sie die verstrichenen Minuten zwischen zwei Uhrzeiten."
+    },
+    "age-calculator": {
+      "title": "Alters-Rechner",
+      "description": "Berechnen Sie das Alter in Jahren aus dem Geburtsjahr."
+    },
+    "date-difference-calculator": {
+      "title": "Datumsdifferenz-Rechner",
+      "description": "Berechnen Sie die Tagesdifferenz zwischen zwei Tagesnummern."
+    },
+    "shopping-budget-calculator": {
+      "title": "Einkaufsbudget-Rechner",
+      "description": "Berechnen Sie die Summe von bis zu fünf Einkaufspositionen."
+    },
+    "fuel-travel-calculator": {
+      "title": "Kraftstoff-Reise-Rechner",
+      "description": "Berechnen Sie Reisekraftstoff und Kosten für private Fahrten."
+    },
+    "unit-price-calculator": {
+      "title": "Stückpreis-Rechner",
+      "description": "Berechnen Sie den Preis pro Einheit aus Gesamtpreis und Menge."
+    },
+    "tip-calculator": {
+      "title": "Trinkgeld-Rechner",
+      "description": "Berechnen Sie Trinkgeldbetrag und Gesamtrechnung mit Trinkgeldprozent."
+    },
+    "savings-goal-calculator": {
+      "title": "Sparziel-Rechner",
+      "description": "Berechnen Sie die Monate bis zum Erreichen eines Sparziels."
+    },
+    "percentage-increase-calculator": {
+      "title": "Prozentuale Steigerungs-Rechner",
+      "description": "Berechnen Sie die prozentuale Änderung vom alten zum neuen Wert."
+    },
+    "average-calculator": {
+      "title": "Durchschnitts-Rechner",
+      "description": "Berechnen Sie den arithmetischen Mittelwert von bis zu fünf Werten."
+    },
+    "median-calculator": {
+      "title": "Median-Rechner",
+      "description": "Berechnen Sie den Median von bis zu fünf numerischen Werten."
+    },
+    "standard-deviation-calculator": {
+      "title": "Standardabweichungs-Rechner",
+      "description": "Berechnen Sie die Populations-Standardabweichung für bis zu fünf Werte."
+    },
+    "ratio-calculator": {
+      "title": "Verhältnis-Rechner",
+      "description": "Berechnen Sie das Verhältnis a:b und die vereinfachte Form."
+    },
+    "proportion-calculator": {
+      "title": "Proportions-Rechner",
+      "description": "Lösen Sie x in der Proportion a/b = c/x."
+    },
+    "probability-calculator": {
+      "title": "Wahrscheinlichkeits-Rechner",
+      "description": "Berechnen Sie die Wahrscheinlichkeit in Prozent aus günstigen und Gesamtergebnissen."
+    },
+    "sample-size-calculator": {
+      "title": "Stichprobengrößen-Rechner",
+      "description": "Berechnen Sie die Stichprobengröße für endliche Populationen aus Fehlertoleranz und Konfidenz."
+    },
+    "z-score-calculator": {
+      "title": "Z-Score-Rechner",
+      "description": "Berechnen Sie den Standardwert aus Wert, Mittelwert und Standardabweichung."
+    },
+    "linear-regression-calculator": {
+      "title": "Lineare-Regression-Rechner",
+      "description": "Berechnen Sie die Ausgleichsgerade durch drei (x,y)-Punkte."
+    },
+    "length-converter": {
+      "title": "Längen-Umrechner",
+      "description": "Rechnen Sie Längen zwischen mm, cm, m, km, Zoll, Fuß, Yard und Meile um."
+    },
+    "weight-converter": {
+      "title": "Gewichts-Umrechner",
+      "description": "Rechnen Sie Masse zwischen g, kg, Tonne, Unze und Pfund um."
+    },
+    "area-converter": {
+      "title": "Flächen-Umrechner",
+      "description": "Rechnen Sie Flächeneinheiten um, einschließlich m², ft², Acres und Hektar."
+    },
+    "volume-converter": {
+      "title": "Volumen-Umrechner",
+      "description": "Rechnen Sie Volumen zwischen ml, L, m³, in³, ft³ und US-Gallonen um."
+    },
+    "temperature-converter": {
+      "title": "Temperatur-Umrechner",
+      "description": "Rechnen Sie zwischen Celsius, Fahrenheit und Kelvin um."
     }
   },
   "schemaBreadcrumbs": {
@@ -2719,5 +3134,15 @@
     "freeTools": "Kostenlose Rechner",
     "premiumTools": "Premium-Rechner",
     "industries": "Branchen-Rechner"
+  },
+  "premiumSchemaPage": {
+    "eyebrow": "Premium-Rechner",
+    "featuredQuestion": "Was berechnet {name}?",
+    "bullet1": "Versteckte Verlusttreiber und Schwellenprüfungen",
+    "bullet2": "Empfohlene Maßnahmen zur operativen Prüfung",
+    "bullet3": "PDF- und CSV-Export in kostenpflichtigen Plänen",
+    "legalQuestion": "Ist dies Finanz- oder Ingenieurberatung?",
+    "legalAnswer": "Nein. SectorCalc Premium-Rechner sind Entscheidungsunterstützung mit transparenten Annahmen. Sie ersetzen keine professionelle Finanz-, Rechts- oder Ingenieurberatung.",
+    "serviceType": "Operative Entscheidungsberechnung"
   }
 }

@@ -448,27 +448,27 @@
       "faqTitle": "FAQ",
       "faqUseTitle": "What is this calculator used for?",
       "faqFreeTitle": "Is this calculator free?",
-      "faqPremiumTitle": "When should I use a premium analyzer?",
+      "faqPremiumTitle": "متى أستخدم حاسبة مميزة؟",
       "faqUseAnswer": "{title} gives a quick formula-based estimate from the values you enter. Use it for sanity checks before quoting, ordering or planning.",
       "faqFreeAnswer": "Yes. SectorCalc free calculators run in your browser with no sign-up required.",
-      "faqPremiumAnswer": "Use a premium analyzer when the estimate affects pricing, operations or management decisions and you need hidden drivers, thresholds and export-ready reports.",
+      "faqPremiumAnswer": "استخدم حاسبة مميزة عندما يؤثر التقدير على التسعير أو العمليات أو قرارات الإدارة وتحتاج إلى محركات خفية وعتبات وتقارير قابلة للتصدير.",
       "relatedGuideTitle": "Learn how this calculation works",
       "relatedHubTitle": "Compare calculators in this category",
-      "relatedPremiumTitle": "Related premium analyzer",
-      "relatedPremiumCta": "View the related premium analyzer"
+      "relatedPremiumTitle": "حاسبة مميزة ذات صلة",
+      "relatedPremiumCta": "عرض الحاسبة المميزة ذات الصلة"
     },
     "premium": {
-      "whenToUseTitle": "When to use this analyzer",
-      "whenToUseBody": "Use this analyzer when the result affects pricing, operations, capacity, scheduling or management reporting.",
-      "measuresTitle": "What this analyzer measures",
+      "whenToUseTitle": "متى تستخدم هذه الحاسبة",
+      "whenToUseBody": "استخدم هذه الحاسبة عندما تؤثر النتيجة على التسعير أو العمليات أو السعة أو التخطيط أو تقارير الإدارة.",
+      "measuresTitle": "ما الذي تقيسه هذه الحاسبة",
       "promiseTitle": "What you get",
-      "decidesTitle": "What this analyzer helps decide",
+      "decidesTitle": "ما القرار الذي تساعد هذه الحاسبة فيه",
       "reportTitle": "What the report includes",
       "previewExcludesTitle": "What the preview does not include",
       "previewExcludesBody": "The free preview shows sample structure only. Full threshold checks, hidden driver breakdown, suggested actions and export-ready PDF or CSV require paid access.",
       "assumptionsTitle": "Assumptions used",
       "faqTitle": "FAQ",
-      "faqMeasureTitle": "What does this analyzer measure?",
+      "faqMeasureTitle": "ماذا تقيس هذه الحاسبة؟",
       "faqReportTitle": "What is included in the premium decision report?",
       "faqErpTitle": "Is this a replacement for ERP or professional advice?",
       "faqMeasureAnswer": "{name} measures hidden loss exposure and operating drivers from the inputs you provide, with threshold interpretation against stated bands.",
@@ -478,7 +478,11 @@
       "relatedFreeTitle": "Open the related free calculator",
       "relatedHubTitle": "Compare calculators in this category",
       "relatedIndustryTitle": "Browse industry calculators",
-      "pricingCta": "Unlock the full decision report"
+      "pricingCta": "Unlock the full decision report",
+      "faqPremiumTitle": "متى أستخدم حاسبة مميزة؟",
+      "faqPremiumAnswer": "استخدم حاسبة مميزة عندما يؤثر التقدير على التسعير أو العمليات أو قرارات الإدارة وتحتاج إلى محركات خفية وعتبات وتقارير قابلة للتصدير.",
+      "relatedPremiumTitle": "حاسبة مميزة ذات صلة",
+      "relatedPremiumCta": "عرض الحاسبة المميزة ذات الصلة"
     }
   },
   "trust": {
@@ -1159,9 +1163,9 @@
     "documentLabel": "Premium decision report",
     "reportEyebrow": "Decision report",
     "decisionDesk": "Decision desk",
-    "runPrompt": "Enter ledger entries and run the analysis.",
+    "runPrompt": "أدخل قيم التشغيل وابدأ الحساب.",
     "ledgerEntries": "Ledger entries",
-    "runAnalysis": "Run analysis",
+    "runAnalysis": "بدء الحساب",
     "whatThisMeans": "What this means",
     "hiddenDriversTitle": "Hidden drivers behind the result",
     "hiddenDriversIntro": "These secondary outputs explain what is pushing the main result up or down.",
@@ -2728,25 +2732,436 @@
   },
   "freeToolUi": {
     "preCheck": "فحص مجاني أولي",
-    "premiumAnalyzer": "محلل متميز",
+    "premiumAnalyzer": "حاسبة مميزة",
     "classicForm": "نموذج كلاسيكي",
     "smartFormMeta": "نموذج ذكي",
     "simple": "بسيط",
     "expert": "خبير",
     "calculationSummary": "ملخص الحساب",
-    "runAnalysis": "تشغيل التحليل",
+    "runAnalysis": "بدء الحساب",
     "calculating": "جارٍ الحساب…",
     "whatIs": "ما هو {title}؟",
     "decisionOutput": "نتيجة القرار",
     "exportLabel": "تصدير:",
-    "exportNote": "يستخدم تصدير PDF اشتراكك الحالي وخط إنتاج التقارير."
+    "exportNote": "يستخدم تصدير PDF اشتراكك الحالي وخط إنتاج التقارير.",
+    "analysisBlockedTitle": "الحساب محظور",
+    "contractFormEyebrow": "حساب قائم على العقد",
+    "contractFormDecisionGoal": "ما النتيجة التي تنتجها هذه المدخلات وفق الصيغة الموثقة؟",
+    "contractFormAssumptionsRules": "{assumptionCount} افتراض(ات) محكوم · {ruleCount} قاعدة تحقق",
+    "contractFormRulesOnly": "{ruleCount} قاعدة تحقق نشطة",
+    "contractFormTrustAria": "ملخص ثقة النموذج الذكي",
+    "requiredInputsTitle": "المدخلات المطلوبة",
+    "requiredInputsDescription": "مدخلات أساسية لمسار حساب صالح.",
+    "optionalInputsTitle": "تحسينات اختيارية",
+    "optionalInputsDescription": "تحسّن دقة التقدير دون كسر القيم الافتراضية.",
+    "advancedInputsTitle": "مدخلات متقدمة",
+    "advancedInputsDescription": "عمق احترافي عند التوفر.",
+    "contractNotFound": "لم يُعثر على عقد النموذج الذكي لهذه الأداة.",
+    "calculationSteps": "خطوات الحساب",
+    "calculationStepsEmpty": "ستظهر خطوات الحساب عندما يعرض هذا العقد أثرًا حتميًا.",
+    "calculationStepDecisionGoal": "هدف القرار",
+    "calculationStepFormulaSummary": "ملخص الصيغة"
   },
   "freeToolContent": {
     "square-meter-calculator": {
       "title": "حاسبة المتر المربع",
-      "description": "احسب مساحة المستطيل بالمتر المربع.",
-      "seoTitle": "حاسبة المتر المربع — المساحة بالمتر المربع | SectorCalc",
-      "seoDescription": "حساب مساحة مستطيلة: الطول × العرض مع تحويلات القدم المربعة واليارد المربعة."
+      "description": "احسب مساحة الأرضية المستطيلة بالمتر المربع مع تحويلات الوحدات."
+    },
+    "square-footage-calculator": {
+      "title": "حاسبة القدم المربع",
+      "description": "احسب مساحة الأرضية بالقدم المربع مع تحويلات متريّة وإلى acres."
+    },
+    "concrete-volume-calculator": {
+      "title": "حاسبة حجم الخرسانة",
+      "description": "قدّر حجم الخرسانة للبلاطات والأساسات بالمتر المكعب."
+    },
+    "concrete-bag-calculator": {
+      "title": "حاسبة أكياس الخرسانة",
+      "description": "قدّر عدد أكياس الخرسانة المطلوبة للصب مع احتساب نسبة الهدر."
+    },
+    "paint-coverage-calculator": {
+      "title": "حاسبة تغطية الطلاء",
+      "description": "قدّر لترات الطلاء المطلوبة حسب مساحة الجدران وعدد الطبقات."
+    },
+    "tile-calculator": {
+      "title": "حاسبة البلاط",
+      "description": "احسب عدد البلاط المطلوب لمساحة الأرضية مع احتياطي الهدر."
+    },
+    "flooring-calculator": {
+      "title": "حاسبة الأرضيات",
+      "description": "احسب مساحة أرضية الغرفة مع نسبة الهدر لطلب المواد."
+    },
+    "roofing-area-calculator": {
+      "title": "حاسبة مساحة السقف",
+      "description": "قدّر مساحة سطح السقف من مساحة البصمة ومعامل الميل."
+    },
+    "stair-calculator": {
+      "title": "حاسبة السلالم",
+      "description": "قدّر عدد درجات السلم والمسافة الأفقية الإجمالية."
+    },
+    "drywall-calculator": {
+      "title": "حاسبة ألواح الجبس",
+      "description": "احسب عدد ألواح الجبس المطلوبة لمساحة الجدار."
+    },
+    "brick-calculator": {
+      "title": "حاسبة الطوب",
+      "description": "احسب عدد الطوب لمساحة الجدار مع احتياطي الهدر."
+    },
+    "rebar-weight-calculator": {
+      "title": "حاسبة وزن حديد التسليح",
+      "description": "قدّر وزن حديد التسليح من القطر والطول والكمية."
+    },
+    "excavation-volume-calculator": {
+      "title": "حاسبة حجم الحفر",
+      "description": "احسب حجم الحفر المستطيل بالمتر المكعب."
+    },
+    "plaster-calculator": {
+      "title": "حاسبة الجبس",
+      "description": "احسب حجم ووزن الجبس من المساحة والسماكة."
+    },
+    "home-renovation-m2-calculator": {
+      "title": "حاسبة تكلفة تجديد المنزل لكل m²",
+      "description": "قدّر الميزانية من المساحة وتكلفة المتر المربع واحتياطي الطوارئ."
+    },
+    "loan-payment-calculator": {
+      "title": "حاسبة قسط القرض",
+      "description": "احسب القسط الشهري للقرض من أصل المبلغ ونسبة الفائدة والمدة."
+    },
+    "mortgage-calculator": {
+      "title": "حاسبة الرهن العقاري",
+      "description": "احسب القسط الشهري للرهن مع تفصيل إجمالي الفوائد."
+    },
+    "interest-calculator": {
+      "title": "حاسبة الفائدة البسيطة",
+      "description": "احسب الفائدة البسيطة وإجمالي السداد على مدى المدة."
+    },
+    "compound-interest-calculator": {
+      "title": "حاسبة الفائدة المركبة",
+      "description": "احسب القيمة المستقبلية مع النمو المركب."
+    },
+    "vat-calculator": {
+      "title": "حاسبة ضريبة القيمة المضافة",
+      "description": "أضف ضريبة القيمة المضافة إلى المبلغ الصافي."
+    },
+    "discount-calculator": {
+      "title": "حاسبة الخصم",
+      "description": "احسب سعر البيع بعد خصم بنسبة مئوية."
+    },
+    "percentage-calculator": {
+      "title": "حاسبة النسبة المئوية",
+      "description": "اعثر على X بالمائة من قيمة."
+    },
+    "profit-margin-calculator": {
+      "title": "حاسبة هامش الربح",
+      "description": "احسب نسبة هامش البيع من السعر والتكلفة."
+    },
+    "break-even-calculator": {
+      "title": "حاسبة نقطة التعادل",
+      "description": "احسب عدد الوحدات اللازمة لتغطية التكاليف الثابتة."
+    },
+    "roi-calculator": {
+      "title": "حاسبة عائد الاستثمار",
+      "description": "احسب عائد الاستثمار بالنسبة المئوية."
+    },
+    "salary-cost-calculator": {
+      "title": "حاسبة تكلفة الراتب على صاحب العمل",
+      "description": "احسب التكلفة الإجمالية على صاحب العمل شاملة مساهمات صاحب العمل."
+    },
+    "hourly-rate-calculator": {
+      "title": "حاسبة الأجر بالساعة",
+      "description": "احسب الأجر بالساعة القابل للفوترة من الدخل الشهري."
+    },
+    "depreciation-calculator": {
+      "title": "حاسبة الإهلاك الخطي",
+      "description": "احسب الإهلاك السنوي من تكلفة الأصل والقيمة المتبقية."
+    },
+    "cash-flow-gap-calculator": {
+      "title": "حاسبة فجوة التدفق النقدي",
+      "description": "احسب فجوة رأس المال العامل من مواعيد المستحقات والمدفوعات."
+    },
+    "unit-cost-calculator": {
+      "title": "حاسبة التكلفة للوحدة",
+      "description": "احسب التكلفة لكل وحدة من إجمالي التكلفة والكمية."
+    },
+    "machine-time-calculator": {
+      "title": "حاسبة وقت الآلة",
+      "description": "حوّل وقت الإعداد والدورة إلى تكلفة الآلة."
+    },
+    "cnc-cycle-time-calculator": {
+      "title": "حاسبة وقت دورة CNC",
+      "description": "احسب إجمالي ثواني CNC لكل دفعة شاملة التحميل والتفريغ."
+    },
+    "welding-cost-estimator": {
+      "title": "مقدّر تكلفة اللحام",
+      "description": "احسب تكلفة المواد والعمالة والمستهلكات لعملية لحام."
+    },
+    "laser-cutting-time-check": {
+      "title": "فحص وقت القطع بالليزر",
+      "description": "احسب مسار القطع والثقب ودقائق الإعداد لأعمال الليزر."
+    },
+    "3d-print-cost-check": {
+      "title": "فحص تكلفة الطباعة ثلاثية الأبعاد",
+      "description": "احسب تكلفة المواد والآلة وما بعد المعالجة لعملية طباعة."
+    },
+    "sheet-metal-weight-calculator": {
+      "title": "حاسبة وزن الصفائح المعدنية",
+      "description": "احسب وزن اللوحة من الأبعاد والسماكة والكثافة."
+    },
+    "material-waste-calculator": {
+      "title": "حاسبة هدر المواد",
+      "description": "احسب الهدر بالكيلوغرام والنسبة المئوية من المدخلات والمخرجات الجيدة."
+    },
+    "scrap-rate-calculator": {
+      "title": "حاسبة معدل الخردة",
+      "description": "احسب نسبة الخردة من الوحدات التالفة والإجمالي."
+    },
+    "oee-calculator": {
+      "title": "حاسبة OEE",
+      "description": "احسب فعالية المعدات الإجمالية من التوفر × الأداء × الجودة."
+    },
+    "machine-hour-rate-calculator": {
+      "title": "حاسبة أجر الساعة للآلة",
+      "description": "احسب أجر الساعة للآلة مع جميع التكاليف."
+    },
+    "tool-life-calculator": {
+      "title": "حاسبة تكلفة عمر الأداة",
+      "description": "احسب تكلفة الأدوات المخصصة لكل قطعة سليمة."
+    },
+    "cutting-speed-calculator": {
+      "title": "حاسبة سرعة القطع",
+      "description": "احسب سرعة السطح Vc من القطر وعدد الدورات."
+    },
+    "feed-rate-calculator": {
+      "title": "حاسبة معدل التغذية",
+      "description": "احسب تغذية الطاولة من الدورات وعدد الأسنان والتغذية لكل سن."
+    },
+    "tolerance-drift-calculator": {
+      "title": "حاسبة انحراف التسامح",
+      "description": "احسب الانحراف عن البعد المستهدف ونسبة الانحراف."
+    },
+    "batch-yield-calculator": {
+      "title": "حاسبة إنتاجية الدفعة",
+      "description": "احسب نسبة إنتاجية العملية من المدخلات والمخرجات الجيدة."
+    },
+    "kwh-cost-calculator": {
+      "title": "حاسبة تكلفة kWh",
+      "description": "احسب تكلفة الكهرباء من الاستهلاك والتعرفة."
+    },
+    "electricity-bill-calculator": {
+      "title": "حاسبة فاتورة الكهرباء",
+      "description": "احسب الفاتورة الشهرية من الاستخدام والتعرفة والرسوم الثابتة."
+    },
+    "energy-consumption-check": {
+      "title": "فحص استهلاك الطاقة",
+      "description": "احسب kWh والتكلفة من القدرة والساعات والأيام."
+    },
+    "carbon-footprint-quick": {
+      "title": "فحص سريع للبصمة الكربonية",
+      "description": "احسب CO₂ من استخدام الطاقة ومعامل الانبعاث."
+    },
+    "fuel-emission-calculator": {
+      "title": "حاسبة انبعاثات الوقود",
+      "description": "احسب CO₂ من لترات الوقود ومعامل الانبعاث."
+    },
+    "solar-panel-output-calculator": {
+      "title": "حاسبة إنتاج الألواح الشمسية",
+      "description": "احسب إنتاج الطاقة من حجم النظام وساعات الشمس والكفاءة."
+    },
+    "heat-loss-calculator": {
+      "title": "حاسبة فقدان الحرارة",
+      "description": "احسب فقدان الحرارة في الحالة المستقرة بالواط."
+    },
+    "boiler-efficiency-calculator": {
+      "title": "حاسبة كفاءة الغلاية",
+      "description": "احسب كفاءة الاحتراق من الطاقة المفيدة ومدخلات الوقود."
+    },
+    "compressor-energy-cost-calculator": {
+      "title": "حاسبة تكلفة طاقة الضاغط",
+      "description": "احسب تكلفة التشغيل من kilowatt الضاغط والساعات والتعرفة."
+    },
+    "cbam-exposure-quick-check": {
+      "title": "فحص سريع لتعرض CBAM",
+      "description": "احسب التعرض لتكلفة الكربون على الحدود من الانبعاثات وسعر الكربون."
+    },
+    "fuel-consumption-calculator": {
+      "title": "حاسبة استهلاك الوقود",
+      "description": "احسب لترات الوقود وتكلفة الرحلة من المسافة والاقتصاد."
+    },
+    "fuel-cost-calculator": {
+      "title": "حاسبة تكلفة الوقود",
+      "description": "احسب لترات الوقود والتكلفة الإجمالية من المسافة والاقتصاد."
+    },
+    "desi-calculator": {
+      "title": "حاسبة ديسي",
+      "description": "احسب الوزن الحجمي (desi) من أبعاد الطرد."
+    },
+    "volumetric-weight-calculator": {
+      "title": "حاسبة الوزن الحجمي",
+      "description": "احسب الوزن الحجمي القابل للفوترة للشحن."
+    },
+    "route-cost-calculator": {
+      "title": "حاسبة تكلفة المسار",
+      "description": "احسب تكلفة الرحلة من الوقود ووقت السائق والرسوم."
+    },
+    "delivery-cost-calculator": {
+      "title": "حاسبة تكلفة التسليم",
+      "description": "احسب تكلفة الميل الأخير من المسافة ورسوم التوقف."
+    },
+    "freight-cost-calculator": {
+      "title": "حاسبة تكلفة الشحن",
+      "description": "احسب رسوم الشحن من تعرفة الوزن والرسوم الثابتة."
+    },
+    "warehouse-storage-cost-calculator": {
+      "title": "حاسبة تكلفة تخزين المستودع",
+      "description": "احسب تكلفة التخزين من عدد المنصات والتعرفة اليومية والأيام."
+    },
+    "vehicle-depreciation-calculator": {
+      "title": "حاسبة إهلاك المركبة",
+      "description": "احسب الإهلاك السنوي للمركبة بالطريقة الخطية."
+    },
+    "trip-budget-calculator": {
+      "title": "حاسبة ميزانية الرحلة",
+      "description": "احسب الميزانية الإجمالية من الوقود والإقامة والطعام والمصاريف الإضافية."
+    },
+    "fertilizer-dosage-calculator": {
+      "title": "حاسبة جرعة السماد",
+      "description": "احسب إجمالي السماد من مساحة الحقل ومعدل الجرعة."
+    },
+    "seed-rate-calculator": {
+      "title": "حاسبة معدل البذور",
+      "description": "احسب كمية البذور من المساحة ومعدل البذر."
+    },
+    "irrigation-cost-check": {
+      "title": "فحص تكلفة الري",
+      "description": "احسب طاقة المضخة وتكلفة الماء للري."
+    },
+    "water-usage-calculator": {
+      "title": "حاسبة استخدام الماء",
+      "description": "احسب اللترات من معدل التدفق والمدة."
+    },
+    "feed-cost-estimator": {
+      "title": "مقدّر تكلفة العلف",
+      "description": "احسب إجمالي تكلفة العلف شاملة النقل."
+    },
+    "milk-yield-check": {
+      "title": "فحص إنتاج الحليب",
+      "description": "احسب لترات الحليب اليومية وتقدير الإيرادات."
+    },
+    "crop-yield-calculator": {
+      "title": "حاسبة إنتاجية المحصول",
+      "description": "احسب طن الحصاد والإيرادات من الإنتاجية لكل hectare."
+    },
+    "recipe-cost-check": {
+      "title": "فحص تكلفة الوصفة",
+      "description": "احسب تكلفة الحصة من إجمالي إنفاق المكونات."
+    },
+    "food-cost-calculator": {
+      "title": "حاسبة نسبة تكلفة الطعام",
+      "description": "احسب نسبة تكلفة الطعام من تكلفة المكونات وسعر القائمة."
+    },
+    "portion-cost-calculator": {
+      "title": "حاسبة تكلفة الحصة",
+      "description": "احسب التكلفة لكل حصة من تكلفة الدفعة."
+    },
+    "rent-vs-buy-calculator": {
+      "title": "حاسبة الإيجار مقابل الشراء",
+      "description": "قارن الإيجار مع الدفعة المستثمرة مقابل الشراء برهن عقاري وتقدير القيمة."
+    },
+    "home-budget-calculator": {
+      "title": "حاسبة ميزانية المنزل",
+      "description": "قارن المصاريف الشهرية بالدخل واحسب الرصيد المتبقي."
+    },
+    "time-duration-calculator": {
+      "title": "حاسبة المدة الزمنية",
+      "description": "احسب الدقائق المنقضية بين وقتين."
+    },
+    "age-calculator": {
+      "title": "حاسبة العمر",
+      "description": "احسب العمر بالسنوات من سنة الميلاد."
+    },
+    "date-difference-calculator": {
+      "title": "حاسبة فرق التاريخ",
+      "description": "احسب فرق الأيام بين رقمي يوم."
+    },
+    "shopping-budget-calculator": {
+      "title": "حاسبة ميزانية التسوق",
+      "description": "احسب مجموع ما يصل إلى خمس بنود تسوق."
+    },
+    "fuel-travel-calculator": {
+      "title": "حاسبة وقود السفر",
+      "description": "احسب وقود الرحلة وتكلفتها للسفر الشخصي."
+    },
+    "unit-price-calculator": {
+      "title": "حاسبة السعر للوحدة",
+      "description": "احسب السعر لكل وحدة من السعر الإجمالي والكمية."
+    },
+    "tip-calculator": {
+      "title": "حاسبة الإكرامية",
+      "description": "احسب مبلغ الإكرامية والفاتورة الإجمالية بنسبة الإكرامية."
+    },
+    "savings-goal-calculator": {
+      "title": "حاسبة هدف الادخار",
+      "description": "احسب الأشهر اللازمة للوصول إلى هدف ادخار."
+    },
+    "percentage-increase-calculator": {
+      "title": "حاسبة الزيادة النسبية",
+      "description": "احسب نسبة التغير من القيمة القديمة إلى الجديدة."
+    },
+    "average-calculator": {
+      "title": "حاسبة المتوسط",
+      "description": "احسب المتوسط الحسابي لما يصل إلى خمس قيم."
+    },
+    "median-calculator": {
+      "title": "حاسبة الوسيط",
+      "description": "احسب الوسيط لما يصل إلى خمس قيم رقمية."
+    },
+    "standard-deviation-calculator": {
+      "title": "حاسبة الانحراف المعياري",
+      "description": "احسب الانحراف المعياري للمجتمع لما يصل إلى خمس قيم."
+    },
+    "ratio-calculator": {
+      "title": "حاسبة النسبة",
+      "description": "احسب النسبة a:b وصيغتها المبسطة."
+    },
+    "proportion-calculator": {
+      "title": "حاسبة التناسب",
+      "description": "احسب x في التناسب a/b = c/x."
+    },
+    "probability-calculator": {
+      "title": "حاسبة الاحتمال",
+      "description": "احسب نسبة الاحتمال من النتائج المواتية والإجمالية."
+    },
+    "sample-size-calculator": {
+      "title": "حاسبة حجم العينة",
+      "description": "احسب حجم العينة للمجتمع المحدود من هامش الخطأ ومستوى الثقة."
+    },
+    "z-score-calculator": {
+      "title": "حاسبة الدرجة Z",
+      "description": "احسب الدرجة المعيارية من القيمة والمتوسط والانحراف المعياري."
+    },
+    "linear-regression-calculator": {
+      "title": "حاسبة الانحدار الخطي",
+      "description": "احسب خط المربعات الصغرى عبر ثلاث نقاط (x,y)."
+    },
+    "length-converter": {
+      "title": "محول الطول",
+      "description": "حوّل الأطوال بين mm وcm وm وkm والبوصة والقدم والياردة والميل."
+    },
+    "weight-converter": {
+      "title": "محول الوزن",
+      "description": "حوّل الكتلة بين g وkg وطن وأونصة ورطل."
+    },
+    "area-converter": {
+      "title": "محول المساحة",
+      "description": "حوّل وحدات المساحة بما فيها m² وft² وacres والهectares."
+    },
+    "volume-converter": {
+      "title": "محول الحجم",
+      "description": "حوّل الحجم بين ml وL وm³ وin³ وft³ والجallon الأمريكي."
+    },
+    "temperature-converter": {
+      "title": "محول درجة الحرارة",
+      "description": "حوّل بين Celsius وFahrenheit وKelvin."
     }
   },
   "schemaBreadcrumbs": {
@@ -2754,5 +3169,15 @@
     "freeTools": "حاسبات مجانية",
     "premiumTools": "حاسبات مميزة",
     "industries": "حاسبات قطاعية"
+  },
+  "premiumSchemaPage": {
+    "eyebrow": "حاسبة مميزة",
+    "featuredQuestion": "ماذا تحسب {name}؟",
+    "bullet1": "محركات الخسارة الخفية وفحوصات العتبات",
+    "bullet2": "إجراءات مقترحة للمراجعة التشغيلية",
+    "bullet3": "PDF وCSV جاهزان للتصدير في الخطط المدفوعة",
+    "legalQuestion": "هل هذه نصيحة مالية أو هندسية؟",
+    "legalAnswer": "لا. حاسبات SectorCalc المميزة أدوات دعم قرار بافتراضات شفافة. لا تحل محل المشورة المالية أو القانونية أو الهندسية المهنية.",
+    "serviceType": "حساب قرار تشغيلي"
   }
 }
