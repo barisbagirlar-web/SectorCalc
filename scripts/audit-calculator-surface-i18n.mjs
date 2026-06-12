@@ -20,7 +20,18 @@ const EN_LABEL_PATTERNS = [
   /\bRoom or slab\b/i,
   /\bTotal pour volume\b/i,
   /\bVolume per bag\b/i,
+  /\bWeld throat\b/i,
+  /\bWeld length\b/i,
+  /\bBolt diameter\b/i,
+  /\bBolt count\b/i,
+  /\bAllowable stress\b/i,
+  /\bSafety factor\b/i,
 ];
+
+const PREMIUM_INPUTS = JSON.parse(
+  readFileSync(join(ROOT, "src/data/premium-schema-inputs-i18n.generated.json"), "utf8"),
+);
+const PREMIUM_SCHEMA_SLUGS = Object.keys(PREMIUM_INPUTS.en ?? {});
 
 function loadMessages(locale) {
   return JSON.parse(readFileSync(join(ROOT, "messages", `${locale}.json`), "utf8"));
@@ -85,7 +96,47 @@ for (const locale of NON_EN) {
       const label = copy.label ?? "";
       const placeholder = copy.placeholder ?? "";
       const enLabel = enFields[fieldKey]?.label ?? "";
-      const isTechnicalToken = /^[A-Z0-9²³%/.\-]+$/.test(enLabel) || enLabel.length <= 3;
+      const COGNATES = new Set([
+        "Minimum",
+        "Maximum",
+        "Million",
+        "Radius",
+        "Volume",
+        "Transport",
+        "Divisor",
+        "Population",
+        "Performance",
+        "Distance",
+        "Factor",
+        "Minutes",
+        "Module",
+        "Base",
+        "Material",
+        "Total",
+        "Favorable",
+        "Proportion",
+        "Dosage",
+        "Portions",
+        "Inspection",
+        "kg/m",
+        "DPMO",
+        "OEE",
+        "Base A",
+        "Base B",
+        "Quote A",
+        "Quote B",
+        "Package A",
+        "Package B",
+        "Item 1",
+        "Item 2",
+        "Item 3",
+        "Item 4",
+        "Item 5",
+      ]);
+      const isTechnicalToken =
+        /^[A-Z0-9²³%/.\-]+$/.test(enLabel) ||
+        enLabel.length <= 3 ||
+        COGNATES.has(enLabel);
       totalLabels += 1;
       if (!isTechnicalToken && label === enLabel && enLabel.length > 2) {
         enIdenticalLabels += 1;
@@ -100,11 +151,20 @@ for (const locale of NON_EN) {
   }
 
   const identicalPct = totalLabels > 0 ? (enIdenticalLabels / totalLabels) * 100 : 0;
-  const maxIdenticalPct = locale === "tr" ? 12 : 35;
+  const maxIdenticalPct = 3;
   if (identicalPct > maxIdenticalPct) {
     failures.push(
       `${locale}: ${enIdenticalLabels}/${totalLabels} field labels identical to EN (${identicalPct.toFixed(1)}% > ${maxIdenticalPct}%)`,
     );
+  }
+
+  const sfValidation = messages.smartForm?.validation;
+  const enValidation = loadMessages("en").smartForm?.validation;
+  if (sfValidation?.required === enValidation?.required) {
+    failures.push(`${locale}: smartForm.validation.required still English`);
+  }
+  if (messages.calculator?.calculate === loadMessages("en").calculator?.calculate) {
+    failures.push(`${locale}: calculator.calculate still English`);
   }
 
   let untranslatedResults = 0;
@@ -131,6 +191,28 @@ for (const locale of NON_EN) {
     categories.metaTitle === loadMessages("en").catalogExplorer?.categories?.metaTitle
   ) {
     failures.push(`${locale}: catalogExplorer.categories.metaTitle still English`);
+  }
+
+  // Premium schema tools — zero English-identical labels on TR (user-reported welded-bolted leak)
+  if (locale === "tr") {
+    const enInputs = loadMessages("en").freeToolInputs ?? {};
+    for (const slug of PREMIUM_SCHEMA_SLUGS) {
+      const trFields = fieldInputs[slug] ?? {};
+      const enFields = enInputs[slug] ?? {};
+      for (const [fieldKey, copy] of Object.entries(trFields)) {
+        const label = copy?.label ?? "";
+        const enLabel = enFields[fieldKey]?.label ?? "";
+        if (
+          label &&
+          enLabel &&
+          label === enLabel &&
+          enLabel.length > 3 &&
+          !/^[A-Z0-9²³%/.\-]+$/.test(enLabel)
+        ) {
+          failures.push(`tr: premium EN label leak ${slug}.${fieldKey} → "${label}"`);
+        }
+      }
+    }
   }
 }
 

@@ -11,7 +11,7 @@
     "premiumVerdicts": "Premium-Urteile",
     "industries": "Branchenrechner",
     "byFunction": "Nach Funktion",
-    "categories": "Categories",
+    "categories": "Kategorien",
     "reports": "Berichte",
     "pricing": "Preise",
     "login": "Anmelden",
@@ -19,11 +19,11 @@
     "account": "Konto",
     "auditEngine": "Tools",
     "intelligenceLayer": "Premium",
-    "myReports": "Reports",
-    "settings": "Account",
+    "myReports": "Berichte",
+    "settings": "Konto",
     "audit": "Audit",
-    "intelligence": "Intelligence",
-    "archive": "Archive",
+    "intelligence": "Intelligenz",
+    "archive": "Archiv",
     "freeTools": "Gratis-Checks",
     "premiumTools": "Premium-Urteile",
     "unlockPro": "Pro freischalten",
@@ -32,10 +32,10 @@
   "osGate": {
     "label": "Abonnement erforderlich",
     "message": "Diese Funktion erfordert die Intelligence-Ebene. Mit Pro freischalten.",
-    "single": "Single run {price}",
-    "pro": "Pro {price}",
+    "single": "Single run {Preis}",
+    "pro": "Pro {Preis}",
     "singleCta": "Lauf · {price}",
-    "proCta": "Pro · {price}"
+    "proCta": "Pro · {Preis}"
   },
   "hero": {
     "title": "Präzise messen für Ihre Branche. Jeden Verlust erkennen. Sicher entscheiden.",
@@ -116,20 +116,20 @@
     "teamFeatures": "Geteilter Zugang|Team-Berichtshistorie|Admin-Sitze (geplant)|Volumenpreise",
     "teamCta": "Team-Plan starten",
     "matrix": {
-      "pageTitle": "Plan & Feature Matrix",
-      "pageSubtitle": "Compare access tiers across the Industrial OS.",
-      "featureCol": "Feature",
-      "action": "Action",
-      "colFree": "Free",
+      "pageTitle": "Plan- & Feature-Matrix",
+      "pageSubtitle": "Zugriffsstufen im Industrial OS vergleichen.",
+      "featureCol": "Funktion",
+      "action": "Aktion",
+      "colFree": "Gratis",
       "colPro": "Pro",
       "colEnterprise": "Enterprise",
-      "sectorCalculators": "Sector utility modules",
-      "riskSignals": "Risk signal output",
+      "sectorCalculators": "Branchen-Utility-Module",
+      "riskSignals": "Risikosignal-Ausgabe",
       "premiumAnalyzers": "Premium-Rechner",
-      "savedReports": "Saved verdict archive",
-      "pdfExport": "PDF export",
-      "teamSeats": "Multi-seat access",
-      "adminControls": "Admin seat controls"
+      "savedReports": "Gespeichertes Urteilsarchiv",
+      "pdfExport": "PDF-Export",
+      "teamSeats": "Mehrplatz-Zugang",
+      "adminControls": "Admin-Sitz-Steuerung"
     }
   },
   "checkout": {
@@ -141,29 +141,29 @@
     "socialProof": "Vertraut von über 12.000 Betreibern weltweit"
   },
   "checkoutPages": {
-    "successEyebrow": "Checkout",
+    "successEyebrow": "Kasse",
     "successTitle": "Zahlung erhalten.",
-    "successText": "Your premium access is being prepared. If your report does not unlock immediately, refresh the page or contact support.",
-    "successRefreshNote": "Payment confirmation received. Access is applied by our server — refresh in a few seconds if your report is still locked.",
+    "successText": "Premium-Zugang wird vorbereitet. Seite aktualisieren oder Support kontaktieren, falls gesperrt.",
+    "successRefreshNote": "Zahlungsbestätigung erhalten. Zugriff wird serverseitig angewendet — in wenigen Sekunden aktualisieren, falls gesperrt.",
     "successPrimaryCta": "Return to Rechner",
     "successPremiumCta": "Premium-Rechner öffnen",
-    "successSecondaryCta": "Go to pricing",
-    "cancelEyebrow": "Checkout",
-    "cancelTitle": "Checkout canceled.",
+    "successSecondaryCta": "Zu den Preisen",
+    "cancelEyebrow": "Kasse",
+    "cancelTitle": "Checkout abgebrochen.",
     "cancelText": "You can continue using free calculators or return to the premium Rechner when ready.",
     "cancelPricingCta": "Zurück zu Preisen",
     "cancelReturnCta": "Return to Rechner",
-    "cancelFreeCta": "View free calculators"
+    "cancelFreeCta": "Gratis-Rechner ansehen"
   },
   "pilotCnc": {
     "hero": {
-      "eyebrow": "MarginCore Pilot · CNC Manufacturing"
+      "eyebrow": "MarginCore Pilot · CNC-Fertigung"
     },
     "form": {
       "title": "Job inputs",
-      "setupTime": "Setup time (min)",
-      "cycleTime": "Cycle time (min)",
-      "quantity": "Quantity (units)",
+      "setupTime": "Rüstzeit time (min)",
+      "cycleTime": "Taktzeit (min)",
+      "quantity": "Menge (units)",
       "submit": "Run naive exposure check",
       "subtitle": "Setup, cycle and quantity — naive machine-time exposure.",
       "rateNote": "Naive machine cost uses ${rate}/hr until premium tooling and material are supplied."
@@ -172,8 +172,8 @@
       "title": "Naive exposure",
       "empty": "Enter inputs and run the check.",
       "totalMinutes": "Total machine time",
-      "machineHours": "Machine hours",
-      "setupBurden": "Setup burden",
+      "machineHours": "Machine Stunden",
+      "setupBurden": "Rüstzeit burden",
       "naiveCost": "Naive machine cost"
     },
     "premium": {
@@ -183,10 +183,10 @@
       "signInRequired": "Sign in with Pro to unlock the premium verdict.",
       "signInLink": "Sign in →",
       "failed": "Premium verdict could not be generated.",
-      "verdictLabel": "Verdict",
-      "naiveLabel": "Deterministic",
-      "bufferLabel": "P90 buffer",
-      "p90Label": "P90 safe",
+      "verdictLabel": "Urteil",
+      "naiveLabel": "Deterministisch",
+      "bufferLabel": "P90-Puffer",
+      "p90Label": "P90-sicher",
       "fullAnalyzerLink": "CNC-Angebotsrisiko-Rechner öffnen →",
       "eyebrow": "MarginCore Pro",
       "body": "Server-side MarginCore-Berechnung — requires SectorCalc Pro.",
@@ -194,13 +194,13 @@
     },
     "phase2": {
       "label": "MarginCore · Phase 2",
-      "reservedLabel": "Stochastic engine slot",
-      "reservedBody": "Full P90 sensitivity matrix and PDF export mount here after premium unlock."
+      "reservedLabel": "Stochastischer Engine-Slot",
+      "reservedBody": "Volle P90-Sensitivitätsmatrix und PDF-Export nach Premium-Freischaltung hier."
     }
   },
   "freeTool": {
     "riskScoreLabel": "Risikowert",
-    "riskScoreAria": "Risk score: {score} percent",
+    "riskScoreAria": "Risk score: {score} procent",
     "whatItMeans": "Was das bedeutet",
     "premiumPreviewTitle": "Im vollständigen Bericht erhalten Sie:",
     "premiumBadge": "Premium",
@@ -227,7 +227,13 @@
       "title": "Kostenlose Rechner",
       "subtitle": "Finden Sie den Rechner nach Kategorie.",
       "metaTitle": "Kostenlose Rechner | SectorCalc",
-      "metaDescription": "Kostenlose Rechner nach Kategorie — Messung, Kosten, Finanzen, Energie, Umrechnung und Alltagsentscheidungen."
+      "metaDescription": "Kostenlose Rechner nach Kategorie — Messung, Kosten, Finanzen, Energie, Umrechnung und Alltagsentscheidungen.",
+      "validation": {
+        "required": "Bitte einen Wert wählen.",
+        "number": "Gültige Zahl eingeben.",
+        "min": "Muss mindestens {min} sein.",
+        "max": "Darf höchstens {max} sein."
+      }
     },
     "premiumTools": {
       "eyebrow": "Premium-Rechner",
@@ -251,7 +257,7 @@
       "statusAll": "Alle",
       "statusLive": "Live",
       "statusPlanned": "Geplant",
-      "scoreLabel": "Score {score}",
+      "scoreLabel": "Score {Score}",
       "ctaOpen": "Rechner öffnen",
       "ctaComingSoon": "Demnächst",
       "noResults": "Keine Rechner passen zu diesen Filtern.",
@@ -278,14 +284,14 @@
         "countLabel": "{count, plural, one {# Werkzeug} other {# Werkzeuge}}",
         "viewCategory": "Werkzeuge ansehen",
         "viewCategoryOpen": "Werkzeuge werden angezeigt",
-        "openItem": "Open calculator →"
+        "openItem": "Rechner öffnen →"
       },
       "free-tools": {
         "navLabel": "Nach Kategorie stöbern",
-        "countLabel": "{count, plural, one {# calculator} other {# calculators}}",
-        "viewCategory": "View calculators",
-        "viewCategoryOpen": "Showing calculators",
-        "openItem": "Open calculator →"
+        "countLabel": "{count, plural, one {# Rechner} other {# Rechner}}",
+        "viewCategory": "Rechner ansehen",
+        "viewCategoryOpen": "Rechner werden angezeigt",
+        "openItem": "Rechner öffnen →"
       },
       "premium-tools": {
         "navLabel": "Nach Berichtstyp stöbern",
@@ -296,10 +302,10 @@
       },
       "industries": {
         "navLabel": "Nach Branchengruppe stöbern",
-        "countLabel": "{count, plural, one {# sector} other {# sectors}}",
-        "viewCategory": "View sectors",
-        "viewCategoryOpen": "Showing sectors",
-        "openItem": "Open industry →"
+        "countLabel": "{count, plural, one {# Branche} other {# Branchen}}",
+        "viewCategory": "Branchen ansehen",
+        "viewCategoryOpen": "Branchen werden angezeigt",
+        "openItem": "Branche öffnen →"
       }
     },
     "search": {
@@ -340,7 +346,7 @@
       "ctaOpenAnalysis": "Berechnung öffnen",
       "ctaOpenSector": "Branche öffnen",
       "freeCount": "{count} kostenlos",
-      "premiumCount": "{count} premium"
+      "premiumCount": "{count} Premium"
     },
     "discoveryFooter": {
       "freeToolsLead": "Brauchen Sie eine tiefere Berechnung?",
@@ -525,7 +531,7 @@
     }
   },
   "trust": {
-    "stripLabel": "Trust and security",
+    "stripLabel": "Vertrauen und Sicherheit",
     "refund": "7-Tage-Rückerstattung",
     "ssl": "256-bit SSL sichere Kasse",
     "instant": "Sofortiger Zugang",
@@ -577,12 +583,12 @@
     "label": "Region",
     "auto": "Auto (by language)",
     "global": "Global · USD",
-    "turkey": "Turkey · TRY",
-    "germany": "Germany · EUR",
+    "turkey": "Türkei · TRY",
+    "germany": "Deutschland · EUR",
     "indicator": "{region} · {currency}",
-    "indicatorHint": "Currency follows your language or manual region choice",
-    "manualActive": "Manual region: {region}",
-    "followsLanguage": "Follows language → {region}"
+    "indicatorHint": "Währung folgt Sprache oder manueller Regionswahl",
+    "manualActive": "Manuelle Region: {region}",
+    "followsLanguage": "Folgt Sprache → {region}"
   },
   "locale": {
     "label": "Sprache",
@@ -594,147 +600,147 @@
     "fr": "Français"
   },
   "common": {
-    "learnMore": "Learn more",
-    "loading": "Loading..."
+    "learnMore": "Mehr erfahren",
+    "loading": "Wird geladen..."
   },
   "sectorCard": {
-    "calculate": "Calculate",
+    "calculate": "Berechnen",
     "badge": {
-      "free": "Free",
+      "free": "Gratis",
       "premium": "Premium",
       "new": "New"
     }
   },
   "theme": {
-    "groupLabel": "Color theme",
-    "light": "Light theme",
-    "system": "System theme",
-    "dark": "Dark theme"
+    "groupLabel": "Farbschema",
+    "light": "Helles Design",
+    "system": "Systemdesign",
+    "dark": "Dunkles Design"
   },
   "home": {
     "hero": {
-      "trustStrip": "{count} sectors · Free calculators · Premium reports · Expert logic · No ERP required"
+      "trustStrip": "{count} sectors · Free calculators · Premium reports · Exprot logic · No ERP required"
     },
     "pain": {
-      "eyebrow": "Universal measurement",
-      "title": "Detect the hidden losses in your industry",
-      "subtitle": "Every sector has unique losses — scrap, time, energy, material. See them instantly with sector-specific calculation tools.",
+      "eyebrow": "Universelle Messung",
+      "title": "Versteckte Verluste in Ihrer Branche erkennen",
+      "subtitle": "Every sector has unique losses — scrap, time, Energie, Material. See them instantly with sector-specific calculation tools.",
       "items": {
         "material": {
-          "title": "Material cost risk",
-          "text": "Setup time, rework and hidden labor erode margin after the estimate looks fine."
+          "title": "Material Kosten risk",
+          "text": "Rüstzeit time, rework and hidden labor erode margin after the estimate looks fine."
         },
         "labor": {
-          "title": "Labor & time risk",
+          "title": "Arbeits- & Zeitrisiko",
           "text": "Free checks expose visible risk — premium Rechner deliver the full verdict."
         },
         "overhead": {
-          "title": "Overhead & scope risk",
-          "text": "No ERP rollout, no consulting retainer — built for shops, trades and service teams."
+          "title": "Gemeinkosten- & Umfangsrisiko",
+          "text": "Kein ERP-Rollout, kein Beratervertrag — für Werkstätten, Handwerk und Service."
         }
       }
     },
     "freeCheck": {
-      "eyebrow": "Step 1",
-      "title": "Run a free sector check",
-      "subtitle": "{count} sector quick checks with 3–5 inputs. See visible risk in your browser — no account, no safe price, no final verdict.",
+      "eyebrow": "Schritt 1",
+      "title": "Gratis-Branchencheck durchführen",
+      "subtitle": "{count} sector quick checks with 3–5 inputs. See visible risk in your browser — no account, no safe Preis, no final verdict.",
       "cta": "Gratis-Margen-Check",
-      "cardLabel": "Free check output",
-      "cardRisk": "Risk signal: MEDIUM",
-      "cardBody": "Visible setup and labor exposure — full safe price withheld on free tier."
+      "cardLabel": "Gratis-Check-Ausgabe",
+      "cardRisk": "Risikosignal: MITTEL",
+      "cardBody": "Visible Rüstzeit and labor exposure — full safe Preis withheld on free tier."
     },
     "premiumStep": {
-      "eyebrow": "Step 2",
+      "eyebrow": "Schritt 2",
       "title": "Vollständiges Urteil",
       "subtitle": "Premium Rechner add minimum safe price, margin leak drivers, suggested action and PDF export — the decision layer operators need before quoting.",
       "cta": "Premium-Rechner",
-      "cardEyebrow": "Premium verdict",
-      "cardTitle": "Minimum safe price + action",
-      "cardBody": "Margin leak breakdown, accept / reprice verdict and exportable PDF report."
+      "cardEyebrow": "Premium-Urteil",
+      "cardTitle": "Minimum safe Preis + action",
+      "cardBody": "Margin leak breakdown, accept / rePreis verdict and exportable PDF report."
     },
     "sample": {
-      "eyebrow": "Sample verdict report",
-      "title": "CNC Quote Risk Report",
-      "subtitle": "This is what a premium decision output looks like — not a spreadsheet dump.",
-      "verdictLabel": "Verdict",
-      "verdictValue": "DO NOT ACCEPT UNDER $1,840",
-      "riskLabel": "Margin risk",
-      "riskValue": "HIGH RISK",
-      "leakLabel": "Main leak",
-      "leakValue": "Setup time + tooling buffer",
-      "actionLabel": "Suggested action",
-      "actionValue": "Reprice or reduce scope before sending the quote.",
-      "primaryCta": "View Sample Verdict Report",
+      "eyebrow": "Beispiel-Urteilsbericht",
+      "title": "CNC-Angebots-Risikobericht",
+      "subtitle": "So sieht eine Premium-Entscheidungsausgabe aus — kein Tabellen-Dump.",
+      "verdictLabel": "Urteil",
+      "verdictValue": "NICHT UNTER 1.840 $ AKZEPTIEREN",
+      "riskLabel": "Margenrisiko",
+      "riskValue": "HOCHES RISIKO",
+      "leakLabel": "Hauptleck",
+      "leakValue": "Rüstzeit time + tooling buffer",
+      "actionLabel": "Empfohlene Maßnahme",
+      "actionValue": "RePreis or reduce scope before sEndeing the quote.",
+      "primaryCta": "Beispiel-Urteilsbericht ansehen",
       "secondaryCta": "CNC-Angebotsrisiko-Rechner öffnen"
     },
     "compare": {
-      "eyebrow": "Free vs Pro",
-      "title": "Quick check vs full verdict",
-      "freeLabel": "Free check",
-      "freeItem1": "Visible risk signal in your browser",
-      "freeItem2": "Direct cost exposure indicators",
-      "freeItem3": "No PDF export",
-      "freeItem4": "No saved report history",
-      "proLabel": "Pro verdict",
-      "proItem1": "Minimum safe price",
-      "proItem2": "Margin leak breakdown",
-      "proItem3": "Accept / Reprice / Do Not Accept verdict",
-      "proItem4": "PDF-ready report and saved history",
-      "proCta": "View Premium Verdicts"
+      "eyebrow": "Gratis vs Pro",
+      "title": "Schnellcheck vs volles Urteil",
+      "freeLabel": "Gratis-Check",
+      "freeItem1": "Sichtbares Risikosignal im Browser",
+      "freeItem2": "Direct Kosten exposure indicators",
+      "freeItem3": "Kein PDF-Export",
+      "freeItem4": "Keine gespeicherte Berichtshistorie",
+      "proLabel": "Pro-Urteil",
+      "proItem1": "Minimum safe Preis",
+      "proItem2": "Margenleck-Aufschlüsselung",
+      "proItem3": "Accept / RePreis / Do Not Accept verdict",
+      "proItem4": "PDF-fertiger Bericht und gespeicherte Historie",
+      "proCta": "Premium-Urteile ansehen"
     },
     "trust": {
-      "title": "Trusted calculation across {count} sectors",
+      "title": "Vertrauenswürdige Berechnung in {count} Branchen",
       "items": {
         "erp": {
-          "title": "No ERP required",
-          "text": "Free checks run without enterprise setup or onboarding."
+          "title": "Kein ERP nötig",
+          "text": "Free checks run without enterprise Rüstzeit or onboarding."
         },
         "freeSetup": {
-          "title": "Free checks run without setup",
-          "text": "{count} sector quick checks in your browser — no account needed."
+          "title": "Free checks run without Rüstzeit",
+          "text": "{count} Branchen-Schnellchecks im Browser — kein Konto nötig."
         },
         "premiumVerdicts": {
-          "title": "Premium verdicts explain the risk",
-          "text": "Minimum safe price, margin leaks and suggested action before you quote."
+          "title": "Premium-Urteile erklären das Risiko",
+          "text": "Minimum safe Preis, margin leaks and suggested action before you quote."
         },
         "stripe": {
-          "title": "Checkout secured by Stripe",
-          "text": "Pro subscription billed securely through Stripe."
+          "title": "Sichere Kasse mit Stripe",
+          "text": "Pro-Abo sicher über Stripe abgerechnet."
         },
         "privacy": {
-          "title": "Business data is not sold",
-          "text": "See privacy policy for data handling details."
+          "title": "Geschäftsdaten werden nicht verkauft",
+          "text": "Datenschutzrichtlinie für Details zur Datenverarbeitung."
         }
       }
     },
     "industriesPreview": {
-      "eyebrow": "Industries",
-      "title": "Sector packs for operational and commercial decisions",
-      "subtitle": "Each industry module combines a quick estimate layer and a premium decision tool — aligned to how that sector prices work, measures margin and evaluates risk.",
-      "viewAll": "View all industries →"
+      "eyebrow": "Branchen",
+      "title": "Sector packs for oproational and commercial decisions",
+      "subtitle": "Each industry module combines a quick estimate layer and a premium decision tool — aligned to how that sector Preiss work, measures margin and evaluates risk.",
+      "viewAll": "Alle Branchen ansehen →"
     },
     "cta": {
-      "eyebrow": "Get started",
-      "title": "Start calculating for your sector",
-      "subtitle": "Begin with free tools, upgrade to premium reports when you need them.",
+      "eyebrow": "Get Started",
+      "title": "Berechnung für Ihre Branche starten",
+      "subtitle": "Mit Gratis-Tools starten, bei Bedarf auf Premium-Berichte upgraden.",
       "primary": "Gratis-Tools entdecken",
       "secondary": "Beispielbericht ansehen"
     }
   },
   "homeDashboard": {
     "meta": {
-      "title": "MarginCore — Professional Risk Analytics for SMEs",
+      "title": "MarginCore — Professionelle Risikoanalyse für KMU",
       "description": "Financial risk dashboard for sector Margenberechnung. Executive summaries by industry, construction and logistics with P90 stochastic verdicts."
     },
     "hero": {
-      "statusLine": "MarginCore · Risk Terminal",
-      "title": "MarginCore: Professional Risk Analytics for SMEs.",
+      "statusLine": "MarginCore · Risk Laufzeitinal",
+      "title": "MarginCore: Professionelle Risikoanalyse für KMU.",
       "subtitle": "Deterministic cost exposure, P90 safe pricing and sensitivity matrices — server-side stochastic engine for operators who quote on margin.",
-      "primaryCta": "Access Premium Verdicts",
-      "secondaryCta": "View Sample Report",
+      "primaryCta": "Premium-Urteile nutzen",
+      "secondaryCta": "Beispielbericht ansehen",
       "metrics": {
         "sectors": {
-          "label": "Sectors",
+          "label": "Branchen",
           "value": "27 LIVE"
         },
         "engine": {
@@ -742,45 +748,45 @@
           "value": "P90 MC"
         },
         "confidence": {
-          "label": "Confidence",
+          "label": "Konfidenz",
           "value": "Z = 1.28"
         },
         "gate": {
-          "label": "Access",
-          "value": "PRO GATE"
+          "label": "Zugang",
+          "value": "PRO-GATE"
         }
       }
     },
     "grid": {
-      "eyebrow": "Sector coverage",
-      "title": "Executive summaries by vertical",
+      "eyebrow": "Sector Deckkraft",
+      "title": "Executive Summaries nach Vertical",
       "subtitle": "Grouped risk modules — free pre-checks and premium verdict Rechner.",
-      "sectorCount": "{count} modules",
-      "freeLabel": "Pre-check",
-      "proLabel": "Verdict"
+      "sectorCount": "{count} Module",
+      "freeLabel": "Vorprüfung",
+      "proLabel": "Urteil"
     },
     "groups": {
-      "industry": "Industry",
-      "construction": "Construction",
-      "logistics": "Logistics"
+      "industry": "Industrie",
+      "construction": "Bau",
+      "logistics": "Logistik"
     },
     "activity": {
-      "eyebrow": "Activity feed",
-      "title": "Recent reports",
+      "eyebrow": "Aktivitätsfeed",
+      "title": "Neueste Berichte",
       "subtitle": "Sample activity stream — sign in to sync saved verdict reports.",
-      "viewAll": "Open report archive",
+      "viewAll": "Berichtsarchiv öffnen",
       "disclaimer": "Illustrative rows only. Live report history requires SectorCalc Pro.",
       "columns": {
-        "id": "Report ID",
-        "sector": "Sector",
-        "verdict": "Verdict",
-        "updated": "Updated",
+        "id": "Berichts-ID",
+        "sector": "Branche",
+        "verdict": "Urteil",
+        "updated": "Aktualisiert",
         "status": "Status"
       },
       "status": {
-        "complete": "Complete",
-        "pending": "Awaiting",
-        "sample": "Sample"
+        "complete": "Vollständig",
+        "pending": "Ausstehend",
+        "sample": "Beispiel"
       }
     }
   },
@@ -873,7 +879,7 @@
     "demoCta": "Demo anfragen",
     "contactCta": "Vertrieb kontaktieren",
     "hero": {
-      "eyebrow": "Business & Enterprise"
+      "eyebrow": "Business & Unternehmen"
     },
     "businessPlan": {
       "badge": "Business",
@@ -980,7 +986,7 @@
     },
     "how": {
       "title": "Wie unser System funktioniert",
-      "body": "Sie liefern die bekannten Eingaben; das System ermittelt das Erforderliche, führt geregelte, deterministische Berechnungen aus und prüft jedes Ergebnis gegen Invarianten und Benchmarks, bevor es angezeigt wird."
+      "body": "Sie liefern die Eingaben, die Sie kennen; das System ermittelt, was erforderlich ist, führt deterministische Berechnungen unter Governance aus und validiert jedes Ergebnis anhand von Invarianten und Benchmarks, bevor es angezeigt wird."
     },
     "different": {
       "title": "Was uns unterscheidet",
@@ -1286,164 +1292,164 @@
   },
   "industrialHome": {
     "brand": "SectorCalc",
-    "modulesTitle": "Browse by sector",
-    "initializeAudit": "Open",
+    "modulesTitle": "Nach Branche durchsuchen",
+    "initializeAudit": "Öffnen",
     "systemStatus": {
-      "title": "Platform snapshot",
-      "line": "Free calculators and premium expert reports — one platform.",
+      "title": "Plattform-Überblick",
+      "line": "Free calculators and premium exprot reports — one platform.",
       "metrics": {
         "sectors": {
-          "label": "Sectors",
-          "value": "{count} active"
+          "label": "Branchen",
+          "value": "{count} aktiv"
         },
         "engine": {
-          "label": "Calculators",
-          "value": "50+ tools"
+          "label": "Rechner",
+          "value": "50+ Tools"
         },
         "confidence": {
-          "label": "Reports",
-          "value": "Expert layer"
+          "label": "Berichte",
+          "value": "Exprot layer"
         },
         "gate": {
-          "label": "Access",
-          "value": "Free + Pro"
+          "label": "Zugang",
+          "value": "Gratis + Pro"
         }
       }
     },
     "quickAccess": {
-      "title": "Quick access",
-      "open": "Open",
+      "title": "Schnellzugriff",
+      "open": "Öffnen",
       "modules": {
-        "tools": "Free tools",
-        "industries": "Industries",
-        "categories": "Categories",
-        "premium": "Premium reports",
-        "archive": "Audit archive"
+        "tools": "Gratis-Tools",
+        "industries": "Branchen",
+        "categories": "Kategorien",
+        "premium": "Premium-Berichte",
+        "archive": "Audit-Archiv"
       }
     },
     "lossDimensions": {
-      "title": "What you can measure",
-      "money": "Money & margin",
-      "material": "Material & scrap",
-      "time": "Time & OEE",
-      "energy": "Energy & carbon"
+      "title": "Was Sie messen können",
+      "money": "Geld & Marge",
+      "material": "Material & Ausschuss",
+      "time": "Zeit & OEE",
+      "energy": "Energie & carbon"
     },
-    "tagline": "Sector-specific calculation and measurement platform",
-    "headline": "Calculate, measure and optimize",
-    "headlineAccent": "for your sector.",
-    "lead": "Production, logistics, construction, energy and daily life — expert formulas, clear results, no ERP complexity.",
-    "activeModule": "Sector calculator"
+    "tagline": "Branchenspezifische Berechnungs- und Messplattform",
+    "headline": "Berechnen, messen und optimieren",
+    "headlineAccent": "für Ihre Branche.",
+    "lead": "Production, logistics, construction, Energie and daily life — exprot formulas, clear results, no ERP complexity.",
+    "activeModule": "Branchenrechner"
   },
   "auditHub": {
-    "eyebrow": "SectorCalc Audit Hub",
-    "title": "Master Audit Engine",
-    "subtitle": "27 industrial sectors · U-Engine diagnostics · hidden loss detection"
+    "eyebrow": "SectorCalc Audit-Hub",
+    "title": "Master-Audit-Engine",
+    "subtitle": "27 Industriebranchen · U-Engine-Diagnostik · Erkennung versteckter Verluste"
   },
   "auditArchive": {
     "meta": {
-      "title": "Operational Audit Archive — Personal Data Vault",
-      "description": "Review saved operational audits and verdict history linked to your SectorCalc account."
+      "title": "Oproational Audit Archive — prosonal Data Vault",
+      "description": "Review saved oproational audits and verdict history linked to your SectorCalc account."
     },
-    "eyebrow": "Personal Data Vault",
-    "title": "Operational Audit Archive",
-    "subtitle": "Your saved verdict reports and audit outcomes are stored securely in Firestore and linked to your account.",
-    "backToAccount": "← Back to account",
-    "loading": "Loading audit archive…",
-    "sampleNote": "Sample archive records shown.",
-    "signInPrompt": "Sign in to load your personal audit vault from Firestore.",
-    "signInCta": "Sign in",
-    "viewFullArchive": "Open full archive",
+    "eyebrow": "prosonal Data Vault",
+    "title": "Oproational Audit Archive",
+    "subtitle": "Gespeicherte Urteilsberichte und Audit-Ergebnisse sicher in Firestore, verknüpft mit Ihrem Konto.",
+    "backToAccount": "← Zurück zum Konto",
+    "loading": "Audit-Archiv wird geladen…",
+    "sampleNote": "Beispiel-Archivdatensätze angezeigt.",
+    "signInPrompt": "Sign in to load your prosonal audit vault from Firestore.",
+    "signInCta": "Anmelden",
+    "viewFullArchive": "Vollständiges Archiv öffnen",
     "emptySignedIn": "No saved audits yet. Run a premium Rechner and save the verdict to populate your vault."
   },
   "emptyStates": {
     "reports": {
-      "title": "No saved reports yet",
-      "body": "Run a free sector check, then unlock a Single Verdict or SectorCalc Pro to save reports.",
+      "title": "Noch keine gespeicherten Berichte",
+      "body": "Gratis-Branchencheck, dann Single Verdict oder SectorCalc Pro zum Speichern freischalten.",
       "bodyWithCredits": "Run your unlocked premium Rechner and save the verdict report here.",
-      "ctaFree": "Explore free tools",
+      "ctaFree": "Gratis-Tools entdecken",
       "ctaPremium": "Premium-Rechner öffnen",
-      "viewReport": "View report"
+      "viewReport": "Bericht ansehen"
     },
     "purchases": {
-      "title": "Single verdict credits",
+      "title": "Einzel-Urteil-Guthaben",
       "body": "One-time purchases unlock the premium Rechner for that sector tool."
     },
     "login": {
-      "eyebrow": "Sign in required",
-      "title": "Sign in to view saved reports",
-      "body": "Saved verdict reports are linked to your SectorCalc account.",
+      "eyebrow": "Anmeldung erforderlich",
+      "title": "Anmelden, um gespeicherte Berichte anzuzeigen",
+      "body": "Gespeicherte Urteilsberichte sind mit Ihrem SectorCalc-Konto verknüpft.",
       "cta": "Anmelden"
     }
   },
   "betaPartner": {
     "meta": {
-      "title": "Beta Partner Program",
-      "description": "Apply to help SectorCalc build verified sector benchmarks with structured operational feedback."
+      "title": "Beta-Partnerprogramm",
+      "description": "Apply to help SectorCalc build verified sector benchmarks with structured oproational feedback."
     },
     "hero": {
-      "eyebrow": "Beta partner program",
-      "title": "Help build verified sector benchmarks",
-      "subtitle": "Share structured operational data in exchange for premium reports and early access to benchmark-backed calculators."
+      "eyebrow": "Beta-Partnerprogramm",
+      "title": "Verifizierte Branchen-Benchmarks mitgestalten",
+      "subtitle": "Share structured oproational data in exchange for premium reports and early access to benchmark-backed calculators."
     },
     "who": {
-      "title": "Who should apply",
-      "item1": "Operators tracking scrap, setup, route, energy or margin loss",
-      "item2": "Consultants preparing client-facing sector assessments",
+      "title": "Wer sich bewerben sollte",
+      "item1": "Oproators tracking scrap, Rüstzeit, route, Energie or margin loss",
+      "item2": "Berater mit kundenorientierten Branchenbewertungen",
       "item3": "Kleine Teams, die klare Berechnungen benötigen, bevor sie komplexe Software einsetzen",
-      "item4": "Teams willing to give structured feedback on calculator fit"
+      "item4": "Teams mit strukturiertem Feedback zur Rechner-Passung"
     },
     "data": {
-      "title": "What data we collect",
-      "item1": "Industry, company size and main loss area",
-      "item2": "Current tracking method and estimated monthly loss range",
-      "item3": "Optional anonymized benchmark permission after review"
+      "title": "Welche Daten wir erheben",
+      "item1": "Industry, company size and main loss Fläche",
+      "item2": "Strom tracking method and estimated monthly loss range",
+      "item3": "Optional anonymized benchmark promission after review"
     },
     "benefits": {
-      "title": "What you get",
-      "item1": "Early access to premium decision reports",
-      "item2": "Direct input into sector benchmark design",
-      "item3": "Optional case study participation with explicit permission"
+      "title": "Was Sie erhalten",
+      "item1": "Früher Zugang zu Premium-Entscheidungsberichten",
+      "item2": "Direkter Einfluss auf Branchen-Benchmark-Design",
+      "item3": "Optional case study participation with explicit promission"
     },
     "form": {
-      "heading": "Apply for beta partner access",
-      "intro": "All fields marked * are required. We review applications manually — no fake claims or auto-published case studies.",
-      "companyName": "Company name",
-      "contactName": "Contact name",
-      "email": "Work email",
-      "country": "Country",
-      "industry": "Industry",
-      "companySize": "Company size",
-      "role": "Your role",
-      "mainLossArea": "Main loss area",
-      "currentMethod": "How you track loss today",
-      "monthlyEstimatedLossRange": "Estimated monthly loss",
-      "notes": "Additional notes",
-      "caseStudyPermission": "I may allow anonymized or named case study use after review",
-      "selectPlaceholder": "Select…",
-      "submit": "Submit application",
-      "submitting": "Submitting…",
-      "successTitle": "Application received",
-      "successBody": "Thank you. We review beta partner applications manually and will follow up by email.",
-      "rateLimited": "Please wait before submitting again."
+      "heading": "Beta-Partnerzugang beantragen",
+      "intro": "Mit * markierte Felder sind Pflicht. Wir prüfen Anträge manuell — keine falschen Angaben oder automatisch veröffentlichten Fallstudien.",
+      "companyName": "Firmenname",
+      "contactName": "Kontaktname",
+      "email": "Geschäfts-E-Mail",
+      "country": "Land",
+      "industry": "Industrie",
+      "companySize": "Unternehmensgröße",
+      "role": "Ihre Rolle",
+      "mainLossArea": "Main loss Fläche",
+      "currentMethod": "Wie Sie Verluste heute verfolgen",
+      "monthlyEstimatedLossRange": "Geschätzter Monatsverlust",
+      "notes": "Zusätzliche Hinweise",
+      "caseStudyPermission": "Anonymisierte oder benannte Fallstudie nach Prüfung erlauben",
+      "selectPlaceholder": "Auswählen…",
+      "submit": "Antrag senden",
+      "submitting": "Wird gesendet…",
+      "successTitle": "Antrag erhalten",
+      "successBody": "Danke. Beta-Partneranträge werden manuell geprüft — Rückmeldung per E-Mail.",
+      "rateLimited": "Please wait before submitting aGewinn."
     },
     "feedback": {
-      "prompt": "Optional: help improve this report with structured feedback.",
-      "open": "Share feedback",
-      "eyebrow": "Report feedback",
-      "title": "How well did this report fit your operation?",
-      "optional": "Optional — skipped by most users.",
-      "dismiss": "Dismiss",
-      "rating": "Overall rating",
-      "usefulness": "Usefulness",
-      "formulaFit": "Formula fit",
-      "missingVariable": "Missing variable",
-      "comment": "Comment",
-      "benchmarkPermission": "Allow anonymized use in future sector benchmarks (reviewed by admin)",
-      "selectPlaceholder": "Select…",
-      "submit": "Send feedback",
-      "submitting": "Sending…",
-      "thankYou": "Thank you — feedback saved for benchmark review.",
-      "rateLimited": "Please wait before submitting again."
+      "prompt": "Optional: Verbessern Sie diesen Bericht mit strukturiertem Feedback.",
+      "open": "Feedback teilen",
+      "eyebrow": "Berichts-Feedback",
+      "title": "How well did this report fit your oproation?",
+      "optional": "Optional — von den meisten übersprungen.",
+      "dismiss": "Schließen",
+      "rating": "Gesamtbewertung",
+      "usefulness": "Nützlichkeit",
+      "formulaFit": "Formelpassung",
+      "missingVariable": "Fehlende Variable",
+      "comment": "Kommentar",
+      "benchmarkPermission": "Anonymisierte Nutzung in künftigen Branchen-Benchmarks erlauben (Admin-Prüfung)",
+      "selectPlaceholder": "Auswählen…",
+      "submit": "SEnde feedback",
+      "submitting": "SEndeing…",
+      "thankYou": "Danke — Feedback für Benchmark-Review gespeichert.",
+      "rateLimited": "Please wait before submitting aGewinn."
     }
   },
   "premiumDecisionReport": {
@@ -1554,8 +1560,8 @@
     "viewAll": "Branche wählen"
   },
   "calculator": {
-    "calculate": "Berechnen",
-    "awaiting": "Werte eingeben für das Ergebnis",
+    "calculate": "Jetzt berechnen",
+    "awaiting": "Werte eingeben, um das Ergebnis zu sehen",
     "validationRequired": "Bitte einen Wert wählen.",
     "validationNumber": "Gültige Zahl eingeben."
   },
@@ -1689,7 +1695,7 @@
     "notices": {
       "requiredInputReason": "Jedes Feld entspricht einer verifizierten Vertragseingabe für diesen Rechner.",
       "calculationBlocked": "Füllen Sie die Pflichtfelder aus, bevor Sie die Berechnung starten.",
-      "validatedInputSet": "Eingabesatz bereit — starten Sie die Berechnung, wenn die Werte bestätigt sind."
+      "validatedInputSet": "Eingabesatz bereit — starten Sie die Berechnung nach Bestätigung der Werte."
     },
     "tools": {
       "cncQuoteRiskAnalyzer": {
@@ -3518,14 +3524,14 @@
     },
     "concrete-bag-calculator": {
       "volumem3": {
-        "label": "Volumen",
-        "placeholder": "Volumen eingeben",
-        "helper": "Gesamtes GussVolumenn"
+        "label": "Volume",
+        "placeholder": "Volume eingeben",
+        "helper": "Gesamtes Gussvolumen"
       },
       "bagyieldm3": {
         "label": "Sackertrag",
         "placeholder": "Sackertrag eingeben",
-        "helper": "Volumenn pro Sack"
+        "helper": "Volumen pro Sack"
       },
       "wastepercent": {
         "label": "Ausschuss",
@@ -3800,8 +3806,8 @@
     },
     "vat-calculator": {
       "net": {
-        "label": "Nettotobetrag",
-        "placeholder": "Nettotobetrag eingeben",
+        "label": "Nettobetrag",
+        "placeholder": "Nettobetrag eingeben",
         "helper": "Preis before VAT"
       },
       "vatrate": {
@@ -3872,7 +3878,7 @@
       "cost": {
         "label": "Kosten",
         "placeholder": "Kosten eingeben",
-        "helper": "Initial investment"
+        "helper": "Anfangsinvestition"
       }
     },
     "salary-cost-calculator": {
@@ -3979,8 +3985,8 @@
         "helper": "Handling pro part"
       },
       "inspectionseconds": {
-        "label": "Prüfung",
-        "placeholder": "Prüfung eingeben",
+        "label": "Inspection",
+        "placeholder": "Inspection eingeben",
         "helper": "QC pro part"
       },
       "quantity": {
@@ -4006,8 +4012,8 @@
         "helper": "Hourly welder Satz"
       },
       "consumablescost": {
-        "label": "VerbrauchsMaterial",
-        "placeholder": "VerbrauchsMaterial eingeben",
+        "label": "Verbrauchsmaterial",
+        "placeholder": "Verbrauchsmaterial eingeben",
         "helper": "Gas, tips, abrasives"
       }
     },
@@ -4028,13 +4034,13 @@
         "helper": "Machine Schnittgeschwindigkeit"
       },
       "piercecount": {
-        "label": "Pierces",
-        "placeholder": "Pierces eingeben",
+        "label": "Durchdringungen",
+        "placeholder": "Durchdringungen eingeben",
         "helper": "Pierce oproations"
       },
       "pierceseconds": {
-        "label": "Pierce time",
-        "placeholder": "Pierce time eingeben",
+        "label": "Durchdringungszeit",
+        "placeholder": "Durchdringungszeit eingeben",
         "helper": "Seconds pro pierce"
       }
     },
@@ -4055,8 +4061,8 @@
         "helper": "Printer Hourly Satz"
       },
       "postprocesshours": {
-        "label": "Post-process",
-        "placeholder": "Post-process eingeben",
+        "label": "Nachbearbeitung",
+        "placeholder": "Nachbearbeitung eingeben",
         "helper": "Finishing Stunden"
       },
       "laborrate": {
@@ -4101,13 +4107,13 @@
     },
     "scrap-rate-calculator": {
       "scrapunits": {
-        "label": "Scrap units",
-        "placeholder": "Scrap units eingeben",
+        "label": "Ausschusseinheiten",
+        "placeholder": "Ausschusseinheiten eingeben",
         "helper": "Rejected units"
       },
       "totalunits": {
-        "label": "Total units",
-        "placeholder": "Total units eingeben",
+        "label": "Gesamteinheiten",
+        "placeholder": "Gesamteinheiten eingeben",
         "helper": "Units processed"
       }
     },
@@ -4118,20 +4124,20 @@
         "helper": "Uptime procent"
       },
       "performancepercent": {
-        "label": "Leistung",
-        "placeholder": "Leistung eingeben",
+        "label": "Performance",
+        "placeholder": "Performance eingeben",
         "helper": "Speed procent"
       },
       "qualitypercent": {
-        "label": "Quality",
-        "placeholder": "Quality eingeben",
+        "label": "Qualität",
+        "placeholder": "Qualität eingeben",
         "helper": "Good parts procent"
       }
     },
     "machine-hour-rate-calculator": {
       "fixedmonthlycost": {
-        "label": "Fixed monthly",
-        "placeholder": "Fixed monthly eingeben",
+        "label": "Fix monatlich",
+        "placeholder": "Fix monatlich eingeben",
         "helper": "Overhead allocated"
       },
       "monthlymachinehours": {
@@ -4140,8 +4146,8 @@
         "helper": "Available Stunden"
       },
       "variablecostperhour": {
-        "label": "Variable/hr",
-        "placeholder": "Variable/hr eingeben",
+        "label": "Variabel/Std.",
+        "placeholder": "Variabel/Std. eingeben",
         "helper": "VerbrauchsMaterial pro hour"
       }
     },
@@ -4152,8 +4158,8 @@
         "helper": "Insert or tool Preis"
       },
       "partsproduced": {
-        "label": "Parts",
-        "placeholder": "Parts eingeben",
+        "label": "Teile",
+        "placeholder": "Teile eingeben",
         "helper": "Parts before change"
       }
     },
@@ -4181,8 +4187,8 @@
         "helper": "Cutting edges"
       },
       "feedpertoothmm": {
-        "label": "Feed/tooth",
-        "placeholder": "Feed/tooth eingeben",
+        "label": "Vorschub/Zahn",
+        "placeholder": "Vorschub/Zahn eingeben",
         "helper": "Chip load pro tooth"
       }
     },
@@ -4193,15 +4199,15 @@
         "helper": "Nominal dimension"
       },
       "actual": {
-        "label": "Actual",
-        "placeholder": "Actual eingeben",
+        "label": "Istwert",
+        "placeholder": "Istwert eingeben",
         "helper": "Measured dimension"
       }
     },
     "batch-yield-calculator": {
       "inputqty": {
-        "label": "Input qty",
-        "placeholder": "Input qty eingeben",
+        "label": "Eingangsmenge",
+        "placeholder": "Eingangsmenge eingeben",
         "helper": "Material in"
       },
       "goodoutputqty": {
@@ -4224,8 +4230,8 @@
     },
     "electricity-bill-calculator": {
       "kwh": {
-        "label": "Usage",
-        "placeholder": "Usage eingeben",
+        "label": "Nutzung",
+        "placeholder": "Nutzung eingeben",
         "helper": "Monthly kWh"
       },
       "rate": {
@@ -4268,8 +4274,8 @@
         "helper": "Electricity verbraucht"
       },
       "emissionfactorkgperkwh": {
-        "label": "Emission factor",
-        "placeholder": "Emission factor eingeben",
+        "label": "Emissionsfaktor",
+        "placeholder": "Emissionsfaktor eingeben",
         "helper": "Grid factor"
       }
     },
@@ -4302,8 +4308,8 @@
         "helper": "proiod Länge"
       },
       "efficiencypercent": {
-        "label": "Efficiency",
-        "placeholder": "Efficiency eingeben",
+        "label": "Wirkungsgrad",
+        "placeholder": "Wirkungsgrad eingeben",
         "helper": "System efficiency"
       }
     },
@@ -4355,8 +4361,8 @@
     },
     "cbam-exposure-quick-check": {
       "emissionston": {
-        "label": "Emissions",
-        "placeholder": "Emissions eingeben",
+        "label": "Emissionen",
+        "placeholder": "Emissionen eingeben",
         "helper": "Embedded emissions"
       },
       "carbonprice": {
@@ -4367,8 +4373,8 @@
     },
     "fuel-consumption-calculator": {
       "distancekm": {
-        "label": "Entfernung",
-        "placeholder": "Entfernung eingeben",
+        "label": "Distance",
+        "placeholder": "Distance eingeben",
         "helper": "Trip Entfernung"
       },
       "consumptionper100km": {
@@ -4384,8 +4390,8 @@
     },
     "fuel-cost-calculator": {
       "distancekm": {
-        "label": "Entfernung",
-        "placeholder": "Entfernung eingeben",
+        "label": "Distance",
+        "placeholder": "Distance eingeben",
         "helper": "Trip Entfernung"
       },
       "consumptionper100km": {
@@ -4445,8 +4451,8 @@
     },
     "route-cost-calculator": {
       "distancekm": {
-        "label": "Entfernung",
-        "placeholder": "Entfernung eingeben",
+        "label": "Distance",
+        "placeholder": "Distance eingeben",
         "helper": "Route Länge"
       },
       "fuelcostperkm": {
@@ -4472,8 +4478,8 @@
     },
     "delivery-cost-calculator": {
       "distancekm": {
-        "label": "Entfernung",
-        "placeholder": "Entfernung eingeben",
+        "label": "Distance",
+        "placeholder": "Distance eingeben",
         "helper": "Route km"
       },
       "costperkm": {
@@ -4482,8 +4488,8 @@
         "helper": "Variable km Kosten"
       },
       "stops": {
-        "label": "Stops",
-        "placeholder": "Stops eingeben",
+        "label": "Stopps",
+        "placeholder": "Stopps eingeben",
         "helper": "Delivery stops"
       },
       "costperstop": {
@@ -4504,15 +4510,15 @@
         "helper": "Satz pro kg"
       },
       "fixedfee": {
-        "label": "Fixed fee",
-        "placeholder": "Fixed fee eingeben",
+        "label": "Fixgebühr",
+        "placeholder": "Fixgebühr eingeben",
         "helper": "Booking fee"
       }
     },
     "warehouse-storage-cost-calculator": {
       "palletcount": {
-        "label": "Pallets",
-        "placeholder": "Pallets eingeben",
+        "label": "Paletten",
+        "placeholder": "Paletten eingeben",
         "helper": "Stored pallets"
       },
       "costperpalletperday": {
@@ -4528,13 +4534,13 @@
     },
     "vehicle-depreciation-calculator": {
       "purchaseprice": {
-        "label": "Purchase",
-        "placeholder": "Purchase eingeben",
+        "label": "Kauf",
+        "placeholder": "Kauf eingeben",
         "helper": "Acquisition Kosten"
       },
       "resalevalue": {
-        "label": "Resale",
-        "placeholder": "Resale eingeben",
+        "label": "Weiterverkauf",
+        "placeholder": "Weiterverkauf eingeben",
         "helper": "Expected resale"
       },
       "years": {
@@ -4550,8 +4556,8 @@
         "helper": "Kraftstoff spEnde"
       },
       "accommodationcost": {
-        "label": "Lodging",
-        "placeholder": "Lodging eingeben",
+        "label": "Unterkunft",
+        "placeholder": "Unterkunft eingeben",
         "helper": "Hotels"
       },
       "foodcost": {
@@ -4565,8 +4571,8 @@
         "helper": "Road fees"
       },
       "othercost": {
-        "label": "Other",
-        "placeholder": "Other eingeben",
+        "label": "Sonstiges",
+        "placeholder": "Sonstiges eingeben",
         "helper": "Miscellaneous"
       }
     },
@@ -4611,8 +4617,8 @@
         "helper": "Electricity Satz"
       },
       "watercost": {
-        "label": "Water fee",
-        "placeholder": "Water fee eingeben",
+        "label": "Wassergebühr",
+        "placeholder": "Wassergebühr eingeben",
         "helper": "Water charge"
       }
     },
@@ -4630,8 +4636,8 @@
     },
     "feed-cost-estimator": {
       "feedkg": {
-        "label": "Feed",
-        "placeholder": "Feed eingeben",
+        "label": "Vorschub",
+        "placeholder": "Vorschub eingeben",
         "helper": "Feed Menge"
       },
       "priceperkg": {
@@ -4647,13 +4653,13 @@
     },
     "milk-yield-check": {
       "cows": {
-        "label": "Cows",
-        "placeholder": "Cows eingeben",
+        "label": "Kühe",
+        "placeholder": "Kühe eingeben",
         "helper": "Milking cows"
       },
       "literspercow": {
-        "label": "Yield/cow",
-        "placeholder": "Yield/cow eingeben",
+        "label": "Ertrag/Kuh",
+        "placeholder": "Ertrag/Kuh eingeben",
         "helper": "Liters pro cow pro day"
       },
       "milkprice": {
@@ -4669,8 +4675,8 @@
         "helper": "Planted Fläche"
       },
       "yieldtonperha": {
-        "label": "Yield",
-        "placeholder": "Yield eingeben",
+        "label": "Ertrag",
+        "placeholder": "Ertrag eingeben",
         "helper": "Expected yield"
       },
       "priceperton": {
@@ -4686,8 +4692,8 @@
         "helper": "Total ingredient spEnde"
       },
       "portions": {
-        "label": "Portionen",
-        "placeholder": "Portionen eingeben",
+        "label": "Portions",
+        "placeholder": "Portions eingeben",
         "helper": "Servings"
       }
     },
@@ -4710,8 +4716,8 @@
         "helper": "Total Recipe Kosten"
       },
       "portions": {
-        "label": "Portionen",
-        "placeholder": "Portionen eingeben",
+        "label": "Portions",
+        "placeholder": "Portions eingeben",
         "helper": "Servings"
       }
     },
@@ -4737,13 +4743,13 @@
         "helper": "Expected yearly Miete growth"
       },
       "annualhomeappreciation": {
-        "label": "Home appreciation",
-        "placeholder": "Home appreciation eingeben",
+        "label": "Immobilienwertsteigerung",
+        "placeholder": "Immobilienwertsteigerung eingeben",
         "helper": "Expected yearly home Wert growth"
       },
       "downpaymentpercent": {
-        "label": "Down payment",
-        "placeholder": "Down payment eingeben",
+        "label": "Anzahlung",
+        "placeholder": "Anzahlung eingeben",
         "helper": "procent of Home Preis paid upfront"
       },
       "mortgageinterestrate": {
@@ -4757,8 +4763,8 @@
         "helper": "Mortgage amortization Laufzeit"
       },
       "investmentreturnrate": {
-        "label": "Investment return",
-        "placeholder": "Investment return eingeben",
+        "label": "Investitionsrendite",
+        "placeholder": "Investitionsrendite eingeben",
         "helper": "Annual return if Mieteing and investing cash"
       },
       "ownershipcostpercent": {
@@ -4779,8 +4785,8 @@
     },
     "home-budget-calculator": {
       "income": {
-        "label": "Income",
-        "placeholder": "Income eingeben",
+        "label": "Einkommen",
+        "placeholder": "Einkommen eingeben",
         "helper": "Monatseinkommen"
       },
       "rent": {
@@ -4799,31 +4805,31 @@
         "helper": "Commute"
       },
       "utilities": {
-        "label": "Utilities",
-        "placeholder": "Utilities eingeben",
+        "label": "Nebenkosten",
+        "placeholder": "Nebenkosten eingeben",
         "helper": "Bills"
       }
     },
     "time-duration-calculator": {
       "starthour": {
-        "label": "Start hour",
-        "placeholder": "Start hour eingeben",
+        "label": "Startstunde",
+        "placeholder": "Startstunde eingeben",
         "helper": "Start hour (0–23)"
       },
       "startminute": {
-        "label": "Start minute",
-        "placeholder": "Start minute eingeben",
-        "helper": "Start minute"
+        "label": "Startminute",
+        "placeholder": "Startminute eingeben",
+        "helper": "Startminute"
       },
       "endhour": {
-        "label": "Endee hour",
-        "placeholder": "Endee hour eingeben",
-        "helper": "Endee hour"
+        "label": "Ende hour",
+        "placeholder": "Ende hour eingeben",
+        "helper": "Ende hour"
       },
       "endminute": {
-        "label": "Endee minute",
-        "placeholder": "Endee minute eingeben",
-        "helper": "Endee minute"
+        "label": "Ende minute",
+        "placeholder": "Ende minute eingeben",
+        "helper": "Ende minute"
       }
     },
     "age-calculator": {
@@ -4840,47 +4846,47 @@
     },
     "date-difference-calculator": {
       "startdaynumber": {
-        "label": "Start day #",
-        "placeholder": "Start day # eingeben",
+        "label": "Starttag #",
+        "placeholder": "Starttag # eingeben",
         "helper": "Start day index"
       },
       "enddaynumber": {
-        "label": "Endee day #",
-        "placeholder": "Endee day # eingeben",
+        "label": "Ende day #",
+        "placeholder": "Ende day # eingeben",
         "helper": "Ende day index"
       }
     },
     "shopping-budget-calculator": {
       "item1": {
-        "label": "Item 1",
-        "placeholder": "Item 1 eingeben",
+        "label": "Posten 1",
+        "placeholder": "Posten 1 eingeben",
         "helper": "First item"
       },
       "item2": {
-        "label": "Item 2",
-        "placeholder": "Item 2 eingeben",
+        "label": "Posten 2",
+        "placeholder": "Posten 2 eingeben",
         "helper": "Second item"
       },
       "item3": {
-        "label": "Item 3",
-        "placeholder": "Item 3 eingeben",
+        "label": "Posten 3",
+        "placeholder": "Posten 3 eingeben",
         "helper": "Third item"
       },
       "item4": {
-        "label": "Item 4",
-        "placeholder": "Item 4 eingeben",
+        "label": "Posten 4",
+        "placeholder": "Posten 4 eingeben",
         "helper": "Fourth item"
       },
       "item5": {
-        "label": "Item 5",
-        "placeholder": "Item 5 eingeben",
+        "label": "Posten 5",
+        "placeholder": "Posten 5 eingeben",
         "helper": "Fifth item"
       }
     },
     "fuel-travel-calculator": {
       "distancekm": {
-        "label": "Entfernung",
-        "placeholder": "Entfernung eingeben",
+        "label": "Distance",
+        "placeholder": "Distance eingeben",
         "helper": "Trip Entfernung"
       },
       "consumptionper100km": {
@@ -4908,8 +4914,8 @@
     },
     "tip-calculator": {
       "billamount": {
-        "label": "Bill",
-        "placeholder": "Bill eingeben",
+        "label": "Rechnung",
+        "placeholder": "Rechnung eingeben",
         "helper": "Pre-tip total"
       },
       "tippercent": {
@@ -4925,8 +4931,8 @@
         "helper": "Savings goal"
       },
       "monthlysaving": {
-        "label": "Monthly saving",
-        "placeholder": "Monthly saving eingeben",
+        "label": "Monatliche Ersparnis",
+        "placeholder": "Monatliche Ersparnis eingeben",
         "helper": "Amount saved pro month"
       }
     },
@@ -5071,13 +5077,13 @@
         "helper": "Population size"
       },
       "confidencez": {
-        "label": "Z score",
-        "placeholder": "Z score eingeben",
+        "label": "Z-Wert",
+        "placeholder": "Z-Wert eingeben",
         "helper": "Confidence z (e.g. 1.96)"
       },
       "marginerrorpercent": {
-        "label": "Margin error",
-        "placeholder": "Margin error eingeben",
+        "label": "Margenfehler",
+        "placeholder": "Margenfehler eingeben",
         "helper": "Margin of error"
       },
       "proportionpercent": {
@@ -5093,13 +5099,13 @@
         "helper": "Data point"
       },
       "mean": {
-        "label": "Mean",
-        "placeholder": "Mean eingeben",
+        "label": "Mittelwert",
+        "placeholder": "Mittelwert eingeben",
         "helper": "Population mean"
       },
       "standarddeviation": {
-        "label": "Std dev",
-        "placeholder": "Std dev eingeben",
+        "label": "Std.abw.",
+        "placeholder": "Std.abw. eingeben",
         "helper": "Standard deviation"
       }
     },
@@ -5202,8 +5208,8 @@
         "helper": "Line Strom in amproes"
       },
       "volts": {
-        "label": "Voltage",
-        "placeholder": "Voltage eingeben",
+        "label": "Spannung",
+        "placeholder": "Spannung eingeben",
         "helper": "Line voltage"
       },
       "powerfactor": {
@@ -5236,20 +5242,20 @@
         "helper": "Sollwert Klemmkraft"
       },
       "boltdiametermm": {
-        "label": "SchraubEndeurchmesser",
-        "placeholder": "SchraubEndeurchmesser eingeben",
+        "label": "Schraubendurchmesser",
+        "placeholder": "Schraubendurchmesser eingeben",
         "helper": "Nominal SchraubEndeurchmesser in mm"
       }
     },
     "mtv-motorlu-tasitlar-vergisi-hesaplama": {
       "enginecc": {
-        "label": "Engine displacement",
-        "placeholder": "Engine displacement eingeben",
+        "label": "Hubraum",
+        "placeholder": "Hubraum eingeben",
         "helper": "Engine size in cc"
       },
       "agefactor": {
-        "label": "Age factor",
-        "placeholder": "Age factor eingeben",
+        "label": "Altersfaktor",
+        "placeholder": "Altersfaktor eingeben",
         "helper": "Informational age band factor"
       }
     },
@@ -5327,13 +5333,13 @@
     },
     "jenerator-kapasitesi-secim-hesaplama": {
       "peakloadkw": {
-        "label": "Peak load",
-        "placeholder": "Peak load eingeben",
+        "label": "Spitzenlast",
+        "placeholder": "Spitzenlast eingeben",
         "helper": "Peak load in kW"
       },
       "safetyfactor": {
-        "label": "Safety factor",
-        "placeholder": "Safety factor eingeben",
+        "label": "Sicherheitsfaktor",
+        "placeholder": "Sicherheitsfaktor eingeben",
         "helper": "RecommEndeed safety factor"
       }
     },
@@ -5479,13 +5485,13 @@
     },
     "kesir-ondalik-cevirici": {
       "numerator": {
-        "label": "Numerator",
-        "placeholder": "Numerator eingeben",
+        "label": "Zähler",
+        "placeholder": "Zähler eingeben",
         "helper": "Numerator for calculation"
       },
       "denominator": {
-        "label": "Denominator",
-        "placeholder": "Denominator eingeben",
+        "label": "Nenner",
+        "placeholder": "Nenner eingeben",
         "helper": "Denominator for calculation"
       }
     },
@@ -5539,8 +5545,8 @@
         "helper": "Fence Länge for calculation"
       },
       "postspacing": {
-        "label": "Post spacing",
-        "placeholder": "Post spacing eingeben",
+        "label": "Pfostenabstand",
+        "placeholder": "Pfostenabstand eingeben",
         "helper": "Post spacing for calculation"
       }
     },
@@ -5558,8 +5564,8 @@
     },
     "celik-cati-makas-yaklasik-agirligi": {
       "span": {
-        "label": "Roof span",
-        "placeholder": "Roof span eingeben",
+        "label": "Spannweite",
+        "placeholder": "Spannweite eingeben",
         "helper": "Truss span in meters"
       },
       "weightpermeter": {
@@ -5587,15 +5593,15 @@
         "helper": "Insulated surface in m²"
       },
       "layers": {
-        "label": "Layers",
-        "placeholder": "Layers eingeben",
+        "label": "Schichten",
+        "placeholder": "Schichten eingeben",
         "helper": "Number of layers"
       }
     },
     "ups-kesintisiz-guc-kaynagi-secimi": {
       "loadwatts": {
-        "label": "Load",
-        "placeholder": "Load eingeben",
+        "label": "Last",
+        "placeholder": "Last eingeben",
         "helper": "Connected load in watts"
       },
       "runtimeminutes": {
@@ -5618,15 +5624,15 @@
     },
     "topraklama-direnci-hesaplama": {
       "measuredohms": {
-        "label": "Measured resistance",
-        "placeholder": "Measured resistance eingeben",
+        "label": "Gemessener Widerstand",
+        "placeholder": "Gemessener Widerstand eingeben",
         "helper": "Ground resistance reading"
       }
     },
     "aku-kapasitesi-calisma-suresi-hesabi": {
       "batteryah": {
-        "label": "Battery capacity",
-        "placeholder": "Battery capacity eingeben",
+        "label": "Batteriekapazität",
+        "placeholder": "Batteriekapazität eingeben",
         "helper": "Battery capacity for calculation"
       },
       "loadamps": {
@@ -5637,8 +5643,8 @@
     },
     "aydinlatma-armatur-sayisi-hesaplama": {
       "totallumensneeded": {
-        "label": "Total lumens",
-        "placeholder": "Total lumens eingeben",
+        "label": "Gesamtlumen",
+        "placeholder": "Gesamtlumen eingeben",
         "helper": "Total lumens for calculation"
       },
       "lumensperfixture": {
@@ -5654,8 +5660,8 @@
         "helper": "Kompressordurchfluss Satz"
       },
       "fillminutes": {
-        "label": "Fill time",
-        "placeholder": "Fill time eingeben",
+        "label": "Füllzeit",
+        "placeholder": "Füllzeit eingeben",
         "helper": "Desired tank fill time in minutes"
       }
     },
@@ -5714,15 +5720,15 @@
         "helper": "Durchfluss in m³/h"
       },
       "headm": {
-        "label": "Head",
-        "placeholder": "Head eingeben",
+        "label": "Kopf",
+        "placeholder": "Kopf eingeben",
         "helper": "Total head in meters"
       }
     },
     "su-debisi-litre-dakika-hesaplama": {
       "volumeliters": {
-        "label": "Volumen",
-        "placeholder": "Volumen eingeben",
+        "label": "Volume",
+        "placeholder": "Volume eingeben",
         "helper": "Volumen for calculation"
       },
       "minutes": {
@@ -5745,20 +5751,20 @@
     },
     "radyator-petek-boyu-hesaplama": {
       "heatloadkcal": {
-        "label": "Heat load",
-        "placeholder": "Heat load eingeben",
+        "label": "Wärmelast",
+        "placeholder": "Wärmelast eingeben",
         "helper": "Heat load for calculation"
       },
       "paneloutputkcal": {
-        "label": "Panel output",
-        "placeholder": "Panel output eingeben",
+        "label": "Modulausgang",
+        "placeholder": "Modulausgang eingeben",
         "helper": "Panel output for calculation"
       }
     },
     "akaryakit-fiyati-ile-yol-butcesi": {
       "distancekm": {
-        "label": "Entfernung",
-        "placeholder": "Entfernung eingeben",
+        "label": "Distance",
+        "placeholder": "Distance eingeben",
         "helper": "Trip Entfernung in km"
       },
       "costperkm": {
@@ -5822,32 +5828,32 @@
     },
     "civata-on-germe-kuvveti-hesabi": {
       "boltdiametermm": {
-        "label": "SchraubEndeurchmesser",
-        "placeholder": "SchraubEndeurchmesser eingeben",
+        "label": "Schraubendurchmesser",
+        "placeholder": "Schraubendurchmesser eingeben",
         "helper": "Nominal SchraubEndeurchmesser in mm"
       },
       "preloadkn": {
-        "label": "Preload force",
-        "placeholder": "Preload force eingeben",
+        "label": "Vorspannkraft",
+        "placeholder": "Vorspannkraft eingeben",
         "helper": "Sollwert preload in kN"
       }
     },
     "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama": {
       "antifreezeliters": {
-        "label": "Antifreeze Volumenn",
-        "placeholder": "Antifreeze Volumenn eingeben",
+        "label": "Antifreeze Volumen",
+        "placeholder": "Antifreeze Volumen eingeben",
         "helper": "Antifreeze Volumenn for calculation"
       },
       "totalliters": {
-        "label": "Total coolant Volumenn",
-        "placeholder": "Total coolant Volumenn eingeben",
+        "label": "Total coolant Volumen",
+        "placeholder": "Total coolant Volumen eingeben",
         "helper": "Total coolant Volumenn for calculation"
       }
     },
     "palet-ambalaj-kereste-hesabi": {
       "palletcount": {
-        "label": "Pallet count",
-        "placeholder": "Pallet count eingeben",
+        "label": "Palettenanzahl",
+        "placeholder": "Palettenanzahl eingeben",
         "helper": "Number of pallets"
       },
       "boardlengthm": {
@@ -5882,13 +5888,13 @@
     },
     "vida-somun-adim-dis-ustu-cap-hesabi": {
       "pitchmm": {
-        "label": "Pitch",
-        "placeholder": "Pitch eingeben",
+        "label": "Steigung",
+        "placeholder": "Steigung eingeben",
         "helper": "Thread pitch in mm"
       },
       "threadcount": {
-        "label": "Thread count",
-        "placeholder": "Thread count eingeben",
+        "label": "Gewindeanzahl",
+        "placeholder": "Gewindeanzahl eingeben",
         "helper": "Number of threads engaged"
       }
     },
@@ -5899,15 +5905,15 @@
         "helper": "Screw Durchmesser for calculation"
       },
       "drillfactor": {
-        "label": "Drill factor",
-        "placeholder": "Drill factor eingeben",
+        "label": "Bohrfaktor",
+        "placeholder": "Bohrfaktor eingeben",
         "helper": "Drill factor for calculation"
       }
     },
     "kdv-tevkifati-hesaplama": {
       "netamount": {
-        "label": "Nettotobetrag",
-        "placeholder": "Nettotobetrag eingeben",
+        "label": "Nettobetrag",
+        "placeholder": "Nettobetrag eingeben",
         "helper": "Netto invoice amount"
       },
       "withholdingrate": {
@@ -5918,8 +5924,8 @@
     },
     "stopaj-hesaplama-kira-serbest-meslek": {
       "grossamount": {
-        "label": "Gross amount",
-        "placeholder": "Gross amount eingeben",
+        "label": "Bruttobetrag",
+        "placeholder": "Bruttobetrag eingeben",
         "helper": "Payment before withholding"
       },
       "withholdingrate": {
@@ -5930,8 +5936,8 @@
     },
     "gelir-vergisi-dilimleri-hesaplama": {
       "taxableincome": {
-        "label": "Taxable income",
-        "placeholder": "Taxable income eingeben",
+        "label": "Steuerpflichtiges Einkommen",
+        "placeholder": "Steuerpflichtiges Einkommen eingeben",
         "helper": "Annual taxable income"
       },
       "effectiverate": {
@@ -5949,8 +5955,8 @@
     },
     "sgk-prim-hesaplama-isci-plus-isveren": {
       "grosswage": {
-        "label": "Gross wage",
-        "placeholder": "Gross wage eingeben",
+        "label": "Bruttolohn",
+        "placeholder": "Bruttolohn eingeben",
         "helper": "Monthly gross wage"
       },
       "combinedrate": {
@@ -5990,8 +5996,8 @@
     },
     "kredi-erken-kapama-cezasi-hesaplama": {
       "remainingbalance": {
-        "label": "VerbleibEndee balance",
-        "placeholder": "VerbleibEndee balance eingeben",
+        "label": "VerbleibEnde balance",
+        "placeholder": "VerbleibEnde balance eingeben",
         "helper": "Outstanding loan balance"
       },
       "penaltyrate": {
@@ -6002,13 +6008,13 @@
     },
     "doviz-pozisyonu-kur-farki-riski-hesabi": {
       "foreignexposure": {
-        "label": "Foreign exposure",
-        "placeholder": "Foreign exposure eingeben",
+        "label": "Währungsexposition",
+        "placeholder": "Währungsexposition eingeben",
         "helper": "Exposure in foreign currency"
       },
       "fxmovepercent": {
-        "label": "FX move",
-        "placeholder": "FX move eingeben",
+        "label": "Wechselkursbewegung",
+        "placeholder": "Wechselkursbewegung eingeben",
         "helper": "Expected FX move procent"
       }
     },
@@ -6038,13 +6044,13 @@
     },
     "ic-verim-orani-irr-hesaplama": {
       "initialinvestment": {
-        "label": "Initial investment",
-        "placeholder": "Initial investment eingeben",
+        "label": "Anfangsinvestition",
+        "placeholder": "Anfangsinvestition eingeben",
         "helper": "Project investment"
       },
       "returnmultiple": {
-        "label": "Return multiple",
-        "placeholder": "Return multiple eingeben",
+        "label": "Renditemultiplikator",
+        "placeholder": "Renditemultiplikator eingeben",
         "helper": "Screening return multiple"
       }
     },
@@ -6062,8 +6068,8 @@
     },
     "tir-kamyon-yuk-kapasitesi-hesaplama": {
       "payloadton": {
-        "label": "Payload capacity",
-        "placeholder": "Payload capacity eingeben",
+        "label": "Nutzlast",
+        "placeholder": "Nutzlast eingeben",
         "helper": "Satzd payload in tonnes"
       },
       "loadfactor": {
@@ -6074,8 +6080,8 @@
     },
     "arac-bakim-periyodu-takip-hesaplama": {
       "remainingkm": {
-        "label": "VerbleibEndee km",
-        "placeholder": "VerbleibEndee km eingeben",
+        "label": "VerbleibEnde km",
+        "placeholder": "VerbleibEnde km eingeben",
         "helper": "VerbleibEndee km for calculation"
       },
       "dailykm": {
@@ -6086,13 +6092,13 @@
     },
     "lastik-omru-degisim-km-hesaplama": {
       "remainingtreadkm": {
-        "label": "VerbleibEndee tread km",
-        "placeholder": "VerbleibEndee tread km eingeben",
+        "label": "VerbleibEnde tread km",
+        "placeholder": "VerbleibEnde tread km eingeben",
         "helper": "VerbleibEndee tread km for calculation"
       },
       "monthlykm": {
-        "label": "Monthly km",
-        "placeholder": "Monthly km eingeben",
+        "label": "Monatliche km",
+        "placeholder": "Monatliche km eingeben",
         "helper": "Monthly km for calculation"
       }
     },
@@ -6110,8 +6116,8 @@
     },
     "trafik-cezasi-gecikme-faizi-hesaplama": {
       "fineamount": {
-        "label": "Fine amount",
-        "placeholder": "Fine amount eingeben",
+        "label": "Bußgeldbetrag",
+        "placeholder": "Bußgeldbetrag eingeben",
         "helper": "Original fine amount"
       },
       "laterate": {
@@ -6122,13 +6128,13 @@
     },
     "kasko-sigorta-prim-karsilastirma": {
       "quotea": {
-        "label": "Quote A",
-        "placeholder": "Quote A eingeben",
+        "label": "Angebot A",
+        "placeholder": "Angebot A eingeben",
         "helper": "Quote A for comparison"
       },
       "quoteb": {
-        "label": "Quote B",
-        "placeholder": "Quote B eingeben",
+        "label": "Angebot B",
+        "placeholder": "Angebot B eingeben",
         "helper": "Quote B for comparison"
       }
     },
@@ -6163,8 +6169,8 @@
         "helper": "Kosten pro meal"
       },
       "headcount": {
-        "label": "Headcount",
-        "placeholder": "Headcount eingeben",
+        "label": "Mitarbeiterzahl",
+        "placeholder": "Mitarbeiterzahl eingeben",
         "helper": "Number of meals"
       }
     },
@@ -6175,20 +6181,20 @@
         "helper": "Toner Kosten for calculation"
       },
       "pageyield": {
-        "label": "Page yield",
-        "placeholder": "Page yield eingeben",
+        "label": "Seitenertrag",
+        "placeholder": "Seitenertrag eingeben",
         "helper": "Page yield for calculation"
       }
     },
     "internet-telefon-paketi-karsilastirma": {
       "packagea": {
-        "label": "Package A",
-        "placeholder": "Package A eingeben",
+        "label": "Paket A",
+        "placeholder": "Paket A eingeben",
         "helper": "Package A for comparison"
       },
       "packageb": {
-        "label": "Package B",
-        "placeholder": "Package B eingeben",
+        "label": "Paket B",
+        "placeholder": "Paket B eingeben",
         "helper": "Package B for comparison"
       }
     },
@@ -6218,13 +6224,13 @@
     },
     "celik-raf-depo-rafi-yuk-kapasitesi": {
       "beamcapacitykg": {
-        "label": "Beam capacity",
-        "placeholder": "Beam capacity eingeben",
+        "label": "Tragfähigkeit",
+        "placeholder": "Tragfähigkeit eingeben",
         "helper": "Capacity pro beam level in kg"
       },
       "shelfcount": {
-        "label": "Shelf count",
-        "placeholder": "Shelf count eingeben",
+        "label": "Regalanzahl",
+        "placeholder": "Regalanzahl eingeben",
         "helper": "Number of shelf levels"
       }
     },
@@ -6247,8 +6253,8 @@
         "helper": "Number of bolts"
       },
       "shearcapacitykn": {
-        "label": "Shear capacity",
-        "placeholder": "Shear capacity eingeben",
+        "label": "Schertragfähigkeit",
+        "placeholder": "Schertragfähigkeit eingeben",
         "helper": "Shear capacity pro bolt in kN"
       }
     },
@@ -6259,15 +6265,15 @@
         "helper": "Turbine Satzd kW"
       },
       "capacityfactor": {
-        "label": "Capacity factor",
-        "placeholder": "Capacity factor eingeben",
-        "helper": "Capacity factor"
+        "label": "Kapazitätsfaktor",
+        "placeholder": "Kapazitätsfaktor eingeben",
+        "helper": "Kapazitätsfaktor"
       }
     },
     "su-isitma-kazan-boyler-kapasite-hesabi": {
       "volumeliters": {
-        "label": "Volumen",
-        "placeholder": "Volumen eingeben",
+        "label": "Volume",
+        "placeholder": "Volume eingeben",
         "helper": "Tank Volumen in liters"
       },
       "deltatempc": {
@@ -6278,8 +6284,8 @@
     },
     "soguk-oda-sogutma-yuku-hesabi": {
       "roomvolumem3": {
-        "label": "Room Volumenn",
-        "placeholder": "Room Volumenn eingeben",
+        "label": "Room Volumen",
+        "placeholder": "Room Volumen eingeben",
         "helper": "Cold Room Volumenn"
       },
       "loadfactor": {
@@ -6290,13 +6296,13 @@
     },
     "yamuk-alani-hesaplama": {
       "basea": {
-        "label": "Base A",
-        "placeholder": "Base A eingeben",
+        "label": "Basis A",
+        "placeholder": "Basis A eingeben",
         "helper": "First parallel side"
       },
       "baseb": {
-        "label": "Base B",
-        "placeholder": "Base B eingeben",
+        "label": "Basis B",
+        "placeholder": "Basis B eingeben",
         "helper": "Second parallel side"
       },
       "height": {
@@ -6465,8 +6471,8 @@
     },
     "paketleme-malzemesi-strec-koli-sarfiyati": {
       "shipmentcount": {
-        "label": "Shipments",
-        "placeholder": "Shipments eingeben",
+        "label": "Sendungen",
+        "placeholder": "Sendungen eingeben",
         "helper": "Number of shipments"
       },
       "materialpershipment": {
@@ -6482,8 +6488,8 @@
         "helper": "Total shipping Kosten for calculation"
       },
       "documentcount": {
-        "label": "Document count",
-        "placeholder": "Document count eingeben",
+        "label": "Dokumentanzahl",
+        "placeholder": "Dokumentanzahl eingeben",
         "helper": "Document count for calculation"
       }
     },
@@ -6542,15 +6548,15 @@
         "helper": "Number of Mitarbeiter"
       },
       "monthlyspendperhead": {
-        "label": "SpEndee pro head",
-        "placeholder": "SpEndee pro head eingeben",
+        "label": "SpEnde pro head",
+        "placeholder": "SpEnde pro head eingeben",
         "helper": "Monthly stationery spEnde pro employee"
       }
     },
     "sirket-telefon-faturasi-hesaplama": {
       "linecount": {
-        "label": "Lines",
-        "placeholder": "Lines eingeben",
+        "label": "Zeilen",
+        "placeholder": "Zeilen eingeben",
         "helper": "Number of phone lines"
       },
       "monthlylinecost": {
@@ -6561,13 +6567,13 @@
     },
     "abonelik-yazilim-cloud-yillik-maliyet-hesabi": {
       "monthlyfee": {
-        "label": "Monthly fee",
-        "placeholder": "Monthly fee eingeben",
+        "label": "Monatsgebühr",
+        "placeholder": "Monatsgebühr eingeben",
         "helper": "Monthly subscription fee"
       },
       "months": {
-        "label": "Months",
-        "placeholder": "Months eingeben",
+        "label": "Monate",
+        "placeholder": "Monate eingeben",
         "helper": "Months pro year"
       }
     },
@@ -6578,15 +6584,15 @@
         "helper": "Reference fine amount"
       },
       "severityfactor": {
-        "label": "Severity factor",
-        "placeholder": "Severity factor eingeben",
+        "label": "Schweregradfaktor",
+        "placeholder": "Schweregradfaktor eingeben",
         "helper": "Severity multiplier"
       }
     },
     "yangin-merdiveni-kacis-yolu-genisligi-hesabi": {
       "occupantload": {
-        "label": "Occupant load",
-        "placeholder": "Occupant load eingeben",
+        "label": "Personenlast",
+        "placeholder": "Personenlast eingeben",
         "helper": "Occupant load for calculation"
       },
       "flowpermeter": {
@@ -6621,8 +6627,8 @@
     },
     "geri-donusum-gelir-maliyet-hesabi": {
       "recyclingrevenue": {
-        "label": "Recycling revenue",
-        "placeholder": "Recycling revenue eingeben",
+        "label": "Recyclingerlös",
+        "placeholder": "Recyclingerlös eingeben",
         "helper": "Recycling revenue for comparison"
       },
       "processingcost": {
@@ -6638,20 +6644,20 @@
         "helper": "Working Platform Höhe in meters"
       },
       "accessfactor": {
-        "label": "Access factor",
-        "placeholder": "Access factor eingeben",
-        "helper": "Access factor"
+        "label": "Zugangsfaktor",
+        "placeholder": "Zugangsfaktor eingeben",
+        "helper": "Zugangsfaktor"
       }
     },
     "mil-aks-capi-hesabi-egilme-burulma": {
       "bendingmoment": {
-        "label": "BEndeeing moment",
-        "placeholder": "BEndeeing moment eingeben",
+        "label": "BEndeing moment",
+        "placeholder": "BEndeing moment eingeben",
         "helper": "Applied BEndeeing moment index"
       },
       "torque": {
-        "label": "Torque",
-        "placeholder": "Torque eingeben",
+        "label": "Drehmoment",
+        "placeholder": "Drehmoment eingeben",
         "helper": "Applied torque index"
       }
     },
@@ -6674,8 +6680,8 @@
         "helper": "Spring Satz N/mm"
       },
       "deflectionmm": {
-        "label": "Deflection",
-        "placeholder": "Deflection eingeben",
+        "label": "Durchbiegung",
+        "placeholder": "Durchbiegung eingeben",
         "helper": "Deflection in mm"
       }
     },
@@ -6686,8 +6692,8 @@
         "helper": "Design Druck for calculation"
       },
       "allowablestressbar": {
-        "label": "Allowable stress",
-        "placeholder": "Allowable stress eingeben",
+        "label": "Zulässige Spannung",
+        "placeholder": "Zulässige Spannung eingeben",
         "helper": "Allowable stress for calculation"
       }
     },
@@ -6717,25 +6723,25 @@
     },
     "ses-yalitimi-desibel-azaltimi-hesabi": {
       "sourcedb": {
-        "label": "Source level",
-        "placeholder": "Source level eingeben",
+        "label": "Quellpegel",
+        "placeholder": "Quellpegel eingeben",
         "helper": "Source level for comparison"
       },
       "attenuationdb": {
-        "label": "Attenuation",
-        "placeholder": "Attenuation eingeben",
+        "label": "Dämpfung",
+        "placeholder": "Dämpfung eingeben",
         "helper": "Attenuation for comparison"
       }
     },
     "titresim-frekans-periyot-hesaplama": {
       "frequencyhz": {
-        "label": "Frequency",
-        "placeholder": "Frequency eingeben",
+        "label": "Frequenz",
+        "placeholder": "Frequenz eingeben",
         "helper": "Vibration frequency in Hz"
       },
       "unitconstant": {
-        "label": "Constant",
-        "placeholder": "Constant eingeben",
+        "label": "Konstante",
+        "placeholder": "Konstante eingeben",
         "helper": "Use 1 for proiod in seconds"
       }
     },
@@ -6748,9 +6754,9 @@
     },
     "istatistiksel-proses-kontrol-spc-limit-hesabi": {
       "processmean": {
-        "label": "Process mean",
-        "placeholder": "Process mean eingeben",
-        "helper": "Process mean"
+        "label": "Prozessmittelwert",
+        "placeholder": "Prozessmittelwert eingeben",
+        "helper": "Prozessmittelwert"
       },
       "controlfactor": {
         "label": "Steuerfaktor",
@@ -6768,6 +6774,1351 @@
         "label": "Million",
         "placeholder": "Million eingeben",
         "helper": "Divisor (use 1,000,000)"
+      }
+    },
+    "cnc-oee-loss": {
+      "machinerate": {
+        "label": "Machine Satz",
+        "placeholder": "Machine Satz eingeben",
+        "helper": "Loaded shop Satz including oproator burden."
+      },
+      "plannedhours": {
+        "label": "Planned run Stunden",
+        "placeholder": "Planned run Stunden eingeben",
+        "helper": "Rüstzeit plus production Stunden on the job."
+      },
+      "downtimehours": {
+        "label": "Expected downtime",
+        "placeholder": "Expected downtime eingeben",
+        "helper": "Tool changes, first-off Prüfung, minor stops."
+      },
+      "materialcost": {
+        "label": "Material Kosten",
+        "placeholder": "Material Kosten eingeben",
+        "helper": "Stock, fixturing VerbrauchsMaterial for the job."
+      },
+      "scraprate": {
+        "label": "Scrap Satz",
+        "placeholder": "Scrap Satz eingeben",
+        "helper": "Historical scrap procent for similar jobs."
+      },
+      "availability": {
+        "label": "Verfügbarkeit",
+        "placeholder": "Verfügbarkeit eingeben",
+        "helper": "Running time vs planned time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "Performance eingeben",
+        "helper": "Actual cycle vs ideal cycle."
+      },
+      "quality": {
+        "label": "Qualität",
+        "placeholder": "Qualität eingeben",
+        "helper": "Good parts vs total parts."
+      },
+      "quotedprice": {
+        "label": "Quoted Preis",
+        "placeholder": "Quoted Preis eingeben",
+        "helper": "Preis you plan to charge the customer."
+      }
+    },
+    "logistics-route-loss": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Distance eingeben",
+        "helper": "One-way loaded Entfernung."
+      },
+      "costperkm": {
+        "label": "Kosten pro km",
+        "placeholder": "Kosten pro km eingeben",
+        "helper": "Kraftstoff + wear pro km all-in."
+      },
+      "emptyreturnpercent": {
+        "label": "Empty return",
+        "placeholder": "Empty return eingeben",
+        "helper": "Unpaid return miles as procent of loaded Entfernung."
+      },
+      "driverhours": {
+        "label": "Driver Stunden",
+        "placeholder": "Driver Stunden eingeben",
+        "helper": "Total driving + waiting on lane."
+      },
+      "driverrate": {
+        "label": "Driver Satz",
+        "placeholder": "Driver Satz eingeben",
+        "helper": "Fully loaded driver Kosten pro hour."
+      },
+      "tolls": {
+        "label": "Maut",
+        "placeholder": "Maut eingeben",
+        "helper": "Road and bridge Maut for the lane."
+      },
+      "quotedfreightprice": {
+        "label": "Quoted freight Preis",
+        "placeholder": "Quoted freight Preis eingeben",
+        "helper": "Preis offered for the load."
+      }
+    },
+    "energy-peak-cost": {
+      "currentkwh": {
+        "label": "Strom kWh",
+        "placeholder": "Strom kWh eingeben",
+        "helper": "Billing-proiod Verbrauch."
+      },
+      "targetkwh": {
+        "label": "Sollwert kWh",
+        "placeholder": "Sollwert kWh eingeben",
+        "helper": "Efficiency Sollwert or prior-year baseline."
+      },
+      "energyrate": {
+        "label": "Energie Satz",
+        "placeholder": "Energie Satz eingeben",
+        "helper": "BlEndeed $/kWh for the proiod."
+      },
+      "peakkwh": {
+        "label": "Peak kWh",
+        "placeholder": "Peak kWh eingeben",
+        "helper": "Demand during peak window."
+      },
+      "peakrate": {
+        "label": "Peak Satz",
+        "placeholder": "Peak Satz eingeben",
+        "helper": "Peak-interval tariff."
+      },
+      "demandcharge": {
+        "label": "Demand charge",
+        "placeholder": "Demand charge eingeben",
+        "helper": "Monthly peak kW demand charge."
+      },
+      "plannedbudget": {
+        "label": "Planned Energie budget",
+        "placeholder": "Planned Energie budget eingeben",
+        "helper": "Budget cap for the proiod."
+      }
+    },
+    "food-waste-margin-loss": {
+      "monthlyingredientcost": {
+        "label": "Monthly Ingredient Kosten",
+        "placeholder": "Monthly Ingredient Kosten eingeben",
+        "helper": "Total ingredient spEnde for the proiod."
+      },
+      "wasterate": {
+        "label": "Ausschuss Satz",
+        "placeholder": "Ausschuss Satz eingeben",
+        "helper": "Spoilage, trim and overportion loss as procent of Ingredient Kosten."
+      },
+      "targetwasterate": {
+        "label": "Sollwert Ausschuss Satz",
+        "placeholder": "Sollwert Ausschuss Satz eingeben",
+        "helper": "Oproational Sollwert or prior best proiod."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Monthly revenue eingeben",
+        "helper": "Lebensmittel sales for the same proiod."
+      },
+      "grossmargin": {
+        "label": "Gross margin",
+        "placeholder": "Gross margin eingeben",
+        "helper": "Strom gross margin before Ausschuss adjustment."
+      }
+    },
+    "construction-project-overrun": {
+      "dailysitecost": {
+        "label": "Daily site Kosten",
+        "placeholder": "Daily site Kosten eingeben",
+        "helper": "Crew, equipment and overhead pro day on site."
+      },
+      "delaydays": {
+        "label": "Delay Tage",
+        "placeholder": "Delay Tage eingeben",
+        "helper": "Expected schedule slip beyond baseline."
+      },
+      "laborbudget": {
+        "label": "Labor budget",
+        "placeholder": "Labor budget eingeben",
+        "helper": "Planned labor spEnde for the scope."
+      },
+      "laboroverrunpercent": {
+        "label": "Labor overrun",
+        "placeholder": "Labor overrun eingeben",
+        "helper": "Expected labor Kosten drift above budget."
+      },
+      "materialbudget": {
+        "label": "Material budget",
+        "placeholder": "Material budget eingeben",
+        "helper": "Planned Material spEnde for the scope."
+      },
+      "materialoverrunpercent": {
+        "label": "Material overrun",
+        "placeholder": "Material overrun eingeben",
+        "helper": "Expected Material Kosten drift above budget."
+      }
+    },
+    "sheet-metal-scrap-risk": {
+      "materialcost": {
+        "label": "Material Kosten",
+        "placeholder": "Material Kosten eingeben",
+        "helper": "Sheet stock and Material spEnde for the job or proiod."
+      },
+      "scraprate": {
+        "label": "Scrap Satz",
+        "placeholder": "Scrap Satz eingeben",
+        "helper": "Cutting Ausschuss and offcut loss as procent of Material Kosten."
+      },
+      "targetscraprate": {
+        "label": "Sollwert Scrap Satz",
+        "placeholder": "Sollwert Scrap Satz eingeben",
+        "helper": "Acceptable scrap Sollwert for similar jobs."
+      },
+      "reworkhours": {
+        "label": "Rework Stunden",
+        "placeholder": "Rework Stunden eingeben",
+        "helper": "BEnde, fit-up and finishing rework Stunden expected."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded shop Labor Satz."
+      },
+      "finishingcost": {
+        "label": "Finishing Kosten",
+        "placeholder": "Finishing Kosten eingeben",
+        "helper": "Powder coat, deburr and finishing spEnde tied to rework risk."
+      }
+    },
+    "restaurant-menu-margin-leak": {
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Monthly revenue eingeben",
+        "helper": "Lebensmittel sales for the proiod."
+      },
+      "ingredientcost": {
+        "label": "Ingredient Kosten",
+        "placeholder": "Ingredient Kosten eingeben",
+        "helper": "Total ingredient spEnde before Ausschuss adjustment."
+      },
+      "deliveryappfeepercent": {
+        "label": "Delivery app fee",
+        "placeholder": "Delivery app fee eingeben",
+        "helper": "Platform commission on delivery revenue."
+      },
+      "wasterate": {
+        "label": "Ausschuss Satz",
+        "placeholder": "Ausschuss Satz eingeben",
+        "helper": "Spoilage and portion drift as procent of Ingredient Kosten."
+      },
+      "targetfoodcostpercent": {
+        "label": "Sollwert Lebensmittel Kosten",
+        "placeholder": "Sollwert Lebensmittel Kosten eingeben",
+        "helper": "Sollwert Lebensmittel Kosten procent for this menu mix."
+      }
+    },
+    "construction-subcontractor-margin-leak": {
+      "contractvalue": {
+        "label": "Contract Wert",
+        "placeholder": "Contract Wert eingeben",
+        "helper": "Total contract or project revenue."
+      },
+      "plannedsubcontractorcost": {
+        "label": "Planned subcontractor Kosten",
+        "placeholder": "Planned subcontractor Kosten eingeben",
+        "helper": "Budgeted subcontractor spEnde."
+      },
+      "actualsubcontractorcost": {
+        "label": "Actual subcontractor Kosten",
+        "placeholder": "Actual subcontractor Kosten eingeben",
+        "helper": "Actual or projected subcontractor spEnde."
+      },
+      "delaycost": {
+        "label": "Delay Kosten",
+        "placeholder": "Delay Kosten eingeben",
+        "helper": "Schedule slip and delay claim exposure."
+      },
+      "materialvariance": {
+        "label": "Material variance",
+        "placeholder": "Material variance eingeben",
+        "helper": "Material Kosten drift above plan."
+      }
+    },
+    "logistics-fuel-route-drift": {
+      "planneddistancekm": {
+        "label": "Planned Entfernung",
+        "placeholder": "Planned Entfernung eingeben",
+        "helper": "Baseline route Entfernung from plan."
+      },
+      "actualdistancekm": {
+        "label": "Actual Entfernung",
+        "placeholder": "Actual Entfernung eingeben",
+        "helper": "Observed or projected Entfernung driven."
+      },
+      "fuelcostperkm": {
+        "label": "Kraftstoff Kosten pro km",
+        "placeholder": "Kraftstoff Kosten pro km eingeben",
+        "helper": "Fully loaded Kraftstoff Kosten pro kilometer."
+      },
+      "idlehours": {
+        "label": "Idle Stunden",
+        "placeholder": "Idle Stunden eingeben",
+        "helper": "Waiting, loading or idle engine Stunden."
+      },
+      "hourlycost": {
+        "label": "Hourly Kosten",
+        "placeholder": "Hourly Kosten eingeben",
+        "helper": "Driver and equipment Kosten pro idle hour."
+      }
+    },
+    "energy-compressor-leak-cost": {
+      "compressorkw": {
+        "label": "Compressor Leistung",
+        "placeholder": "Compressor Leistung eingeben",
+        "helper": "Satzd compressor motor Leistung."
+      },
+      "leakpercent": {
+        "label": "Leak procent",
+        "placeholder": "Leak procent eingeben",
+        "helper": "Estimated compressed air leak as procent of output."
+      },
+      "operatinghours": {
+        "label": "Oproating Stunden",
+        "placeholder": "Oproating Stunden eingeben",
+        "helper": "Monthly compressor run Stunden."
+      },
+      "energyrate": {
+        "label": "Energie Satz",
+        "placeholder": "Energie Satz eingeben",
+        "helper": "BlEndeed electricity Satz."
+      }
+    },
+    "cloud-api-cost-overrun": {
+      "monthlyapicalls": {
+        "label": "Monthly API calls",
+        "placeholder": "Monthly API calls eingeben",
+        "helper": "Total API requests billed in the proiod."
+      },
+      "costperthousandcalls": {
+        "label": "Kosten pro 1k calls",
+        "placeholder": "Kosten pro 1k calls eingeben",
+        "helper": "BlEndeed Kosten pro thousand API calls."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Monthly revenue eingeben",
+        "helper": "Product revenue for the same proiod."
+      },
+      "computecost": {
+        "label": "Compute Kosten",
+        "placeholder": "Compute Kosten eingeben",
+        "helper": "Monthly compute and server spEnde."
+      },
+      "storagecost": {
+        "label": "Storage Kosten",
+        "placeholder": "Storage Kosten eingeben",
+        "helper": "Monthly storage and egress spEnde."
+      }
+    },
+    "agriculture-irrigation-yield-loss": {
+      "areaha": {
+        "label": "Fläche",
+        "placeholder": "Fläche eingeben",
+        "helper": "Cultivated Fläche in hectares."
+      },
+      "expectedyieldtonperha": {
+        "label": "Expected yield",
+        "placeholder": "Expected yield eingeben",
+        "helper": "Sollwert yield pro hectare for the season."
+      },
+      "actualyieldtonperha": {
+        "label": "Actual yield",
+        "placeholder": "Actual yield eingeben",
+        "helper": "Observed or projected yield pro hectare."
+      },
+      "priceperton": {
+        "label": "Preis pro ton",
+        "placeholder": "Preis pro ton eingeben",
+        "helper": "Market or contract Preis pro ton."
+      },
+      "irrigationcost": {
+        "label": "Irrigation Kosten",
+        "placeholder": "Irrigation Kosten eingeben",
+        "helper": "Season irrigation Energie and water spEnde."
+      }
+    },
+    "cnc-tool-wear-cost": {
+      "monthlytoolcost": {
+        "label": "Monthly Tool Kosten",
+        "placeholder": "Monthly Tool Kosten eingeben",
+        "helper": "Inserts, tooling and VerbrauchsMaterial spEnde pro month."
+      },
+      "partsproduced": {
+        "label": "Parts produced",
+        "placeholder": "Parts produced eingeben",
+        "helper": "Good parts produced in the same proiod."
+      },
+      "toolchangeminutes": {
+        "label": "Tool change minutes",
+        "placeholder": "Tool change minutes eingeben",
+        "helper": "Average minutes lost pro tool change event."
+      },
+      "changespermonth": {
+        "label": "Changes pro month",
+        "placeholder": "Changes pro month eingeben",
+        "helper": "Tool change events in the proiod."
+      },
+      "hourlycost": {
+        "label": "Hourly Kosten",
+        "placeholder": "Hourly Kosten eingeben",
+        "helper": "Loaded machine and oproator Satz."
+      },
+      "coolantcost": {
+        "label": "Coolant Kosten",
+        "placeholder": "Coolant Kosten eingeben",
+        "helper": "Coolant and lubricant spEnde tied to tooling."
+      }
+    },
+    "textile-fabric-waste-risk": {
+      "fabriccost": {
+        "label": "Fabric Kosten",
+        "placeholder": "Fabric Kosten eingeben",
+        "helper": "Fabric purchase spEnde for the production run or month."
+      },
+      "cuttingwastepercent": {
+        "label": "Cutting Ausschuss",
+        "placeholder": "Cutting Ausschuss eingeben",
+        "helper": "Cutting and offcut loss as procent of fabric Kosten."
+      },
+      "targetwastepercent": {
+        "label": "Sollwert Ausschuss",
+        "placeholder": "Sollwert Ausschuss eingeben",
+        "helper": "Acceptable Ausschuss Sollwert for similar production."
+      },
+      "shrinkagepercent": {
+        "label": "Shrinkage",
+        "placeholder": "Shrinkage eingeben",
+        "helper": "Shrinkage loss after wash or finish."
+      },
+      "dyereworkcost": {
+        "label": "Dye rework Kosten",
+        "placeholder": "Dye rework Kosten eingeben",
+        "helper": "Dye batch rework and shade correction spEnde."
+      }
+    },
+    "printing-reprint-margin-leak": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Job revenue eingeben",
+        "helper": "Quoted or invoiced revenue for the print job."
+      },
+      "materialcost": {
+        "label": "Material Kosten",
+        "placeholder": "Material Kosten eingeben",
+        "helper": "SubstSatz, ink and Material spEnde."
+      },
+      "reprintratepercent": {
+        "label": "Reprint Satz",
+        "placeholder": "Reprint Satz eingeben",
+        "helper": "Reprint and spoilage as procent of Material Kosten."
+      },
+      "designrevisionhours": {
+        "label": "Design revision Stunden",
+        "placeholder": "Design revision Stunden eingeben",
+        "helper": "Artwork and revision labor expected on the job."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded design and production Labor Satz."
+      },
+      "installreworkcost": {
+        "label": "Install rework Kosten",
+        "placeholder": "Install rework Kosten eingeben",
+        "helper": "Installation return and rework spEnde."
+      }
+    },
+    "auto-repair-comeback-cost": {
+      "monthlyrepairrevenue": {
+        "label": "Monthly repair revenue",
+        "placeholder": "Monthly repair revenue eingeben",
+        "helper": "Total shop revenue for the proiod."
+      },
+      "comebackratepercent": {
+        "label": "Comeback Satz",
+        "placeholder": "Comeback Satz eingeben",
+        "helper": "Comeback jobs as procent of revenue."
+      },
+      "averagejobcost": {
+        "label": "Average job Kosten",
+        "placeholder": "Average job Kosten eingeben",
+        "helper": "Average internal Kosten pro comeback job."
+      },
+      "diagnostichours": {
+        "label": "Diagnostic Stunden",
+        "placeholder": "Diagnostic Stunden eingeben",
+        "helper": "Unbilled diagnostic Labor Stunden pro month."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded technician Satz."
+      },
+      "partshandlingcost": {
+        "label": "Parts handling Kosten",
+        "placeholder": "Parts handling Kosten eingeben",
+        "helper": "Core handling, returns and parts admin spEnde."
+      }
+    },
+    "hvac-callback-margin-risk": {
+      "projectrevenue": {
+        "label": "Project revenue",
+        "placeholder": "Project revenue eingeben",
+        "helper": "Contract or bid revenue for the HVAC project."
+      },
+      "ductworkvariance": {
+        "label": "Ductwork variance",
+        "placeholder": "Ductwork variance eingeben",
+        "helper": "Extra duct Material and labor versus estimate."
+      },
+      "commissioninghours": {
+        "label": "Commissioning Stunden",
+        "placeholder": "Commissioning Stunden eingeben",
+        "helper": "Start-up, balance and commissioning labor."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded HVAC field Labor Satz."
+      },
+      "callbackriskpercent": {
+        "label": "Callback risk",
+        "placeholder": "Callback risk eingeben",
+        "helper": "Expected callback Kosten as procent of revenue."
+      }
+    },
+    "electrical-panel-rework-cost": {
+      "panelrevenue": {
+        "label": "Panel revenue",
+        "placeholder": "Panel revenue eingeben",
+        "helper": "Quoted or contract revenue for the panel job."
+      },
+      "wiringhours": {
+        "label": "Wiring Stunden",
+        "placeholder": "Wiring Stunden eingeben",
+        "helper": "Actual wiring and Laufzeitinations Stunden."
+      },
+      "estimatedhours": {
+        "label": "Estimated Stunden",
+        "placeholder": "Estimated Stunden eingeben",
+        "helper": "Original labor estimate for the panel."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded electrician Satz."
+      },
+      "inspectionfailcost": {
+        "label": "Prüfung fail Kosten",
+        "placeholder": "Prüfung fail Kosten eingeben",
+        "helper": "Re-Prüfung, corrections and delay Kosten."
+      },
+      "testequipmentcost": {
+        "label": "Test equipment Kosten",
+        "placeholder": "Test equipment Kosten eingeben",
+        "helper": "Testing gear, labels and documentation spEnde."
+      }
+    },
+    "plumbing-leak-callback-cost": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Job revenue eingeben",
+        "helper": "Fixed-Preis or contract revenue for the job."
+      },
+      "callbackvisits": {
+        "label": "Callback visits",
+        "placeholder": "Callback visits eingeben",
+        "helper": "Expected leak or warranty return visits."
+      },
+      "visitcost": {
+        "label": "Visit Kosten",
+        "placeholder": "Visit Kosten eingeben",
+        "helper": "Average Kosten pro callback visit."
+      },
+      "materialruncost": {
+        "label": "Material run Kosten",
+        "placeholder": "Material run Kosten eingeben",
+        "helper": "Extra fittings, pipe and supply runs."
+      },
+      "warrantyreservepercent": {
+        "label": "Warranty reserve",
+        "placeholder": "Warranty reserve eingeben",
+        "helper": "Warranty reserve as procent of job revenue."
+      }
+    },
+    "roofing-weather-delay-risk": {
+      "dailycrewcost": {
+        "label": "Daily crew Kosten",
+        "placeholder": "Daily crew Kosten eingeben",
+        "helper": "Loaded crew and equipment Kosten pro site day."
+      },
+      "weatherdelaydays": {
+        "label": "Weather delay Tage",
+        "placeholder": "Weather delay Tage eingeben",
+        "helper": "Expected weather delay Tage on the contract."
+      },
+      "dumpfees": {
+        "label": "Dump fees",
+        "placeholder": "Dump fees eingeben",
+        "helper": "Tear-off disposal and dump fees."
+      },
+      "warrantyreserve": {
+        "label": "Warranty reserve",
+        "placeholder": "Warranty reserve eingeben",
+        "helper": "Warranty and callback reserve for the job."
+      }
+    },
+    "painting-rework-coverage-risk": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Job revenue eingeben",
+        "helper": "Quoted revenue for the painting contract."
+      },
+      "paintmaterialcost": {
+        "label": "Paint Material Kosten",
+        "placeholder": "Paint Material Kosten eingeben",
+        "helper": "Paint, primer and VerbrauchsMaterial spEnde."
+      },
+      "coveragedriftpercent": {
+        "label": "Deckkraft drift",
+        "placeholder": "Deckkraft drift eingeben",
+        "helper": "Extra Material from Deckkraft drift as procent of paint Kosten."
+      },
+      "prepreworkhours": {
+        "label": "Prep rework Stunden",
+        "placeholder": "Prep rework Stunden eingeben",
+        "helper": "Surface prep and rework Labor Stunden."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded painter Labor Satz."
+      },
+      "scaffoldcost": {
+        "label": "Scaffold Kosten",
+        "placeholder": "Scaffold Kosten eingeben",
+        "helper": "Scaffold Mieteal and Rüstzeit spEnde."
+      }
+    },
+    "dairy-feed-efficiency-loss": {
+      "cows": {
+        "label": "Kühe",
+        "placeholder": "Kühe eingeben",
+        "helper": "Milking herd size for the proiod."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed Kosten pro cow pro day",
+        "placeholder": "Feed Kosten pro cow pro day eingeben",
+        "helper": "Average daily feed spEnde pro cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters pro cow pro day",
+        "placeholder": "Milk liters pro cow pro day eingeben",
+        "helper": "Observed milk yield pro cow pro day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "Sollwert milk liters pro cow pro day",
+        "placeholder": "Sollwert milk liters pro cow pro day eingeben",
+        "helper": "Sollwert or benchmark yield pro cow pro day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk Preis pro liter",
+        "placeholder": "Milk Preis pro liter eingeben",
+        "helper": "Netto Milk Preis received pro liter."
+      },
+      "days": {
+        "label": "Tage",
+        "placeholder": "Tage eingeben",
+        "helper": "Calculation proiod in Tage."
+      }
+    },
+    "retail-inventory-turnover-risk": {
+      "averageinventory": {
+        "label": "Average inventory",
+        "placeholder": "Average inventory eingeben",
+        "helper": "Average inventory Wert on hand."
+      },
+      "annualcogs": {
+        "label": "Annual COGS",
+        "placeholder": "Annual COGS eingeben",
+        "helper": "Kosten of goods sold over twelve months."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying Kosten",
+        "placeholder": "Carrying Kosten eingeben",
+        "helper": "Annual carrying Kosten as procent of inventory."
+      },
+      "markdownpercent": {
+        "label": "Markdown",
+        "placeholder": "Markdown eingeben",
+        "helper": "Expected markdown as procent of inventory."
+      }
+    },
+    "warehouse-space-cost-leak": {
+      "monthlyrent": {
+        "label": "Monthly Miete",
+        "placeholder": "Monthly Miete eingeben",
+        "helper": "Monthly facility Miete or occupancy Kosten."
+      },
+      "totalsqm": {
+        "label": "Total Grundfläche",
+        "placeholder": "Total Grundfläche eingeben",
+        "helper": "Total warehouse Grundfläche (reference)."
+      },
+      "unusedspacepercent": {
+        "label": "Unverbraucht space",
+        "placeholder": "Unverbraucht space eingeben",
+        "helper": "Unverbraucht or under-utilized space as procent of Miete."
+      },
+      "handlingoverrunhours": {
+        "label": "Handling overrun Stunden",
+        "placeholder": "Handling overrun Stunden eingeben",
+        "helper": "Extra picking and handling Stunden pro month."
+      },
+      "hourlycost": {
+        "label": "Hourly Kosten",
+        "placeholder": "Hourly Kosten eingeben",
+        "helper": "Loaded warehouse Labor Satz."
+      }
+    },
+    "calibration-drift-risk": {
+      "targetvalue": {
+        "label": "Sollwert Wert",
+        "placeholder": "Sollwert Wert eingeben",
+        "helper": "Nominal or specification Sollwert."
+      },
+      "actualvalue": {
+        "label": "Actual Wert",
+        "placeholder": "Actual Wert eingeben",
+        "helper": "Measured or observed Wert."
+      },
+      "tolerance": {
+        "label": "Tolerance",
+        "placeholder": "Tolerance eingeben",
+        "helper": "Allowed tolerance band around Sollwert."
+      },
+      "batchvalue": {
+        "label": "Batch Wert",
+        "placeholder": "Batch Wert eingeben",
+        "helper": "Production batch Wert At risk."
+      },
+      "rejectionriskpercent": {
+        "label": "Rejection risk",
+        "placeholder": "Rejection risk eingeben",
+        "helper": "Expected rejection Satz from drift exposure."
+      }
+    },
+    "legal-interest-fee-calculator-pro": {
+      "principal": {
+        "label": "Kapital",
+        "placeholder": "Kapital eingeben",
+        "helper": "Outstanding Kapital or claim amount."
+      },
+      "annualinterestpercent": {
+        "label": "Annual interest",
+        "placeholder": "Annual interest eingeben",
+        "helper": "Annual simple interest Satz assumption."
+      },
+      "days": {
+        "label": "Tage",
+        "placeholder": "Tage eingeben",
+        "helper": "Interest accrual proiod in Tage."
+      },
+      "feepercent": {
+        "label": "Fee procent",
+        "placeholder": "Fee procent eingeben",
+        "helper": "Fee stack as procent of Kapital."
+      },
+      "fixedcost": {
+        "label": "Fixed Kosten",
+        "placeholder": "Fixed Kosten eingeben",
+        "helper": "Fixed filing, service or admin Kostens."
+      }
+    },
+    "carbon-footprint-compliance-risk": {
+      "energyemissionston": {
+        "label": "Energie emissions",
+        "placeholder": "Energie emissions eingeben",
+        "helper": "Energie-related emissions tonnage for the proiod."
+      },
+      "fuelemissionston": {
+        "label": "Kraftstoff emissions",
+        "placeholder": "Kraftstoff emissions eingeben",
+        "helper": "Kraftstoff and Transport emissions tonnage."
+      },
+      "carbonprice": {
+        "label": "CO₂-Preis",
+        "placeholder": "CO₂-Preis eingeben",
+        "helper": "Assumed CO₂-Preis or CBAM reference Satz."
+      },
+      "exposurepercent": {
+        "label": "Exposure procent",
+        "placeholder": "Exposure procent eingeben",
+        "helper": "Share of emissions subject to compliance Kosten."
+      }
+    },
+    "quote-price-profit-margin-calculator": {
+      "materialcost": {
+        "label": "Material Kosten",
+        "placeholder": "Material Kosten eingeben",
+        "helper": "Raw Material and purchased parts for the quote scope."
+      },
+      "laborcost": {
+        "label": "Labor Kosten",
+        "placeholder": "Labor Kosten eingeben",
+        "helper": "Direct Labor Stunden converted to Kosten for this job."
+      },
+      "machinecost": {
+        "label": "Machine Kosten",
+        "placeholder": "Machine Kosten eingeben",
+        "helper": "Machine or spindle time allocated to the quote."
+      },
+      "energycost": {
+        "label": "Energie Kosten",
+        "placeholder": "Energie Kosten eingeben",
+        "helper": "Electricity, gas or utility load attributed to the job."
+      },
+      "overheadcost": {
+        "label": "Overhead Kosten",
+        "placeholder": "Overhead Kosten eingeben",
+        "helper": "Allocated overhead such as Miete, admin and indirect labor."
+      },
+      "wasterate": {
+        "label": "Ausschuss Satz",
+        "placeholder": "Ausschuss Satz eingeben",
+        "helper": "Expected scrap or Ausschuss as a procent of direct Kosten stack."
+      },
+      "setuptimecost": {
+        "label": "Rüstzeit time Kosten",
+        "placeholder": "Rüstzeit time Kosten eingeben",
+        "helper": "Programming, tooling and first-off Rüstzeit burden."
+      },
+      "shippingcost": {
+        "label": "Shipping Kosten",
+        "placeholder": "Shipping Kosten eingeben",
+        "helper": "Freight, packaging and Delivery Kosten for the quote."
+      },
+      "paymenttermcost": {
+        "label": "Payment Laufzeit Kosten",
+        "placeholder": "Payment Laufzeit Kosten eingeben",
+        "helper": "Financing or delay Kosten from customer payment Laufzeits."
+      },
+      "targetmarginrate": {
+        "label": "Sollwert margin Satz",
+        "placeholder": "Sollwert margin Satz eingeben",
+        "helper": "Sollwert gross margin procent for the quoted Preis."
+      },
+      "discountrate": {
+        "label": "Rabatt Satz",
+        "placeholder": "Rabatt Satz eingeben",
+        "helper": "Optional customer Rabatt applied on the Sollwert sales Preis."
+      },
+      "taxincluded": {
+        "label": "Tax included in Kostens",
+        "placeholder": "Tax included in Kostens eingeben",
+        "helper": "Mark when entered Kostens already include sales tax or VAT."
+      },
+      "safetymarginuplift": {
+        "label": "Safety margin uplift",
+        "placeholder": "Safety margin uplift eingeben",
+        "helper": "Extra margin points added to build the minimum safe Preis floor."
+      }
+    },
+    "shop-rate-hourly-cost-calculator": {
+      "fixedmonthlycost": {
+        "label": "Fixed monthly Kosten",
+        "placeholder": "Fixed monthly Kosten eingeben",
+        "helper": "Miete, depreciation, admin and indirect burden for the month."
+      },
+      "monthlymachinehours": {
+        "label": "Monthly Machine Stunden",
+        "placeholder": "Monthly Machine Stunden eingeben",
+        "helper": "Billable or scheduled spindle Stunden pro month."
+      },
+      "variablecostperhour": {
+        "label": "Variable Kosten pro hour",
+        "placeholder": "Variable Kosten pro hour eingeben",
+        "helper": "Leistung, VerbrauchsMaterial and direct variable burden pro hour."
+      }
+    },
+    "break-even-safety-margin-calculator": {
+      "fixedcost": {
+        "label": "Fixed Kosten",
+        "placeholder": "Fixed Kosten eingeben",
+        "helper": "Monthly fixed overhead for the proiod."
+      },
+      "unitprice": {
+        "label": "Unit Preis",
+        "placeholder": "Unit Preis eingeben",
+        "helper": "Average selling Preis pro unit."
+      },
+      "variablecostperunit": {
+        "label": "Variable Kosten pro unit",
+        "placeholder": "Variable Kosten pro unit eingeben",
+        "helper": "Direct variable Kosten pro unit sold."
+      },
+      "currentvolume": {
+        "label": "Strom Volumen",
+        "placeholder": "Strom Volumen eingeben",
+        "helper": "Units sold or produced in the proiod."
+      }
+    },
+    "auto-repair-parts-labor-quote-calculator": {
+      "partscost": {
+        "label": "Parts Kosten",
+        "placeholder": "Parts Kosten eingeben",
+        "helper": "Wholesale parts Kosten for the repair order."
+      },
+      "laborhours": {
+        "label": "Labor Stunden",
+        "placeholder": "Labor Stunden eingeben",
+        "helper": "Book time or estimated Labor Stunden."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Shop Labor Satz charged to customer."
+      },
+      "shopsuppliespercent": {
+        "label": "Shop supplies procent",
+        "placeholder": "Shop supplies procent eingeben",
+        "helper": "Shop supplies and VerbrauchsMaterial on parts subtotal."
+      },
+      "targetmarginrate": {
+        "label": "Sollwert margin Satz",
+        "placeholder": "Sollwert margin Satz eingeben",
+        "helper": "Sollwert gross margin on the quoted Preis."
+      }
+    },
+    "cbam-unit-product-carbon-footprint-calculator": {
+      "energyemissionston": {
+        "label": "Energie emissions",
+        "placeholder": "Energie emissions eingeben",
+        "helper": "Energie-related emissions for the production batch."
+      },
+      "fuelemissionston": {
+        "label": "Kraftstoff emissions",
+        "placeholder": "Kraftstoff emissions eingeben",
+        "helper": "Kraftstoff and Transport emissions for the batch."
+      },
+      "productionunits": {
+        "label": "Production units",
+        "placeholder": "Production units eingeben",
+        "helper": "Units produced in the batch."
+      },
+      "carbonprice": {
+        "label": "CO₂-Preis",
+        "placeholder": "CO₂-Preis eingeben",
+        "helper": "Reference CO₂-Preis for exposure estimate."
+      }
+    },
+    "oee-equipment-effectiveness-calculator": {
+      "availability": {
+        "label": "Verfügbarkeit",
+        "placeholder": "Verfügbarkeit eingeben",
+        "helper": "Running time vs planned production time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "Performance eingeben",
+        "helper": "Actual vs ideal cycle speed."
+      },
+      "quality": {
+        "label": "Qualität",
+        "placeholder": "Qualität eingeben",
+        "helper": "Gute Einheiten vs total units produced."
+      },
+      "machinerate": {
+        "label": "Machine Satz",
+        "placeholder": "Machine Satz eingeben",
+        "helper": "Loaded hourly Machine Kosten for loss estimate."
+      },
+      "plannedhours": {
+        "label": "Planned Stunden",
+        "placeholder": "Planned Stunden eingeben",
+        "helper": "Planned production Stunden in the proiod."
+      },
+      "downtimehours": {
+        "label": "Downtime Stunden",
+        "placeholder": "Downtime Stunden eingeben",
+        "helper": "Unplanned or visible downtime in the proiod."
+      }
+    },
+    "compressor-leak-cost-calculator": {
+      "compressorkw": {
+        "label": "Compressor Leistung",
+        "placeholder": "Compressor Leistung eingeben",
+        "helper": "Satzd compressor motor Leistung."
+      },
+      "leakpercent": {
+        "label": "Leak procent",
+        "placeholder": "Leak procent eingeben",
+        "helper": "Estimated compressed air leak as procent of output."
+      },
+      "operatinghours": {
+        "label": "Oproating Stunden",
+        "placeholder": "Oproating Stunden eingeben",
+        "helper": "Monthly compressor run Stunden."
+      },
+      "energyrate": {
+        "label": "Energie Satz",
+        "placeholder": "Energie Satz eingeben",
+        "helper": "BlEndeed electricity Satz."
+      }
+    },
+    "employee-total-cost-calculator": {
+      "grosssalary": {
+        "label": "Bruttogehalt",
+        "placeholder": "Bruttogehalt eingeben",
+        "helper": "Monthly Bruttogehalt before Arbeitgeberanteil."
+      },
+      "employerratepercent": {
+        "label": "Employer burden Satz",
+        "placeholder": "Employer burden Satz eingeben",
+        "helper": "Payroll taxes, social charges and statutory load."
+      },
+      "monthlybenefits": {
+        "label": "Monthly benefits",
+        "placeholder": "Monthly benefits eingeben",
+        "helper": "Health, meal, Transport and other monthly benefits."
+      }
+    },
+    "downtime-minute-cost-calculator": {
+      "downtimeminutes": {
+        "label": "Downtime minutes",
+        "placeholder": "Downtime minutes eingeben",
+        "helper": "Unplanned or scheduled stop minutes in the proiod."
+      },
+      "hourlyrate": {
+        "label": "Shop Hourly Satz",
+        "placeholder": "Shop Hourly Satz eingeben",
+        "helper": "Loaded machine or line hourly Kosten."
+      },
+      "outputunitsperhour": {
+        "label": "Output units pro hour",
+        "placeholder": "Output units pro hour eingeben",
+        "helper": "Typical Gute Einheiten produced pro running hour."
+      },
+      "contributionperunit": {
+        "label": "Contribution pro unit",
+        "placeholder": "Contribution pro unit eingeben",
+        "helper": "Margin contribution pro good unit."
+      }
+    },
+    "product-customer-profitability-calculator": {
+      "revenue": {
+        "label": "Revenue",
+        "placeholder": "Revenue eingeben",
+        "helper": "Customer or SKU revenue in the proiod."
+      },
+      "directcost": {
+        "label": "Direct Kosten",
+        "placeholder": "Direct Kosten eingeben",
+        "helper": "COGS and direct fulfillment Kosten."
+      },
+      "servicecost": {
+        "label": "Service Kosten",
+        "placeholder": "Service Kosten eingeben",
+        "helper": "Support, delivery rework and account service load."
+      },
+      "returnscost": {
+        "label": "Returns Kosten",
+        "placeholder": "Returns Kosten eingeben",
+        "helper": "Returns, credits and rework tied to the account."
+      }
+    },
+    "inventory-carrying-cost-eoq-calculator": {
+      "annualdemand": {
+        "label": "Annual demand",
+        "placeholder": "Annual demand eingeben",
+        "helper": "Expected units consumed or sold pro year."
+      },
+      "ordercost": {
+        "label": "Order Kosten",
+        "placeholder": "Order Kosten eingeben",
+        "helper": "Fixed Kosten pro purchase order placed."
+      },
+      "unitcost": {
+        "label": "Unit Kosten",
+        "placeholder": "Unit Kosten eingeben",
+        "helper": "Purchase or production Kosten pro unit."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying Kosten Satz",
+        "placeholder": "Carrying Kosten Satz eingeben",
+        "helper": "Annual carrying Kosten as procent of inventory Wert."
+      }
+    },
+    "welded-bolted-connection-calculator": {
+      "throatmm": {
+        "label": "Weld Hals",
+        "placeholder": "Weld Hals eingeben",
+        "helper": "Effektive Kehlnahtdicke."
+      },
+      "weldlengthmm": {
+        "label": "Weld Länge",
+        "placeholder": "Weld Länge eingeben",
+        "helper": "Kontinuierliche Schweißlänge entlang der Fuge."
+      },
+      "boltdiametermm": {
+        "label": "Schraubendurchmesser",
+        "placeholder": "Schraubendurchmesser eingeben",
+        "helper": "Nenn-Schraubendurchmesser."
+      },
+      "boltcount": {
+        "label": "Schraubenanzahl",
+        "placeholder": "Schraubenanzahl eingeben",
+        "helper": "Anzahl der Schrauben im Lastpfad."
+      },
+      "allowablestressmpa": {
+        "label": "Zulässige Spannung",
+        "placeholder": "Zulässige Spannung eingeben",
+        "helper": "Werkstatt-Referenzspannung für die Schnellprüfung."
+      },
+      "safetyfactor": {
+        "label": "Sicherheitsfaktor",
+        "placeholder": "Sicherheitsfaktor eingeben",
+        "helper": "Auf die zulässige Spannung angewandter Sicherheitsfaktor."
+      }
+    },
+    "tolerance-stack-up-calculator": {
+      "t1": {
+        "label": "Tolerance 1",
+        "placeholder": "Tolerance 1 eingeben",
+        "helper": "First part tolerance contribution."
+      },
+      "t2": {
+        "label": "Tolerance 2",
+        "placeholder": "Tolerance 2 eingeben",
+        "helper": "Second part tolerance contribution."
+      },
+      "t3": {
+        "label": "Tolerance 3",
+        "placeholder": "Tolerance 3 eingeben",
+        "helper": "Third part tolerance contribution."
+      },
+      "t4": {
+        "label": "Tolerance 4",
+        "placeholder": "Tolerance 4 eingeben",
+        "helper": "Fourth part tolerance contribution."
+      },
+      "assemblylimit": {
+        "label": "Assembly limit",
+        "placeholder": "Assembly limit eingeben",
+        "helper": "Maximum allowable stack for the assembly chain."
+      }
+    },
+    "bolt-tightening-torque-calculator": {
+      "clampforcekn": {
+        "label": "Klemmkraft",
+        "placeholder": "Klemmkraft eingeben",
+        "helper": "Sollwert clamp or preload force for the joint."
+      },
+      "boltdiametermm": {
+        "label": "Schraubendurchmesser",
+        "placeholder": "Schraubendurchmesser eingeben",
+        "helper": "Nenn-Schraubendurchmesser."
+      },
+      "frictionfactor": {
+        "label": "Friction factor",
+        "placeholder": "Friction factor eingeben",
+        "helper": "Nut factor K for dry steel (typical 0.15–0.25)."
+      }
+    },
+    "fire-system-flow-hydrant-calculator": {
+      "protectedaream2": {
+        "label": "Protected Fläche",
+        "placeholder": "Protected Fläche eingeben",
+        "helper": "Design Fläche covered by the hydrant Nettowork."
+      },
+      "designdensitylpmm2": {
+        "label": "Design Dichte",
+        "placeholder": "Design Dichte eingeben",
+        "helper": "Reference design Dichte for the occupancy class."
+      },
+      "hydrantcapacitylpm": {
+        "label": "Hydrant capacity",
+        "placeholder": "Hydrant capacity eingeben",
+        "helper": "Available Durchfluss pro hydrant at required Druck."
+      }
+    },
+    "hydraulic-pneumatic-cylinder-force-calculator": {
+      "pressurebar": {
+        "label": "System Druck",
+        "placeholder": "System Druck eingeben",
+        "helper": "Working Druck at the cylinder port."
+      },
+      "boremm": {
+        "label": "Bohrungsdurchmesser",
+        "placeholder": "Bohrungsdurchmesser eingeben",
+        "helper": "Cylinder bore inner Durchmesser."
+      },
+      "rodmm": {
+        "label": "Rod Durchmesser",
+        "placeholder": "Rod Durchmesser eingeben",
+        "helper": "Rod Durchmesser for retract force (optional screening)."
+      }
+    },
+    "quality-cost-paf-calculator": {
+      "preventioncost": {
+        "label": "Prevention Kosten",
+        "placeholder": "Prevention Kosten eingeben",
+        "helper": "Training, process control and prevention activities."
+      },
+      "appraisalcost": {
+        "label": "Appraisal Kosten",
+        "placeholder": "Appraisal Kosten eingeben",
+        "helper": "Prüfung, testing and audit Kosten."
+      },
+      "failurecost": {
+        "label": "Failure Kosten",
+        "placeholder": "Failure Kosten eingeben",
+        "helper": "Scrap, rework, warranty and downtime from defects."
+      },
+      "revenue": {
+        "label": "Revenue",
+        "placeholder": "Revenue eingeben",
+        "helper": "Monthly revenue for ratio context."
+      }
+    },
+    "pressure-vessel-wall-thickness-calculator": {
+      "designpressurebar": {
+        "label": "Design Druck",
+        "placeholder": "Design Druck eingeben",
+        "helper": "Internal Design Druck for the vessel."
+      },
+      "diametermm": {
+        "label": "Inside Durchmesser",
+        "placeholder": "Inside Durchmesser eingeben",
+        "helper": "Nominal inside Durchmesser of the shell."
+      },
+      "allowablestressmpa": {
+        "label": "Zulässige Spannung",
+        "placeholder": "Zulässige Spannung eingeben",
+        "helper": "Material Zulässige Spannung at design temproature."
+      },
+      "weldefficiency": {
+        "label": "Weld efficiency",
+        "placeholder": "Weld efficiency eingeben",
+        "helper": "Joint efficiency factor E (typical 0.7–1.0)."
+      }
+    },
+    "value-stream-map-vsm-calculator": {
+      "processminutes": {
+        "label": "Process time",
+        "placeholder": "Process time eingeben",
+        "helper": "Total Wert-added processing minutes in the stream."
+      },
+      "waitminutes": {
+        "label": "Wait time",
+        "placeholder": "Wait time eingeben",
+        "helper": "Queue and inventory wait minutes."
+      },
+      "transportminutes": {
+        "label": "Transport time",
+        "placeholder": "Transport time eingeben",
+        "helper": "Material movement and transfer minutes."
+      }
+    },
+    "energy-savings-package-calculator": {
+      "baselinekwhmonthly": {
+        "label": "Baseline monthly kWh",
+        "placeholder": "Baseline monthly kWh eingeben",
+        "helper": "Strom average monthly electricity use."
+      },
+      "proposedkwhmonthly": {
+        "label": "Proposed monthly kWh",
+        "placeholder": "Proposed monthly kWh eingeben",
+        "helper": "Expected monthly use after the savings package."
+      },
+      "energyrate": {
+        "label": "Energie Satz",
+        "placeholder": "Energie Satz eingeben",
+        "helper": "BlEndeed electricity tariff."
+      },
+      "projectcost": {
+        "label": "Project Kosten",
+        "placeholder": "Project Kosten eingeben",
+        "helper": "Total capex for the efficiency package."
+      }
+    },
+    "investment-payback-npv-calculator": {
+      "initialinvestment": {
+        "label": "Anfangsinvestition",
+        "placeholder": "Anfangsinvestition eingeben",
+        "helper": "Up-front project or equipment Kosten."
+      },
+      "annualcashflow": {
+        "label": "Annual cash Durchfluss",
+        "placeholder": "Annual cash Durchfluss eingeben",
+        "helper": "Expected annual benefit after investment."
+      },
+      "discountratepercent": {
+        "label": "Rabatt Satz",
+        "placeholder": "Rabatt Satz eingeben",
+        "helper": "Required return or Kosten of capital."
+      },
+      "horizonyears": {
+        "label": "Horizon",
+        "placeholder": "Horizon eingeben",
+        "helper": "Analysis proiod in Jahre."
+      }
+    },
+    "annual-leave-severance-notice-calculator": {
+      "grossmonthlysalary": {
+        "label": "Gross monthly salary",
+        "placeholder": "Gross monthly salary eingeben",
+        "helper": "Monthly gross pay verbraucht for screening."
+      },
+      "employerburdenpercent": {
+        "label": "Employer burden",
+        "placeholder": "Employer burden eingeben",
+        "helper": "Payroll taxes and employer contributions."
+      },
+      "yearsofservice": {
+        "label": "Jahre of service",
+        "placeholder": "Jahre of service eingeben",
+        "helper": "Completed service Jahre for severance screening."
+      },
+      "severanceweeksperyear": {
+        "label": "Severance weeks pro year",
+        "placeholder": "Severance weeks pro year eingeben",
+        "helper": "Policy weeks credited pro service year."
+      },
+      "noticeweeks": {
+        "label": "Notice weeks",
+        "placeholder": "Notice weeks eingeben",
+        "helper": "Notice proiod Länge in weeks."
+      }
+    },
+    "belt-pulley-speed-length-calculator": {
+      "driverrpm": {
+        "label": "Driver RPM",
+        "placeholder": "Driver RPM eingeben",
+        "helper": "Motor or driver shaft speed."
+      },
+      "driverdiametermm": {
+        "label": "Driver Durchmesser",
+        "placeholder": "Driver Durchmesser eingeben",
+        "helper": "Driver pulley pitch Durchmesser."
+      },
+      "drivendiametermm": {
+        "label": "Driven Durchmesser",
+        "placeholder": "Driven Durchmesser eingeben",
+        "helper": "Driven pulley pitch Durchmesser."
+      },
+      "centerdistancemm": {
+        "label": "Center Entfernung",
+        "placeholder": "Center Entfernung eingeben",
+        "helper": "Shaft center Entfernung for open belt Länge."
       }
     }
   },
@@ -6792,7 +8143,7 @@
     "panel3Link2": "Kompressor-Leckagekosten",
     "panel3Link3": "Schraubendrehmoment & Verbindung",
     "panel3Link4": "Kohlenstoff- & Energierechnungen",
-    "newsletterLabel": "SECTORCALC NEWSLETTER",
+    "newsletterLabel": "BrancheCALC NEWSLETTER",
     "newsletterPlaceholder": "Ihre E-Mail-Adresse",
     "newsletterButton": "ANMELDEN",
     "socialIn": "IN",
@@ -6804,5 +8155,20 @@
     "metaReg": "REG: GLOBAL",
     "metaCur": "CUR: EUR",
     "metaCopyright": "© 2026 SECTORCALC"
+  },
+  "calculatorLibrary": {
+    "metaTitle": "Rechner-Bibliothek — SectorCalc",
+    "metaDescription": "Öffentliche Rechner-Katalogressourcen für SectorCalc: LLMs-Index, Branchenwerkzeuglisten und Katalogeinstiege.",
+    "title": "Rechner-Bibliothek",
+    "lead": "Maschinenlesbare Indizes und Katalogeinstiege für SectorCalc-Branchenrechner.",
+    "resourcesTitle": "Öffentliche Ressourcen",
+    "catalogsTitle": "Kataloge",
+    "llmsLabel": "llms.txt",
+    "indexLabel": "sectorcalc-index.txt",
+    "faqLabel": "faq-knowledge.txt",
+    "servicesLabel": "services-products.txt",
+    "freeToolsLabel": "Kostenlose Rechner",
+    "premiumToolsLabel": "Premium-Rechner",
+    "industriesLabel": "Branchen-Hubs"
   }
 }

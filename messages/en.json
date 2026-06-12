@@ -222,7 +222,13 @@
       "title": "Free Calculators",
       "subtitle": "Find the calculator you need by category.",
       "metaTitle": "Free Calculators | SectorCalc",
-      "metaDescription": "Find free calculators by category — measurement, cost, finance, energy, conversion and everyday decisions."
+      "metaDescription": "Find free calculators by category — measurement, cost, finance, energy, conversion and everyday decisions.",
+      "validation": {
+        "required": "Please select a value.",
+        "number": "Enter a valid number.",
+        "min": "Must be at least {min}.",
+        "max": "Must be at most {max}."
+      }
     },
     "premiumTools": {
       "eyebrow": "Premium calculators",
@@ -1119,7 +1125,7 @@
     "criticalTools": {
       "title": "Critical calculators teams open first",
       "subtitle": "High-intent industry calculators across production, quoting, engineering, construction, energy and finance.",
-      "badgeSoon": "Planned",
+      "badgeSoon": "Coming soon",
       "groups": {
         "productionManufacturing": {
           "title": "Production & manufacturing",
@@ -6362,6 +6368,1351 @@
         "placeholder": "Enter million",
         "helper": "Divisor (use 1,000,000)"
       }
+    },
+    "cnc-oee-loss": {
+      "machinerate": {
+        "label": "Machine rate",
+        "placeholder": "Enter machine rate",
+        "helper": "Loaded shop rate including operator burden."
+      },
+      "plannedhours": {
+        "label": "Planned run hours",
+        "placeholder": "Enter planned run hours",
+        "helper": "Setup plus production hours on the job."
+      },
+      "downtimehours": {
+        "label": "Expected downtime",
+        "placeholder": "Enter expected downtime",
+        "helper": "Tool changes, first-off inspection, minor stops."
+      },
+      "materialcost": {
+        "label": "Material cost",
+        "placeholder": "Enter material cost",
+        "helper": "Stock, fixturing consumables for the job."
+      },
+      "scraprate": {
+        "label": "Scrap rate",
+        "placeholder": "Enter scrap rate",
+        "helper": "Historical scrap percent for similar jobs."
+      },
+      "availability": {
+        "label": "Availability",
+        "placeholder": "Enter availability",
+        "helper": "Running time vs planned time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "Enter performance",
+        "helper": "Actual cycle vs ideal cycle."
+      },
+      "quality": {
+        "label": "Quality",
+        "placeholder": "Enter quality",
+        "helper": "Good parts vs total parts."
+      },
+      "quotedprice": {
+        "label": "Quoted price",
+        "placeholder": "Enter quoted price",
+        "helper": "Price you plan to charge the customer."
+      }
+    },
+    "logistics-route-loss": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Enter distance",
+        "helper": "One-way loaded distance."
+      },
+      "costperkm": {
+        "label": "Cost per km",
+        "placeholder": "Enter cost per km",
+        "helper": "Fuel + wear per km all-in."
+      },
+      "emptyreturnpercent": {
+        "label": "Empty return",
+        "placeholder": "Enter empty return",
+        "helper": "Unpaid return miles as percent of loaded distance."
+      },
+      "driverhours": {
+        "label": "Driver hours",
+        "placeholder": "Enter driver hours",
+        "helper": "Total driving + waiting on lane."
+      },
+      "driverrate": {
+        "label": "Driver rate",
+        "placeholder": "Enter driver rate",
+        "helper": "Fully loaded driver cost per hour."
+      },
+      "tolls": {
+        "label": "Tolls",
+        "placeholder": "Enter tolls",
+        "helper": "Road and bridge tolls for the lane."
+      },
+      "quotedfreightprice": {
+        "label": "Quoted freight price",
+        "placeholder": "Enter quoted freight price",
+        "helper": "Price offered for the load."
+      }
+    },
+    "energy-peak-cost": {
+      "currentkwh": {
+        "label": "Current kWh",
+        "placeholder": "Enter current kwh",
+        "helper": "Billing-period consumption."
+      },
+      "targetkwh": {
+        "label": "Target kWh",
+        "placeholder": "Enter target kwh",
+        "helper": "Efficiency target or prior-year baseline."
+      },
+      "energyrate": {
+        "label": "Energy rate",
+        "placeholder": "Enter energy rate",
+        "helper": "Blended $/kWh for the period."
+      },
+      "peakkwh": {
+        "label": "Peak kWh",
+        "placeholder": "Enter peak kwh",
+        "helper": "Demand during peak window."
+      },
+      "peakrate": {
+        "label": "Peak rate",
+        "placeholder": "Enter peak rate",
+        "helper": "Peak-interval tariff."
+      },
+      "demandcharge": {
+        "label": "Demand charge",
+        "placeholder": "Enter demand charge",
+        "helper": "Monthly peak kW demand charge."
+      },
+      "plannedbudget": {
+        "label": "Planned energy budget",
+        "placeholder": "Enter planned energy budget",
+        "helper": "Budget cap for the period."
+      }
+    },
+    "food-waste-margin-loss": {
+      "monthlyingredientcost": {
+        "label": "Monthly ingredient cost",
+        "placeholder": "Enter monthly ingredient cost",
+        "helper": "Total ingredient spend for the period."
+      },
+      "wasterate": {
+        "label": "Waste rate",
+        "placeholder": "Enter waste rate",
+        "helper": "Spoilage, trim and overportion loss as percent of ingredient cost."
+      },
+      "targetwasterate": {
+        "label": "Target waste rate",
+        "placeholder": "Enter target waste rate",
+        "helper": "Operational target or prior best period."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Enter monthly revenue",
+        "helper": "Food sales for the same period."
+      },
+      "grossmargin": {
+        "label": "Gross margin",
+        "placeholder": "Enter gross margin",
+        "helper": "Current gross margin before waste adjustment."
+      }
+    },
+    "construction-project-overrun": {
+      "dailysitecost": {
+        "label": "Daily site cost",
+        "placeholder": "Enter daily site cost",
+        "helper": "Crew, equipment and overhead per day on site."
+      },
+      "delaydays": {
+        "label": "Delay days",
+        "placeholder": "Enter delay days",
+        "helper": "Expected schedule slip beyond baseline."
+      },
+      "laborbudget": {
+        "label": "Labor budget",
+        "placeholder": "Enter labor budget",
+        "helper": "Planned labor spend for the scope."
+      },
+      "laboroverrunpercent": {
+        "label": "Labor overrun",
+        "placeholder": "Enter labor overrun",
+        "helper": "Expected labor cost drift above budget."
+      },
+      "materialbudget": {
+        "label": "Material budget",
+        "placeholder": "Enter material budget",
+        "helper": "Planned material spend for the scope."
+      },
+      "materialoverrunpercent": {
+        "label": "Material overrun",
+        "placeholder": "Enter material overrun",
+        "helper": "Expected material cost drift above budget."
+      }
+    },
+    "sheet-metal-scrap-risk": {
+      "materialcost": {
+        "label": "Material cost",
+        "placeholder": "Enter material cost",
+        "helper": "Sheet stock and material spend for the job or period."
+      },
+      "scraprate": {
+        "label": "Scrap rate",
+        "placeholder": "Enter scrap rate",
+        "helper": "Cutting waste and offcut loss as percent of material cost."
+      },
+      "targetscraprate": {
+        "label": "Target scrap rate",
+        "placeholder": "Enter target scrap rate",
+        "helper": "Acceptable scrap target for similar jobs."
+      },
+      "reworkhours": {
+        "label": "Rework hours",
+        "placeholder": "Enter rework hours",
+        "helper": "Bend, fit-up and finishing rework hours expected."
+      },
+      "laborrate": {
+        "label": "Labor rate",
+        "placeholder": "Enter labor rate",
+        "helper": "Fully loaded shop labor rate."
+      },
+      "finishingcost": {
+        "label": "Finishing cost",
+        "placeholder": "Enter finishing cost",
+        "helper": "Powder coat, deburr and finishing spend tied to rework risk."
+      }
+    },
+    "restaurant-menu-margin-leak": {
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Enter monthly revenue",
+        "helper": "Food sales for the period."
+      },
+      "ingredientcost": {
+        "label": "Ingredient cost",
+        "placeholder": "Enter ingredient cost",
+        "helper": "Total ingredient spend before waste adjustment."
+      },
+      "deliveryappfeepercent": {
+        "label": "Delivery app fee",
+        "placeholder": "Enter delivery app fee",
+        "helper": "Platform commission on delivery revenue."
+      },
+      "wasterate": {
+        "label": "Waste rate",
+        "placeholder": "Enter waste rate",
+        "helper": "Spoilage and portion drift as percent of ingredient cost."
+      },
+      "targetfoodcostpercent": {
+        "label": "Target food cost",
+        "placeholder": "Enter target food cost",
+        "helper": "Target food cost percent for this menu mix."
+      }
+    },
+    "construction-subcontractor-margin-leak": {
+      "contractvalue": {
+        "label": "Contract value",
+        "placeholder": "Enter contract value",
+        "helper": "Total contract or project revenue."
+      },
+      "plannedsubcontractorcost": {
+        "label": "Planned subcontractor cost",
+        "placeholder": "Enter planned subcontractor cost",
+        "helper": "Budgeted subcontractor spend."
+      },
+      "actualsubcontractorcost": {
+        "label": "Actual subcontractor cost",
+        "placeholder": "Enter actual subcontractor cost",
+        "helper": "Actual or projected subcontractor spend."
+      },
+      "delaycost": {
+        "label": "Delay cost",
+        "placeholder": "Enter delay cost",
+        "helper": "Schedule slip and delay claim exposure."
+      },
+      "materialvariance": {
+        "label": "Material variance",
+        "placeholder": "Enter material variance",
+        "helper": "Material cost drift above plan."
+      }
+    },
+    "logistics-fuel-route-drift": {
+      "planneddistancekm": {
+        "label": "Planned distance",
+        "placeholder": "Enter planned distance",
+        "helper": "Baseline route distance from plan."
+      },
+      "actualdistancekm": {
+        "label": "Actual distance",
+        "placeholder": "Enter actual distance",
+        "helper": "Observed or projected distance driven."
+      },
+      "fuelcostperkm": {
+        "label": "Fuel cost per km",
+        "placeholder": "Enter fuel cost per km",
+        "helper": "Fully loaded fuel cost per kilometer."
+      },
+      "idlehours": {
+        "label": "Idle hours",
+        "placeholder": "Enter idle hours",
+        "helper": "Waiting, loading or idle engine hours."
+      },
+      "hourlycost": {
+        "label": "Hourly cost",
+        "placeholder": "Enter hourly cost",
+        "helper": "Driver and equipment cost per idle hour."
+      }
+    },
+    "energy-compressor-leak-cost": {
+      "compressorkw": {
+        "label": "Compressor power",
+        "placeholder": "Enter compressor power",
+        "helper": "Rated compressor motor power."
+      },
+      "leakpercent": {
+        "label": "Leak percent",
+        "placeholder": "Enter leak percent",
+        "helper": "Estimated compressed air leak as percent of output."
+      },
+      "operatinghours": {
+        "label": "Operating hours",
+        "placeholder": "Enter operating hours",
+        "helper": "Monthly compressor run hours."
+      },
+      "energyrate": {
+        "label": "Energy rate",
+        "placeholder": "Enter energy rate",
+        "helper": "Blended electricity rate."
+      }
+    },
+    "cloud-api-cost-overrun": {
+      "monthlyapicalls": {
+        "label": "Monthly API calls",
+        "placeholder": "Enter monthly api calls",
+        "helper": "Total API requests billed in the period."
+      },
+      "costperthousandcalls": {
+        "label": "Cost per 1k calls",
+        "placeholder": "Enter cost per 1k calls",
+        "helper": "Blended cost per thousand API calls."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Enter monthly revenue",
+        "helper": "Product revenue for the same period."
+      },
+      "computecost": {
+        "label": "Compute cost",
+        "placeholder": "Enter compute cost",
+        "helper": "Monthly compute and server spend."
+      },
+      "storagecost": {
+        "label": "Storage cost",
+        "placeholder": "Enter storage cost",
+        "helper": "Monthly storage and egress spend."
+      }
+    },
+    "agriculture-irrigation-yield-loss": {
+      "areaha": {
+        "label": "Area",
+        "placeholder": "Enter area",
+        "helper": "Cultivated area in hectares."
+      },
+      "expectedyieldtonperha": {
+        "label": "Expected yield",
+        "placeholder": "Enter expected yield",
+        "helper": "Target yield per hectare for the season."
+      },
+      "actualyieldtonperha": {
+        "label": "Actual yield",
+        "placeholder": "Enter actual yield",
+        "helper": "Observed or projected yield per hectare."
+      },
+      "priceperton": {
+        "label": "Price per ton",
+        "placeholder": "Enter price per ton",
+        "helper": "Market or contract price per ton."
+      },
+      "irrigationcost": {
+        "label": "Irrigation cost",
+        "placeholder": "Enter irrigation cost",
+        "helper": "Season irrigation energy and water spend."
+      }
+    },
+    "cnc-tool-wear-cost": {
+      "monthlytoolcost": {
+        "label": "Monthly tool cost",
+        "placeholder": "Enter monthly tool cost",
+        "helper": "Inserts, tooling and consumables spend per month."
+      },
+      "partsproduced": {
+        "label": "Parts produced",
+        "placeholder": "Enter parts produced",
+        "helper": "Good parts produced in the same period."
+      },
+      "toolchangeminutes": {
+        "label": "Tool change minutes",
+        "placeholder": "Enter tool change minutes",
+        "helper": "Average minutes lost per tool change event."
+      },
+      "changespermonth": {
+        "label": "Changes per month",
+        "placeholder": "Enter changes per month",
+        "helper": "Tool change events in the period."
+      },
+      "hourlycost": {
+        "label": "Hourly cost",
+        "placeholder": "Enter hourly cost",
+        "helper": "Loaded machine and operator rate."
+      },
+      "coolantcost": {
+        "label": "Coolant cost",
+        "placeholder": "Enter coolant cost",
+        "helper": "Coolant and lubricant spend tied to tooling."
+      }
+    },
+    "textile-fabric-waste-risk": {
+      "fabriccost": {
+        "label": "Fabric cost",
+        "placeholder": "Enter fabric cost",
+        "helper": "Fabric purchase spend for the production run or month."
+      },
+      "cuttingwastepercent": {
+        "label": "Cutting waste",
+        "placeholder": "Enter cutting waste",
+        "helper": "Cutting and offcut loss as percent of fabric cost."
+      },
+      "targetwastepercent": {
+        "label": "Target waste",
+        "placeholder": "Enter target waste",
+        "helper": "Acceptable waste target for similar production."
+      },
+      "shrinkagepercent": {
+        "label": "Shrinkage",
+        "placeholder": "Enter shrinkage",
+        "helper": "Shrinkage loss after wash or finish."
+      },
+      "dyereworkcost": {
+        "label": "Dye rework cost",
+        "placeholder": "Enter dye rework cost",
+        "helper": "Dye batch rework and shade correction spend."
+      }
+    },
+    "printing-reprint-margin-leak": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Enter job revenue",
+        "helper": "Quoted or invoiced revenue for the print job."
+      },
+      "materialcost": {
+        "label": "Material cost",
+        "placeholder": "Enter material cost",
+        "helper": "Substrate, ink and material spend."
+      },
+      "reprintratepercent": {
+        "label": "Reprint rate",
+        "placeholder": "Enter reprint rate",
+        "helper": "Reprint and spoilage as percent of material cost."
+      },
+      "designrevisionhours": {
+        "label": "Design revision hours",
+        "placeholder": "Enter design revision hours",
+        "helper": "Artwork and revision labor expected on the job."
+      },
+      "laborrate": {
+        "label": "Labor rate",
+        "placeholder": "Enter labor rate",
+        "helper": "Fully loaded design and production labor rate."
+      },
+      "installreworkcost": {
+        "label": "Install rework cost",
+        "placeholder": "Enter install rework cost",
+        "helper": "Installation return and rework spend."
+      }
+    },
+    "auto-repair-comeback-cost": {
+      "monthlyrepairrevenue": {
+        "label": "Monthly repair revenue",
+        "placeholder": "Enter monthly repair revenue",
+        "helper": "Total shop revenue for the period."
+      },
+      "comebackratepercent": {
+        "label": "Comeback rate",
+        "placeholder": "Enter comeback rate",
+        "helper": "Comeback jobs as percent of revenue."
+      },
+      "averagejobcost": {
+        "label": "Average job cost",
+        "placeholder": "Enter average job cost",
+        "helper": "Average internal cost per comeback job."
+      },
+      "diagnostichours": {
+        "label": "Diagnostic hours",
+        "placeholder": "Enter diagnostic hours",
+        "helper": "Unbilled diagnostic labor hours per month."
+      },
+      "laborrate": {
+        "label": "Labor rate",
+        "placeholder": "Enter labor rate",
+        "helper": "Fully loaded technician rate."
+      },
+      "partshandlingcost": {
+        "label": "Parts handling cost",
+        "placeholder": "Enter parts handling cost",
+        "helper": "Core handling, returns and parts admin spend."
+      }
+    },
+    "hvac-callback-margin-risk": {
+      "projectrevenue": {
+        "label": "Project revenue",
+        "placeholder": "Enter project revenue",
+        "helper": "Contract or bid revenue for the HVAC project."
+      },
+      "ductworkvariance": {
+        "label": "Ductwork variance",
+        "placeholder": "Enter ductwork variance",
+        "helper": "Extra duct material and labor versus estimate."
+      },
+      "commissioninghours": {
+        "label": "Commissioning hours",
+        "placeholder": "Enter commissioning hours",
+        "helper": "Start-up, balance and commissioning labor."
+      },
+      "laborrate": {
+        "label": "Labor rate",
+        "placeholder": "Enter labor rate",
+        "helper": "Fully loaded HVAC field labor rate."
+      },
+      "callbackriskpercent": {
+        "label": "Callback risk",
+        "placeholder": "Enter callback risk",
+        "helper": "Expected callback cost as percent of revenue."
+      }
+    },
+    "electrical-panel-rework-cost": {
+      "panelrevenue": {
+        "label": "Panel revenue",
+        "placeholder": "Enter panel revenue",
+        "helper": "Quoted or contract revenue for the panel job."
+      },
+      "wiringhours": {
+        "label": "Wiring hours",
+        "placeholder": "Enter wiring hours",
+        "helper": "Actual wiring and terminations hours."
+      },
+      "estimatedhours": {
+        "label": "Estimated hours",
+        "placeholder": "Enter estimated hours",
+        "helper": "Original labor estimate for the panel."
+      },
+      "laborrate": {
+        "label": "Labor rate",
+        "placeholder": "Enter labor rate",
+        "helper": "Fully loaded electrician rate."
+      },
+      "inspectionfailcost": {
+        "label": "Inspection fail cost",
+        "placeholder": "Enter inspection fail cost",
+        "helper": "Re-inspection, corrections and delay cost."
+      },
+      "testequipmentcost": {
+        "label": "Test equipment cost",
+        "placeholder": "Enter test equipment cost",
+        "helper": "Testing gear, labels and documentation spend."
+      }
+    },
+    "plumbing-leak-callback-cost": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Enter job revenue",
+        "helper": "Fixed-price or contract revenue for the job."
+      },
+      "callbackvisits": {
+        "label": "Callback visits",
+        "placeholder": "Enter callback visits",
+        "helper": "Expected leak or warranty return visits."
+      },
+      "visitcost": {
+        "label": "Visit cost",
+        "placeholder": "Enter visit cost",
+        "helper": "Average cost per callback visit."
+      },
+      "materialruncost": {
+        "label": "Material run cost",
+        "placeholder": "Enter material run cost",
+        "helper": "Extra fittings, pipe and supply runs."
+      },
+      "warrantyreservepercent": {
+        "label": "Warranty reserve",
+        "placeholder": "Enter warranty reserve",
+        "helper": "Warranty reserve as percent of job revenue."
+      }
+    },
+    "roofing-weather-delay-risk": {
+      "dailycrewcost": {
+        "label": "Daily crew cost",
+        "placeholder": "Enter daily crew cost",
+        "helper": "Loaded crew and equipment cost per site day."
+      },
+      "weatherdelaydays": {
+        "label": "Weather delay days",
+        "placeholder": "Enter weather delay days",
+        "helper": "Expected weather delay days on the contract."
+      },
+      "dumpfees": {
+        "label": "Dump fees",
+        "placeholder": "Enter dump fees",
+        "helper": "Tear-off disposal and dump fees."
+      },
+      "warrantyreserve": {
+        "label": "Warranty reserve",
+        "placeholder": "Enter warranty reserve",
+        "helper": "Warranty and callback reserve for the job."
+      }
+    },
+    "painting-rework-coverage-risk": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Enter job revenue",
+        "helper": "Quoted revenue for the painting contract."
+      },
+      "paintmaterialcost": {
+        "label": "Paint material cost",
+        "placeholder": "Enter paint material cost",
+        "helper": "Paint, primer and consumables spend."
+      },
+      "coveragedriftpercent": {
+        "label": "Coverage drift",
+        "placeholder": "Enter coverage drift",
+        "helper": "Extra material from coverage drift as percent of paint cost."
+      },
+      "prepreworkhours": {
+        "label": "Prep rework hours",
+        "placeholder": "Enter prep rework hours",
+        "helper": "Surface prep and rework labor hours."
+      },
+      "laborrate": {
+        "label": "Labor rate",
+        "placeholder": "Enter labor rate",
+        "helper": "Fully loaded painter labor rate."
+      },
+      "scaffoldcost": {
+        "label": "Scaffold cost",
+        "placeholder": "Enter scaffold cost",
+        "helper": "Scaffold rental and setup spend."
+      }
+    },
+    "dairy-feed-efficiency-loss": {
+      "cows": {
+        "label": "Cows",
+        "placeholder": "Enter cows",
+        "helper": "Milking herd size for the period."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed cost per cow per day",
+        "placeholder": "Enter feed cost per cow per day",
+        "helper": "Average daily feed spend per cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters per cow per day",
+        "placeholder": "Enter milk liters per cow per day",
+        "helper": "Observed milk yield per cow per day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "Target milk liters per cow per day",
+        "placeholder": "Enter target milk liters per cow per day",
+        "helper": "Target or benchmark yield per cow per day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk price per liter",
+        "placeholder": "Enter milk price per liter",
+        "helper": "Net milk price received per liter."
+      },
+      "days": {
+        "label": "Days",
+        "placeholder": "Enter days",
+        "helper": "Calculation period in days."
+      }
+    },
+    "retail-inventory-turnover-risk": {
+      "averageinventory": {
+        "label": "Average inventory",
+        "placeholder": "Enter average inventory",
+        "helper": "Average inventory value on hand."
+      },
+      "annualcogs": {
+        "label": "Annual COGS",
+        "placeholder": "Enter annual cogs",
+        "helper": "Cost of goods sold over twelve months."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying cost",
+        "placeholder": "Enter carrying cost",
+        "helper": "Annual carrying cost as percent of inventory."
+      },
+      "markdownpercent": {
+        "label": "Markdown",
+        "placeholder": "Enter markdown",
+        "helper": "Expected markdown as percent of inventory."
+      }
+    },
+    "warehouse-space-cost-leak": {
+      "monthlyrent": {
+        "label": "Monthly rent",
+        "placeholder": "Enter monthly rent",
+        "helper": "Monthly facility rent or occupancy cost."
+      },
+      "totalsqm": {
+        "label": "Total floor area",
+        "placeholder": "Enter total floor area",
+        "helper": "Total warehouse floor area (reference)."
+      },
+      "unusedspacepercent": {
+        "label": "Unused space",
+        "placeholder": "Enter unused space",
+        "helper": "Unused or under-utilized space as percent of rent."
+      },
+      "handlingoverrunhours": {
+        "label": "Handling overrun hours",
+        "placeholder": "Enter handling overrun hours",
+        "helper": "Extra picking and handling hours per month."
+      },
+      "hourlycost": {
+        "label": "Hourly cost",
+        "placeholder": "Enter hourly cost",
+        "helper": "Loaded warehouse labor rate."
+      }
+    },
+    "calibration-drift-risk": {
+      "targetvalue": {
+        "label": "Target value",
+        "placeholder": "Enter target value",
+        "helper": "Nominal or specification target."
+      },
+      "actualvalue": {
+        "label": "Actual value",
+        "placeholder": "Enter actual value",
+        "helper": "Measured or observed value."
+      },
+      "tolerance": {
+        "label": "Tolerance",
+        "placeholder": "Enter tolerance",
+        "helper": "Allowed tolerance band around target."
+      },
+      "batchvalue": {
+        "label": "Batch value",
+        "placeholder": "Enter batch value",
+        "helper": "Production batch value at risk."
+      },
+      "rejectionriskpercent": {
+        "label": "Rejection risk",
+        "placeholder": "Enter rejection risk",
+        "helper": "Expected rejection rate from drift exposure."
+      }
+    },
+    "legal-interest-fee-calculator-pro": {
+      "principal": {
+        "label": "Principal",
+        "placeholder": "Enter principal",
+        "helper": "Outstanding principal or claim amount."
+      },
+      "annualinterestpercent": {
+        "label": "Annual interest",
+        "placeholder": "Enter annual interest",
+        "helper": "Annual simple interest rate assumption."
+      },
+      "days": {
+        "label": "Days",
+        "placeholder": "Enter days",
+        "helper": "Interest accrual period in days."
+      },
+      "feepercent": {
+        "label": "Fee percent",
+        "placeholder": "Enter fee percent",
+        "helper": "Fee stack as percent of principal."
+      },
+      "fixedcost": {
+        "label": "Fixed cost",
+        "placeholder": "Enter fixed cost",
+        "helper": "Fixed filing, service or admin costs."
+      }
+    },
+    "carbon-footprint-compliance-risk": {
+      "energyemissionston": {
+        "label": "Energy emissions",
+        "placeholder": "Enter energy emissions",
+        "helper": "Energy-related emissions tonnage for the period."
+      },
+      "fuelemissionston": {
+        "label": "Fuel emissions",
+        "placeholder": "Enter fuel emissions",
+        "helper": "Fuel and transport emissions tonnage."
+      },
+      "carbonprice": {
+        "label": "Carbon price",
+        "placeholder": "Enter carbon price",
+        "helper": "Assumed carbon price or CBAM reference rate."
+      },
+      "exposurepercent": {
+        "label": "Exposure percent",
+        "placeholder": "Enter exposure percent",
+        "helper": "Share of emissions subject to compliance cost."
+      }
+    },
+    "quote-price-profit-margin-calculator": {
+      "materialcost": {
+        "label": "Material cost",
+        "placeholder": "Enter material cost",
+        "helper": "Raw material and purchased parts for the quote scope."
+      },
+      "laborcost": {
+        "label": "Labor cost",
+        "placeholder": "Enter labor cost",
+        "helper": "Direct labor hours converted to cost for this job."
+      },
+      "machinecost": {
+        "label": "Machine cost",
+        "placeholder": "Enter machine cost",
+        "helper": "Machine or spindle time allocated to the quote."
+      },
+      "energycost": {
+        "label": "Energy cost",
+        "placeholder": "Enter energy cost",
+        "helper": "Electricity, gas or utility load attributed to the job."
+      },
+      "overheadcost": {
+        "label": "Overhead cost",
+        "placeholder": "Enter overhead cost",
+        "helper": "Allocated overhead such as rent, admin and indirect labor."
+      },
+      "wasterate": {
+        "label": "Waste rate",
+        "placeholder": "Enter waste rate",
+        "helper": "Expected scrap or waste as a percent of direct cost stack."
+      },
+      "setuptimecost": {
+        "label": "Setup time cost",
+        "placeholder": "Enter setup time cost",
+        "helper": "Programming, tooling and first-off setup burden."
+      },
+      "shippingcost": {
+        "label": "Shipping cost",
+        "placeholder": "Enter shipping cost",
+        "helper": "Freight, packaging and delivery cost for the quote."
+      },
+      "paymenttermcost": {
+        "label": "Payment term cost",
+        "placeholder": "Enter payment term cost",
+        "helper": "Financing or delay cost from customer payment terms."
+      },
+      "targetmarginrate": {
+        "label": "Target margin rate",
+        "placeholder": "Enter target margin rate",
+        "helper": "Target gross margin percent for the quoted price."
+      },
+      "discountrate": {
+        "label": "Discount rate",
+        "placeholder": "Enter discount rate",
+        "helper": "Optional customer discount applied on the target sales price."
+      },
+      "taxincluded": {
+        "label": "Tax included in costs",
+        "placeholder": "Enter tax included in costs",
+        "helper": "Mark when entered costs already include sales tax or VAT."
+      },
+      "safetymarginuplift": {
+        "label": "Safety margin uplift",
+        "placeholder": "Enter safety margin uplift",
+        "helper": "Extra margin points added to build the minimum safe price floor."
+      }
+    },
+    "shop-rate-hourly-cost-calculator": {
+      "fixedmonthlycost": {
+        "label": "Fixed monthly cost",
+        "placeholder": "Enter fixed monthly cost",
+        "helper": "Rent, depreciation, admin and indirect burden for the month."
+      },
+      "monthlymachinehours": {
+        "label": "Monthly machine hours",
+        "placeholder": "Enter monthly machine hours",
+        "helper": "Billable or scheduled spindle hours per month."
+      },
+      "variablecostperhour": {
+        "label": "Variable cost per hour",
+        "placeholder": "Enter variable cost per hour",
+        "helper": "Power, consumables and direct variable burden per hour."
+      }
+    },
+    "break-even-safety-margin-calculator": {
+      "fixedcost": {
+        "label": "Fixed cost",
+        "placeholder": "Enter fixed cost",
+        "helper": "Monthly fixed overhead for the period."
+      },
+      "unitprice": {
+        "label": "Unit price",
+        "placeholder": "Enter unit price",
+        "helper": "Average selling price per unit."
+      },
+      "variablecostperunit": {
+        "label": "Variable cost per unit",
+        "placeholder": "Enter variable cost per unit",
+        "helper": "Direct variable cost per unit sold."
+      },
+      "currentvolume": {
+        "label": "Current volume",
+        "placeholder": "Enter current volume",
+        "helper": "Units sold or produced in the period."
+      }
+    },
+    "auto-repair-parts-labor-quote-calculator": {
+      "partscost": {
+        "label": "Parts cost",
+        "placeholder": "Enter parts cost",
+        "helper": "Wholesale parts cost for the repair order."
+      },
+      "laborhours": {
+        "label": "Labor hours",
+        "placeholder": "Enter labor hours",
+        "helper": "Book time or estimated labor hours."
+      },
+      "laborrate": {
+        "label": "Labor rate",
+        "placeholder": "Enter labor rate",
+        "helper": "Shop labor rate charged to customer."
+      },
+      "shopsuppliespercent": {
+        "label": "Shop supplies percent",
+        "placeholder": "Enter shop supplies percent",
+        "helper": "Shop supplies and consumables on parts subtotal."
+      },
+      "targetmarginrate": {
+        "label": "Target margin rate",
+        "placeholder": "Enter target margin rate",
+        "helper": "Target gross margin on the quoted price."
+      }
+    },
+    "cbam-unit-product-carbon-footprint-calculator": {
+      "energyemissionston": {
+        "label": "Energy emissions",
+        "placeholder": "Enter energy emissions",
+        "helper": "Energy-related emissions for the production batch."
+      },
+      "fuelemissionston": {
+        "label": "Fuel emissions",
+        "placeholder": "Enter fuel emissions",
+        "helper": "Fuel and transport emissions for the batch."
+      },
+      "productionunits": {
+        "label": "Production units",
+        "placeholder": "Enter production units",
+        "helper": "Units produced in the batch."
+      },
+      "carbonprice": {
+        "label": "Carbon price",
+        "placeholder": "Enter carbon price",
+        "helper": "Reference carbon price for exposure estimate."
+      }
+    },
+    "oee-equipment-effectiveness-calculator": {
+      "availability": {
+        "label": "Availability",
+        "placeholder": "Enter availability",
+        "helper": "Running time vs planned production time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "Enter performance",
+        "helper": "Actual vs ideal cycle speed."
+      },
+      "quality": {
+        "label": "Quality",
+        "placeholder": "Enter quality",
+        "helper": "Good units vs total units produced."
+      },
+      "machinerate": {
+        "label": "Machine rate",
+        "placeholder": "Enter machine rate",
+        "helper": "Loaded hourly machine cost for loss estimate."
+      },
+      "plannedhours": {
+        "label": "Planned hours",
+        "placeholder": "Enter planned hours",
+        "helper": "Planned production hours in the period."
+      },
+      "downtimehours": {
+        "label": "Downtime hours",
+        "placeholder": "Enter downtime hours",
+        "helper": "Unplanned or visible downtime in the period."
+      }
+    },
+    "compressor-leak-cost-calculator": {
+      "compressorkw": {
+        "label": "Compressor power",
+        "placeholder": "Enter compressor power",
+        "helper": "Rated compressor motor power."
+      },
+      "leakpercent": {
+        "label": "Leak percent",
+        "placeholder": "Enter leak percent",
+        "helper": "Estimated compressed air leak as percent of output."
+      },
+      "operatinghours": {
+        "label": "Operating hours",
+        "placeholder": "Enter operating hours",
+        "helper": "Monthly compressor run hours."
+      },
+      "energyrate": {
+        "label": "Energy rate",
+        "placeholder": "Enter energy rate",
+        "helper": "Blended electricity rate."
+      }
+    },
+    "employee-total-cost-calculator": {
+      "grosssalary": {
+        "label": "Gross salary",
+        "placeholder": "Enter gross salary",
+        "helper": "Monthly gross salary before employer load."
+      },
+      "employerratepercent": {
+        "label": "Employer burden rate",
+        "placeholder": "Enter employer burden rate",
+        "helper": "Payroll taxes, social charges and statutory load."
+      },
+      "monthlybenefits": {
+        "label": "Monthly benefits",
+        "placeholder": "Enter monthly benefits",
+        "helper": "Health, meal, transport and other monthly benefits."
+      }
+    },
+    "downtime-minute-cost-calculator": {
+      "downtimeminutes": {
+        "label": "Downtime minutes",
+        "placeholder": "Enter downtime minutes",
+        "helper": "Unplanned or scheduled stop minutes in the period."
+      },
+      "hourlyrate": {
+        "label": "Shop hourly rate",
+        "placeholder": "Enter shop hourly rate",
+        "helper": "Loaded machine or line hourly cost."
+      },
+      "outputunitsperhour": {
+        "label": "Output units per hour",
+        "placeholder": "Enter output units per hour",
+        "helper": "Typical good units produced per running hour."
+      },
+      "contributionperunit": {
+        "label": "Contribution per unit",
+        "placeholder": "Enter contribution per unit",
+        "helper": "Margin contribution per good unit."
+      }
+    },
+    "product-customer-profitability-calculator": {
+      "revenue": {
+        "label": "Revenue",
+        "placeholder": "Enter revenue",
+        "helper": "Customer or SKU revenue in the period."
+      },
+      "directcost": {
+        "label": "Direct cost",
+        "placeholder": "Enter direct cost",
+        "helper": "COGS and direct fulfillment cost."
+      },
+      "servicecost": {
+        "label": "Service cost",
+        "placeholder": "Enter service cost",
+        "helper": "Support, delivery rework and account service load."
+      },
+      "returnscost": {
+        "label": "Returns cost",
+        "placeholder": "Enter returns cost",
+        "helper": "Returns, credits and rework tied to the account."
+      }
+    },
+    "inventory-carrying-cost-eoq-calculator": {
+      "annualdemand": {
+        "label": "Annual demand",
+        "placeholder": "Enter annual demand",
+        "helper": "Expected units consumed or sold per year."
+      },
+      "ordercost": {
+        "label": "Order cost",
+        "placeholder": "Enter order cost",
+        "helper": "Fixed cost per purchase order placed."
+      },
+      "unitcost": {
+        "label": "Unit cost",
+        "placeholder": "Enter unit cost",
+        "helper": "Purchase or production cost per unit."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying cost rate",
+        "placeholder": "Enter carrying cost rate",
+        "helper": "Annual carrying cost as percent of inventory value."
+      }
+    },
+    "welded-bolted-connection-calculator": {
+      "throatmm": {
+        "label": "Weld throat",
+        "placeholder": "Enter weld throat",
+        "helper": "Effective fillet weld throat thickness."
+      },
+      "weldlengthmm": {
+        "label": "Weld length",
+        "placeholder": "Enter weld length",
+        "helper": "Continuous weld length along the joint."
+      },
+      "boltdiametermm": {
+        "label": "Bolt diameter",
+        "placeholder": "Enter bolt diameter",
+        "helper": "Nominal bolt diameter."
+      },
+      "boltcount": {
+        "label": "Bolt count",
+        "placeholder": "Enter bolt count",
+        "helper": "Number of bolts sharing the load path."
+      },
+      "allowablestressmpa": {
+        "label": "Allowable stress",
+        "placeholder": "Enter allowable stress",
+        "helper": "Workshop reference allowable stress for screening."
+      },
+      "safetyfactor": {
+        "label": "Safety factor",
+        "placeholder": "Enter safety factor",
+        "helper": "Design safety factor applied to allowable stress."
+      }
+    },
+    "tolerance-stack-up-calculator": {
+      "t1": {
+        "label": "Tolerance 1",
+        "placeholder": "Enter tolerance 1",
+        "helper": "First part tolerance contribution."
+      },
+      "t2": {
+        "label": "Tolerance 2",
+        "placeholder": "Enter tolerance 2",
+        "helper": "Second part tolerance contribution."
+      },
+      "t3": {
+        "label": "Tolerance 3",
+        "placeholder": "Enter tolerance 3",
+        "helper": "Third part tolerance contribution."
+      },
+      "t4": {
+        "label": "Tolerance 4",
+        "placeholder": "Enter tolerance 4",
+        "helper": "Fourth part tolerance contribution."
+      },
+      "assemblylimit": {
+        "label": "Assembly limit",
+        "placeholder": "Enter assembly limit",
+        "helper": "Maximum allowable stack for the assembly chain."
+      }
+    },
+    "bolt-tightening-torque-calculator": {
+      "clampforcekn": {
+        "label": "Clamp force",
+        "placeholder": "Enter clamp force",
+        "helper": "Target clamp or preload force for the joint."
+      },
+      "boltdiametermm": {
+        "label": "Bolt diameter",
+        "placeholder": "Enter bolt diameter",
+        "helper": "Nominal bolt diameter."
+      },
+      "frictionfactor": {
+        "label": "Friction factor",
+        "placeholder": "Enter friction factor",
+        "helper": "Nut factor K for dry steel (typical 0.15–0.25)."
+      }
+    },
+    "fire-system-flow-hydrant-calculator": {
+      "protectedaream2": {
+        "label": "Protected area",
+        "placeholder": "Enter protected area",
+        "helper": "Design area covered by the hydrant network."
+      },
+      "designdensitylpmm2": {
+        "label": "Design density",
+        "placeholder": "Enter design density",
+        "helper": "Reference design density for the occupancy class."
+      },
+      "hydrantcapacitylpm": {
+        "label": "Hydrant capacity",
+        "placeholder": "Enter hydrant capacity",
+        "helper": "Available flow per hydrant at required pressure."
+      }
+    },
+    "hydraulic-pneumatic-cylinder-force-calculator": {
+      "pressurebar": {
+        "label": "System pressure",
+        "placeholder": "Enter system pressure",
+        "helper": "Working pressure at the cylinder port."
+      },
+      "boremm": {
+        "label": "Bore diameter",
+        "placeholder": "Enter bore diameter",
+        "helper": "Cylinder bore inner diameter."
+      },
+      "rodmm": {
+        "label": "Rod diameter",
+        "placeholder": "Enter rod diameter",
+        "helper": "Rod diameter for retract force (optional screening)."
+      }
+    },
+    "quality-cost-paf-calculator": {
+      "preventioncost": {
+        "label": "Prevention cost",
+        "placeholder": "Enter prevention cost",
+        "helper": "Training, process control and prevention activities."
+      },
+      "appraisalcost": {
+        "label": "Appraisal cost",
+        "placeholder": "Enter appraisal cost",
+        "helper": "Inspection, testing and audit cost."
+      },
+      "failurecost": {
+        "label": "Failure cost",
+        "placeholder": "Enter failure cost",
+        "helper": "Scrap, rework, warranty and downtime from defects."
+      },
+      "revenue": {
+        "label": "Revenue",
+        "placeholder": "Enter revenue",
+        "helper": "Monthly revenue for ratio context."
+      }
+    },
+    "pressure-vessel-wall-thickness-calculator": {
+      "designpressurebar": {
+        "label": "Design pressure",
+        "placeholder": "Enter design pressure",
+        "helper": "Internal design pressure for the vessel."
+      },
+      "diametermm": {
+        "label": "Inside diameter",
+        "placeholder": "Enter inside diameter",
+        "helper": "Nominal inside diameter of the shell."
+      },
+      "allowablestressmpa": {
+        "label": "Allowable stress",
+        "placeholder": "Enter allowable stress",
+        "helper": "Material allowable stress at design temperature."
+      },
+      "weldefficiency": {
+        "label": "Weld efficiency",
+        "placeholder": "Enter weld efficiency",
+        "helper": "Joint efficiency factor E (typical 0.7–1.0)."
+      }
+    },
+    "value-stream-map-vsm-calculator": {
+      "processminutes": {
+        "label": "Process time",
+        "placeholder": "Enter process time",
+        "helper": "Total value-added processing minutes in the stream."
+      },
+      "waitminutes": {
+        "label": "Wait time",
+        "placeholder": "Enter wait time",
+        "helper": "Queue and inventory wait minutes."
+      },
+      "transportminutes": {
+        "label": "Transport time",
+        "placeholder": "Enter transport time",
+        "helper": "Material movement and transfer minutes."
+      }
+    },
+    "energy-savings-package-calculator": {
+      "baselinekwhmonthly": {
+        "label": "Baseline monthly kWh",
+        "placeholder": "Enter baseline monthly kwh",
+        "helper": "Current average monthly electricity use."
+      },
+      "proposedkwhmonthly": {
+        "label": "Proposed monthly kWh",
+        "placeholder": "Enter proposed monthly kwh",
+        "helper": "Expected monthly use after the savings package."
+      },
+      "energyrate": {
+        "label": "Energy rate",
+        "placeholder": "Enter energy rate",
+        "helper": "Blended electricity tariff."
+      },
+      "projectcost": {
+        "label": "Project cost",
+        "placeholder": "Enter project cost",
+        "helper": "Total capex for the efficiency package."
+      }
+    },
+    "investment-payback-npv-calculator": {
+      "initialinvestment": {
+        "label": "Initial investment",
+        "placeholder": "Enter initial investment",
+        "helper": "Up-front project or equipment cost."
+      },
+      "annualcashflow": {
+        "label": "Annual cash flow",
+        "placeholder": "Enter annual cash flow",
+        "helper": "Expected annual benefit after investment."
+      },
+      "discountratepercent": {
+        "label": "Discount rate",
+        "placeholder": "Enter discount rate",
+        "helper": "Required return or cost of capital."
+      },
+      "horizonyears": {
+        "label": "Horizon",
+        "placeholder": "Enter horizon",
+        "helper": "Analysis period in years."
+      }
+    },
+    "annual-leave-severance-notice-calculator": {
+      "grossmonthlysalary": {
+        "label": "Gross monthly salary",
+        "placeholder": "Enter gross monthly salary",
+        "helper": "Monthly gross pay used for screening."
+      },
+      "employerburdenpercent": {
+        "label": "Employer burden",
+        "placeholder": "Enter employer burden",
+        "helper": "Payroll taxes and employer contributions."
+      },
+      "yearsofservice": {
+        "label": "Years of service",
+        "placeholder": "Enter years of service",
+        "helper": "Completed service years for severance screening."
+      },
+      "severanceweeksperyear": {
+        "label": "Severance weeks per year",
+        "placeholder": "Enter severance weeks per year",
+        "helper": "Policy weeks credited per service year."
+      },
+      "noticeweeks": {
+        "label": "Notice weeks",
+        "placeholder": "Enter notice weeks",
+        "helper": "Notice period length in weeks."
+      }
+    },
+    "belt-pulley-speed-length-calculator": {
+      "driverrpm": {
+        "label": "Driver RPM",
+        "placeholder": "Enter driver rpm",
+        "helper": "Motor or driver shaft speed."
+      },
+      "driverdiametermm": {
+        "label": "Driver diameter",
+        "placeholder": "Enter driver diameter",
+        "helper": "Driver pulley pitch diameter."
+      },
+      "drivendiametermm": {
+        "label": "Driven diameter",
+        "placeholder": "Enter driven diameter",
+        "helper": "Driven pulley pitch diameter."
+      },
+      "centerdistancemm": {
+        "label": "Center distance",
+        "placeholder": "Enter center distance",
+        "helper": "Shaft center distance for open belt length."
+      }
     }
   },
   "sectorFooter": {
@@ -6397,5 +7748,20 @@
     "metaReg": "REG: GLOBAL",
     "metaCur": "CUR: USD",
     "metaCopyright": "© 2026 SECTORCALC"
+  },
+  "calculatorLibrary": {
+    "metaTitle": "Calculator Library — SectorCalc",
+    "metaDescription": "Public calculator catalog resources for SectorCalc: LLMs index, sector tool listings, and catalog entry points.",
+    "title": "Calculator Library",
+    "lead": "Machine-readable indexes and catalog entry points for SectorCalc sector calculators.",
+    "resourcesTitle": "Public resources",
+    "catalogsTitle": "Catalogs",
+    "llmsLabel": "llms.txt",
+    "indexLabel": "sectorcalc-index.txt",
+    "faqLabel": "faq-knowledge.txt",
+    "servicesLabel": "services-products.txt",
+    "freeToolsLabel": "Free calculators",
+    "premiumToolsLabel": "Premium calculators",
+    "industriesLabel": "Industry hubs"
   }
 }

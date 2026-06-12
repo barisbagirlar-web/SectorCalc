@@ -1,5 +1,5 @@
 import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry";
-import { getPremiumSchemaToolHref, getPremiumToolsHref } from "@/lib/tools/tool-links";
+import { getPremiumSchemaToolHref } from "@/lib/tools/tool-links";
 
 export type SectorFooterPanelLink = {
   readonly labelKey: string;
@@ -88,5 +88,5 @@ export function resolveSectorFooterPremiumHref(slug: string | undefined, fallbac
 }
 
 export function getSectorFooterApiHref(): string {
-  return getPremiumToolsHref();
+  return "/calculator-library";
 }

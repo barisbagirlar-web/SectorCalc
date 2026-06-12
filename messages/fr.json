@@ -32,10 +32,10 @@
   "osGate": {
     "label": "Abonnement requis",
     "message": "Cette fonction nécessite la couche Intelligence. Débloquez avec Pro.",
-    "single": "Single run {price}",
-    "pro": "Pro {price}",
+    "single": "Single run {Prix}",
+    "pro": "Pro {Prix}",
     "singleCta": "Lancer · {price}",
-    "proCta": "Pro · {price}"
+    "proCta": "Pro · {Prix}"
   },
   "hero": {
     "title": "Mesurez avec précision pour votre secteur. Détectez chaque perte. Décidez en confiance.",
@@ -109,27 +109,27 @@
     "proAnnualDescription": "Voller Pro-Zugang jährlich — bestes Preis-Leistungs-Verhältnis.",
     "proAnnualFeatures": "Tous les calculateurs|Rapports enregistrés|PDF|Onboarding prioritaire",
     "proAnnualCta": "Pro jährlich starten",
-    "team": "Team",
+    "team": "Équipe",
     "teamPrice": "$49",
     "teamPeriod": "pro Monat",
     "teamDescription": "Mehrplatz-Zugang für Kalkulatoren und Operations-Leads.",
     "teamFeatures": "Geteilter Zugang|Team-Berichtshistorie|Admin-Sitze (geplant)|Volumenpreise",
     "teamCta": "Team-Plan starten",
     "matrix": {
-      "pageTitle": "Plan & Feature Matrix",
-      "pageSubtitle": "Compare access tiers across the Industrial OS.",
-      "featureCol": "Feature",
+      "pageTitle": "Matrice plans et fonctionnalités",
+      "pageSubtitle": "Comparez les niveaux d'accès dans l'Industrial OS.",
+      "featureCol": "Fonctionnalité",
       "action": "Action",
-      "colFree": "Free",
+      "colFree": "Gratuit",
       "colPro": "Pro",
       "colEnterprise": "Enterprise",
-      "sectorCalculators": "Sector utility modules",
-      "riskSignals": "Risk signal output",
+      "sectorCalculators": "Modules utilitaires sectoriels",
+      "riskSignals": "Sortie signal de risque",
       "premiumAnalyzers": "Calculateurs premium",
-      "savedReports": "Saved verdict archive",
-      "pdfExport": "PDF export",
-      "teamSeats": "Multi-seat access",
-      "adminControls": "Admin seat controls"
+      "savedReports": "Archives de verdicts enregistrés",
+      "pdfExport": "Export PDF",
+      "teamSeats": "Accès multi-sièges",
+      "adminControls": "Contrôle des sièges admin"
     }
   },
   "checkout": {
@@ -141,29 +141,29 @@
     "socialProof": "Vertraut von über 12.000 Betreibern weltweit"
   },
   "checkoutPages": {
-    "successEyebrow": "Checkout",
+    "successEyebrow": "Paiement",
     "successTitle": "Paiement reçu.",
-    "successText": "Your premium access is being prepared. If your report does not unlock immediately, refresh the page or contact support.",
-    "successRefreshNote": "Payment confirmation received. Access is applied by our server — refresh in a few seconds if your report is still locked.",
+    "successText": "Accès Premium en préparation. Actualisez ou contactez le support si verrouillé.",
+    "successRefreshNote": "Paiement confirmé. Accès appliqué côté serveur — actualisez dans quelques secondes si verrouillé.",
     "successPrimaryCta": "Retour au calculateur",
     "successPremiumCta": "Ouvrir les calculateurs premium",
-    "successSecondaryCta": "Go to pricing",
-    "cancelEyebrow": "Checkout",
-    "cancelTitle": "Checkout canceled.",
+    "successSecondaryCta": "Voir les tarifs",
+    "cancelEyebrow": "Paiement",
+    "cancelTitle": "Paiement annulé.",
     "cancelText": "You can continue using free calculators or return to the calculateur premium when ready.",
     "cancelPricingCta": "Retour aux tarifs",
     "cancelReturnCta": "Retour au calculateur",
-    "cancelFreeCta": "View free calculators"
+    "cancelFreeCta": "Voir les calculateurs gratuits"
   },
   "pilotCnc": {
     "hero": {
-      "eyebrow": "MarginCore Pilot · CNC Manufacturing"
+      "eyebrow": "MarginCore Pilot · Fabrication CNC"
     },
     "form": {
       "title": "Job inputs",
-      "setupTime": "Setup time (min)",
-      "cycleTime": "Cycle time (min)",
-      "quantity": "Quantity (units)",
+      "setupTime": "Préparation time (min)",
+      "cycleTime": "Temps de cycle (min)",
+      "quantity": "Quantité (units)",
       "submit": "Run naive exposure check",
       "subtitle": "Setup, cycle and quantity — naive machine-time exposure.",
       "rateNote": "Naive machine cost uses ${rate}/hr until premium tooling and material are supplied."
@@ -172,8 +172,8 @@
       "title": "Naive exposure",
       "empty": "Enter inputs and run the check.",
       "totalMinutes": "Total machine time",
-      "machineHours": "Machine hours",
-      "setupBurden": "Setup burden",
+      "machineHours": "Machine Heures",
+      "setupBurden": "Préparation burden",
       "naiveCost": "Naive machine cost"
     },
     "premium": {
@@ -184,9 +184,9 @@
       "signInLink": "Sign in →",
       "failed": "Premium verdict could not be generated.",
       "verdictLabel": "Verdict",
-      "naiveLabel": "Deterministic",
-      "bufferLabel": "P90 buffer",
-      "p90Label": "P90 safe",
+      "naiveLabel": "Déterministe",
+      "bufferLabel": "Tampon P90",
+      "p90Label": "P90 sûr",
       "fullAnalyzerLink": "Ouvrir le calculateur de risque devis CNC →",
       "eyebrow": "MarginCore Pro",
       "body": "Server-side calcul MarginCore — requires SectorCalc Pro.",
@@ -194,13 +194,13 @@
     },
     "phase2": {
       "label": "MarginCore · Phase 2",
-      "reservedLabel": "Stochastic engine slot",
-      "reservedBody": "Full P90 sensitivity matrix and PDF export mount here after premium unlock."
+      "reservedLabel": "Emplacement moteur stochastique",
+      "reservedBody": "Matrice de sensibilité P90 complète et export PDF ici après déblocage Premium."
     }
   },
   "freeTool": {
     "riskScoreLabel": "Risikowert",
-    "riskScoreAria": "Risk score: {score} percent",
+    "riskScoreAria": "Risk score: {score} parcent",
     "whatItMeans": "Was das bedeutet",
     "premiumPreviewTitle": "Im vollständigen Bericht erhalten Sie:",
     "premiumBadge": "Premium",
@@ -227,7 +227,13 @@
       "title": "Calculateurs gratuits",
       "subtitle": "Trouvez le calculateur dont vous avez besoin par catégorie.",
       "metaTitle": "Calculateurs gratuits | SectorCalc",
-      "metaDescription": "Calculateurs gratuits par catégorie — mesure, coût, finance, énergie, conversion et décisions quotidiennes."
+      "metaDescription": "Calculateurs gratuits par catégorie — mesure, coût, finance, énergie, conversion et décisions quotidiennes.",
+      "validation": {
+        "required": "Veuillez sélectionner une valeur.",
+        "number": "Saisissez un nombre valide.",
+        "min": "Doit être au moins {min}.",
+        "max": "Doit être au plus {max}."
+      }
     },
     "premiumTools": {
       "eyebrow": "Calculateurs premium",
@@ -251,7 +257,7 @@
       "statusAll": "Tous",
       "statusLive": "En ligne",
       "statusPlanned": "Planifié",
-      "scoreLabel": "Score {score}",
+      "scoreLabel": "score {score}",
       "ctaOpen": "Ouvrir le calculateur",
       "ctaComingSoon": "Bientôt",
       "noResults": "Aucun calculateur ne correspond à ces filtres.",
@@ -278,14 +284,14 @@
         "countLabel": "{count, plural, one {# outil} other {# outils}}",
         "viewCategory": "Voir les outils",
         "viewCategoryOpen": "Outils affichés",
-        "openItem": "Open calculator →"
+        "openItem": "Ouvrir le calculateur →"
       },
       "free-tools": {
         "navLabel": "Parcourir par catégorie",
-        "countLabel": "{count, plural, one {# calculator} other {# calculators}}",
-        "viewCategory": "View calculators",
-        "viewCategoryOpen": "Showing calculators",
-        "openItem": "Open calculator →"
+        "countLabel": "{count, plural, one {# calculateur} other {# calculateurs}}",
+        "viewCategory": "Voir les calculateurs",
+        "viewCategoryOpen": "Calculateurs affichés",
+        "openItem": "Ouvrir le calculateur →"
       },
       "premium-tools": {
         "navLabel": "Parcourir par type de rapport",
@@ -296,10 +302,10 @@
       },
       "industries": {
         "navLabel": "Parcourir par groupe sectoriel",
-        "countLabel": "{count, plural, one {# sector} other {# sectors}}",
-        "viewCategory": "View sectors",
-        "viewCategoryOpen": "Showing sectors",
-        "openItem": "Open industry →"
+        "countLabel": "{count, plural, one {# secteur} other {# secteurs}}",
+        "viewCategory": "Voir les secteurs",
+        "viewCategoryOpen": "Secteurs affichés",
+        "openItem": "Ouvrir le secteur →"
       }
     },
     "search": {
@@ -340,7 +346,7 @@
       "ctaOpenAnalysis": "Ouvrir le calcul",
       "ctaOpenSector": "Ouvrir le secteur",
       "freeCount": "{count} gratuit",
-      "premiumCount": "{count} premium"
+      "premiumCount": "{count} Premium"
     },
     "discoveryFooter": {
       "freeToolsLead": "Besoin d'un calcul plus détaillé ?",
@@ -525,7 +531,7 @@
     }
   },
   "trust": {
-    "stripLabel": "Trust and security",
+    "stripLabel": "Confiance et sécurité",
     "refund": "7-Tage-Rückerstattung",
     "ssl": "256-bit SSL sichere Kasse",
     "instant": "Sofortiger Zugang",
@@ -574,15 +580,15 @@
     }
   },
   "region": {
-    "label": "Region",
+    "label": "Région",
     "auto": "Auto (by language)",
     "global": "Global · USD",
-    "turkey": "Turkey · TRY",
-    "germany": "Germany · EUR",
+    "turkey": "Turquie · TRY",
+    "germany": "Allemagne · EUR",
     "indicator": "{region} · {currency}",
-    "indicatorHint": "Currency follows your language or manual region choice",
-    "manualActive": "Manual region: {region}",
-    "followsLanguage": "Follows language → {region}"
+    "indicatorHint": "La devise suit la langue ou le choix de région manuel",
+    "manualActive": "Région manuelle : {region}",
+    "followsLanguage": "Suit la langue → {region}"
   },
   "locale": {
     "label": "Langue",
@@ -594,193 +600,193 @@
     "fr": "Français"
   },
   "common": {
-    "learnMore": "Learn more",
-    "loading": "Loading..."
+    "learnMore": "En savoir plus",
+    "loading": "Chargement..."
   },
   "sectorCard": {
-    "calculate": "Calculate",
+    "calculate": "Calculer",
     "badge": {
-      "free": "Free",
+      "free": "Gratuit",
       "premium": "Premium",
       "new": "New"
     }
   },
   "theme": {
-    "groupLabel": "Color theme",
-    "light": "Light theme",
-    "system": "System theme",
-    "dark": "Dark theme"
+    "groupLabel": "Thème de couleur",
+    "light": "Thème clair",
+    "system": "Thème système",
+    "dark": "Thème sombre"
   },
   "home": {
     "hero": {
-      "trustStrip": "{count} sectors · Free calculators · Premium reports · Expert logic · No ERP required"
+      "trustStrip": "{count} sectors · Free calculators · Premium reports · Expart logic · No ERP required"
     },
     "pain": {
-      "eyebrow": "Universal measurement",
-      "title": "Detect the hidden losses in your industry",
-      "subtitle": "Every sector has unique losses — scrap, time, energy, material. See them instantly with sector-specific calculation tools.",
+      "eyebrow": "Mesure universelle",
+      "title": "Détectez les pertes cachées dans votre secteur",
+      "subtitle": "Every sector has unique losses — scrap, time, Énergie, Matériau. See them instantly with sector-specific calculation tools.",
       "items": {
         "material": {
-          "title": "Material cost risk",
-          "text": "Setup time, rework and hidden labor erode margin after the estimate looks fine."
+          "title": "Matériau Coût risk",
+          "text": "Préparation time, rework and hidden labor erode margin after the estimate looks fine."
         },
         "labor": {
-          "title": "Labor & time risk",
+          "title": "Risque main-d'œuvre et temps",
           "text": "Free checks expose visible risk — calculateur premiums deliver the full verdict."
         },
         "overhead": {
-          "title": "Overhead & scope risk",
-          "text": "No ERP rollout, no consulting retainer — built for shops, trades and service teams."
+          "title": "Risque frais généraux et périmètre",
+          "text": "Sans déploiement ERP ni consultant — pour ateliers, métiers et équipes terrain."
         }
       }
     },
     "freeCheck": {
-      "eyebrow": "Step 1",
-      "title": "Run a free sector check",
-      "subtitle": "{count} sector quick checks with 3–5 inputs. See visible risk in your browser — no account, no safe price, no final verdict.",
+      "eyebrow": "Étape 1",
+      "title": "Effectuer un contrôle sectoriel gratuit",
+      "subtitle": "{count} sector quick checks with 3–5 inputs. See visible risk in your browser — no account, no safe Prix, no final verdict.",
       "cta": "Check marge gratuit",
-      "cardLabel": "Free check output",
-      "cardRisk": "Risk signal: MEDIUM",
-      "cardBody": "Visible setup and labor exposure — full safe price withheld on free tier."
+      "cardLabel": "Sortie du contrôle gratuit",
+      "cardRisk": "Signal de risque : MOYEN",
+      "cardBody": "Visible Préparation and labor exposure — full safe Prix withheld on free tier."
     },
     "premiumStep": {
-      "eyebrow": "Step 2",
+      "eyebrow": "Étape 2",
       "title": "Rapport de décision complet",
       "subtitle": "Les calculateurs premium ajoutent prix minimum sûr, fuites de marge, action suggérée et export PDF — la couche décisionnelle avant de chiffrer.",
       "cta": "Calculs premium",
-      "cardEyebrow": "Premium verdict",
-      "cardTitle": "Minimum safe price + action",
-      "cardBody": "Margin leak breakdown, accept / reprice verdict and exportable PDF report."
+      "cardEyebrow": "Verdict Premium",
+      "cardTitle": "Minimum safe Prix + action",
+      "cardBody": "Margin leak breakdown, accept / rePrix verdict and exportable PDF report."
     },
     "sample": {
-      "eyebrow": "Sample verdict report",
-      "title": "CNC Quote Risk Report",
-      "subtitle": "This is what a premium decision output looks like — not a spreadsheet dump.",
+      "eyebrow": "Rapport de verdict exemple",
+      "title": "Rapport de risque devis CNC",
+      "subtitle": "Voici à quoi ressemble une sortie Premium — pas un tableur.",
       "verdictLabel": "Verdict",
-      "verdictValue": "DO NOT ACCEPT UNDER $1,840",
-      "riskLabel": "Margin risk",
-      "riskValue": "HIGH RISK",
-      "leakLabel": "Main leak",
-      "leakValue": "Setup time + tooling buffer",
-      "actionLabel": "Suggested action",
-      "actionValue": "Reprice or reduce scope before sending the quote.",
-      "primaryCta": "View Sample Verdict Report",
+      "verdictValue": "NE PAS ACCEPTER SOUS 1 840 $",
+      "riskLabel": "Risque de marge",
+      "riskValue": "RISQUE ÉLEVÉ",
+      "leakLabel": "Fuite principale",
+      "leakValue": "Préparation time + tooling buffer",
+      "actionLabel": "Action suggérée",
+      "actionValue": "RePrix or reduce scope before sending the quote.",
+      "primaryCta": "Voir un rapport de verdict exemple",
       "secondaryCta": "Ouvrir le calculateur de risque devis CNC"
     },
     "compare": {
-      "eyebrow": "Free vs Pro",
-      "title": "Quick check vs full verdict",
-      "freeLabel": "Free check",
-      "freeItem1": "Visible risk signal in your browser",
-      "freeItem2": "Direct cost exposure indicators",
-      "freeItem3": "No PDF export",
-      "freeItem4": "No saved report history",
-      "proLabel": "Pro verdict",
-      "proItem1": "Minimum safe price",
-      "proItem2": "Margin leak breakdown",
-      "proItem3": "Accept / Reprice / Do Not Accept verdict",
-      "proItem4": "PDF-ready report and saved history",
-      "proCta": "View Premium Verdicts"
+      "eyebrow": "Gratuit vs Pro",
+      "title": "Contrôle rapide vs verdict complet",
+      "freeLabel": "Contrôle gratuit",
+      "freeItem1": "Signal de risque visible dans votre navigateur",
+      "freeItem2": "Direct Coût exposure indicators",
+      "freeItem3": "Pas d'export PDF",
+      "freeItem4": "Pas d'historique de rapports",
+      "proLabel": "Verdict Pro",
+      "proItem1": "Minimum safe Prix",
+      "proItem2": "Ventilation des fuites de marge",
+      "proItem3": "Accept / RePrix / Do Not Accept verdict",
+      "proItem4": "Rapport PDF et historique enregistré",
+      "proCta": "Voir les verdicts Premium"
     },
     "trust": {
-      "title": "Trusted calculation across {count} sectors",
+      "title": "Calcul fiable dans {count} secteurs",
       "items": {
         "erp": {
-          "title": "No ERP required",
-          "text": "Free checks run without enterprise setup or onboarding."
+          "title": "Sans ERP requis",
+          "text": "Free checks run without enterprise Préparation or onboarding."
         },
         "freeSetup": {
-          "title": "Free checks run without setup",
-          "text": "{count} sector quick checks in your browser — no account needed."
+          "title": "Free checks run without Préparation",
+          "text": "{count} contrôles sectoriels rapides dans votre navigateur — aucun compte requis."
         },
         "premiumVerdicts": {
-          "title": "Premium verdicts explain the risk",
-          "text": "Minimum safe price, margin leaks and suggested action before you quote."
+          "title": "Les verdicts Premium expliquent le risque",
+          "text": "Minimum safe Prix, margin leaks and suggested action before you quote."
         },
         "stripe": {
-          "title": "Checkout secured by Stripe",
-          "text": "Pro subscription billed securely through Stripe."
+          "title": "Paiement sécurisé par Stripe",
+          "text": "Abonnement Pro facturé en sécurité via Stripe."
         },
         "privacy": {
-          "title": "Business data is not sold",
-          "text": "See privacy policy for data handling details."
+          "title": "Les données métier ne sont pas vendues",
+          "text": "Voir la politique de confidentialité pour les détails."
         }
       }
     },
     "industriesPreview": {
-      "eyebrow": "Industries",
-      "title": "Sector packs for operational and commercial decisions",
-      "subtitle": "Each industry module combines a quick estimate layer and a premium decision tool — aligned to how that sector prices work, measures margin and evaluates risk.",
-      "viewAll": "View all industries →"
+      "eyebrow": "Secteurs",
+      "title": "Sector packs for oparational and commercial decisions",
+      "subtitle": "Each industry module combines a quick estimate layer and a premium decision tool — aligned to how that sector Prixs work, measures margin and evaluates risk.",
+      "viewAll": "Voir tous les secteurs →"
     },
     "cta": {
-      "eyebrow": "Get started",
-      "title": "Start calculating for your sector",
-      "subtitle": "Begin with free tools, upgrade to premium reports when you need them.",
+      "eyebrow": "Commencer",
+      "title": "Commencer à calculer pour votre secteur",
+      "subtitle": "Commencez avec les outils gratuits, passez aux rapports Premium si besoin.",
       "primary": "Outils gratuits",
       "secondary": "Exemple de rapport"
     }
   },
   "homeDashboard": {
     "meta": {
-      "title": "MarginCore — Professional Risk Analytics for SMEs",
+      "title": "MarginCore — Analytique de risque pro pour PME",
       "description": "Financial risk dashboard for sector calcul de marge. Executive summaries by industry, construction and logistics with P90 stochastic verdicts."
     },
     "hero": {
-      "statusLine": "MarginCore · Risk Terminal",
-      "title": "MarginCore: Professional Risk Analytics for SMEs.",
+      "statusLine": "MarginCore · Risk Duréeinal",
+      "title": "MarginCore : analytique de risque pro pour PME.",
       "subtitle": "Deterministic cost exposure, P90 safe pricing and sensitivity matrices — server-side stochastic engine for operators who quote on margin.",
-      "primaryCta": "Access Premium Verdicts",
-      "secondaryCta": "View Sample Report",
+      "primaryCta": "Accéder aux verdicts Premium",
+      "secondaryCta": "Voir un rapport exemple",
       "metrics": {
         "sectors": {
-          "label": "Sectors",
-          "value": "27 LIVE"
+          "label": "Secteurs",
+          "value": "27 EN DIRECT"
         },
         "engine": {
-          "label": "Engine",
+          "label": "Moteur",
           "value": "P90 MC"
         },
         "confidence": {
-          "label": "Confidence",
+          "label": "Confiance",
           "value": "Z = 1.28"
         },
         "gate": {
-          "label": "Access",
-          "value": "PRO GATE"
+          "label": "Accès",
+          "value": "PORTAIL PRO"
         }
       }
     },
     "grid": {
-      "eyebrow": "Sector coverage",
-      "title": "Executive summaries by vertical",
+      "eyebrow": "Couverture sectorielle",
+      "title": "Synthèses exécutives par vertical",
       "subtitle": "Modules de risque groupés — pré-contrôles gratuits et calculateurs premium.",
-      "sectorCount": "{count} modules",
-      "freeLabel": "Pre-check",
+      "sectorCount": "{count} modules métier",
+      "freeLabel": "Pré-contrôle",
       "proLabel": "Verdict"
     },
     "groups": {
-      "industry": "Industry",
+      "industry": "Industrie",
       "construction": "Construction",
-      "logistics": "Logistics"
+      "logistics": "Logistique"
     },
     "activity": {
-      "eyebrow": "Activity feed",
-      "title": "Recent reports",
+      "eyebrow": "Fil d'activité",
+      "title": "Rapports récents",
       "subtitle": "Sample activity stream — sign in to sync saved verdict reports.",
-      "viewAll": "Open report archive",
+      "viewAll": "Ouvrir l'archive des rapports",
       "disclaimer": "Illustrative rows only. Live report history requires SectorCalc Pro.",
       "columns": {
-        "id": "Report ID",
-        "sector": "Sector",
+        "id": "ID du rapport",
+        "sector": "Secteur",
         "verdict": "Verdict",
-        "updated": "Updated",
-        "status": "Status"
+        "updated": "Mis à jour",
+        "status": "Statut"
       },
       "status": {
-        "complete": "Complete",
-        "pending": "Awaiting",
-        "sample": "Sample"
+        "complete": "Terminé",
+        "pending": "En attente",
+        "sample": "Exemple"
       }
     }
   },
@@ -873,7 +879,7 @@
     "demoCta": "Demander une démo",
     "contactCta": "Contacter le service commercial",
     "hero": {
-      "eyebrow": "Business & Enterprise"
+      "eyebrow": "Entreprise & corporate"
     },
     "businessPlan": {
       "badge": "Business",
@@ -980,7 +986,7 @@
     },
     "how": {
       "title": "Comment notre système fonctionne",
-      "body": "Vous fournissez les entrées connues ; le système détermine ce qui est requis, exécute des calculs déterministes et gouvernés, et valide chaque résultat par rapport aux invariants et aux références avant de l'afficher."
+      "body": "Vous fournissez les entrées que vous connaissez ; le système détermine ce qui est requis, exécute des calculs déterministes gouvernés et valide chaque résultat par rapport aux invariants et aux repères avant affichage."
     },
     "different": {
       "title": "Ce qui nous distingue",
@@ -1286,164 +1292,164 @@
   },
   "industrialHome": {
     "brand": "SectorCalc",
-    "modulesTitle": "Browse by sector",
-    "initializeAudit": "Open",
+    "modulesTitle": "Parcourir par secteur",
+    "initializeAudit": "Ouvrir",
     "systemStatus": {
-      "title": "Platform snapshot",
-      "line": "Free calculators and premium expert reports — one platform.",
+      "title": "Aperçu de la plateforme",
+      "line": "Free calculators and premium expart reports — one platform.",
       "metrics": {
         "sectors": {
-          "label": "Sectors",
-          "value": "{count} active"
+          "label": "Secteurs",
+          "value": "{count} actifs"
         },
         "engine": {
-          "label": "Calculators",
-          "value": "50+ tools"
+          "label": "Calculateurs",
+          "value": "50+ outils"
         },
         "confidence": {
-          "label": "Reports",
-          "value": "Expert layer"
+          "label": "Rapports",
+          "value": "Expart layer"
         },
         "gate": {
-          "label": "Access",
-          "value": "Free + Pro"
+          "label": "Accès",
+          "value": "Gratuit + Pro"
         }
       }
     },
     "quickAccess": {
-      "title": "Quick access",
-      "open": "Open",
+      "title": "Accès rapide",
+      "open": "Ouvrir",
       "modules": {
-        "tools": "Free tools",
-        "industries": "Industries",
-        "categories": "Categories",
-        "premium": "Premium reports",
-        "archive": "Audit archive"
+        "tools": "Outils gratuits",
+        "industries": "Secteurs",
+        "categories": "Catégories",
+        "premium": "Rapports Premium",
+        "archive": "Archives d'audit"
       }
     },
     "lossDimensions": {
-      "title": "What you can measure",
-      "money": "Money & margin",
-      "material": "Material & scrap",
-      "time": "Time & OEE",
-      "energy": "Energy & carbon"
+      "title": "Ce que vous pouvez mesurer",
+      "money": "Argent et marge",
+      "material": "Matériau & scrap",
+      "time": "Temps et OEE",
+      "energy": "Énergie & carbon"
     },
-    "tagline": "Sector-specific calculation and measurement platform",
-    "headline": "Calculate, measure and optimize",
-    "headlineAccent": "for your sector.",
-    "lead": "Production, logistics, construction, energy and daily life — expert formulas, clear results, no ERP complexity.",
-    "activeModule": "Sector calculator"
+    "tagline": "Plateforme de calcul et mesure sectorielle",
+    "headline": "Calculer, mesurer et optimiser",
+    "headlineAccent": "pour votre secteur.",
+    "lead": "Production, logistics, construction, Énergie and daily life — expart formulas, clear results, no ERP complexity.",
+    "activeModule": "Calculateur sectoriel"
   },
   "auditHub": {
-    "eyebrow": "SectorCalc Audit Hub",
-    "title": "Master Audit Engine",
-    "subtitle": "27 industrial sectors · U-Engine diagnostics · hidden loss detection"
+    "eyebrow": "Hub d'audit SectorCalc",
+    "title": "Moteur d'audit principal",
+    "subtitle": "27 secteurs industriels · diagnostics U-Engine · détection des pertes cachées"
   },
   "auditArchive": {
     "meta": {
-      "title": "Operational Audit Archive — Personal Data Vault",
-      "description": "Review saved operational audits and verdict history linked to your SectorCalc account."
+      "title": "Oparational Audit Archive — parsonal Data Vault",
+      "description": "Review saved oparational audits and verdict history linked to your SectorCalc account."
     },
-    "eyebrow": "Personal Data Vault",
-    "title": "Operational Audit Archive",
-    "subtitle": "Your saved verdict reports and audit outcomes are stored securely in Firestore and linked to your account.",
-    "backToAccount": "← Back to account",
-    "loading": "Loading audit archive…",
-    "sampleNote": "Sample archive records shown.",
-    "signInPrompt": "Sign in to load your personal audit vault from Firestore.",
-    "signInCta": "Sign in",
-    "viewFullArchive": "Open full archive",
+    "eyebrow": "parsonal Data Vault",
+    "title": "Oparational Audit Archive",
+    "subtitle": "Rapports et audits enregistrés en sécurité dans Firestore, liés à votre compte.",
+    "backToAccount": "← Retour au compte",
+    "loading": "Chargement des archives d'audit…",
+    "sampleNote": "Enregistrements d'archive exemple affichés.",
+    "signInPrompt": "Sign in to load your parsonal audit vault from Firestore.",
+    "signInCta": "Se connecter",
+    "viewFullArchive": "Ouvrir les archives complètes",
     "emptySignedIn": "No saved audits yet. Run a calculateur premium and save the verdict to populate your vault."
   },
   "emptyStates": {
     "reports": {
-      "title": "No saved reports yet",
-      "body": "Run a free sector check, then unlock a Single Verdict or SectorCalc Pro to save reports.",
+      "title": "Pas encore de rapports enregistrés",
+      "body": "Contrôle sectoriel gratuit, puis Single Verdict ou SectorCalc Pro pour enregistrer les rapports.",
       "bodyWithCredits": "Run your unlocked calculateur premium and save the verdict report here.",
-      "ctaFree": "Explore free tools",
+      "ctaFree": "Explorer les outils gratuits",
       "ctaPremium": "Ouvrir les calculateurs premium",
-      "viewReport": "View report"
+      "viewReport": "Voir le rapport"
     },
     "purchases": {
-      "title": "Single verdict credits",
+      "title": "Crédits verdict unique",
       "body": "One-time purchases unlock the calculateur premium for that sector tool."
     },
     "login": {
-      "eyebrow": "Sign in required",
-      "title": "Sign in to view saved reports",
-      "body": "Saved verdict reports are linked to your SectorCalc account.",
+      "eyebrow": "Connexion requise",
+      "title": "Connectez-vous pour voir les rapports enregistrés",
+      "body": "Les rapports de verdict enregistrés sont liés à votre compte SectorCalc.",
       "cta": "Se connecter"
     }
   },
   "betaPartner": {
     "meta": {
-      "title": "Beta Partner Program",
-      "description": "Apply to help SectorCalc build verified sector benchmarks with structured operational feedback."
+      "title": "Programme partenaires bêta",
+      "description": "Apply to help SectorCalc build verified sector benchmarks with structured oparational feedback."
     },
     "hero": {
-      "eyebrow": "Beta partner program",
-      "title": "Help build verified sector benchmarks",
-      "subtitle": "Share structured operational data in exchange for premium reports and early access to benchmark-backed calculators."
+      "eyebrow": "Programme partenaires bêta",
+      "title": "Aider à construire des benchmarks sectoriels vérifiés",
+      "subtitle": "Share structured oparational data in exchange for premium reports and early access to benchmark-backed calculators."
     },
     "who": {
-      "title": "Who should apply",
-      "item1": "Operators tracking scrap, setup, route, energy or margin loss",
-      "item2": "Consultants preparing client-facing sector assessments",
+      "title": "Qui devrait postuler",
+      "item1": "Oparators tracking scrap, Préparation, route, Énergie or margin loss",
+      "item2": "Consultants préparant des évaluations sectorielles clients",
       "item3": "Les petites équipes qui ont besoin de calculs clairs avant d'adopter des logiciels complexes",
-      "item4": "Teams willing to give structured feedback on calculator fit"
+      "item4": "Équipes prêtes à donner un feedback structuré sur l'adéquation"
     },
     "data": {
-      "title": "What data we collect",
-      "item1": "Industry, company size and main loss area",
-      "item2": "Current tracking method and estimated monthly loss range",
-      "item3": "Optional anonymized benchmark permission after review"
+      "title": "Quelles données nous collectons",
+      "item1": "Industry, company size and main loss Surface",
+      "item2": "Courant tracking method and estimated monthly loss range",
+      "item3": "Optional anonymized benchmark parmission after review"
     },
     "benefits": {
-      "title": "What you get",
-      "item1": "Early access to premium decision reports",
-      "item2": "Direct input into sector benchmark design",
-      "item3": "Optional case study participation with explicit permission"
+      "title": "Ce que vous obtenez",
+      "item1": "Accès anticipé aux rapports de décision Premium",
+      "item2": "Contribution directe à la conception des benchmarks sectoriels",
+      "item3": "Optional case study participation with explicit parmission"
     },
     "form": {
-      "heading": "Apply for beta partner access",
-      "intro": "All fields marked * are required. We review applications manually — no fake claims or auto-published case studies.",
-      "companyName": "Company name",
-      "contactName": "Contact name",
-      "email": "Work email",
-      "country": "Country",
-      "industry": "Industry",
-      "companySize": "Company size",
-      "role": "Your role",
-      "mainLossArea": "Main loss area",
-      "currentMethod": "How you track loss today",
-      "monthlyEstimatedLossRange": "Estimated monthly loss",
-      "notes": "Additional notes",
-      "caseStudyPermission": "I may allow anonymized or named case study use after review",
-      "selectPlaceholder": "Select…",
-      "submit": "Submit application",
-      "submitting": "Submitting…",
-      "successTitle": "Application received",
-      "successBody": "Thank you. We review beta partner applications manually and will follow up by email.",
-      "rateLimited": "Please wait before submitting again."
+      "heading": "Demander l'accès partenaire bêta",
+      "intro": "Les champs marqués * sont obligatoires. Nous examinons les candidatures manuellement — pas de fausses déclarations ni d'études de cas auto-publiées.",
+      "companyName": "Nom de l'entreprise",
+      "contactName": "Nom du contact",
+      "email": "E-mail professionnel",
+      "country": "Pays",
+      "industry": "Industrie",
+      "companySize": "Taille de l'entreprise",
+      "role": "Votre rôle",
+      "mainLossArea": "Main loss Surface",
+      "currentMethod": "Comment vous suivez les pertes aujourd'hui",
+      "monthlyEstimatedLossRange": "Perte mensuelle estimée",
+      "notes": "Notes supplémentaires",
+      "caseStudyPermission": "Autoriser une étude de cas anonymisée ou nominative après revue",
+      "selectPlaceholder": "Sélectionner…",
+      "submit": "Envoyer la candidature",
+      "submitting": "Envoi…",
+      "successTitle": "Candidature reçue",
+      "successBody": "Merci. Nous examinons les candidatures partenaires bêta manuellement — suivi par e-mail.",
+      "rateLimited": "Veuillez patienter avant de renvoyer."
     },
     "feedback": {
-      "prompt": "Optional: help improve this report with structured feedback.",
-      "open": "Share feedback",
-      "eyebrow": "Report feedback",
-      "title": "How well did this report fit your operation?",
-      "optional": "Optional — skipped by most users.",
-      "dismiss": "Dismiss",
-      "rating": "Overall rating",
-      "usefulness": "Usefulness",
-      "formulaFit": "Formula fit",
-      "missingVariable": "Missing variable",
-      "comment": "Comment",
-      "benchmarkPermission": "Allow anonymized use in future sector benchmarks (reviewed by admin)",
-      "selectPlaceholder": "Select…",
-      "submit": "Send feedback",
-      "submitting": "Sending…",
-      "thankYou": "Thank you — feedback saved for benchmark review.",
-      "rateLimited": "Please wait before submitting again."
+      "prompt": "Optionnel : améliorez ce rapport avec un feedback structuré.",
+      "open": "Partager un feedback",
+      "eyebrow": "Feedback sur le rapport",
+      "title": "How well did this report fit your oparation?",
+      "optional": "Optionnel — ignoré par la plupart.",
+      "dismiss": "Fermer",
+      "rating": "Note globale",
+      "usefulness": "Utilité",
+      "formulaFit": "Adéquation de formule",
+      "missingVariable": "Variable manquante",
+      "comment": "Commentaire",
+      "benchmarkPermission": "Autoriser l'usage anonymisé dans de futurs benchmarks sectoriels (revu par l'admin)",
+      "selectPlaceholder": "Sélectionner…",
+      "submit": "Envoyer le feedback",
+      "submitting": "Envoi…",
+      "thankYou": "Merci — feedback enregistré pour revue benchmark.",
+      "rateLimited": "Veuillez patienter avant de renvoyer."
     }
   },
   "premiumDecisionReport": {
@@ -1560,7 +1566,7 @@
   },
   "calculator": {
     "calculate": "Calculer",
-    "awaiting": "Saisissez les valeurs pour voir le résultat",
+    "awaiting": "Saisissez des valeurs pour voir le résultat",
     "validationRequired": "Veuillez sélectionner une valeur.",
     "validationNumber": "Saisissez un nombre valide."
   },
@@ -1680,16 +1686,16 @@
       "min": "La valeur doit être au moins {min}.",
       "max": "La valeur doit être au plus {max}.",
       "missingInputs": "{count, plural, one {# champ obligatoire manquant} other {# champs obligatoires manquants}}",
-      "invalidCombination": "Ces entrées ne peuvent pas produire une analyse valide."
+      "invalidCombination": "Ces entrées ne peuvent pas produire un calcul valide."
     },
     "scenario": {
       "label": "Scénario de chantier",
       "placeholder": "Sélectionner un scénario"
     },
     "notices": {
-      "requiredInputReason": "Chaque champ correspond à une entrée contractuelle vérifiée pour cet calculateur.",
-      "calculationBlocked": "Complétez les champs obligatoires avant de lancer l'analyse.",
-      "validatedInputSet": "Jeu d'entrées prêt — lancez l'analyse une fois les valeurs confirmées."
+      "requiredInputReason": "Chaque champ correspond à une entrée de contrat vérifiée pour ce calculateur.",
+      "calculationBlocked": "Complétez les champs obligatoires avant de lancer le calcul.",
+      "validatedInputSet": "Jeu d'entrées prêt — lancez le calcul une fois les valeurs confirmées."
     },
     "tools": {
       "cncQuoteRiskAnalyzer": {
@@ -3528,9 +3534,9 @@
         "helper": "Volume par sac"
       },
       "wastepercent": {
-        "label": "parte",
-        "placeholder": "Saisir parte",
-        "helper": "Marge de parte supplémentaire"
+        "label": "Perte",
+        "placeholder": "Saisir perte",
+        "helper": "Marge de perte supplémentaire"
       }
     },
     "paint-coverage-calculator": {
@@ -3540,8 +3546,8 @@
         "helper": "Surface Surface to paint"
       },
       "coverageperliter": {
-        "label": "Coverage",
-        "placeholder": "Saisir coverage",
+        "label": "Couverture",
+        "placeholder": "Saisir couverture",
         "helper": "Couverture par litre"
       },
       "coats": {
@@ -3567,8 +3573,8 @@
         "helper": "Tile Largeur"
       },
       "wastepercent": {
-        "label": "parte",
-        "placeholder": "Saisir parte",
+        "label": "Perte",
+        "placeholder": "Saisir perte",
         "helper": "Cutting parte"
       }
     },
@@ -3584,8 +3590,8 @@
         "helper": "Largeur"
       },
       "wastepercent": {
-        "label": "parte",
-        "placeholder": "Saisir parte",
+        "label": "Perte",
+        "placeholder": "Saisir perte",
         "helper": "Ordering parte"
       }
     },
@@ -3601,15 +3607,15 @@
         "helper": "Building Largeur"
       },
       "pitchfactor": {
-        "label": "Pitch factor",
-        "placeholder": "Saisir pitch factor",
+        "label": "Facteur de pente",
+        "placeholder": "Saisir facteur de pente",
         "helper": "Slope multiplier (e.g. 1.15)"
       }
     },
     "stair-calculator": {
       "totalrisecm": {
-        "label": "Total rise",
-        "placeholder": "Saisir total rise",
+        "label": "Hauteur totale",
+        "placeholder": "Saisir hauteur totale",
         "helper": "Floor-to-floor Hauteur"
       },
       "riserheightcm": {
@@ -3635,8 +3641,8 @@
         "helper": "Surface par sheet"
       },
       "wastepercent": {
-        "label": "parte",
-        "placeholder": "Saisir parte",
+        "label": "Perte",
+        "placeholder": "Saisir perte",
         "helper": "Cut parte"
       }
     },
@@ -3652,8 +3658,8 @@
         "helper": "Layout Densité"
       },
       "wastepercent": {
-        "label": "parte",
-        "placeholder": "Saisir parte",
+        "label": "Perte",
+        "placeholder": "Saisir perte",
         "helper": "Breakage allowance"
       }
     },
@@ -3720,8 +3726,8 @@
         "helper": "Unit Taux"
       },
       "contingencypercent": {
-        "label": "Contingency",
-        "placeholder": "Saisir contingency",
+        "label": "Contingence",
+        "placeholder": "Saisir contingence",
         "helper": "Buffer parcent"
       }
     },
@@ -3729,7 +3735,7 @@
       "principal": {
         "label": "Capital",
         "placeholder": "Saisir capital",
-        "helper": "Loan amount"
+        "helper": "Montant du prêt"
       },
       "annualrate": {
         "label": "Taux annuel",
@@ -3744,8 +3750,8 @@
     },
     "mortgage-calculator": {
       "principal": {
-        "label": "Loan amount",
-        "placeholder": "Saisir loan amount",
+        "label": "Montant du prêt",
+        "placeholder": "Saisir montant du prêt",
         "helper": "Mortgage Capital"
       },
       "annualrate": {
@@ -3793,14 +3799,14 @@
         "helper": "Time horizon"
       },
       "compoundsperyear": {
-        "label": "Compounds/yr",
-        "placeholder": "Saisir compounds/yr",
+        "label": "Composés/an",
+        "placeholder": "Saisir composés/an",
         "helper": "Compounding frequency"
       }
     },
     "vat-calculator": {
       "net": {
-        "label": "Montant Net",
+        "label": "Montant net",
         "placeholder": "Saisir montant net",
         "helper": "Prix before VAT"
       },
@@ -3817,8 +3823,8 @@
         "helper": "List Prix"
       },
       "discountpercent": {
-        "label": "Discount",
-        "placeholder": "Saisir discount",
+        "label": "Remise",
+        "placeholder": "Saisir remise",
         "helper": "Discount parcent"
       }
     },
@@ -3865,32 +3871,32 @@
     },
     "roi-calculator": {
       "gain": {
-        "label": "Gain",
-        "placeholder": "Saisir gain",
+        "label": "Bénéfice",
+        "placeholder": "Saisir bénéfice",
         "helper": "Return amount"
       },
       "cost": {
         "label": "Coût",
         "placeholder": "Saisir coût",
-        "helper": "Initial investment"
+        "helper": "Investissement initial"
       }
     },
     "salary-cost-calculator": {
       "grosssalary": {
-        "label": "Gross salary",
-        "placeholder": "Saisir gross salary",
+        "label": "Salaire brut",
+        "placeholder": "Saisir salaire brut",
         "helper": "Monthly gross"
       },
       "employerratepercent": {
-        "label": "Employer load",
-        "placeholder": "Saisir employer load",
+        "label": "Charges patronales",
+        "placeholder": "Saisir charges patronales",
         "helper": "Employer contribution Taux"
       }
     },
     "hourly-rate-calculator": {
       "monthlyincome": {
-        "label": "Monthly income",
-        "placeholder": "Saisir monthly income",
+        "label": "Revenu mensuel",
+        "placeholder": "Saisir revenu mensuel",
         "helper": "Cible monthly revenue"
       },
       "billablehours": {
@@ -3952,8 +3958,8 @@
         "helper": "Préparation time"
       },
       "cycleseconds": {
-        "label": "Cycle time",
-        "placeholder": "Saisir cycle time",
+        "label": "Temps de cycle",
+        "placeholder": "Saisir temps de cycle",
         "helper": "par-part cycle"
       },
       "quantity": {
@@ -3969,13 +3975,13 @@
     },
     "cnc-cycle-time-calculator": {
       "machiningseconds": {
-        "label": "Machining",
-        "placeholder": "Saisir machining",
+        "label": "Usinage",
+        "placeholder": "Saisir usinage",
         "helper": "Cut time par part"
       },
       "loadunloadseconds": {
-        "label": "Load/unload",
-        "placeholder": "Saisir load/unload",
+        "label": "Chargement/déchargement",
+        "placeholder": "Saisir chargement/déchargement",
         "helper": "Handling par part"
       },
       "inspectionseconds": {
@@ -3991,8 +3997,8 @@
     },
     "welding-cost-estimator": {
       "materialcost": {
-        "label": "Matériau",
-        "placeholder": "Saisir matériau",
+        "label": "Material",
+        "placeholder": "Saisir material",
         "helper": "Filler and base Matériau"
       },
       "laborhours": {
@@ -4023,25 +4029,25 @@
         "helper": "Total cut path"
       },
       "cutspeedmmin": {
-        "label": "Cut speed",
-        "placeholder": "Saisir cut speed",
+        "label": "Vitesse de coupe",
+        "placeholder": "Saisir vitesse de coupe",
         "helper": "Machine cut speed"
       },
       "piercecount": {
-        "label": "Pierces",
-        "placeholder": "Saisir pierces",
+        "label": "Perçages",
+        "placeholder": "Saisir perçages",
         "helper": "Pierce oparations"
       },
       "pierceseconds": {
-        "label": "Pierce time",
-        "placeholder": "Saisir pierce time",
+        "label": "Temps de perçage",
+        "placeholder": "Saisir temps de perçage",
         "helper": "Seconds par pierce"
       }
     },
     "3d-print-cost-check": {
       "materialcost": {
-        "label": "Matériau",
-        "placeholder": "Saisir matériau",
+        "label": "Material",
+        "placeholder": "Saisir material",
         "helper": "Filament/resin Coût"
       },
       "printhours": {
@@ -4055,8 +4061,8 @@
         "helper": "Printer Hourly Taux"
       },
       "postprocesshours": {
-        "label": "Post-process",
-        "placeholder": "Saisir post-process",
+        "label": "Post-traitement",
+        "placeholder": "Saisir post-traitement",
         "helper": "Finishing Heures"
       },
       "laborrate": {
@@ -4101,13 +4107,13 @@
     },
     "scrap-rate-calculator": {
       "scrapunits": {
-        "label": "Scrap units",
-        "placeholder": "Saisir scrap units",
+        "label": "Unités rebut",
+        "placeholder": "Saisir unités rebut",
         "helper": "Rejected units"
       },
       "totalunits": {
-        "label": "Total units",
-        "placeholder": "Saisir total units",
+        "label": "Unités totales",
+        "placeholder": "Saisir unités totales",
         "helper": "Units processed"
       }
     },
@@ -4118,20 +4124,20 @@
         "helper": "Uptime parcent"
       },
       "performancepercent": {
-        "label": "parformance",
-        "placeholder": "Saisir parformance",
+        "label": "Performance",
+        "placeholder": "Saisir performance",
         "helper": "Speed parcent"
       },
       "qualitypercent": {
-        "label": "Quality",
-        "placeholder": "Saisir quality",
+        "label": "Qualité",
+        "placeholder": "Saisir qualité",
         "helper": "Good parts parcent"
       }
     },
     "machine-hour-rate-calculator": {
       "fixedmonthlycost": {
-        "label": "Fixed monthly",
-        "placeholder": "Saisir fixed monthly",
+        "label": "Fixe mensuel",
+        "placeholder": "Saisir fixe mensuel",
         "helper": "Overhead allocated"
       },
       "monthlymachinehours": {
@@ -4140,8 +4146,8 @@
         "helper": "Available Heures"
       },
       "variablecostperhour": {
-        "label": "Variable/hr",
-        "placeholder": "Saisir variable/hr",
+        "label": "Variable/h",
+        "placeholder": "Saisir variable/h",
         "helper": "Consommables par hour"
       }
     },
@@ -4152,8 +4158,8 @@
         "helper": "Insert or tool Prix"
       },
       "partsproduced": {
-        "label": "Parts",
-        "placeholder": "Saisir parts",
+        "label": "Pièces",
+        "placeholder": "Saisir pièces",
         "helper": "Parts before change"
       }
     },
@@ -4181,8 +4187,8 @@
         "helper": "Cutting edges"
       },
       "feedpertoothmm": {
-        "label": "Feed/tooth",
-        "placeholder": "Saisir feed/tooth",
+        "label": "Avance/dent",
+        "placeholder": "Saisir avance/dent",
         "helper": "Chip load par tooth"
       }
     },
@@ -4193,15 +4199,15 @@
         "helper": "Nominal dimension"
       },
       "actual": {
-        "label": "Actual",
-        "placeholder": "Saisir actual",
+        "label": "Réel",
+        "placeholder": "Saisir réel",
         "helper": "Measured dimension"
       }
     },
     "batch-yield-calculator": {
       "inputqty": {
-        "label": "Input qty",
-        "placeholder": "Saisir input qty",
+        "label": "Qté entrée",
+        "placeholder": "Saisir qté entrée",
         "helper": "Matériau in"
       },
       "goodoutputqty": {
@@ -4224,8 +4230,8 @@
     },
     "electricity-bill-calculator": {
       "kwh": {
-        "label": "Usage",
-        "placeholder": "Saisir usage",
+        "label": "Utilisation",
+        "placeholder": "Saisir utilisation",
         "helper": "Monthly kWh"
       },
       "rate": {
@@ -4268,8 +4274,8 @@
         "helper": "Electricity utilisé"
       },
       "emissionfactorkgperkwh": {
-        "label": "Emission factor",
-        "placeholder": "Saisir emission factor",
+        "label": "Facteur d'émission",
+        "placeholder": "Saisir facteur d'émission",
         "helper": "Grid factor"
       }
     },
@@ -4302,8 +4308,8 @@
         "helper": "pariod Longueur"
       },
       "efficiencypercent": {
-        "label": "Efficiency",
-        "placeholder": "Saisir efficiency",
+        "label": "Efficacité",
+        "placeholder": "Saisir efficacité",
         "helper": "System efficiency"
       }
     },
@@ -4355,8 +4361,8 @@
     },
     "cbam-exposure-quick-check": {
       "emissionston": {
-        "label": "Emissions",
-        "placeholder": "Saisir emissions",
+        "label": "Émissions",
+        "placeholder": "Saisir émissions",
         "helper": "Embedded emissions"
       },
       "carbonprice": {
@@ -4416,8 +4422,8 @@
         "helper": "Parcel Hauteur"
       },
       "divisor": {
-        "label": "Diviseur",
-        "placeholder": "Saisir diviseur",
+        "label": "Divisor",
+        "placeholder": "Saisir divisor",
         "helper": "Carrier Diviseur"
       }
     },
@@ -4438,8 +4444,8 @@
         "helper": "Hauteur"
       },
       "divisor": {
-        "label": "Diviseur",
-        "placeholder": "Saisir diviseur",
+        "label": "Divisor",
+        "placeholder": "Saisir divisor",
         "helper": "Air cargo Diviseur"
       }
     },
@@ -4482,8 +4488,8 @@
         "helper": "Variable km Coût"
       },
       "stops": {
-        "label": "Stops",
-        "placeholder": "Saisir stops",
+        "label": "Arrêts",
+        "placeholder": "Saisir arrêts",
         "helper": "Delivery stops"
       },
       "costperstop": {
@@ -4504,15 +4510,15 @@
         "helper": "Taux par kg"
       },
       "fixedfee": {
-        "label": "Fixed fee",
-        "placeholder": "Saisir fixed fee",
+        "label": "Frais fixes",
+        "placeholder": "Saisir frais fixes",
         "helper": "Booking fee"
       }
     },
     "warehouse-storage-cost-calculator": {
       "palletcount": {
-        "label": "Pallets",
-        "placeholder": "Saisir pallets",
+        "label": "Palettes",
+        "placeholder": "Saisir palettes",
         "helper": "Stored pallets"
       },
       "costperpalletperday": {
@@ -4528,13 +4534,13 @@
     },
     "vehicle-depreciation-calculator": {
       "purchaseprice": {
-        "label": "Purchase",
-        "placeholder": "Saisir purchase",
+        "label": "Achat",
+        "placeholder": "Saisir achat",
         "helper": "Acquisition Coût"
       },
       "resalevalue": {
-        "label": "Resale",
-        "placeholder": "Saisir resale",
+        "label": "Revente",
+        "placeholder": "Saisir revente",
         "helper": "Expected resale"
       },
       "years": {
@@ -4550,8 +4556,8 @@
         "helper": "Carburant spend"
       },
       "accommodationcost": {
-        "label": "Lodging",
-        "placeholder": "Saisir lodging",
+        "label": "Hébergement",
+        "placeholder": "Saisir hébergement",
         "helper": "Hotels"
       },
       "foodcost": {
@@ -4565,8 +4571,8 @@
         "helper": "Road fees"
       },
       "othercost": {
-        "label": "Other",
-        "placeholder": "Saisir other",
+        "label": "Autre",
+        "placeholder": "Saisir autre",
         "helper": "Miscellaneous"
       }
     },
@@ -4611,8 +4617,8 @@
         "helper": "Electricity Taux"
       },
       "watercost": {
-        "label": "Water fee",
-        "placeholder": "Saisir water fee",
+        "label": "Frais d'eau",
+        "placeholder": "Saisir frais d'eau",
         "helper": "Water charge"
       }
     },
@@ -4630,8 +4636,8 @@
     },
     "feed-cost-estimator": {
       "feedkg": {
-        "label": "Feed",
-        "placeholder": "Saisir feed",
+        "label": "Avance",
+        "placeholder": "Saisir avance",
         "helper": "Feed Quantité"
       },
       "priceperkg": {
@@ -4647,13 +4653,13 @@
     },
     "milk-yield-check": {
       "cows": {
-        "label": "Cows",
-        "placeholder": "Saisir cows",
+        "label": "Vaches",
+        "placeholder": "Saisir vaches",
         "helper": "Milking cows"
       },
       "literspercow": {
-        "label": "Yield/cow",
-        "placeholder": "Saisir yield/cow",
+        "label": "Rendement/vache",
+        "placeholder": "Saisir rendement/vache",
         "helper": "Liters par cow par day"
       },
       "milkprice": {
@@ -4669,8 +4675,8 @@
         "helper": "Planted Surface"
       },
       "yieldtonperha": {
-        "label": "Yield",
-        "placeholder": "Saisir yield",
+        "label": "Rendement",
+        "placeholder": "Saisir rendement",
         "helper": "Expected yield"
       },
       "priceperton": {
@@ -4737,13 +4743,13 @@
         "helper": "Expected yearly location growth"
       },
       "annualhomeappreciation": {
-        "label": "Home appreciation",
-        "placeholder": "Saisir home appreciation",
+        "label": "Plus-value immobilière",
+        "placeholder": "Saisir plus-value immobilière",
         "helper": "Expected yearly home Valeur growth"
       },
       "downpaymentpercent": {
-        "label": "Down payment",
-        "placeholder": "Saisir down payment",
+        "label": "Acompte",
+        "placeholder": "Saisir acompte",
         "helper": "parcent of Home Prix paid upfront"
       },
       "mortgageinterestrate": {
@@ -4757,8 +4763,8 @@
         "helper": "Mortgage amortization Durée"
       },
       "investmentreturnrate": {
-        "label": "Investment return",
-        "placeholder": "Saisir investment return",
+        "label": "Rendement investissement",
+        "placeholder": "Saisir rendement investissement",
         "helper": "Annual return if locationing and investing cash"
       },
       "ownershipcostpercent": {
@@ -4779,9 +4785,9 @@
     },
     "home-budget-calculator": {
       "income": {
-        "label": "Income",
-        "placeholder": "Saisir income",
-        "helper": "Monthly income"
+        "label": "Revenu",
+        "placeholder": "Saisir revenu",
+        "helper": "Revenu mensuel"
       },
       "rent": {
         "label": "location",
@@ -4799,31 +4805,31 @@
         "helper": "Commute"
       },
       "utilities": {
-        "label": "Utilities",
-        "placeholder": "Saisir utilities",
+        "label": "Services publics",
+        "placeholder": "Saisir services publics",
         "helper": "Bills"
       }
     },
     "time-duration-calculator": {
       "starthour": {
-        "label": "Start hour",
-        "placeholder": "Saisir start hour",
+        "label": "Heure début",
+        "placeholder": "Saisir heure début",
         "helper": "Start hour (0–23)"
       },
       "startminute": {
-        "label": "Start minute",
-        "placeholder": "Saisir start minute",
-        "helper": "Start minute"
+        "label": "Minute début",
+        "placeholder": "Saisir minute début",
+        "helper": "Minute début"
       },
       "endhour": {
-        "label": "End hour",
-        "placeholder": "Saisir end hour",
-        "helper": "End hour"
+        "label": "Heure de fin",
+        "placeholder": "Saisir heure de fin",
+        "helper": "Heure de fin"
       },
       "endminute": {
-        "label": "End minute",
-        "placeholder": "Saisir end minute",
-        "helper": "End minute"
+        "label": "Minute de fin",
+        "placeholder": "Saisir minute de fin",
+        "helper": "Minute de fin"
       }
     },
     "age-calculator": {
@@ -4840,40 +4846,40 @@
     },
     "date-difference-calculator": {
       "startdaynumber": {
-        "label": "Start day #",
-        "placeholder": "Saisir start day #",
+        "label": "Jour début #",
+        "placeholder": "Saisir jour début #",
         "helper": "Start day index"
       },
       "enddaynumber": {
-        "label": "End day #",
-        "placeholder": "Saisir end day #",
+        "label": "Jour de fin #",
+        "placeholder": "Saisir jour de fin #",
         "helper": "End day index"
       }
     },
     "shopping-budget-calculator": {
       "item1": {
-        "label": "Item 1",
-        "placeholder": "Saisir item 1",
+        "label": "Poste 1",
+        "placeholder": "Saisir poste 1",
         "helper": "First item"
       },
       "item2": {
-        "label": "Item 2",
-        "placeholder": "Saisir item 2",
+        "label": "Poste 2",
+        "placeholder": "Saisir poste 2",
         "helper": "Second item"
       },
       "item3": {
-        "label": "Item 3",
-        "placeholder": "Saisir item 3",
+        "label": "Poste 3",
+        "placeholder": "Saisir poste 3",
         "helper": "Third item"
       },
       "item4": {
-        "label": "Item 4",
-        "placeholder": "Saisir item 4",
+        "label": "Poste 4",
+        "placeholder": "Saisir poste 4",
         "helper": "Fourth item"
       },
       "item5": {
-        "label": "Item 5",
-        "placeholder": "Saisir item 5",
+        "label": "Poste 5",
+        "placeholder": "Saisir poste 5",
         "helper": "Fifth item"
       }
     },
@@ -4908,8 +4914,8 @@
     },
     "tip-calculator": {
       "billamount": {
-        "label": "Bill",
-        "placeholder": "Saisir bill",
+        "label": "Facture",
+        "placeholder": "Saisir facture",
         "helper": "Pre-tip total"
       },
       "tippercent": {
@@ -4925,8 +4931,8 @@
         "helper": "Savings goal"
       },
       "monthlysaving": {
-        "label": "Monthly saving",
-        "placeholder": "Saisir monthly saving",
+        "label": "Épargne mensuelle",
+        "placeholder": "Saisir épargne mensuelle",
         "helper": "Amount saved par month"
       }
     },
@@ -5071,13 +5077,13 @@
         "helper": "Population size"
       },
       "confidencez": {
-        "label": "Z score",
-        "placeholder": "Saisir z score",
+        "label": "Score Z",
+        "placeholder": "Saisir score z",
         "helper": "Confidence z (e.g. 1.96)"
       },
       "marginerrorpercent": {
-        "label": "Margin error",
-        "placeholder": "Saisir margin error",
+        "label": "Erreur de marge",
+        "placeholder": "Saisir erreur de marge",
         "helper": "Margin of error"
       },
       "proportionpercent": {
@@ -5093,13 +5099,13 @@
         "helper": "Data point"
       },
       "mean": {
-        "label": "Mean",
-        "placeholder": "Saisir mean",
+        "label": "Moyenne",
+        "placeholder": "Saisir moyenne",
         "helper": "Population mean"
       },
       "standarddeviation": {
-        "label": "Std dev",
-        "placeholder": "Saisir std dev",
+        "label": "Écart-type",
+        "placeholder": "Saisir écart-type",
         "helper": "Standard deviation"
       }
     },
@@ -5202,8 +5208,8 @@
         "helper": "Line Courant in ampares"
       },
       "volts": {
-        "label": "Voltage",
-        "placeholder": "Saisir voltage",
+        "label": "Tension",
+        "placeholder": "Saisir tension",
         "helper": "Line voltage"
       },
       "powerfactor": {
@@ -5231,8 +5237,8 @@
     },
     "civata-sikma-torku-hesaplama": {
       "clampforce": {
-        "label": "Clamp force",
-        "placeholder": "Saisir clamp force",
+        "label": "Force de serrage",
+        "placeholder": "Saisir force de serrage",
         "helper": "Cible clamp force"
       },
       "boltdiametermm": {
@@ -5243,13 +5249,13 @@
     },
     "mtv-motorlu-tasitlar-vergisi-hesaplama": {
       "enginecc": {
-        "label": "Engine displacement",
-        "placeholder": "Saisir engine displacement",
+        "label": "Cylindrée",
+        "placeholder": "Saisir cylindrée",
         "helper": "Engine size in cc"
       },
       "agefactor": {
-        "label": "Age factor",
-        "placeholder": "Saisir age factor",
+        "label": "Facteur d'âge",
+        "placeholder": "Saisir facteur d'âge",
         "helper": "Informational age band factor"
       }
     },
@@ -5327,13 +5333,13 @@
     },
     "jenerator-kapasitesi-secim-hesaplama": {
       "peakloadkw": {
-        "label": "Peak load",
-        "placeholder": "Saisir peak load",
+        "label": "Charge de pointe",
+        "placeholder": "Saisir charge de pointe",
         "helper": "Peak load in kW"
       },
       "safetyfactor": {
-        "label": "Safety factor",
-        "placeholder": "Saisir safety factor",
+        "label": "Facteur de sécurité",
+        "placeholder": "Saisir facteur de sécurité",
         "helper": "Recommended safety factor"
       }
     },
@@ -5411,8 +5417,8 @@
     },
     "enflasyon-fiyat-eskalasyonu-hesaplama": {
       "baseamount": {
-        "label": "Base amount",
-        "placeholder": "Saisir base amount",
+        "label": "Montant de base",
+        "placeholder": "Saisir montant de base",
         "helper": "Starting amount"
       },
       "inflationpercent": {
@@ -5479,13 +5485,13 @@
     },
     "kesir-ondalik-cevirici": {
       "numerator": {
-        "label": "Numerator",
-        "placeholder": "Saisir numerator",
+        "label": "Numérateur",
+        "placeholder": "Saisir numérateur",
         "helper": "Numerator for calculation"
       },
       "denominator": {
-        "label": "Denominator",
-        "placeholder": "Saisir denominator",
+        "label": "Dénominateur",
+        "placeholder": "Saisir dénominateur",
         "helper": "Denominator for calculation"
       }
     },
@@ -5503,8 +5509,8 @@
     },
     "daire-alani-cevresi-hesaplama": {
       "radius": {
-        "label": "Rayon",
-        "placeholder": "Saisir rayon",
+        "label": "Radius",
+        "placeholder": "Saisir radius",
         "helper": "Circle Rayon"
       }
     },
@@ -5522,8 +5528,8 @@
     },
     "silindir-hacmi-hesaplama": {
       "radius": {
-        "label": "Rayon",
-        "placeholder": "Saisir rayon",
+        "label": "Radius",
+        "placeholder": "Saisir radius",
         "helper": "Cylinder Rayon"
       },
       "height": {
@@ -5539,8 +5545,8 @@
         "helper": "Fence Longueur for calculation"
       },
       "postspacing": {
-        "label": "Post spacing",
-        "placeholder": "Saisir post spacing",
+        "label": "Entraxe des poteaux",
+        "placeholder": "Saisir entraxe des poteaux",
         "helper": "Post spacing for calculation"
       }
     },
@@ -5558,8 +5564,8 @@
     },
     "celik-cati-makas-yaklasik-agirligi": {
       "span": {
-        "label": "Roof span",
-        "placeholder": "Saisir roof span",
+        "label": "Portée toit",
+        "placeholder": "Saisir portée toit",
         "helper": "Truss span in meters"
       },
       "weightpermeter": {
@@ -5570,8 +5576,8 @@
     },
     "su-deposu-hacmi-hesaplama": {
       "radius": {
-        "label": "Rayon",
-        "placeholder": "Saisir rayon",
+        "label": "Radius",
+        "placeholder": "Saisir radius",
         "helper": "Tank Rayon"
       },
       "height": {
@@ -5587,15 +5593,15 @@
         "helper": "Insulated surface in m²"
       },
       "layers": {
-        "label": "Layers",
-        "placeholder": "Saisir layers",
+        "label": "Couches",
+        "placeholder": "Saisir couches",
         "helper": "Number of layers"
       }
     },
     "ups-kesintisiz-guc-kaynagi-secimi": {
       "loadwatts": {
-        "label": "Load",
-        "placeholder": "Saisir load",
+        "label": "Charge",
+        "placeholder": "Saisir charge",
         "helper": "Connected load in watts"
       },
       "runtimeminutes": {
@@ -5618,15 +5624,15 @@
     },
     "topraklama-direnci-hesaplama": {
       "measuredohms": {
-        "label": "Measured resistance",
-        "placeholder": "Saisir measured resistance",
+        "label": "Résistance mesurée",
+        "placeholder": "Saisir résistance mesurée",
         "helper": "Ground resistance reading"
       }
     },
     "aku-kapasitesi-calisma-suresi-hesabi": {
       "batteryah": {
-        "label": "Battery capacity",
-        "placeholder": "Saisir battery capacity",
+        "label": "Capacité batterie",
+        "placeholder": "Saisir capacité batterie",
         "helper": "Battery capacity for calculation"
       },
       "loadamps": {
@@ -5637,8 +5643,8 @@
     },
     "aydinlatma-armatur-sayisi-hesaplama": {
       "totallumensneeded": {
-        "label": "Total lumens",
-        "placeholder": "Saisir total lumens",
+        "label": "Lumens totaux",
+        "placeholder": "Saisir lumens totaux",
         "helper": "Total lumens for calculation"
       },
       "lumensperfixture": {
@@ -5654,8 +5660,8 @@
         "helper": "Débit compresseur Taux"
       },
       "fillminutes": {
-        "label": "Fill time",
-        "placeholder": "Saisir fill time",
+        "label": "Temps de remplissage",
+        "placeholder": "Saisir temps de remplissage",
         "helper": "Desired tank fill time in minutes"
       }
     },
@@ -5714,8 +5720,8 @@
         "helper": "Débit in m³/h"
       },
       "headm": {
-        "label": "Head",
-        "placeholder": "Saisir head",
+        "label": "Tête",
+        "placeholder": "Saisir tête",
         "helper": "Total head in meters"
       }
     },
@@ -5745,13 +5751,13 @@
     },
     "radyator-petek-boyu-hesaplama": {
       "heatloadkcal": {
-        "label": "Heat load",
-        "placeholder": "Saisir heat load",
+        "label": "Charge thermique",
+        "placeholder": "Saisir charge thermique",
         "helper": "Heat load for calculation"
       },
       "paneloutputkcal": {
-        "label": "Panel output",
-        "placeholder": "Saisir panel output",
+        "label": "Sortie panneau",
+        "placeholder": "Saisir sortie panneau",
         "helper": "Panel output for calculation"
       }
     },
@@ -5827,8 +5833,8 @@
         "helper": "Nominal Bolt Diamètre in mm"
       },
       "preloadkn": {
-        "label": "Preload force",
-        "placeholder": "Saisir preload force",
+        "label": "Force de précharge",
+        "placeholder": "Saisir force de précharge",
         "helper": "Cible preload in kN"
       }
     },
@@ -5846,8 +5852,8 @@
     },
     "palet-ambalaj-kereste-hesabi": {
       "palletcount": {
-        "label": "Pallet count",
-        "placeholder": "Saisir pallet count",
+        "label": "Nombre de palettes",
+        "placeholder": "Saisir nombre de palettes",
         "helper": "Number of pallets"
       },
       "boardlengthm": {
@@ -5882,13 +5888,13 @@
     },
     "vida-somun-adim-dis-ustu-cap-hesabi": {
       "pitchmm": {
-        "label": "Pitch",
-        "placeholder": "Saisir pitch",
+        "label": "Pente",
+        "placeholder": "Saisir pente",
         "helper": "Thread pitch in mm"
       },
       "threadcount": {
-        "label": "Thread count",
-        "placeholder": "Saisir thread count",
+        "label": "Nombre de filets",
+        "placeholder": "Saisir nombre de filets",
         "helper": "Number of threads engaged"
       }
     },
@@ -5899,14 +5905,14 @@
         "helper": "Screw Diamètre for calculation"
       },
       "drillfactor": {
-        "label": "Drill factor",
-        "placeholder": "Saisir drill factor",
+        "label": "Facteur de perçage",
+        "placeholder": "Saisir facteur de perçage",
         "helper": "Drill factor for calculation"
       }
     },
     "kdv-tevkifati-hesaplama": {
       "netamount": {
-        "label": "Montant Net",
+        "label": "Montant net",
         "placeholder": "Saisir montant net",
         "helper": "Net invoice amount"
       },
@@ -5918,8 +5924,8 @@
     },
     "stopaj-hesaplama-kira-serbest-meslek": {
       "grossamount": {
-        "label": "Gross amount",
-        "placeholder": "Saisir gross amount",
+        "label": "Montant brut",
+        "placeholder": "Saisir montant brut",
         "helper": "Payment before withholding"
       },
       "withholdingrate": {
@@ -5930,8 +5936,8 @@
     },
     "gelir-vergisi-dilimleri-hesaplama": {
       "taxableincome": {
-        "label": "Taxable income",
-        "placeholder": "Saisir taxable income",
+        "label": "Revenu imposable",
+        "placeholder": "Saisir revenu imposable",
         "helper": "Annual taxable income"
       },
       "effectiverate": {
@@ -5949,8 +5955,8 @@
     },
     "sgk-prim-hesaplama-isci-plus-isveren": {
       "grosswage": {
-        "label": "Gross wage",
-        "placeholder": "Saisir gross wage",
+        "label": "Salaire brut",
+        "placeholder": "Saisir salaire brut",
         "helper": "Monthly gross wage"
       },
       "combinedrate": {
@@ -6002,13 +6008,13 @@
     },
     "doviz-pozisyonu-kur-farki-riski-hesabi": {
       "foreignexposure": {
-        "label": "Foreign exposure",
-        "placeholder": "Saisir foreign exposure",
+        "label": "Exposition de change",
+        "placeholder": "Saisir exposition de change",
         "helper": "Exposure in foreign currency"
       },
       "fxmovepercent": {
-        "label": "FX move",
-        "placeholder": "Saisir fx move",
+        "label": "Mouvement de change",
+        "placeholder": "Saisir mouvement de change",
         "helper": "Expected FX move parcent"
       }
     },
@@ -6038,13 +6044,13 @@
     },
     "ic-verim-orani-irr-hesaplama": {
       "initialinvestment": {
-        "label": "Initial investment",
-        "placeholder": "Saisir initial investment",
+        "label": "Investissement initial",
+        "placeholder": "Saisir investissement initial",
         "helper": "Project investment"
       },
       "returnmultiple": {
-        "label": "Return multiple",
-        "placeholder": "Saisir return multiple",
+        "label": "Multiple de rendement",
+        "placeholder": "Saisir multiple de rendement",
         "helper": "Screening return multiple"
       }
     },
@@ -6062,8 +6068,8 @@
     },
     "tir-kamyon-yuk-kapasitesi-hesaplama": {
       "payloadton": {
-        "label": "Payload capacity",
-        "placeholder": "Saisir payload capacity",
+        "label": "Capacité utile",
+        "placeholder": "Saisir capacité utile",
         "helper": "Tauxd payload in tonnes"
       },
       "loadfactor": {
@@ -6091,8 +6097,8 @@
         "helper": "Restant tread km for calculation"
       },
       "monthlykm": {
-        "label": "Monthly km",
-        "placeholder": "Saisir monthly km",
+        "label": "Km mensuels",
+        "placeholder": "Saisir km mensuels",
         "helper": "Monthly km for calculation"
       }
     },
@@ -6110,8 +6116,8 @@
     },
     "trafik-cezasi-gecikme-faizi-hesaplama": {
       "fineamount": {
-        "label": "Fine amount",
-        "placeholder": "Saisir fine amount",
+        "label": "Montant de l'amende",
+        "placeholder": "Saisir montant de l'amende",
         "helper": "Original fine amount"
       },
       "laterate": {
@@ -6122,13 +6128,13 @@
     },
     "kasko-sigorta-prim-karsilastirma": {
       "quotea": {
-        "label": "Quote A",
-        "placeholder": "Saisir quote a",
+        "label": "Devis A",
+        "placeholder": "Saisir devis a",
         "helper": "Quote A for comparison"
       },
       "quoteb": {
-        "label": "Quote B",
-        "placeholder": "Saisir quote b",
+        "label": "Devis B",
+        "placeholder": "Saisir devis b",
         "helper": "Quote B for comparison"
       }
     },
@@ -6163,8 +6169,8 @@
         "helper": "Coût par meal"
       },
       "headcount": {
-        "label": "Headcount",
-        "placeholder": "Saisir headcount",
+        "label": "Effectif",
+        "placeholder": "Saisir effectif",
         "helper": "Number of meals"
       }
     },
@@ -6175,20 +6181,20 @@
         "helper": "Toner Coût for calculation"
       },
       "pageyield": {
-        "label": "Page yield",
-        "placeholder": "Saisir page yield",
+        "label": "Rendement page",
+        "placeholder": "Saisir rendement page",
         "helper": "Page yield for calculation"
       }
     },
     "internet-telefon-paketi-karsilastirma": {
       "packagea": {
-        "label": "Package A",
-        "placeholder": "Saisir package a",
+        "label": "Forfait A",
+        "placeholder": "Saisir forfait a",
         "helper": "Package A for comparison"
       },
       "packageb": {
-        "label": "Package B",
-        "placeholder": "Saisir package b",
+        "label": "Forfait B",
+        "placeholder": "Saisir forfait b",
         "helper": "Package B for comparison"
       }
     },
@@ -6218,13 +6224,13 @@
     },
     "celik-raf-depo-rafi-yuk-kapasitesi": {
       "beamcapacitykg": {
-        "label": "Beam capacity",
-        "placeholder": "Saisir beam capacity",
+        "label": "Capacité de poutre",
+        "placeholder": "Saisir capacité de poutre",
         "helper": "Capacity par beam level in kg"
       },
       "shelfcount": {
-        "label": "Shelf count",
-        "placeholder": "Saisir shelf count",
+        "label": "Nombre d'étagères",
+        "placeholder": "Saisir nombre d'étagères",
         "helper": "Number of shelf levels"
       }
     },
@@ -6247,8 +6253,8 @@
         "helper": "Number of bolts"
       },
       "shearcapacitykn": {
-        "label": "Shear capacity",
-        "placeholder": "Saisir shear capacity",
+        "label": "Capacité cisaillement",
+        "placeholder": "Saisir capacité cisaillement",
         "helper": "Shear capacity par bolt in kN"
       }
     },
@@ -6259,9 +6265,9 @@
         "helper": "Turbine Tauxd kW"
       },
       "capacityfactor": {
-        "label": "Capacity factor",
-        "placeholder": "Saisir capacity factor",
-        "helper": "Capacity factor"
+        "label": "Facteur de capacité",
+        "placeholder": "Saisir facteur de capacité",
+        "helper": "Facteur de capacité"
       }
     },
     "su-isitma-kazan-boyler-kapasite-hesabi": {
@@ -6307,15 +6313,15 @@
     },
     "kure-hacmi-hesaplama": {
       "radius": {
-        "label": "Rayon",
-        "placeholder": "Saisir rayon",
+        "label": "Radius",
+        "placeholder": "Saisir radius",
         "helper": "Sphere Rayon"
       }
     },
     "koni-hacmi-hesaplama": {
       "radius": {
-        "label": "Rayon",
-        "placeholder": "Saisir rayon",
+        "label": "Radius",
+        "placeholder": "Saisir radius",
         "helper": "Base Rayon"
       },
       "height": {
@@ -6465,8 +6471,8 @@
     },
     "paketleme-malzemesi-strec-koli-sarfiyati": {
       "shipmentcount": {
-        "label": "Shipments",
-        "placeholder": "Saisir shipments",
+        "label": "Expéditions",
+        "placeholder": "Saisir expéditions",
         "helper": "Number of shipments"
       },
       "materialpershipment": {
@@ -6482,8 +6488,8 @@
         "helper": "Total shipping Coût for calculation"
       },
       "documentcount": {
-        "label": "Document count",
-        "placeholder": "Saisir document count",
+        "label": "Nombre de documents",
+        "placeholder": "Saisir nombre de documents",
         "helper": "Document count for calculation"
       }
     },
@@ -6494,8 +6500,8 @@
         "helper": "Coût par serving"
       },
       "dailyunits": {
-        "label": "Daily units",
-        "placeholder": "Saisir daily units",
+        "label": "Unités journalières",
+        "placeholder": "Saisir unités journalières",
         "helper": "Servings par day"
       }
     },
@@ -6549,8 +6555,8 @@
     },
     "sirket-telefon-faturasi-hesaplama": {
       "linecount": {
-        "label": "Lines",
-        "placeholder": "Saisir lines",
+        "label": "Lignes",
+        "placeholder": "Saisir lignes",
         "helper": "Number of phone lines"
       },
       "monthlylinecost": {
@@ -6561,32 +6567,32 @@
     },
     "abonelik-yazilim-cloud-yillik-maliyet-hesabi": {
       "monthlyfee": {
-        "label": "Monthly fee",
-        "placeholder": "Saisir monthly fee",
+        "label": "Frais mensuels",
+        "placeholder": "Saisir frais mensuels",
         "helper": "Monthly subscription fee"
       },
       "months": {
-        "label": "Months",
-        "placeholder": "Saisir months",
+        "label": "Mois",
+        "placeholder": "Saisir mois",
         "helper": "Months par year"
       }
     },
     "is-sagligi-ve-guvenligi-ceza-hesaplama": {
       "basefine": {
-        "label": "Base fine",
-        "placeholder": "Saisir base fine",
+        "label": "Amende de base",
+        "placeholder": "Saisir amende de base",
         "helper": "Reference fine amount"
       },
       "severityfactor": {
-        "label": "Severity factor",
-        "placeholder": "Saisir severity factor",
+        "label": "Facteur de gravité",
+        "placeholder": "Saisir facteur de gravité",
         "helper": "Severity multiplier"
       }
     },
     "yangin-merdiveni-kacis-yolu-genisligi-hesabi": {
       "occupantload": {
-        "label": "Occupant load",
-        "placeholder": "Saisir occupant load",
+        "label": "Charge d'occupation",
+        "placeholder": "Saisir charge d'occupation",
         "helper": "Occupant load for calculation"
       },
       "flowpermeter": {
@@ -6621,8 +6627,8 @@
     },
     "geri-donusum-gelir-maliyet-hesabi": {
       "recyclingrevenue": {
-        "label": "Recycling revenue",
-        "placeholder": "Saisir recycling revenue",
+        "label": "Revenu recyclage",
+        "placeholder": "Saisir revenu recyclage",
         "helper": "Recycling revenue for comparison"
       },
       "processingcost": {
@@ -6638,20 +6644,20 @@
         "helper": "Working Platform Hauteur in meters"
       },
       "accessfactor": {
-        "label": "Access factor",
-        "placeholder": "Saisir access factor",
-        "helper": "Access factor"
+        "label": "Facteur d'accès",
+        "placeholder": "Saisir facteur d'accès",
+        "helper": "Facteur d'accès"
       }
     },
     "mil-aks-capi-hesabi-egilme-burulma": {
       "bendingmoment": {
-        "label": "Bending moment",
-        "placeholder": "Saisir bending moment",
+        "label": "Moment de flexion",
+        "placeholder": "Saisir moment de flexion",
         "helper": "Applied bending moment index"
       },
       "torque": {
-        "label": "Torque",
-        "placeholder": "Saisir torque",
+        "label": "Couple",
+        "placeholder": "Saisir couple",
         "helper": "Applied torque index"
       }
     },
@@ -6674,8 +6680,8 @@
         "helper": "Spring Taux N/mm"
       },
       "deflectionmm": {
-        "label": "Deflection",
-        "placeholder": "Saisir deflection",
+        "label": "Flèche",
+        "placeholder": "Saisir flèche",
         "helper": "Deflection in mm"
       }
     },
@@ -6686,8 +6692,8 @@
         "helper": "Design Pression for calculation"
       },
       "allowablestressbar": {
-        "label": "Allowable stress",
-        "placeholder": "Saisir allowable stress",
+        "label": "Contrainte admissible",
+        "placeholder": "Saisir contrainte admissible",
         "helper": "Allowable stress for calculation"
       }
     },
@@ -6717,25 +6723,25 @@
     },
     "ses-yalitimi-desibel-azaltimi-hesabi": {
       "sourcedb": {
-        "label": "Source level",
-        "placeholder": "Saisir source level",
+        "label": "Niveau source",
+        "placeholder": "Saisir niveau source",
         "helper": "Source level for comparison"
       },
       "attenuationdb": {
-        "label": "Attenuation",
-        "placeholder": "Saisir attenuation",
+        "label": "Atténuation",
+        "placeholder": "Saisir atténuation",
         "helper": "Attenuation for comparison"
       }
     },
     "titresim-frekans-periyot-hesaplama": {
       "frequencyhz": {
-        "label": "Frequency",
-        "placeholder": "Saisir frequency",
+        "label": "Fréquence",
+        "placeholder": "Saisir fréquence",
         "helper": "Vibration frequency in Hz"
       },
       "unitconstant": {
-        "label": "Constant",
-        "placeholder": "Saisir constant",
+        "label": "Constante",
+        "placeholder": "Saisir constante",
         "helper": "Use 1 for pariod in seconds"
       }
     },
@@ -6748,13 +6754,13 @@
     },
     "istatistiksel-proses-kontrol-spc-limit-hesabi": {
       "processmean": {
-        "label": "Process mean",
-        "placeholder": "Saisir process mean",
-        "helper": "Process mean"
+        "label": "Moyenne process",
+        "placeholder": "Saisir moyenne process",
+        "helper": "Moyenne process"
       },
       "controlfactor": {
-        "label": "Control factor",
-        "placeholder": "Saisir control factor",
+        "label": "Facteur de contrôle",
+        "placeholder": "Saisir facteur de contrôle",
         "helper": "Control limit factor"
       }
     },
@@ -6768,6 +6774,1351 @@
         "label": "Million",
         "placeholder": "Saisir million",
         "helper": "Diviseur (use 1,000,000)"
+      }
+    },
+    "cnc-oee-loss": {
+      "machinerate": {
+        "label": "Machine Taux",
+        "placeholder": "Saisir machine taux",
+        "helper": "Loaded shop Taux including oparator burden."
+      },
+      "plannedhours": {
+        "label": "Planned run Heures",
+        "placeholder": "Saisir planned run heures",
+        "helper": "Préparation plus production Heures on the job."
+      },
+      "downtimehours": {
+        "label": "Expected downtime",
+        "placeholder": "Saisir expected downtime",
+        "helper": "Tool changes, first-off inspection, minor stops."
+      },
+      "materialcost": {
+        "label": "Matériau Coût",
+        "placeholder": "Saisir matériau coût",
+        "helper": "Stock, fixturing Consommables for the job."
+      },
+      "scraprate": {
+        "label": "Scrap Taux",
+        "placeholder": "Saisir scrap taux",
+        "helper": "Historical scrap parcent for similar jobs."
+      },
+      "availability": {
+        "label": "Disponibilité",
+        "placeholder": "Saisir disponibilité",
+        "helper": "Running time vs planned time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "Saisir performance",
+        "helper": "Actual cycle vs ideal cycle."
+      },
+      "quality": {
+        "label": "Qualité",
+        "placeholder": "Saisir qualité",
+        "helper": "Good parts vs total parts."
+      },
+      "quotedprice": {
+        "label": "Quoted Prix",
+        "placeholder": "Saisir quoted prix",
+        "helper": "Prix you plan to charge the customer."
+      }
+    },
+    "logistics-route-loss": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Saisir distance",
+        "helper": "One-way loaded Distance."
+      },
+      "costperkm": {
+        "label": "Coût par km",
+        "placeholder": "Saisir coût par km",
+        "helper": "Carburant + wear par km all-in."
+      },
+      "emptyreturnpercent": {
+        "label": "Empty return",
+        "placeholder": "Saisir empty return",
+        "helper": "Unpaid return miles as parcent of loaded Distance."
+      },
+      "driverhours": {
+        "label": "Driver Heures",
+        "placeholder": "Saisir driver heures",
+        "helper": "Total driving + waiting on lane."
+      },
+      "driverrate": {
+        "label": "Driver Taux",
+        "placeholder": "Saisir driver taux",
+        "helper": "Fully loaded driver Coût par hour."
+      },
+      "tolls": {
+        "label": "Péages",
+        "placeholder": "Saisir péages",
+        "helper": "Road and bridge Péages for the lane."
+      },
+      "quotedfreightprice": {
+        "label": "Quoted freight Prix",
+        "placeholder": "Saisir quoted freight prix",
+        "helper": "Prix offered for the load."
+      }
+    },
+    "energy-peak-cost": {
+      "currentkwh": {
+        "label": "Courant kWh",
+        "placeholder": "Saisir courant kwh",
+        "helper": "Billing-pariod Consommation."
+      },
+      "targetkwh": {
+        "label": "Cible kWh",
+        "placeholder": "Saisir cible kwh",
+        "helper": "Efficiency Cible or prior-year baseline."
+      },
+      "energyrate": {
+        "label": "Énergie Taux",
+        "placeholder": "Saisir énergie taux",
+        "helper": "Blended $/kWh for the pariod."
+      },
+      "peakkwh": {
+        "label": "Peak kWh",
+        "placeholder": "Saisir peak kwh",
+        "helper": "Demand during peak window."
+      },
+      "peakrate": {
+        "label": "Peak Taux",
+        "placeholder": "Saisir peak taux",
+        "helper": "Peak-interval tariff."
+      },
+      "demandcharge": {
+        "label": "Demand charge",
+        "placeholder": "Saisir demand charge",
+        "helper": "Monthly peak kW demand charge."
+      },
+      "plannedbudget": {
+        "label": "Planned Énergie budget",
+        "placeholder": "Saisir planned énergie budget",
+        "helper": "Budget cap for the pariod."
+      }
+    },
+    "food-waste-margin-loss": {
+      "monthlyingredientcost": {
+        "label": "Monthly Ingredient Coût",
+        "placeholder": "Saisir monthly ingredient coût",
+        "helper": "Total ingredient spend for the pariod."
+      },
+      "wasterate": {
+        "label": "parte Taux",
+        "placeholder": "Saisir parte taux",
+        "helper": "Spoilage, trim and overportion loss as parcent of Ingredient Coût."
+      },
+      "targetwasterate": {
+        "label": "Cible parte Taux",
+        "placeholder": "Saisir cible parte taux",
+        "helper": "Oparational Cible or prior best pariod."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Saisir monthly revenue",
+        "helper": "Alimentation sales for the same pariod."
+      },
+      "grossmargin": {
+        "label": "Gross margin",
+        "placeholder": "Saisir gross margin",
+        "helper": "Courant gross margin before parte adjustment."
+      }
+    },
+    "construction-project-overrun": {
+      "dailysitecost": {
+        "label": "Daily site Coût",
+        "placeholder": "Saisir daily site coût",
+        "helper": "Crew, equipment and overhead par day on site."
+      },
+      "delaydays": {
+        "label": "Delay Jours",
+        "placeholder": "Saisir delay jours",
+        "helper": "Expected schedule slip beyond baseline."
+      },
+      "laborbudget": {
+        "label": "Labor budget",
+        "placeholder": "Saisir labor budget",
+        "helper": "Planned labor spend for the scope."
+      },
+      "laboroverrunpercent": {
+        "label": "Labor overrun",
+        "placeholder": "Saisir labor overrun",
+        "helper": "Expected labor Coût drift above budget."
+      },
+      "materialbudget": {
+        "label": "Matériau budget",
+        "placeholder": "Saisir matériau budget",
+        "helper": "Planned Matériau spend for the scope."
+      },
+      "materialoverrunpercent": {
+        "label": "Matériau overrun",
+        "placeholder": "Saisir matériau overrun",
+        "helper": "Expected Matériau Coût drift above budget."
+      }
+    },
+    "sheet-metal-scrap-risk": {
+      "materialcost": {
+        "label": "Matériau Coût",
+        "placeholder": "Saisir matériau coût",
+        "helper": "Sheet stock and Matériau spend for the job or pariod."
+      },
+      "scraprate": {
+        "label": "Scrap Taux",
+        "placeholder": "Saisir scrap taux",
+        "helper": "Cutting parte and offcut loss as parcent of Matériau Coût."
+      },
+      "targetscraprate": {
+        "label": "Cible Scrap Taux",
+        "placeholder": "Saisir cible scrap taux",
+        "helper": "Acceptable scrap Cible for similar jobs."
+      },
+      "reworkhours": {
+        "label": "Rework Heures",
+        "placeholder": "Saisir rework heures",
+        "helper": "Bend, fit-up and finishing rework Heures expected."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded shop Labor Taux."
+      },
+      "finishingcost": {
+        "label": "Finishing Coût",
+        "placeholder": "Saisir finishing coût",
+        "helper": "Powder coat, deburr and finishing spend tied to rework risk."
+      }
+    },
+    "restaurant-menu-margin-leak": {
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Saisir monthly revenue",
+        "helper": "Alimentation sales for the pariod."
+      },
+      "ingredientcost": {
+        "label": "Ingredient Coût",
+        "placeholder": "Saisir ingredient coût",
+        "helper": "Total ingredient spend before parte adjustment."
+      },
+      "deliveryappfeepercent": {
+        "label": "Delivery app fee",
+        "placeholder": "Saisir delivery app fee",
+        "helper": "Platform commission on delivery revenue."
+      },
+      "wasterate": {
+        "label": "parte Taux",
+        "placeholder": "Saisir parte taux",
+        "helper": "Spoilage and portion drift as parcent of Ingredient Coût."
+      },
+      "targetfoodcostpercent": {
+        "label": "Cible Alimentation Coût",
+        "placeholder": "Saisir cible alimentation coût",
+        "helper": "Cible Alimentation Coût parcent for this menu mix."
+      }
+    },
+    "construction-subcontractor-margin-leak": {
+      "contractvalue": {
+        "label": "Contract Valeur",
+        "placeholder": "Saisir contract valeur",
+        "helper": "Total contract or project revenue."
+      },
+      "plannedsubcontractorcost": {
+        "label": "Planned subcontractor Coût",
+        "placeholder": "Saisir planned subcontractor coût",
+        "helper": "Budgeted subcontractor spend."
+      },
+      "actualsubcontractorcost": {
+        "label": "Actual subcontractor Coût",
+        "placeholder": "Saisir actual subcontractor coût",
+        "helper": "Actual or projected subcontractor spend."
+      },
+      "delaycost": {
+        "label": "Delay Coût",
+        "placeholder": "Saisir delay coût",
+        "helper": "Schedule slip and delay claim exposure."
+      },
+      "materialvariance": {
+        "label": "Matériau variance",
+        "placeholder": "Saisir matériau variance",
+        "helper": "Matériau Coût drift above plan."
+      }
+    },
+    "logistics-fuel-route-drift": {
+      "planneddistancekm": {
+        "label": "Planned Distance",
+        "placeholder": "Saisir planned distance",
+        "helper": "Baseline route Distance from plan."
+      },
+      "actualdistancekm": {
+        "label": "Actual Distance",
+        "placeholder": "Saisir actual distance",
+        "helper": "Observed or projected Distance driven."
+      },
+      "fuelcostperkm": {
+        "label": "Carburant Coût par km",
+        "placeholder": "Saisir carburant coût par km",
+        "helper": "Fully loaded Carburant Coût par kilometer."
+      },
+      "idlehours": {
+        "label": "Idle Heures",
+        "placeholder": "Saisir idle heures",
+        "helper": "Waiting, loading or idle engine Heures."
+      },
+      "hourlycost": {
+        "label": "Hourly Coût",
+        "placeholder": "Saisir hourly coût",
+        "helper": "Driver and equipment Coût par idle hour."
+      }
+    },
+    "energy-compressor-leak-cost": {
+      "compressorkw": {
+        "label": "Compressor Puissance",
+        "placeholder": "Saisir compressor puissance",
+        "helper": "Tauxd compressor motor Puissance."
+      },
+      "leakpercent": {
+        "label": "Leak parcent",
+        "placeholder": "Saisir leak parcent",
+        "helper": "Estimated compressed air leak as parcent of output."
+      },
+      "operatinghours": {
+        "label": "Oparating Heures",
+        "placeholder": "Saisir oparating heures",
+        "helper": "Monthly compressor run Heures."
+      },
+      "energyrate": {
+        "label": "Énergie Taux",
+        "placeholder": "Saisir énergie taux",
+        "helper": "Blended electricity Taux."
+      }
+    },
+    "cloud-api-cost-overrun": {
+      "monthlyapicalls": {
+        "label": "Monthly API calls",
+        "placeholder": "Saisir monthly api calls",
+        "helper": "Total API requests billed in the pariod."
+      },
+      "costperthousandcalls": {
+        "label": "Coût par 1k calls",
+        "placeholder": "Saisir coût par 1k calls",
+        "helper": "Blended Coût par thousand API calls."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Saisir monthly revenue",
+        "helper": "Product revenue for the same pariod."
+      },
+      "computecost": {
+        "label": "Compute Coût",
+        "placeholder": "Saisir compute coût",
+        "helper": "Monthly compute and server spend."
+      },
+      "storagecost": {
+        "label": "Storage Coût",
+        "placeholder": "Saisir storage coût",
+        "helper": "Monthly storage and egress spend."
+      }
+    },
+    "agriculture-irrigation-yield-loss": {
+      "areaha": {
+        "label": "Surface",
+        "placeholder": "Saisir surface",
+        "helper": "Cultivated Surface in hectares."
+      },
+      "expectedyieldtonperha": {
+        "label": "Expected yield",
+        "placeholder": "Saisir expected yield",
+        "helper": "Cible yield par hectare for the season."
+      },
+      "actualyieldtonperha": {
+        "label": "Actual yield",
+        "placeholder": "Saisir actual yield",
+        "helper": "Observed or projected yield par hectare."
+      },
+      "priceperton": {
+        "label": "Prix par ton",
+        "placeholder": "Saisir prix par ton",
+        "helper": "Market or contract Prix par ton."
+      },
+      "irrigationcost": {
+        "label": "Irrigation Coût",
+        "placeholder": "Saisir irrigation coût",
+        "helper": "Season irrigation Énergie and water spend."
+      }
+    },
+    "cnc-tool-wear-cost": {
+      "monthlytoolcost": {
+        "label": "Monthly Tool Coût",
+        "placeholder": "Saisir monthly tool coût",
+        "helper": "Inserts, tooling and Consommables spend par month."
+      },
+      "partsproduced": {
+        "label": "Parts produced",
+        "placeholder": "Saisir parts produced",
+        "helper": "Good parts produced in the same pariod."
+      },
+      "toolchangeminutes": {
+        "label": "Tool change minutes",
+        "placeholder": "Saisir tool change minutes",
+        "helper": "Average minutes lost par tool change event."
+      },
+      "changespermonth": {
+        "label": "Changes par month",
+        "placeholder": "Saisir changes par month",
+        "helper": "Tool change events in the pariod."
+      },
+      "hourlycost": {
+        "label": "Hourly Coût",
+        "placeholder": "Saisir hourly coût",
+        "helper": "Loaded machine and oparator Taux."
+      },
+      "coolantcost": {
+        "label": "Coolant Coût",
+        "placeholder": "Saisir coolant coût",
+        "helper": "Coolant and lubricant spend tied to tooling."
+      }
+    },
+    "textile-fabric-waste-risk": {
+      "fabriccost": {
+        "label": "Fabric Coût",
+        "placeholder": "Saisir fabric coût",
+        "helper": "Fabric purchase spend for the production run or month."
+      },
+      "cuttingwastepercent": {
+        "label": "Cutting parte",
+        "placeholder": "Saisir cutting parte",
+        "helper": "Cutting and offcut loss as parcent of fabric Coût."
+      },
+      "targetwastepercent": {
+        "label": "Cible parte",
+        "placeholder": "Saisir cible parte",
+        "helper": "Acceptable parte Cible for similar production."
+      },
+      "shrinkagepercent": {
+        "label": "Shrinkage",
+        "placeholder": "Saisir shrinkage",
+        "helper": "Shrinkage loss after wash or finish."
+      },
+      "dyereworkcost": {
+        "label": "Dye rework Coût",
+        "placeholder": "Saisir dye rework coût",
+        "helper": "Dye batch rework and shade correction spend."
+      }
+    },
+    "printing-reprint-margin-leak": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Saisir job revenue",
+        "helper": "Quoted or invoiced revenue for the print job."
+      },
+      "materialcost": {
+        "label": "Matériau Coût",
+        "placeholder": "Saisir matériau coût",
+        "helper": "SubstTaux, ink and Matériau spend."
+      },
+      "reprintratepercent": {
+        "label": "Reprint Taux",
+        "placeholder": "Saisir reprint taux",
+        "helper": "Reprint and spoilage as parcent of Matériau Coût."
+      },
+      "designrevisionhours": {
+        "label": "Design revision Heures",
+        "placeholder": "Saisir design revision heures",
+        "helper": "Artwork and revision labor expected on the job."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded design and production Labor Taux."
+      },
+      "installreworkcost": {
+        "label": "Install rework Coût",
+        "placeholder": "Saisir install rework coût",
+        "helper": "Installation return and rework spend."
+      }
+    },
+    "auto-repair-comeback-cost": {
+      "monthlyrepairrevenue": {
+        "label": "Monthly repair revenue",
+        "placeholder": "Saisir monthly repair revenue",
+        "helper": "Total shop revenue for the pariod."
+      },
+      "comebackratepercent": {
+        "label": "Comeback Taux",
+        "placeholder": "Saisir comeback taux",
+        "helper": "Comeback jobs as parcent of revenue."
+      },
+      "averagejobcost": {
+        "label": "Average job Coût",
+        "placeholder": "Saisir average job coût",
+        "helper": "Average internal Coût par comeback job."
+      },
+      "diagnostichours": {
+        "label": "Diagnostic Heures",
+        "placeholder": "Saisir diagnostic heures",
+        "helper": "Unbilled diagnostic Labor Heures par month."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded technician Taux."
+      },
+      "partshandlingcost": {
+        "label": "Parts handling Coût",
+        "placeholder": "Saisir parts handling coût",
+        "helper": "Core handling, returns and parts admin spend."
+      }
+    },
+    "hvac-callback-margin-risk": {
+      "projectrevenue": {
+        "label": "Project revenue",
+        "placeholder": "Saisir project revenue",
+        "helper": "Contract or bid revenue for the HVAC project."
+      },
+      "ductworkvariance": {
+        "label": "Ductwork variance",
+        "placeholder": "Saisir ductwork variance",
+        "helper": "Extra duct Matériau and labor versus estimate."
+      },
+      "commissioninghours": {
+        "label": "Commissioning Heures",
+        "placeholder": "Saisir commissioning heures",
+        "helper": "Start-up, balance and commissioning labor."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded HVAC field Labor Taux."
+      },
+      "callbackriskpercent": {
+        "label": "Callback risk",
+        "placeholder": "Saisir callback risk",
+        "helper": "Expected callback Coût as parcent of revenue."
+      }
+    },
+    "electrical-panel-rework-cost": {
+      "panelrevenue": {
+        "label": "Panel revenue",
+        "placeholder": "Saisir panel revenue",
+        "helper": "Quoted or contract revenue for the panel job."
+      },
+      "wiringhours": {
+        "label": "Wiring Heures",
+        "placeholder": "Saisir wiring heures",
+        "helper": "Actual wiring and Duréeinations Heures."
+      },
+      "estimatedhours": {
+        "label": "Estimated Heures",
+        "placeholder": "Saisir estimated heures",
+        "helper": "Original labor estimate for the panel."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded electrician Taux."
+      },
+      "inspectionfailcost": {
+        "label": "Inspection fail Coût",
+        "placeholder": "Saisir inspection fail coût",
+        "helper": "Re-inspection, corrections and delay Coût."
+      },
+      "testequipmentcost": {
+        "label": "Test equipment Coût",
+        "placeholder": "Saisir test equipment coût",
+        "helper": "Testing gear, labels and documentation spend."
+      }
+    },
+    "plumbing-leak-callback-cost": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Saisir job revenue",
+        "helper": "Fixed-Prix or contract revenue for the job."
+      },
+      "callbackvisits": {
+        "label": "Callback visits",
+        "placeholder": "Saisir callback visits",
+        "helper": "Expected leak or warranty return visits."
+      },
+      "visitcost": {
+        "label": "Visit Coût",
+        "placeholder": "Saisir visit coût",
+        "helper": "Average Coût par callback visit."
+      },
+      "materialruncost": {
+        "label": "Matériau run Coût",
+        "placeholder": "Saisir matériau run coût",
+        "helper": "Extra fittings, pipe and supply runs."
+      },
+      "warrantyreservepercent": {
+        "label": "Warranty reserve",
+        "placeholder": "Saisir warranty reserve",
+        "helper": "Warranty reserve as parcent of job revenue."
+      }
+    },
+    "roofing-weather-delay-risk": {
+      "dailycrewcost": {
+        "label": "Daily crew Coût",
+        "placeholder": "Saisir daily crew coût",
+        "helper": "Loaded crew and equipment Coût par site day."
+      },
+      "weatherdelaydays": {
+        "label": "Weather delay Jours",
+        "placeholder": "Saisir weather delay jours",
+        "helper": "Expected weather delay Jours on the contract."
+      },
+      "dumpfees": {
+        "label": "Dump fees",
+        "placeholder": "Saisir dump fees",
+        "helper": "Tear-off disposal and dump fees."
+      },
+      "warrantyreserve": {
+        "label": "Warranty reserve",
+        "placeholder": "Saisir warranty reserve",
+        "helper": "Warranty and callback reserve for the job."
+      }
+    },
+    "painting-rework-coverage-risk": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Saisir job revenue",
+        "helper": "Quoted revenue for the painting contract."
+      },
+      "paintmaterialcost": {
+        "label": "Paint Matériau Coût",
+        "placeholder": "Saisir paint matériau coût",
+        "helper": "Paint, primer and Consommables spend."
+      },
+      "coveragedriftpercent": {
+        "label": "Coverage drift",
+        "placeholder": "Saisir coverage drift",
+        "helper": "Extra Matériau from coverage drift as parcent of paint Coût."
+      },
+      "prepreworkhours": {
+        "label": "Prep rework Heures",
+        "placeholder": "Saisir prep rework heures",
+        "helper": "Surface prep and rework Labor Heures."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded painter Labor Taux."
+      },
+      "scaffoldcost": {
+        "label": "Scaffold Coût",
+        "placeholder": "Saisir scaffold coût",
+        "helper": "Scaffold locational and Préparation spend."
+      }
+    },
+    "dairy-feed-efficiency-loss": {
+      "cows": {
+        "label": "Vaches",
+        "placeholder": "Saisir vaches",
+        "helper": "Milking herd size for the pariod."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed Coût par cow par day",
+        "placeholder": "Saisir feed coût par cow par day",
+        "helper": "Average daily feed spend par cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters par cow par day",
+        "placeholder": "Saisir milk liters par cow par day",
+        "helper": "Observed milk yield par cow par day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "Cible milk liters par cow par day",
+        "placeholder": "Saisir cible milk liters par cow par day",
+        "helper": "Cible or benchmark yield par cow par day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk Prix par liter",
+        "placeholder": "Saisir milk prix par liter",
+        "helper": "Net Milk Prix received par liter."
+      },
+      "days": {
+        "label": "Jours",
+        "placeholder": "Saisir jours",
+        "helper": "Calculation pariod in Jours."
+      }
+    },
+    "retail-inventory-turnover-risk": {
+      "averageinventory": {
+        "label": "Average inventory",
+        "placeholder": "Saisir average inventory",
+        "helper": "Average inventory Valeur on hand."
+      },
+      "annualcogs": {
+        "label": "Annual COGS",
+        "placeholder": "Saisir annual cogs",
+        "helper": "Coût of goods sold over twelve months."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying Coût",
+        "placeholder": "Saisir carrying coût",
+        "helper": "Annual carrying Coût as parcent of inventory."
+      },
+      "markdownpercent": {
+        "label": "Markdown",
+        "placeholder": "Saisir markdown",
+        "helper": "Expected markdown as parcent of inventory."
+      }
+    },
+    "warehouse-space-cost-leak": {
+      "monthlyrent": {
+        "label": "Monthly location",
+        "placeholder": "Saisir monthly location",
+        "helper": "Monthly facility location or occupancy Coût."
+      },
+      "totalsqm": {
+        "label": "Total Surface au sol",
+        "placeholder": "Saisir total surface au sol",
+        "helper": "Total warehouse Surface au sol (reference)."
+      },
+      "unusedspacepercent": {
+        "label": "Unutilisé space",
+        "placeholder": "Saisir unutilisé space",
+        "helper": "Unutilisé or under-utilized space as parcent of location."
+      },
+      "handlingoverrunhours": {
+        "label": "Handling overrun Heures",
+        "placeholder": "Saisir handling overrun heures",
+        "helper": "Extra picking and handling Heures par month."
+      },
+      "hourlycost": {
+        "label": "Hourly Coût",
+        "placeholder": "Saisir hourly coût",
+        "helper": "Loaded warehouse Labor Taux."
+      }
+    },
+    "calibration-drift-risk": {
+      "targetvalue": {
+        "label": "Cible Valeur",
+        "placeholder": "Saisir cible valeur",
+        "helper": "Nominal or specification Cible."
+      },
+      "actualvalue": {
+        "label": "Actual Valeur",
+        "placeholder": "Saisir actual valeur",
+        "helper": "Measured or observed Valeur."
+      },
+      "tolerance": {
+        "label": "Tolerance",
+        "placeholder": "Saisir tolerance",
+        "helper": "Allowed tolerance band around Cible."
+      },
+      "batchvalue": {
+        "label": "Batch Valeur",
+        "placeholder": "Saisir batch valeur",
+        "helper": "Production batch Valeur At risk."
+      },
+      "rejectionriskpercent": {
+        "label": "Rejection risk",
+        "placeholder": "Saisir rejection risk",
+        "helper": "Expected rejection Taux from drift exposure."
+      }
+    },
+    "legal-interest-fee-calculator-pro": {
+      "principal": {
+        "label": "Capital",
+        "placeholder": "Saisir capital",
+        "helper": "Outstanding Capital or claim amount."
+      },
+      "annualinterestpercent": {
+        "label": "Annual interest",
+        "placeholder": "Saisir annual interest",
+        "helper": "Annual simple interest Taux assumption."
+      },
+      "days": {
+        "label": "Jours",
+        "placeholder": "Saisir jours",
+        "helper": "Interest accrual pariod in Jours."
+      },
+      "feepercent": {
+        "label": "Fee parcent",
+        "placeholder": "Saisir fee parcent",
+        "helper": "Fee stack as parcent of Capital."
+      },
+      "fixedcost": {
+        "label": "Fixed Coût",
+        "placeholder": "Saisir fixed coût",
+        "helper": "Fixed filing, service or admin Coûts."
+      }
+    },
+    "carbon-footprint-compliance-risk": {
+      "energyemissionston": {
+        "label": "Énergie emissions",
+        "placeholder": "Saisir énergie emissions",
+        "helper": "Énergie-related emissions tonnage for the pariod."
+      },
+      "fuelemissionston": {
+        "label": "Carburant emissions",
+        "placeholder": "Saisir carburant emissions",
+        "helper": "Carburant and Transport emissions tonnage."
+      },
+      "carbonprice": {
+        "label": "Prix du carbone",
+        "placeholder": "Saisir prix du carbone",
+        "helper": "Assumed Prix du carbone or CBAM reference Taux."
+      },
+      "exposurepercent": {
+        "label": "Exposure parcent",
+        "placeholder": "Saisir exposure parcent",
+        "helper": "Share of emissions subject to compliance Coût."
+      }
+    },
+    "quote-price-profit-margin-calculator": {
+      "materialcost": {
+        "label": "Matériau Coût",
+        "placeholder": "Saisir matériau coût",
+        "helper": "Raw Matériau and purchased parts for the quote scope."
+      },
+      "laborcost": {
+        "label": "Labor Coût",
+        "placeholder": "Saisir labor coût",
+        "helper": "Direct Labor Heures converted to Coût for this job."
+      },
+      "machinecost": {
+        "label": "Machine Coût",
+        "placeholder": "Saisir machine coût",
+        "helper": "Machine or spindle time allocated to the quote."
+      },
+      "energycost": {
+        "label": "Énergie Coût",
+        "placeholder": "Saisir énergie coût",
+        "helper": "Electricity, gas or utility load attributed to the job."
+      },
+      "overheadcost": {
+        "label": "Overhead Coût",
+        "placeholder": "Saisir overhead coût",
+        "helper": "Allocated overhead such as location, admin and indirect labor."
+      },
+      "wasterate": {
+        "label": "parte Taux",
+        "placeholder": "Saisir parte taux",
+        "helper": "Expected scrap or parte as a parcent of direct Coût stack."
+      },
+      "setuptimecost": {
+        "label": "Préparation time Coût",
+        "placeholder": "Saisir préparation time coût",
+        "helper": "Programming, tooling and first-off Préparation burden."
+      },
+      "shippingcost": {
+        "label": "Shipping Coût",
+        "placeholder": "Saisir shipping coût",
+        "helper": "Freight, packaging and Delivery Coût for the quote."
+      },
+      "paymenttermcost": {
+        "label": "Payment Durée Coût",
+        "placeholder": "Saisir payment durée coût",
+        "helper": "Financing or delay Coût from customer payment Durées."
+      },
+      "targetmarginrate": {
+        "label": "Cible margin Taux",
+        "placeholder": "Saisir cible margin taux",
+        "helper": "Cible gross margin parcent for the quoted Prix."
+      },
+      "discountrate": {
+        "label": "Discount Taux",
+        "placeholder": "Saisir discount taux",
+        "helper": "Optional customer discount applied on the Cible sales Prix."
+      },
+      "taxincluded": {
+        "label": "Tax included in Coûts",
+        "placeholder": "Saisir tax included in coûts",
+        "helper": "Mark when entered Coûts already include sales tax or VAT."
+      },
+      "safetymarginuplift": {
+        "label": "Safety margin uplift",
+        "placeholder": "Saisir safety margin uplift",
+        "helper": "Extra margin points added to build the minimum safe Prix floor."
+      }
+    },
+    "shop-rate-hourly-cost-calculator": {
+      "fixedmonthlycost": {
+        "label": "Fixed monthly Coût",
+        "placeholder": "Saisir fixed monthly coût",
+        "helper": "location, depreciation, admin and indirect burden for the month."
+      },
+      "monthlymachinehours": {
+        "label": "Monthly Machine Heures",
+        "placeholder": "Saisir monthly machine heures",
+        "helper": "Billable or scheduled spindle Heures par month."
+      },
+      "variablecostperhour": {
+        "label": "Variable Coût par hour",
+        "placeholder": "Saisir variable coût par hour",
+        "helper": "Puissance, Consommables and direct variable burden par hour."
+      }
+    },
+    "break-even-safety-margin-calculator": {
+      "fixedcost": {
+        "label": "Fixed Coût",
+        "placeholder": "Saisir fixed coût",
+        "helper": "Monthly fixed overhead for the pariod."
+      },
+      "unitprice": {
+        "label": "Unit Prix",
+        "placeholder": "Saisir unit prix",
+        "helper": "Average selling Prix par unit."
+      },
+      "variablecostperunit": {
+        "label": "Variable Coût par unit",
+        "placeholder": "Saisir variable coût par unit",
+        "helper": "Direct variable Coût par unit sold."
+      },
+      "currentvolume": {
+        "label": "Courant Volume",
+        "placeholder": "Saisir courant volume",
+        "helper": "Units sold or produced in the pariod."
+      }
+    },
+    "auto-repair-parts-labor-quote-calculator": {
+      "partscost": {
+        "label": "Parts Coût",
+        "placeholder": "Saisir parts coût",
+        "helper": "Wholesale parts Coût for the repair order."
+      },
+      "laborhours": {
+        "label": "Labor Heures",
+        "placeholder": "Saisir labor heures",
+        "helper": "Book time or estimated Labor Heures."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Shop Labor Taux charged to customer."
+      },
+      "shopsuppliespercent": {
+        "label": "Shop supplies parcent",
+        "placeholder": "Saisir shop supplies parcent",
+        "helper": "Shop supplies and Consommables on parts subtotal."
+      },
+      "targetmarginrate": {
+        "label": "Cible margin Taux",
+        "placeholder": "Saisir cible margin taux",
+        "helper": "Cible gross margin on the quoted Prix."
+      }
+    },
+    "cbam-unit-product-carbon-footprint-calculator": {
+      "energyemissionston": {
+        "label": "Énergie emissions",
+        "placeholder": "Saisir énergie emissions",
+        "helper": "Énergie-related emissions for the production batch."
+      },
+      "fuelemissionston": {
+        "label": "Carburant emissions",
+        "placeholder": "Saisir carburant emissions",
+        "helper": "Carburant and Transport emissions for the batch."
+      },
+      "productionunits": {
+        "label": "Production units",
+        "placeholder": "Saisir production units",
+        "helper": "Units produced in the batch."
+      },
+      "carbonprice": {
+        "label": "Prix du carbone",
+        "placeholder": "Saisir prix du carbone",
+        "helper": "Reference Prix du carbone for exposure estimate."
+      }
+    },
+    "oee-equipment-effectiveness-calculator": {
+      "availability": {
+        "label": "Disponibilité",
+        "placeholder": "Saisir disponibilité",
+        "helper": "Running time vs planned production time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "Saisir performance",
+        "helper": "Actual vs ideal cycle speed."
+      },
+      "quality": {
+        "label": "Qualité",
+        "placeholder": "Saisir qualité",
+        "helper": "Unités conformes vs total units produced."
+      },
+      "machinerate": {
+        "label": "Machine Taux",
+        "placeholder": "Saisir machine taux",
+        "helper": "Loaded hourly Machine Coût for loss estimate."
+      },
+      "plannedhours": {
+        "label": "Planned Heures",
+        "placeholder": "Saisir planned heures",
+        "helper": "Planned production Heures in the pariod."
+      },
+      "downtimehours": {
+        "label": "Downtime Heures",
+        "placeholder": "Saisir downtime heures",
+        "helper": "Unplanned or visible downtime in the pariod."
+      }
+    },
+    "compressor-leak-cost-calculator": {
+      "compressorkw": {
+        "label": "Compressor Puissance",
+        "placeholder": "Saisir compressor puissance",
+        "helper": "Tauxd compressor motor Puissance."
+      },
+      "leakpercent": {
+        "label": "Leak parcent",
+        "placeholder": "Saisir leak parcent",
+        "helper": "Estimated compressed air leak as parcent of output."
+      },
+      "operatinghours": {
+        "label": "Oparating Heures",
+        "placeholder": "Saisir oparating heures",
+        "helper": "Monthly compressor run Heures."
+      },
+      "energyrate": {
+        "label": "Énergie Taux",
+        "placeholder": "Saisir énergie taux",
+        "helper": "Blended electricity Taux."
+      }
+    },
+    "employee-total-cost-calculator": {
+      "grosssalary": {
+        "label": "Salaire brut",
+        "placeholder": "Saisir salaire brut",
+        "helper": "Monthly gross salary before employer load."
+      },
+      "employerratepercent": {
+        "label": "Employer burden Taux",
+        "placeholder": "Saisir employer burden taux",
+        "helper": "Payroll taxes, social charges and statutory load."
+      },
+      "monthlybenefits": {
+        "label": "Monthly benefits",
+        "placeholder": "Saisir monthly benefits",
+        "helper": "Health, meal, Transport and other monthly benefits."
+      }
+    },
+    "downtime-minute-cost-calculator": {
+      "downtimeminutes": {
+        "label": "Downtime minutes",
+        "placeholder": "Saisir downtime minutes",
+        "helper": "Unplanned or scheduled stop minutes in the pariod."
+      },
+      "hourlyrate": {
+        "label": "Shop Hourly Taux",
+        "placeholder": "Saisir shop hourly taux",
+        "helper": "Loaded machine or line hourly Coût."
+      },
+      "outputunitsperhour": {
+        "label": "Output units par hour",
+        "placeholder": "Saisir output units par hour",
+        "helper": "Typical Unités conformes produced par running hour."
+      },
+      "contributionperunit": {
+        "label": "Contribution par unit",
+        "placeholder": "Saisir contribution par unit",
+        "helper": "Margin contribution par good unit."
+      }
+    },
+    "product-customer-profitability-calculator": {
+      "revenue": {
+        "label": "Revenue",
+        "placeholder": "Saisir revenue",
+        "helper": "Customer or SKU revenue in the pariod."
+      },
+      "directcost": {
+        "label": "Direct Coût",
+        "placeholder": "Saisir direct coût",
+        "helper": "COGS and direct fulfillment Coût."
+      },
+      "servicecost": {
+        "label": "Service Coût",
+        "placeholder": "Saisir service coût",
+        "helper": "Support, delivery rework and account service load."
+      },
+      "returnscost": {
+        "label": "Returns Coût",
+        "placeholder": "Saisir returns coût",
+        "helper": "Returns, credits and rework tied to the account."
+      }
+    },
+    "inventory-carrying-cost-eoq-calculator": {
+      "annualdemand": {
+        "label": "Annual demand",
+        "placeholder": "Saisir annual demand",
+        "helper": "Expected units consumed or sold par year."
+      },
+      "ordercost": {
+        "label": "Order Coût",
+        "placeholder": "Saisir order coût",
+        "helper": "Fixed Coût par purchase order placed."
+      },
+      "unitcost": {
+        "label": "Unit Coût",
+        "placeholder": "Saisir unit coût",
+        "helper": "Purchase or production Coût par unit."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying Coût Taux",
+        "placeholder": "Saisir carrying coût taux",
+        "helper": "Annual carrying Coût as parcent of inventory Valeur."
+      }
+    },
+    "welded-bolted-connection-calculator": {
+      "throatmm": {
+        "label": "Weld Gorge",
+        "placeholder": "Saisir weld gorge",
+        "helper": "Épaisseur de gorge de soudure d'angle effective."
+      },
+      "weldlengthmm": {
+        "label": "Weld Longueur",
+        "placeholder": "Saisir weld longueur",
+        "helper": "Longueur de soudure continue le long de l'assemblage."
+      },
+      "boltdiametermm": {
+        "label": "Bolt Diamètre",
+        "placeholder": "Saisir bolt diamètre",
+        "helper": "Diamètre nominal du boulon."
+      },
+      "boltcount": {
+        "label": "Nombre de boulons",
+        "placeholder": "Saisir nombre de boulons",
+        "helper": "Nombre de boulons partageant le chemin de charge."
+      },
+      "allowablestressmpa": {
+        "label": "Contrainte admissible",
+        "placeholder": "Saisir contrainte admissible",
+        "helper": "Contrainte admissible de référence atelier pour le contrôle."
+      },
+      "safetyfactor": {
+        "label": "Facteur de sécurité",
+        "placeholder": "Saisir facteur de sécurité",
+        "helper": "Facteur de sécurité appliqué à la contrainte admissible."
+      }
+    },
+    "tolerance-stack-up-calculator": {
+      "t1": {
+        "label": "Tolerance 1",
+        "placeholder": "Saisir tolerance 1",
+        "helper": "First part tolerance contribution."
+      },
+      "t2": {
+        "label": "Tolerance 2",
+        "placeholder": "Saisir tolerance 2",
+        "helper": "Second part tolerance contribution."
+      },
+      "t3": {
+        "label": "Tolerance 3",
+        "placeholder": "Saisir tolerance 3",
+        "helper": "Third part tolerance contribution."
+      },
+      "t4": {
+        "label": "Tolerance 4",
+        "placeholder": "Saisir tolerance 4",
+        "helper": "Fourth part tolerance contribution."
+      },
+      "assemblylimit": {
+        "label": "Assembly limit",
+        "placeholder": "Saisir assembly limit",
+        "helper": "Maximum allowable stack for the assembly chain."
+      }
+    },
+    "bolt-tightening-torque-calculator": {
+      "clampforcekn": {
+        "label": "Force de serrage",
+        "placeholder": "Saisir force de serrage",
+        "helper": "Cible clamp or preload force for the joint."
+      },
+      "boltdiametermm": {
+        "label": "Bolt Diamètre",
+        "placeholder": "Saisir bolt diamètre",
+        "helper": "Diamètre nominal du boulon."
+      },
+      "frictionfactor": {
+        "label": "Friction factor",
+        "placeholder": "Saisir friction factor",
+        "helper": "Nut factor K for dry steel (typical 0.15–0.25)."
+      }
+    },
+    "fire-system-flow-hydrant-calculator": {
+      "protectedaream2": {
+        "label": "Protected Surface",
+        "placeholder": "Saisir protected surface",
+        "helper": "Design Surface covered by the hydrant Network."
+      },
+      "designdensitylpmm2": {
+        "label": "Design Densité",
+        "placeholder": "Saisir design densité",
+        "helper": "Reference design Densité for the occupancy class."
+      },
+      "hydrantcapacitylpm": {
+        "label": "Hydrant capacity",
+        "placeholder": "Saisir hydrant capacity",
+        "helper": "Available Débit par hydrant at required Pression."
+      }
+    },
+    "hydraulic-pneumatic-cylinder-force-calculator": {
+      "pressurebar": {
+        "label": "System Pression",
+        "placeholder": "Saisir system pression",
+        "helper": "Working Pression at the cylinder port."
+      },
+      "boremm": {
+        "label": "Bore Diamètre",
+        "placeholder": "Saisir bore diamètre",
+        "helper": "Cylinder bore inner Diamètre."
+      },
+      "rodmm": {
+        "label": "Rod Diamètre",
+        "placeholder": "Saisir rod diamètre",
+        "helper": "Rod Diamètre for retract force (optional screening)."
+      }
+    },
+    "quality-cost-paf-calculator": {
+      "preventioncost": {
+        "label": "Prevention Coût",
+        "placeholder": "Saisir prevention coût",
+        "helper": "Training, process control and prevention activities."
+      },
+      "appraisalcost": {
+        "label": "Appraisal Coût",
+        "placeholder": "Saisir appraisal coût",
+        "helper": "Inspection, testing and audit Coût."
+      },
+      "failurecost": {
+        "label": "Failure Coût",
+        "placeholder": "Saisir failure coût",
+        "helper": "Scrap, rework, warranty and downtime from defects."
+      },
+      "revenue": {
+        "label": "Revenue",
+        "placeholder": "Saisir revenue",
+        "helper": "Monthly revenue for ratio context."
+      }
+    },
+    "pressure-vessel-wall-thickness-calculator": {
+      "designpressurebar": {
+        "label": "Design Pression",
+        "placeholder": "Saisir design pression",
+        "helper": "Internal Design Pression for the vessel."
+      },
+      "diametermm": {
+        "label": "Inside Diamètre",
+        "placeholder": "Saisir inside diamètre",
+        "helper": "Nominal inside Diamètre of the shell."
+      },
+      "allowablestressmpa": {
+        "label": "Contrainte admissible",
+        "placeholder": "Saisir contrainte admissible",
+        "helper": "Matériau Contrainte admissible at design temparature."
+      },
+      "weldefficiency": {
+        "label": "Weld efficiency",
+        "placeholder": "Saisir weld efficiency",
+        "helper": "Joint efficiency factor E (typical 0.7–1.0)."
+      }
+    },
+    "value-stream-map-vsm-calculator": {
+      "processminutes": {
+        "label": "Process time",
+        "placeholder": "Saisir process time",
+        "helper": "Total Valeur-added processing minutes in the stream."
+      },
+      "waitminutes": {
+        "label": "Wait time",
+        "placeholder": "Saisir wait time",
+        "helper": "Queue and inventory wait minutes."
+      },
+      "transportminutes": {
+        "label": "Transport time",
+        "placeholder": "Saisir transport time",
+        "helper": "Matériau movement and transfer minutes."
+      }
+    },
+    "energy-savings-package-calculator": {
+      "baselinekwhmonthly": {
+        "label": "Baseline monthly kWh",
+        "placeholder": "Saisir baseline monthly kwh",
+        "helper": "Courant average monthly electricity use."
+      },
+      "proposedkwhmonthly": {
+        "label": "Proposed monthly kWh",
+        "placeholder": "Saisir proposed monthly kwh",
+        "helper": "Expected monthly use after the savings package."
+      },
+      "energyrate": {
+        "label": "Énergie Taux",
+        "placeholder": "Saisir énergie taux",
+        "helper": "Blended electricity tariff."
+      },
+      "projectcost": {
+        "label": "Project Coût",
+        "placeholder": "Saisir project coût",
+        "helper": "Total capex for the efficiency package."
+      }
+    },
+    "investment-payback-npv-calculator": {
+      "initialinvestment": {
+        "label": "Investissement initial",
+        "placeholder": "Saisir investissement initial",
+        "helper": "Up-front project or equipment Coût."
+      },
+      "annualcashflow": {
+        "label": "Annual cash Débit",
+        "placeholder": "Saisir annual cash débit",
+        "helper": "Expected annual benefit after investment."
+      },
+      "discountratepercent": {
+        "label": "Discount Taux",
+        "placeholder": "Saisir discount taux",
+        "helper": "Required return or Coût of capital."
+      },
+      "horizonyears": {
+        "label": "Horizon",
+        "placeholder": "Saisir horizon",
+        "helper": "Analysis pariod in Années."
+      }
+    },
+    "annual-leave-severance-notice-calculator": {
+      "grossmonthlysalary": {
+        "label": "Gross monthly salary",
+        "placeholder": "Saisir gross monthly salary",
+        "helper": "Monthly gross pay utilisé for screening."
+      },
+      "employerburdenpercent": {
+        "label": "Employer burden",
+        "placeholder": "Saisir employer burden",
+        "helper": "Payroll taxes and employer contributions."
+      },
+      "yearsofservice": {
+        "label": "Années of service",
+        "placeholder": "Saisir années of service",
+        "helper": "Completed service Années for severance screening."
+      },
+      "severanceweeksperyear": {
+        "label": "Severance weeks par year",
+        "placeholder": "Saisir severance weeks par year",
+        "helper": "Policy weeks credited par service year."
+      },
+      "noticeweeks": {
+        "label": "Notice weeks",
+        "placeholder": "Saisir notice weeks",
+        "helper": "Notice pariod Longueur in weeks."
+      }
+    },
+    "belt-pulley-speed-length-calculator": {
+      "driverrpm": {
+        "label": "Driver RPM",
+        "placeholder": "Saisir driver rpm",
+        "helper": "Motor or driver shaft speed."
+      },
+      "driverdiametermm": {
+        "label": "Driver Diamètre",
+        "placeholder": "Saisir driver diamètre",
+        "helper": "Driver pulley pitch Diamètre."
+      },
+      "drivendiametermm": {
+        "label": "Driven Diamètre",
+        "placeholder": "Saisir driven diamètre",
+        "helper": "Driven pulley pitch Diamètre."
+      },
+      "centerdistancemm": {
+        "label": "Center Distance",
+        "placeholder": "Saisir center distance",
+        "helper": "Shaft center Distance for open belt Longueur."
       }
     }
   },
@@ -6804,5 +8155,20 @@
     "metaReg": "REG: GLOBAL",
     "metaCur": "CUR: EUR",
     "metaCopyright": "© 2026 SECTORCALC"
+  },
+  "calculatorLibrary": {
+    "metaTitle": "Bibliothèque de calculateurs — SectorCalc",
+    "metaDescription": "Ressources publiques du catalogue SectorCalc : index LLMs, listes d'outils sectoriels et entrées catalogue.",
+    "title": "Bibliothèque de calculateurs",
+    "lead": "Index lisibles par machine et entrées catalogue pour les calculateurs sectoriels SectorCalc.",
+    "resourcesTitle": "Ressources publiques",
+    "catalogsTitle": "Catalogues",
+    "llmsLabel": "llms.txt",
+    "indexLabel": "sectorcalc-index.txt",
+    "faqLabel": "faq-knowledge.txt",
+    "servicesLabel": "services-products.txt",
+    "freeToolsLabel": "Calculateurs gratuits",
+    "premiumToolsLabel": "Calculateurs premium",
+    "industriesLabel": "Hubs sectoriels"
   }
 }

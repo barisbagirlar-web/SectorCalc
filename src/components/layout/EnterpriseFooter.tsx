@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { BRAND_ASSETS } from "@/config/brand";
 import { SITE_SOCIAL } from "@/config/site";
 import {
   SECTOR_FOOTER_COST_LINKS,
@@ -20,15 +18,46 @@ const LEGAL_LINKS = [
   { key: "legalDisclaimer", href: "/disclaimer" },
 ] as const;
 
-function PanelShapeSvg({ label }: { readonly label: string }) {
+type PanelSymbolVariant = "cost" | "loss" | "technical" | "library";
+
+function PanelSymbolSvg({
+  label,
+  variant,
+}: {
+  readonly label: string;
+  readonly variant: PanelSymbolVariant;
+}) {
   return (
-    <svg className="sch-shape-svg" viewBox="0 0 120 80" aria-hidden="true">
-      <circle cx="60" cy="40" r="34" fill="none" stroke="currentColor" strokeWidth="1" />
-      <path d="M26 40 H94" stroke="currentColor" strokeWidth="0.75" opacity="0.35" />
-      <text x="60" y="44" textAnchor="middle">
-        {label}
-      </text>
-    </svg>
+    <div className="sch-panel-visual">
+      <svg viewBox="0 0 280 280" className="sch-shape-svg" aria-hidden="true">
+        <circle cx="140" cy="140" r="138" className="sch-svg-bg" />
+        {variant === "cost" ? (
+          <path
+            d="M140 70 V210 M70 140 H210"
+            className="sch-svg-icon sch-spin-hover"
+          />
+        ) : null}
+        {variant === "loss" ? (
+          <path d="M70 140 H210" className="sch-svg-icon sch-spin-hover" />
+        ) : null}
+        {variant === "technical" ? (
+          <path
+            d="M90 90 L190 190 M190 90 L90 190"
+            className="sch-svg-icon sch-spin-hover"
+          />
+        ) : null}
+        {variant === "library" ? (
+          <>
+            <circle cx="140" cy="90" r="8" fill="currentColor" className="sch-svg-dot" />
+            <path d="M70 140 H210" className="sch-svg-icon sch-spin-hover" />
+            <circle cx="140" cy="190" r="8" fill="currentColor" className="sch-svg-dot" />
+          </>
+        ) : null}
+        <text x="140" y="145" className="sch-svg-text">
+          {label}
+        </text>
+      </svg>
+    </div>
   );
 }
 
@@ -66,30 +95,26 @@ export function EnterpriseFooter() {
         <div className="sch-hud-bar">
           <div className="sch-hud-left">
             <Link href="/" prefetch={false} className="sch-logo" aria-label="SectorCalc home">
-              <Image
-                src={BRAND_ASSETS.favicon.master}
-                alt=""
-                width={28}
-                height={28}
-                unoptimized
-                className="sch-logo-icon"
-                aria-hidden
-              />
+              <span className="sch-sq sch-sq-1" aria-hidden="true" />
+              <span className="sch-sq sch-sq-2" aria-hidden="true" />
+              <span className="sch-sq sch-sq-3" aria-hidden="true" />
+              <span className="sch-sq sch-sq-4" aria-hidden="true" />
               <span className="sch-logo-text">{t("logoText")}</span>
             </Link>
             <span className="sch-badge">{t("badge")}</span>
           </div>
           <div className="sch-hud-right">
-            <span>{t("hudRight1")}</span>
-            <span>{t("hudRight2")}</span>
+            <span className="sch-mono-text sch-status-ok">
+              <span className="sch-dot animate-pulse" aria-hidden="true" />
+              {t("hudRight1")}
+            </span>
+            <span className="sch-mono-text">{t("hudRight2")}</span>
           </div>
         </div>
 
         <div className="sch-grid">
           <div className="sch-panel">
-            <div className="sch-panel-visual">
-              <PanelShapeSvg label={t("panel1Svg")} />
-            </div>
+            <PanelSymbolSvg label={t("panel1Svg")} variant="cost" />
             <div className="sch-panel-content">
               <FooterPanelList
                 links={SECTOR_FOOTER_COST_LINKS}
@@ -100,9 +125,7 @@ export function EnterpriseFooter() {
           </div>
 
           <div className="sch-panel">
-            <div className="sch-panel-visual">
-              <PanelShapeSvg label={t("panel2Svg")} />
-            </div>
+            <PanelSymbolSvg label={t("panel2Svg")} variant="loss" />
             <div className="sch-panel-content">
               <FooterPanelList
                 links={SECTOR_FOOTER_LOSS_LINKS}
@@ -113,9 +136,7 @@ export function EnterpriseFooter() {
           </div>
 
           <div className="sch-panel">
-            <div className="sch-panel-visual">
-              <PanelShapeSvg label={t("panel3Svg")} />
-            </div>
+            <PanelSymbolSvg label={t("panel3Svg")} variant="technical" />
             <div className="sch-panel-content">
               <FooterPanelList
                 links={SECTOR_FOOTER_TECHNICAL_LINKS}
@@ -126,34 +147,42 @@ export function EnterpriseFooter() {
           </div>
 
           <div className="sch-panel sch-panel-terminal">
-            <div className="sch-panel-visual">
-              <PanelShapeSvg label={t("panel4Svg")} />
-            </div>
-            <div className="sch-terminal-body">
-              <form className="sch-form" onSubmit={(event) => event.preventDefault()} noValidate>
-                <label htmlFor="sch-footer-email">{t("newsletterLabel")}</label>
-                <input
-                  id="sch-footer-email"
-                  type="email"
-                  name="email"
-                  placeholder={t("newsletterPlaceholder")}
-                  autoComplete="email"
-                />
-                <button type="button">{t("newsletterButton")}</button>
-              </form>
+            <PanelSymbolSvg label={t("panel4Svg")} variant="library" />
+            <div className="sch-terminal-body" style={{ width: "100%" }}>
+              <label htmlFor="sch-footer-email" className="sch-label">
+                {t("newsletterLabel")}
+              </label>
+              <input
+                id="sch-footer-email"
+                type="email"
+                name="email"
+                className="sch-input"
+                placeholder={t("newsletterPlaceholder")}
+                autoComplete="email"
+              />
+              <button type="button" className="sch-btn">
+                {t("newsletterButton")}
+              </button>
               <div className="sch-social-grid">
                 <a
                   href={SITE_SOCIAL.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="sch-social-node"
                   aria-label="LinkedIn"
                 >
                   {t("socialIn")}
                 </a>
-                <Link href={getSectorFooterApiHref()} prefetch={false}>
+                <Link
+                  href={getSectorFooterApiHref()}
+                  prefetch={false}
+                  className="sch-social-node"
+                >
                   {t("socialApi")}
                 </Link>
-                <a href="/llms.txt">{t("socialLlms")}</a>
+                <a href="/llms.txt" className="sch-social-node">
+                  {t("socialLlms")}
+                </a>
               </div>
             </div>
           </div>

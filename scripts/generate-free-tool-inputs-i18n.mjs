@@ -12,6 +12,9 @@ const LOCALES = ["en", "tr", "de", "fr", "es", "ar"];
 const PHRASE_GLOSSARY = JSON.parse(
   readFileSync(join(ROOT, "src/data/calculator-phrase-glossary.json"), "utf8"),
 );
+const FIELD_LABEL_MAP = JSON.parse(
+  readFileSync(join(ROOT, "scripts/data/calculator-field-labels-i18n.json"), "utf8"),
+);
 
 const CATALOG_PATHS = [
   "src/lib/tools/free-traffic-catalog.generated.json",
@@ -47,6 +50,13 @@ function sortedGlossaryEntries(locale) {
 function translatePhrase(text, locale) {
   if (!text || locale === "en") {
     return text;
+  }
+  const fieldLabel = FIELD_LABEL_MAP[locale]?.[text];
+  if (fieldLabel) {
+    return fieldLabel;
+  }
+  if (PHRASE_GLOSSARY[locale]?.[text]) {
+    return PHRASE_GLOSSARY[locale][text];
   }
   let result = text;
   for (const [en, localized] of sortedGlossaryEntries(locale)) {
