@@ -8,6 +8,7 @@ const PUBLIC = join(ROOT, "public");
 
 const required = [
   "ai-tool-index.json",
+  "ai-tool-index.txt",
   "ai-categories.json",
   "ai-tool-routes.json",
   "ai-search-manifest.json",

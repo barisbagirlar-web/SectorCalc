@@ -245,3 +245,38 @@ export function buildAiCategoriesDocument(index: AiToolIndexDocument) {
     categories: index.categories,
   };
 }
+
+export function buildAiToolIndexTxt(
+  index: AiToolIndexDocument,
+  locale: SupportedLocale = "en",
+): string {
+  const lines = [
+    "# SectorCalc AI Tool Index",
+    `# Site: ${index.baseUrl}`,
+    `# Generated: ${index.generatedAt}`,
+    `# Total tools: ${index.totalTools}`,
+    `# Active routes: ${index.totalActiveRoutes}`,
+    `# Category-only: ${index.totalCategoryOnly}`,
+    `# Redirected: ${index.totalRedirected}`,
+    "",
+  ];
+
+  for (const tool of index.tools) {
+    const title = tool.title[locale] ?? tool.title.en ?? tool.slug;
+    const description = tool.description[locale] ?? tool.description.en ?? "";
+    const categoryTitle = tool.categoryTitle[locale] ?? tool.categoryTitle.en ?? tool.categorySlug;
+    lines.push(`## ${tool.slug}`);
+    lines.push(`- title: ${title}`);
+    lines.push(`- description: ${description}`);
+    lines.push(`- canonicalUrl: ${tool.canonicalUrl}`);
+    lines.push(`- tier: ${tool.tier}`);
+    lines.push(`- category: ${tool.categorySlug} (${categoryTitle})`);
+    lines.push(`- routeStatus: ${tool.routeStatus}`);
+    if (tool.intent.length > 0) {
+      lines.push(`- intent: ${tool.intent.join(", ")}`);
+    }
+    lines.push("");
+  }
+
+  return lines.join("\n");
+}

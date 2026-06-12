@@ -6,6 +6,7 @@ import {
   buildAiCategoriesDocument,
   buildAiSearchManifestDocument,
   buildAiToolIndexDocument,
+  buildAiToolIndexTxt,
   buildAiToolRoutesDocument,
 } from "../src/lib/ai/build-ai-index-export";
 import { buildLlmsTxt } from "../src/lib/ai/build-llms-txt";
@@ -26,6 +27,7 @@ writeFileSync(join(publicDir, "ai-tool-routes.json"), `${JSON.stringify(routes, 
 writeFileSync(join(publicDir, "ai-search-manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
 writeFileSync(join(publicDir, "ai-embedding-source.jsonl"), embedding, "utf8");
 writeFileSync(join(publicDir, "llms.txt"), llms, "utf8");
+writeFileSync(join(publicDir, "ai-tool-index.txt"), buildAiToolIndexTxt(index, "en"), "utf8");
 
 console.log(
   `export:ai-index — tools=${index.totalTools} active=${index.totalActiveRoutes} categoryOnly=${index.totalCategoryOnly} categories=${index.categories.length} jsonlLines=${embedding.split("\n").filter(Boolean).length}`,

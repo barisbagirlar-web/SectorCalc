@@ -21,10 +21,14 @@ const aiFiles = [
   "/llms.txt",
   "/ai.txt",
   "/ai-tool-index.json",
+  "/ai-tool-index.txt",
   "/ai-categories.json",
   "/ai-tool-routes.json",
   "/ai-search-manifest.json",
   "/ai-embedding-source.jsonl",
+  "/sectorcalc-index.txt",
+  "/services-products.txt",
+  "/faq-knowledge.txt",
   "/sitemap.xml",
 ];
 

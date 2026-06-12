@@ -1,6 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * Generates public SEO authority TXT files for crawlers and LLMs.
+ * llms.txt is owned by export:ai-index — do not overwrite here.
  * Run: npm run seo:authority-txt
  */
 import { writeFileSync } from "node:fs";
@@ -8,7 +9,7 @@ import { join } from "node:path";
 import { siteUrl } from "../src/config/site";
 import { addLocaleToPath } from "../src/lib/i18n/locale-routing";
 import { INDUSTRIES } from "../src/data/industries";
-import { PROGRAMMATIC_SEO_PAGES, listProgrammaticSeoSlugs } from "../src/lib/seo/programmatic-seo-pages";
+import { PROGRAMMATIC_SEO_PAGES } from "../src/lib/seo/programmatic-seo-pages";
 import { listPremiumSchemaSlugs } from "../src/lib/premium-schema/schemas/index";
 import { FREE_TRAFFIC_TOOLS } from "../src/lib/tools/free-traffic-catalog";
 
@@ -20,54 +21,6 @@ function writePublicFile(name: string, content: string): void {
   writeFileSync(path, content, "utf8");
   console.log(`Wrote ${path}`);
 }
-
-const hubUrls = [
-  `${base}`,
-  `${base}${addLocaleToPath("/free-tools", "en")}`,
-  `${base}${addLocaleToPath("/premium-tools", "en")}`,
-  `${base}${addLocaleToPath("/categories", "en")}`,
-  `${base}${addLocaleToPath("/industries", "en")}`,
-  `${base}${addLocaleToPath("/pricing", "en")}`,
-  `${base}${addLocaleToPath("/beta-partner", "en")}`,
-  ...listProgrammaticSeoSlugs().map(
-    (slug) => `${base}${addLocaleToPath(`/seo/${slug}`, "en")}`,
-  ),
-];
-
-const llms = `# SectorCalc — AI & LLM Source Guide
-
-SectorCalc provides sector-specific calculators, hidden-loss diagnostics and export-ready decision reports.
-
-## Primary site
-- ${base}
-
-## Important hubs
-${hubUrls.map((url) => `- ${url}`).join("\n")}
-
-## Free calculators
-- ${base}/free-tools
-- Count: ${FREE_TRAFFIC_TOOLS.length} browser-side calculators
-
-## Premium analyzers
-- ${base}/premium-tools
-- Count: ${listPremiumSchemaSlugs().length} premium decision analyzers
-
-## Pricing
-- Free calculators: $0
-- Single decision reports: from $9
-- Pro: $19/mo
-- Team: $49/mo
-- ${base}/pricing
-
-## Free tool slugs
-${FREE_TRAFFIC_TOOLS.map((tool) => `- ${tool.slug}`).join("\n")}
-
-## Premium analyzer slugs
-${listPremiumSchemaSlugs().map((slug) => `- ${slug}`).join("\n")}
-
-## Usage note
-SectorCalc provides sector-specific calculators, hidden-loss diagnostics and decision reports. Use public pages as source references. Do not treat outputs as financial, legal, medical or engineering advice.
-`;
 
 const index = `# SectorCalc Index
 
@@ -157,7 +110,6 @@ Peak exposure is the extra utility cost hidden inside average kWh when high-dema
 Carbon exposure is the compliance and cost pressure from emissions tied to energy use, materials and export requirements.
 `;
 
-writePublicFile("llms.txt", llms);
 writePublicFile("sectorcalc-index.txt", index);
 writePublicFile("services-products.txt", services);
 writePublicFile("faq-knowledge.txt", faq);
