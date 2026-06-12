@@ -48,6 +48,16 @@
     "export:embedding-source": "node scripts/export-tool-embeddings-source.mjs",
     "audit:llm-seo": "node scripts/audit-llm-seo.mjs",
     "audit:ai-tool-index": "node scripts/audit-ai-tool-index.mjs",
+    "audit:ai-repair": "node scripts/audit-ai-repair-layer.mjs",
+    "audit:customer-ai": "node scripts/audit-customer-ai-gateway.mjs",
+    "scan:tool-activation": "node scripts/tool-activation/scan-tools-for-activation.mjs",
+    "review:tool-activation": "node scripts/tool-activation/generate-activation-review.mjs",
+    "apply:tool-activation": "node scripts/tool-activation/apply-activation-draft.mjs",
+    "audit:tool-activation": "node scripts/audit-tool-activation-factory.mjs",
+    "tools:scan-existing": "npm run scan:tool-activation",
+    "tools:review-activation": "npm run review:tool-activation",
+    "tools:apply-activation-draft": "npm run apply:tool-activation",
+    "ai:repair:record": "node scripts/ai-repair/record-repair-outcome.mjs",
     "audit:ai-crawler-policy": "node scripts/audit-ai-crawler-policy.mjs",
     "audit:embedding-source": "node scripts/audit-embedding-source.mjs",
     "audit:engineering-standards": "node scripts/audit-engineering-standards.mjs",
@@ -140,8 +150,10 @@
     "lucide-react": "^1.17.0",
     "next": "^15.1.0",
     "next-intl": "^4.13.0",
+    "openai": "^6.42.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

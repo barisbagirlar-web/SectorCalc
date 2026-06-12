@@ -274,6 +274,11 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
     painStatement:
       "Tahrik değişiklikleri belgelenmiş hız ve kayış uzunluğu olmadan yapılır.",
   },
+  "7-israf-muda-avcisi-parasal-karsilik-calculator": {
+    title: "7 İsraf (Muda) Avcısı Parasal Karşılık Hesaplayıcı",
+    painStatement:
+      "Her israf türünün işletmeye spesifik maliyeti rakamla ifade edilemez.",
+  },
 };
 
 const PREMIUM_SCHEMA_I18N: Partial<Record<AppLocale, Record<string, LocalizedPremiumSchema>>> = {

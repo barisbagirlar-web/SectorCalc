@@ -1,9 +1,9 @@
 # SectorCalc AI Tool Index
 # Site: https://www.sectorcalc.com
-# Generated: 2026-06-12T18:20:19.042Z
+# Generated: 2026-06-12T21:55:20.733Z
 # Total tools: 474
-# Active routes: 322
-# Category-only: 152
+# Active routes: 323
+# Category-only: 151
 # Redirected: 0
 
 ## 3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator
@@ -61,20 +61,20 @@
 - intent: production, oee, efficiency, throughput
 
 ## 7-israf-muda-avcisi-parasal-karsilik-calculator
-- title: 7 Israf Muda Avcisi Parasal Karsilik
-- description: Her israf türünün işletmeye spesifik maliyeti rakamla ifade edilemez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-7-israf-muda-avcisi-parasal-karsilik-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- title: 7 Waste (Muda) Hunter Monetary Impact Calculator
+- description: Lean teams see waste categories qualitatively but cannot express each muda type in comparable monetary terms with period context and action priority.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/7-israf-muda-avcisi-parasal-karsilik-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## abonelik-yazilim-cloud-yillik-maliyet-hesabi
 - title: Abonelik (Yazılım, Cloud) Yıllık Maliyet Calculation
 - description: Abonelik (Yazılım, Cloud) Yıllık Maliyet Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/abonelik-yazilim-cloud-yillik-maliyet-hesabi
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/abonelik-yazilim-cloud-yillik-maliyet-hesabi
+- tier: premium
+- category: technology-ai-cloud-cyber (Technology, AI, Cloud & Cyber Risk)
 - routeStatus: active-route
 - intent: calculator, decision-support
 
@@ -153,11 +153,11 @@
 ## aku-kapasitesi-calisma-suresi-hesabi
 - title: Akü Kapasitesi — Çalışma Süresi Calculation
 - description: Akü Kapasitesi — Çalışma Süresi Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/aku-kapasitesi-calisma-suresi-hesabi
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/aku-kapasitesi-calisma-suresi-hesabi
+- tier: premium
+- category: electrical-power-systems (Electrical, Panel & Power Systems)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: electrical, power, voltage, cabling
 
 ## alti-sigma-dpmo-sigma-seviyesi-cevirici
 - title: Altı Sigma — DPMO — Sigma Seviyesi Converter
@@ -423,11 +423,11 @@
 ## boiler-efficiency-calculator
 - title: Boiler Efficiency Calculator
 - description: Combustion efficiency from useful vs fuel input energy.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/boiler-efficiency-calculator
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/boiler-efficiency-calculator
+- tier: premium
+- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: mechanical, hvac, energy, engineering
 
 ## bolt-tightening-torque-calculator
 - title: Bolt Tightening Torque Calculator
@@ -486,8 +486,8 @@
 ## break-even-calculator
 - title: Break-Even Calculator
 - description: Units needed to cover fixed costs.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/break-even-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/break-even-calculator
+- tier: premium
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -585,8 +585,8 @@
 ## cash-flow-gap-calculator
 - title: Cash Flow Gap Calculator
 - description: Working capital gap from receivables vs payables timing.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/cash-flow-gap-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/cash-flow-gap-calculator
+- tier: premium
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -657,11 +657,11 @@
 ## celik-raf-depo-rafi-yuk-kapasitesi
 - title: Çelik Raf — Depo Rafı Yük Kapasitesi
 - description: Çelik Raf — Depo Rafı Yük Kapasitesi — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/celik-raf-depo-rafi-yuk-kapasitesi
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/celik-raf-depo-rafi-yuk-kapasitesi
+- tier: premium
+- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: logistics, procurement, shipping, inventory
 
 ## cevre-atik-beyani-maliyet-hesaplama
 - title: Çevre — Atık Beyanı Maliyet Calculation
@@ -693,20 +693,20 @@
 ## civata-on-germe-kuvveti-hesabi
 - title: Civata Ön Germe Kuvveti Calculation
 - description: Civata Ön Germe Kuvveti Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/civata-on-germe-kuvveti-hesabi
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/civata-on-germe-kuvveti-hesabi
+- tier: premium
+- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: mechanical, hvac, energy, engineering
 
 ## civata-sikma-torku-hesaplama
 - title: Civata Sıkma Torku Calculation
 - description: Civata Sıkma Torku Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/civata-sikma-torku-hesaplama
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/civata-sikma-torku-hesaplama
+- tier: premium
+- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: mechanical, hvac, energy, engineering
 
 ## cleaning-cost-calculator
 - title: Cleaning Cost Calculator
@@ -729,8 +729,8 @@
 ## cnc-cycle-time-calculator
 - title: CNC Cycle Time Calculator
 - description: Total CNC seconds per batch including load/unload.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/cnc-cycle-time-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/cnc-cycle-time-calculator
+- tier: premium
 - category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -792,8 +792,8 @@
 ## compound-interest-calculator
 - title: Compound Interest Calculator
 - description: Future value with compound growth.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/compound-interest-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/compound-interest-calculator
+- tier: premium
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -801,11 +801,11 @@
 ## compressor-energy-cost-calculator
 - title: Compressor Energy Cost
 - description: Running cost from compressor kW, hours and rate.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/compressor-energy-cost-calculator
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/compressor-energy-cost-calculator
+- tier: premium
+- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: mechanical, hvac, energy, engineering
 
 ## compressor-leak-cost-calculator
 - title: Compressor Leak Cost Calculator
@@ -819,8 +819,8 @@
 ## concrete-bag-calculator
 - title: Concrete Bag Calculator
 - description: Estimate bags needed for a pour including waste factor.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/concrete-bag-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/concrete-bag-calculator
+- tier: premium
 - category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -873,8 +873,8 @@
 ## crop-yield-calculator
 - title: Crop Yield Calculator
 - description: Harvest tonnage and revenue from yield per hectare.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/crop-yield-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/crop-yield-calculator
+- tier: premium
 - category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -1062,8 +1062,8 @@
 ## doviz-pozisyonu-kur-farki-riski-hesabi
 - title: Döviz Pozisyonu — Kur Farkı Riski Calculation
 - description: Döviz Pozisyonu — Kur Farkı Riski Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/doviz-pozisyonu-kur-farki-riski-hesabi
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/doviz-pozisyonu-kur-farki-riski-hesabi
+- tier: premium
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -1134,11 +1134,11 @@
 ## electricity-bill-calculator
 - title: Electricity Bill Calculator
 - description: Monthly bill from usage, rate and fixed charge.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/electricity-bill-calculator
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/electricity-bill-calculator
+- tier: premium
+- category: electrical-power-systems (Electrical, Panel & Power Systems)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: electrical, power, voltage, cabling
 
 ## employee-total-cost-calculator
 - title: Employee Total Cost Calculator
@@ -1206,8 +1206,8 @@
 ## enflasyon-fiyat-eskalasyonu-hesaplama
 - title: Enflasyon — Fiyat Eskalasyonu Calculation
 - description: Enflasyon — Fiyat Eskalasyonu Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/enflasyon-fiyat-eskalasyonu-hesaplama
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/enflasyon-fiyat-eskalasyonu-hesaplama
+- tier: premium
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -1215,9 +1215,9 @@
 ## enjeksiyon-dokum-cekme-payi-hesabi
 - title: Enjeksiyon — Döküm Çekme Payı Calculation
 - description: Enjeksiyon — Döküm Çekme Payı Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/enjeksiyon-dokum-cekme-payi-hesabi
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/enjeksiyon-dokum-cekme-payi-hesabi
+- tier: premium
+- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
 - routeStatus: active-route
 - intent: calculator, decision-support
 
@@ -1269,11 +1269,11 @@
 ## fazla-mesai-ucreti-hesaplama
 - title: Fazla Mesai Ücreti Calculation
 - description: Fazla Mesai Ücreti Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/fazla-mesai-ucreti-hesaplama
-- tier: free
-- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/fazla-mesai-ucreti-hesaplama
+- tier: premium
+- category: workforce-hr (Workforce, Shift & HR Cost)
 - routeStatus: active-route
-- intent: finance, pricing, cash-flow, tax, working-capital
+- intent: hr, payroll, workforce, labor
 
 ## fazla-mesai-vs-yeni-ise-alim-basabas-calculator
 - title: Fazla Mesai Vs Yeni Ise Alim Basabas
@@ -1287,8 +1287,8 @@
 ## feed-cost-estimator
 - title: Feed Cost Estimator
 - description: Total feed cost including transport.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/feed-cost-estimator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/feed-cost-estimator
+- tier: premium
 - category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -1314,8 +1314,8 @@
 ## fertilizer-dosage-calculator
 - title: Fertilizer Dosage Calculator
 - description: Total fertilizer from field area and dosage rate.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/fertilizer-dosage-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/fertilizer-dosage-calculator
+- tier: premium
 - category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -1368,8 +1368,8 @@
 ## food-cost-calculator
 - title: Food Cost Percentage
 - description: Menu food cost percent from ingredient cost and menu price.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/food-cost-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/food-cost-calculator
+- tier: premium
 - category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -1575,11 +1575,11 @@
 ## heat-loss-calculator
 - title: Heat Loss Calculator
 - description: Steady-state heat loss in watts.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/heat-loss-calculator
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/heat-loss-calculator
+- tier: premium
+- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: mechanical, hvac, energy, engineering
 
 ## heijunka-uretim-dengeleme-ve-dalgalanma-maliyet-calculator
 - title: Heijunka Uretim Dengeleme Ve Dalgalanma Maliyet
@@ -1638,8 +1638,8 @@
 ## home-renovation-m2-calculator
 - title: Home Renovation Cost per m²
 - description: Budget estimate from area, cost per m² and contingency.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/home-renovation-m2-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/home-renovation-m2-calculator
+- tier: premium
 - category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -1647,8 +1647,8 @@
 ## hourly-rate-calculator
 - title: Hourly Rate Calculator
 - description: Billable hourly rate from monthly income.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/hourly-rate-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/hourly-rate-calculator
+- tier: premium
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -1764,8 +1764,8 @@
 ## irrigation-cost-check
 - title: Irrigation Cost Check
 - description: Pump energy plus water cost for irrigation.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/irrigation-cost-check
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/irrigation-cost-check
+- tier: premium
 - category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -1809,11 +1809,11 @@
 ## ise-giris-cikis-bildirgesi-sureleri
 - title: İşe Giriş — Çıkış Bildirgesi Süreleri
 - description: İşe Giriş — Çıkış Bildirgesi Süreleri — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/ise-giris-cikis-bildirgesi-sureleri
-- tier: free
-- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/ise-giris-cikis-bildirgesi-sureleri
+- tier: premium
+- category: workforce-hr (Workforce, Shift & HR Cost)
 - routeStatus: active-route
-- intent: finance, pricing, cash-flow, tax, working-capital
+- intent: hr, payroll, workforce, labor
 
 ## isg-yatirimi-ve-risk-azaltma-getiri-calculator
 - title: Isg Yatirimi Ve Risk Azaltma Getiri
@@ -1917,8 +1917,8 @@
 ## istinat-duvari-yaklasik-beton-hesabi
 - title: İstinat Duvarı Yaklaşık Beton Calculation
 - description: İstinat Duvarı Yaklaşık Beton Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/istinat-duvari-yaklasik-beton-hesabi
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/istinat-duvari-yaklasik-beton-hesabi
+- tier: premium
 - category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -2025,8 +2025,8 @@
 ## kasko-sigorta-prim-karsilastirma
 - title: Kasko — Sigorta Prim Karşılaştırma
 - description: Kasko — Sigorta Prim Karşılaştırma — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/kasko-sigorta-prim-karsilastirma
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/kasko-sigorta-prim-karsilastirma
+- tier: premium
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -2034,9 +2034,9 @@
 ## kaynak-dikis-hacmi-maliyeti-hesabi
 - title: Kaynak Dikiş Hacmi — Maliyeti Calculation
 - description: Kaynak Dikiş Hacmi — Maliyeti Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/kaynak-dikis-hacmi-maliyeti-hesabi
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/kaynak-dikis-hacmi-maliyeti-hesabi
+- tier: premium
+- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
 - routeStatus: active-route
 - intent: calculator, decision-support
 
@@ -2115,9 +2115,9 @@
 ## kesme-bukme-abkant-tonaj-hesabi
 - title: Kesme Bükme (Abkant) Tonaj Calculation
 - description: Kesme Bükme (Abkant) Tonaj Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/kesme-bukme-abkant-tonaj-hesabi
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/kesme-bukme-abkant-tonaj-hesabi
+- tier: premium
+- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
 - routeStatus: active-route
 - intent: calculator, decision-support
 
@@ -2295,11 +2295,11 @@
 ## kwh-cost-calculator
 - title: kWh Cost Calculator
 - description: Electricity cost from consumption and tariff.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/kwh-cost-calculator
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/kwh-cost-calculator
+- tier: premium
+- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: mechanical, hvac, energy, engineering
 
 ## laboratuvar-analiz-maliyeti-ve-numune-alma-optimizasyon-calculator
 - title: Laboratuvar Analiz Maliyeti Ve Numune Alma Optimizasyon
@@ -2403,8 +2403,8 @@
 ## loan-payment-calculator
 - title: Loan Payment Calculator
 - description: Monthly amortizing loan payment from principal, rate and term.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/loan-payment-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/loan-payment-calculator
+- tier: premium
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -2439,20 +2439,20 @@
 ## machine-hour-rate-calculator
 - title: Machine Hour Rate Calculator
 - description: Fully loaded machine hourly rate.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/machine-hour-rate-calculator
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/machine-hour-rate-calculator
+- tier: premium
+- category: lean-production (Lean Production & Line Efficiency)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: production, oee, efficiency, throughput
 
 ## machine-time-calculator
 - title: Machine Time Calculator
 - description: Setup plus cycle time converted to machine cost.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/machine-time-calculator
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/machine-time-calculator
+- tier: premium
+- category: lean-production (Lean Production & Line Efficiency)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: production, oee, efficiency, throughput
 
 ## makine-ekonomik-omru-hurda-deger-hesabi
 - title: Makine Ekonomik Ömrü — Hurda Değer Calculation
@@ -2466,11 +2466,11 @@
 ## material-waste-calculator
 - title: Material Waste Calculator
 - description: Waste kg and percent from input vs good output.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/material-waste-calculator
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/material-waste-calculator
+- tier: premium
+- category: lean-production (Lean Production & Line Efficiency)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: production, oee, efficiency, throughput
 
 ## matkap-kilavuz-delik-capi-tablosu
 - title: Matkap — Kılavuz Delik Çapı Tablosu
@@ -2529,8 +2529,8 @@
 ## milk-yield-check
 - title: Milk Yield Check
 - description: Daily milk liters and revenue estimate.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/milk-yield-check
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/milk-yield-check
+- tier: premium
 - category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -2547,8 +2547,8 @@
 ## mortgage-calculator
 - title: Mortgage Calculator
 - description: Monthly mortgage payment with total interest breakdown.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/mortgage-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/mortgage-calculator
+- tier: premium
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -2556,11 +2556,11 @@
 ## motor-gucu-kw-hp-cevirici
 - title: Motor Gücü (KW — HP) Converter
 - description: Motor Gücü (KW — HP) Converter — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/motor-gucu-kw-hp-cevirici
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/motor-gucu-kw-hp-cevirici
+- tier: premium
+- category: electrical-power-systems (Electrical, Panel & Power Systems)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: electrical, power, voltage, cabling
 
 ## msa-gage-r-r-yanlis-karar-maliyet-calculator
 - title: Msa Gage R R Yanlis Karar Maliyet
@@ -2700,8 +2700,8 @@
 ## paint-coverage-calculator
 - title: Paint Coverage Calculator
 - description: Estimate paint liters for wall area and coat count.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/paint-coverage-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/paint-coverage-calculator
+- tier: premium
 - category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -2835,9 +2835,9 @@
 ## plastik-enjeksiyon-cevrim-suresi-tahmini
 - title: Plastik Enjeksiyon Çevrim Süresi Tahmini
 - description: Plastik Enjeksiyon Çevrim Süresi Tahmini — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/plastik-enjeksiyon-cevrim-suresi-tahmini
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/plastik-enjeksiyon-cevrim-suresi-tahmini
+- tier: premium
+- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
 - routeStatus: active-route
 - intent: calculator, decision-support
 
@@ -2898,8 +2898,8 @@
 ## portion-cost-calculator
 - title: Portion Cost Calculator
 - description: Cost per serving from batch cost.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/portion-cost-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/portion-cost-calculator
+- tier: premium
 - category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -2979,8 +2979,8 @@
 ## profit-margin-calculator
 - title: Profit Margin Calculator
 - description: Selling margin percent from price and cost.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/profit-margin-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/profit-margin-calculator
+- tier: premium
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -3177,8 +3177,8 @@
 ## roi-calculator
 - title: ROI Calculator
 - description: Return on investment percent.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/roi-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/roi-calculator
+- tier: premium
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -3222,8 +3222,8 @@
 ## route-cost-calculator
 - title: Route Cost Calculator
 - description: Trip cost from fuel, driver time and tolls.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/route-cost-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/route-cost-calculator
+- tier: premium
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -3339,17 +3339,17 @@
 ## scrap-rate-calculator
 - title: Scrap Rate Calculator
 - description: Scrap rate percent from scrapped vs total units.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/scrap-rate-calculator
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/scrap-rate-calculator
+- tier: premium
+- category: lean-production (Lean Production & Line Efficiency)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: production, oee, efficiency, throughput
 
 ## seed-rate-calculator
 - title: Seed Rate Calculator
 - description: Seed quantity from area and seeding rate.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/seed-rate-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/seed-rate-calculator
+- tier: premium
 - category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -3402,9 +3402,9 @@
 ## sheet-metal-weight-calculator
 - title: Sheet Metal Weight Calculator
 - description: Plate weight from dimensions, thickness and density.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/sheet-metal-weight-calculator
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/sheet-metal-weight-calculator
+- tier: premium
+- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
 - routeStatus: active-route
 - intent: calculator, decision-support
 
@@ -3465,8 +3465,8 @@
 ## sirket-telefon-faturasi-hesaplama
 - title: Şirket Telefon Faturası Calculation
 - description: Şirket Telefon Faturası Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/sirket-telefon-faturasi-hesaplama
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/sirket-telefon-faturasi-hesaplama
+- tier: premium
 - category: packaging-local-business (Packaging & Local Business Tools)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -3483,8 +3483,8 @@
 ## sofor-operator-gunluk-yevmiye-maliyeti
 - title: Şoför — Operatör Günlük Yevmiye Maliyeti
 - description: Şoför — Operatör Günlük Yevmiye Maliyeti — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/sofor-operator-gunluk-yevmiye-maliyeti
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/sofor-operator-gunluk-yevmiye-maliyeti
+- tier: premium
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -3591,11 +3591,11 @@
 ## standard-deviation-calculator
 - title: Standard Deviation Calculator
 - description: Population standard deviation for up to five values.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/standard-deviation-calculator
-- tier: free
-- category: technology-ai-cloud-cyber (Technology, AI, Cloud & Cyber Risk)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/standard-deviation-calculator
+- tier: premium
+- category: quality-six-sigma (Quality, SPC & Six Sigma)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: quality, spc, six-sigma, statistics
 
 ## stopaj-hesaplama-kira-serbest-meslek
 - title: Stopaj Calculation (Kira, Serbest Meslek)
@@ -3852,8 +3852,8 @@
 ## tool-life-calculator
 - title: Tool Life Cost Calculator
 - description: Tooling cost allocated per good part.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/tool-life-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/tool-life-calculator
+- tier: premium
 - category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -3870,11 +3870,11 @@
 ## toplanti-saati-maliyeti-hesaplama
 - title: Toplantı Saati Maliyeti Calculation
 - description: Toplantı Saati Maliyeti Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/toplanti-saati-maliyeti-hesaplama
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/toplanti-saati-maliyeti-hesaplama
+- tier: premium
+- category: workforce-hr (Workforce, Shift & HR Cost)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: hr, payroll, workforce, labor
 
 ## topoloji-optimizasyonu-hafiflik-ve-yakit-tasarrufu-calculator
 - title: Topoloji Optimizasyonu Hafiflik Ve Yakit Tasarrufu
@@ -3897,8 +3897,8 @@
 ## trafik-cezasi-gecikme-faizi-hesaplama
 - title: Trafik Cezası — Gecikme Faizi Calculation
 - description: Trafik Cezası — Gecikme Faizi Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/trafik-cezasi-gecikme-faizi-hesaplama
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/trafik-cezasi-gecikme-faizi-hesaplama
+- tier: premium
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -3969,11 +3969,11 @@
 ## ups-kesintisiz-guc-kaynagi-secimi
 - title: UPS (Kesintisiz Güç Kaynağı) Seçimi
 - description: UPS (Kesintisiz Güç Kaynağı) Seçimi — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/ups-kesintisiz-guc-kaynagi-secimi
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/ups-kesintisiz-guc-kaynagi-secimi
+- tier: premium
+- category: electrical-power-systems (Electrical, Panel & Power Systems)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: electrical, power, voltage, cabling
 
 ## urun-karmasi-karmasiklik-maliyeti-hidden-factory-calculator
 - title: Urun Karmasi Karmasiklik Maliyeti Hidden Factory
@@ -4032,8 +4032,8 @@
 ## vehicle-depreciation-calculator
 - title: Vehicle Depreciation Calculator
 - description: Annual vehicle depreciation straight-line.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/vehicle-depreciation-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/vehicle-depreciation-calculator
+- tier: premium
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -4086,8 +4086,8 @@
 ## warehouse-storage-cost-calculator
 - title: Warehouse Storage Cost
 - description: Storage cost from pallets, daily rate and days.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/warehouse-storage-cost-calculator
-- tier: free
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/warehouse-storage-cost-calculator
+- tier: premium
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -4140,9 +4140,9 @@
 ## welding-cost-estimator
 - title: Welding Cost Estimator
 - description: Material, labor and consumables for a weld job.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/welding-cost-estimator
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/welding-cost-estimator
+- tier: premium
+- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
 - routeStatus: active-route
 - intent: calculator, decision-support
 
@@ -4257,11 +4257,11 @@
 ## z-score-calculator
 - title: Z-Score Calculator
 - description: Standard score from value, mean and standard deviation.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/z-score-calculator
-- tier: free
-- category: technology-ai-cloud-cyber (Technology, AI, Cloud & Cyber Risk)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/z-score-calculator
+- tier: premium
+- category: quality-six-sigma (Quality, SPC & Six Sigma)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: quality, spc, six-sigma, statistics
 
 ## zaman-etudu-ve-standart-sure-calculator
 - title: Zaman Etudu Ve Standart Sure

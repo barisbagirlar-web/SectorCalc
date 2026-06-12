@@ -8,6 +8,7 @@
  * - Schema Linter validates before build.
  */
 
+import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
 import type { FormulaFamilyId } from "@/lib/premium-schema/formula-families";
 
 export type { PremiumCalculatorCategory } from "@/lib/premium-schema/formula-families";
@@ -144,4 +145,5 @@ export interface PremiumSchemaEngineResult {
   readonly p90ExposureFormatted: string;
   readonly minimumSafePrice: number;
   readonly minimumSafePriceFormatted: string;
+  readonly sevenMudaEngineering?: SevenMudaEngineeringResult;
 }

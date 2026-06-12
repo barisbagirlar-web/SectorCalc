@@ -20,9 +20,9 @@ import { PREMIUM_FULL_LOOP_RUNTIME_SLUGS } from "@/lib/formula-governance/runtim
 
 describe("premium-schema batch governance", () => {
   test("classifies all premium schemas", () => {
-    expect(PREMIUM_SCHEMA_CLASSIFICATION).toHaveLength(50);
+    expect(PREMIUM_SCHEMA_CLASSIFICATION).toHaveLength(51);
     const summary = summarizePremiumSchemaClassification();
-    expect(summary.totalSchemas).toBe(50);
+    expect(summary.totalSchemas).toBe(51);
     expect(summary.groupCounts.A).toBe(11);
   });
 

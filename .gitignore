@@ -16,6 +16,10 @@ scripts/.cache/
 public/[0-9a-f][0-9a-f-]*.txt
 !public/indexnow-key-example.txt
 
+# AI repair local history (never commit)
+.sectorcalc/
+ai-repair-history.jsonl
+
 # env / secrets
 .env
 .env.local

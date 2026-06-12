@@ -69,7 +69,7 @@ const BATCH3_FORMULA_IDS = [
 describe("premium-schema-batch3", () => {
   test("PREMIUM_SCHEMAS length === 50", () => {
     expect(PREMIUM_SCHEMAS.length).toBe(50);
-    expect(listPremiumSchemaIds().length).toBe(50);
+    expect(listPremiumSchemaIds().length).toBe(51);
   });
 
   test("new 15 slugs exist in schema index", () => {
@@ -161,7 +161,7 @@ describe("premium-schema-batch3", () => {
     expect(fullGated.hiddenDrivers.length).toBeGreaterThanOrEqual(previewGated.hiddenDrivers.length);
   });
 
-  test("all 50 schemas produce finite results", () => {
+  test("all 51 schemas produce finite results", () => {
     for (const schema of PREMIUM_CALCULATOR_SCHEMAS) {
       const result = runPremiumSchemaEngine(schema, buildDefaultSchemaInputs(schema));
       expect(schemaHasFiniteResults(result)).toBe(true);

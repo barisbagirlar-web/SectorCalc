@@ -49,6 +49,7 @@ import { ENERGY_SAVINGS_PACKAGE_CALCULATOR_SCHEMA } from "@/lib/premium-schema/s
 import { INVESTMENT_PAYBACK_NPV_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/investment-payback-npv-calculator";
 import { ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/annual-leave-severance-notice-calculator";
 import { BELT_PULLEY_SPEED_LENGTH_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/belt-pulley-speed-length-calculator";
+import { SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/7-israf-muda-avcisi-parasal-karsilik-calculator";
 
 export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
   CNC_OEE_LOSS_SCHEMA,
@@ -101,6 +102,7 @@ export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
   INVESTMENT_PAYBACK_NPV_CALCULATOR_SCHEMA,
   ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_SCHEMA,
   BELT_PULLEY_SPEED_LENGTH_CALCULATOR_SCHEMA,
+  SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA,
 ];
 
 /** Maps legacy revenue paidSlug → schema id (pilot bridge only). */

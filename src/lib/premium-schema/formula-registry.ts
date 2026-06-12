@@ -9,6 +9,10 @@ import {
   FORMULA_FAMILY_LABELS,
   type FormulaFamilyId,
 } from "@/lib/premium-schema/formula-families";
+import {
+  getPrimedSevenMudaEngineeringResult,
+  resolveHighestWasteCategoryIndex,
+} from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
 import type { PremiumOutputFormat } from "@/lib/premium-schema/premium-calculator-schema";
 
 export type FormulaInputs = Readonly<Record<string, number>>;
@@ -727,6 +731,69 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
     },
   },
   {
+    id: "lean.muda_overproduction_cost",
+    family: "cost",
+    label: "Overproduction waste cost with holding uplift",
+    fn: () => getPrimedSevenMudaEngineeringResult().overproductionCost,
+  },
+  {
+    id: "lean.muda_waiting_cost",
+    family: "cost",
+    label: "Waiting waste cost",
+    fn: () => getPrimedSevenMudaEngineeringResult().waitingCost,
+  },
+  {
+    id: "lean.muda_transport_cost",
+    family: "cost",
+    label: "Transport waste cost",
+    fn: () => getPrimedSevenMudaEngineeringResult().transportCost,
+  },
+  {
+    id: "lean.muda_inventory_cost",
+    family: "cost",
+    label: "Excess inventory holding waste cost",
+    fn: () => getPrimedSevenMudaEngineeringResult().inventoryCost,
+  },
+  {
+    id: "lean.muda_motion_cost",
+    family: "cost",
+    label: "Unnecessary motion waste cost",
+    fn: () => getPrimedSevenMudaEngineeringResult().motionCost,
+  },
+  {
+    id: "lean.muda_overprocessing_cost",
+    family: "cost",
+    label: "Overprocessing waste cost",
+    fn: () => getPrimedSevenMudaEngineeringResult().overprocessingCost,
+  },
+  {
+    id: "lean.muda_defect_cost",
+    family: "cost",
+    label: "Defect waste cost from scrap and rework",
+    fn: () => getPrimedSevenMudaEngineeringResult().defectCost,
+  },
+  {
+    id: "lean.muda_total_waste_cost",
+    family: "cost",
+    label: "Seven muda total waste cost",
+    fn: () => getPrimedSevenMudaEngineeringResult().totalWasteCost,
+  },
+  {
+    id: "lean.muda_highest_waste_index",
+    family: "cost",
+    label: "Highest muda waste category rank",
+    fn: () =>
+      resolveHighestWasteCategoryIndex({
+        overproductionCost: getPrimedSevenMudaEngineeringResult().overproductionCost,
+        waitingCost: getPrimedSevenMudaEngineeringResult().waitingCost,
+        transportCost: getPrimedSevenMudaEngineeringResult().transportCost,
+        inventoryCost: getPrimedSevenMudaEngineeringResult().inventoryCost,
+        motionCost: getPrimedSevenMudaEngineeringResult().motionCost,
+        overprocessingCost: getPrimedSevenMudaEngineeringResult().overprocessingCost,
+        defectCost: getPrimedSevenMudaEngineeringResult().defectCost,
+      }),
+  },
+  {
     id: "energy.monthly_kwh_savings",
     family: "energy",
     label: "Monthly kWh savings from baseline minus proposed",
@@ -1310,6 +1377,51 @@ const FORMULA_META_DETAILS: Record<
     description: "Value-added minutes as percent of total lead time.",
     requiredInputs: ["valueAddedMinutes", "totalLeadMinutes"],
     outputHint: "percentage",
+  },
+  "lean.muda_overproduction_cost": {
+    description: "REV5 overproduction waste cost from the primed engineering model.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_waiting_cost": {
+    description: "REV5 waiting waste cost from the primed engineering model.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_transport_cost": {
+    description: "REV5 transport waste cost from the primed engineering model.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_inventory_cost": {
+    description: "REV5 inventory waste cost from the primed engineering model.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_motion_cost": {
+    description: "REV5 motion waste cost from the primed engineering model.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_overprocessing_cost": {
+    description: "REV5 overprocessing waste cost from the primed engineering model.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_defect_cost": {
+    description: "REV5 defect waste cost from the primed engineering model.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_total_waste_cost": {
+    description: "REV5 total waste cost from the primed engineering model.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_highest_waste_index": {
+    description: "Rank of the highest REV5 muda waste category (1–7).",
+    requiredInputs: [],
+    outputHint: "number",
   },
   "energy.monthly_kwh_savings": {
     description: "Monthly kWh reduction from baseline to proposed consumption.",

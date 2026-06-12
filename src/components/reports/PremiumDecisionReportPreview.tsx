@@ -30,6 +30,9 @@ import {
 } from "@/lib/premium-schema/format-premium-result";
 import { getPremiumClaimCopy } from "@/lib/premium-schema/premium-claim-copy";
 import { worstThresholdSeverity } from "@/lib/premium-schema/premium-schema-engine";
+import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
+import type { SevenMudaWasteCategoryKey } from "@/lib/premium-schema/calculators/seven-muda-waste-decision";
+import { formatPremiumValue } from "@/lib/premium-schema/format-premium-result";
 
 export type PremiumDecisionReportPreviewProps = {
   schema: PremiumCalculatorSchema;
@@ -243,6 +246,213 @@ function DecisionValueSection({
   );
 }
 
+const SEVEN_MUDA_SUMMARY_LEVEL_LABELS: Record<
+  SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
+  string
+> = {
+  no_detected_waste: "No detected waste",
+  low: "Low exposure",
+  medium: "Medium exposure",
+  high: "High exposure",
+  critical: "Critical exposure",
+};
+
+const SEVEN_MUDA_CONFIDENCE_LABELS: Record<SevenMudaEngineeringResult["confidenceLevel"], string> = {
+  high: "High",
+  medium: "Medium",
+  low: "Low",
+};
+
+function sevenMudaCategoryLabel(
+  key: SevenMudaWasteCategoryKey | "none",
+  breakdown: SevenMudaEngineeringResult["wasteBreakdown"],
+): string {
+  if (key === "none") {
+    return "None";
+  }
+  return breakdown.find((item) => item.key === key)?.label ?? key;
+}
+
+function SevenMudaRev5DecisionSection({
+  engineering,
+  locale,
+}: {
+  engineering: SevenMudaEngineeringResult;
+  locale: string;
+}) {
+  const fmtCurrency = (value: number) => formatPremiumValue(value, "currency", "", locale);
+  const fmtPercent = (value: number) => formatPremiumValue(value, "percent", "%", locale);
+  const fmtNumber = (value: number) => formatPremiumValue(value, "number", "", locale);
+  const verdict = engineering.decisionVerdict;
+
+  return (
+    <>
+      <section className="sc-premium-decision-report__section" aria-label="Executive summary">
+        <h3 className="sc-premium-decision-report__heading">Executive summary</h3>
+        <dl className="sc-premium-driver-grid">
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Total waste cost</dt>
+            <dd className="sc-premium-driver-grid__value">{fmtCurrency(engineering.totalWasteCost)}</dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Annualized waste cost</dt>
+            <dd className="sc-premium-driver-grid__value">{fmtCurrency(engineering.annualizedWasteCost)}</dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Waste cost per unit</dt>
+            <dd className="sc-premium-driver-grid__value">{fmtCurrency(engineering.wasteCostPerUnit)}</dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Period revenue</dt>
+            <dd className="sc-premium-driver-grid__value">{fmtCurrency(engineering.periodRevenue)}</dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Period gross margin value</dt>
+            <dd className="sc-premium-driver-grid__value">
+              {fmtCurrency(engineering.periodGrossMarginValue)}
+            </dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Waste to revenue ratio</dt>
+            <dd className="sc-premium-driver-grid__value">
+              {fmtPercent(engineering.wasteToRevenueRatioPct)}
+            </dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Waste to gross margin ratio</dt>
+            <dd className="sc-premium-driver-grid__value">
+              {fmtPercent(engineering.wasteToGrossMarginRatioPct)}
+            </dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Highest waste category</dt>
+            <dd className="sc-premium-driver-grid__value">
+              {sevenMudaCategoryLabel(engineering.highestWasteCategory, engineering.wasteBreakdown)}
+            </dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">First action category</dt>
+            <dd className="sc-premium-driver-grid__value">
+              {sevenMudaCategoryLabel(verdict.firstActionCategory, engineering.wasteBreakdown)}
+            </dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Confidence level</dt>
+            <dd className="sc-premium-driver-grid__value">
+              {SEVEN_MUDA_CONFIDENCE_LABELS[engineering.confidenceLevel]}
+            </dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Risk-adjusted priority score</dt>
+            <dd className="sc-premium-driver-grid__value">
+              {fmtNumber(engineering.riskAdjustedPriorityScore)}
+            </dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Double-count risk</dt>
+            <dd className="sc-premium-driver-grid__value">
+              {verdict.hasDoubleCountRisk ? "Detected" : "None detected"}
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section className="sc-premium-decision-report__section" aria-label="Decision verdict">
+        <h3 className="sc-premium-decision-report__heading">Decision verdict</h3>
+        <p className="sc-premium-decision-report__intro">
+          {SEVEN_MUDA_SUMMARY_LEVEL_LABELS[verdict.summaryLevel]}
+        </p>
+        <dl className="sc-premium-driver-grid">
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Biggest cost category</dt>
+            <dd className="sc-premium-driver-grid__value">
+              {sevenMudaCategoryLabel(verdict.biggestCostCategory, engineering.wasteBreakdown)}
+            </dd>
+          </div>
+          <div className="sc-premium-driver-grid__item">
+            <dt className="sc-premium-driver-grid__label">Data confidence</dt>
+            <dd className="sc-premium-driver-grid__value">
+              {SEVEN_MUDA_CONFIDENCE_LABELS[verdict.dataConfidence]}
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section className="sc-premium-decision-report__section" aria-label="Waste breakdown">
+        <h3 className="sc-premium-decision-report__heading">Waste breakdown</h3>
+        <div className="overflow-x-auto">
+          <table className="sc-premium-table w-full text-left text-sm">
+            <thead>
+              <tr>
+                <th className="sc-premium-table__head">Category</th>
+                <th className="sc-premium-table__head">Cost</th>
+                <th className="sc-premium-table__head">Share</th>
+                <th className="sc-premium-table__head">Action priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              {engineering.wasteBreakdown.map((item) => (
+                <tr key={item.key}>
+                  <td className="sc-premium-table__cell">{item.label}</td>
+                  <td className="sc-premium-table__cell">{fmtCurrency(item.cost)}</td>
+                  <td className="sc-premium-table__cell">{fmtPercent(item.sharePct)}</td>
+                  <td className="sc-premium-table__cell">{fmtNumber(item.actionPriorityScore)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="sc-premium-decision-report__section" aria-label="Recommended action order">
+        <h3 className="sc-premium-decision-report__heading">Recommended action order</h3>
+        <ol className="sc-premium-action-steps list-decimal pl-5">
+          {engineering.recommendedActionOrder.map((key) => (
+            <li key={key}>
+              {sevenMudaCategoryLabel(key, engineering.wasteBreakdown)}
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="sc-premium-decision-report__section" aria-label="Recovery scenarios">
+        <h3 className="sc-premium-decision-report__heading">Recovery scenarios</h3>
+        <div className="overflow-x-auto">
+          <table className="sc-premium-table w-full text-left text-sm">
+            <thead>
+              <tr>
+                <th className="sc-premium-table__head">Reduction</th>
+                <th className="sc-premium-table__head">Period savings</th>
+                <th className="sc-premium-table__head">Annual savings</th>
+              </tr>
+            </thead>
+            <tbody>
+              {engineering.recoveryScenarios.map((scenario) => (
+                <tr key={scenario.reductionPct}>
+                  <td className="sc-premium-table__cell">{fmtPercent(scenario.reductionPct)}</td>
+                  <td className="sc-premium-table__cell">{fmtCurrency(scenario.periodSavings)}</td>
+                  <td className="sc-premium-table__cell">{fmtCurrency(scenario.annualSavings)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {engineering.doubleCountWarnings.length > 0 ? (
+        <section className="sc-premium-decision-report__section" aria-label="Warnings">
+          <h3 className="sc-premium-decision-report__heading">Warnings</h3>
+          <ul className="sc-premium-assumption-list">
+            {engineering.doubleCountWarnings.map((warning) => (
+              <li key={warning}>{warning}</li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+    </>
+  );
+}
+
 function ExportPreviewRow({
   payload,
   printHref,
@@ -304,6 +514,13 @@ export function PremiumDecisionReportPreview({
         <h2 className="sc-premium-decision-report__title">{schema.name}</h2>
         <p className="sc-premium-decision-report__subtitle">{schema.reportTemplate.title}</p>
       </header>
+
+      {result.sevenMudaEngineering ? (
+        <SevenMudaRev5DecisionSection
+          engineering={result.sevenMudaEngineering}
+          locale={locale}
+        />
+      ) : null}
 
       {!compact ? (
         <>
@@ -372,7 +589,7 @@ export function PremiumDecisionReportPreview({
   );
 }
 
-export { ExecutiveVerdictBlock, BigNumberSummary, LossDriverBreakdown, ThresholdStatusSection, SuggestedActionSection };
+export { ExecutiveVerdictBlock, BigNumberSummary, LossDriverBreakdown, ThresholdStatusSection, SuggestedActionSection, SevenMudaRev5DecisionSection };
 
 export function buildPremiumDecisionReportData(
   schema: PremiumCalculatorSchema,

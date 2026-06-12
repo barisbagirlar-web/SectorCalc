@@ -1,0 +1,129 @@
+"use client";
+
+import { useState, useMemo } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { Search } from "lucide-react";
+import { Link } from "@/i18n/routing";
+import { CalculatorFilterBar } from "@/components/catalog/CalculatorFilterBar";
+
+export type SearchablePremiumTool = {
+  readonly slug: string;
+  readonly title: string;
+  readonly description: string;
+  readonly categorySlug: string;
+  readonly routePath: string | null;
+  readonly isActive: boolean;
+};
+
+export type SearchablePremiumCategory = {
+  readonly slug: string;
+  readonly title: string;
+  readonly count: number;
+};
+
+type Props = {
+  readonly tools: readonly SearchablePremiumTool[];
+  readonly categories: readonly SearchablePremiumCategory[];
+};
+
+function normalizeStr(value: string, locale: string): string {
+  return value
+    .toLocaleLowerCase(locale)
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .trim();
+}
+
+export function PremiumCatalogSearch({ tools, categories }: Props) {
+  const t = useTranslations("premiumCategoryCatalog");
+  const locale = useLocale();
+
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const tabs = useMemo(
+    () => [
+      { id: "all", label: t("allCategory"), count: tools.length },
+      ...categories.map((c) => ({ id: c.slug, label: c.title, count: c.count })),
+    ],
+    [tools.length, categories, t],
+  );
+
+  const visibleTools = useMemo(() => {
+    const normalizedQuery = normalizeStr(searchQuery, locale);
+    const categoryFiltered =
+      selectedCategory === "all"
+        ? tools
+        : tools.filter((tool) => tool.categorySlug === selectedCategory);
+
+    if (normalizedQuery.length === 0) return categoryFiltered;
+
+    return categoryFiltered.filter((tool) => {
+      const haystack = normalizeStr(
+        [tool.title, tool.slug, tool.categorySlug, tool.description].filter(Boolean).join(" "),
+        locale,
+      );
+      return haystack.includes(normalizedQuery);
+    });
+  }, [tools, selectedCategory, searchQuery, locale]);
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="relative">
+        <Search
+          className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-body-charcoal"
+          aria-hidden="true"
+        />
+        <input
+          type="search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder={t("searchPlaceholder")}
+          aria-label={t("searchPlaceholder")}
+          className="w-full min-h-[44px] rounded border border-technical-gray bg-white py-2.5 pl-10 pr-4 text-sm text-premium-velvet placeholder:text-body-charcoal focus:border-sc-copper focus:outline-none"
+        />
+      </div>
+      <CalculatorFilterBar
+        tabs={tabs}
+        activeTabId={selectedCategory}
+        onTabChange={setSelectedCategory}
+        ariaLabel={t("allCategory")}
+      />
+      <p className="text-xs text-body-charcoal">
+        {t("resultCount", { count: visibleTools.length })}
+      </p>
+      {visibleTools.length === 0 ? (
+        <p className="py-10 text-center text-sm text-body-charcoal">{t("noResults")}</p>
+      ) : (
+        <div className="sc-premium-tool-grid">
+          {visibleTools.map((tool) =>
+            tool.isActive && tool.routePath ? (
+              <article
+                key={tool.slug}
+                id={"tool-" + tool.slug}
+                className="sc-premium-tool-card sc-premium-tool-card--active"
+              >
+                <Link href={tool.routePath} prefetch={false} className="sc-premium-tool-card__link">
+                  <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
+                  <p className="sc-premium-tool-card__description">{tool.description}</p>
+                  <p className="sc-premium-tool-card__meta">{t("openCalculator")}</p>
+                </Link>
+              </article>
+            ) : (
+              <article
+                key={tool.slug}
+                id={"tool-" + tool.slug}
+                className="sc-premium-tool-card sc-premium-tool-card--pending"
+                aria-disabled="true"
+              >
+                <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
+                <p className="sc-premium-tool-card__description">{tool.description}</p>
+                <p className="sc-premium-tool-card__meta">{t("methodologyPreparing")}</p>
+              </article>
+            ),
+          )}
+        </div>
+      )}
+    </div>
+  );
+}

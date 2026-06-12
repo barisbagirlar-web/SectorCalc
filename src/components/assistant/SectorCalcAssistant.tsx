@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
 import type { AssistantResult, AssistantSuggestion } from "@/lib/assistant/types";
+import type { CustomerAiSafeResponse } from "@/lib/ai-gateway/customer-ai-types";
 
 type ChatMessage = {
   readonly id: number;
@@ -19,8 +20,33 @@ const QUICK_ACTIONS = [
   { key: "enterprise", message: "Tell me about enterprise and team usage." },
 ] as const;
 
+function extractToolSlug(pathname: string): string {
+  const match = pathname.match(/\/tools\/(?:free|premium)\/([^/]+)/);
+  return match?.[1] ?? "";
+}
+
+function gatewayFallbackMessage(locale: string): string {
+  return locale === "tr"
+    ? "Şu anda AI yardımcısı yanıt üretemedi. Hesaplama alanlarını kontrol ederek tekrar deneyin."
+    : "The AI assistant could not generate a response. Check the calculation fields and try again.";
+}
+
+function buildGatewaySuggestion(result: CustomerAiSafeResponse): AssistantSuggestion | null {
+  if (!result.suggestedToolSlug || !result.suggestedToolPath) {
+    return null;
+  }
+
+  return {
+    slug: result.suggestedToolSlug,
+    label: result.suggestedToolSlug,
+    href: result.suggestedToolPath,
+  };
+}
+
 export function SectorCalcAssistant() {
   const t = useTranslations("assistant");
+  const locale = useLocale();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -33,6 +59,32 @@ export function SectorCalcAssistant() {
     return idRef.current;
   };
 
+  async function requestDeterministicAssistant(message: string): Promise<ChatMessage | null> {
+    const res = await fetch("/api/assistant", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message }),
+    });
+
+    if (!res.ok) {
+      return null;
+    }
+
+    const data = (await res.json()) as { ok: boolean; result?: AssistantResult };
+    const result = data.result;
+    if (!result) {
+      return null;
+    }
+
+    const replyKey = `reply.${result.topic}` as const;
+    return {
+      id: nextId(),
+      role: "assistant",
+      text: t(replyKey),
+      suggestions: result.suggestions,
+    };
+  }
+
   async function send(rawMessage: string) {
     const message = rawMessage.trim();
     if (!message || loading) {
@@ -44,27 +96,51 @@ export function SectorCalcAssistant() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/assistant", {
+      const gatewayRes = await fetch("/api/ai-gateway/customer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({
+          locale,
+          message,
+          currentPath: pathname,
+          currentToolSlug: extractToolSlug(pathname),
+        }),
       });
-      if (!res.ok) {
-        throw new Error(`status ${res.status}`);
+
+      if (gatewayRes.ok) {
+        const gatewayData = (await gatewayRes.json()) as {
+          ok: boolean;
+          result?: CustomerAiSafeResponse;
+        };
+        const result = gatewayData.result;
+
+        if (result?.answer) {
+          const suggestion = buildGatewaySuggestion(result);
+          setMessages((prev) => [
+            ...prev,
+            {
+              id: nextId(),
+              role: "assistant",
+              text: result.answer,
+              suggestions: suggestion ? [suggestion] : undefined,
+            },
+          ]);
+          return;
+        }
       }
-      const data = (await res.json()) as { ok: boolean; result?: AssistantResult };
-      const result = data.result;
-      if (!result) {
-        throw new Error("no result");
+
+      const fallbackMessage = await requestDeterministicAssistant(message);
+      if (fallbackMessage) {
+        setMessages((prev) => [...prev, fallbackMessage]);
+        return;
       }
-      const replyKey = `reply.${result.topic}` as const;
+
       setMessages((prev) => [
         ...prev,
         {
           id: nextId(),
           role: "assistant",
-          text: t(replyKey),
-          suggestions: result.suggestions,
+          text: gatewayFallbackMessage(locale),
         },
       ]);
     } catch {

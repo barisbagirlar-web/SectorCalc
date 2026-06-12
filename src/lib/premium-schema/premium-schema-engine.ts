@@ -9,6 +9,8 @@ import {
   normalizeLocale,
   type SupportedLocale,
 } from "@/lib/format/localization";
+import { bindSevenMudaEngineeringSchemaInputs } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
+import { getPrimedSevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
 import { getFormulaFn } from "@/lib/premium-schema/formula-registry";
 import type {
   PremiumCalculatorSchema,
@@ -221,6 +223,33 @@ export function runPremiumSchemaEngine(
 ): PremiumSchemaEngineResult {
   const formatLocale = normalizeLocale(locale);
   const userInputs = normalizeSchemaInputs(schema, rawInputs);
+  const usesSevenMudaPriming = schema.id === "7-israf-muda-avcisi-parasal-karsilik-calculator";
+
+  bindSevenMudaEngineeringSchemaInputs(null);
+
+  try {
+    if (usesSevenMudaPriming) {
+      bindSevenMudaEngineeringSchemaInputs(userInputs);
+    }
+
+    const coreResult = runPremiumSchemaEngineCore(schema, userInputs, formatLocale);
+    if (!usesSevenMudaPriming) {
+      return coreResult;
+    }
+    return {
+      ...coreResult,
+      sevenMudaEngineering: getPrimedSevenMudaEngineeringResult(),
+    };
+  } finally {
+    bindSevenMudaEngineeringSchemaInputs(null);
+  }
+}
+
+function runPremiumSchemaEngineCore(
+  schema: PremiumCalculatorSchema,
+  userInputs: SchemaInputValues,
+  formatLocale: SupportedLocale,
+): PremiumSchemaEngineResult {
   const computed: Record<string, number> = {
     hiddenMultiplierConst: schema.assumptions.hiddenLossMultiplier,
   };

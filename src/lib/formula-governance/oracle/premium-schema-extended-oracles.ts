@@ -8,6 +8,7 @@ import type { SchemaInputValues } from "@/lib/premium-schema/premium-calculator-
 import { runPremiumSchemaEngine } from "@/lib/premium-schema/premium-schema-engine";
 
 export const PREMIUM_SCHEMA_EXTENDED_ORACLE_SCHEMA_IDS = [
+  "7-israf-muda-avcisi-parasal-karsilik-calculator",
   "annual-leave-severance-notice-calculator",
   "auto-repair-parts-labor-quote-calculator",
   "belt-pulley-speed-length-calculator",

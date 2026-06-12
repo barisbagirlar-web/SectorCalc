@@ -14,6 +14,7 @@ import { BATCH_TRAFFIC_CATALOG_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-
 import { BATCH_PREMIUM_SCHEMA_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/batch-premium-schema-critical";
 import { ROADMAP_FREE_BATCH_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/roadmap-free-batch-critical";
 import { PREMIUM_SCHEMA_EXTENDED_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/premium-schema-extended-critical";
+import { SEVEN_MUDA_WASTE_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/seven-muda-waste-cost-critical";
 import { ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/engine-modules-critical";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
 
@@ -220,6 +221,7 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   ...BATCH_PREMIUM_SCHEMA_CRITICAL_FORMULA_CONTRACTS,
   ...ROADMAP_FREE_BATCH_CRITICAL_FORMULA_CONTRACTS,
   ...PREMIUM_SCHEMA_EXTENDED_CRITICAL_FORMULA_CONTRACTS,
+  ...SEVEN_MUDA_WASTE_COST_CRITICAL_FORMULA_CONTRACTS,
   ...ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS,
 ];
 
