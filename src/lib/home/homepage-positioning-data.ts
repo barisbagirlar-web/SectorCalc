@@ -135,7 +135,7 @@ export function isHomepageCriticalToolLive(tool: HomepageCriticalToolDef): boole
     case "premium-schema":
       return getPremiumCalculatorSchema(tool.slug) !== null;
     case "premium":
-      return getRevenueToolByFreeSlug(tool.slug) !== undefined;
+      return getRevenueToolByFreeSlug(tool.slug) !== null;
     default:
       return false;
   }
