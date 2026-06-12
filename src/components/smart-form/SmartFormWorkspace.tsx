@@ -12,6 +12,8 @@ import {
 } from "@/lib/smart-form/smart-form-adapter";
 import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
 import { buildGuidanceFieldsFromInputConfig } from "@/lib/guidance/build-guidance-fields";
+import { UsageAgreementNotice } from "@/components/disclaimer/UsageAgreementNotice";
+import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
 import type { SmartFormResult, SmartFormTier } from "@/lib/smart-form/types";
 
 export type SmartFormWorkspaceProps = {
@@ -145,16 +147,31 @@ export function SmartFormWorkspace({
       description={description ?? (adapter.ok ? adapter.decisionGoal : undefined)}
       tier={tier}
       fallback={!useAdapter}
-      formContent={guidedFormContent}
+      formContent={
+        <div className="space-y-4">
+          <UsageAgreementNotice
+            toolSlug={toolSlug}
+            tier={tier === "premium" ? "premium" : "free"}
+            sector={toolSector}
+            category={toolCategory}
+          />
+          {guidedFormContent}
+        </div>
+      }
       expertContent={expertContent}
       resultContent={
-        <SmartResultPanel
-          result={resultSummary}
-          calculationSteps={adapter.ok ? adapter.calculationSteps : []}
-          trustTraceSlot={trustTraceSlot}
-        >
-          {resultPanel}
-        </SmartResultPanel>
+        <ResultLayerTabs
+          quickContent={
+            <SmartResultPanel
+              result={resultSummary}
+              calculationSteps={adapter.ok ? adapter.calculationSteps : []}
+              trustTraceSlot={undefined}
+            >
+              {resultPanel}
+            </SmartResultPanel>
+          }
+          deepContent={trustTraceSlot ?? undefined}
+        />
       }
       trustTraceContent={trustTraceSlot ?? resultPanel}
     />

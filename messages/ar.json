@@ -8208,5 +8208,88 @@
     "inputCount": "~{count} مدخلات",
     "sectorToolCounts": "{free} مجاني · {premium} مميز",
     "resultsLabel": "عرض <strong>{count}</strong> حاسبة"
+  },
+  "disclaimer": {
+    "standard": {
+      "title": "Usage agreement",
+      "body": "This calculation provides a preliminary assessment based on your inputs and deterministic methodology. Results do not replace quotes, investment, engineering, tax, legal, or safety decisions. For critical decisions, verify with your own data, qualified experts, and applicable regulations."
+    },
+    "elevated": {
+      "title": "Important usage notice",
+      "body": "This tool models commercial or compliance-sensitive exposure. Outputs are indicative only and must be validated against your contracts, payroll records, and local rules before action."
+    },
+    "engineering": {
+      "title": "Engineering reference notice",
+      "body": "This tool provides standard-referenced pre-calculation only. Final design, safety, and conformity decisions require authorized engineering review."
+    }
+  },
+  "standards": {
+    "selectorTitle": "Engineering standard context",
+    "selectorLabel": "Reference standard system",
+    "selectorNote": "Default follows region; you may switch reference systems for comparison.",
+    "engineeringWarning": "This tool provides standard-referenced pre-calculation only. Final design, safety, and conformity decisions require authorized engineering review.",
+    "systems": {
+      "AWS": "AWS",
+      "ISO_EN": "ISO / EN",
+      "JIS": "JIS",
+      "UNC_UNF": "UNC / UNF",
+      "ISO_METRIC": "ISO metric",
+      "ASME_BPVC": "ASME BPVC",
+      "PED_EN_13445": "PED / EN 13445",
+      "ASTM_AISI": "ASTM / AISI",
+      "EN_DIN": "EN / DIN",
+      "ASME_Y14_5": "ASME Y14.5",
+      "ISO_GPS": "ISO GPS",
+      "AISC": "AISC",
+      "EUROCODE": "Eurocode"
+    }
+  },
+  "calculationFeedback": {
+    "prompt": "See an error in this result?",
+    "cta": "Send a suggestion or correction",
+    "modalTitle": "Calculation feedback",
+    "close": "Close",
+    "issueTypeLabel": "Issue type",
+    "messageLabel": "Description",
+    "emailLabel": "Email (optional)",
+    "submit": "Send feedback",
+    "submitting": "Sending…",
+    "success": "Thank you — your note was queued for review.",
+    "issueTypes": {
+      "wrong-result": "Incorrect result",
+      "formula-suggestion": "Formula suggestion",
+      "unit-error": "Unit error",
+      "translation-error": "Translation error",
+      "other": "Other"
+    },
+    "error": {
+      "submitFailed": "Could not send feedback. Try again shortly."
+    }
+  },
+  "resultLayers": {
+    "quickTab": "Quick result",
+    "deepTab": "Detailed trace",
+    "deepTitle": "Detailed explanation"
+  },
+  "developerShowcase": {
+    "meta": {
+      "title": "Developer showcase | SectorCalc",
+      "description": "Semantic reference for AI-readable SectorCalc calculator discovery."
+    },
+    "eyebrow": "Semantic reference",
+    "title": "SectorCalc developer showcase",
+    "intro": "This page explains how SectorCalc tools expose structured inputs, outputs, and JSON-LD for AI agents. It is a public reference — not a private API endpoint.",
+    "semantic": {
+      "title": "JSON-LD structure",
+      "body": "Calculator routes expose schema.org actions and software application metadata.",
+      "item1": "WebSite + Organization on core pages",
+      "item2": "CalculateAction on calculator detail routes",
+      "item3": "Premium analyzers include decision-report metadata where applicable"
+    },
+    "resources": {
+      "title": "Public resources",
+      "library": "Calculator library",
+      "note": "No secrets, admin routes, or entitlement bypass are exposed here."
+    }
   }
 }

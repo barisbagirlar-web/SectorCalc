@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } 
 import { useLocale, useTranslations } from "next-intl";
 import { formatSmartFormFieldError } from "@/lib/i18n/smart-form-validation-i18n";
 import { usePathname } from "@/i18n/routing";
-import { ToolFeedbackPanel } from "@/components/feedback/ToolFeedbackPanel";
+import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
 import { stripLocalePrefix } from "@/i18n/locales";
 import { buildSmartFormPilotCalculationPayload } from "@/components/tools/smart-form/build-smart-form-pilot-calculation-payload";
@@ -553,13 +553,11 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
    }
    trustTraceSlot={undefined}
   />
-  <ToolFeedbackPanel
+  <CalculationFeedbackButton
    toolSlug={tool.freeSlug}
    toolType="free"
-   source={useSmartFormPilot ? "smart_form" : "free_tool"}
    locale={locale}
    routePath={pagePath}
-   formulaContractId={useFullLoopRuntime ? tool.freeSlug : undefined}
    inputSnapshot={feedbackInputSnapshot}
    resultSnapshot={feedbackResultSnapshot}
   />

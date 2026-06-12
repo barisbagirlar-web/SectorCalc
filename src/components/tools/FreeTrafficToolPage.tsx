@@ -26,7 +26,7 @@ import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBl
 import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
 import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
-import { ToolFeedbackPanel } from "@/components/feedback/ToolFeedbackPanel";
+import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import {
@@ -543,13 +543,11 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
             </div>
           ) : null}
 
-          <ToolFeedbackPanel
+          <CalculationFeedbackButton
             toolSlug={tool.slug}
             toolType="free"
-            source={useFullLoopRuntime ? "smart_form" : "free_tool"}
             locale={locale}
             routePath={pagePath}
-            formulaContractId={useFullLoopRuntime ? tool.slug : undefined}
             inputSnapshot={feedbackInputSnapshot}
             resultSnapshot={feedbackResultSnapshot}
           />

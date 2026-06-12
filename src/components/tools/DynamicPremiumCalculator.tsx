@@ -23,6 +23,7 @@ import {
   buildDefaultSchemaInputs,
   runPremiumSchemaEngine,
 } from "@/lib/premium-schema/premium-schema-engine";
+import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { PremiumReportFeedback } from "@/components/reports/PremiumReportFeedback";
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
 import type { BenchmarkSnapshotValue } from "@/lib/benchmarks/benchmark-types";
@@ -363,13 +364,23 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                   </>
                 ) : null}
                 {feedbackSnapshots ? (
-                  <PremiumReportFeedback
-                    schemaSlug={schema.id}
-                    sectorSlug={schema.sectorSlug}
-                    reportSlug={schema.id}
-                    inputSnapshot={feedbackSnapshots.inputSnapshot}
-                    resultSnapshot={feedbackSnapshots.resultSnapshot}
-                  />
+                  <>
+                    <PremiumReportFeedback
+                      schemaSlug={schema.id}
+                      sectorSlug={schema.sectorSlug}
+                      reportSlug={schema.id}
+                      inputSnapshot={feedbackSnapshots.inputSnapshot}
+                      resultSnapshot={feedbackSnapshots.resultSnapshot}
+                    />
+                    <CalculationFeedbackButton
+                      toolSlug={schema.id}
+                      toolType="premium"
+                      locale={intlLocale}
+                      routePath={pagePath}
+                      inputSnapshot={feedbackSnapshots.inputSnapshot}
+                      resultSnapshot={feedbackSnapshots.resultSnapshot}
+                    />
+                  </>
                 ) : null}
               </div>
             ) : (

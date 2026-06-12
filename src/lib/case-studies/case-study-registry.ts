@@ -11,6 +11,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     sectorLabel: "Welding",
     title: "Representative welding shop scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem:
       "A fab shop quotes labor and material but under-loads fit-up, rework, and gas consumables — visible margin erodes after callbacks.",
     toolSlug: "welding-bid-risk-analyzer",
@@ -39,6 +40,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     sectorLabel: "CNC Manufacturing",
     title: "Representative CNC quote scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem:
       "Programming and setup time are omitted from quick quotes; machine time alone understates true job cost.",
     toolSlug: "cnc-quote-risk-analyzer",
@@ -59,6 +61,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     sectorLabel: "HVAC",
     title: "Representative HVAC project scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem:
       "Equipment and duct costs are visible; callback risk and commissioning buffers often missing from bids.",
     toolSlug: "hvac-project-margin-guard",
@@ -81,6 +84,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     sectorLabel: "Plumbing / Electrical",
     title: "Representative panel & plumbing job scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem:
       "Parts and labor quoted separately; inspection risk and callback trips compress net margin.",
     toolSlug: "plumbing-job-margin-verdict",
@@ -100,6 +104,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     sectorLabel: "Sheet Metal",
     title: "Representative sheet metal quote scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem: "Scrap rate and programming time excluded from laser-cut quotes.",
     toolSlug: "sheet-metal-quote-risk-tool",
     toolTitle: "Sheet Metal Quote Risk Tool",
@@ -121,6 +126,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     sectorLabel: "Commercial Cleaning",
     title: "Representative cleaning contract scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem: "Area and frequency quoted; supplies, travel, and overhead under-modeled.",
     toolSlug: "office-cleaning-bid-optimizer",
     toolTitle: "Office Cleaning Bid Optimizer",
@@ -139,6 +145,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     sectorLabel: "Restaurant",
     title: "Representative menu margin scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem: "Menu price set from ingredient list alone; waste and prep variance ignored.",
     toolSlug: "menu-profit-leak-detector",
     toolTitle: "Menu Profit Leak Detector",
@@ -157,6 +164,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     sectorLabel: "E-commerce",
     title: "Representative return erosion scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem: "Product margin looks healthy until return rate and handling erode net profit.",
     toolSlug: "return-profit-erosion-tool",
     toolTitle: "Return Profit Erosion Tool",
@@ -175,6 +183,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     sectorLabel: "Construction",
     title: "Representative change order scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem:
       "Change orders are approved on scope alone; schedule disruption, re-mobilization, and margin dilution are not priced in.",
     toolSlug: "change-order-impact-analyzer",
@@ -194,11 +203,33 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     disclaimer: CASE_STUDY_DISCLAIMER,
   },
   {
+    slug: "representative-logistics-route",
+    sector: "logistics",
+    sectorLabel: "Logistics",
+    title: "Representative logistics route scenario",
+    scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
+    problem:
+      "Dispatch quotes distance and fuel but under-models deadhead legs, stop-time burn, and route drift against planned mileage.",
+    toolSlug: "logistics-route-loss",
+    toolTitle: "Logistics Route Loss Analyzer",
+    inputSummary: ["Planned distance, actual distance", "Fuel cost, stop count, deadhead share"],
+    calculationLogic:
+      "Route cost loaded with drift multiplier and stop-time burn; indicative loss exposure vs planned route economics.",
+    lossType: "route_deadhead",
+    lossTypeLabel: "Route drift & deadhead exposure",
+    suggestedAction: "Review pricing if modeled route loss exceeds tolerance band.",
+    expectedImpact: "Indicative monthly route-loss exposure — not verified savings.",
+    assumptions: [CASE_STUDY_REPRESENTATIVE_LABEL],
+    disclaimer: CASE_STUDY_DISCLAIMER,
+  },
+  {
     slug: "representative-energy-efficiency",
     sector: "energy",
     sectorLabel: "Energy",
     title: "Representative energy efficiency scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem:
       "Facilities track energy spend but not avoidable demand from idle load, off-spec operation, and peak tariff exposure.",
     toolSlug: "energy-efficiency-report",
@@ -222,6 +253,7 @@ export const CASE_STUDY_REGISTRY: readonly CaseStudyEntry[] = [
     sectorLabel: "Sustainability / Compliance",
     title: "Representative CBAM exposure scenario",
     scenarioKind: "representative_scenario",
+    evidenceLevel: "representative-scenario",
     problem:
       "Exporters price product cost but overlook embedded-carbon cost exposure under carbon border mechanisms.",
     toolSlug: "cbam-compliance-verdict",

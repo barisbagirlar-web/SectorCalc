@@ -8279,5 +8279,88 @@
     "inputCount": "~{count} girdi",
     "sectorToolCounts": "{free} ücretsiz · {premium} premium",
     "resultsLabel": "<strong>{count}</strong> hesaplayıcı listeleniyor"
+  },
+  "disclaimer": {
+    "standard": {
+      "title": "Kullanım bildirimi",
+      "body": "Bu hesaplama, girilen verilere ve deterministik hesaplama metodolojisine göre ön değerlendirme sağlar. Sonuçlar; teklif, yatırım, mühendislik, vergi, hukuk veya güvenlik kararı yerine geçmez. Kritik kararlarda kendi verileriniz, yetkili uzman kontrolü ve geçerli mevzuat/standartlar esas alınmalıdır."
+    },
+    "elevated": {
+      "title": "Önemli kullanım uyarısı",
+      "body": "Bu araç ticari veya uyumluluk hassasiyeti taşıyan bir exposure modeli sunar. Çıktılar yalnızca göstergedir; aksiyon öncesi sözleşme, bordro ve yerel kurallarla doğrulanmalıdır."
+    },
+    "engineering": {
+      "title": "Mühendislik referans bildirimi",
+      "body": "Bu araç standard referanslı ön hesaplama sağlar. Nihai tasarım, güvenlik ve uygunluk kararı yetkili mühendislik kontrolü gerektirir."
+    }
+  },
+  "standards": {
+    "selectorTitle": "Mühendislik standard bağlamı",
+    "selectorLabel": "Referans standard sistemi",
+    "selectorNote": "Varsayılan bölgeye göre gelir; karşılaştırma için değiştirebilirsiniz.",
+    "engineeringWarning": "Bu araç standard referanslı ön hesaplama sağlar. Nihai tasarım, güvenlik ve uygunluk kararı yetkili mühendislik kontrolü gerektirir.",
+    "systems": {
+      "AWS": "AWS",
+      "ISO_EN": "ISO / EN",
+      "JIS": "JIS",
+      "UNC_UNF": "UNC / UNF",
+      "ISO_METRIC": "ISO metrik",
+      "ASME_BPVC": "ASME BPVC",
+      "PED_EN_13445": "PED / EN 13445",
+      "ASTM_AISI": "ASTM / AISI",
+      "EN_DIN": "EN / DIN",
+      "ASME_Y14_5": "ASME Y14.5",
+      "ISO_GPS": "ISO GPS",
+      "AISC": "AISC",
+      "EUROCODE": "Eurocode"
+    }
+  },
+  "calculationFeedback": {
+    "prompt": "Bu sonuçta hata mı gördünüz?",
+    "cta": "Öneri veya düzeltme gönder",
+    "modalTitle": "Hesaplama geri bildirimi",
+    "close": "Kapat",
+    "issueTypeLabel": "Konu tipi",
+    "messageLabel": "Açıklama",
+    "emailLabel": "E-posta (opsiyonel)",
+    "submit": "Geri bildirim gönder",
+    "submitting": "Gönderiliyor…",
+    "success": "Teşekkürler — notunuz inceleme kuyruğuna alındı.",
+    "issueTypes": {
+      "wrong-result": "Sonuç hatalı",
+      "formula-suggestion": "Formül önerisi",
+      "unit-error": "Birim hatası",
+      "translation-error": "Çeviri hatası",
+      "other": "Diğer"
+    },
+    "error": {
+      "submitFailed": "Geri bildirim gönderilemedi. Kısa süre sonra tekrar deneyin."
+    }
+  },
+  "resultLayers": {
+    "quickTab": "Hızlı sonuç",
+    "deepTab": "Detaylı iz",
+    "deepTitle": "Detaylı açıklama"
+  },
+  "developerShowcase": {
+    "meta": {
+      "title": "Geliştirici vitrin | SectorCalc",
+      "description": "AI ajanları için SectorCalc hesaplayıcı keşfi semantic referansı."
+    },
+    "eyebrow": "Semantic referans",
+    "title": "SectorCalc geliştirici vitrini",
+    "intro": "Bu sayfa SectorCalc araçlarının yapılandırılmış girdi/çıktı ve JSON-LD yapısını açıklar. Public referanstır — gizli API değildir.",
+    "semantic": {
+      "title": "JSON-LD yapısı",
+      "body": "Hesaplayıcı rotaları schema.org action ve uygulama metadata'sı sunar.",
+      "item1": "Çekirdek sayfalarda WebSite + Organization",
+      "item2": "Hesaplayıcı detay rotalarında CalculateAction",
+      "item3": "Premium analizlerde uygun olduğunda karar raporu metadata'sı"
+    },
+    "resources": {
+      "title": "Public kaynaklar",
+      "library": "Hesaplayıcı kütüphanesi",
+      "note": "Secret, admin rotası veya entitlement bypass burada yoktur."
+    }
   }
 }

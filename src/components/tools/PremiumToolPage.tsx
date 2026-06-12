@@ -43,7 +43,7 @@ import { DynamicSmartFormPilot } from "@/components/smart-form/DynamicSmartFormP
 import { buildSmartFormForTool } from "@/lib/smart-form/smart-form-adapter";
 import { hasPremiumSmartFormDefinition } from "@/lib/smart-form/premium-smart-form-definitions";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
-import { ToolFeedbackPanel } from "@/components/feedback/ToolFeedbackPanel";
+import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
@@ -722,13 +722,11 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  </section>
  <section className="border-t border-technical-gray/20 bg-white py-6">
  <Container>
- <ToolFeedbackPanel
+ <CalculationFeedbackButton
   toolSlug={runtimeSlug}
   toolType="premium"
-  source={usePremiumSmartForm ? "smart_form" : "premium_tool"}
   locale={locale}
   routePath={pagePath}
-  formulaContractId={useFullLoopRuntime ? runtimeSlug : undefined}
   inputSnapshot={feedbackInputSnapshot}
   resultSnapshot={feedbackResultSnapshot}
  />

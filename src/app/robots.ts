@@ -5,6 +5,8 @@ const COMMON_DISALLOW = [
   "/admin/",
   "/api/",
   "/logs/",
+  "/dashboard/",
+  "/preview/",
   "/*/print",
   "/*/tools/premium-schema/*/print",
   "/tools/premium-schema/*/print",
@@ -24,9 +26,9 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/", "/logs/", "/*/print", "/tools/premium-schema/*/print"],
       },
       {
-        userAgent: ["GPTBot", "ChatGPT-User", "PerplexityBot", "ClaudeBot"],
+        userAgent: ["GPTBot", "ChatGPT-User", "PerplexityBot", "ClaudeBot", "Google-Extended"],
         allow: "/",
-        disallow: ["/admin/", "/api/", "/logs/"],
+        disallow: ["/admin/", "/api/", "/logs/", "/dashboard/", "/preview/"],
       },
       {
         userAgent: ["CCBot", "Diffbot"],

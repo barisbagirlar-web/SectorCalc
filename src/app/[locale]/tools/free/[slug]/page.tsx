@@ -7,10 +7,10 @@ import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
-import {
-  buildCalculatorJsonLd,
-  buildFAQJsonLd,
-} from "@/lib/seo/schema-mesh";
+import { buildCalculatorJsonLd, buildFAQJsonLd } from "@/lib/seo/schema-mesh";
+import { buildCalculateActionSchema } from "@/lib/semantic/build-calculate-action-schema";
+import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
+import { siteUrl } from "@/config/site";
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import { getTierOneFreeToolMetadata } from "@/lib/seo/seo-refresh-priority";
@@ -227,6 +227,20 @@ export default async function FreeRevenueToolRoute({
       },
       locale,
     ),
+    buildCalculateActionSchema({
+      url: buildLocalizedUrl(`/tools/free/${trafficTool.slug}`, locale as AppLocale, siteUrl),
+      name: localizedTitle,
+      description: localizedDescription,
+      locale,
+      toolSlug: trafficTool.slug,
+      inputParameters: trafficTool.inputs.map((input) => ({
+        name: input.key,
+        description: input.label,
+        unitText: input.unit,
+        required: true,
+      })),
+      outputParameters: [{ name: "result", description: localizedTitle }],
+    }),
     ...(faqJsonLd ? [faqJsonLd] : []),
   ];
 

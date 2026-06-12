@@ -14,6 +14,7 @@ export type CaseStudySector =
   | "ecommerce"
   | "construction"
   | "energy"
+  | "logistics"
   | "sustainability";
 
 export type CaseStudyLossType =
@@ -29,12 +30,18 @@ export type CaseStudyLossType =
 
 export type CaseStudyScenarioKind = "representative_scenario";
 
+export type CaseStudyEvidenceLevel =
+  | "verified-client"
+  | "anonymized-real"
+  | "representative-scenario";
+
 export type CaseStudyEntry = {
   readonly slug: string;
   readonly sector: CaseStudySector;
   readonly sectorLabel: string;
   readonly title: string;
   readonly scenarioKind: CaseStudyScenarioKind;
+  readonly evidenceLevel: CaseStudyEvidenceLevel;
   readonly problem: string;
   readonly toolSlug: string;
   readonly toolTitle: string;
