@@ -4,7 +4,10 @@ import {
   getLegacyEnRedirectPath,
   isMiddlewareExcludedPath,
   needsEnglishLocaleRewrite,
+  resolveRootVisitLocale,
   rewritePathToEnglishLocale,
+  shouldRedirectLocaleLessPublicRoute,
+  shouldRedirectRootToLocale,
   stripLocaleFromPath,
   switchPathLocale,
 } from "@/lib/i18n/locale-routing";
@@ -82,5 +85,53 @@ describe("locale-routing", () => {
     expect(getLegacyEnRedirectPath("/en/tools/premium/welding-bid-risk-analyzer")).toBe(
       "/tools/premium/welding-bid-risk-analyzer",
     );
+  });
+
+  test("resolveRootVisitLocale prefers TR country over implicit en cookie", () => {
+    expect(
+      resolveRootVisitLocale({
+        cookieLocale: "en",
+        countryCode: "TR",
+        acceptLanguage: null,
+      }),
+    ).toBe("tr");
+  });
+
+  test("resolveRootVisitLocale honors manual en cookie in TR", () => {
+    expect(
+      resolveRootVisitLocale({
+        cookieLocale: "en",
+        manualCookie: "1",
+        countryCode: "TR",
+        acceptLanguage: null,
+      }),
+    ).toBe("en");
+  });
+
+  test("shouldRedirectRootToLocale returns tr for TR country", () => {
+    expect(
+      shouldRedirectRootToLocale({
+        cookieLocale: undefined,
+        countryCode: "TR",
+        acceptLanguage: null,
+      }),
+    ).toBe("tr");
+  });
+
+  test("shouldRedirectLocaleLessPublicRoute redirects /free-tools for TR", () => {
+    expect(
+      shouldRedirectLocaleLessPublicRoute({
+        pathname: "/free-tools",
+        cookieLocale: undefined,
+        countryCode: "TR",
+        acceptLanguage: null,
+      }),
+    ).toBe("tr");
+  });
+
+  test("isMiddlewareExcludedPath skips AI public files", () => {
+    expect(isMiddlewareExcludedPath("/llms.txt")).toBe(true);
+    expect(isMiddlewareExcludedPath("/ai-tool-index.json")).toBe(true);
+    expect(isMiddlewareExcludedPath("/ai-search-manifest.json")).toBe(true);
   });
 });

@@ -2,7 +2,12 @@
 
 import { useEffect } from "react";
 import { useLocale } from "next-intl";
-import { readLocaleCookie, setLocaleCookie } from "@/lib/i18n/locale-client";
+import { useRegion } from "@/lib/compliance/region-context";
+import {
+  readEffectiveLocaleCookie,
+  readManualLocaleCookie,
+  setLocaleCookie,
+} from "@/lib/i18n/locale-client";
 import {
   isPrefixedLocalePath,
   type SupportedLocale,
@@ -18,6 +23,11 @@ const BROWSER_LOCALE_REDIRECTS: Partial<Record<string, SupportedLocale>> = {
   fr: "fr",
   es: "es",
   ar: "ar",
+};
+
+const REGION_TO_LOCALE: Partial<Record<string, SupportedLocale>> = {
+  TR: "tr",
+  DE: "de",
 };
 
 function hasRedirectGuard(): boolean {
@@ -36,13 +46,26 @@ function setRedirectGuard(): void {
   }
 }
 
+function resolveClientFallbackLocale(
+  navLang: string,
+  regionCode: string,
+): SupportedLocale | null {
+  const base = navLang.split("-")[0]?.toLowerCase() ?? navLang;
+  const fromBrowser = BROWSER_LOCALE_REDIRECTS[base];
+  if (fromBrowser) {
+    return fromBrowser;
+  }
+  return REGION_TO_LOCALE[regionCode] ?? null;
+}
+
 /**
  * Firebase Hosting may serve prerendered `/` without running middleware.
- * Redirect root English visitors whose browser language matches a prefixed locale.
+ * Redirect root English visitors when geo/browser/region implies a prefixed locale.
  * Mount only on the English home page — never on /tr or other locale routes.
  */
 export function RootLocaleAutoRedirect() {
   const locale = useLocale();
+  const { region } = useRegion();
 
   useEffect(() => {
     if (locale !== "en") {
@@ -56,7 +79,10 @@ export function RootLocaleAutoRedirect() {
     if (isPrefixedLocalePath(browserPath)) {
       return;
     }
-    if (readLocaleCookie()) {
+    if (readManualLocaleCookie()) {
+      return;
+    }
+    if (readEffectiveLocaleCookie()) {
       return;
     }
     if (hasRedirectGuard()) {
@@ -64,8 +90,7 @@ export function RootLocaleAutoRedirect() {
     }
 
     const navLang = navigator.language?.toLowerCase() ?? "";
-    const base = navLang.split("-")[0] ?? navLang;
-    const targetLocale = BROWSER_LOCALE_REDIRECTS[base];
+    const targetLocale = resolveClientFallbackLocale(navLang, region);
     if (!targetLocale) {
       return;
     }
@@ -88,7 +113,7 @@ export function RootLocaleAutoRedirect() {
     return () => {
       window.clearTimeout(timer);
     };
-  }, [locale]);
+  }, [locale, region]);
 
   return null;
 }

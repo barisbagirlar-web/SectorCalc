@@ -147,3 +147,32 @@ export function getLocaleTextDirection(locale: SupportedLocale): TextDirection {
 }
 
 export const LOCALE_COOKIE = "sectorcalc_locale";
+
+/** Set to `1` when the user explicitly picks a language in the UI. */
+export const LOCALE_MANUAL_COOKIE = "sectorcalc_locale_manual";
+
+export const NEXT_LOCALE_COOKIE = "NEXT_LOCALE";
+
+export const COUNTRY_TO_LOCALE: Readonly<Record<string, SupportedLocale>> = {
+  TR: "tr",
+  DE: "de",
+  AT: "de",
+  CH: "de",
+  FR: "fr",
+  BE: "fr",
+  ES: "es",
+  MX: "es",
+  AR: "es",
+  SA: "ar",
+  AE: "ar",
+  EG: "ar",
+  QA: "ar",
+  KW: "ar",
+  BH: "ar",
+  OM: "ar",
+  JO: "ar",
+  LB: "ar",
+  MA: "ar",
+  DZ: "ar",
+  TN: "ar",
+};

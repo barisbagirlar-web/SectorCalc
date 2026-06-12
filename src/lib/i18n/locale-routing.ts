@@ -3,9 +3,12 @@
  */
 
 import {
+  COUNTRY_TO_LOCALE,
   DEFAULT_LOCALE,
   getLocalePathPrefix,
   LOCALE_COOKIE,
+  LOCALE_MANUAL_COOKIE,
+  NEXT_LOCALE_COOKIE,
   PREFIXED_LOCALES,
   ROOT_LOCALE,
   SUPPORTED_LOCALES,
@@ -14,8 +17,11 @@ import {
 } from "@/lib/i18n/locale-config";
 
 export {
+  COUNTRY_TO_LOCALE,
   DEFAULT_LOCALE,
   LOCALE_COOKIE,
+  LOCALE_MANUAL_COOKIE,
+  NEXT_LOCALE_COOKIE,
   ROOT_LOCALE,
   SUPPORTED_LOCALES,
   type SupportedLocale,
@@ -30,40 +36,32 @@ const MIDDLEWARE_EXCLUDED_EXACT = new Set([
   "/robots.txt",
   "/sitemap.xml",
   "/llms.txt",
+  "/ai.txt",
+  "/ai-tool-index.json",
+  "/ai-tool-index.txt",
+  "/ai-categories.json",
+  "/ai-tool-routes.json",
+  "/ai-search-manifest.json",
+  "/ai-embedding-source.jsonl",
   "/sectorcalc-index.txt",
   "/services-products.txt",
   "/faq-knowledge.txt",
   "/manifest.json",
 ]);
 
-const MIDDLEWARE_EXCLUDED_PREFIXES = ["/api", "/admin", "/_next"] as const;
+const MIDDLEWARE_EXCLUDED_PREFIXES = ["/api", "/admin", "/_next", "/assets", "/images", "/icons"] as const;
 
 const STATIC_FILE_EXTENSION =
-  /\.(?:ico|png|jpe?g|gif|webp|svg|txt|xml|json|woff2?|ttf|eot|css|js|map)$/i;
+  /\.(?:ico|png|jpe?g|gif|webp|svg|txt|xml|json|jsonl|woff2?|ttf|eot|css|js|map)$/i;
 
-const COUNTRY_TO_LOCALE: Readonly<Record<string, SupportedLocale>> = {
-  TR: "tr",
-  DE: "de",
-  AT: "de",
-  CH: "de",
-  FR: "fr",
-  BE: "fr",
-  ES: "es",
-  MX: "es",
-  AR: "es",
-  SA: "ar",
-  AE: "ar",
-  EG: "ar",
-  QA: "ar",
-  KW: "ar",
-  BH: "ar",
-  OM: "ar",
-  JO: "ar",
-  LB: "ar",
-  MA: "ar",
-  DZ: "ar",
-  TN: "ar",
-};
+export const LOCALE_LESS_PUBLIC_ROUTES = [
+  "/free-tools",
+  "/premium-tools",
+  "/industries",
+  "/pricing",
+  "/calculator-library",
+  "/categories",
+] as const;
 
 export function isLocalizedPath(pathname: string): boolean {
   return LOCALE_PREFIX.test(pathname);
@@ -194,24 +192,51 @@ function detectLocaleFromAcceptLanguage(acceptLanguage: string | null): Supporte
     if (isSupportedLocale(base) && base !== ROOT_LOCALE) {
       return base;
     }
+    if (base === "en") {
+      return ROOT_LOCALE;
+    }
   }
   return null;
 }
 
+export function getEffectiveLocaleCookie(options: {
+  readonly cookieLocale: string | undefined;
+  readonly nextLocaleCookie: string | undefined;
+  readonly manualCookie: string | undefined;
+}): SupportedLocale | undefined {
+  const manual = options.manualCookie === "1";
+  const raw = options.cookieLocale ?? options.nextLocaleCookie;
+  if (!raw || !isSupportedLocale(raw)) {
+    return undefined;
+  }
+
+  if (manual) {
+    return raw;
+  }
+
+  if (raw !== ROOT_LOCALE) {
+    return raw;
+  }
+
+  return undefined;
+}
+
 export function resolveRootVisitLocale(options: {
   readonly cookieLocale: string | undefined;
+  readonly nextLocaleCookie?: string | undefined;
+  readonly manualCookie?: string | undefined;
   readonly countryCode: string | null;
   readonly acceptLanguage: string | null;
 }): SupportedLocale {
-  // Priority: manual cookie > country geolocation > accept-language > default (English root)
-  // FIXED: Country-based locale detection is now ENABLED for automatic language selection
-  
-  // 1. Manual cookie (explicit user choice) - highest priority
-  if (options.cookieLocale && isSupportedLocale(options.cookieLocale)) {
-    return options.cookieLocale;
+  const effectiveCookie = getEffectiveLocaleCookie({
+    cookieLocale: options.cookieLocale,
+    nextLocaleCookie: options.nextLocaleCookie,
+    manualCookie: options.manualCookie,
+  });
+  if (effectiveCookie) {
+    return effectiveCookie;
   }
 
-  // 2. Country-based geolocation - auto-detect locale from user's country
   if (options.countryCode && options.countryCode in COUNTRY_TO_LOCALE) {
     const localeFromCountry = COUNTRY_TO_LOCALE[options.countryCode];
     if (localeFromCountry) {
@@ -219,21 +244,45 @@ export function resolveRootVisitLocale(options: {
     }
   }
 
-  // 3. Accept-Language header fallback
   const fromAccept = detectLocaleFromAcceptLanguage(options.acceptLanguage);
   if (fromAccept) {
     return fromAccept;
   }
 
-  // 4. Default to English
   return ROOT_LOCALE;
 }
 
 export function shouldRedirectRootToLocale(options: {
   readonly cookieLocale: string | undefined;
+  readonly nextLocaleCookie?: string | undefined;
+  readonly manualCookie?: string | undefined;
   readonly countryCode: string | null;
   readonly acceptLanguage: string | null;
 }): SupportedLocale | null {
+  const resolved = resolveRootVisitLocale(options);
+  if (resolved === ROOT_LOCALE) {
+    return null;
+  }
+  return resolved;
+}
+
+export function isLocaleLessPublicRoute(pathname: string): boolean {
+  return LOCALE_LESS_PUBLIC_ROUTES.some(
+    (route) => pathname === route || pathname.startsWith(`${route}/`),
+  );
+}
+
+export function shouldRedirectLocaleLessPublicRoute(options: {
+  readonly pathname: string;
+  readonly cookieLocale: string | undefined;
+  readonly nextLocaleCookie?: string | undefined;
+  readonly manualCookie?: string | undefined;
+  readonly countryCode: string | null;
+  readonly acceptLanguage: string | null;
+}): SupportedLocale | null {
+  if (!isLocaleLessPublicRoute(options.pathname)) {
+    return null;
+  }
   const resolved = resolveRootVisitLocale(options);
   if (resolved === ROOT_LOCALE) {
     return null;

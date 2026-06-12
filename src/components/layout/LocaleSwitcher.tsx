@@ -29,7 +29,7 @@ export function LocaleSwitcher({
     }
 
     startTransition(() => {
-      setLocaleCookie(nextLocale);
+      setLocaleCookie(nextLocale, { manual: true });
       const basePath = stripLocaleFromPath(pathname);
       const nextPath = addLocaleToPath(basePath, nextLocale);
       window.location.assign(nextPath);

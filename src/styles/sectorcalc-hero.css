@@ -5,7 +5,7 @@
 .sc-hero-visuals {
   position: relative;
   width: 100%;
-  height: clamp(360px, 42vw, 460px);
+  height: clamp(240px, 28vw, 320px);
   perspective: 1000px;
 }
 
@@ -17,7 +17,7 @@
 .sc-symbol-plus {
   top: 4%;
   right: 17%;
-  width: clamp(150px, 14vw, 190px);
+  width: clamp(118px, 11vw, 150px);
   animation: floatSlow 8s ease-in-out infinite;
   z-index: 3;
 }
@@ -25,7 +25,7 @@
 .sc-symbol-multiply {
   top: 46%;
   right: 2%;
-  width: clamp(112px, 10vw, 140px);
+  width: clamp(88px, 8vw, 112px);
   animation: floatMedium 6s ease-in-out infinite reverse;
   z-index: 4;
 }
@@ -33,7 +33,7 @@
 .sc-symbol-divide {
   bottom: 8%;
   left: 18%;
-  width: clamp(96px, 8.5vw, 122px);
+  width: clamp(76px, 6.5vw, 96px);
   animation: floatFast 5s ease-in-out infinite;
   z-index: 5;
 }
@@ -41,7 +41,7 @@
 .sc-symbol-minus {
   top: 25%;
   left: 6%;
-  width: clamp(190px, 17vw, 245px);
+  width: clamp(148px, 13vw, 190px);
   animation: floatSlow 10s ease-in-out infinite 1s;
   z-index: 1;
 }
@@ -164,54 +164,54 @@
 
 @media (max-width: 1100px) {
   .sc-hero-visuals {
-    height: 300px;
-    max-width: 640px;
+    height: 220px;
+    max-width: 520px;
     margin: 0 auto;
   }
 
   .sc-symbol-plus {
     right: 22%;
-    width: 138px;
+    width: 108px;
   }
 
   .sc-symbol-multiply {
     right: 12%;
-    width: 108px;
+    width: 84px;
   }
 
   .sc-symbol-divide {
     left: 22%;
-    width: 96px;
+    width: 76px;
   }
 
   .sc-symbol-minus {
     left: 12%;
-    width: 190px;
+    width: 148px;
   }
 }
 
 @media (max-width: 768px) {
   .sc-hero-visuals {
-    height: 220px;
+    height: 180px;
   }
 
   .sc-symbol-plus {
-    width: 104px;
+    width: 88px;
     right: 18%;
   }
 
   .sc-symbol-multiply {
-    width: 82px;
+    width: 68px;
     right: 4%;
   }
 
   .sc-symbol-divide {
-    width: 76px;
+    width: 62px;
     left: 13%;
   }
 
   .sc-symbol-minus {
-    width: 145px;
+    width: 118px;
     left: 4%;
   }
 }
