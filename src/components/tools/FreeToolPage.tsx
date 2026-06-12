@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { formatSmartFormFieldError } from "@/lib/i18n/smart-form-validation-i18n";
 import { usePathname } from "@/i18n/routing";
 import { ToolFeedbackPanel } from "@/components/feedback/ToolFeedbackPanel";
 import { SmartFormBridgeRenderer } from "@/components/tools/smart-form/SmartFormBridgeRenderer";
@@ -14,6 +15,10 @@ import { SectorToolSelect } from "@/components/os/SectorToolSelect";
 import { Container } from "@/components/ui/Container";
 import { LedgerNumberTick } from "@/components/ui/LedgerNumberTick";
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import {
+  CalculatorCurrencyPrefix,
+  CalculatorUnitSelect,
+} from "@/components/tools/CalculatorUnitCurrencyControls";
 import {
   trackSmartFormPilotCompleted,
   trackSmartFormPilotStarted,
@@ -33,6 +38,7 @@ import {
 } from "@/lib/tools/free-tool-results";
 import type { SmartFormUiBridgeManifest } from "@/lib/formula-governance/smart-form-ui-bridge/smart-form-ui-bridge-types";
 import { type RevenueTool, type RevenueToolInput } from "@/lib/tools/revenue-tools";
+import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
 import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
@@ -61,18 +67,19 @@ function buildInitialValues(tool: RevenueTool): FreeToolInputValues {
   return values;
 }
 
-function validationMessage(input: RevenueToolInput, value: number | string): string {
- if (input.type === "select") {
- return `Please select ${input.label.toLowerCase()} before continuing.`;
- }
- const numeric = typeof value === "number" ? value : Number(value);
- if (!Number.isFinite(numeric)) {
- return `${input.label} must be a valid number.`;
- }
- if (numeric <= 0) {
- return `${input.label} must be greater than 0.`;
- }
- return `${input.label} must be a valid number.`;
+function validationMessage(
+  input: RevenueToolInput,
+  value: number | string,
+  locale: string,
+): string {
+  if (input.type === "select") {
+    return formatSmartFormFieldError(locale, "required", { label: input.label });
+  }
+  const numeric = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(numeric) || numeric <= 0) {
+    return formatSmartFormFieldError(locale, "invalidNumber", { label: input.label });
+  }
+  return formatSmartFormFieldError(locale, "invalidNumber", { label: input.label });
 }
 
 interface FreeToolInputFieldProps {
@@ -88,9 +95,11 @@ function FreeToolInputField({
  error,
  onChange,
 }: FreeToolInputFieldProps) {
+ const { onFocus, onBlur } = useGuidanceFieldFocus(input.key);
  const inputId = `free-tool-${input.key}`;
  const errorId = `${inputId}-error`;
- const showUnit = Boolean(input.unit) && input.type !== "currency";
+ const isCurrency = input.type === "currency";
+ const showUnit = Boolean(input.unit) && !isCurrency;
 
  if (input.type === "select" && input.options) {
  return (
@@ -105,6 +114,8 @@ function FreeToolInputField({
  id={inputId}
  value={String(value)}
  onChange={(event) => onChange(input.key, event.target.value)}
+ onFocus={onFocus}
+ onBlur={onBlur}
  aria-invalid={Boolean(error)}
  aria-describedby={error ? errorId : undefined}
  className={error ? "sc-industrial-input--error" : undefined}
@@ -124,8 +135,6 @@ function FreeToolInputField({
  );
  }
 
- const isCurrency = input.type === "currency";
-
  return (
  <div className="sc-industrial-field sc-form-field">
  <div className="sc-industrial-field__label-row">
@@ -135,25 +144,31 @@ function FreeToolInputField({
  </label>
  {showUnit ? <span className="sc-industrial-field__unit">{input.unit}</span> : null}
  </div>
- <div className="relative">
- {isCurrency ? (
- <span className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 font-mono text-xs text-body-charcoal">
- $
- </span>
- ) : null}
+ <div className="flex min-w-0 items-stretch gap-2">
+ <div className="relative min-w-0 flex-1">
+ {isCurrency ? <CalculatorCurrencyPrefix currency={input.unit} /> : null}
  <input
  id={inputId}
  type="text"
  inputMode="decimal"
  autoComplete="off"
  value={String(value)}
+ onFocus={onFocus}
+ onBlur={onBlur}
  onChange={(event) => {
  const { numeric } = handleNumericInputChange(event.target.value);
  onChange(input.key, numeric);
  }}
  aria-invalid={Boolean(error)}
  aria-describedby={error ? errorId : undefined}
- className={`sc-ledger-input-underline${isCurrency ? " pl-5" : ""}${error ? " sc-ledger-input--error" : ""}`}
+ className={`sc-ledger-input-underline w-full${isCurrency ? " pl-5" : ""}${error ? " sc-ledger-input--error" : ""}`}
+ />
+ </div>
+ <CalculatorUnitSelect
+   inputId={inputId}
+   fieldKey={input.key}
+   explicitUnit={input.unit}
+   isCurrency={isCurrency}
  />
  </div>
  {error ? (
@@ -195,6 +210,8 @@ interface FreeToolPageProps {
 
 export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: FreeToolPageProps) {
  const locale = useLocale();
+ const tUi = useTranslations("freeToolUi");
+ const tCalc = useTranslations("calculator");
  const pathname = usePathname();
  const attribution = useAttributionContext();
  const pagePath = stripLocalePrefix(pathname);
@@ -388,7 +405,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  const value = values[input.key] ?? (input.type === "select" ? "" : 0);
  if (input.type === "select") {
  if (typeof value !== "string" || value === "") {
- nextErrors[input.key] = validationMessage(input, value);
+ nextErrors[input.key] = validationMessage(input, value, locale);
  }
  continue;
  }
@@ -399,7 +416,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  !Number.isFinite(numeric) ||
  numeric <= 0
  ) {
- nextErrors[input.key] = validationMessage(input, value);
+ nextErrors[input.key] = validationMessage(input, value, locale);
  }
  }
  setErrors(nextErrors);
@@ -451,12 +468,13 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
    tier="free"
    title={tool.freeTitle}
    description={tool.painStatement}
+   toolSector={tool.sector}
    inputConfig={{ kind: "revenue", inputs: tool.freeInputs }}
    values={values}
    errors={errors}
    onChange={handleChange}
    onSubmit={handleSubmit}
-   calculateLabel={isCalculating ? "…" : "Run"}
+   calculateLabel={isCalculating ? tUi("calculating") : tCalc("calculate")}
    isCalculating={isCalculating}
    forceFallback={Boolean(useSmartFormPilot && smartFormPilotManifest)}
    nativeContractForm={useFullLoopRuntime}
@@ -477,7 +495,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
       errors={errors}
       onChange={handleChange}
       onSubmit={handleSubmit}
-      calculateLabel={isCalculating ? "…" : "Run"}
+      calculateLabel={isCalculating ? tUi("calculating") : tCalc("calculate")}
       blocked={fullLoopResult?.status === "blocked"}
       blockers={fullLoopResult?.status === "blocked" ? fullLoopResult.blockers : []}
       isCalculating={isCalculating}
@@ -505,7 +523,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
         disabled={isCalculating}
         className="sc-cta-primary disabled:opacity-60"
        >
-        {isCalculating ? "…" : "Run"}
+        {isCalculating ? tUi("calculating") : tCalc("calculate")}
        </button>
       </div>
      </form>
@@ -523,7 +541,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
       </>
      ) : null}
      {isCalculating ? (
-      <p className="text-sm text-body-charcoal">Calculating…</p>
+      <p className="text-sm text-body-charcoal">{tUi("calculating")}</p>
      ) : null}
      {!isCalculating && result ? (
       <>

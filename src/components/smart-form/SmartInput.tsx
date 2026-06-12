@@ -1,8 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { CalculatorCurrencyPrefix } from "@/components/tools/CalculatorUnitCurrencyControls";
 import { SmartHelpTooltip } from "@/components/smart-form/SmartHelpTooltip";
 import { SmartUnitSelect } from "@/components/smart-form/SmartUnitSelect";
+import { localizedUnitAriaLabel } from "@/lib/regional/unit-defaults";
+import { useLocale } from "next-intl";
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
 import type { SmartFormInput, SmartFormValidationTone } from "@/lib/smart-form/types";
 
 export type SmartInputProps = {
@@ -29,7 +34,13 @@ export function SmartInput({
   onChange,
   inputIdPrefix = "eng-smart-form",
 }: SmartInputProps) {
+  const locale = useLocale();
+  const { onFocus, onBlur } = useGuidanceFieldFocus(input.key);
   const inputId = `${inputIdPrefix}-${input.key}`;
+  const [selectedUnit, setSelectedUnit] = useState(input.unit ?? input.unitOptions?.[0]?.value ?? "");
+  useEffect(() => {
+    setSelectedUnit(input.unit ?? input.unitOptions?.[0]?.value ?? "");
+  }, [input.unit, input.unitOptions]);
   const errorId = `${inputId}-error`;
   const helperId = `${inputId}-helper`;
   const resolvedTone: SmartFormValidationTone = error ? "error" : tone;
@@ -56,6 +67,8 @@ export function SmartInput({
           id={inputId}
           value={String(value)}
           onChange={(event) => onChange(input.key, event.target.value)}
+          onFocus={onFocus}
+          onBlur={onBlur}
           aria-invalid={Boolean(error)}
           aria-describedby={error ? errorId : helperId}
           className={`min-h-[48px] w-full rounded-sm border bg-white px-3 text-sm ${TONE_CLASS[resolvedTone]}${error ? " sc-industrial-input--error" : ""}`}
@@ -83,7 +96,9 @@ export function SmartInput({
           {input.label}
           {input.required ? <span aria-hidden> *</span> : null}
         </label>
-        {showUnit ? <span className="sc-industrial-field__unit">{input.unit}</span> : null}
+        {showUnit && !(input.unitOptions && input.unitOptions.length > 0) ? (
+          <span className="sc-industrial-field__unit">{input.unit}</span>
+        ) : null}
         <SmartHelpTooltip
           label={input.label}
           why={input.helpWhy}
@@ -94,9 +109,7 @@ export function SmartInput({
       </div>
       <div className="flex min-w-0 items-stretch gap-2">
         <div className="sc-industrial-input-wrap min-w-0 flex-1">
-          {isCurrency ? (
-            <span className="sc-industrial-input-wrap__prefix" aria-hidden>$</span>
-          ) : null}
+          {isCurrency ? <CalculatorCurrencyPrefix currency={input.unit} /> : null}
           <input
             id={inputId}
             type="text"
@@ -104,6 +117,8 @@ export function SmartInput({
             autoComplete="off"
             value={String(value)}
             placeholder={input.placeholder}
+            onFocus={onFocus}
+            onBlur={onBlur}
             onChange={(event) => {
               const { numeric } = handleNumericInputChange(event.target.value);
               onChange(input.key, numeric);
@@ -114,7 +129,13 @@ export function SmartInput({
           />
         </div>
         {input.unitOptions && input.unitOptions.length > 0 ? (
-          <SmartUnitSelect inputId={inputId} value={input.unit} options={input.unitOptions} />
+          <SmartUnitSelect
+            inputId={inputId}
+            value={selectedUnit}
+            options={input.unitOptions}
+            ariaLabel={localizedUnitAriaLabel(locale)}
+            onChange={setSelectedUnit}
+          />
         ) : null}
       </div>
       {input.helperText ? (

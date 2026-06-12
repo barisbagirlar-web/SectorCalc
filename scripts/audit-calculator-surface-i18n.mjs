@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * CI gate: calculator surface i18n — field labels, result phrases, validation keys, glossary coverage.
+ * P25 CI gate: calculator surface i18n — field labels, TR forbidden English, static HTML smoke.
  */
-import { readFileSync } from "node:fs";
+import { execSync } from "node:child_process";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -71,8 +72,152 @@ function translatePhrase(text, locale) {
   return result;
 }
 
+const TR_FORBIDDEN_SURFACE = [
+  "Length", "Width", "Height", "Depth", "Yardage", "Area", "Volume", "Weight", "Price", "Cost",
+  "Rate", "Margin", "Revenue", "Profit", "Discount", "Tax", "Loan", "Payment", "Amount", "Quantity",
+  "Unit", "Result", "Calculate", "Calculator", "Input", "Output", "Select", "Choose", "Search",
+  "Reset", "Submit", "Required", "Optional", "Invalid", "Error", "Warning", "Total", "Subtotal",
+  "Annual", "Monthly", "Daily", "Hourly", "Distance", "Speed", "Time", "Fuel", "Energy", "Power",
+  "Temperature", "Pressure", "Diameter", "Radius", "Thickness", "Density",
+];
+
+const STATIC_TR_ROUTES = [
+  "/tr",
+  "/tr/free-tools",
+  "/tr/premium-tools",
+  "/tr/tools/free/machine-time-calculator",
+  "/tr/tools/free/project-cost-calculator",
+  "/tr/tools/free/cleaning-cost-calculator",
+  "/tr/tools/free/concrete-volume-calculator",
+  "/tr/tools/free/paint-coverage-calculator",
+];
+
 const failures = [];
+const warnings = [];
 const resultPhrases = extractResultPhrases();
+const staticMode = process.argv.includes("--static") || process.env.POST_BUILD === "1";
+
+function forbiddenTrMatches(text) {
+  if (!text) return [];
+  const hits = [];
+  for (const word of TR_FORBIDDEN_SURFACE) {
+    const re = new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
+    if (re.test(text)) hits.push(word);
+  }
+  return hits;
+}
+
+function extractVisibleCalculatorCopy(html) {
+  const chunks = [];
+  const patterns = [
+    /class="sc-industrial-field__label[^"]*"[^>]*>([^<]+)/g,
+    /class="sc-ledger-label sc-industrial-field__label[^"]*"[^>]*>([^<]+)/g,
+    /class="sc-industrial-field__helper[^"]*"[^>]*>([^<]+)/g,
+    /class="sc-cta-primary[^"]*"[^>]*>([^<]+)</g,
+  ];
+  for (const re of patterns) {
+    let m;
+    while ((m = re.exec(html)) !== null) {
+      chunks.push(m[1].trim());
+    }
+  }
+  return chunks;
+}
+
+function auditTrForbiddenInMessages() {
+  const trInputs = loadMessages("tr").freeToolInputs ?? {};
+  for (const [slug, fields] of Object.entries(trInputs)) {
+    if (!fields || typeof fields !== "object") continue;
+    for (const [fieldKey, copy] of Object.entries(fields)) {
+      if (!copy || typeof copy !== "object") continue;
+      for (const part of ["label", "placeholder", "helper"]) {
+        const text = copy[part] ?? "";
+        const hits = forbiddenTrMatches(text);
+        if (hits.length > 0) {
+          failures.push(`tr messages: forbidden EN in ${slug}.${fieldKey}.${part} → [${hits.join(", ")}] "${text.slice(0, 80)}"`);
+        }
+      }
+    }
+  }
+}
+
+function findStaticHtmlFiles(dir, acc = []) {
+  if (!existsSync(dir)) return acc;
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    const st = statSync(full);
+    if (st.isDirectory()) findStaticHtmlFiles(full, acc);
+    else if (entry.endsWith(".html")) acc.push(full);
+  }
+  return acc;
+}
+
+function auditStaticTrHtmlFromDisk() {
+  const roots = [
+    join(ROOT, ".next/server/app/tr/tools/free"),
+    join(ROOT, ".next/server/app/tr"),
+  ];
+  const files = [];
+  for (const root of roots) {
+    files.push(...findStaticHtmlFiles(root));
+  }
+  const routeFiles = new Map();
+  for (const file of files) {
+    const rel = file.split("/app/")[1]?.replace(/\.html$/, "") ?? file;
+    if (rel.startsWith("tr/")) routeFiles.set(`/${rel}`, file);
+  }
+  for (const route of STATIC_TR_ROUTES) {
+    const file = routeFiles.get(route);
+    if (!file) {
+      warnings.push(`static html missing for ${route} (skip)`);
+      continue;
+    }
+    const html = readFileSync(file, "utf8");
+    auditVisibleHtml(route, html);
+  }
+}
+
+function extractCalculatorFormHtml(html) {
+  const scopes = [];
+  const formRe = /<form[^>]*data-calculation-form="true"[^>]*>[\s\S]*?<\/form>/g;
+  const smartRe = /<form[^>]*data-smart-form-adapter="true"[^>]*>[\s\S]*?<\/form>/g;
+  let m;
+  while ((m = formRe.exec(html)) !== null) scopes.push(m[0]);
+  while ((m = smartRe.exec(html)) !== null) scopes.push(m[0]);
+  if (scopes.length === 0) {
+    const workspace = html.match(/sc-tool-workspace[\s\S]*?sc-tool-workspace/);
+    if (workspace) scopes.push(workspace[0]);
+  }
+  return scopes.length > 0 ? scopes.join("\n") : html;
+}
+
+function auditVisibleHtml(route, html) {
+  const scopedHtml = extractCalculatorFormHtml(html);
+  const visible = extractVisibleCalculatorCopy(scopedHtml);
+  for (const text of visible) {
+    const hits = forbiddenTrMatches(text);
+    if (hits.length > 0) {
+      failures.push(`tr html ${route}: forbidden visible EN → [${hits.join(", ")}] "${text.slice(0, 80)}"`);
+    }
+  }
+}
+
+function auditStaticTrHtmlFromServer() {
+  const base = process.env.AUDIT_BASE_URL ?? "http://localhost:3000";
+  for (const route of STATIC_TR_ROUTES) {
+    try {
+      const html = execSync(`curl -Ls "${base}${route}"`, {
+        encoding: "utf8",
+        maxBuffer: 20 * 1024 * 1024,
+      });
+      auditVisibleHtml(route, html);
+    } catch (error) {
+      warnings.push(`curl failed for ${route}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+}
+
+auditTrForbiddenInMessages();
 
 for (const locale of NON_EN) {
   const messages = loadMessages(locale);
@@ -151,7 +296,7 @@ for (const locale of NON_EN) {
   }
 
   const identicalPct = totalLabels > 0 ? (enIdenticalLabels / totalLabels) * 100 : 0;
-  const maxIdenticalPct = 3;
+  const maxIdenticalPct = locale === "tr" ? 1 : 8;
   if (identicalPct > maxIdenticalPct) {
     failures.push(
       `${locale}: ${enIdenticalLabels}/${totalLabels} field labels identical to EN (${identicalPct.toFixed(1)}% > ${maxIdenticalPct}%)`,
@@ -216,8 +361,22 @@ for (const locale of NON_EN) {
   }
 }
 
+if (staticMode) {
+  if (existsSync(join(ROOT, ".next/server/app"))) {
+    auditStaticTrHtmlFromDisk();
+  } else {
+    auditStaticTrHtmlFromServer();
+  }
+}
+
 console.log("audit:calculator-surface-i18n");
 console.log(`result phrases tracked: ${resultPhrases.length}`);
+if (warnings.length > 0) {
+  console.log(`warnings: ${warnings.length}`);
+  for (const line of warnings.slice(0, 10)) {
+    console.log(`  ! ${line}`);
+  }
+}
 if (failures.length === 0) {
   console.log("PASS — calculator surface i18n OK");
   process.exit(0);

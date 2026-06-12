@@ -1,0 +1,46 @@
+import type { AppLocale } from "@/i18n/routing";
+
+export type ReferenceGraphicTemplate =
+  | "box-dimension"
+  | "area"
+  | "volume"
+  | "cylinder-pipe"
+  | "stair"
+  | "bend-radius"
+  | "angle"
+  | "route"
+  | "energy-flow"
+  | "machine-time"
+  | "financial-flow"
+  | "generic";
+
+export type ReferenceGraphicConfidence = "high" | "medium" | "fallback";
+
+export type ReferenceGraphicField = {
+  key: string;
+  label?: string;
+  unitGroup?: string;
+  type?: string;
+};
+
+export type ResolveReferenceGraphicInput = {
+  locale: AppLocale;
+  region?: string;
+  toolSlug: string;
+  toolTitle?: string;
+  toolCategory?: string;
+  toolSector?: string;
+  tier?: "free" | "premium" | "premium-schema";
+  fields: readonly ReferenceGraphicField[];
+};
+
+export type ResolvedReferenceGraphic = {
+  template: ReferenceGraphicTemplate;
+  title: string;
+  description: string;
+  fieldMap: Record<string, string>;
+  activeFieldIds: string[];
+  confidence: ReferenceGraphicConfidence;
+};
+
+export type GuidanceTier = "free" | "premium" | "premium-schema";

@@ -34,6 +34,14 @@ import {
   resolveSmartFormDecisionGoal,
 } from "@/lib/i18n/free-tool-form-i18n";
 import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
+import {
+  getCurrencyOptionsForLocale,
+  getDefaultCurrencyForRegion,
+  getDefaultUnitForRegion,
+  getAvailableUnitsForGroup,
+  inferUnitGroupFromFieldKey,
+} from "@/lib/regional/unit-defaults";
+import { resolveRegionalCodeFromLocale } from "@/lib/regional/regions";
 import type { RevenueToolInput } from "@/lib/tools/revenue-tools";
 
 export type SmartFormExistingInputConfig =
@@ -69,12 +77,51 @@ export function inferInputUnit(inputName: string, explicit?: string): string | u
 export function inferInputHelp(
   inputName: string,
   toolSlug: string,
+  locale?: string,
 ): Pick<SmartFormInput, "helpWhy" | "helpTypical" | "helpExample"> {
+  if (locale && locale !== "en") {
+    return {};
+  }
   const label = inputName.replace(/([A-Z])/g, " $1").trim();
   return {
     helpWhy: `Required for ${toolSlug} contract path and loss exposure.`,
     helpTypical: `Enter a realistic ${label.toLowerCase()} from recent jobs.`,
     helpExample: `Example: use your last verified ${label.toLowerCase()} before rounding.`,
+  };
+}
+
+function attachRegionalUnitMetadata(
+  input: SmartFormInput,
+  fieldKey: string,
+  locale?: string,
+  fieldType?: SmartFormInputType,
+): SmartFormInput {
+  if (!locale) {
+    return input;
+  }
+
+  const region = resolveRegionalCodeFromLocale(locale);
+  if (fieldType === "currency" || input.type === "currency") {
+    const defaultCurrency = getDefaultCurrencyForRegion(region);
+    return {
+      ...input,
+      unit: defaultCurrency,
+      unitOptions: getCurrencyOptionsForLocale(locale),
+    };
+  }
+
+  const unitGroup = inferUnitGroupFromFieldKey(fieldKey);
+  if (!unitGroup) {
+    return input;
+  }
+
+  const unitOptions = getAvailableUnitsForGroup(unitGroup, locale);
+  const defaultUnit = getDefaultUnitForRegion(region, unitGroup);
+  return {
+    ...input,
+    unit: defaultUnit,
+    unitOptions: unitOptions.length > 0 ? unitOptions : input.unitOptions,
+    helperText: input.helperText,
   };
 }
 
@@ -112,7 +159,7 @@ function mapRevenueInput(
       })
     : { label: input.label, placeholder: input.label, helper: input.helperText };
 
-  return {
+  const mapped: SmartFormInput = {
     key: input.key,
     canonicalKey: input.key,
     label: display.label,
@@ -122,9 +169,13 @@ function mapRevenueInput(
     placeholder: display.placeholder,
     helperText: display.helper ?? input.helperText,
     group: inferInputGroup(input.key, toolSlug),
-    options: input.options,
+    options: input.options?.map((option) => ({
+      ...option,
+      label: locale ? translateCalculatorPhrase(option.label, locale) : option.label,
+    })),
     defaultValue: input.defaultValue,
   };
+  return attachRegionalUnitMetadata(mapped, input.key, locale, input.type);
 }
 
 function mapTrafficInput(
@@ -141,7 +192,7 @@ function mapTrafficInput(
       })
     : { label: input.label, placeholder: input.helper, helper: input.helper };
 
-  return {
+  const mapped: SmartFormInput = {
     key: input.key,
     canonicalKey: input.key,
     label: display.label,
@@ -153,9 +204,13 @@ function mapTrafficInput(
     placeholder: display.placeholder,
     helperText: display.helper ?? input.helper,
     group: inferInputGroup(input.key, toolSlug),
-    options: input.options,
+    options: input.options?.map((option) => ({
+      ...option,
+      label: locale ? translateCalculatorPhrase(option.label, locale) : option.label,
+    })),
     defaultValue: input.defaultValue,
   };
+  return attachRegionalUnitMetadata(mapped, input.key, locale, type);
 }
 
 function mapSchemaInput(
@@ -200,8 +255,8 @@ function mapSchemaInput(
   };
 }
 
-function mapToolDefinitionInput(input: ToolInput, toolSlug: string): SmartFormInput {
-  const help = inferInputHelp(input.id, toolSlug);
+function mapToolDefinitionInput(input: ToolInput, toolSlug: string, locale?: string): SmartFormInput {
+  const help = inferInputHelp(input.id, toolSlug, locale);
   const type: SmartFormInputType = input.currency
     ? "currency"
     : input.type === "select"
@@ -344,7 +399,7 @@ export function buildSmartFormForTool(
       }
       case "tool-definition": {
         const inputs = existingInputConfig.inputs.map((input) =>
-          mapToolDefinitionInput(input, toolSlug),
+          mapToolDefinitionInput(input, toolSlug, locale),
         );
         return successResult(toolSlug, "tool-definition", inputs, undefined, locale);
       }

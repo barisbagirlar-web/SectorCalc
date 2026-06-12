@@ -24,11 +24,16 @@ import {
 import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
+import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
 import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { ToolFeedbackPanel } from "@/components/feedback/ToolFeedbackPanel";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
+import {
+  CalculatorCurrencyPrefix,
+  CalculatorUnitSelect,
+} from "@/components/tools/CalculatorUnitCurrencyControls";
 import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/formula-governance/runtime-validation/free-full-loop-bridge";
 import { isFreeFullLoopRuntimeSlug } from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
 import {
@@ -296,6 +301,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
               tier="free"
               title={displayTitle}
               description={displayDescription}
+              toolCategory={tool.category}
               inputConfig={{ kind: "traffic", inputs: tool.inputs }}
               values={values}
               errors={errors}
@@ -326,11 +332,14 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
               {tool.inputs.map((input) => {
                 const id = `ft-${tool.slug}-${input.key}`;
                 const error = errors[input.key];
-                const showUnit = Boolean(input.unit);
+                const isCurrency = Boolean(input.unit?.includes("USD") || input.unit?.includes("TRY") || input.unit?.includes("EUR"));
+                const showUnit = Boolean(input.unit) && !isCurrency;
 
                 if (input.type === "select" && input.options) {
                   return (
-                    <div key={input.key} className="sc-industrial-field sc-form-field">
+                    <GuidanceFieldFocus key={input.key} fieldKey={input.key}>
+                      {({ onFocus, onBlur }) => (
+                    <div className="sc-industrial-field sc-form-field">
                       <div className="sc-industrial-field__label-row">
                         <label htmlFor={id} className="sc-industrial-field__label">
                           {input.label}
@@ -339,13 +348,15 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
                       <select
                         id={id}
                         value={String(values[input.key] ?? "")}
+                        onFocus={onFocus}
+                        onBlur={onBlur}
                         onChange={(e) => {
                           setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
                           setSubmitted(false);
                         }}
                         className={error ? "sc-industrial-input--error" : undefined}
                       >
-                        {input.options.map((opt) => (
+                        {(input.options ?? []).map((opt) => (
                           <option key={opt.value} value={opt.value}>
                             {opt.label}
                           </option>
@@ -358,11 +369,15 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
                         </p>
                       ) : null}
                     </div>
+                      )}
+                    </GuidanceFieldFocus>
                   );
                 }
 
                 return (
-                  <div key={input.key} className="sc-industrial-field">
+                  <GuidanceFieldFocus key={input.key} fieldKey={input.key}>
+                    {({ onFocus, onBlur }) => (
+                  <div className="sc-industrial-field">
                     <div className="sc-industrial-field__label-row">
                       <label htmlFor={id} className="sc-industrial-field__label">
                         {input.label}
@@ -371,19 +386,32 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
                         <span className="sc-industrial-field__unit">{input.unit}</span>
                       ) : null}
                     </div>
-                    <input
-                      id={id}
-                      type="text"
-                      inputMode="decimal"
-                      autoComplete="off"
-                      value={values[input.key] ?? ""}
-                      onChange={(e) => {
-                        setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
-                        setSubmitted(false);
-                      }}
-                      className={`sc-ledger-input-underline${error ? " sc-ledger-input--error" : ""}`}
-                      aria-invalid={Boolean(error)}
-                    />
+                    <div className="flex min-w-0 items-stretch gap-2">
+                      <div className="relative min-w-0 flex-1">
+                        {isCurrency ? <CalculatorCurrencyPrefix currency={input.unit} /> : null}
+                        <input
+                          id={id}
+                          type="text"
+                          inputMode="decimal"
+                          autoComplete="off"
+                          value={values[input.key] ?? ""}
+                          onFocus={onFocus}
+                          onBlur={onBlur}
+                          onChange={(e) => {
+                            setValues((prev) => ({ ...prev, [input.key]: e.target.value }));
+                            setSubmitted(false);
+                          }}
+                          className={`sc-ledger-input-underline w-full${isCurrency ? " pl-5" : ""}${error ? " sc-ledger-input--error" : ""}`}
+                          aria-invalid={Boolean(error)}
+                        />
+                      </div>
+                      <CalculatorUnitSelect
+                        inputId={id}
+                        fieldKey={input.key}
+                        explicitUnit={input.unit}
+                        isCurrency={isCurrency}
+                      />
+                    </div>
                     <p className="sc-industrial-field__helper">{input.helper}</p>
                     {error ? (
                       <p className="sc-industrial-field__error" role="alert">
@@ -391,6 +419,8 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
                       </p>
                     ) : null}
                   </div>
+                    )}
+                  </GuidanceFieldFocus>
                 );
               })}
 

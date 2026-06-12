@@ -28,6 +28,8 @@ import { handleNumericInputChange } from "@/lib/input/numeric-input";
 import type { BenchmarkSnapshotValue } from "@/lib/benchmarks/benchmark-types";
 import { usePremiumSchemaEntitlement } from "@/lib/entitlements/use-premium-schema-entitlement";
 import { limitPreviewThresholdCount } from "@/lib/entitlements/premium-entitlements";
+import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
+import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
 import { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspace";
 import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
 import { resolveCalculatorInputDisplay } from "@/lib/i18n/free-tool-form-i18n";
@@ -119,6 +121,23 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
     return { inputSnapshot, resultSnapshot };
   }, [result, values]);
 
+  const schemaGuidanceFields = useMemo(
+    () =>
+      schema.inputs.map((input) => {
+        const display = resolveCalculatorInputDisplay(schema.id, input.id, locale, {
+          label: input.label,
+          helper: input.helper,
+        });
+        return {
+          key: input.id,
+          label: display.label,
+          type: input.type,
+          unitGroup: input.unit,
+        };
+      }),
+    [schema, locale],
+  );
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitted(true);
@@ -143,6 +162,13 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
       layout="workspace"
       fallback
       formContent={
+        <ToolGuidanceLayout
+          toolSlug={schema.id}
+          tier="premium-schema"
+          fields={schemaGuidanceFields}
+          toolTitle={displayName}
+          toolSector={schema.sectorSlug}
+        >
         <CalculationWorkspace
           variant="triple"
           inputs={
@@ -165,7 +191,9 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
 
           if (input.type === "select" && input.options) {
             return (
-              <div key={input.id} className="sc-industrial-field sc-industrial-field--full">
+              <GuidanceFieldFocus key={input.id} fieldKey={input.id}>
+                {({ onFocus, onBlur }) => (
+              <div className="sc-industrial-field sc-industrial-field--full">
                 <div className="sc-industrial-field__label-row">
                   <label htmlFor={id} className="sc-ledger-label sc-industrial-field__label">
                     {display.label}
@@ -177,13 +205,15 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                 <select
                   id={id}
                   value={String(value ?? "")}
+                  onFocus={onFocus}
+                  onBlur={onBlur}
                   onChange={(e) => {
                     setValues((prev) => ({ ...prev, [input.id]: e.target.value }));
                     setSubmitted(false);
                   }}
                   className="sc-ledger-input-boxed min-h-[44px]"
                 >
-                  {input.options.map((opt) => (
+                  {(input.options ?? []).map((opt) => (
                     <option key={opt.value} value={opt.value}>
                       {opt.label}
                     </option>
@@ -191,16 +221,22 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                 </select>
                 <p className="sc-ledger-helper sc-industrial-field__helper">{display.helper}</p>
               </div>
+                )}
+              </GuidanceFieldFocus>
             );
           }
 
           if (input.type === "boolean") {
             return (
-              <div key={input.id} className="sc-industrial-field sc-industrial-field--full">
+              <GuidanceFieldFocus key={input.id} fieldKey={input.id}>
+                {({ onFocus, onBlur }) => (
+              <div className="sc-industrial-field sc-industrial-field--full">
                 <label className="flex min-h-[44px] items-center gap-2">
                   <input
                     type="checkbox"
                     checked={Boolean(value)}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
                     onChange={(e) => {
                       setValues((prev) => ({ ...prev, [input.id]: e.target.checked }));
                       setSubmitted(false);
@@ -210,11 +246,15 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                 </label>
                 <p className="sc-ledger-helper sc-industrial-field__helper">{display.helper}</p>
               </div>
+                )}
+              </GuidanceFieldFocus>
             );
           }
 
           return (
-            <div key={input.id} className="sc-industrial-field sc-industrial-field--full">
+            <GuidanceFieldFocus key={input.id} fieldKey={input.id}>
+              {({ onFocus, onBlur }) => (
+            <div className="sc-industrial-field sc-industrial-field--full">
               <div className="sc-industrial-field__label-row">
                 <label htmlFor={id} className="sc-ledger-label sc-industrial-field__label">
                   {display.label}
@@ -232,6 +272,8 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                 step={input.validation?.step}
                 placeholder={display.placeholder}
                 value={String(value ?? "")}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 onChange={(e) => {
                   if (input.type === "slider") {
                     setValues((prev) => ({ ...prev, [input.id]: Number(e.target.value) }));
@@ -245,6 +287,8 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
               />
               <p className="sc-ledger-helper sc-industrial-field__helper">{display.helper}</p>
             </div>
+              )}
+            </GuidanceFieldFocus>
           );
         })}
 
@@ -336,6 +380,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
             )
           }
         />
+        </ToolGuidanceLayout>
       }
     />
   );

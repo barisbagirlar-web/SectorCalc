@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Suspense, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { stripLocalePrefix } from "@/i18n/locales";
@@ -34,6 +34,9 @@ import {
 import {
  PremiumAnalyzerReportPanel,
 } from "@/components/tools/PremiumAnalyzerReportPanel";
+import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
+import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
+import { buildGuidanceFieldsFromKeys } from "@/lib/guidance/build-guidance-fields";
 import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
 import { SmartResultPanel } from "@/components/smart-form/SmartResultPanel";
 import { DynamicSmartFormPilot } from "@/components/smart-form/DynamicSmartFormPilot";
@@ -126,6 +129,7 @@ function PremiumToolInputField({
  error,
  onChange,
 }: PremiumToolInputFieldProps) {
+ const { onFocus, onBlur } = useGuidanceFieldFocus(input.key);
  const inputId = `premium-tool-${input.key}`;
  const errorId = `${inputId}-error`;
  const helperId = `${inputId}-helper`;
@@ -144,6 +148,8 @@ function PremiumToolInputField({
  id={inputId}
  value={String(value)}
  onChange={(event) => onChange(input.key, event.target.value)}
+ onFocus={onFocus}
+ onBlur={onBlur}
  aria-invalid={Boolean(error)}
  aria-describedby={error ? errorId : helperId}
  className={error ? "sc-industrial-input--error" : undefined}
@@ -187,6 +193,8 @@ function PremiumToolInputField({
  inputMode="decimal"
  autoComplete="off"
  value={String(value)}
+ onFocus={onFocus}
+ onBlur={onBlur}
  onChange={(event) => {
  const { numeric } = handleNumericInputChange(event.target.value);
  onChange(input.key, numeric);
@@ -246,6 +254,40 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   () =>
    buildSmartFormForTool(runtimeSlug, { kind: "revenue", inputs: tool.paidInputs }),
   [runtimeSlug, tool.paidInputs],
+ );
+
+ const premiumGuidanceFields = useMemo(() => {
+  if (smartFormAdapter.ok) {
+   return [
+    ...smartFormAdapter.simpleSections.flatMap((section) => section.inputs),
+    ...smartFormAdapter.expertSections.flatMap((section) => section.inputs),
+   ].map((input) => ({
+    key: input.key,
+    label: input.label,
+    type: input.type,
+    unitGroup: input.unit,
+   }));
+  }
+  return buildGuidanceFieldsFromKeys(
+   tool.paidInputs.map((input) => ({
+    key: input.key,
+    label: input.label,
+    unit: input.unit,
+    type: input.type,
+   })),
+  );
+ }, [smartFormAdapter, tool.paidInputs]);
+
+ const wrapPremiumGuidance = (node: ReactNode) => (
+  <ToolGuidanceLayout
+   toolSlug={runtimeSlug}
+   tier="premium"
+   fields={premiumGuidanceFields}
+   toolTitle={tool.paidTitle}
+   toolSector={tool.sector}
+  >
+   {node}
+  </ToolGuidanceLayout>
  );
 
  const devPro = isDevelopmentProBypass();
@@ -597,7 +639,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   description={tool.paidValue}
   tier="premium"
   fallback={useFullLoopRuntime || !smartFormAdapter.ok}
-  formContent={
+  formContent={wrapPremiumGuidance(
    useFullLoopRuntime ? (
     usePremiumSmartForm ? (
      <DynamicSmartFormPilot
@@ -651,7 +693,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
      </div>
     </form>
    )
-  }
+  )}
   resultContent={
    <SmartResultPanel
     calculationSteps={smartFormAdapter.ok ? smartFormAdapter.calculationSteps : []}

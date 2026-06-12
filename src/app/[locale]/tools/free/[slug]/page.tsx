@@ -17,7 +17,10 @@ import { getTierOneFreeToolMetadata } from "@/lib/seo/seo-refresh-priority";
 import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
 import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
-import { localizeFreeTrafficToolInputs } from "@/lib/i18n/free-tool-form-i18n";
+import {
+  localizeFreeTrafficToolInputs,
+  localizeRevenueToolInputs,
+} from "@/lib/i18n/free-tool-form-i18n";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 
@@ -145,7 +148,10 @@ export default async function FreeRevenueToolRoute({
         <JsonLd data={jsonLd} />
         <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" data-calculation-form-shell="true" />
         <FreeToolPage
-          tool={revenueTool}
+          tool={{
+            ...revenueTool,
+            freeInputs: localizeRevenueToolInputs(revenueTool.freeSlug, locale, revenueTool.freeInputs),
+          }}
           featuredAnswer={featuredAnswer}
           smartFormPilotManifest={resolveSmartFormPilotManifestForRoute(revenueTool.freeSlug)}
         />

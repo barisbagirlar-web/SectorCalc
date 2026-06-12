@@ -10,6 +10,8 @@ import {
   buildSmartFormForTool,
   type SmartFormExistingInputConfig,
 } from "@/lib/smart-form/smart-form-adapter";
+import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
+import { buildGuidanceFieldsFromInputConfig } from "@/lib/guidance/build-guidance-fields";
 import type { SmartFormResult, SmartFormTier } from "@/lib/smart-form/types";
 
 export type SmartFormWorkspaceProps = {
@@ -30,6 +32,8 @@ export type SmartFormWorkspaceProps = {
   readonly resultSummary?: SmartFormResult | null;
   readonly forceFallback?: boolean;
   readonly nativeContractForm?: boolean;
+  readonly toolCategory?: string;
+  readonly toolSector?: string;
 };
 
 export function SmartFormWorkspace({
@@ -50,6 +54,8 @@ export function SmartFormWorkspace({
   resultSummary = null,
   forceFallback = false,
   nativeContractForm = false,
+  toolCategory,
+  toolSector,
 }: SmartFormWorkspaceProps) {
   const locale = useLocale();
   const adapter = useMemo(
@@ -63,6 +69,11 @@ export function SmartFormWorkspace({
     adapter.ok &&
     Boolean(onChange) &&
     Boolean(onSubmit);
+
+  const guidanceFields = useMemo(
+    () => buildGuidanceFieldsFromInputConfig(inputConfig),
+    [inputConfig],
+  );
 
   const formContent = useAdapter ? (
     <form
@@ -115,13 +126,26 @@ export function SmartFormWorkspace({
     </SmartExpertPanel>
   ) : undefined;
 
+  const guidedFormContent = (
+    <ToolGuidanceLayout
+      toolSlug={toolSlug}
+      tier={tier}
+      fields={guidanceFields}
+      toolTitle={title}
+      toolCategory={toolCategory}
+      toolSector={toolSector}
+    >
+      {formContent}
+    </ToolGuidanceLayout>
+  );
+
   return (
     <SmartFormShell
       title={title}
       description={description ?? (adapter.ok ? adapter.decisionGoal : undefined)}
       tier={tier}
       fallback={!useAdapter}
-      formContent={formContent}
+      formContent={guidedFormContent}
       expertContent={expertContent}
       resultContent={
         <SmartResultPanel

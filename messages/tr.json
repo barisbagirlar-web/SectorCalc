@@ -3243,7 +3243,7 @@
       "wastepercent": {
         "label": "Fire",
         "placeholder": "Fire girin",
-        "helper": "Breakage allowance"
+        "helper": "Breakage alDüşükance"
       }
     },
     "rebar-weight-calculator": {
@@ -3306,7 +3306,7 @@
       "costperm2": {
         "label": "Maliyet m² başına",
         "placeholder": "Maliyet m² başına girin",
-        "helper": "Unit Oran"
+        "helper": "Birim Oran"
       },
       "contingencypercent": {
         "label": "Yedek pay",
@@ -3318,7 +3318,7 @@
       "principal": {
         "label": "Ana para",
         "placeholder": "Ana para girin",
-        "helper": "Kredi amount"
+        "helper": "Kredi Tutar"
       },
       "annualrate": {
         "label": "Yıllık Oran",
@@ -3333,8 +3333,8 @@
     },
     "mortgage-calculator": {
       "principal": {
-        "label": "Kredi amount",
-        "placeholder": "Kredi amount girin",
+        "label": "Kredi Tutar",
+        "placeholder": "Kredi Tutar girin",
         "helper": "Konut kredisi Ana para"
       },
       "annualrate": {
@@ -3352,7 +3352,7 @@
       "principal": {
         "label": "Ana para",
         "placeholder": "Ana para girin",
-        "helper": "Starting amount"
+        "helper": "Başlangıç tutarı"
       },
       "ratepercent": {
         "label": "Oran",
@@ -3379,7 +3379,7 @@
       "years": {
         "label": "Yıl",
         "placeholder": "Yıl girin",
-        "helper": "Time horizon"
+        "helper": "Zaman ufku"
       },
       "compoundsperyear": {
         "label": "Bileşik/yıl",
@@ -3389,8 +3389,8 @@
     },
     "vat-calculator": {
       "net": {
-        "label": "Net tutar",
-        "placeholder": "Net tutar girin",
+        "label": "net tutar",
+        "placeholder": "net tutar girin",
         "helper": "Fiyat before VAT"
       },
       "vatrate": {
@@ -3442,8 +3442,8 @@
         "helper": "OverKafa to cover"
       },
       "unitprice": {
-        "label": "Unit Fiyat",
-        "placeholder": "Unit Fiyat girin",
+        "label": "Birim fiyat",
+        "placeholder": "Birim fiyat girin",
         "helper": "Selling Fiyat"
       },
       "variablecost": {
@@ -3456,7 +3456,7 @@
       "gain": {
         "label": "Kazanç",
         "placeholder": "Kazanç girin",
-        "helper": "Return amount"
+        "helper": "Getiri tutarı"
       },
       "cost": {
         "label": "Maliyet",
@@ -3531,7 +3531,7 @@
       "quantity": {
         "label": "Miktar",
         "placeholder": "Miktar girin",
-        "helper": "birim produced"
+        "helper": "birim pMiluced"
       }
     },
     "machine-time-calculator": {
@@ -3543,34 +3543,44 @@
       "cycleseconds": {
         "label": "Çevrim süresi",
         "placeholder": "Çevrim süresi girin",
-        "helper": "başına-part cycle"
+        "helper": "başına-Parça çevrim"
       },
       "quantity": {
         "label": "Miktar",
         "placeholder": "Miktar girin",
-        "helper": "Parça to run"
+        "helper": "Çalıştırılacak parça adedi"
       },
       "machinerate": {
         "label": "Makine saat ücreti",
         "placeholder": "Makine saat ücreti girin",
-        "helper": "Hourly Makine saat ücreti"
+        "helper": "Saatlik Makine saat ücreti"
+      },
+      "setuptime": {
+        "label": "Hazırlık süresi",
+        "placeholder": "Hazırlık süresi girin",
+        "helper": "Parça başına hazırlık süresi"
+      },
+      "cycletime": {
+        "label": "Çevrim süresi",
+        "placeholder": "Çevrim süresi girin",
+        "helper": "Parça başına çevrim süresi"
       }
     },
     "cnc-cycle-time-calculator": {
       "machiningseconds": {
         "label": "İşleme",
         "placeholder": "İşleme girin",
-        "helper": "kesim time başına part"
+        "helper": "kesim süresi başına Parça"
       },
       "loadunloadseconds": {
         "label": "Yük/unYük",
         "placeholder": "Yük/unYük girin",
-        "helper": "Handling başına part"
+        "helper": "Handling başına Parça"
       },
       "inspectionseconds": {
         "label": "Muayene",
         "placeholder": "Muayene girin",
-        "helper": "QC başına part"
+        "helper": "QC başına Parça"
       },
       "quantity": {
         "label": "Miktar",
@@ -3592,7 +3602,7 @@
       "laborrate": {
         "label": "İşçilik saat ücreti",
         "placeholder": "İşçilik saat ücreti girin",
-        "helper": "Hourly Kaynaker Oran"
+        "helper": "Saatlik Kaynaker Oran"
       },
       "consumablescost": {
         "label": "Sarf malzemeleri",
@@ -3641,7 +3651,7 @@
       "machinerate": {
         "label": "Makine saat ücreti",
         "placeholder": "Makine saat ücreti girin",
-        "helper": "Printer Hourly Oran"
+        "helper": "Printer Saatlik Oran"
       },
       "postprocesshours": {
         "label": "Son işlem",
@@ -3678,8 +3688,8 @@
     },
     "material-waste-calculator": {
       "inputmaterialkg": {
-        "label": "Input Malzeme",
-        "placeholder": "Input Malzeme girin",
+        "label": "Girdi Malzeme",
+        "placeholder": "Girdi Malzeme girin",
         "helper": "Malzeme fed"
       },
       "goodoutputkg": {
@@ -3704,11 +3714,11 @@
       "availabilitypercent": {
         "label": "Kullanılabilirlik",
         "placeholder": "Kullanılabilirlik girin",
-        "helper": "Uptime Yüzde"
+        "helper": "UpSüre Yüzde"
       },
       "performancepercent": {
-        "label": "Performans",
-        "placeholder": "Performans girin",
+        "label": "başınaformans",
+        "placeholder": "başınaformans girin",
         "helper": "Hız Yüzde"
       },
       "qualitypercent": {
@@ -3808,7 +3818,7 @@
       "rate": {
         "label": "Oran",
         "placeholder": "Oran girin",
-        "helper": "Unit tariff"
+        "helper": "Birim tarife"
       }
     },
     "electricity-bill-calculator": {
@@ -3920,8 +3930,8 @@
         "helper": "ısı delivered"
       },
       "fuelinputkwh": {
-        "label": "Yakıt input",
-        "placeholder": "Yakıt input girin",
+        "label": "Yakıt Girdi",
+        "placeholder": "Yakıt Girdi girin",
         "helper": "Enerji in Yakıt"
       }
     },
@@ -4046,12 +4056,12 @@
       "driverhours": {
         "label": "Driver Saat",
         "placeholder": "Driver Saat girin",
-        "helper": "Driving time"
+        "helper": "Sürüş süresi"
       },
       "hourlyrate": {
         "label": "Driver Oran",
         "placeholder": "Driver Oran girin",
-        "helper": "Hourly Oran"
+        "helper": "Saatlik Oran"
       },
       "tolls": {
         "label": "Geçiş ücretleri",
@@ -4214,7 +4224,7 @@
       "minutes": {
         "label": "süre",
         "placeholder": "süre girin",
-        "helper": "Run time"
+        "helper": "Çalışma süresi"
       }
     },
     "feed-cost-estimator": {
@@ -4287,9 +4297,19 @@
         "helper": "Plate Maliyet"
       },
       "menuprice": {
-        "label": "Menü Fiyat",
-        "placeholder": "Menü Fiyat girin",
-        "helper": "Selling Fiyat"
+        "label": "Menü fiyatı",
+        "placeholder": "Menü fiyatı girin",
+        "helper": "Satış fiyatı"
+      },
+      "foodcost": {
+        "label": "Yemek maliyeti",
+        "placeholder": "Yemek maliyeti girin",
+        "helper": "Malzeme maliyeti"
+      },
+      "deliverycommission": {
+        "label": "Teslimat komisyonu",
+        "placeholder": "Komisyon girin",
+        "helper": "Teslimat platform komisyonu"
       }
     },
     "portion-cost-calculator": {
@@ -4516,7 +4536,7 @@
       "monthlysaving": {
         "label": "Aylık saving",
         "placeholder": "Aylık saving girin",
-        "helper": "Amount saved başına month"
+        "helper": "Tutar saved başına month"
       }
     },
     "percentage-increase-calculator": {
@@ -4665,9 +4685,9 @@
         "helper": "Confidence z (e.g. 1.96)"
       },
       "marginerrorpercent": {
-        "label": "Marj error",
-        "placeholder": "Marj error girin",
-        "helper": "Marj of error"
+        "label": "Marj hatası",
+        "placeholder": "Marj hatası girin",
+        "helper": "Marj hatası"
       },
       "proportionpercent": {
         "label": "Prokısım",
@@ -4728,48 +4748,48 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
         "placeholder": "Kaynak birim girin",
-        "helper": "Source unit"
+        "helper": "Kaynak birim"
       }
     },
     "weight-converter": {
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
         "placeholder": "Kaynak birim girin",
-        "helper": "Source unit"
+        "helper": "Kaynak birim"
       }
     },
     "area-converter": {
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
         "placeholder": "Kaynak birim girin",
-        "helper": "Source unit"
+        "helper": "Kaynak birim"
       }
     },
     "volume-converter": {
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
         "placeholder": "Kaynak birim girin",
-        "helper": "Source unit"
+        "helper": "Kaynak birim"
       }
     },
     "temperature-converter": {
@@ -4846,24 +4866,24 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
         "placeholder": "Kaynak birim girin",
-        "helper": "Source unit"
+        "helper": "Kaynak birim"
       }
     },
     "beygir-gucu-kilowatt-cevirici": {
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
         "placeholder": "Kaynak birim girin",
-        "helper": "Source unit"
+        "helper": "Kaynak birim"
       }
     },
     "npu-npi-profil-agirlik-hesaplama": {
@@ -4906,12 +4926,12 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
         "placeholder": "Kaynak birim girin",
-        "helper": "Source unit"
+        "helper": "Kaynak birim"
       }
     },
     "jenerator-kapasitesi-secim-hesaplama": {
@@ -4945,8 +4965,8 @@
         "helper": "Natural gas Tüketim in sm³"
       },
       "unitprice": {
-        "label": "Unit Fiyat",
-        "placeholder": "Unit Fiyat girin",
+        "label": "Birim fiyat",
+        "placeholder": "Birim fiyat girin",
         "helper": "Fiyat başına sm³"
       }
     },
@@ -4988,21 +5008,21 @@
     },
     "fazla-mesai-ucreti-hesaplama": {
       "overtimehours": {
-        "label": "Overtime Saat",
-        "placeholder": "Overtime Saat girin",
-        "helper": "Overtime Saat worked"
+        "label": "OverSüre Saat",
+        "placeholder": "OverSüre Saat girin",
+        "helper": "OverSüre Saat worked"
       },
       "hourlyrate": {
-        "label": "Hourly Oran",
-        "placeholder": "Hourly Oran girin",
-        "helper": "Taban Hourly Oran"
+        "label": "Saatlik Oran",
+        "placeholder": "Saatlik Oran girin",
+        "helper": "Taban Saatlik Oran"
       }
     },
     "enflasyon-fiyat-eskalasyonu-hesaplama": {
       "baseamount": {
         "label": "Taban tutar",
         "placeholder": "Taban tutar girin",
-        "helper": "Starting amount"
+        "helper": "Başlangıç tutarı"
       },
       "inflationpercent": {
         "label": "Inflation Oran",
@@ -5014,24 +5034,24 @@
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
         "placeholder": "Kaynak birim girin",
-        "helper": "Source unit"
+        "helper": "Kaynak birim"
       }
     },
     "joule-kalori-watt-saat-cevirici": {
       "value": {
         "label": "Değer",
         "placeholder": "Değer girin",
-        "helper": "Amount to convert"
+        "helper": "Dönüştürülecek miktar"
       },
       "fromunit": {
         "label": "Kaynak birim",
         "placeholder": "Kaynak birim girin",
-        "helper": "Source unit"
+        "helper": "Kaynak birim"
       }
     },
     "agirlikli-ortalama-hesaplama": {
@@ -5495,9 +5515,9 @@
     },
     "kdv-tevkifati-hesaplama": {
       "netamount": {
-        "label": "Net tutar",
-        "placeholder": "Net tutar girin",
-        "helper": "net invoice amount"
+        "label": "net tutar",
+        "placeholder": "net tutar girin",
+        "helper": "net invoice Tutar"
       },
       "withholdingrate": {
         "label": "Withholding Oran",
@@ -5644,9 +5664,9 @@
         "helper": "Toplam Ağırlık for calculation"
       },
       "unitweightkg": {
-        "label": "Unit Ağırlık",
-        "placeholder": "Unit Ağırlık girin",
-        "helper": "Unit Ağırlık for calculation"
+        "label": "Birim Ağırlık",
+        "placeholder": "Birim Ağırlık girin",
+        "helper": "Birim Ağırlık for calculation"
       }
     },
     "tir-kamyon-yuk-kapasitesi-hesaplama": {
@@ -5982,9 +6002,9 @@
     },
     "enjeksiyon-dokum-cekme-payi-hesabi": {
       "partlengthmm": {
-        "label": "Part Uzunluk",
-        "placeholder": "Part Uzunluk girin",
-        "helper": "Molded Part Uzunluk in mm"
+        "label": "Parça Uzunluk",
+        "placeholder": "Parça Uzunluk girin",
+        "helper": "Molded Parça Uzunluk in mm"
       },
       "shrinkpercent": {
         "label": "Shrink Yüzde",
@@ -6032,7 +6052,7 @@
       "dailyoutputvalue": {
         "label": "Günlük çıktı Değer",
         "placeholder": "Günlük çıktı Değer girin",
-        "helper": "Günlük production Değer"
+        "helper": "Günlük pMiluction Değer"
       },
       "lostdays": {
         "label": "Lost Gün",
@@ -6042,9 +6062,9 @@
     },
     "forklift-transpalet-kullanim-maliyeti": {
       "hourlyrate": {
-        "label": "Hourly Oran",
-        "placeholder": "Hourly Oran girin",
-        "helper": "ekipman Hourly Oran"
+        "label": "Saatlik Oran",
+        "placeholder": "Saatlik Oran girin",
+        "helper": "ekipman Saatlik Oran"
       },
       "hours": {
         "label": "Saat",
@@ -6092,7 +6112,7 @@
       "attendeerate": {
         "label": "Attendee Oran",
         "placeholder": "Attendee Oran girin",
-        "helper": "Blended hourly attendee Maliyet"
+        "helper": "Blended Saatlik attendee Maliyet"
       },
       "attendeehours": {
         "label": "Attendee-Saat",
@@ -6351,7 +6371,7 @@
       "dpmo": {
         "label": "DPMO",
         "placeholder": "DPMO girin",
-        "helper": "Defects başına Milyon opportunities"
+        "helper": "Defects başına Milyon opportBirimies"
       },
       "million": {
         "label": "Milyon",
@@ -6368,7 +6388,7 @@
       "plannedhours": {
         "label": "Planned run Saat",
         "placeholder": "Planned run Saat girin",
-        "helper": "Hazırlık plus production Saat on the job."
+        "helper": "Hazırlık plus pMiluction Saat on the job."
       },
       "downtimehours": {
         "label": "Beklenen duruş",
@@ -6388,12 +6408,12 @@
       "availability": {
         "label": "Kullanılabilirlik",
         "placeholder": "Kullanılabilirlik girin",
-        "helper": "Running time vs planned time."
+        "helper": "Çalışma süresi vs planlanan süre."
       },
       "performance": {
-        "label": "Performans",
-        "placeholder": "Performans girin",
-        "helper": "gerçek cycle vs ideal cycle."
+        "label": "başınaformans",
+        "placeholder": "başınaformans girin",
+        "helper": "gerçek çevrim vs ideal çevrim."
       },
       "quality": {
         "label": "kalite",
@@ -6647,8 +6667,8 @@
         "helper": "Waiting, Yüking or idle engine Saat."
       },
       "hourlycost": {
-        "label": "Hourly Maliyet",
-        "placeholder": "Hourly Maliyet girin",
+        "label": "Saatlik Maliyet",
+        "placeholder": "Saatlik Maliyet girin",
         "helper": "Driver and ekipman Maliyet başına idle hour."
       }
     },
@@ -6688,7 +6708,7 @@
       "monthlyrevenue": {
         "label": "Aylık ciro",
         "placeholder": "Aylık ciro girin",
-        "helper": "Product Gelir for the same başınaiod."
+        "helper": "PMiluct Gelir for the same başınaiod."
       },
       "computecost": {
         "label": "Compute Maliyet",
@@ -6735,8 +6755,8 @@
         "helper": "Inserts, tooling and Sarf malzemeleri spend başına month."
       },
       "partsproduced": {
-        "label": "Üretilen parça",
-        "placeholder": "Üretilen parça girin",
+        "label": "ÜreFayansn parça",
+        "placeholder": "ÜreFayansn parça girin",
         "helper": "iyi ÜreFayansn parça in the same başınaiod."
       },
       "toolchangeminutes": {
@@ -6750,8 +6770,8 @@
         "helper": "Tool change events in the başınaiod."
       },
       "hourlycost": {
-        "label": "Hourly Maliyet",
-        "placeholder": "Hourly Maliyet girin",
+        "label": "Saatlik Maliyet",
+        "placeholder": "Saatlik Maliyet girin",
         "helper": "Yüked makine and obaşınaator Oran."
       },
       "coolantcost": {
@@ -6764,7 +6784,7 @@
       "fabriccost": {
         "label": "Fabric Maliyet",
         "placeholder": "Fabric Maliyet girin",
-        "helper": "Fabric Satın alma spend for the production run or month."
+        "helper": "Fabric Satın alma spend for the pMiluction run or month."
       },
       "cuttingwastepercent": {
         "label": "Kesim Fire",
@@ -6774,7 +6794,7 @@
       "targetwastepercent": {
         "label": "hedef Fire",
         "placeholder": "hedef Fire girin",
-        "helper": "Acceptable Fire hedef for similar production."
+        "helper": "Acceptable Fire hedef for similar pMiluction."
       },
       "shrinkagepercent": {
         "label": "Çekme/kayıp",
@@ -6811,7 +6831,7 @@
       "laborrate": {
         "label": "İşçilik saat ücreti",
         "placeholder": "İşçilik saat ücreti girin",
-        "helper": "Fully Yüked design and production İşçilik saat ücreti."
+        "helper": "Fully Yüked design and pMiluction İşçilik saat ücreti."
       },
       "installreworkcost": {
         "label": "Install Yeniden işleme Maliyet",
@@ -6880,8 +6900,8 @@
     },
     "electrical-panel-rework-cost": {
       "panelrevenue": {
-        "label": "Panel geliri",
-        "placeholder": "Panel geliri girin",
+        "label": "Pano geliri",
+        "placeholder": "Pano geliri girin",
         "helper": "Quoted or contract Gelir for the Pano job."
       },
       "wiringhours": {
@@ -7067,8 +7087,8 @@
         "helper": "Extra picking and handling Saat başına month."
       },
       "hourlycost": {
-        "label": "Hourly Maliyet",
-        "placeholder": "Hourly Maliyet girin",
+        "label": "Saatlik Maliyet",
+        "placeholder": "Saatlik Maliyet girin",
         "helper": "Yüked warehouse İşçilik saat ücreti."
       }
     },
@@ -7086,12 +7106,12 @@
       "tolerance": {
         "label": "Tolerans",
         "placeholder": "Tolerans girin",
-        "helper": "Allowed Tolerans band around hedef."
+        "helper": "AlDüşüked Tolerans band around hedef."
       },
       "batchvalue": {
         "label": "Batch Değer",
         "placeholder": "Batch Değer girin",
-        "helper": "Production batch Değer At risk."
+        "helper": "PMiluction batch Değer At risk."
       },
       "rejectionriskpercent": {
         "label": "Red riski",
@@ -7103,7 +7123,7 @@
       "principal": {
         "label": "Ana para",
         "placeholder": "Ana para girin",
-        "helper": "Outstanding Ana para or claim amount."
+        "helper": "Outstanding Ana para or claim Tutar."
       },
       "annualinterestpercent": {
         "label": "Yıllık faiz",
@@ -7162,7 +7182,7 @@
       "machinecost": {
         "label": "makine Maliyet",
         "placeholder": "makine Maliyet girin",
-        "helper": "makine or spindle time allocated to the quote."
+        "helper": "makine or spindle Süre allocated to the quote."
       },
       "energycost": {
         "label": "Enerji Maliyet",
@@ -7202,7 +7222,7 @@
       "discountrate": {
         "label": "İndirim Oran",
         "placeholder": "İndirim Oran girin",
-        "helper": "Optional customer İndirim applied on the hedef sales Fiyat."
+        "helper": "İsteğe bağlı customer İndirim applied on the hedef sales Fiyat."
       },
       "taxincluded": {
         "label": "Vergi included in Maliyets",
@@ -7239,8 +7259,8 @@
         "helper": "Aylık sabit overKafa for the başınaiod."
       },
       "unitprice": {
-        "label": "Unit Fiyat",
-        "placeholder": "Unit Fiyat girin",
+        "label": "Birim fiyat",
+        "placeholder": "Birim fiyat girin",
         "helper": "Average selling Fiyat birim başına."
       },
       "variablecostperunit": {
@@ -7251,7 +7271,7 @@
       "currentvolume": {
         "label": "Akım Hacim",
         "placeholder": "Akım Hacim girin",
-        "helper": "birim sold or produced in the başınaiod."
+        "helper": "birim sold or pMiluced in the başınaiod."
       }
     },
     "auto-repair-parts-labor-quote-calculator": {
@@ -7263,7 +7283,7 @@
       "laborhours": {
         "label": "işçilik Saat",
         "placeholder": "işçilik Saat girin",
-        "helper": "Book time or Tahmini işçilik Saat."
+        "helper": "Kayıtlı süre or Tahmini işçilik Saat."
       },
       "laborrate": {
         "label": "İşçilik saat ücreti",
@@ -7285,7 +7305,7 @@
       "energyemissionston": {
         "label": "Enerji Emisyons",
         "placeholder": "Enerji Emisyons girin",
-        "helper": "Enerji-related Emisyons for the production batch."
+        "helper": "Enerji-related Emisyons for the pMiluction batch."
       },
       "fuelemissionston": {
         "label": "Yakıt Emisyons",
@@ -7295,7 +7315,7 @@
       "productionunits": {
         "label": "Üretim adedi",
         "placeholder": "Üretim adedi girin",
-        "helper": "birim produced in the batch."
+        "helper": "birim pMiluced in the batch."
       },
       "carbonprice": {
         "label": "Karbon Fiyat",
@@ -7307,27 +7327,27 @@
       "availability": {
         "label": "Kullanılabilirlik",
         "placeholder": "Kullanılabilirlik girin",
-        "helper": "Running time vs planned production time."
+        "helper": "Çalışma süresi vs planlanan üretim süresi."
       },
       "performance": {
-        "label": "Performans",
-        "placeholder": "Performans girin",
-        "helper": "gerçek vs ideal cycle Hız."
+        "label": "başınaformans",
+        "placeholder": "başınaformans girin",
+        "helper": "gerçek vs ideal çevrim Hız."
       },
       "quality": {
         "label": "kalite",
         "placeholder": "kalite girin",
-        "helper": "İyi birimler vs Toplam birim produced."
+        "helper": "İyi birimler vs Toplam birim pMiluced."
       },
       "machinerate": {
         "label": "Makine saat ücreti",
         "placeholder": "Makine saat ücreti girin",
-        "helper": "Yüked hourly makine Maliyet for kayıp Tahmin."
+        "helper": "Yüked Saatlik makine Maliyet for kayıp Tahmin."
       },
       "plannedhours": {
         "label": "Planned Saat",
         "placeholder": "Planned Saat girin",
-        "helper": "Planned production Saat in the başınaiod."
+        "helper": "Planned pMiluction Saat in the başınaiod."
       },
       "downtimehours": {
         "label": "Duruş Saat",
@@ -7381,19 +7401,19 @@
         "helper": "Unplanned or scheduled stop Dakika in the başınaiod."
       },
       "hourlyrate": {
-        "label": "Shop Hourly Oran",
-        "placeholder": "Shop Hourly Oran girin",
-        "helper": "Yüked makine or line hourly Maliyet."
+        "label": "Shop Saatlik Oran",
+        "placeholder": "Shop Saatlik Oran girin",
+        "helper": "Yüked makine or line Saatlik Maliyet."
       },
       "outputunitsperhour": {
         "label": "çıktı birim saat başına",
         "placeholder": "çıktı birim saat başına girin",
-        "helper": "Typical İyi birimler produced başına running hour."
+        "helper": "Typical İyi birimler pMiluced başına running hour."
       },
       "contributionperunit": {
         "label": "Contribution birim başına",
         "placeholder": "Contribution birim başına girin",
-        "helper": "Marj contribution başına iyi unit."
+        "helper": "Marj contribution başına iyi Birim."
       }
     },
     "product-customer-profitability-calculator": {
@@ -7432,7 +7452,7 @@
       "unitcost": {
         "label": "Birim maliyet",
         "placeholder": "Birim maliyet girin",
-        "helper": "Satın alma or production Maliyet birim başına."
+        "helper": "Satın alma or pMiluction Maliyet birim başına."
       },
       "carryingcostpercent": {
         "label": "Carrying Maliyet Oran",
@@ -7476,27 +7496,27 @@
       "t1": {
         "label": "Tolerans 1",
         "placeholder": "Tolerans 1 girin",
-        "helper": "First part Tolerans contribution."
+        "helper": "First Parça Tolerans contribution."
       },
       "t2": {
         "label": "Tolerans 2",
         "placeholder": "Tolerans 2 girin",
-        "helper": "Second part Tolerans contribution."
+        "helper": "Second Parça Tolerans contribution."
       },
       "t3": {
         "label": "Tolerans 3",
         "placeholder": "Tolerans 3 girin",
-        "helper": "Third part Tolerans contribution."
+        "helper": "Third Parça Tolerans contribution."
       },
       "t4": {
         "label": "Tolerans 4",
         "placeholder": "Tolerans 4 girin",
-        "helper": "Fourth part Tolerans contribution."
+        "helper": "Fourth Parça Tolerans contribution."
       },
       "assemblylimit": {
         "label": "Montaj limiti",
         "placeholder": "Montaj limiti girin",
-        "helper": "Maksimum allowable stack for the assembly chain."
+        "helper": "Maksimum alDüşükable stack for the assembly chain."
       }
     },
     "bolt-tightening-torque-calculator": {
@@ -7545,9 +7565,9 @@
         "helper": "Cylinder bore inner Çap."
       },
       "rodmm": {
-        "label": "Rod Çap",
-        "placeholder": "Rod Çap girin",
-        "helper": "Rod Çap for retract Kuvvet (optional screening)."
+        "label": "Mil Çap",
+        "placeholder": "Mil Çap girin",
+        "helper": "Mil Çap for retract Kuvvet (İsteğe bağlı screening)."
       }
     },
     "quality-cost-paf-calculator": {
@@ -7606,8 +7626,8 @@
         "helper": "Queue and Stok wait Dakika."
       },
       "transportminutes": {
-        "label": "Taşıma time",
-        "placeholder": "Taşıma time girin",
+        "label": "Taşıma süresi",
+        "placeholder": "Taşıma süresi girin",
         "helper": "Malzeme movement and transfer Dakika."
       }
     },
@@ -7702,6 +7722,57 @@
         "label": "Center Mesafe",
         "placeholder": "Center Mesafe girin",
         "helper": "Shaft center Mesafe for open belt Uzunluk."
+      }
+    },
+    "project-cost-calculator": {
+      "originalbudget": {
+        "label": "Orijinal bütçe",
+        "placeholder": "Orijinal bütçe girin",
+        "helper": "Proje başlangıç bütçesi"
+      },
+      "changeestimate": {
+        "label": "Değişiklik maliyet tahmini",
+        "placeholder": "Değişiklik maliyeti girin",
+        "helper": "Tahmini değişiklik maliyeti"
+      },
+      "deadlinepressure": {
+        "label": "Teslim baskısı",
+        "placeholder": "Teslim baskısı seçin",
+        "helper": "Teslim tarihi baskı seviyesi"
+      }
+    },
+    "cleaning-cost-calculator": {
+      "areasize": {
+        "label": "Alan büyüklüğü",
+        "placeholder": "Alan büyüklüğü girin",
+        "helper": "Temizlenecek alan"
+      },
+      "staffcount": {
+        "label": "başınasonel sayısı",
+        "placeholder": "başınasonel sayısı girin",
+        "helper": "Görevdeki başınasonel adedi"
+      },
+      "visitfrequency": {
+        "label": "Aylık ziyaret sayısı",
+        "placeholder": "Ziyaret sayısı girin",
+        "helper": "Ayda kaç ziyaret"
+      }
+    },
+    "product-margin-calculator": {
+      "productprice": {
+        "label": "Ürün fiyatı",
+        "placeholder": "Ürün fiyatı girin",
+        "helper": "Satış fiyatı"
+      },
+      "productcost": {
+        "label": "Ürün maliyeti",
+        "placeholder": "Ürün maliyeti girin",
+        "helper": "Birim maliyet"
+      },
+      "returnrate": {
+        "label": "İade oranı",
+        "placeholder": "İade oranı girin",
+        "helper": "İade yüzdesi"
       }
     }
   },
@@ -8165,5 +8236,40 @@
     "freeToolsLabel": "Ücretsiz hesap makineleri",
     "premiumToolsLabel": "Premium hesap makineleri",
     "industriesLabel": "Sektör merkezleri"
+  },
+  "guidance": {
+    "inputGuide": {
+      "title": "Girdi rehberi",
+      "description": "Bu şema, hesaplama alanlarına hangi ölçü veya değerin girileceğini göstermek için hazırlanmıştır.",
+      "activeField": "Aktif alan: {fieldLabel}"
+    },
+    "labels": {
+      "length": "Uzunluk",
+      "width": "Genişlik",
+      "height": "Yükseklik",
+      "depth": "Derinlik",
+      "diameter": "Çap",
+      "radius": "Yarıçap",
+      "thickness": "Kalınlık",
+      "angle": "Açı",
+      "area": "Alan",
+      "volume": "Hacim",
+      "cost": "Maliyet",
+      "price": "Fiyat",
+      "margin": "Marj",
+      "energy": "Enerji",
+      "power": "Güç",
+      "pressure": "Basınç",
+      "flow": "Debi",
+      "distance": "Mesafe",
+      "time": "Süre",
+      "setup": "Hazırlık",
+      "result": "Sonuç",
+      "decision": "Karar",
+      "input": "Girdi",
+      "process": "Hesaplama",
+      "quantity": "Miktar",
+      "stops": "Durak"
+    }
   }
 }

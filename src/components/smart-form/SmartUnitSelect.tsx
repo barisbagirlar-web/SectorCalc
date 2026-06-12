@@ -8,6 +8,7 @@ export type SmartUnitSelectProps = {
   readonly options: readonly SmartFormUnitOption[];
   readonly metricImperialReady?: boolean;
   readonly disabled?: boolean;
+  readonly ariaLabel?: string;
   readonly onChange?: (value: string) => void;
 };
 
@@ -16,7 +17,8 @@ export function SmartUnitSelect({
   value,
   options,
   metricImperialReady = true,
-  disabled = true,
+  disabled = false,
+  ariaLabel = "Unit",
   onChange,
 }: SmartUnitSelectProps) {
   if (options.length === 0) {
@@ -28,8 +30,8 @@ export function SmartUnitSelect({
   return (
     <select
       id={`${inputId}-unit`}
-      aria-label="Unit"
-      disabled={disabled}
+      aria-label={ariaLabel}
+      disabled={disabled || !onChange}
       value={selected}
       onChange={(event) => onChange?.(event.target.value)}
       className="min-h-[48px] min-w-[4.5rem] rounded-sm border border-border-subtle bg-off-white px-2 text-sm text-body-charcoal"

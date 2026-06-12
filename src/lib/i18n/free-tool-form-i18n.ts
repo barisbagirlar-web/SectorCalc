@@ -5,8 +5,10 @@ import frMessages from "../../../messages/fr.json";
 import esMessages from "../../../messages/es.json";
 import arMessages from "../../../messages/ar.json";
 import fieldI18nBundle from "@/data/free-tool-inputs-i18n.generated.json";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
 import { SUPPORTED_LOCALES, type SupportedLocale } from "@/lib/i18n/locale-config";
+import type { RevenueToolInput } from "@/lib/tools/revenue-tools";
 
 type MessageRecord = Record<string, unknown>;
 
@@ -131,6 +133,27 @@ function isSupportedLocale(locale: string): locale is SupportedLocale {
   return (SUPPORTED_LOCALES as readonly string[]).includes(locale);
 }
 
+function finalizeFieldCopy(copy: FieldDisplayCopy, locale: string): FieldDisplayCopy {
+  if (locale === "en") {
+    return copy;
+  }
+  return {
+    label: translateCalculatorPhrase(copy.label, locale),
+    placeholder: translateCalculatorPhrase(copy.placeholder, locale),
+    helper: copy.helper ? translateCalculatorPhrase(copy.helper, locale) : undefined,
+  };
+}
+
+function isEnglishIdenticalToEn(locale: string, slug: string, normalizedKey: string, label: string): boolean {
+  if (locale === "en" || !label) {
+    return false;
+  }
+  const enGenerated = readGeneratedFieldCopy("en", slug, normalizedKey);
+  const enMessages = readFreeToolInputField(LOCALE_MESSAGES.en, slug, normalizedKey);
+  const enLabel = enMessages?.label ?? enGenerated?.label ?? "";
+  return Boolean(enLabel && label === enLabel);
+}
+
 export function resolveFreeToolFieldDisplay(
   slug: string,
   fieldKey: string,
@@ -138,24 +161,27 @@ export function resolveFreeToolFieldDisplay(
   fallback: { readonly label: string; readonly placeholder: string; readonly helper?: string },
 ): FieldDisplayCopy {
   const normalizedKey = fieldKey.toLowerCase();
-  const fromGenerated = readGeneratedFieldCopy(locale, slug, normalizedKey);
-  if (fromGenerated) {
-    return fromGenerated;
-  }
-
   const fromMessages = readFreeToolInputField(LOCALE_MESSAGES[locale], slug, normalizedKey);
   if (fromMessages) {
-    return fromMessages;
+    return finalizeFieldCopy(fromMessages, locale);
+  }
+
+  const fromGenerated = readGeneratedFieldCopy(locale, slug, normalizedKey);
+  if (fromGenerated && !isEnglishIdenticalToEn(locale, slug, normalizedKey, fromGenerated.label)) {
+    return finalizeFieldCopy(fromGenerated, locale);
   }
 
   if (locale !== "en" && isSupportedLocale(locale)) {
-    const fromEn = readGeneratedFieldCopy("en", slug, normalizedKey);
-    if (fromEn) {
-      return {
-        label: fromEn.label,
-        placeholder: PLACEHOLDER_BY_LOCALE[locale](fromEn.label),
-        helper: fromEn.helper,
-      };
+    const fromEnGenerated = readGeneratedFieldCopy("en", slug, normalizedKey);
+    if (fromEnGenerated) {
+      return finalizeFieldCopy(
+        {
+          label: fromEnGenerated.label,
+          placeholder: PLACEHOLDER_BY_LOCALE[locale](translateCalculatorPhrase(fromEnGenerated.label, locale)),
+          helper: fromEnGenerated.helper,
+        },
+        locale,
+      );
     }
   }
 
@@ -171,28 +197,57 @@ export function resolveFreeToolFieldDisplay(
     ? PLACEHOLDER_BY_LOCALE[locale]
     : PLACEHOLDER_BY_LOCALE.en;
 
-  return {
-    label: fallback.label,
-    placeholder: placeholderTemplate(fallback.label),
-    helper: fallback.helper,
-  };
+  return finalizeFieldCopy(
+    {
+      label: fallback.label,
+      placeholder: placeholderTemplate(translateCalculatorPhrase(fallback.label, locale)),
+      helper: fallback.helper,
+    },
+    locale,
+  );
+}
+
+function localizeToolInputCopy<
+  T extends {
+    readonly key: string;
+    readonly label: string;
+    readonly helper?: string;
+    readonly helperText?: string;
+    readonly options?: readonly { readonly value: string; readonly label: string }[];
+  },
+>(slug: string, locale: string, inputs: readonly T[]): T[] {
+  return inputs.map((input) => {
+    const helperSource = input.helper ?? input.helperText ?? input.label;
+    const display = resolveFreeToolFieldDisplay(slug, input.key, locale, {
+      label: input.label,
+      placeholder: helperSource,
+      helper: helperSource,
+    });
+    return {
+      ...input,
+      label: display.label,
+      helper: display.helper ?? helperSource,
+      helperText: display.helper ?? input.helperText ?? helperSource,
+      options: input.options?.map((option) => ({
+        ...option,
+        label: translateCalculatorPhrase(option.label, locale),
+      })),
+    };
+  });
 }
 
 export function localizeFreeTrafficToolInputs<
   T extends { readonly key: string; readonly label: string; readonly helper: string },
 >(slug: string, locale: string, inputs: readonly T[]): T[] {
-  return inputs.map((input) => {
-    const display = resolveFreeToolFieldDisplay(slug, input.key, locale, {
-      label: input.label,
-      placeholder: input.helper,
-      helper: input.helper,
-    });
-    return {
-      ...input,
-      label: display.label,
-      helper: display.helper ?? input.helper,
-    };
-  });
+  return localizeToolInputCopy(slug, locale, inputs);
+}
+
+export function localizeRevenueToolInputs(
+  slug: string,
+  locale: string,
+  inputs: readonly RevenueToolInput[],
+): RevenueToolInput[] {
+  return localizeToolInputCopy(slug, locale, inputs);
 }
 
 /** Premium schema + revenue paid inputs — same field i18n pipeline */

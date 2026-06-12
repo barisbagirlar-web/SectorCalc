@@ -1,6 +1,7 @@
 "use client";
 
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
+import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
 import type { SmartFormContractFieldSpec } from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
 
 type SmartFormFieldProps = {
@@ -18,6 +19,7 @@ export function SmartFormField({
   onChange,
   inputIdPrefix = "smart-form",
 }: SmartFormFieldProps) {
+  const { onFocus, onBlur } = useGuidanceFieldFocus(field.key);
   const inputId = `${inputIdPrefix}-${field.key}`;
   const errorId = `${inputId}-error`;
   const helperId = `${inputId}-helper`;
@@ -46,6 +48,8 @@ export function SmartFormField({
           autoComplete="off"
           value={String(value)}
           placeholder={field.placeholder}
+          onFocus={onFocus}
+          onBlur={onBlur}
           onChange={(event) => {
             const { numeric } = handleNumericInputChange(event.target.value);
             onChange(field.key, numeric);
