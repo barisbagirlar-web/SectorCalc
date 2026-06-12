@@ -2,8 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/routing";
-import { stripLocalePrefix } from "@/i18n/locales";
+import { Link } from "@/i18n/routing";
 import type { AssistantResult, AssistantSuggestion } from "@/lib/assistant/types";
 
 type ChatMessage = {
@@ -22,7 +21,6 @@ const QUICK_ACTIONS = [
 
 export function SectorCalcAssistant() {
   const t = useTranslations("assistant");
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -34,11 +32,6 @@ export function SectorCalcAssistant() {
     idRef.current += 1;
     return idRef.current;
   };
-
-  const normalizedPath = stripLocalePrefix(pathname);
-  if (normalizedPath === "/" || normalizedPath === "") {
-    return null;
-  }
 
   async function send(rawMessage: string) {
     const message = rawMessage.trim();
