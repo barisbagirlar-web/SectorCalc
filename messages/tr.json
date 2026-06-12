@@ -188,14 +188,14 @@
       "fullAnalyzerLink": "CNC hesaplama aracı →"
     },
     "phase2": {
-      "label": "MarginCore · Faz 2",
+      "label": "MarginCore Pilot",
       "reservedLabel": "Stokastik motor alanı",
       "reservedBody": "Tam P90 duyarlılık matrisi ve PDF dışa aktarma premium açılıştan sonra buraya bağlanır."
     }
   },
   "freeTool": {
-    "riskScoreLabel": "Risk skoru",
-    "riskScoreAria": "Risk skoru: yüzde {score}",
+    "riskScoreLabel": "Risk düzeyi",
+    "riskScoreAria": "Risk düzeyi: yüzde {score}",
     "whatItMeans": "Bu ne anlama geliyor?",
     "premiumPreviewTitle": "Tam raporda görecekleriniz:",
     "premiumBadge": "Premium",
@@ -1407,7 +1407,7 @@
       "title": "Bu rapor operasyonunuza ne kadar uydu?",
       "optional": "İsteğe bağlı — çoğu kullanıcı atlar.",
       "dismiss": "Kapat",
-      "rating": "Genel puan",
+      "rating": "Genel değerlendirme",
       "usefulness": "Faydalılık",
       "formulaFit": "Formül uyumu",
       "missingVariable": "Eksik değişken",
@@ -2951,7 +2951,7 @@
       "ratio": "oran",
       "days": "gün",
       "months": "ay",
-      "score": "puan"
+      "score": "değer"
     },
     "metric": {
       "gross_margin": "Brüt marj",
@@ -4653,8 +4653,8 @@
         "helper": "Popülasyon boyut"
       },
       "confidencez": {
-        "label": "Z skoru",
-        "placeholder": "Z skoru girin",
+        "label": "Z-değeri",
+        "placeholder": "Z-değeri girin",
         "helper": "Confidence z (e.g. 1.96)"
       },
       "marginerrorpercent": {
@@ -8123,8 +8123,8 @@
       "description": "Hata payı ve güven düzeyinden sonlu popülasyon örneklem büyüklüğünü hesaplayın."
     },
     "z-score-calculator": {
-      "title": "Z Skoru Hesaplayıcı",
-      "description": "Değer, ortalama ve standart sapmadan standart puanı hesaplayın."
+      "title": "Z-Değeri Hesaplayıcı",
+      "description": "Değer, ortalama ve standart sapmadan standart Z-değerini hesaplayın."
     },
     "linear-regression-calculator": {
       "title": "Doğrusal Regresyon Hesaplayıcı",
