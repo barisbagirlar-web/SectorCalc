@@ -2,6 +2,7 @@ import { Link } from "@/i18n/routing";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { HomepageCatalogSearch } from "@/components/home/HomepageCatalogSearch";
+import { HeroMathematicalSymbols } from "@/components/home/HeroMathematicalSymbols";
 import {
   buildSearchEntriesFromGroups,
   mergeSearchEntries,
@@ -18,7 +19,6 @@ import {
   HOMEPAGE_CRITICAL_GROUPS,
   HOMEPAGE_DIFFERENTIATION_IDS,
   HOMEPAGE_EXCEL_IDS,
-  HOMEPAGE_HERO_PANEL_IDS,
   HOMEPAGE_LOSS_IDS,
   isHomepageCriticalToolLive,
   resolveHomepageCriticalToolHref,
@@ -84,16 +84,7 @@ function HomepagePositioningLayout({
               </div>
             </div>
 
-            <aside className="sc-home-omni__hero-panel" aria-labelledby="home-hero-panel-heading">
-              <h2 id="home-hero-panel-heading" className="sc-home-omni__hero-panel-title">
-                {t("hero.panelTitle")}
-              </h2>
-              <ul className="sc-home-omni__hero-panel-list">
-                {HOMEPAGE_HERO_PANEL_IDS.map((id) => (
-                  <li key={id}>{t(`hero.panelItems.${id}`)}</li>
-                ))}
-              </ul>
-            </aside>
+            <HeroMathematicalSymbols />
           </div>
         </Container>
       </section>
