@@ -445,7 +445,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
 
  {featuredAnswer ? <div className="mt-5">{featuredAnswer}</div> : null}
 
- <div className="sc-ledger-cetele sc-tool-workspace mt-4">
+ <div className="sc-ledger-cetele sc-ledger-cetele--stacked sc-tool-workspace sc-tool-workspace--stacked mt-4">
   <SmartFormWorkspace
    toolSlug={tool.freeSlug}
    tier="free"

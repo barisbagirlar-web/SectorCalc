@@ -2450,8 +2450,20 @@ form[data-calculation-form="true"] {
   min-width: 0;
 }
 
+.sc-smart-form-layout--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Smart form owns layout — do not squeeze inside ledger 2-col shell */
+.sc-ledger-cetele > .sc-smart-form-shell,
+.sc-tool-workspace > .sc-smart-form-shell {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 1280px;
+}
+
 @media (max-width: 900px) {
-  .sc-smart-form-layout {
+  .sc-smart-form-layout:not(.sc-smart-form-layout--single) {
     grid-template-columns: 1fr;
   }
 }

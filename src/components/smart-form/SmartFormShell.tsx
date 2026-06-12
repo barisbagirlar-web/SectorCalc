@@ -130,7 +130,9 @@ export function SmartFormShell({
         </div>
       </header>
 
-      <div className="sc-smart-form-layout">
+      <div
+        className={`sc-smart-form-layout${resultContent ? "" : " sc-smart-form-layout--single"}`}
+      >
         <div className="sc-smart-form-panel min-w-0">{formBody}</div>
         {viewMode !== "trust" && resultContent ? (
           <div className="sc-smart-form-output min-w-0">{resultContent}</div>

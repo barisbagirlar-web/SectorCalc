@@ -300,6 +300,18 @@ for (const locale of Object.keys(PATCH)) {
   data.homepageHybrid = block;
   data.catalogExplorer.search.placeholder.homepage = PATCH[locale].searchPlaceholder;
 
+  const footerTaglines = {
+    tr: "Üretim, sanayi, atölye ve teknik ekipler için ücretsiz ve premium sektörel hesap makineleri platformu.",
+    en: "Free and premium industry calculators for manufacturing, workshops, engineering and business operations.",
+    de: "Kostenlose und Premium-Branchenrechner für Produktion, Werkstätten, Technik und Unternehmensabläufe.",
+    fr: "Calculateurs sectoriels gratuits et premium pour l'industrie, les ateliers, l'ingénierie et les opérations.",
+    es: "Calculadoras sectoriales gratuitas y premium para fabricación, talleres, ingeniería y operaciones.",
+    ar: "حاسبات قطاعية مجانية ومميزة للتصنيع والورش والهندسة وعمليات الأعمال.",
+  };
+  if (footerTaglines[locale]) {
+    data.enterpriseFooter.tagline = footerTaglines[locale];
+  }
+
   writeFileSync(path, `${JSON.stringify(data, null, 2)}\n`, "utf8");
   console.log(`Patched messages/${locale}.json`);
 }

@@ -290,7 +290,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
 
       <section className="sc-craft-section overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
-          <div className="sc-ledger-cetele sc-tool-workspace">
+          <div className="sc-ledger-cetele sc-ledger-cetele--stacked sc-tool-workspace sc-tool-workspace--stacked">
             <SmartFormWorkspace
               toolSlug={tool.slug}
               tier="free"
