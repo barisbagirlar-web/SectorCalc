@@ -1,11 +1,10 @@
 import createIntlMiddleware from "next-intl/middleware";
 import { type NextRequest, NextResponse } from "next/server";
-import { routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing-config";
 import { REGION_COOKIE, REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
 import { detectCountryFromHeaders, detectRegionFromRequest } from "@/lib/compliance/detect-region";
 import {
   addLocaleToPath,
-  buildPrefixedLocaleMatcherSegment,
   getLegacyEnRedirectPath,
   isLocalizedPath,
   isMiddlewareExcludedPath,
@@ -116,12 +115,10 @@ export default function middleware(request: NextRequest) {
   return applyRegionHeaders(NextResponse.next(), request);
 }
 
-const prefixedLocales = buildPrefixedLocaleMatcherSegment();
-
 export const config = {
   matcher: [
     "/",
-    `/(${prefixedLocales})/:path*`,
+    "/(tr|de|fr|es|ar)/:path*",
     "/((?!admin|api|_next|_vercel|.*\\..*).*)",
   ],
 };

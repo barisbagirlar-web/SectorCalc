@@ -1,16 +1,9 @@
 import { createElement, type ComponentProps } from "react";
-import { defineRouting } from "next-intl/routing";
 import { createNavigation } from "next-intl/navigation";
 import { locales, type AppLocale, isAppLocale, stripLocalePrefix } from "@/i18n/locales";
+import { routing } from "@/i18n/routing-config";
 
-export { locales, type AppLocale, isAppLocale, stripLocalePrefix };
-
-export const routing = defineRouting({
-  locales: [...locales],
-  defaultLocale: "en",
-  localePrefix: "as-needed",
-  localeDetection: false,
-});
+export { locales, type AppLocale, isAppLocale, stripLocalePrefix, routing };
 
 const navigation = createNavigation(routing);
 

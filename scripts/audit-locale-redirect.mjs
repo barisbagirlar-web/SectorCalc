@@ -17,10 +17,10 @@ function fail(msg) {
   console.error(`FAIL: ${msg}`);
 }
 
-if (existsSync(join(ROOT, "middleware.ts"))) {
-  pass("middleware.ts exists");
+if (existsSync(join(ROOT, "src/middleware.ts"))) {
+  pass("src/middleware.ts exists");
 } else {
-  fail("middleware.ts missing");
+  fail("src/middleware.ts missing");
 }
 
 const localeConfig = readFileSync(join(ROOT, "src/lib/i18n/locale-config.ts"), "utf8");
