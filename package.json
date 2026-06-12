@@ -31,7 +31,7 @@
     "audit:locale-center": "node scripts/audit-locale-integrity-center.mjs",
     "audit:rendered-locales": "node scripts/audit-public-rendered-locales.mjs",
     "quality:locale": "npm run audit:locale-center && npm run audit:surface-i18n",
-    "quality:locale:rendered": "npm run audit:rendered-locales",
+    "quality:locale:full": "npm run audit:locale-center && npm run audit:surface-i18n && npm run build && npm run audit:rendered-locales",
     "audit:public-surface": "node scripts/audit-public-surface-copy.mjs",
     "audit:public-surface:static": "POST_BUILD=1 node scripts/audit-public-surface-copy.mjs",
     "audit:sector-footer": "node scripts/audit-sector-footer.mjs",

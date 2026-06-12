@@ -532,7 +532,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
     <>
      {fullLoopResult?.status === "blocked" ? (
       <SmartFormValidationSummary
-       title={tUi("tool.resultBlocked")}
+       title={tUi("analysisBlockedTitle")}
        blockers={fullLoopResult.blockers}
       />
      ) : null}
