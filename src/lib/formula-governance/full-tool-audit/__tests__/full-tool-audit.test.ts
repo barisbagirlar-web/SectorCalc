@@ -12,8 +12,8 @@ import {
 describe("full existing tool audit — Phase 5H-J", () => {
   test("all contracts enter audit", () => {
     const result = runFullExistingToolAudit(FORMULA_CONTRACTS, process.cwd());
-    expect(result.totalTools).toBe(261);
-    expect(result.items).toHaveLength(261);
+    expect(result.totalTools).toBe(287);
+    expect(result.items).toHaveLength(287);
   });
 
   test("missing production locator makes productionSafe false", () => {

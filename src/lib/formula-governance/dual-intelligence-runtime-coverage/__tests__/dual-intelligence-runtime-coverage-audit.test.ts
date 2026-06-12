@@ -19,8 +19,8 @@ import {
 describe("dual-intelligence runtime coverage audit", () => {
   test("classifies all formula contracts", () => {
     const result = runDualIntelligenceRuntimeCoverageAudit();
-    expect(result.totalContracts).toBe(261);
-    expect(FORMULA_CONTRACTS.length).toBe(261);
+    expect(result.totalContracts).toBe(287);
+    expect(FORMULA_CONTRACTS.length).toBe(287);
     expect(result.entries).toHaveLength(FORMULA_CONTRACTS.length);
   });
 
@@ -39,7 +39,7 @@ describe("dual-intelligence runtime coverage audit", () => {
     expect(result.fullLoopRuntimeCount).toBe(129);
     expect(result.stagedCalculationBridge).toBe(0);
     expect(result.governedBuildtimeOnly).toBe(0);
-    expect(result.auditPipelineOnly).toBe(130);
+    expect(result.auditPipelineOnly).toBe(156);
   });
 
   test("only live pilots have partial Mind 1/2 runtime without full loop", () => {

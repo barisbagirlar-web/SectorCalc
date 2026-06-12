@@ -7,6 +7,8 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { BATCH_TRAFFIC_CATALOG_ORACLE_TOOL_IDS } from "@/lib/formula-governance/oracle/batch-traffic-catalog-oracles";
 import { ROADMAP_FREE_BATCH_ORACLE_TOOL_IDS } from "@/lib/formula-governance/oracle/roadmap-free-batch-oracles";
+import { PREMIUM_SCHEMA_EXTENDED_ORACLE_TOOL_IDS } from "@/lib/formula-governance/oracle/premium-schema-extended-oracles";
+import { ENGINE_MODULES_ORACLE_TOOL_IDS } from "@/lib/formula-governance/oracle/engine-modules-oracles";
 
 /** toolId → oracle module filename under src/lib/formula-governance/oracle/ */
 const ORACLE_MODULE_BY_TOOL: Record<string, string> = {
@@ -70,6 +72,16 @@ const ORACLE_MODULE_BY_TOOL: Record<string, string> = {
   ...Object.fromEntries(
     Object.entries(ROADMAP_FREE_BATCH_ORACLE_TOOL_IDS).map(
       ([toolId]) => [toolId, "roadmap-free-batch-oracles.ts"] as const,
+    ),
+  ),
+  ...Object.fromEntries(
+    Object.entries(PREMIUM_SCHEMA_EXTENDED_ORACLE_TOOL_IDS).map(
+      ([toolId]) => [toolId, "premium-schema-extended-oracles.ts"] as const,
+    ),
+  ),
+  ...Object.fromEntries(
+    Object.entries(ENGINE_MODULES_ORACLE_TOOL_IDS).map(
+      ([toolId]) => [toolId, "engine-modules-oracles.ts"] as const,
     ),
   ),
 };

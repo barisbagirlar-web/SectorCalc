@@ -25,8 +25,14 @@ const nextConfig: NextConfig = {
     ];
   },
   async rewrites() {
+    const indexNowKey = process.env.INDEXNOW_KEY?.trim();
+    const indexNowVerification = indexNowKey
+      ? [{ source: `/${indexNowKey}.txt`, destination: "/api/indexnow-verification" }]
+      : [];
+
     return {
       beforeFiles: [
+        ...indexNowVerification,
         { source: "/", destination: "/en" },
         {
           source: `/:path((?!${LOCALE_REWRITE_EXCLUDE}).*)`,

@@ -17,9 +17,9 @@ describe("input design audit script shape", () => {
     const result = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
     const formatted = formatBatchInputDesignAuditReport(result);
 
-    expect(result.totalContracts).toBe(261);
+    expect(result.totalContracts).toBe(287);
     expect(formatted).toContain("Input Design Audit Summary");
-    expect(formatted).toContain("Total contracts: 261");
+    expect(formatted).toContain("Total contracts: 287");
     expect(formatted).toContain("Professional ready:");
     expect(formatted).toContain("Contract-only analysis:");
   });

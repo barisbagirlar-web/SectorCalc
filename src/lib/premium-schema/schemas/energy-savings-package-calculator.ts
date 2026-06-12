@@ -6,7 +6,7 @@ export const ENERGY_SAVINGS_PACKAGE_CALCULATOR_SCHEMA: PremiumCalculatorSchema =
   sectorSlug: "energy-carbon",
   category: "energy",
   painStatement:
-    "Efficiency projects are approved without a documented savings and payback baseline.",
+    "Efficiency projects move forward without a documented savings and payback baseline.",
 
   inputs: [
     {

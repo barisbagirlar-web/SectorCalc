@@ -26,6 +26,7 @@
     "generate:roadmap-free-batch1": "node scripts/generate-roadmap-free-batch1.mjs && node scripts/generate-strategic-roadmap-data.mjs",
     "generate:roadmap-free-batch2": "node scripts/generate-roadmap-free-batch2.mjs && node scripts/generate-strategic-roadmap-data.mjs",
     "generate:roadmap-free-batch-governance": "node scripts/generate-roadmap-free-batch-governance.mjs",
+    "generate:formula-governance-gap-closure": "npx tsx scripts/generate-formula-governance-gap-closure.ts",
     "audit:revenue-tools": "node scripts/audit-revenue-tools.mjs",
     "smoke:premium-routes": "node scripts/smoke-premium-routes.mjs",
     "smoke:premium-smart-forms": "node scripts/smoke-premium-smart-forms.mjs",

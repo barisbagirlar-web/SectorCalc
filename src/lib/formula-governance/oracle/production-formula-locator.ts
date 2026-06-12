@@ -36,6 +36,14 @@ import {
   isRoadmapFreeBatchProductionSlug,
 } from "@/lib/formula-governance/oracle/roadmap-free-batch-production-locators";
 import {
+  getPremiumSchemaExtendedProductionFormulaLocator,
+  isPremiumSchemaExtendedProductionSlug,
+} from "@/lib/formula-governance/oracle/premium-schema-extended-production-locators";
+import {
+  getEngineModulesProductionFormulaLocator,
+  isEngineModulesProductionSlug,
+} from "@/lib/formula-governance/oracle/engine-modules-production-locators";
+import {
   OPERATIONS_ORACLE_SLUGS,
   type OperationsOracleSlug,
 } from "@/lib/formula-governance/oracle/operations-oracles";
@@ -857,6 +865,12 @@ export function getAnyProductionFormulaLocator(slug: string): ProductionFormulaL
       : undefined) ??
     (isRoadmapFreeBatchProductionSlug(slug)
       ? getRoadmapFreeBatchProductionFormulaLocator(slug)
+      : undefined) ??
+    (isPremiumSchemaExtendedProductionSlug(slug)
+      ? getPremiumSchemaExtendedProductionFormulaLocator(slug)
+      : undefined) ??
+    (isEngineModulesProductionSlug(slug)
+      ? getEngineModulesProductionFormulaLocator(slug)
       : undefined)
   );
 }

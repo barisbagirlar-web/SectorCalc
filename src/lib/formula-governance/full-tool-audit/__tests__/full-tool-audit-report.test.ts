@@ -13,7 +13,7 @@ describe("full tool audit report — Phase 5H-J", () => {
     const report = formatFullExistingToolAuditReport(result);
 
     expect(report).toContain("Full Existing Tool Audit");
-    expect(report).toContain("Total tools: 261");
+    expect(report).toContain("Total tools: 287");
     expect(report).toContain("Top 10 risks:");
     expect(report).toContain("Top 10 quick wins:");
   });

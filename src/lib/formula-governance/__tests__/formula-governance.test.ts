@@ -56,7 +56,7 @@ describe("formula-governance contracts", () => {
   });
 
   test("phase 5G-C registers 41 formula contracts", () => {
-    expect(FORMULA_CONTRACTS.length).toBe(261);
+    expect(FORMULA_CONTRACTS.length).toBe(287);
     expect(TOP_CRITICAL_FORMULA_CONTRACTS.length).toBe(10);
     expect(BATCH_EXPANSION_CRITICAL_FORMULA_CONTRACTS.length).toBe(30);
   });
@@ -165,10 +165,10 @@ describe("formula-governance audit runner", () => {
     expect(rent?.findings.some((f) => f.code === "ORACLE_COMPARISON_PASS")).toBe(true);
   });
 
-  test("strict mode would fail while critical tools lack contracts", () => {
+  test("strict mode passes when critical contract coverage is complete", () => {
     const report = runGovernanceAudit({ strict: true });
-    expect(shouldFailStrictAudit(report)).toBe(true);
-    expect(report.criticalToolsWithoutContract.length).toBeGreaterThan(0);
+    expect(shouldFailStrictAudit(report)).toBe(false);
+    expect(report.criticalToolsWithoutContract.length).toBe(0);
   });
 
   test("non-strict audit produces formatted report", () => {
@@ -176,7 +176,7 @@ describe("formula-governance audit runner", () => {
     const text = formatGovernanceAuditReport(report);
     expect(text).toContain("Formula Governance Audit Report");
     expect(text).toContain("rent-vs-buy-calculator");
-    expect(text).toContain("Launch blockers");
+    expect(text).toContain("Critical PASS:");
   });
 
   test("rent vs buy oracle is registered in phase 5B", () => {
@@ -250,7 +250,7 @@ describe("formula-governance audit runner", () => {
 
   test("premium-schema batch reduces critical missing contracts", () => {
     const summary = summarizeInventory(buildFormulaInventory());
-    expect(summary.criticalMissingContracts.length).toBeGreaterThanOrEqual(0);
-    expect(summary.criticalMissingContracts.length).toBeLessThanOrEqual(11);
+    expect(summary.criticalMissingContracts.length).toBe(0);
+    expect(summary.criticalMissingContracts.length).toBe(0);
   });
 });

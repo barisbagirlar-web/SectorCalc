@@ -15,8 +15,8 @@ describe("runBatchInputDesignAudit", () => {
   test("counts 41 contracts", () => {
     const result = runBatchInputDesignAudit({ contracts: FORMULA_CONTRACTS });
 
-    expect(result.totalContracts).toBe(261);
-    expect(result.summaries.length).toBe(261);
+    expect(result.totalContracts).toBe(287);
+    expect(result.summaries.length).toBe(287);
   });
 
   test("produces deterministic status counts", () => {
@@ -30,7 +30,7 @@ describe("runBatchInputDesignAudit", () => {
         first.shallow +
         first.unsafe +
         first.blocked,
-    ).toBe(261);
+    ).toBe(287);
   });
 
   test("produces recommendedNextBatch", () => {
@@ -67,7 +67,7 @@ describe("runBatchInputDesignAudit", () => {
     const inventoryAfter = summarizeInventory(buildFormulaInventory());
     const reportAfter = runGovernanceAudit({ strict: false });
 
-    expect(FORMULA_CONTRACTS.length).toBe(261);
+    expect(FORMULA_CONTRACTS.length).toBe(287);
     expect(report.results.filter((result) => result.status === "FAIL").length).toBe(0);
     expect(reportAfter.results.filter((result) => result.status === "FAIL").length).toBe(0);
     expect(inventoryAfter.criticalMissingContracts.length).toBe(
