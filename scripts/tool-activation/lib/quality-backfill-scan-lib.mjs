@@ -252,13 +252,30 @@ function hasFormulaRegistryMatch(schemaEntry, formulaRegistryIds, locatorMatched
   return schemaEntry.formulaIds.every((formulaId) => formulaRegistryIds.has(formulaId));
 }
 
+function resolvePremiumSchemaValidationPath(slug) {
+  const relativePath = path.join(
+    "src/lib/premium-schema/calculators",
+    `${slug}-validation.ts`,
+  );
+  if (fs.existsSync(path.join(ROOT, relativePath))) {
+    return relativePath;
+  }
+  return null;
+}
+
 function resolveValidation(slug, schemaMatched, contractMatched, contractPath) {
-  if (slug === REFERENCE_SLUG) {
+  const premiumSchemaValidationPath = resolvePremiumSchemaValidationPath(slug);
+  if (premiumSchemaValidationPath) {
+    return { matched: true, path: premiumSchemaValidationPath };
+  }
+
+  if (slug === REFERENCE_SLUG && fs.existsSync(REFERENCE_VALIDATION_FILE)) {
     return {
-      matched: fs.existsSync(REFERENCE_VALIDATION_FILE),
-      path: fs.existsSync(REFERENCE_VALIDATION_FILE) ? REFERENCE_VALIDATION_REL : null,
+      matched: true,
+      path: REFERENCE_VALIDATION_REL,
     };
   }
+
   if (schemaMatched) {
     return { matched: false, path: null };
   }
@@ -403,8 +420,9 @@ function decideUpgrade(row) {
 function buildToolRecord(scanTool, indexes) {
   const schemaEntry = indexes.schemaIndex.get(scanTool.slug);
   const schemaMatched = Boolean(schemaEntry);
-  const formulaContractMatched = scanTool.hasFormulaContract;
   const contractPath = indexes.contractIndex.get(scanTool.slug) ?? null;
+  const formulaContractMatched =
+    scanTool.hasFormulaContract === true || contractPath !== null;
   const locatorMatched =
     scanTool.hasExistingFormulaExpression || indexes.locatorIndex.has(scanTool.slug);
   const locatorPath = indexes.locatorIndex.get(scanTool.slug) ?? null;
