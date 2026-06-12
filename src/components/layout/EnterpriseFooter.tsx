@@ -197,9 +197,9 @@ export function EnterpriseFooter() {
             ))}
           </div>
           <div className="sch-meta-info">
-            <span>{t("metaReg")}</span>
-            <span>{t("metaCur")}</span>
-            <span>{t("metaCopyright")}</span>
+            <span className="sch-mono-text">{t("metaReg")}</span>
+            <span className="sch-mono-text">{t("metaCur")}</span>
+            <span className="sch-mono-text">{t("metaCopyright")}</span>
           </div>
         </nav>
       </div>

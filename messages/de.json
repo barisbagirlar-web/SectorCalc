@@ -238,38 +238,9 @@
     "premiumTools": {
       "eyebrow": "Premium-Rechner",
       "title": "Premium-Rechner",
-      "subtitle": "Erweiterte Rechner für Szenarien, Risikoprüfungen und Entscheidungszusammenfassungen.",
+      "subtitle": "Premium-Branchenrechner für Produktion, Kosten, Energie, Bestand, Technik und operative Entscheidungen mit mehr Eingaben, Szenariovergleich und Entscheidungszusammenfassung.",
       "metaTitle": "Premium-Rechner | SectorCalc",
       "metaDescription": "Premium-Rechner für Szenarien, Risikoprüfungen und Entscheidungszusammenfassungen."
-    },
-    "premiumRoadmap": {
-      "eyebrow": "Strategische Roadmap",
-      "title": "Strategische Premium-Rechner-Roadmap",
-      "subtitle": "Geplante und live Premium-Rechner aus dem SectorCalc-Strategiekatalog. Live-Einträge öffnen den aktuellen Rechner; geplante bleiben bis zur Veröffentlichung auf der Roadmap.",
-      "phaseFilterLabel": "Phase",
-      "statusFilterLabel": "Status",
-      "phaseAll": "Alle Phasen",
-      "phase1": "Phase 1 — Prioritäre Premium-Rechner",
-      "phase2": "Phase 2 — Operative Entscheidungsrechner",
-      "phase3": "Phase 3 — Traffic- und Autoritätsrechner",
-      "phase4": "Phase 4 — Nischentechnische Rechner",
-      "phaseBadge": "Phase {phase}",
-      "statusAll": "Alle",
-      "statusLive": "Live",
-      "statusPlanned": "Geplant",
-      "scoreLabel": "Score {Score}",
-      "ctaOpen": "Rechner öffnen",
-      "ctaComingSoon": "Demnächst",
-      "noResults": "Keine Rechner passen zu diesen Filtern.",
-      "categories": {
-        "cost-margin": "Kosten & Marge",
-        "operations-oee": "Betrieb & OEE",
-        "energy-carbon": "Energie & Kohlenstoff",
-        "finance-hr": "Finanzen & Personal",
-        "manufacturing-engineering": "Fertigung & Technik",
-        "engineering-technical": "Ingenieurwesen & Technik",
-        "quality-lean": "Qualität & Lean"
-      }
     },
     "industries": {
       "eyebrow": "Branchen-Rechner",
@@ -333,13 +304,15 @@
         "daily-practical": "Alltag & Praxis"
       },
       "premium-tools": {
-        "pricing": "Angebot & Preis",
-        "loss": "Verlust & Ausschuss",
-        "operations": "Betrieb & Effizienz",
-        "routing": "Route & Logistik",
-        "energy": "Energie & CO₂",
-        "construction": "Bau & Projekt"
-      }
+        "cost-margin": "Kosten & Marge",
+        "operations-oee": "Betrieb & OEE",
+        "energy-carbon": "Energie & CO₂",
+        "manufacturing-engineering": "Fertigung & Technik",
+        "finance-hr": "Finanzen & HR",
+        "quality-lean": "Qualität & Lean",
+        "engineering-technical": "Technik & Engineering"
+      },
+      "premiumToolsAll": "Alle Premium-Rechner"
     },
     "discoveryCards": {
       "ctaCalculate": "Berechnen",
@@ -8152,8 +8125,8 @@
     "legalPrivacy": "DATENSCHUTZ",
     "legalTerms": "NUTZUNGSBEDINGUNGEN",
     "legalDisclaimer": "HAFTUNGSAUSSCHLUSS",
-    "metaReg": "REG: GLOBAL",
-    "metaCur": "CUR: EUR",
+    "metaReg": "REGION: GLOBAL",
+    "metaCur": "WÄHRUNG: EUR",
     "metaCopyright": "© 2026 SECTORCALC"
   },
   "calculatorLibrary": {

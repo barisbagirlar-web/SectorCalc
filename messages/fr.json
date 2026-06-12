@@ -238,38 +238,9 @@
     "premiumTools": {
       "eyebrow": "Calculateurs premium",
       "title": "Calculateurs premium",
-      "subtitle": "Explorez des calculateurs avancés pour scénarios, contrôles de risque et synthèses décisionnelles.",
+      "subtitle": "Calculateurs sectoriels premium pour la production, les coûts, l'énergie, les stocks, la technique et les décisions opérationnelles nécessitant plus d'entrées, des scénarios et un résumé décisionnel.",
       "metaTitle": "Calculateurs premium | SectorCalc",
       "metaDescription": "Calculateurs premium pour scénarios, contrôles de risque et synthèses décisionnelles."
-    },
-    "premiumRoadmap": {
-      "eyebrow": "Feuille de route stratégique",
-      "title": "Feuille de route des calculateurs premium stratégiques",
-      "subtitle": "Calculateurs premium planifiés et en ligne du catalogue stratégique SectorCalc. Les entrées en ligne ouvrent le calculateur actuel ; les planifiés restent sur la feuille de route jusqu’au lancement.",
-      "phaseFilterLabel": "Phase",
-      "statusFilterLabel": "Statut",
-      "phaseAll": "Toutes les phases",
-      "phase1": "Phase 1 — Calculateurs premium prioritaires",
-      "phase2": "Phase 2 — Calculateurs de décision opérationnelle",
-      "phase3": "Phase 3 — Calculateurs trafic et autorité",
-      "phase4": "Phase 4 — Calculateurs techniques de niche",
-      "phaseBadge": "Phase {phase}",
-      "statusAll": "Tous",
-      "statusLive": "En ligne",
-      "statusPlanned": "Planifié",
-      "scoreLabel": "score {score}",
-      "ctaOpen": "Ouvrir le calculateur",
-      "ctaComingSoon": "Bientôt",
-      "noResults": "Aucun calculateur ne correspond à ces filtres.",
-      "categories": {
-        "cost-margin": "Coût et marge",
-        "operations-oee": "Opérations et OEE",
-        "energy-carbon": "Énergie et carbone",
-        "finance-hr": "Finance et RH",
-        "manufacturing-engineering": "Fabrication et ingénierie",
-        "engineering-technical": "Ingénierie et technique",
-        "quality-lean": "Qualité et lean"
-      }
     },
     "industries": {
       "eyebrow": "Calculateurs sectoriels",
@@ -333,13 +304,15 @@
         "daily-practical": "Pratique quotidienne"
       },
       "premium-tools": {
-        "pricing": "Devis & tarification",
-        "loss": "Pertes & rebuts",
-        "operations": "Opérations & efficacité",
-        "routing": "Route & logistique",
-        "energy": "Énergie & carbone",
-        "construction": "Construction & projet"
-      }
+        "cost-margin": "Coût et marge",
+        "operations-oee": "Opérations et OEE",
+        "energy-carbon": "Énergie et carbone",
+        "manufacturing-engineering": "Fabrication et ingénierie",
+        "finance-hr": "Finance et RH",
+        "quality-lean": "Qualité et lean",
+        "engineering-technical": "Ingénierie et technique"
+      },
+      "premiumToolsAll": "Tous les calculateurs premium"
     },
     "discoveryCards": {
       "ctaCalculate": "Calculer",
@@ -8152,8 +8125,8 @@
     "legalPrivacy": "POLITIQUE DE CONFIDENTIALITÉ",
     "legalTerms": "CONDITIONS D'UTILISATION",
     "legalDisclaimer": "AVERTISSEMENT",
-    "metaReg": "REG: GLOBAL",
-    "metaCur": "CUR: EUR",
+    "metaReg": "RÉGION: GLOBAL",
+    "metaCur": "DEVISE: EUR",
     "metaCopyright": "© 2026 SECTORCALC"
   },
   "calculatorLibrary": {

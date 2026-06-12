@@ -233,38 +233,9 @@
     "premiumTools": {
       "eyebrow": "حاسبات مميزة",
       "title": "حاسبات مميزة",
-      "subtitle": "استكشف حاسبات متقدمة للسيناريوهات وفحص المخاطر وملخصات القرار.",
+      "subtitle": "حاسبات قطاعية مميزة للإنتاج والتكلفة والطاقة والمخزون والقرارات التقنية والتشغيلية التي تحتاج مدخلات أكثر ومقارنة سيناريوهات وملخص قرار.",
       "metaTitle": "حاسبات مميزة | SectorCalc",
       "metaDescription": "حاسبات مميزة للسيناريوهات وفحص المخاطر وملخصات القرار."
-    },
-    "premiumRoadmap": {
-      "eyebrow": "خارطة طريق استراتيجية",
-      "title": "خارطة طريق الحاسبات المميزة الاستراتيجية",
-      "subtitle": "حاسبات مميزة مخططة ومتاحة في خارطة SectorCalc الاستراتيجية. تفتح العناصر المتاحة الحاسبة الحالية؛ وتبقى المخططة على الخارطة حتى الإطلاق.",
-      "phaseFilterLabel": "المرحلة",
-      "statusFilterLabel": "الحالة",
-      "phaseAll": "كل المراحل",
-      "phase1": "المرحلة 1 — حاسبات مميزة ذات أولوية",
-      "phase2": "المرحلة 2 — حاسبات قرار تشغيلية",
-      "phase3": "المرحلة 3 — حاسبات حركة المرور والسلطة",
-      "phase4": "المرحلة 4 — حاسبات تقنية متخصصة",
-      "phaseBadge": "المرحلة {phase}",
-      "statusAll": "الكل",
-      "statusLive": "متاح",
-      "statusPlanned": "مخطط",
-      "scoreLabel": "الدرجة {score}",
-      "ctaOpen": "فتح الحاسبة",
-      "ctaComingSoon": "قريبًا",
-      "noResults": "لا توجد حاسبات تطابق هذه الفلاتر.",
-      "categories": {
-        "cost-margin": "التكلفة والهامش",
-        "operations-oee": "العمليات وOEE",
-        "energy-carbon": "الطاقة والكربون",
-        "finance-hr": "المالية والموارد البشرية",
-        "manufacturing-engineering": "التصنيع والهندسة",
-        "engineering-technical": "الهندسة والتقنية",
-        "quality-lean": "الجودة والlean"
-      }
     },
     "industries": {
       "eyebrow": "حاسبات قطاعية",
@@ -328,13 +299,15 @@
         "daily-practical": "عملي يومي"
       },
       "premium-tools": {
-        "pricing": "العروض والتسعير",
-        "loss": "الخسارة والهدر",
-        "operations": "العمليات والكفاءة",
-        "routing": "المسار واللوجستيات",
-        "energy": "الطاقة والكربون",
-        "construction": "البناء والمشاريع"
-      }
+        "cost-margin": "التكلفة والهامش",
+        "operations-oee": "العمليات وOEE",
+        "energy-carbon": "الطاقة والكربون",
+        "manufacturing-engineering": "التصنيع والهندسة",
+        "finance-hr": "المالية والموارد البشرية",
+        "quality-lean": "الجودة واللين",
+        "engineering-technical": "الهندسة والتقنية"
+      },
+      "premiumToolsAll": "كل الحاسبات المميزة"
     },
     "discoveryCards": {
       "ctaCalculate": "احسب",
@@ -8147,8 +8120,8 @@
     "legalPrivacy": "سياسة الخصوصية",
     "legalTerms": "شروط الاستخدام",
     "legalDisclaimer": "إخلاء المسؤولية",
-    "metaReg": "REG: عالمي",
-    "metaCur": "CUR: USD",
+    "metaReg": "المنطقة: عالمي",
+    "metaCur": "العملة: USD",
     "metaCopyright": "© 2026 SECTORCALC"
   },
   "calculatorLibrary": {

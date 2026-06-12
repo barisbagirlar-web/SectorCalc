@@ -24,12 +24,13 @@ const FREE_TOOLS_TABS: readonly DiscoveryTabConfig[] = [
 
 const PREMIUM_TOOLS_TABS: readonly DiscoveryTabConfig[] = [
   { id: DISCOVERY_TAB_ALL, groupIds: [] },
-  { id: "pricing", groupIds: ["cost_margin"] },
-  { id: "loss", groupIds: ["scrap_waste"] },
-  { id: "operations", groupIds: ["oee_productivity", "time_delay"] },
-  { id: "routing", groupIds: ["route_logistics"] },
-  { id: "energy", groupIds: ["energy_carbon"] },
-  { id: "construction", groupIds: ["measurement_calibration"] },
+  { id: "cost-margin", groupIds: ["cost_margin"] },
+  { id: "operations-oee", groupIds: ["oee_productivity", "time_delay"] },
+  { id: "energy-carbon", groupIds: ["energy_carbon"] },
+  { id: "manufacturing-engineering", groupIds: ["measurement_calibration", "scrap_waste"] },
+  { id: "finance-hr", groupIds: ["benchmark_health"] },
+  { id: "quality-lean", groupIds: ["scrap_waste"] },
+  { id: "engineering-technical", groupIds: ["measurement_calibration", "route_logistics"] },
 ] as const;
 
 export function getDiscoveryTabsForVariant(
@@ -54,10 +55,13 @@ export function resolveDiscoveryTabLabelKey(
   tabId: string
 ): string | null {
   if (tabId === DISCOVERY_TAB_ALL) {
-    return "discoveryTabs.all";
+    return variant === "premium-tools" ? "discoveryTabs.premiumToolsAll" : "discoveryTabs.all";
   }
   if (variant === "industries") {
     return null;
+  }
+  if (variant === "premium-tools") {
+    return `discoveryTabs.premium-tools.${tabId}`;
   }
   return `discoveryTabs.${variant}.${tabId}`;
 }

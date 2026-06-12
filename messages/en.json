@@ -233,38 +233,9 @@
     "premiumTools": {
       "eyebrow": "Premium calculators",
       "title": "Premium Calculators",
-      "subtitle": "Explore advanced calculators for scenarios, risk checks, and decision summaries.",
+      "subtitle": "Premium sector calculators for production, cost, energy, inventory, technical, and operational decisions that need more inputs, scenario comparison, and decision summaries.",
       "metaTitle": "Premium Calculators | SectorCalc",
       "metaDescription": "Premium calculators for scenarios, risk checks, and decision summaries across operational teams."
-    },
-    "premiumRoadmap": {
-      "eyebrow": "Strategic roadmap",
-      "title": "Strategic Premium Calculator Roadmap",
-      "subtitle": "Planned and live premium calculators from the SectorCalc strategic catalog. Live items open the current calculator; planned items stay on the roadmap until release.",
-      "phaseFilterLabel": "Phase",
-      "statusFilterLabel": "Status",
-      "phaseAll": "All phases",
-      "phase1": "Phase 1 — Priority premium calculators",
-      "phase2": "Phase 2 — Operational decision calculators",
-      "phase3": "Phase 3 — Traffic and authority calculators",
-      "phase4": "Phase 4 — Niche technical calculators",
-      "phaseBadge": "Phase {phase}",
-      "statusAll": "All",
-      "statusLive": "Live",
-      "statusPlanned": "Planned",
-      "scoreLabel": "Score {score}",
-      "ctaOpen": "Open calculator",
-      "ctaComingSoon": "On roadmap",
-      "noResults": "No calculators match these filters.",
-      "categories": {
-        "cost-margin": "Cost & margin",
-        "operations-oee": "Operations & OEE",
-        "energy-carbon": "Energy & carbon",
-        "finance-hr": "Finance & HR",
-        "manufacturing-engineering": "Manufacturing & engineering",
-        "engineering-technical": "Engineering & technical",
-        "quality-lean": "Quality & lean"
-      }
     },
     "industries": {
       "eyebrow": "Industry calculators",
@@ -328,13 +299,15 @@
         "daily-practical": "Daily Practical"
       },
       "premium-tools": {
-        "pricing": "Quote & Pricing",
-        "loss": "Loss & Scrap",
-        "operations": "Operations & Efficiency",
-        "routing": "Routing & Logistics",
-        "energy": "Energy & Carbon",
-        "construction": "Construction & Projects"
-      }
+        "cost-margin": "Cost & margin",
+        "operations-oee": "Operations & OEE",
+        "energy-carbon": "Energy & carbon",
+        "manufacturing-engineering": "Manufacturing & engineering",
+        "finance-hr": "Finance & HR",
+        "quality-lean": "Quality & lean",
+        "engineering-technical": "Engineering & technical"
+      },
+      "premiumToolsAll": "All premium calculators"
     },
     "discoveryCards": {
       "ctaCalculate": "Calculate",
@@ -7745,8 +7718,8 @@
     "legalPrivacy": "PRIVACY POLICY",
     "legalTerms": "TERMS OF USE",
     "legalDisclaimer": "DISCLAIMER",
-    "metaReg": "REG: GLOBAL",
-    "metaCur": "CUR: USD",
+    "metaReg": "REGION: GLOBAL",
+    "metaCur": "CURRENCY: USD",
     "metaCopyright": "© 2026 SECTORCALC"
   },
   "calculatorLibrary": {

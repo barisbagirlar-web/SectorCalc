@@ -275,16 +275,30 @@
   background: #4a5cf5;
 }
 
+.sch-social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(44px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+  width: 100%;
+}
+
 .sch-social-node {
+  min-height: 32px;
   background: #ffffff;
   border: 1px solid #cbd5e1;
   text-align: center;
-  padding: 6px 0;
+  padding: 7px 8px;
   font-size: 11px;
+  line-height: 1;
   font-family: "JetBrains Mono", monospace;
   color: #475569;
   text-decoration: none;
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .sch-social-node:hover {
@@ -298,6 +312,19 @@
   align-items: center;
   padding-top: 24px;
   border-top: 1px solid #cbd5e1;
+}
+
+.sch-legal-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.sch-meta-info {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .sch-legal-links a {

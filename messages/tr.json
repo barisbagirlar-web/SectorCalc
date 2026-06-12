@@ -233,38 +233,9 @@
     "premiumTools": {
       "eyebrow": "Premium hesaplayıcılar",
       "title": "Premium Hesaplayıcılar",
-      "subtitle": "Senaryo, risk ve karar özeti üreten gelişmiş hesaplayıcıları keşfedin.",
+      "subtitle": "Daha fazla girdi, senaryo karşılaştırması ve karar özeti gerektiren kritik üretim, maliyet, enerji, stok, teknik ve operasyon hesapları için hazırlanmış premium sektör hesaplayıcıları.",
       "metaTitle": "Premium Hesaplayıcılar | SectorCalc",
       "metaDescription": "Senaryo, risk kontrolü ve karar özeti üreten premium hesaplayıcılar."
-    },
-    "premiumRoadmap": {
-      "eyebrow": "Stratejik yol haritası",
-      "title": "Stratejik Premium Hesaplayıcı Yol Haritası",
-      "subtitle": "SectorCalc stratejik kataloğundaki yayında ve planlanan premium hesaplayıcılar. Yayında olanlar mevcut hesaplayıcıyı açar; planlananlar yayınlanana kadar yalnızca yol haritasında görünür.",
-      "phaseFilterLabel": "Faz",
-      "statusFilterLabel": "Durum",
-      "phaseAll": "Tüm fazlar",
-      "phase1": "Faz 1 — Öncelikli Premium Hesaplayıcılar",
-      "phase2": "Faz 2 — Operasyonel Karar Hesaplayıcıları",
-      "phase3": "Faz 3 — Trafik ve Otorite Hesaplayıcıları",
-      "phase4": "Faz 4 — Niş Teknik Hesaplayıcılar",
-      "phaseBadge": "Faz {phase}",
-      "statusAll": "Tümü",
-      "statusLive": "Yayında",
-      "statusPlanned": "Planlandı",
-      "scoreLabel": "Puan {score}",
-      "ctaOpen": "Hesaplayıcıyı aç",
-      "ctaComingSoon": "Yakında",
-      "noResults": "Bu filtrelere uyan hesaplayıcı yok.",
-      "categories": {
-        "cost-margin": "Maliyet ve marj",
-        "operations-oee": "Operasyon ve OEE",
-        "energy-carbon": "Enerji ve karbon",
-        "finance-hr": "Finans ve İK",
-        "manufacturing-engineering": "İmalat ve mühendislik",
-        "engineering-technical": "Mühendislik ve teknik",
-        "quality-lean": "Kalite ve yalın"
-      }
     },
     "industries": {
       "eyebrow": "Sektör hesaplayıcıları",
@@ -328,20 +299,22 @@
         "daily-practical": "Günlük Pratik"
       },
       "premium-tools": {
-        "pricing": "Teklif & Fiyatlama",
-        "loss": "Kayıp & Fire",
-        "operations": "Operasyon & Verimlilik",
-        "routing": "Rota & Lojistik",
-        "energy": "Enerji & Karbon",
-        "construction": "İnşaat & Proje"
-      }
+        "cost-margin": "Maliyet ve marj",
+        "operations-oee": "Operasyon ve OEE",
+        "energy-carbon": "Enerji ve karbon",
+        "manufacturing-engineering": "İmalat ve mühendislik",
+        "finance-hr": "Finans ve İK",
+        "quality-lean": "Kalite ve yalın",
+        "engineering-technical": "Mühendislik ve teknik"
+      },
+      "premiumToolsAll": "Tüm premium hesaplayıcılar"
     },
     "discoveryCards": {
       "ctaCalculate": "Hesapla",
       "ctaOpenAnalysis": "Hesaplamayı aç",
       "ctaOpenSector": "Sektörü aç",
       "freeCount": "{count} ücretsiz",
-      "premiumCount": "{Adet} premium"
+      "premiumCount": "{count} premium"
     },
     "discoveryFooter": {
       "freeToolsLead": "Daha detaylı hesaplama mı gerekiyor?",
@@ -8218,8 +8191,8 @@
     "legalPrivacy": "GİZLİLİK POLİTİKASI",
     "legalTerms": "KULLANIM KOŞULLARI",
     "legalDisclaimer": "SORUMLULUK REDDİ",
-    "metaReg": "KAYIT: KÜRESEL",
-    "metaCur": "CUR: TRY",
+    "metaReg": "BÖLGE: GLOBAL",
+    "metaCur": "PARA: TRY",
     "metaCopyright": "© 2026 SECTORCALC"
   },
   "calculatorLibrary": {

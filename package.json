@@ -26,6 +26,8 @@
     "audit:surface-i18n:static": "POST_BUILD=1 node scripts/audit-calculator-surface-i18n.mjs --static",
     "audit:guided-graphics": "node scripts/audit-guided-reference-graphics.mjs",
     "audit:card-system": "node scripts/audit-calculator-card-system.mjs",
+    "audit:public-surface": "node scripts/audit-public-surface-copy.mjs",
+    "audit:public-surface:static": "POST_BUILD=1 node scripts/audit-public-surface-copy.mjs",
     "audit:sector-footer": "node scripts/audit-sector-footer.mjs",
     "audit:non-calculator-locale": "node scripts/audit-non-calculator-locale-i18n.mjs",
     "generate:marketing-surface-i18n": "node scripts/patch-marketing-residual-i18n.mjs && node scripts/generate-marketing-surface-i18n.mjs",
