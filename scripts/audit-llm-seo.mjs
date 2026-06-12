@@ -2,17 +2,32 @@
 import { execSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import {
+  auditAiToolIndexDocument,
+  auditEmergencyGateMigratedSlugs,
+  auditLlmsTxtContent,
+  readPublicAiToolIndex,
+  readPublicLlmsTxt,
+} from "./lib/llm-output-gate.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
 let failures = 0;
 
+function pass(msg) {
+  console.log(`PASS: ${msg}`);
+}
+
+function fail(msg) {
+  failures += 1;
+  console.error(`FAIL: ${msg}`);
+}
+
 function run(label, cmd) {
   try {
     execSync(cmd, { cwd: ROOT, stdio: "inherit" });
-    console.log(`PASS: ${label}`);
+    pass(label);
   } catch {
-    failures += 1;
-    console.error(`FAIL: ${label}`);
+    fail(label);
   }
 }
 
@@ -28,42 +43,54 @@ const requiredPublic = [
 
 for (const file of requiredPublic) {
   if (existsSync(join(ROOT, "public", file))) {
-    console.log(`PASS: public/${file} exists`);
+    pass(`public/${file} exists`);
   } else {
-    failures += 1;
-    console.error(`FAIL: public/${file} missing`);
+    fail(`public/${file} missing`);
   }
 }
 
-const llms = readFileSync(join(ROOT, "public/llms.txt"), "utf8");
-for (const token of [
-  "Full tool index",
-  "/ai-tool-index.json",
-  "categorySlug",
-  "keywords",
-  "intent",
-  "Prefer canonicalUrl",
-]) {
-  if (llms.includes(token)) console.log(`PASS: llms.txt includes ${token}`);
-  else {
-    failures += 1;
-    console.error(`FAIL: llms.txt missing ${token}`);
-  }
+const llms = readPublicLlmsTxt(ROOT);
+const llmsIssues = auditLlmsTxtContent(llms);
+for (const issue of llmsIssues) {
+  fail(issue);
+}
+if (llmsIssues.length === 0) {
+  pass("llms.txt passes P38 emergency gate patterns");
+}
+
+for (const token of ["Full tool index", "Prefer canonicalUrl", "Tool route guidance"]) {
+  if (llms.includes(token)) pass(`llms.txt includes ${token}`);
+  else fail(`llms.txt missing ${token}`);
+}
+
+const indexData = readPublicAiToolIndex(ROOT);
+const indexIssues = auditAiToolIndexDocument(indexData);
+for (const issue of indexIssues) {
+  fail(issue);
+}
+if (indexIssues.length === 0) {
+  pass("ai-tool-index.json passes canonical index gate");
+}
+
+const migrationIssues = auditEmergencyGateMigratedSlugs(ROOT);
+for (const issue of migrationIssues) {
+  fail(issue);
+}
+if (migrationIssues.length === 0) {
+  pass("P36-REV2 migrated sample slugs absent from free indexes");
 }
 
 const manifest = JSON.parse(readFileSync(join(ROOT, "public/ai-search-manifest.json"), "utf8"));
 if (manifest.rankingWeights?.exactSlug === 100) {
-  console.log("PASS: ai-search-manifest rankingWeights present");
+  pass("ai-search-manifest rankingWeights present");
 } else {
-  failures += 1;
-  console.error("FAIL: ai-search-manifest rankingWeights missing");
+  fail("ai-search-manifest rankingWeights missing");
 }
 
 if (manifest.embeddingSimilarity?.enabled === false) {
-  console.log("PASS: embeddingSimilarity reserved/disabled");
+  pass("embeddingSimilarity reserved/disabled");
 } else {
-  failures += 1;
-  console.error("FAIL: embeddingSimilarity must be disabled");
+  fail("embeddingSimilarity must be disabled");
 }
 
 run("audit:ai-tool-index", "node scripts/audit-ai-tool-index.mjs");
@@ -76,10 +103,9 @@ try {
     `npx tsx -e "import { searchSectorCalcTools } from './src/lib/ai/search-tools.ts'; const results = searchSectorCalcTools('oee', 'tr', { limit: 5 }); if (!results.length) throw new Error('no results'); console.log(JSON.stringify({ count: results.length, top: results[0]?.slug }));"`,
     { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
   );
-  console.log("PASS: locale-aware searchSectorCalcTools returns results");
+  pass("locale-aware searchSectorCalcTools returns results");
 } catch (error) {
-  failures += 1;
-  console.error(`FAIL: locale-aware search — ${String(error.stderr ?? error.message ?? error)}`);
+  fail(`locale-aware search — ${String(error.stderr ?? error.message ?? error)}`);
 }
 
 const forbidden = ["href=\"#\"", "Faz 1", "Faz 2", "Puan", "Planlandı", "Yayında", "Stratejik yol haritası"];
@@ -89,10 +115,9 @@ for (const token of forbidden) {
     { cwd: ROOT, encoding: "utf8" },
   ).trim();
   if (hits) {
-    failures += 1;
-    console.error(`FAIL: forbidden public term found: ${token}`);
+    fail(`forbidden public term found: ${token}`);
   } else {
-    console.log(`PASS: forbidden term absent in public surface: ${token}`);
+    pass(`forbidden term absent in public surface: ${token}`);
   }
 }
 
@@ -101,10 +126,9 @@ const calculateActionTypeHits = execSync(
   { cwd: ROOT, encoding: "utf8" },
 ).trim();
 if (calculateActionTypeHits) {
-  failures += 1;
-  console.error("FAIL: CalculateAction used as @type");
+  fail("CalculateAction used as @type");
 } else {
-  console.log("PASS: CalculateAction not used as @type");
+  pass("CalculateAction not used as @type");
 }
 
 console.log(`\naudit:llm-seo — ${failures} failed gate(s)`);

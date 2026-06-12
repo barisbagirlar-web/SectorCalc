@@ -12,7 +12,7 @@
     "test:watch": "vitest",
     "lint:schemas": "vitest run src/lib/premium-schema/__tests__/schema-linter.test.ts",
     "validate:premium-schemas": "vitest run src/lib/premium-schema/__tests__/schema-linter.test.ts src/lib/premium-schema/__tests__/premium-schema-engine.test.ts src/lib/premium-schema/__tests__/premium-migration-map.test.ts src/lib/premium-schema/__tests__/premium-report-ux.test.ts src/lib/premium-schema/__tests__/schema-draft.test.ts",
-    "seo:llms": "npx tsx scripts/generate-seo-authority-txt.ts",
+    "seo:llms": "node scripts/export-ai-index.mjs",
     "seo:authority-txt": "npx tsx scripts/generate-seo-authority-txt.ts",
     "seo:export-manifest": "npx tsx scripts/export-indexable-manifest.ts",
     "seo:indexnow": "node scripts/submit-indexnow.mjs",

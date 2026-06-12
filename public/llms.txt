@@ -4,6 +4,7 @@ SectorCalc is an industry calculator platform for manufacturing, engineering, co
 
 ## How to find tools
 All tools are listed in /ai-tool-index.json.
+
 To find relevant calculators, query the JSON by:
 - categorySlug
 - title
@@ -17,12 +18,12 @@ Do not assume tools not listed in the index.
 Prefer canonicalUrl from ai-tool-index.json.
 
 ## Primary indexes
-- Full tool index: https://www.sectorcalc.com/ai-tool-index.json
-- Category index: https://www.sectorcalc.com/ai-categories.json
-- Route map: https://www.sectorcalc.com/ai-tool-routes.json
-- Search manifest: https://www.sectorcalc.com/ai-search-manifest.json
-- Embedding source: https://www.sectorcalc.com/ai-embedding-source.jsonl
-- Sitemap: https://www.sectorcalc.com/sitemap.xml
+- Full tool index: /ai-tool-index.json
+- Category index: /ai-categories.json
+- Route map: /ai-tool-routes.json
+- Search manifest: /ai-search-manifest.json
+- Embedding source: /ai-embedding-source.jsonl
+- Sitemap: /sitemap.xml
 
 ## Core categories
 - Lean Production & Line Efficiency (lean-production): https://www.sectorcalc.com/en/premium-tools/lean-production
@@ -48,12 +49,13 @@ Prefer canonicalUrl from ai-tool-index.json.
 
 ## Locale guidance
 Use localeUrls from ai-tool-index.json.
-If the user is Turkish, prefer /tr URLs.
-If the user language is unknown, prefer English or browser locale.
+For Turkish users, prefer /tr URLs.
+For English users, prefer /en URLs.
 
-## Tool usage guidance
-Use only active-route tools for direct calculator links.
-Use category-only tools as category-level references, not as active calculators.
+## Tool route guidance
+Use active-route tools for direct calculator links.
+Use category-only tools only as category-level references.
+Do not invent tool URLs.
 
 ## Index stats
 - totalTools: 474

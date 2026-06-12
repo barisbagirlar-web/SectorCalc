@@ -47,13 +47,20 @@ function jsonHasNullOrUndefined(value: unknown): boolean {
 }
 
 describe("seo-authority architecture", () => {
-  test("public llms.txt exists with hub references", () => {
+  test("public llms.txt follows P38 canonical index guidance", () => {
     const content = readPublicTxt("llms.txt");
-    expect(content).toContain("SectorCalc");
-    expect(content).toContain("/free-tools");
-    expect(content).toContain("/premium-tools");
-    expect(content).not.toContain("/en/free-tools");
-    expect(content).not.toContain("[object Object]");
+    expect(content).toContain("# SectorCalc");
+    expect(content).toContain("/ai-tool-index.json");
+    expect(content).toContain("/ai-categories.json");
+    expect(content).toContain("/ai-search-manifest.json");
+    expect(content).toContain("categorySlug");
+    expect(content).toContain("routeStatus");
+    expect(content).toContain("Tool route guidance");
+    expect(content).not.toContain("Free tool slugs");
+    expect(content).not.toContain("Premium analyzer slugs");
+    expect(content).not.toContain("AI & LLM Source Guide");
+    expect(content).not.toContain("Count: 230");
+    expect(content).not.toContain("Count: 50");
   });
 
   test("sectorcalc-index.txt exists", () => {

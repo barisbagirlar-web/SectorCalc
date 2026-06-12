@@ -1,7 +1,13 @@
 #!/usr/bin/env node
-import { execSync } from "node:child_process";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import {
+  auditAiToolIndexDocument,
+  auditEmergencyGateMigratedSlugs,
+  auditLlmsTxtContent,
+  readPublicAiToolIndex,
+  readPublicLlmsTxt,
+} from "./lib/llm-output-gate.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
 let failures = 0;
@@ -21,13 +27,18 @@ const indexPath = join(ROOT, "public/ai-tool-index.json");
 if (!existsSync(indexPath)) {
   fail("public/ai-tool-index.json missing — run npm run export:ai-index");
 } else {
-  const data = JSON.parse(readFileSync(indexPath, "utf8"));
+  const data = readPublicAiToolIndex(ROOT);
   pass("ai-tool-index.json exists");
 
-  if (data.totalTools === data.tools?.length) {
+  for (const issue of auditAiToolIndexDocument(data)) {
+    fail(issue);
+  }
+  if (auditAiToolIndexDocument(data).length === 0) {
     pass(`totalTools matches tools.length (${data.totalTools})`);
-  } else {
-    fail(`totalTools mismatch (${data.totalTools} vs ${data.tools?.length ?? 0})`);
+    pass("categories.length === 20");
+    pass("all tools have canonicalUrl");
+    pass("all tools have categorySlug");
+    pass("all tools have routeStatus");
   }
 
   const active = data.tools.filter((tool) => tool.routeStatus === "active-route").length;
@@ -43,17 +54,6 @@ if (!existsSync(indexPath)) {
   if (data.totalRedirected === redirected) pass(`totalRedirected=${redirected}`);
   else fail(`totalRedirected mismatch (${data.totalRedirected} vs ${redirected})`);
 
-  if (data.categories?.length === 20) pass("categories.length === 20");
-  else fail(`categories.length expected 20, got ${data.categories?.length ?? 0}`);
-
-  const missingCanonical = data.tools.filter((tool) => !tool.canonicalUrl);
-  if (missingCanonical.length === 0) pass("all tools have canonicalUrl");
-  else fail(`${missingCanonical.length} tools missing canonicalUrl`);
-
-  const missingCategory = data.tools.filter((tool) => !tool.categorySlug);
-  if (missingCategory.length === 0) pass("all tools have categorySlug");
-  else fail(`${missingCategory.length} tools missing categorySlug`);
-
   const categoryOnlyBad = data.tools.filter(
     (tool) => tool.routeStatus === "category-only" && !String(tool.canonicalUrl).includes("#tool-"),
   );
@@ -68,12 +68,23 @@ if (!existsSync(indexPath)) {
   }
   if (!duplicateSlug) pass("no duplicate slug in ai-tool-index");
   else fail("duplicate slug found in ai-tool-index");
+}
 
-  const hardcoded = readFileSync(join(ROOT, "public/llms.txt"), "utf8");
-  for (const token of ["280+", "300+", "352+", "280 +", "300 +"]) {
-    if (hardcoded.includes(token)) fail(`hardcoded tool count copy found: ${token}`);
-  }
-  pass("no hardcoded total tools copy in llms.txt");
+const llms = readPublicLlmsTxt(ROOT);
+const llmsIssues = auditLlmsTxtContent(llms);
+for (const issue of llmsIssues) {
+  fail(issue);
+}
+if (llmsIssues.length === 0) {
+  pass("llms.txt passes P38 emergency gate patterns");
+}
+
+const migrationIssues = auditEmergencyGateMigratedSlugs(ROOT);
+for (const issue of migrationIssues) {
+  fail(issue);
+}
+if (migrationIssues.length === 0) {
+  pass("P36-REV2 migrated sample slugs absent from free indexes");
 }
 
 console.log(`\naudit:ai-tool-index — ${passes} passed, ${failures} failed`);

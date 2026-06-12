@@ -1,11 +1,10 @@
 import type { AiToolIndexDocument } from "@/lib/ai/tool-retrieval-types";
-import { SITE_URL } from "@/lib/semantic/site-url";
 
 export function buildLlmsTxt(index: AiToolIndexDocument): string {
   const categoryLines = index.categories
     .map((category) => {
       const title = category.title.en ?? category.slug;
-      const url = category.categoryUrl.en ?? `${SITE_URL}/premium-tools/${category.slug}`;
+      const url = category.categoryUrl.en ?? `/en/premium-tools/${category.slug}`;
       return `- ${title} (${category.slug}): ${url}`;
     })
     .join("\n");
@@ -16,6 +15,7 @@ SectorCalc is an industry calculator platform for manufacturing, engineering, co
 
 ## How to find tools
 All tools are listed in /ai-tool-index.json.
+
 To find relevant calculators, query the JSON by:
 - categorySlug
 - title
@@ -29,24 +29,25 @@ Do not assume tools not listed in the index.
 Prefer canonicalUrl from ai-tool-index.json.
 
 ## Primary indexes
-- Full tool index: ${SITE_URL}/ai-tool-index.json
-- Category index: ${SITE_URL}/ai-categories.json
-- Route map: ${SITE_URL}/ai-tool-routes.json
-- Search manifest: ${SITE_URL}/ai-search-manifest.json
-- Embedding source: ${SITE_URL}/ai-embedding-source.jsonl
-- Sitemap: ${SITE_URL}/sitemap.xml
+- Full tool index: /ai-tool-index.json
+- Category index: /ai-categories.json
+- Route map: /ai-tool-routes.json
+- Search manifest: /ai-search-manifest.json
+- Embedding source: /ai-embedding-source.jsonl
+- Sitemap: /sitemap.xml
 
 ## Core categories
 ${categoryLines}
 
 ## Locale guidance
 Use localeUrls from ai-tool-index.json.
-If the user is Turkish, prefer /tr URLs.
-If the user language is unknown, prefer English or browser locale.
+For Turkish users, prefer /tr URLs.
+For English users, prefer /en URLs.
 
-## Tool usage guidance
-Use only active-route tools for direct calculator links.
-Use category-only tools as category-level references, not as active calculators.
+## Tool route guidance
+Use active-route tools for direct calculator links.
+Use category-only tools only as category-level references.
+Do not invent tool URLs.
 
 ## Index stats
 - totalTools: ${index.totalTools}
