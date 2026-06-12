@@ -239,7 +239,7 @@ const TR_HUBS: Partial<Record<IndustrySlug, LocalizedIndustryHub>> = {
     eyebrow: "SAC METAL İMALATI",
     hubTitle: "Sac Metal İmalatı İçin Maliyet ve Kârlılık Araçları",
     painStatement:
-      "Programlama, hazırlık süresi ve fire; sac metal tekliflerinde kâr marjını çabucak aşağı çekebilir.",
+      "Programlama, hazırlık süresi, fire, malzeme, enerji, makine saati ve teklif marjı sac metal işlerinde kârlılığı doğrudan etkiler.",
     whoItsFor:
       "Sac metal atölyeleri, lazer kesim firmaları, büküm operasyonları ve teklif hazırlayan üretim ekipleri.",
     decisionHelp:
