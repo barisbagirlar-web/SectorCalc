@@ -5,11 +5,12 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { buildDeveloperShowcaseSchema } from "@/lib/semantic/build-developer-showcase-schema";
-import { buildOrganizationJsonLd } from "@/lib/semantic/build-organization-schema";
-import { buildWebsiteJsonLd } from "@/lib/semantic/build-website-schema";
+import { buildHomeJsonLd } from "@/lib/semantic/build-home-jsonld";
+import { pickLocaleText } from "@/lib/semantic/semantic-locale-utils";
+import { listSemanticToolContracts } from "@/lib/semantic/semantic-tool-reader";
+import { absoluteUrl } from "@/lib/semantic/site-url";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
-import { siteUrl } from "@/config/site";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -30,12 +31,11 @@ export default async function DeveloperShowcasePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "developerShowcase" });
+  const tools = listSemanticToolContracts()
+    .filter((tool) => tool.isPublic)
+    .sort((a, b) => a.toolSlug.localeCompare(b.toolSlug));
 
-  const jsonLd = [
-    buildWebsiteJsonLd(locale),
-    buildOrganizationJsonLd(locale),
-    buildDeveloperShowcaseSchema(locale),
-  ];
+  const jsonLd = [...buildHomeJsonLd(locale).slice(0, 2), buildDeveloperShowcaseSchema(locale)];
 
   return (
     <PageLayout>
@@ -64,13 +64,18 @@ export default async function DeveloperShowcasePage({ params }: PageProps) {
             <h2 className="text-lg font-semibold text-slate-900">{t("resources.title")}</h2>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <a href={`${siteUrl}/llms.txt`} className="font-medium text-blue-700 hover:underline">
+                <a href={absoluteUrl("/llms.txt")} className="font-medium text-blue-700 hover:underline">
                   llms.txt
                 </a>
               </li>
               <li>
-                <a href={`${siteUrl}/ai.txt`} className="font-medium text-blue-700 hover:underline">
+                <a href={absoluteUrl("/ai.txt")} className="font-medium text-blue-700 hover:underline">
                   ai.txt
+                </a>
+              </li>
+              <li>
+                <a href={absoluteUrl("/sitemap.xml")} className="font-medium text-blue-700 hover:underline">
+                  sitemap.xml
                 </a>
               </li>
               <li>
@@ -81,6 +86,66 @@ export default async function DeveloperShowcasePage({ params }: PageProps) {
             </ul>
             <p className="mt-4 text-xs leading-relaxed text-slate-500">{t("resources.note")}</p>
           </article>
+        </Container>
+      </section>
+
+      <section className="border-t border-slate-200 bg-slate-50 py-10">
+        <Container>
+          <h2 className="text-xl font-semibold text-slate-900">{t("index.title")}</h2>
+          <p className="mt-2 max-w-3xl text-sm text-slate-700">{t("index.body")}</p>
+          <p className="mt-3 text-xs text-slate-500">
+            {t("index.count", { count: tools.length })}
+          </p>
+          <div className="mt-6 space-y-4">
+            {tools.map((tool) => (
+              <article
+                key={`${tool.tier}:${tool.toolSlug}`}
+                className="rounded-xl border border-slate-200 bg-white p-5"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-base font-semibold text-slate-900">
+                      {pickLocaleText(tool.title, locale)}
+                    </h3>
+                    <p className="mt-1 text-xs uppercase tracking-wide text-slate-500">
+                      {tool.tier} · {tool.archetype}
+                    </p>
+                  </div>
+                  <Link
+                    href={tool.urlPath}
+                    className="text-sm font-medium text-blue-700 hover:underline"
+                  >
+                    {tool.toolSlug}
+                  </Link>
+                </div>
+                <p className="mt-3 text-sm text-slate-700">{pickLocaleText(tool.description, locale)}</p>
+                <div className="mt-4 grid gap-4 md:grid-cols-2">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">input</p>
+                    <ul className="mt-2 space-y-1 text-sm text-slate-700">
+                      {tool.inputParameters.map((param) => (
+                        <li key={param.key}>
+                          <span className="font-medium">{param.key}</span>:{" "}
+                          {pickLocaleText(param.label, locale)}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">output</p>
+                    <ul className="mt-2 space-y-1 text-sm text-slate-700">
+                      {tool.outputParameters.map((param) => (
+                        <li key={param.key}>
+                          <span className="font-medium">{param.key}</span>:{" "}
+                          {pickLocaleText(param.label, locale)}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </Container>
       </section>
     </PageLayout>

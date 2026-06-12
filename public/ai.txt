@@ -1,14 +1,28 @@
-# SectorCalc AI discovery reference
-# Public semantic reference — not a private API contract.
+# SectorCalc AI Access Policy
 
 Site: https://www.sectorcalc.com
-Semantic showcase: https://www.sectorcalc.com/en/developer-showcase
-LLMs index: https://www.sectorcalc.com/llms.txt
-Calculator library: https://www.sectorcalc.com/en/calculator-library
+LLM index: https://www.sectorcalc.com/llms.txt
+Sitemap: https://www.sectorcalc.com/sitemap.xml
+Developer showcase: https://www.sectorcalc.com/en/developer-showcase
 
-Policy:
-- Public calculator pages may be indexed for discovery.
-- Admin, auth, checkout, and internal verification queues are not public APIs.
-- Calculators provide deterministic pre-check outputs, not certified engineering/financial advice.
+Allowed for AI indexing:
+- public home pages
+- public calculator pages
+- free calculator catalog
+- premium calculator catalog
+- calculator library
+- methodology pages
+- developer showcase
+- llms.txt
+- sectorcalc-index.txt
+- services-products.txt
+- faq-knowledge.txt
 
-Contact: support listed on https://www.sectorcalc.com/en/trust
+Disallowed:
+- admin routes
+- authentication routes
+- private user data
+- payment and checkout session data
+- internal APIs
+- verification queue
+- preview routes

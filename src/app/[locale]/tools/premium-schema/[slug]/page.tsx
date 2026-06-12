@@ -7,17 +7,12 @@ import { getTranslations } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
-import { JsonLd } from "@/components/seo/JsonLd";
+import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import type { AppLocale } from "@/i18n/routing";
-import { siteUrl } from "@/config/site";
 import { createPageMetadata } from "@/lib/metadata";
-import {
-  buildFAQJsonLd,
-  buildPremiumAnalyzerJsonLd,
-  sanitizeJsonLd,
-  type JsonLdRecord,
-} from "@/lib/seo/schema-mesh";
-import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
+import { buildFAQJsonLd } from "@/lib/seo/schema-mesh";
+import { assertSemanticToolContract } from "@/lib/semantic/semantic-tool-reader";
+import { buildToolJsonLd } from "@/lib/semantic/build-tool-jsonld";
 import { getTierOnePremiumMetadata } from "@/lib/seo/seo-refresh-priority";
 import {
   resolvePremiumSchemaDisplayName,
@@ -125,33 +120,15 @@ export default async function PremiumSchemaPilotPage({
     },
     ...authorityFaq,
   ]);
-  const jsonLd: JsonLdRecord[] = [
-    await buildLocalizedBreadcrumbJsonLd(
-      [
-        { key: "home", path: "/" },
-        { key: "premiumTools", path: "/premium-tools" },
-        { name: displayName, path: `/tools/premium-schema/${schema.id}` },
-      ],
-      locale
-    ),
-    buildPremiumAnalyzerJsonLd({ ...schema, name: displayName, painStatement: displayPain }, locale),
-    sanitizeJsonLd({
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: displayName,
-      description: displayPain,
-      provider: { "@id": `${siteUrl}/#organization` },
-      areaServed: "Worldwide",
-      serviceType: tPage("serviceType"),
-    }) as JsonLdRecord,
+  const semanticTool = assertSemanticToolContract({ slug, tier: "premium-schema" });
+  const jsonLd = [
+    ...buildToolJsonLd({ tool: semanticTool, locale }),
+    ...(faqJsonLd ? [faqJsonLd] : []),
   ];
-  if (faqJsonLd) {
-    jsonLd.push(faqJsonLd);
-  }
 
   return (
     <PageLayout>
-      <JsonLd data={jsonLd} />
+      <SemanticJsonLd data={jsonLd} />
       <section className="border-b border-technical-gray bg-surface-cream">
         <Container className="py-8 sm:py-10">
           <p className="sc-ledger-eyebrow">{tPage("eyebrow")}</p>

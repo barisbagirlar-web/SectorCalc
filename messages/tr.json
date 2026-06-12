@@ -8357,8 +8357,8 @@
       "description": "AI ajanları için SectorCalc hesaplayıcı keşfi semantic referansı."
     },
     "eyebrow": "Semantic referans",
-    "title": "SectorCalc geliştirici vitrini",
-    "intro": "Bu sayfa SectorCalc araçlarının yapılandırılmış girdi/çıktı ve JSON-LD yapısını açıklar. Public referanstır — gizli API değildir.",
+    "title": "Geliştirici Vitrini",
+    "intro": "SectorCalc hesaplayıcılarının semantik yapısını, giriş/çıkış parametrelerini ve AI ajanları için okunabilir indekslerini gösteren teknik vitrin.",
     "semantic": {
       "title": "JSON-LD yapısı",
       "body": "Hesaplayıcı rotaları schema.org action ve uygulama metadata'sı sunar.",
@@ -8370,6 +8370,11 @@
       "title": "Public kaynaklar",
       "library": "Hesaplayıcı kütüphanesi",
       "note": "Secret, admin rotası veya entitlement bypass burada yoktur."
+    },
+    "index": {
+      "title": "SectorCalc Semantic Tool Index",
+      "body": "Public hesaplayıcı sözleşmeleri, giriş/çıkış parametreleri ve CalculateAction semantiği otomatik olarak bu vitrinde listelenir.",
+      "count": "{count} public araç"
     }
   }
 }

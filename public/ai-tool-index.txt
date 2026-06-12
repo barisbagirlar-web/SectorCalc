@@ -1,0 +1,4479 @@
+# SectorCalc AI Tool Index
+# Site: https://www.sectorcalc.com/
+# Generated entries: 325
+
+## 3d-print-cost-check
+- title: 3D Print Cost Check
+- url: https://www.sectorcalc.com/en/tools/free/3d-print-cost-check
+- tier: free
+- category: manufacturing-workshop
+- archetype: cost-margin
+- inputs:
+  - materialCost: Material cost (USD)
+  - printHours: Print hours (hr)
+  - machineRate: Machine rate (USD/hr)
+- outputs:
+  - risk_signal: risk_signal
+
+## 3d-print-job-margin-tool
+- title: 3D Print Job Margin Tool
+- url: https://www.sectorcalc.com/en/tools/premium/3d-print-job-margin-tool
+- tier: premium
+- category: 3d-printing-service
+- archetype: cost-margin
+- inputs:
+  - materialCost: Material cost (USD)
+  - printHours: Print hours (hr)
+  - machineRate: Machine rate (USD/hr)
+  - postProcessHours: Post-process hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - failRatePercent: Fail rate (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: FAIL RATE RISK
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE PRINT
+
+## abonelik-yazilim-cloud-yillik-maliyet-hesabi
+- title: Abonelik (Yazılım, Cloud) Yıllık Maliyet Calculation
+- url: https://www.sectorcalc.com/en/tools/free/abonelik-yazilim-cloud-yillik-maliyet-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - monthlyFee: Monthly fee (value)
+  - months: Months (value)
+- outputs:
+  - result: Abonelik (Yazılım, Cloud) Yıllık Maliyet Calculation result
+
+## age-calculator
+- title: Age Calculator
+- url: https://www.sectorcalc.com/en/tools/free/age-calculator
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - birthYear: Birth year (year)
+  - currentYear: Current year (year)
+- outputs:
+  - result: Age Calculator result
+
+## agirlikli-ortalama-hesaplama
+- title: Ağırlıklı Ortalama Calculation
+- url: https://www.sectorcalc.com/en/tools/free/agirlikli-ortalama-hesaplama
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - value1: Value 1 (value)
+  - weight1: Weight 1 (weight)
+  - value2: Value 2 (value)
+  - weight2: Weight 2 (weight)
+  - value3: Value 3 (value)
+  - weight3: Weight 3 (weight)
+- outputs:
+  - result: Ağırlıklı Ortalama Calculation result
+
+## agriculture-irrigation-yield-loss
+- title: Irrigation Yield Loss Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/agriculture-irrigation-yield-loss
+- tier: premium-schema
+- category: benchmark
+- archetype: production-operations
+- inputs:
+  - areaHa: Area (ha)
+  - expectedYieldTonPerHa: Expected yield (ton/ha)
+  - actualYieldTonPerHa: Actual yield (ton/ha)
+  - pricePerTon: Price per ton (USD)
+  - irrigationCost: Irrigation cost (USD)
+- outputs:
+  - totalExposure: Total yield loss exposure
+  - yieldLossRevenue: Yield loss revenue
+  - irrigationCost: Irrigation cost
+
+## akaryakit-fiyati-ile-yol-butcesi
+- title: Akaryakıt Fiyatı ile Yol Bütçesi
+- url: https://www.sectorcalc.com/en/tools/free/akaryakit-fiyati-ile-yol-butcesi
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - distanceKm: Distance (value)
+  - costPerKm: Cost per km (value)
+- outputs:
+  - result: Akaryakıt Fiyatı ile Yol Bütçesi result
+
+## aku-kapasitesi-calisma-suresi-hesabi
+- title: Akü Kapasitesi — Çalışma Süresi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/aku-kapasitesi-calisma-suresi-hesabi
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - batteryAh: Battery capacity (value)
+  - loadAmps: Load current (value)
+- outputs:
+  - result: Akü Kapasitesi — Çalışma Süresi Calculation result
+
+## alti-sigma-dpmo-sigma-seviyesi-cevirici
+- title: Altı Sigma — DPMO — Sigma Seviyesi Converter
+- url: https://www.sectorcalc.com/en/tools/free/alti-sigma-dpmo-sigma-seviyesi-cevirici
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - dpmo: DPMO (defects)
+  - million: Million (×)
+- outputs:
+  - result: Altı Sigma — DPMO — Sigma Seviyesi Converter result
+
+## amper-kilowatt-kw-cevirici
+- title: Amper — Kilowatt (KW) Converter
+- url: https://www.sectorcalc.com/en/tools/free/amper-kilowatt-kw-cevirici
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - amps: Current (A)
+  - volts: Voltage (V)
+  - powerFactor: Power factor (×)
+- outputs:
+  - result: Amper — Kilowatt (KW) Converter result
+
+## annual-leave-severance-notice-calculator
+- title: Annual Leave, Severance and Notice Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/annual-leave-severance-notice-calculator
+- tier: premium-schema
+- category: cost
+- archetype: finance-hr
+- inputs:
+  - grossMonthlySalary: Gross monthly salary (USD)
+  - employerBurdenPercent: Employer burden (%)
+  - yearsOfService: Years of service (years)
+  - severanceWeeksPerYear: Severance weeks per year (weeks)
+  - noticeWeeks: Notice weeks (weeks)
+- outputs:
+  - totalExitExposure: Total exit exposure
+  - severanceEstimate: Severance estimate
+  - noticeEstimate: Notice estimate
+
+## arac-amortisman-hesaplama
+- title: Araç Amortisman Calculation
+- url: https://www.sectorcalc.com/en/tools/free/arac-amortisman-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - vehicleCost: Vehicle cost (USD)
+  - salvageValue: Salvage value (USD)
+  - usefulLifeYears: Useful life (years)
+- outputs:
+  - result: Araç Amortisman Calculation result
+
+## arac-bakim-periyodu-takip-hesaplama
+- title: Araç Bakım Periyodu Takip Calculation
+- url: https://www.sectorcalc.com/en/tools/free/arac-bakim-periyodu-takip-hesaplama
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - remainingKm: Remaining km (value)
+  - dailyKm: Daily km (value)
+- outputs:
+  - result: Araç Bakım Periyodu Takip Calculation result
+
+## arac-kira-satin-alma-karsilastirma
+- title: Araç Kira — Satın Alma Karşılaştırma
+- url: https://www.sectorcalc.com/en/tools/free/arac-kira-satin-alma-karsilastirma
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - purchaseCost: Purchase cost (USD)
+  - leaseCost: Lease cost (USD)
+- outputs:
+  - result: Araç Kira — Satın Alma Karşılaştırma result
+
+## area-converter
+- title: Area Converter
+- url: https://www.sectorcalc.com/en/tools/free/area-converter
+- tier: free
+- category: conversion
+- archetype: technical-measurement
+- inputs:
+  - value: Value (value)
+  - fromUnit: From unit (unit)
+- outputs:
+  - result: Area Converter result
+
+## asma-tavan-malzeme-hesabi
+- title: Asma Tavan Malzeme Calculation
+- url: https://www.sectorcalc.com/en/tools/free/asma-tavan-malzeme-hesabi
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - ceilingAreaM2: Ceiling area (value)
+  - materialPerM2: Material per m² (value)
+- outputs:
+  - result: Asma Tavan Malzeme Calculation result
+
+## auto-repair-comeback-cost
+- title: Auto Repair Comeback Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/auto-repair-comeback-cost
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - monthlyRepairRevenue: Monthly repair revenue (USD)
+  - comebackRatePercent: Comeback rate (%)
+  - averageJobCost: Average job cost (USD)
+  - diagnosticHours: Diagnostic hours (hours)
+  - laborRate: Labor rate (USD/hour)
+  - partsHandlingCost: Parts handling cost (USD)
+- outputs:
+  - totalExposure: Total comeback exposure
+  - comebackCost: Comeback cost
+  - diagnosticLeak: Diagnostic leak
+  - partsHandlingCost: Parts handling cost
+
+## auto-repair-parts-labor-quote-calculator
+- title: Auto Repair Parts and Labor Quote Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/auto-repair-parts-labor-quote-calculator
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - partsCost: Parts cost (USD)
+  - laborHours: Labor hours (hours)
+  - laborRate: Labor rate (USD/h)
+  - shopSuppliesPercent: Shop supplies percent (%)
+  - targetMarginRate: Target margin rate (%)
+- outputs:
+  - quotePrice: Customer quote price
+  - directSubtotal: Direct subtotal
+  - laborLineCost: Labor line cost
+  - grossMarginRate: Gross margin rate
+
+## auto-shop-margin-leak-detector
+- title: Auto Shop Margin Leak Detector
+- url: https://www.sectorcalc.com/en/tools/premium/auto-shop-margin-leak-detector
+- tier: premium
+- category: auto-repair-shop
+- archetype: energy-loss
+- inputs:
+  - quotedPrice: Quoted price (USD)
+  - diagnosticHours: Diagnostic hours (hr)
+  - repairHours: Repair hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - partsCost: Parts cost (USD)
+  - comebackRiskPercent: Comeback risk (%)
+  - partsMarkupPercent: Parts markup (%)
+- outputs:
+  - verdict_1: LEAKING PROFIT
+  - verdict_2: LOW MARGIN
+  - verdict_3: PROFITABLE
+
+## average-calculator
+- title: Average Calculator
+- url: https://www.sectorcalc.com/en/tools/free/average-calculator
+- tier: free
+- category: math-statistics
+- archetype: generic
+- inputs:
+  - value1: Value 1 (value)
+  - value2: Value 2 (value)
+  - value3: Value 3 (value)
+  - value4: Value 4 (value)
+  - value5: Value 5 (value)
+- outputs:
+  - result: Average Calculator result
+
+## aydinlatma-armatur-sayisi-hesaplama
+- title: Aydınlatma Armatür Sayısı Calculation
+- url: https://www.sectorcalc.com/en/tools/free/aydinlatma-armatur-sayisi-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - totalLumensNeeded: Total lumens (value)
+  - lumensPerFixture: Lumens per fixture (value)
+- outputs:
+  - result: Aydınlatma Armatür Sayısı Calculation result
+
+## baca-havalandirma-kanali-cap-hesabi
+- title: Baca — Havalandırma Kanalı Çap Calculation
+- url: https://www.sectorcalc.com/en/tools/free/baca-havalandirma-kanali-cap-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - airflowM3h: Airflow (value)
+  - velocityMps: Target velocity (value)
+- outputs:
+  - result: Baca — Havalandırma Kanalı Çap Calculation result
+
+## bar-psi-pascal-cevirici
+- title: Bar — Psi — Pascal Converter
+- url: https://www.sectorcalc.com/en/tools/free/bar-psi-pascal-cevirici
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - value: Value (value)
+  - fromUnit: From unit (unit)
+- outputs:
+  - result: Bar — Psi — Pascal Converter result
+
+## basincli-kap-cidar-kalinligi-hesabi
+- title: Basınçlı Kap Cidar Kalınlığı Calculation
+- url: https://www.sectorcalc.com/en/tools/free/basincli-kap-cidar-kalinligi-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - designPressureBar: Design pressure (value)
+  - allowableStressBar: Allowable stress (value)
+- outputs:
+  - result: Basınçlı Kap Cidar Kalınlığı Calculation result
+
+## batch-yield-calculator
+- title: Batch Yield Calculator
+- url: https://www.sectorcalc.com/en/tools/free/batch-yield-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: production-operations
+- inputs:
+  - inputQty: Input qty (units)
+  - goodOutputQty: Good output (units)
+- outputs:
+  - result: Batch Yield Calculator result
+
+## belt-pulley-speed-length-calculator
+- title: Belt Pulley Speed and Length Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/belt-pulley-speed-length-calculator
+- tier: premium-schema
+- category: measurement
+- archetype: technical-measurement
+- inputs:
+  - driverRpm: Driver RPM (rpm)
+  - driverDiameterMm: Driver diameter (mm)
+  - drivenDiameterMm: Driven diameter (mm)
+  - centerDistanceMm: Center distance (mm)
+- outputs:
+  - drivenRpm: Driven RPM
+  - beltSpeedMpm: Belt speed
+  - beltLengthMm: Belt length
+
+## beygir-gucu-kilowatt-cevirici
+- title: Beygir Gücü — Kilowatt Converter
+- url: https://www.sectorcalc.com/en/tools/free/beygir-gucu-kilowatt-cevirici
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - value: Value (value)
+  - fromUnit: From unit (unit)
+- outputs:
+  - result: Beygir Gücü — Kilowatt Converter result
+
+## boiler-efficiency-calculator
+- title: Boiler Efficiency Calculator
+- url: https://www.sectorcalc.com/en/tools/free/boiler-efficiency-calculator
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - usefulOutputKwh: Useful output (kWh)
+  - fuelInputKwh: Fuel input (kWh)
+- outputs:
+  - result: Boiler Efficiency Calculator result
+
+## bolt-tightening-torque-calculator
+- title: Bolt Tightening Torque Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/bolt-tightening-torque-calculator
+- tier: premium-schema
+- category: measurement
+- archetype: engineering-standard
+- inputs:
+  - clampForceKn: Clamp force (kN)
+  - boltDiameterMm: Bolt diameter (mm)
+  - frictionFactor: Friction factor (×)
+- outputs:
+  - torqueNm: Estimated torque
+
+## boru-agirlik-hesaplama-celik-paslanmaz
+- title: Boru Ağırlık Calculation (Çelik, Paslanmaz)
+- url: https://www.sectorcalc.com/en/tools/free/boru-agirlik-hesaplama-celik-paslanmaz
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - length: Pipe length (value)
+  - kgPerMeter: kg/m (value)
+- outputs:
+  - result: Boru Ağırlık Calculation (Çelik, Paslanmaz) result
+
+## boru-capi-akis-hizi-hesaplama
+- title: Boru Çapı — Akış Hızı Calculation
+- url: https://www.sectorcalc.com/en/tools/free/boru-capi-akis-hizi-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - flowLpm: Flow rate (value)
+  - velocityMps: Target velocity (value)
+- outputs:
+  - result: Boru Çapı — Akış Hızı Calculation result
+
+## boya-kaplama-sarfiyati-m-basina-hesabi
+- title: Boya — Kaplama Sarfiyatı (m² Başına) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/boya-kaplama-sarfiyati-m-basina-hesabi
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - areaM2: Coverage area (value)
+  - coveragePerLiter: Coverage per liter (value)
+- outputs:
+  - result: Boya — Kaplama Sarfiyatı (m² Başına) Calculation result
+
+## break-even-calculator
+- title: Break-Even Calculator
+- url: https://www.sectorcalc.com/en/tools/free/break-even-calculator
+- tier: free
+- category: finance-business
+- archetype: cost-margin
+- inputs:
+  - fixedCost: Fixed cost (USD)
+  - unitPrice: Unit price (USD)
+  - variableCost: Variable cost (USD)
+- outputs:
+  - result: Break-Even Calculator result
+
+## break-even-safety-margin-calculator
+- title: Break-Even and Safety Margin Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/break-even-safety-margin-calculator
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - fixedCost: Fixed cost (USD)
+  - unitPrice: Unit price (USD)
+  - variableCostPerUnit: Variable cost per unit (USD)
+  - currentVolume: Current volume (units)
+- outputs:
+  - breakEvenUnits: Break-even units
+  - safetyMarginRate: Safety margin rate
+  - volumeCushionUnits: Volume cushion
+
+## brick-calculator
+- title: Brick Calculator
+- url: https://www.sectorcalc.com/en/tools/free/brick-calculator
+- tier: free
+- category: construction-measurement
+- archetype: construction-field
+- inputs:
+  - wallAreaM2: Wall area (m²)
+  - bricksPerM2: Bricks per m² (bricks/m²)
+  - wastePercent: Waste (%)
+- outputs:
+  - result: Brick Calculator result
+
+## bulonlu-baglanti-kesme-ezilme-hesabi
+- title: Bulonlu Bağlantı (Kesme — Ezilme) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/bulonlu-baglanti-kesme-ezilme-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - boltCount: Bolt count (value)
+  - shearCapacityKn: Shear capacity (value)
+- outputs:
+  - result: Bulonlu Bağlantı (Kesme — Ezilme) Calculation result
+
+## cabinet-cost-estimator
+- title: Cabinet Cost Estimator
+- url: https://www.sectorcalc.com/en/tools/free/cabinet-cost-estimator
+- tier: free
+- category: carpentry-millwork
+- archetype: cost-margin
+- inputs:
+  - sheetMaterialCost: Sheet material cost (USD)
+  - laborHours: Labor hours (hr)
+  - installHours: Install hours (hr)
+- outputs:
+  - risk_signal: risk_signal
+
+## calibration-drift-risk
+- title: Calibration Drift Risk Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/calibration-drift-risk
+- tier: premium-schema
+- category: calibration
+- archetype: technical-measurement
+- inputs:
+  - targetValue: Target value
+  - actualValue: Actual value
+  - tolerance: Tolerance
+  - batchValue: Batch value (USD)
+  - rejectionRiskPercent: Rejection risk (%)
+- outputs:
+  - toleranceUsage: Tolerance usage
+  - rejectionExposure: Rejection exposure
+
+## carbon-footprint-compliance-risk
+- title: Carbon Footprint Compliance Risk Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/carbon-footprint-compliance-risk
+- tier: premium-schema
+- category: carbon
+- archetype: energy-loss
+- inputs:
+  - energyEmissionsTon: Energy emissions (ton CO₂e)
+  - fuelEmissionsTon: Fuel emissions (ton CO₂e)
+  - carbonPrice: Carbon price (USD/ton)
+  - exposurePercent: Exposure percent (%)
+- outputs:
+  - carbonExposure: Carbon compliance exposure
+  - totalEmissions: Total emissions
+
+## carbon-footprint-quick
+- title: Carbon Footprint Quick Estimate
+- url: https://www.sectorcalc.com/en/tools/free/carbon-footprint-quick
+- tier: free
+- category: energy-carbon
+- archetype: energy-loss
+- inputs:
+  - productionTons: Production volume (tons)
+  - energySource: Energy source
+  - facilityCount: Production facilities
+- outputs:
+  - risk_signal: risk_signal
+
+## cash-flow-gap-calculator
+- title: Cash Flow Gap Calculator
+- url: https://www.sectorcalc.com/en/tools/free/cash-flow-gap-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - receivablesDays: Receivables days (days)
+  - payableDays: Payables days (days)
+  - dailyCost: Daily cost (USD/day)
+- outputs:
+  - result: Cash Flow Gap Calculator result
+
+## cay-kahve-su-tuketim-maliyeti
+- title: Çay — Kahve — Su Tüketim Maliyeti
+- url: https://www.sectorcalc.com/en/tools/free/cay-kahve-su-tuketim-maliyeti
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - unitCost: Unit cost (value)
+  - dailyUnits: Daily units (value)
+- outputs:
+  - result: Çay — Kahve — Su Tüketim Maliyeti result
+
+## cbam-compliance-verdict
+- title: CBAM Compliance Verdict
+- url: https://www.sectorcalc.com/en/tools/premium/cbam-compliance-verdict
+- tier: premium
+- category: energy-carbon
+- archetype: energy-loss
+- inputs:
+  - productionTons: Production volume (tons)
+  - energySource: Energy source
+  - euImportValue: EU import value (EUR)
+  - processEmissionsFactor: Process emissions factor (tCO₂)
+  - includesTransport: Include transport leg
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: HIGH CBAM RISK
+  - verdict_2: MODERATE CBAM
+  - verdict_3: MANAGEABLE
+
+## cbam-exposure-quick-check
+- title: CBAM Exposure Quick Check
+- url: https://www.sectorcalc.com/en/tools/free/cbam-exposure-quick-check
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - emissionsTon: Emissions (tCO₂)
+  - carbonPrice: Carbon price (USD/t)
+- outputs:
+  - result: CBAM Exposure Quick Check result
+
+## cbam-unit-product-carbon-footprint-calculator
+- title: CBAM Unit Product Carbon Footprint Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/cbam-unit-product-carbon-footprint-calculator
+- tier: premium-schema
+- category: carbon
+- archetype: energy-loss
+- inputs:
+  - energyEmissionsTon: Energy emissions (ton CO₂e)
+  - fuelEmissionsTon: Fuel emissions (ton CO₂e)
+  - productionUnits: Production units (units)
+  - carbonPrice: Carbon price (USD/ton)
+- outputs:
+  - unitEmissionsTon: Unit embedded emissions
+  - totalEmissions: Total batch emissions
+  - unitCarbonCost: Unit carbon cost exposure
+
+## cek-senet-vade-kirma-maliyeti-hesabi
+- title: Çek — Senet Vade Kırma Maliyeti Calculation
+- url: https://www.sectorcalc.com/en/tools/free/cek-senet-vade-kirma-maliyeti-hesabi
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - faceValue: Face value (value)
+  - discountRate: Discount rate (value)
+- outputs:
+  - result: Çek — Senet Vade Kırma Maliyeti Calculation result
+
+## celik-cati-makas-yaklasik-agirligi
+- title: Çelik Çatı Makas Yaklaşık Ağırlığı
+- url: https://www.sectorcalc.com/en/tools/free/celik-cati-makas-yaklasik-agirligi
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - span: Roof span (value)
+  - weightPerMeter: Weight per meter (value)
+- outputs:
+  - result: Çelik Çatı Makas Yaklaşık Ağırlığı result
+
+## celik-raf-depo-rafi-yuk-kapasitesi
+- title: Çelik Raf — Depo Rafı Yük Kapasitesi
+- url: https://www.sectorcalc.com/en/tools/free/celik-raf-depo-rafi-yuk-kapasitesi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - beamCapacityKg: Beam capacity (value)
+  - shelfCount: Shelf count (value)
+- outputs:
+  - result: Çelik Raf — Depo Rafı Yük Kapasitesi result
+
+## cevre-atik-beyani-maliyet-hesaplama
+- title: Çevre — Atık Beyanı Maliyet Calculation
+- url: https://www.sectorcalc.com/en/tools/free/cevre-atik-beyani-maliyet-hesaplama
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - wasteTonnes: Waste tonnage (value)
+  - feePerTonne: Fee per tonne (value)
+- outputs:
+  - result: Çevre — Atık Beyanı Maliyet Calculation result
+
+## change-order-impact-analyzer
+- title: Change Order Impact Analyzer
+- url: https://www.sectorcalc.com/en/tools/premium/change-order-impact-analyzer
+- tier: premium
+- category: construction
+- archetype: construction-field
+- inputs:
+  - originalBudget: Original budget (USD)
+  - changeEstimate: Change cost estimate (USD)
+  - delayDays: Delay days (days)
+  - crewCostPerDay: Crew cost per day (USD/day)
+  - marginTarget: Target margin (%)
+- outputs:
+  - verdict_1: ACCEPT
+  - verdict_2: RENEGOTIATE
+  - verdict_3: DO NOT ACCEPT WITHOUT PRICE ADJUSTMENT
+
+## cit-korkuluk-malzeme-hesabi
+- title: Çit — Korkuluk Malzeme Calculation
+- url: https://www.sectorcalc.com/en/tools/free/cit-korkuluk-malzeme-hesabi
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - length: Fence length (value)
+  - postSpacing: Post spacing (value)
+- outputs:
+  - result: Çit — Korkuluk Malzeme Calculation result
+
+## civata-on-germe-kuvveti-hesabi
+- title: Civata Ön Germe Kuvveti Calculation
+- url: https://www.sectorcalc.com/en/tools/free/civata-on-germe-kuvveti-hesabi
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - boltDiameterMm: Bolt diameter (value)
+  - preloadKn: Preload force (value)
+- outputs:
+  - result: Civata Ön Germe Kuvveti Calculation result
+
+## civata-sikma-torku-hesaplama
+- title: Civata Sıkma Torku Calculation
+- url: https://www.sectorcalc.com/en/tools/free/civata-sikma-torku-hesaplama
+- tier: free
+- category: manufacturing-workshop
+- archetype: logistics-route
+- inputs:
+  - clampForce: Clamp force (value)
+  - boltDiameterMm: Bolt diameter (value)
+- outputs:
+  - result: Civata Sıkma Torku Calculation result
+
+## cleaning-cost-calculator
+- title: Cleaning Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/cleaning-cost-calculator
+- tier: free
+- category: cleaning
+- archetype: cost-margin
+- inputs:
+  - areaSize: Area size (sq ft)
+  - staffCount: Staff count
+  - visitFrequency: Visits per month
+- outputs:
+  - totalCost: totalCost
+
+## cloud-api-cost-overrun
+- title: Cloud API Cost Overrun Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/cloud-api-cost-overrun
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - monthlyApiCalls: Monthly API calls (calls)
+  - costPerThousandCalls: Cost per 1k calls (USD)
+  - monthlyRevenue: Monthly revenue (USD)
+  - computeCost: Compute cost (USD)
+  - storageCost: Storage cost (USD)
+- outputs:
+  - totalCloudCost: Total cloud cost
+  - apiCallCost: API call cost
+  - revenuePressure: Revenue pressure
+
+## cnc-cycle-time-calculator
+- title: CNC Cycle Time Calculator
+- url: https://www.sectorcalc.com/en/tools/free/cnc-cycle-time-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: production-operations
+- inputs:
+  - machiningSeconds: Machining (sec)
+  - loadUnloadSeconds: Load/unload (sec)
+  - inspectionSeconds: Inspection (sec)
+  - quantity: Quantity (parts)
+- outputs:
+  - result: CNC Cycle Time Calculator result
+
+## cnc-oee-loss
+- title: CNC OEE & Time Loss Report
+- url: https://www.sectorcalc.com/en/tools/premium-schema/cnc-oee-loss
+- tier: premium-schema
+- category: oee
+- archetype: production-operations
+- inputs:
+  - machineRate: Machine rate ($/h)
+  - plannedHours: Planned run hours (h)
+  - downtimeHours: Expected downtime (h)
+  - materialCost: Material cost ($)
+  - scrapRate: Scrap rate (%)
+  - availability: Availability (%)
+  - performance: Performance (%)
+  - quality: Quality (%)
+  - quotedPrice: Quoted price ($)
+- outputs:
+  - oeeScore: OEE score
+  - availabilityLossCost: Availability loss
+  - scrapCost: Scrap cost
+  - totalExposure: Total loss exposure
+
+## cnc-quote-risk-analyzer
+- title: CNC Audit Engine
+- url: https://www.sectorcalc.com/en/tools/premium/cnc-quote-risk-analyzer
+- tier: premium
+- category: cnc-manufacturing
+- archetype: cost-margin
+- inputs:
+  - setupTime: Setup time (min)
+  - cycleTime: Cycle time (min)
+  - quantity: Quantity
+  - toolCost: Tooling and fixture cost (USD)
+  - materialCost: Material cost (USD)
+  - machineRate: Machine rate (USD/hr)
+  - riskMargin: Risk margin (%)
+- outputs:
+  - verdict_1: DO NOT ACCEPT UNDER
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE TO QUOTE
+
+## cnc-tool-wear-cost
+- title: CNC Tool Wear Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/cnc-tool-wear-cost
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - monthlyToolCost: Monthly tool cost (USD)
+  - partsProduced: Parts produced (count)
+  - toolChangeMinutes: Tool change minutes (minutes)
+  - changesPerMonth: Changes per month (count)
+  - hourlyCost: Hourly cost (USD/hour)
+  - coolantCost: Coolant cost (USD)
+- outputs:
+  - totalExposure: Total tool wear exposure
+  - toolCostPerPart: Tool cost per part
+  - toolChangeDowntimeCost: Tool change downtime cost
+  - coolantCost: Coolant cost
+
+## compound-interest-calculator
+- title: Compound Interest Calculator
+- url: https://www.sectorcalc.com/en/tools/free/compound-interest-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - principal: Principal (USD)
+  - annualRate: Annual rate (%)
+  - years: Years (years)
+  - compoundsPerYear: Compounds/yr (×/yr)
+- outputs:
+  - result: Compound Interest Calculator result
+
+## compressor-energy-cost-calculator
+- title: Compressor Energy Cost
+- url: https://www.sectorcalc.com/en/tools/free/compressor-energy-cost-calculator
+- tier: free
+- category: energy-carbon
+- archetype: energy-loss
+- inputs:
+  - powerKw: Power (kW)
+  - operatingHours: Hours (hr)
+  - rate: Rate (USD/kWh)
+- outputs:
+  - result: Compressor Energy Cost result
+
+## compressor-leak-cost-calculator
+- title: Compressor Leak Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/compressor-leak-cost-calculator
+- tier: premium-schema
+- category: energy
+- archetype: energy-loss
+- inputs:
+  - compressorKw: Compressor power (kW)
+  - leakPercent: Leak percent (%)
+  - operatingHours: Operating hours (hours/month)
+  - energyRate: Energy rate (USD/kWh)
+- outputs:
+  - annualLeakCost: Annual leak cost
+  - monthlyLeakCost: Monthly leak cost
+  - leakKwh: Leak kWh
+
+## concrete-bag-calculator
+- title: Concrete Bag Calculator
+- url: https://www.sectorcalc.com/en/tools/free/concrete-bag-calculator
+- tier: free
+- category: construction-measurement
+- archetype: construction-field
+- inputs:
+  - volumeM3: Volume (m³)
+  - bagYieldM3: Bag yield (m³/bag)
+  - wastePercent: Waste (%)
+- outputs:
+  - result: Concrete Bag Calculator result
+
+## concrete-volume-calculator
+- title: Concrete Volume Calculator
+- url: https://www.sectorcalc.com/en/tools/free/concrete-volume-calculator
+- tier: free
+- category: construction-measurement
+- archetype: construction-field
+- inputs:
+  - length: Length (m)
+  - width: Width (m)
+  - depth: Depth (m)
+- outputs:
+  - result: Concrete Volume Calculator result
+
+## construction-project-overrun
+- title: Construction Project Overrun Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/construction-project-overrun
+- tier: premium-schema
+- category: time
+- archetype: generic
+- inputs:
+  - dailySiteCost: Daily site cost (USD/day)
+  - delayDays: Delay days (days)
+  - laborBudget: Labor budget (USD)
+  - laborOverrunPercent: Labor overrun (%)
+  - materialBudget: Material budget (USD)
+  - materialOverrunPercent: Material overrun (%)
+- outputs:
+  - totalExposure: Total overrun exposure
+  - delayCost: Delay cost
+  - laborOverrunCost: Labor overrun cost
+  - materialOverrunCost: Material overrun cost
+
+## construction-subcontractor-margin-leak
+- title: Subcontractor Margin Leak Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/construction-subcontractor-margin-leak
+- tier: premium-schema
+- category: cost
+- archetype: energy-loss
+- inputs:
+  - contractValue: Contract value (USD)
+  - plannedSubcontractorCost: Planned subcontractor cost (USD)
+  - actualSubcontractorCost: Actual subcontractor cost (USD)
+  - delayCost: Delay cost (USD)
+  - materialVariance: Material variance (USD)
+- outputs:
+  - totalExposure: Total subcontractor leak
+  - subcontractorVariance: Subcontractor variance
+  - marginPressure: Margin pressure
+
+## cop-atik-konteyner-hacim-hesabi
+- title: Çöp — Atık Konteyner Hacim Calculation
+- url: https://www.sectorcalc.com/en/tools/free/cop-atik-konteyner-hacim-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - containerLengthM: Length (value)
+  - containerWidthM: Width (value)
+- outputs:
+  - result: Çöp — Atık Konteyner Hacim Calculation result
+
+## crop-yield-calculator
+- title: Crop Yield Calculator
+- url: https://www.sectorcalc.com/en/tools/free/crop-yield-calculator
+- tier: free
+- category: agriculture-food
+- archetype: production-operations
+- inputs:
+  - areaHa: Area (ha)
+  - yieldTonPerHa: Yield (t/ha)
+  - pricePerTon: Price (USD/t)
+- outputs:
+  - result: Crop Yield Calculator result
+
+## crop-yield-loss-analyzer
+- title: Crop Yield Loss Analyzer
+- url: https://www.sectorcalc.com/en/tools/premium/crop-yield-loss-analyzer
+- tier: premium
+- category: agriculture-crops
+- archetype: production-operations
+- inputs:
+  - areaHectares: Field area (ha)
+  - expectedYieldTonnes: Expected yield (t/ha)
+  - fertilizerCost: Fertilizer cost (USD)
+  - irrigationCost: Irrigation cost (USD)
+  - soilMoisturePercent: Soil moisture (%)
+  - weatherRiskIndex: Weather risk index (0-10)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: LOSS GUARANTEED
+  - verdict_2: ACCEPT WITH BUFFER
+  - verdict_3: SAFE TO PLANT
+
+## cutting-speed-calculator
+- title: Cutting Speed Calculator
+- url: https://www.sectorcalc.com/en/tools/free/cutting-speed-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - diameterMm: Diameter (mm)
+  - rpm: RPM (rpm)
+- outputs:
+  - result: Cutting Speed Calculator result
+
+## daire-alani-cevresi-hesaplama
+- title: Daire Alanı — Çevresi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/daire-alani-cevresi-hesaplama
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - radius: Radius (m)
+- outputs:
+  - result: Daire Alanı — Çevresi Calculation result
+
+## dairy-feed-efficiency-loss
+- title: Dairy Feed Efficiency Loss Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/dairy-feed-efficiency-loss
+- tier: premium-schema
+- category: benchmark
+- archetype: generic
+- inputs:
+  - cows: Cows (count)
+  - feedCostPerCowPerDay: Feed cost per cow per day (USD)
+  - milkLitersPerCowPerDay: Milk liters per cow per day (liters)
+  - targetMilkLitersPerCowPerDay: Target milk liters per cow per day (liters)
+  - milkPricePerLiter: Milk price per liter (USD)
+  - days: Days (count)
+- outputs:
+  - totalExposure: Total feed efficiency exposure
+  - feedCost: Feed cost
+  - milkRevenueGap: Milk revenue gap
+
+## dairy-profit-detector
+- title: Dairy Profit Detector
+- url: https://www.sectorcalc.com/en/tools/premium/dairy-profit-detector
+- tier: premium
+- category: agriculture-dairy
+- archetype: cost-margin
+- inputs:
+  - cowCount: Cow count
+  - litersPerCowPerDay: Milk per cow (L/day)
+  - milkPricePerLiter: Milk price (USD/L)
+  - monthlyFeedCost: Monthly feed cost (USD)
+  - laborCost: Monthly labor cost (USD)
+  - vetAndHealth: Vet & health (USD/month)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: LOSING MONEY
+  - verdict_2: TIGHT MARGIN
+  - verdict_3: PROFITABLE
+
+## date-difference-calculator
+- title: Date Difference Calculator
+- url: https://www.sectorcalc.com/en/tools/free/date-difference-calculator
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - startDayNumber: Start day # (day)
+  - endDayNumber: End day # (day)
+- outputs:
+  - result: Date Difference Calculator result
+
+## delivery-cost-calculator
+- title: Delivery Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/delivery-cost-calculator
+- tier: free
+- category: logistics-travel
+- archetype: logistics-route
+- inputs:
+  - distanceKm: Distance (km)
+  - costPerKm: Cost/km (USD/km)
+  - stops: Stops (stops)
+  - costPerStop: Cost/stop (USD)
+- outputs:
+  - result: Delivery Cost Calculator result
+
+## depo-raf-palet-yerlesim-optimizasyonu
+- title: Depo Raf — Palet Yerleşim Optimizasyonu
+- url: https://www.sectorcalc.com/en/tools/free/depo-raf-palet-yerlesim-optimizasyonu
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - palletWidthM: Pallet width (value)
+  - palletDepthM: Pallet depth (value)
+- outputs:
+  - result: Depo Raf — Palet Yerleşim Optimizasyonu result
+
+## depreciation-calculator
+- title: Straight-Line Depreciation
+- url: https://www.sectorcalc.com/en/tools/free/depreciation-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - assetCost: Asset cost (USD)
+  - salvageValue: Salvage value (USD)
+  - usefulLifeYears: Useful life (years)
+- outputs:
+  - result: Straight-Line Depreciation result
+
+## desi-calculator
+- title: Desi & Volumetric Weight Calculator
+- url: https://www.sectorcalc.com/en/tools/free/desi-calculator
+- tier: free
+- category: logistics-travel
+- archetype: logistics-route
+- inputs:
+  - length: Length (cm)
+  - width: Width (cm)
+  - height: Height (cm)
+  - quantity: Package count
+- outputs:
+  - risk_signal: risk_signal
+
+## discount-calculator
+- title: Discount Calculator
+- url: https://www.sectorcalc.com/en/tools/free/discount-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - originalPrice: Original price (USD)
+  - discountPercent: Discount (%)
+- outputs:
+  - result: Discount Calculator result
+
+## disli-modul-cap-hesaplama
+- title: Dişli Modül — Çap Calculation
+- url: https://www.sectorcalc.com/en/tools/free/disli-modul-cap-hesaplama
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - module: Module (value)
+  - teeth: Teeth (value)
+- outputs:
+  - result: Dişli Modül — Çap Calculation result
+
+## dizel-benzin-maliyet-karsilastirma
+- title: Dizel — Benzin Maliyet Karşılaştırma
+- url: https://www.sectorcalc.com/en/tools/free/dizel-benzin-maliyet-karsilastirma
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - dieselCost: Diesel cost (USD)
+  - gasolineCost: Gasoline cost (USD)
+- outputs:
+  - result: Dizel — Benzin Maliyet Karşılaştırma result
+
+## dogalgaz-tuketimi-hesaplama
+- title: Doğalgaz Tüketimi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/dogalgaz-tuketimi-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - consumptionSm3: Consumption (value)
+  - unitPrice: Unit price (value)
+- outputs:
+  - result: Doğalgaz Tüketimi Calculation result
+
+## doviz-pozisyonu-kur-farki-riski-hesabi
+- title: Döviz Pozisyonu — Kur Farkı Riski Calculation
+- url: https://www.sectorcalc.com/en/tools/free/doviz-pozisyonu-kur-farki-riski-hesabi
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - foreignExposure: Foreign exposure (value)
+  - fxMovePercent: FX move (value)
+- outputs:
+  - result: Döviz Pozisyonu — Kur Farkı Riski Calculation result
+
+## downtime-minute-cost-calculator
+- title: Downtime Minute Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/downtime-minute-cost-calculator
+- tier: premium-schema
+- category: time
+- archetype: production-operations
+- inputs:
+  - downtimeMinutes: Downtime minutes (minutes)
+  - hourlyRate: Shop hourly rate (USD/h)
+  - outputUnitsPerHour: Output units per hour (units/h)
+  - contributionPerUnit: Contribution per unit (USD)
+- outputs:
+  - totalExposure: Total downtime exposure
+  - downtimeCost: Shop rate downtime cost
+  - outputLossValue: Output loss value
+
+## drywall-calculator
+- title: Drywall Calculator
+- url: https://www.sectorcalc.com/en/tools/free/drywall-calculator
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - wallAreaM2: Wall area (m²)
+  - sheetAreaM2: Sheet area (m²)
+  - wastePercent: Waste (%)
+- outputs:
+  - result: Drywall Calculator result
+
+## duvar-kagidi-seramik-adet-hesaplama
+- title: Duvar Kağıdı — Seramik Adet Calculation
+- url: https://www.sectorcalc.com/en/tools/free/duvar-kagidi-seramik-adet-hesaplama
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - wallAreaM2: Wall area (value)
+  - tileAreaM2: Tile area (value)
+- outputs:
+  - result: Duvar Kağıdı — Seramik Adet Calculation result
+
+## electrical-labor-estimator
+- title: Panel Shop Margin Verdict
+- url: https://www.sectorcalc.com/en/tools/premium/electrical-labor-estimator
+- tier: premium
+- category: electrical-contracting
+- archetype: generic
+- inputs:
+  - materialCost: Material cost (USD)
+  - laborHours: Labor hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - testingHours: Testing hours (hr)
+  - inspectionRiskPercent: Inspection risk (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: INSPECTION RISK
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE BID
+
+## electrical-labor-estimator
+- title: Electrical Labor Estimator
+- url: https://www.sectorcalc.com/en/tools/free/electrical-labor-estimator
+- tier: free
+- category: electrical-contracting
+- archetype: generic
+- inputs:
+  - materialCost: Material cost (USD)
+  - laborHours: Labor hours (hr)
+  - laborRate: Labor rate (USD/hr)
+- outputs:
+  - risk_signal: risk_signal
+
+## electrical-panel-rework-cost
+- title: Electrical Panel Rework Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/electrical-panel-rework-cost
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - panelRevenue: Panel revenue (USD)
+  - wiringHours: Wiring hours (hours)
+  - estimatedHours: Estimated hours (hours)
+  - laborRate: Labor rate (USD/hour)
+  - inspectionFailCost: Inspection fail cost (USD)
+  - testEquipmentCost: Test equipment cost (USD)
+- outputs:
+  - totalExposure: Total panel rework exposure
+  - wiringOverrunCost: Wiring overrun cost
+  - marginPressure: Margin pressure
+
+## electricity-bill-calculator
+- title: Electricity Bill Calculator
+- url: https://www.sectorcalc.com/en/tools/free/electricity-bill-calculator
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - kwh: Usage (kWh)
+  - rate: Energy rate (USD/kWh)
+  - fixedCharge: Fixed charge (USD)
+- outputs:
+  - result: Electricity Bill Calculator result
+
+## employee-total-cost-calculator
+- title: Employee Total Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/employee-total-cost-calculator
+- tier: premium-schema
+- category: cost
+- archetype: finance-hr
+- inputs:
+  - grossSalary: Gross salary (USD/month)
+  - employerRatePercent: Employer burden rate (%)
+  - monthlyBenefits: Monthly benefits (USD)
+- outputs:
+  - totalEmployerCost: Total employer cost
+  - employerLoad: Employer burden
+
+## energy-compressor-leak-cost
+- title: Compressor Leak Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/energy-compressor-leak-cost
+- tier: premium-schema
+- category: energy
+- archetype: energy-loss
+- inputs:
+  - compressorKw: Compressor power (kW)
+  - leakPercent: Leak percent (%)
+  - operatingHours: Operating hours (hours/month)
+  - energyRate: Energy rate (USD/kWh)
+- outputs:
+  - monthlyLeakCost: Monthly leak cost
+  - leakKwh: Leak kWh
+  - annualLeakCost: Annual leak cost
+
+## energy-consumption-check
+- title: Energy Consumption Check
+- url: https://www.sectorcalc.com/en/tools/free/energy-consumption-check
+- tier: free
+- category: energy-carbon
+- archetype: energy-loss
+- inputs:
+  - powerKw: Power (kW)
+  - hoursPerDay: Hours/day (hr)
+  - days: Days (days)
+  - rate: Rate (USD/kWh)
+- outputs:
+  - result: Energy Consumption Check result
+
+## energy-efficiency-report
+- title: Energy Efficiency Report
+- url: https://www.sectorcalc.com/en/tools/premium/energy-efficiency-report
+- tier: premium
+- category: energy-consumption
+- archetype: energy-loss
+- inputs:
+  - monthlyKwh: Monthly kWh
+  - tariffPerKwh: Tariff (USD/kWh)
+  - demandCharge: Peak demand charge (USD)
+  - powerFactorPenalty: Power factor penalty (%)
+  - efficiencyTargetPercent: Efficiency target (%)
+  - targetSavings: Target savings (%)
+- outputs:
+  - verdict_1: HIGH WASTE
+  - verdict_2: IMPROVE EFFICIENCY
+  - verdict_3: ON TARGET
+
+## energy-peak-cost
+- title: Energy Peak & Efficiency Loss Report
+- url: https://www.sectorcalc.com/en/tools/premium-schema/energy-peak-cost
+- tier: premium-schema
+- category: energy
+- archetype: energy-loss
+- inputs:
+  - currentKwh: Current kWh (kWh)
+  - targetKwh: Target kWh (kWh)
+  - energyRate: Energy rate ($/kWh)
+  - peakKwh: Peak kWh (kWh)
+  - peakRate: Peak rate ($/kWh)
+  - demandCharge: Demand charge ($)
+  - plannedBudget: Planned energy budget ($)
+- outputs:
+  - kwhVariancePercent: kWh variance
+  - excessKwhCost: Excess kWh cost
+  - peakCost: Peak demand cost
+  - totalExposure: Energy loss exposure
+
+## energy-savings-package-calculator
+- title: Energy Savings Package Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/energy-savings-package-calculator
+- tier: premium-schema
+- category: energy
+- archetype: energy-loss
+- inputs:
+  - baselineKwhMonthly: Baseline monthly kWh (kWh)
+  - proposedKwhMonthly: Proposed monthly kWh (kWh)
+  - energyRate: Energy rate (USD/kWh)
+  - projectCost: Project cost (USD)
+- outputs:
+  - annualSavingsCost: Annual savings
+  - monthlySavingsCost: Monthly savings
+  - paybackYears: Simple payback
+
+## enflasyon-fiyat-eskalasyonu-hesaplama
+- title: Enflasyon — Fiyat Eskalasyonu Calculation
+- url: https://www.sectorcalc.com/en/tools/free/enflasyon-fiyat-eskalasyonu-hesaplama
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - baseAmount: Base amount (USD)
+  - inflationPercent: Inflation rate (%)
+- outputs:
+  - result: Enflasyon — Fiyat Eskalasyonu Calculation result
+
+## enjeksiyon-dokum-cekme-payi-hesabi
+- title: Enjeksiyon — Döküm Çekme Payı Calculation
+- url: https://www.sectorcalc.com/en/tools/free/enjeksiyon-dokum-cekme-payi-hesabi
+- tier: free
+- category: manufacturing-workshop
+- archetype: logistics-route
+- inputs:
+  - partLengthMm: Part length (value)
+  - shrinkPercent: Shrink percent (value)
+- outputs:
+  - result: Enjeksiyon — Döküm Çekme Payı Calculation result
+
+## excavation-volume-calculator
+- title: Excavation Volume Calculator
+- url: https://www.sectorcalc.com/en/tools/free/excavation-volume-calculator
+- tier: free
+- category: construction-measurement
+- archetype: construction-field
+- inputs:
+  - lengthM: Length (m)
+  - widthM: Width (m)
+  - depthM: Depth (m)
+- outputs:
+  - result: Excavation Volume Calculator result
+
+## fazla-mesai-ucreti-hesaplama
+- title: Fazla Mesai Ücreti Calculation
+- url: https://www.sectorcalc.com/en/tools/free/fazla-mesai-ucreti-hesaplama
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - overtimeHours: Overtime hours (value)
+  - hourlyRate: Hourly rate (value)
+- outputs:
+  - result: Fazla Mesai Ücreti Calculation result
+
+## feed-cost-estimator
+- title: Feed Cost Estimator
+- url: https://www.sectorcalc.com/en/tools/free/feed-cost-estimator
+- tier: free
+- category: agriculture-food
+- archetype: cost-margin
+- inputs:
+  - animalCount: Animal count
+  - dailyFeedKg: Daily feed per head (kg)
+  - feedPricePerKg: Feed price (USD/kg)
+- outputs:
+  - risk_signal: risk_signal
+
+## feed-efficiency-analyzer
+- title: Feed Efficiency Analyzer
+- url: https://www.sectorcalc.com/en/tools/premium/feed-efficiency-analyzer
+- tier: premium
+- category: agriculture-feed
+- archetype: generic
+- inputs:
+  - animalCount: Animal count
+  - dailyFeedKg: Daily feed per head (kg)
+  - feedPricePerKg: Feed price (USD/kg)
+  - milkYieldPerDay: Milk yield per head (L/day)
+  - feedWastePercent: Feed waste / spoilage (%)
+  - waterQualityIndex: Water quality index (1-10)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: INEFFICIENT
+  - verdict_2: MARGIN PRESSURE
+  - verdict_3: OPTIMAL
+
+## feed-rate-calculator
+- title: Feed Rate Calculator
+- url: https://www.sectorcalc.com/en/tools/free/feed-rate-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - rpm: RPM (rpm)
+  - teeth: Teeth (flutes)
+  - feedPerToothMm: Feed/tooth (mm)
+- outputs:
+  - result: Feed Rate Calculator result
+
+## fertilizer-dosage-calculator
+- title: Fertilizer Dosage Calculator
+- url: https://www.sectorcalc.com/en/tools/free/fertilizer-dosage-calculator
+- tier: free
+- category: agriculture-food
+- archetype: generic
+- inputs:
+  - areaHectares: Field area (ha)
+  - nitrogenKgPerHa: Nitrogen rate (kg/ha)
+  - phosphorusKgPerHa: Phosphorus rate (kg/ha)
+  - potassiumKgPerHa: Potassium rate (kg/ha)
+- outputs:
+  - risk_signal: risk_signal
+
+## fire-system-flow-hydrant-calculator
+- title: Fire System Flow and Hydrant Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/fire-system-flow-hydrant-calculator
+- tier: premium-schema
+- category: measurement
+- archetype: technical-measurement
+- inputs:
+  - protectedAreaM2: Protected area (m²)
+  - designDensityLpmM2: Design density (L/min·m²)
+  - hydrantCapacityLpm: Hydrant capacity (L/min)
+- outputs:
+  - flowDemandLpm: Required flow
+  - hydrantCount: Hydrants required
+
+## flooring-calculator
+- title: Flooring Calculator
+- url: https://www.sectorcalc.com/en/tools/free/flooring-calculator
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - roomLengthM: Room length (m)
+  - roomWidthM: Room width (m)
+  - wastePercent: Waste (%)
+- outputs:
+  - result: Flooring Calculator result
+
+## food-cost-calculator
+- title: Food Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/food-cost-calculator
+- tier: free
+- category: agriculture-food
+- archetype: cost-margin
+- inputs:
+  - menuPrice: Menu price (USD)
+  - foodCost: Food cost (USD)
+  - deliveryCommission: Delivery commission (%)
+- outputs:
+  - foodCostPercentage: foodCostPercentage
+
+## food-waste-margin-loss
+- title: Food Waste Margin Loss Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/food-waste-margin-loss
+- tier: premium-schema
+- category: scrap
+- archetype: production-operations
+- inputs:
+  - monthlyIngredientCost: Monthly ingredient cost (USD)
+  - wasteRate: Waste rate (%)
+  - targetWasteRate: Target waste rate (%)
+  - monthlyRevenue: Monthly revenue (USD)
+  - grossMargin: Gross margin (%)
+- outputs:
+  - wasteExposure: Waste exposure
+  - excessWasteCost: Excess waste cost
+  - marginPressure: Margin pressure
+
+## forklift-transpalet-kullanim-maliyeti
+- title: Forklift — Transpalet Kullanım Maliyeti
+- url: https://www.sectorcalc.com/en/tools/free/forklift-transpalet-kullanim-maliyeti
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - hourlyRate: Hourly rate (value)
+  - hours: Hours (value)
+- outputs:
+  - result: Forklift — Transpalet Kullanım Maliyeti result
+
+## fotokopi-yazici-toner-sayfa-maliyeti
+- title: Fotokopi — Yazıcı Toner Sayfa Maliyeti
+- url: https://www.sectorcalc.com/en/tools/free/fotokopi-yazici-toner-sayfa-maliyeti
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - tonerCost: Toner cost (value)
+  - pageYield: Page yield (value)
+- outputs:
+  - result: Fotokopi — Yazıcı Toner Sayfa Maliyeti result
+
+## freight-cost-calculator
+- title: Freight Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/freight-cost-calculator
+- tier: free
+- category: logistics-travel
+- archetype: cost-margin
+- inputs:
+  - weightKg: Weight (kg)
+  - ratePerKg: Rate (USD/kg)
+  - fixedFee: Fixed fee (USD)
+- outputs:
+  - result: Freight Cost Calculator result
+
+## fuel-consumption-calculator
+- title: Fuel Consumption Calculator
+- url: https://www.sectorcalc.com/en/tools/free/fuel-consumption-calculator
+- tier: free
+- category: logistics-travel
+- archetype: energy-loss
+- inputs:
+  - distanceKm: Distance (km)
+  - consumptionPer100Km: Consumption (L/100km)
+  - fuelPrice: Fuel price (USD/L)
+- outputs:
+  - result: Fuel Consumption Calculator result
+
+## fuel-consumption-check
+- title: Fuel Consumption Check
+- url: https://www.sectorcalc.com/en/tools/free/fuel-consumption-check
+- tier: free
+- category: daily-fuel
+- archetype: energy-loss
+- inputs:
+  - distanceKm: Distance (km)
+  - consumptionPer100Km: Consumption (L/100km)
+  - fuelPricePerLiter: Fuel price (USD/L)
+- outputs:
+  - risk_signal: risk_signal
+
+## fuel-cost-calculator
+- title: Fuel Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/fuel-cost-calculator
+- tier: free
+- category: logistics-travel
+- archetype: energy-loss
+- inputs:
+  - distanceKm: Distance (km)
+  - consumptionPer100Km: Consumption (L/100km)
+  - fuelPrice: Fuel price (USD/L)
+- outputs:
+  - result: Fuel Cost Calculator result
+
+## fuel-emission-calculator
+- title: Fuel Emission Calculator
+- url: https://www.sectorcalc.com/en/tools/free/fuel-emission-calculator
+- tier: free
+- category: energy-carbon
+- archetype: energy-loss
+- inputs:
+  - litersFuel: Fuel (L)
+  - kgCo2PerLiter: Factor (kg/L)
+- outputs:
+  - result: Fuel Emission Calculator result
+
+## fuel-travel-calculator
+- title: Fuel Travel Calculator
+- url: https://www.sectorcalc.com/en/tools/free/fuel-travel-calculator
+- tier: free
+- category: everyday-life
+- archetype: energy-loss
+- inputs:
+  - distanceKm: Distance (km)
+  - consumptionPer100Km: Consumption (L/100km)
+  - fuelPrice: Fuel price (USD/L)
+- outputs:
+  - result: Fuel Travel Calculator result
+
+## gelir-vergisi-dilimleri-hesaplama
+- title: Gelir Vergisi Dilimleri Calculation
+- url: https://www.sectorcalc.com/en/tools/free/gelir-vergisi-dilimleri-hesaplama
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - taxableIncome: Taxable income (value)
+  - effectiveRate: Effective rate (value)
+- outputs:
+  - result: Gelir Vergisi Dilimleri Calculation result
+
+## geri-donusum-gelir-maliyet-hesabi
+- title: Geri Dönüşüm Gelir — Maliyet Calculation
+- url: https://www.sectorcalc.com/en/tools/free/geri-donusum-gelir-maliyet-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - recyclingRevenue: Recycling revenue (USD)
+  - processingCost: Processing cost (USD)
+- outputs:
+  - result: Geri Dönüşüm Gelir — Maliyet Calculation result
+
+## gerilim-dusumu-hesaplama
+- title: Gerilim Düşümü Calculation
+- url: https://www.sectorcalc.com/en/tools/free/gerilim-dusumu-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - current: Current (value)
+  - lineLengthM: Line length (value)
+- outputs:
+  - result: Gerilim Düşümü Calculation result
+
+## heat-loss-calculator
+- title: Heat Loss Calculator
+- url: https://www.sectorcalc.com/en/tools/free/heat-loss-calculator
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - uValue: U-value (W/m²K)
+  - areaM2: Area (m²)
+  - tempDifferenceC: ΔT (°C)
+- outputs:
+  - result: Heat Loss Calculator result
+
+## hidrolik-pompa-gucu-hesaplama
+- title: Hidrolik Pompa Gücü Calculation
+- url: https://www.sectorcalc.com/en/tools/free/hidrolik-pompa-gucu-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - flowLpm: Flow (value)
+  - pressureBar: Pressure (value)
+- outputs:
+  - result: Hidrolik Pompa Gücü Calculation result
+
+## hidrolik-silindir-itme-kuvveti-hesabi
+- title: Hidrolik Silindir İtme Kuvveti Calculation
+- url: https://www.sectorcalc.com/en/tools/free/hidrolik-silindir-itme-kuvveti-hesabi
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - pressureBar: Pressure (value)
+  - boreMm: Bore diameter (value)
+- outputs:
+  - result: Hidrolik Silindir İtme Kuvveti Calculation result
+
+## home-budget-calculator
+- title: Home Budget Calculator
+- url: https://www.sectorcalc.com/en/tools/free/home-budget-calculator
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - income: Income (USD)
+  - rent: Rent (USD)
+  - food: Food (USD)
+  - transport: Transport (USD)
+  - utilities: Utilities (USD)
+- outputs:
+  - result: Home Budget Calculator result
+
+## home-renovation-m2
+- title: Home Renovation m² Calculator
+- url: https://www.sectorcalc.com/en/tools/free/home-renovation-m2
+- tier: free
+- category: daily-renovation
+- archetype: generic
+- inputs:
+  - areaM2: Renovation area (m²)
+  - materialQuality: Material quality
+  - includeLabor: Include labor
+- outputs:
+  - risk_signal: risk_signal
+
+## home-renovation-m2-calculator
+- title: Home Renovation Cost per m²
+- url: https://www.sectorcalc.com/en/tools/free/home-renovation-m2-calculator
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - areaM2: Area (m²)
+  - costPerM2: Cost per m² (USD/m²)
+  - contingencyPercent: Contingency (%)
+- outputs:
+  - result: Home Renovation Cost per m² result
+
+## hourly-rate-calculator
+- title: Hourly Rate Calculator
+- url: https://www.sectorcalc.com/en/tools/free/hourly-rate-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - monthlyIncome: Monthly income (USD)
+  - billableHours: Billable hours (hr/mo)
+- outputs:
+  - result: Hourly Rate Calculator result
+
+## hvac-callback-margin-risk
+- title: HVAC Callback Margin Risk Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/hvac-callback-margin-risk
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - projectRevenue: Project revenue (USD)
+  - ductworkVariance: Ductwork variance (USD)
+  - commissioningHours: Commissioning hours (hours)
+  - laborRate: Labor rate (USD/hour)
+  - callbackRiskPercent: Callback risk (%)
+- outputs:
+  - totalExposure: Total callback exposure
+  - commissioningCost: Commissioning cost
+  - callbackRiskCost: Callback risk cost
+  - marginPressure: Margin pressure
+
+## hvac-project-margin-guard
+- title: HVAC Project Margin Guard
+- url: https://www.sectorcalc.com/en/tools/premium/hvac-project-margin-guard
+- tier: premium
+- category: hvac
+- archetype: cost-margin
+- inputs:
+  - equipmentCost: Equipment cost (USD)
+  - ductworkCost: Ductwork cost (USD)
+  - laborHours: Labor hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - commissioningCost: Commissioning cost (USD)
+  - callbackRiskPercent: Callback risk (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: MARGIN AT RISK
+  - verdict_2: RENEGOTIATE
+  - verdict_3: SAFE PROJECT
+
+## hvac-tonnage-rule-check
+- title: HVAC Tonnage Rule Check
+- url: https://www.sectorcalc.com/en/tools/free/hvac-tonnage-rule-check
+- tier: free
+- category: hvac
+- archetype: generic
+- inputs:
+  - squareFootage: Square footage (sq ft)
+  - tonnage: System tonnage (tons)
+  - laborHours: Estimated labor hours (hr)
+- outputs:
+  - risk_signal: risk_signal
+
+## hydraulic-pneumatic-cylinder-force-calculator
+- title: Hydraulic and Pneumatic Cylinder Force Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/hydraulic-pneumatic-cylinder-force-calculator
+- tier: premium-schema
+- category: measurement
+- archetype: technical-measurement
+- inputs:
+  - pressureBar: System pressure (bar)
+  - boreMm: Bore diameter (mm)
+  - rodMm: Rod diameter (mm)
+- outputs:
+  - extendForceN: Extend force
+  - retractForceN: Retract force (rod side)
+
+## ic-verim-orani-irr-hesaplama
+- title: İç Verim Oranı (IRR) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/ic-verim-orani-irr-hesaplama
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - initialInvestment: Initial investment (value)
+  - returnMultiple: Return multiple (value)
+- outputs:
+  - result: İç Verim Oranı (IRR) Calculation result
+
+## interest-calculator
+- title: Simple Interest Calculator
+- url: https://www.sectorcalc.com/en/tools/free/interest-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - principal: Principal (USD)
+  - ratePercent: Rate (%/yr)
+  - years: Years (years)
+- outputs:
+  - result: Simple Interest Calculator result
+
+## internet-telefon-paketi-karsilastirma
+- title: İnternet — Telefon Paketi Karşılaştırma
+- url: https://www.sectorcalc.com/en/tools/free/internet-telefon-paketi-karsilastirma
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - packageA: Package A (USD)
+  - packageB: Package B (USD)
+- outputs:
+  - result: İnternet — Telefon Paketi Karşılaştırma result
+
+## inventory-carrying-cost-eoq-calculator
+- title: Inventory Carrying Cost and EOQ Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/inventory-carrying-cost-eoq-calculator
+- tier: premium-schema
+- category: benchmark
+- archetype: logistics-route
+- inputs:
+  - annualDemand: Annual demand (units)
+  - orderCost: Order cost (USD)
+  - unitCost: Unit cost (USD)
+  - carryingCostPercent: Carrying cost rate (%)
+- outputs:
+  - eoqUnits: Economic order quantity
+  - annualCarryingCost: Annual carrying cost
+
+## investment-payback-npv-calculator
+- title: Investment Payback and NPV Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/investment-payback-npv-calculator
+- tier: premium-schema
+- category: cost
+- archetype: finance-hr
+- inputs:
+  - initialInvestment: Initial investment (USD)
+  - annualCashFlow: Annual cash flow (USD/year)
+  - discountRatePercent: Discount rate (%)
+  - horizonYears: Horizon (years)
+- outputs:
+  - npv: NPV
+  - paybackYears: Simple payback
+  - firstYearYieldPercent: First-year yield
+
+## irrigation-cost-check
+- title: Irrigation Cost Check
+- url: https://www.sectorcalc.com/en/tools/free/irrigation-cost-check
+- tier: free
+- category: agriculture-food
+- archetype: cost-margin
+- inputs:
+  - areaHectares: Irrigated area (ha)
+  - pumpingHours: Pumping hours (hr/month)
+  - electricityRate: Electricity rate (USD/kWh)
+- outputs:
+  - risk_signal: risk_signal
+
+## irsaliye-fatura-adedi-basina-sevkiyat-maliyeti
+- title: İrsaliye — Fatura Adedi Başına Sevkiyat Maliyeti
+- url: https://www.sectorcalc.com/en/tools/free/irsaliye-fatura-adedi-basina-sevkiyat-maliyeti
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - totalShippingCost: Total shipping cost (value)
+  - documentCount: Document count (value)
+- outputs:
+  - result: İrsaliye — Fatura Adedi Başına Sevkiyat Maliyeti result
+
+## is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati
+- title: İş Elbisesi — KKD (Kişisel Koruyucu Donanım) Sarfiyatı
+- url: https://www.sectorcalc.com/en/tools/free/is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - unitCost: Unit cost (value)
+  - employeeCount: Employees (value)
+- outputs:
+  - result: İş Elbisesi — KKD (Kişisel Koruyucu Donanım) Sarfiyatı result
+
+## is-kazasi-maliyeti-gun-kaybi-hesaplama
+- title: İş Kazası Maliyeti (Gün Kaybı) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/is-kazasi-maliyeti-gun-kaybi-hesaplama
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - dailyOutputValue: Daily output value (value)
+  - lostDays: Lost days (value)
+- outputs:
+  - result: İş Kazası Maliyeti (Gün Kaybı) Calculation result
+
+## is-sagligi-ve-guvenligi-ceza-hesaplama
+- title: İş Sağlığı ve Güvenliği Ceza Calculation
+- url: https://www.sectorcalc.com/en/tools/free/is-sagligi-ve-guvenligi-ceza-hesaplama
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - baseFine: Base fine (value)
+  - severityFactor: Severity factor (value)
+- outputs:
+  - result: İş Sağlığı ve Güvenliği Ceza Calculation result
+
+## ise-giris-cikis-bildirgesi-sureleri
+- title: İşe Giriş — Çıkış Bildirgesi Süreleri
+- url: https://www.sectorcalc.com/en/tools/free/ise-giris-cikis-bildirgesi-sureleri
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - noticeDays: Notice period (value)
+- outputs:
+  - result: İşe Giriş — Çıkış Bildirgesi Süreleri result
+
+## isi-degistirici-esanjor-kapasite-hesabi
+- title: Isı Değiştirici (Eşanjör) Kapasite Calculation
+- url: https://www.sectorcalc.com/en/tools/free/isi-degistirici-esanjor-kapasite-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - flowRateM3h: Flow rate (value)
+  - deltaTempC: Temperature delta (value)
+- outputs:
+  - result: Isı Değiştirici (Eşanjör) Kapasite Calculation result
+
+## isitma-sogutma-yuku-kcal-kw-hesabi
+- title: Isıtma — Soğutma Yükü (Kcal/KW) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/isitma-sogutma-yuku-kcal-kw-hesabi
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - areaM2: Area (m²)
+  - loadKcal: Load factor (kcal/h·m²)
+- outputs:
+  - result: Isıtma — Soğutma Yükü (Kcal/KW) Calculation result
+
+## istatistiksel-proses-kontrol-spc-limit-hesabi
+- title: İstatistiksel Proses Kontrol (SPC) Limit Calculation
+- url: https://www.sectorcalc.com/en/tools/free/istatistiksel-proses-kontrol-spc-limit-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - processMean: Process mean (value)
+  - controlFactor: Control factor (value)
+- outputs:
+  - result: İstatistiksel Proses Kontrol (SPC) Limit Calculation result
+
+## istinat-duvari-yaklasik-beton-hesabi
+- title: İstinat Duvarı Yaklaşık Beton Calculation
+- url: https://www.sectorcalc.com/en/tools/free/istinat-duvari-yaklasik-beton-hesabi
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - wallLengthM: Wall length (value)
+  - wallHeightM: Wall height (value)
+- outputs:
+  - result: İstinat Duvarı Yaklaşık Beton Calculation result
+
+## jenerator-kapasitesi-secim-hesaplama
+- title: Jeneratör Kapasitesi Seçim Calculation
+- url: https://www.sectorcalc.com/en/tools/free/jenerator-kapasitesi-secim-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - peakLoadKw: Peak load (kW)
+  - safetyFactor: Safety factor (×)
+- outputs:
+  - result: Jeneratör Kapasitesi Seçim Calculation result
+
+## joule-kalori-watt-saat-cevirici
+- title: Joule — Kalori — Watt Saat Converter
+- url: https://www.sectorcalc.com/en/tools/free/joule-kalori-watt-saat-cevirici
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - value: Value (value)
+  - fromUnit: From unit (unit)
+- outputs:
+  - result: Joule — Kalori — Watt Saat Converter result
+
+## kablo-kesiti-mm-secim-hesaplama
+- title: Kablo Kesiti (mm²) Seçim Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kablo-kesiti-mm-secim-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - loadAmps: Load current (value)
+  - ampacityPerMm2: Ampacity per mm² (value)
+- outputs:
+  - result: Kablo Kesiti (mm²) Seçim Calculation result
+
+## kasko-sigorta-prim-karsilastirma
+- title: Kasko — Sigorta Prim Karşılaştırma
+- url: https://www.sectorcalc.com/en/tools/free/kasko-sigorta-prim-karsilastirma
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - quoteA: Quote A (USD)
+  - quoteB: Quote B (USD)
+- outputs:
+  - result: Kasko — Sigorta Prim Karşılaştırma result
+
+## kaynak-dikis-hacmi-maliyeti-hesabi
+- title: Kaynak Dikiş Hacmi — Maliyeti Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kaynak-dikis-hacmi-maliyeti-hesabi
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - throatMm: Throat (value)
+  - weldLengthM: Weld length (value)
+- outputs:
+  - result: Kaynak Dikiş Hacmi — Maliyeti Calculation result
+
+## kaynak-proseduru-wps-on-isitma-sicakligi-hesabi
+- title: Kaynak Prosedürü (WPS) Ön Isıtma Sıcaklığı Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kaynak-proseduru-wps-on-isitma-sicakligi-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - preheatTempC: Preheat temperature (value)
+- outputs:
+  - result: Kaynak Prosedürü (WPS) Ön Isıtma Sıcaklığı Calculation result
+
+## kaynakli-baglanti-kose-kut-mukavemet-hesabi
+- title: Kaynaklı Bağlantı (Köşe — Küt) Mukavemet Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kaynakli-baglanti-kose-kut-mukavemet-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - throatMm: Throat (value)
+  - legLengthMm: Leg length (value)
+- outputs:
+  - result: Kaynaklı Bağlantı (Köşe — Küt) Mukavemet Calculation result
+
+## kdv-tevkifati-hesaplama
+- title: KDV Tevkifatı Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kdv-tevkifati-hesaplama
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - netAmount: Net amount (USD)
+  - withholdingRate: Withholding rate (%)
+- outputs:
+  - result: KDV Tevkifatı Calculation result
+
+## kesir-ondalik-cevirici
+- title: Kesir — Ondalık Converter
+- url: https://www.sectorcalc.com/en/tools/free/kesir-ondalik-cevirici
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - numerator: Numerator (value)
+  - denominator: Denominator (value)
+- outputs:
+  - result: Kesir — Ondalık Converter result
+
+## kesme-bukme-abkant-tonaj-hesabi
+- title: Kesme Bükme (Abkant) Tonaj Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kesme-bukme-abkant-tonaj-hesabi
+- tier: free
+- category: manufacturing-workshop
+- archetype: logistics-route
+- inputs:
+  - sheetLengthMm: Sheet length (value)
+  - sheetThicknessMm: Thickness (value)
+- outputs:
+  - result: Kesme Bükme (Abkant) Tonaj Calculation result
+
+## kiris-kolon-yaklasik-agirlik-hesabi
+- title: Kiriş — Kolon Yaklaşık Ağırlık Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kiris-kolon-yaklasik-agirlik-hesabi
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - lengthM: Length (value)
+  - kgPerMeter: kg/m (value)
+- outputs:
+  - result: Kiriş — Kolon Yaklaşık Ağırlık Calculation result
+
+## klima-btu-secim-hesaplama
+- title: Klima BTU Seçim Calculation
+- url: https://www.sectorcalc.com/en/tools/free/klima-btu-secim-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - areaM2: Floor area (m²)
+  - ceilingM: Ceiling height (m)
+  - loadFactor: Load factor (BTU/h·m²)
+- outputs:
+  - result: Klima BTU Seçim Calculation result
+
+## kompresor-debisi-tank-hacmi-hesabi
+- title: Kompresör Debisi — Tank Hacmi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kompresor-debisi-tank-hacmi-hesabi
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - flowCfm: Compressor flow (value)
+  - fillMinutes: Fill time (value)
+- outputs:
+  - result: Kompresör Debisi — Tank Hacmi Calculation result
+
+## koni-hacmi-hesaplama
+- title: Koni Hacmi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/koni-hacmi-hesaplama
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - radius: Radius (m)
+  - height: Height (m)
+- outputs:
+  - result: Koni Hacmi Calculation result
+
+## konteyner-yukleme-kapasitesi-teu-hesabi
+- title: Konteyner Yükleme Kapasitesi (TEU) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/konteyner-yukleme-kapasitesi-teu-hesabi
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - totalWeightKg: Total weight (value)
+  - unitWeightKg: Unit weight (value)
+- outputs:
+  - result: Konteyner Yükleme Kapasitesi (TEU) Calculation result
+
+## kosebent-lama-agirlik-hesaplama
+- title: Köşebent — Lama Ağırlık Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kosebent-lama-agirlik-hesaplama
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - length: Bar length (value)
+  - kgPerMeter: kg/m (value)
+- outputs:
+  - result: Köşebent — Lama Ağırlık Calculation result
+
+## kredi-erken-kapama-cezasi-hesaplama
+- title: Kredi Erken Kapama Cezası Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kredi-erken-kapama-cezasi-hesaplama
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - remainingBalance: Remaining balance (value)
+  - penaltyRate: Penalty rate (value)
+- outputs:
+  - result: Kredi Erken Kapama Cezası Calculation result
+
+## kumlama-raspa-kum-sarfiyati-hesabi
+- title: Kumlama — Raspa Kum Sarfiyatı Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kumlama-raspa-kum-sarfiyati-hesabi
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - surfaceAreaM2: Surface area (value)
+  - abrasiveKgPerM2: Abrasive per m² (value)
+- outputs:
+  - result: Kumlama — Raspa Kum Sarfiyatı Calculation result
+
+## kure-hacmi-hesaplama
+- title: Küre Hacmi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/kure-hacmi-hesaplama
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - radius: Radius (m)
+- outputs:
+  - result: Küre Hacmi Calculation result
+
+## kwh-consumption-check
+- title: kWh Consumption Check
+- url: https://www.sectorcalc.com/en/tools/free/kwh-consumption-check
+- tier: free
+- category: energy-consumption
+- archetype: energy-loss
+- inputs:
+  - monthlyKwh: Monthly kWh
+  - tariffPerKwh: Tariff (USD/kWh)
+  - operatingDays: Operating days (days/month)
+- outputs:
+  - risk_signal: risk_signal
+
+## kwh-cost-calculator
+- title: kWh Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/kwh-cost-calculator
+- tier: free
+- category: energy-carbon
+- archetype: energy-loss
+- inputs:
+  - kwh: Energy (kWh)
+  - rate: Rate (USD/kWh)
+- outputs:
+  - result: kWh Cost Calculator result
+
+## landscaping-contract-profit-tool
+- title: Landscaping Contract Profit Tool
+- url: https://www.sectorcalc.com/en/tools/premium/landscaping-contract-profit-tool
+- tier: premium
+- category: landscaping-lawn-care
+- archetype: cost-margin
+- inputs:
+  - crewHoursPerVisit: Crew hours per visit (hr)
+  - laborRate: Labor rate (USD/hr)
+  - fuelCostPerVisit: Fuel cost per visit (USD)
+  - supplyCostPerMonth: Supply cost per month (USD)
+  - visitsPerMonth: Visits per month
+  - equipmentWearCost: Equipment wear cost (USD/month)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: UNDERPRICED MONTHLY
+  - verdict_2: LOW MARGIN
+  - verdict_3: SAFE CONTRACT
+
+## laser-cutting-time-check
+- title: Laser Cutting Time Check
+- url: https://www.sectorcalc.com/en/tools/free/laser-cutting-time-check
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - setupTime: Setup time (min)
+  - cutTime: Cut time (min)
+  - quantity: Quantity
+- outputs:
+  - risk_signal: risk_signal
+
+## lastik-omru-degisim-km-hesaplama
+- title: Lastik Ömrü — Değişim Km Calculation
+- url: https://www.sectorcalc.com/en/tools/free/lastik-omru-degisim-km-hesaplama
+- tier: free
+- category: logistics-travel
+- archetype: logistics-route
+- inputs:
+  - remainingTreadKm: Remaining tread km (value)
+  - monthlyKm: Monthly km (value)
+- outputs:
+  - result: Lastik Ömrü — Değişim Km Calculation result
+
+## lawn-care-cost-check
+- title: Landscaping Contract Profit Tool
+- url: https://www.sectorcalc.com/en/tools/premium/lawn-care-cost-check
+- tier: premium
+- category: landscaping-lawn-care
+- archetype: cost-margin
+- inputs:
+  - crewHoursPerVisit: Crew hours per visit (hr)
+  - laborRate: Labor rate (USD/hr)
+  - fuelCostPerVisit: Fuel cost per visit (USD)
+  - supplyCostPerMonth: Supply cost per month (USD)
+  - visitsPerMonth: Visits per month
+  - equipmentWearCost: Equipment wear cost (USD/month)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: UNDERPRICED MONTHLY
+  - verdict_2: LOW MARGIN
+  - verdict_3: SAFE CONTRACT
+
+## lawn-care-cost-check
+- title: Lawn Care Cost Check
+- url: https://www.sectorcalc.com/en/tools/free/lawn-care-cost-check
+- tier: free
+- category: landscaping-lawn-care
+- archetype: cost-margin
+- inputs:
+  - crewHoursPerVisit: Crew hours per visit (hr)
+  - visitsPerMonth: Visits per month
+  - laborRate: Labor rate (USD/hr)
+- outputs:
+  - risk_signal: risk_signal
+
+## leasing-kiralama-maliyet-karsilastirma
+- title: Leasing — Kiralama Maliyet Karşılaştırma
+- url: https://www.sectorcalc.com/en/tools/free/leasing-kiralama-maliyet-karsilastirma
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - leaseCost: Lease cost (USD)
+  - rentalCost: Rental cost (USD)
+- outputs:
+  - result: Leasing — Kiralama Maliyet Karşılaştırma result
+
+## legal-interest-fee-calculator-pro
+- title: Legal Interest and Fee Exposure Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/legal-interest-fee-calculator-pro
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - principal: Principal (USD)
+  - annualInterestPercent: Annual interest (%)
+  - days: Days (days)
+  - feePercent: Fee percent (%)
+  - fixedCost: Fixed cost (USD)
+- outputs:
+  - totalExposure: Total claim exposure
+  - interestCost: Interest cost
+  - feeCost: Fee cost
+  - fixedCost: Fixed cost
+
+## length-converter
+- title: Length Converter
+- url: https://www.sectorcalc.com/en/tools/free/length-converter
+- tier: free
+- category: conversion
+- archetype: technical-measurement
+- inputs:
+  - value: Value (value)
+  - fromUnit: From unit (unit)
+- outputs:
+  - result: Length Converter result
+
+## linear-regression-calculator
+- title: Linear Regression Calculator
+- url: https://www.sectorcalc.com/en/tools/free/linear-regression-calculator
+- tier: free
+- category: math-statistics
+- archetype: generic
+- inputs:
+  - x1: X₁ (value)
+  - y1: Y₁ (value)
+  - x2: X₂ (value)
+  - y2: Y₂ (value)
+  - x3: X₃ (value)
+  - y3: Y₃ (value)
+- outputs:
+  - result: Linear Regression Calculator result
+
+## loan-payment-calculator
+- title: Loan Payment Calculator
+- url: https://www.sectorcalc.com/en/tools/free/loan-payment-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - principal: Principal (USD)
+  - annualRate: Annual rate (%)
+  - months: Term (months)
+- outputs:
+  - result: Loan Payment Calculator result
+
+## logistics-fuel-route-drift
+- title: Fuel and Route Drift Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/logistics-fuel-route-drift
+- tier: premium-schema
+- category: route
+- archetype: energy-loss
+- inputs:
+  - plannedDistanceKm: Planned distance (km)
+  - actualDistanceKm: Actual distance (km)
+  - fuelCostPerKm: Fuel cost per km (USD/km)
+  - idleHours: Idle hours (hours)
+  - hourlyCost: Hourly cost (USD/hour)
+- outputs:
+  - totalExposure: Total route drift exposure
+  - distanceDriftCost: Distance drift cost
+  - idleCost: Idle cost
+
+## logistics-route-loss
+- title: Logistics Route & Deadhead Loss Report
+- url: https://www.sectorcalc.com/en/tools/premium-schema/logistics-route-loss
+- tier: premium-schema
+- category: route
+- archetype: logistics-route
+- inputs:
+  - distanceKm: Distance (km)
+  - costPerKm: Cost per km ($/km)
+  - emptyReturnPercent: Empty return (%)
+  - driverHours: Driver hours (h)
+  - driverRate: Driver rate ($/h)
+  - tolls: Tolls ($)
+  - quotedFreightPrice: Quoted freight price ($)
+- outputs:
+  - deadheadCost: Deadhead cost
+  - driverCost: Driver cost
+  - totalFreightCost: Visible freight cost
+  - totalExposure: Total route loss exposure
+
+## lpg-benzin-tasarruf-karsilastirma
+- title: LPG — Benzin Tasarruf Karşılaştırma
+- url: https://www.sectorcalc.com/en/tools/free/lpg-benzin-tasarruf-karsilastirma
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - lpgCost: LPG cost (USD)
+  - gasolineCost: Gasoline cost (USD)
+- outputs:
+  - result: LPG — Benzin Tasarruf Karşılaştırma result
+
+## machine-hour-rate-calculator
+- title: Machine Hour Rate Calculator
+- url: https://www.sectorcalc.com/en/tools/free/machine-hour-rate-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - fixedMonthlyCost: Fixed monthly (USD/mo)
+  - monthlyMachineHours: Machine hours (hr/mo)
+  - variableCostPerHour: Variable/hr (USD/hr)
+- outputs:
+  - result: Machine Hour Rate Calculator result
+
+## machine-time-calculator
+- title: Machine Time Calculator
+- url: https://www.sectorcalc.com/en/tools/free/machine-time-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: production-operations
+- inputs:
+  - setupTime: Setup time (min)
+  - cycleTime: Cycle time (min)
+  - quantity: Quantity
+- outputs:
+  - machineHourCost: machineHourCost
+
+## makine-ekonomik-omru-hurda-deger-hesabi
+- title: Makine Ekonomik Ömrü — Hurda Değer Calculation
+- url: https://www.sectorcalc.com/en/tools/free/makine-ekonomik-omru-hurda-deger-hesabi
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - machineCost: Machine cost (USD)
+  - salvageValue: Salvage value (USD)
+  - usefulLifeYears: Useful life (years)
+- outputs:
+  - result: Makine Ekonomik Ömrü — Hurda Değer Calculation result
+
+## material-waste-calculator
+- title: Material Waste Calculator
+- url: https://www.sectorcalc.com/en/tools/free/material-waste-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: production-operations
+- inputs:
+  - inputMaterialKg: Input material (kg)
+  - goodOutputKg: Good output (kg)
+- outputs:
+  - result: Material Waste Calculator result
+
+## matkap-kilavuz-delik-capi-tablosu
+- title: Matkap — Kılavuz Delik Çapı Tablosu
+- url: https://www.sectorcalc.com/en/tools/free/matkap-kilavuz-delik-capi-tablosu
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - screwDiameterMm: Screw diameter (value)
+  - drillFactor: Drill factor (value)
+- outputs:
+  - result: Matkap — Kılavuz Delik Çapı Tablosu result
+
+## meal-planning-verdict
+- title: Weekly Meal Planning Verdict
+- url: https://www.sectorcalc.com/en/tools/premium/meal-planning-verdict
+- tier: premium
+- category: daily-meals
+- archetype: generic
+- inputs:
+  - mealsPerWeek: Meals per week
+  - weeklyGroceryBudget: Weekly grocery budget (USD)
+  - foodWastePercent: Food waste (%)
+  - inflationBuffer: Price inflation buffer (%)
+  - householdSize: Household size
+  - targetSavings: Target savings (%)
+- outputs:
+  - verdict_1: OVER SPEND
+  - verdict_2: TIGHT BUDGET
+  - verdict_3: ON PLAN
+
+## median-calculator
+- title: Median Calculator
+- url: https://www.sectorcalc.com/en/tools/free/median-calculator
+- tier: free
+- category: math-statistics
+- archetype: generic
+- inputs:
+  - value1: Value 1 (value)
+  - value2: Value 2 (value)
+  - value3: Value 3 (value)
+  - value4: Value 4 (value)
+  - value5: Value 5 (value)
+- outputs:
+  - result: Median Calculator result
+
+## menu-profit-leak-detector
+- title: Menu Profit Leak Detector
+- url: https://www.sectorcalc.com/en/tools/premium/menu-profit-leak-detector
+- tier: premium
+- category: restaurant
+- archetype: cost-margin
+- inputs:
+  - menuPrice: Menu price (USD)
+  - ingredientCost: Ingredient cost (USD)
+  - wasteRate: Waste rate (%)
+  - deliveryCommission: Delivery commission (%)
+  - laborCostPerItem: Labor cost per item (USD)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: PROFITABLE
+  - verdict_2: LEAKING PROFIT
+  - verdict_3: REMOVE OR REPRICE
+
+## merdiven-platform-yukseklik-erisim-hesabi
+- title: Merdiven — Platform Yükseklik — Erişim Calculation
+- url: https://www.sectorcalc.com/en/tools/free/merdiven-platform-yukseklik-erisim-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - platformHeightM: Platform height (value)
+  - accessFactor: Access factor (value)
+- outputs:
+  - result: Merdiven — Platform Yükseklik — Erişim Calculation result
+
+## mil-aks-capi-hesabi-egilme-burulma
+- title: Mil — Aks Çapı Calculation (Eğilme — Burulma)
+- url: https://www.sectorcalc.com/en/tools/free/mil-aks-capi-hesabi-egilme-burulma
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - bendingMoment: Bending moment (value)
+  - torque: Torque (value)
+- outputs:
+  - result: Mil — Aks Çapı Calculation (Eğilme — Burulma) result
+
+## milk-yield-check
+- title: Milk Yield Check
+- url: https://www.sectorcalc.com/en/tools/free/milk-yield-check
+- tier: free
+- category: agriculture-food
+- archetype: production-operations
+- inputs:
+  - cowCount: Cow count
+  - litersPerCowPerDay: Milk per cow (L/day)
+  - milkPricePerLiter: Milk price (USD/L)
+- outputs:
+  - risk_signal: risk_signal
+
+## millwork-bid-risk-analyzer
+- title: Millwork Bid Risk Analyzer
+- url: https://www.sectorcalc.com/en/tools/premium/millwork-bid-risk-analyzer
+- tier: premium
+- category: carpentry-millwork
+- archetype: cost-margin
+- inputs:
+  - sheetMaterialCost: Sheet material cost (USD)
+  - laborHours: Labor hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - finishingCost: Finishing cost (USD)
+  - installHours: Install hours (hr)
+  - wasteRatePercent: Waste rate (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: REWORK RISK
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE BID
+
+## mortgage-calculator
+- title: Mortgage Calculator
+- url: https://www.sectorcalc.com/en/tools/free/mortgage-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - principal: Loan amount (USD)
+  - annualRate: Annual rate (%)
+  - months: Term (months)
+- outputs:
+  - result: Mortgage Calculator result
+
+## motor-gucu-kw-hp-cevirici
+- title: Motor Gücü (KW — HP) Converter
+- url: https://www.sectorcalc.com/en/tools/free/motor-gucu-kw-hp-cevirici
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - value: Value (value)
+  - fromUnit: From unit (unit)
+- outputs:
+  - result: Motor Gücü (KW — HP) Converter result
+
+## mtv-motorlu-tasitlar-vergisi-hesaplama
+- title: MTV (Motorlu Taşıtlar Vergisi) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/mtv-motorlu-tasitlar-vergisi-hesaplama
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - engineCc: Engine displacement (cc)
+  - ageFactor: Age factor (×)
+- outputs:
+  - result: MTV (Motorlu Taşıtlar Vergisi) Calculation result
+
+## nakit-akisi-basit-gunluk-haftalik-panosu
+- title: Nakit Akışı (Basit Günlük/Haftalık) Panosu
+- url: https://www.sectorcalc.com/en/tools/free/nakit-akisi-basit-gunluk-haftalik-panosu
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - dailyInflow: Daily inflow (value)
+  - days: Days (value)
+- outputs:
+  - result: Nakit Akışı (Basit Günlük/Haftalık) Panosu result
+
+## newton-kilogram-kuvvet-cevirici
+- title: Newton — Kilogram Kuvvet Converter
+- url: https://www.sectorcalc.com/en/tools/free/newton-kilogram-kuvvet-cevirici
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - value: Value (value)
+  - fromUnit: From unit (unit)
+- outputs:
+  - result: Newton — Kilogram Kuvvet Converter result
+
+## npu-npi-profil-agirlik-hesaplama
+- title: NPU — NPI Profil Ağırlık Calculation
+- url: https://www.sectorcalc.com/en/tools/free/npu-npi-profil-agirlik-hesaplama
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - length: Profile length (value)
+  - kgPerMeter: kg/m (value)
+- outputs:
+  - result: NPU — NPI Profil Ağırlık Calculation result
+
+## oee-calculator
+- title: OEE Calculator
+- url: https://www.sectorcalc.com/en/tools/free/oee-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: production-operations
+- inputs:
+  - availabilityPercent: Availability (%)
+  - performancePercent: Performance (%)
+  - qualityPercent: Quality (%)
+- outputs:
+  - result: OEE Calculator result
+
+## oee-equipment-effectiveness-calculator
+- title: OEE Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/oee-equipment-effectiveness-calculator
+- tier: premium-schema
+- category: oee
+- archetype: production-operations
+- inputs:
+  - availability: Availability (%)
+  - performance: Performance (%)
+  - quality: Quality (%)
+  - machineRate: Machine rate (USD/h)
+  - plannedHours: Planned hours (hours)
+  - downtimeHours: Downtime hours (hours)
+- outputs:
+  - oeeScore: OEE score
+  - availabilityLossCost: Availability loss cost
+
+## office-cleaning-bid-optimizer
+- title: Office Cleaning Bid Optimizer
+- url: https://www.sectorcalc.com/en/tools/premium/office-cleaning-bid-optimizer
+- tier: premium
+- category: cleaning
+- archetype: cost-margin
+- inputs:
+  - areaSize: Area size (sq ft)
+  - laborRate: Labor rate (USD/hr)
+  - hoursPerVisit: Hours per visit (hr)
+  - supplyCost: Supply cost (USD/month)
+  - visitFrequency: Visits per month
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: SAFE BID
+  - verdict_2: LOW MARGIN
+  - verdict_3: UNDERPRICED
+
+## ofis-kirtasiye-sarfiyat-hesabi
+- title: Ofis Kırtasiye Sarfiyat Calculation
+- url: https://www.sectorcalc.com/en/tools/free/ofis-kirtasiye-sarfiyat-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - employeeCount: Employees (value)
+  - monthlySpendPerHead: Spend per head (value)
+- outputs:
+  - result: Ofis Kırtasiye Sarfiyat Calculation result
+
+## paint-coverage-calculator
+- title: Paint Coverage Calculator
+- url: https://www.sectorcalc.com/en/tools/free/paint-coverage-calculator
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - areaM2: Wall area (m²)
+  - coveragePerLiter: Coverage (m²/L)
+  - coats: Coats (coats)
+- outputs:
+  - result: Paint Coverage Calculator result
+
+## paint-coverage-cost-check
+- title: Paint Coverage Cost Check
+- url: https://www.sectorcalc.com/en/tools/free/paint-coverage-cost-check
+- tier: free
+- category: painting
+- archetype: cost-margin
+- inputs:
+  - paintCost: Paint cost (USD)
+  - prepHours: Prep hours (hr)
+  - areaSize: Area size (sq ft)
+- outputs:
+  - risk_signal: risk_signal
+
+## painting-job-profit-verdict
+- title: Painting Job Profit Verdict
+- url: https://www.sectorcalc.com/en/tools/premium/painting-job-profit-verdict
+- tier: premium
+- category: painting
+- archetype: cost-margin
+- inputs:
+  - paintCost: Paint cost (USD)
+  - prepHours: Prep hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - scaffoldCost: Scaffold cost (USD)
+  - touchUpRiskPercent: Touch-up risk (%)
+  - areaSize: Area size (sq ft)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: PREP COST RISK
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE PRICE
+
+## painting-rework-coverage-risk
+- title: Painting Rework and Coverage Risk Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/painting-rework-coverage-risk
+- tier: premium-schema
+- category: cost
+- archetype: generic
+- inputs:
+  - jobRevenue: Job revenue (USD)
+  - paintMaterialCost: Paint material cost (USD)
+  - coverageDriftPercent: Coverage drift (%)
+  - prepReworkHours: Prep rework hours (hours)
+  - laborRate: Labor rate (USD/hour)
+  - scaffoldCost: Scaffold cost (USD)
+- outputs:
+  - totalExposure: Total painting rework exposure
+  - coverageDriftCost: Coverage drift cost
+  - prepReworkCost: Prep rework cost
+  - marginPressure: Margin pressure
+
+## paketleme-malzemesi-strec-koli-sarfiyati
+- title: Paketleme Malzemesi (Streç, Koli) Sarfiyatı
+- url: https://www.sectorcalc.com/en/tools/free/paketleme-malzemesi-strec-koli-sarfiyati
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - shipmentCount: Shipments (value)
+  - materialPerShipment: Material per shipment (value)
+- outputs:
+  - result: Paketleme Malzemesi (Streç, Koli) Sarfiyatı result
+
+## palet-ambalaj-kereste-hesabi
+- title: Palet — Ambalaj Kereste Calculation
+- url: https://www.sectorcalc.com/en/tools/free/palet-ambalaj-kereste-hesabi
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - palletCount: Pallet count (value)
+  - boardLengthM: Board length (value)
+- outputs:
+  - result: Palet — Ambalaj Kereste Calculation result
+
+## panel-shop-margin-verdict
+- title: Panel Shop Margin Verdict
+- url: https://www.sectorcalc.com/en/tools/premium/panel-shop-margin-verdict
+- tier: premium
+- category: electrical-contracting
+- archetype: cost-margin
+- inputs:
+  - materialCost: Material cost (USD)
+  - laborHours: Labor hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - testingHours: Testing hours (hr)
+  - inspectionRiskPercent: Inspection risk (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: INSPECTION RISK
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE BID
+
+## paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli
+- title: Paslanmaz — Çelik — Alüminyum Ayırt Etme Calculatorsı (Yoğunluk Bazlı)
+- url: https://www.sectorcalc.com/en/tools/free/paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - densityKgM3: Material density (value)
+- outputs:
+  - result: Paslanmaz — Çelik — Alüminyum Ayırt Etme Calculatorsı (Yoğunluk Bazlı) result
+
+## percentage-calculator
+- title: Percentage Calculator
+- url: https://www.sectorcalc.com/en/tools/free/percentage-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - value: Value (USD)
+  - percent: Percent (%)
+- outputs:
+  - result: Percentage Calculator result
+
+## percentage-increase-calculator
+- title: Percentage Increase Calculator
+- url: https://www.sectorcalc.com/en/tools/free/percentage-increase-calculator
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - oldValue: Old value (value)
+  - newValue: New value (value)
+- outputs:
+  - result: Percentage Increase Calculator result
+
+## personel-devamsizlik-maliyeti-hesaplama
+- title: Personel Devamsızlık Maliyeti Calculation
+- url: https://www.sectorcalc.com/en/tools/free/personel-devamsizlik-maliyeti-hesaplama
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - dailyWage: Daily wage (value)
+  - absentDays: Absent days (value)
+- outputs:
+  - result: Personel Devamsızlık Maliyeti Calculation result
+
+## plaster-calculator
+- title: Plaster Calculator
+- url: https://www.sectorcalc.com/en/tools/free/plaster-calculator
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - areaM2: Area (m²)
+  - thicknessMm: Thickness (mm)
+  - densityKgM3: Density (kg/m³)
+- outputs:
+  - result: Plaster Calculator result
+
+## plastik-enjeksiyon-cevrim-suresi-tahmini
+- title: Plastik Enjeksiyon Çevrim Süresi Tahmini
+- url: https://www.sectorcalc.com/en/tools/free/plastik-enjeksiyon-cevrim-suresi-tahmini
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - shotWeightG: Shot weight (value)
+  - injectionRateGps: Injection rate (value)
+- outputs:
+  - result: Plastik Enjeksiyon Çevrim Süresi Tahmini result
+
+## plumbing-fixture-cost-check
+- title: Plumbing Fixture Cost Check
+- url: https://www.sectorcalc.com/en/tools/free/plumbing-fixture-cost-check
+- tier: free
+- category: plumbing
+- archetype: cost-margin
+- inputs:
+  - partsCost: Parts cost (USD)
+  - laborHours: Labor hours (hr)
+  - fixtureCount: Fixture count
+- outputs:
+  - risk_signal: risk_signal
+
+## plumbing-job-margin-verdict
+- title: Plumbing Job Margin Verdict
+- url: https://www.sectorcalc.com/en/tools/premium/plumbing-job-margin-verdict
+- tier: premium
+- category: plumbing
+- archetype: cost-margin
+- inputs:
+  - partsCost: Parts cost (USD)
+  - laborHours: Labor hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - fixtureCount: Fixture count
+  - materialRunCost: Material run cost (USD)
+  - callbackRiskPercent: Callback risk (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: CALLBACK RISK
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE JOB
+
+## plumbing-leak-callback-cost
+- title: Plumbing Leak Callback Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/plumbing-leak-callback-cost
+- tier: premium-schema
+- category: cost
+- archetype: energy-loss
+- inputs:
+  - jobRevenue: Job revenue (USD)
+  - callbackVisits: Callback visits (count)
+  - visitCost: Visit cost (USD)
+  - materialRunCost: Material run cost (USD)
+  - warrantyReservePercent: Warranty reserve (%)
+- outputs:
+  - totalExposure: Total callback exposure
+  - callbackCost: Callback cost
+  - warrantyReserve: Warranty reserve
+
+## pnomatik-silindir-kuvvet-hesabi
+- title: Pnömatik Silindir Kuvvet Calculation
+- url: https://www.sectorcalc.com/en/tools/free/pnomatik-silindir-kuvvet-hesabi
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - pressureBar: Pressure (value)
+  - boreMm: Bore diameter (value)
+- outputs:
+  - result: Pnömatik Silindir Kuvvet Calculation result
+
+## pompa-gucu-basma-yuksekligi-hesabi
+- title: Pompa Gücü — Basma Yüksekliği Calculation
+- url: https://www.sectorcalc.com/en/tools/free/pompa-gucu-basma-yuksekligi-hesabi
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - flowM3h: Flow (value)
+  - headM: Head (value)
+- outputs:
+  - result: Pompa Gücü — Basma Yüksekliği Calculation result
+
+## portion-cost-calculator
+- title: Portion Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/portion-cost-calculator
+- tier: free
+- category: agriculture-food
+- archetype: cost-margin
+- inputs:
+  - totalBatchCost: Batch cost (USD)
+  - portions: Portions (servings)
+- outputs:
+  - result: Portion Cost Calculator result
+
+## prefabrik-konteyner-ofis-m-maliyeti
+- title: Prefabrik — Konteyner Ofis m² Maliyeti
+- url: https://www.sectorcalc.com/en/tools/free/prefabrik-konteyner-ofis-m-maliyeti
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - areaM2: Floor area (value)
+  - costPerM2: Cost per m² (value)
+- outputs:
+  - result: Prefabrik — Konteyner Ofis m² Maliyeti result
+
+## prefabrik-konteyner-olcu-hesaplama
+- title: Prefabrik — Konteyner Ölçü Calculation
+- url: https://www.sectorcalc.com/en/tools/free/prefabrik-konteyner-olcu-hesaplama
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - length: Length (value)
+  - width: Width (value)
+- outputs:
+  - result: Prefabrik — Konteyner Ölçü Calculation result
+
+## pressure-vessel-wall-thickness-calculator
+- title: Pressure Vessel Wall Thickness Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/pressure-vessel-wall-thickness-calculator
+- tier: premium-schema
+- category: measurement
+- archetype: engineering-standard
+- inputs:
+  - designPressureBar: Design pressure (bar)
+  - diameterMm: Inside diameter (mm)
+  - allowableStressMpa: Allowable stress (MPa)
+  - weldEfficiency: Weld efficiency (×)
+- outputs:
+  - wallThicknessMm: Minimum wall thickness
+
+## print-job-cost-check
+- title: Signage Bid Safe Price Tool
+- url: https://www.sectorcalc.com/en/tools/premium/print-job-cost-check
+- tier: premium
+- category: printing-signage
+- archetype: cost-margin
+- inputs:
+  - materialCost: Material cost (USD)
+  - inkCost: Ink cost (USD)
+  - designHours: Design hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - installHours: Install hours (hr)
+  - reprintRiskPercent: Reprint risk (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: REPRINT RISK
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE PRICE
+
+## print-job-cost-check
+- title: Print Job Cost Check
+- url: https://www.sectorcalc.com/en/tools/free/print-job-cost-check
+- tier: free
+- category: printing-signage
+- archetype: cost-margin
+- inputs:
+  - materialCost: Material cost (USD)
+  - designHours: Design hours (hr)
+  - laborRate: Labor rate (USD/hr)
+- outputs:
+  - risk_signal: risk_signal
+
+## printing-reprint-margin-leak
+- title: Printing Reprint Margin Leak Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/printing-reprint-margin-leak
+- tier: premium-schema
+- category: scrap
+- archetype: energy-loss
+- inputs:
+  - jobRevenue: Job revenue (USD)
+  - materialCost: Material cost (USD)
+  - reprintRatePercent: Reprint rate (%)
+  - designRevisionHours: Design revision hours (hours)
+  - laborRate: Labor rate (USD/hour)
+  - installReworkCost: Install rework cost (USD)
+- outputs:
+  - totalExposure: Total reprint exposure
+  - reprintCost: Reprint cost
+  - revisionCost: Revision cost
+  - marginPressure: Margin pressure
+
+## probability-calculator
+- title: Probability Calculator
+- url: https://www.sectorcalc.com/en/tools/free/probability-calculator
+- tier: free
+- category: math-statistics
+- archetype: generic
+- inputs:
+  - favorableOutcomes: Favorable (outcomes)
+  - totalOutcomes: Total (outcomes)
+- outputs:
+  - result: Probability Calculator result
+
+## product-customer-profitability-calculator
+- title: Product and Customer Profitability Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/product-customer-profitability-calculator
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - revenue: Revenue (USD)
+  - directCost: Direct cost (USD)
+  - serviceCost: Service cost (USD)
+  - returnsCost: Returns cost (USD)
+- outputs:
+  - contributionMarginRate: Contribution margin rate
+  - contributionAmount: Contribution amount
+  - loadedCost: Loaded cost
+
+## product-margin-calculator
+- title: Product Margin Calculator
+- url: https://www.sectorcalc.com/en/tools/free/product-margin-calculator
+- tier: free
+- category: ecommerce
+- archetype: cost-margin
+- inputs:
+  - productPrice: Product price (USD)
+  - productCost: Product cost (USD)
+  - returnRate: Return rate (%)
+- outputs:
+  - margin: margin
+
+## profit-margin-calculator
+- title: Profit Margin Calculator
+- url: https://www.sectorcalc.com/en/tools/free/profit-margin-calculator
+- tier: free
+- category: finance-business
+- archetype: cost-margin
+- inputs:
+  - sellingPrice: Selling price (USD)
+  - cost: Cost (USD)
+- outputs:
+  - result: Profit Margin Calculator result
+
+## project-cost-calculator
+- title: Concrete / Project Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/project-cost-calculator
+- tier: free
+- category: construction
+- archetype: construction-field
+- inputs:
+  - originalBudget: Original budget (USD)
+  - changeEstimate: Change cost estimate (USD)
+  - deadlinePressure: Deadline pressure
+- outputs:
+  - estimatedProjectCost: estimatedProjectCost
+
+## proportion-calculator
+- title: Proportion Calculator
+- url: https://www.sectorcalc.com/en/tools/free/proportion-calculator
+- tier: free
+- category: math-statistics
+- archetype: generic
+- inputs:
+  - a: A (value)
+  - b: B (value)
+  - c: C (value)
+- outputs:
+  - result: Proportion Calculator result
+
+## quality-cost-paf-calculator
+- title: Quality Cost PAF Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/quality-cost-paf-calculator
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - preventionCost: Prevention cost (USD/month)
+  - appraisalCost: Appraisal cost (USD/month)
+  - failureCost: Failure cost (USD/month)
+  - revenue: Revenue (USD/month)
+- outputs:
+  - totalQualityCost: Total quality cost
+  - qualityCostPercent: Quality cost % of revenue
+
+## quote-price-profit-margin-calculator
+- title: Quote Price and Profit Margin Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/quote-price-profit-margin-calculator
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - materialCost: Material cost (USD)
+  - laborCost: Labor cost (USD)
+  - machineCost: Machine cost (USD)
+  - energyCost: Energy cost (USD)
+  - overheadCost: Overhead cost (USD)
+  - wasteRate: Waste rate (%)
+  - setupTimeCost: Setup time cost (USD)
+  - shippingCost: Shipping cost (USD)
+  - paymentTermCost: Payment term cost (USD)
+  - targetMarginRate: Target margin rate (%)
+  - discountRate: Discount rate (%)
+  - taxIncluded: Tax included in costs (flag)
+  - safetyMarginUplift: Safety margin uplift (%)
+- outputs:
+  - targetSalesPrice: Target sales price
+  - totalCost: Total loaded cost
+  - wasteCost: Waste cost
+  - minimumSafePrice: Minimum safe price
+  - grossMarginAmount: Gross margin amount
+  - grossMarginRate: Gross margin rate
+  - discountImpact: Discount impact
+  - decisionSummary: Decision summary margin
+
+## radyator-petek-boyu-hesaplama
+- title: Radyatör — Petek Boyu Calculation
+- url: https://www.sectorcalc.com/en/tools/free/radyator-petek-boyu-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - heatLoadKcal: Heat load (value)
+  - panelOutputKcal: Panel output (value)
+- outputs:
+  - result: Radyatör — Petek Boyu Calculation result
+
+## rastgele-sayi-ureteci
+- title: Rastgele Sayı Üreteci
+- url: https://www.sectorcalc.com/en/tools/free/rastgele-sayi-ureteci
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - minValue: Minimum (value)
+  - maxValue: Maximum (value)
+- outputs:
+  - result: Rastgele Sayı Üreteci result
+
+## ratio-calculator
+- title: Ratio Calculator
+- url: https://www.sectorcalc.com/en/tools/free/ratio-calculator
+- tier: free
+- category: math-statistics
+- archetype: generic
+- inputs:
+  - a: Value A (value)
+  - b: Value B (value)
+- outputs:
+  - result: Ratio Calculator result
+
+## rebar-weight-calculator
+- title: Rebar Weight Calculator
+- url: https://www.sectorcalc.com/en/tools/free/rebar-weight-calculator
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - diameterMm: Diameter (mm)
+  - lengthM: Length (m)
+  - quantity: Quantity (bars)
+- outputs:
+  - result: Rebar Weight Calculator result
+
+## recipe-cost-check
+- title: Recipe Cost Check
+- url: https://www.sectorcalc.com/en/tools/free/recipe-cost-check
+- tier: free
+- category: agriculture-food
+- archetype: cost-margin
+- inputs:
+  - servings: Servings
+  - ingredientCost: Total ingredient cost (USD)
+  - sellingPricePerServing: Target price per serving (USD)
+- outputs:
+  - risk_signal: risk_signal
+
+## renovation-budget-optimizer
+- title: Renovation Budget Optimizer
+- url: https://www.sectorcalc.com/en/tools/premium/renovation-budget-optimizer
+- tier: premium
+- category: daily-renovation
+- archetype: generic
+- inputs:
+  - areaM2: Renovation area (m²)
+  - materialQuality: Material quality
+  - includeLabor: Include labor
+  - season: Season
+  - cityTier: City cost tier
+  - contingencyPercent: Contingency (%)
+- outputs:
+  - verdict_1: UNDERBUDGETED
+  - verdict_2: ADD CONTINGENCY
+  - verdict_3: BUDGET REALISTIC
+
+## rent-vs-buy-calculator
+- title: Rent vs Buy Comparison
+- url: https://www.sectorcalc.com/en/tools/free/rent-vs-buy-calculator
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - monthlyRent: Monthly rent (USD)
+  - homePrice: Home price (USD)
+  - comparisonYears: Comparison years (years)
+  - annualRentIncrease: Annual rent increase (%)
+  - annualHomeAppreciation: Home appreciation (%)
+  - downPaymentPercent: Down payment (%)
+  - mortgageInterestRate: Mortgage rate (%)
+  - mortgageTermYears: Mortgage term (years)
+  - investmentReturnRate: Investment return (%)
+  - ownershipCostPercent: Ownership cost (%)
+  - purchaseCostPercent: Purchase costs (%)
+  - sellingCostPercent: Selling costs (%)
+- outputs:
+  - result: Rent vs Buy Comparison result
+
+## repair-time-vs-price-check
+- title: Repair Time vs Price Check
+- url: https://www.sectorcalc.com/en/tools/free/repair-time-vs-price-check
+- tier: free
+- category: auto-repair-shop
+- archetype: cost-margin
+- inputs:
+  - quotedPrice: Quoted price (USD)
+  - repairHours: Repair hours (hr)
+  - partsCost: Parts cost (USD)
+- outputs:
+  - risk_signal: risk_signal
+
+## restaurant-menu-margin-leak
+- title: Restaurant Menu Margin Leak Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/restaurant-menu-margin-leak
+- tier: premium-schema
+- category: cost
+- archetype: energy-loss
+- inputs:
+  - monthlyRevenue: Monthly revenue (USD)
+  - ingredientCost: Ingredient cost (USD)
+  - deliveryAppFeePercent: Delivery app fee (%)
+  - wasteRate: Waste rate (%)
+  - targetFoodCostPercent: Target food cost (%)
+- outputs:
+  - totalMarginPressure: Total margin pressure
+  - foodCostPercent: Food cost percent
+  - deliveryFeeCost: Delivery fee cost
+  - wasteExposure: Waste exposure
+
+## retail-inventory-turnover-risk
+- title: Retail Inventory Turnover Risk Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/retail-inventory-turnover-risk
+- tier: premium-schema
+- category: benchmark
+- archetype: generic
+- inputs:
+  - averageInventory: Average inventory (USD)
+  - annualCOGS: Annual COGS (USD)
+  - carryingCostPercent: Carrying cost (%)
+  - markdownPercent: Markdown (%)
+- outputs:
+  - totalExposure: Total inventory risk exposure
+  - turnover: Inventory turnover
+  - carryingCost: Carrying cost
+  - markdownExposure: Markdown exposure
+
+## return-profit-erosion-tool
+- title: Return Profit Erosion Tool
+- url: https://www.sectorcalc.com/en/tools/premium/return-profit-erosion-tool
+- tier: premium
+- category: ecommerce
+- archetype: cost-margin
+- inputs:
+  - productPrice: Product price (USD)
+  - productCost: Product cost (USD)
+  - shippingCost: Shipping cost (USD)
+  - returnRate: Return rate (%)
+  - paymentFeeRate: Payment fee (%)
+  - adCostPerSale: Ad cost per sale (USD)
+- outputs:
+  - verdict_1: SCALABLE
+  - verdict_2: FRAGILE
+  - verdict_3: LOSS AFTER RETURNS
+
+## roi-calculator
+- title: ROI Calculator
+- url: https://www.sectorcalc.com/en/tools/free/roi-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - gain: Gain (USD)
+  - cost: Cost (USD)
+- outputs:
+  - result: ROI Calculator result
+
+## roofing-area-calculator
+- title: Roofing Area Calculator
+- url: https://www.sectorcalc.com/en/tools/free/roofing-area-calculator
+- tier: free
+- category: construction-measurement
+- archetype: construction-field
+- inputs:
+  - lengthM: Footprint length (m)
+  - widthM: Footprint width (m)
+  - pitchFactor: Pitch factor (×)
+- outputs:
+  - result: Roofing Area Calculator result
+
+## roofing-contract-margin-guard
+- title: Roofing Contract Margin Guard
+- url: https://www.sectorcalc.com/en/tools/premium/roofing-contract-margin-guard
+- tier: premium
+- category: roofing
+- archetype: construction-field
+- inputs:
+  - materialCost: Material cost (USD)
+  - laborHours: Labor hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - tearOffCost: Tear-off cost (USD)
+  - dumpFees: Dump fees (USD)
+  - weatherDelayRiskPercent: Weather delay risk (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: WARRANTY RISK
+  - verdict_2: LOW MARGIN
+  - verdict_3: SAFE BID
+
+## roofing-square-cost-check
+- title: Roofing Square Cost Check
+- url: https://www.sectorcalc.com/en/tools/free/roofing-square-cost-check
+- tier: free
+- category: roofing
+- archetype: construction-field
+- inputs:
+  - materialCost: Material cost (USD)
+  - laborHours: Labor hours (hr)
+  - laborRate: Labor rate (USD/hr)
+- outputs:
+  - risk_signal: risk_signal
+
+## roofing-weather-delay-risk
+- title: Roofing Weather Delay Risk Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/roofing-weather-delay-risk
+- tier: premium-schema
+- category: time
+- archetype: construction-field
+- inputs:
+  - dailyCrewCost: Daily crew cost (USD/day)
+  - weatherDelayDays: Weather delay days (days)
+  - dumpFees: Dump fees (USD)
+  - warrantyReserve: Warranty reserve (USD)
+- outputs:
+  - totalExposure: Total weather delay exposure
+  - delayCost: Delay cost
+  - dumpFees: Dump fees
+  - warrantyReserve: Warranty reserve
+
+## route-cost-calculator
+- title: Route Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/route-cost-calculator
+- tier: free
+- category: logistics-travel
+- archetype: logistics-route
+- inputs:
+  - distanceKm: Distance (km)
+  - fuelCostPerKm: Fuel/km (USD/km)
+  - driverHours: Driver hours (hr)
+  - hourlyRate: Driver rate (USD/hr)
+  - tolls: Tolls (USD)
+- outputs:
+  - result: Route Cost Calculator result
+
+## route-optimization-analyzer
+- title: Route & Freight Loss Analyzer
+- url: https://www.sectorcalc.com/en/tools/premium/route-optimization-analyzer
+- tier: premium
+- category: logistics-transport
+- archetype: logistics-route
+- inputs:
+  - distanceKm: Distance (km)
+  - fuelPricePerKm: Fuel cost per km (USD/km)
+  - driverHourlyRate: Driver hourly rate (USD/hr)
+  - estimatedHours: Estimated drive hours (hr)
+  - returnEmpty: Empty return (deadhead)
+  - hasTolls: Toll roads on route
+  - overweightRisk: Overweight / fine risk
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: HIGH RISK - LEAKING PROFIT
+  - verdict_2: MODERATE RISK - MARGIN PRESSURE
+  - verdict_3: ACCEPT SAFELY
+
+## rulman-omur-hesabi-l10
+- title: Rulman Ömür Calculation (L10)
+- url: https://www.sectorcalc.com/en/tools/free/rulman-omur-hesabi-l10
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - dynamicLoadKn: Dynamic load (value)
+  - basicLoadKn: Basic load rating (value)
+- outputs:
+  - result: Rulman Ömür Calculation (L10) result
+
+## ruzgar-turbini-yaklasik-uretim-hesabi
+- title: Rüzgar Türbini Yaklaşık Üretim Calculation
+- url: https://www.sectorcalc.com/en/tools/free/ruzgar-turbini-yaklasik-uretim-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - ratedKw: Rated power (value)
+  - capacityFactor: Capacity factor (value)
+- outputs:
+  - result: Rüzgar Türbini Yaklaşık Üretim Calculation result
+
+## salary-cost-calculator
+- title: Employer Salary Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/salary-cost-calculator
+- tier: free
+- category: finance-business
+- archetype: cost-margin
+- inputs:
+  - grossSalary: Gross salary (USD/mo)
+  - employerRatePercent: Employer load (%)
+- outputs:
+  - result: Employer Salary Cost Calculator result
+
+## sample-size-calculator
+- title: Sample Size Calculator
+- url: https://www.sectorcalc.com/en/tools/free/sample-size-calculator
+- tier: free
+- category: math-statistics
+- archetype: generic
+- inputs:
+  - population: Population (people)
+  - confidenceZ: Z score (z)
+  - marginErrorPercent: Margin error (%)
+  - proportionPercent: Proportion (%)
+- outputs:
+  - result: Sample Size Calculator result
+
+## savings-goal-calculator
+- title: Savings Goal Calculator
+- url: https://www.sectorcalc.com/en/tools/free/savings-goal-calculator
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - targetAmount: Target (USD)
+  - monthlySaving: Monthly saving (USD/mo)
+- outputs:
+  - result: Savings Goal Calculator result
+
+## scrap-rate-calculator
+- title: Scrap Rate Calculator
+- url: https://www.sectorcalc.com/en/tools/free/scrap-rate-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: production-operations
+- inputs:
+  - scrapUnits: Scrap units (units)
+  - totalUnits: Total units (units)
+- outputs:
+  - result: Scrap Rate Calculator result
+
+## seed-rate-calculator
+- title: Seed Rate Calculator
+- url: https://www.sectorcalc.com/en/tools/free/seed-rate-calculator
+- tier: free
+- category: agriculture-food
+- archetype: generic
+- inputs:
+  - areaHa: Area (ha)
+  - seedKgPerHa: Seed rate (kg/ha)
+- outputs:
+  - result: Seed Rate Calculator result
+
+## ses-yalitimi-desibel-azaltimi-hesabi
+- title: Ses Yalıtımı (Desibel Azaltımı) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/ses-yalitimi-desibel-azaltimi-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - sourceDb: Source level (USD)
+  - attenuationDb: Attenuation (USD)
+- outputs:
+  - result: Ses Yalıtımı (Desibel Azaltımı) Calculation result
+
+## sgk-prim-hesaplama-isci-plus-isveren
+- title: SGK Prim Calculation (İşçi + İşveren)
+- url: https://www.sectorcalc.com/en/tools/free/sgk-prim-hesaplama-isci-plus-isveren
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - grossWage: Gross wage (USD)
+  - combinedRate: Combined rate (%)
+- outputs:
+  - result: SGK Prim Calculation (İşçi + İşveren) result
+
+## sheet-metal-quote-risk-tool
+- title: Sheet Metal Quote Risk Tool
+- url: https://www.sectorcalc.com/en/tools/premium/sheet-metal-quote-risk-tool
+- tier: premium
+- category: sheet-metal
+- archetype: cost-margin
+- inputs:
+  - programmingTime: Programming time (min)
+  - setupTime: Setup time (min)
+  - cutTime: Cut time (min)
+  - bendCount: Bend count
+  - laborRate: Labor rate (USD/hr)
+  - materialCost: Material cost (USD)
+  - scrapRatePercent: Scrap rate (%)
+  - finishingCost: Finishing cost (USD)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: SCRAP RISK
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE QUOTE
+
+## sheet-metal-scrap-risk
+- title: Sheet Metal Scrap Risk Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/sheet-metal-scrap-risk
+- tier: premium-schema
+- category: scrap
+- archetype: quality-lean
+- inputs:
+  - materialCost: Material cost (USD)
+  - scrapRate: Scrap rate (%)
+  - targetScrapRate: Target scrap rate (%)
+  - reworkHours: Rework hours (hours)
+  - laborRate: Labor rate (USD/hour)
+  - finishingCost: Finishing cost (USD)
+- outputs:
+  - totalExposure: Total scrap exposure
+  - excessScrapCost: Excess scrap cost
+  - reworkCost: Rework cost
+  - finishingCost: Finishing cost
+
+## sheet-metal-weight-calculator
+- title: Sheet Metal Weight Calculator
+- url: https://www.sectorcalc.com/en/tools/free/sheet-metal-weight-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - lengthM: Length (m)
+  - widthM: Width (m)
+  - thicknessMm: Thickness (mm)
+  - densityKgM3: Density (kg/m³)
+- outputs:
+  - result: Sheet Metal Weight Calculator result
+
+## shop-rate-hourly-cost-calculator
+- title: Machine Hour Rate Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/shop-rate-hourly-cost-calculator
+- tier: premium-schema
+- category: cost
+- archetype: cost-margin
+- inputs:
+  - fixedMonthlyCost: Fixed monthly cost (USD)
+  - monthlyMachineHours: Monthly machine hours (hours)
+  - variableCostPerHour: Variable cost per hour (USD/h)
+- outputs:
+  - hourlyRate: Loaded hourly rate
+
+## shopping-budget-calculator
+- title: Shopping Budget Calculator
+- url: https://www.sectorcalc.com/en/tools/free/shopping-budget-calculator
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - item1: Item 1 (USD)
+  - item2: Item 2 (USD)
+  - item3: Item 3 (USD)
+  - item4: Item 4 (USD)
+  - item5: Item 5 (USD)
+- outputs:
+  - result: Shopping Budget Calculator result
+
+## signage-bid-safe-price-tool
+- title: Signage Bid Safe Price Tool
+- url: https://www.sectorcalc.com/en/tools/premium/signage-bid-safe-price-tool
+- tier: premium
+- category: printing-signage
+- archetype: cost-margin
+- inputs:
+  - materialCost: Material cost (USD)
+  - inkCost: Ink cost (USD)
+  - designHours: Design hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - installHours: Install hours (hr)
+  - reprintRiskPercent: Reprint risk (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: REPRINT RISK
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE PRICE
+
+## silindir-hacmi-hesaplama
+- title: Silindir Hacmi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/silindir-hacmi-hesaplama
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - radius: Radius (m)
+  - height: Height (m)
+- outputs:
+  - result: Silindir Hacmi Calculation result
+
+## sirket-telefon-faturasi-hesaplama
+- title: Şirket Telefon Faturası Calculation
+- url: https://www.sectorcalc.com/en/tools/free/sirket-telefon-faturasi-hesaplama
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - lineCount: Lines (value)
+  - monthlyLineCost: Cost per line (value)
+- outputs:
+  - result: Şirket Telefon Faturası Calculation result
+
+## sofor-operator-gunluk-yevmiye-maliyeti
+- title: Şoför — Operatör Günlük Yevmiye Maliyeti
+- url: https://www.sectorcalc.com/en/tools/free/sofor-operator-gunluk-yevmiye-maliyeti
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - dailyRate: Daily rate (value)
+  - days: Days (value)
+- outputs:
+  - result: Şoför — Operatör Günlük Yevmiye Maliyeti result
+
+## soguk-oda-sogutma-yuku-hesabi
+- title: Soğuk Oda — Soğutma Yükü Calculation
+- url: https://www.sectorcalc.com/en/tools/free/soguk-oda-sogutma-yuku-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - roomVolumeM3: Room volume (m³)
+  - loadFactor: Load factor (W/m³)
+- outputs:
+  - result: Soğuk Oda — Soğutma Yükü Calculation result
+
+## sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama
+- title: Soğutma Sıvısı Karışım Oranı (Antifriz/Bor Yağı) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - antifreezeLiters: Antifreeze volume (value)
+  - totalLiters: Total coolant volume (value)
+- outputs:
+  - result: Soğutma Sıvısı Karışım Oranı (Antifriz/Bor Yağı) Calculation result
+
+## solar-panel-output-calculator
+- title: Solar Panel Output Calculator
+- url: https://www.sectorcalc.com/en/tools/free/solar-panel-output-calculator
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - systemKw: System size (kW)
+  - sunHoursPerDay: Sun hours (hr/day)
+  - days: Days (days)
+  - efficiencyPercent: Efficiency (%)
+- outputs:
+  - result: Solar Panel Output Calculator result
+
+## square-footage-calculator
+- title: Square Footage Calculator
+- url: https://www.sectorcalc.com/en/tools/free/square-footage-calculator
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - length: Length (ft)
+  - width: Width (ft)
+- outputs:
+  - result: Square Footage Calculator result
+
+## square-meter-calculator
+- title: Square Meter Calculator
+- url: https://www.sectorcalc.com/en/tools/free/square-meter-calculator
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - length: Length (m)
+  - width: Width (m)
+- outputs:
+  - result: Square Meter Calculator result
+
+## stair-calculator
+- title: Stair Calculator
+- url: https://www.sectorcalc.com/en/tools/free/stair-calculator
+- tier: free
+- category: construction-measurement
+- archetype: construction-field
+- inputs:
+  - totalRiseCm: Total rise (cm)
+  - riserHeightCm: Riser height (cm)
+  - treadDepthCm: Tread depth (cm)
+- outputs:
+  - result: Stair Calculator result
+
+## standard-deviation-calculator
+- title: Standard Deviation Calculator
+- url: https://www.sectorcalc.com/en/tools/free/standard-deviation-calculator
+- tier: free
+- category: math-statistics
+- archetype: generic
+- inputs:
+  - value1: Value 1 (value)
+  - value2: Value 2 (value)
+  - value3: Value 3 (value)
+  - value4: Value 4 (value)
+  - value5: Value 5 (value)
+- outputs:
+  - result: Standard Deviation Calculator result
+
+## stopaj-hesaplama-kira-serbest-meslek
+- title: Stopaj Calculation (Kira, Serbest Meslek)
+- url: https://www.sectorcalc.com/en/tools/free/stopaj-hesaplama-kira-serbest-meslek
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - grossAmount: Gross amount (USD)
+  - withholdingRate: Withholding rate (%)
+- outputs:
+  - result: Stopaj Calculation (Kira, Serbest Meslek) result
+
+## su-debisi-litre-dakika-hesaplama
+- title: Su Debisi (Litre/Dakika) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/su-debisi-litre-dakika-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - volumeLiters: Volume (value)
+  - minutes: Minutes (value)
+- outputs:
+  - result: Su Debisi (Litre/Dakika) Calculation result
+
+## su-deposu-hacmi-hesaplama
+- title: Su Deposu Hacmi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/su-deposu-hacmi-hesaplama
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - radius: Radius (m)
+  - height: Height (m)
+- outputs:
+  - result: Su Deposu Hacmi Calculation result
+
+## su-isitma-kazan-boyler-kapasite-hesabi
+- title: Su Isıtma (Kazan — Boyler) Kapasite Calculation
+- url: https://www.sectorcalc.com/en/tools/free/su-isitma-kazan-boyler-kapasite-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - volumeLiters: Volume (value)
+  - deltaTempC: Temperature rise (value)
+- outputs:
+  - result: Su Isıtma (Kazan — Boyler) Kapasite Calculation result
+
+## tahta-mdf-sunta-m-agirlik-hesabi
+- title: Tahta — Mdf — Sunta m² Ağırlık Calculation
+- url: https://www.sectorcalc.com/en/tools/free/tahta-mdf-sunta-m-agirlik-hesabi
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - areaM2: Area (value)
+  - kgPerM2: Weight per m² (value)
+- outputs:
+  - result: Tahta — Mdf — Sunta m² Ağırlık Calculation result
+
+## tel-kablo-uzunlugu-agirlik-hesabi
+- title: Tel — Kablo Uzunluğu — Ağırlık Calculation
+- url: https://www.sectorcalc.com/en/tools/free/tel-kablo-uzunlugu-agirlik-hesabi
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - lengthM: Length (value)
+  - kgPerMeter: kg/m (value)
+- outputs:
+  - result: Tel — Kablo Uzunluğu — Ağırlık Calculation result
+
+## temizlik-malzemesi-sarfiyat-hesabi
+- title: Temizlik Malzemesi Sarfiyat Calculation
+- url: https://www.sectorcalc.com/en/tools/free/temizlik-malzemesi-sarfiyat-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - areaM2: Area (value)
+  - consumptionPerM2: Consumption per m² (value)
+- outputs:
+  - result: Temizlik Malzemesi Sarfiyat Calculation result
+
+## temperature-converter
+- title: Temperature Converter
+- url: https://www.sectorcalc.com/en/tools/free/temperature-converter
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - value: Value (value)
+  - fromUnit: From unit (unit)
+- outputs:
+  - result: Temperature Converter result
+
+## textile-fabric-waste-risk
+- title: Textile Fabric Waste Risk Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/textile-fabric-waste-risk
+- tier: premium-schema
+- category: scrap
+- archetype: production-operations
+- inputs:
+  - fabricCost: Fabric cost (USD)
+  - cuttingWastePercent: Cutting waste (%)
+  - targetWastePercent: Target waste (%)
+  - shrinkagePercent: Shrinkage (%)
+  - dyeReworkCost: Dye rework cost (USD)
+- outputs:
+  - totalExposure: Total fabric waste exposure
+  - excessCuttingWaste: Excess cutting waste
+  - shrinkageCost: Shrinkage cost
+  - dyeReworkCost: Dye rework cost
+
+## tile-calculator
+- title: Tile Calculator
+- url: https://www.sectorcalc.com/en/tools/free/tile-calculator
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - areaM2: Floor area (m²)
+  - tileLengthCm: Tile length (cm)
+  - tileWidthCm: Tile width (cm)
+  - wastePercent: Waste (%)
+- outputs:
+  - result: Tile Calculator result
+
+## time-duration-calculator
+- title: Time Duration Calculator
+- url: https://www.sectorcalc.com/en/tools/free/time-duration-calculator
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - startHour: Start hour (hr)
+  - startMinute: Start minute (min)
+  - endHour: End hour (hr)
+  - endMinute: End minute (min)
+- outputs:
+  - result: Time Duration Calculator result
+
+## tip-calculator
+- title: Tip Calculator
+- url: https://www.sectorcalc.com/en/tools/free/tip-calculator
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - billAmount: Bill (USD)
+  - tipPercent: Tip (%)
+- outputs:
+  - result: Tip Calculator result
+
+## tir-kamyon-yuk-kapasitesi-hesaplama
+- title: Tır — Kamyon Yük Kapasitesi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/tir-kamyon-yuk-kapasitesi-hesaplama
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - payloadTon: Payload capacity (value)
+  - loadFactor: Load factor (value)
+- outputs:
+  - result: Tır — Kamyon Yük Kapasitesi Calculation result
+
+## titresim-frekans-periyot-hesaplama
+- title: Titreşim — Frekans — Periyot Calculation
+- url: https://www.sectorcalc.com/en/tools/free/titresim-frekans-periyot-hesaplama
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - frequencyHz: Frequency (Hz)
+  - unitConstant: Constant (×)
+- outputs:
+  - result: Titreşim — Frekans — Periyot Calculation result
+
+## tolerance-drift-calculator
+- title: Tolerance Drift Calculator
+- url: https://www.sectorcalc.com/en/tools/free/tolerance-drift-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - target: Target (mm)
+  - actual: Actual (mm)
+- outputs:
+  - result: Tolerance Drift Calculator result
+
+## tolerance-stack-up-calculator
+- title: Tolerance Stack-Up Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/tolerance-stack-up-calculator
+- tier: premium-schema
+- category: calibration
+- archetype: generic
+- inputs:
+  - t1: Tolerance 1 (mm)
+  - t2: Tolerance 2 (mm)
+  - t3: Tolerance 3 (mm)
+  - t4: Tolerance 4 (mm)
+  - assemblyLimit: Assembly limit (mm)
+- outputs:
+  - worstCaseStack: Worst-case stack
+  - rssStack: RSS stack
+  - worstCaseClearance: Worst-case clearance
+
+## tool-life-calculator
+- title: Tool Life Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/tool-life-calculator
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - totalToolCost: Tool cost (USD)
+  - partsProduced: Parts (parts)
+- outputs:
+  - result: Tool Life Cost Calculator result
+
+## toplanti-saati-maliyeti-hesaplama
+- title: Toplantı Saati Maliyeti Calculation
+- url: https://www.sectorcalc.com/en/tools/free/toplanti-saati-maliyeti-hesaplama
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - attendeeRate: Attendee rate (value)
+  - attendeeHours: Attendee-hours (value)
+- outputs:
+  - result: Toplantı Saati Maliyeti Calculation result
+
+## topraklama-direnci-hesaplama
+- title: Topraklama Direnci Calculation
+- url: https://www.sectorcalc.com/en/tools/free/topraklama-direnci-hesaplama
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - measuredOhms: Measured resistance (Ω)
+- outputs:
+  - result: Topraklama Direnci Calculation result
+
+## trafik-cezasi-gecikme-faizi-hesaplama
+- title: Trafik Cezası — Gecikme Faizi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/trafik-cezasi-gecikme-faizi-hesaplama
+- tier: free
+- category: logistics-travel
+- archetype: logistics-route
+- inputs:
+  - fineAmount: Fine amount (value)
+  - lateRate: Late rate (value)
+- outputs:
+  - result: Trafik Cezası — Gecikme Faizi Calculation result
+
+## trip-budget-calculator
+- title: Trip Budget Calculator
+- url: https://www.sectorcalc.com/en/tools/free/trip-budget-calculator
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - fuelCost: Fuel (USD)
+  - accommodationCost: Lodging (USD)
+  - foodCost: Food (USD)
+  - tolls: Tolls (USD)
+  - otherCost: Other (USD)
+- outputs:
+  - result: Trip Budget Calculator result
+
+## trip-budget-optimizer
+- title: Trip Budget Optimizer
+- url: https://www.sectorcalc.com/en/tools/premium/trip-budget-optimizer
+- tier: premium
+- category: daily-fuel
+- archetype: energy-loss
+- inputs:
+  - distanceKm: Distance (km)
+  - consumptionPer100Km: Consumption (L/100km)
+  - fuelPricePerLiter: Fuel price (USD/L)
+  - tollEstimate: Toll estimate (USD)
+  - returnTrip: Return trip
+  - parkingPerDay: Parking per day (USD/day)
+  - bufferPercent: Budget buffer (%)
+- outputs:
+  - verdict_1: UNDERBUDGETED
+  - verdict_2: ADD BUFFER
+  - verdict_3: TRIP SAFE
+
+## ucgen-alani-cevresi-hesaplama
+- title: Üçgen Alanı — Çevresi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/ucgen-alani-cevresi-hesaplama
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - base: Base (m)
+  - height: Height (m)
+- outputs:
+  - result: Üçgen Alanı — Çevresi Calculation result
+
+## unit-cost-calculator
+- title: Unit Cost Calculator
+- url: https://www.sectorcalc.com/en/tools/free/unit-cost-calculator
+- tier: free
+- category: finance-business
+- archetype: cost-margin
+- inputs:
+  - totalCost: Total cost (USD)
+  - quantity: Quantity (units)
+- outputs:
+  - result: Unit Cost Calculator result
+
+## unit-price-calculator
+- title: Unit Price Calculator
+- url: https://www.sectorcalc.com/en/tools/free/unit-price-calculator
+- tier: free
+- category: everyday-life
+- archetype: cost-margin
+- inputs:
+  - totalPrice: Total price (USD)
+  - quantity: Quantity (units)
+- outputs:
+  - result: Unit Price Calculator result
+
+## ups-kesintisiz-guc-kaynagi-secimi
+- title: UPS (Kesintisiz Güç Kaynağı) Seçimi
+- url: https://www.sectorcalc.com/en/tools/free/ups-kesintisiz-guc-kaynagi-secimi
+- tier: free
+- category: energy-carbon
+- archetype: generic
+- inputs:
+  - loadWatts: Load (value)
+  - runtimeMinutes: Runtime (value)
+- outputs:
+  - result: UPS (Kesintisiz Güç Kaynağı) Seçimi result
+
+## value-stream-map-vsm-calculator
+- title: Value Stream Map VSM Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/value-stream-map-vsm-calculator
+- tier: premium-schema
+- category: time
+- archetype: generic
+- inputs:
+  - processMinutes: Process time (minutes)
+  - waitMinutes: Wait time (minutes)
+  - transportMinutes: Transport time (minutes)
+- outputs:
+  - totalLeadMinutes: Total lead time
+  - valueAddedPercent: Value-added ratio
+
+## vat-calculator
+- title: VAT Calculator
+- url: https://www.sectorcalc.com/en/tools/free/vat-calculator
+- tier: free
+- category: finance-business
+- archetype: generic
+- inputs:
+  - net: Net amount (USD)
+  - vatRate: VAT rate (%)
+- outputs:
+  - result: VAT Calculator result
+
+## vehicle-depreciation-calculator
+- title: Vehicle Depreciation Calculator
+- url: https://www.sectorcalc.com/en/tools/free/vehicle-depreciation-calculator
+- tier: free
+- category: logistics-travel
+- archetype: generic
+- inputs:
+  - purchasePrice: Purchase (USD)
+  - resaleValue: Resale (USD)
+  - years: Years (years)
+- outputs:
+  - result: Vehicle Depreciation Calculator result
+
+## vida-somun-adim-dis-ustu-cap-hesabi
+- title: Vida — Somun Adım — Diş Üstü Çap Calculation
+- url: https://www.sectorcalc.com/en/tools/free/vida-somun-adim-dis-ustu-cap-hesabi
+- tier: free
+- category: manufacturing-workshop
+- archetype: generic
+- inputs:
+  - pitchMm: Pitch (value)
+  - threadCount: Thread count (value)
+- outputs:
+  - result: Vida — Somun Adım — Diş Üstü Çap Calculation result
+
+## volume-converter
+- title: Volume Converter
+- url: https://www.sectorcalc.com/en/tools/free/volume-converter
+- tier: free
+- category: conversion
+- archetype: technical-measurement
+- inputs:
+  - value: Value (value)
+  - fromUnit: From unit (unit)
+- outputs:
+  - result: Volume Converter result
+
+## volumetric-weight-calculator
+- title: Volumetric Weight Calculator
+- url: https://www.sectorcalc.com/en/tools/free/volumetric-weight-calculator
+- tier: free
+- category: logistics-travel
+- archetype: technical-measurement
+- inputs:
+  - lengthCm: Length (cm)
+  - widthCm: Width (cm)
+  - heightCm: Height (cm)
+  - divisor: Divisor (cm³/kg)
+- outputs:
+  - result: Volumetric Weight Calculator result
+
+## warehouse-space-cost-leak
+- title: Warehouse Space Cost Leak Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/warehouse-space-cost-leak
+- tier: premium-schema
+- category: cost
+- archetype: energy-loss
+- inputs:
+  - monthlyRent: Monthly rent (USD)
+  - totalSqm: Total floor area (m²)
+  - unusedSpacePercent: Unused space (%)
+  - handlingOverrunHours: Handling overrun hours (hours)
+  - hourlyCost: Hourly cost (USD/hour)
+- outputs:
+  - totalExposure: Total space cost leak
+  - unusedSpaceCost: Unused space cost
+  - handlingOverrunCost: Handling overrun cost
+
+## warehouse-storage-cost-calculator
+- title: Warehouse Storage Cost
+- url: https://www.sectorcalc.com/en/tools/free/warehouse-storage-cost-calculator
+- tier: free
+- category: logistics-travel
+- archetype: cost-margin
+- inputs:
+  - palletCount: Pallets (pallets)
+  - costPerPalletPerDay: Cost/pallet/day (USD)
+  - days: Days (days)
+- outputs:
+  - result: Warehouse Storage Cost result
+
+## water-optimization-verdict
+- title: Water Efficiency Verdict
+- url: https://www.sectorcalc.com/en/tools/premium/water-optimization-verdict
+- tier: premium
+- category: agriculture-irrigation
+- archetype: generic
+- inputs:
+  - areaHectares: Irrigated area (ha)
+  - pumpingHours: Pumping hours (hr/month)
+  - electricityRate: Electricity rate (USD/kWh)
+  - waterRightsFee: Water rights fee (USD/month)
+  - evaporationLossPercent: Evaporation loss (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: OVERWATERING RISK
+  - verdict_2: REPRICE WATER
+  - verdict_3: EFFICIENT
+
+## water-usage-calculator
+- title: Water Usage Calculator
+- url: https://www.sectorcalc.com/en/tools/free/water-usage-calculator
+- tier: free
+- category: agriculture-food
+- archetype: generic
+- inputs:
+  - flowRateLiterMin: Flow rate (L/min)
+  - minutes: Duration (min)
+- outputs:
+  - result: Water Usage Calculator result
+
+## weight-converter
+- title: Weight Converter
+- url: https://www.sectorcalc.com/en/tools/free/weight-converter
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - value: Value (value)
+  - fromUnit: From unit (unit)
+- outputs:
+  - result: Weight Converter result
+
+## welded-bolted-connection-calculator
+- title: Welded and Bolted Connection Calculator
+- url: https://www.sectorcalc.com/en/tools/premium-schema/welded-bolted-connection-calculator
+- tier: premium-schema
+- category: measurement
+- archetype: technical-measurement
+- inputs:
+  - throatMm: Weld throat (mm)
+  - weldLengthMm: Weld length (mm)
+  - boltDiameterMm: Bolt diameter (mm)
+  - boltCount: Bolt count (bolts)
+  - allowableStressMpa: Allowable stress (MPa)
+  - safetyFactor: Safety factor (×)
+- outputs:
+  - weldCapacity: Weld capacity index
+  - boltCapacity: Bolt shear capacity index
+
+## welding-bid-risk-analyzer
+- title: Welding Bid Risk Analyzer
+- url: https://www.sectorcalc.com/en/tools/premium/welding-bid-risk-analyzer
+- tier: premium
+- category: welding-fabrication
+- archetype: cost-margin
+- inputs:
+  - materialCost: Material cost (USD)
+  - laborHours: Labor hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - gasConsumableCost: Gas and consumable cost (USD)
+  - fitUpHours: Fit-up hours (hr)
+  - reworkRiskPercent: Rework risk (%)
+  - targetMargin: Target margin (%)
+- outputs:
+  - verdict_1: UNDERPRICED
+  - verdict_2: REPRICE REQUIRED
+  - verdict_3: SAFE BID
+
+## welding-cost-estimator
+- title: Welding Cost Estimator
+- url: https://www.sectorcalc.com/en/tools/free/welding-cost-estimator
+- tier: free
+- category: manufacturing-workshop
+- archetype: cost-margin
+- inputs:
+  - materialCost: Material cost (USD)
+  - laborHours: Labor hours (hr)
+  - laborRate: Labor rate (USD/hr)
+  - fitUpHours: Fit-up hours (hr)
+- outputs:
+  - risk_signal: risk_signal
+
+## yalitim-malzemesi-m-hesaplama
+- title: Yalıtım Malzemesi (m²) Calculation
+- url: https://www.sectorcalc.com/en/tools/free/yalitim-malzemesi-m-hesaplama
+- tier: free
+- category: construction-measurement
+- archetype: generic
+- inputs:
+  - areaM2: Surface area (value)
+  - layers: Layers (value)
+- outputs:
+  - result: Yalıtım Malzemesi (m²) Calculation result
+
+## yamuk-alani-hesaplama
+- title: Yamuk Alanı Calculation
+- url: https://www.sectorcalc.com/en/tools/free/yamuk-alani-hesaplama
+- tier: free
+- category: conversion
+- archetype: generic
+- inputs:
+  - baseA: Base A (m)
+  - baseB: Base B (m)
+  - height: Height (m)
+- outputs:
+  - result: Yamuk Alanı Calculation result
+
+## yangin-merdiveni-kacis-yolu-genisligi-hesabi
+- title: Yangın Merdiveni — Kaçış Yolu Genişliği Calculation
+- url: https://www.sectorcalc.com/en/tools/free/yangin-merdiveni-kacis-yolu-genisligi-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - occupantLoad: Occupant load (value)
+  - flowPerMeter: Flow per meter (value)
+- outputs:
+  - result: Yangın Merdiveni — Kaçış Yolu Genişliği Calculation result
+
+## yangin-tupu-dolap-debisi-hesaplama
+- title: Yangın Tüpü — Dolap Debisi Calculation
+- url: https://www.sectorcalc.com/en/tools/free/yangin-tupu-dolap-debisi-hesaplama
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - areaM2: Protected area (value)
+  - flowFactor: Flow factor (value)
+- outputs:
+  - result: Yangın Tüpü — Dolap Debisi Calculation result
+
+## yatak-rulman-omur-hesabi-l10
+- title: Yatak — Rulman Ömür Calculation (L10)
+- url: https://www.sectorcalc.com/en/tools/free/yatak-rulman-omur-hesabi-l10
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - dynamicLoadKn: Dynamic load (value)
+  - basicLoadKn: Basic load rating (value)
+- outputs:
+  - result: Yatak — Rulman Ömür Calculation (L10) result
+
+## yay-helisel-kuvvet-uzama-hesabi
+- title: Yay (Helisel) Kuvvet — Uzama Calculation
+- url: https://www.sectorcalc.com/en/tools/free/yay-helisel-kuvvet-uzama-hesabi
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - springRate: Spring rate (value)
+  - deflectionMm: Deflection (value)
+- outputs:
+  - result: Yay (Helisel) Kuvvet — Uzama Calculation result
+
+## yemek-tabldot-maliyet-hesaplama
+- title: Yemek — Tabldot Maliyet Calculation
+- url: https://www.sectorcalc.com/en/tools/free/yemek-tabldot-maliyet-hesaplama
+- tier: free
+- category: everyday-life
+- archetype: generic
+- inputs:
+  - mealCost: Meal cost (value)
+  - headcount: Headcount (value)
+- outputs:
+  - result: Yemek — Tabldot Maliyet Calculation result
+
+## z-score-calculator
+- title: Z-Score Calculator
+- url: https://www.sectorcalc.com/en/tools/free/z-score-calculator
+- tier: free
+- category: math-statistics
+- archetype: generic
+- inputs:
+  - value: Value (value)
+  - mean: Mean (value)
+  - standardDeviation: Std dev (value)
+- outputs:
+  - result: Z-Score Calculator result

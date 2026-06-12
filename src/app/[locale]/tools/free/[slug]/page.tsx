@@ -4,13 +4,12 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { FreeToolPage } from "@/components/tools/FreeToolPage";
 import { FreeTrafficToolPage } from "@/components/tools/FreeTrafficToolPage";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
-import { JsonLd } from "@/components/seo/JsonLd";
+import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
-import { buildCalculatorJsonLd, buildFAQJsonLd } from "@/lib/seo/schema-mesh";
-import { buildCalculateActionSchema } from "@/lib/semantic/build-calculate-action-schema";
-import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
-import { siteUrl } from "@/config/site";
+import { buildFAQJsonLd } from "@/lib/seo/schema-mesh";
+import { assertSemanticToolContract } from "@/lib/semantic/semantic-tool-reader";
+import { buildToolJsonLd } from "@/lib/semantic/build-tool-jsonld";
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import { getTierOneFreeToolMetadata } from "@/lib/seo/seo-refresh-priority";
@@ -26,7 +25,6 @@ import {
   localizeRevenueToolInputs,
 } from "@/lib/i18n/free-tool-form-i18n";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
-import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 
 interface FreeToolPageParams {
   slug: string;
@@ -134,29 +132,12 @@ export default async function FreeRevenueToolRoute({
         answer={tAuthority("faqUseAnswer", { title: localizedTitle })}
       />
     );
-    const jsonLd = [
-      await buildLocalizedBreadcrumbJsonLd(
-        [
-          { key: "home", path: "/" },
-          { key: "freeTools", path: "/free-tools" },
-          { name: localizedTitle, path: `/tools/free/${revenueTool.freeSlug}` },
-        ],
-        locale
-      ),
-      buildCalculatorJsonLd(
-        {
-          slug: revenueTool.freeSlug,
-          title: localizedTitle,
-          description: revenueTool.freeValue,
-          seoDescription: revenueTool.freeValue,
-        },
-        locale
-      ),
-    ];
+    const semanticTool = assertSemanticToolContract({ slug, tier: "free" });
+    const toolJsonLd = buildToolJsonLd({ tool: semanticTool, locale });
 
     return (
       <>
-        <JsonLd data={jsonLd} />
+        <SemanticJsonLd data={toolJsonLd} />
         <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" data-calculation-form-shell="true" />
         <FreeToolPage
           tool={{
@@ -209,44 +190,13 @@ export default async function FreeRevenueToolRoute({
       answer: tAuthority("faqPremiumAnswer"),
     },
   ]);
-  const jsonLd = [
-    await buildLocalizedBreadcrumbJsonLd(
-      [
-        { key: "home", path: "/" },
-        { key: "freeTools", path: "/free-tools" },
-        { name: localizedTitle, path: `/tools/free/${trafficTool.slug}` },
-      ],
-      locale
-    ),
-    buildCalculatorJsonLd(
-      {
-        slug: trafficTool.slug,
-        title: localizedTitle,
-        description: localizedDescription,
-        seoDescription: localizedCopy.seoDescription ?? trafficTool.seoDescription,
-      },
-      locale,
-    ),
-    buildCalculateActionSchema({
-      url: buildLocalizedUrl(`/tools/free/${trafficTool.slug}`, locale as AppLocale, siteUrl),
-      name: localizedTitle,
-      description: localizedDescription,
-      locale,
-      toolSlug: trafficTool.slug,
-      inputParameters: trafficTool.inputs.map((input) => ({
-        name: input.key,
-        description: input.label,
-        unitText: input.unit,
-        required: true,
-      })),
-      outputParameters: [{ name: "result", description: localizedTitle }],
-    }),
-    ...(faqJsonLd ? [faqJsonLd] : []),
-  ];
+  const semanticTool = assertSemanticToolContract({ slug, tier: "free" });
+  const toolJsonLd = buildToolJsonLd({ tool: semanticTool, locale });
+  const jsonLd = [...toolJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
 
   return (
     <>
-      <JsonLd data={jsonLd} />
+      <SemanticJsonLd data={jsonLd} />
       <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" />
       <FreeTrafficToolPage 
         tool={{

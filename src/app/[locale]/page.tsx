@@ -4,9 +4,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { RootLocaleAutoRedirect } from "@/components/i18n/RootLocaleAutoRedirect";
 import { HomepageHybrid } from "@/components/home/HomepageHybrid";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
-import { buildOrganizationJsonLd } from "@/lib/semantic/build-organization-schema";
-import { buildSoftwareApplicationJsonLd } from "@/lib/seo/schema-mesh";
-import { buildWebsiteJsonLd } from "@/lib/semantic/build-website-schema";
+import { buildHomeJsonLd } from "@/lib/semantic/build-home-jsonld";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -35,9 +33,7 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <PageLayout>
-      <SemanticJsonLd
-        data={[buildWebsiteJsonLd(locale), buildOrganizationJsonLd(locale), buildSoftwareApplicationJsonLd(locale)]}
-      />
+      <SemanticJsonLd data={buildHomeJsonLd(locale)} />
       {locale === "en" ? <RootLocaleAutoRedirect /> : null}
       <HomepageHybrid />
     </PageLayout>

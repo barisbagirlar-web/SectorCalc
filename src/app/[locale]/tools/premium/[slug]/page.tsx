@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PremiumToolPage } from "@/components/tools/PremiumToolPage";
+import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { RegionalUnitsSection } from "@/components/regional-units/RegionalUnitsSection";
 import { resolveRegionForLocale } from "@/lib/units/regional-unit-engine";
 import { BenchmarkPanel } from "@/components/regional-benchmarks/BenchmarkPanel";
@@ -10,6 +11,8 @@ import { FieldModePanel } from "@/components/field-mode/FieldModePanel";
 import { Link } from "@/i18n/routing";
 import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
+import { assertSemanticToolContract } from "@/lib/semantic/semantic-tool-reader";
+import { buildToolJsonLd } from "@/lib/semantic/build-tool-jsonld";
 import { hasPremiumSmartFormDefinition } from "@/lib/smart-form/premium-smart-form-definitions";
 import {
   getPremiumRevenueRouteSlugs,
@@ -65,9 +68,12 @@ export default async function PremiumRevenueToolRoute({
   }
 
   const hasSmartForm = hasPremiumSmartFormDefinition(slug);
+  const semanticTool = assertSemanticToolContract({ slug, tier: "premium" });
+  const toolJsonLd = buildToolJsonLd({ tool: semanticTool, locale });
 
   return (
     <>
+      <SemanticJsonLd data={toolJsonLd} />
       {hasSmartForm ? (
         <div
           className="sr-only"

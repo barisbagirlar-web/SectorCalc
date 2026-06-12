@@ -1,22 +1,19 @@
-import { siteUrl } from "@/config/site";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
-import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
-import { isSupportedLocale, type SupportedLocale } from "@/lib/i18n/locale-routing";
+import { absoluteLocalizedUrl, SITE_URL } from "@/lib/semantic/site-url";
 
 export function buildDeveloperShowcaseSchema(locale: string): JsonLdRecord {
-  const normalizedLocale: SupportedLocale = isSupportedLocale(locale) ? locale : "en";
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "TechArticle",
     headline: "SectorCalc semantic reference for AI agents",
-    url: buildLocalizedUrl("/developer-showcase", normalizedLocale, siteUrl),
+    url: absoluteLocalizedUrl(locale, "/developer-showcase"),
     description:
       "Public semantic reference describing SectorCalc calculator inputs, outputs, and JSON-LD structure for AI-readable discovery.",
     author: {
-      "@id": `${siteUrl}/#organization`,
+      "@id": `${SITE_URL}/#organization`,
     },
     publisher: {
-      "@id": `${siteUrl}/#organization`,
+      "@id": `${SITE_URL}/#organization`,
     },
     isAccessibleForFree: true,
     about: {

@@ -1,10 +1,12 @@
-import { JsonLd } from "@/components/seo/JsonLd";
-import type { JsonLdRecord } from "@/lib/semantic/schema-types";
+type JsonLd = Record<string, unknown> | ReadonlyArray<Record<string, unknown>>;
 
-type SemanticJsonLdProps = {
-  readonly data: JsonLdRecord | readonly JsonLdRecord[];
-};
-
-export function SemanticJsonLd({ data }: SemanticJsonLdProps) {
-  return <JsonLd data={data} />;
+export function SemanticJsonLd({ data }: { data: JsonLd }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\\u003c"),
+      }}
+    />
+  );
 }

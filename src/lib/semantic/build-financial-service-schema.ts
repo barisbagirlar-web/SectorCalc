@@ -1,20 +1,58 @@
-import { siteUrl } from "@/config/site";
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
-import { buildLocalizedUrl } from "@/lib/seo/sitemap-manifest";
-import { isSupportedLocale, type SupportedLocale } from "@/lib/i18n/locale-routing";
+import { absoluteLocalizedUrl, SITE_URL } from "@/lib/semantic/site-url";
+import { pickLocaleText } from "@/lib/semantic/semantic-locale-utils";
+import type { SemanticToolContract } from "@/lib/semantic/tool-semantic-types";
 
-export function buildFinancialServiceSchema(locale: string): JsonLdRecord {
-  const normalizedLocale: SupportedLocale = isSupportedLocale(locale) ? locale : "en";
+export function shouldUseFinancialService(tool: SemanticToolContract): boolean {
+  return (
+    tool.isFinancialServiceCandidate ||
+    tool.archetype === "cost-margin" ||
+    tool.archetype === "finance-hr" ||
+    /quote|pricing|cost|margin|loan|payment|investment|npv|tax|personnel|payroll|bid|profit/i.test(
+      tool.toolSlug,
+    )
+  );
+}
+
+export function buildFinancialServiceSchema(
+  tool: SemanticToolContract,
+  locale: string,
+): JsonLdRecord {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@type": "FinancialService",
-    name: "SectorCalc Decision Tools",
-    url: buildLocalizedUrl("/premium-tools", normalizedLocale, siteUrl),
-    description:
-      "Sector-specific calculators and decision-support analyzers for pricing, margin, operations, and loss exposure.",
-    areaServed: "Worldwide",
+    name: pickLocaleText(tool.title, locale),
+    description: pickLocaleText(tool.description, locale),
+    url: absoluteLocalizedUrl(locale, tool.urlPath),
     provider: {
-      "@id": `${siteUrl}/#organization`,
+      "@type": "Organization",
+      name: "SectorCalc",
+      url: SITE_URL,
     },
+    areaServed: "Global",
+    serviceType: "Financial calculation and decision support",
   }) as JsonLdRecord;
+}
+
+export function buildPlatformFinancialServiceSchema(locale: string): JsonLdRecord {
+  return sanitizeJsonLd({
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    name: "SectorCalc financial calculators",
+    description:
+      "Sector-specific pricing, margin, personnel, and decision-support calculators.",
+    url: absoluteLocalizedUrl(locale, "/premium-tools"),
+    provider: {
+      "@type": "Organization",
+      name: "SectorCalc",
+      url: SITE_URL,
+    },
+    areaServed: "Global",
+    serviceType: "Financial calculation and decision support",
+  }) as JsonLdRecord;
+}
+
+/** @deprecated Use buildPlatformFinancialServiceSchema or buildFinancialServiceSchema(tool) */
+export function buildFinancialServiceSchemaLegacy(locale: string): JsonLdRecord {
+  return buildPlatformFinancialServiceSchema(locale);
 }
