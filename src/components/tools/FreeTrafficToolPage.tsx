@@ -177,7 +177,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
     }
 
     if (useFullLoopRuntime) {
-      const nextErrors = validateSmartFormFieldValues(tool.slug, values);
+      const nextErrors = validateSmartFormFieldValues(tool.slug, values, locale);
       setErrors(nextErrors);
       if (Object.keys(nextErrors).length > 0) {
         setSubmitted(false);

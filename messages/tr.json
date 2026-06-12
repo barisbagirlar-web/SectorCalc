@@ -3048,7 +3048,14 @@
     "calculationSteps": "Hesaplama adımları",
     "calculationStepsEmpty": "Bu sözleşme deterministik izleme sunduğunda hesaplama adımları burada görünür.",
     "calculationStepDecisionGoal": "Karar hedefi",
-    "calculationStepFormulaSummary": "Formül özeti"
+    "calculationStepFormulaSummary": "Formül özeti",
+    "fieldValidation": {
+      "required": "{label} zorunludur.",
+      "invalidNumber": "{label} geçerli bir sayı olmalıdır.",
+      "min": "{label} en az {min} olmalıdır.",
+      "max": "{label} en fazla {max} olmalıdır.",
+      "contractNotFound": "Bu araç için akıllı form sözleşmesi bulunamadı."
+    }
   },
   "freeToolInputs": {
     "square-meter-calculator": {
@@ -3061,6 +3068,3289 @@
         "label": "Genişlik",
         "placeholder": "Genişlik girin",
         "helper": "Oda veya döşeme genişliği"
+      }
+    },
+    "square-footage-calculator": {
+      "length": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Uzunluk in fit"
+      },
+      "width": {
+        "label": "Genişlik",
+        "placeholder": "Genişlik girin",
+        "helper": "Genişlik in fit"
+      }
+    },
+    "concrete-volume-calculator": {
+      "length": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Döşeme Uzunluk"
+      },
+      "width": {
+        "label": "Genişlik",
+        "placeholder": "Genişlik girin",
+        "helper": "Döşeme Genişlik"
+      },
+      "depth": {
+        "label": "Derinlik",
+        "placeholder": "Derinlik girin",
+        "helper": "Döşeme Kalınlık"
+      }
+    },
+    "concrete-bag-calculator": {
+      "volumem3": {
+        "label": "Hacim",
+        "placeholder": "Hacim girin",
+        "helper": "Toplam döküm hacmi"
+      },
+      "bagyieldm3": {
+        "label": "Torba verimi",
+        "placeholder": "Torba verimi girin",
+        "helper": "Torba başına hacim"
+      },
+      "wastepercent": {
+        "label": "Fire",
+        "placeholder": "Fire girin",
+        "helper": "Ek fire payı"
+      }
+    },
+    "paint-coverage-calculator": {
+      "aream2": {
+        "label": "Duvar Alan",
+        "placeholder": "Duvar Alan girin",
+        "helper": "Surface Alan to Boya"
+      },
+      "coverageperliter": {
+        "label": "Kaplama",
+        "placeholder": "Kaplama girin",
+        "helper": "Kaplama başına litre"
+      },
+      "coats": {
+        "label": "Kat",
+        "placeholder": "Kat girin",
+        "helper": "Number of Kat"
+      }
+    },
+    "tile-calculator": {
+      "aream2": {
+        "label": "Zemin alanı",
+        "placeholder": "Zemin alanı girin",
+        "helper": "Alan to Fayans"
+      },
+      "tilelengthcm": {
+        "label": "Fayans Uzunluk",
+        "placeholder": "Fayans Uzunluk girin",
+        "helper": "Fayans Uzunluk"
+      },
+      "tilewidthcm": {
+        "label": "Fayans Genişlik",
+        "placeholder": "Fayans Genişlik girin",
+        "helper": "Fayans Genişlik"
+      },
+      "wastepercent": {
+        "label": "Fire",
+        "placeholder": "Fire girin",
+        "helper": "Kesim Fire"
+      }
+    },
+    "flooring-calculator": {
+      "roomlengthm": {
+        "label": "Oda Uzunluk",
+        "placeholder": "Oda Uzunluk girin",
+        "helper": "Uzunluk"
+      },
+      "roomwidthm": {
+        "label": "Oda Genişlik",
+        "placeholder": "Oda Genişlik girin",
+        "helper": "Genişlik"
+      },
+      "wastepercent": {
+        "label": "Fire",
+        "placeholder": "Fire girin",
+        "helper": "Ordering Fire"
+      }
+    },
+    "roofing-area-calculator": {
+      "lengthm": {
+        "label": "Ayak izi Uzunluk",
+        "placeholder": "Ayak izi Uzunluk girin",
+        "helper": "Building Uzunluk"
+      },
+      "widthm": {
+        "label": "Ayak izi Genişlik",
+        "placeholder": "Ayak izi Genişlik girin",
+        "helper": "Building Genişlik"
+      },
+      "pitchfactor": {
+        "label": "Eğim Faktör",
+        "placeholder": "Eğim Faktör girin",
+        "helper": "Eğim mulbahşişlier (e.g. 1.15)"
+      }
+    },
+    "stair-calculator": {
+      "totalrisecm": {
+        "label": "Toplam rise",
+        "placeholder": "Toplam rise girin",
+        "helper": "Zemin-to-Zemin Yükseklik"
+      },
+      "riserheightcm": {
+        "label": "Riser Yükseklik",
+        "placeholder": "Riser Yükseklik girin",
+        "helper": "Step riser"
+      },
+      "treaddepthcm": {
+        "label": "Tread Derinlik",
+        "placeholder": "Tread Derinlik girin",
+        "helper": "Step tread"
+      }
+    },
+    "drywall-calculator": {
+      "wallaream2": {
+        "label": "Duvar Alan",
+        "placeholder": "Duvar Alan girin",
+        "helper": "Toplam dryDuvar Alan"
+      },
+      "sheetaream2": {
+        "label": "Sheet Alan",
+        "placeholder": "Sheet Alan girin",
+        "helper": "Alan başına sheet"
+      },
+      "wastepercent": {
+        "label": "Fire",
+        "placeholder": "Fire girin",
+        "helper": "kesim Fire"
+      }
+    },
+    "brick-calculator": {
+      "wallaream2": {
+        "label": "Duvar Alan",
+        "placeholder": "Duvar Alan girin",
+        "helper": "Duvar surface"
+      },
+      "bricksperm2": {
+        "label": "Tuğlas m² başına",
+        "placeholder": "Tuğlas m² başına girin",
+        "helper": "Layout Yoğunluk"
+      },
+      "wastepercent": {
+        "label": "Fire",
+        "placeholder": "Fire girin",
+        "helper": "Breakage allowance"
+      }
+    },
+    "rebar-weight-calculator": {
+      "diametermm": {
+        "label": "Çap",
+        "placeholder": "Çap girin",
+        "helper": "Bar Çap"
+      },
+      "lengthm": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Bar Uzunluk"
+      },
+      "quantity": {
+        "label": "Miktar",
+        "placeholder": "Miktar girin",
+        "helper": "Number of bars"
+      }
+    },
+    "excavation-volume-calculator": {
+      "lengthm": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Trench Uzunluk"
+      },
+      "widthm": {
+        "label": "Genişlik",
+        "placeholder": "Genişlik girin",
+        "helper": "Trench Genişlik"
+      },
+      "depthm": {
+        "label": "Derinlik",
+        "placeholder": "Derinlik girin",
+        "helper": "Dig Derinlik"
+      }
+    },
+    "plaster-calculator": {
+      "aream2": {
+        "label": "Alan",
+        "placeholder": "Alan girin",
+        "helper": "Surface Alan"
+      },
+      "thicknessmm": {
+        "label": "Kalınlık",
+        "placeholder": "Kalınlık girin",
+        "helper": "Plaster Kalınlık"
+      },
+      "densitykgm3": {
+        "label": "Yoğunluk",
+        "placeholder": "Yoğunluk girin",
+        "helper": "Malzeme Yoğunluk"
+      }
+    },
+    "home-renovation-m2-calculator": {
+      "aream2": {
+        "label": "Alan",
+        "placeholder": "Alan girin",
+        "helper": "Renovation Alan"
+      },
+      "costperm2": {
+        "label": "Maliyet m² başına",
+        "placeholder": "Maliyet m² başına girin",
+        "helper": "Unit Oran"
+      },
+      "contingencypercent": {
+        "label": "Yedek pay",
+        "placeholder": "Yedek pay girin",
+        "helper": "Buffer Yüzde"
+      }
+    },
+    "loan-payment-calculator": {
+      "principal": {
+        "label": "Ana para",
+        "placeholder": "Ana para girin",
+        "helper": "Kredi amount"
+      },
+      "annualrate": {
+        "label": "Yıllık Oran",
+        "placeholder": "Yıllık Oran girin",
+        "helper": "Nominal APR"
+      },
+      "months": {
+        "label": "Vade",
+        "placeholder": "Vade girin",
+        "helper": "Kredi Vade"
+      }
+    },
+    "mortgage-calculator": {
+      "principal": {
+        "label": "Kredi amount",
+        "placeholder": "Kredi amount girin",
+        "helper": "Konut kredisi Ana para"
+      },
+      "annualrate": {
+        "label": "Yıllık Oran",
+        "placeholder": "Yıllık Oran girin",
+        "helper": "Faiz Oran"
+      },
+      "months": {
+        "label": "Vade",
+        "placeholder": "Vade girin",
+        "helper": "Kredi Vade"
+      }
+    },
+    "interest-calculator": {
+      "principal": {
+        "label": "Ana para",
+        "placeholder": "Ana para girin",
+        "helper": "Starting amount"
+      },
+      "ratepercent": {
+        "label": "Oran",
+        "placeholder": "Oran girin",
+        "helper": "Yıllık Oran"
+      },
+      "years": {
+        "label": "Yıl",
+        "placeholder": "Yıl girin",
+        "helper": "süre"
+      }
+    },
+    "compound-interest-calculator": {
+      "principal": {
+        "label": "Ana para",
+        "placeholder": "Ana para girin",
+        "helper": "Initial deposit"
+      },
+      "annualrate": {
+        "label": "Yıllık Oran",
+        "placeholder": "Yıllık Oran girin",
+        "helper": "Nominal Oran"
+      },
+      "years": {
+        "label": "Yıl",
+        "placeholder": "Yıl girin",
+        "helper": "Time horizon"
+      },
+      "compoundsperyear": {
+        "label": "Bileşik/yıl",
+        "placeholder": "Bileşik/yıl girin",
+        "helper": "Compounding Frekans"
+      }
+    },
+    "vat-calculator": {
+      "net": {
+        "label": "net tutar",
+        "placeholder": "net tutar girin",
+        "helper": "Fiyat before VAT"
+      },
+      "vatrate": {
+        "label": "VAT Oran",
+        "placeholder": "VAT Oran girin",
+        "helper": "Vergi Oran"
+      }
+    },
+    "discount-calculator": {
+      "originalprice": {
+        "label": "Original Fiyat",
+        "placeholder": "Original Fiyat girin",
+        "helper": "List Fiyat"
+      },
+      "discountpercent": {
+        "label": "İndirim",
+        "placeholder": "İndirim girin",
+        "helper": "İndirim Yüzde"
+      }
+    },
+    "percentage-calculator": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Taban Değer"
+      },
+      "percent": {
+        "label": "Yüzde",
+        "placeholder": "Yüzde girin",
+        "helper": "Yüzdeage to apply"
+      }
+    },
+    "profit-margin-calculator": {
+      "sellingprice": {
+        "label": "Selling Fiyat",
+        "placeholder": "Selling Fiyat girin",
+        "helper": "Gelir birim başına"
+      },
+      "cost": {
+        "label": "Maliyet",
+        "placeholder": "Maliyet girin",
+        "helper": "Birim maliyet"
+      }
+    },
+    "break-even-calculator": {
+      "fixedcost": {
+        "label": "Sabit maliyet",
+        "placeholder": "Sabit maliyet girin",
+        "helper": "OverKafa to cover"
+      },
+      "unitprice": {
+        "label": "Unit Fiyat",
+        "placeholder": "Unit Fiyat girin",
+        "helper": "Selling Fiyat"
+      },
+      "variablecost": {
+        "label": "Değişken maliyet",
+        "placeholder": "Değişken maliyet girin",
+        "helper": "Maliyet birim başına"
+      }
+    },
+    "roi-calculator": {
+      "gain": {
+        "label": "Kazanç",
+        "placeholder": "Kazanç girin",
+        "helper": "Return amount"
+      },
+      "cost": {
+        "label": "Maliyet",
+        "placeholder": "Maliyet girin",
+        "helper": "Initial yatırım"
+      }
+    },
+    "salary-cost-calculator": {
+      "grosssalary": {
+        "label": "Gross Maaş",
+        "placeholder": "Gross Maaş girin",
+        "helper": "Aylık gross"
+      },
+      "employerratepercent": {
+        "label": "Employer Yük",
+        "placeholder": "Employer Yük girin",
+        "helper": "Employer contribution Oran"
+      }
+    },
+    "hourly-rate-calculator": {
+      "monthlyincome": {
+        "label": "Aylık Gelir",
+        "placeholder": "Aylık Gelir girin",
+        "helper": "hedef Aylık Gelir"
+      },
+      "billablehours": {
+        "label": "faturaable Saat",
+        "placeholder": "faturaable Saat girin",
+        "helper": "Saat faturaed başına month"
+      }
+    },
+    "depreciation-calculator": {
+      "assetcost": {
+        "label": "Asset Maliyet",
+        "placeholder": "Asset Maliyet girin",
+        "helper": "Satın alma Fiyat"
+      },
+      "salvagevalue": {
+        "label": "Hurda değeri",
+        "placeholder": "Hurda değeri girin",
+        "helper": "Residual Değer"
+      },
+      "usefullifeyears": {
+        "label": "Faydalı ömür",
+        "placeholder": "Faydalı ömür girin",
+        "helper": "Amortisman başınaiod"
+      }
+    },
+    "cash-flow-gap-calculator": {
+      "receivablesdays": {
+        "label": "Receivables Gün",
+        "placeholder": "Receivables Gün girin",
+        "helper": "Gün to collect"
+      },
+      "payabledays": {
+        "label": "Payables Gün",
+        "placeholder": "Payables Gün girin",
+        "helper": "Gün to pay"
+      },
+      "dailycost": {
+        "label": "Günlük Maliyet",
+        "placeholder": "Günlük Maliyet girin",
+        "helper": "Obaşınaating cash outDebi"
+      }
+    },
+    "unit-cost-calculator": {
+      "totalcost": {
+        "label": "Toplam Maliyet",
+        "placeholder": "Toplam Maliyet girin",
+        "helper": "Batch or order Maliyet"
+      },
+      "quantity": {
+        "label": "Miktar",
+        "placeholder": "Miktar girin",
+        "helper": "birim produced"
+      }
+    },
+    "machine-time-calculator": {
+      "setupminutes": {
+        "label": "Hazırlık",
+        "placeholder": "Hazırlık girin",
+        "helper": "Hazırlık süresi"
+      },
+      "cycleseconds": {
+        "label": "Çevrim süresi",
+        "placeholder": "Çevrim süresi girin",
+        "helper": "başına-part cycle"
+      },
+      "quantity": {
+        "label": "Miktar",
+        "placeholder": "Miktar girin",
+        "helper": "Parça to run"
+      },
+      "machinerate": {
+        "label": "Makine saat ücreti",
+        "placeholder": "Makine saat ücreti girin",
+        "helper": "Hourly Makine saat ücreti"
+      }
+    },
+    "cnc-cycle-time-calculator": {
+      "machiningseconds": {
+        "label": "İşleme",
+        "placeholder": "İşleme girin",
+        "helper": "kesim time başına part"
+      },
+      "loadunloadseconds": {
+        "label": "Yük/unYük",
+        "placeholder": "Yük/unYük girin",
+        "helper": "Handling başına part"
+      },
+      "inspectionseconds": {
+        "label": "Muayene",
+        "placeholder": "Muayene girin",
+        "helper": "QC başına part"
+      },
+      "quantity": {
+        "label": "Miktar",
+        "placeholder": "Miktar girin",
+        "helper": "Batch boyut"
+      }
+    },
+    "welding-cost-estimator": {
+      "materialcost": {
+        "label": "Malzeme",
+        "placeholder": "Malzeme girin",
+        "helper": "Filler and Taban Malzeme"
+      },
+      "laborhours": {
+        "label": "işçilik Saat",
+        "placeholder": "işçilik Saat girin",
+        "helper": "Kaynaking Saat"
+      },
+      "laborrate": {
+        "label": "İşçilik saat ücreti",
+        "placeholder": "İşçilik saat ücreti girin",
+        "helper": "Hourly Kaynaker Oran"
+      },
+      "consumablescost": {
+        "label": "Sarf malzemeleri",
+        "placeholder": "Sarf malzemeleri girin",
+        "helper": "Gas, bahşişs, abrasives"
+      }
+    },
+    "laser-cutting-time-check": {
+      "setupminutes": {
+        "label": "Hazırlık",
+        "placeholder": "Hazırlık girin",
+        "helper": "Program and Hazırlık"
+      },
+      "cutlengthm": {
+        "label": "kesim Uzunluk",
+        "placeholder": "kesim Uzunluk girin",
+        "helper": "Toplam kesim yol"
+      },
+      "cutspeedmmin": {
+        "label": "kesim Hız",
+        "placeholder": "kesim Hız girin",
+        "helper": "makine kesim Hız"
+      },
+      "piercecount": {
+        "label": "Delme",
+        "placeholder": "Delme girin",
+        "helper": "Pierce obaşınaations"
+      },
+      "pierceseconds": {
+        "label": "Delme süresi",
+        "placeholder": "Delme süresi girin",
+        "helper": "Saniye başına pierce"
+      }
+    },
+    "3d-print-cost-check": {
+      "materialcost": {
+        "label": "Malzeme",
+        "placeholder": "Malzeme girin",
+        "helper": "Filament/resin Maliyet"
+      },
+      "printhours": {
+        "label": "Print Saat",
+        "placeholder": "Print Saat girin",
+        "helper": "makine Çalışma süresi"
+      },
+      "machinerate": {
+        "label": "Makine saat ücreti",
+        "placeholder": "Makine saat ücreti girin",
+        "helper": "Printer Hourly Oran"
+      },
+      "postprocesshours": {
+        "label": "Son işlem",
+        "placeholder": "Son işlem girin",
+        "helper": "Finishing Saat"
+      },
+      "laborrate": {
+        "label": "İşçilik saat ücreti",
+        "placeholder": "İşçilik saat ücreti girin",
+        "helper": "Obaşınaator Oran"
+      }
+    },
+    "sheet-metal-weight-calculator": {
+      "lengthm": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Sheet Uzunluk"
+      },
+      "widthm": {
+        "label": "Genişlik",
+        "placeholder": "Genişlik girin",
+        "helper": "Sheet Genişlik"
+      },
+      "thicknessmm": {
+        "label": "Kalınlık",
+        "placeholder": "Kalınlık girin",
+        "helper": "Malzeme Kalınlık"
+      },
+      "densitykgm3": {
+        "label": "Yoğunluk",
+        "placeholder": "Yoğunluk girin",
+        "helper": "Malzeme Yoğunluk"
+      }
+    },
+    "material-waste-calculator": {
+      "inputmaterialkg": {
+        "label": "Input Malzeme",
+        "placeholder": "Input Malzeme girin",
+        "helper": "Malzeme fed"
+      },
+      "goodoutputkg": {
+        "label": "İyi çıktı",
+        "placeholder": "İyi çıktı girin",
+        "helper": "Accepted çıktı"
+      }
+    },
+    "scrap-rate-calculator": {
+      "scrapunits": {
+        "label": "Fire birim",
+        "placeholder": "Fire birim girin",
+        "helper": "Rejected birim"
+      },
+      "totalunits": {
+        "label": "Toplam birim",
+        "placeholder": "Toplam birim girin",
+        "helper": "birim processed"
+      }
+    },
+    "oee-calculator": {
+      "availabilitypercent": {
+        "label": "Kullanılabilirlik",
+        "placeholder": "Kullanılabilirlik girin",
+        "helper": "Uptime Yüzde"
+      },
+      "performancepercent": {
+        "label": "başınaformans",
+        "placeholder": "başınaformans girin",
+        "helper": "Hız Yüzde"
+      },
+      "qualitypercent": {
+        "label": "kalite",
+        "placeholder": "kalite girin",
+        "helper": "iyi Parça Yüzde"
+      }
+    },
+    "machine-hour-rate-calculator": {
+      "fixedmonthlycost": {
+        "label": "Sabit aylık",
+        "placeholder": "Sabit aylık girin",
+        "helper": "OverKafa allocated"
+      },
+      "monthlymachinehours": {
+        "label": "makine Saat",
+        "placeholder": "makine Saat girin",
+        "helper": "Available Saat"
+      },
+      "variablecostperhour": {
+        "label": "Değişken/saat",
+        "placeholder": "Değişken/saat girin",
+        "helper": "Sarf malzemeleri saat başına"
+      }
+    },
+    "tool-life-calculator": {
+      "totaltoolcost": {
+        "label": "Tool Maliyet",
+        "placeholder": "Tool Maliyet girin",
+        "helper": "Insert or tool Fiyat"
+      },
+      "partsproduced": {
+        "label": "Parça",
+        "placeholder": "Parça girin",
+        "helper": "Parça before change"
+      }
+    },
+    "cutting-speed-calculator": {
+      "diametermm": {
+        "label": "Çap",
+        "placeholder": "Çap girin",
+        "helper": "Tool Çap"
+      },
+      "rpm": {
+        "label": "RPM",
+        "placeholder": "RPM girin",
+        "helper": "Spindle Hız"
+      }
+    },
+    "feed-rate-calculator": {
+      "rpm": {
+        "label": "RPM",
+        "placeholder": "RPM girin",
+        "helper": "Spindle Hız"
+      },
+      "teeth": {
+        "label": "diş",
+        "placeholder": "diş girin",
+        "helper": "Kesim edges"
+      },
+      "feedpertoothmm": {
+        "label": "İlerleme/diş",
+        "placeholder": "İlerleme/diş girin",
+        "helper": "Chip Yük başına diş"
+      }
+    },
+    "tolerance-drift-calculator": {
+      "target": {
+        "label": "hedef",
+        "placeholder": "hedef girin",
+        "helper": "Nominal dimension"
+      },
+      "actual": {
+        "label": "gerçek",
+        "placeholder": "gerçek girin",
+        "helper": "Measured dimension"
+      }
+    },
+    "batch-yield-calculator": {
+      "inputqty": {
+        "label": "Girdi miktarı",
+        "placeholder": "Girdi miktarı girin",
+        "helper": "Malzeme in"
+      },
+      "goodoutputqty": {
+        "label": "İyi çıktı",
+        "placeholder": "İyi çıktı girin",
+        "helper": "Accepted birim"
+      }
+    },
+    "kwh-cost-calculator": {
+      "kwh": {
+        "label": "Enerji",
+        "placeholder": "Enerji girin",
+        "helper": "Tüketim"
+      },
+      "rate": {
+        "label": "Oran",
+        "placeholder": "Oran girin",
+        "helper": "Unit tariff"
+      }
+    },
+    "electricity-bill-calculator": {
+      "kwh": {
+        "label": "kullanım",
+        "placeholder": "kullanım girin",
+        "helper": "Aylık kWh"
+      },
+      "rate": {
+        "label": "Enerji Oran",
+        "placeholder": "Enerji Oran girin",
+        "helper": "değişken Oran"
+      },
+      "fixedcharge": {
+        "label": "Sabit ücret",
+        "placeholder": "Sabit ücret girin",
+        "helper": "Standing ücret"
+      }
+    },
+    "energy-consumption-check": {
+      "powerkw": {
+        "label": "Güç",
+        "placeholder": "Güç girin",
+        "helper": "Connected Yük"
+      },
+      "hoursperday": {
+        "label": "Saat/day",
+        "placeholder": "Saat/day girin",
+        "helper": "Günlük Çalışma süresi"
+      },
+      "days": {
+        "label": "Gün",
+        "placeholder": "Gün girin",
+        "helper": "faturaing başınaiod Gün"
+      },
+      "rate": {
+        "label": "Oran",
+        "placeholder": "Oran girin",
+        "helper": "Tariff"
+      }
+    },
+    "carbon-footprint-quick": {
+      "energykwh": {
+        "label": "Enerji",
+        "placeholder": "Enerji girin",
+        "helper": "elektrik kullanılan"
+      },
+      "emissionfactorkgperkwh": {
+        "label": "Emisyon Faktör",
+        "placeholder": "Emisyon Faktör girin",
+        "helper": "Grid Faktör"
+      }
+    },
+    "fuel-emission-calculator": {
+      "litersfuel": {
+        "label": "Yakıt",
+        "placeholder": "Yakıt girin",
+        "helper": "Yakıt consumed"
+      },
+      "kgco2perliter": {
+        "label": "Faktör",
+        "placeholder": "Faktör girin",
+        "helper": "CO₂ başına litre"
+      }
+    },
+    "solar-panel-output-calculator": {
+      "systemkw": {
+        "label": "Sistem boyutu",
+        "placeholder": "Sistem boyutu girin",
+        "helper": "Installed DC kW"
+      },
+      "sunhoursperday": {
+        "label": "Sun Saat",
+        "placeholder": "Sun Saat girin",
+        "helper": "Peak Sun Saat"
+      },
+      "days": {
+        "label": "Gün",
+        "placeholder": "Gün girin",
+        "helper": "başınaiod Uzunluk"
+      },
+      "efficiencypercent": {
+        "label": "Verimlilik",
+        "placeholder": "Verimlilik girin",
+        "helper": "sistem Verimlilik"
+      }
+    },
+    "heat-loss-calculator": {
+      "uvalue": {
+        "label": "U-Değer",
+        "placeholder": "U-Değer girin",
+        "helper": "Thermal transmittance"
+      },
+      "aream2": {
+        "label": "Alan",
+        "placeholder": "Alan girin",
+        "helper": "Envelope Alan"
+      },
+      "tempdifferencec": {
+        "label": "ΔT",
+        "placeholder": "ΔT girin",
+        "helper": "Inside minus outside"
+      }
+    },
+    "boiler-efficiency-calculator": {
+      "usefuloutputkwh": {
+        "label": "Faydalı çıktı",
+        "placeholder": "Faydalı çıktı girin",
+        "helper": "ısı delivered"
+      },
+      "fuelinputkwh": {
+        "label": "Yakıt input",
+        "placeholder": "Yakıt input girin",
+        "helper": "Enerji in Yakıt"
+      }
+    },
+    "compressor-energy-cost-calculator": {
+      "powerkw": {
+        "label": "Güç",
+        "placeholder": "Güç girin",
+        "helper": "Motor kW"
+      },
+      "operatinghours": {
+        "label": "Saat",
+        "placeholder": "Saat girin",
+        "helper": "Çalışma süresi"
+      },
+      "rate": {
+        "label": "Oran",
+        "placeholder": "Oran girin",
+        "helper": "elektrik Oran"
+      }
+    },
+    "cbam-exposure-quick-check": {
+      "emissionston": {
+        "label": "Emisyons",
+        "placeholder": "Emisyons girin",
+        "helper": "Embedded Emisyons"
+      },
+      "carbonprice": {
+        "label": "Karbon Fiyat",
+        "placeholder": "Karbon Fiyat girin",
+        "helper": "Fiyat başına tonne"
+      }
+    },
+    "fuel-consumption-calculator": {
+      "distancekm": {
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
+        "helper": "Sefer Mesafe"
+      },
+      "consumptionper100km": {
+        "label": "Tüketim",
+        "placeholder": "Tüketim girin",
+        "helper": "Yakıt economy"
+      },
+      "fuelprice": {
+        "label": "Yakıt Fiyat",
+        "placeholder": "Yakıt Fiyat girin",
+        "helper": "Fiyat başına litre"
+      }
+    },
+    "fuel-cost-calculator": {
+      "distancekm": {
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
+        "helper": "Sefer Mesafe"
+      },
+      "consumptionper100km": {
+        "label": "Tüketim",
+        "placeholder": "Tüketim girin",
+        "helper": "Yakıt economy"
+      },
+      "fuelprice": {
+        "label": "Yakıt Fiyat",
+        "placeholder": "Yakıt Fiyat girin",
+        "helper": "Fiyat başına litre"
+      }
+    },
+    "desi-calculator": {
+      "lengthcm": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Parcel Uzunluk"
+      },
+      "widthcm": {
+        "label": "Genişlik",
+        "placeholder": "Genişlik girin",
+        "helper": "Parcel Genişlik"
+      },
+      "heightcm": {
+        "label": "Yükseklik",
+        "placeholder": "Yükseklik girin",
+        "helper": "Parcel Yükseklik"
+      },
+      "divisor": {
+        "label": "Bölen",
+        "placeholder": "Bölen girin",
+        "helper": "Carrier Bölen"
+      }
+    },
+    "volumetric-weight-calculator": {
+      "lengthcm": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Uzunluk"
+      },
+      "widthcm": {
+        "label": "Genişlik",
+        "placeholder": "Genişlik girin",
+        "helper": "Genişlik"
+      },
+      "heightcm": {
+        "label": "Yükseklik",
+        "placeholder": "Yükseklik girin",
+        "helper": "Yükseklik"
+      },
+      "divisor": {
+        "label": "Bölen",
+        "placeholder": "Bölen girin",
+        "helper": "Air cargo Bölen"
+      }
+    },
+    "route-cost-calculator": {
+      "distancekm": {
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
+        "helper": "Rota Uzunluk"
+      },
+      "fuelcostperkm": {
+        "label": "Yakıt/km",
+        "placeholder": "Yakıt/km girin",
+        "helper": "Yakıt Maliyet km başına"
+      },
+      "driverhours": {
+        "label": "Driver Saat",
+        "placeholder": "Driver Saat girin",
+        "helper": "Driving time"
+      },
+      "hourlyrate": {
+        "label": "Driver Oran",
+        "placeholder": "Driver Oran girin",
+        "helper": "Hourly Oran"
+      },
+      "tolls": {
+        "label": "Geçiş ücretleri",
+        "placeholder": "Geçiş ücretleri girin",
+        "helper": "Road Geçiş ücretleri"
+      }
+    },
+    "delivery-cost-calculator": {
+      "distancekm": {
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
+        "helper": "Rota km"
+      },
+      "costperkm": {
+        "label": "Maliyet/km",
+        "placeholder": "Maliyet/km girin",
+        "helper": "değişken km Maliyet"
+      },
+      "stops": {
+        "label": "Durak",
+        "placeholder": "Durak girin",
+        "helper": "Teslimat Durak"
+      },
+      "costperstop": {
+        "label": "Maliyet/stop",
+        "placeholder": "Maliyet/stop girin",
+        "helper": "başına-stop fee"
+      }
+    },
+    "freight-cost-calculator": {
+      "weightkg": {
+        "label": "Ağırlık",
+        "placeholder": "Ağırlık girin",
+        "helper": "ücretable Ağırlık"
+      },
+      "rateperkg": {
+        "label": "Oran",
+        "placeholder": "Oran girin",
+        "helper": "Oran başına kg"
+      },
+      "fixedfee": {
+        "label": "sabit fee",
+        "placeholder": "sabit fee girin",
+        "helper": "Booking fee"
+      }
+    },
+    "warehouse-storage-cost-calculator": {
+      "palletcount": {
+        "label": "Palet",
+        "placeholder": "Palet girin",
+        "helper": "Stored Palet"
+      },
+      "costperpalletperday": {
+        "label": "Maliyet/pallet/day",
+        "placeholder": "Maliyet/pallet/day girin",
+        "helper": "Günlük pallet Oran"
+      },
+      "days": {
+        "label": "Gün",
+        "placeholder": "Gün girin",
+        "helper": "Storage Gün"
+      }
+    },
+    "vehicle-depreciation-calculator": {
+      "purchaseprice": {
+        "label": "Satın alma",
+        "placeholder": "Satın alma girin",
+        "helper": "Acquisition Maliyet"
+      },
+      "resalevalue": {
+        "label": "Yeniden satış",
+        "placeholder": "Yeniden satış girin",
+        "helper": "Expected Yeniden satış"
+      },
+      "years": {
+        "label": "Yıl",
+        "placeholder": "Yıl girin",
+        "helper": "Ownership başınaiod"
+      }
+    },
+    "trip-budget-calculator": {
+      "fuelcost": {
+        "label": "Yakıt",
+        "placeholder": "Yakıt girin",
+        "helper": "Yakıt spend"
+      },
+      "accommodationcost": {
+        "label": "Konaklama",
+        "placeholder": "Konaklama girin",
+        "helper": "Hotels"
+      },
+      "foodcost": {
+        "label": "Gıda",
+        "placeholder": "Gıda girin",
+        "helper": "Meals"
+      },
+      "tolls": {
+        "label": "Geçiş ücretleri",
+        "placeholder": "Geçiş ücretleri girin",
+        "helper": "Road fees"
+      },
+      "othercost": {
+        "label": "Diğer",
+        "placeholder": "Diğer girin",
+        "helper": "Miscellaneous"
+      }
+    },
+    "fertilizer-dosage-calculator": {
+      "areaha": {
+        "label": "Field Alan",
+        "placeholder": "Field Alan girin",
+        "helper": "Alan treated"
+      },
+      "dosagekgperha": {
+        "label": "Dozaj",
+        "placeholder": "Dozaj girin",
+        "helper": "Application Oran"
+      }
+    },
+    "seed-rate-calculator": {
+      "areaha": {
+        "label": "Alan",
+        "placeholder": "Alan girin",
+        "helper": "Field Alan"
+      },
+      "seedkgperha": {
+        "label": "Seed Oran",
+        "placeholder": "Seed Oran girin",
+        "helper": "Seeding Oran"
+      }
+    },
+    "irrigation-cost-check": {
+      "pumpkw": {
+        "label": "Pump Güç",
+        "placeholder": "Pump Güç girin",
+        "helper": "Pump motor kW"
+      },
+      "hours": {
+        "label": "Çalışma süresi",
+        "placeholder": "Çalışma süresi girin",
+        "helper": "Pump Saat"
+      },
+      "energyrate": {
+        "label": "Enerji Oran",
+        "placeholder": "Enerji Oran girin",
+        "helper": "elektrik Oran"
+      },
+      "watercost": {
+        "label": "su fee",
+        "placeholder": "su fee girin",
+        "helper": "su ücret"
+      }
+    },
+    "water-usage-calculator": {
+      "flowratelitermin": {
+        "label": "Debi Oran",
+        "placeholder": "Debi Oran girin",
+        "helper": "Debi Oran"
+      },
+      "minutes": {
+        "label": "süre",
+        "placeholder": "süre girin",
+        "helper": "Run time"
+      }
+    },
+    "feed-cost-estimator": {
+      "feedkg": {
+        "label": "İlerleme",
+        "placeholder": "İlerleme girin",
+        "helper": "İlerleme Miktar"
+      },
+      "priceperkg": {
+        "label": "Fiyat",
+        "placeholder": "Fiyat girin",
+        "helper": "İlerleme Fiyat"
+      },
+      "transportcost": {
+        "label": "Taşıma",
+        "placeholder": "Taşıma girin",
+        "helper": "Teslimat Maliyet"
+      }
+    },
+    "milk-yield-check": {
+      "cows": {
+        "label": "İnek",
+        "placeholder": "İnek girin",
+        "helper": "Milking İnek"
+      },
+      "literspercow": {
+        "label": "Verim/cow",
+        "placeholder": "Verim/cow girin",
+        "helper": "litre başına cow başına day"
+      },
+      "milkprice": {
+        "label": "Milk Fiyat",
+        "placeholder": "Milk Fiyat girin",
+        "helper": "Fiyat başına litre"
+      }
+    },
+    "crop-yield-calculator": {
+      "areaha": {
+        "label": "Alan",
+        "placeholder": "Alan girin",
+        "helper": "Planted Alan"
+      },
+      "yieldtonperha": {
+        "label": "Verim",
+        "placeholder": "Verim girin",
+        "helper": "Expected Verim"
+      },
+      "priceperton": {
+        "label": "Fiyat",
+        "placeholder": "Fiyat girin",
+        "helper": "Market Fiyat"
+      }
+    },
+    "recipe-cost-check": {
+      "ingredientcost": {
+        "label": "Ingredient Maliyet",
+        "placeholder": "Ingredient Maliyet girin",
+        "helper": "Toplam ingredient spend"
+      },
+      "portions": {
+        "label": "Porsiyon",
+        "placeholder": "Porsiyon girin",
+        "helper": "Servings"
+      }
+    },
+    "food-cost-calculator": {
+      "ingredientcost": {
+        "label": "Ingredient Maliyet",
+        "placeholder": "Ingredient Maliyet girin",
+        "helper": "Plate Maliyet"
+      },
+      "menuprice": {
+        "label": "Menü Fiyat",
+        "placeholder": "Menü Fiyat girin",
+        "helper": "Selling Fiyat"
+      }
+    },
+    "portion-cost-calculator": {
+      "totalbatchcost": {
+        "label": "Batch Maliyet",
+        "placeholder": "Batch Maliyet girin",
+        "helper": "Toplam Recipe Maliyet"
+      },
+      "portions": {
+        "label": "Porsiyon",
+        "placeholder": "Porsiyon girin",
+        "helper": "Servings"
+      }
+    },
+    "rent-vs-buy-calculator": {
+      "monthlyrent": {
+        "label": "Aylık Kira",
+        "placeholder": "Aylık Kira girin",
+        "helper": "Akım Aylık Kira Ödeme"
+      },
+      "homeprice": {
+        "label": "Home Fiyat",
+        "placeholder": "Home Fiyat girin",
+        "helper": "Satın alma Fiyat reference"
+      },
+      "comparisonyears": {
+        "label": "Comparison Yıl",
+        "placeholder": "Comparison Yıl girin",
+        "helper": "Number of Yıl to compare (e.g. 10 or 20)"
+      },
+      "annualrentincrease": {
+        "label": "Yıllık Kira increase",
+        "placeholder": "Yıllık Kira increase girin",
+        "helper": "Expected yılly Kira growth"
+      },
+      "annualhomeappreciation": {
+        "label": "Konut değer artışı",
+        "placeholder": "Konut değer artışı girin",
+        "helper": "Expected yılly home Değer growth"
+      },
+      "downpaymentpercent": {
+        "label": "Down Ödeme",
+        "placeholder": "Down Ödeme girin",
+        "helper": "Yüzde of Home Fiyat paid upfront"
+      },
+      "mortgageinterestrate": {
+        "label": "Konut kredisi Oran",
+        "placeholder": "Konut kredisi Oran girin",
+        "helper": "Nominal Yıllık Konut kredisi Faiz Oran"
+      },
+      "mortgagetermyears": {
+        "label": "Konut kredisi Vade",
+        "placeholder": "Konut kredisi Vade girin",
+        "helper": "Konut kredisi amortization Vade"
+      },
+      "investmentreturnrate": {
+        "label": "yatırım return",
+        "placeholder": "yatırım return girin",
+        "helper": "Yıllık return if Kiraing and investing cash"
+      },
+      "ownershipcostpercent": {
+        "label": "Ownership Maliyet",
+        "placeholder": "Ownership Maliyet girin",
+        "helper": "Yıllık Ownership Maliyet as % of home Değer"
+      },
+      "purchasecostpercent": {
+        "label": "Satın alma Maliyets",
+        "placeholder": "Satın alma Maliyets girin",
+        "helper": "Closing and Satın alma transaction Maliyets"
+      },
+      "sellingcostpercent": {
+        "label": "Selling Maliyets",
+        "placeholder": "Selling Maliyets girin",
+        "helper": "Tahmini selling transaction Maliyets"
+      }
+    },
+    "home-budget-calculator": {
+      "income": {
+        "label": "Gelir",
+        "placeholder": "Gelir girin",
+        "helper": "Aylık Gelir"
+      },
+      "rent": {
+        "label": "Kira",
+        "placeholder": "Kira girin",
+        "helper": "Housing"
+      },
+      "food": {
+        "label": "Gıda",
+        "placeholder": "Gıda girin",
+        "helper": "Groceries"
+      },
+      "transport": {
+        "label": "Taşıma",
+        "placeholder": "Taşıma girin",
+        "helper": "Commute"
+      },
+      "utilities": {
+        "label": "Altyapı",
+        "placeholder": "Altyapı girin",
+        "helper": "faturas"
+      }
+    },
+    "time-duration-calculator": {
+      "starthour": {
+        "label": "Başlangıç saati",
+        "placeholder": "Başlangıç saati girin",
+        "helper": "Başlangıç saati (0–23)"
+      },
+      "startminute": {
+        "label": "Başlangıç dakikası",
+        "placeholder": "Başlangıç dakikası girin",
+        "helper": "Başlangıç dakikası"
+      },
+      "endhour": {
+        "label": "Bitiş saati",
+        "placeholder": "Bitiş saati girin",
+        "helper": "Bitiş saati"
+      },
+      "endminute": {
+        "label": "Bitiş dakikası",
+        "placeholder": "Bitiş dakikası girin",
+        "helper": "Bitiş dakikası"
+      }
+    },
+    "age-calculator": {
+      "birthyear": {
+        "label": "Doğum yılı",
+        "placeholder": "Doğum yılı girin",
+        "helper": "yıl born"
+      },
+      "currentyear": {
+        "label": "Akım yıl",
+        "placeholder": "Akım yıl girin",
+        "helper": "Reference yıl"
+      }
+    },
+    "date-difference-calculator": {
+      "startdaynumber": {
+        "label": "Başlangıç günü #",
+        "placeholder": "Başlangıç günü # girin",
+        "helper": "Start day index"
+      },
+      "enddaynumber": {
+        "label": "Bitiş günü #",
+        "placeholder": "Bitiş günü # girin",
+        "helper": "End day index"
+      }
+    },
+    "shopping-budget-calculator": {
+      "item1": {
+        "label": "Kalem 1",
+        "placeholder": "Kalem 1 girin",
+        "helper": "First item"
+      },
+      "item2": {
+        "label": "Kalem 2",
+        "placeholder": "Kalem 2 girin",
+        "helper": "Second item"
+      },
+      "item3": {
+        "label": "Kalem 3",
+        "placeholder": "Kalem 3 girin",
+        "helper": "Third item"
+      },
+      "item4": {
+        "label": "Kalem 4",
+        "placeholder": "Kalem 4 girin",
+        "helper": "Fourth item"
+      },
+      "item5": {
+        "label": "Kalem 5",
+        "placeholder": "Kalem 5 girin",
+        "helper": "Fifth item"
+      }
+    },
+    "fuel-travel-calculator": {
+      "distancekm": {
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
+        "helper": "Sefer Mesafe"
+      },
+      "consumptionper100km": {
+        "label": "Tüketim",
+        "placeholder": "Tüketim girin",
+        "helper": "Araç economy"
+      },
+      "fuelprice": {
+        "label": "Yakıt Fiyat",
+        "placeholder": "Yakıt Fiyat girin",
+        "helper": "Pump Fiyat"
+      }
+    },
+    "unit-price-calculator": {
+      "totalprice": {
+        "label": "Toplam Fiyat",
+        "placeholder": "Toplam Fiyat girin",
+        "helper": "Shelf Toplam"
+      },
+      "quantity": {
+        "label": "Miktar",
+        "placeholder": "Miktar girin",
+        "helper": "Pack Adet"
+      }
+    },
+    "tip-calculator": {
+      "billamount": {
+        "label": "fatura",
+        "placeholder": "fatura girin",
+        "helper": "Pre-bahşiş Toplam"
+      },
+      "tippercent": {
+        "label": "bahşiş",
+        "placeholder": "bahşiş girin",
+        "helper": "bahşiş Yüzde"
+      }
+    },
+    "savings-goal-calculator": {
+      "targetamount": {
+        "label": "hedef",
+        "placeholder": "hedef girin",
+        "helper": "Savings goal"
+      },
+      "monthlysaving": {
+        "label": "Aylık saving",
+        "placeholder": "Aylık saving girin",
+        "helper": "Amount saved başına month"
+      }
+    },
+    "percentage-increase-calculator": {
+      "oldvalue": {
+        "label": "Old Değer",
+        "placeholder": "Old Değer girin",
+        "helper": "Starting Değer"
+      },
+      "newvalue": {
+        "label": "New Değer",
+        "placeholder": "New Değer girin",
+        "helper": "Uptarihd Değer"
+      }
+    },
+    "average-calculator": {
+      "value1": {
+        "label": "Değer 1",
+        "placeholder": "Değer 1 girin",
+        "helper": "First Değer"
+      },
+      "value2": {
+        "label": "Değer 2",
+        "placeholder": "Değer 2 girin",
+        "helper": "Second Değer"
+      },
+      "value3": {
+        "label": "Değer 3",
+        "placeholder": "Değer 3 girin",
+        "helper": "Third Değer"
+      },
+      "value4": {
+        "label": "Değer 4",
+        "placeholder": "Değer 4 girin",
+        "helper": "Fourth Değer"
+      },
+      "value5": {
+        "label": "Değer 5",
+        "placeholder": "Değer 5 girin",
+        "helper": "Fifth Değer"
+      }
+    },
+    "median-calculator": {
+      "value1": {
+        "label": "Değer 1",
+        "placeholder": "Değer 1 girin",
+        "helper": "First Değer"
+      },
+      "value2": {
+        "label": "Değer 2",
+        "placeholder": "Değer 2 girin",
+        "helper": "Second Değer"
+      },
+      "value3": {
+        "label": "Değer 3",
+        "placeholder": "Değer 3 girin",
+        "helper": "Third Değer"
+      },
+      "value4": {
+        "label": "Değer 4",
+        "placeholder": "Değer 4 girin",
+        "helper": "Fourth Değer"
+      },
+      "value5": {
+        "label": "Değer 5",
+        "placeholder": "Değer 5 girin",
+        "helper": "Fifth Değer"
+      }
+    },
+    "standard-deviation-calculator": {
+      "value1": {
+        "label": "Değer 1",
+        "placeholder": "Değer 1 girin",
+        "helper": "First Değer"
+      },
+      "value2": {
+        "label": "Değer 2",
+        "placeholder": "Değer 2 girin",
+        "helper": "Second Değer"
+      },
+      "value3": {
+        "label": "Değer 3",
+        "placeholder": "Değer 3 girin",
+        "helper": "Third Değer"
+      },
+      "value4": {
+        "label": "Değer 4",
+        "placeholder": "Değer 4 girin",
+        "helper": "Fourth Değer"
+      },
+      "value5": {
+        "label": "Değer 5",
+        "placeholder": "Değer 5 girin",
+        "helper": "Fifth Değer"
+      }
+    },
+    "ratio-calculator": {
+      "a": {
+        "label": "Değer A",
+        "placeholder": "Değer A girin",
+        "helper": "First Vade"
+      },
+      "b": {
+        "label": "Değer B",
+        "placeholder": "Değer B girin",
+        "helper": "Second Vade"
+      }
+    },
+    "proportion-calculator": {
+      "a": {
+        "label": "A",
+        "placeholder": "A girin",
+        "helper": "First Pay"
+      },
+      "b": {
+        "label": "B",
+        "placeholder": "B girin",
+        "helper": "First Payda"
+      },
+      "c": {
+        "label": "C",
+        "placeholder": "C girin",
+        "helper": "Second Pay"
+      }
+    },
+    "probability-calculator": {
+      "favorableoutcomes": {
+        "label": "Lehte",
+        "placeholder": "Lehte girin",
+        "helper": "Successful outcomes"
+      },
+      "totaloutcomes": {
+        "label": "Toplam",
+        "placeholder": "Toplam girin",
+        "helper": "Toplam outcomes"
+      }
+    },
+    "sample-size-calculator": {
+      "population": {
+        "label": "Popülasyon",
+        "placeholder": "Popülasyon girin",
+        "helper": "Popülasyon boyut"
+      },
+      "confidencez": {
+        "label": "Z skoru",
+        "placeholder": "Z skoru girin",
+        "helper": "Confidence z (e.g. 1.96)"
+      },
+      "marginerrorpercent": {
+        "label": "Marj error",
+        "placeholder": "Marj error girin",
+        "helper": "Marj of error"
+      },
+      "proportionpercent": {
+        "label": "Prokısım",
+        "placeholder": "Prokısım girin",
+        "helper": "Expected Prokısım"
+      }
+    },
+    "z-score-calculator": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Data point"
+      },
+      "mean": {
+        "label": "Ortalama",
+        "placeholder": "Ortalama girin",
+        "helper": "Popülasyon Ortalama"
+      },
+      "standarddeviation": {
+        "label": "Std sapma",
+        "placeholder": "Std sapma girin",
+        "helper": "Standard deviation"
+      }
+    },
+    "linear-regression-calculator": {
+      "x1": {
+        "label": "X₁",
+        "placeholder": "X₁ girin",
+        "helper": "First x"
+      },
+      "y1": {
+        "label": "Y₁",
+        "placeholder": "Y₁ girin",
+        "helper": "First y"
+      },
+      "x2": {
+        "label": "X₂",
+        "placeholder": "X₂ girin",
+        "helper": "Second x"
+      },
+      "y2": {
+        "label": "Y₂",
+        "placeholder": "Y₂ girin",
+        "helper": "Second y"
+      },
+      "x3": {
+        "label": "X₃",
+        "placeholder": "X₃ girin",
+        "helper": "Third x"
+      },
+      "y3": {
+        "label": "Y₃",
+        "placeholder": "Y₃ girin",
+        "helper": "Third y"
+      }
+    },
+    "length-converter": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Kaynak birim",
+        "placeholder": "Kaynak birim girin",
+        "helper": "Source unit"
+      }
+    },
+    "weight-converter": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Kaynak birim",
+        "placeholder": "Kaynak birim girin",
+        "helper": "Source unit"
+      }
+    },
+    "area-converter": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Kaynak birim",
+        "placeholder": "Kaynak birim girin",
+        "helper": "Source unit"
+      }
+    },
+    "volume-converter": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Kaynak birim",
+        "placeholder": "Kaynak birim girin",
+        "helper": "Source unit"
+      }
+    },
+    "temperature-converter": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Sıcaklık to convert"
+      },
+      "fromunit": {
+        "label": "Kaynak birim",
+        "placeholder": "Kaynak birim girin",
+        "helper": "Source scale"
+      }
+    },
+    "amper-kilowatt-kw-cevirici": {
+      "amps": {
+        "label": "Akım",
+        "placeholder": "Akım girin",
+        "helper": "Line Akım in ambaşınaes"
+      },
+      "volts": {
+        "label": "Gerilim",
+        "placeholder": "Gerilim girin",
+        "helper": "Line Gerilim"
+      },
+      "powerfactor": {
+        "label": "Güç Faktör",
+        "placeholder": "Güç Faktör girin",
+        "helper": "Güç Faktör (0–1)"
+      }
+    },
+    "klima-btu-secim-hesaplama": {
+      "aream2": {
+        "label": "Zemin alanı",
+        "placeholder": "Zemin alanı girin",
+        "helper": "Cooled Zemin alanı"
+      },
+      "ceilingm": {
+        "label": "Ceiling Yükseklik",
+        "placeholder": "Ceiling Yükseklik girin",
+        "helper": "Oda Yükseklik"
+      },
+      "loadfactor": {
+        "label": "Yük faktörü",
+        "placeholder": "Yük faktörü girin",
+        "helper": "Cooling Yük faktörü"
+      }
+    },
+    "civata-sikma-torku-hesaplama": {
+      "clampforce": {
+        "label": "Clamp Kuvvet",
+        "placeholder": "Clamp Kuvvet girin",
+        "helper": "hedef Clamp Kuvvet"
+      },
+      "boltdiametermm": {
+        "label": "Cıvata Çap",
+        "placeholder": "Cıvata Çap girin",
+        "helper": "Nominal Cıvata Çap in mm"
+      }
+    },
+    "mtv-motorlu-tasitlar-vergisi-hesaplama": {
+      "enginecc": {
+        "label": "Motor hacmi",
+        "placeholder": "Motor hacmi girin",
+        "helper": "Engine boyut in cc"
+      },
+      "agefactor": {
+        "label": "Yaş faktörü",
+        "placeholder": "Yaş faktörü girin",
+        "helper": "Informational age band Faktör"
+      }
+    },
+    "bar-psi-pascal-cevirici": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Kaynak birim",
+        "placeholder": "Kaynak birim girin",
+        "helper": "Source unit"
+      }
+    },
+    "beygir-gucu-kilowatt-cevirici": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Kaynak birim",
+        "placeholder": "Kaynak birim girin",
+        "helper": "Source unit"
+      }
+    },
+    "npu-npi-profil-agirlik-hesaplama": {
+      "length": {
+        "label": "Profile Uzunluk",
+        "placeholder": "Profile Uzunluk girin",
+        "helper": "Bar Uzunluk in metre"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "kg/m girin",
+        "helper": "Catalog Ağırlık başına meter"
+      }
+    },
+    "kosebent-lama-agirlik-hesaplama": {
+      "length": {
+        "label": "Bar Uzunluk",
+        "placeholder": "Bar Uzunluk girin",
+        "helper": "Angle Bar Uzunluk"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "kg/m girin",
+        "helper": "Catalog Ağırlık başına meter"
+      }
+    },
+    "boru-agirlik-hesaplama-celik-paslanmaz": {
+      "length": {
+        "label": "Pipe Uzunluk",
+        "placeholder": "Pipe Uzunluk girin",
+        "helper": "Pipe run Uzunluk"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "kg/m girin",
+        "helper": "Catalog pipe Ağırlık başına meter"
+      }
+    },
+    "motor-gucu-kw-hp-cevirici": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Kaynak birim",
+        "placeholder": "Kaynak birim girin",
+        "helper": "Source unit"
+      }
+    },
+    "jenerator-kapasitesi-secim-hesaplama": {
+      "peakloadkw": {
+        "label": "Peak Yük",
+        "placeholder": "Peak Yük girin",
+        "helper": "Peak Yük in kW"
+      },
+      "safetyfactor": {
+        "label": "Güvenlik faktörü",
+        "placeholder": "Güvenlik faktörü girin",
+        "helper": "Recommended Güvenlik faktörü"
+      }
+    },
+    "kablo-kesiti-mm-secim-hesaplama": {
+      "loadamps": {
+        "label": "Yük akımı",
+        "placeholder": "Yük akımı girin",
+        "helper": "Yük akımı for calculation"
+      },
+      "ampacitypermm2": {
+        "label": "Ampacity başına mm²",
+        "placeholder": "Ampacity başına mm² girin",
+        "helper": "Ampacity başına mm² for calculation"
+      }
+    },
+    "dogalgaz-tuketimi-hesaplama": {
+      "consumptionsm3": {
+        "label": "Tüketim",
+        "placeholder": "Tüketim girin",
+        "helper": "Natural gas Tüketim in sm³"
+      },
+      "unitprice": {
+        "label": "Unit Fiyat",
+        "placeholder": "Unit Fiyat girin",
+        "helper": "Fiyat başına sm³"
+      }
+    },
+    "lpg-benzin-tasarruf-karsilastirma": {
+      "lpgcost": {
+        "label": "LPG Maliyet",
+        "placeholder": "LPG Maliyet girin",
+        "helper": "Maliyet km başına on LPG"
+      },
+      "gasolinecost": {
+        "label": "Gasoline Maliyet",
+        "placeholder": "Gasoline Maliyet girin",
+        "helper": "Maliyet km başına on gasoline"
+      }
+    },
+    "dizel-benzin-maliyet-karsilastirma": {
+      "dieselcost": {
+        "label": "Diesel Maliyet",
+        "placeholder": "Diesel Maliyet girin",
+        "helper": "Maliyet km başına on diesel"
+      },
+      "gasolinecost": {
+        "label": "Gasoline Maliyet",
+        "placeholder": "Gasoline Maliyet girin",
+        "helper": "Maliyet km başına on gasoline"
+      }
+    },
+    "boya-kaplama-sarfiyati-m-basina-hesabi": {
+      "aream2": {
+        "label": "Kaplama Alan",
+        "placeholder": "Kaplama Alan girin",
+        "helper": "Kaplama Alan for calculation"
+      },
+      "coverageperliter": {
+        "label": "Kaplama başına litre",
+        "placeholder": "Kaplama başına litre girin",
+        "helper": "Kaplama başına litre for calculation"
+      }
+    },
+    "fazla-mesai-ucreti-hesaplama": {
+      "overtimehours": {
+        "label": "Overtime Saat",
+        "placeholder": "Overtime Saat girin",
+        "helper": "Overtime Saat worked"
+      },
+      "hourlyrate": {
+        "label": "Hourly Oran",
+        "placeholder": "Hourly Oran girin",
+        "helper": "Taban Hourly Oran"
+      }
+    },
+    "enflasyon-fiyat-eskalasyonu-hesaplama": {
+      "baseamount": {
+        "label": "Taban tutar",
+        "placeholder": "Taban tutar girin",
+        "helper": "Starting amount"
+      },
+      "inflationpercent": {
+        "label": "Inflation Oran",
+        "placeholder": "Inflation Oran girin",
+        "helper": "Inflation Yüzde to apply once"
+      }
+    },
+    "newton-kilogram-kuvvet-cevirici": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Kaynak birim",
+        "placeholder": "Kaynak birim girin",
+        "helper": "Source unit"
+      }
+    },
+    "joule-kalori-watt-saat-cevirici": {
+      "value": {
+        "label": "Değer",
+        "placeholder": "Değer girin",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Kaynak birim",
+        "placeholder": "Kaynak birim girin",
+        "helper": "Source unit"
+      }
+    },
+    "agirlikli-ortalama-hesaplama": {
+      "value1": {
+        "label": "Değer 1",
+        "placeholder": "Değer 1 girin",
+        "helper": "First Değer"
+      },
+      "weight1": {
+        "label": "Ağırlık 1",
+        "placeholder": "Ağırlık 1 girin",
+        "helper": "Ağırlık for Değer 1"
+      },
+      "value2": {
+        "label": "Değer 2",
+        "placeholder": "Değer 2 girin",
+        "helper": "Second Değer"
+      },
+      "weight2": {
+        "label": "Ağırlık 2",
+        "placeholder": "Ağırlık 2 girin",
+        "helper": "Ağırlık for Değer 2"
+      },
+      "value3": {
+        "label": "Değer 3",
+        "placeholder": "Değer 3 girin",
+        "helper": "Third Değer"
+      },
+      "weight3": {
+        "label": "Ağırlık 3",
+        "placeholder": "Ağırlık 3 girin",
+        "helper": "Ağırlık for Değer 3"
+      }
+    },
+    "kesir-ondalik-cevirici": {
+      "numerator": {
+        "label": "Pay",
+        "placeholder": "Pay girin",
+        "helper": "Pay for calculation"
+      },
+      "denominator": {
+        "label": "Payda",
+        "placeholder": "Payda girin",
+        "helper": "Payda for calculation"
+      }
+    },
+    "rastgele-sayi-ureteci": {
+      "minvalue": {
+        "label": "Minimum",
+        "placeholder": "Minimum girin",
+        "helper": "Minimum integer"
+      },
+      "maxvalue": {
+        "label": "Maksimum",
+        "placeholder": "Maksimum girin",
+        "helper": "Maksimum integer"
+      }
+    },
+    "daire-alani-cevresi-hesaplama": {
+      "radius": {
+        "label": "Yarıçap",
+        "placeholder": "Yarıçap girin",
+        "helper": "Circle Yarıçap"
+      }
+    },
+    "ucgen-alani-cevresi-hesaplama": {
+      "base": {
+        "label": "Taban",
+        "placeholder": "Taban girin",
+        "helper": "Triangle Taban Uzunluk"
+      },
+      "height": {
+        "label": "Yükseklik",
+        "placeholder": "Yükseklik girin",
+        "helper": "Triangle Yükseklik"
+      }
+    },
+    "silindir-hacmi-hesaplama": {
+      "radius": {
+        "label": "Yarıçap",
+        "placeholder": "Yarıçap girin",
+        "helper": "Cylinder Yarıçap"
+      },
+      "height": {
+        "label": "Yükseklik",
+        "placeholder": "Yükseklik girin",
+        "helper": "Cylinder Yükseklik"
+      }
+    },
+    "cit-korkuluk-malzeme-hesabi": {
+      "length": {
+        "label": "Fence Uzunluk",
+        "placeholder": "Fence Uzunluk girin",
+        "helper": "Fence Uzunluk for calculation"
+      },
+      "postspacing": {
+        "label": "Direk aralığı",
+        "placeholder": "Direk aralığı girin",
+        "helper": "Direk aralığı for calculation"
+      }
+    },
+    "prefabrik-konteyner-olcu-hesaplama": {
+      "length": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Container Uzunluk"
+      },
+      "width": {
+        "label": "Genişlik",
+        "placeholder": "Genişlik girin",
+        "helper": "Container Genişlik"
+      }
+    },
+    "celik-cati-makas-yaklasik-agirligi": {
+      "span": {
+        "label": "Çatı span",
+        "placeholder": "Çatı span girin",
+        "helper": "Truss span in metre"
+      },
+      "weightpermeter": {
+        "label": "Ağırlık başına meter",
+        "placeholder": "Ağırlık başına meter girin",
+        "helper": "Approximate steel Ağırlık başına meter"
+      }
+    },
+    "su-deposu-hacmi-hesaplama": {
+      "radius": {
+        "label": "Yarıçap",
+        "placeholder": "Yarıçap girin",
+        "helper": "Tank Yarıçap"
+      },
+      "height": {
+        "label": "Yükseklik",
+        "placeholder": "Yükseklik girin",
+        "helper": "Tank Yükseklik"
+      }
+    },
+    "yalitim-malzemesi-m-hesaplama": {
+      "aream2": {
+        "label": "Surface Alan",
+        "placeholder": "Surface Alan girin",
+        "helper": "Insulated surface m² cinsinden"
+      },
+      "layers": {
+        "label": "Katmanlar",
+        "placeholder": "Katmanlar girin",
+        "helper": "Number of Katmanlar"
+      }
+    },
+    "ups-kesintisiz-guc-kaynagi-secimi": {
+      "loadwatts": {
+        "label": "Yük",
+        "placeholder": "Yük girin",
+        "helper": "Connected Yük in watts"
+      },
+      "runtimeminutes": {
+        "label": "Çalışma süresi",
+        "placeholder": "Çalışma süresi girin",
+        "helper": "Gerekli Çalışma süresi in Dakika"
+      }
+    },
+    "gerilim-dusumu-hesaplama": {
+      "current": {
+        "label": "Akım",
+        "placeholder": "Akım girin",
+        "helper": "Yük akımı in amps"
+      },
+      "linelengthm": {
+        "label": "Line Uzunluk",
+        "placeholder": "Line Uzunluk girin",
+        "helper": "One-way cable Uzunluk in metre"
+      }
+    },
+    "topraklama-direnci-hesaplama": {
+      "measuredohms": {
+        "label": "Ölçülen direnç",
+        "placeholder": "Ölçülen direnç girin",
+        "helper": "Ground resistance reading"
+      }
+    },
+    "aku-kapasitesi-calisma-suresi-hesabi": {
+      "batteryah": {
+        "label": "Batarya kapasitesi",
+        "placeholder": "Batarya kapasitesi girin",
+        "helper": "Batarya kapasitesi for calculation"
+      },
+      "loadamps": {
+        "label": "Yük akımı",
+        "placeholder": "Yük akımı girin",
+        "helper": "Yük akımı for calculation"
+      }
+    },
+    "aydinlatma-armatur-sayisi-hesaplama": {
+      "totallumensneeded": {
+        "label": "Toplam lumens",
+        "placeholder": "Toplam lumens girin",
+        "helper": "Toplam lumens for calculation"
+      },
+      "lumensperfixture": {
+        "label": "Lumens başına fixture",
+        "placeholder": "Lumens başına fixture girin",
+        "helper": "Lumens başına fixture for calculation"
+      }
+    },
+    "kompresor-debisi-tank-hacmi-hesabi": {
+      "flowcfm": {
+        "label": "Kompresör Debi",
+        "placeholder": "Kompresör Debi girin",
+        "helper": "Kompresör Debi Oran"
+      },
+      "fillminutes": {
+        "label": "Dolum süresi",
+        "placeholder": "Dolum süresi girin",
+        "helper": "Desired tank Dolum süresi in Dakika"
+      }
+    },
+    "hidrolik-silindir-itme-kuvveti-hesabi": {
+      "pressurebar": {
+        "label": "Basınç",
+        "placeholder": "Basınç girin",
+        "helper": "sistem Basınç in bar"
+      },
+      "boremm": {
+        "label": "Bore Çap",
+        "placeholder": "Bore Çap girin",
+        "helper": "Cylinder bore in mm"
+      }
+    },
+    "pnomatik-silindir-kuvvet-hesabi": {
+      "pressurebar": {
+        "label": "Basınç",
+        "placeholder": "Basınç girin",
+        "helper": "Air Basınç in bar"
+      },
+      "boremm": {
+        "label": "Bore Çap",
+        "placeholder": "Bore Çap girin",
+        "helper": "Cylinder bore in mm"
+      }
+    },
+    "hidrolik-pompa-gucu-hesaplama": {
+      "flowlpm": {
+        "label": "Debi",
+        "placeholder": "Debi girin",
+        "helper": "Debi in L/min"
+      },
+      "pressurebar": {
+        "label": "Basınç",
+        "placeholder": "Basınç girin",
+        "helper": "Basınç in bar"
+      }
+    },
+    "boru-capi-akis-hizi-hesaplama": {
+      "flowlpm": {
+        "label": "Debi Oran",
+        "placeholder": "Debi Oran girin",
+        "helper": "Debi Oran for calculation"
+      },
+      "velocitymps": {
+        "label": "Hedef hız",
+        "placeholder": "Hedef hız girin",
+        "helper": "Hedef hız for calculation"
+      }
+    },
+    "pompa-gucu-basma-yuksekligi-hesabi": {
+      "flowm3h": {
+        "label": "Debi",
+        "placeholder": "Debi girin",
+        "helper": "Debi m³ cinsinden/h"
+      },
+      "headm": {
+        "label": "Kafa",
+        "placeholder": "Kafa girin",
+        "helper": "Toplam Kafa in metre"
+      }
+    },
+    "su-debisi-litre-dakika-hesaplama": {
+      "volumeliters": {
+        "label": "Hacim",
+        "placeholder": "Hacim girin",
+        "helper": "Hacim for calculation"
+      },
+      "minutes": {
+        "label": "Dakika",
+        "placeholder": "Dakika girin",
+        "helper": "Dakika for calculation"
+      }
+    },
+    "isitma-sogutma-yuku-kcal-kw-hesabi": {
+      "aream2": {
+        "label": "Alan",
+        "placeholder": "Alan girin",
+        "helper": "Conditioned Zemin alanı"
+      },
+      "loadkcal": {
+        "label": "Yük faktörü",
+        "placeholder": "Yük faktörü girin",
+        "helper": "Yük faktörü kcal/h·m²"
+      }
+    },
+    "radyator-petek-boyu-hesaplama": {
+      "heatloadkcal": {
+        "label": "ısı Yük",
+        "placeholder": "ısı Yük girin",
+        "helper": "ısı Yük for calculation"
+      },
+      "paneloutputkcal": {
+        "label": "Pano çıktı",
+        "placeholder": "Pano çıktı girin",
+        "helper": "Pano çıktı for calculation"
+      }
+    },
+    "akaryakit-fiyati-ile-yol-butcesi": {
+      "distancekm": {
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
+        "helper": "Sefer Mesafe in km"
+      },
+      "costperkm": {
+        "label": "Maliyet km başına",
+        "placeholder": "Maliyet km başına girin",
+        "helper": "Yakıt Maliyet km başına"
+      }
+    },
+    "arac-amortisman-hesaplama": {
+      "vehiclecost": {
+        "label": "Araç Maliyet",
+        "placeholder": "Araç Maliyet girin",
+        "helper": "Satın alma Fiyat"
+      },
+      "salvagevalue": {
+        "label": "Hurda değeri",
+        "placeholder": "Hurda değeri girin",
+        "helper": "Expected Hurda değeri"
+      },
+      "usefullifeyears": {
+        "label": "Faydalı ömür",
+        "placeholder": "Faydalı ömür girin",
+        "helper": "Amortisman Yıl"
+      }
+    },
+    "kaynak-dikis-hacmi-maliyeti-hesabi": {
+      "throatmm": {
+        "label": "Boğaz",
+        "placeholder": "Boğaz girin",
+        "helper": "Kaynak Boğaz in mm"
+      },
+      "weldlengthm": {
+        "label": "Kaynak Uzunluk",
+        "placeholder": "Kaynak Uzunluk girin",
+        "helper": "Kaynak Uzunluk in metre"
+      }
+    },
+    "kesme-bukme-abkant-tonaj-hesabi": {
+      "sheetlengthmm": {
+        "label": "Sheet Uzunluk",
+        "placeholder": "Sheet Uzunluk girin",
+        "helper": "Bend Line Uzunluk in mm"
+      },
+      "sheetthicknessmm": {
+        "label": "Kalınlık",
+        "placeholder": "Kalınlık girin",
+        "helper": "Sheet Kalınlık in mm"
+      }
+    },
+    "disli-modul-cap-hesaplama": {
+      "module": {
+        "label": "Modül",
+        "placeholder": "Modül girin",
+        "helper": "Gear Modül"
+      },
+      "teeth": {
+        "label": "diş",
+        "placeholder": "diş girin",
+        "helper": "Number of diş"
+      }
+    },
+    "civata-on-germe-kuvveti-hesabi": {
+      "boltdiametermm": {
+        "label": "Cıvata Çap",
+        "placeholder": "Cıvata Çap girin",
+        "helper": "Nominal Cıvata Çap in mm"
+      },
+      "preloadkn": {
+        "label": "PreYük Kuvvet",
+        "placeholder": "PreYük Kuvvet girin",
+        "helper": "hedef preYük in kN"
+      }
+    },
+    "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama": {
+      "antifreezeliters": {
+        "label": "Antifreeze Hacim",
+        "placeholder": "Antifreeze Hacim girin",
+        "helper": "Antifreeze Hacim for calculation"
+      },
+      "totalliters": {
+        "label": "Toplam coolant Hacim",
+        "placeholder": "Toplam coolant Hacim girin",
+        "helper": "Toplam coolant Hacim for calculation"
+      }
+    },
+    "palet-ambalaj-kereste-hesabi": {
+      "palletcount": {
+        "label": "Pallet Adet",
+        "placeholder": "Pallet Adet girin",
+        "helper": "Number of Palet"
+      },
+      "boardlengthm": {
+        "label": "Board Uzunluk",
+        "placeholder": "Board Uzunluk girin",
+        "helper": "Average Board Uzunluk başına pallet"
+      }
+    },
+    "tahta-mdf-sunta-m-agirlik-hesabi": {
+      "aream2": {
+        "label": "Alan",
+        "placeholder": "Alan girin",
+        "helper": "Sheet Alan m² cinsinden"
+      },
+      "kgperm2": {
+        "label": "Ağırlık m² başına",
+        "placeholder": "Ağırlık m² başına girin",
+        "helper": "Catalog Ağırlık m² başına"
+      }
+    },
+    "tel-kablo-uzunlugu-agirlik-hesabi": {
+      "lengthm": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Cable run Uzunluk in metre"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "kg/m girin",
+        "helper": "Catalog cable Ağırlık başına meter"
+      }
+    },
+    "vida-somun-adim-dis-ustu-cap-hesabi": {
+      "pitchmm": {
+        "label": "Eğim",
+        "placeholder": "Eğim girin",
+        "helper": "Thread Eğim in mm"
+      },
+      "threadcount": {
+        "label": "Thread Adet",
+        "placeholder": "Thread Adet girin",
+        "helper": "Number of threads engaged"
+      }
+    },
+    "matkap-kilavuz-delik-capi-tablosu": {
+      "screwdiametermm": {
+        "label": "Screw Çap",
+        "placeholder": "Screw Çap girin",
+        "helper": "Screw Çap for calculation"
+      },
+      "drillfactor": {
+        "label": "Delme faktörü",
+        "placeholder": "Delme faktörü girin",
+        "helper": "Delme faktörü for calculation"
+      }
+    },
+    "kdv-tevkifati-hesaplama": {
+      "netamount": {
+        "label": "net tutar",
+        "placeholder": "net tutar girin",
+        "helper": "net invoice amount"
+      },
+      "withholdingrate": {
+        "label": "Withholding Oran",
+        "placeholder": "Withholding Oran girin",
+        "helper": "KDV withholding Yüzde"
+      }
+    },
+    "stopaj-hesaplama-kira-serbest-meslek": {
+      "grossamount": {
+        "label": "Brüt tutar",
+        "placeholder": "Brüt tutar girin",
+        "helper": "Ödeme before withholding"
+      },
+      "withholdingrate": {
+        "label": "Withholding Oran",
+        "placeholder": "Withholding Oran girin",
+        "helper": "Stopaj Yüzde"
+      }
+    },
+    "gelir-vergisi-dilimleri-hesaplama": {
+      "taxableincome": {
+        "label": "Vergiable Gelir",
+        "placeholder": "Vergiable Gelir girin",
+        "helper": "Yıllık Vergiable Gelir"
+      },
+      "effectiverate": {
+        "label": "Effective Oran",
+        "placeholder": "Effective Oran girin",
+        "helper": "Blended Effective Oran Yüzde"
+      }
+    },
+    "ise-giris-cikis-bildirgesi-sureleri": {
+      "noticedays": {
+        "label": "Notice başınaiod",
+        "placeholder": "Notice başınaiod girin",
+        "helper": "Notice başınaiod"
+      }
+    },
+    "sgk-prim-hesaplama-isci-plus-isveren": {
+      "grosswage": {
+        "label": "Brüt ücret",
+        "placeholder": "Brüt ücret girin",
+        "helper": "Aylık Brüt ücret"
+      },
+      "combinedrate": {
+        "label": "Combined Oran",
+        "placeholder": "Combined Oran girin",
+        "helper": "Employee + employer Oran Yüzde"
+      }
+    },
+    "makine-ekonomik-omru-hurda-deger-hesabi": {
+      "machinecost": {
+        "label": "makine Maliyet",
+        "placeholder": "makine Maliyet girin",
+        "helper": "Satın alma Fiyat"
+      },
+      "salvagevalue": {
+        "label": "Hurda değeri",
+        "placeholder": "Hurda değeri girin",
+        "helper": "Expected Hurda değeri"
+      },
+      "usefullifeyears": {
+        "label": "Faydalı ömür",
+        "placeholder": "Faydalı ömür girin",
+        "helper": "Economic life in Yıl"
+      }
+    },
+    "leasing-kiralama-maliyet-karsilastirma": {
+      "leasecost": {
+        "label": "Lease Maliyet",
+        "placeholder": "Lease Maliyet girin",
+        "helper": "Lease Maliyet for comparison"
+      },
+      "rentalcost": {
+        "label": "Kiraal Maliyet",
+        "placeholder": "Kiraal Maliyet girin",
+        "helper": "Kiraal Maliyet for comparison"
+      }
+    },
+    "kredi-erken-kapama-cezasi-hesaplama": {
+      "remainingbalance": {
+        "label": "Kalan balance",
+        "placeholder": "Kalan balance girin",
+        "helper": "Outstanding Kredi balance"
+      },
+      "penaltyrate": {
+        "label": "Penalty Oran",
+        "placeholder": "Penalty Oran girin",
+        "helper": "Early closure penalty Yüzde"
+      }
+    },
+    "doviz-pozisyonu-kur-farki-riski-hesabi": {
+      "foreignexposure": {
+        "label": "Foreign maruziyet",
+        "placeholder": "Foreign maruziyet girin",
+        "helper": "maruziyet in foreign currency"
+      },
+      "fxmovepercent": {
+        "label": "Kur hareketi",
+        "placeholder": "Kur hareketi girin",
+        "helper": "Expected Kur hareketi Yüzde"
+      }
+    },
+    "cek-senet-vade-kirma-maliyeti-hesabi": {
+      "facevalue": {
+        "label": "Face Değer",
+        "placeholder": "Face Değer girin",
+        "helper": "Instrument Face Değer"
+      },
+      "discountrate": {
+        "label": "İndirim Oran",
+        "placeholder": "İndirim Oran girin",
+        "helper": "İndirim Oran Yüzde"
+      }
+    },
+    "nakit-akisi-basit-gunluk-haftalik-panosu": {
+      "dailyinflow": {
+        "label": "Günlük inDebi",
+        "placeholder": "Günlük inDebi girin",
+        "helper": "Average Günlük cash inDebi"
+      },
+      "days": {
+        "label": "Gün",
+        "placeholder": "Gün girin",
+        "helper": "Gün in başınaiod"
+      }
+    },
+    "ic-verim-orani-irr-hesaplama": {
+      "initialinvestment": {
+        "label": "Initial yatırım",
+        "placeholder": "Initial yatırım girin",
+        "helper": "Project yatırım"
+      },
+      "returnmultiple": {
+        "label": "Getiri katı",
+        "placeholder": "Getiri katı girin",
+        "helper": "Screening Getiri katı"
+      }
+    },
+    "konteyner-yukleme-kapasitesi-teu-hesabi": {
+      "totalweightkg": {
+        "label": "Toplam Ağırlık",
+        "placeholder": "Toplam Ağırlık girin",
+        "helper": "Toplam Ağırlık for calculation"
+      },
+      "unitweightkg": {
+        "label": "Unit Ağırlık",
+        "placeholder": "Unit Ağırlık girin",
+        "helper": "Unit Ağırlık for calculation"
+      }
+    },
+    "tir-kamyon-yuk-kapasitesi-hesaplama": {
+      "payloadton": {
+        "label": "PayYük capacity",
+        "placeholder": "PayYük capacity girin",
+        "helper": "Orand payYük in tonnes"
+      },
+      "loadfactor": {
+        "label": "Yük faktörü",
+        "placeholder": "Yük faktörü girin",
+        "helper": "Utilization Faktör"
+      }
+    },
+    "arac-bakim-periyodu-takip-hesaplama": {
+      "remainingkm": {
+        "label": "Kalan km",
+        "placeholder": "Kalan km girin",
+        "helper": "Kalan km for calculation"
+      },
+      "dailykm": {
+        "label": "Günlük km",
+        "placeholder": "Günlük km girin",
+        "helper": "Günlük km for calculation"
+      }
+    },
+    "lastik-omru-degisim-km-hesaplama": {
+      "remainingtreadkm": {
+        "label": "Kalan tread km",
+        "placeholder": "Kalan tread km girin",
+        "helper": "Kalan tread km for calculation"
+      },
+      "monthlykm": {
+        "label": "Aylık km",
+        "placeholder": "Aylık km girin",
+        "helper": "Aylık km for calculation"
+      }
+    },
+    "depo-raf-palet-yerlesim-optimizasyonu": {
+      "palletwidthm": {
+        "label": "Pallet Genişlik",
+        "placeholder": "Pallet Genişlik girin",
+        "helper": "Pallet Genişlik in metre"
+      },
+      "palletdepthm": {
+        "label": "Pallet Derinlik",
+        "placeholder": "Pallet Derinlik girin",
+        "helper": "Pallet Derinlik in metre"
+      }
+    },
+    "trafik-cezasi-gecikme-faizi-hesaplama": {
+      "fineamount": {
+        "label": "Ceza tutarı",
+        "placeholder": "Ceza tutarı girin",
+        "helper": "Original Ceza tutarı"
+      },
+      "laterate": {
+        "label": "Late Oran",
+        "placeholder": "Late Oran girin",
+        "helper": "Late Ödeme Oran Yüzde"
+      }
+    },
+    "kasko-sigorta-prim-karsilastirma": {
+      "quotea": {
+        "label": "Teklif A",
+        "placeholder": "Teklif A girin",
+        "helper": "Teklif A for comparison"
+      },
+      "quoteb": {
+        "label": "Teklif B",
+        "placeholder": "Teklif B girin",
+        "helper": "Teklif B for comparison"
+      }
+    },
+    "sofor-operator-gunluk-yevmiye-maliyeti": {
+      "dailyrate": {
+        "label": "Günlük Oran",
+        "placeholder": "Günlük Oran girin",
+        "helper": "Driver/obaşınaator Günlük Oran"
+      },
+      "days": {
+        "label": "Gün",
+        "placeholder": "Gün girin",
+        "helper": "Working Gün"
+      }
+    },
+    "arac-kira-satin-alma-karsilastirma": {
+      "purchasecost": {
+        "label": "Satın alma Maliyet",
+        "placeholder": "Satın alma Maliyet girin",
+        "helper": "Satın alma Maliyet for comparison"
+      },
+      "leasecost": {
+        "label": "Lease Maliyet",
+        "placeholder": "Lease Maliyet girin",
+        "helper": "Lease Maliyet for comparison"
+      }
+    },
+    "yemek-tabldot-maliyet-hesaplama": {
+      "mealcost": {
+        "label": "Meal Maliyet",
+        "placeholder": "Meal Maliyet girin",
+        "helper": "Maliyet başına meal"
+      },
+      "headcount": {
+        "label": "KafaAdet",
+        "placeholder": "KafaAdet girin",
+        "helper": "Number of meals"
+      }
+    },
+    "fotokopi-yazici-toner-sayfa-maliyeti": {
+      "tonercost": {
+        "label": "Toner Maliyet",
+        "placeholder": "Toner Maliyet girin",
+        "helper": "Toner Maliyet for calculation"
+      },
+      "pageyield": {
+        "label": "Page Verim",
+        "placeholder": "Page Verim girin",
+        "helper": "Page Verim for calculation"
+      }
+    },
+    "internet-telefon-paketi-karsilastirma": {
+      "packagea": {
+        "label": "Paket A",
+        "placeholder": "Paket A girin",
+        "helper": "Paket A for comparison"
+      },
+      "packageb": {
+        "label": "Paket B",
+        "placeholder": "Paket B girin",
+        "helper": "Paket B for comparison"
+      }
+    },
+    "yangin-tupu-dolap-debisi-hesaplama": {
+      "aream2": {
+        "label": "Protected Alan",
+        "placeholder": "Protected Alan girin",
+        "helper": "Protected Zemin alanı m² cinsinden"
+      },
+      "flowfactor": {
+        "label": "Debi Faktör",
+        "placeholder": "Debi Faktör girin",
+        "helper": "Debi Faktör m² başına"
+      }
+    },
+    "prefabrik-konteyner-ofis-m-maliyeti": {
+      "aream2": {
+        "label": "Zemin alanı",
+        "placeholder": "Zemin alanı girin",
+        "helper": "Office Zemin alanı m² cinsinden"
+      },
+      "costperm2": {
+        "label": "Maliyet m² başına",
+        "placeholder": "Maliyet m² başına girin",
+        "helper": "Maliyet m² başına"
+      }
+    },
+    "celik-raf-depo-rafi-yuk-kapasitesi": {
+      "beamcapacitykg": {
+        "label": "Kiriş kapasitesi",
+        "placeholder": "Kiriş kapasitesi girin",
+        "helper": "Capacity başına beam level in kg"
+      },
+      "shelfcount": {
+        "label": "Shelf Adet",
+        "placeholder": "Shelf Adet girin",
+        "helper": "Number of shelf levels"
+      }
+    },
+    "kaynakli-baglanti-kose-kut-mukavemet-hesabi": {
+      "throatmm": {
+        "label": "Boğaz",
+        "placeholder": "Boğaz girin",
+        "helper": "Kaynak Boğaz in mm"
+      },
+      "leglengthmm": {
+        "label": "Leg Uzunluk",
+        "placeholder": "Leg Uzunluk girin",
+        "helper": "Leg Uzunluk in mm"
+      }
+    },
+    "bulonlu-baglanti-kesme-ezilme-hesabi": {
+      "boltcount": {
+        "label": "Cıvata Adet",
+        "placeholder": "Cıvata Adet girin",
+        "helper": "Number of Cıvatas"
+      },
+      "shearcapacitykn": {
+        "label": "Kesme kapasitesi",
+        "placeholder": "Kesme kapasitesi girin",
+        "helper": "Kesme kapasitesi başına Cıvata in kN"
+      }
+    },
+    "ruzgar-turbini-yaklasik-uretim-hesabi": {
+      "ratedkw": {
+        "label": "Orand Güç",
+        "placeholder": "Orand Güç girin",
+        "helper": "Turbine Orand kW"
+      },
+      "capacityfactor": {
+        "label": "Kapasite faktörü",
+        "placeholder": "Kapasite faktörü girin",
+        "helper": "Kapasite faktörü"
+      }
+    },
+    "su-isitma-kazan-boyler-kapasite-hesabi": {
+      "volumeliters": {
+        "label": "Hacim",
+        "placeholder": "Hacim girin",
+        "helper": "Tank Hacim in litre"
+      },
+      "deltatempc": {
+        "label": "Sıcaklık rise",
+        "placeholder": "Sıcaklık rise girin",
+        "helper": "Gerekli Sıcaklık rise in °C"
+      }
+    },
+    "soguk-oda-sogutma-yuku-hesabi": {
+      "roomvolumem3": {
+        "label": "Oda Hacim",
+        "placeholder": "Oda Hacim girin",
+        "helper": "Cold Oda Hacim"
+      },
+      "loadfactor": {
+        "label": "Yük faktörü",
+        "placeholder": "Yük faktörü girin",
+        "helper": "Cooling Yük faktörü"
+      }
+    },
+    "yamuk-alani-hesaplama": {
+      "basea": {
+        "label": "Taban A",
+        "placeholder": "Taban A girin",
+        "helper": "First parallel side"
+      },
+      "baseb": {
+        "label": "Taban B",
+        "placeholder": "Taban B girin",
+        "helper": "Second parallel side"
+      },
+      "height": {
+        "label": "Yükseklik",
+        "placeholder": "Yükseklik girin",
+        "helper": "başınapendicular Yükseklik"
+      }
+    },
+    "kure-hacmi-hesaplama": {
+      "radius": {
+        "label": "Yarıçap",
+        "placeholder": "Yarıçap girin",
+        "helper": "Sphere Yarıçap"
+      }
+    },
+    "koni-hacmi-hesaplama": {
+      "radius": {
+        "label": "Yarıçap",
+        "placeholder": "Yarıçap girin",
+        "helper": "Taban Yarıçap"
+      },
+      "height": {
+        "label": "Yükseklik",
+        "placeholder": "Yükseklik girin",
+        "helper": "Cone Yükseklik"
+      }
+    },
+    "duvar-kagidi-seramik-adet-hesaplama": {
+      "wallaream2": {
+        "label": "Duvar Alan",
+        "placeholder": "Duvar Alan girin",
+        "helper": "Duvar Alan for calculation"
+      },
+      "tileaream2": {
+        "label": "Fayans Alan",
+        "placeholder": "Fayans Alan girin",
+        "helper": "Fayans Alan for calculation"
+      }
+    },
+    "kiris-kolon-yaklasik-agirlik-hesabi": {
+      "lengthm": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Member Uzunluk in metre"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "kg/m girin",
+        "helper": "Catalog Ağırlık başına meter"
+      }
+    },
+    "asma-tavan-malzeme-hesabi": {
+      "ceilingaream2": {
+        "label": "Ceiling Alan",
+        "placeholder": "Ceiling Alan girin",
+        "helper": "Ceiling Alan m² cinsinden"
+      },
+      "materialperm2": {
+        "label": "Malzeme m² başına",
+        "placeholder": "Malzeme m² başına girin",
+        "helper": "Malzeme birim m² başına"
+      }
+    },
+    "istinat-duvari-yaklasik-beton-hesabi": {
+      "walllengthm": {
+        "label": "Duvar Uzunluk",
+        "placeholder": "Duvar Uzunluk girin",
+        "helper": "Retaining Duvar Uzunluk"
+      },
+      "wallheightm": {
+        "label": "Duvar Yükseklik",
+        "placeholder": "Duvar Yükseklik girin",
+        "helper": "Average Duvar Yükseklik"
+      }
+    },
+    "rulman-omur-hesabi-l10": {
+      "dynamicloadkn": {
+        "label": "Dinamik yük",
+        "placeholder": "Dinamik yük girin",
+        "helper": "Dinamik yük for calculation"
+      },
+      "basicloadkn": {
+        "label": "Temel yük derecesi",
+        "placeholder": "Temel yük derecesi girin",
+        "helper": "Temel yük derecesi for calculation"
+      }
+    },
+    "paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli": {
+      "densitykgm3": {
+        "label": "Malzeme Yoğunluk",
+        "placeholder": "Malzeme Yoğunluk girin",
+        "helper": "Malzeme Yoğunluk"
+      }
+    },
+    "enjeksiyon-dokum-cekme-payi-hesabi": {
+      "partlengthmm": {
+        "label": "Part Uzunluk",
+        "placeholder": "Part Uzunluk girin",
+        "helper": "Molded Part Uzunluk in mm"
+      },
+      "shrinkpercent": {
+        "label": "Shrink Yüzde",
+        "placeholder": "Shrink Yüzde girin",
+        "helper": "Expected Shrink Yüzde"
+      }
+    },
+    "kumlama-raspa-kum-sarfiyati-hesabi": {
+      "surfaceaream2": {
+        "label": "Surface Alan",
+        "placeholder": "Surface Alan girin",
+        "helper": "Blasted surface m² cinsinden"
+      },
+      "abrasivekgperm2": {
+        "label": "Abrasive m² başına",
+        "placeholder": "Abrasive m² başına girin",
+        "helper": "Abrasive kg m² başına"
+      }
+    },
+    "plastik-enjeksiyon-cevrim-suresi-tahmini": {
+      "shotweightg": {
+        "label": "Shot Ağırlık",
+        "placeholder": "Shot Ağırlık girin",
+        "helper": "Shot Ağırlık for calculation"
+      },
+      "injectionrategps": {
+        "label": "Injection Oran",
+        "placeholder": "Injection Oran girin",
+        "helper": "Injection Oran for calculation"
+      }
+    },
+    "personel-devamsizlik-maliyeti-hesaplama": {
+      "dailywage": {
+        "label": "Günlük wage",
+        "placeholder": "Günlük wage girin",
+        "helper": "Günlük wage Maliyet"
+      },
+      "absentdays": {
+        "label": "Absent Gün",
+        "placeholder": "Absent Gün girin",
+        "helper": "Absent Gün in başınaiod"
+      }
+    },
+    "is-kazasi-maliyeti-gun-kaybi-hesaplama": {
+      "dailyoutputvalue": {
+        "label": "Günlük çıktı Değer",
+        "placeholder": "Günlük çıktı Değer girin",
+        "helper": "Günlük production Değer"
+      },
+      "lostdays": {
+        "label": "Lost Gün",
+        "placeholder": "Lost Gün girin",
+        "helper": "Lost workGün"
+      }
+    },
+    "forklift-transpalet-kullanim-maliyeti": {
+      "hourlyrate": {
+        "label": "Hourly Oran",
+        "placeholder": "Hourly Oran girin",
+        "helper": "ekipman Hourly Oran"
+      },
+      "hours": {
+        "label": "Saat",
+        "placeholder": "Saat girin",
+        "helper": "Obaşınaating Saat"
+      }
+    },
+    "paketleme-malzemesi-strec-koli-sarfiyati": {
+      "shipmentcount": {
+        "label": "Sevkiyat",
+        "placeholder": "Sevkiyat girin",
+        "helper": "Number of Sevkiyat"
+      },
+      "materialpershipment": {
+        "label": "Malzeme başına shipment",
+        "placeholder": "Malzeme başına shipment girin",
+        "helper": "Packaging birim başına shipment"
+      }
+    },
+    "irsaliye-fatura-adedi-basina-sevkiyat-maliyeti": {
+      "totalshippingcost": {
+        "label": "Toplam shipping Maliyet",
+        "placeholder": "Toplam shipping Maliyet girin",
+        "helper": "Toplam shipping Maliyet for calculation"
+      },
+      "documentcount": {
+        "label": "Document Adet",
+        "placeholder": "Document Adet girin",
+        "helper": "Document Adet for calculation"
+      }
+    },
+    "cay-kahve-su-tuketim-maliyeti": {
+      "unitcost": {
+        "label": "Birim maliyet",
+        "placeholder": "Birim maliyet girin",
+        "helper": "Maliyet başına serving"
+      },
+      "dailyunits": {
+        "label": "Günlük birim",
+        "placeholder": "Günlük birim girin",
+        "helper": "Servings başına day"
+      }
+    },
+    "toplanti-saati-maliyeti-hesaplama": {
+      "attendeerate": {
+        "label": "Attendee Oran",
+        "placeholder": "Attendee Oran girin",
+        "helper": "Blended hourly attendee Maliyet"
+      },
+      "attendeehours": {
+        "label": "Attendee-Saat",
+        "placeholder": "Attendee-Saat girin",
+        "helper": "Toplam Attendee-Saat"
+      }
+    },
+    "is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati": {
+      "unitcost": {
+        "label": "Birim maliyet",
+        "placeholder": "Birim maliyet girin",
+        "helper": "PPE Maliyet başına employee"
+      },
+      "employeecount": {
+        "label": "Çalışan",
+        "placeholder": "Çalışan girin",
+        "helper": "Number of Çalışan"
+      }
+    },
+    "temizlik-malzemesi-sarfiyat-hesabi": {
+      "aream2": {
+        "label": "Alan",
+        "placeholder": "Alan girin",
+        "helper": "Cleaned Alan m² cinsinden"
+      },
+      "consumptionperm2": {
+        "label": "Tüketim m² başına",
+        "placeholder": "Tüketim m² başına girin",
+        "helper": "Malzeme Tüketim m² başına"
+      }
+    },
+    "ofis-kirtasiye-sarfiyat-hesabi": {
+      "employeecount": {
+        "label": "Çalışan",
+        "placeholder": "Çalışan girin",
+        "helper": "Number of Çalışan"
+      },
+      "monthlyspendperhead": {
+        "label": "Spend başına Kafa",
+        "placeholder": "Spend başına Kafa girin",
+        "helper": "Aylık stationery spend başına employee"
+      }
+    },
+    "sirket-telefon-faturasi-hesaplama": {
+      "linecount": {
+        "label": "Hatlar",
+        "placeholder": "Hatlar girin",
+        "helper": "Number of phone Hatlar"
+      },
+      "monthlylinecost": {
+        "label": "Maliyet başına line",
+        "placeholder": "Maliyet başına line girin",
+        "helper": "Aylık Maliyet başına line"
+      }
+    },
+    "abonelik-yazilim-cloud-yillik-maliyet-hesabi": {
+      "monthlyfee": {
+        "label": "Aylık fee",
+        "placeholder": "Aylık fee girin",
+        "helper": "Aylık subscription fee"
+      },
+      "months": {
+        "label": "Ay",
+        "placeholder": "Ay girin",
+        "helper": "Ay başına yıl"
+      }
+    },
+    "is-sagligi-ve-guvenligi-ceza-hesaplama": {
+      "basefine": {
+        "label": "Taban ceza",
+        "placeholder": "Taban ceza girin",
+        "helper": "Reference Ceza tutarı"
+      },
+      "severityfactor": {
+        "label": "Şiddet faktörü",
+        "placeholder": "Şiddet faktörü girin",
+        "helper": "Severity mulbahşişlier"
+      }
+    },
+    "yangin-merdiveni-kacis-yolu-genisligi-hesabi": {
+      "occupantload": {
+        "label": "Occupant Yük",
+        "placeholder": "Occupant Yük girin",
+        "helper": "Occupant Yük for calculation"
+      },
+      "flowpermeter": {
+        "label": "Debi başına meter",
+        "placeholder": "Debi başına meter girin",
+        "helper": "Debi başına meter for calculation"
+      }
+    },
+    "cevre-atik-beyani-maliyet-hesaplama": {
+      "wastetonnes": {
+        "label": "Fire tonnage",
+        "placeholder": "Fire tonnage girin",
+        "helper": "Declared Fire in tonnes"
+      },
+      "feepertonne": {
+        "label": "Fee başına tonne",
+        "placeholder": "Fee başına tonne girin",
+        "helper": "Fee başına tonne"
+      }
+    },
+    "cop-atik-konteyner-hacim-hesabi": {
+      "containerlengthm": {
+        "label": "Uzunluk",
+        "placeholder": "Uzunluk girin",
+        "helper": "Container Uzunluk in metre"
+      },
+      "containerwidthm": {
+        "label": "Genişlik",
+        "placeholder": "Genişlik girin",
+        "helper": "Container Genişlik in metre"
+      }
+    },
+    "geri-donusum-gelir-maliyet-hesabi": {
+      "recyclingrevenue": {
+        "label": "Recycling Gelir",
+        "placeholder": "Recycling Gelir girin",
+        "helper": "Recycling Gelir for comparison"
+      },
+      "processingcost": {
+        "label": "Processing Maliyet",
+        "placeholder": "Processing Maliyet girin",
+        "helper": "Processing Maliyet for comparison"
+      }
+    },
+    "merdiven-platform-yukseklik-erisim-hesabi": {
+      "platformheightm": {
+        "label": "Platform Yükseklik",
+        "placeholder": "Platform Yükseklik girin",
+        "helper": "Working Platform Yükseklik in metre"
+      },
+      "accessfactor": {
+        "label": "Erişim faktörü",
+        "placeholder": "Erişim faktörü girin",
+        "helper": "Erişim faktörü"
+      }
+    },
+    "mil-aks-capi-hesabi-egilme-burulma": {
+      "bendingmoment": {
+        "label": "Eğilme momenti",
+        "placeholder": "Eğilme momenti girin",
+        "helper": "Applied Eğilme momenti index"
+      },
+      "torque": {
+        "label": "Tork",
+        "placeholder": "Tork girin",
+        "helper": "Applied Tork index"
+      }
+    },
+    "yatak-rulman-omur-hesabi-l10": {
+      "dynamicloadkn": {
+        "label": "Dinamik yük",
+        "placeholder": "Dinamik yük girin",
+        "helper": "Dinamik yük for calculation"
+      },
+      "basicloadkn": {
+        "label": "Temel yük derecesi",
+        "placeholder": "Temel yük derecesi girin",
+        "helper": "Temel yük derecesi for calculation"
+      }
+    },
+    "yay-helisel-kuvvet-uzama-hesabi": {
+      "springrate": {
+        "label": "Spring Oran",
+        "placeholder": "Spring Oran girin",
+        "helper": "Spring Oran N/mm"
+      },
+      "deflectionmm": {
+        "label": "Sehim",
+        "placeholder": "Sehim girin",
+        "helper": "Sehim in mm"
+      }
+    },
+    "basincli-kap-cidar-kalinligi-hesabi": {
+      "designpressurebar": {
+        "label": "Design Basınç",
+        "placeholder": "Design Basınç girin",
+        "helper": "Design Basınç for calculation"
+      },
+      "allowablestressbar": {
+        "label": "İzin verilen gerilme",
+        "placeholder": "İzin verilen gerilme girin",
+        "helper": "İzin verilen gerilme for calculation"
+      }
+    },
+    "isi-degistirici-esanjor-kapasite-hesabi": {
+      "flowratem3h": {
+        "label": "Debi Oran",
+        "placeholder": "Debi Oran girin",
+        "helper": "Debi m³ cinsinden/h"
+      },
+      "deltatempc": {
+        "label": "Sıcaklık delta",
+        "placeholder": "Sıcaklık delta girin",
+        "helper": "Sıcaklık fark in °C"
+      }
+    },
+    "baca-havalandirma-kanali-cap-hesabi": {
+      "airflowm3h": {
+        "label": "AirDebi",
+        "placeholder": "AirDebi girin",
+        "helper": "AirDebi for calculation"
+      },
+      "velocitymps": {
+        "label": "Hedef hız",
+        "placeholder": "Hedef hız girin",
+        "helper": "Hedef hız for calculation"
+      }
+    },
+    "ses-yalitimi-desibel-azaltimi-hesabi": {
+      "sourcedb": {
+        "label": "Kaynak seviyesi",
+        "placeholder": "Kaynak seviyesi girin",
+        "helper": "Kaynak seviyesi for comparison"
+      },
+      "attenuationdb": {
+        "label": "Zayıflama",
+        "placeholder": "Zayıflama girin",
+        "helper": "Zayıflama for comparison"
+      }
+    },
+    "titresim-frekans-periyot-hesaplama": {
+      "frequencyhz": {
+        "label": "Frekans",
+        "placeholder": "Frekans girin",
+        "helper": "Vibration Frekans in Hz"
+      },
+      "unitconstant": {
+        "label": "Sabit",
+        "placeholder": "Sabit girin",
+        "helper": "Use 1 for başınaiod in Saniye"
+      }
+    },
+    "kaynak-proseduru-wps-on-isitma-sicakligi-hesabi": {
+      "preheattempc": {
+        "label": "Preısı Sıcaklık",
+        "placeholder": "Preısı Sıcaklık girin",
+        "helper": "Preısı Sıcaklık"
+      }
+    },
+    "istatistiksel-proses-kontrol-spc-limit-hesabi": {
+      "processmean": {
+        "label": "Proses ortalaması",
+        "placeholder": "Proses ortalaması girin",
+        "helper": "Proses ortalaması"
+      },
+      "controlfactor": {
+        "label": "Kontrol faktörü",
+        "placeholder": "Kontrol faktörü girin",
+        "helper": "Control limit Faktör"
+      }
+    },
+    "alti-sigma-dpmo-sigma-seviyesi-cevirici": {
+      "dpmo": {
+        "label": "DPMO",
+        "placeholder": "DPMO girin",
+        "helper": "Defects başına Milyon opportunities"
+      },
+      "million": {
+        "label": "Milyon",
+        "placeholder": "Milyon girin",
+        "helper": "Bölen (use 1,000,000)"
       }
     }
   },
@@ -3475,5 +6765,39 @@
     "legalQuestion": "Bu finansal veya mühendislik tavsiyesi midir?",
     "legalAnswer": "Hayır. SectorCalc premium hesaplayıcıları şeffaf varsayımlarla karar destek aracıdır. Profesyonel finans, hukuk veya mühendislik tavsiyesinin yerini almaz.",
     "serviceType": "Operasyonel karar hesaplaması"
+  },
+  "sectorFooter": {
+    "logoText": "SECTORCALC",
+    "badge": "SEKTÖREL HESAP MAKİNESİ",
+    "hudRight1": "SEKTÖREL ARAÇLAR : AKTİF",
+    "hudRight2": "FREE + PREMIUM",
+    "panel1Svg": "MALİYET",
+    "panel2Svg": "FİRE/KAYIP",
+    "panel3Svg": "TEKNİK/OEE",
+    "panel4Svg": "KÜTÜPHANE",
+    "panel1Link1": "Teklif ve Kâr Marjı Hesaplayıcı",
+    "panel1Link2": "Makine Saat Ücreti Hesaplayıcı",
+    "panel1Link3": "Başabaş Noktası Hesaplayıcı",
+    "panel1Link4": "Personel Tam Maliyet Hesaplayıcı",
+    "panel2Link1": "Fire ve Malzeme Kaybı",
+    "panel2Link2": "Plansız Duruş Maliyeti",
+    "panel2Link3": "Stok ve EOQ Hesaplayıcı",
+    "panel2Link4": "Kalite Maliyeti Hesaplayıcı",
+    "panel3Link1": "OEE Hesaplayıcı",
+    "panel3Link2": "Kompresör Kaçağı Maliyeti",
+    "panel3Link3": "Civata Torku ve Bağlantı",
+    "panel3Link4": "Karbon ve Enerji Hesapları",
+    "newsletterLabel": "SECTORCALC BÜLTENİ",
+    "newsletterPlaceholder": "e-posta adresiniz",
+    "newsletterButton": "KAYIT OL",
+    "socialIn": "IN",
+    "socialApi": "API",
+    "socialLlms": "LLMS",
+    "legalPrivacy": "GİZLİLİK POLİTİKASI",
+    "legalTerms": "KULLANIM KOŞULLARI",
+    "legalDisclaimer": "SORUMLULUK REDDİ",
+    "metaReg": "REG: GLOBAL",
+    "metaCur": "CUR: TRY",
+    "metaCopyright": "© 2026 SECTORCALC"
   }
 }

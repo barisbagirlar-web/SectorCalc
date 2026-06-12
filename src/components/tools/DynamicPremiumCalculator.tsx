@@ -28,7 +28,9 @@ import { handleNumericInputChange } from "@/lib/input/numeric-input";
 import type { BenchmarkSnapshotValue } from "@/lib/benchmarks/benchmark-types";
 import { usePremiumSchemaEntitlement } from "@/lib/entitlements/use-premium-schema-entitlement";
 import { limitPreviewThresholdCount } from "@/lib/entitlements/premium-entitlements";
+import { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspace";
 import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
+import { resolveCalculatorInputDisplay } from "@/lib/i18n/free-tool-form-i18n";
 import {
   resolvePremiumSchemaDisplayName,
   resolvePremiumSchemaPainStatement,
@@ -138,98 +140,35 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
       title={displayName}
       description={displayPain}
       tier="premium"
+      layout="workspace"
       fallback
       formContent={
-    <div className="sc-ledger-karar-masasi mt-4">
-      {result && reportData ? (
-        <div className="sc-ledger-karar-masasi__decision-stack">
-          <div className="sc-ledger-karar-masasi__verdict min-w-0" aria-live="polite">
-            <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress">
-              <ExecutiveVerdictBlock
-                verdict={reportData.verdict}
-                statusLabel={t(`status.${reportData.verdict.status}`)}
-              />
-            </div>
-          </div>
-
-          <div className="sc-ledger-karar-masasi__big-number min-w-0">
-            <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress">
-              <BigNumberSummary result={result} meaningLabel={t("whatThisMeans")} />
-            </div>
-          </div>
-
-          <div className="sc-ledger-karar-masasi__threshold min-w-0">
-            <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress p-4 sm:p-5">
-              <ThresholdStatusSection
-                items={
-                  isFullReport
-                    ? reportData.thresholdItems
-                    : limitPreviewThresholdCount(reportData.thresholdItems, 2)
-                }
-                title={t("thresholdTitle")}
-              />
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="sc-ledger-karar-masasi__decision-stack">
-          <div className="sc-ledger-karar-masasi__big-number min-w-0">
-            <div className="sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-5">
-              <p className="sc-ledger-eyebrow">{t("decisionDesk")}</p>
-              <p className="mt-2 text-sm text-body-charcoal">{displayPain}</p>
-              <p className="mt-4 text-sm text-body-charcoal">{t("runPrompt")}</p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {result && reportData && isFullReport ? (
-        <>
-          <div className="sc-ledger-karar-masasi__drivers min-w-0 xl:hidden">
-            <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress p-4 sm:p-5">
-              <LossDriverBreakdown
-                result={result}
-                title={t("hiddenDriversTitle")}
-                intro={t("hiddenDriversIntro")}
-              />
-            </div>
-          </div>
-
-          <div className="sc-ledger-karar-masasi__action min-w-0 xl:hidden">
-            <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress p-4 sm:p-5">
-              <SuggestedActionSection
-                severity={reportData.severity}
-                engineAction={result.suggestedAction}
-                title={t("suggestedActionTitle")}
-                immediateLabel={t("actionImmediate")}
-                monitoringLabel={t("actionMonitoring")}
-                decisionLabel={t("actionDecision")}
-              />
-            </div>
-          </div>
-        </>
-      ) : null}
-
+        <CalculationWorkspace
+          variant="triple"
+          inputs={
       <form
         onSubmit={handleSubmit}
-        className="sc-form-shell sc-form-grid sc-ledger-karar-masasi__entries sc-industrial-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
+        className="sc-form-shell sc-form-grid sc-industrial-form sc-ledger-letterpress min-h-0 flex-1 flex-col"
         noValidate
         data-calculation-form="true"
       >
         <p className="sc-ledger-eyebrow">{t("ledgerEntries")}</p>
-        <h2 className="mt-1 text-base font-semibold text-premium-velvet">{displayName}</h2>
-        <hr className="sc-ledger-divider" />
+        <hr className="sc-ledger-divider mt-1" />
 
         {schema.inputs.map((input) => {
           const id = `schema-input-${schema.id}-${input.id}`;
           const value = values[input.id];
+          const display = resolveCalculatorInputDisplay(schema.id, input.id, locale, {
+            label: input.label,
+            helper: input.helper,
+          });
 
           if (input.type === "select" && input.options) {
             return (
               <div key={input.id} className="sc-industrial-field sc-industrial-field--full">
                 <div className="sc-industrial-field__label-row">
                   <label htmlFor={id} className="sc-ledger-label sc-industrial-field__label">
-                    {input.label}
+                    {display.label}
                   </label>
                   {input.unit ? (
                     <span className="sc-industrial-field__unit">{input.unit}</span>
@@ -250,7 +189,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                     </option>
                   ))}
                 </select>
-                <p className="sc-ledger-helper sc-industrial-field__helper">{input.helper}</p>
+                <p className="sc-ledger-helper sc-industrial-field__helper">{display.helper}</p>
               </div>
             );
           }
@@ -267,9 +206,9 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                       setSubmitted(false);
                     }}
                   />
-                  <span className="text-sm text-premium-velvet">{input.label}</span>
+                  <span className="text-sm text-premium-velvet">{display.label}</span>
                 </label>
-                <p className="sc-ledger-helper sc-industrial-field__helper">{input.helper}</p>
+                <p className="sc-ledger-helper sc-industrial-field__helper">{display.helper}</p>
               </div>
             );
           }
@@ -278,7 +217,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
             <div key={input.id} className="sc-industrial-field sc-industrial-field--full">
               <div className="sc-industrial-field__label-row">
                 <label htmlFor={id} className="sc-ledger-label sc-industrial-field__label">
-                  {input.label}
+                  {display.label}
                 </label>
                 {input.unit ? (
                   <span className="sc-industrial-field__unit">{input.unit}</span>
@@ -291,6 +230,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                 min={input.validation?.min}
                 max={input.validation?.max}
                 step={input.validation?.step}
+                placeholder={display.placeholder}
                 value={String(value ?? "")}
                 onChange={(e) => {
                   if (input.type === "slider") {
@@ -303,7 +243,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                 }}
                 className="sc-ledger-input-boxed sc-industrial-input min-h-[44px]"
               />
-              <p className="sc-ledger-helper sc-industrial-field__helper">{input.helper}</p>
+              <p className="sc-ledger-helper sc-industrial-field__helper">{display.helper}</p>
             </div>
           );
         })}
@@ -314,36 +254,88 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
           </button>
         </div>
       </form>
-
-      <div className="sc-ledger-karar-masasi__report min-w-0">
-        {result ? (
-          <>
-            <PremiumDecisionReportPreview
-              schema={schema}
-              result={result}
-              locale={locale}
-              compact
-              entitlement={entitlement}
-              checkoutHref={checkoutHref}
-            />
-            {feedbackSnapshots ? (
-              <PremiumReportFeedback
-                schemaSlug={schema.id}
-                sectorSlug={schema.sectorSlug}
-                reportSlug={schema.id}
-                inputSnapshot={feedbackSnapshots.inputSnapshot}
-                resultSnapshot={feedbackSnapshots.resultSnapshot}
-              />
-            ) : null}
-          </>
-        ) : (
-          <aside className="sc-ledger-panel sc-industrial-panel p-4 sm:p-5">
-            <p className="sc-ledger-eyebrow">{tUi("premiumAnalyzer")}</p>
-            <p className="mt-2 text-xs text-body-charcoal">{displayPain}</p>
-          </aside>
-        )}
-      </div>
-    </div>
+          }
+          decision={
+            result && reportData ? (
+              <div className="flex min-h-0 flex-1 flex-col gap-4" aria-live="polite">
+                <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress min-w-0">
+                  <ExecutiveVerdictBlock
+                    verdict={reportData.verdict}
+                    statusLabel={t(`status.${reportData.verdict.status}`)}
+                  />
+                </div>
+                <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress min-w-0">
+                  <BigNumberSummary result={result} meaningLabel={t("whatThisMeans")} />
+                </div>
+                <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress min-w-0 p-4 sm:p-5">
+                  <ThresholdStatusSection
+                    items={
+                      isFullReport
+                        ? reportData.thresholdItems
+                        : limitPreviewThresholdCount(reportData.thresholdItems, 2)
+                    }
+                    title={t("thresholdTitle")}
+                  />
+                </div>
+              </div>
+            ) : (
+              <>
+                <p className="sc-ledger-eyebrow">{t("decisionDesk")}</p>
+                <p className="mt-2 text-sm text-body-charcoal">{displayPain}</p>
+                <p className="mt-4 text-sm text-body-charcoal">{t("runPrompt")}</p>
+              </>
+            )
+          }
+          output={
+            result ? (
+              <div className="flex min-h-0 flex-1 flex-col gap-4">
+                <PremiumDecisionReportPreview
+                  schema={schema}
+                  result={result}
+                  locale={locale}
+                  compact
+                  entitlement={entitlement}
+                  checkoutHref={checkoutHref}
+                />
+                {result && reportData && isFullReport ? (
+                  <>
+                    <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress p-4 sm:p-5 xl:hidden">
+                      <LossDriverBreakdown
+                        result={result}
+                        title={t("hiddenDriversTitle")}
+                        intro={t("hiddenDriversIntro")}
+                      />
+                    </div>
+                    <div className="sc-ledger-report sc-premium-report sc-ledger-letterpress p-4 sm:p-5 xl:hidden">
+                      <SuggestedActionSection
+                        severity={reportData.severity}
+                        engineAction={result.suggestedAction}
+                        title={t("suggestedActionTitle")}
+                        immediateLabel={t("actionImmediate")}
+                        monitoringLabel={t("actionMonitoring")}
+                        decisionLabel={t("actionDecision")}
+                      />
+                    </div>
+                  </>
+                ) : null}
+                {feedbackSnapshots ? (
+                  <PremiumReportFeedback
+                    schemaSlug={schema.id}
+                    sectorSlug={schema.sectorSlug}
+                    reportSlug={schema.id}
+                    inputSnapshot={feedbackSnapshots.inputSnapshot}
+                    resultSnapshot={feedbackSnapshots.resultSnapshot}
+                  />
+                ) : null}
+              </div>
+            ) : (
+              <>
+                <p className="sc-ledger-eyebrow">{tUi("premiumAnalyzer")}</p>
+                <p className="mt-2 text-sm text-body-charcoal">{displayPain}</p>
+              </>
+            )
+          }
+        />
       }
     />
   );

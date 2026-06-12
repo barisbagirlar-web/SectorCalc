@@ -33,13 +33,18 @@ import {
  stripPaidOnlyResults,
 } from "@/lib/tools/revenue-tools";
 import { useProSubscription } from "@/lib/subscription/use-pro-subscription";
+import { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspace";
 import { MARGINCORE_TERMS } from "@/lib/terminology/margincore-identity";
+import { useLocale } from "next-intl";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 
 interface ToolCalculatorEngineProps {
  definition: ToolDefinition;
 }
 
 export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) {
+ const locale = useLocale();
+ const marginLeakDriversTitle = translateCalculatorPhrase("Margin leak drivers", locale);
  const isFreeTool = definition.tier === "free";
  const isPremiumTool = definition.tier === "premium";
  const hasDecisionReport = Boolean(definition.features?.decisionReport);
@@ -174,63 +179,64 @@ export function ToolCalculatorEngine({ definition }: ToolCalculatorEngineProps) 
 
  return (
  <div className="flex min-w-0 flex-col gap-8">
- <div className="sc-form-result-layout min-w-0 gap-8 lg:items-start">
- <div
-  className="sc-form-result-panel order-1 min-w-0 rounded-sm border border-border-subtle bg-white p-6 shadow-card sm:p-7"
-  data-calc-form="true"
- >
- <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
- {MARGINCORE_TERMS.riskVariables}
- </p>
- <h2 className="mb-6 text-lg font-bold text-text-primary">Margin leak drivers</h2>
- {isFreeTool ? (
- <>
- <p className="mb-4 text-sm leading-relaxed text-text-secondary">
- {MARGINCORE_TERMS.freePreCheck}
- </p>
- <FreeToolPrivacyNote />
- </>
- ) : null}
- <div className={isFreeTool ? "mt-4" : undefined}>
- <ToolForm
- inputs={visibleInputs}
- values={values}
- errors={displayErrors}
- onChange={handleChange}
- onBlur={handleBlur}
+ <CalculationWorkspace
+  variant="split"
+  decision={null}
+  inputs={
+   <div className="sc-form-result-panel min-w-0" data-calc-form="true">
+    <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
+     {MARGINCORE_TERMS.riskVariables}
+    </p>
+    <h2 className="mb-6 text-lg font-bold text-text-primary">{marginLeakDriversTitle}</h2>
+    {isFreeTool ? (
+     <>
+      <p className="mb-4 text-sm leading-relaxed text-text-secondary">
+       {MARGINCORE_TERMS.freePreCheck}
+      </p>
+      <FreeToolPrivacyNote />
+     </>
+    ) : null}
+    <div className={isFreeTool ? "mt-4" : undefined}>
+     <ToolForm
+      inputs={visibleInputs}
+      values={values}
+      errors={displayErrors}
+      onChange={handleChange}
+      onBlur={handleBlur}
+     />
+    </div>
+   </div>
+  }
+  output={
+   <div className="sc-form-result-panel min-w-0 space-y-4" data-calc-result="true">
+    {premiumLocked ? (
+     <PremiumToolPaywall toolTitle={definition.title} toolSlug={toolSlug} />
+    ) : (
+     <>
+      <ToolResultPanel
+       results={computed.results}
+       interpretationNote={freeRiskNote ?? definition.interpretationNote}
+       hasErrors={computed.hasErrors}
+       dense={hasDecisionReport && showPaidOutput}
+      />
+      {computed.results.length > 0 && !computed.hasErrors ? (
+       <DecisionToolLegalDisclaimer variant={isPremiumTool ? "paid" : "free"} />
+      ) : null}
+      {isFreeTool && revenueFree && computed.results.length > 0 && !computed.hasErrors ? (
+       <FreeToolUpgradePanel revenue={revenueFree} />
+      ) : null}
+      {computed.premium && !computed.hasErrors && (
+       <RiskVerdictCard
+        riskLevel={computed.premium.riskLevel}
+        riskLevelLabel={computed.premium.report.riskLevelLabel}
+        verdictText={computed.premium.verdictText}
+       />
+      )}
+     </>
+    )}
+   </div>
+  }
  />
- </div>
- </div>
- <div className="sc-form-result-panel order-2 min-w-0 space-y-4" data-calc-result="true">
- {premiumLocked ? (
- <PremiumToolPaywall toolTitle={definition.title} toolSlug={toolSlug} />
- ) : (
- <>
- <ToolResultPanel
- results={computed.results}
- interpretationNote={
- freeRiskNote ?? definition.interpretationNote
- }
- hasErrors={computed.hasErrors}
- dense={hasDecisionReport && showPaidOutput}
- />
- {computed.results.length > 0 && !computed.hasErrors ? (
- <DecisionToolLegalDisclaimer variant={isPremiumTool ? "paid" : "free"} />
- ) : null}
- {isFreeTool && revenueFree && computed.results.length > 0 && !computed.hasErrors ? (
- <FreeToolUpgradePanel revenue={revenueFree} />
- ) : null}
- {computed.premium && !computed.hasErrors && (
- <RiskVerdictCard
- riskLevel={computed.premium.riskLevel}
- riskLevelLabel={computed.premium.report.riskLevelLabel}
- verdictText={computed.premium.verdictText}
- />
- )}
- </>
- )}
- </div>
- </div>
 
  {showPaidOutput && computed.premium && !computed.hasErrors && (
  <div className="order-3 min-w-0 space-y-8">

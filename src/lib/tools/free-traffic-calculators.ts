@@ -11,6 +11,7 @@ import {
   NOT_AVAILABLE,
   type SupportedLocale,
 } from "@/lib/format/localization";
+import { localizeTrafficResultPartial } from "@/lib/i18n/free-tool-result-i18n";
 import {
   getFreeTrafficToolBySlug,
   listFreeTrafficSlugs,
@@ -125,11 +126,12 @@ type CalculatorFn = (values: FreeTrafficInputValues) => CalcPartial;
 
 function meta(slug: string, partial: CalcPartial): FreeTrafficResult {
   const tool = getFreeTrafficToolBySlug(slug);
+  const localized = localizeTrafficResultPartial(partial, _activeFormatLocale);
   return result({
-    ...partial,
+    ...localized,
     missingFactors:
-      partial.missingFactors.length > 0
-        ? partial.missingFactors
+      (localized.missingFactors?.length ?? 0) > 0
+        ? localized.missingFactors!
         : tool?.missingFactors ?? [],
     relatedPremiumSlug: partial.relatedPremiumSlug ?? tool?.relatedPremiumSlug,
   });

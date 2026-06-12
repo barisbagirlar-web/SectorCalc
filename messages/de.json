@@ -216,9 +216,11 @@
   },
   "catalogExplorer": {
     "categories": {
-      "eyebrow": "Categories",
-      "title": "Find the right calculator category.",
-      "subtitle": "Choose the type of loss, measurement or decision you need first."
+      "eyebrow": "Nach Funktion",
+      "title": "Rechner nach Mess- oder Entscheidungsbedarf finden.",
+      "subtitle": "Wählen Sie zuerst den Berechnungstyp — Produktivität, Ausschuss, Kosten, Routing, Energie, Messung oder Finanzen — und öffnen Sie dann den passenden Gratis-Check oder Premium-Bericht.",
+      "metaTitle": "Rechner nach Funktion — OEE, Ausschuss, Route, Energie",
+      "metaDescription": "SectorCalc-Tools nach Messziel: OEE, Ausschuss, Routing, Kalibrierung, Energie, Marge, Finanzen und Alltagsberechnungen."
     },
     "freeTools": {
       "eyebrow": "Kostenlose Rechner",
@@ -3045,7 +3047,14 @@
     "calculationSteps": "Berechnungsschritte",
     "calculationStepsEmpty": "Berechnungsschritte erscheinen, wenn dieser Vertrag deterministische Spur liefert.",
     "calculationStepDecisionGoal": "Entscheidungsziel",
-    "calculationStepFormulaSummary": "Formelübersicht"
+    "calculationStepFormulaSummary": "Formelübersicht",
+    "fieldValidation": {
+      "required": "{label} ist erforderlich.",
+      "invalidNumber": "{label} muss eine gültige Zahl sein.",
+      "min": "{label} muss mindestens {min} sein.",
+      "max": "{label} darf höchstens {max} sein.",
+      "contractNotFound": "Smart-Form-Vertrag für dieses Tool nicht gefunden."
+    }
   },
   "freeToolContent": {
     "square-meter-calculator": {
@@ -3464,5 +3473,3336 @@
     "legalQuestion": "Ist dies Finanz- oder Ingenieurberatung?",
     "legalAnswer": "Nein. SectorCalc Premium-Rechner sind Entscheidungsunterstützung mit transparenten Annahmen. Sie ersetzen keine professionelle Finanz-, Rechts- oder Ingenieurberatung.",
     "serviceType": "Operative Entscheidungsberechnung"
+  },
+  "freeToolInputs": {
+    "square-meter-calculator": {
+      "length": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Room or slab Länge"
+      },
+      "width": {
+        "label": "Breite",
+        "placeholder": "Breite eingeben",
+        "helper": "Room or slab Breite"
+      }
+    },
+    "square-footage-calculator": {
+      "length": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Länge in feet"
+      },
+      "width": {
+        "label": "Breite",
+        "placeholder": "Breite eingeben",
+        "helper": "Breite in feet"
+      }
+    },
+    "concrete-volume-calculator": {
+      "length": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Slab Länge"
+      },
+      "width": {
+        "label": "Breite",
+        "placeholder": "Breite eingeben",
+        "helper": "Slab Breite"
+      },
+      "depth": {
+        "label": "Tiefe",
+        "placeholder": "Tiefe eingeben",
+        "helper": "Slab Dicke"
+      }
+    },
+    "concrete-bag-calculator": {
+      "volumem3": {
+        "label": "Volumen",
+        "placeholder": "Volumen eingeben",
+        "helper": "Gesamtes GussVolumenn"
+      },
+      "bagyieldm3": {
+        "label": "Sackertrag",
+        "placeholder": "Sackertrag eingeben",
+        "helper": "Volumenn pro Sack"
+      },
+      "wastepercent": {
+        "label": "Ausschuss",
+        "placeholder": "Ausschuss eingeben",
+        "helper": "Zusätzlicher Ausschusszuschlag"
+      }
+    },
+    "paint-coverage-calculator": {
+      "aream2": {
+        "label": "Wall Fläche",
+        "placeholder": "Wall Fläche eingeben",
+        "helper": "Surface Fläche to paint"
+      },
+      "coverageperliter": {
+        "label": "Deckkraft",
+        "placeholder": "Deckkraft eingeben",
+        "helper": "Deckkraft pro Liter"
+      },
+      "coats": {
+        "label": "Schichten",
+        "placeholder": "Schichten eingeben",
+        "helper": "Number of Schichten"
+      }
+    },
+    "tile-calculator": {
+      "aream2": {
+        "label": "Grundfläche",
+        "placeholder": "Grundfläche eingeben",
+        "helper": "Fläche to tile"
+      },
+      "tilelengthcm": {
+        "label": "Tile Länge",
+        "placeholder": "Tile Länge eingeben",
+        "helper": "Tile Länge"
+      },
+      "tilewidthcm": {
+        "label": "Tile Breite",
+        "placeholder": "Tile Breite eingeben",
+        "helper": "Tile Breite"
+      },
+      "wastepercent": {
+        "label": "Ausschuss",
+        "placeholder": "Ausschuss eingeben",
+        "helper": "Cutting Ausschuss"
+      }
+    },
+    "flooring-calculator": {
+      "roomlengthm": {
+        "label": "Room Länge",
+        "placeholder": "Room Länge eingeben",
+        "helper": "Länge"
+      },
+      "roomwidthm": {
+        "label": "Room Breite",
+        "placeholder": "Room Breite eingeben",
+        "helper": "Breite"
+      },
+      "wastepercent": {
+        "label": "Ausschuss",
+        "placeholder": "Ausschuss eingeben",
+        "helper": "Ordering Ausschuss"
+      }
+    },
+    "roofing-area-calculator": {
+      "lengthm": {
+        "label": "Footprint Länge",
+        "placeholder": "Footprint Länge eingeben",
+        "helper": "Building Länge"
+      },
+      "widthm": {
+        "label": "Footprint Breite",
+        "placeholder": "Footprint Breite eingeben",
+        "helper": "Building Breite"
+      },
+      "pitchfactor": {
+        "label": "Neigungsfaktor",
+        "placeholder": "Neigungsfaktor eingeben",
+        "helper": "Slope multiplier (e.g. 1.15)"
+      }
+    },
+    "stair-calculator": {
+      "totalrisecm": {
+        "label": "Gesamthöhe",
+        "placeholder": "Gesamthöhe eingeben",
+        "helper": "Floor-to-floor Höhe"
+      },
+      "riserheightcm": {
+        "label": "Riser Höhe",
+        "placeholder": "Riser Höhe eingeben",
+        "helper": "Step riser"
+      },
+      "treaddepthcm": {
+        "label": "Auftrittstiefe",
+        "placeholder": "Auftrittstiefe eingeben",
+        "helper": "Step tread"
+      }
+    },
+    "drywall-calculator": {
+      "wallaream2": {
+        "label": "Wall Fläche",
+        "placeholder": "Wall Fläche eingeben",
+        "helper": "Total dryWall Fläche"
+      },
+      "sheetaream2": {
+        "label": "Sheet Fläche",
+        "placeholder": "Sheet Fläche eingeben",
+        "helper": "Fläche pro sheet"
+      },
+      "wastepercent": {
+        "label": "Ausschuss",
+        "placeholder": "Ausschuss eingeben",
+        "helper": "Cut Ausschuss"
+      }
+    },
+    "brick-calculator": {
+      "wallaream2": {
+        "label": "Wall Fläche",
+        "placeholder": "Wall Fläche eingeben",
+        "helper": "Wall surface"
+      },
+      "bricksperm2": {
+        "label": "Steine pro m²",
+        "placeholder": "Steine pro m² eingeben",
+        "helper": "Layout Dichte"
+      },
+      "wastepercent": {
+        "label": "Ausschuss",
+        "placeholder": "Ausschuss eingeben",
+        "helper": "Breakage allowance"
+      }
+    },
+    "rebar-weight-calculator": {
+      "diametermm": {
+        "label": "Durchmesser",
+        "placeholder": "Durchmesser eingeben",
+        "helper": "Bar Durchmesser"
+      },
+      "lengthm": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Stablänge"
+      },
+      "quantity": {
+        "label": "Menge",
+        "placeholder": "Menge eingeben",
+        "helper": "Number of bars"
+      }
+    },
+    "excavation-volume-calculator": {
+      "lengthm": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Trench Länge"
+      },
+      "widthm": {
+        "label": "Breite",
+        "placeholder": "Breite eingeben",
+        "helper": "Trench Breite"
+      },
+      "depthm": {
+        "label": "Tiefe",
+        "placeholder": "Tiefe eingeben",
+        "helper": "Dig Tiefe"
+      }
+    },
+    "plaster-calculator": {
+      "aream2": {
+        "label": "Fläche",
+        "placeholder": "Fläche eingeben",
+        "helper": "Surface Fläche"
+      },
+      "thicknessmm": {
+        "label": "Dicke",
+        "placeholder": "Dicke eingeben",
+        "helper": "Plaster Dicke"
+      },
+      "densitykgm3": {
+        "label": "Dichte",
+        "placeholder": "Dichte eingeben",
+        "helper": "Material Dichte"
+      }
+    },
+    "home-renovation-m2-calculator": {
+      "aream2": {
+        "label": "Fläche",
+        "placeholder": "Fläche eingeben",
+        "helper": "Renovation Fläche"
+      },
+      "costperm2": {
+        "label": "Kosten pro m²",
+        "placeholder": "Kosten pro m² eingeben",
+        "helper": "Unit Satz"
+      },
+      "contingencypercent": {
+        "label": "Reserve",
+        "placeholder": "Reserve eingeben",
+        "helper": "Buffer procent"
+      }
+    },
+    "loan-payment-calculator": {
+      "principal": {
+        "label": "Kapital",
+        "placeholder": "Kapital eingeben",
+        "helper": "Darlehensbetrag"
+      },
+      "annualrate": {
+        "label": "Jahreszins",
+        "placeholder": "Jahreszins eingeben",
+        "helper": "Nominal APR"
+      },
+      "months": {
+        "label": "Laufzeit",
+        "placeholder": "Laufzeit eingeben",
+        "helper": "Loan Laufzeit"
+      }
+    },
+    "mortgage-calculator": {
+      "principal": {
+        "label": "Darlehensbetrag",
+        "placeholder": "Darlehensbetrag eingeben",
+        "helper": "Mortgage Kapital"
+      },
+      "annualrate": {
+        "label": "Jahreszins",
+        "placeholder": "Jahreszins eingeben",
+        "helper": "Interest Satz"
+      },
+      "months": {
+        "label": "Laufzeit",
+        "placeholder": "Laufzeit eingeben",
+        "helper": "Loan Laufzeit"
+      }
+    },
+    "interest-calculator": {
+      "principal": {
+        "label": "Kapital",
+        "placeholder": "Kapital eingeben",
+        "helper": "Starting amount"
+      },
+      "ratepercent": {
+        "label": "Satz",
+        "placeholder": "Satz eingeben",
+        "helper": "Jahreszins"
+      },
+      "years": {
+        "label": "Jahre",
+        "placeholder": "Jahre eingeben",
+        "helper": "Dauer"
+      }
+    },
+    "compound-interest-calculator": {
+      "principal": {
+        "label": "Kapital",
+        "placeholder": "Kapital eingeben",
+        "helper": "Initial deposit"
+      },
+      "annualrate": {
+        "label": "Jahreszins",
+        "placeholder": "Jahreszins eingeben",
+        "helper": "Nominal Satz"
+      },
+      "years": {
+        "label": "Jahre",
+        "placeholder": "Jahre eingeben",
+        "helper": "Time horizon"
+      },
+      "compoundsperyear": {
+        "label": "Zinseszins/Jahr",
+        "placeholder": "Zinseszins/Jahr eingeben",
+        "helper": "Compounding frequency"
+      }
+    },
+    "vat-calculator": {
+      "net": {
+        "label": "Nettotobetrag",
+        "placeholder": "Nettotobetrag eingeben",
+        "helper": "Preis before VAT"
+      },
+      "vatrate": {
+        "label": "VAT Satz",
+        "placeholder": "VAT Satz eingeben",
+        "helper": "Tax Satz"
+      }
+    },
+    "discount-calculator": {
+      "originalprice": {
+        "label": "Original Preis",
+        "placeholder": "Original Preis eingeben",
+        "helper": "List Preis"
+      },
+      "discountpercent": {
+        "label": "Rabatt",
+        "placeholder": "Rabatt eingeben",
+        "helper": "Rabatt procent"
+      }
+    },
+    "percentage-calculator": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Base Wert"
+      },
+      "percent": {
+        "label": "procent",
+        "placeholder": "procent eingeben",
+        "helper": "procentage to apply"
+      }
+    },
+    "profit-margin-calculator": {
+      "sellingprice": {
+        "label": "Selling Preis",
+        "placeholder": "Selling Preis eingeben",
+        "helper": "Revenue pro unit"
+      },
+      "cost": {
+        "label": "Kosten",
+        "placeholder": "Kosten eingeben",
+        "helper": "Unit Kosten"
+      }
+    },
+    "break-even-calculator": {
+      "fixedcost": {
+        "label": "Fixed Kosten",
+        "placeholder": "Fixed Kosten eingeben",
+        "helper": "Overhead to cover"
+      },
+      "unitprice": {
+        "label": "Unit Preis",
+        "placeholder": "Unit Preis eingeben",
+        "helper": "Selling Preis"
+      },
+      "variablecost": {
+        "label": "Variable Kosten",
+        "placeholder": "Variable Kosten eingeben",
+        "helper": "Kosten pro unit"
+      }
+    },
+    "roi-calculator": {
+      "gain": {
+        "label": "Gewinn",
+        "placeholder": "Gewinn eingeben",
+        "helper": "Return amount"
+      },
+      "cost": {
+        "label": "Kosten",
+        "placeholder": "Kosten eingeben",
+        "helper": "Initial investment"
+      }
+    },
+    "salary-cost-calculator": {
+      "grosssalary": {
+        "label": "Bruttogehalt",
+        "placeholder": "Bruttogehalt eingeben",
+        "helper": "Monthly gross"
+      },
+      "employerratepercent": {
+        "label": "Arbeitgeberanteil",
+        "placeholder": "Arbeitgeberanteil eingeben",
+        "helper": "Employer contribution Satz"
+      }
+    },
+    "hourly-rate-calculator": {
+      "monthlyincome": {
+        "label": "Monatseinkommen",
+        "placeholder": "Monatseinkommen eingeben",
+        "helper": "Sollwert monthly revenue"
+      },
+      "billablehours": {
+        "label": "Abrechenbare Stunden",
+        "placeholder": "Abrechenbare Stunden eingeben",
+        "helper": "Stunden billed pro month"
+      }
+    },
+    "depreciation-calculator": {
+      "assetcost": {
+        "label": "Asset Kosten",
+        "placeholder": "Asset Kosten eingeben",
+        "helper": "Purchase Preis"
+      },
+      "salvagevalue": {
+        "label": "Restwert",
+        "placeholder": "Restwert eingeben",
+        "helper": "Residual Wert"
+      },
+      "usefullifeyears": {
+        "label": "Nutzungsdauer",
+        "placeholder": "Nutzungsdauer eingeben",
+        "helper": "Depreciation proiod"
+      }
+    },
+    "cash-flow-gap-calculator": {
+      "receivablesdays": {
+        "label": "Forderungstage",
+        "placeholder": "Forderungstage eingeben",
+        "helper": "Tage to collect"
+      },
+      "payabledays": {
+        "label": "Verbindlichkeitstage",
+        "placeholder": "Verbindlichkeitstage eingeben",
+        "helper": "Tage to pay"
+      },
+      "dailycost": {
+        "label": "Tageskosten",
+        "placeholder": "Tageskosten eingeben",
+        "helper": "Oproating cash outDurchfluss"
+      }
+    },
+    "unit-cost-calculator": {
+      "totalcost": {
+        "label": "Total Kosten",
+        "placeholder": "Total Kosten eingeben",
+        "helper": "Batch or order Kosten"
+      },
+      "quantity": {
+        "label": "Menge",
+        "placeholder": "Menge eingeben",
+        "helper": "Units produced"
+      }
+    },
+    "machine-time-calculator": {
+      "setupminutes": {
+        "label": "Rüstzeit",
+        "placeholder": "Rüstzeit eingeben",
+        "helper": "Rüstzeit time"
+      },
+      "cycleseconds": {
+        "label": "Taktzeit",
+        "placeholder": "Taktzeit eingeben",
+        "helper": "pro-part cycle"
+      },
+      "quantity": {
+        "label": "Menge",
+        "placeholder": "Menge eingeben",
+        "helper": "Parts to run"
+      },
+      "machinerate": {
+        "label": "Machine Satz",
+        "placeholder": "Machine Satz eingeben",
+        "helper": "Hourly Machine Satz"
+      }
+    },
+    "cnc-cycle-time-calculator": {
+      "machiningseconds": {
+        "label": "Bearbeitung",
+        "placeholder": "Bearbeitung eingeben",
+        "helper": "Cut time pro part"
+      },
+      "loadunloadseconds": {
+        "label": "Be-/Entladen",
+        "placeholder": "Be-/Entladen eingeben",
+        "helper": "Handling pro part"
+      },
+      "inspectionseconds": {
+        "label": "Prüfung",
+        "placeholder": "Prüfung eingeben",
+        "helper": "QC pro part"
+      },
+      "quantity": {
+        "label": "Menge",
+        "placeholder": "Menge eingeben",
+        "helper": "Batch size"
+      }
+    },
+    "welding-cost-estimator": {
+      "materialcost": {
+        "label": "Material",
+        "placeholder": "Material eingeben",
+        "helper": "Filler and base Material"
+      },
+      "laborhours": {
+        "label": "Labor Stunden",
+        "placeholder": "Labor Stunden eingeben",
+        "helper": "Welding Stunden"
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Hourly welder Satz"
+      },
+      "consumablescost": {
+        "label": "VerbrauchsMaterial",
+        "placeholder": "VerbrauchsMaterial eingeben",
+        "helper": "Gas, tips, abrasives"
+      }
+    },
+    "laser-cutting-time-check": {
+      "setupminutes": {
+        "label": "Rüstzeit",
+        "placeholder": "Rüstzeit eingeben",
+        "helper": "Program and Rüstzeit"
+      },
+      "cutlengthm": {
+        "label": "Schnittlänge",
+        "placeholder": "Schnittlänge eingeben",
+        "helper": "Total cut path"
+      },
+      "cutspeedmmin": {
+        "label": "Schnittgeschwindigkeit",
+        "placeholder": "Schnittgeschwindigkeit eingeben",
+        "helper": "Machine Schnittgeschwindigkeit"
+      },
+      "piercecount": {
+        "label": "Pierces",
+        "placeholder": "Pierces eingeben",
+        "helper": "Pierce oproations"
+      },
+      "pierceseconds": {
+        "label": "Pierce time",
+        "placeholder": "Pierce time eingeben",
+        "helper": "Seconds pro pierce"
+      }
+    },
+    "3d-print-cost-check": {
+      "materialcost": {
+        "label": "Material",
+        "placeholder": "Material eingeben",
+        "helper": "Filament/resin Kosten"
+      },
+      "printhours": {
+        "label": "Print Stunden",
+        "placeholder": "Print Stunden eingeben",
+        "helper": "Machine Laufzeit"
+      },
+      "machinerate": {
+        "label": "Machine Satz",
+        "placeholder": "Machine Satz eingeben",
+        "helper": "Printer Hourly Satz"
+      },
+      "postprocesshours": {
+        "label": "Post-process",
+        "placeholder": "Post-process eingeben",
+        "helper": "Finishing Stunden"
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Oproator Satz"
+      }
+    },
+    "sheet-metal-weight-calculator": {
+      "lengthm": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Sheet Länge"
+      },
+      "widthm": {
+        "label": "Breite",
+        "placeholder": "Breite eingeben",
+        "helper": "Sheet Breite"
+      },
+      "thicknessmm": {
+        "label": "Dicke",
+        "placeholder": "Dicke eingeben",
+        "helper": "Material Dicke"
+      },
+      "densitykgm3": {
+        "label": "Dichte",
+        "placeholder": "Dichte eingeben",
+        "helper": "Material Dichte"
+      }
+    },
+    "material-waste-calculator": {
+      "inputmaterialkg": {
+        "label": "Input Material",
+        "placeholder": "Input Material eingeben",
+        "helper": "Material fed"
+      },
+      "goodoutputkg": {
+        "label": "Gute Ausbringung",
+        "placeholder": "Gute Ausbringung eingeben",
+        "helper": "Accepted output"
+      }
+    },
+    "scrap-rate-calculator": {
+      "scrapunits": {
+        "label": "Scrap units",
+        "placeholder": "Scrap units eingeben",
+        "helper": "Rejected units"
+      },
+      "totalunits": {
+        "label": "Total units",
+        "placeholder": "Total units eingeben",
+        "helper": "Units processed"
+      }
+    },
+    "oee-calculator": {
+      "availabilitypercent": {
+        "label": "Verfügbarkeit",
+        "placeholder": "Verfügbarkeit eingeben",
+        "helper": "Uptime procent"
+      },
+      "performancepercent": {
+        "label": "Leistung",
+        "placeholder": "Leistung eingeben",
+        "helper": "Speed procent"
+      },
+      "qualitypercent": {
+        "label": "Quality",
+        "placeholder": "Quality eingeben",
+        "helper": "Good parts procent"
+      }
+    },
+    "machine-hour-rate-calculator": {
+      "fixedmonthlycost": {
+        "label": "Fixed monthly",
+        "placeholder": "Fixed monthly eingeben",
+        "helper": "Overhead allocated"
+      },
+      "monthlymachinehours": {
+        "label": "Machine Stunden",
+        "placeholder": "Machine Stunden eingeben",
+        "helper": "Available Stunden"
+      },
+      "variablecostperhour": {
+        "label": "Variable/hr",
+        "placeholder": "Variable/hr eingeben",
+        "helper": "VerbrauchsMaterial pro hour"
+      }
+    },
+    "tool-life-calculator": {
+      "totaltoolcost": {
+        "label": "Tool Kosten",
+        "placeholder": "Tool Kosten eingeben",
+        "helper": "Insert or tool Preis"
+      },
+      "partsproduced": {
+        "label": "Parts",
+        "placeholder": "Parts eingeben",
+        "helper": "Parts before change"
+      }
+    },
+    "cutting-speed-calculator": {
+      "diametermm": {
+        "label": "Durchmesser",
+        "placeholder": "Durchmesser eingeben",
+        "helper": "Tool Durchmesser"
+      },
+      "rpm": {
+        "label": "RPM",
+        "placeholder": "RPM eingeben",
+        "helper": "Spindle speed"
+      }
+    },
+    "feed-rate-calculator": {
+      "rpm": {
+        "label": "RPM",
+        "placeholder": "RPM eingeben",
+        "helper": "Spindle speed"
+      },
+      "teeth": {
+        "label": "Zähne",
+        "placeholder": "Zähne eingeben",
+        "helper": "Cutting edges"
+      },
+      "feedpertoothmm": {
+        "label": "Feed/tooth",
+        "placeholder": "Feed/tooth eingeben",
+        "helper": "Chip load pro tooth"
+      }
+    },
+    "tolerance-drift-calculator": {
+      "target": {
+        "label": "Sollwert",
+        "placeholder": "Sollwert eingeben",
+        "helper": "Nominal dimension"
+      },
+      "actual": {
+        "label": "Actual",
+        "placeholder": "Actual eingeben",
+        "helper": "Measured dimension"
+      }
+    },
+    "batch-yield-calculator": {
+      "inputqty": {
+        "label": "Input qty",
+        "placeholder": "Input qty eingeben",
+        "helper": "Material in"
+      },
+      "goodoutputqty": {
+        "label": "Gute Ausbringung",
+        "placeholder": "Gute Ausbringung eingeben",
+        "helper": "Accepted units"
+      }
+    },
+    "kwh-cost-calculator": {
+      "kwh": {
+        "label": "Energie",
+        "placeholder": "Energie eingeben",
+        "helper": "Verbrauch"
+      },
+      "rate": {
+        "label": "Satz",
+        "placeholder": "Satz eingeben",
+        "helper": "Unit tariff"
+      }
+    },
+    "electricity-bill-calculator": {
+      "kwh": {
+        "label": "Usage",
+        "placeholder": "Usage eingeben",
+        "helper": "Monthly kWh"
+      },
+      "rate": {
+        "label": "Energie Satz",
+        "placeholder": "Energie Satz eingeben",
+        "helper": "Variable Satz"
+      },
+      "fixedcharge": {
+        "label": "Grundgebühr",
+        "placeholder": "Grundgebühr eingeben",
+        "helper": "Standing charge"
+      }
+    },
+    "energy-consumption-check": {
+      "powerkw": {
+        "label": "Leistung",
+        "placeholder": "Leistung eingeben",
+        "helper": "Connected load"
+      },
+      "hoursperday": {
+        "label": "Stunden/day",
+        "placeholder": "Stunden/day eingeben",
+        "helper": "Daily Laufzeit"
+      },
+      "days": {
+        "label": "Tage",
+        "placeholder": "Tage eingeben",
+        "helper": "Billing proiod Tage"
+      },
+      "rate": {
+        "label": "Satz",
+        "placeholder": "Satz eingeben",
+        "helper": "Tariff"
+      }
+    },
+    "carbon-footprint-quick": {
+      "energykwh": {
+        "label": "Energie",
+        "placeholder": "Energie eingeben",
+        "helper": "Electricity verbraucht"
+      },
+      "emissionfactorkgperkwh": {
+        "label": "Emission factor",
+        "placeholder": "Emission factor eingeben",
+        "helper": "Grid factor"
+      }
+    },
+    "fuel-emission-calculator": {
+      "litersfuel": {
+        "label": "Kraftstoff",
+        "placeholder": "Kraftstoff eingeben",
+        "helper": "Kraftstoff consumed"
+      },
+      "kgco2perliter": {
+        "label": "Factor",
+        "placeholder": "Factor eingeben",
+        "helper": "CO₂ pro liter"
+      }
+    },
+    "solar-panel-output-calculator": {
+      "systemkw": {
+        "label": "Systemgröße",
+        "placeholder": "Systemgröße eingeben",
+        "helper": "Installed DC kW"
+      },
+      "sunhoursperday": {
+        "label": "Sun Stunden",
+        "placeholder": "Sun Stunden eingeben",
+        "helper": "Peak Sun Stunden"
+      },
+      "days": {
+        "label": "Tage",
+        "placeholder": "Tage eingeben",
+        "helper": "proiod Länge"
+      },
+      "efficiencypercent": {
+        "label": "Efficiency",
+        "placeholder": "Efficiency eingeben",
+        "helper": "System efficiency"
+      }
+    },
+    "heat-loss-calculator": {
+      "uvalue": {
+        "label": "U-Wert",
+        "placeholder": "U-Wert eingeben",
+        "helper": "Thermal transmittance"
+      },
+      "aream2": {
+        "label": "Fläche",
+        "placeholder": "Fläche eingeben",
+        "helper": "Envelope Fläche"
+      },
+      "tempdifferencec": {
+        "label": "ΔT",
+        "placeholder": "ΔT eingeben",
+        "helper": "Inside minus outside"
+      }
+    },
+    "boiler-efficiency-calculator": {
+      "usefuloutputkwh": {
+        "label": "Nutzbare Leistung",
+        "placeholder": "Nutzbare Leistung eingeben",
+        "helper": "Heat delivered"
+      },
+      "fuelinputkwh": {
+        "label": "Kraftstoff input",
+        "placeholder": "Kraftstoff input eingeben",
+        "helper": "Energie in Kraftstoff"
+      }
+    },
+    "compressor-energy-cost-calculator": {
+      "powerkw": {
+        "label": "Leistung",
+        "placeholder": "Leistung eingeben",
+        "helper": "Motor kW"
+      },
+      "operatinghours": {
+        "label": "Stunden",
+        "placeholder": "Stunden eingeben",
+        "helper": "Laufzeit"
+      },
+      "rate": {
+        "label": "Satz",
+        "placeholder": "Satz eingeben",
+        "helper": "Electricity Satz"
+      }
+    },
+    "cbam-exposure-quick-check": {
+      "emissionston": {
+        "label": "Emissions",
+        "placeholder": "Emissions eingeben",
+        "helper": "Embedded emissions"
+      },
+      "carbonprice": {
+        "label": "CO₂-Preis",
+        "placeholder": "CO₂-Preis eingeben",
+        "helper": "Preis pro tonne"
+      }
+    },
+    "fuel-consumption-calculator": {
+      "distancekm": {
+        "label": "Entfernung",
+        "placeholder": "Entfernung eingeben",
+        "helper": "Trip Entfernung"
+      },
+      "consumptionper100km": {
+        "label": "Verbrauch",
+        "placeholder": "Verbrauch eingeben",
+        "helper": "Kraftstoff economy"
+      },
+      "fuelprice": {
+        "label": "Kraftstoff Preis",
+        "placeholder": "Kraftstoff Preis eingeben",
+        "helper": "Preis pro liter"
+      }
+    },
+    "fuel-cost-calculator": {
+      "distancekm": {
+        "label": "Entfernung",
+        "placeholder": "Entfernung eingeben",
+        "helper": "Trip Entfernung"
+      },
+      "consumptionper100km": {
+        "label": "Verbrauch",
+        "placeholder": "Verbrauch eingeben",
+        "helper": "Kraftstoff economy"
+      },
+      "fuelprice": {
+        "label": "Kraftstoff Preis",
+        "placeholder": "Kraftstoff Preis eingeben",
+        "helper": "Preis pro liter"
+      }
+    },
+    "desi-calculator": {
+      "lengthcm": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Parcel Länge"
+      },
+      "widthcm": {
+        "label": "Breite",
+        "placeholder": "Breite eingeben",
+        "helper": "Parcel Breite"
+      },
+      "heightcm": {
+        "label": "Höhe",
+        "placeholder": "Höhe eingeben",
+        "helper": "Parcel Höhe"
+      },
+      "divisor": {
+        "label": "Divisor",
+        "placeholder": "Divisor eingeben",
+        "helper": "Carrier Divisor"
+      }
+    },
+    "volumetric-weight-calculator": {
+      "lengthcm": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Länge"
+      },
+      "widthcm": {
+        "label": "Breite",
+        "placeholder": "Breite eingeben",
+        "helper": "Breite"
+      },
+      "heightcm": {
+        "label": "Höhe",
+        "placeholder": "Höhe eingeben",
+        "helper": "Höhe"
+      },
+      "divisor": {
+        "label": "Divisor",
+        "placeholder": "Divisor eingeben",
+        "helper": "Air cargo Divisor"
+      }
+    },
+    "route-cost-calculator": {
+      "distancekm": {
+        "label": "Entfernung",
+        "placeholder": "Entfernung eingeben",
+        "helper": "Route Länge"
+      },
+      "fuelcostperkm": {
+        "label": "Kraftstoff/km",
+        "placeholder": "Kraftstoff/km eingeben",
+        "helper": "Kraftstoff Kosten pro km"
+      },
+      "driverhours": {
+        "label": "Driver Stunden",
+        "placeholder": "Driver Stunden eingeben",
+        "helper": "Driving time"
+      },
+      "hourlyrate": {
+        "label": "Driver Satz",
+        "placeholder": "Driver Satz eingeben",
+        "helper": "Hourly Satz"
+      },
+      "tolls": {
+        "label": "Maut",
+        "placeholder": "Maut eingeben",
+        "helper": "Road Maut"
+      }
+    },
+    "delivery-cost-calculator": {
+      "distancekm": {
+        "label": "Entfernung",
+        "placeholder": "Entfernung eingeben",
+        "helper": "Route km"
+      },
+      "costperkm": {
+        "label": "Kosten/km",
+        "placeholder": "Kosten/km eingeben",
+        "helper": "Variable km Kosten"
+      },
+      "stops": {
+        "label": "Stops",
+        "placeholder": "Stops eingeben",
+        "helper": "Delivery stops"
+      },
+      "costperstop": {
+        "label": "Kosten/Halt",
+        "placeholder": "Kosten/Halt eingeben",
+        "helper": "pro-stop fee"
+      }
+    },
+    "freight-cost-calculator": {
+      "weightkg": {
+        "label": "Gewicht",
+        "placeholder": "Gewicht eingeben",
+        "helper": "Chargeable Gewicht"
+      },
+      "rateperkg": {
+        "label": "Satz",
+        "placeholder": "Satz eingeben",
+        "helper": "Satz pro kg"
+      },
+      "fixedfee": {
+        "label": "Fixed fee",
+        "placeholder": "Fixed fee eingeben",
+        "helper": "Booking fee"
+      }
+    },
+    "warehouse-storage-cost-calculator": {
+      "palletcount": {
+        "label": "Pallets",
+        "placeholder": "Pallets eingeben",
+        "helper": "Stored pallets"
+      },
+      "costperpalletperday": {
+        "label": "Kosten/Palette/Tag",
+        "placeholder": "Kosten/Palette/Tag eingeben",
+        "helper": "Daily pallet Satz"
+      },
+      "days": {
+        "label": "Tage",
+        "placeholder": "Tage eingeben",
+        "helper": "Storage Tage"
+      }
+    },
+    "vehicle-depreciation-calculator": {
+      "purchaseprice": {
+        "label": "Purchase",
+        "placeholder": "Purchase eingeben",
+        "helper": "Acquisition Kosten"
+      },
+      "resalevalue": {
+        "label": "Resale",
+        "placeholder": "Resale eingeben",
+        "helper": "Expected resale"
+      },
+      "years": {
+        "label": "Jahre",
+        "placeholder": "Jahre eingeben",
+        "helper": "Ownership proiod"
+      }
+    },
+    "trip-budget-calculator": {
+      "fuelcost": {
+        "label": "Kraftstoff",
+        "placeholder": "Kraftstoff eingeben",
+        "helper": "Kraftstoff spEnde"
+      },
+      "accommodationcost": {
+        "label": "Lodging",
+        "placeholder": "Lodging eingeben",
+        "helper": "Hotels"
+      },
+      "foodcost": {
+        "label": "Lebensmittel",
+        "placeholder": "Lebensmittel eingeben",
+        "helper": "Meals"
+      },
+      "tolls": {
+        "label": "Maut",
+        "placeholder": "Maut eingeben",
+        "helper": "Road fees"
+      },
+      "othercost": {
+        "label": "Other",
+        "placeholder": "Other eingeben",
+        "helper": "Miscellaneous"
+      }
+    },
+    "fertilizer-dosage-calculator": {
+      "areaha": {
+        "label": "Field Fläche",
+        "placeholder": "Field Fläche eingeben",
+        "helper": "Fläche treated"
+      },
+      "dosagekgperha": {
+        "label": "Dosage",
+        "placeholder": "Dosage eingeben",
+        "helper": "Application Satz"
+      }
+    },
+    "seed-rate-calculator": {
+      "areaha": {
+        "label": "Fläche",
+        "placeholder": "Fläche eingeben",
+        "helper": "Field Fläche"
+      },
+      "seedkgperha": {
+        "label": "Seed Satz",
+        "placeholder": "Seed Satz eingeben",
+        "helper": "Seeding Satz"
+      }
+    },
+    "irrigation-cost-check": {
+      "pumpkw": {
+        "label": "Pump Leistung",
+        "placeholder": "Pump Leistung eingeben",
+        "helper": "Pump motor kW"
+      },
+      "hours": {
+        "label": "Laufzeit",
+        "placeholder": "Laufzeit eingeben",
+        "helper": "Pump Stunden"
+      },
+      "energyrate": {
+        "label": "Energie Satz",
+        "placeholder": "Energie Satz eingeben",
+        "helper": "Electricity Satz"
+      },
+      "watercost": {
+        "label": "Water fee",
+        "placeholder": "Water fee eingeben",
+        "helper": "Water charge"
+      }
+    },
+    "water-usage-calculator": {
+      "flowratelitermin": {
+        "label": "Durchfluss Satz",
+        "placeholder": "Durchfluss Satz eingeben",
+        "helper": "Durchfluss Satz"
+      },
+      "minutes": {
+        "label": "Dauer",
+        "placeholder": "Dauer eingeben",
+        "helper": "Run time"
+      }
+    },
+    "feed-cost-estimator": {
+      "feedkg": {
+        "label": "Feed",
+        "placeholder": "Feed eingeben",
+        "helper": "Feed Menge"
+      },
+      "priceperkg": {
+        "label": "Preis",
+        "placeholder": "Preis eingeben",
+        "helper": "Feed Preis"
+      },
+      "transportcost": {
+        "label": "Transport",
+        "placeholder": "Transport eingeben",
+        "helper": "Delivery Kosten"
+      }
+    },
+    "milk-yield-check": {
+      "cows": {
+        "label": "Cows",
+        "placeholder": "Cows eingeben",
+        "helper": "Milking cows"
+      },
+      "literspercow": {
+        "label": "Yield/cow",
+        "placeholder": "Yield/cow eingeben",
+        "helper": "Liters pro cow pro day"
+      },
+      "milkprice": {
+        "label": "Milk Preis",
+        "placeholder": "Milk Preis eingeben",
+        "helper": "Preis pro liter"
+      }
+    },
+    "crop-yield-calculator": {
+      "areaha": {
+        "label": "Fläche",
+        "placeholder": "Fläche eingeben",
+        "helper": "Planted Fläche"
+      },
+      "yieldtonperha": {
+        "label": "Yield",
+        "placeholder": "Yield eingeben",
+        "helper": "Expected yield"
+      },
+      "priceperton": {
+        "label": "Preis",
+        "placeholder": "Preis eingeben",
+        "helper": "Market Preis"
+      }
+    },
+    "recipe-cost-check": {
+      "ingredientcost": {
+        "label": "Ingredient Kosten",
+        "placeholder": "Ingredient Kosten eingeben",
+        "helper": "Total ingredient spEnde"
+      },
+      "portions": {
+        "label": "Portionen",
+        "placeholder": "Portionen eingeben",
+        "helper": "Servings"
+      }
+    },
+    "food-cost-calculator": {
+      "ingredientcost": {
+        "label": "Ingredient Kosten",
+        "placeholder": "Ingredient Kosten eingeben",
+        "helper": "Plate Kosten"
+      },
+      "menuprice": {
+        "label": "Menu Preis",
+        "placeholder": "Menu Preis eingeben",
+        "helper": "Selling Preis"
+      }
+    },
+    "portion-cost-calculator": {
+      "totalbatchcost": {
+        "label": "Chargenkosten",
+        "placeholder": "Chargenkosten eingeben",
+        "helper": "Total Recipe Kosten"
+      },
+      "portions": {
+        "label": "Portionen",
+        "placeholder": "Portionen eingeben",
+        "helper": "Servings"
+      }
+    },
+    "rent-vs-buy-calculator": {
+      "monthlyrent": {
+        "label": "Monthly Miete",
+        "placeholder": "Monthly Miete eingeben",
+        "helper": "Strom Monthly Miete payment"
+      },
+      "homeprice": {
+        "label": "Home Preis",
+        "placeholder": "Home Preis eingeben",
+        "helper": "Purchase Preis reference"
+      },
+      "comparisonyears": {
+        "label": "Vergleichsjahre",
+        "placeholder": "Vergleichsjahre eingeben",
+        "helper": "Number of Jahre to compare (e.g. 10 or 20)"
+      },
+      "annualrentincrease": {
+        "label": "Jährliche Mietsteigerung",
+        "placeholder": "Jährliche Mietsteigerung eingeben",
+        "helper": "Expected yearly Miete growth"
+      },
+      "annualhomeappreciation": {
+        "label": "Home appreciation",
+        "placeholder": "Home appreciation eingeben",
+        "helper": "Expected yearly home Wert growth"
+      },
+      "downpaymentpercent": {
+        "label": "Down payment",
+        "placeholder": "Down payment eingeben",
+        "helper": "procent of Home Preis paid upfront"
+      },
+      "mortgageinterestrate": {
+        "label": "Mortgage Satz",
+        "placeholder": "Mortgage Satz eingeben",
+        "helper": "Nominal annual mortgage interest Satz"
+      },
+      "mortgagetermyears": {
+        "label": "Mortgage Laufzeit",
+        "placeholder": "Mortgage Laufzeit eingeben",
+        "helper": "Mortgage amortization Laufzeit"
+      },
+      "investmentreturnrate": {
+        "label": "Investment return",
+        "placeholder": "Investment return eingeben",
+        "helper": "Annual return if Mieteing and investing cash"
+      },
+      "ownershipcostpercent": {
+        "label": "Ownership Kosten",
+        "placeholder": "Ownership Kosten eingeben",
+        "helper": "Annual Ownership Kosten as % of home Wert"
+      },
+      "purchasecostpercent": {
+        "label": "Purchase Kostens",
+        "placeholder": "Purchase Kostens eingeben",
+        "helper": "Closing and purchase transaction Kostens"
+      },
+      "sellingcostpercent": {
+        "label": "Selling Kostens",
+        "placeholder": "Selling Kostens eingeben",
+        "helper": "Estimated selling transaction Kostens"
+      }
+    },
+    "home-budget-calculator": {
+      "income": {
+        "label": "Income",
+        "placeholder": "Income eingeben",
+        "helper": "Monatseinkommen"
+      },
+      "rent": {
+        "label": "Miete",
+        "placeholder": "Miete eingeben",
+        "helper": "Housing"
+      },
+      "food": {
+        "label": "Lebensmittel",
+        "placeholder": "Lebensmittel eingeben",
+        "helper": "Groceries"
+      },
+      "transport": {
+        "label": "Transport",
+        "placeholder": "Transport eingeben",
+        "helper": "Commute"
+      },
+      "utilities": {
+        "label": "Utilities",
+        "placeholder": "Utilities eingeben",
+        "helper": "Bills"
+      }
+    },
+    "time-duration-calculator": {
+      "starthour": {
+        "label": "Start hour",
+        "placeholder": "Start hour eingeben",
+        "helper": "Start hour (0–23)"
+      },
+      "startminute": {
+        "label": "Start minute",
+        "placeholder": "Start minute eingeben",
+        "helper": "Start minute"
+      },
+      "endhour": {
+        "label": "Endee hour",
+        "placeholder": "Endee hour eingeben",
+        "helper": "Endee hour"
+      },
+      "endminute": {
+        "label": "Endee minute",
+        "placeholder": "Endee minute eingeben",
+        "helper": "Endee minute"
+      }
+    },
+    "age-calculator": {
+      "birthyear": {
+        "label": "Geburtsjahr",
+        "placeholder": "Geburtsjahr eingeben",
+        "helper": "Year born"
+      },
+      "currentyear": {
+        "label": "Strom year",
+        "placeholder": "Strom year eingeben",
+        "helper": "Reference year"
+      }
+    },
+    "date-difference-calculator": {
+      "startdaynumber": {
+        "label": "Start day #",
+        "placeholder": "Start day # eingeben",
+        "helper": "Start day index"
+      },
+      "enddaynumber": {
+        "label": "Endee day #",
+        "placeholder": "Endee day # eingeben",
+        "helper": "Ende day index"
+      }
+    },
+    "shopping-budget-calculator": {
+      "item1": {
+        "label": "Item 1",
+        "placeholder": "Item 1 eingeben",
+        "helper": "First item"
+      },
+      "item2": {
+        "label": "Item 2",
+        "placeholder": "Item 2 eingeben",
+        "helper": "Second item"
+      },
+      "item3": {
+        "label": "Item 3",
+        "placeholder": "Item 3 eingeben",
+        "helper": "Third item"
+      },
+      "item4": {
+        "label": "Item 4",
+        "placeholder": "Item 4 eingeben",
+        "helper": "Fourth item"
+      },
+      "item5": {
+        "label": "Item 5",
+        "placeholder": "Item 5 eingeben",
+        "helper": "Fifth item"
+      }
+    },
+    "fuel-travel-calculator": {
+      "distancekm": {
+        "label": "Entfernung",
+        "placeholder": "Entfernung eingeben",
+        "helper": "Trip Entfernung"
+      },
+      "consumptionper100km": {
+        "label": "Verbrauch",
+        "placeholder": "Verbrauch eingeben",
+        "helper": "Vehicle economy"
+      },
+      "fuelprice": {
+        "label": "Kraftstoff Preis",
+        "placeholder": "Kraftstoff Preis eingeben",
+        "helper": "Pump Preis"
+      }
+    },
+    "unit-price-calculator": {
+      "totalprice": {
+        "label": "Total Preis",
+        "placeholder": "Total Preis eingeben",
+        "helper": "Shelf total"
+      },
+      "quantity": {
+        "label": "Menge",
+        "placeholder": "Menge eingeben",
+        "helper": "Pack count"
+      }
+    },
+    "tip-calculator": {
+      "billamount": {
+        "label": "Bill",
+        "placeholder": "Bill eingeben",
+        "helper": "Pre-tip total"
+      },
+      "tippercent": {
+        "label": "Tip",
+        "placeholder": "Tip eingeben",
+        "helper": "Tip procent"
+      }
+    },
+    "savings-goal-calculator": {
+      "targetamount": {
+        "label": "Sollwert",
+        "placeholder": "Sollwert eingeben",
+        "helper": "Savings goal"
+      },
+      "monthlysaving": {
+        "label": "Monthly saving",
+        "placeholder": "Monthly saving eingeben",
+        "helper": "Amount saved pro month"
+      }
+    },
+    "percentage-increase-calculator": {
+      "oldvalue": {
+        "label": "Old Wert",
+        "placeholder": "Old Wert eingeben",
+        "helper": "Starting Wert"
+      },
+      "newvalue": {
+        "label": "New Wert",
+        "placeholder": "New Wert eingeben",
+        "helper": "Updated Wert"
+      }
+    },
+    "average-calculator": {
+      "value1": {
+        "label": "Wert 1",
+        "placeholder": "Wert 1 eingeben",
+        "helper": "First Wert"
+      },
+      "value2": {
+        "label": "Wert 2",
+        "placeholder": "Wert 2 eingeben",
+        "helper": "Second Wert"
+      },
+      "value3": {
+        "label": "Wert 3",
+        "placeholder": "Wert 3 eingeben",
+        "helper": "Third Wert"
+      },
+      "value4": {
+        "label": "Wert 4",
+        "placeholder": "Wert 4 eingeben",
+        "helper": "Fourth Wert"
+      },
+      "value5": {
+        "label": "Wert 5",
+        "placeholder": "Wert 5 eingeben",
+        "helper": "Fifth Wert"
+      }
+    },
+    "median-calculator": {
+      "value1": {
+        "label": "Wert 1",
+        "placeholder": "Wert 1 eingeben",
+        "helper": "First Wert"
+      },
+      "value2": {
+        "label": "Wert 2",
+        "placeholder": "Wert 2 eingeben",
+        "helper": "Second Wert"
+      },
+      "value3": {
+        "label": "Wert 3",
+        "placeholder": "Wert 3 eingeben",
+        "helper": "Third Wert"
+      },
+      "value4": {
+        "label": "Wert 4",
+        "placeholder": "Wert 4 eingeben",
+        "helper": "Fourth Wert"
+      },
+      "value5": {
+        "label": "Wert 5",
+        "placeholder": "Wert 5 eingeben",
+        "helper": "Fifth Wert"
+      }
+    },
+    "standard-deviation-calculator": {
+      "value1": {
+        "label": "Wert 1",
+        "placeholder": "Wert 1 eingeben",
+        "helper": "First Wert"
+      },
+      "value2": {
+        "label": "Wert 2",
+        "placeholder": "Wert 2 eingeben",
+        "helper": "Second Wert"
+      },
+      "value3": {
+        "label": "Wert 3",
+        "placeholder": "Wert 3 eingeben",
+        "helper": "Third Wert"
+      },
+      "value4": {
+        "label": "Wert 4",
+        "placeholder": "Wert 4 eingeben",
+        "helper": "Fourth Wert"
+      },
+      "value5": {
+        "label": "Wert 5",
+        "placeholder": "Wert 5 eingeben",
+        "helper": "Fifth Wert"
+      }
+    },
+    "ratio-calculator": {
+      "a": {
+        "label": "Wert A",
+        "placeholder": "Wert A eingeben",
+        "helper": "First Laufzeit"
+      },
+      "b": {
+        "label": "Wert B",
+        "placeholder": "Wert B eingeben",
+        "helper": "Second Laufzeit"
+      }
+    },
+    "proportion-calculator": {
+      "a": {
+        "label": "A",
+        "placeholder": "A eingeben",
+        "helper": "First numerator"
+      },
+      "b": {
+        "label": "B",
+        "placeholder": "B eingeben",
+        "helper": "First denominator"
+      },
+      "c": {
+        "label": "C",
+        "placeholder": "C eingeben",
+        "helper": "Second numerator"
+      }
+    },
+    "probability-calculator": {
+      "favorableoutcomes": {
+        "label": "Favorable",
+        "placeholder": "Favorable eingeben",
+        "helper": "Successful outcomes"
+      },
+      "totaloutcomes": {
+        "label": "Total",
+        "placeholder": "Total eingeben",
+        "helper": "Total outcomes"
+      }
+    },
+    "sample-size-calculator": {
+      "population": {
+        "label": "Population",
+        "placeholder": "Population eingeben",
+        "helper": "Population size"
+      },
+      "confidencez": {
+        "label": "Z score",
+        "placeholder": "Z score eingeben",
+        "helper": "Confidence z (e.g. 1.96)"
+      },
+      "marginerrorpercent": {
+        "label": "Margin error",
+        "placeholder": "Margin error eingeben",
+        "helper": "Margin of error"
+      },
+      "proportionpercent": {
+        "label": "Proportion",
+        "placeholder": "Proportion eingeben",
+        "helper": "Expected proportion"
+      }
+    },
+    "z-score-calculator": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Data point"
+      },
+      "mean": {
+        "label": "Mean",
+        "placeholder": "Mean eingeben",
+        "helper": "Population mean"
+      },
+      "standarddeviation": {
+        "label": "Std dev",
+        "placeholder": "Std dev eingeben",
+        "helper": "Standard deviation"
+      }
+    },
+    "linear-regression-calculator": {
+      "x1": {
+        "label": "X₁",
+        "placeholder": "X₁ eingeben",
+        "helper": "First x"
+      },
+      "y1": {
+        "label": "Y₁",
+        "placeholder": "Y₁ eingeben",
+        "helper": "First y"
+      },
+      "x2": {
+        "label": "X₂",
+        "placeholder": "X₂ eingeben",
+        "helper": "Second x"
+      },
+      "y2": {
+        "label": "Y₂",
+        "placeholder": "Y₂ eingeben",
+        "helper": "Second y"
+      },
+      "x3": {
+        "label": "X₃",
+        "placeholder": "X₃ eingeben",
+        "helper": "Third x"
+      },
+      "y3": {
+        "label": "Y₃",
+        "placeholder": "Y₃ eingeben",
+        "helper": "Third y"
+      }
+    },
+    "length-converter": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Von Einheit",
+        "placeholder": "Von Einheit eingeben",
+        "helper": "Source unit"
+      }
+    },
+    "weight-converter": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Von Einheit",
+        "placeholder": "Von Einheit eingeben",
+        "helper": "Source unit"
+      }
+    },
+    "area-converter": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Von Einheit",
+        "placeholder": "Von Einheit eingeben",
+        "helper": "Source unit"
+      }
+    },
+    "volume-converter": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Von Einheit",
+        "placeholder": "Von Einheit eingeben",
+        "helper": "Source unit"
+      }
+    },
+    "temperature-converter": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Temproature to convert"
+      },
+      "fromunit": {
+        "label": "Von Einheit",
+        "placeholder": "Von Einheit eingeben",
+        "helper": "Source scale"
+      }
+    },
+    "amper-kilowatt-kw-cevirici": {
+      "amps": {
+        "label": "Strom",
+        "placeholder": "Strom eingeben",
+        "helper": "Line Strom in amproes"
+      },
+      "volts": {
+        "label": "Voltage",
+        "placeholder": "Voltage eingeben",
+        "helper": "Line voltage"
+      },
+      "powerfactor": {
+        "label": "Leistung factor",
+        "placeholder": "Leistung factor eingeben",
+        "helper": "Leistung factor (0–1)"
+      }
+    },
+    "klima-btu-secim-hesaplama": {
+      "aream2": {
+        "label": "Grundfläche",
+        "placeholder": "Grundfläche eingeben",
+        "helper": "Cooled Grundfläche"
+      },
+      "ceilingm": {
+        "label": "Deckenhöhe",
+        "placeholder": "Deckenhöhe eingeben",
+        "helper": "Room Höhe"
+      },
+      "loadfactor": {
+        "label": "Lastfaktor",
+        "placeholder": "Lastfaktor eingeben",
+        "helper": "Cooling Lastfaktor"
+      }
+    },
+    "civata-sikma-torku-hesaplama": {
+      "clampforce": {
+        "label": "Klemmkraft",
+        "placeholder": "Klemmkraft eingeben",
+        "helper": "Sollwert Klemmkraft"
+      },
+      "boltdiametermm": {
+        "label": "SchraubEndeurchmesser",
+        "placeholder": "SchraubEndeurchmesser eingeben",
+        "helper": "Nominal SchraubEndeurchmesser in mm"
+      }
+    },
+    "mtv-motorlu-tasitlar-vergisi-hesaplama": {
+      "enginecc": {
+        "label": "Engine displacement",
+        "placeholder": "Engine displacement eingeben",
+        "helper": "Engine size in cc"
+      },
+      "agefactor": {
+        "label": "Age factor",
+        "placeholder": "Age factor eingeben",
+        "helper": "Informational age band factor"
+      }
+    },
+    "bar-psi-pascal-cevirici": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Von Einheit",
+        "placeholder": "Von Einheit eingeben",
+        "helper": "Source unit"
+      }
+    },
+    "beygir-gucu-kilowatt-cevirici": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Von Einheit",
+        "placeholder": "Von Einheit eingeben",
+        "helper": "Source unit"
+      }
+    },
+    "npu-npi-profil-agirlik-hesaplama": {
+      "length": {
+        "label": "Profile Länge",
+        "placeholder": "Profile Länge eingeben",
+        "helper": "Stablänge in meters"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "kg/m eingeben",
+        "helper": "Catalog Gewicht pro meter"
+      }
+    },
+    "kosebent-lama-agirlik-hesaplama": {
+      "length": {
+        "label": "Stablänge",
+        "placeholder": "Stablänge eingeben",
+        "helper": "Angle Stablänge"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "kg/m eingeben",
+        "helper": "Catalog Gewicht pro meter"
+      }
+    },
+    "boru-agirlik-hesaplama-celik-paslanmaz": {
+      "length": {
+        "label": "Pipe Länge",
+        "placeholder": "Pipe Länge eingeben",
+        "helper": "Pipe run Länge"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "kg/m eingeben",
+        "helper": "Catalog pipe Gewicht pro meter"
+      }
+    },
+    "motor-gucu-kw-hp-cevirici": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Von Einheit",
+        "placeholder": "Von Einheit eingeben",
+        "helper": "Source unit"
+      }
+    },
+    "jenerator-kapasitesi-secim-hesaplama": {
+      "peakloadkw": {
+        "label": "Peak load",
+        "placeholder": "Peak load eingeben",
+        "helper": "Peak load in kW"
+      },
+      "safetyfactor": {
+        "label": "Safety factor",
+        "placeholder": "Safety factor eingeben",
+        "helper": "RecommEndeed safety factor"
+      }
+    },
+    "kablo-kesiti-mm-secim-hesaplama": {
+      "loadamps": {
+        "label": "Laststrom",
+        "placeholder": "Laststrom eingeben",
+        "helper": "Laststrom for calculation"
+      },
+      "ampacitypermm2": {
+        "label": "Ampacity pro mm²",
+        "placeholder": "Ampacity pro mm² eingeben",
+        "helper": "Ampacity pro mm² for calculation"
+      }
+    },
+    "dogalgaz-tuketimi-hesaplama": {
+      "consumptionsm3": {
+        "label": "Verbrauch",
+        "placeholder": "Verbrauch eingeben",
+        "helper": "Natural gas Verbrauch in sm³"
+      },
+      "unitprice": {
+        "label": "Unit Preis",
+        "placeholder": "Unit Preis eingeben",
+        "helper": "Preis pro sm³"
+      }
+    },
+    "lpg-benzin-tasarruf-karsilastirma": {
+      "lpgcost": {
+        "label": "LPG Kosten",
+        "placeholder": "LPG Kosten eingeben",
+        "helper": "Kosten pro km on LPG"
+      },
+      "gasolinecost": {
+        "label": "Gasoline Kosten",
+        "placeholder": "Gasoline Kosten eingeben",
+        "helper": "Kosten pro km on gasoline"
+      }
+    },
+    "dizel-benzin-maliyet-karsilastirma": {
+      "dieselcost": {
+        "label": "Diesel Kosten",
+        "placeholder": "Diesel Kosten eingeben",
+        "helper": "Kosten pro km on diesel"
+      },
+      "gasolinecost": {
+        "label": "Gasoline Kosten",
+        "placeholder": "Gasoline Kosten eingeben",
+        "helper": "Kosten pro km on gasoline"
+      }
+    },
+    "boya-kaplama-sarfiyati-m-basina-hesabi": {
+      "aream2": {
+        "label": "Abdeckfläche",
+        "placeholder": "Abdeckfläche eingeben",
+        "helper": "Abdeckfläche for calculation"
+      },
+      "coverageperliter": {
+        "label": "Deckkraft pro Liter",
+        "placeholder": "Deckkraft pro Liter eingeben",
+        "helper": "Deckkraft pro Liter for calculation"
+      }
+    },
+    "fazla-mesai-ucreti-hesaplama": {
+      "overtimehours": {
+        "label": "Overtime Stunden",
+        "placeholder": "Overtime Stunden eingeben",
+        "helper": "Overtime Stunden worked"
+      },
+      "hourlyrate": {
+        "label": "Hourly Satz",
+        "placeholder": "Hourly Satz eingeben",
+        "helper": "Base Hourly Satz"
+      }
+    },
+    "enflasyon-fiyat-eskalasyonu-hesaplama": {
+      "baseamount": {
+        "label": "Grundbetrag",
+        "placeholder": "Grundbetrag eingeben",
+        "helper": "Starting amount"
+      },
+      "inflationpercent": {
+        "label": "Inflation Satz",
+        "placeholder": "Inflation Satz eingeben",
+        "helper": "Inflation procent to apply once"
+      }
+    },
+    "newton-kilogram-kuvvet-cevirici": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Von Einheit",
+        "placeholder": "Von Einheit eingeben",
+        "helper": "Source unit"
+      }
+    },
+    "joule-kalori-watt-saat-cevirici": {
+      "value": {
+        "label": "Wert",
+        "placeholder": "Wert eingeben",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Von Einheit",
+        "placeholder": "Von Einheit eingeben",
+        "helper": "Source unit"
+      }
+    },
+    "agirlikli-ortalama-hesaplama": {
+      "value1": {
+        "label": "Wert 1",
+        "placeholder": "Wert 1 eingeben",
+        "helper": "First Wert"
+      },
+      "weight1": {
+        "label": "Gewicht 1",
+        "placeholder": "Gewicht 1 eingeben",
+        "helper": "Gewicht for Wert 1"
+      },
+      "value2": {
+        "label": "Wert 2",
+        "placeholder": "Wert 2 eingeben",
+        "helper": "Second Wert"
+      },
+      "weight2": {
+        "label": "Gewicht 2",
+        "placeholder": "Gewicht 2 eingeben",
+        "helper": "Gewicht for Wert 2"
+      },
+      "value3": {
+        "label": "Wert 3",
+        "placeholder": "Wert 3 eingeben",
+        "helper": "Third Wert"
+      },
+      "weight3": {
+        "label": "Gewicht 3",
+        "placeholder": "Gewicht 3 eingeben",
+        "helper": "Gewicht for Wert 3"
+      }
+    },
+    "kesir-ondalik-cevirici": {
+      "numerator": {
+        "label": "Numerator",
+        "placeholder": "Numerator eingeben",
+        "helper": "Numerator for calculation"
+      },
+      "denominator": {
+        "label": "Denominator",
+        "placeholder": "Denominator eingeben",
+        "helper": "Denominator for calculation"
+      }
+    },
+    "rastgele-sayi-ureteci": {
+      "minvalue": {
+        "label": "Minimum",
+        "placeholder": "Minimum eingeben",
+        "helper": "Minimum integer"
+      },
+      "maxvalue": {
+        "label": "Maximum",
+        "placeholder": "Maximum eingeben",
+        "helper": "Maximum integer"
+      }
+    },
+    "daire-alani-cevresi-hesaplama": {
+      "radius": {
+        "label": "Radius",
+        "placeholder": "Radius eingeben",
+        "helper": "Circle Radius"
+      }
+    },
+    "ucgen-alani-cevresi-hesaplama": {
+      "base": {
+        "label": "Base",
+        "placeholder": "Base eingeben",
+        "helper": "Triangle base Länge"
+      },
+      "height": {
+        "label": "Höhe",
+        "placeholder": "Höhe eingeben",
+        "helper": "Triangle Höhe"
+      }
+    },
+    "silindir-hacmi-hesaplama": {
+      "radius": {
+        "label": "Radius",
+        "placeholder": "Radius eingeben",
+        "helper": "Cylinder Radius"
+      },
+      "height": {
+        "label": "Höhe",
+        "placeholder": "Höhe eingeben",
+        "helper": "Cylinder Höhe"
+      }
+    },
+    "cit-korkuluk-malzeme-hesabi": {
+      "length": {
+        "label": "Fence Länge",
+        "placeholder": "Fence Länge eingeben",
+        "helper": "Fence Länge for calculation"
+      },
+      "postspacing": {
+        "label": "Post spacing",
+        "placeholder": "Post spacing eingeben",
+        "helper": "Post spacing for calculation"
+      }
+    },
+    "prefabrik-konteyner-olcu-hesaplama": {
+      "length": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Container Länge"
+      },
+      "width": {
+        "label": "Breite",
+        "placeholder": "Breite eingeben",
+        "helper": "Container Breite"
+      }
+    },
+    "celik-cati-makas-yaklasik-agirligi": {
+      "span": {
+        "label": "Roof span",
+        "placeholder": "Roof span eingeben",
+        "helper": "Truss span in meters"
+      },
+      "weightpermeter": {
+        "label": "Gewicht pro meter",
+        "placeholder": "Gewicht pro meter eingeben",
+        "helper": "Approximate steel Gewicht pro meter"
+      }
+    },
+    "su-deposu-hacmi-hesaplama": {
+      "radius": {
+        "label": "Radius",
+        "placeholder": "Radius eingeben",
+        "helper": "Tank Radius"
+      },
+      "height": {
+        "label": "Höhe",
+        "placeholder": "Höhe eingeben",
+        "helper": "Tank Höhe"
+      }
+    },
+    "yalitim-malzemesi-m-hesaplama": {
+      "aream2": {
+        "label": "Surface Fläche",
+        "placeholder": "Surface Fläche eingeben",
+        "helper": "Insulated surface in m²"
+      },
+      "layers": {
+        "label": "Layers",
+        "placeholder": "Layers eingeben",
+        "helper": "Number of layers"
+      }
+    },
+    "ups-kesintisiz-guc-kaynagi-secimi": {
+      "loadwatts": {
+        "label": "Load",
+        "placeholder": "Load eingeben",
+        "helper": "Connected load in watts"
+      },
+      "runtimeminutes": {
+        "label": "Laufzeit",
+        "placeholder": "Laufzeit eingeben",
+        "helper": "Required Laufzeit in minutes"
+      }
+    },
+    "gerilim-dusumu-hesaplama": {
+      "current": {
+        "label": "Strom",
+        "placeholder": "Strom eingeben",
+        "helper": "Laststrom in amps"
+      },
+      "linelengthm": {
+        "label": "Line Länge",
+        "placeholder": "Line Länge eingeben",
+        "helper": "One-way cable Länge in meters"
+      }
+    },
+    "topraklama-direnci-hesaplama": {
+      "measuredohms": {
+        "label": "Measured resistance",
+        "placeholder": "Measured resistance eingeben",
+        "helper": "Ground resistance reading"
+      }
+    },
+    "aku-kapasitesi-calisma-suresi-hesabi": {
+      "batteryah": {
+        "label": "Battery capacity",
+        "placeholder": "Battery capacity eingeben",
+        "helper": "Battery capacity for calculation"
+      },
+      "loadamps": {
+        "label": "Laststrom",
+        "placeholder": "Laststrom eingeben",
+        "helper": "Laststrom for calculation"
+      }
+    },
+    "aydinlatma-armatur-sayisi-hesaplama": {
+      "totallumensneeded": {
+        "label": "Total lumens",
+        "placeholder": "Total lumens eingeben",
+        "helper": "Total lumens for calculation"
+      },
+      "lumensperfixture": {
+        "label": "Lumens pro fixture",
+        "placeholder": "Lumens pro fixture eingeben",
+        "helper": "Lumens pro fixture for calculation"
+      }
+    },
+    "kompresor-debisi-tank-hacmi-hesabi": {
+      "flowcfm": {
+        "label": "Kompressordurchfluss",
+        "placeholder": "Kompressordurchfluss eingeben",
+        "helper": "Kompressordurchfluss Satz"
+      },
+      "fillminutes": {
+        "label": "Fill time",
+        "placeholder": "Fill time eingeben",
+        "helper": "Desired tank fill time in minutes"
+      }
+    },
+    "hidrolik-silindir-itme-kuvveti-hesabi": {
+      "pressurebar": {
+        "label": "Druck",
+        "placeholder": "Druck eingeben",
+        "helper": "System Druck in bar"
+      },
+      "boremm": {
+        "label": "Bohrungsdurchmesser",
+        "placeholder": "Bohrungsdurchmesser eingeben",
+        "helper": "Cylinder bore in mm"
+      }
+    },
+    "pnomatik-silindir-kuvvet-hesabi": {
+      "pressurebar": {
+        "label": "Druck",
+        "placeholder": "Druck eingeben",
+        "helper": "Air Druck in bar"
+      },
+      "boremm": {
+        "label": "Bohrungsdurchmesser",
+        "placeholder": "Bohrungsdurchmesser eingeben",
+        "helper": "Cylinder bore in mm"
+      }
+    },
+    "hidrolik-pompa-gucu-hesaplama": {
+      "flowlpm": {
+        "label": "Durchfluss",
+        "placeholder": "Durchfluss eingeben",
+        "helper": "Durchfluss in L/min"
+      },
+      "pressurebar": {
+        "label": "Druck",
+        "placeholder": "Druck eingeben",
+        "helper": "Druck in bar"
+      }
+    },
+    "boru-capi-akis-hizi-hesaplama": {
+      "flowlpm": {
+        "label": "Durchfluss Satz",
+        "placeholder": "Durchfluss Satz eingeben",
+        "helper": "Durchfluss Satz for calculation"
+      },
+      "velocitymps": {
+        "label": "Zielgeschwindigkeit",
+        "placeholder": "Zielgeschwindigkeit eingeben",
+        "helper": "Zielgeschwindigkeit for calculation"
+      }
+    },
+    "pompa-gucu-basma-yuksekligi-hesabi": {
+      "flowm3h": {
+        "label": "Durchfluss",
+        "placeholder": "Durchfluss eingeben",
+        "helper": "Durchfluss in m³/h"
+      },
+      "headm": {
+        "label": "Head",
+        "placeholder": "Head eingeben",
+        "helper": "Total head in meters"
+      }
+    },
+    "su-debisi-litre-dakika-hesaplama": {
+      "volumeliters": {
+        "label": "Volumen",
+        "placeholder": "Volumen eingeben",
+        "helper": "Volumen for calculation"
+      },
+      "minutes": {
+        "label": "Minutes",
+        "placeholder": "Minutes eingeben",
+        "helper": "Minutes for calculation"
+      }
+    },
+    "isitma-sogutma-yuku-kcal-kw-hesabi": {
+      "aream2": {
+        "label": "Fläche",
+        "placeholder": "Fläche eingeben",
+        "helper": "Conditioned Grundfläche"
+      },
+      "loadkcal": {
+        "label": "Lastfaktor",
+        "placeholder": "Lastfaktor eingeben",
+        "helper": "Lastfaktor kcal/h·m²"
+      }
+    },
+    "radyator-petek-boyu-hesaplama": {
+      "heatloadkcal": {
+        "label": "Heat load",
+        "placeholder": "Heat load eingeben",
+        "helper": "Heat load for calculation"
+      },
+      "paneloutputkcal": {
+        "label": "Panel output",
+        "placeholder": "Panel output eingeben",
+        "helper": "Panel output for calculation"
+      }
+    },
+    "akaryakit-fiyati-ile-yol-butcesi": {
+      "distancekm": {
+        "label": "Entfernung",
+        "placeholder": "Entfernung eingeben",
+        "helper": "Trip Entfernung in km"
+      },
+      "costperkm": {
+        "label": "Kosten pro km",
+        "placeholder": "Kosten pro km eingeben",
+        "helper": "Kraftstoff Kosten pro km"
+      }
+    },
+    "arac-amortisman-hesaplama": {
+      "vehiclecost": {
+        "label": "Vehicle Kosten",
+        "placeholder": "Vehicle Kosten eingeben",
+        "helper": "Purchase Preis"
+      },
+      "salvagevalue": {
+        "label": "Restwert",
+        "placeholder": "Restwert eingeben",
+        "helper": "Expected Restwert"
+      },
+      "usefullifeyears": {
+        "label": "Nutzungsdauer",
+        "placeholder": "Nutzungsdauer eingeben",
+        "helper": "Depreciation Jahre"
+      }
+    },
+    "kaynak-dikis-hacmi-maliyeti-hesabi": {
+      "throatmm": {
+        "label": "Hals",
+        "placeholder": "Hals eingeben",
+        "helper": "Weld Hals in mm"
+      },
+      "weldlengthm": {
+        "label": "Weld Länge",
+        "placeholder": "Weld Länge eingeben",
+        "helper": "Weld Länge in meters"
+      }
+    },
+    "kesme-bukme-abkant-tonaj-hesabi": {
+      "sheetlengthmm": {
+        "label": "Sheet Länge",
+        "placeholder": "Sheet Länge eingeben",
+        "helper": "BEnde Line Länge in mm"
+      },
+      "sheetthicknessmm": {
+        "label": "Dicke",
+        "placeholder": "Dicke eingeben",
+        "helper": "Sheet Dicke in mm"
+      }
+    },
+    "disli-modul-cap-hesaplama": {
+      "module": {
+        "label": "Module",
+        "placeholder": "Module eingeben",
+        "helper": "Gear module"
+      },
+      "teeth": {
+        "label": "Zähne",
+        "placeholder": "Zähne eingeben",
+        "helper": "Number of Zähne"
+      }
+    },
+    "civata-on-germe-kuvveti-hesabi": {
+      "boltdiametermm": {
+        "label": "SchraubEndeurchmesser",
+        "placeholder": "SchraubEndeurchmesser eingeben",
+        "helper": "Nominal SchraubEndeurchmesser in mm"
+      },
+      "preloadkn": {
+        "label": "Preload force",
+        "placeholder": "Preload force eingeben",
+        "helper": "Sollwert preload in kN"
+      }
+    },
+    "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama": {
+      "antifreezeliters": {
+        "label": "Antifreeze Volumenn",
+        "placeholder": "Antifreeze Volumenn eingeben",
+        "helper": "Antifreeze Volumenn for calculation"
+      },
+      "totalliters": {
+        "label": "Total coolant Volumenn",
+        "placeholder": "Total coolant Volumenn eingeben",
+        "helper": "Total coolant Volumenn for calculation"
+      }
+    },
+    "palet-ambalaj-kereste-hesabi": {
+      "palletcount": {
+        "label": "Pallet count",
+        "placeholder": "Pallet count eingeben",
+        "helper": "Number of pallets"
+      },
+      "boardlengthm": {
+        "label": "Brettlänge",
+        "placeholder": "Brettlänge eingeben",
+        "helper": "Average Brettlänge pro pallet"
+      }
+    },
+    "tahta-mdf-sunta-m-agirlik-hesabi": {
+      "aream2": {
+        "label": "Fläche",
+        "placeholder": "Fläche eingeben",
+        "helper": "Sheet Fläche in m²"
+      },
+      "kgperm2": {
+        "label": "Gewicht pro m²",
+        "placeholder": "Gewicht pro m² eingeben",
+        "helper": "Catalog Gewicht pro m²"
+      }
+    },
+    "tel-kablo-uzunlugu-agirlik-hesabi": {
+      "lengthm": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Cable run Länge in meters"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "kg/m eingeben",
+        "helper": "Catalog cable Gewicht pro meter"
+      }
+    },
+    "vida-somun-adim-dis-ustu-cap-hesabi": {
+      "pitchmm": {
+        "label": "Pitch",
+        "placeholder": "Pitch eingeben",
+        "helper": "Thread pitch in mm"
+      },
+      "threadcount": {
+        "label": "Thread count",
+        "placeholder": "Thread count eingeben",
+        "helper": "Number of threads engaged"
+      }
+    },
+    "matkap-kilavuz-delik-capi-tablosu": {
+      "screwdiametermm": {
+        "label": "Screw Durchmesser",
+        "placeholder": "Screw Durchmesser eingeben",
+        "helper": "Screw Durchmesser for calculation"
+      },
+      "drillfactor": {
+        "label": "Drill factor",
+        "placeholder": "Drill factor eingeben",
+        "helper": "Drill factor for calculation"
+      }
+    },
+    "kdv-tevkifati-hesaplama": {
+      "netamount": {
+        "label": "Nettotobetrag",
+        "placeholder": "Nettotobetrag eingeben",
+        "helper": "Netto invoice amount"
+      },
+      "withholdingrate": {
+        "label": "Withholding Satz",
+        "placeholder": "Withholding Satz eingeben",
+        "helper": "KDV withholding procent"
+      }
+    },
+    "stopaj-hesaplama-kira-serbest-meslek": {
+      "grossamount": {
+        "label": "Gross amount",
+        "placeholder": "Gross amount eingeben",
+        "helper": "Payment before withholding"
+      },
+      "withholdingrate": {
+        "label": "Withholding Satz",
+        "placeholder": "Withholding Satz eingeben",
+        "helper": "Stopaj procent"
+      }
+    },
+    "gelir-vergisi-dilimleri-hesaplama": {
+      "taxableincome": {
+        "label": "Taxable income",
+        "placeholder": "Taxable income eingeben",
+        "helper": "Annual taxable income"
+      },
+      "effectiverate": {
+        "label": "Effective Satz",
+        "placeholder": "Effective Satz eingeben",
+        "helper": "BlEndeed Effective Satz procent"
+      }
+    },
+    "ise-giris-cikis-bildirgesi-sureleri": {
+      "noticedays": {
+        "label": "Notice proiod",
+        "placeholder": "Notice proiod eingeben",
+        "helper": "Notice proiod"
+      }
+    },
+    "sgk-prim-hesaplama-isci-plus-isveren": {
+      "grosswage": {
+        "label": "Gross wage",
+        "placeholder": "Gross wage eingeben",
+        "helper": "Monthly gross wage"
+      },
+      "combinedrate": {
+        "label": "Kombinierter Satz",
+        "placeholder": "Kombinierter Satz eingeben",
+        "helper": "Employee + employer Satz procent"
+      }
+    },
+    "makine-ekonomik-omru-hurda-deger-hesabi": {
+      "machinecost": {
+        "label": "Machine Kosten",
+        "placeholder": "Machine Kosten eingeben",
+        "helper": "Purchase Preis"
+      },
+      "salvagevalue": {
+        "label": "Restwert",
+        "placeholder": "Restwert eingeben",
+        "helper": "Expected Restwert"
+      },
+      "usefullifeyears": {
+        "label": "Nutzungsdauer",
+        "placeholder": "Nutzungsdauer eingeben",
+        "helper": "Economic life in Jahre"
+      }
+    },
+    "leasing-kiralama-maliyet-karsilastirma": {
+      "leasecost": {
+        "label": "Lease Kosten",
+        "placeholder": "Lease Kosten eingeben",
+        "helper": "Lease Kosten for comparison"
+      },
+      "rentalcost": {
+        "label": "Mieteal Kosten",
+        "placeholder": "Mieteal Kosten eingeben",
+        "helper": "Mieteal Kosten for comparison"
+      }
+    },
+    "kredi-erken-kapama-cezasi-hesaplama": {
+      "remainingbalance": {
+        "label": "VerbleibEndee balance",
+        "placeholder": "VerbleibEndee balance eingeben",
+        "helper": "Outstanding loan balance"
+      },
+      "penaltyrate": {
+        "label": "Penalty Satz",
+        "placeholder": "Penalty Satz eingeben",
+        "helper": "Early closure penalty procent"
+      }
+    },
+    "doviz-pozisyonu-kur-farki-riski-hesabi": {
+      "foreignexposure": {
+        "label": "Foreign exposure",
+        "placeholder": "Foreign exposure eingeben",
+        "helper": "Exposure in foreign currency"
+      },
+      "fxmovepercent": {
+        "label": "FX move",
+        "placeholder": "FX move eingeben",
+        "helper": "Expected FX move procent"
+      }
+    },
+    "cek-senet-vade-kirma-maliyeti-hesabi": {
+      "facevalue": {
+        "label": "Face Wert",
+        "placeholder": "Face Wert eingeben",
+        "helper": "Instrument Face Wert"
+      },
+      "discountrate": {
+        "label": "Rabatt Satz",
+        "placeholder": "Rabatt Satz eingeben",
+        "helper": "Rabatt Satz procent"
+      }
+    },
+    "nakit-akisi-basit-gunluk-haftalik-panosu": {
+      "dailyinflow": {
+        "label": "Täglicher Zufluss",
+        "placeholder": "Täglicher Zufluss eingeben",
+        "helper": "Average daily cash inDurchfluss"
+      },
+      "days": {
+        "label": "Tage",
+        "placeholder": "Tage eingeben",
+        "helper": "Tage in proiod"
+      }
+    },
+    "ic-verim-orani-irr-hesaplama": {
+      "initialinvestment": {
+        "label": "Initial investment",
+        "placeholder": "Initial investment eingeben",
+        "helper": "Project investment"
+      },
+      "returnmultiple": {
+        "label": "Return multiple",
+        "placeholder": "Return multiple eingeben",
+        "helper": "Screening return multiple"
+      }
+    },
+    "konteyner-yukleme-kapasitesi-teu-hesabi": {
+      "totalweightkg": {
+        "label": "Total Gewicht",
+        "placeholder": "Total Gewicht eingeben",
+        "helper": "Total Gewicht for calculation"
+      },
+      "unitweightkg": {
+        "label": "Unit Gewicht",
+        "placeholder": "Unit Gewicht eingeben",
+        "helper": "Unit Gewicht for calculation"
+      }
+    },
+    "tir-kamyon-yuk-kapasitesi-hesaplama": {
+      "payloadton": {
+        "label": "Payload capacity",
+        "placeholder": "Payload capacity eingeben",
+        "helper": "Satzd payload in tonnes"
+      },
+      "loadfactor": {
+        "label": "Lastfaktor",
+        "placeholder": "Lastfaktor eingeben",
+        "helper": "Utilization factor"
+      }
+    },
+    "arac-bakim-periyodu-takip-hesaplama": {
+      "remainingkm": {
+        "label": "VerbleibEndee km",
+        "placeholder": "VerbleibEndee km eingeben",
+        "helper": "VerbleibEndee km for calculation"
+      },
+      "dailykm": {
+        "label": "Tägliche km",
+        "placeholder": "Tägliche km eingeben",
+        "helper": "Tägliche km for calculation"
+      }
+    },
+    "lastik-omru-degisim-km-hesaplama": {
+      "remainingtreadkm": {
+        "label": "VerbleibEndee tread km",
+        "placeholder": "VerbleibEndee tread km eingeben",
+        "helper": "VerbleibEndee tread km for calculation"
+      },
+      "monthlykm": {
+        "label": "Monthly km",
+        "placeholder": "Monthly km eingeben",
+        "helper": "Monthly km for calculation"
+      }
+    },
+    "depo-raf-palet-yerlesim-optimizasyonu": {
+      "palletwidthm": {
+        "label": "Pallet Breite",
+        "placeholder": "Pallet Breite eingeben",
+        "helper": "Pallet Breite in meters"
+      },
+      "palletdepthm": {
+        "label": "Pallet Tiefe",
+        "placeholder": "Pallet Tiefe eingeben",
+        "helper": "Pallet Tiefe in meters"
+      }
+    },
+    "trafik-cezasi-gecikme-faizi-hesaplama": {
+      "fineamount": {
+        "label": "Fine amount",
+        "placeholder": "Fine amount eingeben",
+        "helper": "Original fine amount"
+      },
+      "laterate": {
+        "label": "Late Satz",
+        "placeholder": "Late Satz eingeben",
+        "helper": "Late payment Satz procent"
+      }
+    },
+    "kasko-sigorta-prim-karsilastirma": {
+      "quotea": {
+        "label": "Quote A",
+        "placeholder": "Quote A eingeben",
+        "helper": "Quote A for comparison"
+      },
+      "quoteb": {
+        "label": "Quote B",
+        "placeholder": "Quote B eingeben",
+        "helper": "Quote B for comparison"
+      }
+    },
+    "sofor-operator-gunluk-yevmiye-maliyeti": {
+      "dailyrate": {
+        "label": "Tagessatz",
+        "placeholder": "Tagessatz eingeben",
+        "helper": "Driver/oproator Tagessatz"
+      },
+      "days": {
+        "label": "Tage",
+        "placeholder": "Tage eingeben",
+        "helper": "Working Tage"
+      }
+    },
+    "arac-kira-satin-alma-karsilastirma": {
+      "purchasecost": {
+        "label": "Purchase Kosten",
+        "placeholder": "Purchase Kosten eingeben",
+        "helper": "Purchase Kosten for comparison"
+      },
+      "leasecost": {
+        "label": "Lease Kosten",
+        "placeholder": "Lease Kosten eingeben",
+        "helper": "Lease Kosten for comparison"
+      }
+    },
+    "yemek-tabldot-maliyet-hesaplama": {
+      "mealcost": {
+        "label": "Meal Kosten",
+        "placeholder": "Meal Kosten eingeben",
+        "helper": "Kosten pro meal"
+      },
+      "headcount": {
+        "label": "Headcount",
+        "placeholder": "Headcount eingeben",
+        "helper": "Number of meals"
+      }
+    },
+    "fotokopi-yazici-toner-sayfa-maliyeti": {
+      "tonercost": {
+        "label": "Toner Kosten",
+        "placeholder": "Toner Kosten eingeben",
+        "helper": "Toner Kosten for calculation"
+      },
+      "pageyield": {
+        "label": "Page yield",
+        "placeholder": "Page yield eingeben",
+        "helper": "Page yield for calculation"
+      }
+    },
+    "internet-telefon-paketi-karsilastirma": {
+      "packagea": {
+        "label": "Package A",
+        "placeholder": "Package A eingeben",
+        "helper": "Package A for comparison"
+      },
+      "packageb": {
+        "label": "Package B",
+        "placeholder": "Package B eingeben",
+        "helper": "Package B for comparison"
+      }
+    },
+    "yangin-tupu-dolap-debisi-hesaplama": {
+      "aream2": {
+        "label": "Protected Fläche",
+        "placeholder": "Protected Fläche eingeben",
+        "helper": "Protected Grundfläche in m²"
+      },
+      "flowfactor": {
+        "label": "Durchfluss factor",
+        "placeholder": "Durchfluss factor eingeben",
+        "helper": "Durchfluss factor pro m²"
+      }
+    },
+    "prefabrik-konteyner-ofis-m-maliyeti": {
+      "aream2": {
+        "label": "Grundfläche",
+        "placeholder": "Grundfläche eingeben",
+        "helper": "Office Grundfläche in m²"
+      },
+      "costperm2": {
+        "label": "Kosten pro m²",
+        "placeholder": "Kosten pro m² eingeben",
+        "helper": "Kosten pro m²"
+      }
+    },
+    "celik-raf-depo-rafi-yuk-kapasitesi": {
+      "beamcapacitykg": {
+        "label": "Beam capacity",
+        "placeholder": "Beam capacity eingeben",
+        "helper": "Capacity pro beam level in kg"
+      },
+      "shelfcount": {
+        "label": "Shelf count",
+        "placeholder": "Shelf count eingeben",
+        "helper": "Number of shelf levels"
+      }
+    },
+    "kaynakli-baglanti-kose-kut-mukavemet-hesabi": {
+      "throatmm": {
+        "label": "Hals",
+        "placeholder": "Hals eingeben",
+        "helper": "Weld Hals in mm"
+      },
+      "leglengthmm": {
+        "label": "Leg Länge",
+        "placeholder": "Leg Länge eingeben",
+        "helper": "Leg Länge in mm"
+      }
+    },
+    "bulonlu-baglanti-kesme-ezilme-hesabi": {
+      "boltcount": {
+        "label": "Schraubenanzahl",
+        "placeholder": "Schraubenanzahl eingeben",
+        "helper": "Number of bolts"
+      },
+      "shearcapacitykn": {
+        "label": "Shear capacity",
+        "placeholder": "Shear capacity eingeben",
+        "helper": "Shear capacity pro bolt in kN"
+      }
+    },
+    "ruzgar-turbini-yaklasik-uretim-hesabi": {
+      "ratedkw": {
+        "label": "Satzd Leistung",
+        "placeholder": "Satzd Leistung eingeben",
+        "helper": "Turbine Satzd kW"
+      },
+      "capacityfactor": {
+        "label": "Capacity factor",
+        "placeholder": "Capacity factor eingeben",
+        "helper": "Capacity factor"
+      }
+    },
+    "su-isitma-kazan-boyler-kapasite-hesabi": {
+      "volumeliters": {
+        "label": "Volumen",
+        "placeholder": "Volumen eingeben",
+        "helper": "Tank Volumen in liters"
+      },
+      "deltatempc": {
+        "label": "Temproature rise",
+        "placeholder": "Temproature rise eingeben",
+        "helper": "Required Temproature rise in °C"
+      }
+    },
+    "soguk-oda-sogutma-yuku-hesabi": {
+      "roomvolumem3": {
+        "label": "Room Volumenn",
+        "placeholder": "Room Volumenn eingeben",
+        "helper": "Cold Room Volumenn"
+      },
+      "loadfactor": {
+        "label": "Lastfaktor",
+        "placeholder": "Lastfaktor eingeben",
+        "helper": "Cooling Lastfaktor"
+      }
+    },
+    "yamuk-alani-hesaplama": {
+      "basea": {
+        "label": "Base A",
+        "placeholder": "Base A eingeben",
+        "helper": "First parallel side"
+      },
+      "baseb": {
+        "label": "Base B",
+        "placeholder": "Base B eingeben",
+        "helper": "Second parallel side"
+      },
+      "height": {
+        "label": "Höhe",
+        "placeholder": "Höhe eingeben",
+        "helper": "propEndeicular Höhe"
+      }
+    },
+    "kure-hacmi-hesaplama": {
+      "radius": {
+        "label": "Radius",
+        "placeholder": "Radius eingeben",
+        "helper": "Sphere Radius"
+      }
+    },
+    "koni-hacmi-hesaplama": {
+      "radius": {
+        "label": "Radius",
+        "placeholder": "Radius eingeben",
+        "helper": "Base Radius"
+      },
+      "height": {
+        "label": "Höhe",
+        "placeholder": "Höhe eingeben",
+        "helper": "Cone Höhe"
+      }
+    },
+    "duvar-kagidi-seramik-adet-hesaplama": {
+      "wallaream2": {
+        "label": "Wall Fläche",
+        "placeholder": "Wall Fläche eingeben",
+        "helper": "Wall Fläche for calculation"
+      },
+      "tileaream2": {
+        "label": "Tile Fläche",
+        "placeholder": "Tile Fläche eingeben",
+        "helper": "Tile Fläche for calculation"
+      }
+    },
+    "kiris-kolon-yaklasik-agirlik-hesabi": {
+      "lengthm": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Member Länge in meters"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "kg/m eingeben",
+        "helper": "Catalog Gewicht pro meter"
+      }
+    },
+    "asma-tavan-malzeme-hesabi": {
+      "ceilingaream2": {
+        "label": "Deckenfläche",
+        "placeholder": "Deckenfläche eingeben",
+        "helper": "Deckenfläche in m²"
+      },
+      "materialperm2": {
+        "label": "Material pro m²",
+        "placeholder": "Material pro m² eingeben",
+        "helper": "Material units pro m²"
+      }
+    },
+    "istinat-duvari-yaklasik-beton-hesabi": {
+      "walllengthm": {
+        "label": "Wall Länge",
+        "placeholder": "Wall Länge eingeben",
+        "helper": "Retaining Wall Länge"
+      },
+      "wallheightm": {
+        "label": "Wall Höhe",
+        "placeholder": "Wall Höhe eingeben",
+        "helper": "Average Wall Höhe"
+      }
+    },
+    "rulman-omur-hesabi-l10": {
+      "dynamicloadkn": {
+        "label": "Dynamische Last",
+        "placeholder": "Dynamische Last eingeben",
+        "helper": "Dynamische Last for calculation"
+      },
+      "basicloadkn": {
+        "label": "Dynamische Tragzahl",
+        "placeholder": "Dynamische Tragzahl eingeben",
+        "helper": "Dynamische Tragzahl for calculation"
+      }
+    },
+    "paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli": {
+      "densitykgm3": {
+        "label": "Material Dichte",
+        "placeholder": "Material Dichte eingeben",
+        "helper": "Material Dichte"
+      }
+    },
+    "enjeksiyon-dokum-cekme-payi-hesabi": {
+      "partlengthmm": {
+        "label": "Part Länge",
+        "placeholder": "Part Länge eingeben",
+        "helper": "Molded Part Länge in mm"
+      },
+      "shrinkpercent": {
+        "label": "Shrink procent",
+        "placeholder": "Shrink procent eingeben",
+        "helper": "Expected Shrink procent"
+      }
+    },
+    "kumlama-raspa-kum-sarfiyati-hesabi": {
+      "surfaceaream2": {
+        "label": "Surface Fläche",
+        "placeholder": "Surface Fläche eingeben",
+        "helper": "Blasted surface in m²"
+      },
+      "abrasivekgperm2": {
+        "label": "Abrasive pro m²",
+        "placeholder": "Abrasive pro m² eingeben",
+        "helper": "Abrasive kg pro m²"
+      }
+    },
+    "plastik-enjeksiyon-cevrim-suresi-tahmini": {
+      "shotweightg": {
+        "label": "Shot Gewicht",
+        "placeholder": "Shot Gewicht eingeben",
+        "helper": "Shot Gewicht for calculation"
+      },
+      "injectionrategps": {
+        "label": "Injection Satz",
+        "placeholder": "Injection Satz eingeben",
+        "helper": "Injection Satz for calculation"
+      }
+    },
+    "personel-devamsizlik-maliyeti-hesaplama": {
+      "dailywage": {
+        "label": "Tageslohn",
+        "placeholder": "Tageslohn eingeben",
+        "helper": "Tageslohn Kosten"
+      },
+      "absentdays": {
+        "label": "Fehltage",
+        "placeholder": "Fehltage eingeben",
+        "helper": "Fehltage in proiod"
+      }
+    },
+    "is-kazasi-maliyeti-gun-kaybi-hesaplama": {
+      "dailyoutputvalue": {
+        "label": "Täglicher Ausgabewert",
+        "placeholder": "Täglicher Ausgabewert eingeben",
+        "helper": "Daily production Wert"
+      },
+      "lostdays": {
+        "label": "Lost Tage",
+        "placeholder": "Lost Tage eingeben",
+        "helper": "Lost workTage"
+      }
+    },
+    "forklift-transpalet-kullanim-maliyeti": {
+      "hourlyrate": {
+        "label": "Hourly Satz",
+        "placeholder": "Hourly Satz eingeben",
+        "helper": "Equipment Hourly Satz"
+      },
+      "hours": {
+        "label": "Stunden",
+        "placeholder": "Stunden eingeben",
+        "helper": "Oproating Stunden"
+      }
+    },
+    "paketleme-malzemesi-strec-koli-sarfiyati": {
+      "shipmentcount": {
+        "label": "Shipments",
+        "placeholder": "Shipments eingeben",
+        "helper": "Number of shipments"
+      },
+      "materialpershipment": {
+        "label": "Material pro shipment",
+        "placeholder": "Material pro shipment eingeben",
+        "helper": "Packaging units pro shipment"
+      }
+    },
+    "irsaliye-fatura-adedi-basina-sevkiyat-maliyeti": {
+      "totalshippingcost": {
+        "label": "Total shipping Kosten",
+        "placeholder": "Total shipping Kosten eingeben",
+        "helper": "Total shipping Kosten for calculation"
+      },
+      "documentcount": {
+        "label": "Document count",
+        "placeholder": "Document count eingeben",
+        "helper": "Document count for calculation"
+      }
+    },
+    "cay-kahve-su-tuketim-maliyeti": {
+      "unitcost": {
+        "label": "Unit Kosten",
+        "placeholder": "Unit Kosten eingeben",
+        "helper": "Kosten pro serving"
+      },
+      "dailyunits": {
+        "label": "Tägliche Einheiten",
+        "placeholder": "Tägliche Einheiten eingeben",
+        "helper": "Servings pro day"
+      }
+    },
+    "toplanti-saati-maliyeti-hesaplama": {
+      "attendeerate": {
+        "label": "Teilnehmerpreis",
+        "placeholder": "Teilnehmerpreis eingeben",
+        "helper": "BlEndeed hourly attEndeee Kosten"
+      },
+      "attendeehours": {
+        "label": "Teilnehmerstunden",
+        "placeholder": "Teilnehmerstunden eingeben",
+        "helper": "Total Teilnehmerstunden"
+      }
+    },
+    "is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati": {
+      "unitcost": {
+        "label": "Unit Kosten",
+        "placeholder": "Unit Kosten eingeben",
+        "helper": "PPE Kosten pro employee"
+      },
+      "employeecount": {
+        "label": "Mitarbeiter",
+        "placeholder": "Mitarbeiter eingeben",
+        "helper": "Number of Mitarbeiter"
+      }
+    },
+    "temizlik-malzemesi-sarfiyat-hesabi": {
+      "aream2": {
+        "label": "Fläche",
+        "placeholder": "Fläche eingeben",
+        "helper": "Cleaned Fläche in m²"
+      },
+      "consumptionperm2": {
+        "label": "Verbrauch pro m²",
+        "placeholder": "Verbrauch pro m² eingeben",
+        "helper": "Material Verbrauch pro m²"
+      }
+    },
+    "ofis-kirtasiye-sarfiyat-hesabi": {
+      "employeecount": {
+        "label": "Mitarbeiter",
+        "placeholder": "Mitarbeiter eingeben",
+        "helper": "Number of Mitarbeiter"
+      },
+      "monthlyspendperhead": {
+        "label": "SpEndee pro head",
+        "placeholder": "SpEndee pro head eingeben",
+        "helper": "Monthly stationery spEnde pro employee"
+      }
+    },
+    "sirket-telefon-faturasi-hesaplama": {
+      "linecount": {
+        "label": "Lines",
+        "placeholder": "Lines eingeben",
+        "helper": "Number of phone lines"
+      },
+      "monthlylinecost": {
+        "label": "Kosten pro Zeile",
+        "placeholder": "Kosten pro Zeile eingeben",
+        "helper": "Monthly Kosten pro Zeile"
+      }
+    },
+    "abonelik-yazilim-cloud-yillik-maliyet-hesabi": {
+      "monthlyfee": {
+        "label": "Monthly fee",
+        "placeholder": "Monthly fee eingeben",
+        "helper": "Monthly subscription fee"
+      },
+      "months": {
+        "label": "Months",
+        "placeholder": "Months eingeben",
+        "helper": "Months pro year"
+      }
+    },
+    "is-sagligi-ve-guvenligi-ceza-hesaplama": {
+      "basefine": {
+        "label": "Grundbußgeld",
+        "placeholder": "Grundbußgeld eingeben",
+        "helper": "Reference fine amount"
+      },
+      "severityfactor": {
+        "label": "Severity factor",
+        "placeholder": "Severity factor eingeben",
+        "helper": "Severity multiplier"
+      }
+    },
+    "yangin-merdiveni-kacis-yolu-genisligi-hesabi": {
+      "occupantload": {
+        "label": "Occupant load",
+        "placeholder": "Occupant load eingeben",
+        "helper": "Occupant load for calculation"
+      },
+      "flowpermeter": {
+        "label": "Durchfluss pro meter",
+        "placeholder": "Durchfluss pro meter eingeben",
+        "helper": "Durchfluss pro meter for calculation"
+      }
+    },
+    "cevre-atik-beyani-maliyet-hesaplama": {
+      "wastetonnes": {
+        "label": "Ausschuss tonnage",
+        "placeholder": "Ausschuss tonnage eingeben",
+        "helper": "Declared Ausschuss in tonnes"
+      },
+      "feepertonne": {
+        "label": "Fee pro tonne",
+        "placeholder": "Fee pro tonne eingeben",
+        "helper": "Fee pro tonne"
+      }
+    },
+    "cop-atik-konteyner-hacim-hesabi": {
+      "containerlengthm": {
+        "label": "Länge",
+        "placeholder": "Länge eingeben",
+        "helper": "Container Länge in meters"
+      },
+      "containerwidthm": {
+        "label": "Breite",
+        "placeholder": "Breite eingeben",
+        "helper": "Container Breite in meters"
+      }
+    },
+    "geri-donusum-gelir-maliyet-hesabi": {
+      "recyclingrevenue": {
+        "label": "Recycling revenue",
+        "placeholder": "Recycling revenue eingeben",
+        "helper": "Recycling revenue for comparison"
+      },
+      "processingcost": {
+        "label": "Processing Kosten",
+        "placeholder": "Processing Kosten eingeben",
+        "helper": "Processing Kosten for comparison"
+      }
+    },
+    "merdiven-platform-yukseklik-erisim-hesabi": {
+      "platformheightm": {
+        "label": "Platform Höhe",
+        "placeholder": "Platform Höhe eingeben",
+        "helper": "Working Platform Höhe in meters"
+      },
+      "accessfactor": {
+        "label": "Access factor",
+        "placeholder": "Access factor eingeben",
+        "helper": "Access factor"
+      }
+    },
+    "mil-aks-capi-hesabi-egilme-burulma": {
+      "bendingmoment": {
+        "label": "BEndeeing moment",
+        "placeholder": "BEndeeing moment eingeben",
+        "helper": "Applied BEndeeing moment index"
+      },
+      "torque": {
+        "label": "Torque",
+        "placeholder": "Torque eingeben",
+        "helper": "Applied torque index"
+      }
+    },
+    "yatak-rulman-omur-hesabi-l10": {
+      "dynamicloadkn": {
+        "label": "Dynamische Last",
+        "placeholder": "Dynamische Last eingeben",
+        "helper": "Dynamische Last for calculation"
+      },
+      "basicloadkn": {
+        "label": "Dynamische Tragzahl",
+        "placeholder": "Dynamische Tragzahl eingeben",
+        "helper": "Dynamische Tragzahl for calculation"
+      }
+    },
+    "yay-helisel-kuvvet-uzama-hesabi": {
+      "springrate": {
+        "label": "Spring Satz",
+        "placeholder": "Spring Satz eingeben",
+        "helper": "Spring Satz N/mm"
+      },
+      "deflectionmm": {
+        "label": "Deflection",
+        "placeholder": "Deflection eingeben",
+        "helper": "Deflection in mm"
+      }
+    },
+    "basincli-kap-cidar-kalinligi-hesabi": {
+      "designpressurebar": {
+        "label": "Design Druck",
+        "placeholder": "Design Druck eingeben",
+        "helper": "Design Druck for calculation"
+      },
+      "allowablestressbar": {
+        "label": "Allowable stress",
+        "placeholder": "Allowable stress eingeben",
+        "helper": "Allowable stress for calculation"
+      }
+    },
+    "isi-degistirici-esanjor-kapasite-hesabi": {
+      "flowratem3h": {
+        "label": "Durchfluss Satz",
+        "placeholder": "Durchfluss Satz eingeben",
+        "helper": "Durchfluss in m³/h"
+      },
+      "deltatempc": {
+        "label": "Temproature delta",
+        "placeholder": "Temproature delta eingeben",
+        "helper": "Temproature Differenz in °C"
+      }
+    },
+    "baca-havalandirma-kanali-cap-hesabi": {
+      "airflowm3h": {
+        "label": "AirDurchfluss",
+        "placeholder": "AirDurchfluss eingeben",
+        "helper": "AirDurchfluss for calculation"
+      },
+      "velocitymps": {
+        "label": "Zielgeschwindigkeit",
+        "placeholder": "Zielgeschwindigkeit eingeben",
+        "helper": "Zielgeschwindigkeit for calculation"
+      }
+    },
+    "ses-yalitimi-desibel-azaltimi-hesabi": {
+      "sourcedb": {
+        "label": "Source level",
+        "placeholder": "Source level eingeben",
+        "helper": "Source level for comparison"
+      },
+      "attenuationdb": {
+        "label": "Attenuation",
+        "placeholder": "Attenuation eingeben",
+        "helper": "Attenuation for comparison"
+      }
+    },
+    "titresim-frekans-periyot-hesaplama": {
+      "frequencyhz": {
+        "label": "Frequency",
+        "placeholder": "Frequency eingeben",
+        "helper": "Vibration frequency in Hz"
+      },
+      "unitconstant": {
+        "label": "Constant",
+        "placeholder": "Constant eingeben",
+        "helper": "Use 1 for proiod in seconds"
+      }
+    },
+    "kaynak-proseduru-wps-on-isitma-sicakligi-hesabi": {
+      "preheattempc": {
+        "label": "Preheat temproature",
+        "placeholder": "Preheat temproature eingeben",
+        "helper": "Preheat temproature"
+      }
+    },
+    "istatistiksel-proses-kontrol-spc-limit-hesabi": {
+      "processmean": {
+        "label": "Process mean",
+        "placeholder": "Process mean eingeben",
+        "helper": "Process mean"
+      },
+      "controlfactor": {
+        "label": "Steuerfaktor",
+        "placeholder": "Steuerfaktor eingeben",
+        "helper": "Control limit factor"
+      }
+    },
+    "alti-sigma-dpmo-sigma-seviyesi-cevirici": {
+      "dpmo": {
+        "label": "DPMO",
+        "placeholder": "DPMO eingeben",
+        "helper": "Defects pro million opportunities"
+      },
+      "million": {
+        "label": "Million",
+        "placeholder": "Million eingeben",
+        "helper": "Divisor (use 1,000,000)"
+      }
+    }
+  },
+  "sectorFooter": {
+    "logoText": "SECTORCALC",
+    "badge": "BRANCHENRECHNER-PLATTFORM",
+    "hudRight1": "BRANCHEN-TOOLS : AKTIV",
+    "hudRight2": "FREE + PREMIUM",
+    "panel1Svg": "KOSTEN",
+    "panel2Svg": "AUSSCHUSS",
+    "panel3Svg": "TECHNIK/OEE",
+    "panel4Svg": "BIBLIOTHEK",
+    "panel1Link1": "Angebots- & Margenrechner",
+    "panel1Link2": "Maschinenstundensatz-Rechner",
+    "panel1Link3": "Break-even-Rechner",
+    "panel1Link4": "Personalkosten-Rechner",
+    "panel2Link1": "Ausschuss & Materialverlust",
+    "panel2Link2": "Ungeplante Ausfallkosten",
+    "panel2Link3": "Lager & EOQ-Rechner",
+    "panel2Link4": "Qualitätskosten-Rechner",
+    "panel3Link1": "OEE-Rechner",
+    "panel3Link2": "Kompressor-Leckagekosten",
+    "panel3Link3": "Schraubendrehmoment & Verbindung",
+    "panel3Link4": "Kohlenstoff- & Energierechnungen",
+    "newsletterLabel": "SECTORCALC NEWSLETTER",
+    "newsletterPlaceholder": "Ihre E-Mail-Adresse",
+    "newsletterButton": "ANMELDEN",
+    "socialIn": "IN",
+    "socialApi": "API",
+    "socialLlms": "LLMS",
+    "legalPrivacy": "DATENSCHUTZ",
+    "legalTerms": "NUTZUNGSBEDINGUNGEN",
+    "legalDisclaimer": "HAFTUNGSAUSSCHLUSS",
+    "metaReg": "REG: GLOBAL",
+    "metaCur": "CUR: EUR",
+    "metaCopyright": "© 2026 SECTORCALC"
   }
 }

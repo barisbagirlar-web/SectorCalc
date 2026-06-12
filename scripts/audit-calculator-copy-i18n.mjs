@@ -157,8 +157,34 @@ function scanSourceFile(relPath, text, failures) {
 
 const failures = [];
 
+const EN_FIELD_LEAK = /^Enter /i;
+
 for (const locale of NON_EN_LOCALES) {
   const messages = loadMessages(locale);
+
+  const fieldInputs = messages.freeToolInputs ?? {};
+  for (const [slug, fields] of Object.entries(fieldInputs)) {
+    if (!fields || typeof fields !== "object") {
+      continue;
+    }
+    for (const [fieldKey, copy] of Object.entries(fields)) {
+      if (!copy || typeof copy !== "object") {
+        continue;
+      }
+      const label = copy.label ?? "";
+      const placeholder = copy.placeholder ?? "";
+      const helper = copy.helper ?? "";
+      if (EN_FIELD_LEAK.test(placeholder)) {
+        failures.push(`${locale}: English placeholder leak ${slug}.${fieldKey} → "${placeholder}"`);
+      }
+      if (/\b(Bag yield|Waste percent|Enter |Room or slab)\b/i.test(label)) {
+        failures.push(`${locale}: English field label leak ${slug}.${fieldKey} → "${label}"`);
+      }
+      if (helper && /\b(Required for|Enter a realistic|Example: use your last|Total pour volume|Volume per bag)\b/i.test(helper)) {
+        failures.push(`${locale}: English helper leak ${slug}.${fieldKey}`);
+      }
+    }
+  }
 
   for (const slug of SLUGS) {
     const entry = resolveFreeToolCopy(locale, slug);

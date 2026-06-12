@@ -475,7 +475,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
 
  if (useFullLoopRuntime) {
   if (!usePremiumSmartForm) {
-   const nextErrors = validateSmartFormFieldValues(runtimeSlug, values);
+   const nextErrors = validateSmartFormFieldValues(runtimeSlug, values, locale);
    setErrors(nextErrors);
    if (Object.keys(nextErrors).length > 0) {
     setSubmitted(false);

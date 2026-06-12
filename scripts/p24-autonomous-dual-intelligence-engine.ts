@@ -67,6 +67,9 @@ const GATES = [
 
 type Gate = (typeof GATES)[number];
 
+let cachedTechnicalBuild: GateResult | null = null;
+let cachedTypeSafety: GateResult | null = null;
+
 // ============================================================================
 // MASTER ENGINE
 // ============================================================================
@@ -82,8 +85,15 @@ export async function runAutonomousDualIntelligenceEngine(): Promise<EngineRepor
   const tools = await discoverAllTools();
   console.log(`   Found ${tools.length} tools\n`);
 
-  // Step 2: Run gates for each tool
-  console.log("🔬 Step 2: Running 13-Gate Test Pipeline\n");
+  // Step 2: Run repo-wide gates once (not per tool — avoids false FAIL from repeated builds)
+  console.log("🔬 Step 2: Running repo-wide build + typecheck gates\n");
+  cachedTechnicalBuild = runTechnicalBuildGate();
+  cachedTypeSafety = runTypeSafetyGate();
+  console.log(
+    `   technical-build: ${cachedTechnicalBuild.status} | type-safety: ${cachedTypeSafety.status}\n`,
+  );
+
+  console.log("🔬 Step 3: Running 13-Gate Test Pipeline per tool\n");
   const results: ToolTestResult[] = [];
 
   for (const tool of tools) {
@@ -231,20 +241,46 @@ async function runGate(gate: Gate, tool: ToolInfo): Promise<GateResult> {
 // ============================================================================
 
 function runTechnicalBuildGate(): GateResult {
+  if (cachedTechnicalBuild) {
+    return cachedTechnicalBuild;
+  }
   try {
     execSync("npm run build", { stdio: "ignore" });
-    return { gate: "technical-build", status: "PASS", message: "Build successful" };
+    cachedTechnicalBuild = {
+      gate: "technical-build",
+      status: "PASS",
+      message: "Build successful",
+    };
+    return cachedTechnicalBuild;
   } catch {
-    return { gate: "technical-build", status: "FAIL", message: "Build failed" };
+    cachedTechnicalBuild = {
+      gate: "technical-build",
+      status: "FAIL",
+      message: "Build failed",
+    };
+    return cachedTechnicalBuild;
   }
 }
 
 function runTypeSafetyGate(): GateResult {
+  if (cachedTypeSafety) {
+    return cachedTypeSafety;
+  }
   try {
     execSync("npx tsc --noEmit", { stdio: "ignore" });
-    return { gate: "type-safety", status: "PASS", message: "TypeScript check passed" };
+    cachedTypeSafety = {
+      gate: "type-safety",
+      status: "PASS",
+      message: "TypeScript check passed",
+    };
+    return cachedTypeSafety;
   } catch {
-    return { gate: "type-safety", status: "FAIL", message: "TypeScript errors found" };
+    cachedTypeSafety = {
+      gate: "type-safety",
+      status: "FAIL",
+      message: "TypeScript errors found",
+    };
+    return cachedTypeSafety;
   }
 }
 

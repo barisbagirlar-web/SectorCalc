@@ -211,11 +211,11 @@
   },
   "catalogExplorer": {
     "categories": {
-      "eyebrow": "By function",
-      "title": "Find calculators by what you need to measure.",
-      "subtitle": "Choose a calculation type first — productivity, waste, cost, routing, energy, measurement or finance — then open the right free check or premium report.",
-      "metaTitle": "Calculators by Function — OEE, Scrap, Route, Energy",
-      "metaDescription": "Find SectorCalc tools by what you measure: OEE, scrap, waste, routing, calibration, energy, margin, finance and daily calculations."
+      "eyebrow": "حسب الوظيفة",
+      "title": "اعثر على الحاسبات حسب ما تحتاج قياسه.",
+      "subtitle": "اختر نوع الحساب أولاً — الإنتاجية، الهدر، التكلفة، التوجيه، الطاقة، القياس أو المالية — ثم افتح الفحص المجاني أو التقرير المميز المناسب.",
+      "metaTitle": "حاسبات حسب الوظيفة — OEE، الهدر، المسار، الطاقة",
+      "metaDescription": "أدوات SectorCalc حسب ما تقيسه: OEE، الهدر، المسار، المعايرة، الطاقة، الهامش، المالية والحسابات اليومية."
     },
     "freeTools": {
       "eyebrow": "حاسبات مجانية",
@@ -3042,7 +3042,14 @@
     "calculationSteps": "خطوات الحساب",
     "calculationStepsEmpty": "ستظهر خطوات الحساب عندما يعرض هذا العقد أثرًا حتميًا.",
     "calculationStepDecisionGoal": "هدف القرار",
-    "calculationStepFormulaSummary": "ملخص الصيغة"
+    "calculationStepFormulaSummary": "ملخص الصيغة",
+    "fieldValidation": {
+      "required": "{label} مطلوب.",
+      "invalidNumber": "{label} يجب أن يكون رقماً صالحاً.",
+      "min": "{label} يجب أن يكون على الأقل {min}.",
+      "max": "{label} يجب ألا يزيد عن {max}.",
+      "contractNotFound": "لم يتم العثور على عقد النموذج الذكي لهذه الأداة."
+    }
   },
   "freeToolContent": {
     "square-meter-calculator": {
@@ -3461,5 +3468,3336 @@
     "legalQuestion": "هل هذه نصيحة مالية أو هندسية؟",
     "legalAnswer": "لا. حاسبات SectorCalc المميزة أدوات دعم قرار بافتراضات شفافة. لا تحل محل المشورة المالية أو القانونية أو الهندسية المهنية.",
     "serviceType": "حساب قرار تشغيلي"
+  },
+  "freeToolInputs": {
+    "square-meter-calculator": {
+      "length": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "Room or slab الطول"
+      },
+      "width": {
+        "label": "العرض",
+        "placeholder": "أدخل العرض",
+        "helper": "Room or slab العرض"
+      }
+    },
+    "square-footage-calculator": {
+      "length": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "الطول in feet"
+      },
+      "width": {
+        "label": "العرض",
+        "placeholder": "أدخل العرض",
+        "helper": "العرض in feet"
+      }
+    },
+    "concrete-volume-calculator": {
+      "length": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "Slab الطول"
+      },
+      "width": {
+        "label": "العرض",
+        "placeholder": "أدخل العرض",
+        "helper": "Slab العرض"
+      },
+      "depth": {
+        "label": "العمق",
+        "placeholder": "أدخل العمق",
+        "helper": "Slab السماكة"
+      }
+    },
+    "concrete-bag-calculator": {
+      "volumem3": {
+        "label": "الحجم",
+        "placeholder": "أدخل الحجم",
+        "helper": "إجمالي حجم الصب"
+      },
+      "bagyieldm3": {
+        "label": "إنتاجية الكيس",
+        "placeholder": "أدخل إنتاجية الكيس",
+        "helper": "الحجم لكل كيس"
+      },
+      "wastepercent": {
+        "label": "الهدر",
+        "placeholder": "أدخل الهدر",
+        "helper": "هامش هدر إضافي"
+      }
+    },
+    "paint-coverage-calculator": {
+      "aream2": {
+        "label": "Wall المساحة",
+        "placeholder": "أدخل Wall المساحة",
+        "helper": "Surface المساحة to paint"
+      },
+      "coverageperliter": {
+        "label": "Coverage",
+        "placeholder": "أدخل Coverage",
+        "helper": "التغطية لكل لتر"
+      },
+      "coats": {
+        "label": "الطبقات",
+        "placeholder": "أدخل الطبقات",
+        "helper": "Number of الطبقات"
+      }
+    },
+    "tile-calculator": {
+      "aream2": {
+        "label": "مساحة الأرضية",
+        "placeholder": "أدخل مساحة الأرضية",
+        "helper": "المساحة to tile"
+      },
+      "tilelengthcm": {
+        "label": "Tile الطول",
+        "placeholder": "أدخل Tile الطول",
+        "helper": "Tile الطول"
+      },
+      "tilewidthcm": {
+        "label": "Tile العرض",
+        "placeholder": "أدخل Tile العرض",
+        "helper": "Tile العرض"
+      },
+      "wastepercent": {
+        "label": "الهدر",
+        "placeholder": "أدخل الهدر",
+        "helper": "Cutting الهدر"
+      }
+    },
+    "flooring-calculator": {
+      "roomlengthm": {
+        "label": "Room الطول",
+        "placeholder": "أدخل Room الطول",
+        "helper": "الطول"
+      },
+      "roomwidthm": {
+        "label": "Room العرض",
+        "placeholder": "أدخل Room العرض",
+        "helper": "العرض"
+      },
+      "wastepercent": {
+        "label": "الهدر",
+        "placeholder": "أدخل الهدر",
+        "helper": "Ordering الهدر"
+      }
+    },
+    "roofing-area-calculator": {
+      "lengthm": {
+        "label": "Footprint الطول",
+        "placeholder": "أدخل Footprint الطول",
+        "helper": "Building الطول"
+      },
+      "widthm": {
+        "label": "Footprint العرض",
+        "placeholder": "أدخل Footprint العرض",
+        "helper": "Building العرض"
+      },
+      "pitchfactor": {
+        "label": "Pitch factor",
+        "placeholder": "أدخل Pitch factor",
+        "helper": "Slope multiplier (e.g. 1.15)"
+      }
+    },
+    "stair-calculator": {
+      "totalrisecm": {
+        "label": "Total rise",
+        "placeholder": "أدخل Total rise",
+        "helper": "Floor-to-floor الارتفاع"
+      },
+      "riserheightcm": {
+        "label": "Riser الارتفاع",
+        "placeholder": "أدخل Riser الارتفاع",
+        "helper": "Step riser"
+      },
+      "treaddepthcm": {
+        "label": "Tread العمق",
+        "placeholder": "أدخل Tread العمق",
+        "helper": "Step tread"
+      }
+    },
+    "drywall-calculator": {
+      "wallaream2": {
+        "label": "Wall المساحة",
+        "placeholder": "أدخل Wall المساحة",
+        "helper": "Total dryWall المساحة"
+      },
+      "sheetaream2": {
+        "label": "Sheet المساحة",
+        "placeholder": "أدخل Sheet المساحة",
+        "helper": "المساحة لكل sheet"
+      },
+      "wastepercent": {
+        "label": "الهدر",
+        "placeholder": "أدخل الهدر",
+        "helper": "Cut الهدر"
+      }
+    },
+    "brick-calculator": {
+      "wallaream2": {
+        "label": "Wall المساحة",
+        "placeholder": "أدخل Wall المساحة",
+        "helper": "Wall surface"
+      },
+      "bricksperm2": {
+        "label": "Bricks لكل m²",
+        "placeholder": "أدخل Bricks لكل m²",
+        "helper": "Layout الكثافة"
+      },
+      "wastepercent": {
+        "label": "الهدر",
+        "placeholder": "أدخل الهدر",
+        "helper": "Breakage allowance"
+      }
+    },
+    "rebar-weight-calculator": {
+      "diametermm": {
+        "label": "القطر",
+        "placeholder": "أدخل القطر",
+        "helper": "Bar القطر"
+      },
+      "lengthm": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "طول القضيب"
+      },
+      "quantity": {
+        "label": "الكمية",
+        "placeholder": "أدخل الكمية",
+        "helper": "Number of bars"
+      }
+    },
+    "excavation-volume-calculator": {
+      "lengthm": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "Trench الطول"
+      },
+      "widthm": {
+        "label": "العرض",
+        "placeholder": "أدخل العرض",
+        "helper": "Trench العرض"
+      },
+      "depthm": {
+        "label": "العمق",
+        "placeholder": "أدخل العمق",
+        "helper": "Dig العمق"
+      }
+    },
+    "plaster-calculator": {
+      "aream2": {
+        "label": "المساحة",
+        "placeholder": "أدخل المساحة",
+        "helper": "Surface المساحة"
+      },
+      "thicknessmm": {
+        "label": "السماكة",
+        "placeholder": "أدخل السماكة",
+        "helper": "Plaster السماكة"
+      },
+      "densitykgm3": {
+        "label": "الكثافة",
+        "placeholder": "أدخل الكثافة",
+        "helper": "المادة الكثافة"
+      }
+    },
+    "home-renovation-m2-calculator": {
+      "aream2": {
+        "label": "المساحة",
+        "placeholder": "أدخل المساحة",
+        "helper": "Renovation المساحة"
+      },
+      "costperm2": {
+        "label": "التكلفة لكل م²",
+        "placeholder": "أدخل التكلفة لكل م²",
+        "helper": "Unit المعدل"
+      },
+      "contingencypercent": {
+        "label": "Contingency",
+        "placeholder": "أدخل Contingency",
+        "helper": "Buffer لكلcent"
+      }
+    },
+    "loan-payment-calculator": {
+      "principal": {
+        "label": "رأس المال",
+        "placeholder": "أدخل رأس المال",
+        "helper": "Loan amount"
+      },
+      "annualrate": {
+        "label": "المعدل السنوي",
+        "placeholder": "أدخل المعدل السنوي",
+        "helper": "Nominal APR"
+      },
+      "months": {
+        "label": "المدة",
+        "placeholder": "أدخل المدة",
+        "helper": "Loan المدة"
+      }
+    },
+    "mortgage-calculator": {
+      "principal": {
+        "label": "Loan amount",
+        "placeholder": "أدخل Loan amount",
+        "helper": "Mortgage رأس المال"
+      },
+      "annualrate": {
+        "label": "المعدل السنوي",
+        "placeholder": "أدخل المعدل السنوي",
+        "helper": "Interest المعدل"
+      },
+      "months": {
+        "label": "المدة",
+        "placeholder": "أدخل المدة",
+        "helper": "Loan المدة"
+      }
+    },
+    "interest-calculator": {
+      "principal": {
+        "label": "رأس المال",
+        "placeholder": "أدخل رأس المال",
+        "helper": "Starting amount"
+      },
+      "ratepercent": {
+        "label": "المعدل",
+        "placeholder": "أدخل المعدل",
+        "helper": "المعدل السنوي"
+      },
+      "years": {
+        "label": "السنوات",
+        "placeholder": "أدخل السنوات",
+        "helper": "المدة"
+      }
+    },
+    "compound-interest-calculator": {
+      "principal": {
+        "label": "رأس المال",
+        "placeholder": "أدخل رأس المال",
+        "helper": "Initial deposit"
+      },
+      "annualrate": {
+        "label": "المعدل السنوي",
+        "placeholder": "أدخل المعدل السنوي",
+        "helper": "Nominal المعدل"
+      },
+      "years": {
+        "label": "السنوات",
+        "placeholder": "أدخل السنوات",
+        "helper": "Time horizon"
+      },
+      "compoundsperyear": {
+        "label": "Compounds/yr",
+        "placeholder": "أدخل Compounds/yr",
+        "helper": "Compounding frequency"
+      }
+    },
+    "vat-calculator": {
+      "net": {
+        "label": "المبلغ الصافي",
+        "placeholder": "أدخل المبلغ الصافي",
+        "helper": "السعر before VAT"
+      },
+      "vatrate": {
+        "label": "VAT المعدل",
+        "placeholder": "أدخل VAT المعدل",
+        "helper": "Tax المعدل"
+      }
+    },
+    "discount-calculator": {
+      "originalprice": {
+        "label": "Original السعر",
+        "placeholder": "أدخل Original السعر",
+        "helper": "List السعر"
+      },
+      "discountpercent": {
+        "label": "Discount",
+        "placeholder": "أدخل Discount",
+        "helper": "Discount لكلcent"
+      }
+    },
+    "percentage-calculator": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Base القيمة"
+      },
+      "percent": {
+        "label": "لكلcent",
+        "placeholder": "أدخل لكلcent",
+        "helper": "لكلcentage to apply"
+      }
+    },
+    "profit-margin-calculator": {
+      "sellingprice": {
+        "label": "Selling السعر",
+        "placeholder": "أدخل Selling السعر",
+        "helper": "Revenue لكل unit"
+      },
+      "cost": {
+        "label": "التكلفة",
+        "placeholder": "أدخل التكلفة",
+        "helper": "Unit التكلفة"
+      }
+    },
+    "break-even-calculator": {
+      "fixedcost": {
+        "label": "Fixed التكلفة",
+        "placeholder": "أدخل Fixed التكلفة",
+        "helper": "Overhead to cover"
+      },
+      "unitprice": {
+        "label": "Unit السعر",
+        "placeholder": "أدخل Unit السعر",
+        "helper": "Selling السعر"
+      },
+      "variablecost": {
+        "label": "Variable التكلفة",
+        "placeholder": "أدخل Variable التكلفة",
+        "helper": "التكلفة لكل unit"
+      }
+    },
+    "roi-calculator": {
+      "gain": {
+        "label": "Gain",
+        "placeholder": "أدخل Gain",
+        "helper": "Return amount"
+      },
+      "cost": {
+        "label": "التكلفة",
+        "placeholder": "أدخل التكلفة",
+        "helper": "Initial investment"
+      }
+    },
+    "salary-cost-calculator": {
+      "grosssalary": {
+        "label": "Gross salary",
+        "placeholder": "أدخل Gross salary",
+        "helper": "Monthly gross"
+      },
+      "employerratepercent": {
+        "label": "Employer load",
+        "placeholder": "أدخل Employer load",
+        "helper": "Employer contribution المعدل"
+      }
+    },
+    "hourly-rate-calculator": {
+      "monthlyincome": {
+        "label": "Monthly income",
+        "placeholder": "أدخل Monthly income",
+        "helper": "الهدف monthly revenue"
+      },
+      "billablehours": {
+        "label": "ساعات قابلة للفوترة",
+        "placeholder": "أدخل ساعات قابلة للفوترة",
+        "helper": "الساعات billed لكل month"
+      }
+    },
+    "depreciation-calculator": {
+      "assetcost": {
+        "label": "Asset التكلفة",
+        "placeholder": "أدخل Asset التكلفة",
+        "helper": "Purchase السعر"
+      },
+      "salvagevalue": {
+        "label": "قيمة الخردة",
+        "placeholder": "أدخل قيمة الخردة",
+        "helper": "Residual القيمة"
+      },
+      "usefullifeyears": {
+        "label": "العمر الإنتاجي",
+        "placeholder": "أدخل العمر الإنتاجي",
+        "helper": "Depreciation لكلiod"
+      }
+    },
+    "cash-flow-gap-calculator": {
+      "receivablesdays": {
+        "label": "Receivables الأيام",
+        "placeholder": "أدخل Receivables الأيام",
+        "helper": "الأيام to collect"
+      },
+      "payabledays": {
+        "label": "Payables الأيام",
+        "placeholder": "أدخل Payables الأيام",
+        "helper": "الأيام to pay"
+      },
+      "dailycost": {
+        "label": "التكلفة اليومية",
+        "placeholder": "أدخل التكلفة اليومية",
+        "helper": "Oلكلating cash outالتدفق"
+      }
+    },
+    "unit-cost-calculator": {
+      "totalcost": {
+        "label": "Total التكلفة",
+        "placeholder": "أدخل Total التكلفة",
+        "helper": "Batch or order التكلفة"
+      },
+      "quantity": {
+        "label": "الكمية",
+        "placeholder": "أدخل الكمية",
+        "helper": "Units produced"
+      }
+    },
+    "machine-time-calculator": {
+      "setupminutes": {
+        "label": "الإعداد",
+        "placeholder": "أدخل الإعداد",
+        "helper": "الإعداد time"
+      },
+      "cycleseconds": {
+        "label": "Cycle time",
+        "placeholder": "أدخل Cycle time",
+        "helper": "لكل-part cycle"
+      },
+      "quantity": {
+        "label": "الكمية",
+        "placeholder": "أدخل الكمية",
+        "helper": "Parts to run"
+      },
+      "machinerate": {
+        "label": "Machine المعدل",
+        "placeholder": "أدخل Machine المعدل",
+        "helper": "Hourly Machine المعدل"
+      }
+    },
+    "cnc-cycle-time-calculator": {
+      "machiningseconds": {
+        "label": "Machining",
+        "placeholder": "أدخل Machining",
+        "helper": "Cut time لكل part"
+      },
+      "loadunloadseconds": {
+        "label": "Load/unload",
+        "placeholder": "أدخل Load/unload",
+        "helper": "Handling لكل part"
+      },
+      "inspectionseconds": {
+        "label": "Inspection",
+        "placeholder": "أدخل Inspection",
+        "helper": "QC لكل part"
+      },
+      "quantity": {
+        "label": "الكمية",
+        "placeholder": "أدخل الكمية",
+        "helper": "Batch size"
+      }
+    },
+    "welding-cost-estimator": {
+      "materialcost": {
+        "label": "المادة",
+        "placeholder": "أدخل المادة",
+        "helper": "Filler and base المادة"
+      },
+      "laborhours": {
+        "label": "Labor الساعات",
+        "placeholder": "أدخل Labor الساعات",
+        "helper": "Welding الساعات"
+      },
+      "laborrate": {
+        "label": "Labor المعدل",
+        "placeholder": "أدخل Labor المعدل",
+        "helper": "Hourly welder المعدل"
+      },
+      "consumablescost": {
+        "label": "مستهلكات",
+        "placeholder": "أدخل مستهلكات",
+        "helper": "Gas, tips, abrasives"
+      }
+    },
+    "laser-cutting-time-check": {
+      "setupminutes": {
+        "label": "الإعداد",
+        "placeholder": "أدخل الإعداد",
+        "helper": "Program and الإعداد"
+      },
+      "cutlengthm": {
+        "label": "طول القطع",
+        "placeholder": "أدخل طول القطع",
+        "helper": "Total cut path"
+      },
+      "cutspeedmmin": {
+        "label": "Cut speed",
+        "placeholder": "أدخل Cut speed",
+        "helper": "Machine cut speed"
+      },
+      "piercecount": {
+        "label": "Pierces",
+        "placeholder": "أدخل Pierces",
+        "helper": "Pierce oلكلations"
+      },
+      "pierceseconds": {
+        "label": "Pierce time",
+        "placeholder": "أدخل Pierce time",
+        "helper": "Seconds لكل pierce"
+      }
+    },
+    "3d-print-cost-check": {
+      "materialcost": {
+        "label": "المادة",
+        "placeholder": "أدخل المادة",
+        "helper": "Filament/resin التكلفة"
+      },
+      "printhours": {
+        "label": "Print الساعات",
+        "placeholder": "أدخل Print الساعات",
+        "helper": "Machine وقت التشغيل"
+      },
+      "machinerate": {
+        "label": "Machine المعدل",
+        "placeholder": "أدخل Machine المعدل",
+        "helper": "Printer Hourly المعدل"
+      },
+      "postprocesshours": {
+        "label": "Post-process",
+        "placeholder": "أدخل Post-process",
+        "helper": "Finishing الساعات"
+      },
+      "laborrate": {
+        "label": "Labor المعدل",
+        "placeholder": "أدخل Labor المعدل",
+        "helper": "Oلكلator المعدل"
+      }
+    },
+    "sheet-metal-weight-calculator": {
+      "lengthm": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "Sheet الطول"
+      },
+      "widthm": {
+        "label": "العرض",
+        "placeholder": "أدخل العرض",
+        "helper": "Sheet العرض"
+      },
+      "thicknessmm": {
+        "label": "السماكة",
+        "placeholder": "أدخل السماكة",
+        "helper": "المادة السماكة"
+      },
+      "densitykgm3": {
+        "label": "الكثافة",
+        "placeholder": "أدخل الكثافة",
+        "helper": "المادة الكثافة"
+      }
+    },
+    "material-waste-calculator": {
+      "inputmaterialkg": {
+        "label": "Input المادة",
+        "placeholder": "أدخل Input المادة",
+        "helper": "المادة fed"
+      },
+      "goodoutputkg": {
+        "label": "إنتاج جيد",
+        "placeholder": "أدخل إنتاج جيد",
+        "helper": "Accepted output"
+      }
+    },
+    "scrap-rate-calculator": {
+      "scrapunits": {
+        "label": "Scrap units",
+        "placeholder": "أدخل Scrap units",
+        "helper": "Rejected units"
+      },
+      "totalunits": {
+        "label": "Total units",
+        "placeholder": "أدخل Total units",
+        "helper": "Units processed"
+      }
+    },
+    "oee-calculator": {
+      "availabilitypercent": {
+        "label": "التوفر",
+        "placeholder": "أدخل التوفر",
+        "helper": "Uptime لكلcent"
+      },
+      "performancepercent": {
+        "label": "الأداء",
+        "placeholder": "أدخل الأداء",
+        "helper": "Speed لكلcent"
+      },
+      "qualitypercent": {
+        "label": "Quality",
+        "placeholder": "أدخل Quality",
+        "helper": "Good parts لكلcent"
+      }
+    },
+    "machine-hour-rate-calculator": {
+      "fixedmonthlycost": {
+        "label": "Fixed monthly",
+        "placeholder": "أدخل Fixed monthly",
+        "helper": "Overhead allocated"
+      },
+      "monthlymachinehours": {
+        "label": "Machine الساعات",
+        "placeholder": "أدخل Machine الساعات",
+        "helper": "Available الساعات"
+      },
+      "variablecostperhour": {
+        "label": "Variable/hr",
+        "placeholder": "أدخل Variable/hr",
+        "helper": "مستهلكات لكل hour"
+      }
+    },
+    "tool-life-calculator": {
+      "totaltoolcost": {
+        "label": "Tool التكلفة",
+        "placeholder": "أدخل Tool التكلفة",
+        "helper": "Insert or tool السعر"
+      },
+      "partsproduced": {
+        "label": "Parts",
+        "placeholder": "أدخل Parts",
+        "helper": "Parts before change"
+      }
+    },
+    "cutting-speed-calculator": {
+      "diametermm": {
+        "label": "القطر",
+        "placeholder": "أدخل القطر",
+        "helper": "Tool القطر"
+      },
+      "rpm": {
+        "label": "RPM",
+        "placeholder": "أدخل RPM",
+        "helper": "Spindle speed"
+      }
+    },
+    "feed-rate-calculator": {
+      "rpm": {
+        "label": "RPM",
+        "placeholder": "أدخل RPM",
+        "helper": "Spindle speed"
+      },
+      "teeth": {
+        "label": "الأسنان",
+        "placeholder": "أدخل الأسنان",
+        "helper": "Cutting edges"
+      },
+      "feedpertoothmm": {
+        "label": "Feed/tooth",
+        "placeholder": "أدخل Feed/tooth",
+        "helper": "Chip load لكل tooth"
+      }
+    },
+    "tolerance-drift-calculator": {
+      "target": {
+        "label": "الهدف",
+        "placeholder": "أدخل الهدف",
+        "helper": "Nominal dimension"
+      },
+      "actual": {
+        "label": "Actual",
+        "placeholder": "أدخل Actual",
+        "helper": "Measured dimension"
+      }
+    },
+    "batch-yield-calculator": {
+      "inputqty": {
+        "label": "Input qty",
+        "placeholder": "أدخل Input qty",
+        "helper": "المادة in"
+      },
+      "goodoutputqty": {
+        "label": "إنتاج جيد",
+        "placeholder": "أدخل إنتاج جيد",
+        "helper": "Accepted units"
+      }
+    },
+    "kwh-cost-calculator": {
+      "kwh": {
+        "label": "الطاقة",
+        "placeholder": "أدخل الطاقة",
+        "helper": "الاستهلاك"
+      },
+      "rate": {
+        "label": "المعدل",
+        "placeholder": "أدخل المعدل",
+        "helper": "Unit tariff"
+      }
+    },
+    "electricity-bill-calculator": {
+      "kwh": {
+        "label": "Usage",
+        "placeholder": "أدخل Usage",
+        "helper": "Monthly kWh"
+      },
+      "rate": {
+        "label": "الطاقة المعدل",
+        "placeholder": "أدخل الطاقة المعدل",
+        "helper": "Variable المعدل"
+      },
+      "fixedcharge": {
+        "label": "رسوم ثابتة",
+        "placeholder": "أدخل رسوم ثابتة",
+        "helper": "Standing charge"
+      }
+    },
+    "energy-consumption-check": {
+      "powerkw": {
+        "label": "القدرة",
+        "placeholder": "أدخل القدرة",
+        "helper": "Connected load"
+      },
+      "hoursperday": {
+        "label": "الساعات/day",
+        "placeholder": "أدخل الساعات/day",
+        "helper": "Daily وقت التشغيل"
+      },
+      "days": {
+        "label": "الأيام",
+        "placeholder": "أدخل الأيام",
+        "helper": "Billing لكلiod الأيام"
+      },
+      "rate": {
+        "label": "المعدل",
+        "placeholder": "أدخل المعدل",
+        "helper": "Tariff"
+      }
+    },
+    "carbon-footprint-quick": {
+      "energykwh": {
+        "label": "الطاقة",
+        "placeholder": "أدخل الطاقة",
+        "helper": "Electricity المستخدم"
+      },
+      "emissionfactorkgperkwh": {
+        "label": "Emission factor",
+        "placeholder": "أدخل Emission factor",
+        "helper": "Grid factor"
+      }
+    },
+    "fuel-emission-calculator": {
+      "litersfuel": {
+        "label": "الوقود",
+        "placeholder": "أدخل الوقود",
+        "helper": "الوقود consumed"
+      },
+      "kgco2perliter": {
+        "label": "Factor",
+        "placeholder": "أدخل Factor",
+        "helper": "CO₂ لكل liter"
+      }
+    },
+    "solar-panel-output-calculator": {
+      "systemkw": {
+        "label": "حجم النظام",
+        "placeholder": "أدخل حجم النظام",
+        "helper": "Installed DC kW"
+      },
+      "sunhoursperday": {
+        "label": "Sun الساعات",
+        "placeholder": "أدخل Sun الساعات",
+        "helper": "Peak Sun الساعات"
+      },
+      "days": {
+        "label": "الأيام",
+        "placeholder": "أدخل الأيام",
+        "helper": "لكلiod الطول"
+      },
+      "efficiencypercent": {
+        "label": "Efficiency",
+        "placeholder": "أدخل Efficiency",
+        "helper": "System efficiency"
+      }
+    },
+    "heat-loss-calculator": {
+      "uvalue": {
+        "label": "U-القيمة",
+        "placeholder": "أدخل U-القيمة",
+        "helper": "Thermal transmittance"
+      },
+      "aream2": {
+        "label": "المساحة",
+        "placeholder": "أدخل المساحة",
+        "helper": "Envelope المساحة"
+      },
+      "tempdifferencec": {
+        "label": "ΔT",
+        "placeholder": "أدخل ΔT",
+        "helper": "Inside minus outside"
+      }
+    },
+    "boiler-efficiency-calculator": {
+      "usefuloutputkwh": {
+        "label": "إنتاج مفيد",
+        "placeholder": "أدخل إنتاج مفيد",
+        "helper": "Heat delivered"
+      },
+      "fuelinputkwh": {
+        "label": "الوقود input",
+        "placeholder": "أدخل الوقود input",
+        "helper": "الطاقة in الوقود"
+      }
+    },
+    "compressor-energy-cost-calculator": {
+      "powerkw": {
+        "label": "القدرة",
+        "placeholder": "أدخل القدرة",
+        "helper": "Motor kW"
+      },
+      "operatinghours": {
+        "label": "الساعات",
+        "placeholder": "أدخل الساعات",
+        "helper": "وقت التشغيل"
+      },
+      "rate": {
+        "label": "المعدل",
+        "placeholder": "أدخل المعدل",
+        "helper": "Electricity المعدل"
+      }
+    },
+    "cbam-exposure-quick-check": {
+      "emissionston": {
+        "label": "Emissions",
+        "placeholder": "أدخل Emissions",
+        "helper": "Embedded emissions"
+      },
+      "carbonprice": {
+        "label": "سعر الكربون",
+        "placeholder": "أدخل سعر الكربون",
+        "helper": "السعر لكل tonne"
+      }
+    },
+    "fuel-consumption-calculator": {
+      "distancekm": {
+        "label": "المسافة",
+        "placeholder": "أدخل المسافة",
+        "helper": "Trip المسافة"
+      },
+      "consumptionper100km": {
+        "label": "الاستهلاك",
+        "placeholder": "أدخل الاستهلاك",
+        "helper": "الوقود economy"
+      },
+      "fuelprice": {
+        "label": "الوقود السعر",
+        "placeholder": "أدخل الوقود السعر",
+        "helper": "السعر لكل liter"
+      }
+    },
+    "fuel-cost-calculator": {
+      "distancekm": {
+        "label": "المسافة",
+        "placeholder": "أدخل المسافة",
+        "helper": "Trip المسافة"
+      },
+      "consumptionper100km": {
+        "label": "الاستهلاك",
+        "placeholder": "أدخل الاستهلاك",
+        "helper": "الوقود economy"
+      },
+      "fuelprice": {
+        "label": "الوقود السعر",
+        "placeholder": "أدخل الوقود السعر",
+        "helper": "السعر لكل liter"
+      }
+    },
+    "desi-calculator": {
+      "lengthcm": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "Parcel الطول"
+      },
+      "widthcm": {
+        "label": "العرض",
+        "placeholder": "أدخل العرض",
+        "helper": "Parcel العرض"
+      },
+      "heightcm": {
+        "label": "الارتفاع",
+        "placeholder": "أدخل الارتفاع",
+        "helper": "Parcel الارتفاع"
+      },
+      "divisor": {
+        "label": "المقسوم",
+        "placeholder": "أدخل المقسوم",
+        "helper": "Carrier المقسوم"
+      }
+    },
+    "volumetric-weight-calculator": {
+      "lengthcm": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "الطول"
+      },
+      "widthcm": {
+        "label": "العرض",
+        "placeholder": "أدخل العرض",
+        "helper": "العرض"
+      },
+      "heightcm": {
+        "label": "الارتفاع",
+        "placeholder": "أدخل الارتفاع",
+        "helper": "الارتفاع"
+      },
+      "divisor": {
+        "label": "المقسوم",
+        "placeholder": "أدخل المقسوم",
+        "helper": "Air cargo المقسوم"
+      }
+    },
+    "route-cost-calculator": {
+      "distancekm": {
+        "label": "المسافة",
+        "placeholder": "أدخل المسافة",
+        "helper": "Route الطول"
+      },
+      "fuelcostperkm": {
+        "label": "الوقود/km",
+        "placeholder": "أدخل الوقود/km",
+        "helper": "الوقود التكلفة لكل كم"
+      },
+      "driverhours": {
+        "label": "Driver الساعات",
+        "placeholder": "أدخل Driver الساعات",
+        "helper": "Driving time"
+      },
+      "hourlyrate": {
+        "label": "Driver المعدل",
+        "placeholder": "أدخل Driver المعدل",
+        "helper": "Hourly المعدل"
+      },
+      "tolls": {
+        "label": "الرسوم",
+        "placeholder": "أدخل الرسوم",
+        "helper": "Road الرسوم"
+      }
+    },
+    "delivery-cost-calculator": {
+      "distancekm": {
+        "label": "المسافة",
+        "placeholder": "أدخل المسافة",
+        "helper": "Route km"
+      },
+      "costperkm": {
+        "label": "التكلفة/km",
+        "placeholder": "أدخل التكلفة/km",
+        "helper": "Variable km التكلفة"
+      },
+      "stops": {
+        "label": "Stops",
+        "placeholder": "أدخل Stops",
+        "helper": "Delivery stops"
+      },
+      "costperstop": {
+        "label": "التكلفة/stop",
+        "placeholder": "أدخل التكلفة/stop",
+        "helper": "لكل-stop fee"
+      }
+    },
+    "freight-cost-calculator": {
+      "weightkg": {
+        "label": "الوزن",
+        "placeholder": "أدخل الوزن",
+        "helper": "Chargeable الوزن"
+      },
+      "rateperkg": {
+        "label": "المعدل",
+        "placeholder": "أدخل المعدل",
+        "helper": "المعدل لكل kg"
+      },
+      "fixedfee": {
+        "label": "Fixed fee",
+        "placeholder": "أدخل Fixed fee",
+        "helper": "Booking fee"
+      }
+    },
+    "warehouse-storage-cost-calculator": {
+      "palletcount": {
+        "label": "Pallets",
+        "placeholder": "أدخل Pallets",
+        "helper": "Stored pallets"
+      },
+      "costperpalletperday": {
+        "label": "التكلفة/pallet/day",
+        "placeholder": "أدخل التكلفة/pallet/day",
+        "helper": "Daily pallet المعدل"
+      },
+      "days": {
+        "label": "الأيام",
+        "placeholder": "أدخل الأيام",
+        "helper": "Storage الأيام"
+      }
+    },
+    "vehicle-depreciation-calculator": {
+      "purchaseprice": {
+        "label": "Purchase",
+        "placeholder": "أدخل Purchase",
+        "helper": "Acquisition التكلفة"
+      },
+      "resalevalue": {
+        "label": "Resale",
+        "placeholder": "أدخل Resale",
+        "helper": "Expected resale"
+      },
+      "years": {
+        "label": "السنوات",
+        "placeholder": "أدخل السنوات",
+        "helper": "Ownership لكلiod"
+      }
+    },
+    "trip-budget-calculator": {
+      "fuelcost": {
+        "label": "الوقود",
+        "placeholder": "أدخل الوقود",
+        "helper": "الوقود spend"
+      },
+      "accommodationcost": {
+        "label": "Lodging",
+        "placeholder": "أدخل Lodging",
+        "helper": "Hotels"
+      },
+      "foodcost": {
+        "label": "الغذاء",
+        "placeholder": "أدخل الغذاء",
+        "helper": "Meals"
+      },
+      "tolls": {
+        "label": "الرسوم",
+        "placeholder": "أدخل الرسوم",
+        "helper": "Road fees"
+      },
+      "othercost": {
+        "label": "Other",
+        "placeholder": "أدخل Other",
+        "helper": "Miscellaneous"
+      }
+    },
+    "fertilizer-dosage-calculator": {
+      "areaha": {
+        "label": "Field المساحة",
+        "placeholder": "أدخل Field المساحة",
+        "helper": "المساحة treated"
+      },
+      "dosagekgperha": {
+        "label": "Dosage",
+        "placeholder": "أدخل Dosage",
+        "helper": "Application المعدل"
+      }
+    },
+    "seed-rate-calculator": {
+      "areaha": {
+        "label": "المساحة",
+        "placeholder": "أدخل المساحة",
+        "helper": "Field المساحة"
+      },
+      "seedkgperha": {
+        "label": "Seed المعدل",
+        "placeholder": "أدخل Seed المعدل",
+        "helper": "Seeding المعدل"
+      }
+    },
+    "irrigation-cost-check": {
+      "pumpkw": {
+        "label": "Pump القدرة",
+        "placeholder": "أدخل Pump القدرة",
+        "helper": "Pump motor kW"
+      },
+      "hours": {
+        "label": "وقت التشغيل",
+        "placeholder": "أدخل وقت التشغيل",
+        "helper": "Pump الساعات"
+      },
+      "energyrate": {
+        "label": "الطاقة المعدل",
+        "placeholder": "أدخل الطاقة المعدل",
+        "helper": "Electricity المعدل"
+      },
+      "watercost": {
+        "label": "Water fee",
+        "placeholder": "أدخل Water fee",
+        "helper": "Water charge"
+      }
+    },
+    "water-usage-calculator": {
+      "flowratelitermin": {
+        "label": "التدفق المعدل",
+        "placeholder": "أدخل التدفق المعدل",
+        "helper": "التدفق المعدل"
+      },
+      "minutes": {
+        "label": "المدة",
+        "placeholder": "أدخل المدة",
+        "helper": "Run time"
+      }
+    },
+    "feed-cost-estimator": {
+      "feedkg": {
+        "label": "Feed",
+        "placeholder": "أدخل Feed",
+        "helper": "Feed الكمية"
+      },
+      "priceperkg": {
+        "label": "السعر",
+        "placeholder": "أدخل السعر",
+        "helper": "Feed السعر"
+      },
+      "transportcost": {
+        "label": "النقل",
+        "placeholder": "أدخل النقل",
+        "helper": "Delivery التكلفة"
+      }
+    },
+    "milk-yield-check": {
+      "cows": {
+        "label": "Cows",
+        "placeholder": "أدخل Cows",
+        "helper": "Milking cows"
+      },
+      "literspercow": {
+        "label": "Yield/cow",
+        "placeholder": "أدخل Yield/cow",
+        "helper": "Liters لكل cow لكل day"
+      },
+      "milkprice": {
+        "label": "Milk السعر",
+        "placeholder": "أدخل Milk السعر",
+        "helper": "السعر لكل liter"
+      }
+    },
+    "crop-yield-calculator": {
+      "areaha": {
+        "label": "المساحة",
+        "placeholder": "أدخل المساحة",
+        "helper": "Planted المساحة"
+      },
+      "yieldtonperha": {
+        "label": "Yield",
+        "placeholder": "أدخل Yield",
+        "helper": "Expected yield"
+      },
+      "priceperton": {
+        "label": "السعر",
+        "placeholder": "أدخل السعر",
+        "helper": "Market السعر"
+      }
+    },
+    "recipe-cost-check": {
+      "ingredientcost": {
+        "label": "Ingredient التكلفة",
+        "placeholder": "أدخل Ingredient التكلفة",
+        "helper": "Total ingredient spend"
+      },
+      "portions": {
+        "label": "الحصص",
+        "placeholder": "أدخل الحصص",
+        "helper": "Servings"
+      }
+    },
+    "food-cost-calculator": {
+      "ingredientcost": {
+        "label": "Ingredient التكلفة",
+        "placeholder": "أدخل Ingredient التكلفة",
+        "helper": "Plate التكلفة"
+      },
+      "menuprice": {
+        "label": "Menu السعر",
+        "placeholder": "أدخل Menu السعر",
+        "helper": "Selling السعر"
+      }
+    },
+    "portion-cost-calculator": {
+      "totalbatchcost": {
+        "label": "تكلفة الدفعة",
+        "placeholder": "أدخل تكلفة الدفعة",
+        "helper": "Total Recipe التكلفة"
+      },
+      "portions": {
+        "label": "الحصص",
+        "placeholder": "أدخل الحصص",
+        "helper": "Servings"
+      }
+    },
+    "rent-vs-buy-calculator": {
+      "monthlyrent": {
+        "label": "Monthly إيجار",
+        "placeholder": "أدخل Monthly إيجار",
+        "helper": "التيار Monthly إيجار payment"
+      },
+      "homeprice": {
+        "label": "Home السعر",
+        "placeholder": "أدخل Home السعر",
+        "helper": "Purchase السعر reference"
+      },
+      "comparisonyears": {
+        "label": "Comparison السنوات",
+        "placeholder": "أدخل Comparison السنوات",
+        "helper": "Number of السنوات to compare (e.g. 10 or 20)"
+      },
+      "annualrentincrease": {
+        "label": "Annual إيجار increase",
+        "placeholder": "أدخل Annual إيجار increase",
+        "helper": "Expected yearly إيجار growth"
+      },
+      "annualhomeappreciation": {
+        "label": "Home appreciation",
+        "placeholder": "أدخل Home appreciation",
+        "helper": "Expected yearly home القيمة growth"
+      },
+      "downpaymentpercent": {
+        "label": "Down payment",
+        "placeholder": "أدخل Down payment",
+        "helper": "لكلcent of Home السعر paid upfront"
+      },
+      "mortgageinterestrate": {
+        "label": "Mortgage المعدل",
+        "placeholder": "أدخل Mortgage المعدل",
+        "helper": "Nominal annual mortgage interest المعدل"
+      },
+      "mortgagetermyears": {
+        "label": "Mortgage المدة",
+        "placeholder": "أدخل Mortgage المدة",
+        "helper": "Mortgage amortization المدة"
+      },
+      "investmentreturnrate": {
+        "label": "Investment return",
+        "placeholder": "أدخل Investment return",
+        "helper": "Annual return if إيجارing and investing cash"
+      },
+      "ownershipcostpercent": {
+        "label": "Ownership التكلفة",
+        "placeholder": "أدخل Ownership التكلفة",
+        "helper": "Annual Ownership التكلفة as % of home القيمة"
+      },
+      "purchasecostpercent": {
+        "label": "Purchase التكلفةs",
+        "placeholder": "أدخل Purchase التكلفةs",
+        "helper": "Closing and purchase transaction التكلفةs"
+      },
+      "sellingcostpercent": {
+        "label": "Selling التكلفةs",
+        "placeholder": "أدخل Selling التكلفةs",
+        "helper": "Estimated selling transaction التكلفةs"
+      }
+    },
+    "home-budget-calculator": {
+      "income": {
+        "label": "Income",
+        "placeholder": "أدخل Income",
+        "helper": "Monthly income"
+      },
+      "rent": {
+        "label": "إيجار",
+        "placeholder": "أدخل إيجار",
+        "helper": "Housing"
+      },
+      "food": {
+        "label": "الغذاء",
+        "placeholder": "أدخل الغذاء",
+        "helper": "Groceries"
+      },
+      "transport": {
+        "label": "النقل",
+        "placeholder": "أدخل النقل",
+        "helper": "Commute"
+      },
+      "utilities": {
+        "label": "Utilities",
+        "placeholder": "أدخل Utilities",
+        "helper": "Bills"
+      }
+    },
+    "time-duration-calculator": {
+      "starthour": {
+        "label": "Start hour",
+        "placeholder": "أدخل Start hour",
+        "helper": "Start hour (0–23)"
+      },
+      "startminute": {
+        "label": "Start minute",
+        "placeholder": "أدخل Start minute",
+        "helper": "Start minute"
+      },
+      "endhour": {
+        "label": "End hour",
+        "placeholder": "أدخل End hour",
+        "helper": "End hour"
+      },
+      "endminute": {
+        "label": "End minute",
+        "placeholder": "أدخل End minute",
+        "helper": "End minute"
+      }
+    },
+    "age-calculator": {
+      "birthyear": {
+        "label": "سنة الميلاد",
+        "placeholder": "أدخل سنة الميلاد",
+        "helper": "Year born"
+      },
+      "currentyear": {
+        "label": "التيار year",
+        "placeholder": "أدخل التيار year",
+        "helper": "Reference year"
+      }
+    },
+    "date-difference-calculator": {
+      "startdaynumber": {
+        "label": "Start day #",
+        "placeholder": "أدخل Start day #",
+        "helper": "Start day index"
+      },
+      "enddaynumber": {
+        "label": "End day #",
+        "placeholder": "أدخل End day #",
+        "helper": "End day index"
+      }
+    },
+    "shopping-budget-calculator": {
+      "item1": {
+        "label": "Item 1",
+        "placeholder": "أدخل Item 1",
+        "helper": "First item"
+      },
+      "item2": {
+        "label": "Item 2",
+        "placeholder": "أدخل Item 2",
+        "helper": "Second item"
+      },
+      "item3": {
+        "label": "Item 3",
+        "placeholder": "أدخل Item 3",
+        "helper": "Third item"
+      },
+      "item4": {
+        "label": "Item 4",
+        "placeholder": "أدخل Item 4",
+        "helper": "Fourth item"
+      },
+      "item5": {
+        "label": "Item 5",
+        "placeholder": "أدخل Item 5",
+        "helper": "Fifth item"
+      }
+    },
+    "fuel-travel-calculator": {
+      "distancekm": {
+        "label": "المسافة",
+        "placeholder": "أدخل المسافة",
+        "helper": "Trip المسافة"
+      },
+      "consumptionper100km": {
+        "label": "الاستهلاك",
+        "placeholder": "أدخل الاستهلاك",
+        "helper": "Vehicle economy"
+      },
+      "fuelprice": {
+        "label": "الوقود السعر",
+        "placeholder": "أدخل الوقود السعر",
+        "helper": "Pump السعر"
+      }
+    },
+    "unit-price-calculator": {
+      "totalprice": {
+        "label": "Total السعر",
+        "placeholder": "أدخل Total السعر",
+        "helper": "Shelf total"
+      },
+      "quantity": {
+        "label": "الكمية",
+        "placeholder": "أدخل الكمية",
+        "helper": "Pack count"
+      }
+    },
+    "tip-calculator": {
+      "billamount": {
+        "label": "Bill",
+        "placeholder": "أدخل Bill",
+        "helper": "Pre-tip total"
+      },
+      "tippercent": {
+        "label": "Tip",
+        "placeholder": "أدخل Tip",
+        "helper": "Tip لكلcent"
+      }
+    },
+    "savings-goal-calculator": {
+      "targetamount": {
+        "label": "الهدف",
+        "placeholder": "أدخل الهدف",
+        "helper": "Savings goal"
+      },
+      "monthlysaving": {
+        "label": "Monthly saving",
+        "placeholder": "أدخل Monthly saving",
+        "helper": "Amount saved لكل month"
+      }
+    },
+    "percentage-increase-calculator": {
+      "oldvalue": {
+        "label": "Old القيمة",
+        "placeholder": "أدخل Old القيمة",
+        "helper": "Starting القيمة"
+      },
+      "newvalue": {
+        "label": "New القيمة",
+        "placeholder": "أدخل New القيمة",
+        "helper": "Updated القيمة"
+      }
+    },
+    "average-calculator": {
+      "value1": {
+        "label": "القيمة 1",
+        "placeholder": "أدخل القيمة 1",
+        "helper": "First القيمة"
+      },
+      "value2": {
+        "label": "القيمة 2",
+        "placeholder": "أدخل القيمة 2",
+        "helper": "Second القيمة"
+      },
+      "value3": {
+        "label": "القيمة 3",
+        "placeholder": "أدخل القيمة 3",
+        "helper": "Third القيمة"
+      },
+      "value4": {
+        "label": "القيمة 4",
+        "placeholder": "أدخل القيمة 4",
+        "helper": "Fourth القيمة"
+      },
+      "value5": {
+        "label": "القيمة 5",
+        "placeholder": "أدخل القيمة 5",
+        "helper": "Fifth القيمة"
+      }
+    },
+    "median-calculator": {
+      "value1": {
+        "label": "القيمة 1",
+        "placeholder": "أدخل القيمة 1",
+        "helper": "First القيمة"
+      },
+      "value2": {
+        "label": "القيمة 2",
+        "placeholder": "أدخل القيمة 2",
+        "helper": "Second القيمة"
+      },
+      "value3": {
+        "label": "القيمة 3",
+        "placeholder": "أدخل القيمة 3",
+        "helper": "Third القيمة"
+      },
+      "value4": {
+        "label": "القيمة 4",
+        "placeholder": "أدخل القيمة 4",
+        "helper": "Fourth القيمة"
+      },
+      "value5": {
+        "label": "القيمة 5",
+        "placeholder": "أدخل القيمة 5",
+        "helper": "Fifth القيمة"
+      }
+    },
+    "standard-deviation-calculator": {
+      "value1": {
+        "label": "القيمة 1",
+        "placeholder": "أدخل القيمة 1",
+        "helper": "First القيمة"
+      },
+      "value2": {
+        "label": "القيمة 2",
+        "placeholder": "أدخل القيمة 2",
+        "helper": "Second القيمة"
+      },
+      "value3": {
+        "label": "القيمة 3",
+        "placeholder": "أدخل القيمة 3",
+        "helper": "Third القيمة"
+      },
+      "value4": {
+        "label": "القيمة 4",
+        "placeholder": "أدخل القيمة 4",
+        "helper": "Fourth القيمة"
+      },
+      "value5": {
+        "label": "القيمة 5",
+        "placeholder": "أدخل القيمة 5",
+        "helper": "Fifth القيمة"
+      }
+    },
+    "ratio-calculator": {
+      "a": {
+        "label": "القيمة A",
+        "placeholder": "أدخل القيمة A",
+        "helper": "First المدة"
+      },
+      "b": {
+        "label": "القيمة B",
+        "placeholder": "أدخل القيمة B",
+        "helper": "Second المدة"
+      }
+    },
+    "proportion-calculator": {
+      "a": {
+        "label": "A",
+        "placeholder": "أدخل A",
+        "helper": "First numerator"
+      },
+      "b": {
+        "label": "B",
+        "placeholder": "أدخل B",
+        "helper": "First denominator"
+      },
+      "c": {
+        "label": "C",
+        "placeholder": "أدخل C",
+        "helper": "Second numerator"
+      }
+    },
+    "probability-calculator": {
+      "favorableoutcomes": {
+        "label": "Favorable",
+        "placeholder": "أدخل Favorable",
+        "helper": "Successful outcomes"
+      },
+      "totaloutcomes": {
+        "label": "Total",
+        "placeholder": "أدخل Total",
+        "helper": "Total outcomes"
+      }
+    },
+    "sample-size-calculator": {
+      "population": {
+        "label": "Population",
+        "placeholder": "أدخل Population",
+        "helper": "Population size"
+      },
+      "confidencez": {
+        "label": "Z score",
+        "placeholder": "أدخل Z score",
+        "helper": "Confidence z (e.g. 1.96)"
+      },
+      "marginerrorpercent": {
+        "label": "Margin error",
+        "placeholder": "أدخل Margin error",
+        "helper": "Margin of error"
+      },
+      "proportionpercent": {
+        "label": "Proportion",
+        "placeholder": "أدخل Proportion",
+        "helper": "Expected proportion"
+      }
+    },
+    "z-score-calculator": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Data point"
+      },
+      "mean": {
+        "label": "Mean",
+        "placeholder": "أدخل Mean",
+        "helper": "Population mean"
+      },
+      "standarddeviation": {
+        "label": "Std dev",
+        "placeholder": "أدخل Std dev",
+        "helper": "Standard deviation"
+      }
+    },
+    "linear-regression-calculator": {
+      "x1": {
+        "label": "X₁",
+        "placeholder": "أدخل X₁",
+        "helper": "First x"
+      },
+      "y1": {
+        "label": "Y₁",
+        "placeholder": "أدخل Y₁",
+        "helper": "First y"
+      },
+      "x2": {
+        "label": "X₂",
+        "placeholder": "أدخل X₂",
+        "helper": "Second x"
+      },
+      "y2": {
+        "label": "Y₂",
+        "placeholder": "أدخل Y₂",
+        "helper": "Second y"
+      },
+      "x3": {
+        "label": "X₃",
+        "placeholder": "أدخل X₃",
+        "helper": "Third x"
+      },
+      "y3": {
+        "label": "Y₃",
+        "placeholder": "أدخل Y₃",
+        "helper": "Third y"
+      }
+    },
+    "length-converter": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "من الوحدة",
+        "placeholder": "أدخل من الوحدة",
+        "helper": "Source unit"
+      }
+    },
+    "weight-converter": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "من الوحدة",
+        "placeholder": "أدخل من الوحدة",
+        "helper": "Source unit"
+      }
+    },
+    "area-converter": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "من الوحدة",
+        "placeholder": "أدخل من الوحدة",
+        "helper": "Source unit"
+      }
+    },
+    "volume-converter": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "من الوحدة",
+        "placeholder": "أدخل من الوحدة",
+        "helper": "Source unit"
+      }
+    },
+    "temperature-converter": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Temلكلature to convert"
+      },
+      "fromunit": {
+        "label": "من الوحدة",
+        "placeholder": "أدخل من الوحدة",
+        "helper": "Source scale"
+      }
+    },
+    "amper-kilowatt-kw-cevirici": {
+      "amps": {
+        "label": "التيار",
+        "placeholder": "أدخل التيار",
+        "helper": "Line التيار in amلكلes"
+      },
+      "volts": {
+        "label": "Voltage",
+        "placeholder": "أدخل Voltage",
+        "helper": "Line voltage"
+      },
+      "powerfactor": {
+        "label": "القدرة factor",
+        "placeholder": "أدخل القدرة factor",
+        "helper": "القدرة factor (0–1)"
+      }
+    },
+    "klima-btu-secim-hesaplama": {
+      "aream2": {
+        "label": "مساحة الأرضية",
+        "placeholder": "أدخل مساحة الأرضية",
+        "helper": "Cooled مساحة الأرضية"
+      },
+      "ceilingm": {
+        "label": "ارتفاع السقف",
+        "placeholder": "أدخل ارتفاع السقف",
+        "helper": "Room الارتفاع"
+      },
+      "loadfactor": {
+        "label": "معامل الحمل",
+        "placeholder": "أدخل معامل الحمل",
+        "helper": "Cooling معامل الحمل"
+      }
+    },
+    "civata-sikma-torku-hesaplama": {
+      "clampforce": {
+        "label": "Clamp force",
+        "placeholder": "أدخل Clamp force",
+        "helper": "الهدف clamp force"
+      },
+      "boltdiametermm": {
+        "label": "Bolt القطر",
+        "placeholder": "أدخل Bolt القطر",
+        "helper": "Nominal Bolt القطر in mm"
+      }
+    },
+    "mtv-motorlu-tasitlar-vergisi-hesaplama": {
+      "enginecc": {
+        "label": "Engine displacement",
+        "placeholder": "أدخل Engine displacement",
+        "helper": "Engine size in cc"
+      },
+      "agefactor": {
+        "label": "Age factor",
+        "placeholder": "أدخل Age factor",
+        "helper": "Informational age band factor"
+      }
+    },
+    "bar-psi-pascal-cevirici": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "من الوحدة",
+        "placeholder": "أدخل من الوحدة",
+        "helper": "Source unit"
+      }
+    },
+    "beygir-gucu-kilowatt-cevirici": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "من الوحدة",
+        "placeholder": "أدخل من الوحدة",
+        "helper": "Source unit"
+      }
+    },
+    "npu-npi-profil-agirlik-hesaplama": {
+      "length": {
+        "label": "Profile الطول",
+        "placeholder": "أدخل Profile الطول",
+        "helper": "طول القضيب in meters"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "أدخل kg/m",
+        "helper": "Catalog الوزن لكل meter"
+      }
+    },
+    "kosebent-lama-agirlik-hesaplama": {
+      "length": {
+        "label": "طول القضيب",
+        "placeholder": "أدخل طول القضيب",
+        "helper": "Angle طول القضيب"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "أدخل kg/m",
+        "helper": "Catalog الوزن لكل meter"
+      }
+    },
+    "boru-agirlik-hesaplama-celik-paslanmaz": {
+      "length": {
+        "label": "Pipe الطول",
+        "placeholder": "أدخل Pipe الطول",
+        "helper": "Pipe run الطول"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "أدخل kg/m",
+        "helper": "Catalog pipe الوزن لكل meter"
+      }
+    },
+    "motor-gucu-kw-hp-cevirici": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "من الوحدة",
+        "placeholder": "أدخل من الوحدة",
+        "helper": "Source unit"
+      }
+    },
+    "jenerator-kapasitesi-secim-hesaplama": {
+      "peakloadkw": {
+        "label": "Peak load",
+        "placeholder": "أدخل Peak load",
+        "helper": "Peak load in kW"
+      },
+      "safetyfactor": {
+        "label": "Safety factor",
+        "placeholder": "أدخل Safety factor",
+        "helper": "Recommended safety factor"
+      }
+    },
+    "kablo-kesiti-mm-secim-hesaplama": {
+      "loadamps": {
+        "label": "تيار الحمل",
+        "placeholder": "أدخل تيار الحمل",
+        "helper": "تيار الحمل for calculation"
+      },
+      "ampacitypermm2": {
+        "label": "Ampacity لكل mm²",
+        "placeholder": "أدخل Ampacity لكل mm²",
+        "helper": "Ampacity لكل mm² for calculation"
+      }
+    },
+    "dogalgaz-tuketimi-hesaplama": {
+      "consumptionsm3": {
+        "label": "الاستهلاك",
+        "placeholder": "أدخل الاستهلاك",
+        "helper": "Natural gas الاستهلاك in sm³"
+      },
+      "unitprice": {
+        "label": "Unit السعر",
+        "placeholder": "أدخل Unit السعر",
+        "helper": "السعر لكل sm³"
+      }
+    },
+    "lpg-benzin-tasarruf-karsilastirma": {
+      "lpgcost": {
+        "label": "LPG التكلفة",
+        "placeholder": "أدخل LPG التكلفة",
+        "helper": "التكلفة لكل كم on LPG"
+      },
+      "gasolinecost": {
+        "label": "Gasoline التكلفة",
+        "placeholder": "أدخل Gasoline التكلفة",
+        "helper": "التكلفة لكل كم on gasoline"
+      }
+    },
+    "dizel-benzin-maliyet-karsilastirma": {
+      "dieselcost": {
+        "label": "Diesel التكلفة",
+        "placeholder": "أدخل Diesel التكلفة",
+        "helper": "التكلفة لكل كم on diesel"
+      },
+      "gasolinecost": {
+        "label": "Gasoline التكلفة",
+        "placeholder": "أدخل Gasoline التكلفة",
+        "helper": "التكلفة لكل كم on gasoline"
+      }
+    },
+    "boya-kaplama-sarfiyati-m-basina-hesabi": {
+      "aream2": {
+        "label": "Coverage المساحة",
+        "placeholder": "أدخل Coverage المساحة",
+        "helper": "Coverage المساحة for calculation"
+      },
+      "coverageperliter": {
+        "label": "التغطية لكل لتر",
+        "placeholder": "أدخل التغطية لكل لتر",
+        "helper": "التغطية لكل لتر for calculation"
+      }
+    },
+    "fazla-mesai-ucreti-hesaplama": {
+      "overtimehours": {
+        "label": "Overtime الساعات",
+        "placeholder": "أدخل Overtime الساعات",
+        "helper": "Overtime الساعات worked"
+      },
+      "hourlyrate": {
+        "label": "Hourly المعدل",
+        "placeholder": "أدخل Hourly المعدل",
+        "helper": "Base Hourly المعدل"
+      }
+    },
+    "enflasyon-fiyat-eskalasyonu-hesaplama": {
+      "baseamount": {
+        "label": "Base amount",
+        "placeholder": "أدخل Base amount",
+        "helper": "Starting amount"
+      },
+      "inflationpercent": {
+        "label": "Inflation المعدل",
+        "placeholder": "أدخل Inflation المعدل",
+        "helper": "Inflation لكلcent to apply once"
+      }
+    },
+    "newton-kilogram-kuvvet-cevirici": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "من الوحدة",
+        "placeholder": "أدخل من الوحدة",
+        "helper": "Source unit"
+      }
+    },
+    "joule-kalori-watt-saat-cevirici": {
+      "value": {
+        "label": "القيمة",
+        "placeholder": "أدخل القيمة",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "من الوحدة",
+        "placeholder": "أدخل من الوحدة",
+        "helper": "Source unit"
+      }
+    },
+    "agirlikli-ortalama-hesaplama": {
+      "value1": {
+        "label": "القيمة 1",
+        "placeholder": "أدخل القيمة 1",
+        "helper": "First القيمة"
+      },
+      "weight1": {
+        "label": "الوزن 1",
+        "placeholder": "أدخل الوزن 1",
+        "helper": "الوزن for القيمة 1"
+      },
+      "value2": {
+        "label": "القيمة 2",
+        "placeholder": "أدخل القيمة 2",
+        "helper": "Second القيمة"
+      },
+      "weight2": {
+        "label": "الوزن 2",
+        "placeholder": "أدخل الوزن 2",
+        "helper": "الوزن for القيمة 2"
+      },
+      "value3": {
+        "label": "القيمة 3",
+        "placeholder": "أدخل القيمة 3",
+        "helper": "Third القيمة"
+      },
+      "weight3": {
+        "label": "الوزن 3",
+        "placeholder": "أدخل الوزن 3",
+        "helper": "الوزن for القيمة 3"
+      }
+    },
+    "kesir-ondalik-cevirici": {
+      "numerator": {
+        "label": "Numerator",
+        "placeholder": "أدخل Numerator",
+        "helper": "Numerator for calculation"
+      },
+      "denominator": {
+        "label": "Denominator",
+        "placeholder": "أدخل Denominator",
+        "helper": "Denominator for calculation"
+      }
+    },
+    "rastgele-sayi-ureteci": {
+      "minvalue": {
+        "label": "Minimum",
+        "placeholder": "أدخل Minimum",
+        "helper": "Minimum integer"
+      },
+      "maxvalue": {
+        "label": "Maximum",
+        "placeholder": "أدخل Maximum",
+        "helper": "Maximum integer"
+      }
+    },
+    "daire-alani-cevresi-hesaplama": {
+      "radius": {
+        "label": "نصف القطر",
+        "placeholder": "أدخل نصف القطر",
+        "helper": "Circle نصف القطر"
+      }
+    },
+    "ucgen-alani-cevresi-hesaplama": {
+      "base": {
+        "label": "Base",
+        "placeholder": "أدخل Base",
+        "helper": "Triangle base الطول"
+      },
+      "height": {
+        "label": "الارتفاع",
+        "placeholder": "أدخل الارتفاع",
+        "helper": "Triangle الارتفاع"
+      }
+    },
+    "silindir-hacmi-hesaplama": {
+      "radius": {
+        "label": "نصف القطر",
+        "placeholder": "أدخل نصف القطر",
+        "helper": "Cylinder نصف القطر"
+      },
+      "height": {
+        "label": "الارتفاع",
+        "placeholder": "أدخل الارتفاع",
+        "helper": "Cylinder الارتفاع"
+      }
+    },
+    "cit-korkuluk-malzeme-hesabi": {
+      "length": {
+        "label": "Fence الطول",
+        "placeholder": "أدخل Fence الطول",
+        "helper": "Fence الطول for calculation"
+      },
+      "postspacing": {
+        "label": "Post spacing",
+        "placeholder": "أدخل Post spacing",
+        "helper": "Post spacing for calculation"
+      }
+    },
+    "prefabrik-konteyner-olcu-hesaplama": {
+      "length": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "Container الطول"
+      },
+      "width": {
+        "label": "العرض",
+        "placeholder": "أدخل العرض",
+        "helper": "Container العرض"
+      }
+    },
+    "celik-cati-makas-yaklasik-agirligi": {
+      "span": {
+        "label": "Roof span",
+        "placeholder": "أدخل Roof span",
+        "helper": "Truss span in meters"
+      },
+      "weightpermeter": {
+        "label": "الوزن لكل meter",
+        "placeholder": "أدخل الوزن لكل meter",
+        "helper": "Approximate steel الوزن لكل meter"
+      }
+    },
+    "su-deposu-hacmi-hesaplama": {
+      "radius": {
+        "label": "نصف القطر",
+        "placeholder": "أدخل نصف القطر",
+        "helper": "Tank نصف القطر"
+      },
+      "height": {
+        "label": "الارتفاع",
+        "placeholder": "أدخل الارتفاع",
+        "helper": "Tank الارتفاع"
+      }
+    },
+    "yalitim-malzemesi-m-hesaplama": {
+      "aream2": {
+        "label": "Surface المساحة",
+        "placeholder": "أدخل Surface المساحة",
+        "helper": "Insulated surface in m²"
+      },
+      "layers": {
+        "label": "Layers",
+        "placeholder": "أدخل Layers",
+        "helper": "Number of layers"
+      }
+    },
+    "ups-kesintisiz-guc-kaynagi-secimi": {
+      "loadwatts": {
+        "label": "Load",
+        "placeholder": "أدخل Load",
+        "helper": "Connected load in watts"
+      },
+      "runtimeminutes": {
+        "label": "وقت التشغيل",
+        "placeholder": "أدخل وقت التشغيل",
+        "helper": "Required وقت التشغيل in minutes"
+      }
+    },
+    "gerilim-dusumu-hesaplama": {
+      "current": {
+        "label": "التيار",
+        "placeholder": "أدخل التيار",
+        "helper": "تيار الحمل in amps"
+      },
+      "linelengthm": {
+        "label": "Line الطول",
+        "placeholder": "أدخل Line الطول",
+        "helper": "One-way cable الطول in meters"
+      }
+    },
+    "topraklama-direnci-hesaplama": {
+      "measuredohms": {
+        "label": "Measured resistance",
+        "placeholder": "أدخل Measured resistance",
+        "helper": "Ground resistance reading"
+      }
+    },
+    "aku-kapasitesi-calisma-suresi-hesabi": {
+      "batteryah": {
+        "label": "Battery capacity",
+        "placeholder": "أدخل Battery capacity",
+        "helper": "Battery capacity for calculation"
+      },
+      "loadamps": {
+        "label": "تيار الحمل",
+        "placeholder": "أدخل تيار الحمل",
+        "helper": "تيار الحمل for calculation"
+      }
+    },
+    "aydinlatma-armatur-sayisi-hesaplama": {
+      "totallumensneeded": {
+        "label": "Total lumens",
+        "placeholder": "أدخل Total lumens",
+        "helper": "Total lumens for calculation"
+      },
+      "lumensperfixture": {
+        "label": "Lumens لكل fixture",
+        "placeholder": "أدخل Lumens لكل fixture",
+        "helper": "Lumens لكل fixture for calculation"
+      }
+    },
+    "kompresor-debisi-tank-hacmi-hesabi": {
+      "flowcfm": {
+        "label": "تدفق الضاغط",
+        "placeholder": "أدخل تدفق الضاغط",
+        "helper": "تدفق الضاغط المعدل"
+      },
+      "fillminutes": {
+        "label": "Fill time",
+        "placeholder": "أدخل Fill time",
+        "helper": "Desired tank fill time in minutes"
+      }
+    },
+    "hidrolik-silindir-itme-kuvveti-hesabi": {
+      "pressurebar": {
+        "label": "الضغط",
+        "placeholder": "أدخل الضغط",
+        "helper": "System الضغط in bar"
+      },
+      "boremm": {
+        "label": "Bore القطر",
+        "placeholder": "أدخل Bore القطر",
+        "helper": "Cylinder bore in mm"
+      }
+    },
+    "pnomatik-silindir-kuvvet-hesabi": {
+      "pressurebar": {
+        "label": "الضغط",
+        "placeholder": "أدخل الضغط",
+        "helper": "Air الضغط in bar"
+      },
+      "boremm": {
+        "label": "Bore القطر",
+        "placeholder": "أدخل Bore القطر",
+        "helper": "Cylinder bore in mm"
+      }
+    },
+    "hidrolik-pompa-gucu-hesaplama": {
+      "flowlpm": {
+        "label": "التدفق",
+        "placeholder": "أدخل التدفق",
+        "helper": "التدفق in L/min"
+      },
+      "pressurebar": {
+        "label": "الضغط",
+        "placeholder": "أدخل الضغط",
+        "helper": "الضغط in bar"
+      }
+    },
+    "boru-capi-akis-hizi-hesaplama": {
+      "flowlpm": {
+        "label": "التدفق المعدل",
+        "placeholder": "أدخل التدفق المعدل",
+        "helper": "التدفق المعدل for calculation"
+      },
+      "velocitymps": {
+        "label": "السرعة المستهدفة",
+        "placeholder": "أدخل السرعة المستهدفة",
+        "helper": "السرعة المستهدفة for calculation"
+      }
+    },
+    "pompa-gucu-basma-yuksekligi-hesabi": {
+      "flowm3h": {
+        "label": "التدفق",
+        "placeholder": "أدخل التدفق",
+        "helper": "التدفق in m³/h"
+      },
+      "headm": {
+        "label": "Head",
+        "placeholder": "أدخل Head",
+        "helper": "Total head in meters"
+      }
+    },
+    "su-debisi-litre-dakika-hesaplama": {
+      "volumeliters": {
+        "label": "الحجم",
+        "placeholder": "أدخل الحجم",
+        "helper": "الحجم for calculation"
+      },
+      "minutes": {
+        "label": "Minutes",
+        "placeholder": "أدخل Minutes",
+        "helper": "Minutes for calculation"
+      }
+    },
+    "isitma-sogutma-yuku-kcal-kw-hesabi": {
+      "aream2": {
+        "label": "المساحة",
+        "placeholder": "أدخل المساحة",
+        "helper": "Conditioned مساحة الأرضية"
+      },
+      "loadkcal": {
+        "label": "معامل الحمل",
+        "placeholder": "أدخل معامل الحمل",
+        "helper": "معامل الحمل kcal/h·m²"
+      }
+    },
+    "radyator-petek-boyu-hesaplama": {
+      "heatloadkcal": {
+        "label": "Heat load",
+        "placeholder": "أدخل Heat load",
+        "helper": "Heat load for calculation"
+      },
+      "paneloutputkcal": {
+        "label": "Panel output",
+        "placeholder": "أدخل Panel output",
+        "helper": "Panel output for calculation"
+      }
+    },
+    "akaryakit-fiyati-ile-yol-butcesi": {
+      "distancekm": {
+        "label": "المسافة",
+        "placeholder": "أدخل المسافة",
+        "helper": "Trip المسافة in km"
+      },
+      "costperkm": {
+        "label": "التكلفة لكل كم",
+        "placeholder": "أدخل التكلفة لكل كم",
+        "helper": "الوقود التكلفة لكل كم"
+      }
+    },
+    "arac-amortisman-hesaplama": {
+      "vehiclecost": {
+        "label": "Vehicle التكلفة",
+        "placeholder": "أدخل Vehicle التكلفة",
+        "helper": "Purchase السعر"
+      },
+      "salvagevalue": {
+        "label": "قيمة الخردة",
+        "placeholder": "أدخل قيمة الخردة",
+        "helper": "Expected قيمة الخردة"
+      },
+      "usefullifeyears": {
+        "label": "العمر الإنتاجي",
+        "placeholder": "أدخل العمر الإنتاجي",
+        "helper": "Depreciation السنوات"
+      }
+    },
+    "kaynak-dikis-hacmi-maliyeti-hesabi": {
+      "throatmm": {
+        "label": "الحلق",
+        "placeholder": "أدخل الحلق",
+        "helper": "Weld الحلق in mm"
+      },
+      "weldlengthm": {
+        "label": "Weld الطول",
+        "placeholder": "أدخل Weld الطول",
+        "helper": "Weld الطول in meters"
+      }
+    },
+    "kesme-bukme-abkant-tonaj-hesabi": {
+      "sheetlengthmm": {
+        "label": "Sheet الطول",
+        "placeholder": "أدخل Sheet الطول",
+        "helper": "Bend Line الطول in mm"
+      },
+      "sheetthicknessmm": {
+        "label": "السماكة",
+        "placeholder": "أدخل السماكة",
+        "helper": "Sheet السماكة in mm"
+      }
+    },
+    "disli-modul-cap-hesaplama": {
+      "module": {
+        "label": "Module",
+        "placeholder": "أدخل Module",
+        "helper": "Gear module"
+      },
+      "teeth": {
+        "label": "الأسنان",
+        "placeholder": "أدخل الأسنان",
+        "helper": "Number of الأسنان"
+      }
+    },
+    "civata-on-germe-kuvveti-hesabi": {
+      "boltdiametermm": {
+        "label": "Bolt القطر",
+        "placeholder": "أدخل Bolt القطر",
+        "helper": "Nominal Bolt القطر in mm"
+      },
+      "preloadkn": {
+        "label": "Preload force",
+        "placeholder": "أدخل Preload force",
+        "helper": "الهدف preload in kN"
+      }
+    },
+    "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama": {
+      "antifreezeliters": {
+        "label": "Antifreeze الحجم",
+        "placeholder": "أدخل Antifreeze الحجم",
+        "helper": "Antifreeze الحجم for calculation"
+      },
+      "totalliters": {
+        "label": "Total coolant الحجم",
+        "placeholder": "أدخل Total coolant الحجم",
+        "helper": "Total coolant الحجم for calculation"
+      }
+    },
+    "palet-ambalaj-kereste-hesabi": {
+      "palletcount": {
+        "label": "Pallet count",
+        "placeholder": "أدخل Pallet count",
+        "helper": "Number of pallets"
+      },
+      "boardlengthm": {
+        "label": "Board الطول",
+        "placeholder": "أدخل Board الطول",
+        "helper": "Average Board الطول لكل pallet"
+      }
+    },
+    "tahta-mdf-sunta-m-agirlik-hesabi": {
+      "aream2": {
+        "label": "المساحة",
+        "placeholder": "أدخل المساحة",
+        "helper": "Sheet المساحة in m²"
+      },
+      "kgperm2": {
+        "label": "الوزن لكل m²",
+        "placeholder": "أدخل الوزن لكل m²",
+        "helper": "Catalog الوزن لكل m²"
+      }
+    },
+    "tel-kablo-uzunlugu-agirlik-hesabi": {
+      "lengthm": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "Cable run الطول in meters"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "أدخل kg/m",
+        "helper": "Catalog cable الوزن لكل meter"
+      }
+    },
+    "vida-somun-adim-dis-ustu-cap-hesabi": {
+      "pitchmm": {
+        "label": "Pitch",
+        "placeholder": "أدخل Pitch",
+        "helper": "Thread pitch in mm"
+      },
+      "threadcount": {
+        "label": "Thread count",
+        "placeholder": "أدخل Thread count",
+        "helper": "Number of threads engaged"
+      }
+    },
+    "matkap-kilavuz-delik-capi-tablosu": {
+      "screwdiametermm": {
+        "label": "Screw القطر",
+        "placeholder": "أدخل Screw القطر",
+        "helper": "Screw القطر for calculation"
+      },
+      "drillfactor": {
+        "label": "Drill factor",
+        "placeholder": "أدخل Drill factor",
+        "helper": "Drill factor for calculation"
+      }
+    },
+    "kdv-tevkifati-hesaplama": {
+      "netamount": {
+        "label": "المبلغ الصافي",
+        "placeholder": "أدخل المبلغ الصافي",
+        "helper": "صافي invoice amount"
+      },
+      "withholdingrate": {
+        "label": "Withholding المعدل",
+        "placeholder": "أدخل Withholding المعدل",
+        "helper": "KDV withholding لكلcent"
+      }
+    },
+    "stopaj-hesaplama-kira-serbest-meslek": {
+      "grossamount": {
+        "label": "Gross amount",
+        "placeholder": "أدخل Gross amount",
+        "helper": "Payment before withholding"
+      },
+      "withholdingrate": {
+        "label": "Withholding المعدل",
+        "placeholder": "أدخل Withholding المعدل",
+        "helper": "Stopaj لكلcent"
+      }
+    },
+    "gelir-vergisi-dilimleri-hesaplama": {
+      "taxableincome": {
+        "label": "Taxable income",
+        "placeholder": "أدخل Taxable income",
+        "helper": "Annual taxable income"
+      },
+      "effectiverate": {
+        "label": "Effective المعدل",
+        "placeholder": "أدخل Effective المعدل",
+        "helper": "Blended Effective المعدل لكلcent"
+      }
+    },
+    "ise-giris-cikis-bildirgesi-sureleri": {
+      "noticedays": {
+        "label": "Notice لكلiod",
+        "placeholder": "أدخل Notice لكلiod",
+        "helper": "Notice لكلiod"
+      }
+    },
+    "sgk-prim-hesaplama-isci-plus-isveren": {
+      "grosswage": {
+        "label": "Gross wage",
+        "placeholder": "أدخل Gross wage",
+        "helper": "Monthly gross wage"
+      },
+      "combinedrate": {
+        "label": "المعدل المركب",
+        "placeholder": "أدخل المعدل المركب",
+        "helper": "Employee + employer المعدل لكلcent"
+      }
+    },
+    "makine-ekonomik-omru-hurda-deger-hesabi": {
+      "machinecost": {
+        "label": "Machine التكلفة",
+        "placeholder": "أدخل Machine التكلفة",
+        "helper": "Purchase السعر"
+      },
+      "salvagevalue": {
+        "label": "قيمة الخردة",
+        "placeholder": "أدخل قيمة الخردة",
+        "helper": "Expected قيمة الخردة"
+      },
+      "usefullifeyears": {
+        "label": "العمر الإنتاجي",
+        "placeholder": "أدخل العمر الإنتاجي",
+        "helper": "Economic life in السنوات"
+      }
+    },
+    "leasing-kiralama-maliyet-karsilastirma": {
+      "leasecost": {
+        "label": "Lease التكلفة",
+        "placeholder": "أدخل Lease التكلفة",
+        "helper": "Lease التكلفة for comparison"
+      },
+      "rentalcost": {
+        "label": "إيجارal التكلفة",
+        "placeholder": "أدخل إيجارal التكلفة",
+        "helper": "إيجارal التكلفة for comparison"
+      }
+    },
+    "kredi-erken-kapama-cezasi-hesaplama": {
+      "remainingbalance": {
+        "label": "المتبقي balance",
+        "placeholder": "أدخل المتبقي balance",
+        "helper": "Outstanding loan balance"
+      },
+      "penaltyrate": {
+        "label": "Penalty المعدل",
+        "placeholder": "أدخل Penalty المعدل",
+        "helper": "Early closure penalty لكلcent"
+      }
+    },
+    "doviz-pozisyonu-kur-farki-riski-hesabi": {
+      "foreignexposure": {
+        "label": "Foreign exposure",
+        "placeholder": "أدخل Foreign exposure",
+        "helper": "Exposure in foreign currency"
+      },
+      "fxmovepercent": {
+        "label": "FX move",
+        "placeholder": "أدخل FX move",
+        "helper": "Expected FX move لكلcent"
+      }
+    },
+    "cek-senet-vade-kirma-maliyeti-hesabi": {
+      "facevalue": {
+        "label": "Face القيمة",
+        "placeholder": "أدخل Face القيمة",
+        "helper": "Instrument Face القيمة"
+      },
+      "discountrate": {
+        "label": "Discount المعدل",
+        "placeholder": "أدخل Discount المعدل",
+        "helper": "Discount المعدل لكلcent"
+      }
+    },
+    "nakit-akisi-basit-gunluk-haftalik-panosu": {
+      "dailyinflow": {
+        "label": "Daily inالتدفق",
+        "placeholder": "أدخل Daily inالتدفق",
+        "helper": "Average daily cash inالتدفق"
+      },
+      "days": {
+        "label": "الأيام",
+        "placeholder": "أدخل الأيام",
+        "helper": "الأيام in لكلiod"
+      }
+    },
+    "ic-verim-orani-irr-hesaplama": {
+      "initialinvestment": {
+        "label": "Initial investment",
+        "placeholder": "أدخل Initial investment",
+        "helper": "Project investment"
+      },
+      "returnmultiple": {
+        "label": "Return multiple",
+        "placeholder": "أدخل Return multiple",
+        "helper": "Screening return multiple"
+      }
+    },
+    "konteyner-yukleme-kapasitesi-teu-hesabi": {
+      "totalweightkg": {
+        "label": "Total الوزن",
+        "placeholder": "أدخل Total الوزن",
+        "helper": "Total الوزن for calculation"
+      },
+      "unitweightkg": {
+        "label": "Unit الوزن",
+        "placeholder": "أدخل Unit الوزن",
+        "helper": "Unit الوزن for calculation"
+      }
+    },
+    "tir-kamyon-yuk-kapasitesi-hesaplama": {
+      "payloadton": {
+        "label": "Payload capacity",
+        "placeholder": "أدخل Payload capacity",
+        "helper": "المعدلd payload in tonnes"
+      },
+      "loadfactor": {
+        "label": "معامل الحمل",
+        "placeholder": "أدخل معامل الحمل",
+        "helper": "Utilization factor"
+      }
+    },
+    "arac-bakim-periyodu-takip-hesaplama": {
+      "remainingkm": {
+        "label": "المتبقي km",
+        "placeholder": "أدخل المتبقي km",
+        "helper": "المتبقي km for calculation"
+      },
+      "dailykm": {
+        "label": "كم يومي",
+        "placeholder": "أدخل كم يومي",
+        "helper": "كم يومي for calculation"
+      }
+    },
+    "lastik-omru-degisim-km-hesaplama": {
+      "remainingtreadkm": {
+        "label": "المتبقي tread km",
+        "placeholder": "أدخل المتبقي tread km",
+        "helper": "المتبقي tread km for calculation"
+      },
+      "monthlykm": {
+        "label": "Monthly km",
+        "placeholder": "أدخل Monthly km",
+        "helper": "Monthly km for calculation"
+      }
+    },
+    "depo-raf-palet-yerlesim-optimizasyonu": {
+      "palletwidthm": {
+        "label": "Pallet العرض",
+        "placeholder": "أدخل Pallet العرض",
+        "helper": "Pallet العرض in meters"
+      },
+      "palletdepthm": {
+        "label": "Pallet العمق",
+        "placeholder": "أدخل Pallet العمق",
+        "helper": "Pallet العمق in meters"
+      }
+    },
+    "trafik-cezasi-gecikme-faizi-hesaplama": {
+      "fineamount": {
+        "label": "Fine amount",
+        "placeholder": "أدخل Fine amount",
+        "helper": "Original fine amount"
+      },
+      "laterate": {
+        "label": "Late المعدل",
+        "placeholder": "أدخل Late المعدل",
+        "helper": "Late payment المعدل لكلcent"
+      }
+    },
+    "kasko-sigorta-prim-karsilastirma": {
+      "quotea": {
+        "label": "Quote A",
+        "placeholder": "أدخل Quote A",
+        "helper": "Quote A for comparison"
+      },
+      "quoteb": {
+        "label": "Quote B",
+        "placeholder": "أدخل Quote B",
+        "helper": "Quote B for comparison"
+      }
+    },
+    "sofor-operator-gunluk-yevmiye-maliyeti": {
+      "dailyrate": {
+        "label": "المعدل اليومي",
+        "placeholder": "أدخل المعدل اليومي",
+        "helper": "Driver/oلكلator المعدل اليومي"
+      },
+      "days": {
+        "label": "الأيام",
+        "placeholder": "أدخل الأيام",
+        "helper": "Working الأيام"
+      }
+    },
+    "arac-kira-satin-alma-karsilastirma": {
+      "purchasecost": {
+        "label": "Purchase التكلفة",
+        "placeholder": "أدخل Purchase التكلفة",
+        "helper": "Purchase التكلفة for comparison"
+      },
+      "leasecost": {
+        "label": "Lease التكلفة",
+        "placeholder": "أدخل Lease التكلفة",
+        "helper": "Lease التكلفة for comparison"
+      }
+    },
+    "yemek-tabldot-maliyet-hesaplama": {
+      "mealcost": {
+        "label": "Meal التكلفة",
+        "placeholder": "أدخل Meal التكلفة",
+        "helper": "التكلفة لكل meal"
+      },
+      "headcount": {
+        "label": "Headcount",
+        "placeholder": "أدخل Headcount",
+        "helper": "Number of meals"
+      }
+    },
+    "fotokopi-yazici-toner-sayfa-maliyeti": {
+      "tonercost": {
+        "label": "Toner التكلفة",
+        "placeholder": "أدخل Toner التكلفة",
+        "helper": "Toner التكلفة for calculation"
+      },
+      "pageyield": {
+        "label": "Page yield",
+        "placeholder": "أدخل Page yield",
+        "helper": "Page yield for calculation"
+      }
+    },
+    "internet-telefon-paketi-karsilastirma": {
+      "packagea": {
+        "label": "Package A",
+        "placeholder": "أدخل Package A",
+        "helper": "Package A for comparison"
+      },
+      "packageb": {
+        "label": "Package B",
+        "placeholder": "أدخل Package B",
+        "helper": "Package B for comparison"
+      }
+    },
+    "yangin-tupu-dolap-debisi-hesaplama": {
+      "aream2": {
+        "label": "Protected المساحة",
+        "placeholder": "أدخل Protected المساحة",
+        "helper": "Protected مساحة الأرضية in m²"
+      },
+      "flowfactor": {
+        "label": "التدفق factor",
+        "placeholder": "أدخل التدفق factor",
+        "helper": "التدفق factor لكل m²"
+      }
+    },
+    "prefabrik-konteyner-ofis-m-maliyeti": {
+      "aream2": {
+        "label": "مساحة الأرضية",
+        "placeholder": "أدخل مساحة الأرضية",
+        "helper": "Office مساحة الأرضية in m²"
+      },
+      "costperm2": {
+        "label": "التكلفة لكل م²",
+        "placeholder": "أدخل التكلفة لكل م²",
+        "helper": "التكلفة لكل م²"
+      }
+    },
+    "celik-raf-depo-rafi-yuk-kapasitesi": {
+      "beamcapacitykg": {
+        "label": "Beam capacity",
+        "placeholder": "أدخل Beam capacity",
+        "helper": "Capacity لكل beam level in kg"
+      },
+      "shelfcount": {
+        "label": "Shelf count",
+        "placeholder": "أدخل Shelf count",
+        "helper": "Number of shelf levels"
+      }
+    },
+    "kaynakli-baglanti-kose-kut-mukavemet-hesabi": {
+      "throatmm": {
+        "label": "الحلق",
+        "placeholder": "أدخل الحلق",
+        "helper": "Weld الحلق in mm"
+      },
+      "leglengthmm": {
+        "label": "Leg الطول",
+        "placeholder": "أدخل Leg الطول",
+        "helper": "Leg الطول in mm"
+      }
+    },
+    "bulonlu-baglanti-kesme-ezilme-hesabi": {
+      "boltcount": {
+        "label": "عدد البراغي",
+        "placeholder": "أدخل عدد البراغي",
+        "helper": "Number of bolts"
+      },
+      "shearcapacitykn": {
+        "label": "Shear capacity",
+        "placeholder": "أدخل Shear capacity",
+        "helper": "Shear capacity لكل bolt in kN"
+      }
+    },
+    "ruzgar-turbini-yaklasik-uretim-hesabi": {
+      "ratedkw": {
+        "label": "المعدلd القدرة",
+        "placeholder": "أدخل المعدلd القدرة",
+        "helper": "Turbine المعدلd kW"
+      },
+      "capacityfactor": {
+        "label": "Capacity factor",
+        "placeholder": "أدخل Capacity factor",
+        "helper": "Capacity factor"
+      }
+    },
+    "su-isitma-kazan-boyler-kapasite-hesabi": {
+      "volumeliters": {
+        "label": "الحجم",
+        "placeholder": "أدخل الحجم",
+        "helper": "Tank الحجم in liters"
+      },
+      "deltatempc": {
+        "label": "Temلكلature rise",
+        "placeholder": "أدخل Temلكلature rise",
+        "helper": "Required Temلكلature rise in °C"
+      }
+    },
+    "soguk-oda-sogutma-yuku-hesabi": {
+      "roomvolumem3": {
+        "label": "Room الحجم",
+        "placeholder": "أدخل Room الحجم",
+        "helper": "Cold Room الحجم"
+      },
+      "loadfactor": {
+        "label": "معامل الحمل",
+        "placeholder": "أدخل معامل الحمل",
+        "helper": "Cooling معامل الحمل"
+      }
+    },
+    "yamuk-alani-hesaplama": {
+      "basea": {
+        "label": "Base A",
+        "placeholder": "أدخل Base A",
+        "helper": "First parallel side"
+      },
+      "baseb": {
+        "label": "Base B",
+        "placeholder": "أدخل Base B",
+        "helper": "Second parallel side"
+      },
+      "height": {
+        "label": "الارتفاع",
+        "placeholder": "أدخل الارتفاع",
+        "helper": "لكلpendicular الارتفاع"
+      }
+    },
+    "kure-hacmi-hesaplama": {
+      "radius": {
+        "label": "نصف القطر",
+        "placeholder": "أدخل نصف القطر",
+        "helper": "Sphere نصف القطر"
+      }
+    },
+    "koni-hacmi-hesaplama": {
+      "radius": {
+        "label": "نصف القطر",
+        "placeholder": "أدخل نصف القطر",
+        "helper": "Base نصف القطر"
+      },
+      "height": {
+        "label": "الارتفاع",
+        "placeholder": "أدخل الارتفاع",
+        "helper": "Cone الارتفاع"
+      }
+    },
+    "duvar-kagidi-seramik-adet-hesaplama": {
+      "wallaream2": {
+        "label": "Wall المساحة",
+        "placeholder": "أدخل Wall المساحة",
+        "helper": "Wall المساحة for calculation"
+      },
+      "tileaream2": {
+        "label": "Tile المساحة",
+        "placeholder": "أدخل Tile المساحة",
+        "helper": "Tile المساحة for calculation"
+      }
+    },
+    "kiris-kolon-yaklasik-agirlik-hesabi": {
+      "lengthm": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "Member الطول in meters"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "أدخل kg/m",
+        "helper": "Catalog الوزن لكل meter"
+      }
+    },
+    "asma-tavan-malzeme-hesabi": {
+      "ceilingaream2": {
+        "label": "مساحة السقف",
+        "placeholder": "أدخل مساحة السقف",
+        "helper": "مساحة السقف in m²"
+      },
+      "materialperm2": {
+        "label": "المادة لكل m²",
+        "placeholder": "أدخل المادة لكل m²",
+        "helper": "المادة units لكل m²"
+      }
+    },
+    "istinat-duvari-yaklasik-beton-hesabi": {
+      "walllengthm": {
+        "label": "Wall الطول",
+        "placeholder": "أدخل Wall الطول",
+        "helper": "Retaining Wall الطول"
+      },
+      "wallheightm": {
+        "label": "Wall الارتفاع",
+        "placeholder": "أدخل Wall الارتفاع",
+        "helper": "Average Wall الارتفاع"
+      }
+    },
+    "rulman-omur-hesabi-l10": {
+      "dynamicloadkn": {
+        "label": "الحمل الديناميكي",
+        "placeholder": "أدخل الحمل الديناميكي",
+        "helper": "الحمل الديناميكي for calculation"
+      },
+      "basicloadkn": {
+        "label": "تصنيف الحمل الأساسي",
+        "placeholder": "أدخل تصنيف الحمل الأساسي",
+        "helper": "تصنيف الحمل الأساسي for calculation"
+      }
+    },
+    "paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli": {
+      "densitykgm3": {
+        "label": "المادة الكثافة",
+        "placeholder": "أدخل المادة الكثافة",
+        "helper": "المادة الكثافة"
+      }
+    },
+    "enjeksiyon-dokum-cekme-payi-hesabi": {
+      "partlengthmm": {
+        "label": "Part الطول",
+        "placeholder": "أدخل Part الطول",
+        "helper": "Molded Part الطول in mm"
+      },
+      "shrinkpercent": {
+        "label": "Shrink لكلcent",
+        "placeholder": "أدخل Shrink لكلcent",
+        "helper": "Expected Shrink لكلcent"
+      }
+    },
+    "kumlama-raspa-kum-sarfiyati-hesabi": {
+      "surfaceaream2": {
+        "label": "Surface المساحة",
+        "placeholder": "أدخل Surface المساحة",
+        "helper": "Blasted surface in m²"
+      },
+      "abrasivekgperm2": {
+        "label": "Abrasive لكل m²",
+        "placeholder": "أدخل Abrasive لكل m²",
+        "helper": "Abrasive kg لكل m²"
+      }
+    },
+    "plastik-enjeksiyon-cevrim-suresi-tahmini": {
+      "shotweightg": {
+        "label": "Shot الوزن",
+        "placeholder": "أدخل Shot الوزن",
+        "helper": "Shot الوزن for calculation"
+      },
+      "injectionrategps": {
+        "label": "Injection المعدل",
+        "placeholder": "أدخل Injection المعدل",
+        "helper": "Injection المعدل for calculation"
+      }
+    },
+    "personel-devamsizlik-maliyeti-hesaplama": {
+      "dailywage": {
+        "label": "الأجر اليومي",
+        "placeholder": "أدخل الأجر اليومي",
+        "helper": "الأجر اليومي التكلفة"
+      },
+      "absentdays": {
+        "label": "أيام الغياب",
+        "placeholder": "أدخل أيام الغياب",
+        "helper": "أيام الغياب in لكلiod"
+      }
+    },
+    "is-kazasi-maliyeti-gun-kaybi-hesaplama": {
+      "dailyoutputvalue": {
+        "label": "Daily output القيمة",
+        "placeholder": "أدخل Daily output القيمة",
+        "helper": "Daily production القيمة"
+      },
+      "lostdays": {
+        "label": "Lost الأيام",
+        "placeholder": "أدخل Lost الأيام",
+        "helper": "Lost workالأيام"
+      }
+    },
+    "forklift-transpalet-kullanim-maliyeti": {
+      "hourlyrate": {
+        "label": "Hourly المعدل",
+        "placeholder": "أدخل Hourly المعدل",
+        "helper": "Equipment Hourly المعدل"
+      },
+      "hours": {
+        "label": "الساعات",
+        "placeholder": "أدخل الساعات",
+        "helper": "Oلكلating الساعات"
+      }
+    },
+    "paketleme-malzemesi-strec-koli-sarfiyati": {
+      "shipmentcount": {
+        "label": "Shipments",
+        "placeholder": "أدخل Shipments",
+        "helper": "Number of shipments"
+      },
+      "materialpershipment": {
+        "label": "المادة لكل shipment",
+        "placeholder": "أدخل المادة لكل shipment",
+        "helper": "Packaging units لكل shipment"
+      }
+    },
+    "irsaliye-fatura-adedi-basina-sevkiyat-maliyeti": {
+      "totalshippingcost": {
+        "label": "Total shipping التكلفة",
+        "placeholder": "أدخل Total shipping التكلفة",
+        "helper": "Total shipping التكلفة for calculation"
+      },
+      "documentcount": {
+        "label": "Document count",
+        "placeholder": "أدخل Document count",
+        "helper": "Document count for calculation"
+      }
+    },
+    "cay-kahve-su-tuketim-maliyeti": {
+      "unitcost": {
+        "label": "Unit التكلفة",
+        "placeholder": "أدخل Unit التكلفة",
+        "helper": "التكلفة لكل serving"
+      },
+      "dailyunits": {
+        "label": "Daily units",
+        "placeholder": "أدخل Daily units",
+        "helper": "Servings لكل day"
+      }
+    },
+    "toplanti-saati-maliyeti-hesaplama": {
+      "attendeerate": {
+        "label": "Attendee المعدل",
+        "placeholder": "أدخل Attendee المعدل",
+        "helper": "Blended hourly attendee التكلفة"
+      },
+      "attendeehours": {
+        "label": "Attendee-الساعات",
+        "placeholder": "أدخل Attendee-الساعات",
+        "helper": "Total Attendee-الساعات"
+      }
+    },
+    "is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati": {
+      "unitcost": {
+        "label": "Unit التكلفة",
+        "placeholder": "أدخل Unit التكلفة",
+        "helper": "PPE التكلفة لكل employee"
+      },
+      "employeecount": {
+        "label": "الموظفون",
+        "placeholder": "أدخل الموظفون",
+        "helper": "Number of الموظفون"
+      }
+    },
+    "temizlik-malzemesi-sarfiyat-hesabi": {
+      "aream2": {
+        "label": "المساحة",
+        "placeholder": "أدخل المساحة",
+        "helper": "Cleaned المساحة in m²"
+      },
+      "consumptionperm2": {
+        "label": "الاستهلاك لكل m²",
+        "placeholder": "أدخل الاستهلاك لكل m²",
+        "helper": "المادة الاستهلاك لكل m²"
+      }
+    },
+    "ofis-kirtasiye-sarfiyat-hesabi": {
+      "employeecount": {
+        "label": "الموظفون",
+        "placeholder": "أدخل الموظفون",
+        "helper": "Number of الموظفون"
+      },
+      "monthlyspendperhead": {
+        "label": "Spend لكل head",
+        "placeholder": "أدخل Spend لكل head",
+        "helper": "Monthly stationery spend لكل employee"
+      }
+    },
+    "sirket-telefon-faturasi-hesaplama": {
+      "linecount": {
+        "label": "Lines",
+        "placeholder": "أدخل Lines",
+        "helper": "Number of phone lines"
+      },
+      "monthlylinecost": {
+        "label": "التكلفة لكل سطر",
+        "placeholder": "أدخل التكلفة لكل سطر",
+        "helper": "Monthly التكلفة لكل سطر"
+      }
+    },
+    "abonelik-yazilim-cloud-yillik-maliyet-hesabi": {
+      "monthlyfee": {
+        "label": "Monthly fee",
+        "placeholder": "أدخل Monthly fee",
+        "helper": "Monthly subscription fee"
+      },
+      "months": {
+        "label": "Months",
+        "placeholder": "أدخل Months",
+        "helper": "Months لكل year"
+      }
+    },
+    "is-sagligi-ve-guvenligi-ceza-hesaplama": {
+      "basefine": {
+        "label": "Base fine",
+        "placeholder": "أدخل Base fine",
+        "helper": "Reference fine amount"
+      },
+      "severityfactor": {
+        "label": "Severity factor",
+        "placeholder": "أدخل Severity factor",
+        "helper": "Severity multiplier"
+      }
+    },
+    "yangin-merdiveni-kacis-yolu-genisligi-hesabi": {
+      "occupantload": {
+        "label": "Occupant load",
+        "placeholder": "أدخل Occupant load",
+        "helper": "Occupant load for calculation"
+      },
+      "flowpermeter": {
+        "label": "التدفق لكل meter",
+        "placeholder": "أدخل التدفق لكل meter",
+        "helper": "التدفق لكل meter for calculation"
+      }
+    },
+    "cevre-atik-beyani-maliyet-hesaplama": {
+      "wastetonnes": {
+        "label": "الهدر tonnage",
+        "placeholder": "أدخل الهدر tonnage",
+        "helper": "Declared الهدر in tonnes"
+      },
+      "feepertonne": {
+        "label": "Fee لكل tonne",
+        "placeholder": "أدخل Fee لكل tonne",
+        "helper": "Fee لكل tonne"
+      }
+    },
+    "cop-atik-konteyner-hacim-hesabi": {
+      "containerlengthm": {
+        "label": "الطول",
+        "placeholder": "أدخل الطول",
+        "helper": "Container الطول in meters"
+      },
+      "containerwidthm": {
+        "label": "العرض",
+        "placeholder": "أدخل العرض",
+        "helper": "Container العرض in meters"
+      }
+    },
+    "geri-donusum-gelir-maliyet-hesabi": {
+      "recyclingrevenue": {
+        "label": "Recycling revenue",
+        "placeholder": "أدخل Recycling revenue",
+        "helper": "Recycling revenue for comparison"
+      },
+      "processingcost": {
+        "label": "Processing التكلفة",
+        "placeholder": "أدخل Processing التكلفة",
+        "helper": "Processing التكلفة for comparison"
+      }
+    },
+    "merdiven-platform-yukseklik-erisim-hesabi": {
+      "platformheightm": {
+        "label": "Platform الارتفاع",
+        "placeholder": "أدخل Platform الارتفاع",
+        "helper": "Working Platform الارتفاع in meters"
+      },
+      "accessfactor": {
+        "label": "Access factor",
+        "placeholder": "أدخل Access factor",
+        "helper": "Access factor"
+      }
+    },
+    "mil-aks-capi-hesabi-egilme-burulma": {
+      "bendingmoment": {
+        "label": "Bending moment",
+        "placeholder": "أدخل Bending moment",
+        "helper": "Applied bending moment index"
+      },
+      "torque": {
+        "label": "Torque",
+        "placeholder": "أدخل Torque",
+        "helper": "Applied torque index"
+      }
+    },
+    "yatak-rulman-omur-hesabi-l10": {
+      "dynamicloadkn": {
+        "label": "الحمل الديناميكي",
+        "placeholder": "أدخل الحمل الديناميكي",
+        "helper": "الحمل الديناميكي for calculation"
+      },
+      "basicloadkn": {
+        "label": "تصنيف الحمل الأساسي",
+        "placeholder": "أدخل تصنيف الحمل الأساسي",
+        "helper": "تصنيف الحمل الأساسي for calculation"
+      }
+    },
+    "yay-helisel-kuvvet-uzama-hesabi": {
+      "springrate": {
+        "label": "Spring المعدل",
+        "placeholder": "أدخل Spring المعدل",
+        "helper": "Spring المعدل N/mm"
+      },
+      "deflectionmm": {
+        "label": "Deflection",
+        "placeholder": "أدخل Deflection",
+        "helper": "Deflection in mm"
+      }
+    },
+    "basincli-kap-cidar-kalinligi-hesabi": {
+      "designpressurebar": {
+        "label": "Design الضغط",
+        "placeholder": "أدخل Design الضغط",
+        "helper": "Design الضغط for calculation"
+      },
+      "allowablestressbar": {
+        "label": "Allowable stress",
+        "placeholder": "أدخل Allowable stress",
+        "helper": "Allowable stress for calculation"
+      }
+    },
+    "isi-degistirici-esanjor-kapasite-hesabi": {
+      "flowratem3h": {
+        "label": "التدفق المعدل",
+        "placeholder": "أدخل التدفق المعدل",
+        "helper": "التدفق in m³/h"
+      },
+      "deltatempc": {
+        "label": "Temلكلature delta",
+        "placeholder": "أدخل Temلكلature delta",
+        "helper": "Temلكلature الفرق in °C"
+      }
+    },
+    "baca-havalandirma-kanali-cap-hesabi": {
+      "airflowm3h": {
+        "label": "Airالتدفق",
+        "placeholder": "أدخل Airالتدفق",
+        "helper": "Airالتدفق for calculation"
+      },
+      "velocitymps": {
+        "label": "السرعة المستهدفة",
+        "placeholder": "أدخل السرعة المستهدفة",
+        "helper": "السرعة المستهدفة for calculation"
+      }
+    },
+    "ses-yalitimi-desibel-azaltimi-hesabi": {
+      "sourcedb": {
+        "label": "Source level",
+        "placeholder": "أدخل Source level",
+        "helper": "Source level for comparison"
+      },
+      "attenuationdb": {
+        "label": "Attenuation",
+        "placeholder": "أدخل Attenuation",
+        "helper": "Attenuation for comparison"
+      }
+    },
+    "titresim-frekans-periyot-hesaplama": {
+      "frequencyhz": {
+        "label": "Frequency",
+        "placeholder": "أدخل Frequency",
+        "helper": "Vibration frequency in Hz"
+      },
+      "unitconstant": {
+        "label": "Constant",
+        "placeholder": "أدخل Constant",
+        "helper": "Use 1 for لكلiod in seconds"
+      }
+    },
+    "kaynak-proseduru-wps-on-isitma-sicakligi-hesabi": {
+      "preheattempc": {
+        "label": "Preheat temلكلature",
+        "placeholder": "أدخل Preheat temلكلature",
+        "helper": "Preheat temلكلature"
+      }
+    },
+    "istatistiksel-proses-kontrol-spc-limit-hesabi": {
+      "processmean": {
+        "label": "Process mean",
+        "placeholder": "أدخل Process mean",
+        "helper": "Process mean"
+      },
+      "controlfactor": {
+        "label": "Control factor",
+        "placeholder": "أدخل Control factor",
+        "helper": "Control limit factor"
+      }
+    },
+    "alti-sigma-dpmo-sigma-seviyesi-cevirici": {
+      "dpmo": {
+        "label": "DPMO",
+        "placeholder": "أدخل DPMO",
+        "helper": "Defects لكل million opportunities"
+      },
+      "million": {
+        "label": "Million",
+        "placeholder": "أدخل Million",
+        "helper": "المقسوم (use 1,000,000)"
+      }
+    }
+  },
+  "sectorFooter": {
+    "logoText": "SECTORCALC",
+    "badge": "منصة الحاسبات القطاعية",
+    "hudRight1": "أدوات قطاعية : نشطة",
+    "hudRight2": "FREE + PREMIUM",
+    "panel1Svg": "التكلفة",
+    "panel2Svg": "الهدر/الفاقد",
+    "panel3Svg": "تقني/OEE",
+    "panel4Svg": "المكتبة",
+    "panel1Link1": "حاسبة العرض وهامش الربح",
+    "panel1Link2": "حاسبة أجر الساعة للآلة",
+    "panel1Link3": "حاسبة نقطة التعادل",
+    "panel1Link4": "حاسبة التكلفة الكاملة للموظف",
+    "panel2Link1": "الهدر وفقدان المواد",
+    "panel2Link2": "تكلفة التوقف غير المخطط",
+    "panel2Link3": "حاسبة المخزون و EOQ",
+    "panel2Link4": "حاسبة تكلفة الجودة",
+    "panel3Link1": "حاسبة OEE",
+    "panel3Link2": "تكلفة تسرب الضاغط",
+    "panel3Link3": "عزم الربط والوصلات",
+    "panel3Link4": "حسابات الكربون والطاقة",
+    "newsletterLabel": "نشرة SECTORCALC",
+    "newsletterPlaceholder": "عنوان بريدك الإلكتروني",
+    "newsletterButton": "اشتراك",
+    "socialIn": "IN",
+    "socialApi": "API",
+    "socialLlms": "LLMS",
+    "legalPrivacy": "سياسة الخصوصية",
+    "legalTerms": "شروط الاستخدام",
+    "legalDisclaimer": "إخلاء المسؤولية",
+    "metaReg": "REG: GLOBAL",
+    "metaCur": "CUR: USD",
+    "metaCopyright": "© 2026 SECTORCALC"
   }
 }

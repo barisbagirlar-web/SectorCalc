@@ -18,6 +18,7 @@ import type { UnitSystem } from "@/lib/units/unit-definitions";
 import { enrichLoanPaymentRegionalDisplay } from "@/lib/regional/pilot/loan-payment-regional-pilot";
 import type { RegionalSmartFormInputExtension } from "@/lib/regional/types";
 import { resolveFreeToolFieldDisplay, resolveSmartFormDecisionGoal } from "@/lib/i18n/free-tool-form-i18n";
+import { formatSmartFormFieldError } from "@/lib/i18n/smart-form-validation-i18n";
 
 export type SmartFormContractFieldType = "number" | "currency" | "percent";
 
@@ -182,12 +183,14 @@ function buildFieldSpec(
 
   const baseLabel = humanizeFieldKey(key);
   const basePlaceholder = `Enter ${baseLabel.toLowerCase()}`;
+  const patchHelper = findHelperText(key, patch);
   const localizedDisplay = locale
     ? resolveFreeToolFieldDisplay(slug, key, locale, {
         label: baseLabel,
         placeholder: basePlaceholder,
+        helper: patchHelper,
       })
-    : { label: baseLabel, placeholder: basePlaceholder };
+    : { label: baseLabel, placeholder: basePlaceholder, helper: patchHelper };
 
   return {
     key,
@@ -201,9 +204,9 @@ function buildFieldSpec(
     required,
     ...bounds,
     placeholder: localizedDisplay.placeholder,
-    helperText: findHelperText(key, patch),
+    helperText: localizedDisplay.helper ?? patchHelper,
     group,
-    validationHint: findValidationHint(key, contract),
+    validationHint: locale && locale !== "en" ? undefined : findValidationHint(key, contract),
   };
 }
 
@@ -293,22 +296,36 @@ export function buildSmartFormInitialValues(slug: string): SmartFormRawValues {
   return values;
 }
 
+function resolveValidationFieldLabel(
+  slug: string,
+  field: SmartFormContractFieldSpec,
+  locale: string,
+): string {
+  return resolveFreeToolFieldDisplay(slug, field.key, locale, {
+    label: field.label,
+    placeholder: field.placeholder ?? "",
+    helper: field.helperText,
+  }).label;
+}
+
 export function validateSmartFormFieldValues(
   slug: string,
   values: SmartFormRawValues,
+  locale = "en",
 ): Record<string, string> {
   const plan = buildSmartFormFieldSpecsFromContract(slug);
   if (!plan) {
-    return { _form: "Smart form contract not found." };
+    return { _form: formatSmartFormFieldError(locale, "contractNotFound") };
   }
 
   const errors: Record<string, string> = {};
 
   for (const field of plan.fields) {
     const raw = values[field.key];
+    const label = resolveValidationFieldLabel(slug, field, locale);
     if (field.required) {
       if (raw === undefined || raw === "") {
-        errors[field.key] = `${field.label} is required.`;
+        errors[field.key] = formatSmartFormFieldError(locale, "required", { label });
         continue;
       }
     } else if (raw === undefined || raw === "") {
@@ -317,14 +334,20 @@ export function validateSmartFormFieldValues(
 
     const numeric = typeof raw === "number" ? raw : Number(String(raw).trim());
     if (!Number.isFinite(numeric)) {
-      errors[field.key] = `${field.label} must be a valid number.`;
+      errors[field.key] = formatSmartFormFieldError(locale, "invalidNumber", { label });
       continue;
     }
     if (field.min !== undefined && numeric < field.min) {
-      errors[field.key] = `${field.label} must be at least ${field.min}.`;
+      errors[field.key] = formatSmartFormFieldError(locale, "min", {
+        label,
+        min: field.min,
+      });
     }
     if (field.max !== undefined && numeric > field.max) {
-      errors[field.key] = `${field.label} must be at most ${field.max}.`;
+      errors[field.key] = formatSmartFormFieldError(locale, "max", {
+        label,
+        max: field.max,
+      });
     }
   }
 

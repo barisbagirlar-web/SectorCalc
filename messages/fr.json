@@ -216,9 +216,11 @@
   },
   "catalogExplorer": {
     "categories": {
-      "eyebrow": "Categories",
-      "title": "Find the right calculator category.",
-      "subtitle": "Choose the type of loss, measurement or decision you need first."
+      "eyebrow": "Par fonction",
+      "title": "Trouvez les calculateurs selon ce que vous devez mesurer.",
+      "subtitle": "Choisissez d'abord le type de calcul — productivité, perte, coût, routage, énergie, mesure ou finance — puis ouvrez le contrôle gratuit ou le rapport premium adapté.",
+      "metaTitle": "Calculateurs par fonction — OEE, perte, route, énergie",
+      "metaDescription": "Outils SectorCalc selon ce que vous mesurez : OEE, perte, routage, calibration, énergie, marge, finance et calculs quotidiens."
     },
     "freeTools": {
       "eyebrow": "Calculateurs gratuits",
@@ -3045,7 +3047,14 @@
     "calculationSteps": "Étapes de calcul",
     "calculationStepsEmpty": "Les étapes apparaîtront lorsque ce contrat expose une trace déterministe.",
     "calculationStepDecisionGoal": "Objectif de décision",
-    "calculationStepFormulaSummary": "Résumé de formule"
+    "calculationStepFormulaSummary": "Résumé de formule",
+    "fieldValidation": {
+      "required": "{label} est obligatoire.",
+      "invalidNumber": "{label} doit être un nombre valide.",
+      "min": "{label} doit être au moins {min}.",
+      "max": "{label} doit être au plus {max}.",
+      "contractNotFound": "Contrat de formulaire intelligent introuvable pour cet outil."
+    }
   },
   "freeToolContent": {
     "square-meter-calculator": {
@@ -3464,5 +3473,3336 @@
     "legalQuestion": "S'agit-il d'un conseil financier ou d'ingénierie ?",
     "legalAnswer": "Non. Les calculateurs premium SectorCalc sont des outils d'aide à la décision avec hypothèses transparentes. Ils ne remplacent pas un conseil financier, juridique ou d'ingénierie professionnel.",
     "serviceType": "Calcul de décision opérationnelle"
+  },
+  "freeToolInputs": {
+    "square-meter-calculator": {
+      "length": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Room or slab Longueur"
+      },
+      "width": {
+        "label": "Largeur",
+        "placeholder": "Saisir largeur",
+        "helper": "Room or slab Largeur"
+      }
+    },
+    "square-footage-calculator": {
+      "length": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Longueur in feet"
+      },
+      "width": {
+        "label": "Largeur",
+        "placeholder": "Saisir largeur",
+        "helper": "Largeur in feet"
+      }
+    },
+    "concrete-volume-calculator": {
+      "length": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Slab Longueur"
+      },
+      "width": {
+        "label": "Largeur",
+        "placeholder": "Saisir largeur",
+        "helper": "Slab Largeur"
+      },
+      "depth": {
+        "label": "Profondeur",
+        "placeholder": "Saisir profondeur",
+        "helper": "Slab Épaisseur"
+      }
+    },
+    "concrete-bag-calculator": {
+      "volumem3": {
+        "label": "Volume",
+        "placeholder": "Saisir volume",
+        "helper": "Volume total de coulée"
+      },
+      "bagyieldm3": {
+        "label": "Rendement par sac",
+        "placeholder": "Saisir rendement par sac",
+        "helper": "Volume par sac"
+      },
+      "wastepercent": {
+        "label": "parte",
+        "placeholder": "Saisir parte",
+        "helper": "Marge de parte supplémentaire"
+      }
+    },
+    "paint-coverage-calculator": {
+      "aream2": {
+        "label": "Wall Surface",
+        "placeholder": "Saisir wall surface",
+        "helper": "Surface Surface to paint"
+      },
+      "coverageperliter": {
+        "label": "Coverage",
+        "placeholder": "Saisir coverage",
+        "helper": "Couverture par litre"
+      },
+      "coats": {
+        "label": "Couches",
+        "placeholder": "Saisir couches",
+        "helper": "Number of Couches"
+      }
+    },
+    "tile-calculator": {
+      "aream2": {
+        "label": "Surface au sol",
+        "placeholder": "Saisir surface au sol",
+        "helper": "Surface to tile"
+      },
+      "tilelengthcm": {
+        "label": "Tile Longueur",
+        "placeholder": "Saisir tile longueur",
+        "helper": "Tile Longueur"
+      },
+      "tilewidthcm": {
+        "label": "Tile Largeur",
+        "placeholder": "Saisir tile largeur",
+        "helper": "Tile Largeur"
+      },
+      "wastepercent": {
+        "label": "parte",
+        "placeholder": "Saisir parte",
+        "helper": "Cutting parte"
+      }
+    },
+    "flooring-calculator": {
+      "roomlengthm": {
+        "label": "Room Longueur",
+        "placeholder": "Saisir room longueur",
+        "helper": "Longueur"
+      },
+      "roomwidthm": {
+        "label": "Room Largeur",
+        "placeholder": "Saisir room largeur",
+        "helper": "Largeur"
+      },
+      "wastepercent": {
+        "label": "parte",
+        "placeholder": "Saisir parte",
+        "helper": "Ordering parte"
+      }
+    },
+    "roofing-area-calculator": {
+      "lengthm": {
+        "label": "Footprint Longueur",
+        "placeholder": "Saisir footprint longueur",
+        "helper": "Building Longueur"
+      },
+      "widthm": {
+        "label": "Footprint Largeur",
+        "placeholder": "Saisir footprint largeur",
+        "helper": "Building Largeur"
+      },
+      "pitchfactor": {
+        "label": "Pitch factor",
+        "placeholder": "Saisir pitch factor",
+        "helper": "Slope multiplier (e.g. 1.15)"
+      }
+    },
+    "stair-calculator": {
+      "totalrisecm": {
+        "label": "Total rise",
+        "placeholder": "Saisir total rise",
+        "helper": "Floor-to-floor Hauteur"
+      },
+      "riserheightcm": {
+        "label": "Riser Hauteur",
+        "placeholder": "Saisir riser hauteur",
+        "helper": "Step riser"
+      },
+      "treaddepthcm": {
+        "label": "Tread Profondeur",
+        "placeholder": "Saisir tread profondeur",
+        "helper": "Step tread"
+      }
+    },
+    "drywall-calculator": {
+      "wallaream2": {
+        "label": "Wall Surface",
+        "placeholder": "Saisir wall surface",
+        "helper": "Total dryWall Surface"
+      },
+      "sheetaream2": {
+        "label": "Sheet Surface",
+        "placeholder": "Saisir sheet surface",
+        "helper": "Surface par sheet"
+      },
+      "wastepercent": {
+        "label": "parte",
+        "placeholder": "Saisir parte",
+        "helper": "Cut parte"
+      }
+    },
+    "brick-calculator": {
+      "wallaream2": {
+        "label": "Wall Surface",
+        "placeholder": "Saisir wall surface",
+        "helper": "Wall surface"
+      },
+      "bricksperm2": {
+        "label": "Bricks par m²",
+        "placeholder": "Saisir bricks par m²",
+        "helper": "Layout Densité"
+      },
+      "wastepercent": {
+        "label": "parte",
+        "placeholder": "Saisir parte",
+        "helper": "Breakage allowance"
+      }
+    },
+    "rebar-weight-calculator": {
+      "diametermm": {
+        "label": "Diamètre",
+        "placeholder": "Saisir diamètre",
+        "helper": "Bar Diamètre"
+      },
+      "lengthm": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Longueur de barre"
+      },
+      "quantity": {
+        "label": "Quantité",
+        "placeholder": "Saisir quantité",
+        "helper": "Number of bars"
+      }
+    },
+    "excavation-volume-calculator": {
+      "lengthm": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Trench Longueur"
+      },
+      "widthm": {
+        "label": "Largeur",
+        "placeholder": "Saisir largeur",
+        "helper": "Trench Largeur"
+      },
+      "depthm": {
+        "label": "Profondeur",
+        "placeholder": "Saisir profondeur",
+        "helper": "Dig Profondeur"
+      }
+    },
+    "plaster-calculator": {
+      "aream2": {
+        "label": "Surface",
+        "placeholder": "Saisir surface",
+        "helper": "Surface Surface"
+      },
+      "thicknessmm": {
+        "label": "Épaisseur",
+        "placeholder": "Saisir épaisseur",
+        "helper": "Plaster Épaisseur"
+      },
+      "densitykgm3": {
+        "label": "Densité",
+        "placeholder": "Saisir densité",
+        "helper": "Matériau Densité"
+      }
+    },
+    "home-renovation-m2-calculator": {
+      "aream2": {
+        "label": "Surface",
+        "placeholder": "Saisir surface",
+        "helper": "Renovation Surface"
+      },
+      "costperm2": {
+        "label": "Coût par m²",
+        "placeholder": "Saisir coût par m²",
+        "helper": "Unit Taux"
+      },
+      "contingencypercent": {
+        "label": "Contingency",
+        "placeholder": "Saisir contingency",
+        "helper": "Buffer parcent"
+      }
+    },
+    "loan-payment-calculator": {
+      "principal": {
+        "label": "Capital",
+        "placeholder": "Saisir capital",
+        "helper": "Loan amount"
+      },
+      "annualrate": {
+        "label": "Taux annuel",
+        "placeholder": "Saisir taux annuel",
+        "helper": "Nominal APR"
+      },
+      "months": {
+        "label": "Durée",
+        "placeholder": "Saisir durée",
+        "helper": "Loan Durée"
+      }
+    },
+    "mortgage-calculator": {
+      "principal": {
+        "label": "Loan amount",
+        "placeholder": "Saisir loan amount",
+        "helper": "Mortgage Capital"
+      },
+      "annualrate": {
+        "label": "Taux annuel",
+        "placeholder": "Saisir taux annuel",
+        "helper": "Interest Taux"
+      },
+      "months": {
+        "label": "Durée",
+        "placeholder": "Saisir durée",
+        "helper": "Loan Durée"
+      }
+    },
+    "interest-calculator": {
+      "principal": {
+        "label": "Capital",
+        "placeholder": "Saisir capital",
+        "helper": "Starting amount"
+      },
+      "ratepercent": {
+        "label": "Taux",
+        "placeholder": "Saisir taux",
+        "helper": "Taux annuel"
+      },
+      "years": {
+        "label": "Années",
+        "placeholder": "Saisir années",
+        "helper": "Durée"
+      }
+    },
+    "compound-interest-calculator": {
+      "principal": {
+        "label": "Capital",
+        "placeholder": "Saisir capital",
+        "helper": "Initial deposit"
+      },
+      "annualrate": {
+        "label": "Taux annuel",
+        "placeholder": "Saisir taux annuel",
+        "helper": "Nominal Taux"
+      },
+      "years": {
+        "label": "Années",
+        "placeholder": "Saisir années",
+        "helper": "Time horizon"
+      },
+      "compoundsperyear": {
+        "label": "Compounds/yr",
+        "placeholder": "Saisir compounds/yr",
+        "helper": "Compounding frequency"
+      }
+    },
+    "vat-calculator": {
+      "net": {
+        "label": "Montant Net",
+        "placeholder": "Saisir montant net",
+        "helper": "Prix before VAT"
+      },
+      "vatrate": {
+        "label": "VAT Taux",
+        "placeholder": "Saisir vat taux",
+        "helper": "Tax Taux"
+      }
+    },
+    "discount-calculator": {
+      "originalprice": {
+        "label": "Original Prix",
+        "placeholder": "Saisir original prix",
+        "helper": "List Prix"
+      },
+      "discountpercent": {
+        "label": "Discount",
+        "placeholder": "Saisir discount",
+        "helper": "Discount parcent"
+      }
+    },
+    "percentage-calculator": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Base Valeur"
+      },
+      "percent": {
+        "label": "parcent",
+        "placeholder": "Saisir parcent",
+        "helper": "parcentage to apply"
+      }
+    },
+    "profit-margin-calculator": {
+      "sellingprice": {
+        "label": "Selling Prix",
+        "placeholder": "Saisir selling prix",
+        "helper": "Revenue par unit"
+      },
+      "cost": {
+        "label": "Coût",
+        "placeholder": "Saisir coût",
+        "helper": "Unit Coût"
+      }
+    },
+    "break-even-calculator": {
+      "fixedcost": {
+        "label": "Fixed Coût",
+        "placeholder": "Saisir fixed coût",
+        "helper": "Overhead to cover"
+      },
+      "unitprice": {
+        "label": "Unit Prix",
+        "placeholder": "Saisir unit prix",
+        "helper": "Selling Prix"
+      },
+      "variablecost": {
+        "label": "Variable Coût",
+        "placeholder": "Saisir variable coût",
+        "helper": "Coût par unit"
+      }
+    },
+    "roi-calculator": {
+      "gain": {
+        "label": "Gain",
+        "placeholder": "Saisir gain",
+        "helper": "Return amount"
+      },
+      "cost": {
+        "label": "Coût",
+        "placeholder": "Saisir coût",
+        "helper": "Initial investment"
+      }
+    },
+    "salary-cost-calculator": {
+      "grosssalary": {
+        "label": "Gross salary",
+        "placeholder": "Saisir gross salary",
+        "helper": "Monthly gross"
+      },
+      "employerratepercent": {
+        "label": "Employer load",
+        "placeholder": "Saisir employer load",
+        "helper": "Employer contribution Taux"
+      }
+    },
+    "hourly-rate-calculator": {
+      "monthlyincome": {
+        "label": "Monthly income",
+        "placeholder": "Saisir monthly income",
+        "helper": "Cible monthly revenue"
+      },
+      "billablehours": {
+        "label": "Heures facturables",
+        "placeholder": "Saisir heures facturables",
+        "helper": "Heures billed par month"
+      }
+    },
+    "depreciation-calculator": {
+      "assetcost": {
+        "label": "Asset Coût",
+        "placeholder": "Saisir asset coût",
+        "helper": "Purchase Prix"
+      },
+      "salvagevalue": {
+        "label": "Valeur résiduelle",
+        "placeholder": "Saisir valeur résiduelle",
+        "helper": "Residual Valeur"
+      },
+      "usefullifeyears": {
+        "label": "Durée de vie utile",
+        "placeholder": "Saisir durée de vie utile",
+        "helper": "Depreciation pariod"
+      }
+    },
+    "cash-flow-gap-calculator": {
+      "receivablesdays": {
+        "label": "Receivables Jours",
+        "placeholder": "Saisir receivables jours",
+        "helper": "Jours to collect"
+      },
+      "payabledays": {
+        "label": "Payables Jours",
+        "placeholder": "Saisir payables jours",
+        "helper": "Jours to pay"
+      },
+      "dailycost": {
+        "label": "Coût journalier",
+        "placeholder": "Saisir coût journalier",
+        "helper": "Oparating cash outDébit"
+      }
+    },
+    "unit-cost-calculator": {
+      "totalcost": {
+        "label": "Total Coût",
+        "placeholder": "Saisir total coût",
+        "helper": "Batch or order Coût"
+      },
+      "quantity": {
+        "label": "Quantité",
+        "placeholder": "Saisir quantité",
+        "helper": "Units produced"
+      }
+    },
+    "machine-time-calculator": {
+      "setupminutes": {
+        "label": "Préparation",
+        "placeholder": "Saisir préparation",
+        "helper": "Préparation time"
+      },
+      "cycleseconds": {
+        "label": "Cycle time",
+        "placeholder": "Saisir cycle time",
+        "helper": "par-part cycle"
+      },
+      "quantity": {
+        "label": "Quantité",
+        "placeholder": "Saisir quantité",
+        "helper": "Parts to run"
+      },
+      "machinerate": {
+        "label": "Machine Taux",
+        "placeholder": "Saisir machine taux",
+        "helper": "Hourly Machine Taux"
+      }
+    },
+    "cnc-cycle-time-calculator": {
+      "machiningseconds": {
+        "label": "Machining",
+        "placeholder": "Saisir machining",
+        "helper": "Cut time par part"
+      },
+      "loadunloadseconds": {
+        "label": "Load/unload",
+        "placeholder": "Saisir load/unload",
+        "helper": "Handling par part"
+      },
+      "inspectionseconds": {
+        "label": "Inspection",
+        "placeholder": "Saisir inspection",
+        "helper": "QC par part"
+      },
+      "quantity": {
+        "label": "Quantité",
+        "placeholder": "Saisir quantité",
+        "helper": "Batch size"
+      }
+    },
+    "welding-cost-estimator": {
+      "materialcost": {
+        "label": "Matériau",
+        "placeholder": "Saisir matériau",
+        "helper": "Filler and base Matériau"
+      },
+      "laborhours": {
+        "label": "Labor Heures",
+        "placeholder": "Saisir labor heures",
+        "helper": "Welding Heures"
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Hourly welder Taux"
+      },
+      "consumablescost": {
+        "label": "Consommables",
+        "placeholder": "Saisir consommables",
+        "helper": "Gas, tips, abrasives"
+      }
+    },
+    "laser-cutting-time-check": {
+      "setupminutes": {
+        "label": "Préparation",
+        "placeholder": "Saisir préparation",
+        "helper": "Program and Préparation"
+      },
+      "cutlengthm": {
+        "label": "Longueur de coupe",
+        "placeholder": "Saisir longueur de coupe",
+        "helper": "Total cut path"
+      },
+      "cutspeedmmin": {
+        "label": "Cut speed",
+        "placeholder": "Saisir cut speed",
+        "helper": "Machine cut speed"
+      },
+      "piercecount": {
+        "label": "Pierces",
+        "placeholder": "Saisir pierces",
+        "helper": "Pierce oparations"
+      },
+      "pierceseconds": {
+        "label": "Pierce time",
+        "placeholder": "Saisir pierce time",
+        "helper": "Seconds par pierce"
+      }
+    },
+    "3d-print-cost-check": {
+      "materialcost": {
+        "label": "Matériau",
+        "placeholder": "Saisir matériau",
+        "helper": "Filament/resin Coût"
+      },
+      "printhours": {
+        "label": "Print Heures",
+        "placeholder": "Saisir print heures",
+        "helper": "Machine Durée d'exécution"
+      },
+      "machinerate": {
+        "label": "Machine Taux",
+        "placeholder": "Saisir machine taux",
+        "helper": "Printer Hourly Taux"
+      },
+      "postprocesshours": {
+        "label": "Post-process",
+        "placeholder": "Saisir post-process",
+        "helper": "Finishing Heures"
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Oparator Taux"
+      }
+    },
+    "sheet-metal-weight-calculator": {
+      "lengthm": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Sheet Longueur"
+      },
+      "widthm": {
+        "label": "Largeur",
+        "placeholder": "Saisir largeur",
+        "helper": "Sheet Largeur"
+      },
+      "thicknessmm": {
+        "label": "Épaisseur",
+        "placeholder": "Saisir épaisseur",
+        "helper": "Matériau Épaisseur"
+      },
+      "densitykgm3": {
+        "label": "Densité",
+        "placeholder": "Saisir densité",
+        "helper": "Matériau Densité"
+      }
+    },
+    "material-waste-calculator": {
+      "inputmaterialkg": {
+        "label": "Input Matériau",
+        "placeholder": "Saisir input matériau",
+        "helper": "Matériau fed"
+      },
+      "goodoutputkg": {
+        "label": "Production conforme",
+        "placeholder": "Saisir production conforme",
+        "helper": "Accepted output"
+      }
+    },
+    "scrap-rate-calculator": {
+      "scrapunits": {
+        "label": "Scrap units",
+        "placeholder": "Saisir scrap units",
+        "helper": "Rejected units"
+      },
+      "totalunits": {
+        "label": "Total units",
+        "placeholder": "Saisir total units",
+        "helper": "Units processed"
+      }
+    },
+    "oee-calculator": {
+      "availabilitypercent": {
+        "label": "Disponibilité",
+        "placeholder": "Saisir disponibilité",
+        "helper": "Uptime parcent"
+      },
+      "performancepercent": {
+        "label": "parformance",
+        "placeholder": "Saisir parformance",
+        "helper": "Speed parcent"
+      },
+      "qualitypercent": {
+        "label": "Quality",
+        "placeholder": "Saisir quality",
+        "helper": "Good parts parcent"
+      }
+    },
+    "machine-hour-rate-calculator": {
+      "fixedmonthlycost": {
+        "label": "Fixed monthly",
+        "placeholder": "Saisir fixed monthly",
+        "helper": "Overhead allocated"
+      },
+      "monthlymachinehours": {
+        "label": "Machine Heures",
+        "placeholder": "Saisir machine heures",
+        "helper": "Available Heures"
+      },
+      "variablecostperhour": {
+        "label": "Variable/hr",
+        "placeholder": "Saisir variable/hr",
+        "helper": "Consommables par hour"
+      }
+    },
+    "tool-life-calculator": {
+      "totaltoolcost": {
+        "label": "Tool Coût",
+        "placeholder": "Saisir tool coût",
+        "helper": "Insert or tool Prix"
+      },
+      "partsproduced": {
+        "label": "Parts",
+        "placeholder": "Saisir parts",
+        "helper": "Parts before change"
+      }
+    },
+    "cutting-speed-calculator": {
+      "diametermm": {
+        "label": "Diamètre",
+        "placeholder": "Saisir diamètre",
+        "helper": "Tool Diamètre"
+      },
+      "rpm": {
+        "label": "RPM",
+        "placeholder": "Saisir rpm",
+        "helper": "Spindle speed"
+      }
+    },
+    "feed-rate-calculator": {
+      "rpm": {
+        "label": "RPM",
+        "placeholder": "Saisir rpm",
+        "helper": "Spindle speed"
+      },
+      "teeth": {
+        "label": "Dents",
+        "placeholder": "Saisir dents",
+        "helper": "Cutting edges"
+      },
+      "feedpertoothmm": {
+        "label": "Feed/tooth",
+        "placeholder": "Saisir feed/tooth",
+        "helper": "Chip load par tooth"
+      }
+    },
+    "tolerance-drift-calculator": {
+      "target": {
+        "label": "Cible",
+        "placeholder": "Saisir cible",
+        "helper": "Nominal dimension"
+      },
+      "actual": {
+        "label": "Actual",
+        "placeholder": "Saisir actual",
+        "helper": "Measured dimension"
+      }
+    },
+    "batch-yield-calculator": {
+      "inputqty": {
+        "label": "Input qty",
+        "placeholder": "Saisir input qty",
+        "helper": "Matériau in"
+      },
+      "goodoutputqty": {
+        "label": "Production conforme",
+        "placeholder": "Saisir production conforme",
+        "helper": "Accepted units"
+      }
+    },
+    "kwh-cost-calculator": {
+      "kwh": {
+        "label": "Énergie",
+        "placeholder": "Saisir énergie",
+        "helper": "Consommation"
+      },
+      "rate": {
+        "label": "Taux",
+        "placeholder": "Saisir taux",
+        "helper": "Unit tariff"
+      }
+    },
+    "electricity-bill-calculator": {
+      "kwh": {
+        "label": "Usage",
+        "placeholder": "Saisir usage",
+        "helper": "Monthly kWh"
+      },
+      "rate": {
+        "label": "Énergie Taux",
+        "placeholder": "Saisir énergie taux",
+        "helper": "Variable Taux"
+      },
+      "fixedcharge": {
+        "label": "Frais fixes",
+        "placeholder": "Saisir frais fixes",
+        "helper": "Standing charge"
+      }
+    },
+    "energy-consumption-check": {
+      "powerkw": {
+        "label": "Puissance",
+        "placeholder": "Saisir puissance",
+        "helper": "Connected load"
+      },
+      "hoursperday": {
+        "label": "Heures/day",
+        "placeholder": "Saisir heures/day",
+        "helper": "Daily Durée d'exécution"
+      },
+      "days": {
+        "label": "Jours",
+        "placeholder": "Saisir jours",
+        "helper": "Billing pariod Jours"
+      },
+      "rate": {
+        "label": "Taux",
+        "placeholder": "Saisir taux",
+        "helper": "Tariff"
+      }
+    },
+    "carbon-footprint-quick": {
+      "energykwh": {
+        "label": "Énergie",
+        "placeholder": "Saisir énergie",
+        "helper": "Electricity utilisé"
+      },
+      "emissionfactorkgperkwh": {
+        "label": "Emission factor",
+        "placeholder": "Saisir emission factor",
+        "helper": "Grid factor"
+      }
+    },
+    "fuel-emission-calculator": {
+      "litersfuel": {
+        "label": "Carburant",
+        "placeholder": "Saisir carburant",
+        "helper": "Carburant consumed"
+      },
+      "kgco2perliter": {
+        "label": "Factor",
+        "placeholder": "Saisir factor",
+        "helper": "CO₂ par liter"
+      }
+    },
+    "solar-panel-output-calculator": {
+      "systemkw": {
+        "label": "Taille du système",
+        "placeholder": "Saisir taille du système",
+        "helper": "Installed DC kW"
+      },
+      "sunhoursperday": {
+        "label": "Sun Heures",
+        "placeholder": "Saisir sun heures",
+        "helper": "Peak Sun Heures"
+      },
+      "days": {
+        "label": "Jours",
+        "placeholder": "Saisir jours",
+        "helper": "pariod Longueur"
+      },
+      "efficiencypercent": {
+        "label": "Efficiency",
+        "placeholder": "Saisir efficiency",
+        "helper": "System efficiency"
+      }
+    },
+    "heat-loss-calculator": {
+      "uvalue": {
+        "label": "U-Valeur",
+        "placeholder": "Saisir u-valeur",
+        "helper": "Thermal transmittance"
+      },
+      "aream2": {
+        "label": "Surface",
+        "placeholder": "Saisir surface",
+        "helper": "Envelope Surface"
+      },
+      "tempdifferencec": {
+        "label": "ΔT",
+        "placeholder": "Saisir δt",
+        "helper": "Inside minus outside"
+      }
+    },
+    "boiler-efficiency-calculator": {
+      "usefuloutputkwh": {
+        "label": "Production utile",
+        "placeholder": "Saisir production utile",
+        "helper": "Heat delivered"
+      },
+      "fuelinputkwh": {
+        "label": "Carburant input",
+        "placeholder": "Saisir carburant input",
+        "helper": "Énergie in Carburant"
+      }
+    },
+    "compressor-energy-cost-calculator": {
+      "powerkw": {
+        "label": "Puissance",
+        "placeholder": "Saisir puissance",
+        "helper": "Motor kW"
+      },
+      "operatinghours": {
+        "label": "Heures",
+        "placeholder": "Saisir heures",
+        "helper": "Durée d'exécution"
+      },
+      "rate": {
+        "label": "Taux",
+        "placeholder": "Saisir taux",
+        "helper": "Electricity Taux"
+      }
+    },
+    "cbam-exposure-quick-check": {
+      "emissionston": {
+        "label": "Emissions",
+        "placeholder": "Saisir emissions",
+        "helper": "Embedded emissions"
+      },
+      "carbonprice": {
+        "label": "Prix du carbone",
+        "placeholder": "Saisir prix du carbone",
+        "helper": "Prix par tonne"
+      }
+    },
+    "fuel-consumption-calculator": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Saisir distance",
+        "helper": "Trip Distance"
+      },
+      "consumptionper100km": {
+        "label": "Consommation",
+        "placeholder": "Saisir consommation",
+        "helper": "Carburant economy"
+      },
+      "fuelprice": {
+        "label": "Carburant Prix",
+        "placeholder": "Saisir carburant prix",
+        "helper": "Prix par liter"
+      }
+    },
+    "fuel-cost-calculator": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Saisir distance",
+        "helper": "Trip Distance"
+      },
+      "consumptionper100km": {
+        "label": "Consommation",
+        "placeholder": "Saisir consommation",
+        "helper": "Carburant economy"
+      },
+      "fuelprice": {
+        "label": "Carburant Prix",
+        "placeholder": "Saisir carburant prix",
+        "helper": "Prix par liter"
+      }
+    },
+    "desi-calculator": {
+      "lengthcm": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Parcel Longueur"
+      },
+      "widthcm": {
+        "label": "Largeur",
+        "placeholder": "Saisir largeur",
+        "helper": "Parcel Largeur"
+      },
+      "heightcm": {
+        "label": "Hauteur",
+        "placeholder": "Saisir hauteur",
+        "helper": "Parcel Hauteur"
+      },
+      "divisor": {
+        "label": "Diviseur",
+        "placeholder": "Saisir diviseur",
+        "helper": "Carrier Diviseur"
+      }
+    },
+    "volumetric-weight-calculator": {
+      "lengthcm": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Longueur"
+      },
+      "widthcm": {
+        "label": "Largeur",
+        "placeholder": "Saisir largeur",
+        "helper": "Largeur"
+      },
+      "heightcm": {
+        "label": "Hauteur",
+        "placeholder": "Saisir hauteur",
+        "helper": "Hauteur"
+      },
+      "divisor": {
+        "label": "Diviseur",
+        "placeholder": "Saisir diviseur",
+        "helper": "Air cargo Diviseur"
+      }
+    },
+    "route-cost-calculator": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Saisir distance",
+        "helper": "Route Longueur"
+      },
+      "fuelcostperkm": {
+        "label": "Carburant/km",
+        "placeholder": "Saisir carburant/km",
+        "helper": "Carburant Coût par km"
+      },
+      "driverhours": {
+        "label": "Driver Heures",
+        "placeholder": "Saisir driver heures",
+        "helper": "Driving time"
+      },
+      "hourlyrate": {
+        "label": "Driver Taux",
+        "placeholder": "Saisir driver taux",
+        "helper": "Hourly Taux"
+      },
+      "tolls": {
+        "label": "Péages",
+        "placeholder": "Saisir péages",
+        "helper": "Road Péages"
+      }
+    },
+    "delivery-cost-calculator": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Saisir distance",
+        "helper": "Route km"
+      },
+      "costperkm": {
+        "label": "Coût/km",
+        "placeholder": "Saisir coût/km",
+        "helper": "Variable km Coût"
+      },
+      "stops": {
+        "label": "Stops",
+        "placeholder": "Saisir stops",
+        "helper": "Delivery stops"
+      },
+      "costperstop": {
+        "label": "Coût/stop",
+        "placeholder": "Saisir coût/stop",
+        "helper": "par-stop fee"
+      }
+    },
+    "freight-cost-calculator": {
+      "weightkg": {
+        "label": "Poids",
+        "placeholder": "Saisir poids",
+        "helper": "Chargeable Poids"
+      },
+      "rateperkg": {
+        "label": "Taux",
+        "placeholder": "Saisir taux",
+        "helper": "Taux par kg"
+      },
+      "fixedfee": {
+        "label": "Fixed fee",
+        "placeholder": "Saisir fixed fee",
+        "helper": "Booking fee"
+      }
+    },
+    "warehouse-storage-cost-calculator": {
+      "palletcount": {
+        "label": "Pallets",
+        "placeholder": "Saisir pallets",
+        "helper": "Stored pallets"
+      },
+      "costperpalletperday": {
+        "label": "Coût/pallet/day",
+        "placeholder": "Saisir coût/pallet/day",
+        "helper": "Daily pallet Taux"
+      },
+      "days": {
+        "label": "Jours",
+        "placeholder": "Saisir jours",
+        "helper": "Storage Jours"
+      }
+    },
+    "vehicle-depreciation-calculator": {
+      "purchaseprice": {
+        "label": "Purchase",
+        "placeholder": "Saisir purchase",
+        "helper": "Acquisition Coût"
+      },
+      "resalevalue": {
+        "label": "Resale",
+        "placeholder": "Saisir resale",
+        "helper": "Expected resale"
+      },
+      "years": {
+        "label": "Années",
+        "placeholder": "Saisir années",
+        "helper": "Ownership pariod"
+      }
+    },
+    "trip-budget-calculator": {
+      "fuelcost": {
+        "label": "Carburant",
+        "placeholder": "Saisir carburant",
+        "helper": "Carburant spend"
+      },
+      "accommodationcost": {
+        "label": "Lodging",
+        "placeholder": "Saisir lodging",
+        "helper": "Hotels"
+      },
+      "foodcost": {
+        "label": "Alimentation",
+        "placeholder": "Saisir alimentation",
+        "helper": "Meals"
+      },
+      "tolls": {
+        "label": "Péages",
+        "placeholder": "Saisir péages",
+        "helper": "Road fees"
+      },
+      "othercost": {
+        "label": "Other",
+        "placeholder": "Saisir other",
+        "helper": "Miscellaneous"
+      }
+    },
+    "fertilizer-dosage-calculator": {
+      "areaha": {
+        "label": "Field Surface",
+        "placeholder": "Saisir field surface",
+        "helper": "Surface treated"
+      },
+      "dosagekgperha": {
+        "label": "Dosage",
+        "placeholder": "Saisir dosage",
+        "helper": "Application Taux"
+      }
+    },
+    "seed-rate-calculator": {
+      "areaha": {
+        "label": "Surface",
+        "placeholder": "Saisir surface",
+        "helper": "Field Surface"
+      },
+      "seedkgperha": {
+        "label": "Seed Taux",
+        "placeholder": "Saisir seed taux",
+        "helper": "Seeding Taux"
+      }
+    },
+    "irrigation-cost-check": {
+      "pumpkw": {
+        "label": "Pump Puissance",
+        "placeholder": "Saisir pump puissance",
+        "helper": "Pump motor kW"
+      },
+      "hours": {
+        "label": "Durée d'exécution",
+        "placeholder": "Saisir durée d'exécution",
+        "helper": "Pump Heures"
+      },
+      "energyrate": {
+        "label": "Énergie Taux",
+        "placeholder": "Saisir énergie taux",
+        "helper": "Electricity Taux"
+      },
+      "watercost": {
+        "label": "Water fee",
+        "placeholder": "Saisir water fee",
+        "helper": "Water charge"
+      }
+    },
+    "water-usage-calculator": {
+      "flowratelitermin": {
+        "label": "Débit Taux",
+        "placeholder": "Saisir débit taux",
+        "helper": "Débit Taux"
+      },
+      "minutes": {
+        "label": "Durée",
+        "placeholder": "Saisir durée",
+        "helper": "Run time"
+      }
+    },
+    "feed-cost-estimator": {
+      "feedkg": {
+        "label": "Feed",
+        "placeholder": "Saisir feed",
+        "helper": "Feed Quantité"
+      },
+      "priceperkg": {
+        "label": "Prix",
+        "placeholder": "Saisir prix",
+        "helper": "Feed Prix"
+      },
+      "transportcost": {
+        "label": "Transport",
+        "placeholder": "Saisir transport",
+        "helper": "Delivery Coût"
+      }
+    },
+    "milk-yield-check": {
+      "cows": {
+        "label": "Cows",
+        "placeholder": "Saisir cows",
+        "helper": "Milking cows"
+      },
+      "literspercow": {
+        "label": "Yield/cow",
+        "placeholder": "Saisir yield/cow",
+        "helper": "Liters par cow par day"
+      },
+      "milkprice": {
+        "label": "Milk Prix",
+        "placeholder": "Saisir milk prix",
+        "helper": "Prix par liter"
+      }
+    },
+    "crop-yield-calculator": {
+      "areaha": {
+        "label": "Surface",
+        "placeholder": "Saisir surface",
+        "helper": "Planted Surface"
+      },
+      "yieldtonperha": {
+        "label": "Yield",
+        "placeholder": "Saisir yield",
+        "helper": "Expected yield"
+      },
+      "priceperton": {
+        "label": "Prix",
+        "placeholder": "Saisir prix",
+        "helper": "Market Prix"
+      }
+    },
+    "recipe-cost-check": {
+      "ingredientcost": {
+        "label": "Ingredient Coût",
+        "placeholder": "Saisir ingredient coût",
+        "helper": "Total ingredient spend"
+      },
+      "portions": {
+        "label": "Portions",
+        "placeholder": "Saisir portions",
+        "helper": "Servings"
+      }
+    },
+    "food-cost-calculator": {
+      "ingredientcost": {
+        "label": "Ingredient Coût",
+        "placeholder": "Saisir ingredient coût",
+        "helper": "Plate Coût"
+      },
+      "menuprice": {
+        "label": "Menu Prix",
+        "placeholder": "Saisir menu prix",
+        "helper": "Selling Prix"
+      }
+    },
+    "portion-cost-calculator": {
+      "totalbatchcost": {
+        "label": "Coût de lot",
+        "placeholder": "Saisir coût de lot",
+        "helper": "Total Recipe Coût"
+      },
+      "portions": {
+        "label": "Portions",
+        "placeholder": "Saisir portions",
+        "helper": "Servings"
+      }
+    },
+    "rent-vs-buy-calculator": {
+      "monthlyrent": {
+        "label": "Monthly location",
+        "placeholder": "Saisir monthly location",
+        "helper": "Courant Monthly location payment"
+      },
+      "homeprice": {
+        "label": "Home Prix",
+        "placeholder": "Saisir home prix",
+        "helper": "Purchase Prix reference"
+      },
+      "comparisonyears": {
+        "label": "Comparison Années",
+        "placeholder": "Saisir comparison années",
+        "helper": "Number of Années to compare (e.g. 10 or 20)"
+      },
+      "annualrentincrease": {
+        "label": "Annual location increase",
+        "placeholder": "Saisir annual location increase",
+        "helper": "Expected yearly location growth"
+      },
+      "annualhomeappreciation": {
+        "label": "Home appreciation",
+        "placeholder": "Saisir home appreciation",
+        "helper": "Expected yearly home Valeur growth"
+      },
+      "downpaymentpercent": {
+        "label": "Down payment",
+        "placeholder": "Saisir down payment",
+        "helper": "parcent of Home Prix paid upfront"
+      },
+      "mortgageinterestrate": {
+        "label": "Mortgage Taux",
+        "placeholder": "Saisir mortgage taux",
+        "helper": "Nominal annual mortgage interest Taux"
+      },
+      "mortgagetermyears": {
+        "label": "Mortgage Durée",
+        "placeholder": "Saisir mortgage durée",
+        "helper": "Mortgage amortization Durée"
+      },
+      "investmentreturnrate": {
+        "label": "Investment return",
+        "placeholder": "Saisir investment return",
+        "helper": "Annual return if locationing and investing cash"
+      },
+      "ownershipcostpercent": {
+        "label": "Ownership Coût",
+        "placeholder": "Saisir ownership coût",
+        "helper": "Annual Ownership Coût as % of home Valeur"
+      },
+      "purchasecostpercent": {
+        "label": "Purchase Coûts",
+        "placeholder": "Saisir purchase coûts",
+        "helper": "Closing and purchase transaction Coûts"
+      },
+      "sellingcostpercent": {
+        "label": "Selling Coûts",
+        "placeholder": "Saisir selling coûts",
+        "helper": "Estimated selling transaction Coûts"
+      }
+    },
+    "home-budget-calculator": {
+      "income": {
+        "label": "Income",
+        "placeholder": "Saisir income",
+        "helper": "Monthly income"
+      },
+      "rent": {
+        "label": "location",
+        "placeholder": "Saisir location",
+        "helper": "Housing"
+      },
+      "food": {
+        "label": "Alimentation",
+        "placeholder": "Saisir alimentation",
+        "helper": "Groceries"
+      },
+      "transport": {
+        "label": "Transport",
+        "placeholder": "Saisir transport",
+        "helper": "Commute"
+      },
+      "utilities": {
+        "label": "Utilities",
+        "placeholder": "Saisir utilities",
+        "helper": "Bills"
+      }
+    },
+    "time-duration-calculator": {
+      "starthour": {
+        "label": "Start hour",
+        "placeholder": "Saisir start hour",
+        "helper": "Start hour (0–23)"
+      },
+      "startminute": {
+        "label": "Start minute",
+        "placeholder": "Saisir start minute",
+        "helper": "Start minute"
+      },
+      "endhour": {
+        "label": "End hour",
+        "placeholder": "Saisir end hour",
+        "helper": "End hour"
+      },
+      "endminute": {
+        "label": "End minute",
+        "placeholder": "Saisir end minute",
+        "helper": "End minute"
+      }
+    },
+    "age-calculator": {
+      "birthyear": {
+        "label": "Année de naissance",
+        "placeholder": "Saisir année de naissance",
+        "helper": "Year born"
+      },
+      "currentyear": {
+        "label": "Courant year",
+        "placeholder": "Saisir courant year",
+        "helper": "Reference year"
+      }
+    },
+    "date-difference-calculator": {
+      "startdaynumber": {
+        "label": "Start day #",
+        "placeholder": "Saisir start day #",
+        "helper": "Start day index"
+      },
+      "enddaynumber": {
+        "label": "End day #",
+        "placeholder": "Saisir end day #",
+        "helper": "End day index"
+      }
+    },
+    "shopping-budget-calculator": {
+      "item1": {
+        "label": "Item 1",
+        "placeholder": "Saisir item 1",
+        "helper": "First item"
+      },
+      "item2": {
+        "label": "Item 2",
+        "placeholder": "Saisir item 2",
+        "helper": "Second item"
+      },
+      "item3": {
+        "label": "Item 3",
+        "placeholder": "Saisir item 3",
+        "helper": "Third item"
+      },
+      "item4": {
+        "label": "Item 4",
+        "placeholder": "Saisir item 4",
+        "helper": "Fourth item"
+      },
+      "item5": {
+        "label": "Item 5",
+        "placeholder": "Saisir item 5",
+        "helper": "Fifth item"
+      }
+    },
+    "fuel-travel-calculator": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Saisir distance",
+        "helper": "Trip Distance"
+      },
+      "consumptionper100km": {
+        "label": "Consommation",
+        "placeholder": "Saisir consommation",
+        "helper": "Vehicle economy"
+      },
+      "fuelprice": {
+        "label": "Carburant Prix",
+        "placeholder": "Saisir carburant prix",
+        "helper": "Pump Prix"
+      }
+    },
+    "unit-price-calculator": {
+      "totalprice": {
+        "label": "Total Prix",
+        "placeholder": "Saisir total prix",
+        "helper": "Shelf total"
+      },
+      "quantity": {
+        "label": "Quantité",
+        "placeholder": "Saisir quantité",
+        "helper": "Pack count"
+      }
+    },
+    "tip-calculator": {
+      "billamount": {
+        "label": "Bill",
+        "placeholder": "Saisir bill",
+        "helper": "Pre-tip total"
+      },
+      "tippercent": {
+        "label": "Tip",
+        "placeholder": "Saisir tip",
+        "helper": "Tip parcent"
+      }
+    },
+    "savings-goal-calculator": {
+      "targetamount": {
+        "label": "Cible",
+        "placeholder": "Saisir cible",
+        "helper": "Savings goal"
+      },
+      "monthlysaving": {
+        "label": "Monthly saving",
+        "placeholder": "Saisir monthly saving",
+        "helper": "Amount saved par month"
+      }
+    },
+    "percentage-increase-calculator": {
+      "oldvalue": {
+        "label": "Old Valeur",
+        "placeholder": "Saisir old valeur",
+        "helper": "Starting Valeur"
+      },
+      "newvalue": {
+        "label": "New Valeur",
+        "placeholder": "Saisir new valeur",
+        "helper": "Updated Valeur"
+      }
+    },
+    "average-calculator": {
+      "value1": {
+        "label": "Valeur 1",
+        "placeholder": "Saisir valeur 1",
+        "helper": "First Valeur"
+      },
+      "value2": {
+        "label": "Valeur 2",
+        "placeholder": "Saisir valeur 2",
+        "helper": "Second Valeur"
+      },
+      "value3": {
+        "label": "Valeur 3",
+        "placeholder": "Saisir valeur 3",
+        "helper": "Third Valeur"
+      },
+      "value4": {
+        "label": "Valeur 4",
+        "placeholder": "Saisir valeur 4",
+        "helper": "Fourth Valeur"
+      },
+      "value5": {
+        "label": "Valeur 5",
+        "placeholder": "Saisir valeur 5",
+        "helper": "Fifth Valeur"
+      }
+    },
+    "median-calculator": {
+      "value1": {
+        "label": "Valeur 1",
+        "placeholder": "Saisir valeur 1",
+        "helper": "First Valeur"
+      },
+      "value2": {
+        "label": "Valeur 2",
+        "placeholder": "Saisir valeur 2",
+        "helper": "Second Valeur"
+      },
+      "value3": {
+        "label": "Valeur 3",
+        "placeholder": "Saisir valeur 3",
+        "helper": "Third Valeur"
+      },
+      "value4": {
+        "label": "Valeur 4",
+        "placeholder": "Saisir valeur 4",
+        "helper": "Fourth Valeur"
+      },
+      "value5": {
+        "label": "Valeur 5",
+        "placeholder": "Saisir valeur 5",
+        "helper": "Fifth Valeur"
+      }
+    },
+    "standard-deviation-calculator": {
+      "value1": {
+        "label": "Valeur 1",
+        "placeholder": "Saisir valeur 1",
+        "helper": "First Valeur"
+      },
+      "value2": {
+        "label": "Valeur 2",
+        "placeholder": "Saisir valeur 2",
+        "helper": "Second Valeur"
+      },
+      "value3": {
+        "label": "Valeur 3",
+        "placeholder": "Saisir valeur 3",
+        "helper": "Third Valeur"
+      },
+      "value4": {
+        "label": "Valeur 4",
+        "placeholder": "Saisir valeur 4",
+        "helper": "Fourth Valeur"
+      },
+      "value5": {
+        "label": "Valeur 5",
+        "placeholder": "Saisir valeur 5",
+        "helper": "Fifth Valeur"
+      }
+    },
+    "ratio-calculator": {
+      "a": {
+        "label": "Valeur A",
+        "placeholder": "Saisir valeur a",
+        "helper": "First Durée"
+      },
+      "b": {
+        "label": "Valeur B",
+        "placeholder": "Saisir valeur b",
+        "helper": "Second Durée"
+      }
+    },
+    "proportion-calculator": {
+      "a": {
+        "label": "A",
+        "placeholder": "Saisir a",
+        "helper": "First numerator"
+      },
+      "b": {
+        "label": "B",
+        "placeholder": "Saisir b",
+        "helper": "First denominator"
+      },
+      "c": {
+        "label": "C",
+        "placeholder": "Saisir c",
+        "helper": "Second numerator"
+      }
+    },
+    "probability-calculator": {
+      "favorableoutcomes": {
+        "label": "Favorable",
+        "placeholder": "Saisir favorable",
+        "helper": "Successful outcomes"
+      },
+      "totaloutcomes": {
+        "label": "Total",
+        "placeholder": "Saisir total",
+        "helper": "Total outcomes"
+      }
+    },
+    "sample-size-calculator": {
+      "population": {
+        "label": "Population",
+        "placeholder": "Saisir population",
+        "helper": "Population size"
+      },
+      "confidencez": {
+        "label": "Z score",
+        "placeholder": "Saisir z score",
+        "helper": "Confidence z (e.g. 1.96)"
+      },
+      "marginerrorpercent": {
+        "label": "Margin error",
+        "placeholder": "Saisir margin error",
+        "helper": "Margin of error"
+      },
+      "proportionpercent": {
+        "label": "Proportion",
+        "placeholder": "Saisir proportion",
+        "helper": "Expected proportion"
+      }
+    },
+    "z-score-calculator": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Data point"
+      },
+      "mean": {
+        "label": "Mean",
+        "placeholder": "Saisir mean",
+        "helper": "Population mean"
+      },
+      "standarddeviation": {
+        "label": "Std dev",
+        "placeholder": "Saisir std dev",
+        "helper": "Standard deviation"
+      }
+    },
+    "linear-regression-calculator": {
+      "x1": {
+        "label": "X₁",
+        "placeholder": "Saisir x₁",
+        "helper": "First x"
+      },
+      "y1": {
+        "label": "Y₁",
+        "placeholder": "Saisir y₁",
+        "helper": "First y"
+      },
+      "x2": {
+        "label": "X₂",
+        "placeholder": "Saisir x₂",
+        "helper": "Second x"
+      },
+      "y2": {
+        "label": "Y₂",
+        "placeholder": "Saisir y₂",
+        "helper": "Second y"
+      },
+      "x3": {
+        "label": "X₃",
+        "placeholder": "Saisir x₃",
+        "helper": "Third x"
+      },
+      "y3": {
+        "label": "Y₃",
+        "placeholder": "Saisir y₃",
+        "helper": "Third y"
+      }
+    },
+    "length-converter": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Unité source",
+        "placeholder": "Saisir unité source",
+        "helper": "Source unit"
+      }
+    },
+    "weight-converter": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Unité source",
+        "placeholder": "Saisir unité source",
+        "helper": "Source unit"
+      }
+    },
+    "area-converter": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Unité source",
+        "placeholder": "Saisir unité source",
+        "helper": "Source unit"
+      }
+    },
+    "volume-converter": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Unité source",
+        "placeholder": "Saisir unité source",
+        "helper": "Source unit"
+      }
+    },
+    "temperature-converter": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Temparature to convert"
+      },
+      "fromunit": {
+        "label": "Unité source",
+        "placeholder": "Saisir unité source",
+        "helper": "Source scale"
+      }
+    },
+    "amper-kilowatt-kw-cevirici": {
+      "amps": {
+        "label": "Courant",
+        "placeholder": "Saisir courant",
+        "helper": "Line Courant in ampares"
+      },
+      "volts": {
+        "label": "Voltage",
+        "placeholder": "Saisir voltage",
+        "helper": "Line voltage"
+      },
+      "powerfactor": {
+        "label": "Puissance factor",
+        "placeholder": "Saisir puissance factor",
+        "helper": "Puissance factor (0–1)"
+      }
+    },
+    "klima-btu-secim-hesaplama": {
+      "aream2": {
+        "label": "Surface au sol",
+        "placeholder": "Saisir surface au sol",
+        "helper": "Cooled Surface au sol"
+      },
+      "ceilingm": {
+        "label": "Hauteur sous plafond",
+        "placeholder": "Saisir hauteur sous plafond",
+        "helper": "Room Hauteur"
+      },
+      "loadfactor": {
+        "label": "Facteur de charge",
+        "placeholder": "Saisir facteur de charge",
+        "helper": "Cooling Facteur de charge"
+      }
+    },
+    "civata-sikma-torku-hesaplama": {
+      "clampforce": {
+        "label": "Clamp force",
+        "placeholder": "Saisir clamp force",
+        "helper": "Cible clamp force"
+      },
+      "boltdiametermm": {
+        "label": "Bolt Diamètre",
+        "placeholder": "Saisir bolt diamètre",
+        "helper": "Nominal Bolt Diamètre in mm"
+      }
+    },
+    "mtv-motorlu-tasitlar-vergisi-hesaplama": {
+      "enginecc": {
+        "label": "Engine displacement",
+        "placeholder": "Saisir engine displacement",
+        "helper": "Engine size in cc"
+      },
+      "agefactor": {
+        "label": "Age factor",
+        "placeholder": "Saisir age factor",
+        "helper": "Informational age band factor"
+      }
+    },
+    "bar-psi-pascal-cevirici": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Unité source",
+        "placeholder": "Saisir unité source",
+        "helper": "Source unit"
+      }
+    },
+    "beygir-gucu-kilowatt-cevirici": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Unité source",
+        "placeholder": "Saisir unité source",
+        "helper": "Source unit"
+      }
+    },
+    "npu-npi-profil-agirlik-hesaplama": {
+      "length": {
+        "label": "Profile Longueur",
+        "placeholder": "Saisir profile longueur",
+        "helper": "Longueur de barre in meters"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "Saisir kg/m",
+        "helper": "Catalog Poids par meter"
+      }
+    },
+    "kosebent-lama-agirlik-hesaplama": {
+      "length": {
+        "label": "Longueur de barre",
+        "placeholder": "Saisir longueur de barre",
+        "helper": "Angle Longueur de barre"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "Saisir kg/m",
+        "helper": "Catalog Poids par meter"
+      }
+    },
+    "boru-agirlik-hesaplama-celik-paslanmaz": {
+      "length": {
+        "label": "Pipe Longueur",
+        "placeholder": "Saisir pipe longueur",
+        "helper": "Pipe run Longueur"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "Saisir kg/m",
+        "helper": "Catalog pipe Poids par meter"
+      }
+    },
+    "motor-gucu-kw-hp-cevirici": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Unité source",
+        "placeholder": "Saisir unité source",
+        "helper": "Source unit"
+      }
+    },
+    "jenerator-kapasitesi-secim-hesaplama": {
+      "peakloadkw": {
+        "label": "Peak load",
+        "placeholder": "Saisir peak load",
+        "helper": "Peak load in kW"
+      },
+      "safetyfactor": {
+        "label": "Safety factor",
+        "placeholder": "Saisir safety factor",
+        "helper": "Recommended safety factor"
+      }
+    },
+    "kablo-kesiti-mm-secim-hesaplama": {
+      "loadamps": {
+        "label": "Courant de charge",
+        "placeholder": "Saisir courant de charge",
+        "helper": "Courant de charge for calculation"
+      },
+      "ampacitypermm2": {
+        "label": "Ampacity par mm²",
+        "placeholder": "Saisir ampacity par mm²",
+        "helper": "Ampacity par mm² for calculation"
+      }
+    },
+    "dogalgaz-tuketimi-hesaplama": {
+      "consumptionsm3": {
+        "label": "Consommation",
+        "placeholder": "Saisir consommation",
+        "helper": "Natural gas Consommation in sm³"
+      },
+      "unitprice": {
+        "label": "Unit Prix",
+        "placeholder": "Saisir unit prix",
+        "helper": "Prix par sm³"
+      }
+    },
+    "lpg-benzin-tasarruf-karsilastirma": {
+      "lpgcost": {
+        "label": "LPG Coût",
+        "placeholder": "Saisir lpg coût",
+        "helper": "Coût par km on LPG"
+      },
+      "gasolinecost": {
+        "label": "Gasoline Coût",
+        "placeholder": "Saisir gasoline coût",
+        "helper": "Coût par km on gasoline"
+      }
+    },
+    "dizel-benzin-maliyet-karsilastirma": {
+      "dieselcost": {
+        "label": "Diesel Coût",
+        "placeholder": "Saisir diesel coût",
+        "helper": "Coût par km on diesel"
+      },
+      "gasolinecost": {
+        "label": "Gasoline Coût",
+        "placeholder": "Saisir gasoline coût",
+        "helper": "Coût par km on gasoline"
+      }
+    },
+    "boya-kaplama-sarfiyati-m-basina-hesabi": {
+      "aream2": {
+        "label": "Coverage Surface",
+        "placeholder": "Saisir coverage surface",
+        "helper": "Coverage Surface for calculation"
+      },
+      "coverageperliter": {
+        "label": "Couverture par litre",
+        "placeholder": "Saisir couverture par litre",
+        "helper": "Couverture par litre for calculation"
+      }
+    },
+    "fazla-mesai-ucreti-hesaplama": {
+      "overtimehours": {
+        "label": "Overtime Heures",
+        "placeholder": "Saisir overtime heures",
+        "helper": "Overtime Heures worked"
+      },
+      "hourlyrate": {
+        "label": "Hourly Taux",
+        "placeholder": "Saisir hourly taux",
+        "helper": "Base Hourly Taux"
+      }
+    },
+    "enflasyon-fiyat-eskalasyonu-hesaplama": {
+      "baseamount": {
+        "label": "Base amount",
+        "placeholder": "Saisir base amount",
+        "helper": "Starting amount"
+      },
+      "inflationpercent": {
+        "label": "Inflation Taux",
+        "placeholder": "Saisir inflation taux",
+        "helper": "Inflation parcent to apply once"
+      }
+    },
+    "newton-kilogram-kuvvet-cevirici": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Unité source",
+        "placeholder": "Saisir unité source",
+        "helper": "Source unit"
+      }
+    },
+    "joule-kalori-watt-saat-cevirici": {
+      "value": {
+        "label": "Valeur",
+        "placeholder": "Saisir valeur",
+        "helper": "Amount to convert"
+      },
+      "fromunit": {
+        "label": "Unité source",
+        "placeholder": "Saisir unité source",
+        "helper": "Source unit"
+      }
+    },
+    "agirlikli-ortalama-hesaplama": {
+      "value1": {
+        "label": "Valeur 1",
+        "placeholder": "Saisir valeur 1",
+        "helper": "First Valeur"
+      },
+      "weight1": {
+        "label": "Poids 1",
+        "placeholder": "Saisir poids 1",
+        "helper": "Poids for Valeur 1"
+      },
+      "value2": {
+        "label": "Valeur 2",
+        "placeholder": "Saisir valeur 2",
+        "helper": "Second Valeur"
+      },
+      "weight2": {
+        "label": "Poids 2",
+        "placeholder": "Saisir poids 2",
+        "helper": "Poids for Valeur 2"
+      },
+      "value3": {
+        "label": "Valeur 3",
+        "placeholder": "Saisir valeur 3",
+        "helper": "Third Valeur"
+      },
+      "weight3": {
+        "label": "Poids 3",
+        "placeholder": "Saisir poids 3",
+        "helper": "Poids for Valeur 3"
+      }
+    },
+    "kesir-ondalik-cevirici": {
+      "numerator": {
+        "label": "Numerator",
+        "placeholder": "Saisir numerator",
+        "helper": "Numerator for calculation"
+      },
+      "denominator": {
+        "label": "Denominator",
+        "placeholder": "Saisir denominator",
+        "helper": "Denominator for calculation"
+      }
+    },
+    "rastgele-sayi-ureteci": {
+      "minvalue": {
+        "label": "Minimum",
+        "placeholder": "Saisir minimum",
+        "helper": "Minimum integer"
+      },
+      "maxvalue": {
+        "label": "Maximum",
+        "placeholder": "Saisir maximum",
+        "helper": "Maximum integer"
+      }
+    },
+    "daire-alani-cevresi-hesaplama": {
+      "radius": {
+        "label": "Rayon",
+        "placeholder": "Saisir rayon",
+        "helper": "Circle Rayon"
+      }
+    },
+    "ucgen-alani-cevresi-hesaplama": {
+      "base": {
+        "label": "Base",
+        "placeholder": "Saisir base",
+        "helper": "Triangle base Longueur"
+      },
+      "height": {
+        "label": "Hauteur",
+        "placeholder": "Saisir hauteur",
+        "helper": "Triangle Hauteur"
+      }
+    },
+    "silindir-hacmi-hesaplama": {
+      "radius": {
+        "label": "Rayon",
+        "placeholder": "Saisir rayon",
+        "helper": "Cylinder Rayon"
+      },
+      "height": {
+        "label": "Hauteur",
+        "placeholder": "Saisir hauteur",
+        "helper": "Cylinder Hauteur"
+      }
+    },
+    "cit-korkuluk-malzeme-hesabi": {
+      "length": {
+        "label": "Fence Longueur",
+        "placeholder": "Saisir fence longueur",
+        "helper": "Fence Longueur for calculation"
+      },
+      "postspacing": {
+        "label": "Post spacing",
+        "placeholder": "Saisir post spacing",
+        "helper": "Post spacing for calculation"
+      }
+    },
+    "prefabrik-konteyner-olcu-hesaplama": {
+      "length": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Container Longueur"
+      },
+      "width": {
+        "label": "Largeur",
+        "placeholder": "Saisir largeur",
+        "helper": "Container Largeur"
+      }
+    },
+    "celik-cati-makas-yaklasik-agirligi": {
+      "span": {
+        "label": "Roof span",
+        "placeholder": "Saisir roof span",
+        "helper": "Truss span in meters"
+      },
+      "weightpermeter": {
+        "label": "Poids par meter",
+        "placeholder": "Saisir poids par meter",
+        "helper": "Approximate steel Poids par meter"
+      }
+    },
+    "su-deposu-hacmi-hesaplama": {
+      "radius": {
+        "label": "Rayon",
+        "placeholder": "Saisir rayon",
+        "helper": "Tank Rayon"
+      },
+      "height": {
+        "label": "Hauteur",
+        "placeholder": "Saisir hauteur",
+        "helper": "Tank Hauteur"
+      }
+    },
+    "yalitim-malzemesi-m-hesaplama": {
+      "aream2": {
+        "label": "Surface Surface",
+        "placeholder": "Saisir surface surface",
+        "helper": "Insulated surface in m²"
+      },
+      "layers": {
+        "label": "Layers",
+        "placeholder": "Saisir layers",
+        "helper": "Number of layers"
+      }
+    },
+    "ups-kesintisiz-guc-kaynagi-secimi": {
+      "loadwatts": {
+        "label": "Load",
+        "placeholder": "Saisir load",
+        "helper": "Connected load in watts"
+      },
+      "runtimeminutes": {
+        "label": "Durée d'exécution",
+        "placeholder": "Saisir durée d'exécution",
+        "helper": "Required Durée d'exécution in minutes"
+      }
+    },
+    "gerilim-dusumu-hesaplama": {
+      "current": {
+        "label": "Courant",
+        "placeholder": "Saisir courant",
+        "helper": "Courant de charge in amps"
+      },
+      "linelengthm": {
+        "label": "Line Longueur",
+        "placeholder": "Saisir line longueur",
+        "helper": "One-way cable Longueur in meters"
+      }
+    },
+    "topraklama-direnci-hesaplama": {
+      "measuredohms": {
+        "label": "Measured resistance",
+        "placeholder": "Saisir measured resistance",
+        "helper": "Ground resistance reading"
+      }
+    },
+    "aku-kapasitesi-calisma-suresi-hesabi": {
+      "batteryah": {
+        "label": "Battery capacity",
+        "placeholder": "Saisir battery capacity",
+        "helper": "Battery capacity for calculation"
+      },
+      "loadamps": {
+        "label": "Courant de charge",
+        "placeholder": "Saisir courant de charge",
+        "helper": "Courant de charge for calculation"
+      }
+    },
+    "aydinlatma-armatur-sayisi-hesaplama": {
+      "totallumensneeded": {
+        "label": "Total lumens",
+        "placeholder": "Saisir total lumens",
+        "helper": "Total lumens for calculation"
+      },
+      "lumensperfixture": {
+        "label": "Lumens par fixture",
+        "placeholder": "Saisir lumens par fixture",
+        "helper": "Lumens par fixture for calculation"
+      }
+    },
+    "kompresor-debisi-tank-hacmi-hesabi": {
+      "flowcfm": {
+        "label": "Débit compresseur",
+        "placeholder": "Saisir débit compresseur",
+        "helper": "Débit compresseur Taux"
+      },
+      "fillminutes": {
+        "label": "Fill time",
+        "placeholder": "Saisir fill time",
+        "helper": "Desired tank fill time in minutes"
+      }
+    },
+    "hidrolik-silindir-itme-kuvveti-hesabi": {
+      "pressurebar": {
+        "label": "Pression",
+        "placeholder": "Saisir pression",
+        "helper": "System Pression in bar"
+      },
+      "boremm": {
+        "label": "Bore Diamètre",
+        "placeholder": "Saisir bore diamètre",
+        "helper": "Cylinder bore in mm"
+      }
+    },
+    "pnomatik-silindir-kuvvet-hesabi": {
+      "pressurebar": {
+        "label": "Pression",
+        "placeholder": "Saisir pression",
+        "helper": "Air Pression in bar"
+      },
+      "boremm": {
+        "label": "Bore Diamètre",
+        "placeholder": "Saisir bore diamètre",
+        "helper": "Cylinder bore in mm"
+      }
+    },
+    "hidrolik-pompa-gucu-hesaplama": {
+      "flowlpm": {
+        "label": "Débit",
+        "placeholder": "Saisir débit",
+        "helper": "Débit in L/min"
+      },
+      "pressurebar": {
+        "label": "Pression",
+        "placeholder": "Saisir pression",
+        "helper": "Pression in bar"
+      }
+    },
+    "boru-capi-akis-hizi-hesaplama": {
+      "flowlpm": {
+        "label": "Débit Taux",
+        "placeholder": "Saisir débit taux",
+        "helper": "Débit Taux for calculation"
+      },
+      "velocitymps": {
+        "label": "Vitesse cible",
+        "placeholder": "Saisir vitesse cible",
+        "helper": "Vitesse cible for calculation"
+      }
+    },
+    "pompa-gucu-basma-yuksekligi-hesabi": {
+      "flowm3h": {
+        "label": "Débit",
+        "placeholder": "Saisir débit",
+        "helper": "Débit in m³/h"
+      },
+      "headm": {
+        "label": "Head",
+        "placeholder": "Saisir head",
+        "helper": "Total head in meters"
+      }
+    },
+    "su-debisi-litre-dakika-hesaplama": {
+      "volumeliters": {
+        "label": "Volume",
+        "placeholder": "Saisir volume",
+        "helper": "Volume for calculation"
+      },
+      "minutes": {
+        "label": "Minutes",
+        "placeholder": "Saisir minutes",
+        "helper": "Minutes for calculation"
+      }
+    },
+    "isitma-sogutma-yuku-kcal-kw-hesabi": {
+      "aream2": {
+        "label": "Surface",
+        "placeholder": "Saisir surface",
+        "helper": "Conditioned Surface au sol"
+      },
+      "loadkcal": {
+        "label": "Facteur de charge",
+        "placeholder": "Saisir facteur de charge",
+        "helper": "Facteur de charge kcal/h·m²"
+      }
+    },
+    "radyator-petek-boyu-hesaplama": {
+      "heatloadkcal": {
+        "label": "Heat load",
+        "placeholder": "Saisir heat load",
+        "helper": "Heat load for calculation"
+      },
+      "paneloutputkcal": {
+        "label": "Panel output",
+        "placeholder": "Saisir panel output",
+        "helper": "Panel output for calculation"
+      }
+    },
+    "akaryakit-fiyati-ile-yol-butcesi": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Saisir distance",
+        "helper": "Trip Distance in km"
+      },
+      "costperkm": {
+        "label": "Coût par km",
+        "placeholder": "Saisir coût par km",
+        "helper": "Carburant Coût par km"
+      }
+    },
+    "arac-amortisman-hesaplama": {
+      "vehiclecost": {
+        "label": "Vehicle Coût",
+        "placeholder": "Saisir vehicle coût",
+        "helper": "Purchase Prix"
+      },
+      "salvagevalue": {
+        "label": "Valeur résiduelle",
+        "placeholder": "Saisir valeur résiduelle",
+        "helper": "Expected Valeur résiduelle"
+      },
+      "usefullifeyears": {
+        "label": "Durée de vie utile",
+        "placeholder": "Saisir durée de vie utile",
+        "helper": "Depreciation Années"
+      }
+    },
+    "kaynak-dikis-hacmi-maliyeti-hesabi": {
+      "throatmm": {
+        "label": "Gorge",
+        "placeholder": "Saisir gorge",
+        "helper": "Weld Gorge in mm"
+      },
+      "weldlengthm": {
+        "label": "Weld Longueur",
+        "placeholder": "Saisir weld longueur",
+        "helper": "Weld Longueur in meters"
+      }
+    },
+    "kesme-bukme-abkant-tonaj-hesabi": {
+      "sheetlengthmm": {
+        "label": "Sheet Longueur",
+        "placeholder": "Saisir sheet longueur",
+        "helper": "Bend Line Longueur in mm"
+      },
+      "sheetthicknessmm": {
+        "label": "Épaisseur",
+        "placeholder": "Saisir épaisseur",
+        "helper": "Sheet Épaisseur in mm"
+      }
+    },
+    "disli-modul-cap-hesaplama": {
+      "module": {
+        "label": "Module",
+        "placeholder": "Saisir module",
+        "helper": "Gear module"
+      },
+      "teeth": {
+        "label": "Dents",
+        "placeholder": "Saisir dents",
+        "helper": "Number of Dents"
+      }
+    },
+    "civata-on-germe-kuvveti-hesabi": {
+      "boltdiametermm": {
+        "label": "Bolt Diamètre",
+        "placeholder": "Saisir bolt diamètre",
+        "helper": "Nominal Bolt Diamètre in mm"
+      },
+      "preloadkn": {
+        "label": "Preload force",
+        "placeholder": "Saisir preload force",
+        "helper": "Cible preload in kN"
+      }
+    },
+    "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama": {
+      "antifreezeliters": {
+        "label": "Antifreeze Volume",
+        "placeholder": "Saisir antifreeze volume",
+        "helper": "Antifreeze Volume for calculation"
+      },
+      "totalliters": {
+        "label": "Total coolant Volume",
+        "placeholder": "Saisir total coolant volume",
+        "helper": "Total coolant Volume for calculation"
+      }
+    },
+    "palet-ambalaj-kereste-hesabi": {
+      "palletcount": {
+        "label": "Pallet count",
+        "placeholder": "Saisir pallet count",
+        "helper": "Number of pallets"
+      },
+      "boardlengthm": {
+        "label": "Board Longueur",
+        "placeholder": "Saisir board longueur",
+        "helper": "Average Board Longueur par pallet"
+      }
+    },
+    "tahta-mdf-sunta-m-agirlik-hesabi": {
+      "aream2": {
+        "label": "Surface",
+        "placeholder": "Saisir surface",
+        "helper": "Sheet Surface in m²"
+      },
+      "kgperm2": {
+        "label": "Poids par m²",
+        "placeholder": "Saisir poids par m²",
+        "helper": "Catalog Poids par m²"
+      }
+    },
+    "tel-kablo-uzunlugu-agirlik-hesabi": {
+      "lengthm": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Cable run Longueur in meters"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "Saisir kg/m",
+        "helper": "Catalog cable Poids par meter"
+      }
+    },
+    "vida-somun-adim-dis-ustu-cap-hesabi": {
+      "pitchmm": {
+        "label": "Pitch",
+        "placeholder": "Saisir pitch",
+        "helper": "Thread pitch in mm"
+      },
+      "threadcount": {
+        "label": "Thread count",
+        "placeholder": "Saisir thread count",
+        "helper": "Number of threads engaged"
+      }
+    },
+    "matkap-kilavuz-delik-capi-tablosu": {
+      "screwdiametermm": {
+        "label": "Screw Diamètre",
+        "placeholder": "Saisir screw diamètre",
+        "helper": "Screw Diamètre for calculation"
+      },
+      "drillfactor": {
+        "label": "Drill factor",
+        "placeholder": "Saisir drill factor",
+        "helper": "Drill factor for calculation"
+      }
+    },
+    "kdv-tevkifati-hesaplama": {
+      "netamount": {
+        "label": "Montant Net",
+        "placeholder": "Saisir montant net",
+        "helper": "Net invoice amount"
+      },
+      "withholdingrate": {
+        "label": "Withholding Taux",
+        "placeholder": "Saisir withholding taux",
+        "helper": "KDV withholding parcent"
+      }
+    },
+    "stopaj-hesaplama-kira-serbest-meslek": {
+      "grossamount": {
+        "label": "Gross amount",
+        "placeholder": "Saisir gross amount",
+        "helper": "Payment before withholding"
+      },
+      "withholdingrate": {
+        "label": "Withholding Taux",
+        "placeholder": "Saisir withholding taux",
+        "helper": "Stopaj parcent"
+      }
+    },
+    "gelir-vergisi-dilimleri-hesaplama": {
+      "taxableincome": {
+        "label": "Taxable income",
+        "placeholder": "Saisir taxable income",
+        "helper": "Annual taxable income"
+      },
+      "effectiverate": {
+        "label": "Effective Taux",
+        "placeholder": "Saisir effective taux",
+        "helper": "Blended Effective Taux parcent"
+      }
+    },
+    "ise-giris-cikis-bildirgesi-sureleri": {
+      "noticedays": {
+        "label": "Notice pariod",
+        "placeholder": "Saisir notice pariod",
+        "helper": "Notice pariod"
+      }
+    },
+    "sgk-prim-hesaplama-isci-plus-isveren": {
+      "grosswage": {
+        "label": "Gross wage",
+        "placeholder": "Saisir gross wage",
+        "helper": "Monthly gross wage"
+      },
+      "combinedrate": {
+        "label": "Taux combiné",
+        "placeholder": "Saisir taux combiné",
+        "helper": "Employee + employer Taux parcent"
+      }
+    },
+    "makine-ekonomik-omru-hurda-deger-hesabi": {
+      "machinecost": {
+        "label": "Machine Coût",
+        "placeholder": "Saisir machine coût",
+        "helper": "Purchase Prix"
+      },
+      "salvagevalue": {
+        "label": "Valeur résiduelle",
+        "placeholder": "Saisir valeur résiduelle",
+        "helper": "Expected Valeur résiduelle"
+      },
+      "usefullifeyears": {
+        "label": "Durée de vie utile",
+        "placeholder": "Saisir durée de vie utile",
+        "helper": "Economic life in Années"
+      }
+    },
+    "leasing-kiralama-maliyet-karsilastirma": {
+      "leasecost": {
+        "label": "Lease Coût",
+        "placeholder": "Saisir lease coût",
+        "helper": "Lease Coût for comparison"
+      },
+      "rentalcost": {
+        "label": "locational Coût",
+        "placeholder": "Saisir locational coût",
+        "helper": "locational Coût for comparison"
+      }
+    },
+    "kredi-erken-kapama-cezasi-hesaplama": {
+      "remainingbalance": {
+        "label": "Restant balance",
+        "placeholder": "Saisir restant balance",
+        "helper": "Outstanding loan balance"
+      },
+      "penaltyrate": {
+        "label": "Penalty Taux",
+        "placeholder": "Saisir penalty taux",
+        "helper": "Early closure penalty parcent"
+      }
+    },
+    "doviz-pozisyonu-kur-farki-riski-hesabi": {
+      "foreignexposure": {
+        "label": "Foreign exposure",
+        "placeholder": "Saisir foreign exposure",
+        "helper": "Exposure in foreign currency"
+      },
+      "fxmovepercent": {
+        "label": "FX move",
+        "placeholder": "Saisir fx move",
+        "helper": "Expected FX move parcent"
+      }
+    },
+    "cek-senet-vade-kirma-maliyeti-hesabi": {
+      "facevalue": {
+        "label": "Face Valeur",
+        "placeholder": "Saisir face valeur",
+        "helper": "Instrument Face Valeur"
+      },
+      "discountrate": {
+        "label": "Discount Taux",
+        "placeholder": "Saisir discount taux",
+        "helper": "Discount Taux parcent"
+      }
+    },
+    "nakit-akisi-basit-gunluk-haftalik-panosu": {
+      "dailyinflow": {
+        "label": "Daily inDébit",
+        "placeholder": "Saisir daily indébit",
+        "helper": "Average daily cash inDébit"
+      },
+      "days": {
+        "label": "Jours",
+        "placeholder": "Saisir jours",
+        "helper": "Jours in pariod"
+      }
+    },
+    "ic-verim-orani-irr-hesaplama": {
+      "initialinvestment": {
+        "label": "Initial investment",
+        "placeholder": "Saisir initial investment",
+        "helper": "Project investment"
+      },
+      "returnmultiple": {
+        "label": "Return multiple",
+        "placeholder": "Saisir return multiple",
+        "helper": "Screening return multiple"
+      }
+    },
+    "konteyner-yukleme-kapasitesi-teu-hesabi": {
+      "totalweightkg": {
+        "label": "Total Poids",
+        "placeholder": "Saisir total poids",
+        "helper": "Total Poids for calculation"
+      },
+      "unitweightkg": {
+        "label": "Unit Poids",
+        "placeholder": "Saisir unit poids",
+        "helper": "Unit Poids for calculation"
+      }
+    },
+    "tir-kamyon-yuk-kapasitesi-hesaplama": {
+      "payloadton": {
+        "label": "Payload capacity",
+        "placeholder": "Saisir payload capacity",
+        "helper": "Tauxd payload in tonnes"
+      },
+      "loadfactor": {
+        "label": "Facteur de charge",
+        "placeholder": "Saisir facteur de charge",
+        "helper": "Utilization factor"
+      }
+    },
+    "arac-bakim-periyodu-takip-hesaplama": {
+      "remainingkm": {
+        "label": "Restant km",
+        "placeholder": "Saisir restant km",
+        "helper": "Restant km for calculation"
+      },
+      "dailykm": {
+        "label": "Km journaliers",
+        "placeholder": "Saisir km journaliers",
+        "helper": "Km journaliers for calculation"
+      }
+    },
+    "lastik-omru-degisim-km-hesaplama": {
+      "remainingtreadkm": {
+        "label": "Restant tread km",
+        "placeholder": "Saisir restant tread km",
+        "helper": "Restant tread km for calculation"
+      },
+      "monthlykm": {
+        "label": "Monthly km",
+        "placeholder": "Saisir monthly km",
+        "helper": "Monthly km for calculation"
+      }
+    },
+    "depo-raf-palet-yerlesim-optimizasyonu": {
+      "palletwidthm": {
+        "label": "Pallet Largeur",
+        "placeholder": "Saisir pallet largeur",
+        "helper": "Pallet Largeur in meters"
+      },
+      "palletdepthm": {
+        "label": "Pallet Profondeur",
+        "placeholder": "Saisir pallet profondeur",
+        "helper": "Pallet Profondeur in meters"
+      }
+    },
+    "trafik-cezasi-gecikme-faizi-hesaplama": {
+      "fineamount": {
+        "label": "Fine amount",
+        "placeholder": "Saisir fine amount",
+        "helper": "Original fine amount"
+      },
+      "laterate": {
+        "label": "Late Taux",
+        "placeholder": "Saisir late taux",
+        "helper": "Late payment Taux parcent"
+      }
+    },
+    "kasko-sigorta-prim-karsilastirma": {
+      "quotea": {
+        "label": "Quote A",
+        "placeholder": "Saisir quote a",
+        "helper": "Quote A for comparison"
+      },
+      "quoteb": {
+        "label": "Quote B",
+        "placeholder": "Saisir quote b",
+        "helper": "Quote B for comparison"
+      }
+    },
+    "sofor-operator-gunluk-yevmiye-maliyeti": {
+      "dailyrate": {
+        "label": "Tarif journalier",
+        "placeholder": "Saisir tarif journalier",
+        "helper": "Driver/oparator Tarif journalier"
+      },
+      "days": {
+        "label": "Jours",
+        "placeholder": "Saisir jours",
+        "helper": "Working Jours"
+      }
+    },
+    "arac-kira-satin-alma-karsilastirma": {
+      "purchasecost": {
+        "label": "Purchase Coût",
+        "placeholder": "Saisir purchase coût",
+        "helper": "Purchase Coût for comparison"
+      },
+      "leasecost": {
+        "label": "Lease Coût",
+        "placeholder": "Saisir lease coût",
+        "helper": "Lease Coût for comparison"
+      }
+    },
+    "yemek-tabldot-maliyet-hesaplama": {
+      "mealcost": {
+        "label": "Meal Coût",
+        "placeholder": "Saisir meal coût",
+        "helper": "Coût par meal"
+      },
+      "headcount": {
+        "label": "Headcount",
+        "placeholder": "Saisir headcount",
+        "helper": "Number of meals"
+      }
+    },
+    "fotokopi-yazici-toner-sayfa-maliyeti": {
+      "tonercost": {
+        "label": "Toner Coût",
+        "placeholder": "Saisir toner coût",
+        "helper": "Toner Coût for calculation"
+      },
+      "pageyield": {
+        "label": "Page yield",
+        "placeholder": "Saisir page yield",
+        "helper": "Page yield for calculation"
+      }
+    },
+    "internet-telefon-paketi-karsilastirma": {
+      "packagea": {
+        "label": "Package A",
+        "placeholder": "Saisir package a",
+        "helper": "Package A for comparison"
+      },
+      "packageb": {
+        "label": "Package B",
+        "placeholder": "Saisir package b",
+        "helper": "Package B for comparison"
+      }
+    },
+    "yangin-tupu-dolap-debisi-hesaplama": {
+      "aream2": {
+        "label": "Protected Surface",
+        "placeholder": "Saisir protected surface",
+        "helper": "Protected Surface au sol in m²"
+      },
+      "flowfactor": {
+        "label": "Débit factor",
+        "placeholder": "Saisir débit factor",
+        "helper": "Débit factor par m²"
+      }
+    },
+    "prefabrik-konteyner-ofis-m-maliyeti": {
+      "aream2": {
+        "label": "Surface au sol",
+        "placeholder": "Saisir surface au sol",
+        "helper": "Office Surface au sol in m²"
+      },
+      "costperm2": {
+        "label": "Coût par m²",
+        "placeholder": "Saisir coût par m²",
+        "helper": "Coût par m²"
+      }
+    },
+    "celik-raf-depo-rafi-yuk-kapasitesi": {
+      "beamcapacitykg": {
+        "label": "Beam capacity",
+        "placeholder": "Saisir beam capacity",
+        "helper": "Capacity par beam level in kg"
+      },
+      "shelfcount": {
+        "label": "Shelf count",
+        "placeholder": "Saisir shelf count",
+        "helper": "Number of shelf levels"
+      }
+    },
+    "kaynakli-baglanti-kose-kut-mukavemet-hesabi": {
+      "throatmm": {
+        "label": "Gorge",
+        "placeholder": "Saisir gorge",
+        "helper": "Weld Gorge in mm"
+      },
+      "leglengthmm": {
+        "label": "Leg Longueur",
+        "placeholder": "Saisir leg longueur",
+        "helper": "Leg Longueur in mm"
+      }
+    },
+    "bulonlu-baglanti-kesme-ezilme-hesabi": {
+      "boltcount": {
+        "label": "Nombre de boulons",
+        "placeholder": "Saisir nombre de boulons",
+        "helper": "Number of bolts"
+      },
+      "shearcapacitykn": {
+        "label": "Shear capacity",
+        "placeholder": "Saisir shear capacity",
+        "helper": "Shear capacity par bolt in kN"
+      }
+    },
+    "ruzgar-turbini-yaklasik-uretim-hesabi": {
+      "ratedkw": {
+        "label": "Tauxd Puissance",
+        "placeholder": "Saisir tauxd puissance",
+        "helper": "Turbine Tauxd kW"
+      },
+      "capacityfactor": {
+        "label": "Capacity factor",
+        "placeholder": "Saisir capacity factor",
+        "helper": "Capacity factor"
+      }
+    },
+    "su-isitma-kazan-boyler-kapasite-hesabi": {
+      "volumeliters": {
+        "label": "Volume",
+        "placeholder": "Saisir volume",
+        "helper": "Tank Volume in liters"
+      },
+      "deltatempc": {
+        "label": "Temparature rise",
+        "placeholder": "Saisir temparature rise",
+        "helper": "Required Temparature rise in °C"
+      }
+    },
+    "soguk-oda-sogutma-yuku-hesabi": {
+      "roomvolumem3": {
+        "label": "Room Volume",
+        "placeholder": "Saisir room volume",
+        "helper": "Cold Room Volume"
+      },
+      "loadfactor": {
+        "label": "Facteur de charge",
+        "placeholder": "Saisir facteur de charge",
+        "helper": "Cooling Facteur de charge"
+      }
+    },
+    "yamuk-alani-hesaplama": {
+      "basea": {
+        "label": "Base A",
+        "placeholder": "Saisir base a",
+        "helper": "First parallel side"
+      },
+      "baseb": {
+        "label": "Base B",
+        "placeholder": "Saisir base b",
+        "helper": "Second parallel side"
+      },
+      "height": {
+        "label": "Hauteur",
+        "placeholder": "Saisir hauteur",
+        "helper": "parpendicular Hauteur"
+      }
+    },
+    "kure-hacmi-hesaplama": {
+      "radius": {
+        "label": "Rayon",
+        "placeholder": "Saisir rayon",
+        "helper": "Sphere Rayon"
+      }
+    },
+    "koni-hacmi-hesaplama": {
+      "radius": {
+        "label": "Rayon",
+        "placeholder": "Saisir rayon",
+        "helper": "Base Rayon"
+      },
+      "height": {
+        "label": "Hauteur",
+        "placeholder": "Saisir hauteur",
+        "helper": "Cone Hauteur"
+      }
+    },
+    "duvar-kagidi-seramik-adet-hesaplama": {
+      "wallaream2": {
+        "label": "Wall Surface",
+        "placeholder": "Saisir wall surface",
+        "helper": "Wall Surface for calculation"
+      },
+      "tileaream2": {
+        "label": "Tile Surface",
+        "placeholder": "Saisir tile surface",
+        "helper": "Tile Surface for calculation"
+      }
+    },
+    "kiris-kolon-yaklasik-agirlik-hesabi": {
+      "lengthm": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Member Longueur in meters"
+      },
+      "kgpermeter": {
+        "label": "kg/m",
+        "placeholder": "Saisir kg/m",
+        "helper": "Catalog Poids par meter"
+      }
+    },
+    "asma-tavan-malzeme-hesabi": {
+      "ceilingaream2": {
+        "label": "Surface de plafond",
+        "placeholder": "Saisir surface de plafond",
+        "helper": "Surface de plafond in m²"
+      },
+      "materialperm2": {
+        "label": "Matériau par m²",
+        "placeholder": "Saisir matériau par m²",
+        "helper": "Matériau units par m²"
+      }
+    },
+    "istinat-duvari-yaklasik-beton-hesabi": {
+      "walllengthm": {
+        "label": "Wall Longueur",
+        "placeholder": "Saisir wall longueur",
+        "helper": "Retaining Wall Longueur"
+      },
+      "wallheightm": {
+        "label": "Wall Hauteur",
+        "placeholder": "Saisir wall hauteur",
+        "helper": "Average Wall Hauteur"
+      }
+    },
+    "rulman-omur-hesabi-l10": {
+      "dynamicloadkn": {
+        "label": "Charge dynamique",
+        "placeholder": "Saisir charge dynamique",
+        "helper": "Charge dynamique for calculation"
+      },
+      "basicloadkn": {
+        "label": "Capacité de charge de base",
+        "placeholder": "Saisir capacité de charge de base",
+        "helper": "Capacité de charge de base for calculation"
+      }
+    },
+    "paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli": {
+      "densitykgm3": {
+        "label": "Matériau Densité",
+        "placeholder": "Saisir matériau densité",
+        "helper": "Matériau Densité"
+      }
+    },
+    "enjeksiyon-dokum-cekme-payi-hesabi": {
+      "partlengthmm": {
+        "label": "Part Longueur",
+        "placeholder": "Saisir part longueur",
+        "helper": "Molded Part Longueur in mm"
+      },
+      "shrinkpercent": {
+        "label": "Shrink parcent",
+        "placeholder": "Saisir shrink parcent",
+        "helper": "Expected Shrink parcent"
+      }
+    },
+    "kumlama-raspa-kum-sarfiyati-hesabi": {
+      "surfaceaream2": {
+        "label": "Surface Surface",
+        "placeholder": "Saisir surface surface",
+        "helper": "Blasted surface in m²"
+      },
+      "abrasivekgperm2": {
+        "label": "Abrasive par m²",
+        "placeholder": "Saisir abrasive par m²",
+        "helper": "Abrasive kg par m²"
+      }
+    },
+    "plastik-enjeksiyon-cevrim-suresi-tahmini": {
+      "shotweightg": {
+        "label": "Shot Poids",
+        "placeholder": "Saisir shot poids",
+        "helper": "Shot Poids for calculation"
+      },
+      "injectionrategps": {
+        "label": "Injection Taux",
+        "placeholder": "Saisir injection taux",
+        "helper": "Injection Taux for calculation"
+      }
+    },
+    "personel-devamsizlik-maliyeti-hesaplama": {
+      "dailywage": {
+        "label": "Salaire journalier",
+        "placeholder": "Saisir salaire journalier",
+        "helper": "Salaire journalier Coût"
+      },
+      "absentdays": {
+        "label": "Jours d'absence",
+        "placeholder": "Saisir jours d'absence",
+        "helper": "Jours d'absence in pariod"
+      }
+    },
+    "is-kazasi-maliyeti-gun-kaybi-hesaplama": {
+      "dailyoutputvalue": {
+        "label": "Daily output Valeur",
+        "placeholder": "Saisir daily output valeur",
+        "helper": "Daily production Valeur"
+      },
+      "lostdays": {
+        "label": "Lost Jours",
+        "placeholder": "Saisir lost jours",
+        "helper": "Lost workJours"
+      }
+    },
+    "forklift-transpalet-kullanim-maliyeti": {
+      "hourlyrate": {
+        "label": "Hourly Taux",
+        "placeholder": "Saisir hourly taux",
+        "helper": "Equipment Hourly Taux"
+      },
+      "hours": {
+        "label": "Heures",
+        "placeholder": "Saisir heures",
+        "helper": "Oparating Heures"
+      }
+    },
+    "paketleme-malzemesi-strec-koli-sarfiyati": {
+      "shipmentcount": {
+        "label": "Shipments",
+        "placeholder": "Saisir shipments",
+        "helper": "Number of shipments"
+      },
+      "materialpershipment": {
+        "label": "Matériau par shipment",
+        "placeholder": "Saisir matériau par shipment",
+        "helper": "Packaging units par shipment"
+      }
+    },
+    "irsaliye-fatura-adedi-basina-sevkiyat-maliyeti": {
+      "totalshippingcost": {
+        "label": "Total shipping Coût",
+        "placeholder": "Saisir total shipping coût",
+        "helper": "Total shipping Coût for calculation"
+      },
+      "documentcount": {
+        "label": "Document count",
+        "placeholder": "Saisir document count",
+        "helper": "Document count for calculation"
+      }
+    },
+    "cay-kahve-su-tuketim-maliyeti": {
+      "unitcost": {
+        "label": "Unit Coût",
+        "placeholder": "Saisir unit coût",
+        "helper": "Coût par serving"
+      },
+      "dailyunits": {
+        "label": "Daily units",
+        "placeholder": "Saisir daily units",
+        "helper": "Servings par day"
+      }
+    },
+    "toplanti-saati-maliyeti-hesaplama": {
+      "attendeerate": {
+        "label": "Attendee Taux",
+        "placeholder": "Saisir attendee taux",
+        "helper": "Blended hourly attendee Coût"
+      },
+      "attendeehours": {
+        "label": "Attendee-Heures",
+        "placeholder": "Saisir attendee-heures",
+        "helper": "Total Attendee-Heures"
+      }
+    },
+    "is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati": {
+      "unitcost": {
+        "label": "Unit Coût",
+        "placeholder": "Saisir unit coût",
+        "helper": "PPE Coût par employee"
+      },
+      "employeecount": {
+        "label": "Employés",
+        "placeholder": "Saisir employés",
+        "helper": "Number of Employés"
+      }
+    },
+    "temizlik-malzemesi-sarfiyat-hesabi": {
+      "aream2": {
+        "label": "Surface",
+        "placeholder": "Saisir surface",
+        "helper": "Cleaned Surface in m²"
+      },
+      "consumptionperm2": {
+        "label": "Consommation par m²",
+        "placeholder": "Saisir consommation par m²",
+        "helper": "Matériau Consommation par m²"
+      }
+    },
+    "ofis-kirtasiye-sarfiyat-hesabi": {
+      "employeecount": {
+        "label": "Employés",
+        "placeholder": "Saisir employés",
+        "helper": "Number of Employés"
+      },
+      "monthlyspendperhead": {
+        "label": "Spend par head",
+        "placeholder": "Saisir spend par head",
+        "helper": "Monthly stationery spend par employee"
+      }
+    },
+    "sirket-telefon-faturasi-hesaplama": {
+      "linecount": {
+        "label": "Lines",
+        "placeholder": "Saisir lines",
+        "helper": "Number of phone lines"
+      },
+      "monthlylinecost": {
+        "label": "Coût par ligne",
+        "placeholder": "Saisir coût par ligne",
+        "helper": "Monthly Coût par ligne"
+      }
+    },
+    "abonelik-yazilim-cloud-yillik-maliyet-hesabi": {
+      "monthlyfee": {
+        "label": "Monthly fee",
+        "placeholder": "Saisir monthly fee",
+        "helper": "Monthly subscription fee"
+      },
+      "months": {
+        "label": "Months",
+        "placeholder": "Saisir months",
+        "helper": "Months par year"
+      }
+    },
+    "is-sagligi-ve-guvenligi-ceza-hesaplama": {
+      "basefine": {
+        "label": "Base fine",
+        "placeholder": "Saisir base fine",
+        "helper": "Reference fine amount"
+      },
+      "severityfactor": {
+        "label": "Severity factor",
+        "placeholder": "Saisir severity factor",
+        "helper": "Severity multiplier"
+      }
+    },
+    "yangin-merdiveni-kacis-yolu-genisligi-hesabi": {
+      "occupantload": {
+        "label": "Occupant load",
+        "placeholder": "Saisir occupant load",
+        "helper": "Occupant load for calculation"
+      },
+      "flowpermeter": {
+        "label": "Débit par meter",
+        "placeholder": "Saisir débit par meter",
+        "helper": "Débit par meter for calculation"
+      }
+    },
+    "cevre-atik-beyani-maliyet-hesaplama": {
+      "wastetonnes": {
+        "label": "parte tonnage",
+        "placeholder": "Saisir parte tonnage",
+        "helper": "Declared parte in tonnes"
+      },
+      "feepertonne": {
+        "label": "Fee par tonne",
+        "placeholder": "Saisir fee par tonne",
+        "helper": "Fee par tonne"
+      }
+    },
+    "cop-atik-konteyner-hacim-hesabi": {
+      "containerlengthm": {
+        "label": "Longueur",
+        "placeholder": "Saisir longueur",
+        "helper": "Container Longueur in meters"
+      },
+      "containerwidthm": {
+        "label": "Largeur",
+        "placeholder": "Saisir largeur",
+        "helper": "Container Largeur in meters"
+      }
+    },
+    "geri-donusum-gelir-maliyet-hesabi": {
+      "recyclingrevenue": {
+        "label": "Recycling revenue",
+        "placeholder": "Saisir recycling revenue",
+        "helper": "Recycling revenue for comparison"
+      },
+      "processingcost": {
+        "label": "Processing Coût",
+        "placeholder": "Saisir processing coût",
+        "helper": "Processing Coût for comparison"
+      }
+    },
+    "merdiven-platform-yukseklik-erisim-hesabi": {
+      "platformheightm": {
+        "label": "Platform Hauteur",
+        "placeholder": "Saisir platform hauteur",
+        "helper": "Working Platform Hauteur in meters"
+      },
+      "accessfactor": {
+        "label": "Access factor",
+        "placeholder": "Saisir access factor",
+        "helper": "Access factor"
+      }
+    },
+    "mil-aks-capi-hesabi-egilme-burulma": {
+      "bendingmoment": {
+        "label": "Bending moment",
+        "placeholder": "Saisir bending moment",
+        "helper": "Applied bending moment index"
+      },
+      "torque": {
+        "label": "Torque",
+        "placeholder": "Saisir torque",
+        "helper": "Applied torque index"
+      }
+    },
+    "yatak-rulman-omur-hesabi-l10": {
+      "dynamicloadkn": {
+        "label": "Charge dynamique",
+        "placeholder": "Saisir charge dynamique",
+        "helper": "Charge dynamique for calculation"
+      },
+      "basicloadkn": {
+        "label": "Capacité de charge de base",
+        "placeholder": "Saisir capacité de charge de base",
+        "helper": "Capacité de charge de base for calculation"
+      }
+    },
+    "yay-helisel-kuvvet-uzama-hesabi": {
+      "springrate": {
+        "label": "Spring Taux",
+        "placeholder": "Saisir spring taux",
+        "helper": "Spring Taux N/mm"
+      },
+      "deflectionmm": {
+        "label": "Deflection",
+        "placeholder": "Saisir deflection",
+        "helper": "Deflection in mm"
+      }
+    },
+    "basincli-kap-cidar-kalinligi-hesabi": {
+      "designpressurebar": {
+        "label": "Design Pression",
+        "placeholder": "Saisir design pression",
+        "helper": "Design Pression for calculation"
+      },
+      "allowablestressbar": {
+        "label": "Allowable stress",
+        "placeholder": "Saisir allowable stress",
+        "helper": "Allowable stress for calculation"
+      }
+    },
+    "isi-degistirici-esanjor-kapasite-hesabi": {
+      "flowratem3h": {
+        "label": "Débit Taux",
+        "placeholder": "Saisir débit taux",
+        "helper": "Débit in m³/h"
+      },
+      "deltatempc": {
+        "label": "Temparature delta",
+        "placeholder": "Saisir temparature delta",
+        "helper": "Temparature différence in °C"
+      }
+    },
+    "baca-havalandirma-kanali-cap-hesabi": {
+      "airflowm3h": {
+        "label": "AirDébit",
+        "placeholder": "Saisir airdébit",
+        "helper": "AirDébit for calculation"
+      },
+      "velocitymps": {
+        "label": "Vitesse cible",
+        "placeholder": "Saisir vitesse cible",
+        "helper": "Vitesse cible for calculation"
+      }
+    },
+    "ses-yalitimi-desibel-azaltimi-hesabi": {
+      "sourcedb": {
+        "label": "Source level",
+        "placeholder": "Saisir source level",
+        "helper": "Source level for comparison"
+      },
+      "attenuationdb": {
+        "label": "Attenuation",
+        "placeholder": "Saisir attenuation",
+        "helper": "Attenuation for comparison"
+      }
+    },
+    "titresim-frekans-periyot-hesaplama": {
+      "frequencyhz": {
+        "label": "Frequency",
+        "placeholder": "Saisir frequency",
+        "helper": "Vibration frequency in Hz"
+      },
+      "unitconstant": {
+        "label": "Constant",
+        "placeholder": "Saisir constant",
+        "helper": "Use 1 for pariod in seconds"
+      }
+    },
+    "kaynak-proseduru-wps-on-isitma-sicakligi-hesabi": {
+      "preheattempc": {
+        "label": "Preheat temparature",
+        "placeholder": "Saisir preheat temparature",
+        "helper": "Preheat temparature"
+      }
+    },
+    "istatistiksel-proses-kontrol-spc-limit-hesabi": {
+      "processmean": {
+        "label": "Process mean",
+        "placeholder": "Saisir process mean",
+        "helper": "Process mean"
+      },
+      "controlfactor": {
+        "label": "Control factor",
+        "placeholder": "Saisir control factor",
+        "helper": "Control limit factor"
+      }
+    },
+    "alti-sigma-dpmo-sigma-seviyesi-cevirici": {
+      "dpmo": {
+        "label": "DPMO",
+        "placeholder": "Saisir dpmo",
+        "helper": "Defects par million opportunities"
+      },
+      "million": {
+        "label": "Million",
+        "placeholder": "Saisir million",
+        "helper": "Diviseur (use 1,000,000)"
+      }
+    }
+  },
+  "sectorFooter": {
+    "logoText": "SECTORCALC",
+    "badge": "PLATEFORME DE CALCULATEURS SECTORIELS",
+    "hudRight1": "OUTILS SECTORIELS : ACTIFS",
+    "hudRight2": "FREE + PREMIUM",
+    "panel1Svg": "COÛT",
+    "panel2Svg": "PERTE/SCRAP",
+    "panel3Svg": "TECHNIQUE/OEE",
+    "panel4Svg": "BIBLIOTHÈQUE",
+    "panel1Link1": "Calculateur de devis et marge",
+    "panel1Link2": "Calculateur de taux horaire machine",
+    "panel1Link3": "Calculateur de seuil de rentabilité",
+    "panel1Link4": "Calculateur de coût total employé",
+    "panel2Link1": "Perte matière et rebut",
+    "panel2Link2": "Coût d'arrêt non planifié",
+    "panel2Link3": "Calculateur stock et EOQ",
+    "panel2Link4": "Calculateur de coût qualité",
+    "panel3Link1": "Calculateur OEE",
+    "panel3Link2": "Coût de fuite compresseur",
+    "panel3Link3": "Couple de serrage et assemblage",
+    "panel3Link4": "Calculs carbone et énergie",
+    "newsletterLabel": "NEWSLETTER SECTORCALC",
+    "newsletterPlaceholder": "votre adresse e-mail",
+    "newsletterButton": "S'INSCRIRE",
+    "socialIn": "IN",
+    "socialApi": "API",
+    "socialLlms": "LLMS",
+    "legalPrivacy": "POLITIQUE DE CONFIDENTIALITÉ",
+    "legalTerms": "CONDITIONS D'UTILISATION",
+    "legalDisclaimer": "AVERTISSEMENT",
+    "metaReg": "REG: GLOBAL",
+    "metaCur": "CUR: EUR",
+    "metaCopyright": "© 2026 SECTORCALC"
   }
 }

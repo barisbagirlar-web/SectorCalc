@@ -333,7 +333,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
    });
   }
 
-  const nextErrors = validateSmartFormFieldValues(tool.freeSlug, values);
+  const nextErrors = validateSmartFormFieldValues(tool.freeSlug, values, locale);
   setErrors(nextErrors);
   if (Object.keys(nextErrors).length > 0) {
    setSubmitted(false);

@@ -2,12 +2,17 @@
 
 import { useState, type FormEvent, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
+import { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspace";
 import type { SmartFormTier, SmartFormViewMode } from "@/lib/smart-form/types";
+
+export type SmartFormShellLayout = "split" | "workspace";
 
 export type SmartFormShellProps = {
   readonly title: string;
   readonly description?: string;
   readonly tier: SmartFormTier;
+  /** split = form | output columns; workspace = full-width balanced grid below header */
+  readonly layout?: SmartFormShellLayout;
   readonly viewMode?: SmartFormViewMode;
   readonly onViewModeChange?: (mode: SmartFormViewMode) => void;
   readonly fallback?: boolean;
@@ -39,6 +44,7 @@ export function SmartFormShell({
   title,
   description,
   tier,
+  layout = "split",
   viewMode: controlledViewMode,
   onViewModeChange,
   fallback = false,
@@ -130,14 +136,20 @@ export function SmartFormShell({
         </div>
       </header>
 
-      <div
-        className={`sc-smart-form-layout${resultContent ? "" : " sc-smart-form-layout--single"}`}
-      >
-        <div className="sc-smart-form-panel min-w-0">{formBody}</div>
-        {viewMode !== "trust" && resultContent ? (
-          <div className="sc-smart-form-output min-w-0">{resultContent}</div>
-        ) : null}
-      </div>
+      {layout === "workspace" ? (
+        <div className="sc-smart-form-workspace min-w-0">{formBody}</div>
+      ) : viewMode !== "trust" && resultContent ? (
+        <CalculationWorkspace
+          variant="split"
+          inputs={formBody}
+          decision={null}
+          output={resultContent}
+        />
+      ) : (
+        <div className="sc-smart-form-layout sc-smart-form-layout--single">
+          <div className="sc-smart-form-panel min-w-0">{formBody}</div>
+        </div>
+      )}
     </div>
   );
 }

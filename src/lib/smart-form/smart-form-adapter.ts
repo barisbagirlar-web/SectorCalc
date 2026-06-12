@@ -30,8 +30,10 @@ import type {
 import type { FreeTrafficInput } from "@/lib/tools/free-traffic-catalog";
 import {
   readFreeToolUiString,
+  resolveFreeToolFieldDisplay,
   resolveSmartFormDecisionGoal,
 } from "@/lib/i18n/free-tool-form-i18n";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import type { RevenueToolInput } from "@/lib/tools/revenue-tools";
 
 export type SmartFormExistingInputConfig =
@@ -76,8 +78,11 @@ export function inferInputHelp(
   };
 }
 
-function mapContractField(field: SmartFormContractFieldSpec, toolSlug: string): SmartFormInput {
-  const help = inferInputHelp(field.key, toolSlug);
+function mapContractField(
+  field: SmartFormContractFieldSpec,
+  toolSlug: string,
+  locale?: string,
+): SmartFormInput {
   return {
     key: field.key,
     canonicalKey: field.canonicalKey,
@@ -91,50 +96,73 @@ function mapContractField(field: SmartFormContractFieldSpec, toolSlug: string): 
     placeholder: field.placeholder,
     helperText: field.helperText ?? field.validationHint,
     group: field.group === "advanced" ? "advanced" : inferInputGroup(field.key, toolSlug),
-    ...help,
   };
 }
 
-function mapRevenueInput(input: RevenueToolInput, toolSlug: string): SmartFormInput {
-  const help = inferInputHelp(input.key, toolSlug);
+function mapRevenueInput(
+  input: RevenueToolInput,
+  toolSlug: string,
+  locale?: string,
+): SmartFormInput {
+  const display = locale
+    ? resolveFreeToolFieldDisplay(toolSlug, input.key, locale, {
+        label: input.label,
+        placeholder: input.helperText ?? input.label,
+        helper: input.helperText,
+      })
+    : { label: input.label, placeholder: input.label, helper: input.helperText };
+
   return {
     key: input.key,
     canonicalKey: input.key,
-    label: input.label,
+    label: display.label,
     type: input.type,
     unit: inferInputUnit(input.key, input.unit),
     required: input.required,
-    helperText: input.helperText,
+    placeholder: display.placeholder,
+    helperText: display.helper ?? input.helperText,
     group: inferInputGroup(input.key, toolSlug),
     options: input.options,
     defaultValue: input.defaultValue,
-    ...help,
   };
 }
 
-function mapTrafficInput(input: FreeTrafficInput, toolSlug: string): SmartFormInput {
-  const help = inferInputHelp(input.key, toolSlug);
+function mapTrafficInput(
+  input: FreeTrafficInput,
+  toolSlug: string,
+  locale?: string,
+): SmartFormInput {
   const type: SmartFormInputType = input.type === "select" ? "select" : "number";
+  const display = locale
+    ? resolveFreeToolFieldDisplay(toolSlug, input.key, locale, {
+        label: input.label,
+        placeholder: input.helper,
+        helper: input.helper,
+      })
+    : { label: input.label, placeholder: input.helper, helper: input.helper };
 
   return {
     key: input.key,
     canonicalKey: input.key,
-    label: input.label,
+    label: display.label,
     type,
     unit: inferInputUnit(input.key, input.unit),
     required: true,
     min: input.min,
     max: input.max,
-    helperText: input.helper,
+    placeholder: display.placeholder,
+    helperText: display.helper ?? input.helper,
     group: inferInputGroup(input.key, toolSlug),
     options: input.options,
     defaultValue: input.defaultValue,
-    ...help,
   };
 }
 
-function mapSchemaInput(input: PremiumInputSchema, toolSlug: string): SmartFormInput {
-  const help = inferInputHelp(input.id, toolSlug);
+function mapSchemaInput(
+  input: PremiumInputSchema,
+  toolSlug: string,
+  locale?: string,
+): SmartFormInput {
   const type: SmartFormInputType =
     input.type === "select"
       ? "select"
@@ -147,21 +175,28 @@ function mapSchemaInput(input: PremiumInputSchema, toolSlug: string): SmartFormI
       ? undefined
       : input.smartDefault;
 
+  const display = locale
+    ? resolveFreeToolFieldDisplay(toolSlug, input.id, locale, {
+        label: input.label,
+        placeholder: input.helper,
+        helper: input.helper,
+      })
+    : { label: input.label, placeholder: input.helper, helper: input.helper };
+
   return {
     key: input.id,
     canonicalKey: input.id,
-    label: input.label,
+    label: display.label,
     type,
     unit: inferInputUnit(input.id, input.unit),
     required: input.required,
     min: input.validation?.min,
     max: input.validation?.max,
-    helperText: input.helper,
+    placeholder: display.placeholder,
+    helperText: display.helper ?? input.helper,
     group: inferInputGroup(input.id, toolSlug),
     defaultValue,
-    helpWhy: input.expertMeaning ?? help.helpWhy,
-    helpTypical: help.helpTypical,
-    helpExample: help.helpExample,
+    helpWhy: locale === "en" ? input.expertMeaning : undefined,
   };
 }
 
@@ -212,6 +247,9 @@ function buildCalculationStepsFromContract(
     (locale ? readFreeToolUiString(locale, "calculationStepFormulaSummary") : undefined) ??
     "Formula summary";
 
+  const translate = (text: string) =>
+    locale ? translateCalculatorPhrase(text, locale) : text;
+
   return [
     {
       id: "contract-purpose",
@@ -221,12 +259,12 @@ function buildCalculationStepsFromContract(
     {
       id: "contract-formula",
       label: formulaSummaryLabel,
-      formulaText: contract.formulaSummary,
+      formulaText: translate(contract.formulaSummary),
     },
     ...contract.validationRules.slice(0, 4).map((rule) => ({
       id: rule.id,
       label: rule.id,
-      description: rule.description,
+      description: translate(rule.description),
     })),
   ];
 }
@@ -277,7 +315,7 @@ export function buildSmartFormForTool(
 
     const contractPlan = buildSmartFormFieldSpecsFromContract(contractSlug, locale);
     if (contractPlan && (isFreeFullLoopRuntimeSlug(toolSlug) || isPremiumFullLoopRuntimeSlug(toolSlug))) {
-      const inputs = contractPlan.fields.map((field) => mapContractField(field, toolSlug));
+      const inputs = contractPlan.fields.map((field) => mapContractField(field, toolSlug, locale));
       return successResult(toolSlug, "contract", inputs, contractPlan.decisionGoal, locale);
     }
 
@@ -287,15 +325,21 @@ export function buildSmartFormForTool(
 
     switch (existingInputConfig.kind) {
       case "revenue": {
-        const inputs = existingInputConfig.inputs.map((input) => mapRevenueInput(input, toolSlug));
+        const inputs = existingInputConfig.inputs.map((input) =>
+          mapRevenueInput(input, toolSlug, locale),
+        );
         return successResult(toolSlug, "revenue", inputs, undefined, locale);
       }
       case "traffic": {
-        const inputs = existingInputConfig.inputs.map((input) => mapTrafficInput(input, toolSlug));
+        const inputs = existingInputConfig.inputs.map((input) =>
+          mapTrafficInput(input, toolSlug, locale),
+        );
         return successResult(toolSlug, "traffic", inputs, undefined, locale);
       }
       case "schema": {
-        const inputs = existingInputConfig.inputs.map((input) => mapSchemaInput(input, toolSlug));
+        const inputs = existingInputConfig.inputs.map((input) =>
+          mapSchemaInput(input, toolSlug, locale),
+        );
         return successResult(toolSlug, "schema", inputs, undefined, locale);
       }
       case "tool-definition": {

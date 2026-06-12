@@ -433,7 +433,7 @@ form[data-calculation-form="true"] {
   .sc-tool-workspace:not(.sc-tool-workspace--stacked),
   .sc-ledger-cetele:not(.sc-ledger-cetele--stacked) {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-    align-items: start;
+    align-items: stretch;
   }
 }
 
@@ -442,6 +442,32 @@ form[data-calculation-form="true"] {
 .sc-ledger-cetele__result {
   min-width: 0;
   width: 100%;
+  height: 100%;
+}
+
+.sc-form-result-layout > [data-calc-form="true"],
+.sc-form-result-layout > [data-calc-result="true"],
+.sc-tool-workspace__form,
+.sc-tool-workspace__result,
+.sc-ledger-cetele__form,
+.sc-ledger-cetele__result {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  height: 100%;
+}
+
+.sc-tool-workspace__form > form,
+.sc-ledger-cetele__form > form {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sc-tool-workspace__form .sc-industrial-form-actions,
+.sc-ledger-cetele__form .sc-industrial-form-actions {
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 [dir="rtl"] .sc-industrial-field__label-row,
@@ -778,7 +804,7 @@ form[data-calculation-form="true"] {
   .sc-ledger-cetele:not(.sc-ledger-cetele--stacked),
   .sc-tool-workspace:not(.sc-tool-workspace--stacked) {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-    align-items: start;
+    align-items: stretch;
   }
 }
 
@@ -847,44 +873,166 @@ form[data-calculation-form="true"] {
   order: 5;
 }
 
-@media (min-width: 1280px) {
-  .sc-ledger-karar-masasi {
+@media (min-width: 1024px) {
+  .sc-ledger-karar-masasi--balanced,
+  .sc-ledger-karar-masasi:not(.sc-ledger-karar-masasi--stacked) {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 0.85fr) minmax(0, 1.1fr);
-    align-items: start;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 1.25rem;
   }
 
-  .sc-ledger-karar-masasi__decision-stack {
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__decision-stack,
+  .sc-ledger-karar-masasi:not(.sc-ledger-karar-masasi--stacked) .sc-ledger-karar-masasi__decision-stack {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     grid-column: 2;
     grid-row: 1;
     min-width: 0;
+    min-height: 100%;
+    height: 100%;
   }
 
-  .sc-ledger-karar-masasi__verdict,
-  .sc-ledger-karar-masasi__big-number,
-  .sc-ledger-karar-masasi__threshold {
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__verdict,
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__big-number,
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__threshold,
+  .sc-ledger-karar-masasi:not(.sc-ledger-karar-masasi--stacked) .sc-ledger-karar-masasi__verdict,
+  .sc-ledger-karar-masasi:not(.sc-ledger-karar-masasi--stacked) .sc-ledger-karar-masasi__big-number,
+  .sc-ledger-karar-masasi:not(.sc-ledger-karar-masasi--stacked) .sc-ledger-karar-masasi__threshold {
     order: unset;
   }
 
-  .sc-ledger-karar-masasi__entries {
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__entries,
+  .sc-ledger-karar-masasi:not(.sc-ledger-karar-masasi--stacked) .sc-ledger-karar-masasi__entries {
     grid-column: 1;
     grid-row: 1;
     order: unset;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
   }
 
-  .sc-ledger-karar-masasi__report {
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__report,
+  .sc-ledger-karar-masasi:not(.sc-ledger-karar-masasi--stacked) .sc-ledger-karar-masasi__report {
     grid-column: 3;
     grid-row: 1;
     order: unset;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
   }
 
-  .sc-ledger-karar-masasi__drivers,
-  .sc-ledger-karar-masasi__action {
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__drivers,
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__action,
+  .sc-ledger-karar-masasi:not(.sc-ledger-karar-masasi--stacked) .sc-ledger-karar-masasi__drivers,
+  .sc-ledger-karar-masasi:not(.sc-ledger-karar-masasi--stacked) .sc-ledger-karar-masasi__action {
     display: none;
   }
+
+  /* Equal-height column panels — inputs | decision | report */
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__entries > form,
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__report > aside,
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__report > .sc-premium-decision-report,
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__decision-stack > .sc-ledger-karar-masasi__big-number:only-child {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
+  }
+
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__decision-stack > .sc-ledger-karar-masasi__big-number:only-child > .sc-ledger-panel,
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__decision-stack > .sc-ledger-karar-masasi__big-number:only-child > .sc-ledger-report {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
+  }
+
+  .sc-ledger-karar-masasi--balanced .sc-ledger-karar-masasi__entries .sc-industrial-form-actions {
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+}
+
+/* ── Calculation workspace — equal-height symmetric columns (all tools) ── */
+.sc-calc-workspace {
+  display: grid;
+  gap: 1.25rem;
+  width: 100%;
+  min-width: 0;
+  align-items: stretch;
+}
+
+.sc-calc-workspace--triple,
+.sc-calc-workspace--split {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 901px) {
+  .sc-calc-workspace--split {
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 400px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sc-calc-workspace--triple {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sc-calc-workspace__col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100%;
+}
+
+.sc-calc-workspace__panel {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  min-width: 0;
+  border: 1px solid var(--sc-border);
+  background: #fff;
+  padding: 1rem 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .sc-calc-workspace__panel {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+.sc-calc-workspace__panel > form {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+.sc-calc-workspace__panel .sc-industrial-form-actions {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.sc-calc-workspace__panel > .sc-smart-form-output,
+.sc-calc-workspace__panel > .sc-form-result-panel {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
 }
 
 /* ── Premium decision report preview ── */
@@ -2445,9 +2593,16 @@ form[data-calculation-form="true"] {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
   gap: 1.5rem;
-  align-items: start;
+  align-items: stretch;
   width: 100%;
   min-width: 0;
+}
+
+.sc-smart-form-workspace {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 1280px;
 }
 
 .sc-smart-form-layout--single {
@@ -2470,8 +2625,32 @@ form[data-calculation-form="true"] {
 
 .sc-smart-form-panel,
 .sc-smart-form-output {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   min-width: 0;
+  min-height: 100%;
+  height: 100%;
+}
+
+.sc-smart-form-panel > form,
+.sc-smart-form-panel > .sc-form-shell {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.sc-smart-form-panel > form .sc-industrial-form-actions,
+.sc-smart-form-panel > .sc-form-shell .sc-industrial-form-actions {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.sc-smart-form-output > .sc-smart-form-output,
+.sc-smart-form-output.sc-ledger-panel {
+  flex: 1 1 auto;
+  min-height: 100%;
 }
 
 @media (min-width: 901px) {

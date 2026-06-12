@@ -5,7 +5,8 @@ export { SmartFormFieldsRenderer } from "@/components/smart-form/SmartFormFields
 export { SmartFormModeToggle } from "@/components/smart-form/SmartFormModeToggle";
 export { SmartFormRequirementNotice } from "@/components/smart-form/SmartFormRequirementNotice";
 export { SmartFormSection } from "@/components/smart-form/SmartFormSection";
-export { SmartFormShell } from "@/components/smart-form/SmartFormShell";
+export { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspace";
+export { SmartFormShell, type SmartFormShellLayout } from "@/components/smart-form/SmartFormShell";
 export { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
 export { SmartHelpTooltip } from "@/components/smart-form/SmartHelpTooltip";
 export { SmartInput } from "@/components/smart-form/SmartInput";
