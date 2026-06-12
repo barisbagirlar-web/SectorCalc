@@ -1,71 +1,65 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/semantic/site-url";
 
-const COMMON_DISALLOW = [
+const PRIVATE_DISALLOW = [
   "/admin",
   "/admin/",
-  "/api/admin",
-  "/api/internal",
   "/api/",
-  "/logs/",
   "/dashboard",
   "/dashboard/",
+  "/checkout",
+  "/checkout/",
+  "/account",
+  "/account/",
+  "/login",
+  "/login/",
+  "/signup",
+  "/signup/",
   "/preview",
   "/preview/",
   "/verification-queue",
   "/verification-queue/",
-  "/*/print",
-  "/*/tools/premium-schema/*/print",
-  "/tools/premium-schema/*/print",
+  "/logs/",
 ];
 
-const AI_BOT_DISALLOW = [
-  "/admin",
-  "/admin/",
-  "/api/admin",
-  "/api/internal",
-  "/api/",
-  "/logs/",
-  "/dashboard",
-  "/dashboard/",
-  "/preview",
-  "/preview/",
-  "/verification-queue",
-  "/verification-queue/",
+const AI_INDEX_ALLOW = [
+  "/llms.txt",
+  "/ai.txt",
+  "/ai-tool-index.json",
+  "/ai-categories.json",
+  "/ai-tool-routes.json",
+  "/ai-search-manifest.json",
+  "/ai-embedding-source.jsonl",
+  "/sitemap.xml",
 ];
+
+const AI_BOT_AGENTS = [
+  "GPTBot",
+  "ChatGPT-User",
+  "OAI-SearchBot",
+  "PerplexityBot",
+  "Google-Extended",
+  "Googlebot",
+  "Bingbot",
+] as const;
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: COMMON_DISALLOW,
+        allow: ["/", ...AI_INDEX_ALLOW],
+        disallow: PRIVATE_DISALLOW,
       },
+      ...AI_BOT_AGENTS.map((userAgent) => ({
+        userAgent,
+        allow: ["/", ...AI_INDEX_ALLOW],
+        disallow: PRIVATE_DISALLOW,
+      })),
       {
-        userAgent: "GPTBot",
+        userAgent: ["Applebot", "ClaudeBot"],
         allow: "/",
-        disallow: AI_BOT_DISALLOW,
-      },
-      {
-        userAgent: "Google-Extended",
-        allow: "/",
-        disallow: AI_BOT_DISALLOW,
-      },
-      {
-        userAgent: "ClaudeBot",
-        allow: "/",
-        disallow: AI_BOT_DISALLOW,
-      },
-      {
-        userAgent: "PerplexityBot",
-        allow: "/",
-        disallow: AI_BOT_DISALLOW,
-      },
-      {
-        userAgent: ["Googlebot", "Bingbot", "Applebot"],
-        allow: "/",
-        disallow: ["/admin/", "/api/", "/logs/", "/*/print", "/tools/premium-schema/*/print"],
+        disallow: PRIVATE_DISALLOW,
       },
       {
         userAgent: ["CCBot", "Diffbot"],

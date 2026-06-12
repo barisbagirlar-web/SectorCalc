@@ -26,7 +26,16 @@ const required = [
   "src/app/[locale]/developer-showcase/page.tsx",
   "public/ai.txt",
   "public/llms.txt",
-  "scripts/export-ai-tool-index.mjs",
+  "scripts/export-ai-index.mjs",
+  "scripts/export-tool-embeddings-source.mjs",
+  "scripts/audit-llm-seo.mjs",
+  "scripts/audit-ai-tool-index.mjs",
+  "scripts/audit-ai-crawler-policy.mjs",
+  "scripts/audit-embedding-source.mjs",
+  "public/ai-categories.json",
+  "public/ai-tool-routes.json",
+  "public/ai-search-manifest.json",
+  "public/ai-embedding-source.jsonl",
 ];
 
 for (const rel of required) {
@@ -64,7 +73,7 @@ for (const rel of [
 const robotsPath = join(ROOT, "src/app/robots.ts");
 if (existsSync(robotsPath)) {
   const robots = readFileSync(robotsPath, "utf8");
-  for (const token of ["GPTBot", "Google-Extended", "ClaudeBot", "PerplexityBot", "verification-queue", "sitemap"]) {
+  for (const token of ["GPTBot", "ChatGPT-User", "OAI-SearchBot", "Google-Extended", "ClaudeBot", "PerplexityBot", "Googlebot", "Bingbot", "verification-queue", "sitemap"]) {
     if (!robots.includes(token)) {
       failures.push(`robots.ts missing ${token} policy`);
     }
@@ -85,7 +94,7 @@ for (const token of ["llms.txt", "developer-showcase", "verification queue", "ad
 }
 
 if (!existsSync(join(ROOT, "public/ai-tool-index.json"))) {
-  failures.push("public/ai-tool-index.json missing — run npm run export:ai-tool-index");
+  failures.push("public/ai-tool-index.json missing — run npm run export:ai-index");
 }
 
 try {

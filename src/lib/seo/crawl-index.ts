@@ -1,4 +1,4 @@
-import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
+import { listPublicFreeTrafficTools } from "@/lib/freemium/resolve-free-to-premium-migration";
 import { getOrderedFreeTrafficCategories } from "@/lib/tools/free-traffic-categories";
 import { buildPremiumSchemaCatalogGroups } from "@/lib/premium-schema/premium-schema-catalog";
 import { listProgrammaticSeoSlugs, PROGRAMMATIC_SEO_PAGES } from "@/lib/seo/programmatic-seo-pages";
@@ -10,7 +10,9 @@ export function buildFreeToolsCrawlGroups(): readonly CrawlIndexGroup[] {
 
   return categories.map((category) => ({
     label: category.id.replace(/-/g, " "),
-    links: FREE_TRAFFIC_TOOLS.filter((tool) => tool.category === category.id).map((tool) => ({
+    links: listPublicFreeTrafficTools()
+      .filter((tool) => tool.category === category.id)
+      .map((tool) => ({
       href: `/tools/free/${tool.slug}`,
       label: tool.title,
     })),

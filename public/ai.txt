@@ -5,15 +5,29 @@ LLM index: https://www.sectorcalc.com/llms.txt
 Sitemap: https://www.sectorcalc.com/sitemap.xml
 Developer showcase: https://www.sectorcalc.com/en/developer-showcase
 
+Primary machine-readable indexes:
+- https://www.sectorcalc.com/ai-tool-index.json
+- https://www.sectorcalc.com/ai-categories.json
+- https://www.sectorcalc.com/ai-tool-routes.json
+- https://www.sectorcalc.com/ai-search-manifest.json
+- https://www.sectorcalc.com/ai-embedding-source.jsonl
+
 Allowed for AI indexing:
 - public home pages
 - public calculator pages
 - free calculator catalog
 - premium calculator catalog
+- premium category pages
 - calculator library
 - methodology pages
 - developer showcase
 - llms.txt
+- ai.txt
+- ai-tool-index.json
+- ai-categories.json
+- ai-tool-routes.json
+- ai-search-manifest.json
+- ai-embedding-source.jsonl
 - sectorcalc-index.txt
 - services-products.txt
 - faq-knowledge.txt
@@ -26,3 +40,9 @@ Disallowed:
 - internal APIs
 - verification queue
 - preview routes
+- account dashboard routes
+
+Query guidance:
+- Use ai-tool-index.json as the canonical tool inventory.
+- Prefer canonicalUrl and localeUrls from the index.
+- Use category-only entries as category references, not direct calculator endpoints.

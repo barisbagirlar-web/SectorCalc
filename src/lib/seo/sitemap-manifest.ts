@@ -19,8 +19,13 @@ import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 import {
   getFreeToolRoutePath,
-  listAllFreeToolSlugs,
+  getPremiumToolRoutePath,
+  listPublicFreeToolSlugs,
 } from "@/lib/tools/free-traffic-routes";
+import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonomy";
+import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
+import { getPremiumRevenueRouteSlugs } from "@/lib/tools/revenue-tools";
+import { listMigratedPremiumRouteSlugs } from "@/lib/freemium/resolve-free-to-premium-migration";
 
 export type SitemapRouteType =
   | "core"
@@ -28,7 +33,8 @@ export type SitemapRouteType =
   | "free_tool"
   | "premium_analyzer"
   | "seo_landing"
-  | "authority_guide";
+  | "authority_guide"
+  | "ai_index";
 
 export type SitemapChangeFrequency = "daily" | "weekly" | "monthly" | "yearly";
 
@@ -103,19 +109,62 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/categories", "hub", 0.9, "weekly"),
     createItem("/free-tools", "hub", 0.9, "weekly"),
     createItem("/premium-tools", "hub", 0.9, "weekly"),
+    createItem("/calculator-library", "hub", 0.85, "monthly"),
+    createItem("/developer-showcase", "hub", 0.85, "monthly"),
     createItem("/industries", "hub", 0.9, "monthly"),
     createItem("/beta-partner", "hub", 0.75, "monthly"),
     createItem("/how-it-works", "hub", 0.7, "monthly"),
     createItem("/investor-demo", "hub", 0.65, "monthly"),
     createItem("/operating-system", "hub", 0.65, "monthly"),
     createItem("/for-consultants", "hub", 0.7, "monthly"),
+    ...listGlobalCategories().map((category) =>
+      createItem(`/premium-tools/${category.slug}`, "hub", 0.85, "weekly"),
+    ),
   ];
 }
 
 export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
-  return listAllFreeToolSlugs().map((slug) =>
+  return listPublicFreeToolSlugs().map((slug) =>
     createItem(getFreeToolRoutePath(slug), "free_tool", 0.75, "monthly"),
   );
+}
+
+export function getMigratedPremiumToolSitemapRoutes(): readonly SitemapManifestItem[] {
+  return listMigratedPremiumRouteSlugs().map((slug) =>
+    createItem(getPremiumToolRoutePath(slug), "premium_analyzer", 0.8, "monthly"),
+  );
+}
+
+export function getActiveCategorizedToolSitemapRoutes(): readonly SitemapManifestItem[] {
+  return buildCategorizedToolIndex()
+    .filter((item) => item.publicStatus === "active" && item.routePath)
+    .map((item) =>
+      createItem(
+        item.routePath!,
+        item.tier === "free" ? "free_tool" : "premium_analyzer",
+        item.tier === "free" ? 0.75 : 0.8,
+        "monthly",
+      ),
+    );
+}
+
+export function getPremiumRevenueToolSitemapRoutes(): readonly SitemapManifestItem[] {
+  return getPremiumRevenueRouteSlugs().map((slug) =>
+    createItem(getPremiumToolRoutePath(slug), "premium_analyzer", 0.8, "monthly"),
+  );
+}
+
+export function getAiIndexSitemapRoutes(): readonly SitemapManifestItem[] {
+  const files = [
+    "/llms.txt",
+    "/ai.txt",
+    "/ai-tool-index.json",
+    "/ai-categories.json",
+    "/ai-tool-routes.json",
+    "/ai-search-manifest.json",
+    "/ai-embedding-source.jsonl",
+  ];
+  return files.map((path) => createItem(path, "ai_index", 0.55, "weekly", ["en"]));
 }
 
 export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[] {
@@ -153,10 +202,10 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
   return dedupeManifestItems([
     ...getCoreSitemapRoutes(),
     ...getHubSitemapRoutes(),
-    ...getFreeToolSitemapRoutes(),
-    ...getPremiumAnalyzerSitemapRoutes(),
+    ...getActiveCategorizedToolSitemapRoutes(),
     ...getSeoLandingSitemapRoutes(),
     ...getAuthorityGuideSitemapRoutes(),
+    ...getAiIndexSitemapRoutes(),
   ]);
 }
 

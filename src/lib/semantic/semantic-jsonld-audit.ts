@@ -11,6 +11,10 @@ import {
 } from "@/lib/semantic/semantic-tool-reader";
 import { SEMANTIC_LOCALES } from "@/lib/semantic/tool-semantic-types";
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
+import {
+  isFreeToolMigratedToPremium,
+  listMigratedPremiumRouteSlugs,
+} from "@/lib/freemium/resolve-free-to-premium-migration";
 import { getPremiumRevenueRouteSlugs } from "@/lib/tools/revenue-tools";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 
@@ -27,8 +31,11 @@ export type SemanticJsonLdAuditResult = {
 
 function collectPublicRouteSlugs(): Array<{ slug: string; tier: "free" | "premium" | "premium-schema" }> {
   return [
-    ...listAllFreeToolSlugs().map((slug) => ({ slug, tier: "free" as const })),
+    ...listAllFreeToolSlugs()
+      .filter((slug) => !isFreeToolMigratedToPremium(slug))
+      .map((slug) => ({ slug, tier: "free" as const })),
     ...getPremiumRevenueRouteSlugs().map((slug) => ({ slug, tier: "premium" as const })),
+    ...listMigratedPremiumRouteSlugs().map((slug) => ({ slug, tier: "premium" as const })),
     ...listPremiumSchemaSlugs().map((slug) => ({ slug, tier: "premium-schema" as const })),
   ];
 }
@@ -106,6 +113,22 @@ export function auditSemanticJsonLdCoverage(): SemanticJsonLdAuditResult {
     }
 
     const toolJsonLd = buildToolJsonLd({ tool: contract, locale: "en" });
+    const softwareSchema = toolJsonLd.find((schema) => {
+      const type = schema["@type"];
+      return type === "SoftwareApplication" || (Array.isArray(type) && type.includes("SoftwareApplication"));
+    });
+    if (!softwareSchema) {
+      issues.push(`Tool JSON-LD missing SoftwareApplication for ${route.tier}:${route.slug}`);
+    }
+    const potentialAction = softwareSchema?.potentialAction as Record<string, unknown> | undefined;
+    const target = potentialAction?.target as Record<string, unknown> | undefined;
+    if (!potentialAction || potentialAction["@type"] !== "Action") {
+      issues.push(`Tool JSON-LD missing potentialAction for ${route.tier}:${route.slug}`);
+    }
+    if (!target || target["@type"] !== "EntryPoint" || typeof target.urlTemplate !== "string") {
+      issues.push(`Tool JSON-LD missing EntryPoint target for ${route.tier}:${route.slug}`);
+    }
+
     const hasCalculateAction = toolJsonLd.some(
       (schema) =>
         schema["@type"] === "Action" &&
@@ -113,6 +136,11 @@ export function auditSemanticJsonLdCoverage(): SemanticJsonLdAuditResult {
     );
     if (!hasCalculateAction) {
       issues.push(`Tool JSON-LD missing CalculateAction for ${route.tier}:${route.slug}`);
+    }
+
+    const usesCalculateActionType = toolJsonLd.some((schema) => schema["@type"] === "CalculateAction");
+    if (usesCalculateActionType) {
+      issues.push(`CalculateAction must not be used as @type for ${route.tier}:${route.slug}`);
     }
 
     const hasFinancial = toolJsonLd.some((schema) => schema["@type"] === "FinancialService");

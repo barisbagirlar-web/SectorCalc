@@ -1,325 +1,66 @@
-# SectorCalc — AI & LLM Source Guide
+# SectorCalc
 
-SectorCalc provides sector-specific calculators, hidden-loss diagnostics and export-ready decision reports.
+SectorCalc is an industry calculator platform for manufacturing, engineering, construction, logistics, energy, finance, operations, sustainability and technical business calculations.
 
-## Primary site
-- https://sectorcalc.com
+## How to find tools
+All tools are listed in /ai-tool-index.json.
+To find relevant calculators, query the JSON by:
+- categorySlug
+- title
+- keywords
+- intent
+- industries
+- tier
+- routeStatus
 
-## Important hubs
-- https://sectorcalc.com
-- https://sectorcalc.com/free-tools
-- https://sectorcalc.com/premium-tools
-- https://sectorcalc.com/categories
-- https://sectorcalc.com/industries
-- https://sectorcalc.com/pricing
-- https://sectorcalc.com/beta-partner
-- https://sectorcalc.com/seo/manufacturing-cost-calculators
-- https://sectorcalc.com/seo/construction-cost-calculators
-- https://sectorcalc.com/seo/logistics-route-calculators
-- https://sectorcalc.com/seo/energy-carbon-calculators
-- https://sectorcalc.com/seo/agriculture-calculators
-- https://sectorcalc.com/seo/finance-business-calculators
-- https://sectorcalc.com/seo/unit-conversion-calculators
-- https://sectorcalc.com/seo/hidden-loss-decision-reports
+Do not assume tools not listed in the index.
+Prefer canonicalUrl from ai-tool-index.json.
 
-## Free calculators
-- https://sectorcalc.com/free-tools
-- Count: 230 browser-side calculators
+## Primary indexes
+- Full tool index: https://www.sectorcalc.com/ai-tool-index.json
+- Category index: https://www.sectorcalc.com/ai-categories.json
+- Route map: https://www.sectorcalc.com/ai-tool-routes.json
+- Search manifest: https://www.sectorcalc.com/ai-search-manifest.json
+- Embedding source: https://www.sectorcalc.com/ai-embedding-source.jsonl
+- Sitemap: https://www.sectorcalc.com/sitemap.xml
 
-## Premium analyzers
-- https://sectorcalc.com/premium-tools
-- Count: 50 premium decision analyzers
+## Core categories
+- Lean Production & Line Efficiency (lean-production): https://www.sectorcalc.com/en/premium-tools/lean-production
+- Quality, SPC & Six Sigma (quality-six-sigma): https://www.sectorcalc.com/en/premium-tools/quality-six-sigma
+- Process, Chemical & Fluids (process-chemical): https://www.sectorcalc.com/en/premium-tools/process-chemical
+- CNC, 3D Printing & Advanced Manufacturing (cnc-additive-manufacturing): https://www.sectorcalc.com/en/premium-tools/cnc-additive-manufacturing
+- Sheet Metal, Casting, Plastics & Forming (metal-plastics-forming): https://www.sectorcalc.com/en/premium-tools/metal-plastics-forming
+- Project, Site & Construction Management (project-construction-management): https://www.sectorcalc.com/en/premium-tools/project-construction-management
+- Digital Factory & Automation (digital-factory-automation): https://www.sectorcalc.com/en/premium-tools/digital-factory-automation
+- Maintenance & Reliability (maintenance-reliability): https://www.sectorcalc.com/en/premium-tools/maintenance-reliability
+- HSE, Ergonomics & Risk Cost (hse-ergonomics): https://www.sectorcalc.com/en/premium-tools/hse-ergonomics
+- Procurement, Supply Chain & Logistics (procurement-supply-chain): https://www.sectorcalc.com/en/premium-tools/procurement-supply-chain
+- Workforce, Shift & HR Cost (workforce-hr): https://www.sectorcalc.com/en/premium-tools/workforce-hr
+- Finance, Sales & Working Capital (finance-sales-working-capital): https://www.sectorcalc.com/en/premium-tools/finance-sales-working-capital
+- Sustainability, Resources & ESG (sustainability-resource-esg): https://www.sectorcalc.com/en/premium-tools/sustainability-resource-esg
+- Food, Cold Chain & Hygiene (food-cold-chain-hygiene): https://www.sectorcalc.com/en/premium-tools/food-cold-chain-hygiene
+- Textile, Printing & Laboratory (textile-print-lab): https://www.sectorcalc.com/en/premium-tools/textile-print-lab
+- Electrical, Panel & Power Systems (electrical-power-systems): https://www.sectorcalc.com/en/premium-tools/electrical-power-systems
+- Mechanical, HVAC & Energy Loss (mechanical-hvac-energy-loss): https://www.sectorcalc.com/en/premium-tools/mechanical-hvac-energy-loss
+- Packaging & Local Business Tools (packaging-local-business): https://www.sectorcalc.com/en/premium-tools/packaging-local-business
+- Global Compliance, Trade & Tax (global-compliance-trade): https://www.sectorcalc.com/en/premium-tools/global-compliance-trade
+- Technology, AI, Cloud & Cyber Risk (technology-ai-cloud-cyber): https://www.sectorcalc.com/en/premium-tools/technology-ai-cloud-cyber
 
-## Pricing
-- Free calculators: $0
-- Single decision reports: from $9
-- Pro: $19/mo
-- Team: $49/mo
-- https://sectorcalc.com/pricing
+## Locale guidance
+Use localeUrls from ai-tool-index.json.
+If the user is Turkish, prefer /tr URLs.
+If the user language is unknown, prefer English or browser locale.
 
-## Free tool slugs
-- square-meter-calculator
-- square-footage-calculator
-- concrete-volume-calculator
-- concrete-bag-calculator
-- paint-coverage-calculator
-- tile-calculator
-- flooring-calculator
-- roofing-area-calculator
-- stair-calculator
-- drywall-calculator
-- brick-calculator
-- rebar-weight-calculator
-- excavation-volume-calculator
-- plaster-calculator
-- home-renovation-m2-calculator
-- loan-payment-calculator
-- mortgage-calculator
-- interest-calculator
-- compound-interest-calculator
-- vat-calculator
-- discount-calculator
-- percentage-calculator
-- profit-margin-calculator
-- break-even-calculator
-- roi-calculator
-- salary-cost-calculator
-- hourly-rate-calculator
-- depreciation-calculator
-- cash-flow-gap-calculator
-- unit-cost-calculator
-- machine-time-calculator
-- cnc-cycle-time-calculator
-- welding-cost-estimator
-- laser-cutting-time-check
-- 3d-print-cost-check
-- sheet-metal-weight-calculator
-- material-waste-calculator
-- scrap-rate-calculator
-- oee-calculator
-- machine-hour-rate-calculator
-- tool-life-calculator
-- cutting-speed-calculator
-- feed-rate-calculator
-- tolerance-drift-calculator
-- batch-yield-calculator
-- kwh-cost-calculator
-- electricity-bill-calculator
-- energy-consumption-check
-- carbon-footprint-quick
-- fuel-emission-calculator
-- solar-panel-output-calculator
-- heat-loss-calculator
-- boiler-efficiency-calculator
-- compressor-energy-cost-calculator
-- cbam-exposure-quick-check
-- fuel-consumption-calculator
-- fuel-cost-calculator
-- desi-calculator
-- volumetric-weight-calculator
-- route-cost-calculator
-- delivery-cost-calculator
-- freight-cost-calculator
-- warehouse-storage-cost-calculator
-- vehicle-depreciation-calculator
-- trip-budget-calculator
-- fertilizer-dosage-calculator
-- seed-rate-calculator
-- irrigation-cost-check
-- water-usage-calculator
-- feed-cost-estimator
-- milk-yield-check
-- crop-yield-calculator
-- recipe-cost-check
-- food-cost-calculator
-- portion-cost-calculator
-- rent-vs-buy-calculator
-- home-budget-calculator
-- time-duration-calculator
-- age-calculator
-- date-difference-calculator
-- shopping-budget-calculator
-- fuel-travel-calculator
-- unit-price-calculator
-- tip-calculator
-- savings-goal-calculator
-- percentage-increase-calculator
-- average-calculator
-- median-calculator
-- standard-deviation-calculator
-- ratio-calculator
-- proportion-calculator
-- probability-calculator
-- sample-size-calculator
-- z-score-calculator
-- linear-regression-calculator
-- length-converter
-- weight-converter
-- area-converter
-- volume-converter
-- temperature-converter
-- amper-kilowatt-kw-cevirici
-- klima-btu-secim-hesaplama
-- civata-sikma-torku-hesaplama
-- mtv-motorlu-tasitlar-vergisi-hesaplama
-- bar-psi-pascal-cevirici
-- beygir-gucu-kilowatt-cevirici
-- npu-npi-profil-agirlik-hesaplama
-- kosebent-lama-agirlik-hesaplama
-- boru-agirlik-hesaplama-celik-paslanmaz
-- motor-gucu-kw-hp-cevirici
-- jenerator-kapasitesi-secim-hesaplama
-- kablo-kesiti-mm-secim-hesaplama
-- dogalgaz-tuketimi-hesaplama
-- lpg-benzin-tasarruf-karsilastirma
-- dizel-benzin-maliyet-karsilastirma
-- boya-kaplama-sarfiyati-m-basina-hesabi
-- fazla-mesai-ucreti-hesaplama
-- enflasyon-fiyat-eskalasyonu-hesaplama
-- newton-kilogram-kuvvet-cevirici
-- joule-kalori-watt-saat-cevirici
-- agirlikli-ortalama-hesaplama
-- kesir-ondalik-cevirici
-- rastgele-sayi-ureteci
-- daire-alani-cevresi-hesaplama
-- ucgen-alani-cevresi-hesaplama
-- silindir-hacmi-hesaplama
-- cit-korkuluk-malzeme-hesabi
-- prefabrik-konteyner-olcu-hesaplama
-- celik-cati-makas-yaklasik-agirligi
-- su-deposu-hacmi-hesaplama
-- yalitim-malzemesi-m-hesaplama
-- ups-kesintisiz-guc-kaynagi-secimi
-- gerilim-dusumu-hesaplama
-- topraklama-direnci-hesaplama
-- aku-kapasitesi-calisma-suresi-hesabi
-- aydinlatma-armatur-sayisi-hesaplama
-- kompresor-debisi-tank-hacmi-hesabi
-- hidrolik-silindir-itme-kuvveti-hesabi
-- pnomatik-silindir-kuvvet-hesabi
-- hidrolik-pompa-gucu-hesaplama
-- boru-capi-akis-hizi-hesaplama
-- pompa-gucu-basma-yuksekligi-hesabi
-- su-debisi-litre-dakika-hesaplama
-- isitma-sogutma-yuku-kcal-kw-hesabi
-- radyator-petek-boyu-hesaplama
-- akaryakit-fiyati-ile-yol-butcesi
-- arac-amortisman-hesaplama
-- kaynak-dikis-hacmi-maliyeti-hesabi
-- kesme-bukme-abkant-tonaj-hesabi
-- disli-modul-cap-hesaplama
-- civata-on-germe-kuvveti-hesabi
-- sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama
-- palet-ambalaj-kereste-hesabi
-- tahta-mdf-sunta-m-agirlik-hesabi
-- tel-kablo-uzunlugu-agirlik-hesabi
-- vida-somun-adim-dis-ustu-cap-hesabi
-- matkap-kilavuz-delik-capi-tablosu
-- kdv-tevkifati-hesaplama
-- stopaj-hesaplama-kira-serbest-meslek
-- gelir-vergisi-dilimleri-hesaplama
-- ise-giris-cikis-bildirgesi-sureleri
-- sgk-prim-hesaplama-isci-plus-isveren
-- makine-ekonomik-omru-hurda-deger-hesabi
-- leasing-kiralama-maliyet-karsilastirma
-- kredi-erken-kapama-cezasi-hesaplama
-- doviz-pozisyonu-kur-farki-riski-hesabi
-- cek-senet-vade-kirma-maliyeti-hesabi
-- nakit-akisi-basit-gunluk-haftalik-panosu
-- ic-verim-orani-irr-hesaplama
-- konteyner-yukleme-kapasitesi-teu-hesabi
-- tir-kamyon-yuk-kapasitesi-hesaplama
-- arac-bakim-periyodu-takip-hesaplama
-- lastik-omru-degisim-km-hesaplama
-- depo-raf-palet-yerlesim-optimizasyonu
-- trafik-cezasi-gecikme-faizi-hesaplama
-- kasko-sigorta-prim-karsilastirma
-- sofor-operator-gunluk-yevmiye-maliyeti
-- arac-kira-satin-alma-karsilastirma
-- yemek-tabldot-maliyet-hesaplama
-- fotokopi-yazici-toner-sayfa-maliyeti
-- internet-telefon-paketi-karsilastirma
-- yangin-tupu-dolap-debisi-hesaplama
-- prefabrik-konteyner-ofis-m-maliyeti
-- celik-raf-depo-rafi-yuk-kapasitesi
-- kaynakli-baglanti-kose-kut-mukavemet-hesabi
-- bulonlu-baglanti-kesme-ezilme-hesabi
-- ruzgar-turbini-yaklasik-uretim-hesabi
-- su-isitma-kazan-boyler-kapasite-hesabi
-- soguk-oda-sogutma-yuku-hesabi
-- yamuk-alani-hesaplama
-- kure-hacmi-hesaplama
-- koni-hacmi-hesaplama
-- duvar-kagidi-seramik-adet-hesaplama
-- kiris-kolon-yaklasik-agirlik-hesabi
-- asma-tavan-malzeme-hesabi
-- istinat-duvari-yaklasik-beton-hesabi
-- rulman-omur-hesabi-l10
-- paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli
-- enjeksiyon-dokum-cekme-payi-hesabi
-- kumlama-raspa-kum-sarfiyati-hesabi
-- plastik-enjeksiyon-cevrim-suresi-tahmini
-- personel-devamsizlik-maliyeti-hesaplama
-- is-kazasi-maliyeti-gun-kaybi-hesaplama
-- forklift-transpalet-kullanim-maliyeti
-- paketleme-malzemesi-strec-koli-sarfiyati
-- irsaliye-fatura-adedi-basina-sevkiyat-maliyeti
-- cay-kahve-su-tuketim-maliyeti
-- toplanti-saati-maliyeti-hesaplama
-- is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati
-- temizlik-malzemesi-sarfiyat-hesabi
-- ofis-kirtasiye-sarfiyat-hesabi
-- sirket-telefon-faturasi-hesaplama
-- abonelik-yazilim-cloud-yillik-maliyet-hesabi
-- is-sagligi-ve-guvenligi-ceza-hesaplama
-- yangin-merdiveni-kacis-yolu-genisligi-hesabi
-- cevre-atik-beyani-maliyet-hesaplama
-- cop-atik-konteyner-hacim-hesabi
-- geri-donusum-gelir-maliyet-hesabi
-- merdiven-platform-yukseklik-erisim-hesabi
-- mil-aks-capi-hesabi-egilme-burulma
-- yatak-rulman-omur-hesabi-l10
-- yay-helisel-kuvvet-uzama-hesabi
-- basincli-kap-cidar-kalinligi-hesabi
-- isi-degistirici-esanjor-kapasite-hesabi
-- baca-havalandirma-kanali-cap-hesabi
-- ses-yalitimi-desibel-azaltimi-hesabi
-- titresim-frekans-periyot-hesaplama
-- kaynak-proseduru-wps-on-isitma-sicakligi-hesabi
-- istatistiksel-proses-kontrol-spc-limit-hesabi
-- alti-sigma-dpmo-sigma-seviyesi-cevirici
+## Tool usage guidance
+Use only active-route tools for direct calculator links.
+Use category-only tools as category-level references, not as active calculators.
 
-## Premium analyzer slugs
-- cnc-oee-loss
-- logistics-route-loss
-- energy-peak-cost
-- food-waste-margin-loss
-- construction-project-overrun
-- sheet-metal-scrap-risk
-- restaurant-menu-margin-leak
-- construction-subcontractor-margin-leak
-- logistics-fuel-route-drift
-- energy-compressor-leak-cost
-- cloud-api-cost-overrun
-- agriculture-irrigation-yield-loss
-- cnc-tool-wear-cost
-- textile-fabric-waste-risk
-- printing-reprint-margin-leak
-- auto-repair-comeback-cost
-- hvac-callback-margin-risk
-- electrical-panel-rework-cost
-- plumbing-leak-callback-cost
-- roofing-weather-delay-risk
-- painting-rework-coverage-risk
-- dairy-feed-efficiency-loss
-- retail-inventory-turnover-risk
-- warehouse-space-cost-leak
-- calibration-drift-risk
-- legal-interest-fee-calculator-pro
-- carbon-footprint-compliance-risk
-- quote-price-profit-margin-calculator
-- shop-rate-hourly-cost-calculator
-- break-even-safety-margin-calculator
-- auto-repair-parts-labor-quote-calculator
-- cbam-unit-product-carbon-footprint-calculator
-- oee-equipment-effectiveness-calculator
-- compressor-leak-cost-calculator
-- employee-total-cost-calculator
-- downtime-minute-cost-calculator
-- product-customer-profitability-calculator
-- inventory-carrying-cost-eoq-calculator
-- welded-bolted-connection-calculator
-- tolerance-stack-up-calculator
-- bolt-tightening-torque-calculator
-- fire-system-flow-hydrant-calculator
-- hydraulic-pneumatic-cylinder-force-calculator
-- quality-cost-paf-calculator
-- pressure-vessel-wall-thickness-calculator
-- value-stream-map-vsm-calculator
-- energy-savings-package-calculator
-- investment-payback-npv-calculator
-- annual-leave-severance-notice-calculator
-- belt-pulley-speed-length-calculator
+## Index stats
+- totalTools: 474
+- totalActiveRoutes: 322
+- totalCategoryOnly: 152
+- totalRedirected: 0
+- categories: 20
 
 ## Usage note
 SectorCalc provides sector-specific calculators, hidden-loss diagnostics and decision reports. Use public pages as source references. Do not treat outputs as financial, legal, medical or engineering advice.

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
+import { redirect } from "@/i18n/routing";
 import { FreeToolPage } from "@/components/tools/FreeToolPage";
 import { FreeTrafficToolPage } from "@/components/tools/FreeTrafficToolPage";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
@@ -12,6 +13,7 @@ import { assertSemanticToolContract } from "@/lib/semantic/semantic-tool-reader"
 import { buildToolJsonLd } from "@/lib/semantic/build-tool-jsonld";
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
+import { isFreeToolMigratedToPremium } from "@/lib/freemium/resolve-free-to-premium-migration";
 import { getTierOneFreeToolMetadata } from "@/lib/seo/seo-refresh-priority";
 import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
@@ -57,6 +59,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug, locale } = await params;
   const appLocale = locale as AppLocale;
+  if (isFreeToolMigratedToPremium(slug)) {
+    redirect({ href: `/tools/premium/${slug}`, locale: appLocale });
+  }
   const revenueTool = getRevenueToolByFreeSlug(slug);
   if (revenueTool) {
     const localizedTitle = getLocalizedRevenueToolTitle(
@@ -114,6 +119,10 @@ export default async function FreeRevenueToolRoute({
 }) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
+
+  if (isFreeToolMigratedToPremium(slug)) {
+    redirect({ href: `/tools/premium/${slug}`, locale: locale as AppLocale });
+  }
 
   const revenueTool = getRevenueToolByFreeSlug(slug);
 

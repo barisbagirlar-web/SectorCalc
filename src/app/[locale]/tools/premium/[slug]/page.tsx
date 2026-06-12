@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PremiumToolPage } from "@/components/tools/PremiumToolPage";
+import {
+  MigratedFreePremiumToolSurface,
+  resolveMigratedPremiumToolMetadata,
+} from "@/components/tools/MigratedFreePremiumToolSurface";
 import { SemanticJsonLd } from "@/components/semantic/SemanticJsonLd";
 import { RegionalUnitsSection } from "@/components/regional-units/RegionalUnitsSection";
 import { resolveRegionForLocale } from "@/lib/units/regional-unit-engine";
@@ -14,8 +18,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { assertSemanticToolContract } from "@/lib/semantic/semantic-tool-reader";
 import { buildToolJsonLd } from "@/lib/semantic/build-tool-jsonld";
 import { hasPremiumSmartFormDefinition } from "@/lib/smart-form/premium-smart-form-definitions";
+import { isFreeToolMigratedToPremium } from "@/lib/freemium/resolve-free-to-premium-migration";
+import { listAllPremiumToolRouteSlugs } from "@/lib/tools/free-traffic-routes";
 import {
-  getPremiumRevenueRouteSlugs,
   getRevenueToolByPremiumRouteSlug,
 } from "@/lib/tools/revenue-tools";
 
@@ -31,7 +36,7 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<PremiumToolPageParams[]> {
-  return getPremiumRevenueRouteSlugs().map((slug) => ({ slug }));
+  return listAllPremiumToolRouteSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -40,6 +45,21 @@ export async function generateMetadata({
   params: Promise<PremiumToolRouteParams>;
 }): Promise<Metadata> {
   const { slug, locale } = await params;
+  const appLocale = locale as AppLocale;
+
+  if (isFreeToolMigratedToPremium(slug)) {
+    const migratedMeta = await resolveMigratedPremiumToolMetadata(slug, locale);
+    if (!migratedMeta) {
+      return {};
+    }
+    return createPageMetadata({
+      title: `${migratedMeta.title} | SectorCalc Pro`,
+      description: migratedMeta.description,
+      path: `/tools/premium/${slug}`,
+      locale: appLocale,
+    });
+  }
+
   const tool = getRevenueToolByPremiumRouteSlug(slug);
   if (!tool) {
     return {};
@@ -49,7 +69,7 @@ export async function generateMetadata({
     title: `${tool.paidTitle} | SectorCalc Pro`,
     description: `${tool.paidValue} Premium decision tool for pricing, cost and margin risk.`,
     path: `/tools/premium/${slug}`,
-    locale: locale as AppLocale,
+    locale: appLocale,
   });
 }
 
@@ -60,6 +80,10 @@ export default async function PremiumRevenueToolRoute({
 }) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
+
+  if (isFreeToolMigratedToPremium(slug)) {
+    return <MigratedFreePremiumToolSurface slug={slug} locale={locale} />;
+  }
 
   const tool = getRevenueToolByPremiumRouteSlug(slug);
 

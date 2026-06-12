@@ -5,8 +5,8 @@ import {
   buildSectorToolCatalogGroups,
   DEFAULT_FREE_TRAFFIC_CATEGORY,
 } from "@/lib/catalog/build-catalog-groups";
+import { listPublicFreeTrafficTools } from "@/lib/freemium/resolve-free-to-premium-migration";
 import { FREE_TOOLS } from "@/data/tools";
-import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
 import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
 import {
   buildCategoryPageCatalogGroups,
@@ -66,7 +66,7 @@ export function getCachedFreeTrafficCatalogGroups(
     return hit;
   }
   const groups = buildFreeTrafficCatalogGroups(
-    FREE_TRAFFIC_TOOLS,
+    listPublicFreeTrafficTools(),
     locale,
     resolveCategoryCopy,
     premiumNote,

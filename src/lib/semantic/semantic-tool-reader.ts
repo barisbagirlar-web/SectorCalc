@@ -10,6 +10,8 @@ import {
   resolvePremiumSchemaPainStatement,
 } from "@/lib/i18n/premium-schema-display-i18n";
 import { fillLocaleRecord } from "@/lib/semantic/semantic-locale-utils";
+import { isFinanceLikeTool } from "@/lib/ai/is-finance-like-tool";
+import { getCategorizedToolBySlug } from "@/lib/catalog/build-categorized-tool-index";
 import type {
   SemanticInputParameter,
   SemanticOutputParameter,
@@ -24,12 +26,20 @@ import {
 } from "@/lib/tools/free-traffic-catalog";
 import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import {
+  isFreeToolMigratedToPremium,
+  listMigratedPremiumRouteSlugs,
+} from "@/lib/freemium/resolve-free-to-premium-migration";
+import {
   getPremiumRevenueRouteSlugs,
   getRevenueToolByFreeSlug,
   getRevenueToolByPremiumRouteSlug,
   type RevenueTool,
   type RevenueToolInput,
 } from "@/lib/tools/revenue-tools";
+
+function resolveSemanticGlobalCategory(slug: string, fallback: string): string {
+  return getCategorizedToolBySlug(slug)?.categorySlug ?? fallback;
+}
 
 function mapRevenueInputType(type: RevenueToolInput["type"]): SemanticValueType {
   if (type === "select") {
@@ -109,13 +119,16 @@ function resolveArchetype(
 
 function resolveFinancialCandidate(
   toolSlug: string,
-  archetype: SemanticToolContract["archetype"],
+  titleEn: string,
+  descriptionEn: string,
+  category: string,
 ): boolean {
-  return (
-    archetype === "cost-margin" ||
-    archetype === "finance-hr" ||
-    /quote|pricing|cost|margin|loan|payment|investment|npv|tax|personnel|payroll|bid|profit/i.test(toolSlug)
-  );
+  return isFinanceLikeTool({
+    slug: toolSlug,
+    title: titleEn,
+    description: descriptionEn,
+    categorySlug: category,
+  });
 }
 
 function buildFreeToolContract(slug: string): SemanticToolContract | null {
@@ -140,7 +153,7 @@ function buildFreeToolContract(slug: string): SemanticToolContract | null {
     return copy.description ?? traffic?.description ?? registryTitle;
   });
 
-  const category = traffic?.category ?? revenue?.sector ?? "generic";
+  const category = resolveSemanticGlobalCategory(slug, traffic?.category ?? revenue?.sector ?? "generic");
   const archetype = resolveArchetype(slug, "free", category, revenue?.sector);
   const inputParameters = revenue
     ? buildRevenueInputs(revenue.freeInputs)
@@ -169,7 +182,12 @@ function buildFreeToolContract(slug: string): SemanticToolContract | null {
     imagePath: "/img/brand/sectorcalc-logo.png",
     inputParameters,
     outputParameters,
-    isFinancialServiceCandidate: resolveFinancialCandidate(slug, archetype),
+    isFinancialServiceCandidate: resolveFinancialCandidate(
+      slug,
+      title.en ?? registryTitle,
+      description.en ?? registryTitle,
+      category,
+    ),
     isPublic: true,
   };
 }
@@ -195,15 +213,33 @@ function buildPremiumRevenueFromSpec(tool: RevenueTool, slug: string): SemanticT
     title,
     description,
     tier: "premium",
-    category: tool.sector,
+    category: resolveSemanticGlobalCategory(slug, tool.sector),
     sector: tool.sector,
     archetype,
     urlPath: `/tools/premium/${slug}`,
     imagePath: "/img/brand/sectorcalc-logo.png",
     inputParameters,
     outputParameters,
-    isFinancialServiceCandidate: resolveFinancialCandidate(slug, archetype),
+    isFinancialServiceCandidate: resolveFinancialCandidate(
+      slug,
+      title.en ?? tool.paidTitle,
+      description.en ?? tool.paidValue,
+      resolveSemanticGlobalCategory(slug, tool.sector),
+    ),
     isPublic: true,
+  };
+}
+
+function buildMigratedPremiumContract(slug: string): SemanticToolContract | null {
+  const freeContract = buildFreeToolContract(slug);
+  if (!freeContract) {
+    return null;
+  }
+
+  return {
+    ...freeContract,
+    tier: "premium",
+    urlPath: `/tools/premium/${slug}`,
   };
 }
 
@@ -264,14 +300,19 @@ function buildPremiumSchemaContract(slug: string): SemanticToolContract | null {
     title,
     description,
     tier: "premium-schema",
-    category: schema.category,
+    category: resolveSemanticGlobalCategory(slug, schema.category),
     sector: schema.sectorSlug,
     archetype,
     urlPath: `/tools/premium-schema/${slug}`,
     imagePath: "/img/brand/sectorcalc-logo.png",
     inputParameters,
     outputParameters,
-    isFinancialServiceCandidate: resolveFinancialCandidate(slug, archetype),
+    isFinancialServiceCandidate: resolveFinancialCandidate(
+      slug,
+      title.en ?? schema.name,
+      description.en ?? schema.painStatement,
+      resolveSemanticGlobalCategory(slug, schema.category),
+    ),
     isPublic: true,
   };
 }
@@ -293,7 +334,17 @@ function buildContractRegistry(): Map<string, SemanticToolContract> {
     }
   }
 
+  for (const slug of listMigratedPremiumRouteSlugs()) {
+    const contract = buildMigratedPremiumContract(slug);
+    if (contract) {
+      registry.set(`premium:${slug}`, contract);
+    }
+  }
+
   for (const slug of listAllFreeToolSlugs()) {
+    if (isFreeToolMigratedToPremium(slug)) {
+      continue;
+    }
     const contract = buildFreeToolContract(slug);
     if (contract) {
       registry.set(`free:${slug}`, contract);

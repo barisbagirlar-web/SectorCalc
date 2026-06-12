@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "retrievalMode": "metadata-keyword-rag-lite",
+  "futureEmbeddingReady": true,
+  "maxRecommendedResults": 8,
+  "searchFields": [
+    "slug",
+    "title",
+    "description",
+    "keywords",
+    "intent",
+    "industries",
+    "categorySlug",
+    "categoryTitle",
+    "formula",
+    "pain"
+  ],
+  "rankingWeights": {
+    "exactSlug": 100,
+    "exactTitle": 95,
+    "normalizedTitle": 88,
+    "aliasMatch": 84,
+    "categoryMatch": 72,
+    "intentMatch": 68,
+    "keywordMatch": 64,
+    "industryMatch": 52,
+    "descriptionMatch": 36,
+    "formulaMatch": 24,
+    "painMatch": 24,
+    "localeBoost": 12,
+    "tierFilterBoost": 8,
+    "embeddingSimilarity": 0
+  },
+  "embeddingSimilarity": {
+    "status": "reserved",
+    "enabled": false,
+    "note": "Will be enabled when vector or embedding retrieval is added."
+  }
+}

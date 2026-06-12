@@ -4386,9 +4386,20 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 }
 
 .sc-home-omni__hero {
-  padding-block: clamp(2rem, 5vw, 3.5rem);
+  min-height: clamp(560px, 68vh, 720px);
+  padding: 48px 0 44px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
   background: var(--sc-surface);
   border-bottom: 1px solid var(--sc-border);
+}
+
+.sc-home-omni__hero > .sc-pro-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 40px;
 }
 
 .sc-home-omni__hero-inner {
@@ -4397,30 +4408,24 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 
 .sc-home-omni__hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-
-@media (min-width: 1024px) {
-  .sc-home-omni__hero-grid {
-    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
-    gap: 2rem;
-  }
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.88fr);
+  gap: 42px;
+  align-items: center;
 }
 
 .sc-home-omni__hero-main {
   min-width: 0;
+  max-width: 720px;
 }
 
 .sc-home-omni__headline--wide {
-  max-width: 22ch;
+  max-width: 680px;
 }
 
 .sc-home-omni__supporting {
-  margin: 0.875rem 0 0;
-  max-width: 42rem;
-  font-size: 0.9375rem;
+  margin: 18px 0 0;
+  max-width: 650px;
+  font-size: 16.5px;
   line-height: 1.55;
   color: var(--sc-muted);
 }
@@ -4658,29 +4663,30 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 }
 
 .sc-home-omni__hero-highlight {
-  margin: 0;
-  font-size: 0.8125rem;
+  margin: 0 0 14px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--sc-copper);
 }
 
 .sc-home-omni__headline {
-  margin: 0.625rem 0 0;
+  margin: 0;
   font-family: var(--font-barlow), sans-serif;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(40px, 4.4vw, 58px);
   font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
+  letter-spacing: -0.045em;
+  line-height: 1.06;
   color: var(--sc-text);
-  max-width: 18ch;
+  max-width: 680px;
 }
 
 .sc-home-omni__subtitle {
-  margin: 1rem 0 0;
-  max-width: 40rem;
-  font-size: 1rem;
+  margin: 20px 0 0;
+  max-width: 650px;
+  font-size: 16.5px;
   line-height: 1.55;
   color: var(--sc-muted);
 }
@@ -4696,45 +4702,183 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
 }
 
 .sc-home-omni__search {
-  margin-top: 1.25rem;
+  margin-top: 28px;
   max-width: 100%;
+}
+
+.sc-home-omni__search .sc-search-row {
+  padding-top: 0;
 }
 
 .sc-home-omni__search .sc-search-wrapper,
 .sc-home-omni__search .sc-search-wrap {
-  max-width: 620px;
+  position: relative;
+  width: 100%;
+  max-width: 560px;
 }
 
 .sc-home-omni__search .sc-search-icon {
+  position: absolute;
   left: 18px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
   z-index: 2;
 }
 
 .sc-home-omni__search .sc-catalog-search__input,
 .sc-home-omni__search .sc-search-input {
-  min-height: 56px;
-  padding: 16px 42px 16px 54px;
-  font-size: 15px;
-  line-height: 1.3;
+  width: 100%;
+  min-height: 52px;
+  padding: 15px 46px 15px 52px;
+  font-size: 14.5px;
+  line-height: 1.35;
   border-radius: 8px;
-  border-color: #cbd5e1;
-  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+  outline: none;
   box-sizing: border-box;
+  box-shadow: none;
+}
+
+.sc-home-omni__search .sc-search-input::placeholder,
+.sc-home-omni__search .sc-catalog-search__input::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.sc-home-omni__search .sc-search-input:focus,
+.sc-home-omni__search .sc-catalog-search__input:focus {
+  border-color: #4a5cf5;
+  box-shadow: 0 0 0 3px rgba(74, 92, 245, 0.1);
+}
+
+.sc-home-omni__hero .sc-home-omni__hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.sc-home-omni__hero .sc-home-omni__hero-actions .sc-cta-primary,
+.sc-home-omni__hero .sc-home-omni__hero-actions .sc-cta-secondary {
+  min-height: 50px;
+  padding: 14px 24px;
+  font-size: 13px;
+  line-height: 1;
+}
+
+@media (max-width: 1100px) {
+  .sc-home-omni__hero {
+    min-height: auto;
+    padding: 48px 0 40px;
+  }
+
+  .sc-home-omni__hero > .sc-pro-container {
+    padding-inline: 32px;
+  }
+
+  .sc-home-omni__hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .sc-home-omni__hero-main {
+    max-width: 760px;
+  }
+
+  .sc-home-omni__headline,
+  .sc-home-omni__headline--wide {
+    max-width: 720px;
+    font-size: clamp(38px, 6vw, 52px);
+  }
+
+  .sc-home-omni__subtitle,
+  .sc-home-omni__supporting {
+    max-width: 700px;
+  }
+
+  .sc-home-omni__search .sc-search-wrapper,
+  .sc-home-omni__search .sc-search-wrap {
+    max-width: 620px;
+  }
 }
 
 @media (max-width: 768px) {
+  .sc-home-omni__hero {
+    padding: 34px 0 30px;
+  }
+
+  .sc-home-omni__hero > .sc-pro-container {
+    padding-inline: 20px;
+  }
+
+  .sc-home-omni__hero-grid {
+    gap: 24px;
+  }
+
+  .sc-home-omni__hero-highlight {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+
+  .sc-home-omni__headline,
+  .sc-home-omni__headline--wide {
+    font-size: clamp(31px, 9vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+  }
+
+  .sc-home-omni__subtitle {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .sc-home-omni__supporting {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .sc-home-omni__search {
+    margin-top: 22px;
+  }
+
+  .sc-home-omni__search .sc-search-wrapper,
+  .sc-home-omni__search .sc-search-wrap {
+    max-width: 100%;
+  }
+
   .sc-home-omni__search .sc-search-icon {
     left: 16px;
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
   }
 
   .sc-home-omni__search .sc-catalog-search__input,
   .sc-home-omni__search .sc-search-input {
-    min-height: 54px;
-    padding-left: 50px;
-    padding-right: 38px;
+    min-height: 50px;
+    padding-left: 48px;
+    padding-right: 40px;
     font-size: 14px;
+  }
+
+  .sc-home-omni__hero .sc-home-omni__hero-actions {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .sc-home-omni__hero .sc-home-omni__hero-actions .sc-cta-primary,
+  .sc-home-omni__hero .sc-home-omni__hero-actions .sc-cta-secondary {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    padding: 14px 18px;
   }
 }
 

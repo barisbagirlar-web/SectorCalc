@@ -1,0 +1,151 @@
+.sc-premium-sector-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .sc-premium-sector-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .sc-premium-sector-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sc-premium-sector-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 24px 22px;
+}
+
+.sc-premium-sector-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+}
+
+.sc-premium-sector-card__title {
+  margin: 0;
+  color: #0f172a;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.sc-premium-sector-card__summary {
+  margin: 0;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.sc-premium-sector-card__counts {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.sc-premium-sector-card__cta {
+  margin-top: auto;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.sc-premium-tool-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .sc-premium-tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1180px) {
+  .sc-premium-tool-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sc-premium-tool-card {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  min-height: 132px;
+}
+
+.sc-premium-tool-card__link {
+  display: block;
+  padding: 18px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sc-premium-tool-card--pending {
+  padding: 18px;
+  background: #f8fafc;
+}
+
+.sc-premium-tool-card__title {
+  margin: 0;
+  color: #0f172a;
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 650;
+}
+
+.sc-premium-tool-card__description {
+  margin: 8px 0 0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.sc-premium-tool-card__meta {
+  margin: 12px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sc-premium-category-section {
+  display: grid;
+  gap: 32px;
+}
+
+.sc-premium-category-section__block {
+  display: grid;
+  gap: 16px;
+}
+
+.sc-premium-category-section__heading {
+  margin: 0;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}

@@ -1,17 +1,16 @@
 import { sanitizeJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
+import { isFinanceLikeTool } from "@/lib/ai/is-finance-like-tool";
 import { absoluteLocalizedUrl, SITE_URL } from "@/lib/semantic/site-url";
 import { pickLocaleText } from "@/lib/semantic/semantic-locale-utils";
 import type { SemanticToolContract } from "@/lib/semantic/tool-semantic-types";
 
 export function shouldUseFinancialService(tool: SemanticToolContract): boolean {
-  return (
-    tool.isFinancialServiceCandidate ||
-    tool.archetype === "cost-margin" ||
-    tool.archetype === "finance-hr" ||
-    /quote|pricing|cost|margin|loan|payment|investment|npv|tax|personnel|payroll|bid|profit/i.test(
-      tool.toolSlug,
-    )
-  );
+  return isFinanceLikeTool({
+    slug: tool.toolSlug,
+    title: pickLocaleText(tool.title, "en"),
+    description: pickLocaleText(tool.description, "en"),
+    categorySlug: tool.category,
+  });
 }
 
 export function buildFinancialServiceSchema(
