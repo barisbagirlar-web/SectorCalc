@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Link as I18nLink } from "@/i18n/routing";
 import { ScIcon } from "@/components/icons/ScIcon";
 import { UI_ICON } from "@/lib/icons/icon-registry";
@@ -21,7 +22,13 @@ export type IndustriesOmniHubProps = {
 
 const DEFAULT_INDUSTRY_CATEGORY: IndustryCategory = "heavy-industry";
 
-function SectorListRows({ items }: { items: readonly CatalogGroup["items"][number][] }) {
+function SectorListRows({
+  items,
+  sectorPackBadge,
+}: {
+  items: readonly CatalogGroup["items"][number][];
+  sectorPackBadge: string;
+}) {
   return (
     <ul className="sc-omni-hub__tool-list">
       {items.map((item) => (
@@ -30,7 +37,7 @@ function SectorListRows({ items }: { items: readonly CatalogGroup["items"][numbe
             <span className="sc-omni-hub__tool-copy min-w-0 flex-1">
               <span className="sc-omni-hub__tool-title-row">
                 <span className="sc-omni-hub__tool-title">{item.title}</span>
-                <span className="sc-omni-hub__sector-pack-badge">Sector pack</span>
+                <span className="sc-omni-hub__sector-pack-badge">{sectorPackBadge}</span>
               </span>
               <span className="sc-omni-hub__tool-desc">{item.description}</span>
               {item.meta ? <span className="sc-omni-hub__tool-meta">{item.meta}</span> : null}
@@ -48,12 +55,14 @@ function SectorListRows({ items }: { items: readonly CatalogGroup["items"][numbe
 }
 
 export function IndustriesOmniHub({ groups, sectorCount }: IndustriesOmniHubProps) {
+  const t = useTranslations("catalogExplorer.omniHub.industries");
+  const tLabels = useTranslations("catalogExplorer.labels.industries");
   const toolsRef = useRef<HTMLElement>(null);
   const [selected, setSelected] = useState<string>(DEFAULT_INDUSTRY_CATEGORY);
 
   const visibleGroups = useMemo(
     () => groups.filter((group) => group.items.length > 0),
-    [groups]
+    [groups],
   );
 
   const resolvedSelected = visibleGroups.some((group) => group.id === selected)
@@ -74,7 +83,7 @@ export function IndustriesOmniHub({ groups, sectorCount }: IndustriesOmniHubProp
           },
         ];
       }),
-    []
+    [],
   );
 
   const selectCategory = (categoryId: string) => {
@@ -88,26 +97,21 @@ export function IndustriesOmniHub({ groups, sectorCount }: IndustriesOmniHubProp
   return (
     <div className="sc-omni-hub sc-omni-hub--industries">
       <header className="sc-omni-hub__hero">
-        <p className="sc-pro-eyebrow">Industry packs</p>
+        <p className="sc-pro-eyebrow">{t("eyebrow")}</p>
         <h1 className="sc-omni-hub__headline">
-          <span className="sc-omni-hub__headline-lead">Loss starts across</span>
+          <span className="sc-omni-hub__headline-lead">{t("headlineLead")}</span>
           <span className="sc-omni-hub__headline-stat">{sectorCount}</span>
-          <span className="sc-omni-hub__headline-tail">active sectors</span>
+          <span className="sc-omni-hub__headline-tail">{t("headlineTail")}</span>
         </h1>
-        <p className="sc-pro-lead sc-omni-hub__sub">
-          Free quick check plus premium decision report in every pack — pick your sector group
-          first.
-        </p>
+        <p className="sc-pro-lead sc-omni-hub__sub">{t("subtitle")}</p>
       </header>
 
       {featuredLinks.length > 0 ? (
         <section className="sc-omni-hub__featured" aria-labelledby="industries-featured-heading">
           <h2 id="industries-featured-heading" className="sc-omni-hub__section-title">
-            Featured sectors
+            {t("featuredTitle")}
           </h2>
-          <p className="sc-omni-hub__section-lead">
-            High-traffic industry packs with free tools and premium calculators.
-          </p>
+          <p className="sc-omni-hub__section-lead">{t("featuredLead")}</p>
           <ul className="sc-omni-hub__featured-grid">
             {featuredLinks.map((item) => (
               <li key={item.href}>
@@ -122,7 +126,7 @@ export function IndustriesOmniHub({ groups, sectorCount }: IndustriesOmniHubProp
 
       <section className="sc-omni-hub__categories" aria-labelledby="industries-categories-heading">
         <h2 id="industries-categories-heading" className="sc-omni-hub__section-title">
-          Sector groups
+          {t("sectorGroupsTitle")}
         </h2>
         <ul className="sc-omni-hub__category-grid">
           {getAllIndustryCategories()
@@ -147,7 +151,7 @@ export function IndustriesOmniHub({ groups, sectorCount }: IndustriesOmniHubProp
                     onClick={() => selectCategory(category)}
                   >
                     <span className="sc-omni-hub__category-count">
-                      {count} {count === 1 ? "sector" : "sectors"}
+                      {tLabels("countLabel", { count })}
                     </span>
                     <span className="sc-omni-hub__category-label">
                       {INDUSTRY_CATEGORY_LABELS[category]}
@@ -173,7 +177,7 @@ export function IndustriesOmniHub({ groups, sectorCount }: IndustriesOmniHubProp
               {activeGroup.label}
             </h2>
             <p className="sc-omni-hub__tools-lead">{activeGroup.description}</p>
-            <SectorListRows items={activeGroup.items} />
+            <SectorListRows items={activeGroup.items} sectorPackBadge={t("sectorPackBadge")} />
           </div>
         ) : null}
 
@@ -191,7 +195,7 @@ export function IndustriesOmniHub({ groups, sectorCount }: IndustriesOmniHubProp
                 {group.label}
               </h2>
               <p className="sc-omni-hub__tools-lead">{group.description}</p>
-              <SectorListRows items={group.items} />
+              <SectorListRows items={group.items} sectorPackBadge={t("sectorPackBadge")} />
             </section>
           ))}
       </section>

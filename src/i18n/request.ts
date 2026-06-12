@@ -5,6 +5,7 @@ import {
   formatMissingTranslationReport,
   mergeLocaleMessages,
 } from "@/lib/i18n/merge-locale-messages";
+import { collectLocaleKeyParityGaps } from "@/lib/locale-center/locale-dictionary";
 
 async function loadManufacturingOsMessages(locale: string) {
   try {
@@ -59,6 +60,15 @@ export default getRequestConfig(async ({ requestLocale }) => {
   if (locale !== "en") {
     const missingKeys = collectMissingTranslationKeys(enMessages, localeMessages, locale);
     reportMissingTranslations(locale, missingKeys);
+  }
+
+  if (process.env.LOCALE_CENTER_STRICT === "1") {
+    const parityGaps = collectLocaleKeyParityGaps();
+    if (parityGaps.length > 0) {
+      throw new Error(
+        `[locale-center] ${parityGaps.length} message key parity gap(s). Run npm run audit:locale-center`,
+      );
+    }
   }
 
   return {
