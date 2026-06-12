@@ -343,6 +343,44 @@
     "discoveryFooter": {
       "freeToolsLead": "Brauchen Sie eine tiefere Berechnung?",
       "freeToolsCta": "Premium-Rechner ansehen"
+    },
+    "functionCategories": {
+      "oee-productivity": {
+        "label": "OEE & Produktivität",
+        "description": "Rüstzeit, Taktzeit, Maschinensätze und Shopfloor-Durchsatz."
+      },
+      "scrap-waste": {
+        "label": "Ausschuss, Verschwendung & Materialverlust",
+        "description": "Ausschussquote, Materialverlust, Ertragsverlust und Nacharbeit."
+      },
+      "cost-margin": {
+        "label": "Kosten, Marge & Rentabilität",
+        "description": "Marge, Break-even, Stückkosten, Rezept- und Menügewinnprüfungen."
+      },
+      "routing-logistics": {
+        "label": "Route, Logistik & Kraftstoff",
+        "description": "Routenkosten, Kraftstoff, Fracht, Volumengewicht und Liefermarge."
+      },
+      "energy-carbon": {
+        "label": "Energie, CO₂ & Compliance",
+        "description": "kWh-Kosten, Spitzenlast, CO₂-Fußabdruck und Compliance-Risiko."
+      },
+      "measurement-units": {
+        "label": "Messung, Kalibrierung & Einheiten",
+        "description": "Einheitenumrechnung, Toleranzabweichung, Kalibrierungsrisiko und Statistik."
+      },
+      "finance-business": {
+        "label": "Finanzen & Unternehmen",
+        "description": "Kredite, Zinsen, MwSt., Personalkosten und Cashflow-Lücken."
+      },
+      "construction-field": {
+        "label": "Bau & Baustellenkalkulation",
+        "description": "Beton, Dach, Farbe, Fliesen und Projektkostenschätzungen."
+      },
+      "daily-practical": {
+        "label": "Alltags- & Praxisrechner",
+        "description": "Budget, Reise, Trinkgeld und Datumsrechner für den Alltag."
+      }
     }
   },
   "freeTrafficCatalog": {
@@ -476,7 +514,12 @@
       "faqPremiumTitle": "Wann sollte ich einen Premium-Rechner nutzen?",
       "faqPremiumAnswer": "Nutzen Sie einen Premium-Rechner, wenn die Schätzung Preise, Betrieb oder Management-Entscheidungen beeinflusst und Sie versteckte Treiber, Schwellen und exportfähige Berichte benötigen.",
       "relatedPremiumTitle": "Verwandter Premium-Rechner",
-      "relatedPremiumCta": "Verwandten Premium-Rechner ansehen"
+      "relatedPremiumCta": "Verwandten Premium-Rechner ansehen",
+      "decidesBody": "Nutzen Sie diesen Rechner, wenn Sie entscheiden müssen, ob die Eingaben in akzeptablen Risikobändern liegen, welcher Treiber zuerst geprüft werden soll und ob Sie vor Wiederholung neu kalkulieren oder umplanen sollten.",
+      "reportBullet1": "Executive Summary mit Schwellenstatus",
+      "reportBullet2": "Aufschlüsselung versteckter Verlusttreiber",
+      "reportBullet3": "Empfohlene Maßnahmen und Annahmenhinweise",
+      "reportBullet4": "Exportfähiges PDF und CSV bei bezahltem Zugang"
     }
   },
   "trust": {

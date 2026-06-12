@@ -50,7 +50,7 @@ export function FreeToolResultDisplay({
  toolRequested: paidTitle,
  industry: industryName,
  plan: "single_report",
- pagePath: pathname,
+ pagePath: pathname ?? "/",
  });
  };
 

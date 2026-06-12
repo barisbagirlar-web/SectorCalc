@@ -29,7 +29,7 @@ export function LeadIntentProvider({ children }: { children: ReactNode }) {
  (ctx: LeadModalOpenContext) => {
  setContext({
  ...ctx,
- pagePath: ctx.pagePath ?? pathname,
+ pagePath: ctx.pagePath ?? pathname ?? "/",
  });
  setIsOpen(true);
  },

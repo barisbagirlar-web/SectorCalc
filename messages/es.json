@@ -343,6 +343,44 @@
     "discoveryFooter": {
       "freeToolsLead": "¿Necesita un cálculo más detallado?",
       "freeToolsCta": "Ver calculadoras premium"
+    },
+    "functionCategories": {
+      "oee-productivity": {
+        "label": "OEE y productividad",
+        "description": "Tiempo de preparación, ciclo, tarifas de máquina y rendimiento en planta."
+      },
+      "scrap-waste": {
+        "label": "Merma, desperdicio y pérdida de material",
+        "description": "Tasa de merma, desperdicio, pérdida de rendimiento y reproceso."
+      },
+      "cost-margin": {
+        "label": "Coste, margen y rentabilidad",
+        "description": "Margen, punto de equilibrio, coste unitario y menú/receta."
+      },
+      "routing-logistics": {
+        "label": "Ruta, logística y combustible",
+        "description": "Coste de ruta, combustible, flete, volumen y margen de entrega."
+      },
+      "energy-carbon": {
+        "label": "Energía, carbono y cumplimiento",
+        "description": "Coste kWh, punta, huella de carbono y exposición normativa."
+      },
+      "measurement-units": {
+        "label": "Medición, calibración y unidades",
+        "description": "Conversión de unidades, deriva de tolerancia, calibración y estadística."
+      },
+      "finance-business": {
+        "label": "Finanzas y empresa",
+        "description": "Préstamos, interés, IVA, coste laboral y brechas de caja."
+      },
+      "construction-field": {
+        "label": "Construcción y obra",
+        "description": "Hormigón, cubierta, pintura, baldosa y estimaciones de proyecto."
+      },
+      "daily-practical": {
+        "label": "Calculadoras prácticas diarias",
+        "description": "Presupuesto, viaje, propina y calculadoras de fechas cotidianas."
+      }
     }
   },
   "freeTrafficCatalog": {
@@ -476,7 +514,12 @@
       "faqPremiumTitle": "¿Cuándo usar una calculadora premium?",
       "faqPremiumAnswer": "Use una calculadora premium cuando la estimación afecte precios, operaciones o decisiones de gestión y necesite impulsores ocultos, umbrales e informes exportables.",
       "relatedPremiumTitle": "Calculadora premium relacionada",
-      "relatedPremiumCta": "Ver la calculadora premium relacionada"
+      "relatedPremiumCta": "Ver la calculadora premium relacionada",
+      "decidesBody": "Use esta calculadora cuando deba decidir si las entradas están en bandas de exposición aceptables, qué factor investigar primero y si debe repricing o replanificar antes de repetir el trabajo.",
+      "reportBullet1": "Resumen ejecutivo con estado de umbral",
+      "reportBullet2": "Desglose de impulsores de pérdida ocultos",
+      "reportBullet3": "Acciones sugeridas y notas de supuestos",
+      "reportBullet4": "PDF y CSV exportables con acceso de pago"
     }
   },
   "trust": {

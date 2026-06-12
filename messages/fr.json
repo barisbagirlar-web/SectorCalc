@@ -343,6 +343,44 @@
     "discoveryFooter": {
       "freeToolsLead": "Besoin d'un calcul plus détaillé ?",
       "freeToolsCta": "Voir les calculateurs premium"
+    },
+    "functionCategories": {
+      "oee-productivity": {
+        "label": "OEE et productivité",
+        "description": "Temps de réglage, temps de cycle, taux machine et débit atelier."
+      },
+      "scrap-waste": {
+        "label": "Rebut, gaspillage et perte matière",
+        "description": "Taux de rebut, perte matière, perte de rendement et reprise."
+      },
+      "cost-margin": {
+        "label": "Coût, marge et rentabilité",
+        "description": "Marge, seuil de rentabilité, coût unitaire et contrôles menu/recette."
+      },
+      "routing-logistics": {
+        "label": "Route, logistique et carburant",
+        "description": "Coût de route, carburant, fret, volumétrie et marge livraison."
+      },
+      "energy-carbon": {
+        "label": "Énergie, carbone et conformité",
+        "description": "Coût kWh, pointe, empreinte carbone et exposition conformité."
+      },
+      "measurement-units": {
+        "label": "Mesure, étalonnage et unités",
+        "description": "Conversion d'unités, dérive de tolérance, risque d'étalonnage et statistiques."
+      },
+      "finance-business": {
+        "label": "Finance et entreprise",
+        "description": "Prêts, intérêts, TVA, coût salarial et écarts de trésorerie."
+      },
+      "construction-field": {
+        "label": "Construction et chantier",
+        "description": "Béton, toiture, peinture, carrelage et estimations de projet."
+      },
+      "daily-practical": {
+        "label": "Calculatrices pratiques du quotidien",
+        "description": "Budget, voyage, pourboire et calculs de dates courants."
+      }
     }
   },
   "freeTrafficCatalog": {
@@ -476,7 +514,12 @@
       "faqPremiumTitle": "Quand utiliser un calculateur premium ?",
       "faqPremiumAnswer": "Utilisez un calculateur premium lorsque l'estimation affecte les prix, les opérations ou les décisions de gestion et que vous avez besoin de facteurs cachés, de seuils et de rapports exportables.",
       "relatedPremiumTitle": "Calculateur premium associé",
-      "relatedPremiumCta": "Voir le calculateur premium associé"
+      "relatedPremiumCta": "Voir le calculateur premium associé",
+      "decidesBody": "Utilisez ce calculateur pour décider si les entrées restent dans des bandes d'exposition acceptables, quel facteur investiguer en premier et s'il faut repricer ou replanifier avant de recommencer.",
+      "reportBullet1": "Résumé exécutif avec statut de seuil",
+      "reportBullet2": "Décomposition des facteurs de perte cachés",
+      "reportBullet3": "Actions suggérées et notes d'hypothèses",
+      "reportBullet4": "PDF et CSV exportables avec accès payant"
     }
   },
   "trust": {

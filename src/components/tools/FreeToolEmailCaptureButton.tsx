@@ -21,7 +21,7 @@ export function FreeToolEmailCaptureButton({
  source="premium_unlock"
  plan="single_report"
  toolRequested={`${toolTitle} — free check risk breakdown`}
- pagePath={pathname}
+ pagePath={pathname ?? "/"}
  className={className}
  >
  {label}

@@ -8,6 +8,6 @@ export function isAppLocale(value: string): value is AppLocale {
 }
 
 /** Path without locale prefix — English root paths unchanged. */
-export function stripLocalePrefix(pathname: string): string {
+export function stripLocalePrefix(pathname: string | null | undefined): string {
   return stripLocaleFromPath(pathname);
 }

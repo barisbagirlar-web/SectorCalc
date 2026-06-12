@@ -27,7 +27,6 @@
       "**/*.log",
       ".git/**"
     ],
-    "predeploy": ["npm run build"],
     "frameworksBackend": {
       "region": "us-central1",
       "memory": "512MiB",

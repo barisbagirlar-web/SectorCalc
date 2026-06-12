@@ -96,7 +96,10 @@ export function isPrefixedLocalePath(pathname: string): boolean {
   return locale !== null && locale !== ROOT_LOCALE;
 }
 
-export function stripLocaleFromPath(pathname: string): string {
+export function stripLocaleFromPath(pathname: string | null | undefined): string {
+  if (!pathname) {
+    return "/";
+  }
   const locale = parseLocaleFromPath(pathname);
   if (!locale) {
     return pathname;
