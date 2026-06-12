@@ -304,7 +304,7 @@
         "free-tools": "Ücretsiz hesaplayıcı ara...",
         "premium-tools": "Premium hesaplayıcı ara...",
         "industries": "Sektör hesaplayıcısı ara...",
-        "homepage": "Hesaplayıcı ara…"
+        "homepage": "Hangi sektör, maliyet veya teknik hesabı yapmak istiyorsunuz?"
       },
       "noResults": "Eşleşen araç bulunamadı.",
       "moreResults": "+ {count} diğer sonuç",
@@ -996,116 +996,287 @@
   },
   "homepageHybrid": {
     "meta": {
-      "title": "SectorCalc — Ücretsiz ve premium sektör hesaplayıcıları",
-      "description": "Maliyet, fire, marj, enerji, rota, inşaat ve operasyon hesaplarını tek platformda toplayan sektör odaklı hesaplama araçları."
+      "title": "SectorCalc | Üretim, Sanayi ve İşletmeler İçin Sektörel Hesap Makineleri",
+      "description": "SectorCalc; üretim, imalat, sanayi, atölye, teknik ekipler ve işletmeler için maliyet, fire, marj, enerji, stok, rota, işçilik ve operasyon hesapları sunan ücretsiz ve premium sektörel hesap makinesi platformudur."
     },
     "hero": {
-      "headline": "İşletmenizdeki hesapları daha hızlı ve doğru yapın",
-      "highlight": "Ücretsiz ve premium sektör hesaplayıcıları",
-      "subtitle": "SectorCalc; maliyet, fire, marj, enerji, rota, inşaat, finans ve operasyon hesaplarını tek yerde toplayan sektör odaklı hesaplama platformudur.",
-      "ctaPrimary": "Ücretsiz Hesaplayıcılar",
-      "ctaSecondary": "Premium Hesaplayıcılar",
-      "toolCount": "{count}+ hesaplama aracı"
+      "highlight": "SEKTÖREL HESAP MAKİNESİ PLATFORMU",
+      "headline": "Üretimden sanayiye, işletmenizin kritik hesaplarını tek yerde görün",
+      "subtitle": "SectorCalc; üretim, imalat, sanayi, atölye, mühendislik, inşaat, lojistik, enerji, finans ve operasyon ekipleri için hazırlanmış ücretsiz ve premium sektörel hesap makineleri sunar. Maliyet, fire, marj, stok, rota, işçilik, enerji ve teknik hesapları daha görünür, ölçülebilir ve karşılaştırılabilir hale getirir.",
+      "supporting": "Basit ölçüm ve dönüşüm hesapları ücretsizdir. Teklif, fire, shop rate, OEE, karbon, stok, personel, duruş ve operasyon kaybı gibi kritik hesaplarda premium hesaplayıcılar daha fazla girdi ve karar özeti sunar.",
+      "ctaPrimary": "Ücretsiz Sektör Hesaplayıcılarını Aç",
+      "ctaSecondary": "Premium Hesaplayıcıları İncele",
+      "panelTitle": "Sektörel hesaplama alanları",
+      "panelItems": {
+        "production": "Üretim ve imalat",
+        "industrial": "Sanayi ve atölyeler",
+        "technical": "Teknik ve mühendislik hesapları",
+        "construction": "İnşaat ve saha",
+        "logistics": "Lojistik ve sevkiyat",
+        "energy": "Enerji ve karbon",
+        "finance": "Finans ve İK",
+        "scrapMargin": "Fire, marj ve operasyon kaybı"
+      }
     },
-    "categories": {
-      "title": "Hesaplama alanına göre keşfet",
-      "subtitle": "Önce ihtiyacınız olan maliyet, ölçüm veya karar türünü seçin.",
-      "countLabel": "{count} hesaplayıcı",
+    "coverage": {
+      "title": "Sektörel hesap makineleri hangi alanları kapsar?",
+      "subtitle": "SectorCalc, sadece tekil hesap makineleri sunmaz. Sahadaki üretim, teknik ekip, finans, enerji, lojistik ve operasyon hesaplarını sektörlere göre ayırır.",
       "items": {
-        "costMargin": {
-          "title": "Maliyet & Marj",
-          "description": "Marj, başabaş, birim maliyet ve fiyatlandırma kontrolleri."
+        "production": {
+          "title": "Üretim ve İmalat Hesaplayıcıları",
+          "description": "CNC, torna, freze, sac metal, kaynak, plastik enjeksiyon, kesme hızı, makine saati, fire ve OEE hesapları."
         },
-        "scrapOee": {
-          "title": "Fire & OEE",
-          "description": "Fire oranı, malzeme kaybı, setup süresi ve atölye verimi."
+        "industrial": {
+          "title": "Sanayi ve Atölye Hesaplayıcıları",
+          "description": "Teklif fiyatı, shop rate, setup süresi, takım aşınması, kompresör kaçağı, duruş maliyeti ve bakım etkisi."
         },
-        "energyCarbon": {
-          "title": "Enerji & Karbon",
-          "description": "kWh maliyeti, pik yük, karbon ayak izi ve uyumluluk riski."
+        "technical": {
+          "title": "Teknik ve Mühendislik Hesaplayıcıları",
+          "description": "Civata torku, kaynak ve bulon bağlantısı, tolerans yığılma, hidrolik/pnömatik silindir, basınçlı kap, kayış-kasnak ve teknik ön hesaplar."
         },
-        "routingLogistics": {
-          "title": "Rota & Lojistik",
-          "description": "Rota maliyeti, yakıt, navlun ve teslimat marjı."
+        "construction": {
+          "title": "İnşaat ve Saha Hesaplayıcıları",
+          "description": "Beton, çatı, boya, sıva, tuğla, merdiven, hafriyat, profil ağırlığı, boru ağırlığı ve metraj hesapları."
         },
-        "constructionField": {
-          "title": "İnşaat & Saha",
-          "description": "Beton, çatı, boya, alan ve proje miktar tahminleri."
+        "logistics": {
+          "title": "Lojistik ve Sevkiyat Hesaplayıcıları",
+          "description": "Yakıt, rota, desi, navlun, araç km maliyeti, boş dönüş, depo alanı ve sevkiyat marjı hesapları."
         },
-        "financeBusiness": {
-          "title": "Finans & İşletme",
-          "description": "Kredi, maaş, vergi, nakit akışı ve günlük iş matematiği."
+        "energy": {
+          "title": "Enerji ve Karbon Hesaplayıcıları",
+          "description": "kWh maliyeti, LED tasarrufu, motor, kompresör, karbon ayak izi, SKDM/CBAM etkisi ve enerji verimliliği hesapları."
         },
-        "dailyPractical": {
-          "title": "Günlük Pratik",
-          "description": "Ev, seyahat, bahşiş ve günlük karar hesaplayıcıları."
+        "finance": {
+          "title": "Finans, Muhasebe ve İK Hesaplayıcıları",
+          "description": "KDV, kredi taksiti, personel tam maliyeti, kıdem/ihbar, amortisman, vade farkı, başabaş ve nakit hesapları."
         },
-        "premium": {
-          "title": "Premium Hesaplayıcılar",
-          "description": "Daha fazla girdi, senaryo karşılaştırması ve karar özeti."
+        "foodRetail": {
+          "title": "Gıda, Servis ve Perakende Hesaplayıcıları",
+          "description": "Fire, porsiyon, stok devir, müşteri kârlılığı, iade, yeniden işçilik ve marj kaybı hesapları."
         }
       }
     },
-    "popular": {
-      "title": "En çok kullanılan hesaplayıcılar",
-      "subtitle": "İşletmelerin en sık ihtiyaç duyduğu hesaplama araçlarına hızlıca ulaşın.",
-      "badgeFree": "Ücretsiz",
-      "badgePremium": "Premium"
+    "differentiation": {
+      "title": "Genel hesap makinesi değil, sektörlere göre hazırlanmış hesaplama araçları",
+      "subtitle": "Bir CNC teklif hesabı ile beton metraj hesabı aynı mantıkla kurulamaz. Bir kompresör kaçağı ile bir personel maliyeti de aynı veriyle ölçülemez. SectorCalc hesapları sektör, maliyet türü, teknik ihtiyaç ve karar seviyesine göre ayırır.",
+      "columns": {
+        "bySector": {
+          "title": "Sektöre göre",
+          "text": "Üretim, imalat, sanayi, atölye, inşaat, lojistik, enerji, finans ve teknik ekip ihtiyaçlarına göre."
+        },
+        "byType": {
+          "title": "Hesap türüne göre",
+          "text": "Maliyet, fire, marj, ölçüm, dönüşüm, kapasite, enerji, stok, işçilik, rota ve teknik ön hesaplara göre."
+        },
+        "byDecision": {
+          "title": "Karar seviyesine göre",
+          "text": "Basit hesaplar ücretsiz; daha detaylı girdi, senaryo ve karar özeti gerektiren işler premium."
+        }
+      }
+    },
+    "losses": {
+      "title": "Görünmeyen kayıpları hesaplanabilir hale getirin",
+      "items": {
+        "monetary": {
+          "title": "Parasal Kayıp",
+          "text": "Yanlış teklif, eksik maliyet, düşük marj, vade farkı, başabaş noktasının bilinmemesi."
+        },
+        "material": {
+          "title": "Malzeme ve Fire Kaybı",
+          "text": "Hurda, fazla sarf, kalite kaybı, yeniden işleme, stokta bekleme ve miad kaybı."
+        },
+        "time": {
+          "title": "Zaman ve Operasyon Kaybı",
+          "text": "Setup süresi, makine duruşu, bekleme, rota sapması, tekrar işçilik ve kapasite kaybı."
+        },
+        "energy": {
+          "title": "Enerji ve Karbon Kaybı",
+          "text": "kWh maliyeti, pik tüketim, kompresör kaçakları, karbon ayak izi ve enerji verimsizliği."
+        }
+      }
     },
     "freePremium": {
-      "title": "Temel hesaplamalar ücretsiz. Daha detaylı karar özetleri premium.",
-      "freeTitle": "Ücretsiz Hesaplayıcılar",
+      "title": "Ücretsiz hesaplayıcıdan premium karar özetine",
+      "freeTitle": "Ücretsiz Sektör Hesaplayıcıları",
+      "freeText": "Ölçü, alan, hacim, dönüşüm, KDV, kredi, yakıt, beton, boya, enerji ve temel işletme hesaplarında hızlı sonuç verir.",
       "freeItems": {
+        "basic": "Temel formüller",
         "fast": "Hızlı sonuç",
-        "formula": "Temel formül",
-        "daily": "Günlük kullanım",
-        "discover": "Kayıt gerektirmeden keşif"
+        "category": "Kategoriye göre keşif",
+        "noSignup": "Kayıt gerektirmeden kullanım"
       },
       "freeCta": "Ücretsiz hesaplayıcıları aç",
-      "premiumTitle": "Premium Hesaplayıcılar",
+      "premiumTitle": "Premium Sektör Hesaplayıcıları",
+      "premiumText": "Teklif fiyatı, kâr marjı, shop rate, OEE, fire, karbon, stok, personel, duruş ve teknik ön kararlar gibi daha fazla girdi isteyen hesaplarda kullanılır.",
       "premiumItems": {
         "inputs": "Daha fazla girdi",
         "scenario": "Senaryo karşılaştırması",
         "summary": "Karar özeti",
-        "export": "Gerektiğinde PDF/CSV akışı"
+        "export": "Profesyonel çıktı akışı"
       },
       "premiumCta": "Premium hesaplayıcıları incele"
     },
-    "why": {
-      "title": "Neden ayrı ayrı Excel dosyaları yerine SectorCalc?",
-      "cards": {
-        "unify": {
-          "title": "Dağınık hesapları tek yerde toplar",
-          "text": "Aynı formülleri defter, sohbet ve tablolar arasında tekrar kurmayı bırakın."
+    "criticalTools": {
+      "title": "En kritik sektör hesapları",
+      "subtitle": "Ana sayfada sadece çok aranan hesaplar değil; işletmenin kârını, üretimini, teknik kararını ve operasyonunu doğrudan etkileyen hesaplar öne çıkarılır.",
+      "badgeSoon": "Yakında",
+      "groups": {
+        "productionManufacturing": {
+          "title": "Üretim ve imalat",
+          "items": {
+            "shopRate": {
+              "title": "Makine Saat Ücreti Hesaplayıcı"
+            },
+            "oee": {
+              "title": "OEE Hesaplayıcı"
+            },
+            "cuttingSpeed": {
+              "title": "Kesme Hızı Hesaplayıcı"
+            },
+            "sheetScrap": {
+              "title": "Sac Metal Fire Riski Hesaplayıcısı"
+            }
+          }
         },
-        "discover": {
-          "title": "Sektöre göre doğru aracı bulmayı kolaylaştırır",
-          "text": "Tahmin etmek yerine maliyet, fire, enerji, rota veya sektöre göre gezinin."
+        "workshopQuote": {
+          "title": "Atölye ve teklif",
+          "items": {
+            "quoteMargin": {
+              "title": "Teklif Fiyatı ve Kâr Marjı Hesaplayıcı"
+            },
+            "breakEven": {
+              "title": "Başabaş Hesaplayıcı"
+            },
+            "repairQuote": {
+              "title": "Tamirhane Parça ve İşçilik Teklif Hesaplayıcı"
+            },
+            "productMargin": {
+              "title": "Ürün Marjı Hesaplayıcı"
+            }
+          }
         },
-        "upgrade": {
-          "title": "Ücretsiz keşiften premium karar özetine geçiş sağlar",
-          "text": "Hızlı bir sayıyla başlayın; karar kritikleşince daha derin çıktıyı açın."
+        "technicalEngineering": {
+          "title": "Teknik ve mühendislik",
+          "items": {
+            "boltTorque": {
+              "title": "Civata Sıkma Torku Hesaplayıcı"
+            },
+            "weldedConnection": {
+              "title": "Kaynaklı ve Bulonlu Bağlantı Hesaplayıcı"
+            },
+            "toleranceStack": {
+              "title": "Tolerans Yığılma Hesaplayıcı"
+            },
+            "cylinderForce": {
+              "title": "Hidrolik ve Pnömatik Silindir Kuvvet Hesaplayıcı"
+            }
+          }
+        },
+        "constructionField": {
+          "title": "İnşaat ve saha",
+          "items": {
+            "concreteVolume": {
+              "title": "Beton Hacim Hesaplayıcı"
+            },
+            "squareMeter": {
+              "title": "Metrekare Hesaplayıcı"
+            },
+            "paintCoverage": {
+              "title": "Boya Kapsama Hesaplayıcı"
+            },
+            "roofingArea": {
+              "title": "Çatı Alanı Hesaplayıcı"
+            }
+          }
+        },
+        "energyCarbon": {
+          "title": "Enerji ve karbon",
+          "items": {
+            "compressorLeak": {
+              "title": "Kompresör Kaçağı Maliyet Hesaplayıcı"
+            },
+            "kwhCost": {
+              "title": "kWh Maliyet Hesaplayıcı"
+            },
+            "ledSavings": {
+              "title": "Enerji Tasarruf Hesaplayıcı"
+            },
+            "cbamCarbon": {
+              "title": "SKDM Birim Ürün Karbon Ayak İzi Hesaplayıcı"
+            }
+          }
+        },
+        "financeHr": {
+          "title": "Finans ve İK",
+          "items": {
+            "vat": {
+              "title": "KDV Hesaplayıcı"
+            },
+            "loanPayment": {
+              "title": "Kredi Taksit Hesaplayıcı"
+            },
+            "employeeCost": {
+              "title": "Personel Tam Maliyet Hesaplayıcı"
+            },
+            "inventoryEoq": {
+              "title": "Stok Taşıma Maliyeti ve EOQ Hesaplayıcı"
+            }
+          }
         }
       }
     },
-    "sectors": {
-      "title": "Sektörünüze göre hesaplayıcı bulun",
-      "cta": "Tüm sektör hesaplayıcılarını görün",
+    "audiences": {
+      "title": "SectorCalc kimler için?",
       "items": {
-        "manufacturing": "Üretim",
-        "logistics": "Lojistik",
-        "construction": "İnşaat",
-        "energy": "Enerji",
-        "food": "Gıda ve İçecek",
-        "textile": "Tekstil",
-        "automotive": "Otomotiv",
-        "healthcare": "Sağlık"
+        "production": {
+          "title": "Üretim işletmeleri",
+          "text": "Makine, fire, OEE, setup, shop rate ve teklif hesapları."
+        },
+        "industrial": {
+          "title": "Sanayi ve atölyeler",
+          "text": "Usta, teknisyen, mühendis ve işletme sahiplerinin günlük teknik ve ticari hesapları."
+        },
+        "engineering": {
+          "title": "Mühendislik ve teknik ekipler",
+          "text": "Bağlantı, tolerans, tork, silindir, basınçlı kap ve mekanik ön hesaplar."
+        },
+        "construction": {
+          "title": "İnşaat ve uygulama ekipleri",
+          "text": "Metraj, hacim, alan, kaplama, çatı, beton ve saha miktar hesapları."
+        },
+        "logistics": {
+          "title": "Lojistik ve servis ekipleri",
+          "text": "Yakıt, rota, desi, navlun, araç maliyeti, servis ve boş dönüş hesapları."
+        },
+        "finance": {
+          "title": "Finans, muhasebe ve İK ekipleri",
+          "text": "Kredi, vergi, maaş, personel maliyeti, amortisman, başabaş ve nakit hesapları."
+        }
       }
     },
-    "mission": {
-      "title": "Hesaplanmayan maliyet, çoğu zaman görünmeyen kayıptır.",
-      "text": "Birçok işletme teklif, fire, işçilik, enerji, taşıma ve marj hesabını farklı dosyalarda veya tahminle yapar. SectorCalc bu hesapları daha görünür, karşılaştırılabilir ve tekrar edilebilir hale getirmek için geliştirilir.",
-      "cta": "Hesaplayıcıları keşfet"
+    "whyNotExcel": {
+      "title": "Excel, defter ve dağınık dosyalar neden yetmez?",
+      "items": {
+        "formula": {
+          "title": "Formül unutulur",
+          "text": "Fire, enerji, vade, setup, işçilik veya sevkiyat kalemi sonraki teklifte atlanabilir."
+        },
+        "sector": {
+          "title": "Sektör farkı kaybolur",
+          "text": "CNC, beton, kompresör, lojistik ve personel maliyeti aynı şablonla doğru ölçülemez."
+        },
+        "decision": {
+          "title": "Karar geç alınır",
+          "text": "Zarar, fire, duruş, stok maliyeti veya enerji kaçağı ay sonunda fark edildiğinde geç kalınmış olabilir."
+        }
+      },
+      "closing": "SectorCalc, hesapları sektörlere göre düzenler; üretimden finansa, teknik hesaptan saha maliyetine kadar kararları daha ölçülebilir hale getirir."
+    },
+    "finalCta": {
+      "title": "Bugün hangi sektörel hesabı netleştirmek istiyorsunuz?",
+      "subtitle": "Ücretsiz hesaplayıcılarla başlayın. Hesap üretim, teklif, fire, enerji, teknik ön karar veya operasyon için kritikleştiğinde premium sektör hesaplayıcılarıyla daha detaylı karar özeti alın.",
+      "ctaPrimary": "Ücretsiz Hesaplayıcıları Aç",
+      "ctaSecondary": "Premium Hesaplayıcıları İncele"
     }
   },
   "industrialHome": {

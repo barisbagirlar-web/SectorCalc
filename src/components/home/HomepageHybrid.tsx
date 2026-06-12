@@ -13,134 +13,157 @@ import {
 } from "@/lib/catalog/cached-catalog-groups";
 import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
 import {
-  HOMEPAGE_CATEGORY_HREFS,
-  HOMEPAGE_CATEGORY_IDS,
-  HOMEPAGE_SECTOR_HREFS,
-  HOMEPAGE_SECTOR_IDS,
-  getHomepageCategoryCounts,
-  getHomepageToolTotalCount,
-  resolveHomepagePopularTools,
-  type HomepageCategoryId,
-} from "@/lib/home/homepage-omni-data";
+  HOMEPAGE_AUDIENCE_IDS,
+  HOMEPAGE_COVERAGE_IDS,
+  HOMEPAGE_CRITICAL_GROUPS,
+  HOMEPAGE_DIFFERENTIATION_IDS,
+  HOMEPAGE_EXCEL_IDS,
+  HOMEPAGE_HERO_PANEL_IDS,
+  HOMEPAGE_LOSS_IDS,
+  isHomepageCriticalToolLive,
+  resolveHomepageCriticalToolHref,
+} from "@/lib/home/homepage-positioning-data";
 
-const WHY_CARD_IDS = ["unify", "discover", "upgrade"] as const;
-const FREE_ITEM_IDS = ["fast", "formula", "daily", "discover"] as const;
+const FREE_ITEM_IDS = ["basic", "fast", "category", "noSignup"] as const;
 const PREMIUM_ITEM_IDS = ["inputs", "scenario", "summary", "export"] as const;
 
-const CATEGORY_ICON: Record<HomepageCategoryId, string> = {
-  costMargin: "₺",
-  scrapOee: "◫",
-  energyCarbon: "⚡",
-  routingLogistics: "→",
-  constructionField: "▣",
-  financeBusiness: "∑",
-  dailyPractical: "☰",
-  premium: "★",
-};
+/** Keep homepage search focused on industry / business calculators — not daily-life catalog tabs. */
+const HOMEPAGE_SEARCH_EXCLUDED_FREE_CATEGORIES = new Set([
+  "everyday-life",
+  "math-statistics",
+  "conversion",
+  "health-body",
+]);
 
 type HomepageTranslator = (key: string, values?: Record<string, string | number>) => string;
 
-function HomepageOmniLayout({
+function InfoCard({
+  title,
+  text,
+}: {
+  title: string;
+  text: string;
+}) {
+  return (
+    <article className="sc-home-omni__info-card">
+      <h3 className="sc-home-omni__info-card-title">{title}</h3>
+      <p className="sc-home-omni__info-card-text">{text}</p>
+    </article>
+  );
+}
+
+function HomepagePositioningLayout({
   t,
   searchEntries,
-  categoryCounts,
-  popularTools,
-  totalToolCount,
 }: {
   t: HomepageTranslator;
   searchEntries: ReturnType<typeof mergeSearchEntries>;
-  categoryCounts: Record<HomepageCategoryId, number>;
-  popularTools: ReturnType<typeof resolveHomepagePopularTools>;
-  totalToolCount: number;
 }) {
   return (
     <div className="sc-home-omni">
       <section className="sc-home-omni__hero" aria-labelledby="home-hero-heading">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-          <div className="sc-home-omni__hero-inner">
-            <p className="sc-home-omni__hero-highlight">{t("hero.highlight")}</p>
-            <h1 id="home-hero-heading" className="sc-home-omni__headline">
-              {t("hero.headline")}
-            </h1>
-            <p className="sc-home-omni__subtitle">{t("hero.subtitle")}</p>
-            {totalToolCount > 0 ? (
-              <p className="sc-home-omni__tool-count">{t("hero.toolCount", { count: totalToolCount })}</p>
-            ) : null}
-            <HomepageCatalogSearch entries={searchEntries} />
-            <div className="sc-home-omni__hero-actions">
-              <Link href="/free-tools" className="sc-cta-primary">
-                {t("hero.ctaPrimary")}
-              </Link>
-              <Link href="/premium-tools" className="sc-cta-secondary">
-                {t("hero.ctaSecondary")}
-              </Link>
+          <div className="sc-home-omni__hero-grid">
+            <div className="sc-home-omni__hero-main">
+              <p className="sc-home-omni__hero-highlight">{t("hero.highlight")}</p>
+              <h1 id="home-hero-heading" className="sc-home-omni__headline sc-home-omni__headline--wide">
+                {t("hero.headline")}
+              </h1>
+              <p className="sc-home-omni__subtitle">{t("hero.subtitle")}</p>
+              <p className="sc-home-omni__supporting">{t("hero.supporting")}</p>
+              <div className="sc-home-omni__search">
+                <HomepageCatalogSearch entries={searchEntries} />
+              </div>
+              <div className="sc-home-omni__hero-actions">
+                <Link href="/free-tools" className="sc-cta-primary">
+                  {t("hero.ctaPrimary")}
+                </Link>
+                <Link href="/premium-tools" className="sc-cta-secondary">
+                  {t("hero.ctaSecondary")}
+                </Link>
+              </div>
             </div>
+
+            <aside className="sc-home-omni__hero-panel" aria-labelledby="home-hero-panel-heading">
+              <h2 id="home-hero-panel-heading" className="sc-home-omni__hero-panel-title">
+                {t("hero.panelTitle")}
+              </h2>
+              <ul className="sc-home-omni__hero-panel-list">
+                {HOMEPAGE_HERO_PANEL_IDS.map((id) => (
+                  <li key={id}>{t(`hero.panelItems.${id}`)}</li>
+                ))}
+              </ul>
+            </aside>
           </div>
         </Container>
       </section>
 
-      <section className="sc-home-omni__section" aria-labelledby="home-categories-heading">
+      <section className="sc-home-omni__section" aria-labelledby="home-coverage-heading">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
           <header className="sc-home-omni__section-head">
-            <h2 id="home-categories-heading" className="sc-home-omni__section-title">
-              {t("categories.title")}
+            <h2 id="home-coverage-heading" className="sc-home-omni__section-title">
+              {t("coverage.title")}
             </h2>
-            <p className="sc-home-omni__section-lead">{t("categories.subtitle")}</p>
+            <p className="sc-home-omni__section-lead">{t("coverage.subtitle")}</p>
           </header>
-          <ul className="sc-home-omni__category-grid">
-            {HOMEPAGE_CATEGORY_IDS.map((id) => {
-              const count = categoryCounts[id];
-              return (
-                <li key={id}>
-                  <Link href={HOMEPAGE_CATEGORY_HREFS[id]} className="sc-home-omni__category-card">
-                    <span className="sc-home-omni__category-icon" aria-hidden>
-                      {CATEGORY_ICON[id]}
-                    </span>
-                    <span className="sc-home-omni__category-name">{t(`categories.items.${id}.title`)}</span>
-                    <span className="sc-home-omni__category-desc">{t(`categories.items.${id}.description`)}</span>
-                    {count > 0 ? (
-                      <span className="sc-home-omni__category-count">
-                        {t("categories.countLabel", { count })}
-                      </span>
-                    ) : null}
-                  </Link>
-                </li>
-              );
-            })}
+          <ul className="sc-home-omni__coverage-grid">
+            {HOMEPAGE_COVERAGE_IDS.map((id) => (
+              <li key={id}>
+                <InfoCard
+                  title={t(`coverage.items.${id}.title`)}
+                  text={t(`coverage.items.${id}.description`)}
+                />
+              </li>
+            ))}
           </ul>
         </Container>
       </section>
 
-      {popularTools.length > 0 ? (
-        <section className="sc-home-omni__section sc-home-omni__section--surface" aria-labelledby="home-popular-heading">
-          <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-            <header className="sc-home-omni__section-head">
-              <h2 id="home-popular-heading" className="sc-home-omni__section-title">
-                {t("popular.title")}
-              </h2>
-              <p className="sc-home-omni__section-lead">{t("popular.subtitle")}</p>
-            </header>
-            <ul className="sc-home-omni__popular-grid">
-              {popularTools.map((tool) => (
-                <li key={tool.href}>
-                  <Link href={tool.href} className="sc-home-omni__popular-card">
-                    <span
-                      className={`sc-home-omni__popular-badge${
-                        tool.tier === "premium" ? " sc-home-omni__popular-badge--premium" : ""
-                      }`}
-                    >
-                      {tool.tier === "premium" ? t("popular.badgePremium") : t("popular.badgeFree")}
-                    </span>
-                    <span className="sc-home-omni__popular-title">{tool.title}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Container>
-        </section>
-      ) : null}
+      <section
+        className="sc-home-omni__section sc-home-omni__section--surface"
+        aria-labelledby="home-differentiation-heading"
+      >
+        <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+          <header className="sc-home-omni__section-head">
+            <h2 id="home-differentiation-heading" className="sc-home-omni__section-title">
+              {t("differentiation.title")}
+            </h2>
+            <p className="sc-home-omni__section-lead">{t("differentiation.subtitle")}</p>
+          </header>
+          <ul className="sc-home-omni__why-grid">
+            {HOMEPAGE_DIFFERENTIATION_IDS.map((id) => (
+              <li key={id}>
+                <InfoCard
+                  title={t(`differentiation.columns.${id}.title`)}
+                  text={t(`differentiation.columns.${id}.text`)}
+                />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
 
-      <section className="sc-home-omni__section" aria-labelledby="home-free-premium-heading">
+      <section className="sc-home-omni__section" aria-labelledby="home-losses-heading">
+        <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+          <header className="sc-home-omni__section-head">
+            <h2 id="home-losses-heading" className="sc-home-omni__section-title">
+              {t("losses.title")}
+            </h2>
+          </header>
+          <ul className="sc-home-omni__loss-grid">
+            {HOMEPAGE_LOSS_IDS.map((id) => (
+              <li key={id}>
+                <InfoCard title={t(`losses.items.${id}.title`)} text={t(`losses.items.${id}.text`)} />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <section
+        className="sc-home-omni__section sc-home-omni__section--surface"
+        aria-labelledby="home-free-premium-heading"
+      >
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
           <h2 id="home-free-premium-heading" className="sc-home-omni__section-title sc-home-omni__section-title--center">
             {t("freePremium.title")}
@@ -148,6 +171,7 @@ function HomepageOmniLayout({
           <div className="sc-home-omni__split">
             <article className="sc-home-omni__split-card">
               <h3 className="sc-home-omni__split-title">{t("freePremium.freeTitle")}</h3>
+              <p className="sc-home-omni__split-lead">{t("freePremium.freeText")}</p>
               <ul className="sc-home-omni__split-list">
                 {FREE_ITEM_IDS.map((id) => (
                   <li key={id}>{t(`freePremium.freeItems.${id}`)}</li>
@@ -159,6 +183,7 @@ function HomepageOmniLayout({
             </article>
             <article className="sc-home-omni__split-card sc-home-omni__split-card--premium">
               <h3 className="sc-home-omni__split-title">{t("freePremium.premiumTitle")}</h3>
+              <p className="sc-home-omni__split-lead">{t("freePremium.premiumText")}</p>
               <ul className="sc-home-omni__split-list">
                 {PREMIUM_ITEM_IDS.map((id) => (
                   <li key={id}>{t(`freePremium.premiumItems.${id}`)}</li>
@@ -172,57 +197,111 @@ function HomepageOmniLayout({
         </Container>
       </section>
 
-      <section className="sc-home-omni__section sc-home-omni__section--surface" aria-labelledby="home-why-heading">
-        <Container className="sc-pro-container">
-          <h2 id="home-why-heading" className="sc-home-omni__section-title">
-            {t("why.title")}
-          </h2>
-          <ul className="sc-home-omni__why-grid">
-            {WHY_CARD_IDS.map((id) => (
-              <li key={id}>
-                <article className="sc-home-omni__why-card">
-                  <h3 className="sc-home-omni__why-card-title">{t(`why.cards.${id}.title`)}</h3>
-                  <p className="sc-home-omni__why-card-text">{t(`why.cards.${id}.text`)}</p>
-                </article>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </section>
-
-      <section className="sc-home-omni__section" aria-labelledby="home-sectors-heading">
+      <section className="sc-home-omni__section" aria-labelledby="home-critical-heading">
         <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
-          <header className="sc-home-omni__section-head sc-home-omni__section-head--row">
-            <div>
-              <h2 id="home-sectors-heading" className="sc-home-omni__section-title">
-                {t("sectors.title")}
-              </h2>
-            </div>
-            <Link href="/industries" className="sc-home-omni__inline-cta">
-              {t("sectors.cta")}
-            </Link>
+          <header className="sc-home-omni__section-head">
+            <h2 id="home-critical-heading" className="sc-home-omni__section-title">
+              {t("criticalTools.title")}
+            </h2>
+            <p className="sc-home-omni__section-lead">{t("criticalTools.subtitle")}</p>
           </header>
-          <ul className="sc-home-omni__sector-grid">
-            {HOMEPAGE_SECTOR_IDS.map((id) => (
+          <div className="sc-home-omni__critical-groups">
+            {HOMEPAGE_CRITICAL_GROUPS.map((group) => (
+              <section
+                key={group.id}
+                className="sc-home-omni__critical-group"
+                aria-labelledby={`home-critical-${group.id}`}
+              >
+                <h3 id={`home-critical-${group.id}`} className="sc-home-omni__critical-group-title">
+                  {t(`criticalTools.groups.${group.id}.title`)}
+                </h3>
+                <ul className="sc-home-omni__critical-list">
+                  {group.tools.map((tool) => {
+                    const href = resolveHomepageCriticalToolHref(tool);
+                    const live = isHomepageCriticalToolLive(tool);
+                    const title = t(`criticalTools.groups.${group.id}.items.${tool.id}.title`);
+
+                    if (href && live) {
+                      return (
+                        <li key={tool.id}>
+                          <Link href={href} className="sc-home-omni__critical-link">
+                            {title}
+                          </Link>
+                        </li>
+                      );
+                    }
+
+                    return (
+                      <li key={tool.id}>
+                        <span className="sc-home-omni__critical-planned">
+                          {title}
+                          <span className="sc-home-omni__critical-badge">{t("criticalTools.badgeSoon")}</span>
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section
+        className="sc-home-omni__section sc-home-omni__section--surface"
+        aria-labelledby="home-audiences-heading"
+      >
+        <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+          <header className="sc-home-omni__section-head">
+            <h2 id="home-audiences-heading" className="sc-home-omni__section-title">
+              {t("audiences.title")}
+            </h2>
+          </header>
+          <ul className="sc-home-omni__audience-grid">
+            {HOMEPAGE_AUDIENCE_IDS.map((id) => (
               <li key={id}>
-                <Link href={HOMEPAGE_SECTOR_HREFS[id]} className="sc-home-omni__sector-chip">
-                  {t(`sectors.items.${id}`)}
-                </Link>
+                <InfoCard title={t(`audiences.items.${id}.title`)} text={t(`audiences.items.${id}.text`)} />
               </li>
             ))}
           </ul>
         </Container>
       </section>
 
-      <section className="sc-home-omni__mission" aria-labelledby="home-mission-heading">
+      <section className="sc-home-omni__section" aria-labelledby="home-excel-heading">
+        <Container size="wide" className="sc-pro-container sc-pro-container--wide min-w-0">
+          <header className="sc-home-omni__section-head">
+            <h2 id="home-excel-heading" className="sc-home-omni__section-title">
+              {t("whyNotExcel.title")}
+            </h2>
+          </header>
+          <ul className="sc-home-omni__why-grid">
+            {HOMEPAGE_EXCEL_IDS.map((id) => (
+              <li key={id}>
+                <InfoCard
+                  title={t(`whyNotExcel.items.${id}.title`)}
+                  text={t(`whyNotExcel.items.${id}.text`)}
+                />
+              </li>
+            ))}
+          </ul>
+          <p className="sc-home-omni__closing">{t("whyNotExcel.closing")}</p>
+        </Container>
+      </section>
+
+      <section className="sc-home-omni__mission" aria-labelledby="home-final-cta-heading">
         <Container className="sc-pro-container">
-          <h2 id="home-mission-heading" className="sc-home-omni__mission-title">
-            {t("mission.title")}
+          <h2 id="home-final-cta-heading" className="sc-home-omni__mission-title">
+            {t("finalCta.title")}
           </h2>
-          <p className="sc-home-omni__mission-text">{t("mission.text")}</p>
-          <Link href="/free-tools" className="sc-cta-primary sc-home-omni__mission-cta">
-            {t("mission.cta")}
-          </Link>
+          <p className="sc-home-omni__mission-text">{t("finalCta.subtitle")}</p>
+          <div className="sc-home-omni__hero-actions sc-home-omni__hero-actions--center">
+            <Link href="/free-tools" className="sc-cta-primary sc-home-omni__mission-cta">
+              {t("finalCta.ctaPrimary")}
+            </Link>
+            <Link href="/premium-tools" className="sc-cta-secondary">
+              {t("finalCta.ctaSecondary")}
+            </Link>
+          </div>
         </Container>
       </section>
     </div>
@@ -240,30 +319,22 @@ export async function HomepageHybrid() {
       label: tCatalog(meta.labelKey),
       description: tCatalog(meta.descriptionKey),
     }),
-    tCatalog("decisionAnalyzerNote"),
+    tCatalog("openCalculator"),
     tCatalog("openCalculator")
   );
 
   const premiumGroups = getCachedPremiumSchemaCatalogGroups(locale);
   const industryGroups = getCachedIndustryCatalogGroups(locale);
 
+  const homepageFreeGroups = freeGroups.filter(
+    (group) => !HOMEPAGE_SEARCH_EXCLUDED_FREE_CATEGORIES.has(group.id)
+  );
+
   const searchEntries = mergeSearchEntries(
-    buildSearchEntriesFromGroups(freeGroups, "homepage"),
+    buildSearchEntriesFromGroups(homepageFreeGroups, "homepage"),
     buildSearchEntriesFromGroups(premiumGroups, "homepage"),
     buildSearchEntriesFromGroups(industryGroups, "homepage")
   );
 
-  const categoryCounts = getHomepageCategoryCounts(freeGroups);
-  const popularTools = resolveHomepagePopularTools(locale);
-  const totalToolCount = getHomepageToolTotalCount();
-
-  return (
-    <HomepageOmniLayout
-      t={t}
-      searchEntries={searchEntries}
-      categoryCounts={categoryCounts}
-      popularTools={popularTools}
-      totalToolCount={totalToolCount}
-    />
-  );
+  return <HomepagePositioningLayout t={t} searchEntries={searchEntries} />;
 }

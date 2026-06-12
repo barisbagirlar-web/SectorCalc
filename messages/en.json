@@ -304,7 +304,7 @@
         "free-tools": "Search free calculators...",
         "premium-tools": "Search premium calculators...",
         "industries": "Search industry calculators...",
-        "homepage": "Search calculators…"
+        "homepage": "Which industry, cost or technical calculation do you need?"
       },
       "noResults": "No matching tools found.",
       "moreResults": "+ {count} more results",
@@ -996,116 +996,287 @@
   },
   "homepageHybrid": {
     "meta": {
-      "title": "SectorCalc — Free & premium sector calculators",
-      "description": "Cost, scrap, margin, energy, routing, construction and operations calculators in one sector-focused platform."
+      "title": "SectorCalc | Industry, Manufacturing and Business Calculators",
+      "description": "SectorCalc offers free and premium industry calculators for manufacturing, workshops, engineering, business costs, waste, margin, energy, inventory, routing, labor and operational losses."
     },
     "hero": {
-      "headline": "Run your business calculations faster and more accurately",
-      "highlight": "Free and premium sector calculators",
-      "subtitle": "SectorCalc brings cost, scrap, margin, energy, routing, construction, finance and operations calculations into one sector-focused platform.",
-      "ctaPrimary": "Free Calculators",
-      "ctaSecondary": "Premium Calculators",
-      "toolCount": "{count}+ calculation tools"
+      "highlight": "INDUSTRY CALCULATOR PLATFORM",
+      "headline": "See critical business, manufacturing and technical calculations in one place",
+      "subtitle": "SectorCalc provides free and premium industry calculators for manufacturing, workshops, engineering, construction, logistics, energy, finance and operations. It helps make cost, waste, margin, inventory, routing, labor, energy and technical calculations more visible and comparable.",
+      "supporting": "Basic measurement and conversion calculators are free. For quotes, scrap, shop rate, OEE, carbon, inventory, payroll, downtime and operational loss, premium industry calculators add more inputs and a decision summary.",
+      "ctaPrimary": "Open free industry calculators",
+      "ctaSecondary": "Browse premium calculators",
+      "panelTitle": "Industry calculation domains",
+      "panelItems": {
+        "production": "Production and manufacturing",
+        "industrial": "Industry and workshops",
+        "technical": "Technical and engineering calculations",
+        "construction": "Construction and field work",
+        "logistics": "Logistics and shipping",
+        "energy": "Energy and carbon",
+        "finance": "Finance and HR",
+        "scrapMargin": "Scrap, margin and operational loss"
+      }
     },
-    "categories": {
-      "title": "Browse by calculation area",
-      "subtitle": "Pick the type of cost, measurement or decision you need first.",
-      "countLabel": "{count} calculators",
+    "coverage": {
+      "title": "Industry calculators across your operation",
+      "subtitle": "Browse by sector, calculation type or the decision you need to make — not by scattered spreadsheets.",
       "items": {
-        "costMargin": {
-          "title": "Cost & Margin",
-          "description": "Margin, break-even, unit cost and pricing checks."
+        "production": {
+          "title": "Production & manufacturing",
+          "description": "Machine hour rate, OEE, cutting speed, scrap risk and shop-floor efficiency checks."
         },
-        "scrapOee": {
-          "title": "Scrap & OEE",
-          "description": "Scrap rate, material loss, setup time and shop-floor efficiency."
+        "industrial": {
+          "title": "Industrial workshops",
+          "description": "Quote margin, break-even, repair quotes and product margin before you send the price."
         },
-        "energyCarbon": {
-          "title": "Energy & Carbon",
-          "description": "kWh cost, peak load, carbon footprint and compliance exposure."
+        "technical": {
+          "title": "Technical & engineering",
+          "description": "Bolt torque, welded connections, tolerance stack-up and cylinder force for field-ready numbers."
         },
-        "routingLogistics": {
-          "title": "Routing & Logistics",
-          "description": "Route cost, fuel, freight and delivery margin."
+        "construction": {
+          "title": "Construction & field",
+          "description": "Concrete volume, square meters, paint coverage and roofing area for project quantities."
         },
-        "constructionField": {
-          "title": "Construction & Field",
-          "description": "Concrete, roofing, paint, area and project quantity estimates."
+        "logistics": {
+          "title": "Logistics & transport",
+          "description": "Route cost, fuel drift, deadhead exposure and delivery margin visibility."
         },
-        "financeBusiness": {
-          "title": "Finance & Business",
-          "description": "Loans, payroll, tax, cash flow and everyday business math."
+        "energy": {
+          "title": "Energy & carbon",
+          "description": "kWh cost, compressor leaks, savings packages and CBAM carbon footprint checks."
         },
-        "dailyPractical": {
-          "title": "Daily Practical",
-          "description": "Household, travel, tip and everyday decision calculators."
+        "finance": {
+          "title": "Finance & business",
+          "description": "VAT, loan payments, employee total cost and inventory carrying cost with EOQ."
         },
-        "premium": {
-          "title": "Premium Calculators",
-          "description": "Deeper inputs, scenario comparison and export-ready decision summaries."
+        "foodRetail": {
+          "title": "Food & retail",
+          "description": "Menu margin, waste drift, inventory turnover and portion cost variance."
         }
       }
     },
-    "popular": {
-      "title": "Most used calculators",
-      "subtitle": "Reach the calculation tools businesses need most often.",
-      "badgeFree": "Free",
-      "badgePremium": "Premium"
+    "differentiation": {
+      "title": "Find the right industry calculator faster",
+      "subtitle": "SectorCalc is organized for how operators actually search — by sector, by calculation type and by the decision on the table.",
+      "columns": {
+        "bySector": {
+          "title": "By industry",
+          "text": "Open calculators aligned to manufacturing, construction, logistics, energy, food service and more."
+        },
+        "byType": {
+          "title": "By calculation type",
+          "text": "Jump straight to cost, scrap, margin, energy, routing or measurement tools instead of rebuilding formulas."
+        },
+        "byDecision": {
+          "title": "By decision moment",
+          "text": "Start with a free check, then open premium calculators when the quote, job or purchase needs a fuller summary."
+        }
+      }
+    },
+    "losses": {
+      "title": "What uncalculated numbers hide",
+      "items": {
+        "monetary": {
+          "title": "Money & margin",
+          "text": "Pricing gaps, quote drift and payroll burden that never show up in the first spreadsheet row."
+        },
+        "material": {
+          "title": "Material & scrap",
+          "text": "Scrap drift, waste you cannot see and inventory loss between purchase and production."
+        },
+        "time": {
+          "title": "Time & throughput",
+          "text": "Setup overruns, downtime cost and throughput loss that erode margin after the estimate looks fine."
+        },
+        "energy": {
+          "title": "Energy & carbon",
+          "text": "Peak cost exposure, compressor leaks and carbon footprint pressure on export and compliance."
+        }
+      }
     },
     "freePremium": {
-      "title": "Basic calculations are free. Deeper decision summaries are premium.",
+      "title": "Basic calculations are free. Fuller decision summaries are premium.",
       "freeTitle": "Free Calculators",
+      "freeText": "Run fast sector checks in the browser with core inputs and visible risk signals.",
       "freeItems": {
-        "fast": "Fast results",
-        "formula": "Core formulas",
-        "daily": "Everyday use",
-        "discover": "Explore without sign-up"
+        "basic": "Core formulas and quick numbers",
+        "fast": "Results in seconds, no account required",
+        "category": "Browse by industry and calculation type",
+        "noSignup": "Explore without sign-up"
       },
       "freeCta": "Open free calculators",
       "premiumTitle": "Premium Calculators",
+      "premiumText": "Add deeper inputs, scenario comparison and export-ready decision summaries when stakes rise.",
       "premiumItems": {
-        "inputs": "More inputs",
-        "scenario": "Scenario comparison",
-        "summary": "Decision summary",
-        "export": "PDF/CSV export when available"
+        "inputs": "More inputs and professional defaults",
+        "scenario": "Scenario comparison before you commit",
+        "summary": "Decision summary with drivers and action",
+        "export": "PDF and CSV export when available"
       },
       "premiumCta": "Browse premium calculators"
     },
-    "why": {
-      "title": "Why SectorCalc instead of scattered Excel files?",
-      "cards": {
-        "unify": {
-          "title": "One place for scattered calculations",
-          "text": "Stop rebuilding the same formulas across notebooks, chats and spreadsheets."
+    "criticalTools": {
+      "title": "Critical calculators teams open first",
+      "subtitle": "High-intent industry calculators across production, quoting, engineering, construction, energy and finance.",
+      "badgeSoon": "Coming soon",
+      "groups": {
+        "productionManufacturing": {
+          "title": "Production & manufacturing",
+          "items": {
+            "shopRate": {
+              "title": "Machine Hour Rate Calculator"
+            },
+            "oee": {
+              "title": "OEE Calculator"
+            },
+            "cuttingSpeed": {
+              "title": "Cutting Speed Calculator"
+            },
+            "sheetScrap": {
+              "title": "Sheet Metal Scrap Risk Calculator"
+            }
+          }
         },
-        "discover": {
-          "title": "Find the right sector tool faster",
-          "text": "Browse by cost, scrap, energy, routing or industry instead of guessing."
+        "workshopQuote": {
+          "title": "Workshop & quoting",
+          "items": {
+            "quoteMargin": {
+              "title": "Quote Price & Profit Margin Calculator"
+            },
+            "breakEven": {
+              "title": "Break-Even Calculator"
+            },
+            "repairQuote": {
+              "title": "Auto Repair Parts & Labor Quote Calculator"
+            },
+            "productMargin": {
+              "title": "Product Margin Calculator"
+            }
+          }
         },
-        "upgrade": {
-          "title": "Move from free checks to premium summaries",
-          "text": "Start with a quick number, then open deeper decision output when stakes rise."
+        "technicalEngineering": {
+          "title": "Technical & engineering",
+          "items": {
+            "boltTorque": {
+              "title": "Bolt Tightening Torque Calculator"
+            },
+            "weldedConnection": {
+              "title": "Welded & Bolted Connection Calculator"
+            },
+            "toleranceStack": {
+              "title": "Tolerance Stack-up Calculator"
+            },
+            "cylinderForce": {
+              "title": "Hydraulic & Pneumatic Cylinder Force Calculator"
+            }
+          }
+        },
+        "constructionField": {
+          "title": "Construction & field",
+          "items": {
+            "concreteVolume": {
+              "title": "Concrete Volume Calculator"
+            },
+            "squareMeter": {
+              "title": "Square Meter Calculator"
+            },
+            "paintCoverage": {
+              "title": "Paint Coverage Calculator"
+            },
+            "roofingArea": {
+              "title": "Roofing Area Calculator"
+            }
+          }
+        },
+        "energyCarbon": {
+          "title": "Energy & carbon",
+          "items": {
+            "compressorLeak": {
+              "title": "Compressor Leak Cost Calculator"
+            },
+            "kwhCost": {
+              "title": "kWh Cost Calculator"
+            },
+            "ledSavings": {
+              "title": "Energy Savings Package Calculator"
+            },
+            "cbamCarbon": {
+              "title": "CBAM Unit Product Carbon Footprint Calculator"
+            }
+          }
+        },
+        "financeHr": {
+          "title": "Finance & HR",
+          "items": {
+            "vat": {
+              "title": "VAT Calculator"
+            },
+            "loanPayment": {
+              "title": "Loan Payment Calculator"
+            },
+            "employeeCost": {
+              "title": "Employee Total Cost Calculator"
+            },
+            "inventoryEoq": {
+              "title": "Inventory Carrying Cost & EOQ Calculator"
+            }
+          }
         }
       }
     },
-    "sectors": {
-      "title": "Find calculators for your sector",
-      "cta": "View all industry calculators",
+    "audiences": {
+      "title": "Built for operators who need numbers before ERP",
       "items": {
-        "manufacturing": "Manufacturing",
-        "logistics": "Logistics",
-        "construction": "Construction",
-        "energy": "Energy",
-        "food": "Food & Beverage",
-        "textile": "Textile",
-        "automotive": "Automotive",
-        "healthcare": "Healthcare"
+        "production": {
+          "title": "Production managers",
+          "text": "Check machine rate, OEE and scrap before accepting repeat jobs or repricing a line."
+        },
+        "industrial": {
+          "title": "Workshop owners",
+          "text": "Quote margin, break-even and repair labor before the customer pushes on price."
+        },
+        "engineering": {
+          "title": "Engineers & maintenance",
+          "text": "Torque, tolerance stack-up and cylinder force without opening a separate engineering notebook."
+        },
+        "construction": {
+          "title": "Construction & trades",
+          "text": "Concrete, area, paint and roofing quantities before materials are ordered or the crew mobilizes."
+        },
+        "logistics": {
+          "title": "Logistics teams",
+          "text": "Route and freight math when deadhead and fuel drift are eating the delivery margin."
+        },
+        "finance": {
+          "title": "Finance & HR",
+          "text": "VAT, loan payment, employee total cost and inventory carrying cost for pricing and hiring calls."
+        }
       }
     },
-    "mission": {
-      "title": "Uncalculated cost is often invisible loss.",
-      "text": "Many businesses still run quote, scrap, labor, energy, transport and margin math across separate files or rough estimates. SectorCalc is built to make those calculations more visible, comparable and repeatable.",
-      "cta": "Explore calculators"
+    "whyNotExcel": {
+      "title": "Why industry calculators instead of scattered Excel files?",
+      "items": {
+        "formula": {
+          "title": "Formulas stay consistent",
+          "text": "Stop rebuilding the same margin, scrap and energy math across notebooks, chats and one-off tabs."
+        },
+        "sector": {
+          "title": "Sector context is built in",
+          "text": "Inputs and labels match manufacturing, construction, logistics and energy work — not generic cells."
+        },
+        "decision": {
+          "title": "Free checks upgrade to decision summaries",
+          "text": "Start with a quick number, then open premium calculators when the quote, job or purchase needs a fuller output."
+        }
+      },
+      "closing": "SectorCalc keeps industry calculators visible, comparable and repeatable — without ERP rollout."
+    },
+    "finalCta": {
+      "title": "Open the industry calculator you need",
+      "subtitle": "Start free, then move to premium calculators when the decision needs more inputs and a clearer summary.",
+      "ctaPrimary": "Free Calculators",
+      "ctaSecondary": "Premium Calculators"
     }
   },
   "industrialHome": {

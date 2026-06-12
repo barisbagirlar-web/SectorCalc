@@ -307,7 +307,7 @@
         "free-tools": "Kostenlose Rechner suchen...",
         "premium-tools": "Premium-Rechner suchen...",
         "industries": "Branchen-Rechner suchen...",
-        "homepage": "Rechner suchen…"
+        "homepage": "Welche Branche, Kosten- oder Technikberechnung benötigen Sie?"
       },
       "noResults": "Keine passenden Tools gefunden.",
       "moreResults": "+ {count} weitere Ergebnisse",
@@ -956,116 +956,287 @@
   },
   "homepageHybrid": {
     "meta": {
-      "title": "SectorCalc — Kostenlose & Premium-Branchenrechner",
-      "description": "Kosten-, Ausschuss-, Margen-, Energie-, Routen-, Bau- und Betriebsrechner auf einer branchenorientierten Plattform."
+      "title": "SectorCalc | Branchen-, Produktions- und Unternehmensrechner",
+      "description": "SectorCalc bietet kostenlose und Premium-Branchenrechner für Produktion, Werkstätten, Technik, Geschäftskosten, Ausschuss, Marge, Energie, Lager, Routen, Personal und operative Verluste."
     },
     "hero": {
-      "headline": "Geschäftsberechnungen schneller und genauer durchführen",
-      "highlight": "Kostenlose und Premium-Branchenrechner",
-      "subtitle": "SectorCalc bündelt Kosten-, Ausschuss-, Margen-, Energie-, Routen-, Bau-, Finanz- und Betriebsrechnungen auf einer branchenorientierten Plattform.",
+      "highlight": "BRANCHENRECHNER-PLATTFORM",
+      "headline": "Kritische Produktions-, Unternehmens- und Technikberechnungen an einem Ort",
+      "subtitle": "SectorCalc bündelt branchenspezifische Rechner für Produktion, Werkstatt, Baustelle, Logistik, Energie und Finanzen auf einer fokussierten Plattform.",
+      "supporting": "OHNE ERP-KOMPLEXITÄT — FÜR KMU UND FELDTEAMS",
       "ctaPrimary": "Kostenlose Rechner",
       "ctaSecondary": "Premium-Rechner",
-      "toolCount": "{count}+ Rechenwerkzeuge"
+      "panelTitle": "Was Teams zuerst berechnen",
+      "panelItems": {
+        "production": "Maschinenstundensatz, OEE und Ausschuss",
+        "industrial": "Angebotsmarge und Break-even",
+        "technical": "Drehmoment, Toleranz und Zylinderkraft",
+        "construction": "Beton, Fläche und Lackmenge",
+        "logistics": "Routenkosten und Frachtmarge",
+        "energy": "kWh-Kosten, Lecks und CO₂-Exposition",
+        "finance": "MwSt., Kredit und Personalkosten",
+        "scrapMargin": "Blechausschuss und Margenleck"
+      }
     },
-    "categories": {
-      "title": "Nach Berechnungsbereich stöbern",
-      "subtitle": "Wählen Sie zuerst die Art von Kosten, Messung oder Entscheidung.",
-      "countLabel": "{count} Rechner",
+    "coverage": {
+      "title": "Branchenrechner für Ihren Betrieb",
+      "subtitle": "Stöbern Sie nach Branche, Berechnungstyp oder Entscheidung — nicht nach verstreuten Tabellen.",
       "items": {
-        "costMargin": {
-          "title": "Kosten & Marge",
-          "description": "Marge, Break-even, Stückkosten und Preisprüfungen."
+        "production": {
+          "title": "Produktion & Fertigung",
+          "description": "Maschinenstundensatz, OEE, Schnittgeschwindigkeit, Ausschussrisiko und Shopfloor-Effizienz."
         },
-        "scrapOee": {
-          "title": "Ausschuss & OEE",
-          "description": "Ausschussrate, Materialverlust, Rüstzeit und Werkstatt-Effizienz."
+        "industrial": {
+          "title": "Industrielle Werkstätten",
+          "description": "Angebotsmarge, Break-even, Reparaturangebot und Produktmarge vor dem Preisversand."
         },
-        "energyCarbon": {
-          "title": "Energie & Kohlenstoff",
-          "description": "kWh-Kosten, Spitzenlast, CO₂-Fußabdruck und Compliance."
+        "technical": {
+          "title": "Technik & Engineering",
+          "description": "Schraubendrehmoment, Schweißverbindungen, Toleranzstapel und Zylinderkraft für belastbare Zahlen."
         },
-        "routingLogistics": {
-          "title": "Route & Logistik",
-          "description": "Routenkosten, Kraftstoff, Fracht und Liefermarge."
-        },
-        "constructionField": {
+        "construction": {
           "title": "Bau & Baustelle",
-          "description": "Beton, Dach, Farbe, Fläche und Projekt-Mengen."
+          "description": "Betonvolumen, Quadratmeter, Lackdeckung und Dachfläche für Projektmengen."
         },
-        "financeBusiness": {
+        "logistics": {
+          "title": "Logistik & Transport",
+          "description": "Routenkosten, Kraftstoffabweichung, Leerfahrt und Liefermargen-Sichtbarkeit."
+        },
+        "energy": {
+          "title": "Energie & Kohlenstoff",
+          "description": "kWh-Kosten, Kompressorlecks, Einsparpakete und CBAM-CO₂-Fußabdruck."
+        },
+        "finance": {
           "title": "Finanzen & Betrieb",
-          "description": "Kredite, Lohn, Steuern, Cashflow und Business-Mathe."
+          "description": "MwSt., Kreditrate, Gesamtpersonalkosten und Lagerhaltungskosten mit EOQ."
         },
-        "dailyPractical": {
-          "title": "Alltag & Praxis",
-          "description": "Haushalt, Reise, Trinkgeld und Alltagsentscheidungen."
-        },
-        "premium": {
-          "title": "Premium-Rechner",
-          "description": "Mehr Eingaben, Szenariovergleich und Entscheidungsübersichten."
+        "foodRetail": {
+          "title": "Lebensmittel & Handel",
+          "description": "Menümarge, Abfallabweichung, Lagerumschlag und Portionskostenvarianz."
         }
       }
     },
-    "popular": {
-      "title": "Am häufigsten genutzte Rechner",
-      "subtitle": "Schnell zu den Rechenwerkzeugen, die Betriebe am meisten brauchen.",
-      "badgeFree": "Kostenlos",
-      "badgePremium": "Premium"
+    "differentiation": {
+      "title": "Schneller zum richtigen Branchenrechner",
+      "subtitle": "SectorCalc ist so organisiert, wie Betriebe wirklich suchen — nach Branche, Berechnungstyp und Entscheidungsmoment.",
+      "columns": {
+        "bySector": {
+          "title": "Nach Branche",
+          "text": "Rechner für Fertigung, Bau, Logistik, Energie, Gastronomie und mehr öffnen."
+        },
+        "byType": {
+          "title": "Nach Berechnungstyp",
+          "text": "Direkt zu Kosten-, Ausschuss-, Margen-, Energie-, Routen- oder Messrechnern statt Formeln neu zu bauen."
+        },
+        "byDecision": {
+          "title": "Nach Entscheidungsmoment",
+          "text": "Mit einem kostenlosen Check starten, Premium-Rechner öffnen, wenn Angebot, Auftrag oder Einkauf mehr Tiefe braucht."
+        }
+      }
+    },
+    "losses": {
+      "title": "Was unberechnete Zahlen verbergen",
+      "items": {
+        "monetary": {
+          "title": "Geld & Marge",
+          "text": "Preislücken, Angebotsabweichung und Personalkosten, die in der ersten Tabellenzeile fehlen."
+        },
+        "material": {
+          "title": "Material & Ausschuss",
+          "text": "Ausschussdrift, unsichtbarer Abfall und Bestandsverlust zwischen Einkauf und Produktion."
+        },
+        "time": {
+          "title": "Zeit & Durchsatz",
+          "text": "Rüstüberläufe, Stillstandskosten und Durchsatzverlust nach einem guten Erstkalkül."
+        },
+        "energy": {
+          "title": "Energie & Kohlenstoff",
+          "text": "Spitzenlastexposition, Kompressorlecks und CO₂-Druck bei Export und Compliance."
+        }
+      }
     },
     "freePremium": {
-      "title": "Grundrechnungen sind kostenlos. Tiefere Entscheidungsübersichten sind Premium.",
+      "title": "Grundrechnungen sind kostenlos. Vollere Entscheidungszusammenfassungen sind Premium.",
       "freeTitle": "Kostenlose Rechner",
+      "freeText": "Schnelle Branchenchecks im Browser mit Kerninputs und sichtbaren Risikosignalen.",
       "freeItems": {
-        "fast": "Schnelle Ergebnisse",
-        "formula": "Kernformeln",
-        "daily": "Tägliche Nutzung",
-        "discover": "Entdecken ohne Anmeldung"
+        "basic": "Kernformeln und schnelle Zahlen",
+        "fast": "Ergebnisse in Sekunden, kein Konto nötig",
+        "category": "Nach Branche und Berechnungstyp browsen",
+        "noSignup": "Ohne Anmeldung erkunden"
       },
       "freeCta": "Kostenlose Rechner öffnen",
       "premiumTitle": "Premium-Rechner",
+      "premiumText": "Mehr Inputs, Szenariovergleich und exportfertige Entscheidungszusammenfassungen, wenn der Einsatz steigt.",
       "premiumItems": {
-        "inputs": "Mehr Eingaben",
-        "scenario": "Szenariovergleich",
-        "summary": "Entscheidungsübersicht",
-        "export": "PDF/CSV-Export wenn verfügbar"
+        "inputs": "Mehr Inputs und professionelle Defaults",
+        "scenario": "Szenariovergleich vor der Festlegung",
+        "summary": "Entscheidungszusammenfassung mit Treibern und Maßnahme",
+        "export": "PDF- und CSV-Export, wenn verfügbar"
       },
       "premiumCta": "Premium-Rechner ansehen"
     },
-    "why": {
-      "title": "Warum SectorCalc statt verstreuter Excel-Dateien?",
-      "cards": {
-        "unify": {
-          "title": "Verstreute Rechnungen an einem Ort",
-          "text": "Schluss mit denselben Formeln in Notizbüchern, Chats und Tabellen."
+    "criticalTools": {
+      "title": "Kritische Rechner, die Teams zuerst öffnen",
+      "subtitle": "Branchenrechner mit hoher Absicht für Produktion, Angebot, Technik, Bau, Energie und Finanzen.",
+      "badgeSoon": "Demnächst",
+      "groups": {
+        "productionManufacturing": {
+          "title": "Produktion & Fertigung",
+          "items": {
+            "shopRate": {
+              "title": "Maschinenstundensatz-Rechner"
+            },
+            "oee": {
+              "title": "OEE-Rechner"
+            },
+            "cuttingSpeed": {
+              "title": "Schnittgeschwindigkeits-Rechner"
+            },
+            "sheetScrap": {
+              "title": "Blech-Ausschussrisiko-Rechner"
+            }
+          }
         },
-        "discover": {
-          "title": "Das richtige Branchenwerkzeug schneller finden",
-          "text": "Stöbern nach Kosten, Ausschuss, Energie, Route oder Branche."
+        "workshopQuote": {
+          "title": "Werkstatt & Angebot",
+          "items": {
+            "quoteMargin": {
+              "title": "Angebotspreis- und Gewinnmargen-Rechner"
+            },
+            "breakEven": {
+              "title": "Break-even-Rechner"
+            },
+            "repairQuote": {
+              "title": "Kfz-Reparatur-Teile- und Arbeitsangebots-Rechner"
+            },
+            "productMargin": {
+              "title": "Produktmargen-Rechner"
+            }
+          }
         },
-        "upgrade": {
-          "title": "Vom kostenlosen Check zur Premium-Übersicht",
-          "text": "Mit einer schnellen Zahl starten — bei hohem Einsatz tiefer gehen."
+        "technicalEngineering": {
+          "title": "Technik & Engineering",
+          "items": {
+            "boltTorque": {
+              "title": "Schraubenanzugsdrehmoment-Rechner"
+            },
+            "weldedConnection": {
+              "title": "Geschweißte und geschraubte Verbindungs-Rechner"
+            },
+            "toleranceStack": {
+              "title": "Toleranzstapel-Rechner"
+            },
+            "cylinderForce": {
+              "title": "Hydraulik- und Pneumatikzylinder-Kraft-Rechner"
+            }
+          }
+        },
+        "constructionField": {
+          "title": "Bau & Baustelle",
+          "items": {
+            "concreteVolume": {
+              "title": "Betonvolumen-Rechner"
+            },
+            "squareMeter": {
+              "title": "Quadratmeter-Rechner"
+            },
+            "paintCoverage": {
+              "title": "Lackdeckungs-Rechner"
+            },
+            "roofingArea": {
+              "title": "Dachflächen-Rechner"
+            }
+          }
+        },
+        "energyCarbon": {
+          "title": "Energie & Kohlenstoff",
+          "items": {
+            "compressorLeak": {
+              "title": "Kompressor-Leckkosten-Rechner"
+            },
+            "kwhCost": {
+              "title": "kWh-Kosten-Rechner"
+            },
+            "ledSavings": {
+              "title": "Energieeinsparpaket-Rechner"
+            },
+            "cbamCarbon": {
+              "title": "CBAM-Produkteinheits-CO₂-Fußabdruck-Rechner"
+            }
+          }
+        },
+        "financeHr": {
+          "title": "Finanzen & Personal",
+          "items": {
+            "vat": {
+              "title": "MwSt-Rechner"
+            },
+            "loanPayment": {
+              "title": "Kreditraten-Rechner"
+            },
+            "employeeCost": {
+              "title": "Gesamtpersonalkosten-Rechner"
+            },
+            "inventoryEoq": {
+              "title": "Lagerhaltungskosten- und EOQ-Rechner"
+            }
+          }
         }
       }
     },
-    "sectors": {
-      "title": "Rechner für Ihre Branche finden",
-      "cta": "Alle Branchenrechner ansehen",
+    "audiences": {
+      "title": "Für Betriebe, die Zahlen vor ERP brauchen",
       "items": {
-        "manufacturing": "Produktion",
-        "logistics": "Logistik",
-        "construction": "Bau",
-        "energy": "Energie",
-        "food": "Gastronomie",
-        "textile": "Textil",
-        "automotive": "Automotive",
-        "healthcare": "Gesundheit"
+        "production": {
+          "title": "Produktionsleiter",
+          "text": "Maschinenstundensatz, OEE und Ausschuss prüfen, bevor Wiederholaufträge angenommen werden."
+        },
+        "industrial": {
+          "title": "Werkstattinhaber",
+          "text": "Angebotsmarge, Break-even und Reparaturarbeit vor dem Preisdruck des Kunden."
+        },
+        "engineering": {
+          "title": "Ingenieure & Instandhaltung",
+          "text": "Drehmoment, Toleranzstapel und Zylinderkraft ohne separates Engineering-Notizbuch."
+        },
+        "construction": {
+          "title": "Bau & Handwerk",
+          "text": "Beton-, Flächen-, Lack- und Dachmengen vor Materialbestellung oder Crew-Mobilisierung."
+        },
+        "logistics": {
+          "title": "Logistikteams",
+          "text": "Routen- und Frachtrechnung, wenn Leerfahrt und Kraftstoff die Liefermarge fressen."
+        },
+        "finance": {
+          "title": "Finanzen & Personal",
+          "text": "MwSt., Kreditrate, Gesamtpersonalkosten und Lagerhaltungskosten für Preis- und Einstellungsentscheidungen."
+        }
       }
     },
-    "mission": {
-      "title": "Nicht kalkulierte Kosten sind oft unsichtbarer Verlust.",
-      "text": "Viele Betriebe rechnen Angebot, Ausschuss, Arbeit, Energie, Transport und Marge in getrennten Dateien oder schätzen grob. SectorCalc macht diese Rechnungen sichtbarer, vergleichbarer und wiederholbar.",
-      "cta": "Rechner entdecken"
+    "whyNotExcel": {
+      "title": "Warum Branchenrechner statt verstreuter Excel-Dateien?",
+      "items": {
+        "formula": {
+          "title": "Formeln bleiben konsistent",
+          "text": "Stoppen Sie, dieselbe Margen-, Ausschuss- und Energierechnung in Notizen und Einzeltabs neu zu bauen."
+        },
+        "sector": {
+          "title": "Branchenkontext ist eingebaut",
+          "text": "Inputs und Labels passen zu Fertigung, Bau, Logistik und Energie — nicht zu generischen Zellen."
+        },
+        "decision": {
+          "title": "Vom kostenlosen Check zur Entscheidungszusammenfassung",
+          "text": "Mit einer schnellen Zahl starten, Premium-Rechner öffnen, wenn Angebot, Auftrag oder Einkauf mehr Output braucht."
+        }
+      },
+      "closing": "SectorCalc hält Branchenrechner sichtbar, vergleichbar und wiederholbar — ohne ERP-Rollout."
+    },
+    "finalCta": {
+      "title": "Öffnen Sie den Branchenrechner, den Sie brauchen",
+      "subtitle": "Kostenlos starten, zu Premium-Rechnern wechseln, wenn die Entscheidung mehr Inputs und eine klarere Zusammenfassung braucht.",
+      "ctaPrimary": "Kostenlose Rechner",
+      "ctaSecondary": "Premium-Rechner"
     }
   },
   "industrialHome": {
