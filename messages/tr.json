@@ -18,11 +18,11 @@
     "getPro": "PRO'YA GEÇ",
     "account": "Hesap",
     "auditEngine": "Araçlar",
-    "intelligenceLayer": "Premium",
+    "premiumLayer": "Premium",
     "myReports": "Raporlar",
     "settings": "Hesap",
     "audit": "Araçlar",
-    "intelligence": "Premium",
+    "premiumNav": "Premium",
     "archive": "Arşiv",
     "freeTools": "Ücretsiz",
     "premiumTools": "Premium",
@@ -125,7 +125,7 @@
       "colEnterprise": "Kurumsal",
       "sectorCalculators": "Sektör utility modülleri",
       "riskSignals": "Risk sinyali çıktısı",
-      "premiumAnalyzers": "Intelligence hesaplayıcıları",
+      "premiumAnalyzers": "Premium hesaplayıcıları",
       "savedReports": "Kayıtlı karar arşivi",
       "pdfExport": "PDF dışa aktarma",
       "teamSeats": "Çok koltuklu erişim",
@@ -473,14 +473,14 @@
       "decidesTitle": "Bu hesaplayıcı hangi karara yardımcı olur?",
       "reportTitle": "Rapor neleri içerir",
       "previewExcludesTitle": "Önizleme neleri içermez",
-      "previewExcludesBody": "Ücretsiz önizleme yalnızca örnek yapıyı gösterir. Tam eşik kontrolleri, görünmeyen kayıp kalemleri, önerilen adımlar ve dışa aktarılabilir PDF veya CSV ücretli erişim gerektirir.",
+      "previewExcludesBody": "Ücretsiz önizleme yalnızca örnek yapıyı gösterir. Tam eşik kontrolleri, görünmeyen kayıp kalemleri, önerilen aşamalar ve dışa aktarılabilir PDF veya CSV ücretli erişim gerektirir.",
       "assumptionsTitle": "Kullanılan varsayımlar",
       "faqTitle": "SSS",
       "faqMeasureTitle": "Bu hesaplayıcı ne ölçer?",
       "faqReportTitle": "Premium karar raporunda neler var?",
       "faqErpTitle": "Bu ERP veya profesyonel danışmanlık yerine geçer mi?",
       "faqMeasureAnswer": "{name}, girdiğiniz değerlerden görünmeyen kayıp maruziyetini ve belirtilen bantlara göre eşik yorumunu ölçer.",
-      "faqReportAnswer": "Karar raporu yönetici özeti, görünmeyen kayıp kalemleri, eşik kontrolü, önerilen adımlar, varsayım notları ve ücretli erişimde dışa aktarılabilir çıktı içerir.",
+      "faqReportAnswer": "Karar raporu yönetici özeti, görünmeyen kayıp kalemleri, eşik kontrolü, önerilen aşamalar, varsayım notları ve ücretli erişimde dışa aktarılabilir çıktı içerir.",
       "faqErpAnswer": "Hayır. SectorCalc bir hesaplama ve karar raporu katmanıdır. ERP, muhasebe sistemleri veya profesyonel mali, hukuki veya mühendislik danışmanlığının yerine geçmez.",
       "relatedGuideTitle": "Otorite rehberi",
       "relatedFreeTitle": "İlgili ücretsiz hesaplayıcıyı aç",
@@ -609,7 +609,7 @@
       }
     },
     "freeCheck": {
-      "eyebrow": "Adım 1",
+      "eyebrow": "Ücretsiz kontrol",
       "title": "Ücretsiz sektör kontrolü yapın",
       "subtitle": "{count} sektörde 3–5 girdili hızlı kontroller. Tarayıcıda görünür risk — hesap yok, güvenli fiyat yok, nihai karar yok.",
       "cta": "Ücretsiz Marj Kontrolü",
@@ -618,7 +618,7 @@
       "cardBody": "Görünür kurulum ve işçilik maruziyeti — ücretsiz planda tam güvenli fiyat gösterilmez."
     },
     "premiumStep": {
-      "eyebrow": "Adım 2",
+      "eyebrow": "Premium karar",
       "title": "Tam kararı açın",
       "subtitle": "Premium hesaplayıcılar minimum güvenli fiyat, marj sızıntısı, eylem önerisi ve PDF dışa aktarma ekler — teklif öncesi ihtiyaç duyulan karar katmanı.",
       "cta": "Premium Hesaplayıcıları Gör",
@@ -784,7 +784,7 @@
       "inputs": "İşinize ait temel maliyetleri, miktarları ve oranları girersiniz. Zorunlu alanlar asgaride tutulur, isteğe bağlı alanlar sonucu keskinleştirir.",
       "results": "Sonuç; ardındaki metrikler ve risk etkenleriyle birlikte bir karardır; böylece neden oraya geldiğini ve neyi ayarlamanız gerektiğini görürsünüz.",
       "approvedReports": "Premium sonuçlar, ekip içinde paylaşabileceğiniz dışa aktarılabilir karar özetleri olarak kaydedilebilir.",
-      "trustTrace": "Hesaplama Özeti; girdileri, varsayımları ve doğrulama adımlarını kaydeder, böylece sonucun nasıl üretildiğini görebilirsiniz.",
+      "trustTrace": "Hesaplama Özeti; girdileri, varsayımları ve doğrulama aşamalarını kaydeder, böylece sonucun nasıl üretildiğini görebilirsiniz.",
       "regionalUnits": "SectorCalc metrik, imperial ve bölgesel birimleri destekler ve kullandığı dönüşümleri gösterir.",
       "benchmarks": "SectorCalc, sonucunuzun yanında gösterge niteliğinde bölgesel kıyaslama bağlamı sunar — yön bulmak için, resmi rakamlar değil.",
       "pricing": "Planları ve her birinin neleri kapsadığını fiyatlandırma sayfasında görebilirsiniz:",
@@ -912,7 +912,7 @@
         },
         {
           "q": "Sonuçlar denetlenebilir mi?",
-          "a": "Premium karar özetleri; ekip içinde inceleme için girdi, varsayım ve doğrulama adımlarını içeren bir hesaplama özeti taşır."
+          "a": "Premium karar özetleri; ekip içinde inceleme için girdi, varsayım ve doğrulama aşamalarını içeren bir hesaplama özeti taşır."
         },
         {
           "q": "Nasıl başlarız?",
@@ -3034,8 +3034,8 @@
     "advancedInputsDescription": "Mevcut olduğunda profesyonel derinlik geçersiz kılmaları.",
     "analysisBlockedTitle": "Hesaplama engellendi",
     "contractNotFound": "Bu araç için akıllı form sözleşmesi bulunamadı.",
-    "calculationSteps": "Hesaplama adımları",
-    "calculationStepsEmpty": "Bu sözleşme deterministik izleme sunduğunda hesaplama adımları burada görünür.",
+    "calculationSteps": "Hesaplama aşamaları",
+    "calculationStepsEmpty": "Bu sözleşme deterministik izleme sunduğunda hesaplama aşamaları burada görünür.",
     "calculationStepDecisionGoal": "Karar hedefi",
     "calculationStepFormulaSummary": "Formül özeti",
     "fieldValidation": {

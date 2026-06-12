@@ -70,7 +70,7 @@ export function IntelligencePanel({
     >
       <div className="mb-4 flex items-center gap-2">
         <Sparkles className="h-4 w-4 text-body-charcoal" aria-hidden />
-        <h3 className="label-badge text-body-charcoal">{t("intelligencePanel.title")}</h3>
+        <h3 className="label-badge text-body-charcoal">{t("expertAnalysisPanel.title")}</h3>
       </div>
 
       {metricCount > 0 ? (
@@ -88,8 +88,8 @@ export function IntelligencePanel({
               <div className="mb-1 flex items-center gap-1.5 text-[10px] uppercase text-body-charcoal">
                 <ShieldAlert className="h-3 w-3" aria-hidden />
                 {expertFeatures.deadhead
-                  ? t("intelligencePanel.deadheadLoss")
-                  : t("intelligencePanel.hiddenLoss")}
+                  ? t("expertAnalysisPanel.deadheadLoss")
+                  : t("expertAnalysisPanel.hiddenLoss")}
               </div>
               <div className="data-value text-lg font-bold text-premium-velvet">
                 {formatCurrency(intelligence.hiddenLoss, locale, region)}
@@ -101,7 +101,7 @@ export function IntelligencePanel({
             <div>
               <div className="mb-1 flex items-center gap-1.5 text-[10px] uppercase text-body-charcoal">
                 <Flame className="h-3 w-3" aria-hidden />
-                {t("intelligencePanel.carbonImpact")}
+                {t("expertAnalysisPanel.carbonImpact")}
               </div>
               <div className="data-value text-lg font-bold text-premium-velvet">
                 {formatCarbon(intelligence.carbonImpact, locale)}
@@ -112,7 +112,7 @@ export function IntelligencePanel({
           {showDecisionSupport ? (
             <div>
               <span className="text-[10px] uppercase text-body-charcoal">
-                {t("intelligencePanel.actionPlan")}
+                {t("expertAnalysisPanel.actionPlan")}
               </span>
               <div
                 className={`mt-1 text-xs font-bold uppercase tracking-wider ${
@@ -120,8 +120,8 @@ export function IntelligencePanel({
                 }`}
               >
                 {isActionRequired
-                  ? t("intelligencePanel.actionRequired")
-                  : t("intelligencePanel.monitorOptimal")}
+                  ? t("expertAnalysisPanel.actionRequired")
+                  : t("expertAnalysisPanel.monitorOptimal")}
               </div>
             </div>
           ) : null}
@@ -131,8 +131,8 @@ export function IntelligencePanel({
       {showDecisionSupport ? (
         <p className="mt-4 text-xs leading-relaxed text-body-charcoal">
           {isActionRequired
-            ? t("intelligencePanel.actionRequiredDetail")
-            : t("intelligencePanel.monitorOptimalDetail")}
+            ? t("expertAnalysisPanel.actionRequiredDetail")
+            : t("expertAnalysisPanel.monitorOptimalDetail")}
         </p>
       ) : null}
 

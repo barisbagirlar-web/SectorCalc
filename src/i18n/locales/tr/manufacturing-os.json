@@ -73,9 +73,9 @@
       }
     },
     "metalworking": {
-      "title": "Metal İmalat Zekâsı",
+      "title": "Metal işleme maliyeti",
       "params": {
-        "Standard_Weight": "Standart Ağırlık",
+        "Standard_Weight": "Standart parça ağırlığı",
         "Actual_Weight": "Gerçek Ağırlık",
         "Raw_Material_Cost": "Hammadde Maliyeti"
       }
@@ -250,7 +250,7 @@
     "statusCritical": "KRİTİK",
     "statusOptimal": "OPTİMAL"
   },
-  "intelligencePanel": {
+  "expertAnalysisPanel": {
     "title": "Uzman analizi",
     "hiddenLoss": "Gizli Operasyonel Kayıp",
     "carbonImpact": "Karbon / CBAM Proxy",
@@ -295,8 +295,8 @@
     "atAverage": "Sektör Ortalamasında"
   },
   "premiumAudit": {
-    "stepLabel": "Adım {current} / {total}",
-    "nextParameter": "Sonraki Parametre",
+    "stepLabel": "Aşama {current} / {total}",
+    "nextParameter": "Sonraki girdi",
     "invalidValue": "Devam etmeden önce geçerli bir sayı girin.",
     "restart": "Yeni denetim çalıştır"
   }

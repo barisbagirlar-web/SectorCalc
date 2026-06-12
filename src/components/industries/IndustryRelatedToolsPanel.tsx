@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
-import { CalculatorCard } from "@/components/catalog/CalculatorCard";
-import { CalculatorCardGrid } from "@/components/catalog/CalculatorCardGrid";
+import { IndustryCalculatorCardList } from "@/components/industries/IndustryCalculatorCardList";
 import { EmptyIndustryToolsState } from "@/components/industries/EmptyIndustryToolsState";
 import { Container } from "@/components/ui/Container";
 import { resolveIndustryTools } from "@/lib/industries/resolve-industry-tools";
@@ -17,7 +16,6 @@ export async function IndustryRelatedToolsPanel({
   locale,
 }: IndustryRelatedToolsPanelProps) {
   const t = await getTranslations({ locale, namespace: "industries" });
-  const tCards = await getTranslations({ locale, namespace: "calculatorCards" });
   const relatedTools = resolveIndustryTools({ locale, industrySlug });
 
   if (!relatedTools.hasTools) {
@@ -35,10 +33,6 @@ export async function IndustryRelatedToolsPanel({
     );
   }
 
-  const badgeFree = tCards("badgeFree");
-  const badgePremium = tCards("badgePremium");
-  const ctaOpen = t("openCalculator");
-
   return (
     <div data-industry-related-tools="true">
       {relatedTools.free.length > 0 ? (
@@ -48,25 +42,7 @@ export async function IndustryRelatedToolsPanel({
         >
           <Container>
             <h2 className="text-2xl font-bold text-text-primary">{t("relatedFreeTools")}</h2>
-            <CalculatorCardGrid className="mt-6">
-              {relatedTools.free.map((tool) => (
-                <li key={tool.href} className="min-w-0">
-                  <CalculatorCard
-                    title={tool.title}
-                    description={tool.description}
-                    href={tool.href}
-                    categoryLabel={tool.categoryLabel}
-                    tier="free"
-                    inputCount={tool.inputCount}
-                    accent={tool.accent ?? "blue"}
-                    badgeFreeLabel={badgeFree}
-                    badgePremiumLabel={badgePremium}
-                    ctaLabel={ctaOpen}
-                    inputCountLabel={(count) => tCards("inputCount", { count })}
-                  />
-                </li>
-              ))}
-            </CalculatorCardGrid>
+            <IndustryCalculatorCardList tools={relatedTools.free} tier="free" />
           </Container>
         </section>
       ) : null}
@@ -78,25 +54,7 @@ export async function IndustryRelatedToolsPanel({
         >
           <Container>
             <h2 className="text-2xl font-bold text-text-primary">{t("relatedPremiumTools")}</h2>
-            <CalculatorCardGrid className="mt-6">
-              {relatedTools.premium.map((tool) => (
-                <li key={tool.href} className="min-w-0">
-                  <CalculatorCard
-                    title={tool.title}
-                    description={tool.description}
-                    href={tool.href}
-                    categoryLabel={tool.categoryLabel}
-                    tier="premium"
-                    inputCount={tool.inputCount}
-                    accent={tool.accent ?? "orange"}
-                    badgeFreeLabel={badgeFree}
-                    badgePremiumLabel={badgePremium}
-                    ctaLabel={ctaOpen}
-                    inputCountLabel={(count) => tCards("inputCount", { count })}
-                  />
-                </li>
-              ))}
-            </CalculatorCardGrid>
+            <IndustryCalculatorCardList tools={relatedTools.premium} tier="premium" />
           </Container>
         </section>
       ) : null}

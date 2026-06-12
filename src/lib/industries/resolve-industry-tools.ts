@@ -4,7 +4,7 @@ import { resolvePremiumCatalogGroupLabel } from "@/lib/i18n/catalog-labels-i18n"
 import { resolveCalculatorCardAccent } from "@/lib/catalog/card-accent";
 import { buildIndustryToolKeywords } from "@/lib/industries/industry-tool-keywords";
 import {
-  getPremiumSchemaCatalogItems,
+  getPremiumSchemasForIndustrySlug,
   type PremiumSchemaCatalogGroupId,
 } from "@/lib/premium-schema/premium-schema-catalog";
 import type { FormulaFamilyId } from "@/lib/premium-schema/formula-families";
@@ -149,7 +149,10 @@ function finalize(bucket: Map<string, ScoredTool>): readonly ResolvedIndustryToo
   return Array.from(bucket.values())
     .sort((a, b) => b.score - a.score)
     .slice(0, MAX_TOOLS_PER_TIER)
-    .map(({ score: _score, ...tool }) => tool);
+    .map(({ score, ...tool }) => {
+      void score;
+      return tool;
+    });
 }
 
 function scoreFreeTrafficTool(
@@ -184,33 +187,6 @@ function scoreFreeTrafficTool(
   return score;
 }
 
-function scorePremiumItem(
-  slug: string,
-  title: string,
-  description: string,
-  sectorSlug: string,
-  industrySlug: IndustrySlug,
-  keywords: readonly string[],
-  explicitSlugs: readonly string[],
-): number {
-  const corpus = [slug, title, description, sectorSlug].join(" ");
-  let score = scoreKeywordHits(corpus, keywords);
-
-  if (sectorSlug === industrySlug) {
-    score += 220;
-  }
-
-  if (explicitSlugs.includes(slug)) {
-    score += 180;
-  }
-
-  if (normalizeText(slug).includes(normalizeText(industrySlug))) {
-    score += 100;
-  }
-
-  return score;
-}
-
 export function resolveIndustryTools({
   locale,
   industrySlug,
@@ -224,7 +200,8 @@ export function resolveIndustryTools({
 
   for (const tool of FREE_TRAFFIC_TOOLS) {
     const score = scoreFreeTrafficTool(tool, industrySlug, keywords, locale, industryCategory);
-    if (score <= 0) {
+    const slugTitleScore = scoreKeywordHits(`${tool.slug} ${tool.title}`, keywords);
+  if (score <= 0 || (tool.relatedIndustrySlug !== industrySlug && slugTitleScore < 30)) {
       continue;
     }
     const localized = resolveFreeToolLocalizedCopy(tool.slug, locale);
@@ -290,27 +267,8 @@ export function resolveIndustryTools({
     );
   }
 
-  const premiumCatalog = getPremiumSchemaCatalogItems(locale);
-  const explicitPremiumSlugs =
-    premiumCatalog
-      .filter((item) => item.sectorSlug === industrySlug)
-      .map((item) => item.slug) ?? [];
-
-  for (const item of premiumCatalog) {
+  for (const item of getPremiumSchemasForIndustrySlug(industrySlug, locale, MAX_TOOLS_PER_TIER)) {
     const href = item.href.replace(/^\/[a-z]{2}\//, "/");
-    const score = scorePremiumItem(
-      item.slug,
-      item.title,
-      item.painStatement,
-      item.sectorSlug,
-      industrySlug,
-      keywords,
-      explicitPremiumSlugs,
-    );
-    if (score <= 0) {
-      continue;
-    }
-
     const schema = getPremiumCalculatorSchema(item.slug);
     pushScored(
       premiumBucket,
@@ -323,7 +281,7 @@ export function resolveIndustryTools({
         inputCount: schema?.inputs.length,
         accent: resolveCalculatorCardAccent(item.category, "premium"),
       },
-      score,
+      500,
     );
   }
 

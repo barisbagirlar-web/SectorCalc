@@ -63,17 +63,17 @@ if (!industryPageContent.includes("CalculatorCard")) {
   pass("IndustryPageContent delegates cards to IndustryRelatedToolsPanel");
 }
 
-const relatedPanel = read("src/components/industries/IndustryRelatedToolsPanel.tsx");
-if (!relatedPanel.includes("CalculatorCard")) {
-  fail("IndustryRelatedToolsPanel missing CalculatorCard");
+const cardList = read("src/components/industries/IndustryCalculatorCardList.tsx");
+if (!cardList.includes("CalculatorCard")) {
+  fail("IndustryCalculatorCardList missing CalculatorCard");
 } else {
-  pass("IndustryRelatedToolsPanel uses CalculatorCard");
+  pass("IndustryCalculatorCardList uses CalculatorCard");
 }
 
-if (relatedPanel.includes('href="#"')) {
-  fail('IndustryRelatedToolsPanel contains href="#"');
+if (cardList.includes('href="#"')) {
+  fail('IndustryCalculatorCardList contains href="#"');
 } else {
-  pass("IndustryRelatedToolsPanel avoids href=\"#\"");
+  pass("IndustryCalculatorCardList avoids href=\"#\"");
 }
 
 if (!existsSync(join(ROOT, "src/lib/industries/resolve-industry-tools.ts"))) {
