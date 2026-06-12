@@ -31,10 +31,6 @@ interface PremiumSchemaRouteParams extends PremiumSchemaPageParams {
   locale: string;
 }
 
-function buildPremiumFeaturedQuestion(name: string, template: string): string {
-  return template.replace("{name}", name);
-}
-
 function trimFeaturedAnswer(text: string): string {
   const words = text.trim().split(/\s+/);
   if (words.length <= 60) {
@@ -95,7 +91,7 @@ export default async function PremiumSchemaPilotPage({
   const displayName = resolvePremiumSchemaDisplayName(schema.id, schema.name, locale);
   const displayPain = resolvePremiumSchemaPainStatement(schema.id, schema.painStatement, locale);
 
-  const featuredQuestion = buildPremiumFeaturedQuestion(displayName, tPage("featuredQuestion"));
+  const featuredQuestion = tPage("featuredQuestion", { name: displayName });
   const featuredAnswer = trimFeaturedAnswer(displayPain);
   const tAuthority = await getTranslations("contentAuthority.premium");
   const authorityFaq = [
@@ -174,7 +170,7 @@ export default async function PremiumSchemaPilotPage({
             faqMeasureTitle: tAuthority("faqMeasureTitle"),
             faqReportTitle: tAuthority("faqReportTitle"),
             faqErpTitle: tAuthority("faqErpTitle"),
-            faqMeasureAnswer: tAuthority("faqMeasureAnswer"),
+            faqMeasureAnswer: tAuthority("faqMeasureAnswer", { name: displayName }),
             faqReportAnswer: tAuthority("faqReportAnswer"),
             faqErpAnswer: tAuthority("faqErpAnswer"),
             relatedGuideTitle: tAuthority("relatedGuideTitle"),

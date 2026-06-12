@@ -47,6 +47,63 @@ import {
   resolvePremiumSchemaDisplayName,
   resolvePremiumSchemaPainStatement,
 } from "@/lib/i18n/premium-schema-display-i18n";
+import { formatPremiumValue } from "@/lib/premium-schema/format-premium-result";
+import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
+import { resolveSevenMudaRev5Labels } from "@/lib/i18n/seven-muda-rev5-labels";
+
+const SEVEN_MUDA_WASTE_COST_SLUG = "7-israf-muda-avcisi-parasal-karsilik-calculator";
+
+function SevenMudaQuickDecisionSummary({
+  engineering,
+  locale,
+}: {
+  engineering: SevenMudaEngineeringResult;
+  locale: string;
+}) {
+  const labels = resolveSevenMudaRev5Labels(locale);
+  const fmtCurrency = (value: number) => formatPremiumValue(value, "currency", "", locale);
+  const verdict = engineering.decisionVerdict;
+
+  return (
+    <section className="sc-premium-decision-report__section" aria-label={labels.quickSummaryTitle}>
+      <h3 className="sc-premium-decision-report__heading">{labels.quickSummaryTitle}</h3>
+      <dl className="sc-premium-driver-grid">
+        <div className="sc-premium-driver-grid__item">
+          <dt className="sc-premium-driver-grid__label">{labels.totalWasteCost}</dt>
+          <dd className="sc-premium-driver-grid__value">{fmtCurrency(engineering.totalWasteCost)}</dd>
+        </div>
+        <div className="sc-premium-driver-grid__item">
+          <dt className="sc-premium-driver-grid__label">{labels.annualizedWasteCost}</dt>
+          <dd className="sc-premium-driver-grid__value">{fmtCurrency(engineering.annualizedWasteCost)}</dd>
+        </div>
+        <div className="sc-premium-driver-grid__item">
+          <dt className="sc-premium-driver-grid__label">{labels.highestWasteCategory}</dt>
+          <dd className="sc-premium-driver-grid__value">
+            {labels.categoryName(engineering.highestWasteCategory)}
+          </dd>
+        </div>
+        <div className="sc-premium-driver-grid__item">
+          <dt className="sc-premium-driver-grid__label">{labels.firstActionCategory}</dt>
+          <dd className="sc-premium-driver-grid__value">
+            {labels.categoryName(verdict.firstActionCategory)}
+          </dd>
+        </div>
+        <div className="sc-premium-driver-grid__item">
+          <dt className="sc-premium-driver-grid__label">{labels.confidenceLevel}</dt>
+          <dd className="sc-premium-driver-grid__value">
+            {labels.confidenceText(engineering.confidenceLevel)}
+          </dd>
+        </div>
+        <div className="sc-premium-driver-grid__item">
+          <dt className="sc-premium-driver-grid__label">{labels.doubleCountRisk}</dt>
+          <dd className="sc-premium-driver-grid__value">
+            {verdict.hasDoubleCountRisk ? labels.doubleCountDetected : labels.doubleCountNone}
+          </dd>
+        </div>
+      </dl>
+    </section>
+  );
+}
 
 export interface DynamicPremiumCalculatorProps {
   schema: PremiumCalculatorSchema;
@@ -337,6 +394,12 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                     statusLabel={t(`status.${reportData.verdict.status}`)}
                   />
                   <BigNumberSummary result={result} meaningLabel={t("whatThisMeans")} />
+                  {schema.id === SEVEN_MUDA_WASTE_COST_SLUG && result.sevenMudaEngineering ? (
+                    <SevenMudaQuickDecisionSummary
+                      engineering={result.sevenMudaEngineering}
+                      locale={locale}
+                    />
+                  ) : null}
                   <ThresholdStatusSection
                     items={
                       isFullReport

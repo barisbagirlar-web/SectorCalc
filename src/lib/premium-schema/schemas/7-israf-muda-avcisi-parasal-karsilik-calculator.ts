@@ -621,6 +621,46 @@ export const SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = 
       outputId: "totalWasteCost",
     },
     {
+      formulaId: "lean.muda_annualized_waste_cost",
+      inputMap: {},
+      outputId: "annualizedWasteCost",
+    },
+    {
+      formulaId: "lean.muda_waste_cost_per_unit",
+      inputMap: {},
+      outputId: "wasteCostPerUnit",
+    },
+    {
+      formulaId: "lean.muda_period_revenue",
+      inputMap: {},
+      outputId: "periodRevenue",
+    },
+    {
+      formulaId: "lean.muda_period_gross_margin_value",
+      inputMap: {},
+      outputId: "periodGrossMarginValue",
+    },
+    {
+      formulaId: "lean.muda_waste_to_revenue_ratio_pct",
+      inputMap: {},
+      outputId: "wasteToRevenueRatioPct",
+    },
+    {
+      formulaId: "lean.muda_waste_to_gross_margin_ratio_pct",
+      inputMap: {},
+      outputId: "wasteToGrossMarginRatioPct",
+    },
+    {
+      formulaId: "lean.muda_highest_waste_cost",
+      inputMap: {},
+      outputId: "highestWasteCost",
+    },
+    {
+      formulaId: "lean.muda_risk_adjusted_priority_score",
+      inputMap: {},
+      outputId: "riskAdjustedPriorityScore",
+    },
+    {
       formulaId: "lean.muda_highest_waste_index",
       inputMap: {
         overproductionCost: "overproductionCost",
@@ -642,6 +682,54 @@ export const SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = 
       unit: "currency",
       format: "currency",
       isBigNumber: true,
+    },
+    {
+      id: "annualizedWasteCost",
+      label: "Annualized waste cost",
+      unit: "currency",
+      format: "currency",
+    },
+    {
+      id: "wasteCostPerUnit",
+      label: "Waste cost per unit",
+      unit: "currency",
+      format: "currency",
+    },
+    {
+      id: "periodRevenue",
+      label: "Period revenue",
+      unit: "currency",
+      format: "currency",
+    },
+    {
+      id: "periodGrossMarginValue",
+      label: "Period gross margin value",
+      unit: "currency",
+      format: "currency",
+    },
+    {
+      id: "wasteToRevenueRatioPct",
+      label: "Waste to revenue ratio",
+      unit: "%",
+      format: "percentage",
+    },
+    {
+      id: "wasteToGrossMarginRatioPct",
+      label: "Waste to gross margin ratio",
+      unit: "%",
+      format: "percentage",
+    },
+    {
+      id: "highestWasteCost",
+      label: "Highest waste category cost",
+      unit: "currency",
+      format: "currency",
+    },
+    {
+      id: "riskAdjustedPriorityScore",
+      label: "Risk-adjusted priority score",
+      unit: "score",
+      format: "score",
     },
     {
       id: "overproductionCost",

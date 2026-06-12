@@ -794,6 +794,54 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       }),
   },
   {
+    id: "lean.muda_annualized_waste_cost",
+    family: "cost",
+    label: "Annualized waste cost",
+    fn: () => getPrimedSevenMudaEngineeringResult().annualizedWasteCost,
+  },
+  {
+    id: "lean.muda_waste_cost_per_unit",
+    family: "cost",
+    label: "Waste cost per unit",
+    fn: () => getPrimedSevenMudaEngineeringResult().wasteCostPerUnit,
+  },
+  {
+    id: "lean.muda_period_revenue",
+    family: "cost",
+    label: "Period revenue",
+    fn: () => getPrimedSevenMudaEngineeringResult().periodRevenue,
+  },
+  {
+    id: "lean.muda_period_gross_margin_value",
+    family: "cost",
+    label: "Period gross margin value",
+    fn: () => getPrimedSevenMudaEngineeringResult().periodGrossMarginValue,
+  },
+  {
+    id: "lean.muda_waste_to_revenue_ratio_pct",
+    family: "cost",
+    label: "Waste to revenue ratio",
+    fn: () => getPrimedSevenMudaEngineeringResult().wasteToRevenueRatioPct,
+  },
+  {
+    id: "lean.muda_waste_to_gross_margin_ratio_pct",
+    family: "cost",
+    label: "Waste to gross margin ratio",
+    fn: () => getPrimedSevenMudaEngineeringResult().wasteToGrossMarginRatioPct,
+  },
+  {
+    id: "lean.muda_highest_waste_cost",
+    family: "cost",
+    label: "Highest waste category cost",
+    fn: () => getPrimedSevenMudaEngineeringResult().highestWasteCost,
+  },
+  {
+    id: "lean.muda_risk_adjusted_priority_score",
+    family: "cost",
+    label: "Risk-adjusted priority score",
+    fn: () => getPrimedSevenMudaEngineeringResult().riskAdjustedPriorityScore,
+  },
+  {
     id: "energy.monthly_kwh_savings",
     family: "energy",
     label: "Monthly kWh savings from baseline minus proposed",
@@ -1422,6 +1470,46 @@ const FORMULA_META_DETAILS: Record<
     description: "Rank of the highest REV5 muda waste category (1–7).",
     requiredInputs: [],
     outputHint: "number",
+  },
+  "lean.muda_annualized_waste_cost": {
+    description: "Annualized REV5 total waste exposure.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_waste_cost_per_unit": {
+    description: "REV5 waste cost per production unit in the analysis period.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_period_revenue": {
+    description: "REV5 period revenue from production volume and unit selling price.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_period_gross_margin_value": {
+    description: "REV5 period gross margin value.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_waste_to_revenue_ratio_pct": {
+    description: "REV5 total waste cost as a percent of period revenue.",
+    requiredInputs: [],
+    outputHint: "percentage",
+  },
+  "lean.muda_waste_to_gross_margin_ratio_pct": {
+    description: "REV5 total waste cost as a percent of period gross margin.",
+    requiredInputs: [],
+    outputHint: "percentage",
+  },
+  "lean.muda_highest_waste_cost": {
+    description: "REV5 monetary cost of the dominant waste category.",
+    requiredInputs: [],
+    outputHint: "currency",
+  },
+  "lean.muda_risk_adjusted_priority_score": {
+    description: "REV5 risk-adjusted kaizen priority score.",
+    requiredInputs: [],
+    outputHint: "score",
   },
   "energy.monthly_kwh_savings": {
     description: "Monthly kWh reduction from baseline to proposed consumption.",
