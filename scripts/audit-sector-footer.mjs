@@ -47,13 +47,24 @@ const REQUIRED_SVG_PATHS = [
   "M90 90 L190 190 M190 90 L90 190",
 ];
 
+/** Exact public TR phrases allowed despite broader forbidden-term rules. */
+const ALLOWED_PUBLIC_TR_PHRASES = ["Fiyat Teklif Sihirbazı"];
+
+function stripAllowedPublicTrPhrases(text) {
+  let out = text;
+  for (const phrase of ALLOWED_PUBLIC_TR_PHRASES) {
+    out = out.split(phrase).join("");
+  }
+  return out;
+}
+
 /** Public footer copy only — not sch-* class names (e.g. sch-panel-terminal). */
 const FORBIDDEN =
   /Bütünsel Analitik Platformu|BÜTÜNSEL ANALİTİK PLATFORMU|\bAnalitik\b|\bAnalyzer\b|\bAnalysis\b|\bAnalyze\b|\bAnaliz\b|\banaliz\b|\bSihirbaz\b|\bYÜRÜT\b|\bEXEC\b|SYS\.OK|VER: 2\.5_HYBRID|ISO 27001|\bSLA\b|Yatırımcı Demosu/i;
 
 const POSITIVE_TR = [
   "SEKTÖREL HESAP MAKİNESİ",
-  "Teklif ve Kâr Marjı Hesaplayıcı",
+  "Fiyat Teklif Sihirbazı",
   "Makine Saat Ücreti Hesaplayıcı",
   "Fire ve Malzeme Kaybı",
   "OEE Hesaplayıcı",
@@ -130,7 +141,7 @@ for (const locale of LOCALES) {
     }
   }
   for (const value of Object.values(sectorFooter)) {
-    if (typeof value === "string" && FORBIDDEN.test(value)) {
+    if (typeof value === "string" && FORBIDDEN.test(stripAllowedPublicTrPhrases(value))) {
       failures.push(`${locale}: forbidden copy in sectorFooter → "${value.slice(0, 60)}"`);
     }
   }

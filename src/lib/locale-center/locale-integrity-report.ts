@@ -2,6 +2,7 @@ import { collectLocaleKeyParityGaps } from "@/lib/locale-center/locale-dictionar
 import {
   EN_RENDERED_FORBIDDEN_RE,
   INTERNAL_PUBLIC_FORBIDDEN_ANY_LOCALE,
+  stripAllowedPublicTrPhrases,
   TR_RENDERED_FORBIDDEN_RE,
 } from "@/lib/locale-center/internal-copy-blocklist";
 import { SUPPORTED_LOCALES } from "@/lib/locale-center/locale-config";
@@ -26,7 +27,7 @@ function scanTextForForbidden(
   const issues: LocaleIntegrityIssue[] = [];
 
   if (locale === "tr") {
-    const matches = html.match(TR_RENDERED_FORBIDDEN_RE);
+    const matches = stripAllowedPublicTrPhrases(html).match(TR_RENDERED_FORBIDDEN_RE);
     if (matches) {
       const unique = [...new Set(matches)];
       for (const term of unique) {

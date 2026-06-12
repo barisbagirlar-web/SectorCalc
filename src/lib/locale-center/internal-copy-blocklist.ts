@@ -1,5 +1,16 @@
 import { TR_FORBIDDEN_SURFACE_WORDS } from "@/lib/i18n/calculator-surface-forbidden";
 
+/** Exact public TR product titles allowed despite broader forbidden-term rules. */
+export const ALLOWED_PUBLIC_TR_PHRASES = ["Fiyat Teklif Sihirbazı"] as const;
+
+export function stripAllowedPublicTrPhrases(text: string): string {
+  let out = text;
+  for (const phrase of ALLOWED_PUBLIC_TR_PHRASES) {
+    out = out.split(phrase).join("");
+  }
+  return out;
+}
+
 /** Internal / roadmap strings that must not appear in public rendered HTML. */
 export const INTERNAL_PUBLIC_FORBIDDEN_TR = [
   "Stratejik yol haritası",

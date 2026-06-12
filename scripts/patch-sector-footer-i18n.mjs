@@ -48,7 +48,7 @@ const SECTOR_FOOTER = {
     panel2Svg: "FİRE/KAYIP",
     panel3Svg: "TEKNİK/OEE",
     panel4Svg: "KÜTÜPHANE",
-    panel1Link1: "Teklif ve Kâr Marjı Hesaplayıcı",
+    panel1Link1: "Fiyat Teklif Sihirbazı",
     panel1Link2: "Makine Saat Ücreti Hesaplayıcı",
     panel1Link3: "Başabaş Noktası Hesaplayıcı",
     panel1Link4: "Personel Tam Maliyet Hesaplayıcı",

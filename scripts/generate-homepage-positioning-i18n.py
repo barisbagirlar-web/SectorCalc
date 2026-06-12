@@ -83,7 +83,7 @@ CRITICAL_TR = {
     "workshopQuote": {
         "title": "Atölye ve teklif",
         "items": {
-            "quoteMargin": "Teklif Fiyatı ve Kâr Marjı Hesaplayıcı",
+            "quoteMargin": "Fiyat Teklif Sihirbazı",
             "breakEven": "Başabaş Hesaplayıcı",
             "repairQuote": "Tamirhane Parça ve İşçilik Teklif Hesaplayıcı",
             "productMargin": "Ürün Marjı Hesaplayıcı",

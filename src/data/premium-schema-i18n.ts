@@ -160,7 +160,7 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
       "Faiz, gecikme ve masraf maruziyeti birlikte özetlenmediğinde hukuki ve tahsilat dosyalarında karar netliği kaybolur.",
   },
   "quote-price-profit-margin-calculator": {
-    title: "Teklif Fiyatı ve Kâr Marjı Hesaplayıcı",
+    title: "Fiyat Teklif Sihirbazı",
     painStatement:
       "Tekliflerde fire, kurulum süresi, vade maliyeti ve enerji yükü sıkça atlanır; marj buna göre incelir.",
   },
