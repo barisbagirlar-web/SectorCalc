@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Search } from "lucide-react";
 import { Link } from "@/i18n/routing";
@@ -35,12 +35,26 @@ function normalizeStr(value: string, locale: string): string {
     .trim();
 }
 
+function scrollToToolsList() {
+  requestAnimationFrame(() => {
+    document.getElementById("tools-list")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+}
+
 export function PremiumCatalogSearch({ tools, categories }: Props) {
   const t = useTranslations("premiumCategoryCatalog");
   const locale = useLocale();
 
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const handleCategorySelect = useCallback((slug: string) => {
+    setSelectedCategory(slug);
+    scrollToToolsList();
+  }, []);
 
   const categoryCards: CategoryCardItem[] = useMemo(
     () => [
@@ -75,7 +89,7 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
 
   return (
     <div className="flex flex-col gap-6">
-      <CategoryCardGrid items={categoryCards} onSelect={setSelectedCategory} />
+      <CategoryCardGrid items={categoryCards} onSelect={handleCategorySelect} />
       <div className="relative">
         <Search
           className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-body-charcoal"
@@ -93,38 +107,40 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
       <p className="text-xs text-body-charcoal">
         {t("resultCount", { count: visibleTools.length })}
       </p>
-      {visibleTools.length === 0 ? (
-        <p className="py-10 text-center text-sm text-body-charcoal">{t("noResults")}</p>
-      ) : (
-        <div className="sc-premium-tool-grid">
-          {visibleTools.map((tool) =>
-            tool.isActive && tool.routePath ? (
-              <article
-                key={tool.slug}
-                id={"tool-" + tool.slug}
-                className="sc-premium-tool-card sc-premium-tool-card--active"
-              >
-                <Link href={tool.routePath} prefetch={false} className="sc-premium-tool-card__link">
+      <section id="tools-list">
+        {visibleTools.length === 0 ? (
+          <p className="py-10 text-center text-sm text-body-charcoal">{t("noResults")}</p>
+        ) : (
+          <div className="sc-premium-tool-grid">
+            {visibleTools.map((tool) =>
+              tool.isActive && tool.routePath ? (
+                <article
+                  key={tool.slug}
+                  id={"tool-" + tool.slug}
+                  className="sc-premium-tool-card sc-premium-tool-card--active"
+                >
+                  <Link href={tool.routePath} prefetch={false} className="sc-premium-tool-card__link">
+                    <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
+                    <p className="sc-premium-tool-card__description">{tool.description}</p>
+                    <p className="sc-premium-tool-card__meta">{t("openCalculator")}</p>
+                  </Link>
+                </article>
+              ) : (
+                <article
+                  key={tool.slug}
+                  id={"tool-" + tool.slug}
+                  className="sc-premium-tool-card sc-premium-tool-card--pending"
+                  aria-disabled="true"
+                >
                   <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
                   <p className="sc-premium-tool-card__description">{tool.description}</p>
-                  <p className="sc-premium-tool-card__meta">{t("openCalculator")}</p>
-                </Link>
-              </article>
-            ) : (
-              <article
-                key={tool.slug}
-                id={"tool-" + tool.slug}
-                className="sc-premium-tool-card sc-premium-tool-card--pending"
-                aria-disabled="true"
-              >
-                <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
-                <p className="sc-premium-tool-card__description">{tool.description}</p>
-                <p className="sc-premium-tool-card__meta">{t("methodologyPreparing")}</p>
-              </article>
-            ),
-          )}
-        </div>
-      )}
+                  <p className="sc-premium-tool-card__meta">{t("methodologyPreparing")}</p>
+                </article>
+              ),
+            )}
+          </div>
+        )}
+      </section>
     </div>
   );
 }

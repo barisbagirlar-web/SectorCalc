@@ -1,10 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { CalculatorCard } from "@/components/catalog/CalculatorCard";
 import { CalculatorCardGrid } from "@/components/catalog/CalculatorCardGrid";
 import { CalculatorFilterBar } from "@/components/catalog/CalculatorFilterBar";
+import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
+import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
 import { resolveCalculatorCardAccent } from "@/lib/catalog/card-accent";
 import type { CatalogGroup, CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
 import {
@@ -66,6 +68,27 @@ export function DiscoveryCatalogExplorer({
     [groups, t, variant, visibleTabs],
   );
 
+  const categoryCardItems: CategoryCardItem[] = useMemo(
+    () =>
+      filterTabs.map((tab) => ({
+        slug: tab.id,
+        label: tab.label,
+        count: tab.count,
+        isActive: activeTab?.id === tab.id,
+      })),
+    [filterTabs, activeTab],
+  );
+
+  const handleCategorySelect = useCallback(
+    (tabId: string) => {
+      setSelectedTabId(tabId);
+      requestAnimationFrame(() => {
+        document.getElementById("tools-list")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    },
+    [],
+  );
+
   const badgeFree = t("search.badgeFree");
   const badgePremium = t("search.badgePremium");
   const isIndustry = variant === "industries";
@@ -97,12 +120,16 @@ export function DiscoveryCatalogExplorer({
 
   return (
     <div className="sc-discovery-explorer" data-variant={variant} data-calculator-card-explorer="true">
-      <CalculatorFilterBar
-        tabs={filterTabs}
-        activeTabId={activeTab?.id ?? DISCOVERY_TAB_ALL}
-        onTabChange={setSelectedTabId}
-        ariaLabel={t(`labels.${variant}.navLabel`)}
-      />
+      {isIndustry ? (
+        <CalculatorFilterBar
+          tabs={filterTabs}
+          activeTabId={activeTab?.id ?? DISCOVERY_TAB_ALL}
+          onTabChange={setSelectedTabId}
+          ariaLabel={t(`labels.${variant}.navLabel`)}
+        />
+      ) : (
+        <CategoryCardGrid items={categoryCardItems} onSelect={handleCategorySelect} />
+      )}
 
       <p className="sc-results-label" role="status">
         {tCards.rich("resultsLabel", {
@@ -111,40 +138,42 @@ export function DiscoveryCatalogExplorer({
         })}
       </p>
 
-      {items.length === 0 ? (
-        <p className="mt-4 text-sm text-body-charcoal" role="status">
-          {t("search.noResults")}
-        </p>
-      ) : (
-        <CalculatorCardGrid className="mt-4">
-          {items.map((item) => {
-            const tier = resolveTier(item);
-            return (
-              <li key={item.href} className="min-w-0">
-                <CalculatorCard
-                  title={item.title}
-                  description={item.description}
-                  href={item.href}
-                  categoryLabel={item.groupLabel}
-                  tier={tier}
-                  variant={isIndustry ? "industry" : "calculator"}
-                  inputCount={item.inputCount}
-                  freeToolCount={item.freeToolCount}
-                  premiumToolCount={item.premiumToolCount}
-                  accent={resolveCalculatorCardAccent(item.groupId, tier)}
-                  badgeFreeLabel={isIndustry ? tCards("badgeSector") : badgeFree}
-                  badgePremiumLabel={badgePremium}
-                  ctaLabel={resolveCta(item)}
-                  inputCountLabel={(count) => tCards("inputCount", { count })}
-                  sectorCountLabel={(free, premium) =>
-                    tCards("sectorToolCounts", { free, premium })
-                  }
-                />
-              </li>
-            );
-          })}
-        </CalculatorCardGrid>
-      )}
+      <section id="tools-list">
+        {items.length === 0 ? (
+          <p className="mt-4 text-sm text-body-charcoal" role="status">
+            {t("search.noResults")}
+          </p>
+        ) : (
+          <CalculatorCardGrid className="mt-4">
+            {items.map((item) => {
+              const tier = resolveTier(item);
+              return (
+                <li key={item.href} className="min-w-0">
+                  <CalculatorCard
+                    title={item.title}
+                    description={item.description}
+                    href={item.href}
+                    categoryLabel={item.groupLabel}
+                    tier={tier}
+                    variant={isIndustry ? "industry" : "calculator"}
+                    inputCount={item.inputCount}
+                    freeToolCount={item.freeToolCount}
+                    premiumToolCount={item.premiumToolCount}
+                    accent={resolveCalculatorCardAccent(item.groupId, tier)}
+                    badgeFreeLabel={isIndustry ? tCards("badgeSector") : badgeFree}
+                    badgePremiumLabel={badgePremium}
+                    ctaLabel={resolveCta(item)}
+                    inputCountLabel={(count) => tCards("inputCount", { count })}
+                    sectorCountLabel={(free, premium) =>
+                      tCards("sectorToolCounts", { free, premium })
+                    }
+                  />
+                </li>
+              );
+            })}
+          </CalculatorCardGrid>
+        )}
+      </section>
     </div>
   );
 }
