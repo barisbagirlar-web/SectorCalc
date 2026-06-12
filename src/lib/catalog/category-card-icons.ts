@@ -72,17 +72,10 @@ const CATEGORY_CARD_ICON_MAP: Record<string, CategoryCardIconMeta> = {
   "technology-ai-cloud-cyber": { icon: BrainCircuit, iconName: "BrainCircuit" },
 };
 
-const FALLBACK: CategoryCardIconMeta = { icon: LayoutGrid, iconName: "LayoutGrid" };
-
 export function getCategoryCardIcon(slug: string): CategoryCardIconMeta {
   const entry = CATEGORY_CARD_ICON_MAP[slug];
   if (entry) return entry;
-  // Fuzzy fallback: find any key that contains or is contained by slug
-  const fuzzyKey = Object.keys(CATEGORY_CARD_ICON_MAP).find(
-    (k) => k !== "all" && (slug.includes(k) || k.includes(slug)),
-  );
-  if (fuzzyKey) return CATEGORY_CARD_ICON_MAP[fuzzyKey];
-  return FALLBACK;
+  throw new Error(`Missing category icon mapping for slug: ${slug}`);
 }
 
 export function assertUniqueCategoryCardIcons(): void {
