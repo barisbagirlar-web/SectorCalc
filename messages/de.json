@@ -1563,7 +1563,21 @@
     "calculate": "Jetzt berechnen",
     "awaiting": "Werte eingeben, um das Ergebnis zu sehen",
     "validationRequired": "Bitte einen Wert wählen.",
-    "validationNumber": "Gültige Zahl eingeben."
+    "validationNumber": "Gültige Zahl eingeben.",
+    "premiumEyebrow": "Premium-Rechner",
+    "mode": {
+      "label": "Berechnungsmodus",
+      "quick": "Einfach",
+      "expert": "Experte"
+    },
+    "sections": {
+      "inputs": "Eingabefelder",
+      "summary": "Berechnungshinweis",
+      "result": "Berechnungsergebnis"
+    },
+    "emptyState": {
+      "enterValues": "Werte eingeben und Berechnung starten. Die Ergebniszusammenfassung erscheint hier."
+    }
   },
   "premiumReport": {
     "executiveSummary": "Zusammenfassung",
@@ -8215,6 +8229,13 @@
       "leakDiameter": "Leckdurchmesser",
       "runtime": "Laufzeit",
       "downtime": "Ausfallzeit",
+      "plannedHours": "Geplante Zeit",
+      "downtimeHours": "Ausfallzeit",
+      "availability": "Verfügbarkeit",
+      "performance": "Leistung",
+      "quality": "Qualität",
+      "goodParts": "Gute Teile",
+      "scrapRate": "Ausschussquote",
       "labor": "Arbeit",
       "tax": "Steuer",
       "steps": "Stufen",

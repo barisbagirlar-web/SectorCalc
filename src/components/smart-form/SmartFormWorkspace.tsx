@@ -32,6 +32,7 @@ export type SmartFormWorkspaceProps = {
   readonly resultPanel: ReactNode;
   readonly trustTraceSlot?: ReactNode;
   readonly resultSummary?: SmartFormResult | null;
+  readonly hasCalculated?: boolean;
   readonly forceFallback?: boolean;
   readonly nativeContractForm?: boolean;
   readonly toolCategory?: string;
@@ -54,6 +55,7 @@ export function SmartFormWorkspace({
   resultPanel,
   trustTraceSlot,
   resultSummary = null,
+  hasCalculated = false,
   forceFallback = false,
   nativeContractForm = false,
   toolCategory,
@@ -159,21 +161,23 @@ export function SmartFormWorkspace({
         </div>
       }
       expertContent={expertContent}
+      hasCalculated={hasCalculated}
       resultContent={
-        <ResultLayerTabs
-          quickContent={
-            <SmartResultPanel
-              result={resultSummary}
-              calculationSteps={adapter.ok ? adapter.calculationSteps : []}
-              trustTraceSlot={undefined}
-            >
-              {resultPanel}
-            </SmartResultPanel>
-          }
-          deepContent={trustTraceSlot ?? undefined}
-        />
+        hasCalculated ? (
+          <ResultLayerTabs
+            quickContent={
+              <SmartResultPanel
+                result={resultSummary}
+                calculationSteps={adapter.ok ? adapter.calculationSteps : []}
+                trustTraceSlot={trustTraceSlot}
+              >
+                {resultPanel}
+              </SmartResultPanel>
+            }
+            deepContent={trustTraceSlot ?? undefined}
+          />
+        ) : undefined
       }
-      trustTraceContent={trustTraceSlot ?? resultPanel}
     />
   );
 }

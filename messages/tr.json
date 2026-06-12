@@ -1558,7 +1558,21 @@
     "calculate": "Hesapla",
     "awaiting": "Sonucu görmek için değerleri girin",
     "validationRequired": "Lütfen bir değer seçin.",
-    "validationNumber": "Geçerli bir sayı girin."
+    "validationNumber": "Geçerli bir sayı girin.",
+    "premiumEyebrow": "Premium hesaplayıcı",
+    "mode": {
+      "label": "Hesaplama modu",
+      "quick": "Basit",
+      "expert": "Uzman"
+    },
+    "sections": {
+      "inputs": "Girdi alanları",
+      "summary": "Hesaplama yönlendirmesi",
+      "result": "Hesaplama sonucu"
+    },
+    "emptyState": {
+      "enterValues": "Değerleri girin ve hesaplamayı çalıştırın. Sonuç özeti burada görünecek."
+    }
   },
   "premiumReport": {
     "executiveSummary": "Yönetici özeti",
@@ -8281,6 +8295,13 @@
       "leakDiameter": "Delik çapı",
       "runtime": "Çalışma süresi",
       "downtime": "Duruş",
+      "plannedHours": "Planlı süre",
+      "downtimeHours": "Duruş",
+      "availability": "Kullanılabilirlik",
+      "performance": "Performans",
+      "quality": "Kalite",
+      "goodParts": "İyi ürün",
+      "scrapRate": "Fire oranı",
       "labor": "İşçilik",
       "tax": "Vergi",
       "steps": "Basamak",

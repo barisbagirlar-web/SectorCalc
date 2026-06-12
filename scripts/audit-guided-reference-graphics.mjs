@@ -21,6 +21,7 @@ const TEMPLATE_FILES = [
   "RouteGraphic.tsx",
   "EnergyFlowGraphic.tsx",
   "MachineTimeGraphic.tsx",
+  "OeeFlowGraphic.tsx",
   "FinancialFlowGraphic.tsx",
   "GenericCalculatorGraphic.tsx",
 ];
@@ -60,6 +61,8 @@ const MUST_NOT_BE_GENERIC = {
   "energy-compressor-leak-cost": "compressor-leak",
   "machine-time-calculator": "machine-time",
   "quote-price-profit-margin-calculator": "financial-flow",
+  "cnc-oee-loss": "oee-flow",
+  "oee-calculator": "oee-flow",
 };
 
 let failures = 0;

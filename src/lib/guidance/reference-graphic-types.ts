@@ -13,6 +13,7 @@ export type ReferenceGraphicTemplate =
   | "energy-flow"
   | "machine-time"
   | "financial-flow"
+  | "oee-flow"
   | "generic";
 
 /** @deprecated Use wall-area */

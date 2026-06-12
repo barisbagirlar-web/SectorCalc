@@ -1558,7 +1558,21 @@
     "calculate": "Calculate now",
     "awaiting": "Enter values to see your result",
     "validationRequired": "Please select a value.",
-    "validationNumber": "Enter a valid number."
+    "validationNumber": "Enter a valid number.",
+    "premiumEyebrow": "Premium calculator",
+    "mode": {
+      "label": "Calculation mode",
+      "quick": "Basic",
+      "expert": "Expert"
+    },
+    "sections": {
+      "inputs": "Input fields",
+      "summary": "Calculation guidance",
+      "result": "Calculation result"
+    },
+    "emptyState": {
+      "enterValues": "Enter values and run the calculation. The result summary will appear here."
+    }
   },
   "premiumReport": {
     "executiveSummary": "Executive summary",
@@ -7808,6 +7822,13 @@
       "leakDiameter": "Leak diameter",
       "runtime": "Runtime",
       "downtime": "Downtime",
+      "plannedHours": "Planned time",
+      "downtimeHours": "Downtime",
+      "availability": "Availability",
+      "performance": "Performance",
+      "quality": "Quality",
+      "goodParts": "Good parts",
+      "scrapRate": "Scrap rate",
       "labor": "Labor",
       "tax": "Tax",
       "steps": "Steps",

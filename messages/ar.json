@@ -1558,7 +1558,21 @@
     "calculate": "احسب الآن",
     "awaiting": "أدخل القيم لرؤية النتيجة",
     "validationRequired": "يرجى اختيار قيمة.",
-    "validationNumber": "أدخل رقماً صالحاً."
+    "validationNumber": "أدخل رقماً صالحاً.",
+    "premiumEyebrow": "حاسبة مميزة",
+    "mode": {
+      "label": "وضع الحساب",
+      "quick": "بسيط",
+      "expert": "خبير"
+    },
+    "sections": {
+      "inputs": "حقول الإدخال",
+      "summary": "إرشاد الحساب",
+      "result": "نتيجة الحساب"
+    },
+    "emptyState": {
+      "enterValues": "أدخل القيم وشغّل الحساب. سيظهر ملخص النتيجة هنا."
+    }
   },
   "premiumReport": {
     "executiveSummary": "ملخص تنفيذي",
@@ -8210,6 +8224,13 @@
       "leakDiameter": "قطر التسرب",
       "runtime": "زمن التشغيل",
       "downtime": "زمن التوقف",
+      "plannedHours": "الوقت المخطط",
+      "downtimeHours": "زمن التوقف",
+      "availability": "التوفر",
+      "performance": "الأداء",
+      "quality": "الجودة",
+      "goodParts": "المنتجات السليمة",
+      "scrapRate": "معدل الهدر",
       "labor": "العمالة",
       "tax": "الضريبة",
       "steps": "الدرجات",

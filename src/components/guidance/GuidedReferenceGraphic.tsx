@@ -13,6 +13,7 @@ import { EnergyFlowGraphic } from "@/components/guidance/templates/EnergyFlowGra
 import { FinancialFlowGraphic } from "@/components/guidance/templates/FinancialFlowGraphic";
 import { GenericCalculatorGraphic } from "@/components/guidance/templates/GenericCalculatorGraphic";
 import { MachineTimeGraphic } from "@/components/guidance/templates/MachineTimeGraphic";
+import { OeeFlowGraphic } from "@/components/guidance/templates/OeeFlowGraphic";
 import { RouteGraphic } from "@/components/guidance/templates/RouteGraphic";
 import { StairGraphic } from "@/components/guidance/templates/StairGraphic";
 import { VolumeGraphic } from "@/components/guidance/templates/VolumeGraphic";
@@ -53,6 +54,10 @@ const LABEL_KEY_MAP: Readonly<Record<string, string>> = {
   runtime: "runtime",
   setupTime: "setupTime",
   cycleTime: "cycleTime",
+  plannedHours: "plannedHours",
+  downtimeHours: "downtimeHours",
+  scrapRate: "scrapRate",
+  machineRate: "cost",
   quantity: "quantity",
   downtime: "downtime",
   steps: "steps",
@@ -68,7 +73,10 @@ const LABEL_KEY_MAP: Readonly<Record<string, string>> = {
   payment: "cost",
   routeCost: "cost",
   stops: "stops",
-  availability: "runtime",
+  availability: "availability",
+  performance: "performance",
+  quality: "quality",
+  goodParts: "goodParts",
   carbon: "energy",
 };
 
@@ -76,7 +84,8 @@ const KNOWN_LABEL_KEYS = [
   "length", "width", "height", "depth", "diameter", "radius", "insideRadius", "thickness",
   "materialThickness", "angle", "bendAngle", "neutralAxis", "area", "volume", "cost", "price",
   "margin", "tax", "labor", "energy", "power", "pressure", "flow", "leakDiameter", "distance",
-  "fuel", "runtime", "setupTime", "cycleTime", "quantity", "downtime", "steps", "riserRise",
+  "fuel", "runtime", "setupTime", "cycleTime", "plannedHours", "downtimeHours", "availability",
+  "performance", "quality", "goodParts", "scrapRate", "quantity", "downtime", "steps", "riserRise",
   "treadRun", "stairThickness", "result", "decision", "input", "process", "stops",
 ] as const;
 
@@ -123,6 +132,8 @@ export function GuidedReferenceGraphic({
       return <EnergyFlowGraphic {...props} />;
     case "machine-time":
       return <MachineTimeGraphic {...props} />;
+    case "oee-flow":
+      return <OeeFlowGraphic {...props} />;
     case "financial-flow":
       return <FinancialFlowGraphic {...props} />;
     case "generic":

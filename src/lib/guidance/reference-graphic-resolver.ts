@@ -31,6 +31,17 @@ const TEMPLATE_FIELD_IDS: Readonly<Record<ReferenceGraphicTemplate, readonly str
   "energy-flow": ["power", "energy", "runtime", "pressure", "flow", "cost"],
   "machine-time": ["setupTime", "cycleTime", "quantity", "downtime", "runtime"],
   "financial-flow": ["cost", "price", "margin", "tax", "labor", "quantity"],
+  "oee-flow": [
+    "availability",
+    "performance",
+    "quality",
+    "plannedHours",
+    "downtimeHours",
+    "machineRate",
+    "materialCost",
+    "scrapRate",
+    "quotedPrice",
+  ],
   generic: ["input", "process", "result", "decision"],
 };
 

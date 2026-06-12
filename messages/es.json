@@ -1563,7 +1563,21 @@
     "calculate": "Calcular",
     "awaiting": "Introduzca valores para ver el resultado",
     "validationRequired": "Seleccione un valor.",
-    "validationNumber": "Introduzca un número válido."
+    "validationNumber": "Introduzca un número válido.",
+    "premiumEyebrow": "Calculadora premium",
+    "mode": {
+      "label": "Modo de cálculo",
+      "quick": "Básico",
+      "expert": "Experto"
+    },
+    "sections": {
+      "inputs": "Campos de entrada",
+      "summary": "Guía de cálculo",
+      "result": "Resultado del cálculo"
+    },
+    "emptyState": {
+      "enterValues": "Introduzca valores y ejecute el cálculo. El resumen aparecerá aquí."
+    }
   },
   "premiumReport": {
     "executiveSummary": "Resumen ejecutivo",
@@ -8215,6 +8229,13 @@
       "leakDiameter": "Diámetro de fuga",
       "runtime": "Tiempo de operación",
       "downtime": "Tiempo de parada",
+      "plannedHours": "Tiempo planificado",
+      "downtimeHours": "Tiempo de parada",
+      "availability": "Disponibilidad",
+      "performance": "Rendimiento",
+      "quality": "Calidad",
+      "goodParts": "Piezas buenas",
+      "scrapRate": "Tasa de scrap",
       "labor": "Mano de obra",
       "tax": "Impuesto",
       "steps": "Escalones",

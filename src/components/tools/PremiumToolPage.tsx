@@ -39,6 +39,13 @@ import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
 import { buildGuidanceFieldsFromKeys } from "@/lib/guidance/build-guidance-fields";
 import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
 import { SmartResultPanel } from "@/components/smart-form/SmartResultPanel";
+import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
+import {
+  buildPremiumSchemaExperienceFields,
+  filterVisibleCalculatorFields,
+  resolveCalculatorExperience,
+} from "@/lib/calculator-experience/resolve-calculator-experience";
+import type { CalculatorExperienceMode } from "@/lib/calculator-experience/calculator-experience-types";
 import { DynamicSmartFormPilot } from "@/components/smart-form/DynamicSmartFormPilot";
 import { buildSmartFormForTool } from "@/lib/smart-form/smart-form-adapter";
 import { hasPremiumSmartFormDefinition } from "@/lib/smart-form/premium-smart-form-definitions";
@@ -245,6 +252,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  const [submitted, setSubmitted] = useState(false);
  const [isCalculating, setIsCalculating] = useState(false);
  const [errors, setErrors] = useState<Record<string, string>>({});
+ const [mode, setMode] = useState<CalculatorExperienceMode>("quick");
 
  const usePremiumSmartForm = hasPremiumSmartFormDefinition(runtimeSlug);
  const isCncStochastic = tool.paidSlug === "cnc-quote-risk-analyzer";
@@ -254,6 +262,28 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   () =>
    buildSmartFormForTool(runtimeSlug, { kind: "revenue", inputs: tool.paidInputs }),
   [runtimeSlug, tool.paidInputs],
+ );
+
+ const experience = useMemo(() => {
+  const base = resolveCalculatorExperience({
+   toolSlug: runtimeSlug,
+   fields: buildPremiumSchemaExperienceFields(
+    tool.paidInputs.map((input) => ({
+     id: input.key,
+     required: Boolean(input.required),
+    })),
+   ),
+   category: tool.sector,
+  });
+  if (smartFormAdapter.ok && smartFormAdapter.expertSections.length > 0) {
+   return { ...base, hasExpertMode: true };
+  }
+  return base;
+ }, [runtimeSlug, tool.paidInputs, tool.sector, smartFormAdapter]);
+
+ const visiblePaidInputs = useMemo(
+  () => filterVisibleCalculatorFields(tool.paidInputs, experience, mode),
+  [tool.paidInputs, experience, mode],
  );
 
  const premiumGuidanceFields = useMemo(() => {
@@ -328,6 +358,8 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  }
  return calculatePremiumToolResult(tool, values);
  }, [useFullLoopRuntime, fullLoopResult, decisionReport, tool, values]);
+
+ const hasCalculated = submitted && Boolean(result) && !isCalculating;
 
  const verdictReportData = useMemo(() => {
  if (!result) {
@@ -638,6 +670,10 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   title={tool.paidTitle}
   description={tool.paidValue}
   tier="premium"
+  experience={experience}
+  mode={mode}
+  onModeChange={setMode}
+  hasCalculated={hasCalculated}
   fallback={useFullLoopRuntime || !smartFormAdapter.ok}
   formContent={wrapPremiumGuidance(
    useFullLoopRuntime ? (
@@ -673,7 +709,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
      noValidate
      data-calculation-form="true"
     >
-     {tool.paidInputs.map((input) => (
+     {visiblePaidInputs.map((input) => (
       <PremiumToolInputField
        key={input.key}
        input={input}
@@ -695,22 +731,26 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    )
   )}
   resultContent={
-   <SmartResultPanel
-    calculationSteps={smartFormAdapter.ok ? smartFormAdapter.calculationSteps : []}
-    trustTraceSlot={
-     useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
-      <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-     ) : undefined
-    }
-   >
-    <div className="sc-ledger-karar-masasi__report min-w-0 space-y-4">
-     {renderAnalysisOutput("primary")}
-    </div>
-   </SmartResultPanel>
-  }
-  trustTraceContent={
-   useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
-    <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+   hasCalculated ? (
+    <ResultLayerTabs
+     quickContent={
+      <SmartResultPanel
+       calculationSteps={smartFormAdapter.ok ? smartFormAdapter.calculationSteps : []}
+       trustTraceSlot={
+        useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
+         <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+        ) : undefined
+       }
+      >
+       <div className="min-w-0 space-y-4">{renderAnalysisOutput("primary")}</div>
+      </SmartResultPanel>
+     }
+     deepContent={
+      useFullLoopRuntime && fullLoopResult && hasFullPremiumFeatures ? (
+       <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
+      ) : undefined
+     }
+    />
    ) : undefined
   }
  />

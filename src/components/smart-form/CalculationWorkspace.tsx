@@ -13,8 +13,8 @@ export type CalculationWorkspaceProps = {
 
 /**
  * Balanced calculator workspace — equal-height columns for field technicians.
- * triple: Defter | Karar masası | Çıktı (premium schema)
- * split: Girdiler | Sonuç (free / revenue premium)
+ * triple: legacy three-column layout (deprecated for premium calculators)
+ * split: inputs | result (free / revenue premium)
  */
 export function CalculationWorkspace({
   inputs,

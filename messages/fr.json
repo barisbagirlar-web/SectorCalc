@@ -1568,7 +1568,21 @@
     "calculate": "Calculer",
     "awaiting": "Saisissez des valeurs pour voir le résultat",
     "validationRequired": "Veuillez sélectionner une valeur.",
-    "validationNumber": "Saisissez un nombre valide."
+    "validationNumber": "Saisissez un nombre valide.",
+    "premiumEyebrow": "Calculateur premium",
+    "mode": {
+      "label": "Mode de calcul",
+      "quick": "Simple",
+      "expert": "Expert"
+    },
+    "sections": {
+      "inputs": "Champs de saisie",
+      "summary": "Guide de calcul",
+      "result": "Résultat du calcul"
+    },
+    "emptyState": {
+      "enterValues": "Saisissez les valeurs et lancez le calcul. Le résumé apparaîtra ici."
+    }
   },
   "premiumReport": {
     "executiveSummary": "Synthèse",
@@ -8215,6 +8229,13 @@
       "leakDiameter": "Diamètre de fuite",
       "runtime": "Durée de fonctionnement",
       "downtime": "Temps d'arrêt",
+      "plannedHours": "Temps planifié",
+      "downtimeHours": "Temps d'arrêt",
+      "availability": "Disponibilité",
+      "performance": "Performance",
+      "quality": "Qualité",
+      "goodParts": "Pièces conformes",
+      "scrapRate": "Taux de rebut",
       "labor": "Main-d'œuvre",
       "tax": "Taxe",
       "steps": "Marches",

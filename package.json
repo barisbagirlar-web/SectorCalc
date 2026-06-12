@@ -25,6 +25,7 @@
     "audit:surface-i18n": "node scripts/audit-calculator-surface-i18n.mjs",
     "audit:surface-i18n:static": "POST_BUILD=1 node scripts/audit-calculator-surface-i18n.mjs --static",
     "audit:guided-graphics": "node scripts/audit-guided-reference-graphics.mjs",
+    "audit:premium-ux": "node scripts/audit-premium-calculator-ux.mjs",
     "audit:card-system": "node scripts/audit-calculator-card-system.mjs",
     "audit:industry-pages": "node scripts/audit-industry-pages.mjs",
     "audit:industry-pages:static": "POST_BUILD=1 node scripts/audit-industry-pages.mjs",

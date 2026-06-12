@@ -1,0 +1,125 @@
+.sc-premium-tool-shell {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px 24px 56px;
+}
+
+.sc-tool-header {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 28px 32px;
+  margin-bottom: 24px;
+}
+
+.sc-tool-header .sc-tool-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 14px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sc-tool-header h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.1;
+}
+
+.sc-tool-header p {
+  margin: 12px 0 0;
+  max-width: 760px;
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.sc-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 22px;
+  padding: 4px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+}
+
+.sc-mode-switch button {
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.sc-mode-switch button.is-active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 0 0 1px #cbd5e1;
+}
+
+.sc-tool-workspace {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+.sc-tool-workspace--dual {
+  grid-template-columns: minmax(300px, 0.95fr) minmax(340px, 1.05fr);
+}
+
+.sc-tool-panel {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 24px 22px;
+  min-width: 0;
+}
+
+.sc-tool-panel h2 {
+  margin: 0 0 18px;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sc-empty-state {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1180px) {
+  .sc-tool-workspace--dual {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sc-premium-tool-shell {
+    padding: 24px 16px 44px;
+  }
+
+  .sc-tool-header {
+    padding: 24px 20px;
+  }
+
+  .sc-tool-panel {
+    padding: 22px 18px;
+  }
+
+  .sc-mode-switch {
+    width: 100%;
+  }
+
+  .sc-mode-switch button {
+    flex: 1;
+  }
+}

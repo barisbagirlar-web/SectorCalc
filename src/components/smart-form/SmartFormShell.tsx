@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, type FormEvent, type ReactNode } from "react";
+import type { FormEvent, ReactNode } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspace";
+import type { CalculatorExperienceContract, CalculatorExperienceMode } from "@/lib/calculator-experience/calculator-experience-types";
 import type { SmartFormTier, SmartFormViewMode } from "@/lib/smart-form/types";
 
 export type SmartFormShellLayout = "split" | "workspace";
@@ -11,19 +13,19 @@ export type SmartFormShellProps = {
   readonly title: string;
   readonly description?: string;
   readonly tier: SmartFormTier;
-  /** split = form | output columns; workspace = full-width balanced grid below header */
   readonly layout?: SmartFormShellLayout;
-  readonly viewMode?: SmartFormViewMode;
-  readonly onViewModeChange?: (mode: SmartFormViewMode) => void;
+  readonly experience?: CalculatorExperienceContract;
+  readonly mode?: CalculatorExperienceMode;
+  readonly onModeChange?: (mode: CalculatorExperienceMode) => void;
   readonly fallback?: boolean;
   readonly formContent: ReactNode;
   readonly expertContent?: ReactNode;
   readonly resultContent?: ReactNode;
-  readonly trustTraceContent?: ReactNode;
   readonly onSubmit?: (event: FormEvent<HTMLFormElement>) => void;
   readonly calculateLabel?: string;
   readonly isCalculating?: boolean;
   readonly showSubmit?: boolean;
+  readonly hasCalculated?: boolean;
 };
 
 const TIER_LABEL_KEY: Record<SmartFormTier, "preCheck" | "premiumAnalyzer"> = {
@@ -31,50 +33,46 @@ const TIER_LABEL_KEY: Record<SmartFormTier, "preCheck" | "premiumAnalyzer"> = {
   premium: "premiumAnalyzer",
 };
 
-const VIEW_TAB_KEYS: readonly {
-  id: SmartFormViewMode;
-  key: "simple" | "expert" | "calculationSummary";
-}[] = [
-  { id: "simple", key: "simple" },
-  { id: "expert", key: "expert" },
-  { id: "trust", key: "calculationSummary" },
-];
-
 export function SmartFormShell({
   title,
   description,
   tier,
   layout = "split",
-  viewMode: controlledViewMode,
-  onViewModeChange,
+  experience,
+  mode: controlledMode,
+  onModeChange,
   fallback = false,
   formContent,
   expertContent,
   resultContent,
-  trustTraceContent,
   onSubmit,
   calculateLabel,
   isCalculating = false,
   showSubmit = false,
+  hasCalculated = false,
 }: SmartFormShellProps) {
-  const t = useTranslations("freeToolUi");
-  const [internalView, setInternalView] = useState<SmartFormViewMode>("simple");
-  const viewMode = controlledViewMode ?? internalView;
-  const submitLabel = calculateLabel ?? t("runAnalysis");
+  const tUi = useTranslations("freeToolUi");
+  const tCalc = useTranslations("calculator");
+  const [internalMode, setInternalMode] = useState<CalculatorExperienceMode>("quick");
+  const mode = controlledMode ?? internalMode;
+  const submitLabel = calculateLabel ?? tUi("runAnalysis");
+  const hasExpertMode = experience?.hasExpertMode ?? Boolean(expertContent);
+  const showModeSwitch = hasExpertMode;
 
-  const setViewMode = (mode: SmartFormViewMode) => {
-    if (onViewModeChange) {
-      onViewModeChange(mode);
+  const setMode = (nextMode: CalculatorExperienceMode) => {
+    if (onModeChange) {
+      onModeChange(nextMode);
       return;
     }
-    setInternalView(mode);
+    setInternalMode(nextMode);
   };
+
+  const activeFormContent =
+    showModeSwitch && mode === "expert" ? (expertContent ?? formContent) : formContent;
 
   const formBody = (
     <>
-      {viewMode === "simple" ? formContent : null}
-      {viewMode === "expert" ? (expertContent ?? formContent) : null}
-      {viewMode === "trust" ? trustTraceContent ?? resultContent : null}
+      {activeFormContent}
       {showSubmit && onSubmit ? (
         <form onSubmit={onSubmit} noValidate className="mt-4" data-calculation-form="true">
           <div className="sc-industrial-form-actions">
@@ -83,7 +81,7 @@ export function SmartFormShell({
               disabled={isCalculating}
               className="sc-cta-primary min-h-[48px] disabled:opacity-60"
             >
-              {isCalculating ? t("calculating") : submitLabel}
+              {isCalculating ? tUi("calculating") : submitLabel}
             </button>
           </div>
         </form>
@@ -101,55 +99,59 @@ export function SmartFormShell({
       <header className="rounded-sm border border-border-subtle bg-off-white p-4">
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-sm bg-navy px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
-            {t(TIER_LABEL_KEY[tier])}
+            {tUi(TIER_LABEL_KEY[tier])}
           </span>
-          {fallback ? (
-            <span className="rounded-sm border border-border-subtle px-2 py-1 text-[11px] text-text-secondary">
-              {t("classicForm")}
-            </span>
-          ) : (
+          {!fallback ? (
             <span className="rounded-sm border border-safe-green/40 px-2 py-1 text-[11px] text-safe-green">
-              {t("smartFormMeta")}
+              {tUi("smartFormMeta")}
             </span>
-          )}
+          ) : null}
         </div>
         <h2 className="mt-3 text-lg font-bold text-text-primary">{title}</h2>
         {description ? (
           <p className="mt-1 text-sm leading-relaxed text-text-secondary">{description}</p>
         ) : null}
-        <div className="mt-4 flex flex-wrap gap-2">
-          {VIEW_TAB_KEYS.map((tab) => (
+        {showModeSwitch ? (
+          <div className="sc-mode-switch mt-4" role="tablist" aria-label={tCalc("mode.label")}>
             <button
-              key={tab.id}
               type="button"
-              onClick={() => setViewMode(tab.id)}
-              className={`min-h-[44px] rounded-sm px-3 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy ${
-                viewMode === tab.id
-                  ? "bg-navy text-white"
-                  : "border border-border-subtle bg-white text-body-charcoal"
-              }`}
-              aria-pressed={viewMode === tab.id}
+              onClick={() => setMode("quick")}
+              className={mode === "quick" ? "is-active" : ""}
+              aria-selected={mode === "quick"}
             >
-              {t(tab.key)}
+              {tCalc("mode.quick")}
             </button>
-          ))}
-        </div>
+            <button
+              type="button"
+              onClick={() => setMode("expert")}
+              className={mode === "expert" ? "is-active" : ""}
+              aria-selected={mode === "expert"}
+            >
+              {tCalc("mode.expert")}
+            </button>
+          </div>
+        ) : null}
       </header>
 
       {layout === "workspace" ? (
         <div className="sc-smart-form-workspace min-w-0">{formBody}</div>
-      ) : viewMode !== "trust" && resultContent ? (
+      ) : (
         <CalculationWorkspace
           variant="split"
           inputs={formBody}
           decision={null}
-          output={resultContent}
+          output={
+            hasCalculated && resultContent ? (
+              resultContent
+            ) : (
+              <p className="sc-empty-state">{tCalc("emptyState.enterValues")}</p>
+            )
+          }
         />
-      ) : (
-        <div className="sc-smart-form-layout sc-smart-form-layout--single">
-          <div className="sc-smart-form-panel min-w-0">{formBody}</div>
-        </div>
       )}
     </div>
   );
 }
+
+/** @deprecated Use CalculatorExperienceMode quick/expert only */
+export type LegacySmartFormViewMode = SmartFormViewMode;
