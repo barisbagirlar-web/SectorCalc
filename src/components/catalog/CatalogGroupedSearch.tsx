@@ -55,25 +55,36 @@ export function CatalogGroupedSearch({ entries, scope, className }: CatalogGroup
 
   return (
     <div
-      className={`sc-catalog-search min-w-0${className ? ` ${className}` : ""}`}
+      className={`sc-catalog-search sc-search-row min-w-0${className ? ` ${className}` : ""}`}
       data-tool-search="true"
       data-search-scope={scope}
       data-search-result-count={showResults ? result.totalMatches : 0}
       data-search-has-more={showResults && result.hiddenCount > 0}
     >
-      <label className="sc-catalog-search__field">
-        <span className="sr-only">{t("label")}</span>
-        <input
-          type="search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder={t(`placeholder.${scope}`)}
-          className="sc-catalog-search__input"
-          autoComplete="off"
-          enterKeyHint="search"
-          aria-controls={showResults ? listId : undefined}
-        />
-      </label>
+      <div className="sc-search-wrap">
+        <span className="sc-search-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M20 20l-3-3" strokeLinecap="round" />
+          </svg>
+        </span>
+        <label className="sc-catalog-search__field block w-full">
+          <span className="sr-only">{t("label")}</span>
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={t(`placeholder.${scope}`)}
+            className="sc-search-input sc-catalog-search__input"
+            autoComplete="off"
+            enterKeyHint="search"
+            aria-controls={showResults ? listId : undefined}
+          />
+        </label>
+        <span className="sc-search-kbd" aria-hidden="true">
+          /
+        </span>
+      </div>
 
       {showResults ? (
         <div className="sc-catalog-search__results" id={listId} role="region" aria-live="polite">

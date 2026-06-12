@@ -1,8 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { CalculatorCard } from "@/components/catalog/CalculatorCard";
+import { CalculatorCardGrid } from "@/components/catalog/CalculatorCardGrid";
+import { CalculatorFilterBar } from "@/components/catalog/CalculatorFilterBar";
+import { resolveCalculatorCardAccent } from "@/lib/catalog/card-accent";
 import type { CatalogGroup, CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
 import {
   DISCOVERY_TAB_ALL,
@@ -19,69 +22,17 @@ type DiscoveryCatalogExplorerProps = {
   defaultTabId?: string;
 };
 
-function DiscoveryToolCard({
-  item,
-  variant,
-  badgeFree,
-  badgePremium,
-  ctaCalculate,
-  ctaOpenAnalysis,
-  ctaOpenSector,
-  freeCountLabel,
-  premiumCountLabel,
-}: {
-  item: DiscoveryFlatItem;
-  variant: CategoryExplorerVariant;
-  badgeFree: string;
-  badgePremium: string;
-  ctaCalculate: string;
-  ctaOpenAnalysis: string;
-  ctaOpenSector: string;
-  freeCountLabel: (count: number) => string;
-  premiumCountLabel: (count: number) => string;
-}) {
-  const isPremium = variant === "premium-tools" || item.itemKind === "premium-analyzer";
-  const isIndustry = variant === "industries";
-  const cta = isIndustry ? ctaOpenSector : isPremium ? ctaOpenAnalysis : ctaCalculate;
-
-  return (
-    <article className="sc-ledger-card sc-craft-card sc-ledger-letterpress sc-discovery-card">
-      {!isIndustry ? (
-        <div className="sc-discovery-card__head">
-          <span
-            className={`sc-discovery-card__badge${
-              isPremium ? " sc-discovery-card__badge--premium" : " sc-discovery-card__badge--free"
-            }`}
-          >
-            {isPremium ? badgePremium : badgeFree}
-          </span>
-          <span className="sc-discovery-card__category line-clamp-1">{item.groupLabel}</span>
-        </div>
-      ) : null}
-      <h3 className="sc-discovery-card__title line-clamp-2">{item.title}</h3>
-      <p className="sc-discovery-card__body line-clamp-2">{item.description}</p>
-      {isIndustry && item.freeToolCount != null && item.premiumToolCount != null ? (
-        <p className="sc-discovery-card__counts">
-          {freeCountLabel(item.freeToolCount)} · {premiumCountLabel(item.premiumToolCount)}
-        </p>
-      ) : null}
-      <Link href={item.href} prefetch={false} className="sc-discovery-card__cta">
-        {cta}
-      </Link>
-    </article>
-  );
-}
-
 export function DiscoveryCatalogExplorer({
   groups,
   variant,
   defaultTabId,
 }: DiscoveryCatalogExplorerProps) {
   const t = useTranslations("catalogExplorer");
+  const tCards = useTranslations("calculatorCards");
   const tabs = useMemo(() => getDiscoveryTabsForVariant(variant, groups), [variant, groups]);
   const visibleTabs = useMemo(
     () => tabs.filter((tab) => tab.id === DISCOVERY_TAB_ALL || countItemsForDiscoveryTab(groups, tab) > 0),
-    [groups, tabs]
+    [groups, tabs],
   );
   const initialTabId =
     defaultTabId && visibleTabs.some((tab) => tab.id === defaultTabId)
@@ -95,16 +46,46 @@ export function DiscoveryCatalogExplorer({
 
   const items = useMemo(
     () => (activeTab ? getItemsForDiscoveryTab(groups, activeTab) : []),
-    [activeTab, groups]
+    [activeTab, groups],
+  );
+
+  const filterTabs = useMemo(
+    () =>
+      visibleTabs.map((tab) => {
+        const labelKey = resolveDiscoveryTabLabelKey(variant, tab.id);
+        const label =
+          labelKey != null
+            ? t(labelKey)
+            : groups.find((group) => group.id === tab.id)?.label ?? tab.id;
+        return {
+          id: tab.id,
+          label,
+          count: countItemsForDiscoveryTab(groups, tab),
+        };
+      }),
+    [groups, t, variant, visibleTabs],
   );
 
   const badgeFree = t("search.badgeFree");
   const badgePremium = t("search.badgePremium");
-  const ctaCalculate = t("discoveryCards.ctaCalculate");
-  const ctaOpenAnalysis = t("discoveryCards.ctaOpenAnalysis");
-  const ctaOpenSector = t("discoveryCards.ctaOpenSector");
-  const freeCountLabel = (count: number) => t("discoveryCards.freeCount", { count });
-  const premiumCountLabel = (count: number) => t("discoveryCards.premiumCount", { count });
+  const isIndustry = variant === "industries";
+
+  const resolveCta = (item: DiscoveryFlatItem) => {
+    if (isIndustry) {
+      return tCards("ctaOpenSector");
+    }
+    if (variant === "premium-tools" || item.itemKind === "premium-analyzer") {
+      return item.ctaLabel ?? tCards("ctaOpen");
+    }
+    return item.ctaLabel ?? tCards("ctaCalculate");
+  };
+
+  const resolveTier = (item: DiscoveryFlatItem): "free" | "premium" => {
+    if (variant === "premium-tools" || item.itemKind === "premium-analyzer") {
+      return "premium";
+    }
+    return "free";
+  };
 
   if (groups.every((group) => group.items.length === 0)) {
     return (
@@ -115,59 +96,54 @@ export function DiscoveryCatalogExplorer({
   }
 
   return (
-    <div className="sc-discovery-explorer" data-variant={variant}>
-      <div
-        className="sc-discovery-explorer__tabs"
-        role="tablist"
-        aria-label={t(`labels.${variant}.navLabel`)}
-      >
-        {visibleTabs.map((tab) => {
-          const labelKey = resolveDiscoveryTabLabelKey(variant, tab.id);
-          const label =
-            labelKey != null
-              ? t(labelKey)
-              : groups.find((group) => group.id === tab.id)?.label ?? tab.id;
-          const isActive = activeTab?.id === tab.id;
-          const count = countItemsForDiscoveryTab(groups, tab);
+    <div className="sc-discovery-explorer" data-variant={variant} data-calculator-card-explorer="true">
+      <CalculatorFilterBar
+        tabs={filterTabs}
+        activeTabId={activeTab?.id ?? DISCOVERY_TAB_ALL}
+        onTabChange={setSelectedTabId}
+        ariaLabel={t(`labels.${variant}.navLabel`)}
+      />
 
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              role="tab"
-              aria-selected={isActive}
-              className={`sc-discovery-explorer__tab${isActive ? " sc-discovery-explorer__tab--active" : ""}`}
-              onClick={() => setSelectedTabId(tab.id)}
-            >
-              {label}
-              <span className="sc-discovery-explorer__tab-count">{count}</span>
-            </button>
-          );
+      <p className="sc-results-label" role="status">
+        {tCards.rich("resultsLabel", {
+          count: items.length,
+          strong: (chunks) => <strong>{chunks}</strong>,
         })}
-      </div>
+      </p>
 
       {items.length === 0 ? (
         <p className="mt-4 text-sm text-body-charcoal" role="status">
           {t("search.noResults")}
         </p>
       ) : (
-        <ul className="sc-discovery-explorer__grid" role="list">
-          {items.map((item) => (
-            <li key={item.href} className="min-w-0">
-              <DiscoveryToolCard
-                item={item}
-                variant={variant}
-                badgeFree={badgeFree}
-                badgePremium={badgePremium}
-                ctaCalculate={ctaCalculate}
-                ctaOpenAnalysis={ctaOpenAnalysis}
-                ctaOpenSector={ctaOpenSector}
-                freeCountLabel={freeCountLabel}
-                premiumCountLabel={premiumCountLabel}
-              />
-            </li>
-          ))}
-        </ul>
+        <CalculatorCardGrid className="mt-4">
+          {items.map((item) => {
+            const tier = resolveTier(item);
+            return (
+              <li key={item.href} className="min-w-0">
+                <CalculatorCard
+                  title={item.title}
+                  description={item.description}
+                  href={item.href}
+                  categoryLabel={item.groupLabel}
+                  tier={tier}
+                  variant={isIndustry ? "industry" : "calculator"}
+                  inputCount={item.inputCount}
+                  freeToolCount={item.freeToolCount}
+                  premiumToolCount={item.premiumToolCount}
+                  accent={resolveCalculatorCardAccent(item.groupId, tier)}
+                  badgeFreeLabel={isIndustry ? tCards("badgeSector") : badgeFree}
+                  badgePremiumLabel={badgePremium}
+                  ctaLabel={resolveCta(item)}
+                  inputCountLabel={(count) => tCards("inputCount", { count })}
+                  sectorCountLabel={(free, premium) =>
+                    tCards("sectorToolCounts", { free, premium })
+                  }
+                />
+              </li>
+            );
+          })}
+        </CalculatorCardGrid>
       )}
     </div>
   );

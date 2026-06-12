@@ -244,14 +244,17 @@ export function catalogItemFromPremiumSchema(
   const claim = getPremiumClaimCopy(item.slug, readiness);
   const ctaLabels = resolveCatalogCtaLabels(locale);
 
+  const schema = getPremiumCalculatorSchema(item.slug);
+
   return {
     title: item.title,
     description: item.painStatement,
     href: item.href.replace(/^\/[a-z]{2}\//, "/"),
     meta: item.primaryOutputLabel,
     badge: ctaLabels.premiumBadge,
-    ctaLabel: ctaLabels.viewAnalyzer,
+    ctaLabel: ctaLabels.viewCalculator,
     itemKind: "premium-analyzer",
+    inputCount: schema?.inputs.length,
     promise: claim.valueStatement,
     claimHeadline: claim.headline,
     upgradeReason: claim.upgradeReason,

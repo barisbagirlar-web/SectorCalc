@@ -86,13 +86,15 @@ const TR_PREMIUM_GROUP_DESCRIPTIONS: Record<PremiumSchemaCatalogGroupId, string>
 export type CatalogCtaLabels = {
   readonly openIndustry: string;
   readonly viewAnalyzer: string;
+  readonly viewCalculator: string;
   readonly openCalculator: string;
   readonly premiumBadge: string;
 };
 
 const TR_CATALOG_CTA: CatalogCtaLabels = {
   openIndustry: "Sektörü aç →",
-  viewAnalyzer: "Analizörü gör →",
+  viewAnalyzer: "Hesaplayıcıyı aç →",
+  viewCalculator: "Hesaplayıcıyı aç →",
   openCalculator: "Hesaplayıcıyı aç →",
   premiumBadge: "Premium",
 };
@@ -100,8 +102,9 @@ const TR_CATALOG_CTA: CatalogCtaLabels = {
 const EN_CATALOG_CTA: CatalogCtaLabels = {
   openIndustry: "Open industry →",
   viewAnalyzer: "View calculator →",
+  viewCalculator: "Open calculator →",
   openCalculator: "Open calculator →",
-  premiumBadge: "Premium analyzer",
+  premiumBadge: "Premium",
 };
 
 export function resolveIndustryCategoryLabel(

@@ -260,6 +260,7 @@ export function buildFreeTrafficCatalogGroups(
           meta: tool.relatedPremiumSlug ? premiumNote : undefined,
           ctaLabel: openCalculatorLabel,
           itemKind: "free-calculator" as const,
+          inputCount: tool.inputs.length,
         })),
     }))
     .filter((group) => group.items.length > 0);
