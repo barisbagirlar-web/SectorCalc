@@ -56,6 +56,7 @@ if (packageJson.scripts?.["audit:free-to-premium"]) {
 }
 
 let report = null;
+const FORCE_FREE_SIMPLE_FINANCE_COUNT = 4;
 let indexStats = null;
 
 try {
@@ -66,18 +67,46 @@ try {
 }
 
 if (report) {
-  pass(`FREE_TO_PREMIUM_TITLE_LIST_TR contains ${report.listTotal} items`);
+  pass(`FREE_TO_PREMIUM wave total contains ${report.listTotal} items`);
+  pass(`wave 1 list: ${report.wave1Total}, wave 2 list: ${report.wave2Total}`);
   if (report.reportListTotal === report.listTotal) {
     pass("report listTotal matches canonical list");
   } else {
     fail(`report listTotal mismatch (${report.reportListTotal} vs ${report.listTotal})`);
   }
 
-  pass(`${report.matchedCount} tools matched in existing free catalogs`);
+  if (report.wave2Total > 0) {
+    pass(`FREE_TO_PREMIUM_WAVE_2 contains ${report.wave2Total} items`);
+  } else {
+    fail("FREE_TO_PREMIUM_WAVE_2 missing");
+  }
+
+  pass(`${report.matchedCount} tools matched in existing free catalogs (wave1=${report.wave1MatchedCount}, wave2=${report.wave2MatchedCount})`);
+
+  if (report.wave2NotFound.length === 0) {
+    pass("all wave 2 items resolved in free registry");
+  } else {
+    pass(`wave2 notFoundInFreeTools (${report.wave2NotFound.length}): ${report.wave2NotFound.join(" | ")}`);
+  }
+
   if (report.notFoundInFreeTools.length === 0) {
-    pass("notFoundInFreeTools is empty or reported");
+    pass("notFoundInFreeTools is empty");
   } else {
     pass(`notFoundInFreeTools reported (${report.notFoundInFreeTools.length}): ${report.notFoundInFreeTools.join(" | ")}`);
+  }
+
+  if (report.forceFreeStillInFree.length === FORCE_FREE_SIMPLE_FINANCE_COUNT) {
+    pass("FORCE_FREE_SIMPLE_FINANCE_SLUGS remain in free categorized index");
+  } else if (report.forceFreeStillInFree.length === 0) {
+    fail("FORCE_FREE_SIMPLE_FINANCE_SLUGS missing from free index");
+  } else {
+    fail(`partial force-free set in free index: ${report.forceFreeStillInFree.join(", ")}`);
+  }
+
+  if (report.compoundInterestMigrated) {
+    pass("compound-interest-calculator migrated to premium");
+  } else {
+    fail("compound-interest-calculator not migrated to premium");
   }
 
   if (report.stillInFreeCatalog.length === 0) {
@@ -167,7 +196,9 @@ if (report) {
   console.log(`  list total: ${report.listTotal}`);
   console.log(`  matched in free: ${report.matchedCount}`);
   console.log(`  migrated to premium index: ${report.migratedPremiumIndexCount}`);
-  console.log(`  not found: ${report.notFoundInFreeTools.length}`);
+  console.log(`  wave 1 matched: ${report.wave1MatchedCount}`);
+  console.log(`  wave 2 matched: ${report.wave2MatchedCount}`);
+  console.log(`  wave 2 not found: ${report.wave2NotFound.length}`);
   if (report.notFoundInFreeTools.length > 0) {
     for (const title of report.notFoundInFreeTools) {
       console.log(`    - ${title}`);

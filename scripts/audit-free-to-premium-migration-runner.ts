@@ -1,4 +1,8 @@
-import { FREE_TO_PREMIUM_TITLE_LIST_TR } from "../src/lib/freemium/free-to-premium-migration-list";
+import {
+  FREE_TO_PREMIUM_TITLE_LIST_TR,
+  FREE_TO_PREMIUM_WAVE_2,
+  FORCE_FREE_SIMPLE_FINANCE_SLUGS,
+} from "../src/lib/freemium/free-to-premium-migration-list";
 import { buildFreeToPremiumMigrationReport } from "../src/lib/freemium/resolve-free-to-premium-migration";
 import {
   buildCategorizedToolIndex,
@@ -39,13 +43,35 @@ const missingCategoryDetail = report.matched
         .length === 0,
   )
   .map((entry) => entry.slug);
+const wave2MatchedSlugs = new Set(
+  report.matched.filter((entry) => entry.wave === 2).map((entry) => entry.slug),
+);
+const wave2ExpectedFound = FREE_TO_PREMIUM_WAVE_2.filter((item) =>
+  item.slugCandidates.some((slug) => wave2MatchedSlugs.has(slug)),
+).length;
+const forceFreeStillInFree = FORCE_FREE_SIMPLE_FINANCE_SLUGS.filter((slug) =>
+  freeCatalogSlugs.has(slug),
+);
+const forceFreeMissingFromFree = FORCE_FREE_SIMPLE_FINANCE_SLUGS.filter(
+  (slug) => !freeCatalogSlugs.has(slug),
+);
+const compoundInterestMigrated = migratedSlugs.has("compound-interest-calculator");
+const wave2NotFound = report.notFoundInFreeTools.filter((title) =>
+  FREE_TO_PREMIUM_WAVE_2.some((item) => item.titleTr === title),
+);
 
 console.log(
   JSON.stringify({
-    listTotal: FREE_TO_PREMIUM_TITLE_LIST_TR.length,
+    listTotal: FREE_TO_PREMIUM_TITLE_LIST_TR.length + FREE_TO_PREMIUM_WAVE_2.length,
     reportListTotal: report.listTotal,
+    wave1Total: report.wave1Total,
+    wave2Total: report.wave2Total,
+    wave2ExpectedFound,
     matchedCount: report.matched.length,
+    wave1MatchedCount: report.matched.filter((entry) => entry.wave === 1).length,
+    wave2MatchedCount: report.matched.filter((entry) => entry.wave === 2).length,
     notFoundInFreeTools: report.notFoundInFreeTools,
+    wave2NotFound,
     duplicateSlugWarnings: report.duplicateSlugWarnings,
     migratedPremiumIndexCount: migratedPremiumItems.length,
     stillInFreeCatalog,
@@ -54,5 +80,8 @@ console.log(
     missingCategoryDetail,
     publicFreeSlugCount: listPublicFreeToolSlugs().length,
     duplicateSlugsInIndex,
+    forceFreeStillInFree,
+    forceFreeMissingFromFree,
+    compoundInterestMigrated,
   }),
 );
