@@ -49,7 +49,8 @@ function fail(msg) {
 }
 
 function extractVisibleText(html) {
-  return html
+  const withoutHead = html.replace(/<head[\s\S]*?<\/head>/gi, " ");
+  return withoutHead
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<!--[\s\S]*?-->/g, " ")
@@ -59,21 +60,10 @@ function extractVisibleText(html) {
 }
 
 function fetchHtml(route) {
-  const staticPath = join(
-    ROOT,
-    ".next/server/app",
-    route === "/tr" || route === "/en" || route === "/ar" || route === "/de" || route === "/fr" || route === "/es"
-      ? `${route.slice(1)}.html`
-      : `${route.slice(1)}.html`,
-  );
+  const staticPath = join(ROOT, ".next/server/app", `${route.slice(1)}.html`);
 
   if (existsSync(staticPath)) {
     return readFileSync(staticPath, "utf8");
-  }
-
-  const alt = join(ROOT, ".next/server/app", `${route.slice(1)}.html`);
-  if (existsSync(alt)) {
-    return readFileSync(alt, "utf8");
   }
 
   try {

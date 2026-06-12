@@ -16,7 +16,11 @@ import { listAllFreeToolSlugs } from "@/lib/tools/free-traffic-routes";
 import { getTierOneFreeToolMetadata } from "@/lib/seo/seo-refresh-priority";
 import { resolveSmartFormPilotManifestForRoute } from "@/lib/formula-governance/smart-form-ui-bridge/resolve-smart-form-pilot-manifest";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
-import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
+import {
+  resolveFreeToolLocalizedCopy,
+  resolveFreeToolSeoDescription,
+  resolveFreeToolSeoTitle,
+} from "@/lib/i18n/free-tool-i18n";
 import {
   localizeFreeTrafficToolInputs,
   localizeRevenueToolInputs,
@@ -84,12 +88,18 @@ export async function generateMetadata({
 
   // Fallback chain: locale message > tier-one SEO metadata > English registry.
   const localizedCopy = resolveFreeToolLocalizedCopy(slug, locale);
-  const localizedTitle =
-    localizedCopy.seoTitle ?? tierOneMeta?.metaTitle ?? trafficTool.seoTitle;
-  const localizedDescription =
-    localizedCopy.seoDescription ??
-    tierOneMeta?.metaDescription ??
-    trafficTool.seoDescription;
+  const localizedTitle = resolveFreeToolSeoTitle(
+    slug,
+    locale,
+    trafficTool.seoTitle,
+    tierOneMeta?.metaTitle,
+  );
+  const localizedDescription = resolveFreeToolSeoDescription(
+    slug,
+    locale,
+    trafficTool.seoDescription,
+    tierOneMeta?.metaDescription,
+  );
 
   return createPageMetadata({
     title: localizedTitle,
@@ -117,10 +127,11 @@ export default async function FreeRevenueToolRoute({
       revenueTool.freeTitle
     );
     const tFreeToolUi = await getTranslations("freeToolUi");
+    const tAuthority = await getTranslations("contentAuthority.freeTool");
     const featuredAnswer = (
       <FeaturedAnswerBlock
         question={tFreeToolUi("whatIs", { title: localizedTitle })}
-        answer={buildFreeToolFeaturedAnswer(revenueTool.freeValue)}
+        answer={tAuthority("faqUseAnswer", { title: localizedTitle })}
       />
     );
     const jsonLd = [
@@ -150,6 +161,7 @@ export default async function FreeRevenueToolRoute({
         <FreeToolPage
           tool={{
             ...revenueTool,
+            freeTitle: localizedTitle,
             freeInputs: localizeRevenueToolInputs(revenueTool.freeSlug, locale, revenueTool.freeInputs),
           }}
           featuredAnswer={featuredAnswer}

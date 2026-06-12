@@ -156,6 +156,7 @@
     "cancelFreeCta": "عرض الحاسبات المجانية"
   },
   "pilotCnc": {
+    "selectToolAria": "اختر أداة قطاعية",
     "hero": {
       "eyebrow": "MarginCore تجريبي · تصنيع CNC"
     },
@@ -448,7 +449,9 @@
       "premiumBlockBody": "Free calculators show the first number. Premium calculators add hidden drivers, thresholds, suggested actions and export-ready decision reports.",
       "premiumCta": "See what this estimate misses →",
       "premiumBlockNote": "Best when the result affects pricing, operations or management decisions.",
-      "relatedTitle": "Related calculators"
+      "relatedTitle": "Related calculators",
+      "resultBlocked": "تم حظر النتيجة",
+      "pilotAwaiting": "أدخل مدخلات التجربة الم mapped وشغّل الحساب."
     },
     "validation": {
       "required": "Please select a value.",
@@ -464,7 +467,11 @@
       "formulaTitle": "ملخص الصيغة",
       "inputsTitle": "Inputs المستخدم",
       "includesTitle": "ما تتضمنه النتيجة",
+      "includes1": "تقدير قائم على الصيغة من المدخلات التي تدخلها",
+      "includes2": "النتيجة الأساسية والقيم الثانوية الداعمة عند الاقتضاء",
+      "includes3": "شرح واضح لما تمثله الأرقام",
       "estimateMissesTitle": "ما يفوت هذا التقدير",
+      "estimateMissesBody": "هذه النتيجة المجانية تعطي الرقم الأول فقط. لا تشمل العتبات أو المقارنة المرجعية أو الحساسية أو تقريراً قابلاً للتصدير أو خطط عمل مقترحة.",
       "faqTitle": "FAQ",
       "faqUseTitle": "What is this calculator المستخدم for?",
       "faqFreeTitle": "هل هذه الحاسبة مجانية؟",
@@ -482,6 +489,7 @@
       "whenToUseBody": "استخدم هذه الحاسبة عندما تؤثر النتيجة على التسعير أو العمليات أو السعة أو التخطيط أو تقارير الإدارة.",
       "measuresTitle": "ما الذي تقيسه هذه الحاسبة",
       "promiseTitle": "ما تحصل عليه",
+      "promiseBody": "ملخص منظم مع تنبيهات العتبات والعوامل الخفية وتقرير جاهز للتصدير.",
       "decidesTitle": "ما القرار الذي تساعد هذه الحاسبة فيه",
       "reportTitle": "ما يتضمنه التقرير",
       "previewExcludesTitle": "ما لا تتضمنه المعاينة",

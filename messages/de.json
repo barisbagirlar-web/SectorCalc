@@ -156,6 +156,7 @@
     "cancelFreeCta": "Gratis-Rechner ansehen"
   },
   "pilotCnc": {
+    "selectToolAria": "Branchenwerkzeug auswählen",
     "hero": {
       "eyebrow": "MarginCore Pilot · CNC-Fertigung"
     },
@@ -453,7 +454,9 @@
       "premiumBlockBody": "Free calculators show the first number. Premium Rechner add hidden drivers, thresholds, suggested actions and export-ready decision reports.",
       "premiumCta": "See what this estimate misses →",
       "premiumBlockNote": "Best when the result affects pricing, operations or management decisions.",
-      "relatedTitle": "Related calculators"
+      "relatedTitle": "Related calculators",
+      "resultBlocked": "Ergebnis blockiert",
+      "pilotAwaiting": "Geben Sie die zugeordneten Pilot-Eingaben ein und starten Sie die Berechnung."
     },
     "validation": {
       "required": "Please select a value.",
@@ -469,7 +472,11 @@
       "formulaTitle": "Formelübersicht",
       "inputsTitle": "Verwendete Eingaben",
       "includesTitle": "Was das Ergebnis enthält",
+      "includes1": "Formelbasierte Schätzung aus Ihren Eingaben",
+      "includes2": "Hauptergebnis plus unterstützende Nebenwerte, sofern zutreffend",
+      "includes3": "Verständliche Erklärung, was die Zahlen bedeuten",
       "estimateMissesTitle": "Was diese Schätzung nicht erfasst",
+      "estimateMissesBody": "Dieses kostenlose Ergebnis liefert nur die erste Zahl. Schwellen, Benchmarks, Sensitivität, exportfertige Berichte oder Aktionspläne sind nicht enthalten.",
       "faqTitle": "FAQ",
       "faqUseTitle": "Wofür wird dieser Rechner verwendet?",
       "faqFreeTitle": "Ist dieser Rechner kostenlos?",
@@ -487,6 +494,7 @@
       "whenToUseBody": "Nutzen Sie diesen Rechner, wenn das Ergebnis Preise, Betrieb, Kapazität, Planung oder Management-Reporting beeinflusst.",
       "measuresTitle": "Was dieser Rechner misst",
       "promiseTitle": "Was Sie erhalten",
+      "promiseBody": "Strukturierte Zusammenfassung mit Schwellenwarnungen, versteckten Treibern und exportfertigem Bericht.",
       "decidesTitle": "Bei welcher Entscheidung dieser Rechner hilft",
       "reportTitle": "Was der Bericht enthält",
       "previewExcludesTitle": "Was die Vorschau nicht enthält",

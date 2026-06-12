@@ -156,6 +156,7 @@
     "cancelFreeCta": "Voir les calculateurs gratuits"
   },
   "pilotCnc": {
+    "selectToolAria": "Sélectionner un outil sectoriel",
     "hero": {
       "eyebrow": "MarginCore Pilot · Fabrication CNC"
     },
@@ -453,7 +454,9 @@
       "premiumBlockBody": "Les calculateurs gratuits montrent le premier chiffre. Les calculateurs premium ajoutent facteurs cachés, seuils, actions suggérées et rapports exportables.",
       "premiumCta": "See what this estimate misses →",
       "premiumBlockNote": "Best when the result affects pricing, operations or management decisions.",
-      "relatedTitle": "Related calculators"
+      "relatedTitle": "Related calculators",
+      "resultBlocked": "Résultat bloqué",
+      "pilotAwaiting": "Saisissez les entrées pilote mappées et lancez le calcul."
     },
     "validation": {
       "required": "Please select a value.",
@@ -468,8 +471,12 @@
       "descriptionTitle": "Was dieser Rechner macht",
       "formulaTitle": "Formelübersicht",
       "inputsTitle": "Verwendete Eingaben",
-      "includesTitle": "Was das Ergebnis enthält",
-      "estimateMissesTitle": "Was diese Schätzung nicht erfasst",
+      "includesTitle": "Ce que le résultat inclut",
+      "includes1": "Estimation basée sur la formule à partir de vos entrées",
+      "includes2": "Résultat principal et valeurs secondaires de soutien le cas échéant",
+      "includes3": "Explication claire de ce que représentent les chiffres",
+      "estimateMissesTitle": "Ce que cette estimation ne couvre pas",
+      "estimateMissesBody": "Ce résultat gratuit ne donne que le premier chiffre. Seuils, benchmarks, sensibilité, export de rapport ou plans d'action ne sont pas inclus.",
       "faqTitle": "FAQ",
       "faqUseTitle": "Wofür wird dieser Rechner verwendet?",
       "faqFreeTitle": "Ist dieser Rechner kostenlos?",
@@ -486,7 +493,8 @@
       "whenToUseTitle": "Quand utiliser ce calculateur",
       "whenToUseBody": "Utilisez ce calculateur lorsque le résultat affecte les prix, les opérations, la capacité, la planification ou le reporting de gestion.",
       "measuresTitle": "Ce que ce calculateur mesure",
-      "promiseTitle": "Was Sie erhalten",
+      "promiseTitle": "Ce que vous obtenez",
+      "promiseBody": "Synthèse structurée avec alertes de seuil, facteurs cachés et rapport exportable.",
       "decidesTitle": "Quelle décision ce calculateur aide",
       "reportTitle": "Was der Bericht enthält",
       "previewExcludesTitle": "Was die Vorschau nicht enthält",

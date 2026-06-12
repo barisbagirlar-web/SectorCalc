@@ -26,7 +26,6 @@ import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBl
 import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
 import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
-import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { ToolFeedbackPanel } from "@/components/feedback/ToolFeedbackPanel";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
@@ -435,13 +434,10 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
               resultPanel={
             <div className="min-w-0 space-y-4" aria-live="polite">
               {useFullLoopRuntime && fullLoopResult?.status === "blocked" ? (
-                <>
-                  <SmartFormValidationSummary
-                    title="Result blocked"
-                    blockers={fullLoopResult.blockers}
-                  />
-                  <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-                </>
+                <SmartFormValidationSummary
+                  title={t("tool.resultBlocked")}
+                  blockers={fullLoopResult.blockers}
+                />
               ) : null}
               {result ? (
                 <>
@@ -518,10 +514,6 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
                     </div>
                   ) : null}
 
-                  {useFullLoopRuntime && fullLoopResult?.status === "success" ? (
-                    <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-                  ) : null}
-
                   <p className="text-xs leading-relaxed text-body-charcoal">{result.legalNote}</p>
                 </>
               ) : (
@@ -529,11 +521,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
               )}
             </div>
               }
-              trustTraceSlot={
-                fullLoopResult?.status === "success" || fullLoopResult?.status === "blocked" ? (
-                  <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-                ) : undefined
-              }
+              trustTraceSlot={undefined}
             />
           </div>
 
@@ -568,6 +556,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
 
           <FreeToolAuthorityBlock
             tool={tool}
+            locale={locale}
             localizedTitle={displayTitle}
             localizedDescription={displayDescription}
             labels={{
@@ -576,7 +565,11 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
               formulaTitle: tAuthority("formulaTitle"),
               inputsTitle: tAuthority("inputsTitle"),
               includesTitle: tAuthority("includesTitle"),
+              includes1: tAuthority("includes1"),
+              includes2: tAuthority("includes2"),
+              includes3: tAuthority("includes3"),
               estimateMissesTitle: tAuthority("estimateMissesTitle"),
+              estimateMissesBody: tAuthority("estimateMissesBody"),
               faqTitle: tAuthority("faqTitle"),
               faqUseTitle: tAuthority("faqUseTitle"),
               faqFreeTitle: tAuthority("faqFreeTitle"),

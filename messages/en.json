@@ -156,6 +156,7 @@
     "cancelFreeCta": "View free calculators"
   },
   "pilotCnc": {
+    "selectToolAria": "Select sector tool",
     "hero": {
       "eyebrow": "MarginCore Pilot · CNC Manufacturing"
     },
@@ -448,7 +449,9 @@
       "premiumBlockBody": "Free calculators show the first number. Premium calculators add hidden drivers, thresholds, suggested actions and export-ready decision reports.",
       "premiumCta": "See what this estimate misses →",
       "premiumBlockNote": "Best when the result affects pricing, operations or management decisions.",
-      "relatedTitle": "Related calculators"
+      "relatedTitle": "Related calculators",
+      "resultBlocked": "Result blocked",
+      "pilotAwaiting": "Enter mapped pilot inputs and run the calculation."
     },
     "validation": {
       "required": "Please select a value.",
@@ -464,7 +467,11 @@
       "formulaTitle": "Formula summary",
       "inputsTitle": "Inputs used",
       "includesTitle": "What the result includes",
+      "includes1": "Formula-based estimate from the inputs you enter",
+      "includes2": "Primary result plus supporting secondary values where applicable",
+      "includes3": "Plain-language explanation of what the numbers represent",
       "estimateMissesTitle": "What this estimate misses",
+      "estimateMissesBody": "This free result gives the first number. It does not include hidden drivers such as thresholds, benchmark comparison, sensitivity, export-ready report output or suggested action plans.",
       "faqTitle": "FAQ",
       "faqUseTitle": "What is this calculator used for?",
       "faqFreeTitle": "Is this calculator free?",
@@ -482,6 +489,7 @@
       "whenToUseBody": "Use this calculator when the result affects pricing, operations, capacity, scheduling or management reporting.",
       "measuresTitle": "What this calculator measures",
       "promiseTitle": "What you get",
+      "promiseBody": "Structured summary with threshold alerts, hidden drivers and export-ready report output.",
       "decidesTitle": "What this calculator helps decide",
       "reportTitle": "What the report includes",
       "previewExcludesTitle": "What the preview does not include",

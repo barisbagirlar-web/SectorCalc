@@ -40,7 +40,6 @@ import type { SmartFormUiBridgeManifest } from "@/lib/formula-governance/smart-f
 import { type RevenueTool, type RevenueToolInput } from "@/lib/tools/revenue-tools";
 import { useGuidanceFieldFocus } from "@/components/guidance/GuidanceContext";
 import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
-import { RuntimeTrustTracePanel } from "@/components/tools/RuntimeTrustTracePanel";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
 import { SmartToolForm } from "@/components/tools/smart-form/SmartToolForm";
 import { runFreeFullLoopCalculation, type FreeFullLoopResult } from "@/lib/formula-governance/runtime-validation/free-full-loop-bridge";
@@ -532,13 +531,10 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
    resultPanel={
     <>
      {fullLoopResult?.status === "blocked" ? (
-      <>
-       <SmartFormValidationSummary
-        title="Result blocked"
-        blockers={fullLoopResult.blockers}
-       />
-       <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-      </>
+      <SmartFormValidationSummary
+       title={tUi("tool.resultBlocked")}
+       blockers={fullLoopResult.blockers}
+      />
      ) : null}
      {isCalculating ? (
       <p className="text-sm text-body-charcoal">{tUi("calculating")}</p>
@@ -550,18 +546,12 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
      ) : null}
      {!isCalculating && !result && fullLoopResult?.status !== "blocked" ? (
       <p className="text-sm text-body-charcoal">
-       {useSmartFormPilot
-        ? "Enter mapped pilot inputs and run Pilot calculate."
-        : "Enter values and run the calculator."}
+       {useSmartFormPilot ? tUi("pilotAwaiting") : tCalc("awaiting")}
       </p>
      ) : null}
     </>
    }
-   trustTraceSlot={
-    fullLoopResult?.status === "success" || fullLoopResult?.status === "blocked" ? (
-     <RuntimeTrustTracePanel trustTrace={fullLoopResult.trustTrace} />
-    ) : undefined
-   }
+   trustTraceSlot={undefined}
   />
   <ToolFeedbackPanel
    toolSlug={tool.freeSlug}

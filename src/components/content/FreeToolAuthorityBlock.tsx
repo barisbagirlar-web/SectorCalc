@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/routing";
 import { getFreeToolAuthorityCopy } from "@/lib/content/free-tool-authority";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import {
   getAuthorityGuideForFreeTool,
   getAuthorityGuideRoutePath,
@@ -11,6 +12,7 @@ import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
 
 export interface FreeToolAuthorityBlockProps {
   readonly tool: FreeTrafficTool;
+  readonly locale: string;
   readonly localizedTitle?: string;
   readonly localizedDescription?: string;
   readonly labels: {
@@ -19,7 +21,11 @@ export interface FreeToolAuthorityBlockProps {
     readonly formulaTitle: string;
     readonly inputsTitle: string;
     readonly includesTitle: string;
+    readonly includes1: string;
+    readonly includes2: string;
+    readonly includes3: string;
     readonly estimateMissesTitle: string;
+    readonly estimateMissesBody: string;
     readonly faqTitle: string;
     readonly faqUseTitle: string;
     readonly faqFreeTitle: string;
@@ -36,6 +42,7 @@ export interface FreeToolAuthorityBlockProps {
 
 export function FreeToolAuthorityBlock({
   tool,
+  locale,
   localizedTitle,
   localizedDescription,
   labels,
@@ -48,6 +55,8 @@ export function FreeToolAuthorityBlock({
 
   const displayTitle = localizedTitle ?? tool.title;
   const displayDescription = localizedDescription ?? copy.description;
+  const displayFormulaSummary =
+    locale === "en" ? copy.formulaSummary : translateCalculatorPhrase(copy.formulaSummary, locale);
 
   const faq = [
     { question: labels.faqUseTitle, answer: labels.faqUseAnswer.replace("{title}", displayTitle) },
@@ -72,19 +81,19 @@ export function FreeToolAuthorityBlock({
         </div>
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.formulaTitle}</h3>
-          <p className="mt-1">{copy.formulaSummary}</p>
+          <p className="mt-1">{displayFormulaSummary}</p>
         </div>
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.includesTitle}</h3>
           <ul className="mt-2 list-disc space-y-1 pl-5">
-            {copy.includes.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
+            <li>{labels.includes1}</li>
+            <li>{labels.includes2}</li>
+            <li>{labels.includes3}</li>
           </ul>
         </div>
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.estimateMissesTitle}</h3>
-          <p className="mt-1">{copy.estimateMisses}</p>
+          <p className="mt-1">{labels.estimateMissesBody}</p>
         </div>
       </div>
 
@@ -100,7 +109,7 @@ export function FreeToolAuthorityBlock({
         </div>
       ) : null}
 
-      {guide ? (
+      {guide && locale === "en" ? (
         <div className="mt-4 border-t border-technical-gray pt-4">
           <h3 className="font-semibold text-premium-velvet">{labels.relatedGuideTitle}</h3>
           <Link

@@ -6,11 +6,13 @@ import {
   getIndustryPathForGuide,
   getSeoHubSlugForGuide,
 } from "@/lib/content/authority-links";
+import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { getToolHref } from "@/lib/tools/paths";
 
 export interface PremiumAnalyzerAuthorityBlockProps {
   readonly schema: PremiumCalculatorSchema;
+  readonly locale: string;
   readonly displayName?: string;
   readonly displayPain?: string;
   readonly labels: {
@@ -18,6 +20,7 @@ export interface PremiumAnalyzerAuthorityBlockProps {
     readonly whenToUseBody: string;
     readonly measuresTitle: string;
     readonly promiseTitle: string;
+    readonly promiseBody: string;
     readonly decidesTitle: string;
     readonly decidesBody: string;
     readonly reportTitle: string;
@@ -51,16 +54,9 @@ function resolveRelatedFreeSlug(schema: PremiumCalculatorSchema): string | null 
   return null;
 }
 
-function getCalculatorPromise(schema: PremiumCalculatorSchema, displayName: string): string {
-  const title = schema.reportTemplate.title.trim();
-  if (title.length > 0) {
-    return `${title} with threshold alerts, hidden drivers and export-ready output.`;
-  }
-  return `Structured hidden-loss calculation summary for ${displayName}.`;
-}
-
 export function PremiumAnalyzerAuthorityBlock({
   schema,
+  locale,
   displayName,
   displayPain,
   labels,
@@ -96,7 +92,7 @@ export function PremiumAnalyzerAuthorityBlock({
         </div>
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.promiseTitle}</h3>
-          <p className="mt-1">{getCalculatorPromise(schema, resolvedName)}</p>
+          <p className="mt-1">{labels.promiseBody}</p>
         </div>
         <div>
           <h3 className="font-semibold text-premium-velvet">{labels.decidesTitle}</h3>
@@ -131,10 +127,15 @@ export function PremiumAnalyzerAuthorityBlock({
             href={getToolHref("free", relatedFreeTool.slug)}
             className="text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
           >
-            {labels.relatedFreeTitle}: {relatedFreeTool.title}
+            {labels.relatedFreeTitle}:{" "}
+            {resolveFreeToolDisplayTitle(
+              relatedFreeTool.slug,
+              locale,
+              relatedFreeTool.title,
+            )}
           </Link>
         ) : null}
-        {guide ? (
+        {guide && locale === "en" ? (
           <Link
             href={getAuthorityGuideRoutePath(guide.slug)}
             className="text-sm font-medium text-premium-velvet underline underline-offset-2 hover:text-[#E65100]"
@@ -142,7 +143,7 @@ export function PremiumAnalyzerAuthorityBlock({
             {labels.relatedGuideTitle}: {guide.title}
           </Link>
         ) : null}
-        {guide ? (
+        {guide && locale === "en" ? (
           <Link
             href={`/seo/${getSeoHubSlugForGuide(guide)}`}
             className="text-sm text-body-charcoal underline underline-offset-2 hover:text-premium-velvet"
@@ -150,7 +151,7 @@ export function PremiumAnalyzerAuthorityBlock({
             {labels.relatedHubTitle}
           </Link>
         ) : null}
-        {guide ? (
+        {guide && locale === "en" ? (
           <Link
             href={getIndustryPathForGuide(guide)}
             className="text-sm text-body-charcoal underline underline-offset-2 hover:text-premium-velvet"

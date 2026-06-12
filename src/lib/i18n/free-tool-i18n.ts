@@ -157,3 +157,44 @@ export function resolveFreeToolDisplayTitle(
 ): string {
   return resolveFreeToolLocalizedCopy(slug, locale).title ?? registryTitle;
 }
+
+/** Locale-aware SEO title — never falls back to English tier-one copy on non-EN locales. */
+export function resolveFreeToolSeoTitle(
+  slug: string,
+  locale: string,
+  registrySeoTitle: string,
+  tierOneMetaTitle?: string | null,
+): string {
+  const copy = resolveFreeToolLocalizedCopy(slug, locale);
+  if (copy.seoTitle) {
+    return copy.seoTitle;
+  }
+  if (copy.title) {
+    return `${copy.title} | SectorCalc`;
+  }
+  if (locale === "en") {
+    return tierOneMetaTitle ?? registrySeoTitle;
+  }
+  return registrySeoTitle.includes("| SectorCalc")
+    ? registrySeoTitle
+    : `${resolveFreeToolDisplayTitle(slug, locale, registrySeoTitle)} | SectorCalc`;
+}
+
+export function resolveFreeToolSeoDescription(
+  slug: string,
+  locale: string,
+  registrySeoDescription: string,
+  tierOneMetaDescription?: string | null,
+): string {
+  const copy = resolveFreeToolLocalizedCopy(slug, locale);
+  if (copy.seoDescription) {
+    return copy.seoDescription;
+  }
+  if (copy.description) {
+    return copy.description;
+  }
+  if (locale === "en") {
+    return tierOneMetaDescription ?? registrySeoDescription;
+  }
+  return registrySeoDescription;
+}

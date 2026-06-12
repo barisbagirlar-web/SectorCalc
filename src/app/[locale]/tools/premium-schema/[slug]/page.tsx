@@ -70,8 +70,13 @@ export async function generateMetadata({
   const displayName = resolvePremiumSchemaDisplayName(schema.id, schema.name, locale);
   const displayPain = resolvePremiumSchemaPainStatement(schema.id, schema.painStatement, locale);
 
+  const metaTitle =
+    locale === "en"
+      ? (tierOneMeta?.metaTitle ?? `${displayName} | SectorCalc`)
+      : `${displayName} | SectorCalc`;
+
   return createPageMetadata({
-    title: tierOneMeta?.metaTitle ?? `${displayName} | SectorCalc`,
+    title: metaTitle,
     description: tierOneMeta?.metaDescription ?? displayPain,
     path: `/tools/premium-schema/${schema.id}`,
     locale: locale as AppLocale,
@@ -169,6 +174,7 @@ export default async function PremiumSchemaPilotPage({
         <DynamicPremiumCalculator schema={schema} locale={locale} />
         <PremiumAnalyzerAuthorityBlock
           schema={schema}
+          locale={locale}
           displayName={displayName}
           displayPain={displayPain}
           labels={{
@@ -176,6 +182,7 @@ export default async function PremiumSchemaPilotPage({
             whenToUseBody: tAuthority("whenToUseBody"),
             measuresTitle: tAuthority("measuresTitle"),
             promiseTitle: tAuthority("promiseTitle"),
+            promiseBody: tAuthority("promiseBody"),
             decidesTitle: tAuthority("decidesTitle"),
             decidesBody: tAuthority("decidesBody"),
             reportTitle: tAuthority("reportTitle"),

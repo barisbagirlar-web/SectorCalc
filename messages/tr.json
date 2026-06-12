@@ -156,6 +156,7 @@
     "cancelFreeCta": "Ücretsiz hesaplayıcıları gör"
   },
   "pilotCnc": {
+    "selectToolAria": "Sektör aracı seçin",
     "hero": {
       "eyebrow": "MarginCore Pilot · CNC İmalat"
     },
@@ -448,7 +449,9 @@
       "premiumBlockBody": "Ücretsiz hesaplayıcılar ilk sayıyı gösterir. Premium hesaplayıcılar gizli sürücüler, eşikler, önerilen aksiyonlar ve dışa aktarmaya hazır karar raporları ekler.",
       "premiumCta": "Bu tahmin neleri kaçırır →",
       "premiumBlockNote": "Sonuç fiyatlandırma, operasyon veya yönetim kararlarını etkiliyorsa idealdir.",
-      "relatedTitle": "İlgili hesaplayıcılar"
+      "relatedTitle": "İlgili hesaplayıcılar",
+      "resultBlocked": "Sonuç engellendi",
+      "pilotAwaiting": "Eşleştirilmiş pilot girdilerini girin ve hesaplamayı çalıştırın."
     },
     "validation": {
       "required": "Lütfen bir değer seçin.",
@@ -464,7 +467,11 @@
       "formulaTitle": "Formül özeti",
       "inputsTitle": "Kullanılan girdiler",
       "includesTitle": "Sonuç neleri içerir",
+      "includes1": "Girdiğiniz değerlerden formül tabanlı tahmin",
+      "includes2": "Birincil sonuç ve uygun olduğunda destekleyici ikincil değerler",
+      "includes3": "Sayıların ne anlama geldiğine dair sade açıklama",
       "estimateMissesTitle": "Bu tahmin neleri kaçırır",
+      "estimateMissesBody": "Bu ücretsiz sonuç yalnızca ilk sayıyı verir. Eşikler, kıyas, duyarlılık, dışa aktarılabilir rapor çıktısı veya önerilen aksiyon planları dahil değildir.",
       "faqTitle": "SSS",
       "faqUseTitle": "Bu hesaplama aracı ne için kullanılır?",
       "faqFreeTitle": "Bu hesaplama aracı ücretsiz mi?",
@@ -482,6 +489,7 @@
       "whenToUseBody": "Sonuç fiyatlandırma, operasyon, kapasite, planlama veya yönetim raporlamasını etkilediğinde bu hesaplayıcıyı kullanın.",
       "measuresTitle": "Bu hesaplayıcı ne ölçer?",
       "promiseTitle": "Ne elde edersiniz",
+      "promiseBody": "Eşik uyarıları, gizli sürücüler ve dışa aktarılabilir rapor çıktısı ile yapılandırılmış özet.",
       "decidesTitle": "Bu hesaplayıcı hangi karara yardımcı olur?",
       "reportTitle": "Rapor neleri içerir",
       "previewExcludesTitle": "Önizleme neleri içermez",

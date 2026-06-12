@@ -316,11 +316,6 @@ function buildCalculationStepsFromContract(
       label: formulaSummaryLabel,
       formulaText: translate(contract.formulaSummary),
     },
-    ...contract.validationRules.slice(0, 4).map((rule) => ({
-      id: rule.id,
-      label: rule.id,
-      description: translate(rule.description),
-    })),
   ];
 }
 

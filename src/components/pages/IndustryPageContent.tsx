@@ -6,7 +6,6 @@ import { Container } from "@/components/ui/Container";
 import type { Industry } from "@/data/industries";
 import { getIndustryHubContent } from "@/data/industry-hub-content";
 import { getLocalizedIndustryHub } from "@/data/industry-hub-i18n";
-import { revenueLegalDisclaimer } from "@/lib/tools/revenue-tools";
 
 interface IndustryPageContentProps {
   industry: Industry;
@@ -15,6 +14,7 @@ interface IndustryPageContentProps {
 
 export async function IndustryPageContent({ industry, locale }: IndustryPageContentProps) {
   const t = await getTranslations({ locale, namespace: "industryPage" });
+  const tLegal = await getTranslations({ locale, namespace: "legal" });
   const baseHub = getIndustryHubContent(industry.slug);
   const localizedHub = getLocalizedIndustryHub(industry.slug, locale);
   const hub = { ...baseHub, ...localizedHub };
@@ -46,7 +46,7 @@ export async function IndustryPageContent({ industry, locale }: IndustryPageCont
 
       <section className="bg-bg-subtle py-5 sm:py-6">
         <Container size="narrow">
-          <p className="text-sm leading-relaxed text-text-secondary">{revenueLegalDisclaimer}</p>
+          <p className="text-sm leading-relaxed text-text-secondary">{tLegal("disclaimer")}</p>
           <nav className="mt-6 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-4">
             <Link href="/industries" className="font-medium text-deep-navy hover:underline">
               {t("allIndustries")}

@@ -156,6 +156,7 @@
     "cancelFreeCta": "Ver calculadoras gratis"
   },
   "pilotCnc": {
+    "selectToolAria": "Seleccionar herramienta sectorial",
     "hero": {
       "eyebrow": "MarginCore Pilot · Manufactura CNC"
     },
@@ -453,7 +454,9 @@
       "premiumBlockBody": "Las calculadoras gratuitas muestran el primer número. Las calculadoras premium añaden impulsores ocultos, umbrales, acciones sugeridas e informes exportables.",
       "premiumCta": "See what this estimate misses →",
       "premiumBlockNote": "Best when the result affects pricing, operations or management decisions.",
-      "relatedTitle": "Related calculators"
+      "relatedTitle": "Related calculators",
+      "resultBlocked": "Resultado bloqueado",
+      "pilotAwaiting": "Introduzca las entradas piloto mapeadas y ejecute el cálculo."
     },
     "validation": {
       "required": "Please select a value.",
@@ -469,7 +472,11 @@
       "formulaTitle": "Resumen de fórmula",
       "inputsTitle": "Entradas utilizadas",
       "includesTitle": "Qué incluye el resultado",
+      "includes1": "Estimación basada en fórmula a partir de sus entradas",
+      "includes2": "Resultado principal más valores secundarios de apoyo cuando corresponda",
+      "includes3": "Explicación clara de lo que representan los números",
       "estimateMissesTitle": "Qué no incluye esta estimación",
+      "estimateMissesBody": "Este resultado gratuito solo muestra el primer número. No incluye umbrales, comparación de referencia, sensibilidad, informe exportable ni planes de acción sugeridos.",
       "faqTitle": "FAQ",
       "faqUseTitle": "¿Para qué se usa esta calculadora?",
       "faqFreeTitle": "¿Es gratuita esta calculadora?",
@@ -487,6 +494,7 @@
       "whenToUseBody": "Use esta calculadora cuando el resultado afecte precios, operaciones, capacidad, planificación o informes de gestión.",
       "measuresTitle": "Qué mide esta calculadora",
       "promiseTitle": "Qué obtienes",
+      "promiseBody": "Resumen estructurado con alertas de umbral, factores ocultos e informe listo para exportar.",
       "decidesTitle": "Qué decisión ayuda esta calculadora",
       "reportTitle": "Qué incluye el informe",
       "previewExcludesTitle": "Qué no incluye la vista previa",
