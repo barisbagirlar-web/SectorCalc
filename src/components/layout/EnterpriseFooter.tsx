@@ -2,12 +2,10 @@
 
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { SITE_SOCIAL } from "@/config/site";
 import {
   SECTOR_FOOTER_COST_LINKS,
   SECTOR_FOOTER_LOSS_LINKS,
   SECTOR_FOOTER_TECHNICAL_LINKS,
-  getSectorFooterApiHref,
   resolveSectorFooterPremiumHref,
   type SectorFooterPanelLink,
 } from "@/lib/footer/sector-footer-links";
@@ -94,21 +92,18 @@ export function EnterpriseFooter() {
       <div className="sch-container">
         <div className="sch-hud-bar">
           <div className="sch-hud-left">
-            <Link href="/" prefetch={false} className="sch-logo" aria-label="SectorCalc home">
-              <span className="sch-sq sch-sq-1" aria-hidden="true" />
-              <span className="sch-sq sch-sq-2" aria-hidden="true" />
-              <span className="sch-sq sch-sq-3" aria-hidden="true" />
-              <span className="sch-sq sch-sq-4" aria-hidden="true" />
-              <span className="sch-logo-text">{t("logoText")}</span>
-            </Link>
-            <span className="sch-badge">{t("badge")}</span>
-          </div>
-          <div className="sch-hud-right">
-            <span className="sch-mono-text sch-status-ok">
-              <span className="sch-dot animate-pulse" aria-hidden="true" />
-              {t("hudRight1")}
-            </span>
-            <span className="sch-mono-text">{t("hudRight2")}</span>
+            <div className="sch-footer-brand">
+              <Link href="/" prefetch={false} className="sch-logo" aria-label={t("homeAria")}>
+                <div className="sch-logo-icon" aria-hidden="true">
+                  <span className="sch-sq sch-sq-1" />
+                  <span className="sch-sq sch-sq-2" />
+                  <span className="sch-sq sch-sq-3" />
+                  <span className="sch-sq sch-sq-4" />
+                </div>
+                <span className="sch-logo-text">{t("logoText")}</span>
+              </Link>
+              <p className="sch-footer-tagline">{t("tagline")}</p>
+            </div>
           </div>
         </div>
 
@@ -146,62 +141,28 @@ export function EnterpriseFooter() {
             </div>
           </div>
 
-          <div className="sch-panel sch-panel-terminal">
+          <div className="sch-panel sch-panel-note">
             <PanelSymbolSvg label={t("panel4Svg")} variant="library" />
-            <div className="sch-terminal-body" style={{ width: "100%" }}>
-              <label htmlFor="sch-footer-email" className="sch-label">
-                {t("newsletterLabel")}
-              </label>
-              <input
-                id="sch-footer-email"
-                type="email"
-                name="email"
-                className="sch-input"
-                placeholder={t("newsletterPlaceholder")}
-                autoComplete="email"
-              />
-              <button type="button" className="sch-btn">
-                {t("newsletterButton")}
-              </button>
-              <div className="sch-social-grid">
-                <a
-                  href={SITE_SOCIAL.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="sch-social-node"
-                  aria-label="LinkedIn"
-                >
-                  {t("socialIn")}
-                </a>
-                <Link
-                  href={getSectorFooterApiHref()}
-                  prefetch={false}
-                  className="sch-social-node"
-                >
-                  {t("socialApi")}
-                </Link>
-                <a href="/llms.txt" className="sch-social-node">
-                  {t("socialLlms")}
-                </a>
-              </div>
+            <div className="sch-panel-content">
+              <p className="sch-footer-note-title">{t("noteTitle")}</p>
+              <p className="sch-footer-note">{t("noteBody")}</p>
             </div>
           </div>
         </div>
 
-        <nav className="sch-bottom-nav" aria-label="Footer legal">
-          <div className="sch-legal-links">
+        <div className="sch-bottom-nav">
+          <nav className="sch-legal-links" aria-label={t("legalNavAria")}>
             {LEGAL_LINKS.map((item) => (
               <Link key={item.key} href={item.href} prefetch={false}>
                 {t(item.key)}
               </Link>
             ))}
-          </div>
+          </nav>
           <div className="sch-meta-info">
-            <span className="sch-mono-text">{t("metaReg")}</span>
-            <span className="sch-mono-text">{t("metaCur")}</span>
             <span className="sch-mono-text">{t("metaCopyright")}</span>
+            <span className="sch-mono-text">{t("metaRights")}</span>
           </div>
-        </nav>
+        </div>
       </div>
     </footer>
   );

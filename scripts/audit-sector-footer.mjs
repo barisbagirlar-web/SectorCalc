@@ -12,14 +12,13 @@ const REQUIRED_CLASSES = [
   "sch-footer",
   "sch-container",
   "sch-hud-bar",
+  "sch-hud-left",
+  "sch-footer-brand",
   "sch-logo",
+  "sch-logo-icon",
   "sch-sq",
   "sch-logo-text",
-  "sch-badge",
-  "sch-mono-text",
-  "sch-status-ok",
-  "sch-dot",
-  "animate-pulse",
+  "sch-footer-tagline",
   "sch-grid",
   "sch-panel",
   "sch-panel-visual",
@@ -30,15 +29,14 @@ const REQUIRED_CLASSES = [
   "sch-svg-text",
   "sch-svg-dot",
   "sch-panel-content",
-  "sch-panel-terminal",
-  "sch-terminal-body",
-  "sch-label",
-  "sch-input",
-  "sch-btn",
-  "sch-social-node",
+  "sch-list",
+  "sch-panel-note",
+  "sch-footer-note-title",
+  "sch-footer-note",
   "sch-bottom-nav",
   "sch-legal-links",
   "sch-meta-info",
+  "sch-mono-text",
 ];
 
 const REQUIRED_SVG_PATHS = [
@@ -47,7 +45,6 @@ const REQUIRED_SVG_PATHS = [
   "M90 90 L190 190 M190 90 L90 190",
 ];
 
-/** Exact public TR phrases allowed despite broader forbidden-term rules. */
 const ALLOWED_PUBLIC_TR_PHRASES = ["Fiyat Teklif Sihirbazı"];
 
 function stripAllowedPublicTrPhrases(text) {
@@ -58,18 +55,19 @@ function stripAllowedPublicTrPhrases(text) {
   return out;
 }
 
-/** Public footer copy only — not sch-* class names (e.g. sch-panel-terminal). */
-const FORBIDDEN =
+const FORBIDDEN_COPY =
   /Bütünsel Analitik Platformu|BÜTÜNSEL ANALİTİK PLATFORMU|\bAnalitik\b|\bAnalyzer\b|\bAnalysis\b|\bAnalyze\b|\bAnaliz\b|\banaliz\b|\bSihirbaz\b|\bYÜRÜT\b|\bEXEC\b|SYS\.OK|VER: 2\.5_HYBRID|ISO 27001|\bSLA\b|Yatırımcı Demosu/i;
 
+const FORBIDDEN_META =
+  /REG:|CUR:|KAYIT:|SYS\.OK|VER:|HYBRID|INAPILLMS|INAPI|APILLMS|\bLLMS\b|SECTORCALCSEKTÖREL|GİZLİLİK POLİTİKASIKULLANIM/i;
+
 const POSITIVE_TR = [
-  "SEKTÖREL HESAP MAKİNESİ",
+  "SectorCalc",
+  "sektörel hesaplama araçları",
   "Fiyat Teklif Sihirbazı",
-  "Makine Saat Ücreti Hesaplayıcı",
-  "Fire ve Malzeme Kaybı",
-  "OEE Hesaplayıcı",
-  "Kompresör Kaçağı Maliyeti",
-  "SECTORCALC BÜLTENİ",
+  "Gizlilik Politikası",
+  "Kullanım Koşulları",
+  "Tüm hakları saklıdır",
 ];
 
 const failures = [];
@@ -79,7 +77,6 @@ const footerTsx = readFileSync(
   "utf8",
 );
 const linksTs = readFileSync(join(ROOT, "src/lib/footer/sector-footer-links.ts"), "utf8");
-
 const footerCss = readFileSync(join(ROOT, "src/styles/sectorcalc-hud-footer.css"), "utf8");
 
 for (const cls of REQUIRED_CLASSES) {
@@ -110,12 +107,16 @@ if (footerTsx.includes('href="#"') || footerTsx.includes("href={'#'}")) {
   failures.push("EnterpriseFooter.tsx contains empty # href");
 }
 
-if (!linksTs.includes('return "/calculator-library"')) {
-  failures.push("getSectorFooterApiHref must return /calculator-library");
+if (footerTsx.includes("sch-social-grid") || footerTsx.includes("socialIn")) {
+  failures.push("EnterpriseFooter.tsx must not render IN/API/LLMS social nodes");
 }
 
-if (!footerTsx.includes('type="button"')) {
-  failures.push("Newsletter button must be type=button (no backend)");
+if (footerTsx.includes("metaReg") || footerTsx.includes("metaCur")) {
+  failures.push("EnterpriseFooter.tsx must not render REG/CUR meta fields");
+}
+
+if (!linksTs.includes('return "/calculator-library"')) {
+  failures.push("getSectorFooterApiHref must return /calculator-library");
 }
 
 for (const locale of LOCALES) {
@@ -127,13 +128,17 @@ for (const locale of LOCALES) {
   }
   const requiredKeys = [
     "logoText",
-    "badge",
-    "hudRight1",
+    "tagline",
+    "homeAria",
     "panel1Svg",
     "panel1Link1",
-    "newsletterLabel",
+    "noteTitle",
+    "noteBody",
     "legalPrivacy",
+    "legalTerms",
+    "legalDisclaimer",
     "metaCopyright",
+    "metaRights",
   ];
   for (const key of requiredKeys) {
     if (!sectorFooter[key]) {
@@ -141,8 +146,14 @@ for (const locale of LOCALES) {
     }
   }
   for (const value of Object.values(sectorFooter)) {
-    if (typeof value === "string" && FORBIDDEN.test(stripAllowedPublicTrPhrases(value))) {
-      failures.push(`${locale}: forbidden copy in sectorFooter → "${value.slice(0, 60)}"`);
+    if (typeof value === "string") {
+      const stripped = stripAllowedPublicTrPhrases(value);
+      if (FORBIDDEN_COPY.test(stripped)) {
+        failures.push(`${locale}: forbidden copy in sectorFooter → "${value.slice(0, 60)}"`);
+      }
+      if (FORBIDDEN_META.test(value)) {
+        failures.push(`${locale}: forbidden meta copy in sectorFooter → "${value.slice(0, 60)}"`);
+      }
     }
   }
 }
