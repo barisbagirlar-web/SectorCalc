@@ -4,7 +4,8 @@ import { useState, useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Search } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { CalculatorFilterBar } from "@/components/catalog/CalculatorFilterBar";
+import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
+import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
 
 export type SearchablePremiumTool = {
   readonly slug: string;
@@ -41,12 +42,17 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const tabs = useMemo(
+  const categoryCards: CategoryCardItem[] = useMemo(
     () => [
-      { id: "all", label: t("allCategory"), count: tools.length },
-      ...categories.map((c) => ({ id: c.slug, label: c.title, count: c.count })),
+      { slug: "all", label: t("allCategory"), count: tools.length, isActive: selectedCategory === "all" },
+      ...categories.map((c) => ({
+        slug: c.slug,
+        label: c.title,
+        count: c.count,
+        isActive: selectedCategory === c.slug,
+      })),
     ],
-    [tools.length, categories, t],
+    [tools.length, categories, selectedCategory, t],
   );
 
   const visibleTools = useMemo(() => {
@@ -68,7 +74,8 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
   }, [tools, selectedCategory, searchQuery, locale]);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-6">
+      <CategoryCardGrid items={categoryCards} onSelect={setSelectedCategory} />
       <div className="relative">
         <Search
           className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-body-charcoal"
@@ -83,12 +90,6 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
           className="w-full min-h-[44px] rounded border border-technical-gray bg-white py-2.5 pl-10 pr-4 text-sm text-premium-velvet placeholder:text-body-charcoal focus:border-sc-copper focus:outline-none"
         />
       </div>
-      <CalculatorFilterBar
-        tabs={tabs}
-        activeTabId={selectedCategory}
-        onTabChange={setSelectedCategory}
-        ariaLabel={t("allCategory")}
-      />
       <p className="text-xs text-body-charcoal">
         {t("resultCount", { count: visibleTools.length })}
       </p>
