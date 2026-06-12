@@ -6,9 +6,9 @@ export type PremiumSectorGridProps = {
 
 export function PremiumSectorGrid({ categories }: PremiumSectorGridProps) {
   return (
-    <div className="sc-premium-sector-grid">
+    <div className="sc-premium-category-grid">
       {categories.map((category) => (
-        <PremiumSectorCard key={category.slug} {...category} />
+        <PremiumSectorCard key={category.categorySlug} {...category} />
       ))}
     </div>
   );

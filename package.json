@@ -34,6 +34,7 @@
     "audit:industry-pages:static": "POST_BUILD=1 node scripts/audit-industry-pages.mjs",
     "audit:locale-center": "node scripts/audit-locale-integrity-center.mjs",
     "audit:locale-redirect": "node scripts/audit-locale-redirect.mjs",
+    "audit:category-card-grid": "node scripts/audit-category-card-grid.mjs",
     "audit:rendered-locales": "node scripts/audit-public-rendered-locales.mjs",
     "quality:locale": "npm run audit:locale-center && npm run audit:surface-i18n",
     "quality:locale:full": "npm run audit:locale-center && npm run audit:surface-i18n && npm run build && npm run audit:rendered-locales",

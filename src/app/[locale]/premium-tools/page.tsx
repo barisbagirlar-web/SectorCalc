@@ -32,17 +32,15 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("premiumCategoryCatalog");
-  const categories = listPremiumCatalogCategories(locale).map((category) => ({
-    slug: category.slug,
-    title: category.title,
-    summary: category.summary,
-    iconKey: category.iconKey,
-    premiumToolCount: category.premiumToolCount,
-    relatedFreeToolCount: category.relatedFreeToolCount,
-    premiumCountLabel: t("premiumCount", { count: category.premiumToolCount }),
-    relatedFreeCountLabel: t("relatedFreeCount", { count: category.relatedFreeToolCount }),
-    viewCategoryLabel: t("viewCategory"),
-  }));
+  const categories = listPremiumCatalogCategories(locale).map((category) => {
+    const totalToolCount = category.premiumToolCount + category.relatedFreeToolCount;
+    return {
+      categorySlug: category.slug,
+      href: `/premium-tools/${category.slug}`,
+      title: category.title,
+      countLabel: t("toolCount", { count: totalToolCount }),
+    };
+  });
 
   const jsonLd = [
     await buildLocalizedBreadcrumbJsonLd(

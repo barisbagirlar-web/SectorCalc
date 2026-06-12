@@ -1,51 +1,26 @@
 import { Link } from "@/i18n/routing";
-import { resolvePremiumCategoryIcon } from "@/lib/catalog/premium-category-icons";
+import { getCategoryIcon } from "@/lib/catalog/category-icon-map";
 
 export type PremiumSectorCardProps = {
-  readonly slug: string;
+  readonly href: string;
   readonly title: string;
-  readonly summary: string;
-  readonly iconKey: string;
-  readonly premiumToolCount: number;
-  readonly relatedFreeToolCount: number;
-  readonly premiumCountLabel: string;
-  readonly relatedFreeCountLabel: string;
-  readonly viewCategoryLabel: string;
+  readonly countLabel: string;
+  readonly categorySlug: string;
 };
 
 export function PremiumSectorCard({
-  slug,
+  href,
   title,
-  summary,
-  iconKey,
-  premiumToolCount,
-  relatedFreeToolCount,
-  premiumCountLabel,
-  relatedFreeCountLabel,
-  viewCategoryLabel,
+  countLabel,
+  categorySlug,
 }: PremiumSectorCardProps) {
-  const Icon = resolvePremiumCategoryIcon(iconKey);
+  const Icon = getCategoryIcon(categorySlug);
 
   return (
-    <article className="sc-premium-sector-card">
-      <div className="sc-premium-sector-card__icon" aria-hidden="true">
-        <Icon className="h-6 w-6 text-sky-700" />
-      </div>
-      <h2 className="sc-premium-sector-card__title">{title}</h2>
-      <p className="sc-premium-sector-card__summary">{summary}</p>
-      <dl className="sc-premium-sector-card__counts">
-        <div>
-          <dt className="sr-only">{premiumCountLabel}</dt>
-          <dd>{premiumCountLabel}</dd>
-        </div>
-        <div>
-          <dt className="sr-only">{relatedFreeCountLabel}</dt>
-          <dd>{relatedFreeCountLabel}</dd>
-        </div>
-      </dl>
-      <Link href={`/premium-tools/${slug}`} prefetch={false} className="sc-premium-sector-card__cta">
-        {viewCategoryLabel}
-      </Link>
-    </article>
+    <Link href={href} prefetch={false} className="sc-premium-category-card">
+      <Icon aria-hidden="true" className="sc-premium-category-icon" strokeWidth={1.9} />
+      <h3 className="sc-premium-category-title">{title}</h3>
+      <p className="sc-premium-category-count">{countLabel}</p>
+    </Link>
   );
 }

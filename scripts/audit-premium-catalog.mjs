@@ -106,7 +106,7 @@ if (categoryPage.includes("generateStaticParams")) {
 }
 
 const css = read("src/styles/premium-category-catalog.css");
-if (css.includes(".sc-premium-sector-grid") && css.includes("@media")) {
+if (css.includes(".sc-premium-category-grid") && css.includes("@media")) {
   pass("premium category catalog responsive CSS present");
 } else {
   fail("premium category catalog CSS incomplete");
