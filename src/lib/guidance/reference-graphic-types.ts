@@ -2,17 +2,21 @@ import type { AppLocale } from "@/i18n/routing";
 
 export type ReferenceGraphicTemplate =
   | "box-dimension"
-  | "area"
+  | "wall-area"
   | "volume"
   | "cylinder-pipe"
   | "stair"
   | "bend-radius"
+  | "compressor-leak"
   | "angle"
   | "route"
   | "energy-flow"
   | "machine-time"
   | "financial-flow"
   | "generic";
+
+/** @deprecated Use wall-area */
+export type LegacyAreaTemplate = "area";
 
 export type ReferenceGraphicConfidence = "high" | "medium" | "fallback";
 
@@ -44,3 +48,9 @@ export type ResolvedReferenceGraphic = {
 };
 
 export type GuidanceTier = "free" | "premium" | "premium-schema";
+
+export type ReferenceTemplateProps = {
+  activeField?: string | null;
+  locale: string;
+  labels: Record<string, string>;
+};

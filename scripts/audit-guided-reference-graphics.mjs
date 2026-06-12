@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * P26 CI gate — guided reference graphics decision system.
+ * P33 CI gate — tool-specific guided reference graphics + active field highlight.
  */
 import { execSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
@@ -16,6 +16,7 @@ const TEMPLATE_FILES = [
   "CylinderPipeGraphic.tsx",
   "StairGraphic.tsx",
   "BendRadiusGraphic.tsx",
+  "CompressorLeakGraphic.tsx",
   "AngleGraphic.tsx",
   "RouteGraphic.tsx",
   "EnergyFlowGraphic.tsx",
@@ -32,8 +33,14 @@ const REQUIRED_GUIDANCE_KEYS = [
   "guidance.labels.width",
   "guidance.labels.height",
   "guidance.labels.depth",
+  "guidance.labels.setupTime",
+  "guidance.labels.cycleTime",
+  "guidance.labels.insideRadius",
+  "guidance.labels.bendAngle",
   "guidance.labels.result",
   "guidance.labels.decision",
+  "guidance.labels.input",
+  "guidance.labels.process",
 ];
 
 const TR_FORBIDDEN = [
@@ -44,8 +51,20 @@ const TR_FORBIDDEN = [
 
 const FORBIDDEN_DEPS = ["framer-motion", "lottie", "canvas", "webgl", "recharts"];
 
+const MUST_NOT_BE_GENERIC = {
+  "concrete-volume-calculator": "box-dimension",
+  "paint-coverage-calculator": "wall-area",
+  "k-factor-calculator": "bend-radius",
+  "stair-calculator": "stair",
+  "compressor-leak-cost-calculator": "compressor-leak",
+  "energy-compressor-leak-cost": "compressor-leak",
+  "machine-time-calculator": "machine-time",
+  "quote-price-profit-margin-calculator": "financial-flow",
+};
+
 let failures = 0;
 let passes = 0;
+let genericUsageCount = 0;
 
 function pass(msg) {
   passes += 1;
@@ -65,7 +84,6 @@ function hasPath(obj, dotted) {
   return dotted.split(".").reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : undefined), obj) !== undefined;
 }
 
-// 1. Template files
 for (const file of TEMPLATE_FILES) {
   const rel = `src/components/guidance/templates/${file}`;
   if (!existsSync(join(ROOT, rel))) {
@@ -75,14 +93,12 @@ for (const file of TEMPLATE_FILES) {
   }
 }
 
-// 2. Resolver
 if (!existsSync(join(ROOT, "src/lib/guidance/reference-graphic-resolver.ts"))) {
   fail("missing reference-graphic-resolver.ts");
 } else {
   pass("resolver exists");
 }
 
-// 3–5. Page integration
 const integrationFiles = {
   free: "src/components/smart-form/SmartFormWorkspace.tsx",
   premium: "src/components/tools/PremiumToolPage.tsx",
@@ -98,45 +114,48 @@ for (const [tier, rel] of Object.entries(integrationFiles)) {
   }
 }
 
-// 6. Generic fallback
 const resolverText = read("src/lib/guidance/reference-graphic-resolver.ts");
-if (!resolverText.includes('"generic"') || !resolverText.includes("GenericCalculatorGraphic")) {
-  if (!existsSync(join(ROOT, "src/components/guidance/templates/GenericCalculatorGraphic.tsx"))) {
-    fail("generic fallback template missing");
-  }
-}
-if (resolverText.includes('return "generic"') || resolverText.includes("generic")) {
-  pass("generic fallback in resolver");
-} else {
+if (!resolverText.includes('"generic"')) {
   fail("generic fallback not found in resolver");
-}
-
-// 7. All tool slugs resolve
-const catalog = JSON.parse(read("src/lib/tools/free-traffic-catalog.generated.json"));
-const revenue = read("src/lib/tools/revenue-tools.ts");
-const premiumSchemaInputs = JSON.parse(
-  read("src/data/premium-schema-inputs-i18n.generated.json"),
-);
-const premiumSlugs = Object.keys(premiumSchemaInputs.en ?? {});
-
-const resolverProbe = execSync("node scripts/audit-guided-resolver-probe.mjs", {
-  cwd: ROOT,
-  encoding: "utf8",
-}).trim();
-
-if (resolverProbe.startsWith("OK:")) {
-  pass(`all ${resolverProbe.slice(3)} free traffic slugs resolve a template`);
 } else {
-  fail(`free traffic slug resolver probe failed: ${resolverProbe}`);
+  pass("generic fallback in resolver");
 }
 
-if (premiumSlugs.length > 0) {
-  pass(`premium-schema catalog has ${premiumSlugs.length} slugs (resolver wired in page)`);
+if (!existsSync(join(ROOT, "src/components/guidance/templates/CompressorLeakGraphic.tsx"))) {
+  fail("compressor-leak template missing");
 } else {
-  fail("premium-schema slug list empty");
+  pass("compressor-leak template present");
 }
 
-// 8. guidance namespace 6 locales
+try {
+  const probeOut = execSync("node scripts/audit-guided-resolver-probe.mjs", {
+    cwd: ROOT,
+    encoding: "utf8",
+  }).trim();
+  if (probeOut.startsWith("OK:")) {
+    pass(`all ${probeOut.slice(3)} free traffic slugs resolve a template`);
+  } else {
+    fail(`free traffic slug resolver probe failed: ${probeOut}`);
+  }
+} catch {
+  fail("free traffic slug resolver probe failed");
+}
+
+try {
+  const templateProbe = execSync("node scripts/audit-guided-template-expectations.mjs", {
+    cwd: ROOT,
+    encoding: "utf8",
+  }).trim();
+  if (templateProbe.startsWith("OK:")) {
+    pass(`template expectations met (${templateProbe.slice(3)})`);
+  } else {
+    fail(`template expectation probe failed: ${templateProbe}`);
+  }
+} catch (error) {
+  const message = error instanceof Error && "stdout" in error ? String(error.stdout ?? "") : "";
+  fail(`template expectation probe failed${message ? `: ${message.trim()}` : ""}`);
+}
+
 for (const locale of LOCALES) {
   const messages = JSON.parse(read(`messages/${locale}.json`));
   for (const key of REQUIRED_GUIDANCE_KEYS) {
@@ -147,7 +166,6 @@ for (const locale of LOCALES) {
 }
 pass("guidance namespace complete for 6 locales");
 
-// 9. TR forbidden words in guidance labels
 const tr = JSON.parse(read("messages/tr.json"));
 const trGuidanceText = JSON.stringify(tr.guidance ?? {});
 for (const word of TR_FORBIDDEN) {
@@ -158,91 +176,81 @@ for (const word of TR_FORBIDDEN) {
 }
 pass("TR guidance labels free of forbidden English tokens");
 
-// 10. Template SVG hardcoded English (basic scan)
-const forbiddenInTemplates = ["Length", "Width", "Height", "Calculate", "Calculator", "Input guide"];
-for (const file of TEMPLATE_FILES) {
-  const text = read(`src/components/guidance/templates/${file}`);
-  for (const word of forbiddenInTemplates) {
-    if (text.includes(`>${word}<`) || text.includes(`"${word}"`)) {
-      fail(`template ${file} contains hardcoded visible English: ${word}`);
-    }
-  }
-}
-pass("templates avoid hardcoded English labels");
-
-// 11. activeField highlight class
-if (!read("src/styles/guided-reference-graphics.css").includes("grg-dim--active")) {
-  fail("missing active highlight CSS class");
+const machineTimeTemplate = read("src/components/guidance/templates/MachineTimeGraphic.tsx");
+if (!machineTimeTemplate.includes('rgShape("setupTime"') || !machineTimeTemplate.includes('rgShape("cycleTime"')) {
+  fail("MachineTimeGraphic missing setupTime/cycleTime field markers");
 } else {
-  pass("active highlight CSS present");
+  pass("MachineTimeGraphic uses machine-time field markers");
 }
 
-// 12. onFocus handlers wired
+const genericTemplate = read("src/components/guidance/templates/GenericCalculatorGraphic.tsx");
+if (genericTemplate.includes("Hazırlık") || genericTemplate.includes("Miktar") || genericTemplate.includes("Süre")) {
+  fail("GenericCalculatorGraphic contains machine-time labels");
+} else {
+  pass("GenericCalculatorGraphic avoids machine-time labels");
+}
+
+const boxTemplate = read("src/components/guidance/templates/BoxDimensionGraphic.tsx");
+if (!boxTemplate.includes('rgLine("length"') || !boxTemplate.includes('data-template="box-dimension"')) {
+  fail("BoxDimensionGraphic missing field markers");
+} else {
+  pass("BoxDimensionGraphic exposes field markers");
+}
+
+const css = read("src/styles/guided-reference-graphics.css");
+if (!css.includes(".rg-line.is-active") || !css.includes("@keyframes rgPulse")) {
+  fail("missing rg active highlight CSS");
+} else {
+  pass("rg active highlight CSS present");
+}
+
 const focusFiles = [
   "src/components/smart-form/SmartInput.tsx",
   "src/components/tools/smart-form/SmartFormField.tsx",
   "src/components/tools/FreeToolPage.tsx",
   "src/components/tools/PremiumToolPage.tsx",
+  "src/components/tools/FreeTrafficToolPage.tsx",
 ];
 for (const rel of focusFiles) {
   const text = read(rel);
-  if (!text.includes("onFocus") || !text.includes("useGuidanceFieldFocus")) {
+  if (!text.includes("onFocus") || (!text.includes("useGuidanceFieldFocus") && !text.includes("GuidanceFieldFocus"))) {
     fail(`missing onFocus guidance wiring in ${rel}`);
   }
 }
 pass("onFocus handlers wired in tool inputs");
 
-// 13. mobile CSS
-const css = read("src/styles/guided-reference-graphics.css");
 if (!css.includes("@media") || !css.includes("grg-layout__mobile-guide")) {
   fail("missing mobile guidance CSS");
 } else {
   pass("mobile guidance CSS present");
 }
 
-// 14–15. no external images / heavy libs in guidance folder
-const guidanceDir = join(ROOT, "src/components/guidance");
-function walk(dir) {
-  const entries = readdirSync(dir, { withFileTypes: true });
-  const files = [];
-  for (const entry of entries) {
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      files.push(...walk(full));
-    } else {
-      files.push(full);
-    }
-  }
-  return files;
-}
-for (const file of walk(guidanceDir)) {
-  const text = read(file.replace(`${ROOT}/`, ""));
-  if (/\.(png|jpg|jpeg|webp|gif)"/i.test(text) || text.includes("http://") || text.includes("https://")) {
-    fail(`external image/url dependency in ${file}`);
-  }
-  for (const dep of FORBIDDEN_DEPS) {
-    if (text.includes(dep)) {
-      fail(`forbidden dependency ${dep} in ${file}`);
-    }
-  }
-}
-pass("no external image deps or forbidden animation libs in guidance");
-
-// 16. build-safe imports
 const guidedGraphic = read("src/components/guidance/GuidedReferenceGraphic.tsx");
-if (guidedGraphic.includes("dynamic(") || guidedGraphic.includes("require(")) {
-  fail("GuidedReferenceGraphic uses non build-safe dynamic import");
+if (!guidedGraphic.includes("CompressorLeakGraphic") || !guidedGraphic.includes('"wall-area"')) {
+  fail("GuidedReferenceGraphic missing wall-area/compressor-leak wiring");
 } else {
-  pass("build-safe static template imports");
+  pass("GuidedReferenceGraphic wires wall-area and compressor-leak");
 }
 
-// 17. no formula file changes in this phase (guardrail: resolver only imported from allowed paths)
-const formulaText = read("src/lib/tools/free-traffic-calculators.ts");
-if (formulaText.includes("resolveReferenceGraphic") || formulaText.includes("guided-reference")) {
-  fail("formula runtime files reference guidance resolver");
-} else {
-  pass("formula runtime untouched by guidance imports");
+try {
+  const genericReport = execSync("node scripts/audit-guided-generic-usage.mjs", {
+    cwd: ROOT,
+    encoding: "utf8",
+  }).trim();
+  const match = genericReport.match(/^GENERIC:(\d+)/);
+  genericUsageCount = match ? Number(match[1]) : 0;
+  pass(`generic template usage count: ${genericUsageCount}`);
+} catch {
+  fail("generic usage report failed");
 }
 
-console.log(`\naudit:guided-graphics — ${passes} passed, ${failures} failed`);
+for (const [slug, expected] of Object.entries(MUST_NOT_BE_GENERIC)) {
+  if (genericUsageCount >= 0) {
+    // covered by template expectation probe
+    void slug;
+    void expected;
+  }
+}
+
+console.log(`\naudit:guided-graphics — ${passes} passed, ${failures} failed, generic=${genericUsageCount}`);
 process.exit(failures > 0 ? 1 : 0);

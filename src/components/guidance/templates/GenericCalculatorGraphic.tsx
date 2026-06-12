@@ -1,7 +1,8 @@
 import {
   GUIDANCE_COLORS,
   isGraphicFieldActive,
-  labelClass,
+  rgLabel,
+  rgShape,
   type TemplateGraphicProps,
 } from "@/components/guidance/templates/template-shared";
 
@@ -21,14 +22,16 @@ export function GenericCalculatorGraphic({ fieldMap, activeFieldKey, labelFor }:
         rx="6"
         fill={active ? GUIDANCE_COLORS.softFill : GUIDANCE_COLORS.surface}
         stroke={active ? GUIDANCE_COLORS.active : GUIDANCE_COLORS.border}
-        className={active ? "grg-region grg-region--active" : "grg-region"}
+        {...rgShape(canonical, active)}
       />
-      <text x={x + 8} y={y + 24} className={labelClass(active)}>{labelFor(canonical)}</text>
+      <text x={x + 8} y={y + 24} {...rgLabel(canonical, active)}>
+        {labelFor(canonical)}
+      </text>
     </g>
   );
 
   return (
-    <svg viewBox="0 0 320 200" className="grg-svg" role="img">
+    <svg viewBox="0 0 320 200" className="grg-svg" role="img" data-template="generic">
       {node(30, 80, inputActive, "input")}
       {node(110, 80, processActive, "process")}
       {node(190, 80, resultActive, "result")}

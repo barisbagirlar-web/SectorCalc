@@ -87,8 +87,43 @@
 }
 
 .grg-dim--active {
-  stroke: #2563eb;
-  color: #2563eb;
+  stroke: #4a5cf5;
+  color: #4a5cf5;
+}
+
+.rg-line,
+.rg-shape,
+.rg-label {
+  transition: stroke 0.2s ease, fill 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.rg-line {
+  stroke: #94a3b8;
+}
+
+.rg-line.is-active,
+.rg-shape.is-active {
+  stroke: #4a5cf5;
+  fill: rgba(74, 92, 245, 0.08);
+}
+
+.rg-label.is-active {
+  fill: #0f172a;
+  font-weight: 700;
+}
+
+.rg-pulse.is-active {
+  animation: rgPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes rgPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
 }
 
 .grg-label {
@@ -98,8 +133,8 @@
 }
 
 .grg-label--active {
-  fill: #2563eb;
-  font-weight: 600;
+  fill: #4a5cf5;
+  font-weight: 700;
 }
 
 .grg-region {

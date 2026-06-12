@@ -7,6 +7,7 @@ import { AngleGraphic } from "@/components/guidance/templates/AngleGraphic";
 import { AreaGraphic } from "@/components/guidance/templates/AreaGraphic";
 import { BendRadiusGraphic } from "@/components/guidance/templates/BendRadiusGraphic";
 import { BoxDimensionGraphic } from "@/components/guidance/templates/BoxDimensionGraphic";
+import { CompressorLeakGraphic } from "@/components/guidance/templates/CompressorLeakGraphic";
 import { CylinderPipeGraphic } from "@/components/guidance/templates/CylinderPipeGraphic";
 import { EnergyFlowGraphic } from "@/components/guidance/templates/EnergyFlowGraphic";
 import { FinancialFlowGraphic } from "@/components/guidance/templates/FinancialFlowGraphic";
@@ -29,46 +30,55 @@ const LABEL_KEY_MAP: Readonly<Record<string, string>> = {
   depth: "depth",
   diameter: "diameter",
   radius: "radius",
-  insideRadius: "radius",
+  insideRadius: "insideRadius",
   thickness: "thickness",
-  materialThickness: "thickness",
+  materialThickness: "materialThickness",
   angle: "angle",
-  bendAngle: "angle",
+  bendAngle: "bendAngle",
+  neutralAxis: "neutralAxis",
   area: "area",
   volume: "volume",
   cost: "cost",
   price: "price",
   margin: "margin",
+  tax: "tax",
+  labor: "labor",
   energy: "energy",
   power: "power",
   pressure: "pressure",
   flow: "flow",
+  leakDiameter: "leakDiameter",
   distance: "distance",
-  fuel: "distance",
-  time: "time",
-  setup: "setup",
-  setupTime: "setup",
-  cycleTime: "time",
-  runtime: "time",
+  fuel: "fuel",
+  runtime: "runtime",
+  setupTime: "setupTime",
+  cycleTime: "cycleTime",
   quantity: "quantity",
+  downtime: "downtime",
+  steps: "steps",
+  riserRise: "riserRise",
+  treadRun: "treadRun",
+  stairThickness: "stairThickness",
   result: "result",
   decision: "decision",
   input: "input",
   process: "process",
   revenue: "price",
   profit: "margin",
-  tax: "cost",
   payment: "cost",
   routeCost: "cost",
   stops: "stops",
-  downtime: "time",
-  availability: "time",
+  availability: "runtime",
   carbon: "energy",
-  neutralAxis: "radius",
-  steps: "quantity",
-  rise: "height",
-  run: "width",
 };
+
+const KNOWN_LABEL_KEYS = [
+  "length", "width", "height", "depth", "diameter", "radius", "insideRadius", "thickness",
+  "materialThickness", "angle", "bendAngle", "neutralAxis", "area", "volume", "cost", "price",
+  "margin", "tax", "labor", "energy", "power", "pressure", "flow", "leakDiameter", "distance",
+  "fuel", "runtime", "setupTime", "cycleTime", "quantity", "downtime", "steps", "riserRise",
+  "treadRun", "stairThickness", "result", "decision", "input", "process", "stops",
+] as const;
 
 export function GuidedReferenceGraphic({
   resolvedGraphic,
@@ -78,14 +88,8 @@ export function GuidedReferenceGraphic({
 
   const labelFor = (canonicalId: string): string => {
     const key = LABEL_KEY_MAP[canonicalId] ?? canonicalId;
-    const known = [
-      "length", "width", "height", "depth", "diameter", "radius", "thickness",
-      "angle", "area", "volume", "cost", "price", "margin", "energy", "power",
-      "pressure", "flow", "distance", "time", "setup", "result", "decision",
-      "input", "process", "quantity", "stops",
-    ] as const;
-    if ((known as readonly string[]).includes(key)) {
-      return t(key as (typeof known)[number]);
+    if ((KNOWN_LABEL_KEYS as readonly string[]).includes(key)) {
+      return t(key as (typeof KNOWN_LABEL_KEYS)[number]);
     }
     return canonicalId;
   };
@@ -99,7 +103,7 @@ export function GuidedReferenceGraphic({
   switch (resolvedGraphic.template) {
     case "box-dimension":
       return <BoxDimensionGraphic {...props} />;
-    case "area":
+    case "wall-area":
       return <AreaGraphic {...props} />;
     case "volume":
       return <VolumeGraphic {...props} />;
@@ -109,6 +113,8 @@ export function GuidedReferenceGraphic({
       return <StairGraphic {...props} />;
     case "bend-radius":
       return <BendRadiusGraphic {...props} />;
+    case "compressor-leak":
+      return <CompressorLeakGraphic {...props} />;
     case "angle":
       return <AngleGraphic {...props} />;
     case "route":
