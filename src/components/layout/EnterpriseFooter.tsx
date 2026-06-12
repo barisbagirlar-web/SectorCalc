@@ -2,6 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { SITE_SOCIAL } from "@/config/site";
 import {
   SECTOR_FOOTER_COST_LINKS,
   SECTOR_FOOTER_LOSS_LINKS,
@@ -81,6 +82,56 @@ function FooterPanelList({
   );
 }
 
+function FooterResourceAndSocial() {
+  const t = useTranslations("sectorFooter");
+
+  return (
+    <div className="sch-footer-actions" aria-label={t("actionsAria")}>
+      <div className="sch-social-links" aria-label={t("socialAria")}>
+        <a
+          href={SITE_SOCIAL.linkedin}
+          className="sch-social-icon-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t("linkedinAria")}
+        >
+          <svg viewBox="0 0 24 24" className="sch-social-svg" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.4 8h4.2v14H.4V8zm7.1 0h4v1.9h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.6V22h-4.2v-6.9c0-1.6 0-3.8-2.3-3.8s-2.7 1.8-2.7 3.7v7H7.5V8z"
+            />
+          </svg>
+          <span className="sch-social-text">{t("linkedinLabel")}</span>
+        </a>
+        <a
+          href={SITE_SOCIAL.twitter}
+          className="sch-social-icon-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t("twitterAria")}
+        >
+          <svg viewBox="0 0 24 24" className="sch-social-svg" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+            />
+          </svg>
+          <span className="sch-social-text">{t("twitterLabel")}</span>
+        </a>
+      </div>
+
+      <nav className="sch-resource-links" aria-label={t("resourceAria")}>
+        <a href="/llms.txt" className="sch-resource-link">
+          {t("llmIndexLabel")}
+        </a>
+        <a href="/sitemap.xml" className="sch-resource-link">
+          {t("sitemapLabel")}
+        </a>
+      </nav>
+    </div>
+  );
+}
+
 export function EnterpriseFooter() {
   const t = useTranslations("sectorFooter");
 
@@ -149,6 +200,8 @@ export function EnterpriseFooter() {
             </div>
           </div>
         </div>
+
+        <FooterResourceAndSocial />
 
         <div className="sch-bottom-nav">
           <nav className="sch-legal-links" aria-label={t("legalNavAria")}>

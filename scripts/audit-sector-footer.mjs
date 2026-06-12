@@ -37,6 +37,11 @@ const REQUIRED_CLASSES = [
   "sch-legal-links",
   "sch-meta-info",
   "sch-mono-text",
+  "sch-footer-actions",
+  "sch-social-links",
+  "sch-resource-links",
+  "sch-social-icon-link",
+  "sch-resource-link",
 ];
 
 const REQUIRED_SVG_PATHS = [
@@ -68,6 +73,9 @@ const POSITIVE_TR = [
   "Gizlilik Politikası",
   "Kullanım Koşulları",
   "Tüm hakları saklıdır",
+  "LLM İndeksi",
+  "Site Haritası",
+  "LinkedIn",
 ];
 
 const failures = [];
@@ -108,7 +116,19 @@ if (footerTsx.includes('href="#"') || footerTsx.includes("href={'#'}")) {
 }
 
 if (footerTsx.includes("sch-social-grid") || footerTsx.includes("socialIn")) {
-  failures.push("EnterpriseFooter.tsx must not render IN/API/LLMS social nodes");
+  failures.push("EnterpriseFooter.tsx must not render legacy IN/API/LLMS social nodes");
+}
+
+if (/\bAPILLMS\b|\bINAPILLMS\b|\bINAPI\b|>API</.test(footerTsx)) {
+  failures.push("EnterpriseFooter.tsx contains forbidden public API/terminal footer copy");
+}
+
+if (!footerTsx.includes('href="/llms.txt"') || !footerTsx.includes('href="/sitemap.xml"')) {
+  failures.push("EnterpriseFooter.tsx must link to /llms.txt and /sitemap.xml");
+}
+
+if (!footerTsx.includes("SITE_SOCIAL.linkedin")) {
+  failures.push("EnterpriseFooter.tsx must use real LinkedIn URL from SITE_SOCIAL");
 }
 
 if (footerTsx.includes("metaReg") || footerTsx.includes("metaCur")) {
@@ -139,6 +159,9 @@ for (const locale of LOCALES) {
     "legalDisclaimer",
     "metaCopyright",
     "metaRights",
+    "llmIndexLabel",
+    "sitemapLabel",
+    "linkedinLabel",
   ];
   for (const key of requiredKeys) {
     if (!sectorFooter[key]) {

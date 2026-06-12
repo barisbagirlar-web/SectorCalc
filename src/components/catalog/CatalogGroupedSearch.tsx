@@ -61,7 +61,7 @@ export function CatalogGroupedSearch({ entries, scope, className }: CatalogGroup
       data-search-result-count={showResults ? result.totalMatches : 0}
       data-search-has-more={showResults && result.hiddenCount > 0}
     >
-      <div className="sc-search-wrap">
+      <div className="sc-search-wrapper sc-search-wrap">
         <span className="sc-search-icon" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="7" />

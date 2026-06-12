@@ -187,10 +187,82 @@ const SECTOR_FOOTER = {
   },
 };
 
+const FOOTER_ACTIONS = {
+  en: {
+    actionsAria: "SectorCalc links",
+    socialAria: "Social media",
+    resourceAria: "Technical indexes",
+    linkedinLabel: "LinkedIn",
+    linkedinAria: "SectorCalc on LinkedIn",
+    twitterLabel: "X",
+    twitterAria: "SectorCalc on X",
+    llmIndexLabel: "LLM Index",
+    sitemapLabel: "Sitemap",
+  },
+  tr: {
+    actionsAria: "SectorCalc bağlantıları",
+    socialAria: "Sosyal medya",
+    resourceAria: "Teknik indeksler",
+    linkedinLabel: "LinkedIn",
+    linkedinAria: "SectorCalc LinkedIn",
+    twitterLabel: "X",
+    twitterAria: "SectorCalc X",
+    llmIndexLabel: "LLM İndeksi",
+    sitemapLabel: "Site Haritası",
+  },
+  de: {
+    actionsAria: "SectorCalc Links",
+    socialAria: "Soziale Medien",
+    resourceAria: "Technische Indizes",
+    linkedinLabel: "LinkedIn",
+    linkedinAria: "SectorCalc auf LinkedIn",
+    twitterLabel: "X",
+    twitterAria: "SectorCalc auf X",
+    llmIndexLabel: "LLM-Index",
+    sitemapLabel: "Sitemap",
+  },
+  fr: {
+    actionsAria: "Liens SectorCalc",
+    socialAria: "Réseaux sociaux",
+    resourceAria: "Index techniques",
+    linkedinLabel: "LinkedIn",
+    linkedinAria: "SectorCalc sur LinkedIn",
+    twitterLabel: "X",
+    twitterAria: "SectorCalc sur X",
+    llmIndexLabel: "Index LLM",
+    sitemapLabel: "Plan du site",
+  },
+  es: {
+    actionsAria: "Enlaces SectorCalc",
+    socialAria: "Redes sociales",
+    resourceAria: "Índices técnicos",
+    linkedinLabel: "LinkedIn",
+    linkedinAria: "SectorCalc en LinkedIn",
+    twitterLabel: "X",
+    twitterAria: "SectorCalc en X",
+    llmIndexLabel: "Índice LLM",
+    sitemapLabel: "Mapa del sitio",
+  },
+  ar: {
+    actionsAria: "روابط SectorCalc",
+    socialAria: "وسائل التواصل",
+    resourceAria: "فهارس تقنية",
+    linkedinLabel: "LinkedIn",
+    linkedinAria: "SectorCalc على LinkedIn",
+    twitterLabel: "X",
+    twitterAria: "SectorCalc على X",
+    llmIndexLabel: "فهرس LLM",
+    sitemapLabel: "خريطة الموقع",
+  },
+};
+
 for (const [locale, sectorFooter] of Object.entries(SECTOR_FOOTER)) {
   const path = join(ROOT, "messages", `${locale}.json`);
   const messages = JSON.parse(readFileSync(path, "utf8"));
-  messages.sectorFooter = sectorFooter;
+  messages.sectorFooter = {
+    ...sectorFooter,
+    ...(FOOTER_ACTIONS[locale] ?? FOOTER_ACTIONS.en),
+  };
   writeFileSync(path, `${JSON.stringify(messages, null, 2)}\n`, "utf8");
   console.log(`Patched sectorFooter → messages/${locale}.json`);
 }
