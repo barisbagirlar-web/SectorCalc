@@ -239,29 +239,26 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(248, 250, 252, 0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--sc-border);
-  padding: 0;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .sc-filter-inner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
-  padding: 16px 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.sc-filter-inner::-webkit-scrollbar {
-  display: none;
+  gap: 8px;
+  padding: 0;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .sc-filter-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
+  min-height: 44px;
+  max-width: min(340px, calc(100vw - 3rem));
   padding: 7px 16px;
   background: #ffffff;
   border: 1px solid var(--sc-border-soft);
@@ -271,6 +268,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: var(--sc-transition);
+  white-space: nowrap;
+}
+
+.sc-filter-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -286,6 +290,7 @@
 }
 
 .sc-filter-count {
+  flex-shrink: 0;
   font-size: 0.68rem;
   padding: 2px 7px;
   border-radius: 999px;
