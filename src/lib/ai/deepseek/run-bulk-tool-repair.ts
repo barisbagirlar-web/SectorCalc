@@ -32,6 +32,44 @@ function parseRiskFilter(): Set<string> {
   );
 }
 
+function parseMode(): "apply" | "plan" {
+  const raw = process.env.DEEPSEEK_REPAIR_MODE?.trim() || "plan";
+  return raw === "apply" ? "apply" : "plan";
+}
+
+function selectAndPlan(limit: number, riskFilter: Set<string>): BulkToolRepairItem[] {
+  const poolSize = Math.min(Math.max(limit * 3, limit), 500);
+  const pool = selectBulkRepairSlugs(poolSize);
+  const plannedAll = planBulkRepairBatch(pool)
+    .filter((item) => riskFilter.has(item.riskLevel))
+    .sort((a, b) => rankRepairItem(b) - rankRepairItem(a) || a.slug.localeCompare(b.slug));
+
+  const autoApply = plannedAll.filter(
+    (item) => item.repairDecision === "auto_apply" && item.patches.length > 0,
+  );
+  const manual = plannedAll.filter(
+    (item) => item.repairDecision === "manual_review" && item.patches.length > 0,
+  );
+  const remainder = plannedAll.filter(
+    (item) => item.repairDecision === "keep_safe_state" || item.patches.length === 0,
+  );
+
+  return [...autoApply, ...manual, ...remainder].slice(0, limit);
+}
+
+function rankRepairItem(item: BulkToolRepairItem): number {
+  if (item.repairDecision === "auto_apply" && item.patches.length > 0) {
+    return 100;
+  }
+  if (item.repairDecision === "manual_review" && item.patches.length > 0) {
+    return 50;
+  }
+  if (item.patches.length > 0) {
+    return 25;
+  }
+  return 0;
+}
+
 function mergeDeepSeekDecisions(
   planned: BulkToolRepairItem[],
   deepseekItems: BulkToolRepairItem[],
@@ -85,65 +123,123 @@ export async function runBulkToolRepair(): Promise<{
   exitCode: number;
 }> {
   const limit = Number(process.env.DEEPSEEK_BULK_LIMIT || 50);
-  const mode = process.env.DEEPSEEK_REPAIR_MODE?.trim() === "apply" ? "apply" : "dry-run";
+  const mode = parseMode();
   const riskFilter = parseRiskFilter();
   const before = readAuditCounts();
+  const blockers: string[] = [];
 
-  const selected = selectBulkRepairSlugs(limit);
-  let planned = planBulkRepairBatch(selected).filter((item) => riskFilter.has(item.riskLevel));
+  let planned = selectAndPlan(limit, riskFilter);
+  const selected = planned.map((item) => item.slug);
 
   let deepseekStatus: BulkToolRepairReport["deepseekStatus"] = "skipped";
   const config = getDeepSeekClientConfig();
 
-  if (config.apiKey && planned.length > 0) {
-    const result = await callDeepSeekJson(
-      "schema_review",
-      [
-        { role: "system", content: buildBulkRepairSystemPrompt() },
-        { role: "user", content: buildBulkRepairUserPrompt(planned) },
-      ],
-      validateBulkRepairEnvelope,
-    );
-
-    if (!result.ok) {
-      deepseekStatus = result.errorCode === "missing_api_key" ? "missing_api_key" : "api_error";
-    } else {
-      deepseekStatus = "ok";
-      planned = mergeDeepSeekDecisions(planned, result.data.items as BulkToolRepairItem[]);
-    }
-  } else if (!config.apiKey) {
+  if (!config.apiKey) {
     deepseekStatus = "missing_api_key";
+    blockers.push("DEEPSEEK_API_KEY missing — DeepSeek advisory overlay skipped");
+  } else if (planned.length > 0) {
+    const batchSize = planned.length > 50 ? 25 : planned.length;
+    const batches: BulkToolRepairItem[][] = [];
+    for (let i = 0; i < planned.length; i += batchSize) {
+      batches.push(planned.slice(i, i + batchSize));
+    }
+
+    const mergedItems: BulkToolRepairItem[] = [];
+    for (const batch of batches) {
+      const result = await callDeepSeekJson(
+        "schema_review",
+        [
+          { role: "system", content: buildBulkRepairSystemPrompt() },
+          { role: "user", content: buildBulkRepairUserPrompt(batch) },
+        ],
+        validateBulkRepairEnvelope,
+      );
+
+      if (!result.ok) {
+        deepseekStatus = result.errorCode === "missing_api_key" ? "missing_api_key" : "api_error";
+        blockers.push(`DeepSeek API error: ${result.errorCode ?? "unknown"}`);
+        mergedItems.push(...batch);
+        break;
+      }
+
+      deepseekStatus = "ok";
+      mergedItems.push(...mergeDeepSeekDecisions(batch, result.data.items as BulkToolRepairItem[]));
+    }
+
+    if (mergedItems.length > 0) {
+      planned = mergedItems;
+    }
   }
 
   let patched: string[] = [];
   let manualReview: string[] = [];
   let safeStateKept: string[] = [];
+  let skipped: string[] = [];
+  let blockedByPolicy: string[] = [];
+  const testResults: string[] = [];
 
-  if (mode === "apply") {
+  const applyRequested = mode === "apply";
+  const canApplyDeterministic = applyRequested && (!config.apiKey || deepseekStatus !== "api_error");
+
+  if (applyRequested && !config.apiKey) {
+    blockers.push("Deterministic local apply running without DeepSeek confirmation");
+  }
+
+  if (canApplyDeterministic) {
     const applyResult = applyBulkRepairBatch(planned);
     patched = applyResult.patchedSlugs;
     manualReview = applyResult.manualReview;
     safeStateKept = applyResult.safeStateKept;
+    skipped = planned
+      .filter(
+        (item) =>
+          item.repairDecision === "auto_apply" &&
+          item.patches.length > 0 &&
+          !patched.includes(item.slug),
+      )
+      .map((item) => item.slug);
     runAudits();
+  } else if (applyRequested) {
+    blockers.push("Apply blocked due to DeepSeek API error");
+    manualReview = planned.filter((item) => item.repairDecision === "manual_review").map((i) => i.slug);
+    safeStateKept = planned.filter((item) => item.repairDecision === "keep_safe_state").map((i) => i.slug);
+    skipped = planned
+      .filter((item) => item.repairDecision === "auto_apply")
+      .map((item) => item.slug);
   } else {
     manualReview = planned.filter((item) => item.repairDecision === "manual_review").map((i) => i.slug);
     safeStateKept = planned.filter((item) => item.repairDecision === "keep_safe_state").map((i) => i.slug);
+    skipped = planned
+      .filter(
+        (item) =>
+          item.repairDecision === "auto_apply" &&
+          item.patches.length > 0 &&
+          item.riskLevel !== "high" &&
+          item.riskLevel !== "critical",
+      )
+      .map((item) => item.slug);
   }
 
-  const after = mode === "apply" ? readAuditCounts() : before;
+  blockedByPolicy = planned
+    .filter((item) => item.riskLevel === "high" || item.riskLevel === "critical")
+    .map((item) => item.slug);
+
+  const after = canApplyDeterministic ? readAuditCounts() : before;
 
   const report: BulkToolRepairReport = {
     generatedAt: new Date().toISOString(),
     mode,
     limit,
-    before,
-    after,
+    selected,
     patched,
+    skipped,
     manualReview,
     safeStateKept,
-    blockers: planned
-      .filter((item) => item.riskLevel === "high" || item.riskLevel === "critical")
-      .map((item) => item.slug),
+    blockedByPolicy,
+    before,
+    after,
+    testResults,
+    blockers,
     deepseekStatus,
     items: planned,
   };
@@ -151,7 +247,7 @@ export async function runBulkToolRepair(): Promise<{
   writeReport(report);
 
   const exitCode =
-    mode === "apply" && patched.length === 0 && planned.some((item) => item.repairDecision === "auto_apply")
+    applyRequested && patched.length === 0 && planned.some((item) => item.repairDecision === "auto_apply")
       ? 1
       : 0;
 
@@ -164,6 +260,7 @@ async function main(): Promise<void> {
   console.log("=== DeepSeek Bulk Tool Repair (ASR-0) ===");
   console.log(`mode: ${report.mode}`);
   console.log(`limit: ${report.limit}`);
+  console.log(`selected: ${report.selected.length}`);
   console.log(`deepseek: ${report.deepseekStatus}`);
   console.log(
     `before PASS/WARN/FAIL/QUARANTINE: ${report.before.PASS}/${report.before.WARN}/${report.before.FAIL}/${report.before.QUARANTINE}`,
@@ -172,8 +269,13 @@ async function main(): Promise<void> {
     `after PASS/WARN/FAIL/QUARANTINE: ${report.after.PASS}/${report.after.WARN}/${report.after.FAIL}/${report.after.QUARANTINE}`,
   );
   console.log(`patched: ${report.patched.length}`);
+  console.log(`skipped: ${report.skipped.length}`);
   console.log(`manualReview: ${report.manualReview.length}`);
   console.log(`safeStateKept: ${report.safeStateKept.length}`);
+  console.log(`blockedByPolicy: ${report.blockedByPolicy.length}`);
+  if (report.blockers.length > 0) {
+    console.log(`blockers: ${report.blockers.join("; ")}`);
+  }
   console.log(`output: ${path.relative(ROOT, REPORT_PATH)}`);
 
   if (report.patched.length > 0) {

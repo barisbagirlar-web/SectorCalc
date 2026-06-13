@@ -31,6 +31,30 @@ function findingIds(row: P24ToolRow): Set<string> {
   );
 }
 
+function hasFailFinding(row: P24ToolRow, checkId: string): boolean {
+  return (row.findings ?? []).some((f) => f.checkId === checkId && f.severity === "fail");
+}
+
+function globalSanityTestExists(schemaId: string): boolean {
+  const testPath = path.join(
+    ROOT,
+    `src/lib/premium-schema/__tests__/${schemaId}-global-sanity.test.ts`,
+  );
+  return fs.existsSync(testPath);
+}
+
+function schemaHasFixableUnits(schemaPath: string | null): boolean {
+  if (!schemaPath) {
+    return false;
+  }
+  const absolute = path.join(ROOT, schemaPath);
+  if (!fs.existsSync(absolute)) {
+    return false;
+  }
+  const content = fs.readFileSync(absolute, "utf8");
+  return UNIT_REPLACEMENTS.some((rule) => rule.pattern.test(content));
+}
+
 function resolveI18nSourceSlug(context: ReturnType<typeof buildBulkRepairContext>): string | null {
   if (context.localeCoverage.en && context.localeCoverage.tr) {
     return null;
@@ -61,14 +85,16 @@ function resolveDedicatedTestFile(context: ReturnType<typeof buildBulkRepairCont
 }
 
 function inferRisk(row: P24ToolRow, patches: BulkRepairPatchPlan[]): BulkRepairRiskLevel {
-  const ids = findingIds(row);
-  if (ids.has("formulaContractAlignment") || ids.has("requiredInputs")) {
+  if (hasFailFinding(row, "formulaContractAlignment") || hasFailFinding(row, "requiredInputs")) {
     return "high";
   }
   if (patches.some((patch) => patch.type === "validation_fix")) {
     return "medium";
   }
   if (patches.every((patch) => patch.type === "unit_fix" || patch.type === "i18n_fix")) {
+    return "low";
+  }
+  if (patches.every((patch) => patch.type === "route_wiring")) {
     return "low";
   }
   return "medium";
@@ -95,7 +121,11 @@ export function planBulkRepairItem(row: P24ToolRow): BulkToolRepairItem {
   const ids = findingIds(row);
   const patches: BulkRepairPatchPlan[] = [];
 
-  if ((ids.has("canonicalUnit") || ids.has("unitMapping")) && context.schemaPath) {
+  if (
+    (ids.has("canonicalUnit") || ids.has("unitMapping")) &&
+    context.schemaPath &&
+    schemaHasFixableUnits(context.schemaPath)
+  ) {
     patches.push({
       type: "unit_fix",
       targetFile: context.schemaPath,
@@ -130,9 +160,28 @@ export function planBulkRepairItem(row: P24ToolRow): BulkToolRepairItem {
         metadata: { targetSlug: context.slug, sourceSchemaId: context.schemaId },
       });
     }
+
+    if (!sourceSlug && context.schemaPath) {
+      for (const locale of ["en", "tr", "de", "fr", "es", "ar"]) {
+        if (!context.localeCoverage[locale]) {
+          patches.push({
+            type: "i18n_fix",
+            targetFile: `messages/${locale}.json`,
+            description: `Scaffold freeToolInputs for ${context.slug} from schema labels.`,
+            safeToApply: true,
+            metadata: {
+              targetSlug: context.slug,
+              schemaPath: context.schemaPath,
+              locale,
+              scaffoldFromSchema: "true",
+            },
+          });
+        }
+      }
+    }
   }
 
-  if (ids.has("globalSanityTests")) {
+  if (ids.has("globalSanityTests") && !globalSanityTestExists(context.schemaId)) {
     const paidSlug = context.paidSlug ?? context.slug;
     const testFile = resolveDedicatedTestFile(context);
     if (testFile && paidSlug) {
@@ -162,7 +211,13 @@ export function planBulkRepairItem(row: P24ToolRow): BulkToolRepairItem {
     }
   }
 
-  if (ids.has("validation") && !ids.has("formulaContractAlignment") && row.tier === "premium-schema") {
+  if (
+    row.tier === "premium-schema" &&
+    !context.validationExists &&
+    !hasFailFinding(row, "formulaContractAlignment") &&
+    context.schemaPath &&
+    !/^\d/.test(context.schemaId)
+  ) {
     const validationPath = `src/lib/premium-schema/calculators/${context.schemaId}-validation.ts`;
     if (!fs.existsSync(path.join(ROOT, validationPath))) {
       patches.push({

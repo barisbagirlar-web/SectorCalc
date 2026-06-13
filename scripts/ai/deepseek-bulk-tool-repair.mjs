@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 /**
- * ASR-0 — DeepSeek bulk tool repair factory.
+ * ASR-0 — DeepSeek bulk tool repair factory entry.
+ *
+ * Env:
+ *   DEEPSEEK_BULK_LIMIT=100
+ *   DEEPSEEK_REPAIR_MODE=plan|apply
+ *   DEEPSEEK_REPAIR_RISK=low,medium
+ *   DEEPSEEK_REPAIR_COMMIT=false
  */
 import { spawnSync } from "node:child_process";
 import path from "node:path";

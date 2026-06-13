@@ -3,11 +3,14 @@ import path from "node:path";
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import { PREMIUM_SCHEMA_SLUG_MAP } from "@/lib/premium-schema/schema-registry";
 import { ERT_PROBLEM_SLUG } from "@/lib/ai/deepseek/formula-audit-collector";
-import type { P24ToolRow } from "@/lib/ai/deepseek/bulk-tool-repair-types";
+import type { P24ToolRow, ExtendedAuditCounts } from "@/lib/ai/deepseek/bulk-tool-repair-types";
 
 const ROOT = process.cwd();
 const P24_REPORT_PATH = path.join(ROOT, "scripts/.cache/p24-tool-quality-report.json");
 const ERT_REPORT_PATH = path.join(ROOT, "scripts/.cache/runtime-trust-engine-report.json");
+const QUARANTINE_RECOVERY_PATH = path.join(ROOT, "scripts/.cache/quarantine-recovery-report.json");
+const INPUT_GUIDE_AUDIT_PATH = path.join(ROOT, "scripts/.cache/input-guide-audit-report.json");
+const BULK_REPAIR_REPORT_PATH = path.join(ROOT, "scripts/.cache/deepseek/bulk-tool-repair-report.json");
 const LOCALE_FILES = ["en", "tr", "de", "fr", "es", "ar"] as const;
 
 const PROTECTED_SLUGS = new Set([ERT_PROBLEM_SLUG]);
@@ -83,10 +86,59 @@ function validationExists(slug: string): boolean {
   return candidates.some((candidate) => fs.existsSync(candidate));
 }
 
-function scoreTool(row: P24ToolRow): number {
-  if (row.verdict === "PASS" || row.verdict === "QUARANTINE") {
+function loadQuarantineRecoverySlugs(): Set<string> {
+  const report = readJson<{
+    items?: Array<{ slug: string; recommendedAction?: string; repairDifficulty?: string }>;
+  }>(QUARANTINE_RECOVERY_PATH);
+  return new Set(
+    (report?.items ?? [])
+      .filter(
+        (item) =>
+          (item.recommendedAction === "recover_now" ||
+            item.recommendedAction === "send_to_batch") &&
+          item.repairDifficulty !== "critical",
+      )
+      .map((item) => item.slug),
+  );
+}
+
+function loadGuideBlockedSlugs(): Set<string> {
+  const report = readJson<{
+    items?: Array<{ slug: string; decision?: string }>;
+  }>(INPUT_GUIDE_AUDIT_PATH);
+  return new Set(
+    (report?.items ?? [])
+      .filter(
+        (item) =>
+          item.decision === "needs_spec" ||
+          item.decision === "generic_blocked" ||
+          item.decision === "manual_design_review",
+      )
+      .map((item) => item.slug),
+  );
+}
+
+function loadBatch1RemainingSlugs(): Set<string> {
+  const report = readJson<{
+    items?: Array<{ slug: string; repairDecision?: string; riskLevel?: string }>;
+  }>(BULK_REPAIR_REPORT_PATH);
+  return new Set(
+    (report?.items ?? [])
+      .filter(
+        (item) =>
+          item.repairDecision === "auto_apply" &&
+          item.riskLevel !== "high" &&
+          item.riskLevel !== "critical",
+      )
+      .map((item) => item.slug),
+  );
+}
+
+function scoreTool(row: P24ToolRow, quarantineRecovery: Set<string>, guideBlocked: Set<string>): number {
+  if (row.verdict === "PASS") {
     return -1;
   }
+
   const findings = row.findings ?? [];
   const failIds = findings.filter((f) => f.severity === "fail").map((f) => f.checkId);
   const warnIds = findings.filter((f) => f.severity === "warn").map((f) => f.checkId);
@@ -103,6 +155,23 @@ function scoreTool(row: P24ToolRow): number {
   }
 
   let score = 0;
+
+  if (quarantineRecovery.has(row.slug)) {
+    score += 45;
+  }
+  if (
+    guideBlocked.has(row.slug) &&
+    (row.tier === "premium-schema" || row.tier === "premium") &&
+    row.verdict !== "QUARANTINE"
+  ) {
+    score += 25;
+  }
+  if (row.verdict === "QUARANTINE" && quarantineRecovery.has(row.slug)) {
+    score += 35;
+  } else if (row.verdict === "QUARANTINE") {
+    return -1;
+  }
+
   if (row.tier === "premium-schema" && row.routePath) {
     score += 40;
   }
@@ -128,6 +197,10 @@ function scoreTool(row: P24ToolRow): number {
 
 export function selectBulkRepairSlugs(limit: number): P24ToolRow[] {
   const paymentEligible = loadPaymentEligibleSlugs();
+  const quarantineRecovery = loadQuarantineRecoverySlugs();
+  const guideBlocked = loadGuideBlockedSlugs();
+  const batch1Remaining = loadBatch1RemainingSlugs();
+
   const rows = loadP24Tools()
     .filter((row) => {
       if (!row.slug || PROTECTED_SLUGS.has(row.slug)) {
@@ -139,9 +212,18 @@ export function selectBulkRepairSlugs(limit: number): P24ToolRow[] {
       if (HIGH_RISK_PATTERNS.some((pattern) => pattern.test(row.slug))) {
         return false;
       }
-      return scoreTool(row) > 0;
+
+      const score = scoreTool(row, quarantineRecovery, guideBlocked);
+      const batch1Candidate = batch1Remaining.has(row.slug);
+      return score > 0 || batch1Candidate;
     })
-    .sort((a, b) => scoreTool(b) - scoreTool(a) || a.slug.localeCompare(b.slug));
+    .sort((a, b) => {
+      const scoreA =
+        scoreTool(a, quarantineRecovery, guideBlocked) + (batch1Remaining.has(a.slug) ? 20 : 0);
+      const scoreB =
+        scoreTool(b, quarantineRecovery, guideBlocked) + (batch1Remaining.has(b.slug) ? 20 : 0);
+      return scoreB - scoreA || a.slug.localeCompare(b.slug);
+    });
 
   return rows.slice(0, limit);
 }
@@ -208,12 +290,19 @@ export function buildBulkRepairContext(row: P24ToolRow): {
   };
 }
 
-export function readAuditCounts(): { PASS: number; WARN: number; FAIL: number; QUARANTINE: number } {
+export function readAuditCounts(): ExtendedAuditCounts {
   const tools = loadP24Tools();
+  const report = readJson<{
+    summary?: { paymentEligible?: number; formulaGateEligible?: number; freePaymentEligible?: number };
+  }>(ERT_REPORT_PATH);
+
   return {
     PASS: tools.filter((t) => t.verdict === "PASS").length,
     WARN: tools.filter((t) => t.verdict === "WARN").length,
     FAIL: tools.filter((t) => t.verdict === "FAIL").length,
     QUARANTINE: tools.filter((t) => t.verdict === "QUARANTINE").length,
+    paymentEligible: report?.summary?.paymentEligible ?? loadPaymentEligibleSlugs().size,
+    formulaGateEligible: report?.summary?.formulaGateEligible ?? 0,
+    freePaymentEligible: report?.summary?.freePaymentEligible ?? 0,
   };
 }

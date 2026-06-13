@@ -4,6 +4,25 @@ import type { BulkRepairPatchPlan, BulkToolRepairItem } from "@/lib/ai/deepseek/
 
 const ROOT = process.cwd();
 
+const FORBIDDEN_TARGET_PATTERNS = [
+  /^\.env/i,
+  /^functions\//,
+  /^apps\/guide-/,
+  /^public\/ai-/,
+  /^next-env\.d\.ts$/,
+  /stripe/i,
+  /webhook/i,
+  /billing/i,
+  /firebase/i,
+  /wrangler\.toml$/,
+  /vercel\.json$/,
+];
+
+function isForbiddenTarget(targetFile: string): boolean {
+  const normalized = targetFile.replace(/\\/g, "/");
+  return FORBIDDEN_TARGET_PATTERNS.some((pattern) => pattern.test(normalized));
+}
+
 const UNIT_REPLACEMENTS: Array<{ pattern: RegExp; replacement: string }> = [
   { pattern: /unit:\s*"h"/g, replacement: 'unit: "hours"' },
   { pattern: /unit:\s*'h'/g, replacement: "unit: 'hours'" },
@@ -38,6 +57,75 @@ function applyUnitFix(patch: BulkRepairPatchPlan): boolean {
     return false;
   }
   fs.writeFileSync(absolute, content, "utf8");
+  return true;
+}
+
+function parseSchemaInputFields(
+  schemaPath: string,
+): Array<{ id: string; label: string; helper?: string }> {
+  const absolute = path.join(ROOT, schemaPath);
+  if (!fs.existsSync(absolute)) {
+    return [];
+  }
+  const content = fs.readFileSync(absolute, "utf8");
+  const inputsBlock = content.match(/inputs:\s*\[([\s\S]*?)\]\s*,\s*outputs:/);
+  if (!inputsBlock) {
+    return [];
+  }
+  const fields: Array<{ id: string; label: string; helper?: string }> = [];
+  const inputBlocks = inputsBlock[1].matchAll(
+    /\{\s*id:\s*"([^"]+)"[\s\S]*?label:\s*"([^"]+)"([\s\S]*?)\}/g,
+  );
+  for (const match of inputBlocks) {
+    const id = match[1];
+    const label = match[2];
+    const helperMatch = match[3]?.match(/helper:\s*"([^"]+)"/);
+    fields.push({ id, label, helper: helperMatch?.[1] });
+  }
+  return fields;
+}
+
+function toLocaleInputKey(inputId: string): string {
+  return inputId.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+}
+
+function applyI18nScaffoldFromSchema(patch: BulkRepairPatchPlan): boolean {
+  const locale = patch.metadata?.locale;
+  const targetSlug = patch.metadata?.targetSlug;
+  const schemaPath = patch.metadata?.schemaPath;
+  if (!locale || !targetSlug || !schemaPath || patch.metadata?.scaffoldFromSchema !== "true") {
+    return false;
+  }
+
+  const absolute = path.join(ROOT, patch.targetFile);
+  if (!fs.existsSync(absolute)) {
+    return false;
+  }
+
+  const payload = readJson(absolute);
+  const freeToolInputs = (payload.freeToolInputs ?? {}) as Record<string, unknown>;
+  if (freeToolInputs[targetSlug]) {
+    return false;
+  }
+
+  const fields = parseSchemaInputFields(schemaPath);
+  if (fields.length === 0) {
+    return false;
+  }
+
+  const entry: Record<string, { label: string; placeholder: string; helper: string }> = {};
+  for (const field of fields) {
+    const key = toLocaleInputKey(field.id);
+    entry[key] = {
+      label: field.label,
+      placeholder: `Enter ${field.label.toLowerCase()}`,
+      helper: field.helper ?? field.label,
+    };
+  }
+
+  freeToolInputs[targetSlug] = entry;
+  payload.freeToolInputs = freeToolInputs;
+  writeJson(absolute, payload);
   return true;
 }
 
@@ -111,18 +199,27 @@ function parseSchemaInputKeys(schemaPath: string): string[] {
     return [];
   }
   const content = fs.readFileSync(absolute, "utf8");
+  const inputsBlock = content.match(/inputs:\s*\[([\s\S]*?)\]\s*,\s*outputs:/);
+  if (!inputsBlock) {
+    return [];
+  }
   const keys: string[] = [];
-  for (const match of content.matchAll(/id:\s*"([^"]+)"/g)) {
+  for (const match of inputsBlock[1].matchAll(/id:\s*"([^"]+)"/g)) {
     keys.push(match[1]);
   }
   return [...new Set(keys)];
 }
 
 function toPascalCase(slug: string): string {
-  return slug
-    .split("-")
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join("");
+  const parts = slug.split("-").filter(Boolean);
+  const normalized = parts.map((part) => {
+    if (/^\d+$/.test(part)) {
+      return part;
+    }
+    return part.charAt(0).toUpperCase() + part.slice(1);
+  });
+  const joined = normalized.join("");
+  return /^\d/.test(joined) ? `Tool${joined}` : joined;
 }
 
 function applyValidationScaffold(patch: BulkRepairPatchPlan): boolean {
@@ -288,6 +385,10 @@ export function applyBulkRepairItem(item: BulkToolRepairItem): {
       skipped += 1;
       continue;
     }
+    if (isForbiddenTarget(patch.targetFile)) {
+      skipped += 1;
+      continue;
+    }
 
     let ok = false;
     switch (patch.type) {
@@ -296,7 +397,10 @@ export function applyBulkRepairItem(item: BulkToolRepairItem): {
         break;
       case "i18n_fix":
         if (patch.targetFile.startsWith("messages/")) {
-          ok = applyI18nAlias(patch);
+          ok =
+            patch.metadata?.scaffoldFromSchema === "true"
+              ? applyI18nScaffoldFromSchema(patch)
+              : applyI18nAlias(patch);
         } else {
           ok = applyPremiumSchemaI18nEntry(patch);
         }

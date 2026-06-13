@@ -54,13 +54,17 @@ export type BulkToolRepairEnvelope = {
 
 export type BulkToolRepairReport = {
   readonly generatedAt: string;
-  readonly mode: "apply" | "dry-run";
+  readonly mode: "apply" | "plan";
   readonly limit: number;
-  readonly before: AuditCounts;
-  readonly after: AuditCounts;
+  readonly selected: string[];
   readonly patched: string[];
+  readonly skipped: string[];
   readonly manualReview: string[];
   readonly safeStateKept: string[];
+  readonly blockedByPolicy: string[];
+  readonly before: ExtendedAuditCounts;
+  readonly after: ExtendedAuditCounts;
+  readonly testResults: string[];
   readonly blockers: string[];
   readonly deepseekStatus: "ok" | "skipped" | "api_error" | "missing_api_key";
   readonly items: BulkToolRepairItem[];
@@ -71,6 +75,12 @@ export type AuditCounts = {
   readonly WARN: number;
   readonly FAIL: number;
   readonly QUARANTINE: number;
+};
+
+export type ExtendedAuditCounts = AuditCounts & {
+  readonly paymentEligible: number;
+  readonly formulaGateEligible: number;
+  readonly freePaymentEligible: number;
 };
 
 export type P24ToolRow = {
