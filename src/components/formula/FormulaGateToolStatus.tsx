@@ -16,7 +16,9 @@ export function FormulaGateToolStatus({ slug, locale, className, surface }: Prop
     isFormulaGateTrustEligible(slug, locale, surface ?? "free");
 
   if (eligible) {
-    return <FormulaSourceAuditBadge slug={slug} locale={locale} className={className} />;
+    return (
+      <FormulaSourceAuditBadge slug={slug} locale={locale} className={className} surface={surface} />
+    );
   }
 
   return <FormulaGateReviewStatus slug={slug} locale={locale} className={className} />;

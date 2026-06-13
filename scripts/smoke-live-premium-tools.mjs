@@ -109,8 +109,9 @@ function analyzePage({ slug, locale, path, status, html }) {
   }
 
   const paymentActive =
-    /credit|kredi|checkout|ödeme|subscribe|pro plan/i.test(visible) &&
-    /(sc-cta-primary|checkout|consume|kredi tüket)/i.test(html);
+    /credit|kredi|checkout|subscribe|pro plan/i.test(visible) &&
+    /(sc-cta-primary|checkout|consume|kredi tüket)/i.test(html) &&
+    !/data-runtime-trust-safe-state="true"/.test(html);
 
   if (paymentActive && hasSafeState) {
     findings.push("payment_cta_with_safe_state");

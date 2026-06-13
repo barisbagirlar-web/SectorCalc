@@ -56,6 +56,7 @@
     "audit:shape-guides": "node scripts/tool-activation/audit-shape-dimension-guides.mjs",
     "audit:public-build-traces": "node scripts/tool-activation/audit-public-build-traces.mjs",
     "audit:runtime-trust-engine": "node scripts/tool-activation/audit-runtime-trust-engine.mjs",
+    "audit:p24-tool-quality": "node scripts/tool-activation/audit-p24-tool-quality.mjs",
     "scan:quality-backfill": "node scripts/tool-activation/scan-quality-backfill.mjs",
     "plan:quality-backfill": "node scripts/tool-activation/plan-quality-backfill.mjs",
     "workorders:quality-backfill": "node scripts/tool-activation/create-quality-workorders.mjs",

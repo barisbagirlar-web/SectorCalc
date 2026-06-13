@@ -108,7 +108,7 @@ export function FreeTrafficToolPage({
         slug: tool.slug,
         locale,
         surface: surfaceTier,
-        premiumSurfaceUsesFreeCopy: false,
+        premiumSurfaceUsesFreeCopy: surfaceTier === "premium",
       }),
     [tool.slug, locale, surfaceTier],
   );
