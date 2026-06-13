@@ -22,6 +22,9 @@ import {
   LayoutGrid,
   Leaf,
   Package,
+  Recycle,
+  ShoppingBasket,
+  Sprout,
   PlugZap,
   RefreshCcw,
   Repeat2,
@@ -95,6 +98,16 @@ const CATEGORY_CARD_ICON_MAP: Record<string, CategoryCardIconMeta> = {
   "finance-hr": { icon: Award, iconName: "Award" },
   "quality-lean": { icon: SlidersHorizontal, iconName: "SlidersHorizontal" },
   "engineering-technical": { icon: Settings2, iconName: "Settings2" },
+  // industries page category slugs (IndustryCategory)
+  "heavy-industry": { icon: Factory, iconName: "FactoryHeavyIndustry" },
+  "building-trades": { icon: HardHat, iconName: "HardHatBuildingTrades" },
+  "field-services": { icon: Wrench, iconName: "WrenchFieldServices" },
+  "food-retail": { icon: ShoppingBasket, iconName: "ShoppingBasketFoodRetail" },
+  "custom-manufacturing": { icon: Layers, iconName: "LayersCustomManufacturing" },
+  "logistics-transport": { icon: Truck, iconName: "TruckLogisticsIndustry" },
+  "agriculture-livestock": { icon: Sprout, iconName: "SproutAgricultureLivestock" },
+  "energy-environment": { icon: Recycle, iconName: "RecycleEnergyEnvironment" },
+  "daily-life": { icon: Home, iconName: "HomeDailyLife" },
 };
 
 export function getCategoryCardIcon(slug: string): CategoryCardIconMeta {

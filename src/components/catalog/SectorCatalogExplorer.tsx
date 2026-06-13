@@ -55,15 +55,9 @@ function scrollToToolsList() {
 
 type FreeToolsCategoryCardExplorerProps = {
   groups: readonly CatalogGroup[];
-  searchEntries: ReturnType<typeof buildSearchEntriesFromGroups>;
-  variant: "free-tools";
 };
 
-function FreeToolsCategoryCardExplorer({
-  groups,
-  searchEntries: _searchEntries,
-  variant,
-}: FreeToolsCategoryCardExplorerProps) {
+function FreeToolsCategoryCardExplorer({ groups }: FreeToolsCategoryCardExplorerProps) {
   const t = useTranslations("catalogExplorer");
   const tCards = useTranslations("calculatorCards");
   const locale = useLocale();
@@ -217,6 +211,178 @@ function FreeToolsCategoryCardExplorer({
   );
 }
 
+function IndustriesCategoryCardExplorer({
+  groups,
+  defaultGroupId,
+}: {
+  groups: readonly CatalogGroup[];
+  defaultGroupId?: string;
+}) {
+  const t = useTranslations("catalogExplorer");
+  const tCards = useTranslations("calculatorCards");
+  const locale = useLocale();
+
+  const discoveryTabs = useMemo(
+    () =>
+      getDiscoveryTabsForVariant("industries", groups).filter(
+        (tab) => tab.id === CATEGORY_ALL || countItemsForDiscoveryTab(groups, tab) > 0,
+      ),
+    [groups],
+  );
+
+  const initialTabId =
+    defaultGroupId && discoveryTabs.some((tab) => tab.id === defaultGroupId)
+      ? defaultGroupId
+      : CATEGORY_ALL;
+
+  const [selectedCategoryId, setSelectedCategoryId] = useState(initialTabId);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const categoryCards: CategoryCardItem[] = useMemo(
+    () =>
+      discoveryTabs.map((tab) => {
+        const labelKey = resolveDiscoveryTabLabelKey("industries", tab.id);
+        const label =
+          labelKey != null
+            ? t(labelKey)
+            : (groups.find((group) => group.id === tab.id)?.label ?? tab.id);
+        return {
+          slug: tab.id,
+          label,
+          count: countItemsForDiscoveryTab(groups, tab),
+          isActive: selectedCategoryId === tab.id,
+        };
+      }),
+    [discoveryTabs, groups, selectedCategoryId, t],
+  );
+
+  const handleCategorySelect = useCallback((slug: string) => {
+    setSelectedCategoryId(slug);
+    scrollToToolsList();
+  }, []);
+
+  const categoryItems = useMemo(() => {
+    const activeTab =
+      discoveryTabs.find((tab) => tab.id === selectedCategoryId) ??
+      discoveryTabs.find((tab) => tab.id === CATEGORY_ALL) ??
+      discoveryTabs[0];
+
+    if (!activeTab) {
+      return [];
+    }
+
+    return getItemsForDiscoveryTab(groups, activeTab);
+  }, [discoveryTabs, groups, selectedCategoryId]);
+
+  const allItems = useMemo(() => {
+    const allTab =
+      discoveryTabs.find((tab) => tab.id === CATEGORY_ALL) ?? discoveryTabs[0];
+    if (!allTab) return [];
+    return getItemsForDiscoveryTab(groups, allTab);
+  }, [discoveryTabs, groups]);
+
+  const visibleItems = useMemo(() => {
+    const q = normalizeStr(searchQuery, locale);
+    if (q.length === 0) return categoryItems;
+    return allItems.filter((item) => {
+      const hay = normalizeStr(
+        [item.title, item.description ?? "", item.groupLabel ?? "", item.groupId ?? ""]
+          .filter(Boolean)
+          .join(" "),
+        locale,
+      );
+      return hay.includes(q);
+    });
+  }, [searchQuery, categoryItems, allItems, locale]);
+
+  const isSearching = searchQuery.trim().length > 0;
+  const badgePremium = t("search.badgePremium");
+
+  if (groups.every((group) => group.items.length === 0)) {
+    return (
+      <p className="text-sm text-body-charcoal" role="status">
+        {t("search.noResults")}
+      </p>
+    );
+  }
+
+  return (
+    <div className="sc-catalog-explorer-stack flex min-w-0 flex-col gap-6">
+      <div className="relative">
+        <Search
+          className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-body-charcoal"
+          aria-hidden="true"
+        />
+        <input
+          type="search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder={t("search.placeholder.industries")}
+          aria-label={t("search.label")}
+          className="w-full min-h-[44px] rounded border border-technical-gray bg-white py-2.5 pl-10 pr-10 text-sm text-premium-velvet placeholder:text-body-charcoal focus:border-sc-copper focus:outline-none"
+        />
+        {isSearching && (
+          <button
+            type="button"
+            onClick={() => setSearchQuery("")}
+            aria-label={t("search.clearSearch")}
+            className="absolute right-3 top-1/2 -translate-y-1/2 rounded p-0.5 text-body-charcoal hover:text-premium-velvet focus:outline-none"
+          >
+            <X className="h-4 w-4" aria-hidden="true" />
+          </button>
+        )}
+      </div>
+
+      <CategoryCardGrid
+        items={categoryCards}
+        onSelect={handleCategorySelect}
+        variant="industry"
+      />
+
+      <p className="sc-results-label" role="status">
+        {tCards.rich("resultsLabel", {
+          count: visibleItems.length,
+          strong: (chunks) => <strong>{chunks}</strong>,
+        })}
+      </p>
+
+      <section id="tools-list">
+        {visibleItems.length === 0 ? (
+          <p className="mt-4 text-sm text-body-charcoal" role="status">
+            {t("search.noResults")}
+          </p>
+        ) : (
+          <CalculatorCardGrid className="mt-4">
+            {visibleItems.map((item) => (
+              <li key={item.href} className="min-w-0">
+                <CalculatorCard
+                  title={item.title}
+                  description={item.description}
+                  href={item.href}
+                  categoryLabel={item.groupLabel}
+                  tier="free"
+                  variant="industry"
+                  inputCount={item.inputCount}
+                  freeToolCount={item.freeToolCount}
+                  premiumToolCount={item.premiumToolCount}
+                  accent={resolveCalculatorCardAccent(item.groupId, "free")}
+                  badgeFreeLabel={tCards("badgeSector")}
+                  badgePremiumLabel={badgePremium}
+                  ctaLabel={tCards("ctaOpenSector")}
+                  inputCountLabel={(count) => tCards("inputCount", { count })}
+                  sectorCountLabel={(free, premium) =>
+                    tCards("sectorToolCounts", { free, premium })
+                  }
+                />
+              </li>
+            ))}
+          </CalculatorCardGrid>
+        )}
+      </section>
+    </div>
+  );
+}
+
 export function SectorCatalogExplorer({
   groups,
   variant,
@@ -242,10 +408,15 @@ export function SectorCatalogExplorer({
 
   if (variant === "free-tools") {
     return (
-      <FreeToolsCategoryCardExplorer
+      <FreeToolsCategoryCardExplorer groups={groups ?? []} />
+    );
+  }
+
+  if (variant === "industries") {
+    return (
+      <IndustriesCategoryCardExplorer
         groups={groups ?? []}
-        searchEntries={searchEntries}
-        variant={variant}
+        defaultGroupId={defaultGroupId ?? defaultTabId}
       />
     );
   }
