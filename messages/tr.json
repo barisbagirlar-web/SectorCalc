@@ -823,6 +823,12 @@
     "h1": "{tool}: işi fiyatlandırın, marjı koruyun",
     "intro": "{tool}, bir fiyat vermeden önce işi test etmenize yardımcı olur. Maliyetlerinizi, miktarlarınızı ve oranlarınızı net bir marj ve risk okumasına dönüştürür; böylece kârı sessizce eriten gizli etkenleri fark eder ve teklifte tahmin yürütmek yerine güvenle karar verirsiniz.",
     "ctaLabel": "{tool} aracını aç",
+    "howToTitle": "{tool} nasıl hesaplanır?",
+    "howTo": "{sector} senaryonuz için {inputs} girin. SectorCalc yönetilen deterministik formülleri çalıştırır ve {outputs} üretir. Eşik ve risk okumasını keskinleştirmek için isteğe bağlı alanları ekleyin.",
+    "methodTitle": "Formül ve yöntem özeti",
+    "method": "{tool}; doğrulanmış girdiler, deterministik hesaplama hattı ve eşik kontrollerinden oluşan SectorCalc formül yönetimi katmanını kullanır. Teknik bir simülasyondur — finansal, hukuki veya mühendislik tavsiyesi değildir.",
+    "mistakesTitle": "Sık yapılan hatalar",
+    "mistakes": "Eski işçilik veya malzeme oranları, gizli kaybı yakalayan isteğe bağlı girdilerin atlanması, birim karışıklığı ve sonucu garanti kâr gibi okumak sık hatalardır. {pain} İş kararlarından önce girdileri doğrulayın.",
     "problemTitle": "Çözdüğü sorun",
     "problem": "Çoğu iş, faturadan çok önce marj kaybeder; kurulum, yeniden işleme, aşımlar ve eksik fiyatlandırılmış kalemler teklif çıkmadan önce hiç toplanmadığında. {tool} bu etkenleri görünür kılar, böylece sizi şaşırtmazlar.",
     "helpTitle": "{tool} nasıl yardımcı olur",
@@ -830,9 +836,9 @@
     "whoTitle": "Kimler kullanmalı",
     "who": "İş fiyatlandıran, teklifleri inceleyen veya ekip genelinde tutarlı bir temele ihtiyaç duyan operatörler, tahminciler, sahipler ve yöneticiler {tool} aracından en çok faydayı görür.",
     "inputsTitle": "Ne gireceksiniz",
-    "inputs": "İşinize özgü temel maliyetleri, miktarları, oranları ve varsayımları girersiniz. Zorunlu alanlar asgaride tutulur ve verisi olduğunda isteğe bağlı alanlar sonucu keskinleştirir.",
+    "inputs": "Temel alanlar {inputs} içerir (toplam {inputCount} girdi). Zorunlu alanlar asgaride tutulur; isteğe bağlı alanlar veriniz hazır olduğunda kararı keskinleştirir.",
     "outputsTitle": "Sonuç ne anlama gelir",
-    "outputs": "{tool}, ardındaki metrikler ve risk etkenleriyle birlikte net bir karar döndürür; böylece yalnızca sayıyı değil, neden oraya geldiğini ve neyi ayarlamanız gerektiğini de görürsünüz.",
+    "outputs": "{tool}; metrikler, eşik uyarıları ve risk etkenleriyle birlikte {outputs} döndürür — sayının neden oraya geldiğini ve neyi ayarlamanız gerektiğini görürsünüz.",
     "trustTitle": "Premium karar özeti ve Hesaplama Özeti",
     "trust": "Premium sonuçlar; girdilerin, varsayımların ve doğrulamanın Hesaplama Özeti ile birlikte dışa aktarılabilir karar özetleri olarak kaydedilebilir.",
     "faqTitle": "Sık sorulan sorular",
@@ -857,6 +863,10 @@
       {
         "q": "{tool} hangi sektör için?",
         "a": "Kendi sektörünün fiyatlandırma ve marj kalıplarına göre ayarlanmıştır ve SectorCalc'in 27 sektörlük araç setinin geri kalanıyla birlikte çalışır."
+      },
+      {
+        "q": "{tool} sonuçları nasıl hesaplanır?",
+        "a": "Analizörü açın, {inputs} girin ve {outputs} inceleyin. Fiyata bağlanmadan önce senaryoyu test etmek için girdileri ayarlayın."
       }
     ]
   },
@@ -8397,14 +8407,17 @@
     "submitting": "Gönderiliyor…",
     "success": "Teşekkürler — notunuz inceleme kuyruğuna alındı.",
     "issueTypes": {
-      "wrong-result": "Sonuç hatalı",
-      "formula-suggestion": "Formül önerisi",
-      "unit-error": "Birim hatası",
-      "translation-error": "Çeviri hatası",
+      "wrong_result": "Sonuç hatalı",
+      "missing_input": "Eksik input",
+      "unit_issue": "Birim sorunu",
+      "unclear_explanation": "Açıklama net değil",
+      "sector_assumption_issue": "Sektör varsayımı sorunu",
+      "improvement_request": "Geliştirme önerisi",
       "other": "Diğer"
     },
     "error": {
-      "submitFailed": "Geri bildirim gönderilemedi. Kısa süre sonra tekrar deneyin."
+      "submitFailed": "Geri bildirim gönderilemedi. Kısa süre sonra tekrar deneyin.",
+      "messageTooShort": "Lütfen en az 10 karakter yazın."
     }
   },
   "resultLayers": {

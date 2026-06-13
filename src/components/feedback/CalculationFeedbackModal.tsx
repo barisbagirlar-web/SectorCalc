@@ -2,9 +2,10 @@
 
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
+import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import type { FeedbackSnapshotValue, FeedbackToolType } from "@/lib/feedback/types";
 import type { VerificationIssueType } from "@/lib/feedback/feedback-types";
-import { VERIFICATION_ISSUE_TYPES } from "@/lib/feedback/feedback-types";
+import { VERIFICATION_ISSUE_TYPES, VERIFICATION_MESSAGE_MIN_LENGTH } from "@/lib/feedback/feedback-types";
 
 type CalculationFeedbackModalProps = {
   readonly toolSlug: string;
@@ -19,6 +20,7 @@ type CalculationFeedbackModalProps = {
 
 export function CalculationFeedbackModal({
   toolSlug,
+  toolType,
   locale,
   routePath,
   region,
@@ -27,7 +29,8 @@ export function CalculationFeedbackModal({
   onClose,
 }: CalculationFeedbackModalProps) {
   const t = useTranslations("calculationFeedback");
-  const [issueType, setIssueType] = useState<VerificationIssueType>("wrong-result");
+  const { user } = useUserSubscription();
+  const [issueType, setIssueType] = useState<VerificationIssueType>("wrong_result");
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   const [honeypot, setHoneypot] = useState("");
@@ -37,6 +40,12 @@ export function CalculationFeedbackModal({
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (message.trim().length < VERIFICATION_MESSAGE_MIN_LENGTH) {
+      setError(t("error.messageTooShort"));
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
@@ -47,10 +56,12 @@ export function CalculationFeedbackModal({
         body: JSON.stringify({
           toolSlug,
           locale,
+          tier: toolType,
           region,
           issueType,
           message,
           email: email || undefined,
+          userId: user?.uid,
           pageUrl: routePath,
           userAgent: typeof navigator !== "undefined" ? navigator.userAgent : undefined,
           honeypot,
@@ -74,11 +85,22 @@ export function CalculationFeedbackModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center">
-      <div className="w-full max-w-lg rounded-2xl bg-white p-5 shadow-xl">
+    <div
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-3 sm:items-center sm:p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="calculation-feedback-title"
+    >
+      <div className="max-h-[min(90vh,640px)] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-4 shadow-xl sm:p-5">
         <div className="flex items-start justify-between gap-3">
-          <h2 className="text-base font-semibold text-slate-900">{t("modalTitle")}</h2>
-          <button type="button" className="text-sm text-slate-600" onClick={onClose}>
+          <h2 id="calculation-feedback-title" className="text-base font-semibold text-slate-900">
+            {t("modalTitle")}
+          </h2>
+          <button
+            type="button"
+            className="min-h-[44px] min-w-[44px] text-sm text-slate-600"
+            onClick={onClose}
+          >
             {t("close")}
           </button>
         </div>
@@ -109,6 +131,7 @@ export function CalculationFeedbackModal({
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
                 required
+                minLength={VERIFICATION_MESSAGE_MIN_LENGTH}
                 maxLength={2000}
               />
             </label>
@@ -133,12 +156,16 @@ export function CalculationFeedbackModal({
               aria-hidden="true"
             />
 
-            {error ? <p className="text-xs text-red-700">{error}</p> : null}
+            {error ? (
+              <p className="text-xs text-red-700" role="alert">
+                {error}
+              </p>
+            ) : null}
 
             <button
               type="submit"
               disabled={loading}
-              className="min-h-[44px] rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
+              className="min-h-[44px] w-full rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60 sm:w-auto"
             >
               {loading ? t("submitting") : t("submit")}
             </button>

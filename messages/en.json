@@ -823,6 +823,12 @@
     "h1": "{tool}: price the job and protect the margin",
     "intro": "The {tool} helps you pressure-test a job before you commit to a price. It turns your costs, quantities, and rates into a clear margin and risk read, so you can spot the hidden drivers that quietly erode profit and decide with confidence instead of guessing on the bid.",
     "ctaLabel": "Open the {tool}",
+    "howToTitle": "How is {tool} calculated?",
+    "howTo": "Enter {inputs} for your {sector} scenario. SectorCalc runs governed, deterministic formulas and returns {outputs}. Add optional fields when you have them to sharpen threshold and risk reads.",
+    "methodTitle": "Formula and method summary",
+    "method": "The {tool} uses SectorCalc's formula governance layer: validated inputs, a deterministic calculation pipeline, and threshold checks. It is a technical simulation — not financial, legal, or engineering advice.",
+    "mistakesTitle": "Common mistakes",
+    "mistakes": "Stale labor or material rates, skipped optional inputs that capture hidden loss, mixed units, and treating the read as guaranteed profit are frequent errors. {pain} Verify inputs before business decisions.",
     "problemTitle": "The problem it solves",
     "problem": "Most jobs lose margin long before the invoice, when setup, rework, overruns, and underpriced line items are never added up before the quote goes out. The {tool} makes those drivers visible so they stop surprising you.",
     "helpTitle": "How the {tool} helps",
@@ -830,9 +836,9 @@
     "whoTitle": "Who should use it",
     "who": "Operators, estimators, owners, and managers who price work, review bids, or need a consistent baseline across a team will get the most from the {tool}.",
     "inputsTitle": "What you will enter",
-    "inputs": "You provide the core costs, quantities, rates, and assumptions specific to your job. Required fields are kept minimal, and optional fields sharpen the result when you have the data.",
+    "inputs": "Core fields include {inputs} ({inputCount} inputs in total). Required fields stay minimal; optional ones refine the verdict when your data is ready.",
     "outputsTitle": "What the result means",
-    "outputs": "The {tool} returns a clear verdict with the metrics and risk drivers behind it, so you can see not just the number but why it lands where it does and what to adjust.",
+    "outputs": "{tool} returns {outputs} with metrics, threshold alerts, and risk drivers — so you see why the number lands where it does and what to adjust.",
     "trustTitle": "Premium decision summaries & Calculation Summary",
     "trust": "Premium results can include a Calculation Summary of inputs, assumptions, and validation — saved as exportable decision summaries for internal review.",
     "faqTitle": "Frequently asked questions",
@@ -857,6 +863,10 @@
       {
         "q": "Which sector is the {tool} for?",
         "a": "It is tuned for its sector's pricing and margin patterns, and it sits alongside the rest of SectorCalc's 27-sector toolset."
+      },
+      {
+        "q": "How do I calculate {tool} results?",
+        "a": "Open the analyzer, enter {inputs}, and review {outputs}. Adjust inputs to stress-test the scenario before you commit to a price."
       }
     ]
   },
@@ -7924,14 +7934,17 @@
     "submitting": "Sending…",
     "success": "Thank you — your note was queued for review.",
     "issueTypes": {
-      "wrong-result": "Incorrect result",
-      "formula-suggestion": "Formula suggestion",
-      "unit-error": "Unit error",
-      "translation-error": "Translation error",
+      "wrong_result": "Wrong result",
+      "missing_input": "Missing input",
+      "unit_issue": "Unit issue",
+      "unclear_explanation": "Unclear explanation",
+      "sector_assumption_issue": "Sector assumption issue",
+      "improvement_request": "Improvement request",
       "other": "Other"
     },
     "error": {
-      "submitFailed": "Could not send feedback. Try again shortly."
+      "submitFailed": "Could not send feedback. Try again shortly.",
+      "messageTooShort": "Please add at least 10 characters."
     }
   },
   "resultLayers": {

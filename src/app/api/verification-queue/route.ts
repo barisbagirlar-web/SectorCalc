@@ -10,8 +10,10 @@ import {
 import type {
   VerificationIssueType,
   VerificationQueueSubmitInput,
+  VerificationQueueTier,
 } from "@/lib/feedback/feedback-types";
 import { VERIFICATION_ISSUE_TYPES } from "@/lib/feedback/feedback-types";
+import { sanitizeVerificationSnapshot } from "@/lib/feedback/create-verification-item";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -32,6 +34,10 @@ function checkRateLimit(ip: string): boolean {
   }
   RATE_LIMIT.set(ip, now);
   return true;
+}
+
+function isTier(value: unknown): value is VerificationQueueTier {
+  return value === "free" || value === "premium" || value === "unknown";
 }
 
 export async function POST(request: NextRequest) {
@@ -59,21 +65,25 @@ export async function POST(request: NextRequest) {
   const input: VerificationQueueSubmitInput = {
     toolSlug: typeof b.toolSlug === "string" ? b.toolSlug : "",
     locale: typeof b.locale === "string" ? b.locale : "en",
+    tier: isTier(b.tier) ? b.tier : "unknown",
     region: typeof b.region === "string" ? b.region : undefined,
     issueType: b.issueType,
     message: typeof b.message === "string" ? b.message : "",
     email: typeof b.email === "string" ? b.email : undefined,
+    userId: typeof b.userId === "string" ? b.userId : undefined,
     pageUrl: typeof b.pageUrl === "string" ? b.pageUrl : "",
     userAgent: typeof b.userAgent === "string" ? b.userAgent : request.headers.get("user-agent") ?? undefined,
     honeypot: typeof b.honeypot === "string" ? b.honeypot : undefined,
-    inputSnapshot:
+    inputSnapshot: sanitizeVerificationSnapshot(
       b.inputSnapshot && typeof b.inputSnapshot === "object" && !Array.isArray(b.inputSnapshot)
         ? (b.inputSnapshot as Record<string, unknown>)
         : undefined,
-    resultSnapshot:
+    ),
+    resultSnapshot: sanitizeVerificationSnapshot(
       b.resultSnapshot && typeof b.resultSnapshot === "object" && !Array.isArray(b.resultSnapshot)
         ? (b.resultSnapshot as Record<string, unknown>)
         : undefined,
+    ),
   };
 
   const result = await createVerificationQueueItem(input);
