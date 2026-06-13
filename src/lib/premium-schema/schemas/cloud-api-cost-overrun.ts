@@ -14,7 +14,7 @@ export const CLOUD_API_COST_OVERRUN_SCHEMA: PremiumCalculatorSchema = {
       id: "monthlyApiCalls",
       label: "Monthly API calls",
       type: "number",
-      unit: "calls",
+      unit: "count",
       required: true,
       smartDefault: 2500000,
       validation: { min: 0 },
@@ -99,14 +99,14 @@ export const CLOUD_API_COST_OVERRUN_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "totalCloudCost",
       label: "Total cloud cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
     {
       id: "apiCallCost",
       label: "API call cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {

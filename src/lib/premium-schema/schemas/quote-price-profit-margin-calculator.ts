@@ -229,32 +229,32 @@ export const QUOTE_PRICE_PROFIT_MARGIN_CALCULATOR_SCHEMA: PremiumCalculatorSchem
     {
       id: "targetSalesPrice",
       label: "Target sales price",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
     {
       id: "totalCost",
       label: "Total loaded cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
       id: "wasteCost",
       label: "Waste cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
       id: "minimumSafePrice",
       label: "Minimum safe price",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
       id: "grossMarginAmount",
       label: "Gross margin amount",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
@@ -266,7 +266,7 @@ export const QUOTE_PRICE_PROFIT_MARGIN_CALCULATOR_SCHEMA: PremiumCalculatorSchem
     {
       id: "discountImpact",
       label: "Discount impact",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {

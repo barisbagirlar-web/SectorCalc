@@ -86,7 +86,7 @@ export const CALIBRATION_DRIFT_RISK_SCHEMA: PremiumCalculatorSchema = {
       format: "percentage",
       isBigNumber: true,
     },
-    { id: "rejectionExposure", label: "Rejection exposure", unit: "$", format: "currency" },
+    { id: "rejectionExposure", label: "Rejection exposure", unit: "USD", format: "currency" },
   ],
 
   thresholds: [

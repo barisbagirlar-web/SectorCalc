@@ -8478,6 +8478,387 @@
         "placeholder": "Introduzca warranty reserve",
         "helper": "Warranty reserve as porcent of job revenue."
       }
+    },
+    "crop-yield-loss-analyzer": {
+      "areaha": {
+        "label": "Área",
+        "placeholder": "Introduzca área",
+        "helper": "Cultivated Área in hectares."
+      },
+      "expectedyieldtonperha": {
+        "label": "Expected yield",
+        "placeholder": "Introduzca expected yield",
+        "helper": "Objetivo yield por hectare for the season."
+      },
+      "actualyieldtonperha": {
+        "label": "Actual yield",
+        "placeholder": "Introduzca actual yield",
+        "helper": "Observed or projected yield por hectare."
+      },
+      "priceperton": {
+        "label": "Precio por ton",
+        "placeholder": "Introduzca precio por ton",
+        "helper": "Market or contract Precio por ton."
+      },
+      "irrigationcost": {
+        "label": "Irrigation Costo",
+        "placeholder": "Introduzca irrigation costo",
+        "helper": "Season irrigation Energía and water spend."
+      }
+    },
+    "dairy-profit-detector": {
+      "cows": {
+        "label": "Vacas",
+        "placeholder": "Introduzca vacas",
+        "helper": "Milking herd size for the poriod."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed Costoo por cow por day",
+        "placeholder": "Introduzca feed costoo por cow por day",
+        "helper": "Average daily feed spend por cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters por cow por day",
+        "placeholder": "Introduzca milk liters por cow por day",
+        "helper": "Observed milk yield por cow por day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "Objetivo milk liters por cow por day",
+        "placeholder": "Introduzca objetivo milk liters por cow por day",
+        "helper": "Objetivo or benchmark yield por cow por day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk Precio por liter",
+        "placeholder": "Introduzca milk precio por liter",
+        "helper": "Neto Milk Precio received por liter."
+      },
+      "days": {
+        "label": "Días",
+        "placeholder": "Introduzca días",
+        "helper": "Calculation poriod in Días."
+      }
+    },
+    "feed-efficiency-analyzer": {
+      "cows": {
+        "label": "Vacas",
+        "placeholder": "Introduzca vacas",
+        "helper": "Milking herd size for the poriod."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed Costoo por cow por day",
+        "placeholder": "Introduzca feed costoo por cow por day",
+        "helper": "Average daily feed spend por cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters por cow por day",
+        "placeholder": "Introduzca milk liters por cow por day",
+        "helper": "Observed milk yield por cow por day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "Objetivo milk liters por cow por day",
+        "placeholder": "Introduzca objetivo milk liters por cow por day",
+        "helper": "Objetivo or benchmark yield por cow por day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk Precio por liter",
+        "placeholder": "Introduzca milk precio por liter",
+        "helper": "Neto Milk Precio received por liter."
+      },
+      "days": {
+        "label": "Días",
+        "placeholder": "Introduzca días",
+        "helper": "Calculation poriod in Días."
+      }
+    },
+    "3d-print-job-margin-tool": {
+      "targetvalue": {
+        "label": "Objetivo Valor",
+        "placeholder": "Introduzca objetivo valor",
+        "helper": "Nominal or specification Objetivo."
+      },
+      "actualvalue": {
+        "label": "Actual Valor",
+        "placeholder": "Introduzca actual valor",
+        "helper": "Measured or observed Valor."
+      },
+      "tolerance": {
+        "label": "Tolerance",
+        "placeholder": "Introduzca tolerance",
+        "helper": "Allowed tolerance band around Objetivo."
+      },
+      "batchvalue": {
+        "label": "Batch Valor",
+        "placeholder": "Introduzca batch valor",
+        "helper": "Production batch Valor At risk."
+      },
+      "rejectionriskpercent": {
+        "label": "Rejection risk",
+        "placeholder": "Introduzca rejection risk",
+        "helper": "Expected rejection Tasa from drift exposure."
+      }
+    },
+    "millwork-bid-risk-analyzer": {
+      "fabriccost": {
+        "label": "Fabric Costo",
+        "placeholder": "Introduzca fabric costo",
+        "helper": "Fabric purchase spend for the production run or month."
+      },
+      "cuttingwastepercent": {
+        "label": "Cutting Despordicio",
+        "placeholder": "Introduzca cutting despordicio",
+        "helper": "Cutting and offcut loss as porcent of fabric Costo."
+      },
+      "targetwastepercent": {
+        "label": "Objetivo Despordicio",
+        "placeholder": "Introduzca objetivo despordicio",
+        "helper": "Acceptable Despordicio Objetivo for similar production."
+      },
+      "shrinkagepercent": {
+        "label": "Shrinkage",
+        "placeholder": "Introduzca shrinkage",
+        "helper": "Shrinkage loss after wash or finish."
+      },
+      "dyereworkcost": {
+        "label": "Dye rework Costo",
+        "placeholder": "Introduzca dye rework costo",
+        "helper": "Dye batch rework and shade correction spend."
+      }
+    },
+    "painting-job-profit-verdict": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Introduzca job revenue",
+        "helper": "Quoted revenue for the painting contract."
+      },
+      "paintmaterialcost": {
+        "label": "Paint Material Costo",
+        "placeholder": "Introduzca paint material costo",
+        "helper": "Paint, primer and Consumibles spend."
+      },
+      "coveragedriftpercent": {
+        "label": "Coverage drift",
+        "placeholder": "Introduzca coverage drift",
+        "helper": "Extra Material from coverage drift as porcent of paint Costo."
+      },
+      "prepreworkhours": {
+        "label": "Prep rework Horas",
+        "placeholder": "Introduzca prep rework horas",
+        "helper": "Surface prep and rework Labor Horas."
+      },
+      "laborrate": {
+        "label": "Labor Tasa",
+        "placeholder": "Introduzca labor tasa",
+        "helper": "Fully loaded painter Labor Tasa."
+      },
+      "scaffoldcost": {
+        "label": "Scaffold Costo",
+        "placeholder": "Introduzca scaffold costo",
+        "helper": "Scaffold alquileral and Preparación spend."
+      }
+    },
+    "panel-shop-margin-verdict": {
+      "panelrevenue": {
+        "label": "Panel revenue",
+        "placeholder": "Introduzca panel revenue",
+        "helper": "Quoted or contract revenue for the panel job."
+      },
+      "wiringhours": {
+        "label": "Wiring Horas",
+        "placeholder": "Introduzca wiring horas",
+        "helper": "Actual wiring and Plazoinations Horas."
+      },
+      "estimatedhours": {
+        "label": "Estimated Horas",
+        "placeholder": "Introduzca estimated horas",
+        "helper": "Original labor estimate for the panel."
+      },
+      "laborrate": {
+        "label": "Labor Tasa",
+        "placeholder": "Introduzca labor tasa",
+        "helper": "Fully loaded electrician Tasa."
+      },
+      "inspectionfailcost": {
+        "label": "Inspection fail Costo",
+        "placeholder": "Introduzca inspection fail costo",
+        "helper": "Re-inspection, corrections and delay Costo."
+      },
+      "testequipmentcost": {
+        "label": "Test equipment Costo",
+        "placeholder": "Introduzca test equipment costo",
+        "helper": "Testing gear, labels and documentation spend."
+      }
+    },
+    "return-profit-erosion-tool": {
+      "monthlyapicalls": {
+        "label": "Monthly API calls",
+        "placeholder": "Introduzca monthly api calls",
+        "helper": "Total API requests billed in the poriod."
+      },
+      "costperthousandcalls": {
+        "label": "Costo por 1k calls",
+        "placeholder": "Introduzca costo por 1k calls",
+        "helper": "Blended Costo por thousand API calls."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Introduzca monthly revenue",
+        "helper": "Product revenue for the same poriod."
+      },
+      "computecost": {
+        "label": "Compute Costo",
+        "placeholder": "Introduzca compute costo",
+        "helper": "Monthly compute and server spend."
+      },
+      "storagecost": {
+        "label": "Storage Costo",
+        "placeholder": "Introduzca storage costo",
+        "helper": "Monthly storage and egress spend."
+      }
+    },
+    "roofing-contract-margin-guard": {
+      "contractvalue": {
+        "label": "Contract Valor",
+        "placeholder": "Introduzca contract valor",
+        "helper": "Total contract or project revenue."
+      },
+      "plannedsubcontractorcost": {
+        "label": "Planned subcontractor Costo",
+        "placeholder": "Introduzca planned subcontractor costo",
+        "helper": "Budgeted subcontractor spend."
+      },
+      "actualsubcontractorcost": {
+        "label": "Actual subcontractor Costo",
+        "placeholder": "Introduzca actual subcontractor costo",
+        "helper": "Actual or projected subcontractor spend."
+      },
+      "delaycost": {
+        "label": "Delay Costo",
+        "placeholder": "Introduzca delay costo",
+        "helper": "Schedule slip and delay claim exposure."
+      },
+      "materialvariance": {
+        "label": "Material variance",
+        "placeholder": "Introduzca material variance",
+        "helper": "Material Costo drift above plan."
+      }
+    },
+    "route-optimization-analyzer": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Introduzca distance",
+        "helper": "One-way loaded Distancia."
+      },
+      "costperkm": {
+        "label": "Costo por km",
+        "placeholder": "Introduzca costo por km",
+        "helper": "Combustible + wear por km all-in."
+      },
+      "emptyreturnpercent": {
+        "label": "Empty return",
+        "placeholder": "Introduzca empty return",
+        "helper": "Unpaid return miles as porcent of loaded Distancia."
+      },
+      "driverhours": {
+        "label": "Driver Horas",
+        "placeholder": "Introduzca driver horas",
+        "helper": "Total driving + waiting on lane."
+      },
+      "driverrate": {
+        "label": "Driver Tasa",
+        "placeholder": "Introduzca driver tasa",
+        "helper": "Fully loaded driver Costo por hour."
+      },
+      "tolls": {
+        "label": "Peajes",
+        "placeholder": "Introduzca peajes",
+        "helper": "Road and bridge Peajes for the lane."
+      },
+      "quotedfreightprice": {
+        "label": "Quoted freight Precio",
+        "placeholder": "Introduzca quoted freight precio",
+        "helper": "Precio offered for the load."
+      }
+    },
+    "water-optimization-verdict": {
+      "averageinventory": {
+        "label": "Average inventory",
+        "placeholder": "Introduzca average inventory",
+        "helper": "Average inventory Valor on hand."
+      },
+      "annualcogs": {
+        "label": "Annual COGS",
+        "placeholder": "Introduzca annual cogs",
+        "helper": "Costo of goods sold over twelve months."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying Costo",
+        "placeholder": "Introduzca carrying costo",
+        "helper": "Annual carrying Costo as porcent of inventory."
+      },
+      "markdownpercent": {
+        "label": "Markdown",
+        "placeholder": "Introduzca markdown",
+        "helper": "Expected markdown as porcent of inventory."
+      }
+    },
+    "auto-shop-margin-leak-detector": {
+      "monthlyrepairrevenue": {
+        "label": "Monthly repair revenue",
+        "placeholder": "Introduzca monthly repair revenue",
+        "helper": "Total shop revenue for the poriod."
+      },
+      "comebackratepercent": {
+        "label": "Comeback Tasa",
+        "placeholder": "Introduzca comeback tasa",
+        "helper": "Comeback jobs as porcent of revenue."
+      },
+      "averagejobcost": {
+        "label": "Average job Costo",
+        "placeholder": "Introduzca average job costo",
+        "helper": "Average internal Costo por comeback job."
+      },
+      "diagnostichours": {
+        "label": "Diagnostic Horas",
+        "placeholder": "Introduzca diagnostic horas",
+        "helper": "Unbilled diagnostic Labor Horas por month."
+      },
+      "laborrate": {
+        "label": "Labor Tasa",
+        "placeholder": "Introduzca labor tasa",
+        "helper": "Fully loaded technician Tasa."
+      },
+      "partshandlingcost": {
+        "label": "Parts handling Costo",
+        "placeholder": "Introduzca parts handling costo",
+        "helper": "Core handling, returns and parts admin spend."
+      }
+    },
+    "meal-planning-verdict": {
+      "monthlyingredientcost": {
+        "label": "Monthly Ingredient Costoo",
+        "placeholder": "Introduzca monthly ingredient costoo",
+        "helper": "Total ingredient spend for the poriod."
+      },
+      "wasterate": {
+        "label": "Despordicio Tasa",
+        "placeholder": "Introduzca despordicio tasa",
+        "helper": "Spoilage, trim and overportion loss as porcent of Ingredient Costoo."
+      },
+      "targetwasterate": {
+        "label": "Objetivo Despordicio Tasa",
+        "placeholder": "Introduzca objetivo despordicio tasa",
+        "helper": "Oporational Objetivo or prior best poriod."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Introduzca monthly revenue",
+        "helper": "Alimento sales for the same poriod."
+      },
+      "grossmargin": {
+        "label": "Gross margin",
+        "placeholder": "Introduzca gross margin",
+        "helper": "Corriente gross margin before Despordicio adjustment."
+      }
     }
   },
   "sectorFooter": {

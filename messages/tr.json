@@ -8155,6 +8155,387 @@
         "placeholder": "Garanti karşılığı girin",
         "helper": "Garanti karşılığı as Yüzde of İş geliri."
       }
+    },
+    "crop-yield-loss-analyzer": {
+      "areaha": {
+        "label": "Alan",
+        "placeholder": "Alan girin",
+        "helper": "Cultivated Alan in hectares."
+      },
+      "expectedyieldtonperha": {
+        "label": "Beklenen verim",
+        "placeholder": "Beklenen verim girin",
+        "helper": "hedef Verim başına hectare for the season."
+      },
+      "actualyieldtonperha": {
+        "label": "Gerçekleşen verim",
+        "placeholder": "Gerçekleşen verim girin",
+        "helper": "Observed or projected Verim başına hectare."
+      },
+      "priceperton": {
+        "label": "Fiyat başına ton",
+        "placeholder": "Fiyat başına ton girin",
+        "helper": "Market or contract Fiyat başına ton."
+      },
+      "irrigationcost": {
+        "label": "Sulama Maliyet",
+        "placeholder": "Sulama Maliyet girin",
+        "helper": "Season Sulama Enerji and su spend."
+      }
+    },
+    "dairy-profit-detector": {
+      "cows": {
+        "label": "İnek",
+        "placeholder": "İnek girin",
+        "helper": "Milking herd boyut for the başınaiod."
+      },
+      "feedcostpercowperday": {
+        "label": "İlerleme Maliyet başına cow başına day",
+        "placeholder": "İlerleme Maliyet başına cow başına day girin",
+        "helper": "Average Günlük İlerleme spend başına cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk litre başına cow başına day",
+        "placeholder": "Milk litre başına cow başına day girin",
+        "helper": "Observed milk Verim başına cow başına day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "hedef milk litre başına cow başına day",
+        "placeholder": "hedef milk litre başına cow başına day girin",
+        "helper": "hedef or benchmark Verim başına cow başına day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk Fiyat başına litre",
+        "placeholder": "Milk Fiyat başına litre girin",
+        "helper": "net Milk Fiyat received başına litre."
+      },
+      "days": {
+        "label": "Gün",
+        "placeholder": "Gün girin",
+        "helper": "Calculation başınaiod in Gün."
+      }
+    },
+    "feed-efficiency-analyzer": {
+      "cows": {
+        "label": "İnek",
+        "placeholder": "İnek girin",
+        "helper": "Milking herd boyut for the başınaiod."
+      },
+      "feedcostpercowperday": {
+        "label": "İlerleme Maliyet başına cow başına day",
+        "placeholder": "İlerleme Maliyet başına cow başına day girin",
+        "helper": "Average Günlük İlerleme spend başına cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk litre başına cow başına day",
+        "placeholder": "Milk litre başına cow başına day girin",
+        "helper": "Observed milk Verim başına cow başına day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "hedef milk litre başına cow başına day",
+        "placeholder": "hedef milk litre başına cow başına day girin",
+        "helper": "hedef or benchmark Verim başına cow başına day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk Fiyat başına litre",
+        "placeholder": "Milk Fiyat başına litre girin",
+        "helper": "net Milk Fiyat received başına litre."
+      },
+      "days": {
+        "label": "Gün",
+        "placeholder": "Gün girin",
+        "helper": "Calculation başınaiod in Gün."
+      }
+    },
+    "3d-print-job-margin-tool": {
+      "targetvalue": {
+        "label": "hedef Değer",
+        "placeholder": "hedef Değer girin",
+        "helper": "Nominal or specification hedef."
+      },
+      "actualvalue": {
+        "label": "gerçek Değer",
+        "placeholder": "gerçek Değer girin",
+        "helper": "Measured or observed Değer."
+      },
+      "tolerance": {
+        "label": "Tolerans",
+        "placeholder": "Tolerans girin",
+        "helper": "AlDüşüked Tolerans band around hedef."
+      },
+      "batchvalue": {
+        "label": "Batch Değer",
+        "placeholder": "Batch Değer girin",
+        "helper": "PMiluction batch Değer At risk."
+      },
+      "rejectionriskpercent": {
+        "label": "Red riski",
+        "placeholder": "Red riski girin",
+        "helper": "Expected rejection Oran from sapma maruziyet."
+      }
+    },
+    "millwork-bid-risk-analyzer": {
+      "fabriccost": {
+        "label": "Fabric Maliyet",
+        "placeholder": "Fabric Maliyet girin",
+        "helper": "Fabric Satın alma spend for the pMiluction run or month."
+      },
+      "cuttingwastepercent": {
+        "label": "Kesim Fire",
+        "placeholder": "Kesim Fire girin",
+        "helper": "Kesim and offkesim kayıp as Yüzde of fabric Maliyet."
+      },
+      "targetwastepercent": {
+        "label": "hedef Fire",
+        "placeholder": "hedef Fire girin",
+        "helper": "Acceptable Fire hedef for similar pMiluction."
+      },
+      "shrinkagepercent": {
+        "label": "Çekme/kayıp",
+        "placeholder": "Çekme/kayıp girin",
+        "helper": "Fire kayıp after wash or finish."
+      },
+      "dyereworkcost": {
+        "label": "Dye Yeniden işleme Maliyet",
+        "placeholder": "Dye Yeniden işleme Maliyet girin",
+        "helper": "Dye batch Yeniden işleme and shade düzeltme spend."
+      }
+    },
+    "painting-job-profit-verdict": {
+      "jobrevenue": {
+        "label": "İş geliri",
+        "placeholder": "İş geliri girin",
+        "helper": "Quoted Gelir for the Boyaing contract."
+      },
+      "paintmaterialcost": {
+        "label": "Boya Malzeme maliyeti",
+        "placeholder": "Boya Malzeme maliyeti girin",
+        "helper": "Boya, primer and Sarf malzemeleri spend."
+      },
+      "coveragedriftpercent": {
+        "label": "Kaplama sapması",
+        "placeholder": "Kaplama sapması girin",
+        "helper": "Extra Malzeme from Kaplama sapması as Yüzde of Boya Maliyet."
+      },
+      "prepreworkhours": {
+        "label": "Prep Yeniden işleme Saat",
+        "placeholder": "Prep Yeniden işleme Saat girin",
+        "helper": "Surface prep and Yeniden işleme işçilik Saat."
+      },
+      "laborrate": {
+        "label": "İşçilik saat ücreti",
+        "placeholder": "İşçilik saat ücreti girin",
+        "helper": "Fully Yüked Boyaer İşçilik saat ücreti."
+      },
+      "scaffoldcost": {
+        "label": "Scaffold Maliyet",
+        "placeholder": "Scaffold Maliyet girin",
+        "helper": "Scaffold Kiraal and Hazırlık spend."
+      }
+    },
+    "panel-shop-margin-verdict": {
+      "panelrevenue": {
+        "label": "Pano geliri",
+        "placeholder": "Pano geliri girin",
+        "helper": "Quoted or contract Gelir for the Pano job."
+      },
+      "wiringhours": {
+        "label": "Wiring Saat",
+        "placeholder": "Wiring Saat girin",
+        "helper": "gerçek wiring and Vadeinations Saat."
+      },
+      "estimatedhours": {
+        "label": "Tahmini Saat",
+        "placeholder": "Tahmini Saat girin",
+        "helper": "Original işçilik Tahmin for the Pano."
+      },
+      "laborrate": {
+        "label": "İşçilik saat ücreti",
+        "placeholder": "İşçilik saat ücreti girin",
+        "helper": "Fully Yüked electrician Oran."
+      },
+      "inspectionfailcost": {
+        "label": "Muayene fail Maliyet",
+        "placeholder": "Muayene fail Maliyet girin",
+        "helper": "Re-Muayene, düzeltmes and delay Maliyet."
+      },
+      "testequipmentcost": {
+        "label": "Test ekipman Maliyet",
+        "placeholder": "Test ekipman Maliyet girin",
+        "helper": "Testing gear, labels and documentation spend."
+      }
+    },
+    "return-profit-erosion-tool": {
+      "monthlyapicalls": {
+        "label": "Aylık API çağrısı",
+        "placeholder": "Aylık API çağrısı girin",
+        "helper": "Toplam API requests faturaed in the başınaiod."
+      },
+      "costperthousandcalls": {
+        "label": "Maliyet başına 1k calls",
+        "placeholder": "Maliyet başına 1k calls girin",
+        "helper": "Blended Maliyet başına thousand API calls."
+      },
+      "monthlyrevenue": {
+        "label": "Aylık ciro",
+        "placeholder": "Aylık ciro girin",
+        "helper": "PMiluct Gelir for the same başınaiod."
+      },
+      "computecost": {
+        "label": "Compute Maliyet",
+        "placeholder": "Compute Maliyet girin",
+        "helper": "Aylık compute and server spend."
+      },
+      "storagecost": {
+        "label": "Storage Maliyet",
+        "placeholder": "Storage Maliyet girin",
+        "helper": "Aylık storage and egress spend."
+      }
+    },
+    "roofing-contract-margin-guard": {
+      "contractvalue": {
+        "label": "Contract Değer",
+        "placeholder": "Contract Değer girin",
+        "helper": "Toplam contract or Proje geliri."
+      },
+      "plannedsubcontractorcost": {
+        "label": "Planned subcontractor Maliyet",
+        "placeholder": "Planned subcontractor Maliyet girin",
+        "helper": "Bütçeed subcontractor spend."
+      },
+      "actualsubcontractorcost": {
+        "label": "gerçek subcontractor Maliyet",
+        "placeholder": "gerçek subcontractor Maliyet girin",
+        "helper": "gerçek or projected subcontractor spend."
+      },
+      "delaycost": {
+        "label": "Delay Maliyet",
+        "placeholder": "Delay Maliyet girin",
+        "helper": "Schedule slip and delay claim maruziyet."
+      },
+      "materialvariance": {
+        "label": "Malzeme sapması",
+        "placeholder": "Malzeme sapması girin",
+        "helper": "Malzeme maliyeti sapma above plan."
+      }
+    },
+    "route-optimization-analyzer": {
+      "distancekm": {
+        "label": "Mesafe",
+        "placeholder": "Mesafe girin",
+        "helper": "One-way Yüked Mesafe."
+      },
+      "costperkm": {
+        "label": "Maliyet km başına",
+        "placeholder": "Maliyet km başına girin",
+        "helper": "Yakıt + wear km başına all-in."
+      },
+      "emptyreturnpercent": {
+        "label": "Boş dönüş",
+        "placeholder": "Boş dönüş girin",
+        "helper": "Unpaid return miles as Yüzde of Yüked Mesafe."
+      },
+      "driverhours": {
+        "label": "Driver Saat",
+        "placeholder": "Driver Saat girin",
+        "helper": "Toplam driving + waiting on lane."
+      },
+      "driverrate": {
+        "label": "Driver Oran",
+        "placeholder": "Driver Oran girin",
+        "helper": "Fully Yüked driver Maliyet saat başına."
+      },
+      "tolls": {
+        "label": "Geçiş ücretleri",
+        "placeholder": "Geçiş ücretleri girin",
+        "helper": "Road and bridge Geçiş ücretleri for the lane."
+      },
+      "quotedfreightprice": {
+        "label": "Quoted freight Fiyat",
+        "placeholder": "Quoted freight Fiyat girin",
+        "helper": "Fiyat offered for the Yük."
+      }
+    },
+    "water-optimization-verdict": {
+      "averageinventory": {
+        "label": "Ortalama stok",
+        "placeholder": "Ortalama stok girin",
+        "helper": "Ortalama stok Değer on hand."
+      },
+      "annualcogs": {
+        "label": "Yıllık satılan malın maliyeti",
+        "placeholder": "Yıllık satılan malın maliyeti girin",
+        "helper": "Maliyet of iyis sold over twelve Ay."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying Maliyet",
+        "placeholder": "Carrying Maliyet girin",
+        "helper": "Yıllık carrying Maliyet as Yüzde of Stok."
+      },
+      "markdownpercent": {
+        "label": "İndirim (stok eritme)",
+        "placeholder": "İndirim (stok eritme) girin",
+        "helper": "Expected İndirim (stok eritme) as Yüzde of Stok."
+      }
+    },
+    "auto-shop-margin-leak-detector": {
+      "monthlyrepairrevenue": {
+        "label": "Aylık onarım geliri",
+        "placeholder": "Aylık onarım geliri girin",
+        "helper": "Toplam shop Gelir for the başınaiod."
+      },
+      "comebackratepercent": {
+        "label": "Comeback Oran",
+        "placeholder": "Comeback Oran girin",
+        "helper": "Comeback jobs as Yüzde of Gelir."
+      },
+      "averagejobcost": {
+        "label": "Average job Maliyet",
+        "placeholder": "Average job Maliyet girin",
+        "helper": "Average internal Maliyet başına comeback job."
+      },
+      "diagnostichours": {
+        "label": "Diagnostic Saat",
+        "placeholder": "Diagnostic Saat girin",
+        "helper": "Unfaturaed diagnostic işçilik Saat başına month."
+      },
+      "laborrate": {
+        "label": "İşçilik saat ücreti",
+        "placeholder": "İşçilik saat ücreti girin",
+        "helper": "Fully Yüked technician Oran."
+      },
+      "partshandlingcost": {
+        "label": "Parça handling Maliyet",
+        "placeholder": "Parça handling Maliyet girin",
+        "helper": "Core handling, returns and Parça admin spend."
+      }
+    },
+    "meal-planning-verdict": {
+      "monthlyingredientcost": {
+        "label": "Aylık Ingredient Maliyet",
+        "placeholder": "Aylık Ingredient Maliyet girin",
+        "helper": "Toplam ingredient spend for the başınaiod."
+      },
+      "wasterate": {
+        "label": "Fire Oran",
+        "placeholder": "Fire Oran girin",
+        "helper": "Spoilage, trim and overkısım kayıp as Yüzde of Ingredient Maliyet."
+      },
+      "targetwasterate": {
+        "label": "hedef Fire Oran",
+        "placeholder": "hedef Fire Oran girin",
+        "helper": "Obaşınaational hedef or prior best başınaiod."
+      },
+      "monthlyrevenue": {
+        "label": "Aylık ciro",
+        "placeholder": "Aylık ciro girin",
+        "helper": "Gıda sales for the same başınaiod."
+      },
+      "grossmargin": {
+        "label": "Brüt marj",
+        "placeholder": "Brüt marj girin",
+        "helper": "Akım Brüt marj before Fire adjustment."
+      }
     }
   },
   "freeToolContent": {

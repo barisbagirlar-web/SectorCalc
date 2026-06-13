@@ -8478,6 +8478,387 @@
         "placeholder": "Warranty reserve eingeben",
         "helper": "Warranty reserve as procent of job revenue."
       }
+    },
+    "crop-yield-loss-analyzer": {
+      "areaha": {
+        "label": "Fläche",
+        "placeholder": "Fläche eingeben",
+        "helper": "Cultivated Fläche in hectares."
+      },
+      "expectedyieldtonperha": {
+        "label": "Expected yield",
+        "placeholder": "Expected yield eingeben",
+        "helper": "Sollwert yield pro hectare for the season."
+      },
+      "actualyieldtonperha": {
+        "label": "Actual yield",
+        "placeholder": "Actual yield eingeben",
+        "helper": "Observed or projected yield pro hectare."
+      },
+      "priceperton": {
+        "label": "Preis pro ton",
+        "placeholder": "Preis pro ton eingeben",
+        "helper": "Market or contract Preis pro ton."
+      },
+      "irrigationcost": {
+        "label": "Irrigation Kosten",
+        "placeholder": "Irrigation Kosten eingeben",
+        "helper": "Season irrigation Energie and water spEnde."
+      }
+    },
+    "dairy-profit-detector": {
+      "cows": {
+        "label": "Kühe",
+        "placeholder": "Kühe eingeben",
+        "helper": "Milking herd size for the proiod."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed Kosten pro cow pro day",
+        "placeholder": "Feed Kosten pro cow pro day eingeben",
+        "helper": "Average daily feed spEnde pro cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters pro cow pro day",
+        "placeholder": "Milk liters pro cow pro day eingeben",
+        "helper": "Observed milk yield pro cow pro day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "Sollwert milk liters pro cow pro day",
+        "placeholder": "Sollwert milk liters pro cow pro day eingeben",
+        "helper": "Sollwert or benchmark yield pro cow pro day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk Preis pro liter",
+        "placeholder": "Milk Preis pro liter eingeben",
+        "helper": "Netto Milk Preis received pro liter."
+      },
+      "days": {
+        "label": "Tage",
+        "placeholder": "Tage eingeben",
+        "helper": "Calculation proiod in Tage."
+      }
+    },
+    "feed-efficiency-analyzer": {
+      "cows": {
+        "label": "Kühe",
+        "placeholder": "Kühe eingeben",
+        "helper": "Milking herd size for the proiod."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed Kosten pro cow pro day",
+        "placeholder": "Feed Kosten pro cow pro day eingeben",
+        "helper": "Average daily feed spEnde pro cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters pro cow pro day",
+        "placeholder": "Milk liters pro cow pro day eingeben",
+        "helper": "Observed milk yield pro cow pro day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "Sollwert milk liters pro cow pro day",
+        "placeholder": "Sollwert milk liters pro cow pro day eingeben",
+        "helper": "Sollwert or benchmark yield pro cow pro day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk Preis pro liter",
+        "placeholder": "Milk Preis pro liter eingeben",
+        "helper": "Netto Milk Preis received pro liter."
+      },
+      "days": {
+        "label": "Tage",
+        "placeholder": "Tage eingeben",
+        "helper": "Calculation proiod in Tage."
+      }
+    },
+    "3d-print-job-margin-tool": {
+      "targetvalue": {
+        "label": "Sollwert Wert",
+        "placeholder": "Sollwert Wert eingeben",
+        "helper": "Nominal or specification Sollwert."
+      },
+      "actualvalue": {
+        "label": "Actual Wert",
+        "placeholder": "Actual Wert eingeben",
+        "helper": "Measured or observed Wert."
+      },
+      "tolerance": {
+        "label": "Tolerance",
+        "placeholder": "Tolerance eingeben",
+        "helper": "Allowed tolerance band around Sollwert."
+      },
+      "batchvalue": {
+        "label": "Batch Wert",
+        "placeholder": "Batch Wert eingeben",
+        "helper": "Production batch Wert At risk."
+      },
+      "rejectionriskpercent": {
+        "label": "Rejection risk",
+        "placeholder": "Rejection risk eingeben",
+        "helper": "Expected rejection Satz from drift exposure."
+      }
+    },
+    "millwork-bid-risk-analyzer": {
+      "fabriccost": {
+        "label": "Fabric Kosten",
+        "placeholder": "Fabric Kosten eingeben",
+        "helper": "Fabric purchase spEnde for the production run or month."
+      },
+      "cuttingwastepercent": {
+        "label": "Cutting Ausschuss",
+        "placeholder": "Cutting Ausschuss eingeben",
+        "helper": "Cutting and offcut loss as procent of fabric Kosten."
+      },
+      "targetwastepercent": {
+        "label": "Sollwert Ausschuss",
+        "placeholder": "Sollwert Ausschuss eingeben",
+        "helper": "Acceptable Ausschuss Sollwert for similar production."
+      },
+      "shrinkagepercent": {
+        "label": "Shrinkage",
+        "placeholder": "Shrinkage eingeben",
+        "helper": "Shrinkage loss after wash or finish."
+      },
+      "dyereworkcost": {
+        "label": "Dye rework Kosten",
+        "placeholder": "Dye rework Kosten eingeben",
+        "helper": "Dye batch rework and shade correction spEnde."
+      }
+    },
+    "painting-job-profit-verdict": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Job revenue eingeben",
+        "helper": "Quoted revenue for the painting contract."
+      },
+      "paintmaterialcost": {
+        "label": "Paint Material Kosten",
+        "placeholder": "Paint Material Kosten eingeben",
+        "helper": "Paint, primer and VerbrauchsMaterial spEnde."
+      },
+      "coveragedriftpercent": {
+        "label": "Deckkraft drift",
+        "placeholder": "Deckkraft drift eingeben",
+        "helper": "Extra Material from Deckkraft drift as procent of paint Kosten."
+      },
+      "prepreworkhours": {
+        "label": "Prep rework Stunden",
+        "placeholder": "Prep rework Stunden eingeben",
+        "helper": "Surface prep and rework Labor Stunden."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded painter Labor Satz."
+      },
+      "scaffoldcost": {
+        "label": "Scaffold Kosten",
+        "placeholder": "Scaffold Kosten eingeben",
+        "helper": "Scaffold Mieteal and Rüstzeit spEnde."
+      }
+    },
+    "panel-shop-margin-verdict": {
+      "panelrevenue": {
+        "label": "Panel revenue",
+        "placeholder": "Panel revenue eingeben",
+        "helper": "Quoted or contract revenue for the panel job."
+      },
+      "wiringhours": {
+        "label": "Wiring Stunden",
+        "placeholder": "Wiring Stunden eingeben",
+        "helper": "Actual wiring and Laufzeitinations Stunden."
+      },
+      "estimatedhours": {
+        "label": "Estimated Stunden",
+        "placeholder": "Estimated Stunden eingeben",
+        "helper": "Original labor estimate for the panel."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded electrician Satz."
+      },
+      "inspectionfailcost": {
+        "label": "Prüfung fail Kosten",
+        "placeholder": "Prüfung fail Kosten eingeben",
+        "helper": "Re-Prüfung, corrections and delay Kosten."
+      },
+      "testequipmentcost": {
+        "label": "Test equipment Kosten",
+        "placeholder": "Test equipment Kosten eingeben",
+        "helper": "Testing gear, labels and documentation spEnde."
+      }
+    },
+    "return-profit-erosion-tool": {
+      "monthlyapicalls": {
+        "label": "Monthly API calls",
+        "placeholder": "Monthly API calls eingeben",
+        "helper": "Total API requests billed in the proiod."
+      },
+      "costperthousandcalls": {
+        "label": "Kosten pro 1k calls",
+        "placeholder": "Kosten pro 1k calls eingeben",
+        "helper": "BlEndeed Kosten pro thousand API calls."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Monthly revenue eingeben",
+        "helper": "Product revenue for the same proiod."
+      },
+      "computecost": {
+        "label": "Compute Kosten",
+        "placeholder": "Compute Kosten eingeben",
+        "helper": "Monthly compute and server spEnde."
+      },
+      "storagecost": {
+        "label": "Storage Kosten",
+        "placeholder": "Storage Kosten eingeben",
+        "helper": "Monthly storage and egress spEnde."
+      }
+    },
+    "roofing-contract-margin-guard": {
+      "contractvalue": {
+        "label": "Contract Wert",
+        "placeholder": "Contract Wert eingeben",
+        "helper": "Total contract or project revenue."
+      },
+      "plannedsubcontractorcost": {
+        "label": "Planned subcontractor Kosten",
+        "placeholder": "Planned subcontractor Kosten eingeben",
+        "helper": "Budgeted subcontractor spEnde."
+      },
+      "actualsubcontractorcost": {
+        "label": "Actual subcontractor Kosten",
+        "placeholder": "Actual subcontractor Kosten eingeben",
+        "helper": "Actual or projected subcontractor spEnde."
+      },
+      "delaycost": {
+        "label": "Delay Kosten",
+        "placeholder": "Delay Kosten eingeben",
+        "helper": "Schedule slip and delay claim exposure."
+      },
+      "materialvariance": {
+        "label": "Material variance",
+        "placeholder": "Material variance eingeben",
+        "helper": "Material Kosten drift above plan."
+      }
+    },
+    "route-optimization-analyzer": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Distance eingeben",
+        "helper": "One-way loaded Entfernung."
+      },
+      "costperkm": {
+        "label": "Kosten pro km",
+        "placeholder": "Kosten pro km eingeben",
+        "helper": "Kraftstoff + wear pro km all-in."
+      },
+      "emptyreturnpercent": {
+        "label": "Empty return",
+        "placeholder": "Empty return eingeben",
+        "helper": "Unpaid return miles as procent of loaded Entfernung."
+      },
+      "driverhours": {
+        "label": "Driver Stunden",
+        "placeholder": "Driver Stunden eingeben",
+        "helper": "Total driving + waiting on lane."
+      },
+      "driverrate": {
+        "label": "Driver Satz",
+        "placeholder": "Driver Satz eingeben",
+        "helper": "Fully loaded driver Kosten pro hour."
+      },
+      "tolls": {
+        "label": "Maut",
+        "placeholder": "Maut eingeben",
+        "helper": "Road and bridge Maut for the lane."
+      },
+      "quotedfreightprice": {
+        "label": "Quoted freight Preis",
+        "placeholder": "Quoted freight Preis eingeben",
+        "helper": "Preis offered for the load."
+      }
+    },
+    "water-optimization-verdict": {
+      "averageinventory": {
+        "label": "Average inventory",
+        "placeholder": "Average inventory eingeben",
+        "helper": "Average inventory Wert on hand."
+      },
+      "annualcogs": {
+        "label": "Annual COGS",
+        "placeholder": "Annual COGS eingeben",
+        "helper": "Kosten of goods sold over twelve months."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying Kosten",
+        "placeholder": "Carrying Kosten eingeben",
+        "helper": "Annual carrying Kosten as procent of inventory."
+      },
+      "markdownpercent": {
+        "label": "Markdown",
+        "placeholder": "Markdown eingeben",
+        "helper": "Expected markdown as procent of inventory."
+      }
+    },
+    "auto-shop-margin-leak-detector": {
+      "monthlyrepairrevenue": {
+        "label": "Monthly repair revenue",
+        "placeholder": "Monthly repair revenue eingeben",
+        "helper": "Total shop revenue for the proiod."
+      },
+      "comebackratepercent": {
+        "label": "Comeback Satz",
+        "placeholder": "Comeback Satz eingeben",
+        "helper": "Comeback jobs as procent of revenue."
+      },
+      "averagejobcost": {
+        "label": "Average job Kosten",
+        "placeholder": "Average job Kosten eingeben",
+        "helper": "Average internal Kosten pro comeback job."
+      },
+      "diagnostichours": {
+        "label": "Diagnostic Stunden",
+        "placeholder": "Diagnostic Stunden eingeben",
+        "helper": "Unbilled diagnostic Labor Stunden pro month."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded technician Satz."
+      },
+      "partshandlingcost": {
+        "label": "Parts handling Kosten",
+        "placeholder": "Parts handling Kosten eingeben",
+        "helper": "Core handling, returns and parts admin spEnde."
+      }
+    },
+    "meal-planning-verdict": {
+      "monthlyingredientcost": {
+        "label": "Monthly Ingredient Kosten",
+        "placeholder": "Monthly Ingredient Kosten eingeben",
+        "helper": "Total ingredient spEnde for the proiod."
+      },
+      "wasterate": {
+        "label": "Ausschuss Satz",
+        "placeholder": "Ausschuss Satz eingeben",
+        "helper": "Spoilage, trim and overportion loss as procent of Ingredient Kosten."
+      },
+      "targetwasterate": {
+        "label": "Sollwert Ausschuss Satz",
+        "placeholder": "Sollwert Ausschuss Satz eingeben",
+        "helper": "Oproational Sollwert or prior best proiod."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Monthly revenue eingeben",
+        "helper": "Lebensmittel sales for the same proiod."
+      },
+      "grossmargin": {
+        "label": "Gross margin",
+        "placeholder": "Gross margin eingeben",
+        "helper": "Strom gross margin before Ausschuss adjustment."
+      }
     }
   },
   "sectorFooter": {

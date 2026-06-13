@@ -86,7 +86,7 @@ export const SLUG_3D_PRINT_JOB_MARGIN_TOOL_SCHEMA: PremiumCalculatorSchema = {
       format: "percentage",
       isBigNumber: true,
     },
-    { id: "rejectionExposure", label: "Rejection exposure", unit: "$", format: "currency" },
+    { id: "rejectionExposure", label: "Rejection exposure", unit: "USD", format: "currency" },
   ],
 
   thresholds: [

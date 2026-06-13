@@ -85,7 +85,7 @@ export const INVESTMENT_PAYBACK_NPV_CALCULATOR_SCHEMA: PremiumCalculatorSchema =
     {
       id: "npv",
       label: "NPV",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },

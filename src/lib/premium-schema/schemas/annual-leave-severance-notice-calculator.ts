@@ -100,20 +100,20 @@ export const ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_SCHEMA: PremiumCalculatorS
     {
       id: "totalExitExposure",
       label: "Total exit exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
     {
       id: "severanceEstimate",
       label: "Severance estimate",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
       id: "noticeEstimate",
       label: "Notice estimate",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
   ],

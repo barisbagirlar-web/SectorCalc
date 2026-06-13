@@ -36,7 +36,7 @@ export const DAIRY_FEED_EFFICIENCY_LOSS_SCHEMA: PremiumCalculatorSchema = {
       id: "milkLitersPerCowPerDay",
       label: "Milk liters per cow per day",
       type: "number",
-      unit: "liters",
+      unit: "L",
       required: true,
       smartDefault: 24,
       validation: { min: 0 },
@@ -47,7 +47,7 @@ export const DAIRY_FEED_EFFICIENCY_LOSS_SCHEMA: PremiumCalculatorSchema = {
       id: "targetMilkLitersPerCowPerDay",
       label: "Target milk liters per cow per day",
       type: "number",
-      unit: "liters",
+      unit: "L",
       required: true,
       smartDefault: 28,
       validation: { min: 0 },
@@ -106,12 +106,12 @@ export const DAIRY_FEED_EFFICIENCY_LOSS_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "totalExposure",
       label: "Total feed efficiency exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
-    { id: "feedCost", label: "Feed cost", unit: "$", format: "currency" },
-    { id: "milkRevenueGap", label: "Milk revenue gap", unit: "$", format: "currency" },
+    { id: "feedCost", label: "Feed cost", unit: "USD", format: "currency" },
+    { id: "milkRevenueGap", label: "Milk revenue gap", unit: "USD", format: "currency" },
   ],
 
   thresholds: [

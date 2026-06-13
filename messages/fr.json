@@ -8478,6 +8478,387 @@
         "placeholder": "Saisir warranty reserve",
         "helper": "Warranty reserve as parcent of job revenue."
       }
+    },
+    "crop-yield-loss-analyzer": {
+      "areaha": {
+        "label": "Surface",
+        "placeholder": "Saisir surface",
+        "helper": "Cultivated Surface in hectares."
+      },
+      "expectedyieldtonperha": {
+        "label": "Expected yield",
+        "placeholder": "Saisir expected yield",
+        "helper": "Cible yield par hectare for the season."
+      },
+      "actualyieldtonperha": {
+        "label": "Actual yield",
+        "placeholder": "Saisir actual yield",
+        "helper": "Observed or projected yield par hectare."
+      },
+      "priceperton": {
+        "label": "Prix par ton",
+        "placeholder": "Saisir prix par ton",
+        "helper": "Market or contract Prix par ton."
+      },
+      "irrigationcost": {
+        "label": "Irrigation Coût",
+        "placeholder": "Saisir irrigation coût",
+        "helper": "Season irrigation Énergie and water spend."
+      }
+    },
+    "dairy-profit-detector": {
+      "cows": {
+        "label": "Vaches",
+        "placeholder": "Saisir vaches",
+        "helper": "Milking herd size for the pariod."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed Coût par cow par day",
+        "placeholder": "Saisir feed coût par cow par day",
+        "helper": "Average daily feed spend par cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters par cow par day",
+        "placeholder": "Saisir milk liters par cow par day",
+        "helper": "Observed milk yield par cow par day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "Cible milk liters par cow par day",
+        "placeholder": "Saisir cible milk liters par cow par day",
+        "helper": "Cible or benchmark yield par cow par day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk Prix par liter",
+        "placeholder": "Saisir milk prix par liter",
+        "helper": "Net Milk Prix received par liter."
+      },
+      "days": {
+        "label": "Jours",
+        "placeholder": "Saisir jours",
+        "helper": "Calculation pariod in Jours."
+      }
+    },
+    "feed-efficiency-analyzer": {
+      "cows": {
+        "label": "Vaches",
+        "placeholder": "Saisir vaches",
+        "helper": "Milking herd size for the pariod."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed Coût par cow par day",
+        "placeholder": "Saisir feed coût par cow par day",
+        "helper": "Average daily feed spend par cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters par cow par day",
+        "placeholder": "Saisir milk liters par cow par day",
+        "helper": "Observed milk yield par cow par day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "Cible milk liters par cow par day",
+        "placeholder": "Saisir cible milk liters par cow par day",
+        "helper": "Cible or benchmark yield par cow par day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk Prix par liter",
+        "placeholder": "Saisir milk prix par liter",
+        "helper": "Net Milk Prix received par liter."
+      },
+      "days": {
+        "label": "Jours",
+        "placeholder": "Saisir jours",
+        "helper": "Calculation pariod in Jours."
+      }
+    },
+    "3d-print-job-margin-tool": {
+      "targetvalue": {
+        "label": "Cible Valeur",
+        "placeholder": "Saisir cible valeur",
+        "helper": "Nominal or specification Cible."
+      },
+      "actualvalue": {
+        "label": "Actual Valeur",
+        "placeholder": "Saisir actual valeur",
+        "helper": "Measured or observed Valeur."
+      },
+      "tolerance": {
+        "label": "Tolerance",
+        "placeholder": "Saisir tolerance",
+        "helper": "Allowed tolerance band around Cible."
+      },
+      "batchvalue": {
+        "label": "Batch Valeur",
+        "placeholder": "Saisir batch valeur",
+        "helper": "Production batch Valeur At risk."
+      },
+      "rejectionriskpercent": {
+        "label": "Rejection risk",
+        "placeholder": "Saisir rejection risk",
+        "helper": "Expected rejection Taux from drift exposure."
+      }
+    },
+    "millwork-bid-risk-analyzer": {
+      "fabriccost": {
+        "label": "Fabric Coût",
+        "placeholder": "Saisir fabric coût",
+        "helper": "Fabric purchase spend for the production run or month."
+      },
+      "cuttingwastepercent": {
+        "label": "Cutting parte",
+        "placeholder": "Saisir cutting parte",
+        "helper": "Cutting and offcut loss as parcent of fabric Coût."
+      },
+      "targetwastepercent": {
+        "label": "Cible parte",
+        "placeholder": "Saisir cible parte",
+        "helper": "Acceptable parte Cible for similar production."
+      },
+      "shrinkagepercent": {
+        "label": "Shrinkage",
+        "placeholder": "Saisir shrinkage",
+        "helper": "Shrinkage loss after wash or finish."
+      },
+      "dyereworkcost": {
+        "label": "Dye rework Coût",
+        "placeholder": "Saisir dye rework coût",
+        "helper": "Dye batch rework and shade correction spend."
+      }
+    },
+    "painting-job-profit-verdict": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Saisir job revenue",
+        "helper": "Quoted revenue for the painting contract."
+      },
+      "paintmaterialcost": {
+        "label": "Paint Matériau Coût",
+        "placeholder": "Saisir paint matériau coût",
+        "helper": "Paint, primer and Consommables spend."
+      },
+      "coveragedriftpercent": {
+        "label": "Coverage drift",
+        "placeholder": "Saisir coverage drift",
+        "helper": "Extra Matériau from coverage drift as parcent of paint Coût."
+      },
+      "prepreworkhours": {
+        "label": "Prep rework Heures",
+        "placeholder": "Saisir prep rework heures",
+        "helper": "Surface prep and rework Labor Heures."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded painter Labor Taux."
+      },
+      "scaffoldcost": {
+        "label": "Scaffold Coût",
+        "placeholder": "Saisir scaffold coût",
+        "helper": "Scaffold locational and Préparation spend."
+      }
+    },
+    "panel-shop-margin-verdict": {
+      "panelrevenue": {
+        "label": "Panel revenue",
+        "placeholder": "Saisir panel revenue",
+        "helper": "Quoted or contract revenue for the panel job."
+      },
+      "wiringhours": {
+        "label": "Wiring Heures",
+        "placeholder": "Saisir wiring heures",
+        "helper": "Actual wiring and Duréeinations Heures."
+      },
+      "estimatedhours": {
+        "label": "Estimated Heures",
+        "placeholder": "Saisir estimated heures",
+        "helper": "Original labor estimate for the panel."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded electrician Taux."
+      },
+      "inspectionfailcost": {
+        "label": "Inspection fail Coût",
+        "placeholder": "Saisir inspection fail coût",
+        "helper": "Re-inspection, corrections and delay Coût."
+      },
+      "testequipmentcost": {
+        "label": "Test equipment Coût",
+        "placeholder": "Saisir test equipment coût",
+        "helper": "Testing gear, labels and documentation spend."
+      }
+    },
+    "return-profit-erosion-tool": {
+      "monthlyapicalls": {
+        "label": "Monthly API calls",
+        "placeholder": "Saisir monthly api calls",
+        "helper": "Total API requests billed in the pariod."
+      },
+      "costperthousandcalls": {
+        "label": "Coût par 1k calls",
+        "placeholder": "Saisir coût par 1k calls",
+        "helper": "Blended Coût par thousand API calls."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Saisir monthly revenue",
+        "helper": "Product revenue for the same pariod."
+      },
+      "computecost": {
+        "label": "Compute Coût",
+        "placeholder": "Saisir compute coût",
+        "helper": "Monthly compute and server spend."
+      },
+      "storagecost": {
+        "label": "Storage Coût",
+        "placeholder": "Saisir storage coût",
+        "helper": "Monthly storage and egress spend."
+      }
+    },
+    "roofing-contract-margin-guard": {
+      "contractvalue": {
+        "label": "Contract Valeur",
+        "placeholder": "Saisir contract valeur",
+        "helper": "Total contract or project revenue."
+      },
+      "plannedsubcontractorcost": {
+        "label": "Planned subcontractor Coût",
+        "placeholder": "Saisir planned subcontractor coût",
+        "helper": "Budgeted subcontractor spend."
+      },
+      "actualsubcontractorcost": {
+        "label": "Actual subcontractor Coût",
+        "placeholder": "Saisir actual subcontractor coût",
+        "helper": "Actual or projected subcontractor spend."
+      },
+      "delaycost": {
+        "label": "Delay Coût",
+        "placeholder": "Saisir delay coût",
+        "helper": "Schedule slip and delay claim exposure."
+      },
+      "materialvariance": {
+        "label": "Matériau variance",
+        "placeholder": "Saisir matériau variance",
+        "helper": "Matériau Coût drift above plan."
+      }
+    },
+    "route-optimization-analyzer": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "Saisir distance",
+        "helper": "One-way loaded Distance."
+      },
+      "costperkm": {
+        "label": "Coût par km",
+        "placeholder": "Saisir coût par km",
+        "helper": "Carburant + wear par km all-in."
+      },
+      "emptyreturnpercent": {
+        "label": "Empty return",
+        "placeholder": "Saisir empty return",
+        "helper": "Unpaid return miles as parcent of loaded Distance."
+      },
+      "driverhours": {
+        "label": "Driver Heures",
+        "placeholder": "Saisir driver heures",
+        "helper": "Total driving + waiting on lane."
+      },
+      "driverrate": {
+        "label": "Driver Taux",
+        "placeholder": "Saisir driver taux",
+        "helper": "Fully loaded driver Coût par hour."
+      },
+      "tolls": {
+        "label": "Péages",
+        "placeholder": "Saisir péages",
+        "helper": "Road and bridge Péages for the lane."
+      },
+      "quotedfreightprice": {
+        "label": "Quoted freight Prix",
+        "placeholder": "Saisir quoted freight prix",
+        "helper": "Prix offered for the load."
+      }
+    },
+    "water-optimization-verdict": {
+      "averageinventory": {
+        "label": "Average inventory",
+        "placeholder": "Saisir average inventory",
+        "helper": "Average inventory Valeur on hand."
+      },
+      "annualcogs": {
+        "label": "Annual COGS",
+        "placeholder": "Saisir annual cogs",
+        "helper": "Coût of goods sold over twelve months."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying Coût",
+        "placeholder": "Saisir carrying coût",
+        "helper": "Annual carrying Coût as parcent of inventory."
+      },
+      "markdownpercent": {
+        "label": "Markdown",
+        "placeholder": "Saisir markdown",
+        "helper": "Expected markdown as parcent of inventory."
+      }
+    },
+    "auto-shop-margin-leak-detector": {
+      "monthlyrepairrevenue": {
+        "label": "Monthly repair revenue",
+        "placeholder": "Saisir monthly repair revenue",
+        "helper": "Total shop revenue for the pariod."
+      },
+      "comebackratepercent": {
+        "label": "Comeback Taux",
+        "placeholder": "Saisir comeback taux",
+        "helper": "Comeback jobs as parcent of revenue."
+      },
+      "averagejobcost": {
+        "label": "Average job Coût",
+        "placeholder": "Saisir average job coût",
+        "helper": "Average internal Coût par comeback job."
+      },
+      "diagnostichours": {
+        "label": "Diagnostic Heures",
+        "placeholder": "Saisir diagnostic heures",
+        "helper": "Unbilled diagnostic Labor Heures par month."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded technician Taux."
+      },
+      "partshandlingcost": {
+        "label": "Parts handling Coût",
+        "placeholder": "Saisir parts handling coût",
+        "helper": "Core handling, returns and parts admin spend."
+      }
+    },
+    "meal-planning-verdict": {
+      "monthlyingredientcost": {
+        "label": "Monthly Ingredient Coût",
+        "placeholder": "Saisir monthly ingredient coût",
+        "helper": "Total ingredient spend for the pariod."
+      },
+      "wasterate": {
+        "label": "parte Taux",
+        "placeholder": "Saisir parte taux",
+        "helper": "Spoilage, trim and overportion loss as parcent of Ingredient Coût."
+      },
+      "targetwasterate": {
+        "label": "Cible parte Taux",
+        "placeholder": "Saisir cible parte taux",
+        "helper": "Oparational Cible or prior best pariod."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Saisir monthly revenue",
+        "helper": "Alimentation sales for the same pariod."
+      },
+      "grossmargin": {
+        "label": "Gross margin",
+        "placeholder": "Saisir gross margin",
+        "helper": "Courant gross margin before parte adjustment."
+      }
     }
   },
   "sectorFooter": {

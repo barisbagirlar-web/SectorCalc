@@ -90,7 +90,7 @@ export const CBAM_UNIT_PRODUCT_CARBON_FOOTPRINT_CALCULATOR_SCHEMA: PremiumCalcul
     {
       id: "unitCarbonCost",
       label: "Unit carbon cost exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
   ],

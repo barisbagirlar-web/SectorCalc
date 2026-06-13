@@ -8473,6 +8473,387 @@
         "placeholder": "أدخل Warranty reserve",
         "helper": "Warranty reserve as لكلcent of job revenue."
       }
+    },
+    "crop-yield-loss-analyzer": {
+      "areaha": {
+        "label": "المساحة",
+        "placeholder": "أدخل المساحة",
+        "helper": "Cultivated المساحة in hectares."
+      },
+      "expectedyieldtonperha": {
+        "label": "Expected yield",
+        "placeholder": "أدخل Expected yield",
+        "helper": "الهدف yield لكل hectare for the season."
+      },
+      "actualyieldtonperha": {
+        "label": "Actual yield",
+        "placeholder": "أدخل Actual yield",
+        "helper": "Observed or projected yield لكل hectare."
+      },
+      "priceperton": {
+        "label": "السعر لكل ton",
+        "placeholder": "أدخل السعر لكل ton",
+        "helper": "Market or contract السعر لكل ton."
+      },
+      "irrigationcost": {
+        "label": "Irrigation التكلفة",
+        "placeholder": "أدخل Irrigation التكلفة",
+        "helper": "Season irrigation الطاقة and water spend."
+      }
+    },
+    "dairy-profit-detector": {
+      "cows": {
+        "label": "أبقار",
+        "placeholder": "أدخل أبقار",
+        "helper": "Milking herd size for the لكلiod."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed التكلفة لكل cow لكل day",
+        "placeholder": "أدخل Feed التكلفة لكل cow لكل day",
+        "helper": "Average daily feed spend لكل cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters لكل cow لكل day",
+        "placeholder": "أدخل Milk liters لكل cow لكل day",
+        "helper": "Observed milk yield لكل cow لكل day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "الهدف milk liters لكل cow لكل day",
+        "placeholder": "أدخل الهدف milk liters لكل cow لكل day",
+        "helper": "الهدف or benchmark yield لكل cow لكل day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk السعر لكل liter",
+        "placeholder": "أدخل Milk السعر لكل liter",
+        "helper": "صافي Milk السعر received لكل liter."
+      },
+      "days": {
+        "label": "الأيام",
+        "placeholder": "أدخل الأيام",
+        "helper": "Calculation لكلiod in الأيام."
+      }
+    },
+    "feed-efficiency-analyzer": {
+      "cows": {
+        "label": "أبقار",
+        "placeholder": "أدخل أبقار",
+        "helper": "Milking herd size for the لكلiod."
+      },
+      "feedcostpercowperday": {
+        "label": "Feed التكلفة لكل cow لكل day",
+        "placeholder": "أدخل Feed التكلفة لكل cow لكل day",
+        "helper": "Average daily feed spend لكل cow."
+      },
+      "milkliterspercowperday": {
+        "label": "Milk liters لكل cow لكل day",
+        "placeholder": "أدخل Milk liters لكل cow لكل day",
+        "helper": "Observed milk yield لكل cow لكل day."
+      },
+      "targetmilkliterspercowperday": {
+        "label": "الهدف milk liters لكل cow لكل day",
+        "placeholder": "أدخل الهدف milk liters لكل cow لكل day",
+        "helper": "الهدف or benchmark yield لكل cow لكل day."
+      },
+      "milkpriceperliter": {
+        "label": "Milk السعر لكل liter",
+        "placeholder": "أدخل Milk السعر لكل liter",
+        "helper": "صافي Milk السعر received لكل liter."
+      },
+      "days": {
+        "label": "الأيام",
+        "placeholder": "أدخل الأيام",
+        "helper": "Calculation لكلiod in الأيام."
+      }
+    },
+    "3d-print-job-margin-tool": {
+      "targetvalue": {
+        "label": "الهدف القيمة",
+        "placeholder": "أدخل الهدف القيمة",
+        "helper": "Nominal or specification الهدف."
+      },
+      "actualvalue": {
+        "label": "Actual القيمة",
+        "placeholder": "أدخل Actual القيمة",
+        "helper": "Measured or observed القيمة."
+      },
+      "tolerance": {
+        "label": "Tolerance",
+        "placeholder": "أدخل Tolerance",
+        "helper": "Allowed tolerance band around الهدف."
+      },
+      "batchvalue": {
+        "label": "Batch القيمة",
+        "placeholder": "أدخل Batch القيمة",
+        "helper": "Production batch القيمة At risk."
+      },
+      "rejectionriskpercent": {
+        "label": "Rejection risk",
+        "placeholder": "أدخل Rejection risk",
+        "helper": "Expected rejection المعدل from drift exposure."
+      }
+    },
+    "millwork-bid-risk-analyzer": {
+      "fabriccost": {
+        "label": "Fabric التكلفة",
+        "placeholder": "أدخل Fabric التكلفة",
+        "helper": "Fabric purchase spend for the production run or month."
+      },
+      "cuttingwastepercent": {
+        "label": "Cutting الهدر",
+        "placeholder": "أدخل Cutting الهدر",
+        "helper": "Cutting and offcut loss as لكلcent of fabric التكلفة."
+      },
+      "targetwastepercent": {
+        "label": "الهدف الهدر",
+        "placeholder": "أدخل الهدف الهدر",
+        "helper": "Acceptable الهدر الهدف for similar production."
+      },
+      "shrinkagepercent": {
+        "label": "Shrinkage",
+        "placeholder": "أدخل Shrinkage",
+        "helper": "Shrinkage loss after wash or finish."
+      },
+      "dyereworkcost": {
+        "label": "Dye rework التكلفة",
+        "placeholder": "أدخل Dye rework التكلفة",
+        "helper": "Dye batch rework and shade correction spend."
+      }
+    },
+    "painting-job-profit-verdict": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "أدخل Job revenue",
+        "helper": "Quoted revenue for the painting contract."
+      },
+      "paintmaterialcost": {
+        "label": "Paint المادة التكلفة",
+        "placeholder": "أدخل Paint المادة التكلفة",
+        "helper": "Paint, primer and مستهلكات spend."
+      },
+      "coveragedriftpercent": {
+        "label": "Coverage drift",
+        "placeholder": "أدخل Coverage drift",
+        "helper": "Extra المادة from coverage drift as لكلcent of paint التكلفة."
+      },
+      "prepreworkhours": {
+        "label": "Prep rework الساعات",
+        "placeholder": "أدخل Prep rework الساعات",
+        "helper": "Surface prep and rework Labor الساعات."
+      },
+      "laborrate": {
+        "label": "Labor المعدل",
+        "placeholder": "أدخل Labor المعدل",
+        "helper": "Fully loaded painter Labor المعدل."
+      },
+      "scaffoldcost": {
+        "label": "Scaffold التكلفة",
+        "placeholder": "أدخل Scaffold التكلفة",
+        "helper": "Scaffold إيجارal and الإعداد spend."
+      }
+    },
+    "panel-shop-margin-verdict": {
+      "panelrevenue": {
+        "label": "Panel revenue",
+        "placeholder": "أدخل Panel revenue",
+        "helper": "Quoted or contract revenue for the panel job."
+      },
+      "wiringhours": {
+        "label": "Wiring الساعات",
+        "placeholder": "أدخل Wiring الساعات",
+        "helper": "Actual wiring and المدةinations الساعات."
+      },
+      "estimatedhours": {
+        "label": "Estimated الساعات",
+        "placeholder": "أدخل Estimated الساعات",
+        "helper": "Original labor estimate for the panel."
+      },
+      "laborrate": {
+        "label": "Labor المعدل",
+        "placeholder": "أدخل Labor المعدل",
+        "helper": "Fully loaded electrician المعدل."
+      },
+      "inspectionfailcost": {
+        "label": "Inspection fail التكلفة",
+        "placeholder": "أدخل Inspection fail التكلفة",
+        "helper": "Re-inspection, corrections and delay التكلفة."
+      },
+      "testequipmentcost": {
+        "label": "Test equipment التكلفة",
+        "placeholder": "أدخل Test equipment التكلفة",
+        "helper": "Testing gear, labels and documentation spend."
+      }
+    },
+    "return-profit-erosion-tool": {
+      "monthlyapicalls": {
+        "label": "Monthly API calls",
+        "placeholder": "أدخل Monthly API calls",
+        "helper": "Total API requests billed in the لكلiod."
+      },
+      "costperthousandcalls": {
+        "label": "التكلفة لكل 1k calls",
+        "placeholder": "أدخل التكلفة لكل 1k calls",
+        "helper": "Blended التكلفة لكل thousand API calls."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "أدخل Monthly revenue",
+        "helper": "Product revenue for the same لكلiod."
+      },
+      "computecost": {
+        "label": "Compute التكلفة",
+        "placeholder": "أدخل Compute التكلفة",
+        "helper": "Monthly compute and server spend."
+      },
+      "storagecost": {
+        "label": "Storage التكلفة",
+        "placeholder": "أدخل Storage التكلفة",
+        "helper": "Monthly storage and egress spend."
+      }
+    },
+    "roofing-contract-margin-guard": {
+      "contractvalue": {
+        "label": "Contract القيمة",
+        "placeholder": "أدخل Contract القيمة",
+        "helper": "Total contract or project revenue."
+      },
+      "plannedsubcontractorcost": {
+        "label": "Planned subcontractor التكلفة",
+        "placeholder": "أدخل Planned subcontractor التكلفة",
+        "helper": "Budgeted subcontractor spend."
+      },
+      "actualsubcontractorcost": {
+        "label": "Actual subcontractor التكلفة",
+        "placeholder": "أدخل Actual subcontractor التكلفة",
+        "helper": "Actual or projected subcontractor spend."
+      },
+      "delaycost": {
+        "label": "Delay التكلفة",
+        "placeholder": "أدخل Delay التكلفة",
+        "helper": "Schedule slip and delay claim exposure."
+      },
+      "materialvariance": {
+        "label": "المادة variance",
+        "placeholder": "أدخل المادة variance",
+        "helper": "المادة التكلفة drift above plan."
+      }
+    },
+    "route-optimization-analyzer": {
+      "distancekm": {
+        "label": "Distance",
+        "placeholder": "أدخل Distance",
+        "helper": "One-way loaded المسافة."
+      },
+      "costperkm": {
+        "label": "التكلفة لكل كم",
+        "placeholder": "أدخل التكلفة لكل كم",
+        "helper": "الوقود + wear لكل km all-in."
+      },
+      "emptyreturnpercent": {
+        "label": "Empty return",
+        "placeholder": "أدخل Empty return",
+        "helper": "Unpaid return miles as لكلcent of loaded المسافة."
+      },
+      "driverhours": {
+        "label": "Driver الساعات",
+        "placeholder": "أدخل Driver الساعات",
+        "helper": "Total driving + waiting on lane."
+      },
+      "driverrate": {
+        "label": "Driver المعدل",
+        "placeholder": "أدخل Driver المعدل",
+        "helper": "Fully loaded driver التكلفة لكل hour."
+      },
+      "tolls": {
+        "label": "الرسوم",
+        "placeholder": "أدخل الرسوم",
+        "helper": "Road and bridge الرسوم for the lane."
+      },
+      "quotedfreightprice": {
+        "label": "Quoted freight السعر",
+        "placeholder": "أدخل Quoted freight السعر",
+        "helper": "السعر offered for the load."
+      }
+    },
+    "water-optimization-verdict": {
+      "averageinventory": {
+        "label": "Average inventory",
+        "placeholder": "أدخل Average inventory",
+        "helper": "Average inventory القيمة on hand."
+      },
+      "annualcogs": {
+        "label": "Annual COGS",
+        "placeholder": "أدخل Annual COGS",
+        "helper": "التكلفة of goods sold over twelve months."
+      },
+      "carryingcostpercent": {
+        "label": "Carrying التكلفة",
+        "placeholder": "أدخل Carrying التكلفة",
+        "helper": "Annual carrying التكلفة as لكلcent of inventory."
+      },
+      "markdownpercent": {
+        "label": "Markdown",
+        "placeholder": "أدخل Markdown",
+        "helper": "Expected markdown as لكلcent of inventory."
+      }
+    },
+    "auto-shop-margin-leak-detector": {
+      "monthlyrepairrevenue": {
+        "label": "Monthly repair revenue",
+        "placeholder": "أدخل Monthly repair revenue",
+        "helper": "Total shop revenue for the لكلiod."
+      },
+      "comebackratepercent": {
+        "label": "Comeback المعدل",
+        "placeholder": "أدخل Comeback المعدل",
+        "helper": "Comeback jobs as لكلcent of revenue."
+      },
+      "averagejobcost": {
+        "label": "Average job التكلفة",
+        "placeholder": "أدخل Average job التكلفة",
+        "helper": "Average internal التكلفة لكل comeback job."
+      },
+      "diagnostichours": {
+        "label": "Diagnostic الساعات",
+        "placeholder": "أدخل Diagnostic الساعات",
+        "helper": "Unbilled diagnostic Labor الساعات لكل month."
+      },
+      "laborrate": {
+        "label": "Labor المعدل",
+        "placeholder": "أدخل Labor المعدل",
+        "helper": "Fully loaded technician المعدل."
+      },
+      "partshandlingcost": {
+        "label": "Parts handling التكلفة",
+        "placeholder": "أدخل Parts handling التكلفة",
+        "helper": "Core handling, returns and parts admin spend."
+      }
+    },
+    "meal-planning-verdict": {
+      "monthlyingredientcost": {
+        "label": "Monthly Ingredient التكلفة",
+        "placeholder": "أدخل Monthly Ingredient التكلفة",
+        "helper": "Total ingredient spend for the لكلiod."
+      },
+      "wasterate": {
+        "label": "الهدر المعدل",
+        "placeholder": "أدخل الهدر المعدل",
+        "helper": "Spoilage, trim and overportion loss as لكلcent of Ingredient التكلفة."
+      },
+      "targetwasterate": {
+        "label": "الهدف الهدر المعدل",
+        "placeholder": "أدخل الهدف الهدر المعدل",
+        "helper": "Oلكلational الهدف or prior best لكلiod."
+      },
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "أدخل Monthly revenue",
+        "helper": "الغذاء sales for the same لكلiod."
+      },
+      "grossmargin": {
+        "label": "Gross margin",
+        "placeholder": "أدخل Gross margin",
+        "helper": "التيار gross margin before الهدر adjustment."
+      }
     }
   },
   "sectorFooter": {

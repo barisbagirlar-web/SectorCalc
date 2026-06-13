@@ -77,7 +77,7 @@ export const CARBON_FOOTPRINT_COMPLIANCE_RISK_SCHEMA: PremiumCalculatorSchema = 
     {
       id: "carbonExposure",
       label: "Carbon compliance exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
