@@ -49,6 +49,34 @@ import { ENERGY_SAVINGS_PACKAGE_CALCULATOR_SCHEMA } from "@/lib/premium-schema/s
 import { INVESTMENT_PAYBACK_NPV_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/investment-payback-npv-calculator";
 import { ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/annual-leave-severance-notice-calculator";
 import { BELT_PULLEY_SPEED_LENGTH_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/belt-pulley-speed-length-calculator";
+import { SLUG_3D_PRINT_JOB_MARGIN_TOOL_SCHEMA } from "@/lib/premium-schema/schemas/3d-print-job-margin-tool";
+import { AUTO_SHOP_MARGIN_LEAK_DETECTOR_SCHEMA } from "@/lib/premium-schema/schemas/auto-shop-margin-leak-detector";
+import { CHANGE_ORDER_IMPACT_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/change-order-impact-analyzer";
+import { CNC_QUOTE_RISK_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/cnc-quote-risk-analyzer";
+import { CROP_YIELD_LOSS_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/crop-yield-loss-analyzer";
+import { DAIRY_PROFIT_DETECTOR_SCHEMA } from "@/lib/premium-schema/schemas/dairy-profit-detector";
+import { DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA } from "@/lib/premium-schema/schemas/doviz-pozisyonu-kur-farki-riski-hesabi";
+import { FEED_EFFICIENCY_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/feed-efficiency-analyzer";
+import { HEAT_LOSS_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/heat-loss-calculator";
+import { HVAC_PROJECT_MARGIN_GUARD_SCHEMA } from "@/lib/premium-schema/schemas/hvac-project-margin-guard";
+import { LANDSCAPING_CONTRACT_PROFIT_TOOL_SCHEMA } from "@/lib/premium-schema/schemas/landscaping-contract-profit-tool";
+import { MATERIAL_WASTE_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/material-waste-calculator";
+import { MEAL_PLANNING_VERDICT_SCHEMA } from "@/lib/premium-schema/schemas/meal-planning-verdict";
+import { MENU_PROFIT_LEAK_DETECTOR_SCHEMA } from "@/lib/premium-schema/schemas/menu-profit-leak-detector";
+import { MILLWORK_BID_RISK_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/millwork-bid-risk-analyzer";
+import { OFFICE_CLEANING_BID_OPTIMIZER_SCHEMA } from "@/lib/premium-schema/schemas/office-cleaning-bid-optimizer";
+import { PAINTING_JOB_PROFIT_VERDICT_SCHEMA } from "@/lib/premium-schema/schemas/painting-job-profit-verdict";
+import { PANEL_SHOP_MARGIN_VERDICT_SCHEMA } from "@/lib/premium-schema/schemas/panel-shop-margin-verdict";
+import { PLUMBING_JOB_MARGIN_VERDICT_SCHEMA } from "@/lib/premium-schema/schemas/plumbing-job-margin-verdict";
+import { PROFIT_MARGIN_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/profit-margin-calculator";
+import { RETURN_PROFIT_EROSION_TOOL_SCHEMA } from "@/lib/premium-schema/schemas/return-profit-erosion-tool";
+import { ROOFING_CONTRACT_MARGIN_GUARD_SCHEMA } from "@/lib/premium-schema/schemas/roofing-contract-margin-guard";
+import { ROUTE_OPTIMIZATION_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/route-optimization-analyzer";
+import { SCRAP_RATE_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/scrap-rate-calculator";
+import { SHEET_METAL_QUOTE_RISK_TOOL_SCHEMA } from "@/lib/premium-schema/schemas/sheet-metal-quote-risk-tool";
+import { SIGNAGE_BID_SAFE_PRICE_TOOL_SCHEMA } from "@/lib/premium-schema/schemas/signage-bid-safe-price-tool";
+import { WATER_OPTIMIZATION_VERDICT_SCHEMA } from "@/lib/premium-schema/schemas/water-optimization-verdict";
+import { WELDING_BID_RISK_ANALYZER_SCHEMA } from "@/lib/premium-schema/schemas/welding-bid-risk-analyzer";
 import { SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/7-israf-muda-avcisi-parasal-karsilik-calculator";
 
 export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
@@ -102,6 +130,34 @@ export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
   INVESTMENT_PAYBACK_NPV_CALCULATOR_SCHEMA,
   ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_SCHEMA,
   BELT_PULLEY_SPEED_LENGTH_CALCULATOR_SCHEMA,
+  SLUG_3D_PRINT_JOB_MARGIN_TOOL_SCHEMA,
+  AUTO_SHOP_MARGIN_LEAK_DETECTOR_SCHEMA,
+  CHANGE_ORDER_IMPACT_ANALYZER_SCHEMA,
+  CNC_QUOTE_RISK_ANALYZER_SCHEMA,
+  CROP_YIELD_LOSS_ANALYZER_SCHEMA,
+  DAIRY_PROFIT_DETECTOR_SCHEMA,
+  DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA,
+  FEED_EFFICIENCY_ANALYZER_SCHEMA,
+  HEAT_LOSS_CALCULATOR_SCHEMA,
+  HVAC_PROJECT_MARGIN_GUARD_SCHEMA,
+  LANDSCAPING_CONTRACT_PROFIT_TOOL_SCHEMA,
+  MATERIAL_WASTE_CALCULATOR_SCHEMA,
+  MEAL_PLANNING_VERDICT_SCHEMA,
+  MENU_PROFIT_LEAK_DETECTOR_SCHEMA,
+  MILLWORK_BID_RISK_ANALYZER_SCHEMA,
+  OFFICE_CLEANING_BID_OPTIMIZER_SCHEMA,
+  PAINTING_JOB_PROFIT_VERDICT_SCHEMA,
+  PANEL_SHOP_MARGIN_VERDICT_SCHEMA,
+  PLUMBING_JOB_MARGIN_VERDICT_SCHEMA,
+  PROFIT_MARGIN_CALCULATOR_SCHEMA,
+  RETURN_PROFIT_EROSION_TOOL_SCHEMA,
+  ROOFING_CONTRACT_MARGIN_GUARD_SCHEMA,
+  ROUTE_OPTIMIZATION_ANALYZER_SCHEMA,
+  SCRAP_RATE_CALCULATOR_SCHEMA,
+  SHEET_METAL_QUOTE_RISK_TOOL_SCHEMA,
+  SIGNAGE_BID_SAFE_PRICE_TOOL_SCHEMA,
+  WATER_OPTIMIZATION_VERDICT_SCHEMA,
+  WELDING_BID_RISK_ANALYZER_SCHEMA,
   SEVEN_MUDA_WASTE_COST_CALCULATOR_SCHEMA,
 ];
 

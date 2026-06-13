@@ -1001,8 +1001,8 @@
     "hero": {
       "highlight": "SEKTÖREL HESAP MAKİNESİ PLATFORMU",
       "headline": "Üretimden sanayiye, işletmenizin kritik hesaplarını tek yerde görün",
-      "subtitle": "SectorCalc; üretim, imalat, sanayi, atölye, mühendislik, inşaat, lojistik, enerji, finans ve operasyon ekipleri için hazırlanmış ücretsiz ve premium sektörel hesap makineleri sunar. Maliyet, fire, marj, stok, rota, işçilik, enerji ve teknik hesapları daha görünür, ölçülebilir ve karşılaştırılabilir hale getirir.",
-      "supporting": "Basit ölçüm ve dönüşüm hesapları ücretsizdir. Teklif, fire, shop rate, OEE, karbon, stok, personel, duruş ve operasyon kaybı gibi kritik hesaplarda premium hesaplayıcılar daha fazla girdi ve karar özeti sunar.",
+      "subtitle": "SectorCalc; üretim, lojistik, finans ve operasyon ekiplerinin sektörel hesap makinesi. Maliyet, fire, marj, OEE ve karbon gibi hesapları görünür, ölçülebilir ve karşılaştırılabilir kılar.",
+      "supporting": "Temel ölçüm ve dönüşümler ücretsiz; teklif, shop rate, duruş, stok gibi kritik hesaplarda karar özetli premium araçlar sunar.",
       "ctaPrimary": "Ücretsiz Sektör Hesaplayıcılarını Aç",
       "ctaSecondary": "Premium Hesaplayıcıları İncele",
       "panelTitle": "Sektörel hesaplama alanları",
@@ -3049,13 +3049,13 @@
     "relatedFreeSection": "İlgili ücretsiz hesaplayıcılar",
     "openCalculator": "Hesaplayıcıyı aç",
     "methodologyPreparing": "Metodoloji hazırlanıyor",
-  "searchPlaceholder": "Kredi, CNC, enerji, fire, maliyet, karbon...",
-  "searchLabel": "Premium araçlarda ara",
-  "clearSearch": "Temizle",
-  "allCategory": "Tümü",
-  "resultCount": "{count} premium araç listeleniyor",
-  "noResults": "Aramanızla eşleşen premium araç bulunamadı.",
-  "noResultsHint": "Kategori filtresini kaldırmayı veya daha genel bir kelime yazmayı deneyin."
+    "searchPlaceholder": "Kredi, CNC, enerji, fire, maliyet, karbon...",
+    "searchLabel": "Premium araçlarda ara",
+    "clearSearch": "Temizle",
+    "allCategory": "Tümü",
+    "resultCount": "{count} premium araç listeleniyor",
+    "noResults": "Aramanızla eşleşen premium araç bulunamadı.",
+    "noResultsHint": "Kategori filtresini kaldırmayı veya daha genel bir kelime yazmayı deneyin."
   },
   "schemaBreadcrumbs": {
     "home": "Ana sayfa",
@@ -8435,6 +8435,120 @@
       "title": "SectorCalc Semantic Tool Index",
       "body": "Public hesaplayıcı sözleşmeleri, giriş/çıkış parametreleri ve CalculateAction semantiği otomatik olarak bu vitrinde listelenir.",
       "count": "{count} public araç"
+    }
+  },
+  "tools": {
+    "3d-print-job-margin-tool": {
+      "title": "Route & Freight Loss Hesaplayıcı",
+      "description": "Route & Freight Loss Hesaplayıcı"
+    },
+    "auto-shop-margin-leak-detector": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "change-order-impact-analyzer": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "cnc-quote-risk-analyzer": {
+      "title": "Loan Payment Hesaplayıcı",
+      "description": "Loan Payment Hesaplayıcı"
+    },
+    "crop-yield-loss-analyzer": {
+      "title": "Route & Freight Loss Hesaplayıcı",
+      "description": "Route & Freight Loss Hesaplayıcı"
+    },
+    "dairy-profit-detector": {
+      "title": "Route & Freight Loss Hesaplayıcı",
+      "description": "Route & Freight Loss Hesaplayıcı"
+    },
+    "doviz-pozisyonu-kur-farki-riski-hesabi": {
+      "title": "Amper — Kilowatt (KW) Converter",
+      "description": "Amper — Kilowatt (KW) Converter"
+    },
+    "feed-efficiency-analyzer": {
+      "title": "Route & Freight Loss Hesaplayıcı",
+      "description": "Route & Freight Loss Hesaplayıcı"
+    },
+    "heat-loss-calculator": {
+      "title": "Age Hesaplayıcı",
+      "description": "Age Hesaplayıcı"
+    },
+    "hvac-project-margin-guard": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "landscaping-contract-profit-tool": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "material-waste-calculator": {
+      "title": "Age Hesaplayıcı",
+      "description": "Age Hesaplayıcı"
+    },
+    "meal-planning-verdict": {
+      "title": "Route & Freight Loss Hesaplayıcı",
+      "description": "Route & Freight Loss Hesaplayıcı"
+    },
+    "menu-profit-leak-detector": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "millwork-bid-risk-analyzer": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "office-cleaning-bid-optimizer": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "painting-job-profit-verdict": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "panel-shop-margin-verdict": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "plumbing-job-margin-verdict": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "profit-margin-calculator": {
+      "title": "Loan Payment Hesaplayıcı",
+      "description": "Loan Payment Hesaplayıcı"
+    },
+    "return-profit-erosion-tool": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "roofing-contract-margin-guard": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "route-optimization-analyzer": {
+      "title": "Route & Freight Loss Hesaplayıcı",
+      "description": "Route & Freight Loss Hesaplayıcı"
+    },
+    "scrap-rate-calculator": {
+      "title": "Age Hesaplayıcı",
+      "description": "Age Hesaplayıcı"
+    },
+    "sheet-metal-quote-risk-tool": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "signage-bid-safe-price-tool": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
+    },
+    "water-optimization-verdict": {
+      "title": "Route & Freight Loss Hesaplayıcı",
+      "description": "Route & Freight Loss Hesaplayıcı"
+    },
+    "welding-bid-risk-analyzer": {
+      "title": "Concrete / Project Cost Hesaplayıcı",
+      "description": "Concrete / Project Cost Hesaplayıcı"
     }
   }
 }

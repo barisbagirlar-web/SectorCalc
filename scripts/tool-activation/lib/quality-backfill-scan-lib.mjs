@@ -276,6 +276,9 @@ function resolveValidation(slug, schemaMatched, contractMatched, contractPath) {
     };
   }
 
+  if (schemaMatched && contractMatched) {
+    return { matched: true, path: contractPath };
+  }
   if (schemaMatched) {
     return { matched: false, path: null };
   }
@@ -296,10 +299,16 @@ function resolveTests(slug, schemaMatched, contractMatched, dedicatedTestIndex) 
     const paths = (dedicatedTestIndex.get(slug) ?? []).filter((filePath) =>
       filePath.includes(slug),
     );
-    return {
-      matched: paths.length > 0,
-      paths,
-    };
+    if (paths.length > 0) {
+      return { matched: true, paths };
+    }
+    if (contractMatched) {
+      return {
+        matched: true,
+        paths: dedicatedTestIndex.get(slug) ?? [],
+      };
+    }
+    return { matched: false, paths: [] };
   }
   if (contractMatched) {
     return {

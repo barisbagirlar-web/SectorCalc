@@ -56,6 +56,8 @@
     "workorders:quality-backfill": "node scripts/tool-activation/create-quality-workorders.mjs",
     "backfill:premium:generate": "node scripts/tool-activation/generate-premium-backfill.mjs",
     "backfill:premium:apply": "node scripts/tool-activation/apply-premium-backfill.mjs",
+    "backfill:premium-ui:generate": "node scripts/tool-activation/generate-premium-ui-i18n-backfill.mjs",
+    "backfill:premium-ui:apply": "node scripts/tool-activation/apply-premium-ui-i18n-backfill.mjs",
     "review:tool-activation": "node scripts/tool-activation/generate-activation-review.mjs",
     "apply:tool-activation": "node scripts/tool-activation/apply-activation-draft.mjs",
     "audit:tool-activation": "node scripts/audit-tool-activation-factory.mjs",
