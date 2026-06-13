@@ -24,7 +24,9 @@ import {
   listPremiumToolSeoLandingSlugs,
 } from "@/lib/seo/premium-tool-seo-landings";
 import { PremiumToolSeoLandingView } from "@/components/seo/PremiumToolSeoLanding";
+import { fillPremiumSeoTemplate } from "@/lib/seo/premium-tool-seo-context";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
+import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
 import { getTranslations } from "next-intl/server";
 
 export const dynamic = "force-static";
@@ -45,17 +47,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug, locale } = await params;
 
-  const premiumLanding = getPremiumToolSeoLandingBySlug(slug);
+  const premiumLanding = getPremiumToolSeoLandingBySlug(slug, locale);
   if (premiumLanding) {
     const t = await getTranslations({ locale, namespace: "premiumSeo" });
-    const localizedToolName = getLocalizedRevenueToolTitle(
-      premiumLanding.slug,
-      "paid",
-      locale,
-      premiumLanding.toolName,
-    );
+    const localizedToolName =
+      premiumLanding.source === "revenue"
+        ? getLocalizedRevenueToolTitle(
+            premiumLanding.slug,
+            "paid",
+            locale,
+            premiumLanding.toolName,
+          )
+        : (getLocalizedPremiumSchema(premiumLanding.slug, locale)?.title ??
+          premiumLanding.toolName);
+    const tokens = {
+      tool: localizedToolName,
+      ...premiumLanding.context,
+    };
     const fill = (key: string) =>
-      (t.raw(key) as string).replace(/\{tool\}/g, localizedToolName);
+      fillPremiumSeoTemplate(t.raw(key) as string, tokens);
     return createPageMetadata({
       title: fill("metaTitle"),
       description: fill("metaDescription"),
@@ -85,7 +95,7 @@ export default async function ProgrammaticSeoPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  const premiumLanding = getPremiumToolSeoLandingBySlug(slug);
+  const premiumLanding = getPremiumToolSeoLandingBySlug(slug, locale);
   if (premiumLanding) {
     return <PremiumToolSeoLandingView landing={premiumLanding} locale={locale} />;
   }

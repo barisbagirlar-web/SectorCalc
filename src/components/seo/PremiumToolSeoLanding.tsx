@@ -5,12 +5,17 @@ import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { DecisionToolLegalDisclaimer } from "@/components/tools/DecisionToolLegalDisclaimer";
 import { buildBreadcrumbJsonLd, type JsonLdRecord } from "@/lib/seo/schema-mesh";
+import { fillPremiumSeoTemplate } from "@/lib/seo/premium-tool-seo-context";
 import type { PremiumToolSeoLanding } from "@/lib/seo/premium-tool-seo-landings";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
+import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
 
 type FaqItem = { readonly q: string; readonly a: string };
 
 const SECTION_KEYS = [
+  "howTo",
+  "method",
+  "mistakes",
   "problem",
   "help",
   "who",
@@ -27,16 +32,22 @@ export async function PremiumToolSeoLandingView({
   locale: string;
 }) {
   const t = await getTranslations("premiumSeo");
-  const localizedToolName = getLocalizedRevenueToolTitle(
-    landing.slug,
-    "paid",
-    locale,
-    landing.toolName,
-  );
-  const fill = (key: string) => (t.raw(key) as string).replace(/\{tool\}/g, localizedToolName);
+  const localizedToolName =
+    landing.source === "revenue"
+      ? getLocalizedRevenueToolTitle(landing.slug, "paid", locale, landing.toolName)
+      : (getLocalizedPremiumSchema(landing.slug, locale)?.title ?? landing.toolName);
+
+  const tokens = {
+    tool: localizedToolName,
+    ...landing.context,
+  };
+
+  const fill = (key: string) =>
+    fillPremiumSeoTemplate(t.raw(key) as string, tokens);
+
   const faq = ((t.raw("faq") as FaqItem[]) ?? []).map((item) => ({
-    q: item.q.replace(/\{tool\}/g, localizedToolName),
-    a: item.a.replace(/\{tool\}/g, localizedToolName),
+    q: fillPremiumSeoTemplate(item.q, tokens),
+    a: fillPremiumSeoTemplate(item.a, tokens),
   }));
 
   const jsonLd: JsonLdRecord[] = [
@@ -45,7 +56,7 @@ export async function PremiumToolSeoLandingView({
         { name: "Home", path: "/" },
         { name: localizedToolName, path: landing.seoHref },
       ],
-      locale
+      locale,
     ),
   ];
   if (faq.length > 0) {

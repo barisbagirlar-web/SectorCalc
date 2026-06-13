@@ -2,13 +2,15 @@ import { describe, expect, test } from "vitest";
 import { listAuthorityGuideSlugs } from "@/lib/content/authority-guides";
 import { getActiveSitemapLocales, SITE_BASE_URL } from "@/lib/seo/global-seo-config";
 import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
+import { listPremiumToolSeoLandingSlugs } from "@/lib/seo/premium-tool-seo-landings";
+import { SEO_P2_FIRST_50 } from "@/lib/seo/seo-p2-first-50";
 import {
   buildAlternates,
   buildLocalizedPath,
   buildLocalizedUrl,
   getSitemapManifest,
 } from "@/lib/seo/sitemap-manifest";
-import { listFreeTrafficSlugs } from "@/lib/tools/free-traffic-catalog";
+import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 
 describe("premium auto sitemap manifest", () => {
@@ -21,8 +23,11 @@ describe("premium auto sitemap manifest", () => {
 
   test(">=100 free tool route içerir", () => {
     const freePaths = paths.filter((path) => path.startsWith("/tools/free/"));
+    const activeFreeCount = buildCategorizedToolIndex().filter(
+      (item) => item.publicStatus === "active" && item.tier === "free" && item.routePath,
+    ).length;
     expect(freePaths.length).toBeGreaterThanOrEqual(100);
-    expect(freePaths.length).toBeGreaterThanOrEqual(listFreeTrafficSlugs().length);
+    expect(freePaths.length).toBeGreaterThanOrEqual(activeFreeCount);
   });
 
   test(">=27 premium analyzer route içerir", () => {
@@ -34,6 +39,14 @@ describe("premium auto sitemap manifest", () => {
   test("SEO landing route içerir", () => {
     const seoSlugs = listProgrammaticSeoSlugs();
     for (const slug of seoSlugs) {
+      expect(paths).toContain(`/seo/${slug}`);
+    }
+  });
+
+  test("SEO-P2 first 50 premium tool landing routes in sitemap", () => {
+    expect(SEO_P2_FIRST_50.length).toBe(50);
+    expect(listPremiumToolSeoLandingSlugs().length).toBe(50);
+    for (const slug of listPremiumToolSeoLandingSlugs()) {
       expect(paths).toContain(`/seo/${slug}`);
     }
   });
