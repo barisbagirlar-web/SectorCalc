@@ -8,6 +8,11 @@ import {
   buildQualityScanReport,
 } from "./quality-backfill-scan-lib.mjs";
 import { QUALITY_BACKFILL_PLAN_PATH } from "./quality-backfill-plan-lib.mjs";
+import {
+  ensureFormulaSourceAudit,
+  getFormulaSourceAudit,
+  isFormulaSourceAutoEligible,
+} from "./formula-source-audit-lib.mjs";
 
 export const FACTORY_PLAN_PATH = path.join(
   QUALITY_DIR,
@@ -210,6 +215,7 @@ function ensureQualityInputs() {
 
 export function loadFactoryInputs() {
   ensureQualityInputs();
+  ensureFormulaSourceAudit();
   const scanReport = readJson(QUALITY_SCAN_REPORT_PATH);
   const plan = fs.existsSync(QUALITY_BACKFILL_PLAN_PATH)
     ? readJson(QUALITY_BACKFILL_PLAN_PATH)
@@ -499,12 +505,38 @@ export function evaluateToolEligibility(tool, schema, formulaRegistryIds, option
     }
   }
 
+  const formulaSourceAudit = getFormulaSourceAudit(tool.slug);
+  if (!formulaSourceAudit) {
+    return {
+      eligible: false,
+      bucket: "humanReview",
+      reason: "Formula source audit missing",
+    };
+  }
+
+  if (!isFormulaSourceAutoEligible(tool.slug)) {
+    if (formulaSourceAudit.decision === "QUARANTINE") {
+      return {
+        eligible: false,
+        bucket: "skipped",
+        reason: `Formula source quarantine: ${formulaSourceAudit.reason}`,
+      };
+    }
+    return {
+      eligible: false,
+      bucket: "humanReview",
+      reason: `Formula source audit: ${formulaSourceAudit.reason}`,
+      formulaSourceDecision: formulaSourceAudit.decision,
+    };
+  }
+
   return {
     eligible: true,
     bucket: "eligible",
     reason: "AUTO_ELIGIBLE",
     risks,
     schema,
+    formulaSourceAudit,
   };
 }
 

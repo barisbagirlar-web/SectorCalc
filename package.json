@@ -51,6 +51,7 @@
     "audit:ai-repair": "node scripts/audit-ai-repair-layer.mjs",
     "audit:customer-ai": "node scripts/audit-customer-ai-gateway.mjs",
     "scan:tool-activation": "node scripts/tool-activation/scan-tools-for-activation.mjs",
+    "audit:premium-formula-sources": "node scripts/tool-activation/audit-premium-formula-sources.mjs",
     "scan:quality-backfill": "node scripts/tool-activation/scan-quality-backfill.mjs",
     "plan:quality-backfill": "node scripts/tool-activation/plan-quality-backfill.mjs",
     "workorders:quality-backfill": "node scripts/tool-activation/create-quality-workorders.mjs",

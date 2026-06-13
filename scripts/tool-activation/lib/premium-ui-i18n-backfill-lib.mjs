@@ -7,6 +7,11 @@ import {
   QUALITY_SCAN_REPORT_PATH,
   buildQualityScanReport,
 } from "./quality-backfill-scan-lib.mjs";
+import {
+  ensureFormulaSourceAudit,
+  getFormulaSourceAudit,
+  isFormulaSourceClearForUiBackfill,
+} from "./formula-source-audit-lib.mjs";
 
 export const UI_I18N_PLAN_PATH = path.join(
   QUALITY_DIR,
@@ -151,6 +156,7 @@ function ensureQualityScan() {
     fs.mkdirSync(path.dirname(QUALITY_SCAN_REPORT_PATH), { recursive: true });
     fs.writeFileSync(QUALITY_SCAN_REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`, "utf8");
   }
+  ensureFormulaSourceAudit();
 }
 
 function matchRiskExclusion(slug) {
@@ -374,11 +380,31 @@ export function evaluateUiI18nEligibility(tool, options = {}) {
     };
   }
 
+  const formulaSourceSlug = tool.hasSchema ? tool.slug : sourceSchemaId;
+  const formulaSourceAudit = getFormulaSourceAudit(formulaSourceSlug);
+  if (!formulaSourceAudit) {
+    return {
+      eligible: false,
+      bucket: "humanReview",
+      reason: "Formula source audit missing",
+    };
+  }
+
+  if (!isFormulaSourceClearForUiBackfill(formulaSourceSlug)) {
+    return {
+      eligible: false,
+      bucket: "humanReview",
+      reason: `Formula source unclear: ${formulaSourceAudit.reason}`,
+      formulaSourceDecision: formulaSourceAudit.decision,
+    };
+  }
+
   return {
     eligible: true,
     bucket: "eligible",
     reason: "UI_I18N_ELIGIBLE",
     sourceSchemaId,
+    formulaSourceAudit,
   };
 }
 
