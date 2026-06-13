@@ -13,12 +13,16 @@ type GuidanceContextValue = {
 const GuidanceContext = createContext<GuidanceContextValue | null>(null);
 
 export type GuidanceProviderProps = {
-  readonly resolvedGraphic: ResolvedReferenceGraphic;
+  readonly resolvedGraphic?: ResolvedReferenceGraphic | null;
   readonly fieldLabels?: Readonly<Record<string, string>>;
   readonly children: ReactNode;
 };
 
-export function GuidanceProvider({ resolvedGraphic, fieldLabels = {}, children }: GuidanceProviderProps) {
+export function GuidanceProvider({
+  resolvedGraphic = null,
+  fieldLabels = {},
+  children,
+}: GuidanceProviderProps) {
   const [activeFieldKey, setActiveFieldKey] = useState<string | null>(null);
   const value = useMemo(
     () => ({ activeFieldKey, setActiveFieldKey, resolvedGraphic, fieldLabels }),

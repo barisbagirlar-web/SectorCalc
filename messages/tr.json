@@ -8317,6 +8317,38 @@
     "premiumToolsLabel": "Premium hesap makineleri",
     "industriesLabel": "Sektör merkezleri"
   },
+  "inputGuide": {
+    "shape": {
+      "title": "Girdi rehberi",
+      "description": "Bu rehber, ölçü alanlarının fiziksel nesne üzerindeki karşılığını gösterir."
+    },
+    "costBreakdown": {
+      "description": "Bu rehber, maliyet sürücülerinin teklif fiyatı ve güvenli marj üzerindeki etkisini görsel olarak eşleştirir."
+    },
+    "processFlow": {
+      "description": "Bu rehber, operasyonel girdilerin süreç kaybına ve parasal etkiye nasıl dönüştüğünü gösterir."
+    },
+    "quoteRisk": {
+      "description": "Bu rehber, makine süresi, OEE sürücüleri ve teklif girdilerini minimum güvenli fiyat riskine bağlar."
+    },
+    "tools": {
+      "cncQuoteRisk": {
+        "title": "CNC teklif ve OEE girdi haritası"
+      },
+      "changeOrder": {
+        "title": "Değişiklik emri maliyet yığını"
+      },
+      "officeCleaning": {
+        "title": "Temizlik teklifi maliyet sürücüleri"
+      },
+      "routeOptimization": {
+        "title": "Rota ve navlun kaybı akışı"
+      },
+      "compressorLeak": {
+        "title": "Kompresör kaçağı enerji akışı"
+      }
+    }
+  },
   "guidance": {
     "inputGuide": {
       "title": "Girdi rehberi",

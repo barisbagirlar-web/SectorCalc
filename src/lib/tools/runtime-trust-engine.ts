@@ -10,15 +10,20 @@ import {
   mergeRuntimeHealthWithDecision,
   readRuntimeToolHealth,
 } from "@/lib/tools/runtime-health-store";
+import { applyErt1PaymentSurfacePolicy } from "@/lib/tools/runtime-trust-eligibility-calibration";
 import { normalizeLocale } from "@/lib/format/localization";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
+import { collectInputGuideTrustFindings } from "@/lib/tool-guides/input-guide-policy";
 
 export type RuntimeTrustStatus = "ready" | "review" | "blocked";
 
 export type RuntimeTrustFinding =
   | RuntimeReadinessFinding
   | "payment_not_safe"
-  | "formula_gate_not_safe";
+  | "formula_gate_not_safe"
+  | "bad_input_guide"
+  | "generic_input_guide"
+  | "input_guide_mapping_mismatch";
 
 export type RuntimeTrustRecommendedAction =
   | "allow"
@@ -66,7 +71,9 @@ function deriveRecommendedAction(
   if (
     decision.findings.includes("audit_status_not_pass") ||
     decision.findings.includes("mixed_locale_labels") ||
-    decision.findings.includes("generic_input_labels")
+    decision.findings.includes("generic_input_labels") ||
+    decision.findings.includes("generic_input_guide") ||
+    decision.findings.includes("bad_input_guide")
   ) {
     return "manual_review";
   }
@@ -88,6 +95,21 @@ function applyTrustPolicy(
 
   const findings: RuntimeTrustFinding[] = [...readiness.findings];
   let status: RuntimeTrustStatus = readiness.status;
+
+  for (const guideFinding of collectInputGuideTrustFindings(slug)) {
+    if (!findings.includes(guideFinding)) {
+      findings.push(guideFinding);
+    }
+    if (
+      guideFinding === "generic_input_guide" ||
+      guideFinding === "bad_input_guide" ||
+      guideFinding === "input_guide_mapping_mismatch"
+    ) {
+      if (status === "ready") {
+        status = "review";
+      }
+    }
+  }
 
   if (!isP24TrustPassForSlug(slug) && !findings.includes("audit_status_not_pass")) {
     findings.push("audit_status_not_pass");
@@ -166,7 +188,7 @@ export function evaluateRuntimeTrust(input: RuntimeTrustInput): RuntimeTrustDeci
       : decision;
 
   const merged = mergeRuntimeHealthWithDecision(withRoute, readRuntimeToolHealth(healthSlug));
-  return applyHardReviewOverride(merged);
+  return applyErt1PaymentSurfacePolicy(applyHardReviewOverride(merged));
 }
 
 export function isFormulaGateTrustEligible(

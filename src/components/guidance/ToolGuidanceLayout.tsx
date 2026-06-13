@@ -3,9 +3,9 @@
 import { useMemo, type ReactNode } from "react";
 import { useLocale } from "next-intl";
 import { GuidanceProvider } from "@/components/guidance/GuidanceContext";
-import { ReferenceGraphicCard } from "@/components/guidance/ReferenceGraphicCard";
+import { PremiumInputGuide } from "@/components/tool-guides/PremiumInputGuide";
 import type { AppLocale } from "@/i18n/routing";
-import { resolveReferenceGraphic } from "@/lib/guidance/reference-graphic-resolver";
+import { shouldRenderInputGuide } from "@/lib/tool-guides/input-guide-policy";
 import type {
   GuidanceTier,
   ReferenceGraphicField,
@@ -23,27 +23,16 @@ export type ToolGuidanceLayoutProps = {
 
 export function ToolGuidanceLayout({
   toolSlug,
-  tier,
   fields,
-  toolTitle,
-  toolCategory,
-  toolSector,
   children,
 }: ToolGuidanceLayoutProps) {
   const locale = useLocale() as AppLocale;
 
-  const resolvedGraphic = useMemo(
-    () =>
-      resolveReferenceGraphic({
-        locale,
-        toolSlug,
-        tier,
-        fields,
-        toolTitle,
-        toolCategory,
-        toolSector,
-      }),
-    [locale, toolSlug, tier, fields, toolTitle, toolCategory, toolSector],
+  const formInputKeys = useMemo(() => fields.map((field) => field.key), [fields]);
+
+  const showGuide = useMemo(
+    () => shouldRenderInputGuide(toolSlug, formInputKeys),
+    [toolSlug, formInputKeys],
   );
 
   const fieldLabels = useMemo(() => {
@@ -57,17 +46,27 @@ export function ToolGuidanceLayout({
   }, [fields]);
 
   return (
-    <GuidanceProvider resolvedGraphic={resolvedGraphic} fieldLabels={fieldLabels}>
-      <div className="grg-layout" data-tool-guidance-layout="true">
-        <div className="grg-layout__mobile-guide">
-          <ReferenceGraphicCard />
-        </div>
-        <div className="grg-layout__body">
+    <GuidanceProvider fieldLabels={fieldLabels}>
+      <div
+        className="grg-layout"
+        data-tool-guidance-layout="true"
+        data-has-input-guide={showGuide ? "true" : "false"}
+      >
+        {showGuide ? (
+          <>
+            <div className="grg-layout__mobile-guide">
+              <PremiumInputGuide slug={toolSlug} locale={locale} formInputKeys={formInputKeys} />
+            </div>
+            <div className="grg-layout__body">
+              <div className="grg-layout__form">{children}</div>
+              <div className="grg-layout__desktop-guide">
+                <PremiumInputGuide slug={toolSlug} locale={locale} formInputKeys={formInputKeys} />
+              </div>
+            </div>
+          </>
+        ) : (
           <div className="grg-layout__form">{children}</div>
-          <div className="grg-layout__desktop-guide">
-            <ReferenceGraphicCard />
-          </div>
-        </div>
+        )}
       </div>
     </GuidanceProvider>
   );

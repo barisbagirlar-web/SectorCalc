@@ -7844,6 +7844,38 @@
     "premiumToolsLabel": "Premium calculators",
     "industriesLabel": "Industry hubs"
   },
+  "inputGuide": {
+    "shape": {
+      "title": "Input guide",
+      "description": "This guide maps measurement fields to their physical counterpart on the object."
+    },
+    "costBreakdown": {
+      "description": "This guide visually maps cost drivers to quote price and safe margin impact."
+    },
+    "processFlow": {
+      "description": "This guide shows how operational inputs convert into process loss and monetary impact."
+    },
+    "quoteRisk": {
+      "description": "This guide links machine time, OEE drivers and quote inputs to minimum safe price risk."
+    },
+    "tools": {
+      "cncQuoteRisk": {
+        "title": "CNC quote & OEE input map"
+      },
+      "changeOrder": {
+        "title": "Change order cost stack"
+      },
+      "officeCleaning": {
+        "title": "Cleaning bid cost drivers"
+      },
+      "routeOptimization": {
+        "title": "Route & freight loss flow"
+      },
+      "compressorLeak": {
+        "title": "Compressor leak energy flow"
+      }
+    }
+  },
   "guidance": {
     "inputGuide": {
       "title": "Input guide",

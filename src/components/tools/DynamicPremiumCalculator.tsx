@@ -50,7 +50,6 @@ import {
 import { formatPremiumValue } from "@/lib/premium-schema/format-premium-result";
 import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
 import { resolveSevenMudaRev5Labels } from "@/lib/i18n/seven-muda-rev5-labels";
-import { ShapeDimensionGuide } from "@/components/tool-guides/ShapeDimensionGuide";
 import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 
@@ -405,9 +404,6 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                   </button>
                 </div>
               </form>
-            </div>
-            <div className="order-2 min-w-0 lg:order-1">
-              <ShapeDimensionGuide slug={schema.id} locale={locale} />
             </div>
           </div>
         }

@@ -54,6 +54,7 @@
     "audit:premium-formula-sources": "node scripts/tool-activation/audit-premium-formula-sources.mjs",
     "audit:formula-registry": "node scripts/tool-activation/generate-formula-source-audit-registry.mjs",
     "audit:shape-guides": "node scripts/tool-activation/audit-shape-dimension-guides.mjs",
+    "audit:input-guides": "node scripts/tool-activation/audit-input-guides.mjs",
     "audit:public-build-traces": "node scripts/tool-activation/audit-public-build-traces.mjs",
     "audit:runtime-trust-engine": "node scripts/tool-activation/audit-runtime-trust-engine.mjs",
     "audit:p24-tool-quality": "node scripts/tool-activation/audit-p24-tool-quality.mjs",
