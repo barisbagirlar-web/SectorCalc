@@ -13,19 +13,43 @@ import {
 } from "@/lib/tools/runtime-trust-engine";
 
 describe("runtime trust engine", () => {
-  test("ready tool with explicit P2.4 PASS can be trust eligible", () => {
+  test("ready free tool is calculation eligible but never payment eligible (ERT-1)", () => {
+    const result = evaluateRuntimeTrust({
+      slug: "desi-calculator",
+      locale: "en",
+      surface: "free",
+    });
+    expect(result.tier).toBe("free");
+    expect(result.status).toBe("ready");
+    expect(result.calculationEligible).toBe(true);
+    expect(result.paymentEligible).toBe(false);
+    expect(result.formulaGateEligible).toBe(false);
+  });
+
+  test("funnel premium route with P2.4 PASS can be payment eligible", () => {
+    const result = evaluateRuntimeTrust({
+      slug: "lawn-care-cost-check",
+      locale: "en",
+      surface: "premium",
+    });
+    expect(result.tier).toBe("premium");
+    if (result.status === "ready" && !result.findings.includes("audit_status_not_pass")) {
+      expect(result.paymentEligible).toBe(true);
+      expect(result.formulaGateEligible).toBe(true);
+    }
+  });
+
+  test("ready tool with explicit P2.4 PASS on free tier is not payment eligible", () => {
     const result = evaluateRuntimeTrust({
       slug: "desi-calculator",
       locale: "en",
       surface: "premium",
     });
     expect(result.findings).not.toContain("missing_form_schema");
-    if (result.status === "ready" && result.findings.length === 0) {
-      expect(result.formulaGateEligible).toBe(true);
-      expect(result.paymentEligible).toBe(true);
+    expect(result.paymentEligible).toBe(false);
+    expect(result.formulaGateEligible).toBe(false);
+    if (result.status === "ready") {
       expect(result.calculationEligible).toBe(true);
-    } else {
-      expect(result.formulaGateEligible).toBe(false);
     }
   });
 

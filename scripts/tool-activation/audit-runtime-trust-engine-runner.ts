@@ -33,17 +33,31 @@ function loadP24Maps(): { nonPass: Record<string, string>; explicitPass: string[
     tools?: Array<{ slug: string; verdict: string }>;
     items?: Array<{ slug: string; verdict: string }>;
   };
-  const nonPass: Record<string, string> = {};
-  const explicitPass: string[] = [];
+  const verdictRank: Record<string, number> = {
+    PASS: 0,
+    WARN: 1,
+    QUARANTINE: 2,
+    FAIL: 3,
+  };
+  const mergedVerdicts: Record<string, string> = {};
   const rows = report.tools ?? report.items ?? [];
   for (const item of rows) {
     if (!item.verdict) {
       continue;
     }
-    if (item.verdict === "PASS") {
-      explicitPass.push(item.slug);
+    const current = mergedVerdicts[item.slug];
+    if (!current || verdictRank[item.verdict] > verdictRank[current]) {
+      mergedVerdicts[item.slug] = item.verdict;
+    }
+  }
+
+  const nonPass: Record<string, string> = {};
+  const explicitPass: string[] = [];
+  for (const [slug, verdict] of Object.entries(mergedVerdicts)) {
+    if (verdict === "PASS") {
+      explicitPass.push(slug);
     } else {
-      nonPass[item.slug] = item.verdict;
+      nonPass[slug] = verdict;
     }
   }
   return { nonPass, explicitPass: explicitPass.sort((a, b) => a.localeCompare(b)) };

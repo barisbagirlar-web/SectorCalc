@@ -62,6 +62,26 @@ describe("runtime readiness", () => {
     expect(result.formulaGateEligible).toBe(false);
   });
 
+  test("full-loop free tool with P2.4 PASS can be ready", () => {
+    const result = evaluateRuntimeReadiness({
+      slug: "cleaning-cost-calculator",
+      locale: "en",
+      surface: "free",
+    });
+    expect(result.findings).not.toContain("missing_result_renderer");
+    expect(result.findings).not.toContain("missing_validation");
+  });
+
+  test("funnel premium route resolves validation and renderer", () => {
+    const result = evaluateRuntimeReadiness({
+      slug: "lawn-care-cost-check",
+      locale: "en",
+      surface: "premium",
+    });
+    expect(result.findings).not.toContain("missing_validation");
+    expect(result.findings).not.toContain("missing_result_renderer");
+  });
+
   test("problem slug is not payment eligible under P2.4 WARN", () => {
     const result = evaluateRuntimeReadiness({
       slug: "abonelik-yazilim-cloud-yillik-maliyet-hesabi",

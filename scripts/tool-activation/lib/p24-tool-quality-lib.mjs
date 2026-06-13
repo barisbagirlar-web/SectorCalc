@@ -355,6 +355,32 @@ function buildLocalePremiumKeys() {
   return byLocale;
 }
 
+function loadPremiumSchemaSlugMap() {
+  const content = readText("src/lib/premium-schema/schema-registry.ts");
+  if (!content) {
+    return {};
+  }
+
+  const blockMatch = content.match(
+    /PREMIUM_SCHEMA_SLUG_MAP[^=]*=\s*\{([\s\S]*?)\}\s*(?:as const|satisfies|;)/,
+  );
+  if (!blockMatch) {
+    return {};
+  }
+
+  /** @type {Record<string, string>} */
+  const map = {};
+  for (const match of blockMatch[1].matchAll(/"([^"]+)":\s*"([^"]+)"/g)) {
+    map[match[1]] = match[2];
+  }
+  return map;
+}
+
+function resolveValidationSlug(slug) {
+  const map = loadPremiumSchemaSlugMap();
+  return map[slug] ?? slug;
+}
+
 function buildValidationIndex() {
   /** @type {Set<string>} */
   const slugs = new Set();
@@ -374,16 +400,31 @@ function buildValidationIndex() {
     }
     slugs.add(match[1]);
   }
+
+  for (const [paidSlug, schemaId] of Object.entries(loadPremiumSchemaSlugMap())) {
+    if (slugs.has(schemaId)) {
+      slugs.add(paidSlug);
+    }
+  }
+
   return slugs;
 }
 
 function resolveValidationFile(slug) {
-  const direct = `src/lib/premium-schema/calculators/${slug}-validation.ts`;
-  if (readText(direct)) return direct;
+  const canonical = resolveValidationSlug(slug);
+  const candidates = [
+    `src/lib/premium-schema/calculators/${canonical}-validation.ts`,
+    `src/lib/premium-schema/calculators/${slug}-validation.ts`,
+  ];
+  for (const relativePath of candidates) {
+    if (readText(relativePath)) {
+      return relativePath;
+    }
+  }
   if (slug === "7-israf-muda-avcisi-parasal-karsilik-calculator") {
     return "src/lib/premium-schema/calculators/seven-muda-waste-validation.ts";
   }
-  return direct;
+  return candidates[0];
 }
 
 function readValidationInputKeys(slug) {

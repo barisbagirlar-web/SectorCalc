@@ -1,5 +1,9 @@
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import {
+  isFreeFullLoopRuntimeSlug,
+  resolveFullLoopContractSlug,
+} from "@/lib/formula-governance/runtime-validation/full-loop-runtime-registry";
+import {
   localizeFreeTrafficToolInputs,
   localizeRevenueToolInputs,
 } from "@/lib/i18n/free-tool-form-i18n";
@@ -167,27 +171,64 @@ function isMixedLocaleLabel(label: string, locale: SupportedLocale): boolean {
   return hasTurkish && hasEnglish;
 }
 
-function hasValidationPath(slug: string, tier: RuntimeToolTier): boolean {
-  const contract = getFormulaContractBySlug(slug);
-  if (!contract) {
-    return false;
-  }
-  if (tier === "free" && hasDedicatedTrafficCalculator(slug)) {
+function hasFormulaContract(slug: string): boolean {
+  if (getFormulaContractBySlug(slug)) {
     return true;
   }
-  if (tier === "premium" || tier === "premium-schema") {
-    return Boolean(getPremiumSchemaForPaidSlug(slug) || getRevenueToolByPaidSlug(slug));
+  const aliasSlug = resolveFullLoopContractSlug(slug);
+  return aliasSlug !== slug && Boolean(getFormulaContractBySlug(aliasSlug));
+}
+
+function hasValidationPath(slug: string, tier: RuntimeToolTier): boolean {
+  if (!hasFormulaContract(slug)) {
+    return false;
   }
-  return Boolean(contract.requiredInputs?.length);
+
+  if (tier === "free") {
+    if (hasDedicatedTrafficCalculator(slug)) {
+      return true;
+    }
+    if (isFreeFullLoopRuntimeSlug(slug)) {
+      return true;
+    }
+    if (getRevenueToolByFreeSlug(slug)) {
+      return true;
+    }
+  }
+
+  if (tier === "premium" || tier === "premium-schema") {
+    if (getPremiumSchemaForPaidSlug(slug)) {
+      return true;
+    }
+    if (getRevenueToolByPremiumRouteSlug(slug)) {
+      return true;
+    }
+    if (getRevenueToolByPaidSlug(slug)) {
+      return true;
+    }
+  }
+
+  const contract = getFormulaContractBySlug(slug) ?? getFormulaContractBySlug(resolveFullLoopContractSlug(slug));
+  return Boolean(contract?.requiredInputs?.length);
 }
 
 function hasResultRenderer(slug: string, tier: RuntimeToolTier): boolean {
   if (tier === "free") {
-    return hasDedicatedTrafficCalculator(slug);
+    return (
+      hasDedicatedTrafficCalculator(slug) ||
+      isFreeFullLoopRuntimeSlug(slug) ||
+      Boolean(getRevenueToolByFreeSlug(slug))
+    );
   }
+
   if (tier === "premium" || tier === "premium-schema") {
-    return Boolean(getRevenueToolByPaidSlug(slug) || getPremiumSchemaForPaidSlug(slug));
+    return Boolean(
+      getPremiumSchemaForPaidSlug(slug) ||
+        getRevenueToolByPremiumRouteSlug(slug) ||
+        getRevenueToolByPaidSlug(slug),
+    );
   }
+
   return false;
 }
 
@@ -245,7 +286,7 @@ export function evaluateRuntimeReadiness(input: RuntimeReadinessInput): RuntimeR
     }
   }
 
-  if (!getFormulaContractBySlug(slug)) {
+  if (!hasFormulaContract(slug)) {
     findings.push("missing_formula_contract");
   }
 

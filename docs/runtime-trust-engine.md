@@ -78,7 +78,29 @@ Types for future Firestore / crawler integration:
 
 **Rule:** If health store says `review` or `blocked`, final decision is forced safe even if local evaluation says ready.
 
-ERT-0: in-memory only. Firestore writes → ERT-1.
+ERT-0: in-memory only. Firestore writes → ERT-2.
+
+## ERT-1 — Revenue recovery calibration
+
+Module: `src/lib/tools/runtime-trust-eligibility-calibration.ts`
+
+| Rule | Behavior |
+|------|----------|
+| Free tier | `calculationEligible` when readiness `ready`; **never** `paymentEligible` or Formula Gate |
+| Premium / premium-schema | Full trust policy when P2.4 **PASS** + readiness `ready` |
+| P2.4 WARN / FAIL / QUARANTINE | No payment (strict) |
+| Funnel premium routes | `lawn-care-cost-check`, `print-job-cost-check` resolve validation/renderer via `getRevenueToolByPremiumRouteSlug` |
+| Full-loop free tools | Result renderer + validation via `FREE_FULL_LOOP_RUNTIME_SLUGS` |
+| P2.4 verdict merge | Worst verdict wins when duplicate slug rows exist (legacy + premium-schema) |
+
+Re-run after calibration:
+
+```bash
+node scripts/tool-activation/audit-p24-tool-quality.mjs
+node scripts/tool-activation/audit-runtime-trust-engine.mjs
+```
+
+P9 gate: ≥10 premium routes with `paymentEligible=true` requires P2.4 **PASS** on premium-schema rows (locale/scenario WARN cleanup) — not WARN bypass.
 
 ## Live crawler
 
