@@ -1,6 +1,6 @@
 # P5B — DeepSeek Full Tool Scan + Premium Readiness
 
-Generated: 2026-06-13T22:18:29.261Z
+Generated: 2026-06-13T22:19:28.489Z
 
 ## Summary
 
@@ -51,31 +51,31 @@ Generated: 2026-06-13T22:18:29.261Z
 
 ## First 25 priority tools
 
-- **restoran-tabak-maliyeti-ve-porsiyon-optimizasyon-calculator** (category_only_quarantine) — route_wiring
-- **saas-lisans-kullanim-ve-shelfware-maliyet-calculator** (category_only_quarantine) — route_wiring
-- **sac-metal-bukum-geri-esneme-springback-telafi-calculator** (category_only_quarantine) — route_wiring
-- **sac-metal-fire-nesting-optimizasyon-calculator** (category_only_quarantine) — route_wiring
-- **santiye-mobilizasyon-demobilizasyon-gunluk-maliyet-calculator** (category_only_quarantine) — route_wiring
-- **satis-kanali-karlilik-karsilastirma-calculator** (category_only_quarantine) — route_wiring
-- **scope-1-2-3-emisyon-ve-surdurulebilirlik-raporlama-maliyet-calculator** (category_only_quarantine) — route_wiring
-- **su-tuketimi-ve-atik-su-aritma-maliyet-optimizasyon-calculator** (category_only_quarantine) — route_wiring
-- **taguchi-kalite-kayip-fonksiyonu-calculator** (category_only_quarantine) — route_wiring
-- **takim-tutucu-ve-baglama-aparati-setup-suresi-calculator** (category_only_quarantine) — route_wiring
-- **takt-time-esnek-is-gucu-dalgalanma-maliyet-calculator** (category_only_quarantine) — route_wiring
-- **talas-geri-donusum-degeri-ve-fire-optimizasyon-calculator** (category_only_quarantine) — route_wiring
-- **talep-tahmin-hatasi-ve-stok-stok-yoklugu-maliyet-calculator** (category_only_quarantine) — route_wiring
-- **tasima-modu-toplam-maliyet-ve-risk-calculator** (category_only_quarantine) — route_wiring
-- **tedarikci-kur-lojistik-ve-jeopolitik-risk-karsilastirma-calculator** (category_only_quarantine) — route_wiring
-- **tedarikci-performans-skor-karti-ve-tco-calculator** (category_only_quarantine) — route_wiring
-- **temizlik-ve-hijyen-kimyasal-tuketim-optimizasyon-calculator** (category_only_quarantine) — route_wiring
-- **tesis-yerlesimi-ve-malzeme-akis-mesafe-optimizasyon-calculator** (category_only_quarantine) — route_wiring
-- **tezgah-titresim-chatter-ve-yuzey-kalitesi-kayip-maliyet-calculator** (category_only_quarantine) — route_wiring
-- **return-rate-profit-erosion-tool** (premium_schema_fail_manual) — manual_review
+- **heat-loss-calculator** (premium_schema_fail_manual) — auto_repair
+- **textile-fabric-waste-risk** (guide_oracle_missing) — auto_repair
 - **cnc-takim-yolu-bos-kesim-suresi-calculator** (category_only_quarantine) — route_wiring
 - **cobot-vs-manuel-iscilik-karsilastirma-calculator** (category_only_quarantine) — route_wiring
 - **cok-ulke-veri-gizlilik-uyum-ve-ceza-riski-calculator** (category_only_quarantine) — route_wiring
 - **cpk-ppk-hata-maliyeti-ppm-calculator** (category_only_quarantine) — route_wiring
 - **degisim-changeover-matrisi-ve-sekans-optimizasyon-calculator** (category_only_quarantine) — route_wiring
+- **depo-yerlesimi-ve-toplama-rotasi-optimizasyon-calculator** (category_only_quarantine) — route_wiring
+- **dijital-ikiz-vs-fiziksel-deneme-maliyet-calculator** (category_only_quarantine) — route_wiring
+- **dikim-hatti-dengeleme-ve-operasyon-suresi-calculator** (category_only_quarantine) — route_wiring
+- **dokum-yolluk-cikici-verim-ve-ergitme-enerji-kayip-calculator** (category_only_quarantine) — route_wiring
+- **dongusel-ekonomi-ve-urun-omru-uzatma-roi-calculator** (category_only_quarantine) — route_wiring
+- **dovme-ekstruzyon-proses-kuvvet-ve-pres-kapasite-calculator** (category_only_quarantine) — route_wiring
+- **egitim-yatirimi-ve-verimlilik-artisi-geri-donus-calculator** (category_only_quarantine) — route_wiring
+- **fiyat-artisi-ve-talep-esnekligi-karlilik-simulasyon-calculator** (category_only_quarantine) — route_wiring
+- **fty-rty-haddelenmis-verim-finansal-calculator** (category_only_quarantine) — route_wiring
+- **fx-hedging-stratejisi-forward-option-natural-maliyet-fayda-calculator** (category_only_quarantine) — route_wiring
+- **garanti-ve-iade-karsiligi-optimizasyon-calculator** (category_only_quarantine) — route_wiring
+- **gecici-isler-ve-santiye-tesisleri-kurulum-maliyet-calculator** (category_only_quarantine) — route_wiring
+- **gecis-grade-change-off-spec-ve-yikama-kayip-calculator** (category_only_quarantine) — route_wiring
+- **global-pazarlama-lokalizasyon-ve-odeme-maliyet-calculator** (category_only_quarantine) — route_wiring
+- **gurultu-ve-titresim-maruziyet-risk-maliyet-calculator** (category_only_quarantine) — route_wiring
+- **haccp-kritik-kontrol-noktasi-sapma-maliyet-calculator** (category_only_quarantine) — route_wiring
+- **hafriyat-ve-dolgu-dengesi-optimizasyon-calculator** (category_only_quarantine) — route_wiring
+- **kesir-ondalik-cevirici** (free_active_missing_backing) — manual_review
 
 ## First 10 low-risk auto repair candidates
 
