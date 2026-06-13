@@ -108,18 +108,18 @@ export const CNC_TOOL_WEAR_COST_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "totalExposure",
       label: "Total tool wear exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
-    { id: "toolCostPerPart", label: "Tool cost per part", unit: "$", format: "currency" },
+    { id: "toolCostPerPart", label: "Tool cost per part", unit: "USD", format: "currency" },
     {
       id: "toolChangeDowntimeCost",
       label: "Tool change downtime cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
-    { id: "coolantCost", label: "Coolant cost", unit: "$", format: "currency" },
+    { id: "coolantCost", label: "Coolant cost", unit: "USD", format: "currency" },
   ],
 
   thresholds: [

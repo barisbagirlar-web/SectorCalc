@@ -99,13 +99,13 @@ export const FOOD_WASTE_MARGIN_LOSS_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "wasteExposure",
       label: "Waste exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
       id: "excessWasteCost",
       label: "Excess waste cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },

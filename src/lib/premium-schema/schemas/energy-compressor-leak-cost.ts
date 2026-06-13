@@ -87,7 +87,7 @@ export const ENERGY_COMPRESSOR_LEAK_COST_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "monthlyLeakCost",
       label: "Monthly leak cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
@@ -100,7 +100,7 @@ export const ENERGY_COMPRESSOR_LEAK_COST_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "annualLeakCost",
       label: "Annual leak cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
   ],

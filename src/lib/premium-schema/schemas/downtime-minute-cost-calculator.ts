@@ -82,20 +82,20 @@ export const DOWNTIME_MINUTE_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "totalExposure",
       label: "Total downtime exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
     {
       id: "downtimeCost",
       label: "Shop rate downtime cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
       id: "outputLossValue",
       label: "Output loss value",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
   ],

@@ -89,12 +89,12 @@ export const WAREHOUSE_SPACE_COST_LEAK_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "totalExposure",
       label: "Total space cost leak",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
-    { id: "unusedSpaceCost", label: "Unused space cost", unit: "$", format: "currency" },
-    { id: "handlingOverrunCost", label: "Handling overrun cost", unit: "$", format: "currency" },
+    { id: "unusedSpaceCost", label: "Unused space cost", unit: "USD", format: "currency" },
+    { id: "handlingOverrunCost", label: "Handling overrun cost", unit: "USD", format: "currency" },
   ],
 
   thresholds: [

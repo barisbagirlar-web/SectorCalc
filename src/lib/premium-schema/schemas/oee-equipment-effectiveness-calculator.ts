@@ -105,7 +105,7 @@ export const OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_SCHEMA: PremiumCalculatorSch
     {
       id: "availabilityLossCost",
       label: "Availability loss cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
   ],

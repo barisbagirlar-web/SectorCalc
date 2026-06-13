@@ -105,12 +105,12 @@ export const PRINTING_REPRINT_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "totalExposure",
       label: "Total reprint exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
-    { id: "reprintCost", label: "Reprint cost", unit: "$", format: "currency" },
-    { id: "revisionCost", label: "Revision cost", unit: "$", format: "currency" },
+    { id: "reprintCost", label: "Reprint cost", unit: "USD", format: "currency" },
+    { id: "revisionCost", label: "Revision cost", unit: "USD", format: "currency" },
     { id: "marginPressure", label: "Margin pressure", unit: "%", format: "percentage" },
   ],
 

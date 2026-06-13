@@ -14,7 +14,7 @@ export const CNC_OEE_LOSS_SCHEMA: PremiumCalculatorSchema = {
       id: "machineRate",
       label: "Machine rate",
       type: "number",
-      unit: "$/h",
+      unit: "USD/hour",
       required: true,
       smartDefault: 90,
       validation: { min: 0, step: 1 },

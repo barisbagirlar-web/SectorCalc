@@ -100,13 +100,13 @@ export const AUTO_REPAIR_COMEBACK_COST_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "totalExposure",
       label: "Total comeback exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
-    { id: "comebackCost", label: "Comeback cost", unit: "$", format: "currency" },
-    { id: "diagnosticLeak", label: "Diagnostic leak", unit: "$", format: "currency" },
-    { id: "partsHandlingCost", label: "Parts handling cost", unit: "$", format: "currency" },
+    { id: "comebackCost", label: "Comeback cost", unit: "USD", format: "currency" },
+    { id: "diagnosticLeak", label: "Diagnostic leak", unit: "USD", format: "currency" },
+    { id: "partsHandlingCost", label: "Parts handling cost", unit: "USD", format: "currency" },
   ],
 
   thresholds: [

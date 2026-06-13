@@ -81,14 +81,14 @@ export const COMPRESSOR_LEAK_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "annualLeakCost",
       label: "Annual leak cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
     {
       id: "monthlyLeakCost",
       label: "Monthly leak cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {

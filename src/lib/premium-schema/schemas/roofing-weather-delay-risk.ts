@@ -73,13 +73,13 @@ export const ROOFING_WEATHER_DELAY_RISK_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "totalExposure",
       label: "Total weather delay exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
-    { id: "delayCost", label: "Delay cost", unit: "$", format: "currency" },
-    { id: "dumpFees", label: "Dump fees", unit: "$", format: "currency" },
-    { id: "warrantyReserve", label: "Warranty reserve", unit: "$", format: "currency" },
+    { id: "delayCost", label: "Delay cost", unit: "USD", format: "currency" },
+    { id: "dumpFees", label: "Dump fees", unit: "USD", format: "currency" },
+    { id: "warrantyReserve", label: "Warranty reserve", unit: "USD", format: "currency" },
   ],
 
   thresholds: [

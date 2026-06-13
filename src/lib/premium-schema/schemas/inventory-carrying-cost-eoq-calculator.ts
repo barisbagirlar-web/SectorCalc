@@ -88,7 +88,7 @@ export const INVENTORY_CARRYING_COST_EOQ_CALCULATOR_SCHEMA: PremiumCalculatorSch
     {
       id: "annualCarryingCost",
       label: "Annual carrying cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
   ],

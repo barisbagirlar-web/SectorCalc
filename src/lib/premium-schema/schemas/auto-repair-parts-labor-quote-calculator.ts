@@ -98,20 +98,20 @@ export const AUTO_REPAIR_PARTS_LABOR_QUOTE_CALCULATOR_SCHEMA: PremiumCalculatorS
     {
       id: "quotePrice",
       label: "Customer quote price",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
     {
       id: "directSubtotal",
       label: "Direct subtotal",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
       id: "laborLineCost",
       label: "Labor line cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {

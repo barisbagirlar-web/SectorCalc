@@ -94,12 +94,12 @@ export const HVAC_CALLBACK_MARGIN_RISK_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "totalExposure",
       label: "Total callback exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
-    { id: "commissioningCost", label: "Commissioning cost", unit: "$", format: "currency" },
-    { id: "callbackRiskCost", label: "Callback risk cost", unit: "$", format: "currency" },
+    { id: "commissioningCost", label: "Commissioning cost", unit: "USD", format: "currency" },
+    { id: "callbackRiskCost", label: "Callback risk cost", unit: "USD", format: "currency" },
     { id: "marginPressure", label: "Margin pressure", unit: "%", format: "percentage" },
   ],
 

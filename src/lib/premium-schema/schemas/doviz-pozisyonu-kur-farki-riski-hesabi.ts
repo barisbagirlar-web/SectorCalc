@@ -99,20 +99,20 @@ export const DOVIZ_POZISYONU_KUR_FARKI_RISKI_HESABI_SCHEMA: PremiumCalculatorSch
     {
       id: "totalExposure",
       label: "Total route drift exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
     {
       id: "distanceDriftCost",
       label: "Distance drift cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
       id: "idleCost",
       label: "Idle cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
   ],

@@ -105,12 +105,12 @@ export const PAINTING_REWORK_COVERAGE_RISK_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "totalExposure",
       label: "Total painting rework exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
-    { id: "coverageDriftCost", label: "Coverage drift cost", unit: "$", format: "currency" },
-    { id: "prepReworkCost", label: "Prep rework cost", unit: "$", format: "currency" },
+    { id: "coverageDriftCost", label: "Coverage drift cost", unit: "USD", format: "currency" },
+    { id: "prepReworkCost", label: "Prep rework cost", unit: "USD", format: "currency" },
     { id: "marginPressure", label: "Margin pressure", unit: "%", format: "percentage" },
   ],
 

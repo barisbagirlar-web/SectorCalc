@@ -60,7 +60,7 @@ export const SHOP_RATE_HOURLY_COST_CALCULATOR_SCHEMA: PremiumCalculatorSchema = 
     {
       id: "hourlyRate",
       label: "Loaded hourly rate",
-      unit: "$/h",
+      unit: "USD/hour",
       format: "currency",
       isBigNumber: true,
     },

@@ -121,13 +121,13 @@ export const RESTAURANT_MENU_MARGIN_LEAK_SCHEMA: PremiumCalculatorSchema = {
     {
       id: "deliveryFeeCost",
       label: "Delivery fee cost",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
       id: "wasteExposure",
       label: "Waste exposure",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
   ],

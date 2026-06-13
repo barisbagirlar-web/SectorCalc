@@ -85,14 +85,14 @@ export const ENERGY_SAVINGS_PACKAGE_CALCULATOR_SCHEMA: PremiumCalculatorSchema =
     {
       id: "annualSavingsCost",
       label: "Annual savings",
-      unit: "$",
+      unit: "USD",
       format: "currency",
       isBigNumber: true,
     },
     {
       id: "monthlySavingsCost",
       label: "Monthly savings",
-      unit: "$",
+      unit: "USD",
       format: "currency",
     },
     {
