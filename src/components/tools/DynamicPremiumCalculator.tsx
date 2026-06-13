@@ -126,14 +126,16 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   const [values, setValues] = useState<SchemaInputValues>(() => buildDefaultSchemaInputs(schema));
   const [submitted, setSubmitted] = useState(false);
   const [mode, setMode] = useState<CalculatorExperienceMode>("quick");
+  const trustSlug = schema.legacyPaidSlug ?? schema.id;
   const runtimeTrust = useMemo(
     () =>
       evaluateRuntimeTrust({
-        slug: schema.id,
+        slug: trustSlug,
         locale,
         surface: "premium",
+        premiumSurfaceUsesFreeCopy: false,
       }),
-    [schema.id, locale],
+    [trustSlug, locale],
   );
   const showCalculationSurface = runtimeTrust.calculationEligible;
 
@@ -369,7 +371,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
 
   if (!showCalculationSurface) {
     return (
-      <ToolSafeReviewState slug={schema.id} locale={locale} findings={runtimeTrust.findings} />
+      <ToolSafeReviewState slug={trustSlug} locale={locale} findings={runtimeTrust.findings} />
     );
   }
 

@@ -23,7 +23,7 @@ export function FormulaSourceAuditBadge({ slug, locale, className, surface }: Pr
     slug,
     locale,
     surface: resolvedSurface,
-    premiumSurfaceUsesFreeCopy: resolvedSurface === "premium",
+    premiumSurfaceUsesFreeCopy: false,
   });
   const eligible = Boolean(status) && canShowFormulaGateApproved(decision);
 

@@ -18,7 +18,7 @@ export function FormulaGateToolStatus({ slug, locale, className, surface }: Prop
     slug,
     locale,
     surface: resolvedSurface,
-    premiumSurfaceUsesFreeCopy: resolvedSurface === "premium",
+    premiumSurfaceUsesFreeCopy: false,
   });
 
   if (canShowFormulaGateApproved(decision)) {
