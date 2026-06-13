@@ -2,10 +2,10 @@
 
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
-import { useUserSubscription } from "@/lib/billing/use-user-subscription";
 import type { FeedbackSnapshotValue, FeedbackToolType } from "@/lib/feedback/types";
 import type { VerificationIssueType } from "@/lib/feedback/feedback-types";
 import { VERIFICATION_ISSUE_TYPES, VERIFICATION_MESSAGE_MIN_LENGTH } from "@/lib/feedback/feedback-types";
+import type { ToolFeedbackTier } from "@/lib/notifications/tool-feedback-mail";
 
 type CalculationFeedbackModalProps = {
   readonly toolSlug: string;
@@ -18,18 +18,26 @@ type CalculationFeedbackModalProps = {
   readonly onClose: () => void;
 };
 
+function resolveToolTier(toolType: FeedbackToolType, routePath: string): ToolFeedbackTier {
+  if (routePath.includes("/premium-schema/")) {
+    return "premium-schema";
+  }
+  if (toolType === "free" || toolType === "premium") {
+    return toolType;
+  }
+  return "unknown";
+}
+
 export function CalculationFeedbackModal({
   toolSlug,
   toolType,
   locale,
   routePath,
-  region,
   inputSnapshot,
   resultSnapshot,
   onClose,
 }: CalculationFeedbackModalProps) {
   const t = useTranslations("calculationFeedback");
-  const { user } = useUserSubscription();
   const [issueType, setIssueType] = useState<VerificationIssueType>("wrong_result");
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
@@ -50,32 +58,36 @@ export function CalculationFeedbackModal({
     setError(null);
 
     try {
-      const response = await fetch("/api/verification-queue", {
+      const pageUrl =
+        typeof window !== "undefined" ? window.location.href : routePath;
+
+      const response = await fetch("/api/tool-feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           toolSlug,
+          toolTier: resolveToolTier(toolType, routePath),
           locale,
-          tier: toolType,
-          region,
+          pageUrl,
+          message: message.trim(),
+          email: email.trim() || undefined,
           issueType,
-          message,
-          email: email || undefined,
-          userId: user?.uid,
-          pageUrl: routePath,
           userAgent: typeof navigator !== "undefined" ? navigator.userAgent : undefined,
+          resultSnapshot: resultSnapshot ?? inputSnapshot,
           honeypot,
-          inputSnapshot,
-          resultSnapshot,
         }),
       });
 
-      if (!response.ok) {
+      const payload = (await response.json()) as { ok?: boolean };
+
+      if (!response.ok || !payload.ok) {
         setError(t("error.submitFailed"));
         setLoading(false);
         return;
       }
 
+      setMessage("");
+      setEmail("");
       setDone(true);
     } catch {
       setError(t("error.submitFailed"));
@@ -164,7 +176,7 @@ export function CalculationFeedbackModal({
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || done}
               className="min-h-[44px] w-full rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60 sm:w-auto"
             >
               {loading ? t("submitting") : t("submit")}
