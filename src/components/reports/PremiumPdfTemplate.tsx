@@ -281,7 +281,7 @@ export function PremiumPdfTemplate({ data }: PremiumPdfTemplateProps) {
  <Document>
  <Page size="A4" style={styles.page}>
  <View style={styles.headerBar}>
- <Text style={styles.brand}>SectorCalc Pro Decision Report</Text>
+ <Text style={styles.brand}>SectorCalc · Premium Decision Summary</Text>
  </View>
 
  <Text style={styles.title}>{data.toolTitle}</Text>
@@ -311,7 +311,7 @@ export function PremiumPdfTemplate({ data }: PremiumPdfTemplateProps) {
 
  <Page size="A4" style={styles.page}>
  <View style={styles.headerBar}>
- <Text style={styles.brand}>SectorCalc Pro Decision Report</Text>
+ <Text style={styles.brand}>SectorCalc · Premium Decision Summary</Text>
  </View>
 
  {data.inputs.length > 0 ? (

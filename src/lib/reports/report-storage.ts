@@ -9,7 +9,13 @@ import {
  where,
 } from "firebase/firestore";
 import { getFirestoreDb } from "@/lib/firebase/client";
-import { buildVerdictReportData, type VerdictReportData, type VerdictReportInput } from "@/lib/reports/verdict-report";
+import {
+ buildVerdictReportData,
+ PREMIUM_DECISION_SUMMARY_METHODOLOGY,
+ PREMIUM_DECISION_SUMMARY_USAGE_NOTE,
+ type VerdictReportData,
+ type VerdictReportInput,
+} from "@/lib/reports/verdict-report";
 import type { MargincorePdfSnapshot } from "@/lib/reports/premium-pdf-data";
 import type {
  PremiumSeverity,
@@ -364,5 +370,10 @@ export function savedReportToVerdictReportData(
  suggestedAction: report.result.suggestedAction,
  inputs: report.inputs,
  legalDisclaimer: report.legalDisclaimer,
+ assumptions: [],
+ scenarios: [],
+ validationNotes: ["Saved report replay — validation notes from original session not stored."],
+ methodologyNote: PREMIUM_DECISION_SUMMARY_METHODOLOGY,
+ usageNote: PREMIUM_DECISION_SUMMARY_USAGE_NOTE,
  };
 }

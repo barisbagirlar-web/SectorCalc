@@ -1,8 +1,10 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import { useCallback, useMemo, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
+import { VerdictPdfDocument } from "@/components/reports/VerdictPdfDocument";
 import { startCheckoutRedirect } from "@/lib/billing/start-checkout";
 import { trackConversionEvent } from "@/lib/analytics/conversion-funnel";
 import { useAttributionContext } from "@/lib/analytics/use-attribution-context";
@@ -13,6 +15,14 @@ import {
   serializePremiumReportCsv,
   type PremiumReportExportPayload,
 } from "@/lib/premium-schema/premium-report-export";
+import {
+  buildVerdictReportFileName,
+  mapPremiumReportExportToVerdictReportData,
+} from "@/lib/reports/verdict-report";
+import {
+  REVENUE_EVENTS,
+  trackRevenueEvent,
+} from "@/lib/analytics/revenue-events";
 
 export interface PremiumReportExportActionsProps {
   payload: PremiumReportExportPayload;
@@ -168,6 +178,12 @@ export function PremiumReportExportActions({
 
   const exportLocked = !entitlement.canExportPdf && !entitlement.canExportCsv;
 
+  const pdfExport = useMemo(
+    () => mapPremiumReportExportToVerdictReportData(payload),
+    [payload]
+  );
+  const pdfFileName = buildVerdictReportFileName(payload.schemaSlug, payload.generatedAt);
+
   return (
     <section className="sc-premium-decision-report__section sc-premium-decision-report__export">
       <h3 className="sc-premium-decision-report__heading">{t("title")}</h3>
@@ -201,10 +217,34 @@ export function PremiumReportExportActions({
         ) : (
           <>
             {entitlement.canExportPdf ? (
+              <PDFDownloadLink
+                document={
+                  <VerdictPdfDocument
+                    data={pdfExport.data}
+                    severity={pdfExport.severity}
+                  />
+                }
+                fileName={pdfFileName}
+                onClick={() =>
+                  trackRevenueEvent(REVENUE_EVENTS.verdict_pdf_downloaded, {
+                    slug: payload.schemaSlug,
+                  })
+                }
+                className="sc-ledger-cta-primary sc-premium-export-actions__btn inline-flex min-h-[44px] items-center justify-center"
+              >
+                {({ loading }) =>
+                  loading
+                    ? "Preparing PDF…"
+                    : "Download Premium Decision Summary PDF"
+                }
+              </PDFDownloadLink>
+            ) : null}
+
+            {entitlement.canExportPdf ? (
               <button
                 type="button"
                 onClick={handlePrint}
-                className="sc-ledger-cta-primary sc-premium-export-actions__btn min-h-[44px]"
+                className="sc-ledger-cta-secondary sc-premium-export-actions__btn min-h-[44px]"
               >
                 {t("printPdf")}
               </button>
