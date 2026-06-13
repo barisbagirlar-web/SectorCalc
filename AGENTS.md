@@ -4,6 +4,60 @@ Proje genel çalışma disiplini. Ana kaynak: bu dosya + `.cursor/rules/**/RULE.
 
 `.cursorrules` kullanma. Eski Cursor sürümünde gerekirse yalnızca yedek; birincil kaynak burasıdır.
 
+## DeepSeek Priority Lock
+
+SectorCalc görevlerinde DeepSeek API aktif ve tam kapsamlı kullanılacaktır.
+
+### Öncelik
+
+1. Tüm tool'ları ayağa kaldırmak
+2. P2.4 / ERT / Runtime Trust bulgularını toplu onarmak
+3. Input schema, validation, FormulaContract, result renderer, i18n, unit canonical, guide policy sorunlarını hızlı şekilde patchlemek
+4. PASS sayısını artırmak
+5. FAIL / WARN / QUARANTINE sayısını düşürmek
+6. P9/payment işlerini tool gövdesi güçlendikten sonra ele almak
+
+### Yasak
+
+- DeepSeek'i sadece pasif rapor motoru gibi kullanmak
+- Gereksiz küçük teorik planlarla zaman kaybetmek
+- "Önce bekleyelim" yaklaşımı
+- Fake PASS
+- WARN bypass
+- Sahte Formula Gate
+- Free tool payment açmak
+- Secret frontend'e koymak
+- Test edilmemiş patch commit etmek
+
+### Varsayılan çalışma şekli
+
+- DeepSeek destekli bulk audit
+- DeepSeek destekli bulk repair
+- Patch
+- lint / tsc / build
+- P2.4 audit
+- Runtime Trust audit
+- Revenue gate assert
+- Commit
+
+### P9/payment
+
+Tool recovery tamamlanana kadar ikinci önceliktir.
+
+### Çıktı formatı
+
+```txt
+SONUÇ
+ANALİZ
+UYARI
+ADIMLAR
+NİHAİ ÇIKTI
+```
+
+Komutlar, env, patch ve promptlar kopyalanabilir bloklar halinde verilecektir.
+
+---
+
 ## 1. Temel sıra
 
 Her görevde:
