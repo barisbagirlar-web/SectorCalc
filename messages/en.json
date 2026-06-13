@@ -7789,6 +7789,311 @@
         "placeholder": "Enter center distance",
         "helper": "Shaft center distance for open belt length."
       }
+    },
+    "change-order-impact-analyzer": {
+      "dailysitecost": {
+        "label": "Daily site cost",
+        "placeholder": "Enter daily site cost",
+        "helper": "Crew, equipment and overhead per day on site."
+      },
+      "delaydays": {
+        "label": "Delay days",
+        "placeholder": "Enter delay days",
+        "helper": "Expected schedule slip beyond baseline."
+      },
+      "laborbudget": {
+        "label": "Labor budget",
+        "placeholder": "Enter labor budget",
+        "helper": "Planned labor spend for the scope."
+      },
+      "laboroverrunpercent": {
+        "label": "Labor overrun",
+        "placeholder": "Enter labor overrun",
+        "helper": "Expected labor cost drift above budget."
+      },
+      "materialbudget": {
+        "label": "Material budget",
+        "placeholder": "Enter material budget",
+        "helper": "Planned material spend for the scope."
+      },
+      "materialoverrunpercent": {
+        "label": "Material overrun",
+        "placeholder": "Enter material overrun",
+        "helper": "Expected material cost drift above budget."
+      }
+    },
+    "menu-profit-leak-detector": {
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Enter monthly revenue",
+        "helper": "Food sales for the period."
+      },
+      "ingredientcost": {
+        "label": "Ingredient cost",
+        "placeholder": "Enter ingredient cost",
+        "helper": "Total ingredient spend before waste adjustment."
+      },
+      "deliveryappfeepercent": {
+        "label": "Delivery app fee",
+        "placeholder": "Enter delivery app fee",
+        "helper": "Platform commission on delivery revenue."
+      },
+      "wasterate": {
+        "label": "Waste rate",
+        "placeholder": "Enter waste rate",
+        "helper": "Spoilage and portion drift as percent of ingredient cost."
+      },
+      "targetfoodcostpercent": {
+        "label": "Target food cost",
+        "placeholder": "Enter target food cost",
+        "helper": "Target food cost percent for this menu mix."
+      }
+    },
+    "office-cleaning-bid-optimizer": {
+      "monthlyrent": {
+        "label": "Monthly rent",
+        "placeholder": "Enter monthly rent",
+        "helper": "Monthly facility rent or occupancy cost."
+      },
+      "totalsqm": {
+        "label": "Total floor area",
+        "placeholder": "Enter total floor area",
+        "helper": "Total warehouse floor area (reference)."
+      },
+      "unusedspacepercent": {
+        "label": "Unused space",
+        "placeholder": "Enter unused space",
+        "helper": "Unused or under-utilized space as percent of rent."
+      },
+      "handlingoverrunhours": {
+        "label": "Handling overrun hours",
+        "placeholder": "Enter handling overrun hours",
+        "helper": "Extra picking and handling hours per month."
+      },
+      "hourlycost": {
+        "label": "Hourly cost",
+        "placeholder": "Enter hourly cost",
+        "helper": "Loaded warehouse labor rate."
+      }
+    },
+    "landscaping-contract-profit-tool": {
+      "dailycrewcost": {
+        "label": "Daily crew cost",
+        "placeholder": "Enter daily crew cost",
+        "helper": "Loaded crew and equipment cost per site day."
+      },
+      "weatherdelaydays": {
+        "label": "Weather delay days",
+        "placeholder": "Enter weather delay days",
+        "helper": "Expected weather delay days on the contract."
+      },
+      "dumpfees": {
+        "label": "Dump fees",
+        "placeholder": "Enter dump fees",
+        "helper": "Tear-off disposal and dump fees."
+      },
+      "warrantyreserve": {
+        "label": "Warranty reserve",
+        "placeholder": "Enter warranty reserve",
+        "helper": "Warranty and callback reserve for the job."
+      }
+    },
+    "signage-bid-safe-price-tool": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Enter job revenue",
+        "helper": "Quoted or invoiced revenue for the print job."
+      },
+      "materialcost": {
+        "label": "Material cost",
+        "placeholder": "Enter material cost",
+        "helper": "Substrate, ink and material spend."
+      },
+      "reprintratepercent": {
+        "label": "Reprint rate",
+        "placeholder": "Enter reprint rate",
+        "helper": "Reprint and spoilage as percent of material cost."
+      },
+      "designrevisionhours": {
+        "label": "Design revision hours",
+        "placeholder": "Enter design revision hours",
+        "helper": "Artwork and revision labor expected on the job."
+      },
+      "laborrate": {
+        "label": "Labor rate",
+        "placeholder": "Enter labor rate",
+        "helper": "Fully loaded design and production labor rate."
+      },
+      "installreworkcost": {
+        "label": "Install rework cost",
+        "placeholder": "Enter install rework cost",
+        "helper": "Installation return and rework spend."
+      }
+    },
+    "welding-bid-risk-analyzer": {
+      "monthlytoolcost": {
+        "label": "Monthly tool cost",
+        "placeholder": "Enter monthly tool cost",
+        "helper": "Inserts, tooling and consumables spend per month."
+      },
+      "partsproduced": {
+        "label": "Parts produced",
+        "placeholder": "Enter parts produced",
+        "helper": "Good parts produced in the same period."
+      },
+      "toolchangeminutes": {
+        "label": "Tool change minutes",
+        "placeholder": "Enter tool change minutes",
+        "helper": "Average minutes lost per tool change event."
+      },
+      "changespermonth": {
+        "label": "Changes per month",
+        "placeholder": "Enter changes per month",
+        "helper": "Tool change events in the period."
+      },
+      "hourlycost": {
+        "label": "Hourly cost",
+        "placeholder": "Enter hourly cost",
+        "helper": "Loaded machine and operator rate."
+      },
+      "coolantcost": {
+        "label": "Coolant cost",
+        "placeholder": "Enter coolant cost",
+        "helper": "Coolant and lubricant spend tied to tooling."
+      }
+    },
+    "hvac-project-margin-guard": {
+      "projectrevenue": {
+        "label": "Project revenue",
+        "placeholder": "Enter project revenue",
+        "helper": "Contract or bid revenue for the HVAC project."
+      },
+      "ductworkvariance": {
+        "label": "Ductwork variance",
+        "placeholder": "Enter ductwork variance",
+        "helper": "Extra duct material and labor versus estimate."
+      },
+      "commissioninghours": {
+        "label": "Commissioning hours",
+        "placeholder": "Enter commissioning hours",
+        "helper": "Start-up, balance and commissioning labor."
+      },
+      "laborrate": {
+        "label": "Labor rate",
+        "placeholder": "Enter labor rate",
+        "helper": "Fully loaded HVAC field labor rate."
+      },
+      "callbackriskpercent": {
+        "label": "Callback risk",
+        "placeholder": "Enter callback risk",
+        "helper": "Expected callback cost as percent of revenue."
+      }
+    },
+    "cnc-quote-risk-analyzer": {
+      "machinerate": {
+        "label": "Machine rate",
+        "placeholder": "Enter machine rate",
+        "helper": "Loaded shop rate including operator burden."
+      },
+      "plannedhours": {
+        "label": "Planned run hours",
+        "placeholder": "Enter planned run hours",
+        "helper": "Setup plus production hours on the job."
+      },
+      "downtimehours": {
+        "label": "Expected downtime",
+        "placeholder": "Enter expected downtime",
+        "helper": "Tool changes, first-off inspection, minor stops."
+      },
+      "materialcost": {
+        "label": "Material cost",
+        "placeholder": "Enter material cost",
+        "helper": "Stock, fixturing consumables for the job."
+      },
+      "scraprate": {
+        "label": "Scrap rate",
+        "placeholder": "Enter scrap rate",
+        "helper": "Historical scrap percent for similar jobs."
+      },
+      "availability": {
+        "label": "Availability",
+        "placeholder": "Enter availability",
+        "helper": "Running time vs planned time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "Enter performance",
+        "helper": "Actual cycle vs ideal cycle."
+      },
+      "quality": {
+        "label": "Quality",
+        "placeholder": "Enter quality",
+        "helper": "Good parts vs total parts."
+      },
+      "quotedprice": {
+        "label": "Quoted price",
+        "placeholder": "Enter quoted price",
+        "helper": "Price you plan to charge the customer."
+      }
+    },
+    "sheet-metal-quote-risk-tool": {
+      "materialcost": {
+        "label": "Material cost",
+        "placeholder": "Enter material cost",
+        "helper": "Sheet stock and material spend for the job or period."
+      },
+      "scraprate": {
+        "label": "Scrap rate",
+        "placeholder": "Enter scrap rate",
+        "helper": "Cutting waste and offcut loss as percent of material cost."
+      },
+      "targetscraprate": {
+        "label": "Target scrap rate",
+        "placeholder": "Enter target scrap rate",
+        "helper": "Acceptable scrap target for similar jobs."
+      },
+      "reworkhours": {
+        "label": "Rework hours",
+        "placeholder": "Enter rework hours",
+        "helper": "Bend, fit-up and finishing rework hours expected."
+      },
+      "laborrate": {
+        "label": "Labor rate",
+        "placeholder": "Enter labor rate",
+        "helper": "Fully loaded shop labor rate."
+      },
+      "finishingcost": {
+        "label": "Finishing cost",
+        "placeholder": "Enter finishing cost",
+        "helper": "Powder coat, deburr and finishing spend tied to rework risk."
+      }
+    },
+    "plumbing-job-margin-verdict": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Enter job revenue",
+        "helper": "Fixed-price or contract revenue for the job."
+      },
+      "callbackvisits": {
+        "label": "Callback visits",
+        "placeholder": "Enter callback visits",
+        "helper": "Expected leak or warranty return visits."
+      },
+      "visitcost": {
+        "label": "Visit cost",
+        "placeholder": "Enter visit cost",
+        "helper": "Average cost per callback visit."
+      },
+      "materialruncost": {
+        "label": "Material run cost",
+        "placeholder": "Enter material run cost",
+        "helper": "Extra fittings, pipe and supply runs."
+      },
+      "warrantyreservepercent": {
+        "label": "Warranty reserve",
+        "placeholder": "Enter warranty reserve",
+        "helper": "Warranty reserve as percent of job revenue."
+      }
     }
   },
   "sectorFooter": {
@@ -8045,12 +8350,12 @@
       "description": "Concrete / Project Cost Calculator"
     },
     "change-order-impact-analyzer": {
-      "title": "Concrete / Project Cost Calculator",
-      "description": "Concrete / Project Cost Calculator"
+      "title": "Change Order Impact Analyzer",
+      "description": "This is a premium analysis tool. Full results and the decision summary require credits or active Pro access."
     },
     "cnc-quote-risk-analyzer": {
-      "title": "Loan Payment Calculator",
-      "description": "Loan Payment Calculator"
+      "title": "CNC Quote Risk Analyzer",
+      "description": "This is a premium analysis tool. Full results and the decision summary require credits or active Pro access."
     },
     "crop-yield-loss-analyzer": {
       "title": "Route & Freight Loss Analyzer",
@@ -8073,12 +8378,12 @@
       "description": "Age Calculator"
     },
     "hvac-project-margin-guard": {
-      "title": "Concrete / Project Cost Calculator",
-      "description": "Concrete / Project Cost Calculator"
+      "title": "HVAC Project Margin Guard",
+      "description": "This is a premium analysis tool. Full results and the decision summary require credits or active Pro access."
     },
     "landscaping-contract-profit-tool": {
-      "title": "Concrete / Project Cost Calculator",
-      "description": "Concrete / Project Cost Calculator"
+      "title": "Landscaping Contract Profit Tool",
+      "description": "This is a premium analysis tool. Full results and the decision summary require credits or active Pro access."
     },
     "material-waste-calculator": {
       "title": "Age Calculator",
@@ -8089,16 +8394,16 @@
       "description": "Route & Freight Loss Analyzer"
     },
     "menu-profit-leak-detector": {
-      "title": "Concrete / Project Cost Calculator",
-      "description": "Concrete / Project Cost Calculator"
+      "title": "Menu Profit Leak Detector",
+      "description": "This is a premium analysis tool. Full results and the decision summary require credits or active Pro access."
     },
     "millwork-bid-risk-analyzer": {
       "title": "Concrete / Project Cost Calculator",
       "description": "Concrete / Project Cost Calculator"
     },
     "office-cleaning-bid-optimizer": {
-      "title": "Concrete / Project Cost Calculator",
-      "description": "Concrete / Project Cost Calculator"
+      "title": "Office Cleaning Bid Optimizer",
+      "description": "This is a premium analysis tool. Full results and the decision summary require credits or active Pro access."
     },
     "painting-job-profit-verdict": {
       "title": "Concrete / Project Cost Calculator",
@@ -8109,8 +8414,8 @@
       "description": "Concrete / Project Cost Calculator"
     },
     "plumbing-job-margin-verdict": {
-      "title": "Concrete / Project Cost Calculator",
-      "description": "Concrete / Project Cost Calculator"
+      "title": "Plumbing Job Margin Verdict",
+      "description": "This is a premium analysis tool. Full results and the decision summary require credits or active Pro access."
     },
     "profit-margin-calculator": {
       "title": "Loan Payment Calculator",
@@ -8133,20 +8438,20 @@
       "description": "Age Calculator"
     },
     "sheet-metal-quote-risk-tool": {
-      "title": "Concrete / Project Cost Calculator",
-      "description": "Concrete / Project Cost Calculator"
+      "title": "Sheet Metal Quote Risk Tool",
+      "description": "This is a premium analysis tool. Full results and the decision summary require credits or active Pro access."
     },
     "signage-bid-safe-price-tool": {
-      "title": "Concrete / Project Cost Calculator",
-      "description": "Concrete / Project Cost Calculator"
+      "title": "Signage Bid Safe Price Tool",
+      "description": "This is a premium analysis tool. Full results and the decision summary require credits or active Pro access."
     },
     "water-optimization-verdict": {
       "title": "Route & Freight Loss Analyzer",
       "description": "Route & Freight Loss Analyzer"
     },
     "welding-bid-risk-analyzer": {
-      "title": "Concrete / Project Cost Calculator",
-      "description": "Concrete / Project Cost Calculator"
+      "title": "Welding Bid Risk Analyzer",
+      "description": "This is a premium analysis tool. Full results and the decision summary require credits or active Pro access."
     }
   }
 }

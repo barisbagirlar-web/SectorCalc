@@ -12,6 +12,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = "hvac-callback-margin-risk";
+const PAID_ROUTE_SLUG = "hvac-project-margin-guard";
 
 const defaultInputs: HvacCallbackMarginRiskInputs = {
   projectRevenue: 64000,

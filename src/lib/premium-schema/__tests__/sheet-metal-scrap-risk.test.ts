@@ -12,6 +12,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = "sheet-metal-scrap-risk";
+const PAID_ROUTE_SLUG = "sheet-metal-quote-risk-tool";
 
 const defaultInputs: SheetMetalScrapRiskInputs = {
   materialCost: 9500,

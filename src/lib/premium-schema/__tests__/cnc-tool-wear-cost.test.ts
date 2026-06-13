@@ -12,6 +12,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = "cnc-tool-wear-cost";
+const PAID_ROUTE_SLUG = "welding-bid-risk-analyzer";
 
 const defaultInputs: CncToolWearCostInputs = {
   monthlyToolCost: 3200,

@@ -8168,6 +8168,311 @@
         "placeholder": "أدخل Center المسافة",
         "helper": "Shaft center المسافة for open belt الطول."
       }
+    },
+    "change-order-impact-analyzer": {
+      "dailysitecost": {
+        "label": "Daily site التكلفة",
+        "placeholder": "أدخل Daily site التكلفة",
+        "helper": "Crew, equipment and overhead لكل day on site."
+      },
+      "delaydays": {
+        "label": "Delay الأيام",
+        "placeholder": "أدخل Delay الأيام",
+        "helper": "Expected schedule slip beyond baseline."
+      },
+      "laborbudget": {
+        "label": "Labor budget",
+        "placeholder": "أدخل Labor budget",
+        "helper": "Planned labor spend for the scope."
+      },
+      "laboroverrunpercent": {
+        "label": "Labor overrun",
+        "placeholder": "أدخل Labor overrun",
+        "helper": "Expected labor التكلفة drift above budget."
+      },
+      "materialbudget": {
+        "label": "المادة budget",
+        "placeholder": "أدخل المادة budget",
+        "helper": "Planned المادة spend for the scope."
+      },
+      "materialoverrunpercent": {
+        "label": "المادة overrun",
+        "placeholder": "أدخل المادة overrun",
+        "helper": "Expected المادة التكلفة drift above budget."
+      }
+    },
+    "menu-profit-leak-detector": {
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "أدخل Monthly revenue",
+        "helper": "الغذاء sales for the لكلiod."
+      },
+      "ingredientcost": {
+        "label": "Ingredient التكلفة",
+        "placeholder": "أدخل Ingredient التكلفة",
+        "helper": "Total ingredient spend before الهدر adjustment."
+      },
+      "deliveryappfeepercent": {
+        "label": "Delivery app fee",
+        "placeholder": "أدخل Delivery app fee",
+        "helper": "Platform commission on delivery revenue."
+      },
+      "wasterate": {
+        "label": "الهدر المعدل",
+        "placeholder": "أدخل الهدر المعدل",
+        "helper": "Spoilage and portion drift as لكلcent of Ingredient التكلفة."
+      },
+      "targetfoodcostpercent": {
+        "label": "الهدف الغذاء التكلفة",
+        "placeholder": "أدخل الهدف الغذاء التكلفة",
+        "helper": "الهدف الغذاء التكلفة لكلcent for this menu mix."
+      }
+    },
+    "office-cleaning-bid-optimizer": {
+      "monthlyrent": {
+        "label": "Monthly إيجار",
+        "placeholder": "أدخل Monthly إيجار",
+        "helper": "Monthly facility إيجار or occupancy التكلفة."
+      },
+      "totalsqm": {
+        "label": "Total مساحة الأرضية",
+        "placeholder": "أدخل Total مساحة الأرضية",
+        "helper": "Total warehouse مساحة الأرضية (reference)."
+      },
+      "unusedspacepercent": {
+        "label": "Unالمستخدم space",
+        "placeholder": "أدخل Unالمستخدم space",
+        "helper": "Unالمستخدم or under-utilized space as لكلcent of إيجار."
+      },
+      "handlingoverrunhours": {
+        "label": "Handling overrun الساعات",
+        "placeholder": "أدخل Handling overrun الساعات",
+        "helper": "Extra picking and handling الساعات لكل month."
+      },
+      "hourlycost": {
+        "label": "Hourly التكلفة",
+        "placeholder": "أدخل Hourly التكلفة",
+        "helper": "Loaded warehouse Labor المعدل."
+      }
+    },
+    "landscaping-contract-profit-tool": {
+      "dailycrewcost": {
+        "label": "Daily crew التكلفة",
+        "placeholder": "أدخل Daily crew التكلفة",
+        "helper": "Loaded crew and equipment التكلفة لكل site day."
+      },
+      "weatherdelaydays": {
+        "label": "Weather delay الأيام",
+        "placeholder": "أدخل Weather delay الأيام",
+        "helper": "Expected weather delay الأيام on the contract."
+      },
+      "dumpfees": {
+        "label": "Dump fees",
+        "placeholder": "أدخل Dump fees",
+        "helper": "Tear-off disposal and dump fees."
+      },
+      "warrantyreserve": {
+        "label": "Warranty reserve",
+        "placeholder": "أدخل Warranty reserve",
+        "helper": "Warranty and callback reserve for the job."
+      }
+    },
+    "signage-bid-safe-price-tool": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "أدخل Job revenue",
+        "helper": "Quoted or invoiced revenue for the print job."
+      },
+      "materialcost": {
+        "label": "المادة التكلفة",
+        "placeholder": "أدخل المادة التكلفة",
+        "helper": "Substالمعدل, ink and المادة spend."
+      },
+      "reprintratepercent": {
+        "label": "Reprint المعدل",
+        "placeholder": "أدخل Reprint المعدل",
+        "helper": "Reprint and spoilage as لكلcent of المادة التكلفة."
+      },
+      "designrevisionhours": {
+        "label": "Design revision الساعات",
+        "placeholder": "أدخل Design revision الساعات",
+        "helper": "Artwork and revision labor expected on the job."
+      },
+      "laborrate": {
+        "label": "Labor المعدل",
+        "placeholder": "أدخل Labor المعدل",
+        "helper": "Fully loaded design and production Labor المعدل."
+      },
+      "installreworkcost": {
+        "label": "Install rework التكلفة",
+        "placeholder": "أدخل Install rework التكلفة",
+        "helper": "Installation return and rework spend."
+      }
+    },
+    "welding-bid-risk-analyzer": {
+      "monthlytoolcost": {
+        "label": "Monthly Tool التكلفة",
+        "placeholder": "أدخل Monthly Tool التكلفة",
+        "helper": "Inserts, tooling and مستهلكات spend لكل month."
+      },
+      "partsproduced": {
+        "label": "Parts produced",
+        "placeholder": "أدخل Parts produced",
+        "helper": "Good parts produced in the same لكلiod."
+      },
+      "toolchangeminutes": {
+        "label": "Tool change minutes",
+        "placeholder": "أدخل Tool change minutes",
+        "helper": "Average minutes lost لكل tool change event."
+      },
+      "changespermonth": {
+        "label": "Changes لكل month",
+        "placeholder": "أدخل Changes لكل month",
+        "helper": "Tool change events in the لكلiod."
+      },
+      "hourlycost": {
+        "label": "Hourly التكلفة",
+        "placeholder": "أدخل Hourly التكلفة",
+        "helper": "Loaded machine and oلكلator المعدل."
+      },
+      "coolantcost": {
+        "label": "Coolant التكلفة",
+        "placeholder": "أدخل Coolant التكلفة",
+        "helper": "Coolant and lubricant spend tied to tooling."
+      }
+    },
+    "hvac-project-margin-guard": {
+      "projectrevenue": {
+        "label": "Project revenue",
+        "placeholder": "أدخل Project revenue",
+        "helper": "Contract or bid revenue for the HVAC project."
+      },
+      "ductworkvariance": {
+        "label": "Ductwork variance",
+        "placeholder": "أدخل Ductwork variance",
+        "helper": "Extra duct المادة and labor versus estimate."
+      },
+      "commissioninghours": {
+        "label": "Commissioning الساعات",
+        "placeholder": "أدخل Commissioning الساعات",
+        "helper": "Start-up, balance and commissioning labor."
+      },
+      "laborrate": {
+        "label": "Labor المعدل",
+        "placeholder": "أدخل Labor المعدل",
+        "helper": "Fully loaded HVAC field Labor المعدل."
+      },
+      "callbackriskpercent": {
+        "label": "Callback risk",
+        "placeholder": "أدخل Callback risk",
+        "helper": "Expected callback التكلفة as لكلcent of revenue."
+      }
+    },
+    "cnc-quote-risk-analyzer": {
+      "machinerate": {
+        "label": "Machine المعدل",
+        "placeholder": "أدخل Machine المعدل",
+        "helper": "Loaded shop المعدل including oلكلator burden."
+      },
+      "plannedhours": {
+        "label": "Planned run الساعات",
+        "placeholder": "أدخل Planned run الساعات",
+        "helper": "الإعداد plus production الساعات on the job."
+      },
+      "downtimehours": {
+        "label": "Expected downtime",
+        "placeholder": "أدخل Expected downtime",
+        "helper": "Tool changes, first-off inspection, minor stops."
+      },
+      "materialcost": {
+        "label": "المادة التكلفة",
+        "placeholder": "أدخل المادة التكلفة",
+        "helper": "Stock, fixturing مستهلكات for the job."
+      },
+      "scraprate": {
+        "label": "Scrap المعدل",
+        "placeholder": "أدخل Scrap المعدل",
+        "helper": "Historical scrap لكلcent for similar jobs."
+      },
+      "availability": {
+        "label": "التوفر",
+        "placeholder": "أدخل التوفر",
+        "helper": "Running time vs planned time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "أدخل Performance",
+        "helper": "Actual cycle vs ideal cycle."
+      },
+      "quality": {
+        "label": "جودة",
+        "placeholder": "أدخل جودة",
+        "helper": "Good parts vs total parts."
+      },
+      "quotedprice": {
+        "label": "Quoted السعر",
+        "placeholder": "أدخل Quoted السعر",
+        "helper": "السعر you plan to charge the customer."
+      }
+    },
+    "sheet-metal-quote-risk-tool": {
+      "materialcost": {
+        "label": "المادة التكلفة",
+        "placeholder": "أدخل المادة التكلفة",
+        "helper": "Sheet stock and المادة spend for the job or لكلiod."
+      },
+      "scraprate": {
+        "label": "Scrap المعدل",
+        "placeholder": "أدخل Scrap المعدل",
+        "helper": "Cutting الهدر and offcut loss as لكلcent of المادة التكلفة."
+      },
+      "targetscraprate": {
+        "label": "الهدف Scrap المعدل",
+        "placeholder": "أدخل الهدف Scrap المعدل",
+        "helper": "Acceptable scrap الهدف for similar jobs."
+      },
+      "reworkhours": {
+        "label": "Rework الساعات",
+        "placeholder": "أدخل Rework الساعات",
+        "helper": "Bend, fit-up and finishing rework الساعات expected."
+      },
+      "laborrate": {
+        "label": "Labor المعدل",
+        "placeholder": "أدخل Labor المعدل",
+        "helper": "Fully loaded shop Labor المعدل."
+      },
+      "finishingcost": {
+        "label": "Finishing التكلفة",
+        "placeholder": "أدخل Finishing التكلفة",
+        "helper": "Powder coat, deburr and finishing spend tied to rework risk."
+      }
+    },
+    "plumbing-job-margin-verdict": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "أدخل Job revenue",
+        "helper": "Fixed-السعر or contract revenue for the job."
+      },
+      "callbackvisits": {
+        "label": "Callback visits",
+        "placeholder": "أدخل Callback visits",
+        "helper": "Expected leak or warranty return visits."
+      },
+      "visitcost": {
+        "label": "Visit التكلفة",
+        "placeholder": "أدخل Visit التكلفة",
+        "helper": "Average التكلفة لكل callback visit."
+      },
+      "materialruncost": {
+        "label": "المادة run التكلفة",
+        "placeholder": "أدخل المادة run التكلفة",
+        "helper": "Extra fittings, pipe and supply runs."
+      },
+      "warrantyreservepercent": {
+        "label": "Warranty reserve",
+        "placeholder": "أدخل Warranty reserve",
+        "helper": "Warranty reserve as لكلcent of job revenue."
+      }
     }
   },
   "sectorFooter": {
@@ -8377,6 +8682,48 @@
       "title": "SectorCalc Semantic Tool Index",
       "body": "Public calculator contracts, input/output parameters, and CalculateAction semantics are listed here automatically.",
       "count": "{count} public tools"
+    }
+  },
+  "tools": {
+    "change-order-impact-analyzer": {
+      "title": "محلل أثر أوامر التغيير",
+      "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
+    },
+    "menu-profit-leak-detector": {
+      "title": "كاشف تسرب ربح القائمة",
+      "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
+    },
+    "office-cleaning-bid-optimizer": {
+      "title": "محسّن عروض تنظيف المكاتب",
+      "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
+    },
+    "landscaping-contract-profit-tool": {
+      "title": "ربح عقد تنسيق الحدائق",
+      "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
+    },
+    "signage-bid-safe-price-tool": {
+      "title": "سعر آمن للافتات",
+      "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
+    },
+    "welding-bid-risk-analyzer": {
+      "title": "محلل مخاطر اللحام",
+      "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
+    },
+    "hvac-project-margin-guard": {
+      "title": "حارس هامش HVAC",
+      "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
+    },
+    "cnc-quote-risk-analyzer": {
+      "title": "محلل مخاطر CNC",
+      "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
+    },
+    "sheet-metal-quote-risk-tool": {
+      "title": "مخاطر عرض الصاج",
+      "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
+    },
+    "plumbing-job-margin-verdict": {
+      "title": "حكم هامش السباكة",
+      "description": "أداة premium. النتائج الكاملة تتطلب رصيدًا أو Pro."
     }
   }
 }

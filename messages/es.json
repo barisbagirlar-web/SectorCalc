@@ -8173,6 +8173,311 @@
         "placeholder": "Introduzca center distancia",
         "helper": "Shaft center Distancia for open belt Longitud."
       }
+    },
+    "change-order-impact-analyzer": {
+      "dailysitecost": {
+        "label": "Daily site Costo",
+        "placeholder": "Introduzca daily site costo",
+        "helper": "Crew, equipment and overhead por day on site."
+      },
+      "delaydays": {
+        "label": "Delay Días",
+        "placeholder": "Introduzca delay días",
+        "helper": "Expected schedule slip beyond baseline."
+      },
+      "laborbudget": {
+        "label": "Labor budget",
+        "placeholder": "Introduzca labor budget",
+        "helper": "Planned labor spend for the scope."
+      },
+      "laboroverrunpercent": {
+        "label": "Labor overrun",
+        "placeholder": "Introduzca labor overrun",
+        "helper": "Expected labor Costo drift above budget."
+      },
+      "materialbudget": {
+        "label": "Material budget",
+        "placeholder": "Introduzca material budget",
+        "helper": "Planned Material spend for the scope."
+      },
+      "materialoverrunpercent": {
+        "label": "Material overrun",
+        "placeholder": "Introduzca material overrun",
+        "helper": "Expected Material Costo drift above budget."
+      }
+    },
+    "menu-profit-leak-detector": {
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Introduzca monthly revenue",
+        "helper": "Alimento sales for the poriod."
+      },
+      "ingredientcost": {
+        "label": "Ingredient Costo",
+        "placeholder": "Introduzca ingredient costo",
+        "helper": "Total ingredient spend before Despordicio adjustment."
+      },
+      "deliveryappfeepercent": {
+        "label": "Delivery app fee",
+        "placeholder": "Introduzca delivery app fee",
+        "helper": "Platform commission on delivery revenue."
+      },
+      "wasterate": {
+        "label": "Despordicio Tasa",
+        "placeholder": "Introduzca despordicio tasa",
+        "helper": "Spoilage and portion drift as porcent of Ingredient Costoo."
+      },
+      "targetfoodcostpercent": {
+        "label": "Objetivo Alimento Costo",
+        "placeholder": "Introduzca objetivo alimento costo",
+        "helper": "Objetivo Alimento Costo porcent for this menu mix."
+      }
+    },
+    "office-cleaning-bid-optimizer": {
+      "monthlyrent": {
+        "label": "Monthly alquiler",
+        "placeholder": "Introduzca monthly alquiler",
+        "helper": "Monthly facility alquiler or occupancy Costo."
+      },
+      "totalsqm": {
+        "label": "Total Suporficie del suelo",
+        "placeholder": "Introduzca total suporficie del suelo",
+        "helper": "Total warehouse Suporficie del suelo (reference)."
+      },
+      "unusedspacepercent": {
+        "label": "Unusado space",
+        "placeholder": "Introduzca unusado space",
+        "helper": "Unusado or under-utilized space as porcent of alquiler."
+      },
+      "handlingoverrunhours": {
+        "label": "Handling overrun Horas",
+        "placeholder": "Introduzca handling overrun horas",
+        "helper": "Extra picking and handling Horas por month."
+      },
+      "hourlycost": {
+        "label": "Hourly Costo",
+        "placeholder": "Introduzca hourly costo",
+        "helper": "Loaded warehouse Labor Tasa."
+      }
+    },
+    "landscaping-contract-profit-tool": {
+      "dailycrewcost": {
+        "label": "Daily crew Costo",
+        "placeholder": "Introduzca daily crew costo",
+        "helper": "Loaded crew and equipment Costo por site day."
+      },
+      "weatherdelaydays": {
+        "label": "Weather delay Días",
+        "placeholder": "Introduzca weather delay días",
+        "helper": "Expected weather delay Días on the contract."
+      },
+      "dumpfees": {
+        "label": "Dump fees",
+        "placeholder": "Introduzca dump fees",
+        "helper": "Tear-off disposal and dump fees."
+      },
+      "warrantyreserve": {
+        "label": "Warranty reserve",
+        "placeholder": "Introduzca warranty reserve",
+        "helper": "Warranty and callback reserve for the job."
+      }
+    },
+    "signage-bid-safe-price-tool": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Introduzca job revenue",
+        "helper": "Quoted or invoiced revenue for the print job."
+      },
+      "materialcost": {
+        "label": "Material Costo",
+        "placeholder": "Introduzca material costo",
+        "helper": "SubstTasa, ink and Material spend."
+      },
+      "reprintratepercent": {
+        "label": "Reprint Tasa",
+        "placeholder": "Introduzca reprint tasa",
+        "helper": "Reprint and spoilage as porcent of Material Costo."
+      },
+      "designrevisionhours": {
+        "label": "Design revision Horas",
+        "placeholder": "Introduzca design revision horas",
+        "helper": "Artwork and revision labor expected on the job."
+      },
+      "laborrate": {
+        "label": "Labor Tasa",
+        "placeholder": "Introduzca labor tasa",
+        "helper": "Fully loaded design and production Labor Tasa."
+      },
+      "installreworkcost": {
+        "label": "Install rework Costo",
+        "placeholder": "Introduzca install rework costo",
+        "helper": "Installation return and rework spend."
+      }
+    },
+    "welding-bid-risk-analyzer": {
+      "monthlytoolcost": {
+        "label": "Monthly Tool Costoo",
+        "placeholder": "Introduzca monthly tool costoo",
+        "helper": "Inserts, tooling and Consumibles spend por month."
+      },
+      "partsproduced": {
+        "label": "Parts produced",
+        "placeholder": "Introduzca parts produced",
+        "helper": "Good parts produced in the same poriod."
+      },
+      "toolchangeminutes": {
+        "label": "Tool change minutes",
+        "placeholder": "Introduzca tool change minutes",
+        "helper": "Average minutes lost por tool change event."
+      },
+      "changespermonth": {
+        "label": "Changes por month",
+        "placeholder": "Introduzca changes por month",
+        "helper": "Tool change events in the poriod."
+      },
+      "hourlycost": {
+        "label": "Hourly Costo",
+        "placeholder": "Introduzca hourly costo",
+        "helper": "Loaded machine and oporator Tasa."
+      },
+      "coolantcost": {
+        "label": "Coolant Costo",
+        "placeholder": "Introduzca coolant costo",
+        "helper": "Coolant and lubricant spend tied to tooling."
+      }
+    },
+    "hvac-project-margin-guard": {
+      "projectrevenue": {
+        "label": "Project revenue",
+        "placeholder": "Introduzca project revenue",
+        "helper": "Contract or bid revenue for the HVAC project."
+      },
+      "ductworkvariance": {
+        "label": "Ductwork variance",
+        "placeholder": "Introduzca ductwork variance",
+        "helper": "Extra duct Material and labor versus estimate."
+      },
+      "commissioninghours": {
+        "label": "Commissioning Horas",
+        "placeholder": "Introduzca commissioning horas",
+        "helper": "Start-up, balance and commissioning labor."
+      },
+      "laborrate": {
+        "label": "Labor Tasa",
+        "placeholder": "Introduzca labor tasa",
+        "helper": "Fully loaded HVAC field Labor Tasa."
+      },
+      "callbackriskpercent": {
+        "label": "Callback risk",
+        "placeholder": "Introduzca callback risk",
+        "helper": "Expected callback Costo as porcent of revenue."
+      }
+    },
+    "cnc-quote-risk-analyzer": {
+      "machinerate": {
+        "label": "Machine Tasa",
+        "placeholder": "Introduzca machine tasa",
+        "helper": "Loaded shop Tasa including oporator burden."
+      },
+      "plannedhours": {
+        "label": "Planned run Horas",
+        "placeholder": "Introduzca planned run horas",
+        "helper": "Preparación plus production Horas on the job."
+      },
+      "downtimehours": {
+        "label": "Expected downtime",
+        "placeholder": "Introduzca expected downtime",
+        "helper": "Tool changes, first-off inspection, minor stops."
+      },
+      "materialcost": {
+        "label": "Material Costo",
+        "placeholder": "Introduzca material costo",
+        "helper": "Stock, fixturing Consumibles for the job."
+      },
+      "scraprate": {
+        "label": "Scrap Tasa",
+        "placeholder": "Introduzca scrap tasa",
+        "helper": "Historical scrap porcent for similar jobs."
+      },
+      "availability": {
+        "label": "Disponibilidad",
+        "placeholder": "Introduzca disponibilidad",
+        "helper": "Running time vs planned time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "Introduzca performance",
+        "helper": "Actual cycle vs ideal cycle."
+      },
+      "quality": {
+        "label": "Calidad",
+        "placeholder": "Introduzca calidad",
+        "helper": "Good parts vs total parts."
+      },
+      "quotedprice": {
+        "label": "Quoted Precio",
+        "placeholder": "Introduzca quoted precio",
+        "helper": "Precio you plan to charge the customer."
+      }
+    },
+    "sheet-metal-quote-risk-tool": {
+      "materialcost": {
+        "label": "Material Costo",
+        "placeholder": "Introduzca material costo",
+        "helper": "Sheet stock and Material spend for the job or poriod."
+      },
+      "scraprate": {
+        "label": "Scrap Tasa",
+        "placeholder": "Introduzca scrap tasa",
+        "helper": "Cutting Despordicio and offcut loss as porcent of Material Costo."
+      },
+      "targetscraprate": {
+        "label": "Objetivo Scrap Tasa",
+        "placeholder": "Introduzca objetivo scrap tasa",
+        "helper": "Acceptable scrap Objetivo for similar jobs."
+      },
+      "reworkhours": {
+        "label": "Rework Horas",
+        "placeholder": "Introduzca rework horas",
+        "helper": "Bend, fit-up and finishing rework Horas expected."
+      },
+      "laborrate": {
+        "label": "Labor Tasa",
+        "placeholder": "Introduzca labor tasa",
+        "helper": "Fully loaded shop Labor Tasa."
+      },
+      "finishingcost": {
+        "label": "Finishing Costo",
+        "placeholder": "Introduzca finishing costo",
+        "helper": "Powder coat, deburr and finishing spend tied to rework risk."
+      }
+    },
+    "plumbing-job-margin-verdict": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Introduzca job revenue",
+        "helper": "Fixed-Precio or contract revenue for the job."
+      },
+      "callbackvisits": {
+        "label": "Callback visits",
+        "placeholder": "Introduzca callback visits",
+        "helper": "Expected leak or warranty return visits."
+      },
+      "visitcost": {
+        "label": "Visit Costo",
+        "placeholder": "Introduzca visit costo",
+        "helper": "Average Costo por callback visit."
+      },
+      "materialruncost": {
+        "label": "Material run Costo",
+        "placeholder": "Introduzca material run costo",
+        "helper": "Extra fittings, pipe and supply runs."
+      },
+      "warrantyreservepercent": {
+        "label": "Warranty reserve",
+        "placeholder": "Introduzca warranty reserve",
+        "helper": "Warranty reserve as porcent of job revenue."
+      }
     }
   },
   "sectorFooter": {
@@ -8382,6 +8687,48 @@
       "title": "SectorCalc Semantic Tool Index",
       "body": "Public calculator contracts, input/output parameters, and CalculateAction semantics are listed here automatically.",
       "count": "{count} public tools"
+    }
+  },
+  "tools": {
+    "change-order-impact-analyzer": {
+      "title": "Analizador impacto orden de cambio",
+      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+    },
+    "menu-profit-leak-detector": {
+      "title": "Detector fuga margen menu",
+      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+    },
+    "office-cleaning-bid-optimizer": {
+      "title": "Optimizador oferta limpieza oficina",
+      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+    },
+    "landscaping-contract-profit-tool": {
+      "title": "Herramienta beneficio contrato jardineria",
+      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+    },
+    "signage-bid-safe-price-tool": {
+      "title": "Precio seguro rotulacion",
+      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+    },
+    "welding-bid-risk-analyzer": {
+      "title": "Analizador riesgo soldadura",
+      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+    },
+    "hvac-project-margin-guard": {
+      "title": "Proteccion margen proyecto HVAC",
+      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+    },
+    "cnc-quote-risk-analyzer": {
+      "title": "Analizador riesgo cotizacion CNC",
+      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+    },
+    "sheet-metal-quote-risk-tool": {
+      "title": "Riesgo cotizacion chapa",
+      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
+    },
+    "plumbing-job-margin-verdict": {
+      "title": "Veredicto margen fontaneria",
+      "description": "Herramienta premium. Resultados completos y resumen de decision requieren creditos o Pro activo."
     }
   }
 }

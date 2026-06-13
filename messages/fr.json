@@ -8173,6 +8173,311 @@
         "placeholder": "Saisir center distance",
         "helper": "Shaft center Distance for open belt Longueur."
       }
+    },
+    "change-order-impact-analyzer": {
+      "dailysitecost": {
+        "label": "Daily site Coût",
+        "placeholder": "Saisir daily site coût",
+        "helper": "Crew, equipment and overhead par day on site."
+      },
+      "delaydays": {
+        "label": "Delay Jours",
+        "placeholder": "Saisir delay jours",
+        "helper": "Expected schedule slip beyond baseline."
+      },
+      "laborbudget": {
+        "label": "Labor budget",
+        "placeholder": "Saisir labor budget",
+        "helper": "Planned labor spend for the scope."
+      },
+      "laboroverrunpercent": {
+        "label": "Labor overrun",
+        "placeholder": "Saisir labor overrun",
+        "helper": "Expected labor Coût drift above budget."
+      },
+      "materialbudget": {
+        "label": "Matériau budget",
+        "placeholder": "Saisir matériau budget",
+        "helper": "Planned Matériau spend for the scope."
+      },
+      "materialoverrunpercent": {
+        "label": "Matériau overrun",
+        "placeholder": "Saisir matériau overrun",
+        "helper": "Expected Matériau Coût drift above budget."
+      }
+    },
+    "menu-profit-leak-detector": {
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Saisir monthly revenue",
+        "helper": "Alimentation sales for the pariod."
+      },
+      "ingredientcost": {
+        "label": "Ingredient Coût",
+        "placeholder": "Saisir ingredient coût",
+        "helper": "Total ingredient spend before parte adjustment."
+      },
+      "deliveryappfeepercent": {
+        "label": "Delivery app fee",
+        "placeholder": "Saisir delivery app fee",
+        "helper": "Platform commission on delivery revenue."
+      },
+      "wasterate": {
+        "label": "parte Taux",
+        "placeholder": "Saisir parte taux",
+        "helper": "Spoilage and portion drift as parcent of Ingredient Coût."
+      },
+      "targetfoodcostpercent": {
+        "label": "Cible Alimentation Coût",
+        "placeholder": "Saisir cible alimentation coût",
+        "helper": "Cible Alimentation Coût parcent for this menu mix."
+      }
+    },
+    "office-cleaning-bid-optimizer": {
+      "monthlyrent": {
+        "label": "Monthly location",
+        "placeholder": "Saisir monthly location",
+        "helper": "Monthly facility location or occupancy Coût."
+      },
+      "totalsqm": {
+        "label": "Total Surface au sol",
+        "placeholder": "Saisir total surface au sol",
+        "helper": "Total warehouse Surface au sol (reference)."
+      },
+      "unusedspacepercent": {
+        "label": "Unutilisé space",
+        "placeholder": "Saisir unutilisé space",
+        "helper": "Unutilisé or under-utilized space as parcent of location."
+      },
+      "handlingoverrunhours": {
+        "label": "Handling overrun Heures",
+        "placeholder": "Saisir handling overrun heures",
+        "helper": "Extra picking and handling Heures par month."
+      },
+      "hourlycost": {
+        "label": "Hourly Coût",
+        "placeholder": "Saisir hourly coût",
+        "helper": "Loaded warehouse Labor Taux."
+      }
+    },
+    "landscaping-contract-profit-tool": {
+      "dailycrewcost": {
+        "label": "Daily crew Coût",
+        "placeholder": "Saisir daily crew coût",
+        "helper": "Loaded crew and equipment Coût par site day."
+      },
+      "weatherdelaydays": {
+        "label": "Weather delay Jours",
+        "placeholder": "Saisir weather delay jours",
+        "helper": "Expected weather delay Jours on the contract."
+      },
+      "dumpfees": {
+        "label": "Dump fees",
+        "placeholder": "Saisir dump fees",
+        "helper": "Tear-off disposal and dump fees."
+      },
+      "warrantyreserve": {
+        "label": "Warranty reserve",
+        "placeholder": "Saisir warranty reserve",
+        "helper": "Warranty and callback reserve for the job."
+      }
+    },
+    "signage-bid-safe-price-tool": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Saisir job revenue",
+        "helper": "Quoted or invoiced revenue for the print job."
+      },
+      "materialcost": {
+        "label": "Matériau Coût",
+        "placeholder": "Saisir matériau coût",
+        "helper": "SubstTaux, ink and Matériau spend."
+      },
+      "reprintratepercent": {
+        "label": "Reprint Taux",
+        "placeholder": "Saisir reprint taux",
+        "helper": "Reprint and spoilage as parcent of Matériau Coût."
+      },
+      "designrevisionhours": {
+        "label": "Design revision Heures",
+        "placeholder": "Saisir design revision heures",
+        "helper": "Artwork and revision labor expected on the job."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded design and production Labor Taux."
+      },
+      "installreworkcost": {
+        "label": "Install rework Coût",
+        "placeholder": "Saisir install rework coût",
+        "helper": "Installation return and rework spend."
+      }
+    },
+    "welding-bid-risk-analyzer": {
+      "monthlytoolcost": {
+        "label": "Monthly Tool Coût",
+        "placeholder": "Saisir monthly tool coût",
+        "helper": "Inserts, tooling and Consommables spend par month."
+      },
+      "partsproduced": {
+        "label": "Parts produced",
+        "placeholder": "Saisir parts produced",
+        "helper": "Good parts produced in the same pariod."
+      },
+      "toolchangeminutes": {
+        "label": "Tool change minutes",
+        "placeholder": "Saisir tool change minutes",
+        "helper": "Average minutes lost par tool change event."
+      },
+      "changespermonth": {
+        "label": "Changes par month",
+        "placeholder": "Saisir changes par month",
+        "helper": "Tool change events in the pariod."
+      },
+      "hourlycost": {
+        "label": "Hourly Coût",
+        "placeholder": "Saisir hourly coût",
+        "helper": "Loaded machine and oparator Taux."
+      },
+      "coolantcost": {
+        "label": "Coolant Coût",
+        "placeholder": "Saisir coolant coût",
+        "helper": "Coolant and lubricant spend tied to tooling."
+      }
+    },
+    "hvac-project-margin-guard": {
+      "projectrevenue": {
+        "label": "Project revenue",
+        "placeholder": "Saisir project revenue",
+        "helper": "Contract or bid revenue for the HVAC project."
+      },
+      "ductworkvariance": {
+        "label": "Ductwork variance",
+        "placeholder": "Saisir ductwork variance",
+        "helper": "Extra duct Matériau and labor versus estimate."
+      },
+      "commissioninghours": {
+        "label": "Commissioning Heures",
+        "placeholder": "Saisir commissioning heures",
+        "helper": "Start-up, balance and commissioning labor."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded HVAC field Labor Taux."
+      },
+      "callbackriskpercent": {
+        "label": "Callback risk",
+        "placeholder": "Saisir callback risk",
+        "helper": "Expected callback Coût as parcent of revenue."
+      }
+    },
+    "cnc-quote-risk-analyzer": {
+      "machinerate": {
+        "label": "Machine Taux",
+        "placeholder": "Saisir machine taux",
+        "helper": "Loaded shop Taux including oparator burden."
+      },
+      "plannedhours": {
+        "label": "Planned run Heures",
+        "placeholder": "Saisir planned run heures",
+        "helper": "Préparation plus production Heures on the job."
+      },
+      "downtimehours": {
+        "label": "Expected downtime",
+        "placeholder": "Saisir expected downtime",
+        "helper": "Tool changes, first-off inspection, minor stops."
+      },
+      "materialcost": {
+        "label": "Matériau Coût",
+        "placeholder": "Saisir matériau coût",
+        "helper": "Stock, fixturing Consommables for the job."
+      },
+      "scraprate": {
+        "label": "Scrap Taux",
+        "placeholder": "Saisir scrap taux",
+        "helper": "Historical scrap parcent for similar jobs."
+      },
+      "availability": {
+        "label": "Disponibilité",
+        "placeholder": "Saisir disponibilité",
+        "helper": "Running time vs planned time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "Saisir performance",
+        "helper": "Actual cycle vs ideal cycle."
+      },
+      "quality": {
+        "label": "Qualité",
+        "placeholder": "Saisir qualité",
+        "helper": "Good parts vs total parts."
+      },
+      "quotedprice": {
+        "label": "Quoted Prix",
+        "placeholder": "Saisir quoted prix",
+        "helper": "Prix you plan to charge the customer."
+      }
+    },
+    "sheet-metal-quote-risk-tool": {
+      "materialcost": {
+        "label": "Matériau Coût",
+        "placeholder": "Saisir matériau coût",
+        "helper": "Sheet stock and Matériau spend for the job or pariod."
+      },
+      "scraprate": {
+        "label": "Scrap Taux",
+        "placeholder": "Saisir scrap taux",
+        "helper": "Cutting parte and offcut loss as parcent of Matériau Coût."
+      },
+      "targetscraprate": {
+        "label": "Cible Scrap Taux",
+        "placeholder": "Saisir cible scrap taux",
+        "helper": "Acceptable scrap Cible for similar jobs."
+      },
+      "reworkhours": {
+        "label": "Rework Heures",
+        "placeholder": "Saisir rework heures",
+        "helper": "Bend, fit-up and finishing rework Heures expected."
+      },
+      "laborrate": {
+        "label": "Labor Taux",
+        "placeholder": "Saisir labor taux",
+        "helper": "Fully loaded shop Labor Taux."
+      },
+      "finishingcost": {
+        "label": "Finishing Coût",
+        "placeholder": "Saisir finishing coût",
+        "helper": "Powder coat, deburr and finishing spend tied to rework risk."
+      }
+    },
+    "plumbing-job-margin-verdict": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Saisir job revenue",
+        "helper": "Fixed-Prix or contract revenue for the job."
+      },
+      "callbackvisits": {
+        "label": "Callback visits",
+        "placeholder": "Saisir callback visits",
+        "helper": "Expected leak or warranty return visits."
+      },
+      "visitcost": {
+        "label": "Visit Coût",
+        "placeholder": "Saisir visit coût",
+        "helper": "Average Coût par callback visit."
+      },
+      "materialruncost": {
+        "label": "Matériau run Coût",
+        "placeholder": "Saisir matériau run coût",
+        "helper": "Extra fittings, pipe and supply runs."
+      },
+      "warrantyreservepercent": {
+        "label": "Warranty reserve",
+        "placeholder": "Saisir warranty reserve",
+        "helper": "Warranty reserve as parcent of job revenue."
+      }
     }
   },
   "sectorFooter": {
@@ -8382,6 +8687,48 @@
       "title": "SectorCalc Semantic Tool Index",
       "body": "Public calculator contracts, input/output parameters, and CalculateAction semantics are listed here automatically.",
       "count": "{count} public tools"
+    }
+  },
+  "tools": {
+    "change-order-impact-analyzer": {
+      "title": "Analyse d impact des avenants",
+      "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "menu-profit-leak-detector": {
+      "title": "Detecteur de fuite marge menu",
+      "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "office-cleaning-bid-optimizer": {
+      "title": "Optimiseur offre nettoyage bureau",
+      "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "landscaping-contract-profit-tool": {
+      "title": "Profit contrat paysagiste",
+      "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "signage-bid-safe-price-tool": {
+      "title": "Prix sûr enseigne",
+      "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "welding-bid-risk-analyzer": {
+      "title": "Analyse risque soudure",
+      "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "hvac-project-margin-guard": {
+      "title": "Garde marge projet CVC",
+      "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "cnc-quote-risk-analyzer": {
+      "title": "Analyse risque devis CNC",
+      "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "sheet-metal-quote-risk-tool": {
+      "title": "Risque devis tôlerie",
+      "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
+    },
+    "plumbing-job-margin-verdict": {
+      "title": "Verdict marge plomberie",
+      "description": "Outil premium. Resultats complets et synthese de decision : credits ou Pro actif requis."
     }
   }
 }

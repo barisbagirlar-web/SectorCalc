@@ -12,6 +12,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = "roofing-weather-delay-risk";
+const PAID_ROUTE_SLUG = "landscaping-contract-profit-tool";
 
 const defaultInputs: RoofingWeatherDelayRiskInputs = {
     "dailyCrewCost": 1450,

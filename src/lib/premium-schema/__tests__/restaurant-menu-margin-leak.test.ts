@@ -12,6 +12,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = "restaurant-menu-margin-leak";
+const PAID_ROUTE_SLUG = "menu-profit-leak-detector";
 
 const defaultInputs: RestaurantMenuMarginLeakInputs = {
   monthlyRevenue: 38000,

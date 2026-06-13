@@ -12,6 +12,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = "construction-project-overrun";
+const PAID_ROUTE_SLUG = "change-order-impact-analyzer";
 
 const defaultInputs: ConstructionProjectOverrunInputs = {
   dailySiteCost: 1250,

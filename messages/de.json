@@ -8173,6 +8173,311 @@
         "placeholder": "Center Entfernung eingeben",
         "helper": "Shaft center Entfernung for open belt Länge."
       }
+    },
+    "change-order-impact-analyzer": {
+      "dailysitecost": {
+        "label": "Daily site Kosten",
+        "placeholder": "Daily site Kosten eingeben",
+        "helper": "Crew, equipment and overhead pro day on site."
+      },
+      "delaydays": {
+        "label": "Delay Tage",
+        "placeholder": "Delay Tage eingeben",
+        "helper": "Expected schedule slip beyond baseline."
+      },
+      "laborbudget": {
+        "label": "Labor budget",
+        "placeholder": "Labor budget eingeben",
+        "helper": "Planned labor spEnde for the scope."
+      },
+      "laboroverrunpercent": {
+        "label": "Labor overrun",
+        "placeholder": "Labor overrun eingeben",
+        "helper": "Expected labor Kosten drift above budget."
+      },
+      "materialbudget": {
+        "label": "Material budget",
+        "placeholder": "Material budget eingeben",
+        "helper": "Planned Material spEnde for the scope."
+      },
+      "materialoverrunpercent": {
+        "label": "Material overrun",
+        "placeholder": "Material overrun eingeben",
+        "helper": "Expected Material Kosten drift above budget."
+      }
+    },
+    "menu-profit-leak-detector": {
+      "monthlyrevenue": {
+        "label": "Monthly revenue",
+        "placeholder": "Monthly revenue eingeben",
+        "helper": "Lebensmittel sales for the proiod."
+      },
+      "ingredientcost": {
+        "label": "Ingredient Kosten",
+        "placeholder": "Ingredient Kosten eingeben",
+        "helper": "Total ingredient spEnde before Ausschuss adjustment."
+      },
+      "deliveryappfeepercent": {
+        "label": "Delivery app fee",
+        "placeholder": "Delivery app fee eingeben",
+        "helper": "Platform commission on delivery revenue."
+      },
+      "wasterate": {
+        "label": "Ausschuss Satz",
+        "placeholder": "Ausschuss Satz eingeben",
+        "helper": "Spoilage and portion drift as procent of Ingredient Kosten."
+      },
+      "targetfoodcostpercent": {
+        "label": "Sollwert Lebensmittel Kosten",
+        "placeholder": "Sollwert Lebensmittel Kosten eingeben",
+        "helper": "Sollwert Lebensmittel Kosten procent for this menu mix."
+      }
+    },
+    "office-cleaning-bid-optimizer": {
+      "monthlyrent": {
+        "label": "Monthly Miete",
+        "placeholder": "Monthly Miete eingeben",
+        "helper": "Monthly facility Miete or occupancy Kosten."
+      },
+      "totalsqm": {
+        "label": "Total Grundfläche",
+        "placeholder": "Total Grundfläche eingeben",
+        "helper": "Total warehouse Grundfläche (reference)."
+      },
+      "unusedspacepercent": {
+        "label": "Unverbraucht space",
+        "placeholder": "Unverbraucht space eingeben",
+        "helper": "Unverbraucht or under-utilized space as procent of Miete."
+      },
+      "handlingoverrunhours": {
+        "label": "Handling overrun Stunden",
+        "placeholder": "Handling overrun Stunden eingeben",
+        "helper": "Extra picking and handling Stunden pro month."
+      },
+      "hourlycost": {
+        "label": "Hourly Kosten",
+        "placeholder": "Hourly Kosten eingeben",
+        "helper": "Loaded warehouse Labor Satz."
+      }
+    },
+    "landscaping-contract-profit-tool": {
+      "dailycrewcost": {
+        "label": "Daily crew Kosten",
+        "placeholder": "Daily crew Kosten eingeben",
+        "helper": "Loaded crew and equipment Kosten pro site day."
+      },
+      "weatherdelaydays": {
+        "label": "Weather delay Tage",
+        "placeholder": "Weather delay Tage eingeben",
+        "helper": "Expected weather delay Tage on the contract."
+      },
+      "dumpfees": {
+        "label": "Dump fees",
+        "placeholder": "Dump fees eingeben",
+        "helper": "Tear-off disposal and dump fees."
+      },
+      "warrantyreserve": {
+        "label": "Warranty reserve",
+        "placeholder": "Warranty reserve eingeben",
+        "helper": "Warranty and callback reserve for the job."
+      }
+    },
+    "signage-bid-safe-price-tool": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Job revenue eingeben",
+        "helper": "Quoted or invoiced revenue for the print job."
+      },
+      "materialcost": {
+        "label": "Material Kosten",
+        "placeholder": "Material Kosten eingeben",
+        "helper": "SubstSatz, ink and Material spEnde."
+      },
+      "reprintratepercent": {
+        "label": "Reprint Satz",
+        "placeholder": "Reprint Satz eingeben",
+        "helper": "Reprint and spoilage as procent of Material Kosten."
+      },
+      "designrevisionhours": {
+        "label": "Design revision Stunden",
+        "placeholder": "Design revision Stunden eingeben",
+        "helper": "Artwork and revision labor expected on the job."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded design and production Labor Satz."
+      },
+      "installreworkcost": {
+        "label": "Install rework Kosten",
+        "placeholder": "Install rework Kosten eingeben",
+        "helper": "Installation return and rework spEnde."
+      }
+    },
+    "welding-bid-risk-analyzer": {
+      "monthlytoolcost": {
+        "label": "Monthly Tool Kosten",
+        "placeholder": "Monthly Tool Kosten eingeben",
+        "helper": "Inserts, tooling and VerbrauchsMaterial spEnde pro month."
+      },
+      "partsproduced": {
+        "label": "Parts produced",
+        "placeholder": "Parts produced eingeben",
+        "helper": "Good parts produced in the same proiod."
+      },
+      "toolchangeminutes": {
+        "label": "Tool change minutes",
+        "placeholder": "Tool change minutes eingeben",
+        "helper": "Average minutes lost pro tool change event."
+      },
+      "changespermonth": {
+        "label": "Changes pro month",
+        "placeholder": "Changes pro month eingeben",
+        "helper": "Tool change events in the proiod."
+      },
+      "hourlycost": {
+        "label": "Hourly Kosten",
+        "placeholder": "Hourly Kosten eingeben",
+        "helper": "Loaded machine and oproator Satz."
+      },
+      "coolantcost": {
+        "label": "Coolant Kosten",
+        "placeholder": "Coolant Kosten eingeben",
+        "helper": "Coolant and lubricant spEnde tied to tooling."
+      }
+    },
+    "hvac-project-margin-guard": {
+      "projectrevenue": {
+        "label": "Project revenue",
+        "placeholder": "Project revenue eingeben",
+        "helper": "Contract or bid revenue for the HVAC project."
+      },
+      "ductworkvariance": {
+        "label": "Ductwork variance",
+        "placeholder": "Ductwork variance eingeben",
+        "helper": "Extra duct Material and labor versus estimate."
+      },
+      "commissioninghours": {
+        "label": "Commissioning Stunden",
+        "placeholder": "Commissioning Stunden eingeben",
+        "helper": "Start-up, balance and commissioning labor."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded HVAC field Labor Satz."
+      },
+      "callbackriskpercent": {
+        "label": "Callback risk",
+        "placeholder": "Callback risk eingeben",
+        "helper": "Expected callback Kosten as procent of revenue."
+      }
+    },
+    "cnc-quote-risk-analyzer": {
+      "machinerate": {
+        "label": "Machine Satz",
+        "placeholder": "Machine Satz eingeben",
+        "helper": "Loaded shop Satz including oproator burden."
+      },
+      "plannedhours": {
+        "label": "Planned run Stunden",
+        "placeholder": "Planned run Stunden eingeben",
+        "helper": "Rüstzeit plus production Stunden on the job."
+      },
+      "downtimehours": {
+        "label": "Expected downtime",
+        "placeholder": "Expected downtime eingeben",
+        "helper": "Tool changes, first-off Prüfung, minor stops."
+      },
+      "materialcost": {
+        "label": "Material Kosten",
+        "placeholder": "Material Kosten eingeben",
+        "helper": "Stock, fixturing VerbrauchsMaterial for the job."
+      },
+      "scraprate": {
+        "label": "Scrap Satz",
+        "placeholder": "Scrap Satz eingeben",
+        "helper": "Historical scrap procent for similar jobs."
+      },
+      "availability": {
+        "label": "Verfügbarkeit",
+        "placeholder": "Verfügbarkeit eingeben",
+        "helper": "Running time vs planned time."
+      },
+      "performance": {
+        "label": "Performance",
+        "placeholder": "Performance eingeben",
+        "helper": "Actual cycle vs ideal cycle."
+      },
+      "quality": {
+        "label": "Qualität",
+        "placeholder": "Qualität eingeben",
+        "helper": "Good parts vs total parts."
+      },
+      "quotedprice": {
+        "label": "Quoted Preis",
+        "placeholder": "Quoted Preis eingeben",
+        "helper": "Preis you plan to charge the customer."
+      }
+    },
+    "sheet-metal-quote-risk-tool": {
+      "materialcost": {
+        "label": "Material Kosten",
+        "placeholder": "Material Kosten eingeben",
+        "helper": "Sheet stock and Material spEnde for the job or proiod."
+      },
+      "scraprate": {
+        "label": "Scrap Satz",
+        "placeholder": "Scrap Satz eingeben",
+        "helper": "Cutting Ausschuss and offcut loss as procent of Material Kosten."
+      },
+      "targetscraprate": {
+        "label": "Sollwert Scrap Satz",
+        "placeholder": "Sollwert Scrap Satz eingeben",
+        "helper": "Acceptable scrap Sollwert for similar jobs."
+      },
+      "reworkhours": {
+        "label": "Rework Stunden",
+        "placeholder": "Rework Stunden eingeben",
+        "helper": "BEnde, fit-up and finishing rework Stunden expected."
+      },
+      "laborrate": {
+        "label": "Labor Satz",
+        "placeholder": "Labor Satz eingeben",
+        "helper": "Fully loaded shop Labor Satz."
+      },
+      "finishingcost": {
+        "label": "Finishing Kosten",
+        "placeholder": "Finishing Kosten eingeben",
+        "helper": "Powder coat, deburr and finishing spEnde tied to rework risk."
+      }
+    },
+    "plumbing-job-margin-verdict": {
+      "jobrevenue": {
+        "label": "Job revenue",
+        "placeholder": "Job revenue eingeben",
+        "helper": "Fixed-Preis or contract revenue for the job."
+      },
+      "callbackvisits": {
+        "label": "Callback visits",
+        "placeholder": "Callback visits eingeben",
+        "helper": "Expected leak or warranty return visits."
+      },
+      "visitcost": {
+        "label": "Visit Kosten",
+        "placeholder": "Visit Kosten eingeben",
+        "helper": "Average Kosten pro callback visit."
+      },
+      "materialruncost": {
+        "label": "Material run Kosten",
+        "placeholder": "Material run Kosten eingeben",
+        "helper": "Extra fittings, pipe and supply runs."
+      },
+      "warrantyreservepercent": {
+        "label": "Warranty reserve",
+        "placeholder": "Warranty reserve eingeben",
+        "helper": "Warranty reserve as procent of job revenue."
+      }
     }
   },
   "sectorFooter": {
@@ -8382,6 +8687,48 @@
       "title": "SectorCalc Semantic Tool Index",
       "body": "Public calculator contracts, input/output parameters, and CalculateAction semantics are listed here automatically.",
       "count": "{count} public tools"
+    }
+  },
+  "tools": {
+    "change-order-impact-analyzer": {
+      "title": "Nachtrags-Auswirkungsanalyse",
+      "description": "Premium-Analyse. Vollständige Ergebnisse und Entscheidungszusammenfassung erfordern Credits oder aktives Pro."
+    },
+    "menu-profit-leak-detector": {
+      "title": "Menü-Gewinnleck-Detektor",
+      "description": "Premium-Analyse. Vollständige Ergebnisse und Entscheidungszusammenfassung erfordern Credits oder aktives Pro."
+    },
+    "office-cleaning-bid-optimizer": {
+      "title": "Büroreinigung-Angebotsoptimierer",
+      "description": "Premium-Analyse. Vollständige Ergebnisse und Entscheidungszusammenfassung erfordern Credits oder aktives Pro."
+    },
+    "landscaping-contract-profit-tool": {
+      "title": "Landschaftsvertrag-Gewinntool",
+      "description": "Premium-Analyse. Vollständige Ergebnisse und Entscheidungszusammenfassung erfordern Credits oder aktives Pro."
+    },
+    "signage-bid-safe-price-tool": {
+      "title": "Beschilderung sicherer Preis",
+      "description": "Premium-Analyse. Vollständige Ergebnisse und Entscheidungszusammenfassung erfordern Credits oder aktives Pro."
+    },
+    "welding-bid-risk-analyzer": {
+      "title": "Schweißangebot-Risikoanalyse",
+      "description": "Premium-Analyse. Vollständige Ergebnisse und Entscheidungszusammenfassung erfordern Credits oder aktives Pro."
+    },
+    "hvac-project-margin-guard": {
+      "title": "HLK-Projekt-Margenschutz",
+      "description": "Premium-Analyse. Vollständige Ergebnisse und Entscheidungszusammenfassung erfordern Credits oder aktives Pro."
+    },
+    "cnc-quote-risk-analyzer": {
+      "title": "CNC-Angebot-Risikoanalyse",
+      "description": "Premium-Analyse. Vollständige Ergebnisse und Entscheidungszusammenfassung erfordern Credits oder aktives Pro."
+    },
+    "sheet-metal-quote-risk-tool": {
+      "title": "Blech-Angebot-Risikotool",
+      "description": "Premium-Analyse. Vollständige Ergebnisse und Entscheidungszusammenfassung erfordern Credits oder aktives Pro."
+    },
+    "plumbing-job-margin-verdict": {
+      "title": "Sanitär-Auftrag-Margenurteil",
+      "description": "Premium-Analyse. Vollständige Ergebnisse und Entscheidungszusammenfassung erfordern Credits oder aktives Pro."
     }
   }
 }

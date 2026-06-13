@@ -7850,6 +7850,311 @@
         "placeholder": "İade oranı girin",
         "helper": "İade yüzdesi"
       }
+    },
+    "change-order-impact-analyzer": {
+      "dailysitecost": {
+        "label": "Günlük site Maliyet",
+        "placeholder": "Günlük site Maliyet girin",
+        "helper": "Crew, ekipman and overKafa başına day on site."
+      },
+      "delaydays": {
+        "label": "Delay Gün",
+        "placeholder": "Delay Gün girin",
+        "helper": "Expected schedule slip beyond Tabanline."
+      },
+      "laborbudget": {
+        "label": "İşçilik bütçesi",
+        "placeholder": "İşçilik bütçesi girin",
+        "helper": "Planned işçilik spend for the scope."
+      },
+      "laboroverrunpercent": {
+        "label": "İşçilik aşımı",
+        "placeholder": "İşçilik aşımı girin",
+        "helper": "Expected işçilik Maliyet sapma above Bütçe."
+      },
+      "materialbudget": {
+        "label": "Malzeme bütçesi",
+        "placeholder": "Malzeme bütçesi girin",
+        "helper": "Planned Malzeme spend for the scope."
+      },
+      "materialoverrunpercent": {
+        "label": "Malzeme aşımı",
+        "placeholder": "Malzeme aşımı girin",
+        "helper": "Expected Malzeme maliyeti sapma above Bütçe."
+      }
+    },
+    "menu-profit-leak-detector": {
+      "monthlyrevenue": {
+        "label": "Aylık ciro",
+        "placeholder": "Aylık ciro girin",
+        "helper": "Gıda sales for the başınaiod."
+      },
+      "ingredientcost": {
+        "label": "Ingredient Maliyet",
+        "placeholder": "Ingredient Maliyet girin",
+        "helper": "Toplam ingredient spend before Fire adjustment."
+      },
+      "deliveryappfeepercent": {
+        "label": "Teslimat uygulama ücreti",
+        "placeholder": "Teslimat uygulama ücreti girin",
+        "helper": "Platform commission on Teslimat Gelir."
+      },
+      "wasterate": {
+        "label": "Fire Oran",
+        "placeholder": "Fire Oran girin",
+        "helper": "Spoilage and kısım sapma as Yüzde of Ingredient Maliyet."
+      },
+      "targetfoodcostpercent": {
+        "label": "hedef Gıda maliyeti",
+        "placeholder": "hedef Gıda maliyeti girin",
+        "helper": "hedef Gıda maliyeti Yüzde for this Menü mix."
+      }
+    },
+    "office-cleaning-bid-optimizer": {
+      "monthlyrent": {
+        "label": "Aylık Kira",
+        "placeholder": "Aylık Kira girin",
+        "helper": "Aylık facility Kira or occupancy Maliyet."
+      },
+      "totalsqm": {
+        "label": "Toplam Zemin alanı",
+        "placeholder": "Toplam Zemin alanı girin",
+        "helper": "Toplam warehouse Zemin alanı (reference)."
+      },
+      "unusedspacepercent": {
+        "label": "Unkullanılan space",
+        "placeholder": "Unkullanılan space girin",
+        "helper": "Unkullanılan or under-utilized space as Yüzde of Kira."
+      },
+      "handlingoverrunhours": {
+        "label": "Handling overrun Saat",
+        "placeholder": "Handling overrun Saat girin",
+        "helper": "Extra picking and handling Saat başına month."
+      },
+      "hourlycost": {
+        "label": "Saatlik Maliyet",
+        "placeholder": "Saatlik Maliyet girin",
+        "helper": "Yüked warehouse İşçilik saat ücreti."
+      }
+    },
+    "landscaping-contract-profit-tool": {
+      "dailycrewcost": {
+        "label": "Günlük crew Maliyet",
+        "placeholder": "Günlük crew Maliyet girin",
+        "helper": "Yüked crew and ekipman Maliyet başına site day."
+      },
+      "weatherdelaydays": {
+        "label": "Weather delay Gün",
+        "placeholder": "Weather delay Gün girin",
+        "helper": "Expected weather delay Gün on the contract."
+      },
+      "dumpfees": {
+        "label": "Döküm/hafriyat ücretleri",
+        "placeholder": "Döküm/hafriyat ücretleri girin",
+        "helper": "Tear-off disposal and Döküm/hafriyat ücretleri."
+      },
+      "warrantyreserve": {
+        "label": "Garanti karşılığı",
+        "placeholder": "Garanti karşılığı girin",
+        "helper": "Warranty and Geri çağrı reserve for the job."
+      }
+    },
+    "signage-bid-safe-price-tool": {
+      "jobrevenue": {
+        "label": "İş geliri",
+        "placeholder": "İş geliri girin",
+        "helper": "Quoted or invoiced Gelir for the print job."
+      },
+      "materialcost": {
+        "label": "Malzeme maliyeti",
+        "placeholder": "Malzeme maliyeti girin",
+        "helper": "SubstOran, ink and Malzeme spend."
+      },
+      "reprintratepercent": {
+        "label": "Reprint Oran",
+        "placeholder": "Reprint Oran girin",
+        "helper": "Reprint and spoilage as Yüzde of Malzeme maliyeti."
+      },
+      "designrevisionhours": {
+        "label": "Design revision Saat",
+        "placeholder": "Design revision Saat girin",
+        "helper": "Artwork and revision işçilik expected on the job."
+      },
+      "laborrate": {
+        "label": "İşçilik saat ücreti",
+        "placeholder": "İşçilik saat ücreti girin",
+        "helper": "Fully Yüked design and pMiluction İşçilik saat ücreti."
+      },
+      "installreworkcost": {
+        "label": "Install Yeniden işleme Maliyet",
+        "placeholder": "Install Yeniden işleme Maliyet girin",
+        "helper": "Installation return and Yeniden işleme spend."
+      }
+    },
+    "welding-bid-risk-analyzer": {
+      "monthlytoolcost": {
+        "label": "Aylık Tool Maliyet",
+        "placeholder": "Aylık Tool Maliyet girin",
+        "helper": "Inserts, tooling and Sarf malzemeleri spend başına month."
+      },
+      "partsproduced": {
+        "label": "ÜreFayansn parça",
+        "placeholder": "ÜreFayansn parça girin",
+        "helper": "iyi ÜreFayansn parça in the same başınaiod."
+      },
+      "toolchangeminutes": {
+        "label": "Takım değişim dakikası",
+        "placeholder": "Takım değişim dakikası girin",
+        "helper": "Average Dakika lost başına tool change event."
+      },
+      "changespermonth": {
+        "label": "Changes başına month",
+        "placeholder": "Changes başına month girin",
+        "helper": "Tool change events in the başınaiod."
+      },
+      "hourlycost": {
+        "label": "Saatlik Maliyet",
+        "placeholder": "Saatlik Maliyet girin",
+        "helper": "Yüked makine and obaşınaator Oran."
+      },
+      "coolantcost": {
+        "label": "Coolant Maliyet",
+        "placeholder": "Coolant Maliyet girin",
+        "helper": "Coolant and lubricant spend tied to tooling."
+      }
+    },
+    "hvac-project-margin-guard": {
+      "projectrevenue": {
+        "label": "Proje geliri",
+        "placeholder": "Proje geliri girin",
+        "helper": "Contract or bid Gelir for the HVAC project."
+      },
+      "ductworkvariance": {
+        "label": "Kanal işi sapması",
+        "placeholder": "Kanal işi sapması girin",
+        "helper": "Extra duct Malzeme and işçilik versus Tahmin."
+      },
+      "commissioninghours": {
+        "label": "Commissioning Saat",
+        "placeholder": "Commissioning Saat girin",
+        "helper": "Start-up, balance and commissioning işçilik."
+      },
+      "laborrate": {
+        "label": "İşçilik saat ücreti",
+        "placeholder": "İşçilik saat ücreti girin",
+        "helper": "Fully Yüked HVAC field İşçilik saat ücreti."
+      },
+      "callbackriskpercent": {
+        "label": "Geri çağırma riski",
+        "placeholder": "Geri çağırma riski girin",
+        "helper": "Expected Geri çağrı Maliyet as Yüzde of Gelir."
+      }
+    },
+    "cnc-quote-risk-analyzer": {
+      "machinerate": {
+        "label": "Makine saat ücreti",
+        "placeholder": "Makine saat ücreti girin",
+        "helper": "Yüked shop Oran including obaşınaator burden."
+      },
+      "plannedhours": {
+        "label": "Planned run Saat",
+        "placeholder": "Planned run Saat girin",
+        "helper": "Hazırlık plus pMiluction Saat on the job."
+      },
+      "downtimehours": {
+        "label": "Beklenen duruş",
+        "placeholder": "Beklenen duruş girin",
+        "helper": "Tool changes, first-off Muayene, minor Durak."
+      },
+      "materialcost": {
+        "label": "Malzeme maliyeti",
+        "placeholder": "Malzeme maliyeti girin",
+        "helper": "Stock, fixturing Sarf malzemeleri for the job."
+      },
+      "scraprate": {
+        "label": "Fire Oran",
+        "placeholder": "Fire Oran girin",
+        "helper": "Historical Fire Yüzde for similar jobs."
+      },
+      "availability": {
+        "label": "Kullanılabilirlik",
+        "placeholder": "Kullanılabilirlik girin",
+        "helper": "Çalışma süresi vs planlanan süre."
+      },
+      "performance": {
+        "label": "başınaformans",
+        "placeholder": "başınaformans girin",
+        "helper": "gerçek çevrim vs ideal çevrim."
+      },
+      "quality": {
+        "label": "kalite",
+        "placeholder": "kalite girin",
+        "helper": "iyi Parça vs Toplam Parça."
+      },
+      "quotedprice": {
+        "label": "Quoted Fiyat",
+        "placeholder": "Quoted Fiyat girin",
+        "helper": "Fiyat you plan to ücret the customer."
+      }
+    },
+    "sheet-metal-quote-risk-tool": {
+      "materialcost": {
+        "label": "Malzeme maliyeti",
+        "placeholder": "Malzeme maliyeti girin",
+        "helper": "Sheet stock and Malzeme spend for the job or başınaiod."
+      },
+      "scraprate": {
+        "label": "Fire Oran",
+        "placeholder": "Fire Oran girin",
+        "helper": "Kesim Fire and offkesim kayıp as Yüzde of Malzeme maliyeti."
+      },
+      "targetscraprate": {
+        "label": "hedef Fire Oran",
+        "placeholder": "hedef Fire Oran girin",
+        "helper": "Acceptable Fire hedef for similar jobs."
+      },
+      "reworkhours": {
+        "label": "Yeniden işleme Saat",
+        "placeholder": "Yeniden işleme Saat girin",
+        "helper": "Bend, fit-up and finishing Yeniden işleme Saat expected."
+      },
+      "laborrate": {
+        "label": "İşçilik saat ücreti",
+        "placeholder": "İşçilik saat ücreti girin",
+        "helper": "Fully Yüked shop İşçilik saat ücreti."
+      },
+      "finishingcost": {
+        "label": "Finishing Maliyet",
+        "placeholder": "Finishing Maliyet girin",
+        "helper": "Powder coat, deburr and finishing spend tied to Yeniden işleme risk."
+      }
+    },
+    "plumbing-job-margin-verdict": {
+      "jobrevenue": {
+        "label": "İş geliri",
+        "placeholder": "İş geliri girin",
+        "helper": "sabit-Fiyat or contract Gelir for the job."
+      },
+      "callbackvisits": {
+        "label": "Geri çağırma ziyaretleri",
+        "placeholder": "Geri çağırma ziyaretleri girin",
+        "helper": "Expected Kaçak or warranty return visits."
+      },
+      "visitcost": {
+        "label": "Visit Maliyet",
+        "placeholder": "Visit Maliyet girin",
+        "helper": "Average Maliyet başına Geri çağrı visit."
+      },
+      "materialruncost": {
+        "label": "Malzeme run Maliyet",
+        "placeholder": "Malzeme run Maliyet girin",
+        "helper": "Extra fittings, pipe and supply runs."
+      },
+      "warrantyreservepercent": {
+        "label": "Garanti karşılığı",
+        "placeholder": "Garanti karşılığı girin",
+        "helper": "Garanti karşılığı as Yüzde of İş geliri."
+      }
     }
   },
   "freeToolContent": {
@@ -8518,12 +8823,12 @@
       "description": "Concrete / Project Cost Hesaplayıcı"
     },
     "change-order-impact-analyzer": {
-      "title": "Concrete / Project Cost Hesaplayıcı",
-      "description": "Concrete / Project Cost Hesaplayıcı"
+      "title": "Değişiklik Emri Etki Analizörü",
+      "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     },
     "cnc-quote-risk-analyzer": {
-      "title": "Loan Payment Hesaplayıcı",
-      "description": "Loan Payment Hesaplayıcı"
+      "title": "CNC Teklif Risk Analizörü",
+      "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     },
     "crop-yield-loss-analyzer": {
       "title": "Route & Freight Loss Hesaplayıcı",
@@ -8546,12 +8851,12 @@
       "description": "Age Hesaplayıcı"
     },
     "hvac-project-margin-guard": {
-      "title": "Concrete / Project Cost Hesaplayıcı",
-      "description": "Concrete / Project Cost Hesaplayıcı"
+      "title": "HVAC Proje Marj Koruyucu",
+      "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     },
     "landscaping-contract-profit-tool": {
-      "title": "Concrete / Project Cost Hesaplayıcı",
-      "description": "Concrete / Project Cost Hesaplayıcı"
+      "title": "Peyzaj Sözleşme Kâr Aracı",
+      "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     },
     "material-waste-calculator": {
       "title": "Age Hesaplayıcı",
@@ -8562,16 +8867,16 @@
       "description": "Route & Freight Loss Hesaplayıcı"
     },
     "menu-profit-leak-detector": {
-      "title": "Concrete / Project Cost Hesaplayıcı",
-      "description": "Concrete / Project Cost Hesaplayıcı"
+      "title": "Menü Kâr Sızıntısı Dedektörü",
+      "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     },
     "millwork-bid-risk-analyzer": {
       "title": "Concrete / Project Cost Hesaplayıcı",
       "description": "Concrete / Project Cost Hesaplayıcı"
     },
     "office-cleaning-bid-optimizer": {
-      "title": "Concrete / Project Cost Hesaplayıcı",
-      "description": "Concrete / Project Cost Hesaplayıcı"
+      "title": "Ofis Temizlik Teklif Optimizasyonu",
+      "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     },
     "painting-job-profit-verdict": {
       "title": "Concrete / Project Cost Hesaplayıcı",
@@ -8582,8 +8887,8 @@
       "description": "Concrete / Project Cost Hesaplayıcı"
     },
     "plumbing-job-margin-verdict": {
-      "title": "Concrete / Project Cost Hesaplayıcı",
-      "description": "Concrete / Project Cost Hesaplayıcı"
+      "title": "Tesisat İşi Marj Kararı",
+      "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     },
     "profit-margin-calculator": {
       "title": "Loan Payment Hesaplayıcı",
@@ -8606,20 +8911,20 @@
       "description": "Age Hesaplayıcı"
     },
     "sheet-metal-quote-risk-tool": {
-      "title": "Concrete / Project Cost Hesaplayıcı",
-      "description": "Concrete / Project Cost Hesaplayıcı"
+      "title": "Sac Metal Teklif Risk Aracı",
+      "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     },
     "signage-bid-safe-price-tool": {
-      "title": "Concrete / Project Cost Hesaplayıcı",
-      "description": "Concrete / Project Cost Hesaplayıcı"
+      "title": "Tabela Teklif Güvenli Fiyat Aracı",
+      "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     },
     "water-optimization-verdict": {
       "title": "Route & Freight Loss Hesaplayıcı",
       "description": "Route & Freight Loss Hesaplayıcı"
     },
     "welding-bid-risk-analyzer": {
-      "title": "Concrete / Project Cost Hesaplayıcı",
-      "description": "Concrete / Project Cost Hesaplayıcı"
+      "title": "Kaynak Teklif Risk Analizörü",
+      "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     }
   }
 }

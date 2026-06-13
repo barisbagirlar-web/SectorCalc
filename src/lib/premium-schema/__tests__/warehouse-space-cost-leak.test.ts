@@ -12,6 +12,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = "warehouse-space-cost-leak";
+const PAID_ROUTE_SLUG = "office-cleaning-bid-optimizer";
 
 const defaultInputs: WarehouseSpaceCostLeakInputs = {
   monthlyRent: 24000,

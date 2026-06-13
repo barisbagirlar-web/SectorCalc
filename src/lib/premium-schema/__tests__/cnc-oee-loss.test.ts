@@ -12,6 +12,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = "cnc-oee-loss";
+const PAID_ROUTE_SLUG = "cnc-quote-risk-analyzer";
 
 const defaultInputs: CncOeeLossInputs = {
     "machineRate": 90,

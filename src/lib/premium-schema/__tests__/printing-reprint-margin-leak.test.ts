@@ -12,6 +12,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = "printing-reprint-margin-leak";
+const PAID_ROUTE_SLUG = "signage-bid-safe-price-tool";
 
 const defaultInputs: PrintingReprintMarginLeakInputs = {
   jobRevenue: 8500,

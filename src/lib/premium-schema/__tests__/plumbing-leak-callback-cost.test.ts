@@ -12,6 +12,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = "plumbing-leak-callback-cost";
+const PAID_ROUTE_SLUG = "plumbing-job-margin-verdict";
 
 const defaultInputs: PlumbingLeakCallbackCostInputs = {
     "jobRevenue": 12500,
