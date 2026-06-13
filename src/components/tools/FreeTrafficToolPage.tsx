@@ -25,6 +25,7 @@ import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
 import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
+import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
 import { SmartFormWorkspace } from "@/components/smart-form/SmartFormWorkspace";
 import { CalculationFeedbackButton } from "@/components/feedback/CalculationFeedbackButton";
 import { SmartFormValidationSummary } from "@/components/tools/smart-form/SmartFormValidationSummary";
@@ -279,7 +280,10 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
       <section className="sc-craft-section sc-craft-section--white sc-craft-section--border">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide">
           <p className="sc-craft-eyebrow">{t(`categories.${tool.category}`)}</p>
-          <h1 className="sc-craft-headline">{displayTitle}</h1>
+          <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+            <h1 className="sc-craft-headline">{displayTitle}</h1>
+            <FormulaGateToolStatus slug={tool.slug} locale={locale} />
+          </div>
           <p className="sc-craft-lead">{displayDescription}</p>
         </Container>
       </section>

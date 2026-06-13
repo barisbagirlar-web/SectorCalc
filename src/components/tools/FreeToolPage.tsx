@@ -457,7 +457,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  <section className="sc-craft-section">
  <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
  <SectorToolSelect tier="free" currentSlug={tool.freeSlug} />
- <OsModuleHeader title={tool.freeTitle} tier="utility" />
+ <OsModuleHeader title={tool.freeTitle} tier="utility" slug={tool.freeSlug} locale={locale} />
 
  {featuredAnswer ? <div className="mt-5">{featuredAnswer}</div> : null}
 

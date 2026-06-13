@@ -10,6 +10,7 @@ import type { ToolDefinition } from "@/data/tool-schema";
 import { getIndustryBySlug } from "@/data/industries";
 import { applyRevenueToolDisplay } from "@/lib/tools/revenue-tools";
 import { MARGINCORE_TERMS } from "@/lib/terminology/margincore-identity";
+import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
 import {
   CALC_TOOL_PAGE_CHROME_CLASS,
   CALC_TOOL_PAGE_CLASS,
@@ -18,9 +19,10 @@ import {
 
 interface ToolPageShellProps {
  definition: ToolDefinition;
+ locale: string;
 }
 
-export function ToolPageShell({ definition: rawDefinition }: ToolPageShellProps) {
+export function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShellProps) {
  const definition = applyRevenueToolDisplay(rawDefinition);
  const industry = getIndustryBySlug(definition.industryId);
  const isPremium = definition.tier === "premium";
@@ -46,6 +48,7 @@ export function ToolPageShell({ definition: rawDefinition }: ToolPageShellProps)
  eyebrow={classificationLabel}
  title={definition.title}
  description={definition.longDescription}
+ statusSlot={<FormulaGateToolStatus slug={definition.slug} locale={locale} />}
  />
  <p className="mb-6 text-sm leading-relaxed text-text-secondary">
  {isPremium

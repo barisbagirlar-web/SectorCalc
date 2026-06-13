@@ -1,8 +1,11 @@
+import type { ReactNode } from "react";
+
 type PageHeroProps = {
   eyebrow?: string;
   title: string;
   description?: string;
   align?: "center" | "left";
+  statusSlot?: ReactNode;
 };
 
 export default function PageHero({
@@ -10,6 +13,7 @@ export default function PageHero({
   title,
   description,
   align = "center",
+  statusSlot,
 }: PageHeroProps) {
   const isCenter = align === "center";
 
@@ -25,6 +29,12 @@ export default function PageHero({
           >
             {title}
           </h1>
+
+          {statusSlot ? (
+            <div className={`mt-3 flex flex-wrap gap-2 ${isCenter ? "justify-center" : ""}`}>
+              {statusSlot}
+            </div>
+          ) : null}
 
           {description ? (
             <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-body-charcoal sm:text-base">

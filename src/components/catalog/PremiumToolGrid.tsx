@@ -5,14 +5,12 @@ export type PremiumToolGridProps = {
   readonly tools: readonly CategorizedToolItem[];
   readonly locale: string;
   readonly openLabel: string;
-  readonly preparingLabel: string;
 };
 
 export function PremiumToolGrid({
   tools,
   locale,
   openLabel,
-  preparingLabel,
 }: PremiumToolGridProps) {
   if (tools.length === 0) {
     return null;
@@ -26,7 +24,6 @@ export function PremiumToolGrid({
           tool={tool}
           locale={locale}
           openLabel={openLabel}
-          preparingLabel={preparingLabel}
         />
       ))}
     </div>

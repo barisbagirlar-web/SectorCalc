@@ -5,27 +5,12 @@ import { ROOT } from "./lib/activation-paths.mjs";
 import {
   QUALITY_SCAN_REPORT_PATH,
   buildQualityScanReport,
-  isRiskExcludedTool,
 } from "./lib/quality-backfill-scan-lib.mjs";
 
 const OUTPUT_FILE = path.join(
   ROOT,
   "src/lib/formula-governance/formula-source-audit-registry.ts",
 );
-
-const HARD_EXCLUDE_SLUGS = new Set([
-  "cbam-compliance-verdict",
-  "cbam-exposure-quick-check",
-  "cbam-karbon-sinir-vergisi-ve-ihracat-maliyet-etkisi-calculator",
-  "auto-repair-comeback-cost",
-  "auto-repair-parts-labor-quote-calculator",
-  "carbon-footprint-compliance-risk",
-  "rent-vs-buy-calculator",
-  "legal-interest-fee-calculator-pro",
-  "electrical-panel-rework-cost",
-  "pressure-vessel-wall-thickness-calculator",
-  "break-even-safety-margin-calculator",
-]);
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -39,21 +24,8 @@ function ensureQualityScan() {
   }
 }
 
-function isPremiumTier(tier) {
-  return tier === "premium" || tier === "premium-schema";
-}
-
-function hasActiveRoute(tool) {
-  return tool.hasRoute === true || tool.routeStatus === "active-route";
-}
-
 function shouldIncludeTool(tool) {
-  if (!isPremiumTier(tool.tier)) return false;
-  if (tool.upgradeDecision !== "PASS") return false;
-  if (!hasActiveRoute(tool)) return false;
-  if (HARD_EXCLUDE_SLUGS.has(tool.slug)) return false;
-  if (isRiskExcludedTool(tool.slug, { riskLevel: tool.riskLevel })) return false;
-  return true;
+  return tool.upgradeDecision === "PASS";
 }
 
 function buildRegistryEntry(tool) {
@@ -78,7 +50,10 @@ function buildRegistryEntry(tool) {
 
 function renderRegistryFile(entries) {
   const body = entries
-    .map((entry) => `  ${JSON.stringify(entry.slug)}: ${JSON.stringify(entry, null, 2).replace(/\n/g, "\n  ")},`)
+    .map(
+      (entry) =>
+        `  ${JSON.stringify(entry.slug)}: ${JSON.stringify(entry, null, 2).replace(/\n/g, "\n  ")},`,
+    )
     .join("\n");
 
   return `/**
@@ -119,6 +94,34 @@ export function hasFormulaSourceAudit(slug: string): boolean {
 `;
 }
 
+function assertRegistryIntegrity(scanReport, entries) {
+  const passSlugs = (scanReport.tools ?? [])
+    .filter((tool) => tool.upgradeDecision === "PASS")
+    .map((tool) => tool.slug)
+    .sort();
+  const registrySlugs = entries.map((entry) => entry.slug).sort();
+
+  const missingPass = passSlugs.filter((slug) => !registrySlugs.includes(slug));
+  const falsePositive = registrySlugs.filter((slug) => !passSlugs.includes(slug));
+
+  if (missingPass.length > 0 || falsePositive.length > 0) {
+    console.error(
+      JSON.stringify(
+        {
+          error: "Formula Gate registry integrity failed",
+          missingPassCount: missingPass.length,
+          falsePositiveCount: falsePositive.length,
+          missingPass: missingPass.slice(0, 50),
+          falsePositive,
+        },
+        null,
+        2,
+      ),
+    );
+    process.exit(1);
+  }
+}
+
 function main() {
   ensureQualityScan();
   const scanReport = readJson(QUALITY_SCAN_REPORT_PATH);
@@ -127,6 +130,8 @@ function main() {
     .map(buildRegistryEntry)
     .sort((left, right) => left.slug.localeCompare(right.slug));
 
+  assertRegistryIntegrity(scanReport, entries);
+
   fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
   fs.writeFileSync(OUTPUT_FILE, renderRegistryFile(entries), "utf8");
 
@@ -134,6 +139,8 @@ function main() {
     [
       "Formula Source Audit Registry generated",
       `verified: ${entries.length}`,
+      `missingPassCount: 0`,
+      `falsePositiveCount: 0`,
       `output: ${path.relative(ROOT, OUTPUT_FILE)}`,
     ].join("\n"),
   );

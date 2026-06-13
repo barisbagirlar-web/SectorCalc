@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import { ToolPageShell } from "@/components/tools/ToolPageShell";
 import {
  getToolDefinition,
@@ -11,6 +12,10 @@ import { createPageMetadata } from "@/lib/metadata";
 interface ToolPageParams {
  tier: string;
  slug: string;
+}
+
+interface ToolPageRouteParams extends ToolPageParams {
+ locale: string;
 }
 
 export const dynamic = "force-static";
@@ -32,7 +37,7 @@ export async function generateStaticParams(): Promise<ToolPageParams[]> {
 export async function generateMetadata({
  params,
 }: {
- params: Promise<ToolPageParams>;
+ params: Promise<ToolPageRouteParams>;
 }): Promise<Metadata> {
  const { tier, slug } = await params;
  if (!isValidToolTier(tier)) return {};
@@ -49,24 +54,25 @@ export async function generateMetadata({
 export default async function ToolPage({
  params,
 }: {
- params: Promise<ToolPageParams>;
+ params: Promise<ToolPageRouteParams>;
 }) {
- const { tier, slug } = await params;
+ const { tier, slug, locale } = await params;
+ setRequestLocale(locale);
 
  if (!isValidToolTier(tier)) {
- notFound();
+  notFound();
  }
 
  const definition = getToolDefinition(tier, slug as ToolSlug);
 
  if (!definition) {
- notFound();
+  notFound();
  }
 
  return (
   <>
    <div className="sr-only" aria-hidden="true" data-calculation-form-shell="true" />
-   <ToolPageShell definition={definition} />
+   <ToolPageShell definition={definition} locale={locale} />
   </>
  );
 }

@@ -1,5 +1,9 @@
 import { CheckCircle2 } from "lucide-react";
 import { getFormulaSourceAuditStatus } from "@/lib/formula-governance/formula-source-audit-registry";
+import {
+  getFormulaGateVerifiedLabel,
+  getFormulaGateVerifiedTitle,
+} from "@/lib/formula-governance/formula-gate-copy";
 
 type Props = {
   slug: string;
@@ -12,12 +16,8 @@ export function FormulaSourceAuditBadge({ slug, locale, className }: Props) {
 
   if (!status) return null;
 
-  const isTr = locale === "tr";
-
-  const label = isTr ? "Formula Gate Onaylı" : "Formula Gate Verified";
-  const title = isTr
-    ? "Bu hesaplama aracı 7 Muda kalite standardı kapsamında schema, input, formül kaynağı, validation, test ve rapor zincirinden geçirilmiştir."
-    : "This calculation tool has passed the 7 Muda quality standard for schema, input, formula source, validation, tests and reporting chain.";
+  const label = getFormulaGateVerifiedLabel(locale);
+  const title = getFormulaGateVerifiedTitle(locale);
 
   return (
     <span

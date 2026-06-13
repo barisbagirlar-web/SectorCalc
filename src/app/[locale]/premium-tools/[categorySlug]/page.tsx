@@ -99,7 +99,6 @@ export default async function PremiumToolsCategoryPage({ params }: PageProps) {
                 tools={detail.premiumTools}
                 locale={locale}
                 openLabel={t("openCalculator")}
-                preparingLabel={t("methodologyPreparing")}
               />
             </section>
 

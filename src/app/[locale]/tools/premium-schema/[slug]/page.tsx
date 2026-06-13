@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
 import { PremiumAnalyzerAuthorityBlock } from "@/components/content/PremiumAnalyzerAuthorityBlock";
-import { FormulaSourceAuditBadge } from "@/components/formula/FormulaSourceAuditBadge";
+import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
 import { getTranslations } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
@@ -133,7 +133,7 @@ export default async function PremiumSchemaPilotPage({
             <h1 className="text-2xl font-semibold text-premium-velvet sm:text-3xl">
               {displayName}
             </h1>
-            <FormulaSourceAuditBadge slug={slug} locale={locale} />
+            <FormulaGateToolStatus slug={slug} locale={locale} />
           </div>
           <p className="mt-3 max-w-2xl text-sm text-body-charcoal sm:text-base">
             {displayPain}

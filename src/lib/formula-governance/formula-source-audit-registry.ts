@@ -91,6 +91,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "age-calculator": {
+    "slug": "age-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "agirlikli-ortalama-hesaplama": {
+    "slug": "agirlikli-ortalama-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "agriculture-irrigation-yield-loss": {
     "slug": "agriculture-irrigation-yield-loss",
     "status": "verified",
@@ -106,6 +140,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": true,
       "hasI18n": true
+    }
+  },
+  "akaryakit-fiyati-ile-yol-butcesi": {
+    "slug": "akaryakit-fiyati-ile-yol-butcesi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
     }
   },
   "aku-kapasitesi-calisma-suresi-hesabi": {
@@ -142,6 +193,74 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "amper-kilowatt-kw-cevirici": {
+    "slug": "amper-kilowatt-kw-cevirici",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "annual-leave-severance-notice-calculator": {
+    "slug": "annual-leave-severance-notice-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
+  "arac-amortisman-hesaplama": {
+    "slug": "arac-amortisman-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "arac-bakim-periyodu-takip-hesaplama": {
+    "slug": "arac-bakim-periyodu-takip-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "arac-kira-satin-alma-karsilastirma": {
     "slug": "arac-kira-satin-alma-karsilastirma",
     "status": "verified",
@@ -157,6 +276,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": false,
       "hasDeepReport": false,
       "hasI18n": false
+    }
+  },
+  "asma-tavan-malzeme-hesabi": {
+    "slug": "asma-tavan-malzeme-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "auto-repair-parts-labor-quote-calculator": {
+    "slug": "auto-repair-parts-labor-quote-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
     }
   },
   "auto-shop-margin-leak-detector": {
@@ -176,6 +329,74 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "average-calculator": {
+    "slug": "average-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "aydinlatma-armatur-sayisi-hesaplama": {
+    "slug": "aydinlatma-armatur-sayisi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "baca-havalandirma-kanali-cap-hesabi": {
+    "slug": "baca-havalandirma-kanali-cap-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "bar-psi-pascal-cevirici": {
+    "slug": "bar-psi-pascal-cevirici",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "basincli-kap-cidar-kalinligi-hesabi": {
     "slug": "basincli-kap-cidar-kalinligi-hesabi",
     "status": "verified",
@@ -189,6 +410,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "batch-yield-calculator": {
+    "slug": "batch-yield-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -210,6 +448,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "beygir-gucu-kilowatt-cevirici": {
+    "slug": "beygir-gucu-kilowatt-cevirici",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "boiler-efficiency-calculator": {
     "slug": "boiler-efficiency-calculator",
     "status": "verified",
@@ -223,6 +478,74 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "bolt-tightening-torque-calculator": {
+    "slug": "bolt-tightening-torque-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
+  "boru-agirlik-hesaplama-celik-paslanmaz": {
+    "slug": "boru-agirlik-hesaplama-celik-paslanmaz",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "boru-capi-akis-hizi-hesaplama": {
+    "slug": "boru-capi-akis-hizi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "boya-kaplama-sarfiyati-m-basina-hesabi": {
+    "slug": "boya-kaplama-sarfiyati-m-basina-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -244,6 +567,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "brick-calculator": {
+    "slug": "brick-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "bulonlu-baglanti-kesme-ezilme-hesabi": {
     "slug": "bulonlu-baglanti-kesme-ezilme-hesabi",
     "status": "verified",
@@ -257,6 +597,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "cabinet-cost-estimator": {
+    "slug": "cabinet-cost-estimator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -312,6 +669,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "cay-kahve-su-tuketim-maliyeti": {
+    "slug": "cay-kahve-su-tuketim-maliyeti",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "cbam-unit-product-carbon-footprint-calculator": {
+    "slug": "cbam-unit-product-carbon-footprint-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
   "cek-senet-vade-kirma-maliyeti-hesabi": {
     "slug": "cek-senet-vade-kirma-maliyeti-hesabi",
     "status": "verified",
@@ -325,6 +716,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "celik-cati-makas-yaklasik-agirligi": {
+    "slug": "celik-cati-makas-yaklasik-agirligi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -380,6 +788,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "cit-korkuluk-malzeme-hesabi": {
+    "slug": "cit-korkuluk-malzeme-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "civata-on-germe-kuvveti-hesabi": {
     "slug": "civata-on-germe-kuvveti-hesabi",
     "status": "verified",
@@ -410,6 +835,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "cleaning-cost-calculator": {
+    "slug": "cleaning-cost-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -567,6 +1009,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "concrete-volume-calculator": {
+    "slug": "concrete-volume-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "construction-project-overrun": {
     "slug": "construction-project-overrun",
     "status": "verified",
@@ -599,6 +1058,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": true,
       "hasI18n": true
+    }
+  },
+  "cop-atik-konteyner-hacim-hesabi": {
+    "slug": "cop-atik-konteyner-hacim-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
     }
   },
   "crop-yield-calculator": {
@@ -635,6 +1111,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "cutting-speed-calculator": {
+    "slug": "cutting-speed-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "daire-alani-cevresi-hesaplama": {
+    "slug": "daire-alani-cevresi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "dairy-feed-efficiency-loss": {
     "slug": "dairy-feed-efficiency-loss",
     "status": "verified",
@@ -669,6 +1179,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "date-difference-calculator": {
+    "slug": "date-difference-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "delivery-cost-calculator": {
+    "slug": "delivery-cost-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "depo-raf-palet-yerlesim-optimizasyonu": {
     "slug": "depo-raf-palet-yerlesim-optimizasyonu",
     "status": "verified",
@@ -682,6 +1226,108 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "depreciation-calculator": {
+    "slug": "depreciation-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "desi-calculator": {
+    "slug": "desi-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "discount-calculator": {
+    "slug": "discount-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "disli-modul-cap-hesaplama": {
+    "slug": "disli-modul-cap-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "dizel-benzin-maliyet-karsilastirma": {
+    "slug": "dizel-benzin-maliyet-karsilastirma",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "dogalgaz-tuketimi-hesaplama": {
+    "slug": "dogalgaz-tuketimi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -718,6 +1364,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": true,
       "hasI18n": true
+    }
+  },
+  "drywall-calculator": {
+    "slug": "drywall-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "duvar-kagidi-seramik-adet-hesaplama": {
+    "slug": "duvar-kagidi-seramik-adet-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
     }
   },
   "electricity-bill-calculator": {
@@ -769,6 +1449,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": true,
       "hasI18n": true
+    }
+  },
+  "energy-consumption-check": {
+    "slug": "energy-consumption-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
     }
   },
   "energy-efficiency-report": {
@@ -856,6 +1553,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "excavation-volume-calculator": {
+    "slug": "excavation-volume-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "fazla-mesai-ucreti-hesaplama": {
     "slug": "fazla-mesai-ucreti-hesaplama",
     "status": "verified",
@@ -907,6 +1621,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "feed-rate-calculator": {
+    "slug": "feed-rate-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "fertilizer-dosage-calculator": {
     "slug": "fertilizer-dosage-calculator",
     "status": "verified",
@@ -920,6 +1651,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "fire-system-flow-hydrant-calculator": {
+    "slug": "fire-system-flow-hydrant-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
+  "flooring-calculator": {
+    "slug": "flooring-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -975,6 +1740,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "fotokopi-yazici-toner-sayfa-maliyeti": {
+    "slug": "fotokopi-yazici-toner-sayfa-maliyeti",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "freight-cost-calculator": {
     "slug": "freight-cost-calculator",
     "status": "verified",
@@ -992,6 +1774,57 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "fuel-consumption-calculator": {
+    "slug": "fuel-consumption-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "fuel-consumption-check": {
+    "slug": "fuel-consumption-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "fuel-cost-calculator": {
+    "slug": "fuel-cost-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "fuel-emission-calculator": {
     "slug": "fuel-emission-calculator",
     "status": "verified",
@@ -1005,6 +1838,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "fuel-travel-calculator": {
+    "slug": "fuel-travel-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -1094,6 +1944,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "hidrolik-silindir-itme-kuvveti-hesabi": {
+    "slug": "hidrolik-silindir-itme-kuvveti-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "home-budget-calculator": {
+    "slug": "home-budget-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "home-renovation-m2-calculator": {
     "slug": "home-renovation-m2-calculator",
     "status": "verified",
@@ -1162,6 +2046,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "hvac-tonnage-rule-check": {
+    "slug": "hvac-tonnage-rule-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "hydraulic-pneumatic-cylinder-force-calculator": {
+    "slug": "hydraulic-pneumatic-cylinder-force-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
   "ic-verim-orani-irr-hesaplama": {
     "slug": "ic-verim-orani-irr-hesaplama",
     "status": "verified",
@@ -1175,6 +2093,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "interest-calculator": {
+    "slug": "interest-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "internet-telefon-paketi-karsilastirma": {
+    "slug": "internet-telefon-paketi-karsilastirma",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -1247,6 +2199,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati": {
+    "slug": "is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "is-kazasi-maliyeti-gun-kaybi-hesaplama": {
     "slug": "is-kazasi-maliyeti-gun-kaybi-hesaplama",
     "status": "verified",
@@ -1298,6 +2267,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "isi-degistirici-esanjor-kapasite-hesabi": {
+    "slug": "isi-degistirici-esanjor-kapasite-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "isitma-sogutma-yuku-kcal-kw-hesabi": {
+    "slug": "isitma-sogutma-yuku-kcal-kw-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "istatistiksel-proses-kontrol-spc-limit-hesabi": {
     "slug": "istatistiksel-proses-kontrol-spc-limit-hesabi",
     "status": "verified",
@@ -1345,6 +2348,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "joule-kalori-watt-saat-cevirici": {
+    "slug": "joule-kalori-watt-saat-cevirici",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -1451,6 +2471,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "kesir-ondalik-cevirici": {
+    "slug": "kesir-ondalik-cevirici",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "kesme-bukme-abkant-tonaj-hesabi": {
     "slug": "kesme-bukme-abkant-tonaj-hesabi",
     "status": "verified",
@@ -1464,6 +2501,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "kiris-kolon-yaklasik-agirlik-hesabi": {
+    "slug": "kiris-kolon-yaklasik-agirlik-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -1502,6 +2556,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "koni-hacmi-hesaplama": {
+    "slug": "koni-hacmi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "konteyner-yukleme-kapasitesi-teu-hesabi": {
     "slug": "konteyner-yukleme-kapasitesi-teu-hesabi",
     "status": "verified",
@@ -1519,6 +2590,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "kosebent-lama-agirlik-hesaplama": {
+    "slug": "kosebent-lama-agirlik-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "kredi-erken-kapama-cezasi-hesaplama": {
     "slug": "kredi-erken-kapama-cezasi-hesaplama",
     "status": "verified",
@@ -1532,6 +2620,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "kumlama-raspa-kum-sarfiyati-hesabi": {
+    "slug": "kumlama-raspa-kum-sarfiyati-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "kure-hacmi-hesaplama": {
+    "slug": "kure-hacmi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -1583,6 +2705,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "lastik-omru-degisim-km-hesaplama": {
+    "slug": "lastik-omru-degisim-km-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "lawn-care-cost-check": {
+    "slug": "lawn-care-cost-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -1672,6 +2828,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "lpg-benzin-tasarruf-karsilastirma": {
+    "slug": "lpg-benzin-tasarruf-karsilastirma",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "machine-hour-rate-calculator": {
     "slug": "machine-hour-rate-calculator",
     "status": "verified",
@@ -1740,6 +2913,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "matkap-kilavuz-delik-capi-tablosu": {
+    "slug": "matkap-kilavuz-delik-capi-tablosu",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "meal-planning-verdict": {
     "slug": "meal-planning-verdict",
     "status": "verified",
@@ -1757,6 +2947,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "median-calculator": {
+    "slug": "median-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "menu-profit-leak-detector": {
     "slug": "menu-profit-leak-detector",
     "status": "verified",
@@ -1772,6 +2979,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": true,
       "hasI18n": true
+    }
+  },
+  "merdiven-platform-yukseklik-erisim-hesabi": {
+    "slug": "merdiven-platform-yukseklik-erisim-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
     }
   },
   "mil-aks-capi-hesabi-egilme-burulma": {
@@ -1859,6 +3083,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "mtv-motorlu-tasitlar-vergisi-hesaplama": {
+    "slug": "mtv-motorlu-tasitlar-vergisi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "nakit-akisi-basit-gunluk-haftalik-panosu": {
     "slug": "nakit-akisi-basit-gunluk-haftalik-panosu",
     "status": "verified",
@@ -1872,6 +3113,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "newton-kilogram-kuvvet-cevirici": {
+    "slug": "newton-kilogram-kuvvet-cevirici",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "npu-npi-profil-agirlik-hesaplama": {
+    "slug": "npu-npi-profil-agirlik-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -1925,6 +3200,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": true,
       "hasI18n": true
+    }
+  },
+  "ofis-kirtasiye-sarfiyat-hesabi": {
+    "slug": "ofis-kirtasiye-sarfiyat-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
     }
   },
   "paint-coverage-calculator": {
@@ -1995,6 +3287,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "palet-ambalaj-kereste-hesabi": {
+    "slug": "palet-ambalaj-kereste-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "panel-shop-margin-verdict": {
     "slug": "panel-shop-margin-verdict",
     "status": "verified",
@@ -2012,6 +3321,57 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli": {
+    "slug": "paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "percentage-calculator": {
+    "slug": "percentage-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "percentage-increase-calculator": {
+    "slug": "percentage-increase-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "personel-devamsizlik-maliyeti-hesaplama": {
     "slug": "personel-devamsizlik-maliyeti-hesaplama",
     "status": "verified",
@@ -2025,6 +3385,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "plaster-calculator": {
+    "slug": "plaster-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -2097,6 +3474,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "pompa-gucu-basma-yuksekligi-hesabi": {
+    "slug": "pompa-gucu-basma-yuksekligi-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "portion-cost-calculator": {
     "slug": "portion-cost-calculator",
     "status": "verified",
@@ -2110,6 +3504,57 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "prefabrik-konteyner-ofis-m-maliyeti": {
+    "slug": "prefabrik-konteyner-ofis-m-maliyeti",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "prefabrik-konteyner-olcu-hesaplama": {
+    "slug": "prefabrik-konteyner-olcu-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "print-job-cost-check": {
+    "slug": "print-job-cost-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -2131,6 +3576,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "probability-calculator": {
+    "slug": "probability-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "product-customer-profitability-calculator": {
     "slug": "product-customer-profitability-calculator",
     "status": "verified",
@@ -2148,6 +3610,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "product-margin-calculator": {
+    "slug": "product-margin-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "profit-margin-calculator": {
     "slug": "profit-margin-calculator",
     "status": "verified",
@@ -2163,6 +3642,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": true,
       "hasI18n": true
+    }
+  },
+  "project-cost-calculator": {
+    "slug": "project-cost-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "proportion-calculator": {
+    "slug": "proportion-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
     }
   },
   "quality-cost-paf-calculator": {
@@ -2199,6 +3712,74 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "radyator-petek-boyu-hesaplama": {
+    "slug": "radyator-petek-boyu-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "rastgele-sayi-ureteci": {
+    "slug": "rastgele-sayi-ureteci",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "rebar-weight-calculator": {
+    "slug": "rebar-weight-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "recipe-cost-check": {
+    "slug": "recipe-cost-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "renovation-budget-optimizer": {
     "slug": "renovation-budget-optimizer",
     "status": "verified",
@@ -2212,6 +3793,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "repair-time-vs-price-check": {
+    "slug": "repair-time-vs-price-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -2284,6 +3882,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "roofing-area-calculator": {
+    "slug": "roofing-area-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "roofing-contract-margin-guard": {
     "slug": "roofing-contract-margin-guard",
     "status": "verified",
@@ -2299,6 +3914,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": true,
       "hasI18n": true
+    }
+  },
+  "roofing-square-cost-check": {
+    "slug": "roofing-square-cost-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
     }
   },
   "roofing-weather-delay-risk": {
@@ -2420,6 +4052,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "savings-goal-calculator": {
+    "slug": "savings-goal-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "scrap-rate-calculator": {
     "slug": "scrap-rate-calculator",
     "status": "verified",
@@ -2450,6 +4099,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "ses-yalitimi-desibel-azaltimi-hesabi": {
+    "slug": "ses-yalitimi-desibel-azaltimi-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -2539,6 +4205,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "shopping-budget-calculator": {
+    "slug": "shopping-budget-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "signage-bid-safe-price-tool": {
     "slug": "signage-bid-safe-price-tool",
     "status": "verified",
@@ -2554,6 +4237,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": true,
       "hasI18n": true
+    }
+  },
+  "silindir-hacmi-hesaplama": {
+    "slug": "silindir-hacmi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
     }
   },
   "sirket-telefon-faturasi-hesaplama": {
@@ -2586,6 +4286,108 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "soguk-oda-sogutma-yuku-hesabi": {
+    "slug": "soguk-oda-sogutma-yuku-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama": {
+    "slug": "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "solar-panel-output-calculator": {
+    "slug": "solar-panel-output-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "square-footage-calculator": {
+    "slug": "square-footage-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "square-meter-calculator": {
+    "slug": "square-meter-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "stair-calculator": {
+    "slug": "stair-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -2624,6 +4426,108 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "su-debisi-litre-dakika-hesaplama": {
+    "slug": "su-debisi-litre-dakika-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "su-deposu-hacmi-hesaplama": {
+    "slug": "su-deposu-hacmi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "su-isitma-kazan-boyler-kapasite-hesabi": {
+    "slug": "su-isitma-kazan-boyler-kapasite-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "tahta-mdf-sunta-m-agirlik-hesabi": {
+    "slug": "tahta-mdf-sunta-m-agirlik-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "tel-kablo-uzunlugu-agirlik-hesabi": {
+    "slug": "tel-kablo-uzunlugu-agirlik-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "temizlik-malzemesi-sarfiyat-hesabi": {
+    "slug": "temizlik-malzemesi-sarfiyat-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "textile-fabric-waste-risk": {
     "slug": "textile-fabric-waste-risk",
     "status": "verified",
@@ -2641,6 +4545,57 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "tile-calculator": {
+    "slug": "tile-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "time-duration-calculator": {
+    "slug": "time-duration-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "tip-calculator": {
+    "slug": "tip-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "tir-kamyon-yuk-kapasitesi-hesaplama": {
     "slug": "tir-kamyon-yuk-kapasitesi-hesaplama",
     "status": "verified",
@@ -2654,6 +4609,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "titresim-frekans-periyot-hesaplama": {
+    "slug": "titresim-frekans-periyot-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "tolerance-drift-calculator": {
+    "slug": "tolerance-drift-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -2709,6 +4698,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "topraklama-direnci-hesaplama": {
+    "slug": "topraklama-direnci-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "trafik-cezasi-gecikme-faizi-hesaplama": {
     "slug": "trafik-cezasi-gecikme-faizi-hesaplama",
     "status": "verified",
@@ -2726,6 +4732,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "trip-budget-calculator": {
+    "slug": "trip-budget-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "trip-budget-optimizer": {
     "slug": "trip-budget-optimizer",
     "status": "verified",
@@ -2739,6 +4762,57 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "ucgen-alani-cevresi-hesaplama": {
+    "slug": "ucgen-alani-cevresi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "unit-cost-calculator": {
+    "slug": "unit-cost-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "unit-price-calculator": {
+    "slug": "unit-price-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -2777,6 +4851,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "vat-calculator": {
+    "slug": "vat-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "vehicle-depreciation-calculator": {
     "slug": "vehicle-depreciation-calculator",
     "status": "verified",
@@ -2790,6 +4881,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "vida-somun-adim-dis-ustu-cap-hesabi": {
+    "slug": "vida-somun-adim-dis-ustu-cap-hesabi",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "volumetric-weight-calculator": {
+    "slug": "volumetric-weight-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -2845,6 +4970,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "water-usage-calculator": {
+    "slug": "water-usage-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "welded-bolted-connection-calculator": {
+    "slug": "welded-bolted-connection-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
   "welding-bid-risk-analyzer": {
     "slug": "welding-bid-risk-analyzer",
     "status": "verified",
@@ -2879,6 +5038,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "yalitim-malzemesi-m-hesaplama": {
+    "slug": "yalitim-malzemesi-m-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "yamuk-alani-hesaplama": {
+    "slug": "yamuk-alani-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "yangin-merdiveni-kacis-yolu-genisligi-hesabi": {
     "slug": "yangin-merdiveni-kacis-yolu-genisligi-hesabi",
     "status": "verified",
@@ -2896,6 +5089,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "yangin-tupu-dolap-debisi-hesaplama": {
+    "slug": "yangin-tupu-dolap-debisi-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "yatak-rulman-omur-hesabi-l10": {
+    "slug": "yatak-rulman-omur-hesabi-l10",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "yay-helisel-kuvvet-uzama-hesabi": {
     "slug": "yay-helisel-kuvvet-uzama-hesabi",
     "status": "verified",
@@ -2909,6 +5136,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "yemek-tabldot-maliyet-hesaplama": {
+    "slug": "yemek-tabldot-maliyet-hesaplama",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }

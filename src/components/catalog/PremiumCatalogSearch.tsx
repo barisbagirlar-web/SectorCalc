@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
+import { FormulaGateCatalogMeta } from "@/components/formula/FormulaGateCatalogMeta";
 import {
   buildSearchablePremiumToolHaystack,
   normalizeToolSearchText,
@@ -46,6 +47,7 @@ function scrollToToolsList() {
 
 export function PremiumCatalogSearch({ tools, categories }: Props) {
   const t = useTranslations("premiumCategoryCatalog");
+  const locale = useLocale();
 
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -130,7 +132,12 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
                   <Link href={tool.routePath} prefetch={false} className="sc-premium-tool-card__link">
                     <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
                     <p className="sc-premium-tool-card__description">{tool.description}</p>
-                    <p className="sc-premium-tool-card__meta">{t("openCalculator")}</p>
+                    <FormulaGateCatalogMeta
+                      slug={tool.slug}
+                      locale={locale}
+                      openLabel={t("openCalculator")}
+                      isClickable
+                    />
                   </Link>
                 </article>
               ) : (
@@ -142,7 +149,12 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
                 >
                   <h3 className="sc-premium-tool-card__title">{tool.title}</h3>
                   <p className="sc-premium-tool-card__description">{tool.description}</p>
-                  <p className="sc-premium-tool-card__meta">{t("methodologyPreparing")}</p>
+                  <FormulaGateCatalogMeta
+                    slug={tool.slug}
+                    locale={locale}
+                    openLabel={t("openCalculator")}
+                    isClickable={false}
+                  />
                 </article>
               ),
             )}
