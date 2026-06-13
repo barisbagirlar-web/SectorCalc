@@ -19,6 +19,11 @@ import { AGRICULTURE_IRRIGATION_YIELD_LOSS_CRITICAL_FORMULA_CONTRACTS } from "@/
 import { CALIBRATION_DRIFT_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/calibration-drift-risk-critical";
 import { CLOUD_API_COST_OVERRUN_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/cloud-api-cost-overrun-critical";
 import { ENERGY_COMPRESSOR_LEAK_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/energy-compressor-leak-cost-critical";
+import { CNC_TOOL_WEAR_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/cnc-tool-wear-cost-critical";
+import { DAIRY_FEED_EFFICIENCY_LOSS_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/dairy-feed-efficiency-loss-critical";
+import { CONSTRUCTION_PROJECT_OVERRUN_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/construction-project-overrun-critical";
+import { CONSTRUCTION_SUBCONTRACTOR_MARGIN_LEAK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/construction-subcontractor-margin-leak-critical";
+import { PAINTING_REWORK_COVERAGE_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/painting-rework-coverage-risk-critical";
 import { ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/engine-modules-critical";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
 
@@ -230,6 +235,11 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   ...CALIBRATION_DRIFT_RISK_CRITICAL_FORMULA_CONTRACTS,
   ...CLOUD_API_COST_OVERRUN_CRITICAL_FORMULA_CONTRACTS,
   ...ENERGY_COMPRESSOR_LEAK_COST_CRITICAL_FORMULA_CONTRACTS,
+  ...CNC_TOOL_WEAR_COST_CRITICAL_FORMULA_CONTRACTS,
+  ...DAIRY_FEED_EFFICIENCY_LOSS_CRITICAL_FORMULA_CONTRACTS,
+  ...CONSTRUCTION_PROJECT_OVERRUN_CRITICAL_FORMULA_CONTRACTS,
+  ...CONSTRUCTION_SUBCONTRACTOR_MARGIN_LEAK_CRITICAL_FORMULA_CONTRACTS,
+  ...PAINTING_REWORK_COVERAGE_RISK_CRITICAL_FORMULA_CONTRACTS,
   ...ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS,
 ];
 
