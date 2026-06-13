@@ -20,7 +20,8 @@ export function CategoryCardGrid({ items, onSelect, countSuffix = "" }: Props) {
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
       {items.map((item) => {
-        const { icon: Icon } = getCategoryCardIcon(item.slug);
+        const iconMeta = getCategoryCardIcon(item.slug);
+        const Icon = iconMeta.icon;
         const active = item.isActive ?? false;
         return (
           <button
@@ -28,6 +29,7 @@ export function CategoryCardGrid({ items, onSelect, countSuffix = "" }: Props) {
             type="button"
             aria-pressed={active}
             aria-controls="tools-list"
+            data-category-icon-name={iconMeta.iconName}
             onClick={() => onSelect(item.slug)}
             className={cn(
               "group flex min-h-[132px] flex-col items-center justify-center rounded-3xl border bg-white px-3 py-5 text-center transition",

@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useState, useCallback } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { Search } from "lucide-react";
 import { CalculatorCard } from "@/components/catalog/CalculatorCard";
 import { CalculatorCardGrid } from "@/components/catalog/CalculatorCardGrid";
 import { CalculatorFilterBar } from "@/components/catalog/CalculatorFilterBar";
@@ -24,6 +25,14 @@ type DiscoveryCatalogExplorerProps = {
   defaultTabId?: string;
 };
 
+function normalizeSearch(value: string, locale: string): string {
+  return value
+    .toLocaleLowerCase(locale)
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .trim();
+}
+
 export function DiscoveryCatalogExplorer({
   groups,
   variant,
@@ -31,9 +40,13 @@ export function DiscoveryCatalogExplorer({
 }: DiscoveryCatalogExplorerProps) {
   const t = useTranslations("catalogExplorer");
   const tCards = useTranslations("calculatorCards");
+  const locale = useLocale();
   const tabs = useMemo(() => getDiscoveryTabsForVariant(variant, groups), [variant, groups]);
   const visibleTabs = useMemo(
-    () => tabs.filter((tab) => tab.id === DISCOVERY_TAB_ALL || countItemsForDiscoveryTab(groups, tab) > 0),
+    () =>
+      tabs.filter(
+        (tab) => tab.id === DISCOVERY_TAB_ALL || countItemsForDiscoveryTab(groups, tab) > 0,
+      ),
     [groups, tabs],
   );
   const initialTabId =
@@ -41,6 +54,8 @@ export function DiscoveryCatalogExplorer({
       ? defaultTabId
       : DISCOVERY_TAB_ALL;
   const [selectedTabId, setSelectedTabId] = useState(initialTabId);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const activeTab =
     visibleTabs.find((tab) => tab.id === selectedTabId) ??
     visibleTabs.find((tab) => tab.id === DISCOVERY_TAB_ALL) ??
@@ -51,6 +66,20 @@ export function DiscoveryCatalogExplorer({
     [activeTab, groups],
   );
 
+  const visibleItems = useMemo(() => {
+    const normalized = normalizeSearch(searchQuery, locale);
+    if (normalized.length === 0) return items;
+    return items.filter((item) => {
+      const haystack = normalizeSearch(
+        [item.title, item.description, item.groupLabel, item.groupId]
+          .filter(Boolean)
+          .join(" "),
+        locale,
+      );
+      return haystack.includes(normalized);
+    });
+  }, [items, searchQuery, locale]);
+
   const filterTabs = useMemo(
     () =>
       visibleTabs.map((tab) => {
@@ -58,7 +87,7 @@ export function DiscoveryCatalogExplorer({
         const label =
           labelKey != null
             ? t(labelKey)
-            : groups.find((group) => group.id === tab.id)?.label ?? tab.id;
+            : (groups.find((group) => group.id === tab.id)?.label ?? tab.id);
         return {
           id: tab.id,
           label,
@@ -82,8 +111,12 @@ export function DiscoveryCatalogExplorer({
   const handleCategorySelect = useCallback(
     (tabId: string) => {
       setSelectedTabId(tabId);
+      setSearchQuery("");
       requestAnimationFrame(() => {
-        document.getElementById("tools-list")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById("tools-list")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
       });
     },
     [],
@@ -119,7 +152,11 @@ export function DiscoveryCatalogExplorer({
   }
 
   return (
-    <div className="sc-discovery-explorer" data-variant={variant} data-calculator-card-explorer="true">
+    <div
+      className="sc-discovery-explorer"
+      data-variant={variant}
+      data-calculator-card-explorer="true"
+    >
       {isIndustry ? (
         <CalculatorFilterBar
           tabs={filterTabs}
@@ -131,21 +168,38 @@ export function DiscoveryCatalogExplorer({
         <CategoryCardGrid items={categoryCardItems} onSelect={handleCategorySelect} />
       )}
 
+      {!isIndustry && (
+        <div className="relative mt-3">
+          <Search
+            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+            aria-hidden="true"
+          />
+          <input
+            type="search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder={t(`search.placeholder.${variant}`)}
+            aria-label={t(`search.placeholder.${variant}`)}
+            className="w-full min-h-[44px] rounded-lg border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-400 focus:outline-none"
+          />
+        </div>
+      )}
+
       <p className="sc-results-label" role="status">
         {tCards.rich("resultsLabel", {
-          count: items.length,
+          count: visibleItems.length,
           strong: (chunks) => <strong>{chunks}</strong>,
         })}
       </p>
 
       <section id="tools-list">
-        {items.length === 0 ? (
+        {visibleItems.length === 0 ? (
           <p className="mt-4 text-sm text-body-charcoal" role="status">
             {t("search.noResults")}
           </p>
         ) : (
           <CalculatorCardGrid className="mt-4">
-            {items.map((item) => {
+            {visibleItems.map((item) => {
               const tier = resolveTier(item);
               return (
                 <li key={item.href} className="min-w-0">

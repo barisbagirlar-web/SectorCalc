@@ -1,11 +1,19 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  Activity,
+  Award,
   Axis3D,
+  Banknote,
   BarChart2,
   Bot,
   BrainCircuit,
+  Building2,
   CircleDollarSign,
+  ClipboardCheck,
+  Cog,
+  Factory,
   FlaskConical,
+  Gauge,
   Globe,
   HardHat,
   Heart,
@@ -17,9 +25,12 @@ import {
   PlugZap,
   RefreshCcw,
   Repeat2,
+  Route,
   Ruler,
   Scissors,
+  Settings2,
   ShieldCheck,
+  SlidersHorizontal,
   Snowflake,
   Target,
   TrendingUp,
@@ -30,7 +41,6 @@ import {
   Wind,
   Wrench,
   Zap,
-  Factory,
 } from "lucide-react";
 
 export type CategoryCardIconMeta = {
@@ -39,7 +49,9 @@ export type CategoryCardIconMeta = {
 };
 
 const CATEGORY_CARD_ICON_MAP: Record<string, CategoryCardIconMeta> = {
+  // special aggregate
   all: { icon: LayoutGrid, iconName: "LayoutGrid" },
+  // free-tools base category slugs (from free-traffic-categories.ts)
   "construction-measurement": { icon: Ruler, iconName: "Ruler" },
   "finance-business": { icon: TrendingUp, iconName: "TrendingUp" },
   "manufacturing-workshop": { icon: Factory, iconName: "Factory" },
@@ -50,6 +62,13 @@ const CATEGORY_CARD_ICON_MAP: Record<string, CategoryCardIconMeta> = {
   "math-statistics": { icon: BarChart2, iconName: "BarChart2" },
   conversion: { icon: RefreshCcw, iconName: "RefreshCcw" },
   "health-body": { icon: Heart, iconName: "Heart" },
+  // free-tools discovery tab slugs (from FREE_TOOLS_TABS in discovery-tab-groups.ts)
+  "cost-margin": { icon: Banknote, iconName: "Banknote" },
+  "scrap-oee": { icon: Gauge, iconName: "Gauge" },
+  "routing-logistics": { icon: Route, iconName: "Route" },
+  "construction-field": { icon: Building2, iconName: "Building2" },
+  "daily-practical": { icon: ClipboardCheck, iconName: "ClipboardCheck" },
+  // premium catalog category slugs
   "lean-production": { icon: Repeat2, iconName: "Repeat2" },
   "quality-six-sigma": { icon: Target, iconName: "Target" },
   "process-chemical": { icon: FlaskConical, iconName: "FlaskConical" },
@@ -70,6 +89,12 @@ const CATEGORY_CARD_ICON_MAP: Record<string, CategoryCardIconMeta> = {
   "packaging-local-business": { icon: Package, iconName: "Package" },
   "global-compliance-trade": { icon: Globe, iconName: "Globe" },
   "technology-ai-cloud-cyber": { icon: BrainCircuit, iconName: "BrainCircuit" },
+  // premium-tools discovery tab slugs (from PREMIUM_TOOLS_TABS in discovery-tab-groups.ts)
+  "operations-oee": { icon: Activity, iconName: "Activity" },
+  "manufacturing-engineering": { icon: Cog, iconName: "Cog" },
+  "finance-hr": { icon: Award, iconName: "Award" },
+  "quality-lean": { icon: SlidersHorizontal, iconName: "SlidersHorizontal" },
+  "engineering-technical": { icon: Settings2, iconName: "Settings2" },
 };
 
 export function getCategoryCardIcon(slug: string): CategoryCardIconMeta {
