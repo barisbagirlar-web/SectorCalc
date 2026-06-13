@@ -28,6 +28,7 @@ import {
   type JsonLdRecord,
 } from "@/lib/seo/schema-mesh";
 import { getToolHref } from "@/lib/tools/paths";
+import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
 interface GuidePageParams {
   slug: string;
@@ -41,7 +42,11 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<GuidePageParams[]> {
-  return listAuthorityGuideSlugs().map((slug) => ({ slug }));
+  const params = listAuthorityGuideSlugs().map((slug) => ({ slug }));
+  return limitStaticParamsForPreview(params, {
+    family: "guides",
+    slugKey: "slug",
+  });
 }
 
 export async function generateMetadata({

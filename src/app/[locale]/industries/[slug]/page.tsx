@@ -8,6 +8,7 @@ import { getLocalizedIndustryHub } from "@/data/industry-hub-i18n";
 import { industryRegistry, type IndustrySlug } from "@/lib/tools/industry-registry";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
+import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
 interface IndustryPageParams {
  locale: string;
@@ -18,7 +19,11 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<{ slug: IndustrySlug }[]> {
- return industryRegistry.map((entry) => ({ slug: entry.slug }));
+ const params = industryRegistry.map((entry) => ({ slug: entry.slug }));
+ return limitStaticParamsForPreview(params, {
+   family: "industries",
+   slugKey: "slug",
+ });
 }
 
 export async function generateMetadata({

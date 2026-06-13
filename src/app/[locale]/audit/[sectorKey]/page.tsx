@@ -9,6 +9,7 @@ import { SemanticSummary } from "@/components/seo/SemanticSummary";
 import { getSectorEntry, isSectorRegistryKey } from "@/lib/os/registry/sectors";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
+import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
 type PageProps = {
   params: Promise<{ locale: string; sectorKey: string }>;
@@ -21,9 +22,14 @@ export async function generateStaticParams() {
   const { routing } = await import("@/i18n/routing");
   const keys = listSectorRegistryKeys();
 
-  return routing.locales.flatMap((locale) =>
+  const params = routing.locales.flatMap((locale) =>
     keys.map((sectorKey) => ({ locale, sectorKey })),
   );
+  return limitStaticParamsForPreview(params, {
+    family: "audit",
+    slugKey: "sectorKey",
+    localeKey: "locale",
+  });
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

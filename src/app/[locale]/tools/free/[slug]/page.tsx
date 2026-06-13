@@ -27,6 +27,7 @@ import {
   localizeRevenueToolInputs,
 } from "@/lib/i18n/free-tool-form-i18n";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
+import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
 interface FreeToolPageParams {
   slug: string;
@@ -48,8 +49,11 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<FreeToolPageParams[]> {
-  const slugs = listAllFreeToolSlugs();
-  return slugs.map((slug) => ({ slug }));
+  const params = listAllFreeToolSlugs().map((slug) => ({ slug }));
+  return limitStaticParamsForPreview(params, {
+    family: "free-tools",
+    slugKey: "slug",
+  });
 }
 
 export async function generateMetadata({

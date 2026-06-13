@@ -11,12 +11,18 @@ import {
 } from "@/lib/case-studies/case-study-registry";
 import { createPageMetadata } from "@/lib/metadata";
 import { locales, type AppLocale } from "@/i18n/routing";
+import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {
   const slugs = listCaseStudySlugs();
-  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+  const params = locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+  return limitStaticParamsForPreview(params, {
+    family: "case-studies",
+    slugKey: "slug",
+    localeKey: "locale",
+  });
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

@@ -12,18 +12,20 @@
 import { execSync } from "node:child_process";
 
 /** @param {number} code */
-function finish(code) {
+function finish(code, message) {
+  console.log(message);
   process.exit(code);
 }
 
 // Production must always build — never skip a prod deploy.
 if (process.env.VERCEL_ENV === "production") {
-  finish(1);
+  finish(1, "ignore-build: build required — production deploy");
 }
 
 const previousSha = process.env.VERCEL_GIT_PREVIOUS_SHA?.trim();
 const currentSha = process.env.VERCEL_GIT_COMMIT_SHA?.trim();
 
+/** @type {string[]} */
 let changedFiles = [];
 
 try {
@@ -34,41 +36,60 @@ try {
     });
     changedFiles = output.split("\n").map((line) => line.trim()).filter(Boolean);
   } else {
-    // First deploy or missing SHAs — always build.
-    finish(1);
+    finish(1, "ignore-build: build required — missing git SHAs");
   }
 } catch {
-  // Diff failed — fail open to a full build.
-  finish(1);
+  finish(1, "ignore-build: build required — git diff failed");
 }
 
 if (changedFiles.length === 0) {
-  finish(0);
+  finish(0, "ignore-build: skip — no changed files");
 }
 
-const FORCE_BUILD =
-  /^(src\/|messages\/|package\.json$|package-lock\.json$|next\.config\.|tsconfig\.|public\/(?!ai-)|scripts\/(?!\.cache\/))/;
-
-const SKIP_ONLY =
-  /^(docs\/|README|scripts\/\.cache\/)/;
-
-const allSkipEligible = changedFiles.every(
-  (file) => SKIP_ONLY.test(file) || file.startsWith("README"),
-);
-
-const anyForceBuild = changedFiles.some((file) => FORCE_BUILD.test(file));
-
-if (anyForceBuild) {
-  finish(1);
-}
-
-if (allSkipEligible) {
-  console.log(
-    `ignore-build: skip — changed files are docs/README/cache only (${changedFiles.length} files)`,
+/** @param {string} file */
+function isDocsOnlyFile(file) {
+  return (
+    file.startsWith("docs/") ||
+    file === "README" ||
+    file.startsWith("README.") ||
+    file.endsWith(".md")
   );
-  finish(0);
 }
 
-// Unknown paths — default to building.
-console.log(`ignore-build: build — unclassified changes (${changedFiles.length} files)`);
-finish(1);
+/** @param {string} file */
+function requiresBuild(file) {
+  return (
+    file.startsWith("src/") ||
+    file.startsWith("app/") ||
+    file === "package.json" ||
+    file === "package-lock.json" ||
+    file.startsWith("next.config.") ||
+    file.startsWith("tsconfig.") ||
+    file.startsWith("messages/") ||
+    file.startsWith("scripts/") ||
+    file.startsWith("public/")
+  );
+}
+
+const buildRequired = changedFiles.some(requiresBuild);
+
+if (buildRequired) {
+  finish(
+    1,
+    `ignore-build: build required — application/config/public changes (${changedFiles.length} files)`,
+  );
+}
+
+const allDocsOnly = changedFiles.every(isDocsOnlyFile);
+
+if (allDocsOnly) {
+  finish(
+    0,
+    `ignore-build: skip — docs/README/markdown only (${changedFiles.length} files)`,
+  );
+}
+
+finish(
+  1,
+  `ignore-build: build required — unclassified changes (${changedFiles.length} files)`,
+);

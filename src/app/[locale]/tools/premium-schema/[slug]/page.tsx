@@ -23,6 +23,7 @@ import {
   getPremiumSchemaBySlug,
   listPremiumSchemaSlugs,
 } from "@/lib/premium-schema/schemas/index";
+import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
 interface PremiumSchemaPageParams {
   slug: string;
@@ -44,7 +45,11 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<PremiumSchemaPageParams[]> {
-  return listPremiumSchemaSlugs().map((slug) => ({ slug }));
+  const params = listPremiumSchemaSlugs().map((slug) => ({ slug }));
+  return limitStaticParamsForPreview(params, {
+    family: "premium-schema",
+    slugKey: "slug",
+  });
 }
 
 export async function generateMetadata({

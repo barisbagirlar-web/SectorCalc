@@ -28,16 +28,21 @@ import { fillPremiumSeoTemplate } from "@/lib/seo/premium-tool-seo-context";
 import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
 import { getTranslations } from "next-intl/server";
+import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
 export const revalidate = 3600;
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  return [...listProgrammaticSeoSlugs(), ...listPremiumToolSeoLandingSlugs()]
+  const params = [...listProgrammaticSeoSlugs(), ...listPremiumToolSeoLandingSlugs()]
     .slice()
     .sort()
     .map((slug) => ({ slug }));
+  return limitStaticParamsForPreview(params, {
+    family: "seo",
+    slugKey: "slug",
+  });
 }
 
 export async function generateMetadata({

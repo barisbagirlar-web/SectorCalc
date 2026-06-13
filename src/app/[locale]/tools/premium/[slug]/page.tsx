@@ -23,6 +23,7 @@ import { listAllPremiumToolRouteSlugs } from "@/lib/tools/free-traffic-routes";
 import {
   getRevenueToolByPremiumRouteSlug,
 } from "@/lib/tools/revenue-tools";
+import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
 interface PremiumToolPageParams {
   slug: string;
@@ -36,7 +37,11 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<PremiumToolPageParams[]> {
-  return listAllPremiumToolRouteSlugs().map((slug) => ({ slug }));
+  const params = listAllPremiumToolRouteSlugs().map((slug) => ({ slug }));
+  return limitStaticParamsForPreview(params, {
+    family: "premium-tools",
+    slugKey: "slug",
+  });
 }
 
 export async function generateMetadata({

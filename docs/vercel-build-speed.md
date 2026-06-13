@@ -1,8 +1,93 @@
-# Vercel Build Speed Optimization Audit (V1)
+# Vercel Build Speed Optimization
 
-**Date:** 2026-06-14  
-**Scope:** Safe audit + preparation only. No deploy, no production behavior change.  
-**Local benchmark machine:** darwin, `npm run build` (includes `prebuild` chain).
+**V1 audit date:** 2026-06-14  
+**V2 implementation date:** 2026-06-14 — preview static-params limiting (production unchanged)
+
+**Scope:** Preview deploy acceleration + safer Ignored Build Step. No deploy from this phase.
+
+---
+
+## V2 — Preview static params limiting (implemented)
+
+### Goal
+
+Reduce Vercel **preview** build time by limiting heavy `generateStaticParams` output to a representative route subset. **Production** and normal local `npm run build` keep full static generation.
+
+### Helper
+
+`src/lib/build/preview-static-params.ts`
+
+```ts
+shouldUsePreviewStaticParams()
+limitStaticParamsForPreview(params, { family, slugKey, localeKey, ... })
+```
+
+**Preview mode is ON when:**
+
+- `VERCEL_ENV=preview`, or
+- `SECTORCALC_FAST_PREVIEW_STATIC=1`
+
+**Preview mode is OFF (full params) when:**
+
+- `SECTORCALC_FORCE_FULL_STATIC=1` (rollback override)
+- Local default build (no preview env)
+- `VERCEL_ENV=production`
+
+### Wrapped route families
+
+| Route | Family |
+|---|---|
+| `/[locale]/tools/free/[slug]` | `free-tools` |
+| `/[locale]/tools/premium/[slug]` | `premium-tools` |
+| `/[locale]/tools/premium-schema/[slug]` | `premium-schema` |
+| `/[locale]/tools/premium-schema/[slug]/print` | `premium-schema-print` |
+| `/[locale]/seo/[slug]` | `seo` |
+| `/[locale]/industries/[slug]` | `industries` |
+| `/[locale]/audit/[sectorKey]` | `audit` |
+| `/[locale]/case-studies/[slug]` | `case-studies` |
+| `/[locale]/guides/[slug]` | `guides` |
+
+Representative slugs and default `tr`/`en` locale filtering live in the helper. Revenue-gate **problem slug** (`abonelik-yazilim-cloud-yillik-maliyet-hesabi`) is always kept for premium preview params.
+
+### Env flags
+
+| Variable | Effect |
+|---|---|
+| `SECTORCALC_FAST_PREVIEW_STATIC=1` | Force preview static-param limiting (local simulation) |
+| `SECTORCALC_FORCE_FULL_STATIC=1` | Disable limiting — full params even on preview |
+| `VERCEL_ENV=preview` | Auto-enable limiting on Vercel preview deploys |
+
+### Local simulation
+
+```bash
+rm -rf .next
+VERCEL_ENV=preview SECTORCALC_FAST_PREVIEW_STATIC=1 npm run build
+```
+
+Compare `Generating static pages (N/N)` vs a normal full build.
+
+### Coverage report
+
+```bash
+npm run vercel:preview-static-report
+```
+
+Writes `scripts/.cache/vercel-preview-static-params-report.json` (gitignored cache).
+
+### Rollback
+
+1. Set `SECTORCALC_FORCE_FULL_STATIC=1` on the Vercel preview environment, **or**
+2. Revert `limitStaticParamsForPreview` wrappers in route files.
+
+### Risks
+
+- Preview deploys may not pre-render every tool/SEO route at build time (expected).
+- Production deploys are **not** affected when `VERCEL_ENV=production`.
+- **Blocker:** If `next.config.*` uses `output: "export"`, do not apply this strategy — static export may require all params.
+
+---
+
+## V1 — Build speed audit (baseline)
 
 ---
 
@@ -147,25 +232,27 @@ Premium tool and schema pages import calculator engines, semantic contracts, and
 - Keep `dynamicParams = false` on revenue/tool routes (404 for unknown slugs — SEO + safety).
 - Keep `prebuild` export chain OR replace with CI-generated artifacts checked in deliberately (not skipped silently).
 - **`VERCEL_ENV=production` → always build** (enforced in `scripts/vercel/ignore-build.mjs`).
+- **`VERCEL_ENV=production` → full `generateStaticParams`** (preview limiting disabled).
 
-### Preview (safe acceleration options — future phases)
+### Preview (V2 — implemented)
 
-| Option | Speed gain | Risk | Phase |
+| Option | Speed gain | Risk | Status |
 |---|---|---|---|
-| **Ignored Build Step** for docs-only commits | Skip entire build (~3–8 min) | Low if production guard present | **V1 (this audit)** |
-| Env-gated `generateStaticParams` cap (`VERCEL_ENV=preview`, `STATIC_PARAM_LIMIT=50`) | Large (SSG ∝ pages) | Medium — preview URLs 404 for uncapped slugs | V2 |
-| Preview: `dynamicParams = true` on free tools only | Large | Low for preview; must not ship to prod | V2 |
-| Split prebuild: skip `export:ai-index` when `public/ai-*` inputs unchanged | ~1–2 s + cache stability | Low if hash check on source registries | V2 |
+| **Ignored Build Step** for docs-only commits | Skip entire build (~3–8 min) | Low if production guard present | **V1** |
+| **Env-gated `generateStaticParams` subset** (`VERCEL_ENV=preview`) | Large (SSG ∝ pages) | Medium — preview URLs missing for uncapped slugs | **V2** |
+| Preview: `dynamicParams = true` on free tools only | Large | Low for preview; must not ship to prod | Deferred |
+| Split prebuild: skip `export:ai-index` when inputs unchanged | ~1–2 s + cache stability | Low if hash check on source registries | V3 |
 | Move `public/ai-*` to gitignore + CI publish step | Better cache hit rate | Medium — deploy must guarantee files exist | V3 |
 | ISR / `revalidate` for low-traffic schema print routes | Moderate | Medium — changes freshness guarantees | V3 |
 
-**Recommended V2 preview pattern (not implemented yet):**
+**V2 preview pattern (implemented in `src/lib/build/preview-static-params.ts`):**
 
 ```ts
-// Example only — do NOT ship without phase gate
-const isPreview = process.env.VERCEL_ENV === "preview";
-const limit = isPreview ? Number(process.env.STATIC_PARAM_LIMIT ?? 30) : Infinity;
-return listAllFreeToolSlugs().slice(0, limit).map((slug) => ({ slug }));
+const params = listAllFreeToolSlugs().map((slug) => ({ slug }));
+return limitStaticParamsForPreview(params, {
+  family: "free-tools",
+  slugKey: "slug",
+});
 ```
 
 Document preview deploy purpose: UI/UX review and marketing copy — not full catalog QA (use production build or `npm run build` locally for that).
@@ -188,11 +275,15 @@ Document preview deploy purpose: UI/UX review and marketing copy — not full ca
 **Logic:**
 
 1. `VERCEL_ENV=production` → **exit 1** (always build production).
-2. Diff `VERCEL_GIT_PREVIOUS_SHA` → `VERCEL_GIT_COMMIT_SHA`.
+2. Diff `VERCEL_GIT_PREVIOUS_SHA` → `VERCEL_GIT_COMMIT_SHA`; if diff unavailable → **exit 1**.
 3. If diff empty → exit 0 (nothing changed).
-4. If all changed files match `docs/**`, `README*`, `scripts/.cache/**` → **exit 0** (skip).
-5. If any changed file matches `src/**`, `messages/**`, `package.json`, `package-lock.json`, `next.config.*`, `tsconfig.*`, or `public/*` (except `public/ai-*`) → **exit 1** (build).
+4. If any changed file matches `src/**`, `app/**`, `package.json`, `package-lock.json`, `next.config.*`, `tsconfig.*`, `messages/**`, `scripts/**`, or `public/**` → **exit 1** (build).
+5. If **all** changed files are `docs/**`, `README*`, or `*.md` → **exit 0** (skip).
 6. Unclassified paths → **exit 1** (fail open).
+
+Logs: `ignore-build: skip` or `ignore-build: build required`.
+
+**Note:** `public/ai-*` changes alone still trigger a build (generated blobs must not skip production deploys).
 
 ### Vercel dashboard setup (manual)
 
@@ -281,10 +372,21 @@ time npm run build
 
 ---
 
-## Files touched in V1 audit
+## Files touched
 
-- `docs/vercel-build-speed.md` (this document)
+**V2:**
+
+- `src/lib/build/preview-static-params.ts` — preview limiting helper
+- `src/app/[locale]/tools/**`, `seo`, `industries`, `audit`, `case-studies`, `guides` — `generateStaticParams` wrappers
+- `scripts/vercel/preview-static-params-report.mjs` — coverage report
+- `scripts/vercel/ignore-build.mjs` — stricter docs-only skip + `public/**` always builds
+- `docs/vercel-build-speed.md` — V2 notes
+- `package.json` — `vercel:preview-static-report` script
+
+**V1 audit:**
+
+- `docs/vercel-build-speed.md` (baseline audit sections)
 - `scripts/vercel/ignore-build.mjs` (Ignored Build Step gate)
-- `package.json` — optional `vercel:ignore-build` script alias
+- `package.json` — `vercel:ignore-build` script alias
 
-**Not changed:** `next.config.ts`, tool routes, formula logic, `public/ai-*` tracking policy (documented only).
+**Not changed:** `next.config.ts` (`output: "export"` not present), formula logic, `public/ai-*` tracking policy (documented only).
