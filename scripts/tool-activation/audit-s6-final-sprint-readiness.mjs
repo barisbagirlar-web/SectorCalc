@@ -537,7 +537,7 @@ function main() {
     lint: runTestGate("lint", "npm run lint"),
     tsc: runTestGate("tsc", "npx tsc --noEmit"),
     build: runTestGate("build", "npm run prebuild && npx next build", {
-      preCommand: "rm -rf .next",
+      preCommand: "find .next -mindepth 1 -delete 2>/dev/null || true; rm -rf .next",
       retries: 1,
     }),
     revenueGate: runTestGate("revenueGate", "npm run assert:revenue-gate"),
