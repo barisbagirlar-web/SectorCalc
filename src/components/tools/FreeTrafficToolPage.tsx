@@ -23,6 +23,8 @@ import {
 } from "@/lib/tools/free-traffic-catalog";
 import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
+import { evaluateRuntimeReadiness } from "@/lib/tools/runtime-readiness";
+import { PremiumToolReviewSafeState } from "@/components/tools/PremiumToolReviewSafeState";
 import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
 import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
@@ -63,6 +65,7 @@ function verdictTone(headline: string): "neutral" | "positive" | "caution" {
 export interface FreeTrafficToolPageProps {
   tool: FreeTrafficTool;
   featuredAnswer?: ReactNode;
+  surfaceTier?: "free" | "premium";
   localizedContent?: {
     title: string;
     description: string;
@@ -71,9 +74,15 @@ export interface FreeTrafficToolPageProps {
   };
 }
 
-export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: FreeTrafficToolPageProps) {
+export function FreeTrafficToolPage({
+  tool,
+  featuredAnswer,
+  surfaceTier = "free",
+  localizedContent,
+}: FreeTrafficToolPageProps) {
   const t = useTranslations("freeTrafficCatalog");
   const tAuthority = useTranslations("contentAuthority.freeTool");
+  const tPremiumAuthority = useTranslations("contentAuthority.premium");
   const locale = useLocale();
   const pathname = usePathname();
   const attribution = useAttributionContext();
@@ -93,6 +102,18 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
   const [fullLoopResult, setFullLoopResult] = useState<FreeFullLoopResult | null>(null);
   const useFullLoopRuntime = isFreeFullLoopRuntimeSlug(tool.slug);
   const startedTracked = useRef(false);
+  const runtimeReadiness = useMemo(
+    () =>
+      evaluateRuntimeReadiness({
+        slug: tool.slug,
+        locale,
+        surface: surfaceTier,
+        premiumSurfaceUsesFreeCopy: false,
+      }),
+    [tool.slug, locale, surfaceTier],
+  );
+  const showCalculationSurface =
+    surfaceTier === "free" || runtimeReadiness.paymentEligible;
 
   useEffect(() => {
     trackEvent(ANALYTICS_EVENTS.tool_view, {
@@ -282,7 +303,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
           <p className="sc-craft-eyebrow">{t(`categories.${tool.category}`)}</p>
           <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <h1 className="sc-craft-headline">{displayTitle}</h1>
-            <FormulaGateToolStatus slug={tool.slug} locale={locale} />
+            <FormulaGateToolStatus slug={tool.slug} locale={locale} surface={surfaceTier} />
           </div>
           <p className="sc-craft-lead">{displayDescription}</p>
         </Container>
@@ -298,6 +319,10 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
 
       <section className="sc-craft-section overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
+          {!showCalculationSurface ? (
+            <PremiumToolReviewSafeState slug={tool.slug} locale={locale} />
+          ) : (
+          <>
           <div className="sc-ledger-cetele sc-ledger-cetele--stacked sc-tool-workspace sc-tool-workspace--stacked">
             <SmartFormWorkspace
               toolSlug={tool.slug}
@@ -549,7 +574,7 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
 
           <CalculationFeedbackButton
             toolSlug={tool.slug}
-            toolType="free"
+            toolType={surfaceTier === "premium" ? "premium" : "free"}
             locale={locale}
             routePath={pagePath}
             inputSnapshot={feedbackInputSnapshot}
@@ -572,19 +597,39 @@ export function FreeTrafficToolPage({ tool, featuredAnswer, localizedContent }: 
               includes3: tAuthority("includes3"),
               estimateMissesTitle: tAuthority("estimateMissesTitle"),
               estimateMissesBody: tAuthority("estimateMissesBody"),
-              faqTitle: tAuthority("faqTitle"),
-              faqUseTitle: tAuthority("faqUseTitle"),
-              faqFreeTitle: tAuthority("faqFreeTitle"),
-              faqPremiumTitle: tAuthority("faqPremiumTitle"),
-              faqUseAnswer: tAuthority("faqUseAnswer"),
-              faqFreeAnswer: tAuthority("faqFreeAnswer"),
-              faqPremiumAnswer: tAuthority("faqPremiumAnswer"),
+              faqTitle: surfaceTier === "premium" ? tPremiumAuthority("faqTitle") : tAuthority("faqTitle"),
+              faqUseTitle:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqMeasureTitle")
+                  : tAuthority("faqUseTitle"),
+              faqFreeTitle:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqIsFreeTitle")
+                  : tAuthority("faqFreeTitle"),
+              faqPremiumTitle:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqPremiumTitle")
+                  : tAuthority("faqPremiumTitle"),
+              faqUseAnswer:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqMeasureAnswer", { name: displayTitle })
+                  : tAuthority("faqUseAnswer", { title: displayTitle }),
+              faqFreeAnswer:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqIsFreeAnswer")
+                  : tAuthority("faqFreeAnswer"),
+              faqPremiumAnswer:
+                surfaceTier === "premium"
+                  ? tPremiumAuthority("faqPremiumAnswer")
+                  : tAuthority("faqPremiumAnswer"),
               relatedGuideTitle: tAuthority("relatedGuideTitle"),
               relatedHubTitle: tAuthority("relatedHubTitle"),
               relatedPremiumTitle: tAuthority("relatedPremiumTitle"),
               relatedPremiumCta: tAuthority("relatedPremiumCta"),
             }}
           />
+          </>
+          )}
         </Container>
       </section>
     </PageLayout>

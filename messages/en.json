@@ -510,6 +510,8 @@
       "pricingCta": "Unlock the full decision report",
       "faqPremiumTitle": "When should I use a premium calculator?",
       "faqPremiumAnswer": "Use a premium calculator when the estimate affects pricing, operations or management decisions and you need hidden drivers, thresholds and export-ready reports.",
+      "faqIsFreeTitle": "Is this calculator free?",
+      "faqIsFreeAnswer": "This tool is part of the premium analysis scope. Full results and decision summaries require credits or an active Pro subscription.",
       "relatedPremiumTitle": "Related premium calculator",
       "relatedPremiumCta": "View the related premium calculator",
       "decidesBody": "Use this calculator when you need to decide whether current inputs sit inside acceptable exposure bands, which driver to investigate first, and whether to reprice, reschedule or redesign before repeating the work.",
@@ -3039,6 +3041,12 @@
     "decisionImpact": "Decision impact",
     "representativeNote": "Representative case study — modeled exposure, not a verified customer outcome.",
     "viewRelatedTool": "Open the related calculator"
+  },
+  "runtimeReadiness": {
+    "eyebrow": "Quality review",
+    "title": "Calculation temporarily unavailable",
+    "body": "This calculator is under quality review. Full calculation is temporarily disabled to avoid unreliable output.",
+    "browsePremiumCta": "Browse other premium tools"
   },
   "fieldMode": {
     "eyebrow": "Field mode",

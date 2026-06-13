@@ -3,6 +3,7 @@ import {
   getFormulaGateReviewLabel,
   getFormulaGateVerifiedLabel,
 } from "@/lib/formula-governance/formula-gate-copy";
+import { isFormulaGateEligible } from "@/lib/tools/runtime-readiness";
 
 type Props = {
   slug: string;
@@ -12,7 +13,12 @@ type Props = {
 };
 
 export function FormulaGateCatalogMeta({ slug, locale, openLabel, isClickable }: Props) {
-  if (isClickable && hasFormulaSourceAudit(slug)) {
+  const eligible =
+    isClickable &&
+    hasFormulaSourceAudit(slug) &&
+    isFormulaGateEligible(slug, locale, "premium");
+
+  if (eligible) {
     return (
       <>
         <p className="sc-premium-tool-card__meta">{openLabel}</p>

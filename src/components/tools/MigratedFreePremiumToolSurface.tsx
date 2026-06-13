@@ -45,12 +45,12 @@ export async function MigratedFreePremiumToolSurface({
       locale,
       revenueTool.freeTitle,
     );
+    const tPremium = await getTranslations("contentAuthority.premium");
     const tFreeToolUi = await getTranslations("freeToolUi");
-    const tAuthority = await getTranslations("contentAuthority.freeTool");
     const featuredAnswer = (
       <FeaturedAnswerBlock
         question={tFreeToolUi("whatIs", { title: localizedTitle })}
-        answer={tAuthority("faqUseAnswer", { title: localizedTitle })}
+        answer={tPremium("faqMeasureAnswer", { name: localizedTitle })}
       />
     );
     const semanticTool = assertSemanticToolContract({ slug, tier: "premium" });
@@ -78,7 +78,7 @@ export async function MigratedFreePremiumToolSurface({
     notFound();
   }
 
-  const tAuthority = await getTranslations("contentAuthority.freeTool");
+  const tPremium = await getTranslations("contentAuthority.premium");
   const tFreeToolUi = await getTranslations("freeToolUi");
   const localizedCopy = resolveFreeToolLocalizedCopy(slug, locale);
   const localizedTitle = localizedCopy.title ?? trafficTool.title;
@@ -93,16 +93,16 @@ export async function MigratedFreePremiumToolSurface({
   const faqJsonLd = buildFAQJsonLd([
     { question: featuredQuestion, answer: featuredAnswer },
     {
-      question: tAuthority("faqUseTitle"),
-      answer: tAuthority("faqUseAnswer", { title: localizedTitle }),
+      question: tPremium("faqMeasureTitle"),
+      answer: tPremium("faqMeasureAnswer", { name: localizedTitle }),
     },
     {
-      question: tAuthority("faqFreeTitle"),
-      answer: tAuthority("faqFreeAnswer"),
+      question: tPremium("faqIsFreeTitle"),
+      answer: tPremium("faqIsFreeAnswer"),
     },
     {
-      question: tAuthority("faqPremiumTitle"),
-      answer: tAuthority("faqPremiumAnswer"),
+      question: tPremium("faqPremiumTitle"),
+      answer: tPremium("faqPremiumAnswer"),
     },
   ]);
   const semanticTool = assertSemanticToolContract({ slug, tier: "premium" });
@@ -123,6 +123,7 @@ export async function MigratedFreePremiumToolSurface({
           inputs: localizeFreeTrafficToolInputs(trafficTool.slug, locale, trafficTool.inputs),
         }}
         featuredAnswer={featuredAnswerBlock}
+        surfaceTier="premium"
         localizedContent={{
           title: localizedTitle,
           description: localizedDescription,

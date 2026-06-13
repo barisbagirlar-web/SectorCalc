@@ -510,6 +510,8 @@
       "pricingCta": "Tam karar raporunun kilidini aç",
       "faqPremiumTitle": "Premium hesaplayıcı ne zaman kullanılmalı?",
       "faqPremiumAnswer": "Tahmin fiyatlandırma, operasyon veya yönetim kararlarını etkilediğinde ve gizli sürücüler, eşikler ve dışa aktarılabilir raporlar gerektiğinde premium hesaplayıcı kullanın.",
+      "faqIsFreeTitle": "Bu hesaplama aracı ücretsiz mi?",
+      "faqIsFreeAnswer": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir.",
       "relatedPremiumTitle": "İlgili premium hesaplayıcı",
       "relatedPremiumCta": "İlgili premium hesaplayıcıyı görüntüle",
       "decidesBody": "Mevcut girdilerin kabul edilebilir maruziyet bantlarında olup olmadığına, önce hangi sürücünün inceleneceğine ve işi tekrarlamadan önce yeniden fiyatlandırma, yeniden planlama veya yeniden tasarım yapılıp yapılmayacağına karar vermek için bu hesaplayıcıyı kullanın.",
@@ -3039,6 +3041,12 @@
     "decisionImpact": "Karar etkisi",
     "representativeNote": "Temsilî vaka çalışması — modellenmiş risk, doğrulanmış müşteri sonucu değildir.",
     "viewRelatedTool": "İlgili hesaplayıcıyı aç"
+  },
+  "runtimeReadiness": {
+    "eyebrow": "Kalite kontrolü",
+    "title": "Hesaplama geçici olarak kapalı",
+    "body": "Bu hesaplama aracı kalite kontrolünden geçiriliyor. Yanlış sonuç üretmemek için geçici olarak tam hesaplama kapatıldı.",
+    "browsePremiumCta": "Diğer premium araçları görüntüle"
   },
   "fieldMode": {
     "eyebrow": "Saha modu",
@@ -6232,14 +6240,14 @@
     },
     "abonelik-yazilim-cloud-yillik-maliyet-hesabi": {
       "monthlyfee": {
-        "label": "Aylık fee",
-        "placeholder": "Aylık fee girin",
-        "helper": "Aylık subscription fee"
+        "label": "Aylık abonelik ücreti",
+        "placeholder": "Aylık abonelik ücreti girin",
+        "helper": "Aylık yazılım veya bulut abonelik bedeli"
       },
       "months": {
-        "label": "Ay",
-        "placeholder": "Ay girin",
-        "helper": "Ay başına yıl"
+        "label": "Abonelik süresi (ay)",
+        "placeholder": "Ay sayısını girin",
+        "helper": "Hesaplama dönemi (genelde 12 ay)"
       }
     },
     "is-sagligi-ve-guvenligi-ceza-hesaplama": {

@@ -1,5 +1,6 @@
-import { CheckCircle2 } from "lucide-react";
 import { getFormulaSourceAuditStatus } from "@/lib/formula-governance/formula-source-audit-registry";
+import { isFormulaGateEligible } from "@/lib/tools/runtime-readiness";
+import { CheckCircle2 } from "lucide-react";
 import {
   getFormulaGateVerifiedLabel,
   getFormulaGateVerifiedTitle,
@@ -9,12 +10,16 @@ type Props = {
   slug: string;
   locale: string;
   className?: string;
+  surface?: "free" | "premium";
 };
 
-export function FormulaSourceAuditBadge({ slug, locale, className }: Props) {
+export function FormulaSourceAuditBadge({ slug, locale, className, surface }: Props) {
   const status = getFormulaSourceAuditStatus(slug);
+  const eligible = Boolean(status) && isFormulaGateEligible(slug, locale, surface ?? "free");
 
-  if (!status) return null;
+  if (!status || !eligible) {
+    return null;
+  }
 
   const label = getFormulaGateVerifiedLabel(locale);
   const title = getFormulaGateVerifiedTitle(locale);

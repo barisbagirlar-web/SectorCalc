@@ -1,5 +1,5 @@
 export function getFormulaGateVerifiedLabel(locale: string): string {
-  return locale === "tr" ? "Formula Gate Onaylı" : "Formula Gate Verified";
+  return locale === "tr" ? "Formula Gate Onaylı" : "Formula Gate Approved";
 }
 
 export function getFormulaGateVerifiedTitle(locale: string): string {
@@ -9,11 +9,16 @@ export function getFormulaGateVerifiedTitle(locale: string): string {
 }
 
 export function getFormulaGateReviewLabel(locale: string): string {
-  return locale === "tr" ? "Formula Gate incelemesi sürüyor" : "Formula Gate review in progress";
+  return locale === "tr" ? "Hesaplama gözden geçiriliyor" : "Calculation under review";
 }
 
 export function getFormulaGateReviewTitle(locale: string): string {
   return locale === "tr"
-    ? "Bu hesaplama aracı Formula Gate incelemesindedir. Sonuçlar tamamlanana kadar mühür gösterilmez."
-    : "This calculation tool is under Formula Gate review. The verified badge appears only after PASS.";
+    ? "Bu hesaplama aracı kalite kontrolünden geçiriliyor. Formula Gate onayı yalnızca canlı yüzey hazır olduğunda gösterilir."
+    : "This calculator is under quality review. The Formula Gate badge appears only when the live surface is runtime-ready.";
+}
+
+/** @deprecated Use getFormulaGateReviewLabel — kept for catalog meta compatibility */
+export function getFormulaGateReviewLabelLegacy(locale: string): string {
+  return locale === "tr" ? "Formula Gate incelemesi sürüyor" : "Formula Gate review in progress";
 }

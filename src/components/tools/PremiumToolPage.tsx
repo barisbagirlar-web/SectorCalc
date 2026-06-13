@@ -76,6 +76,8 @@ import {
  type RevenueToolInput,
  revenueLegalDisclaimer,
 } from "@/lib/tools/revenue-tools";
+import { evaluateRuntimeReadiness } from "@/lib/tools/runtime-readiness";
+import { PremiumToolReviewSafeState } from "@/components/tools/PremiumToolReviewSafeState";
 
 const DownloadVerdictPdfButton = dynamic(
  () =>
@@ -236,12 +238,25 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  const pagePath = stripLocalePrefix(pathname);
  const runtimeSlug = routeSlug ?? tool.paidSlug;
  const useFullLoopRuntime = isPremiumFullLoopRuntimeSlug(runtimeSlug);
+ const runtimeReadiness = useMemo(
+  () => evaluateRuntimeReadiness({ slug: runtimeSlug, locale, surface: "premium" }),
+  [runtimeSlug, locale],
+ );
+ const showCalculationSurface = runtimeReadiness.paymentEligible;
  const {
  user,
  canAccessAnalyzer,
  isSuperUser,
  loading,
  error,
+ creditBalance,
+ hasCredits,
+ needsCreditLoad,
+ requiresCreditConsume,
+ creditPending,
+ consumeCreditForRun,
+ startCreditPackCheckout,
+ resetCreditRunSession,
  } = usePremiumToolAccess(tool.paidSlug);
 
  const [values, setValues] = useState<PremiumToolInputValues>(() =>
@@ -365,8 +380,13 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  if (!result) {
  return null;
  }
- return buildVerdictReportData({ tool, values, result });
- }, [result, tool, values]);
+ return buildVerdictReportData({
+  tool,
+  values,
+  result,
+  decisionReport: useFullLoopRuntime ? undefined : decisionReport ?? undefined,
+ });
+ }, [result, tool, values, decisionReport, useFullLoopRuntime]);
 
  const feedbackInputSnapshot = useMemo(() => ({ ...values }), [values]);
  const feedbackResultSnapshot = useMemo(() => {
@@ -517,6 +537,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  };
 
  const handleChange = (key: string, value: number | string) => {
+ resetCreditRunSession(tool.paidSlug);
  setValues((prev) => ({ ...prev, [key]: value }));
  setSubmitted(false);
  setErrors((prev) => {
@@ -544,9 +565,24 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   });
  };
 
+ const finalizePremiumCalculation = () => {
+  setIsCalculating(true);
+  setSubmitted(false);
+  window.setTimeout(() => {
+   setIsCalculating(false);
+   setSubmitted(true);
+   trackPremiumCalculate();
+  }, 400);
+ };
+
  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
  event.preventDefault();
 
+ if (!showCalculationSurface) {
+  return;
+ }
+
+ void (async () => {
  if (useFullLoopRuntime) {
   if (!usePremiumSmartForm) {
    const nextErrors = validateSmartFormFieldValues(runtimeSlug, values, locale);
@@ -558,13 +594,19 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   } else {
    setErrors({});
   }
-  setIsCalculating(true);
-  setSubmitted(false);
-  window.setTimeout(() => {
-   setIsCalculating(false);
-   setSubmitted(true);
-   trackPremiumCalculate();
-  }, 400);
+
+  if (needsCreditLoad) {
+   return;
+  }
+
+  if (requiresCreditConsume) {
+   const creditResult = await consumeCreditForRun(tool.paidSlug);
+   if (!creditResult.ok) {
+    return;
+   }
+  }
+
+  finalizePremiumCalculation();
   return;
  }
 
@@ -596,14 +638,21 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  setSubmitted(false);
  return;
  }
+
+ if (needsCreditLoad) {
+  return;
+ }
+
+ if (requiresCreditConsume) {
+  const creditResult = await consumeCreditForRun(tool.paidSlug);
+  if (!creditResult.ok) {
+   return;
+  }
+ }
+
  setErrors({});
- setIsCalculating(true);
- setSubmitted(false);
- window.setTimeout(() => {
- setIsCalculating(false);
- setSubmitted(true);
- trackPremiumCalculate();
- }, 400);
+ finalizePremiumCalculation();
+ })();
  };
 
  return (
@@ -624,12 +673,44 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
   </Suspense>
  ) : null}
+ {user && requiresCreditConsume && showCalculationSurface ? (
+  <p className="mt-2 text-sm text-body-charcoal">
+   Credits: {creditBalance}
+   {hasCredits ? " — 1 credit per premium run." : null}
+  </p>
+ ) : null}
+ {needsCreditLoad && showCalculationSurface ? (
+  <div className="mt-4 rounded-sm border border-amber/30 bg-premium-surface p-4 sm:p-5">
+   <p className="text-xs font-semibold uppercase tracking-wider text-amber">Credits required</p>
+   <h2 className="mt-2 text-lg font-bold text-premium-velvet">Load credits to run this analyzer</h2>
+   <p className="mt-2 text-sm leading-relaxed text-body-charcoal">
+    Each full premium calculation uses 1 credit. SectorCalc Pro subscribers run without credits.
+   </p>
+   <button
+    type="button"
+    disabled={creditPending}
+    onClick={() =>
+     void startCreditPackCheckout({
+      toolSlug: tool.paidSlug,
+      returnPath: `/tools/premium/${tool.paidSlug}`,
+      locale,
+      creditPackSize: 5,
+     }).catch(() => undefined)
+    }
+    className="sc-cta-primary mt-4 inline-flex min-h-[44px] items-center justify-center px-4 disabled:opacity-60"
+   >
+    Load 5 credits — $4.99
+   </button>
+  </div>
+ ) : null}
  {error ? (
   <p className="mt-2 text-sm text-crit-red status-crit" role="alert">
    {error}
   </p>
  ) : null}
- {showSchemaPilot ? (
+ {!showCalculationSurface ? (
+  <PremiumToolReviewSafeState slug={runtimeSlug} locale={locale} />
+ ) : showSchemaPilot ? (
  <>
  <DynamicPremiumCalculator schema={schemaPilot!} />
  <details className="mt-4 sc-industrial-panel p-4">
@@ -721,7 +802,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
      <div className="sc-industrial-form-actions">
       <button
        type="submit"
-       disabled={isCalculating}
+       disabled={isCalculating || creditPending || needsCreditLoad}
        className="sc-ledger-cta-primary sc-cta-primary disabled:opacity-60"
       >
        {isCalculating ? "Calculating…" : "Run calculation"}

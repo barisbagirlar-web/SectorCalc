@@ -2066,18 +2066,18 @@
     "inputs": [
       {
         "key": "monthlyFee",
-        "label": "Monthly fee",
-        "unit": "value",
+        "label": "Monthly subscription fee",
+        "unit": "currency",
         "type": "number",
         "helper": "Monthly subscription fee",
         "min": 0.01
       },
       {
         "key": "months",
-        "label": "Months",
-        "unit": "value",
+        "label": "Subscription period (months)",
+        "unit": "months",
         "type": "number",
-        "helper": "Months per year",
+        "helper": "Months in the billing period",
         "min": 0.01,
         "defaultValue": 12
       }
