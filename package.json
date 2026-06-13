@@ -170,7 +170,9 @@
     "inventory:formulas": "npx tsx scripts/inventory-formulas.ts",
     "test:formulas": "vitest run src/lib/formula-governance",
     "check:secrets": "node scripts/check-commit-secrets.mjs",
-    "admin:set-claim": "node scripts/set-admin-claim.mjs"
+    "admin:set-claim": "node scripts/set-admin-claim.mjs",
+    "audit:p5-route-risk": "node scripts/qa/p5-route-risk-audit.mjs",
+    "check:p5-manual-ui": "node scripts/qa/p5-manual-ui-checklist.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
