@@ -59,6 +59,7 @@
     "audit:runtime-trust-engine": "node scripts/tool-activation/audit-runtime-trust-engine.mjs",
     "audit:p24-tool-quality": "node scripts/tool-activation/audit-p24-tool-quality.mjs",
     "audit:p25-control-plane": "node scripts/tool-activation/audit-p25-control-plane.mjs",
+    "audit:p6a-premium-schema-fail": "node scripts/tool-activation/audit-p6a-premium-schema-fail-manual.mjs",
     "audit:quarantine-recovery": "node scripts/tool-activation/audit-quarantine-recovery.mjs",
     "build:formula-knowledge-graph": "node scripts/tool-activation/build-formula-knowledge-graph.mjs",
     "audit:legacy-conflicts": "node scripts/tool-activation/audit-legacy-conflicts.mjs",
