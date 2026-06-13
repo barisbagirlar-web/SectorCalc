@@ -1,6 +1,6 @@
 # SectorCalc AI Tool Index
 # Site: https://www.sectorcalc.com
-# Generated: 2026-06-12T22:54:16.657Z
+# Generated: 2026-06-13T14:21:18.267Z
 # Total tools: 474
 # Active routes: 323
 # Category-only: 151
@@ -45,11 +45,11 @@
 ## 3d-print-job-margin-tool
 - title: 3D Print Job Margin Tool
 - description: Find minimum print price with fail rate and post-processing included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/3d-print-job-margin-tool
-- tier: premium
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/3d-print-job-margin-tool
+- tier: premium-schema
+- category: quality-six-sigma (Quality, SPC & Six Sigma)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: quality, spc, six-sigma, statistics
 
 ## 5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator
 - title: 5s Denetim Skoru Verimlilik Kaybi Maliyet
@@ -65,9 +65,9 @@
 - description: Lean teams see waste categories qualitatively but cannot express each muda type in comparable monetary terms with period context and action priority.
 - canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/7-israf-muda-avcisi-parasal-karsilik-calculator
 - tier: premium-schema
-- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- category: lean-production (Lean Production & Line Efficiency)
 - routeStatus: active-route
-- intent: finance, pricing, cash-flow, tax, working-capital
+- intent: production, oee, efficiency, throughput
 
 ## abonelik-yazilim-cloud-yillik-maliyet-hesabi
 - title: Abonelik (Yazılım, Cloud) Yıllık Maliyet Calculation
@@ -323,12 +323,12 @@
 
 ## auto-shop-margin-leak-detector
 - title: Auto Shop Margin Leak Detector
-- description: Calculate true job profit with diagnostic time and comeback risk included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/auto-shop-margin-leak-detector
-- tier: premium
-- category: maintenance-reliability (Maintenance & Reliability)
+- description: Calculate true repair job profit with diagnostic time, parts markup, shop supplies and comeback risk.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/auto-shop-margin-leak-detector
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: maintenance, reliability, asset-life
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## average-calculator
 - title: Average Calculator
@@ -601,19 +601,19 @@
 - intent: calculator, decision-support
 
 ## cbam-compliance-verdict
-- title: CBAM Compliance Verdict
-- description: Model process emissions, transport and CBAM cost exposure.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/cbam-compliance-verdict
-- tier: premium
+- title: CBAM Compliance Readiness Verdict
+- description: Exporters can miss CBAM data gaps until certificate coverage, declared emissions and completeness are compared.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cbam-compliance-verdict
+- tier: premium-schema
 - category: sustainability-resource-esg (Sustainability, Resources & ESG)
 - routeStatus: active-route
 - intent: sustainability, carbon, energy, esg
 
 ## cbam-exposure-quick-check
 - title: CBAM Exposure Quick Check
-- description: Carbon border cost exposure from emissions and carbon price.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/cbam-exposure-quick-check
-- tier: premium
+- description: Importers can underestimate CBAM certificate cost when embedded emissions, certificate price and FX are not combined.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cbam-exposure-quick-check
+- tier: premium-schema
 - category: sustainability-resource-esg (Sustainability, Resources & ESG)
 - routeStatus: active-route
 - intent: sustainability, carbon, energy, esg
@@ -673,10 +673,10 @@
 - intent: sustainability, carbon, energy, esg
 
 ## change-order-impact-analyzer
-- title: Change Order Impact Analyzer
-- description: Measure delay, crew cost and margin impact before accepting the change.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/change-order-impact-analyzer
-- tier: premium
+- title: Change Order Impact Calculator
+- description: Measure delay, crew cost and margin impact before accepting a construction change order.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/change-order-impact-analyzer
+- tier: premium-schema
 - category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -746,9 +746,9 @@
 
 ## cnc-quote-risk-analyzer
 - title: CNC Audit Engine
-- description: Find the minimum safe price and quote verdict before accepting the job.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/cnc-quote-risk-analyzer
-- tier: premium
+- description: Estimate minimum safe price and quote risk verdict for CNC jobs using setup, cycle, tooling, material and machine rate inputs.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cnc-quote-risk-analyzer
+- tier: premium-schema
 - category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -880,10 +880,10 @@
 - intent: calculator, decision-support
 
 ## crop-yield-loss-analyzer
-- title: Crop Yield Loss Analyzer
+- title: Crop Yield Loss Calculator
 - description: Model moisture, weather and input cost leaks with yield verdict.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/crop-yield-loss-analyzer
-- tier: premium
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/crop-yield-loss-analyzer
+- tier: premium-schema
 - category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -918,11 +918,11 @@
 ## dairy-profit-detector
 - title: Dairy Profit Detector
 - description: Detect dairy profit leaks with full cost stack verdict.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/dairy-profit-detector
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/dairy-profit-detector
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## date-difference-calculator
 - title: Date Difference Calculator
@@ -1062,11 +1062,11 @@
 ## doviz-pozisyonu-kur-farki-riski-hesabi
 - title: Döviz Pozisyonu — Kur Farkı Riski Calculation
 - description: Döviz Pozisyonu — Kur Farkı Riski Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/doviz-pozisyonu-kur-farki-riski-hesabi
-- tier: premium
-- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/doviz-pozisyonu-kur-farki-riski-hesabi
+- tier: premium-schema
+- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
-- intent: finance, pricing, cash-flow, tax, working-capital
+- intent: logistics, procurement, shipping, inventory
 
 ## dovme-ekstruzyon-proses-kuvvet-ve-pres-kapasite-calculator
 - title: Dovme Ekstruzyon Proses Kuvvet Ve Pres Kapasite
@@ -1294,13 +1294,13 @@
 - intent: calculator, decision-support
 
 ## feed-efficiency-analyzer
-- title: Feed Efficiency Analyzer
+- title: Feed Efficiency Calculator
 - description: Model waste, water quality and feed-to-output efficiency.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/feed-efficiency-analyzer
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/feed-efficiency-analyzer
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## feed-rate-calculator
 - title: Feed Rate Calculator
@@ -1575,8 +1575,8 @@
 ## heat-loss-calculator
 - title: Heat Loss Calculator
 - description: Steady-state heat loss in watts.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/heat-loss-calculator
-- tier: premium
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/heat-loss-calculator
+- tier: premium-schema
 - category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
 - intent: mechanical, hvac, energy, engineering
@@ -1673,9 +1673,9 @@
 
 ## hvac-project-margin-guard
 - title: HVAC Project Margin Guard
-- description: Find minimum project price with callback and commissioning risk included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/hvac-project-margin-guard
-- tier: premium
+- description: Find minimum HVAC project price with equipment, ductwork, callback and commissioning risk included.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/hvac-project-margin-guard
+- tier: premium-schema
 - category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
 - intent: mechanical, hvac, energy, engineering
@@ -2312,10 +2312,10 @@
 
 ## landscaping-contract-profit-tool
 - title: Landscaping Contract Profit Tool
-- description: Find minimum monthly contract price with fuel and equipment wear included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/landscaping-contract-profit-tool
-- tier: premium
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Find minimum monthly landscaping contract price with fuel, supplies and equipment wear included.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/landscaping-contract-profit-tool
+- tier: premium-schema
+- category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
 
@@ -2466,11 +2466,11 @@
 ## material-waste-calculator
 - title: Material Waste Calculator
 - description: Waste kg and percent from input vs good output.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/material-waste-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/material-waste-calculator
+- tier: premium-schema
+- category: quality-six-sigma (Quality, SPC & Six Sigma)
 - routeStatus: active-route
-- intent: production, oee, efficiency, throughput
+- intent: quality, spc, six-sigma, statistics
 
 ## matkap-kilavuz-delik-capi-tablosu
 - title: Matkap — Kılavuz Delik Çapı Tablosu
@@ -2483,12 +2483,12 @@
 
 ## meal-planning-verdict
 - title: Weekly Meal Planning Verdict
-- description: Model weekly grocery plan with waste and inflation buffer.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/meal-planning-verdict
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- description: Model weekly grocery budget with waste and inflation buffer.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/meal-planning-verdict
+- tier: premium-schema
+- category: quality-six-sigma (Quality, SPC & Six Sigma)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: quality, spc, six-sigma, statistics
 
 ## median-calculator
 - title: Median Calculator
@@ -2501,9 +2501,9 @@
 
 ## menu-profit-leak-detector
 - title: Menu Profit Leak Detector
-- description: Detect real margin after waste, delivery fees and labor cost.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/menu-profit-leak-detector
-- tier: premium
+- description: Detect real menu margin after waste, delivery commission and labor cost per item.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/menu-profit-leak-detector
+- tier: premium-schema
 - category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -2536,13 +2536,13 @@
 - intent: calculator, decision-support
 
 ## millwork-bid-risk-analyzer
-- title: Millwork Bid Risk Analyzer
-- description: Find minimum millwork bid with waste, finishing and install included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/millwork-bid-risk-analyzer
-- tier: premium
-- category: project-construction-management (Project, Site & Construction Management)
+- title: Millwork Bid Risk Calculator
+- description: Find minimum millwork bid with WWPA waste, finishing, install and schedule delay risk included.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/millwork-bid-risk-analyzer
+- tier: premium-schema
+- category: quality-six-sigma (Quality, SPC & Six Sigma)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: quality, spc, six-sigma, statistics
 
 ## mortgage-calculator
 - title: Mortgage Calculator
@@ -2663,12 +2663,12 @@
 
 ## office-cleaning-bid-optimizer
 - title: Office Cleaning Bid Optimizer
-- description: Find the minimum monthly bid with labor, supplies, frequency and target margin.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/office-cleaning-bid-optimizer
-- tier: premium
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Find minimum monthly bid with labor, supplies, visit frequency and target margin for office cleaning contracts.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/office-cleaning-bid-optimizer
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## ofis-kirtasiye-sarfiyat-hesabi
 - title: Ofis Kırtasiye Sarfiyat Calculation
@@ -2717,9 +2717,9 @@
 
 ## painting-job-profit-verdict
 - title: Painting Job Profit Verdict
-- description: Find minimum painting price with scaffold and touch-up risk included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/painting-job-profit-verdict
-- tier: premium
+- description: Find minimum painting price with PDCA production model, scaffold, caulk/mask and touch-up risk included.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/painting-job-profit-verdict
+- tier: premium-schema
 - category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -2762,12 +2762,12 @@
 
 ## panel-shop-margin-verdict
 - title: Panel Shop Margin Verdict
-- description: Find safe panel bid with inspection risk and testing time included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/panel-shop-margin-verdict
-- tier: premium
-- category: electrical-power-systems (Electrical, Panel & Power Systems)
+- description: Find safe electrical panel bid with testing hours, permit revision and inspection risk included.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/panel-shop-margin-verdict
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: electrical, power, voltage, cabling
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## pano-isi-yuku-ve-sogutma-kapasite-calculator
 - title: Pano Isi Yuku Ve Sogutma Kapasite
@@ -2852,9 +2852,9 @@
 
 ## plumbing-job-margin-verdict
 - title: Plumbing Job Margin Verdict
-- description: Find safe job price with callback risk and material runs included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/plumbing-job-margin-verdict
-- tier: premium
+- description: Find safe plumbing job price with callback risk, material runs and access difficulty included.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/plumbing-job-margin-verdict
+- tier: premium-schema
 - category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
 - intent: mechanical, hvac, energy, engineering
@@ -2978,9 +2978,9 @@
 
 ## profit-margin-calculator
 - title: Profit Margin Calculator
-- description: Selling margin percent from price and cost.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/profit-margin-calculator
-- tier: premium
+- description: Compute selling margin percent and markup from unit price and cost.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/profit-margin-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -3167,9 +3167,9 @@
 
 ## return-profit-erosion-tool
 - title: Return Profit Erosion Tool
-- description: Measure net profit after returns, shipping, payment fees and ad cost.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/return-profit-erosion-tool
-- tier: premium
+- description: Measure net profit after returns, shipping, payment fees and ad cost per sale.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/return-profit-erosion-tool
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -3194,9 +3194,9 @@
 
 ## roofing-contract-margin-guard
 - title: Roofing Contract Margin Guard
-- description: Find minimum roofing bid with tear-off, dump and weather delay risk included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/roofing-contract-margin-guard
-- tier: premium
+- description: Find minimum roofing bid with tear-off, dump fees, warranty reserve and weather delay risk included.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/roofing-contract-margin-guard
+- tier: premium-schema
 - category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -3229,10 +3229,10 @@
 - intent: logistics, procurement, shipping, inventory
 
 ## route-optimization-analyzer
-- title: Route & Freight Loss Analyzer
-- description: Model deadhead, tolls, driver rest risk and minimum safe freight price.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/route-optimization-analyzer
-- tier: premium
+- title: Route & Freight Loss Calculator
+- description: Model deadhead, tolls, driver rest risk and minimum safe freight price for logistics lanes.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/route-optimization-analyzer
+- tier: premium-schema
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -3339,11 +3339,11 @@
 ## scrap-rate-calculator
 - title: Scrap Rate Calculator
 - description: Scrap rate percent from scrapped vs total units.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/scrap-rate-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/scrap-rate-calculator
+- tier: premium-schema
+- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
 - routeStatus: active-route
-- intent: production, oee, efficiency, throughput
+- intent: calculator, decision-support
 
 ## seed-rate-calculator
 - title: Seed Rate Calculator
@@ -3383,9 +3383,9 @@
 
 ## sheet-metal-quote-risk-tool
 - title: Sheet Metal Quote Risk Tool
-- description: Find safe sheet metal quote with scrap and finishing included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/sheet-metal-quote-risk-tool
-- tier: premium
+- description: Find safe sheet metal quote with programming, setup, scrap, bend labor and finishing included.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/sheet-metal-quote-risk-tool
+- tier: premium-schema
 - category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -3437,9 +3437,9 @@
 
 ## signage-bid-safe-price-tool
 - title: Signage Bid Safe Price Tool
-- description: Find minimum safe price with install labor and reprint risk included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/signage-bid-safe-price-tool
-- tier: premium
+- description: Find minimum safe signage price with design, install, ink, RIP/proofing and reprint risk included.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/signage-bid-safe-price-tool
+- tier: premium-schema
 - category: textile-print-lab (Textile, Printing & Laboratory)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -4095,11 +4095,11 @@
 ## water-optimization-verdict
 - title: Water Efficiency Verdict
 - description: Find minimum viable irrigation spend with efficiency verdict.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/water-optimization-verdict
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/water-optimization-verdict
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## water-usage-calculator
 - title: Water Usage Calculator
@@ -4129,13 +4129,13 @@
 - intent: calculator, decision-support
 
 ## welding-bid-risk-analyzer
-- title: Welding Bid Risk Analyzer
-- description: Find the minimum safe bid with rework and fit-up risk included.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/welding-bid-risk-analyzer
-- tier: premium
-- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
+- title: Welding Bid Risk Calculator
+- description: Find minimum safe welding bid with fit-up time, rework risk and consumables included.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/welding-bid-risk-analyzer
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## welding-cost-estimator
 - title: Welding Cost Estimator

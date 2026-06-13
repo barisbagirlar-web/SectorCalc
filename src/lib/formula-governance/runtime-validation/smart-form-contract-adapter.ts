@@ -103,8 +103,12 @@ function inferFieldBounds(
     return { min: 1, max: 40, step: 1 };
   }
 
-  if (normalized.includes("quantity") || normalized.includes("visits")) {
+  if (normalized.includes("quantity") || normalized.includes("visits") || normalized === "days" || normalized === "coats" || normalized === "fixturecount" || normalized === "aream2" || normalized === "coverageperunit") {
     return { min: 1, step: 1 };
+  }
+
+  if (normalized === "hoursperday" || normalized === "tariffperkwh" || normalized.includes("demolition")) {
+    return { min: 0, step: 0.01 };
   }
 
   if (normalized.includes("hours") || normalized.includes("time")) {

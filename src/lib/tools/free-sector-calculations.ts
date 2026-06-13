@@ -8,6 +8,10 @@ import {
  calculatePhase2FreeResult,
  isPhase2Sector,
 } from "@/lib/tools/phase2-calculations";
+import {
+ calculateP77BatchBFreeResult,
+ isP77BatchBFreeSlug,
+} from "@/lib/tools/p77-batch-b-free-calculators";
 import { calculateDesiResult } from "@/lib/tools/calculation-formulas";
 import {
  type SectorFreeSignal,
@@ -126,8 +130,12 @@ export function calculateExtendedFreeResult(
  tool: RevenueTool,
  values: FreeToolInputValues
 ): FreeToolResult | null {
+ if (isP77BatchBFreeSlug(tool.freeSlug)) {
+  return calculateP77BatchBFreeResult(tool.freeSlug, values, tool);
+ }
+
  if (!EXTENDED_SECTORS.has(tool.sector)) {
- return null;
+  return null;
  }
 
  if (isPhase2Sector(tool.sector)) {

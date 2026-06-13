@@ -34,7 +34,7 @@ describe("premium-schema-engine", () => {
     expect(ids).toContain("cnc-tool-wear-cost");
     expect(ids).toContain("carbon-footprint-compliance-risk");
     expect(ids).toContain("quote-price-profit-margin-calculator");
-    expect(ids.length).toBe(50);
+    expect(ids.length).toBe(81);
   });
 
   test("slug map bridges legacy premium routes", () => {
@@ -49,7 +49,7 @@ describe("premium-schema-engine", () => {
       "construction-project-overrun"
     );
     expect(PREMIUM_SCHEMA_SLUG_MAP["sheet-metal-quote-risk-tool"]).toBe("sheet-metal-scrap-risk");
-    expect(PREMIUM_SCHEMA_SLUG_MAP["cbam-compliance-verdict"]).toBe("carbon-footprint-compliance-risk");
+    expect(PREMIUM_SCHEMA_SLUG_MAP["cbam-compliance-verdict"]).toBe("cbam-compliance-verdict");
     expect(PREMIUM_SCHEMA_SLUG_MAP["welding-bid-risk-analyzer"]).toBe("cnc-tool-wear-cost");
   });
 

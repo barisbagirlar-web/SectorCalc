@@ -184,6 +184,16 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
     painStatement:
       "İhracatçılar ürün bazlı karbon kanıtına ihtiyaç duyar; uygun araç azdır.",
   },
+  "cbam-exposure-quick-check": {
+    title: "CBAM Maruziyet Hızlı Kontrol",
+    painStatement:
+      "Gömülü emisyon, sertifika fiyatı ve kur birleştirilmezse CBAM maliyeti eksik kalır.",
+  },
+  "cbam-compliance-verdict": {
+    title: "CBAM Uyum Hazırlık Değerlendirmesi",
+    painStatement:
+      "Beyan edilen emisyon, sertifika kapsamı ve veri tamlığı birlikte ölçülmezse CBAM hazırlık riski geç fark edilir.",
+  },
   "oee-equipment-effectiveness-calculator": {
     title: "OEE Hesaplayıcı",
     painStatement:

@@ -337,9 +337,11 @@ export const additionalRevenueTools: AdditionalRevenueTool[] = [
  freeValue: "Check visible parts and labor exposure for fixture jobs.",
  paidValue: "Find safe job price with callback risk and material runs included.",
  freeInputs: [
- currency("partsCost", "Parts cost"),
- numberInput("laborHours", "Labor hours", "hr"),
  numberInput("fixtureCount", "Fixture count"),
+ currency("unitMaterialCost", "Unit material cost"),
+ numberInput("laborHoursPerFixture", "Labor hours per fixture", "hr"),
+ currency("laborRate", "Labor rate", "USD/hr"),
+ percentInput("overheadPct", "Overhead", 15),
  ],
  paidInputs: [
  currency("partsCost", "Parts cost"),
@@ -439,9 +441,11 @@ export const additionalRevenueTools: AdditionalRevenueTool[] = [
  freeValue: "Check visible paint and prep time exposure.",
  paidValue: "Find minimum painting price with scaffold and touch-up risk included.",
  freeInputs: [
- currency("paintCost", "Paint cost"),
- numberInput("prepHours", "Prep hours", "hr"),
- numberInput("areaSize", "Area size", "sq ft"),
+ numberInput("paintableArea", "Paintable area", "m²"),
+ numberInput("coveragePerUnit", "Coverage per unit", "m²/unit"),
+ numberInput("coats", "Coats"),
+ currency("unitPrice", "Unit price"),
+ percentInput("wasteAllowancePct", "Waste allowance", 10),
  ],
  paidInputs: [
  currency("paintCost", "Paint cost"),

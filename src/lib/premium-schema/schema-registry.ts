@@ -6,6 +6,8 @@ import { BREAK_EVEN_SAFETY_MARGIN_CALCULATOR_SCHEMA } from "@/lib/premium-schema
 import { CALIBRATION_DRIFT_RISK_SCHEMA } from "@/lib/premium-schema/schemas/calibration-drift-risk";
 import { CARBON_FOOTPRINT_COMPLIANCE_RISK_SCHEMA } from "@/lib/premium-schema/schemas/carbon-footprint-compliance-risk";
 import { CBAM_UNIT_PRODUCT_CARBON_FOOTPRINT_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/cbam-unit-product-carbon-footprint-calculator";
+import { CBAM_COMPLIANCE_VERDICT_SCHEMA } from "@/lib/premium-schema/schemas/cbam-compliance-verdict";
+import { CBAM_EXPOSURE_QUICK_CHECK_SCHEMA } from "@/lib/premium-schema/schemas/cbam-exposure-quick-check";
 import { CLOUD_API_COST_OVERRUN_SCHEMA } from "@/lib/premium-schema/schemas/cloud-api-cost-overrun";
 import { COMPRESSOR_LEAK_COST_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/compressor-leak-cost-calculator";
 import { CNC_OEE_LOSS_SCHEMA } from "@/lib/premium-schema/schemas/cnc-oee-loss";
@@ -112,6 +114,8 @@ export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
   BREAK_EVEN_SAFETY_MARGIN_CALCULATOR_SCHEMA,
   AUTO_REPAIR_PARTS_LABOR_QUOTE_CALCULATOR_SCHEMA,
   CBAM_UNIT_PRODUCT_CARBON_FOOTPRINT_CALCULATOR_SCHEMA,
+  CBAM_COMPLIANCE_VERDICT_SCHEMA,
+  CBAM_EXPOSURE_QUICK_CHECK_SCHEMA,
   OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_SCHEMA,
   COMPRESSOR_LEAK_COST_CALCULATOR_SCHEMA,
   EMPLOYEE_TOTAL_COST_CALCULATOR_SCHEMA,
@@ -172,7 +176,7 @@ export const PREMIUM_SCHEMA_SLUG_MAP: Readonly<Record<string, string>> = {
   "sheet-metal-quote-risk-tool": "sheet-metal-scrap-risk",
   "roofing-contract-margin-guard": "construction-subcontractor-margin-leak",
   "trip-budget-optimizer": "logistics-fuel-route-drift",
-  "cbam-compliance-verdict": "carbon-footprint-compliance-risk",
+  "cbam-compliance-verdict": "cbam-compliance-verdict",
   "return-profit-erosion-tool": "cloud-api-cost-overrun",
   "crop-yield-loss-analyzer": "agriculture-irrigation-yield-loss",
   "welding-bid-risk-analyzer": "cnc-tool-wear-cost",

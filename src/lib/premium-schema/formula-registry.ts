@@ -198,6 +198,56 @@ const FORMULA_DEFINITIONS: readonly FormulaDefinition[] = [
       ),
   },
   {
+    id: "carbon.cbam_certificate_exposure",
+    family: "carbon",
+    label: "CBAM certificate exposure in local currency",
+    fn: (inputs) =>
+      assertFinite(
+        num(inputs, "embeddedEmissionsTon") *
+          num(inputs, "cbamCertificatePrice") *
+          num(inputs, "eurTryRate")
+      ),
+  },
+  {
+    id: "carbon.emission_gap_ton",
+    family: "carbon",
+    label: "Embedded minus declared emissions gap",
+    fn: (inputs) =>
+      nonNegative(
+        Math.max(0, num(inputs, "embeddedEmissionsTon") - num(inputs, "declaredEmissionsTon"))
+      ),
+  },
+  {
+    id: "benchmark.gap_percent",
+    family: "benchmark",
+    label: "Gap percent from full coverage",
+    fn: (inputs) => nonNegative(Math.max(0, 100 - num(inputs, "percent"))),
+  },
+  {
+    id: "carbon.cbam_financial_exposure",
+    family: "carbon",
+    label: "Financial exposure from emission gap",
+    fn: (inputs) =>
+      assertFinite(
+        num(inputs, "emissionGap") * num(inputs, "cbamCertificatePrice") * num(inputs, "eurTryRate")
+      ),
+  },
+  {
+    id: "risk.cbam_composite_score",
+    family: "benchmark",
+    label: "CBAM data preparation risk score",
+    fn: (inputs) => {
+      const embedded = num(inputs, "embeddedEmissionsTon");
+      const emissionGapRatioPct =
+        embedded > 0 ? (num(inputs, "emissionGap") / embedded) * 100 : 0;
+      return assertFinite(
+        emissionGapRatioPct * 0.4 +
+          num(inputs, "coverageGapPct") * 0.3 +
+          num(inputs, "dataGapPct") * 0.3
+      );
+    },
+  },
+  {
     id: "cost.p90_buffer",
     family: "cost",
     label: "P90 volatility buffer",
@@ -1124,6 +1174,31 @@ const FORMULA_META_DETAILS: Record<
     description: "Carbon border adjustment exposure estimate.",
     requiredInputs: ["emissionsTon", "carbonPrice", "exposurePercent"],
     outputHint: "currency",
+  },
+  "carbon.cbam_certificate_exposure": {
+    description: "CBAM certificate cost from embedded emissions, price and FX.",
+    requiredInputs: ["embeddedEmissionsTon", "cbamCertificatePrice", "eurTryRate"],
+    outputHint: "currency",
+  },
+  "carbon.emission_gap_ton": {
+    description: "Non-negative gap between embedded and declared emissions.",
+    requiredInputs: ["embeddedEmissionsTon", "declaredEmissionsTon"],
+    outputHint: "number",
+  },
+  "benchmark.gap_percent": {
+    description: "Percent gap from full coverage or completeness.",
+    requiredInputs: ["percent"],
+    outputHint: "percentage",
+  },
+  "carbon.cbam_financial_exposure": {
+    description: "Financial exposure from emission gap and certificate price.",
+    requiredInputs: ["emissionGap", "cbamCertificatePrice", "eurTryRate"],
+    outputHint: "currency",
+  },
+  "risk.cbam_composite_score": {
+    description: "Weighted CBAM data preparation risk score.",
+    requiredInputs: ["embeddedEmissionsTon", "emissionGap", "coverageGapPct", "dataGapPct"],
+    outputHint: "score",
   },
   "cost.p90_buffer": {
     description: "P90 volatility buffer on adjusted cost.",

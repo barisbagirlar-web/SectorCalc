@@ -148,6 +148,32 @@ const VALID_INPUTS: Record<string, Record<string, number | string>> = {
     laborHours: 32,
     laborRate: 55,
   },
+  "kwh-consumption-check": {
+    powerKw: 10,
+    hoursPerDay: 8,
+    days: 30,
+    tariffPerKwh: 0.15,
+  },
+  "paint-coverage-cost-check": {
+    paintableArea: 100,
+    coveragePerUnit: 10,
+    coats: 2,
+    unitPrice: 25,
+    wasteAllowancePct: 10,
+  },
+  "plumbing-fixture-cost-check": {
+    fixtureCount: 3,
+    unitMaterialCost: 200,
+    laborHoursPerFixture: 2,
+    laborRate: 75,
+    overheadPct: 15,
+  },
+  "home-renovation-m2": {
+    areaM2: 80,
+    unitCostPerM2: 500,
+    demolitionCost: 2000,
+    contingencyPct: 10,
+  },
   "laser-cutting-time-check": {
     setupMinutes: 20,
     cutLengthM: 12,
@@ -192,7 +218,7 @@ function resolveValidInputs(slug: string): Record<string, number | string> {
 
 describe("free full-loop runtime bridge", () => {
   test("registry exposes legacy + traffic catalog free full-loop slugs", () => {
-    expect(FREE_FULL_LOOP_RUNTIME_SLUGS.length).toBe(20 + BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS.length);
+    expect(FREE_FULL_LOOP_RUNTIME_SLUGS.length).toBe(24 + BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS.length);
     for (const slug of FREE_FULL_LOOP_RUNTIME_SLUGS) {
       expect(isFreeFullLoopRuntimeSlug(slug)).toBe(true);
     }
@@ -252,7 +278,11 @@ describe("free full-loop runtime bridge", () => {
             slug === "roofing-square-cost-check" ||
             slug === "project-cost-calculator" ||
             slug === "cleaning-cost-calculator" ||
-            slug === "product-margin-calculator"
+            slug === "product-margin-calculator" ||
+            slug === "kwh-consumption-check" ||
+            slug === "paint-coverage-cost-check" ||
+            slug === "plumbing-fixture-cost-check" ||
+            slug === "home-renovation-m2"
           ) {
             expect(result.revenueResult).toBeDefined();
           } else {

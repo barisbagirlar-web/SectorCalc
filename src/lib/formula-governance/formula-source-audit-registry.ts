@@ -278,6 +278,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "area-converter": {
+    "slug": "area-converter",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "asma-tavan-malzeme-hesabi": {
     "slug": "asma-tavan-malzeme-hesabi",
     "status": "verified",
@@ -293,6 +310,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
+    }
+  },
+  "auto-repair-comeback-cost": {
+    "slug": "auto-repair-comeback-cost",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
     }
   },
   "auto-repair-parts-labor-quote-calculator": {
@@ -567,6 +601,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "break-even-safety-margin-calculator": {
+    "slug": "break-even-safety-margin-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
   "brick-calculator": {
     "slug": "brick-calculator",
     "status": "verified",
@@ -635,6 +686,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": true
     }
   },
+  "carbon-footprint-compliance-risk": {
+    "slug": "carbon-footprint-compliance-risk",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
   "carbon-footprint-quick": {
     "slug": "carbon-footprint-quick",
     "status": "verified",
@@ -684,6 +752,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
+    }
+  },
+  "cbam-compliance-verdict": {
+    "slug": "cbam-compliance-verdict",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
+  "cbam-exposure-quick-check": {
+    "slug": "cbam-exposure-quick-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
     }
   },
   "cbam-unit-product-carbon-footprint-calculator": {
@@ -1400,6 +1502,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "electrical-labor-estimator": {
+    "slug": "electrical-labor-estimator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "electrical-panel-rework-cost": {
+    "slug": "electrical-panel-rework-cost",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
   "electricity-bill-calculator": {
     "slug": "electricity-bill-calculator",
     "status": "verified",
@@ -1963,6 +2099,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
   },
   "home-budget-calculator": {
     "slug": "home-budget-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "home-renovation-m2": {
+    "slug": "home-renovation-m2",
     "status": "verified",
     "auditGate": "Formula Source-of-Truth Audit Gate",
     "auditVersion": "v1",
@@ -2658,6 +2811,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "kwh-consumption-check": {
+    "slug": "kwh-consumption-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "kwh-cost-calculator": {
     "slug": "kwh-cost-calculator",
     "status": "verified",
@@ -2756,6 +2926,40 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasValidation": true,
       "hasTests": true,
       "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "legal-interest-fee-calculator-pro": {
+    "slug": "legal-interest-fee-calculator-pro",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
+    }
+  },
+  "length-converter": {
+    "slug": "length-converter",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
     }
@@ -3236,6 +3440,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "paint-coverage-cost-check": {
+    "slug": "paint-coverage-cost-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "painting-job-profit-verdict": {
     "slug": "painting-job-profit-verdict",
     "status": "verified",
@@ -3423,6 +3644,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "plumbing-fixture-cost-check": {
+    "slug": "plumbing-fixture-cost-check",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "plumbing-job-margin-verdict": {
     "slug": "plumbing-job-margin-verdict",
     "status": "verified",
@@ -3540,6 +3778,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasQuickResult": true,
       "hasDeepReport": false,
       "hasI18n": false
+    }
+  },
+  "pressure-vessel-wall-thickness-calculator": {
+    "slug": "pressure-vessel-wall-thickness-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": true,
+      "hasI18n": true
     }
   },
   "print-job-cost-check": {
@@ -3746,6 +4001,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "ratio-calculator": {
+    "slug": "ratio-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "rebar-weight-calculator": {
     "slug": "rebar-weight-calculator",
     "status": "verified",
@@ -3782,6 +4054,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
   },
   "renovation-budget-optimizer": {
     "slug": "renovation-budget-optimizer",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": false,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "rent-vs-buy-calculator": {
+    "slug": "rent-vs-buy-calculator",
     "status": "verified",
     "auditGate": "Formula Source-of-Truth Audit Gate",
     "auditVersion": "v1",
@@ -4528,6 +4817,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "temperature-converter": {
+    "slug": "temperature-converter",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "textile-fabric-waste-risk": {
     "slug": "textile-fabric-waste-risk",
     "status": "verified",
@@ -4902,6 +5208,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
       "hasI18n": false
     }
   },
+  "volume-converter": {
+    "slug": "volume-converter",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
   "volumetric-weight-calculator": {
     "slug": "volumetric-weight-calculator",
     "status": "verified",
@@ -4972,6 +5295,23 @@ export const FORMULA_SOURCE_AUDIT_REGISTRY: Record<string, FormulaSourceAuditSta
   },
   "water-usage-calculator": {
     "slug": "water-usage-calculator",
+    "status": "verified",
+    "auditGate": "Formula Source-of-Truth Audit Gate",
+    "auditVersion": "v1",
+    "verifiedAtSource": "quality-scan-report",
+    "standardReference": "7 Muda quality standard",
+    "checks": {
+      "upgradeDecisionPass": true,
+      "hasFormulaContract": true,
+      "hasValidation": true,
+      "hasTests": true,
+      "hasQuickResult": true,
+      "hasDeepReport": false,
+      "hasI18n": false
+    }
+  },
+  "weight-converter": {
+    "slug": "weight-converter",
     "status": "verified",
     "auditGate": "Formula Source-of-Truth Audit Gate",
     "auditVersion": "v1",

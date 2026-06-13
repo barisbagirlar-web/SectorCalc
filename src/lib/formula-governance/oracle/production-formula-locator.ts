@@ -591,6 +591,65 @@ export const BATCH_FREE_BATCH2_PRODUCTION_FORMULA_LOCATORS: readonly ProductionF
   },
 ];
 
+export const P77_BATCH_B_PRODUCTION_FORMULA_LOCATORS: readonly ProductionFormulaLocator[] = [
+  {
+    slug: "kwh-consumption-check",
+    toolId: "free-traffic.kwh-consumption-check",
+    productionFilePath: "src/lib/tools/p77-batch-b-free-calculators.ts",
+    productionFunctionName: "calculateKwhConsumptionCheck",
+    productionEntry: "dailyKwh = powerKw × hoursPerDay; periodKwh = dailyKwh × days; energyCost = periodKwh × tariffPerKwh",
+    oracleFunctionName: "calculateKwhConsumptionCheck",
+    inputShape: ["powerKw", "hoursPerDay", "days", "tariffPerKwh"],
+    productionOutputShape: ["dailyKwh", "periodKwh", "energyCost", "recommendedPrice"],
+    oracleOutputShape: ["dailyKwh", "periodKwh", "energyCost", "recommendedPrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "paint-coverage-cost-check",
+    toolId: "free-traffic.paint-coverage-cost-check",
+    productionFilePath: "src/lib/tools/p77-batch-b-free-calculators.ts",
+    productionFunctionName: "calculatePaintCoverageCostCheck",
+    productionEntry: "requiredUnits = ceil(netArea/coverage + waste); paintCost = requiredUnits × unitPrice",
+    oracleFunctionName: "calculatePaintCoverageCostCheck",
+    inputShape: ["paintableArea", "coveragePerUnit", "coats", "unitPrice", "wasteAllowancePct"],
+    productionOutputShape: ["requiredUnits", "paintCost", "recommendedPrice"],
+    oracleOutputShape: ["requiredUnits", "paintCost", "recommendedPrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "plumbing-fixture-cost-check",
+    toolId: "free-traffic.plumbing-fixture-cost-check",
+    productionFilePath: "src/lib/tools/p77-batch-b-free-calculators.ts",
+    productionFunctionName: "calculatePlumbingFixtureCostCheck",
+    productionEntry: "totalCost = (material + labor) × (1 + overheadPct/100)",
+    oracleFunctionName: "calculatePlumbingFixtureCostCheck",
+    inputShape: ["fixtureCount", "unitMaterialCost", "laborHoursPerFixture", "laborRate", "overheadPct"],
+    productionOutputShape: ["materialCost", "laborCost", "totalCost", "recommendedPrice"],
+    oracleOutputShape: ["materialCost", "laborCost", "totalCost", "recommendedPrice"],
+    comparisonWired: true,
+  },
+  {
+    slug: "home-renovation-m2",
+    toolId: "free-traffic.home-renovation-m2",
+    productionFilePath: "src/lib/tools/p77-batch-b-free-calculators.ts",
+    productionFunctionName: "calculateHomeRenovationM2Check",
+    productionEntry: "totalEstimatedCost = (areaM2 × unitCostPerM2 + demolition) × (1 + contingencyPct/100)",
+    oracleFunctionName: "calculateHomeRenovationM2Check",
+    inputShape: ["areaM2", "unitCostPerM2", "demolitionCost", "contingencyPct"],
+    productionOutputShape: ["baseCost", "totalEstimatedCost", "recommendedPrice"],
+    oracleOutputShape: ["baseCost", "totalEstimatedCost", "recommendedPrice"],
+    comparisonWired: true,
+  },
+];
+
+export function getP77BatchBProductionFormulaLocator(slug: string): ProductionFormulaLocator | undefined {
+  return P77_BATCH_B_PRODUCTION_FORMULA_LOCATORS.find((entry) => entry.slug === slug);
+}
+
+export function isP77BatchBProductionSlug(slug: string): boolean {
+  return P77_BATCH_B_PRODUCTION_FORMULA_LOCATORS.some((entry) => entry.slug === slug);
+}
+
 export const BATCH_PREMIUM_BATCH3_PRODUCTION_FORMULA_LOCATORS: readonly ProductionFormulaLocator[] = [
   {
     slug: "hvac-project-margin-guard",
@@ -858,6 +917,7 @@ export function getAnyProductionFormulaLocator(slug: string): ProductionFormulaL
     getBatchFreeProductionFormulaLocator(slug as BatchFreeOracleSlug) ??
     getBatchPremiumProductionFormulaLocator(slug as BatchPremiumOracleSlug) ??
     getBatchFreeBatch2ProductionFormulaLocator(slug as BatchFreeBatch2OracleSlug) ??
+    getP77BatchBProductionFormulaLocator(slug) ??
     getBatchPremiumBatch3ProductionFormulaLocator(slug as BatchPremiumBatch3OracleSlug) ??
     getBatchPremiumSchemaProductionFormulaLocator(slug as BatchPremiumSchemaOracleSlug) ??
     (isBatchTrafficCatalogProductionSlug(slug)

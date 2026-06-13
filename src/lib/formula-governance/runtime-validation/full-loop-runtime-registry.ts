@@ -59,6 +59,10 @@ export const FREE_FULL_LOOP_RUNTIME_SLUGS = [
   "cleaning-cost-calculator",
   "product-margin-calculator",
   "laser-cutting-time-check",
+  "kwh-consumption-check",
+  "paint-coverage-cost-check",
+  "plumbing-fixture-cost-check",
+  "home-renovation-m2",
   ...BATCH_TRAFFIC_CATALOG_CRITICAL_SLUGS,
 ] as const;
 

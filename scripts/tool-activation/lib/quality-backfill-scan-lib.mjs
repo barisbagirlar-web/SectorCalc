@@ -98,6 +98,9 @@ export function getRiskExclusionReason(slug, metadata = {}) {
 }
 
 function isMissingSchemaQuarantine(row) {
+  if (row.toolClass === "B CLASS" || row.toolClass === "C CLASS") {
+    return false;
+  }
   return row.hasRoute && !row.hasSchema;
 }
 
@@ -149,13 +152,19 @@ function buildContractIndex() {
   /** @type {Map<string, string>} */
   const index = new Map();
 
-  if (!fs.existsSync(CONTRACTS_DIR)) {
-    return index;
+  const contractSources = [];
+  if (fs.existsSync(CONTRACTS_DIR)) {
+    for (const file of fs.readdirSync(CONTRACTS_DIR)) {
+      if (!file.endsWith(".ts")) continue;
+      contractSources.push(path.join("src/lib/formula-governance/contracts", file));
+    }
+  }
+  const rootContractFile = path.join(ROOT, "src/lib/formula-governance/contracts.ts");
+  if (fs.existsSync(rootContractFile)) {
+    contractSources.push("src/lib/formula-governance/contracts.ts");
   }
 
-  for (const file of fs.readdirSync(CONTRACTS_DIR)) {
-    if (!file.endsWith(".ts")) continue;
-    const relativePath = path.join("src/lib/formula-governance/contracts", file);
+  for (const relativePath of contractSources) {
     const content = fs.readFileSync(path.join(ROOT, relativePath), "utf8");
 
     for (const match of content.matchAll(/slug:\s*"([^"]+)"/g)) {
@@ -595,15 +604,15 @@ function buildToolRecord(scanTool, indexes) {
     return row;
   }
 
-  if (needsHumanReview(scanTool.slug, scanTool.riskLevel)) {
-    row.upgradeDecision = "HUMAN_REVIEW";
-    row.upgradeReason = "Regulated or high-interpretation domain requires manual formula review";
-    return row;
-  }
-
   if (meetsClassMinimum(row)) {
     row.upgradeDecision = "PASS";
     row.upgradeReason = `Meets ${toolClass} minimum quality bar`;
+    return row;
+  }
+
+  if (needsHumanReview(scanTool.slug, scanTool.riskLevel)) {
+    row.upgradeDecision = "HUMAN_REVIEW";
+    row.upgradeReason = "Regulated or high-interpretation domain requires manual formula review";
     return row;
   }
 

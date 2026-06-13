@@ -55,7 +55,14 @@ import { OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } fro
 import { QUALITY_COST_PAF_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/quality-cost-paf-calculator-critical";
 import { SHOP_RATE_HOURLY_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/shop-rate-hourly-cost-calculator-critical";
 import { TOLERANCE_STACK_UP_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/tolerance-stack-up-calculator-critical";
+import { AUTO_REPAIR_COMEBACK_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/auto-repair-comeback-cost-critical";
+import { CARBON_FOOTPRINT_COMPLIANCE_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/carbon-footprint-compliance-risk-critical";
+import { CBAM_COMPLIANCE_VERDICT_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/cbam-compliance-verdict-critical";
+import { CBAM_EXPOSURE_QUICK_CHECK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/cbam-exposure-quick-check-critical";
+import { ELECTRICAL_PANEL_REWORK_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/electrical-panel-rework-cost-critical";
+import { LEGAL_INTEREST_FEE_CALCULATOR_PRO_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/legal-interest-fee-calculator-pro-critical";
 import { ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/engine-modules-critical";
+import { P77_FREE_TRAFFIC_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/p77-free-traffic-batch";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
 
 const RENT_VS_BUY_DISCLAIMER =
@@ -302,7 +309,14 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   ...QUALITY_COST_PAF_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
   ...SHOP_RATE_HOURLY_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
   ...TOLERANCE_STACK_UP_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...AUTO_REPAIR_COMEBACK_COST_CRITICAL_FORMULA_CONTRACTS,
+  ...CARBON_FOOTPRINT_COMPLIANCE_RISK_CRITICAL_FORMULA_CONTRACTS,
+  ...CBAM_COMPLIANCE_VERDICT_CRITICAL_FORMULA_CONTRACTS,
+  ...CBAM_EXPOSURE_QUICK_CHECK_CRITICAL_FORMULA_CONTRACTS,
+  ...ELECTRICAL_PANEL_REWORK_COST_CRITICAL_FORMULA_CONTRACTS,
+  ...LEGAL_INTEREST_FEE_CALCULATOR_PRO_CRITICAL_FORMULA_CONTRACTS,
   ...ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS,
+  ...P77_FREE_TRAFFIC_FORMULA_CONTRACTS,
 ];
 
 export function getFormulaContractBySlug(slug: string): FormulaContract | undefined {

@@ -719,7 +719,6 @@ export const BATCH_PREMIUM_SCHEMA_CRITICAL_FORMULA_CONTRACTS: readonly FormulaCo
   energyEfficiencyReportContract,
   mealPlanningVerdictContract,
   tripBudgetOptimizerContract,
-  cbamComplianceVerdictContract,
   cropYieldLossAnalyzerContract,
   feedEfficiencyAnalyzerContract,
   dairyProfitDetectorContract,

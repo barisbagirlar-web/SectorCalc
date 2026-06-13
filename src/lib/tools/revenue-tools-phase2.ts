@@ -247,9 +247,10 @@ export const phase2RevenueTools: AdditionalRevenueTool[] = [
  freeValue: "Check monthly kWh exposure against a baseline tariff.",
  paidValue: "Model demand charges, power factor and efficiency verdict.",
  freeInputs: [
- numberInput("monthlyKwh", "Monthly kWh"),
+ numberInput("powerKw", "Power", "kW"),
+ numberInput("hoursPerDay", "Hours per day", "hr/day"),
+ numberInput("days", "Days", "days"),
  currency("tariffPerKwh", "Tariff", "USD/kWh"),
- numberInput("operatingDays", "Operating days", "days/month", 26),
  ],
  paidInputs: [
  numberInput("monthlyKwh", "Monthly kWh"),
@@ -311,8 +312,9 @@ export const phase2RevenueTools: AdditionalRevenueTool[] = [
  paidValue: "Add seasonal delay, regional multiplier and realistic total.",
  freeInputs: [
  numberInput("areaM2", "Renovation area", "m²"),
- qualitySelect("materialQuality", "Material quality"),
- yesNoSelect("includeLabor", "Include labor", "yes"),
+ currency("unitCostPerM2", "Unit cost per m²", "USD/m²"),
+ currency("demolitionCost", "Demolition cost"),
+ percentInput("contingencyPct", "Contingency", 10),
  ],
  paidInputs: [
  numberInput("areaM2", "Renovation area", "m²"),

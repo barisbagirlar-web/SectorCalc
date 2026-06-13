@@ -45,6 +45,7 @@ import { isBatchFreeBatch2OracleSlug } from "@/lib/formula-governance/oracle/bat
 import { isBatchPremiumBatch3OracleSlug } from "@/lib/formula-governance/oracle/batch-premium-batch3-oracles";
 import { isBatchPremiumSchemaOracleSlug } from "@/lib/formula-governance/oracle/batch-premium-schema-oracles";
 import { BATCH_FREE_BATCH2_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-batch-free-batch2";
+import { P77_BATCH_B_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-p77-batch-b";
 import { BATCH_PREMIUM_BATCH3_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-batch-premium-batch3";
 import { BATCH_PREMIUM_SCHEMA_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-batch-premium-schema";
 import { BATCH_TRAFFIC_CATALOG_SCENARIO_HANDLERS } from "@/lib/formula-governance/scenario-handlers-batch-traffic-catalog";
@@ -1583,6 +1584,7 @@ const SCENARIO_HANDLERS: Record<string, Record<string, ScenarioHandler>> = {
   "return-profit-erosion-tool": RETURN_PROFIT_EROSION_SCENARIOS,
   "welding-bid-risk-analyzer": WELDING_BID_SCENARIOS,
   ...BATCH_FREE_BATCH2_SCENARIO_HANDLERS,
+  ...P77_BATCH_B_SCENARIO_HANDLERS,
   ...BATCH_PREMIUM_BATCH3_SCENARIO_HANDLERS,
   ...BATCH_PREMIUM_SCHEMA_SCENARIO_HANDLERS,
   ...BATCH_TRAFFIC_CATALOG_SCENARIO_HANDLERS,

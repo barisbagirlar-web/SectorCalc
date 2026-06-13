@@ -44,6 +44,10 @@ import {
   type FreeToolResult,
 } from "@/lib/tools/free-tool-results";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
+import {
+  calculateP77BatchBNumericOutputs,
+  isP77BatchBFreeSlug,
+} from "@/lib/tools/p77-batch-b-free-calculators";
 
 export type { RuntimeTrustTraceView };
 
@@ -87,6 +91,10 @@ const REVENUE_FREE_FULL_LOOP_SLUGS = new Set<string>([
   "project-cost-calculator",
   "cleaning-cost-calculator",
   "product-margin-calculator",
+  "kwh-consumption-check",
+  "paint-coverage-cost-check",
+  "plumbing-fixture-cost-check",
+  "home-renovation-m2",
 ]);
 
 function resolveFreeContractSlug(slug: string): string {
@@ -209,6 +217,16 @@ function runFreeDisplayCalculation(
 
 function adaptFreeProductionOutput(slug: string, values: KnownInputs): ProductionAdapterResult {
   const trafficValues = toFreeTrafficValues(values);
+
+  if (isP77BatchBFreeSlug(slug)) {
+    try {
+      const output = calculateP77BatchBNumericOutputs(slug, trafficValues);
+      return { status: "ok", output };
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : String(error);
+      return { status: "error", reason };
+    }
+  }
 
   if (slug === "rent-vs-buy-calculator") {
     return adaptProductionRentVsBuyOutput(trafficValues);

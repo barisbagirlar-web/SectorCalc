@@ -246,6 +246,28 @@ export function validateContractEdgeRules(
         errors.push("Payment fee rate must be between 0% and 100%.");
       }
     }
+    if (rule.id === "denominator-guard") {
+      const coveragePerUnit = knownInputs.coveragePerUnit;
+      if (coveragePerUnit !== undefined && coveragePerUnit <= 0) {
+        errors.push("Coverage per unit must be greater than 0.");
+      }
+      const coats = knownInputs.coats;
+      if (coats !== undefined && coats <= 0) {
+        errors.push("Coats must be greater than 0.");
+      }
+      const days = knownInputs.days;
+      if (days !== undefined && days <= 0) {
+        errors.push("Days must be greater than 0.");
+      }
+      const fixtureCount = knownInputs.fixtureCount;
+      if (fixtureCount !== undefined && fixtureCount <= 0) {
+        errors.push("Fixture count must be greater than 0.");
+      }
+      const areaM2 = knownInputs.areaM2;
+      if (areaM2 !== undefined && areaM2 <= 0) {
+        errors.push("Area (m²) must be greater than 0.");
+      }
+    }
   }
 
   for (const key of contract.requiredInputs) {
