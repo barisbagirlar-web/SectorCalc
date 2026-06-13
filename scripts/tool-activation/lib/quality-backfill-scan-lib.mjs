@@ -47,6 +47,60 @@ const UPGRADE_GAP_ORDER = [
   "route",
 ];
 
+const RISK_EXCLUSION_PATTERNS = [
+  { id: "cbam", pattern: /^cbam-/ },
+  { id: "carbon-footprint-compliance", pattern: /carbon-footprint-compliance/i },
+  { id: "compliance", pattern: /compliance/i },
+  { id: "regulatory", pattern: /regulatory/i },
+  { id: "legal", pattern: /^legal-/ },
+  { id: "legal-interest", pattern: /legal-interest/i },
+  { id: "electrical", pattern: /^electrical-/ },
+  { id: "pressure-vessel", pattern: /^pressure-vessel-/ },
+  { id: "auto-repair", pattern: /^auto-repair-/ },
+  { id: "welded-bolted", pattern: /welded-bolted/ },
+  { id: "fire-system", pattern: /fire-system/i },
+  { id: "hydrant", pattern: /hydrant/i },
+  { id: "bolt-tightening", pattern: /bolt-tightening/i },
+  { id: "hydraulic", pattern: /hydraulic/i },
+  { id: "pneumatic", pattern: /pneumatic/i },
+  { id: "severance", pattern: /severance/i },
+  { id: "annual-leave", pattern: /annual-leave/i },
+  { id: "notice", pattern: /notice/i },
+  { id: "labor-law", pattern: /labor-law/i },
+  { id: "tax-law", pattern: /tax-law/i },
+  { id: "certification", pattern: /certification/i },
+  { id: "safety", pattern: /safety/i },
+  { id: "ai-uyum-etik-act", pattern: /ai-uyum|etik|(^|-)act(-|$)/i },
+];
+
+export const RISK_EXCLUDED_UPGRADE_REASON =
+  "risk-excluded:safety-legal-compliance-or-regulatory";
+
+export const MISSING_SCHEMA_QUARANTINE_REASON = "missing-schema:manual-schema-required";
+
+export function isRiskExcludedTool(slug, metadata = {}) {
+  if (metadata.riskLevel === "regulated" || metadata.riskLevel === "safety-critical") {
+    return true;
+  }
+  return RISK_EXCLUSION_PATTERNS.some((entry) => entry.pattern.test(slug));
+}
+
+export function getRiskExclusionReason(slug, metadata = {}) {
+  if (metadata.riskLevel === "regulated" || metadata.riskLevel === "safety-critical") {
+    return RISK_EXCLUDED_UPGRADE_REASON;
+  }
+  for (const entry of RISK_EXCLUSION_PATTERNS) {
+    if (entry.pattern.test(slug)) {
+      return RISK_EXCLUDED_UPGRADE_REASON;
+    }
+  }
+  return RISK_EXCLUDED_UPGRADE_REASON;
+}
+
+function isMissingSchemaQuarantine(row) {
+  return row.hasRoute && !row.hasSchema;
+}
+
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
@@ -550,6 +604,20 @@ function buildToolRecord(scanTool, indexes) {
   if (meetsClassMinimum(row)) {
     row.upgradeDecision = "PASS";
     row.upgradeReason = `Meets ${toolClass} minimum quality bar`;
+    return row;
+  }
+
+  if (isRiskExcludedTool(scanTool.slug, { riskLevel: scanTool.riskLevel })) {
+    row.upgradeDecision = "HUMAN_REVIEW";
+    row.upgradeReason = getRiskExclusionReason(scanTool.slug, {
+      riskLevel: scanTool.riskLevel,
+    });
+    return row;
+  }
+
+  if (isMissingSchemaQuarantine(row)) {
+    row.upgradeDecision = "QUARANTINE";
+    row.upgradeReason = MISSING_SCHEMA_QUARANTINE_REASON;
     return row;
   }
 

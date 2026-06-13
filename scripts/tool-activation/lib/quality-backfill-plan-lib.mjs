@@ -1,7 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { ROOT } from "./activation-paths.mjs";
-import { QUALITY_DIR, QUALITY_SCAN_REPORT_PATH } from "./quality-backfill-scan-lib.mjs";
+import {
+  MISSING_SCHEMA_QUARANTINE_REASON,
+  QUALITY_DIR,
+  QUALITY_SCAN_REPORT_PATH,
+  RISK_EXCLUDED_UPGRADE_REASON,
+} from "./quality-backfill-scan-lib.mjs";
 
 export const QUALITY_BACKFILL_PLAN_PATH = path.join(
   QUALITY_DIR,
@@ -38,6 +43,22 @@ const HUMAN_REVIEW_REASONS = {
   "pressure-vessel-wall-thickness-calculator": {
     category: "engineering-critical",
     reason: "Pressure vessel thickness is safety-critical engineering; high formula liability risk.",
+  },
+  "cbam-compliance-verdict": {
+    category: "legal/regulatory",
+    reason: "CBAM compliance verdict requires manual regulatory review before automation.",
+  },
+  "cbam-exposure-quick-check": {
+    category: "legal/regulatory",
+    reason: "CBAM exposure checks are compliance-adjacent and blocked from factory backfill.",
+  },
+  "auto-repair-comeback-cost": {
+    category: "legal/regulatory",
+    reason: "Auto-repair comeback cost models require manual liability review.",
+  },
+  "carbon-footprint-compliance-risk": {
+    category: "legal/regulatory",
+    reason: "Carbon footprint compliance risk is regulatory-adjacent and blocked from automation.",
   },
 };
 
@@ -146,6 +167,9 @@ function isBatchC1Candidate(tool) {
 }
 
 function resolveQuarantineReason(tool) {
+  if (tool.upgradeReason === MISSING_SCHEMA_QUARANTINE_REASON) {
+    return "missing-schema";
+  }
   if (tool.routeStatus === "category-only") {
     return "category-only";
   }
@@ -230,8 +254,14 @@ function buildHumanReviewQueue(tools) {
     .sort(compareSlug)
     .map((tool, index) => {
       const reviewMeta = HUMAN_REVIEW_REASONS[tool.slug] ?? {
-        category: "formula liability risk",
-        reason: "Regulated or high-interpretation domain requires manual formula review.",
+        category:
+          tool.upgradeReason === RISK_EXCLUDED_UPGRADE_REASON
+            ? "risk-excluded"
+            : "formula liability risk",
+        reason:
+          tool.upgradeReason === RISK_EXCLUDED_UPGRADE_REASON
+            ? "Risk-excluded safety, legal, compliance, or regulatory domain requires manual review."
+            : "Regulated or high-interpretation domain requires manual formula review.",
       };
 
       return {
@@ -244,6 +274,25 @@ function buildHumanReviewQueue(tools) {
         reviewCategory: reviewMeta.category,
       };
     });
+}
+
+function buildClassificationBuckets(tools) {
+  return {
+    pass: tools.filter((tool) => tool.upgradeDecision === "PASS").map((tool) => tool.slug),
+    upgrade: tools.filter((tool) => tool.upgradeDecision === "UPGRADE").map((tool) => tool.slug),
+    humanReview: tools
+      .filter((tool) => tool.upgradeDecision === "HUMAN_REVIEW")
+      .map((tool) => tool.slug),
+    quarantine: tools
+      .filter((tool) => tool.upgradeDecision === "QUARANTINE")
+      .map((tool) => tool.slug),
+    riskExcluded: tools
+      .filter((tool) => tool.upgradeReason === RISK_EXCLUDED_UPGRADE_REASON)
+      .map((tool) => tool.slug),
+    missingSchema: tools
+      .filter((tool) => tool.upgradeReason === MISSING_SCHEMA_QUARANTINE_REASON)
+      .map((tool) => tool.slug),
+  };
 }
 
 function buildQuarantineReviewQueue(tools) {
@@ -278,6 +327,7 @@ export function buildQualityBackfillPlan(qualityReport) {
     humanReviewQueue: buildHumanReviewQueue(tools),
     quarantineReviewQueue: buildQuarantineReviewQueue(tools),
   };
+  const classification = buildClassificationBuckets(tools);
 
   return {
     generatedAt: new Date().toISOString(),
@@ -288,6 +338,15 @@ export function buildQualityBackfillPlan(qualityReport) {
       upgrade: decisionSource.UPGRADE ?? 0,
       humanReview: decisionSource.HUMAN_REVIEW ?? 0,
       quarantine: decisionSource.QUARANTINE ?? 0,
+    },
+    classification: {
+      pass: classification.pass.length,
+      upgrade: classification.upgrade.length,
+      humanReview: classification.humanReview.length,
+      quarantine: classification.quarantine.length,
+      riskExcluded: classification.riskExcluded.length,
+      missingSchema: classification.missingSchema.length,
+      slugs: classification,
     },
     batches,
   };
@@ -313,6 +372,8 @@ export function formatQualityBackfillPlanStdout(plan) {
     `Batch C1 Simple Calculator Recovery: ${plan.batches.batchC1SimpleCalculatorRecovery.length}`,
     `Human Review Queue: ${plan.batches.humanReviewQueue.length}`,
     `Quarantine Review Queue: ${plan.batches.quarantineReviewQueue.length}`,
+    `Classification pass/upgrade/humanReview/quarantine: ${plan.classification.pass}/${plan.classification.upgrade}/${plan.classification.humanReview}/${plan.classification.quarantine}`,
+    `Risk excluded: ${plan.classification.riskExcluded} | Missing schema: ${plan.classification.missingSchema}`,
     `Output: ${path.relative(ROOT, QUALITY_BACKFILL_PLAN_PATH)}`,
   ].join("\n");
 }
