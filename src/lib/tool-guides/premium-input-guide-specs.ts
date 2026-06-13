@@ -8,6 +8,7 @@ import {
   type ToolGuideSpec,
   type ToolGuideVisualRole,
 } from "@/lib/tool-guides/tool-guide-spec";
+import { S2_LOW_RISK_ACTIVATION_GUIDE_SPECS } from "@/lib/tool-guides/s2-low-risk-activation-guide-specs";
 import { getPremiumSchemaForPaidSlug } from "@/lib/premium-schema/schema-registry";
 
 const PREMIUM_PILOT_SPECS: readonly ToolGuideSpec[] = [
@@ -145,6 +146,10 @@ function buildSpecRegistry(): Map<string, ToolGuideSpec> {
     if (shapeSpec) {
       registry.set(slug, shapeSpec);
     }
+  }
+
+  for (const spec of S2_LOW_RISK_ACTIVATION_GUIDE_SPECS) {
+    registry.set(spec.slug, spec);
   }
 
   return registry;
