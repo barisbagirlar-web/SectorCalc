@@ -15,7 +15,7 @@ export function ShapeDimensionGuide({
   if (!guide) return null;
 
   const isTr = locale === "tr";
-  const title = isTr ? guide.title.tr : guide.title.en;
+  const heading = isTr ? "Girdi Rehberi" : "Input Guide";
   const helperText = isTr
     ? "Bu şema, hesaplama alanlarına hangi ölçü veya değerin girileceğini göstermek için hazırlanmıştır."
     : "This diagram shows which measurement or value should be entered into the calculation fields.";
@@ -26,17 +26,16 @@ export function ShapeDimensionGuide({
       aria-labelledby={`shape-guide-title-${slug}`}
       data-shape-dimension-guide={slug}
     >
-      <div className="min-w-0 overflow-x-auto">
+      <div className="w-full overflow-hidden rounded-2xl bg-white">
         <guide.Svg locale={locale} />
       </div>
       <h3
         id={`shape-guide-title-${slug}`}
         className="mt-4 text-sm font-semibold text-slate-900"
       >
-        {isTr ? "Girdi Rehberi" : "Input Guide"}
+        {heading}
       </h3>
-      <p className="mt-1 text-sm leading-relaxed text-slate-600">{title}</p>
-      <p className="mt-2 text-xs leading-relaxed text-slate-500">{helperText}</p>
+      <p className="mt-1 text-sm leading-relaxed text-slate-600">{helperText}</p>
     </section>
   );
 }

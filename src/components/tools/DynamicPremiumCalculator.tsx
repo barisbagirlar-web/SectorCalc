@@ -370,20 +370,24 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
         hasCalculated={Boolean(result && reportData)}
         inputPanel={
           <div className="flex min-w-0 flex-col gap-4">
-            <ShapeDimensionGuide slug={schema.id} locale={locale} />
-            <form
-              onSubmit={handleSubmit}
-              className="sc-form-shell sc-form-grid sc-industrial-form min-h-0"
-              noValidate
-              data-calculation-form="true"
-            >
-              {visibleInputs.map((input) => renderInput(input))}
-              <div className="sc-industrial-form-actions">
-                <button type="submit" className="sc-ledger-cta-primary sc-cta-primary min-h-[44px]">
-                  {t("runAnalysis")}
-                </button>
-              </div>
-            </form>
+            <div className="order-1 min-w-0 lg:order-2">
+              <form
+                onSubmit={handleSubmit}
+                className="sc-form-shell sc-form-grid sc-industrial-form min-h-0"
+                noValidate
+                data-calculation-form="true"
+              >
+                {visibleInputs.map((input) => renderInput(input))}
+                <div className="sc-industrial-form-actions">
+                  <button type="submit" className="sc-ledger-cta-primary sc-cta-primary min-h-[44px]">
+                    {t("runAnalysis")}
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div className="order-2 min-w-0 lg:order-1">
+              <ShapeDimensionGuide slug={schema.id} locale={locale} />
+            </div>
           </div>
         }
         resultPanel={

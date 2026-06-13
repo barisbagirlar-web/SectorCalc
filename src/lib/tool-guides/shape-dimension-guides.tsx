@@ -15,8 +15,8 @@ const BG = "#ffffff";
 function ArrowDefs({ id }: { id: string }) {
   return (
     <defs>
-      <marker id={id} markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-        <path d="M0,0 L6,3 L0,6" fill={LINE} />
+      <marker id={id} markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 Z" fill={ACCENT} />
       </marker>
     </defs>
   );
@@ -349,7 +349,7 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
       tr: "value, fromUnit ve toUnit alan dönüştürücü girdileridir.",
       en: "value, fromUnit and toUnit are the area converter inputs.",
     },
-    inputKeys: ["value", "fromUnit", "toUnit"],
+    inputKeys: ["value", "fromUnit"],
     Svg: AreaConverterGuideSvg,
   },
   {
@@ -362,7 +362,7 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
       tr: "Ölçü çizgisindeki value, fromUnit ve toUnit alanları kullanılır.",
       en: "Use value, fromUnit and toUnit on the dimension line.",
     },
-    inputKeys: ["value", "fromUnit", "toUnit"],
+    inputKeys: ["value", "fromUnit"],
     Svg: LengthConverterGuideSvg,
   },
   {
@@ -375,7 +375,7 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
       tr: "Prizma/kap hacmi value ile fromUnit ve toUnit birimlerine dönüştürülür.",
       en: "Prism tank volume converts via value with fromUnit and toUnit.",
     },
-    inputKeys: ["value", "fromUnit", "toUnit"],
+    inputKeys: ["value", "fromUnit"],
     Svg: VolumeConverterGuideSvg,
   },
   {
@@ -388,7 +388,7 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
       tr: "Yük değeri value; kaynak ve hedef birimler fromUnit ve toUnit alanlarıdır.",
       en: "Load value is value; source and target units are fromUnit and toUnit.",
     },
-    inputKeys: ["value", "fromUnit", "toUnit"],
+    inputKeys: ["value", "fromUnit"],
     Svg: WeightConverterGuideSvg,
   },
 ];
