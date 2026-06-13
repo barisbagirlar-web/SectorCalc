@@ -89,7 +89,7 @@ function buildMailBodies(input: ToolFeedbackMailInput): { textContent: string; h
   ];
 
   if (input.issueType) {
-    lines.push(`Issue type: ${input.issueType}`);
+    lines.push(`Feedback type: ${input.issueType}`);
   }
   if (input.email) {
     lines.push(`Reporter email: ${input.email}`);

@@ -30,6 +30,20 @@ function sanitizeMessage(value: string): string {
   return value.replace(/<[^>]*>/g, "").replace(/\0/g, "").trim().slice(0, MESSAGE_MAX_LENGTH);
 }
 
+function extractRawMessage(record: Record<string, unknown>): string {
+  const candidates = ["message", "description", "comment", "feedback"] as const;
+  for (const key of candidates) {
+    if (typeof record[key] === "string") {
+      return record[key];
+    }
+  }
+  return "";
+}
+
+function validationFailed(detail: string) {
+  return NextResponse.json({ ok: false, error: "validation_failed", detail }, { status: 400 });
+}
+
 function sanitizeOptionalString(value: unknown, maxLength: number): string | undefined {
   if (typeof value !== "string") {
     return undefined;
@@ -62,17 +76,17 @@ export async function POST(request: NextRequest) {
 
   const toolSlug = sanitizeOptionalString(record.toolSlug, 120);
   if (!toolSlug) {
-    return NextResponse.json({ ok: false, error: "invalid_tool_slug" }, { status: 400 });
+    return validationFailed("invalid_tool_slug");
   }
 
-  const message = sanitizeMessage(typeof record.message === "string" ? record.message : "");
+  const message = sanitizeMessage(extractRawMessage(record));
   if (message.length < MESSAGE_MIN_LENGTH) {
-    return NextResponse.json({ ok: false, error: "invalid_message" }, { status: 400 });
+    return validationFailed("invalid_message");
   }
 
   const email = sanitizeOptionalString(record.email, 120);
   if (email && !EMAIL_PATTERN.test(email)) {
-    return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
+    return validationFailed("invalid_email");
   }
 
   const env = getToolFeedbackMailEnv();
@@ -89,7 +103,11 @@ export async function POST(request: NextRequest) {
   const userAgent =
     sanitizeOptionalString(record.userAgent, 512) ??
     sanitizeOptionalString(request.headers.get("user-agent"), 512);
-  const issueType = sanitizeOptionalString(record.issueType, 80);
+  const issueType =
+    sanitizeOptionalString(record.issueType, 80) ??
+    sanitizeOptionalString(record.feedbackType, 80) ??
+    sanitizeOptionalString(record.type, 80) ??
+    sanitizeOptionalString(record.category, 80);
 
   const resultSnapshot =
     record.resultSnapshot !== undefined && record.resultSnapshot !== null

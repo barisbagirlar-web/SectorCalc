@@ -18,14 +18,43 @@ type CalculationFeedbackModalProps = {
   readonly onClose: () => void;
 };
 
+function resolveToolSlug(toolSlug: string, routePath: string): string {
+  const trimmed = toolSlug.trim();
+  if (trimmed) {
+    return trimmed;
+  }
+  const match = routePath.match(/\/tools\/(?:free|premium|premium-schema)\/([^/?#]+)/);
+  return match?.[1] ?? "unknown-tool";
+}
+
 function resolveToolTier(toolType: FeedbackToolType, routePath: string): ToolFeedbackTier {
-  if (routePath.includes("/premium-schema/")) {
+  if (routePath.includes("/premium-schema/") || routePath.includes("/tools/premium-schema/")) {
     return "premium-schema";
+  }
+  if (routePath.includes("/tools/free/")) {
+    return "free";
+  }
+  if (routePath.includes("/tools/premium/")) {
+    return "premium";
   }
   if (toolType === "free" || toolType === "premium") {
     return toolType;
   }
   return "unknown";
+}
+
+function safeFeedbackSnapshot(
+  snapshot: Readonly<Record<string, FeedbackSnapshotValue>> | undefined,
+): Readonly<Record<string, FeedbackSnapshotValue>> | undefined {
+  if (!snapshot) {
+    return undefined;
+  }
+  try {
+    JSON.stringify(snapshot);
+    return snapshot;
+  } catch {
+    return undefined;
+  }
 }
 
 export function CalculationFeedbackModal({
@@ -60,27 +89,46 @@ export function CalculationFeedbackModal({
     try {
       const pageUrl =
         typeof window !== "undefined" ? window.location.href : routePath;
+      const trimmedEmail = email.trim();
+      const issueLabel = t(`issueTypes.${issueType}`);
+      const normalizedMessage = `[${issueLabel}]\n\n${message.trim()}`;
+      const snapshot = safeFeedbackSnapshot(resultSnapshot ?? inputSnapshot);
+
+      const payload: Record<string, unknown> = {
+        toolSlug: resolveToolSlug(toolSlug, routePath),
+        toolTier: resolveToolTier(toolType, routePath),
+        locale,
+        pageUrl,
+        message: normalizedMessage,
+        feedbackType: issueType,
+        issueType,
+        userAgent: typeof navigator !== "undefined" ? navigator.userAgent : undefined,
+        honeypot,
+      };
+
+      if (trimmedEmail) {
+        payload.email = trimmedEmail;
+      }
+      if (snapshot) {
+        payload.resultSnapshot = snapshot;
+      }
 
       const response = await fetch("/api/tool-feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          toolSlug,
-          toolTier: resolveToolTier(toolType, routePath),
-          locale,
-          pageUrl,
-          message: message.trim(),
-          email: email.trim() || undefined,
-          issueType,
-          userAgent: typeof navigator !== "undefined" ? navigator.userAgent : undefined,
-          resultSnapshot: resultSnapshot ?? inputSnapshot,
-          honeypot,
-        }),
+        body: JSON.stringify(payload),
       });
 
-      const payload = (await response.json()) as { ok?: boolean };
+      const responseBody = (await response.json()) as { ok?: boolean; error?: string };
 
-      if (!response.ok || !payload.ok) {
+      if (!response.ok || !responseBody.ok) {
+        if (process.env.NODE_ENV === "development") {
+          console.error("[tool-feedback] submit failed", {
+            status: response.status,
+            error: responseBody.error ?? "unknown",
+            body: responseBody,
+          });
+        }
         setError(t("error.submitFailed"));
         setLoading(false);
         return;
