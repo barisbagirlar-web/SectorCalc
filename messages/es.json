@@ -8859,6 +8859,385 @@
         "placeholder": "Introduzca gross margin",
         "helper": "Corriente gross margin before Despordicio adjustment."
       }
+    },
+    "7-israf-muda-avcisi-parasal-karsilik-calculator": {
+      "7israfmudaavcisiparasalkarsilikcalculator": {
+        "label": "Analysis period length",
+        "placeholder": "Enter analysis period length",
+        "helper": "Analysis period length"
+      },
+      "workingdaysperyear": {
+        "label": "Working days per year",
+        "placeholder": "Enter working days per year",
+        "helper": "Working days per year"
+      },
+      "productionunitsinperiod": {
+        "label": "Production units in period",
+        "placeholder": "Enter production units in period",
+        "helper": "Production units in period"
+      },
+      "currencycode": {
+        "label": "Currency code",
+        "placeholder": "Enter currency code",
+        "helper": "All monetary inputs below must use this same currency for the analysis period."
+      },
+      "unitvariablecost": {
+        "label": "Unit variable cost",
+        "placeholder": "Enter unit variable cost",
+        "helper": "Unit variable cost"
+      },
+      "unitsellingprice": {
+        "label": "Unit selling price",
+        "placeholder": "Enter unit selling price",
+        "helper": "Unit selling price"
+      },
+      "grossmarginpct": {
+        "label": "Gross margin percent",
+        "placeholder": "Enter gross margin percent",
+        "helper": "Gross margin percent"
+      },
+      "excessunits": {
+        "label": "Excess production units",
+        "placeholder": "Enter excess production units",
+        "helper": "Excess production units"
+      },
+      "excessinventoryholdingdays": {
+        "label": "Excess inventory holding days",
+        "placeholder": "Enter excess inventory holding days",
+        "helper": "Excess inventory holding days"
+      },
+      "excesswritedowncostperunit": {
+        "label": "Excess write-down per unit",
+        "placeholder": "Enter excess write-down per unit",
+        "helper": "Excess write-down per unit"
+      },
+      "waitingminutes": {
+        "label": "Waiting minutes",
+        "placeholder": "Enter waiting minutes",
+        "helper": "Waiting minutes"
+      },
+      "affectedoperators": {
+        "label": "Affected operators",
+        "placeholder": "Enter affected operators",
+        "helper": "Affected operators"
+      },
+      "hourlylaborcost": {
+        "label": "Hourly labor cost",
+        "placeholder": "Enter hourly labor cost",
+        "helper": "Hourly labor cost"
+      },
+      "affectedmachines": {
+        "label": "Affected machines",
+        "placeholder": "Enter affected machines",
+        "helper": "Affected machines"
+      },
+      "hourlymachinecost": {
+        "label": "Hourly machine cost",
+        "placeholder": "Enter hourly machine cost",
+        "helper": "Hourly machine cost"
+      },
+      "waitingopportunitymode": {
+        "label": "Waiting opportunity mode",
+        "placeholder": "Enter waiting opportunity mode",
+        "helper": "Choose how waiting opportunity cost is excluded, entered manually, or derived from throughput."
+      },
+      "hourlyopportunitycost": {
+        "label": "Hourly opportunity cost",
+        "placeholder": "Enter hourly opportunity cost",
+        "helper": "Hourly opportunity cost"
+      },
+      "plannedunitsperhour": {
+        "label": "Planned units per hour",
+        "placeholder": "Enter planned units per hour",
+        "helper": "Planned units per hour"
+      },
+      "transportdistancekm": {
+        "label": "Transport distance",
+        "placeholder": "Enter transport distance",
+        "helper": "Transport distance"
+      },
+      "transporttrips": {
+        "label": "Transport trips",
+        "placeholder": "Enter transport trips",
+        "helper": "Transport trips"
+      },
+      "transportcostperkm": {
+        "label": "Transport cost per km",
+        "placeholder": "Enter transport cost per km",
+        "helper": "Transport cost per km"
+      },
+      "handlingminutespertrip": {
+        "label": "Handling minutes per trip",
+        "placeholder": "Enter handling minutes per trip",
+        "helper": "Handling minutes per trip"
+      },
+      "handlinghourlylaborcost": {
+        "label": "Handling hourly labor cost",
+        "placeholder": "Enter handling hourly labor cost",
+        "helper": "Handling hourly labor cost"
+      },
+      "transportdamageratepct": {
+        "label": "Transport damage rate",
+        "placeholder": "Enter transport damage rate",
+        "helper": "Transport damage rate"
+      },
+      "averageloadvalue": {
+        "label": "Average load value",
+        "placeholder": "Enter average load value",
+        "helper": "Average load value"
+      },
+      "averageexcessinventoryvalue": {
+        "label": "Average excess inventory value",
+        "placeholder": "Enter average excess inventory value",
+        "helper": "Average excess inventory value"
+      },
+      "inventoryholdingratepct": {
+        "label": "Inventory holding rate",
+        "placeholder": "Enter inventory holding rate",
+        "helper": "Inventory holding rate"
+      },
+      "inventoryobsolescencevalue": {
+        "label": "Inventory obsolescence value",
+        "placeholder": "Enter inventory obsolescence value",
+        "helper": "Inventory obsolescence value"
+      },
+      "inventoryshrinkageratepct": {
+        "label": "Inventory shrinkage rate",
+        "placeholder": "Enter inventory shrinkage rate",
+        "helper": "Inventory shrinkage rate"
+      },
+      "unnecessarymotionminutes": {
+        "label": "Unnecessary motion minutes",
+        "placeholder": "Enter unnecessary motion minutes",
+        "helper": "Unnecessary motion minutes"
+      },
+      "motionaffectedoperators": {
+        "label": "Motion affected operators",
+        "placeholder": "Enter motion affected operators",
+        "helper": "Motion affected operators"
+      },
+      "motionhourlylaborcost": {
+        "label": "Motion hourly labor cost",
+        "placeholder": "Enter motion hourly labor cost",
+        "helper": "Motion hourly labor cost"
+      },
+      "overprocessingminutes": {
+        "label": "Overprocessing minutes",
+        "placeholder": "Enter overprocessing minutes",
+        "helper": "Overprocessing minutes"
+      },
+      "overprocessinghourlyresourcecost": {
+        "label": "Overprocessing hourly resource cost",
+        "placeholder": "Enter overprocessing hourly resource cost",
+        "helper": "Overprocessing hourly resource cost"
+      },
+      "extramaterialcost": {
+        "label": "Extra material cost",
+        "placeholder": "Enter extra material cost",
+        "helper": "Extra material cost"
+      },
+      "extraenergycost": {
+        "label": "Extra energy cost",
+        "placeholder": "Enter extra energy cost",
+        "helper": "Extra energy cost"
+      },
+      "extrainspectioncost": {
+        "label": "Extra inspection cost",
+        "placeholder": "Enter extra inspection cost",
+        "helper": "Extra inspection cost"
+      },
+      "scrapunits": {
+        "label": "Scrap units",
+        "placeholder": "Enter scrap units",
+        "helper": "Scrap units"
+      },
+      "scrapdisposalcostperunit": {
+        "label": "Scrap disposal cost per unit",
+        "placeholder": "Enter scrap disposal cost per unit",
+        "helper": "Scrap disposal cost per unit"
+      },
+      "reworkminutes": {
+        "label": "Rework minutes",
+        "placeholder": "Enter rework minutes",
+        "helper": "Rework minutes"
+      },
+      "reworkhourlylaborcost": {
+        "label": "Rework hourly labor cost",
+        "placeholder": "Enter rework hourly labor cost",
+        "helper": "Rework hourly labor cost"
+      },
+      "reworkhourlymachinecost": {
+        "label": "Rework hourly machine cost",
+        "placeholder": "Enter rework hourly machine cost",
+        "helper": "Rework hourly machine cost"
+      },
+      "customerreturncost": {
+        "label": "Customer return cost",
+        "placeholder": "Enter customer return cost",
+        "helper": "Customer return cost"
+      },
+      "warrantycost": {
+        "label": "Warranty cost",
+        "placeholder": "Enter warranty cost",
+        "helper": "Warranty cost"
+      },
+      "expeditecost": {
+        "label": "Expedite cost",
+        "placeholder": "Enter expedite cost",
+        "helper": "Expedite cost"
+      },
+      "dataconfidencepct": {
+        "label": "Data confidence",
+        "placeholder": "Enter data confidence",
+        "helper": "Data confidence"
+      },
+      "implementationdifficultyscore": {
+        "label": "Implementation difficulty",
+        "placeholder": "Enter implementation difficulty",
+        "helper": "Implementation difficulty"
+      },
+      "totalwastecost": {
+        "label": "Total waste cost",
+        "placeholder": "Enter total waste cost",
+        "helper": "Total waste cost"
+      },
+      "annualizedwastecost": {
+        "label": "Annualized waste cost",
+        "placeholder": "Enter annualized waste cost",
+        "helper": "Annualized waste cost"
+      },
+      "wastecostperunit": {
+        "label": "Waste cost per unit",
+        "placeholder": "Enter waste cost per unit",
+        "helper": "Waste cost per unit"
+      },
+      "periodrevenue": {
+        "label": "Period revenue",
+        "placeholder": "Enter period revenue",
+        "helper": "Period revenue"
+      },
+      "periodgrossmarginvalue": {
+        "label": "Period gross margin value",
+        "placeholder": "Enter period gross margin value",
+        "helper": "Period gross margin value"
+      },
+      "wastetorevenueratiopct": {
+        "label": "Waste to revenue ratio",
+        "placeholder": "Enter waste to revenue ratio",
+        "helper": "Waste to revenue ratio"
+      },
+      "wastetogrossmarginratiopct": {
+        "label": "Waste to gross margin ratio",
+        "placeholder": "Enter waste to gross margin ratio",
+        "helper": "Waste to gross margin ratio"
+      },
+      "highestwastecost": {
+        "label": "Highest waste category cost",
+        "placeholder": "Enter highest waste category cost",
+        "helper": "Highest waste category cost"
+      },
+      "riskadjustedpriorityscore": {
+        "label": "Risk-adjusted priority score",
+        "placeholder": "Enter risk-adjusted priority score",
+        "helper": "Risk-adjusted priority score"
+      },
+      "overproductioncost": {
+        "label": "Overproduction cost",
+        "placeholder": "Enter overproduction cost",
+        "helper": "Overproduction cost"
+      },
+      "waitingcost": {
+        "label": "Waiting cost",
+        "placeholder": "Enter waiting cost",
+        "helper": "Waiting cost"
+      },
+      "transportcost": {
+        "label": "Transport cost",
+        "placeholder": "Enter transport cost",
+        "helper": "Transport cost"
+      },
+      "inventorycost": {
+        "label": "Inventory cost",
+        "placeholder": "Enter inventory cost",
+        "helper": "Inventory cost"
+      },
+      "motioncost": {
+        "label": "Motion cost",
+        "placeholder": "Enter motion cost",
+        "helper": "Motion cost"
+      },
+      "overprocessingcost": {
+        "label": "Overprocessing cost",
+        "placeholder": "Enter overprocessing cost",
+        "helper": "Overprocessing cost"
+      },
+      "defectcost": {
+        "label": "Defect cost",
+        "placeholder": "Enter defect cost",
+        "helper": "Defect cost"
+      },
+      "highestwastecategoryindex": {
+        "label": "Highest waste category rank",
+        "placeholder": "Enter highest waste category rank",
+        "helper": "Highest waste category rank"
+      }
+    },
+    "cbam-compliance-verdict": {
+      "cbamcomplianceverdict": {
+        "label": "Embedded emissions",
+        "placeholder": "Enter embedded emissions",
+        "helper": "Embedded emissions"
+      },
+      "declaredemissionston": {
+        "label": "Declared emissions",
+        "placeholder": "Enter declared emissions",
+        "helper": "Declared emissions"
+      },
+      "certificatecoveragepct": {
+        "label": "Certificate coverage",
+        "placeholder": "Enter certificate coverage",
+        "helper": "Certificate coverage"
+      },
+      "datacompletenesspct": {
+        "label": "Data completeness",
+        "placeholder": "Enter data completeness",
+        "helper": "Data completeness"
+      },
+      "cbamcertificateprice": {
+        "label": "CBAM certificate price",
+        "placeholder": "Enter cbam certificate price",
+        "helper": "CBAM certificate price"
+      },
+      "eurtryrate": {
+        "label": "EUR/TRY rate",
+        "placeholder": "Enter eur/try rate",
+        "helper": "EUR/TRY rate"
+      },
+      "financialexposure": {
+        "label": "Financial exposure",
+        "placeholder": "Enter financial exposure",
+        "helper": "Financial exposure"
+      },
+      "riskscore": {
+        "label": "Risk score",
+        "placeholder": "Enter risk score",
+        "helper": "Risk score"
+      },
+      "emissiongap": {
+        "label": "Emission gap",
+        "placeholder": "Enter emission gap",
+        "helper": "Emission gap"
+      },
+      "coveragegappct": {
+        "label": "Coverage gap",
+        "placeholder": "Enter coverage gap",
+        "helper": "Coverage gap"
+      },
+      "datagappct": {
+        "label": "Data gap",
+        "placeholder": "Enter data gap",
+        "helper": "Data gap"
+      }
     }
   },
   "sectorFooter": {
