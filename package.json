@@ -174,7 +174,8 @@
     "audit:p5-route-risk": "node scripts/qa/p5-route-risk-audit.mjs",
     "check:p5-manual-ui": "node scripts/qa/p5-manual-ui-checklist.mjs",
     "vercel:ignore-build": "node scripts/vercel/ignore-build.mjs",
-    "vercel:preview-static-report": "node scripts/vercel/preview-static-params-report.mjs"
+    "vercel:preview-static-report": "node scripts/vercel/preview-static-params-report.mjs",
+    "ai:deepseek:p5b-full-scan": "node scripts/ai/p5b-deepseek-full-tool-scan.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
