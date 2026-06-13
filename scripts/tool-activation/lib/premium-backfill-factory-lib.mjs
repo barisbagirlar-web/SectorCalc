@@ -58,19 +58,51 @@ const PROTECTED_SLUGS = new Set([
   "roofing-weather-delay-risk",
   "textile-fabric-waste-risk",
   "value-stream-map-vsm-calculator",
+  // P65 factory scale run — do not rewrite committed PASS backfills
+  "annual-leave-severance-notice-calculator",
+  "belt-pulley-speed-length-calculator",
+  "bolt-tightening-torque-calculator",
+  "cnc-oee-loss",
+  "employee-total-cost-calculator",
+  "fire-system-flow-hydrant-calculator",
+  "hydraulic-pneumatic-cylinder-force-calculator",
+  "investment-payback-npv-calculator",
+  "oee-equipment-effectiveness-calculator",
+  "quality-cost-paf-calculator",
+  "shop-rate-hourly-cost-calculator",
+  "tolerance-stack-up-calculator",
 ]);
 
-const SKIP_SLUG_PATTERNS = [
-  /^auto-repair-/,
-  /^legal-/,
-  /^electrical-/,
-  /^pressure-vessel-/,
-  /carbon-footprint-compliance/i,
-  /^cbam-/,
-  /ai-uyum|etik|act/i,
-  /welded-bolted/,
-  /safety-critical/i,
+/** Slug patterns that must never be AUTO_ELIGIBLE for factory backfill. */
+const RISK_EXCLUSION_PATTERNS = [
+  { id: "auto-repair", pattern: /^auto-repair-/ },
+  { id: "carbon-footprint-compliance", pattern: /carbon-footprint-compliance/i },
+  { id: "legal", pattern: /^legal-/ },
+  { id: "electrical", pattern: /^electrical-/ },
+  { id: "pressure-vessel", pattern: /^pressure-vessel-/ },
+  { id: "cbam", pattern: /^cbam-/ },
+  { id: "ai-uyum-etik-act", pattern: /ai-uyum|etik|(^|-)act(-|$)/i },
+  { id: "welded-bolted", pattern: /welded-bolted/ },
+  { id: "safety-critical", pattern: /safety-critical/i },
+  { id: "fire-system", pattern: /fire-system/i },
+  { id: "hydrant", pattern: /hydrant/i },
+  { id: "bolt-tightening", pattern: /bolt-tightening/i },
+  { id: "hydraulic", pattern: /hydraulic/i },
+  { id: "pneumatic", pattern: /pneumatic/i },
+  { id: "severance", pattern: /severance/i },
+  { id: "annual-leave", pattern: /annual-leave/i },
+  { id: "notice", pattern: /notice/i },
+  { id: "labor-law", pattern: /labor-law/i },
+  { id: "tax-law", pattern: /tax-law/i },
+  { id: "compliance", pattern: /compliance/i },
+  { id: "regulatory", pattern: /regulatory/i },
+  { id: "safety", pattern: /safety/i },
+  { id: "certification", pattern: /certification/i },
 ];
+
+const SKIP_SLUG_PATTERNS = RISK_EXCLUSION_PATTERNS.map((entry) => entry.pattern);
+
+const RISK_EXCLUDED_REASON = "risk-excluded:safety-or-legal-adjacent";
 
 const PRIMARY_DRIVER_PRIORITY = [
   "marginPressure",
@@ -320,9 +352,30 @@ function resolveFormulaId(formulaId, formulaRegistryIds) {
   return null;
 }
 
+function matchRiskExclusion(slug) {
+  for (const entry of RISK_EXCLUSION_PATTERNS) {
+    if (entry.pattern.test(slug)) {
+      return { matched: true, patternId: entry.id };
+    }
+  }
+  return { matched: false, patternId: null };
+}
+
 function isRiskSkip(slug, riskLevel) {
   if (riskLevel === "regulated" || riskLevel === "safety-critical") return true;
-  return SKIP_SLUG_PATTERNS.some((pattern) => pattern.test(slug));
+  return matchRiskExclusion(slug).matched;
+}
+
+function buildRiskExcludedRecord(slug, patternId, extraRisks = []) {
+  return {
+    slug,
+    reason: RISK_EXCLUDED_REASON,
+    patternId: patternId ?? "risk-level",
+    risks: [
+      ...extraRisks,
+      patternId ? `Risk pattern matched: ${patternId}` : "Risk level regulated or safety-critical",
+    ],
+  };
 }
 
 function hasDedicatedBackfillFiles(slug) {
@@ -428,23 +481,20 @@ export function evaluateToolEligibility(tool, schema, formulaRegistryIds, option
     }
   }
 
-  if (options.excludeRisky !== false && isRiskSkip(tool.slug, tool.riskLevel)) {
-    risks.push("Risk category auto-skip rule matched");
-    return {
-      eligible: false,
-      bucket: "humanReview",
-      reason: "Legal/safety/compliance/regulatory risk category",
-      risks,
-    };
-  }
-
-  if (/legal|compliance|safety|pressure|electrical|carbon|cbam/i.test(schema.sectorSlug + tool.slug)) {
-    if (SKIP_SLUG_PATTERNS.some((pattern) => pattern.test(tool.slug))) {
+  if (options.excludeRisky !== false) {
+    const riskMatch = matchRiskExclusion(tool.slug);
+    if (riskMatch.matched || tool.riskLevel === "regulated" || tool.riskLevel === "safety-critical") {
+      risks.push(
+        riskMatch.patternId
+          ? `Risk pattern matched: ${riskMatch.patternId}`
+          : `Risk level ${tool.riskLevel ?? "unknown"}`,
+      );
       return {
         eligible: false,
-        bucket: "humanReview",
-        reason: "Domain risk keyword matched slug",
+        bucket: "skippedRisk",
+        reason: RISK_EXCLUDED_REASON,
         risks,
+        patternId: riskMatch.patternId,
       };
     }
   }
@@ -1121,6 +1171,7 @@ export function buildFactoryPlan(options) {
   const { scanReport, formulaRegistryIds, schemas } = loadFactoryInputs();
   const eligible = [];
   const skipped = [];
+  const skippedRisk = [];
   const humanReview = [];
   const alreadyPASS = [];
   const protectedSlugs = [];
@@ -1137,10 +1188,14 @@ export function buildFactoryPlan(options) {
       upgradeDecision: tool.upgradeDecision,
       reason: evaluation.reason,
       risks: evaluation.risks ?? [],
+      ...(evaluation.patternId ? { patternId: evaluation.patternId } : {}),
     };
 
     if (evaluation.eligible) {
       eligible.push(record);
+    } else if (evaluation.bucket === "skippedRisk") {
+      skippedRisk.push(record);
+      risks.push(buildRiskExcludedRecord(tool.slug, evaluation.patternId, evaluation.risks ?? []));
     } else if (evaluation.bucket === "humanReview") {
       humanReview.push(record);
     } else if (evaluation.bucket === "alreadyPASS") {
@@ -1149,9 +1204,6 @@ export function buildFactoryPlan(options) {
       protectedSlugs.push(record);
     } else {
       skipped.push(record);
-    }
-    if (evaluation.risks?.length) {
-      risks.push({ slug: tool.slug, risks: evaluation.risks });
     }
   }
 
@@ -1178,6 +1230,7 @@ export function buildFactoryPlan(options) {
     options,
     eligible,
     skipped,
+    skippedRisk,
     humanReview,
     alreadyPASS,
     protected: protectedSlugs,
@@ -1185,10 +1238,14 @@ export function buildFactoryPlan(options) {
     wouldCreate,
     wouldModify,
     risks,
-    riskExclusions: SKIP_SLUG_PATTERNS.map((pattern) => String(pattern)),
+    riskExclusions: RISK_EXCLUSION_PATTERNS.map((entry) => ({
+      id: entry.id,
+      pattern: String(entry.pattern),
+    })),
     counts: {
       eligible: eligible.length,
       skipped: skipped.length,
+      skippedRisk: skippedRisk.length,
       humanReview: humanReview.length,
       alreadyPASS: alreadyPASS.length,
       protected: protectedSlugs.length,
@@ -1304,10 +1361,11 @@ export function writeFactoryResult(result) {
 
 export function formatDryRunReport(plan) {
   return [
-    "P65 Premium Backfill Factory — dry-run",
+    "P66 Premium Backfill Factory — dry-run",
     `eligible: ${plan.counts.eligible}`,
     `selected: ${plan.counts.selected}`,
     `skipped: ${plan.counts.skipped}`,
+    `skippedRisk: ${plan.counts.skippedRisk ?? 0}`,
     `humanReview: ${plan.counts.humanReview}`,
     `alreadyPASS: ${plan.counts.alreadyPASS}`,
     `protected: ${plan.counts.protected}`,
@@ -1317,6 +1375,13 @@ export function formatDryRunReport(plan) {
     `excludeRisky: ${plan.options?.excludeRisky !== false}`,
     "",
     "Selected slugs:",
-    ...plan.selected.map((item) => `  - ${item.slug} (${item.toolClass})`),
+    ...(plan.selected.length > 0
+      ? plan.selected.map((item) => `  - ${item.slug} (${item.toolClass})`)
+      : ["  (none)"]),
+    "",
+    "Risk exclusions (sample):",
+    ...(plan.risks ?? [])
+      .slice(0, 12)
+      .map((entry) => `  - ${entry.slug}: ${entry.reason}`),
   ].join("\n");
 }
