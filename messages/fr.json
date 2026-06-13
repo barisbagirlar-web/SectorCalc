@@ -828,6 +828,12 @@
     "h1": "{tool} : chiffrez le chantier et protégez la marge",
     "intro": "{tool} vous aide à éprouver un chantier avant de vous engager sur un prix. Il transforme vos coûts, quantités et taux en une lecture claire de la marge et du risque, pour repérer les facteurs cachés qui érodent discrètement le profit et décider avec confiance plutôt que de deviner sur le devis.",
     "ctaLabel": "Ouvrir {tool}",
+    "howToTitle": "Comment {tool} est-il calculé ?",
+    "howTo": "Saisissez {inputs} pour votre scénario {sector}. SectorCalc exécute des formules déterministes contrôlées et renvoie {outputs}. Ajoutez des champs optionnels pour affiner seuils et risques.",
+    "methodTitle": "Résumé de la formule et de la méthode",
+    "method": "{tool} s'appuie sur la gouvernance formules de SectorCalc : entrées validées, pipeline déterministe et contrôles de seuil. Simulation technique — pas un conseil financier, juridique ou d'ingénierie.",
+    "mistakesTitle": "Erreurs fréquentes",
+    "mistakes": "Taux obsolètes, champs optionnels ignorés, unités mélangées et lecture du résultat comme profit garanti sont des erreurs courantes. {pain} Vérifiez les entrées avant toute décision.",
     "problemTitle": "Le problème qu'il résout",
     "problem": "La plupart des chantiers perdent leur marge bien avant la facture, lorsque la préparation, les reprises, les dépassements et les postes sous-évalués ne sont jamais additionnés avant l'envoi du devis. {tool} rend ces facteurs visibles pour qu'ils cessent de vous surprendre.",
     "helpTitle": "Comment {tool} aide",
@@ -835,9 +841,9 @@
     "whoTitle": "Pour qui",
     "who": "Les exploitants, métreurs, dirigeants et responsables qui chiffrent des travaux, examinent des offres ou ont besoin d'une base cohérente en équipe tirent le meilleur parti de {tool}.",
     "inputsTitle": "Ce que vous saisirez",
-    "inputs": "Vous indiquez les coûts, quantités, taux et hypothèses essentiels propres à votre chantier. Les champs obligatoires restent minimaux, et les champs optionnels affinent le résultat lorsque vous avez les données.",
+    "inputs": "Les champs principaux incluent {inputs} ({inputCount} entrées au total). Les champs obligatoires restent minimaux ; les optionnels affinent le verdict.",
     "outputsTitle": "Ce que signifie le résultat",
-    "outputs": "{tool} renvoie un verdict clair avec les indicateurs et facteurs de risque qui le sous-tendent, pour voir non seulement le chiffre mais aussi pourquoi il se situe là et ce qu'il faut ajuster.",
+    "outputs": "{tool} renvoie {outputs} avec métriques, alertes de seuil et facteurs de risque — vous voyez pourquoi le chiffre se situe là.",
     "trustTitle": "Résumés de décision premium & Résumé du calcul",
     "trust": "Les résultats premium peuvent inclure un Résumé du calcul enregistré comme résumé de décision exportable.",
     "faqTitle": "Questions fréquentes",
@@ -862,6 +868,10 @@
       {
         "q": "Pour quel secteur est {tool} ?",
         "a": "Il est calibré sur les schémas de prix et de marge de son secteur et s'intègre au reste de la boîte à outils SectorCalc de 27 secteurs."
+      },
+      {
+        "q": "Comment calculer les résultats de {tool} ?",
+        "a": "Ouvrez l'analyseur, saisissez {inputs} et examinez {outputs}. Ajustez les entrées pour tester le scénario."
       }
     ]
   },
@@ -3498,9 +3508,14 @@
     "openCalculator": "Ouvrir le calculateur",
     "methodologyPreparing": "Méthodologie en préparation",
     "searchPlaceholder": "Rechercher des outils premium...",
+    "searchLabel": "Rechercher des outils premium",
+    "clearSearch": "Effacer",
+    "browseByCategory": "Parcourir par catégorie",
+    "viewMoreResults": "Voir plus de résultats ({count})",
     "allCategory": "Tous",
     "resultCount": "{count} outils premium affichés",
-    "noResults": "Aucun outil premium trouvé."
+    "noResults": "Aucun outil premium trouvé.",
+    "noResultsHint": "Réinitialisez le filtre ou utilisez un mot-clé plus large."
   },
   "schemaBreadcrumbs": {
     "home": "Accueil",

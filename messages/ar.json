@@ -823,6 +823,12 @@
     "h1": "{tool}: السعر the job and protect the margin",
     "intro": "يساعدك {tool} على اختبار العمل قبل الالتزام بالسعر. يحوّل تكاليفك وكمياتك ونسبك إلى قراءة واضحة للهامش والمخاطر حتى تلاحظ العوامل الخفية التي تآكل الربح وتقرر بثقة بدلاً من التخمين.",
     "ctaLabel": "فتح {tool}",
+    "howToTitle": "كيف يُحسب {tool}؟",
+    "howTo": "أدخل {inputs} لسيناريو {sector}. يشغّل SectorCalc معادلات حتمية مُحكَمة ويُرجع {outputs}. أضف حقولًا اختيارية لتحسين العتبات والمخاطر.",
+    "methodTitle": "ملخص الصيغة والمنهج",
+    "method": "يستخدم {tool} طبقة حوكمة المعادلات في SectorCalc: مدخلات مُتحقَّقة، خط أنابيب حتمي، وفحوص عتبات. محاكاة تقنية — وليست نصيحة مالية أو قانونية أو هندسية.",
+    "mistakesTitle": "أخطاء شائعة",
+    "mistakes": "أسعار قديمة، تجاهل حقول اختيارية، خلط وحدات، وقراءة النتيجة كربح مضمون — أخطاء متكررة. {pain} تحقق من المدخلات قبل قرارات العمل.",
     "problemTitle": "المشكلة التي يحلها",
     "problem": "Most jobs lose margin long before the invoice, when الإعداد, rework, overruns, and underالسعرd line items are never added up before the quote goes out. The {tool} makes those drivers visible so they stop surprising you.",
     "helpTitle": "كيف يساعد {tool}",
@@ -830,9 +836,9 @@
     "whoTitle": "من يجب أن يستخدمه",
     "who": "Oلكلators, estimators, owners, and managers who السعر work, review bids, or need a consistent baseline across a team will get the most from the {tool}.",
     "inputsTitle": "ما ستُدخل",
-    "inputs": "You provide the core التكلفةs, quantities, المعدلs, and assumptions specific to your job. Required fields are kept minimal, and optional fields sharpen the result when you have the data.",
+    "inputs": "تشمل الحقول الأساسية {inputs} ({inputCount} مدخلات إجمالاً). الحقول الإلزامية minimal؛ والاختيارية تُحسّن الحكم.",
     "outputsTitle": "ماذا تعني النتيجة",
-    "outputs": "{tool} يُرجع حكمًا واضحًا مع المقاييس وعوامل المخاطر، لترى ليس الرقم فقط بل السبب وما يجب تعديله.",
+    "outputs": "يُرجع {tool} {outputs} مع مقاييس وتنبيهات عتبة وعوامل مخاطر — لترى سبب وصول الرقم إلى موضعه.",
     "trustTitle": "ملخصات قرار متميزة وملخص الحساب",
     "trust": "يمكن أن تتضمن نتائج Premium ملخص حساب محفوظًا كملخص قرار قابل للتصدير.",
     "faqTitle": "أسئلة شائعة",
@@ -857,6 +863,10 @@
       {
         "q": "لأي قطاع {tool}؟",
         "a": "مُضبوط لأنماط التسعير والهامش في قطاعه، ضمن مجموعة SectorCalc لـ 27 قطاعًا."
+      },
+      {
+        "q": "كيف أحسب نتائج {tool}؟",
+        "a": "افتح المحلّل، أدخل {inputs}، وراجع {outputs}. عدّل المدخلات لاختبار السيناريو قبل الالتزام بالسعر."
       }
     ]
   },
@@ -3051,9 +3061,14 @@
     "openCalculator": "فتح الحاسبة",
     "methodologyPreparing": "المنهجية قيد الإعداد",
     "searchPlaceholder": "البحث في الأدوات المتميزة...",
+    "searchLabel": "البحث في الأدوات المميزة",
+    "clearSearch": "مسح",
+    "browseByCategory": "تصفح حسب الفئة",
+    "viewMoreResults": "عرض المزيد من النتائج ({count})",
     "allCategory": "الكل",
     "resultCount": "{count} أداة متميزة معروضة",
-    "noResults": "لم يتم العثور على أدوات متميزة."
+    "noResults": "لم يتم العثور على أدوات متميزة.",
+    "noResultsHint": "أعد ضبط الفئة أو استخدم كلمة بحث أوسع."
   },
   "freeToolUi": {
     "preCheck": "فحص مجاني أولي",

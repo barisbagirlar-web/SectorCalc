@@ -1,4 +1,5 @@
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
+import type { CatalogSearchEntry } from "@/lib/catalog/catalog-search";
 import type { GlobalToolCategorySlug } from "@/lib/catalog/global-tool-category-taxonomy";
 import { listPremiumCatalogCategories } from "@/lib/premium/premium-category-resolver";
 
@@ -153,4 +154,32 @@ export function buildSearchablePremiumToolHaystack(tool: {
       .filter(Boolean)
       .join(" "),
   );
+}
+
+/** Typeahead entries for premium discovery — active routable tools only. */
+export function buildPremiumCatalogSearchEntries(
+  tools: readonly {
+    readonly slug: string;
+    readonly title: string;
+    readonly description: string;
+    readonly categorySlug: string;
+    readonly categoryLabel?: string;
+    readonly routePath: string | null;
+    readonly isActive: boolean;
+    readonly searchTerms?: readonly string[];
+    readonly aliases?: readonly string[];
+    readonly keywords?: readonly string[];
+  }[],
+): readonly CatalogSearchEntry[] {
+  return tools
+    .filter((tool) => tool.isActive && tool.routePath)
+    .map((tool) => ({
+      title: tool.title,
+      description: tool.description,
+      href: tool.routePath!,
+      groupLabel: tool.categoryLabel ?? tool.categorySlug,
+      slug: tool.slug,
+      tier: "premium" as const,
+      haystack: buildSearchablePremiumToolHaystack(tool),
+    }));
 }

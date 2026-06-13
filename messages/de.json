@@ -828,6 +828,12 @@
     "h1": "{tool}: den Auftrag kalkulieren und die Marge schützen",
     "intro": "Mit {tool} prüfen Sie einen Auftrag, bevor Sie sich auf einen Preis festlegen. Es verwandelt Ihre Kosten, Mengen und Sätze in eine klare Margen- und Risikoeinschätzung, sodass Sie die verborgenen Faktoren erkennen, die den Gewinn still aufzehren, und sicher entscheiden statt beim Angebot zu raten.",
     "ctaLabel": "{tool} öffnen",
+    "howToTitle": "Wie wird {tool} berechnet?",
+    "howTo": "Geben Sie {inputs} für Ihr {sector}-Szenario ein. SectorCalc führt kontrollierte, deterministische Formeln aus und liefert {outputs}. Optionale Felder schärfen Schwellen- und Risikowerte.",
+    "methodTitle": "Formel- und Methodenübersicht",
+    "method": "{tool} nutzt die Formel-Governance von SectorCalc: validierte Eingaben, eine deterministische Pipeline und Schwellenprüfungen. Technische Simulation — keine Finanz-, Rechts- oder Ingenieurberatung.",
+    "mistakesTitle": "Häufige Fehler",
+    "mistakes": "Veraltete Sätze, übersprungene optionale Eingaben, gemischte Einheiten und das Ergebnis als garantierten Gewinn zu lesen sind typische Fehler. {pain} Eingaben vor Geschäftsentscheidungen prüfen.",
     "problemTitle": "Das gelöste Problem",
     "problem": "Die meisten Aufträge verlieren ihre Marge lange vor der Rechnung, wenn Rüstzeiten, Nacharbeit, Überschreitungen und unterkalkulierte Positionen vor dem Angebot nie zusammengerechnet werden. {tool} macht diese Faktoren sichtbar, damit sie Sie nicht mehr überraschen.",
     "helpTitle": "Wie {tool} hilft",
@@ -835,9 +841,9 @@
     "whoTitle": "Wer es nutzen sollte",
     "who": "Betriebe, Kalkulatoren, Inhaber und Manager, die Arbeiten kalkulieren, Angebote prüfen oder eine einheitliche Basis im Team brauchen, profitieren am meisten von {tool}.",
     "inputsTitle": "Was Sie eingeben",
-    "inputs": "Sie geben die zentralen Kosten, Mengen, Sätze und Annahmen Ihres Auftrags ein. Pflichtfelder werden minimal gehalten, und optionale Felder schärfen das Ergebnis, wenn Ihnen die Daten vorliegen.",
+    "inputs": "Kernfelder umfassen {inputs} ({inputCount} Eingaben gesamt). Pflichtfelder bleiben minimal; optionale Felder schärfen das Urteil.",
     "outputsTitle": "Was das Ergebnis bedeutet",
-    "outputs": "{tool} liefert ein klares Urteil mit den zugrunde liegenden Kennzahlen und Risikotreibern, sodass Sie nicht nur die Zahl sehen, sondern auch, warum sie so ausfällt und was anzupassen ist.",
+    "outputs": "{tool} liefert {outputs} mit Kennzahlen, Schwellenwarnungen und Risikotreibern — Sie sehen, warum die Zahl dort landet.",
     "trustTitle": "Premium-Entscheidungsübersichten & Berechnungsübersicht",
     "trust": "Premium-Ergebnisse können als exportierbare Entscheidungsübersichten mit Berechnungsübersicht gespeichert werden.",
     "faqTitle": "Häufige Fragen",
@@ -862,6 +868,10 @@
       {
         "q": "Für welche Branche ist {tool}?",
         "a": "Es ist auf die Preis- und Margenmuster seiner Branche abgestimmt und steht neben dem übrigen 27-Branchen-Toolset von SectorCalc."
+      },
+      {
+        "q": "Wie berechne ich {tool}-Ergebnisse?",
+        "a": "Analyzer öffnen, {inputs} eingeben und {outputs} prüfen. Eingaben anpassen, um das Szenario zu testen."
       }
     ]
   },
@@ -3498,9 +3508,14 @@
     "openCalculator": "Rechner öffnen",
     "methodologyPreparing": "Methodik in Vorbereitung",
     "searchPlaceholder": "Premium-Tools suchen...",
+    "searchLabel": "Premium-Tools suchen",
+    "clearSearch": "Leeren",
+    "browseByCategory": "Nach Kategorie durchsuchen",
+    "viewMoreResults": "Weitere Ergebnisse anzeigen ({count})",
     "allCategory": "Alle",
     "resultCount": "{count} Premium-Tools angezeigt",
-    "noResults": "Keine Premium-Tools gefunden."
+    "noResults": "Keine Premium-Tools gefunden.",
+    "noResultsHint": "Filter zurücksetzen oder allgemeineren Begriff verwenden."
   },
   "schemaBreadcrumbs": {
     "home": "Startseite",

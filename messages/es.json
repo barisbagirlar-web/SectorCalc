@@ -828,6 +828,12 @@
     "h1": "{tool}: pon precio al trabajo y protege el margen",
     "intro": "{tool} te ayuda a poner a prueba un trabajo antes de comprometerte con un precio. Convierte tus costes, cantidades y tarifas en una lectura clara de margen y riesgo, para detectar los factores ocultos que erosionan el beneficio en silencio y decidir con confianza en vez de adivinar en la oferta.",
     "ctaLabel": "Abrir {tool}",
+    "howToTitle": "¿Cómo se calcula {tool}?",
+    "howTo": "Introduce {inputs} para tu escenario de {sector}. SectorCalc ejecuta fórmulas deterministas gobernadas y devuelve {outputs}. Añade campos opcionales para afinar umbrales y riesgos.",
+    "methodTitle": "Resumen de fórmula y método",
+    "method": "{tool} usa la capa de gobernanza de fórmulas de SectorCalc: entradas validadas, pipeline determinista y comprobaciones de umbral. Simulación técnica — no asesoramiento financiero, legal ni de ingeniería.",
+    "mistakesTitle": "Errores frecuentes",
+    "mistakes": "Tarifas obsoletas, campos opcionales omitidos, unidades mezcladas y leer el resultado como beneficio garantizado son errores habituales. {pain} Verifica las entradas antes de decidir.",
     "problemTitle": "El problema que resuelve",
     "problem": "La mayoría de los trabajos pierden margen mucho antes de la factura, cuando la preparación, los retrabajos, los sobrecostes y las partidas mal valoradas nunca se suman antes de enviar el presupuesto. {tool} hace visibles esos factores para que dejen de sorprenderte.",
     "helpTitle": "Cómo ayuda {tool}",
@@ -835,9 +841,9 @@
     "whoTitle": "Quién debería usarla",
     "who": "Operadores, estimadores, propietarios y responsables que ponen precio al trabajo, revisan ofertas o necesitan una base coherente en el equipo son quienes más aprovechan {tool}.",
     "inputsTitle": "Qué introducirás",
-    "inputs": "Aportas los costes, cantidades, tarifas y supuestos esenciales propios de tu trabajo. Los campos obligatorios se mantienen al mínimo, y los opcionales afinan el resultado cuando tienes los datos.",
+    "inputs": "Los campos principales incluyen {inputs} ({inputCount} entradas en total). Los obligatorios se mantienen al mínimo; los opcionales afinan el veredicto.",
     "outputsTitle": "Qué significa el resultado",
-    "outputs": "{tool} devuelve un veredicto claro con las métricas y los factores de riesgo que lo sustentan, para que veas no solo el número sino por qué queda donde queda y qué ajustar.",
+    "outputs": "{tool} devuelve {outputs} con métricas, alertas de umbral y factores de riesgo — ves por qué el número queda donde queda.",
     "trustTitle": "Resúmenes de decisión premium y Resumen del cálculo",
     "trust": "Los resultados premium pueden incluir un Resumen del cálculo guardado como resumen de decisión exportable.",
     "faqTitle": "Preguntas frecuentes",
@@ -862,6 +868,10 @@
       {
         "q": "¿Para qué sector es {tool}?",
         "a": "Está ajustada a los patrones de precio y margen de su sector y convive con el resto del conjunto de 27 sectores de SectorCalc."
+      },
+      {
+        "q": "¿Cómo calculo los resultados de {tool}?",
+        "a": "Abre el analizador, introduce {inputs} y revisa {outputs}. Ajusta las entradas para probar el escenario."
       }
     ]
   },
@@ -3498,9 +3508,14 @@
     "openCalculator": "Abrir calculadora",
     "methodologyPreparing": "Metodología en preparación",
     "searchPlaceholder": "Buscar herramientas premium...",
+    "searchLabel": "Buscar herramientas premium",
+    "clearSearch": "Limpiar",
+    "browseByCategory": "Explorar por categoría",
+    "viewMoreResults": "Ver más resultados ({count})",
     "allCategory": "Todos",
     "resultCount": "{count} herramientas premium mostradas",
-    "noResults": "No se encontraron herramientas premium."
+    "noResults": "No se encontraron herramientas premium.",
+    "noResultsHint": "Restablece el filtro o usa una palabra clave más amplia."
   },
   "schemaBreadcrumbs": {
     "home": "Inicio",
