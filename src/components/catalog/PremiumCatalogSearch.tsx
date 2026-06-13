@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useCallback } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
@@ -89,7 +89,6 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
 
   return (
     <div className="flex flex-col gap-6">
-      <CategoryCardGrid items={categoryCards} onSelect={handleCategorySelect} />
       <div className="relative">
         <Search
           className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-body-charcoal"
@@ -100,16 +99,30 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder={t("searchPlaceholder")}
-          aria-label={t("searchPlaceholder")}
-          className="w-full min-h-[44px] rounded border border-technical-gray bg-white py-2.5 pl-10 pr-4 text-sm text-premium-velvet placeholder:text-body-charcoal focus:border-sc-copper focus:outline-none"
+          aria-label={t("searchLabel")}
+          className="w-full min-h-[44px] rounded border border-technical-gray bg-white py-2.5 pl-10 pr-10 text-sm text-premium-velvet placeholder:text-body-charcoal focus:border-sc-copper focus:outline-none"
         />
+        {searchQuery.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setSearchQuery("")}
+            aria-label={t("clearSearch")}
+            className="absolute right-3 top-1/2 -translate-y-1/2 rounded p-0.5 text-body-charcoal hover:text-premium-velvet focus:outline-none"
+          >
+            <X className="h-4 w-4" aria-hidden="true" />
+          </button>
+        )}
       </div>
+      <CategoryCardGrid items={categoryCards} onSelect={handleCategorySelect} />
       <p className="text-xs text-body-charcoal">
         {t("resultCount", { count: visibleTools.length })}
       </p>
       <section id="tools-list">
         {visibleTools.length === 0 ? (
-          <p className="py-10 text-center text-sm text-body-charcoal">{t("noResults")}</p>
+          <div className="py-10 text-center">
+            <p className="text-sm text-body-charcoal">{t("noResults")}</p>
+            <p className="mt-1 text-xs text-body-charcoal">{t("noResultsHint")}</p>
+          </div>
         ) : (
           <div className="sc-premium-tool-grid">
             {visibleTools.map((tool) =>

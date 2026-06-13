@@ -12,7 +12,13 @@ import { DiscoveryCatalogExplorer } from "@/components/catalog/DiscoveryCatalogE
 import { resolveCalculatorCardAccent } from "@/lib/catalog/card-accent";
 import { buildSearchEntriesFromGroups } from "@/lib/catalog/catalog-search";
 import type { CatalogGroup, CategoryExplorerVariant } from "@/lib/catalog/catalog-types";
-import { getOrderedFreeTrafficCategories } from "@/lib/tools/free-traffic-categories";
+import {
+  DISCOVERY_TAB_ALL,
+  countItemsForDiscoveryTab,
+  getDiscoveryTabsForVariant,
+  getItemsForDiscoveryTab,
+  resolveDiscoveryTabLabelKey,
+} from "@/lib/catalog/discovery-tab-groups";
 
 type SectorCatalogExplorerProps = {
   groups: readonly CatalogGroup[];
@@ -27,7 +33,7 @@ const DISCOVERY_VARIANTS = new Set<CategoryExplorerVariant>([
   "industries",
 ]);
 
-const CATEGORY_ALL = "all";
+const CATEGORY_ALL = DISCOVERY_TAB_ALL;
 
 function scrollToToolsList() {
   requestAnimationFrame(() => {
@@ -50,42 +56,27 @@ function FreeToolsCategoryCardExplorer({
   variant,
 }: FreeToolsCategoryCardExplorerProps) {
   const t = useTranslations("catalogExplorer");
-  const tFree = useTranslations("freeTrafficCatalog");
   const tCards = useTranslations("calculatorCards");
   const locale = useLocale();
   const [selectedCategoryId, setSelectedCategoryId] = useState(CATEGORY_ALL);
 
-  const freeCategoryMeta = useMemo(() => getOrderedFreeTrafficCategories(), []);
-
-  const groupsById = useMemo(() => {
-    const map = new Map<string, CatalogGroup>();
-    for (const group of groups) {
-      map.set(group.id, group);
-    }
-    return map;
-  }, [groups]);
-
-  const allCount = useMemo(
-    () => groups.reduce((total, group) => total + group.items.length, 0),
+  const discoveryTabs = useMemo(
+    () => getDiscoveryTabsForVariant("free-tools", groups),
     [groups],
   );
 
   const categoryCards: CategoryCardItem[] = useMemo(
-    () => [
-      {
-        slug: CATEGORY_ALL,
-        label: t("discoveryTabs.all"),
-        count: allCount,
-        isActive: selectedCategoryId === CATEGORY_ALL,
-      },
-      ...freeCategoryMeta.map((meta) => ({
-        slug: meta.id,
-        label: tFree(meta.labelKey),
-        count: groupsById.get(meta.id)?.items.length ?? 0,
-        isActive: selectedCategoryId === meta.id,
-      })),
-    ],
-    [allCount, freeCategoryMeta, groupsById, selectedCategoryId, t, tFree],
+    () =>
+      discoveryTabs.map((tab) => {
+        const labelKey = resolveDiscoveryTabLabelKey("free-tools", tab.id);
+        return {
+          slug: tab.id,
+          label: labelKey != null ? t(labelKey) : tab.id,
+          count: countItemsForDiscoveryTab(groups, tab),
+          isActive: selectedCategoryId === tab.id,
+        };
+      }),
+    [discoveryTabs, groups, selectedCategoryId, t],
   );
 
   const handleCategorySelect = useCallback((slug: string) => {
@@ -94,20 +85,17 @@ function FreeToolsCategoryCardExplorer({
   }, []);
 
   const items = useMemo(() => {
-    const flatItems = groups.flatMap((group) =>
-      group.items.map((item) => ({
-        ...item,
-        groupId: group.id,
-        groupLabel: group.label,
-      })),
-    );
+    const activeTab =
+      discoveryTabs.find((tab) => tab.id === selectedCategoryId) ??
+      discoveryTabs.find((tab) => tab.id === CATEGORY_ALL) ??
+      discoveryTabs[0];
 
-    if (selectedCategoryId === CATEGORY_ALL) {
-      return flatItems;
+    if (!activeTab) {
+      return [];
     }
 
-    return flatItems.filter((item) => item.groupId === selectedCategoryId);
-  }, [groups, selectedCategoryId]);
+    return getItemsForDiscoveryTab(groups, activeTab);
+  }, [discoveryTabs, groups, selectedCategoryId]);
 
   const countSuffix = locale === "tr" ? "ücretsiz araç" : "free tool";
   const badgeFree = t("search.badgeFree");
@@ -115,15 +103,15 @@ function FreeToolsCategoryCardExplorer({
 
   return (
     <div className="sc-catalog-explorer-stack flex min-w-0 flex-col gap-6">
-      <CategoryCardGrid
-        items={categoryCards}
-        onSelect={handleCategorySelect}
-        countSuffix={countSuffix}
-      />
       <CatalogGroupedSearch
         entries={searchEntries}
         scope={variant}
         className="sc-catalog-explorer-stack__search"
+      />
+      <CategoryCardGrid
+        items={categoryCards}
+        onSelect={handleCategorySelect}
+        countSuffix={countSuffix}
       />
       <p className="sc-results-label" role="status">
         {tCards.rich("resultsLabel", {
