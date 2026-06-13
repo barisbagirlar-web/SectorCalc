@@ -6,13 +6,23 @@ const ROOT = join(import.meta.dirname, "..");
 const failures = [];
 
 const registry = readFileSync(join(ROOT, "src/lib/case-studies/case-study-registry.ts"), "utf8");
-if (!registry.includes("evidenceLevel")) {
-  failures.push("case study registry missing evidenceLevel");
+if (!registry.includes("listP7FeaturedCaseStudies")) {
+  failures.push("missing P7 featured case study helper");
 }
 
-const forbiddenClaims = [/kanıtladı/i, /garanti etti/i, /%40 azalttı/i, /₺127\.000/i];
-const entries = registry.match(/problem:\s*\n\s*"([^"]+)"/g) ?? [];
-for (const block of entries) {
+const forbiddenClaims = [
+  /kanıtladı/i,
+  /garanti etti/i,
+  /%40 azalttı/i,
+  /₺127\.000/i,
+  /verified savings/i,
+  /guaranteed/i,
+  /acme corp/i,
+];
+const textBlocks = registry.match(
+  /(?:problem|hiddenLoss|calculationResult|expectedImpact):\s*\n\s*"([^"]+)"/g,
+) ?? [];
+for (const block of textBlocks) {
   for (const pattern of forbiddenClaims) {
     if (pattern.test(block)) failures.push(`forbidden claim pattern in case study: ${pattern}`);
   }
@@ -25,6 +35,7 @@ const requiredSectors = [
   "welding",
   "logistics",
   "energy",
+  "cleaning",
 ];
 for (const sector of requiredSectors) {
   if (!registry.includes(`sector: "${sector}"`)) {

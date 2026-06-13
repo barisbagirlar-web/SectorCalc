@@ -2,7 +2,10 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import type { CaseStudyEntry } from "@/lib/case-studies/case-study-types";
+import {
+  getCaseStudyToolHref,
+  type CaseStudyEntry,
+} from "@/lib/case-studies/case-study-types";
 
 type CaseStudyProofPanelProps = {
   readonly entry: CaseStudyEntry;
@@ -11,6 +14,7 @@ type CaseStudyProofPanelProps = {
 /** Localized, focused proof summary for a representative case study. */
 export function CaseStudyProofPanel({ entry }: CaseStudyProofPanelProps) {
   const t = useTranslations("caseStudies");
+  const toolHref = getCaseStudyToolHref(entry);
 
   return (
     <section
@@ -33,7 +37,7 @@ export function CaseStudyProofPanel({ entry }: CaseStudyProofPanelProps) {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-navy">{t("exampleInput")}</h3>
+          <h3 className="text-sm font-semibold text-navy">{t("inputSet")}</h3>
           <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-body-charcoal">
             {entry.inputSummary.map((line) => (
               <li key={line}>{line}</li>
@@ -42,21 +46,33 @@ export function CaseStudyProofPanel({ entry }: CaseStudyProofPanelProps) {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-navy">{t("result")}</h3>
-          <p className="mt-1 text-sm leading-relaxed text-body-charcoal">{entry.calculationLogic}</p>
-          <p className="mt-1 text-sm text-body-charcoal">{entry.expectedImpact}</p>
+          <h3 className="text-sm font-semibold text-navy">{t("hiddenLoss")}</h3>
+          <p className="mt-1 text-sm leading-relaxed text-body-charcoal">{entry.hiddenLoss}</p>
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-navy">{t("decisionImpact")}</h3>
-          <p className="mt-1 text-sm font-medium text-navy">{entry.lossTypeLabel}</p>
+          <h3 className="text-sm font-semibold text-navy">{t("calculationResult")}</h3>
+          <p className="mt-1 text-sm leading-relaxed text-body-charcoal">{entry.calculationResult}</p>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold text-navy">{t("suggestedAction")}</h3>
           <p className="mt-1 text-sm text-body-charcoal">{entry.suggestedAction}</p>
+          <p className="mt-1 text-sm text-body-charcoal">
+            <span className="font-medium">{t("estimatedImpact")}:</span> {entry.expectedImpact}
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold text-navy">{t("methodologyNote")}</h3>
+          <p className="mt-1 text-sm leading-relaxed text-body-charcoal">{entry.methodologyNote}</p>
         </div>
       </div>
 
       <Link
-        href={`/tools/premium/${entry.toolSlug}`}
-        className="sc-craft-card__cta mt-4 inline-block text-sm"
+        href={toolHref}
+        className="sc-cta-primary mt-4 inline-flex min-h-[44px] items-center px-4 text-sm"
+        data-case-study-tool-cta="true"
       >
         {t("viewRelatedTool")}
       </Link>

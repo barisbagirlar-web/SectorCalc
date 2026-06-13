@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CaseStudyCard } from "@/components/case-studies/CaseStudyCard";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
-import { listCaseStudies } from "@/lib/case-studies/case-study-registry";
+import { isP7First5CaseStudySlug } from "@/lib/case-studies/case-study-p7-first-5";
+import {
+  listCaseStudies,
+  listP7FeaturedCaseStudies,
+} from "@/lib/case-studies/case-study-registry";
 import { createPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -23,33 +27,53 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function CaseStudiesIndexPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const studies = listCaseStudies();
+  const t = await getTranslations("caseStudies");
+  const featured = listP7FeaturedCaseStudies();
+  const more = listCaseStudies().filter((entry) => !isP7First5CaseStudySlug(entry.slug));
 
   return (
     <PageLayout>
       <section className="sc-craft-section sc-craft-section--white sc-craft-section--border">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
-          <p className="sc-craft-eyebrow">Proof layer</p>
-          <h1 className="sc-craft-headline">Representative case studies</h1>
-          <p className="sc-craft-lead max-w-3xl">
-            Synthetic scenarios that show problem framing, tool inputs, and loss types — labeled
-            representative, never as verified client savings.
-          </p>
+          <p className="sc-craft-eyebrow">{t("eyebrow")}</p>
+          <h1 className="sc-craft-headline">{t("title")}</h1>
+          <p className="sc-craft-lead max-w-3xl">{t("subtitle")}</p>
         </Container>
       </section>
-      <section className="sc-craft-section overflow-x-hidden">
+
+      <section className="sc-craft-section sc-craft-section--alt overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
-          <div className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {studies.map((entry) => (
+          <h2 className="sc-craft-headline text-lg">{t("featuredTitle")}</h2>
+          <p className="mt-2 max-w-3xl text-sm text-body-charcoal">{t("featuredSubtitle")}</p>
+          <div className="mt-4 grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((entry) => (
               <CaseStudyCard
                 key={entry.slug}
                 entry={entry}
                 href={`/case-studies/${entry.slug}`}
+                featured
               />
             ))}
           </div>
         </Container>
       </section>
+
+      {more.length > 0 ? (
+        <section className="sc-craft-section overflow-x-hidden">
+          <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
+            <h2 className="sc-craft-headline text-lg">{t("moreTitle")}</h2>
+            <div className="mt-4 grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {more.map((entry) => (
+                <CaseStudyCard
+                  key={entry.slug}
+                  entry={entry}
+                  href={`/case-studies/${entry.slug}`}
+                />
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : null}
     </PageLayout>
   );
 }

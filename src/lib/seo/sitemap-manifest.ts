@@ -16,6 +16,7 @@ import {
   stripLocaleFromPath,
 } from "@/lib/i18n/locale-routing";
 import { listProgrammaticSeoSlugs } from "@/lib/seo/programmatic-seo-pages";
+import { listCaseStudySlugs } from "@/lib/case-studies/case-study-registry";
 import { listPremiumSchemaSlugs } from "@/lib/premium-schema/schemas/index";
 import {
   getFreeToolRoutePath,
@@ -173,6 +174,15 @@ export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[
   );
 }
 
+export function getCaseStudySitemapRoutes(): readonly SitemapManifestItem[] {
+  return [
+    createItem("/case-studies", "hub", 0.74, "monthly"),
+    ...listCaseStudySlugs().map((slug) =>
+      createItem(`/case-studies/${slug}`, "hub", 0.72, "monthly"),
+    ),
+  ];
+}
+
 export function getSeoLandingSitemapRoutes(): readonly SitemapManifestItem[] {
   return listProgrammaticSeoSlugs().map((slug) =>
     createItem(getProgrammaticSeoRoutePath(slug), "seo_landing", 0.85, "monthly"),
@@ -204,6 +214,7 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
     ...getHubSitemapRoutes(),
     ...getActiveCategorizedToolSitemapRoutes(),
     ...getSeoLandingSitemapRoutes(),
+    ...getCaseStudySitemapRoutes(),
     ...getAuthorityGuideSitemapRoutes(),
     ...getAiIndexSitemapRoutes(),
   ]);

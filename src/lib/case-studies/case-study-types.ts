@@ -35,6 +35,8 @@ export type CaseStudyEvidenceLevel =
   | "anonymized-real"
   | "representative-scenario";
 
+export type CaseStudyToolRoute = "premium" | "premium-schema";
+
 export type CaseStudyEntry = {
   readonly slug: string;
   readonly sector: CaseStudySector;
@@ -45,8 +47,12 @@ export type CaseStudyEntry = {
   readonly problem: string;
   readonly toolSlug: string;
   readonly toolTitle: string;
+  readonly toolRoute?: CaseStudyToolRoute;
   readonly inputSummary: readonly string[];
+  readonly hiddenLoss: string;
+  readonly calculationResult: string;
   readonly calculationLogic: string;
+  readonly methodologyNote: string;
   readonly lossType: CaseStudyLossType;
   readonly lossTypeLabel: string;
   readonly suggestedAction: string;
@@ -54,6 +60,13 @@ export type CaseStudyEntry = {
   readonly assumptions: readonly string[];
   readonly disclaimer: string;
 };
+
+export function getCaseStudyToolHref(entry: CaseStudyEntry): string {
+  if (entry.toolRoute === "premium-schema") {
+    return `/tools/premium-schema/${entry.toolSlug}`;
+  }
+  return `/tools/premium/${entry.toolSlug}`;
+}
 
 export const CASE_STUDY_REPRESENTATIVE_LABEL =
   "Representative scenario — modeled exposure, not a verified customer outcome.";
