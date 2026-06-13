@@ -514,18 +514,26 @@ function buildManifest() {
   const problemSlugLocked =
     !problemTool?.eligible?.paymentEligible && !problemTool?.eligible?.formulaGateEligible;
 
+  const p5bSegments = p5b?.segments ?? {};
+
   const manifest = {
     generatedAt: new Date().toISOString(),
     totalTools: controlPlane.summary.totalTools,
     currentState: {
-      premiumReady: segmentCounts.premiumReady,
-      nearPremium: segmentCounts.nearPremium,
-      premiumSchemaFailManual: segmentCounts.premiumSchemaFailManual,
-      freeActiveMissingBacking: segmentCounts.freeActiveMissingBacking,
-      categoryOnlyQuarantine: segmentCounts.categoryOnlyQuarantine,
-      guideOracleMissing: segmentCounts.guideOracleMissing,
-      autoRepairCandidate: segmentCounts.autoRepairCandidate,
-      paymentLockedSafe: segmentCounts.paymentLockedSafe,
+      premiumReady: p5bSegments.premium_ready?.count ?? segmentCounts.premiumReady,
+      nearPremium: p5bSegments.near_premium?.count ?? segmentCounts.nearPremium,
+      premiumSchemaFailManual:
+        p5bSegments.premium_schema_fail_manual?.count ?? segmentCounts.premiumSchemaFailManual,
+      freeActiveMissingBacking:
+        p5bSegments.free_active_missing_backing?.count ?? segmentCounts.freeActiveMissingBacking,
+      categoryOnlyQuarantine:
+        p5bSegments.category_only_quarantine?.count ?? segmentCounts.categoryOnlyQuarantine,
+      guideOracleMissing:
+        p5bSegments.guide_oracle_missing?.count ?? segmentCounts.guideOracleMissing,
+      autoRepairCandidate:
+        p5bSegments.deepseek_auto_repair_candidate?.count ?? segmentCounts.autoRepairCandidate,
+      paymentLockedSafe:
+        p5bSegments.payment_locked_safe?.count ?? segmentCounts.paymentLockedSafe,
     },
     guardrails: {
       paymentUnlockAllowed: false,
