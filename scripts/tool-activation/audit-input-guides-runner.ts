@@ -5,6 +5,8 @@ import {
   evaluateInputGuideDecision,
   wouldLegacyGenericGuideRender,
 } from "../../src/lib/tool-guides/input-guide-policy";
+import { evaluateToolGuidePolicy } from "../../src/lib/tools/guide/tool-guide-policy";
+import type { ToolGuideAuditDecision } from "../../src/lib/tools/guide/tool-guide-types";
 import {
   listPremiumPilotGuideSlugs,
   listToolGuideSpecSlugs,
@@ -17,7 +19,7 @@ import { getPremiumRevenueRouteSlugs } from "../../src/lib/tools/revenue-tools";
 import { listPremiumSchemaSlugs } from "../../src/lib/premium-schema/schemas/index";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const REPORT_PATH = path.join(ROOT, "scripts/.cache/input-guide-quality-report.json");
+const REPORT_PATH = path.join(ROOT, "scripts/.cache/input-guide-audit-report.json");
 
 const P81_SHAPE_SLUGS = listShapeDimensionGuideSlugs();
 const PILOT_SLUGS = listPremiumPilotGuideSlugs();
@@ -25,11 +27,17 @@ const PILOT_SLUGS = listPremiumPilotGuideSlugs();
 type AuditItem = {
   slug: string;
   status: string;
+  decision: ToolGuideAuditDecision;
   shouldRender: boolean;
+  guideEligible: boolean;
   guideType?: string;
   findings: string[];
   hasGuideSpec: boolean;
+  hasInputMap: boolean;
+  isGenericFallback: boolean;
   legacyGenericWouldRender: boolean;
+  localeKeysPresent: boolean;
+  arRtlRisk: boolean;
 };
 
 function collectSlugs(): string[] {
@@ -51,25 +59,40 @@ function main(): void {
   for (const slug of slugs) {
     const keys = resolveToolFormInputKeys(slug);
     const decision = evaluateInputGuideDecision(slug, keys);
+    const policy = evaluateToolGuidePolicy(slug, keys);
     const legacyGeneric = keys.length > 0 && wouldLegacyGenericGuideRender(slug, keys);
+    const localeKeysPresent = Boolean(
+      policy.guideType &&
+        (decision.spec?.titleKey || decision.spec?.descriptionKey),
+    );
+    const arRtlRisk =
+      slug !== ERT_PROBLEM_SLUG &&
+      policy.hasGuideSpec &&
+      !localeKeysPresent &&
+      legacyGeneric;
 
     items.push({
       slug,
       status: decision.status,
-      shouldRender: decision.shouldRender,
+      decision: policy.decision,
+      shouldRender: policy.guideEligible,
+      guideEligible: policy.guideEligible,
       guideType: decision.guideType,
-      findings: [...decision.findings],
-      hasGuideSpec: specSlugs.has(slug),
+      findings: [...policy.findings],
+      hasGuideSpec: policy.hasGuideSpec,
+      hasInputMap: policy.hasInputMap,
+      isGenericFallback: policy.isGenericFallback,
       legacyGenericWouldRender: legacyGeneric,
+      localeKeysPresent,
+      arRtlRisk,
     });
   }
 
   const renderableGuides = items.filter((item) => item.shouldRender).length;
-  const hiddenNoSpec = items.filter(
-    (item) => !item.shouldRender && item.findings.includes("missing_guide_spec"),
-  ).length;
-  const blockedGeneric = items.filter((item) =>
-    item.findings.includes("generic_fallback_detected"),
+  const hiddenNoSpec = items.filter((item) => item.decision === "needs_spec").length;
+  const blockedGeneric = items.filter((item) => item.decision === "generic_blocked").length;
+  const manualDesignReview = items.filter(
+    (item) => item.decision === "manual_design_review",
   ).length;
   const inputKeyMismatch = items.filter((item) =>
     item.findings.includes("input_key_mismatch"),
@@ -127,7 +150,15 @@ function main(): void {
     renderableGuides,
     hiddenNoSpec,
     blockedGeneric,
+    manualDesignReview,
     inputKeyMismatch,
+    decisions: {
+      eligible: items.filter((item) => item.decision === "eligible").length,
+      hide_guide: items.filter((item) => item.decision === "hide_guide").length,
+      needs_spec: hiddenNoSpec,
+      generic_blocked: blockedGeneric,
+      manual_design_review: manualDesignReview,
+    },
     items,
   };
 
@@ -152,6 +183,7 @@ function main(): void {
   console.log(`renderable: ${renderableGuides}`);
   console.log(`hidden: ${hiddenNoSpec}`);
   console.log(`blocked: ${blockedGeneric}`);
+  console.log(`manualDesignReview: ${manualDesignReview}`);
   console.log(`inputKeyMismatch: ${inputKeyMismatch}`);
   console.log(`output: ${path.relative(ROOT, REPORT_PATH)}`);
   console.log("\nTop risky guide surfaces (legacy generic blocked):");

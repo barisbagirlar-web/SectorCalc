@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import { GuidanceProvider } from "@/components/guidance/GuidanceContext";
 import { PremiumInputGuide } from "@/components/tool-guides/PremiumInputGuide";
 import type { AppLocale } from "@/i18n/routing";
-import { shouldRenderInputGuide } from "@/lib/tool-guides/input-guide-policy";
+import { shouldRenderPremiumGuide } from "@/lib/tools/guide/tool-guide-policy";
 import type {
   GuidanceTier,
   ReferenceGraphicField,
@@ -31,7 +31,7 @@ export function ToolGuidanceLayout({
   const formInputKeys = useMemo(() => fields.map((field) => field.key), [fields]);
 
   const showGuide = useMemo(
-    () => shouldRenderInputGuide(toolSlug, formInputKeys),
+    () => shouldRenderPremiumGuide(toolSlug, formInputKeys),
     [toolSlug, formInputKeys],
   );
 

@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { evaluateInputGuideDecision } from "@/lib/tool-guides/input-guide-policy";
+import { evaluateToolGuidePolicy } from "@/lib/tools/guide/tool-guide-policy";
 import { PremiumInputGuideDiagram } from "@/lib/tool-guides/premium-input-guide-diagrams";
 import { resolveToolFormInputKeys } from "@/lib/tool-guides/resolve-tool-form-input-keys";
 
@@ -20,12 +21,13 @@ export function PremiumInputGuide({ slug, locale, formInputKeys, className }: Pr
     [formInputKeys, slug],
   );
 
+  const policy = useMemo(() => evaluateToolGuidePolicy(slug, keys), [slug, keys]);
   const decision = useMemo(
     () => evaluateInputGuideDecision(slug, keys),
     [slug, keys],
   );
 
-  if (!decision.shouldRender || !decision.spec) {
+  if (!policy.guideEligible || !decision.shouldRender || !decision.spec) {
     return null;
   }
 
