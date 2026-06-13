@@ -10,7 +10,9 @@ import {
   type DeepSeekTaskType,
 } from "@/lib/ai/deepseek/deepseek-types";
 import {
+  logSanitizedJsonFailure,
   parseExpectedJson,
+  writeRawDebugOnFailure,
   type JsonGuardResult,
 } from "@/lib/ai/deepseek/deepseek-json-guard";
 import { redactSecretsLite } from "@/lib/ai/deepseek/deepseek-redaction-lite";
@@ -49,12 +51,14 @@ type DeepSeekApiResponse = {
 function failure<T>(
   errorCode: DeepSeekErrorCode,
   message?: string,
+  rawDebugPath?: string,
 ): DeepSeekJsonResult<T> {
   return {
     ok: false,
     errorCode,
     suggestionUnavailable: true,
     message: message ? sanitizeDeepSeekErrorMessage(message) : undefined,
+    rawDebugPath,
   };
 }
 
@@ -118,11 +122,18 @@ export async function callDeepSeekJson<T>(
 
       if (!parsed.ok) {
         lastError = parsed.message || parsed.reason;
+        if (parsed.reason === "invalid_json" || parsed.reason === "truncated") {
+          logSanitizedJsonFailure(rawText, parsed.reason);
+        }
         if (attempt < taskConfig.maxRetries) {
           await sleep(400);
           continue;
         }
-        return failure("invalid_json", lastError);
+        const debugPath =
+          parsed.reason === "invalid_json" || parsed.reason === "truncated"
+            ? writeRawDebugOnFailure(rawText, parsed.reason)
+            : undefined;
+        return failure("invalid_json", lastError, debugPath);
       }
 
       return { ok: true, data: parsed.data };

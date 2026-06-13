@@ -1,7 +1,15 @@
 import type { FormulaAuditToolContext } from "@/lib/ai/deepseek/deepseek-types";
 
 export const DEEPSEEK_JSON_ONLY_INSTRUCTION =
-  "Return only valid JSON. Do not include markdown.";
+  [
+    "Return valid JSON only.",
+    "Do not use markdown.",
+    "Do not use code fences.",
+    "Do not include explanations outside JSON.",
+    "Top-level object must match the schema exactly.",
+    "If no patch is possible, still return valid JSON with whyNotPatchable.",
+    "Every selected item must return exactly one item.",
+  ].join(" ");
 
 export function buildFormulaAuditSystemPrompt(): string {
   return [

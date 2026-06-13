@@ -1,8 +1,22 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { BulkRepairPatchPlan, BulkToolRepairItem } from "@/lib/ai/deepseek/bulk-tool-repair-types";
+import type {
+  BulkRepairDecision,
+  BulkRepairPatchPlan,
+  BulkRepairPatchType,
+  BulkToolRepairItem,
+} from "@/lib/ai/deepseek/bulk-tool-repair-types";
 
 const ROOT = process.cwd();
+
+export const DETERMINISTIC_SAFE_PATCH_TYPES = new Set<BulkRepairPatchType>([
+  "guide_hide",
+  "unit_fix",
+  "i18n_fix",
+  "validation_fix",
+  "submit_handler",
+  "contract_alignment",
+]);
 
 const FORBIDDEN_TARGET_PATTERNS = [
   /^\.env/i,
@@ -21,6 +35,61 @@ const FORBIDDEN_TARGET_PATTERNS = [
 function isForbiddenTarget(targetFile: string): boolean {
   const normalized = targetFile.replace(/\\/g, "/");
   return FORBIDDEN_TARGET_PATTERNS.some((pattern) => pattern.test(normalized));
+}
+
+function isDeterministicSafePatch(patch: BulkRepairPatchPlan): boolean {
+  if (!DETERMINISTIC_SAFE_PATCH_TYPES.has(patch.type)) {
+    return false;
+  }
+  if (!patch.safeToApply) {
+    return false;
+  }
+  if (patch.type === "contract_alignment") {
+    return false;
+  }
+  if (patch.type === "submit_handler") {
+    return false;
+  }
+  if (patch.targetFile && isForbiddenTarget(patch.targetFile)) {
+    return false;
+  }
+  return true;
+}
+
+function isApplyEligibleDecision(decision: BulkRepairDecision, allowCandidate: boolean): boolean {
+  if (decision === "auto_apply") {
+    return true;
+  }
+  return allowCandidate && decision === "auto_apply_candidate";
+}
+
+export function filterDeterministicSafePatches(
+  patches: readonly BulkRepairPatchPlan[],
+): BulkRepairPatchPlan[] {
+  return patches.filter(isDeterministicSafePatch);
+}
+
+export function prepareDeterministicFallbackItem(item: BulkToolRepairItem): BulkToolRepairItem | null {
+  const safePatches = filterDeterministicSafePatches(item.patches);
+  if (safePatches.length === 0) {
+    return null;
+  }
+  if (item.riskLevel === "high" || item.riskLevel === "critical") {
+    return null;
+  }
+  return {
+    ...item,
+    repairDecision: "auto_apply",
+    patches: safePatches,
+  };
+}
+
+export function prepareDeterministicFallbackBatch(
+  items: readonly BulkToolRepairItem[],
+): BulkToolRepairItem[] {
+  return items
+    .map(prepareDeterministicFallbackItem)
+    .filter((item): item is BulkToolRepairItem => item !== null);
 }
 
 const UNIT_REPLACEMENTS: Array<{ pattern: RegExp; replacement: string }> = [
@@ -336,6 +405,40 @@ describe("${schemaId} global sanity", () => {
   return true;
 }
 
+function applyGuideHide(patch: BulkRepairPatchPlan): boolean {
+  const slug = patch.metadata?.slug ?? patch.metadata?.targetSlug;
+  if (!slug) {
+    return false;
+  }
+
+  const blocklistPath = path.join(ROOT, "src/lib/tools/guide/tool-guide-blocklist.ts");
+  if (!fs.existsSync(blocklistPath)) {
+    return false;
+  }
+
+  let content = fs.readFileSync(blocklistPath, "utf8");
+  const slugPattern = new RegExp(`"${slug.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`);
+  if (slugPattern.test(content)) {
+    return false;
+  }
+
+  const arrayMatch = content.match(
+    /export const GENERIC_GUIDE_BLOCKED_SLUGS: readonly string\[\] = \[([\s\S]*?)\];/,
+  );
+  if (!arrayMatch) {
+    return false;
+  }
+
+  const existing = arrayMatch[1].trim();
+  const insertion = existing.length > 0 ? `${existing}\n  "${slug}",` : `\n  "${slug}",`;
+  content = content.replace(
+    /export const GENERIC_GUIDE_BLOCKED_SLUGS: readonly string\[\] = \[([\s\S]*?)\];/,
+    `export const GENERIC_GUIDE_BLOCKED_SLUGS: readonly string[] = [${insertion}\n];`,
+  );
+  fs.writeFileSync(blocklistPath, content, "utf8");
+  return true;
+}
+
 function applyPaidRouteSlug(patch: BulkRepairPatchPlan): boolean {
   const paidSlug = patch.metadata?.paidSlug;
   if (!paidSlug) {
@@ -369,11 +472,15 @@ function applyPaidRouteSlug(patch: BulkRepairPatchPlan): boolean {
   return true;
 }
 
-export function applyBulkRepairItem(item: BulkToolRepairItem): {
+export function applyBulkRepairItem(
+  item: BulkToolRepairItem,
+  options: { readonly allowCandidate?: boolean } = {},
+): {
   applied: number;
   skipped: number;
 } {
-  if (item.repairDecision !== "auto_apply") {
+  const allowCandidate = options.allowCandidate ?? false;
+  if (!isApplyEligibleDecision(item.repairDecision, allowCandidate)) {
     return { applied: 0, skipped: item.patches.length };
   }
 
@@ -385,7 +492,11 @@ export function applyBulkRepairItem(item: BulkToolRepairItem): {
       skipped += 1;
       continue;
     }
-    if (isForbiddenTarget(patch.targetFile)) {
+    if (patch.targetFile && isForbiddenTarget(patch.targetFile)) {
+      skipped += 1;
+      continue;
+    }
+    if (allowCandidate && !isDeterministicSafePatch(patch)) {
       skipped += 1;
       continue;
     }
@@ -411,6 +522,16 @@ export function applyBulkRepairItem(item: BulkToolRepairItem): {
       case "route_wiring":
         ok = applyPaidRouteSlug(patch);
         break;
+      case "guide_hide":
+        ok = applyGuideHide({
+          ...patch,
+          metadata: {
+            ...patch.metadata,
+            slug: patch.metadata?.slug ?? patch.metadata?.targetSlug ?? item.slug,
+            targetSlug: patch.metadata?.targetSlug ?? item.slug,
+          },
+        });
+        break;
       default:
         ok = false;
         break;
@@ -426,7 +547,10 @@ export function applyBulkRepairItem(item: BulkToolRepairItem): {
   return { applied, skipped };
 }
 
-export function applyBulkRepairBatch(items: BulkToolRepairItem[]): {
+export function applyBulkRepairBatch(
+  items: BulkToolRepairItem[],
+  options: { readonly allowCandidate?: boolean } = {},
+): {
   patchedSlugs: string[];
   manualReview: string[];
   safeStateKept: string[];
@@ -440,14 +564,20 @@ export function applyBulkRepairBatch(items: BulkToolRepairItem[]): {
       manualReview.push(item.slug);
       continue;
     }
-    if (item.repairDecision === "keep_safe_state") {
+    if (item.repairDecision === "keep_safe_state" || item.repairDecision === "skip") {
       safeStateKept.push(item.slug);
       continue;
     }
 
-    const result = applyBulkRepairItem(item);
+    const result = applyBulkRepairItem(item, options);
     if (result.applied > 0) {
       patchedSlugs.push(item.slug);
+    } else if (
+      isApplyEligibleDecision(item.repairDecision, options.allowCandidate ?? false)
+    ) {
+      safeStateKept.push(item.slug);
+    } else if (item.repairDecision === "auto_apply_candidate") {
+      manualReview.push(item.slug);
     } else {
       safeStateKept.push(item.slug);
     }

@@ -7,7 +7,10 @@ import {
   buildBulkRepairSystemPrompt,
   buildBulkRepairUserPrompt,
 } from "@/lib/ai/deepseek/bulk-tool-repair-prompts";
-import { applyBulkRepairBatch } from "@/lib/ai/deepseek/bulk-tool-repair-applier";
+import {
+  applyBulkRepairBatch,
+  prepareDeterministicFallbackBatch,
+} from "@/lib/ai/deepseek/bulk-tool-repair-applier";
 import {
   readAuditCounts,
   selectBulkRepairBatch,
@@ -41,8 +44,27 @@ function parseMode(): "apply" | "plan" {
   return raw === "apply" ? "apply" : "plan";
 }
 
+function parseChunkSize(): number {
+  const raw = Number(process.env.DEEPSEEK_REPAIR_CHUNK_SIZE || 10);
+  if (!Number.isFinite(raw) || raw < 1) {
+    return 10;
+  }
+  return Math.min(Math.floor(raw), 25);
+}
+
+function parseDeterministicFallbackEnabled(): boolean {
+  return process.env.DEEPSEEK_REPAIR_ALLOW_DETERMINISTIC_FALLBACK?.trim() === "true";
+}
+
 function isPatchCandidateDecision(decision: BulkRepairDecision): boolean {
   return decision === "auto_apply" || decision === "auto_apply_candidate";
+}
+
+function isApplyEligibleDecision(decision: BulkRepairDecision, allowCandidate: boolean): boolean {
+  if (decision === "auto_apply") {
+    return true;
+  }
+  return allowCandidate && decision === "auto_apply_candidate";
 }
 
 function rankRepairItem(item: BulkToolRepairItem): number {
@@ -302,6 +324,8 @@ export async function runBulkToolRepair(): Promise<{
   }
   const mode = parseMode();
   const riskFilter = parseRiskFilter();
+  const chunkSize = parseChunkSize();
+  const allowDeterministicFallback = parseDeterministicFallbackEnabled();
   const before = readAuditCounts();
   const blockers: string[] = [];
 
@@ -312,16 +336,17 @@ export async function runBulkToolRepair(): Promise<{
   let deepseekStatus: BulkToolRepairReport["deepseekStatus"] = "skipped";
   let deepseekRawItems = 0;
   let deepseekParsedItems = 0;
+  let deepseekErrorCount = 0;
+  const invalidJsonDebugPaths: string[] = [];
   const config = getDeepSeekClientConfig();
 
   if (!config.apiKey) {
     deepseekStatus = "missing_api_key";
     blockers.push("DEEPSEEK_API_KEY missing — DeepSeek advisory overlay skipped");
   } else if (planned.length > 0) {
-    const batchSize = planned.length > 50 ? 25 : planned.length;
     const batches: BulkToolRepairItem[][] = [];
-    for (let i = 0; i < planned.length; i += batchSize) {
-      batches.push(planned.slice(i, i + batchSize));
+    for (let i = 0; i < planned.length; i += chunkSize) {
+      batches.push(planned.slice(i, i + chunkSize));
     }
 
     const mergedItems: BulkToolRepairItem[] = [];
@@ -337,13 +362,17 @@ export async function runBulkToolRepair(): Promise<{
       );
 
       if (!result.ok) {
+        deepseekErrorCount += 1;
         deepseekStatus = result.errorCode === "missing_api_key" ? "missing_api_key" : "api_error";
         blockers.push(`DeepSeek API error: ${result.errorCode ?? "unknown"}`);
+        if (result.rawDebugPath) {
+          invalidJsonDebugPaths.push(result.rawDebugPath);
+        }
         mergedItems.push(...batch);
         continue;
       }
 
-      deepseekStatus = "ok";
+      deepseekStatus = deepseekErrorCount > 0 ? "partial_error" : "ok";
       const remoteItems = result.data.items as BulkToolRepairItem[];
       deepseekParsedItems += remoteItems.length;
       mergedItems.push(...mergeDeepSeekDecisions(batch, remoteItems));
@@ -360,34 +389,105 @@ export async function runBulkToolRepair(): Promise<{
   let skipped: string[] = [];
   let blockedByPolicy: string[] = [];
   const testResults: string[] = [];
+  let deterministicFallbackUsed = false;
+  let deterministicFallbackReason: string | undefined;
+  let fallbackPatched = 0;
 
   const applyRequested = mode === "apply";
-  const canApplyDeterministic = applyRequested && (!config.apiKey || deepseekStatus !== "api_error");
+  const deepseekFailed =
+    deepseekStatus === "api_error" ||
+    deepseekStatus === "partial_error" ||
+    deepseekErrorCount > 0;
+  const hasPatchCandidates =
+    initialPlanned.filter(
+      (item) => isPatchCandidateDecision(item.repairDecision) && item.patches.length > 0,
+    ).length > 0;
+  const shouldUseDeterministicFallback =
+    applyRequested &&
+    allowDeterministicFallback &&
+    hasPatchCandidates &&
+    selectionDiagnostics.selectedAutoRepair > 0 &&
+    deepseekFailed;
+
+  if (shouldUseDeterministicFallback) {
+    deterministicFallbackUsed = true;
+    deterministicFallbackReason =
+      deepseekErrorCount > 0 ? "deepseek_invalid_json" : "deepseek_unavailable";
+    blockers.push(
+      `Deterministic fallback apply enabled (${deterministicFallbackReason})`,
+    );
+  }
+
+  const canApplyDeterministic =
+    applyRequested &&
+    (deepseekStatus === "ok" ||
+      deepseekStatus === "partial_error" ||
+      !config.apiKey ||
+      shouldUseDeterministicFallback);
 
   if (applyRequested && !config.apiKey) {
     blockers.push("Deterministic local apply running without DeepSeek confirmation");
   }
 
   if (canApplyDeterministic) {
-    const applyResult = applyBulkRepairBatch(planned);
+    const applyItems = shouldUseDeterministicFallback
+      ? prepareDeterministicFallbackBatch(initialPlanned)
+      : planned;
+    const applyResult = applyBulkRepairBatch(applyItems, {
+      allowCandidate: !shouldUseDeterministicFallback,
+    });
     patched = applyResult.patchedSlugs;
     manualReview = applyResult.manualReview;
     safeStateKept = applyResult.safeStateKept;
-    skipped = planned
+    fallbackPatched = shouldUseDeterministicFallback ? patched.length : 0;
+    skipped = applyItems
       .filter(
         (item) =>
-          item.repairDecision === "auto_apply" &&
+          isApplyEligibleDecision(item.repairDecision, !shouldUseDeterministicFallback) &&
           item.patches.length > 0 &&
-          !patched.includes(item.slug),
+          !patched.includes(item.slug) &&
+          !manualReview.includes(item.slug) &&
+          !safeStateKept.includes(item.slug),
       )
       .map((item) => item.slug);
+
+    if (!shouldUseDeterministicFallback) {
+      const fallbackOnly = prepareDeterministicFallbackBatch(
+        planned.filter(
+          (item) =>
+            isPatchCandidateDecision(item.repairDecision) &&
+            item.patches.length > 0 &&
+            !patched.includes(item.slug),
+        ),
+      );
+      if (fallbackOnly.length > 0 && allowDeterministicFallback) {
+        const fallbackResult = applyBulkRepairBatch(fallbackOnly, { allowCandidate: false });
+        for (const slug of fallbackResult.patchedSlugs) {
+          if (!patched.includes(slug)) {
+            patched.push(slug);
+            fallbackPatched += 1;
+          }
+        }
+        deterministicFallbackUsed = deterministicFallbackUsed || fallbackPatched > 0;
+        deterministicFallbackReason =
+          deterministicFallbackReason ?? "residual_safe_patches";
+      }
+    }
+
     runAudits();
   } else if (applyRequested) {
-    blockers.push("Apply blocked due to DeepSeek API error");
+    blockers.push("Apply blocked due to DeepSeek API error (fallback disabled)");
     manualReview = planned.filter((item) => item.repairDecision === "manual_review").map((i) => i.slug);
-    safeStateKept = planned.filter((item) => item.repairDecision === "keep_safe_state").map((i) => i.slug);
+    safeStateKept = planned
+      .filter(
+        (item) =>
+          item.repairDecision === "keep_safe_state" ||
+          item.repairDecision === "auto_apply" ||
+          item.repairDecision === "auto_apply_candidate",
+      )
+      .map((i) => i.slug);
     skipped = planned
-      .filter((item) => item.repairDecision === "auto_apply")
+      .filter((item) => item.repairDecision === "skip")
       .map((item) => item.slug);
   } else {
     manualReview = planned.filter((item) => item.repairDecision === "manual_review").map((i) => i.slug);
@@ -435,6 +535,11 @@ export async function runBulkToolRepair(): Promise<{
     patchCandidates,
     notPatchableReasons,
     policyBlocks,
+    chunkSize,
+    deterministicFallbackUsed: deterministicFallbackUsed || undefined,
+    deterministicFallbackReason,
+    fallbackPatched: fallbackPatched > 0 ? fallbackPatched : undefined,
+    invalidJsonDebugPaths: invalidJsonDebugPaths.length > 0 ? invalidJsonDebugPaths : undefined,
   };
 
   writeReport(report);
@@ -443,7 +548,10 @@ export async function runBulkToolRepair(): Promise<{
   if (
     applyRequested &&
     patched.length === 0 &&
-    planned.some((item) => item.repairDecision === "auto_apply")
+    planned.some(
+      (item) =>
+        isApplyEligibleDecision(item.repairDecision, true) && item.patches.length > 0,
+    )
   ) {
     exitCode = 1;
   }
@@ -462,6 +570,15 @@ async function main(): Promise<void> {
   console.log(`patchCandidates: ${report.patchCandidates.length}`);
   console.log(`itemsWithPatches: ${report.deepseekDiagnostics.itemsWithPatches}`);
   console.log(`deepseek: ${report.deepseekStatus}`);
+  console.log(`chunkSize: ${report.chunkSize ?? "default"}`);
+  if (report.deterministicFallbackUsed) {
+    console.log(`deterministicFallbackUsed: ${report.deterministicFallbackUsed}`);
+    console.log(`deterministicFallbackReason: ${report.deterministicFallbackReason ?? "n/a"}`);
+    console.log(`fallbackPatched: ${report.fallbackPatched ?? 0}`);
+  }
+  if (report.invalidJsonDebugPaths && report.invalidJsonDebugPaths.length > 0) {
+    console.log(`invalidJsonDebugPaths: ${report.invalidJsonDebugPaths.join(", ")}`);
+  }
   console.log(
     `before PASS/WARN/FAIL/QUARANTINE: ${report.before.PASS}/${report.before.WARN}/${report.before.FAIL}/${report.before.QUARANTINE}`,
   );

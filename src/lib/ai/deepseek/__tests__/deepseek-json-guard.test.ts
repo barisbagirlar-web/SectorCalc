@@ -1,8 +1,13 @@
 import { describe, expect, test } from "vitest";
 import {
   assertFinishReasonAllowsJson,
+  extractFirstJsonObjectOrArray,
+  normalizeSmartQuotes,
   parseExpectedJson,
   parseJsonText,
+  removeTrailingCommas,
+  rejectIfContainsSecrets,
+  stripMarkdownFences,
   stripMarkdownJsonFence,
   validateSuggestionEnvelope,
 } from "@/lib/ai/deepseek/deepseek-json-guard";
@@ -19,8 +24,39 @@ describe("deepseek-json-guard", () => {
   test("parses markdown fenced JSON", () => {
     const fenced = "```json\n{\"taskType\":\"formula_audit\"}\n```";
     expect(stripMarkdownJsonFence(fenced)).toBe('{"taskType":"formula_audit"}');
+    expect(stripMarkdownFences(fenced)).toBe('{"taskType":"formula_audit"}');
     const result = parseJsonText(fenced);
     expect(result.ok).toBe(true);
+  });
+
+  test("extracts JSON object from prose wrapper", () => {
+    const wrapped = 'Here is the payload {"taskType":"bulk_tool_repair","items":[]} trailing';
+    expect(extractFirstJsonObjectOrArray(wrapped)).toBe('{"taskType":"bulk_tool_repair","items":[]}');
+    const parsed = parseJsonText(wrapped);
+    expect(parsed.ok).toBe(true);
+  });
+
+  test("repairs trailing commas and smart quotes", () => {
+    const messy = '{"ok":true,}';
+    expect(removeTrailingCommas(messy)).toBe('{"ok":true}');
+    const smart = '{"label":\u201cvalue\u201d,}';
+    const parsed = parseJsonText(smart);
+    expect(parsed.ok).toBe(true);
+    if (parsed.ok) {
+      expect(parsed.data).toEqual({ label: "value" });
+    }
+  });
+
+  test("rejects secret markers", () => {
+    const result = rejectIfContainsSecrets('{"key":"sk_live_abc"}');
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.reason).toBe("contains_secrets");
+    }
+  });
+
+  test("normalizes smart quotes", () => {
+    expect(normalizeSmartQuotes("\u201cok\u201d")).toBe('"ok"');
   });
 
   test("rejects invalid JSON", () => {

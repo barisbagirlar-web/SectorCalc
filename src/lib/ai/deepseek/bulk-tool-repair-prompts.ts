@@ -8,7 +8,7 @@ export function buildBulkRepairSystemPrompt(): string {
     "Never invent formulas, never approve payments, never bypass Formula Gate.",
     "Do not return keep_safe_state unless no applicable repair exists — explain why in whyNotPatchable.",
     DEEPSEEK_JSON_ONLY_INSTRUCTION,
-    "Respond with JSON:",
+    "Respond with JSON only (no markdown, no code fences):",
     '{ "taskType": "bulk_tool_repair", "items": [ { "slug": "...", "repairDecision": "auto_apply_candidate|manual_review|keep_safe_state|skip", "riskLevel": "low|medium|high|critical", "rootCause": "...", "whyNotPatchable": "", "patches": [ { "type": "i18n_fix|unit_fix|validation_fix|schema_fix|result_renderer|submit_handler|guide_hide|contract_alignment|route_wiring", "targetFile": "...", "targetFileHint": "...", "description": "...", "safeToApply": true, "requiresHumanApproval": true } ], "expectedAuditAfterPatch": "PASS|WARN|REVIEW", "testCommands": [] } ] }',
     "Rules:",
     "- One item per input slug. Do not add slugs not in the input batch.",
@@ -18,6 +18,7 @@ export function buildBulkRepairSystemPrompt(): string {
     "- If no patch is possible, repairDecision=keep_safe_state or skip and whyNotPatchable is mandatory.",
     "- high/critical risk or formula rewrites → manual_review with explicit reason.",
     "- Do not return keep_safe_state for all items in a batch.",
+    "- Output must be parseable JSON — no trailing commas, no comments, no prose.",
   ].join("\n");
 }
 

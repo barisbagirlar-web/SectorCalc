@@ -102,13 +102,18 @@ export type BulkToolRepairReport = {
   readonly after: ExtendedAuditCounts;
   readonly testResults: string[];
   readonly blockers: string[];
-  readonly deepseekStatus: "ok" | "skipped" | "api_error" | "missing_api_key";
+  readonly deepseekStatus: "ok" | "partial_error" | "skipped" | "api_error" | "missing_api_key";
   readonly items: BulkToolRepairItem[];
   readonly selectionDiagnostics: SelectionDiagnostics;
   readonly deepseekDiagnostics: DeepSeekDiagnostics;
   readonly patchCandidates: PatchCandidateSummary[];
   readonly notPatchableReasons: string[];
   readonly policyBlocks: string[];
+  readonly chunkSize?: number;
+  readonly deterministicFallbackUsed?: boolean;
+  readonly deterministicFallbackReason?: string;
+  readonly fallbackPatched?: number;
+  readonly invalidJsonDebugPaths?: string[];
 };
 
 export type AuditCounts = {

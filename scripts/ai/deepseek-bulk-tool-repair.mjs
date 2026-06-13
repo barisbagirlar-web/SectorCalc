@@ -6,7 +6,8 @@
  *   DEEPSEEK_BULK_LIMIT=100
  *   DEEPSEEK_REPAIR_MODE=plan|apply
  *   DEEPSEEK_REPAIR_RISK=low,medium
- *   DEEPSEEK_REPAIR_COMMIT=false
+ *   DEEPSEEK_REPAIR_CHUNK_SIZE=10
+ *   DEEPSEEK_REPAIR_ALLOW_DETERMINISTIC_FALLBACK=true
  */
 import { spawnSync } from "node:child_process";
 import path from "node:path";

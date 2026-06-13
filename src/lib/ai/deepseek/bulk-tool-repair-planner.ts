@@ -336,11 +336,12 @@ export function planBulkRepairItem(row: P24ToolRow): BulkToolRepairItem {
   if (context.guideStatus === "generic" || controlPlane?.guide?.genericGuideBlocked) {
     patches.push({
       type: "guide_hide",
-      targetFile: "src/lib/tools/guide/tool-guide-registry.ts",
-      targetFileHint: "src/lib/tools/guide/tool-guide-registry.ts",
+      targetFile: "src/lib/tools/guide/tool-guide-blocklist.ts",
+      targetFileHint: "src/lib/tools/guide/tool-guide-blocklist.ts",
       description: "Hide generic guide until approved spec exists.",
       safeToApply: true,
       requiresHumanApproval: false,
+      metadata: { slug: context.slug, targetSlug: context.slug },
     });
   }
 

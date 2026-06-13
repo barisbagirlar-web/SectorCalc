@@ -19,7 +19,7 @@ export type DeepSeekTaskConfig = {
 
 export const DEEPSEEK_TASK_CONFIG: Readonly<Record<DeepSeekTaskType, DeepSeekTaskConfig>> = {
   formula_audit: { temperature: 0.1, maxRetries: 1 },
-  schema_review: { temperature: 0.2, maxRetries: 1 },
+  schema_review: { temperature: 0.1, maxRetries: 2 },
   guide_spec: { temperature: 0.4, maxRetries: 1 },
   content_draft: { temperature: 0.5, maxRetries: 1 },
 };
@@ -40,6 +40,7 @@ export type DeepSeekJsonFailure = {
   readonly errorCode: DeepSeekErrorCode;
   readonly suggestionUnavailable: true;
   readonly message?: string;
+  readonly rawDebugPath?: string;
 };
 
 export type DeepSeekJsonResult<T> = DeepSeekJsonSuccess<T> | DeepSeekJsonFailure;
