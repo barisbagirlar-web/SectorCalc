@@ -138,13 +138,19 @@ function main() {
       compareAuditWithFresh(slug, item, freshBySlug.get(slug));
     }
 
-    const backupEligible = BACKUP_2.filter((slug) => getReportItem(trustReport, slug)?.paymentEligible);
-    if (backupEligible.length < 1) {
-      fail(`backup_slugs_not_payment_eligible:${BACKUP_2.join(",")}`);
-    }
-
     for (const slug of BACKUP_2) {
-      compareAuditWithFresh(slug, getReportItem(trustReport, slug), freshBySlug.get(slug));
+      const item = getReportItem(trustReport, slug);
+      if (!item) {
+        fail(`backup_slug_missing_from_report:${slug}`);
+        continue;
+      }
+      if (!item.paymentEligible) {
+        fail(`backup_slug_not_payment_eligible:${slug}`);
+      }
+      if (!item.formulaGateEligible) {
+        fail(`backup_slug_not_formula_gate_eligible:${slug}`);
+      }
+      compareAuditWithFresh(slug, item, freshBySlug.get(slug));
     }
 
     compareAuditWithFresh(PROBLEM_SLUG, getReportItem(trustReport, PROBLEM_SLUG), freshBySlug.get(PROBLEM_SLUG));
