@@ -50,6 +50,7 @@ import {
 import { formatPremiumValue } from "@/lib/premium-schema/format-premium-result";
 import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
 import { resolveSevenMudaRev5Labels } from "@/lib/i18n/seven-muda-rev5-labels";
+import { ShapeDimensionGuide } from "@/components/tool-guides/ShapeDimensionGuide";
 
 const SEVEN_MUDA_WASTE_COST_SLUG = "7-israf-muda-avcisi-parasal-karsilik-calculator";
 
@@ -368,19 +369,22 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
         onModeChange={setMode}
         hasCalculated={Boolean(result && reportData)}
         inputPanel={
-          <form
-            onSubmit={handleSubmit}
-            className="sc-form-shell sc-form-grid sc-industrial-form min-h-0"
-            noValidate
-            data-calculation-form="true"
-          >
-            {visibleInputs.map((input) => renderInput(input))}
-            <div className="sc-industrial-form-actions">
-              <button type="submit" className="sc-ledger-cta-primary sc-cta-primary min-h-[44px]">
-                {t("runAnalysis")}
-              </button>
-            </div>
-          </form>
+          <div className="flex min-w-0 flex-col gap-4">
+            <ShapeDimensionGuide slug={schema.id} locale={locale} />
+            <form
+              onSubmit={handleSubmit}
+              className="sc-form-shell sc-form-grid sc-industrial-form min-h-0"
+              noValidate
+              data-calculation-form="true"
+            >
+              {visibleInputs.map((input) => renderInput(input))}
+              <div className="sc-industrial-form-actions">
+                <button type="submit" className="sc-ledger-cta-primary sc-cta-primary min-h-[44px]">
+                  {t("runAnalysis")}
+                </button>
+              </div>
+            </form>
+          </div>
         }
         resultPanel={
           result && reportData ? (

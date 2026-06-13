@@ -53,6 +53,7 @@
     "scan:tool-activation": "node scripts/tool-activation/scan-tools-for-activation.mjs",
     "audit:premium-formula-sources": "node scripts/tool-activation/audit-premium-formula-sources.mjs",
     "audit:formula-registry": "node scripts/tool-activation/generate-formula-source-audit-registry.mjs",
+    "audit:shape-guides": "node scripts/tool-activation/audit-shape-dimension-guides.mjs",
     "scan:quality-backfill": "node scripts/tool-activation/scan-quality-backfill.mjs",
     "plan:quality-backfill": "node scripts/tool-activation/plan-quality-backfill.mjs",
     "workorders:quality-backfill": "node scripts/tool-activation/create-quality-workorders.mjs",

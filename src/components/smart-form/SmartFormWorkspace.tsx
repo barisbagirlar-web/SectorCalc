@@ -14,6 +14,7 @@ import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
 import { buildGuidanceFieldsFromInputConfig } from "@/lib/guidance/build-guidance-fields";
 import { UsageAgreementNotice } from "@/components/disclaimer/UsageAgreementNotice";
 import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
+import { ShapeDimensionGuide } from "@/components/tool-guides/ShapeDimensionGuide";
 import type { SmartFormResult, SmartFormTier } from "@/lib/smart-form/types";
 
 export type SmartFormWorkspaceProps = {
@@ -139,7 +140,10 @@ export function SmartFormWorkspace({
       toolCategory={toolCategory}
       toolSector={toolSector}
     >
-      {formContent}
+      <div className="flex min-w-0 flex-col gap-4">
+        <ShapeDimensionGuide slug={toolSlug} locale={locale} />
+        {formContent}
+      </div>
     </ToolGuidanceLayout>
   );
 
@@ -150,14 +154,16 @@ export function SmartFormWorkspace({
       tier={tier}
       fallback={!useAdapter}
       formContent={
-        <div className="space-y-4">
-          <UsageAgreementNotice
-            toolSlug={toolSlug}
-            tier={tier === "premium" ? "premium" : "free"}
-            sector={toolSector}
-            category={toolCategory}
-          />
-          {guidedFormContent}
+        <div className="flex flex-col gap-4">
+          <div className="order-2 min-w-0 lg:order-1">
+            <UsageAgreementNotice
+              toolSlug={toolSlug}
+              tier={tier === "premium" ? "premium" : "free"}
+              sector={toolSector}
+              category={toolCategory}
+            />
+          </div>
+          <div className="order-1 min-w-0 lg:order-2">{guidedFormContent}</div>
         </div>
       }
       expertContent={expertContent}
