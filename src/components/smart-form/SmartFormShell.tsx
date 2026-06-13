@@ -96,7 +96,7 @@ export function SmartFormShell({
       data-smart-form-tier={tier}
       data-smart-form-fallback={fallback ? "true" : "false"}
     >
-      <header className="rounded-sm border border-border-subtle bg-off-white p-4">
+      <header className="mb-4 min-w-0 border-b border-slate-200 pb-4">
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-sm bg-navy px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
             {tUi(TIER_LABEL_KEY[tier])}
@@ -107,9 +107,9 @@ export function SmartFormShell({
             </span>
           ) : null}
         </div>
-        <h2 className="mt-3 text-lg font-bold text-text-primary">{title}</h2>
+        <h2 className="mt-2 text-base font-semibold text-slate-900 sm:text-lg">{title}</h2>
         {description ? (
-          <p className="mt-1 text-sm leading-relaxed text-text-secondary">{description}</p>
+          <p className="mt-1 text-sm leading-relaxed text-slate-600">{description}</p>
         ) : null}
         {showModeSwitch ? (
           <div className="sc-mode-switch mt-4" role="tablist" aria-label={tCalc("mode.label")}>

@@ -326,6 +326,14 @@ form[data-calculation-form="true"] {
   }
 }
 
+@media (min-width: 1280px) {
+  .sc-form-grid,
+  .sc-industrial-form,
+  .sc-smart-form-fields {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .sc-form-field,
 .sc-industrial-field {
   display: flex;
@@ -396,6 +404,72 @@ form[data-calculation-form="true"] {
 .sc-industrial-form-actions .sc-cta-secondary {
   width: 100%;
   min-height: 44px;
+}
+
+/* ── P80: calculator form UX — mobile form-first + visible submit ── */
+@media (max-width: 1023px) {
+  body:has([data-premium-calculator-shell]) section.border-b.bg-surface-cream {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  body:has([data-premium-calculator-shell]) section.border-b.bg-surface-cream h1 {
+    font-size: 1.35rem;
+    line-height: 1.2;
+  }
+
+  body:has([data-premium-calculator-shell]) section.border-b.bg-surface-cream p {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  body:has([data-premium-calculator-shell]) .sc-featured-answer {
+    padding: 0.875rem 1rem;
+  }
+
+  body:has([data-premium-calculator-shell]) .sc-featured-answer__list,
+  body:has([data-premium-calculator-shell]) .sc-featured-answer__steps {
+    display: none;
+  }
+
+  body:has([data-premium-calculator-shell]) .sc-premium-tool-shell {
+    padding-top: 0.75rem;
+  }
+
+  body:has([data-premium-calculator-shell]) .sc-premium-tool-shell > .sc-tool-header {
+    display: none;
+  }
+
+  form[data-calculation-form="true"] {
+    padding-bottom: 5.5rem;
+  }
+
+  form[data-calculation-form="true"] .sc-industrial-form-actions,
+  .sc-smart-form-shell form .sc-industrial-form-actions {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    margin: 0;
+    padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(255, 255, 255, 0.96);
+    border-top: 1px solid #e2e8f0;
+    box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.08);
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .sc-form-grid,
+  .sc-industrial-form,
+  .sc-smart-form-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 640px) {

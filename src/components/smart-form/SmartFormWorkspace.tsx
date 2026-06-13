@@ -141,8 +141,10 @@ export function SmartFormWorkspace({
       toolSector={toolSector}
     >
       <div className="flex min-w-0 flex-col gap-4">
-        <ShapeDimensionGuide slug={toolSlug} locale={locale} />
-        {formContent}
+        <div className="order-1 min-w-0 lg:order-2">{formContent}</div>
+        <div className="order-2 min-w-0 lg:order-1">
+          <ShapeDimensionGuide slug={toolSlug} locale={locale} />
+        </div>
       </div>
     </ToolGuidanceLayout>
   );

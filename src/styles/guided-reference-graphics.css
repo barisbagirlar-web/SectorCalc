@@ -1,8 +1,12 @@
 .grg-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   min-width: 0;
 }
 
 .grg-layout__body {
+  order: 1;
   display: grid;
   gap: 1rem;
   min-width: 0;
@@ -16,6 +20,7 @@
 }
 
 .grg-layout__mobile-guide {
+  order: 2;
   display: block;
   min-width: 0;
 }
