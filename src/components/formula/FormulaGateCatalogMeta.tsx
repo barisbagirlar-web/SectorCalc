@@ -3,7 +3,7 @@ import {
   getFormulaGateReviewLabel,
   getFormulaGateVerifiedLabel,
 } from "@/lib/formula-governance/formula-gate-copy";
-import { isFormulaGateEligible } from "@/lib/tools/runtime-readiness";
+import { isFormulaGateTrustEligible } from "@/lib/tools/runtime-trust-engine";
 
 type Props = {
   slug: string;
@@ -16,7 +16,7 @@ export function FormulaGateCatalogMeta({ slug, locale, openLabel, isClickable }:
   const eligible =
     isClickable &&
     hasFormulaSourceAudit(slug) &&
-    isFormulaGateEligible(slug, locale, "premium");
+    isFormulaGateTrustEligible(slug, locale, "premium");
 
   if (eligible) {
     return (

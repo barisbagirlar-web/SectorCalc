@@ -76,8 +76,8 @@ import {
  type RevenueToolInput,
  revenueLegalDisclaimer,
 } from "@/lib/tools/revenue-tools";
-import { evaluateRuntimeReadiness } from "@/lib/tools/runtime-readiness";
-import { PremiumToolReviewSafeState } from "@/components/tools/PremiumToolReviewSafeState";
+import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
+import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 
 const DownloadVerdictPdfButton = dynamic(
  () =>
@@ -238,11 +238,11 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  const pagePath = stripLocalePrefix(pathname);
  const runtimeSlug = routeSlug ?? tool.paidSlug;
  const useFullLoopRuntime = isPremiumFullLoopRuntimeSlug(runtimeSlug);
- const runtimeReadiness = useMemo(
-  () => evaluateRuntimeReadiness({ slug: runtimeSlug, locale, surface: "premium" }),
+ const runtimeTrust = useMemo(
+  () => evaluateRuntimeTrust({ slug: runtimeSlug, locale, surface: "premium" }),
   [runtimeSlug, locale],
  );
- const showCalculationSurface = runtimeReadiness.paymentEligible;
+ const showCalculationSurface = runtimeTrust.calculationEligible;
  const {
  user,
  canAccessAnalyzer,
@@ -709,7 +709,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   </p>
  ) : null}
  {!showCalculationSurface ? (
-  <PremiumToolReviewSafeState slug={runtimeSlug} locale={locale} />
+  <ToolSafeReviewState slug={runtimeSlug} locale={locale} findings={runtimeTrust.findings} />
  ) : showSchemaPilot ? (
  <>
  <DynamicPremiumCalculator schema={schemaPilot!} />

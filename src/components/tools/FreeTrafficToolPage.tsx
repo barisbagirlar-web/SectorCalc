@@ -23,8 +23,8 @@ import {
 } from "@/lib/tools/free-traffic-catalog";
 import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-catalog";
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
-import { evaluateRuntimeReadiness } from "@/lib/tools/runtime-readiness";
-import { PremiumToolReviewSafeState } from "@/components/tools/PremiumToolReviewSafeState";
+import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
+import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
 import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
@@ -102,9 +102,9 @@ export function FreeTrafficToolPage({
   const [fullLoopResult, setFullLoopResult] = useState<FreeFullLoopResult | null>(null);
   const useFullLoopRuntime = isFreeFullLoopRuntimeSlug(tool.slug);
   const startedTracked = useRef(false);
-  const runtimeReadiness = useMemo(
+  const runtimeTrust = useMemo(
     () =>
-      evaluateRuntimeReadiness({
+      evaluateRuntimeTrust({
         slug: tool.slug,
         locale,
         surface: surfaceTier,
@@ -113,7 +113,7 @@ export function FreeTrafficToolPage({
     [tool.slug, locale, surfaceTier],
   );
   const showCalculationSurface =
-    surfaceTier === "free" || runtimeReadiness.paymentEligible;
+    surfaceTier === "free" || runtimeTrust.calculationEligible;
 
   useEffect(() => {
     trackEvent(ANALYTICS_EVENTS.tool_view, {
@@ -320,7 +320,7 @@ export function FreeTrafficToolPage({
       <section className="sc-craft-section overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
           {!showCalculationSurface ? (
-            <PremiumToolReviewSafeState slug={tool.slug} locale={locale} />
+            <ToolSafeReviewState slug={tool.slug} locale={locale} findings={runtimeTrust.findings} />
           ) : (
           <>
           <div className="sc-ledger-cetele sc-ledger-cetele--stacked sc-tool-workspace sc-tool-workspace--stacked">

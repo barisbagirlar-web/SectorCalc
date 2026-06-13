@@ -1,5 +1,5 @@
 import { getFormulaSourceAuditStatus } from "@/lib/formula-governance/formula-source-audit-registry";
-import { isFormulaGateEligible } from "@/lib/tools/runtime-readiness";
+import { isFormulaGateTrustEligible } from "@/lib/tools/runtime-trust-engine";
 import { CheckCircle2 } from "lucide-react";
 import {
   getFormulaGateVerifiedLabel,
@@ -15,7 +15,7 @@ type Props = {
 
 export function FormulaSourceAuditBadge({ slug, locale, className, surface }: Props) {
   const status = getFormulaSourceAuditStatus(slug);
-  const eligible = Boolean(status) && isFormulaGateEligible(slug, locale, surface ?? "free");
+  const eligible = Boolean(status) && isFormulaGateTrustEligible(slug, locale, surface ?? "free");
 
   if (!status || !eligible) {
     return null;

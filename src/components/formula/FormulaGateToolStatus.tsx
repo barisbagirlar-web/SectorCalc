@@ -1,5 +1,5 @@
 import { hasFormulaSourceAudit } from "@/lib/formula-governance/formula-source-audit-registry";
-import { isFormulaGateEligible } from "@/lib/tools/runtime-readiness";
+import { isFormulaGateTrustEligible } from "@/lib/tools/runtime-trust-engine";
 import { FormulaGateReviewStatus } from "@/components/formula/FormulaGateReviewStatus";
 import { FormulaSourceAuditBadge } from "@/components/formula/FormulaSourceAuditBadge";
 
@@ -13,7 +13,7 @@ type Props = {
 export function FormulaGateToolStatus({ slug, locale, className, surface }: Props) {
   const eligible =
     hasFormulaSourceAudit(slug) &&
-    isFormulaGateEligible(slug, locale, surface ?? "free");
+    isFormulaGateTrustEligible(slug, locale, surface ?? "free");
 
   if (eligible) {
     return <FormulaSourceAuditBadge slug={slug} locale={locale} className={className} />;
