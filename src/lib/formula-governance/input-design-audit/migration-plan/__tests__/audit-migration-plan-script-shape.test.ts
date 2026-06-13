@@ -18,8 +18,8 @@ describe("audit migration plan script shape", () => {
     const alignmentAudit = runBatchAlignmentAudit({ contracts: FORMULA_CONTRACTS });
     const plan = buildExistingToolMigrationPlan({ inputDesignAudit, alignmentAudit });
 
-    expect(plan.totalTools).toBe(287);
-    expect(plan.immediate + plan.high + plan.medium + plan.low + plan.defer).toBe(287);
+    expect(plan.totalTools).toBe(FORMULA_CONTRACTS.length);
+    expect(plan.immediate + plan.high + plan.medium + plan.low + plan.defer).toBe(FORMULA_CONTRACTS.length);
     expect(plan.immediate).toBeGreaterThan(0);
     expect(plan.defer).toBeGreaterThan(0);
   });

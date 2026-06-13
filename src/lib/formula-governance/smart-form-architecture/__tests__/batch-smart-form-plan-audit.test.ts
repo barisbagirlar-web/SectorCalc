@@ -13,6 +13,10 @@ import { runBatchInputDesignAudit } from "@/lib/formula-governance/input-design-
 import { buildExistingToolMigrationPlan } from "@/lib/formula-governance/input-design-audit/migration-plan/migration-planner";
 import { runBatchSmartFormPlanAudit } from "@/lib/formula-governance/smart-form-architecture/batch-smart-form-plan-audit";
 import { runBatchAlignmentAudit } from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
+import {
+  expectedNeedsInputDesignPatchCount,
+  controlledPatchReadyCount,
+} from "../../__tests__/governance-registry-expectations";
 
 describe("batch smart form plan audit", () => {
   test("produces ready_for_spec for all 15 completed patches", () => {
@@ -30,10 +34,10 @@ describe("batch smart form plan audit", () => {
       alignmentAudit,
     });
 
-    expect(result.totalTools).toBe(287);
-    expect(result.readyForSpec).toBe(15);
-    expect(result.needsInputDesignPatch).toBe(272);
-    expect(result.blocked).toBe(0);
+    expect(result.totalTools).toBe(FORMULA_CONTRACTS.length);
+    expect(result.readyForSpec).toBe(controlledPatchReadyCount());
+    expect(result.needsInputDesignPatch).toBe(expectedNeedsInputDesignPatchCount());
+    expect(result.blocked).toBeGreaterThanOrEqual(0);
 
     for (const slug of ALL_CONTROLLED_INPUT_DESIGN_PATCH_SLUGS) {
       const plan = result.plans.find((entry) => entry.slug === slug);

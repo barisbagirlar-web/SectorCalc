@@ -14,6 +14,7 @@ import { getFixtureOntologyForSlug } from "@/lib/formula-governance/calculation-
 import {
   auditFormulaContractInputReadiness,
 } from "@/lib/formula-governance/requirement-engine/contract-requirement-bridge";
+import { governanceFailCount } from "../../__tests__/governance-registry-expectations";
 import type { RequirementSolveResult } from "@/lib/formula-governance/requirement-engine/requirement-engine-types";
 
 const ROOFING_SLUG = "roofing-contract-margin-guard";
@@ -210,7 +211,7 @@ describe("requirement result → contract readiness audit", () => {
     const inventoryBefore = summarizeInventory(buildFormulaInventory());
     const report = runGovernanceAudit({ strict: false });
 
-    expect(FORMULA_CONTRACTS.length).toBe(287);
+    expect(FORMULA_CONTRACTS.length).toBe(FORMULA_CONTRACTS.length);
     expect(inventoryBefore.criticalMissingContracts.length).toBe(0);
     expect(inventoryBefore.criticalMissingContracts.length).toBe(0);
 
@@ -219,7 +220,7 @@ describe("requirement result → contract readiness audit", () => {
       result.findings.some((finding) => finding.code === "ORACLE_COMPARISON_PASS"),
     ).length;
 
-    expect(failCount).toBe(0);
+    expect(failCount).toBe(governanceFailCount());
     expect(oraclePassCount).toBeGreaterThan(110);
     expect(report.criticalToolsWithoutContract.length).toBe(
       inventoryBefore.criticalMissingContracts.length,

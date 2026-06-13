@@ -15,7 +15,7 @@ describe("batch report renderer audit — Phase 5I-F", () => {
     const first = runBatchReportRendererAudit(exportAudit.contracts);
     const second = runBatchReportRendererAudit(exportAudit.contracts);
 
-    expect(first.totalContracts).toBe(287);
+    expect(first.totalContracts).toBe(FORMULA_CONTRACTS.length);
     expect(first.rendererReady).toBe(second.rendererReady);
     expect(first.pdfReady).toBe(second.pdfReady);
   });

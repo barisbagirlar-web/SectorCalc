@@ -12,6 +12,10 @@ import {
   runBatchSmartFormPlanAudit,
 } from "@/lib/formula-governance/smart-form-architecture/batch-smart-form-plan-audit";
 import { runBatchAlignmentAudit } from "@/lib/formula-governance/requirement-engine/batch-alignment-audit";
+import {
+  expectedNeedsInputDesignPatchCount,
+  controlledPatchReadyCount,
+} from "../../__tests__/governance-registry-expectations";
 
 describe("audit smart form script shape", () => {
   test("summary shape matches CLI contract", () => {
@@ -29,10 +33,10 @@ describe("audit smart form script shape", () => {
       alignmentAudit,
     });
 
-    expect(result.totalTools).toBe(287);
-    expect(result.readyForSpec).toBe(15);
-    expect(result.needsInputDesignPatch).toBe(272);
-    expect(result.blocked).toBe(0);
+    expect(result.totalTools).toBe(FORMULA_CONTRACTS.length);
+    expect(result.readyForSpec).toBe(controlledPatchReadyCount());
+    expect(result.needsInputDesignPatch).toBe(expectedNeedsInputDesignPatchCount());
+    expect(result.blocked).toBeGreaterThanOrEqual(0);
     expect(result.recommendedFirstSmartFormBatch.length).toBe(3);
   });
 

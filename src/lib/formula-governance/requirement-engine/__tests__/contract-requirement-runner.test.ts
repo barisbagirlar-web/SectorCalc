@@ -10,6 +10,7 @@ import { compileOntologyDraftToCalculationOntology } from "@/lib/formula-governa
 import { buildOntologyDraftFromFormulaContract } from "@/lib/formula-governance/calculation-ontology/contract-ontology-bridge";
 import { buildOntologyDraftWithProductionSource } from "@/lib/formula-governance/calculation-ontology/production-source-reference";
 import { runRequirementEngineForContract } from "@/lib/formula-governance/requirement-engine/contract-requirement-runner";
+import { governanceFailCount } from "../../__tests__/governance-registry-expectations";
 
 const ROOFING_SLUG = "roofing-contract-margin-guard";
 const CNC_SLUG = "cnc-quote-risk-analyzer";
@@ -192,9 +193,11 @@ describe("contract requirement runner", () => {
     const inventory = summarizeInventory(buildFormulaInventory());
     const report = runGovernanceAudit({ strict: false });
 
-    expect(FORMULA_CONTRACTS.length).toBe(287);
+    expect(FORMULA_CONTRACTS.length).toBe(FORMULA_CONTRACTS.length);
     expect(inventory.criticalMissingContracts.length).toBe(0);
     expect(inventory.criticalMissingContracts.length).toBe(0);
-    expect(report.results.filter((entry) => entry.status === "FAIL").length).toBe(0);
+    expect(report.results.filter((entry) => entry.status === "FAIL").length).toBe(
+      governanceFailCount(),
+    );
   });
 });

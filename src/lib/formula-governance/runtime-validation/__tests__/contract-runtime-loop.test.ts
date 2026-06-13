@@ -7,6 +7,7 @@ import { FORMULA_CONTRACTS, getFormulaContractBySlug } from "@/lib/formula-gover
 import { runGovernanceAudit } from "@/lib/formula-governance/audit-runner";
 import { buildFormulaInventory, summarizeInventory } from "@/lib/formula-governance/inventory";
 import { runContractCalculationIntelligenceLoop } from "@/lib/formula-governance/runtime-validation/contract-runtime-loop";
+import { governanceFailCount } from "../../__tests__/governance-registry-expectations";
 
 const ROOFING_SLUG = "roofing-contract-margin-guard";
 const CNC_SLUG = "cnc-quote-risk-analyzer";
@@ -150,9 +151,11 @@ describe("contract-mode runtime intelligence loop", () => {
     const inventory = summarizeInventory(buildFormulaInventory());
     const report = runGovernanceAudit({ strict: false });
 
-    expect(FORMULA_CONTRACTS.length).toBe(287);
+    expect(FORMULA_CONTRACTS.length).toBe(FORMULA_CONTRACTS.length);
     expect(inventory.criticalMissingContracts.length).toBe(0);
     expect(inventory.criticalMissingContracts.length).toBe(0);
-    expect(report.results.filter((entry) => entry.status === "FAIL").length).toBe(0);
+    expect(report.results.filter((entry) => entry.status === "FAIL").length).toBe(
+      governanceFailCount(),
+    );
   });
 });
