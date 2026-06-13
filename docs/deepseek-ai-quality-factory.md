@@ -1,0 +1,139 @@
+# DeepSeek AI Quality Factory
+
+SectorCalc uses DeepSeek as an **offline quality advisor** — not as a live calculation engine or Formula Gate authority.
+
+## What DeepSeek is for
+
+- Formula consistency review suggestions
+- Input / variable / unit risk flags
+- Validation gap recommendations
+- Patch prompt material for human-reviewed fixes
+- JSON repair suggestion reports (`DeepSeekSuggestionEnvelope`)
+
+## What DeepSeek is not for
+
+- Live page render or form generation
+- Formula Gate approval
+- Opening payments or subscriptions
+- Automatic code changes
+- Git commits or deploys
+
+**Formula Gate decisions remain deterministic** (FormulaContract, oracle, P2.4, ERT Runtime Trust Engine).
+
+DeepSeek is **not a live render dependency**. If `DEEPSEEK_API_KEY` is missing, build/test/scripts exit safely with `suggestionUnavailable: true`.
+
+## Architecture (DSK roadmap)
+
+| Phase | Scope |
+| --- | --- |
+| **DSK-0A** | Client, JSON guard, minimum redaction, healthcheck, task temperature config |
+| **DSK-1** | Formula Auditor — problem slug + top risky tools → JSON suggestions |
+| **DSK-0B** | Full redaction, cache, cost controls |
+| **DSK-2** | Schema review |
+| **DSK-3** | Guide spec |
+| **DSK-4** | Repair queue |
+
+## File layout
+
+```
+src/lib/ai/deepseek/
+  deepseek-types.ts
+  deepseek-client.ts          # server/script only
+  deepseek-json-guard.ts
+  deepseek-redaction-lite.ts
+  deepseek-prompts.ts
+  formula-audit-collector.ts
+  run-healthcheck.ts
+  run-formula-audit.ts
+
+scripts/ai/
+  deepseek-healthcheck.mjs
+  deepseek-formula-audit.mjs
+```
+
+## Environment
+
+| Variable | Required | Default |
+| --- | --- | --- |
+| `DEEPSEEK_API_KEY` | No (offline mode without key) | — |
+| `DEEPSEEK_MODEL` | No | `deepseek-chat` |
+| `DEEPSEEK_TIMEOUT_MS` | No | `20000` |
+| `DEEPSEEK_MAX_TOOLS_PER_RUN` | No | `10` |
+
+**Never** expose `DEEPSEEK_API_KEY` in frontend bundles, client components, logs, or git.
+
+## Task temperature policy
+
+| Task | Temperature | Retries |
+| --- | --- | --- |
+| `formula_audit` | 0.1 | 1 |
+| `schema_review` | 0.2 | 1 |
+| `guide_spec` | 0.4 | 1 |
+| `content_draft` | 0.5 | 1 |
+
+## JSON suggestion format
+
+```json
+{
+  "taskType": "formula_audit",
+  "generatedAt": "2026-06-13T12:00:00.000Z",
+  "mustNotAutoApply": true,
+  "items": [
+    {
+      "slug": "tool-slug",
+      "riskLevel": "high",
+      "rootCause": "…",
+      "findings": ["…"],
+      "suggestedFiles": ["src/…"],
+      "suggestedChanges": [
+        {
+          "type": "validation_rule",
+          "description": "…",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ]
+}
+```
+
+`mustNotAutoApply` is **always** `true` at envelope level. Unknown fields may be stored but are not auto-converted to patches.
+
+## Human approval policy
+
+1. Run auditor offline: `npm run ai:deepseek:formula-audit`
+2. Review `scripts/.cache/deepseek/formula-audit-suggestions.json`
+3. Human engineer applies controlled patches through existing governance (Formula Gate, P2.4, ERT)
+4. Never auto-apply DeepSeek output
+
+## Minimum redaction
+
+Before any DeepSeek request, payloads pass through `redactSecretsLite`:
+
+- API keys, Stripe/Brevo/Firebase secrets
+- Private keys, webhook secrets
+- Payment/session id patterns
+- Email addresses → `[REDACTED_EMAIL]` (default)
+
+Marker: `[REDACTED_SECRET]`
+
+## Commands
+
+```bash
+npm run ai:deepseek:health
+npm run ai:deepseek:formula-audit
+```
+
+## DSK-1 audit targets
+
+1. Critical problem slug: `abonelik-yazilim-cloud-yillik-maliyet-hesabi` (always included)
+2. Top P2.4 `FAIL` / `WARN` / `QUARANTINE` tools (from cache + verdict registry)
+3. Top ERT `review` / `blocked` tools (from runtime trust report when present)
+
+Output: `scripts/.cache/deepseek/formula-audit-suggestions.json`
+
+## Healthcheck behavior
+
+- No API key → exit `0`, `status: unavailable`
+- API key present but failure → exit `1`
+- API key present and valid JSON ping → exit `0`, `status: ok`

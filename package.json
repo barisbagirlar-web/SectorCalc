@@ -71,6 +71,8 @@
     "tools:review-activation": "npm run review:tool-activation",
     "tools:apply-activation-draft": "npm run apply:tool-activation",
     "ai:repair:record": "node scripts/ai-repair/record-repair-outcome.mjs",
+    "ai:deepseek:health": "node scripts/ai/deepseek-healthcheck.mjs",
+    "ai:deepseek:formula-audit": "node scripts/ai/deepseek-formula-audit.mjs",
     "audit:ai-crawler-policy": "node scripts/audit-ai-crawler-policy.mjs",
     "audit:embedding-source": "node scripts/audit-embedding-source.mjs",
     "audit:engineering-standards": "node scripts/audit-engineering-standards.mjs",
