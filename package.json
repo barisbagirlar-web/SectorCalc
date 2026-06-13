@@ -63,6 +63,7 @@
     "audit:sprint-activation-manifest": "node scripts/tool-activation/build-sprint-activation-manifest.mjs",
     "apply:s2-low-risk-activation": "node scripts/tool-activation/apply-s2-low-risk-activation-batch.mjs",
     "apply:s3-low-risk-activation": "node scripts/tool-activation/apply-s3-low-risk-activation-batch.mjs",
+    "apply:s4-category-only-decision": "node scripts/tool-activation/apply-s4-category-only-route-decision.mjs",
     "audit:quarantine-recovery": "node scripts/tool-activation/audit-quarantine-recovery.mjs",
     "build:formula-knowledge-graph": "node scripts/tool-activation/build-formula-knowledge-graph.mjs",
     "audit:legacy-conflicts": "node scripts/tool-activation/audit-legacy-conflicts.mjs",
