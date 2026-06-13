@@ -33,6 +33,7 @@ export const MANUAL_CATEGORY_OVERRIDES: Readonly<Record<string, GlobalToolCatego
   "rent-vs-buy-calculator": "finance-sales-working-capital",
   "quote-price-profit-margin-calculator": "finance-sales-working-capital",
   "value-stream-map-vsm-calculator": "lean-production",
+  "7-israf-muda-avcisi-parasal-karsilik-calculator": "lean-production",
   "quality-cost-paf-calculator": "quality-six-sigma",
   "cbam-unit-product-carbon-footprint-calculator": "sustainability-resource-esg",
   "carbon-footprint-compliance-risk": "sustainability-resource-esg",

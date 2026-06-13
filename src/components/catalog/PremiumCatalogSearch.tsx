@@ -1,19 +1,27 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Search, X } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { CategoryCardGrid } from "@/components/catalog/CategoryCardGrid";
 import type { CategoryCardItem } from "@/components/catalog/CategoryCardGrid";
+import {
+  buildSearchablePremiumToolHaystack,
+  normalizeToolSearchText,
+} from "@/lib/catalog/premium-catalog-source";
 
 export type SearchablePremiumTool = {
   readonly slug: string;
   readonly title: string;
   readonly description: string;
   readonly categorySlug: string;
+  readonly categoryLabel?: string;
   readonly routePath: string | null;
   readonly isActive: boolean;
+  readonly searchTerms?: readonly string[];
+  readonly aliases?: readonly string[];
+  readonly keywords?: readonly string[];
 };
 
 export type SearchablePremiumCategory = {
@@ -27,14 +35,6 @@ type Props = {
   readonly categories: readonly SearchablePremiumCategory[];
 };
 
-function normalizeStr(value: string, locale: string): string {
-  return value
-    .toLocaleLowerCase(locale)
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .trim();
-}
-
 function scrollToToolsList() {
   requestAnimationFrame(() => {
     document.getElementById("tools-list")?.scrollIntoView({
@@ -46,7 +46,6 @@ function scrollToToolsList() {
 
 export function PremiumCatalogSearch({ tools, categories }: Props) {
   const t = useTranslations("premiumCategoryCatalog");
-  const locale = useLocale();
 
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -70,7 +69,7 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
   );
 
   const visibleTools = useMemo(() => {
-    const normalizedQuery = normalizeStr(searchQuery, locale);
+    const normalizedQuery = normalizeToolSearchText(searchQuery.trim());
     const categoryFiltered =
       selectedCategory === "all"
         ? tools
@@ -78,14 +77,10 @@ export function PremiumCatalogSearch({ tools, categories }: Props) {
 
     if (normalizedQuery.length === 0) return categoryFiltered;
 
-    return categoryFiltered.filter((tool) => {
-      const haystack = normalizeStr(
-        [tool.title, tool.slug, tool.categorySlug, tool.description].filter(Boolean).join(" "),
-        locale,
-      );
-      return haystack.includes(normalizedQuery);
-    });
-  }, [tools, selectedCategory, searchQuery, locale]);
+    return categoryFiltered.filter((tool) =>
+      buildSearchablePremiumToolHaystack(tool).includes(normalizedQuery),
+    );
+  }, [tools, selectedCategory, searchQuery]);
 
   return (
     <div className="flex flex-col gap-6">

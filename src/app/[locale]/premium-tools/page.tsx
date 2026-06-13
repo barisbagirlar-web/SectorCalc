@@ -11,7 +11,7 @@ import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
 import { listPremiumCatalogCategories } from "@/lib/premium/premium-category-resolver";
-import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
+import { buildPremiumCatalogTools } from "@/lib/catalog/premium-catalog-source";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/seo/localized-breadcrumbs";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -38,18 +38,19 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   setRequestLocale(locale);
 
   const rawCategories = listPremiumCatalogCategories(locale);
-  const allTools = buildCategorizedToolIndex();
-  const premiumItems = allTools.filter(
-    (item) => item.tier === "premium" || item.tier === "premium-schema",
-  );
+  const premiumCatalogTools = buildPremiumCatalogTools(locale);
 
-  const searchableTools: SearchablePremiumTool[] = premiumItems.map((item) => ({
+  const searchableTools: SearchablePremiumTool[] = premiumCatalogTools.map((item) => ({
     slug: item.slug,
-    title: item.title[locale] ?? item.title["en"] ?? item.slug,
-    description: item.description[locale] ?? item.description["en"] ?? "",
-    categorySlug: item.categorySlug,
+    title: item.title,
+    description: item.description,
+    categorySlug: item.categoryId,
+    categoryLabel: item.categoryLabel,
     routePath: item.routePath,
-    isActive: item.publicStatus === "active" && item.routePath !== null,
+    isActive: item.isActive,
+    searchTerms: item.searchTerms,
+    aliases: item.aliases,
+    keywords: item.keywords,
   }));
 
   const searchableCategories: SearchablePremiumCategory[] = rawCategories
