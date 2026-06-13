@@ -250,21 +250,6 @@ export const S2_LOW_RISK_ACTIVATION_GUIDE_SPECS: readonly ToolGuideSpec[] = [
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   },
   {
-    slug: "feed-efficiency-analyzer",
-    guideType: "cost_breakdown",
-    titleKey: "inputGuide.s2Activation.tools.feedEfficiencyAnalyzer.title",
-    descriptionKey: "inputGuide.costBreakdown.description",
-    inputMap: [
-      { inputKey: "cows", visualRole: "primary", nodeId: "cows" },
-      { inputKey: "feedCostPerCowPerDay", visualRole: "driver", nodeId: "feedcostpercowperday" },
-      { inputKey: "milkLitersPerCowPerDay", visualRole: "driver", nodeId: "milkliterspercowperday" },
-      { inputKey: "targetMilkLitersPerCowPerDay", visualRole: "secondary", nodeId: "targetmilkliterspercowperday" },
-      { inputKey: "milkPricePerLiter", visualRole: "secondary", nodeId: "milkpriceperliter" },
-      { inputKey: "days", visualRole: "output", nodeId: "days" },
-    ],
-    quality: TOOL_GUIDE_QUALITY_DEFAULT,
-  },
-  {
     slug: "food-waste-margin-loss",
     guideType: "cost_breakdown",
     titleKey: "inputGuide.s2Activation.tools.foodWasteMarginLoss.title",
