@@ -9,6 +9,7 @@ Read-only aggregation layer for SectorCalc tool quality, formula knowledge graph
 | `npm run audit:p25-control-plane` | `scripts/.cache/tool-quality-control-plane.json` | Unified PASS/WARN/FAIL map + eligibility + repair routing |
 | `npm run build:formula-knowledge-graph` | `scripts/.cache/formula-knowledge-graph.json` | Tool → route → schema → contract → validation chain |
 | `npm run ai:deepseek:export-tool-context` | `scripts/.cache/deepseek/tool-context-for-repair.json` | Redacted DeepSeek repair payload |
+| `npm run ai:deepseek:bulk-repair` | `scripts/.cache/deepseek/bulk-tool-repair-report.json` | P2.5 `auto_repair` selection + patch plan (plan mode before apply) |
 
 ## Prerequisites
 

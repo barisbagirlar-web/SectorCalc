@@ -10,12 +10,16 @@ import {
 import { applyBulkRepairBatch } from "@/lib/ai/deepseek/bulk-tool-repair-applier";
 import {
   readAuditCounts,
-  selectBulkRepairSlugs,
+  selectBulkRepairBatch,
 } from "@/lib/ai/deepseek/bulk-tool-repair-collector";
 import { planBulkRepairBatch } from "@/lib/ai/deepseek/bulk-tool-repair-planner";
 import type {
+  BulkRepairDecision,
+  BulkRepairPatchPlan,
   BulkToolRepairItem,
   BulkToolRepairReport,
+  DeepSeekDiagnostics,
+  PatchCandidateSummary,
 } from "@/lib/ai/deepseek/bulk-tool-repair-types";
 
 const ROOT = process.cwd();
@@ -37,29 +41,13 @@ function parseMode(): "apply" | "plan" {
   return raw === "apply" ? "apply" : "plan";
 }
 
-function selectAndPlan(limit: number, riskFilter: Set<string>): BulkToolRepairItem[] {
-  const poolSize = Math.min(Math.max(limit * 3, limit), 500);
-  const pool = selectBulkRepairSlugs(poolSize);
-  const plannedAll = planBulkRepairBatch(pool)
-    .filter((item) => riskFilter.has(item.riskLevel))
-    .sort((a, b) => rankRepairItem(b) - rankRepairItem(a) || a.slug.localeCompare(b.slug));
-
-  const autoApply = plannedAll.filter(
-    (item) => item.repairDecision === "auto_apply" && item.patches.length > 0,
-  );
-  const manual = plannedAll.filter(
-    (item) => item.repairDecision === "manual_review" && item.patches.length > 0,
-  );
-  const remainder = plannedAll.filter(
-    (item) => item.repairDecision === "keep_safe_state" || item.patches.length === 0,
-  );
-
-  return [...autoApply, ...manual, ...remainder].slice(0, limit);
+function isPatchCandidateDecision(decision: BulkRepairDecision): boolean {
+  return decision === "auto_apply" || decision === "auto_apply_candidate";
 }
 
 function rankRepairItem(item: BulkToolRepairItem): number {
-  if (item.repairDecision === "auto_apply" && item.patches.length > 0) {
-    return 100;
+  if (isPatchCandidateDecision(item.repairDecision) && item.patches.length > 0) {
+    return item.repairDecision === "auto_apply" ? 100 : 90;
   }
   if (item.repairDecision === "manual_review" && item.patches.length > 0) {
     return 50;
@@ -68,6 +56,25 @@ function rankRepairItem(item: BulkToolRepairItem): number {
     return 25;
   }
   return 0;
+}
+
+function normalizeRepairDecision(raw: string | undefined): BulkRepairDecision {
+  if (raw === "auto_apply_candidate" || raw === "auto_apply") {
+    return raw;
+  }
+  if (raw === "manual_review" || raw === "keep_safe_state" || raw === "skip") {
+    return raw;
+  }
+  return "manual_review";
+}
+
+function normalizePatch(patch: BulkRepairPatchPlan): BulkRepairPatchPlan {
+  return {
+    ...patch,
+    targetFile: patch.targetFile ?? "",
+    safeToApply: Boolean(patch.safeToApply),
+    requiresHumanApproval: patch.requiresHumanApproval ?? !patch.safeToApply,
+  };
 }
 
 function mergeDeepSeekDecisions(
@@ -81,25 +88,192 @@ function mergeDeepSeekDecisions(
       return item;
     }
 
+    const remotePatches =
+      remote.patches?.length > 0 ? remote.patches.map(normalizePatch) : item.patches;
+    const remoteDecision = normalizeRepairDecision(remote.repairDecision);
+    const mergedPatches = remotePatches.length > 0 ? remotePatches : item.patches;
+
     if (remote.riskLevel === "high" || remote.riskLevel === "critical") {
       return {
         ...item,
+        patches: mergedPatches,
         riskLevel: remote.riskLevel,
         repairDecision: "manual_review",
         rootCause: remote.rootCause || item.rootCause,
+        whyNotPatchable: remote.whyNotPatchable,
+        expectedAuditAfterPatch: remote.expectedAuditAfterPatch ?? item.expectedAuditAfterPatch,
       };
     }
 
-    if (remote.repairDecision === "manual_review" || remote.repairDecision === "keep_safe_state") {
+    if (remoteDecision === "keep_safe_state" || remoteDecision === "skip") {
       return {
         ...item,
-        repairDecision: remote.repairDecision,
+        repairDecision: remoteDecision,
+        patches: mergedPatches,
         rootCause: remote.rootCause || item.rootCause,
+        whyNotPatchable:
+          remote.whyNotPatchable ||
+          remote.rootCause ||
+          item.whyNotPatchable ||
+          "DeepSeek marked as not patchable.",
+        expectedAuditAfterPatch: remote.expectedAuditAfterPatch ?? item.expectedAuditAfterPatch,
+        riskLevel: remote.riskLevel ?? item.riskLevel,
       };
     }
 
-    return item;
+    if (remoteDecision === "manual_review") {
+      return {
+        ...item,
+        repairDecision: "manual_review",
+        patches: mergedPatches,
+        rootCause: remote.rootCause || item.rootCause,
+        whyNotPatchable: remote.whyNotPatchable,
+        expectedAuditAfterPatch: remote.expectedAuditAfterPatch ?? item.expectedAuditAfterPatch,
+        riskLevel: remote.riskLevel ?? item.riskLevel,
+      };
+    }
+
+    if (mergedPatches.length > 0) {
+      return {
+        ...item,
+        repairDecision: remoteDecision,
+        patches: mergedPatches,
+        rootCause: remote.rootCause || item.rootCause,
+        whyNotPatchable: remote.whyNotPatchable,
+        expectedAuditAfterPatch: remote.expectedAuditAfterPatch ?? item.expectedAuditAfterPatch,
+        riskLevel: remote.riskLevel ?? item.riskLevel,
+      };
+    }
+
+    return {
+      ...item,
+      rootCause: remote.rootCause || item.rootCause,
+      whyNotPatchable:
+        remote.whyNotPatchable ||
+        item.whyNotPatchable ||
+        "DeepSeek returned no applicable patches.",
+      riskLevel: remote.riskLevel ?? item.riskLevel,
+    };
   });
+}
+
+function selectAndPlan(limit: number, riskFilter: Set<string>): {
+  items: BulkToolRepairItem[];
+  selectionDiagnostics: BulkToolRepairReport["selectionDiagnostics"];
+} {
+  const { rows, selectionDiagnostics } = selectBulkRepairBatch(limit);
+  const plannedAll = planBulkRepairBatch(rows)
+    .filter((item) => riskFilter.has(item.riskLevel))
+    .sort((a, b) => rankRepairItem(b) - rankRepairItem(a) || a.slug.localeCompare(b.slug));
+
+  const patchCandidates = plannedAll.filter(
+    (item) => isPatchCandidateDecision(item.repairDecision) && item.patches.length > 0,
+  );
+  const manual = plannedAll.filter(
+    (item) => item.repairDecision === "manual_review" && item.patches.length > 0,
+  );
+  const remainder = plannedAll.filter(
+    (item) =>
+      item.repairDecision === "keep_safe_state" ||
+      item.repairDecision === "skip" ||
+      item.patches.length === 0,
+  );
+
+  return {
+    items: [...patchCandidates, ...manual, ...remainder].slice(0, limit),
+    selectionDiagnostics,
+  };
+}
+
+function buildPatchCandidates(items: BulkToolRepairItem[]): PatchCandidateSummary[] {
+  return items
+    .filter((item) => isPatchCandidateDecision(item.repairDecision) && item.patches.length > 0)
+    .map((item) => ({
+      slug: item.slug,
+      repairDecision: item.repairDecision,
+      riskLevel: item.riskLevel,
+      patchCount: item.patches.length,
+      patchTypes: item.patches.map((patch) => patch.type),
+      rootCause: item.rootCause,
+      whyNotPatchable: item.whyNotPatchable,
+    }));
+}
+
+function buildDeepSeekDiagnostics(
+  items: BulkToolRepairItem[],
+  rawItems: number,
+  parsedItems: number,
+): DeepSeekDiagnostics {
+  const withPatches = items.filter((item) => item.patches.length > 0);
+  const withoutPatches = items.filter((item) => item.patches.length === 0);
+  const keepSafe = items.filter((item) => item.repairDecision === "keep_safe_state");
+  const reasonCounts = new Map<string, number>();
+
+  for (const item of items) {
+    const reason = item.whyNotPatchable || item.rootCause;
+    if (reason) {
+      reasonCounts.set(reason, (reasonCounts.get(reason) ?? 0) + 1);
+    }
+  }
+
+  const commonWhyNotPatchable = [...reasonCounts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([reason, count]) => `${count}x: ${reason}`);
+
+  return {
+    rawItems,
+    parsedItems,
+    itemsWithPatches: withPatches.length,
+    itemsWithoutPatches: withoutPatches.length,
+    allSafeStateKept: items.length > 0 && keepSafe.length === items.length,
+    commonWhyNotPatchable,
+  };
+}
+
+function collectNotPatchableReasons(items: BulkToolRepairItem[]): string[] {
+  return items
+    .filter((item) => item.repairDecision === "keep_safe_state" || item.repairDecision === "skip")
+    .map((item) => `${item.slug}: ${item.whyNotPatchable || item.rootCause || "no reason"}`);
+}
+
+function evaluatePlanModeQuality(
+  report: Omit<BulkToolRepairReport, "blockers"> & { blockers: string[] },
+  mode: "apply" | "plan",
+): number {
+  if (mode !== "plan") {
+    return 0;
+  }
+
+  const failures: string[] = [];
+
+  if (report.selectionDiagnostics.selectedAutoRepair === 0) {
+    failures.push("selectedAutoRepair=0");
+  }
+  if (report.deepseekStatus === "ok" && report.deepseekDiagnostics.parsedItems === 0) {
+    failures.push("parsedItems=0");
+  }
+  if (
+    report.selected.length >= 50 &&
+    report.deepseekDiagnostics.itemsWithPatches === 0
+  ) {
+    failures.push("itemsWithPatches=0 with selected>=50");
+  }
+  const safeRatio =
+    report.selected.length > 0 ? report.safeStateKept.length / report.selected.length : 0;
+  if (safeRatio > 0.9 && report.notPatchableReasons.length === 0) {
+    failures.push("safeStateKept>90% with empty notPatchableReasons");
+  }
+  if (report.deepseekDiagnostics.allSafeStateKept) {
+    failures.push("all items keep_safe_state");
+  }
+
+  if (failures.length > 0) {
+    report.blockers.push(`Plan mode quality gate failed: ${failures.join("; ")}`);
+    return 1;
+  }
+
+  return 0;
 }
 
 function runAudits(): void {
@@ -123,15 +297,21 @@ export async function runBulkToolRepair(): Promise<{
   exitCode: number;
 }> {
   const limit = Number(process.env.DEEPSEEK_BULK_LIMIT || 50);
+  if (!process.env.DEEPSEEK_TIMEOUT_MS && limit > 25) {
+    process.env.DEEPSEEK_TIMEOUT_MS = "90000";
+  }
   const mode = parseMode();
   const riskFilter = parseRiskFilter();
   const before = readAuditCounts();
   const blockers: string[] = [];
 
-  let planned = selectAndPlan(limit, riskFilter);
+  const { items: initialPlanned, selectionDiagnostics } = selectAndPlan(limit, riskFilter);
+  let planned = initialPlanned;
   const selected = planned.map((item) => item.slug);
 
   let deepseekStatus: BulkToolRepairReport["deepseekStatus"] = "skipped";
+  let deepseekRawItems = 0;
+  let deepseekParsedItems = 0;
   const config = getDeepSeekClientConfig();
 
   if (!config.apiKey) {
@@ -146,6 +326,7 @@ export async function runBulkToolRepair(): Promise<{
 
     const mergedItems: BulkToolRepairItem[] = [];
     for (const batch of batches) {
+      deepseekRawItems += batch.length;
       const result = await callDeepSeekJson(
         "schema_review",
         [
@@ -159,11 +340,13 @@ export async function runBulkToolRepair(): Promise<{
         deepseekStatus = result.errorCode === "missing_api_key" ? "missing_api_key" : "api_error";
         blockers.push(`DeepSeek API error: ${result.errorCode ?? "unknown"}`);
         mergedItems.push(...batch);
-        break;
+        continue;
       }
 
       deepseekStatus = "ok";
-      mergedItems.push(...mergeDeepSeekDecisions(batch, result.data.items as BulkToolRepairItem[]));
+      const remoteItems = result.data.items as BulkToolRepairItem[];
+      deepseekParsedItems += remoteItems.length;
+      mergedItems.push(...mergeDeepSeekDecisions(batch, remoteItems));
     }
 
     if (mergedItems.length > 0) {
@@ -210,13 +393,7 @@ export async function runBulkToolRepair(): Promise<{
     manualReview = planned.filter((item) => item.repairDecision === "manual_review").map((i) => i.slug);
     safeStateKept = planned.filter((item) => item.repairDecision === "keep_safe_state").map((i) => i.slug);
     skipped = planned
-      .filter(
-        (item) =>
-          item.repairDecision === "auto_apply" &&
-          item.patches.length > 0 &&
-          item.riskLevel !== "high" &&
-          item.riskLevel !== "critical",
-      )
+      .filter((item) => item.repairDecision === "skip")
       .map((item) => item.slug);
   }
 
@@ -225,6 +402,17 @@ export async function runBulkToolRepair(): Promise<{
     .map((item) => item.slug);
 
   const after = canApplyDeterministic ? readAuditCounts() : before;
+
+  const deepseekDiagnostics = buildDeepSeekDiagnostics(
+    planned,
+    deepseekRawItems,
+    deepseekParsedItems,
+  );
+  const patchCandidates = buildPatchCandidates(planned);
+  const notPatchableReasons = collectNotPatchableReasons(planned);
+  const policyBlocks = blockedByPolicy.map(
+    (slug) => `${slug}: blocked by high/critical risk policy`,
+  );
 
   const report: BulkToolRepairReport = {
     generatedAt: new Date().toISOString(),
@@ -242,14 +430,23 @@ export async function runBulkToolRepair(): Promise<{
     blockers,
     deepseekStatus,
     items: planned,
+    selectionDiagnostics,
+    deepseekDiagnostics,
+    patchCandidates,
+    notPatchableReasons,
+    policyBlocks,
   };
 
   writeReport(report);
 
-  const exitCode =
-    applyRequested && patched.length === 0 && planned.some((item) => item.repairDecision === "auto_apply")
-      ? 1
-      : 0;
+  let exitCode = evaluatePlanModeQuality(report, mode);
+  if (
+    applyRequested &&
+    patched.length === 0 &&
+    planned.some((item) => item.repairDecision === "auto_apply")
+  ) {
+    exitCode = 1;
+  }
 
   return { report, exitCode };
 }
@@ -261,6 +458,9 @@ async function main(): Promise<void> {
   console.log(`mode: ${report.mode}`);
   console.log(`limit: ${report.limit}`);
   console.log(`selected: ${report.selected.length}`);
+  console.log(`selectedAutoRepair: ${report.selectionDiagnostics.selectedAutoRepair}`);
+  console.log(`patchCandidates: ${report.patchCandidates.length}`);
+  console.log(`itemsWithPatches: ${report.deepseekDiagnostics.itemsWithPatches}`);
   console.log(`deepseek: ${report.deepseekStatus}`);
   console.log(
     `before PASS/WARN/FAIL/QUARANTINE: ${report.before.PASS}/${report.before.WARN}/${report.before.FAIL}/${report.before.QUARANTINE}`,
@@ -277,6 +477,15 @@ async function main(): Promise<void> {
     console.log(`blockers: ${report.blockers.join("; ")}`);
   }
   console.log(`output: ${path.relative(ROOT, REPORT_PATH)}`);
+
+  if (report.patchCandidates.length > 0) {
+    console.log("\nPatch candidates (first 20):");
+    for (const candidate of report.patchCandidates.slice(0, 20)) {
+      console.log(
+        ` - ${candidate.slug} (${candidate.repairDecision}, ${candidate.patchCount} patches: ${candidate.patchTypes.join(",")})`,
+      );
+    }
+  }
 
   if (report.patched.length > 0) {
     console.log("\nPatched slugs:");

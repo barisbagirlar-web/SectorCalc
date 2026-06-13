@@ -7,7 +7,11 @@ import type {
   BulkToolRepairItem,
   P24ToolRow,
 } from "@/lib/ai/deepseek/bulk-tool-repair-types";
-import { buildBulkRepairContext, hasPremiumSchemaI18nEntry } from "@/lib/ai/deepseek/bulk-tool-repair-collector";
+import {
+  buildBulkRepairContext,
+  hasPremiumSchemaI18nEntry,
+  loadControlPlaneMap,
+} from "@/lib/ai/deepseek/bulk-tool-repair-collector";
 
 const ROOT = process.cwd();
 
@@ -21,6 +25,11 @@ const UNIT_REPLACEMENTS: Array<{ pattern: RegExp; replacement: string }> = [
   { pattern: /unit:\s*"ha"/g, replacement: 'unit: "hectare"' },
   { pattern: /unit:\s*"liters"/g, replacement: 'unit: "L"' },
   { pattern: /unit:\s*"calls"/g, replacement: 'unit: "count"' },
+  { pattern: /unit:\s*"people"/g, replacement: 'unit: "count"' },
+  { pattern: /unit:\s*"machines"/g, replacement: 'unit: "count"' },
+  { pattern: /unit:\s*"trips"/g, replacement: 'unit: "count"' },
+  { pattern: /unit:\s*"weeks"/g, replacement: 'unit: "days"' },
+  { pattern: /unit:\s*"years"/g, replacement: 'unit: "days"' },
 ];
 
 function findingIds(row: P24ToolRow): Set<string> {
@@ -86,7 +95,13 @@ function resolveDedicatedTestFile(context: ReturnType<typeof buildBulkRepairCont
 
 function inferRisk(row: P24ToolRow, patches: BulkRepairPatchPlan[]): BulkRepairRiskLevel {
   if (hasFailFinding(row, "formulaContractAlignment") || hasFailFinding(row, "requiredInputs")) {
-    return "high";
+    const msg = (row.findings ?? []).find((f) => f.checkId === "requiredInputs")?.message ?? "";
+    if (/no calculator/i.test(msg)) {
+      return "high";
+    }
+  }
+  if (patches.some((patch) => patch.type === "schema_fix" || patch.type === "validation_fix")) {
+    return patches.every((p) => p.safeToApply && !p.requiresHumanApproval) ? "medium" : "medium";
   }
   if (patches.some((patch) => patch.type === "validation_fix")) {
     return "medium";
@@ -110,19 +125,34 @@ function inferDecision(
   if (risk === "high" || risk === "critical") {
     return "manual_review";
   }
-  if (patches.every((patch) => patch.safeToApply)) {
+  const allSafeAuto = patches.every((patch) => patch.safeToApply && !patch.requiresHumanApproval);
+  if (allSafeAuto) {
     return "auto_apply";
+  }
+  const hasCandidate = patches.some((patch) => patch.targetFile || patch.targetFileHint);
+  if (hasCandidate) {
+    return "auto_apply_candidate";
   }
   return "manual_review";
 }
 
+function defaultSchemaPath(schemaId: string): string {
+  return `src/lib/premium-schema/schemas/${schemaId}.ts`;
+}
+
+function defaultValidationPath(schemaId: string): string {
+  return `src/lib/premium-schema/calculators/${schemaId}-validation.ts`;
+}
+
 export function planBulkRepairItem(row: P24ToolRow): BulkToolRepairItem {
   const context = buildBulkRepairContext(row);
+  const controlPlane = loadControlPlaneMap().get(row.slug);
   const ids = findingIds(row);
   const patches: BulkRepairPatchPlan[] = [];
+  const isPremiumTier = row.tier === "premium-schema" || row.tier === "premium";
 
   if (
-    (ids.has("canonicalUnit") || ids.has("unitMapping")) &&
+    (ids.has("canonicalUnit") || ids.has("unitMapping") || context.unitIssues.length > 0) &&
     context.schemaPath &&
     schemaHasFixableUnits(context.schemaPath)
   ) {
@@ -133,9 +163,21 @@ export function planBulkRepairItem(row: P24ToolRow): BulkToolRepairItem {
       safeToApply: true,
       metadata: { replacements: UNIT_REPLACEMENTS.map((r) => r.pattern.source).join("|") },
     });
+  } else if (
+    (ids.has("canonicalUnit") || ids.has("unitMapping") || context.unitIssues.length > 0) &&
+    context.schemaPath
+  ) {
+    patches.push({
+      type: "unit_fix",
+      targetFile: context.schemaPath,
+      targetFileHint: context.schemaPath,
+      description: "Map non-catalog unit strings to canonical vocabulary.",
+      safeToApply: false,
+      requiresHumanApproval: true,
+    });
   }
 
-  if (ids.has("localeKeys") || ids.has("arRtl")) {
+  if (ids.has("localeKeys") || ids.has("arRtl") || controlPlane?.i18n?.complete === false) {
     const sourceSlug = resolveI18nSourceSlug(context);
     if (sourceSlug) {
       for (const locale of ["en", "tr", "de", "fr", "es", "ar"]) {
@@ -212,28 +254,105 @@ export function planBulkRepairItem(row: P24ToolRow): BulkToolRepairItem {
   }
 
   if (
-    row.tier === "premium-schema" &&
+    isPremiumTier &&
     !context.validationExists &&
     !hasFailFinding(row, "formulaContractAlignment") &&
-    context.schemaPath &&
     !/^\d/.test(context.schemaId)
   ) {
-    const validationPath = `src/lib/premium-schema/calculators/${context.schemaId}-validation.ts`;
+    const validationPath = defaultValidationPath(context.schemaId);
     if (!fs.existsSync(path.join(ROOT, validationPath))) {
       patches.push({
         type: "validation_fix",
         targetFile: validationPath,
+        targetFileHint: validationPath,
         description: `Scaffold validation module for ${context.schemaId}.`,
-        safeToApply: true,
+        safeToApply: context.schemaPath ? true : false,
+        requiresHumanApproval: !context.schemaPath,
         metadata: { schemaId: context.schemaId, schemaPath: context.schemaPath ?? "" },
       });
     }
   }
 
+  if (isPremiumTier && !context.formSchemaExists) {
+    const schemaPath = defaultSchemaPath(context.schemaId);
+    patches.push({
+      type: "schema_fix",
+      targetFile: fs.existsSync(path.join(ROOT, schemaPath)) ? schemaPath : "",
+      targetFileHint: schemaPath,
+      description: `Scaffold or wire premium schema for ${context.slug}.`,
+      safeToApply: false,
+      requiresHumanApproval: true,
+    });
+  }
+
+  if (isPremiumTier && !context.resultRendererExists) {
+    patches.push({
+      type: "result_renderer",
+      targetFile: "",
+      targetFileHint: `src/components/premium-schema/results/${context.schemaId}Result.tsx`,
+      description: `Wire or scaffold result renderer for ${context.slug}.`,
+      safeToApply: false,
+      requiresHumanApproval: true,
+    });
+  }
+
+  if (isPremiumTier && !context.submitHandlerExists) {
+    patches.push({
+      type: "submit_handler",
+      targetFile: "",
+      targetFileHint: `src/lib/premium-schema/submit-handlers/${context.schemaId}.ts`,
+      description: `Wire or scaffold submit handler for ${context.slug}.`,
+      safeToApply: false,
+      requiresHumanApproval: true,
+    });
+  }
+
+  if (ids.has("freePremiumSplit") || controlPlane?.formulaContract?.aligned === false) {
+    patches.push({
+      type: "contract_alignment",
+      targetFile: "",
+      targetFileHint: "src/data/revenue-tools.ts",
+      description: "Align free/premium pair or contract required inputs.",
+      safeToApply: false,
+      requiresHumanApproval: true,
+    });
+  }
+
+  if (
+    context.knownFormulaAuditFindings.some((f) => /boundary/i.test(f)) ||
+    ids.has("boundaryTests")
+  ) {
+    const validationPath = defaultValidationPath(context.schemaId);
+    patches.push({
+      type: "validation_fix",
+      targetFile: fs.existsSync(path.join(ROOT, validationPath)) ? validationPath : "",
+      targetFileHint: validationPath,
+      description: "Add boundary scenario coverage to validation or contract.",
+      safeToApply: false,
+      requiresHumanApproval: true,
+    });
+  }
+
+  if (context.guideStatus === "generic" || controlPlane?.guide?.genericGuideBlocked) {
+    patches.push({
+      type: "guide_hide",
+      targetFile: "src/lib/tools/guide/tool-guide-registry.ts",
+      targetFileHint: "src/lib/tools/guide/tool-guide-registry.ts",
+      description: "Hide generic guide until approved spec exists.",
+      safeToApply: true,
+      requiresHumanApproval: false,
+    });
+  }
+
   const riskLevel = inferRisk(row, patches);
   const repairDecision = inferDecision(riskLevel, patches);
   const expectedAuditAfterPatch =
-    patches.length > 0 && repairDecision === "auto_apply" ? "PASS" : row.verdict === "FAIL" ? "WARN" : "WARN";
+    patches.length > 0 &&
+    (repairDecision === "auto_apply" || repairDecision === "auto_apply_candidate")
+      ? "PASS"
+      : row.verdict === "FAIL"
+        ? "WARN"
+        : "WARN";
 
   return {
     slug: context.slug,
@@ -255,6 +374,7 @@ export function planBulkRepairItem(row: P24ToolRow): BulkToolRepairItem {
     repairDecision,
     rootCause: context.findings[0] ?? "No automated root cause inferred.",
     patches,
+    whyNotPatchable: patches.length === 0 ? context.findings.join("; ") || "No local patch plan inferred." : undefined,
     expectedAuditAfterPatch,
     testCommands: ["npm run lint", "npx tsc --noEmit"],
   };

@@ -3,14 +3,17 @@ import path from "node:path";
 import { getFormulaContractBySlug } from "@/lib/formula-governance/contracts";
 import { PREMIUM_SCHEMA_SLUG_MAP } from "@/lib/premium-schema/schema-registry";
 import { ERT_PROBLEM_SLUG } from "@/lib/ai/deepseek/formula-audit-collector";
-import type { P24ToolRow, ExtendedAuditCounts } from "@/lib/ai/deepseek/bulk-tool-repair-types";
+import type {
+  ControlPlaneTool,
+  ExtendedAuditCounts,
+  P24ToolRow,
+  SelectionDiagnostics,
+} from "@/lib/ai/deepseek/bulk-tool-repair-types";
 
 const ROOT = process.cwd();
 const P24_REPORT_PATH = path.join(ROOT, "scripts/.cache/p24-tool-quality-report.json");
 const ERT_REPORT_PATH = path.join(ROOT, "scripts/.cache/runtime-trust-engine-report.json");
-const QUARANTINE_RECOVERY_PATH = path.join(ROOT, "scripts/.cache/quarantine-recovery-report.json");
-const INPUT_GUIDE_AUDIT_PATH = path.join(ROOT, "scripts/.cache/input-guide-audit-report.json");
-const BULK_REPAIR_REPORT_PATH = path.join(ROOT, "scripts/.cache/deepseek/bulk-tool-repair-report.json");
+const CONTROL_PLANE_REPORT_PATH = path.join(ROOT, "scripts/.cache/tool-quality-control-plane.json");
 const LOCALE_FILES = ["en", "tr", "de", "fr", "es", "ar"] as const;
 
 const PROTECTED_SLUGS = new Set([ERT_PROBLEM_SLUG]);
@@ -23,6 +26,29 @@ const HIGH_RISK_PATTERNS = [
   /fire-system/i,
   /legal-interest/i,
   /cbam-compliance/i,
+];
+
+const APPLICABLE_REPAIR_PATTERNS = [
+  /missing validation/i,
+  /validation-module/i,
+  /validation:/i,
+  /no schema/i,
+  /missing schema/i,
+  /schema:/i,
+  /result renderer/i,
+  /submit handler/i,
+  /localekeys/i,
+  /arrtl/i,
+  /canonicalunit/i,
+  /unitmapping/i,
+  /generic.*guide/i,
+  /freepremiumsplit/i,
+  /formulacontractalignment/i,
+  /contract alignment/i,
+  /boundarytests/i,
+  /globalsanitytests/i,
+  /requiredinputs/i,
+  /unit issue/i,
 ];
 
 function readJson<T>(filePath: string): T | null {
@@ -39,6 +65,15 @@ function readJson<T>(filePath: string): T | null {
 function loadP24Tools(): P24ToolRow[] {
   const report = readJson<{ tools?: P24ToolRow[] }>(P24_REPORT_PATH);
   return report?.tools ?? [];
+}
+
+function loadControlPlaneTools(): ControlPlaneTool[] {
+  const report = readJson<{ tools?: ControlPlaneTool[] }>(CONTROL_PLANE_REPORT_PATH);
+  return report?.tools ?? [];
+}
+
+export function loadControlPlaneMap(): Map<string, ControlPlaneTool> {
+  return new Map(loadControlPlaneTools().map((tool) => [tool.slug, tool]));
 }
 
 function loadErtStatusMap(): Map<string, string> {
@@ -86,146 +121,166 @@ function validationExists(slug: string): boolean {
   return candidates.some((candidate) => fs.existsSync(candidate));
 }
 
-function loadQuarantineRecoverySlugs(): Set<string> {
-  const report = readJson<{
-    items?: Array<{ slug: string; recommendedAction?: string; repairDifficulty?: string }>;
-  }>(QUARANTINE_RECOVERY_PATH);
-  return new Set(
-    (report?.items ?? [])
-      .filter(
-        (item) =>
-          (item.recommendedAction === "recover_now" ||
-            item.recommendedAction === "send_to_batch") &&
-          item.repairDifficulty !== "critical",
-      )
-      .map((item) => item.slug),
-  );
+function hasPaymentSecurityBlocker(tool: ControlPlaneTool, paymentEligible: Set<string>): boolean {
+  if (!tool.slug || PROTECTED_SLUGS.has(tool.slug)) {
+    return true;
+  }
+  if (paymentEligible.has(tool.slug)) {
+    return true;
+  }
+  if (tool.tier === "free" && tool.eligible?.paymentEligible) {
+    return true;
+  }
+  if (HIGH_RISK_PATTERNS.some((pattern) => pattern.test(tool.slug))) {
+    return true;
+  }
+  const findingsText = (tool.findings ?? []).join(" ").toLowerCase();
+  if (/safety-critical|certification|legal claim|payment mismatch/i.test(findingsText)) {
+    return true;
+  }
+  return false;
 }
 
-function loadGuideBlockedSlugs(): Set<string> {
-  const report = readJson<{
-    items?: Array<{ slug: string; decision?: string }>;
-  }>(INPUT_GUIDE_AUDIT_PATH);
-  return new Set(
-    (report?.items ?? [])
-      .filter(
-        (item) =>
-          item.decision === "needs_spec" ||
-          item.decision === "generic_blocked" ||
-          item.decision === "manual_design_review",
-      )
-      .map((item) => item.slug),
-  );
+function hasApplicableRepairReason(tool: ControlPlaneTool): boolean {
+  const findingsText = (tool.findings ?? []).join(" ").toLowerCase();
+
+  const structural =
+    (tool.tier === "premium-schema" || tool.tier === "premium") &&
+    (!tool.validation?.exists ||
+      !tool.schema?.exists ||
+      !tool.resultRenderer?.exists ||
+      !tool.submitHandler?.exists);
+
+  const i18nGap = tool.i18n?.complete === false || tool.i18n?.mixedLabel === true;
+  const unitGap = (tool.formulaContract?.unitIssues?.length ?? 0) > 0;
+  const contractGap = tool.formulaContract?.aligned === false;
+  const guideGap = tool.guide?.genericGuideBlocked === true || tool.guide?.hasSpec === false;
+
+  if (structural || i18nGap || unitGap || contractGap || guideGap) {
+    return true;
+  }
+
+  return APPLICABLE_REPAIR_PATTERNS.some((pattern) => pattern.test(findingsText));
 }
 
-function loadBatch1RemainingSlugs(): Set<string> {
-  const report = readJson<{
-    items?: Array<{ slug: string; repairDecision?: string; riskLevel?: string }>;
-  }>(BULK_REPAIR_REPORT_PATH);
-  return new Set(
-    (report?.items ?? [])
-      .filter(
-        (item) =>
-          item.repairDecision === "auto_apply" &&
-          item.riskLevel !== "high" &&
-          item.riskLevel !== "critical",
-      )
-      .map((item) => item.slug),
-  );
-}
-
-function scoreTool(row: P24ToolRow, quarantineRecovery: Set<string>, guideBlocked: Set<string>): number {
-  if (row.verdict === "PASS") {
-    return -1;
-  }
-
-  const findings = row.findings ?? [];
-  const failIds = findings.filter((f) => f.severity === "fail").map((f) => f.checkId);
-  const warnIds = findings.filter((f) => f.severity === "warn").map((f) => f.checkId);
-
-  if (failIds.includes("requiredInputs")) {
-    const msg = findings.find((f) => f.checkId === "requiredInputs")?.message ?? "";
-    if (/no calculator/i.test(msg)) {
-      return -1;
-    }
-  }
-
-  if (failIds.includes("formulaContractAlignment")) {
-    return 10;
-  }
-
+function rankControlPlaneTool(tool: ControlPlaneTool): number {
   let score = 0;
-
-  if (quarantineRecovery.has(row.slug)) {
-    score += 45;
+  if (tool.repairDifficulty === "low") {
+    score += 100;
+  } else if (tool.repairDifficulty === "medium") {
+    score += 50;
   }
-  if (
-    guideBlocked.has(row.slug) &&
-    (row.tier === "premium-schema" || row.tier === "premium") &&
-    row.verdict !== "QUARANTINE"
-  ) {
-    score += 25;
-  }
-  if (row.verdict === "QUARANTINE" && quarantineRecovery.has(row.slug)) {
-    score += 35;
-  } else if (row.verdict === "QUARANTINE") {
-    return -1;
-  }
-
-  if (row.tier === "premium-schema" && row.routePath) {
-    score += 40;
-  }
-  if (row.verdict === "WARN") {
+  if (tool.revenuePotential === "high") {
     score += 30;
+  } else if (tool.revenuePotential === "medium") {
+    score += 15;
   }
-  if (row.verdict === "FAIL" && failIds.length === 1 && failIds[0] === "validation") {
-    score += 35;
-  }
-
-  for (const id of ["localeKeys", "arRtl", "canonicalUnit", "globalSanityTests"]) {
-    if (warnIds.includes(id) || failIds.includes(id)) {
-      score += 15;
-    }
-  }
-
-  if (failIds.includes("validation") && !failIds.includes("formulaContractAlignment")) {
-    score += 20;
-  }
-
+  score -= tool.severityScore ?? 0;
   return score;
 }
 
-export function selectBulkRepairSlugs(limit: number): P24ToolRow[] {
+function buildSelectionDiagnostics(
+  selected: ControlPlaneTool[],
+): SelectionDiagnostics {
+  return {
+    selectedCount: selected.length,
+    selectedAutoRepair: selected.filter((t) => t.recommendedAction === "auto_repair").length,
+    selectedLow: selected.filter((t) => t.repairDifficulty === "low").length,
+    selectedMedium: selected.filter((t) => t.repairDifficulty === "medium").length,
+    selectedQuarantine: selected.filter((t) => t.runtimeStatus === "quarantine").length,
+    selectedManualReview: selected.filter((t) => t.recommendedAction === "manual_review").length,
+  };
+}
+
+function controlPlaneFindingToP24(finding: string): {
+  checkId: string;
+  severity: string;
+  message?: string;
+} {
+  const colon = finding.indexOf(":");
+  if (colon === -1) {
+    return { checkId: "controlPlane", severity: "warn", message: finding };
+  }
+  return {
+    checkId: finding.slice(0, colon).trim(),
+    severity: "warn",
+    message: finding.slice(colon + 1).trim(),
+  };
+}
+
+function synthesizeP24RowFromControlPlane(tool: ControlPlaneTool): P24ToolRow {
+  return {
+    slug: tool.slug,
+    tier: tool.tier,
+    verdict: tool.qualityStatus,
+    routePath: tool.route,
+    findings: (tool.findings ?? []).map(controlPlaneFindingToP24),
+  };
+}
+function isAutoRepairSelectionCandidate(
+  tool: ControlPlaneTool,
+  paymentEligible: Set<string>,
+): boolean {
+  if (tool.recommendedAction !== "auto_repair") {
+    return false;
+  }
+  if (tool.repairDifficulty !== "low" && tool.repairDifficulty !== "medium") {
+    return false;
+  }
+  if (tool.runtimeStatus === "quarantine") {
+    return false;
+  }
+  if (tool.qualityStatus === "PASS") {
+    return false;
+  }
+  if (hasPaymentSecurityBlocker(tool, paymentEligible)) {
+    return false;
+  }
+  if (!hasApplicableRepairReason(tool)) {
+    return false;
+  }
+  return true;
+}
+
+export function selectBulkRepairBatch(limit: number): {
+  rows: P24ToolRow[];
+  selectionDiagnostics: SelectionDiagnostics;
+} {
   const paymentEligible = loadPaymentEligibleSlugs();
-  const quarantineRecovery = loadQuarantineRecoverySlugs();
-  const guideBlocked = loadGuideBlockedSlugs();
-  const batch1Remaining = loadBatch1RemainingSlugs();
+  const controlPlaneTools = loadControlPlaneTools();
+  const p24BySlug = new Map(loadP24Tools().map((row) => [row.slug, row]));
 
-  const rows = loadP24Tools()
-    .filter((row) => {
-      if (!row.slug || PROTECTED_SLUGS.has(row.slug)) {
-        return false;
-      }
-      if (paymentEligible.has(row.slug)) {
-        return false;
-      }
-      if (HIGH_RISK_PATTERNS.some((pattern) => pattern.test(row.slug))) {
-        return false;
-      }
+  const candidates = controlPlaneTools
+    .filter((tool) => isAutoRepairSelectionCandidate(tool, paymentEligible))
+    .sort((a, b) => rankControlPlaneTool(b) - rankControlPlaneTool(a) || a.slug.localeCompare(b.slug));
 
-      const score = scoreTool(row, quarantineRecovery, guideBlocked);
-      const batch1Candidate = batch1Remaining.has(row.slug);
-      return score > 0 || batch1Candidate;
-    })
-    .sort((a, b) => {
-      const scoreA =
-        scoreTool(a, quarantineRecovery, guideBlocked) + (batch1Remaining.has(a.slug) ? 20 : 0);
-      const scoreB =
-        scoreTool(b, quarantineRecovery, guideBlocked) + (batch1Remaining.has(b.slug) ? 20 : 0);
-      return scoreB - scoreA || a.slug.localeCompare(b.slug);
-    });
+  const seen = new Set<string>();
+  const selectedTools: ControlPlaneTool[] = [];
+  for (const tool of candidates) {
+    if (seen.has(tool.slug)) {
+      continue;
+    }
+    seen.add(tool.slug);
+    selectedTools.push(tool);
+    if (selectedTools.length >= limit) {
+      break;
+    }
+  }
 
-  return rows.slice(0, limit);
+  const rows: P24ToolRow[] = [];
+  for (const tool of selectedTools) {
+    const p24Row = p24BySlug.get(tool.slug) ?? synthesizeP24RowFromControlPlane(tool);
+    rows.push(p24Row);
+  }
+
+  return {
+    rows,
+    selectionDiagnostics: buildSelectionDiagnostics(selectedTools),
+  };
+}
+
+export function selectBulkRepairSlugs(limit: number): P24ToolRow[] {
+  return selectBulkRepairBatch(limit).rows;
 }
 
 export function buildBulkRepairContext(row: P24ToolRow): {
@@ -250,13 +305,16 @@ export function buildBulkRepairContext(row: P24ToolRow): {
   paidSlug: string | null;
 } {
   const ertMap = loadErtStatusMap();
+  const controlPlane = loadControlPlaneMap().get(row.slug);
   const findings = (row.findings ?? [])
     .filter((f) => f.severity === "warn" || f.severity === "fail")
     .map((f) => `${f.checkId}: ${f.message ?? ""}`);
 
   const unitFinding = (row.findings ?? []).find((f) => f.checkId === "canonicalUnit");
-  const unitIssues =
+  const unitIssuesFromFinding =
     unitFinding?.message?.match(/[\w.]+:[^,\s]+/g)?.map((token) => token.trim()) ?? [];
+  const unitIssuesFromControlPlane = controlPlane?.formulaContract?.unitIssues ?? [];
+  const unitIssues = unitIssuesFromFinding.length > 0 ? unitIssuesFromFinding : unitIssuesFromControlPlane;
 
   const localeCoverage = Object.fromEntries(
     LOCALE_FILES.map((locale) => [locale, hasLocaleKey(row.slug, locale)]),
@@ -267,22 +325,33 @@ export function buildBulkRepairContext(row: P24ToolRow): {
     (PREMIUM_SCHEMA_SLUG_MAP[row.slug] ? row.slug : null);
   const schemaId = PREMIUM_SCHEMA_SLUG_MAP[row.slug] ?? row.slug;
 
+  const validationFromControlPlane = controlPlane?.validation?.exists ?? false;
+  const schemaFromControlPlane = controlPlane?.schema?.exists ?? false;
+
   return {
     slug: row.slug,
     tier: row.tier ?? "unknown",
-    route: row.routePath ?? "",
+    route: row.routePath ?? controlPlane?.route ?? "",
     p24Status: row.verdict ?? "UNKNOWN",
-    runtimeTrustStatus: ertMap.get(row.slug) ?? null,
+    runtimeTrustStatus: ertMap.get(row.slug) ?? controlPlane?.runtimeStatus ?? null,
     findings,
-    formulaContractExists: Boolean(getFormulaContractBySlug(row.slug)),
-    validationExists: validationExists(row.slug),
-    formSchemaExists: Boolean(row.evidence?.schemaPath),
-    submitHandlerExists: row.tier === "premium-schema" || row.tier === "premium",
-    resultRendererExists: row.tier === "premium-schema" || row.tier === "premium",
+    formulaContractExists: Boolean(getFormulaContractBySlug(row.slug)) || Boolean(controlPlane?.formulaContract?.exists),
+    validationExists: validationExists(row.slug) || validationFromControlPlane,
+    formSchemaExists: Boolean(row.evidence?.schemaPath) || schemaFromControlPlane,
+    submitHandlerExists: controlPlane
+      ? Boolean(controlPlane.submitHandler?.exists)
+      : row.tier !== "premium" && row.tier !== "premium-schema",
+    resultRendererExists: controlPlane
+      ? Boolean(controlPlane.resultRenderer?.exists)
+      : row.tier !== "premium" && row.tier !== "premium-schema",
     localeCoverage,
     unitIssues,
-    guideStatus: findings.some((f) => f.startsWith("generic_input_guide")) ? "generic" : "ok",
-    knownFormulaAuditFindings: findings.filter((f) => /formula|validation|contract/i.test(f)),
+    guideStatus:
+      controlPlane?.guide?.genericGuideBlocked ||
+      findings.some((f) => f.startsWith("generic_input_guide"))
+        ? "generic"
+        : "ok",
+    knownFormulaAuditFindings: findings.filter((f) => /formula|validation|contract|boundary/i.test(f)),
     schemaPath: row.evidence?.schemaPath ?? null,
     dedicatedTests: row.evidence?.dedicatedTests ?? [],
     schemaId,

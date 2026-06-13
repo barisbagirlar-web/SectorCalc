@@ -108,6 +108,18 @@ DeepSeek is **not a live render dependency**. If `DEEPSEEK_API_KEY` is missing, 
 | **DSK-2** | Schema review |
 | **DSK-3** | Guide spec |
 | **DSK-4** | Repair queue |
+| **ASR-0** | Bulk tool repair factory — P2.5 `auto_repair` selection + patch candidate planning |
+
+## Bulk repair selection (ASR-0)
+
+`npm run ai:deepseek:bulk-repair` selects tools from `scripts/.cache/tool-quality-control-plane.json`:
+
+1. `recommendedAction === auto_repair`
+2. `repairDifficulty` low or medium
+3. Not quarantine, not PASS, not problem slug, no payment/security blockers
+4. Applicable repair reason (schema/validation/i18n/unit/guide/contract gaps)
+
+Plan mode must produce patch candidates before apply mode runs. Report: `scripts/.cache/deepseek/bulk-tool-repair-report.json`.
 
 ## File layout
 
