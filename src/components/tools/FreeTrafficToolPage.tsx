@@ -112,8 +112,7 @@ export function FreeTrafficToolPage({
       }),
     [tool.slug, locale, surfaceTier],
   );
-  const showCalculationSurface =
-    surfaceTier === "free" || runtimeTrust.calculationEligible;
+  const showCalculationSurface = runtimeTrust.calculationEligible;
 
   useEffect(() => {
     trackEvent(ANALYTICS_EVENTS.tool_view, {
@@ -194,6 +193,9 @@ export function FreeTrafficToolPage({
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!runtimeTrust.calculationEligible) {
+      return;
+    }
     if (!startedTracked.current) {
       startedTracked.current = true;
       trackRevenueEvent(REVENUE_EVENTS.free_tool_started, {

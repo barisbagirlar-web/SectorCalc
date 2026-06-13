@@ -51,6 +51,8 @@ import { formatPremiumValue } from "@/lib/premium-schema/format-premium-result";
 import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
 import { resolveSevenMudaRev5Labels } from "@/lib/i18n/seven-muda-rev5-labels";
 import { ShapeDimensionGuide } from "@/components/tool-guides/ShapeDimensionGuide";
+import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
+import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 
 const SEVEN_MUDA_WASTE_COST_SLUG = "7-israf-muda-avcisi-parasal-karsilik-calculator";
 
@@ -125,6 +127,16 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   const [values, setValues] = useState<SchemaInputValues>(() => buildDefaultSchemaInputs(schema));
   const [submitted, setSubmitted] = useState(false);
   const [mode, setMode] = useState<CalculatorExperienceMode>("quick");
+  const runtimeTrust = useMemo(
+    () =>
+      evaluateRuntimeTrust({
+        slug: schema.id,
+        locale,
+        surface: "premium",
+      }),
+    [schema.id, locale],
+  );
+  const showCalculationSurface = runtimeTrust.calculationEligible;
 
   const experience = useMemo(
     () =>
@@ -232,6 +244,9 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!showCalculationSurface) {
+      return;
+    }
     setSubmitted(true);
     trackConversionEvent({
       stage: "premium_preview",
@@ -352,6 +367,12 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
       </GuidanceFieldFocus>
     );
   };
+
+  if (!showCalculationSurface) {
+    return (
+      <ToolSafeReviewState slug={schema.id} locale={locale} findings={runtimeTrust.findings} />
+    );
+  }
 
   return (
     <ToolGuidanceLayout

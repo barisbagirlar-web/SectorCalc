@@ -48,6 +48,8 @@ import {
   buildSmartFormInitialValues,
   validateSmartFormFieldValues,
 } from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
+import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
+import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
 
 
 function buildInitialValues(tool: RevenueTool): FreeToolInputValues {
@@ -205,9 +207,15 @@ interface FreeToolPageProps {
  tool: RevenueTool;
  featuredAnswer?: ReactNode;
  smartFormPilotManifest?: SmartFormUiBridgeManifest | null;
+ surfaceTier?: "free" | "premium";
 }
 
-export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: FreeToolPageProps) {
+export function FreeToolPage({
+ tool,
+ featuredAnswer,
+ smartFormPilotManifest,
+ surfaceTier = "free",
+}: FreeToolPageProps) {
  const locale = useLocale();
  const tUi = useTranslations("freeToolUi");
  const tCalc = useTranslations("calculator");
@@ -230,6 +238,17 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  const [pilotValues, setPilotValues] = useState<FreeToolInputValues | null>(null);
  const startedTracked = useRef(false);
  const formRef = useRef<HTMLFormElement>(null);
+ const runtimeTrust = useMemo(
+  () =>
+   evaluateRuntimeTrust({
+    slug: tool.freeSlug,
+    locale,
+    surface: surfaceTier,
+    premiumSurfaceUsesFreeCopy: surfaceTier === "premium",
+   }),
+  [tool.freeSlug, locale, surfaceTier],
+ );
+ const showCalculationSurface = runtimeTrust.calculationEligible;
 
  useEffect(() => {
   trackConversionEvent({
@@ -281,6 +300,9 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  }, [result]);
 
  const handlePilotCalculate = (fieldValues: PilotFieldValues) => {
+  if (!showCalculationSurface) {
+   return;
+  }
   if (!smartFormPilotManifest) {
    return;
   }
@@ -340,6 +362,9 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
 
  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
  event.preventDefault();
+ if (!showCalculationSurface) {
+  return;
+ }
 
  if (useFullLoopRuntime) {
   if (!startedTracked.current) {
@@ -457,10 +482,13 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
  <section className="sc-craft-section">
  <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
  <SectorToolSelect tier="free" currentSlug={tool.freeSlug} />
- <OsModuleHeader title={tool.freeTitle} tier="utility" slug={tool.freeSlug} locale={locale} />
+ <OsModuleHeader title={tool.freeTitle} tier="utility" slug={tool.freeSlug} locale={locale} surface={surfaceTier} />
 
  {featuredAnswer ? <div className="mt-5">{featuredAnswer}</div> : null}
 
+ {!showCalculationSurface ? (
+  <ToolSafeReviewState slug={tool.freeSlug} locale={locale} findings={runtimeTrust.findings} />
+ ) : (
  <div className="sc-ledger-cetele sc-ledger-cetele--stacked sc-tool-workspace sc-tool-workspace--stacked mt-4">
   <SmartFormWorkspace
    toolSlug={tool.freeSlug}
@@ -562,6 +590,7 @@ export function FreeToolPage({ tool, featuredAnswer, smartFormPilotManifest }: F
    resultSnapshot={feedbackResultSnapshot}
   />
  </div>
+ )}
  </Container>
  </section>
  </PageLayout>

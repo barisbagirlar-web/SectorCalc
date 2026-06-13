@@ -6,6 +6,7 @@ import {
 } from "@/lib/tools/runtime-health-store";
 import {
   ERT_PROBLEM_SLUG,
+  canShowFormulaGateApproved,
   evaluateRuntimeTrust,
   isFormulaGateTrustEligible,
   isPaymentTrustEligible,
@@ -80,7 +81,20 @@ describe("runtime trust engine", () => {
     });
     expect(isFormulaGateTrustEligible(ERT_PROBLEM_SLUG, "tr", "premium")).toBe(false);
     expect(result.findings).toContain("audit_status_not_pass");
-    expect(result.recommendedAction).not.toBe("allow");
+    expect(result.recommendedAction).toBe("manual_review");
+    expect(result.calculationEligible).toBe(false);
+  });
+
+  test("canShowFormulaGateApproved is false for hard-review problem slug", () => {
+    const result = evaluateRuntimeTrust({
+      slug: ERT_PROBLEM_SLUG,
+      locale: "tr",
+      surface: "premium",
+      premiumSurfaceUsesFreeCopy: true,
+    });
+    expect(canShowFormulaGateApproved(result)).toBe(false);
+    expect(result.status).toBe("review");
+    expect(result.recommendedAction).toBe("manual_review");
   });
 
   test("paymentEligible false when trust not ready", () => {

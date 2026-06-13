@@ -59,7 +59,7 @@ export async function MigratedFreePremiumToolSurface({
     return (
       <>
         <SemanticJsonLd data={toolJsonLd} />
-        <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" data-calculation-form-shell="true" />
+        <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" />
         <FreeToolPage
           tool={{
             ...revenueTool,
@@ -68,6 +68,7 @@ export async function MigratedFreePremiumToolSurface({
           }}
           featuredAnswer={featuredAnswer}
           smartFormPilotManifest={resolveSmartFormPilotManifestForRoute(revenueTool.freeSlug)}
+          surfaceTier="premium"
         />
       </>
     );

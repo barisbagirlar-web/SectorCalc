@@ -133,7 +133,7 @@ export default async function PremiumSchemaPilotPage({
             <h1 className="text-2xl font-semibold text-premium-velvet sm:text-3xl">
               {displayName}
             </h1>
-            <FormulaGateToolStatus slug={slug} locale={locale} />
+            <FormulaGateToolStatus slug={slug} locale={locale} surface="premium" />
           </div>
           <p className="mt-3 max-w-2xl text-sm text-body-charcoal sm:text-base">
             {displayPain}

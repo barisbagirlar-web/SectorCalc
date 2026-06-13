@@ -1,9 +1,11 @@
-import { hasFormulaSourceAudit } from "@/lib/formula-governance/formula-source-audit-registry";
 import {
   getFormulaGateReviewLabel,
   getFormulaGateVerifiedLabel,
 } from "@/lib/formula-governance/formula-gate-copy";
-import { isFormulaGateTrustEligible } from "@/lib/tools/runtime-trust-engine";
+import {
+  canShowFormulaGateApproved,
+  evaluateRuntimeTrust,
+} from "@/lib/tools/runtime-trust-engine";
 
 type Props = {
   slug: string;
@@ -13,10 +15,13 @@ type Props = {
 };
 
 export function FormulaGateCatalogMeta({ slug, locale, openLabel, isClickable }: Props) {
-  const eligible =
-    isClickable &&
-    hasFormulaSourceAudit(slug) &&
-    isFormulaGateTrustEligible(slug, locale, "premium");
+  const decision = evaluateRuntimeTrust({
+    slug,
+    locale,
+    surface: "premium",
+    premiumSurfaceUsesFreeCopy: false,
+  });
+  const eligible = isClickable && canShowFormulaGateApproved(decision);
 
   if (eligible) {
     return (

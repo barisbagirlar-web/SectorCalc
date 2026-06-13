@@ -165,7 +165,8 @@ export function evaluateRuntimeTrust(input: RuntimeTrustInput): RuntimeTrustDeci
       ? { ...decision, route: input.route.trim() }
       : decision;
 
-  return mergeRuntimeHealthWithDecision(withRoute, readRuntimeToolHealth(healthSlug));
+  const merged = mergeRuntimeHealthWithDecision(withRoute, readRuntimeToolHealth(healthSlug));
+  return applyHardReviewOverride(merged);
 }
 
 export function isFormulaGateTrustEligible(
@@ -173,7 +174,7 @@ export function isFormulaGateTrustEligible(
   locale?: string,
   surface?: "free" | "premium",
 ): boolean {
-  return evaluateRuntimeTrust({ slug, locale, surface }).formulaGateEligible;
+  return canShowFormulaGateApproved(evaluateRuntimeTrust({ slug, locale, surface }));
 }
 
 export function isPaymentTrustEligible(
@@ -194,3 +195,38 @@ export function isCalculationTrustEligible(
 
 /** Problem slug fixture for ERT-0 regression tests. */
 export const ERT_PROBLEM_SLUG = "abonelik-yazilim-cloud-yillik-maliyet-hesabi";
+
+/** Hard review override until ERT-1 calibration — never allow live calc or approved badge. */
+const HARD_REVIEW_OVERRIDE_SLUGS = new Set<string>([ERT_PROBLEM_SLUG]);
+
+export function canShowFormulaGateApproved(decision: RuntimeTrustDecision): boolean {
+  return (
+    decision.formulaGateEligible === true &&
+    decision.status === "ready" &&
+    decision.calculationEligible === true
+  );
+}
+
+function applyHardReviewOverride(decision: RuntimeTrustDecision): RuntimeTrustDecision {
+  if (!HARD_REVIEW_OVERRIDE_SLUGS.has(decision.slug)) {
+    return decision;
+  }
+
+  const findings: RuntimeTrustFinding[] = [...decision.findings];
+  if (!findings.includes("formula_gate_not_safe")) {
+    findings.push("formula_gate_not_safe");
+  }
+  if (!findings.includes("payment_not_safe")) {
+    findings.push("payment_not_safe");
+  }
+
+  return {
+    ...decision,
+    status: "review",
+    formulaGateEligible: false,
+    paymentEligible: false,
+    calculationEligible: false,
+    findings,
+    recommendedAction: "manual_review",
+  };
+}

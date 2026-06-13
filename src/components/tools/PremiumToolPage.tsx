@@ -664,7 +664,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  ) : (
  <>
  <SectorToolSelect tier="premium" currentSlug={tool.paidSlug} />
- <OsModuleHeader title={tool.paidTitle} tier="intelligence" slug={runtimeSlug} locale={locale} />
+ <OsModuleHeader title={tool.paidTitle} tier="intelligence" slug={runtimeSlug} locale={locale} surface="premium" />
  {!hasFullPremiumFeatures ? (
   <PremiumAccessBanner mode={accessMode} paidSlug={tool.paidSlug} />
  ) : null}
