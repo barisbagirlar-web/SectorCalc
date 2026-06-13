@@ -9552,6 +9552,390 @@
           "title": "Welding Bid Risk Analyzer girdi haritası"
         }
       }
+    },
+    "s5GuideOracle": {
+      "tools": {
+        "ageCalculator": {
+          "title": "Yaş Hesaplayıcı",
+          "summary": "Doğum yılından yaşını yıl cinsinden hesaplayın."
+        },
+        "agirlikliOrtalamaHesaplama": {
+          "title": "Agirlikli Ortalama Hesaplama girdi rehberi",
+          "summary": "Agirlikli Ortalama Hesaplama için girdi rehberi."
+        },
+        "akaryakitFiyatiIleYolButcesi": {
+          "title": "Akaryakit Fiyati Ile Yol Butcesi girdi rehberi",
+          "summary": "Akaryakit Fiyati Ile Yol Butcesi için girdi rehberi."
+        },
+        "amperKilowattKwCevirici": {
+          "title": "Amper Kilowatt Kw Cevirici girdi rehberi",
+          "summary": "Amper Kilowatt Kw Cevirici için girdi rehberi."
+        },
+        "aracAmortismanHesaplama": {
+          "title": "Arac Amortisman Hesaplama girdi rehberi",
+          "summary": "Arac Amortisman Hesaplama için girdi rehberi."
+        },
+        "aracBakimPeriyoduTakipHesaplama": {
+          "title": "Arac Bakim Periyodu Takip Hesaplama girdi rehberi",
+          "summary": "Arac Bakim Periyodu Takip Hesaplama için girdi rehberi."
+        },
+        "areaConverter": {
+          "title": "Alan Dönüştürücü",
+          "summary": "m², ft², dönüm ve hektar dahil alan birimlerini dönüştürün."
+        },
+        "asmaTavanMalzemeHesabi": {
+          "title": "Asma Tavan Malzeme Hesabi girdi rehberi",
+          "summary": "Asma Tavan Malzeme Hesabi için girdi rehberi."
+        },
+        "averageCalculator": {
+          "title": "Ortalama Hesaplayıcı",
+          "summary": "En fazla beş değerin aritmetik ortalamasını hesaplayın."
+        },
+        "aydinlatmaArmaturSayisiHesaplama": {
+          "title": "Aydinlatma Armatur Sayisi Hesaplama girdi rehberi",
+          "summary": "Aydinlatma Armatur Sayisi Hesaplama için girdi rehberi."
+        },
+        "bacaHavalandirmaKanaliCapHesabi": {
+          "title": "Baca Havalandirma Kanali Cap Hesabi girdi rehberi",
+          "summary": "Baca Havalandirma Kanali Cap Hesabi için girdi rehberi."
+        },
+        "barPsiPascalCevirici": {
+          "title": "Bar Psi Pascal Cevirici girdi rehberi",
+          "summary": "Bar Psi Pascal Cevirici için girdi rehberi."
+        },
+        "batchYieldCalculator": {
+          "title": "Parti Verimi Hesaplayıcı",
+          "summary": "Girdi ve iyi çıktı miktarından süreç verimi yüzdesini hesaplayın."
+        },
+        "beygirGucuKilowattCevirici": {
+          "title": "Beygir Gucu Kilowatt Cevirici girdi rehberi",
+          "summary": "Beygir Gucu Kilowatt Cevirici için girdi rehberi."
+        },
+        "boruAgirlikHesaplamaCelikPaslanmaz": {
+          "title": "Boru Agirlik Hesaplama Celik Paslanmaz girdi rehberi",
+          "summary": "Boru Agirlik Hesaplama Celik Paslanmaz için girdi rehberi."
+        },
+        "boruCapiAkisHiziHesaplama": {
+          "title": "Boru Capi Akis Hizi Hesaplama girdi rehberi",
+          "summary": "Boru Capi Akis Hizi Hesaplama için girdi rehberi."
+        },
+        "boyaKaplamaSarfiyatiMBasinaHesabi": {
+          "title": "Boya Kaplama Sarfiyati M Basina Hesabi girdi rehberi",
+          "summary": "Boya Kaplama Sarfiyati M Basina Hesabi için girdi rehberi."
+        },
+        "brickCalculator": {
+          "title": "Tuğla Hesaplayıcı",
+          "summary": "Duvar alanı ve fire payı ile gereken tuğla adedini hesaplayın."
+        },
+        "cabinetCostEstimator": {
+          "title": "Cabinet Cost Estimator girdi rehberi",
+          "summary": "Cabinet Cost Estimator için girdi rehberi."
+        },
+        "cayKahveSuTuketimMaliyeti": {
+          "title": "Cay Kahve Su Tuketim Maliyeti girdi rehberi",
+          "summary": "Cay Kahve Su Tuketim Maliyeti için girdi rehberi."
+        },
+        "celikCatiMakasYaklasikAgirligi": {
+          "title": "Celik Cati Makas Yaklasik Agirligi girdi rehberi",
+          "summary": "Celik Cati Makas Yaklasik Agirligi için girdi rehberi."
+        },
+        "citKorkulukMalzemeHesabi": {
+          "title": "Cit Korkuluk Malzeme Hesabi girdi rehberi",
+          "summary": "Cit Korkuluk Malzeme Hesabi için girdi rehberi."
+        },
+        "cleaningCostCalculator": {
+          "title": "Cleaning Cost Calculator girdi rehberi",
+          "summary": "Cleaning Cost Calculator için girdi rehberi."
+        },
+        "cleaningCostEstimator": {
+          "title": "Cleaning Cost Estimator girdi rehberi",
+          "summary": "Cleaning Cost Estimator için girdi rehberi."
+        },
+        "cncMinimumSafeQuoteAnalyzer": {
+          "title": "Cnc Minimum Safe Quote Analyzer girdi rehberi",
+          "summary": "Cnc Minimum Safe Quote Analyzer için girdi rehberi."
+        },
+        "concreteVolumeCalculator": {
+          "title": "Beton Hacim Hesaplayıcı",
+          "summary": "Döşeme dökümü için beton hacmini metreküp cinsinden tahmin edin."
+        },
+        "copAtikKonteynerHacimHesabi": {
+          "title": "Cop Atik Konteyner Hacim Hesabi girdi rehberi",
+          "summary": "Cop Atik Konteyner Hacim Hesabi için girdi rehberi."
+        },
+        "cuttingSpeedCalculator": {
+          "title": "Kesme Hızı Hesaplayıcı",
+          "summary": "Çap ve devirden yüzey hızını hesaplayın."
+        },
+        "daireAlaniCevresiHesaplama": {
+          "title": "Daire Alani Cevresi Hesaplama girdi rehberi",
+          "summary": "Daire Alani Cevresi Hesaplama için girdi rehberi."
+        },
+        "dateDifferenceCalculator": {
+          "title": "Tarih Farkı Hesaplayıcı",
+          "summary": "İki gün numarası arasındaki gün farkını hesaplayın."
+        },
+        "deliveryCostCalculator": {
+          "title": "Teslimat Maliyeti Hesaplayıcı",
+          "summary": "Mesafe ve durak ücretlerinden son mil maliyetini hesaplayın."
+        },
+        "depreciationCalculator": {
+          "title": "Doğrusal Amortisman Hesaplayıcı",
+          "summary": "Varlık maliyeti ve hurda değerinden yıllık amortismanı hesaplayın."
+        },
+        "desiCalculator": {
+          "title": "Desi Hesaplayıcı",
+          "summary": "Koli boyutlarından hacimsel ağırlığı (desi) hesaplayın."
+        },
+        "discountCalculator": {
+          "title": "İndirim Hesaplayıcı",
+          "summary": "Yüzde indirim sonrası satış fiyatını hesaplayın."
+        },
+        "disliModulCapHesaplama": {
+          "title": "Disli Modul Cap Hesaplama girdi rehberi",
+          "summary": "Disli Modul Cap Hesaplama için girdi rehberi."
+        },
+        "dizelBenzinMaliyetKarsilastirma": {
+          "title": "Dizel Benzin Maliyet Karsilastirma girdi rehberi",
+          "summary": "Dizel Benzin Maliyet Karsilastirma için girdi rehberi."
+        },
+        "dogalgazTuketimiHesaplama": {
+          "title": "Dogalgaz Tuketimi Hesaplama girdi rehberi",
+          "summary": "Dogalgaz Tuketimi Hesaplama için girdi rehberi."
+        },
+        "drywallCalculator": {
+          "title": "Alçıpan Hesaplayıcı",
+          "summary": "Duvar alanı için gereken alçıpan levha sayısını hesaplayın."
+        },
+        "duvarKagidiSeramikAdetHesaplama": {
+          "title": "Duvar Kagidi Seramik Adet Hesaplama girdi rehberi",
+          "summary": "Duvar Kagidi Seramik Adet Hesaplama için girdi rehberi."
+        },
+        "excavationVolumeCalculator": {
+          "title": "Kazı Hacmi Hesaplayıcı",
+          "summary": "Dikdörtgen kazı hacmini metreküp cinsinden hesaplayın."
+        },
+        "feedRateCalculator": {
+          "title": "İlerleme Hızı Hesaplayıcı",
+          "summary": "Devir, diş sayısı ve diş başına ilerlemeden tabla beslemesini hesaplayın."
+        },
+        "flooringCalculator": {
+          "title": "Zemin Kaplama Hesaplayıcı",
+          "summary": "Oda zemin alanını fire payı ile birlikte malzeme siparişi için hesaplayın."
+        },
+        "fotokopiYaziciTonerSayfaMaliyeti": {
+          "title": "Fotokopi Yazici Toner Sayfa Maliyeti girdi rehberi",
+          "summary": "Fotokopi Yazici Toner Sayfa Maliyeti için girdi rehberi."
+        },
+        "fuelConsumptionCalculator": {
+          "title": "Yakıt Tüketimi Hesaplayıcı",
+          "summary": "Mesafe ve tüketim değerinden yolculuk yakıt litresi ve maliyetini hesaplayın."
+        },
+        "fuelConsumptionCheck": {
+          "title": "Fuel Consumption Check girdi rehberi",
+          "summary": "Fuel Consumption Check için girdi rehberi."
+        },
+        "fuelCostCalculator": {
+          "title": "Yakıt Maliyeti Hesaplayıcı",
+          "summary": "Mesafe ve tüketim değerinden yakıt litresi ve toplam maliyeti hesaplayın."
+        },
+        "fuelTravelCalculator": {
+          "title": "Yakıt Seyahat Hesaplayıcı",
+          "summary": "Kişisel seyahat için yolculuk yakıtı ve maliyetini hesaplayın."
+        },
+        "homeBudgetCalculator": {
+          "title": "Ev Bütçesi Hesaplayıcı",
+          "summary": "Aylık giderleri gelirle karşılaştırın ve kalan bakiyeyi hesaplayın."
+        },
+        "homeRenovationM2": {
+          "title": "Home Renovation M2 girdi rehberi",
+          "summary": "Home Renovation M2 için girdi rehberi."
+        },
+        "internetTelefonPaketiKarsilastirma": {
+          "title": "Internet Telefon Paketi Karsilastirma girdi rehberi",
+          "summary": "Internet Telefon Paketi Karsilastirma için girdi rehberi."
+        },
+        "isElbisesiKkdKisiselKoruyucuDonanimSarfiyati": {
+          "title": "Is Elbisesi Kkd Kisisel Koruyucu Donanim Sarfiyati girdi rehberi",
+          "summary": "Is Elbisesi Kkd Kisisel Koruyucu Donanim Sarfiyati için girdi rehberi."
+        },
+        "isiDegistiriciEsanjorKapasiteHesabi": {
+          "title": "Isi Degistirici Esanjor Kapasite Hesabi girdi rehberi",
+          "summary": "Isi Degistirici Esanjor Kapasite Hesabi için girdi rehberi."
+        },
+        "isitmaSogutmaYukuKcalKwHesabi": {
+          "title": "Isitma Sogutma Yuku Kcal Kw Hesabi girdi rehberi",
+          "summary": "Isitma Sogutma Yuku Kcal Kw Hesabi için girdi rehberi."
+        },
+        "jouleKaloriWattSaatCevirici": {
+          "title": "Joule Kalori Watt Saat Cevirici girdi rehberi",
+          "summary": "Joule Kalori Watt Saat Cevirici için girdi rehberi."
+        },
+        "kesirOndalikCevirici": {
+          "title": "Kesir Ondalik Cevirici girdi rehberi",
+          "summary": "Kesir Ondalik Cevirici için girdi rehberi."
+        },
+        "kirisKolonYaklasikAgirlikHesabi": {
+          "title": "Kiris Kolon Yaklasik Agirlik Hesabi girdi rehberi",
+          "summary": "Kiris Kolon Yaklasik Agirlik Hesabi için girdi rehberi."
+        },
+        "koniHacmiHesaplama": {
+          "title": "Koni Hacmi Hesaplama girdi rehberi",
+          "summary": "Koni Hacmi Hesaplama için girdi rehberi."
+        },
+        "kosebentLamaAgirlikHesaplama": {
+          "title": "Kosebent Lama Agirlik Hesaplama girdi rehberi",
+          "summary": "Kosebent Lama Agirlik Hesaplama için girdi rehberi."
+        },
+        "kumlamaRaspaKumSarfiyatiHesabi": {
+          "title": "Kumlama Raspa Kum Sarfiyati Hesabi girdi rehberi",
+          "summary": "Kumlama Raspa Kum Sarfiyati Hesabi için girdi rehberi."
+        },
+        "kureHacmiHesaplama": {
+          "title": "Kure Hacmi Hesaplama girdi rehberi",
+          "summary": "Kure Hacmi Hesaplama için girdi rehberi."
+        },
+        "kwhConsumptionCheck": {
+          "title": "Kwh Consumption Check girdi rehberi",
+          "summary": "Kwh Consumption Check için girdi rehberi."
+        },
+        "lastikOmruDegisimKmHesaplama": {
+          "title": "Lastik Omru Degisim Km Hesaplama girdi rehberi",
+          "summary": "Lastik Omru Degisim Km Hesaplama için girdi rehberi."
+        },
+        "lengthConverter": {
+          "title": "Uzunluk Dönüştürücü",
+          "summary": "mm, cm, m, km, inç, fit, yard ve mil arasında uzunluk dönüştürün."
+        },
+        "lpgBenzinTasarrufKarsilastirma": {
+          "title": "Lpg Benzin Tasarruf Karsilastirma girdi rehberi",
+          "summary": "Lpg Benzin Tasarruf Karsilastirma için girdi rehberi."
+        },
+        "machineHourEstimator": {
+          "title": "Machine Hour Estimator girdi rehberi",
+          "summary": "Machine Hour Estimator için girdi rehberi."
+        },
+        "matkapKilavuzDelikCapiTablosu": {
+          "title": "Matkap Kilavuz Delik Capi Tablosu girdi rehberi",
+          "summary": "Matkap Kilavuz Delik Capi Tablosu için girdi rehberi."
+        },
+        "medianCalculator": {
+          "title": "Medyan Hesaplayıcı",
+          "summary": "En fazla beş sayısal değerin medyanını hesaplayın."
+        },
+        "merdivenPlatformYukseklikErisimHesabi": {
+          "title": "Merdiven Platform Yukseklik Erisim Hesabi girdi rehberi",
+          "summary": "Merdiven Platform Yukseklik Erisim Hesabi için girdi rehberi."
+        },
+        "newtonKilogramKuvvetCevirici": {
+          "title": "Newton Kilogram Kuvvet Cevirici girdi rehberi",
+          "summary": "Newton Kilogram Kuvvet Cevirici için girdi rehberi."
+        },
+        "npuNpiProfilAgirlikHesaplama": {
+          "title": "Npu Npi Profil Agirlik Hesaplama girdi rehberi",
+          "summary": "Npu Npi Profil Agirlik Hesaplama için girdi rehberi."
+        },
+        "ofisKirtasiyeSarfiyatHesabi": {
+          "title": "Ofis Kirtasiye Sarfiyat Hesabi girdi rehberi",
+          "summary": "Ofis Kirtasiye Sarfiyat Hesabi için girdi rehberi."
+        },
+        "paintCoverageCostCheck": {
+          "title": "Paint Coverage Cost Check girdi rehberi",
+          "summary": "Paint Coverage Cost Check için girdi rehberi."
+        },
+        "paletAmbalajKeresteHesabi": {
+          "title": "Palet Ambalaj Kereste Hesabi girdi rehberi",
+          "summary": "Palet Ambalaj Kereste Hesabi için girdi rehberi."
+        },
+        "paslanmazCelikAluminyumAyirtEtmeHesaplayicisiYogunlukBazli": {
+          "title": "Paslanmaz Celik Aluminyum Ayirt Etme Hesaplayicisi Yogunluk Bazli girdi rehberi",
+          "summary": "Paslanmaz Celik Aluminyum Ayirt Etme Hesaplayicisi Yogunluk Bazli için girdi rehberi."
+        },
+        "percentageCalculator": {
+          "title": "Yüzde Hesaplayıcı",
+          "summary": "Bir değerin belirli yüzdesini bulun."
+        },
+        "percentageIncreaseCalculator": {
+          "title": "Yüzde Artış Hesaplayıcı",
+          "summary": "Eski değerden yeni değere yüzde değişimini hesaplayın."
+        },
+        "plasterCalculator": {
+          "title": "Sıva Hesaplayıcı",
+          "summary": "Alan ve kalınlık bilgisinden sıva hacmi ve ağırlığını hesaplayın."
+        },
+        "plumbingFixtureCostCheck": {
+          "title": "Plumbing Fixture Cost Check girdi rehberi",
+          "summary": "Plumbing Fixture Cost Check için girdi rehberi."
+        },
+        "pompaGucuBasmaYuksekligiHesabi": {
+          "title": "Pompa Gucu Basma Yuksekligi Hesabi girdi rehberi",
+          "summary": "Pompa Gucu Basma Yuksekligi Hesabi için girdi rehberi."
+        },
+        "prefabrikKonteynerOfisMMaliyeti": {
+          "title": "Prefabrik Konteyner Ofis M Maliyeti girdi rehberi",
+          "summary": "Prefabrik Konteyner Ofis M Maliyeti için girdi rehberi."
+        },
+        "prefabrikKonteynerOlcuHesaplama": {
+          "title": "Prefabrik Konteyner Olcu Hesaplama girdi rehberi",
+          "summary": "Prefabrik Konteyner Olcu Hesaplama için girdi rehberi."
+        },
+        "probabilityCalculator": {
+          "title": "Olasılık Hesaplayıcı",
+          "summary": "Uygun ve toplam sonuçlardan olasılık yüzdesini hesaplayın."
+        },
+        "productMarginCalculator": {
+          "title": "Product Margin Calculator girdi rehberi",
+          "summary": "Product Margin Calculator için girdi rehberi."
+        },
+        "projectCostCalculator": {
+          "title": "Project Cost Calculator girdi rehberi",
+          "summary": "Project Cost Calculator için girdi rehberi."
+        },
+        "projectCostEstimator": {
+          "title": "Project Cost Estimator girdi rehberi",
+          "summary": "Project Cost Estimator için girdi rehberi."
+        },
+        "proportionCalculator": {
+          "title": "Orantı Hesaplayıcı",
+          "summary": "a/b = c/x orantısında x değerini çözün."
+        },
+        "radyatorPetekBoyuHesaplama": {
+          "title": "Radyator Petek Boyu Hesaplama girdi rehberi",
+          "summary": "Radyator Petek Boyu Hesaplama için girdi rehberi."
+        },
+        "rastgeleSayiUreteci": {
+          "title": "Rastgele Sayi Ureteci girdi rehberi",
+          "summary": "Rastgele Sayi Ureteci için girdi rehberi."
+        },
+        "ratioCalculator": {
+          "title": "Oran Hesaplayıcı",
+          "summary": "a:b oranını ve sadeleştirilmiş halini hesaplayın."
+        },
+        "rebarWeightCalculator": {
+          "title": "İnşaat Demiri Ağırlık Hesaplayıcı",
+          "summary": "Çap, uzunluk ve adet bilgisinden inşaat demiri ağırlığını tahmin edin."
+        },
+        "recipeCostCheck": {
+          "title": "Tarif Maliyeti Kontrolü",
+          "summary": "Toplam malzeme harcamasından porsiyon maliyetini hesaplayın."
+        },
+        "repairTimeVsPriceCheck": {
+          "title": "Repair Time Vs Price Check girdi rehberi",
+          "summary": "Repair Time Vs Price Check için girdi rehberi."
+        },
+        "returnRateProfitErosionTool": {
+          "title": "Return Rate Profit Erosion Tool girdi rehberi",
+          "summary": "Return Rate Profit Erosion Tool için girdi rehberi."
+        },
+        "roofingAreaCalculator": {
+          "title": "Çatı Alanı Hesaplayıcı",
+          "summary": "Ayak izi alanı ve eğim katsayısı ile çatı yüzey alanını tahmin edin."
+        },
+        "roofingSquareCostCheck": {
+          "title": "Roofing Square Cost Check girdi rehberi",
+          "summary": "Roofing Square Cost Check için girdi rehberi."
+        }
+      }
     }
   },
   "guidance": {

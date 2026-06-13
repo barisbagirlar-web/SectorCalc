@@ -10,6 +10,7 @@ import {
 } from "@/lib/tool-guides/tool-guide-spec";
 import { S2_LOW_RISK_ACTIVATION_GUIDE_SPECS } from "@/lib/tool-guides/s2-low-risk-activation-guide-specs";
 import { S3_LOW_RISK_ACTIVATION_GUIDE_SPECS } from "@/lib/tool-guides/s3-low-risk-activation-guide-specs";
+import { S5_GUIDE_ORACLE_UX_SCAFFOLD_SPECS } from "@/lib/tool-guides/s5-guide-oracle-ux-scaffold-specs";
 import { getPremiumSchemaForPaidSlug } from "@/lib/premium-schema/schema-registry";
 
 const PREMIUM_PILOT_SPECS: readonly ToolGuideSpec[] = [
@@ -150,6 +151,14 @@ function buildSpecRegistry(): Map<string, ToolGuideSpec> {
   }
 
   for (const spec of S2_LOW_RISK_ACTIVATION_GUIDE_SPECS) {
+    registry.set(spec.slug, spec);
+  }
+
+  for (const spec of S3_LOW_RISK_ACTIVATION_GUIDE_SPECS) {
+    registry.set(spec.slug, spec);
+  }
+
+  for (const spec of S5_GUIDE_ORACLE_UX_SCAFFOLD_SPECS) {
     registry.set(spec.slug, spec);
   }
 

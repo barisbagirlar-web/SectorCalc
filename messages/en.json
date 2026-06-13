@@ -9079,6 +9079,390 @@
           "title": "Welding Bid Risk Analyzer input map"
         }
       }
+    },
+    "s5GuideOracle": {
+      "tools": {
+        "ageCalculator": {
+          "title": "Age Calculator input guide",
+          "summary": "Input guide for Age Calculator."
+        },
+        "agirlikliOrtalamaHesaplama": {
+          "title": "Agirlikli Ortalama Hesaplama input guide",
+          "summary": "Input guide for Agirlikli Ortalama Hesaplama."
+        },
+        "akaryakitFiyatiIleYolButcesi": {
+          "title": "Akaryakit Fiyati Ile Yol Butcesi input guide",
+          "summary": "Input guide for Akaryakit Fiyati Ile Yol Butcesi."
+        },
+        "amperKilowattKwCevirici": {
+          "title": "Amper Kilowatt Kw Cevirici input guide",
+          "summary": "Input guide for Amper Kilowatt Kw Cevirici."
+        },
+        "aracAmortismanHesaplama": {
+          "title": "Arac Amortisman Hesaplama input guide",
+          "summary": "Input guide for Arac Amortisman Hesaplama."
+        },
+        "aracBakimPeriyoduTakipHesaplama": {
+          "title": "Arac Bakim Periyodu Takip Hesaplama input guide",
+          "summary": "Input guide for Arac Bakim Periyodu Takip Hesaplama."
+        },
+        "areaConverter": {
+          "title": "Area Converter input guide",
+          "summary": "Input guide for Area Converter."
+        },
+        "asmaTavanMalzemeHesabi": {
+          "title": "Asma Tavan Malzeme Hesabi input guide",
+          "summary": "Input guide for Asma Tavan Malzeme Hesabi."
+        },
+        "averageCalculator": {
+          "title": "Average Calculator input guide",
+          "summary": "Input guide for Average Calculator."
+        },
+        "aydinlatmaArmaturSayisiHesaplama": {
+          "title": "Aydinlatma Armatur Sayisi Hesaplama input guide",
+          "summary": "Input guide for Aydinlatma Armatur Sayisi Hesaplama."
+        },
+        "bacaHavalandirmaKanaliCapHesabi": {
+          "title": "Baca Havalandirma Kanali Cap Hesabi input guide",
+          "summary": "Input guide for Baca Havalandirma Kanali Cap Hesabi."
+        },
+        "barPsiPascalCevirici": {
+          "title": "Bar Psi Pascal Cevirici input guide",
+          "summary": "Input guide for Bar Psi Pascal Cevirici."
+        },
+        "batchYieldCalculator": {
+          "title": "Batch Yield Calculator input guide",
+          "summary": "Input guide for Batch Yield Calculator."
+        },
+        "beygirGucuKilowattCevirici": {
+          "title": "Beygir Gucu Kilowatt Cevirici input guide",
+          "summary": "Input guide for Beygir Gucu Kilowatt Cevirici."
+        },
+        "boruAgirlikHesaplamaCelikPaslanmaz": {
+          "title": "Boru Agirlik Hesaplama Celik Paslanmaz input guide",
+          "summary": "Input guide for Boru Agirlik Hesaplama Celik Paslanmaz."
+        },
+        "boruCapiAkisHiziHesaplama": {
+          "title": "Boru Capi Akis Hizi Hesaplama input guide",
+          "summary": "Input guide for Boru Capi Akis Hizi Hesaplama."
+        },
+        "boyaKaplamaSarfiyatiMBasinaHesabi": {
+          "title": "Boya Kaplama Sarfiyati M Basina Hesabi input guide",
+          "summary": "Input guide for Boya Kaplama Sarfiyati M Basina Hesabi."
+        },
+        "brickCalculator": {
+          "title": "Brick Calculator input guide",
+          "summary": "Input guide for Brick Calculator."
+        },
+        "cabinetCostEstimator": {
+          "title": "Cabinet Cost Estimator input guide",
+          "summary": "Input guide for Cabinet Cost Estimator."
+        },
+        "cayKahveSuTuketimMaliyeti": {
+          "title": "Cay Kahve Su Tuketim Maliyeti input guide",
+          "summary": "Input guide for Cay Kahve Su Tuketim Maliyeti."
+        },
+        "celikCatiMakasYaklasikAgirligi": {
+          "title": "Celik Cati Makas Yaklasik Agirligi input guide",
+          "summary": "Input guide for Celik Cati Makas Yaklasik Agirligi."
+        },
+        "citKorkulukMalzemeHesabi": {
+          "title": "Cit Korkuluk Malzeme Hesabi input guide",
+          "summary": "Input guide for Cit Korkuluk Malzeme Hesabi."
+        },
+        "cleaningCostCalculator": {
+          "title": "Cleaning Cost Calculator input guide",
+          "summary": "Input guide for Cleaning Cost Calculator."
+        },
+        "cleaningCostEstimator": {
+          "title": "Cleaning Cost Estimator input guide",
+          "summary": "Input guide for Cleaning Cost Estimator."
+        },
+        "cncMinimumSafeQuoteAnalyzer": {
+          "title": "Cnc Minimum Safe Quote Analyzer input guide",
+          "summary": "Input guide for Cnc Minimum Safe Quote Analyzer."
+        },
+        "concreteVolumeCalculator": {
+          "title": "Concrete Volume Calculator input guide",
+          "summary": "Input guide for Concrete Volume Calculator."
+        },
+        "copAtikKonteynerHacimHesabi": {
+          "title": "Cop Atik Konteyner Hacim Hesabi input guide",
+          "summary": "Input guide for Cop Atik Konteyner Hacim Hesabi."
+        },
+        "cuttingSpeedCalculator": {
+          "title": "Cutting Speed Calculator input guide",
+          "summary": "Input guide for Cutting Speed Calculator."
+        },
+        "daireAlaniCevresiHesaplama": {
+          "title": "Daire Alani Cevresi Hesaplama input guide",
+          "summary": "Input guide for Daire Alani Cevresi Hesaplama."
+        },
+        "dateDifferenceCalculator": {
+          "title": "Date Difference Calculator input guide",
+          "summary": "Input guide for Date Difference Calculator."
+        },
+        "deliveryCostCalculator": {
+          "title": "Delivery Cost Calculator input guide",
+          "summary": "Input guide for Delivery Cost Calculator."
+        },
+        "depreciationCalculator": {
+          "title": "Depreciation Calculator input guide",
+          "summary": "Input guide for Depreciation Calculator."
+        },
+        "desiCalculator": {
+          "title": "Desi Calculator input guide",
+          "summary": "Input guide for Desi Calculator."
+        },
+        "discountCalculator": {
+          "title": "Discount Calculator input guide",
+          "summary": "Input guide for Discount Calculator."
+        },
+        "disliModulCapHesaplama": {
+          "title": "Disli Modul Cap Hesaplama input guide",
+          "summary": "Input guide for Disli Modul Cap Hesaplama."
+        },
+        "dizelBenzinMaliyetKarsilastirma": {
+          "title": "Dizel Benzin Maliyet Karsilastirma input guide",
+          "summary": "Input guide for Dizel Benzin Maliyet Karsilastirma."
+        },
+        "dogalgazTuketimiHesaplama": {
+          "title": "Dogalgaz Tuketimi Hesaplama input guide",
+          "summary": "Input guide for Dogalgaz Tuketimi Hesaplama."
+        },
+        "drywallCalculator": {
+          "title": "Drywall Calculator input guide",
+          "summary": "Input guide for Drywall Calculator."
+        },
+        "duvarKagidiSeramikAdetHesaplama": {
+          "title": "Duvar Kagidi Seramik Adet Hesaplama input guide",
+          "summary": "Input guide for Duvar Kagidi Seramik Adet Hesaplama."
+        },
+        "excavationVolumeCalculator": {
+          "title": "Excavation Volume Calculator input guide",
+          "summary": "Input guide for Excavation Volume Calculator."
+        },
+        "feedRateCalculator": {
+          "title": "Feed Rate Calculator input guide",
+          "summary": "Input guide for Feed Rate Calculator."
+        },
+        "flooringCalculator": {
+          "title": "Flooring Calculator input guide",
+          "summary": "Input guide for Flooring Calculator."
+        },
+        "fotokopiYaziciTonerSayfaMaliyeti": {
+          "title": "Fotokopi Yazici Toner Sayfa Maliyeti input guide",
+          "summary": "Input guide for Fotokopi Yazici Toner Sayfa Maliyeti."
+        },
+        "fuelConsumptionCalculator": {
+          "title": "Fuel Consumption Calculator input guide",
+          "summary": "Input guide for Fuel Consumption Calculator."
+        },
+        "fuelConsumptionCheck": {
+          "title": "Fuel Consumption Check input guide",
+          "summary": "Input guide for Fuel Consumption Check."
+        },
+        "fuelCostCalculator": {
+          "title": "Fuel Cost Calculator input guide",
+          "summary": "Input guide for Fuel Cost Calculator."
+        },
+        "fuelTravelCalculator": {
+          "title": "Fuel Travel Calculator input guide",
+          "summary": "Input guide for Fuel Travel Calculator."
+        },
+        "homeBudgetCalculator": {
+          "title": "Home Budget Calculator input guide",
+          "summary": "Input guide for Home Budget Calculator."
+        },
+        "homeRenovationM2": {
+          "title": "Home Renovation M2 input guide",
+          "summary": "Input guide for Home Renovation M2."
+        },
+        "internetTelefonPaketiKarsilastirma": {
+          "title": "Internet Telefon Paketi Karsilastirma input guide",
+          "summary": "Input guide for Internet Telefon Paketi Karsilastirma."
+        },
+        "isElbisesiKkdKisiselKoruyucuDonanimSarfiyati": {
+          "title": "Is Elbisesi Kkd Kisisel Koruyucu Donanim Sarfiyati input guide",
+          "summary": "Input guide for Is Elbisesi Kkd Kisisel Koruyucu Donanim Sarfiyati."
+        },
+        "isiDegistiriciEsanjorKapasiteHesabi": {
+          "title": "Isi Degistirici Esanjor Kapasite Hesabi input guide",
+          "summary": "Input guide for Isi Degistirici Esanjor Kapasite Hesabi."
+        },
+        "isitmaSogutmaYukuKcalKwHesabi": {
+          "title": "Isitma Sogutma Yuku Kcal Kw Hesabi input guide",
+          "summary": "Input guide for Isitma Sogutma Yuku Kcal Kw Hesabi."
+        },
+        "jouleKaloriWattSaatCevirici": {
+          "title": "Joule Kalori Watt Saat Cevirici input guide",
+          "summary": "Input guide for Joule Kalori Watt Saat Cevirici."
+        },
+        "kesirOndalikCevirici": {
+          "title": "Kesir Ondalik Cevirici input guide",
+          "summary": "Input guide for Kesir Ondalik Cevirici."
+        },
+        "kirisKolonYaklasikAgirlikHesabi": {
+          "title": "Kiris Kolon Yaklasik Agirlik Hesabi input guide",
+          "summary": "Input guide for Kiris Kolon Yaklasik Agirlik Hesabi."
+        },
+        "koniHacmiHesaplama": {
+          "title": "Koni Hacmi Hesaplama input guide",
+          "summary": "Input guide for Koni Hacmi Hesaplama."
+        },
+        "kosebentLamaAgirlikHesaplama": {
+          "title": "Kosebent Lama Agirlik Hesaplama input guide",
+          "summary": "Input guide for Kosebent Lama Agirlik Hesaplama."
+        },
+        "kumlamaRaspaKumSarfiyatiHesabi": {
+          "title": "Kumlama Raspa Kum Sarfiyati Hesabi input guide",
+          "summary": "Input guide for Kumlama Raspa Kum Sarfiyati Hesabi."
+        },
+        "kureHacmiHesaplama": {
+          "title": "Kure Hacmi Hesaplama input guide",
+          "summary": "Input guide for Kure Hacmi Hesaplama."
+        },
+        "kwhConsumptionCheck": {
+          "title": "Kwh Consumption Check input guide",
+          "summary": "Input guide for Kwh Consumption Check."
+        },
+        "lastikOmruDegisimKmHesaplama": {
+          "title": "Lastik Omru Degisim Km Hesaplama input guide",
+          "summary": "Input guide for Lastik Omru Degisim Km Hesaplama."
+        },
+        "lengthConverter": {
+          "title": "Length Converter input guide",
+          "summary": "Input guide for Length Converter."
+        },
+        "lpgBenzinTasarrufKarsilastirma": {
+          "title": "Lpg Benzin Tasarruf Karsilastirma input guide",
+          "summary": "Input guide for Lpg Benzin Tasarruf Karsilastirma."
+        },
+        "machineHourEstimator": {
+          "title": "Machine Hour Estimator input guide",
+          "summary": "Input guide for Machine Hour Estimator."
+        },
+        "matkapKilavuzDelikCapiTablosu": {
+          "title": "Matkap Kilavuz Delik Capi Tablosu input guide",
+          "summary": "Input guide for Matkap Kilavuz Delik Capi Tablosu."
+        },
+        "medianCalculator": {
+          "title": "Median Calculator input guide",
+          "summary": "Input guide for Median Calculator."
+        },
+        "merdivenPlatformYukseklikErisimHesabi": {
+          "title": "Merdiven Platform Yukseklik Erisim Hesabi input guide",
+          "summary": "Input guide for Merdiven Platform Yukseklik Erisim Hesabi."
+        },
+        "newtonKilogramKuvvetCevirici": {
+          "title": "Newton Kilogram Kuvvet Cevirici input guide",
+          "summary": "Input guide for Newton Kilogram Kuvvet Cevirici."
+        },
+        "npuNpiProfilAgirlikHesaplama": {
+          "title": "Npu Npi Profil Agirlik Hesaplama input guide",
+          "summary": "Input guide for Npu Npi Profil Agirlik Hesaplama."
+        },
+        "ofisKirtasiyeSarfiyatHesabi": {
+          "title": "Ofis Kirtasiye Sarfiyat Hesabi input guide",
+          "summary": "Input guide for Ofis Kirtasiye Sarfiyat Hesabi."
+        },
+        "paintCoverageCostCheck": {
+          "title": "Paint Coverage Cost Check input guide",
+          "summary": "Input guide for Paint Coverage Cost Check."
+        },
+        "paletAmbalajKeresteHesabi": {
+          "title": "Palet Ambalaj Kereste Hesabi input guide",
+          "summary": "Input guide for Palet Ambalaj Kereste Hesabi."
+        },
+        "paslanmazCelikAluminyumAyirtEtmeHesaplayicisiYogunlukBazli": {
+          "title": "Paslanmaz Celik Aluminyum Ayirt Etme Hesaplayicisi Yogunluk Bazli input guide",
+          "summary": "Input guide for Paslanmaz Celik Aluminyum Ayirt Etme Hesaplayicisi Yogunluk Bazli."
+        },
+        "percentageCalculator": {
+          "title": "Percentage Calculator input guide",
+          "summary": "Input guide for Percentage Calculator."
+        },
+        "percentageIncreaseCalculator": {
+          "title": "Percentage Increase Calculator input guide",
+          "summary": "Input guide for Percentage Increase Calculator."
+        },
+        "plasterCalculator": {
+          "title": "Plaster Calculator input guide",
+          "summary": "Input guide for Plaster Calculator."
+        },
+        "plumbingFixtureCostCheck": {
+          "title": "Plumbing Fixture Cost Check input guide",
+          "summary": "Input guide for Plumbing Fixture Cost Check."
+        },
+        "pompaGucuBasmaYuksekligiHesabi": {
+          "title": "Pompa Gucu Basma Yuksekligi Hesabi input guide",
+          "summary": "Input guide for Pompa Gucu Basma Yuksekligi Hesabi."
+        },
+        "prefabrikKonteynerOfisMMaliyeti": {
+          "title": "Prefabrik Konteyner Ofis M Maliyeti input guide",
+          "summary": "Input guide for Prefabrik Konteyner Ofis M Maliyeti."
+        },
+        "prefabrikKonteynerOlcuHesaplama": {
+          "title": "Prefabrik Konteyner Olcu Hesaplama input guide",
+          "summary": "Input guide for Prefabrik Konteyner Olcu Hesaplama."
+        },
+        "probabilityCalculator": {
+          "title": "Probability Calculator input guide",
+          "summary": "Input guide for Probability Calculator."
+        },
+        "productMarginCalculator": {
+          "title": "Product Margin Calculator input guide",
+          "summary": "Input guide for Product Margin Calculator."
+        },
+        "projectCostCalculator": {
+          "title": "Project Cost Calculator input guide",
+          "summary": "Input guide for Project Cost Calculator."
+        },
+        "projectCostEstimator": {
+          "title": "Project Cost Estimator input guide",
+          "summary": "Input guide for Project Cost Estimator."
+        },
+        "proportionCalculator": {
+          "title": "Proportion Calculator input guide",
+          "summary": "Input guide for Proportion Calculator."
+        },
+        "radyatorPetekBoyuHesaplama": {
+          "title": "Radyator Petek Boyu Hesaplama input guide",
+          "summary": "Input guide for Radyator Petek Boyu Hesaplama."
+        },
+        "rastgeleSayiUreteci": {
+          "title": "Rastgele Sayi Ureteci input guide",
+          "summary": "Input guide for Rastgele Sayi Ureteci."
+        },
+        "ratioCalculator": {
+          "title": "Ratio Calculator input guide",
+          "summary": "Input guide for Ratio Calculator."
+        },
+        "rebarWeightCalculator": {
+          "title": "Rebar Weight Calculator input guide",
+          "summary": "Input guide for Rebar Weight Calculator."
+        },
+        "recipeCostCheck": {
+          "title": "Recipe Cost Check input guide",
+          "summary": "Input guide for Recipe Cost Check."
+        },
+        "repairTimeVsPriceCheck": {
+          "title": "Repair Time Vs Price Check input guide",
+          "summary": "Input guide for Repair Time Vs Price Check."
+        },
+        "returnRateProfitErosionTool": {
+          "title": "Return Rate Profit Erosion Tool input guide",
+          "summary": "Input guide for Return Rate Profit Erosion Tool."
+        },
+        "roofingAreaCalculator": {
+          "title": "Roofing Area Calculator input guide",
+          "summary": "Input guide for Roofing Area Calculator."
+        },
+        "roofingSquareCostCheck": {
+          "title": "Roofing Square Cost Check input guide",
+          "summary": "Input guide for Roofing Square Cost Check."
+        }
+      }
     }
   },
   "guidance": {
