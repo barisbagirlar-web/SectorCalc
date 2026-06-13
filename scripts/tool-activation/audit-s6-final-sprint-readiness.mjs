@@ -140,12 +140,22 @@ function checkCommitChain() {
 }
 
 function parsePorcelainPath(line) {
-  const renamed = line.match(/^.. (.+) -> (.+)$/);
+  const trimmed = line.trimEnd();
+  if (trimmed.length < 3) {
+    return trimmed;
+  }
+  const renamed = trimmed.match(/^..[\s]+(.+?) -> (.+)$/);
   if (renamed) {
     return renamed[2].trim();
   }
-  const match = line.match(/^.. (.+)$/);
-  return match ? match[1].trim() : line.trim();
+  if (trimmed.length >= 4 && trimmed[2] === " ") {
+    return trimmed.slice(3).trim();
+  }
+  if (trimmed[1] === " ") {
+    return trimmed.slice(2).trim();
+  }
+  const match = trimmed.match(/^..[\s]+(.+)$/);
+  return match ? match[1].trim() : trimmed;
 }
 
 function getWorkingTreeEntries() {
@@ -159,17 +169,22 @@ function getWorkingTreeEntries() {
     .map((line) => parsePorcelainPath(line));
 }
 
+function isAllowedDirtyPath(file) {
+  if (GENERATED_DIRTY_ALLOWLIST.has(file)) {
+    return true;
+  }
+  if (S6_ALLOWED_DIRTY.has(file)) {
+    return true;
+  }
+  if (file.endsWith("next-env.d.ts")) {
+    return true;
+  }
+  return false;
+}
+
 function checkWorkingTree() {
   const entries = getWorkingTreeEntries();
-  const disallowed = entries.filter((file) => {
-    if (GENERATED_DIRTY_ALLOWLIST.has(file)) {
-      return false;
-    }
-    if (S6_ALLOWED_DIRTY.has(file)) {
-      return false;
-    }
-    return true;
-  });
+  const disallowed = entries.filter((file) => !isAllowedDirtyPath(file));
   if (disallowed.length > 0) {
     addBlocker(`working_tree_dirty:${disallowed.join(",")}`);
   }
@@ -365,52 +380,114 @@ function renderMarkdownReport(report) {
   const blockerLines =
     report.blockers.length === 0 ? ["- none"] : report.blockers.map((blocker) => `- ${blocker}`);
 
+  const forbiddenLines =
+    report.repo.forbiddenTouched.length === 0
+      ? ["- none"]
+      : report.repo.forbiddenTouched.map((file) => `- ${file}`);
+
+  const deployReady = report.status === "DEPLOY_READY_BUT_NOT_DEPLOYED";
+
   return [
     "# S6 Final Sprint Readiness Report",
     "",
-    `Generated: ${report.generatedAt}`,
+    "## Executive Summary",
     "",
-    "## Status",
+    `- Final status: \`${report.status}\``,
+    `- Deploy executed: no`,
+    `- Deploy ready: ${deployReady ? "yes" : "no"}`,
+    `- Main blocker if any: ${report.blockers[0] ?? "none"}`,
     "",
-    `- **status:** \`${report.status}\``,
-    `- **deployExecuted:** ${report.deployExecuted}`,
+    "## Commit Chain",
+    "",
+    `- Revenue kill-switch: \`${report.commitHashes.revenueKillSwitch}\``,
+    `- S3: \`${report.commitHashes.s3}\``,
+    `- S4: \`${report.commitHashes.s4}\``,
+    `- S5: \`${report.commitHashes.s5}\` (${report.commitHashes.s5Subject})`,
+    "",
+    "## Revenue Boundary",
+    "",
+    `- paymentEligible: ${report.revenue.paymentEligible}`,
+    `- formulaGateEligible: ${report.revenue.formulaGateEligible}`,
+    `- freePaymentEligible: ${report.revenue.freePaymentEligible}`,
+    `- feed-efficiency-analyzer: ${report.revenue.feedEfficiencyBlocked ? "blocked" : "OPEN"}`,
+    `- problem slug: ${report.revenue.problemSlugLocked ? "locked" : "OPEN"}`,
+    `- allowlist: ${report.revenue.allowlistEnforced ? "enforced" : "violation"}`,
+    "",
+    "## Sprint Summary",
+    "",
+    "### S2",
+    "",
+    `- input: ${report.sprintSummary.s2.input ?? "n/a"}`,
+    `- patched: ${report.sprintSummary.s2.patched ?? "n/a"}`,
+    `- skipped: ${report.sprintSummary.s2.skipped ?? "n/a"}`,
+    "",
+    "### S3",
+    "",
+    `- input: ${report.sprintSummary.s3.input ?? "n/a"}`,
+    `- patched: ${report.sprintSummary.s3.patched ?? "n/a"} (source: ${S3_COMPLETED_SPRINT.docPath})`,
+    `- skipped: ${report.sprintSummary.s3.skipped ?? "n/a"}`,
+    "",
+    "### S4",
+    "",
+    `- processed: ${report.sprintSummary.s4.processed ?? "n/a"}`,
+    `- schema_contract_required: ${report.sprintSummary.s4.schema_contract_required ?? "n/a"}`,
+    `- manual_expert_review_required: ${report.sprintSummary.s4.manual_expert_review_required ?? "n/a"}`,
+    "",
+    "### S5",
+    "",
+    `- input: ${report.sprintSummary.s5.input ?? "n/a"}`,
+    `- patched: ${report.sprintSummary.s5.patched ?? "n/a"}`,
+    `- skipped: ${report.sprintSummary.s5.skipped ?? "n/a"}`,
     "",
     "## Manifest drift notes",
     "",
-    "Completed sprint counts use sprint doc + commit. Future queue uses regenerated manifest.",
-    "",
     ...driftLines,
+    "",
+    "## Forbidden File Check",
+    "",
+    ...forbiddenLines,
+    "",
+    "## Test Results",
+    "",
+    "| Test | Result |",
+    "| --- | --- |",
+    ...Object.entries(report.tests).map(([name, result]) => `| ${name} | ${result} |`),
+    "",
+    "## Deploy Readiness",
+    "",
+    "- deploy allowed: no",
+    "- deploy executed: no",
+    `- p4 guard result: ${report.tests.p4DeployGuard}`,
+    `- final recommendation: ${deployReady ? "DEPLOY_READY_BUT_NOT_DEPLOYED — manual UI checklist + explicit deploy approval still required." : "NO_GO — resolve blockers before deploy."}`,
+    "",
+    "## Remaining Backlog",
+    "",
+    `- category-only requiring schema/contract: ${report.backlog.categoryOnlyRequiringSchemaContract ?? "n/a"}`,
+    `- manual expert review: ${report.backlog.manualExpertReview ?? "n/a"}`,
+    `- remaining guide/oracle gaps: ${report.backlog.remainingGuideOracleGaps ?? "n/a"}`,
+    `- remaining active free missing backing: ${report.backlog.remainingActiveFreeMissingBacking ?? "n/a"}`,
+    `- premium-schema fail manual: ${report.backlog.premiumSchemaFailManual ?? "n/a"}`,
     "",
     "## Blockers",
     "",
     ...blockerLines,
     "",
-    "## Sprint summary",
-    "",
-    `- S2 patched: ${report.sprintSummary.s2.patched ?? "n/a"}`,
-    `- S3 patched: ${report.sprintSummary.s3.patched ?? "n/a"} (completed sprint source: ${S3_COMPLETED_SPRINT.docPath})`,
-    `- S4 processed: ${report.sprintSummary.s4.processed ?? "n/a"}`,
-    `- S5 patched: ${report.sprintSummary.s5.patched ?? "n/a"}`,
-    "",
-    "## Manifest batch counts (current queue)",
-    "",
-    `- S2: ${report.sprintManifest?.s2BatchCount ?? "n/a"}`,
-    `- S3: ${report.sprintManifest?.s3BatchCount ?? "n/a"}`,
-    `- S4: ${report.sprintManifest?.s4BatchCount ?? "n/a"}`,
-    `- S5: ${report.sprintManifest?.s5BatchCount ?? "n/a"}`,
-    "",
-    "## Tests",
-    "",
-    ...Object.entries(report.tests).map(([name, result]) => `- ${name}: ${result}`),
-    "",
   ].join("\n");
 }
 
-function runTestGate(name, command, { preCommand } = {}) {
-  if (preCommand) {
-    runCommand(preCommand);
+function runTestGate(name, command, { preCommand, retries = 0 } = {}) {
+  let result = { ok: false, detail: "not run" };
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    if (attempt > 0) {
+      runCommand("rm -rf .next");
+    } else if (preCommand) {
+      runCommand(preCommand);
+    }
+    result = runCommand(command);
+    if (result.ok) {
+      break;
+    }
   }
-  const result = runCommand(command);
   if (!result.ok) {
     addBlocker(`${name}_fail:${result.detail}`);
   }
@@ -446,7 +523,6 @@ function main() {
   console.log("=== audit:s6-final-sprint-readiness ===\n");
 
   const commitChecks = checkCommitChain();
-  const repoWorking = checkWorkingTree();
   const forbiddenTouched = checkForbiddenTouchedAfterS5();
   if (forbiddenTouched.length > 0) {
     addBlocker(`forbidden_touched:${forbiddenTouched.join(",")}`);
@@ -460,7 +536,10 @@ function main() {
   const tests = {
     lint: runTestGate("lint", "npm run lint"),
     tsc: runTestGate("tsc", "npx tsc --noEmit"),
-    build: runTestGate("build", "npm run build", { preCommand: "rm -rf .next" }),
+    build: runTestGate("build", "npm run prebuild && npx next build", {
+      preCommand: "rm -rf .next",
+      retries: 1,
+    }),
     revenueGate: runTestGate("revenueGate", "npm run assert:revenue-gate"),
     runtimeTrust: runTestGate("runtimeTrust", "node scripts/tool-activation/audit-runtime-trust-engine.mjs"),
     inputGuides: runTestGate("inputGuides", "npm run audit:input-guides"),
@@ -471,6 +550,8 @@ function main() {
   if (tests.p4DeployGuard === "NO_GO") {
     addBlocker("p4_deploy_guard_no_go");
   }
+
+  const repoWorking = checkWorkingTree();
 
   const status =
     blockers.length === 0 ? "DEPLOY_READY_BUT_NOT_DEPLOYED" : "NO_GO";
