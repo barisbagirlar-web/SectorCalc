@@ -7,6 +7,7 @@ import {
   FACTORY_RESULT_PATH,
   applyFactoryPlan,
   buildFactoryPlan,
+  optionsMatch,
   parseCliArgs,
   writeFactoryPlan,
   writeFactoryResult,
@@ -19,7 +20,7 @@ function main() {
   let plan;
   if (fs.existsSync(FACTORY_PLAN_PATH) && !options.force) {
     plan = JSON.parse(fs.readFileSync(FACTORY_PLAN_PATH, "utf8"));
-    if (plan.options?.classFilter !== options.classFilter || plan.options?.limit !== options.limit) {
+    if (!optionsMatch(plan.options, options)) {
       plan = buildFactoryPlan(options);
       writeFactoryPlan(plan);
     }
@@ -47,7 +48,7 @@ function main() {
 
   writeFactoryResult(result);
 
-  console.log("\nP64 Premium Backfill Factory — apply result");
+  console.log("\nP65 Premium Backfill Factory — apply result");
   console.log(`generated: ${result.generated.length}`);
   console.log(`passed vitest: ${result.passed.length}`);
   console.log(`failed: ${result.failed.length}`);

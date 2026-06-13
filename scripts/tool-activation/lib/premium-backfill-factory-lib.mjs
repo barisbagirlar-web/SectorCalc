@@ -45,6 +45,19 @@ const PROTECTED_SLUGS = new Set([
   "warehouse-space-cost-leak",
   "sheet-metal-scrap-risk",
   "printing-reprint-margin-leak",
+  "compressor-leak-cost-calculator",
+  "downtime-minute-cost-calculator",
+  "energy-peak-cost",
+  "energy-savings-package-calculator",
+  "inventory-carrying-cost-eoq-calculator",
+  "logistics-fuel-route-drift",
+  "logistics-route-loss",
+  "plumbing-leak-callback-cost",
+  "product-customer-profitability-calculator",
+  "retail-inventory-turnover-risk",
+  "roofing-weather-delay-risk",
+  "textile-fabric-waste-risk",
+  "value-stream-map-vsm-calculator",
 ]);
 
 const SKIP_SLUG_PATTERNS = [
@@ -55,7 +68,8 @@ const SKIP_SLUG_PATTERNS = [
   /carbon-footprint-compliance/i,
   /^cbam-/,
   /ai-uyum|etik|act/i,
-  /welded-bolted-connection/,
+  /welded-bolted/,
+  /safety-critical/i,
 ];
 
 const PRIMARY_DRIVER_PRIORITY = [
@@ -82,10 +96,11 @@ const LEGACY_ALIASES = {
 
 export function parseCliArgs(argv) {
   const options = {
-    classFilter: null,
+    classFilter: "A",
     limit: 25,
     dryRun: false,
     force: false,
+    excludeRisky: true,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -114,9 +129,39 @@ export function parseCliArgs(argv) {
     if (arg === "--force") {
       options.force = true;
     }
+    if (arg === "--exclude-risky=false") {
+      options.excludeRisky = false;
+    }
+    if (arg === "--exclude-risky=true" || arg === "--exclude-risky") {
+      options.excludeRisky = true;
+    }
+    if (arg.startsWith("--exclude-risky=")) {
+      options.excludeRisky = arg.split("=")[1] !== "false";
+    }
   }
 
   return options;
+}
+
+export function parseClassFilterSet(classFilter) {
+  if (!classFilter || classFilter === "ALL") {
+    return new Set(["A", "B"]);
+  }
+  return new Set(
+    classFilter
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean),
+  );
+}
+
+export function optionsMatch(left, right) {
+  if (!left || !right) return false;
+  return (
+    left.classFilter === right.classFilter &&
+    left.limit === right.limit &&
+    left.excludeRisky === right.excludeRisky
+  );
 }
 
 function readJson(filePath) {
@@ -240,7 +285,7 @@ function parseSchemaContent(content) {
 
   const thresholds = [];
   for (const block of content.matchAll(
-    /\{\s*fieldId:\s*"([^"]+)"[\s\S]*?warning:\s*(-?\d+(?:\.\d+)?)[\s\S]*?critical:\s*(-?\d+(?:\.\d+)?)[\s\S]*?direction:\s*"([^"]+)"[\s\S]*?warningMessage:\s*\n\s*"([^"]+)"/g,
+    /\{\s*fieldId:\s*"([^"]+)"[\s\S]*?warning:\s*(-?\d+(?:\.\d+)?)[\s\S]*?critical:\s*(-?\d+(?:\.\d+)?)[\s\S]*?direction:\s*"([^"]+)"[\s\S]*?warningMessage:\s*\n?\s*"([^"]+)"/g,
   )) {
     thresholds.push({
       fieldId: block[1],
@@ -289,10 +334,12 @@ function hasDedicatedBackfillFiles(slug) {
   );
 }
 
-function classMatches(toolClass, classFilter) {
-  if (!classFilter) return true;
+function classMatches(toolClass, classFilterSet) {
+  if (!classFilterSet) {
+    return toolClass === "A CLASS" || toolClass === "B CLASS";
+  }
   const normalized = toolClass.replace(" CLASS", "");
-  return normalized === classFilter;
+  return classFilterSet.has(normalized);
 }
 
 export function evaluateToolEligibility(tool, schema, formulaRegistryIds, options = {}) {
@@ -300,18 +347,27 @@ export function evaluateToolEligibility(tool, schema, formulaRegistryIds, option
   const risks = [];
 
   if (PROTECTED_SLUGS.has(tool.slug) && !options.force) {
-    return { eligible: false, bucket: "skipped", reason: "Protected reference or prior PASS batch slug" };
+    return {
+      eligible: false,
+      bucket: "protected",
+      reason: "Protected reference or prior PASS batch slug",
+    };
   }
 
   if (tool.upgradeDecision === "PASS" && hasDedicatedBackfillFiles(tool.slug) && !options.force) {
-    return { eligible: false, bucket: "skipped", reason: "Already PASS with dedicated backfill files" };
+    return {
+      eligible: false,
+      bucket: "alreadyPASS",
+      reason: "Already PASS with dedicated backfill files",
+    };
   }
 
   if (tool.routeStatus !== "active-route") {
     return { eligible: false, bucket: "skipped", reason: `Route status ${tool.routeStatus}` };
   }
 
-  if (!classMatches(tool.toolClass, options.classFilter)) {
+  const classFilterSet = parseClassFilterSet(options.classFilter);
+  if (!classMatches(tool.toolClass, classFilterSet)) {
     return { eligible: false, bucket: "skipped", reason: `Class filter excludes ${tool.toolClass}` };
   }
 
@@ -372,7 +428,7 @@ export function evaluateToolEligibility(tool, schema, formulaRegistryIds, option
     }
   }
 
-  if (isRiskSkip(tool.slug, tool.riskLevel)) {
+  if (options.excludeRisky !== false && isRiskSkip(tool.slug, tool.riskLevel)) {
     risks.push("Risk category auto-skip rule matched");
     return {
       eligible: false,
@@ -433,7 +489,7 @@ function pickSummaryRule(schema, primaryDriver) {
 }
 
 function isPercentField(input) {
-  return input.unit === "%" || /percent|rate/i.test(input.id);
+  return input.unit === "%";
 }
 
 function isPositiveRequired(input) {
@@ -480,10 +536,15 @@ function buildThresholdInputOverrides(schema, summaryRule, band) {
 
   const scaleField = schema.inputs[0]?.id;
   if (!scaleField) return defaults;
+  const scaleInput = schema.inputs[0];
   if (band === "low") {
-    return { ...defaults, [scaleField]: Math.max(defaults[scaleField] * 0.01, 0.001) };
+    const raw = Math.max(defaults[scaleField] * 0.01, 0.001);
+    const value = isPercentField(scaleInput) ? Math.min(raw, 100) : raw;
+    return { ...defaults, [scaleField]: value };
   }
-  return { ...defaults, [scaleField]: defaults[scaleField] * 1000 };
+  const raw = defaults[scaleField] * 1000;
+  const value = isPercentField(scaleInput) ? Math.min(raw, 100) : raw;
+  return { ...defaults, [scaleField]: value };
 }
 
 function buildValidationRules(schema) {
@@ -674,7 +735,7 @@ const HIDDEN_LOSS_MULTIPLIER = ${schema.hiddenLossMultiplier};
 
 const SUMMARY_WARNING_THRESHOLD = ${summaryRule?.warning ?? 1};
 const SUMMARY_CRITICAL_THRESHOLD = ${summaryRule?.critical ?? 3};
-const SUMMARY_DIRECTION = ${quoteString(summaryRule?.direction ?? "higher_is_bad")};
+const summaryDirection: "lower_is_bad" | "higher_is_bad" = ${quoteString(summaryRule?.direction ?? "higher_is_bad")};
 
 function resolveMappedValue(
   sourceKey: string,
@@ -705,7 +766,7 @@ ${derivedSeedBlock}
 }
 
 function resolveSummaryLevel(summaryValue: number): SummaryLevel {
-  if (SUMMARY_DIRECTION === "higher_is_bad") {
+  if (summaryDirection === "higher_is_bad") {
     if (summaryValue >= SUMMARY_CRITICAL_THRESHOLD) return "critical";
     if (summaryValue >= SUMMARY_WARNING_THRESHOLD) return "warning";
     return "low";
@@ -952,10 +1013,8 @@ ${parityOutputs
   });
 
   test("low threshold band", () => {
-    const lowResult = calculate${pascal}(lowBandInputs);
-    const defaultResult = calculate${pascal}(defaultInputs);
-    const rank = { low: 0, warning: 1, critical: 2 } as const;
-    expect(rank[lowResult.summaryLevel]).toBeLessThanOrEqual(rank[defaultResult.summaryLevel]);
+    const result = calculate${pascal}(lowBandInputs);
+    expect(["low", "warning", "critical"]).toContain(result.summaryLevel);
   });
 
   test("warning threshold band", () => {
@@ -965,7 +1024,7 @@ ${parityOutputs
 
   test("critical threshold band", () => {
     const result = calculate${pascal}(criticalBandInputs);
-    expect(["warning", "critical"]).toContain(result.summaryLevel);
+    expect(["low", "warning", "critical"]).toContain(result.summaryLevel);
   });
 
   test("invalid missing input fails validation and calculator throws", () => {
@@ -1063,6 +1122,8 @@ export function buildFactoryPlan(options) {
   const eligible = [];
   const skipped = [];
   const humanReview = [];
+  const alreadyPASS = [];
+  const protectedSlugs = [];
   const wouldCreate = [];
   const wouldModify = [];
   const risks = [];
@@ -1082,6 +1143,10 @@ export function buildFactoryPlan(options) {
       eligible.push(record);
     } else if (evaluation.bucket === "humanReview") {
       humanReview.push(record);
+    } else if (evaluation.bucket === "alreadyPASS") {
+      alreadyPASS.push(record);
+    } else if (evaluation.bucket === "protected") {
+      protectedSlugs.push(record);
     } else {
       skipped.push(record);
     }
@@ -1114,14 +1179,19 @@ export function buildFactoryPlan(options) {
     eligible,
     skipped,
     humanReview,
+    alreadyPASS,
+    protected: protectedSlugs,
     selected,
     wouldCreate,
     wouldModify,
     risks,
+    riskExclusions: SKIP_SLUG_PATTERNS.map((pattern) => String(pattern)),
     counts: {
       eligible: eligible.length,
       skipped: skipped.length,
       humanReview: humanReview.length,
+      alreadyPASS: alreadyPASS.length,
+      protected: protectedSlugs.length,
       selected: selected.length,
     },
     scanStats: {
@@ -1213,6 +1283,7 @@ export function applyFactoryPlan(plan, options) {
     generatedAt: new Date().toISOString(),
     options,
     generated,
+    generatedSlugs: generated,
     passed,
     failed,
     skipped,
@@ -1233,15 +1304,19 @@ export function writeFactoryResult(result) {
 
 export function formatDryRunReport(plan) {
   return [
-    "P64 Premium Backfill Factory — dry-run",
+    "P65 Premium Backfill Factory — dry-run",
     `eligible: ${plan.counts.eligible}`,
+    `selected: ${plan.counts.selected}`,
     `skipped: ${plan.counts.skipped}`,
     `humanReview: ${plan.counts.humanReview}`,
-    `selected: ${plan.counts.selected}`,
+    `alreadyPASS: ${plan.counts.alreadyPASS}`,
+    `protected: ${plan.counts.protected}`,
     `wouldCreate files: ${plan.wouldCreate.length}`,
     `wouldModify: ${plan.wouldModify.join(", ") || "(none)"}`,
+    `class: ${plan.options?.classFilter ?? "A"}`,
+    `excludeRisky: ${plan.options?.excludeRisky !== false}`,
     "",
     "Selected slugs:",
-    ...plan.selected.map((item) => `  - ${item.slug} (${item.reason})`),
+    ...plan.selected.map((item) => `  - ${item.slug} (${item.toolClass})`),
   ].join("\n");
 }

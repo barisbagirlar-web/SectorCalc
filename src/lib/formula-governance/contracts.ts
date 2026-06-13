@@ -43,6 +43,18 @@ import { RETAIL_INVENTORY_TURNOVER_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib
 import { ROOFING_WEATHER_DELAY_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/roofing-weather-delay-risk-critical";
 import { TEXTILE_FABRIC_WASTE_RISK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/textile-fabric-waste-risk-critical";
 import { VALUE_STREAM_MAP_VSM_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/value-stream-map-vsm-calculator-critical";
+import { ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/annual-leave-severance-notice-calculator-critical";
+import { BELT_PULLEY_SPEED_LENGTH_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/belt-pulley-speed-length-calculator-critical";
+import { BOLT_TIGHTENING_TORQUE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/bolt-tightening-torque-calculator-critical";
+import { CNC_OEE_LOSS_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/cnc-oee-loss-critical";
+import { EMPLOYEE_TOTAL_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/employee-total-cost-calculator-critical";
+import { FIRE_SYSTEM_FLOW_HYDRANT_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/fire-system-flow-hydrant-calculator-critical";
+import { HYDRAULIC_PNEUMATIC_CYLINDER_FORCE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/hydraulic-pneumatic-cylinder-force-calculator-critical";
+import { INVESTMENT_PAYBACK_NPV_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/investment-payback-npv-calculator-critical";
+import { OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/oee-equipment-effectiveness-calculator-critical";
+import { QUALITY_COST_PAF_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/quality-cost-paf-calculator-critical";
+import { SHOP_RATE_HOURLY_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/shop-rate-hourly-cost-calculator-critical";
+import { TOLERANCE_STACK_UP_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/tolerance-stack-up-calculator-critical";
 import { ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/engine-modules-critical";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
 
@@ -278,6 +290,18 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   ...ROOFING_WEATHER_DELAY_RISK_CRITICAL_FORMULA_CONTRACTS,
   ...TEXTILE_FABRIC_WASTE_RISK_CRITICAL_FORMULA_CONTRACTS,
   ...VALUE_STREAM_MAP_VSM_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...ANNUAL_LEAVE_SEVERANCE_NOTICE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...BELT_PULLEY_SPEED_LENGTH_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...BOLT_TIGHTENING_TORQUE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...CNC_OEE_LOSS_CRITICAL_FORMULA_CONTRACTS,
+  ...EMPLOYEE_TOTAL_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...FIRE_SYSTEM_FLOW_HYDRANT_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...HYDRAULIC_PNEUMATIC_CYLINDER_FORCE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...INVESTMENT_PAYBACK_NPV_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...OEE_EQUIPMENT_EFFECTIVENESS_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...QUALITY_COST_PAF_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...SHOP_RATE_HOURLY_COST_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...TOLERANCE_STACK_UP_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
   ...ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS,
 ];
 
