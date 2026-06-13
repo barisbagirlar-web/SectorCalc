@@ -274,24 +274,23 @@ function classifyGuideOracleLevel(tool, guideMissing, oracleMissing, highRisk) {
   return "none";
 }
 
-function classifyCategoryOnlyDecision(tool, flags, highRisk, guideLevel) {
+function classifyCategoryOnlyDecision(tool, _flags, highRisk, guideLevel) {
   const partialBacking =
     tool.schema?.exists || tool.formulaContract?.exists || tool.validation?.exists;
+  const keepCategoryStub = highRisk || tool.recommendedAction === "keep_safe";
   return {
     slug: tool.slug,
     routeReady: partialBacking && !highRisk && tool.repairDifficulty !== "critical",
-    keepCategoryStub:
-      highRisk ||
-      tool.recommendedAction === "keep_safe" ||
-      tool.qualityStatus === "QUARANTINE",
+    keepCategoryStub,
     scaffoldOpenable:
-      !highRisk &&
+      !keepCategoryStub &&
       tool.repairDifficulty !== "critical" &&
       (tool.recommendedAction === "route_wiring" || tool.recommendedAction === "auto_repair"),
     guideFirst: guideLevel !== "none" && guideLevel !== "generic_scaffold_allowed",
     resultRendererNeeded: !tool.resultRenderer?.exists,
     recommendedAction: tool.recommendedAction,
     riskLevel: highRisk ? "high" : tool.repairDifficulty,
+    quarantineStatus: tool.qualityStatus,
   };
 }
 
@@ -428,7 +427,7 @@ function buildManifest() {
       );
     }
 
-    if (guideLevel !== "none") {
+    if ((guideMissing || oracleMissing) && guideLevel !== "none") {
       guideOracleQueue.push({
         slug: tool.slug,
         level: guideLevel,
@@ -477,7 +476,7 @@ function buildManifest() {
   }));
 
   const s4 = categoryOnlyDecision
-    .filter((d) => d.scaffoldOpenable && !d.keepCategoryStub)
+    .filter((d) => d.scaffoldOpenable && !manualOnly.includes(d.slug))
     .slice(0, 80)
     .map((d) => ({
       slug: d.slug,
