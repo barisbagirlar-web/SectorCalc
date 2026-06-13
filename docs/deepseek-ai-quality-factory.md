@@ -1,22 +1,98 @@
 # DeepSeek AI Quality Factory
 
-SectorCalc uses DeepSeek as an **offline quality advisor** — not as a live calculation engine or Formula Gate authority.
+SectorCalc uses DeepSeek as an **AI-assisted quality, repair planning and draft generation engine** — not as a live calculation engine, Formula Gate authority, payment gate, deploy gate, or legal/certification authority.
 
-## What DeepSeek is for
+DeepSeek is active, broad-scoped, and used for maximum efficiency in analysis and repair planning. Final authority for Formula Gate, payment eligibility, deployment, legal claims, and certification claims remains with deterministic test gates and human approval.
 
+## DeepSeek Role Boundary
+
+DeepSeek is used as an AI-assisted quality, repair planning and draft generation engine. It is not the final authority for Formula Gate, payment eligibility, deployment, legal claims or certification claims.
+
+DeepSeek may generate formula drafts, schema drafts, validation suggestions, i18n fixes, unit normalization suggestions, result renderer plans, guide specs and bulk repair plans.
+
+All DeepSeek outputs must pass deterministic gates before any production use:
+
+- lint
+- typecheck
+- build
+- P2.4 / P2.5 audit
+- Runtime Trust audit
+- Golden Oracle tests where available
+- Playwright smoke where available
+- Revenue Gate assert
+- human approval
+
+Final authority remains with deterministic test gates and human approval.
+
+### What DeepSeek can do
+
+- Propose formula drafts
+- Generate input schema drafts
+- Suggest validation rules
+- Propose result renderer structure
+- Find i18n / locale / RTL issues
+- Suggest unit canonical fixes
+- Detect generic input guide issues
+- Propose premium guide spec drafts
+- Interpret P2.4 / ERT / Runtime Trust findings
+- Create bulk repair plans
+- Produce patch plans and test plans
 - Formula consistency review suggestions
 - Input / variable / unit risk flags
 - Validation gap recommendations
 - Patch prompt material for human-reviewed fixes
 - JSON repair suggestion reports (`DeepSeekSuggestionEnvelope`)
 
-## What DeepSeek is not for
+### What DeepSeek cannot do alone
 
+- Give Formula Gate final decisions
+- Decide payment eligibility
+- Give deploy GO / NO-GO decisions
+- Approve legal or certification claims
+- Ship high-risk new formulas to production without gates
+- Apply bulk patches without human approval and tests
+- Fake PASS audit results
+- Bypass WARN / FAIL verdicts
 - Live page render or form generation
-- Formula Gate approval
-- Opening payments or subscriptions
 - Automatic code changes
 - Git commits or deploys
+
+### Authority model
+
+| Actor | Role |
+| --- | --- |
+| **DeepSeek** | Proposes, drafts, finds risks, produces repair plans |
+| **Deterministic system** | Validates via P2.4 audit, Runtime Trust, Golden Oracle, Playwright QA, lint, tsc, build, and revenue gate |
+| **Human** | Final approval, deploy, payment, legal/certification, and critical formula decisions |
+
+### Decision table
+
+| DeepSeek task | Real authority | Rule |
+| --- | --- | --- |
+| Design new formula | Can draft | Field/formula fit requires tests and human approval |
+| Generate schema / validation / result renderer | Can draft | Cannot go live without deterministic gates |
+| Formula Gate final decision | Cannot | Requires P2.4 + Runtime Trust + Oracle + human decision |
+| Payment eligibility decision | Cannot | Financial/trust/payment decision stays with human |
+| Deploy GO / NO-GO | Cannot | May interpret test results; deploy decision is human |
+| Legal / certification claim | Cannot | Requires authorized human and documentation |
+| Bulk repair patch application | Plans only | Patch applied with human approval + tests + audit |
+
+### Hard guardrails (immutable)
+
+- Secrets never go to frontend.
+- `.env` is never committed.
+- Stripe secret is never logged.
+- Brevo API key is never logged.
+- Firebase private key is never logged.
+- No fake PASS.
+- No WARN bypass.
+- No payment on free tools.
+- No payment on problem slugs.
+- No deploy without passing tests.
+- No certification claim without evidence.
+- Formula Gate final decision is never delegated to AI.
+- Payment decision is never delegated to AI.
+- Deploy decision is never delegated to AI.
 
 **Formula Gate decisions remain deterministic** (FormulaContract, oracle, P2.4, ERT Runtime Trust Engine).
 
