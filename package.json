@@ -54,6 +54,8 @@
     "scan:quality-backfill": "node scripts/tool-activation/scan-quality-backfill.mjs",
     "plan:quality-backfill": "node scripts/tool-activation/plan-quality-backfill.mjs",
     "workorders:quality-backfill": "node scripts/tool-activation/create-quality-workorders.mjs",
+    "backfill:premium:generate": "node scripts/tool-activation/generate-premium-backfill.mjs",
+    "backfill:premium:apply": "node scripts/tool-activation/apply-premium-backfill.mjs",
     "review:tool-activation": "node scripts/tool-activation/generate-activation-review.mjs",
     "apply:tool-activation": "node scripts/tool-activation/apply-activation-draft.mjs",
     "audit:tool-activation": "node scripts/audit-tool-activation-factory.mjs",
