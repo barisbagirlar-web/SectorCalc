@@ -83,6 +83,7 @@ const STANDARD_UNITS = new Set([
   "pieces",
   "qty",
   "count",
+  "hectare",
 ]);
 
 const CHECK_IDS = [

@@ -77,6 +77,7 @@
     "ai:repair:record": "node scripts/ai-repair/record-repair-outcome.mjs",
     "ai:deepseek:health": "node scripts/ai/deepseek-healthcheck.mjs",
     "ai:deepseek:formula-audit": "node scripts/ai/deepseek-formula-audit.mjs",
+    "ai:deepseek:bulk-repair": "node scripts/ai/deepseek-bulk-tool-repair.mjs",
     "audit:ai-crawler-policy": "node scripts/audit-ai-crawler-policy.mjs",
     "audit:embedding-source": "node scripts/audit-embedding-source.mjs",
     "audit:engineering-standards": "node scripts/audit-engineering-standards.mjs",
