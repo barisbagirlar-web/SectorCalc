@@ -35,9 +35,9 @@ export interface BasincliKapCidarKalinligiHesabiOutput {
 
 function evaluateFormulas(input: BasincliKapCidarKalinligiHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.requiredThickness = (() => { try { return ((input.designPressure * input.vesselDiameter) / (2 * input.allowableStress * input.jointEfficiency - input.designPressure)) + input.corrosionAllowance; } catch { return 0; } })();
-  results.nominalThickness = (() => { try { return Math.ceil(results.requiredThickness / 0.5) * 0.5; } catch { return 0; } })();
-  results.stressCheck = (() => { try { return 0; } catch { return 0; } })();
+  results.requiredThickness = ((): number => { try { const __v = ((input.designPressure * input.vesselDiameter) / (2 * input.allowableStress * input.jointEfficiency - input.designPressure)) + input.corrosionAllowance; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.nominalThickness = ((): number => { try { const __v = Math.ceil(results.requiredThickness / 0.5) * 0.5; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.stressCheck = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

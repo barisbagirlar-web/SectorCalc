@@ -520,6 +520,8 @@
     }
   },
   "trust": {
+    "title": "حوكمة الحساب",
+    "description": "بيانات وصفية لملخص الحساب، وتغطية التحقق، وأسس التصدير المُحكَمة. يوثّق SectorCalc كيفية اشتقاق النتائج — وليس بديلاً عن المستندات الرسمية.",
     "stripLabel": "الثقة والأمان",
     "refund": "سياسة استرداد خلال 7 أيام",
     "ssl": "دفع آمن بـ SSL 256-bit",
@@ -3730,7 +3732,12 @@
     "bullet3": "PDF وCSV جاهزان للتصدير في الخطط المدفوعة",
     "legalQuestion": "هل هذه نصيحة مالية أو هندسية؟",
     "legalAnswer": "لا. حاسبات SectorCalc المميزة أدوات دعم قرار بافتراضات شفافة. لا تحل محل المشورة المالية أو القانونية أو الهندسية المهنية.",
-    "serviceType": "حساب قرار تشغيلي"
+    "serviceType": "حساب قرار تشغيلي",
+    "generatedBridgeEyebrow": "عرض قائم على المخطط",
+    "generatedBridgeTitle": "حاسبة مخطط ديناميكية",
+    "generatedBridgeIntro": "مخطط SVG ومدخلات مجمعة ونتائج فورية في المتصفح من مصنع المخططات المُولَّد.",
+    "generatedBridgeLink": "فتح الصفحة المستقلة",
+    "generatedBridgeDecisionTitle": "محرك تقرير القرار المميز"
   },
   "freeToolInputs": {
     "square-meter-calculator": {

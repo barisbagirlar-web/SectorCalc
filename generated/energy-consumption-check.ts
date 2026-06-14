@@ -36,12 +36,12 @@ export interface EnergyConsumptionCheckOutput {
 
 function evaluateFormulas(input: EnergyConsumptionCheckInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.energyIntensity = (() => { try { return input.energyConsumed / input.productionOutput; } catch { return 0; } })();
-  results.energyCost = (() => { try { return input.energyConsumed * input.energyCostPerKwh; } catch { return 0; } })();
-  results.energyIntensityRatio = (() => { try { return results.energyIntensity / input.baselineEnergyIntensity; } catch { return 0; } })();
-  results.energyCostPerUnit = (() => { try { return results.energyCost / input.productionOutput; } catch { return 0; } })();
-  results.dataConfidenceFactor = (() => { try { return input.dataConfidence == 'high' ? 1.0 : (input.dataConfidence == 'medium' ? 0.9 : 0.8); } catch { return 0; } })();
-  results.adjustedEnergyIntensity = (() => { try { return results.energyIntensity * results.dataConfidenceFactor; } catch { return 0; } })();
+  results.energyIntensity = ((): number => { try { const __v = input.energyConsumed / input.productionOutput; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyCost = ((): number => { try { const __v = input.energyConsumed * input.energyCostPerKwh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyIntensityRatio = ((): number => { try { const __v = results.energyIntensity / input.baselineEnergyIntensity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyCostPerUnit = ((): number => { try { const __v = results.energyCost / input.productionOutput; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceFactor = ((): number => { try { const __v = input.dataConfidence == 'high' ? 1.0 : (input.dataConfidence == 'medium' ? 0.9 : 0.8); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedEnergyIntensity = ((): number => { try { const __v = results.energyIntensity * results.dataConfidenceFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

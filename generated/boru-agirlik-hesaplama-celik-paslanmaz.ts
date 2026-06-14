@@ -31,10 +31,10 @@ export interface BoruAgirlikHesaplamaCelikPaslanmazOutput {
 
 function evaluateFormulas(input: BoruAgirlikHesaplamaCelikPaslanmazInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.icCap = (() => { try { return input.disCap - 2 * input.etKal; } catch { return 0; } })();
-  results.kesitAlan = (() => { try { return 3.14159 * (input.disCap^2 - results.icCap^2) / 4; } catch { return 0; } })();
-  results.hacim = (() => { try { return results.kesitAlan * input.boy / 1000000; } catch { return 0; } })();
-  results.agirlik = (() => { try { return results.hacim * (input.malzeme == 'celik' ? 7850 : 7930); } catch { return 0; } })();
+  results.icCap = ((): number => { try { const __v = input.disCap - 2 * input.etKal; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.kesitAlan = ((): number => { try { const __v = 3.14159 * (input.disCap^2 - results.icCap^2) / 4; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.hacim = ((): number => { try { const __v = results.kesitAlan * input.boy / 1000000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.agirlik = ((): number => { try { const __v = results.hacim * (input.malzeme == 'celik' ? 7850 : 7930); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

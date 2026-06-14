@@ -40,12 +40,12 @@ export interface CropYieldLossAnalyzerOutput {
 
 function evaluateFormulas(input: CropYieldLossAnalyzerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.yieldLoss = (() => { try { return input.expectedYield - input.actualYield; } catch { return 0; } })();
-  results.yieldLossPercent = (() => { try { return (results.yieldLoss / input.expectedYield) * 100; } catch { return 0; } })();
-  results.revenueLoss = (() => { try { return results.yieldLoss * input.cropPrice * input.areaHarvested; } catch { return 0; } })();
-  results.costLoss = (() => { try { return input.productionCost * input.areaHarvested * (results.yieldLoss / input.expectedYield); } catch { return 0; } })();
-  results.totalLoss = (() => { try { return results.revenueLoss + results.costLoss; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalLoss * input.dataConfidence; } catch { return 0; } })();
+  results.yieldLoss = ((): number => { try { const __v = input.expectedYield - input.actualYield; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.yieldLossPercent = ((): number => { try { const __v = (results.yieldLoss / input.expectedYield) * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.revenueLoss = ((): number => { try { const __v = results.yieldLoss * input.cropPrice * input.areaHarvested; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costLoss = ((): number => { try { const __v = input.productionCost * input.areaHarvested * (results.yieldLoss / input.expectedYield); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLoss = ((): number => { try { const __v = results.revenueLoss + results.costLoss; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalLoss * input.dataConfidence; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

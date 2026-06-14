@@ -56,6 +56,7 @@
     "scan:tool-activation": "node scripts/tool-activation/scan-tools-for-activation.mjs",
     "scan:tools": "npx tsx scripts/deepseek/scan-tools.ts",
     "scan:all": "npx tsx scripts/deepseek/scan-tools.ts --all --parallel=1 --retry=3 --output=generated/schemas",
+    "backfill:schema-i18n": "npx tsx scripts/deepseek/backfill-schema-i18n.ts",
     "scan:premium": "npx tsx scripts/deepseek/scan-premium.ts",
     "generate:tool": "npx tsx scripts/deepseek/generate-from-schema.ts",
     "generate:all": "npx tsx scripts/deepseek/generate-from-schema-all.ts",

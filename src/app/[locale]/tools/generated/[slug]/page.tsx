@@ -21,6 +21,7 @@ import {
   resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
 } from "@/lib/generated-tools/resolve-tool-display";
+import { canBridgePremiumSchemaToGenerated } from "@/lib/generated-tools/premium-schema-bridge";
 import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
 interface GeneratedToolRouteParams {
@@ -82,6 +83,7 @@ export default async function GeneratedToolRoutePage({
   const diagramSrc = generatedToolDiagramExists(slug)
     ? generatedToolDiagramPublicPath(slug)
     : null;
+  const hasPremiumBridge = canBridgePremiumSchemaToGenerated(slug);
 
   return (
     <PageLayout>
@@ -94,6 +96,14 @@ export default async function GeneratedToolRoutePage({
           >
             ← {tCatalog("title")}
           </Link>
+          {hasPremiumBridge ? (
+            <Link
+              href={`/tools/premium-schema/${slug}`}
+              className="mt-2 block text-sm font-semibold text-premium-copper hover:underline"
+            >
+              {tPage("generatedBridgeDecisionTitle")} →
+            </Link>
+          ) : null}
         </Container>
       </section>
       <Container className="pb-12 pt-4 sm:pb-16">

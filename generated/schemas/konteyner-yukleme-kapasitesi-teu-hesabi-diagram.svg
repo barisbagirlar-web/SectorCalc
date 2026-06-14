@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  <rect x="100" y="100" width="200" height="150" fill="#f0f9ff" stroke="#1e40af" stroke-width="2"/>
+  <line x1="100" y1="80" x2="300" y2="80" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="200" y="75" text-anchor="middle" font-size="14" fill="#dc2626">12.032 m</text>
+  <line x1="320" y1="100" x2="320" y2="250" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="330" y="175" text-anchor="middle" font-size="14" fill="#2563eb" transform="rotate(90,330,175)">2.352 m</text>
+  <line x1="100" y1="100" x2="80" y2="70" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow)"/><text x="75" y="85" text-anchor="end" font-size="12" fill="#16a34a">2.393 m</text>
+  <text x="250" y="40" text-anchor="middle" font-size="16" font-weight="bold">konteyner-yukleme-kapasitesi-teu-hesabi</text>
+  <text x="250" y="60" text-anchor="middle" font-size="12" fill="#666">Girdi değerleri şematik gösterim</text>
+</svg>

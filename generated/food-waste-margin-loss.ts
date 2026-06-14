@@ -36,12 +36,12 @@ export interface FoodWasteMarginLossOutput {
 
 function evaluateFormulas(input: FoodWasteMarginLossInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.wasteQuantity = (() => { try { return input.totalFoodPurchased * (input.wastePercentage / 100); } catch { return 0; } })();
-  results.costOfWaste = (() => { try { return results.wasteQuantity * input.averageCostPerKg; } catch { return 0; } })();
-  results.lostRevenue = (() => { try { return results.wasteQuantity * input.averageSellingPricePerKg; } catch { return 0; } })();
-  results.marginLoss = (() => { try { return results.lostRevenue - results.costOfWaste; } catch { return 0; } })();
-  results.marginLossPerDay = (() => { try { return results.marginLoss / input.periodDays; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.marginLoss * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); } catch { return 0; } })();
+  results.wasteQuantity = ((): number => { try { const __v = input.totalFoodPurchased * (input.wastePercentage / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costOfWaste = ((): number => { try { const __v = results.wasteQuantity * input.averageCostPerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.lostRevenue = ((): number => { try { const __v = results.wasteQuantity * input.averageSellingPricePerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.marginLoss = ((): number => { try { const __v = results.lostRevenue - results.costOfWaste; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.marginLossPerDay = ((): number => { try { const __v = results.marginLoss / input.periodDays; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.marginLoss * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

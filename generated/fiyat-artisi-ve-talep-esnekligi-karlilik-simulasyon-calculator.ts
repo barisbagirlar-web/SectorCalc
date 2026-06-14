@@ -40,15 +40,15 @@ export interface FiyatArtisiVeTalepEsnekligiKarlilikSimulasyonCalculatorOutput {
 
 function evaluateFormulas(input: FiyatArtisiVeTalepEsnekligiKarlilikSimulasyonCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.newPrice = (() => { try { return input.currentPrice * (1 + input.priceChangePercent / 100); } catch { return 0; } })();
-  results.quantityChangePercent = (() => { try { return input.priceChangePercent * input.priceElasticity; } catch { return 0; } })();
-  results.newQuantity = (() => { try { return input.currentQuantity * (1 + results.quantityChangePercent / 100); } catch { return 0; } })();
-  results.totalRevenue = (() => { try { return results.newPrice * results.newQuantity; } catch { return 0; } })();
-  results.totalVariableCost = (() => { try { return results.newQuantity * input.variableCostPerUnit; } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.totalVariableCost + input.fixedCost; } catch { return 0; } })();
-  results.profit = (() => { try { return results.totalRevenue - results.totalCost; } catch { return 0; } })();
-  results.profitChange = (() => { try { return results.profit - (input.currentPrice * input.currentQuantity - input.currentQuantity * input.variableCostPerUnit - input.fixedCost); } catch { return 0; } })();
-  results.profitMargin = (() => { try { return results.profit / results.totalRevenue * 100; } catch { return 0; } })();
+  results.newPrice = ((): number => { try { const __v = input.currentPrice * (1 + input.priceChangePercent / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.quantityChangePercent = ((): number => { try { const __v = input.priceChangePercent * input.priceElasticity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.newQuantity = ((): number => { try { const __v = input.currentQuantity * (1 + results.quantityChangePercent / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalRevenue = ((): number => { try { const __v = results.newPrice * results.newQuantity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalVariableCost = ((): number => { try { const __v = results.newQuantity * input.variableCostPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.totalVariableCost + input.fixedCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.profit = ((): number => { try { const __v = results.totalRevenue - results.totalCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.profitChange = ((): number => { try { const __v = results.profit - (input.currentPrice * input.currentQuantity - input.currentQuantity * input.variableCostPerUnit - input.fixedCost); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.profitMargin = ((): number => { try { const __v = results.profit / results.totalRevenue * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

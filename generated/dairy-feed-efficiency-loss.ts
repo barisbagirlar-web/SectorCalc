@@ -39,14 +39,14 @@ export interface DairyFeedEfficiencyLossOutput {
 
 function evaluateFormulas(input: DairyFeedEfficiencyLossInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.actualFeedEfficiency = (() => { try { return input.milkYieldPerCow / input.feedIntakePerCow; } catch { return 0; } })();
-  results.efficiencyLossRatio = (() => { try { return Math.max(0, (input.targetFeedEfficiency - results.actualFeedEfficiency) / input.targetFeedEfficiency); } catch { return 0; } })();
-  results.milkRevenuePerCowPerDay = (() => { try { return input.milkYieldPerCow * input.milkPricePerKg; } catch { return 0; } })();
-  results.feedCostPerCowPerDay = (() => { try { return input.feedIntakePerCow * input.feedCostPerKg; } catch { return 0; } })();
-  results.incomeOverFeedCostPerCowPerDay = (() => { try { return results.milkRevenuePerCowPerDay - results.feedCostPerCowPerDay; } catch { return 0; } })();
-  results.potentialIncomeOverFeedCostPerCowPerDay = (() => { try { return (input.targetFeedEfficiency * input.feedIntakePerCow * input.milkPricePerKg) - results.feedCostPerCowPerDay; } catch { return 0; } })();
-  results.lossPerCowPerDay = (() => { try { return Math.max(0, results.potentialIncomeOverFeedCostPerCowPerDay - results.incomeOverFeedCostPerCowPerDay); } catch { return 0; } })();
-  results.totalAnnualLoss = (() => { try { return results.lossPerCowPerDay * input.herdSize * input.daysInMilk; } catch { return 0; } })();
+  results.actualFeedEfficiency = ((): number => { try { const __v = input.milkYieldPerCow / input.feedIntakePerCow; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.efficiencyLossRatio = ((): number => { try { const __v = Math.max(0, (input.targetFeedEfficiency - results.actualFeedEfficiency) / input.targetFeedEfficiency); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.milkRevenuePerCowPerDay = ((): number => { try { const __v = input.milkYieldPerCow * input.milkPricePerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.feedCostPerCowPerDay = ((): number => { try { const __v = input.feedIntakePerCow * input.feedCostPerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.incomeOverFeedCostPerCowPerDay = ((): number => { try { const __v = results.milkRevenuePerCowPerDay - results.feedCostPerCowPerDay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.potentialIncomeOverFeedCostPerCowPerDay = ((): number => { try { const __v = (input.targetFeedEfficiency * input.feedIntakePerCow * input.milkPricePerKg) - results.feedCostPerCowPerDay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.lossPerCowPerDay = ((): number => { try { const __v = Math.max(0, results.potentialIncomeOverFeedCostPerCowPerDay - results.incomeOverFeedCostPerCowPerDay); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualLoss = ((): number => { try { const __v = results.lossPerCowPerDay * input.herdSize * input.daysInMilk; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

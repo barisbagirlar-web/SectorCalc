@@ -57,15 +57,15 @@ export interface AracKiraSatinAlmaKarsilastirmaOutput {
 
 function evaluateFormulas(input: AracKiraSatinAlmaKarsilastirmaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalLeaseCost = (() => { try { return input.monthlyLeasePayment * input.leaseTermMonths + (input.includeResidualInLease ? 0 : input.residualValue); } catch { return 0; } })();
-  results.totalPurchaseCost = (() => { try { return input.vehiclePrice * (1 + input.taxRate/100) - input.residualValue + (input.annualMaintenanceCost + input.annualInsuranceCost) * input.usageYears + input.fuelCostPerKm * input.annualMileage * input.usageYears; } catch { return 0; } })();
-  results.netPresentValueLease = (() => { try { return results.totalLeaseCost / ((1 + input.discountRate/100) ^ (input.usageYears)); } catch { return 0; } })();
-  results.netPresentValuePurchase = (() => { try { return results.totalPurchaseCost / ((1 + input.discountRate/100) ^ (input.usageYears)); } catch { return 0; } })();
-  results.monthlyCostLease = (() => { try { return results.totalLeaseCost / input.leaseTermMonths; } catch { return 0; } })();
-  results.monthlyCostPurchase = (() => { try { return results.totalPurchaseCost / (input.usageYears * 12); } catch { return 0; } })();
-  results.breakEvenMileage = (() => { try { return (input.monthlyLeasePayment * 12 - (input.annualMaintenanceCost + input.annualInsuranceCost)) / input.fuelCostPerKm; } catch { return 0; } })();
-  results.costDifference = (() => { try { return results.totalLeaseCost - results.totalPurchaseCost; } catch { return 0; } })();
-  results.recommendation = (() => { try { return results.costDifference < 0 ? 'Kiralamak daha avantajli' : 'Satin almak daha avantajli'; } catch { return 0; } })();
+  results.totalLeaseCost = ((): number => { try { const __v = input.monthlyLeasePayment * input.leaseTermMonths + (input.includeResidualInLease ? 0 : input.residualValue); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalPurchaseCost = ((): number => { try { const __v = input.vehiclePrice * (1 + input.taxRate/100) - input.residualValue + (input.annualMaintenanceCost + input.annualInsuranceCost) * input.usageYears + input.fuelCostPerKm * input.annualMileage * input.usageYears; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netPresentValueLease = ((): number => { try { const __v = results.totalLeaseCost / ((1 + input.discountRate/100) ^ (input.usageYears)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netPresentValuePurchase = ((): number => { try { const __v = results.totalPurchaseCost / ((1 + input.discountRate/100) ^ (input.usageYears)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.monthlyCostLease = ((): number => { try { const __v = results.totalLeaseCost / input.leaseTermMonths; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.monthlyCostPurchase = ((): number => { try { const __v = results.totalPurchaseCost / (input.usageYears * 12); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.breakEvenMileage = ((): number => { try { const __v = (input.monthlyLeasePayment * 12 - (input.annualMaintenanceCost + input.annualInsuranceCost)) / input.fuelCostPerKm; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costDifference = ((): number => { try { const __v = results.totalLeaseCost - results.totalPurchaseCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.recommendation = ((): number => { try { const __v = results.costDifference < 0 ? 'Kiralamak daha avantajli' : 'Satin almak daha avantajli'; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

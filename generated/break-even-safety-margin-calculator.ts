@@ -36,13 +36,13 @@ export interface BreakEvenSafetyMarginCalculatorOutput {
 
 function evaluateFormulas(input: BreakEvenSafetyMarginCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.contributionMarginPerUnit = (() => { try { return input.sellingPricePerUnit - input.variableCostPerUnit; } catch { return 0; } })();
-  results.contributionMarginRatio = (() => { try { return results.contributionMarginPerUnit / input.sellingPricePerUnit; } catch { return 0; } })();
-  results.breakEvenUnits = (() => { try { return input.fixedCosts / results.contributionMarginPerUnit; } catch { return 0; } })();
-  results.breakEvenRevenue = (() => { try { return input.fixedCosts / results.contributionMarginRatio; } catch { return 0; } })();
-  results.safetyMarginUnits = (() => { try { return input.actualSalesVolume - results.breakEvenUnits; } catch { return 0; } })();
-  results.safetyMarginRevenue = (() => { try { return (input.actualSalesVolume * input.sellingPricePerUnit) - results.breakEvenRevenue; } catch { return 0; } })();
-  results.safetyMarginPercentage = (() => { try { return results.safetyMarginUnits / input.actualSalesVolume; } catch { return 0; } })();
+  results.contributionMarginPerUnit = ((): number => { try { const __v = input.sellingPricePerUnit - input.variableCostPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.contributionMarginRatio = ((): number => { try { const __v = results.contributionMarginPerUnit / input.sellingPricePerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.breakEvenUnits = ((): number => { try { const __v = input.fixedCosts / results.contributionMarginPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.breakEvenRevenue = ((): number => { try { const __v = input.fixedCosts / results.contributionMarginRatio; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.safetyMarginUnits = ((): number => { try { const __v = input.actualSalesVolume - results.breakEvenUnits; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.safetyMarginRevenue = ((): number => { try { const __v = (input.actualSalesVolume * input.sellingPricePerUnit) - results.breakEvenRevenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.safetyMarginPercentage = ((): number => { try { const __v = results.safetyMarginUnits / input.actualSalesVolume; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

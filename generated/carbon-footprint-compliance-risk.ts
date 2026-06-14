@@ -41,12 +41,12 @@ export interface CarbonFootprintComplianceRiskOutput {
 
 function evaluateFormulas(input: CarbonFootprintComplianceRiskInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.emissionIntensity = (() => { try { return input.totalEmissions / input.annualRevenue; } catch { return 0; } })();
-  results.yearsToTarget = (() => { try { return input.targetYear - input.currentYear; } catch { return 0; } })();
-  results.requiredAnnualReductionRate = (() => { try { return input.emissionReductionTarget / results.yearsToTarget; } catch { return 0; } })();
-  results.complianceRiskScore = (() => { try { return Math.min(1, Math.max(0, (results.emissionIntensity * 1000 + results.requiredAnnualReductionRate * 0.1 + (input.carbonPrice / 100) * 0.2) / 3)); } catch { return 0; } })();
-  results.financialExposure = (() => { try { return input.totalEmissions * input.carbonPrice; } catch { return 0; } })();
-  results.dataConfidenceAdjustedRisk = (() => { try { return results.complianceRiskScore * (input.dataConfidence == 'Low' ? 1.2 : (input.dataConfidence == 'Medium' ? 1.0 : 0.8)); } catch { return 0; } })();
+  results.emissionIntensity = ((): number => { try { const __v = input.totalEmissions / input.annualRevenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.yearsToTarget = ((): number => { try { const __v = input.targetYear - input.currentYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.requiredAnnualReductionRate = ((): number => { try { const __v = input.emissionReductionTarget / results.yearsToTarget; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.complianceRiskScore = ((): number => { try { const __v = Math.min(1, Math.max(0, (results.emissionIntensity * 1000 + results.requiredAnnualReductionRate * 0.1 + (input.carbonPrice / 100) * 0.2) / 3)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.financialExposure = ((): number => { try { const __v = input.totalEmissions * input.carbonPrice; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedRisk = ((): number => { try { const __v = results.complianceRiskScore * (input.dataConfidence == 'Low' ? 1.2 : (input.dataConfidence == 'Medium' ? 1.0 : 0.8)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

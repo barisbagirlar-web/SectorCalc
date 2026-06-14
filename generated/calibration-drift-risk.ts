@@ -40,14 +40,14 @@ export interface CalibrationDriftRiskOutput {
 
 function evaluateFormulas(input: CalibrationDriftRiskInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.expectedDrift = (() => { try { return input.driftRatePerDay * input.calibrationIntervalDays; } catch { return 0; } })();
-  results.driftRiskIndex = (() => { try { return results.expectedDrift / input.toleranceLimit; } catch { return 0; } })();
-  results.probabilityOfFailure = (() => { try { return results.driftRiskIndex > 1 ? 1 : results.driftRiskIndex; } catch { return 0; } })();
-  results.expectedAnnualFailures = (() => { try { return results.probabilityOfFailure * input.numberOfInstruments * (365 / input.calibrationIntervalDays); } catch { return 0; } })();
-  results.annualCalibrationCost = (() => { try { return input.numberOfInstruments * (365 / input.calibrationIntervalDays) * input.costPerCalibration; } catch { return 0; } })();
-  results.annualFailureCost = (() => { try { return results.expectedAnnualFailures * input.costOfFailure; } catch { return 0; } })();
-  results.totalAnnualRiskCost = (() => { try { return results.annualCalibrationCost + results.annualFailureCost; } catch { return 0; } })();
-  results.dataConfidenceAdjustedRisk = (() => { try { return results.totalAnnualRiskCost * (1 + (1 - input.dataConfidence/100)); } catch { return 0; } })();
+  results.expectedDrift = ((): number => { try { const __v = input.driftRatePerDay * input.calibrationIntervalDays; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.driftRiskIndex = ((): number => { try { const __v = results.expectedDrift / input.toleranceLimit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.probabilityOfFailure = ((): number => { try { const __v = results.driftRiskIndex > 1 ? 1 : results.driftRiskIndex; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.expectedAnnualFailures = ((): number => { try { const __v = results.probabilityOfFailure * input.numberOfInstruments * (365 / input.calibrationIntervalDays); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualCalibrationCost = ((): number => { try { const __v = input.numberOfInstruments * (365 / input.calibrationIntervalDays) * input.costPerCalibration; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualFailureCost = ((): number => { try { const __v = results.expectedAnnualFailures * input.costOfFailure; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualRiskCost = ((): number => { try { const __v = results.annualCalibrationCost + results.annualFailureCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedRisk = ((): number => { try { const __v = results.totalAnnualRiskCost * (1 + (1 - input.dataConfidence/100)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

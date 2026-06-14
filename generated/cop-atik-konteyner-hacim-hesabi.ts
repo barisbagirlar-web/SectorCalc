@@ -33,8 +33,8 @@ export interface CopAtikKonteynerHacimHesabiOutput {
 
 function evaluateFormulas(input: CopAtikKonteynerHacimHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.gerekliHacim = (() => { try { return ((input.atikMiktari * input.toplamaPeriyodu) / input.atikYogunlugu) / input.dolumFaktoru; } catch { return 0; } })();
-  results.oneriHacim = (() => { try { return results.gerekliHacim * 1.1; } catch { return 0; } })();
+  results.gerekliHacim = ((): number => { try { const __v = ((input.atikMiktari * input.toplamaPeriyodu) / input.atikYogunlugu) / input.dolumFaktoru; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.oneriHacim = ((): number => { try { const __v = results.gerekliHacim * 1.1; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

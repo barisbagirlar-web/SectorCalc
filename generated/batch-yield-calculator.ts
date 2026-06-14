@@ -45,16 +45,16 @@ export interface BatchYieldCalculatorOutput {
 
 function evaluateFormulas(input: BatchYieldCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.yieldRate = (() => { try { return input.goodUnits / input.batchSize; } catch { return 0; } })();
-  results.scrapRate = (() => { try { return input.scrapUnits / input.batchSize; } catch { return 0; } })();
-  results.reworkRate = (() => { try { return input.reworkUnits / input.batchSize; } catch { return 0; } })();
-  results.firstPassYield = (() => { try { return input.goodUnits / (input.goodUnits + input.reworkUnits + input.scrapUnits); } catch { return 0; } })();
-  results.totalCost = (() => { try { return input.batchSize * input.costPerUnit + input.reworkUnits * input.reworkCostPerUnit; } catch { return 0; } })();
-  results.revenue = (() => { try { return input.goodUnits * input.sellingPricePerUnit; } catch { return 0; } })();
-  results.profit = (() => { try { return results.revenue - results.totalCost; } catch { return 0; } })();
-  results.profitMargin = (() => { try { return results.profit / results.revenue; } catch { return 0; } })();
-  results.costPerGoodUnit = (() => { try { return results.totalCost / input.goodUnits; } catch { return 0; } })();
-  results.dataConfidenceAdjustedYield = (() => { try { return input.dataConfidence === 'low' ? results.yieldRate * 0.9 : input.dataConfidence === 'medium' ? results.yieldRate * 0.95 : results.yieldRate; } catch { return 0; } })();
+  results.yieldRate = ((): number => { try { const __v = input.goodUnits / input.batchSize; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.scrapRate = ((): number => { try { const __v = input.scrapUnits / input.batchSize; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.reworkRate = ((): number => { try { const __v = input.reworkUnits / input.batchSize; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.firstPassYield = ((): number => { try { const __v = input.goodUnits / (input.goodUnits + input.reworkUnits + input.scrapUnits); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = input.batchSize * input.costPerUnit + input.reworkUnits * input.reworkCostPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.revenue = ((): number => { try { const __v = input.goodUnits * input.sellingPricePerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.profit = ((): number => { try { const __v = results.revenue - results.totalCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.profitMargin = ((): number => { try { const __v = results.profit / results.revenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerGoodUnit = ((): number => { try { const __v = results.totalCost / input.goodUnits; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedYield = ((): number => { try { const __v = input.dataConfidence === 'low' ? results.yieldRate * 0.9 : input.dataConfidence === 'medium' ? results.yieldRate * 0.95 : results.yieldRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

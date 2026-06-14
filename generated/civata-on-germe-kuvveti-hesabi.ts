@@ -33,10 +33,10 @@ export interface CivataOnGermeKuvvetiHesabiOutput {
 
 function evaluateFormulas(input: CivataOnGermeKuvvetiHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.gerilmeAlani = (() => { try { return π/4 * (input.civataCapi - 0.9382 * input.adim)^2; } catch { return 0; } })();
-  results.akmaDayanimi = (() => { try { return input.malzemeSinifi === '4.6' ? 240 : input.malzemeSinifi === '5.6' ? 300 : input.malzemeSinifi === '6.8' ? 480 : input.malzemeSinifi === '8.8' ? 640 : input.malzemeSinifi === '10.9' ? 900 : 1080; } catch { return 0; } })();
-  results.onGermeKuvveti = (() => { try { return input.onGermeYuzdesi / 100 * results.akmaDayanimi * results.gerilmeAlani; } catch { return 0; } })();
-  results.tork = (() => { try { return results.onGermeKuvveti * (0.16 * input.adim + 0.577 * input.surtunmeKatsayisi * input.civataCapi); } catch { return 0; } })();
+  results.gerilmeAlani = ((): number => { try { const __v = π/4 * (input.civataCapi - 0.9382 * input.adim)^2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.akmaDayanimi = ((): number => { try { const __v = (Number(input.malzemeSinifi) || 0) === '4.6' ? 240 : (Number(input.malzemeSinifi) || 0) === '5.6' ? 300 : (Number(input.malzemeSinifi) || 0) === '6.8' ? 480 : (Number(input.malzemeSinifi) || 0) === '8.8' ? 640 : (Number(input.malzemeSinifi) || 0) === '10.9' ? 900 : 1080; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.onGermeKuvveti = ((): number => { try { const __v = input.onGermeYuzdesi / 100 * results.akmaDayanimi * results.gerilmeAlani; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.tork = ((): number => { try { const __v = results.onGermeKuvveti * (0.16 * input.adim + 0.577 * input.surtunmeKatsayisi * input.civataCapi); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

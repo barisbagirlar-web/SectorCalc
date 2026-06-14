@@ -66,6 +66,7 @@ function requiresBuild(file) {
     file.startsWith("next.config.") ||
     file.startsWith("tsconfig.") ||
     file.startsWith("messages/") ||
+    file.startsWith("generated/") ||
     file.startsWith("scripts/") ||
     file.startsWith("public/")
   );

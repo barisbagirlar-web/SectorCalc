@@ -55,17 +55,17 @@ export interface FilamentRecineTozMaliyetVeFireKarsilastirmaCalculatorOutput {
 
 function evaluateFormulas(input: FilamentRecineTozMaliyetVeFireKarsilastirmaCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalMaterialCost = (() => { try { return input.productionVolume * (input.partWeightGrams / 1000) * input.materialCostPerKg; } catch { return 0; } })();
-  results.scrapMaterialCost = (() => { try { return results.totalMaterialCost * (input.scrapRate / 100); } catch { return 0; } })();
-  results.recycleSavings = (() => { try { return results.scrapMaterialCost * (input.recycleRate / 100) * (1 - input.recycleCostPerKg / input.materialCostPerKg); } catch { return 0; } })();
-  results.netScrapCost = (() => { try { return results.scrapMaterialCost - results.recycleSavings; } catch { return 0; } })();
-  results.totalLaborCost = (() => { try { return input.productionVolume * (input.cycleTimeMinutes / 60) * input.laborCostPerHour; } catch { return 0; } })();
-  results.totalMachineCost = (() => { try { return input.productionVolume * (input.cycleTimeMinutes / 60) * input.machineCostPerHour; } catch { return 0; } })();
-  results.totalEnergyCost = (() => { try { return input.productionVolume * (input.cycleTimeMinutes / 60) * input.powerConsumptionKw * input.energyCostPerKwh; } catch { return 0; } })();
-  results.totalProductionCost = (() => { try { return results.totalMaterialCost + results.totalLaborCost + results.totalMachineCost + results.totalEnergyCost; } catch { return 0; } })();
-  results.costPerPart = (() => { try { return results.totalProductionCost / input.productionVolume; } catch { return 0; } })();
-  results.effectiveScrapRate = (() => { try { return input.scrapRate * (1 - input.recycleRate / 100); } catch { return 0; } })();
-  results.dataConfidenceAdjustedCost = (() => { try { return results.costPerPart * (1 + (1 - input.dataConfidence) * 0.1); } catch { return 0; } })();
+  results.totalMaterialCost = ((): number => { try { const __v = input.productionVolume * (input.partWeightGrams / 1000) * input.materialCostPerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.scrapMaterialCost = ((): number => { try { const __v = results.totalMaterialCost * (input.scrapRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.recycleSavings = ((): number => { try { const __v = results.scrapMaterialCost * (input.recycleRate / 100) * (1 - input.recycleCostPerKg / input.materialCostPerKg); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netScrapCost = ((): number => { try { const __v = results.scrapMaterialCost - results.recycleSavings; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLaborCost = ((): number => { try { const __v = input.productionVolume * (input.cycleTimeMinutes / 60) * input.laborCostPerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalMachineCost = ((): number => { try { const __v = input.productionVolume * (input.cycleTimeMinutes / 60) * input.machineCostPerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalEnergyCost = ((): number => { try { const __v = input.productionVolume * (input.cycleTimeMinutes / 60) * input.powerConsumptionKw * input.energyCostPerKwh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalProductionCost = ((): number => { try { const __v = results.totalMaterialCost + results.totalLaborCost + results.totalMachineCost + results.totalEnergyCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerPart = ((): number => { try { const __v = results.totalProductionCost / input.productionVolume; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.effectiveScrapRate = ((): number => { try { const __v = input.scrapRate * (1 - input.recycleRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCost = ((): number => { try { const __v = results.costPerPart * (1 + (1 - input.dataConfidence) * 0.1); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

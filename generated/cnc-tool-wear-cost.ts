@@ -40,15 +40,15 @@ export interface CncToolWearCostOutput {
 
 function evaluateFormulas(input: CncToolWearCostInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalToolCost = (() => { try { return input.toolPrice + (input.regrinds * input.regrindCost); } catch { return 0; } })();
-  results.totalLifeMinutes = (() => { try { return input.toolLife * (input.regrinds + 1); } catch { return 0; } })();
-  results.toolCostPerMinute = (() => { try { return results.totalToolCost / results.totalLifeMinutes; } catch { return 0; } })();
-  results.toolCostPerPart = (() => { try { return results.toolCostPerMinute * input.cuttingTimePerPart; } catch { return 0; } })();
-  results.machineCostPerToolChange = (() => { try { return input.machineHourlyRate * (input.toolChangeTime / 60); } catch { return 0; } })();
-  results.machineCostPerPart = (() => { try { return results.machineCostPerToolChange / input.partsPerToolChange; } catch { return 0; } })();
-  results.toolWearCostPerPart = (() => { try { return results.toolCostPerPart + results.machineCostPerPart; } catch { return 0; } })();
-  results.dataConfidenceFactor = (() => { try { return input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9); } catch { return 0; } })();
-  results.adjustedToolWearCostPerPart = (() => { try { return results.toolWearCostPerPart * results.dataConfidenceFactor; } catch { return 0; } })();
+  results.totalToolCost = ((): number => { try { const __v = input.toolPrice + (input.regrinds * input.regrindCost); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLifeMinutes = ((): number => { try { const __v = input.toolLife * (input.regrinds + 1); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toolCostPerMinute = ((): number => { try { const __v = results.totalToolCost / results.totalLifeMinutes; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toolCostPerPart = ((): number => { try { const __v = results.toolCostPerMinute * input.cuttingTimePerPart; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.machineCostPerToolChange = ((): number => { try { const __v = input.machineHourlyRate * (input.toolChangeTime / 60); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.machineCostPerPart = ((): number => { try { const __v = results.machineCostPerToolChange / input.partsPerToolChange; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toolWearCostPerPart = ((): number => { try { const __v = results.toolCostPerPart + results.machineCostPerPart; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceFactor = ((): number => { try { const __v = input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedToolWearCostPerPart = ((): number => { try { const __v = results.toolWearCostPerPart * results.dataConfidenceFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

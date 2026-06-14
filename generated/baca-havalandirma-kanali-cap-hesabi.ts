@@ -30,9 +30,9 @@ export interface BacaHavalandirmaKanaliCapHesabiOutput {
 
 function evaluateFormulas(input: BacaHavalandirmaKanaliCapHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.kesitAlani = (() => { try { return input.havaDebisi / input.hizSiniri; } catch { return 0; } })();
-  results.cap = (() => { try { return 0; } catch { return 0; } })();
-  results.digerKenar = (() => { try { return 0; } catch { return 0; } })();
+  results.kesitAlani = ((): number => { try { const __v = input.havaDebisi / input.hizSiniri; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cap = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.digerKenar = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

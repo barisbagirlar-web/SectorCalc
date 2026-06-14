@@ -37,11 +37,11 @@ export interface ExcavationVolumeCalculatorOutput {
 
 function evaluateFormulas(input: ExcavationVolumeCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.bankVolume = (() => { try { return input.length * input.width * input.depth; } catch { return 0; } })();
-  results.slopeAdjustedVolume = (() => { try { return results.bankVolume + (0.5 * input.depth * input.depth * (input.length + input.width) * tan(input.slopeAngle * PI / 180)); } catch { return 0; } })();
-  results.looseVolume = (() => { try { return results.slopeAdjustedVolume * (1 + input.swellFactor / 100); } catch { return 0; } })();
-  results.compactedVolume = (() => { try { return results.looseVolume * (input.compactionFactor / 100); } catch { return 0; } })();
-  results.primary = (() => { try { return results.compactedVolume; } catch { return 0; } })();
+  results.bankVolume = ((): number => { try { const __v = input.length * input.width * input.depth; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.slopeAdjustedVolume = ((): number => { try { const __v = results.bankVolume + (0.5 * input.depth * input.depth * (input.length + input.width) * tan(input.slopeAngle * PI / 180)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.looseVolume = ((): number => { try { const __v = results.slopeAdjustedVolume * (1 + input.swellFactor / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.compactedVolume = ((): number => { try { const __v = results.looseVolume * (input.compactionFactor / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.primary = ((): number => { try { const __v = results.compactedVolume; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

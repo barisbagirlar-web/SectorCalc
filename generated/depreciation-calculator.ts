@@ -40,13 +40,13 @@ export interface DepreciationCalculatorOutput {
 
 function evaluateFormulas(input: DepreciationCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.depreciableBase = (() => { try { return input.assetCost - input.salvageValue; } catch { return 0; } })();
-  results.remainingLife = (() => { try { return input.usefulLife - yearsElapsed; } catch { return 0; } })();
-  results.sumOfYears = (() => { try { return input.usefulLife * (input.usefulLife + 1) / 2; } catch { return 0; } })();
-  results.annualDepreciation = (() => { try { return input.depreciationMethod == 'straight-line' ? results.depreciableBase / input.usefulLife : (input.depreciationMethod == 'declining-balance' ? (results.bookValue * input.decliningBalanceFactor / input.usefulLife) : (input.depreciationMethod == 'sum-of-years-digits' ? (results.remainingLife / results.sumOfYears) * results.depreciableBase : (input.depreciationMethod == 'units-of-production' ? (results.depreciableBase / input.productionUnits) * input.unitsProducedThisYear : 0))); } catch { return 0; } })();
-  results.bookValue = (() => { try { return input.assetCost - results.accumulatedDepreciation; } catch { return 0; } })();
-  results.accumulatedDepreciation = (() => { try { return 0; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.annualDepreciation * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.depreciableBase = ((): number => { try { const __v = input.assetCost - input.salvageValue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.remainingLife = ((): number => { try { const __v = input.usefulLife - yearsElapsed; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.sumOfYears = ((): number => { try { const __v = input.usefulLife * (input.usefulLife + 1) / 2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualDepreciation = ((): number => { try { const __v = input.depreciationMethod == 'straight-line' ? results.depreciableBase / input.usefulLife : (input.depreciationMethod == 'declining-balance' ? (results.bookValue * input.decliningBalanceFactor / input.usefulLife) : (input.depreciationMethod == 'sum-of-years-digits' ? (results.remainingLife / results.sumOfYears) * results.depreciableBase : (input.depreciationMethod == 'units-of-production' ? (results.depreciableBase / input.productionUnits) * input.unitsProducedThisYear : 0))); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.bookValue = ((): number => { try { const __v = input.assetCost - results.accumulatedDepreciation; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.accumulatedDepreciation = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.annualDepreciation * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

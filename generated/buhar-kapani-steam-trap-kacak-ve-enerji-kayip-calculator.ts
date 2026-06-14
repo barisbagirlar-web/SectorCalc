@@ -34,9 +34,9 @@ export interface BuharKapaniSteamTrapKacakVeEnerjiKayipCalculatorOutput {
 
 function evaluateFormulas(input: BuharKapaniSteamTrapKacakVeEnerjiKayipCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.leakRate = (() => { try { return 0.0001 * input.dischargeCoefficient * input.orificeDiameter^2 * Math.sqrt(input.steamPressure * 10) * (input.steamType === 'kizgin' ? 1.2 : 1.0); } catch { return 0; } })();
-  results.annualSteamLoss = (() => { try { return results.leakRate * input.operatingHours; } catch { return 0; } })();
-  results.annualCost = (() => { try { return results.annualSteamLoss * input.steamCost; } catch { return 0; } })();
+  results.leakRate = ((): number => { try { const __v = 0.0001 * input.dischargeCoefficient * input.orificeDiameter^2 * Math.sqrt(input.steamPressure * 10) * (input.steamType === 'kizgin' ? 1.2 : 1.0); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualSteamLoss = ((): number => { try { const __v = results.leakRate * input.operatingHours; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualCost = ((): number => { try { const __v = results.annualSteamLoss * input.steamCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

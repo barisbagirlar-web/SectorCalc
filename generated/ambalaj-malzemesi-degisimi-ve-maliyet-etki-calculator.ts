@@ -37,12 +37,12 @@ export interface AmbalajMalzemesiDegisimiVeMaliyetEtkiCalculatorOutput {
 
 function evaluateFormulas(input: AmbalajMalzemesiDegisimiVeMaliyetEtkiCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.annualMaterialCostCurrent = (() => { try { return input.currentMaterialCostPerUnit * input.annualUsageKg; } catch { return 0; } })();
-  results.annualMaterialCostNew = (() => { try { return input.newMaterialCostPerUnit * input.annualUsageKg; } catch { return 0; } })();
-  results.grossSavings = (() => { try { return results.annualMaterialCostCurrent - results.annualMaterialCostNew; } catch { return 0; } })();
-  results.netSavings = (() => { try { return results.grossSavings - input.changeoverCost; } catch { return 0; } })();
-  results.costSavings = (() => { try { return results.netSavings; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return input.dataConfidence == 'low' ? results.costSavings * 0.8 : (input.dataConfidence == 'medium' ? results.costSavings * 0.9 : results.costSavings); } catch { return 0; } })();
+  results.annualMaterialCostCurrent = ((): number => { try { const __v = input.currentMaterialCostPerUnit * input.annualUsageKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualMaterialCostNew = ((): number => { try { const __v = input.newMaterialCostPerUnit * input.annualUsageKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.grossSavings = ((): number => { try { const __v = results.annualMaterialCostCurrent - results.annualMaterialCostNew; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netSavings = ((): number => { try { const __v = results.grossSavings - input.changeoverCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costSavings = ((): number => { try { const __v = results.netSavings; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = input.dataConfidence == 'low' ? results.costSavings * 0.8 : (input.dataConfidence == 'medium' ? results.costSavings * 0.9 : results.costSavings); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -47,15 +47,15 @@ export interface BoyaKaplamaSarfiyatiMBasinaHesabiOutput {
 
 function evaluateFormulas(input: BoyaKaplamaSarfiyatiMBasinaHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.theoreticalPaintVolume = (() => { try { return input.surfaceArea * input.numberOfCoats / input.coverageRate; } catch { return 0; } })();
-  results.actualPaintVolume = (() => { try { return results.theoreticalPaintVolume * (1 + input.wasteFactor / 100); } catch { return 0; } })();
-  results.paintWeight = (() => { try { return results.actualPaintVolume * input.paintDensity; } catch { return 0; } })();
-  results.paintCost = (() => { try { return results.actualPaintVolume * input.paintCostPerLiter; } catch { return 0; } })();
-  results.laborHours = (() => { try { return input.surfaceArea * input.numberOfCoats / input.laborProductivity; } catch { return 0; } })();
-  results.laborCost = (() => { try { return results.laborHours * input.laborCostPerHour; } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.paintCost + results.laborCost; } catch { return 0; } })();
-  results.costPerSquareMeter = (() => { try { return results.totalCost / input.surfaceArea; } catch { return 0; } })();
-  results.dataConfidenceAdjustedCost = (() => { try { return results.costPerSquareMeter * (1 + (100 - input.dataConfidence) / 100); } catch { return 0; } })();
+  results.theoreticalPaintVolume = ((): number => { try { const __v = input.surfaceArea * input.numberOfCoats / input.coverageRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.actualPaintVolume = ((): number => { try { const __v = results.theoreticalPaintVolume * (1 + input.wasteFactor / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.paintWeight = ((): number => { try { const __v = results.actualPaintVolume * input.paintDensity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.paintCost = ((): number => { try { const __v = results.actualPaintVolume * input.paintCostPerLiter; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborHours = ((): number => { try { const __v = input.surfaceArea * input.numberOfCoats / input.laborProductivity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCost = ((): number => { try { const __v = results.laborHours * input.laborCostPerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.paintCost + results.laborCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerSquareMeter = ((): number => { try { const __v = results.totalCost / input.surfaceArea; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCost = ((): number => { try { const __v = results.costPerSquareMeter * (1 + (100 - input.dataConfidence) / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

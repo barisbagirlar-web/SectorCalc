@@ -30,7 +30,7 @@ export interface BarPsiPascalCeviriciOutput {
 
 function evaluateFormulas(input: BarPsiPascalCeviriciInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.conversion = (() => { try { return 0; } catch { return 0; } })();
+  results.conversion = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

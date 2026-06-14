@@ -39,13 +39,13 @@ export interface DiscountCalculatorOutput {
 
 function evaluateFormulas(input: DiscountCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.discountAmount = (() => { try { return input.originalPrice * (input.discountPercent / 100); } catch { return 0; } })();
-  results.discountedPrice = (() => { try { return input.originalPrice - results.discountAmount; } catch { return 0; } })();
-  results.subtotal = (() => { try { return results.discountedPrice * input.quantity; } catch { return 0; } })();
-  results.subtotalAfterAdditional = (() => { try { return results.subtotal - input.additionalDiscount; } catch { return 0; } })();
-  results.taxAmount = (() => { try { return results.subtotalAfterAdditional * (input.taxRate / 100); } catch { return 0; } })();
-  results.total = (() => { try { return results.subtotalAfterAdditional + results.taxAmount; } catch { return 0; } })();
-  results.savings = (() => { try { return input.originalPrice * input.quantity - results.total; } catch { return 0; } })();
+  results.discountAmount = ((): number => { try { const __v = input.originalPrice * (input.discountPercent / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.discountedPrice = ((): number => { try { const __v = input.originalPrice - results.discountAmount; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.subtotal = ((): number => { try { const __v = results.discountedPrice * input.quantity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.subtotalAfterAdditional = ((): number => { try { const __v = results.subtotal - input.additionalDiscount; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.taxAmount = ((): number => { try { const __v = results.subtotalAfterAdditional * (input.taxRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.total = ((): number => { try { const __v = results.subtotalAfterAdditional + results.taxAmount; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.savings = ((): number => { try { const __v = input.originalPrice * input.quantity - results.total; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

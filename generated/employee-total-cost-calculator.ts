@@ -47,10 +47,10 @@ export interface EmployeeTotalCostCalculatorOutput {
 
 function evaluateFormulas(input: EmployeeTotalCostCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalAnnualCost = (() => { try { return input.annualSalary + (input.annualSalary * input.bonusPercentage / 100) + input.benefitsCost + (input.annualSalary * input.payrollTaxRate / 100) + input.trainingCost + input.equipmentCost + (input.annualSalary * input.overheadRate / 100); } catch { return 0; } })();
-  results.totalHourlyCost = (() => { try { return results.totalAnnualCost / (input.workingDaysPerYear * input.hoursPerDay); } catch { return 0; } })();
-  results.effectiveHourlyCost = (() => { try { return results.totalHourlyCost / (input.productivityRate / 100); } catch { return 0; } })();
-  results.costPerProductiveHour = (() => { try { return results.totalAnnualCost / (input.workingDaysPerYear * input.hoursPerDay * input.productivityRate / 100); } catch { return 0; } })();
+  results.totalAnnualCost = ((): number => { try { const __v = input.annualSalary + (input.annualSalary * input.bonusPercentage / 100) + input.benefitsCost + (input.annualSalary * input.payrollTaxRate / 100) + input.trainingCost + input.equipmentCost + (input.annualSalary * input.overheadRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalHourlyCost = ((): number => { try { const __v = results.totalAnnualCost / (input.workingDaysPerYear * input.hoursPerDay); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.effectiveHourlyCost = ((): number => { try { const __v = results.totalHourlyCost / (input.productivityRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerProductiveHour = ((): number => { try { const __v = results.totalAnnualCost / (input.workingDaysPerYear * input.hoursPerDay * input.productivityRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

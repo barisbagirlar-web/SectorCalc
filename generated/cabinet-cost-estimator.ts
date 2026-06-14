@@ -52,21 +52,21 @@ export interface CabinetCostEstimatorOutput {
 
 function evaluateFormulas(input: CabinetCostEstimatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.surfaceArea = (() => { try { return ((input.cabinetWidth * input.cabinetHeight) + (input.cabinetWidth * input.cabinetDepth) + (input.cabinetHeight * input.cabinetDepth)) * 2 / 1000000; } catch { return 0; } })();
-  results.materialCost = (() => { try { return results.surfaceArea * input.materialCostPerSqM; } catch { return 0; } })();
-  results.doorCostMultiplier = (() => { try { return input.doorStyle === 'Raised Panel' ? 1.5 : input.doorStyle === 'Shaker' ? 1.3 : input.doorStyle === 'Slab' ? 1.1 : 1.0; } catch { return 0; } })();
-  results.finishCostMultiplier = (() => { try { return input.finishType === 'Paint' ? 1.4 : input.finishType === 'Veneer' ? 1.6 : input.finishType === 'Thermofoil' ? 1.2 : 1.0; } catch { return 0; } })();
-  results.hardwareCostMultiplier = (() => { try { return input.hardwareGrade === 'Premium' ? 2.0 : input.hardwareGrade === 'Standard' ? 1.0 : 0.8; } catch { return 0; } })();
-  results.adjustedMaterialCost = (() => { try { return results.materialCost * results.doorCostMultiplier * results.finishCostMultiplier * results.hardwareCostMultiplier; } catch { return 0; } })();
-  results.laborCost = (() => { try { return input.laborRate * input.laborHoursPerCabinet; } catch { return 0; } })();
-  results.directCost = (() => { try { return results.adjustedMaterialCost + results.laborCost; } catch { return 0; } })();
-  results.overheadCost = (() => { try { return results.directCost * (input.overheadRate / 100); } catch { return 0; } })();
-  results.totalCostPerCabinet = (() => { try { return results.directCost + results.overheadCost; } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.totalCostPerCabinet * input.quantity; } catch { return 0; } })();
-  results.sellingPricePerCabinet = (() => { try { return results.totalCostPerCabinet * (1 + input.profitMargin / 100); } catch { return 0; } })();
-  results.totalSellingPrice = (() => { try { return results.sellingPricePerCabinet * input.quantity; } catch { return 0; } })();
-  results.dataConfidenceAdjustment = (() => { try { return input.dataConfidence === 'Low' ? 1.15 : input.dataConfidence === 'Medium' ? 1.05 : 1.0; } catch { return 0; } })();
-  results.adjustedTotalCost = (() => { try { return results.totalCost * results.dataConfidenceAdjustment; } catch { return 0; } })();
+  results.surfaceArea = ((): number => { try { const __v = ((input.cabinetWidth * input.cabinetHeight) + (input.cabinetWidth * input.cabinetDepth) + (input.cabinetHeight * input.cabinetDepth)) * 2 / 1000000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.materialCost = ((): number => { try { const __v = results.surfaceArea * input.materialCostPerSqM; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.doorCostMultiplier = ((): number => { try { const __v = input.doorStyle === 'Raised Panel' ? 1.5 : input.doorStyle === 'Shaker' ? 1.3 : input.doorStyle === 'Slab' ? 1.1 : 1.0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.finishCostMultiplier = ((): number => { try { const __v = input.finishType === 'Paint' ? 1.4 : input.finishType === 'Veneer' ? 1.6 : input.finishType === 'Thermofoil' ? 1.2 : 1.0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.hardwareCostMultiplier = ((): number => { try { const __v = input.hardwareGrade === 'Premium' ? 2.0 : input.hardwareGrade === 'Standard' ? 1.0 : 0.8; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedMaterialCost = ((): number => { try { const __v = results.materialCost * results.doorCostMultiplier * results.finishCostMultiplier * results.hardwareCostMultiplier; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCost = ((): number => { try { const __v = input.laborRate * input.laborHoursPerCabinet; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.directCost = ((): number => { try { const __v = results.adjustedMaterialCost + results.laborCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.overheadCost = ((): number => { try { const __v = results.directCost * (input.overheadRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCostPerCabinet = ((): number => { try { const __v = results.directCost + results.overheadCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.totalCostPerCabinet * input.quantity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.sellingPricePerCabinet = ((): number => { try { const __v = results.totalCostPerCabinet * (1 + input.profitMargin / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalSellingPrice = ((): number => { try { const __v = results.sellingPricePerCabinet * input.quantity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustment = ((): number => { try { const __v = input.dataConfidence === 'Low' ? 1.15 : input.dataConfidence === 'Medium' ? 1.05 : 1.0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedTotalCost = ((): number => { try { const __v = results.totalCost * results.dataConfidenceAdjustment; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

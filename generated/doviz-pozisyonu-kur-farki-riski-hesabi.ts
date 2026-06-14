@@ -33,9 +33,9 @@ export interface DovizPozisyonuKurFarkiRiskiHesabiOutput {
 
 function evaluateFormulas(input: DovizPozisyonuKurFarkiRiskiHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.kurFarkiTutari = (() => { try { return input.foreignCurrencyPosition * (input.forecastedExchangeRate - input.currentExchangeRate) * (1 - input.hedgeRatio/100); } catch { return 0; } })();
-  results.kurFarkiRiskOrani = (() => { try { return Math.abs(results.kurFarkiTutari) / Math.abs(input.foreignCurrencyPosition * input.currentExchangeRate); } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.kurFarkiTutari * (input.confidenceLevel / 100); } catch { return 0; } })();
+  results.kurFarkiTutari = ((): number => { try { const __v = input.foreignCurrencyPosition * (input.forecastedExchangeRate - input.currentExchangeRate) * (1 - input.hedgeRatio/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.kurFarkiRiskOrani = ((): number => { try { const __v = Math.abs(results.kurFarkiTutari) / Math.abs(input.foreignCurrencyPosition * input.currentExchangeRate); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.kurFarkiTutari * (input.confidenceLevel / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

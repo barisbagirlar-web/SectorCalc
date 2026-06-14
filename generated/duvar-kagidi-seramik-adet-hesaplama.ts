@@ -42,13 +42,13 @@ export interface DuvarKagidiSeramikAdetHesaplamaOutput {
 
 function evaluateFormulas(input: DuvarKagidiSeramikAdetHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.wallArea = (() => { try { return input.wallWidth * input.wallHeight; } catch { return 0; } })();
-  results.netArea = (() => { try { return results.wallArea - input.doorArea - input.windowArea; } catch { return 0; } })();
-  results.tileArea = (() => { try { return (input.tileWidth / 100) * (input.tileHeight / 100); } catch { return 0; } })();
-  results.patternWaste = (() => { try { return input.patternRepeat > 0 ? (input.wallHeight / (input.tileHeight / 100)) * (input.patternRepeat / 100) * (input.tileWidth / 100) : 0; } catch { return 0; } })();
-  results.totalWaste = (() => { try { return results.netArea * (input.wasteFactor / 100) + results.patternWaste; } catch { return 0; } })();
-  results.totalAreaNeeded = (() => { try { return results.netArea + results.totalWaste; } catch { return 0; } })();
-  results.tileCount = (() => { try { return Math.Math.ceil(results.totalAreaNeeded / results.tileArea); } catch { return 0; } })();
+  results.wallArea = ((): number => { try { const __v = input.wallWidth * input.wallHeight; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netArea = ((): number => { try { const __v = results.wallArea - input.doorArea - input.windowArea; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.tileArea = ((): number => { try { const __v = (input.tileWidth / 100) * (input.tileHeight / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.patternWaste = ((): number => { try { const __v = input.patternRepeat > 0 ? (input.wallHeight / (input.tileHeight / 100)) * (input.patternRepeat / 100) * (input.tileWidth / 100) : 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalWaste = ((): number => { try { const __v = results.netArea * (input.wasteFactor / 100) + results.patternWaste; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAreaNeeded = ((): number => { try { const __v = results.netArea + results.totalWaste; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.tileCount = ((): number => { try { const __v = Math.Math.ceil(results.totalAreaNeeded / results.tileArea); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

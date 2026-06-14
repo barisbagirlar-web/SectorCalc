@@ -57,18 +57,18 @@ export interface EnergySavingsPackageCalculatorOutput {
 
 function evaluateFormulas(input: EnergySavingsPackageCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.annualEnergyCost = (() => { try { return input.annualEnergyConsumption * input.energyCostPerKwh; } catch { return 0; } })();
-  results.annualDemandCost = (() => { try { return input.peakDemand * input.demandChargePerKw * 12; } catch { return 0; } })();
-  results.totalAnnualEnergyCost = (() => { try { return results.annualEnergyCost + results.annualDemandCost; } catch { return 0; } })();
-  results.energySavings = (() => { try { return input.annualEnergyConsumption * (input.energySavingsPercentage / 100); } catch { return 0; } })();
-  results.demandReduction = (() => { try { return input.peakDemand * (input.peakDemandReductionPercentage / 100); } catch { return 0; } })();
-  results.annualEnergyCostSavings = (() => { try { return results.energySavings * input.energyCostPerKwh; } catch { return 0; } })();
-  results.annualDemandCostSavings = (() => { try { return results.demandReduction * input.demandChargePerKw * 12; } catch { return 0; } })();
-  results.totalAnnualSavings = (() => { try { return results.annualEnergyCostSavings + results.annualDemandCostSavings; } catch { return 0; } })();
-  results.netAnnualSavings = (() => { try { return results.totalAnnualSavings - input.maintenanceCostIncreasePerYear; } catch { return 0; } })();
-  results.paybackPeriodYears = (() => { try { return input.implementationCost / results.netAnnualSavings; } catch { return 0; } })();
-  results.npv = (() => { try { return 0; } catch { return 0; } })();
-  results.irr = (() => { try { return 0; } catch { return 0; } })();
+  results.annualEnergyCost = ((): number => { try { const __v = input.annualEnergyConsumption * input.energyCostPerKwh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualDemandCost = ((): number => { try { const __v = input.peakDemand * input.demandChargePerKw * 12; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualEnergyCost = ((): number => { try { const __v = results.annualEnergyCost + results.annualDemandCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energySavings = ((): number => { try { const __v = input.annualEnergyConsumption * (input.energySavingsPercentage / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.demandReduction = ((): number => { try { const __v = input.peakDemand * (input.peakDemandReductionPercentage / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualEnergyCostSavings = ((): number => { try { const __v = results.energySavings * input.energyCostPerKwh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualDemandCostSavings = ((): number => { try { const __v = results.demandReduction * input.demandChargePerKw * 12; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualSavings = ((): number => { try { const __v = results.annualEnergyCostSavings + results.annualDemandCostSavings; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netAnnualSavings = ((): number => { try { const __v = results.totalAnnualSavings - input.maintenanceCostIncreasePerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.paybackPeriodYears = ((): number => { try { const __v = input.implementationCost / results.netAnnualSavings; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.npv = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.irr = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

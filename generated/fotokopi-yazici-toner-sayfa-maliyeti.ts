@@ -51,14 +51,14 @@ export interface FotokopiYaziciTonerSayfaMaliyetiOutput {
 
 function evaluateFormulas(input: FotokopiYaziciTonerSayfaMaliyetiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.tonerCostPerPage = (() => { try { return input.tonerPrice / input.tonerYield; } catch { return 0; } })();
-  results.colorTonerCostPerPage = (() => { try { return input.colorTonerPrice / input.colorTonerYield; } catch { return 0; } })();
-  results.weightedTonerCostPerPage = (() => { try { return results.tonerCostPerPage * (1 - input.colorPrintRatio/100) + results.colorTonerCostPerPage * (input.colorPrintRatio/100); } catch { return 0; } })();
-  results.electricityCostPerPage = (() => { try { return (input.printerPowerConsumption / 1000) * (1 / (input.printSpeed * 60)) * input.electricityCostPerKwh; } catch { return 0; } })();
-  results.maintenanceCostPerPage = (() => { try { return input.maintenanceCostPerYear / input.totalPagesPerYear; } catch { return 0; } })();
-  results.depreciationCostPerPage = (() => { try { return (input.printerPurchasePrice / input.printerLifespan) / input.totalPagesPerYear; } catch { return 0; } })();
-  results.totalCostPerPage = (() => { try { return results.weightedTonerCostPerPage + input.paperCostPerPage + results.electricityCostPerPage + results.maintenanceCostPerPage + results.depreciationCostPerPage; } catch { return 0; } })();
-  results.annualTotalCost = (() => { try { return results.totalCostPerPage * input.totalPagesPerYear; } catch { return 0; } })();
+  results.tonerCostPerPage = ((): number => { try { const __v = input.tonerPrice / input.tonerYield; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.colorTonerCostPerPage = ((): number => { try { const __v = input.colorTonerPrice / input.colorTonerYield; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.weightedTonerCostPerPage = ((): number => { try { const __v = results.tonerCostPerPage * (1 - input.colorPrintRatio/100) + results.colorTonerCostPerPage * (input.colorPrintRatio/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.electricityCostPerPage = ((): number => { try { const __v = (input.printerPowerConsumption / 1000) * (1 / (input.printSpeed * 60)) * input.electricityCostPerKwh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.maintenanceCostPerPage = ((): number => { try { const __v = input.maintenanceCostPerYear / input.totalPagesPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.depreciationCostPerPage = ((): number => { try { const __v = (input.printerPurchasePrice / input.printerLifespan) / input.totalPagesPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCostPerPage = ((): number => { try { const __v = results.weightedTonerCostPerPage + input.paperCostPerPage + results.electricityCostPerPage + results.maintenanceCostPerPage + results.depreciationCostPerPage; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualTotalCost = ((): number => { try { const __v = results.totalCostPerPage * input.totalPagesPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

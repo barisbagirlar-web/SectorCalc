@@ -37,9 +37,9 @@ export interface AracBakimPeriyoduTakipHesaplamaOutput {
 
 function evaluateFormulas(input: AracBakimPeriyoduTakipHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.adjustedInterval = (() => { try { return input.manufacturerRecommendedInterval * (1 - (input.environmentalFactor - 1) * 0.1) * (1 - (100 - input.maintenanceHistoryScore) / 100 * 0.2) * (1 - (input.criticalityFactor - 1) * 0.05); } catch { return 0; } })();
-  results.nextMaintenanceDate = (() => { try { return today + results.adjustedInterval; } catch { return 0; } })();
-  results.maintenanceFrequencyPerYear = (() => { try { return input.operatingDaysPerYear / results.adjustedInterval; } catch { return 0; } })();
+  results.adjustedInterval = ((): number => { try { const __v = input.manufacturerRecommendedInterval * (1 - (input.environmentalFactor - 1) * 0.1) * (1 - (100 - input.maintenanceHistoryScore) / 100 * 0.2) * (1 - (input.criticalityFactor - 1) * 0.05); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.nextMaintenanceDate = ((): number => { try { const __v = today + results.adjustedInterval; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.maintenanceFrequencyPerYear = ((): number => { try { const __v = input.operatingDaysPerYear / results.adjustedInterval; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

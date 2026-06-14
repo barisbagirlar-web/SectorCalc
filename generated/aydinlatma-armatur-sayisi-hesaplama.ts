@@ -40,9 +40,9 @@ export interface AydinlatmaArmaturSayisiHesaplamaOutput {
 
 function evaluateFormulas(input: AydinlatmaArmaturSayisiHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.toplamIsikAkisiIhtiyaci = (() => { try { return input.istenenAydinlatmaSeviyesi * input.odaUzunlugu * input.odaGenisligi / (input.bakimFaktoru * input.kullanimFaktoru); } catch { return 0; } })();
-  results.armaturSayisi = (() => { try { return Math.Math.ceil(results.toplamIsikAkisiIhtiyaci / input.armaturIsikAkisi); } catch { return 0; } })();
-  results.gercekOrtalamaAydinlatma = (() => { try { return (results.armaturSayisi * input.armaturIsikAkisi * input.bakimFaktoru * input.kullanimFaktoru) / (input.odaUzunlugu * input.odaGenisligi); } catch { return 0; } })();
+  results.toplamIsikAkisiIhtiyaci = ((): number => { try { const __v = input.istenenAydinlatmaSeviyesi * input.odaUzunlugu * input.odaGenisligi / (input.bakimFaktoru * input.kullanimFaktoru); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.armaturSayisi = ((): number => { try { const __v = Math.Math.ceil(results.toplamIsikAkisiIhtiyaci / input.armaturIsikAkisi); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.gercekOrtalamaAydinlatma = ((): number => { try { const __v = (results.armaturSayisi * input.armaturIsikAkisi * input.bakimFaktoru * input.kullanimFaktoru) / (input.odaUzunlugu * input.odaGenisligi); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

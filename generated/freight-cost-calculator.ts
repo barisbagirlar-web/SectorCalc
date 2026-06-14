@@ -45,15 +45,15 @@ export interface FreightCostCalculatorOutput {
 
 function evaluateFormulas(input: FreightCostCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.baseFreightCost = (() => { try { return input.shipmentWeight * input.distance * (input.mode === 'truck' ? 0.0001 : input.mode === 'rail' ? 0.00005 : input.mode === 'air' ? 0.0005 : 0.00002); } catch { return 0; } })();
-  results.fuelCost = (() => { try { return input.distance * (input.mode === 'truck' ? 0.3 : input.mode === 'rail' ? 0.1 : input.mode === 'air' ? 2.5 : 0.05) * input.fuelPrice; } catch { return 0; } })();
-  results.laborCost = (() => { try { return input.distance * (input.mode === 'truck' ? 0.02 : input.mode === 'rail' ? 0.005 : input.mode === 'air' ? 0.1 : 0.001) * input.laborRate; } catch { return 0; } })();
-  results.handlingCost = (() => { try { return input.shipmentWeight * input.handlingCostPerKg; } catch { return 0; } })();
-  results.insuranceCost = (() => { try { return input.cargoValue * (input.insuranceRate / 100); } catch { return 0; } })();
-  results.totalFreightCost = (() => { try { return results.baseFreightCost + results.fuelCost + results.laborCost + results.handlingCost + results.insuranceCost; } catch { return 0; } })();
-  results.costPerKg = (() => { try { return results.totalFreightCost / input.shipmentWeight; } catch { return 0; } })();
-  results.costPerKm = (() => { try { return results.totalFreightCost / input.distance; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalFreightCost * (1 + (100 - input.dataConfidence) / 100); } catch { return 0; } })();
+  results.baseFreightCost = ((): number => { try { const __v = input.shipmentWeight * input.distance * (input.mode === 'truck' ? 0.0001 : input.mode === 'rail' ? 0.00005 : input.mode === 'air' ? 0.0005 : 0.00002); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.fuelCost = ((): number => { try { const __v = input.distance * (input.mode === 'truck' ? 0.3 : input.mode === 'rail' ? 0.1 : input.mode === 'air' ? 2.5 : 0.05) * input.fuelPrice; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCost = ((): number => { try { const __v = input.distance * (input.mode === 'truck' ? 0.02 : input.mode === 'rail' ? 0.005 : input.mode === 'air' ? 0.1 : 0.001) * input.laborRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.handlingCost = ((): number => { try { const __v = input.shipmentWeight * input.handlingCostPerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.insuranceCost = ((): number => { try { const __v = input.cargoValue * (input.insuranceRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalFreightCost = ((): number => { try { const __v = results.baseFreightCost + results.fuelCost + results.laborCost + results.handlingCost + results.insuranceCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerKg = ((): number => { try { const __v = results.totalFreightCost / input.shipmentWeight; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerKm = ((): number => { try { const __v = results.totalFreightCost / input.distance; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalFreightCost * (1 + (100 - input.dataConfidence) / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

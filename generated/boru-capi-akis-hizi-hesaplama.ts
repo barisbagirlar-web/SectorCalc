@@ -31,11 +31,11 @@ export interface BoruCapiAkisHiziHesaplamaOutput {
 
 function evaluateFormulas(input: BoruCapiAkisHiziHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.cap = (() => { try { return Math.sqrt((4 * input.debi) / (PI * input.hiz)); } catch { return 0; } })();
-  results.alan = (() => { try { return PI * (results.cap / 2)^2; } catch { return 0; } })();
-  results.reynoldsSayisi = (() => { try { return (input.akiskanturu == 'su' ? 1000 : 1.2) * input.hiz * results.cap / (input.akiskanturu == 'su' ? 0.001 : 1.8e-5); } catch { return 0; } })();
-  results.surtunmeFaktoru = (() => { try { return input.boruTipi == 'smooth' ? 0.01 : (input.boruTipi == 'rough' ? 0.05 : 0.02); } catch { return 0; } })();
-  results.basincKaybi = (() => { try { return results.surtunmeFaktoru * (1000 / results.cap) * (input.akiskanturu == 'su' ? 1000 : 1.2) * input.hiz^2 / 2; } catch { return 0; } })();
+  results.cap = ((): number => { try { const __v = Math.sqrt((4 * input.debi) / (PI * input.hiz)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.alan = ((): number => { try { const __v = PI * (results.cap / 2)^2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.reynoldsSayisi = ((): number => { try { const __v = (input.akiskanturu == 'su' ? 1000 : 1.2) * input.hiz * results.cap / (input.akiskanturu == 'su' ? 0.001 : 1.8e-5); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.surtunmeFaktoru = ((): number => { try { const __v = input.boruTipi == 'smooth' ? 0.01 : (input.boruTipi == 'rough' ? 0.05 : 0.02); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.basincKaybi = ((): number => { try { const __v = results.surtunmeFaktoru * (1000 / results.cap) * (input.akiskanturu == 'su' ? 1000 : 1.2) * input.hiz^2 / 2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

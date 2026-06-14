@@ -38,10 +38,10 @@ export interface BoltTighteningTorqueCalculatorOutput {
 
 function evaluateFormulas(input: BoltTighteningTorqueCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.tighteningTorque = (() => { try { return input.nutFactor * input.boltDiameter * input.preloadForce / 1000; } catch { return 0; } })();
-  results.torqueAngle = (() => { try { return 0; } catch { return 0; } })();
-  results.clampForce = (() => { try { return input.preloadForce; } catch { return 0; } })();
-  results.torqueTensionEfficiency = (() => { try { return input.preloadForce / (results.tighteningTorque * 1000 / input.boltDiameter); } catch { return 0; } })();
+  results.tighteningTorque = ((): number => { try { const __v = input.nutFactor * input.boltDiameter * input.preloadForce / 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.torqueAngle = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.clampForce = ((): number => { try { const __v = input.preloadForce; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.torqueTensionEfficiency = ((): number => { try { const __v = input.preloadForce / (results.tighteningTorque * 1000 / input.boltDiameter); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

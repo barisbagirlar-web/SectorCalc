@@ -41,11 +41,11 @@ export interface ElectricityBillCalculatorOutput {
 
 function evaluateFormulas(input: ElectricityBillCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.energyCharge = (() => { try { return input.peakConsumption * input.peakRate + input.offPeakConsumption * input.offPeakRate; } catch { return 0; } })();
-  results.totalBeforeTax = (() => { try { return results.energyCharge + input.fixedCharge; } catch { return 0; } })();
-  results.taxAmount = (() => { try { return results.totalBeforeTax * (input.taxRate / 100); } catch { return 0; } })();
-  results.totalBill = (() => { try { return results.totalBeforeTax + results.taxAmount; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalBill * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.energyCharge = ((): number => { try { const __v = input.peakConsumption * input.peakRate + input.offPeakConsumption * input.offPeakRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalBeforeTax = ((): number => { try { const __v = results.energyCharge + input.fixedCharge; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.taxAmount = ((): number => { try { const __v = results.totalBeforeTax * (input.taxRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalBill = ((): number => { try { const __v = results.totalBeforeTax + results.taxAmount; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalBill * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

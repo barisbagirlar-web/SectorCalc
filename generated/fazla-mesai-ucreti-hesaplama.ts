@@ -33,10 +33,10 @@ export interface FazlaMesaiUcretiHesaplamaOutput {
 
 function evaluateFormulas(input: FazlaMesaiUcretiHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.saatlikUcret = (() => { try { return input.brutUcret / (input.calismaSaati * 4.33); } catch { return 0; } })();
-  results.fazlaMesaiUcreti = (() => { try { return results.saatlikUcret * input.fazlaMesaiKatsayisi * input.fazlaMesaiSaati; } catch { return 0; } })();
-  results.primTutari = (() => { try { return results.fazlaMesaiUcreti * (input.primOrani / 100); } catch { return 0; } })();
-  results.toplamFazlaMesaiUcreti = (() => { try { return results.fazlaMesaiUcreti + results.primTutari; } catch { return 0; } })();
+  results.saatlikUcret = ((): number => { try { const __v = input.brutUcret / (input.calismaSaati * 4.33); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.fazlaMesaiUcreti = ((): number => { try { const __v = results.saatlikUcret * input.fazlaMesaiKatsayisi * input.fazlaMesaiSaati; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.primTutari = ((): number => { try { const __v = results.fazlaMesaiUcreti * (input.primOrani / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamFazlaMesaiUcreti = ((): number => { try { const __v = results.fazlaMesaiUcreti + results.primTutari; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

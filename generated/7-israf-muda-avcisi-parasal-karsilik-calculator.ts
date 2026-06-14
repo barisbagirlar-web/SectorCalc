@@ -35,10 +35,10 @@ export interface Tool7IsrafMudaAvcisiParasalKarsilikCalculatorOutput {
 
 function evaluateFormulas(input: Tool7IsrafMudaAvcisiParasalKarsilikCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.dailyLoss = (() => { try { return input.wasteQuantity * input.unitCost; } catch { return 0; } })();
-  results.annualLoss = (() => { try { return results.dailyLoss * (input.frequency == 'hourly' ? 8 : input.frequency == 'daily' ? 1 : input.frequency == 'weekly' ? 1/5 : input.frequency == 'monthly' ? 1/20 : 1/250) * input.workingDaysPerYear; } catch { return 0; } })();
-  results.dataConfidenceMultiplier = (() => { try { return input.dataConfidence == 'low' ? 0.8 : input.dataConfidence == 'medium' ? 1.0 : 1.2; } catch { return 0; } })();
-  results.adjustedAnnualLoss = (() => { try { return results.annualLoss * results.dataConfidenceMultiplier; } catch { return 0; } })();
+  results.dailyLoss = ((): number => { try { const __v = input.wasteQuantity * input.unitCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualLoss = ((): number => { try { const __v = results.dailyLoss * (input.frequency == 'hourly' ? 8 : input.frequency == 'daily' ? 1 : input.frequency == 'weekly' ? 1/5 : input.frequency == 'monthly' ? 1/20 : 1/250) * input.workingDaysPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceMultiplier = ((): number => { try { const __v = input.dataConfidence == 'low' ? 0.8 : input.dataConfidence == 'medium' ? 1.0 : 1.2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedAnnualLoss = ((): number => { try { const __v = results.annualLoss * results.dataConfidenceMultiplier; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

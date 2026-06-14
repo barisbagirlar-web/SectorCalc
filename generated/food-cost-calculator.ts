@@ -38,17 +38,17 @@ export interface FoodCostCalculatorOutput {
 
 function evaluateFormulas(input: FoodCostCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.foodCostPercentage = (() => { try { return input.foodCost / input.totalRevenue; } catch { return 0; } })();
-  results.primeCost = (() => { try { return input.foodCost + input.laborCost; } catch { return 0; } })();
-  results.primeCostPercentage = (() => { try { return results.primeCost / input.totalRevenue; } catch { return 0; } })();
-  results.grossProfit = (() => { try { return input.totalRevenue - input.foodCost; } catch { return 0; } })();
-  results.grossProfitMargin = (() => { try { return results.grossProfit / input.totalRevenue; } catch { return 0; } })();
-  results.netProfit = (() => { try { return input.totalRevenue - input.foodCost - input.laborCost - input.overheadCost; } catch { return 0; } })();
-  results.netProfitMargin = (() => { try { return results.netProfit / input.totalRevenue; } catch { return 0; } })();
-  results.wasteCost = (() => { try { return input.foodCost * (input.wastePercentage / 100); } catch { return 0; } })();
-  results.adjustedFoodCost = (() => { try { return input.foodCost - results.wasteCost; } catch { return 0; } })();
-  results.adjustedFoodCostPercentage = (() => { try { return results.adjustedFoodCost / input.totalRevenue; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return 0; } catch { return 0; } })();
+  results.foodCostPercentage = ((): number => { try { const __v = input.foodCost / input.totalRevenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.primeCost = ((): number => { try { const __v = input.foodCost + input.laborCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.primeCostPercentage = ((): number => { try { const __v = results.primeCost / input.totalRevenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.grossProfit = ((): number => { try { const __v = input.totalRevenue - input.foodCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.grossProfitMargin = ((): number => { try { const __v = results.grossProfit / input.totalRevenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netProfit = ((): number => { try { const __v = input.totalRevenue - input.foodCost - input.laborCost - input.overheadCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netProfitMargin = ((): number => { try { const __v = results.netProfit / input.totalRevenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.wasteCost = ((): number => { try { const __v = input.foodCost * (input.wastePercentage / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedFoodCost = ((): number => { try { const __v = input.foodCost - results.wasteCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedFoodCostPercentage = ((): number => { try { const __v = results.adjustedFoodCost / input.totalRevenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -60,27 +60,27 @@ export interface ConcreteBagCalculatorOutput {
 
 function evaluateFormulas(input: ConcreteBagCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.adjustedVolume = (() => { try { return input.projectVolume * (1 + input.wasteFactor / 100); } catch { return 0; } })();
-  results.mixParts = (() => { try { return 0; } catch { return 0; } })();
-  results.cementRatio = (() => { try { return 0; } catch { return 0; } })();
-  results.sandRatio = (() => { try { return 0; } catch { return 0; } })();
-  results.aggregateRatio = (() => { try { return 0; } catch { return 0; } })();
-  results.cementMass = (() => { try { return results.adjustedVolume * results.cementRatio * input.cementDensity; } catch { return 0; } })();
-  results.sandMass = (() => { try { return results.adjustedVolume * results.sandRatio * input.sandDensity; } catch { return 0; } })();
-  results.aggregateMass = (() => { try { return results.adjustedVolume * results.aggregateRatio * input.aggregateDensity; } catch { return 0; } })();
-  results.waterMass = (() => { try { return results.cementMass * input.waterCementRatio; } catch { return 0; } })();
-  results.waterVolume = (() => { try { return results.waterMass / 1000; } catch { return 0; } })();
-  results.bagsNeeded = (() => { try { return Math.ceil(results.cementMass / input.bagSize); } catch { return 0; } })();
-  results.cementCost = (() => { try { return results.bagsNeeded * input.bagCost; } catch { return 0; } })();
-  results.sandCostTotal = (() => { try { return results.sandMass / 1000 * input.sandCost; } catch { return 0; } })();
-  results.aggregateCostTotal = (() => { try { return results.aggregateMass / 1000 * input.aggregateCost; } catch { return 0; } })();
-  results.waterCostTotal = (() => { try { return results.waterVolume * input.waterCost; } catch { return 0; } })();
-  results.laborCost = (() => { try { return results.adjustedVolume * input.laborHoursPerM3 * input.laborRate; } catch { return 0; } })();
-  results.equipmentCostTotal = (() => { try { return results.adjustedVolume * input.equipmentCost; } catch { return 0; } })();
-  results.totalMaterialCost = (() => { try { return results.cementCost + results.sandCostTotal + results.aggregateCostTotal + results.waterCostTotal; } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.totalMaterialCost + results.laborCost + results.equipmentCostTotal; } catch { return 0; } })();
-  results.costPerM3 = (() => { try { return results.totalCost / input.projectVolume; } catch { return 0; } })();
-  results.dataConfidenceAdjustedCost = (() => { try { return results.totalCost * (1 + (100 - input.dataConfidence) / 100); } catch { return 0; } })();
+  results.adjustedVolume = ((): number => { try { const __v = input.projectVolume * (1 + input.wasteFactor / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.mixParts = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cementRatio = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.sandRatio = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.aggregateRatio = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cementMass = ((): number => { try { const __v = results.adjustedVolume * results.cementRatio * input.cementDensity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.sandMass = ((): number => { try { const __v = results.adjustedVolume * results.sandRatio * input.sandDensity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.aggregateMass = ((): number => { try { const __v = results.adjustedVolume * results.aggregateRatio * input.aggregateDensity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.waterMass = ((): number => { try { const __v = results.cementMass * input.waterCementRatio; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.waterVolume = ((): number => { try { const __v = results.waterMass / 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.bagsNeeded = ((): number => { try { const __v = Math.ceil(results.cementMass / (Number(input.bagSize) || 0)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cementCost = ((): number => { try { const __v = results.bagsNeeded * input.bagCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.sandCostTotal = ((): number => { try { const __v = results.sandMass / 1000 * input.sandCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.aggregateCostTotal = ((): number => { try { const __v = results.aggregateMass / 1000 * input.aggregateCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.waterCostTotal = ((): number => { try { const __v = results.waterVolume * input.waterCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCost = ((): number => { try { const __v = results.adjustedVolume * input.laborHoursPerM3 * input.laborRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.equipmentCostTotal = ((): number => { try { const __v = results.adjustedVolume * input.equipmentCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalMaterialCost = ((): number => { try { const __v = results.cementCost + results.sandCostTotal + results.aggregateCostTotal + results.waterCostTotal; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.totalMaterialCost + results.laborCost + results.equipmentCostTotal; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerM3 = ((): number => { try { const __v = results.totalCost / input.projectVolume; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCost = ((): number => { try { const __v = results.totalCost * (1 + (100 - input.dataConfidence) / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -33,11 +33,11 @@ export interface CloudApiCostOverrunOutput {
 
 function evaluateFormulas(input: CloudApiCostOverrunInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.actualMonthlyCost = (() => { try { return input.monthlyApiCalls * input.costPerCall; } catch { return 0; } })();
-  results.overrunAmount = (() => { try { return results.actualMonthlyCost - input.budgetedMonthlyCost; } catch { return 0; } })();
-  results.overrunPercent = (() => { try { return (results.overrunAmount / input.budgetedMonthlyCost) * 100; } catch { return 0; } })();
-  results.dataConfidenceFactor = (() => { try { return input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9); } catch { return 0; } })();
-  results.adjustedOverrunAmount = (() => { try { return results.overrunAmount * results.dataConfidenceFactor; } catch { return 0; } })();
+  results.actualMonthlyCost = ((): number => { try { const __v = input.monthlyApiCalls * input.costPerCall; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.overrunAmount = ((): number => { try { const __v = results.actualMonthlyCost - input.budgetedMonthlyCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.overrunPercent = ((): number => { try { const __v = (results.overrunAmount / input.budgetedMonthlyCost) * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceFactor = ((): number => { try { const __v = input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedOverrunAmount = ((): number => { try { const __v = results.overrunAmount * results.dataConfidenceFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

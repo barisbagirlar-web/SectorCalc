@@ -42,11 +42,11 @@ export interface AutoRepairPartsLaborQuoteCalculatorOutput {
 
 function evaluateFormulas(input: AutoRepairPartsLaborQuoteCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.partsTotal = (() => { try { return input.partsCost * (1 - input.discountPercent/100); } catch { return 0; } })();
-  results.laborTotal = (() => { try { return input.laborHours * input.laborRate; } catch { return 0; } })();
-  results.subtotal = (() => { try { return results.partsTotal + results.laborTotal + input.shopSuppliesFee + input.hazardousWasteFee; } catch { return 0; } })();
-  results.taxAmount = (() => { try { return results.subtotal * (input.taxRate/100); } catch { return 0; } })();
-  results.totalQuote = (() => { try { return results.subtotal + results.taxAmount; } catch { return 0; } })();
+  results.partsTotal = ((): number => { try { const __v = input.partsCost * (1 - input.discountPercent/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborTotal = ((): number => { try { const __v = input.laborHours * input.laborRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.subtotal = ((): number => { try { const __v = results.partsTotal + results.laborTotal + input.shopSuppliesFee + input.hazardousWasteFee; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.taxAmount = ((): number => { try { const __v = results.subtotal * (input.taxRate/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalQuote = ((): number => { try { const __v = results.subtotal + results.taxAmount; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

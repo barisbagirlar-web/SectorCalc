@@ -30,9 +30,9 @@ export interface AltiSigmaDpmoSigmaSeviyesiCeviriciOutput {
 
 function evaluateFormulas(input: AltiSigmaDpmoSigmaSeviyesiCeviriciInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalOpportunities = (() => { try { return input.units * input.opportunitiesPerUnit; } catch { return 0; } })();
-  results.dpmo = (() => { try { return (input.defects / results.totalOpportunities) * 1000000; } catch { return 0; } })();
-  results.sigmaLevel = (() => { try { return normsinv(1 - (results.dpmo / 1000000)) + input.sigmaShift; } catch { return 0; } })();
+  results.totalOpportunities = ((): number => { try { const __v = input.units * input.opportunitiesPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dpmo = ((): number => { try { const __v = (input.defects / results.totalOpportunities) * 1000000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.sigmaLevel = ((): number => { try { const __v = normsinv(1 - (results.dpmo / 1000000)) + input.sigmaShift; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

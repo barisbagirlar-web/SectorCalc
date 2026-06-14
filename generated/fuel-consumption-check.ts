@@ -38,13 +38,13 @@ export interface FuelConsumptionCheckOutput {
 
 function evaluateFormulas(input: FuelConsumptionCheckInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalFuelUsed = (() => { try { return input.fuelConsumption * input.distance / 100; } catch { return 0; } })();
-  results.totalIdleFuel = (() => { try { return input.idleConsumptionRate * input.operatingHours; } catch { return 0; } })();
-  results.totalFuelCost = (() => { try { return (results.totalFuelUsed + results.totalIdleFuel) * input.fuelPrice; } catch { return 0; } })();
-  results.fuelCostPerKm = (() => { try { return results.totalFuelCost / input.distance; } catch { return 0; } })();
-  results.fuelEfficiency = (() => { try { return input.distance / (results.totalFuelUsed + results.totalIdleFuel); } catch { return 0; } })();
-  results.dataConfidenceFactor = (() => { try { return input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9); } catch { return 0; } })();
-  results.adjustedFuelCost = (() => { try { return results.totalFuelCost * results.dataConfidenceFactor; } catch { return 0; } })();
+  results.totalFuelUsed = ((): number => { try { const __v = input.fuelConsumption * input.distance / 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalIdleFuel = ((): number => { try { const __v = input.idleConsumptionRate * input.operatingHours; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalFuelCost = ((): number => { try { const __v = (results.totalFuelUsed + results.totalIdleFuel) * input.fuelPrice; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.fuelCostPerKm = ((): number => { try { const __v = results.totalFuelCost / input.distance; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.fuelEfficiency = ((): number => { try { const __v = input.distance / (results.totalFuelUsed + results.totalIdleFuel); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceFactor = ((): number => { try { const __v = input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedFuelCost = ((): number => { try { const __v = results.totalFuelCost * results.dataConfidenceFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

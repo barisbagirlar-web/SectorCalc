@@ -28,6 +28,7 @@ export type GeneratedToolPageProps = {
   readonly slug: string;
   readonly schema: GeneratedToolSchema;
   readonly diagramSrc?: string | null;
+  readonly variant?: "standalone" | "embedded";
 };
 
 function formatPrimaryValue(value: unknown, locale: string): string {
@@ -61,7 +62,12 @@ function resolveSuggestedActions(
   return schema.outputs.suggestedActions;
 }
 
-export function GeneratedToolPage({ slug, schema, diagramSrc = null }: GeneratedToolPageProps) {
+export function GeneratedToolPage({
+  slug,
+  schema,
+  diagramSrc = null,
+  variant = "standalone",
+}: GeneratedToolPageProps) {
   const locale = useLocale();
   const t = useTranslations("generatedTool");
   const tQuote = useTranslations("generatedTool.quoteBuilder");
@@ -143,12 +149,16 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
     );
   }
 
+  const isEmbedded = variant === "embedded";
+
   return (
-    <div className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
-      <header className="space-y-2">
-        <h1 className="text-2xl font-bold text-premium-velvet sm:text-3xl">{title}</h1>
-        <p className="max-w-3xl text-sm text-body-charcoal sm:text-base">{description}</p>
-      </header>
+    <div className={`mx-auto max-w-6xl space-y-6 ${isEmbedded ? "p-0" : "p-4 sm:p-6"}`}>
+      {!isEmbedded ? (
+        <header className="space-y-2">
+          <h1 className="text-2xl font-bold text-premium-velvet sm:text-3xl">{title}</h1>
+          <p className="max-w-3xl text-sm text-body-charcoal sm:text-base">{description}</p>
+        </header>
+      ) : null}
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {hasDiagram ? (

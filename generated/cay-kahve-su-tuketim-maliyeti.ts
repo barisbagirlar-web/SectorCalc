@@ -51,16 +51,16 @@ export interface CayKahveSuTuketimMaliyetiOutput {
 
 function evaluateFormulas(input: CayKahveSuTuketimMaliyetiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.aylikCayTuketimAdet = (() => { try { return input.calisanSayisi * input.gunlukCayTuketimiKisi * input.calismaGunuAy; } catch { return 0; } })();
-  results.aylikKahveTuketimAdet = (() => { try { return input.calisanSayisi * input.gunlukKahveTuketimiKisi * input.calismaGunuAy; } catch { return 0; } })();
-  results.aylikSuTuketimLitre = (() => { try { return input.calisanSayisi * input.gunlukSuTuketimiKisi * input.calismaGunuAy; } catch { return 0; } })();
-  results.aylikCayMaliyeti = (() => { try { return results.aylikCayTuketimAdet * input.cayPosetFiyati; } catch { return 0; } })();
-  results.aylikKahveMaliyeti = (() => { try { return results.aylikKahveTuketimAdet * (input.kahveGramFincan / 1000) * input.kahveFiyati; } catch { return 0; } })();
-  results.aylikSuMaliyeti = (() => { try { return results.aylikSuTuketimLitre * input.suFiyati; } catch { return 0; } })();
-  results.aylikToplamMaliyet = (() => { try { return results.aylikCayMaliyeti + results.aylikKahveMaliyeti + results.aylikSuMaliyeti; } catch { return 0; } })();
-  results.yillikToplamMaliyet = (() => { try { return results.aylikToplamMaliyet * 12; } catch { return 0; } })();
-  results.kisiBasinaAylikMaliyet = (() => { try { return results.aylikToplamMaliyet / input.calisanSayisi; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return input.dataConfidence == 'dusuk' ? results.aylikToplamMaliyet * 1.2 : (input.dataConfidence == 'orta' ? results.aylikToplamMaliyet * 1.1 : results.aylikToplamMaliyet); } catch { return 0; } })();
+  results.aylikCayTuketimAdet = ((): number => { try { const __v = input.calisanSayisi * input.gunlukCayTuketimiKisi * input.calismaGunuAy; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.aylikKahveTuketimAdet = ((): number => { try { const __v = input.calisanSayisi * input.gunlukKahveTuketimiKisi * input.calismaGunuAy; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.aylikSuTuketimLitre = ((): number => { try { const __v = input.calisanSayisi * input.gunlukSuTuketimiKisi * input.calismaGunuAy; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.aylikCayMaliyeti = ((): number => { try { const __v = results.aylikCayTuketimAdet * input.cayPosetFiyati; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.aylikKahveMaliyeti = ((): number => { try { const __v = results.aylikKahveTuketimAdet * (input.kahveGramFincan / 1000) * input.kahveFiyati; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.aylikSuMaliyeti = ((): number => { try { const __v = results.aylikSuTuketimLitre * input.suFiyati; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.aylikToplamMaliyet = ((): number => { try { const __v = results.aylikCayMaliyeti + results.aylikKahveMaliyeti + results.aylikSuMaliyeti; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.yillikToplamMaliyet = ((): number => { try { const __v = results.aylikToplamMaliyet * 12; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.kisiBasinaAylikMaliyet = ((): number => { try { const __v = results.aylikToplamMaliyet / input.calisanSayisi; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = input.dataConfidence == 'dusuk' ? results.aylikToplamMaliyet * 1.2 : (input.dataConfidence == 'orta' ? results.aylikToplamMaliyet * 1.1 : results.aylikToplamMaliyet); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

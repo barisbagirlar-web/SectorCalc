@@ -44,11 +44,11 @@ export interface CevreAtikBeyaniMaliyetHesaplamaOutput {
 
 function evaluateFormulas(input: CevreAtikBeyaniMaliyetHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.nakliyeMaliyeti = (() => { try { return input.atikMiktari * input.nakliyeMesafesi * input.birimNakliyeMaliyeti; } catch { return 0; } })();
-  results.bertarafMaliyeti = (() => { try { return input.atikMiktari * input.birimBertarafMaliyeti; } catch { return 0; } })();
-  results.beklenenCezaMaliyeti = (() => { try { return input.cezaOlasiligi / 100 * input.cezaMiktari; } catch { return 0; } })();
-  results.toplamMaliyet = (() => { try { return results.nakliyeMaliyeti + results.bertarafMaliyeti + input.beyanUcreti + results.beklenenCezaMaliyeti; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.toplamMaliyet / input.dataConfidence; } catch { return 0; } })();
+  results.nakliyeMaliyeti = ((): number => { try { const __v = input.atikMiktari * input.nakliyeMesafesi * input.birimNakliyeMaliyeti; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.bertarafMaliyeti = ((): number => { try { const __v = input.atikMiktari * input.birimBertarafMaliyeti; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.beklenenCezaMaliyeti = ((): number => { try { const __v = input.cezaOlasiligi / 100 * input.cezaMiktari; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamMaliyet = ((): number => { try { const __v = results.nakliyeMaliyeti + results.bertarafMaliyeti + input.beyanUcreti + results.beklenenCezaMaliyeti; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.toplamMaliyet / input.dataConfidence; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -34,11 +34,11 @@ export interface AmperKilowattKwCeviriciOutput {
 
 function evaluateFormulas(input: AmperKilowattKwCeviriciInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.apparentPower = (() => { try { return 0; } catch { return 0; } })();
-  results.activePower = (() => { try { return results.apparentPower * input.powerFactor; } catch { return 0; } })();
-  results.activePowerKW = (() => { try { return results.activePower / 1000; } catch { return 0; } })();
-  results.inputPower = (() => { try { return results.activePowerKW / (input.efficiency / 100); } catch { return 0; } })();
-  results.outputPower = (() => { try { return results.activePowerKW; } catch { return 0; } })();
+  results.apparentPower = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.activePower = ((): number => { try { const __v = results.apparentPower * input.powerFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.activePowerKW = ((): number => { try { const __v = results.activePower / 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.inputPower = ((): number => { try { const __v = results.activePowerKW / (input.efficiency / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.outputPower = ((): number => { try { const __v = results.activePowerKW; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

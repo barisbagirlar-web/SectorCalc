@@ -54,16 +54,16 @@ export interface EsnekUretimHucresiYatirimVeGeriDonusCalculatorOutput {
 
 function evaluateFormulas(input: EsnekUretimHucresiYatirimVeGeriDonusCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.annualNetCashFlow = (() => { try { return input.annualRevenue - input.annualOperatingCost; } catch { return 0; } })();
-  results.discountFactor = (() => { try { return 1 / (1 + input.discountRate/100)^t; } catch { return 0; } })();
-  results.npv = (() => { try { return 0; } catch { return 0; } })();
-  results.paybackPeriod = (() => { try { return input.initialInvestment / results.annualNetCashFlow; } catch { return 0; } })();
-  results.roi = (() => { try { return (results.npv / input.initialInvestment) * 100; } catch { return 0; } })();
-  results.costPerUnit = (() => { try { return (input.annualOperatingCost + (input.initialInvestment - input.salvageValue)/input.projectLife) / input.annualProductionVolume; } catch { return 0; } })();
-  results.laborCostPerUnit = (() => { try { return (input.setupTimePerBatch * input.laborCostPerHour) / input.batchSize + (1/ (input.annualProductionVolume / (input.batchSize * (1 - input.defectRate/100)))) * input.laborCostPerHour; } catch { return 0; } })();
-  results.totalCostPerUnit = (() => { try { return results.costPerUnit + input.energyCostPerUnit + input.maintenanceCostPerYear/input.annualProductionVolume + results.laborCostPerUnit; } catch { return 0; } })();
-  results.breakEvenVolume = (() => { try { return input.annualOperatingCost / (input.annualRevenue/input.annualProductionVolume - results.totalCostPerUnit); } catch { return 0; } })();
-  results.dataConfidenceAdjustedNpv = (() => { try { return results.npv * input.dataConfidence; } catch { return 0; } })();
+  results.annualNetCashFlow = ((): number => { try { const __v = input.annualRevenue - input.annualOperatingCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.discountFactor = ((): number => { try { const __v = 1 / (1 + input.discountRate/100)^t; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.npv = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.paybackPeriod = ((): number => { try { const __v = input.initialInvestment / results.annualNetCashFlow; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.roi = ((): number => { try { const __v = (results.npv / input.initialInvestment) * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerUnit = ((): number => { try { const __v = (input.annualOperatingCost + (input.initialInvestment - input.salvageValue)/input.projectLife) / input.annualProductionVolume; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCostPerUnit = ((): number => { try { const __v = (input.setupTimePerBatch * input.laborCostPerHour) / input.batchSize + (1/ (input.annualProductionVolume / (input.batchSize * (1 - input.defectRate/100)))) * input.laborCostPerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCostPerUnit = ((): number => { try { const __v = results.costPerUnit + input.energyCostPerUnit + input.maintenanceCostPerYear/input.annualProductionVolume + results.laborCostPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.breakEvenVolume = ((): number => { try { const __v = input.annualOperatingCost / (input.annualRevenue/input.annualProductionVolume - results.totalCostPerUnit); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedNpv = ((): number => { try { const __v = results.npv * input.dataConfidence; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

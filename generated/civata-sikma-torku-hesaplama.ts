@@ -35,9 +35,9 @@ export interface CivataSikmaTorkuHesaplamaOutput {
 
 function evaluateFormulas(input: CivataSikmaTorkuHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.sikmaTorku = (() => { try { return input.onYuklemeKuvveti * 1000 * (0.16 * input.adim + 0.577 * input.surtunmeKatsayisi * input.civataCapi / 1000) / (1 - 0.577 * input.surtunmeKatsayisi * input.adim / (Math.PI * input.civataCapi / 1000)); } catch { return 0; } })();
-  results.maksimumOnYuk = (() => { try { return 0; } catch { return 0; } })();
-  results.torkDegeri = (() => { try { return results.sikmaTorku; } catch { return 0; } })();
+  results.sikmaTorku = ((): number => { try { const __v = input.onYuklemeKuvveti * 1000 * (0.16 * input.adim + 0.577 * input.surtunmeKatsayisi * input.civataCapi / 1000) / (1 - 0.577 * input.surtunmeKatsayisi * input.adim / (Math.PI * input.civataCapi / 1000)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.maksimumOnYuk = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.torkDegeri = ((): number => { try { const __v = results.sikmaTorku; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -38,11 +38,11 @@ export interface CarbonFootprintQuickOutput {
 
 function evaluateFormulas(input: CarbonFootprintQuickInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.rawEmissions = (() => { try { return input.quantity * input.emissionFactor; } catch { return 0; } })();
-  results.confidenceMultiplier = (() => { try { return input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9); } catch { return 0; } })();
-  results.adjustedEmissions = (() => { try { return results.rawEmissions * results.confidenceMultiplier; } catch { return 0; } })();
-  results.netEmissions = (() => { try { return input.includeOffset ? Math.max(0, results.adjustedEmissions - input.offsetAmount) : results.adjustedEmissions; } catch { return 0; } })();
-  results.totalEmissions = (() => { try { return results.netEmissions; } catch { return 0; } })();
+  results.rawEmissions = ((): number => { try { const __v = input.quantity * input.emissionFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.confidenceMultiplier = ((): number => { try { const __v = input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedEmissions = ((): number => { try { const __v = results.rawEmissions * results.confidenceMultiplier; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netEmissions = ((): number => { try { const __v = input.includeOffset ? Math.max(0, results.adjustedEmissions - input.offsetAmount) : results.adjustedEmissions; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalEmissions = ((): number => { try { const __v = results.netEmissions; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

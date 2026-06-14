@@ -35,9 +35,9 @@ export interface DesiCalculatorOutput {
 
 function evaluateFormulas(input: DesiCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.volumetricWeight = (() => { try { return (input.length * input.width * input.height) / input.dimFactor; } catch { return 0; } })();
-  results.chargeableWeight = (() => { try { return Math.max(input.weight, results.volumetricWeight); } catch { return 0; } })();
-  results.desiValue = (() => { try { return results.chargeableWeight * 10; } catch { return 0; } })();
+  results.volumetricWeight = ((): number => { try { const __v = (input.length * input.width * input.height) / input.dimFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.chargeableWeight = ((): number => { try { const __v = Math.max(input.weight, results.volumetricWeight); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.desiValue = ((): number => { try { const __v = results.chargeableWeight * 10; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

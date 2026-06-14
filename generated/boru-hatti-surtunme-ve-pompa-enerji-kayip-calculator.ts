@@ -46,18 +46,18 @@ export interface BoruHattiSurtunmeVePompaEnerjiKayipCalculatorOutput {
 
 function evaluateFormulas(input: BoruHattiSurtunmeVePompaEnerjiKayipCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.crossSectionalArea = (() => { try { return A = π * (input.pipeDiameter/2)^2; } catch { return 0; } })();
-  results.velocity = (() => { try { return v = input.flowRate / A; } catch { return 0; } })();
-  results.reynoldsNumber = (() => { try { return Re = (input.fluidDensity * v * input.pipeDiameter) / input.fluidViscosity; } catch { return 0; } })();
-  results.frictionFactor = (() => { try { return 0; } catch { return 0; } })();
-  results.majorLoss = (() => { try { return h_f = f * (input.pipeLength/input.pipeDiameter) * (v^2/(2*9.81)); } catch { return 0; } })();
-  results.minorLoss = (() => { try { return h_m = input.fittingLossCoefficient * (v^2/(2*9.81)); } catch { return 0; } })();
-  results.totalHeadLoss = (() => { try { return h_total = h_f + h_m; } catch { return 0; } })();
-  results.pressureDrop = (() => { try { return ΔP = input.fluidDensity * 9.81 * h_total; } catch { return 0; } })();
-  results.hydraulicPower = (() => { try { return P_h = input.fluidDensity * 9.81 * input.flowRate * h_total; } catch { return 0; } })();
-  results.shaftPower = (() => { try { return P_s = P_h / (input.pumpEfficiency/100); } catch { return 0; } })();
-  results.annualEnergyConsumption = (() => { try { return E = P_s * input.operatingHours; } catch { return 0; } })();
-  results.annualEnergyCost = (() => { try { return C = E * input.electricityCost; } catch { return 0; } })();
+  results.crossSectionalArea = ((): number => { try { const __v = A = π * (input.pipeDiameter/2)^2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.velocity = ((): number => { try { const __v = v = input.flowRate / A; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.reynoldsNumber = ((): number => { try { const __v = Re = (input.fluidDensity * v * input.pipeDiameter) / input.fluidViscosity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.frictionFactor = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.majorLoss = ((): number => { try { const __v = h_f = f * (input.pipeLength/input.pipeDiameter) * (v^2/(2*9.81)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.minorLoss = ((): number => { try { const __v = h_m = input.fittingLossCoefficient * (v^2/(2*9.81)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalHeadLoss = ((): number => { try { const __v = h_total = h_f + h_m; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.pressureDrop = ((): number => { try { const __v = ΔP = input.fluidDensity * 9.81 * h_total; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.hydraulicPower = ((): number => { try { const __v = P_h = input.fluidDensity * 9.81 * input.flowRate * h_total; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.shaftPower = ((): number => { try { const __v = P_s = P_h / (input.pumpEfficiency/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualEnergyConsumption = ((): number => { try { const __v = E = P_s * input.operatingHours; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualEnergyCost = ((): number => { try { const __v = C = E * input.electricityCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

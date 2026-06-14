@@ -36,13 +36,13 @@ export interface EnergyEfficiencyReportOutput {
 
 function evaluateFormulas(input: EnergyEfficiencyReportInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.energyIntensity = (() => { try { return input.totalEnergyConsumption / input.productionOutput; } catch { return 0; } })();
-  results.energyIntensityRatio = (() => { try { return results.energyIntensity / input.baselineEnergyIntensity; } catch { return 0; } })();
-  results.totalEnergyCost = (() => { try { return input.totalEnergyConsumption * input.energyCostPerKwh; } catch { return 0; } })();
-  results.energyCostPerUnit = (() => { try { return results.totalEnergyCost / input.productionOutput; } catch { return 0; } })();
-  results.potentialSavings = (() => { try { return (input.baselineEnergyIntensity - results.energyIntensity) * input.productionOutput * input.energyCostPerKwh; } catch { return 0; } })();
-  results.energyCostRatio = (() => { try { return results.totalEnergyCost / (input.productionOutput * averageRevenuePerUnit); } catch { return 0; } })();
-  results.dataConfidenceAdjustedSavings = (() => { try { return results.potentialSavings * (input.dataConfidence == 'high' ? 1.0 : input.dataConfidence == 'medium' ? 0.85 : 0.7); } catch { return 0; } })();
+  results.energyIntensity = ((): number => { try { const __v = input.totalEnergyConsumption / input.productionOutput; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyIntensityRatio = ((): number => { try { const __v = results.energyIntensity / input.baselineEnergyIntensity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalEnergyCost = ((): number => { try { const __v = input.totalEnergyConsumption * input.energyCostPerKwh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyCostPerUnit = ((): number => { try { const __v = results.totalEnergyCost / input.productionOutput; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.potentialSavings = ((): number => { try { const __v = (input.baselineEnergyIntensity - results.energyIntensity) * input.productionOutput * input.energyCostPerKwh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyCostRatio = ((): number => { try { const __v = results.totalEnergyCost / (input.productionOutput * averageRevenuePerUnit); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedSavings = ((): number => { try { const __v = results.potentialSavings * (input.dataConfidence == 'high' ? 1.0 : input.dataConfidence == 'medium' ? 0.85 : 0.7); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

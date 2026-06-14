@@ -41,11 +41,11 @@ export interface ConstructionSubcontractorMarginLeakOutput {
 
 function evaluateFormulas(input: ConstructionSubcontractorMarginLeakInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalLeak = (() => { try { return input.reworkCost + input.delayPenalties + Math.max(input.changeOrderImpact, 0) + input.warrantyClaims; } catch { return 0; } })();
-  results.expectedMargin = (() => { try { return input.contractValue - input.actualCost; } catch { return 0; } })();
-  results.actualMargin = (() => { try { return input.contractValue - input.actualCost - results.totalLeak; } catch { return 0; } })();
-  results.marginLeakPercent = (() => { try { return (results.totalLeak / input.contractValue) * 100; } catch { return 0; } })();
-  results.dataConfidenceAdjustedLeak = (() => { try { return input.dataConfidence == 'low' ? results.totalLeak * 1.2 : (input.dataConfidence == 'medium' ? results.totalLeak * 1.1 : results.totalLeak); } catch { return 0; } })();
+  results.totalLeak = ((): number => { try { const __v = input.reworkCost + input.delayPenalties + Math.max(input.changeOrderImpact, 0) + input.warrantyClaims; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.expectedMargin = ((): number => { try { const __v = input.contractValue - input.actualCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.actualMargin = ((): number => { try { const __v = input.contractValue - input.actualCost - results.totalLeak; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.marginLeakPercent = ((): number => { try { const __v = (results.totalLeak / input.contractValue) * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedLeak = ((): number => { try { const __v = input.dataConfidence == 'low' ? results.totalLeak * 1.2 : (input.dataConfidence == 'medium' ? results.totalLeak * 1.1 : results.totalLeak); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -42,11 +42,11 @@ export interface FertilizerDosageCalculatorOutput {
 
 function evaluateFormulas(input: FertilizerDosageCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.nutrientRequirement = (() => { try { return cropNutrientDemand[input.cropType] * input.targetYield / 1000; } catch { return 0; } })();
-  results.availableNutrient = (() => { try { return soilNutrient * 2.24 * 0.01; } catch { return 0; } })();
-  results.nutrientDeficit = (() => { try { return Math.max(0, results.nutrientRequirement - results.availableNutrient); } catch { return 0; } })();
-  results.fertilizerDosage = (() => { try { return results.nutrientDeficit / (fertilizerNutrientContent[input.fertilizerType] * input.efficiencyFactor / 100) * 100; } catch { return 0; } })();
-  results.totalFertilizer = (() => { try { return results.fertilizerDosage * input.area; } catch { return 0; } })();
+  results.nutrientRequirement = ((): number => { try { const __v = cropNutrientDemand[input.cropType] * input.targetYield / 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.availableNutrient = ((): number => { try { const __v = soilNutrient * 2.24 * 0.01; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.nutrientDeficit = ((): number => { try { const __v = Math.max(0, results.nutrientRequirement - results.availableNutrient); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.fertilizerDosage = ((): number => { try { const __v = results.nutrientDeficit / (fertilizerNutrientContent[input.fertilizerType] * input.efficiencyFactor / 100) * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalFertilizer = ((): number => { try { const __v = results.fertilizerDosage * input.area; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

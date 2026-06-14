@@ -49,13 +49,13 @@ export interface ForkliftTranspaletKullanimMaliyetiOutput {
 
 function evaluateFormulas(input: ForkliftTranspaletKullanimMaliyetiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.annualDepreciation = (() => { try { return (input.purchasePrice - input.residualValue) / input.economicLife; } catch { return 0; } })();
-  results.annualFixedCost = (() => { try { return results.annualDepreciation + input.annualInsuranceCost + input.annualTaxAndLicense + input.annualStorageCost; } catch { return 0; } })();
-  results.annualVariableCost = (() => { try { return (input.fuelCostPerHour + input.maintenanceCostPerHour + input.operatorHourlyWage) * input.annualOperatingHours; } catch { return 0; } })();
-  results.annualTotalCost = (() => { try { return results.annualFixedCost + results.annualVariableCost; } catch { return 0; } })();
-  results.hourlyTotalCost = (() => { try { return results.annualTotalCost / input.annualOperatingHours; } catch { return 0; } })();
-  results.npvTotalCost = (() => { try { return -input.purchasePrice + (results.annualTotalCost * (1 - (1 + input.annualInterestRate/100)^(-input.economicLife)) / (input.annualInterestRate/100)) + input.residualValue / (1 + input.annualInterestRate/100)^input.economicLife; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.hourlyTotalCost * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); } catch { return 0; } })();
+  results.annualDepreciation = ((): number => { try { const __v = (input.purchasePrice - input.residualValue) / input.economicLife; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualFixedCost = ((): number => { try { const __v = results.annualDepreciation + input.annualInsuranceCost + input.annualTaxAndLicense + input.annualStorageCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualVariableCost = ((): number => { try { const __v = (input.fuelCostPerHour + input.maintenanceCostPerHour + input.operatorHourlyWage) * input.annualOperatingHours; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualTotalCost = ((): number => { try { const __v = results.annualFixedCost + results.annualVariableCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.hourlyTotalCost = ((): number => { try { const __v = results.annualTotalCost / input.annualOperatingHours; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.npvTotalCost = ((): number => { try { const __v = -input.purchasePrice + (results.annualTotalCost * (1 - (1 + input.annualInterestRate/100)^(-input.economicLife)) / (input.annualInterestRate/100)) + input.residualValue / (1 + input.annualInterestRate/100)^input.economicLife; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.hourlyTotalCost * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

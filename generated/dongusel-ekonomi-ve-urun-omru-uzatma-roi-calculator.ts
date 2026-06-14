@@ -40,20 +40,20 @@ export interface DonguselEkonomiVeUrunOmruUzatmaRoiCalculatorOutput {
 
 function evaluateFormulas(input: DonguselEkonomiVeUrunOmruUzatmaRoiCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.annualRevenue = (() => { try { return input.unitsSoldPerYear * input.annualRevenuePerUnit; } catch { return 0; } })();
-  results.annualOperatingCost = (() => { try { return input.unitsSoldPerYear * input.annualOperatingCostPerUnit; } catch { return 0; } })();
-  results.annualNetCashFlow = (() => { try { return results.annualRevenue - results.annualOperatingCost; } catch { return 0; } })();
-  results.currentLifeCycleYears = (() => { try { return input.currentProductLifeYears; } catch { return 0; } })();
-  results.extendedLifeCycleYears = (() => { try { return input.extendedProductLifeYears; } catch { return 0; } })();
-  results.currentReplacementFrequency = (() => { try { return 1 / input.currentProductLifeYears; } catch { return 0; } })();
-  results.extendedReplacementFrequency = (() => { try { return 1 / input.extendedProductLifeYears; } catch { return 0; } })();
-  results.replacementReduction = (() => { try { return results.currentReplacementFrequency - results.extendedReplacementFrequency; } catch { return 0; } })();
-  results.annualSavingsFromReplacement = (() => { try { return results.replacementReduction * input.initialInvestment; } catch { return 0; } })();
-  results.totalAnnualBenefit = (() => { try { return results.annualNetCashFlow + results.annualSavingsFromReplacement; } catch { return 0; } })();
-  results.npv = (() => { try { return results.totalAnnualBenefit * (1 - (1 + input.discountRate/100)^(-input.extendedProductLifeYears)) / (input.discountRate/100) - input.initialInvestment; } catch { return 0; } })();
-  results.roi = (() => { try { return (results.npv / input.initialInvestment) * 100; } catch { return 0; } })();
-  results.paybackPeriod = (() => { try { return input.initialInvestment / results.totalAnnualBenefit; } catch { return 0; } })();
-  results.dataConfidenceAdjustedNpv = (() => { try { return results.npv * (input.dataConfidence == 'high' ? 1.0 : (input.dataConfidence == 'medium' ? 0.9 : 0.8)); } catch { return 0; } })();
+  results.annualRevenue = ((): number => { try { const __v = input.unitsSoldPerYear * input.annualRevenuePerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualOperatingCost = ((): number => { try { const __v = input.unitsSoldPerYear * input.annualOperatingCostPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualNetCashFlow = ((): number => { try { const __v = results.annualRevenue - results.annualOperatingCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.currentLifeCycleYears = ((): number => { try { const __v = input.currentProductLifeYears; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.extendedLifeCycleYears = ((): number => { try { const __v = input.extendedProductLifeYears; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.currentReplacementFrequency = ((): number => { try { const __v = 1 / input.currentProductLifeYears; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.extendedReplacementFrequency = ((): number => { try { const __v = 1 / input.extendedProductLifeYears; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.replacementReduction = ((): number => { try { const __v = results.currentReplacementFrequency - results.extendedReplacementFrequency; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualSavingsFromReplacement = ((): number => { try { const __v = results.replacementReduction * input.initialInvestment; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualBenefit = ((): number => { try { const __v = results.annualNetCashFlow + results.annualSavingsFromReplacement; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.npv = ((): number => { try { const __v = results.totalAnnualBenefit * (1 - (1 + input.discountRate/100)^(-input.extendedProductLifeYears)) / (input.discountRate/100) - input.initialInvestment; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.roi = ((): number => { try { const __v = (results.npv / input.initialInvestment) * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.paybackPeriod = ((): number => { try { const __v = input.initialInvestment / results.totalAnnualBenefit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedNpv = ((): number => { try { const __v = results.npv * (input.dataConfidence == 'high' ? 1.0 : (input.dataConfidence == 'medium' ? 0.9 : 0.8)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

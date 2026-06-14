@@ -36,12 +36,12 @@ export interface BreakEvenCalculatorOutput {
 
 function evaluateFormulas(input: BreakEvenCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.contributionMargin = (() => { try { return input.sellingPricePerUnit - input.variableCostPerUnit; } catch { return 0; } })();
-  results.breakEvenUnits = (() => { try { return input.fixedCosts / results.contributionMargin; } catch { return 0; } })();
-  results.breakEvenRevenue = (() => { try { return results.breakEvenUnits * input.sellingPricePerUnit; } catch { return 0; } })();
-  results.targetProfitUnits = (() => { try { return (input.fixedCosts + input.targetProfit) / results.contributionMargin; } catch { return 0; } })();
-  results.targetProfitRevenue = (() => { try { return results.targetProfitUnits * input.sellingPricePerUnit; } catch { return 0; } })();
-  results.dataConfidenceAdjustedBreakEvenUnits = (() => { try { return results.breakEvenUnits * (100 / input.dataConfidence); } catch { return 0; } })();
+  results.contributionMargin = ((): number => { try { const __v = input.sellingPricePerUnit - input.variableCostPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.breakEvenUnits = ((): number => { try { const __v = input.fixedCosts / results.contributionMargin; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.breakEvenRevenue = ((): number => { try { const __v = results.breakEvenUnits * input.sellingPricePerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.targetProfitUnits = ((): number => { try { const __v = (input.fixedCosts + input.targetProfit) / results.contributionMargin; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.targetProfitRevenue = ((): number => { try { const __v = results.targetProfitUnits * input.sellingPricePerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedBreakEvenUnits = ((): number => { try { const __v = results.breakEvenUnits * (100 / input.dataConfidence); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

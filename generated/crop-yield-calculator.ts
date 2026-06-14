@@ -49,15 +49,15 @@ export interface CropYieldCalculatorOutput {
 
 function evaluateFormulas(input: CropYieldCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.plantsPerHectare = (() => { try { return input.plantingDensity * (input.germinationRate/100) * (input.survivalRate/100); } catch { return 0; } })();
-  results.earsPerHectare = (() => { try { return results.plantsPerHectare * input.earsPerPlant; } catch { return 0; } })();
-  results.kernelsPerHectare = (() => { try { return results.earsPerHectare * input.kernelsPerEar; } catch { return 0; } })();
-  results.grossYieldKgPerHa = (() => { try { return results.kernelsPerHectare * (input.kernelWeight/1000) / 1000; } catch { return 0; } })();
-  results.netYieldKgPerHa = (() => { try { return results.grossYieldKgPerHa * (1 - input.harvestLoss/100); } catch { return 0; } })();
-  results.adjustedMoistureYieldKgPerHa = (() => { try { return results.netYieldKgPerHa * (1 - (input.moistureContent - 15)/100); } catch { return 0; } })();
-  results.totalYieldKg = (() => { try { return results.adjustedMoistureYieldKgPerHa * input.fieldArea; } catch { return 0; } })();
-  results.totalYieldTons = (() => { try { return results.totalYieldKg / 1000; } catch { return 0; } })();
-  results.dataConfidenceAdjustedYieldTons = (() => { try { return results.totalYieldTons * (input.dataConfidence/100); } catch { return 0; } })();
+  results.plantsPerHectare = ((): number => { try { const __v = input.plantingDensity * (input.germinationRate/100) * (input.survivalRate/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.earsPerHectare = ((): number => { try { const __v = results.plantsPerHectare * input.earsPerPlant; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.kernelsPerHectare = ((): number => { try { const __v = results.earsPerHectare * input.kernelsPerEar; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.grossYieldKgPerHa = ((): number => { try { const __v = results.kernelsPerHectare * (input.kernelWeight/1000) / 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netYieldKgPerHa = ((): number => { try { const __v = results.grossYieldKgPerHa * (1 - input.harvestLoss/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedMoistureYieldKgPerHa = ((): number => { try { const __v = results.netYieldKgPerHa * (1 - (input.moistureContent - 15)/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalYieldKg = ((): number => { try { const __v = results.adjustedMoistureYieldKgPerHa * input.fieldArea; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalYieldTons = ((): number => { try { const __v = results.totalYieldKg / 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedYieldTons = ((): number => { try { const __v = results.totalYieldTons * (input.dataConfidence/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

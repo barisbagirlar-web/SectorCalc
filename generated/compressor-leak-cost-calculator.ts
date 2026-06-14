@@ -39,12 +39,12 @@ export interface CompressorLeakCostCalculatorOutput {
 
 function evaluateFormulas(input: CompressorLeakCostCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.leakFlowRatePerSize = (() => { try { return input.leakSize == 1 ? 1.5 : input.leakSize == 3 ? 11 : input.leakSize == 5 ? 30 : input.leakSize == 10 ? 120 : 0; } catch { return 0; } })();
-  results.totalLeakFlowRate = (() => { try { return input.numberOfLeaks * results.input.leakFlowRatePerSize; } catch { return 0; } })();
-  results.annualOperatingHours = (() => { try { return input.operatingHoursPerDay * input.operatingDaysPerYear; } catch { return 0; } })();
-  results.annualEnergyConsumptionKwh = (() => { try { return results.totalLeakFlowRate * input.compressorPowerPerCfm * results.annualOperatingHours; } catch { return 0; } })();
-  results.annualCost = (() => { try { return results.annualEnergyConsumptionKwh * input.electricityCostPerKwh; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.annualCost * (input.dataConfidence == 'low' ? 0.8 : input.dataConfidence == 'medium' ? 1.0 : 1.2); } catch { return 0; } })();
+  results.leakFlowRatePerSize = ((): number => { try { const __v = (Number(input.leakSize) || 0) == 1 ? 1.5 : (Number(input.leakSize) || 0) == 3 ? 11 : (Number(input.leakSize) || 0) == 5 ? 30 : (Number(input.leakSize) || 0) == 10 ? 120 : 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLeakFlowRate = ((): number => { try { const __v = input.numberOfLeaks * results.input.leakFlowRatePerSize; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualOperatingHours = ((): number => { try { const __v = input.operatingHoursPerDay * input.operatingDaysPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualEnergyConsumptionKwh = ((): number => { try { const __v = results.totalLeakFlowRate * input.compressorPowerPerCfm * results.annualOperatingHours; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualCost = ((): number => { try { const __v = results.annualEnergyConsumptionKwh * input.electricityCostPerKwh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.annualCost * (input.dataConfidence == 'low' ? 0.8 : input.dataConfidence == 'medium' ? 1.0 : 1.2); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

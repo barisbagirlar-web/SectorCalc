@@ -39,11 +39,11 @@ export interface EnergyPeakCostOutput {
 
 function evaluateFormulas(input: EnergyPeakCostInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.peakCost = (() => { try { return input.peakDemand * input.peakRate * (input.billingPeriod === 'monthly' ? 1 : input.billingPeriod === 'quarterly' ? 3 : 12); } catch { return 0; } })();
-  results.energyCost = (() => { try { return input.peakDemand * input.loadFactor / 100 * input.peakHours * input.operatingDays * input.energyPrice * (input.billingPeriod === 'monthly' ? 1 : input.billingPeriod === 'quarterly' ? 3 : 12); } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.peakCost + results.energyCost; } catch { return 0; } })();
-  results.costPerUnit = (() => { try { return results.totalCost / (input.peakDemand * input.loadFactor / 100 * input.peakHours * input.operatingDays); } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalCost * (input.dataConfidence === 'low' ? 1.2 : input.dataConfidence === 'medium' ? 1.0 : 0.9); } catch { return 0; } })();
+  results.peakCost = ((): number => { try { const __v = input.peakDemand * input.peakRate * (input.billingPeriod === 'monthly' ? 1 : input.billingPeriod === 'quarterly' ? 3 : 12); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyCost = ((): number => { try { const __v = input.peakDemand * input.loadFactor / 100 * input.peakHours * input.operatingDays * input.energyPrice * (input.billingPeriod === 'monthly' ? 1 : input.billingPeriod === 'quarterly' ? 3 : 12); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.peakCost + results.energyCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerUnit = ((): number => { try { const __v = results.totalCost / (input.peakDemand * input.loadFactor / 100 * input.peakHours * input.operatingDays); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalCost * (input.dataConfidence === 'low' ? 1.2 : input.dataConfidence === 'medium' ? 1.0 : 0.9); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

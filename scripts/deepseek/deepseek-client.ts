@@ -1,5 +1,6 @@
 import type { DeepSeekToolScanPayload, IndustrialToolSchema } from "./types";
 import { normalizeGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
+import { isGeneratedI18nComplete } from "@/lib/generated-tools/schema-i18n-status";
 
 const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
 const DEFAULT_MODEL = "deepseek-chat";
@@ -309,6 +310,91 @@ export async function fetchIndustrialToolSchema(input: {
 }): Promise<IndustrialToolSchema> {
   const raw = await deepseekClient(input.prompt);
   return parseIndustrialToolSchema(raw, input.slug);
+}
+
+export type SchemaI18nBackfillPatch = {
+  readonly id: string;
+  readonly label_i18n: ReturnType<typeof normalizeGeneratedI18nText>;
+  readonly businessContext_i18n: ReturnType<typeof normalizeGeneratedI18nText>;
+};
+
+export function parseSchemaI18nBackfillResponse(
+  raw: string,
+  expectedInputIds: readonly string[],
+): readonly SchemaI18nBackfillPatch[] {
+  const parsed = JSON.parse(stripMarkdownFences(raw)) as unknown;
+  if (!parsed || typeof parsed !== "object") {
+    throw new Error("DeepSeek i18n backfill response must be a JSON object.");
+  }
+
+  const record = parsed as Record<string, unknown>;
+  if (!Array.isArray(record.inputs) || record.inputs.length === 0) {
+    throw new Error("DeepSeek i18n backfill response missing inputs array.");
+  }
+
+  const patches: SchemaI18nBackfillPatch[] = [];
+  const seenIds = new Set<string>();
+
+  for (const [index, entry] of record.inputs.entries()) {
+    if (!entry || typeof entry !== "object") {
+      throw new Error(`inputs[${index}] must be an object.`);
+    }
+
+    const input = entry as Record<string, unknown>;
+    if (typeof input.id !== "string" || !input.id.trim()) {
+      throw new Error(`inputs[${index}] missing id.`);
+    }
+
+    const id = input.id.trim();
+    if (!expectedInputIds.includes(id)) {
+      throw new Error(`Unexpected i18n backfill input id: ${id}`);
+    }
+    if (seenIds.has(id)) {
+      throw new Error(`Duplicate i18n backfill input id: ${id}`);
+    }
+    seenIds.add(id);
+
+    const labelFallback =
+      typeof input.label === "string" && input.label.trim()
+        ? input.label.trim()
+        : id;
+    const businessContextFallback =
+      typeof input.businessContext === "string" && input.businessContext.trim()
+        ? input.businessContext.trim()
+        : labelFallback;
+
+    patches.push({
+      id,
+      label_i18n: normalizeGeneratedI18nText(input.label_i18n, labelFallback),
+      businessContext_i18n: normalizeGeneratedI18nText(
+        input.businessContext_i18n,
+        businessContextFallback,
+      ),
+    });
+
+    const patch = patches[patches.length - 1];
+    if (!patch || !isGeneratedI18nComplete(patch.label_i18n)) {
+      throw new Error(`inputs[${index}].label_i18n must include all 6 locales.`);
+    }
+    if (!patch || !isGeneratedI18nComplete(patch.businessContext_i18n)) {
+      throw new Error(`inputs[${index}].businessContext_i18n must include all 6 locales.`);
+    }
+  }
+
+  const missingIds = expectedInputIds.filter((id) => !seenIds.has(id));
+  if (missingIds.length > 0) {
+    throw new Error(`Missing i18n backfill inputs: ${missingIds.join(", ")}`);
+  }
+
+  return patches;
+}
+
+export async function fetchSchemaI18nBackfill(input: {
+  readonly prompt: string;
+  readonly expectedInputIds: readonly string[];
+}): Promise<readonly SchemaI18nBackfillPatch[]> {
+  const raw = await deepseekClient(input.prompt);
+  return parseSchemaI18nBackfillResponse(raw, input.expectedInputIds);
 }
 
 export async function deepseekClient(prompt: string): Promise<string> {

@@ -138,3 +138,37 @@ Aşağıdaki gereksinimlere eksiksiz uy.
 
 Hiçbir açıklama yazma, sadece JSON.
 `;
+
+export const SCHEMA_I18N_BACKFILL_PROMPT = (
+  toolName: string,
+  payloadJson: string,
+) => `
+Sen bir endüstriyel çeviri ve UX uzmanısın. Aşağıdaki hesaplama aracı input alanları için çok dilli etiket ve yardım metni üreteceksin.
+
+Araç: "${toolName}"
+
+Kaynak JSON (yalnızca çevrilmesi gereken alanlar):
+${payloadJson}
+
+Görev:
+1. Her input için label_i18n ve businessContext_i18n objelerini üret.
+2. Zorunlu diller: en, tr, de, fr, es, ar — hepsi dolu olmalı.
+3. label_i18n.en kaynak label ile aynı olmalı.
+4. businessContext_i18n.en kaynak businessContext ile aynı olmalı.
+5. Çeviriler kısa, teknik ve endüstriyel hesap makinesi formu için uygun olmalı.
+6. Birim kısaltmalarını (mm, RPM, USD, %) değiştirme; yalnızca açıklayıcı metni çevir.
+7. id alanlarını değiştirme; yanıtta aynı id'leri koru.
+
+Çıktı formatı — SADECE JSON:
+{
+  "inputs": [
+    {
+      "id": "string",
+      "label_i18n": { "en": "string", "tr": "string", "de": "string", "fr": "string", "es": "string", "ar": "string" },
+      "businessContext_i18n": { "en": "string", "tr": "string", "de": "string", "fr": "string", "es": "string", "ar": "string" }
+    }
+  ]
+}
+
+Hiçbir açıklama yazma, sadece JSON.
+`;

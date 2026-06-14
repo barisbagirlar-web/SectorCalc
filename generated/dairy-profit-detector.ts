@@ -68,18 +68,18 @@ export interface DairyProfitDetectorOutput {
 
 function evaluateFormulas(input: DairyProfitDetectorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.dailyMilkRevenue = (() => { try { return input.milkVolumeLitersPerDay * (input.milkPricePerLiter + input.milkPricePremiumPerLiter); } catch { return 0; } })();
-  results.dailyFeedCost = (() => { try { return input.feedCostPerCowPerDay * input.numberOfCows; } catch { return 0; } })();
-  results.dailyLaborCost = (() => { try { return input.laborCostPerHour * input.laborHoursPerDay; } catch { return 0; } })();
-  results.dailyEnergyCost = (() => { try { return input.energyCostPerKwh * input.energyKwhPerDay; } catch { return 0; } })();
-  results.dailyWaterCost = (() => { try { return input.waterCostPerLiter * input.waterLitersPerDay; } catch { return 0; } })();
-  results.dailyVetCost = (() => { try { return input.veterinaryCostPerCowPerYear * input.numberOfCows / 365; } catch { return 0; } })();
-  results.dailyReplacementCost = (() => { try { return input.replacementCostPerCow * input.numberOfCows * (input.mortalityRatePercent / 100) / 365; } catch { return 0; } })();
-  results.dailyTotalCost = (() => { try { return results.dailyFeedCost + results.dailyLaborCost + results.dailyEnergyCost + results.dailyWaterCost + results.dailyVetCost + results.dailyReplacementCost; } catch { return 0; } })();
-  results.dailyProfit = (() => { try { return results.dailyMilkRevenue - results.dailyTotalCost; } catch { return 0; } })();
-  results.profitMargin = (() => { try { return results.dailyProfit / results.dailyMilkRevenue * 100; } catch { return 0; } })();
-  results.costPerLiter = (() => { try { return results.dailyTotalCost / input.milkVolumeLitersPerDay; } catch { return 0; } })();
-  results.dataConfidenceAdjustedProfit = (() => { try { return results.dailyProfit * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.dailyMilkRevenue = ((): number => { try { const __v = input.milkVolumeLitersPerDay * (input.milkPricePerLiter + input.milkPricePremiumPerLiter); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dailyFeedCost = ((): number => { try { const __v = input.feedCostPerCowPerDay * input.numberOfCows; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dailyLaborCost = ((): number => { try { const __v = input.laborCostPerHour * input.laborHoursPerDay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dailyEnergyCost = ((): number => { try { const __v = input.energyCostPerKwh * input.energyKwhPerDay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dailyWaterCost = ((): number => { try { const __v = input.waterCostPerLiter * input.waterLitersPerDay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dailyVetCost = ((): number => { try { const __v = input.veterinaryCostPerCowPerYear * input.numberOfCows / 365; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dailyReplacementCost = ((): number => { try { const __v = input.replacementCostPerCow * input.numberOfCows * (input.mortalityRatePercent / 100) / 365; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dailyTotalCost = ((): number => { try { const __v = results.dailyFeedCost + results.dailyLaborCost + results.dailyEnergyCost + results.dailyWaterCost + results.dailyVetCost + results.dailyReplacementCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dailyProfit = ((): number => { try { const __v = results.dailyMilkRevenue - results.dailyTotalCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.profitMargin = ((): number => { try { const __v = results.dailyProfit / results.dailyMilkRevenue * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerLiter = ((): number => { try { const __v = results.dailyTotalCost / input.milkVolumeLitersPerDay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedProfit = ((): number => { try { const __v = results.dailyProfit * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

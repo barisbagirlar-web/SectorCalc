@@ -49,17 +49,17 @@ export interface AutoShopMarginLeakDetectorOutput {
 
 function evaluateFormulas(input: AutoShopMarginLeakDetectorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.grossProfit = (() => { try { return input.revenue - input.costOfGoodsSold; } catch { return 0; } })();
-  results.grossMarginPercent = (() => { try { return results.grossProfit / input.revenue; } catch { return 0; } })();
-  results.totalLeakage = (() => { try { return input.warrantyClaims + input.reworkCost + input.idleTimeCost + input.inventoryHoldingCost; } catch { return 0; } })();
-  results.leakagePercent = (() => { try { return results.totalLeakage / input.revenue; } catch { return 0; } })();
-  results.laborCostPercent = (() => { try { return input.laborCost / input.revenue; } catch { return 0; } })();
-  results.warrantyPercent = (() => { try { return input.warrantyClaims / input.revenue; } catch { return 0; } })();
-  results.reworkPercent = (() => { try { return input.reworkCost / input.laborCost; } catch { return 0; } })();
-  results.idleTimePercent = (() => { try { return input.idleTimeCost / input.laborCost; } catch { return 0; } })();
-  results.inventoryHoldingPercent = (() => { try { return input.inventoryHoldingCost / input.partsCost; } catch { return 0; } })();
-  results.annualizedLeakage = (() => { try { return results.totalLeakage * (365 / input.periodDays); } catch { return 0; } })();
-  results.adjustedLeakage = (() => { try { return input.dataConfidence == 'low' ? results.annualizedLeakage * 1.2 : input.dataConfidence == 'medium' ? results.annualizedLeakage * 1.0 : results.annualizedLeakage * 0.9; } catch { return 0; } })();
+  results.grossProfit = ((): number => { try { const __v = input.revenue - input.costOfGoodsSold; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.grossMarginPercent = ((): number => { try { const __v = results.grossProfit / input.revenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLeakage = ((): number => { try { const __v = input.warrantyClaims + input.reworkCost + input.idleTimeCost + input.inventoryHoldingCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.leakagePercent = ((): number => { try { const __v = results.totalLeakage / input.revenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCostPercent = ((): number => { try { const __v = input.laborCost / input.revenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.warrantyPercent = ((): number => { try { const __v = input.warrantyClaims / input.revenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.reworkPercent = ((): number => { try { const __v = input.reworkCost / input.laborCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.idleTimePercent = ((): number => { try { const __v = input.idleTimeCost / input.laborCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.inventoryHoldingPercent = ((): number => { try { const __v = input.inventoryHoldingCost / input.partsCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualizedLeakage = ((): number => { try { const __v = results.totalLeakage * (365 / input.periodDays); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedLeakage = ((): number => { try { const __v = input.dataConfidence == 'low' ? results.annualizedLeakage * 1.2 : input.dataConfidence == 'medium' ? results.annualizedLeakage * 1.0 : results.annualizedLeakage * 0.9; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

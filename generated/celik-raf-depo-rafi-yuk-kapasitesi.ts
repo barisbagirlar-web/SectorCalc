@@ -40,14 +40,14 @@ export interface CelikRafDepoRafiYukKapasitesiOutput {
 
 function evaluateFormulas(input: CelikRafDepoRafiYukKapasitesiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.kesitAlani = (() => { try { return sacKalinligi * (input.rafGenisligi + input.rafDerinligi) * 2; } catch { return 0; } })();
-  results.malzemeMukavemeti = (() => { try { return 0; } catch { return 0; } })();
-  results.izinVerilenGerilme = (() => { try { return results.malzemeMukavemeti / input.guvenlikFaktoru; } catch { return 0; } })();
-  results.ataletMomenti = (() => { try { return (input.rafGenisligi * sacKalinligi^3) / 12; } catch { return 0; } })();
-  results.katBasiYuk = (() => { try { return results.izinVerilenGerilme * results.ataletMomenti / (input.rafGenisligi / 2); } catch { return 0; } })();
-  results.toplamYuk = (() => { try { return input.katSayisi * results.katBasiYuk; } catch { return 0; } })();
-  results.yukKapasitesi = (() => { try { return results.toplamYuk; } catch { return 0; } })();
-  results.maksimumEgilmeMomenti = (() => { try { return 0; } catch { return 0; } })();
+  results.kesitAlani = ((): number => { try { const __v = sacKalinligi * (input.rafGenisligi + input.rafDerinligi) * 2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.malzemeMukavemeti = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.izinVerilenGerilme = ((): number => { try { const __v = results.malzemeMukavemeti / input.guvenlikFaktoru; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.ataletMomenti = ((): number => { try { const __v = (input.rafGenisligi * sacKalinligi^3) / 12; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.katBasiYuk = ((): number => { try { const __v = results.izinVerilenGerilme * results.ataletMomenti / (input.rafGenisligi / 2); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamYuk = ((): number => { try { const __v = input.katSayisi * results.katBasiYuk; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.yukKapasitesi = ((): number => { try { const __v = results.toplamYuk; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.maksimumEgilmeMomenti = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

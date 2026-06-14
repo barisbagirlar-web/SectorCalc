@@ -66,18 +66,18 @@ export interface EnjeksiyonSogutmaSuresiVeCevrimOptimizasyonCalculatorOutput {
 
 function evaluateFormulas(input: EnjeksiyonSogutmaSuresiVeCevrimOptimizasyonCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.coolingTime = (() => { try { return ((input.partThickness^2) / (input.thermalDiffusivity * pi^2)) * ln((4/pi) * ((input.meltTemperature - input.moldTemperature) / (input.ejectionTemperature - input.moldTemperature))); } catch { return 0; } })();
-  results.cycleTime = (() => { try { return input.injectionTime + input.packingTime + results.coolingTime + input.moldOpenCloseTime + input.ejectionTime; } catch { return 0; } })();
-  results.cycleTimePerPart = (() => { try { return results.cycleTime / input.cavityCount; } catch { return 0; } })();
-  results.partsPerHour = (() => { try { return 3600 / results.cycleTimePerPart; } catch { return 0; } })();
-  results.materialCostPerPart = (() => { try { return (input.partWeight / 1000) * input.materialCostPerKg; } catch { return 0; } })();
-  results.machineCostPerPart = (() => { try { return (input.machineHourlyRate / 3600) * results.cycleTimePerPart; } catch { return 0; } })();
-  results.laborCostPerPart = (() => { try { return (input.laborCostPerHour / 3600) * results.cycleTimePerPart; } catch { return 0; } })();
-  results.energyCostPerPart = (() => { try { return (input.machinePower * (results.cycleTimePerPart / 3600)) * input.energyCostPerKwh; } catch { return 0; } })();
-  results.totalCostPerPart = (() => { try { return results.materialCostPerPart + results.machineCostPerPart + results.laborCostPerPart + results.energyCostPerPart; } catch { return 0; } })();
-  results.totalCostPerPartWithScrap = (() => { try { return results.totalCostPerPart / (1 - input.scrapRate/100); } catch { return 0; } })();
-  results.annualProductionVolume = (() => { try { return results.partsPerHour * 24 * 365 * 0.85; } catch { return 0; } })();
-  results.annualCost = (() => { try { return results.totalCostPerPartWithScrap * results.annualProductionVolume; } catch { return 0; } })();
+  results.coolingTime = ((): number => { try { const __v = ((input.partThickness^2) / (input.thermalDiffusivity * pi^2)) * ln((4/pi) * ((input.meltTemperature - input.moldTemperature) / (input.ejectionTemperature - input.moldTemperature))); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cycleTime = ((): number => { try { const __v = input.injectionTime + input.packingTime + results.coolingTime + input.moldOpenCloseTime + input.ejectionTime; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cycleTimePerPart = ((): number => { try { const __v = results.cycleTime / input.cavityCount; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.partsPerHour = ((): number => { try { const __v = 3600 / results.cycleTimePerPart; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.materialCostPerPart = ((): number => { try { const __v = (input.partWeight / 1000) * input.materialCostPerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.machineCostPerPart = ((): number => { try { const __v = (input.machineHourlyRate / 3600) * results.cycleTimePerPart; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCostPerPart = ((): number => { try { const __v = (input.laborCostPerHour / 3600) * results.cycleTimePerPart; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyCostPerPart = ((): number => { try { const __v = (input.machinePower * (results.cycleTimePerPart / 3600)) * input.energyCostPerKwh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCostPerPart = ((): number => { try { const __v = results.materialCostPerPart + results.machineCostPerPart + results.laborCostPerPart + results.energyCostPerPart; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCostPerPartWithScrap = ((): number => { try { const __v = results.totalCostPerPart / (1 - input.scrapRate/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualProductionVolume = ((): number => { try { const __v = results.partsPerHour * 24 * 365 * 0.85; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualCost = ((): number => { try { const __v = results.totalCostPerPartWithScrap * results.annualProductionVolume; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -38,13 +38,13 @@ export interface CekSenetVadeKirmaMaliyetiHesabiOutput {
 
 function evaluateFormulas(input: CekSenetVadeKirmaMaliyetiHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.iskontoTutari = (() => { try { return input.nominalTutar * (input.iskontoOrani / 100) * (input.vadeGun / 30); } catch { return 0; } })();
-  results.komisyonTutari = (() => { try { return input.nominalTutar * (input.komisyonOrani / 100); } catch { return 0; } })();
-  results.brutKesinti = (() => { try { return results.iskontoTutari + results.komisyonTutari + input.bankaKesintisi; } catch { return 0; } })();
-  results.stopajVergisi = (() => { try { return results.iskontoTutari * (input.vergiOrani / 100); } catch { return 0; } })();
-  results.netKesinti = (() => { try { return results.brutKesinti + results.stopajVergisi; } catch { return 0; } })();
-  results.netOdeme = (() => { try { return input.nominalTutar - results.netKesinti; } catch { return 0; } })();
-  results.efektifMaliyetOrani = (() => { try { return (results.netKesinti / input.nominalTutar) * (360 / input.vadeGun) * 100; } catch { return 0; } })();
+  results.iskontoTutari = ((): number => { try { const __v = input.nominalTutar * (input.iskontoOrani / 100) * (input.vadeGun / 30); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.komisyonTutari = ((): number => { try { const __v = input.nominalTutar * (input.komisyonOrani / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.brutKesinti = ((): number => { try { const __v = results.iskontoTutari + results.komisyonTutari + input.bankaKesintisi; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.stopajVergisi = ((): number => { try { const __v = results.iskontoTutari * (input.vergiOrani / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netKesinti = ((): number => { try { const __v = results.brutKesinti + results.stopajVergisi; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netOdeme = ((): number => { try { const __v = input.nominalTutar - results.netKesinti; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.efektifMaliyetOrani = ((): number => { try { const __v = (results.netKesinti / input.nominalTutar) * (360 / input.vadeGun) * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

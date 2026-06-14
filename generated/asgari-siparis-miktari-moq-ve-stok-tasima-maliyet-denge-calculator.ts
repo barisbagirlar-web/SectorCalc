@@ -42,15 +42,15 @@ export interface AsgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculatorOutput
 
 function evaluateFormulas(input: AsgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.eoq = (() => { try { return Math.Math.sqrt((2 * input.annualDemand * input.orderingCost) / input.holdingCostPerUnitPerYear); } catch { return 0; } })();
-  results.dailyDemand = (() => { try { return input.annualDemand / input.workingDaysPerYear; } catch { return 0; } })();
-  results.totalAnnualOrderingCost = (() => { try { return (input.annualDemand / results.eoq) * input.orderingCost; } catch { return 0; } })();
-  results.moq = (() => { try { return results.eoq; } catch { return 0; } })();
-  results.serviceLevelZScore = (() => { try { return getZScore(input.serviceLevel / 100); } catch { return 0; } })();
-  results.safetyStock = (() => { try { return results.serviceLevelZScore * input.demandStdDev * Math.Math.sqrt(input.leadTimeDays); } catch { return 0; } })();
-  results.reorderPoint = (() => { try { return results.dailyDemand * input.leadTimeDays + results.safetyStock; } catch { return 0; } })();
-  results.totalAnnualHoldingCost = (() => { try { return (results.eoq / 2) * input.holdingCostPerUnitPerYear + results.safetyStock * input.holdingCostPerUnitPerYear; } catch { return 0; } })();
-  results.totalAnnualInventoryCost = (() => { try { return results.totalAnnualOrderingCost + results.totalAnnualHoldingCost; } catch { return 0; } })();
+  results.eoq = ((): number => { try { const __v = Math.Math.sqrt((2 * input.annualDemand * input.orderingCost) / input.holdingCostPerUnitPerYear); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dailyDemand = ((): number => { try { const __v = input.annualDemand / input.workingDaysPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualOrderingCost = ((): number => { try { const __v = (input.annualDemand / results.eoq) * input.orderingCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.moq = ((): number => { try { const __v = results.eoq; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.serviceLevelZScore = ((): number => { try { const __v = getZScore(input.serviceLevel / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.safetyStock = ((): number => { try { const __v = results.serviceLevelZScore * input.demandStdDev * Math.Math.sqrt(input.leadTimeDays); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.reorderPoint = ((): number => { try { const __v = results.dailyDemand * input.leadTimeDays + results.safetyStock; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualHoldingCost = ((): number => { try { const __v = (results.eoq / 2) * input.holdingCostPerUnitPerYear + results.safetyStock * input.holdingCostPerUnitPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualInventoryCost = ((): number => { try { const __v = results.totalAnnualOrderingCost + results.totalAnnualHoldingCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

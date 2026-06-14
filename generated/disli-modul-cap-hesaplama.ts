@@ -35,11 +35,11 @@ export interface DisliModulCapHesaplamaOutput {
 
 function evaluateFormulas(input: DisliModulCapHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.bolumDairesiCapi = (() => { try { return input.disliSayisi * input.modul / cos(input.helisAcisi * PI / 180); } catch { return 0; } })();
-  results.disUstuCapi = (() => { try { return results.bolumDairesiCapi + 2 * input.modul; } catch { return 0; } })();
-  results.disDibiCapi = (() => { try { return results.bolumDairesiCapi - 2.5 * input.modul; } catch { return 0; } })();
-  results.disYuksekligi = (() => { try { return 2.25 * input.modul; } catch { return 0; } })();
-  results.disAraligi = (() => { try { return PI * input.modul; } catch { return 0; } })();
+  results.bolumDairesiCapi = ((): number => { try { const __v = input.disliSayisi * input.modul / cos(input.helisAcisi * PI / 180); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.disUstuCapi = ((): number => { try { const __v = results.bolumDairesiCapi + 2 * input.modul; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.disDibiCapi = ((): number => { try { const __v = results.bolumDairesiCapi - 2.5 * input.modul; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.disYuksekligi = ((): number => { try { const __v = 2.25 * input.modul; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.disAraligi = ((): number => { try { const __v = PI * input.modul; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

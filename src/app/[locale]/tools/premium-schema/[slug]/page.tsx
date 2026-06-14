@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { DynamicPremiumCalculator } from "@/components/tools/DynamicPremiumCalculator";
+import { GeneratedToolPage } from "@/components/tools/GeneratedToolPage";
 import { PremiumAnalyzerAuthorityBlock } from "@/components/content/PremiumAnalyzerAuthorityBlock";
 import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { FeaturedAnswerBlock } from "@/components/seo/FeaturedAnswerBlock";
@@ -24,6 +26,8 @@ import {
   listPremiumSchemaSlugs,
 } from "@/lib/premium-schema/schemas/index";
 import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { getGeneratedToolHref } from "@/lib/generated-tools/paths";
+import { resolveGeneratedPremiumBridge } from "@/lib/generated-tools/premium-schema-bridge";
 
 interface PremiumSchemaPageParams {
   slug: string;
@@ -127,6 +131,7 @@ export default async function PremiumSchemaPilotPage({
     ...buildToolJsonLd({ tool: semanticTool, locale }),
     ...(faqJsonLd ? [faqJsonLd] : []),
   ];
+  const generatedBridge = resolveGeneratedPremiumBridge(slug);
 
   return (
     <PageLayout>
@@ -152,7 +157,44 @@ export default async function PremiumSchemaPilotPage({
           bullets={[tPage("bullet1"), tPage("bullet2"), tPage("bullet3")]}
         />
       </Container>
+      {generatedBridge ? (
+        <Container className="pb-6 pt-2">
+          <section
+            className="rounded-xl border border-technical-gray bg-white p-4 sm:p-6"
+            data-generated-premium-bridge="true"
+          >
+            <p className="sc-ledger-eyebrow">{tPage("generatedBridgeEyebrow")}</p>
+            <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <h2 className="text-lg font-semibold text-premium-velvet">
+                {tPage("generatedBridgeTitle")}
+              </h2>
+              <Link
+                href={getGeneratedToolHref(slug)}
+                className="text-sm font-semibold text-premium-copper hover:underline"
+              >
+                {tPage("generatedBridgeLink")}
+              </Link>
+            </div>
+            <p className="mt-2 max-w-3xl text-sm text-body-charcoal">
+              {tPage("generatedBridgeIntro")}
+            </p>
+            <div className="mt-4">
+              <GeneratedToolPage
+                slug={generatedBridge.slug}
+                schema={generatedBridge.schema}
+                diagramSrc={generatedBridge.diagramSrc}
+                variant="embedded"
+              />
+            </div>
+          </section>
+        </Container>
+      ) : null}
       <Container className="pb-12 pt-2 sm:pb-16">
+        {generatedBridge ? (
+          <h2 className="mb-4 text-lg font-semibold text-premium-velvet">
+            {tPage("generatedBridgeDecisionTitle")}
+          </h2>
+        ) : null}
         <div
           className="sr-only"
           aria-hidden="true"

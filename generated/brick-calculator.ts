@@ -40,12 +40,12 @@ export interface BrickCalculatorOutput {
 
 function evaluateFormulas(input: BrickCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.bricksPerSquareMeter = (() => { try { return 1 / ((input.brickLength + input.mortarThickness) / 1000 * (input.brickHeight + input.mortarThickness) / 1000); } catch { return 0; } })();
-  results.wallArea = (() => { try { return input.wallLength * input.wallHeight; } catch { return 0; } })();
-  results.bricksBeforeWaste = (() => { try { return results.wallArea * results.bricksPerSquareMeter; } catch { return 0; } })();
-  results.totalBricks = (() => { try { return results.bricksBeforeWaste * (1 + input.wasteFactor / 100); } catch { return 0; } })();
-  results.mortarVolumePerBrick = (() => { try { return (input.brickLength + input.brickHeight) * input.brickDepth * input.mortarThickness / 1e9; } catch { return 0; } })();
-  results.totalMortarVolume = (() => { try { return results.totalBricks * results.mortarVolumePerBrick; } catch { return 0; } })();
+  results.bricksPerSquareMeter = ((): number => { try { const __v = 1 / ((input.brickLength + input.mortarThickness) / 1000 * (input.brickHeight + input.mortarThickness) / 1000); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.wallArea = ((): number => { try { const __v = input.wallLength * input.wallHeight; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.bricksBeforeWaste = ((): number => { try { const __v = results.wallArea * results.bricksPerSquareMeter; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalBricks = ((): number => { try { const __v = results.bricksBeforeWaste * (1 + input.wasteFactor / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.mortarVolumePerBrick = ((): number => { try { const __v = (input.brickLength + input.brickHeight) * input.brickDepth * input.mortarThickness / 1e9; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalMortarVolume = ((): number => { try { const __v = results.totalBricks * results.mortarVolumePerBrick; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

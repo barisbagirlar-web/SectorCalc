@@ -28,7 +28,7 @@ export interface AreaConverterOutput {
 
 function evaluateFormulas(input: AreaConverterInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.result = (() => { try { return input.value * conversionFactors[input.fromUnit] / conversionFactors[input.toUnit]; } catch { return 0; } })();
+  results.result = ((): number => { try { const __v = input.value * conversionFactors[input.fromUnit] / conversionFactors[input.toUnit]; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

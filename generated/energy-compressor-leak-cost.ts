@@ -42,11 +42,11 @@ export interface EnergyCompressorLeakCostOutput {
 
 function evaluateFormulas(input: EnergyCompressorLeakCostInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.annualEnergyConsumption = (() => { try { return input.compressorPower * (input.leakRate / 100) * input.operatingHoursPerDay * input.operatingDaysPerYear / (input.motorEfficiency / 100) * (input.loadFactor / 100); } catch { return 0; } })();
-  results.annualEnergyCost = (() => { try { return results.annualEnergyConsumption * input.electricityCost; } catch { return 0; } })();
-  results.annualMaintenanceCost = (() => { try { return input.maintenanceCostPerLeak * input.numberOfLeaks; } catch { return 0; } })();
-  results.totalAnnualLeakCost = (() => { try { return results.annualEnergyCost + results.annualMaintenanceCost; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalAnnualLeakCost * (input.dataConfidence == 'low' ? 1.3 : (input.dataConfidence == 'medium' ? 1.15 : 1.05)); } catch { return 0; } })();
+  results.annualEnergyConsumption = ((): number => { try { const __v = input.compressorPower * (input.leakRate / 100) * input.operatingHoursPerDay * input.operatingDaysPerYear / (input.motorEfficiency / 100) * (input.loadFactor / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualEnergyCost = ((): number => { try { const __v = results.annualEnergyConsumption * input.electricityCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualMaintenanceCost = ((): number => { try { const __v = input.maintenanceCostPerLeak * input.numberOfLeaks; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualLeakCost = ((): number => { try { const __v = results.annualEnergyCost + results.annualMaintenanceCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalAnnualLeakCost * (input.dataConfidence == 'low' ? 1.3 : (input.dataConfidence == 'medium' ? 1.15 : 1.05)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

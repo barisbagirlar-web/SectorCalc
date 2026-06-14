@@ -48,15 +48,15 @@ export interface AtikYonetimiVeBertarafMaliyetOptimizasyonCalculatorOutput {
 
 function evaluateFormulas(input: AtikYonetimiVeBertarafMaliyetOptimizasyonCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.transportCost = (() => { try { return input.annualWasteVolume * input.transportCostPerTonKm * input.averageDistance; } catch { return 0; } })();
-  results.disposalCost = (() => { try { return input.annualWasteVolume * input.unitDisposalCost; } catch { return 0; } })();
-  results.laborCost = (() => { try { return input.annualWasteVolume * input.laborHoursPerTon * input.laborCostPerHour; } catch { return 0; } })();
-  results.totalDirectCost = (() => { try { return results.transportCost + results.disposalCost + results.laborCost + input.equipmentCostPerYear; } catch { return 0; } })();
-  results.recyclingRevenue = (() => { try { return input.annualWasteVolume * input.recyclingRevenuePerTon; } catch { return 0; } })();
-  results.netCost = (() => { try { return results.totalDirectCost - results.recyclingRevenue; } catch { return 0; } })();
-  results.totalCostPerTon = (() => { try { return results.netCost / input.annualWasteVolume; } catch { return 0; } })();
-  results.recyclingRate = (() => { try { return 0; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return 0; } catch { return 0; } })();
+  results.transportCost = ((): number => { try { const __v = input.annualWasteVolume * input.transportCostPerTonKm * input.averageDistance; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.disposalCost = ((): number => { try { const __v = input.annualWasteVolume * input.unitDisposalCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCost = ((): number => { try { const __v = input.annualWasteVolume * input.laborHoursPerTon * input.laborCostPerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalDirectCost = ((): number => { try { const __v = results.transportCost + results.disposalCost + results.laborCost + input.equipmentCostPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.recyclingRevenue = ((): number => { try { const __v = input.annualWasteVolume * input.recyclingRevenuePerTon; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netCost = ((): number => { try { const __v = results.totalDirectCost - results.recyclingRevenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCostPerTon = ((): number => { try { const __v = results.netCost / input.annualWasteVolume; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.recyclingRate = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

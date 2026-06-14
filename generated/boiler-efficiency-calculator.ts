@@ -51,15 +51,15 @@ export interface BoilerEfficiencyCalculatorOutput {
 
 function evaluateFormulas(input: BoilerEfficiencyCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.heatInput = (() => { try { return input.fuelConsumption * input.fuelHeatingValue; } catch { return 0; } })();
-  results.heatOutput = (() => { try { return input.steamFlow * (input.steamEnthalpy - input.feedwaterEnthalpy); } catch { return 0; } })();
-  results.dryFlueGasLoss = (() => { try { return input.excessAir * 0.001 * (input.flueGasTemperature - input.ambientTemperature) * input.fuelConsumption * input.fuelHeatingValue / 100; } catch { return 0; } })();
-  results.moistureLoss = (() => { try { return 0.09 * (input.flueGasTemperature - input.ambientTemperature) * input.fuelConsumption * input.fuelHeatingValue / 100; } catch { return 0; } })();
-  results.radiationLossPercent = (() => { try { return input.radiationLoss; } catch { return 0; } })();
-  results.blowdownLoss = (() => { try { return input.blowdownRate / 100 * results.heatInput; } catch { return 0; } })();
-  results.totalLosses = (() => { try { return results.dryFlueGasLoss + results.moistureLoss + results.radiationLossPercent / 100 * results.heatInput + results.blowdownLoss; } catch { return 0; } })();
-  results.efficiency = (() => { try { return (results.heatOutput / results.heatInput) * 100; } catch { return 0; } })();
-  results.efficiencyAdjusted = (() => { try { return results.efficiency * (1 - (1 - dataConfidenceFactor) * 0.1); } catch { return 0; } })();
+  results.heatInput = ((): number => { try { const __v = input.fuelConsumption * input.fuelHeatingValue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.heatOutput = ((): number => { try { const __v = input.steamFlow * (input.steamEnthalpy - input.feedwaterEnthalpy); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dryFlueGasLoss = ((): number => { try { const __v = input.excessAir * 0.001 * (input.flueGasTemperature - input.ambientTemperature) * input.fuelConsumption * input.fuelHeatingValue / 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.moistureLoss = ((): number => { try { const __v = 0.09 * (input.flueGasTemperature - input.ambientTemperature) * input.fuelConsumption * input.fuelHeatingValue / 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.radiationLossPercent = ((): number => { try { const __v = input.radiationLoss; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.blowdownLoss = ((): number => { try { const __v = input.blowdownRate / 100 * results.heatInput; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLosses = ((): number => { try { const __v = results.dryFlueGasLoss + results.moistureLoss + results.radiationLossPercent / 100 * results.heatInput + results.blowdownLoss; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.efficiency = ((): number => { try { const __v = (results.heatOutput / results.heatInput) * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.efficiencyAdjusted = ((): number => { try { const __v = results.efficiency * (1 - (1 - dataConfidenceFactor) * 0.1); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

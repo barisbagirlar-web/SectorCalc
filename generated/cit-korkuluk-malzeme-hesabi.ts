@@ -39,14 +39,14 @@ export interface CitKorkulukMalzemeHesabiOutput {
 
 function evaluateFormulas(input: CitKorkulukMalzemeHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.dikeyCubukSayisi = (() => { try { return Math.Math.ceil(input.korkulukBoyu / input.dikeyAralik) + 1; } catch { return 0; } })();
-  results.dikeyCubukToplamBoy = (() => { try { return results.dikeyCubukSayisi * input.korkulukYuksekligi; } catch { return 0; } })();
-  results.yatayKirisToplamBoy = (() => { try { return input.yatayKisitSayisi * input.korkulukBoyu; } catch { return 0; } })();
-  results.toplamProfilBoyu = (() => { try { return results.dikeyCubukToplamBoy + results.yatayKirisToplamBoy; } catch { return 0; } })();
-  results.birimAgirlik = (() => { try { return input.profilKesiti === 'kare40x40' ? 2.5 : input.profilKesiti === 'kare50x50' ? 3.5 : input.profilKesiti === 'dikdortgen40x60' ? 3.0 : 2.8; } catch { return 0; } })();
-  results.toplamAgirlik = (() => { try { return results.toplamProfilBoyu * results.birimAgirlik; } catch { return 0; } })();
-  results.malzemeMaliyeti = (() => { try { return results.toplamAgirlik * input.birimFiyat; } catch { return 0; } })();
-  results.toplamMaliyet = (() => { try { return results.malzemeMaliyeti * input.iscilikFaktoru; } catch { return 0; } })();
+  results.dikeyCubukSayisi = ((): number => { try { const __v = Math.Math.ceil(input.korkulukBoyu / input.dikeyAralik) + 1; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dikeyCubukToplamBoy = ((): number => { try { const __v = results.dikeyCubukSayisi * input.korkulukYuksekligi; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.yatayKirisToplamBoy = ((): number => { try { const __v = input.yatayKisitSayisi * input.korkulukBoyu; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamProfilBoyu = ((): number => { try { const __v = results.dikeyCubukToplamBoy + results.yatayKirisToplamBoy; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.birimAgirlik = ((): number => { try { const __v = input.profilKesiti === 'kare40x40' ? 2.5 : input.profilKesiti === 'kare50x50' ? 3.5 : input.profilKesiti === 'dikdortgen40x60' ? 3.0 : 2.8; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamAgirlik = ((): number => { try { const __v = results.toplamProfilBoyu * results.birimAgirlik; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.malzemeMaliyeti = ((): number => { try { const __v = results.toplamAgirlik * input.birimFiyat; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamMaliyet = ((): number => { try { const __v = results.malzemeMaliyeti * input.iscilikFaktoru; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

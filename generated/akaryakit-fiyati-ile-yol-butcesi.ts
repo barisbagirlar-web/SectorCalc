@@ -46,13 +46,13 @@ export interface AkaryakitFiyatiIleYolButcesiOutput {
 
 function evaluateFormulas(input: AkaryakitFiyatiIleYolButcesiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.fuelCost = (() => { try { return input.fuelPricePerLiter * (input.fuelConsumptionPer100km / 100) * input.distanceKm; } catch { return 0; } })();
-  results.maintenanceCost = (() => { try { return input.maintenanceCostPerKm * input.distanceKm; } catch { return 0; } })();
-  results.travelTimeHours = (() => { try { return input.distanceKm / input.averageSpeedKmh; } catch { return 0; } })();
-  results.driverCost = (() => { try { return input.driverCostPerHour * results.travelTimeHours; } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.fuelCost + results.maintenanceCost + input.tollCost + input.parkingCost + results.driverCost; } catch { return 0; } })();
-  results.costPerKm = (() => { try { return results.totalCost / input.distanceKm; } catch { return 0; } })();
-  results.fuelCostPerKm = (() => { try { return results.fuelCost / input.distanceKm; } catch { return 0; } })();
+  results.fuelCost = ((): number => { try { const __v = input.fuelPricePerLiter * (input.fuelConsumptionPer100km / 100) * input.distanceKm; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.maintenanceCost = ((): number => { try { const __v = input.maintenanceCostPerKm * input.distanceKm; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.travelTimeHours = ((): number => { try { const __v = input.distanceKm / input.averageSpeedKmh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.driverCost = ((): number => { try { const __v = input.driverCostPerHour * results.travelTimeHours; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.fuelCost + results.maintenanceCost + input.tollCost + input.parkingCost + results.driverCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerKm = ((): number => { try { const __v = results.totalCost / input.distanceKm; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.fuelCostPerKm = ((): number => { try { const __v = results.fuelCost / input.distanceKm; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

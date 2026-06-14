@@ -41,14 +41,14 @@ export interface AgricultureIrrigationYieldLossOutput {
 
 function evaluateFormulas(input: AgricultureIrrigationYieldLossInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.waterUseEfficiency = (() => { try { return input.waterApplied / input.cropWaterRequirement; } catch { return 0; } })();
-  results.yieldResponseFactor = (() => { try { return 1 - (1 - results.waterUseEfficiency) * 1.25; } catch { return 0; } })();
-  results.actualYield = (() => { try { return input.yieldPotential * results.yieldResponseFactor; } catch { return 0; } })();
-  results.yieldLoss = (() => { try { return input.yieldPotential - results.actualYield; } catch { return 0; } })();
-  results.revenueLoss = (() => { try { return results.yieldLoss * input.pricePerTon; } catch { return 0; } })();
-  results.waterCostTotal = (() => { try { return input.waterApplied * input.waterCost; } catch { return 0; } })();
-  results.netLoss = (() => { try { return results.revenueLoss + results.waterCostTotal; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.netLoss * (1 + (100 - input.dataConfidence) / 100); } catch { return 0; } })();
+  results.waterUseEfficiency = ((): number => { try { const __v = input.waterApplied / input.cropWaterRequirement; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.yieldResponseFactor = ((): number => { try { const __v = 1 - (1 - results.waterUseEfficiency) * 1.25; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.actualYield = ((): number => { try { const __v = input.yieldPotential * results.yieldResponseFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.yieldLoss = ((): number => { try { const __v = input.yieldPotential - results.actualYield; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.revenueLoss = ((): number => { try { const __v = results.yieldLoss * input.pricePerTon; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.waterCostTotal = ((): number => { try { const __v = input.waterApplied * input.waterCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netLoss = ((): number => { try { const __v = results.revenueLoss + results.waterCostTotal; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.netLoss * (1 + (100 - input.dataConfidence) / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -42,12 +42,12 @@ export interface BulonluBaglantiKesmeEzilmeHesabiOutput {
 
 function evaluateFormulas(input: BulonluBaglantiKesmeEzilmeHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.bulonAkmaDayanimi = (() => { try { return input.bulonSinifi == '4.6' ? 400 : input.bulonSinifi == '5.6' ? 500 : input.bulonSinifi == '6.8' ? 600 : input.bulonSinifi == '8.8' ? 800 : input.bulonSinifi == '10.9' ? 1000 : 1200; } catch { return 0; } })();
-  results.bulonKesmeDayanimi = (() => { try { return 0.6 * results.bulonAkmaDayanimi; } catch { return 0; } })();
-  results.kesmeDirenci = (() => { try { return results.bulonKesmeDayanimi * (Math.PI * input.bulonCapi * input.bulonCapi / 4) * input.kesitSayisi * input.bulonSayisi / (input.guvenlikFaktoru * 1000); } catch { return 0; } })();
-  results.ezilmeDirenci = (() => { try { return input.levhaAkmaDayanimi * input.bulonCapi * levhaKalinligi * input.bulonSayisi / (input.guvenlikFaktoru * 1000); } catch { return 0; } })();
-  results.emniyetOrani = (() => { try { return Math.Math.min(results.kesmeDirenci, results.ezilmeDirenci) / input.uygulananKuvvet; } catch { return 0; } })();
-  results.durum = (() => { try { return results.emniyetOrani >= 1 ? 'Guvenli' : 'Guvensiz'; } catch { return 0; } })();
+  results.bulonAkmaDayanimi = ((): number => { try { const __v = (Number(input.bulonSinifi) || 0) == '4.6' ? 400 : (Number(input.bulonSinifi) || 0) == '5.6' ? 500 : (Number(input.bulonSinifi) || 0) == '6.8' ? 600 : (Number(input.bulonSinifi) || 0) == '8.8' ? 800 : (Number(input.bulonSinifi) || 0) == '10.9' ? 1000 : 1200; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.bulonKesmeDayanimi = ((): number => { try { const __v = 0.6 * results.bulonAkmaDayanimi; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.kesmeDirenci = ((): number => { try { const __v = results.bulonKesmeDayanimi * (Math.PI * input.bulonCapi * input.bulonCapi / 4) * input.kesitSayisi * input.bulonSayisi / (input.guvenlikFaktoru * 1000); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.ezilmeDirenci = ((): number => { try { const __v = input.levhaAkmaDayanimi * input.bulonCapi * levhaKalinligi * input.bulonSayisi / (input.guvenlikFaktoru * 1000); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.emniyetOrani = ((): number => { try { const __v = Math.Math.min(results.kesmeDirenci, results.ezilmeDirenci) / input.uygulananKuvvet; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.durum = ((): number => { try { const __v = results.emniyetOrani >= 1 ? 'Guvenli' : 'Guvensiz'; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

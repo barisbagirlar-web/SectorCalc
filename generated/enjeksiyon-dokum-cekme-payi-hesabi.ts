@@ -41,13 +41,13 @@ export interface EnjeksiyonDokumCekmePayiHesabiOutput {
 
 function evaluateFormulas(input: EnjeksiyonDokumCekmePayiHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.shrinkageLength = (() => { try { return input.partLength * (input.shrinkageFactor / 100); } catch { return 0; } })();
-  results.shrinkageWidth = (() => { try { return input.partWidth * (input.shrinkageFactor / 100); } catch { return 0; } })();
-  results.shrinkageThickness = (() => { try { return input.partThickness * (input.shrinkageFactor / 100) * 1.2; } catch { return 0; } })();
-  results.totalShrinkage = (() => { try { return (results.shrinkageLength + results.shrinkageWidth + results.shrinkageThickness) / 3; } catch { return 0; } })();
-  results.adjustedShrinkage = (() => { try { return results.totalShrinkage * (1 + (input.moldTemperature - 40) * 0.002) * (1 + (input.meltTemperature - 220) * 0.001); } catch { return 0; } })();
-  results.dataConfidenceMultiplier = (() => { try { return input.dataConfidence == 'low' ? 1.5 : (input.dataConfidence == 'medium' ? 1.0 : 0.8); } catch { return 0; } })();
-  results.finalShrinkage = (() => { try { return results.adjustedShrinkage * results.dataConfidenceMultiplier; } catch { return 0; } })();
+  results.shrinkageLength = ((): number => { try { const __v = input.partLength * (input.shrinkageFactor / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.shrinkageWidth = ((): number => { try { const __v = input.partWidth * (input.shrinkageFactor / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.shrinkageThickness = ((): number => { try { const __v = input.partThickness * (input.shrinkageFactor / 100) * 1.2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalShrinkage = ((): number => { try { const __v = (results.shrinkageLength + results.shrinkageWidth + results.shrinkageThickness) / 3; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedShrinkage = ((): number => { try { const __v = results.totalShrinkage * (1 + (input.moldTemperature - 40) * 0.002) * (1 + (input.meltTemperature - 220) * 0.001); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceMultiplier = ((): number => { try { const __v = input.dataConfidence == 'low' ? 1.5 : (input.dataConfidence == 'medium' ? 1.0 : 0.8); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.finalShrinkage = ((): number => { try { const __v = results.adjustedShrinkage * results.dataConfidenceMultiplier; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -38,12 +38,12 @@ export interface CelikCatiMakasYaklasikAgirligiOutput {
 
 function evaluateFormulas(input: CelikCatiMakasYaklasikAgirligiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.toplamYuk = (() => { try { return input.karYuku + input.ruzgarYuku + input.ekYuk; } catch { return 0; } })();
-  results.birimBoyYuk = (() => { try { return results.toplamYuk * input.makasAraligi; } catch { return 0; } })();
-  results.kesitKatsayisi = (() => { try { return input.catiAcikligi <= 20 ? 0.012 : (input.catiAcikligi <= 30 ? 0.015 : 0.018); } catch { return 0; } })();
-  results.agirlik = (() => { try { return results.kesitKatsayisi * results.birimBoyYuk * input.catiAcikligi * input.catiAcikligi * (1 + 0.01 * input.catiEgimi); } catch { return 0; } })();
-  results.celikDuzeltme = (() => { try { return input.celikSinifi == 'S235' ? 1.0 : (input.celikSinifi == 'S275' ? 0.95 : (input.celikSinifi == 'S355' ? 0.9 : 0.85)); } catch { return 0; } })();
-  results.yaklasikAgirlik = (() => { try { return results.agirlik * results.celikDuzeltme; } catch { return 0; } })();
+  results.toplamYuk = ((): number => { try { const __v = input.karYuku + input.ruzgarYuku + input.ekYuk; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.birimBoyYuk = ((): number => { try { const __v = results.toplamYuk * input.makasAraligi; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.kesitKatsayisi = ((): number => { try { const __v = input.catiAcikligi <= 20 ? 0.012 : (input.catiAcikligi <= 30 ? 0.015 : 0.018); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.agirlik = ((): number => { try { const __v = results.kesitKatsayisi * results.birimBoyYuk * input.catiAcikligi * input.catiAcikligi * (1 + 0.01 * input.catiEgimi); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.celikDuzeltme = ((): number => { try { const __v = input.celikSinifi == 'S235' ? 1.0 : (input.celikSinifi == 'S275' ? 0.95 : (input.celikSinifi == 'S355' ? 0.9 : 0.85)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.yaklasikAgirlik = ((): number => { try { const __v = results.agirlik * results.celikDuzeltme; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

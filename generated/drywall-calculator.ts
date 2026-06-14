@@ -42,14 +42,14 @@ export interface DrywallCalculatorOutput {
 
 function evaluateFormulas(input: DrywallCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.wallArea = (() => { try { return input.wallLength * input.wallHeight; } catch { return 0; } })();
-  results.sheetArea = (() => { try { return input.sheetWidth * input.sheetLength; } catch { return 0; } })();
-  results.sheetsNeeded = (() => { try { return Math.Math.ceil(results.wallArea / results.sheetArea * (1 + input.wasteFactor / 100)); } catch { return 0; } })();
-  results.totalMaterialCost = (() => { try { return results.sheetsNeeded * input.materialCostPerSheet; } catch { return 0; } })();
-  results.totalLaborHours = (() => { try { return results.sheetsNeeded / input.laborProductivity / input.numWorkers; } catch { return 0; } })();
-  results.totalLaborCost = (() => { try { return results.totalLaborHours * input.laborRate; } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.totalMaterialCost + results.totalLaborCost; } catch { return 0; } })();
-  results.costPerSqFt = (() => { try { return results.totalCost / results.wallArea; } catch { return 0; } })();
+  results.wallArea = ((): number => { try { const __v = input.wallLength * input.wallHeight; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.sheetArea = ((): number => { try { const __v = input.sheetWidth * input.sheetLength; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.sheetsNeeded = ((): number => { try { const __v = Math.Math.ceil(results.wallArea / results.sheetArea * (1 + input.wasteFactor / 100)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalMaterialCost = ((): number => { try { const __v = results.sheetsNeeded * input.materialCostPerSheet; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLaborHours = ((): number => { try { const __v = results.sheetsNeeded / input.laborProductivity / input.numWorkers; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLaborCost = ((): number => { try { const __v = results.totalLaborHours * input.laborRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.totalMaterialCost + results.totalLaborCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerSqFt = ((): number => { try { const __v = results.totalCost / results.wallArea; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

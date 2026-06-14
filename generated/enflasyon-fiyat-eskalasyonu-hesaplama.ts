@@ -35,9 +35,9 @@ export interface EnflasyonFiyatEskalasyonuHesaplamaOutput {
 
 function evaluateFormulas(input: EnflasyonFiyatEskalasyonuHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.escalatedPrice = (() => { try { return 0; } catch { return 0; } })();
-  results.priceIncrease = (() => { try { return results.escalatedPrice - input.basePrice; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.escalatedPrice * (input.dataConfidence/100); } catch { return 0; } })();
+  results.escalatedPrice = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.priceIncrease = ((): number => { try { const __v = results.escalatedPrice - input.basePrice; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.escalatedPrice * (input.dataConfidence/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

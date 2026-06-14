@@ -45,13 +45,13 @@ export interface ChangeOrderImpactAnalyzerOutput {
 
 function evaluateFormulas(input: ChangeOrderImpactAnalyzerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.directCost = (() => { try { return input.changeOrderCount * input.averageCostPerChangeOrder; } catch { return 0; } })();
-  results.reworkCost = (() => { try { return input.changeOrderCount * input.reworkHoursPerChangeOrder * input.reworkLaborRate; } catch { return 0; } })();
-  results.materialWasteCost = (() => { try { return input.totalMaterialCost * (input.materialWastePercentage / 100); } catch { return 0; } })();
-  results.penaltyCost = (() => { try { return input.changeOrderCount * input.scheduleDelayPerChangeOrder * input.dailyPenaltyRate; } catch { return 0; } })();
-  results.overheadCost = (() => { try { return (results.directCost + results.reworkCost + results.materialWasteCost + results.penaltyCost) * (input.overheadRate / 100); } catch { return 0; } })();
-  results.totalImpact = (() => { try { return results.directCost + results.reworkCost + results.materialWasteCost + results.penaltyCost + results.overheadCost; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalImpact * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.directCost = ((): number => { try { const __v = input.changeOrderCount * input.averageCostPerChangeOrder; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.reworkCost = ((): number => { try { const __v = input.changeOrderCount * input.reworkHoursPerChangeOrder * input.reworkLaborRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.materialWasteCost = ((): number => { try { const __v = input.totalMaterialCost * (input.materialWastePercentage / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.penaltyCost = ((): number => { try { const __v = input.changeOrderCount * input.scheduleDelayPerChangeOrder * input.dailyPenaltyRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.overheadCost = ((): number => { try { const __v = (results.directCost + results.reworkCost + results.materialWasteCost + results.penaltyCost) * (input.overheadRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalImpact = ((): number => { try { const __v = results.directCost + results.reworkCost + results.materialWasteCost + results.penaltyCost + results.overheadCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalImpact * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

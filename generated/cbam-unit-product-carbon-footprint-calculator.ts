@@ -51,13 +51,13 @@ export interface CbamUnitProductCarbonFootprintCalculatorOutput {
 
 function evaluateFormulas(input: CbamUnitProductCarbonFootprintCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.materialCarbonFootprint = (() => { try { return input.productWeight * input.emissionFactorMaterial; } catch { return 0; } })();
-  results.energyCarbonFootprint = (() => { try { return input.productionEnergy * input.gridEmissionFactor; } catch { return 0; } })();
-  results.transportCarbonFootprint = (() => { try { return (input.productWeight / 1000) * input.transportDistance * input.emissionFactorTransport; } catch { return 0; } })();
-  results.usePhaseCarbonFootprint = (() => { try { return input.usePhaseEnergy * input.usePhaseEmissionFactor; } catch { return 0; } })();
-  results.recyclingCredit = (() => { try { return input.productWeight * (input.endOfLifeRecyclingRate / 100) * (input.emissionFactorMaterial - input.recyclingEmissionFactor); } catch { return 0; } })();
-  results.totalCarbonFootprint = (() => { try { return results.materialCarbonFootprint + results.energyCarbonFootprint + results.transportCarbonFootprint + results.usePhaseCarbonFootprint - results.recyclingCredit; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalCarbonFootprint * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); } catch { return 0; } })();
+  results.materialCarbonFootprint = ((): number => { try { const __v = input.productWeight * input.emissionFactorMaterial; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyCarbonFootprint = ((): number => { try { const __v = input.productionEnergy * input.gridEmissionFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.transportCarbonFootprint = ((): number => { try { const __v = (input.productWeight / 1000) * input.transportDistance * input.emissionFactorTransport; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.usePhaseCarbonFootprint = ((): number => { try { const __v = input.usePhaseEnergy * input.usePhaseEmissionFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.recyclingCredit = ((): number => { try { const __v = input.productWeight * (input.endOfLifeRecyclingRate / 100) * (input.emissionFactorMaterial - input.recyclingEmissionFactor); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCarbonFootprint = ((): number => { try { const __v = results.materialCarbonFootprint + results.energyCarbonFootprint + results.transportCarbonFootprint + results.usePhaseCarbonFootprint - results.recyclingCredit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalCarbonFootprint * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

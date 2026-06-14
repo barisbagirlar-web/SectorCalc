@@ -41,13 +41,13 @@ export interface CashFlowGapCalculatorOutput {
 
 function evaluateFormulas(input: CashFlowGapCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.daysSalesOutstanding = (() => { try { return input.accountsReceivable / (input.netSales / input.daysInPeriod); } catch { return 0; } })();
-  results.daysInventoryOutstanding = (() => { try { return input.inventory / (input.costOfGoodsSold / input.daysInPeriod); } catch { return 0; } })();
-  results.daysPayablesOutstanding = (() => { try { return input.accountsPayable / (input.costOfGoodsSold / input.daysInPeriod); } catch { return 0; } })();
-  results.cashConversionCycle = (() => { try { return results.daysSalesOutstanding + results.daysInventoryOutstanding - results.daysPayablesOutstanding; } catch { return 0; } })();
-  results.cashFlowGap = (() => { try { return results.cashConversionCycle * (input.costOfGoodsSold + input.operatingExpenses) / input.daysInPeriod; } catch { return 0; } })();
-  results.cashFlowGapRatio = (() => { try { return results.cashFlowGap / input.netSales; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.cashFlowGap * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.daysSalesOutstanding = ((): number => { try { const __v = input.accountsReceivable / (input.netSales / input.daysInPeriod); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.daysInventoryOutstanding = ((): number => { try { const __v = input.inventory / (input.costOfGoodsSold / input.daysInPeriod); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.daysPayablesOutstanding = ((): number => { try { const __v = input.accountsPayable / (input.costOfGoodsSold / input.daysInPeriod); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cashConversionCycle = ((): number => { try { const __v = results.daysSalesOutstanding + results.daysInventoryOutstanding - results.daysPayablesOutstanding; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cashFlowGap = ((): number => { try { const __v = results.cashConversionCycle * (input.costOfGoodsSold + input.operatingExpenses) / input.daysInPeriod; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cashFlowGapRatio = ((): number => { try { const __v = results.cashFlowGap / input.netSales; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.cashFlowGap * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

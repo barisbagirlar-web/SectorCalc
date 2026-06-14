@@ -44,13 +44,13 @@ export interface AsmaTavanMalzemeHesabiOutput {
 
 function evaluateFormulas(input: AsmaTavanMalzemeHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.plakaMiktari = (() => { try { return input.alan * (1 + input.fireOrani / 100); } catch { return 0; } })();
-  results.profilMiktari = (() => { try { return input.alan * (100 / input.profilAraligi) * 2; } catch { return 0; } })();
-  results.toplamMalzemeMaliyeti = (() => { try { return results.plakaMiktari * input.birimMaliyetPlaka + results.profilMiktari * input.birimMaliyetProfil; } catch { return 0; } })();
-  results.iscilikSuresi = (() => { try { return input.alan / input.verimlilikFaktoru; } catch { return 0; } })();
-  results.toplamIscilikMaliyeti = (() => { try { return results.iscilikSuresi * input.iscilikSaatUcreti; } catch { return 0; } })();
-  results.toplamMaliyet = (() => { try { return results.toplamMalzemeMaliyeti + results.toplamIscilikMaliyeti; } catch { return 0; } })();
-  results.birimMaliyet = (() => { try { return results.toplamMaliyet / input.alan; } catch { return 0; } })();
+  results.plakaMiktari = ((): number => { try { const __v = input.alan * (1 + input.fireOrani / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.profilMiktari = ((): number => { try { const __v = input.alan * (100 / input.profilAraligi) * 2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamMalzemeMaliyeti = ((): number => { try { const __v = results.plakaMiktari * input.birimMaliyetPlaka + results.profilMiktari * input.birimMaliyetProfil; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.iscilikSuresi = ((): number => { try { const __v = input.alan / input.verimlilikFaktoru; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamIscilikMaliyeti = ((): number => { try { const __v = results.iscilikSuresi * input.iscilikSaatUcreti; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamMaliyet = ((): number => { try { const __v = results.toplamMalzemeMaliyeti + results.toplamIscilikMaliyeti; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.birimMaliyet = ((): number => { try { const __v = results.toplamMaliyet / input.alan; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

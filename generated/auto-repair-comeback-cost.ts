@@ -34,12 +34,12 @@ export interface AutoRepairComebackCostOutput {
 
 function evaluateFormulas(input: AutoRepairComebackCostInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.comebackCount = (() => { try { return input.totalRepairs * (input.comebackRate / 100); } catch { return 0; } })();
-  results.directComebackCost = (() => { try { return results.comebackCount * input.averageComebackCost; } catch { return 0; } })();
-  results.lostCustomers = (() => { try { return results.comebackCount * (input.lostCustomerRate / 100); } catch { return 0; } })();
-  results.lostRevenue = (() => { try { return results.lostCustomers * input.averageCustomerLifetimeValue; } catch { return 0; } })();
-  results.totalComebackCost = (() => { try { return results.directComebackCost + results.lostRevenue; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalComebackCost * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); } catch { return 0; } })();
+  results.comebackCount = ((): number => { try { const __v = input.totalRepairs * (input.comebackRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.directComebackCost = ((): number => { try { const __v = results.comebackCount * input.averageComebackCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.lostCustomers = ((): number => { try { const __v = results.comebackCount * (input.lostCustomerRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.lostRevenue = ((): number => { try { const __v = results.lostCustomers * input.averageCustomerLifetimeValue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalComebackCost = ((): number => { try { const __v = results.directComebackCost + results.lostRevenue; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalComebackCost * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -51,16 +51,16 @@ export interface DeliveryCostCalculatorOutput {
 
 function evaluateFormulas(input: DeliveryCostCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.fuelCost = (() => { try { return input.distanceKm / input.vehicleEfficiency * input.fuelCostPerLiter; } catch { return 0; } })();
-  results.laborCost = (() => { try { return input.deliveryTimeHours * input.laborRatePerHour; } catch { return 0; } })();
-  results.handlingCost = (() => { try { return input.weightKg * input.handlingCostPerKg; } catch { return 0; } })();
-  results.insuranceCost = (() => { try { return input.cargoValue * (input.insuranceRate / 100); } catch { return 0; } })();
-  results.baseCost = (() => { try { return results.fuelCost + results.laborCost + results.handlingCost + results.insuranceCost; } catch { return 0; } })();
-  results.modeMultiplier = (() => { try { return input.deliveryMode == 'standard' ? 1 : (input.deliveryMode == 'express' ? 1.5 : 2); } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.baseCost * results.modeMultiplier; } catch { return 0; } })();
-  results.costPerKg = (() => { try { return results.totalCost / input.weightKg; } catch { return 0; } })();
-  results.costPerKm = (() => { try { return results.totalCost / input.distanceKm; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalCost / input.dataConfidence; } catch { return 0; } })();
+  results.fuelCost = ((): number => { try { const __v = input.distanceKm / input.vehicleEfficiency * input.fuelCostPerLiter; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCost = ((): number => { try { const __v = input.deliveryTimeHours * input.laborRatePerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.handlingCost = ((): number => { try { const __v = input.weightKg * input.handlingCostPerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.insuranceCost = ((): number => { try { const __v = input.cargoValue * (input.insuranceRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.baseCost = ((): number => { try { const __v = results.fuelCost + results.laborCost + results.handlingCost + results.insuranceCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.modeMultiplier = ((): number => { try { const __v = input.deliveryMode == 'standard' ? 1 : (input.deliveryMode == 'express' ? 1.5 : 2); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.baseCost * results.modeMultiplier; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerKg = ((): number => { try { const __v = results.totalCost / input.weightKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerKm = ((): number => { try { const __v = results.totalCost / input.distanceKm; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalCost / input.dataConfidence; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

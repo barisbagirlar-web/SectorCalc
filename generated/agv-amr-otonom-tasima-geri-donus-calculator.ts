@@ -47,14 +47,14 @@ export interface AgvAmrOtonomTasimaGeriDonusCalculatorOutput {
 
 function evaluateFormulas(input: AgvAmrOtonomTasimaGeriDonusCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalInvestment = (() => { try { return input.agvPurchaseCost * input.agvCount; } catch { return 0; } })();
-  results.annualLaborSavings = (() => { try { return input.manualLaborCostPerHour * input.annualOperatingHours * input.manualWorkersReplacedPerAGV * input.agvCount; } catch { return 0; } })();
-  results.annualMaintenanceCost = (() => { try { return input.agvMaintenanceCostPerHour * input.annualOperatingHours * input.agvCount; } catch { return 0; } })();
-  results.annualEnergyCost = (() => { try { return input.agvEnergyCostPerHour * input.annualOperatingHours * input.agvCount; } catch { return 0; } })();
-  results.annualNetSavings = (() => { try { return results.annualLaborSavings - results.annualMaintenanceCost - results.annualEnergyCost; } catch { return 0; } })();
-  results.paybackPeriodYears = (() => { try { return results.totalInvestment / results.annualNetSavings; } catch { return 0; } })();
-  results.npv = (() => { try { return 0; } catch { return 0; } })();
-  results.roiPercent = (() => { try { return (results.annualNetSavings * input.agvLifespanYears - results.totalInvestment) / results.totalInvestment * 100; } catch { return 0; } })();
+  results.totalInvestment = ((): number => { try { const __v = input.agvPurchaseCost * input.agvCount; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualLaborSavings = ((): number => { try { const __v = input.manualLaborCostPerHour * input.annualOperatingHours * input.manualWorkersReplacedPerAGV * input.agvCount; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualMaintenanceCost = ((): number => { try { const __v = input.agvMaintenanceCostPerHour * input.annualOperatingHours * input.agvCount; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualEnergyCost = ((): number => { try { const __v = input.agvEnergyCostPerHour * input.annualOperatingHours * input.agvCount; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualNetSavings = ((): number => { try { const __v = results.annualLaborSavings - results.annualMaintenanceCost - results.annualEnergyCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.paybackPeriodYears = ((): number => { try { const __v = results.totalInvestment / results.annualNetSavings; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.npv = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.roiPercent = ((): number => { try { const __v = (results.annualNetSavings * input.agvLifespanYears - results.totalInvestment) / results.totalInvestment * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

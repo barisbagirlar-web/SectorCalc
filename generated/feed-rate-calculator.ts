@@ -34,8 +34,8 @@ export interface FeedRateCalculatorOutput {
 
 function evaluateFormulas(input: FeedRateCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.feedRate = (() => { try { return input.spindleSpeed * input.numberOfTeeth * input.feedPerTooth; } catch { return 0; } })();
-  results.feedRateAdjusted = (() => { try { return results.feedRate * (materialFactor[input.operationType][input.materialType] || 1.0); } catch { return 0; } })();
+  results.feedRate = ((): number => { try { const __v = input.spindleSpeed * input.numberOfTeeth * input.feedPerTooth; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.feedRateAdjusted = ((): number => { try { const __v = results.feedRate * (materialFactor[input.operationType][input.materialType] || 1.0); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

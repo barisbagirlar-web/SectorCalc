@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="100%" height="100%">
+  <defs>
+    <marker id="arrowHead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  <line x1="100" y1="150" x2="400" y2="150" stroke="#888" stroke-width="1"/>
+  <rect x="1000" y="130" width="200" height="40" fill="#e0f2fe" stroke="#0284c7" stroke-width="1" stroke-dasharray="4"/>
+  <circle cx="239.53488372093022" cy="150" r="6" fill="#16a34a"/>
+  <text x="239.53488372093022" y="130" text-anchor="middle" font-size="12" fill="#16a34a">Hedef</text>
+  <circle cx="246.51162790697674" cy="150" r="6" fill="#dc2626"/>
+  <text x="246.51162790697674" y="180" text-anchor="middle" font-size="12" fill="#dc2626">Gerçek</text>
+  <line x1="239.53488372093022" y1="150" x2="246.51162790697674" y2="150" stroke="#333" stroke-width="1.5" marker-end="url(#arrowHead)" marker-start="url(#arrowHead)"/>
+  <text x="250" y="120" text-anchor="middle" font-size="13" fill="#333">Sapma: 0.50 birim (Tolerans içinde)</text>
+  <text x="250" y="40" text-anchor="middle" font-size="16" font-weight="bold">taguchi-kalite-kayip-fonksiyonu-calculator</text>
+</svg>

@@ -48,16 +48,16 @@ export interface CncQuoteRiskAnalyzerOutput {
 
 function evaluateFormulas(input: CncQuoteRiskAnalyzerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.directLaborCostPerPart = (() => { try { return input.laborCostPerHour * (input.cycleTimeMinutes / 60); } catch { return 0; } })();
-  results.setupCostPerPart = (() => { try { return input.laborCostPerHour * (input.setupTimeMinutes / 60) / input.batchSize; } catch { return 0; } })();
-  results.totalDirectCostPerPart = (() => { try { return input.materialCostPerPart + results.directLaborCostPerPart + results.setupCostPerPart; } catch { return 0; } })();
-  results.overheadCostPerPart = (() => { try { return results.totalDirectCostPerPart * input.overheadRate; } catch { return 0; } })();
-  results.totalCostPerPart = (() => { try { return results.totalDirectCostPerPart + results.overheadCostPerPart; } catch { return 0; } })();
-  results.defectCostPerPart = (() => { try { return results.totalCostPerPart * input.defectRate / (1 - input.defectRate); } catch { return 0; } })();
-  results.adjustedCostPerPart = (() => { try { return results.totalCostPerPart + results.defectCostPerPart; } catch { return 0; } })();
-  results.quotePricePerPart = (() => { try { return results.adjustedCostPerPart / (1 - input.profitMarginTarget); } catch { return 0; } })();
-  results.totalQuoteRisk = (() => { try { return results.quotePricePerPart * input.batchSize; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalQuoteRisk * (input.dataConfidence === 'low' ? 1.2 : input.dataConfidence === 'medium' ? 1.0 : 0.9); } catch { return 0; } })();
+  results.directLaborCostPerPart = ((): number => { try { const __v = input.laborCostPerHour * (input.cycleTimeMinutes / 60); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.setupCostPerPart = ((): number => { try { const __v = input.laborCostPerHour * (input.setupTimeMinutes / 60) / input.batchSize; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalDirectCostPerPart = ((): number => { try { const __v = input.materialCostPerPart + results.directLaborCostPerPart + results.setupCostPerPart; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.overheadCostPerPart = ((): number => { try { const __v = results.totalDirectCostPerPart * input.overheadRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCostPerPart = ((): number => { try { const __v = results.totalDirectCostPerPart + results.overheadCostPerPart; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.defectCostPerPart = ((): number => { try { const __v = results.totalCostPerPart * input.defectRate / (1 - input.defectRate); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedCostPerPart = ((): number => { try { const __v = results.totalCostPerPart + results.defectCostPerPart; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.quotePricePerPart = ((): number => { try { const __v = results.adjustedCostPerPart / (1 - input.profitMarginTarget); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalQuoteRisk = ((): number => { try { const __v = results.quotePricePerPart * input.batchSize; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalQuoteRisk * (input.dataConfidence === 'low' ? 1.2 : input.dataConfidence === 'medium' ? 1.0 : 0.9); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

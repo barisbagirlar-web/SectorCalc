@@ -29,9 +29,9 @@ export interface AgirlikliOrtalamaHesaplamaOutput {
 
 function evaluateFormulas(input: AgirlikliOrtalamaHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.weightedAverage = (() => { try { return sum(input.values[i] * input.weights[i]) / sum(input.weights); } catch { return 0; } })();
-  results.normalizedWeights = (() => { try { return input.weights / sum(input.weights); } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.weightedAverage * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.weightedAverage = ((): number => { try { const __v = sum(input.values[i] * input.weights[i]) / sum(input.weights); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.normalizedWeights = ((): number => { try { const __v = input.weights / sum(input.weights); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.weightedAverage * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -34,6 +34,9 @@ const nextConfig: NextConfig = {
     // Avoid flaky MODULE_NOT_FOUND / ENOENT races during large SSG on local + Firebase builds.
     cpus: 1,
     workerThreads: false,
+    webpackBuildWorker: false,
+    parallelServerCompiles: false,
+    parallelServerBuildTraces: false,
     staticGenerationMaxConcurrency: 1,
     staticGenerationMinPagesPerWorker: 500,
   },

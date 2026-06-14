@@ -48,11 +48,11 @@ export interface AracAmortismanHesaplamaOutput {
 
 function evaluateFormulas(input: AracAmortismanHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.annualDepreciation = (() => { try { return 0; } catch { return 0; } })();
-  results.totalAnnualCost = (() => { try { return results.annualDepreciation + (input.annualMileage * input.fuelCostPerKm) + input.maintenanceCostPerYear + input.insuranceCostPerYear + input.taxCostPerYear; } catch { return 0; } })();
-  results.costPerKm = (() => { try { return results.totalAnnualCost / input.annualMileage; } catch { return 0; } })();
-  results.accumulatedDepreciation = (() => { try { return 0; } catch { return 0; } })();
-  results.dataConfidenceAdjustedCostPerKm = (() => { try { return 0; } catch { return 0; } })();
+  results.annualDepreciation = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualCost = ((): number => { try { const __v = results.annualDepreciation + (input.annualMileage * input.fuelCostPerKm) + input.maintenanceCostPerYear + input.insuranceCostPerYear + input.taxCostPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerKm = ((): number => { try { const __v = results.totalAnnualCost / input.annualMileage; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.accumulatedDepreciation = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCostPerKm = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -1,3 +1,3 @@
 {
-  "buildCommand": "SECTORCALC_VERCEL_BUILD_LIMIT=1 npm run test:generated && next build --no-lint"
+  "buildCommand": "NODE_OPTIONS='--max-old-space-size=8192' SECTORCALC_VERCEL_BUILD_LIMIT=1 npm run test:generated && npx next build --no-lint"
 }

@@ -52,15 +52,15 @@ export interface DepoYerlesimiVeToplamaRotasiOptimizasyonCalculatorOutput {
 
 function evaluateFormulas(input: DepoYerlesimiVeToplamaRotasiOptimizasyonCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalTravelDistancePerOrder = (() => { try { return 2 * (input.warehouseLength + input.warehouseWidth) + (input.numPickLocations / input.numAisles) * input.aisleWidth * (input.routingStrategy == 's-shape' ? 1 : (input.routingStrategy == 'largest-gap' ? 0.8 : 0.9)); } catch { return 0; } })();
-  results.totalTravelDistancePerDay = (() => { try { return results.totalTravelDistancePerOrder * input.ordersPerDay; } catch { return 0; } })();
-  results.totalPickTimePerDay = (() => { try { return input.ordersPerDay * input.itemsPerOrder * input.pickTimePerItem / 3600; } catch { return 0; } })();
-  results.totalTravelTimePerDay = (() => { try { return results.totalTravelDistancePerDay / input.travelSpeed / 3600; } catch { return 0; } })();
-  results.totalLaborHoursPerDay = (() => { try { return results.totalPickTimePerDay + results.totalTravelTimePerDay; } catch { return 0; } })();
-  results.totalLaborCostPerDay = (() => { try { return results.totalLaborHoursPerDay * input.laborCostPerHour; } catch { return 0; } })();
-  results.averagePickTimePerOrder = (() => { try { return results.totalLaborHoursPerDay * 3600 / input.ordersPerDay; } catch { return 0; } })();
-  results.productivity = (() => { try { return input.ordersPerDay / results.totalLaborHoursPerDay; } catch { return 0; } })();
-  results.dataConfidenceAdjustedCost = (() => { try { return results.totalLaborCostPerDay * (100 / input.dataConfidence); } catch { return 0; } })();
+  results.totalTravelDistancePerOrder = ((): number => { try { const __v = 2 * (input.warehouseLength + input.warehouseWidth) + (input.numPickLocations / input.numAisles) * input.aisleWidth * (input.routingStrategy == 's-shape' ? 1 : (input.routingStrategy == 'largest-gap' ? 0.8 : 0.9)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalTravelDistancePerDay = ((): number => { try { const __v = results.totalTravelDistancePerOrder * input.ordersPerDay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalPickTimePerDay = ((): number => { try { const __v = input.ordersPerDay * input.itemsPerOrder * input.pickTimePerItem / 3600; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalTravelTimePerDay = ((): number => { try { const __v = results.totalTravelDistancePerDay / input.travelSpeed / 3600; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLaborHoursPerDay = ((): number => { try { const __v = results.totalPickTimePerDay + results.totalTravelTimePerDay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLaborCostPerDay = ((): number => { try { const __v = results.totalLaborHoursPerDay * input.laborCostPerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.averagePickTimePerOrder = ((): number => { try { const __v = results.totalLaborHoursPerDay * 3600 / input.ordersPerDay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.productivity = ((): number => { try { const __v = input.ordersPerDay / results.totalLaborHoursPerDay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCost = ((): number => { try { const __v = results.totalLaborCostPerDay * (100 / input.dataConfidence); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

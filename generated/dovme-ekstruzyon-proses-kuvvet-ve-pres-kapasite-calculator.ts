@@ -46,14 +46,14 @@ export interface DovmeEkstruzyonProsesKuvvetVePresKapasiteCalculatorOutput {
 
 function evaluateFormulas(input: DovmeEkstruzyonProsesKuvvetVePresKapasiteCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.billetArea = (() => { try { return Math.PI * (input.billetDiameter/2)**2; } catch { return 0; } })();
-  results.containerArea = (() => { try { return Math.PI * (input.containerDiameter/2)**2; } catch { return 0; } })();
-  results.flowStress = (() => { try { return materialFlowStress(input.temperature, input.materialType); } catch { return 0; } })();
-  results.extrusionPressure = (() => { try { return results.flowStress * (0.8 + 1.2 * Math.log(input.extrusionRatio) + 0.5 * input.frictionCoefficient * (input.containerDiameter - input.billetDiameter) / (input.billetDiameter * Math.sin(input.dieAngle * Math.PI/180))); } catch { return 0; } })();
-  results.requiredForce = (() => { try { return results.extrusionPressure * results.billetArea / 1e6; } catch { return 0; } })();
-  results.utilization = (() => { try { return results.requiredForce / input.pressCapacity * 100; } catch { return 0; } })();
-  results.strainRate = (() => { try { return 6 * input.ramSpeed * input.extrusionRatio * Math.log(input.extrusionRatio) / input.billetDiameter; } catch { return 0; } })();
-  results.power = (() => { try { return results.requiredForce * input.ramSpeed / 1000; } catch { return 0; } })();
+  results.billetArea = ((): number => { try { const __v = Math.PI * (input.billetDiameter/2)**2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.containerArea = ((): number => { try { const __v = Math.PI * (input.containerDiameter/2)**2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.flowStress = ((): number => { try { const __v = materialFlowStress(input.temperature, input.materialType); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.extrusionPressure = ((): number => { try { const __v = results.flowStress * (0.8 + 1.2 * Math.log(input.extrusionRatio) + 0.5 * input.frictionCoefficient * (input.containerDiameter - input.billetDiameter) / (input.billetDiameter * Math.sin(input.dieAngle * Math.PI/180))); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.requiredForce = ((): number => { try { const __v = results.extrusionPressure * results.billetArea / 1e6; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.utilization = ((): number => { try { const __v = results.requiredForce / input.pressCapacity * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.strainRate = ((): number => { try { const __v = 6 * input.ramSpeed * input.extrusionRatio * Math.log(input.extrusionRatio) / input.billetDiameter; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.power = ((): number => { try { const __v = results.requiredForce * input.ramSpeed / 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

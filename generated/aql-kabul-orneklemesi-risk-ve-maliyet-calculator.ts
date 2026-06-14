@@ -48,18 +48,18 @@ export interface AqlKabulOrneklemesiRiskVeMaliyetCalculatorOutput {
 
 function evaluateFormulas(input: AqlKabulOrneklemesiRiskVeMaliyetCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.probabilityOfAcceptance = (() => { try { return 0; } catch { return 0; } })();
-  results.producerRisk = (() => { try { return 1 - results.probabilityOfAcceptance; } catch { return 0; } })();
-  results.consumerRisk = (() => { try { return 0; } catch { return 0; } })();
-  results.expectedDefectsInLot = (() => { try { return input.lotSize * input.defectRate / 100; } catch { return 0; } })();
-  results.expectedDefectsAccepted = (() => { try { return results.expectedDefectsInLot * results.probabilityOfAcceptance; } catch { return 0; } })();
-  results.expectedDefectsRejected = (() => { try { return results.expectedDefectsInLot * (1 - results.probabilityOfAcceptance); } catch { return 0; } })();
-  results.inspectionCost = (() => { try { return input.sampleSize * input.inspectionCostPerUnit; } catch { return 0; } })();
-  results.reworkCost = (() => { try { return results.expectedDefectsAccepted * input.reworkCostPerUnit; } catch { return 0; } })();
-  results.rejectionCost = (() => { try { return results.expectedDefectsRejected * input.rejectionCostPerUnit; } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.inspectionCost + results.reworkCost + results.rejectionCost; } catch { return 0; } })();
-  results.costPerUnit = (() => { try { return results.totalCost / input.lotSize; } catch { return 0; } })();
-  results.dataConfidenceAdjustedCost = (() => { try { return results.totalCost * (100 / input.dataConfidence); } catch { return 0; } })();
+  results.probabilityOfAcceptance = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.producerRisk = ((): number => { try { const __v = 1 - results.probabilityOfAcceptance; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.consumerRisk = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.expectedDefectsInLot = ((): number => { try { const __v = input.lotSize * input.defectRate / 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.expectedDefectsAccepted = ((): number => { try { const __v = results.expectedDefectsInLot * results.probabilityOfAcceptance; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.expectedDefectsRejected = ((): number => { try { const __v = results.expectedDefectsInLot * (1 - results.probabilityOfAcceptance); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.inspectionCost = ((): number => { try { const __v = input.sampleSize * input.inspectionCostPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.reworkCost = ((): number => { try { const __v = results.expectedDefectsAccepted * input.reworkCostPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.rejectionCost = ((): number => { try { const __v = results.expectedDefectsRejected * input.rejectionCostPerUnit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.inspectionCost + results.reworkCost + results.rejectionCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerUnit = ((): number => { try { const __v = results.totalCost / input.lotSize; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCost = ((): number => { try { const __v = results.totalCost * (100 / input.dataConfidence); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

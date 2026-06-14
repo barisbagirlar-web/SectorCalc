@@ -37,13 +37,13 @@ export interface ElectricalPanelReworkCostOutput {
 
 function evaluateFormulas(input: ElectricalPanelReworkCostInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.reworkTimePerPanel = (() => { try { return 0; } catch { return 0; } })();
-  results.totalLaborHours = (() => { try { return input.numPanels * results.reworkTimePerPanel; } catch { return 0; } })();
-  results.totalLaborCost = (() => { try { return results.totalLaborHours * input.laborRate; } catch { return 0; } })();
-  results.totalMaterialCost = (() => { try { return input.numPanels * input.materialCostPerPanel; } catch { return 0; } })();
-  results.totalReworkCost = (() => { try { return results.totalLaborCost + results.totalMaterialCost; } catch { return 0; } })();
-  results.costPerPanel = (() => { try { return results.totalReworkCost / input.numPanels; } catch { return 0; } })();
-  results.dataConfidenceAdjustedCost = (() => { try { return 0; } catch { return 0; } })();
+  results.reworkTimePerPanel = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLaborHours = ((): number => { try { const __v = input.numPanels * results.reworkTimePerPanel; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLaborCost = ((): number => { try { const __v = results.totalLaborHours * input.laborRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalMaterialCost = ((): number => { try { const __v = input.numPanels * input.materialCostPerPanel; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalReworkCost = ((): number => { try { const __v = results.totalLaborCost + results.totalMaterialCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerPanel = ((): number => { try { const __v = results.totalReworkCost / input.numPanels; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCost = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

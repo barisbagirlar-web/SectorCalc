@@ -41,11 +41,11 @@ export interface CompressorEnergyCostCalculatorOutput {
 
 function evaluateFormulas(input: CompressorEnergyCostCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.annualEnergyConsumption = (() => { try { return input.compressorPower * (input.loadFactor / 100) * input.operatingHoursPerDay * input.operatingDaysPerYear / (input.motorEfficiency / 100); } catch { return 0; } })();
-  results.annualEnergyCost = (() => { try { return results.annualEnergyConsumption * input.electricityCost; } catch { return 0; } })();
-  results.annualMaintenanceLoss = (() => { try { return results.annualEnergyCost * (input.maintenanceFactor / 100); } catch { return 0; } })();
-  results.totalAnnualCost = (() => { try { return results.annualEnergyCost + results.annualMaintenanceLoss; } catch { return 0; } })();
-  results.dataConfidenceAdjustedCost = (() => { try { return results.totalAnnualCost * (input.dataConfidence / 100) + results.totalAnnualCost * (1 - input.dataConfidence / 100) * 1.1; } catch { return 0; } })();
+  results.annualEnergyConsumption = ((): number => { try { const __v = input.compressorPower * (input.loadFactor / 100) * input.operatingHoursPerDay * input.operatingDaysPerYear / (input.motorEfficiency / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualEnergyCost = ((): number => { try { const __v = results.annualEnergyConsumption * input.electricityCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualMaintenanceLoss = ((): number => { try { const __v = results.annualEnergyCost * (input.maintenanceFactor / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualCost = ((): number => { try { const __v = results.annualEnergyCost + results.annualMaintenanceLoss; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCost = ((): number => { try { const __v = results.totalAnnualCost * (input.dataConfidence / 100) + results.totalAnnualCost * (1 - input.dataConfidence / 100) * 1.1; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

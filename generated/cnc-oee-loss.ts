@@ -44,12 +44,12 @@ export interface CncOeeLossOutput {
 
 function evaluateFormulas(input: CncOeeLossInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.availability = (() => { try { return input.operatingTime / input.plannedProductionTime; } catch { return 0; } })();
-  results.performance = (() => { try { return (input.idealCycleTime * input.totalPartsProduced) / input.operatingTime; } catch { return 0; } })();
-  results.quality = (() => { try { return input.goodPartsProduced / input.totalPartsProduced; } catch { return 0; } })();
-  results.oee = (() => { try { return results.availability * results.performance * results.quality; } catch { return 0; } })();
-  results.totalLossCost = (() => { try { return (input.plannedProductionTime - input.operatingTime) * (input.costPerPart / input.idealCycleTime) + (input.totalPartsProduced - input.goodPartsProduced) * input.costPerPart; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.oee * (input.dataConfidence == 'high' ? 1 : input.dataConfidence == 'medium' ? 0.95 : 0.9); } catch { return 0; } })();
+  results.availability = ((): number => { try { const __v = input.operatingTime / input.plannedProductionTime; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.performance = ((): number => { try { const __v = (input.idealCycleTime * input.totalPartsProduced) / input.operatingTime; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.quality = ((): number => { try { const __v = input.goodPartsProduced / input.totalPartsProduced; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.oee = ((): number => { try { const __v = results.availability * results.performance * results.quality; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLossCost = ((): number => { try { const __v = (input.plannedProductionTime - input.operatingTime) * (input.costPerPart / input.idealCycleTime) + (input.totalPartsProduced - input.goodPartsProduced) * input.costPerPart; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.oee * (input.dataConfidence == 'high' ? 1 : input.dataConfidence == 'medium' ? 0.95 : 0.9); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

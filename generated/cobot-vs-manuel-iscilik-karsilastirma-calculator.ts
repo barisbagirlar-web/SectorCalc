@@ -51,17 +51,17 @@ export interface CobotVsManuelIscilikKarsilastirmaCalculatorOutput {
 
 function evaluateFormulas(input: CobotVsManuelIscilikKarsilastirmaCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.effectiveManualCostPerYear = (() => { try { return input.annualOperatingHours * input.manualLaborCostPerHour * (input.manualLaborProductivity / 100); } catch { return 0; } })();
-  results.effectiveCobotCostPerYear = (() => { try { return input.annualOperatingHours * (input.cobotEnergyCostPerHour + (input.cobotMaintenanceCostPerYear / input.annualOperatingHours)) * (input.cobotProductivity / 100); } catch { return 0; } })();
-  results.qualityCostManualPerYear = (() => { try { return input.annualOperatingHours * (input.defectRateManual / 100) * input.reworkCostPerDefect; } catch { return 0; } })();
-  results.qualityCostCobotPerYear = (() => { try { return input.annualOperatingHours * (input.defectRateCobot / 100) * input.reworkCostPerDefect; } catch { return 0; } })();
-  results.totalManualCostPerYear = (() => { try { return results.effectiveManualCostPerYear + results.qualityCostManualPerYear; } catch { return 0; } })();
-  results.totalCobotCostPerYear = (() => { try { return results.effectiveCobotCostPerYear + results.qualityCostCobotPerYear; } catch { return 0; } })();
-  results.annualSavings = (() => { try { return results.totalManualCostPerYear - results.totalCobotCostPerYear; } catch { return 0; } })();
-  results.npv = (() => { try { return input.cobotPurchaseCost + (results.annualSavings * ((1 - (1 + input.discountRate/100)^(-input.cobotLifespanYears)) / (input.discountRate/100))); } catch { return 0; } })();
-  results.paybackPeriodYears = (() => { try { return input.cobotPurchaseCost / results.annualSavings; } catch { return 0; } })();
-  results.roi = (() => { try { return (results.annualSavings * input.cobotLifespanYears - input.cobotPurchaseCost) / input.cobotPurchaseCost * 100; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return input.dataConfidence == 'low' ? results.npv * 0.8 : (input.dataConfidence == 'medium' ? results.npv * 0.95 : results.npv); } catch { return 0; } })();
+  results.effectiveManualCostPerYear = ((): number => { try { const __v = input.annualOperatingHours * input.manualLaborCostPerHour * (input.manualLaborProductivity / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.effectiveCobotCostPerYear = ((): number => { try { const __v = input.annualOperatingHours * (input.cobotEnergyCostPerHour + (input.cobotMaintenanceCostPerYear / input.annualOperatingHours)) * (input.cobotProductivity / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.qualityCostManualPerYear = ((): number => { try { const __v = input.annualOperatingHours * (input.defectRateManual / 100) * input.reworkCostPerDefect; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.qualityCostCobotPerYear = ((): number => { try { const __v = input.annualOperatingHours * (input.defectRateCobot / 100) * input.reworkCostPerDefect; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalManualCostPerYear = ((): number => { try { const __v = results.effectiveManualCostPerYear + results.qualityCostManualPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCobotCostPerYear = ((): number => { try { const __v = results.effectiveCobotCostPerYear + results.qualityCostCobotPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualSavings = ((): number => { try { const __v = results.totalManualCostPerYear - results.totalCobotCostPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.npv = ((): number => { try { const __v = input.cobotPurchaseCost + (results.annualSavings * ((1 - (1 + input.discountRate/100)^(-input.cobotLifespanYears)) / (input.discountRate/100))); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.paybackPeriodYears = ((): number => { try { const __v = input.cobotPurchaseCost / results.annualSavings; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.roi = ((): number => { try { const __v = (results.annualSavings * input.cobotLifespanYears - input.cobotPurchaseCost) / input.cobotPurchaseCost * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = input.dataConfidence == 'low' ? results.npv * 0.8 : (input.dataConfidence == 'medium' ? results.npv * 0.95 : results.npv); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

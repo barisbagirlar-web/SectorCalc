@@ -25,8 +25,8 @@ export interface DaireAlaniCevresiHesaplamaOutput {
 
 function evaluateFormulas(input: DaireAlaniCevresiHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.alan = (() => { try { return Math.PI * input.yaricap * input.yaricap; } catch { return 0; } })();
-  results.cevre = (() => { try { return 2 * Math.PI * input.yaricap; } catch { return 0; } })();
+  results.alan = ((): number => { try { const __v = Math.PI * input.yaricap * input.yaricap; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cevre = ((): number => { try { const __v = 2 * Math.PI * input.yaricap; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

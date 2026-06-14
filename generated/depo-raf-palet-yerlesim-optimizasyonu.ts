@@ -55,13 +55,13 @@ export interface DepoRafPaletYerlesimOptimizasyonuOutput {
 
 function evaluateFormulas(input: DepoRafPaletYerlesimOptimizasyonuInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.blokGenislik = (() => { try { return input.rafGenislik * input.siraSayisi + (input.siraSayisi - 1) * 0.1; } catch { return 0; } })();
-  results.blokDerinlik = (() => { try { return input.rafDerinlik; } catch { return 0; } })();
-  results.toplamRafAlani = (() => { try { return input.blokSayisiX * input.blokSayisiY * results.blokGenislik * results.blokDerinlik * input.rafKatlari; } catch { return 0; } })();
-  results.toplamPaletKapasitesi = (() => { try { return results.toplamRafAlani / (input.paletBoyu * input.paletEni); } catch { return 0; } })();
-  results.kullanilanPalet = (() => { try { return results.toplamPaletKapasitesi * input.dolulukOrani / 100; } catch { return 0; } })();
-  results.alanKullanimOrani = (() => { try { return results.toplamRafAlani / (input.depoGenislik * input.depoDerinlik) * 100; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.kullanilanPalet * input.dataConfidence / 100; } catch { return 0; } })();
+  results.blokGenislik = ((): number => { try { const __v = input.rafGenislik * input.siraSayisi + (input.siraSayisi - 1) * 0.1; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.blokDerinlik = ((): number => { try { const __v = input.rafDerinlik; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamRafAlani = ((): number => { try { const __v = input.blokSayisiX * input.blokSayisiY * results.blokGenislik * results.blokDerinlik * input.rafKatlari; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toplamPaletKapasitesi = ((): number => { try { const __v = results.toplamRafAlani / (input.paletBoyu * input.paletEni); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.kullanilanPalet = ((): number => { try { const __v = results.toplamPaletKapasitesi * input.dolulukOrani / 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.alanKullanimOrani = ((): number => { try { const __v = results.toplamRafAlani / (input.depoGenislik * input.depoDerinlik) * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.kullanilanPalet * input.dataConfidence / 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

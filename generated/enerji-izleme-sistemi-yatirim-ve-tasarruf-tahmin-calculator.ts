@@ -44,15 +44,15 @@ export interface EnerjiIzlemeSistemiYatirimVeTasarrufTahminCalculatorOutput {
 
 function evaluateFormulas(input: EnerjiIzlemeSistemiYatirimVeTasarrufTahminCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.annualEnergyCost = (() => { try { return input.annualEnergyConsumption * input.energyCostPerKwh; } catch { return 0; } })();
-  results.annualSavings = (() => { try { return results.annualEnergyCost * (input.expectedSavingsPercentage / 100); } catch { return 0; } })();
-  results.netAnnualCashFlow = (() => { try { return results.annualSavings - input.annualMaintenanceCost; } catch { return 0; } })();
-  results.totalInvestment = (() => { try { return input.systemInstallationCost; } catch { return 0; } })();
-  results.paybackPeriod = (() => { try { return results.totalInvestment / results.netAnnualCashFlow; } catch { return 0; } })();
-  results.npv = (() => { try { return 0; } catch { return 0; } })();
-  results.irr = (() => { try { return 0; } catch { return 0; } })();
-  results.roi = (() => { try { return (results.netAnnualCashFlow * input.systemLifetime - results.totalInvestment) / results.totalInvestment * 100; } catch { return 0; } })();
-  results.dataConfidenceAdjustedNpv = (() => { try { return results.npv * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.annualEnergyCost = ((): number => { try { const __v = input.annualEnergyConsumption * input.energyCostPerKwh; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualSavings = ((): number => { try { const __v = results.annualEnergyCost * (input.expectedSavingsPercentage / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netAnnualCashFlow = ((): number => { try { const __v = results.annualSavings - input.annualMaintenanceCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalInvestment = ((): number => { try { const __v = input.systemInstallationCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.paybackPeriod = ((): number => { try { const __v = results.totalInvestment / results.netAnnualCashFlow; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.npv = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.irr = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.roi = ((): number => { try { const __v = (results.netAnnualCashFlow * input.systemLifetime - results.totalInvestment) / results.totalInvestment * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedNpv = ((): number => { try { const __v = results.npv * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

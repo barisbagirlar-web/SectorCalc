@@ -54,15 +54,15 @@ export interface BoyaVeApreRecetesiMaliyetOptimizasyonCalculatorOutput {
 
 function evaluateFormulas(input: BoyaVeApreRecetesiMaliyetOptimizasyonCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalAnnualCost = (() => { try { return input.annualProductionVolume * (input.rawMaterialCostPerTon + (input.laborCostPerHour * input.laborHoursPerBatch / input.batchSize) + (input.energyCostPerKwh * input.energyConsumptionPerBatch / input.batchSize) + (input.defectRate * input.reworkCostPerTon) + (input.setupTimePerBatch * input.setupCostPerHour / input.batchSize) + (input.wasteRate * input.wasteDisposalCostPerTon)); } catch { return 0; } })();
-  results.costPerTon = (() => { try { return results.totalAnnualCost / input.annualProductionVolume; } catch { return 0; } })();
-  results.materialCostPerTon = (() => { try { return input.rawMaterialCostPerTon; } catch { return 0; } })();
-  results.laborCostPerTon = (() => { try { return input.laborCostPerHour * input.laborHoursPerBatch / input.batchSize; } catch { return 0; } })();
-  results.energyCostPerTon = (() => { try { return input.energyCostPerKwh * input.energyConsumptionPerBatch / input.batchSize; } catch { return 0; } })();
-  results.defectCostPerTon = (() => { try { return input.defectRate * input.reworkCostPerTon; } catch { return 0; } })();
-  results.setupCostPerTon = (() => { try { return input.setupTimePerBatch * input.setupCostPerHour / input.batchSize; } catch { return 0; } })();
-  results.wasteCostPerTon = (() => { try { return input.wasteRate * input.wasteDisposalCostPerTon; } catch { return 0; } })();
-  results.dataConfidenceAdjustedCostPerTon = (() => { try { return results.costPerTon / input.dataConfidence; } catch { return 0; } })();
+  results.totalAnnualCost = ((): number => { try { const __v = input.annualProductionVolume * (input.rawMaterialCostPerTon + (input.laborCostPerHour * input.laborHoursPerBatch / input.batchSize) + (input.energyCostPerKwh * input.energyConsumptionPerBatch / input.batchSize) + (input.defectRate * input.reworkCostPerTon) + (input.setupTimePerBatch * input.setupCostPerHour / input.batchSize) + (input.wasteRate * input.wasteDisposalCostPerTon)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerTon = ((): number => { try { const __v = results.totalAnnualCost / input.annualProductionVolume; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.materialCostPerTon = ((): number => { try { const __v = input.rawMaterialCostPerTon; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCostPerTon = ((): number => { try { const __v = input.laborCostPerHour * input.laborHoursPerBatch / input.batchSize; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyCostPerTon = ((): number => { try { const __v = input.energyCostPerKwh * input.energyConsumptionPerBatch / input.batchSize; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.defectCostPerTon = ((): number => { try { const __v = input.defectRate * input.reworkCostPerTon; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.setupCostPerTon = ((): number => { try { const __v = input.setupTimePerBatch * input.setupCostPerHour / input.batchSize; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.wasteCostPerTon = ((): number => { try { const __v = input.wasteRate * input.wasteDisposalCostPerTon; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCostPerTon = ((): number => { try { const __v = results.costPerTon / input.dataConfidence; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -56,19 +56,19 @@ export interface FireSystemFlowHydrantCalculatorOutput {
 
 function evaluateFormulas(input: FireSystemFlowHydrantCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.sprinklerFlowPerHead = (() => { try { return input.designDensity * input.sprinklerCoverageArea; } catch { return 0; } })();
-  results.totalSprinklerFlow = (() => { try { return results.sprinklerFlowPerHead * input.numberOfSprinklers; } catch { return 0; } })();
-  results.totalHydrantSupply = (() => { try { return input.hydrantFlowRate * input.numberOfHydrants; } catch { return 0; } })();
-  results.totalDemand = (() => { try { return results.totalSprinklerFlow + (input.simultaneousHydrantDemand * input.numberOfHydrants); } catch { return 0; } })();
-  results.totalSupply = (() => { try { return results.totalHydrantSupply; } catch { return 0; } })();
-  results.frictionLoss = (() => { try { return input.frictionLossFactor * (input.pipeLength / 100); } catch { return 0; } })();
-  results.elevationPressure = (() => { try { return input.elevationChange * 0.433; } catch { return 0; } })();
-  results.requiredPressure = (() => { try { return input.requiredPressureAtOutlet + results.frictionLoss + results.elevationPressure; } catch { return 0; } })();
-  results.availablePressure = (() => { try { return input.waterSupplyPressure; } catch { return 0; } })();
-  results.flowAdequacy = (() => { try { return results.totalSupply >= results.totalDemand ? 'Adequate' : 'Inadequate'; } catch { return 0; } })();
-  results.pressureAdequacy = (() => { try { return results.availablePressure >= results.requiredPressure ? 'Adequate' : 'Inadequate'; } catch { return 0; } })();
-  results.overallStatus = (() => { try { return results.flowAdequacy == 'Adequate' && results.pressureAdequacy == 'Adequate' ? 'Compliant' : 'Non-compliant'; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.overallStatus == 'Compliant' ? 'Compliant with ' + input.dataConfidence + '% confidence' : 'Non-compliant with ' + input.dataConfidence + '% confidence'; } catch { return 0; } })();
+  results.sprinklerFlowPerHead = ((): number => { try { const __v = input.designDensity * input.sprinklerCoverageArea; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalSprinklerFlow = ((): number => { try { const __v = results.sprinklerFlowPerHead * input.numberOfSprinklers; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalHydrantSupply = ((): number => { try { const __v = input.hydrantFlowRate * input.numberOfHydrants; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalDemand = ((): number => { try { const __v = results.totalSprinklerFlow + (input.simultaneousHydrantDemand * input.numberOfHydrants); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalSupply = ((): number => { try { const __v = results.totalHydrantSupply; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.frictionLoss = ((): number => { try { const __v = input.frictionLossFactor * (input.pipeLength / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.elevationPressure = ((): number => { try { const __v = input.elevationChange * 0.433; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.requiredPressure = ((): number => { try { const __v = input.requiredPressureAtOutlet + results.frictionLoss + results.elevationPressure; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.availablePressure = ((): number => { try { const __v = input.waterSupplyPressure; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.flowAdequacy = ((): number => { try { const __v = results.totalSupply >= results.totalDemand ? 'Adequate' : 'Inadequate'; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.pressureAdequacy = ((): number => { try { const __v = results.availablePressure >= results.requiredPressure ? 'Adequate' : 'Inadequate'; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.overallStatus = ((): number => { try { const __v = results.flowAdequacy == 'Adequate' && results.pressureAdequacy == 'Adequate' ? 'Compliant' : 'Non-compliant'; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.overallStatus == 'Compliant' ? 'Compliant with ' + input.dataConfidence + '% confidence' : 'Non-compliant with ' + input.dataConfidence + '% confidence'; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

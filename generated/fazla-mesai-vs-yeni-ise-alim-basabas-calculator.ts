@@ -46,21 +46,21 @@ export interface FazlaMesaiVsYeniIseAlimBasabasCalculatorOutput {
 
 function evaluateFormulas(input: FazlaMesaiVsYeniIseAlimBasabasCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.monthlyOvertimeCost = (() => { try { return input.currentOvertimeHoursPerMonth * input.overtimeHourlyRate * input.overtimePremiumMultiplier; } catch { return 0; } })();
-  results.monthlyOvertimeCostWithOverhead = (() => { try { return results.monthlyOvertimeCost * (1 + input.overheadRate); } catch { return 0; } })();
-  results.effectiveProductiveHoursNewHire = (() => { try { return input.monthlyProductiveHoursPerEmployee * input.newHireProductivityFactor; } catch { return 0; } })();
-  results.newHireMonthlyCost = (() => { try { return input.newHireMonthlySalary * (1 + input.overheadRate); } catch { return 0; } })();
-  results.newHireMonthlyCostPerProductiveHour = (() => { try { return results.newHireMonthlyCost / results.effectiveProductiveHoursNewHire; } catch { return 0; } })();
-  results.overtimeCostPerHour = (() => { try { return input.overtimeHourlyRate * input.overtimePremiumMultiplier * (1 + input.overheadRate); } catch { return 0; } })();
-  results.breakEvenHours = (() => { try { return results.newHireMonthlyCost / results.overtimeCostPerHour; } catch { return 0; } })();
-  results.annualRecurringCostOvertime = (() => { try { return results.monthlyOvertimeCostWithOverhead * 12; } catch { return 0; } })();
-  results.annualRecurringCostNewHire = (() => { try { return results.newHireMonthlyCost * 12; } catch { return 0; } })();
-  results.oneTimeHiringCost = (() => { try { return input.recruitingCost + input.trainingCost; } catch { return 0; } })();
-  results.annualizedOneTimeCost = (() => { try { return results.oneTimeHiringCost * (1 + input.employeeTurnoverRate); } catch { return 0; } })();
-  results.totalAnnualCostOvertime = (() => { try { return results.annualRecurringCostOvertime; } catch { return 0; } })();
-  results.totalAnnualCostNewHire = (() => { try { return results.annualRecurringCostNewHire + results.annualizedOneTimeCost; } catch { return 0; } })();
-  results.annualSavingsByHiring = (() => { try { return results.totalAnnualCostOvertime - results.totalAnnualCostNewHire; } catch { return 0; } })();
-  results.breakEvenMonths = (() => { try { return results.oneTimeHiringCost / (results.monthlyOvertimeCostWithOverhead - results.newHireMonthlyCost); } catch { return 0; } })();
+  results.monthlyOvertimeCost = ((): number => { try { const __v = input.currentOvertimeHoursPerMonth * input.overtimeHourlyRate * input.overtimePremiumMultiplier; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.monthlyOvertimeCostWithOverhead = ((): number => { try { const __v = results.monthlyOvertimeCost * (1 + input.overheadRate); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.effectiveProductiveHoursNewHire = ((): number => { try { const __v = input.monthlyProductiveHoursPerEmployee * input.newHireProductivityFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.newHireMonthlyCost = ((): number => { try { const __v = input.newHireMonthlySalary * (1 + input.overheadRate); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.newHireMonthlyCostPerProductiveHour = ((): number => { try { const __v = results.newHireMonthlyCost / results.effectiveProductiveHoursNewHire; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.overtimeCostPerHour = ((): number => { try { const __v = input.overtimeHourlyRate * input.overtimePremiumMultiplier * (1 + input.overheadRate); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.breakEvenHours = ((): number => { try { const __v = results.newHireMonthlyCost / results.overtimeCostPerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualRecurringCostOvertime = ((): number => { try { const __v = results.monthlyOvertimeCostWithOverhead * 12; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualRecurringCostNewHire = ((): number => { try { const __v = results.newHireMonthlyCost * 12; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.oneTimeHiringCost = ((): number => { try { const __v = input.recruitingCost + input.trainingCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualizedOneTimeCost = ((): number => { try { const __v = results.oneTimeHiringCost * (1 + input.employeeTurnoverRate); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualCostOvertime = ((): number => { try { const __v = results.annualRecurringCostOvertime; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualCostNewHire = ((): number => { try { const __v = results.annualRecurringCostNewHire + results.annualizedOneTimeCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualSavingsByHiring = ((): number => { try { const __v = results.totalAnnualCostOvertime - results.totalAnnualCostNewHire; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.breakEvenMonths = ((): number => { try { const __v = results.oneTimeHiringCost / (results.monthlyOvertimeCostWithOverhead - results.newHireMonthlyCost); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

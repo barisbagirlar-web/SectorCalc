@@ -54,13 +54,13 @@ export interface Tool3dPrintCostCheckOutput {
 
 function evaluateFormulas(input: Tool3dPrintCostCheckInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.materialWeight = (() => { try { return input.partVolume * (input.infillPercentage / 100) * input.materialDensity / 1000; } catch { return 0; } })();
-  results.materialCost = (() => { try { return results.materialWeight * input.materialCostPerKg; } catch { return 0; } })();
-  results.machineCost = (() => { try { return input.printTimeHours * input.machineCostPerHour; } catch { return 0; } })();
-  results.laborCost = (() => { try { return (input.printTimeHours + input.postProcessingTimeHours) * input.laborCostPerHour; } catch { return 0; } })();
-  results.directCostPerPart = (() => { try { return (results.materialCost + results.machineCost + results.laborCost + input.setupCost / input.batchSize) * (1 + input.failureRate / 100); } catch { return 0; } })();
-  results.totalCostPerPart = (() => { try { return results.directCostPerPart * (1 + input.overheadRate / 100); } catch { return 0; } })();
-  results.sellingPricePerPart = (() => { try { return results.totalCostPerPart * (1 + input.profitMargin / 100); } catch { return 0; } })();
+  results.materialWeight = ((): number => { try { const __v = input.partVolume * (input.infillPercentage / 100) * input.materialDensity / 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.materialCost = ((): number => { try { const __v = results.materialWeight * input.materialCostPerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.machineCost = ((): number => { try { const __v = input.printTimeHours * input.machineCostPerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCost = ((): number => { try { const __v = (input.printTimeHours + input.postProcessingTimeHours) * input.laborCostPerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.directCostPerPart = ((): number => { try { const __v = (results.materialCost + results.machineCost + results.laborCost + input.setupCost / input.batchSize) * (1 + input.failureRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCostPerPart = ((): number => { try { const __v = results.directCostPerPart * (1 + input.overheadRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.sellingPricePerPart = ((): number => { try { const __v = results.totalCostPerPart * (1 + input.profitMargin / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

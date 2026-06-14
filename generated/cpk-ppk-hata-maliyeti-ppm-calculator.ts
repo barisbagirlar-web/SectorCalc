@@ -40,13 +40,13 @@ export interface CpkPpkHataMaliyetiPpmCalculatorOutput {
 
 function evaluateFormulas(input: CpkPpkHataMaliyetiPpmCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.cp = (() => { try { return (input.usl - input.lsl) / (6 * input.stdDev); } catch { return 0; } })();
-  results.cpk = (() => { try { return Math.min((input.usl - input.mean) / (3 * input.stdDev), (input.mean - input.lsl) / (3 * input.stdDev)); } catch { return 0; } })();
-  results.pp = (() => { try { return (input.usl - input.lsl) / (6 * input.stdDev); } catch { return 0; } })();
-  results.ppk = (() => { try { return Math.min((input.usl - input.mean) / (3 * input.stdDev), (input.mean - input.lsl) / (3 * input.stdDev)); } catch { return 0; } })();
-  results.ppm = (() => { try { return (1 - (cdfNormal(input.usl, input.mean, input.stdDev) - cdfNormal(input.lsl, input.mean, input.stdDev))) * 1e6; } catch { return 0; } })();
-  results.hataMaliyeti = (() => { try { return results.ppm / 1e6 * input.annualProductionVolume * input.costPerDefect; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.hataMaliyeti * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); } catch { return 0; } })();
+  results.cp = ((): number => { try { const __v = (input.usl - input.lsl) / (6 * input.stdDev); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cpk = ((): number => { try { const __v = Math.min((input.usl - input.mean) / (3 * input.stdDev), (input.mean - input.lsl) / (3 * input.stdDev)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.pp = ((): number => { try { const __v = (input.usl - input.lsl) / (6 * input.stdDev); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.ppk = ((): number => { try { const __v = Math.min((input.usl - input.mean) / (3 * input.stdDev), (input.mean - input.lsl) / (3 * input.stdDev)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.ppm = ((): number => { try { const __v = (1 - (cdfNormal(input.usl, input.mean, input.stdDev) - cdfNormal(input.lsl, input.mean, input.stdDev))) * 1e6; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.hataMaliyeti = ((): number => { try { const __v = results.ppm / 1e6 * input.annualProductionVolume * input.costPerDefect; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.hataMaliyeti * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -37,10 +37,10 @@ export interface ElectricalLaborEstimatorOutput {
 
 function evaluateFormulas(input: ElectricalLaborEstimatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.baseLaborHours = (() => { try { return ((input.totalCircuitLength * 0.05) + (input.numberOfDevices * 0.5)) * input.complexityFactor; } catch { return 0; } })();
-  results.adjustedLaborHours = (() => { try { return results.baseLaborHours / input.efficiencyFactor; } catch { return 0; } })();
-  results.totalLaborCost = (() => { try { return results.adjustedLaborHours * input.laborRate; } catch { return 0; } })();
-  results.dataConfidenceAdjustedCost = (() => { try { return results.totalLaborCost / input.dataConfidence; } catch { return 0; } })();
+  results.baseLaborHours = ((): number => { try { const __v = ((input.totalCircuitLength * 0.05) + (input.numberOfDevices * 0.5)) * input.complexityFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedLaborHours = ((): number => { try { const __v = results.baseLaborHours / input.efficiencyFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalLaborCost = ((): number => { try { const __v = results.adjustedLaborHours * input.laborRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCost = ((): number => { try { const __v = results.totalLaborCost / input.dataConfidence; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

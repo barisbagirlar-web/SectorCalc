@@ -47,16 +47,16 @@ export interface FeedCostEstimatorOutput {
 
 function evaluateFormulas(input: FeedCostEstimatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalFeedQuantity = (() => { try { return input.quantityPerDay * input.numberOfAnimals * input.feedingDays; } catch { return 0; } })();
-  results.totalFeedCost = (() => { try { return results.totalFeedQuantity * input.pricePerKg; } catch { return 0; } })();
-  results.wasteCost = (() => { try { return results.totalFeedCost * (input.wastePercentage / 100); } catch { return 0; } })();
-  results.laborCost = (() => { try { return input.laborCostPerHour * input.laborHoursPerDay * input.feedingDays; } catch { return 0; } })();
-  results.transportCost = (() => { try { return results.totalFeedQuantity * input.transportCostPerKg; } catch { return 0; } })();
-  results.storageCost = (() => { try { return results.totalFeedQuantity * input.storageCostPerKg; } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.totalFeedCost + results.wasteCost + results.laborCost + results.transportCost + results.storageCost; } catch { return 0; } })();
-  results.costPerAnimalPerDay = (() => { try { return results.totalCost / (input.numberOfAnimals * input.feedingDays); } catch { return 0; } })();
-  results.costPerKgFeed = (() => { try { return results.totalCost / results.totalFeedQuantity; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalCost * (1 + (100 - input.dataConfidence) / 100); } catch { return 0; } })();
+  results.totalFeedQuantity = ((): number => { try { const __v = input.quantityPerDay * input.numberOfAnimals * input.feedingDays; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalFeedCost = ((): number => { try { const __v = results.totalFeedQuantity * input.pricePerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.wasteCost = ((): number => { try { const __v = results.totalFeedCost * (input.wastePercentage / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCost = ((): number => { try { const __v = input.laborCostPerHour * input.laborHoursPerDay * input.feedingDays; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.transportCost = ((): number => { try { const __v = results.totalFeedQuantity * input.transportCostPerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.storageCost = ((): number => { try { const __v = results.totalFeedQuantity * input.storageCostPerKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.totalFeedCost + results.wasteCost + results.laborCost + results.transportCost + results.storageCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerAnimalPerDay = ((): number => { try { const __v = results.totalCost / (input.numberOfAnimals * input.feedingDays); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerKgFeed = ((): number => { try { const __v = results.totalCost / results.totalFeedQuantity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalCost * (1 + (100 - input.dataConfidence) / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

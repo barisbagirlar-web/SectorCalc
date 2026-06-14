@@ -36,10 +36,10 @@ export interface AkuKapasitesiCalismaSuresiHesabiOutput {
 
 function evaluateFormulas(input: AkuKapasitesiCalismaSuresiHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.kullanilabilirEnerji = (() => { try { return input.akuKapasitesi * input.gerilim * (desarjDerinligi / 100) * input.sicaklikFaktoru * (input.verimlilik / 100); } catch { return 0; } })();
-  results.calismaSuresiSaat = (() => { try { return results.kullanilabilirEnerji / input.yukGucu; } catch { return 0; } })();
-  results.calismaSuresiDakika = (() => { try { return results.calismaSuresiSaat * 60; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return input.dataConfidence == 'low' ? results.calismaSuresiSaat * 0.8 : (input.dataConfidence == 'medium' ? results.calismaSuresiSaat * 0.95 : results.calismaSuresiSaat); } catch { return 0; } })();
+  results.kullanilabilirEnerji = ((): number => { try { const __v = input.akuKapasitesi * input.gerilim * (desarjDerinligi / 100) * input.sicaklikFaktoru * (input.verimlilik / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.calismaSuresiSaat = ((): number => { try { const __v = results.kullanilabilirEnerji / input.yukGucu; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.calismaSuresiDakika = ((): number => { try { const __v = results.calismaSuresiSaat * 60; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = input.dataConfidence == 'low' ? results.calismaSuresiSaat * 0.8 : (input.dataConfidence == 'medium' ? results.calismaSuresiSaat * 0.95 : results.calismaSuresiSaat); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

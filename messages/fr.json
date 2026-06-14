@@ -525,6 +525,8 @@
     }
   },
   "trust": {
+    "title": "Gouvernance du calcul",
+    "description": "Métadonnées du résumé de calcul, couverture de validation et bases d'export gouvernées. SectorCalc documente comment les résultats ont été dérivés — ne remplace pas les documents officiels.",
     "stripLabel": "Confiance et sécurité",
     "refund": "7-Tage-Rückerstattung",
     "ssl": "256-bit SSL sichere Kasse",
@@ -3735,7 +3737,12 @@
     "bullet3": "PDF et CSV exportables sur les plans payants",
     "legalQuestion": "S'agit-il d'un conseil financier ou d'ingénierie ?",
     "legalAnswer": "Non. Les calculateurs premium SectorCalc sont des outils d'aide à la décision avec hypothèses transparentes. Ils ne remplacent pas un conseil financier, juridique ou d'ingénierie professionnel.",
-    "serviceType": "Calcul de décision opérationnelle"
+    "serviceType": "Calcul de décision opérationnelle",
+    "generatedBridgeEyebrow": "Vue pilotée par schéma",
+    "generatedBridgeTitle": "Calculateur dynamique par schéma",
+    "generatedBridgeIntro": "Diagramme SVG, entrées groupées et résultats instantanés côté navigateur depuis l'usine de schémas générés.",
+    "generatedBridgeLink": "Ouvrir la page autonome",
+    "generatedBridgeDecisionTitle": "Moteur de rapport de décision premium"
   },
   "freeToolInputs": {
     "square-meter-calculator": {

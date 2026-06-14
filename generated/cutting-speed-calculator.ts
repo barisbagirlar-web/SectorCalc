@@ -50,15 +50,15 @@ export interface CuttingSpeedCalculatorOutput {
 
 function evaluateFormulas(input: CuttingSpeedCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.recommendedSpeedRange = (() => { try { return 0; } catch { return 0; } })();
-  results.spindleSpeedFromCuttingSpeed = (() => { try { return input.spindleSpeed = (input.cuttingSpeed * 1000) / (PI * input.toolDiameter); } catch { return 0; } })();
-  results.cuttingSpeedFromSpindleSpeed = (() => { try { return input.cuttingSpeed = (input.spindleSpeed * PI * input.toolDiameter) / 1000; } catch { return 0; } })();
-  results.requiredCuttingPower = (() => { try { return results.requiredCuttingPower = (input.cuttingSpeed * input.feedRate * input.depthOfCut * specificCuttingForce) / (60 * 1000 * efficiency); } catch { return 0; } })();
-  results.materialRemovalRate = (() => { try { return MRR = input.cuttingSpeed * input.feedRate * input.depthOfCut * 1000; } catch { return 0; } })();
-  results.toolLifeCost = (() => { try { return results.toolLifeCost = toolCost / input.toolLife; } catch { return 0; } })();
-  results.machiningTime = (() => { try { return results.machiningTime = (lengthOfCut) / (input.feedRate * input.spindleSpeed); } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.dataConfidenceAdjusted = primary * (input.dataConfidence / 100); } catch { return 0; } })();
-  results.totalCostPerPart = (() => { try { return results.totalCostPerPart = (machineHourlyRate * results.machiningTime) + results.toolLifeCost; } catch { return 0; } })();
+  results.recommendedSpeedRange = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.spindleSpeedFromCuttingSpeed = ((): number => { try { const __v = input.spindleSpeed = (input.cuttingSpeed * 1000) / (PI * input.toolDiameter); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cuttingSpeedFromSpindleSpeed = ((): number => { try { const __v = input.cuttingSpeed = (input.spindleSpeed * PI * input.toolDiameter) / 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.requiredCuttingPower = ((): number => { try { const __v = results.requiredCuttingPower = (input.cuttingSpeed * input.feedRate * input.depthOfCut * specificCuttingForce) / (60 * 1000 * efficiency); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.materialRemovalRate = ((): number => { try { const __v = MRR = input.cuttingSpeed * input.feedRate * input.depthOfCut * 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toolLifeCost = ((): number => { try { const __v = results.toolLifeCost = toolCost / input.toolLife; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.machiningTime = ((): number => { try { const __v = results.machiningTime = (lengthOfCut) / (input.feedRate * input.spindleSpeed); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.dataConfidenceAdjusted = primary * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCostPerPart = ((): number => { try { const __v = results.totalCostPerPart = (machineHourlyRate * results.machiningTime) + results.toolLifeCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

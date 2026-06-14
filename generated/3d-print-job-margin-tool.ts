@@ -52,18 +52,18 @@ export interface Tool3dPrintJobMarginToolOutput {
 
 function evaluateFormulas(input: Tool3dPrintJobMarginToolInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.materialCost = (() => { try { return input.materialCostPerKg * input.materialUsageKg; } catch { return 0; } })();
-  results.machineCost = (() => { try { return input.machineHourlyRate * input.printTimeHours; } catch { return 0; } })();
-  results.laborCost = (() => { try { return input.laborHourlyRate * input.laborHours; } catch { return 0; } })();
-  results.energyCost = (() => { try { return input.energyCostPerKwh * input.machinePowerKw * input.printTimeHours; } catch { return 0; } })();
-  results.directCost = (() => { try { return results.materialCost + results.machineCost + results.laborCost + results.energyCost; } catch { return 0; } })();
-  results.overheadCost = (() => { try { return results.directCost * (input.overheadRate / 100); } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.directCost + results.overheadCost; } catch { return 0; } })();
-  results.defectCost = (() => { try { return results.totalCost * (input.defectRate / 100); } catch { return 0; } })();
-  results.adjustedTotalCost = (() => { try { return results.totalCost + results.defectCost; } catch { return 0; } })();
-  results.margin = (() => { try { return input.sellingPrice - results.adjustedTotalCost; } catch { return 0; } })();
-  results.marginPercent = (() => { try { return (results.margin / input.sellingPrice) * 100; } catch { return 0; } })();
-  results.dataConfidenceAdjustedMargin = (() => { try { return results.margin * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.materialCost = ((): number => { try { const __v = input.materialCostPerKg * input.materialUsageKg; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.machineCost = ((): number => { try { const __v = input.machineHourlyRate * input.printTimeHours; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCost = ((): number => { try { const __v = input.laborHourlyRate * input.laborHours; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.energyCost = ((): number => { try { const __v = input.energyCostPerKwh * input.machinePowerKw * input.printTimeHours; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.directCost = ((): number => { try { const __v = results.materialCost + results.machineCost + results.laborCost + results.energyCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.overheadCost = ((): number => { try { const __v = results.directCost * (input.overheadRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.directCost + results.overheadCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.defectCost = ((): number => { try { const __v = results.totalCost * (input.defectRate / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedTotalCost = ((): number => { try { const __v = results.totalCost + results.defectCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.margin = ((): number => { try { const __v = input.sellingPrice - results.adjustedTotalCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.marginPercent = ((): number => { try { const __v = (results.margin / input.sellingPrice) * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedMargin = ((): number => { try { const __v = results.margin * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

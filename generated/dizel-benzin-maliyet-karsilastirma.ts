@@ -51,12 +51,12 @@ export interface DizelBenzinMaliyetKarsilastirmaOutput {
 
 function evaluateFormulas(input: DizelBenzinMaliyetKarsilastirmaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.dizelYillikYakitMaliyeti = (() => { try { return input.yillikKm / 100 * input.dizelYakitTuketimi * input.dizelFiyat; } catch { return 0; } })();
-  results.benzinYillikYakitMaliyeti = (() => { try { return input.yillikKm / 100 * input.benzinYakitTuketimi * input.benzinFiyat; } catch { return 0; } })();
-  results.dizelToplamYillikMaliyet = (() => { try { return results.dizelYillikYakitMaliyeti + input.dizelBakimMaliyeti + input.dizelVergi + input.dizelSigorta + input.dizelDegerKaybi; } catch { return 0; } })();
-  results.benzinToplamYillikMaliyet = (() => { try { return results.benzinYillikYakitMaliyeti + input.benzinBakimMaliyeti + input.benzinVergi + input.benzinSigorta + input.benzinDegerKaybi; } catch { return 0; } })();
-  results.tasarruf = (() => { try { return results.benzinToplamYillikMaliyet - results.dizelToplamYillikMaliyet; } catch { return 0; } })();
-  results.tasarrufYuzde = (() => { try { return results.tasarruf / results.benzinToplamYillikMaliyet * 100; } catch { return 0; } })();
+  results.dizelYillikYakitMaliyeti = ((): number => { try { const __v = input.yillikKm / 100 * input.dizelYakitTuketimi * input.dizelFiyat; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.benzinYillikYakitMaliyeti = ((): number => { try { const __v = input.yillikKm / 100 * input.benzinYakitTuketimi * input.benzinFiyat; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dizelToplamYillikMaliyet = ((): number => { try { const __v = results.dizelYillikYakitMaliyeti + input.dizelBakimMaliyeti + input.dizelVergi + input.dizelSigorta + input.dizelDegerKaybi; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.benzinToplamYillikMaliyet = ((): number => { try { const __v = results.benzinYillikYakitMaliyeti + input.benzinBakimMaliyeti + input.benzinVergi + input.benzinSigorta + input.benzinDegerKaybi; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.tasarruf = ((): number => { try { const __v = results.benzinToplamYillikMaliyet - results.dizelToplamYillikMaliyet; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.tasarrufYuzde = ((): number => { try { const __v = results.tasarruf / results.benzinToplamYillikMaliyet * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

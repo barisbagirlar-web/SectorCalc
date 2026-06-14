@@ -42,16 +42,16 @@ export interface EgitimYatirimiVeVerimlilikArtisiGeriDonusCalculatorOutput {
 
 function evaluateFormulas(input: EgitimYatirimiVeVerimlilikArtisiGeriDonusCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalTrainingCost = (() => { try { return input.trainingCostPerEmployee * input.numberOfEmployeesTrained; } catch { return 0; } })();
-  results.productivityAfterTraining = (() => { try { return input.currentProductivity * (1 + input.expectedProductivityGain / 100); } catch { return 0; } })();
-  results.productivityIncreasePerEmployeePerHour = (() => { try { return results.productivityAfterTraining - input.currentProductivity; } catch { return 0; } })();
-  results.annualProductivityIncreasePerEmployee = (() => { try { return results.productivityIncreasePerEmployeePerHour * input.workingHoursPerDay * input.workingDaysPerYear; } catch { return 0; } })();
-  results.annualLaborCostSavingPerEmployee = (() => { try { return results.annualProductivityIncreasePerEmployee * input.laborCostPerHour; } catch { return 0; } })();
-  results.totalAnnualLaborCostSaving = (() => { try { return results.annualLaborCostSavingPerEmployee * input.numberOfEmployeesTrained; } catch { return 0; } })();
-  results.totalAnnualBenefit = (() => { try { return results.totalAnnualLaborCostSaving + (input.additionalBenefitsPerEmployee * input.numberOfEmployeesTrained); } catch { return 0; } })();
-  results.paybackPeriodYears = (() => { try { return results.totalTrainingCost / results.totalAnnualBenefit; } catch { return 0; } })();
-  results.roi = (() => { try { return (results.totalAnnualBenefit - results.totalTrainingCost) / results.totalTrainingCost * 100; } catch { return 0; } })();
-  results.dataConfidenceAdjustedROI = (() => { try { return input.dataConfidence == 'low' ? results.roi * 0.8 : (input.dataConfidence == 'medium' ? results.roi * 0.95 : results.roi); } catch { return 0; } })();
+  results.totalTrainingCost = ((): number => { try { const __v = input.trainingCostPerEmployee * input.numberOfEmployeesTrained; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.productivityAfterTraining = ((): number => { try { const __v = input.currentProductivity * (1 + input.expectedProductivityGain / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.productivityIncreasePerEmployeePerHour = ((): number => { try { const __v = results.productivityAfterTraining - input.currentProductivity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualProductivityIncreasePerEmployee = ((): number => { try { const __v = results.productivityIncreasePerEmployeePerHour * input.workingHoursPerDay * input.workingDaysPerYear; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.annualLaborCostSavingPerEmployee = ((): number => { try { const __v = results.annualProductivityIncreasePerEmployee * input.laborCostPerHour; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualLaborCostSaving = ((): number => { try { const __v = results.annualLaborCostSavingPerEmployee * input.numberOfEmployeesTrained; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualBenefit = ((): number => { try { const __v = results.totalAnnualLaborCostSaving + (input.additionalBenefitsPerEmployee * input.numberOfEmployeesTrained); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.paybackPeriodYears = ((): number => { try { const __v = results.totalTrainingCost / results.totalAnnualBenefit; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.roi = ((): number => { try { const __v = (results.totalAnnualBenefit - results.totalTrainingCost) / results.totalTrainingCost * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedROI = ((): number => { try { const __v = input.dataConfidence == 'low' ? results.roi * 0.8 : (input.dataConfidence == 'medium' ? results.roi * 0.95 : results.roi); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

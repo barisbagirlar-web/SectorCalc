@@ -42,14 +42,14 @@ export interface ConstructionProjectOverrunOutput {
 
 function evaluateFormulas(input: ConstructionProjectOverrunInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.costVariance = (() => { try { return input.actualCost - input.originalBudget; } catch { return 0; } })();
-  results.costOverrunPercent = (() => { try { return (input.actualCost - input.originalBudget) / input.originalBudget * 100; } catch { return 0; } })();
-  results.scheduleVariancePercent = (() => { try { return (input.actualProgress - input.plannedProgress) / input.plannedProgress * 100; } catch { return 0; } })();
-  results.costPerformanceIndex = (() => { try { return input.actualProgress / 100 * input.originalBudget / input.actualCost; } catch { return 0; } })();
-  results.schedulePerformanceIndex = (() => { try { return input.actualProgress / input.plannedProgress; } catch { return 0; } })();
-  results.estimateAtCompletion = (() => { try { return input.originalBudget + input.contingencyReserve + results.costVariance; } catch { return 0; } })();
-  results.overrunRiskScore = (() => { try { return results.costOverrunPercent * 0.5 + Math.Math.max(0, -results.scheduleVariancePercent) * 0.3 + (1 - results.costPerformanceIndex) * 100 * 0.2; } catch { return 0; } })();
-  results.dataConfidenceAdjustedOverrun = (() => { try { return results.costOverrunPercent * (input.dataConfidence === 'high' ? 1 : input.dataConfidence === 'medium' ? 1.1 : 1.25); } catch { return 0; } })();
+  results.costVariance = ((): number => { try { const __v = input.actualCost - input.originalBudget; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costOverrunPercent = ((): number => { try { const __v = (input.actualCost - input.originalBudget) / input.originalBudget * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.scheduleVariancePercent = ((): number => { try { const __v = (input.actualProgress - input.plannedProgress) / input.plannedProgress * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerformanceIndex = ((): number => { try { const __v = input.actualProgress / 100 * input.originalBudget / input.actualCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.schedulePerformanceIndex = ((): number => { try { const __v = input.actualProgress / input.plannedProgress; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.estimateAtCompletion = ((): number => { try { const __v = input.originalBudget + input.contingencyReserve + results.costVariance; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.overrunRiskScore = ((): number => { try { const __v = results.costOverrunPercent * 0.5 + Math.Math.max(0, -results.scheduleVariancePercent) * 0.3 + (1 - results.costPerformanceIndex) * 100 * 0.2; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedOverrun = ((): number => { try { const __v = results.costOverrunPercent * (input.dataConfidence === 'high' ? 1 : input.dataConfidence === 'medium' ? 1.1 : 1.25); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

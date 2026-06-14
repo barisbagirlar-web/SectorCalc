@@ -39,11 +39,11 @@ export interface FuelConsumptionCalculatorOutput {
 
 function evaluateFormulas(input: FuelConsumptionCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.fuelConsumptionPer100km = (() => { try { return input.fuelUsed / input.distance * 100; } catch { return 0; } })();
-  results.adjustedConsumption = (() => { try { return results.fuelConsumptionPer100km * (1 + (100 - input.maintenanceScore) / 200) * (1 + input.loadFactor / 200); } catch { return 0; } })();
-  results.co2Emission = (() => { try { return input.fuelUsed * (input.fuelType === 'gasoline' ? 2.31 : input.fuelType === 'diesel' ? 2.68 : input.fuelType === 'LPG' ? 1.51 : input.fuelType === 'CNG' ? 1.64 : 0) * 1000; } catch { return 0; } })();
-  results.cost = (() => { try { return input.fuelUsed * (input.fuelType === 'gasoline' ? 1.5 : input.fuelType === 'diesel' ? 1.4 : input.fuelType === 'LPG' ? 0.9 : input.fuelType === 'CNG' ? 0.8 : 0.12); } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.adjustedConsumption * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.fuelConsumptionPer100km = ((): number => { try { const __v = input.fuelUsed / input.distance * 100; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedConsumption = ((): number => { try { const __v = results.fuelConsumptionPer100km * (1 + (100 - input.maintenanceScore) / 200) * (1 + input.loadFactor / 200); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.co2Emission = ((): number => { try { const __v = input.fuelUsed * (input.fuelType === 'gasoline' ? 2.31 : input.fuelType === 'diesel' ? 2.68 : input.fuelType === 'LPG' ? 1.51 : input.fuelType === 'CNG' ? 1.64 : 0) * 1000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cost = ((): number => { try { const __v = input.fuelUsed * (input.fuelType === 'gasoline' ? 1.5 : input.fuelType === 'diesel' ? 1.4 : input.fuelType === 'LPG' ? 0.9 : input.fuelType === 'CNG' ? 0.8 : 0.12); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.adjustedConsumption * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

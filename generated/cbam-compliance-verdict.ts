@@ -39,14 +39,14 @@ export interface CbamComplianceVerdictOutput {
 
 function evaluateFormulas(input: CbamComplianceVerdictInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalEmbeddedEmissions = (() => { try { return input.productionVolume * input.embeddedEmissions; } catch { return 0; } })();
-  results.totalFreeAllowances = (() => { try { return results.totalEmbeddedEmissions * (input.freeAllowanceFactor / 100); } catch { return 0; } })();
-  results.netEmissionsSubjectToCBAM = (() => { try { return results.totalEmbeddedEmissions - results.totalFreeAllowances; } catch { return 0; } })();
-  results.carbonCostInOrigin = (() => { try { return results.totalEmbeddedEmissions * input.carbonPriceOrigin; } catch { return 0; } })();
-  results.cbamCertificateCost = (() => { try { return results.netEmissionsSubjectToCBAM * input.cbamCertificatePrice; } catch { return 0; } })();
-  results.additionalCostDueToCBAM = (() => { try { return results.cbamCertificateCost - results.carbonCostInOrigin; } catch { return 0; } })();
-  results.complianceVerdict = (() => { try { return 0; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return 0; } catch { return 0; } })();
+  results.totalEmbeddedEmissions = ((): number => { try { const __v = input.productionVolume * input.embeddedEmissions; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalFreeAllowances = ((): number => { try { const __v = results.totalEmbeddedEmissions * (input.freeAllowanceFactor / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.netEmissionsSubjectToCBAM = ((): number => { try { const __v = results.totalEmbeddedEmissions - results.totalFreeAllowances; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.carbonCostInOrigin = ((): number => { try { const __v = results.totalEmbeddedEmissions * input.carbonPriceOrigin; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cbamCertificateCost = ((): number => { try { const __v = results.netEmissionsSubjectToCBAM * input.cbamCertificatePrice; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.additionalCostDueToCBAM = ((): number => { try { const __v = results.cbamCertificateCost - results.carbonCostInOrigin; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.complianceVerdict = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

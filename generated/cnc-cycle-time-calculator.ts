@@ -47,12 +47,12 @@ export interface CncCycleTimeCalculatorOutput {
 
 function evaluateFormulas(input: CncCycleTimeCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.cuttingTime = (() => { try { return input.cuttingLength / input.feedRate * input.numberOfPasses; } catch { return 0; } })();
-  results.rapidTime = (() => { try { return input.rapidDistance / input.rapidTraverseRate * 60; } catch { return 0; } })();
-  results.toolChangeTotalTime = (() => { try { return input.toolChangeTime * input.numberOfToolChanges; } catch { return 0; } })();
-  results.totalCycleTime = (() => { try { return results.cuttingTime + results.rapidTime + results.toolChangeTotalTime + input.loadingUnloadingTime + input.idleTime; } catch { return 0; } })();
-  results.cycleTimePerPart = (() => { try { return results.totalCycleTime; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.totalCycleTime * (1 + (input.dataConfidence === 'low' ? 0.2 : input.dataConfidence === 'medium' ? 0.1 : 0)); } catch { return 0; } })();
+  results.cuttingTime = ((): number => { try { const __v = input.cuttingLength / input.feedRate * input.numberOfPasses; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.rapidTime = ((): number => { try { const __v = input.rapidDistance / input.rapidTraverseRate * 60; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.toolChangeTotalTime = ((): number => { try { const __v = input.toolChangeTime * input.numberOfToolChanges; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCycleTime = ((): number => { try { const __v = results.cuttingTime + results.rapidTime + results.toolChangeTotalTime + input.loadingUnloadingTime + input.idleTime; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.cycleTimePerPart = ((): number => { try { const __v = results.totalCycleTime; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.totalCycleTime * (1 + (input.dataConfidence === 'low' ? 0.2 : input.dataConfidence === 'medium' ? 0.1 : 0)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

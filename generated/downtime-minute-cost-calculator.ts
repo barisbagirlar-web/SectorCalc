@@ -31,10 +31,10 @@ export interface DowntimeMinuteCostCalculatorOutput {
 
 function evaluateFormulas(input: DowntimeMinuteCostCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.costPerMinute = (() => { try { return input.hourlyCostRate / 60; } catch { return 0; } })();
-  results.totalDowntimeCost = (() => { try { return input.totalDowntimeMinutes * results.costPerMinute; } catch { return 0; } })();
-  results.downtimeRatio = (() => { try { return input.totalDowntimeMinutes / (input.annualOperatingHours * 60); } catch { return 0; } })();
-  results.dataConfidenceAdjustedCost = (() => { try { return results.totalDowntimeCost * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.8)); } catch { return 0; } })();
+  results.costPerMinute = ((): number => { try { const __v = input.hourlyCostRate / 60; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalDowntimeCost = ((): number => { try { const __v = input.totalDowntimeMinutes * results.costPerMinute; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.downtimeRatio = ((): number => { try { const __v = input.totalDowntimeMinutes / (input.annualOperatingHours * 60); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCost = ((): number => { try { const __v = results.totalDowntimeCost * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.8)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

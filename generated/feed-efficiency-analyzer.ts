@@ -33,10 +33,10 @@ export interface FeedEfficiencyAnalyzerOutput {
 
 function evaluateFormulas(input: FeedEfficiencyAnalyzerInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.feedConversionRatio = (() => { try { return input.feedIntake / input.weightGain; } catch { return 0; } })();
-  results.feedCostPerGain = (() => { try { return input.feedCost * input.feedIntake / input.weightGain; } catch { return 0; } })();
-  results.efficiencyScore = (() => { try { return 100 / (results.feedConversionRatio * results.feedCostPerGain); } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return results.efficiencyScore * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.feedConversionRatio = ((): number => { try { const __v = input.feedIntake / input.weightGain; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.feedCostPerGain = ((): number => { try { const __v = input.feedCost * input.feedIntake / input.weightGain; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.efficiencyScore = ((): number => { try { const __v = 100 / (results.feedConversionRatio * results.feedCostPerGain); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = results.efficiencyScore * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

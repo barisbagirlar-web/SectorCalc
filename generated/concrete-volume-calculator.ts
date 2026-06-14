@@ -39,9 +39,9 @@ export interface ConcreteVolumeCalculatorOutput {
 
 function evaluateFormulas(input: ConcreteVolumeCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.netVolume = (() => { try { return input.shape === 'rectangular' ? input.length * input.width * input.height : input.shape === 'circular' ? Math.PI * (input.diameter/2)**2 * input.height : 0; } catch { return 0; } })();
-  results.totalVolume = (() => { try { return results.netVolume * input.quantity * (1 + input.wasteFactor/100); } catch { return 0; } })();
-  results.totalCost = (() => { try { return results.totalVolume * input.unitCost; } catch { return 0; } })();
+  results.netVolume = ((): number => { try { const __v = input.shape === 'rectangular' ? input.length * input.width * input.height : input.shape === 'circular' ? Math.PI * (input.diameter/2)**2 * input.height : 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalVolume = ((): number => { try { const __v = results.netVolume * input.quantity * (1 + input.wasteFactor/100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCost = ((): number => { try { const __v = results.totalVolume * input.unitCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

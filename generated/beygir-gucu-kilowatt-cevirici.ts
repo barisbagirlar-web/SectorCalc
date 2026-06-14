@@ -27,7 +27,7 @@ export interface BeygirGucuKilowattCeviriciOutput {
 
 function evaluateFormulas(input: BeygirGucuKilowattCeviriciInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.kilowatt = (() => { try { return input.horsepower * (input.horsepowerType == 'mechanical' ? 0.7457 : input.horsepowerType == 'metric' ? 0.7355 : input.horsepowerType == 'electric' ? 0.746 : 9.8095); } catch { return 0; } })();
+  results.kilowatt = ((): number => { try { const __v = input.horsepower * (input.horsepowerType == 'mechanical' ? 0.7457 : input.horsepowerType == 'metric' ? 0.7355 : input.horsepowerType == 'electric' ? 0.746 : 9.8095); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

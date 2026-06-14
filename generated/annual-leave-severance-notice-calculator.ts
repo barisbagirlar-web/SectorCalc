@@ -41,13 +41,13 @@ export interface AnnualLeaveSeveranceNoticeCalculatorOutput {
 
 function evaluateFormulas(input: AnnualLeaveSeveranceNoticeCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.dailyRate = (() => { try { return input.annualSalary / (52 * input.workingDaysPerWeek); } catch { return 0; } })();
-  results.totalServiceYears = (() => { try { return input.yearsOfService + input.monthsOfService / 12; } catch { return 0; } })();
-  results.unusedLeaveDays = (() => { try { return input.leaveDaysAccrued - input.leaveDaysTaken; } catch { return 0; } })();
-  results.leavePayout = (() => { try { return results.unusedLeaveDays * results.dailyRate; } catch { return 0; } })();
-  results.severancePay = (() => { try { return results.totalServiceYears * input.severanceMultiplier * results.dailyRate * input.workingDaysPerWeek; } catch { return 0; } })();
-  results.noticePay = (() => { try { return input.noticePeriod * results.dailyRate * input.workingDaysPerWeek; } catch { return 0; } })();
-  results.totalPayout = (() => { try { return results.leavePayout + results.severancePay + results.noticePay; } catch { return 0; } })();
+  results.dailyRate = ((): number => { try { const __v = input.annualSalary / (52 * input.workingDaysPerWeek); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalServiceYears = ((): number => { try { const __v = input.yearsOfService + input.monthsOfService / 12; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.unusedLeaveDays = ((): number => { try { const __v = input.leaveDaysAccrued - input.leaveDaysTaken; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.leavePayout = ((): number => { try { const __v = results.unusedLeaveDays * results.dailyRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.severancePay = ((): number => { try { const __v = results.totalServiceYears * input.severanceMultiplier * results.dailyRate * input.workingDaysPerWeek; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.noticePay = ((): number => { try { const __v = input.noticePeriod * results.dailyRate * input.workingDaysPerWeek; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalPayout = ((): number => { try { const __v = results.leavePayout + results.severancePay + results.noticePay; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

@@ -35,13 +35,13 @@ export interface AverageCalculatorOutput {
 
 function evaluateFormulas(input: AverageCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.arithmetic = (() => { try { return sum(input.values) / count(input.values); } catch { return 0; } })();
-  results.weighted = (() => { try { return sum(input.values[i] * input.weights[i]) / sum(input.weights); } catch { return 0; } })();
-  results.geometric = (() => { try { return exp(sum(log(input.values)) / count(input.values)); } catch { return 0; } })();
-  results.harmonic = (() => { try { return count(input.values) / sum(1/input.values); } catch { return 0; } })();
-  results.median = (() => { try { return 0; } catch { return 0; } })();
-  results.mode = (() => { try { return 0; } catch { return 0; } })();
-  results.dataConfidenceAdjusted = (() => { try { return primary * (input.dataConfidence / 100); } catch { return 0; } })();
+  results.arithmetic = ((): number => { try { const __v = sum(input.values) / count(input.values); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.weighted = ((): number => { try { const __v = sum(input.values[i] * input.weights[i]) / sum(input.weights); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.geometric = ((): number => { try { const __v = exp(sum(log(input.values)) / count(input.values)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.harmonic = ((): number => { try { const __v = count(input.values) / sum(1/input.values); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.median = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.mode = ((): number => { try { const __v = 0; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = ((): number => { try { const __v = primary * (input.dataConfidence / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

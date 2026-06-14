@@ -43,18 +43,18 @@ export interface CleaningCostCalculatorOutput {
 
 function evaluateFormulas(input: CleaningCostCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.monthlyCleaningTimes = (() => { try { return input.cleaningFrequency === 'daily' ? 30 : input.cleaningFrequency === 'weekly' ? 4 : input.cleaningFrequency === 'biweekly' ? 2 : 1; } catch { return 0; } })();
-  results.laborHoursPerMonth = (() => { try { return input.areaSize * results.monthlyCleaningTimes / input.laborProductivity; } catch { return 0; } })();
-  results.laborCostPerMonth = (() => { try { return results.laborHoursPerMonth * input.laborRate; } catch { return 0; } })();
-  results.suppliesCostPerMonth = (() => { try { return input.areaSize * results.monthlyCleaningTimes * input.suppliesCostPerSqm; } catch { return 0; } })();
-  results.equipmentCostPerMonth = (() => { try { return input.areaSize * results.monthlyCleaningTimes * input.equipmentCostPerSqm; } catch { return 0; } })();
-  results.wasteDisposalCostPerMonth = (() => { try { return input.areaSize * results.monthlyCleaningTimes * input.wasteDisposalCostPerSqm; } catch { return 0; } })();
-  results.directCostPerMonth = (() => { try { return results.laborCostPerMonth + results.suppliesCostPerMonth + results.equipmentCostPerMonth + results.wasteDisposalCostPerMonth; } catch { return 0; } })();
-  results.overheadCostPerMonth = (() => { try { return results.directCostPerMonth * (input.overheadPercentage / 100); } catch { return 0; } })();
-  results.totalCostPerMonth = (() => { try { return results.directCostPerMonth + results.overheadCostPerMonth; } catch { return 0; } })();
-  results.costPerSqm = (() => { try { return results.totalCostPerMonth / (input.areaSize * results.monthlyCleaningTimes); } catch { return 0; } })();
-  results.dataConfidenceFactor = (() => { try { return input.dataConfidence === 'low' ? 1.2 : input.dataConfidence === 'medium' ? 1.0 : 0.9; } catch { return 0; } })();
-  results.adjustedCostPerMonth = (() => { try { return results.totalCostPerMonth * results.dataConfidenceFactor; } catch { return 0; } })();
+  results.monthlyCleaningTimes = ((): number => { try { const __v = input.cleaningFrequency === 'daily' ? 30 : input.cleaningFrequency === 'weekly' ? 4 : input.cleaningFrequency === 'biweekly' ? 2 : 1; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborHoursPerMonth = ((): number => { try { const __v = input.areaSize * results.monthlyCleaningTimes / input.laborProductivity; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.laborCostPerMonth = ((): number => { try { const __v = results.laborHoursPerMonth * input.laborRate; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.suppliesCostPerMonth = ((): number => { try { const __v = input.areaSize * results.monthlyCleaningTimes * input.suppliesCostPerSqm; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.equipmentCostPerMonth = ((): number => { try { const __v = input.areaSize * results.monthlyCleaningTimes * input.equipmentCostPerSqm; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.wasteDisposalCostPerMonth = ((): number => { try { const __v = input.areaSize * results.monthlyCleaningTimes * input.wasteDisposalCostPerSqm; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.directCostPerMonth = ((): number => { try { const __v = results.laborCostPerMonth + results.suppliesCostPerMonth + results.equipmentCostPerMonth + results.wasteDisposalCostPerMonth; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.overheadCostPerMonth = ((): number => { try { const __v = results.directCostPerMonth * (input.overheadPercentage / 100); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalCostPerMonth = ((): number => { try { const __v = results.directCostPerMonth + results.overheadCostPerMonth; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerSqm = ((): number => { try { const __v = results.totalCostPerMonth / (input.areaSize * results.monthlyCleaningTimes); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceFactor = ((): number => { try { const __v = input.dataConfidence === 'low' ? 1.2 : input.dataConfidence === 'medium' ? 1.0 : 0.9; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.adjustedCostPerMonth = ((): number => { try { const __v = results.totalCostPerMonth * results.dataConfidenceFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

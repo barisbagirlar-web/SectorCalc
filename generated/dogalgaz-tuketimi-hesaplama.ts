@@ -36,12 +36,12 @@ export interface DogalgazTuketimiHesaplamaOutput {
 
 function evaluateFormulas(input: DogalgazTuketimiHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.aylikMaliyet = (() => { try { return input.tuketimMiktari * input.birimFiyat; } catch { return 0; } })();
-  results.yillikMaliyet = (() => { try { return results.aylikMaliyet * 12; } catch { return 0; } })();
-  results.birimAlanTuketim = (() => { try { return input.tuketimMiktari / (input.isitmaGunSayisi * 24 * input.binaIsiKaybi); } catch { return 0; } })();
-  results.duzeltilmisTuketim = (() => { try { return input.tuketimMiktari * (100 / input.verimlilik); } catch { return 0; } })();
-  results.dataConfidenceFactor = (() => { try { return input.dataConfidence === 'yuksek' ? 1.0 : (input.dataConfidence === 'orta' ? 0.9 : 0.8); } catch { return 0; } })();
-  results.guvenilirMaliyet = (() => { try { return results.aylikMaliyet * results.dataConfidenceFactor; } catch { return 0; } })();
+  results.aylikMaliyet = ((): number => { try { const __v = input.tuketimMiktari * input.birimFiyat; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.yillikMaliyet = ((): number => { try { const __v = results.aylikMaliyet * 12; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.birimAlanTuketim = ((): number => { try { const __v = input.tuketimMiktari / (input.isitmaGunSayisi * 24 * input.binaIsiKaybi); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.duzeltilmisTuketim = ((): number => { try { const __v = input.tuketimMiktari * (100 / input.verimlilik); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.dataConfidenceFactor = ((): number => { try { const __v = input.dataConfidence === 'yuksek' ? 1.0 : (input.dataConfidence === 'orta' ? 0.9 : 0.8); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.guvenilirMaliyet = ((): number => { try { const __v = results.aylikMaliyet * results.dataConfidenceFactor; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

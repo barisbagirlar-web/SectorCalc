@@ -33,10 +33,10 @@ export interface BeltPulleySpeedLengthCalculatorOutput {
 
 function evaluateFormulas(input: BeltPulleySpeedLengthCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.speedRatio = (() => { try { return input.driverSpeed / (input.drivenPulleyDiameter / input.driverPulleyDiameter); } catch { return 0; } })();
-  results.drivenSpeed = (() => { try { return input.driverSpeed * (input.driverPulleyDiameter / input.drivenPulleyDiameter); } catch { return 0; } })();
-  results.beltLength = (() => { try { return 2 * input.centerDistance + (Math.PI * (input.driverPulleyDiameter + input.drivenPulleyDiameter) / 2) + (Math.Math.pow(input.drivenPulleyDiameter - input.driverPulleyDiameter, 2) / (4 * input.centerDistance)); } catch { return 0; } })();
-  results.beltSpeed = (() => { try { return Math.PI * input.driverPulleyDiameter * input.driverSpeed / 60000; } catch { return 0; } })();
+  results.speedRatio = ((): number => { try { const __v = input.driverSpeed / (input.drivenPulleyDiameter / input.driverPulleyDiameter); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.drivenSpeed = ((): number => { try { const __v = input.driverSpeed * (input.driverPulleyDiameter / input.drivenPulleyDiameter); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.beltLength = ((): number => { try { const __v = 2 * input.centerDistance + (Math.PI * (input.driverPulleyDiameter + input.drivenPulleyDiameter) / 2) + (Math.Math.pow(input.drivenPulleyDiameter - input.driverPulleyDiameter, 2) / (4 * input.centerDistance)); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.beltSpeed = ((): number => { try { const __v = Math.PI * input.driverPulleyDiameter * input.driverSpeed / 60000; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

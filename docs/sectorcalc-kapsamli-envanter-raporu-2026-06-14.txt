@@ -1,0 +1,1565 @@
+================================================================================
+SECTORCALC — KAPSAMLI SİSTEM ENVANTERİ, DNA, OTONOM SİSTEMLER VE GAP ANALİZİ
+================================================================================
+Oluşturulma : 2026-06-14
+Repo        : /Users/macair1/projects/SectorCalc
+Branch      : main (HEAD: 62a6dca — fix(build): remove unsupported --no-typescript)
+Commit sayısı: 467
+Canlı domain: https://sectorcalc.com
+Firebase    : sectorcalc-bf412 (Firestore nam5, Functions us-central1)
+Stack       : Next.js 15 · React 19 · TypeScript 5 · Firebase · Stripe · Tailwind · next-intl
+
+Bu rapor şunları tek dosyada birleştirir:
+  • Ürün DNA'sı ve konumlandırma
+  • Tüm kod katmanları, bileşenler, registry'ler
+  • Dual-Core (Akıl 1 / Akıl 2) hesaplama zekâsı
+  • DeepSeek + otonom audit/repair sistemleri ve prompt envanteri
+  • İş planına göre tamamlanan / eksik / kaldırılması gerekenler
+  • Güncel kalite metrikleri (scripts/.cache — 2026-06-14)
+
+Kaynak gerçeklik hiyerarşisi:
+  1. Canlı smoke + docs/production-reality.md
+  2. scripts/.cache/* fresh audit çıktıları
+  3. Kod tabanı registry dosyaları
+  4. Eski DNA txt snapshot'ları (2026-06-07/09 — tarihli, güncellenmeli)
+
+================================================================================
+BÖLÜM 0 — YÖNETİCİ ÖZETİ
+================================================================================
+
+SectorCalc nedir?
+  Endüstriyel mikro-SaaS "App Store" — sektör acısını ücretli karar araçlarına
+  dönüştüren dual-core calculation intelligence platformu.
+  Generic calculator sitesi, teklif yazılımı veya ERP alternatifi DEĞİLDİR.
+
+Ürün katmanları:
+  FREE     → hızlı kontrol, risk sinyali, tarayıcıda hesap, verdict/PDF yok
+  PREMIUM  → karar analizörü, safe price, verdict, PDF export (Pro/abonelik)
+  OS/Audit → Industrial Operating System audit katmanı (27 sektör)
+
+Sayısal özet (2026-06-14 repo durumu):
+  | Metrik                              | Değer        |
+  |-------------------------------------|--------------|
+  | src/ TS/TSX dosyası                 | 3.022        |
+  | src/lib/formula-governance/ dosyası | 621          |
+  | src/lib/ üst modül dizini           | 83           |
+  | src/components/ alt dizin           | 65           |
+  | scripts/ dosyası                    | ~357         |
+  | generated/ dosyası                  | 647          |
+  | generated/*.ts calculator           | 131          |
+  | generated/schemas/*.json            | 382          |
+  | FormulaContract (*-critical.ts)     | 283          |
+  | public/ai-tool-index.json tool      | 474          |
+  | Sprint manifest totalTools          | 479          |
+  | P24 audit totalTools                | 484          |
+  | P24 PASS/WARN/FAIL/QUARANTINE       | 36/335/28/85 |
+  | Runtime Trust ready/review          | 22/308       |
+  | formulaGateEligible                 | 22           |
+  | paymentEligible                     | 22           |
+  | premium_ready (S1 manifest)         | 22           |
+  | category_only / quarantine          | 151          |
+  | guide_oracle_missing                | 473          |
+  | auto_repair_candidate               | 190          |
+  | Revenue sektör çifti (marketing)    | 27           |
+  | Premium schema (schema-registry)    | 27           |
+  | Industry registry slug              | ~30          |
+  | Locale (routing)                    | 6 (en,tr,de,fr,es,ar) |
+  | messages/*.json satır (toplam)      | ~140.485     |
+  | Cloud Functions                     | 15 dosya     |
+  | src/app/api route                   | 8            |
+
+Kritik durum özeti:
+  ✓ P0–P11 product roadmap (roadmap.md + production-reality.md) DONE olarak işaretli
+  ✓ 27/27 premium Smart Form rollout tamam
+  ✓ Release gate (P11) PASS geçmiş
+  ⚠ Tool factory evreni (479 tool) büyük ölçüde WARN/QUARANTINE — recovery devam ediyor
+  ⚠ paymentEligible/formulaGateEligible yalnızca 22 tool — kasıtlı kilit (AGENTS.md)
+  ⚠ 473 tool'da guide/oracle UX eksik
+  ⚠ 151 category-only quarantine
+  ⚠ Product roadmap freeze aktif — yeni yüzey yasak, ölçüm modu
+  ⚠ Eski DNA txt dosyaları (2026-06-09) güncel değil; bu rapor güncel referans
+
+================================================================================
+BÖLÜM 1 — ÜRÜN DNA (PRODUCT DNA)
+================================================================================
+
+1.1 Vizyon ve manifesto
+-----------------------
+Kaynak: docs/manifesto.md, docs/product-strategy.md, docs/sectorcalc-product-dna.txt
+
+Slogan:
+  EN: "Calculate the number. Get the decision."
+  TR: "Her sektör için özel ölç. Kaybı tespit et. Güvenle karar ver."
+
+4 kayıp boyutu:
+  1. Parasal (marj, maliyet, fiyat sızıntısı)
+  2. Malzeme (fire, hurda, verim)
+  3. Zaman (setup, OEE, rota, gecikme)
+  4. Enerji/Karbon (kWh, CBAM)
+
+5 persona:
+  Saha operatörü · KOBİ sahibi · Danışman/mali müşavir · Bireysel · Akademisyen
+
+2 katmanlı ürün stratejisi:
+  Pro (~$19/ay)     → hızlı teşhis, verdict, trust trace teaser
+  Business (~$99+)  → mühürlü PDF, public verify, white-label, audit trail
+
+1.2 Konumlandırma (v3)
+----------------------
+  Ana vaat: "Calculate, measure and optimize for your sector."
+  Rakip: Excel + ustanın defteri + danışman + Google calculator
+  DEĞİL: SAP, Siemens Opcenter, aPriori
+
+Hizalama skoru (product-dna v3, 2026-06-07):
+  Teknik omurga (registry, motorlar)     ~80%
+  Marketing / IA / homepage              ~75%
+  Saha paneli UX (44px, 3 sn okuma)      ~40%
+  Formül derinliği (20 yıl uzman std.)   ~45%
+
+1.3 Gelir modeli
+----------------
+  Free tools      → SEO, güven, risk sinyali (100 traffic catalog hedefi)
+  Premium tools   → 27 revenue çifti premium tarafı
+  Pro plan        → $29/ay (Single Verdict $19 tek seferlik)
+  PDF             → premium verdict export formatı (ürün değil)
+  Enterprise      → /enterprise sayfası (P9)
+
+Yasal zorunluluk:
+  Teknik simülasyon; finansal/hukuki/mühendislik tavsiyesi değildir.
+  Ücretsiz inputlar tarayıcıda işlenir; hesap/kaydetme olmadıkça saklanmaz.
+
+1.4 Marka varlıkları (KİLİTLİ)
+-------------------------------
+Kaynak: src/config/brand.ts, .cursor/rules/brand-assets-lock.mdc
+  Logo    : public/img/brand/sectorcalc-logo.png
+  Favicon : public/img/brand/sectorcalc-favicon*.png
+  Bileşen : src/components/brand/SiteLogo.tsx
+  Next icons: src/app/icon.png, src/app/apple-icon.png
+  KURAL: Header text-only branding'e dönülmez; logo silinmez.
+
+================================================================================
+BÖLÜM 2 — TEKNOLOJİ YIĞINI VE DEPLOY
+================================================================================
+
+2.1 Frontend / App
+------------------
+  Next.js 15 App Router, React 19, TypeScript strict (any yasak)
+  next-intl — 6 locale
+  Tailwind CSS 3.4 + çok katmanlı CSS:
+    src/app/globals.css
+    src/styles/design-craft.css (Industrial Ledger v1.3, --sc-* tokens)
+    src/styles/industrial-ui.css, industrial-os.css, apple-ui.css
+    src/styles/premium-minimal.css, contrast-system.css
+    src/styles/calculation-tool-mobile-layout.css
+  İkonlar: @heroicons/react (outline), lucide-react (sınırlı)
+  PDF: @react-pdf/renderer
+  Form: react-hook-form + zod
+  Grafik: recharts
+
+2.2 Backend / Altyapı
+---------------------
+  Firebase Auth (client)
+  Firestore nam5 (sabit — değiştirme)
+  Cloud Functions us-central1 (sabit)
+  Stripe checkout + webhook (Functions ONLY — secret frontend'te YOK)
+  firebase-admin 13 (Functions + API routes)
+
+2.3 Hosting (çift yol)
+----------------------
+  PRIMARY production : Vercel → www.sectorcalc.com
+  SECONDARY/legacy   : Firebase Hosting + Cloud Run SSR
+  docs/legacy-conflict-cleanup.md: Firebase sole production sanılmamalı
+
+2.4 Zorunlu doğrulama komutları
+-------------------------------
+  npm run lint
+  npx tsc --noEmit
+  npm run build
+  npm run check:secrets
+
+2.5 Deploy komutları
+--------------------
+  firebase deploy --only hosting --project sectorcalc-bf412
+  firebase deploy --only functions --project sectorcalc-bf412
+  firebase deploy --only firestore:rules --project sectorcalc-bf412
+  npm run deploy:hosting (scripts/deploy-production.mjs)
+  npm run release:gate (P11 orchestrator)
+
+================================================================================
+BÖLÜM 3 — MİMARİ: DUAL-CORE CALCULATION INTELLIGENCE
+================================================================================
+
+Kaynak: .cursor/rules/dual-core-calculation-intelligence.mdc
+        src/lib/formula-governance/** (TEK doğru yol — calculation-intelligence/ YOK)
+
+SectorCalc statik form generator DEĞİLDİR.
+SectorCalc = dual-core calculation intelligence system.
+
+3.1 Akıl 2 — Requirement / Constraint Engine (Mind 2)
+-----------------------------------------------------
+Soru: "Hedef ve bilinen inputlarla hangi inputlar eksik, türetilebilir, default
+       veya uzman gerektirir?"
+
+Kullanır:
+  calculation-ontology, dependency graph, formula graph, variable registry,
+  unit/dimension metadata, inverse mappings, known inputs, target output
+
+Üretir:
+  requiredMissingInputs, optionalRecommendedInputs, advancedRecommendedInputs,
+  derivedResolutionPlan, selectedFormulaPath, blockers, warnings
+
+Modüller (src/lib/formula-governance/):
+  calculation-ontology/     — ontology, formula-graph, contract-variable-normalizer
+  requirement-engine/       — drift-score-gate, batch-alignment-audit
+  input-intelligence/       — input seçimi ontology'den türetilir
+  llm-interface/            — LLM sınır politikası (extract/normalize ONLY)
+  smart-form-architecture/  — Smart Form tip sistemi
+  smart-form-rendering/     — layout planner
+  smart-form-ui-bridge/     — UI köprüsü
+
+3.2 Akıl 1 — Validation / Oracle / Audit Engine (Mind 1)
+--------------------------------------------------------
+Soru: "Input ve sonuç matematiksel, fiziksel, iş mantığı açısından geçerli mi?"
+
+Kullanır:
+  FormulaContract, oracle comparison, scenario tests, property tests,
+  runtime invariants, boundary constraints, dimension checks
+
+Üretir:
+  ORACLE_COMPARISON_PASS/FAIL, invariant violations, dimension errors,
+  validation warnings, launch blockers, NEEDS_REVIEW/FAIL/PASS
+
+Modüller:
+  contracts/                — 283 *-critical.ts FormulaContract
+  oracle/                   — compare-*-oracle, production-adapters
+  gates/                    — global-sanity-gate, sector-reality-gate
+  runtime-validation/       — free-full-loop-bridge, full-loop-bridge-shared
+  scenario-runner.ts
+  trust-trace-report/       — export contract, builder
+
+3.3 LLM sınırı (DEĞİŞMEZ)
+--------------------------
+İZİNLİ:
+  extract_structured_inputs, normalize_units, generate_missing_input_question,
+  structured JSON drafts, intent classification
+
+YASAK:
+  calculate_result, choose_formula, override_oracle, bypass_validation,
+  create_formula_from_prompt, change_production_output
+
+LLM hesaplama motoru, formula seçici, oracle veya validation otoritesi DEĞİLDİR.
+
+3.4 Çalışma döngüsü
+-------------------
+  1. Kullanıcı hedef belirtir
+  2. Requirement Engine hedef değişkeni çözer
+  3. Dependency graph gerekli değişkenleri listeler
+  4. Bilinen vs eksik ayrımı
+  5. Eksik input sorulur
+  6. Deterministik hesaplama
+  7. Validation Engine invariant/dimension kontrolü
+  8. Oracle/scenario/property audit
+  9. Güvenliyse döndür
+
+3.5 Runtime coverage tier'ları
+------------------------------
+  full_loop_runtime      — Akıl 1 + Akıl 2 tam döngü
+  live_smart_form_pilot  — Smart Form pilot
+  audit_pipeline_only    — yalnızca audit hattı
+
+Kaynak: src/lib/formula-governance/dual-intelligence-runtime-coverage/
+        src/lib/formula-governance/runtime-validation/full-loop-runtime-registry.ts
+
+================================================================================
+BÖLÜM 4 — REGISTRY SİSTEMLERİ (3 PARALEL KATALOG)
+================================================================================
+
+4.1 Revenue Tools Registry
+---------------------------
+Dosya: src/lib/tools/revenue-tools.ts (+ revenue-tools-additional.ts, phase2.ts)
+  27 sektör × 2 tier = 54 slug (free + premium revenue çifti)
+  FREE_TOOL_PRIVACY_NOTE, REVENUE_LEGAL_DISCLAIMER
+  paymentEligible, formulaGateEligible guard'ları
+
+4.2 Free Traffic Catalog
+------------------------
+Dosya: src/lib/tools/free-traffic-calculators.ts (~1758 satır)
+  SEO/traffic amaçlı ~100 free calculator hedefi
+  Tarayıcıda hesap, verdict yok
+
+4.3 Premium Schema Registry
+---------------------------
+Dosya: src/lib/premium-schema/schema-registry.ts
+  PREMIUM_CALCULATOR_SCHEMAS — 27 schema
+  PREMIUM_SCHEMA_SLUG_MAP
+  schema-linter test gate (prebuild)
+
+4.4 Industry Registry
+---------------------
+Dosya: src/lib/tools/industry-registry.ts (~30 slug)
+  27 marketing sektör hub'ı
+
+4.5 Premium 152 Seed
+--------------------
+Dosya: src/data/premium/sectorcalc-premium-152.seed.json/.ts
+  152 premium tool seed içeriği (KORUNAN — rastgele silme/değiştirme yasak)
+
+4.6 AI Tool Index (public)
+--------------------------
+  public/ai-tool-index.json     — 474 tool (~74K satır)
+  public/ai-tool-routes.json
+  public/ai-categories.json
+  Üretim: npm run export:ai-index, export:ai-tool-index (prebuild)
+
+4.7 Generated Tools Pipeline
+----------------------------
+  generated/*.ts                — 131 DeepSeek-generated calculator
+  generated/schemas/*.json      — 382 schema
+  public/generated/schemas/     — SVG diagram kopyaları
+  Route: /tools/generated/[slug]
+  Bileşen: src/components/tools/GeneratedToolPage.tsx
+  Bridge: src/lib/generated-tools/premium-schema-bridge.ts (yeni)
+
+4.8 OS / Manufacturing Registry
+-------------------------------
+  src/lib/manufacturing-os/
+  src/lib/os/
+  sector-registry.config.json (OS audit sektörleri)
+  Route: /operating-system, /os, /audit/[sectorKey]
+
+================================================================================
+BÖLÜM 5 — UYGULAMA ROTASI ENVANTERİ
+================================================================================
+
+5.1 Public marketing / trust
+----------------------------
+  /                           Home
+  /free-tools, /premium-tools, /categories, /calculator-library
+  /industries, /industries/[slug]
+  /pricing, /login, /for-consultants, /beta-partner
+  /manifesto, /about, /about-us, /how-it-works, /methodology, /trust
+  /case-studies, /case-studies/[slug]
+  /benchmarks, /sustainability, /investor-demo, /developer-showcase
+  /privacy, /terms, /disclaimer
+  /enterprise (P9 business packaging)
+
+5.2 Tool routes
+---------------
+  /tools/free/[slug]
+  /tools/premium/[slug]
+  /tools/premium-schema/[slug], /print
+  /tools/generated/[slug], /tools/generated (index)
+  /tools/[tier]/[slug] (legacy tier route)
+  Landing: /cnc-quote-risk, /construction-bid-margin, /cleaning-contract-margin
+
+5.3 Account / billing
+---------------------
+  /account, /account/reports, /account/reports/[reportId]
+  /account/archive, /account/feedback
+  /checkout/success, /checkout/cancel
+
+5.4 Trust / verify
+------------------
+  /verify (client), GET /api/verify-report
+  POST /api/reports/approved
+
+5.5 SEO / content
+-----------------
+  /seo/[slug] — premium SEO landings (27 tool, SEO-P2)
+  /guides/[slug]
+
+5.6 Admin (KORUNAN)
+-------------------
+  /admin/leads, /admin/kpi, /admin/benchmarks
+  /admin/schema-generator, /admin/verification-queue
+
+5.7 API routes (8 — istisna, çoğu src/app/api yasak kuralının dışında mevcut)
+------------------------------------------------------------------------------
+  /api/assistant              — P10 deterministic assistant
+  /api/ai-gateway/customer    — customer AI gateway (rate limit)
+  /api/ai-repair/analyze      — AI repair analyze
+  /api/reports/approved       — approved report write
+  /api/verify-report          — public verify
+  /api/tool-feedback          — feedback submit
+  /api/verification-queue     — admin verification queue
+  /api/indexnow-verification  — IndexNow
+
+NOT: Proje kuralı "src/app/api routes yasak" der; mevcut 8 route legacy/phase
+     onayı ile var. Yeni API route ekleme yasak.
+
+================================================================================
+BÖLÜM 6 — src/lib MODÜL ENVANTERİ (83 DİZİN)
+================================================================================
+
+__tests__, actions, admin, ai, ai-assistant, ai-gateway, ai-repair, analytics,
+assistant, auth, benchmarks, billing, branding, build, calculator-experience,
+calculators, campaigns, carbon, case-studies, catalog, chart-helpers, commercial,
+compliance, content, decision-engine, disclaimer, emission-factors, entitlements,
+feature-flags, feedback, field-mode, firebase, footer, format, formula-governance,
+formulas, freemium, generated-tools, growth, guidance, home, i18n, icons,
+industries, input, inventory, layout, leads, legal, local-ai, locale-center,
+machine-rate, manufacturing-os, math, methodology, navigation, notifications, os,
+premium, premium-schema, pricing, pwa, quote, regional, regional-benchmarks,
+registry, release, reports, semantic, seo, shop-rate, smart-form, standards,
+subscription, supplier-api, terminology, tool-activation, tool-guides, tools,
+trust-trace, types, ui, units
+
+Önemli alt sistemler:
+
+  formula-governance/ (621 dosya, 22 alt modül):
+    calculation-ontology, requirement-engine, runtime-validation,
+    input-intelligence, llm-interface, contracts (283 critical),
+    oracle, gates, smart-form-*, tool-factory-orchestrator,
+    full-tool-audit, trust-trace-report, premium-schema-governance,
+    production-readiness, roadmap-debt-register, dual-intelligence-runtime-coverage,
+    input-design-audit, report-renderer-contract, investor-demo, global-calculator-inventory
+
+  trust-trace/ — hash, report-id, snapshot, approved-report-service, export
+  assistant/   — P10 deterministic guardrailed assistant
+  ai-gateway/  — customer-ai-rate-limit, customer-ai-validator (Akıl 1/2 boundary)
+  ai-repair/   — repair outcome recording
+  reports/     — verdict-report, trust-trace-report-builder
+  billing/     — use-premium-tool-access, entitlement guard
+  entitlements/— subscription guard
+  pwa/ + field-mode/ — P8 offline shell, saha modu
+  units/       — P5 metric/imperial display engine
+  regional-benchmarks/ — P6 indicative bands
+  release/     — release proof engine
+
+================================================================================
+BÖLÜM 7 — src/components ENVANTERİ (65 DİZİN)
+================================================================================
+
+En büyük dizinler (dosya sayısına göre):
+  tools/          132 dosya — ToolTile, ToolsTileGrid, FreeToolPage, PremiumToolPage,
+                              GeneratedToolPage, ToolCatalogByCategory, RelatedTools
+  tools/smart-form/ 72 dosya — SmartToolForm, pilot rollout governance, staging gates
+  admin/           23 — lead pipeline, SLA, action center, SchemaGeneratorClient
+  ui/              21 — SurfaceCard, Button, FieldHint, SectorButton
+  sections/        20 — homepage funnel sections
+  os/              20 — Industrial OS UI
+  layout/          20 — HeaderNav, Footer, LocaleDocumentLayout
+  guidance/        18 — input guide, reference graphics (çoğu deprecated)
+  reports/         18 — PDF, verdict panels, ApprovedReportPanel
+  smart-form/      17 — üst seviye Smart Form bileşenleri
+  trust-trace/      4 — ValidationStamp, TrustTraceSummary
+  billing/          7 — PremiumPaywall
+  subscription/   4 — PremiumPaywall (duplicate path — legacy)
+  field-mode/       6 — RecentTools, PWA saha UI
+  assistant/        — SectorCalcAssistant (global mount)
+  enterprise/       — EnterprisePageContent (P9)
+  brand/            — SiteLogo (KİLİTLİ)
+
+UI kalıcı kurallar (.cursor/rules/tool-listing-tiles.mdc):
+  ZORUNLU: ToolTile + ToolsTileGrid (Omni Calculator yoğun grid)
+  YASAK: ToolCard, büyük kart layout, ad-hoc Link patterns
+
+================================================================================
+BÖLÜM 8 — FIREBASE CLOUD FUNCTIONS
+================================================================================
+
+functions/src/ (15 dosya):
+  index.ts                          — export hub
+  createStripeCheckout.ts           — Stripe checkout session (KORUNAN)
+  stripeWebhook.ts                  — webhook + entitlement (KORUNAN)
+  entitlementPersistence.ts
+  userAuth.ts, auth.ts
+  updateLeadPipelineHandler.ts      — admin lead update
+  updateLeadTestClassificationHandler.ts
+  leadActivity.ts
+  validatePipelineUpdate.ts, validateTestClassificationUpdate.ts
+  cors.ts, security.ts, constants.ts, regions.ts
+
+Bölge: us-central1 (değiştirme)
+P9/payment: tool recovery tamamlanana kadar ikinci öncelik (AGENTS.md)
+
+================================================================================
+BÖLÜM 9 — i18n VE LOCALE
+================================================================================
+
+Routing locale: en (root, prefix yok), tr, de, fr, es, ar
+messages/*.json satır sayıları (2026-06-14):
+  en.json  ~23.973
+  tr.json  ~24.533
+  de/fr/es/ar ~23.000 each
+
+Namespace'ler (örnekler):
+  smartForm.*, feedback.*, assistant.*, enterprise.*, premiumSeo.*,
+  trustTrace.*, contentAuthority.*, calculator UI, field labels
+
+Locale-center:
+  src/lib/locale-center/locale-config.ts
+  src/lib/i18n/locale-config.ts
+  Region → currency: TR→TRY, DE→EUR, EN→USD
+
+Audit komutları:
+  npm run audit:locale-center
+  npm run audit:surface-i18n
+  npm run audit:rendered-locales
+  npm run quality:locale:full
+
+================================================================================
+BÖLÜM 10 — TASARIM SİSTEMİ (INDUSTRIAL LEDGER)
+================================================================================
+
+Tema: Industrial Professional + Ledger Craft v1.3
+Oran: %85 grid · %10 ledger · %5 craft
+Kural: Turuncu (copper) yalnızca CTA; amber yalnızca status
+
+Kanonik CSS (--sc-*):
+  --sc-bg #faf7f2, --sc-surface #ffffff, --sc-text #1a1a1a
+  --sc-muted #6b6b6b, --sc-border #d1d1d1
+  --sc-copper #c2410c (CTA), --sc-navy #1e40af
+  --sc-success #166534, --sc-warning #d97706, --sc-danger #991b1b
+
+Tailwind alias: industrial-matte, premium-velvet, action-orange, sc-copper, vb.
+
+Premium design phases (docs/premium-design-phases.md):
+  Phase 1–5 tamamlandı; final a11y audit pass manuel bekliyor
+
+Form standard (P2.4):
+  .sc-form-* in design-craft.css + calculation-tool-mobile-layout.css
+  155 route smoke:all-calculation-forms PASS (2026-06-10)
+
+================================================================================
+BÖLÜM 11 — OTONOM SİSTEMLER VE AI FABRİKASI
+================================================================================
+
+11.1 P2.4 Autonomous Dual-Intelligence Engine
+---------------------------------------------
+Kaynak: docs/p24-autonomous-dual-intelligence-engine.md
+Komut : npm run audit:p24-autonomous-engine
+        node scripts/tool-activation/audit-p24-tool-quality.mjs
+
+13-Gate Test Pipeline:
+  1. Technical Build     2. Type Safety      3. Formula Contract
+  4. Unit Consistency    5. Boundary Test    6. Scenario Test
+  7. Oracle Test         8. Global Sanity ⭐  9. Sector Reality ⭐
+  10. Premium/Free Split 11. Locale Gate     12. Mobile UX
+  13. Smoke Gate
+
+Sonuçlar: PASS / WARN / FAIL / QUARANTINE
+
+Güncel cache (2026-06-14, p24-tool-quality-report.json):
+  totalTools: 484
+  PASS: 36 | WARN: 335 | FAIL: 28 | QUARANTINE: 85
+  activeRoutes: 399 | categoryOnly: 85
+  byFamily: free 61, legacy 10, premium-schema 280, premium 133
+
+Auto-repair yapılabilir: missing input, validation, unit mismatch, locale key,
+  mobile overflow, RTL, weak sanity rules
+Auto-repair yapılamaz: route change, secrets, formula dışı hesap, Stripe/Auth
+
+11.2 Runtime Trust Engine (ERT)
+-------------------------------
+Kaynak: docs/runtime-trust-engine.md
+Komut : npm run audit:runtime-trust-engine
+
+Güncel cache (2026-06-14):
+  totalChecked: 330
+  ready: 22 | review: 308 | blocked: 0
+  formulaGateEligible: 22 | paymentEligible: 22
+  falseBadgeWouldHaveShown: 237  ← Formula Gate badge güvenlik uyarısı
+
+Formula Gate Approved badge zinciri:
+  evaluateRuntimeTrust() → canShowFormulaGateApproved() → getFormulaGateVerifiedLabel()
+  hasFormulaSourceAudit() TEK BAŞINA badge vermez
+
+11.3 P2.5 Enterprise Control Plane
+----------------------------------
+Kaynak: docs/tool-control-plane.md
+Komut : npm run audit:p25-control-plane
+Çıktı : scripts/.cache/tool-quality-control-plane.json
+
+Birleştirir: P24 + Runtime Trust + Revenue Gate + Formula KG + locale + guides
+DeepSeek export: npm run ai:deepseek:export-tool-context
+Bulk repair plan: npm run ai:deepseek:bulk-repair (plan mode, apply human onaylı)
+
+11.4 DeepSeek AI Quality Factory
+--------------------------------
+Kaynak: docs/deepseek-ai-quality-factory.md, AGENTS.md DeepSeek Priority Lock
+
+DeepSeek ROLÜ:
+  ✓ Formula/schema draft, validation önerisi, i18n fix, bulk repair plan
+  ✗ Formula Gate kararı, payment eligibility, deploy GO/NO-GO, fake PASS
+
+scripts/deepseek/ (18 dosya):
+  deepseek-client.ts       — API client
+  prompts.ts               — INDUSTRIAL_DEEP_RESEARCH_PROMPT, INDUSTRIAL_ENGINEERING_PROMPT
+  prompts-scan-tools.ts    — buildToolScanSystemPrompt, buildToolScanUserPrompt
+  scan-tools.ts            — tool discovery + schema scan
+  scan-premium.ts, scan-all.ts, scan-muda-hunter.ts
+  generate-from-schema.ts, generate-from-schema-all.ts
+  generate-calculator-registry.ts
+  generate-diagram.ts
+  backfill-schema-i18n.ts  — schema i18n backfill (yeni, git status'ta)
+  test-generated-tools.ts, smoke-preview.ts
+  discover-tools.ts, write-outputs.ts, load-env.ts, types.ts
+
+npm scriptleri:
+  scan:tools, scan:all, scan:premium
+  generate:tool, generate:all, generate:registry
+  backfill:schema-i18n
+  test:generated, smoke:preview
+  ai:deepseek:health, formula-audit, bulk-repair, export-tool-context, guide-specs
+  ai:deepseek:p5b-full-scan
+
+11.5 Tool Activation Sprint S1–S6
+---------------------------------
+Kaynak: docs/sprint-tool-activation-master-plan.md
+
+Manifest (2026-06-14T03:00:46Z):
+  totalTools: 479
+  premiumReady: 22 | nearPremium: 5
+  premiumSchemaFailManual: 12
+  freeActiveMissingBacking: 136
+  categoryOnlyQuarantine: 151
+  guideOracleMissing: 473
+  autoRepairCandidate: 190
+  paymentLockedSafe: 457
+
+Guardrails (DEĞİŞMEZ):
+  paymentUnlockAllowed: false
+  formulaGateUnlockAllowed: false
+  freePaymentAllowed: false
+  deployAllowed: false
+  problemSlugMustRemainLocked: true
+
+Sprint planı:
+  S1 build-sprint-activation-manifest     ✓ (manifest üretildi)
+  S2 apply:s2-low-risk-activation       — i18n/guide/validation scaffold
+  S3 apply:s3-low-risk-activation       — kalan düşük riskli free
+  S4 apply:s4-category-only-decision      — 151 category-only karar
+  S5 apply:s5-guide-oracle-ux-scaffold    — generic guide/oracle UX
+  S6 audit:s6-final-sprint-readiness      — deploy readiness (deploy kapalı)
+
+Hedef: premiumReady 60–120 (güvenli artış)
+
+Manuel kalacak slug'lar (safety-critical):
+  pressure-vessel-wall-thickness-calculator
+  welded-bolted-connection-calculator
+  doviz-pozisyonu-kur-farki-riski-hesabi
+  abonelik-yazilim-cloud-yillik-maliyet-hesabi (problem slug — kilitli)
+
+11.6 Tool Factory Orchestrator
+------------------------------
+src/lib/formula-governance/tool-factory-orchestrator/
+  patch-plan/           — patch plan generator, diff contract
+  human-approval/       — human approval gate, batch deploy audit
+  demo-flow/            — investor demo flow audit
+
+11.7 Release Gate (P11)
+-----------------------
+scripts/release-gate.mjs — lint, tsc, build, smoke suite orchestrator
+Çıktı: docs/release-gate-report.md
+Son bilinen: PASS (234.8s, production-reality.md 2026-06-11)
+
+11.8 Formula Knowledge Graph
+----------------------------
+npm run build:formula-knowledge-graph
+Çıktı: scripts/.cache/formula-knowledge-graph.json
+Tool → route → schema → contract → validation zinciri
+
+================================================================================
+BÖLÜM 12 — PROMPT ENVANTERİ (OTONOM + DEEPSEEK + CURSOR)
+================================================================================
+
+12.1 DeepSeek üretim promptları (scripts/deepseek/prompts.ts)
+-------------------------------------------------------------
+INDUSTRIAL_DEEP_RESEARCH_PROMPT(toolName, toolDescription)
+  — Sıfırdan endüstriyel schema: inputs (6 dil i18n), validation, formulas,
+    outputs (primary, breakdown, hiddenLossDrivers, suggestedActions),
+    premiumFeatures. JSON-only çıktı.
+  — Referans: Maynard, Lean/Six Sigma, ISO 50001/14000/9001, WERC
+
+INDUSTRIAL_ENGINEERING_PROMPT (deprecated alias, existingContext destekli)
+  — Aynı schema; ek bağlam parametresi
+
+12.2 DeepSeek scan promptları (prompts-scan-tools.ts)
+-----------------------------------------------------
+buildToolScanSystemPrompt()
+  — SectorCalc DeepSeek Tool Scanner
+  — JSON envelope: slug, schema (inputs/outputs/formulaSummary/validationRules),
+    audit (riskLevel, formulaConsistent, safeForCalculation, findings)
+  — Kod patch yok, payment unlock yok, Formula Gate override yok
+
+buildToolScanUserPrompt(tool: DiscoveredTool)
+  — 10 audit sorusu: formula consistency, variable match, unit mismatch,
+    division-by-zero, negative values, percent boundaries, min/max, vb.
+
+12.3 Cursor / proje prompt fazları (docs/roadmap.md)
+----------------------------------------------------
+PROMPT-P2.4-001 · AUDITFIX-P2.4-001  — Full Calculation Form Repair
+PROMPT-P4-001 · PROMPT-P4-002        — Trust Trace / Verify
+PROMPT-P9-001                        — Business/Enterprise Packaging
+PROMPT-SEO-P2-001                    — 27 Premium SEO Landings
+PROMPT-P10-001                       — Controlled AI Assistant
+PROMPT-P11-001                       — Autonomous Release Gate
+P5B full scan                        — ai:deepseek:p5b-full-scan
+P6A/P6B/P7 night factory             — formula factory batch reports
+
+12.4 Cursor kuralları (.cursor/rules/)
+----------------------------------------
+  sectorcalc.mdc                        — proje kimliği, hard no, workflow
+  dual-core-calculation-intelligence.mdc — Akıl 1/2 kalıcı kural
+  brand-assets-lock.mdc
+  tool-listing-tiles.mdc
+  premium-schema-engine.mdc
+  premium-architecture.mdc
+  industrial-professional-design.mdc
+  protected-infrastructure.mdc
+  00-proof-gate/RULE.md                 — kanıt zorunluluğu
+  01-sectorcalc-safety/RULE.md          — korunan alanlar
+  02-ui-quality/RULE.md
+
+12.5 AGENTS.md operasyon disiplini
+----------------------------------
+DeepSeek Priority Lock:
+  1. Tüm tool'ları ayağa kaldır
+  2. P2.4/ERT bulgularını toplu onar
+  3. Schema/validation/contract/renderer/i18n patch
+  4. PASS artır, FAIL/WARN/QUARANTINE düşür
+  5. P9/payment tool gövdesi sonrası
+
+Yasak: fake PASS, WARN bypass, sahte Formula Gate, free payment açma
+
+================================================================================
+BÖLÜM 13 — SCRIPTS / AUDIT / SMOKE ENVANTERİ
+================================================================================
+
+package.json — 200+ npm script. Ana gruplar:
+
+AUDIT (kalite):
+  audit:revenue-tools, audit:formulas, audit:full-tools, audit:alignment
+  audit:smart-form (+ rendering, ui-bridge, pilot-qa, staging, production)
+  audit:trust-trace, audit:dual-intelligence-runtime-coverage
+  audit:p24-autonomous-engine, audit:production-readiness, audit:roadmap-debt
+  audit:p24-tool-quality, audit:runtime-trust-engine, audit:p25-control-plane
+  audit:p6a-premium-schema-fail, audit:p6b-formula-factory
+  audit:p7-night, audit:s6-final-sprint-readiness
+  audit:legacy-conflicts, audit:public-surface, audit:llm-seo
+  audit:locale-center, audit:surface-i18n, audit:calculator-copy
+  audit:decision-engine, audit:semantic-jsonld, audit:customer-ai
+  audit:tool-activation, audit:tool-factory, audit:deploy-ready
+  quality:locale, quality:locale:full
+
+SMOKE (runtime):
+  smoke:premium-routes, smoke:premium-smart-forms, smoke:locale-routes
+  smoke:all-calculation-forms, smoke:browser-calculation-forms
+  smoke:feedback-ui, smoke:approved-reports, smoke:verify-report
+  smoke:regional-units, smoke:regional-benchmarks, smoke:case-study-proof
+  smoke:pwa-field-mode, smoke:ai-assistant, smoke:business-packaging
+  smoke:premium-seo-landings, smoke:release-gate, smoke:live-premium-tools
+
+TOOL ACTIVATION:
+  scan:tool-activation, review:tool-activation, apply:tool-activation
+  apply:s2/s3/s4/s5-low-risk batches
+  backfill:premium:*, workorders:quality-backfill
+  assert:revenue-gate, assert:problem-slug-trust
+
+SEO:
+  seo:llms, seo:authority-txt, seo:export-manifest, seo:indexnow
+  export:ai-index, export:ai-tool-index
+
+DEEPSEEK GENERATION:
+  scan:tools, scan:all, generate:tool, generate:all, test:generated
+
+QA / P4:
+  test:p4-golden-oracle, test:p4-runtime-smoke, audit:p4-deploy-guard
+  check:p5-manual-ui, audit:p5-form-presence
+
+RELEASE:
+  release:gate, npm run build (prebuild hooks: lint:schemas, export:ai-index, ...)
+
+scripts/.cache/ (gitignore — commit edilmez):
+  p24-tool-quality-report.json
+  runtime-trust-engine-report.json
+  sprint-tool-activation-manifest.json
+  formula-knowledge-graph.json
+  legacy-conflict-report.json
+  tool-quality-control-plane.json
+  deepseek/bulk-tool-repair-report.json
+  (+ 20+ diğer audit cache)
+
+================================================================================
+BÖLÜM 14 — İŞ PLANI: TAMAMLANAN FAZLAR
+================================================================================
+
+Kaynak: docs/roadmap.md, docs/production-reality.md, docs/final-status.md
+
+| Faz | Ad | Durum | Kanıt |
+|-----|-----|-------|-------|
+| P0 | Final Hard Stabilization | DONE | Premium route collision fix |
+| P1 | Grouped Catalog Search | DONE | 6 locale catalog + search |
+| P2.0 | Smart Form Pilot (3 tool) | DONE | CNC, welding, HVAC |
+| P2.1 | Public Preview + Auth Gate Fix | DONE | Hard gate kaldırıldı |
+| P2.2 | Smart Form Layout | DONE | Desktop 2-col, mobile 375px |
+| P2.3 | Smart Form 27/27 Premium | DONE | smoke:premium-smart-forms |
+| P2.4 | Full Calculation Form Repair | DONE | 155 route smoke PASS |
+| P3 | Feedback / Formula Objection | COMPLETE | toolFeedback Firestore |
+| P4 | Trust Trace / Verify | COMPLETE | /api/verify-report, 43 tests |
+| P5 | Regional Unit Engine | COMPLETE | display-only unit engine |
+| P6 | Regional Benchmark Engine | COMPLETE | indicative bands |
+| P7 | Case Study Proof Layer | COMPLETE | representative examples |
+| P8 | PWA / Field Mode | COMPLETE | installable PWA |
+| P9 | Business/Enterprise Packaging | COMPLETE | /enterprise page |
+| SEO-P2 | 27 Premium SEO Landings | COMPLETE | /seo/[slug] |
+| P10 | Controlled AI Assistant | COMPLETE | deterministic, no API key |
+| P11 | Autonomous Release Gate | COMPLETE | release:gate PASS |
+
+Launch phase lock (sectorcalc.mdc):
+  1. Region + stability        ✓
+  2. 17→27 sector catalog      ✓
+  3. Full catalog QA           ✓
+  4. Campaign tracking + UTM   (bekliyor)
+  5. Launch decision gate      (bekliyor)
+  6. Stripe live readiness     (kısmi — live E2E pending)
+  7. First paid campaign       (bekliyor)
+
+Product roadmap freeze (30 gün):
+  Yeni calculator, schema, sektör, homepage redesign, pricing redesign YASAK
+  İzinli: blocker fix, SEO indexing, mobile, export leak, CTA microcopy (data-driven)
+
+================================================================================
+BÖLÜM 15 — EKSİK KALAN / YAPILMAYAN / KISMİ
+================================================================================
+
+15.1 Tool factory recovery (ANA ÖNCELİK — AGENTS.md)
+----------------------------------------------------
+  P24: 335 WARN + 28 FAIL + 85 QUARANTINE (484 tool)
+  Runtime Trust: 308 review, yalnızca 22 ready
+  473 tool guide/oracle eksik
+  136 free active missing backing
+  151 category-only quarantine
+  12 premium_schema_fail_manual (P6A — manuel formula alignment)
+  Sprint S2–S6 batch uygulamaları tamamlanmadı (manifest var, apply devam)
+
+15.2 Payment / monetization (P9 — ikinci öncelik)
+-------------------------------------------------
+  Stripe checkout + webhook deployed ama live E2E test sequence tam değil
+  docs/final-monetization-verdict.md: READY WITH RISK
+  paymentEligible kilitli 22 tool — kasıtlı, genişletme tool recovery sonrası
+  Paid ads STOPPED (paid-ads-readiness-gate.md)
+
+15.3 Trust / verify eksikleri
+-----------------------------
+  Public /verify backend lookup kısmi — hash/seal format var, DB lookup sınırlı
+  Trust trace PDF export UI — payload hazır, UI button eksik (eski DNA notu)
+  falseBadgeWouldHaveShown: 237 — Formula Gate badge yüzey temizliği devam
+
+15.4 Benchmark / data eksikleri
+-------------------------------
+  src/lib/benchmarks/sourced-benchmark-registry.ts — boş
+  Kaynaksız "sektör ortalaması" iddiası YASAK
+  P6 engine var ama kaynaklı veri pipeline eksik
+
+15.5 i18n / locale eksikleri
+----------------------------
+  6 locale messages büyük ama tool bazlı sistematik smoke CI eksik
+  backfill:schema-i18n — devam eden iş (git status'ta değişiklikler)
+  generated schema 6 dil i18n tamamlanma durumu tool bazında değişken
+
+15.6 SEO / indexing follow-up
+-----------------------------
+  Premium SEO landings henüz curated sitemap/indexable manifest'te değil
+  (production-reality.md follow-up)
+  Campaign tracking + UTM phase lock açılmadı
+
+15.7 UX / polish eksikleri
+--------------------------
+  Premium design Phase 5: final a11y audit pass (manuel) bekliyor
+  Saha paneli UX hedef (%40 hizalama) — 44px touch, 3 sn okuma tam değil
+  Metric/Imperial: P5 display engine var; calc math locale'a tam bağlı değil
+
+15.8 AI assistant sınırları
+---------------------------
+  P10 deterministic assistant canlı — external LLM yok
+  Customer AI gateway (api/ai-gateway) — boundary var, production LLM future work
+  DeepSeek factory aktif ama bulk apply human approval bekliyor
+
+15.9 Operasyon / ölçüm modu
+---------------------------
+  final-status.md: "measurement mode, not build mode"
+  /admin/kpi boş kalabilir (event storage bağlı)
+  Beta partner ROI kanıtı yok — representative case study only
+  30-day freeze aktif — yeni feature backlog'a
+
+15.10 Deploy / git
+------------------
+  Git status (2026-06-14): 25 değişiklik/untracked
+  Schema i18n backfill, premium-schema-bridge, vercel config — commit bekliyor
+  Eski DNA txt (2026-06-09) deploy/commit durumu güncel değil
+
+================================================================================
+BÖLÜM 16 — KALDIRILMASI / İZOLE EDİLMESİ GEREKENLER
+================================================================================
+
+Kaynak: docs/legacy-conflict-cleanup.md, docs/calculator-first-architecture-cleanup.md
+
+16.1 Deprecated UI (canlı render KAPALI)
+----------------------------------------
+  GuidedReferenceGraphic + GenericCalculatorGraphic — deprecated
+  ReferenceGraphicCard — return null (GDE-0)
+  resolveReferenceGraphic — yalnızca audit hook'ta
+  shouldRenderInputGuide() default false (spec yoksa render yok)
+
+16.2 Deprecated pazarlama iddiaları
+----------------------------------
+  Legacy verify/certified/QR/hash/legal-grade iddiaları
+  "Mühürlü/sertifikalı" aşırı iddialar — yeni yüzeyde kullanılmaz
+  Generic guide fallback (wouldLegacyGenericGuideRender === true)
+
+16.3 Stale cache / build drift (karar kaynağı DEĞİL)
+------------------------------------------------------
+  scripts/.cache/* — commit edilmez, regenerate olmadan final karar verilmez
+  public/ai-* build drift — yalnızca fresh export sonrası geçerli
+  Eski quality-scan CSV'leri — oracle yerine geçmez
+  Manuel JSON fake PASS override
+
+16.4 Duplicate / legacy path'ler (temizlik adayı)
+--------------------------------------------------
+  src/components/billing/PremiumPaywall.tsx
+  src/components/subscription/PremiumPaywall.tsx — iki paywall path
+  /tools/[tier]/[slug] legacy tier route (7 legacy calculator)
+  Legacy calculator forms (P2.4 repaired ama route consolidate edilebilir)
+  tailwind.config.ts legacy color alias'ları (köprü — kademeli temizlik)
+  Çok katmanlı CSS (industrial-ui vs design-craft overlap) — consolidate adayı
+
+16.5 Korunan — SİLİNMEYECEK
+---------------------------
+  Admin panel (src/app/admin/**, src/components/admin/**)
+  Lead system, Stripe functions, Firestore rules
+  152 premium seed içeriği
+  Mevcut route slug'ları (rastgele rename yok)
+  Brand assets (logo/favicon)
+  Formula contracts ve oracle implementations
+  apps/guide-frontend — repoda yok (legacy-conflict doc referans; ayrı CMS hattı)
+
+16.6 Firebase Hosting
+---------------------
+  Secondary deploy path — silinmez ama primary Vercel'dir
+  firebase.json frameworksBackend — backup/legacy
+
+16.7 Problem slug (kalıcı kilit)
+--------------------------------
+  abonelik-yazilim-cloud-yillik-maliyet-hesabi
+  paymentEligible: false, formulaGateEligible: false — değiştirme
+
+================================================================================
+BÖLÜM 17 — ADMIN VE GELİR ALTYAPISI (KORUNAN)
+================================================================================
+
+Admin checkpoint: docs/admin-panel-stable-checkpoint.md
+  /admin/leads — lead pipeline, SLA, quality score, action center
+  /admin/kpi — live KPI review
+  /admin/benchmarks, /admin/schema-generator, /admin/verification-queue
+  Firebase Auth admin claim + Cloud Functions
+
+Stripe (functions/src/):
+  createStripeCheckout.ts, stripeWebhook.ts
+  Client entitlement: src/lib/billing/, src/lib/entitlements/
+  PremiumPaywall guard: free → premium CTA, export gate
+
+Firestore collections (örnekler):
+  toolFeedback, approvedReports, leads, subscriptions/entitlements
+
+Revenue gate assert:
+  npm run assert:revenue-gate
+  paymentEligible: 22, formulaGateEligible: 22, freePayment: 0 zorunlu
+
+================================================================================
+BÖLÜM 18 — TEST ALTYAPISI
+================================================================================
+
+  Vitest: src/**/*.test.ts, src/lib/formula-governance/**/__tests__
+  npm run test:formulas — formula-governance test suite
+  Playwright: @playwright/test devDependency (browser smoke scripts .mjs)
+  fast-check — property tests
+  Golden oracle: test:p4-golden-oracle
+
+Önemli test dosyaları (yeni):
+  src/lib/generated-tools/__tests__/premium-schema-bridge.test.ts
+  src/lib/generated-tools/__tests__/schema-i18n-status.test.ts
+  src/lib/formula-governance/dual-intelligence-runtime-coverage/__tests__/
+
+================================================================================
+BÖLÜM 19 — DOKÜMANTASYON ENVANTERİ (docs/ — 114 dosya)
+================================================================================
+
+DNA / anatomi:
+  sectorcalc-system-dna.txt (2026-06-09 — GÜNCELLENMELİ)
+  sectorcalc-product-dna.txt (2026-06-07 — GÜNCELLENMELİ)
+  sectorcalc-tam-yapi-raporu.txt (2026-06-09 — GÜNCELLENMELİ)
+  sectorcalc-kapsamli-envanter-raporu-2026-06-14.txt (BU DOSYA — güncel)
+
+Operasyon:
+  production-reality.md, final-status.md, roadmap.md
+  cursor-workflow.md, sectorcalc-stability-settings.md
+  admin-panel-stable-checkpoint.md, full-catalog-qa.md
+
+Monetization / launch:
+  monetization-sprint-30-day-plan.md, product-roadmap-freeze.md
+  final-launch-command-center.md, revenue-flow-v1-production-readiness.md
+  paid-ads-readiness-gate.md, stripe-test-checkout-runbook.md
+
+Tool factory:
+  sprint-tool-activation-master-plan.md
+  p24-autonomous-dual-intelligence-engine.md
+  runtime-trust-engine.md, tool-control-plane.md
+  deepseek-ai-quality-factory.md, legacy-conflict-cleanup.md
+  p6b/p7/p8 factory reports
+
+Growth / SEO:
+  week-1/2 matrices, controlled-scale-sprint.md
+  search-console-indexnow-runbook.md, multilingual-seo-acquisition-funnel.md
+
+================================================================================
+BÖLÜM 20 — GÜNCEL GIT / WORKING TREE (2026-06-14)
+================================================================================
+
+HEAD: 62a6dca — fix(build): remove unsupported --no-typescript from next build wrapper
+
+Değişen / yeni dosyalar (git status snapshot):
+  messages/ar.json, de.json, en.json, es.json, fr.json, tr.json
+  next.config.ts, package.json, vercel.json
+  public/ai-categories.json, ai-tool-index.json, ai-tool-index.txt, ai-tool-routes.json
+  scripts/deepseek/backfill-schema-i18n.ts (yeni)
+  scripts/deepseek/deepseek-client.ts, prompts.ts
+  scripts/vercel/ignore-build.mjs
+  src/app/[locale]/tools/generated/[slug]/page.tsx
+  src/app/[locale]/tools/premium-schema/[slug]/page.tsx
+  src/components/tools/GeneratedToolPage.tsx
+  src/lib/generated-tools/premium-schema-bridge.ts (yeni)
+  src/lib/generated-tools/schema-i18n-status.ts (yeni)
+  __tests__ for above
+
+Bu değişiklikler: schema i18n backfill + premium-schema bridge — devam eden sprint işi
+
+================================================================================
+BÖLÜM 21 — ÖNCELİK MATRİSİ (NE YAPILMALI)
+================================================================================
+
+ÖNCELİK 1 — Tool recovery (AGENTS.md DeepSeek Priority Lock)
+  a) S2/S3 low-risk activation batch apply
+  b) P24 WARN/FAIL/QUARANTINE triage — auto_repair 190 candidate
+  c) P6A 12 manual premium schema fail alignment
+  d) S5 guide/oracle generic scaffold (473 gap)
+  e) backfill:schema-i18n tamamlama + test:generated PASS
+  f) PASS hedef: 36 → 100+ (güvenli artış)
+
+ÖNCELİK 2 — Kalite gate sürekliliği
+  npm run lint && npx tsc --noEmit && npm run build
+  npm run audit:p24-tool-quality
+  npm run audit:runtime-trust-engine
+  npm run assert:revenue-gate
+  npm run release:gate (deploy öncesi)
+
+ÖNCELİK 3 — Legacy temizlik (silmeden izole)
+  npm run audit:legacy-conflicts
+  Duplicate PremiumPaywall consolidate
+  falseBadge 237 temizliği
+  Stale CSS alias köprüleri
+
+ÖNCELİK 4 — Monetization (tool recovery SONRASI)
+  Stripe live E2E test sequence
+  paymentEligible genişletme (human gate)
+  Campaign/UTM phase lock açılışı
+
+ÖNCELİK 5 — Dokümantasyon sync
+  sectorcalc-system-dna.txt, product-dna.txt, tam-yapi-raporu.txt güncelle
+  Bu raporu sprint sonrası revize et
+
+YAPILMAMALI (freeze + hard no):
+  Yeni calculator/schema/sektör
+  Homepage/pricing redesign
+  src/app/api yeni route
+  Free tool payment açma
+  Fake PASS / WARN bypass
+  Brand asset değiştirme
+  Firestore region / Functions region değiştirme
+
+================================================================================
+BÖLÜM 22 — HIZLI KOMUT REFERANSI
+================================================================================
+
+# Tam envanter audit
+npm run audit:p24-tool-quality
+npm run audit:runtime-trust-engine
+npm run audit:sprint-activation-manifest
+npm run audit:p25-control-plane
+npm run assert:revenue-gate
+npm run audit:legacy-conflicts
+
+# DeepSeek factory
+npm run scan:all
+npm run generate:all
+npm run test:generated
+npm run backfill:schema-i18n
+
+# Sprint apply
+npm run apply:s2-low-risk-activation
+npm run apply:s3-low-risk-activation
+npm run apply:s4-category-only-decision
+npm run apply:s5-guide-oracle-ux-scaffold
+npm run audit:s6-final-sprint-readiness
+
+# Deploy gate
+npm run release:gate
+
+# Revenue catalog
+npm run audit:revenue-tools
+
+================================================================================
+BÖLÜM 23 — TERİM SÖZLÜĞÜ
+================================================================================
+
+DNA        — Proje kimlik, tasarım, mimari, operasyon kurallarının tek kaynak tanımı
+MR         — (Bağlam: Margin/Risk profilleri — src/lib/tools/sectors/risk-profiles.ts
+             "DNA of each sector's risk model")
+Akıl 1     — Mind 1: Validation/Oracle/Audit Engine
+Akıl 2     — Mind 2: Requirement/Constraint Engine
+ERT        — Enterprise Runtime Trust Engine
+P24        — Phase 2.4 Autonomous Dual-Intelligence Engine (13-gate audit)
+P25        — Enterprise Control Plane (unified quality map)
+Formula Gate — Runtime trust onaylı formula badge (22 slug eligible)
+QUARANTINE — Safe mode; yanlış sonuç riski — deploy blocked
+category-only — Route yok, yalnızca katalog stub (151 tool)
+full_loop  — Akıl 1 + Akıl 2 runtime tam döngü
+Smart Form — Dinamik input form (ontology/requirement engine driven)
+Trust Trace — SHA-256 hash'li onaylı rapor + public verify
+Generated  — DeepSeek schema'dan üretilen calculator pipeline
+
+================================================================================
+BÖLÜM 24 — KIRIK, YANLIŞ, HATALI YAPILANDIRILMIŞ DETAYLAR (BULGU ENVANTERİ)
+================================================================================
+
+Bu bölüm yalnızca "eksik" değil; bilinen kırık implementasyonları, yanlış
+eşleşmeleri, yapısal hataları ve deprecated yüzeyleri audit cache + kod
+kanıtıyla listeler.
+
+Audit kaynak tarihleri:
+  P24 tool quality      : 2026-06-14T06:05:21Z
+  Runtime Trust Engine  : 2026-06-14T06:05:23Z
+  Sprint manifest       : 2026-06-14T03:00:46Z
+  Legacy conflict       : 2026-06-13T21:24:59Z
+  P6A manual audit      : 2026-06-13T22:29:03Z
+  Input guide audit     : (cache mevcut)
+
+Komutla tazeleyin:
+  node scripts/tool-activation/audit-p24-tool-quality.mjs
+  node scripts/tool-activation/audit-runtime-trust-engine.mjs
+  npm run audit:legacy-conflicts
+
+--------------------------------------------------------------------------------
+24.1 P24 ÖZET — KIRIK / RİSKLİ TOOL DAĞILIMI
+--------------------------------------------------------------------------------
+
+| Verdict     | Adet | Anlam |
+|-------------|-----:|-------|
+| PASS        |   36 | Gate'ler geçti — deploy adayı |
+| WARN        |  335 | Çalışır ama kalite borcu var |
+| FAIL        |   28 | Kritik — hesap/form/validation kırık |
+| QUARANTINE  |   85 | Route yok — katalog stub (yanlış sonuç riski kapalı) |
+
+Route durumu:
+  activeRoutes: 399 | categoryOnly (stub): 85
+
+WARN kök neden dağılımı (checkId × severity=warn):
+  freePremiumSplit      277  — free/premium revenue eşleşmesi yok veya tier karışık
+  localeKeys            199  — 6 locale i18n eksik (çoğu premium-schema)
+  boundaryTests         175  — sınır testi yok / zayıf
+  canonicalUnit         133  — birim kanonizasyonu tutarsız
+  arRtl                  72  — Arapça RTL layout/label riski
+  requiredInputs         54  — input schema / calculator backing eksik
+  unitMapping            12  — birim eşlemesi hatalı
+  scenarioTests          10  — senaryo testi yok
+  globalSanityTests      10  — evrensel mantık kuralı zayıf
+  formulaContractAlignment 5 — schema ↔ contract alan uyumsuzluğu
+  validation              5  — validation modülü eksik
+  oracleTests             5  — oracle karşılaştırma yok
+
+FAIL kök neden dağılımı:
+  requiredInputs         25  — aktif route var ama calculator implementasyonu YOK
+  validation              3  — premium-schema validation modülü YOK
+  formulaContractAlignment 1 — ciddi schema/contract çakışması
+
+--------------------------------------------------------------------------------
+24.2 FAIL — TAM LİSTE (28 TOOL — HESAPLAMA KIRIK)
+--------------------------------------------------------------------------------
+
+A) FREE TOOL — Aktif route var, calculator implementasyonu tespit edilmedi (25)
+   (P24 mesaj: "Active free tool has no calculator implementation detected.")
+
+   agirlikli-ortalama-hesaplama
+   akaryakit-fiyati-ile-yol-butcesi
+   asma-tavan-malzeme-hesabi
+   bar-psi-pascal-cevirici
+   beygir-gucu-kilowatt-cevirici
+   cop-atik-konteyner-hacim-hesabi
+   daire-alani-cevresi-hesaplama
+   dogalgaz-tuketimi-hesaplama
+   duvar-kagidi-seramik-adet-hesaplama
+   hidrolik-silindir-itme-kuvveti-hesabi
+   internet-telefon-paketi-karsilastirma
+   joule-kalori-watt-saat-cevirici
+   kesir-ondalik-cevirici
+   koni-hacmi-hesaplama
+   kure-hacmi-hesaplama
+   merdiven-platform-yukseklik-erisim-hesabi
+   mtv-motorlu-tasitlar-vergisi-hesaplama
+   newton-kilogram-kuvvet-cevirici
+   prefabrik-konteyner-olcu-hesaplama
+   rastgele-sayi-ureteci
+   su-deposu-hacmi-hesaplama
+   topraklama-direnci-hesaplama
+   ucgen-alani-cevresi-hesaplama
+   yamuk-alani-hesaplama
+   yangin-tupu-dolap-debisi-hesaplama
+
+   YANLIŞ YAPILANDIRMA: Route açık + SEO index'te görünür olabilir; form/hesap
+   gövdesi yok → kullanıcı boş veya kırık deneyim görür.
+
+B) PREMIUM-SCHEMA — Validation modülü eksik (3)
+
+   pressure-vessel-wall-thickness-calculator
+     → Missing premium-schema validation module
+     → HIGH_RISK_MANUAL_ONLY — basınçlı kap mühendislik; otomatik patch YASAK
+
+   welded-bolted-connection-calculator
+     → Missing premium-schema validation module
+     → HIGH_RISK_MANUAL_ONLY — yapısal bağlantı; otomatik patch YASAK
+
+   doviz-pozisyonu-kur-farki-riski-hesabi
+     → Missing premium-schema validation module
+     → YANLIŞ EŞLEŞME (aşağıda 24.4) — slug FX iken schema lojistik alanları taşıyor
+
+--------------------------------------------------------------------------------
+24.3 QUARANTINE — 85 TOOL (ROUTE YOK, STUB ONLY)
+--------------------------------------------------------------------------------
+
+Ortak mesaj: "No active route — catalog stub only."
+
+Bunlar kullanıcıya yanlış sonuç göstermez (route kapalı) ama katalog/SEO
+tarafında "var gibi" görünür — yapısal borç:
+
+  3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator
+  3b-baski-parti-optimizasyonu-ve-yuvalama-calculator
+  3b-baski-vs-talasli-imalat-basabas-noktasi-calculator
+  5s-denetim-skoru-verimlilik-kaybi-maliyet-calculator
+  ai-ml-compute-ve-api-token-maliyet-calculator
+  ai-otomasyon-roi-ve-is-gucu-etki-calculator
+  ai-uyum-ve-etik-denetim-maliyet-eu-ai-act-calculator
+  alti-sigma-proje-secimi-ve-yatirim-onceliklendirme-calculator
+  ambalaj-boyutu-ve-nakliye-hacim-optimizasyon-calculator
+  aml-kyc-ve-yaptirim-tarama-uyum-maliyeti-calculator
+  basim-baski-fire-ve-fire-disi-sarf-malzeme-calculator
+  beton-karisim-tasarimi-ve-maliyet-optimizasyon-calculator
+  bulut-maliyet-optimizasyonu-ve-israf-eliminasyonu-calculator
+  capraz-sevkiyat-cross-docking-vs-depolama-maliyet-calculator
+  cbam-karbon-sinir-vergisi-ve-ihracat-maliyet-etkisi-calculator
+  cnc-takim-yolu-bos-kesim-suresi-calculator
+  cok-ulke-veri-gizlilik-uyum-ve-ceza-riski-calculator
+  degisim-changeover-matrisi-ve-sekans-optimizasyon-calculator
+  dijital-ikiz-vs-fiziksel-deneme-maliyet-calculator
+  dikim-hatti-dengeleme-ve-operasyon-suresi-calculator
+  ... (+65 slug — tam liste: scripts/.cache/p24-tool-quality-report.json)
+
+Sprint manifest: categoryOnlyQuarantine = 151 (P24 categoryOnly 85 ile farklı
+sayım metodu — ikisi de "route/backing eksik" ailesi)
+
+--------------------------------------------------------------------------------
+24.4 YANLIŞ SCHEMA ↔ CONTRACT EŞLEŞMELERİ (P6A — MANUEL ONARIM ZORUNLU)
+--------------------------------------------------------------------------------
+
+Kaynak: docs/p6a-premium-schema-fail-manual-audit.md
+
+12 aday — otomatik patch: 0 | manuel review: 12
+
+| Slug | Risk | Sorun özeti |
+|------|------|-------------|
+| doviz-pozisyonu-kur-farki-riski-hesabi | HIGH | Schema lojistik alanları; contract FX alanları — TAMAMEN FARKLI DOMAIN |
+| pressure-vessel-wall-thickness-calculator | HIGH | contract_not_in_schema: processMinutes, waitMinutes, transportMinutes |
+| welded-bolted-connection-calculator | HIGH | contract_not_in_schema: t1,t2,t3,t4,assemblyLimit |
+| profit-margin-calculator | MED | 10+ alan schema↔contract çakışması (sellingPrice vs materialCost vb.) |
+| heat-loss-calculator | MED | Enerji alanları vs bina/ısı kaybı alanları karışmış |
+| material-waste-calculator | MED | Gıda fire vs genel malzeme fire alanları karışmış |
+| scrap-rate-calculator | MED | Hurda oranı vs geometrik/hacim alanları karışmış |
+| cleaning-cost-estimator | LOW | schema, validation, resultRenderer dosyaları eksik |
+| cnc-minimum-safe-quote-analyzer | LOW | schema, validation, formulaContract eksik |
+| machine-hour-estimator | LOW | schema, validation, contract, resultRenderer eksik |
+| project-cost-estimator | LOW | schema, validation, contract, resultRenderer eksik |
+| return-rate-profit-erosion-tool | LOW | API maliyet alanları vs iade/marj alanları karışmış |
+
+KRİTİK ÖRNEK — doviz-pozisyonu-kur-farki-riski-hesabi:
+  schema_not_in_contract: plannedDistanceKm, actualDistanceKm, fuelCostPerKm,
+                          idleHours, hourlyCost  (lojistik!)
+  contract_not_in_schema: foreignExposure, fxMovePercent, faceValue, discountRate (FX!)
+  → Slug FX risk aracı; bağlı schema/contract lojistik hesap kalıntısı — YANLIŞ DOMAIN
+
+KRİTİK ÖRNEK — return-rate-profit-erosion-tool:
+  schema: monthlyApiCalls, costPerThousandCalls (SaaS/API maliyet)
+  contract: productPrice, returnRate, adCostPerSale (e-ticaret iade marjı)
+  → İki farklı iş modeli tek slug altında birleştirilmiş
+
+--------------------------------------------------------------------------------
+24.5 FORMULA CONTRACT GAP — LAUNCH BLOCKER (20 REVENUE TOOL)
+--------------------------------------------------------------------------------
+
+Kaynak: scripts/.cache/formula-contract-gap.json
+
+criticalWithoutContract: 20 revenue tool'da FormulaContract YOK:
+
+  3d-print-job-margin-tool
+  desi-calculator
+  route-optimization-analyzer
+  fertilizer-dosage-calculator
+  crop-yield-loss-analyzer
+  irrigation-cost-check
+  water-optimization-verdict
+  feed-cost-estimator
+  feed-efficiency-analyzer
+  milk-yield-check
+  dairy-profit-detector
+  energy-efficiency-report
+  carbon-footprint-quick
+  cbam-compliance-verdict
+  renovation-budget-optimizer
+  (+5 ek slug cache'te)
+
+YANLIŞ YAPILANDIRMA: Revenue registry'de premium/free çifti var; oracle/contract
+zinciri yok → Formula Gate asla onaylayamaz; güven rozeti gösterilmemeli.
+
+--------------------------------------------------------------------------------
+24.6 RUNTIME TRUST — YANLIŞ ROZET / GÜVEN YÜZEYİ RİSKİ
+--------------------------------------------------------------------------------
+
+Kaynak: scripts/.cache/runtime-trust-engine-report.json (2026-06-14)
+
+  totalChecked: 330
+  ready: 22 | review: 308
+  formulaGateEligible: 22 | paymentEligible: 22
+  falseBadgeWouldHaveShown: 237
+
+YANLIŞ YAPILANDIRMA RİSKİ:
+  237 tool'da eski "Formula Gate Approved" rozeti gösterilebilirdi; runtime trust
+  guard bunu engelliyor. hasFormulaSourceAudit() tek başına badge VERMEZ kuralı
+  bu yüzden kondu.
+
+Formula Gate yüzeyleri (legacy-conflict — şu an güvenli):
+  FormulaGateCatalogMeta.tsx      — usesRuntimeTrust: true ✓
+  FormulaGateToolStatus.tsx       — usesRuntimeTrust: true ✓
+  FormulaSourceAuditBadge.tsx     — usesRuntimeTrust: true ✓
+
+--------------------------------------------------------------------------------
+24.7 INPUT GUIDE / GÖRSEL REHBER — KIRIK VE GENERIC FALLBACK
+--------------------------------------------------------------------------------
+
+Kaynak: scripts/.cache/input-guide-audit-report.json
+
+  totalChecked: 330
+  withGuideSpec: 52        (yalnızca %16)
+  renderableGuides: 57
+  hiddenNoSpec: 188         (spec yok — bilinçli gizleme)
+  blockedGeneric: 116       (generic fallback engellendi — doğru)
+  inputKeyMismatch: 0
+
+Sprint manifest: guideOracleMissing = 473
+
+Legacy conflict — generic guide kodu hâlâ repoda (canlı render kapalı olmalı):
+  src/components/guidance/GuidedReferenceGraphic.tsx
+    → GenericCalculatorGraphic fallback (severity: medium)
+  src/components/guidance/templates/GenericCalculatorGraphic.tsx
+    → Generic SVG — sektöre özel değil, machine-time label riski
+  src/components/guidance/ReferenceGraphicCard.tsx
+    → return null (GDE-0) — kalıcı kapalı
+  src/lib/guidance/reference-graphic-resolver.ts
+    → resolveReferenceGraphic — yalnızca shouldRenderInputGuide() true ise
+
+messages/tr.json içinde generic placeholder metinleri:
+  "girdi-rehberi-tr", "schema-hesaplama-generic" (severity: medium)
+
+YANLIŞ YAPILANDIRMA (geçmiş): Generic SVG tüm tool'lara basılıyordu; şimdi policy
+ile engellendi ama 473 tool'da hâlâ sector-specific guide/oracle UX yok.
+
+--------------------------------------------------------------------------------
+24.8 LEGACY CONFLICT — YAPISAL ÇAKIŞMA VE DEPRECATED YÜZEYLER
+--------------------------------------------------------------------------------
+
+Kaynak: scripts/.cache/legacy-conflict-report.json (2026-06-13)
+
+| Kategori | Adet | Severity dağılımı | Durum |
+|----------|-----:|-------------------|-------|
+| genericInputGuide | 41 | 17 medium, 17 low | Generic fallback kodu repoda |
+| verifyCertificationLegacy | 17 | 3 medium, 14 low | Eski verify/certified iddiaları |
+| buildCacheDrift | 26 | 26 info | public/ai-* stale build drift |
+| genericResultPlaceholder | 12 | 9 medium | "Değerleri girin" placeholder copy |
+| p9WipIsolation | 5 | 5 info | Payment WIP — tool hattından ayrı tutulmalı |
+| guideCmsIsolation | 2 | 2 info | guide-frontend CMS ayrı hat |
+| duplicateSlugAlias | 1 | 1 medium | Schema slug map çift hedef |
+| premiumFreeCopyMismatch | 1 | 1 info | FreeTrafficToolPage premium branch OK |
+
+duplicateSlugAlias (medium):
+  schemaId dairy-feed-efficiency-loss → slug_map_duplicate_schema_target
+  → Aynı schema hedefi birden fazla slug'a map — routing/catalog karışıklığı riski
+
+genericResultPlaceholder (medium) — kullanıcıya anlamsız sonuç metni:
+  messages/en.json, messages/tr.json: "enter-values-placeholder", "degerleri-girin"
+  scripts/smoke-live-premium-tools.mjs — placeholder tespit hook
+
+verifyCertificationLegacy (medium):
+  src/app/api/verify-report/route.ts — hash verification (legacy iddia dili)
+  src/lib/trust-trace/approved-report-service.ts — public-verify
+  NOT: Public DB lookup sınırlı; "third-party certified" iddiası kullanılmamalı
+
+buildCacheDrift (26 info):
+  public/ai-tool-index.json, ai-tool-routes.json, ai-categories.json
+  → Build/export olmadan commit edilirse audit yanlış sonuç verir
+
+--------------------------------------------------------------------------------
+24.9 MİMARİ / KOD YAPISI — YANLIŞ VEYA ÇİFT YOLLAR
+--------------------------------------------------------------------------------
+
+A) Çift PremiumPaywall bileşeni
+   src/components/billing/PremiumPaywall.tsx
+   src/components/subscription/PremiumPaywall.tsx
+   → İki import yolu; davranış drift riski
+
+B) src/app/api vs proje kuralı çelişkisi
+   Kural: "src/app/api routes yasak"
+   Mevcut 8 route: assistant, ai-gateway, ai-repair, reports/approved,
+   verify-report, tool-feedback, verification-queue, indexnow-verification
+   → Yeni API ekleme yasak; mevcutlar legacy/phase onaylı
+
+C) Legacy tier route
+   /tools/[tier]/[slug] — 10 legacy calculator
+   → Paralel routing; consolidate edilmedi
+
+D) CSS renk sistemi — legacy alias karmaşası
+   tailwind.config.ts: 30+ legacy alias (deep-navy, accent-teal, professional-blue...)
+   industrial-ui.css vs design-craft.css --sc-* köprü çakışması
+   → Aynı token farklı hex (ör. action-orange #C2410C vs #e65100)
+
+E) Deprecated @deprecated kod yolları (30+ dosya)
+   Örnekler:
+   src/components/layout/SiteFooter.tsx → SiteFooter deprecated, EnterpriseFooter kullan
+   src/components/smart-form/SmartFormShell.tsx → view modes kaldırıldı, deprecated
+   src/lib/os/MasterOS.ts → yeni master-os path'e taşınmış
+   src/data/pricing-plans.ts → buildPricingPlans(t) ile değiştirilmeli
+   → Migration yarım; eski import'lar hâlâ çalışıyor olabilir
+
+F) Çift hosting otoritesi
+   Vercel (primary) + Firebase Hosting (secondary)
+   → Deploy/smoke hangi ortamı test ediyor belirsizliği (production-reality.md ile netleştir)
+
+G) DNA txt dosyaları güncel değil
+   sectorcalc-system-dna.txt (2026-06-09) — commit/deploy sayıları eski
+   sectorcalc-product-dna.txt — 5 locale derken routing 6 locale
+   → Yanlış referans riski; bu rapor (Bölüm 24) audit cache'e dayanır
+
+--------------------------------------------------------------------------------
+24.10 MONETIZATION / ÖDEME — KIRIK VEYA DOĞRULANMAMIŞ
+--------------------------------------------------------------------------------
+
+Kaynak: docs/final-monetization-verdict.md — READY WITH RISK
+
+  Stripe checkout/webhook: kod deployed ✓
+  Live E2E test: operator sign-off BEKLİYOR ✗
+  Single report: pricing grid'de yok — yalnızca locked export CTA'dan ✓ (bilinçli)
+  Rate limit: src/lib/leads/rate-limit.ts
+    TODO: "Replace with server-side rate limiting before production paid traffic"
+
+Blocked/problem slug'lar (payment + formula gate kilitli):
+  abonelik-yazilim-cloud-yillik-maliyet-hesabi  (problem slug)
+  doviz-pozisyonu-kur-farki-riski-hesabi
+  pressure-vessel-wall-thickness-calculator
+  welded-bolted-connection-calculator
+  legal-interest-fee-calculator-pro (manualOnly)
+
+YANLIŞ YAPILANDIRMA RİSKİ:
+  freePremiumSplit WARN ×277 — free traffic tool'ların revenue paid pair'i yok;
+  freemium funnel bilinçli mi yoksa registry drift mi — tool bazında review gerekir.
+
+--------------------------------------------------------------------------------
+24.11 i18n / LOCALE — KIRIK VE EKSİK YAPILANDIRMA
+--------------------------------------------------------------------------------
+
+  localeKeys WARN ×199 — çoğu premium-schema/generated tool:
+    Örnek mesaj: "Missing locale/i18n coverage: premium-schema-i18n messages[en,tr,de,fr,es,ar]"
+    Örnek slug: agv-amr-otonom-tasima-geri-donus-calculator
+
+  arRtl WARN ×72 — Arapça RTL layout riski
+
+  Git working tree (commit edilmemiş):
+    messages/*.json değişiklikleri + backfill:schema-i18n script
+    → Kısmi i18n patch devam ediyor; tutarsız locale snapshot riski
+
+  locale-copy-style-guide kuralı:
+    messages'ta TODO, placeholder, Coming soon, undefined, null YASAK
+    → Periyodik grep gerekir
+
+--------------------------------------------------------------------------------
+24.12 TRUST TRACE / VERIFY — EKSİK BACKEND
+--------------------------------------------------------------------------------
+
+  Trust trace payload + hash: ✓ hazır
+  POST /api/reports/approved: ✓
+  GET /api/verify-report: ✓ (hash verify)
+  Public verify DB lookup: kısmi ✗
+  Trust trace PDF export UI button: eksik ✗ (payload hazır)
+  Case study: representative — gerçek ROI kanıtı değil (bilinçli sınırlama)
+
+  security-notes.md / deployment-checklist.md:
+    Admin read TODO (auth eksikliği referansı — checkpoint ile çelişebilir, doğrula)
+
+--------------------------------------------------------------------------------
+24.13 SEO / INDEX — YANLIŞ YAPILANDIRMA RİSKLERİ
+--------------------------------------------------------------------------------
+
+  Premium SEO landings (/seo/[slug]): canonical var, sitemap manifest'te YOK
+    → Index gecikmesi riski (production-reality.md follow-up)
+
+  25 free FAIL tool: route açık, calculator yok
+    → Indexlenirse kullanıcı kırık sayfa görür — SEO + UX blocker
+
+  public/ai-tool-index.json (474 tool) vs P24 (484 tool)
+    → Sayım farkı; export stale ise internal link graph yanlış
+
+--------------------------------------------------------------------------------
+24.14 ÖNCELİKLİ ONARIM SIRASI (KIRIK → GÜVENLİ)
+--------------------------------------------------------------------------------
+
+SEVİYE 1 — Kullanıcıya kırık sonuç gösterebilir (hemen)
+  [ ] 25 free FAIL tool: route kapat VEYA calculator implement et
+  [ ] doviz/pressure-vessel/welded-bolted: validation + domain düzeltmesi (manuel)
+  [ ] 20 revenue tool FormulaContract gap kapat
+
+SEVİYE 2 — Yanlış yapılandırma / drift (1–2 sprint)
+  [ ] P6A 12 slug schema↔contract reconcile
+  [ ] localeKeys 199 + backfill:schema-i18n tamamla
+  [ ] duplicateSlugAlias dairy-feed-efficiency-loss map düzelt
+  [ ] PremiumPaywall duplicate consolidate
+
+SEVİYE 3 — Yapısal borç (S2–S6 sprint)
+  [ ] 85–151 category-only/quarantine route kararı (S4)
+  [ ] 473 guide/oracle scaffold (S5)
+  [ ] 190 auto_repair_candidate batch apply (S2/S3)
+  [ ] CSS legacy alias temizliği
+
+SEVİYE 4 — Monetization doğrulama (tool recovery sonrası)
+  [ ] Stripe live E2E
+  [ ] Server-side rate limiting
+  [ ] paymentEligible genişletme (human gate)
+
+Her onarım sonrası zorunlu:
+  npm run lint && npx tsc --noEmit && npm run build
+  node scripts/tool-activation/audit-p24-tool-quality.mjs
+  npm run assert:revenue-gate
+
+================================================================================
+DOSYA SONU
+================================================================================
+Rapor: docs/sectorcalc-kapsamli-envanter-raporu-2026-06-14.txt
+Snapshot: 2026-06-14 | Repo HEAD: 62a6dca
+Bölüm 24 eklendi: kırık/yanlış/hatalı yapılandırma bulgu envanteri
+Sonraki güncelleme: P24 + legacy-conflict audit regenerate sonrası
+================================================================================
