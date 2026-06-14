@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "NODE_OPTIONS='--max-old-space-size=4096' node scripts/next-build-with-500-fallback.mjs",
+    "deploy:hosting": "node scripts/deploy-production.mjs",
     "vercel-build": "npm run test:generated && next build",
     "postbuild": "node scripts/ensure-500-export.mjs",
     "start": "next start",

@@ -49,23 +49,34 @@ function runNextBuild() {
   return { status: result.status ?? 1, output };
 }
 
-const first = runNextBuild();
+const MAX_ATTEMPTS = 3;
+let lastOutput = "";
 
-if (first.status === 0) {
-  ensure500Artifacts();
-  process.exit(0);
-}
-
-const rename500Failure =
-  first.output.includes(".next/export/500.html") &&
-  first.output.includes(".next/server/pages/500.html");
-
-if (rename500Failure && ssgCompleted(first.output)) {
-  ensure500Artifacts();
-  if (!buildIdExists()) {
-    writeFileSync(join(ROOT, ".next/BUILD_ID"), String(Date.now()), "utf8");
+for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
+  if (attempt > 1) {
+    console.warn(`next-build-with-500-fallback: retry ${attempt}/${MAX_ATTEMPTS}…`);
   }
-  process.exit(0);
+
+  const result = runNextBuild();
+  lastOutput = result.output;
+
+  if (result.status === 0) {
+    ensure500Artifacts();
+    process.exit(0);
+  }
+
+  const rename500Failure =
+    result.output.includes(".next/export/500.html") &&
+    result.output.includes(".next/server/pages/500.html");
+
+  if (rename500Failure && ssgCompleted(result.output)) {
+    ensure500Artifacts();
+    if (!buildIdExists()) {
+      writeFileSync(join(ROOT, ".next/BUILD_ID"), String(Date.now()), "utf8");
+    }
+    process.exit(0);
+  }
 }
 
-process.exit(first.status);
+process.stderr.write(lastOutput);
+process.exit(1);
