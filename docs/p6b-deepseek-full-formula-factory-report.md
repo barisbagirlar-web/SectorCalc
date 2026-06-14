@@ -1,45 +1,37 @@
-# P6B DeepSeek Full Formula Factory Report
+# P6B/P6C DeepSeek Full Formula Factory Report
 
 ## Summary
 
+* Phase: P6C Batch 2 (post Batch 1 commit `615e30c`)
 * Total tools: 474
-* Fully working: 71
-* Auto patch ready: 1
-* Patched in this batch: 25
+* Fully working before batch: 71
+* Fully working after batch: 72
+* Auto patch ready remaining: 0
+* Patched in P6C batch: 1
 * Manual expert required: 46
 * Blocked safety: 1
 * Revenue boundary: PASS
 * Deploy executed: no
 
-## Batch 1 Patched Tools
+## P6C Batch 2 Patched Tools
 
 | Slug | Input | Formula | Validation | Oracle | Renderer | Result |
 |------|-------|---------|------------|--------|----------|--------|
-| auto-shop-margin-leak-detector | PASS | PASS | PASS | PASS | PASS | PASS |
-| change-order-impact-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
-| cnc-quote-risk-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
-| crop-yield-loss-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
-| dairy-profit-detector | PASS | PASS | PASS | PASS | PASS | PASS |
-| heat-loss-calculator | PASS | PASS | PASS | PASS | PASS | PASS |
-| hvac-project-margin-guard | PASS | PASS | PASS | PASS | PASS | PASS |
-| landscaping-contract-profit-tool | PASS | PASS | PASS | PASS | PASS | PASS |
-| material-waste-calculator | PASS | PASS | PASS | PASS | PASS | PASS |
-| meal-planning-verdict | PASS | PASS | PASS | PASS | PASS | PASS |
-| menu-profit-leak-detector | PASS | PASS | PASS | PASS | PASS | PASS |
-| millwork-bid-risk-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
-| office-cleaning-bid-optimizer | PASS | PASS | PASS | PASS | PASS | PASS |
-| painting-job-profit-verdict | PASS | PASS | PASS | PASS | PASS | PASS |
-| panel-shop-margin-verdict | PASS | PASS | PASS | PASS | PASS | PASS |
-| plumbing-job-margin-verdict | PASS | PASS | PASS | PASS | PASS | PASS |
-| profit-margin-calculator | PASS | PASS | PASS | PASS | PASS | PASS |
-| quote-price-profit-margin-calculator | PASS | PASS | PASS | PASS | PASS | PASS |
-| return-profit-erosion-tool | PASS | PASS | PASS | PASS | PASS | PASS |
-| roofing-contract-margin-guard | PASS | PASS | PASS | PASS | PASS | PASS |
-| route-optimization-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
-| scrap-rate-calculator | PASS | PASS | PASS | PASS | PASS | PASS |
-| sheet-metal-quote-risk-tool | PASS | PASS | PASS | PASS | PASS | PASS |
-| signage-bid-safe-price-tool | PASS | PASS | PASS | PASS | PASS | PASS |
-| water-optimization-verdict | PASS | PASS | PASS | PASS | PASS | PASS |
+| welding-bid-risk-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
+
+## Identifier-Unsafe Manual Queue
+
+| Slug | Reason | Strategy |
+|------|--------|----------|
+| 3d-print-job-margin-tool | Slug starts with digit; `toPascalCase` yields invalid TS identifier (`3dPrintJobMarginTool`) | Manual expert patch with safe export alias (e.g. `ThreeDPrintJobMarginTool`) or slug rename in schema registry |
+
+## Formula-Source Quarantine (active-route, schema-backed)
+
+| Slug | Reason |
+|------|--------|
+| energy-efficiency-report | formulaSourceAudit: QUARANTINE |
+| renovation-budget-optimizer | formulaSourceAudit: QUARANTINE |
+| trip-budget-optimizer | formulaSourceAudit: QUARANTINE |
 
 ## Manual Expert Queue
 
