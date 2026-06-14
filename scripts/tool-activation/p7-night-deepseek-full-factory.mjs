@@ -601,29 +601,51 @@ async function runAudit() {
   console.log(`blockedUnknown: ${scanTargets.blockedUnknown.length}`);
 
   let attempted = 0;
-  for (const tool of sample) {
+  const pending = sample.filter((tool) => !checkpoint.has(tool.slug));
+  const concurrency = Math.max(1, Number(process.env.P7_NIGHT_CONCURRENCY || 2));
+
+  for (let index = 0; index < sample.length; index += 1) {
+    const tool = sample[index];
     if (checkpoint.has(tool.slug)) {
       process.stdout.write(`  ${tool.slug}: CACHED\n`);
-      continue;
+    }
+  }
+
+  for (let index = 0; index < pending.length; index += concurrency) {
+    const chunk = pending.slice(index, index + concurrency);
+    attempted += chunk.length;
+
+    const chunkResults = await Promise.all(
+      chunk.map(async (tool) => {
+        const result = await callDeepSeekForTool(tool.context, apiKey, model, timeoutMs);
+        const row = {
+          slug: tool.slug,
+          ok: result.ok,
+          reason: result.reason ?? null,
+          message: result.message ?? null,
+          patchEligible: result.patchEligible ?? false,
+          gateReasons: result.gate?.reasons ?? [],
+          response: result.response ?? null,
+        };
+        checkpoint.set(tool.slug, row);
+        process.stdout.write(
+          `  ${tool.slug}: ${result.ok ? (result.patchEligible ? "GATE_PASS" : "GATE_REJECT") : result.reason}\n`,
+        );
+        return row;
+      }),
+    );
+
+    for (const row of chunkResults) {
+      const existingIndex = deepseekResults.findIndex((entry) => entry.slug === row.slug);
+      if (existingIndex >= 0) {
+        deepseekResults[existingIndex] = row;
+      } else {
+        deepseekResults.push(row);
+      }
     }
 
-    attempted += 1;
-    const result = await callDeepSeekForTool(tool.context, apiKey, model, timeoutMs);
-    const row = {
-      slug: tool.slug,
-      ok: result.ok,
-      reason: result.reason ?? null,
-      message: result.message ?? null,
-      patchEligible: result.patchEligible ?? false,
-      gateReasons: result.gate?.reasons ?? [],
-      response: result.response ?? null,
-    };
-    deepseekResults.push(row);
-    checkpoint.set(tool.slug, row);
     saveDeepseekCheckpoint([...checkpoint.values()]);
-    process.stdout.write(
-      `  ${tool.slug}: ${result.ok ? (result.patchEligible ? "GATE_PASS" : "GATE_REJECT") : result.reason}\n`,
-    );
+
     if (apiDelayMs > 0) {
       await sleep(apiDelayMs);
     }

@@ -1,8 +1,6 @@
 # P7 Chief Engineer Quality Gate
 
-Night factory DeepSeek calls use Chief Engineer system prompt plus resolved domain prompt pack for every tool.
-
-Generated: 2026-06-14T01:17:00.900Z
+Generated: 2026-06-14T02:06:19.741Z
 
 ## Domain Prompt Packs
 
@@ -54,10 +52,10 @@ Generated: 2026-06-14T01:17:00.900Z
 ## Scan Summary
 
 - Total tools: 474
-- DeepSeek attempted: 2
-- Patch eligible (gate passed): 0
-- Gate rejected: 0
-- API errors: 2
+- DeepSeek attempted: 366
+- Patch eligible (gate passed): 171
+- Gate rejected: 191
+- API errors: 4
 
 ## Risk Class Distribution
 

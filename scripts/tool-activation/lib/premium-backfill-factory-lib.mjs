@@ -1050,6 +1050,7 @@ import {
 } from "@/lib/premium-schema/premium-schema-engine";
 
 const SLUG = ${quoteString(slug)};
+const SCHEMA_ID = ${quoteString(schema.id)};
 
 const defaultInputs: ${pascal}Inputs = ${defaultsLiteral};
 const lowBandInputs: ${pascal}Inputs = ${lowLiteral};
@@ -1079,7 +1080,7 @@ describe(${quoteString(slug)}, () => {
 ${parityOutputs
   .map(
     (output) =>
-      `    expect(result.${output.id}).toBeCloseTo(engineNumeric(SLUG, ${quoteString(output.id)}, defaultInputs), 2);`,
+      `    expect(result.${output.id}).toBeCloseTo(engineNumeric(SCHEMA_ID, ${quoteString(output.id)}, defaultInputs), 2);`,
   )
   .join("\n")}
     expect(["low", "warning", "critical"]).toContain(result.summaryLevel);
@@ -1089,7 +1090,7 @@ ${parityOutputs
   test("formula pipeline parity", () => {
     const result = calculate${pascal}(defaultInputs);
     expect(result.${primaryDriver}).toBeCloseTo(
-      engineNumeric(SLUG, ${quoteString(primaryDriver)}, defaultInputs),
+      engineNumeric(SCHEMA_ID, ${quoteString(primaryDriver)}, defaultInputs),
       2,
     );
   });
@@ -1138,7 +1139,7 @@ ${parityOutputs
   });
 
   test("engine parity test", () => {
-    const schema = getPremiumCalculatorSchema(SLUG);
+    const schema = getPremiumCalculatorSchema(SCHEMA_ID);
     expect(schema).not.toBeNull();
     if (!schema) return;
     const schemaInputs = buildDefaultSchemaInputs(schema);

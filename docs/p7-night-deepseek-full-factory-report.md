@@ -4,11 +4,11 @@
 
 * Total tools scanned: 474
 * Fully working before: 73
-* Fully working after: 73
-* DeepSeek attempted: 2
-* Patch eligible (gate passed): 0
-* Generated: 0
-* Patched and verified: 0
+* Fully working after: 76
+* DeepSeek attempted: 366
+* Patch eligible (gate passed): 171
+* Generated: 3
+* Patched and verified: 3
 * Failed and reverted: 0
 * Expert queue: 35
 * Blocked unknown: 0
@@ -25,7 +25,9 @@
 
 | Slug | Input | Formula | Validation | Oracle | Renderer | Result |
 |------|-------|---------|------------|--------|----------|--------|
-| — | — | — | — | — | — | — |
+| energy-efficiency-report | PASS | PASS | PASS | PASS | PASS | PASS |
+| renovation-budget-optimizer | PASS | PASS | PASS | PASS | PASS | PASS |
+| trip-budget-optimizer | PASS | PASS | PASS | PASS | PASS | PASS |
 
 ## Failed And Reverted
 

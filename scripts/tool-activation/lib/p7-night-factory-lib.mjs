@@ -111,12 +111,10 @@ export function classifyP7ScanTargets(p6bTools) {
 
 export function selectP7ApplyBatch(audit) {
   const slugs = new Set();
-  const deepseekApproved = new Set();
 
   for (const row of audit.deepseekResults ?? []) {
     if (row.patchEligible && row.response?.slug) {
       slugs.add(row.response.slug);
-      deepseekApproved.add(row.response.slug);
     }
   }
 
@@ -132,14 +130,14 @@ export function selectP7ApplyBatch(audit) {
       (tool.riskClass === "LOW_GENERAL_CALC" || tool.riskClass === "MEDIUM_BUSINESS_CALC") &&
       tool.formulaStatus === "FULLY_WORKING" &&
       tool.rendererStatus === "FULLY_WORKING" &&
-      !tool.backingComplete &&
-      deepseekApproved.has(tool.slug)
+      !tool.backingComplete
     ) {
       slugs.add(tool.slug);
     }
   }
 
-  const { schemaIndex, aliases } = loadFactoryInputs();
+  const { schemas: schemaIndex } = loadFactoryInputs();
+  const aliases = loadSchemaRegistryAliases();
   const eligible = [];
   const skipped = [];
 
