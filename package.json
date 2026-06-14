@@ -65,6 +65,7 @@
     "verify:p6b-formula-factory": "node scripts/tool-activation/p6b-verify-formula-factory.mjs",
     "audit:p7-night": "node scripts/tool-activation/p7-night-deepseek-full-factory.mjs",
     "apply:p7-night": "node scripts/tool-activation/p7-night-apply-all-verified.mjs",
+    "apply:p7-night-schema": "node scripts/tool-activation/p7-night-apply-schema-batch.mjs",
     "verify:p7-night": "node scripts/tool-activation/p7-night-verify-all.mjs",
     "run:p7-night": "node scripts/tool-activation/p7-night-run-all.mjs",
     "audit:sprint-activation-manifest": "node scripts/tool-activation/build-sprint-activation-manifest.mjs",

@@ -9,46 +9,14 @@ import {
 
 export const P6B_FORMULA_FACTORY_GUIDE_SPECS: readonly ToolGuideSpec[] = [
   {
-    slug: "energy-efficiency-report",
+    slug: "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama",
     guideType: "cost_breakdown",
-    titleKey: "inputGuide.p6bFormulaFactory.tools.energyEfficiencyReport.title",
+    titleKey: "inputGuide.p6bFormulaFactory.tools.sogutmaSivisiKarisimOraniAntifrizBorYagiHesaplama.title",
     descriptionKey: "inputGuide.costBreakdown.description",
     inputMap: [
-      { inputKey: "currentKwh", visualRole: "primary", nodeId: "currentkwh" },
-      { inputKey: "targetKwh", visualRole: "driver", nodeId: "targetkwh" },
-      { inputKey: "energyRate", visualRole: "driver", nodeId: "energyrate" },
-      { inputKey: "peakKwh", visualRole: "secondary", nodeId: "peakkwh" },
-      { inputKey: "peakRate", visualRole: "secondary", nodeId: "peakrate" },
-      { inputKey: "demandCharge", visualRole: "secondary", nodeId: "demandcharge" },
-      { inputKey: "plannedBudget", visualRole: "output", nodeId: "plannedbudget" },
-    ],
-    quality: TOOL_GUIDE_QUALITY_DEFAULT,
-  },
-  {
-    slug: "renovation-budget-optimizer",
-    guideType: "cost_breakdown",
-    titleKey: "inputGuide.p6bFormulaFactory.tools.renovationBudgetOptimizer.title",
-    descriptionKey: "inputGuide.costBreakdown.description",
-    inputMap: [
-      { inputKey: "principal", visualRole: "primary", nodeId: "principal" },
-      { inputKey: "annualInterestPercent", visualRole: "driver", nodeId: "annualinterestpercent" },
-      { inputKey: "days", visualRole: "driver", nodeId: "days" },
-      { inputKey: "feePercent", visualRole: "secondary", nodeId: "feepercent" },
-      { inputKey: "fixedCost", visualRole: "output", nodeId: "fixedcost" },
-    ],
-    quality: TOOL_GUIDE_QUALITY_DEFAULT,
-  },
-  {
-    slug: "trip-budget-optimizer",
-    guideType: "cost_breakdown",
-    titleKey: "inputGuide.p6bFormulaFactory.tools.tripBudgetOptimizer.title",
-    descriptionKey: "inputGuide.costBreakdown.description",
-    inputMap: [
-      { inputKey: "plannedDistanceKm", visualRole: "primary", nodeId: "planneddistancekm" },
-      { inputKey: "actualDistanceKm", visualRole: "driver", nodeId: "actualdistancekm" },
-      { inputKey: "fuelCostPerKm", visualRole: "driver", nodeId: "fuelcostperkm" },
-      { inputKey: "idleHours", visualRole: "secondary", nodeId: "idlehours" },
-      { inputKey: "hourlyCost", visualRole: "output", nodeId: "hourlycost" },
+      { inputKey: "totalVolume", visualRole: "primary", nodeId: "totalvolume" },
+      { inputKey: "desiredConcentration", visualRole: "driver", nodeId: "desiredconcentration" },
+      { inputKey: "boricOilRatio", visualRole: "output", nodeId: "boricoilratio" },
     ],
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   }
