@@ -18,8 +18,16 @@ export function buildToolUserPrompt(toolContext) {
     "Eksik veya yüzeysel kriter varsa status FAIL ve overallDecision REJECTED ver.",
     "PASS yalnızca tüm mühendislik kalite kriterleri eksiksiz sağlandığında verilir.",
     "",
-    "Zorunlu response alanları:",
+    "Zorunlu top-level alanlar:",
     JSON.stringify(schemaHint.required ?? [], null, 2),
+    "",
+    "Zorunlu formulaMethod alt alanları:",
+    JSON.stringify(schemaHint.properties?.formulaMethod?.required ?? [], null, 2),
+    "",
+    "Tam JSON şema ipucu (tüm alanları doldur):",
+    JSON.stringify(schemaHint, null, 2),
+    "",
+    "Kritik: formulaMethod bir nesne olmalı; string veya null kabul edilmez.",
   ].join("\n");
 }
 
