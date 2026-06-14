@@ -1,6 +1,6 @@
 # P7 Chief Engineer Quality Gate
 
-Generated: 2026-06-14T02:06:19.741Z
+Generated: 2026-06-14T02:32:43.142Z
 
 ## Domain Prompt Packs
 
@@ -53,9 +53,9 @@ Generated: 2026-06-14T02:06:19.741Z
 
 - Total tools: 474
 - DeepSeek attempted: 366
-- Patch eligible (gate passed): 171
-- Gate rejected: 191
-- API errors: 4
+- Patch eligible (gate passed): 170
+- Gate rejected: 190
+- API errors: 6
 
 ## Risk Class Distribution
 

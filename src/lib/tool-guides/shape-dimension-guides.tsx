@@ -287,10 +287,17 @@ const SHAPE_DIMENSION_GUIDES: readonly ShapeDimensionGuide[] = [
       en: "Enter appliance power, daily run hours and tariff.",
     },
     description: {
-      tr: "Güç, süre ve tarife alanları powerKw, hoursPerDay, days ve tariffPerKwh ile eşleşir.",
-      en: "Power, duration and tariff map to powerKw, hoursPerDay, days and tariffPerKwh.",
+      tr: "Güç, çalışma saati, tüketim ve tarife alanları powerKw, runtimeHours, energyConsumptionKwh ve tariffPerKwh ile eşleşir.",
+      en: "Power, runtime, consumption and tariff map to powerKw, runtimeHours, energyConsumptionKwh and tariffPerKwh.",
     },
-    inputKeys: ["powerKw", "hoursPerDay", "days", "tariffPerKwh"],
+    inputKeys: [
+      "powerKw",
+      "runtimeHours",
+      "energyConsumptionKwh",
+      "tariffPerKwh",
+      "peakDemandKw",
+      "efficiencyPercent",
+    ],
     Svg: KwhConsumptionGuideSvg,
   },
   {

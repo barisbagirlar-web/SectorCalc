@@ -9,14 +9,16 @@ import {
 
 export const P6B_FORMULA_FACTORY_GUIDE_SPECS: readonly ToolGuideSpec[] = [
   {
-    slug: "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama",
+    slug: "yatak-rulman-omur-hesabi-l10",
     guideType: "cost_breakdown",
-    titleKey: "inputGuide.p6bFormulaFactory.tools.sogutmaSivisiKarisimOraniAntifrizBorYagiHesaplama.title",
+    titleKey: "inputGuide.p6bFormulaFactory.tools.yatakRulmanOmurHesabiL10.title",
     descriptionKey: "inputGuide.costBreakdown.description",
     inputMap: [
-      { inputKey: "totalVolume", visualRole: "primary", nodeId: "totalvolume" },
-      { inputKey: "desiredConcentration", visualRole: "driver", nodeId: "desiredconcentration" },
-      { inputKey: "boricOilRatio", visualRole: "output", nodeId: "boricoilratio" },
+      { inputKey: "dynamicLoadRatingC", visualRole: "primary", nodeId: "dynamicloadratingc" },
+      { inputKey: "equivalentDynamicLoadP", visualRole: "driver", nodeId: "equivalentdynamicloadp" },
+      { inputKey: "rotationalSpeedN", visualRole: "driver", nodeId: "rotationalspeedn" },
+      { inputKey: "reliabilityFactorA1", visualRole: "secondary", nodeId: "reliabilityfactora1" },
+      { inputKey: "materialFactorA2", visualRole: "output", nodeId: "materialfactora2" },
     ],
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   }

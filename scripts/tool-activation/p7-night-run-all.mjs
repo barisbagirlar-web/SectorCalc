@@ -7,6 +7,7 @@ import { ROOT } from "./lib/activation-paths.mjs";
 
 const steps = [
   { name: "audit:p7-night", cmd: "npm", args: ["run", "audit:p7-night"] },
+  { name: "apply:p7-night-schema", cmd: "npm", args: ["run", "apply:p7-night-schema"] },
   { name: "apply:p7-night", cmd: "npm", args: ["run", "apply:p7-night"] },
   { name: "verify:p7-night", cmd: "npm", args: ["run", "verify:p7-night"] },
 ];

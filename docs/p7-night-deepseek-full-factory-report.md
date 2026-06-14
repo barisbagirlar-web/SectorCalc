@@ -4,7 +4,7 @@
 
 * Total tools scanned: 474
 * Fully working before: 73
-* Fully working after: 247
+* Fully working after: 274
 * DeepSeek attempted: 366
 * Patch eligible (gate passed): 170
 * Generated: 0

@@ -294,8 +294,8 @@ function parseSchemaContent(content) {
     /\{\s*formulaId:\s*"([^"]+)"[\s\S]*?inputMap:\s*\{([\s\S]*?)\}[\s\S]*?outputId:\s*"([^"]+)"/g,
   )) {
     const inputMap = {};
-    for (const pair of step[2].matchAll(/(\w+):\s*"([^"]+)"/g)) {
-      inputMap[pair[1]] = pair[2];
+    for (const pair of step[2].matchAll(/(?:"(\w+)"|(\w+)):\s*"([^"]+)"/g)) {
+      inputMap[pair[1] ?? pair[2]] = pair[3];
     }
     pipeline.push({
       formulaId: step[1],
@@ -575,6 +575,7 @@ function isPercentField(input) {
 }
 
 function isPositiveRequired(input) {
+  if (isPercentField(input)) return false;
   if (input.min !== undefined && input.min > 0) return true;
   return POSITIVE_DIVISOR_HINT.test(input.id);
 }
@@ -595,37 +596,59 @@ function findNonNegativeInput(schema) {
   return schema.inputs.find((input) => input.min === undefined || input.min >= 0);
 }
 
-function buildThresholdInputOverrides(schema, summaryRule, band) {
+function clampInputValue(input, value) {
+  let clamped = value;
+  if (typeof input?.min === "number") clamped = Math.max(clamped, input.min);
+  if (typeof input?.max === "number") clamped = Math.min(clamped, input.max);
+  return clamped;
+}
+
+function resolveThresholdScaleInput(schema, summaryRule, primaryDriver) {
+  const direct = schema.inputs.find((input) => input.id === summaryRule?.fieldId);
+  if (direct) return direct;
+  const pipelineStep = schema.formulaPipeline?.find((step) => step.outputId === primaryDriver);
+  if (pipelineStep) {
+    const firstMapped = Object.values(pipelineStep.inputMap ?? {})[0];
+    const mappedInput = schema.inputs.find((input) => input.id === firstMapped);
+    if (mappedInput) return mappedInput;
+  }
+  return schema.inputs[0] ?? null;
+}
+
+function buildThresholdInputOverrides(schema, summaryRule, band, primaryDriver = "totalExposure") {
   const defaults = buildDefaultInputs(schema);
-  const thresholdField = summaryRule?.fieldId;
-  const thresholdInput = schema.inputs.find((input) => input.id === thresholdField);
+  const thresholdInput = resolveThresholdScaleInput(schema, summaryRule, primaryDriver);
   if (thresholdInput && summaryRule) {
     if (band === "low") {
-      const value =
+      const raw =
         summaryRule.direction === "lower_is_bad"
           ? summaryRule.warning + 1
-          : Math.max(summaryRule.warning * 0.1, 0);
+          : Math.max(summaryRule.warning * 0.1, thresholdInput.min ?? 0.001);
+      const value = clampInputValue(thresholdInput, raw);
       return { ...defaults, [thresholdInput.id]: value };
     }
     if (band === "critical") {
-      const value =
+      const raw =
         summaryRule.direction === "lower_is_bad"
-          ? Math.max(summaryRule.critical - 1, 0)
+          ? Math.max(summaryRule.critical - 1, thresholdInput.min ?? 0)
           : summaryRule.critical * 2;
+      const value = clampInputValue(thresholdInput, raw);
       return { ...defaults, [thresholdInput.id]: value };
     }
   }
 
-  const scaleField = schema.inputs[0]?.id;
+  const scaleField = thresholdInput?.id ?? schema.inputs[0]?.id;
   if (!scaleField) return defaults;
-  const scaleInput = schema.inputs[0];
+  const scaleInput = thresholdInput ?? schema.inputs[0];
   if (band === "low") {
-    const raw = Math.max(defaults[scaleField] * 0.01, 0.001);
-    const value = isPercentField(scaleInput) ? Math.min(raw, 100) : raw;
+    const raw = Math.max(defaults[scaleField] * 0.01, scaleInput.min ?? 0.001);
+    const value = isPercentField(scaleInput) ? Math.min(raw, 100) : clampInputValue(scaleInput, raw);
     return { ...defaults, [scaleField]: value };
   }
-  const raw = defaults[scaleField] * 1000;
-  const value = isPercentField(scaleInput) ? Math.min(raw, 100) : raw;
+  const raw = defaults[scaleField] * (scaleInput.max !== undefined ? 2 : 1000);
+  const value = isPercentField(scaleInput)
+    ? Math.min(raw, 100)
+    : clampInputValue(scaleInput, raw);
   return { ...defaults, [scaleField]: value };
 }
 
@@ -1000,8 +1023,8 @@ export const ${screaming}_CRITICAL_FORMULA_CONTRACTS: readonly FormulaContract[]
 function generateTestFile(ctx) {
   const { slug, pascal, schema, primaryDriver, summaryRule } = ctx;
   const defaults = buildDefaultInputs(schema);
-  const lowInputs = buildThresholdInputOverrides(schema, summaryRule, "low");
-  const criticalInputs = buildThresholdInputOverrides(schema, summaryRule, "critical");
+  const lowInputs = buildThresholdInputOverrides(schema, summaryRule, "low", primaryDriver);
+  const criticalInputs = buildThresholdInputOverrides(schema, summaryRule, "critical", primaryDriver);
   const positiveRequired = findPositiveRequiredInput(schema);
   const negativeTarget =
     findNonNegativeInput(schema)?.id ?? schema.inputs[0]?.id ?? "value";

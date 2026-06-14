@@ -15,7 +15,14 @@ export const SHAPE_DIMENSION_GUIDE_META: readonly ShapeDimensionGuideMeta[] = [
   },
   {
     slug: "kwh-consumption-check",
-    inputKeys: ["powerKw", "hoursPerDay", "days", "tariffPerKwh"],
+    inputKeys: [
+      "powerKw",
+      "runtimeHours",
+      "energyConsumptionKwh",
+      "tariffPerKwh",
+      "peakDemandKw",
+      "efficiencyPercent",
+    ],
   },
   {
     slug: "plumbing-fixture-cost-check",
