@@ -1,10 +1,8 @@
 "use client";
 
 import type { FormEvent, ReactNode } from "react";
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { CalculationWorkspace } from "@/components/smart-form/CalculationWorkspace";
-import type { CalculatorExperienceContract, CalculatorExperienceMode } from "@/lib/calculator-experience/calculator-experience-types";
 import type { SmartFormTier, SmartFormViewMode } from "@/lib/smart-form/types";
 
 export type SmartFormShellLayout = "split" | "workspace";
@@ -14,12 +12,8 @@ export type SmartFormShellProps = {
   readonly description?: string;
   readonly tier: SmartFormTier;
   readonly layout?: SmartFormShellLayout;
-  readonly experience?: CalculatorExperienceContract;
-  readonly mode?: CalculatorExperienceMode;
-  readonly onModeChange?: (mode: CalculatorExperienceMode) => void;
   readonly fallback?: boolean;
   readonly formContent: ReactNode;
-  readonly expertContent?: ReactNode;
   readonly resultContent?: ReactNode;
   readonly onSubmit?: (event: FormEvent<HTMLFormElement>) => void;
   readonly calculateLabel?: string;
@@ -38,12 +32,8 @@ export function SmartFormShell({
   description,
   tier,
   layout = "split",
-  experience,
-  mode: controlledMode,
-  onModeChange,
   fallback = false,
   formContent,
-  expertContent,
   resultContent,
   onSubmit,
   calculateLabel,
@@ -53,26 +43,11 @@ export function SmartFormShell({
 }: SmartFormShellProps) {
   const tUi = useTranslations("freeToolUi");
   const tCalc = useTranslations("calculator");
-  const [internalMode, setInternalMode] = useState<CalculatorExperienceMode>("quick");
-  const mode = controlledMode ?? internalMode;
   const submitLabel = calculateLabel ?? tUi("runAnalysis");
-  const hasExpertMode = experience?.hasExpertMode ?? Boolean(expertContent);
-  const showModeSwitch = hasExpertMode;
-
-  const setMode = (nextMode: CalculatorExperienceMode) => {
-    if (onModeChange) {
-      onModeChange(nextMode);
-      return;
-    }
-    setInternalMode(nextMode);
-  };
-
-  const activeFormContent =
-    showModeSwitch && mode === "expert" ? (expertContent ?? formContent) : formContent;
 
   const formBody = (
     <>
-      {activeFormContent}
+      {formContent}
       {showSubmit && onSubmit ? (
         <form onSubmit={onSubmit} noValidate className="mt-4" data-calculation-form="true" data-testid="tool-form">
           <div className="sc-industrial-form-actions">
@@ -112,26 +87,6 @@ export function SmartFormShell({
         {description ? (
           <p className="mt-1 text-sm leading-relaxed text-slate-600">{description}</p>
         ) : null}
-        {showModeSwitch ? (
-          <div className="sc-mode-switch mt-4" role="tablist" aria-label={tCalc("mode.label")}>
-            <button
-              type="button"
-              onClick={() => setMode("quick")}
-              className={mode === "quick" ? "is-active" : ""}
-              aria-selected={mode === "quick"}
-            >
-              {tCalc("mode.quick")}
-            </button>
-            <button
-              type="button"
-              onClick={() => setMode("expert")}
-              className={mode === "expert" ? "is-active" : ""}
-              aria-selected={mode === "expert"}
-            >
-              {tCalc("mode.expert")}
-            </button>
-          </div>
-        ) : null}
       </header>
 
       {layout === "workspace" ? (
@@ -154,5 +109,5 @@ export function SmartFormShell({
   );
 }
 
-/** @deprecated Use CalculatorExperienceMode quick/expert only */
+/** @deprecated Use single unified form — view modes removed from calculator shells */
 export type LegacySmartFormViewMode = SmartFormViewMode;

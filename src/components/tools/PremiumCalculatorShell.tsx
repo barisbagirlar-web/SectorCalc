@@ -2,17 +2,10 @@
 
 import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
-import type {
-  CalculatorExperienceContract,
-  CalculatorExperienceMode,
-} from "@/lib/calculator-experience/calculator-experience-types";
 
 export type PremiumCalculatorShellProps = {
   readonly title: string;
   readonly description: string;
-  readonly experience: CalculatorExperienceContract;
-  readonly mode: CalculatorExperienceMode;
-  readonly onModeChange: (mode: CalculatorExperienceMode) => void;
   readonly hasCalculated: boolean;
   readonly inputPanel: ReactNode;
   readonly resultPanel: ReactNode;
@@ -22,9 +15,6 @@ export type PremiumCalculatorShellProps = {
 export function PremiumCalculatorShell({
   title,
   description,
-  experience,
-  mode,
-  onModeChange,
   hasCalculated,
   inputPanel,
   resultPanel,
@@ -38,27 +28,6 @@ export function PremiumCalculatorShell({
         <span className="sc-tool-eyebrow">{t("premiumEyebrow")}</span>
         <h1>{title}</h1>
         <p>{description}</p>
-
-        {experience.hasExpertMode ? (
-          <div className="sc-mode-switch" role="tablist" aria-label={t("mode.label")}>
-            <button
-              type="button"
-              className={mode === "quick" ? "is-active" : ""}
-              aria-selected={mode === "quick"}
-              onClick={() => onModeChange("quick")}
-            >
-              {t("mode.quick")}
-            </button>
-            <button
-              type="button"
-              className={mode === "expert" ? "is-active" : ""}
-              aria-selected={mode === "expert"}
-              onClick={() => onModeChange("expert")}
-            >
-              {t("mode.expert")}
-            </button>
-          </div>
-        ) : null}
       </header>
 
       <div className="sc-tool-workspace sc-tool-workspace--dual">

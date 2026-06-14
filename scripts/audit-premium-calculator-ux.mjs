@@ -145,38 +145,30 @@ if (summaryHits.length === 0) {
   fail(`static Hesaplama özeti found in: ${summaryHits.join(", ")}`);
 }
 
-// 7. SmartFormShell — no trust viewMode / trustTraceContent
+// 7. SmartFormShell — single unified form (no quick/expert mode switch)
 const shell = read("src/components/smart-form/SmartFormShell.tsx");
-if (!shell.includes("trustTraceContent") && !shell.includes('"trust"')) {
-  pass("SmartFormShell has no trust/dead summary tab");
-} else {
-  fail("SmartFormShell still references trustTraceContent or trust view mode");
-}
-
-if (shell.includes("sc-mode-switch") && shell.includes("onClick") && shell.includes("setMode")) {
-  pass("SmartFormShell mode switch wired with onClick/state");
-} else {
-  fail("SmartFormShell mode switch missing onClick/state wiring");
-}
-
-// 8. PremiumCalculatorShell uses experience.hasExpertMode guard
 const premiumShell = read("src/components/tools/PremiumCalculatorShell.tsx");
-if (premiumShell.includes("experience.hasExpertMode") && premiumShell.includes("hasCalculated")) {
-  pass("PremiumCalculatorShell guards expert mode and post-calculation result");
+if (!shell.includes("sc-mode-switch") && !shell.includes("trustTraceContent") && !shell.includes('"trust"')) {
+  pass("SmartFormShell uses single unified form (no mode switch or dead trust tab)");
+} else if (shell.includes("trustTraceContent") || shell.includes('"trust"')) {
+  fail("SmartFormShell still references trustTraceContent or trust view mode");
 } else {
-  fail("PremiumCalculatorShell missing hasExpertMode or hasCalculated guards");
+  fail("SmartFormShell still has quick/expert mode switch");
+}
+
+// 8. PremiumCalculatorShell — dual panel without mode toggle
+if (premiumShell.includes("hasCalculated") && !premiumShell.includes("sc-mode-switch")) {
+  pass("PremiumCalculatorShell uses dual workspace without mode toggle");
+} else {
+  fail("PremiumCalculatorShell missing hasCalculated or still has mode toggle");
 }
 
 // 9. DynamicPremiumCalculator uses contract resolver
 const dynamic = read("src/components/tools/DynamicPremiumCalculator.tsx");
-if (
-  dynamic.includes("resolveCalculatorExperience") &&
-  dynamic.includes("filterVisibleCalculatorFields") &&
-  dynamic.includes("PremiumCalculatorShell")
-) {
-  pass("DynamicPremiumCalculator uses experience contract + shell");
+if (dynamic.includes("PremiumCalculatorShell") && dynamic.includes("visibleInputs")) {
+  pass("DynamicPremiumCalculator uses premium calculator shell");
 } else {
-  fail("DynamicPremiumCalculator missing contract integration");
+  fail("DynamicPremiumCalculator missing shell integration");
 }
 
 // 10. OEE guidance — not machine-time generic

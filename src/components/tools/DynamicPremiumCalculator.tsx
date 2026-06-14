@@ -35,13 +35,6 @@ import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
 import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
 import { PremiumCalculatorShell } from "@/components/tools/PremiumCalculatorShell";
-import { resolvePrimaryArchetype } from "@/lib/decision-engine/decision-engine-resolver";
-import {
-  buildPremiumSchemaExperienceFields,
-  filterVisibleCalculatorFields,
-  resolveCalculatorExperience,
-} from "@/lib/calculator-experience/resolve-calculator-experience";
-import type { CalculatorExperienceMode } from "@/lib/calculator-experience/calculator-experience-types";
 import { resolveCalculatorInputDisplay } from "@/lib/i18n/free-tool-form-i18n";
 import {
   resolvePremiumSchemaDisplayName,
@@ -129,7 +122,6 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
   const isFullReport = entitlement.canViewFullReport;
   const [values, setValues] = useState<SchemaInputValues>(() => buildDefaultSchemaInputs(schema));
   const [submitted, setSubmitted] = useState(false);
-  const [mode, setMode] = useState<CalculatorExperienceMode>("quick");
   const trustSlug = schema.legacyPaidSlug ?? schema.id;
   const runtimeTrust = useMemo(
     () =>
@@ -154,31 +146,9 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
     tier: runtimeTrust.tier,
   });
 
-  const experience = useMemo(
-    () =>
-      resolveCalculatorExperience({
-        toolSlug: schema.id,
-        fields: buildPremiumSchemaExperienceFields(schema.inputs),
-        category: schema.category,
-        archetype: resolvePrimaryArchetype({
-          toolSlug: schema.id,
-          locale,
-          tier: "premium-schema",
-          category: schema.category,
-          sector: schema.sectorSlug,
-        }),
-      }),
-    [schema, locale],
-  );
-
   const visibleInputs = useMemo(
-    () =>
-      filterVisibleCalculatorFields(
-        schema.inputs.map((input) => ({ ...input, key: input.id })),
-        experience,
-        mode,
-      ),
-    [schema.inputs, experience, mode],
+    () => schema.inputs.map((input) => ({ ...input, key: input.id })),
+    [schema.inputs],
   );
 
   useEffect(() => {
@@ -401,9 +371,6 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
       <PremiumCalculatorShell
         title={displayName}
         description={displayPain}
-        experience={experience}
-        mode={mode}
-        onModeChange={setMode}
         hasCalculated={Boolean(result && reportData)}
         inputPanel={
           <div className="flex min-w-0 flex-col gap-4">

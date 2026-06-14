@@ -1478,6 +1478,14 @@
       "Warning": "Uyarı",
       "Acceptable": "Kabul edilebilir"
     },
+    "verdictCopy": {
+      "acceptableVerdict": "Mevcut girdiler kabul edilebilir aralıkta.",
+      "acceptableExplanation": "Ana kayıp sürücüsünü izleyin ve sonraki dönemlerle karşılaştırın.",
+      "bigNumberMeaningCurrency": "Bu değer, mevcut girdilerden hesaplanan ana kayıp tahminidir.",
+      "outputMeaningCurrency": "Bu analizdeki maliyet veya kayıp bileşeni.",
+      "thresholdSafe": "Kabul edilebilir aralıkta.",
+      "resultLabel": "Sonuç"
+    },
     "export": {
       "title": "Premium rapor çıktısı",
       "sectionExecutive": "Yönetici özeti",
@@ -8538,7 +8546,7 @@
       }
     },
     "7-israf-muda-avcisi-parasal-karsilik-calculator": {
-      "analysisperioddays": {
+      "7israfmudaavcisiparasalkarsilikcalculator": {
         "label": "Analiz dönemi uzunluğu",
         "placeholder": "Analiz dönemi uzunluğu girin",
         "helper": "Bu analiz penceresinin kapsadığı gün sayısı."
@@ -8574,9 +8582,9 @@
         "helper": "Satış fiyatına göre brüt marj yüzdesi."
       },
       "excessunits": {
-        "label": "Fazla üretim adedi",
-        "placeholder": "Fazla üretim adedi girin",
-        "helper": "Dönem içinde onaylı talebin üzerinde üretilen adet."
+        "label": "Aşırı üretim adedi",
+        "placeholder": "Aşırı üretim adedi girin",
+        "helper": "Talep veya sipariş planı dışında üretilen sağlam ürün adedi."
       },
       "excessinventoryholdingdays": {
         "label": "Fazla stok tutma günü",
@@ -8774,7 +8782,7 @@
         "helper": "1 = kolay kaizen, 5 = büyük yatırım veya yerleşim değişikliği."
       },
       "totalwastecost": {
-        "label": "Toplam israf maliyeti",
+        "label": "Sonuç",
         "placeholder": "Toplam israf maliyeti",
         "helper": "Yedi israf başlığının toplam parasal etkisi."
       },
@@ -8811,7 +8819,7 @@
       "highestwastecost": {
         "label": "En yüksek israf kalemi maliyeti",
         "placeholder": "En yüksek israf kalemi maliyeti",
-        "helper": "En büyük israf kategorisinin parasal tutarı."
+        "helper": "Bu değer, mevcut girdilerden hesaplanan ana kayıp tahminidir."
       },
       "riskadjustedpriorityscore": {
         "label": "Riske göre öncelik skoru",
@@ -8821,42 +8829,142 @@
       "overproductioncost": {
         "label": "Fazla üretim maliyeti",
         "placeholder": "Fazla üretim maliyeti",
-        "helper": "Fazla üretim kaynaklı parasal kayıp."
+        "helper": "Bu analizdeki maliyet veya kayıp bileşeni."
       },
       "waitingcost": {
         "label": "Bekleme maliyeti",
         "placeholder": "Bekleme maliyeti",
-        "helper": "Bekleme kaynaklı işçilik, makine ve fırsat maliyeti."
+        "helper": "Bu analizdeki maliyet veya kayıp bileşeni."
       },
       "transportcost": {
         "label": "Taşıma maliyeti",
         "placeholder": "Taşıma maliyeti",
-        "helper": "Değer katmayan taşıma hareketlerinin maliyeti."
+        "helper": "Bu analizdeki maliyet veya kayıp bileşeni."
       },
       "inventorycost": {
         "label": "Stok maliyeti",
         "placeholder": "Stok maliyeti",
-        "helper": "Fazla stok, eskime ve fire kaynaklı maliyet."
+        "helper": "Bu analizdeki maliyet veya kayıp bileşeni."
       },
       "motioncost": {
         "label": "Hareket maliyeti",
         "placeholder": "Hareket maliyeti",
-        "helper": "Gereksiz operatör hareketinin maliyeti."
+        "helper": "Bu analizdeki maliyet veya kayıp bileşeni."
       },
       "overprocessingcost": {
         "label": "Fazla işlem maliyeti",
         "placeholder": "Fazla işlem maliyeti",
-        "helper": "Gereğinden fazla işlemin maliyeti."
+        "helper": "Bu analizdeki maliyet veya kayıp bileşeni."
       },
       "defectcost": {
         "label": "Hata maliyeti",
         "placeholder": "Hata maliyeti",
-        "helper": "Hurda, yeniden işleme ve iade kaynaklı maliyet."
+        "helper": "Bu analizdeki maliyet veya kayıp bileşeni."
       },
       "highestwastecategoryindex": {
         "label": "En yüksek israf kategorisi sırası",
         "placeholder": "En yüksek israf kategorisi sırası",
         "helper": "En büyük israf kaleminin 1–7 arası sıra numarası."
+      },
+      "analysisperioddays": {
+        "label": "Analiz dönemi uzunluğu",
+        "placeholder": "Analiz dönemi uzunluğu girin",
+        "helper": "Bu analiz penceresinin kapsadığı gün sayısı."
+      },
+      "annualworkingdays": {
+        "label": "Yıllık çalışma günü",
+        "placeholder": "Yıllık çalışma günü girin",
+        "helper": "Dönemsel israfın yıllıklaştırılmasında kullanılan işletme günü."
+      },
+      "currency": {
+        "label": "Para birimi",
+        "placeholder": "Para birimi seçin",
+        "helper": "Aşağıdaki tüm parasal girdiler aynı para biriminde girilmelidir."
+      },
+      "dataconfidencepercent": {
+        "label": "Veri güveni",
+        "placeholder": "Veri güveni girin",
+        "helper": "Girilen israf sürücülerinin saha verisini ne kadar yansıttığına dair güven."
+      },
+      "defectunits": {
+        "label": "Hatalı / fire ürün adedi",
+        "placeholder": "Hatalı ürün adedi girin",
+        "helper": "Hurda, fire, yeniden işleme veya kalite hatası doğuran ürün adedi."
+      },
+      "excessinventoryvalue": {
+        "label": "Fazla stok değeri",
+        "placeholder": "Fazla stok değeri girin",
+        "helper": "Dönem boyunca ihtiyaç fazlası tutulan ortalama stok değeri."
+      },
+      "grossmarginpercent": {
+        "label": "Brüt marj yüzdesi",
+        "placeholder": "Brüt marj yüzdesi girin",
+        "helper": "Satış fiyatına göre brüt marj yüzdesi."
+      },
+      "implementationdifficulty": {
+        "label": "Uygulama zorluğu",
+        "placeholder": "Uygulama zorluğu girin",
+        "helper": "1 = kolay kaizen, 5 = büyük yatırım veya yerleşim değişikliği."
+      },
+      "inventorycarryingratepercent": {
+        "label": "Stok taşıma oranı",
+        "placeholder": "Stok taşıma oranı girin",
+        "helper": "Finansman, alan, sigorta, bozulma ve stok riski dahil yıllık taşıma oranı."
+      },
+      "manualhourlyopportunitycost": {
+        "label": "Saatlik fırsat maliyeti",
+        "placeholder": "Saatlik fırsat maliyeti girin",
+        "helper": "Bekleme saatini parasal kayba çevirmek için kullanılan saatlik maliyet."
+      },
+      "motionhourlycost": {
+        "label": "Hareket saat maliyeti",
+        "placeholder": "Hareket saat maliyeti girin",
+        "helper": "Gereksiz hareket süresinin saatlik maliyeti."
+      },
+      "overprocessinghourlycost": {
+        "label": "Fazla işlem saat maliyeti",
+        "placeholder": "Fazla işlem saat maliyeti girin",
+        "helper": "Fazla işlem süresinin saatlik maliyeti."
+      },
+      "overprocessinghours": {
+        "label": "Fazla işlem süresi",
+        "placeholder": "Fazla işlem süresi girin",
+        "helper": "Müşterinin talep etmediği ek işlem, kontrol, onay veya gereksiz operasyon süresi."
+      },
+      "overproductionunits": {
+        "label": "Aşırı üretim adedi",
+        "placeholder": "Aşırı üretim adedi girin",
+        "helper": "Talep veya sipariş planı dışında üretilen sağlam ürün adedi."
+      },
+      "productionunits": {
+        "label": "Dönemdeki üretim adedi",
+        "placeholder": "Dönemdeki üretim adedi girin",
+        "helper": "Yalnızca seçilen analiz döneminde üretilen sağlam ürün adedi."
+      },
+      "reworkcostperdefect": {
+        "label": "Hata başına yeniden işleme maliyeti",
+        "placeholder": "Hata başına yeniden işleme maliyeti girin",
+        "helper": "Hatalı ürün başına ek işçilik, malzeme veya düzeltme maliyeti."
+      },
+      "unnecessarymotionhours": {
+        "label": "Gereksiz hareket süresi",
+        "placeholder": "Gereksiz hareket süresi girin",
+        "helper": "Operatör, ekip veya saha hareketlerinde değer üretmeyen toplam süre."
+      },
+      "unnecessarytransportcost": {
+        "label": "Gereksiz taşıma maliyeti",
+        "placeholder": "Gereksiz taşıma maliyeti girin",
+        "helper": "Dönem içinde gereksiz iç taşıma, elleçleme, forklift, rota veya sevkiyat maliyeti."
+      },
+      "waitinghours": {
+        "label": "Bekleme / duruş süresi",
+        "placeholder": "Bekleme süresi girin",
+        "helper": "İnsan, makine veya prosesin beklemede kaldığı toplam süre."
+      },
+      "waitingopportunitycostmode": {
+        "label": "Bekleme fırsat maliyeti modu",
+        "placeholder": "Bekleme fırsat maliyeti modu seçin",
+        "helper": "Fırsat maliyetini manuel saatlik maliyet veya birim katkı marjından türetin."
       }
     },
     "cbam-compliance-verdict": {

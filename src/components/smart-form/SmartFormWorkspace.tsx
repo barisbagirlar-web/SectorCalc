@@ -2,7 +2,6 @@
 
 import { useMemo, type FormEvent, type ReactNode } from "react";
 import { useLocale } from "next-intl";
-import { SmartExpertPanel } from "@/components/smart-form/SmartExpertPanel";
 import { SmartFormFieldsRenderer } from "@/components/smart-form/SmartFormFieldsRenderer";
 import { SmartFormShell } from "@/components/smart-form/SmartFormShell";
 import { SmartResultPanel } from "@/components/smart-form/SmartResultPanel";
@@ -14,7 +13,44 @@ import { ToolGuidanceLayout } from "@/components/guidance/ToolGuidanceLayout";
 import { buildGuidanceFieldsFromInputConfig } from "@/lib/guidance/build-guidance-fields";
 import { UsageAgreementNotice } from "@/components/disclaimer/UsageAgreementNotice";
 import { ResultLayerTabs } from "@/components/results/ResultLayerTabs";
-import type { SmartFormResult, SmartFormTier } from "@/lib/smart-form/types";
+import type { SmartFormResult, SmartFormSectionConfig, SmartFormTier } from "@/lib/smart-form/types";
+
+function mergeSmartFormSections(
+  simpleSections: readonly SmartFormSectionConfig[],
+  expertSections: readonly SmartFormSectionConfig[],
+): SmartFormSectionConfig[] {
+  const seenKeys = new Set<string>();
+  const merged: SmartFormSectionConfig[] = [];
+
+  const absorb = (sections: readonly SmartFormSectionConfig[]) => {
+    for (const section of sections) {
+      const uniqueInputs = section.inputs.filter((input) => {
+        if (seenKeys.has(input.key)) {
+          return false;
+        }
+        seenKeys.add(input.key);
+        return true;
+      });
+      if (uniqueInputs.length === 0) {
+        continue;
+      }
+
+      const existingIndex = merged.findIndex((candidate) => candidate.id === section.id);
+      if (existingIndex >= 0) {
+        merged[existingIndex] = {
+          ...merged[existingIndex],
+          inputs: [...merged[existingIndex].inputs, ...uniqueInputs],
+        };
+      } else {
+        merged.push({ ...section, inputs: uniqueInputs });
+      }
+    }
+  };
+
+  absorb(simpleSections);
+  absorb(expertSections);
+  return merged;
+}
 
 export type SmartFormWorkspaceProps = {
   readonly toolSlug: string;
@@ -67,6 +103,13 @@ export function SmartFormWorkspace({
     [toolSlug, inputConfig, locale],
   );
 
+  const mergedSections = useMemo(() => {
+    if (!adapter.ok) {
+      return [];
+    }
+    return mergeSmartFormSections(adapter.simpleSections, adapter.expertSections);
+  }, [adapter]);
+
   const useAdapter =
     !forceFallback &&
     !nativeContractForm &&
@@ -89,23 +132,12 @@ export function SmartFormWorkspace({
       data-testid="tool-form"
     >
       <SmartFormFieldsRenderer
-        sections={adapter.simpleSections}
+        sections={mergedSections}
         values={values}
         errors={errors}
         onChange={onChange!}
         collapsible={false}
       />
-      {adapter.expertSections.length > 0 ? (
-        <SmartExpertPanel>
-          <SmartFormFieldsRenderer
-            sections={adapter.expertSections}
-            values={values}
-            errors={errors}
-            onChange={onChange!}
-            collapsible
-          />
-        </SmartExpertPanel>
-      ) : null}
       <div className="sc-industrial-form-actions">
         <button
           type="submit"
@@ -119,17 +151,6 @@ export function SmartFormWorkspace({
   ) : (
     formFallback
   );
-
-  const expertContent = useAdapter ? (
-    <SmartExpertPanel>
-      <SmartFormFieldsRenderer
-        sections={adapter.ok ? adapter.expertSections : []}
-        values={values}
-        errors={errors}
-        onChange={onChange!}
-      />
-    </SmartExpertPanel>
-  ) : undefined;
 
   const guidedFormContent = (
     <ToolGuidanceLayout
@@ -165,7 +186,6 @@ export function SmartFormWorkspace({
           <div className="order-1 min-w-0 lg:order-2">{guidedFormContent}</div>
         </div>
       }
-      expertContent={expertContent}
       hasCalculated={hasCalculated}
       resultContent={
         hasCalculated ? (

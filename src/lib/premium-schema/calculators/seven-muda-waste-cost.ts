@@ -21,6 +21,7 @@ import {
   type SevenMudaTransportCostParts,
 } from "@/lib/premium-schema/calculators/seven-muda-waste-decision";
 import {
+  hasSevenMudaWasteDriverInput,
   resolveSevenMudaEngineeringInputs,
   validateSevenMudaEngineeringInputs,
   type SevenMudaEngineeringInputs,
@@ -102,52 +103,27 @@ export const SEVEN_MUDA_WASTE_CATEGORY_KEYS: readonly SevenMudaLegacyCategoryCos
 
 const ENGINEERING_SCHEMA_FIELD_IDS: readonly (keyof SevenMudaEngineeringInputs)[] = [
   "analysisPeriodDays",
-  "workingDaysPerYear",
-  "productionUnitsInPeriod",
-  "currencyCode",
+  "annualWorkingDays",
+  "productionUnits",
+  "currency",
   "unitVariableCost",
   "unitSellingPrice",
-  "grossMarginPct",
-  "excessUnits",
-  "excessInventoryHoldingDays",
-  "excessWriteDownCostPerUnit",
-  "waitingMinutes",
-  "affectedOperators",
-  "hourlyLaborCost",
-  "affectedMachines",
-  "hourlyMachineCost",
-  "waitingOpportunityMode",
-  "hourlyOpportunityCost",
-  "plannedUnitsPerHour",
-  "transportDistanceKm",
-  "transportTrips",
-  "transportCostPerKm",
-  "handlingMinutesPerTrip",
-  "handlingHourlyLaborCost",
-  "transportDamageRatePct",
-  "averageLoadValue",
-  "averageExcessInventoryValue",
-  "inventoryHoldingRatePct",
-  "inventoryObsolescenceValue",
-  "inventoryShrinkageRatePct",
-  "unnecessaryMotionMinutes",
-  "motionAffectedOperators",
-  "motionHourlyLaborCost",
-  "overprocessingMinutes",
-  "overprocessingHourlyResourceCost",
-  "extraMaterialCost",
-  "extraEnergyCost",
-  "extraInspectionCost",
-  "scrapUnits",
-  "scrapDisposalCostPerUnit",
-  "reworkMinutes",
-  "reworkHourlyLaborCost",
-  "reworkHourlyMachineCost",
-  "customerReturnCost",
-  "warrantyCost",
-  "expediteCost",
-  "dataConfidencePct",
-  "implementationDifficultyScore",
+  "grossMarginPercent",
+  "overproductionUnits",
+  "waitingHours",
+  "waitingOpportunityCostMode",
+  "manualHourlyOpportunityCost",
+  "unnecessaryTransportCost",
+  "excessInventoryValue",
+  "inventoryCarryingRatePercent",
+  "unnecessaryMotionHours",
+  "motionHourlyCost",
+  "defectUnits",
+  "reworkCostPerDefect",
+  "overprocessingHours",
+  "overprocessingHourlyCost",
+  "dataConfidencePercent",
+  "implementationDifficulty",
 ];
 
 let boundSchemaInputs: SchemaInputValues | null = null;
@@ -200,26 +176,8 @@ export function getPrimedSevenMudaEngineeringResult(): SevenMudaEngineeringResul
   return cachedEngineeringResult;
 }
 
-function computeMinuteRates(input: SevenMudaEngineeringInputs): {
-  readonly laborMinuteCost: number;
-  readonly machineMinuteCost: number;
-  readonly handlingMinuteCost: number;
-  readonly motionMinuteCost: number;
-  readonly overprocessingMinuteCost: number;
-  readonly reworkMinuteLaborCost: number;
-  readonly reworkMinuteMachineCost: number;
-  readonly unitGrossMargin: number;
-} {
-  return {
-    laborMinuteCost: input.hourlyLaborCost / 60,
-    machineMinuteCost: input.hourlyMachineCost / 60,
-    handlingMinuteCost: input.handlingHourlyLaborCost / 60,
-    motionMinuteCost: input.motionHourlyLaborCost / 60,
-    overprocessingMinuteCost: input.overprocessingHourlyResourceCost / 60,
-    reworkMinuteLaborCost: input.reworkHourlyLaborCost / 60,
-    reworkMinuteMachineCost: input.reworkHourlyMachineCost / 60,
-    unitGrossMargin: input.unitSellingPrice * (input.grossMarginPct / 100),
-  };
+function computeContributionMarginPerUnit(input: SevenMudaEngineeringInputs): number {
+  return input.unitSellingPrice * (input.grossMarginPercent / 100);
 }
 
 function computeCategoryCosts(input: SevenMudaEngineeringInputs): {
@@ -228,72 +186,31 @@ function computeCategoryCosts(input: SevenMudaEngineeringInputs): {
   readonly transportParts: SevenMudaTransportCostParts;
   readonly inventoryParts: SevenMudaInventoryCostParts;
 } {
-  const rates = computeMinuteRates(input);
+  const contributionMarginPerUnit = computeContributionMarginPerUnit(input);
 
-  const overproductionBaseCost = input.excessUnits * input.unitVariableCost;
-  const overproductionHoldingCost =
-    overproductionBaseCost *
-    (input.inventoryHoldingRatePct / 100) *
-    (input.excessInventoryHoldingDays / 365);
-  const overproductionWriteDownCost = input.excessUnits * input.excessWriteDownCostPerUnit;
-  const overproductionCost =
-    overproductionBaseCost + overproductionHoldingCost + overproductionWriteDownCost;
-
-  const waitingLaborCost = input.waitingMinutes * input.affectedOperators * rates.laborMinuteCost;
-  const waitingMachineCost = input.waitingMinutes * input.affectedMachines * rates.machineMinuteCost;
+  const overproductionCost = input.overproductionUnits * input.unitVariableCost;
 
   let waitingOpportunityCost = 0;
-  if (input.waitingOpportunityMode === "manualHourly") {
-    waitingOpportunityCost = input.waitingMinutes * (input.hourlyOpportunityCost / 60);
-  } else if (
-    input.waitingOpportunityMode === "derivedThroughput" &&
-    input.plannedUnitsPerHour > 0
-  ) {
-    waitingOpportunityCost =
-      (input.waitingMinutes / 60) * input.plannedUnitsPerHour * rates.unitGrossMargin;
+  if (input.waitingOpportunityCostMode === "manual") {
+    waitingOpportunityCost = input.waitingHours * input.manualHourlyOpportunityCost;
+  } else {
+    waitingOpportunityCost = input.waitingHours * Math.max(contributionMarginPerUnit, 0);
   }
+  const waitingCost = waitingOpportunityCost;
 
-  const waitingCost = waitingLaborCost + waitingMachineCost + waitingOpportunityCost;
-
-  const transportVehicleCost =
-    input.transportDistanceKm * input.transportTrips * input.transportCostPerKm;
-  const transportHandlingCost =
-    input.transportTrips * input.handlingMinutesPerTrip * rates.handlingMinuteCost;
-  const transportDamageCost =
-    input.averageLoadValue * (input.transportDamageRatePct / 100) * input.transportTrips;
-  const transportCost = transportVehicleCost + transportHandlingCost + transportDamageCost;
+  const transportCost = input.unnecessaryTransportCost;
 
   const inventoryHoldingCost =
-    input.averageExcessInventoryValue *
-    (input.inventoryHoldingRatePct / 100) *
-    (input.analysisPeriodDays / 365);
-  const inventoryShrinkageCost =
-    input.averageExcessInventoryValue * (input.inventoryShrinkageRatePct / 100);
-  const inventoryCost =
-    inventoryHoldingCost + input.inventoryObsolescenceValue + inventoryShrinkageCost;
+    input.excessInventoryValue *
+    (input.inventoryCarryingRatePercent / 100) *
+    (input.analysisPeriodDays / input.annualWorkingDays);
+  const inventoryCost = inventoryHoldingCost;
 
-  const motionCost =
-    input.unnecessaryMotionMinutes * input.motionAffectedOperators * rates.motionMinuteCost;
+  const motionCost = input.unnecessaryMotionHours * input.motionHourlyCost;
 
-  const overprocessingTimeCost = input.overprocessingMinutes * rates.overprocessingMinuteCost;
-  const overprocessingCost =
-    overprocessingTimeCost +
-    input.extraMaterialCost +
-    input.extraEnergyCost +
-    input.extraInspectionCost;
+  const overprocessingCost = input.overprocessingHours * input.overprocessingHourlyCost;
 
-  const scrapMaterialCost = input.scrapUnits * input.unitVariableCost;
-  const scrapDisposalCost = input.scrapUnits * input.scrapDisposalCostPerUnit;
-  const reworkLaborCost = input.reworkMinutes * rates.reworkMinuteLaborCost;
-  const reworkMachineCost = input.reworkMinutes * rates.reworkMinuteMachineCost;
-  const defectCost =
-    scrapMaterialCost +
-    scrapDisposalCost +
-    reworkLaborCost +
-    reworkMachineCost +
-    input.customerReturnCost +
-    input.warrantyCost +
-    input.expediteCost;
+  const defectCost = input.defectUnits * (input.unitVariableCost + input.reworkCostPerDefect);
 
   return {
     costs: {
@@ -306,18 +223,18 @@ function computeCategoryCosts(input: SevenMudaEngineeringInputs): {
       defectCost,
     },
     waitingParts: {
-      waitingLaborCost,
-      waitingMachineCost,
+      waitingLaborCost: 0,
+      waitingMachineCost: 0,
       waitingOpportunityCost,
     },
     transportParts: {
-      transportVehicleCost,
-      transportHandlingCost,
-      transportDamageCost,
+      transportVehicleCost: transportCost,
+      transportHandlingCost: 0,
+      transportDamageCost: 0,
     },
     inventoryParts: {
       inventoryHoldingCost,
-      inventoryShrinkageCost,
+      inventoryShrinkageCost: 0,
     },
   };
 }
@@ -347,20 +264,20 @@ export function calculateSevenMudaEngineeringWasteCost(
     costs.defectCost;
 
   const annualizedWasteCost =
-    totalWasteCost * (input.workingDaysPerYear / input.analysisPeriodDays);
+    totalWasteCost * (input.annualWorkingDays / input.analysisPeriodDays);
   const wasteCostPerUnit =
-    input.productionUnitsInPeriod > 0 ? totalWasteCost / input.productionUnitsInPeriod : 0;
-  const periodRevenue = input.productionUnitsInPeriod * input.unitSellingPrice;
+    input.productionUnits > 0 ? totalWasteCost / input.productionUnits : 0;
+  const periodRevenue = input.productionUnits * input.unitSellingPrice;
   const periodGrossMarginValue =
-    input.productionUnitsInPeriod * input.unitSellingPrice * (input.grossMarginPct / 100);
+    input.productionUnits * input.unitSellingPrice * (input.grossMarginPercent / 100);
   const wasteToRevenueRatioPct = periodRevenue > 0 ? (totalWasteCost / periodRevenue) * 100 : 0;
   const wasteToGrossMarginRatioPct =
     periodGrossMarginValue > 0 ? (totalWasteCost / periodGrossMarginValue) * 100 : 0;
 
-  const safeDifficulty = input.implementationDifficultyScore;
-  const safeConfidence = input.dataConfidencePct / 100;
+  const safeDifficulty = input.implementationDifficulty;
+  const safeConfidence = input.dataConfidencePercent / 100;
   const riskAdjustedPriorityScore = (totalWasteCost * safeConfidence) / safeDifficulty;
-  const confidenceLevel = resolveConfidenceLevel(input.dataConfidencePct);
+  const confidenceLevel = resolveConfidenceLevel(input.dataConfidencePercent);
 
   const wasteBreakdown = buildSevenMudaWasteBreakdown({
     input,
@@ -380,6 +297,7 @@ export function calculateSevenMudaEngineeringWasteCost(
   });
   const decisionVerdict = buildDecisionVerdict({
     totalWasteCost,
+    hasWasteDriverInput: hasSevenMudaWasteDriverInput(input),
     wasteToGrossMarginRatioPct,
     recommendedActionOrder,
     highestWasteCategory,

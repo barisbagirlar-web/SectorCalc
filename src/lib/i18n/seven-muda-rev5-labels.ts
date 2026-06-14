@@ -122,7 +122,7 @@ const TR_LABELS: SevenMudaRev5LabelCore = {
 };
 
 const EN_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
-  none: "None",
+  none: "No data entered",
   overproduction: "Overproduction",
   waiting: "Waiting",
   transport: "Transport",
@@ -133,13 +133,13 @@ const EN_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
 };
 
 const TR_CATEGORY_NAMES: Record<SevenMudaWasteCategoryKey | "none", string> = {
-  none: "Yok",
+  none: "Veri girilmedi",
   overproduction: "Aşırı üretim",
   waiting: "Bekleme",
   transport: "Taşıma",
   inventory: "Stok",
   motion: "Gereksiz hareket",
-  overprocessing: "Aşırı işleme",
+  overprocessing: "Fazla işlem",
   defects: "Hatalar",
 };
 
@@ -158,7 +158,7 @@ const TR_SUMMARY_LEVELS: Record<
   SevenMudaEngineeringResult["decisionVerdict"]["summaryLevel"],
   string
 > = {
-  no_detected_waste: "Tespit edilen israf yok",
+  no_detected_waste: "Hesaplama için israf sürücüsü girilmeli",
   low: "Düşük maruziyet",
   medium: "Orta maruziyet",
   high: "Yüksek maruziyet",
@@ -182,24 +182,12 @@ const SEVEN_MUDA_WARNING_MESSAGES: ReadonlyArray<{
   readonly tr: string;
 }> = [
   {
-    en: "Waiting cost includes both direct labor/machine cost and opportunity cost. Confirm this is intentional.",
-    tr: "Bekleme maliyeti hem doğrudan işçilik/makine maliyeti hem de fırsat maliyeti içeriyor. Bunun bilinçli girildiğini kontrol edin.",
+    en: "Analiz dönemi yıllık çalışma gününden büyük. Yıllıklandırılmış sonuç ters ölçeklenebilir.",
+    tr: "Analiz dönemi yıllık çalışma gününden büyük. Yıllıklandırılmış sonuç ters ölçeklenebilir.",
   },
   {
-    en: "Inventory cost includes both obsolescence and shrinkage. Confirm these are separate losses.",
-    tr: "Stok maliyeti hem değer düşüklüğü hem de fire içeriyor. Bunların ayrı kayıplar olduğunu doğrulayın.",
-  },
-  {
-    en: "Overproduction write-down and inventory obsolescence are both entered. Confirm the same stock loss is not counted twice.",
-    tr: "Fazla üretim değer düşüklüğü ve stok değer düşüklüğü birlikte girilmiş. Aynı stok kaybının iki kez sayılmadığını doğrulayın.",
-  },
-  {
-    en: "Transport damage and defect/rework costs are both present. Confirm transport-related defects are not duplicated.",
-    tr: "Taşıma hasarı ve hata/yeniden işleme maliyetleri birlikte var. Taşıma kaynaklı hataların iki kez yazılmadığını doğrulayın.",
-  },
-  {
-    en: "plannedUnitsPerHour must be greater than zero when waitingOpportunityMode is derivedThroughput; waiting opportunity cost will be treated as zero.",
-    tr: "Üretim hızına göre fırsat maliyeti seçildi ancak planlanan saatlik üretim sıfır. Bekleme fırsat maliyeti sıfır kabul edilir.",
+    en: "Manuel fırsat maliyeti modu seçildi ancak saatlik fırsat maliyeti sıfır. Bekleme maliyeti sıfır kabul edilir.",
+    tr: "Manuel fırsat maliyeti modu seçildi ancak saatlik fırsat maliyeti sıfır. Bekleme maliyeti sıfır kabul edilir.",
   },
 ];
 

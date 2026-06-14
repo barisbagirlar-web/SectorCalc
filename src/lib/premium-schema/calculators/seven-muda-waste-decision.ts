@@ -77,6 +77,8 @@ const CATEGORY_LABELS: Record<SevenMudaWasteCategoryKey, string> = {
   defects: "Defects",
 };
 
+const NO_DATA_LABEL = "Veri girilmedi";
+
 export function resolveConfidenceLevel(dataConfidencePct: number): SevenMudaConfidenceLevel {
   if (dataConfidencePct >= 80) {
     return "high";
@@ -92,8 +94,8 @@ export function buildSevenMudaWasteBreakdown(input: {
   readonly costs: SevenMudaCategoryCosts;
   readonly totalWasteCost: number;
 }): readonly SevenMudaWasteBreakdownItem[] {
-  const safeDifficulty = input.input.implementationDifficultyScore;
-  const safeConfidence = input.input.dataConfidencePct / 100;
+  const safeDifficulty = input.input.implementationDifficulty;
+  const safeConfidence = input.input.dataConfidencePercent / 100;
   const total = input.totalWasteCost;
 
   const entries: readonly { key: SevenMudaWasteCategoryKey; cost: number }[] = [
@@ -165,62 +167,40 @@ export function buildDoubleCountWarnings(input: {
   readonly engineeringInput: SevenMudaEngineeringInputs;
   readonly defectCost: number;
 }): readonly string[] {
-  const warnings = [...input.validationWarnings];
-
-  const directWaitingCost = input.waitingParts.waitingLaborCost + input.waitingParts.waitingMachineCost;
-  if (directWaitingCost > 0 && input.waitingParts.waitingOpportunityCost > 0) {
-    warnings.push(
-      "Waiting cost includes both direct labor/machine cost and opportunity cost. Confirm this is intentional.",
-    );
-  }
-
-  if (input.engineeringInput.inventoryObsolescenceValue > 0 && input.inventoryParts.inventoryShrinkageCost > 0) {
-    warnings.push(
-      "Inventory cost includes both obsolescence and shrinkage. Confirm these are separate losses.",
-    );
-  }
-
-  if (
-    input.engineeringInput.excessWriteDownCostPerUnit > 0 &&
-    input.engineeringInput.inventoryObsolescenceValue > 0
-  ) {
-    warnings.push(
-      "Overproduction write-down and inventory obsolescence are both entered. Confirm the same stock loss is not counted twice.",
-    );
-  }
-
-  if (input.transportParts.transportDamageCost > 0 && input.defectCost > 0) {
-    warnings.push(
-      "Transport damage and defect/rework costs are both present. Confirm transport-related defects are not duplicated.",
-    );
-  }
-
-  return warnings;
+  return [...input.validationWarnings];
 }
 
 export function buildDecisionVerdict(input: {
   readonly totalWasteCost: number;
+  readonly hasWasteDriverInput: boolean;
   readonly wasteToGrossMarginRatioPct: number;
   readonly recommendedActionOrder: readonly SevenMudaWasteCategoryKey[];
   readonly highestWasteCategory: SevenMudaWasteCategoryKey | "none";
   readonly confidenceLevel: SevenMudaConfidenceLevel;
   readonly doubleCountWarnings: readonly string[];
 }): SevenMudaDecisionVerdict {
-  const summaryLevel: SevenMudaDecisionVerdictSummaryLevel =
-    input.totalWasteCost <= 0
-      ? "no_detected_waste"
-      : input.wasteToGrossMarginRatioPct >= 50
-        ? "critical"
-        : input.wasteToGrossMarginRatioPct >= 20
-          ? "high"
-          : input.wasteToGrossMarginRatioPct >= 10
-            ? "medium"
-            : "low";
+  const noDetectedWaste = input.totalWasteCost <= 0 || !input.hasWasteDriverInput;
+
+  const summaryLevel: SevenMudaDecisionVerdictSummaryLevel = noDetectedWaste
+    ? "no_detected_waste"
+    : input.wasteToGrossMarginRatioPct >= 50
+      ? "critical"
+      : input.wasteToGrossMarginRatioPct >= 20
+        ? "high"
+        : input.wasteToGrossMarginRatioPct >= 10
+          ? "medium"
+          : "low";
+
+  const firstActionCategory = noDetectedWaste
+    ? "none"
+    : (input.recommendedActionOrder[0] ?? "none");
+
+  const biggestCostCategory = noDetectedWaste ? "none" : input.highestWasteCategory;
 
   return {
     summaryLevel,
-    firstActionCategory: input.recommendedActionOrder[0] ?? "none",
-    biggestCostCategory: input.highestWasteCategory,
+    firstActionCategory,
+    biggestCostCategory,
     dataConfidence: input.confidenceLevel,
     hasDoubleCountRisk: input.doubleCountWarnings.length > 0,
   };
@@ -239,8 +219,8 @@ export function resolveHighestWasteCategoryIndex(
     { index: 7, cost: costs.defectCost },
   ];
 
-  let highestIndex = 1;
-  let highestValue = ordered[0]?.cost ?? 0;
+  let highestIndex = 0;
+  let highestValue = 0;
   for (const entry of ordered) {
     if (entry.cost > highestValue) {
       highestValue = entry.cost;
@@ -270,5 +250,18 @@ const LEGACY_CATEGORY_INDEX_TO_KEY: Record<number, SevenMudaLegacyCategoryCostKe
 };
 
 export function resolveHighestWasteCategoryKeyFromIndex(index: number): SevenMudaLegacyCategoryCostKey {
+  if (index <= 0) {
+    return "overproductionCost";
+  }
   return LEGACY_CATEGORY_INDEX_TO_KEY[index] ?? "overproductionCost";
+}
+
+export function resolveSevenMudaCategoryDisplayLabel(
+  key: SevenMudaWasteCategoryKey | "none",
+  totalWasteCost: number,
+): string {
+  if (totalWasteCost <= 0 || key === "none") {
+    return NO_DATA_LABEL;
+  }
+  return CATEGORY_LABELS[key];
 }

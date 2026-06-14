@@ -1,62 +1,31 @@
-export type WaitingOpportunityMode = "none" | "manualHourly" | "derivedThroughput";
+export type WaitingOpportunityCostMode = "margin" | "manual";
 
 export type SevenMudaEngineeringInputs = {
   analysisPeriodDays: number;
-  workingDaysPerYear: number;
-  productionUnitsInPeriod: number;
+  annualWorkingDays: number;
+  productionUnits: number;
 
-  currencyCode: string;
+  currency: string;
   unitVariableCost: number;
   unitSellingPrice: number;
-  grossMarginPct: number;
+  grossMarginPercent: number;
 
-  excessUnits: number;
-  excessInventoryHoldingDays: number;
-  excessWriteDownCostPerUnit: number;
+  overproductionUnits: number;
+  waitingHours: number;
+  waitingOpportunityCostMode: WaitingOpportunityCostMode;
+  manualHourlyOpportunityCost: number;
+  unnecessaryTransportCost: number;
+  excessInventoryValue: number;
+  inventoryCarryingRatePercent: number;
+  unnecessaryMotionHours: number;
+  motionHourlyCost: number;
+  defectUnits: number;
+  reworkCostPerDefect: number;
+  overprocessingHours: number;
+  overprocessingHourlyCost: number;
 
-  waitingMinutes: number;
-  affectedOperators: number;
-  hourlyLaborCost: number;
-  affectedMachines: number;
-  hourlyMachineCost: number;
-  waitingOpportunityMode: WaitingOpportunityMode;
-  hourlyOpportunityCost: number;
-  plannedUnitsPerHour: number;
-
-  transportDistanceKm: number;
-  transportTrips: number;
-  transportCostPerKm: number;
-  handlingMinutesPerTrip: number;
-  handlingHourlyLaborCost: number;
-  transportDamageRatePct: number;
-  averageLoadValue: number;
-
-  averageExcessInventoryValue: number;
-  inventoryHoldingRatePct: number;
-  inventoryObsolescenceValue: number;
-  inventoryShrinkageRatePct: number;
-
-  unnecessaryMotionMinutes: number;
-  motionAffectedOperators: number;
-  motionHourlyLaborCost: number;
-
-  overprocessingMinutes: number;
-  overprocessingHourlyResourceCost: number;
-  extraMaterialCost: number;
-  extraEnergyCost: number;
-  extraInspectionCost: number;
-
-  scrapUnits: number;
-  scrapDisposalCostPerUnit: number;
-  reworkMinutes: number;
-  reworkHourlyLaborCost: number;
-  reworkHourlyMachineCost: number;
-  customerReturnCost: number;
-  warrantyCost: number;
-  expediteCost: number;
-
-  dataConfidencePct: number;
-  implementationDifficultyScore: number;
+  dataConfidencePercent: number;
+  implementationDifficulty: number;
 };
 
 export type SevenMudaValidationResult = {
@@ -67,97 +36,83 @@ export type SevenMudaValidationResult = {
 
 export const SEVEN_MUDA_ENGINEERING_INPUT_KEYS: readonly (keyof SevenMudaEngineeringInputs)[] = [
   "analysisPeriodDays",
-  "workingDaysPerYear",
-  "productionUnitsInPeriod",
-  "currencyCode",
+  "annualWorkingDays",
+  "productionUnits",
+  "currency",
   "unitVariableCost",
   "unitSellingPrice",
-  "grossMarginPct",
-  "excessUnits",
-  "excessInventoryHoldingDays",
-  "excessWriteDownCostPerUnit",
-  "waitingMinutes",
-  "affectedOperators",
-  "hourlyLaborCost",
-  "affectedMachines",
-  "hourlyMachineCost",
-  "waitingOpportunityMode",
-  "hourlyOpportunityCost",
-  "plannedUnitsPerHour",
-  "transportDistanceKm",
-  "transportTrips",
-  "transportCostPerKm",
-  "handlingMinutesPerTrip",
-  "handlingHourlyLaborCost",
-  "transportDamageRatePct",
-  "averageLoadValue",
-  "averageExcessInventoryValue",
-  "inventoryHoldingRatePct",
-  "inventoryObsolescenceValue",
-  "inventoryShrinkageRatePct",
-  "unnecessaryMotionMinutes",
-  "motionAffectedOperators",
-  "motionHourlyLaborCost",
-  "overprocessingMinutes",
-  "overprocessingHourlyResourceCost",
-  "extraMaterialCost",
-  "extraEnergyCost",
-  "extraInspectionCost",
-  "scrapUnits",
-  "scrapDisposalCostPerUnit",
-  "reworkMinutes",
-  "reworkHourlyLaborCost",
-  "reworkHourlyMachineCost",
-  "customerReturnCost",
-  "warrantyCost",
-  "expediteCost",
-  "dataConfidencePct",
-  "implementationDifficultyScore",
+  "grossMarginPercent",
+  "overproductionUnits",
+  "waitingHours",
+  "waitingOpportunityCostMode",
+  "manualHourlyOpportunityCost",
+  "unnecessaryTransportCost",
+  "excessInventoryValue",
+  "inventoryCarryingRatePercent",
+  "unnecessaryMotionHours",
+  "motionHourlyCost",
+  "defectUnits",
+  "reworkCostPerDefect",
+  "overprocessingHours",
+  "overprocessingHourlyCost",
+  "dataConfidencePercent",
+  "implementationDifficulty",
 ];
 
-export const WAITING_OPPORTUNITY_MODE_VALUES: readonly WaitingOpportunityMode[] = [
-  "none",
-  "manualHourly",
-  "derivedThroughput",
+export const WAITING_OPPORTUNITY_COST_MODE_VALUES: readonly WaitingOpportunityCostMode[] = [
+  "margin",
+  "manual",
 ];
 
 const CURRENCY_CODE_PATTERN = /^[A-Z]{3}$/;
 
 const REQUIRED_NUMBER_FIELDS: readonly (keyof SevenMudaEngineeringInputs)[] = [
   "analysisPeriodDays",
-  "workingDaysPerYear",
-  "productionUnitsInPeriod",
+  "annualWorkingDays",
+  "productionUnits",
   "unitVariableCost",
   "unitSellingPrice",
-  "grossMarginPct",
-  "dataConfidencePct",
-  "implementationDifficultyScore",
+  "grossMarginPercent",
+  "dataConfidencePercent",
+  "implementationDifficulty",
 ];
 
 const PERCENTAGE_FIELDS: readonly (keyof SevenMudaEngineeringInputs)[] = [
-  "grossMarginPct",
-  "inventoryHoldingRatePct",
-  "transportDamageRatePct",
-  "inventoryShrinkageRatePct",
-  "dataConfidencePct",
+  "grossMarginPercent",
+  "inventoryCarryingRatePercent",
+  "dataConfidencePercent",
+];
+
+const WASTE_DRIVER_FIELDS: readonly (keyof SevenMudaEngineeringInputs)[] = [
+  "overproductionUnits",
+  "waitingHours",
+  "manualHourlyOpportunityCost",
+  "unnecessaryTransportCost",
+  "excessInventoryValue",
+  "unnecessaryMotionHours",
+  "motionHourlyCost",
+  "defectUnits",
+  "reworkCostPerDefect",
+  "overprocessingHours",
+  "overprocessingHourlyCost",
 ];
 
 const OPTIONAL_NUMBER_FIELDS = SEVEN_MUDA_ENGINEERING_INPUT_KEYS.filter(
   (key): key is Exclude<
     keyof SevenMudaEngineeringInputs,
-    | "currencyCode"
-    | "waitingOpportunityMode"
+    | "currency"
+    | "waitingOpportunityCostMode"
     | "analysisPeriodDays"
-    | "workingDaysPerYear"
-    | "productionUnitsInPeriod"
+    | "annualWorkingDays"
+    | "productionUnits"
     | "unitVariableCost"
     | "unitSellingPrice"
-    | "grossMarginPct"
-    | "dataConfidencePct"
-    | "implementationDifficultyScore"
+    | "grossMarginPercent"
+    | "dataConfidencePercent"
+    | "implementationDifficulty"
   > =>
-    key !== "currencyCode" &&
-    key !== "waitingOpportunityMode" &&
+    key !== "currency" &&
+    key !== "waitingOpportunityCostMode" &&
     !REQUIRED_NUMBER_FIELDS.includes(key),
 );
 
@@ -189,36 +144,32 @@ function parseNumberField(
   return numeric;
 }
 
-function parseWaitingOpportunityMode(
+function parseWaitingOpportunityCostMode(
   raw: unknown,
   errors: string[],
-): WaitingOpportunityMode | null {
+): WaitingOpportunityCostMode | null {
   if (raw === undefined || raw === null || raw === "") {
-    errors.push("waitingOpportunityMode is required.");
+    errors.push("waitingOpportunityCostMode is required.");
     return null;
   }
 
-  if (
-    raw === "none" ||
-    raw === "manualHourly" ||
-    raw === "derivedThroughput"
-  ) {
+  if (raw === "margin" || raw === "manual") {
     return raw;
   }
 
-  errors.push("waitingOpportunityMode must be none, manualHourly, or derivedThroughput.");
+  errors.push("waitingOpportunityCostMode must be margin or manual.");
   return null;
 }
 
-function parseCurrencyCode(raw: unknown, errors: string[]): string | null {
+function parseCurrency(raw: unknown, errors: string[]): string | null {
   const trimmed = trimString(raw);
   if (!trimmed) {
-    errors.push("currencyCode is required. Enter all monetary inputs in the same ISO 4217 currency.");
+    errors.push("currency is required. Enter all monetary inputs in the same ISO 4217 currency.");
     return null;
   }
 
   if (!CURRENCY_CODE_PATTERN.test(trimmed)) {
-    errors.push("currencyCode must match ISO 4217 format (three uppercase letters, e.g. USD, EUR, TRY).");
+    errors.push("currency must match ISO 4217 format (three uppercase letters, e.g. USD, EUR, TRY).");
     return null;
   }
 
@@ -237,7 +188,11 @@ function validateProvidedNumber(
   return parseNumberField(field, raw, false, errors);
 }
 
-function validatePositivePeriod(field: "analysisPeriodDays" | "workingDaysPerYear", value: number | null, errors: string[]) {
+function validatePositivePeriod(
+  field: "analysisPeriodDays" | "annualWorkingDays",
+  value: number | null,
+  errors: string[],
+) {
   if (value === null) {
     return;
   }
@@ -269,7 +224,7 @@ function validateDifficultyScore(value: number | null, errors: string[]) {
     return;
   }
   if (value < 1 || value > 5) {
-    errors.push("implementationDifficultyScore must be between 1 and 5.");
+    errors.push("implementationDifficulty must be between 1 and 5.");
   }
 }
 
@@ -280,39 +235,45 @@ export function validateSevenMudaEngineeringInputs(
   const warnings: string[] = [];
 
   const analysisPeriodDays = parseNumberField("analysisPeriodDays", raw.analysisPeriodDays, true, errors);
-  const workingDaysPerYear = parseNumberField("workingDaysPerYear", raw.workingDaysPerYear, true, errors);
-  parseNumberField("productionUnitsInPeriod", raw.productionUnitsInPeriod, true, errors);
+  const annualWorkingDays = parseNumberField("annualWorkingDays", raw.annualWorkingDays, true, errors);
+  parseNumberField("productionUnits", raw.productionUnits, true, errors);
   parseNumberField("unitVariableCost", raw.unitVariableCost, true, errors);
   parseNumberField("unitSellingPrice", raw.unitSellingPrice, true, errors);
-  parseNumberField("dataConfidencePct", raw.dataConfidencePct, true, errors);
-  const implementationDifficultyScore = parseNumberField(
-    "implementationDifficultyScore",
-    raw.implementationDifficultyScore,
+  parseNumberField("dataConfidencePercent", raw.dataConfidencePercent, true, errors);
+  const implementationDifficulty = parseNumberField(
+    "implementationDifficulty",
+    raw.implementationDifficulty,
     true,
     errors,
   );
 
-  parseCurrencyCode(raw.currencyCode, errors);
-  const waitingOpportunityMode = parseWaitingOpportunityMode(raw.waitingOpportunityMode, errors);
+  parseCurrency(raw.currency, errors);
+  const waitingOpportunityCostMode = parseWaitingOpportunityCostMode(raw.waitingOpportunityCostMode, errors);
 
   validatePositivePeriod("analysisPeriodDays", analysisPeriodDays, errors);
-  validatePositivePeriod("workingDaysPerYear", workingDaysPerYear, errors);
+  validatePositivePeriod("annualWorkingDays", annualWorkingDays, errors);
 
-  const productionUnitsInPeriod = validateProvidedNumber(
-    "productionUnitsInPeriod",
-    raw.productionUnitsInPeriod,
-    errors,
-  );
-  if (productionUnitsInPeriod !== null && productionUnitsInPeriod <= 0) {
-    errors.push("productionUnitsInPeriod must be greater than zero.");
+  if (
+    analysisPeriodDays !== null &&
+    annualWorkingDays !== null &&
+    analysisPeriodDays > annualWorkingDays
+  ) {
+    warnings.push(
+      "Analiz dönemi yıllık çalışma gününden büyük. Yıllıklandırılmış sonuç ters ölçeklenebilir.",
+    );
+  }
+
+  const productionUnits = validateProvidedNumber("productionUnits", raw.productionUnits, errors);
+  if (productionUnits !== null && productionUnits <= 0) {
+    errors.push("productionUnits must be greater than zero.");
   }
 
   for (const field of REQUIRED_NUMBER_FIELDS) {
     const value = validateProvidedNumber(field, raw[field], errors);
-    if (field === "analysisPeriodDays" || field === "workingDaysPerYear") {
+    if (field === "analysisPeriodDays" || field === "annualWorkingDays") {
       continue;
     }
-    if (field === "implementationDifficultyScore") {
+    if (field === "implementationDifficulty") {
       validateDifficultyScore(value, errors);
       continue;
     }
@@ -332,11 +293,11 @@ export function validateSevenMudaEngineeringInputs(
     validateNonNegative(field, value, errors);
   }
 
-  if (waitingOpportunityMode === "derivedThroughput") {
-    const plannedUnitsPerHour = validateProvidedNumber("plannedUnitsPerHour", raw.plannedUnitsPerHour, errors);
-    if (plannedUnitsPerHour === null || plannedUnitsPerHour <= 0) {
+  if (waitingOpportunityCostMode === "manual") {
+    const manualRate = validateProvidedNumber("manualHourlyOpportunityCost", raw.manualHourlyOpportunityCost, errors);
+    if (manualRate === null || manualRate <= 0) {
       warnings.push(
-        "plannedUnitsPerHour must be greater than zero when waitingOpportunityMode is derivedThroughput; waiting opportunity cost will be treated as zero.",
+        "Manuel fırsat maliyeti modu seçildi ancak saatlik fırsat maliyeti sıfır. Bekleme maliyeti sıfır kabul edilir.",
       );
     }
   }
@@ -358,22 +319,17 @@ export function resolveSevenMudaEngineeringInputs(
 
   const errors: string[] = [];
   const analysisPeriodDays = parseNumberField("analysisPeriodDays", raw.analysisPeriodDays, true, errors);
-  const workingDaysPerYear = parseNumberField("workingDaysPerYear", raw.workingDaysPerYear, true, errors);
-  const productionUnitsInPeriod = parseNumberField(
-    "productionUnitsInPeriod",
-    raw.productionUnitsInPeriod,
-    true,
-    errors,
-  );
-  const currencyCode = parseCurrencyCode(raw.currencyCode, errors);
+  const annualWorkingDays = parseNumberField("annualWorkingDays", raw.annualWorkingDays, true, errors);
+  const productionUnits = parseNumberField("productionUnits", raw.productionUnits, true, errors);
+  const currency = parseCurrency(raw.currency, errors);
   const unitVariableCost = parseNumberField("unitVariableCost", raw.unitVariableCost, true, errors);
   const unitSellingPrice = parseNumberField("unitSellingPrice", raw.unitSellingPrice, true, errors);
-  const grossMarginPct = parseNumberField("grossMarginPct", raw.grossMarginPct, true, errors);
-  const waitingOpportunityMode = parseWaitingOpportunityMode(raw.waitingOpportunityMode, errors);
-  const dataConfidencePct = parseNumberField("dataConfidencePct", raw.dataConfidencePct, true, errors);
-  const implementationDifficultyScore = parseNumberField(
-    "implementationDifficultyScore",
-    raw.implementationDifficultyScore,
+  const grossMarginPercent = parseNumberField("grossMarginPercent", raw.grossMarginPercent, true, errors);
+  const waitingOpportunityCostMode = parseWaitingOpportunityCostMode(raw.waitingOpportunityCostMode, errors);
+  const dataConfidencePercent = parseNumberField("dataConfidencePercent", raw.dataConfidencePercent, true, errors);
+  const implementationDifficulty = parseNumberField(
+    "implementationDifficulty",
+    raw.implementationDifficulty,
     true,
     errors,
   );
@@ -390,30 +346,37 @@ export function resolveSevenMudaEngineeringInputs(
 
   if (
     analysisPeriodDays === null ||
-    workingDaysPerYear === null ||
-    productionUnitsInPeriod === null ||
-    currencyCode === null ||
+    annualWorkingDays === null ||
+    productionUnits === null ||
+    currency === null ||
     unitVariableCost === null ||
     unitSellingPrice === null ||
-    grossMarginPct === null ||
-    waitingOpportunityMode === null ||
-    dataConfidencePct === null ||
-    implementationDifficultyScore === null
+    grossMarginPercent === null ||
+    waitingOpportunityCostMode === null ||
+    dataConfidencePercent === null ||
+    implementationDifficulty === null
   ) {
     throw new Error(errors.join(" ") || "Seven muda engineering inputs could not be resolved.");
   }
 
   return {
     analysisPeriodDays,
-    workingDaysPerYear,
-    productionUnitsInPeriod,
-    currencyCode,
+    annualWorkingDays,
+    productionUnits,
+    currency,
     unitVariableCost,
     unitSellingPrice,
-    grossMarginPct,
-    waitingOpportunityMode,
-    dataConfidencePct,
-    implementationDifficultyScore,
+    grossMarginPercent,
+    waitingOpportunityCostMode,
+    dataConfidencePercent,
+    implementationDifficulty,
     ...optionalValues,
   };
+}
+
+export function hasSevenMudaWasteDriverInput(input: SevenMudaEngineeringInputs): boolean {
+  return WASTE_DRIVER_FIELDS.some((field) => {
+    const value = input[field];
+    return typeof value === "number" && value > 0;
+  });
 }

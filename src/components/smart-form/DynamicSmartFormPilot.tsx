@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
-import { SmartFormModeToggle } from "@/components/smart-form/SmartFormModeToggle";
 import { SmartFormRequirementNotice } from "@/components/smart-form/SmartFormRequirementNotice";
 import { SmartInputField } from "@/components/smart-form/SmartInputField";
 import type { SmartFormMode } from "@/lib/smart-form/dynamic-form-types";
@@ -54,7 +53,7 @@ export function DynamicSmartFormPilot({
 }: DynamicSmartFormPilotProps) {
   const t = useTranslations("smartForm");
   const definition = useMemo(() => getPremiumSmartFormDefinition(slug), [slug]);
-  const [mode, setMode] = useState<SmartFormMode>("simple");
+  const mode: SmartFormMode = "advanced";
   const [scenarioId, setScenarioId] = useState(() => getDefaultScenarioId(slug));
 
   const validation = useMemo(() => {
@@ -160,7 +159,6 @@ export function DynamicSmartFormPilot({
             <p className="sc-smart-form-scenario__desc">{t(activeScenario.descriptionKey)}</p>
           ) : null}
         </div>
-        <SmartFormModeToggle mode={mode} onChange={setMode} />
       </div>
 
       <SmartFormRequirementNotice
