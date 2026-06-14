@@ -9,7 +9,7 @@ import {
   SHOP_RATE_SCHEMA_PUBLIC_PATH,
 } from "@/lib/shop-rate/types";
 import type { z } from "zod";
-import shopRateSchemaFallback from "../../../generated/schemas/shop-rate-hourly-cost-calculator-schema.json";
+import shopRateSchemaFallback from "@/lib/shop-rate/shop-rate-hourly-cost-calculator-schema.json";
 
 export type UseShopRateModalToolState = {
   readonly schema: GeneratedToolSchema | null;
