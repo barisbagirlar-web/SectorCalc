@@ -1,9 +1,9 @@
 # SectorCalc AI Tool Index
 # Site: https://www.sectorcalc.com
-# Generated: 2026-06-13T14:21:18.267Z
+# Generated: 2026-06-14T02:38:46.799Z
 # Total tools: 474
-# Active routes: 323
-# Category-only: 151
+# Active routes: 388
+# Category-only: 86
 # Redirected: 0
 
 ## 3b-baski-destek-yapisi-ve-post-proses-maliyet-calculator
@@ -106,13 +106,13 @@
 - intent: calculator, decision-support
 
 ## agv-amr-otonom-tasima-geri-donus-calculator
-- title: Agv Amr Otonom Tasima Geri Donus
-- description: Forklift operatörü yerine AGV yatırımının toplam sahip olma maliyeti karşılaştırılamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/digital-factory-automation#tool-agv-amr-otonom-tasima-geri-donus-calculator
-- tier: premium
-- category: digital-factory-automation (Digital Factory & Automation)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- title: agv-amr-otonom-tasima-geri-donus-calculator
+- description: Industrial engineering cost-benefit analysis for automated material handling systems
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/agv-amr-otonom-tasima-geri-donus-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## ai-ml-compute-ve-api-token-maliyet-calculator
 - title: Ai Ml Compute Ve Api Token Maliyet
@@ -152,21 +152,21 @@
 
 ## aku-kapasitesi-calisma-suresi-hesabi
 - title: Akü Kapasitesi — Çalışma Süresi Calculation
-- description: Akü Kapasitesi — Çalışma Süresi Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/aku-kapasitesi-calisma-suresi-hesabi
-- tier: premium
-- category: electrical-power-systems (Electrical, Panel & Power Systems)
+- description: IEEE 485 / IEC 60896 lead-acid battery sizing standard adapted for runtime
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/aku-kapasitesi-calisma-suresi-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: electrical, power, voltage, cabling
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## alti-sigma-dpmo-sigma-seviyesi-cevirici
 - title: Altı Sigma — DPMO — Sigma Seviyesi Converter
-- description: Altı Sigma — DPMO — Sigma Seviyesi Converter — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/alti-sigma-dpmo-sigma-seviyesi-cevirici
-- tier: premium
-- category: quality-six-sigma (Quality, SPC & Six Sigma)
+- description: Six Sigma quality methodology using standard normal distribution inverse (Z-table approximation)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/alti-sigma-dpmo-sigma-seviyesi-cevirici
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: quality, spc, six-sigma, statistics
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## alti-sigma-proje-secimi-ve-yatirim-onceliklendirme-calculator
 - title: Alti Sigma Proje Secimi Ve Yatirim Onceliklendirme
@@ -188,12 +188,12 @@
 
 ## ambalaj-malzemesi-degisimi-ve-maliyet-etki-calculator
 - title: Ambalaj Malzemesi Degisimi Ve Maliyet Etki
-- description: Daha ucuz/çevreci ambalaja geçişin koruma performansı ve iade maliyeti etkisi bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/packaging-local-business#tool-ambalaj-malzemesi-degisimi-ve-maliyet-etki-calculator
-- tier: premium
-- category: packaging-local-business (Packaging & Local Business Tools)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/ambalaj-malzemesi-degisimi-ve-maliyet-etki-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## aml-kyc-ve-yaptirim-tarama-uyum-maliyeti-calculator
 - title: Aml Kyc Ve Yaptirim Tarama Uyum Maliyeti
@@ -206,21 +206,21 @@
 
 ## amper-kilowatt-kw-cevirici
 - title: Amper — Kilowatt (KW) Converter
-- description: Amper — Kilowatt (KW) Converter — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/amper-kilowatt-kw-cevirici
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: IEEE 141-1993, IEC 60038
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/amper-kilowatt-kw-cevirici
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## andon-sistemi-durus-ve-tepki-suresi-maliyet-calculator
 - title: Andon Sistemi Durus Ve Tepki Suresi Maliyet
-- description: Andon çağrısına tepki süresi uzadıkça hat duruş maliyeti katlanır.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-andon-sistemi-durus-ve-tepki-suresi-maliyet-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Lean manufacturing cost accounting and downtime costing
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/andon-sistemi-durus-ve-tepki-suresi-maliyet-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## annual-leave-severance-notice-calculator
 - title: Annual Leave, Severance and Notice Calculator
@@ -233,39 +233,39 @@
 
 ## aql-kabul-orneklemesi-risk-ve-maliyet-calculator
 - title: Aql Kabul Orneklemesi Risk Ve Maliyet
-- description: Kabul örneklemesinde gözden kaçan hatalı partilerin müşteriye ulaşma maliyeti bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/quality-six-sigma#tool-aql-kabul-orneklemesi-risk-ve-maliyet-calculator
-- tier: premium
-- category: quality-six-sigma (Quality, SPC & Six Sigma)
-- routeStatus: category-only
-- intent: quality, spc, six-sigma, statistics
+- description: Acceptance sampling theory (ANSI/ASQ Z1.4) combined with cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/aql-kabul-orneklemesi-risk-ve-maliyet-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## arac-amortisman-hesaplama
 - title: Araç Amortisman Calculation
-- description: Araç Amortisman Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/arac-amortisman-hesaplama
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: Standard accounting and industrial asset management
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/arac-amortisman-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## arac-bakim-periyodu-takip-hesaplama
 - title: Araç Bakım Periyodu Takip Calculation
-- description: Araç Bakım Periyodu Takip Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/arac-bakim-periyodu-takip-hesaplama
-- tier: free
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Maintenance engineering and cost accounting standards (ISO 14224, ISO 9001)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/arac-bakim-periyodu-takip-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## arac-kira-satin-alma-karsilastirma
 - title: Araç Kira — Satın Alma Karşılaştırma
-- description: Araç Kira — Satın Alma Karşılaştırma — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/arac-kira-satin-alma-karsilastirma
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Industrial engineering cost accounting and fleet management best practices
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/arac-kira-satin-alma-karsilastirma
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## area-converter
 - title: Area Converter
@@ -278,12 +278,12 @@
 
 ## asgari-siparis-miktari-moq-ve-stok-tasima-maliyet-denge-calculator
 - title: Asgari Siparis Miktari Moq Ve Stok Tasima Maliyet Denge
-- description: Tedarikçi MOQ'su kabul edilir, fazla stoğun yıllık taşıma maliyeti hesaplanmaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/procurement-supply-chain#tool-asgari-siparis-miktari-moq-ve-stok-tasima-maliyet-denge-calculator
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
-- routeStatus: category-only
-- intent: logistics, procurement, shipping, inventory
+- description: Industrial engineering and supply chain cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/asgari-siparis-miktari-moq-ve-stok-tasima-maliyet-denge-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## asma-tavan-malzeme-hesabi
 - title: Asma Tavan Malzeme Calculation
@@ -296,12 +296,12 @@
 
 ## atik-yonetimi-ve-bertaraf-maliyet-optimizasyon-calculator
 - title: Atik Yonetimi Ve Bertaraf Maliyet Optimizasyon
-- description: Tehlikeli/tehlikesiz atık bertaraf maliyeti üretim maliyetine dağıtılmaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/sustainability-resource-esg#tool-atik-yonetimi-ve-bertaraf-maliyet-optimizasyon-calculator
-- tier: premium
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
-- routeStatus: category-only
-- intent: sustainability, carbon, energy, esg
+- description: Industrial engineering cost accounting and waste management standards
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/atik-yonetimi-ve-bertaraf-maliyet-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## auto-repair-comeback-cost
 - title: Auto Repair Comeback Cost Calculator
@@ -341,21 +341,21 @@
 
 ## aydinlatma-armatur-sayisi-hesaplama
 - title: Aydınlatma Armatür Sayısı Calculation
-- description: Aydınlatma Armatür Sayısı Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/aydinlatma-armatur-sayisi-hesaplama
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: IESNA (Illuminating Engineering Society of North America) recommended practice for interior lighting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/aydinlatma-armatur-sayisi-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## baca-havalandirma-kanali-cap-hesabi
 - title: Baca — Havalandırma Kanalı Çap Calculation
-- description: Baca — Havalandırma Kanalı Çap Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/baca-havalandirma-kanali-cap-hesabi
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: ASHRAE Fundamentals – Duct Design, equal friction method
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/baca-havalandirma-kanali-cap-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## bar-psi-pascal-cevirici
 - title: Bar — Psi — Pascal Converter
@@ -386,12 +386,12 @@
 
 ## batch-yield-calculator
 - title: Batch Yield Calculator
-- description: Process yield percent from input vs good output quantity.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/batch-yield-calculator
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Food processing cost accounting and yield management
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/batch-yield-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## belt-pulley-speed-length-calculator
 - title: Belt Pulley Speed and Length Calculator
@@ -422,9 +422,9 @@
 
 ## boiler-efficiency-calculator
 - title: Boiler Efficiency Calculator
-- description: Combustion efficiency from useful vs fuel input energy.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/boiler-efficiency-calculator
-- tier: premium
+- description: ASME PTC 4.1 standard for boiler efficiency
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/boiler-efficiency-calculator
+- tier: premium-schema
 - category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
 - intent: mechanical, hvac, energy, engineering
@@ -440,54 +440,54 @@
 
 ## boru-agirlik-hesaplama-celik-paslanmaz
 - title: Boru Ağırlık Calculation (Çelik, Paslanmaz)
-- description: Boru Ağırlık Calculation (Çelik, Paslanmaz) — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/boru-agirlik-hesaplama-celik-paslanmaz
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Standard engineering formula for cylindrical pipe weight
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/boru-agirlik-hesaplama-celik-paslanmaz
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## boru-capi-akis-hizi-hesaplama
 - title: Boru Çapı — Akış Hızı Calculation
-- description: Boru Çapı — Akış Hızı Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/boru-capi-akis-hizi-hesaplama
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: Fluid mechanics, Bernoulli's principle
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/boru-capi-akis-hizi-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## boru-hatti-surtunme-ve-pompa-enerji-kayip-calculator
 - title: Boru Hatti Surtunme Ve Pompa Enerji Kayip
-- description: Boru sürtünme kaybı ve vana pozisyonu enerji tüketimini artırır, operatör fark etmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/process-chemical#tool-boru-hatti-surtunme-ve-pompa-enerji-kayip-calculator
-- tier: premium
-- category: process-chemical (Process, Chemical & Fluids)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Fluid mechanics and industrial energy accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/boru-hatti-surtunme-ve-pompa-enerji-kayip-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## boya-kaplama-sarfiyati-m-basina-hesabi
 - title: Boya — Kaplama Sarfiyatı (m² Başına) Calculation
-- description: Boya — Kaplama Sarfiyatı (m² Başına) Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/boya-kaplama-sarfiyati-m-basina-hesabi
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Industrial engineering and construction cost estimation standards
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/boya-kaplama-sarfiyati-m-basina-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## boya-ve-apre-recetesi-maliyet-optimizasyon-calculator
 - title: Boya Ve Apre Recetesi Maliyet Optimizasyon
-- description: Boya reçetesi standart değildir, her partide farklı sarfiyat oluşur.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/textile-print-lab#tool-boya-ve-apre-recetesi-maliyet-optimizasyon-calculator
-- tier: premium
-- category: textile-print-lab (Textile, Printing & Laboratory)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/boya-ve-apre-recetesi-maliyet-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## break-even-calculator
 - title: Break-Even Calculator
-- description: Units needed to cover fixed costs.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/break-even-calculator
-- tier: premium
+- description: Cost-volume-profit (CVP) analysis from managerial accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/break-even-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
@@ -503,20 +503,20 @@
 
 ## brick-calculator
 - title: Brick Calculator
-- description: Brick count for a wall area with waste allowance.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/brick-calculator
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Construction quantity surveying and cost engineering
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/brick-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## buhar-kapani-steam-trap-kacak-ve-enerji-kayip-calculator
 - title: Buhar Kapani Steam Trap Kacak Ve Enerji Kayip
-- description: Arızalı buhar kapanından kaçan buharın yıllık enerji maliyeti bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/mechanical-hvac-energy-loss#tool-buhar-kapani-steam-trap-kacak-ve-enerji-kayip-calculator
-- tier: premium
+- description: Industrial energy efficiency assessment based on steam properties and orifice flow
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/buhar-kapani-steam-trap-kacak-ve-enerji-kayip-calculator
+- tier: premium-schema
 - category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
-- routeStatus: category-only
+- routeStatus: active-route
 - intent: mechanical, hvac, energy, engineering
 
 ## bulonlu-baglanti-kesme-ezilme-hesabi
@@ -539,12 +539,12 @@
 
 ## cabinet-cost-estimator
 - title: Cabinet Cost Estimator
-- description: Waste, finishing and install time can underprice custom millwork bids.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/cabinet-cost-estimator
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cabinet-cost-estimator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## calibration-drift-risk
 - title: Calibration Drift Risk Calculator
@@ -584,21 +584,21 @@
 
 ## cash-flow-gap-calculator
 - title: Cash Flow Gap Calculator
-- description: Working capital gap from receivables vs payables timing.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/cash-flow-gap-calculator
-- tier: premium
+- description: Industrial engineering cost accounting and working capital management
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cash-flow-gap-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
 
 ## cay-kahve-su-tuketim-maliyeti
 - title: Çay — Kahve — Su Tüketim Maliyeti
-- description: Çay — Kahve — Su Tüketim Maliyeti — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/cay-kahve-su-tuketim-maliyeti
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cay-kahve-su-tuketim-maliyeti
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## cbam-compliance-verdict
 - title: CBAM Compliance Readiness Verdict
@@ -647,21 +647,21 @@
 
 ## celik-cati-makas-yaklasik-agirligi
 - title: Çelik Çatı Makas Yaklaşık Ağırlığı
-- description: Çelik Çatı Makas Yaklaşık Ağırlığı — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/celik-cati-makas-yaklasik-agirligi
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Yapısal çelik tasarımında kullanılan ampirik ağırlık tahmin yöntemi
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/celik-cati-makas-yaklasik-agirligi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## celik-raf-depo-rafi-yuk-kapasitesi
 - title: Çelik Raf — Depo Rafı Yük Kapasitesi
-- description: Çelik Raf — Depo Rafı Yük Kapasitesi — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/celik-raf-depo-rafi-yuk-kapasitesi
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Mühendislik mukavemet hesapları ve depo rafı standartları (FEM 10.2.02, EN 15512)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/celik-raf-depo-rafi-yuk-kapasitesi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## cevre-atik-beyani-maliyet-hesaplama
 - title: Çevre — Atık Beyanı Maliyet Calculation
@@ -683,12 +683,12 @@
 
 ## cit-korkuluk-malzeme-hesabi
 - title: Çit — Korkuluk Malzeme Calculation
-- description: Çit — Korkuluk Malzeme Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/cit-korkuluk-malzeme-hesabi
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Standard construction quantity surveying (QS) practice
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cit-korkuluk-malzeme-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## civata-on-germe-kuvveti-hesabi
 - title: Civata Ön Germe Kuvveti Calculation
@@ -710,12 +710,12 @@
 
 ## cleaning-cost-calculator
 - title: Cleaning Cost Calculator
-- description: A cleaning contract can look easy and still lose money every month.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/cleaning-cost-calculator
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Standard construction and field service cost estimation (RSMeans, ASTM E2516)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cleaning-cost-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## cloud-api-cost-overrun
 - title: Cloud API Cost Overrun Calculator
@@ -728,10 +728,10 @@
 
 ## cnc-cycle-time-calculator
 - title: CNC Cycle Time Calculator
-- description: Total CNC seconds per batch including load/unload.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/cnc-cycle-time-calculator
-- tier: premium
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Industrial engineering time study and cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cnc-cycle-time-calculator
+- tier: premium-schema
+- category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
 
@@ -773,12 +773,12 @@
 
 ## cobot-vs-manuel-iscilik-karsilastirma-calculator
 - title: Cobot Vs Manuel Iscilik Karsilastirma
-- description: Cobot yatırımı kaç vardiyada geri öder, esneklik ve kalite avantajı hesaba katılmaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/digital-factory-automation#tool-cobot-vs-manuel-iscilik-karsilastirma-calculator
-- tier: premium
-- category: digital-factory-automation (Digital Factory & Automation)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cobot-vs-manuel-iscilik-karsilastirma-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## cok-ulke-veri-gizlilik-uyum-ve-ceza-riski-calculator
 - title: Cok Ulke Veri Gizlilik Uyum Ve Ceza Riski
@@ -800,9 +800,9 @@
 
 ## compressor-energy-cost-calculator
 - title: Compressor Energy Cost
-- description: Running cost from compressor kW, hours and rate.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/compressor-energy-cost-calculator
-- tier: premium
+- description: Industrial engineering energy accounting and cost analysis
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/compressor-energy-cost-calculator
+- tier: premium-schema
 - category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
 - intent: mechanical, hvac, energy, engineering
@@ -818,18 +818,18 @@
 
 ## concrete-bag-calculator
 - title: Concrete Bag Calculator
-- description: Estimate bags needed for a pour including waste factor.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/concrete-bag-calculator
-- tier: premium
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/concrete-bag-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## concrete-volume-calculator
 - title: Concrete Volume Calculator
-- description: Estimate slab pour volume in cubic meters.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/concrete-volume-calculator
-- tier: free
+- description: ACI 211.1 and ASTM C138 standard practice for concrete proportioning and volume measurement
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/concrete-volume-calculator
+- tier: premium-schema
 - category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -863,21 +863,21 @@
 
 ## cpk-ppk-hata-maliyeti-ppm-calculator
 - title: Cpk Ppk Hata Maliyeti Ppm
-- description: Proses yeterlilik değerinin yıllık hurda ve iade maliyeti karşılığı bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/quality-six-sigma#tool-cpk-ppk-hata-maliyeti-ppm-calculator
-- tier: premium
-- category: quality-six-sigma (Quality, SPC & Six Sigma)
-- routeStatus: category-only
-- intent: quality, spc, six-sigma, statistics
+- description: Quality engineering standard (ISO 22514, AIAG SPC)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cpk-ppk-hata-maliyeti-ppm-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## crop-yield-calculator
 - title: Crop Yield Calculator
-- description: Harvest tonnage and revenue from yield per hectare.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/crop-yield-calculator
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- description: Agricultural production cost accounting and yield analysis
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/crop-yield-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## crop-yield-loss-analyzer
 - title: Crop Yield Loss Calculator
@@ -890,12 +890,12 @@
 
 ## cutting-speed-calculator
 - title: Cutting Speed Calculator
-- description: Surface speed Vc from diameter and RPM.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/cutting-speed-calculator
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Standard machining practice (ISO 8688-1)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/cutting-speed-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## daire-alani-cevresi-hesaplama
 - title: Daire Alanı — Çevresi Calculation
@@ -944,48 +944,48 @@
 
 ## delivery-cost-calculator
 - title: Delivery Cost Calculator
-- description: Last-mile cost from distance and stop fees.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/delivery-cost-calculator
-- tier: free
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Industrial engineering cost accounting for logistics operations
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/delivery-cost-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## depo-raf-palet-yerlesim-optimizasyonu
 - title: Depo Raf — Palet Yerleşim Optimizasyonu
-- description: Depo Raf — Palet Yerleşim Optimizasyonu — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/depo-raf-palet-yerlesim-optimizasyonu
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Industrial engineering warehouse design and material handling principles
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/depo-raf-palet-yerlesim-optimizasyonu
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## depo-yerlesimi-ve-toplama-rotasi-optimizasyon-calculator
 - title: Depo Yerlesimi Ve Toplama Rotasi Optimizasyon
-- description: Depo içi yürüme mesafesi optimize edilmez, toplama verimliliği düşer.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/procurement-supply-chain#tool-depo-yerlesimi-ve-toplama-rotasi-optimizasyon-calculator
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
-- routeStatus: category-only
-- intent: logistics, procurement, shipping, inventory
+- description: Industrial engineering warehouse design and material handling principles
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/depo-yerlesimi-ve-toplama-rotasi-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## depreciation-calculator
 - title: Straight-Line Depreciation
-- description: Annual depreciation from asset cost and salvage value.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/depreciation-calculator
-- tier: free
+- description: Standard accounting depreciation method per IAS 16 / GAAP
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/depreciation-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
 
 ## desi-calculator
 - title: Desi Calculator
-- description: Volumetric weight (desi) from parcel dimensions.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/desi-calculator
-- tier: free
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Logistics and freight industry standard (desi = (length × width × height) / 5000 for domestic, /6000 for international)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/desi-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## dijital-ikiz-vs-fiziksel-deneme-maliyet-calculator
 - title: Dijital Ikiz Vs Fiziksel Deneme Maliyet
@@ -1016,21 +1016,21 @@
 
 ## disli-modul-cap-hesaplama
 - title: Dişli Modül — Çap Calculation
-- description: Dişli Modül — Çap Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/disli-modul-cap-hesaplama
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Makine mühendisliği dişli geometrisi standartları (ISO 53, DIN 780)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/disli-modul-cap-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## dizel-benzin-maliyet-karsilastirma
 - title: Dizel — Benzin Maliyet Karşılaştırma
-- description: Dizel — Benzin Maliyet Karşılaştırma — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/dizel-benzin-maliyet-karsilastirma
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: Standard cost accounting for fuel alternatives
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/dizel-benzin-maliyet-karsilastirma
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## dogalgaz-tuketimi-hesaplama
 - title: Doğalgaz Tüketimi Calculation
@@ -1052,12 +1052,12 @@
 
 ## dongusel-ekonomi-ve-urun-omru-uzatma-roi-calculator
 - title: Dongusel Ekonomi Ve Urun Omru Uzatma Roi
-- description: Atığın hammadde olarak geri kazanım değeri ve döngüsel iş modeli getirisi hesaplanamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/sustainability-resource-esg#tool-dongusel-ekonomi-ve-urun-omru-uzatma-roi-calculator
-- tier: premium
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
-- routeStatus: category-only
-- intent: sustainability, carbon, energy, esg
+- description: Lifecycle cost analysis with extended product life
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/dongusel-ekonomi-ve-urun-omru-uzatma-roi-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## doviz-pozisyonu-kur-farki-riski-hesabi
 - title: Döviz Pozisyonu — Kur Farkı Riski Calculation
@@ -1070,12 +1070,12 @@
 
 ## dovme-ekstruzyon-proses-kuvvet-ve-pres-kapasite-calculator
 - title: Dovme Ekstruzyon Proses Kuvvet Ve Pres Kapasite
-- description: Şekillendirme kuvveti hesaplanmaz, pres gereksiz büyük seçilir veya mevcut pres zorlanır.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/metal-plastics-forming#tool-dovme-ekstruzyon-proses-kuvvet-ve-pres-kapasite-calculator
-- tier: premium
-- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Metal forming mechanics and press sizing standards (e.g., ASM Metals Handbook, DIN 8583)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/dovme-ekstruzyon-proses-kuvvet-ve-pres-kapasite-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## downtime-minute-cost-calculator
 - title: Downtime Minute Cost Calculator
@@ -1088,12 +1088,12 @@
 
 ## drywall-calculator
 - title: Drywall Calculator
-- description: Sheets of drywall needed for wall area.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/drywall-calculator
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Standard construction cost estimating practice (RSMeans, ASTM E1804)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/drywall-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## duvar-kagidi-seramik-adet-hesaplama
 - title: Duvar Kağıdı — Seramik Adet Calculation
@@ -1106,12 +1106,12 @@
 
 ## egitim-yatirimi-ve-verimlilik-artisi-geri-donus-calculator
 - title: Egitim Yatirimi Ve Verimlilik Artisi Geri Donus
-- description: Operatör eğitiminin hata azalışı ve hız artışı getirisi hesaplanamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/workforce-hr#tool-egitim-yatirimi-ve-verimlilik-artisi-geri-donus-calculator
-- tier: premium
-- category: workforce-hr (Workforce, Shift & HR Cost)
-- routeStatus: category-only
-- intent: hr, payroll, workforce, labor
+- description: Human capital cost-benefit analysis (Phillips ROI methodology)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/egitim-yatirimi-ve-verimlilik-artisi-geri-donus-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## electrical-labor-estimator
 - title: Electrical Labor Estimator
@@ -1133,12 +1133,12 @@
 
 ## electricity-bill-calculator
 - title: Electricity Bill Calculator
-- description: Monthly bill from usage, rate and fixed charge.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/electricity-bill-calculator
-- tier: premium
-- category: electrical-power-systems (Electrical, Panel & Power Systems)
+- description: Industrial engineering cost accounting for electricity consumption
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/electricity-bill-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: electrical, power, voltage, cabling
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## employee-total-cost-calculator
 - title: Employee Total Cost Calculator
@@ -1160,12 +1160,12 @@
 
 ## energy-consumption-check
 - title: Energy Consumption Check
-- description: kWh and cost from power, hours and days.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/energy-consumption-check
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: Industrial energy management and cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/energy-consumption-check
+- tier: premium-schema
+- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: mechanical, hvac, energy, engineering
 
 ## energy-efficiency-report
 - title: Energy Efficiency Report
@@ -1196,39 +1196,39 @@
 
 ## enerji-izleme-sistemi-yatirim-ve-tasarruf-tahmin-calculator
 - title: Enerji Izleme Sistemi Yatirim Ve Tasarruf Tahmin
-- description: Enerji analizörü ve yazılım yatırımının tespit edeceği kaçak ve verimsizlik tasarrufu bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/digital-factory-automation#tool-enerji-izleme-sistemi-yatirim-ve-tasarruf-tahmin-calculator
-- tier: premium
-- category: digital-factory-automation (Digital Factory & Automation)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial energy management accounting (ISO 50001, ASHRAE)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/enerji-izleme-sistemi-yatirim-ve-tasarruf-tahmin-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## enflasyon-fiyat-eskalasyonu-hesaplama
 - title: Enflasyon — Fiyat Eskalasyonu Calculation
-- description: Enflasyon — Fiyat Eskalasyonu Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/enflasyon-fiyat-eskalasyonu-hesaplama
-- tier: premium
+- description: Sözleşmelerde fiyat güncelleme ve enflasyon düzeltmesi için standart endeksleme yöntemi
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/enflasyon-fiyat-eskalasyonu-hesaplama
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
 
 ## enjeksiyon-dokum-cekme-payi-hesabi
 - title: Enjeksiyon — Döküm Çekme Payı Calculation
-- description: Enjeksiyon — Döküm Çekme Payı Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/enjeksiyon-dokum-cekme-payi-hesabi
-- tier: premium
-- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
+- description: Industrial engineering and material science: shrinkage compensation for mold design
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/enjeksiyon-dokum-cekme-payi-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## enjeksiyon-sogutma-suresi-ve-cevrim-optimizasyon-calculator
 - title: Enjeksiyon Sogutma Suresi Ve Cevrim Optimizasyon
-- description: Soğutma süresi hissiyatla belirlenir, 2 saniye kısalma yıllık binlerce parça demektir.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/metal-plastics-forming#tool-enjeksiyon-sogutma-suresi-ve-cevrim-optimizasyon-calculator
-- tier: premium
-- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Heat transfer and injection molding process engineering
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/enjeksiyon-sogutma-suresi-ve-cevrim-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## ergonomi-ve-kas-iskelet-rahatsizligi-kayip-maliyet-calculator
 - title: Ergonomi Ve Kas Iskelet Rahatsizligi Kayip Maliyet
@@ -1241,21 +1241,21 @@
 
 ## esnek-uretim-hucresi-yatirim-ve-geri-donus-calculator
 - title: Esnek Uretim Hucresi Yatirim Ve Geri Donus
-- description: Esnek hücre kurmanın geri dönüşü hesaplanamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-esnek-uretim-hucresi-yatirim-ve-geri-donus-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Engineering economics and capital budgeting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/esnek-uretim-hucresi-yatirim-ve-geri-donus-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## excavation-volume-calculator
 - title: Excavation Volume Calculator
-- description: Rectangular excavation volume in cubic meters.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/excavation-volume-calculator
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Civil engineering earthwork standards (Caterpillar Performance Handbook, ASTM D698)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/excavation-volume-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## faiz-kredi-yapisi-ve-ulke-risk-primi-calculator
 - title: Faiz Kredi Yapisi Ve Ulke Risk Primi
@@ -1268,21 +1268,21 @@
 
 ## fazla-mesai-ucreti-hesaplama
 - title: Fazla Mesai Ücreti Calculation
-- description: Fazla Mesai Ücreti Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/fazla-mesai-ucreti-hesaplama
-- tier: premium
-- category: workforce-hr (Workforce, Shift & HR Cost)
+- description: Industrial engineering labor cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/fazla-mesai-ucreti-hesaplama
+- tier: premium-schema
+- category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
-- intent: hr, payroll, workforce, labor
+- intent: calculator, decision-support
 
 ## fazla-mesai-vs-yeni-ise-alim-basabas-calculator
 - title: Fazla Mesai Vs Yeni Ise Alim Basabas
-- description: Sürekli fazla mesai yapılır ama yeni eleman almanın daha ekonomik olduğu nokta bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/workforce-hr#tool-fazla-mesai-vs-yeni-ise-alim-basabas-calculator
-- tier: premium
-- category: workforce-hr (Workforce, Shift & HR Cost)
-- routeStatus: category-only
-- intent: hr, payroll, workforce, labor
+- description: Industrial engineering cost accounting and labor economics
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/fazla-mesai-vs-yeni-ise-alim-basabas-calculator
+- tier: premium-schema
+- category: project-construction-management (Project, Site & Construction Management)
+- routeStatus: active-route
+- intent: calculator, decision-support
 
 ## feed-cost-estimator
 - title: Feed Cost Estimator
@@ -1313,21 +1313,21 @@
 
 ## fertilizer-dosage-calculator
 - title: Fertilizer Dosage Calculator
-- description: Total fertilizer from field area and dosage rate.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/fertilizer-dosage-calculator
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- description: Agronomic recommendation based on soil test and crop requirement
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/fertilizer-dosage-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## filament-recine-toz-maliyet-ve-fire-karsilastirma-calculator
 - title: Filament Recine Toz Maliyet Ve Fire Karsilastirma
-- description: Farklı malzeme tiplerinin gerçek kg/parça maliyeti ve fire oranı karşılaştırılamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/cnc-additive-manufacturing#tool-filament-recine-toz-maliyet-ve-fire-karsilastirma-calculator
-- tier: premium
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial engineering cost accounting and lean manufacturing principles
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/filament-recine-toz-maliyet-ve-fire-karsilastirma-calculator
+- tier: premium-schema
+- category: quality-six-sigma (Quality, SPC & Six Sigma)
+- routeStatus: active-route
+- intent: quality, spc, six-sigma, statistics
 
 ## finansal-raporlama-ve-denetim-uyum-maliyeti-calculator
 - title: Finansal Raporlama Ve Denetim Uyum Maliyeti
@@ -1349,30 +1349,30 @@
 
 ## fiyat-artisi-ve-talep-esnekligi-karlilik-simulasyon-calculator
 - title: Fiyat Artisi Ve Talep Esnekligi Karlilik Simulasyon
-- description: Fiyat artışının satış hacmine etkisi ve net kâr değişimi modellenemez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/finance-sales-working-capital#tool-fiyat-artisi-ve-talep-esnekligi-karlilik-simulasyon-calculator
-- tier: premium
+- description: Microeconomic pricing theory and cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/fiyat-artisi-ve-talep-esnekligi-karlilik-simulasyon-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
-- routeStatus: category-only
+- routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
 
 ## flooring-calculator
 - title: Flooring Calculator
-- description: Room flooring area with waste factor for material ordering.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/flooring-calculator
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/flooring-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## food-cost-calculator
 - title: Food Cost Percentage
-- description: Menu food cost percent from ingredient cost and menu price.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/food-cost-calculator
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- description: Industrial engineering cost accounting for food processing
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/food-cost-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## food-waste-margin-loss
 - title: Food Waste Margin Loss Calculator
@@ -1385,27 +1385,27 @@
 
 ## forklift-transpalet-kullanim-maliyeti
 - title: Forklift — Transpalet Kullanım Maliyeti
-- description: Forklift — Transpalet Kullanım Maliyeti — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/forklift-transpalet-kullanim-maliyeti
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Industrial engineering cost accounting and equipment lifecycle costing
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/forklift-transpalet-kullanim-maliyeti
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## fotokopi-yazici-toner-sayfa-maliyeti
 - title: Fotokopi — Yazıcı Toner Sayfa Maliyeti
-- description: Fotokopi — Yazıcı Toner Sayfa Maliyeti — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/fotokopi-yazici-toner-sayfa-maliyeti
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Industrial cost accounting for consumables
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/fotokopi-yazici-toner-sayfa-maliyeti
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## freight-cost-calculator
 - title: Freight Cost Calculator
-- description: Freight charge from weight rate and fixed fee.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/freight-cost-calculator
-- tier: premium
+- description: Industrial engineering cost accounting for logistics
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/freight-cost-calculator
+- tier: premium-schema
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -1421,9 +1421,9 @@
 
 ## fuel-consumption-calculator
 - title: Fuel Consumption Calculator
-- description: Trip fuel liters and cost from distance and economy.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/fuel-consumption-calculator
-- tier: free
+- description: Logistics cost engineering standard
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/fuel-consumption-calculator
+- tier: premium-schema
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -1439,9 +1439,9 @@
 
 ## fuel-cost-calculator
 - title: Fuel Cost Calculator
-- description: Same as fuel consumption — liters and total cost.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/fuel-cost-calculator
-- tier: free
+- description: Logistics cost engineering standard
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/fuel-cost-calculator
+- tier: premium-schema
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -1457,12 +1457,12 @@
 
 ## fuel-travel-calculator
 - title: Fuel Travel Calculator
-- description: Trip fuel and cost for personal travel.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/fuel-travel-calculator
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Transportation cost engineering
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/fuel-travel-calculator
+- tier: premium-schema
+- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: logistics, procurement, shipping, inventory
 
 ## fx-hedging-stratejisi-forward-option-natural-maliyet-fayda-calculator
 - title: Fx Hedging Stratejisi Forward Option Natural Maliyet Fayda
@@ -1493,12 +1493,12 @@
 
 ## gecis-grade-change-off-spec-ve-yikama-kayip-calculator
 - title: Gecis Grade Change Off Spec Ve Yikama Kayip
-- description: Ürünler arası geçişte oluşan spesifikasyon dışı ürün ve temizlik maliyeti ayrıştırılamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/process-chemical#tool-gecis-grade-change-off-spec-ve-yikama-kayip-calculator
-- tier: premium
-- category: process-chemical (Process, Chemical & Fluids)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial engineering production loss accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/gecis-grade-change-off-spec-ve-yikama-kayip-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## gelir-vergisi-dilimleri-hesaplama
 - title: Gelir Vergisi Dilimleri Calculation
@@ -1511,12 +1511,12 @@
 
 ## geri-donusum-gelir-maliyet-hesabi
 - title: Geri Dönüşüm Gelir — Maliyet Calculation
-- description: Geri Dönüşüm Gelir — Maliyet Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/geri-donusum-gelir-maliyet-hesabi
-- tier: premium
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/geri-donusum-gelir-maliyet-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## gerilim-dusumu-hesaplama
 - title: Gerilim Düşümü Calculation
@@ -1556,12 +1556,12 @@
 
 ## hafriyat-ve-dolgu-dengesi-optimizasyon-calculator
 - title: Hafriyat Ve Dolgu Dengesi Optimizasyon
-- description: Kazı ve dolgu dengesi kurulmaz, fazla hafriyat nakliye ve depo maliyeti artar.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/project-construction-management#tool-hafriyat-ve-dolgu-dengesi-optimizasyon-calculator
-- tier: premium
-- category: project-construction-management (Project, Site & Construction Management)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Earthwork mass haul analysis based on average end-area method
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/hafriyat-ve-dolgu-dengesi-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## hava-kanali-surtunme-ve-fan-enerji-tuketim-calculator
 - title: Hava Kanali Surtunme Ve Fan Enerji Tuketim
@@ -1646,12 +1646,12 @@
 
 ## hourly-rate-calculator
 - title: Hourly Rate Calculator
-- description: Billable hourly rate from monthly income.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/hourly-rate-calculator
-- tier: premium
-- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- description: Industrial engineering cost accounting and labor costing standards
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/hourly-rate-calculator
+- tier: premium-schema
+- category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
-- intent: finance, pricing, cash-flow, tax, working-capital
+- intent: calculator, decision-support
 
 ## htea-rpn-skoru-parasal-risk-calculator
 - title: Htea Rpn Skoru Parasal Risk
@@ -1754,39 +1754,39 @@
 
 ## iot-sensor-ve-ongorucu-bakim-yatirim-geri-donus-calculator
 - title: Iot Sensor Ve Ongorucu Bakim Yatirim Geri Donus
-- description: Titreşim/sıcaklık sensörü yatırımının azalan duruşla geri dönüşü hesaplanamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/digital-factory-automation#tool-iot-sensor-ve-ongorucu-bakim-yatirim-geri-donus-calculator
-- tier: premium
-- category: digital-factory-automation (Digital Factory & Automation)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Total cost of ownership and reliability engineering
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/iot-sensor-ve-ongorucu-bakim-yatirim-geri-donus-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## irrigation-cost-check
 - title: Irrigation Cost Check
-- description: Pump energy plus water cost for irrigation.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/irrigation-cost-check
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/irrigation-cost-check
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## irsaliye-fatura-adedi-basina-sevkiyat-maliyeti
 - title: İrsaliye — Fatura Adedi Başına Sevkiyat Maliyeti
-- description: İrsaliye — Fatura Adedi Başına Sevkiyat Maliyeti — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/irsaliye-fatura-adedi-basina-sevkiyat-maliyeti
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Logistics cost accounting standard
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/irsaliye-fatura-adedi-basina-sevkiyat-maliyeti
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati
 - title: İş Elbisesi — KKD (Kişisel Koruyucu Donanım) Sarfiyatı
-- description: İş Elbisesi — KKD (Kişisel Koruyucu Donanım) Sarfiyatı — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Industrial engineering cost accounting for consumable PPE
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/is-elbisesi-kkd-kisisel-koruyucu-donanim-sarfiyati
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## is-kazasi-maliyeti-gun-kaybi-hesaplama
 - title: İş Kazası Maliyeti (Gün Kaybı) Calculation
@@ -1826,48 +1826,48 @@
 
 ## isi-degistirici-esanjor-kapasite-hesabi
 - title: Isı Değiştirici (Eşanjör) Kapasite Calculation
-- description: Isı Değiştirici (Eşanjör) Kapasite Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/isi-degistirici-esanjor-kapasite-hesabi
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Heat transfer engineering, ASME PTC 12.5
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/isi-degistirici-esanjor-kapasite-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## isi-degistirici-esanjor-kirlenme-ve-verim-kaybi-calculator
 - title: Isi Degistirici Esanjor Kirlenme Ve Verim Kaybi
-- description: Eşanjör kirlenmesi nedeniyle enerji tüketimi artar, temizlik periyodu optimize edilemez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/mechanical-hvac-energy-loss#tool-isi-degistirici-esanjor-kirlenme-ve-verim-kaybi-calculator
-- tier: premium
-- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
-- routeStatus: category-only
-- intent: mechanical, hvac, energy, engineering
+- description: Heat transfer engineering and TEMA standards
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/isi-degistirici-esanjor-kirlenme-ve-verim-kaybi-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## isi-yuku-ve-isitma-sogutma-kapasite-optimizasyon-calculator
 - title: Isi Yuku Ve Isitma Sogutma Kapasite Optimizasyon
-- description: Kombi/klima/chiller kapasitesi hissiyatla seçilir, gereksiz büyük veya yetersiz olur.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/mechanical-hvac-energy-loss#tool-isi-yuku-ve-isitma-sogutma-kapasite-optimizasyon-calculator
-- tier: premium
-- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
-- routeStatus: category-only
-- intent: mechanical, hvac, energy, engineering
+- description: ASHRAE heat balance method and industrial energy efficiency analysis
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/isi-yuku-ve-isitma-sogutma-kapasite-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## isitma-sogutma-yuku-kcal-kw-hesabi
 - title: Isıtma — Soğutma Yükü (Kcal/KW) Calculation
-- description: Isıtma — Soğutma Yükü (Kcal/KW) Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/isitma-sogutma-yuku-kcal-kw-hesabi
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: ASHRAE Handbook – Fundamentals, Chapter 18 (Nonresidential Cooling and Heating Load Calculation)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/isitma-sogutma-yuku-kcal-kw-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## iskele-ve-kalip-kullanim-suresi-optimizasyon-calculator
 - title: Iskele Ve Kalip Kullanim Suresi Optimizasyon
-- description: Kalıp ve iskele kira süresi optimize edilmez, gereksiz kira maliyeti oluşur.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/project-construction-management#tool-iskele-ve-kalip-kullanim-suresi-optimizasyon-calculator
-- tier: premium
-- category: project-construction-management (Project, Site & Construction Management)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Construction engineering and project management cost optimization
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/iskele-ve-kalip-kullanim-suresi-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## isleme-stratejisi-sure-dagilim-optimizasyon-calculator
 - title: Isleme Stratejisi Sure Dagilim Optimizasyon
@@ -1880,30 +1880,30 @@
 
 ## isletme-sermayesi-ve-nakit-dongusu-optimizasyon-calculator
 - title: Isletme Sermayesi Ve Nakit Dongusu Optimizasyon
-- description: Stok, alacak, borç gün sürelerinin nakit ihtiyacına etkisi modellenemez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/finance-sales-working-capital#tool-isletme-sermayesi-ve-nakit-dongusu-optimizasyon-calculator
-- tier: premium
+- description: Working capital management and cash conversion cycle (CCC) methodology
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/isletme-sermayesi-ve-nakit-dongusu-optimizasyon-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
-- routeStatus: category-only
+- routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
 
 ## iso-50001-enerji-yonetimi-taban-cizgisi-ve-tasarruf-calculator
 - title: Iso 50001 Enerji Yonetimi Taban Cizgisi Ve Tasarruf
-- description: Enerji performans göstergesi hesaplanmaz, iyileştirme takip edilemez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/sustainability-resource-esg#tool-iso-50001-enerji-yonetimi-taban-cizgisi-ve-tasarruf-calculator
-- tier: premium
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
-- routeStatus: category-only
-- intent: sustainability, carbon, energy, esg
+- description: ISO 50001 energy management standard, measurement and verification protocol (IPMVP)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/iso-50001-enerji-yonetimi-taban-cizgisi-ve-tasarruf-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## istatistiksel-proses-kontrol-spc-limit-hesabi
 - title: İstatistiksel Proses Kontrol (SPC) Limit Calculation
-- description: İstatistiksel Proses Kontrol (SPC) Limit Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/istatistiksel-proses-kontrol-spc-limit-hesabi
-- tier: premium
-- category: quality-six-sigma (Quality, SPC & Six Sigma)
+- description: Shewhart control chart methodology for variable data
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/istatistiksel-proses-kontrol-spc-limit-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: quality, spc, six-sigma, statistics
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## isten-ayrilma-turnover-toplam-maliyet-calculator
 - title: Isten Ayrilma Turnover Toplam Maliyet
@@ -1925,12 +1925,12 @@
 
 ## jenerator-kapasitesi-secim-hesaplama
 - title: Jeneratör Kapasitesi Seçim Calculation
-- description: Jeneratör Kapasitesi Seçim Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/jenerator-kapasitesi-secim-hesaplama
-- tier: premium
-- category: electrical-power-systems (Electrical, Panel & Power Systems)
+- description: IEEE 446 and NFPA 110 standby power sizing standards
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/jenerator-kapasitesi-secim-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: electrical, power, voltage, cabling
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## jenerator-ve-ups-kapasite-secim-optimizasyon-calculator
 - title: Jenerator Ve Ups Kapasite Secim Optimizasyon
@@ -1979,12 +1979,12 @@
 
 ## kaizen-kazanc-takip-ve-onceliklendirme-calculator
 - title: Kaizen Kazanc Takip Ve Onceliklendirme
-- description: Kaizen önerilerinin hangisinin daha fazla tasarruf sağlayacağı karşılaştırılamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-kaizen-kazanc-takip-ve-onceliklendirme-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Lean manufacturing and continuous improvement cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kaizen-kazanc-takip-ve-onceliklendirme-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kalip-omru-ve-bakim-periyodu-optimizasyon-calculator
 - title: Kalip Omru Ve Bakim Periyodu Optimizasyon
@@ -2006,12 +2006,12 @@
 
 ## kapasite-planlama-ve-darbogaz-yatirim-onceliklendirme-calculator
 - title: Kapasite Planlama Ve Darbogaz Yatirim Onceliklendirme
-- description: Hangi makineye ilave yatırım yapılırsa tüm hattın kapasitesi artar bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-kapasite-planlama-ve-darbogaz-yatirim-onceliklendirme-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Theory of Constraints (TOC) and capacity planning principles
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kapasite-planlama-ve-darbogaz-yatirim-onceliklendirme-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## karistirma-harmanlama-minimum-maliyet-optimizasyon-calculator
 - title: Karistirma Harmanlama Minimum Maliyet Optimizasyon
@@ -2033,21 +2033,21 @@
 
 ## kaynak-dikis-hacmi-maliyeti-hesabi
 - title: Kaynak Dikiş Hacmi — Maliyeti Calculation
-- description: Kaynak Dikiş Hacmi — Maliyeti Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/kaynak-dikis-hacmi-maliyeti-hesabi
-- tier: premium
-- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
+- description: Endüstri mühendisliği maliyet muhasebesi ve kaynak teknolojisi standartları
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kaynak-dikis-hacmi-maliyeti-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kaynak-maliyeti-ve-dolgu-metali-tuketim-calculator
 - title: Kaynak Maliyeti Ve Dolgu Metali Tuketim
-- description: Kaynak ağzı geometrisine göre tel, gaz, enerji ve işçilik maliyeti hesaplanamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/mechanical-hvac-energy-loss#tool-kaynak-maliyeti-ve-dolgu-metali-tuketim-calculator
-- tier: premium
-- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
-- routeStatus: category-only
-- intent: mechanical, hvac, energy, engineering
+- description: Standard welding engineering cost estimation (AWS D1.1, ISO 3834)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kaynak-maliyeti-ve-dolgu-metali-tuketim-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kaynak-proseduru-wps-on-isitma-sicakligi-hesabi
 - title: Kaynak Prosedürü (WPS) Ön Isıtma Sıcaklığı Calculation
@@ -2078,21 +2078,21 @@
 
 ## kaza-maliyeti-dogrudan-ve-dolayli-toplam-kayip-calculator
 - title: Kaza Maliyeti Dogrudan Ve Dolayli Toplam Kayip
-- description: İş kazasının sadece tedavi değil; duruş, eğitim, ceza, itibar kaybı maliyeti bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/hse-ergonomics#tool-kaza-maliyeti-dogrudan-ve-dolayli-toplam-kayip-calculator
-- tier: premium
-- category: hse-ergonomics (HSE, Ergonomics & Risk Cost)
-- routeStatus: category-only
-- intent: safety, hse, ergonomics, compliance
+- description: Industrial safety cost accounting (Heinrich ratio)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kaza-maliyeti-dogrudan-ve-dolayli-toplam-kayip-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kazanilmis-deger-yonetimi-evm-tamamlanma-maliyet-tahmin-calculator
 - title: Kazanilmis Deger Yonetimi Evm Tamamlanma Maliyet Tahmin
-- description: Proje %50 bitince bütçenin %70'i harcanır, son dakikaya kadar sapma fark edilmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/project-construction-management#tool-kazanilmis-deger-yonetimi-evm-tamamlanma-maliyet-tahmin-calculator
-- tier: premium
-- category: project-construction-management (Project, Site & Construction Management)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Project Management Institute (PMI) EVM standard; industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kazanilmis-deger-yonetimi-evm-tamamlanma-maliyet-tahmin-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kdv-tevkifati-hesaplama
 - title: KDV Tevkifatı Calculation
@@ -2114,48 +2114,48 @@
 
 ## kesme-bukme-abkant-tonaj-hesabi
 - title: Kesme Bükme (Abkant) Tonaj Calculation
-- description: Kesme Bükme (Abkant) Tonaj Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/kesme-bukme-abkant-tonaj-hesabi
-- tier: premium
-- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
+- description: Sac metal bükme işlemlerinde gerekli tonajın hesaplanması için endüstri standardı formül (V-die yöntemi)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kesme-bukme-abkant-tonaj-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kesme-parametreleri-takim-omru-optimizasyon-calculator
 - title: Kesme Parametreleri Takim Omru Optimizasyon
-- description: Hızlı kesim takımı çabuk bitirir, yavaş kesim kapasite kaybettirir, optimum nokta bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/cnc-additive-manufacturing#tool-kesme-parametreleri-takim-omru-optimizasyon-calculator
-- tier: premium
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Taylor's tool life equation (VT^n = C) combined with cost per component model
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kesme-parametreleri-takim-omru-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kiris-kolon-yaklasik-agirlik-hesabi
 - title: Kiriş — Kolon Yaklaşık Ağırlık Calculation
-- description: Kiriş — Kolon Yaklaşık Ağırlık Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/kiris-kolon-yaklasik-agirlik-hesabi
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Civil engineering reinforced concrete design standards (TS 500, ACI 318)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kiris-kolon-yaklasik-agirlik-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## klima-btu-secim-hesaplama
 - title: Klima BTU Seçim Calculation
-- description: Klima BTU Seçim Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/klima-btu-secim-hesaplama
-- tier: premium
-- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
+- description: ASHRAE Handbook of Fundamentals, cooling load temperature difference (CLTD) method
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/klima-btu-secim-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: mechanical, hvac, energy, engineering
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kok-neden-analizi-rca-tekrarlayan-ariza-birikimli-maliyet-calculator
 - title: Kok Neden Analizi Rca Tekrarlayan Ariza Birikimli Maliyet
-- description: Tekrarlayan arızanın her seferindeki tamir maliyeti toplanmaz, kronik kayıp fark edilmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/maintenance-reliability#tool-kok-neden-analizi-rca-tekrarlayan-ariza-birikimli-maliyet-calculator
-- tier: premium
-- category: maintenance-reliability (Maintenance & Reliability)
-- routeStatus: category-only
-- intent: maintenance, reliability, asset-life
+- description: Reliability engineering and cost accounting standards (ISO 14224, IEC 60300-3-3)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kok-neden-analizi-rca-tekrarlayan-ariza-birikimli-maliyet-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kompanzasyon-ve-reaktif-ceza-optimizasyon-calculator
 - title: Kompanzasyon Ve Reaktif Ceza Optimizasyon
@@ -2168,12 +2168,12 @@
 
 ## kompresor-debisi-tank-hacmi-hesabi
 - title: Kompresör Debisi — Tank Hacmi Calculation
-- description: Kompresör Debisi — Tank Hacmi Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/kompresor-debisi-tank-hacmi-hesabi
-- tier: premium
-- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
+- description: Pneumatic system design standards (ISO 8573-1, PNEUROP)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kompresor-debisi-tank-hacmi-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: mechanical, hvac, energy, engineering
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## koni-hacmi-hesaplama
 - title: Koni Hacmi Calculation
@@ -2195,30 +2195,30 @@
 
 ## konteyner-yukleme-kapasitesi-teu-hesabi
 - title: Konteyner Yükleme Kapasitesi (TEU) Calculation
-- description: Konteyner Yükleme Kapasitesi (TEU) Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/konteyner-yukleme-kapasitesi-teu-hesabi
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Maritime container logistics and stowage planning standards
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/konteyner-yukleme-kapasitesi-teu-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## koruyucu-bakim-frekansi-ve-maliyet-optimizasyon-calculator
 - title: Koruyucu Bakim Frekansi Ve Maliyet Optimizasyon
-- description: Sık bakım maliyeti ile seyrek bakım arıza riski arasında optimum frekans bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/maintenance-reliability#tool-koruyucu-bakim-frekansi-ve-maliyet-optimizasyon-calculator
-- tier: premium
-- category: maintenance-reliability (Maintenance & Reliability)
-- routeStatus: category-only
-- intent: maintenance, reliability, asset-life
+- description: Total cost of maintenance (TCM) approach combining downtime cost, repair cost, and lost production cost
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/koruyucu-bakim-frekansi-ve-maliyet-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kosebent-lama-agirlik-hesaplama
 - title: Köşebent — Lama Ağırlık Calculation
-- description: Köşebent — Lama Ağırlık Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/kosebent-lama-agirlik-hesaplama
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Structural steel weight estimation based on cross-sectional area and density
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kosebent-lama-agirlik-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kredi-erken-kapama-cezasi-hesaplama
 - title: Kredi Erken Kapama Cezası Calculation
@@ -2231,39 +2231,39 @@
 
 ## kritik-yol-cpm-gecikme-cezasi-ve-hizlandirma-optimizasyon-calculator
 - title: Kritik Yol Cpm Gecikme Cezasi Ve Hizlandirma Optimizasyon
-- description: Hangi aktiviteye kaynak ekleyip gecikme cezasından kurtulacağı bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/project-construction-management#tool-kritik-yol-cpm-gecikme-cezasi-ve-hizlandirma-optimizasyon-calculator
-- tier: premium
-- category: project-construction-management (Project, Site & Construction Management)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Critical Path Method (CPM) project scheduling with time-cost trade-off analysis
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kritik-yol-cpm-gecikme-cezasi-ve-hizlandirma-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kritiklik-risk-matrisi-ve-bakim-stratejisi-secim-calculator
 - title: Kritiklik Risk Matrisi Ve Bakim Stratejisi Secim
-- description: Hangi makineye koruyucu, hangisine kestirimci bakım uygulanacağı verisiz seçilir.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/maintenance-reliability#tool-kritiklik-risk-matrisi-ve-bakim-stratejisi-secim-calculator
-- tier: premium
-- category: maintenance-reliability (Maintenance & Reliability)
-- routeStatus: category-only
-- intent: maintenance, reliability, asset-life
+- description: Reliability centered maintenance (RCM) and risk assessment
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kritiklik-risk-matrisi-ve-bakim-stratejisi-secim-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kumas-serim-ve-kesim-optimizasyon-fire-calculator
 - title: Kumas Serim Ve Kesim Optimizasyon Fire
-- description: Pastal planı optimize edilmez, kumaş firesi gereksiz yüksektir.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/textile-print-lab#tool-kumas-serim-ve-kesim-optimizasyon-fire-calculator
-- tier: premium
-- category: textile-print-lab (Textile, Printing & Laboratory)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial engineering cost accounting and lean manufacturing principles (7 Muda)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kumas-serim-ve-kesim-optimizasyon-fire-calculator
+- tier: premium-schema
+- category: quality-six-sigma (Quality, SPC & Six Sigma)
+- routeStatus: active-route
+- intent: quality, spc, six-sigma, statistics
 
 ## kumlama-raspa-kum-sarfiyati-hesabi
 - title: Kumlama — Raspa Kum Sarfiyatı Calculation
-- description: Kumlama — Raspa Kum Sarfiyatı Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/kumlama-raspa-kum-sarfiyati-hesabi
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Surface preparation cost accounting and abrasive wear theory
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kumlama-raspa-kum-sarfiyati-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## kure-hacmi-hesaplama
 - title: Küre Hacmi Calculation
@@ -2276,38 +2276,38 @@
 
 ## kutle-dengesi-ve-fire-takip-calculator
 - title: Kutle Dengesi Ve Fire Takip
-- description: Prosese giren ve çıkan malzeme dengesi kurulmaz, kronik sızıntı ve kayıplar fark edilmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/process-chemical#tool-kutle-dengesi-ve-fire-takip-calculator
-- tier: premium
-- category: process-chemical (Process, Chemical & Fluids)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial engineering cost accounting and lean waste quantification
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kutle-dengesi-ve-fire-takip-calculator
+- tier: premium-schema
+- category: quality-six-sigma (Quality, SPC & Six Sigma)
+- routeStatus: active-route
+- intent: quality, spc, six-sigma, statistics
 
 ## kwh-consumption-check
 - title: kWh Consumption Check
-- description: Unmanaged kWh spikes and demand charges can blow operating budgets.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/kwh-consumption-check
-- tier: free
+- description: Industrial energy management and cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kwh-consumption-check
+- tier: premium-schema
 - category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
 - intent: mechanical, hvac, energy, engineering
 
 ## kwh-cost-calculator
 - title: kWh Cost Calculator
-- description: Electricity cost from consumption and tariff.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/kwh-cost-calculator
-- tier: premium
+- description: Industrial engineering energy accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/kwh-cost-calculator
+- tier: premium-schema
 - category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
 - routeStatus: active-route
 - intent: mechanical, hvac, energy, engineering
 
 ## laboratuvar-analiz-maliyeti-ve-numune-alma-optimizasyon-calculator
 - title: Laboratuvar Analiz Maliyeti Ve Numune Alma Optimizasyon
-- description: Gereksiz sık analiz maliyeti ile seyrek analiz riski arasında optimum frekans bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/textile-print-lab#tool-laboratuvar-analiz-maliyeti-ve-numune-alma-optimizasyon-calculator
-- tier: premium
-- category: textile-print-lab (Textile, Printing & Laboratory)
-- routeStatus: category-only
+- description: Activity-based costing and statistical sampling theory
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/laboratuvar-analiz-maliyeti-ve-numune-alma-optimizasyon-calculator
+- tier: premium-schema
+- category: project-construction-management (Project, Site & Construction Management)
+- routeStatus: active-route
 - intent: calculator, decision-support
 
 ## landscaping-contract-profit-tool
@@ -2321,21 +2321,21 @@
 
 ## laser-cutting-time-check
 - title: Laser Cutting Time Check
-- description: Cut path, pierce and setup minutes for laser jobs.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/laser-cutting-time-check
-- tier: premium
-- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
+- description: Industrial engineering time study and cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/laser-cutting-time-check
+- tier: premium-schema
+- category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
 
 ## lastik-omru-degisim-km-hesaplama
 - title: Lastik Ömrü — Değişim Km Calculation
-- description: Lastik Ömrü — Değişim Km Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/lastik-omru-degisim-km-hesaplama
-- tier: free
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Industrial engineering and fleet management practice
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/lastik-omru-degisim-km-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## lawn-care-cost-check
 - title: Lawn Care Cost Check
@@ -2429,21 +2429,21 @@
 
 ## lpg-benzin-tasarruf-karsilastirma
 - title: LPG — Benzin Tasarruf Karşılaştırma
-- description: LPG — Benzin Tasarruf Karşılaştırma — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/lpg-benzin-tasarruf-karsilastirma
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: Operational cost analysis for dual-fuel vehicles
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/lpg-benzin-tasarruf-karsilastirma
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## machine-hour-rate-calculator
 - title: Machine Hour Rate Calculator
-- description: Fully loaded machine hourly rate.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/machine-hour-rate-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
+- description: Standard cost accounting for manufacturing overhead
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/machine-hour-rate-calculator
+- tier: premium-schema
+- category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
-- intent: production, oee, efficiency, throughput
+- intent: calculator, decision-support
 
 ## machine-time-calculator
 - title: Machine Time Calculator
@@ -2456,12 +2456,12 @@
 
 ## makine-ekonomik-omru-hurda-deger-hesabi
 - title: Makine Ekonomik Ömrü — Hurda Değer Calculation
-- description: Makine Ekonomik Ömrü — Hurda Değer Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/makine-ekonomik-omru-hurda-deger-hesabi
-- tier: premium
-- category: maintenance-reliability (Maintenance & Reliability)
+- description: Industrial engineering and accounting standard (ISO 15686-5, IAS 16)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/makine-ekonomik-omru-hurda-deger-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: maintenance, reliability, asset-life
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## material-waste-calculator
 - title: Material Waste Calculator
@@ -2474,12 +2474,12 @@
 
 ## matkap-kilavuz-delik-capi-tablosu
 - title: Matkap — Kılavuz Delik Çapı Tablosu
-- description: Matkap — Kılavuz Delik Çapı Tablosu — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/matkap-kilavuz-delik-capi-tablosu
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: ISO 724 metric thread standard and tap drill size formula
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/matkap-kilavuz-delik-capi-tablosu
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## meal-planning-verdict
 - title: Weekly Meal Planning Verdict
@@ -2519,21 +2519,21 @@
 
 ## mil-aks-capi-hesabi-egilme-burulma
 - title: Mil — Aks Çapı Calculation (Eğilme — Burulma)
-- description: Mil — Aks Çapı Calculation (Eğilme — Burulma) — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/mil-aks-capi-hesabi-egilme-burulma
-- tier: premium
-- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
+- description: Distortion energy theory (von Mises) for combined stress, with fatigue and safety factors
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/mil-aks-capi-hesabi-egilme-burulma
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: mechanical, hvac, energy, engineering
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## milk-yield-check
 - title: Milk Yield Check
-- description: Daily milk liters and revenue estimate.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/milk-yield-check
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/milk-yield-check
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## millwork-bid-risk-analyzer
 - title: Millwork Bid Risk Calculator
@@ -2555,12 +2555,12 @@
 
 ## motor-gucu-kw-hp-cevirici
 - title: Motor Gücü (KW — HP) Converter
-- description: Motor Gücü (KW — HP) Converter — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/motor-gucu-kw-hp-cevirici
-- tier: premium
-- category: electrical-power-systems (Electrical, Panel & Power Systems)
+- description: IEEE 112 / IEC 60034-1 motor efficiency standards
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/motor-gucu-kw-hp-cevirici
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: electrical, power, voltage, cabling
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## msa-gage-r-r-yanlis-karar-maliyet-calculator
 - title: Msa Gage R R Yanlis Karar Maliyet
@@ -2573,12 +2573,12 @@
 
 ## mtbf-mttr-ve-kullanilabilirlik-finansal-calculator
 - title: Mtbf Mttr Ve Kullanilabilirlik Finansal
-- description: Arıza sıklığı ve onarım süresi verileri toplanır ama parasal karşılığı bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/maintenance-reliability#tool-mtbf-mttr-ve-kullanilabilirlik-finansal-calculator
-- tier: premium
-- category: maintenance-reliability (Maintenance & Reliability)
-- routeStatus: category-only
-- intent: maintenance, reliability, asset-life
+- description: Maintenance reliability engineering and cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/mtbf-mttr-ve-kullanilabilirlik-finansal-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## mtm-metot-zaman-olcumu-ve-ergonomi-sure-calculator
 - title: Mtm Metot Zaman Olcumu Ve Ergonomi Sure
@@ -2600,20 +2600,20 @@
 
 ## musteri-kaybi-churn-ve-kaybedilen-gelir-calculator
 - title: Musteri Kaybi Churn Ve Kaybedilen Gelir
-- description: Kaybedilen müşterinin yıllık gelir kaybı ve yerine yenisini koyma maliyeti bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/finance-sales-working-capital#tool-musteri-kaybi-churn-ve-kaybedilen-gelir-calculator
-- tier: premium
+- description: Customer churn analysis and revenue impact estimation
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/musteri-kaybi-churn-ve-kaybedilen-gelir-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
-- routeStatus: category-only
+- routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
 
 ## musteri-yasam-boyu-deger-clv-ve-edinme-maliyeti-cac-calculator
 - title: Musteri Yasam Boyu Deger Clv Ve Edinme Maliyeti Cac
-- description: Müşteri kârlılığı anlık bakılır, uzun vadeli değeri ve kazanma maliyeti karşılaştırılamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/finance-sales-working-capital#tool-musteri-yasam-boyu-deger-clv-ve-edinme-maliyeti-cac-calculator
-- tier: premium
+- description: Marketing analytics and cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/musteri-yasam-boyu-deger-clv-ve-edinme-maliyeti-cac-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
-- routeStatus: category-only
+- routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
 
 ## nakit-akisi-basit-gunluk-haftalik-panosu
@@ -2636,18 +2636,18 @@
 
 ## npu-npi-profil-agirlik-hesaplama
 - title: NPU — NPI Profil Ağırlık Calculation
-- description: NPU — NPI Profil Ağırlık Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/npu-npi-profil-agirlik-hesaplama
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Çelik profil geometrisi ve yoğunluk esaslı standart mühendislik hesabı
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/npu-npi-profil-agirlik-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## oee-calculator
-- title: OEE Calculator
-- description: Overall equipment effectiveness from A × P × Q.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/oee-calculator
-- tier: premium
+- title: OEE
+- description: Lean manufacturing OEE standard (availability * performance * quality) and waste cost accounting per 7 Muda
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/oee-calculator
+- tier: premium-schema
 - category: lean-production (Lean Production & Line Efficiency)
 - routeStatus: active-route
 - intent: production, oee, efficiency, throughput
@@ -2672,36 +2672,36 @@
 
 ## ofis-kirtasiye-sarfiyat-hesabi
 - title: Ofis Kırtasiye Sarfiyat Calculation
-- description: Ofis Kırtasiye Sarfiyat Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/ofis-kirtasiye-sarfiyat-hesabi
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Industrial engineering cost accounting for consumables
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/ofis-kirtasiye-sarfiyat-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## ogrenme-egrisi-ve-parti-sure-tahmin-calculator
 - title: Ogrenme Egrisi Ve Parti Sure Tahmin
-- description: İlk parti ile 100. parti arasındaki süre farkı hesaplanmaz, teklif süresi yanlış olur.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-ogrenme-egrisi-ve-parti-sure-tahmin-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Industrial engineering learning curve theory (Wright's model)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/ogrenme-egrisi-ve-parti-sure-tahmin-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## oto-servis-is-emri-ve-yedek-parca-teklif-tutarlilik-calculator
 - title: Oto Servis Is Emri Ve Yedek Parca Teklif Tutarlilik
-- description: Aynı işe farklı ustalar farklı süre ve parça yazar, teklif tutarsızlığı oluşur.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/packaging-local-business#tool-oto-servis-is-emri-ve-yedek-parca-teklif-tutarlilik-calculator
-- tier: premium
-- category: packaging-local-business (Packaging & Local Business Tools)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/oto-servis-is-emri-ve-yedek-parca-teklif-tutarlilik-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## paint-coverage-calculator
 - title: Paint Coverage Calculator
-- description: Estimate paint liters for wall area and coat count.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/paint-coverage-calculator
-- tier: premium
+- description: Industrial engineering and construction cost estimation
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/paint-coverage-calculator
+- tier: premium-schema
 - category: project-construction-management (Project, Site & Construction Management)
 - routeStatus: active-route
 - intent: calculator, decision-support
@@ -2735,21 +2735,21 @@
 
 ## paketleme-malzemesi-strec-koli-sarfiyati
 - title: Paketleme Malzemesi (Streç, Koli) Sarfiyatı
-- description: Paketleme Malzemesi (Streç, Koli) Sarfiyatı — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/paketleme-malzemesi-strec-koli-sarfiyati
-- tier: premium
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Industrial engineering standard cost accounting for packaging materials
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/paketleme-malzemesi-strec-koli-sarfiyati
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## palet-ambalaj-kereste-hesabi
 - title: Palet — Ambalaj Kereste Calculation
-- description: Palet — Ambalaj Kereste Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/palet-ambalaj-kereste-hesabi
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Industrial engineering cost accounting for wood packaging
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/palet-ambalaj-kereste-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## palet-yukleme-konfigurasyonu-ve-stabilite-calculator
 - title: Palet Yukleme Konfigurasyonu Ve Stabilite
@@ -2780,12 +2780,12 @@
 
 ## paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli
 - title: Paslanmaz — Çelik — Alüminyum Ayırt Etme Calculatorsı (Yoğunluk Bazlı)
-- description: Paslanmaz — Çelik — Alüminyum Ayırt Etme Calculatorsı (Yoğunluk Bazlı) — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Archimedes principle / ASTM B311
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## percentage-calculator
 - title: Percentage Calculator
@@ -2816,12 +2816,12 @@
 
 ## personel-devamsizlik-maliyeti-hesaplama
 - title: Personel Devamsızlık Maliyeti Calculation
-- description: Personel Devamsızlık Maliyeti Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/personel-devamsizlik-maliyeti-hesaplama
-- tier: premium
-- category: workforce-hr (Workforce, Shift & HR Cost)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/personel-devamsizlik-maliyeti-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: hr, payroll, workforce, labor
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## plaster-calculator
 - title: Plaster Calculator
@@ -2834,12 +2834,12 @@
 
 ## plastik-enjeksiyon-cevrim-suresi-tahmini
 - title: Plastik Enjeksiyon Çevrim Süresi Tahmini
-- description: Plastik Enjeksiyon Çevrim Süresi Tahmini — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/plastik-enjeksiyon-cevrim-suresi-tahmini
-- tier: premium
-- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
+- description: Industrial engineering and plastics processing standards (SPI, Euromap)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/plastik-enjeksiyon-cevrim-suresi-tahmini
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## plumbing-fixture-cost-check
 - title: Plumbing Fixture Cost Check
@@ -2879,39 +2879,39 @@
 
 ## poka-yoke-hata-onleme-yatirim-geri-donus-calculator
 - title: Poka Yoke Hata Onleme Yatirim Geri Donus
-- description: Hata önleme aparatı yatırımının geri dönüşü hesaplanamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-poka-yoke-hata-onleme-yatirim-geri-donus-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Quality cost accounting and lean manufacturing principles
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/poka-yoke-hata-onleme-yatirim-geri-donus-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## pompa-gucu-basma-yuksekligi-hesabi
 - title: Pompa Gücü — Basma Yüksekliği Calculation
-- description: Pompa Gücü — Basma Yüksekliği Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/pompa-gucu-basma-yuksekligi-hesabi
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: Hidrolik mühendislik temel denklemleri (Bernoulli, güç formülü)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/pompa-gucu-basma-yuksekligi-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## portion-cost-calculator
 - title: Portion Cost Calculator
-- description: Cost per serving from batch cost.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/portion-cost-calculator
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/portion-cost-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## prefabrik-konteyner-ofis-m-maliyeti
 - title: Prefabrik — Konteyner Ofis m² Maliyeti
-- description: Prefabrik — Konteyner Ofis m² Maliyeti — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/prefabrik-konteyner-ofis-m-maliyeti
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Endüstri mühendisliği maliyet muhasebesi ve prefabrik yapı sektörü standartları
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/prefabrik-konteyner-ofis-m-maliyeti
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## prefabrik-konteyner-olcu-hesaplama
 - title: Prefabrik — Konteyner Ölçü Calculation
@@ -2933,12 +2933,12 @@
 
 ## print-job-cost-check
 - title: Print Job Cost Check
-- description: Design time, install labor and reprint risk can erase signage job margin.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/print-job-cost-check
-- tier: free
-- category: textile-print-lab (Textile, Printing & Laboratory)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/print-job-cost-check
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## printing-reprint-margin-leak
 - title: Printing Reprint Margin Leak Calculator
@@ -2996,12 +2996,12 @@
 
 ## project-cost-calculator
 - title: Concrete / Project Cost Calculator
-- description: Small change orders can quietly erase project margin.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/project-cost-calculator
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/project-cost-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## proportion-calculator
 - title: Proportion Calculator
@@ -3041,12 +3041,12 @@
 
 ## radyator-petek-boyu-hesaplama
 - title: Radyatör — Petek Boyu Calculation
-- description: Radyatör — Petek Boyu Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/radyator-petek-boyu-hesaplama
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: TS EN 442 standard heat output per meter panel length
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/radyator-petek-boyu-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## raf-omru-ve-fire-optimizasyon-calculator
 - title: Raf Omru Ve Fire Optimizasyon
@@ -3086,30 +3086,30 @@
 
 ## rebar-weight-calculator
 - title: Rebar Weight Calculator
-- description: Estimate rebar weight from diameter, length and quantity.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/rebar-weight-calculator
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: ASTM A615 / TS 708 standard rebar weight formula
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/rebar-weight-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## recete-maliyeti-ve-alternatif-hammadde-etki-calculator
 - title: Recete Maliyeti Ve Alternatif Hammadde Etki
-- description: Hammadde fiyatı artınca alternatif reçetenin maliyet ve kalite etkisi modellenemez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/food-cold-chain-hygiene#tool-recete-maliyeti-ve-alternatif-hammadde-etki-calculator
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial engineering cost accounting and material substitution analysis
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/recete-maliyeti-ve-alternatif-hammadde-etki-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## recipe-cost-check
 - title: Recipe Cost Check
-- description: Portion cost from total ingredient spend.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/recipe-cost-check
-- tier: free
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/recipe-cost-check
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## renovation-budget-optimizer
 - title: Renovation Budget Optimizer
@@ -3149,12 +3149,12 @@
 
 ## restoran-tabak-maliyeti-ve-porsiyon-optimizasyon-calculator
 - title: Restoran Tabak Maliyeti Ve Porsiyon Optimizasyon
-- description: Her tabağın gramaj ve maliyet sapması izlenmez, menü kârlılığı erir.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/food-cold-chain-hygiene#tool-restoran-tabak-maliyeti-ve-porsiyon-optimizasyon-calculator
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Standard food cost accounting and yield management
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/restoran-tabak-maliyeti-ve-porsiyon-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## retail-inventory-turnover-risk
 - title: Retail Inventory Turnover Risk Calculator
@@ -3203,12 +3203,12 @@
 
 ## roofing-square-cost-check
 - title: Roofing Square Cost Check
-- description: Tear-off, dump fees and weather delays can turn roofing bids into warranty risk.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/roofing-square-cost-check
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Construction cost accounting and field service estimating
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/roofing-square-cost-check
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## roofing-weather-delay-risk
 - title: Roofing Weather Delay Risk Calculator
@@ -3221,9 +3221,9 @@
 
 ## route-cost-calculator
 - title: Route Cost Calculator
-- description: Trip cost from fuel, driver time and tolls.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/route-cost-calculator
-- tier: premium
+- description: Industrial engineering logistics cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/route-cost-calculator
+- tier: premium-schema
 - category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
 - routeStatus: active-route
 - intent: logistics, procurement, shipping, inventory
@@ -3248,12 +3248,12 @@
 
 ## ruzgar-turbini-yaklasik-uretim-hesabi
 - title: Rüzgar Türbini Yaklaşık Üretim Calculation
-- description: Rüzgar Türbini Yaklaşık Üretim Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/ruzgar-turbini-yaklasik-uretim-hesabi
-- tier: premium
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: Wind energy engineering and IEC 61400-12-1 standard
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/ruzgar-turbini-yaklasik-uretim-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## saas-lisans-kullanim-ve-shelfware-maliyet-calculator
 - title: Saas Lisans Kullanim Ve Shelfware Maliyet
@@ -3284,12 +3284,12 @@
 
 ## salary-cost-calculator
 - title: Employer Salary Cost Calculator
-- description: Total employer cost including employer contributions.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/salary-cost-calculator
-- tier: premium
-- category: workforce-hr (Workforce, Shift & HR Cost)
+- description: Cost accounting and labor economics
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/salary-cost-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: hr, payroll, workforce, labor
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## sample-size-calculator
 - title: Sample Size Calculator
@@ -3310,12 +3310,12 @@
 - intent: calculator, decision-support
 
 ## satis-kanali-karlilik-karsilastirma-calculator
-- title: Satis Kanali Karlilik Karsilastirma
-- description: Her kanalın komisyon, lojistik, iade maliyeti farklıdır ama eşit kârlı sanılır.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/finance-sales-working-capital#tool-satis-kanali-karlilik-karsilastirma-calculator
-- tier: premium
+- title: satis-kanali-karlilik-karsilastirma-calculator
+- description: Industrial cost accounting and sales channel analysis
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/satis-kanali-karlilik-karsilastirma-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
-- routeStatus: category-only
+- routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
 
 ## savings-goal-calculator
@@ -3347,12 +3347,12 @@
 
 ## seed-rate-calculator
 - title: Seed Rate Calculator
-- description: Seed quantity from area and seeding rate.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/seed-rate-calculator
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- description: Agronomic seeding rate standards (FAO, ISTA)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/seed-rate-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## serbest-ticaret-anlasmasi-mense-kurali-ve-gumruk-tasarruf-calculator
 - title: Serbest Ticaret Anlasmasi Mense Kurali Ve Gumruk Tasarruf
@@ -3365,12 +3365,12 @@
 
 ## ses-yalitimi-desibel-azaltimi-hesabi
 - title: Ses Yalıtımı (Desibel Azaltımı) Calculation
-- description: Ses Yalıtımı (Desibel Azaltımı) Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/ses-yalitimi-desibel-azaltimi-hesabi
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Acoustical engineering standard using mass law and material absorption coefficients
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/ses-yalitimi-desibel-azaltimi-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## sgk-prim-hesaplama-isci-plus-isveren
 - title: SGK Prim Calculation (İşçi + İşveren)
@@ -3401,12 +3401,12 @@
 
 ## sheet-metal-weight-calculator
 - title: Sheet Metal Weight Calculator
-- description: Plate weight from dimensions, thickness and density.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/sheet-metal-weight-calculator
-- tier: premium
-- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
+- description: Standard material weight calculation using density, thickness, width, and length
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/sheet-metal-weight-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## shop-rate-hourly-cost-calculator
 - title: Machine Hour Rate Calculator
@@ -3446,12 +3446,12 @@
 
 ## silindir-hacmi-hesaplama
 - title: Silindir Hacmi Calculation
-- description: Silindir Hacmi Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/silindir-hacmi-hesaplama
-- tier: free
-- category: technology-ai-cloud-cyber (Technology, AI, Cloud & Cyber Risk)
+- description: Temel geometri ve hacim hesabı
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/silindir-hacmi-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## sinir-otesi-istihdam-ve-eor-maliyet-calculator
 - title: Sinir Otesi Istihdam Ve Eor Maliyet
@@ -3473,30 +3473,30 @@
 
 ## smed-setup-suresi-ve-ekonomik-parti-calculator
 - title: Smed Setup Suresi Ve Ekonomik Parti
-- description: Setup süresi iç/dış ayrıştırılmaz, küçük partilerde gizli zarar oluşur.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-smed-setup-suresi-ve-ekonomik-parti-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Shigeo Shingo's SMED methodology and Wilson's EOQ formula adapted for setup time reduction
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/smed-setup-suresi-ve-ekonomik-parti-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## sofor-operator-gunluk-yevmiye-maliyeti
 - title: Şoför — Operatör Günlük Yevmiye Maliyeti
-- description: Şoför — Operatör Günlük Yevmiye Maliyeti — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/sofor-operator-gunluk-yevmiye-maliyeti
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Industrial engineering labor cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/sofor-operator-gunluk-yevmiye-maliyeti
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## soguk-oda-sogutma-yuku-hesabi
 - title: Soğuk Oda — Soğutma Yükü Calculation
-- description: Soğuk Oda — Soğutma Yükü Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/soguk-oda-sogutma-yuku-hesabi
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: ASHRAE Handbook - Refrigeration, heat gain through walls, infiltration, product load, and internal loads
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/soguk-oda-sogutma-yuku-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## soguk-zincir-kirilmasi-ve-urun-kayip-maliyet-calculator
 - title: Soguk Zincir Kirilmasi Ve Urun Kayip Maliyet
@@ -3509,12 +3509,12 @@
 
 ## sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama
 - title: Soğutma Sıvısı Karışım Oranı (Antifriz/Bor Yağı) Calculation
-- description: Soğutma Sıvısı Karışım Oranı (Antifriz/Bor Yağı) Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Standard industrial coolant preparation practice based on volume ratios and temperature protection requirements
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## sogutma-sivisi-omur-devri-ve-bertaraf-maliyet-calculator
 - title: Sogutma Sivisi Omur Devri Ve Bertaraf Maliyet
@@ -3527,12 +3527,12 @@
 
 ## solar-panel-output-calculator
 - title: Solar Panel Output Calculator
-- description: Energy output from system size, sun hours and efficiency.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/solar-panel-output-calculator
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: IEC 61724-1 photovoltaic system performance monitoring standard
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/solar-panel-output-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## sozlesme-ceza-ve-tesvik-maddesi-teklif-fiyatina-etki-calculator
 - title: Sozlesme Ceza Ve Tesvik Maddesi Teklif Fiyatina Etki
@@ -3563,21 +3563,21 @@
 
 ## square-footage-calculator
 - title: Square Footage Calculator
-- description: Calculate floor area in square feet with metric and acre conversions.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/square-footage-calculator
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Standard geometric area measurement for industrial floor space estimation
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/square-footage-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## square-meter-calculator
 - title: Square Meter Calculator
-- description: Calculate rectangular floor area in square meters with imperial conversions.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/square-meter-calculator
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Industrial engineering area measurement and cost estimation
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/square-meter-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## stair-calculator
 - title: Stair Calculator
@@ -3608,12 +3608,12 @@
 
 ## su-debisi-litre-dakika-hesaplama
 - title: Su Debisi (Litre/Dakika) Calculation
-- description: Su Debisi (Litre/Dakika) Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/su-debisi-litre-dakika-hesaplama
-- tier: free
-- category: sustainability-resource-esg (Sustainability, Resources & ESG)
+- description: Fluid mechanics - continuity equation
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/su-debisi-litre-dakika-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: sustainability, carbon, energy, esg
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## su-deposu-hacmi-hesaplama
 - title: Su Deposu Hacmi Calculation
@@ -3626,12 +3626,12 @@
 
 ## su-isitma-kazan-boyler-kapasite-hesabi
 - title: Su Isıtma (Kazan — Boyler) Kapasite Calculation
-- description: Su Isıtma (Kazan — Boyler) Kapasite Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/su-isitma-kazan-boyler-kapasite-hesabi
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Industrial engineering energy accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/su-isitma-kazan-boyler-kapasite-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## su-tuketimi-ve-atik-su-aritma-maliyet-optimizasyon-calculator
 - title: Su Tuketimi Ve Atik Su Aritma Maliyet Optimizasyon
@@ -3644,30 +3644,30 @@
 
 ## taguchi-kalite-kayip-fonksiyonu-calculator
 - title: Taguchi Kalite Kayip Fonksiyonu
-- description: Spesifikasyon içi sapmaların uzun vadeli müşteri ve marka maliyeti ölçülemez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/quality-six-sigma#tool-taguchi-kalite-kayip-fonksiyonu-calculator
-- tier: premium
-- category: quality-six-sigma (Quality, SPC & Six Sigma)
-- routeStatus: category-only
-- intent: quality, spc, six-sigma, statistics
+- description: Taguchi's quadratic loss function for quality engineering
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/taguchi-kalite-kayip-fonksiyonu-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## tahta-mdf-sunta-m-agirlik-hesabi
 - title: Tahta — Mdf — Sunta m² Ağırlık Calculation
-- description: Tahta — Mdf — Sunta m² Ağırlık Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/tahta-mdf-sunta-m-agirlik-hesabi
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Material science and industrial engineering standard for wood-based panels
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/tahta-mdf-sunta-m-agirlik-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## takim-tutucu-ve-baglama-aparati-setup-suresi-calculator
 - title: Takim Tutucu Ve Baglama Aparati Setup Suresi
-- description: Hızlı değişim aynası/modüler fikstür yatırımının setup süresi kazancı hesaplanamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/cnc-additive-manufacturing#tool-takim-tutucu-ve-baglama-aparati-setup-suresi-calculator
-- tier: premium
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial engineering time study and MTM (Methods-Time Measurement)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/takim-tutucu-ve-baglama-aparati-setup-suresi-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## takt-time-esnek-is-gucu-dalgalanma-maliyet-calculator
 - title: Takt Time Esnek Is Gucu Dalgalanma Maliyet
@@ -3689,12 +3689,12 @@
 
 ## talep-tahmin-hatasi-ve-stok-stok-yoklugu-maliyet-calculator
 - title: Talep Tahmin Hatasi Ve Stok Stok Yoklugu Maliyet
-- description: Tahmin sapmasının stok fazlası veya kayıp satış olarak parasal karşılığı ölçülemez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-talep-tahmin-hatasi-ve-stok-stok-yoklugu-maliyet-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Industrial engineering and supply chain cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/talep-tahmin-hatasi-ve-stok-stok-yoklugu-maliyet-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## tasima-modu-toplam-maliyet-ve-risk-calculator
 - title: Tasima Modu Toplam Maliyet Ve Risk
@@ -3725,30 +3725,30 @@
 
 ## tel-kablo-uzunlugu-agirlik-hesabi
 - title: Tel — Kablo Uzunluğu — Ağırlık Calculation
-- description: Tel — Kablo Uzunluğu — Ağırlık Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/tel-kablo-uzunlugu-agirlik-hesabi
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Standard material weight calculation using linear density (mass per unit length) and length, with optional adjustment for insulation or coating.
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/tel-kablo-uzunlugu-agirlik-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## temizlik-malzemesi-sarfiyat-hesabi
 - title: Temizlik Malzemesi Sarfiyat Calculation
-- description: Temizlik Malzemesi Sarfiyat Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/temizlik-malzemesi-sarfiyat-hesabi
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/temizlik-malzemesi-sarfiyat-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## temizlik-ve-hijyen-kimyasal-tuketim-optimizasyon-calculator
 - title: Temizlik Ve Hijyen Kimyasal Tuketim Optimizasyon
-- description: CIP/sanitasyon kimyasal dozajı optimize edilmez, gereksiz tüketim veya yetersiz hijyen.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/food-cold-chain-hygiene#tool-temizlik-ve-hijyen-kimyasal-tuketim-optimizasyon-calculator
-- tier: premium
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Industrial cleaning process engineering and cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/temizlik-ve-hijyen-kimyasal-tuketim-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## temperature-converter
 - title: Temperature Converter
@@ -3788,12 +3788,12 @@
 
 ## tile-calculator
 - title: Tile Calculator
-- description: Count tiles needed for a floor area with waste allowance.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/tile-calculator
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Construction cost estimation standard
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/tile-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## time-duration-calculator
 - title: Time Duration Calculator
@@ -3815,30 +3815,30 @@
 
 ## tir-kamyon-yuk-kapasitesi-hesaplama
 - title: Tır — Kamyon Yük Kapasitesi Calculation
-- description: Tır — Kamyon Yük Kapasitesi Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/tir-kamyon-yuk-kapasitesi-hesaplama
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Vehicle engineering and transport logistics
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/tir-kamyon-yuk-kapasitesi-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## titresim-frekans-periyot-hesaplama
 - title: Titreşim — Frekans — Periyot Calculation
-- description: Titreşim — Frekans — Periyot Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/titresim-frekans-periyot-hesaplama
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Classical mechanics: f = 1/T, T = 1/f
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/titresim-frekans-periyot-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## tolerance-drift-calculator
 - title: Tolerance Drift Calculator
-- description: Deviation from target dimension and percent drift.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/tolerance-drift-calculator
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Statistical process control and quality cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/tolerance-drift-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## tolerance-stack-up-calculator
 - title: Tolerance Stack-Up Calculator
@@ -3851,39 +3851,39 @@
 
 ## tool-life-calculator
 - title: Tool Life Cost Calculator
-- description: Tooling cost allocated per good part.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/tool-life-calculator
-- tier: premium
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: Industrial engineering cost accounting for consumable tooling
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/tool-life-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## toplam-sahip-olma-maliyeti-tco-ekipman-karsilastirma-calculator
 - title: Toplam Sahip Olma Maliyeti Tco Ekipman Karsilastirma
-- description: Makine alımında sadece fiyat karşılaştırılır; enerji, bakım, yedek parça maliyeti atlanır.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/procurement-supply-chain#tool-toplam-sahip-olma-maliyeti-tco-ekipman-karsilastirma-calculator
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
-- routeStatus: category-only
-- intent: logistics, procurement, shipping, inventory
+- description: Standard industrial engineering cost accounting and lifecycle costing
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/toplam-sahip-olma-maliyeti-tco-ekipman-karsilastirma-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## toplanti-saati-maliyeti-hesaplama
 - title: Toplantı Saati Maliyeti Calculation
-- description: Toplantı Saati Maliyeti Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/toplanti-saati-maliyeti-hesaplama
-- tier: premium
-- category: workforce-hr (Workforce, Shift & HR Cost)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/toplanti-saati-maliyeti-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: hr, payroll, workforce, labor
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## topoloji-optimizasyonu-hafiflik-ve-yakit-tasarrufu-calculator
 - title: Topoloji Optimizasyonu Hafiflik Ve Yakit Tasarrufu
-- description: Optimize parçanın kg başına yıllık yakıt ve karbon tasarrufu hesaplanamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/cnc-additive-manufacturing#tool-topoloji-optimizasyonu-hafiflik-ve-yakit-tasarrufu-calculator
-- tier: premium
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
-- routeStatus: category-only
-- intent: calculator, decision-support
+- description: Automotive and aerospace lightweighting cost-benefit analysis based on mass reduction and fuel consumption correlation
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/topoloji-optimizasyonu-hafiflik-ve-yakit-tasarrufu-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## topraklama-direnci-hesaplama
 - title: Topraklama Direnci Calculation
@@ -3950,57 +3950,57 @@
 
 ## unit-cost-calculator
 - title: Unit Cost Calculator
-- description: Cost per unit from total cost and quantity.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/unit-cost-calculator
-- tier: free
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/unit-cost-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
 
 ## unit-price-calculator
 - title: Unit Price Calculator
-- description: Price per unit from total price and quantity.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/unit-price-calculator
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/unit-price-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## ups-kesintisiz-guc-kaynagi-secimi
 - title: UPS (Kesintisiz Güç Kaynağı) Seçimi
-- description: UPS (Kesintisiz Güç Kaynağı) Seçimi — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/ups-kesintisiz-guc-kaynagi-secimi
-- tier: premium
-- category: electrical-power-systems (Electrical, Panel & Power Systems)
+- description: IEEE 446 / IEC 62040 standard UPS sizing methodology
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/ups-kesintisiz-guc-kaynagi-secimi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: electrical, power, voltage, cabling
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## urun-karmasi-karmasiklik-maliyeti-hidden-factory-calculator
 - title: Urun Karmasi Karmasiklik Maliyeti Hidden Factory
-- description: Çok çeşitli üretimin yarattığı gizli karmaşıklık maliyeti ürünlere dağıtılamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-urun-karmasi-karmasiklik-maliyeti-hidden-factory-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Activity-based costing (ABC) and hidden factory analysis
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/urun-karmasi-karmasiklik-maliyeti-hidden-factory-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## vade-farki-ve-erken-odeme-iskontosu-optimizasyon-calculator
 - title: Vade Farki Ve Erken Odeme Iskontosu Optimizasyon
-- description: Müşteriye verilen vadenin veya erken ödeme iskontosunun gerçek finansman maliyeti bilinmez.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/finance-sales-working-capital#tool-vade-farki-ve-erken-odeme-iskontosu-optimizasyon-calculator
-- tier: premium
+- description: Ticari finans ve nakit akışı yönetimi prensipleri
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/vade-farki-ve-erken-odeme-iskontosu-optimizasyon-calculator
+- tier: premium-schema
 - category: finance-sales-working-capital (Finance, Sales & Working Capital)
-- routeStatus: category-only
+- routeStatus: active-route
 - intent: finance, pricing, cash-flow, tax, working-capital
 
 ## vakum-sistemi-kacak-ve-enerji-kayip-calculator
 - title: Vakum Sistemi Kacak Ve Enerji Kayip
-- description: Vakum kaçakları kompresör kaçakları gibi görünmezdir, enerji maliyetini sessizce artırır.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/mechanical-hvac-energy-loss#tool-vakum-sistemi-kacak-ve-enerji-kayip-calculator
-- tier: premium
-- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
-- routeStatus: category-only
-- intent: mechanical, hvac, energy, engineering
+- description: Industrial energy efficiency analysis based on leakage flow and compressor power
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/vakum-sistemi-kacak-ve-enerji-kayip-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## value-stream-map-vsm-calculator
 - title: Value Stream Map VSM Calculator
@@ -4031,21 +4031,21 @@
 
 ## vehicle-depreciation-calculator
 - title: Vehicle Depreciation Calculator
-- description: Annual vehicle depreciation straight-line.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/vehicle-depreciation-calculator
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Standard accounting and industrial cost allocation practice
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/vehicle-depreciation-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## vida-somun-adim-dis-ustu-cap-hesabi
 - title: Vida — Somun Adım — Diş Üstü Çap Calculation
-- description: Vida — Somun Adım — Diş Üstü Çap Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/vida-somun-adim-dis-ustu-cap-hesabi
-- tier: free
-- category: cnc-additive-manufacturing (CNC, 3D Printing & Advanced Manufacturing)
+- description: ISO 68-1 and ISO 724 metric screw thread profiles
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/vida-somun-adim-dis-ustu-cap-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## volume-converter
 - title: Volume Converter
@@ -4058,12 +4058,12 @@
 
 ## volumetric-weight-calculator
 - title: Volumetric Weight Calculator
-- description: Chargeable volumetric weight for freight.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/volumetric-weight-calculator
-- tier: free
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: IATA volumetric weight standard (air freight) and common carrier practice
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/volumetric-weight-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## vsm-finansal-donusum-calculator
 - title: Vsm Finansal Donusum
@@ -4085,12 +4085,12 @@
 
 ## warehouse-storage-cost-calculator
 - title: Warehouse Storage Cost
-- description: Storage cost from pallets, daily rate and days.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/warehouse-storage-cost-calculator
-- tier: premium
-- category: procurement-supply-chain (Procurement, Supply Chain & Logistics)
+- description: Industrial engineering cost accounting for logistics
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/warehouse-storage-cost-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: logistics, procurement, shipping, inventory
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## water-optimization-verdict
 - title: Water Efficiency Verdict
@@ -4103,12 +4103,12 @@
 
 ## water-usage-calculator
 - title: Water Usage Calculator
-- description: Liters from flow rate and duration.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/water-usage-calculator
-- tier: free
-- category: food-cold-chain-hygiene (Food, Cold Chain & Hygiene)
+- description: Industrial water usage accounting and cost allocation
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/water-usage-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## weight-converter
 - title: Weight Converter
@@ -4139,12 +4139,12 @@
 
 ## welding-cost-estimator
 - title: Welding Cost Estimator
-- description: Material, labor and consumables for a weld job.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/welding-cost-estimator
-- tier: premium
-- category: metal-plastics-forming (Sheet Metal, Casting, Plastics & Forming)
+- description: Industrial engineering cost accounting for welding operations
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/welding-cost-estimator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## yalitim-kalinligi-ve-enerji-tasarrufu-optimizasyon-calculator
 - title: Yalitim Kalinligi Ve Enerji Tasarrufu Optimizasyon
@@ -4157,21 +4157,21 @@
 
 ## yalitim-malzemesi-m-hesaplama
 - title: Yalıtım Malzemesi (m²) Calculation
-- description: Yalıtım Malzemesi (m²) Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/yalitim-malzemesi-m-hesaplama
-- tier: free
-- category: project-construction-management (Project, Site & Construction Management)
+- description: Standard construction/industrial insulation takeoff and cost estimation
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/yalitim-malzemesi-m-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## yamazumi-is-yuku-dengeleme-kayip-calculator
 - title: Yamazumi Is Yuku Dengeleme Kayip
-- description: Operatörler arası dengesiz yüklenme, bekleme ve kalite hatası yaratır.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-yamazumi-is-yuku-dengeleme-kayip-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Lean manufacturing / Takt time balancing
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/yamazumi-is-yuku-dengeleme-kayip-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## yamuk-alani-hesaplama
 - title: Yamuk Alanı Calculation
@@ -4202,48 +4202,48 @@
 
 ## yapistirici-ve-sizdirmazlik-malzemesi-tuketim-optimizasyon-calculator
 - title: Yapistirici Ve Sizdirmazlik Malzemesi Tuketim Optimizasyon
-- description: Yapıştırıcı boncuk çapı ve adımı optimize edilmez, gereksiz sarfiyat oluşur.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/mechanical-hvac-energy-loss#tool-yapistirici-ve-sizdirmazlik-malzemesi-tuketim-optimizasyon-calculator
-- tier: premium
-- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
-- routeStatus: category-only
-- intent: mechanical, hvac, energy, engineering
+- description: Industrial engineering material usage and cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/yapistirici-ve-sizdirmazlik-malzemesi-tuketim-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## yatak-rulman-omur-hesabi-l10
 - title: Yatak — Rulman Ömür Calculation (L10)
-- description: Yatak — Rulman Ömür Calculation (L10) — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/yatak-rulman-omur-hesabi-l10
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: ISO 281:2007 rolling bearing life standard
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/yatak-rulman-omur-hesabi-l10
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## yay-helisel-kuvvet-uzama-hesabi
 - title: Yay (Helisel) Kuvvet — Uzama Calculation
-- description: Yay (Helisel) Kuvvet — Uzama Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/premium/yay-helisel-kuvvet-uzama-hesabi
-- tier: premium
-- category: mechanical-hvac-energy-loss (Mechanical, HVAC & Energy Loss)
+- description: Hooke yasası ve yay sabiti formülü (k = G*d^4/(8*D^3*n))
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/yay-helisel-kuvvet-uzama-hesabi
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: mechanical, hvac, energy, engineering
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## yedek-parca-stok-seviyesi-ve-durus-riski-optimizasyon-calculator
 - title: Yedek Parca Stok Seviyesi Ve Durus Riski Optimizasyon
-- description: Kritik yedek parça stoğu hissiyatla tutulur, stoksuzluk duruş maliyeti hesaplanamaz.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/maintenance-reliability#tool-yedek-parca-stok-seviyesi-ve-durus-riski-optimizasyon-calculator
-- tier: premium
-- category: maintenance-reliability (Maintenance & Reliability)
-- routeStatus: category-only
-- intent: maintenance, reliability, asset-life
+- description: Industrial engineering and inventory management standards (APICS, ISO 9001)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/yedek-parca-stok-seviyesi-ve-durus-riski-optimizasyon-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## yemek-tabldot-maliyet-hesaplama
 - title: Yemek — Tabldot Maliyet Calculation
-- description: Yemek — Tabldot Maliyet Calculation — free browser calculator with instant results.
-- canonicalUrl: https://www.sectorcalc.com/en/tools/free/yemek-tabldot-maliyet-hesaplama
-- tier: free
-- category: packaging-local-business (Packaging & Local Business Tools)
+- description: Industrial engineering cost accounting
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/yemek-tabldot-maliyet-hesaplama
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
 - routeStatus: active-route
-- intent: calculator, decision-support
+- intent: finance, pricing, cash-flow, tax, working-capital
 
 ## yenilenebilir-enerji-ges-res-yatirim-fizibilite-calculator
 - title: Yenilenebilir Enerji Ges Res Yatirim Fizibilite
@@ -4265,9 +4265,9 @@
 
 ## zaman-etudu-ve-standart-sure-calculator
 - title: Zaman Etudu Ve Standart Sure
-- description: İşçilik süreleri standart değildir, her usta farklı süre verir, teklif tutarsız olur.
-- canonicalUrl: https://www.sectorcalc.com/en/premium-tools/lean-production#tool-zaman-etudu-ve-standart-sure-calculator
-- tier: premium
-- category: lean-production (Lean Production & Line Efficiency)
-- routeStatus: category-only
-- intent: production, oee, efficiency, throughput
+- description: Industrial engineering work measurement (MTM-1 / MOST / stopwatch time study)
+- canonicalUrl: https://www.sectorcalc.com/en/tools/premium-schema/zaman-etudu-ve-standart-sure-calculator
+- tier: premium-schema
+- category: finance-sales-working-capital (Finance, Sales & Working Capital)
+- routeStatus: active-route
+- intent: finance, pricing, cash-flow, tax, working-capital
