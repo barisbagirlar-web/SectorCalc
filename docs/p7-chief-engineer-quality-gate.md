@@ -1,6 +1,19 @@
 # P7 Chief Engineer Quality Gate
 
-Generated: 2026-06-14T01:12:01.604Z
+Generated: 2026-06-14T01:17:00.900Z
+
+## Domain Prompt Packs
+
+- Enabled: **yes**
+- Pack count: 11
+- Self-tests: **PASS**
+- Wiring domain match: COSTING_MARGIN_AND_PRICING
+- Message layout: Chief Engineer system + domain system + tool user
+
+## Domain Prompt Dispatcher
+
+- Enabled: **yes**
+- Self-tests: **PASS**
 
 ## DeepSeek System Prompt
 
@@ -39,10 +52,10 @@ Generated: 2026-06-14T01:12:01.604Z
 ## Scan Summary
 
 - Total tools: 474
-- DeepSeek attempted: 3
+- DeepSeek attempted: 2
 - Patch eligible (gate passed): 0
 - Gate rejected: 0
-- API errors: 3
+- API errors: 2
 
 ## Risk Class Distribution
 
@@ -52,3 +65,17 @@ Generated: 2026-06-14T01:12:01.604Z
 - HIGH_FINANCE_LEGAL_TAX: 14
 - HIGH_REGULATORY: 4
 - BLOCKED_UNKNOWN: 1
+
+## Domain Distribution
+
+- COSTING_MARGIN_AND_PRICING: 58
+- GENERAL_INDUSTRIAL_COST_ANALYTICS: 239
+- MANUFACTURING_AND_MACHINING: 21
+- FINANCE_LEGAL_TAX_REGULATORY_HIGH_RISK: 49
+- FOOD_AGRI_AND_PROCESS: 12
+- LOGISTICS_AND_TRANSPORT: 19
+- MAINTENANCE_AND_DOWNTIME: 9
+- INVENTORY_AND_STOCK: 5
+- LEAN_WASTE_AND_OEE: 21
+- ENERGY_AND_UTILITIES: 25
+- CONSTRUCTION_AND_FIELD_SERVICE: 16

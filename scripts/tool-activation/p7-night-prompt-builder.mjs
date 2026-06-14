@@ -1,5 +1,10 @@
 import { CHIEF_ENGINEER_SYSTEM_PROMPT } from "./p7-chief-engineer-system-prompt.mjs";
 import { getP7ResponseJsonSchemaHint } from "./p7-night-response-schema.mjs";
+import {
+  buildDomainPromptSection,
+  matchDomainPrompt,
+  toDomainMatchInput,
+} from "./p7-domain-prompt-dispatcher.mjs";
 
 export function buildToolUserPrompt(toolContext) {
   const schemaHint = getP7ResponseJsonSchemaHint();
@@ -18,11 +23,19 @@ export function buildToolUserPrompt(toolContext) {
   ].join("\n");
 }
 
+export function getToolDomainMatch(toolContext) {
+  return matchDomainPrompt(toDomainMatchInput(toolContext));
+}
+
 export function buildDeepSeekMessages(toolContext) {
   return [
     {
       role: "system",
       content: CHIEF_ENGINEER_SYSTEM_PROMPT,
+    },
+    {
+      role: "system",
+      content: buildDomainPromptSection(toDomainMatchInput(toolContext)),
     },
     {
       role: "user",
