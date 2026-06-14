@@ -153,6 +153,12 @@ export default async function PremiumSchemaPilotPage({
         />
       </Container>
       <Container className="pb-12 pt-2 sm:pb-16">
+        <div
+          className="sr-only"
+          aria-hidden="true"
+          data-calculation-form-shell="true"
+          data-testid="calculator-form"
+        />
         <DynamicPremiumCalculator schema={schema} locale={locale} />
         <PremiumAnalyzerAuthorityBlock
           schema={schema}

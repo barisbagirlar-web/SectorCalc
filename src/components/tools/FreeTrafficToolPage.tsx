@@ -25,6 +25,10 @@ import { resolvePremiumAnalyzerHref } from "@/lib/premium-schema/premium-schema-
 import { FreeToolAuthorityBlock } from "@/components/content/FreeToolAuthorityBlock";
 import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
+import {
+  resolveToolCalculationAllowed,
+  resolveToolFormPresence,
+} from "@/components/tools/resolve-tool-form-presence";
 import { resolveFreeToolDisplayTitle } from "@/lib/i18n/free-tool-form-i18n";
 import { GuidanceFieldFocus } from "@/components/guidance/GuidanceFieldFocus";
 import { FormulaGateToolStatus } from "@/components/formula/FormulaGateToolStatus";
@@ -112,7 +116,18 @@ export function FreeTrafficToolPage({
       }),
     [tool.slug, locale, surfaceTier],
   );
-  const showCalculationSurface = runtimeTrust.calculationEligible;
+  const showToolForm = resolveToolFormPresence({
+    slug: tool.slug,
+    locale,
+    surface: surfaceTier,
+  });
+  const allowCalculation = resolveToolCalculationAllowed({
+    slug: tool.slug,
+    locale,
+    surface: surfaceTier,
+    calculationEligible: runtimeTrust.calculationEligible,
+    tier: runtimeTrust.tier,
+  });
 
   useEffect(() => {
     trackEvent(ANALYTICS_EVENTS.tool_view, {
@@ -193,7 +208,7 @@ export function FreeTrafficToolPage({
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!runtimeTrust.calculationEligible) {
+    if (!allowCalculation) {
       return;
     }
     if (!startedTracked.current) {
@@ -321,7 +336,7 @@ export function FreeTrafficToolPage({
 
       <section className="sc-craft-section overflow-x-hidden">
         <Container size="wide" className="sc-craft-container sc-craft-container--wide min-w-0">
-          {!showCalculationSurface ? (
+          {!showToolForm ? (
             <ToolSafeReviewState slug={tool.slug} locale={locale} findings={runtimeTrust.findings} />
           ) : (
           <>
@@ -358,6 +373,7 @@ export function FreeTrafficToolPage({
               className="sc-form-shell sc-ledger-cetele__form sc-ledger-cetele-form sc-ledger-panel sc-industrial-panel sc-ledger-letterpress p-4 sm:p-5"
               noValidate
               data-calculation-form="true"
+              data-testid="tool-form"
             >
               {tool.inputs.map((input) => {
                 const id = `ft-${tool.slug}-${input.key}`;

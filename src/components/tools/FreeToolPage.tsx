@@ -50,6 +50,10 @@ import {
 } from "@/lib/formula-governance/runtime-validation/smart-form-contract-adapter";
 import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
+import {
+  resolveToolCalculationAllowed,
+  resolveToolFormPresence,
+} from "@/components/tools/resolve-tool-form-presence";
 
 
 function buildInitialValues(tool: RevenueTool): FreeToolInputValues {
@@ -248,7 +252,18 @@ export function FreeToolPage({
    }),
   [tool.freeSlug, locale, surfaceTier],
  );
- const showCalculationSurface = runtimeTrust.calculationEligible;
+ const showToolForm = resolveToolFormPresence({
+  slug: tool.freeSlug,
+  locale,
+  surface: surfaceTier,
+ });
+ const allowCalculation = resolveToolCalculationAllowed({
+  slug: tool.freeSlug,
+  locale,
+  surface: surfaceTier,
+  calculationEligible: runtimeTrust.calculationEligible,
+  tier: runtimeTrust.tier,
+ });
 
  useEffect(() => {
   trackConversionEvent({
@@ -300,7 +315,7 @@ export function FreeToolPage({
  }, [result]);
 
  const handlePilotCalculate = (fieldValues: PilotFieldValues) => {
-  if (!showCalculationSurface) {
+  if (!allowCalculation) {
    return;
   }
   if (!smartFormPilotManifest) {
@@ -362,7 +377,7 @@ export function FreeToolPage({
 
  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
  event.preventDefault();
- if (!showCalculationSurface) {
+ if (!allowCalculation) {
   return;
  }
 
@@ -486,7 +501,7 @@ export function FreeToolPage({
 
  {featuredAnswer ? <div className="mt-5">{featuredAnswer}</div> : null}
 
- {!showCalculationSurface ? (
+ {!showToolForm ? (
   <ToolSafeReviewState slug={tool.freeSlug} locale={locale} findings={runtimeTrust.findings} />
  ) : (
  <div className="sc-ledger-cetele sc-ledger-cetele--stacked sc-tool-workspace sc-tool-workspace--stacked mt-4">

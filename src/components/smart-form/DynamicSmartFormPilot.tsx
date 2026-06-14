@@ -139,6 +139,7 @@ export function DynamicSmartFormPilot({
       data-smart-form-mode={mode}
       data-smart-form-scenario={scenarioId}
       data-calculation-form="true"
+      data-testid="smart-form"
     >
       <div className="sc-smart-form-controls">
         <div className="sc-smart-form-scenario min-w-0">

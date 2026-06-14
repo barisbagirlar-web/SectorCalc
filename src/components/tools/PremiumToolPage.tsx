@@ -78,6 +78,10 @@ import {
 } from "@/lib/tools/revenue-tools";
 import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
+import {
+  resolveToolCalculationAllowed,
+  resolveToolFormPresence,
+} from "@/components/tools/resolve-tool-form-presence";
 
 const DownloadVerdictPdfButton = dynamic(
  () =>
@@ -242,7 +246,18 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
   () => evaluateRuntimeTrust({ slug: runtimeSlug, locale, surface: "premium" }),
   [runtimeSlug, locale],
  );
- const showCalculationSurface = runtimeTrust.calculationEligible;
+ const showToolForm = resolveToolFormPresence({
+  slug: runtimeSlug,
+  locale,
+  surface: "premium",
+ });
+ const allowCalculation = resolveToolCalculationAllowed({
+  slug: runtimeSlug,
+  locale,
+  surface: "premium",
+  calculationEligible: runtimeTrust.calculationEligible,
+  tier: runtimeTrust.tier,
+ });
  const {
  user,
  canAccessAnalyzer,
@@ -578,7 +593,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
  event.preventDefault();
 
- if (!showCalculationSurface) {
+ if (!allowCalculation) {
   return;
  }
 
@@ -673,13 +688,13 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    <PremiumSubscribedBanner toolSlug={tool.paidSlug} />
   </Suspense>
  ) : null}
- {user && requiresCreditConsume && showCalculationSurface ? (
+ {user && requiresCreditConsume && allowCalculation ? (
   <p className="mt-2 text-sm text-body-charcoal">
    Credits: {creditBalance}
    {hasCredits ? " — 1 credit per premium run." : null}
   </p>
  ) : null}
- {needsCreditLoad && showCalculationSurface ? (
+ {needsCreditLoad && allowCalculation ? (
   <div className="mt-4 rounded-sm border border-amber/30 bg-premium-surface p-4 sm:p-5">
    <p className="text-xs font-semibold uppercase tracking-wider text-amber">Credits required</p>
    <h2 className="mt-2 text-lg font-bold text-premium-velvet">Load credits to run this analyzer</h2>
@@ -708,7 +723,7 @@ export function PremiumToolPage({ tool, routeSlug }: PremiumToolPageProps) {
    {error}
   </p>
  ) : null}
- {!showCalculationSurface ? (
+ {!showToolForm ? (
   <ToolSafeReviewState slug={runtimeSlug} locale={locale} findings={runtimeTrust.findings} />
  ) : showSchemaPilot ? (
  <>

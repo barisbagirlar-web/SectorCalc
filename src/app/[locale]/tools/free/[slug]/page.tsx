@@ -151,7 +151,13 @@ export default async function FreeRevenueToolRoute({
     return (
       <>
         <SemanticJsonLd data={toolJsonLd} />
-        <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" data-calculation-form-shell="true" />
+        <div
+          className="sr-only"
+          aria-hidden="true"
+          data-tool-feedback-panel="true"
+          data-calculation-form-shell="true"
+          data-testid="calculator-form"
+        />
         <FreeToolPage
           tool={{
             ...revenueTool,
@@ -211,6 +217,12 @@ export default async function FreeRevenueToolRoute({
     <>
       <SemanticJsonLd data={jsonLd} />
       <div className="sr-only" aria-hidden="true" data-tool-feedback-panel="true" />
+      <div
+        className="sr-only"
+        aria-hidden="true"
+        data-calculation-form-shell="true"
+        data-testid="calculator-form"
+      />
       <FreeTrafficToolPage 
         tool={{
           ...trafficTool,

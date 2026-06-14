@@ -74,7 +74,7 @@ export function SmartFormShell({
     <>
       {activeFormContent}
       {showSubmit && onSubmit ? (
-        <form onSubmit={onSubmit} noValidate className="mt-4" data-calculation-form="true">
+        <form onSubmit={onSubmit} noValidate className="mt-4" data-calculation-form="true" data-testid="tool-form">
           <div className="sc-industrial-form-actions">
             <button
               type="submit"
@@ -95,6 +95,7 @@ export function SmartFormShell({
       data-smart-form-shell="true"
       data-smart-form-tier={tier}
       data-smart-form-fallback={fallback ? "true" : "false"}
+      data-testid="smart-form"
     >
       <header className="mb-4 min-w-0 border-b border-slate-200 pb-4">
         <div className="flex flex-wrap items-center gap-2">

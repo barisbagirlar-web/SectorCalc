@@ -33,7 +33,7 @@ export function PremiumCalculatorShell({
   const t = useTranslations("calculator");
 
   return (
-    <section className="sc-premium-tool-shell" data-premium-calculator-shell="true">
+    <section className="sc-premium-tool-shell" data-premium-calculator-shell="true" data-testid="calculator-form">
       <header className="sc-tool-header">
         <span className="sc-tool-eyebrow">{t("premiumEyebrow")}</span>
         <h1>{title}</h1>

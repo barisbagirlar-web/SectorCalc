@@ -52,6 +52,10 @@ import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculator
 import { resolveSevenMudaRev5Labels } from "@/lib/i18n/seven-muda-rev5-labels";
 import { evaluateRuntimeTrust } from "@/lib/tools/runtime-trust-engine";
 import { ToolSafeReviewState } from "@/components/tools/ToolSafeReviewState";
+import {
+  resolveToolCalculationAllowed,
+  resolveToolFormPresence,
+} from "@/components/tools/resolve-tool-form-presence";
 
 const SEVEN_MUDA_WASTE_COST_SLUG = "7-israf-muda-avcisi-parasal-karsilik-calculator";
 
@@ -137,7 +141,18 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
       }),
     [trustSlug, locale],
   );
-  const showCalculationSurface = runtimeTrust.calculationEligible;
+  const showToolForm = resolveToolFormPresence({
+    slug: trustSlug,
+    locale,
+    surface: "premium",
+  });
+  const allowCalculation = resolveToolCalculationAllowed({
+    slug: trustSlug,
+    locale,
+    surface: "premium",
+    calculationEligible: runtimeTrust.calculationEligible,
+    tier: runtimeTrust.tier,
+  });
 
   const experience = useMemo(
     () =>
@@ -245,7 +260,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!showCalculationSurface) {
+    if (!allowCalculation) {
       return;
     }
     setSubmitted(true);
@@ -369,7 +384,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
     );
   };
 
-  if (!showCalculationSurface) {
+  if (!showToolForm) {
     return (
       <ToolSafeReviewState slug={trustSlug} locale={locale} findings={runtimeTrust.findings} />
     );
@@ -398,6 +413,7 @@ export function DynamicPremiumCalculator({ schema, locale: localeProp }: Dynamic
                 className="sc-form-shell sc-form-grid sc-industrial-form min-h-0"
                 noValidate
                 data-calculation-form="true"
+                data-testid="tool-form"
               >
                 {visibleInputs.map((input) => renderInput(input))}
                 <div className="sc-industrial-form-actions">

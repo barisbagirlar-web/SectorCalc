@@ -86,6 +86,7 @@ export function SmartFormWorkspace({
       noValidate
       data-smart-form-adapter="true"
       data-calculation-form="true"
+      data-testid="tool-form"
     >
       <SmartFormFieldsRenderer
         sections={adapter.simpleSections}
