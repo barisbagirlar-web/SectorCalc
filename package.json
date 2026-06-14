@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "npm run test:generated && next build",
     "postbuild": "node scripts/ensure-500-export.mjs",
     "start": "next start",
     "lint": "next lint",
@@ -16,7 +17,7 @@
     "seo:authority-txt": "npx tsx scripts/generate-seo-authority-txt.ts",
     "seo:export-manifest": "npx tsx scripts/export-indexable-manifest.ts",
     "seo:indexnow": "node scripts/submit-indexnow.mjs",
-    "prebuild": "npm run lint:schemas && npm run export:ai-index && npm run seo:authority-txt && npm run seo:export-manifest",
+    "prebuild": "npm run lint:schemas && npm run export:ai-index && npm run seo:authority-txt && npm run seo:export-manifest && npm run copy:generated-diagrams",
     "audit:campaign": "npx tsx scripts/audit-campaign-utm.ts",
     "audit:locale-catalog": "npx tsx scripts/audit-locale-catalog-smoke.ts",
     "audit:locale-messages": "npx tsx scripts/audit-locale-messages.ts",
@@ -56,6 +57,8 @@
     "scan:premium": "npx tsx scripts/deepseek/scan-premium.ts",
     "generate:tool": "npx tsx scripts/deepseek/generate-from-schema.ts",
     "generate:all": "npx tsx scripts/deepseek/generate-from-schema-all.ts",
+    "generate:registry": "npx tsx scripts/deepseek/generate-calculator-registry.ts",
+    "copy:generated-diagrams": "node scripts/copy-generated-diagrams.mjs",
     "test:generated": "npx tsx scripts/deepseek/test-generated-tools.ts",
     "smoke:preview": "npx tsx scripts/deepseek/smoke-preview.ts",
     "audit:premium-formula-sources": "node scripts/tool-activation/audit-premium-formula-sources.mjs",
@@ -123,7 +126,7 @@
     "generate:marketing-surface-i18n": "node scripts/patch-marketing-residual-i18n.mjs && node scripts/generate-marketing-surface-i18n.mjs",
     "patch:sector-footer": "node scripts/patch-sector-footer-i18n.mjs && node scripts/patch-calculator-library-i18n.mjs",
     "generate:calculator-glossary": "node scripts/generate-calculator-phrase-glossary.mjs",
-    "generate:calculator-i18n": "node scripts/generate-calculator-phrase-glossary.mjs && node scripts/generate-field-label-locale-map.mjs && node scripts/patch-field-validation-i18n.mjs && node scripts/patch-locale-calculator-ui-i18n.mjs && node scripts/generate-free-tool-inputs-i18n.mjs && node scripts/generate-premium-schema-inputs-i18n.mjs",
+    "generate:calculator-i18n": "node scripts/generate-calculator-phrase-glossary.mjs && node scripts/generate-field-label-locale-map.mjs && node scripts/patch-field-validation-i18n.mjs && node scripts/patch-locale-calculator-ui-i18n.mjs && node scripts/generate-free-tool-inputs-i18n.mjs && node scripts/generate-premium-schema-inputs-i18n.mjs && node scripts/generate-generated-schema-inputs-i18n.mjs",
     "audit:tool-roadmap": "node scripts/audit-tool-roadmap-integrity.mjs",
     "normalize:calculator-terminology": "node scripts/normalize-calculator-terminology.mjs",
     "generate:free-tool-i18n": "node scripts/generate-free-tool-catalog-i18n.mjs && node scripts/generate-free-tool-inputs-i18n.mjs",
@@ -203,6 +206,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@hookform/resolvers": "^5.4.0",
     "@react-pdf/renderer": "^4.5.1",
     "firebase": "^12.14.0",
     "firebase-admin": "^13.10.0",
@@ -212,6 +216,8 @@
     "openai": "^6.42.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.79.0",
+    "recharts": "^3.8.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {

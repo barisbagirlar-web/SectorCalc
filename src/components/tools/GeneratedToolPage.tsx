@@ -1,0 +1,199 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { BreakdownBarChart } from "@/components/tools/BreakdownBarChart";
+import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
+import {
+  resolveGeneratedToolDescription,
+  resolveGeneratedToolTitle,
+  resolvePrimaryOutputKey,
+} from "@/lib/generated-tools/resolve-tool-display";
+import {
+  runGeneratedToolCalculation,
+  useToolSchema,
+} from "@/lib/generated-tools/use-tool-schema";
+import type { GeneratedToolResult, GeneratedToolSchema } from "@/lib/generated-tools/types";
+
+export type GeneratedToolPageProps = {
+  readonly slug: string;
+  readonly schema: GeneratedToolSchema;
+  readonly diagramSrc?: string | null;
+};
+
+function formatPrimaryValue(value: unknown, locale: string): string {
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    return "—";
+  }
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: "TRY",
+    maximumFractionDigits: 0,
+  }).format(value);
+}
+
+function resolveHiddenDrivers(
+  result: GeneratedToolResult,
+  schema: GeneratedToolSchema,
+): readonly string[] {
+  if (result.hiddenLossDrivers.length > 0) {
+    return result.hiddenLossDrivers;
+  }
+  return schema.outputs.hiddenLossDrivers;
+}
+
+function resolveSuggestedActions(
+  result: GeneratedToolResult,
+  schema: GeneratedToolSchema,
+): readonly string[] {
+  if (result.suggestedActions.length > 0) {
+    return result.suggestedActions;
+  }
+  return schema.outputs.suggestedActions;
+}
+
+export function GeneratedToolPage({ slug, schema, diagramSrc = null }: GeneratedToolPageProps) {
+  const locale = useLocale();
+  const t = useTranslations("generatedTool");
+  const { loading, error, calculator, zodSchema } = useToolSchema(slug, schema);
+  const [result, setResult] = useState<GeneratedToolResult | null>(null);
+
+  const title = resolveGeneratedToolTitle(slug, schema, locale);
+  const description = resolveGeneratedToolDescription(slug, schema, locale);
+  const primaryKey = resolvePrimaryOutputKey(schema);
+  const hasDiagram = Boolean(diagramSrc);
+
+  const primaryValue = useMemo(() => {
+    if (!result) {
+      return null;
+    }
+    const raw = result[primaryKey];
+    if (typeof raw === "number") {
+      return raw;
+    }
+    return result.dataConfidenceAdjusted;
+  }, [primaryKey, result]);
+
+  const hiddenDrivers = useMemo(
+    () => (result ? resolveHiddenDrivers(result, schema) : []),
+    [result, schema],
+  );
+
+  const suggestedActions = useMemo(
+    () => (result ? resolveSuggestedActions(result, schema) : []),
+    [result, schema],
+  );
+
+  const handleCalculate = (values: Record<string, unknown>) => {
+    if (!calculator) {
+      return;
+    }
+    setResult(runGeneratedToolCalculation(calculator, values));
+  };
+
+  if (loading) {
+    return (
+      <div className="rounded-lg border border-technical-gray bg-surface-cream p-6 text-sm text-body-charcoal">
+        {t("loading")}
+      </div>
+    );
+  }
+
+  if (error || !calculator || !zodSchema) {
+    return (
+      <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-sm text-red-800">
+        {error ?? t("loadError")}
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+      <header className="space-y-2">
+        <h1 className="text-2xl font-bold text-premium-velvet sm:text-3xl">{title}</h1>
+        <p className="max-w-3xl text-sm text-body-charcoal sm:text-base">{description}</p>
+      </header>
+
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {hasDiagram ? (
+          <div className="rounded-lg bg-surface-cream p-4 md:col-span-1">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={diagramSrc ?? ""}
+              alt={t("diagramAlt", { title })}
+              className="h-auto w-full"
+              loading="lazy"
+            />
+          </div>
+        ) : null}
+
+        <div
+          className={`rounded-lg border border-technical-gray bg-white p-4 shadow-sm ${hasDiagram ? "md:col-span-2" : "md:col-span-3"}`}
+        >
+          {result && primaryValue !== null ? (
+            <div className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-wide text-body-charcoal">
+                {t("primaryResult")}
+              </p>
+              <p className="font-mono text-3xl font-semibold text-premium-velvet">
+                {formatPrimaryValue(primaryValue, locale)}
+              </p>
+              <p className="text-sm text-body-charcoal">
+                {schema.outputs.primary.replace(/_/g, " ")}
+              </p>
+            </div>
+          ) : (
+            <p className="text-sm text-body-charcoal">{t("clickToCompute")}</p>
+          )}
+        </div>
+      </div>
+
+      <div className="sc-form-shell sc-industrial-form sc-ledger-panel sc-industrial-panel rounded-lg p-4 sm:p-5">
+        <DynamicToolForm
+          slug={slug}
+          schema={schema}
+          zodSchema={zodSchema}
+          onSubmit={handleCalculate}
+        />
+      </div>
+
+      {result && Object.keys(result.breakdown).length > 0 ? (
+        <BreakdownBarChart
+          breakdown={result.breakdown}
+          labelMap={schema.outputs.breakdown}
+          locale={locale}
+        />
+      ) : null}
+
+      {result ? (
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="rounded-lg border border-red-100 bg-red-50 p-4">
+            <h2 className="mb-2 text-sm font-semibold text-red-900">{t("hiddenLossDrivers")}</h2>
+            {hiddenDrivers.length > 0 ? (
+              <ul className="list-disc space-y-1 pl-5 text-sm text-red-800">
+                {hiddenDrivers.map((driver) => (
+                  <li key={driver}>{driver}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm text-red-800">{t("noWarnings")}</p>
+            )}
+          </div>
+
+          <div className="rounded-lg border border-green-100 bg-green-50 p-4">
+            <h2 className="mb-2 text-sm font-semibold text-green-900">{t("suggestedActions")}</h2>
+            {suggestedActions.length > 0 ? (
+              <ul className="list-disc space-y-1 pl-5 text-sm text-green-900">
+                {suggestedActions.map((action) => (
+                  <li key={action}>{action}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm text-green-900">{t("noSuggestedActions")}</p>
+            )}
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}
