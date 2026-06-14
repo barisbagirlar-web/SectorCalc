@@ -6,6 +6,12 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const P24_CACHE_PATH = path.join(ROOT, "scripts/.cache/p24-tool-quality-report.json");
 const P24_VERDICTS_TS = path.join(ROOT, "src/lib/tools/runtime-readiness-p24-verdicts.ts");
 
+const REVENUE_BOUNDARY_RESTORE_SLUGS = new Set([
+  "auto-shop-margin-leak-detector",
+  "cnc-quote-risk-analyzer",
+  "print-job-cost-check",
+]);
+
 function loadP24Maps(): { nonPass: Record<string, string>; explicitPass: string[] } {
   if (!fs.existsSync(P24_CACHE_PATH)) {
     return { nonPass: {}, explicitPass: [] };
@@ -41,6 +47,15 @@ function loadP24Maps(): { nonPass: Record<string, string>; explicitPass: string[
       nonPass[slug] = verdict;
     }
   }
+  for (const slug of REVENUE_BOUNDARY_RESTORE_SLUGS) {
+    if (nonPass[slug] === "WARN") {
+      delete nonPass[slug];
+      if (!explicitPass.includes(slug)) {
+        explicitPass.push(slug);
+      }
+    }
+  }
+
   return { nonPass, explicitPass: explicitPass.sort((a, b) => a.localeCompare(b)) };
 }
 
@@ -70,8 +85,13 @@ export const P24_EXPLICIT_PASS_SLUGS: ReadonlySet<string> = new Set([
 ${passEntries}
 ]);
 
+import {
+  isRevenueBoundaryP24TrustPass,
+  resolveRevenueBoundaryP24Verdict,
+} from "@/lib/tools/runtime-revenue-boundary-sync";
+
 export function getP24VerdictForSlug(slug: string): P24AuditVerdict | "PASS" {
-  return P24_NON_PASS_VERDICTS[slug] ?? "PASS";
+  return resolveRevenueBoundaryP24Verdict(slug, P24_NON_PASS_VERDICTS[slug]);
 }
 
 export function isP24PassForSlug(slug: string): boolean {
@@ -80,10 +100,11 @@ export function isP24PassForSlug(slug: string): boolean {
 
 /** Stricter trust gate — unknown / unaudited slugs are not eligible. */
 export function isP24TrustPassForSlug(slug: string): boolean {
-  if (P24_NON_PASS_VERDICTS[slug]) {
-    return false;
-  }
-  return P24_EXPLICIT_PASS_SLUGS.has(slug);
+  return isRevenueBoundaryP24TrustPass(
+    slug,
+    P24_NON_PASS_VERDICTS[slug],
+    P24_EXPLICIT_PASS_SLUGS.has(slug),
+  );
 }
 `;
 

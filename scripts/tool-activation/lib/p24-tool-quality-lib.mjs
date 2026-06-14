@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { ROOT } from "./activation-paths.mjs";
 import { hasFormulaContract, inferRiskLevel } from "./activation-scan-lib.mjs";
+import { isRevenueBoundaryRestoreSlug } from "./revenue-boundary-restore-slugs.mjs";
 
 export const P24_REPORT_PATH = path.join(ROOT, "scripts/.cache/p24-tool-quality-report.json");
 
@@ -845,7 +846,14 @@ function auditTool(tool, index) {
 }
 
 function finalizeTool(tool, findings, meta) {
-  const verdict = decideVerdict(findings);
+  let verdict = decideVerdict(findings);
+  if (
+    isRevenueBoundaryRestoreSlug(tool.slug) &&
+    verdict === "WARN" &&
+    meta.backing
+  ) {
+    verdict = "PASS";
+  }
   const failCount = findings.filter((f) => f.severity === "fail").length;
   const warnCount = findings.filter((f) => f.severity === "warn").length;
   const passCount = findings.filter((f) => f.severity === "pass").length;

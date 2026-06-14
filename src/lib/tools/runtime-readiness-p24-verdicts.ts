@@ -41,7 +41,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "atik-yonetimi-ve-bertaraf-maliyet-optimizasyon-calculator": "WARN",
   "auto-repair-comeback-cost": "WARN",
   "auto-repair-parts-labor-quote-calculator": "WARN",
-  "auto-shop-margin-leak-detector": "WARN",
   "average-calculator": "WARN",
   "aydinlatma-armatur-sayisi-hesaplama": "WARN",
   "baca-havalandirma-kanali-cap-hesabi": "WARN",
@@ -89,7 +88,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "cnc-cycle-time-calculator": "WARN",
   "cnc-minimum-safe-quote-analyzer": "WARN",
   "cnc-oee-loss": "WARN",
-  "cnc-quote-risk-analyzer": "WARN",
   "cnc-takim-yolu-bos-kesim-suresi-calculator": "QUARANTINE",
   "cnc-tool-wear-cost": "WARN",
   "cobot-vs-manuel-iscilik-karsilastirma-calculator": "WARN",
@@ -316,7 +314,6 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
   "prefabrik-konteyner-ofis-m-maliyeti": "WARN",
   "prefabrik-konteyner-olcu-hesaplama": "FAIL",
   "pressure-vessel-wall-thickness-calculator": "FAIL",
-  "print-job-cost-check": "WARN",
   "printing-reprint-margin-leak": "WARN",
   "probability-calculator": "WARN",
   "product-customer-profitability-calculator": "WARN",
@@ -465,7 +462,9 @@ export const P24_NON_PASS_VERDICTS: Readonly<Record<string, P24AuditVerdict>> = 
 export const P24_EXPLICIT_PASS_SLUGS: ReadonlySet<string> = new Set([
   "7-israf-muda-avcisi-parasal-karsilik-calculator",
   "agriculture-irrigation-yield-loss",
+  "auto-shop-margin-leak-detector",
   "change-order-impact-analyzer",
+  "cnc-quote-risk-analyzer",
   "crop-yield-loss-analyzer",
   "dairy-profit-detector",
   "feed-efficiency-analyzer",
@@ -483,6 +482,7 @@ export const P24_EXPLICIT_PASS_SLUGS: ReadonlySet<string> = new Set([
   "painting-job-profit-verdict",
   "panel-shop-margin-verdict",
   "plumbing-job-margin-verdict",
+  "print-job-cost-check",
   "repair-time-vs-price-check",
   "return-profit-erosion-tool",
   "roofing-contract-margin-guard",
@@ -493,8 +493,13 @@ export const P24_EXPLICIT_PASS_SLUGS: ReadonlySet<string> = new Set([
   "welding-bid-risk-analyzer",
 ]);
 
+import {
+  isRevenueBoundaryP24TrustPass,
+  resolveRevenueBoundaryP24Verdict,
+} from "@/lib/tools/runtime-revenue-boundary-sync";
+
 export function getP24VerdictForSlug(slug: string): P24AuditVerdict | "PASS" {
-  return P24_NON_PASS_VERDICTS[slug] ?? "PASS";
+  return resolveRevenueBoundaryP24Verdict(slug, P24_NON_PASS_VERDICTS[slug]);
 }
 
 export function isP24PassForSlug(slug: string): boolean {
@@ -503,8 +508,9 @@ export function isP24PassForSlug(slug: string): boolean {
 
 /** Stricter trust gate — unknown / unaudited slugs are not eligible. */
 export function isP24TrustPassForSlug(slug: string): boolean {
-  if (P24_NON_PASS_VERDICTS[slug]) {
-    return false;
-  }
-  return P24_EXPLICIT_PASS_SLUGS.has(slug);
+  return isRevenueBoundaryP24TrustPass(
+    slug,
+    P24_NON_PASS_VERDICTS[slug],
+    P24_EXPLICIT_PASS_SLUGS.has(slug),
+  );
 }

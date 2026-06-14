@@ -184,10 +184,18 @@ function applySafetyCalculationBlock(decision: RuntimeTrustDecision): RuntimeTru
   if (!findings.includes("audit_status_not_pass")) {
     findings.push("audit_status_not_pass");
   }
+  if (!findings.includes("formula_gate_not_safe")) {
+    findings.push("formula_gate_not_safe");
+  }
+  if (!findings.includes("payment_not_safe")) {
+    findings.push("payment_not_safe");
+  }
 
   return {
     ...decision,
     status: "review",
+    formulaGateEligible: false,
+    paymentEligible: false,
     calculationEligible: false,
     findings,
     recommendedAction: "manual_review",
