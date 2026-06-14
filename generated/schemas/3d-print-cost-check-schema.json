@@ -1,0 +1,179 @@
+{
+  "toolName": "3D Print Cost Check",
+  "inputs": [
+    {
+      "id": "materialCostPerKg",
+      "label": "Material Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 50,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "Cost of filament or resin per kilogram. Based on market prices for common 3D printing materials (PLA, ABS, resin)."
+    },
+    {
+      "id": "materialWeightGrams",
+      "label": "Material Weight per Part",
+      "type": "number",
+      "unit": "grams",
+      "default": 100,
+      "min": 0.1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Weight of the printed part in grams. Determines material consumption."
+    },
+    {
+      "id": "printTimeHours",
+      "label": "Print Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 5,
+      "min": 0.1,
+      "max": 168,
+      "options": null,
+      "businessContext": "Total print time per part. Affects machine utilization and labor cost."
+    },
+    {
+      "id": "machineCostPerHour",
+      "label": "Machine Cost per Hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 2,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Hourly cost including depreciation, maintenance, and electricity. Typical range $1-$10 for desktop printers."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Hourly wage for operator/post-processing. Based on industry average for technicians."
+    },
+    {
+      "id": "postProcessingHours",
+      "label": "Post-Processing Time",
+      "type": "number",
+      "unit": "hours",
+      "default": 0.5,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Time for support removal, sanding, curing, etc. Varies by part complexity."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Number of parts printed simultaneously. Larger batches reduce per-part machine setup cost."
+    },
+    {
+      "id": "failureRatePercent",
+      "label": "Failure Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of prints that fail. Affects effective yield and cost per good part."
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Overhead",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Indirect costs (facility, admin, etc.) as percentage of direct costs."
+    },
+    {
+      "id": "desiredMarginPercent",
+      "label": "Desired Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Target profit margin on cost."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "materialCostPerKg > 0",
+      "materialWeightGrams > 0",
+      "printTimeHours > 0",
+      "machineCostPerHour >= 0",
+      "laborCostPerHour >= 0",
+      "postProcessingHours >= 0",
+      "batchSize >= 1",
+      "failureRatePercent >= 0 and failureRatePercent <= 100",
+      "overheadPercent >= 0 and overheadPercent <= 100",
+      "desiredMarginPercent >= 0 and desiredMarginPercent <= 100"
+    ],
+    "thresholds": {
+      "failureRatePercent > 10": "High failure rate significantly increases cost per good part. Consider optimizing print settings.",
+      "overheadPercent > 50": "Overhead seems high relative to direct costs. Review indirect expenses.",
+      "desiredMarginPercent > 50": "Target margin is very high; may not be competitive."
+    }
+  },
+  "formulas": {
+    "materialCostPerPart": "materialCostPerKg * materialWeightGrams / 1000",
+    "machineCostPerPart": "machineCostPerHour * printTimeHours / batchSize",
+    "laborCostPerPart": "laborCostPerHour * (printTimeHours + postProcessingHours) / batchSize",
+    "directCostPerPart": "materialCostPerPart + machineCostPerPart + laborCostPerPart",
+    "effectiveYield": "1 - failureRatePercent / 100",
+    "costPerGoodPart": "directCostPerPart / effectiveYield",
+    "overheadCostPerPart": "costPerGoodPart * overheadPercent / 100",
+    "totalCostPerPart": "costPerGoodPart + overheadCostPerPart",
+    "recommendedPrice": "totalCostPerPart * (1 + desiredMarginPercent / 100)",
+    "marginAmount": "recommendedPrice - totalCostPerPart",
+    "marginPercent": "marginAmount / recommendedPrice * 100"
+  },
+  "outputs": {
+    "primary": "recommendedPrice",
+    "breakdown": {
+      "materialCostPerPart": "materialCostPerPart",
+      "machineCostPerPart": "machineCostPerPart",
+      "laborCostPerPart": "laborCostPerPart",
+      "directCostPerPart": "directCostPerPart",
+      "overheadCostPerPart": "overheadCostPerPart",
+      "totalCostPerPart": "totalCostPerPart",
+      "marginAmount": "marginAmount",
+      "marginPercent": "marginPercent"
+    },
+    "hiddenLossDrivers": [
+      "failureRatePercent > 10 ? 'High failure rate' : ''",
+      "overheadPercent > 50 ? 'High overhead' : ''"
+    ],
+    "suggestedActions": [
+      "If failure rate > 10%: Review print settings, calibrate printer, or use higher quality material.",
+      "If overhead > 50%: Analyze indirect costs and consider reducing facility or admin expenses.",
+      "If margin too low: Increase batch size, reduce print time, or negotiate material costs."
+    ],
+    "dataConfidenceAdjusted": "totalCostPerPart * (1 + (1 - dataConfidence) * 0.1)"
+  },
+  "premiumFeatures": [
+    "PDF export of detailed cost breakdown",
+    "CSV export for batch analysis",
+    "Trend analysis over time",
+    "Comparison with historical jobs",
+    "Multi-material cost comparison",
+    "Sensitivity analysis on key inputs"
+  ],
+  "premiumRequired": false
+}

@@ -1,0 +1,73 @@
+{
+  "toolName": "bar-psi-pascal-cevirici",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "Değer",
+      "type": "number",
+      "unit": "bar, psi, veya Pa",
+      "default": 1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Dönüştürülecek basınç değeri. Endüstriyel uygulamalarda yaygın olarak kullanılır."
+    },
+    {
+      "id": "fromUnit",
+      "label": "Kaynak Birim",
+      "type": "select",
+      "unit": "birim",
+      "default": "bar",
+      "min": null,
+      "max": null,
+      "options": [
+        "bar",
+        "psi",
+        "Pa"
+      ],
+      "businessContext": "Giriş değerinin birimi. Bar, psi ve Pascal yaygın basınç birimleridir."
+    },
+    {
+      "id": "toUnit",
+      "label": "Hedef Birim",
+      "type": "select",
+      "unit": "birim",
+      "default": "psi",
+      "min": null,
+      "max": null,
+      "options": [
+        "bar",
+        "psi",
+        "Pa"
+      ],
+      "businessContext": "Çıktı değerinin birimi. Kullanıcının ihtiyacına göre seçilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "value >= 0",
+      "fromUnit ve toUnit farklı olmalıdır",
+      "value sayısal olmalıdır"
+    ],
+    "thresholds": {
+      "value": "value > 1000 bar ise yüksek basınç uyarısı"
+    }
+  },
+  "formulas": {
+    "convertedValue": "if (fromUnit == 'bar' && toUnit == 'psi') value * 14.503773773; else if (fromUnit == 'bar' && toUnit == 'Pa') value * 100000; else if (fromUnit == 'psi' && toUnit == 'bar') value / 14.503773773; else if (fromUnit == 'psi' && toUnit == 'Pa') value * 6894.757293; else if (fromUnit == 'Pa' && toUnit == 'bar') value / 100000; else if (fromUnit == 'Pa' && toUnit == 'psi') value / 6894.757293; else value"
+  },
+  "outputs": {
+    "primary": "convertedValue",
+    "breakdown": {},
+    "hiddenLossDrivers": [],
+    "suggestedActions": [],
+    "dataConfidenceAdjusted": "convertedValue"
+  },
+  "premiumFeatures": [
+    "PDF rapor",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma"
+  ],
+  "premiumRequired": false
+}

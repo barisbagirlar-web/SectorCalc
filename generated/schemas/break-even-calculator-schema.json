@@ -1,0 +1,93 @@
+{
+  "toolName": "break-even-calculator",
+  "inputs": [
+    {
+      "id": "fixedCosts",
+      "label": "Fixed Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total fixed costs per period (e.g., rent, salaries, insurance). Based on cost accounting principles."
+    },
+    {
+      "id": "variableCostPerUnit",
+      "label": "Variable Cost per Unit",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost that varies with each unit produced (materials, labor). Standard cost accounting."
+    },
+    {
+      "id": "sellingPricePerUnit",
+      "label": "Selling Price per Unit",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Price at which each unit is sold. Determines contribution margin."
+    },
+    {
+      "id": "periodDays",
+      "label": "Period Days",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "min": 1,
+      "max": 3650,
+      "options": null,
+      "businessContext": "Length of the period for which fixed costs are defined. Used for annualization."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "fixedCosts must be >= 0",
+      "variableCostPerUnit must be >= 0",
+      "sellingPricePerUnit must be > 0",
+      "periodDays must be between 1 and 3650",
+      "sellingPricePerUnit must be > variableCostPerUnit to have a positive contribution margin"
+    ],
+    "thresholds": {
+      "contributionMargin": "If contributionMargin <= 0, break-even is impossible (infinite units).",
+      "breakEvenUnits": "If breakEvenUnits > 1e6, consider reducing fixed costs or increasing price."
+    }
+  },
+  "formulas": {
+    "contributionMargin": "sellingPricePerUnit - variableCostPerUnit",
+    "breakEvenUnits": "fixedCosts / contributionMargin",
+    "breakEvenRevenue": "breakEvenUnits * sellingPricePerUnit",
+    "annualizedBreakEvenUnits": "breakEvenUnits * (365 / periodDays)"
+  },
+  "outputs": {
+    "primary": "breakEvenUnits",
+    "breakdown": {
+      "contributionMargin": "contributionMargin",
+      "breakEvenRevenue": "breakEvenRevenue",
+      "annualizedBreakEvenUnits": "annualizedBreakEvenUnits"
+    },
+    "hiddenLossDrivers": [
+      "If contributionMargin <= 0: 'Negative or zero contribution margin; break-even not achievable.'",
+      "If breakEvenUnits > 1e6: 'Break-even point exceeds 1 million units; review cost structure.'"
+    ],
+    "suggestedActions": [
+      "If contributionMargin is low: 'Consider reducing variable costs or increasing selling price.'",
+      "If breakEvenUnits is high: 'Evaluate reducing fixed costs or improving operational efficiency.'"
+    ],
+    "dataConfidenceAdjusted": "breakEvenUnits * (1 + (1 - dataConfidence) * 0.1) if dataConfidence provided"
+  },
+  "premiumFeatures": [
+    "PDF export of break-even chart",
+    "CSV export of scenario analysis",
+    "Trend analysis over multiple periods",
+    "Comparison with industry benchmarks",
+    "Detailed report with sensitivity analysis"
+  ],
+  "premiumRequired": true
+}

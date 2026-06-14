@@ -1,0 +1,263 @@
+{
+  "toolName": "agv-amr-otonom-tasima-geri-donus-calculator",
+  "inputs": [
+    {
+      "id": "vehicleCount",
+      "label": "Number of AGV/AMR Vehicles",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Total number of autonomous vehicles deployed. Based on fleet sizing principles."
+    },
+    {
+      "id": "purchasePricePerVehicle",
+      "label": "Purchase Price per Vehicle",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 1000,
+      "max": 500000,
+      "options": null,
+      "businessContext": "Initial capital expenditure per unit. Includes hardware, sensors, and base software."
+    },
+    {
+      "id": "annualMaintenanceCostPerVehicle",
+      "label": "Annual Maintenance Cost per Vehicle",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 5000,
+      "min": 0,
+      "max": 50000,
+      "options": null,
+      "businessContext": "Yearly maintenance including parts, labor, and software updates. Based on OEM recommendations."
+    },
+    {
+      "id": "annualEnergyCostPerVehicle",
+      "label": "Annual Energy Cost per Vehicle",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 2000,
+      "min": 0,
+      "max": 20000,
+      "options": null,
+      "businessContext": "Electricity or fuel cost for charging/refueling. Depends on usage hours and local rates."
+    },
+    {
+      "id": "operatorLaborCostPerHour",
+      "label": "Operator Labor Cost per Hour (if manual)",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Hourly wage for human operator if manual alternative. Used for comparison."
+    },
+    {
+      "id": "manualOperationHoursPerDay",
+      "label": "Manual Operation Hours per Day",
+      "type": "number",
+      "unit": "hours/day",
+      "default": 8,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Hours per day a human operator would work. Typically 8-hour shifts."
+    },
+    {
+      "id": "automatedOperationHoursPerDay",
+      "label": "Automated Operation Hours per Day",
+      "type": "number",
+      "unit": "hours/day",
+      "default": 16,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Hours per day AGV/AMR can operate (with charging breaks). Often 16-20 hours."
+    },
+    {
+      "id": "operatingDaysPerYear",
+      "label": "Operating Days per Year",
+      "type": "number",
+      "unit": "days/year",
+      "default": 300,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Number of days the system operates annually. Typical manufacturing: 300 days."
+    },
+    {
+      "id": "systemLifespanYears",
+      "label": "System Lifespan (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Expected useful life of AGV/AMR before major overhaul or replacement. Typically 5-10 years."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 30,
+      "options": null,
+      "businessContext": "Annual discount rate for NPV calculation. Reflects cost of capital or hurdle rate."
+    },
+    {
+      "id": "productivityImprovementPercent",
+      "label": "Productivity Improvement (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Expected throughput increase due to automation. Based on industry benchmarks (e.g., 15-30%)."
+    },
+    {
+      "id": "errorReductionPercent",
+      "label": "Error Reduction (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Reduction in material handling errors. AGV/AMR can reduce errors by 80-99%."
+    },
+    {
+      "id": "safetyIncidentReductionPercent",
+      "label": "Safety Incident Reduction (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Expected reduction in workplace injuries. Automation reduces human-vehicle interactions."
+    },
+    {
+      "id": "costOfCapital",
+      "label": "Cost of Capital (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Weighted average cost of capital for investment analysis."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Expected annual inflation for future cost adjustments."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "User's confidence in input data accuracy. Affects adjustment factor."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All numeric inputs must be finite and non-negative.",
+      "automatedOperationHoursPerDay must be >= manualOperationHoursPerDay if comparing.",
+      "operatingDaysPerYear must be between 1 and 365.",
+      "discountRate and costOfCapital must be between 0 and 100.",
+      "productivityImprovementPercent, errorReductionPercent, safetyIncidentReductionPercent must be between 0 and 100.",
+      "If dataConfidence is 'low', apply a 20% penalty to benefits."
+    ],
+    "thresholds": {
+      "totalExposure": {
+        "warning": 100000,
+        "critical": 500000
+      },
+      "variancePercent": {
+        "warning": 10,
+        "critical": 20
+      }
+    }
+  },
+  "formulas": {
+    "totalInvestment": "vehicleCount * purchasePricePerVehicle",
+    "annualOperatingCostAutomated": "vehicleCount * (annualMaintenanceCostPerVehicle + annualEnergyCostPerVehicle)",
+    "annualLaborCostManual": "vehicleCount * operatorLaborCostPerHour * manualOperationHoursPerDay * operatingDaysPerYear",
+    "annualLaborCostAutomated": "0",
+    "annualLaborSavings": "annualLaborCostManual - annualLaborCostAutomated",
+    "annualProductivityBenefit": "annualLaborCostManual * (productivityImprovementPercent / 100)",
+    "annualErrorReductionBenefit": "annualLaborCostManual * (errorReductionPercent / 100) * 0.1",
+    "annualSafetyBenefit": "annualLaborCostManual * (safetyIncidentReductionPercent / 100) * 0.05",
+    "annualTotalBenefit": "annualLaborSavings + annualProductivityBenefit + annualErrorReductionBenefit + annualSafetyBenefit",
+    "annualNetCashFlow": "annualTotalBenefit - annualOperatingCostAutomated",
+    "npv": "-totalInvestment + sum_{t=1}^{systemLifespanYears} (annualNetCashFlow / (1 + discountRate/100)^t)",
+    "paybackPeriod": "totalInvestment / annualNetCashFlow",
+    "roi": "(npv / totalInvestment) * 100",
+    "totalExposure": "totalInvestment",
+    "variancePercent": "abs((annualNetCashFlow - annualLaborCostManual) / annualLaborCostManual) * 100",
+    "summaryLevel": "totalExposure > 500000 ? 'critical' : totalExposure > 100000 ? 'warning' : 'normal'",
+    "primaryDriver": "annualNetCashFlow > 0 ? 'positive' : 'negative'",
+    "decisionVerdict": "roi > 0 ? 'invest' : 'reject'",
+    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalExposure * 1.2 : dataConfidence === 'medium' ? totalExposure * 1.05 : totalExposure"
+  },
+  "outputs": {
+    "primary": "totalExposure",
+    "breakdown": {
+      "totalInvestment": "number",
+      "annualOperatingCostAutomated": "number",
+      "annualLaborSavings": "number",
+      "annualTotalBenefit": "number",
+      "annualNetCashFlow": "number",
+      "npv": "number",
+      "paybackPeriod": "number",
+      "roi": "number",
+      "variancePercent": "number",
+      "summaryLevel": "string",
+      "primaryDriver": "string",
+      "decisionVerdict": "string"
+    },
+    "hiddenLossDrivers": [
+      "If annualNetCashFlow < 0: 'Negative cash flow indicates potential loss.'",
+      "If paybackPeriod > systemLifespanYears: 'Payback period exceeds system lifespan.'",
+      "If variancePercent > 20: 'High variance from manual baseline.'"
+    ],
+    "suggestedActions": [
+      "If roi < 0: 'Consider reducing purchase price or increasing utilization.'",
+      "If paybackPeriod > 3: 'Explore leasing options or government incentives.'",
+      "If dataConfidence is low: 'Gather more accurate operational data.'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (multi-year comparison)",
+    "Scenario Comparison (what-if)",
+    "Detailed Breakdown Report",
+    "Sensitivity Analysis"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,84 @@
+{
+  "toolName": "boru-capi-akis-hizi-hesaplama",
+  "inputs": [
+    {
+      "id": "debisi",
+      "label": "Debi (Flow Rate)",
+      "type": "number",
+      "unit": "m³/s",
+      "default": 0.1,
+      "min": 0.0001,
+      "max": 100,
+      "options": null,
+      "businessContext": "Boru hattından geçen akışkan hacminin zamana oranı. Süreklilik denklemi temel alınır."
+    },
+    {
+      "id": "akisHizi",
+      "label": "Akış Hızı (Flow Velocity)",
+      "type": "number",
+      "unit": "m/s",
+      "default": 2,
+      "min": 0.1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Akışkanın boru içindeki ortalama hızı. Ekonomik hız aralıkları sektörel standartlara göre belirlenir."
+    },
+    {
+      "id": "akiskaniTuru",
+      "label": "Akışkan Türü",
+      "type": "select",
+      "unit": "",
+      "default": "su",
+      "min": null,
+      "max": null,
+      "options": [
+        "su",
+        "hava",
+        "buhar",
+        "yag",
+        "dogalgaz"
+      ],
+      "businessContext": "Akışkanın fiziksel özellikleri (yoğunluk, viskozite) boru çapı seçimini etkiler."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Debi > 0",
+      "Akış hızı > 0",
+      "Akış hızı <= 10 m/s (ekonomik hız sınırı)"
+    ],
+    "thresholds": {
+      "akisHizi": "Akış hızı > 5 m/s ise yüksek aşınma riski uyarısı"
+    }
+  },
+  "formulas": {
+    "boruCapi": "sqrt((4 * debisi) / (Math.PI * akisHizi))",
+    "kesitAlani": "Math.PI * Math.pow(boruCapi / 2, 2)",
+    "reynoldsSayisi": "(1000 * akisHizi * boruCapi) / 0.001",
+    "basincKaybi": "0.02 * (100 / boruCapi) * (1000 * Math.pow(akisHizi, 2) / 2)"
+  },
+  "outputs": {
+    "primary": "boruCapi (m)",
+    "breakdown": {
+      "kesitAlani": "m²",
+      "reynoldsSayisi": "boyutsuz",
+      "basincKaybi": "Pa"
+    },
+    "hiddenLossDrivers": [
+      "Yüksek akış hızı aşınmayı artırır",
+      "Düşük Reynolds sayısı laminer akışa işaret eder"
+    ],
+    "suggestedActions": [
+      "Ekonomik boru çapı seçimi için standart çapları kontrol edin",
+      "Yüksek basınç kaybı durumunda pompa gücünü artırın"
+    ],
+    "dataConfidenceAdjusted": "dataConfidence input'u olmadığından uygulanmaz"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Detaylı basınç kaybı hesaplamaları"
+  ],
+  "premiumRequired": true
+}

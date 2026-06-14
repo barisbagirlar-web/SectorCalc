@@ -1,0 +1,182 @@
+{
+  "toolName": "asma-tavan-malzeme-hesabi",
+  "inputs": [
+    {
+      "id": "areaLength",
+      "label": "Alan Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 0.1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Asma tavan yapılacak alanın uzunluğu. Metre cinsinden girilir. Tavan alanı hesaplamak için kullanılır."
+    },
+    {
+      "id": "areaWidth",
+      "label": "Alan Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 8,
+      "min": 0.1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Asma tavan yapılacak alanın genişliği. Metre cinsinden girilir. Tavan alanı hesaplamak için kullanılır."
+    },
+    {
+      "id": "panelType",
+      "label": "Panel Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "standard",
+      "min": null,
+      "max": null,
+      "options": [
+        "standard",
+        "acoustic",
+        "moistureResistant"
+      ],
+      "businessContext": "Kullanılacak asma tavan panelinin tipi. Standart, akustik veya neme dayanıklı seçenekleri mevcuttur. Panel boyutları ve fiyatları tipe göre değişir."
+    },
+    {
+      "id": "gridType",
+      "label": "Izgara Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "exposed",
+      "min": null,
+      "max": null,
+      "options": [
+        "exposed",
+        "concealed"
+      ],
+      "businessContext": "Asma tavan ızgara sisteminin tipi. Görünür (exposed) veya gizli (concealed) olabilir. Malzeme miktarını ve işçiliği etkiler."
+    },
+    {
+      "id": "panelWasteFactor",
+      "label": "Panel Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Panel kesim ve montaj sırasında oluşacak fire oranı. Yüzde olarak girilir. Toplam panel ihtiyacını hesaplamak için kullanılır."
+    },
+    {
+      "id": "gridWasteFactor",
+      "label": "Izgara Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 15,
+      "options": null,
+      "businessContext": "Izgara profillerinde kesim ve montaj sırasında oluşacak fire oranı. Yüzde olarak girilir."
+    },
+    {
+      "id": "unitPanelPrice",
+      "label": "Birim Panel Fiyatı",
+      "type": "number",
+      "unit": "USD/m²",
+      "default": 15,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Metrekare başına panel fiyatı. USD cinsinden. Toplam panel maliyetini hesaplamak için kullanılır."
+    },
+    {
+      "id": "unitGridPrice",
+      "label": "Birim Izgara Fiyatı",
+      "type": "number",
+      "unit": "USD/m²",
+      "default": 8,
+      "min": 1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Metrekare başına ızgara sistemi fiyatı. USD cinsinden. Toplam ızgara maliyetini hesaplamak için kullanılır."
+    },
+    {
+      "id": "laborCostPerM2",
+      "label": "İşçilik Maliyeti (m² başına)",
+      "type": "number",
+      "unit": "USD/m²",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Metrekare başına işçilik maliyeti. USD cinsinden. Toplam işçilik maliyetini hesaplamak için kullanılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girilen verilerin güvenilirlik seviyesi. Düşük, orta veya yüksek. Nihai maliyet tahminine güven aralığı eklemek için kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "areaLength > 0",
+      "areaWidth > 0",
+      "panelWasteFactor >= 0 && panelWasteFactor <= 20",
+      "gridWasteFactor >= 0 && gridWasteFactor <= 15",
+      "unitPanelPrice > 0",
+      "unitGridPrice > 0",
+      "laborCostPerM2 >= 0",
+      "if panelType === 'acoustic' then unitPanelPrice >= 20",
+      "if panelType === 'moistureResistant' then unitPanelPrice >= 25"
+    ],
+    "thresholds": {
+      "panelWasteFactor > 10": "Yüksek panel fire oranı, maliyeti artırabilir.",
+      "gridWasteFactor > 10": "Yüksek ızgara fire oranı, maliyeti artırabilir.",
+      "laborCostPerM2 > 30": "İşçilik maliyeti ortalamanın üzerinde."
+    }
+  },
+  "formulas": {
+    "totalArea": "areaLength * areaWidth",
+    "panelAreaNeeded": "totalArea * (1 + panelWasteFactor / 100)",
+    "gridAreaNeeded": "totalArea * (1 + gridWasteFactor / 100)",
+    "panelCost": "panelAreaNeeded * unitPanelPrice",
+    "gridCost": "gridAreaNeeded * unitGridPrice",
+    "laborCost": "totalArea * laborCostPerM2",
+    "totalCost": "panelCost + gridCost + laborCost",
+    "costPerM2": "totalCost / totalArea",
+    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalCost * 1.15 : dataConfidence === 'medium' ? totalCost * 1.05 : totalCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "panelCost": "panelCost",
+      "gridCost": "gridCost",
+      "laborCost": "laborCost",
+      "costPerM2": "costPerM2"
+    },
+    "hiddenLossDrivers": [
+      "panelWasteFactor > 10 ? 'Yüksek panel fire oranı' : null",
+      "gridWasteFactor > 10 ? 'Yüksek ızgara fire oranı' : null"
+    ],
+    "suggestedActions": [
+      "panelWasteFactor > 10 ? 'Panel fire oranını düşürmek için kesim planlamasını optimize edin.' : null",
+      "gridWasteFactor > 10 ? 'Izgara fire oranını düşürmek için modüler planlama yapın.' : null",
+      "laborCostPerM2 > 30 ? 'İşçilik maliyetini düşürmek için alternatif montaj yöntemleri değerlendirin.' : null"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Detaylı malzeme listesi",
+    "Trend analizi (geçmiş projelerle karşılaştırma)",
+    "Karşılaştırmalı fiyat teklifi"
+  ],
+  "premiumRequired": false
+}

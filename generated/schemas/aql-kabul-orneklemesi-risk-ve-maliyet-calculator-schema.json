@@ -1,0 +1,180 @@
+{
+  "toolName": "Aql Kabul Orneklemesi Risk Ve Maliyet",
+  "inputs": [
+    {
+      "id": "lotSize",
+      "label": "Lot Size (Parti Büyüklüğü)",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "min": 1,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Toplam parti büyüklüğü. Kabul örneklemesinde popülasyon büyüklüğünü temsil eder. ISO 2859 standardına dayanır."
+    },
+    {
+      "id": "aql",
+      "label": "AQL (Kabul Edilebilir Kalite Seviyesi)",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "min": 0.01,
+      "max": 10,
+      "options": null,
+      "businessContext": "Kabul edilebilir maksimum kusur oranı. Genellikle %0.01 ile %10 arasında seçilir. ISO 2859-1 standardına göre belirlenir."
+    },
+    {
+      "id": "defectRate",
+      "label": "Gerçek Kusur Oranı (Tahmini)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Partideki gerçek kusur oranı tahmini. Geçmiş verilere veya üretim sürecine dayanır. Örnekleme planının riskini hesaplamak için kullanılır."
+    },
+    {
+      "id": "sampleSize",
+      "label": "Örneklem Büyüklüğü",
+      "type": "number",
+      "unit": "units",
+      "default": 80,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Partiden alınacak örnek sayısı. ISO 2859-1 tablolarına göre belirlenir. Genellikle lot büyüklüğü ve AQL'ye bağlıdır."
+    },
+    {
+      "id": "acceptNumber",
+      "label": "Kabul Sayısı (Ac)",
+      "type": "number",
+      "unit": "units",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Örneklemde izin verilen maksimum kusur sayısı. Bu sayının altındaki kusur sayısında parti kabul edilir. ISO 2859-1 standardına göre belirlenir."
+    },
+    {
+      "id": "unitCost",
+      "label": "Birim Maliyet",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "min": 0.01,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Her bir ürünün üretim maliyeti. Kusurlu ürünlerin maliyetini hesaplamak için kullanılır."
+    },
+    {
+      "id": "reworkCostPerUnit",
+      "label": "Birim Başına Yeniden İşleme Maliyeti",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Kusurlu bir ürünü yeniden işleme maliyeti. Kusurlu ürünlerin onarım veya düzeltme maliyetini temsil eder."
+    },
+    {
+      "id": "rejectionCostPerUnit",
+      "label": "Birim Başına Reddetme Maliyeti",
+      "type": "number",
+      "unit": "USD",
+      "default": 8,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Kusurlu bir ürünü hurdaya ayırma veya imha maliyeti. Reddedilen ürünlerin toplam kaybını hesaplamak için kullanılır."
+    },
+    {
+      "id": "inspectionCostPerUnit",
+      "label": "Birim Başına Muayene Maliyeti",
+      "type": "number",
+      "unit": "USD",
+      "default": 1,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Her bir ürünü muayene etme maliyeti. Örnekleme maliyetini hesaplamak için kullanılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Düşük güven, sonuçların daha muhafazakar yorumlanmasını sağlar."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "sampleSize must be <= lotSize",
+      "acceptNumber must be <= sampleSize",
+      "aql must be between 0.01 and 10",
+      "defectRate must be between 0 and 100",
+      "unitCost, reworkCostPerUnit, rejectionCostPerUnit, inspectionCostPerUnit must be >= 0",
+      "dataConfidence must be between 0 and 100"
+    ],
+    "thresholds": {
+      "defectRate > aql * 2": "Kritik: Gerçek kusur oranı AQL'nin iki katından fazla, yüksek risk",
+      "defectRate > aql": "Uyarı: Gerçek kusur oranı AQL'yi aşıyor",
+      "sampleSize < 30": "Uyarı: Örneklem büyüklüğü çok küçük, istatistiksel güven düşük",
+      "acceptNumber == 0": "Uyarı: Sıfır kabul sayısı, çok katı plan",
+      "inspectionCostPerUnit > unitCost * 0.5": "Uyarı: Muayene maliyeti birim maliyetin yarısından fazla"
+    }
+  },
+  "formulas": {
+    "probabilityOfAcceptance": "P_accept = sum_{k=0}^{acceptNumber} (C(sampleSize, k) * (defectRate/100)^k * (1 - defectRate/100)^(sampleSize - k))",
+    "producerRisk": "alpha = 1 - P_accept (when defectRate = AQL)",
+    "consumerRisk": "beta = P_accept (when defectRate = LTPD, e.g., 2*AQL)",
+    "expectedDefectsInLot": "expectedDefects = lotSize * (defectRate/100)",
+    "expectedDefectsInSample": "expectedDefectsSample = sampleSize * (defectRate/100)",
+    "expectedDefectsAfterAcceptance": "expectedDefectsAccepted = (lotSize - sampleSize) * (defectRate/100) * P_accept",
+    "totalExposure": "totalExposure = (expectedDefectsAccepted * rejectionCostPerUnit) + (sampleSize * inspectionCostPerUnit) + (expectedDefectsInSample * reworkCostPerUnit)",
+    "variancePercent": "variancePercent = (defectRate - aql) / aql * 100",
+    "summaryLevel": "summaryLevel = (totalExposure > 3 * lotSize * unitCost) ? 'critical' : (totalExposure > 1 * lotSize * unitCost) ? 'warning' : 'normal'",
+    "primaryDriver": "primaryDriver = (defectRate > aql) ? 'defectRate' : 'sampleSize'",
+    "decisionVerdict": "decisionVerdict = (defectRate <= aql) ? 'accept' : (P_accept > 0.5) ? 'accept' : 'reject'",
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted = totalExposure * (1 + (100 - dataConfidence)/100)"
+  },
+  "outputs": {
+    "primary": "totalExposure",
+    "breakdown": {
+      "probabilityOfAcceptance": "Partinin kabul edilme olasılığı",
+      "producerRisk": "Üretici riski (alfa)",
+      "consumerRisk": "Tüketici riski (beta)",
+      "expectedDefectsInLot": "Partide beklenen kusur sayısı",
+      "expectedDefectsInSample": "Örneklemde beklenen kusur sayısı",
+      "expectedDefectsAfterAcceptance": "Kabul sonrası partide kalan beklenen kusur sayısı",
+      "inspectionCost": "Muayene maliyeti",
+      "reworkCost": "Yeniden işleme maliyeti",
+      "rejectionCost": "Reddetme maliyeti"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > aql * 2 ise: 'Yüksek kusur oranı nedeniyle gizli kayıp riski'",
+      "sampleSize < 30 ise: 'Küçük örneklem nedeniyle düşük güven'",
+      "acceptNumber == 0 ise: 'Sıfır kabul sayısı nedeniyle yüksek red riski'"
+    ],
+    "suggestedActions": [
+      "defectRate > aql ise: 'Kusur oranını düşürmek için süreç iyileştirme yapın'",
+      "producerRisk > 0.05 ise: 'Örneklem büyüklüğünü artırın veya AQL'yi gevşetin'",
+      "consumerRisk > 0.10 ise: 'Kabul sayısını azaltın veya örneklem büyüklüğünü artırın'",
+      "inspectionCost > unitCost*0.2 ise: 'Muayene yöntemini otomatikleştirin veya örneklem planını optimize edin'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş verilerle karşılaştırma)",
+    "Detaylı risk raporu (OC eğrisi, risk tablosu)",
+    "Karşılaştırmalı senaryo analizi"
+  ],
+  "premiumRequired": true
+}

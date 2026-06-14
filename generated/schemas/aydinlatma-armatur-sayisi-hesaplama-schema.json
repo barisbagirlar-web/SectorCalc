@@ -1,0 +1,141 @@
+{
+  "toolName": "aydinlatma-armatur-sayisi-hesaplama",
+  "inputs": [
+    {
+      "id": "roomLength",
+      "label": "Oda Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Odanın uzunluğu, aydınlatma armatürlerinin yerleşimini ve sayısını etkiler. Tipik ofis veya endüstriyel alanlar için 1-100 m arası."
+    },
+    {
+      "id": "roomWidth",
+      "label": "Oda Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 8,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Odanın genişliği, aydınlatma armatürlerinin yerleşimini ve sayısını etkiler."
+    },
+    {
+      "id": "roomHeight",
+      "label": "Oda Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "min": 2,
+      "max": 20,
+      "options": null,
+      "businessContext": "Oda yüksekliği, aydınlatma seviyesini ve armatür tipini etkiler. Tipik iç mekanlar 2-5 m, endüstriyel tesisler 5-20 m."
+    },
+    {
+      "id": "desiredIlluminance",
+      "label": "Hedef Aydınlık Düzeyi",
+      "type": "number",
+      "unit": "lux",
+      "default": 500,
+      "min": 50,
+      "max": 2000,
+      "options": null,
+      "businessContext": "Çalışma alanı için önerilen aydınlık düzeyi. Ofisler için 500 lux, depo için 200 lux, hassas işler için 1000 lux. ISO 8995 standardına dayanır."
+    },
+    {
+      "id": "luminousFluxPerFixture",
+      "label": "Armatür Başına Işık Akısı",
+      "type": "number",
+      "unit": "lm",
+      "default": 4000,
+      "min": 500,
+      "max": 50000,
+      "options": null,
+      "businessContext": "Her bir armatürün yaydığı toplam ışık akısı. LED armatürler için tipik 2000-5000 lm, yüksek tavan için 10000+ lm."
+    },
+    {
+      "id": "maintenanceFactor",
+      "label": "Bakım Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "min": 0.5,
+      "max": 1,
+      "options": null,
+      "businessContext": "Zamanla ışık çıkışındaki azalmayı ve kirlenmeyi hesaba katan faktör. Temiz ortamlar için 0.8, kirli ortamlar için 0.6. CIE standartlarına göre."
+    },
+    {
+      "id": "utilizationFactor",
+      "label": "Kullanım Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.6,
+      "min": 0.2,
+      "max": 1,
+      "options": null,
+      "businessContext": "Armatürden yayılan ışığın çalışma düzlemine ulaşma oranı. Oda geometrisi ve yansıma katsayılarına bağlı. Tipik 0.4-0.8."
+    },
+    {
+      "id": "lightLossFactor",
+      "label": "Işık Kaybı Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "min": 0.5,
+      "max": 1,
+      "options": null,
+      "businessContext": "Armatürün kendisinden kaynaklanan ışık kaybı (toz, sıcaklık vb.). Genellikle 0.8-0.95."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "roomLength > 0",
+      "roomWidth > 0",
+      "roomHeight > 0",
+      "desiredIlluminance > 0",
+      "luminousFluxPerFixture > 0",
+      "maintenanceFactor between 0 and 1",
+      "utilizationFactor between 0 and 1",
+      "lightLossFactor between 0 and 1"
+    ],
+    "thresholds": {
+      "desiredIlluminance": "Eğer desiredIlluminance > 1000 ise 'Yüksek aydınlık seviyesi, göz yorgunluğuna neden olabilir.'",
+      "maintenanceFactor": "Eğer maintenanceFactor < 0.7 ise 'Düşük bakım faktörü, sık temizlik gerektirir.'"
+    }
+  },
+  "formulas": {
+    "roomArea": "roomLength * roomWidth",
+    "totalLuminousFluxRequired": "desiredIlluminance * roomArea",
+    "totalLuminousFluxWithLosses": "totalLuminousFluxRequired / (maintenanceFactor * utilizationFactor * lightLossFactor)",
+    "fixtureCount": "Math.ceil(totalLuminousFluxWithLosses / luminousFluxPerFixture)"
+  },
+  "outputs": {
+    "primary": "fixtureCount",
+    "breakdown": {
+      "roomArea": "roomArea",
+      "totalLuminousFluxRequired": "totalLuminousFluxRequired",
+      "totalLuminousFluxWithLosses": "totalLuminousFluxWithLosses"
+    },
+    "hiddenLossDrivers": [
+      "Eğer maintenanceFactor < 0.7 ise 'Düşük bakım faktörü'",
+      "Eğer utilizationFactor < 0.5 ise 'Düşük kullanım faktörü'"
+    ],
+    "suggestedActions": [
+      "Bakım faktörünü artırmak için düzenli temizlik planı oluşturun.",
+      "Kullanım faktörünü artırmak için açık renkli duvar ve tavan boyaları kullanın.",
+      "Yüksek tavanlar için daha yüksek ışık akılı armatürler seçin."
+    ],
+    "dataConfidenceAdjusted": "Eğer dataConfidence input'u varsa, fixtureCount * dataConfidenceFactor"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (zaman içinde enerji tüketimi)",
+    "Karşılaştırma (farklı armatür tipleri)",
+    "Detaylı rapor (maliyet analizi dahil)"
+  ],
+  "premiumRequired": false
+}

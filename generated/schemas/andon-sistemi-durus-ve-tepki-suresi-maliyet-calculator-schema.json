@@ -1,0 +1,157 @@
+{
+  "toolName": "andon-sistemi-durus-ve-tepki-suresi-maliyet-calculator",
+  "inputs": [
+    {
+      "id": "annualOperatingHours",
+      "label": "Yıllık Çalışma Saati",
+      "type": "number",
+      "unit": "hours/year",
+      "default": 2000,
+      "min": 0,
+      "max": 8760,
+      "businessContext": "Toplam yıllık üretim saati. Vardiya planına göre belirlenir."
+    },
+    {
+      "id": "hourlyBurdenRate",
+      "label": "Saatlik Maliyet Oranı",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 50,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "İşçilik, enerji ve genel giderleri içeren saatlik maliyet."
+    },
+    {
+      "id": "andonResponseTime",
+      "label": "Andon Tepki Süresi",
+      "type": "number",
+      "unit": "minutes",
+      "default": 5,
+      "min": 0,
+      "max": 60,
+      "businessContext": "Andon sinyali sonrası operatörün müdahale süresi. Lean üretimde hedef <5 dk."
+    },
+    {
+      "id": "andonDowntimePerEvent",
+      "label": "Olay Başına Durma Süresi",
+      "type": "number",
+      "unit": "minutes",
+      "default": 10,
+      "min": 0,
+      "max": 480,
+      "businessContext": "Her andon olayında hattın durduğu ortalama süre."
+    },
+    {
+      "id": "andonEventsPerYear",
+      "label": "Yıllık Andon Olay Sayısı",
+      "type": "number",
+      "unit": "events/year",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Yılda gerçekleşen toplam andon olayı sayısı."
+    },
+    {
+      "id": "productionLossPerEvent",
+      "label": "Olay Başına Üretim Kaybı",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Her duruşta kaybedilen ürün miktarı."
+    },
+    {
+      "id": "unitProfitMargin",
+      "label": "Birim Kar Marjı",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 10,
+      "min": 0,
+      "max": 1000,
+      "businessContext": "Satılan her birim üründen elde edilen kar."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güven Düzeyi",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar ayarlanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualOperatingHours > 0",
+      "hourlyBurdenRate > 0",
+      "andonResponseTime >= 0",
+      "andonDowntimePerEvent >= 0",
+      "andonEventsPerYear >= 0",
+      "productionLossPerEvent >= 0",
+      "unitProfitMargin >= 0",
+      "andonResponseTime <= andonDowntimePerEvent (tepki süresi durma süresinden büyük olamaz)"
+    ],
+    "thresholds": {
+      "andonResponseTime": {
+        "warning": 5,
+        "critical": 10
+      },
+      "andonDowntimePerEvent": {
+        "warning": 15,
+        "critical": 30
+      },
+      "andonEventsPerYear": {
+        "warning": 500,
+        "critical": 1000
+      }
+    }
+  },
+  "formulas": {
+    "totalDowntimeHours": "andonEventsPerYear * andonDowntimePerEvent / 60",
+    "totalResponseTimeHours": "andonEventsPerYear * andonResponseTime / 60",
+    "laborCost": "totalDowntimeHours * hourlyBurdenRate",
+    "lostProductionUnits": "andonEventsPerYear * productionLossPerEvent",
+    "lostProfit": "lostProductionUnits * unitProfitMargin",
+    "totalExposure": "laborCost + lostProfit",
+    "variancePercent": "((totalExposure - (annualOperatingHours * hourlyBurdenRate * 0.05)) / (annualOperatingHours * hourlyBurdenRate * 0.05)) * 100",
+    "summaryLevel": "totalExposure < 10000 ? 'low' : totalExposure < 50000 ? 'medium' : 'high'",
+    "primaryDriver": "laborCost > lostProfit ? 'laborCost' : 'lostProfit'",
+    "decisionVerdict": "summaryLevel === 'high' ? 'action required' : 'monitor'",
+    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalExposure * 1.2 : dataConfidence === 'medium' ? totalExposure * 1.1 : totalExposure"
+  },
+  "outputs": {
+    "primary": "totalExposure",
+    "breakdown": {
+      "laborCost": "laborCost",
+      "lostProfit": "lostProfit",
+      "totalDowntimeHours": "totalDowntimeHours",
+      "totalResponseTimeHours": "totalResponseTimeHours"
+    },
+    "hiddenLossDrivers": [
+      "andonResponseTime > 10 ? 'Yüksek tepki süresi' : ''",
+      "andonDowntimePerEvent > 30 ? 'Uzun duruş süresi' : ''",
+      "andonEventsPerYear > 1000 ? 'Sık andon olayı' : ''"
+    ],
+    "suggestedActions": [
+      "Tepki süresini azaltmak için andon eğitimi ve görsel yönetim uygulayın.",
+      "Duruş sürelerini kısaltmak için kök neden analizi yapın.",
+      "Andon olay sıklığını azaltmak için önleyici bakım planı oluşturun."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV veri indirme",
+    "Trend analizi (zaman serisi)",
+    "Karşılaştırma (benchmark)",
+    "Detaylı maliyet kırılımı"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,145 @@
+{
+  "toolName": "boya-kaplama-sarfiyati-m-basina-hesabi",
+  "inputs": [
+    {
+      "id": "coverageRate",
+      "label": "Kaplama Oranı (m²/L)",
+      "type": "number",
+      "unit": "m²/L",
+      "default": 10,
+      "min": 1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Üretici tarafından belirtilen teorik kaplama oranı; boya türüne ve yüzey pürüzlülüğüne bağlıdır."
+    },
+    {
+      "id": "surfaceArea",
+      "label": "Yüzey Alanı (m²)",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "min": 0.1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Kaplanacak toplam yüzey alanı; proje ölçeğine göre değişir."
+    },
+    {
+      "id": "numberOfCoats",
+      "label": "Kat Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "min": 1,
+      "max": 5,
+      "options": null,
+      "businessContext": "Uygulanacak boya katı sayısı; genellikle 2 kat önerilir."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Fire Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Uygulama sırasında oluşan kayıplar (püskürtme, rulo, fırça vb.); tipik %5-15."
+    },
+    {
+      "id": "paintDensity",
+      "label": "Boya Yoğunluğu (kg/L)",
+      "type": "number",
+      "unit": "kg/L",
+      "default": 1.3,
+      "min": 0.5,
+      "max": 2.5,
+      "options": null,
+      "businessContext": "Boya yoğunluğu; ağırlık bazlı hesaplamalar için gerekli."
+    },
+    {
+      "id": "paintCostPerLiter",
+      "label": "Boya Birim Fiyatı (TL/L)",
+      "type": "number",
+      "unit": "TL/L",
+      "default": 50,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Boya litre fiyatı; piyasa koşullarına göre değişir."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "İşçilik Saat Ücreti (TL/saat)",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 30,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "İşçilik maliyeti; uygulama süresine bağlı."
+    },
+    {
+      "id": "applicationRate",
+      "label": "Uygulama Hızı (m²/saat)",
+      "type": "number",
+      "unit": "m²/saat",
+      "default": 20,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Bir işçinin saatte kapladığı alan; yönteme bağlı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "coverageRate > 0",
+      "surfaceArea > 0",
+      "numberOfCoats >= 1",
+      "wasteFactor >= 0",
+      "paintDensity > 0",
+      "paintCostPerLiter > 0",
+      "laborCostPerHour >= 0",
+      "applicationRate > 0"
+    ],
+    "thresholds": {
+      "wasteFactor > 20": "Yüksek fire oranı; uygulama yöntemi gözden geçirilmeli.",
+      "coverageRate < 5": "Düşük kaplama oranı; yüzey hazırlığı veya boya kalitesi kontrol edilmeli."
+    }
+  },
+  "formulas": {
+    "totalPaintLiters": "surfaceArea * numberOfCoats / coverageRate * (1 + wasteFactor / 100)",
+    "totalPaintKg": "totalPaintLiters * paintDensity",
+    "totalPaintCost": "totalPaintLiters * paintCostPerLiter",
+    "totalLaborHours": "surfaceArea * numberOfCoats / applicationRate",
+    "totalLaborCost": "totalLaborHours * laborCostPerHour",
+    "totalCost": "totalPaintCost + totalLaborCost",
+    "costPerSquareMeter": "totalCost / surfaceArea"
+  },
+  "outputs": {
+    "primary": "costPerSquareMeter",
+    "breakdown": {
+      "totalPaintLiters": "Gerekli toplam boya miktarı (L)",
+      "totalPaintKg": "Gerekli toplam boya miktarı (kg)",
+      "totalPaintCost": "Toplam boya maliyeti (TL)",
+      "totalLaborHours": "Toplam işçilik saati",
+      "totalLaborCost": "Toplam işçilik maliyeti (TL)",
+      "totalCost": "Toplam maliyet (TL)"
+    },
+    "hiddenLossDrivers": [
+      "wasteFactor > 20",
+      "coverageRate < 5"
+    ],
+    "suggestedActions": [
+      "Fire oranını azaltmak için uygun uygulama ekipmanı kullanın.",
+      "Düşük kaplama oranı durumunda yüzey hazırlığını iyileştirin veya daha kaliteli boya tercih edin."
+    ],
+    "dataConfidenceAdjusted": "costPerSquareMeter * (1 - dataConfidence/100) (dataConfidence input varsayılan %80)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV raporu",
+    "Trend analizi (geçmiş projelerle karşılaştırma)",
+    "Detaylı maliyet kırılımı ve grafikler",
+    "Farklı boya türleri için karşılaştırma"
+  ],
+  "premiumRequired": false
+}

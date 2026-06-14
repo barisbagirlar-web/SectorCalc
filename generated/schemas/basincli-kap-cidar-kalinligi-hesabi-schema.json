@@ -1,0 +1,114 @@
+{
+  "toolName": "basincli-kap-cidar-kalinligi-hesabi",
+  "inputs": [
+    {
+      "id": "icBasinc",
+      "label": "İç Basınç",
+      "type": "number",
+      "unit": "bar",
+      "default": 10,
+      "min": 0.1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Tankın içindeki maksimum çalışma basıncı. ASME BPVC Bölüm VIII Div.1'e göre tasarım basıncı."
+    },
+    {
+      "id": "icCap",
+      "label": "İç Çap",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "min": 100,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Silindirik kabın iç çapı. Basınçlı kap geometrisinin temel boyutu."
+    },
+    {
+      "id": "malzemeAkmaDayanimi",
+      "label": "Malzeme Akma Dayanımı",
+      "type": "number",
+      "unit": "MPa",
+      "default": 250,
+      "min": 100,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Malzemenin akma dayanımı (örneğin, St37 için 235 MPa). ASME II D bölümüne göre."
+    },
+    {
+      "id": "emniyetKatsayisi",
+      "label": "Emniyet Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "min": 1,
+      "max": 4,
+      "options": null,
+      "businessContext": "Tasarım emniyet katsayısı. ASME BPVC'ye göre genellikle 1.5-3.5 arası."
+    },
+    {
+      "id": "kaynakFaktoru",
+      "label": "Kaynak Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.85,
+      "min": 0.6,
+      "max": 1,
+      "options": null,
+      "businessContext": "Kaynak kalitesine bağlı faktör. ASME UW-12'ye göre radyografik muayene durumuna göre 0.6-1.0."
+    },
+    {
+      "id": "korozyonPayi",
+      "label": "Korozyon Payı",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Korozyon ve erozyon için ek kalınlık. ASME UG-25'e göre."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "icBasinc > 0",
+      "icCap > 0",
+      "malzemeAkmaDayanimi > 0",
+      "emniyetKatsayisi >= 1.0",
+      "kaynakFaktoru > 0 ve <= 1.0",
+      "korozyonPayi >= 0"
+    ],
+    "thresholds": {
+      "icBasinc > 100": "Yüksek basınç, özel tasarım gerektirebilir.",
+      "emniyetKatsayisi < 1.5": "Düşük emniyet katsayısı, riskli.",
+      "kaynakFaktoru < 0.7": "Kaynak kalitesi düşük, tahribatsız muayene önerilir."
+    }
+  },
+  "formulas": {
+    "gerekliEtKalınlığı": "((icBasinc * icCap) / (2 * (malzemeAkmaDayanimi / emniyetKatsayisi) * kaynakFaktoru + icBasinc)) + korozyonPayi",
+    "izinVerilenBasinc": "(2 * (malzemeAkmaDayanimi / emniyetKatsayisi) * kaynakFaktoru * (gerekliEtKalınlığı - korozyonPayi)) / (icCap - (gerekliEtKalınlığı - korozyonPayi))"
+  },
+  "outputs": {
+    "primary": "gerekliEtKalınlığı",
+    "breakdown": {
+      "tasarimKalınlığı": "gerekliEtKalınlığı - korozyonPayi",
+      "izinVerilenBasinc": "izinVerilenBasinc"
+    },
+    "hiddenLossDrivers": [
+      "icBasinc > 100 ? 'Yüksek basınç' : null",
+      "emniyetKatsayisi < 1.5 ? 'Düşük emniyet katsayısı' : null"
+    ],
+    "suggestedActions": [
+      "icBasinc > 100 ? 'Yüksek basınç için özel malzeme veya takviye düşünün.' : null",
+      "kaynakFaktoru < 0.7 ? 'Kaynak kalitesini artırın veya radyografik muayene yapın.' : null"
+    ],
+    "dataConfidenceAdjusted": "gerekliEtKalınlığı * (1 + (1 - dataConfidence))"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "Detaylı malzeme seçimi",
+    "Farklı standartlarla karşılaştırma (ASME, EN, vb.)",
+    "Trend analizi",
+    "Excel/CSV export"
+  ],
+  "premiumRequired": false
+}

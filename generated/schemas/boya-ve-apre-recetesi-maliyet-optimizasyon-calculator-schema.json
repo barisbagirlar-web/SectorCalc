@@ -1,0 +1,224 @@
+{
+  "toolName": "boya-ve-apre-recetesi-maliyet-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "annualPaintVolume",
+      "label": "Annual Paint Volume",
+      "type": "number",
+      "unit": "liters/year",
+      "default": 10000,
+      "min": 100,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Total annual paint production volume. Determines scale of operations and cost base."
+    },
+    {
+      "id": "rawMaterialCostPerLiter",
+      "label": "Raw Material Cost per Liter",
+      "type": "number",
+      "unit": "USD/liter",
+      "default": 5,
+      "min": 0.5,
+      "max": 50,
+      "options": null,
+      "businessContext": "Average cost of raw materials (resins, pigments, solvents) per liter of paint. Key cost driver."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 10,
+      "max": 100,
+      "options": null,
+      "businessContext": "Hourly labor cost including wages and benefits. Affects production cost."
+    },
+    {
+      "id": "laborHoursPerBatch",
+      "label": "Labor Hours per Batch",
+      "type": "number",
+      "unit": "hours/batch",
+      "default": 8,
+      "min": 1,
+      "max": 40,
+      "options": null,
+      "businessContext": "Direct labor hours required per batch of paint production."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "liters/batch",
+      "default": 1000,
+      "min": 50,
+      "max": 50000,
+      "options": null,
+      "businessContext": "Volume of paint produced per batch. Affects setup and changeover costs."
+    },
+    {
+      "id": "energyCostPerBatch",
+      "label": "Energy Cost per Batch",
+      "type": "number",
+      "unit": "USD/batch",
+      "default": 200,
+      "min": 10,
+      "max": 5000,
+      "options": null,
+      "businessContext": "Electricity, gas, or other energy costs per batch. Significant for drying and mixing."
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Waste Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Percentage of raw material wasted during production. Lean manufacturing focus."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Percentage of batches that fail quality control. Affects rework and scrap costs."
+    },
+    {
+      "id": "reworkCostPerBatch",
+      "label": "Rework Cost per Batch",
+      "type": "number",
+      "unit": "USD/batch",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Additional cost to rework a defective batch (labor, materials, energy)."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Overhead Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of direct costs allocated to overhead (facilities, management, etc.)."
+    },
+    {
+      "id": "targetMargin",
+      "label": "Target Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Desired profit margin on cost. Used to calculate target selling price."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data accuracy. Adjusts output reliability."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualPaintVolume must be >= 100 and <= 1000000",
+      "rawMaterialCostPerLiter must be >= 0.5 and <= 50",
+      "laborCostPerHour must be >= 10 and <= 100",
+      "laborHoursPerBatch must be >= 1 and <= 40",
+      "batchSize must be >= 50 and <= 50000",
+      "energyCostPerBatch must be >= 10 and <= 5000",
+      "wastePercentage must be >= 0 and <= 20",
+      "defectRate must be >= 0 and <= 10",
+      "reworkCostPerBatch must be >= 0 and <= 10000",
+      "overheadRate must be >= 0 and <= 100",
+      "targetMargin must be >= 0 and <= 50",
+      "If wastePercentage > 10 then warning: 'High waste percentage'",
+      "If defectRate > 5 then warning: 'High defect rate'",
+      "If reworkCostPerBatch > 2000 then warning: 'High rework cost'"
+    ],
+    "thresholds": {
+      "wastePercentage": "warning: >10",
+      "defectRate": "warning: >5",
+      "reworkCostPerBatch": "warning: >2000"
+    }
+  },
+  "formulas": {
+    "totalBatchesPerYear": "annualPaintVolume / batchSize",
+    "directMaterialCost": "annualPaintVolume * rawMaterialCostPerLiter",
+    "directLaborCost": "totalBatchesPerYear * laborHoursPerBatch * laborCostPerHour",
+    "energyCost": "totalBatchesPerYear * energyCostPerBatch",
+    "wasteCost": "directMaterialCost * (wastePercentage / 100)",
+    "defectCost": "totalBatchesPerYear * (defectRate / 100) * reworkCostPerBatch",
+    "totalDirectCost": "directMaterialCost + directLaborCost + energyCost + wasteCost + defectCost",
+    "overheadCost": "totalDirectCost * (overheadRate / 100)",
+    "totalCost": "totalDirectCost + overheadCost",
+    "costPerLiter": "totalCost / annualPaintVolume",
+    "targetPricePerLiter": "costPerLiter * (1 + targetMargin / 100)",
+    "totalRevenue": "annualPaintVolume * targetPricePerLiter",
+    "totalProfit": "totalRevenue - totalCost",
+    "profitMargin": "(totalProfit / totalRevenue) * 100",
+    "totalExposure": "totalCost",
+    "variancePercent": "0",
+    "summaryLevel": "totalExposure > 1000000 ? 'critical' : totalExposure > 500000 ? 'warning' : 'normal'",
+    "primaryDriver": "directMaterialCost > directLaborCost ? 'material' : 'labor'",
+    "decisionVerdict": "summaryLevel === 'critical' ? 'reject' : summaryLevel === 'warning' ? 'review' : 'accept'",
+    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalExposure * 1.2 : dataConfidence === 'medium' ? totalExposure * 1.1 : totalExposure"
+  },
+  "outputs": {
+    "primary": "totalExposure",
+    "breakdown": {
+      "directMaterialCost": "directMaterialCost",
+      "directLaborCost": "directLaborCost",
+      "energyCost": "energyCost",
+      "wasteCost": "wasteCost",
+      "defectCost": "defectCost",
+      "overheadCost": "overheadCost",
+      "totalCost": "totalCost",
+      "costPerLiter": "costPerLiter",
+      "targetPricePerLiter": "targetPricePerLiter",
+      "totalRevenue": "totalRevenue",
+      "totalProfit": "totalProfit",
+      "profitMargin": "profitMargin"
+    },
+    "hiddenLossDrivers": [
+      "wastePercentage > 10 ? 'High waste percentage' : ''",
+      "defectRate > 5 ? 'High defect rate' : ''",
+      "reworkCostPerBatch > 2000 ? 'High rework cost' : ''"
+    ],
+    "suggestedActions": [
+      "wastePercentage > 10 ? 'Implement lean manufacturing to reduce waste' : ''",
+      "defectRate > 5 ? 'Improve quality control processes' : ''",
+      "reworkCostPerBatch > 2000 ? 'Analyze root causes of defects to reduce rework' : ''",
+      "profitMargin < 10 ? 'Review pricing strategy or reduce costs' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF export of full report",
+    "CSV export of breakdown data",
+    "Trend analysis over multiple periods",
+    "Scenario comparison (what-if)",
+    "Detailed variance analysis",
+    "Benchmarking against industry standards"
+  ],
+  "premiumRequired": true
+}

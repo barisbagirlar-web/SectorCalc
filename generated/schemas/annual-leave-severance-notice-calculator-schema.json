@@ -1,0 +1,148 @@
+{
+  "toolName": "annual-leave-severance-notice-calculator",
+  "inputs": [
+    {
+      "id": "annualSalary",
+      "label": "Annual Salary",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total annual gross salary before deductions. Used to compute daily wage for leave and severance calculations."
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Working Days per Year",
+      "type": "number",
+      "unit": "days/year",
+      "default": 260,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Standard working days per year (typically 260 for 5-day workweek). Used to derive daily wage."
+    },
+    {
+      "id": "accruedLeaveDays",
+      "label": "Accrued Annual Leave Days",
+      "type": "number",
+      "unit": "days",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of unused annual leave days accrued. Based on employment contract or local labor law."
+    },
+    {
+      "id": "yearsOfService",
+      "label": "Years of Service",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total years of continuous employment. Used for severance pay calculation (often capped at certain years)."
+    },
+    {
+      "id": "severanceMultiplier",
+      "label": "Severance Multiplier",
+      "type": "number",
+      "unit": "weeks per year",
+      "default": 2,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of weeks of severance pay per year of service. Typically defined by labor law or contract (e.g., 2 weeks per year)."
+    },
+    {
+      "id": "noticePeriodDays",
+      "label": "Notice Period Days",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Contractual or statutory notice period in days. Used to calculate pay in lieu of notice."
+    },
+    {
+      "id": "isTerminatedWithCause",
+      "label": "Terminated with Cause",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "If true, severance may be reduced or waived per labor law. Affects severance calculation."
+    },
+    {
+      "id": "jurisdiction",
+      "label": "Jurisdiction",
+      "type": "select",
+      "unit": "",
+      "default": "default",
+      "min": null,
+      "max": null,
+      "options": [
+        "default",
+        "US-Federal",
+        "EU-Directive",
+        "UK-Statutory",
+        "UAE-LaborLaw"
+      ],
+      "businessContext": "Select applicable labor law jurisdiction. Different rules for leave, severance, and notice."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualSalary must be >= 0",
+      "workingDaysPerYear must be between 1 and 365",
+      "accruedLeaveDays must be >= 0",
+      "yearsOfService must be >= 0",
+      "severanceMultiplier must be >= 0",
+      "noticePeriodDays must be >= 0",
+      "If isTerminatedWithCause is true, severanceMultiplier should be 0 (check jurisdiction)"
+    ],
+    "thresholds": {
+      "accruedLeaveDays > 30": "High accrued leave balance may indicate poor leave management",
+      "yearsOfService > 20": "Long service may trigger additional statutory benefits",
+      "noticePeriodDays > 90": "Extended notice period may be unusual; verify contract"
+    }
+  },
+  "formulas": {
+    "dailyWage": "annualSalary / workingDaysPerYear",
+    "leavePayout": "accruedLeaveDays * dailyWage",
+    "severancePay": "isTerminatedWithCause ? 0 : (yearsOfService * severanceMultiplier * 5 * dailyWage)",
+    "noticePay": "noticePeriodDays * dailyWage",
+    "totalPayout": "leavePayout + severancePay + noticePay"
+  },
+  "outputs": {
+    "primary": "totalPayout",
+    "breakdown": {
+      "leavePayout": "leavePayout",
+      "severancePay": "severancePay",
+      "noticePay": "noticePay"
+    },
+    "hiddenLossDrivers": [
+      "accruedLeaveDays > 30 ? 'High leave balance' : ''",
+      "yearsOfService > 20 ? 'Long service' : ''"
+    ],
+    "suggestedActions": [
+      "Review leave policy to reduce accruals",
+      "Consider phased retirement for long-service employees",
+      "Verify notice period compliance with local law"
+    ],
+    "dataConfidenceAdjusted": "totalPayout * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF export of detailed report",
+    "CSV export of breakdown",
+    "Multi-jurisdiction comparison",
+    "Trend analysis over time",
+    "Scenario modeling (what-if)"
+  ],
+  "premiumRequired": true
+}

@@ -51,6 +51,13 @@
     "audit:ai-repair": "node scripts/audit-ai-repair-layer.mjs",
     "audit:customer-ai": "node scripts/audit-customer-ai-gateway.mjs",
     "scan:tool-activation": "node scripts/tool-activation/scan-tools-for-activation.mjs",
+    "scan:tools": "npx tsx scripts/deepseek/scan-tools.ts",
+    "scan:all": "npx tsx scripts/deepseek/scan-tools.ts --all --parallel=1 --retry=3 --output=generated/schemas",
+    "scan:premium": "npx tsx scripts/deepseek/scan-premium.ts",
+    "generate:tool": "npx tsx scripts/deepseek/generate-from-schema.ts",
+    "generate:all": "npx tsx scripts/deepseek/generate-from-schema-all.ts",
+    "test:generated": "npx tsx scripts/deepseek/test-generated-tools.ts",
+    "smoke:preview": "npx tsx scripts/deepseek/smoke-preview.ts",
     "audit:premium-formula-sources": "node scripts/tool-activation/audit-premium-formula-sources.mjs",
     "audit:formula-registry": "node scripts/tool-activation/generate-formula-source-audit-registry.mjs",
     "audit:shape-guides": "node scripts/tool-activation/audit-shape-dimension-guides.mjs",
@@ -218,6 +225,7 @@
     "fast-check": "^4.8.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.22.4",
     "typescript": "^5",
     "vitest": "^4.1.8"
   }

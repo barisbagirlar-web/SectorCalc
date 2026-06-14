@@ -1,0 +1,96 @@
+{
+  "toolName": "akaryakit-fiyati-ile-yol-butcesi",
+  "inputs": [
+    {
+      "id": "fuelPricePerLiter",
+      "label": "Akaryakıt Fiyatı (Litre Başına)",
+      "type": "number",
+      "unit": "TRY/L",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Güncel akaryakıt litre fiyatı (benzin, motorin veya LPG). Kullanıcının bulunduğu bölgedeki ortalama fiyat baz alınır."
+    },
+    {
+      "id": "fuelConsumptionPer100km",
+      "label": "100 km'de Yakıt Tüketimi",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 8,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Aracın 100 kilometrede tükettiği ortalama yakıt miktarı. Araç teknik verilerinden veya kullanıcı deneyiminden alınır."
+    },
+    {
+      "id": "distanceKm",
+      "label": "Gidilecek Mesafe",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Planlanan yolculuğun toplam mesafesi. Navigasyon veya harita uygulamalarından alınabilir."
+    },
+    {
+      "id": "fuelType",
+      "label": "Yakıt Türü",
+      "type": "select",
+      "unit": "",
+      "default": "benzin",
+      "min": null,
+      "max": null,
+      "options": [
+        "benzin",
+        "motorin",
+        "lpg"
+      ],
+      "businessContext": "Aracın kullandığı yakıt türü. Fiyat ve tüketim değerleri buna göre değişir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "fuelPricePerLiter > 0",
+      "fuelConsumptionPer100km > 0",
+      "distanceKm > 0",
+      "fuelType must be one of: benzin, motorin, lpg"
+    ],
+    "thresholds": {
+      "fuelPricePerLiter > 40": "Yakıt fiyatı ortalamanın üzerinde, bütçeyi artırabilir.",
+      "fuelConsumptionPer100km > 10": "Araç yüksek yakıt tüketiyor, daha ekonomik sürüş önerilir.",
+      "distanceKm > 500": "Uzun mesafe, mola ve konaklama planlaması gerekebilir."
+    }
+  },
+  "formulas": {
+    "totalFuelCost": "fuelPricePerLiter * fuelConsumptionPer100km * distanceKm / 100",
+    "fuelNeededLiters": "fuelConsumptionPer100km * distanceKm / 100",
+    "costPerKm": "fuelPricePerLiter * fuelConsumptionPer100km / 100"
+  },
+  "outputs": {
+    "primary": "totalFuelCost",
+    "breakdown": {
+      "fuelNeededLiters": "Gerekli yakıt miktarı (litre)",
+      "costPerKm": "Kilometre başına maliyet (TRY/km)"
+    },
+    "hiddenLossDrivers": [
+      "Yakıt fiyatı ortalamanın üzerinde ise: 'Yüksek yakıt fiyatı'",
+      "Yakıt tüketimi yüksek ise: 'Yüksek tüketim'",
+      "Mesafe çok uzunsa: 'Uzun mesafe'"
+    ],
+    "suggestedActions": [
+      "Yakıt fiyatı yüksekse: Daha ucuz istasyon araştırın.",
+      "Tüketim yüksekse: Lastik basıncını kontrol edin, ani hızlanmalardan kaçının.",
+      "Mesafe uzunsa: Alternatif rotaları değerlendirin."
+    ],
+    "dataConfidenceAdjusted": "totalFuelCost * (1 - 0.05) (varsayılan güven düzeltmesi)"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş fiyat karşılaştırması)",
+    "Detaylı rota maliyet analizi"
+  ],
+  "premiumRequired": false
+}

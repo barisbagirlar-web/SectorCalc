@@ -1,0 +1,100 @@
+{
+  "toolName": "boru-agirlik-hesaplama-celik-paslanmaz",
+  "inputs": [
+    {
+      "id": "materialType",
+      "label": "Malzeme Türü",
+      "type": "select",
+      "unit": "",
+      "default": "carbon-steel",
+      "min": null,
+      "max": null,
+      "options": [
+        "carbon-steel",
+        "stainless-steel-304",
+        "stainless-steel-316"
+      ],
+      "businessContext": "Boru malzemesinin yoğunluğu ağırlık hesaplamasında kritik faktördür. Karbon çelik yoğunluğu ~7850 kg/m³, paslanmaz çelik 304 ~7930 kg/m³, 316 ~7980 kg/m³."
+    },
+    {
+      "id": "outerDiameter",
+      "label": "Dış Çap",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 1,
+      "max": 2000,
+      "businessContext": "Boru dış çapı, kesit alanı ve hacim hesaplamasında kullanılır. Tipik boru çapları 10-1000 mm arasındadır."
+    },
+    {
+      "id": "wallThickness",
+      "label": "Et Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "min": 0.5,
+      "max": 100,
+      "businessContext": "Et kalınlığı, borunun iç çapını ve kesit alanını belirler. Standart boru et kalınlıkları 1-50 mm arasındadır."
+    },
+    {
+      "id": "length",
+      "label": "Boru Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "min": 0.1,
+      "max": 50,
+      "businessContext": "Boru boyu, toplam ağırlık hesaplamasında hacim ile çarpılır. Tipik boylar 6 m veya 12 m'dir."
+    },
+    {
+      "id": "quantity",
+      "label": "Adet",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Toplam ağırlık için boru adedi ile çarpılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "outerDiameter > 0",
+      "wallThickness > 0",
+      "wallThickness < outerDiameter / 2",
+      "length > 0",
+      "quantity >= 1"
+    ],
+    "thresholds": {
+      "wallThickness": "wallThickness < 2 ? 'Düşük et kalınlığı, basınç dayanımını azaltabilir.' : null",
+      "outerDiameter": "outerDiameter > 500 ? 'Büyük çaplı borular özel taşıma gerektirebilir.' : null"
+    }
+  },
+  "formulas": {
+    "density": "materialType === 'carbon-steel' ? 7850 : materialType === 'stainless-steel-304' ? 7930 : 7980",
+    "innerDiameter": "outerDiameter - 2 * wallThickness",
+    "crossSectionArea": "Math.PI / 4 * (outerDiameter * outerDiameter - innerDiameter * innerDiameter) / 1e6",
+    "volumePerPipe": "crossSectionArea * length",
+    "weightPerPipe": "volumePerPipe * density",
+    "totalWeight": "weightPerPipe * quantity"
+  },
+  "outputs": {
+    "primary": "totalWeight",
+    "breakdown": {
+      "weightPerPipe": "weightPerPipe",
+      "volumePerPipe": "volumePerPipe",
+      "crossSectionArea": "crossSectionArea",
+      "density": "density"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [],
+    "dataConfidenceAdjusted": "totalWeight"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV dışa aktarım",
+    "Farklı malzeme karşılaştırması",
+    "Birim dönüştürme (kg/lb)"
+  ],
+  "premiumRequired": false
+}

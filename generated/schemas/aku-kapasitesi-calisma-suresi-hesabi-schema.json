@@ -1,0 +1,142 @@
+{
+  "toolName": "aku-kapasitesi-calisma-suresi-hesabi",
+  "inputs": [
+    {
+      "id": "batteryCapacityAh",
+      "label": "Battery Capacity (Ah)",
+      "type": "number",
+      "unit": "Ah",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Nominal capacity of the battery in ampere-hours. Determines total energy storage."
+    },
+    {
+      "id": "batteryVoltage",
+      "label": "Battery Voltage (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 12,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Nominal voltage of the battery. Used to convert Ah to Wh."
+    },
+    {
+      "id": "loadPowerW",
+      "label": "Load Power (W)",
+      "type": "number",
+      "unit": "W",
+      "default": 100,
+      "min": 0.1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Total power consumption of the connected load in watts."
+    },
+    {
+      "id": "depthOfDischarge",
+      "label": "Depth of Discharge (DoD)",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 10,
+      "max": 100,
+      "options": null,
+      "businessContext": "Maximum allowed discharge percentage to prolong battery life. Typical values: Lead-acid 50%, Li-ion 80%."
+    },
+    {
+      "id": "inverterEfficiency",
+      "label": "Inverter Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Efficiency of the inverter converting DC to AC. Typical range 85-95%."
+    },
+    {
+      "id": "systemEfficiency",
+      "label": "System Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Overall system efficiency including wiring losses, typically 90-98%."
+    },
+    {
+      "id": "temperatureDerating",
+      "label": "Temperature Derating Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1,
+      "min": 0.5,
+      "max": 1.2,
+      "options": null,
+      "businessContext": "Factor to adjust capacity for temperature. Below 25°C reduces capacity; above may increase slightly."
+    },
+    {
+      "id": "agingFactor",
+      "label": "Aging Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.8,
+      "min": 0.5,
+      "max": 1,
+      "options": null,
+      "businessContext": "Capacity reduction due to battery age. New battery = 1, after cycles typically 0.8."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "batteryCapacityAh must be > 0",
+      "batteryVoltage must be > 0",
+      "loadPowerW must be > 0",
+      "depthOfDischarge must be between 10 and 100",
+      "inverterEfficiency must be between 50 and 100",
+      "systemEfficiency must be between 50 and 100",
+      "temperatureDerating must be between 0.5 and 1.2",
+      "agingFactor must be between 0.5 and 1"
+    ],
+    "thresholds": {
+      "depthOfDischarge > 80": "High DoD may reduce battery cycle life significantly.",
+      "inverterEfficiency < 85": "Low inverter efficiency indicates potential energy waste.",
+      "agingFactor < 0.7": "Battery is near end of life; consider replacement."
+    }
+  },
+  "formulas": {
+    "usableEnergyWh": "batteryCapacityAh * batteryVoltage * (depthOfDischarge / 100) * temperatureDerating * agingFactor",
+    "effectiveLoadW": "loadPowerW / (inverterEfficiency / 100) / (systemEfficiency / 100)",
+    "runtimeHours": "usableEnergyWh / effectiveLoadW"
+  },
+  "outputs": {
+    "primary": "runtimeHours",
+    "breakdown": {
+      "usableEnergyWh": "usableEnergyWh",
+      "effectiveLoadW": "effectiveLoadW"
+    },
+    "hiddenLossDrivers": [
+      "depthOfDischarge > 80 ? 'High DoD reduces cycle life' : ''",
+      "inverterEfficiency < 85 ? 'Low inverter efficiency' : ''",
+      "agingFactor < 0.7 ? 'Battery aging significant' : ''"
+    ],
+    "suggestedActions": [
+      "depthOfDischarge > 80 ? 'Reduce DoD to 50-80% for longer battery life' : ''",
+      "inverterEfficiency < 85 ? 'Consider upgrading inverter' : ''",
+      "agingFactor < 0.7 ? 'Plan battery replacement' : ''"
+    ],
+    "dataConfidenceAdjusted": "runtimeHours * (dataConfidence || 1)"
+  },
+  "premiumFeatures": [
+    "PDF export of detailed report",
+    "CSV export of input/output data",
+    "Trend analysis over time with historical data",
+    "Comparison of different battery configurations",
+    "Detailed loss breakdown chart",
+    "Battery sizing recommendation based on runtime target"
+  ],
+  "premiumRequired": false
+}

@@ -1,0 +1,72 @@
+{
+  "toolName": "alti-sigma-dpmo-sigma-seviyesi-cevirici",
+  "inputs": [
+    {
+      "id": "dpmo",
+      "label": "DPMO (Defects Per Million Opportunities)",
+      "type": "number",
+      "unit": "defects/million",
+      "default": 1000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "DPMO, Six Sigma'da süreç performansını ölçmek için kullanılan temel metriktir. Milyon fırsat başına düşen hata sayısını ifade eder. Daha düşük DPMO, daha yüksek süreç kalitesini gösterir."
+    },
+    {
+      "id": "sigmaShift",
+      "label": "Sigma Shift (Ortalama Kayması)",
+      "type": "number",
+      "unit": "sigma",
+      "default": 1.5,
+      "min": 0,
+      "max": 2,
+      "options": null,
+      "businessContext": "Six Sigma'da uzun vadeli süreç performansını kısa vadeli performansa dönüştürmek için kullanılan standart kayma değeridir. Genellikle 1.5 sigma olarak kabul edilir (Motorola standardı)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "dpmo must be a finite number between 0 and 1,000,000",
+      "sigmaShift must be a finite number between 0 and 2",
+      "If dpmo is 0, sigma level is theoretically infinite; output will be capped at 6 sigma for practical purposes"
+    ],
+    "thresholds": {
+      "dpmo": {
+        "critical": 100000,
+        "warning": 10000
+      }
+    }
+  },
+  "formulas": {
+    "dpmoToSigmaLevel": "sigmaLevel = normsinv(1 - dpmo/1000000) + sigmaShift",
+    "sigmaLevelToDpmo": "dpmo = (1 - normcdf(sigmaLevel - sigmaShift)) * 1000000",
+    "yield": "yield = (1 - dpmo/1000000) * 100",
+    "defectRate": "defectRate = dpmo / 1000000"
+  },
+  "outputs": {
+    "primary": "sigmaLevel",
+    "breakdown": {
+      "sigmaLevel": "Hesaplanan sigma seviyesi (kısa vadeli, shift dahil)",
+      "dpmo": "Girilen veya hesaplanan DPMO değeri",
+      "yield": "Süreç verimi (%)",
+      "defectRate": "Hata oranı (0-1 arası)"
+    },
+    "hiddenLossDrivers": [
+      "dpmo > 100000: Kritik kalite seviyesi, acil iyileştirme gerekli",
+      "dpmo > 10000: Yüksek hata oranı, süreç iyileştirme önerilir"
+    ],
+    "suggestedActions": [
+      "dpmo > 100000: Kök neden analizi yapın ve süreci yeniden tasarlayın",
+      "dpmo between 10000 and 100000: DMAIC projesi başlatın",
+      "dpmo < 10000: Süreci kontrol altında tutun ve sürekli iyileştirme uygulayın"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "Detaylı rapor (PDF/CSV export)",
+    "Trend analizi (zaman içinde sigma seviyesi değişimi)",
+    "Karşılaştırma (farklı süreçlerin sigma seviyelerini karşılaştırma)",
+    "Simülasyon (farklı DPMO değerleri için sigma seviyesi tahmini)"
+  ],
+  "premiumRequired": false
+}

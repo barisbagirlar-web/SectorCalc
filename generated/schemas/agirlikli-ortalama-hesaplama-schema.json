@@ -1,0 +1,57 @@
+{
+  "toolName": "agirlikli-ortalama-hesaplama",
+  "inputs": [
+    {
+      "id": "values",
+      "label": "Değerler",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": null,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Ağırlıklı ortalaması alınacak sayısal değerler. Her bir değer, ilgili ağırlıkla çarpılarak toplam ağırlığa bölünür."
+    },
+    {
+      "id": "weights",
+      "label": "Ağırlıklar",
+      "type": "number",
+      "unit": "birimsiz",
+      "default": null,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Her bir değerin ağırlığı. Ağırlıklar pozitif olmalıdır. Toplam ağırlık sıfırdan büyük olmalıdır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "values ve weights dizileri aynı uzunlukta olmalıdır.",
+      "Tüm ağırlıklar pozitif olmalıdır.",
+      "Toplam ağırlık sıfırdan büyük olmalıdır.",
+      "Tüm değerler sayısal olmalıdır."
+    ],
+    "thresholds": {
+      "totalWeightZero": "Toplam ağırlık sıfır ise hesaplama yapılamaz."
+    }
+  },
+  "formulas": {
+    "weightedAverage": "sum(values[i] * weights[i]) / sum(weights)"
+  },
+  "outputs": {
+    "primary": "weightedAverage",
+    "breakdown": {
+      "weightedSum": "sum(values[i] * weights[i])",
+      "totalWeight": "sum(weights)"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [],
+    "dataConfidenceAdjusted": "weightedAverage"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Detaylı rapor",
+    "Trend analizi"
+  ],
+  "premiumRequired": false
+}

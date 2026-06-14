@@ -1,0 +1,43 @@
+{
+  "toolName": "beygir-gucu-kilowatt-cevirici",
+  "inputs": [
+    {
+      "id": "horsepower",
+      "label": "Beygir Gücü (HP)",
+      "type": "number",
+      "unit": "HP",
+      "default": 1,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Motor gücü değeri. 1 HP = 0.7457 kW (metrik sistem). Endüstriyel motorlarda tipik aralık 0.5-5000 HP."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "horsepower must be a finite number",
+      "horsepower must be >= 0",
+      "horsepower must be <= 10000"
+    ],
+    "thresholds": {
+      "horsepower": "horsepower > 5000 → 'Yüksek güç, özel ekipman gerekebilir'"
+    }
+  },
+  "formulas": {
+    "primary": "kilowatt = horsepower * 0.7457"
+  },
+  "outputs": {
+    "primary": "kilowatt",
+    "breakdown": {},
+    "hiddenLossDrivers": [],
+    "suggestedActions": [],
+    "dataConfidenceAdjusted": "kilowatt"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Toplu dönüşüm",
+    "Trend analizi"
+  ],
+  "premiumRequired": false
+}

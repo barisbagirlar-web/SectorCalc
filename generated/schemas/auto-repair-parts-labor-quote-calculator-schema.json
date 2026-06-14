@@ -1,0 +1,180 @@
+{
+  "toolName": "auto-repair-parts-labor-quote-calculator",
+  "inputs": [
+    {
+      "id": "partsCost",
+      "label": "Parts Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total cost of replacement parts from supplier invoice or catalog."
+    },
+    {
+      "id": "laborHours",
+      "label": "Labor Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Estimated hours of mechanic labor based on job complexity and standard repair times (e.g., Mitchell, Alldata)."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate per Hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Shop's hourly labor charge, typically $80-$150 depending on location and specialization."
+    },
+    {
+      "id": "shopSuppliesFee",
+      "label": "Shop Supplies Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Flat fee for consumables like rags, lubricants, and small hardware."
+    },
+    {
+      "id": "hazardousWasteFee",
+      "label": "Hazardous Waste Fee",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Disposal fee for oil, batteries, tires, etc., often regulated by EPA."
+    },
+    {
+      "id": "subletCost",
+      "label": "Sublet Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of outsourced services like machining, paint, or diagnostics."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Sales tax percentage applied to parts and supplies (not labor in some states)."
+    },
+    {
+      "id": "desiredProfitMargin",
+      "label": "Desired Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Target profit margin on total cost, typically 25-40% for auto repair shops."
+    },
+    {
+      "id": "discountPercentage",
+      "label": "Discount Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Optional discount offered to customer (e.g., loyalty, promotion)."
+    },
+    {
+      "id": "includeLaborInTax",
+      "label": "Include Labor in Tax",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Some jurisdictions tax labor; check local laws."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "partsCost must be >= 0",
+      "laborHours must be >= 0",
+      "laborRate must be > 0",
+      "shopSuppliesFee must be >= 0",
+      "hazardousWasteFee must be >= 0",
+      "subletCost must be >= 0",
+      "taxRate must be between 0 and 100",
+      "desiredProfitMargin must be between 0 and 100",
+      "discountPercentage must be between 0 and 100"
+    ],
+    "thresholds": {
+      "desiredProfitMargin > 50": "Profit margin above 50% may be unrealistic for competitive market.",
+      "laborHours > 10": "High labor hours; consider breaking down into sub-operations.",
+      "partsCost > 5000": "High parts cost; verify with supplier quote."
+    }
+  },
+  "formulas": {
+    "totalPartsCost": "partsCost",
+    "totalLaborCost": "laborHours * laborRate",
+    "totalSuppliesAndFees": "shopSuppliesFee + hazardousWasteFee",
+    "totalSublet": "subletCost",
+    "totalCostBeforeTax": "totalPartsCost + totalLaborCost + totalSuppliesAndFees + totalSublet",
+    "taxableAmount": "includeLaborInTax ? totalCostBeforeTax : totalPartsCost + totalSuppliesAndFees + totalSublet",
+    "taxAmount": "taxableAmount * (taxRate / 100)",
+    "totalCostWithTax": "totalCostBeforeTax + taxAmount",
+    "priceBeforeDiscount": "totalCostWithTax / (1 - desiredProfitMargin / 100)",
+    "discountAmount": "priceBeforeDiscount * (discountPercentage / 100)",
+    "finalQuotePrice": "priceBeforeDiscount - discountAmount",
+    "profitAmount": "finalQuotePrice - totalCostWithTax",
+    "actualProfitMargin": "(profitAmount / finalQuotePrice) * 100"
+  },
+  "outputs": {
+    "primary": "finalQuotePrice",
+    "breakdown": {
+      "totalPartsCost": "totalPartsCost",
+      "totalLaborCost": "totalLaborCost",
+      "totalSuppliesAndFees": "totalSuppliesAndFees",
+      "totalSublet": "totalSublet",
+      "taxAmount": "taxAmount",
+      "discountAmount": "discountAmount",
+      "profitAmount": "profitAmount",
+      "actualProfitMargin": "actualProfitMargin"
+    },
+    "hiddenLossDrivers": [
+      "If shopSuppliesFee is too low, actual consumable cost may erode margin.",
+      "If laborHours underestimate, overtime or rework reduces profit."
+    ],
+    "suggestedActions": [
+      "Verify parts cost with current supplier pricing.",
+      "Check labor hours against standard repair times (e.g., Mitchell).",
+      "Review shop supplies fee to cover actual usage.",
+      "Ensure hazardous waste fee complies with local regulations."
+    ],
+    "dataConfidenceAdjusted": "finalQuotePrice"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export of quote",
+    "Trend analysis of parts and labor costs over time",
+    "Comparison with industry average pricing",
+    "Detailed profit margin breakdown by job type",
+    "Integration with inventory management"
+  ],
+  "premiumRequired": false
+}

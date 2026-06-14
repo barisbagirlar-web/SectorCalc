@@ -1,0 +1,141 @@
+{
+  "toolName": "ambalaj-malzemesi-degisimi-ve-maliyet-etki-calculator",
+  "inputs": [
+    {
+      "id": "currentMaterialCost",
+      "label": "Current Material Cost",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Mevcut ambalaj malzemesinin birim maliyeti. Tedarikçi faturalarından alınır."
+    },
+    {
+      "id": "newMaterialCost",
+      "label": "New Material Cost",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yeni ambalaj malzemesinin birim maliyeti. Tedarikçi tekliflerinden alınır."
+    },
+    {
+      "id": "annualUsage",
+      "label": "Annual Usage",
+      "type": "number",
+      "unit": "units/year",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yıllık kullanılan ambalaj malzemesi miktarı. Üretim planından alınır."
+    },
+    {
+      "id": "changeoverCost",
+      "label": "Changeover Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Malzeme değişimi için yapılacak tek seferlik geçiş maliyeti (kalıp, ekipman, işçilik)."
+    },
+    {
+      "id": "wasteRateCurrent",
+      "label": "Waste Rate Current",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Mevcut malzemenin fire oranı. Üretim verilerinden hesaplanır."
+    },
+    {
+      "id": "wasteRateNew",
+      "label": "Waste Rate New",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Yeni malzemenin tahmini fire oranı. Test veya tedarikçi verisi."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Düşük ise sonuçlara güven aralığı eklenir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "currentMaterialCost >= 0",
+      "newMaterialCost >= 0",
+      "annualUsage >= 0",
+      "changeoverCost >= 0",
+      "wasteRateCurrent between 0 and 100",
+      "wasteRateNew between 0 and 100",
+      "dataConfidence must be one of low, medium, high"
+    ],
+    "thresholds": {
+      "totalExposure": {
+        "warning": 10000,
+        "critical": 50000
+      }
+    }
+  },
+  "formulas": {
+    "currentAnnualCost": "currentMaterialCost * annualUsage * (1 + wasteRateCurrent / 100)",
+    "newAnnualCost": "newMaterialCost * annualUsage * (1 + wasteRateNew / 100)",
+    "annualSavings": "currentAnnualCost - newAnnualCost",
+    "totalExposure": "annualSavings - changeoverCost",
+    "variancePercent": "((newAnnualCost - currentAnnualCost) / currentAnnualCost) * 100",
+    "summaryLevel": "totalExposure < 10000 ? 'low' : totalExposure < 50000 ? 'warning' : 'critical'",
+    "primaryDriver": "Math.abs(annualSavings) > Math.abs(changeoverCost) ? 'annualSavings' : 'changeoverCost'",
+    "decisionVerdict": "totalExposure > 0 ? 'positive' : totalExposure < 0 ? 'negative' : 'neutral'",
+    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalExposure * 0.8 : dataConfidence === 'high' ? totalExposure * 1.2 : totalExposure"
+  },
+  "outputs": {
+    "primary": "totalExposure",
+    "breakdown": {
+      "currentAnnualCost": "currentAnnualCost",
+      "newAnnualCost": "newAnnualCost",
+      "annualSavings": "annualSavings",
+      "changeoverCost": "changeoverCost"
+    },
+    "hiddenLossDrivers": [
+      "wasteRateCurrent > 5 ? 'Yüksek mevcut fire oranı' : null",
+      "wasteRateNew > 5 ? 'Yeni malzeme fire oranı yüksek' : null",
+      "changeoverCost > annualSavings * 0.5 ? 'Geçiş maliyeti yıllık tasarrufa göre yüksek' : null"
+    ],
+    "suggestedActions": [
+      "totalExposure > 0 ? 'Malzeme değişimi önerilir' : 'Malzeme değişimi önerilmez'",
+      "wasteRateNew > wasteRateCurrent ? 'Yeni malzeme fire oranını düşürmek için iyileştirme yapın' : null"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Scenario comparison",
+    "Detailed report with charts"
+  ],
+  "premiumRequired": true
+}

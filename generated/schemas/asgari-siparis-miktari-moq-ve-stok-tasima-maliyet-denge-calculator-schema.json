@@ -1,0 +1,155 @@
+{
+  "toolName": "asgari-siparis-miktari-moq-ve-stok-tasima-maliyet-denge-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Annual Demand (units/year)",
+      "type": "number",
+      "unit": "units/year",
+      "default": 10000,
+      "min": 1,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Total yearly demand for the product. Used to calculate order frequency and inventory holding costs. Based on EOQ model principles."
+    },
+    {
+      "id": "orderingCost",
+      "label": "Ordering Cost per Order (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Fixed cost incurred per purchase order (e.g., administrative, shipping). Used in EOQ formula."
+    },
+    {
+      "id": "holdingCostPerUnit",
+      "label": "Holding Cost per Unit per Year (USD)",
+      "type": "number",
+      "unit": "USD/unit/year",
+      "default": 2,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Cost to hold one unit of inventory for one year (storage, insurance, obsolescence). Used in EOQ formula."
+    },
+    {
+      "id": "unitCost",
+      "label": "Unit Cost (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 10,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Purchase cost per unit. Used to calculate total inventory value and financial exposure."
+    },
+    {
+      "id": "moq",
+      "label": "Minimum Order Quantity (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 500,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Supplier-imposed minimum quantity per order. May force order sizes above EOQ, increasing holding costs."
+    },
+    {
+      "id": "leadTimeDays",
+      "label": "Lead Time (days)",
+      "type": "number",
+      "unit": "days",
+      "default": 7,
+      "min": 0,
+      "max": 365,
+      "options": null,
+      "businessContext": "Time from placing order to receipt. Affects safety stock and reorder point."
+    },
+    {
+      "id": "safetyStock",
+      "label": "Safety Stock (units)",
+      "type": "number",
+      "unit": "units",
+      "default": 100,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Extra inventory held to buffer against demand variability. Increases holding costs."
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Working Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Number of operating days per year. Used to convert annual demand to daily demand."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualDemand must be > 0",
+      "orderingCost must be >= 0",
+      "holdingCostPerUnit must be >= 0",
+      "unitCost must be >= 0",
+      "moq must be > 0",
+      "leadTimeDays must be >= 0",
+      "safetyStock must be >= 0",
+      "workingDaysPerYear must be between 1 and 365",
+      "If moq > annualDemand, then warning: MOQ exceeds annual demand",
+      "If holdingCostPerUnit > unitCost * 0.5, then warning: holding cost is high relative to unit cost"
+    ],
+    "thresholds": {
+      "totalExposure": "warning: > 100000, critical: > 500000",
+      "variancePercent": "warning: > 20, critical: > 50"
+    }
+  },
+  "formulas": {
+    "eoq": "Math.sqrt((2 * annualDemand * orderingCost) / holdingCostPerUnit)",
+    "optimalOrderQuantity": "Math.max(eoq, moq)",
+    "orderFrequency": "annualDemand / optimalOrderQuantity",
+    "averageInventory": "(optimalOrderQuantity / 2) + safetyStock",
+    "annualHoldingCost": "averageInventory * holdingCostPerUnit",
+    "annualOrderingCost": "orderFrequency * orderingCost",
+    "totalInventoryCost": "annualHoldingCost + annualOrderingCost",
+    "totalExposure": "totalInventoryCost + (averageInventory * unitCost)",
+    "variancePercent": "((optimalOrderQuantity - eoq) / eoq) * 100",
+    "summaryLevel": "totalExposure > 500000 ? 'critical' : totalExposure > 100000 ? 'warning' : 'normal'",
+    "primaryDriver": "variancePercent > 20 ? 'MOQ constraint' : 'EOQ optimal'",
+    "decisionVerdict": "variancePercent > 50 ? 'Negotiate MOQ reduction' : variancePercent > 20 ? 'Consider MOQ adjustment' : 'Accept current MOQ'"
+  },
+  "outputs": {
+    "primary": "totalExposure",
+    "breakdown": {
+      "eoq": "Economic Order Quantity (units)",
+      "optimalOrderQuantity": "Actual order quantity considering MOQ (units)",
+      "averageInventory": "Average inventory level (units)",
+      "annualHoldingCost": "Total annual holding cost (USD)",
+      "annualOrderingCost": "Total annual ordering cost (USD)",
+      "totalInventoryCost": "Sum of holding and ordering costs (USD)",
+      "variancePercent": "Percentage deviation from EOQ due to MOQ"
+    },
+    "hiddenLossDrivers": [
+      "If moq > eoq: excess inventory due to MOQ constraint",
+      "If safetyStock > 0.5 * averageInventory: high safety stock relative to cycle stock"
+    ],
+    "suggestedActions": [
+      "If variancePercent > 20: negotiate lower MOQ with supplier",
+      "If holdingCostPerUnit > unitCost * 0.3: review storage efficiency or reduce safety stock",
+      "If orderingCost is high: consider consolidating orders or using blanket orders"
+    ],
+    "dataConfidenceAdjusted": "totalExposure * (1 - (1 - dataConfidence) * 0.1) if dataConfidence provided"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Scenario comparison (multiple MOQ values)",
+    "Detailed breakdown report with charts",
+    "Data confidence adjustment"
+  ],
+  "premiumRequired": true
+}

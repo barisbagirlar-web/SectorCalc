@@ -1,0 +1,95 @@
+{
+  "toolName": "Average Calculator",
+  "inputs": [
+    {
+      "id": "value1",
+      "label": "Value 1",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "First numeric value to be averaged. Used in arithmetic mean calculation."
+    },
+    {
+      "id": "value2",
+      "label": "Value 2",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Second numeric value to be averaged."
+    },
+    {
+      "id": "value3",
+      "label": "Value 3",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Third numeric value to be averaged."
+    },
+    {
+      "id": "value4",
+      "label": "Value 4",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Fourth numeric value to be averaged."
+    },
+    {
+      "id": "value5",
+      "label": "Value 5",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Fifth numeric value to be averaged."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "All input values must be finite numbers.",
+      "At least one input must be non-zero to compute average (count > 0)."
+    ],
+    "thresholds": {
+      "countZero": "If count is 0, average is undefined."
+    }
+  },
+  "formulas": {
+    "count": "count = (value1 !== undefined ? 1 : 0) + (value2 !== undefined ? 1 : 0) + (value3 !== undefined ? 1 : 0) + (value4 !== undefined ? 1 : 0) + (value5 !== undefined ? 1 : 0)",
+    "sum": "sum = (value1 || 0) + (value2 || 0) + (value3 || 0) + (value4 || 0) + (value5 || 0)",
+    "average": "average = count > 0 ? sum / count : undefined"
+  },
+  "outputs": {
+    "primary": "average",
+    "breakdown": {
+      "count": "Number of non-zero inputs used",
+      "sum": "Sum of all input values"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Ensure all input values are accurate and represent the same unit of measure.",
+      "If average is used for benchmarking, compare against industry standards."
+    ],
+    "dataConfidenceAdjusted": "average (no confidence adjustment applied)"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis over time",
+    "Comparison with historical averages",
+    "Detailed report with statistical measures (median, mode, standard deviation)"
+  ],
+  "premiumRequired": false
+}

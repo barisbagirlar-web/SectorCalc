@@ -1,0 +1,115 @@
+{
+  "toolName": "belt-pulley-speed-length-calculator",
+  "inputs": [
+    {
+      "id": "pulley1Diameter",
+      "label": "Pulley 1 Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "min": 10,
+      "max": 5000,
+      "options": null,
+      "businessContext": "Diameter of the driving pulley. Determines belt speed and torque transmission. Based on standard pulley sizes (ISO 1082)."
+    },
+    {
+      "id": "pulley2Diameter",
+      "label": "Pulley 2 Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 200,
+      "min": 10,
+      "max": 5000,
+      "options": null,
+      "businessContext": "Diameter of the driven pulley. Affects speed ratio and belt length. Standard pulley sizes per ISO 1082."
+    },
+    {
+      "id": "centerDistance",
+      "label": "Center Distance",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "min": 50,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Distance between pulley centers. Critical for belt length calculation and tension. Typically 1.5-3 times larger pulley diameter."
+    },
+    {
+      "id": "pulley1Speed",
+      "label": "Pulley 1 Speed",
+      "type": "number",
+      "unit": "RPM",
+      "default": 1500,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Rotational speed of driving pulley. Determines belt linear speed. Common motor speeds: 900, 1500, 3000 RPM."
+    },
+    {
+      "id": "beltType",
+      "label": "Belt Type",
+      "type": "select",
+      "unit": "",
+      "default": "V-belt",
+      "min": null,
+      "max": null,
+      "options": [
+        "V-belt",
+        "Timing belt",
+        "Flat belt",
+        "Round belt"
+      ],
+      "businessContext": "Type of belt affects tension, efficiency, and application. V-belts common in industrial drives; timing belts for synchronous motion."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "pulley1Diameter > 0",
+      "pulley2Diameter > 0",
+      "centerDistance > (pulley1Diameter + pulley2Diameter) / 2",
+      "pulley1Speed > 0",
+      "beltType must be one of: V-belt, Timing belt, Flat belt, Round belt"
+    ],
+    "thresholds": {
+      "beltSpeed": "beltSpeed > 30 m/s -> warning: High belt speed may cause excessive wear and safety risk",
+      "speedRatio": "speedRatio > 6 -> warning: High speed ratio may require special belt or multiple stages"
+    }
+  },
+  "formulas": {
+    "beltSpeed": "pulley1Diameter * Math.PI * pulley1Speed / 60000",
+    "speedRatio": "pulley2Diameter / pulley1Diameter",
+    "pulley2Speed": "pulley1Speed / speedRatio",
+    "beltLength": "2 * centerDistance + Math.PI * (pulley1Diameter + pulley2Diameter) / 2 + Math.pow(pulley2Diameter - pulley1Diameter, 2) / (4 * centerDistance)",
+    "wrapAngle1": "180 - 2 * Math.asin((pulley2Diameter - pulley1Diameter) / (2 * centerDistance)) * 180 / Math.PI",
+    "wrapAngle2": "180 + 2 * Math.asin((pulley2Diameter - pulley1Diameter) / (2 * centerDistance)) * 180 / Math.PI"
+  },
+  "outputs": {
+    "primary": "beltSpeed",
+    "breakdown": {
+      "beltSpeed": "Linear speed of belt in m/s",
+      "speedRatio": "Ratio of pulley diameters",
+      "pulley2Speed": "Rotational speed of driven pulley in RPM",
+      "beltLength": "Required belt length in mm",
+      "wrapAngle1": "Wrap angle on pulley 1 in degrees",
+      "wrapAngle2": "Wrap angle on pulley 2 in degrees"
+    },
+    "hiddenLossDrivers": [
+      "beltSpeed > 30 m/s -> High speed may cause vibration and reduced belt life",
+      "wrapAngle1 < 120 degrees -> Insufficient wrap may cause slippage"
+    ],
+    "suggestedActions": [
+      "If beltSpeed > 30 m/s, consider using a larger pulley or reducing motor speed",
+      "If wrapAngle1 < 120 degrees, increase center distance or use an idler pulley",
+      "If speedRatio > 6, consider a two-stage drive system"
+    ],
+    "dataConfidenceAdjusted": "beltSpeed * (1 - 0.05) // Assuming 5% uncertainty in input measurements"
+  },
+  "premiumFeatures": [
+    "PDF export of calculation report",
+    "CSV export of input/output data",
+    "Trend analysis over multiple configurations",
+    "Comparison of different belt types",
+    "Detailed report with tension and power calculations"
+  ],
+  "premiumRequired": true
+}

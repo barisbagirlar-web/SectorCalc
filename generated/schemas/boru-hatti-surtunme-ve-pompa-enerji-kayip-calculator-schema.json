@@ -1,0 +1,187 @@
+{
+  "toolName": "boru-hatti-surtunme-ve-pompa-enerji-kayip-calculator",
+  "inputs": [
+    {
+      "id": "pipeLength",
+      "label": "Boru Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Boru hattının toplam uzunluğu. Sürtünme kaybı Darcy-Weisbach denklemine göre uzunlukla doğru orantılıdır."
+    },
+    {
+      "id": "pipeDiameter",
+      "label": "Boru İç Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "min": 10,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Boru iç çapı, akış alanını ve hızı etkiler. Sürtünme kaybı çapın beşinci kuvvetiyle ters orantılıdır."
+    },
+    {
+      "id": "flowRate",
+      "label": "Debi",
+      "type": "number",
+      "unit": "m³/h",
+      "default": 50,
+      "min": 0.1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Birim zamanda borudan geçen akışkan hacmi. Sürtünme kaybı debinin karesiyle orantılıdır."
+    },
+    {
+      "id": "fluidDensity",
+      "label": "Akışkan Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "min": 1,
+      "max": 2000,
+      "options": null,
+      "businessContext": "Akışkanın yoğunluğu. Su için 1000 kg/m³, petrol için 800-900 kg/m³. Sürtünme kaybı yoğunlukla doğru orantılıdır."
+    },
+    {
+      "id": "fluidViscosity",
+      "label": "Akışkan Viskozitesi",
+      "type": "number",
+      "unit": "cP",
+      "default": 1,
+      "min": 0.1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Akışkanın dinamik viskozitesi. Su için 1 cP, yağlar için 10-100 cP. Reynolds sayısını ve sürtünme faktörünü etkiler."
+    },
+    {
+      "id": "pipeRoughness",
+      "label": "Boru Pürüzlülüğü",
+      "type": "number",
+      "unit": "mm",
+      "default": 0.05,
+      "min": 0.001,
+      "max": 10,
+      "options": null,
+      "businessContext": "Boru iç yüzey pürüzlülüğü. Çelik için 0.05 mm, beton için 0.3-3 mm. Sürtünme faktörünü etkiler."
+    },
+    {
+      "id": "pumpEfficiency",
+      "label": "Pompa Verimi",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "min": 10,
+      "max": 100,
+      "options": null,
+      "businessContext": "Pompanın genel verimi. Tipik santrifüj pompalar %60-85 arası. Enerji tüketimini hesaplamak için kullanılır."
+    },
+    {
+      "id": "electricityCost",
+      "label": "Elektrik Birim Maliyeti",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.12,
+      "min": 0.01,
+      "max": 1,
+      "options": null,
+      "businessContext": "Kilovatsaat başına elektrik maliyeti. Enerji maliyetini hesaplamak için kullanılır."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Yıllık Çalışma Saati",
+      "type": "number",
+      "unit": "hours/year",
+      "default": 8000,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Pompanın yıllık toplam çalışma saati. Sürekli çalışma için 8760 saat, vardiyalı için 4000-6000 saat."
+    },
+    {
+      "id": "fittingCount",
+      "label": "Dirsek ve Bağlantı Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Borudaki dirsek, vana, T bağlantı gibi elemanların sayısı. Yerel kayıpları hesaplamak için kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "pipeLength > 0",
+      "pipeDiameter > 0",
+      "flowRate > 0",
+      "fluidDensity > 0",
+      "fluidViscosity > 0",
+      "pipeRoughness >= 0",
+      "pumpEfficiency between 0 and 100",
+      "electricityCost >= 0",
+      "operatingHours between 0 and 8760",
+      "fittingCount >= 0"
+    ],
+    "thresholds": {
+      "frictionLossCritical": "frictionLoss > 100000 Pa",
+      "energyCostWarning": "annualEnergyCost > 10000 USD",
+      "pumpEfficiencyLow": "pumpEfficiency < 50"
+    }
+  },
+  "formulas": {
+    "flowVelocity": "flowRate / (3600 * pi * (pipeDiameter/2000)^2)",
+    "reynoldsNumber": "fluidDensity * flowVelocity * (pipeDiameter/1000) / (fluidViscosity/1000)",
+    "frictionFactor": "if reynoldsNumber < 2000 then 64/reynoldsNumber else 1/(-2*log10(pipeRoughness/(3.7*pipeDiameter/1000) + 2.51/(reynoldsNumber*sqrt(frictionFactor))))^2 (iterative)",
+    "frictionLoss": "frictionFactor * (pipeLength/(pipeDiameter/1000)) * (fluidDensity * flowVelocity^2 / 2)",
+    "minorLoss": "fittingCount * 0.5 * fluidDensity * flowVelocity^2 / 2",
+    "totalHeadLoss": "(frictionLoss + minorLoss) / (fluidDensity * 9.81)",
+    "hydraulicPower": "flowRate/3600 * totalHeadLoss * fluidDensity * 9.81",
+    "shaftPower": "hydraulicPower / (pumpEfficiency/100)",
+    "annualEnergyConsumption": "shaftPower * operatingHours",
+    "annualEnergyCost": "annualEnergyConsumption * electricityCost",
+    "totalExposure": "annualEnergyCost",
+    "variancePercent": "0",
+    "summaryLevel": "if totalExposure > 3 then 'critical' else if totalExposure > 1 then 'warning' else 'normal'",
+    "primaryDriver": "if frictionLoss > minorLoss then 'frictionLoss' else 'minorLoss'",
+    "decisionVerdict": "if summaryLevel == 'critical' then 'review required' else 'acceptable'"
+  },
+  "outputs": {
+    "primary": "totalExposure",
+    "breakdown": {
+      "flowVelocity": "m/s",
+      "reynoldsNumber": "dimensionless",
+      "frictionFactor": "dimensionless",
+      "frictionLoss": "Pa",
+      "minorLoss": "Pa",
+      "totalHeadLoss": "m",
+      "hydraulicPower": "W",
+      "shaftPower": "W",
+      "annualEnergyConsumption": "kWh",
+      "annualEnergyCost": "USD"
+    },
+    "hiddenLossDrivers": [
+      "frictionLoss > 100000 Pa",
+      "annualEnergyCost > 10000 USD",
+      "pumpEfficiency < 50"
+    ],
+    "suggestedActions": [
+      "Boru çapını artırarak sürtünme kaybını azaltın.",
+      "Pompa verimini artırmak için bakım yapın veya daha verimli pompa seçin.",
+      "Dirsek sayısını azaltarak yerel kayıpları düşürün.",
+      "Akış hızını düşürmek için paralel boru hattı ekleyin."
+    ],
+    "dataConfidenceAdjusted": "totalExposure"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV veri indirme",
+    "Trend analizi (zaman serisi)",
+    "Senaryo karşılaştırma",
+    "Detaylı grafikler",
+    "Özelleştirilebilir varsayılan değerler"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,149 @@
+{
+  "toolName": "batch-yield-calculator",
+  "inputs": [
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "min": 1,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Number of units produced in a single batch. Used to calculate total exposure and yield loss."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0.02,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Fraction of units that are defective. Based on historical quality data or Six Sigma DPMO."
+    },
+    {
+      "id": "reworkCostPerUnit",
+      "label": "Rework Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 5,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Cost to rework a defective unit, including labor, materials, and overhead."
+    },
+    {
+      "id": "scrapCostPerUnit",
+      "label": "Scrap Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 2,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Cost of scrapping a defective unit, including material loss and disposal."
+    },
+    {
+      "id": "inspectionCostPerBatch",
+      "label": "Inspection Cost per Batch",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Fixed cost for inspecting the batch, including labor and equipment."
+    },
+    {
+      "id": "revenuePerUnit",
+      "label": "Revenue per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 20,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Selling price per good unit. Used to calculate opportunity cost of defects."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data accuracy. Adjusts output for uncertainty."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "batchSize must be >= 1",
+      "defectRate must be between 0 and 1",
+      "reworkCostPerUnit must be >= 0",
+      "scrapCostPerUnit must be >= 0",
+      "inspectionCostPerBatch must be >= 0",
+      "revenuePerUnit must be >= 0",
+      "If defectRate > 0.05, warning: 'High defect rate'",
+      "If reworkCostPerUnit > revenuePerUnit * 0.5, warning: 'Rework cost exceeds 50% of revenue'"
+    ],
+    "thresholds": {
+      "defectRate": "0.05",
+      "reworkCostRatio": "0.5"
+    }
+  },
+  "formulas": {
+    "defectiveUnits": "batchSize * defectRate",
+    "goodUnits": "batchSize - defectiveUnits",
+    "reworkCost": "defectiveUnits * reworkCostPerUnit",
+    "scrapCost": "defectiveUnits * scrapCostPerUnit",
+    "totalCost": "reworkCost + scrapCost + inspectionCostPerBatch",
+    "opportunityCost": "defectiveUnits * revenuePerUnit",
+    "totalExposure": "totalCost + opportunityCost",
+    "variancePercent": "(totalExposure / (batchSize * revenuePerUnit)) * 100",
+    "summaryLevel": "totalExposure < 1000 ? 'low' : totalExposure < 5000 ? 'medium' : 'high'",
+    "primaryDriver": "defectRate > 0.05 ? 'defectRate' : 'reworkCostPerUnit'",
+    "decisionVerdict": "totalExposure > 5000 ? 'critical' : totalExposure > 1000 ? 'warning' : 'acceptable'",
+    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalExposure * 1.2 : dataConfidence === 'medium' ? totalExposure * 1.1 : totalExposure"
+  },
+  "outputs": {
+    "primary": "totalExposure",
+    "breakdown": {
+      "defectiveUnits": "number",
+      "goodUnits": "number",
+      "reworkCost": "number",
+      "scrapCost": "number",
+      "totalCost": "number",
+      "opportunityCost": "number",
+      "variancePercent": "number",
+      "summaryLevel": "string",
+      "primaryDriver": "string",
+      "decisionVerdict": "string"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 0.05 ? 'High defect rate' : ''",
+      "reworkCostPerUnit > revenuePerUnit * 0.5 ? 'Rework cost exceeds 50% of revenue' : ''"
+    ],
+    "suggestedActions": [
+      "defectRate > 0.05 ? 'Implement process improvement to reduce defect rate' : ''",
+      "reworkCostPerUnit > revenuePerUnit * 0.5 ? 'Review rework process for cost reduction' : ''",
+      "totalExposure > 5000 ? 'Consider batch size optimization or quality investment' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmark comparison",
+    "Detailed report with breakdowns"
+  ],
+  "premiumRequired": true
+}
