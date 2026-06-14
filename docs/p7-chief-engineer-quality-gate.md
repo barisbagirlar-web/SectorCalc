@@ -1,5 +1,7 @@
 # P7 Chief Engineer Quality Gate
 
+Night factory DeepSeek calls use Chief Engineer system prompt plus resolved domain prompt pack for every tool.
+
 Generated: 2026-06-14T01:17:00.900Z
 
 ## Domain Prompt Packs
