@@ -86,6 +86,7 @@ import { SCRAP_RATE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-
 import { SHEET_METAL_QUOTE_RISK_TOOL_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/sheet-metal-quote-risk-tool-critical";
 import { SIGNAGE_BID_SAFE_PRICE_TOOL_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/signage-bid-safe-price-tool-critical";
 import { WATER_OPTIMIZATION_VERDICT_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/water-optimization-verdict-critical";
+import { THREE_D_PRINT_JOB_MARGIN_TOOL_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/3d-print-job-margin-tool-critical";
 import { WELDING_BID_RISK_ANALYZER_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/welding-bid-risk-analyzer-critical";
 import { ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/engine-modules-critical";
 import { P77_FREE_TRAFFIC_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/p77-free-traffic-batch";
@@ -366,6 +367,7 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   ...SHEET_METAL_QUOTE_RISK_TOOL_CRITICAL_FORMULA_CONTRACTS,
   ...SIGNAGE_BID_SAFE_PRICE_TOOL_CRITICAL_FORMULA_CONTRACTS,
   ...WATER_OPTIMIZATION_VERDICT_CRITICAL_FORMULA_CONTRACTS,
+  ...THREE_D_PRINT_JOB_MARGIN_TOOL_CRITICAL_FORMULA_CONTRACTS,
   ...WELDING_BID_RISK_ANALYZER_CRITICAL_FORMULA_CONTRACTS,
   ...ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS,
   ...P77_FREE_TRAFFIC_FORMULA_CONTRACTS,

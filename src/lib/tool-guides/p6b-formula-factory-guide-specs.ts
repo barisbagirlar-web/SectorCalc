@@ -9,6 +9,25 @@ import {
 
 export const P6B_FORMULA_FACTORY_GUIDE_SPECS: readonly ToolGuideSpec[] = [
   {
+    slug: "3d-print-job-margin-tool",
+    guideType: "cost_breakdown",
+    titleKey: "inputGuide.p6bFormulaFactory.tools.threeDPrintJobMarginTool.title",
+    descriptionKey: "inputGuide.costBreakdown.description",
+    inputMap: [
+      { inputKey: "materialCost", visualRole: "primary", nodeId: "materialcost" },
+      { inputKey: "machineTimeHours", visualRole: "driver", nodeId: "machinetimehours" },
+      { inputKey: "machineHourlyRate", visualRole: "driver", nodeId: "machinehourlyrate" },
+      { inputKey: "laborHours", visualRole: "secondary", nodeId: "laborhours" },
+      { inputKey: "laborHourlyRate", visualRole: "secondary", nodeId: "laborhourlyrate" },
+      { inputKey: "electricityCost", visualRole: "secondary", nodeId: "electricitycost" },
+      { inputKey: "postProcessingCost", visualRole: "driver", nodeId: "postprocessingcost" },
+      { inputKey: "failureScrapRatePercent", visualRole: "driver", nodeId: "failurescrapratepercent" },
+      { inputKey: "overheadPercent", visualRole: "secondary", nodeId: "overheadpercent" },
+      { inputKey: "targetMarginPercent", visualRole: "output", nodeId: "targetmarginpercent" },
+    ],
+    quality: TOOL_GUIDE_QUALITY_DEFAULT,
+  },
+  {
     slug: "welding-bid-risk-analyzer",
     guideType: "cost_breakdown",
     titleKey: "inputGuide.p6bFormulaFactory.tools.weldingBidRiskAnalyzer.title",

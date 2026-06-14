@@ -1,37 +1,21 @@
-# P6B/P6C DeepSeek Full Formula Factory Report
+# P6B DeepSeek Full Formula Factory Report
 
 ## Summary
 
-* Phase: P6C Batch 2 (post Batch 1 commit `615e30c`)
 * Total tools: 474
-* Fully working before batch: 71
-* Fully working after batch: 72
-* Auto patch ready remaining: 0
-* Patched in P6C batch: 1
+* Fully working: 73
+* Auto patch ready: 0
+* Patched in this batch: 1
 * Manual expert required: 46
 * Blocked safety: 1
 * Revenue boundary: PASS
 * Deploy executed: no
 
-## P6C Batch 2 Patched Tools
+## Batch 1 Patched Tools
 
 | Slug | Input | Formula | Validation | Oracle | Renderer | Result |
 |------|-------|---------|------------|--------|----------|--------|
 | welding-bid-risk-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
-
-## Identifier-Unsafe Manual Queue
-
-| Slug | Reason | Strategy |
-|------|--------|----------|
-| 3d-print-job-margin-tool | Slug starts with digit; `toPascalCase` yields invalid TS identifier (`3dPrintJobMarginTool`) | Manual expert patch with safe export alias (e.g. `ThreeDPrintJobMarginTool`) or slug rename in schema registry |
-
-## Formula-Source Quarantine (active-route, schema-backed)
-
-| Slug | Reason |
-|------|--------|
-| energy-efficiency-report | formulaSourceAudit: QUARANTINE |
-| renovation-budget-optimizer | formulaSourceAudit: QUARANTINE |
-| trip-budget-optimizer | formulaSourceAudit: QUARANTINE |
 
 ## Manual Expert Queue
 
