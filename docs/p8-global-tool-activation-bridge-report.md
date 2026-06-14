@@ -8,7 +8,7 @@
 * Still locked: 411
 * Expert queue: 85
 * Blocked safety: 1
-* Revenue boundary: payment=22 formulaGate=22 freePayment=0
+* Revenue boundary: payment=19 formulaGate=19 freePayment=0
 
 ## Activated Slugs
 
@@ -166,10 +166,10 @@
 ## Revenue Boundary
 
 | Check | Expected | Actual |
-| paymentEligible | 22 | 22 |
-| formulaGateEligible | 22 | 22 |
+| paymentEligible | 22 | 19 |
+| formulaGateEligible | 22 | 19 |
 | freePaymentEligible | 0 | 0 |
 | feed-efficiency-analyzer | blocked | calc=false form=false |
 | abonelik-yazilim-cloud-yillik-maliyet-hesabi | locked | calc=false form=false |
 
-Generated: 2026-06-14T06:01:32.765Z
+Generated: 2026-06-14T06:02:03.999Z
