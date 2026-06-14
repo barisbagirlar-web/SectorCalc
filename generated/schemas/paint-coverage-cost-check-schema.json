@@ -1,0 +1,162 @@
+{
+  "toolName": "paint-coverage-cost-check",
+  "inputs": [
+    {
+      "id": "paintType",
+      "label": "Paint Type",
+      "type": "select",
+      "unit": "",
+      "default": "latex",
+      "min": null,
+      "max": null,
+      "options": [
+        "latex",
+        "oil",
+        "acrylic",
+        "enamel"
+      ],
+      "businessContext": "Different paint types have different coverage rates and costs per liter. Based on industry standards (ASTM D2805)."
+    },
+    {
+      "id": "surfaceArea",
+      "label": "Surface Area to Paint",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Total area to be painted. Measured in square meters per ISO 9001 quality standards."
+    },
+    {
+      "id": "coveragePerLiter",
+      "label": "Coverage per Liter",
+      "type": "number",
+      "unit": "m²/L",
+      "default": 10,
+      "min": 1,
+      "max": 50,
+      "businessContext": "Coverage rate depends on paint type and surface porosity. Typical values from manufacturer datasheets (ASTM D2805)."
+    },
+    {
+      "id": "costPerLiter",
+      "label": "Cost per Liter",
+      "type": "number",
+      "unit": "USD/L",
+      "default": 20,
+      "min": 1,
+      "max": 200,
+      "businessContext": "Purchase cost of paint per liter. Market prices vary by brand and quality."
+    },
+    {
+      "id": "numberOfCoats",
+      "label": "Number of Coats",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "min": 1,
+      "max": 5,
+      "businessContext": "Typically 2 coats for standard coverage. More coats may be needed for dark colors or porous surfaces."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "USD/h",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Hourly wage for painters. Includes overhead per industrial engineering standards (Maynard)."
+    },
+    {
+      "id": "laborProductivity",
+      "label": "Labor Productivity",
+      "type": "number",
+      "unit": "m²/h",
+      "default": 20,
+      "min": 1,
+      "max": 100,
+      "businessContext": "Area painted per hour per worker. Based on time studies (Salvendy)."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Percentage of paint wasted due to overspray, spillage, etc. Lean manufacturing principles target waste reduction."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data. Affects output adjustment for risk analysis."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "surfaceArea > 0",
+      "coveragePerLiter > 0",
+      "costPerLiter > 0",
+      "numberOfCoats >= 1",
+      "laborCostPerHour >= 0",
+      "laborProductivity > 0",
+      "wasteFactor >= 0",
+      "if paintType == 'oil' then coveragePerLiter <= 15 (typical oil coverage lower)",
+      "if laborCostPerHour > 0 then laborProductivity > 0"
+    ],
+    "thresholds": {
+      "wasteFactor > 20": "High waste factor indicates inefficiency; consider process improvement (Lean).",
+      "coveragePerLiter < 8": "Low coverage may indicate poor paint quality or incorrect application.",
+      "laborProductivity < 10": "Low productivity; consider training or method improvement (Six Sigma)."
+    }
+  },
+  "formulas": {
+    "totalPaintNeeded": "surfaceArea * numberOfCoats / coveragePerLiter * (1 + wasteFactor / 100)",
+    "materialCost": "totalPaintNeeded * costPerLiter",
+    "laborHours": "surfaceArea * numberOfCoats / laborProductivity",
+    "laborCost": "laborHours * laborCostPerHour",
+    "totalCost": "materialCost + laborCost",
+    "costPerSquareMeter": "totalCost / surfaceArea",
+    "dataConfidenceAdjusted": "costPerSquareMeter * (1 + (dataConfidence == 'low' ? 0.2 : dataConfidence == 'medium' ? 0.1 : 0))"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "materialCost": "materialCost",
+      "laborCost": "laborCost",
+      "totalPaintNeeded": "totalPaintNeeded",
+      "laborHours": "laborHours",
+      "costPerSquareMeter": "costPerSquareMeter"
+    },
+    "hiddenLossDrivers": [
+      "wasteFactor > 20 ? 'High waste factor' : ''",
+      "coveragePerLiter < 8 ? 'Low coverage rate' : ''",
+      "laborProductivity < 10 ? 'Low labor productivity' : ''"
+    ],
+    "suggestedActions": [
+      "wasteFactor > 20 ? 'Implement waste reduction techniques (e.g., proper spray settings, training)' : ''",
+      "coveragePerLiter < 8 ? 'Consider higher quality paint or surface preparation' : ''",
+      "laborProductivity < 10 ? 'Provide training or use more efficient tools' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Benchmarks",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

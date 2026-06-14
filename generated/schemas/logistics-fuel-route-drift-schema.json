@@ -1,0 +1,143 @@
+{
+  "toolName": "logistics-fuel-route-drift",
+  "inputs": [
+    {
+      "id": "plannedRouteDistance",
+      "label": "Planned Route Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Distance of the planned route as per logistics plan. Based on standard route planning (ISO 14040)."
+    },
+    {
+      "id": "actualRouteDistance",
+      "label": "Actual Route Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 110,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Distance actually traveled. Deviation indicates route drift. Monitored via GPS telematics (ISO 22837)."
+    },
+    {
+      "id": "fuelConsumptionRate",
+      "label": "Fuel Consumption Rate",
+      "type": "number",
+      "unit": "L/km",
+      "default": 0.3,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average fuel consumption per km. Based on vehicle specs and driving conditions (SAE J1321)."
+    },
+    {
+      "id": "fuelCostPerLiter",
+      "label": "Fuel Cost per Liter",
+      "type": "number",
+      "unit": "currency/L",
+      "default": 1.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Current fuel price. Market rate, updated regularly."
+    },
+    {
+      "id": "numTrips",
+      "label": "Number of Trips",
+      "type": "number",
+      "unit": "trips",
+      "default": 1,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of trips in the period. Used to scale costs."
+    },
+    {
+      "id": "timePeriod",
+      "label": "Time Period",
+      "type": "select",
+      "unit": "",
+      "default": "month",
+      "min": null,
+      "max": null,
+      "options": [
+        "day",
+        "week",
+        "month",
+        "quarter",
+        "year"
+      ],
+      "businessContext": "Period for analysis. Standard reporting periods (WERC)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence in input data accuracy. Adjusts final result for uncertainty (ISO 5725)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "actualRouteDistance >= plannedRouteDistance",
+      "fuelConsumptionRate > 0",
+      "fuelCostPerLiter > 0",
+      "numTrips >= 1",
+      "dataConfidence between 0 and 100"
+    ],
+    "thresholds": {
+      "routeDriftPercent": {
+        "warning": 5,
+        "critical": 15
+      },
+      "fuelCostDrift": {
+        "warning": 100,
+        "critical": 500
+      }
+    }
+  },
+  "formulas": {
+    "routeDriftPercent": "((actualRouteDistance - plannedRouteDistance) / plannedRouteDistance) * 100",
+    "fuelConsumedPlanned": "plannedRouteDistance * fuelConsumptionRate",
+    "fuelConsumedActual": "actualRouteDistance * fuelConsumptionRate",
+    "fuelCostPlanned": "fuelConsumedPlanned * fuelCostPerLiter",
+    "fuelCostActual": "fuelConsumedActual * fuelCostPerLiter",
+    "fuelCostDrift": "fuelCostActual - fuelCostPlanned",
+    "totalFuelCostDrift": "fuelCostDrift * numTrips",
+    "dataConfidenceAdjusted": "totalFuelCostDrift * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "totalFuelCostDrift",
+    "breakdown": {
+      "routeDriftPercent": "routeDriftPercent",
+      "fuelCostPlanned": "fuelCostPlanned",
+      "fuelCostActual": "fuelCostActual",
+      "fuelCostDrift": "fuelCostDrift"
+    },
+    "hiddenLossDrivers": [
+      "routeDriftPercent > 15 ? 'Critical route drift detected' : ''",
+      "fuelCostDrift > 500 ? 'Critical fuel cost drift' : ''"
+    ],
+    "suggestedActions": [
+      "routeDriftPercent > 5 ? 'Review route planning and driver adherence' : ''",
+      "fuelCostDrift > 100 ? 'Investigate fuel efficiency and route optimization' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

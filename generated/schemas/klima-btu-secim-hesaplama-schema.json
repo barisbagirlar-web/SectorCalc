@@ -1,0 +1,154 @@
+{
+  "toolName": "klima-btu-secim-hesaplama",
+  "inputs": [
+    {
+      "id": "odaHacmi",
+      "label": "Oda Hacmi (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 100,
+      "min": 10,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Odanın genişlik, uzunluk ve yükseklik çarpımı. Standart: ASHRAE Handbook - HVAC Systems and Equipment."
+    },
+    {
+      "id": "kisiSayisi",
+      "label": "Kişi Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Odada bulunan ortalama kişi sayısı. Her kişi yaklaşık 100-150 W ısı yükü ekler. Kaynak: ASHRAE."
+    },
+    {
+      "id": "pencereAlani",
+      "label": "Pencere Alanı (m²)",
+      "type": "number",
+      "unit": "m²",
+      "default": 10,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "Güneş ışınımından kaynaklı ısı kazancı için. Standart: ASHRAE Solar Heat Gain Coefficients."
+    },
+    {
+      "id": "pencereYonu",
+      "label": "Pencere Yönü",
+      "type": "select",
+      "unit": "",
+      "default": "Güney",
+      "min": null,
+      "max": null,
+      "options": [
+        "Kuzey",
+        "Güney",
+        "Doğu",
+        "Batı"
+      ],
+      "businessContext": "Güneş ışınımı faktörü yöne göre değişir. Kaynak: ASHRAE."
+    },
+    {
+      "id": "yalitimSeviyesi",
+      "label": "Yalıtım Seviyesi",
+      "type": "select",
+      "unit": "",
+      "default": "Orta",
+      "min": null,
+      "max": null,
+      "options": [
+        "Zayıf",
+        "Orta",
+        "İyi"
+      ],
+      "businessContext": "Binanın yalıtım kalitesi. Zayıf: yüksek ısı transferi, İyi: düşük. Standart: TS 825 (Türkiye) veya ISO 6946."
+    },
+    {
+      "id": "cihazGucu",
+      "label": "Elektrikli Cihaz Gücü (W)",
+      "type": "number",
+      "unit": "W",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Odadaki bilgisayar, TV vb. cihazların toplam gücü. Kaynak: ASHRAE."
+    },
+    {
+      "id": "aydinlatmaGucu",
+      "label": "Aydınlatma Gücü (W)",
+      "type": "number",
+      "unit": "W",
+      "default": 200,
+      "min": 0,
+      "max": 5000,
+      "options": null,
+      "businessContext": "Aydınlatma armatürlerinin toplam gücü. Kaynak: ASHRAE."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni (0-1)",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirliği. 1: yüksek güven, 0: düşük. Premium özellikler için kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "odaHacmi >= 10",
+      "kisiSayisi >= 0",
+      "pencereAlani >= 0",
+      "cihazGucu >= 0",
+      "aydinlatmaGucu >= 0",
+      "dataConfidence >= 0 && dataConfidence <= 1"
+    ],
+    "thresholds": {
+      "toplamIsiYuku": "toplamIsiYuku > 5000 ? 'Yüksek ısı yükü, daha büyük kapasite gerekebilir' : ''",
+      "kisiSayisi": "kisiSayisi > 10 ? 'Kalabalık ortam, havalandırma ihtiyacı artar' : ''"
+    }
+  },
+  "formulas": {
+    "isiYukuKisi": "kisiSayisi * 150",
+    "isiYukuPencere": "pencereAlani * (pencereYonu === 'Güney' ? 200 : pencereYonu === 'Batı' ? 180 : pencereYonu === 'Doğu' ? 150 : 100)",
+    "isiYukuYalitim": "odaHacmi * (yalitimSeviyesi === 'Zayıf' ? 30 : yalitimSeviyesi === 'Orta' ? 20 : 10)",
+    "toplamIsiYuku": "isiYukuKisi + isiYukuPencere + isiYukuYalitim + cihazGucu + aydinlatmaGucu",
+    "btuIhtiyaci": "toplamIsiYuku * 3.412",
+    "oneriKapasite": "btuIhtiyaci * 1.2",
+    "dataConfidenceAdjusted": "oneriKapasite * dataConfidence"
+  },
+  "outputs": {
+    "primary": "oneriKapasite",
+    "breakdown": {
+      "isiYukuKisi": "isiYukuKisi",
+      "isiYukuPencere": "isiYukuPencere",
+      "isiYukuYalitim": "isiYukuYalitim",
+      "cihazGucu": "cihazGucu",
+      "aydinlatmaGucu": "aydinlatmaGucu",
+      "toplamIsiYuku": "toplamIsiYuku",
+      "btuIhtiyaci": "btuIhtiyaci"
+    },
+    "hiddenLossDrivers": [
+      "toplamIsiYuku > 5000 ? 'Yüksek ısı yükü' : ''",
+      "kisiSayisi > 10 ? 'Kalabalık ortam' : ''"
+    ],
+    "suggestedActions": [
+      "toplamIsiYuku > 5000 ? 'Daha yüksek kapasiteli klima seçin' : 'Standart kapasite yeterli'",
+      "yalitimSeviyesi === 'Zayıf' ? 'Yalıtımı iyileştirin' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

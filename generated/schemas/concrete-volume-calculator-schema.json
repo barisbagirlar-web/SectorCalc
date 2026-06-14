@@ -1,0 +1,142 @@
+{
+  "toolName": "concrete-volume-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Length of the concrete element (e.g., slab, beam). Based on structural engineering standards (ACI 318)."
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Width of the concrete element. ACI 318."
+    },
+    {
+      "id": "height",
+      "label": "Height (Thickness)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Height or thickness of the concrete element. ACI 318."
+    },
+    {
+      "id": "shape",
+      "label": "Shape",
+      "type": "select",
+      "unit": "",
+      "default": "rectangular",
+      "min": null,
+      "max": null,
+      "options": [
+        "rectangular",
+        "circular",
+        "custom"
+      ],
+      "businessContext": "Cross-sectional shape of the element. For circular, diameter is used; for custom, additional inputs may be needed."
+    },
+    {
+      "id": "diameter",
+      "label": "Diameter (if circular)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Diameter for circular cross-sections. ACI 318."
+    },
+    {
+      "id": "quantity",
+      "label": "Number of identical elements",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Count of identical concrete elements to calculate total volume."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Additional concrete allowance for waste, spillage, and over-excavation. Typical range 5-10% per ACI 304R."
+    },
+    {
+      "id": "unitCost",
+      "label": "Concrete unit cost",
+      "type": "number",
+      "unit": "USD/m³",
+      "default": 120,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Cost per cubic meter of concrete mix. Varies by region and mix design."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "If shape is 'circular', diameter must be > 0 and length, width, height must be 0.",
+      "If shape is 'rectangular', length, width, height must be > 0 and diameter must be 0.",
+      "If shape is 'custom', additional inputs may be required (not implemented).",
+      "length, width, height, diameter must be non-negative.",
+      "quantity must be integer >= 1.",
+      "wasteFactor must be between 0 and 50.",
+      "unitCost must be > 0."
+    ],
+    "thresholds": {
+      "wasteFactor > 10": "Warning: High waste factor may indicate inefficiency.",
+      "unitCost > 200": "Warning: Concrete cost is above typical market range."
+    }
+  },
+  "formulas": {
+    "netVolume": "shape === 'rectangular' ? length * width * height : shape === 'circular' ? Math.PI * (diameter/2)**2 * height : 0",
+    "totalVolume": "netVolume * quantity * (1 + wasteFactor/100)",
+    "totalCost": "totalVolume * unitCost"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "netVolume": "netVolume",
+      "totalVolume": "totalVolume",
+      "totalCost": "totalCost"
+    },
+    "hiddenLossDrivers": [
+      "wasteFactor > 10 ? 'High waste factor increases cost' : ''",
+      "unitCost > 200 ? 'High unit cost' : ''"
+    ],
+    "suggestedActions": [
+      "wasteFactor > 10 ? 'Review concrete placement procedures to reduce waste.' : ''",
+      "unitCost > 200 ? 'Consider alternative suppliers or mix designs.' : ''"
+    ],
+    "dataConfidenceAdjusted": "totalCost"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with benchmarks",
+    "Detailed report with cost breakdown"
+  ],
+  "premiumRequired": true
+}

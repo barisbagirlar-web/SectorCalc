@@ -1,0 +1,123 @@
+{
+  "toolName": "energy-consumption-check",
+  "inputs": [
+    {
+      "id": "energyConsumed",
+      "label": "Energy Consumed",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total energy consumed in kilowatt-hours over the measurement period. Based on ISO 50001 energy management standard."
+    },
+    {
+      "id": "productionOutput",
+      "label": "Production Output",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Total units produced in the same period. Used to calculate energy intensity per unit."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total operating hours of the facility or equipment during the measurement period."
+    },
+    {
+      "id": "energyCostPerKwh",
+      "label": "Energy Cost per kWh",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.12,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average cost of energy per kilowatt-hour. Used to calculate total energy cost."
+    },
+    {
+      "id": "baselineEnergyIntensity",
+      "label": "Baseline Energy Intensity",
+      "type": "number",
+      "unit": "kWh/unit",
+      "default": 0.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Industry benchmark or historical baseline energy intensity for comparison. Based on ISO 50001 energy performance indicators."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence in the accuracy of input data. Affects adjustment of results. Low confidence reduces reliability."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "energyConsumed >= 0",
+      "productionOutput >= 1",
+      "operatingHours >= 0",
+      "energyCostPerKwh >= 0",
+      "baselineEnergyIntensity >= 0",
+      "dataConfidence in ['low','medium','high']"
+    ],
+    "thresholds": {
+      "energyIntensityRatio": {
+        "warning": 1.1,
+        "critical": 1.2
+      }
+    }
+  },
+  "formulas": {
+    "energyIntensity": "energyConsumed / productionOutput",
+    "energyCost": "energyConsumed * energyCostPerKwh",
+    "energyIntensityRatio": "energyIntensity / baselineEnergyIntensity",
+    "energyCostPerUnit": "energyCost / productionOutput",
+    "dataConfidenceFactor": "dataConfidence == 'high' ? 1.0 : (dataConfidence == 'medium' ? 0.9 : 0.8)",
+    "adjustedEnergyIntensity": "energyIntensity * dataConfidenceFactor"
+  },
+  "outputs": {
+    "primary": "energyIntensityRatio",
+    "breakdown": {
+      "energyIntensity": "energyIntensity",
+      "energyCost": "energyCost",
+      "energyCostPerUnit": "energyCostPerUnit",
+      "baselineEnergyIntensity": "baselineEnergyIntensity"
+    },
+    "hiddenLossDrivers": [
+      "energyIntensityRatio > 1.2 ? 'Critical: Energy intensity exceeds baseline by more than 20%' : (energyIntensityRatio > 1.1 ? 'Warning: Energy intensity exceeds baseline by more than 10%' : '')"
+    ],
+    "suggestedActions": [
+      "energyIntensityRatio > 1.2 ? 'Conduct energy audit and implement efficiency measures' : (energyIntensityRatio > 1.1 ? 'Review operational practices for energy savings' : 'Maintain current energy performance')"
+    ],
+    "dataConfidenceAdjusted": "adjustedEnergyIntensity"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Comparison with historical data",
+    "Detailed report with breakdowns"
+  ],
+  "premiumRequired": true
+}

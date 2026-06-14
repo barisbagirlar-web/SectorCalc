@@ -1,0 +1,210 @@
+{
+  "toolName": "soguk-oda-sogutma-yuku-hesabi",
+  "inputs": [
+    {
+      "id": "odaHacmi",
+      "label": "Oda Hacmi",
+      "type": "number",
+      "unit": "m³",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Soğuk oda boyutlarına bağlı olarak soğutma yükünü belirlemek için temel parametre. Kaynak: ASHRAE Fundamentals."
+    },
+    {
+      "id": "disSicaklik",
+      "label": "Dış Ortam Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 35,
+      "min": -20,
+      "max": 50,
+      "options": null,
+      "businessContext": "Dış ortam sıcaklığı, ısı kazancını etkiler. Kaynak: ASHRAE."
+    },
+    {
+      "id": "odaSicakligi",
+      "label": "Oda İç Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 4,
+      "min": -30,
+      "max": 20,
+      "options": null,
+      "businessContext": "Soğuk oda hedef sıcaklığı. Kaynak: ASHRAE."
+    },
+    {
+      "id": "yalitimKatsayisi",
+      "label": "Yalıtım Katsayısı (U)",
+      "type": "number",
+      "unit": "W/m²K",
+      "default": 0.3,
+      "min": 0.1,
+      "max": 2,
+      "options": null,
+      "businessContext": "Yalıtım malzemesinin ısı transfer katsayısı. Kaynak: ASHRAE."
+    },
+    {
+      "id": "duvarAlani",
+      "label": "Toplam Duvar Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 200,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Isı transferine maruz kalan duvar yüzey alanı. Kaynak: ASHRAE."
+    },
+    {
+      "id": "urunGirisSicakligi",
+      "label": "Ürün Giriş Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "min": -20,
+      "max": 50,
+      "options": null,
+      "businessContext": "Soğuk odaya giren ürünlerin başlangıç sıcaklığı. Kaynak: ASHRAE."
+    },
+    {
+      "id": "urunMiktari",
+      "label": "Günlük Ürün Miktarı",
+      "type": "number",
+      "unit": "kg/gün",
+      "default": 1000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Günlük işlenen ürün miktarı. Kaynak: ASHRAE."
+    },
+    {
+      "id": "urunOzgulIsisi",
+      "label": "Ürün Özgül Isısı",
+      "type": "number",
+      "unit": "kJ/kgK",
+      "default": 3.5,
+      "min": 0.5,
+      "max": 5,
+      "options": null,
+      "businessContext": "Ürünün ısı kapasitesi. Kaynak: ASHRAE."
+    },
+    {
+      "id": "kapiAcmaSayisi",
+      "label": "Günlük Kapı Açma Sayısı",
+      "type": "number",
+      "unit": "adet/gün",
+      "default": 50,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "Kapı açma sıklığı, hava sızıntısı yükünü etkiler. Kaynak: ASHRAE."
+    },
+    {
+      "id": "kapiBoyutu",
+      "label": "Kapı Boyutu",
+      "type": "number",
+      "unit": "m²",
+      "default": 2.5,
+      "min": 0.5,
+      "max": 10,
+      "options": null,
+      "businessContext": "Kapı alanı, hava değişimini etkiler. Kaynak: ASHRAE."
+    },
+    {
+      "id": "kisiSayisi",
+      "label": "Çalışan Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 2,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Oda içinde çalışan personel sayısı, insan kaynaklı ısı yükü. Kaynak: ASHRAE."
+    },
+    {
+      "id": "aydinlatmaGucu",
+      "label": "Aydınlatma Gücü",
+      "type": "number",
+      "unit": "W",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Aydınlatma armatürlerinin toplam gücü. Kaynak: ASHRAE."
+    },
+    {
+      "id": "ekipmanGucu",
+      "label": "Ekipman Gücü",
+      "type": "number",
+      "unit": "W",
+      "default": 1000,
+      "min": 0,
+      "max": 50000,
+      "options": null,
+      "businessContext": "Fan, motor vb. ekipmanların toplam gücü. Kaynak: ASHRAE."
+    },
+    {
+      "id": "calismaSuresi",
+      "label": "Günlük Çalışma Süresi",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 16,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Soğutma sisteminin günlük çalışma süresi. Kaynak: ASHRAE."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "odaSicakligi < disSicaklik",
+      "odaHacmi > 0",
+      "yalitimKatsayisi > 0",
+      "urunMiktari >= 0",
+      "kapiAcmaSayisi >= 0",
+      "kisiSayisi >= 0",
+      "calismaSuresi > 0"
+    ],
+    "thresholds": {
+      "toplamSogutmaYuku": "> 50000 -> 'Yüksek soğutma yükü, sistem kapasitesini kontrol edin'"
+    }
+  },
+  "formulas": {
+    "duvarIsiKazanci": "duvarAlani * yalitimKatsayisi * (disSicaklik - odaSicakligi) * 24 * 3600 / 1000",
+    "urunIsiYuku": "urunMiktari * urunOzgulIsisi * (urunGirisSicakligi - odaSicakligi)",
+    "havaSizintisiYuku": "kapiAcmaSayisi * kapiBoyutu * 0.5 * (disSicaklik - odaSicakligi) * 1.2 * 1005 * 24 * 3600 / 1000",
+    "insanIsiYuku": "kisiSayisi * 150 * calismaSuresi * 3600 / 1000",
+    "aydinlatmaIsiYuku": "aydinlatmaGucu * calismaSuresi * 3600 / 1000",
+    "ekipmanIsiYuku": "ekipmanGucu * calismaSuresi * 3600 / 1000",
+    "toplamSogutmaYuku": "duvarIsiKazanci + urunIsiYuku + havaSizintisiYuku + insanIsiYuku + aydinlatmaIsiYuku + ekipmanIsiYuku"
+  },
+  "outputs": {
+    "primary": "toplamSogutmaYuku",
+    "breakdown": {
+      "duvarIsiKazanci": "duvarIsiKazanci",
+      "urunIsiYuku": "urunIsiYuku",
+      "havaSizintisiYuku": "havaSizintisiYuku",
+      "insanIsiYuku": "insanIsiYuku",
+      "aydinlatmaIsiYuku": "aydinlatmaIsiYuku",
+      "ekipmanIsiYuku": "ekipmanIsiYuku"
+    },
+    "hiddenLossDrivers": [
+      "toplamSogutmaYuku > 50000 ? 'Yüksek soğutma yükü' : ''"
+    ],
+    "suggestedActions": [
+      "Yalıtım iyileştirilmesi",
+      "Kapı açma sayısının azaltılması",
+      "Enerji verimli ekipman kullanımı"
+    ],
+    "dataConfidenceAdjusted": "toplamSogutmaYuku * 1.1"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analizi",
+    "Karşılaştırma",
+    "Detaylı Rapor"
+  ],
+  "premiumRequired": true
+}

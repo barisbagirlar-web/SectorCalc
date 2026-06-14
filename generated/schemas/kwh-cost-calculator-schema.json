@@ -1,0 +1,133 @@
+{
+  "toolName": "kwh-cost-calculator",
+  "inputs": [
+    {
+      "id": "powerConsumption",
+      "label": "Power Consumption",
+      "type": "number",
+      "unit": "kW",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average power consumption of equipment in kilowatts. Based on ISO 50001 energy management standards."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total operating hours per billing period. Typically monthly or annually."
+    },
+    {
+      "id": "electricityRate",
+      "label": "Electricity Rate",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost per kilowatt-hour from utility bill. Varies by region and tariff."
+    },
+    {
+      "id": "demandCharge",
+      "label": "Demand Charge",
+      "type": "number",
+      "unit": "$/kW",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Peak demand charge per kW. Common in industrial tariffs."
+    },
+    {
+      "id": "peakDemand",
+      "label": "Peak Demand",
+      "type": "number",
+      "unit": "kW",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Maximum power demand during billing period. Used for demand charge calculation."
+    },
+    {
+      "id": "timePeriod",
+      "label": "Time Period",
+      "type": "select",
+      "unit": "",
+      "default": "monthly",
+      "min": null,
+      "max": null,
+      "options": [
+        "daily",
+        "weekly",
+        "monthly",
+        "annually"
+      ],
+      "businessContext": "Billing period for cost calculation. Common in utility billing cycles."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data. Used for risk-adjusted cost estimates."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "powerConsumption >= 0",
+      "operatingHours >= 0",
+      "electricityRate >= 0",
+      "demandCharge >= 0",
+      "peakDemand >= 0",
+      "dataConfidence >= 0 and dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "electricityRate > 0.15": "High electricity rate alert",
+      "peakDemand > 1000": "High peak demand alert",
+      "dataConfidence < 80": "Low data confidence warning"
+    }
+  },
+  "formulas": {
+    "energyCost": "powerConsumption * operatingHours * electricityRate",
+    "demandCost": "peakDemand * demandCharge",
+    "totalCost": "energyCost + demandCost",
+    "adjustedTotalCost": "totalCost * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "energyCost": "energyCost",
+      "demandCost": "demandCost"
+    },
+    "hiddenLossDrivers": [
+      "electricityRate > 0.15 ? 'High electricity rate' : ''",
+      "peakDemand > 1000 ? 'High peak demand' : ''"
+    ],
+    "suggestedActions": [
+      "Reduce power consumption by upgrading to energy-efficient equipment",
+      "Shift operations to off-peak hours to lower demand charges",
+      "Negotiate lower electricity rates with supplier"
+    ],
+    "dataConfidenceAdjusted": "adjustedTotalCost"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Comparison with benchmarks",
+    "Detailed report with breakdown"
+  ],
+  "premiumRequired": true
+}

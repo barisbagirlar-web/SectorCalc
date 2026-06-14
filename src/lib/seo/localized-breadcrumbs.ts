@@ -1,7 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import { buildBreadcrumbJsonLd, type BreadcrumbItem } from "@/lib/seo/schema-mesh";
 
-export type SchemaBreadcrumbKey = "home" | "freeTools" | "premiumTools" | "industries";
+export type SchemaBreadcrumbKey =
+  | "home"
+  | "freeTools"
+  | "premiumTools"
+  | "industries"
+  | "generatedTools";
 
 type LocalizedBreadcrumbInput =
   | { readonly key: SchemaBreadcrumbKey; readonly path: string }

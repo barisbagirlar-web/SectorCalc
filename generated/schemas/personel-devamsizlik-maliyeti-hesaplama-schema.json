@@ -1,0 +1,150 @@
+{
+  "toolName": "personel-devamsizlik-maliyeti-hesaplama",
+  "inputs": [
+    {
+      "id": "totalEmployees",
+      "label": "Toplam Çalışan Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Toplam çalışan sayısı, devamsızlık maliyetinin hesaplanmasında temel birimdir. ISO 9001:2015 kalite yönetim sistemi kapsamında insan kaynağı verisi olarak kullanılır."
+    },
+    {
+      "id": "absenceRate",
+      "label": "Devamsızlık Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Yıllık devamsızlık oranı (planlı ve plansız). Lean üretimde OEE hesaplamalarında kullanılan bir metriktir. Kaynak: APICS Dictionary."
+    },
+    {
+      "id": "averageDailyWage",
+      "label": "Ortalama Günlük Ücret",
+      "type": "number",
+      "unit": "TL/gün",
+      "default": 300,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Çalışan başına ortalama günlük brüt ücret. İşgücü maliyeti hesaplamalarında kullanılır. Kaynak: Türkiye İstatistik Kurumu (TÜİK) işgücü maliyeti istatistikleri."
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Yıllık Çalışma Günü Sayısı",
+      "type": "number",
+      "unit": "gün/yıl",
+      "default": 260,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Yıllık fiili çalışma günü sayısı (resmi tatiller ve hafta sonları hariç). İş Kanunu ve 4857 sayılı İş Kanunu'na göre belirlenir."
+    },
+    {
+      "id": "overtimeCostMultiplier",
+      "label": "Fazla Mesai Maliyet Çarpanı",
+      "type": "number",
+      "unit": "kat",
+      "default": 1.5,
+      "min": 1,
+      "max": 3,
+      "options": null,
+      "businessContext": "Devamsızlık nedeniyle yapılan fazla mesainin saatlik ücrete göre çarpanı. İş Kanunu'na göre fazla mesai ücreti normal ücretin %50 fazlasıdır (1.5 kat)."
+    },
+    {
+      "id": "replacementCostPerDay",
+      "label": "Günlük Yedek İşgücü Maliyeti",
+      "type": "number",
+      "unit": "TL/gün",
+      "default": 200,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Devamsız çalışanın yerine geçici işçi veya fazla mesai ile işin yapılması durumunda oluşan ek maliyet. Kaynak: Endüstri mühendisliği işgücü planlaması."
+    },
+    {
+      "id": "productivityLossPercent",
+      "label": "Verimlilik Kaybı Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Devamsızlık nedeniyle ekip verimliliğindeki düşüş oranı. Lean üretimde kayıp analizi için kullanılır. Kaynak: Maynard Endüstri Mühendisliği El Kitabı."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güvenilirliği",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Düşük güvenilirlikte sonuçlar daha muhafazakar hesaplanır. Risk yönetimi prensiplerine dayanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "absenceRate >= 0 AND absenceRate <= 100",
+      "averageDailyWage > 0",
+      "workingDaysPerYear >= 1 AND workingDaysPerYear <= 365",
+      "overtimeCostMultiplier >= 1 AND overtimeCostMultiplier <= 3",
+      "replacementCostPerDay >= 0",
+      "productivityLossPercent >= 0 AND productivityLossPercent <= 100",
+      "totalEmployees >= 1"
+    ],
+    "thresholds": {
+      "absenceRate": "absenceRate > 10 ? 'Kritik: Devamsızlık oranı sektör ortalamasının üzerinde (genelde %5-10).' : absenceRate > 5 ? 'Uyarı: Devamsızlık oranı yüksek.' : ''",
+      "productivityLossPercent": "productivityLossPercent > 30 ? 'Kritik: Verimlilik kaybı çok yüksek.' : productivityLossPercent > 15 ? 'Uyarı: Verimlilik kaybı önemli.' : ''"
+    }
+  },
+  "formulas": {
+    "totalAbsenceDays": "totalEmployees * (absenceRate / 100) * workingDaysPerYear",
+    "directWageCost": "totalAbsenceDays * averageDailyWage",
+    "replacementCost": "totalAbsenceDays * replacementCostPerDay",
+    "overtimeCost": "totalAbsenceDays * averageDailyWage * (overtimeCostMultiplier - 1)",
+    "productivityLossCost": "totalAbsenceDays * averageDailyWage * (productivityLossPercent / 100)",
+    "totalCost": "directWageCost + replacementCost + overtimeCost + productivityLossCost",
+    "costPerEmployee": "totalCost / totalEmployees",
+    "dataConfidenceAdjusted": "dataConfidence == 'low' ? totalCost * 1.2 : dataConfidence == 'medium' ? totalCost * 1.0 : totalCost * 0.9"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "directWageCost": "directWageCost",
+      "replacementCost": "replacementCost",
+      "overtimeCost": "overtimeCost",
+      "productivityLossCost": "productivityLossCost",
+      "costPerEmployee": "costPerEmployee"
+    },
+    "hiddenLossDrivers": [
+      "absenceRate > 10 ? 'Yüksek devamsızlık oranı' : ''",
+      "productivityLossPercent > 30 ? 'Yüksek verimlilik kaybı' : ''"
+    ],
+    "suggestedActions": [
+      "Devamsızlık nedenlerini analiz etmek için kök neden analizi yapın.",
+      "Esnek çalışma saatleri veya uzaktan çalışma seçeneklerini değerlendirin.",
+      "Çalışan bağlılığını artırmak için motivasyon programları uygulayın.",
+      "Yedek işgücü planlamasını optimize edin."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (zaman serisi)",
+    "Sektör karşılaştırması",
+    "Detaylı rapor (breakdown grafikleri)"
+  ],
+  "premiumRequired": true
+}

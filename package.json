@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' node scripts/next-build-with-500-fallback.mjs",
     "vercel-build": "npm run test:generated && next build",
     "postbuild": "node scripts/ensure-500-export.mjs",
     "start": "next start",
@@ -226,6 +226,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "esbuild": "^0.19.2",
     "eslint": "^9",
     "eslint-config-next": "^15.1.0",
     "fast-check": "^4.8.0",

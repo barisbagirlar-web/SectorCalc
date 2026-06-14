@@ -1,0 +1,478 @@
+{
+  "toolName": "ratio-calculator",
+  "inputs": [
+    {
+      "id": "currentAssets",
+      "label": "Current Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total current assets from balance sheet. Standard financial ratio input."
+    },
+    {
+      "id": "currentLiabilities",
+      "label": "Current Liabilities",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total current liabilities from balance sheet. Standard financial ratio input."
+    },
+    {
+      "id": "inventory",
+      "label": "Inventory",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Inventory value from balance sheet. Used for quick ratio."
+    },
+    {
+      "id": "totalDebt",
+      "label": "Total Debt",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total debt (short-term + long-term) from balance sheet."
+    },
+    {
+      "id": "totalEquity",
+      "label": "Total Equity",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total shareholders' equity from balance sheet."
+    },
+    {
+      "id": "netIncome",
+      "label": "Net Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Net profit from income statement."
+    },
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total revenue from income statement."
+    },
+    {
+      "id": "costOfGoodsSold",
+      "label": "Cost of Goods Sold",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "COGS from income statement."
+    },
+    {
+      "id": "averageInventory",
+      "label": "Average Inventory",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average inventory over period (beginning + ending)/2."
+    },
+    {
+      "id": "accountsReceivable",
+      "label": "Accounts Receivable",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total accounts receivable from balance sheet."
+    },
+    {
+      "id": "accountsPayable",
+      "label": "Accounts Payable",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total accounts payable from balance sheet."
+    },
+    {
+      "id": "operatingExpenses",
+      "label": "Operating Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total operating expenses from income statement."
+    },
+    {
+      "id": "interestExpense",
+      "label": "Interest Expense",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Interest expense from income statement."
+    },
+    {
+      "id": "taxExpense",
+      "label": "Tax Expense",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Tax expense from income statement."
+    },
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Earnings before interest, taxes, depreciation, amortization."
+    },
+    {
+      "id": "totalAssets",
+      "label": "Total Assets",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total assets from balance sheet."
+    },
+    {
+      "id": "operatingCashFlow",
+      "label": "Operating Cash Flow",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Cash flow from operations."
+    },
+    {
+      "id": "freeCashFlow",
+      "label": "Free Cash Flow",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Free cash flow (operating CF - capex)."
+    },
+    {
+      "id": "marketPricePerShare",
+      "label": "Market Price Per Share",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Current stock price."
+    },
+    {
+      "id": "earningsPerShare",
+      "label": "Earnings Per Share",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Net income / shares outstanding."
+    },
+    {
+      "id": "bookValuePerShare",
+      "label": "Book Value Per Share",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total equity / shares outstanding."
+    },
+    {
+      "id": "dividendPerShare",
+      "label": "Dividend Per Share",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Annual dividend per share."
+    },
+    {
+      "id": "sharesOutstanding",
+      "label": "Shares Outstanding",
+      "type": "number",
+      "unit": "count",
+      "default": 1,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of outstanding shares."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "User's confidence in input data quality. Adjusts output reliability."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "currentAssets >= 0",
+      "currentLiabilities >= 0",
+      "inventory >= 0",
+      "totalDebt >= 0",
+      "totalEquity > 0",
+      "revenue > 0",
+      "costOfGoodsSold >= 0",
+      "averageInventory >= 0",
+      "accountsReceivable >= 0",
+      "accountsPayable >= 0",
+      "operatingExpenses >= 0",
+      "interestExpense >= 0",
+      "taxExpense >= 0",
+      "totalAssets > 0",
+      "sharesOutstanding >= 1",
+      "marketPricePerShare >= 0",
+      "earningsPerShare != null",
+      "bookValuePerShare >= 0",
+      "dividendPerShare >= 0",
+      "If currentLiabilities > 0 then currentAssets must be provided",
+      "If inventory > currentAssets then warning: inventory exceeds current assets"
+    ],
+    "thresholds": {
+      "currentRatio": {
+        "low": 1,
+        "high": 2,
+        "criticalLow": 0.5,
+        "criticalHigh": 3
+      },
+      "quickRatio": {
+        "low": 0.5,
+        "high": 1,
+        "criticalLow": 0.25,
+        "criticalHigh": 2
+      },
+      "debtToEquity": {
+        "low": 0.5,
+        "high": 1.5,
+        "criticalLow": 0,
+        "criticalHigh": 2.5
+      },
+      "profitMargin": {
+        "low": 0.05,
+        "high": 0.2,
+        "criticalLow": 0,
+        "criticalHigh": 0.5
+      },
+      "returnOnEquity": {
+        "low": 0.1,
+        "high": 0.2,
+        "criticalLow": 0,
+        "criticalHigh": 0.4
+      },
+      "inventoryTurnover": {
+        "low": 4,
+        "high": 8,
+        "criticalLow": 2,
+        "criticalHigh": 12
+      },
+      "daysSalesOutstanding": {
+        "low": 30,
+        "high": 45,
+        "criticalLow": 15,
+        "criticalHigh": 60
+      },
+      "timesInterestEarned": {
+        "low": 2,
+        "high": 5,
+        "criticalLow": 1,
+        "criticalHigh": 10
+      },
+      "priceToEarnings": {
+        "low": 10,
+        "high": 20,
+        "criticalLow": 5,
+        "criticalHigh": 30
+      },
+      "priceToBook": {
+        "low": 1,
+        "high": 3,
+        "criticalLow": 0.5,
+        "criticalHigh": 5
+      },
+      "dividendYield": {
+        "low": 0.02,
+        "high": 0.05,
+        "criticalLow": 0,
+        "criticalHigh": 0.1
+      },
+      "operatingCashFlowRatio": {
+        "low": 0.5,
+        "high": 1,
+        "criticalLow": 0.25,
+        "criticalHigh": 2
+      },
+      "freeCashFlowYield": {
+        "low": 0.05,
+        "high": 0.1,
+        "criticalLow": 0,
+        "criticalHigh": 0.2
+      }
+    }
+  },
+  "formulas": {
+    "currentRatio": "currentAssets / currentLiabilities",
+    "quickRatio": "(currentAssets - inventory) / currentLiabilities",
+    "debtToEquity": "totalDebt / totalEquity",
+    "debtRatio": "totalDebt / totalAssets",
+    "equityRatio": "totalEquity / totalAssets",
+    "grossProfitMargin": "(revenue - costOfGoodsSold) / revenue",
+    "operatingProfitMargin": "(revenue - costOfGoodsSold - operatingExpenses) / revenue",
+    "netProfitMargin": "netIncome / revenue",
+    "returnOnAssets": "netIncome / totalAssets",
+    "returnOnEquity": "netIncome / totalEquity",
+    "returnOnInvestedCapital": "(netIncome + interestExpense * (1 - taxExpense / (netIncome + taxExpense))) / (totalDebt + totalEquity)",
+    "inventoryTurnover": "costOfGoodsSold / averageInventory",
+    "daysInventoryOutstanding": "365 / inventoryTurnover",
+    "accountsReceivableTurnover": "revenue / accountsReceivable",
+    "daysSalesOutstanding": "365 / accountsReceivableTurnover",
+    "accountsPayableTurnover": "costOfGoodsSold / accountsPayable",
+    "daysPayablesOutstanding": "365 / accountsPayableTurnover",
+    "cashConversionCycle": "daysInventoryOutstanding + daysSalesOutstanding - daysPayablesOutstanding",
+    "timesInterestEarned": "ebitda / interestExpense",
+    "fixedChargeCoverage": "(ebitda + fixedCharges) / (interestExpense + fixedCharges)",
+    "priceToEarnings": "marketPricePerShare / earningsPerShare",
+    "priceToBook": "marketPricePerShare / bookValuePerShare",
+    "dividendYield": "dividendPerShare / marketPricePerShare",
+    "dividendPayoutRatio": "dividendPerShare / earningsPerShare",
+    "operatingCashFlowRatio": "operatingCashFlow / currentLiabilities",
+    "freeCashFlowYield": "freeCashFlow / (marketPricePerShare * sharesOutstanding)",
+    "dataConfidenceAdjusted": "primary * (dataConfidence === 'high' ? 1.0 : dataConfidence === 'medium' ? 0.9 : 0.8)"
+  },
+  "outputs": {
+    "primary": "currentRatio",
+    "breakdown": {
+      "liquidityRatios": {
+        "currentRatio": "currentAssets / currentLiabilities",
+        "quickRatio": "(currentAssets - inventory) / currentLiabilities",
+        "cashRatio": "cashAndCashEquivalents / currentLiabilities"
+      },
+      "leverageRatios": {
+        "debtToEquity": "totalDebt / totalEquity",
+        "debtRatio": "totalDebt / totalAssets",
+        "equityRatio": "totalEquity / totalAssets"
+      },
+      "profitabilityRatios": {
+        "grossProfitMargin": "(revenue - costOfGoodsSold) / revenue",
+        "operatingProfitMargin": "(revenue - costOfGoodsSold - operatingExpenses) / revenue",
+        "netProfitMargin": "netIncome / revenue",
+        "returnOnAssets": "netIncome / totalAssets",
+        "returnOnEquity": "netIncome / totalEquity"
+      },
+      "efficiencyRatios": {
+        "inventoryTurnover": "costOfGoodsSold / averageInventory",
+        "daysInventoryOutstanding": "365 / inventoryTurnover",
+        "accountsReceivableTurnover": "revenue / accountsReceivable",
+        "daysSalesOutstanding": "365 / accountsReceivableTurnover",
+        "accountsPayableTurnover": "costOfGoodsSold / accountsPayable",
+        "daysPayablesOutstanding": "365 / accountsPayableTurnover",
+        "cashConversionCycle": "daysInventoryOutstanding + daysSalesOutstanding - daysPayablesOutstanding"
+      },
+      "coverageRatios": {
+        "timesInterestEarned": "ebitda / interestExpense",
+        "fixedChargeCoverage": "(ebitda + fixedCharges) / (interestExpense + fixedCharges)"
+      },
+      "marketValueRatios": {
+        "priceToEarnings": "marketPricePerShare / earningsPerShare",
+        "priceToBook": "marketPricePerShare / bookValuePerShare",
+        "dividendYield": "dividendPerShare / marketPricePerShare",
+        "dividendPayoutRatio": "dividendPerShare / earningsPerShare"
+      },
+      "cashFlowRatios": {
+        "operatingCashFlowRatio": "operatingCashFlow / currentLiabilities",
+        "freeCashFlowYield": "freeCashFlow / (marketPricePerShare * sharesOutstanding)"
+      }
+    },
+    "hiddenLossDrivers": [
+      "currentRatio < threshold.criticalLow ? 'Critical liquidity risk: current ratio too low' : ''",
+      "debtToEquity > threshold.criticalHigh ? 'Critical leverage risk: debt to equity too high' : ''",
+      "profitMargin < threshold.criticalLow ? 'Critical profitability risk: net profit margin negative' : ''",
+      "inventoryTurnover < threshold.criticalLow ? 'Critical efficiency risk: inventory turnover too low' : ''",
+      "daysSalesOutstanding > threshold.criticalHigh ? 'Critical collection risk: DSO too high' : ''",
+      "timesInterestEarned < threshold.criticalLow ? 'Critical coverage risk: times interest earned below 1' : ''"
+    ],
+    "suggestedActions": [
+      "currentRatio < 1.0 ? 'Improve liquidity by increasing current assets or reducing current liabilities' : ''",
+      "debtToEquity > 1.5 ? 'Reduce debt or increase equity to improve leverage' : ''",
+      "profitMargin < 0.05 ? 'Review pricing strategy and cost control to improve profitability' : ''",
+      "inventoryTurnover < 4 ? 'Implement inventory management techniques (e.g., JIT, ABC analysis)' : ''",
+      "daysSalesOutstanding > 45 ? 'Strengthen accounts receivable collection process' : ''",
+      "timesInterestEarned < 2 ? 'Restructure debt or improve operating income' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (historical comparison)",
+    "Benchmarking against industry averages",
+    "Detailed report with commentary",
+    "Scenario analysis (what-if)"
+  ],
+  "premiumRequired": true
+}

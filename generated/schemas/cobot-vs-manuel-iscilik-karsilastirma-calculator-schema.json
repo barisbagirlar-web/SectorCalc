@@ -1,0 +1,214 @@
+{
+  "toolName": "cobot-vs-manuel-iscilik-karsilastirma-calculator",
+  "inputs": [
+    {
+      "id": "annualOperatingHours",
+      "label": "Yıllık Çalışma Saati",
+      "type": "number",
+      "unit": "saat/yıl",
+      "default": 2000,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Yıllık toplam çalışma saati, vardiya düzenine göre belirlenir. ISO 9001 süreç yönetimi kapsamında standart çalışma süresi."
+    },
+    {
+      "id": "manualLaborCostPerHour",
+      "label": "Manuel İşçilik Saatlik Maliyeti",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "İşçilik maliyeti; brüt ücret, SGK işveren payı, yemek, yol gibi yan hakları içerir. Endüstri mühendisliğinde işçilik maliyet hesaplamaları."
+    },
+    {
+      "id": "cobotPurchaseCost",
+      "label": "Cobot Satın Alma Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 500000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cobot'un toplam satın alma fiyatı; ekipman, kurulum, yazılım lisansı dahil. Yatırım maliyeti olarak NPV hesaplamalarında kullanılır."
+    },
+    {
+      "id": "cobotMaintenanceCostPerYear",
+      "label": "Cobot Yıllık Bakım Maliyeti",
+      "type": "number",
+      "unit": "TL/yıl",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yıllık bakım, yedek parça ve servis maliyetleri. ISO 50001 enerji yönetimi ve ekipman bakım planlaması."
+    },
+    {
+      "id": "cobotEnergyCostPerHour",
+      "label": "Cobot Saatlik Enerji Maliyeti",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cobot'un çalışma saatindeki elektrik tüketimi maliyeti. Enerji verimliliği hesaplamaları."
+    },
+    {
+      "id": "cobotLifespanYears",
+      "label": "Cobot Ekonomik Ömrü",
+      "type": "number",
+      "unit": "yıl",
+      "default": 10,
+      "min": 1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Cobot'un faydalı ömrü; amortisman süresi olarak kullanılır. Muhasebe standartları ve yatırım değerleme."
+    },
+    {
+      "id": "discountRate",
+      "label": "İskonto Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Sermaye maliyeti veya alternatif yatırım getirisi. NPV hesaplamasında kullanılır. Finansal oranlar."
+    },
+    {
+      "id": "manualLaborProductivity",
+      "label": "Manuel İşçilik Verimliliği",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Manuel işçinin standart süreye göre performansı. Endüstri mühendisliğinde iş ölçümü ve verimlilik analizi."
+    },
+    {
+      "id": "cobotProductivity",
+      "label": "Cobot Verimliliği",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Cobot'un teorik kapasiteye göre çalışma verimi. OEE hesaplamaları."
+    },
+    {
+      "id": "defectRateManual",
+      "label": "Manuel Hata Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Manuel işçilikteki kusur oranı. Six Sigma kalite metrikleri."
+    },
+    {
+      "id": "defectRateCobot",
+      "label": "Cobot Hata Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Cobot ile üretimdeki kusur oranı. Poka-Yoke ve otomasyon kalitesi."
+    },
+    {
+      "id": "reworkCostPerDefect",
+      "label": "Hata Başına Yeniden İşleme Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Kusurlu ürünün düzeltilmesi için katlanılan maliyet. Kalite maliyetleri (COPQ)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar daha muhafazakar hesaplanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "manualLaborCostPerHour > 0",
+      "cobotPurchaseCost > 0",
+      "annualOperatingHours > 0",
+      "cobotLifespanYears >= 1",
+      "discountRate >= 0",
+      "manualLaborProductivity between 0 and 100",
+      "cobotProductivity between 0 and 100",
+      "defectRateManual between 0 and 100",
+      "defectRateCobot between 0 and 100"
+    ],
+    "thresholds": {
+      "defectRateManual > 10": "Yüksek manuel hata oranı, kalite iyileştirme gerekli.",
+      "defectRateCobot > 5": "Cobot hata oranı beklenenden yüksek, bakım/kalibrasyon önerilir.",
+      "manualLaborProductivity < 70": "Düşük manuel verimlilik, süreç iyileştirme önerilir.",
+      "cobotProductivity < 80": "Cobot verimliliği düşük, OEE analizi yapılmalı."
+    }
+  },
+  "formulas": {
+    "effectiveManualCostPerYear": "annualOperatingHours * manualLaborCostPerHour * (manualLaborProductivity / 100)",
+    "effectiveCobotCostPerYear": "annualOperatingHours * (cobotEnergyCostPerHour + (cobotMaintenanceCostPerYear / annualOperatingHours)) * (cobotProductivity / 100)",
+    "qualityCostManualPerYear": "annualOperatingHours * (defectRateManual / 100) * reworkCostPerDefect",
+    "qualityCostCobotPerYear": "annualOperatingHours * (defectRateCobot / 100) * reworkCostPerDefect",
+    "totalManualCostPerYear": "effectiveManualCostPerYear + qualityCostManualPerYear",
+    "totalCobotCostPerYear": "effectiveCobotCostPerYear + qualityCostCobotPerYear",
+    "annualSavings": "totalManualCostPerYear - totalCobotCostPerYear",
+    "npv": "cobotPurchaseCost + (annualSavings * ((1 - (1 + discountRate/100)^(-cobotLifespanYears)) / (discountRate/100)))",
+    "paybackPeriodYears": "cobotPurchaseCost / annualSavings",
+    "roi": "(annualSavings * cobotLifespanYears - cobotPurchaseCost) / cobotPurchaseCost * 100",
+    "dataConfidenceAdjusted": "dataConfidence == 'low' ? npv * 0.8 : (dataConfidence == 'medium' ? npv * 0.95 : npv)"
+  },
+  "outputs": {
+    "primary": "npv",
+    "breakdown": {
+      "annualSavings": "annualSavings",
+      "paybackPeriodYears": "paybackPeriodYears",
+      "roi": "roi",
+      "totalManualCostPerYear": "totalManualCostPerYear",
+      "totalCobotCostPerYear": "totalCobotCostPerYear"
+    },
+    "hiddenLossDrivers": [
+      "defectRateManual > 10 ? 'Yüksek manuel hata oranı' : ''",
+      "defectRateCobot > 5 ? 'Cobot hata oranı yüksek' : ''",
+      "manualLaborProductivity < 70 ? 'Düşük manuel verimlilik' : ''",
+      "cobotProductivity < 80 ? 'Düşük cobot verimliliği' : ''"
+    ],
+    "suggestedActions": [
+      "Manuel hata oranı yüksekse: Poka-Yoke uygulayın, eğitim verin.",
+      "Cobot hata oranı yüksekse: Bakım planını gözden geçirin, kalibrasyon yapın.",
+      "Manuel verimlilik düşükse: İş etüdü yapın, standart süreleri güncelleyin.",
+      "Cobot verimliliği düşükse: OEE analizi yapın, duruşları azaltın."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (yıllık karşılaştırma)",
+    "Detaylı maliyet kırılımı raporu"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,172 @@
+{
+  "toolName": "hafriyat-ve-dolgu-dengesi-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "excavationVolume",
+      "label": "Kazı Hacmi",
+      "type": "number",
+      "unit": "m³",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Proje sahasından çıkarılacak toplam toprak/kaya hacmi. İnşaat projelerinde temel girdi."
+    },
+    {
+      "id": "fillVolume",
+      "label": "Dolgu Hacmi",
+      "type": "number",
+      "unit": "m³",
+      "default": 800,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Proje için gerekli toplam dolgu malzemesi hacmi. Yol, baraj, bina temeli gibi yapılarda kullanılır."
+    },
+    {
+      "id": "soilType",
+      "label": "Zemin Türü",
+      "type": "select",
+      "unit": "",
+      "default": "kil",
+      "min": null,
+      "max": null,
+      "options": [
+        "kil",
+        "kum",
+        "kaya",
+        "balçık"
+      ],
+      "businessContext": "Zeminin şişme/kabarma katsayısını belirler. Farklı zemin tipleri farklı hacim değişim oranlarına sahiptir."
+    },
+    {
+      "id": "swellFactor",
+      "label": "Kabarma Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kazı sonrası toprağın hacim artış yüzdesi. Zemin türüne göre değişir; kil %20-30, kum %10-15, kaya %30-50."
+    },
+    {
+      "id": "compactionFactor",
+      "label": "Sıkıştırma Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Dolgu malzemesinin sıkıştırma sonrası hacim azalma yüzdesi. Genellikle %85-95 arası."
+    },
+    {
+      "id": "transportDistance",
+      "label": "Taşıma Mesafesi",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Kazı malzemesinin döküm sahasına veya dolgu malzemesinin şantiyeye taşınma mesafesi. Maliyet hesaplamalarında kritik."
+    },
+    {
+      "id": "unitCostExcavation",
+      "label": "Birim Kazı Maliyeti",
+      "type": "number",
+      "unit": "TL/m³",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Kazı işleminin metreküp başına maliyeti. İşçilik, ekipman ve yakıt giderlerini içerir."
+    },
+    {
+      "id": "unitCostFill",
+      "label": "Birim Dolgu Maliyeti",
+      "type": "number",
+      "unit": "TL/m³",
+      "default": 40,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Dolgu malzemesi temini ve sıkıştırma maliyeti. Malzeme, işçilik ve ekipman giderlerini içerir."
+    },
+    {
+      "id": "unitCostTransport",
+      "label": "Birim Taşıma Maliyeti",
+      "type": "number",
+      "unit": "TL/m³-km",
+      "default": 2,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Malzemenin km başına metreküp başına taşıma maliyeti. Yakıt, araç bakım ve işçilik giderlerini içerir."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirlik yüzdesi. Düşük güven, sonuçlarda belirsizlik yaratır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "excavationVolume > 0",
+      "fillVolume > 0",
+      "swellFactor >= 0 && swellFactor <= 100",
+      "compactionFactor >= 0 && compactionFactor <= 100",
+      "transportDistance >= 0",
+      "unitCostExcavation > 0",
+      "unitCostFill > 0",
+      "unitCostTransport > 0",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "netBalance": "netBalance < 0 ? 'Dolgu fazlası var, fazla malzeme atılacak' : netBalance > 0 ? 'Kazı fazlası var, fazla malzeme taşınacak' : 'Denge sağlanmış'",
+      "totalCost": "totalCost > 100000 ? 'Yüksek maliyet uyarısı' : ''"
+    }
+  },
+  "formulas": {
+    "excavatedSwollen": "excavationVolume * (1 + swellFactor / 100)",
+    "fillCompacted": "fillVolume / (compactionFactor / 100)",
+    "netBalance": "excavatedSwollen - fillCompacted",
+    "transportVolume": "Math.abs(netBalance)",
+    "totalCost": "excavationVolume * unitCostExcavation + fillVolume * unitCostFill + transportVolume * transportDistance * unitCostTransport",
+    "costPerM3": "totalCost / (excavationVolume + fillVolume)",
+    "dataConfidenceAdjusted": "totalCost * (1 + (100 - dataConfidence) / 100)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "excavationCost": "excavationVolume * unitCostExcavation",
+      "fillCost": "fillVolume * unitCostFill",
+      "transportCost": "transportVolume * transportDistance * unitCostTransport",
+      "netBalance": "netBalance",
+      "costPerM3": "costPerM3"
+    },
+    "hiddenLossDrivers": [
+      "netBalance < 0 ? 'Dolgu fazlası: fazla malzeme bertaraf maliyeti' : netBalance > 0 ? 'Kazı fazlası: fazla malzeme taşıma maliyeti' : ''"
+    ],
+    "suggestedActions": [
+      "netBalance > 0 ? 'Kazı fazlasını azaltmak için kazı planını gözden geçirin' : netBalance < 0 ? 'Dolgu ihtiyacını karşılamak için yerel malzeme kullanımını değerlendirin' : 'Denge sağlanmış, mevcut planı uygulayın'",
+      "totalCost > 100000 ? 'Maliyeti düşürmek için alternatif taşıma yöntemleri araştırın' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma modülü",
+    "Detaylı maliyet dökümü"
+  ],
+  "premiumRequired": true
+}

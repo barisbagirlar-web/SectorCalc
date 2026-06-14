@@ -1,0 +1,106 @@
+{
+  "toolName": "sogutma-sivisi-karisim-orani-antifriz-bor-yagi-hesaplama",
+  "inputs": [
+    {
+      "id": "coolantType",
+      "label": "Soğutma Sıvısı Türü",
+      "type": "select",
+      "unit": "",
+      "default": "antifriz",
+      "min": null,
+      "max": null,
+      "options": [
+        "antifriz",
+        "bor yağı"
+      ],
+      "businessContext": "Soğutma sıvısının tipi (antifriz veya bor yağı) karışım oranını etkiler. Antifriz genellikle etilen glikol bazlıdır, bor yağı ise yüksek sıcaklık uygulamalarında kullanılır."
+    },
+    {
+      "id": "desiredTemperature",
+      "label": "Hedef Sıcaklık",
+      "type": "number",
+      "unit": "°C",
+      "default": -20,
+      "min": -50,
+      "max": 0,
+      "businessContext": "Korunması istenen en düşük sıcaklık. ASTM D1177 standardına göre antifriz karışım oranı belirlenir."
+    },
+    {
+      "id": "systemVolume",
+      "label": "Sistem Hacmi",
+      "type": "number",
+      "unit": "L",
+      "default": 10,
+      "min": 1,
+      "max": 1000,
+      "businessContext": "Soğutma sisteminin toplam hacmi. Karışım miktarını hesaplamak için kullanılır."
+    },
+    {
+      "id": "currentConcentration",
+      "label": "Mevcut Konsantrasyon",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Sistemdeki mevcut antifriz/bor yağı konsantrasyonu. Sıfır ise saf su varsayılır."
+    },
+    {
+      "id": "targetConcentration",
+      "label": "Hedef Konsantrasyon",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Hedeflenen antifriz/bor yağı konsantrasyonu. Genellikle -20°C için %50 önerilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "desiredTemperature must be between -50 and 0",
+      "systemVolume must be positive",
+      "currentConcentration must be between 0 and 100",
+      "targetConcentration must be between 0 and 100",
+      "if coolantType == 'antifriz' then targetConcentration <= 70 (aşırı konsantrasyon donma noktasını yükseltebilir)",
+      "if coolantType == 'bor yağı' then targetConcentration <= 100"
+    ],
+    "thresholds": {
+      "targetConcentration > 70": "Kritik: Antifriz konsantrasyonu %70'in üzerinde donma koruması azalır.",
+      "desiredTemperature < -40": "Uyarı: Çok düşük sıcaklık, özel soğutma sıvısı gerekebilir."
+    }
+  },
+  "formulas": {
+    "requiredAdditiveVolume": "systemVolume * (targetConcentration - currentConcentration) / (100 - currentConcentration)",
+    "waterVolume": "systemVolume - requiredAdditiveVolume",
+    "finalConcentration": "targetConcentration",
+    "freezingPoint": "if coolantType == 'antifriz' then -0.5 * targetConcentration else -0.3 * targetConcentration"
+  },
+  "outputs": {
+    "primary": "requiredAdditiveVolume",
+    "breakdown": {
+      "requiredAdditiveVolume": "Eklenmesi gereken saf antifriz/bor yağı hacmi (L)",
+      "waterVolume": "Eklenmesi gereken su hacmi (L)",
+      "finalConcentration": "Nihai konsantrasyon (%)",
+      "freezingPoint": "Tahmini donma noktası (°C)"
+    },
+    "hiddenLossDrivers": [
+      "targetConcentration > 70",
+      "desiredTemperature < -40"
+    ],
+    "suggestedActions": [
+      "Konsantrasyonu %70'in altında tutun",
+      "Düzenli olarak refraktometre ile konsantrasyonu kontrol edin",
+      "Sistem hacmini doğru ölçün"
+    ],
+    "dataConfidenceAdjusted": "requiredAdditiveVolume * (1 - 0.1)"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma modülü",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

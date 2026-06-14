@@ -263,17 +263,26 @@ function mapToolDefinitionInput(input: ToolInput, toolSlug: string, locale?: str
       ? "select"
       : "number";
 
+  const display = locale
+    ? resolveFreeToolFieldDisplay(toolSlug, input.id, locale, {
+        label: input.label,
+        placeholder: input.helperText ?? input.label,
+        helper: input.helperText,
+      })
+    : { label: input.label, placeholder: input.label, helper: input.helperText };
+
   return {
     key: input.id,
     canonicalKey: input.id,
-    label: input.label,
+    label: display.label,
     type,
     unit: inferInputUnit(input.id, input.unit),
     required: input.required ?? true,
     min: input.min,
     max: input.max,
     step: input.step,
-    helperText: input.helperText,
+    helperText: display.helper ?? input.helperText,
+    placeholder: display.placeholder,
     group: inferInputGroup(input.id, toolSlug),
     defaultValue: input.defaultValue,
     ...help,

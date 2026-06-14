@@ -1,0 +1,80 @@
+{
+  "toolName": "silindir-hacmi-hesaplama",
+  "inputs": [
+    {
+      "id": "cap",
+      "label": "Silindir Çapı (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Silindirin iç çapı. ISO 2768-1 standardına göre toleranslar dikkate alınır."
+    },
+    {
+      "id": "stroke",
+      "label": "Strok Uzunluğu (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Pistonun alt ölü nokta ile üst ölü nokta arasındaki mesafe. ISO 2768-1 standardına göre toleranslar dikkate alınır."
+    },
+    {
+      "id": "cylinderCount",
+      "label": "Silindir Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Motor veya sistemdeki toplam silindir sayısı. Genellikle 1-16 arası."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "cap > 0",
+      "stroke > 0",
+      "cylinderCount > 0",
+      "cap <= 10000",
+      "stroke <= 10000",
+      "cylinderCount <= 100"
+    ],
+    "thresholds": {
+      "cap": "cap > 500 ? 'Büyük çaplı silindir, özel işleme gerekebilir.' : ''",
+      "stroke": "stroke > 500 ? 'Uzun strok, burkulma riski artar.' : ''"
+    }
+  },
+  "formulas": {
+    "singleCylinderVolume_cm3": "((cap / 10) ** 2 * Math.PI * (stroke / 10)) / 4",
+    "totalVolume_cm3": "singleCylinderVolume_cm3 * cylinderCount",
+    "totalVolume_L": "totalVolume_cm3 / 1000"
+  },
+  "outputs": {
+    "primary": "totalVolume_L",
+    "breakdown": {
+      "singleCylinderVolume_cm3": "singleCylinderVolume_cm3",
+      "totalVolume_cm3": "totalVolume_cm3"
+    },
+    "hiddenLossDrivers": [
+      "cap > 500 ? 'Büyük çaplı silindir, özel işleme gerekebilir.' : ''",
+      "stroke > 500 ? 'Uzun strok, burkulma riski artar.' : ''"
+    ],
+    "suggestedActions": [
+      "cap > 500 ? 'Çapı düşürmeyi veya özel işleme planlamayı değerlendirin.' : ''",
+      "stroke > 500 ? 'Strok/çap oranını optimize edin.' : ''"
+    ],
+    "dataConfidenceAdjusted": "totalVolume_L"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

@@ -62,7 +62,18 @@ export function mapFieldKeyToQuantityType(fieldKey: string, dimension: string): 
   if (n.includes("percent") || n.includes("margin") || n.includes("rate")) return "percentage";
   if (n.includes("hour") || n.includes("time")) return "time";
   if (n.includes("weight") || n.includes("mass")) return "mass";
-  if (n.includes("length") || n.includes("width") || n.includes("height")) return "length";
+  if (
+    n.includes("length") ||
+    n.includes("width") ||
+    n.includes("height") ||
+    n.includes("depth") ||
+    n.includes("diameter") ||
+    n.includes("thickness")
+  ) {
+    return "length";
+  }
+  if (n.includes("area") || n.includes("alan")) return "area";
+  if (n.includes("volume") || n.includes("hacim")) return "volume";
   return null;
 }
 

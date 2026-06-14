@@ -1,0 +1,169 @@
+{
+  "toolName": "freight-cost-calculator",
+  "inputs": [
+    {
+      "id": "shipmentWeight",
+      "label": "Shipment Weight",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total weight of the shipment. Standard unit for freight cost calculation per ISO 9001 and industry practice."
+    },
+    {
+      "id": "distance",
+      "label": "Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Transportation distance. Key driver of fuel and time costs; used in cost-per-mile models."
+    },
+    {
+      "id": "mode",
+      "label": "Transport Mode",
+      "type": "select",
+      "unit": "",
+      "default": "truck",
+      "min": null,
+      "max": null,
+      "options": [
+        "truck",
+        "rail",
+        "air",
+        "ocean"
+      ],
+      "businessContext": "Mode of transport affects cost structure, speed, and capacity. Based on logistics industry standards (WERC)."
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "USD/L",
+      "default": 1.2,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Current fuel price per liter. Major variable cost component; sensitive to market fluctuations."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Hourly wage for drivers and handlers. Based on regional labor market data."
+    },
+    {
+      "id": "handlingCostPerKg",
+      "label": "Handling Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 0.1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost for loading/unloading and warehousing per kg. Derived from warehouse operations standards (WERC)."
+    },
+    {
+      "id": "insuranceRate",
+      "label": "Insurance Rate",
+      "type": "number",
+      "unit": "% of cargo value",
+      "default": 0.5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Insurance premium as percentage of cargo value. Standard risk management practice."
+    },
+    {
+      "id": "cargoValue",
+      "label": "Cargo Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Declared value of goods for insurance and customs. Required for insurance cost calculation."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data accuracy. Used to adjust final cost for uncertainty (e.g., ±10% range)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "shipmentWeight > 0",
+      "distance > 0",
+      "fuelPrice >= 0",
+      "laborRate >= 0",
+      "handlingCostPerKg >= 0",
+      "insuranceRate >= 0 and insuranceRate <= 100",
+      "cargoValue >= 0",
+      "dataConfidence >= 0 and dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "fuelPrice > 1.5": "Fuel price is high; consider fuel surcharge or alternative routes.",
+      "distance > 1000": "Long distance; consider intermodal or rail to reduce cost.",
+      "shipmentWeight > 20000": "Heavy shipment; verify weight limits and potential oversize charges."
+    }
+  },
+  "formulas": {
+    "baseFreightCost": "shipmentWeight * distance * (mode === 'truck' ? 0.0001 : mode === 'rail' ? 0.00005 : mode === 'air' ? 0.0005 : 0.00002)",
+    "fuelCost": "distance * (mode === 'truck' ? 0.3 : mode === 'rail' ? 0.1 : mode === 'air' ? 2.5 : 0.05) * fuelPrice",
+    "laborCost": "distance * (mode === 'truck' ? 0.02 : mode === 'rail' ? 0.005 : mode === 'air' ? 0.1 : 0.001) * laborRate",
+    "handlingCost": "shipmentWeight * handlingCostPerKg",
+    "insuranceCost": "cargoValue * (insuranceRate / 100)",
+    "totalFreightCost": "baseFreightCost + fuelCost + laborCost + handlingCost + insuranceCost",
+    "costPerKg": "totalFreightCost / shipmentWeight",
+    "costPerKm": "totalFreightCost / distance",
+    "dataConfidenceAdjusted": "totalFreightCost * (1 + (100 - dataConfidence) / 100)"
+  },
+  "outputs": {
+    "primary": "totalFreightCost",
+    "breakdown": {
+      "baseFreightCost": "baseFreightCost",
+      "fuelCost": "fuelCost",
+      "laborCost": "laborCost",
+      "handlingCost": "handlingCost",
+      "insuranceCost": "insuranceCost",
+      "costPerKg": "costPerKg",
+      "costPerKm": "costPerKm"
+    },
+    "hiddenLossDrivers": [
+      "fuelPrice > 1.5 ? 'High fuel cost' : ''",
+      "distance > 1000 ? 'Long distance inefficiency' : ''",
+      "shipmentWeight > 20000 ? 'Oversize risk' : ''"
+    ],
+    "suggestedActions": [
+      "Consider consolidating shipments to reduce cost per kg.",
+      "Evaluate alternative transport modes for long distances.",
+      "Negotiate fuel surcharge with carrier if fuel price is high.",
+      "Review insurance coverage to ensure appropriate rate."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Scenario Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

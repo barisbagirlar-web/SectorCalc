@@ -1,0 +1,133 @@
+{
+  "toolName": "lpg-benzin-tasarruf-karsilastirma",
+  "inputs": [
+    {
+      "id": "benzinFiyat",
+      "label": "Benzin Fiyatı (TL/Litre)",
+      "type": "number",
+      "unit": "TL/L",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Güncel benzin pompa fiyatı. EPDK verileri baz alınır."
+    },
+    {
+      "id": "lpgFiyat",
+      "label": "LPG Fiyatı (TL/Litre)",
+      "type": "number",
+      "unit": "TL/L",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Güncel LPG pompa fiyatı. EPDK verileri baz alınır."
+    },
+    {
+      "id": "benzinTuketim",
+      "label": "Benzin Tüketimi (L/100 km)",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 8,
+      "min": 0,
+      "max": 30,
+      "options": null,
+      "businessContext": "Aracın benzinle 100 km'de tükettiği litre. Araç teknik verisi."
+    },
+    {
+      "id": "lpgTuketim",
+      "label": "LPG Tüketimi (L/100 km)",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 10,
+      "min": 0,
+      "max": 40,
+      "options": null,
+      "businessContext": "Aracın LPG ile 100 km'de tükettiği litre. Genellikle benzinden %20-30 fazla."
+    },
+    {
+      "id": "yillikKm",
+      "label": "Yıllık Kullanım (km)",
+      "type": "number",
+      "unit": "km/yıl",
+      "default": 15000,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Aracın yıllık ortalama kilometresi. Sürüş alışkanlığına göre."
+    },
+    {
+      "id": "lpgDonusumMaliyeti",
+      "label": "LPG Dönüşüm Maliyeti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 5000,
+      "min": 0,
+      "max": 20000,
+      "options": null,
+      "businessContext": "LPG kiti montaj ücreti. Piyasa araştırması."
+    },
+    {
+      "id": "lpgBakimFarki",
+      "label": "Yıllık LPG Bakım Farkı (TL)",
+      "type": "number",
+      "unit": "TL/yıl",
+      "default": 500,
+      "min": 0,
+      "max": 5000,
+      "options": null,
+      "businessContext": "LPG'li araçların ek bakım maliyeti (subap, filtre vb.)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "benzinFiyat > 0",
+      "lpgFiyat > 0",
+      "benzinTuketim > 0",
+      "lpgTuketim > 0",
+      "yillikKm > 0",
+      "lpgDonusumMaliyeti >= 0",
+      "lpgBakimFarki >= 0"
+    ],
+    "thresholds": {
+      "tasarrufYuzde": "Eğer tasarrufYuzde < 0 ise LPG karlı değil",
+      "geriOdemeYili": "Eğer geriOdemeYili > 5 ise dönüşüm uzun vadede karlı olmayabilir"
+    }
+  },
+  "formulas": {
+    "benzinYillikMaliyet": "benzinFiyat * benzinTuketim / 100 * yillikKm",
+    "lpgYillikMaliyet": "lpgFiyat * lpgTuketim / 100 * yillikKm + lpgBakimFarki",
+    "yillikTasarruf": "benzinYillikMaliyet - lpgYillikMaliyet",
+    "tasarrufYuzde": "(yillikTasarruf / benzinYillikMaliyet) * 100",
+    "geriOdemeYili": "lpgDonusumMaliyeti / yillikTasarruf",
+    "besYillikTasarruf": "yillikTasarruf * 5 - lpgDonusumMaliyeti"
+  },
+  "outputs": {
+    "primary": "yillikTasarruf",
+    "breakdown": {
+      "benzinYillikMaliyet": "benzinYillikMaliyet",
+      "lpgYillikMaliyet": "lpgYillikMaliyet",
+      "tasarrufYuzde": "tasarrufYuzde",
+      "geriOdemeYili": "geriOdemeYili",
+      "besYillikTasarruf": "besYillikTasarruf"
+    },
+    "hiddenLossDrivers": [
+      "Eğer tasarrufYuzde < 0 ise 'LPG dönüşümü maliyet avantajı sağlamıyor'",
+      "Eğer geriOdemeYili > 5 ise 'Geri ödeme süresi çok uzun'"
+    ],
+    "suggestedActions": [
+      "Eğer yillikTasarruf > 0 ise 'LPG dönüşümü önerilir'",
+      "Eğer geriOdemeYili < 2 ise 'Kısa sürede amorti eder, dönüşümü değerlendirin'",
+      "Eğer tasarrufYuzde < 0 ise 'Benzin kullanmaya devam edin veya alternatif yakıtları değerlendirin'"
+    ],
+    "dataConfidenceAdjusted": "yillikTasarruf"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş verilerle)",
+    "Karşılaştırma (farklı araçlar/senaryolar)",
+    "Detaylı rapor (grafiklerle)"
+  ],
+  "premiumRequired": true
+}

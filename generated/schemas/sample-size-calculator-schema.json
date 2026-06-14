@@ -1,0 +1,114 @@
+{
+  "toolName": "sample-size-calculator",
+  "inputs": [
+    {
+      "id": "populationSize",
+      "label": "Population Size",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Total number of items or individuals in the population. Required for finite population correction. Based on statistical sampling standards (ISO 2859, ANSI/ASQ Z1.4)."
+    },
+    {
+      "id": "confidenceLevel",
+      "label": "Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "95%",
+      "min": null,
+      "max": null,
+      "options": [
+        "90%",
+        "95%",
+        "99%"
+      ],
+      "businessContext": "Desired probability that the sample accurately represents the population. Common choices: 90%, 95%, 99%. Based on Six Sigma and hypothesis testing standards."
+    },
+    {
+      "id": "marginOfError",
+      "label": "Margin of Error",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0.1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Maximum acceptable difference between sample statistic and population parameter. Typically 5% for general surveys. Based on survey methodology (Cochran, 1977)."
+    },
+    {
+      "id": "expectedProportion",
+      "label": "Expected Proportion",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Anticipated proportion of the population with the attribute of interest. Use 50% for maximum variability. Based on sample size formulas (Cochran, 1977)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence in the input data quality (e.g., from historical data). Adjusts final sample size upward if data confidence is low. Based on risk management practices."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "populationSize must be >= 1",
+      "confidenceLevel must be one of '90%', '95%', '99%'",
+      "marginOfError must be > 0 and <= 100",
+      "expectedProportion must be >= 0 and <= 100",
+      "dataConfidence must be >= 0 and <= 100",
+      "If populationSize < 30, warn: 'Small population size may require census.'"
+    ],
+    "thresholds": {
+      "marginOfError > 10": "WARNING: Margin of error >10% may yield unreliable results.",
+      "expectedProportion < 10 or expectedProportion > 90": "WARNING: Extreme proportion may require larger sample size.",
+      "dataConfidence < 80": "WARNING: Low data confidence; consider increasing sample size."
+    }
+  },
+  "formulas": {
+    "zScore": "confidenceLevel === '99%' ? 2.576 : (confidenceLevel === '95%' ? 1.96 : 1.645)",
+    "p": "expectedProportion / 100",
+    "q": "1 - p",
+    "e": "marginOfError / 100",
+    "n0": "(zScore * zScore * p * q) / (e * e)",
+    "n": "populationSize > 0 ? (n0 / (1 + (n0 - 1) / populationSize)) : n0",
+    "adjustedSampleSize": "Math.ceil(n * (100 / dataConfidence))"
+  },
+  "outputs": {
+    "primary": "adjustedSampleSize",
+    "breakdown": {
+      "zScore": "zScore",
+      "initialSampleSize": "n0",
+      "finitePopulationCorrection": "n",
+      "dataConfidenceFactor": "100 / dataConfidence"
+    },
+    "hiddenLossDrivers": [
+      "marginOfError > 10 ? 'High margin of error reduces precision' : null",
+      "dataConfidence < 80 ? 'Low data confidence inflates sample size' : null"
+    ],
+    "suggestedActions": [
+      "If marginOfError > 10, consider reducing margin of error to improve precision.",
+      "If expectedProportion is extreme, verify the estimate or use 50% for conservative sample size.",
+      "If dataConfidence < 80, improve data collection methods or increase sample size accordingly."
+    ],
+    "dataConfidenceAdjusted": "adjustedSampleSize"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over multiple surveys",
+    "Comparison of sample sizes for different scenarios",
+    "Detailed report with confidence intervals and power analysis"
+  ],
+  "premiumRequired": true
+}

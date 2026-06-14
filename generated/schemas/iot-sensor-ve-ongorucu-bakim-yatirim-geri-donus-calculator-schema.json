@@ -1,0 +1,177 @@
+{
+  "toolName": "iot-sensor-ve-ongorucu-bakim-yatirim-geri-donus-calculator",
+  "inputs": [
+    {
+      "id": "sensorCostPerUnit",
+      "label": "Sensor Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "min": 50,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Average cost of IoT sensor hardware including installation. Based on industry benchmarks from ARC Advisory Group."
+    },
+    {
+      "id": "numberOfSensors",
+      "label": "Number of Sensors",
+      "type": "number",
+      "unit": "units",
+      "default": 10,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Total sensors deployed for predictive maintenance. Typical range per facility."
+    },
+    {
+      "id": "annualMaintenanceCostTraditional",
+      "label": "Annual Maintenance Cost (Traditional)",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 100000,
+      "min": 1000,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Total annual maintenance cost before IoT implementation. Includes labor, parts, downtime. Source: ISO 14224."
+    },
+    {
+      "id": "maintenanceCostReductionPercent",
+      "label": "Maintenance Cost Reduction (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Expected reduction in maintenance costs due to predictive maintenance. Typical 15-30% based on McKinsey studies."
+    },
+    {
+      "id": "annualDowntimeHoursTraditional",
+      "label": "Annual Downtime Hours (Traditional)",
+      "type": "number",
+      "unit": "hours/year",
+      "default": 200,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Total unplanned downtime hours per year before IoT. Industry average from Reliable Plant."
+    },
+    {
+      "id": "downtimeReductionPercent",
+      "label": "Downtime Reduction (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 80,
+      "options": null,
+      "businessContext": "Expected reduction in downtime due to predictive maintenance. Typical 20-50%."
+    },
+    {
+      "id": "costPerDowntimeHour",
+      "label": "Cost per Downtime Hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 5000,
+      "min": 100,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Lost revenue or cost per hour of downtime. Varies by industry; manufacturing average ~$5k."
+    },
+    {
+      "id": "sensorLifespanYears",
+      "label": "Sensor Lifespan",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Expected useful life of IoT sensors. Typically 3-7 years."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 30,
+      "options": null,
+      "businessContext": "Weighted average cost of capital (WACC) for NPV calculation. Typical 8-12%."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence in input data accuracy. Low=0.8, Medium=0.9, High=1.0 adjustment factor."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "sensorCostPerUnit > 0",
+      "numberOfSensors > 0",
+      "annualMaintenanceCostTraditional > 0",
+      "maintenanceCostReductionPercent >= 0 && maintenanceCostReductionPercent <= 50",
+      "annualDowntimeHoursTraditional >= 0",
+      "downtimeReductionPercent >= 0 && downtimeReductionPercent <= 80",
+      "costPerDowntimeHour > 0",
+      "sensorLifespanYears > 0",
+      "discountRate >= 0 && discountRate <= 30"
+    ],
+    "thresholds": {
+      "maintenanceCostReductionPercent > 40": "High reduction may require significant process changes",
+      "downtimeReductionPercent > 60": "Aggressive target; verify feasibility",
+      "discountRate > 15": "High discount rate may undervalue long-term benefits"
+    }
+  },
+  "formulas": {
+    "totalSensorInvestment": "sensorCostPerUnit * numberOfSensors",
+    "annualMaintenanceSavings": "annualMaintenanceCostTraditional * (maintenanceCostReductionPercent / 100)",
+    "annualDowntimeSavings": "annualDowntimeHoursTraditional * (downtimeReductionPercent / 100) * costPerDowntimeHour",
+    "annualTotalSavings": "annualMaintenanceSavings + annualDowntimeSavings",
+    "netPresentValue": "-totalSensorInvestment + sum_{t=1}^{sensorLifespanYears} (annualTotalSavings / (1 + discountRate/100)^t)",
+    "paybackPeriodYears": "totalSensorInvestment / annualTotalSavings",
+    "returnOnInvestment": "(annualTotalSavings * sensorLifespanYears - totalSensorInvestment) / totalSensorInvestment * 100",
+    "dataConfidenceAdjustedNPV": "netPresentValue * (dataConfidence == 'low' ? 0.8 : dataConfidence == 'medium' ? 0.9 : 1.0)"
+  },
+  "outputs": {
+    "primary": "netPresentValue",
+    "breakdown": {
+      "totalSensorInvestment": "totalSensorInvestment",
+      "annualMaintenanceSavings": "annualMaintenanceSavings",
+      "annualDowntimeSavings": "annualDowntimeSavings",
+      "annualTotalSavings": "annualTotalSavings",
+      "paybackPeriodYears": "paybackPeriodYears",
+      "returnOnInvestment": "returnOnInvestment"
+    },
+    "hiddenLossDrivers": [
+      "if (maintenanceCostReductionPercent > 40) 'High maintenance reduction target may require process changes'",
+      "if (downtimeReductionPercent > 60) 'Aggressive downtime reduction target; verify feasibility'",
+      "if (discountRate > 15) 'High discount rate may undervalue long-term benefits'"
+    ],
+    "suggestedActions": [
+      "if (netPresentValue < 0) 'Consider reducing sensor cost or increasing savings targets'",
+      "if (paybackPeriodYears > sensorLifespanYears) 'Investment may not be recovered within sensor lifespan; reassess'",
+      "if (returnOnInvestment < 0) 'Project is not financially viable; explore alternative solutions'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedNPV"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Scenario Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

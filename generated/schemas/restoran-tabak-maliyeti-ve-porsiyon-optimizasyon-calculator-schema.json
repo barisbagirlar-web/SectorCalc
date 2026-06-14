@@ -1,0 +1,149 @@
+{
+  "toolName": "restoran-tabak-maliyeti-ve-porsiyon-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "ingredientCostPerKg",
+      "label": "İçerik Maliyeti (kg başına)",
+      "type": "number",
+      "unit": "TRY/kg",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Hammadde maliyeti, tabak maliyetinin ana bileşenidir. ISO 9001 kalite yönetimi kapsamında tedarikçi fiyatları dikkate alınır."
+    },
+    {
+      "id": "portionWeight",
+      "label": "Porsiyon Ağırlığı",
+      "type": "number",
+      "unit": "gram",
+      "default": 250,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Standart porsiyon büyüklüğü, menü mühendisliği prensiplerine göre belirlenir. Lean üretimde israfı önlemek için optimize edilir."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "İşçilik Maliyeti (saat başına)",
+      "type": "number",
+      "unit": "TRY/saat",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Mutfak personelinin saatlik ücreti. Endüstri mühendisliğinde iş ölçümü ve zaman etüdü ile belirlenir."
+    },
+    {
+      "id": "prepTimePerPortion",
+      "label": "Porsiyon Başına Hazırlık Süresi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Bir porsiyonun hazırlanması için geçen süre. Maynard'ın iş etüdü prensiplerine dayanır."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Genel Gider Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kira, elektrik, su gibi dolaylı maliyetlerin yüzdesi. Finansal analizde standart maliyet muhasebesi yöntemi."
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Üretim sırasında oluşan atık yüzdesi. Six Sigma'da israf azaltma hedefi."
+    },
+    {
+      "id": "desiredProfitMargin",
+      "label": "Hedef Kar Marjı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Restoranın hedeflediği kar oranı. Finansal oran analizinde kullanılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Risk yönetiminde kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "ingredientCostPerKg > 0",
+      "portionWeight > 0",
+      "laborCostPerHour > 0",
+      "prepTimePerPortion > 0",
+      "overheadRate >= 0",
+      "wastePercentage >= 0",
+      "desiredProfitMargin >= 0",
+      "dataConfidence between 0 and 100"
+    ],
+    "thresholds": {
+      "wastePercentage > 10": "Yüksek fire oranı, maliyetleri artırıyor. Süreç iyileştirme önerilir.",
+      "desiredProfitMargin > 50": "Hedef kar marjı çok yüksek, pazar koşullarını kontrol edin.",
+      "overheadRate > 50": "Genel giderler çok yüksek, maliyet düşürme aksiyonu alınmalı."
+    }
+  },
+  "formulas": {
+    "ingredientCostPerPortion": "ingredientCostPerKg * portionWeight / 1000",
+    "laborCostPerPortion": "laborCostPerHour * prepTimePerPortion / 60",
+    "totalCostPerPortion": "ingredientCostPerPortion + laborCostPerPortion + (ingredientCostPerPortion + laborCostPerPortion) * overheadRate / 100",
+    "costWithWaste": "totalCostPerPortion / (1 - wastePercentage / 100)",
+    "sellingPrice": "costWithWaste / (1 - desiredProfitMargin / 100)",
+    "profitPerPortion": "sellingPrice - costWithWaste",
+    "profitMarginActual": "profitPerPortion / sellingPrice * 100",
+    "dataConfidenceAdjusted": "sellingPrice * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "sellingPrice",
+    "breakdown": {
+      "ingredientCostPerPortion": "ingredientCostPerPortion",
+      "laborCostPerPortion": "laborCostPerPortion",
+      "overheadCostPerPortion": "totalCostPerPortion - ingredientCostPerPortion - laborCostPerPortion",
+      "totalCostPerPortion": "totalCostPerPortion",
+      "costWithWaste": "costWithWaste",
+      "profitPerPortion": "profitPerPortion",
+      "profitMarginActual": "profitMarginActual"
+    },
+    "hiddenLossDrivers": [
+      "wastePercentage > 10 ? 'Yüksek fire oranı' : ''",
+      "overheadRate > 50 ? 'Yüksek genel gider' : ''"
+    ],
+    "suggestedActions": [
+      "Fire oranını düşürmek için süreç iyileştirme (Lean) uygulayın.",
+      "Genel giderleri azaltmak için enerji verimliliği (ISO 50001) ve tedarikçi optimizasyonu yapın.",
+      "Porsiyon ağırlığını standartlaştırarak israfı azaltın."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırmalı senaryo analizi",
+    "Detaylı maliyet raporu"
+  ],
+  "premiumRequired": true
+}

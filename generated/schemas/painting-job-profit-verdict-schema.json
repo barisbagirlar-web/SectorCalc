@@ -1,0 +1,182 @@
+{
+  "toolName": "painting-job-profit-verdict",
+  "inputs": [
+    {
+      "id": "jobRevenue",
+      "label": "Job Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total revenue from the painting job, typically specified in contract. Based on standard job costing principles (Maynard Industrial Engineering Handbook)."
+    },
+    {
+      "id": "materialCost",
+      "label": "Material Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of paint, primer, and other materials. Includes waste factor. Referenced from construction estimating standards (RSMeans)."
+    },
+    {
+      "id": "laborHours",
+      "label": "Labor Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total direct labor hours for the job. Based on time studies or historical data (Lean/Six Sigma)."
+    },
+    {
+      "id": "hourlyRate",
+      "label": "Hourly Labor Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average hourly wage including burden. Industry benchmark from Bureau of Labor Statistics."
+    },
+    {
+      "id": "equipmentCost",
+      "label": "Equipment Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of renting or using painting equipment (sprayers, scaffolding). Based on equipment lifecycle cost (ISO 15663)."
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Indirect costs as percentage of direct costs. Typical range 10-20% for painting contractors (industry standard)."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of area requiring rework due to defects. Six Sigma target <1%. Based on quality standards (ISO 9001)."
+    },
+    {
+      "id": "reworkCostPerUnit",
+      "label": "Rework Cost per Unit Area",
+      "type": "number",
+      "unit": "USD/sqft",
+      "default": 0.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost to rework one square foot of defective paint. Includes labor and material. Industry average from painting contractors."
+    },
+    {
+      "id": "area",
+      "label": "Total Area Painted",
+      "type": "number",
+      "unit": "sqft",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total surface area to be painted. Key driver of job size. Standard unit in construction."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data accuracy. Affects final profit adjustment. Based on risk management (PMBOK)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "jobRevenue >= 0",
+      "materialCost >= 0",
+      "laborHours >= 0",
+      "hourlyRate > 0",
+      "equipmentCost >= 0",
+      "overheadPercent >= 0 and overheadPercent <= 100",
+      "defectRate >= 0 and defectRate <= 100",
+      "reworkCostPerUnit >= 0",
+      "area > 0",
+      "if defectRate > 0 then reworkCostPerUnit > 0"
+    ],
+    "thresholds": {
+      "defectRate": "defectRate > 5 -> 'High defect rate: consider process improvement'",
+      "profitMargin": "profitMargin < 10 -> 'Low profit margin: review costs or pricing'",
+      "overheadPercent": "overheadPercent > 20 -> 'Overhead above typical range: investigate indirect costs'"
+    }
+  },
+  "formulas": {
+    "directLaborCost": "laborHours * hourlyRate",
+    "directCost": "materialCost + directLaborCost + equipmentCost",
+    "overheadCost": "directCost * (overheadPercent / 100)",
+    "totalCostBeforeRework": "directCost + overheadCost",
+    "reworkCost": "area * (defectRate / 100) * reworkCostPerUnit",
+    "totalCost": "totalCostBeforeRework + reworkCost",
+    "profit": "jobRevenue - totalCost",
+    "profitMargin": "(profit / jobRevenue) * 100",
+    "dataConfidenceAdjustment": "dataConfidence == 'low' ? 0.9 : (dataConfidence == 'medium' ? 1.0 : 1.05)",
+    "adjustedProfit": "profit * dataConfidenceAdjustment"
+  },
+  "outputs": {
+    "primary": "profitMargin",
+    "breakdown": {
+      "directLaborCost": "directLaborCost",
+      "directCost": "directCost",
+      "overheadCost": "overheadCost",
+      "totalCostBeforeRework": "totalCostBeforeRework",
+      "reworkCost": "reworkCost",
+      "totalCost": "totalCost",
+      "profit": "profit",
+      "profitMargin": "profitMargin"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 5 ? 'High defect rate causing rework' : ''",
+      "overheadPercent > 20 ? 'Overhead above benchmark' : ''",
+      "profitMargin < 10 ? 'Low profit margin' : ''"
+    ],
+    "suggestedActions": [
+      "defectRate > 5 ? 'Implement quality control and training to reduce defects' : ''",
+      "overheadPercent > 20 ? 'Review overhead allocation and reduce indirect costs' : ''",
+      "profitMargin < 10 ? 'Negotiate higher price or reduce direct costs' : ''"
+    ],
+    "dataConfidenceAdjusted": "adjustedProfit"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

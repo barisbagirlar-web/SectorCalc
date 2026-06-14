@@ -1,0 +1,206 @@
+{
+  "toolName": "dizel-benzin-maliyet-karsilastirma",
+  "inputs": [
+    {
+      "id": "yillikKm",
+      "label": "Yıllık Kullanım (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 15000,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Kullanıcının yıllık ortalama sürüş mesafesi. Sektörel standart: TÜİK ulaşım istatistikleri."
+    },
+    {
+      "id": "dizelYakitTuketimi",
+      "label": "Dizel Yakıt Tüketimi (L/100km)",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 5.5,
+      "min": 2,
+      "max": 15,
+      "options": null,
+      "businessContext": "Dizel aracın 100 km'de tükettiği litre cinsinden yakıt. Üretici verileri veya WLTP normu."
+    },
+    {
+      "id": "benzinYakitTuketimi",
+      "label": "Benzin Yakıt Tüketimi (L/100km)",
+      "type": "number",
+      "unit": "L/100km",
+      "default": 7,
+      "min": 3,
+      "max": 20,
+      "options": null,
+      "businessContext": "Benzinli aracın 100 km'de tükettiği litre cinsinden yakıt. Üretici verileri veya WLTP normu."
+    },
+    {
+      "id": "dizelFiyat",
+      "label": "Dizel Fiyatı (TL/L)",
+      "type": "number",
+      "unit": "TL/L",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Güncel dizel litre fiyatı. EPDK verileri."
+    },
+    {
+      "id": "benzinFiyat",
+      "label": "Benzin Fiyatı (TL/L)",
+      "type": "number",
+      "unit": "TL/L",
+      "default": 28,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Güncel benzin litre fiyatı. EPDK verileri."
+    },
+    {
+      "id": "dizelBakimMaliyeti",
+      "label": "Dizel Yıllık Bakım Maliyeti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 3000,
+      "min": 0,
+      "max": 20000,
+      "options": null,
+      "businessContext": "Dizel aracın yıllık periyodik bakım maliyeti. Yetkili servis ortalama fiyatları."
+    },
+    {
+      "id": "benzinBakimMaliyeti",
+      "label": "Benzin Yıllık Bakım Maliyeti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 2500,
+      "min": 0,
+      "max": 20000,
+      "options": null,
+      "businessContext": "Benzinli aracın yıllık periyodik bakım maliyeti. Yetkili servis ortalama fiyatları."
+    },
+    {
+      "id": "dizelVergi",
+      "label": "Dizel Yıllık MTV (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 2000,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Dizel araç için yıllık motorlu taşıtlar vergisi. Gelir İdaresi Başkanlığı tarifesi."
+    },
+    {
+      "id": "benzinVergi",
+      "label": "Benzin Yıllık MTV (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 1800,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Benzinli araç için yıllık motorlu taşıtlar vergisi. Gelir İdaresi Başkanlığı tarifesi."
+    },
+    {
+      "id": "dizelSigorta",
+      "label": "Dizel Yıllık Sigorta (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 4000,
+      "min": 0,
+      "max": 20000,
+      "options": null,
+      "businessContext": "Dizel araç için yıllık zorunlu trafik sigortası ve kasko. Sektör ortalaması."
+    },
+    {
+      "id": "benzinSigorta",
+      "label": "Benzin Yıllık Sigorta (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 3800,
+      "min": 0,
+      "max": 20000,
+      "options": null,
+      "businessContext": "Benzinli araç için yıllık zorunlu trafik sigortası ve kasko. Sektör ortalaması."
+    },
+    {
+      "id": "dizelDegerKaybi",
+      "label": "Dizel Yıllık Değer Kaybı (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "min": 0,
+      "max": 50000,
+      "options": null,
+      "businessContext": "Dizel aracın yıllık amortismanı. İkinci el piyasa verileri."
+    },
+    {
+      "id": "benzinDegerKaybi",
+      "label": "Benzin Yıllık Değer Kaybı (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 9000,
+      "min": 0,
+      "max": 50000,
+      "options": null,
+      "businessContext": "Benzinli aracın yıllık amortismanı. İkinci el piyasa verileri."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "yillikKm > 0",
+      "dizelYakitTuketimi > 0",
+      "benzinYakitTuketimi > 0",
+      "dizelFiyat > 0",
+      "benzinFiyat > 0",
+      "dizelBakimMaliyeti >= 0",
+      "benzinBakimMaliyeti >= 0",
+      "dizelVergi >= 0",
+      "benzinVergi >= 0",
+      "dizelSigorta >= 0",
+      "benzinSigorta >= 0",
+      "dizelDegerKaybi >= 0",
+      "benzinDegerKaybi >= 0"
+    ],
+    "thresholds": {
+      "yillikKm": "if yillikKm > 50000 then 'Yüksek kilometre: bakım maliyetleri artabilir'",
+      "dizelYakitTuketimi": "if dizelYakitTuketimi > 10 then 'Dizel tüketimi yüksek: araç verimliliği düşük olabilir'",
+      "benzinYakitTuketimi": "if benzinYakitTuketimi > 12 then 'Benzin tüketimi yüksek: araç verimliliği düşük olabilir'"
+    }
+  },
+  "formulas": {
+    "dizelYillikYakitMaliyeti": "yillikKm / 100 * dizelYakitTuketimi * dizelFiyat",
+    "benzinYillikYakitMaliyeti": "yillikKm / 100 * benzinYakitTuketimi * benzinFiyat",
+    "dizelToplamYillikMaliyet": "dizelYillikYakitMaliyeti + dizelBakimMaliyeti + dizelVergi + dizelSigorta + dizelDegerKaybi",
+    "benzinToplamYillikMaliyet": "benzinYillikYakitMaliyeti + benzinBakimMaliyeti + benzinVergi + benzinSigorta + benzinDegerKaybi",
+    "tasarruf": "benzinToplamYillikMaliyet - dizelToplamYillikMaliyet",
+    "tasarrufYuzde": "tasarruf / benzinToplamYillikMaliyet * 100"
+  },
+  "outputs": {
+    "primary": "tasarruf",
+    "breakdown": {
+      "dizelYillikYakitMaliyeti": "dizelYillikYakitMaliyeti",
+      "benzinYillikYakitMaliyeti": "benzinYillikYakitMaliyeti",
+      "dizelToplamYillikMaliyet": "dizelToplamYillikMaliyet",
+      "benzinToplamYillikMaliyet": "benzinToplamYillikMaliyet",
+      "tasarrufYuzde": "tasarrufYuzde"
+    },
+    "hiddenLossDrivers": [
+      "if dizelYakitTuketimi > 10 then 'Dizel yakıt tüketimi yüksek'",
+      "if benzinYakitTuketimi > 12 then 'Benzin yakıt tüketimi yüksek'",
+      "if yillikKm > 50000 then 'Yüksek kilometre kullanımı'"
+    ],
+    "suggestedActions": [
+      "if tasarruf > 0 then 'Dizel araç daha ekonomik, dizel tercih edilebilir.'",
+      "if tasarruf < 0 then 'Benzinli araç daha ekonomik, benzin tercih edilebilir.'",
+      "if tasarruf == 0 then 'Maliyetler eşit, diğer faktörleri değerlendirin.'"
+    ],
+    "dataConfidenceAdjusted": "tasarruf"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (yıllık maliyet değişimi)",
+    "Karşılaştırma (farklı araç modelleri)",
+    "Detaylı rapor (bileşen bazında grafikler)"
+  ],
+  "premiumRequired": true
+}

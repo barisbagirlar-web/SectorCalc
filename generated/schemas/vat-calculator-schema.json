@@ -1,0 +1,112 @@
+{
+  "toolName": "vat-calculator",
+  "inputs": [
+    {
+      "id": "netAmount",
+      "label": "Net Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "The net amount of goods or services before VAT. Based on standard tax accounting principles."
+    },
+    {
+      "id": "vatRate",
+      "label": "VAT Rate",
+      "type": "select",
+      "unit": "%",
+      "default": "standard",
+      "min": null,
+      "max": null,
+      "options": [
+        "standard",
+        "reduced",
+        "zero",
+        "exempt"
+      ],
+      "businessContext": "VAT rate category as per local tax regulations. Standard rates vary by country (e.g., 20% in UK, 19% in Germany)."
+    },
+    {
+      "id": "vatPercentage",
+      "label": "VAT Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Custom VAT percentage if not using standard rates. Used for specific products or jurisdictions."
+    },
+    {
+      "id": "isReverseCharge",
+      "label": "Reverse Charge Applicable",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Indicates if reverse charge mechanism applies (B2B transactions in certain sectors). Based on EU VAT Directive."
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "unit": "",
+      "default": "USD",
+      "min": null,
+      "max": null,
+      "options": [
+        "USD",
+        "EUR",
+        "GBP",
+        "TRY",
+        "other"
+      ],
+      "businessContext": "Currency for the transaction. Used for multi-currency reporting."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "netAmount >= 0",
+      "vatPercentage >= 0 and vatPercentage <= 100",
+      "if isReverseCharge == true then vatRate == 'standard' or vatRate == 'reduced'"
+    ],
+    "thresholds": {
+      "netAmount": "if netAmount > 1000000 then 'High value transaction'",
+      "vatPercentage": "if vatPercentage > 25 then 'Unusually high VAT rate'"
+    }
+  },
+  "formulas": {
+    "vatAmount": "netAmount * (vatRate == 'standard' ? vatPercentage : (vatRate == 'reduced' ? vatPercentage * 0.5 : 0)) / 100",
+    "grossAmount": "netAmount + vatAmount",
+    "reverseChargeVat": "isReverseCharge ? vatAmount : 0"
+  },
+  "outputs": {
+    "primary": "grossAmount",
+    "breakdown": {
+      "netAmount": "netAmount",
+      "vatAmount": "vatAmount",
+      "reverseChargeVat": "reverseChargeVat"
+    },
+    "hiddenLossDrivers": [
+      "if vatRate == 'exempt' then 'No VAT recovery possible'",
+      "if isReverseCharge then 'VAT accounted by recipient'"
+    ],
+    "suggestedActions": [
+      "if vatRate == 'exempt' then 'Verify exemption certificate'",
+      "if isReverseCharge then 'Ensure correct invoicing for reverse charge'"
+    ],
+    "dataConfidenceAdjusted": "grossAmount * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Multi-currency comparison",
+    "Detailed tax report"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,105 @@
+{
+  "toolName": "mtv-motorlu-tasitlar-vergisi-hesaplama",
+  "inputs": [
+    {
+      "id": "vehicleType",
+      "label": "Araç Türü",
+      "type": "select",
+      "unit": "",
+      "default": "otomobil",
+      "min": null,
+      "max": null,
+      "options": [
+        "otomobil",
+        "minibus",
+        "panelvan",
+        "arazi_tasiti",
+        "motosiklet"
+      ],
+      "businessContext": "Türkiye'de MTV hesaplamasında araç türü belirleyicidir. 197 sayılı Motorlu Taşıtlar Vergisi Kanunu'na göre sınıflandırma yapılır."
+    },
+    {
+      "id": "engineDisplacement",
+      "label": "Motor Silindir Hacmi (cm³)",
+      "type": "number",
+      "unit": "cm³",
+      "default": 1600,
+      "min": 0,
+      "max": 6000,
+      "businessContext": "Motor hacmi MTV dilimlerini belirler. 197 sayılı Kanun'da yer alan tarifeye göre 1300, 1600, 1800, 2000, 2500, 3000, 4000 cm³ eşik değerleri kullanılır."
+    },
+    {
+      "id": "vehicleAge",
+      "label": "Araç Yaşı (yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 0,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Araç yaşı arttıkça MTV oranı düşer. Kanun'da 1-3, 4-6, 7-11, 12-15, 16+ yaş dilimleri tanımlanmıştır."
+    },
+    {
+      "id": "isHybridOrElectric",
+      "label": "Hibrit/Elektrikli Araç",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "Elektrikli ve bazı hibrit araçlar için MTV indirimi veya muafiyeti uygulanır. 197 sayılı Kanun ve çevre dostu araç teşvikleri kapsamında değerlendirilir."
+    },
+    {
+      "id": "taxYear",
+      "label": "Vergi Yılı",
+      "type": "number",
+      "unit": "",
+      "default": 2025,
+      "min": 2020,
+      "max": 2030,
+      "businessContext": "Her yıl yeniden değerleme oranında güncellenen MTV tutarları için yıl bilgisi gereklidir. Hazine ve Maliye Bakanlığı tarafından yayımlanan tarifeler kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "engineDisplacement > 0",
+      "vehicleAge >= 0",
+      "taxYear >= 2020",
+      "if vehicleType == 'motosiklet' then engineDisplacement <= 2500",
+      "if isHybridOrElectric == true then engineDisplacement >= 0"
+    ],
+    "thresholds": {
+      "engineDisplacement": "engineDisplacement > 4000 ? 'Yüksek motor hacmi, MTV yüksek olacaktır' : null",
+      "vehicleAge": "vehicleAge > 15 ? 'Araç yaşı 15+ olduğu için en düşük MTV dilimi uygulanır' : null"
+    }
+  },
+  "formulas": {
+    "baseTax": "getBaseTax(vehicleType, engineDisplacement, vehicleAge, taxYear)",
+    "hybridDiscount": "isHybridOrElectric ? 0.5 : 0",
+    "annualTax": "baseTax * (1 - hybridDiscount)",
+    "primary": "annualTax"
+  },
+  "outputs": {
+    "primary": "annualTax",
+    "breakdown": {
+      "baseTax": "baseTax",
+      "hybridDiscount": "hybridDiscount",
+      "annualTax": "annualTax"
+    },
+    "hiddenLossDrivers": [
+      "engineDisplacement > 4000 ? 'Yüksek motor hacmi' : null",
+      "vehicleAge > 15 ? 'Eski araç' : null"
+    ],
+    "suggestedActions": [
+      "if isHybridOrElectric == false then 'Hibrit veya elektrikli araç tercih ederek MTV avantajı sağlayabilirsiniz.'",
+      "if vehicleAge > 15 then 'Araç hurda teşviklerinden yararlanmayı değerlendirin.'"
+    ],
+    "dataConfidenceAdjusted": "annualTax"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (yıllık MTV değişimi)",
+    "Karşılaştırma (farklı araç modelleri arasında)",
+    "Detaylı rapor (vergi dilimleri, indirimler)"
+  ],
+  "premiumRequired": true
+}

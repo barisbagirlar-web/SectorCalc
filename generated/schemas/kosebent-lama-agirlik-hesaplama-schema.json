@@ -1,0 +1,126 @@
+{
+  "toolName": "kosebent-lama-agirlik-hesaplama",
+  "inputs": [
+    {
+      "id": "profileType",
+      "label": "Profil Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "eşit kollu",
+      "min": null,
+      "max": null,
+      "options": [
+        "eşit kollu",
+        "eşit olmayan kollu"
+      ],
+      "businessContext": "Köşebent lama profilleri genellikle eşit veya eşit olmayan kollu olarak üretilir. TS 914 EN 10056-1 standardına göre sınıflandırılır."
+    },
+    {
+      "id": "widthA",
+      "label": "Genişlik A (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 20,
+      "max": 250,
+      "businessContext": "Köşebentin birinci kenar genişliği. TS 914 EN 10056-1'e göre standart ölçüler 20-250 mm arasındadır."
+    },
+    {
+      "id": "widthB",
+      "label": "Genişlik B (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 20,
+      "max": 250,
+      "businessContext": "Köşebentin ikinci kenar genişliği. Eşit kollu profillerde widthA ile aynı, eşit olmayan kolluda farklı olabilir."
+    },
+    {
+      "id": "thickness",
+      "label": "Et Kalınlığı (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "min": 3,
+      "max": 25,
+      "businessContext": "Köşebent lama et kalınlığı. TS 914 EN 10056-1'e göre 3-25 mm arası standart kalınlıklar."
+    },
+    {
+      "id": "length",
+      "label": "Boy (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "min": 1,
+      "max": 12,
+      "businessContext": "Profilin metre cinsinden boyu. Standart boylar genellikle 6 m veya 12 m'dir."
+    },
+    {
+      "id": "materialDensity",
+      "label": "Malzeme Yoğunluğu (kg/m³)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "min": 7000,
+      "max": 9000,
+      "businessContext": "Çelik için tipik yoğunluk 7850 kg/m³. Paslanmaz çelik veya alüminyum gibi farklı malzemeler için değişir. ISO 630-1 referans alınır."
+    },
+    {
+      "id": "quantity",
+      "label": "Adet",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Hesaplanacak profil adedi. Toplam ağırlık için adet ile çarpılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "widthA >= 20 ve widthA <= 250",
+      "widthB >= 20 ve widthB <= 250",
+      "thickness >= 3 ve thickness <= 25",
+      "length >= 1 ve length <= 12",
+      "materialDensity >= 7000 ve materialDensity <= 9000",
+      "quantity >= 1",
+      "Eğer profileType = 'eşit kollu' ise widthA == widthB olmalıdır",
+      "Eğer profileType = 'eşit olmayan kollu' ise widthA != widthB olmalıdır"
+    ],
+    "thresholds": {
+      "thickness": "thickness < 5 ? 'UYARI: Et kalınlığı çok ince, burkulma riski artar' : ''",
+      "widthA": "widthA > 200 ? 'UYARI: Genişlik büyük, özel üretim gerekebilir' : ''"
+    }
+  },
+  "formulas": {
+    "crossSectionArea": "((widthA - thickness) * thickness + (widthB - thickness) * thickness + thickness * thickness) / 1000000",
+    "volume": "crossSectionArea * length",
+    "weightPerUnit": "volume * materialDensity",
+    "totalWeight": "weightPerUnit * quantity"
+  },
+  "outputs": {
+    "primary": "totalWeight",
+    "breakdown": {
+      "crossSectionArea": "crossSectionArea",
+      "volume": "volume",
+      "weightPerUnit": "weightPerUnit"
+    },
+    "hiddenLossDrivers": [
+      "thickness < 5 ? 'İnce et kalınlığı nedeniyle burkulma riski' : ''",
+      "widthA > 200 ? 'Büyük genişlik özel üretim gerektirebilir' : ''"
+    ],
+    "suggestedActions": [
+      "Profil boyutlarını standart ölçülere uygun seçin",
+      "Malzeme yoğunluğunu doğrulayın",
+      "Adet sayısını optimize edin"
+    ],
+    "dataConfidenceAdjusted": "totalWeight * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

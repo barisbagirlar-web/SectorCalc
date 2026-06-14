@@ -1,0 +1,177 @@
+{
+  "toolName": "urun-karmasi-karmasiklik-maliyeti-hidden-factory-calculator",
+  "inputs": [
+    {
+      "id": "productCount",
+      "label": "Ürün Çeşidi Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Ürün karması karmaşıklığının temel ölçütü. APICS ve Lean üretim prensiplerine göre çeşitlilik arttıkça gizli fabrika maliyetleri artar."
+    },
+    {
+      "id": "totalProductionVolume",
+      "label": "Toplam Üretim Hacmi",
+      "type": "number",
+      "unit": "adet/yıl",
+      "default": 100000,
+      "min": 1,
+      "max": 100000000,
+      "options": null,
+      "businessContext": "Yıllık toplam üretim miktarı. Maliyetlerin birim başına dağıtılmasında kullanılır."
+    },
+    {
+      "id": "averageBatchSize",
+      "label": "Ortalama Parti Büyüklüğü",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Parti büyüklüğü küçüldükçe set-up ve değişim maliyetleri artar. JIT prensipleriyle ilişkilidir."
+    },
+    {
+      "id": "setupTimePerChangeover",
+      "label": "Değişim Başına Set-up Süresi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 30,
+      "min": 0,
+      "max": 480,
+      "options": null,
+      "businessContext": "SMED (Single Minute Exchange of Die) metodolojisi ile ilişkili. Set-up süresi arttıkça gizli fabrika maliyeti artar."
+    },
+    {
+      "id": "hourlyLaborCost",
+      "label": "Saatlik İşçilik Maliyeti",
+      "type": "number",
+      "unit": "USD/saat",
+      "default": 25,
+      "min": 0,
+      "max": 200,
+      "options": null,
+      "businessContext": "Operatör ve set-up personeli için saatlik ücret. Endüstriyel maliyet muhasebesi standardı."
+    },
+    {
+      "id": "defectRate",
+      "label": "Hata Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kalite maliyetlerinin hesaplanmasında kullanılır. Six Sigma ve ISO 9001 ile ilişkili."
+    },
+    {
+      "id": "reworkCostPerUnit",
+      "label": "Birim Başına Yeniden İşleme Maliyeti",
+      "type": "number",
+      "unit": "USD/adet",
+      "default": 5,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Hatalı ürünlerin düzeltilmesi için katlanılan maliyet. Kalite maliyetleri kapsamında."
+    },
+    {
+      "id": "inventoryHoldingCostRate",
+      "label": "Stok Taşıma Maliyeti Oranı",
+      "type": "number",
+      "unit": "%/yıl",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Stok maliyetlerinin yıllık yüzdesi. WERC ve APICS benchmarklarına göre tipik olarak %15-30 arası."
+    },
+    {
+      "id": "averageInventoryValue",
+      "label": "Ortalama Stok Değeri",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "max": 100000000,
+      "options": null,
+      "businessContext": "Stokta tutulan ürünlerin ortalama parasal değeri. Stok taşıma maliyetinin hesaplanmasında kullanılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliğini belirtir. Düşük güven durumunda sonuçlar daha muhafazakar hesaplanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "productCount must be >= 1",
+      "totalProductionVolume must be >= 1",
+      "averageBatchSize must be >= 1",
+      "setupTimePerChangeover must be >= 0",
+      "hourlyLaborCost must be >= 0",
+      "defectRate must be between 0 and 100",
+      "reworkCostPerUnit must be >= 0",
+      "inventoryHoldingCostRate must be between 0 and 100",
+      "averageInventoryValue must be >= 0",
+      "If dataConfidence is 'low', then defectRate must be increased by 20% for calculation"
+    ],
+    "thresholds": {
+      "defectRate": "defectRate > 5 -> 'Kritik: Hata oranı %5 üzerinde, kalite iyileştirme gerekli'",
+      "setupTimePerChangeover": "setupTimePerChangeover > 60 -> 'Uyarı: Set-up süresi 60 dakikadan fazla, SMED uygulanmalı'",
+      "inventoryHoldingCostRate": "inventoryHoldingCostRate > 25 -> 'Uyarı: Stok taşıma maliyeti oranı yüksek, stok optimizasyonu önerilir'"
+    }
+  },
+  "formulas": {
+    "numberOfChangeovers": "totalProductionVolume / averageBatchSize",
+    "totalSetupTimeHours": "numberOfChangeovers * (setupTimePerChangeover / 60)",
+    "setupLaborCost": "totalSetupTimeHours * hourlyLaborCost",
+    "defectQuantity": "totalProductionVolume * (defectRate / 100)",
+    "reworkCost": "defectQuantity * reworkCostPerUnit",
+    "inventoryHoldingCost": "averageInventoryValue * (inventoryHoldingCostRate / 100)",
+    "hiddenFactoryCost": "setupLaborCost + reworkCost + inventoryHoldingCost",
+    "costPerUnit": "hiddenFactoryCost / totalProductionVolume",
+    "dataConfidenceAdjusted": "dataConfidence == 'low' ? hiddenFactoryCost * 1.2 : (dataConfidence == 'medium' ? hiddenFactoryCost * 1.1 : hiddenFactoryCost)"
+  },
+  "outputs": {
+    "primary": "hiddenFactoryCost",
+    "breakdown": {
+      "setupLaborCost": "setupLaborCost",
+      "reworkCost": "reworkCost",
+      "inventoryHoldingCost": "inventoryHoldingCost"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 5 ? 'Yüksek hata oranı' : null",
+      "setupTimePerChangeover > 60 ? 'Uzun set-up süresi' : null",
+      "inventoryHoldingCostRate > 25 ? 'Yüksek stok maliyeti' : null"
+    ],
+    "suggestedActions": [
+      "SMED uygulayarak set-up süresini azaltın",
+      "Poka-Yoke ile hata oranını düşürün",
+      "Stok optimizasyonu ile taşıma maliyetini azaltın",
+      "Ürün çeşitliliğini azaltarak karmaşıklığı yönetin"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma modülü",
+    "Detaylı maliyet kırılımı"
+  ],
+  "premiumRequired": true
+}

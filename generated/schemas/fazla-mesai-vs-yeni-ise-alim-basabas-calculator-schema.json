@@ -1,0 +1,179 @@
+{
+  "toolName": "fazla-mesai-vs-yeni-ise-alim-basabas-calculator",
+  "inputs": [
+    {
+      "id": "currentOvertimeHoursPerMonth",
+      "label": "Current Overtime Hours per Month",
+      "type": "number",
+      "unit": "hours/month",
+      "default": 100,
+      "min": 0,
+      "max": 720,
+      "options": null,
+      "businessContext": "Total overtime hours per month. Based on labor law limits (e.g., max 270 hours/year in EU)."
+    },
+    {
+      "id": "overtimeHourlyRate",
+      "label": "Overtime Hourly Rate",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 25,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Hourly wage for overtime, typically 1.5x normal rate. Based on labor contracts."
+    },
+    {
+      "id": "newHireMonthlySalary",
+      "label": "New Hire Monthly Salary",
+      "type": "number",
+      "unit": "currency/month",
+      "default": 3000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Gross monthly salary for a new full-time employee. Includes base pay."
+    },
+    {
+      "id": "newHireProductivityFactor",
+      "label": "New Hire Productivity Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.7,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Productivity of new hire relative to experienced worker. Typically 0.5-0.8 during ramp-up (Lean manufacturing)."
+    },
+    {
+      "id": "recruitingCost",
+      "label": "Recruiting Cost per Hire",
+      "type": "number",
+      "unit": "currency",
+      "default": 2000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "One-time cost for advertising, interviews, background checks. Based on SHRM benchmarks."
+    },
+    {
+      "id": "trainingCost",
+      "label": "Training Cost per Hire",
+      "type": "number",
+      "unit": "currency",
+      "default": 1500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of onboarding and training. Includes trainer time, materials. Based on industry averages."
+    },
+    {
+      "id": "monthlyProductiveHoursPerEmployee",
+      "label": "Monthly Productive Hours per Employee",
+      "type": "number",
+      "unit": "hours/month",
+      "default": 160,
+      "min": 0,
+      "max": 720,
+      "options": null,
+      "businessContext": "Standard productive hours per month (e.g., 40 hrs/week * 4 weeks)."
+    },
+    {
+      "id": "overtimePremiumMultiplier",
+      "label": "Overtime Premium Multiplier",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1.5,
+      "min": 1,
+      "max": 3,
+      "options": null,
+      "businessContext": "Multiplier for overtime pay (e.g., 1.5x for time-and-a-half). Based on labor laws."
+    },
+    {
+      "id": "employeeTurnoverRate",
+      "label": "Employee Turnover Rate (annual)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.15,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Annual voluntary turnover rate. Industry average 10-20% (Bureau of Labor Statistics)."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Overhead Rate",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.3,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Overhead as percentage of direct labor cost (e.g., benefits, facilities). Typically 20-40%."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "currentOvertimeHoursPerMonth >= 0",
+      "overtimeHourlyRate >= 0",
+      "newHireMonthlySalary >= 0",
+      "newHireProductivityFactor between 0 and 1",
+      "recruitingCost >= 0",
+      "trainingCost >= 0",
+      "monthlyProductiveHoursPerEmployee > 0",
+      "overtimePremiumMultiplier >= 1",
+      "employeeTurnoverRate between 0 and 1",
+      "overheadRate between 0 and 1"
+    ],
+    "thresholds": {
+      "overtimeHoursExceedLegal": "currentOvertimeHoursPerMonth > 23 -> 'Monthly overtime exceeds typical legal limit of 23 hours (270/year)'",
+      "turnoverHigh": "employeeTurnoverRate > 0.2 -> 'High turnover rate increases hidden costs'"
+    }
+  },
+  "formulas": {
+    "monthlyOvertimeCost": "currentOvertimeHoursPerMonth * overtimeHourlyRate * overtimePremiumMultiplier",
+    "monthlyOvertimeCostWithOverhead": "monthlyOvertimeCost * (1 + overheadRate)",
+    "effectiveProductiveHoursNewHire": "monthlyProductiveHoursPerEmployee * newHireProductivityFactor",
+    "newHireMonthlyCost": "newHireMonthlySalary * (1 + overheadRate)",
+    "newHireMonthlyCostPerProductiveHour": "newHireMonthlyCost / effectiveProductiveHoursNewHire",
+    "overtimeCostPerHour": "overtimeHourlyRate * overtimePremiumMultiplier * (1 + overheadRate)",
+    "breakEvenHours": "newHireMonthlyCost / overtimeCostPerHour",
+    "annualRecurringCostOvertime": "monthlyOvertimeCostWithOverhead * 12",
+    "annualRecurringCostNewHire": "newHireMonthlyCost * 12",
+    "oneTimeHiringCost": "recruitingCost + trainingCost",
+    "annualizedOneTimeCost": "oneTimeHiringCost * (1 + employeeTurnoverRate)",
+    "totalAnnualCostOvertime": "annualRecurringCostOvertime",
+    "totalAnnualCostNewHire": "annualRecurringCostNewHire + annualizedOneTimeCost",
+    "annualSavingsByHiring": "totalAnnualCostOvertime - totalAnnualCostNewHire",
+    "breakEvenMonths": "oneTimeHiringCost / (monthlyOvertimeCostWithOverhead - newHireMonthlyCost)"
+  },
+  "outputs": {
+    "primary": "annualSavingsByHiring",
+    "breakdown": {
+      "monthlyOvertimeCost": "monthlyOvertimeCostWithOverhead",
+      "monthlyNewHireCost": "newHireMonthlyCost",
+      "oneTimeHiringCost": "oneTimeHiringCost",
+      "annualizedOneTimeCost": "annualizedOneTimeCost",
+      "breakEvenHours": "breakEvenHours",
+      "breakEvenMonths": "breakEvenMonths"
+    },
+    "hiddenLossDrivers": [
+      "if employeeTurnoverRate > 0.2 then 'High turnover increases replacement costs'",
+      "if newHireProductivityFactor < 0.6 then 'Low productivity extends ramp-up period'"
+    ],
+    "suggestedActions": [
+      "If annualSavingsByHiring > 0: 'Consider hiring new employees to reduce overtime costs'",
+      "If breakEvenMonths < 12: 'Hiring pays back within a year'",
+      "If overtimeHoursExceedLegal: 'Reduce overtime to avoid legal penalties'"
+    ],
+    "dataConfidenceAdjusted": "annualSavingsByHiring * (1 - 0.1 * (1 - newHireProductivityFactor))"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (historical data)",
+    "Scenario Comparison (multiple parameter sets)",
+    "Detailed Report with charts"
+  ],
+  "premiumRequired": true
+}

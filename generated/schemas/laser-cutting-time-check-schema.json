@@ -1,0 +1,232 @@
+{
+  "toolName": "laser-cutting-time-check",
+  "inputs": [
+    {
+      "id": "materialType",
+      "label": "Material Type",
+      "type": "select",
+      "unit": "",
+      "default": "steel",
+      "min": null,
+      "max": null,
+      "options": [
+        "steel",
+        "aluminum",
+        "stainless steel",
+        "copper",
+        "brass",
+        "acrylic",
+        "wood",
+        "other"
+      ],
+      "businessContext": "Material type affects cutting speed and power requirements. Based on laser cutting industry standards (e.g., Trumpf, Bystronic)."
+    },
+    {
+      "id": "materialThickness",
+      "label": "Material Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "min": 0.5,
+      "max": 25,
+      "options": null,
+      "businessContext": "Thickness directly impacts cutting speed and time. Typical range for laser cutting: 0.5-25 mm."
+    },
+    {
+      "id": "cuttingLength",
+      "label": "Total Cutting Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 0.1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Total length of cuts per part or batch. Determines primary cutting time."
+    },
+    {
+      "id": "cuttingSpeed",
+      "label": "Cutting Speed",
+      "type": "number",
+      "unit": "m/min",
+      "default": 2,
+      "min": 0.1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Speed depends on material and thickness. Typical values from machine manufacturer tables."
+    },
+    {
+      "id": "piercingTimePerPierce",
+      "label": "Piercing Time per Pierce",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "min": 0.1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Time to pierce the material at start of each cut. Varies with material and thickness."
+    },
+    {
+      "id": "numberOfPierces",
+      "label": "Number of Pierces",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Number of pierces per part or batch. Typically equals number of cut contours."
+    },
+    {
+      "id": "rapidTraverseDistance",
+      "label": "Rapid Traverse Distance",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Distance the laser head moves without cutting (positioning)."
+    },
+    {
+      "id": "rapidTraverseSpeed",
+      "label": "Rapid Traverse Speed",
+      "type": "number",
+      "unit": "m/min",
+      "default": 60,
+      "min": 10,
+      "max": 120,
+      "options": null,
+      "businessContext": "Maximum positioning speed of the laser head. Typical: 60-120 m/min."
+    },
+    {
+      "id": "setupTime",
+      "label": "Setup Time",
+      "type": "number",
+      "unit": "min",
+      "default": 10,
+      "min": 0,
+      "max": 120,
+      "options": null,
+      "businessContext": "Time for loading material, programming, and machine preparation."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "parts",
+      "default": 1,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Number of identical parts in the batch. Affects setup amortization."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "$/h",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "options": null,
+      "businessContext": "Operator labor cost including overhead. Typical range: $20-$80/h."
+    },
+    {
+      "id": "machineCostPerHour",
+      "label": "Machine Cost per Hour",
+      "type": "number",
+      "unit": "$/h",
+      "default": 50,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "Machine depreciation, maintenance, energy, and consumables. Typical: $30-$200/h."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "User's confidence in input data accuracy. Affects output adjustment for risk."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "materialThickness > 0",
+      "cuttingLength > 0",
+      "cuttingSpeed > 0",
+      "piercingTimePerPierce > 0",
+      "numberOfPierces > 0",
+      "rapidTraverseDistance >= 0",
+      "rapidTraverseSpeed > 0",
+      "setupTime >= 0",
+      "batchSize >= 1",
+      "laborCostPerHour >= 0",
+      "machineCostPerHour >= 0"
+    ],
+    "thresholds": {
+      "cuttingSpeed": "If cuttingSpeed < 0.5, warning: 'Very slow cutting speed, check material/thickness compatibility.'",
+      "piercingTimePerPierce": "If piercingTimePerPierce > 5, warning: 'High piercing time, consider pre-drilling or different gas.'",
+      "setupTime": "If setupTime > 30, warning: 'Long setup time, consider SMED techniques.'",
+      "batchSize": "If batchSize < 10, warning: 'Small batch, setup time dominates.'"
+    }
+  },
+  "formulas": {
+    "cuttingTime": "cuttingLength / cuttingSpeed * 60",
+    "piercingTime": "numberOfPierces * piercingTimePerPierce",
+    "rapidTraverseTime": "rapidTraverseDistance / rapidTraverseSpeed * 60",
+    "cycleTimePerPart": "cuttingTime + piercingTime + rapidTraverseTime",
+    "totalCycleTime": "cycleTimePerPart * batchSize",
+    "totalTime": "totalCycleTime + setupTime * 60",
+    "laborCost": "totalTime / 60 * laborCostPerHour",
+    "machineCost": "totalTime / 60 * machineCostPerHour",
+    "totalCost": "laborCost + machineCost",
+    "costPerPart": "totalCost / batchSize",
+    "dataConfidenceAdjusted": "totalCost * (1 + (dataConfidence == 'low' ? 0.2 : dataConfidence == 'medium' ? 0.1 : 0))"
+  },
+  "outputs": {
+    "primary": "totalTime (min)",
+    "breakdown": {
+      "cuttingTime": "cuttingTime (s)",
+      "piercingTime": "piercingTime (s)",
+      "rapidTraverseTime": "rapidTraverseTime (s)",
+      "cycleTimePerPart": "cycleTimePerPart (s)",
+      "totalCycleTime": "totalCycleTime (s)",
+      "setupTime": "setupTime (min)",
+      "laborCost": "laborCost ($)",
+      "machineCost": "machineCost ($)",
+      "totalCost": "totalCost ($)",
+      "costPerPart": "costPerPart ($)"
+    },
+    "hiddenLossDrivers": [
+      "If cuttingSpeed < 0.5: 'Very slow cutting speed, check material/thickness compatibility.'",
+      "If piercingTimePerPierce > 5: 'High piercing time, consider pre-drilling or different gas.'",
+      "If setupTime > 30: 'Long setup time, consider SMED techniques.'",
+      "If batchSize < 10: 'Small batch, setup time dominates.'"
+    ],
+    "suggestedActions": [
+      "Optimize cutting speed based on material and thickness tables.",
+      "Reduce piercing time by using advanced piercing cycles or different assist gas.",
+      "Minimize rapid traverse distance by optimizing nesting layout.",
+      "Apply SMED to reduce setup time.",
+      "Increase batch size if possible to amortize setup time."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted ($)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Historical Data",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

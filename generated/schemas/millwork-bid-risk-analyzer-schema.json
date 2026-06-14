@@ -1,0 +1,161 @@
+{
+  "toolName": "millwork-bid-risk-analyzer",
+  "inputs": [
+    {
+      "id": "projectSize",
+      "label": "Project Size (sq ft)",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 1000,
+      "min": 100,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Total area of millwork installation. Based on industry standards for construction estimating (RSMeans)."
+    },
+    {
+      "id": "materialCostPerSqFt",
+      "label": "Material Cost per sq ft",
+      "type": "number",
+      "unit": "USD/sq ft",
+      "default": 50,
+      "min": 10,
+      "max": 500,
+      "options": null,
+      "businessContext": "Average material cost including lumber, veneers, hardware. Sourced from millwork cost databases."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate (per hour)",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 45,
+      "min": 15,
+      "max": 150,
+      "options": null,
+      "businessContext": "Skilled carpenter/installer hourly wage. Based on Bureau of Labor Statistics."
+    },
+    {
+      "id": "laborHoursPerSqFt",
+      "label": "Labor Hours per sq ft",
+      "type": "number",
+      "unit": "hours/sq ft",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 2,
+      "options": null,
+      "businessContext": "Productivity rate for millwork installation. Typical range from Lean construction benchmarks."
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Overhead (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Indirect costs as percentage of direct costs. Standard construction accounting practice."
+    },
+    {
+      "id": "profitMargin",
+      "label": "Profit Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 30,
+      "options": null,
+      "businessContext": "Target profit margin. Industry average 8-12% for millwork."
+    },
+    {
+      "id": "riskFactor",
+      "label": "Risk Factor",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Project complexity and uncertainty. Low=0.95, Medium=1.0, High=1.1 multiplier."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence in input data accuracy. Low=0.9, Medium=1.0, High=1.05 adjustment factor."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "projectSize >= 100 and projectSize <= 100000",
+      "materialCostPerSqFt >= 10 and materialCostPerSqFt <= 500",
+      "laborRate >= 15 and laborRate <= 150",
+      "laborHoursPerSqFt >= 0.1 and laborHoursPerSqFt <= 2",
+      "overheadPercent >= 0 and overheadPercent <= 50",
+      "profitMargin >= 0 and profitMargin <= 30"
+    ],
+    "thresholds": {
+      "materialCostPerSqFt > 300": "High material cost risk",
+      "laborHoursPerSqFt > 1": "Low productivity risk",
+      "overheadPercent > 30": "High overhead risk",
+      "profitMargin < 5": "Low profit margin risk"
+    }
+  },
+  "formulas": {
+    "directMaterialCost": "projectSize * materialCostPerSqFt",
+    "directLaborCost": "projectSize * laborHoursPerSqFt * laborRate",
+    "totalDirectCost": "directMaterialCost + directLaborCost",
+    "overheadCost": "totalDirectCost * (overheadPercent / 100)",
+    "totalCost": "totalDirectCost + overheadCost",
+    "baseBidPrice": "totalCost * (1 + profitMargin / 100)",
+    "riskMultiplier": "riskFactor == 'low' ? 0.95 : (riskFactor == 'medium' ? 1.0 : 1.1)",
+    "adjustedBidPrice": "baseBidPrice * riskMultiplier",
+    "confidenceMultiplier": "dataConfidence == 'low' ? 0.9 : (dataConfidence == 'medium' ? 1.0 : 1.05)",
+    "finalBidPrice": "adjustedBidPrice * confidenceMultiplier"
+  },
+  "outputs": {
+    "primary": "finalBidPrice",
+    "breakdown": {
+      "directMaterialCost": "directMaterialCost",
+      "directLaborCost": "directLaborCost",
+      "overheadCost": "overheadCost",
+      "totalCost": "totalCost",
+      "baseBidPrice": "baseBidPrice",
+      "adjustedBidPrice": "adjustedBidPrice"
+    },
+    "hiddenLossDrivers": [
+      "materialCostPerSqFt > 300 ? 'High material cost' : ''",
+      "laborHoursPerSqFt > 1 ? 'Low productivity' : ''",
+      "overheadPercent > 30 ? 'High overhead' : ''",
+      "profitMargin < 5 ? 'Low profit margin' : ''"
+    ],
+    "suggestedActions": [
+      "If material cost high: negotiate bulk discounts or substitute materials",
+      "If labor productivity low: implement Lean techniques (5S, standard work)",
+      "If overhead high: review indirect cost allocation",
+      "If profit margin low: increase bid price or reduce costs"
+    ],
+    "dataConfidenceAdjusted": "finalBidPrice"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Historical Bids",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

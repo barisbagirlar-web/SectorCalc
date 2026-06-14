@@ -1,8 +1,18 @@
+import type { SupportedLocale } from "@/lib/i18n/locale-config";
+
 export type GeneratedToolInputType = "number" | "select" | "boolean";
+
+/** Per-locale copy for generated tool schema fields (scan output). */
+export type GeneratedToolI18nText = Readonly<
+  Partial<Record<SupportedLocale, string>> & {
+    readonly en: string;
+  }
+>;
 
 export type GeneratedToolInput = {
   readonly id: string;
   readonly label: string;
+  readonly label_i18n?: GeneratedToolI18nText;
   readonly type: GeneratedToolInputType;
   readonly unit: string;
   readonly default?: number | string | boolean;
@@ -10,6 +20,7 @@ export type GeneratedToolInput = {
   readonly max?: number | null;
   readonly options?: readonly string[] | null;
   readonly businessContext: string;
+  readonly businessContext_i18n?: GeneratedToolI18nText;
   readonly group?: string;
 };
 

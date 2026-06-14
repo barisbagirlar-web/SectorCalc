@@ -1,0 +1,318 @@
+{
+  "toolName": "isi-yuku-ve-isitma-sogutma-kapasite-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "buildingArea",
+      "label": "Bina Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "min": 10,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Binanın toplam kullanım alanı. Isı yükü hesaplamalarında temel parametre. Kaynak: ASHRAE Handbook - Fundamentals."
+    },
+    {
+      "id": "ceilingHeight",
+      "label": "Tavan Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "min": 2,
+      "max": 20,
+      "options": null,
+      "businessContext": "Ortalama tavan yüksekliği. Hacim hesaplaması için gerekli. Kaynak: ASHRAE."
+    },
+    {
+      "id": "occupancy",
+      "label": "Kişi Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Binanın tipik kullanıcı sayısı. İnsan kaynaklı ısı kazancı için. Kaynak: ASHRAE Standard 62.1."
+    },
+    {
+      "id": "lightingPowerDensity",
+      "label": "Aydınlatma Güç Yoğunluğu",
+      "type": "number",
+      "unit": "W/m²",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Birim alan başına aydınlatma gücü. Isı kazancı kaynağı. Kaynak: ASHRAE 90.1."
+    },
+    {
+      "id": "equipmentPowerDensity",
+      "label": "Ekipman Güç Yoğunluğu",
+      "type": "number",
+      "unit": "W/m²",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Ofis ekipmanları, bilgisayar vb. kaynaklı ısı kazancı. Kaynak: ASHRAE."
+    },
+    {
+      "id": "wallUValue",
+      "label": "Duvar Isı İletim Katsayısı (U)",
+      "type": "number",
+      "unit": "W/m²K",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 5,
+      "options": null,
+      "businessContext": "Duvarların ısı geçirgenlik katsayısı. Kaynak: ISO 6946."
+    },
+    {
+      "id": "windowUValue",
+      "label": "Pencere Isı İletim Katsayısı (U)",
+      "type": "number",
+      "unit": "W/m²K",
+      "default": 2.5,
+      "min": 0.5,
+      "max": 6,
+      "options": null,
+      "businessContext": "Pencerelerin ısı geçirgenlik katsayısı. Kaynak: ISO 10077."
+    },
+    {
+      "id": "windowToWallRatio",
+      "label": "Pencere/Duvar Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Pencere alanının toplam duvar alanına oranı. Kaynak: ASHRAE."
+    },
+    {
+      "id": "outdoorDesignTemp",
+      "label": "Dış Ortam Tasarım Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 35,
+      "min": -20,
+      "max": 50,
+      "options": null,
+      "businessContext": "Yaz ayları için dış ortam kuru termometre sıcaklığı. Kaynak: ASHRAE Climate Data."
+    },
+    {
+      "id": "indoorDesignTemp",
+      "label": "İç Ortam Tasarım Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 24,
+      "min": 18,
+      "max": 30,
+      "options": null,
+      "businessContext": "Konfor şartları için hedeflenen iç ortam sıcaklığı. Kaynak: ASHRAE Standard 55."
+    },
+    {
+      "id": "infiltrationRate",
+      "label": "Sızıntı Hava Değişim Sayısı",
+      "type": "number",
+      "unit": "1/h",
+      "default": 0.5,
+      "min": 0,
+      "max": 5,
+      "options": null,
+      "businessContext": "Bina kabuğundan sızan hava miktarı. Kaynak: ASHRAE Fundamentals."
+    },
+    {
+      "id": "ventilationRate",
+      "label": "Havalandırma Hava Değişim Sayısı",
+      "type": "number",
+      "unit": "1/h",
+      "default": 1,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Mekanik havalandırma ile sağlanan taze hava miktarı. Kaynak: ASHRAE 62.1."
+    },
+    {
+      "id": "solarHeatGainCoefficient",
+      "label": "Güneş Isı Kazanç Katsayısı (SHGC)",
+      "type": "number",
+      "unit": "",
+      "default": 0.4,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Pencerelerden geçen güneş enerjisi oranı. Kaynak: NFRC."
+    },
+    {
+      "id": "efficiencyCOP",
+      "label": "Soğutma COP (Performans Katsayısı)",
+      "type": "number",
+      "unit": "",
+      "default": 3.5,
+      "min": 1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Soğutma sisteminin enerji verimliliği. Kaynak: ISO 5151."
+    },
+    {
+      "id": "heatingEfficiency",
+      "label": "Isıtma Verimi",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Isıtma sisteminin yakıt dönüşüm verimi. Kaynak: ISO 13602."
+    },
+    {
+      "id": "electricityCost",
+      "label": "Elektrik Birim Maliyeti",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 1.5,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Şebeke elektriği birim fiyatı. Kaynak: EPDK."
+    },
+    {
+      "id": "fuelCost",
+      "label": "Yakıt Birim Maliyeti",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 0.8,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Doğalgaz veya diğer yakıtların birim enerji maliyeti. Kaynak: EPDK."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Günlük Çalışma Saati",
+      "type": "number",
+      "unit": "h/gün",
+      "default": 10,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Sistemin günlük çalışma süresi. Kaynak: Kullanıcı tanımlı."
+    },
+    {
+      "id": "operatingDays",
+      "label": "Yıllık Çalışma Günü",
+      "type": "number",
+      "unit": "gün/yıl",
+      "default": 300,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Sistemin yıllık çalışma gün sayısı. Kaynak: Kullanıcı tanımlı."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Kaynak: Kullanıcı değerlendirmesi."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "buildingArea > 0",
+      "ceilingHeight > 0",
+      "occupancy >= 0",
+      "lightingPowerDensity >= 0",
+      "equipmentPowerDensity >= 0",
+      "wallUValue > 0",
+      "windowUValue > 0",
+      "windowToWallRatio >= 0 && windowToWallRatio <= 100",
+      "outdoorDesignTemp > indoorDesignTemp (soğutma için)",
+      "indoorDesignTemp > outdoorDesignTemp (ısıtma için)",
+      "infiltrationRate >= 0",
+      "ventilationRate >= 0",
+      "solarHeatGainCoefficient >= 0 && solarHeatGainCoefficient <= 1",
+      "efficiencyCOP > 0",
+      "heatingEfficiency > 0 && heatingEfficiency <= 100",
+      "electricityCost > 0",
+      "fuelCost > 0",
+      "operatingHours >= 0 && operatingHours <= 24",
+      "operatingDays >= 1 && operatingDays <= 365",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "coolingLoadPerArea": "coolingLoadPerArea > 200 ? 'Yüksek soğutma yükü, izolasyon iyileştirilmeli' : ''",
+      "heatingLoadPerArea": "heatingLoadPerArea > 150 ? 'Yüksek ısıtma yükü, izolasyon iyileştirilmeli' : ''",
+      "energyCostPerArea": "energyCostPerArea > 100 ? 'Enerji maliyeti yüksek, verimlilik önlemleri alınmalı' : ''"
+    }
+  },
+  "formulas": {
+    "volume": "buildingArea * ceilingHeight",
+    "wallArea": "buildingArea * 4 * ceilingHeight * (1 - windowToWallRatio / 100)",
+    "windowArea": "buildingArea * 4 * ceilingHeight * (windowToWallRatio / 100)",
+    "transmissionCoolingLoad": "(wallArea * wallUValue + windowArea * windowUValue) * (outdoorDesignTemp - indoorDesignTemp)",
+    "solarCoolingLoad": "windowArea * solarHeatGainCoefficient * 300",
+    "infiltrationCoolingLoad": "volume * infiltrationRate * 1.2 * 1005 * (outdoorDesignTemp - indoorDesignTemp) / 3600",
+    "ventilationCoolingLoad": "volume * ventilationRate * 1.2 * 1005 * (outdoorDesignTemp - indoorDesignTemp) / 3600",
+    "internalCoolingLoad": "(lightingPowerDensity + equipmentPowerDensity) * buildingArea + occupancy * 100",
+    "totalCoolingLoad": "transmissionCoolingLoad + solarCoolingLoad + infiltrationCoolingLoad + ventilationCoolingLoad + internalCoolingLoad",
+    "coolingLoadPerArea": "totalCoolingLoad / buildingArea",
+    "coolingCapacity": "totalCoolingLoad / 1000",
+    "coolingPowerInput": "coolingCapacity / efficiencyCOP",
+    "coolingEnergyAnnual": "coolingPowerInput * operatingHours * operatingDays",
+    "coolingCostAnnual": "coolingEnergyAnnual * electricityCost",
+    "transmissionHeatingLoad": "(wallArea * wallUValue + windowArea * windowUValue) * (indoorDesignTemp - outdoorDesignTemp)",
+    "infiltrationHeatingLoad": "volume * infiltrationRate * 1.2 * 1005 * (indoorDesignTemp - outdoorDesignTemp) / 3600",
+    "ventilationHeatingLoad": "volume * ventilationRate * 1.2 * 1005 * (indoorDesignTemp - outdoorDesignTemp) / 3600",
+    "totalHeatingLoad": "transmissionHeatingLoad + infiltrationHeatingLoad + ventilationHeatingLoad",
+    "heatingLoadPerArea": "totalHeatingLoad / buildingArea",
+    "heatingCapacity": "totalHeatingLoad / 1000",
+    "heatingPowerInput": "heatingCapacity / (heatingEfficiency / 100)",
+    "heatingEnergyAnnual": "heatingPowerInput * operatingHours * operatingDays",
+    "heatingCostAnnual": "heatingEnergyAnnual * fuelCost",
+    "totalEnergyCostAnnual": "coolingCostAnnual + heatingCostAnnual",
+    "energyCostPerArea": "totalEnergyCostAnnual / buildingArea",
+    "dataConfidenceAdjustedCost": "totalEnergyCostAnnual * (1 + (100 - dataConfidence) / 100)"
+  },
+  "outputs": {
+    "primary": "totalEnergyCostAnnual",
+    "breakdown": {
+      "coolingLoadPerArea": "coolingLoadPerArea",
+      "heatingLoadPerArea": "heatingLoadPerArea",
+      "coolingCapacity": "coolingCapacity",
+      "heatingCapacity": "heatingCapacity",
+      "coolingEnergyAnnual": "coolingEnergyAnnual",
+      "heatingEnergyAnnual": "heatingEnergyAnnual",
+      "coolingCostAnnual": "coolingCostAnnual",
+      "heatingCostAnnual": "heatingCostAnnual",
+      "energyCostPerArea": "energyCostPerArea"
+    },
+    "hiddenLossDrivers": [
+      "coolingLoadPerArea > 200 ? 'Yüksek soğutma yükü' : ''",
+      "heatingLoadPerArea > 150 ? 'Yüksek ısıtma yükü' : ''",
+      "energyCostPerArea > 100 ? 'Yüksek enerji maliyeti' : ''"
+    ],
+    "suggestedActions": [
+      "İzolasyon iyileştirmesi (duvar/pencere U değerlerini düşürün)",
+      "Pencere SHGC değerini düşürün (güneş kontrol filmi)",
+      "Hava sızdırmazlığı sağlayın (infiltrasyonu azaltın)",
+      "Enerji verimli aydınlatma ve ekipman kullanın",
+      "Isı geri kazanımlı havalandırma sistemi kullanın",
+      "COP değeri yüksek soğutma sistemi seçin",
+      "Isıtma verimini artırın (yoğuşmalı kazan vb.)"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (zaman serisi)",
+    "Karşılaştırma (farklı senaryolar)",
+    "Detaylı rapor (bileşen bazında)"
+  ],
+  "premiumRequired": true
+}

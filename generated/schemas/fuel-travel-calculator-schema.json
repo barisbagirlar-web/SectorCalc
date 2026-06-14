@@ -1,0 +1,122 @@
+{
+  "toolName": "fuel-travel-calculator",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "Travel Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total distance traveled. Based on standard route planning (ISO 14040)."
+    },
+    {
+      "id": "fuelEfficiency",
+      "label": "Fuel Efficiency",
+      "type": "number",
+      "unit": "km/L",
+      "default": 15,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Vehicle fuel efficiency. Typical values from manufacturer specs or EPA ratings."
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "currency/L",
+      "default": 1.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Current fuel price per liter. Market rate from local fuel stations."
+    },
+    {
+      "id": "vehicleType",
+      "label": "Vehicle Type",
+      "type": "select",
+      "unit": "",
+      "default": "car",
+      "min": null,
+      "max": null,
+      "options": [
+        "car",
+        "truck",
+        "bus",
+        "motorcycle"
+      ],
+      "businessContext": "Type of vehicle affects fuel efficiency and emission factors. Based on EPA vehicle classifications."
+    },
+    {
+      "id": "loadFactor",
+      "label": "Load Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of vehicle capacity used. Affects fuel consumption per unit load. Lean logistics principle."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data. Used for risk adjustment. Based on Six Sigma DMAIC."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "distance > 0",
+      "fuelEfficiency > 0",
+      "fuelPrice > 0",
+      "loadFactor >= 0 && loadFactor <= 100",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "fuelEfficiency < 5": "Critical: Very low fuel efficiency, consider vehicle replacement.",
+      "loadFactor < 50": "Warning: Low load factor, optimize routing or consolidate shipments.",
+      "dataConfidence < 70": "Warning: Low data confidence, results may be unreliable."
+    }
+  },
+  "formulas": {
+    "fuelConsumed": "distance / fuelEfficiency",
+    "fuelCost": "fuelConsumed * fuelPrice",
+    "adjustedFuelCost": "fuelCost * (1 + (1 - loadFactor/100) * 0.1)",
+    "confidenceAdjustedCost": "adjustedFuelCost * (1 + (1 - dataConfidence/100) * 0.05)"
+  },
+  "outputs": {
+    "primary": "adjustedFuelCost",
+    "breakdown": {
+      "fuelConsumed": "fuelConsumed",
+      "fuelCost": "fuelCost",
+      "loadFactorPenalty": "adjustedFuelCost - fuelCost"
+    },
+    "hiddenLossDrivers": [
+      "fuelEfficiency < 5 ? 'Low fuel efficiency' : ''",
+      "loadFactor < 50 ? 'Underutilized capacity' : ''"
+    ],
+    "suggestedActions": [
+      "fuelEfficiency < 5 ? 'Replace vehicle with more efficient model' : ''",
+      "loadFactor < 50 ? 'Consolidate shipments to increase load factor' : ''",
+      "dataConfidence < 70 ? 'Improve data collection methods' : ''"
+    ],
+    "dataConfidenceAdjusted": "confidenceAdjustedCost"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Benchmarks",
+    "Detailed Report with Graphs"
+  ],
+  "premiumRequired": true
+}

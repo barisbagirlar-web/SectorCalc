@@ -1,0 +1,71 @@
+{
+  "toolName": "kure-hacmi-hesaplama",
+  "inputs": [
+    {
+      "id": "yaricap",
+      "label": "Yarıçap (r)",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Kürenin yarıçapı. Geometrik tanım gereği, hacim hesaplaması için temel parametre. Standart: Matematiksel formül V = (4/3)πr³."
+    },
+    {
+      "id": "birim",
+      "label": "Birim",
+      "type": "select",
+      "unit": "",
+      "default": "m³",
+      "min": null,
+      "max": null,
+      "options": [
+        "m³",
+        "cm³",
+        "L",
+        "ft³"
+      ],
+      "businessContext": "Hacim sonucunun hangi birimde ifade edileceği. Mühendislik uygulamalarında SI birimleri (m³) tercih edilir, ancak sektörel ihtiyaçlara göre diğer birimler de kullanılabilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "yaricap > 0"
+    ],
+    "thresholds": {
+      "yaricap": "yaricap <= 0.01 ? 'Çok küçük yarıçap, hassasiyet hatası olabilir' : null"
+    }
+  },
+  "formulas": {
+    "hacim_m3": "4/3 * Math.PI * Math.pow(yaricap, 3)",
+    "hacim_cm3": "hacim_m3 * 1e6",
+    "hacim_L": "hacim_m3 * 1000",
+    "hacim_ft3": "hacim_m3 * 35.3147",
+    "sonuc": "birim === 'm³' ? hacim_m3 : birim === 'cm³' ? hacim_cm3 : birim === 'L' ? hacim_L : hacim_ft3"
+  },
+  "outputs": {
+    "primary": "sonuc",
+    "breakdown": {
+      "hacim_m3": "hacim_m3",
+      "hacim_cm3": "hacim_cm3",
+      "hacim_L": "hacim_L",
+      "hacim_ft3": "hacim_ft3"
+    },
+    "hiddenLossDrivers": [
+      "yaricap <= 0.01 ? 'Çok küçük yarıçap, hassasiyet hatası olabilir' : null"
+    ],
+    "suggestedActions": [
+      "Yarıçap ölçümünü kalibre edilmiş aletlerle yapın.",
+      "Birden fazla ölçüm alarak ortalamayı kullanın."
+    ],
+    "dataConfidenceAdjusted": "sonuc"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (zaman serisi)",
+    "Karşılaştırma (farklı küreler)",
+    "Detaylı rapor (belirsizlik analizi)"
+  ],
+  "premiumRequired": true
+}

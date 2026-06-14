@@ -49,6 +49,9 @@ export type DeepSeekToolScanPayload = {
 export type IndustrialToolInput = {
   readonly id: string;
   readonly label: string;
+  readonly label_i18n?: Readonly<Partial<Record<"en" | "tr" | "de" | "fr" | "es" | "ar", string>> & {
+    readonly en: string;
+  }>;
   readonly type: "number" | "select" | "boolean";
   readonly unit: string;
   readonly default?: number | string | boolean;
@@ -56,6 +59,11 @@ export type IndustrialToolInput = {
   readonly max?: number | null;
   readonly options?: readonly string[] | null;
   readonly businessContext: string;
+  readonly businessContext_i18n?: Readonly<
+    Partial<Record<"en" | "tr" | "de" | "fr" | "es" | "ar", string>> & {
+      readonly en: string;
+    }
+  >;
 };
 
 export type IndustrialToolSchema = {

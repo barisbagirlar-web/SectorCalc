@@ -1,0 +1,182 @@
+{
+  "toolName": "kaizen-kazanc-takip-ve-onceliklendirme-calculator",
+  "inputs": [
+    {
+      "id": "processName",
+      "label": "Süreç Adı",
+      "type": "select",
+      "unit": "",
+      "default": "Üretim",
+      "min": null,
+      "max": null,
+      "options": [
+        "Üretim",
+        "Lojistik",
+        "Kalite",
+        "Bakım",
+        "Ofis"
+      ],
+      "businessContext": "Kaizen çalışmasının yapıldığı süreç alanı. Lean yönetiminde süreç seçimi kritiktir."
+    },
+    {
+      "id": "improvementType",
+      "label": "İyileştirme Türü",
+      "type": "select",
+      "unit": "",
+      "default": "Zaman",
+      "min": null,
+      "max": null,
+      "options": [
+        "Zaman",
+        "Kalite",
+        "Maliyet",
+        "Güvenlik",
+        "Morale"
+      ],
+      "businessContext": "Kaizen odağı. Lean'deki 5S, SMED, Poka-Yoke gibi araçlarla ilişkilidir."
+    },
+    {
+      "id": "currentValue",
+      "label": "Mevcut Değer",
+      "type": "number",
+      "unit": "birim (dakika, adet, TL vb.)",
+      "default": 100,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "İyileştirme öncesi performans metriği. ISO 9001:2015 süreç ölçümü standardı."
+    },
+    {
+      "id": "targetValue",
+      "label": "Hedef Değer",
+      "type": "number",
+      "unit": "birim (dakika, adet, TL vb.)",
+      "default": 80,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Kaizen ile ulaşılması planlanan değer. SMART hedef kriteri."
+    },
+    {
+      "id": "implementationCost",
+      "label": "Uygulama Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 5000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Kaizen için gerekli yatırım (ekipman, eğitim vb.). NPV hesaplamasında kullanılır."
+    },
+    {
+      "id": "annualSavingsPerUnit",
+      "label": "Birim Başına Yıllık Tasarruf",
+      "type": "number",
+      "unit": "TL/yıl",
+      "default": 2000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Her birim iyileştirme başına yıllık parasal kazanç. Maliyet muhasebesi standartları."
+    },
+    {
+      "id": "affectedUnits",
+      "label": "Etkilenen Birim Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Kaizenin uygulandığı ürün/makine/çalışan sayısı. Ölçek ekonomisi."
+    },
+    {
+      "id": "implementationTime",
+      "label": "Uygulama Süresi",
+      "type": "number",
+      "unit": "ay",
+      "default": 3,
+      "min": 0.5,
+      "max": 24,
+      "options": null,
+      "businessContext": "Kaizenin tamamlanma süresi. Proje yönetimi zaman çizelgesi."
+    },
+    {
+      "id": "riskFactor",
+      "label": "Risk Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Başarısızlık olasılığı. Risk yönetimi ISO 31000."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirliği. Veri kalitesi yönetimi."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "targetValue < currentValue (iyileştirme olmalı)",
+      "implementationCost > 0",
+      "annualSavingsPerUnit > 0",
+      "affectedUnits >= 1",
+      "implementationTime > 0",
+      "riskFactor >= 0 && riskFactor <= 100",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "riskFactor": "> 50 -> 'Yüksek risk: Kaizen başarısız olabilir'",
+      "dataConfidence": "< 50 -> 'Düşük veri güveni: Sonuçlar güvenilir olmayabilir'",
+      "roi": "< 0 -> 'Negatif ROI: Kaizen maliyetli'"
+    }
+  },
+  "formulas": {
+    "annualSavingsTotal": "annualSavingsPerUnit * affectedUnits",
+    "netAnnualSavings": "annualSavingsTotal - (implementationCost / implementationTime * 12)",
+    "paybackPeriodMonths": "implementationCost / (annualSavingsTotal / 12)",
+    "roi": "(netAnnualSavings / implementationCost) * 100",
+    "riskAdjustedROI": "roi * (1 - riskFactor / 100)",
+    "dataConfidenceAdjustedROI": "riskAdjustedROI * (dataConfidence / 100)",
+    "priorityScore": "dataConfidenceAdjustedROI * (1 / implementationTime) * 100"
+  },
+  "outputs": {
+    "primary": "priorityScore",
+    "breakdown": {
+      "annualSavingsTotal": "annualSavingsTotal",
+      "netAnnualSavings": "netAnnualSavings",
+      "paybackPeriodMonths": "paybackPeriodMonths",
+      "roi": "roi",
+      "riskAdjustedROI": "riskAdjustedROI",
+      "dataConfidenceAdjustedROI": "dataConfidenceAdjustedROI"
+    },
+    "hiddenLossDrivers": [
+      "riskFactor > 50 ? 'Yüksek risk' : ''",
+      "dataConfidence < 50 ? 'Düşük veri güveni' : ''",
+      "roi < 0 ? 'Negatif ROI' : ''"
+    ],
+    "suggestedActions": [
+      "roi < 0 ? 'Maliyetleri düşürün veya tasarrufları artırın' : ''",
+      "riskFactor > 50 ? 'Risk azaltma planı oluşturun' : ''",
+      "dataConfidence < 50 ? 'Veri toplama sürecini iyileştirin' : ''",
+      "paybackPeriodMonths > 12 ? 'Uzun geri ödeme süresi: alternatifleri değerlendirin' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedROI"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (geçmiş kaizen karşılaştırması)",
+    "Portföy karşılaştırma (birden fazla kaizen)",
+    "Detaylı rapor (grafikler, duyarlılık analizi)"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,138 @@
+{
+  "toolName": "ruzgar-turbini-yaklasik-uretim-hesabi",
+  "inputs": [
+    {
+      "id": "ratedPower",
+      "label": "Anma Gücü",
+      "type": "number",
+      "unit": "kW",
+      "default": 2000,
+      "min": 100,
+      "max": 15000,
+      "options": null,
+      "businessContext": "Türbinin nominal gücü (kW). Üretici teknik verilerinden alınır. IEC 61400-1 standardına dayanır."
+    },
+    {
+      "id": "hubHeight",
+      "label": "Göbek Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 80,
+      "min": 30,
+      "max": 200,
+      "options": null,
+      "businessContext": "Türbin göbeğinin yerden yüksekliği. Rüzgar hızı profilini etkiler. IEC 61400-1 standardı."
+    },
+    {
+      "id": "rotorDiameter",
+      "label": "Rotor Çapı",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "min": 20,
+      "max": 200,
+      "options": null,
+      "businessContext": "Rotor kanatlarının çapı. Süpürme alanını belirler. IEC 61400-1 standardı."
+    },
+    {
+      "id": "averageWindSpeed",
+      "label": "Ortalama Rüzgar Hızı",
+      "type": "number",
+      "unit": "m/s",
+      "default": 7,
+      "min": 3,
+      "max": 25,
+      "options": null,
+      "businessContext": "Türbin sahasındaki yıllık ortalama rüzgar hızı. Meteorolojik verilerden alınır. Weibull dağılımı kullanılır."
+    },
+    {
+      "id": "airDensity",
+      "label": "Hava Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1.225,
+      "min": 1,
+      "max": 1.5,
+      "options": null,
+      "businessContext": "Standart deniz seviyesi hava yoğunluğu 1.225 kg/m³. Sıcaklık ve rakıma göre değişir. IEC 61400-12-1."
+    },
+    {
+      "id": "capacityFactor",
+      "label": "Kapasite Faktörü",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 10,
+      "max": 60,
+      "options": null,
+      "businessContext": "Gerçek üretimin teorik maksimuma oranı. Saha koşullarına bağlıdır. Genellikle %20-40 arası."
+    },
+    {
+      "id": "availability",
+      "label": "Kullanılabilirlik",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 80,
+      "max": 100,
+      "options": null,
+      "businessContext": "Türbinin çalışır durumda olduğu zaman oranı. Bakım ve arızalardan etkilenir. Endüstri standardı >%95."
+    },
+    {
+      "id": "hoursPerYear",
+      "label": "Yıllık Çalışma Saati",
+      "type": "number",
+      "unit": "h",
+      "default": 8760,
+      "min": 8000,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Bir yıldaki toplam saat (8760). Artık yıl için 8784 kullanılabilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "rotorDiameter must be less than or equal to 2 * hubHeight (structural constraint)",
+      "averageWindSpeed must be between cut-in and cut-out speeds (typically 3-25 m/s)",
+      "capacityFactor must be between 0 and 100",
+      "availability must be between 0 and 100"
+    ],
+    "thresholds": {
+      "capacityFactor": "if capacityFactor < 20 then 'Düşük kapasite faktörü: saha verimsiz olabilir'",
+      "availability": "if availability < 90 then 'Kritik: kullanılabilirlik düşük, bakım planını gözden geçirin'"
+    }
+  },
+  "formulas": {
+    "sweptArea": "pi * (rotorDiameter/2)^2",
+    "theoreticalPower": "0.5 * airDensity * sweptArea * averageWindSpeed^3",
+    "annualEnergyGross": "ratedPower * hoursPerYear * (capacityFactor/100)",
+    "annualEnergyNet": "annualEnergyGross * (availability/100)",
+    "primary": "annualEnergyNet"
+  },
+  "outputs": {
+    "primary": "annualEnergyNet (kWh/yıl)",
+    "breakdown": {
+      "sweptArea": "m²",
+      "theoreticalPower": "kW",
+      "annualEnergyGross": "kWh/yıl",
+      "annualEnergyNet": "kWh/yıl"
+    },
+    "hiddenLossDrivers": [
+      "capacityFactor < 20",
+      "availability < 90"
+    ],
+    "suggestedActions": [
+      "Kapasite faktörünü artırmak için daha yüksek rüzgar hızlı saha seçin",
+      "Kullanılabilirliği artırmak için önleyici bakım programı uygulayın",
+      "Rotor çapını veya göbek yüksekliğini optimize edin"
+    ],
+    "dataConfidenceAdjusted": "annualEnergyNet * (dataConfidence/100) (dataConfidence input varsayılan 90)"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş verilerle karşılaştırma)",
+    "Detaylı rapor (bileşen bazında kayıplar)"
+  ],
+  "premiumRequired": true
+}

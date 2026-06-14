@@ -1,0 +1,195 @@
+{
+  "toolName": "yedek-parca-stok-seviyesi-ve-durus-riski-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Yıllık Talep (adet)",
+      "type": "number",
+      "unit": "adet/yıl",
+      "default": 1000,
+      "min": 1,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Yedek parça için yıllık ortalama talep miktarı. APICS/SCOR modeline göre talep tahmini esas alınır."
+    },
+    {
+      "id": "leadTimeDays",
+      "label": "Tedarik Süresi (gün)",
+      "type": "number",
+      "unit": "gün",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Siparişten teslimata kadar geçen süre. Tedarik zinciri yönetiminde kritik parametre."
+    },
+    {
+      "id": "serviceLevel",
+      "label": "Servis Seviyesi (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 50,
+      "max": 99.99,
+      "options": null,
+      "businessContext": "Stokta bulunma olasılığı. Genellikle %95-99 arası. ISO 9001 kalite yönetiminde müşteri memnuniyeti için kullanılır."
+    },
+    {
+      "id": "unitCost",
+      "label": "Birim Parça Maliyeti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 500,
+      "min": 1,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Her bir yedek parçanın satın alma veya üretim maliyeti."
+    },
+    {
+      "id": "orderingCost",
+      "label": "Sipariş Maliyeti (TL/sipariş)",
+      "type": "number",
+      "unit": "TL/sipariş",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Her sipariş için sabit maliyet (nakliye, işlem, vb.). EOQ modelinde kullanılır."
+    },
+    {
+      "id": "holdingCostRate",
+      "label": "Stok Tutma Maliyeti Oranı (yıllık, %)",
+      "type": "number",
+      "unit": "%/yıl",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Stokta tutma maliyetinin parça maliyetine oranı (depo, sigorta, eskime). Genelde %15-30 arası."
+    },
+    {
+      "id": "downtimeCostPerHour",
+      "label": "Duruş Maliyeti (TL/saat)",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 10000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Makine duruşu başına saatlik kayıp (üretim kaybı, işçilik, vb.)."
+    },
+    {
+      "id": "repairTimeHours",
+      "label": "Ortalama Onarım Süresi (saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 4,
+      "min": 0.5,
+      "max": 168,
+      "options": null,
+      "businessContext": "Arıza durumunda parça değişimi için geçen süre."
+    },
+    {
+      "id": "demandVariability",
+      "label": "Talep Değişkenliği (standart sapma, adet/gün)",
+      "type": "number",
+      "unit": "adet/gün",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Günlük talebin standart sapması. Güvenlik stoğu hesaplamasında kullanılır."
+    },
+    {
+      "id": "leadTimeVariability",
+      "label": "Tedarik Süresi Değişkenliği (standart sapma, gün)",
+      "type": "number",
+      "unit": "gün",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Tedarik süresinin standart sapması. Güvenlik stoğu hesaplamasında kullanılır."
+    },
+    {
+      "id": "criticality",
+      "label": "Parça Kritiklik Seviyesi",
+      "type": "select",
+      "unit": "",
+      "default": "orta",
+      "min": null,
+      "max": null,
+      "options": [
+        "düşük",
+        "orta",
+        "yüksek"
+      ],
+      "businessContext": "Parçanın üretim sürecindeki önemi. Yüksek kritiklikte duruş riski daha fazladır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualDemand > 0",
+      "leadTimeDays > 0",
+      "serviceLevel >= 50 and serviceLevel <= 99.99",
+      "unitCost > 0",
+      "orderingCost >= 0",
+      "holdingCostRate >= 0 and holdingCostRate <= 100",
+      "downtimeCostPerHour >= 0",
+      "repairTimeHours > 0",
+      "demandVariability >= 0",
+      "leadTimeVariability >= 0",
+      "if criticality == 'yuksek' then serviceLevel >= 95 else true"
+    ],
+    "thresholds": {
+      "serviceLevel": "serviceLevel < 90 ? 'Servis seviyesi düşük, stok tükenme riski yüksek' : null",
+      "downtimeCostPerHour": "downtimeCostPerHour > 50000 ? 'Duruş maliyeti çok yüksek, acil aksiyon gerekli' : null",
+      "holdingCostRate": "holdingCostRate > 30 ? 'Stok tutma maliyeti yüksek, optimizasyon önerilir' : null"
+    }
+  },
+  "formulas": {
+    "dailyDemand": "annualDemand / 365",
+    "safetyStock": "serviceLevelZScore(serviceLevel/100) * sqrt(leadTimeDays * demandVariability^2 + (dailyDemand^2 * leadTimeVariability^2))",
+    "reorderPoint": "dailyDemand * leadTimeDays + safetyStock",
+    "economicOrderQuantity": "sqrt(2 * annualDemand * orderingCost / (unitCost * holdingCostRate/100))",
+    "averageInventory": "economicOrderQuantity / 2 + safetyStock",
+    "annualHoldingCost": "averageInventory * unitCost * holdingCostRate/100",
+    "annualOrderingCost": "(annualDemand / economicOrderQuantity) * orderingCost",
+    "totalInventoryCost": "annualHoldingCost + annualOrderingCost",
+    "stockoutProbability": "1 - serviceLevel/100",
+    "expectedDowntimeHoursPerYear": "stockoutProbability * (annualDemand / economicOrderQuantity) * repairTimeHours",
+    "expectedDowntimeCostPerYear": "expectedDowntimeHoursPerYear * downtimeCostPerHour",
+    "totalCost": "totalInventoryCost + expectedDowntimeCostPerYear",
+    "serviceLevelZScore": "if serviceLevel == 90 then 1.28 else if serviceLevel == 95 then 1.645 else if serviceLevel == 99 then 2.326 else 1.645"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "totalInventoryCost": "totalInventoryCost",
+      "expectedDowntimeCostPerYear": "expectedDowntimeCostPerYear",
+      "safetyStock": "safetyStock",
+      "reorderPoint": "reorderPoint",
+      "economicOrderQuantity": "economicOrderQuantity",
+      "averageInventory": "averageInventory"
+    },
+    "hiddenLossDrivers": [
+      "serviceLevel < 90 ? 'Düşük servis seviyesi stok tükenme riskini artırır' : null",
+      "demandVariability > 10 ? 'Yüksek talep değişkenliği güvenlik stoğunu şişirir' : null",
+      "leadTimeVariability > 10 ? 'Tedarik süresi değişkenliği yüksek, alternatif tedarikçi düşünün' : null"
+    ],
+    "suggestedActions": [
+      "criticality == 'yuksek' ? 'Kritik parçalar için konsinye stok veya VMI değerlendirin' : null",
+      "holdingCostRate > 25 ? 'Stok devir hızını artırmak için ABC analizi yapın' : null",
+      "downtimeCostPerHour > 50000 ? 'Önleyici bakım programı oluşturun' : null"
+    ],
+    "dataConfidenceAdjusted": "totalCost * (1 + (demandVariability / 100))"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş verilerle)",
+    "Karşılaştırma (farklı senaryolar)",
+    "Detaylı rapor (grafiklerle)"
+  ],
+  "premiumRequired": true
+}

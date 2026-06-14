@@ -45,10 +45,10 @@ export interface AbonelikYazilimCloudYillikMaliyetHesabiOutput {
 
 function evaluateFormulas(input: AbonelikYazilimCloudYillikMaliyetHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.baseAnnualCost = (() => { try { return input.subscriptionType == 'monthly' ? input.monthlyCostPerUser * input.numberOfUsers * 12 : (input.subscriptionType == 'annual' ? input.monthlyCostPerUser * input.numberOfUsers * 12 * (1 - input.annualDiscount/100) : input.monthlyCostPerUser * input.numberOfUsers * 12); } catch { return 0; } })();
-  results.totalAnnualCost = (() => { try { return results.baseAnnualCost + input.additionalServicesCost + input.implementationCost/input.contractDuration + input.trainingCost + input.maintenanceCost; } catch { return 0; } })();
-  results.costPerUserPerMonth = (() => { try { return results.totalAnnualCost / (input.numberOfUsers * 12); } catch { return 0; } })();
-  results.totalCostOverContract = (() => { try { return results.totalAnnualCost * input.contractDuration; } catch { return 0; } })();
+  results.baseAnnualCost = ((): number => { try { const __v = input.subscriptionType == 'monthly' ? input.monthlyCostPerUser * input.numberOfUsers * 12 : (input.subscriptionType == 'annual' ? input.monthlyCostPerUser * input.numberOfUsers * 12 * (1 - input.annualDiscount/100) : input.monthlyCostPerUser * input.numberOfUsers * 12); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.totalAnnualCost = ((): number => { try { const __v = results.baseAnnualCost + input.additionalServicesCost + (Number(input.contractDuration) > 0 ? input.implementationCost / (Number(input.contractDuration) || 0) : 0) + input.trainingCost + input.maintenanceCost; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
+  results.costPerUserPerMonth = input.numberOfUsers && input.numberOfUsers > 0 ? results.totalAnnualCost / (input.numberOfUsers * 12) : 0;
+  results.totalCostOverContract = ((): number => { try { const __v = results.totalAnnualCost * (Number(input.contractDuration) || 0); return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })();
   return results;
 }
 

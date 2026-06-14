@@ -1,0 +1,177 @@
+{
+  "toolName": "route-cost-calculator",
+  "inputs": [
+    {
+      "id": "distanceKm",
+      "label": "Distance (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total route distance in kilometers. Standard unit for transportation distance."
+    },
+    {
+      "id": "fuelConsumptionPerKm",
+      "label": "Fuel Consumption (L/km)",
+      "type": "number",
+      "unit": "L/km",
+      "default": 0.1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average fuel consumption per kilometer. Based on vehicle specifications or historical data."
+    },
+    {
+      "id": "fuelPricePerLiter",
+      "label": "Fuel Price ($/L)",
+      "type": "number",
+      "unit": "$/L",
+      "default": 1.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Current fuel price per liter. Market rate."
+    },
+    {
+      "id": "driverHourlyRate",
+      "label": "Driver Hourly Rate ($/h)",
+      "type": "number",
+      "unit": "$/h",
+      "default": 25,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Driver wage per hour. Includes benefits and overhead."
+    },
+    {
+      "id": "averageSpeedKmh",
+      "label": "Average Speed (km/h)",
+      "type": "number",
+      "unit": "km/h",
+      "default": 60,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Expected average speed including traffic and stops."
+    },
+    {
+      "id": "tollCost",
+      "label": "Toll Cost ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total toll fees for the route."
+    },
+    {
+      "id": "maintenanceCostPerKm",
+      "label": "Maintenance Cost ($/km)",
+      "type": "number",
+      "unit": "$/km",
+      "default": 0.05,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Vehicle maintenance cost per kilometer. Based on fleet data."
+    },
+    {
+      "id": "loadWeightTons",
+      "label": "Load Weight (tons)",
+      "type": "number",
+      "unit": "tons",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total cargo weight in tons. Affects fuel consumption and wear."
+    },
+    {
+      "id": "costPerTonKm",
+      "label": "Cost per Ton-km ($/ton-km)",
+      "type": "number",
+      "unit": "$/ton-km",
+      "default": 0.1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Benchmark cost per ton-kilometer for comparison."
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "unit": "",
+      "default": "USD",
+      "min": null,
+      "max": null,
+      "options": [
+        "USD",
+        "EUR",
+        "GBP",
+        "TRY"
+      ],
+      "businessContext": "Currency for cost reporting."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "distanceKm >= 0",
+      "fuelConsumptionPerKm >= 0",
+      "fuelPricePerLiter >= 0",
+      "driverHourlyRate >= 0",
+      "averageSpeedKmh > 0",
+      "tollCost >= 0",
+      "maintenanceCostPerKm >= 0",
+      "loadWeightTons >= 0",
+      "costPerTonKm >= 0"
+    ],
+    "thresholds": {
+      "fuelCostPerKm": "fuelConsumptionPerKm * fuelPricePerLiter",
+      "totalCostPerKm": "fuelCostPerKm + maintenanceCostPerKm + (driverHourlyRate / averageSpeedKmh)",
+      "totalCost": "totalCostPerKm * distanceKm + tollCost",
+      "costPerTonKmActual": "totalCost / (loadWeightTons * distanceKm)",
+      "costEfficiencyRatio": "costPerTonKmActual / costPerTonKm"
+    }
+  },
+  "formulas": {
+    "fuelCost": "distanceKm * fuelConsumptionPerKm * fuelPricePerLiter",
+    "driverCost": "(distanceKm / averageSpeedKmh) * driverHourlyRate",
+    "maintenanceCost": "distanceKm * maintenanceCostPerKm",
+    "totalCost": "fuelCost + driverCost + maintenanceCost + tollCost",
+    "costPerKm": "totalCost / distanceKm",
+    "costPerTonKm": "totalCost / (loadWeightTons * distanceKm)",
+    "costEfficiencyRatio": "costPerTonKm / costPerTonKmInput"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "fuelCost": "fuelCost",
+      "driverCost": "driverCost",
+      "maintenanceCost": "maintenanceCost",
+      "tollCost": "tollCost"
+    },
+    "hiddenLossDrivers": [
+      "if costEfficiencyRatio > 1.2 then 'Cost efficiency ratio exceeds 1.2, indicating higher than benchmark cost per ton-km.'",
+      "if fuelCost / totalCost > 0.4 then 'Fuel cost proportion exceeds 40%, consider fuel efficiency improvements.'"
+    ],
+    "suggestedActions": [
+      "Optimize route to reduce distance or avoid tolls.",
+      "Improve fuel efficiency through driver training or vehicle maintenance.",
+      "Increase load factor to reduce cost per ton-km.",
+      "Negotiate lower fuel prices or use alternative fuels."
+    ],
+    "dataConfidenceAdjusted": "totalCost * (1 - 0.1 * (1 - dataConfidence))"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Benchmarks",
+    "Detailed Report with Graphs"
+  ],
+  "premiumRequired": true
+}

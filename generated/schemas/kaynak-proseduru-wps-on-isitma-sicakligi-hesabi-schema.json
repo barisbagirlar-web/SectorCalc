@@ -1,0 +1,127 @@
+{
+  "toolName": "kaynak-proseduru-wps-on-isitma-sicakligi-hesabi",
+  "inputs": [
+    {
+      "id": "baseMetalThickness",
+      "label": "Base Metal Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "min": 1,
+      "max": 200,
+      "options": null,
+      "businessContext": "Thickness of the base metal to be welded. Per AWS D1.1 and ISO 15609-1, preheat temperature depends on thickness."
+    },
+    {
+      "id": "carbonEquivalent",
+      "label": "Carbon Equivalent (CE)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.4,
+      "min": 0.1,
+      "max": 1,
+      "options": null,
+      "businessContext": "Carbon equivalent value calculated from material composition. Based on IIW formula: CE = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15. Higher CE requires higher preheat."
+    },
+    {
+      "id": "hydrogenLevel",
+      "label": "Hydrogen Level",
+      "type": "select",
+      "unit": "",
+      "default": "low",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Hydrogen content in weld metal per ISO 3690. Low: <5 ml/100g, Medium: 5-10 ml/100g, High: >10 ml/100g. Affects preheat to avoid hydrogen cracking."
+    },
+    {
+      "id": "heatInput",
+      "label": "Heat Input",
+      "type": "number",
+      "unit": "kJ/mm",
+      "default": 1.5,
+      "min": 0.5,
+      "max": 5,
+      "options": null,
+      "businessContext": "Heat input during welding. Calculated as (Voltage * Current * 60) / Travel Speed. Lower heat input may require higher preheat."
+    },
+    {
+      "id": "restraintDegree",
+      "label": "Restraint Degree",
+      "type": "select",
+      "unit": "",
+      "default": "low",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Degree of joint restraint. High restraint increases risk of cracking, requiring higher preheat. Per AWS D1.1."
+    },
+    {
+      "id": "ambientTemperature",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "min": -20,
+      "max": 50,
+      "options": null,
+      "businessContext": "Temperature of the surrounding environment. Lower ambient temperature may require higher preheat."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "baseMetalThickness must be between 1 and 200 mm",
+      "carbonEquivalent must be between 0.1 and 1.0 %",
+      "heatInput must be between 0.5 and 5.0 kJ/mm",
+      "ambientTemperature must be between -20 and 50 °C"
+    ],
+    "thresholds": {
+      "preheatTemperature": "If preheatTemperature > 250, warning: 'High preheat temperature may cause metallurgical issues.'",
+      "carbonEquivalent": "If carbonEquivalent > 0.45, warning: 'High carbon equivalent increases cracking risk.'"
+    }
+  },
+  "formulas": {
+    "basePreheat": "50 + (carbonEquivalent * 100) + (baseMetalThickness * 0.5)",
+    "hydrogenFactor": "hydrogenLevel === 'low' ? 0 : (hydrogenLevel === 'medium' ? 20 : 40)",
+    "heatInputFactor": "heatInput < 1.0 ? 30 : (heatInput < 2.0 ? 0 : -20)",
+    "restraintFactor": "restraintDegree === 'low' ? 0 : (restraintDegree === 'medium' ? 15 : 30)",
+    "ambientFactor": "ambientTemperature < 10 ? (10 - ambientTemperature) * 2 : 0",
+    "preheatTemperature": "basePreheat + hydrogenFactor + heatInputFactor + restraintFactor + ambientFactor"
+  },
+  "outputs": {
+    "primary": "preheatTemperature",
+    "breakdown": {
+      "basePreheat": "basePreheat",
+      "hydrogenFactor": "hydrogenFactor",
+      "heatInputFactor": "heatInputFactor",
+      "restraintFactor": "restraintFactor",
+      "ambientFactor": "ambientFactor"
+    },
+    "hiddenLossDrivers": [
+      "carbonEquivalent > 0.45 ? 'High carbon equivalent increases cracking risk' : ''",
+      "preheatTemperature > 250 ? 'High preheat temperature may cause metallurgical issues' : ''"
+    ],
+    "suggestedActions": [
+      "If preheat temperature is too high, consider using low hydrogen welding consumables.",
+      "If carbon equivalent is high, consider preheating to at least 150°C.",
+      "Ensure ambient temperature is above 10°C to reduce preheat requirements."
+    ],
+    "dataConfidenceAdjusted": "preheatTemperature * (1 - 0.1 * (1 - dataConfidence))"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Standards",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

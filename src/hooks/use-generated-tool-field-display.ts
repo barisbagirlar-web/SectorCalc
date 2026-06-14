@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { resolveFreeToolFieldDisplay } from "@/lib/i18n/free-tool-form-i18n";
+import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
 
 export type GeneratedToolFieldDisplay = {
@@ -13,7 +14,7 @@ export type GeneratedToolFieldDisplay = {
 
 /**
  * Locale-aware label + businessContext for generated schema forms.
- * Resolution order: messages.freeToolInputs → generated bundle → glossary fallback.
+ * Resolution order: schema label_i18n / businessContext_i18n → messages.freeToolInputs → glossary fallback.
  */
 export function useGeneratedToolFieldDisplay(
   slug: string,
@@ -26,8 +27,12 @@ export function useGeneratedToolFieldDisplay(
     const fieldKey = input.id.toLowerCase();
     const messagePrefix = `${slug}.${fieldKey}`;
 
-    let label = input.label;
-    let helper = input.businessContext;
+    let label = resolveGeneratedI18nText(input.label_i18n, locale, input.label);
+    let helper = resolveGeneratedI18nText(
+      input.businessContext_i18n,
+      locale,
+      input.businessContext,
+    );
 
     if (t.has(`${messagePrefix}.label`)) {
       label = t(`${messagePrefix}.label`);
@@ -47,5 +52,14 @@ export function useGeneratedToolFieldDisplay(
       placeholder: resolved.placeholder,
       helper: resolved.helper ?? helper,
     };
-  }, [slug, input.id, input.label, input.businessContext, locale, t]);
+  }, [
+    slug,
+    input.id,
+    input.label,
+    input.label_i18n,
+    input.businessContext,
+    input.businessContext_i18n,
+    locale,
+    t,
+  ]);
 }

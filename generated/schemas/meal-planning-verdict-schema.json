@@ -1,0 +1,129 @@
+{
+  "toolName": "meal-planning-verdict",
+  "inputs": [
+    {
+      "id": "mealCostPerDay",
+      "label": "Daily Meal Cost",
+      "type": "number",
+      "unit": "USD/day",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Average daily expenditure on meals. Based on USDA food plans and industry benchmarks for meal planning."
+    },
+    {
+      "id": "mealPlanDuration",
+      "label": "Meal Plan Duration",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Duration of the meal plan in days. Standard planning horizon for meal prep and budgeting."
+    },
+    {
+      "id": "numberOfPeople",
+      "label": "Number of People",
+      "type": "number",
+      "unit": "persons",
+      "default": 1,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Number of individuals covered by the meal plan. Affects total cost and waste calculations."
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Food Waste Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Estimated percentage of food wasted. Based on FAO food waste data and lean waste reduction principles."
+    },
+    {
+      "id": "dietaryPreference",
+      "label": "Dietary Preference",
+      "type": "select",
+      "unit": "",
+      "default": "standard",
+      "min": null,
+      "max": null,
+      "options": [
+        "standard",
+        "vegetarian",
+        "vegan",
+        "keto",
+        "paleo"
+      ],
+      "businessContext": "Dietary preference affecting meal cost and nutritional requirements. Based on common diet patterns."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence in input data accuracy. Affects adjustment of final verdict. Based on data quality assessment standards."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "mealCostPerDay must be >= 0",
+      "mealPlanDuration must be >= 1",
+      "numberOfPeople must be >= 1",
+      "wastePercentage must be between 0 and 100",
+      "If dietaryPreference is 'vegan' or 'keto', mealCostPerDay may be higher (informational)"
+    ],
+    "thresholds": {
+      "wastePercentage > 20": "High waste percentage detected; consider waste reduction strategies.",
+      "mealCostPerDay > 50": "Meal cost is above typical budget; review meal plan efficiency."
+    }
+  },
+  "formulas": {
+    "totalMealCost": "mealCostPerDay * mealPlanDuration * numberOfPeople",
+    "totalWasteCost": "totalMealCost * (wastePercentage / 100)",
+    "effectiveMealCost": "totalMealCost - totalWasteCost",
+    "costPerPersonPerDay": "effectiveMealCost / (numberOfPeople * mealPlanDuration)",
+    "verdictScore": "costPerPersonPerDay <= 10 ? 'excellent' : costPerPersonPerDay <= 20 ? 'good' : costPerPersonPerDay <= 30 ? 'fair' : 'poor'",
+    "dataConfidenceAdjusted": "dataConfidence == 'low' ? effectiveMealCost * 1.1 : dataConfidence == 'medium' ? effectiveMealCost * 1.05 : effectiveMealCost"
+  },
+  "outputs": {
+    "primary": "verdictScore",
+    "breakdown": {
+      "totalMealCost": "totalMealCost",
+      "totalWasteCost": "totalWasteCost",
+      "effectiveMealCost": "effectiveMealCost",
+      "costPerPersonPerDay": "costPerPersonPerDay"
+    },
+    "hiddenLossDrivers": [
+      "wastePercentage > 20 ? 'High waste' : ''",
+      "mealCostPerDay > 50 ? 'High cost' : ''"
+    ],
+    "suggestedActions": [
+      "If wastePercentage > 20: Implement meal prep and inventory management to reduce waste.",
+      "If mealCostPerDay > 50: Consider bulk buying or cheaper alternatives.",
+      "If dietaryPreference is 'keto' or 'vegan': Adjust budget accordingly."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis over multiple plans",
+    "Comparison with benchmarks",
+    "Detailed nutritional report"
+  ],
+  "premiumRequired": true
+}

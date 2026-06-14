@@ -1,0 +1,278 @@
+{
+  "toolName": "rent-vs-buy-calculator",
+  "inputs": [
+    {
+      "id": "homePrice",
+      "label": "Home Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "min": 50000,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Purchase price of the property. Standard real estate valuation."
+    },
+    {
+      "id": "downPaymentPercent",
+      "label": "Down Payment Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of home price paid upfront. Typical minimum 3-20% depending on loan type."
+    },
+    {
+      "id": "mortgageRate",
+      "label": "Mortgage Interest Rate",
+      "type": "number",
+      "unit": "% per year",
+      "default": 6.5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Annual interest rate on mortgage. Based on current market rates."
+    },
+    {
+      "id": "loanTermYears",
+      "label": "Loan Term (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "min": 5,
+      "max": 40,
+      "options": null,
+      "businessContext": "Duration of mortgage. Common terms: 15, 20, 30 years."
+    },
+    {
+      "id": "propertyTaxRate",
+      "label": "Property Tax Rate",
+      "type": "number",
+      "unit": "% per year",
+      "default": 1.2,
+      "min": 0,
+      "max": 5,
+      "options": null,
+      "businessContext": "Annual property tax as percentage of home value. Varies by location."
+    },
+    {
+      "id": "homeInsuranceRate",
+      "label": "Home Insurance Rate",
+      "type": "number",
+      "unit": "% per year",
+      "default": 0.5,
+      "min": 0,
+      "max": 3,
+      "options": null,
+      "businessContext": "Annual insurance cost as percentage of home value."
+    },
+    {
+      "id": "maintenanceRate",
+      "label": "Maintenance Cost Rate",
+      "type": "number",
+      "unit": "% per year",
+      "default": 1,
+      "min": 0,
+      "max": 5,
+      "options": null,
+      "businessContext": "Annual maintenance cost as percentage of home value. Rule of thumb: 1%."
+    },
+    {
+      "id": "hoaFeesMonthly",
+      "label": "HOA Fees (Monthly)",
+      "type": "number",
+      "unit": "USD/month",
+      "default": 0,
+      "min": 0,
+      "max": 2000,
+      "options": null,
+      "businessContext": "Monthly homeowners association fees if applicable."
+    },
+    {
+      "id": "closingCostsPercent",
+      "label": "Closing Costs Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "One-time closing costs as percentage of home price. Typically 2-5%."
+    },
+    {
+      "id": "rentMonthly",
+      "label": "Monthly Rent",
+      "type": "number",
+      "unit": "USD/month",
+      "default": 2000,
+      "min": 0,
+      "max": 50000,
+      "options": null,
+      "businessContext": "Monthly rent for comparable property."
+    },
+    {
+      "id": "rentersInsuranceMonthly",
+      "label": "Renter's Insurance (Monthly)",
+      "type": "number",
+      "unit": "USD/month",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "options": null,
+      "businessContext": "Monthly cost of renter's insurance."
+    },
+    {
+      "id": "securityDeposit",
+      "label": "Security Deposit",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "min": 0,
+      "max": 50000,
+      "options": null,
+      "businessContext": "Refundable deposit paid upfront when renting."
+    },
+    {
+      "id": "appreciationRate",
+      "label": "Home Appreciation Rate",
+      "type": "number",
+      "unit": "% per year",
+      "default": 3,
+      "min": -5,
+      "max": 20,
+      "options": null,
+      "businessContext": "Expected annual increase in home value. Historical average ~3-4%."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "% per year",
+      "default": 2.5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Expected annual inflation rate. Used to discount future cash flows."
+    },
+    {
+      "id": "investmentReturnRate",
+      "label": "Investment Return Rate",
+      "type": "number",
+      "unit": "% per year",
+      "default": 7,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Expected annual return on alternative investments (e.g., stock market)."
+    },
+    {
+      "id": "timeHorizonYears",
+      "label": "Time Horizon (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Number of years you plan to stay in the home or rent."
+    },
+    {
+      "id": "marginalTaxRate",
+      "label": "Marginal Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 24,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Federal income tax bracket. Used to calculate mortgage interest tax deduction benefit."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "User's confidence in input data accuracy. Adjusts output reliability."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "downPaymentPercent >= 0 && downPaymentPercent <= 100",
+      "mortgageRate >= 0 && mortgageRate <= 20",
+      "loanTermYears >= 5 && loanTermYears <= 40",
+      "timeHorizonYears >= 1 && timeHorizonYears <= 50",
+      "homePrice > 0",
+      "rentMonthly > 0",
+      "if downPaymentPercent < 20 then mortgageRate must include PMI (not modeled separately)"
+    ],
+    "thresholds": {
+      "downPaymentPercent < 20": "Low down payment may require PMI, increasing monthly cost.",
+      "mortgageRate > 7": "High mortgage rate significantly increases cost.",
+      "timeHorizonYears < 5": "Short time horizon may favor renting due to transaction costs.",
+      "appreciationRate < 0": "Negative appreciation could lead to loss."
+    }
+  },
+  "formulas": {
+    "downPayment": "homePrice * (downPaymentPercent / 100)",
+    "loanAmount": "homePrice - downPayment",
+    "monthlyMortgagePayment": "loanAmount * (mortgageRate / 12 / 100) * Math.pow(1 + mortgageRate / 12 / 100, loanTermYears * 12) / (Math.pow(1 + mortgageRate / 12 / 100, loanTermYears * 12) - 1)",
+    "monthlyPropertyTax": "homePrice * (propertyTaxRate / 100) / 12",
+    "monthlyHomeInsurance": "homePrice * (homeInsuranceRate / 100) / 12",
+    "monthlyMaintenance": "homePrice * (maintenanceRate / 100) / 12",
+    "monthlyHOAFees": "hoaFeesMonthly",
+    "totalMonthlyBuyCost": "monthlyMortgagePayment + monthlyPropertyTax + monthlyHomeInsurance + monthlyMaintenance + monthlyHOAFees",
+    "monthlyRentCost": "rentMonthly + rentersInsuranceMonthly",
+    "closingCosts": "homePrice * (closingCostsPercent / 100)",
+    "totalBuyUpfront": "downPayment + closingCosts",
+    "totalRentUpfront": "securityDeposit",
+    "futureHomeValue": "homePrice * Math.pow(1 + appreciationRate / 100, timeHorizonYears)",
+    "remainingMortgageBalance": "loanAmount * Math.pow(1 + mortgageRate / 12 / 100, timeHorizonYears * 12) - monthlyMortgagePayment * (Math.pow(1 + mortgageRate / 12 / 100, timeHorizonYears * 12) - 1) / (mortgageRate / 12 / 100)",
+    "equityAfterSale": "futureHomeValue - remainingMortgageBalance - (futureHomeValue - homePrice) * 0.06",
+    "totalBuyCost": "totalBuyUpfront + totalMonthlyBuyCost * 12 * timeHorizonYears - equityAfterSale",
+    "totalRentCost": "totalRentUpfront + monthlyRentCost * 12 * timeHorizonYears - securityDeposit",
+    "netBenefitOfBuying": "totalRentCost - totalBuyCost",
+    "breakEvenYears": "log((totalBuyUpfront - totalRentUpfront) / (monthlyRentCost - totalMonthlyBuyCost) + 1) / log(1 + (investmentReturnRate / 100 / 12))",
+    "dataConfidenceAdjusted": "netBenefitOfBuying * (dataConfidence === 'high' ? 1 : dataConfidence === 'medium' ? 0.9 : 0.8)"
+  },
+  "outputs": {
+    "primary": "netBenefitOfBuying",
+    "breakdown": {
+      "totalBuyCost": "totalBuyCost",
+      "totalRentCost": "totalRentCost",
+      "monthlyBuyCost": "totalMonthlyBuyCost",
+      "monthlyRentCost": "monthlyRentCost",
+      "equityAfterSale": "equityAfterSale",
+      "breakEvenYears": "breakEvenYears"
+    },
+    "hiddenLossDrivers": [
+      "if downPaymentPercent < 20 then 'PMI cost not included'",
+      "if timeHorizonYears < 5 then 'Transaction costs may outweigh benefits'",
+      "if appreciationRate < inflationRate then 'Real appreciation may be negative'"
+    ],
+    "suggestedActions": [
+      "If netBenefitOfBuying > 0: Buying is financially better over the time horizon.",
+      "If netBenefitOfBuying < 0: Renting is financially better.",
+      "Consider increasing down payment to avoid PMI.",
+      "If time horizon is short, renting may be more flexible.",
+      "Review property tax and insurance rates for accuracy."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Market Averages",
+    "Detailed Amortization Schedule"
+  ],
+  "premiumRequired": true
+}

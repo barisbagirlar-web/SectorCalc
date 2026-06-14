@@ -3,6 +3,7 @@
 import type { Control, FieldErrors } from "react-hook-form";
 import { Controller } from "react-hook-form";
 import { CalculatorUnitSelect } from "@/components/tools/CalculatorUnitCurrencyControls";
+import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useGeneratedToolFieldDisplay } from "@/hooks/use-generated-tool-field-display";
 import { handleNumericInputChange } from "@/lib/input/numeric-input";
 import {
@@ -45,7 +46,10 @@ export function DynamicToolFormField({
   const fieldError = errors[input.id];
   const errorMessage = fieldError?.message ? String(fieldError.message) : undefined;
   const showUnitSelector = shouldShowGeneratedUnitSelector(input);
-  const unitOptions = showUnitSelector ? getGeneratedInputUnitOptions(input, locale) : [];
+  const unitSystem = usePreferredUnitSystem();
+  const unitOptions = showUnitSelector
+    ? getGeneratedInputUnitOptions(input, locale, unitSystem)
+    : [];
   const showStaticUnit = Boolean(input.unit) && !showUnitSelector;
 
   if (input.type === "select" && input.options) {
@@ -76,7 +80,7 @@ export function DynamicToolFormField({
               ))}
             </select>
             <p id={helperId} className="sc-ledger-helper sc-industrial-field__helper">
-              {display.helper ?? input.businessContext}
+              {display.helper}
             </p>
             {errorMessage ? (
               <p id={errorId} className="sc-industrial-field__error" role="alert">
@@ -109,7 +113,7 @@ export function DynamicToolFormField({
               <span className="text-sm text-premium-velvet">{display.label}</span>
             </label>
             <p id={helperId} className="sc-ledger-helper sc-industrial-field__helper">
-              {display.helper ?? input.businessContext}
+              {display.helper}
             </p>
             {errorMessage ? (
               <p id={errorId} className="sc-industrial-field__error" role="alert">
@@ -161,7 +165,7 @@ export function DynamicToolFormField({
             ) : null}
           </div>
           <p id={helperId} className="sc-ledger-helper sc-industrial-field__helper">
-            {display.helper ?? input.businessContext}
+            {display.helper}
           </p>
           {errorMessage ? (
             <p id={errorId} className="sc-industrial-field__error" role="alert">

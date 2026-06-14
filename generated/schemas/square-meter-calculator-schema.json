@@ -1,0 +1,122 @@
+{
+  "toolName": "square-meter-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Length of the area to be calculated. Standard SI unit. Used in construction, real estate, and manufacturing for area measurement."
+    },
+    {
+      "id": "width",
+      "label": "Width",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Width of the area to be calculated. Standard SI unit. Used in construction, real estate, and manufacturing for area measurement."
+    },
+    {
+      "id": "shape",
+      "label": "Shape",
+      "type": "select",
+      "unit": "",
+      "default": "rectangle",
+      "min": null,
+      "max": null,
+      "options": [
+        "rectangle",
+        "circle",
+        "triangle",
+        "trapezoid"
+      ],
+      "businessContext": "Shape of the area. Different shapes require different formulas. Common in geometry and engineering design."
+    },
+    {
+      "id": "radius",
+      "label": "Radius",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Radius for circular shapes. Required when shape is 'circle'. Standard SI unit."
+    },
+    {
+      "id": "base",
+      "label": "Base",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Base length for triangle or trapezoid. Required when shape is 'triangle' or 'trapezoid'. Standard SI unit."
+    },
+    {
+      "id": "height",
+      "label": "Height",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Height for triangle or trapezoid. Required when shape is 'triangle' or 'trapezoid'. Standard SI unit."
+    },
+    {
+      "id": "topBase",
+      "label": "Top Base",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Top base length for trapezoid. Required when shape is 'trapezoid'. Standard SI unit."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "If shape is 'rectangle', length and width must be > 0.",
+      "If shape is 'circle', radius must be > 0.",
+      "If shape is 'triangle', base and height must be > 0.",
+      "If shape is 'trapezoid', base, topBase, and height must be > 0."
+    ],
+    "thresholds": {
+      "area": "If area > 10000, warning: 'Large area, consider breaking into smaller sections.'"
+    }
+  },
+  "formulas": {
+    "area": "shape === 'rectangle' ? length * width : shape === 'circle' ? Math.PI * radius * radius : shape === 'triangle' ? 0.5 * base * height : shape === 'trapezoid' ? 0.5 * (base + topBase) * height : 0"
+  },
+  "outputs": {
+    "primary": "area",
+    "breakdown": {
+      "area": "area"
+    },
+    "hiddenLossDrivers": [
+      "area > 10000 ? 'Large area detected' : ''"
+    ],
+    "suggestedActions": [
+      "If area is large, consider dividing into smaller sections for easier management."
+    ],
+    "dataConfidenceAdjusted": "area"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Comparison",
+    "Detailed report"
+  ],
+  "premiumRequired": false
+}

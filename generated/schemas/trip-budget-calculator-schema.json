@@ -1,0 +1,179 @@
+{
+  "toolName": "trip-budget-calculator",
+  "inputs": [
+    {
+      "id": "destination",
+      "label": "Destination",
+      "type": "select",
+      "unit": "",
+      "default": "domestic",
+      "min": null,
+      "max": null,
+      "options": [
+        "domestic",
+        "international"
+      ],
+      "businessContext": "Travel cost varies significantly by destination type. Based on industry travel expense benchmarks (e.g., IRS per diem rates)."
+    },
+    {
+      "id": "tripDuration",
+      "label": "Trip Duration (days)",
+      "type": "number",
+      "unit": "days",
+      "default": 3,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Standard trip length; affects accommodation, meals, and incidentals. Based on typical business travel durations."
+    },
+    {
+      "id": "travelers",
+      "label": "Number of Travelers",
+      "type": "number",
+      "unit": "persons",
+      "default": 1,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Group size impacts total cost; economies of scale may apply. Standard input for group travel budgeting."
+    },
+    {
+      "id": "accommodationCostPerNight",
+      "label": "Accommodation Cost per Night",
+      "type": "number",
+      "unit": "USD",
+      "default": 150,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Hotel or lodging cost per night. Based on average corporate hotel rates (e.g., from travel management companies)."
+    },
+    {
+      "id": "dailyMealCost",
+      "label": "Daily Meal Cost per Person",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "Per diem meal allowance. Common corporate travel policy (e.g., GSA per diem rates)."
+    },
+    {
+      "id": "transportationCost",
+      "label": "Total Transportation Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Includes flights, trains, taxis, car rental. Based on typical travel expenses."
+    },
+    {
+      "id": "incidentalsPerDay",
+      "label": "Daily Incidentals per Person",
+      "type": "number",
+      "unit": "USD",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "options": null,
+      "businessContext": "Miscellaneous expenses (tips, snacks, etc.). Standard travel budgeting practice."
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "unit": "",
+      "default": "USD",
+      "min": null,
+      "max": null,
+      "options": [
+        "USD",
+        "EUR",
+        "GBP",
+        "JPY",
+        "TRY"
+      ],
+      "businessContext": "Currency for cost display. Supports major currencies for international trips."
+    },
+    {
+      "id": "exchangeRate",
+      "label": "Exchange Rate (to USD)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0.001,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Used when currency is not USD. Based on current market rates (e.g., OANDA)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "User's confidence in input data accuracy. Affects adjusted output. Common in risk analysis."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "tripDuration must be >= 1",
+      "travelers must be >= 1",
+      "accommodationCostPerNight must be >= 0",
+      "dailyMealCost must be >= 0",
+      "transportationCost must be >= 0",
+      "incidentalsPerDay must be >= 0",
+      "exchangeRate must be > 0",
+      "dataConfidence must be between 0 and 100",
+      "If destination is 'international', exchangeRate must be provided and not equal to 1 unless currency is USD"
+    ],
+    "thresholds": {
+      "totalCostPerPerson": "If totalCostPerPerson > 5000, warning: 'High cost per person, consider budget review'",
+      "accommodationCostPerNight": "If accommodationCostPerNight > 500, warning: 'Accommodation cost exceeds typical corporate limit'"
+    }
+  },
+  "formulas": {
+    "totalAccommodationCost": "accommodationCostPerNight * (tripDuration - 1)",
+    "totalMealCost": "dailyMealCost * tripDuration * travelers",
+    "totalIncidentals": "incidentalsPerDay * tripDuration * travelers",
+    "totalCost": "totalAccommodationCost + totalMealCost + transportationCost + totalIncidentals",
+    "totalCostPerPerson": "totalCost / travelers",
+    "totalCostInUSD": "totalCost * exchangeRate",
+    "dataConfidenceAdjusted": "totalCostInUSD * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "totalCostInUSD",
+    "breakdown": {
+      "totalAccommodationCost": "totalAccommodationCost",
+      "totalMealCost": "totalMealCost",
+      "transportationCost": "transportationCost",
+      "totalIncidentals": "totalIncidentals",
+      "totalCostPerPerson": "totalCostPerPerson"
+    },
+    "hiddenLossDrivers": [
+      "If accommodationCostPerNight > 500: 'Accommodation cost is high'",
+      "If totalCostPerPerson > 5000: 'Total cost per person exceeds budget threshold'"
+    ],
+    "suggestedActions": [
+      "Consider using corporate discounts for accommodation",
+      "Optimize meal plan with per diem limits",
+      "Book transportation in advance for lower rates",
+      "Review incidentals and reduce if possible"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Historical Trips",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

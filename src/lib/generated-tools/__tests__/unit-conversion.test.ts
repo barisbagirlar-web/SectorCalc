@@ -41,11 +41,16 @@ describe("generated-tools unit conversion", () => {
   });
 
   it("uses locale-based default units", () => {
-    const defaults = buildInitialSelectedUnits([lengthInput], "en");
+    const defaults = buildInitialSelectedUnits([lengthInput], "en", "metric");
     expect(defaults.length).toBe("cm");
 
-    const trDefaults = buildInitialSelectedUnits([lengthInput], "tr");
+    const trDefaults = buildInitialSelectedUnits([lengthInput], "tr", "metric");
     expect(trDefaults.length).toBe("cm");
+  });
+
+  it("uses imperial defaults when unit system cookie is imperial", () => {
+    const defaults = buildInitialSelectedUnits([lengthInput], "en", "imperial");
+    expect(defaults.length).toBe("in");
   });
 
   it("converts selected units to schema units before calculation", () => {

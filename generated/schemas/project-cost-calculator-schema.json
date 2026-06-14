@@ -1,0 +1,194 @@
+{
+  "toolName": "project-cost-calculator",
+  "inputs": [
+    {
+      "id": "projectDuration",
+      "label": "Project Duration (months)",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "min": 1,
+      "max": 120,
+      "options": null,
+      "businessContext": "Standard project timeline; typical range 1-120 months based on PMI guidelines."
+    },
+    {
+      "id": "teamSize",
+      "label": "Team Size (FTE)",
+      "type": "number",
+      "unit": "FTE",
+      "default": 5,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Full-time equivalent staff; common in resource planning per PMBOK."
+    },
+    {
+      "id": "avgHourlyRate",
+      "label": "Average Hourly Rate ($)",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 50,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "Weighted average labor cost; industry benchmarks from BLS or internal data."
+    },
+    {
+      "id": "hoursPerWeekPerFte",
+      "label": "Hours per Week per FTE",
+      "type": "number",
+      "unit": "hours/week",
+      "default": 40,
+      "min": 1,
+      "max": 80,
+      "options": null,
+      "businessContext": "Standard workweek; 40 hours typical, overtime possible up to 80."
+    },
+    {
+      "id": "weeksPerMonth",
+      "label": "Weeks per Month",
+      "type": "number",
+      "unit": "weeks/month",
+      "default": 4.33,
+      "min": 4,
+      "max": 4.5,
+      "options": null,
+      "businessContext": "Average weeks per month (52/12 ≈ 4.33); used for monthly cost calculation."
+    },
+    {
+      "id": "materialCost",
+      "label": "Material Cost ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 10000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Direct material expenses; includes raw materials, components, supplies."
+    },
+    {
+      "id": "equipmentCost",
+      "label": "Equipment Cost ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 5000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Capital equipment or rental costs; depreciation may be considered."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Overhead Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Indirect cost allocation; typical range 10-50% based on industry (e.g., construction, IT)."
+    },
+    {
+      "id": "contingencyRate",
+      "label": "Contingency Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Risk buffer; recommended 5-20% per PMI risk management."
+    },
+    {
+      "id": "profitMargin",
+      "label": "Profit Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Target profit; varies by industry (e.g., 10-20% typical)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in input data; affects adjusted cost (low=+20%, medium=0%, high=-10%)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "projectDuration must be >= 1 and <= 120",
+      "teamSize must be >= 1 and <= 1000",
+      "avgHourlyRate must be >= 0 and <= 500",
+      "hoursPerWeekPerFte must be >= 1 and <= 80",
+      "weeksPerMonth must be >= 4 and <= 4.5",
+      "materialCost must be >= 0",
+      "equipmentCost must be >= 0",
+      "overheadRate must be >= 0 and <= 100",
+      "contingencyRate must be >= 0 and <= 50",
+      "profitMargin must be >= 0 and <= 100"
+    ],
+    "thresholds": {
+      "overheadRate > 50": "Overhead rate exceeds typical maximum; verify allocation.",
+      "contingencyRate > 20": "Contingency rate high; consider risk reassessment.",
+      "profitMargin > 30": "Profit margin unusually high; check market competitiveness.",
+      "avgHourlyRate > 150": "Hourly rate above typical; ensure justification."
+    }
+  },
+  "formulas": {
+    "laborCost": "teamSize * avgHourlyRate * hoursPerWeekPerFte * weeksPerMonth * projectDuration",
+    "directCost": "laborCost + materialCost + equipmentCost",
+    "overheadCost": "directCost * (overheadRate / 100)",
+    "totalCostBeforeContingency": "directCost + overheadCost",
+    "contingencyCost": "totalCostBeforeContingency * (contingencyRate / 100)",
+    "totalCost": "totalCostBeforeContingency + contingencyCost",
+    "totalRevenue": "totalCost / (1 - profitMargin / 100)",
+    "profitAmount": "totalRevenue - totalCost",
+    "dataConfidenceAdjusted": "totalRevenue * (dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9))"
+  },
+  "outputs": {
+    "primary": "totalRevenue",
+    "breakdown": {
+      "laborCost": "laborCost",
+      "materialCost": "materialCost",
+      "equipmentCost": "equipmentCost",
+      "overheadCost": "overheadCost",
+      "contingencyCost": "contingencyCost",
+      "totalCost": "totalCost",
+      "profitAmount": "profitAmount"
+    },
+    "hiddenLossDrivers": [
+      "overheadRate > 50 ? 'High overhead rate' : ''",
+      "contingencyRate > 20 ? 'High contingency rate' : ''",
+      "profitMargin > 30 ? 'High profit margin' : ''",
+      "avgHourlyRate > 150 ? 'High hourly rate' : ''"
+    ],
+    "suggestedActions": [
+      "If overhead rate > 50%, review indirect cost allocation and reduce non-essential overhead.",
+      "If contingency rate > 20%, perform detailed risk analysis to justify or reduce buffer.",
+      "If profit margin > 30%, benchmark against industry standards to ensure competitiveness.",
+      "If hourly rate > 150, consider using blended rates or outsourcing lower-skill tasks."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Scenario Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

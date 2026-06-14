@@ -1,0 +1,166 @@
+{
+  "toolName": "kablo-kesiti-mm-secim-hesaplama",
+  "inputs": [
+    {
+      "id": "akim",
+      "label": "Akım (A)",
+      "type": "number",
+      "unit": "A",
+      "default": 10,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Devreden geçen akım değeri. IEC 60364 standardına göre kablo kesiti seçiminde temel parametre."
+    },
+    {
+      "id": "gerilim",
+      "label": "Gerilim (V)",
+      "type": "number",
+      "unit": "V",
+      "default": 230,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Sistem gerilimi. Alçak gerilim (230/400V) veya orta gerilim için kullanılır."
+    },
+    {
+      "id": "kabloUzunlugu",
+      "label": "Kablo Uzunluğu (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Kablo mesafesi. Gerilim düşümü hesabı için gereklidir."
+    },
+    {
+      "id": "kabloTipi",
+      "label": "Kablo Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "PVC",
+      "min": null,
+      "max": null,
+      "options": [
+        "PVC",
+        "XLPE",
+        "EPR"
+      ],
+      "businessContext": "Yalıtım malzemesi. IEC 60502 standardına göre farklı sıcaklık dayanımları."
+    },
+    {
+      "id": "tesisatSekli",
+      "label": "Tesisat Şekli",
+      "type": "select",
+      "unit": "",
+      "default": "havada",
+      "min": null,
+      "max": null,
+      "options": [
+        "havada",
+        "boru_icinde",
+        "toprak_alti"
+      ],
+      "businessContext": "Kablo döşeme şekli. Isı dağılımını etkiler, IEC 60364-5-52."
+    },
+    {
+      "id": "ortamSicakligi",
+      "label": "Ortam Sıcaklığı (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 30,
+      "min": -10,
+      "max": 80,
+      "options": null,
+      "businessContext": "Ortam sıcaklığı. Kablo taşıma kapasitesini düzeltmek için kullanılır."
+    },
+    {
+      "id": "izinliGerilimDusumu",
+      "label": "İzinli Gerilim Düşümü (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Maksimum izin verilen gerilim düşümü. IEC 60364 standardına göre genelde %3-5."
+    },
+    {
+      "id": "fazSayisi",
+      "label": "Faz Sayısı",
+      "type": "select",
+      "unit": "",
+      "default": "tek_faz",
+      "min": null,
+      "max": null,
+      "options": [
+        "tek_faz",
+        "uc_faz"
+      ],
+      "businessContext": "Tek faz veya üç faz sistemi. Gerilim düşümü formülünü etkiler."
+    },
+    {
+      "id": "iletkenMalzemesi",
+      "label": "İletken Malzemesi",
+      "type": "select",
+      "unit": "",
+      "default": "bakir",
+      "min": null,
+      "max": null,
+      "options": [
+        "bakir",
+        "aluminyum"
+      ],
+      "businessContext": "İletken malzemesi. Özdirenç değerleri farklıdır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "akim > 0",
+      "kabloUzunlugu > 0",
+      "ortamSicakligi >= -10 && ortamSicakligi <= 80",
+      "izinliGerilimDusumu >= 0 && izinliGerilimDusumu <= 10"
+    ],
+    "thresholds": {
+      "gerilimDusumu": "Eğer gerilim düşümü > izinliGerilimDusumu ise uyarı: 'Gerilim düşümü limiti aşıyor, daha büyük kesit seçin.'",
+      "sicaklikDuzeltme": "Eğer ortamSicakligi > 40 ise uyarı: 'Yüksek sıcaklık, kablo kapasitesi düşebilir.'"
+    }
+  },
+  "formulas": {
+    "akimTasimaKapasitesi": "kabloTipi == 'PVC' ? (tesisatSekli == 'havada' ? 0.94 : tesisatSekli == 'boru_icinde' ? 0.8 : 0.7) : kabloTipi == 'XLPE' ? (tesisatSekli == 'havada' ? 1.0 : tesisatSekli == 'boru_icinde' ? 0.9 : 0.8) : (tesisatSekli == 'havada' ? 0.96 : tesisatSekli == 'boru_icinde' ? 0.85 : 0.75)",
+    "sicaklikDuzeltmeFaktoru": "ortamSicakligi <= 30 ? 1.0 : ortamSicakligi <= 40 ? 0.9 : ortamSicakligi <= 50 ? 0.8 : 0.7",
+    "direnc": "iletkenMalzemesi == 'bakir' ? 0.0175 : 0.0283",
+    "gerilimDusumu": "fazSayisi == 'tek_faz' ? (2 * akim * kabloUzunlugu * direnc) / (kesit * gerilim) * 100 : (akim * kabloUzunlugu * direnc * 1.732) / (kesit * gerilim) * 100",
+    "gerekliKesit": "fazSayisi == 'tek_faz' ? (2 * akim * kabloUzunlugu * direnc * 100) / (izinliGerilimDusumu * gerilim) : (akim * kabloUzunlugu * direnc * 1.732 * 100) / (izinliGerilimDusumu * gerilim)",
+    "standartKesit": "gerekliKesit <= 1.5 ? 1.5 : gerekliKesit <= 2.5 ? 2.5 : gerekliKesit <= 4 ? 4 : gerekliKesit <= 6 ? 6 : gerekliKesit <= 10 ? 10 : gerekliKesit <= 16 ? 16 : gerekliKesit <= 25 ? 25 : gerekliKesit <= 35 ? 35 : gerekliKesit <= 50 ? 50 : gerekliKesit <= 70 ? 70 : gerekliKesit <= 95 ? 95 : gerekliKesit <= 120 ? 120 : gerekliKesit <= 150 ? 150 : gerekliKesit <= 185 ? 185 : gerekliKesit <= 240 ? 240 : 300",
+    "sonKesit": "standartKesit * sicaklikDuzeltmeFaktoru * akimTasimaKapasitesi"
+  },
+  "outputs": {
+    "primary": "sonKesit",
+    "breakdown": {
+      "gerekliKesit": "gerekliKesit",
+      "standartKesit": "standartKesit",
+      "gerilimDusumu": "gerilimDusumu",
+      "sicaklikDuzeltmeFaktoru": "sicaklikDuzeltmeFaktoru",
+      "akimTasimaKapasitesi": "akimTasimaKapasitesi"
+    },
+    "hiddenLossDrivers": [
+      "gerilimDusumu > izinliGerilimDusumu ? 'Gerilim düşümü limiti aşıldı' : ''",
+      "ortamSicakligi > 40 ? 'Yüksek sıcaklık kaybı' : ''"
+    ],
+    "suggestedActions": [
+      "gerilimDusumu > izinliGerilimDusumu ? 'Daha büyük kesit seçin veya kablo uzunluğunu azaltın.' : 'Mevcut kesit uygun.'",
+      "ortamSicakligi > 40 ? 'Kabloyu daha serin bir ortama taşıyın veya yalıtım tipini yükseltin.' : ''"
+    ],
+    "dataConfidenceAdjusted": "sonKesit"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

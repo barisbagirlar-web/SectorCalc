@@ -1,0 +1,174 @@
+{
+  "toolName": "plastik-enjeksiyon-cevrim-suresi-tahmini",
+  "inputs": [
+    {
+      "id": "enjeksiyonSuresi",
+      "label": "Enjeksiyon Süresi",
+      "type": "number",
+      "unit": "s",
+      "default": 2,
+      "min": 0.1,
+      "max": 60,
+      "options": null,
+      "businessContext": "Enjeksiyon süresi, plastiğin kalıba doldurulma süresidir. Standart: ISO 294-1."
+    },
+    {
+      "id": "sogutmaSuresi",
+      "label": "Soğutma Süresi",
+      "type": "number",
+      "unit": "s",
+      "default": 10,
+      "min": 1,
+      "max": 120,
+      "options": null,
+      "businessContext": "Soğutma süresi, parçanın kalıpta katılaşma süresidir. Standart: ISO 294-1."
+    },
+    {
+      "id": "kalipAcmaKapamaSuresi",
+      "label": "Kalıp Açma/Kapama Süresi",
+      "type": "number",
+      "unit": "s",
+      "default": 3,
+      "min": 0.5,
+      "max": 30,
+      "options": null,
+      "businessContext": "Kalıbın açılıp kapanması için geçen süre. Makine özelliklerine bağlıdır."
+    },
+    {
+      "id": "parcaCikarmaSuresi",
+      "label": "Parça Çıkarma Süresi",
+      "type": "number",
+      "unit": "s",
+      "default": 2,
+      "min": 0.5,
+      "max": 20,
+      "options": null,
+      "businessContext": "Parçanın kalıptan çıkarılma süresi. Otomasyon seviyesine bağlıdır."
+    },
+    {
+      "id": "beklemeSuresi",
+      "label": "Bekleme Süresi",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "min": 0,
+      "max": 30,
+      "options": null,
+      "businessContext": "Operatör veya robot bekleme süreleri. Lean prensiplerine göre minimize edilmelidir."
+    },
+    {
+      "id": "calismaSuresi",
+      "label": "Çalışma Süresi (Vardiya)",
+      "type": "number",
+      "unit": "saat",
+      "default": 8,
+      "min": 1,
+      "max": 24,
+      "options": null,
+      "businessContext": "Bir vardiyadaki toplam çalışma süresi. ISO 9001 süreç yönetimi."
+    },
+    {
+      "id": "durusSuresi",
+      "label": "Planlı Duruş Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 0.5,
+      "min": 0,
+      "max": 8,
+      "options": null,
+      "businessContext": "Bakım, molalar gibi planlı duruşlar. OEE hesaplamalarında kullanılır."
+    },
+    {
+      "id": "kaviteSayisi",
+      "label": "Kavite Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "min": 1,
+      "max": 128,
+      "options": null,
+      "businessContext": "Kalıptaki göz sayısı. Çevrim başına üretilen parça sayısını belirler."
+    },
+    {
+      "id": "fireOrani",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Üretimdeki hatalı parça yüzdesi. Kalite standartları (ISO 9001) ile ilişkilidir."
+    },
+    {
+      "id": "makineKullanimOrani",
+      "label": "Makine Kullanım Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Makinenin fiili çalışma oranı. OEE hesaplamasında kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "enjeksiyonSuresi > 0",
+      "sogutmaSuresi > 0",
+      "kalipAcmaKapamaSuresi > 0",
+      "parcaCikarmaSuresi > 0",
+      "beklemeSuresi >= 0",
+      "calismaSuresi > 0",
+      "durusSuresi >= 0",
+      "kaviteSayisi >= 1",
+      "fireOrani >= 0",
+      "makineKullanimOrani >= 0",
+      "durusSuresi < calismaSuresi"
+    ],
+    "thresholds": {
+      "fireOrani": "fireOrani > 5 ? 'Yüksek fire oranı, kalite iyileştirme gerekli' : ''",
+      "makineKullanimOrani": "makineKullanimOrani < 70 ? 'Düşük makine kullanımı, verimlilik artırılmalı' : ''",
+      "beklemeSuresi": "beklemeSuresi > 5 ? 'Yüksek bekleme süresi, süreç iyileştirme önerilir' : ''"
+    }
+  },
+  "formulas": {
+    "cevrimSuresi": "enjeksiyonSuresi + sogutmaSuresi + kalipAcmaKapamaSuresi + parcaCikarmaSuresi + beklemeSuresi",
+    "netCalismaSuresi": "calismaSuresi - durusSuresi",
+    "toplamCevrimSayisi": "netCalismaSuresi * 3600 / cevrimSuresi",
+    "toplamUretim": "toplamCevrimSayisi * kaviteSayisi",
+    "efektifUretim": "toplamUretim * (1 - fireOrani / 100)",
+    "uretimHizi": "efektifUretim / calismaSuresi",
+    "oee": "makineKullanimOrani / 100 * (1 - durusSuresi / calismaSuresi) * (1 - fireOrani / 100) * 100"
+  },
+  "outputs": {
+    "primary": "cevrimSuresi",
+    "breakdown": {
+      "cevrimSuresi": "cevrimSuresi",
+      "netCalismaSuresi": "netCalismaSuresi",
+      "toplamCevrimSayisi": "toplamCevrimSayisi",
+      "toplamUretim": "toplamUretim",
+      "efektifUretim": "efektifUretim",
+      "uretimHizi": "uretimHizi",
+      "oee": "oee"
+    },
+    "hiddenLossDrivers": [
+      "fireOrani > 5 ? 'Yüksek fire oranı' : ''",
+      "makineKullanimOrani < 70 ? 'Düşük makine kullanımı' : ''",
+      "beklemeSuresi > 5 ? 'Yüksek bekleme süresi' : ''"
+    ],
+    "suggestedActions": [
+      "fireOrani > 5 ? 'Kalite kontrol sürecini gözden geçirin ve parametre optimizasyonu yapın.' : ''",
+      "makineKullanimOrani < 70 ? 'Bakım planlamasını iyileştirin ve arıza sürelerini azaltın.' : ''",
+      "beklemeSuresi > 5 ? 'Operatör eğitimi ve otomasyon seviyesini artırın.' : ''"
+    ],
+    "dataConfidenceAdjusted": "oee * (1 - 0.1)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma (benchmark)",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

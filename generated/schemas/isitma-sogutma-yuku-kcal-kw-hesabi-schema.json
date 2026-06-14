@@ -1,0 +1,243 @@
+{
+  "toolName": "isitma-sogutma-yuku-kcal-kw-hesabi",
+  "inputs": [
+    {
+      "id": "hacim",
+      "label": "Hacim (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Mahal hacmi. Isıtma/soğutma yükü hesaplamalarında temel parametre. Kaynak: ASHRAE Handbook."
+    },
+    {
+      "id": "sicaklikFarki",
+      "label": "Sıcaklık Farkı (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "İç ortam ile dış ortam arasındaki sıcaklık farkı. Isı transferi hesaplamalarında kullanılır. Kaynak: ASHRAE."
+    },
+    {
+      "id": "isiGecirgenlikKatsayisi",
+      "label": "Isı Geçirgenlik Katsayısı (W/m²K)",
+      "type": "number",
+      "unit": "W/m²K",
+      "default": 1.5,
+      "min": 0.1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Yapı elemanlarının ısı geçirgenlik katsayısı (U değeri). Kaynak: TS 825, ISO 6946."
+    },
+    {
+      "id": "yuzeyAlani",
+      "label": "Yüzey Alanı (m²)",
+      "type": "number",
+      "unit": "m²",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Isı transferinin gerçekleştiği toplam yüzey alanı. Kaynak: ASHRAE."
+    },
+    {
+      "id": "kullaniciSayisi",
+      "label": "Kullanıcı Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 10,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Mahaldeki kişi sayısı. İnsanlardan kaynaklanan ısı kazancı için. Kaynak: ASHRAE."
+    },
+    {
+      "id": "aydinlatmaGucu",
+      "label": "Aydınlatma Gücü (W)",
+      "type": "number",
+      "unit": "W",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Aydınlatma armatürlerinin toplam gücü. Isı kazancına katkı. Kaynak: ASHRAE."
+    },
+    {
+      "id": "ekipmanGucu",
+      "label": "Ekipman Gücü (W)",
+      "type": "number",
+      "unit": "W",
+      "default": 1000,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Bilgisayar, makine vb. ekipmanların toplam gücü. Isı kazancı. Kaynak: ASHRAE."
+    },
+    {
+      "id": "havaDegisimSayisi",
+      "label": "Hava Değişim Sayısı (1/saat)",
+      "type": "number",
+      "unit": "1/h",
+      "default": 1,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Saatteki hava değişim sayısı. Havalandırma yükü hesaplaması için. Kaynak: ASHRAE."
+    },
+    {
+      "id": "disHavaSicakligi",
+      "label": "Dış Hava Sıcaklığı (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 35,
+      "min": -20,
+      "max": 50,
+      "options": null,
+      "businessContext": "Dış ortam sıcaklığı. Soğutma yükü hesaplamalarında kullanılır. Kaynak: ASHRAE."
+    },
+    {
+      "id": "icHavaSicakligi",
+      "label": "İç Hava Sıcaklığı (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 24,
+      "min": 10,
+      "max": 40,
+      "options": null,
+      "businessContext": "İç ortam sıcaklığı. Konfor şartları. Kaynak: ASHRAE."
+    },
+    {
+      "id": "calismaSuresi",
+      "label": "Çalışma Süresi (saat/gün)",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 8,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Sistemin günlük çalışma süresi. Enerji tüketimi hesaplamaları için. Kaynak: ISO 50001."
+    },
+    {
+      "id": "gunSayisi",
+      "label": "Gün Sayısı (gün/yıl)",
+      "type": "number",
+      "unit": "gün/yıl",
+      "default": 365,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Yıllık çalışma günü sayısı. Yıllık enerji tüketimi hesaplamaları için. Kaynak: ISO 50001."
+    },
+    {
+      "id": "elektrikBirimFiyati",
+      "label": "Elektrik Birim Fiyatı (TL/kWh)",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 1.5,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Elektrik enerjisi birim maliyeti. Enerji maliyeti hesaplamaları için. Kaynak: EPDK."
+    },
+    {
+      "id": "kaynakTipi",
+      "label": "Kaynak Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "dogalgaz",
+      "min": null,
+      "max": null,
+      "options": [
+        "dogalgaz",
+        "elektrik",
+        "kömür",
+        "fuel-oil",
+        "jeotermal"
+      ],
+      "businessContext": "Isıtma/soğutma kaynağı türü. Verimlilik ve maliyet hesaplamaları için. Kaynak: ISO 50001."
+    },
+    {
+      "id": "verim",
+      "label": "Verim (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Isıtma/soğutma sisteminin verimi. Kaynak: ASHRAE."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "hacim > 0",
+      "sicaklikFarki >= 0",
+      "isiGecirgenlikKatsayisi > 0",
+      "yuzeyAlani >= 0",
+      "kullaniciSayisi >= 0",
+      "aydinlatmaGucu >= 0",
+      "ekipmanGucu >= 0",
+      "havaDegisimSayisi >= 0",
+      "calismaSuresi >= 0 && calismaSuresi <= 24",
+      "gunSayisi >= 1 && gunSayisi <= 365",
+      "elektrikBirimFiyati >= 0",
+      "verim > 0 && verim <= 100",
+      "Eger kaynakTipi == 'elektrik' ise verim <= 100",
+      "Eger kaynakTipi == 'dogalgaz' ise verim <= 100"
+    ],
+    "thresholds": {
+      "yuksekYuk": "toplamIsiYuku > 100000",
+      "dusukVerim": "verim < 70",
+      "yuksekMaliyet": "yillikEnerjiMaliyeti > 50000"
+    }
+  },
+  "formulas": {
+    "iletimIsiYuku": "isiGecirgenlikKatsayisi * yuzeyAlani * sicaklikFarki",
+    "kullaniciIsiKazanci": "kullaniciSayisi * 100",
+    "aydinlatmaIsiKazanci": "aydinlatmaGucu",
+    "ekipmanIsiKazanci": "ekipmanGucu",
+    "havalandirmaIsiYuku": "hacim * havaDegisimSayisi * 0.33 * (disHavaSicakligi - icHavaSicakligi)",
+    "toplamIsiYuku": "iletimIsiYuku + kullaniciIsiKazanci + aydinlatmaIsiKazanci + ekipmanIsiKazanci + havalandirmaIsiYuku",
+    "toplamIsiYukuKcal": "toplamIsiYuku * 0.859845",
+    "toplamIsiYukuKw": "toplamIsiYuku / 1000",
+    "yillikEnerjiTuketimiKwh": "toplamIsiYukuKw * calismaSuresi * gunSayisi / verim * 100",
+    "yillikEnerjiMaliyeti": "yillikEnerjiTuketimiKwh * elektrikBirimFiyati"
+  },
+  "outputs": {
+    "primary": "toplamIsiYukuKw",
+    "breakdown": {
+      "iletimIsiYuku": "iletimIsiYuku",
+      "kullaniciIsiKazanci": "kullaniciIsiKazanci",
+      "aydinlatmaIsiKazanci": "aydinlatmaIsiKazanci",
+      "ekipmanIsiKazanci": "ekipmanIsiKazanci",
+      "havalandirmaIsiYuku": "havalandirmaIsiYuku",
+      "toplamIsiYukuKcal": "toplamIsiYukuKcal",
+      "yillikEnerjiTuketimiKwh": "yillikEnerjiTuketimiKwh",
+      "yillikEnerjiMaliyeti": "yillikEnerjiMaliyeti"
+    },
+    "hiddenLossDrivers": [
+      "yuksekYuk",
+      "dusukVerim",
+      "yuksekMaliyet"
+    ],
+    "suggestedActions": [
+      "Yalıtım iyileştirilerek iletim kayıpları azaltılabilir.",
+      "Verimi düşük ekipmanlar yenilenebilir.",
+      "Hava sızdırmazlığı artırılarak havalandırma yükü düşürülebilir.",
+      "Enerji verimli aydınlatma ve ekipman kullanımı teşvik edilmelidir."
+    ],
+    "dataConfidenceAdjusted": "toplamIsiYukuKw"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,106 @@
+{
+  "toolName": "yay-helisel-kuvvet-uzama-hesabi",
+  "inputs": [
+    {
+      "id": "telCap",
+      "label": "Tel Çapı (d)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "min": 0.1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Yayın sarıldığı telin çapı. ISO 2194 standardına göre yay telleri için standart çaplar mevcuttur."
+    },
+    {
+      "id": "disCap",
+      "label": "Dış Çap (D)",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "min": 1,
+      "max": 500,
+      "options": null,
+      "businessContext": "Yayın dış çapı. Helisel yay geometrisinin temel parametresi."
+    },
+    {
+      "id": "sarimSayisi",
+      "label": "Sarım Sayısı (n)",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Aktif sarım sayısı. Yayın esneme karakteristiğini belirler."
+    },
+    {
+      "id": "malzeme",
+      "label": "Malzeme",
+      "type": "select",
+      "unit": "",
+      "default": "Çelik",
+      "min": null,
+      "max": null,
+      "options": [
+        "Çelik",
+        "Paslanmaz Çelik",
+        "Fosfor Bronz",
+        "Berilyum Bakır"
+      ],
+      "businessContext": "Yay malzemesi. Kayma modülü (G) değerini belirler. ISO 6931-1 standardına göre malzeme sınıfları."
+    },
+    {
+      "id": "kuvvet",
+      "label": "Uygulanan Kuvvet (F)",
+      "type": "number",
+      "unit": "N",
+      "default": 100,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Yaya eksenel yönde uygulanan kuvvet. Hooke kanunu gereği uzama ile doğru orantılı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "disCap > telCap",
+      "sarimSayisi >= 1",
+      "kuvvet >= 0"
+    ],
+    "thresholds": {
+      "gerilme": "malzemeIzinVerilenGerilme"
+    }
+  },
+  "formulas": {
+    "ortalamaCap": "(disCap - telCap)",
+    "yayIndeksi": "ortalamaCap / telCap",
+    "kaymaModulu": "malzeme === 'Çelik' ? 80000 : malzeme === 'Paslanmaz Çelik' ? 77000 : malzeme === 'Fosfor Bronz' ? 43000 : 48000",
+    "yaySabiti": "(kaymaModulu * telCap^4) / (8 * sarimSayisi * ortalamaCap^3)",
+    "uzama": "kuvvet / yaySabiti",
+    "gerilme": "(8 * kuvvet * ortalamaCap * 1.2) / (Math.PI * telCap^3)",
+    "malzemeIzinVerilenGerilme": "malzeme === 'Çelik' ? 800 : malzeme === 'Paslanmaz Çelik' ? 700 : malzeme === 'Fosfor Bronz' ? 400 : 500"
+  },
+  "outputs": {
+    "primary": "uzama",
+    "breakdown": {
+      "yaySabiti": "yaySabiti",
+      "gerilme": "gerilme",
+      "malzemeIzinVerilenGerilme": "malzemeIzinVerilenGerilme"
+    },
+    "hiddenLossDrivers": [
+      "gerilme > malzemeIzinVerilenGerilme ? 'Gerilme izin verilen değeri aşıyor, yay kalıcı deformasyona uğrayabilir.' : ''"
+    ],
+    "suggestedActions": [
+      "gerilme > malzemeIzinVerilenGerilme ? 'Tel çapını artırın veya daha yüksek dayanımlı malzeme seçin.' : 'Mevcut tasarım uygundur.'"
+    ],
+    "dataConfidenceAdjusted": "uzama"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

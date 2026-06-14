@@ -1,0 +1,199 @@
+{
+  "toolName": "kaynak-maliyeti-ve-dolgu-metali-tuketim-calculator",
+  "inputs": [
+    {
+      "id": "weldingProcess",
+      "label": "Kaynak Prosesi",
+      "type": "select",
+      "unit": "",
+      "default": "SMAW",
+      "min": null,
+      "max": null,
+      "options": [
+        "SMAW",
+        "GMAW",
+        "FCAW",
+        "GTAW",
+        "SAW"
+      ],
+      "businessContext": "Kaynak prosesi seçimi, dolgu metali tüketimini ve maliyeti doğrudan etkiler. ISO 857-1 standardına göre sınıflandırılır."
+    },
+    {
+      "id": "jointType",
+      "label": "Birleştirme Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "Butt",
+      "min": null,
+      "max": null,
+      "options": [
+        "Butt",
+        "Fillet",
+        "Lap",
+        "Corner",
+        "Edge"
+      ],
+      "businessContext": "Birleştirme tipi, kaynak ağzı geometrisini ve dolgu metal hacmini belirler. AWS D1.1 gibi standartlarda tanımlanır."
+    },
+    {
+      "id": "plateThickness",
+      "label": "Plaka Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "businessContext": "Kaynak yapılacak parçaların kalınlığı, dolgu metal hacmini hesaplamak için kritik. ISO 9692'ye göre kaynak ağzı boyutları belirlenir."
+    },
+    {
+      "id": "weldLength",
+      "label": "Kaynak Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "min": 0.1,
+      "max": 100,
+      "businessContext": "Toplam kaynak dikiş uzunluğu, tüketim ve maliyet hesaplamalarında temel parametredir."
+    },
+    {
+      "id": "weldCrossSectionArea",
+      "label": "Kaynak Kesit Alanı",
+      "type": "number",
+      "unit": "mm²",
+      "default": 50,
+      "min": 1,
+      "max": 1000,
+      "businessContext": "Kaynak ağzı geometrisine bağlı olarak hesaplanan kesit alanı. AWS D1.1'deki formüllerle belirlenir."
+    },
+    {
+      "id": "fillerMetalDensity",
+      "label": "Dolgu Metali Yoğunluğu",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 7.85,
+      "min": 2,
+      "max": 20,
+      "businessContext": "Dolgu metalinin yoğunluğu, tüketilen ağırlığı hesaplamak için kullanılır. Çelik için 7.85 g/cm³ tipiktir."
+    },
+    {
+      "id": "fillerMetalCostPerKg",
+      "label": "Dolgu Metali Birim Maliyeti",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 5,
+      "min": 0.1,
+      "max": 100,
+      "businessContext": "Dolgu metalinin kilogram başına maliyeti, toplam malzeme maliyetini hesaplamak için kullanılır."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "İşçilik Saatlik Maliyeti",
+      "type": "number",
+      "unit": "USD/h",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "businessContext": "Kaynak işçiliğinin saatlik maliyeti, toplam işçilik maliyetini hesaplamak için kullanılır."
+    },
+    {
+      "id": "weldingSpeed",
+      "label": "Kaynak Hızı",
+      "type": "number",
+      "unit": "mm/min",
+      "default": 300,
+      "min": 10,
+      "max": 2000,
+      "businessContext": "Kaynak ilerleme hızı, işçilik süresini ve dolayısıyla maliyeti etkiler. Proses ve parametrelere bağlıdır."
+    },
+    {
+      "id": "depositionEfficiency",
+      "label": "Biriktirme Verimliliği",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 10,
+      "max": 100,
+      "businessContext": "Dolgu metalinin ne kadarının kaynak dikişine biriktirildiğini gösterir. Proses ve tekniğe bağlıdır. SMAW'da %60-70, GMAW'da %80-95."
+    },
+    {
+      "id": "overheadCostPerHour",
+      "label": "Genel Gider Saatlik Maliyeti",
+      "type": "number",
+      "unit": "USD/h",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Enerji, ekipman amortismanı, bakım gibi genel giderlerin saatlik maliyeti."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Girdi verilerinin güvenilirliğini ifade eder. Düşük güven, sonuçların düzeltilmesinde kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "plateThickness >= 1",
+      "weldLength >= 0.1",
+      "weldCrossSectionArea >= 1",
+      "fillerMetalDensity >= 2",
+      "fillerMetalCostPerKg >= 0.1",
+      "laborCostPerHour >= 0",
+      "weldingSpeed >= 10",
+      "depositionEfficiency >= 10 && depositionEfficiency <= 100",
+      "overheadCostPerHour >= 0",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "depositionEfficiency < 50": "Düşük biriktirme verimliliği, yüksek dolgu metal tüketimine işaret eder. Proses veya parametreler gözden geçirilmelidir.",
+      "laborCostPerHour > 50": "İşçilik maliyeti yüksek; otomasyon veya proses iyileştirme düşünülebilir.",
+      "weldingSpeed < 100": "Kaynak hızı çok düşük; verimlilik düşük olabilir."
+    }
+  },
+  "formulas": {
+    "fillerMetalVolume": "weldCrossSectionArea * weldLength * 1000",
+    "fillerMetalWeight": "fillerMetalVolume * fillerMetalDensity / 1000",
+    "fillerMetalConsumption": "fillerMetalWeight / (depositionEfficiency / 100)",
+    "fillerMetalCost": "fillerMetalConsumption * fillerMetalCostPerKg",
+    "weldingTime": "weldLength * 1000 / weldingSpeed",
+    "laborCost": "weldingTime * laborCostPerHour / 60",
+    "overheadCost": "weldingTime * overheadCostPerHour / 60",
+    "totalCost": "fillerMetalCost + laborCost + overheadCost",
+    "costPerMeter": "totalCost / weldLength",
+    "dataConfidenceAdjustedCost": "totalCost * (1 + (100 - dataConfidence) / 100)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "fillerMetalCost": "fillerMetalCost",
+      "laborCost": "laborCost",
+      "overheadCost": "overheadCost",
+      "fillerMetalConsumption": "fillerMetalConsumption",
+      "weldingTime": "weldingTime"
+    },
+    "hiddenLossDrivers": [
+      "depositionEfficiency < 50 ? 'Düşük biriktirme verimliliği' : ''",
+      "laborCostPerHour > 50 ? 'Yüksek işçilik maliyeti' : ''",
+      "weldingSpeed < 100 ? 'Düşük kaynak hızı' : ''"
+    ],
+    "suggestedActions": [
+      "depositionEfficiency < 70 ? 'Biriktirme verimliliğini artırmak için proses parametrelerini optimize edin.' : ''",
+      "laborCostPerHour > 40 ? 'Otomasyon veya daha verimli kaynak prosesi değerlendirin.' : ''",
+      "weldingSpeed < 200 ? 'Kaynak hızını artırmak için uygun parametreleri ayarlayın.' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma (farklı prosesler)",
+    "Detaylı maliyet dökümü"
+  ],
+  "premiumRequired": true
+}

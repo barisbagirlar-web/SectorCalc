@@ -1,0 +1,126 @@
+{
+  "toolName": "compound-interest-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Initial investment or loan amount. Standard financial practice."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate (%)",
+      "type": "number",
+      "unit": "percent",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Nominal annual interest rate. Based on market rates or contract terms."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "select",
+      "unit": "times per year",
+      "default": 12,
+      "min": null,
+      "max": null,
+      "options": [
+        1,
+        2,
+        4,
+        12,
+        365,
+        "continuous"
+      ],
+      "businessContext": "Number of compounding periods per year. Common values: annually (1), semi-annually (2), quarterly (4), monthly (12), daily (365), or continuous."
+    },
+    {
+      "id": "timePeriod",
+      "label": "Time Period",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Duration of investment or loan in years. Standard financial planning horizon."
+    },
+    {
+      "id": "additionalContribution",
+      "label": "Additional Contribution per Period",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Regular contribution added each compounding period. Common in savings plans."
+    },
+    {
+      "id": "contributionTiming",
+      "label": "Contribution Timing",
+      "type": "select",
+      "unit": "",
+      "default": "end",
+      "min": null,
+      "max": null,
+      "options": [
+        "beginning",
+        "end"
+      ],
+      "businessContext": "Whether contributions are made at the beginning or end of each period. Affects future value calculation."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "principal >= 0",
+      "annualInterestRate >= 0 and annualInterestRate <= 100",
+      "timePeriod >= 0 and timePeriod <= 100",
+      "additionalContribution >= 0",
+      "if compoundingFrequency == 'continuous' then annualInterestRate > 0",
+      "if additionalContribution > 0 then compoundingFrequency must be numeric (not 'continuous')"
+    ],
+    "thresholds": {
+      "annualInterestRate > 20": "Warning: High interest rate may indicate risky investment.",
+      "timePeriod > 30": "Warning: Long time horizon increases uncertainty.",
+      "additionalContribution > principal * 0.5": "Warning: Contribution amount is large relative to principal."
+    }
+  },
+  "formulas": {
+    "futureValue": "if compoundingFrequency == 'continuous' then principal * exp(annualInterestRate/100 * timePeriod) + additionalContribution * (exp(annualInterestRate/100 * timePeriod) - 1) / (exp(annualInterestRate/100 * 1) - 1) else let n = compoundingFrequency, r = annualInterestRate/100, t = timePeriod, pmt = additionalContribution, timing = contributionTiming == 'beginning' ? 1 : 0 in principal * (1 + r/n)^(n*t) + pmt * ((1 + r/n)^(n*t) - 1) / (r/n) * (1 + r/n)^timing",
+    "totalContributions": "principal + additionalContribution * compoundingFrequency * timePeriod",
+    "totalInterest": "futureValue - totalContributions"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": {
+      "totalContributions": "totalContributions",
+      "totalInterest": "totalInterest"
+    },
+    "hiddenLossDrivers": [
+      "if annualInterestRate > 20 then 'High interest rate may erode value'",
+      "if timePeriod > 30 then 'Long horizon increases risk'"
+    ],
+    "suggestedActions": [
+      "Consider increasing compounding frequency to maximize growth.",
+      "Review interest rate competitiveness.",
+      "Evaluate contribution amount relative to financial goals."
+    ],
+    "dataConfidenceAdjusted": "futureValue * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with other scenarios",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

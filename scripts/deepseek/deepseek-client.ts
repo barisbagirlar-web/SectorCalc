@@ -1,4 +1,5 @@
 import type { DeepSeekToolScanPayload, IndustrialToolSchema } from "./types";
+import { normalizeGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 
 const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
 const DEFAULT_MODEL = "deepseek-chat";
@@ -219,7 +220,22 @@ export function parseIndustrialToolSchema(raw: string, expectedSlug: string): In
     if (typeof input.businessContext !== "string") {
       throw new Error(`inputs[${index}].businessContext must be a string.`);
     }
-    return input as IndustrialToolSchema["inputs"][number];
+
+    const label = input.label.trim();
+    const businessContext = input.businessContext.trim();
+    const label_i18n = normalizeGeneratedI18nText(input.label_i18n, label);
+    const businessContext_i18n = normalizeGeneratedI18nText(
+      input.businessContext_i18n,
+      businessContext,
+    );
+
+    return {
+      ...input,
+      label,
+      businessContext,
+      label_i18n,
+      businessContext_i18n,
+    } as IndustrialToolSchema["inputs"][number];
   });
 
   const validation = record.validation;

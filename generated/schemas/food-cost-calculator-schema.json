@@ -1,0 +1,132 @@
+{
+  "toolName": "food-cost-calculator",
+  "inputs": [
+    {
+      "id": "totalRevenue",
+      "label": "Total Revenue (monthly)",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total sales revenue from food sales per month. Standard financial metric for restaurant operations."
+    },
+    {
+      "id": "foodCost",
+      "label": "Total Food Cost (monthly)",
+      "type": "number",
+      "unit": "USD",
+      "default": 35000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total cost of ingredients and food supplies used in a month. Key input for food cost percentage calculation."
+    },
+    {
+      "id": "laborCost",
+      "label": "Total Labor Cost (monthly)",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total wages, salaries, and benefits for kitchen and service staff. Important for prime cost analysis."
+    },
+    {
+      "id": "overheadCost",
+      "label": "Total Overhead Cost (monthly)",
+      "type": "number",
+      "unit": "USD",
+      "default": 15000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Rent, utilities, insurance, and other fixed operating expenses. Based on standard accounting practices."
+    },
+    {
+      "id": "wastePercentage",
+      "label": "Waste Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Estimated percentage of food purchased that is wasted. Lean Six Sigma waste reduction metric."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "User's confidence in the accuracy of input data. Adjusts output reliability."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "totalRevenue > 0",
+      "foodCost >= 0",
+      "laborCost >= 0",
+      "overheadCost >= 0",
+      "wastePercentage >= 0 and wastePercentage <= 100"
+    ],
+    "thresholds": {
+      "foodCostPercentage": "if foodCostPercentage > 0.35 then 'High food cost ratio; target < 30%'",
+      "primeCostPercentage": "if (foodCost + laborCost) / totalRevenue > 0.65 then 'Prime cost too high; target < 60%'",
+      "wastePercentage": "if wastePercentage > 10 then 'Excessive waste; investigate processes'"
+    }
+  },
+  "formulas": {
+    "foodCostPercentage": "foodCost / totalRevenue",
+    "primeCost": "foodCost + laborCost",
+    "primeCostPercentage": "primeCost / totalRevenue",
+    "grossProfit": "totalRevenue - foodCost",
+    "grossProfitMargin": "grossProfit / totalRevenue",
+    "netProfit": "totalRevenue - foodCost - laborCost - overheadCost",
+    "netProfitMargin": "netProfit / totalRevenue",
+    "wasteCost": "foodCost * (wastePercentage / 100)",
+    "adjustedFoodCost": "foodCost - wasteCost",
+    "adjustedFoodCostPercentage": "adjustedFoodCost / totalRevenue",
+    "dataConfidenceAdjusted": "if dataConfidence == 'low' then netProfitMargin * 0.9 else if dataConfidence == 'medium' then netProfitMargin * 0.95 else netProfitMargin"
+  },
+  "outputs": {
+    "primary": "foodCostPercentage",
+    "breakdown": {
+      "foodCostPercentage": "foodCostPercentage",
+      "primeCostPercentage": "primeCostPercentage",
+      "grossProfitMargin": "grossProfitMargin",
+      "netProfitMargin": "netProfitMargin",
+      "wasteCost": "wasteCost",
+      "adjustedFoodCostPercentage": "adjustedFoodCostPercentage"
+    },
+    "hiddenLossDrivers": [
+      "if wastePercentage > 10 then 'Excessive waste'",
+      "if foodCostPercentage > 0.35 then 'High food cost'",
+      "if primeCostPercentage > 0.65 then 'High prime cost'"
+    ],
+    "suggestedActions": [
+      "if foodCostPercentage > 0.35 then 'Negotiate with suppliers or adjust menu pricing'",
+      "if wastePercentage > 10 then 'Implement inventory management and portion control'",
+      "if primeCostPercentage > 0.65 then 'Review labor scheduling and reduce overtime'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis over time",
+    "Benchmark comparison against industry standards",
+    "Detailed breakdown report with charts"
+  ],
+  "premiumRequired": true
+}

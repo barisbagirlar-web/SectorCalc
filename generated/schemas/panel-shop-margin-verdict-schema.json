@@ -1,0 +1,120 @@
+{
+  "toolName": "panel-shop-margin-verdict",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "Total Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total sales revenue from panel shop operations. Based on standard financial reporting (GAAP/IFRS)."
+    },
+    {
+      "id": "materialCost",
+      "label": "Material Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Direct material costs including panels, fasteners, and consumables. Referenced from standard cost accounting practices."
+    },
+    {
+      "id": "laborCost",
+      "label": "Labor Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Direct labor costs including wages, benefits, and overtime. Based on industrial engineering labor standards (Maynard)."
+    },
+    {
+      "id": "overheadCost",
+      "label": "Overhead Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Indirect costs such as utilities, rent, equipment depreciation. Referenced from activity-based costing (ABC) principles."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0.02,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Percentage of panels requiring rework or scrap. Six Sigma quality metric; threshold >0.05 triggers critical warning."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 0.9,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Confidence level in input data accuracy. Used to adjust final margin for uncertainty. Based on risk assessment standards (ISO 31000)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "revenue >= 0",
+      "materialCost >= 0",
+      "laborCost >= 0",
+      "overheadCost >= 0",
+      "defectRate >= 0 and defectRate <= 1",
+      "dataConfidence >= 0 and dataConfidence <= 1"
+    ],
+    "thresholds": {
+      "defectRate": "defectRate > 0.05 ? 'CRITICAL: Defect rate exceeds 5% threshold. Immediate quality improvement required.' : ''"
+    }
+  },
+  "formulas": {
+    "totalCost": "materialCost + laborCost + overheadCost",
+    "grossMargin": "revenue - totalCost",
+    "marginRate": "grossMargin / revenue",
+    "defectCost": "totalCost * defectRate",
+    "adjustedMargin": "grossMargin - defectCost",
+    "adjustedMarginRate": "adjustedMargin / revenue",
+    "finalMarginRate": "adjustedMarginRate * dataConfidence"
+  },
+  "outputs": {
+    "primary": "finalMarginRate",
+    "breakdown": {
+      "totalCost": "totalCost",
+      "grossMargin": "grossMargin",
+      "marginRate": "marginRate",
+      "defectCost": "defectCost",
+      "adjustedMargin": "adjustedMargin",
+      "adjustedMarginRate": "adjustedMarginRate"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 0.05 ? 'High defect rate causing significant hidden losses.' : ''"
+    ],
+    "suggestedActions": [
+      "defectRate > 0.05 ? 'Implement Six Sigma DMAIC project to reduce defect rate.' : 'Maintain current quality control processes.'",
+      "marginRate < 0.1 ? 'Review pricing strategy and cost reduction opportunities.' : 'Margin is healthy; consider investment in capacity expansion.'"
+    ],
+    "dataConfidenceAdjusted": "finalMarginRate"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Breakdown"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,78 @@
+{
+  "toolName": "trafik-cezasi-gecikme-faizi-hesaplama",
+  "inputs": [
+    {
+      "id": "cezaTutari",
+      "label": "Ceza Tutarı (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Trafik cezasının anapara tutarı. Kaynak: 2918 sayılı Karayolları Trafik Kanunu."
+    },
+    {
+      "id": "gecikmeGunSayisi",
+      "label": "Gecikme Gün Sayısı",
+      "type": "number",
+      "unit": "gün",
+      "default": 30,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Ceza tebliğ tarihinden itibaren ödeme yapılmayan gün sayısı. Kaynak: 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanun."
+    },
+    {
+      "id": "gecikmeZamaniOrani",
+      "label": "Aylık Gecikme Zammı Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1.6,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Hazine ve Maliye Bakanlığı tarafından belirlenen aylık gecikme zammı oranı. Kaynak: 6183 sayılı Kanun ve ilgili tebliğler."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "cezaTutari >= 0",
+      "gecikmeGunSayisi >= 0",
+      "gecikmeZamaniOrani >= 0",
+      "gecikmeZamaniOrani <= 100"
+    ],
+    "thresholds": {
+      "gecikmeGunSayisi > 365": "UYARI: Gecikme 1 yılı aşmıştır, yasal takip başlatılabilir.",
+      "gecikmeZamaniOrani > 2.5": "UYARI: Gecikme zammı oranı yüksek, güncel oranı kontrol edin."
+    }
+  },
+  "formulas": {
+    "gecikmeFaizi": "cezaTutari * (gecikmeZamaniOrani / 100) * (gecikmeGunSayisi / 30)",
+    "toplamOdenecek": "cezaTutari + gecikmeFaizi"
+  },
+  "outputs": {
+    "primary": "toplamOdenecek",
+    "breakdown": {
+      "cezaTutari": "cezaTutari",
+      "gecikmeFaizi": "gecikmeFaizi"
+    },
+    "hiddenLossDrivers": [
+      "gecikmeGunSayisi > 365 ? 'Uzun süreli gecikme' : ''",
+      "gecikmeZamaniOrani > 2.5 ? 'Yüksek faiz oranı' : ''"
+    ],
+    "suggestedActions": [
+      "gecikmeGunSayisi > 0 ? 'Ödemeyi geciktirmeden yapın.' : 'Zamanında ödeme yapılmıştır.'",
+      "gecikmeGunSayisi > 365 ? 'Yapılandırma veya taksitlendirme seçeneklerini değerlendirin.' : ''"
+    ],
+    "dataConfidenceAdjusted": "toplamOdenecek"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş hesaplamalar)",
+    "Karşılaştırma (farklı oran senaryoları)",
+    "Detaylı rapor (yasal dayanaklar)"
+  ],
+  "premiumRequired": false
+}

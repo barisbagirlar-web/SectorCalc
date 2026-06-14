@@ -1,0 +1,122 @@
+{
+  "toolName": "taguchi-kalite-kayip-fonksiyonu-calculator",
+  "inputs": [
+    {
+      "id": "targetValue",
+      "label": "Hedef Değer (m)",
+      "type": "number",
+      "unit": "birim",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Taguchi kalite kayıp fonksiyonunda hedef değer, ürünün ideal performansını temsil eder. ISO 9001:2015 kalite yönetim sistemleri standardına dayanır."
+    },
+    {
+      "id": "actualValue",
+      "label": "Gerçekleşen Değer (y)",
+      "type": "number",
+      "unit": "birim",
+      "default": 10.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Üretim sürecinde ölçülen gerçek değer. Taguchi metodolojisinde hedeften sapma kalite kaybına neden olur."
+    },
+    {
+      "id": "tolerance",
+      "label": "Tolerans (Δ)",
+      "type": "number",
+      "unit": "birim",
+      "default": 1,
+      "min": 0.001,
+      "max": null,
+      "options": null,
+      "businessContext": "Spesifikasyon limitlerinin yarısı (USL-LSL)/2. Mühendislik toleransı, ürünün kabul edilebilir sapma aralığını belirler."
+    },
+    {
+      "id": "lossAtTolerance",
+      "label": "Tolerans Sınırındaki Kayıp (A₀)",
+      "type": "number",
+      "unit": "para birimi",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Tolerans sınırında (spesifikasyon limitinde) oluşan kalite kaybının parasal değeri. Genellikle hurda, yeniden işleme veya müşteri memnuniyetsizliği maliyetlerine dayanır."
+    },
+    {
+      "id": "productionVolume",
+      "label": "Üretim Miktarı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Değerlendirilen dönemdeki toplam üretim adedi. Toplam kalite kaybını hesaplamak için kullanılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güven Düzeyi",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliğini ifade eder. Düşük güven durumunda sonuçlar daha muhafazakar hale getirilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "tolerance > 0",
+      "lossAtTolerance >= 0",
+      "productionVolume >= 1",
+      "targetValue >= 0",
+      "actualValue >= 0"
+    ],
+    "thresholds": {
+      "deviationRatio": "Math.abs(actualValue - targetValue) / tolerance > 1 ? 'Kritik: Sapma toleransı aştı, ürün spesifikasyon dışı' : ''",
+      "lossPerUnit": "lossPerUnit > lossAtTolerance ? 'Uyarı: Birim kayıp tolerans kaybını aştı' : ''"
+    }
+  },
+  "formulas": {
+    "deviation": "actualValue - targetValue",
+    "lossCoefficient": "lossAtTolerance / (tolerance * tolerance)",
+    "lossPerUnit": "lossCoefficient * (deviation * deviation)",
+    "totalLoss": "lossPerUnit * productionVolume",
+    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalLoss * 1.2 : (dataConfidence === 'medium' ? totalLoss * 1.0 : totalLoss * 0.9)"
+  },
+  "outputs": {
+    "primary": "totalLoss",
+    "breakdown": {
+      "deviation": "deviation",
+      "lossCoefficient": "lossCoefficient",
+      "lossPerUnit": "lossPerUnit",
+      "totalLoss": "totalLoss"
+    },
+    "hiddenLossDrivers": [
+      "Math.abs(actualValue - targetValue) / tolerance > 1 ? 'Sapma toleransı aştı' : ''",
+      "lossPerUnit > lossAtTolerance ? 'Birim kayıp tolerans kaybını aştı' : ''"
+    ],
+    "suggestedActions": [
+      "Süreç iyileştirme ile sapmayı azaltın (Six Sigma DMAIC)",
+      "Toleransları yeniden değerlendirin (mühendislik tolerans analizi)",
+      "Kalite kontrol sıklığını artırın (istatistiksel proses kontrolü)"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (zaman serisi)",
+    "Karşılaştırma (farklı senaryolar)",
+    "Detaylı rapor (alt bileşenler ve grafikler)"
+  ],
+  "premiumRequired": true
+}

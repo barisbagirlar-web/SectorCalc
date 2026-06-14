@@ -1,0 +1,160 @@
+{
+  "toolName": "sofor-operator-gunluk-yevmiye-maliyeti",
+  "inputs": [
+    {
+      "id": "brutUcret",
+      "label": "Brüt Günlük Ücret",
+      "type": "number",
+      "unit": "TRY",
+      "default": 500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Şoför/operatörün brüt günlük yevmiyesi. Kaynak: İş Kanunu, toplu iş sözleşmeleri."
+    },
+    {
+      "id": "sgkIsverenPrimi",
+      "label": "SGK İşveren Primi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20.5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "SGK işveren payı oranı (kısa vadeli sigorta kolları, genel sağlık sigortası, işsizlik sigortası). Kaynak: SGK mevzuatı."
+    },
+    {
+      "id": "kidemTazminatiKarşılık",
+      "label": "Kıdem Tazminatı Karşılık Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 8.33,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kıdem tazminatı için ayrılan karşılık oranı (genellikle brüt ücretin %8.33'ü). Kaynak: İş Kanunu."
+    },
+    {
+      "id": "yemekYardimi",
+      "label": "Günlük Yemek Yardımı",
+      "type": "number",
+      "unit": "TRY",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Günlük yemek ücreti veya ayni yardım. Kaynak: Toplu iş sözleşmesi veya işveren politikası."
+    },
+    {
+      "id": "yolYardimi",
+      "label": "Günlük Yol Yardımı",
+      "type": "number",
+      "unit": "TRY",
+      "default": 30,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Günlük ulaşım yardımı. Kaynak: Toplu iş sözleşmesi veya işveren politikası."
+    },
+    {
+      "id": "digerYanOdeme",
+      "label": "Diğer Yan Ödemeler (Günlük)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 20,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "İkramiye, prim, bayram harçlığı gibi diğer ödemelerin günlük karşılığı. Kaynak: Toplu iş sözleşmesi."
+    },
+    {
+      "id": "calismaGunu",
+      "label": "Aylık Çalışma Günü Sayısı",
+      "type": "number",
+      "unit": "gün/ay",
+      "default": 26,
+      "min": 1,
+      "max": 31,
+      "options": null,
+      "businessContext": "Aylık fiili çalışma günü sayısı (genellikle 26). Kaynak: İş Kanunu, takvim."
+    },
+    {
+      "id": "vergiDilimi",
+      "label": "Gelir Vergisi Dilimi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 40,
+      "options": null,
+      "businessContext": "Çalışanın gelir vergisi dilimi. Kaynak: Gelir Vergisi Kanunu."
+    },
+    {
+      "id": "damgaVergisiOrani",
+      "label": "Damga Vergisi Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 0.759,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Ücretlerden kesilen damga vergisi oranı. Kaynak: Damga Vergisi Kanunu."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "brutUcret > 0",
+      "sgkIsverenPrimi >= 0 && sgkIsverenPrimi <= 100",
+      "kidemTazminatiKarşılık >= 0 && kidemTazminatiKarşılık <= 100",
+      "yemekYardimi >= 0",
+      "yolYardimi >= 0",
+      "digerYanOdeme >= 0",
+      "calismaGunu >= 1 && calismaGunu <= 31",
+      "vergiDilimi >= 0 && vergiDilimi <= 40",
+      "damgaVergisiOrani >= 0 && damgaVergisiOrani <= 100"
+    ],
+    "thresholds": {
+      "brutUcret": "brutUcret > 1000 ? 'Yüksek brüt ücret' : ''",
+      "sgkIsverenPrimi": "sgkIsverenPrimi > 25 ? 'SGK işveren primi oranı yüksek' : ''"
+    }
+  },
+  "formulas": {
+    "brutToplam": "brutUcret + yemekYardimi + yolYardimi + digerYanOdeme",
+    "sgkIsverenMaliyeti": "brutUcret * (sgkIsverenPrimi / 100)",
+    "kidemTazminatiMaliyeti": "brutUcret * (kidemTazminatiKarşılık / 100)",
+    "toplamIsverenMaliyeti": "brutToplam + sgkIsverenMaliyeti + kidemTazminatiMaliyeti",
+    "gelirVergisi": "brutUcret * (vergiDilimi / 100)",
+    "damgaVergisi": "brutUcret * (damgaVergisiOrani / 100)",
+    "netUcret": "brutUcret - gelirVergisi - damgaVergisi",
+    "gunlukYevmiyeMaliyeti": "toplamIsverenMaliyeti"
+  },
+  "outputs": {
+    "primary": "gunlukYevmiyeMaliyeti",
+    "breakdown": {
+      "brutUcret": "brutUcret",
+      "yemekYardimi": "yemekYardimi",
+      "yolYardimi": "yolYardimi",
+      "digerYanOdeme": "digerYanOdeme",
+      "sgkIsverenMaliyeti": "sgkIsverenMaliyeti",
+      "kidemTazminatiMaliyeti": "kidemTazminatiMaliyeti",
+      "toplamIsverenMaliyeti": "toplamIsverenMaliyeti",
+      "netUcret": "netUcret"
+    },
+    "hiddenLossDrivers": [
+      "sgkIsverenPrimi > 25 ? 'Yüksek SGK işveren primi' : ''",
+      "kidemTazminatiKarşılık > 10 ? 'Yüksek kıdem tazminatı karşılığı' : ''"
+    ],
+    "suggestedActions": [
+      "sgkIsverenPrimi > 25 ? 'SGK prim oranını düşürmek için teşvikleri araştırın' : ''",
+      "kidemTazminatiKarşılık > 10 ? 'Kıdem tazminatı karşılığını optimize edin' : ''"
+    ],
+    "dataConfidenceAdjusted": "gunlukYevmiyeMaliyeti * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

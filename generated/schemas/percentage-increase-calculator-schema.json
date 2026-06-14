@@ -1,0 +1,81 @@
+{
+  "toolName": "percentage-increase-calculator",
+  "inputs": [
+    {
+      "id": "originalValue",
+      "label": "Original Value",
+      "type": "number",
+      "unit": "any",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "The initial value before increase. Used in financial analysis and performance measurement. No specific standard, but common in percentage change calculations."
+    },
+    {
+      "id": "newValue",
+      "label": "New Value",
+      "type": "number",
+      "unit": "any",
+      "default": 150,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "The value after increase. Must be greater than or equal to original value for positive increase. Used in KPI tracking."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in data accuracy. Adjusts final result for uncertainty. Common in risk analysis."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "newValue >= originalValue",
+      "originalValue > 0"
+    ],
+    "thresholds": {
+      "percentageIncrease > 100": "Extreme increase detected, verify data.",
+      "percentageIncrease < 0": "Negative increase, check inputs."
+    }
+  },
+  "formulas": {
+    "percentageIncrease": "((newValue - originalValue) / originalValue) * 100",
+    "dataConfidenceAdjusted": "percentageIncrease * (dataConfidence === 'high' ? 1.0 : dataConfidence === 'medium' ? 0.9 : 0.8)"
+  },
+  "outputs": {
+    "primary": "percentageIncrease",
+    "breakdown": {
+      "absoluteIncrease": "newValue - originalValue",
+      "originalValue": "originalValue",
+      "newValue": "newValue"
+    },
+    "hiddenLossDrivers": [
+      "If percentageIncrease > 100: 'Extreme increase'",
+      "If percentageIncrease < 0: 'Negative increase'"
+    ],
+    "suggestedActions": [
+      "If extreme increase: 'Review data sources for errors.'",
+      "If negative increase: 'Check if inputs are swapped.'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Comparison with historical data",
+    "Detailed report with charts"
+  ],
+  "premiumRequired": true
+}

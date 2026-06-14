@@ -1,0 +1,162 @@
+{
+  "toolName": "kok-neden-analizi-rca-tekrarlayan-ariza-birikimli-maliyet-calculator",
+  "inputs": [
+    {
+      "id": "failureFrequency",
+      "label": "Aylık Arıza Sıklığı",
+      "type": "number",
+      "unit": "adet/ay",
+      "default": 1,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Ayda ortalama kaç kez aynı arıza tekrarlanıyor? ISO 14224 bakım veri standardına göre tanımlanır."
+    },
+    {
+      "id": "downtimePerFailure",
+      "label": "Arıza Başına Duruş Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 2,
+      "min": 0,
+      "max": 168,
+      "options": null,
+      "businessContext": "Her arıza için ortalama üretim kaybı süresi. Six Sigma DMAIC projelerinde kullanılır."
+    },
+    {
+      "id": "hourlyProductionValue",
+      "label": "Saatlik Üretim Değeri",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Duruş saatinde kaybedilen üretimin parasal değeri. Maliyet muhasebesi standartları."
+    },
+    {
+      "id": "repairCostPerFailure",
+      "label": "Arıza Başına Onarım Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 1000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Yedek parça, işçilik ve lojistik maliyetleri. APICS bakım maliyeti sınıflandırması."
+    },
+    {
+      "id": "rootCauseAnalysisCost",
+      "label": "Kök Neden Analizi Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 5000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "RCA ekibi, eğitim ve analiz araçları maliyeti. Lean Six Sigma proje maliyeti."
+    },
+    {
+      "id": "implementationCost",
+      "label": "Kalıcı Çözüm Uygulama Maliyeti",
+      "type": "number",
+      "unit": "TL",
+      "default": 20000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Tasarım değişikliği, ekipman yenileme veya prosedür güncelleme maliyeti. ISO 9001 sürekli iyileştirme."
+    },
+    {
+      "id": "expectedLifeAfterFix",
+      "label": "Çözüm Sonrası Beklenen Ömür",
+      "type": "number",
+      "unit": "ay",
+      "default": 36,
+      "min": 1,
+      "max": 120,
+      "options": null,
+      "businessContext": "Kalıcı çözümün tekrarlanmadan kaç ay dayanacağı. Güvenilirlik mühendisliği MTTF."
+    },
+    {
+      "id": "discountRate",
+      "label": "İskonto Oranı (Yıllık)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Sermaye maliyeti veya fırsat maliyeti. Finansal NPV hesaplamaları."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar daha muhafazakar yorumlanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "failureFrequency >= 0",
+      "downtimePerFailure >= 0",
+      "hourlyProductionValue >= 0",
+      "repairCostPerFailure >= 0",
+      "rootCauseAnalysisCost >= 0",
+      "implementationCost >= 0",
+      "expectedLifeAfterFix >= 1",
+      "discountRate >= 0 && discountRate <= 100"
+    ],
+    "thresholds": {
+      "monthlyLoss": "> 100000",
+      "paybackPeriod": "> 12"
+    }
+  },
+  "formulas": {
+    "monthlyLoss": "failureFrequency * (downtimePerFailure * hourlyProductionValue + repairCostPerFailure)",
+    "annualLoss": "monthlyLoss * 12",
+    "totalFixCost": "rootCauseAnalysisCost + implementationCost",
+    "monthlySavings": "monthlyLoss",
+    "annualSavings": "monthlySavings * 12",
+    "paybackPeriodMonths": "totalFixCost / monthlySavings",
+    "npv": "-totalFixCost + (annualSavings / (discountRate/100)) * (1 - 1 / Math.pow(1 + discountRate/100, expectedLifeAfterFix/12))",
+    "dataConfidenceAdjustedNpv": "dataConfidence === 'low' ? npv * 0.7 : dataConfidence === 'medium' ? npv * 0.85 : npv"
+  },
+  "outputs": {
+    "primary": "npv",
+    "breakdown": {
+      "monthlyLoss": "monthlyLoss",
+      "annualLoss": "annualLoss",
+      "totalFixCost": "totalFixCost",
+      "monthlySavings": "monthlySavings",
+      "annualSavings": "annualSavings",
+      "paybackPeriodMonths": "paybackPeriodMonths"
+    },
+    "hiddenLossDrivers": [
+      "monthlyLoss > 100000 ? 'Aylık kayıp çok yüksek, acil aksiyon gerekli.' : ''",
+      "paybackPeriodMonths > 12 ? 'Geri ödeme süresi 12 aydan uzun, alternatif çözümler değerlendirilmeli.' : ''"
+    ],
+    "suggestedActions": [
+      "Kök neden analizi ekibi kurun ve sistematik RCA uygulayın.",
+      "Kalıcı çözüm için mühendislik değişikliği veya ekipman yenileme planı oluşturun.",
+      "Bakım prosedürlerini güncelleyerek tekrarlayan arızaları önleyin."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedNpv"
+  },
+  "premiumFeatures": [
+    "PDF/CSV raporu",
+    "Trend analizi (zaman serisi)",
+    "Senaryo karşılaştırma",
+    "Detaylı maliyet kırılımı raporu"
+  ],
+  "premiumRequired": true
+}

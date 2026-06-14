@@ -1,0 +1,162 @@
+{
+  "toolName": "yalitim-malzemesi-m-hesaplama",
+  "inputs": [
+    {
+      "id": "yalitimAlani",
+      "label": "Yalıtım Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yalıtım yapılacak yüzey alanı. ISO 6946'ya göre ısı geçişi hesaplamalarında kullanılır."
+    },
+    {
+      "id": "malzemeKalınlık",
+      "label": "Malzeme Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yalıtım malzemesinin kalınlığı. Isıl iletkenlik ile birlikte ısıl direnci belirler."
+    },
+    {
+      "id": "isilIletkenlik",
+      "label": "Isıl İletkenlik (λ)",
+      "type": "number",
+      "unit": "W/(m·K)",
+      "default": 0.035,
+      "min": 0.01,
+      "max": 1,
+      "options": null,
+      "businessContext": "Malzemenin ısıl iletkenlik katsayısı. ISO 10456'ya göre belirlenir."
+    },
+    {
+      "id": "sicaklikFarki",
+      "label": "Sıcaklık Farkı",
+      "type": "number",
+      "unit": "K",
+      "default": 20,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "İç ve dış ortam arasındaki sıcaklık farkı. Isı kaybı hesaplamasında kullanılır."
+    },
+    {
+      "id": "calismaSaati",
+      "label": "Günlük Çalışma Saati",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 24,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Isıtma/soğutma sisteminin günlük çalışma süresi. Enerji tüketimini etkiler."
+    },
+    {
+      "id": "enerjiBirimFiyat",
+      "label": "Enerji Birim Fiyatı",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 1.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Elektrik veya doğalgaz birim fiyatı. Yıllık enerji maliyeti hesaplamasında kullanılır."
+    },
+    {
+      "id": "malzemeBirimFiyat",
+      "label": "Malzeme Birim Fiyatı",
+      "type": "number",
+      "unit": "TL/m²",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yalıtım malzemesinin metrekare fiyatı. Toplam malzeme maliyeti hesaplamasında kullanılır."
+    },
+    {
+      "id": "projeOmru",
+      "label": "Proje Ömrü",
+      "type": "number",
+      "unit": "yıl",
+      "default": 20,
+      "min": 1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Yalıtımın ekonomik ömrü. NPV hesaplamasında kullanılır."
+    },
+    {
+      "id": "iskontoOrani",
+      "label": "İskonto Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Sermaye maliyeti veya alternatif yatırım getirisi. NPV hesaplamasında kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "isilIletkenlik > 0",
+      "malzemeKalınlık > 0",
+      "sicaklikFarki >= 0",
+      "calismaSaati >= 0 && calismaSaati <= 24",
+      "enerjiBirimFiyat >= 0",
+      "malzemeBirimFiyat >= 0",
+      "projeOmru >= 1",
+      "iskontoOrani >= 0"
+    ],
+    "thresholds": {
+      "isilIletkenlik": "if isilIletkenlik > 0.1 then 'Yüksek ısıl iletkenlik, düşük yalıtım performansı'",
+      "sicaklikFarki": "if sicaklikFarki > 30 then 'Yüksek sıcaklık farkı, enerji tasarrufu potansiyeli yüksek'"
+    }
+  },
+  "formulas": {
+    "isilDirenc": "malzemeKalınlık / 1000 / isilIletkenlik",
+    "isilGecisKatsayisi": "1 / isilDirenc",
+    "isikaybi": "yalitimAlani * isilGecisKatsayisi * sicaklikFarki",
+    "yillikEnerjiKaybi": "isikaybi * calismaSaati * 365 / 1000",
+    "yillikEnerjiMaliyeti": "yillikEnerjiKaybi * enerjiBirimFiyat",
+    "toplamMalzemeMaliyeti": "yalitimAlani * malzemeBirimFiyat",
+    "yillikNetTasarruf": "yillikEnerjiMaliyeti",
+    "npv": "-toplamMalzemeMaliyeti + yillikNetTasarruf * ((1 - (1 + iskontoOrani/100)^(-projeOmru)) / (iskontoOrani/100))",
+    "geriOdemeSuresi": "toplamMalzemeMaliyeti / yillikNetTasarruf"
+  },
+  "outputs": {
+    "primary": "npv",
+    "breakdown": {
+      "isilDirenc": "isilDirenc",
+      "isilGecisKatsayisi": "isilGecisKatsayisi",
+      "isikaybi": "isikaybi",
+      "yillikEnerjiKaybi": "yillikEnerjiKaybi",
+      "yillikEnerjiMaliyeti": "yillikEnerjiMaliyeti",
+      "toplamMalzemeMaliyeti": "toplamMalzemeMaliyeti",
+      "yillikNetTasarruf": "yillikNetTasarruf",
+      "geriOdemeSuresi": "geriOdemeSuresi"
+    },
+    "hiddenLossDrivers": [
+      "if isilIletkenlik > 0.1 then 'Yüksek ısıl iletkenlik'",
+      "if sicaklikFarki > 30 then 'Yüksek sıcaklık farkı'"
+    ],
+    "suggestedActions": [
+      "if npv < 0 then 'Proje ekonomik değil, malzeme fiyatını veya kalınlığı azaltmayı düşünün'",
+      "if geriOdemeSuresi > projeOmru then 'Geri ödeme süresi proje ömrünü aşıyor, daha düşük maliyetli malzeme seçin'",
+      "if isilIletkenlik > 0.1 then 'Daha düşük ısıl iletkenlikli malzeme kullanmayı değerlendirin'"
+    ],
+    "dataConfidenceAdjusted": "npv * 0.9"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma (farklı malzemeler)",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

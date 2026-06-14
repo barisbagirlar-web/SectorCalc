@@ -1,0 +1,150 @@
+{
+  "toolName": "enjeksiyon-dokum-cekme-payi-hesabi",
+  "inputs": [
+    {
+      "id": "materialType",
+      "label": "Malzeme Türü",
+      "type": "select",
+      "unit": "",
+      "default": "PP",
+      "min": null,
+      "max": null,
+      "options": [
+        "PP",
+        "PE",
+        "ABS",
+        "PA",
+        "PC",
+        "POM"
+      ],
+      "businessContext": "Farklı malzemelerin çekme payı katsayıları farklıdır. ISO 294-4 standardına göre belirlenir."
+    },
+    {
+      "id": "partLength",
+      "label": "Parça Boyu (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Enjeksiyon kalıplamada parça boyu çekme payını doğrudan etkiler. Tolerans hesaplamaları için kritik."
+    },
+    {
+      "id": "partWidth",
+      "label": "Parça Genişliği (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 1,
+      "max": 10000,
+      "businessContext": "Genişlik, çekme payının hesaplanmasında ikinci boyut olarak kullanılır."
+    },
+    {
+      "id": "partThickness",
+      "label": "Parça Et Kalınlığı (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "min": 0.5,
+      "max": 50,
+      "businessContext": "Et kalınlığı, çekme oranını ve soğuma hızını etkiler. Kalın kesitler daha fazla çeker."
+    },
+    {
+      "id": "moldTemperature",
+      "label": "Kalıp Sıcaklığı (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 40,
+      "min": 10,
+      "max": 120,
+      "businessContext": "Kalıp sıcaklığı, malzemenin kristalleşme oranını ve çekme miktarını etkiler. ISO 294-4'e göre."
+    },
+    {
+      "id": "meltTemperature",
+      "label": "Erime Sıcaklığı (°C)",
+      "type": "number",
+      "unit": "°C",
+      "default": 220,
+      "min": 150,
+      "max": 350,
+      "businessContext": "Erime sıcaklığı, malzemenin akışkanlığını ve çekme davranışını belirler."
+    },
+    {
+      "id": "shrinkageFactor",
+      "label": "Çekme Faktörü (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0.1,
+      "max": 10,
+      "businessContext": "Malzeme veri sayfasından alınan tipik çekme yüzdesi. ISO 294-4 test yöntemiyle belirlenir."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliğini belirtir. Düşük güven durumunda sonuçlar daha geniş toleransla raporlanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "partLength > 0",
+      "partWidth > 0",
+      "partThickness > 0",
+      "moldTemperature < meltTemperature",
+      "shrinkageFactor > 0"
+    ],
+    "thresholds": {
+      "shrinkageFactor > 3": "Yüksek çekme oranı, parça toleranslarını aşabilir.",
+      "partThickness > 10": "Kalın kesit, çarpılma riskini artırır.",
+      "moldTemperature < 20": "Düşük kalıp sıcaklığı, yetersiz dolum ve yüksek çekmeye neden olabilir."
+    }
+  },
+  "formulas": {
+    "shrinkageLength": "partLength * (shrinkageFactor / 100)",
+    "shrinkageWidth": "partWidth * (shrinkageFactor / 100)",
+    "shrinkageThickness": "partThickness * (shrinkageFactor / 100) * 1.2",
+    "totalShrinkage": "(shrinkageLength + shrinkageWidth + shrinkageThickness) / 3",
+    "adjustedShrinkage": "totalShrinkage * (1 + (moldTemperature - 40) * 0.002) * (1 + (meltTemperature - 220) * 0.001)",
+    "dataConfidenceMultiplier": "dataConfidence == 'low' ? 1.5 : (dataConfidence == 'medium' ? 1.0 : 0.8)",
+    "finalShrinkage": "adjustedShrinkage * dataConfidenceMultiplier"
+  },
+  "outputs": {
+    "primary": "finalShrinkage",
+    "breakdown": {
+      "shrinkageLength": "shrinkageLength",
+      "shrinkageWidth": "shrinkageWidth",
+      "shrinkageThickness": "shrinkageThickness",
+      "totalShrinkage": "totalShrinkage",
+      "adjustedShrinkage": "adjustedShrinkage"
+    },
+    "hiddenLossDrivers": [
+      "shrinkageFactor > 3 ? 'Yüksek çekme oranı' : ''",
+      "partThickness > 10 ? 'Kalın kesit' : ''",
+      "moldTemperature < 20 ? 'Düşük kalıp sıcaklığı' : ''"
+    ],
+    "suggestedActions": [
+      "Çekme payını azaltmak için kalıp sıcaklığını artırın.",
+      "Malzeme veri sayfasını kontrol ederek daha düşük çekme faktörlü malzeme seçin.",
+      "Parça et kalınlığını homojenleştirin."
+    ],
+    "dataConfidenceAdjusted": "finalShrinkage"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma modülü",
+    "Detaylı tolerans raporu"
+  ],
+  "premiumRequired": true
+}

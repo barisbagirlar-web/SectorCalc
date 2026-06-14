@@ -1,0 +1,175 @@
+{
+  "toolName": "sheet-metal-scrap-risk",
+  "inputs": [
+    {
+      "id": "materialCostPerKg",
+      "label": "Material Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 2.5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Current market price of sheet metal. Source: industry benchmark (e.g., MEPS)."
+    },
+    {
+      "id": "scrapRate",
+      "label": "Scrap Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of material wasted. Typical range 10-30% for sheet metal. Source: Lean manufacturing standards."
+    },
+    {
+      "id": "productionVolume",
+      "label": "Annual Production Volume",
+      "type": "number",
+      "unit": "units/year",
+      "default": 100000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Total units produced per year. Used to scale scrap cost."
+    },
+    {
+      "id": "partWeight",
+      "label": "Part Weight",
+      "type": "number",
+      "unit": "kg/unit",
+      "default": 0.5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Weight of each finished part. Source: engineering BOM."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 0,
+      "max": 200,
+      "options": null,
+      "businessContext": "Average hourly wage including overhead. Source: industry labor surveys."
+    },
+    {
+      "id": "cycleTimePerPart",
+      "label": "Cycle Time per Part",
+      "type": "number",
+      "unit": "minutes",
+      "default": 2,
+      "min": 0,
+      "max": 60,
+      "options": null,
+      "businessContext": "Time to produce one part. Source: time studies."
+    },
+    {
+      "id": "disposalCostPerKg",
+      "label": "Disposal Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 0.1,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Cost to dispose of scrap material. Source: waste management contracts."
+    },
+    {
+      "id": "reworkRate",
+      "label": "Rework Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of parts requiring rework. Source: quality records."
+    },
+    {
+      "id": "reworkCostPerPart",
+      "label": "Rework Cost per Part",
+      "type": "number",
+      "unit": "USD/part",
+      "default": 1,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Average cost to rework a defective part. Source: cost accounting."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence in input data accuracy. Affects risk adjustment. Source: data governance policy."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "scrapRate >= 0 AND scrapRate <= 100",
+      "reworkRate >= 0 AND reworkRate <= 100",
+      "materialCostPerKg > 0",
+      "productionVolume > 0",
+      "partWeight > 0",
+      "cycleTimePerPart > 0",
+      "laborCostPerHour > 0",
+      "disposalCostPerKg >= 0",
+      "reworkCostPerPart >= 0"
+    ],
+    "thresholds": {
+      "scrapRate > 20": "High scrap rate warning: consider process improvement.",
+      "reworkRate > 10": "High rework rate warning: investigate root causes.",
+      "materialCostPerKg > 5": "Material cost above typical range; review supplier pricing."
+    }
+  },
+  "formulas": {
+    "annualScrapWeight": "productionVolume * partWeight * (scrapRate / 100)",
+    "annualReworkParts": "productionVolume * (reworkRate / 100)",
+    "materialScrapCost": "annualScrapWeight * materialCostPerKg",
+    "disposalCost": "annualScrapWeight * disposalCostPerKg",
+    "laborScrapCost": "annualScrapWeight * (cycleTimePerPart / 60) * laborCostPerHour",
+    "reworkCost": "annualReworkParts * reworkCostPerPart",
+    "totalScrapRisk": "materialScrapCost + disposalCost + laborScrapCost + reworkCost",
+    "dataConfidenceAdjusted": "totalScrapRisk * (dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9))"
+  },
+  "outputs": {
+    "primary": "totalScrapRisk",
+    "breakdown": {
+      "materialScrapCost": "materialScrapCost",
+      "disposalCost": "disposalCost",
+      "laborScrapCost": "laborScrapCost",
+      "reworkCost": "reworkCost"
+    },
+    "hiddenLossDrivers": [
+      "scrapRate > 20 ? 'High scrap rate' : ''",
+      "reworkRate > 10 ? 'High rework rate' : ''"
+    ],
+    "suggestedActions": [
+      "Implement nesting optimization to reduce scrap.",
+      "Review stamping process parameters to lower scrap rate.",
+      "Consider preventive maintenance to reduce rework.",
+      "Negotiate better material pricing or alternative suppliers."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

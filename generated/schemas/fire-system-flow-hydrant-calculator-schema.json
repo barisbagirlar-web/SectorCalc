@@ -1,0 +1,218 @@
+{
+  "toolName": "fire-system-flow-hydrant-calculator",
+  "inputs": [
+    {
+      "id": "buildingType",
+      "label": "Building Type",
+      "type": "select",
+      "unit": "",
+      "default": "commercial",
+      "min": null,
+      "max": null,
+      "options": [
+        "commercial",
+        "industrial",
+        "residential",
+        "storage"
+      ],
+      "businessContext": "Based on NFPA 13 and local fire codes; building type determines required flow density and area."
+    },
+    {
+      "id": "hazardClassification",
+      "label": "Hazard Classification",
+      "type": "select",
+      "unit": "",
+      "default": "ordinary1",
+      "min": null,
+      "max": null,
+      "options": [
+        "light",
+        "ordinary1",
+        "ordinary2",
+        "extra1",
+        "extra2"
+      ],
+      "businessContext": "Per NFPA 13, hazard classification affects design density and area of operation."
+    },
+    {
+      "id": "sprinklerCoverageArea",
+      "label": "Sprinkler Coverage Area",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 130,
+      "min": 80,
+      "max": 225,
+      "businessContext": "Typical coverage area per sprinkler head; varies by spacing and hazard (NFPA 13)."
+    },
+    {
+      "id": "numberOfSprinklers",
+      "label": "Number of Sprinklers",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "min": 1,
+      "max": 1000,
+      "businessContext": "Total sprinklers in the design area; used to calculate total flow demand."
+    },
+    {
+      "id": "designDensity",
+      "label": "Design Density",
+      "type": "number",
+      "unit": "gpm/sq ft",
+      "default": 0.15,
+      "min": 0.05,
+      "max": 0.6,
+      "businessContext": "Required water density per NFPA 13 based on hazard classification; typical range 0.05-0.6 gpm/sq ft."
+    },
+    {
+      "id": "hydrantFlowRate",
+      "label": "Hydrant Flow Rate",
+      "type": "number",
+      "unit": "gpm",
+      "default": 1000,
+      "min": 250,
+      "max": 5000,
+      "businessContext": "Available flow from hydrant; typical municipal supply ranges 500-2500 gpm."
+    },
+    {
+      "id": "numberOfHydrants",
+      "label": "Number of Hydrants",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "min": 1,
+      "max": 10,
+      "businessContext": "Number of hydrants available for firefighting; affects total supply capacity."
+    },
+    {
+      "id": "simultaneousHydrantDemand",
+      "label": "Simultaneous Hydrant Demand",
+      "type": "number",
+      "unit": "gpm",
+      "default": 500,
+      "min": 250,
+      "max": 2500,
+      "businessContext": "Expected demand per hydrant during fire; typical 500-1500 gpm per hydrant."
+    },
+    {
+      "id": "frictionLossFactor",
+      "label": "Friction Loss Factor",
+      "type": "number",
+      "unit": "psi/100ft",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "businessContext": "Friction loss in piping per 100 ft; depends on pipe material and diameter (Hazen-Williams)."
+    },
+    {
+      "id": "pipeLength",
+      "label": "Pipe Length",
+      "type": "number",
+      "unit": "ft",
+      "default": 500,
+      "min": 0,
+      "max": 5000,
+      "businessContext": "Total length of pipe from source to farthest sprinkler/hydrant."
+    },
+    {
+      "id": "elevationChange",
+      "label": "Elevation Change",
+      "type": "number",
+      "unit": "ft",
+      "default": 0,
+      "min": -100,
+      "max": 100,
+      "businessContext": "Positive if uphill; affects pressure due to elevation head (0.433 psi/ft)."
+    },
+    {
+      "id": "requiredPressureAtOutlet",
+      "label": "Required Pressure at Outlet",
+      "type": "number",
+      "unit": "psi",
+      "default": 50,
+      "min": 20,
+      "max": 150,
+      "businessContext": "Minimum pressure required at sprinkler or hydrant outlet; typical 50 psi."
+    },
+    {
+      "id": "waterSupplyPressure",
+      "label": "Water Supply Pressure",
+      "type": "number",
+      "unit": "psi",
+      "default": 80,
+      "min": 30,
+      "max": 200,
+      "businessContext": "Static pressure at water source; typical municipal supply 40-100 psi."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "businessContext": "Confidence in input data; used to adjust final results for uncertainty."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "If buildingType is 'storage' and hazardClassification is 'light', then warning: 'Storage buildings typically require higher hazard classification.'",
+      "If designDensity < 0.1 and hazardClassification in ['extra1','extra2'], then error: 'Design density too low for extra hazard.'",
+      "If hydrantFlowRate < simultaneousHydrantDemand, then error: 'Hydrant flow rate insufficient for simultaneous demand.'",
+      "If waterSupplyPressure < requiredPressureAtOutlet + frictionLossFactor * pipeLength / 100 + elevationChange * 0.433, then error: 'Insufficient water supply pressure.'"
+    ],
+    "thresholds": {
+      "flowDeficit": "If totalDemand > totalSupply, then 'Flow deficit: insufficient water supply.'",
+      "pressureDeficit": "If availablePressure < requiredPressure, then 'Pressure deficit: insufficient pressure at outlet.'",
+      "lowConfidence": "If dataConfidence < 70, then 'Low data confidence; results may be unreliable.'"
+    }
+  },
+  "formulas": {
+    "sprinklerFlowPerHead": "designDensity * sprinklerCoverageArea",
+    "totalSprinklerFlow": "sprinklerFlowPerHead * numberOfSprinklers",
+    "totalHydrantSupply": "hydrantFlowRate * numberOfHydrants",
+    "totalDemand": "totalSprinklerFlow + (simultaneousHydrantDemand * numberOfHydrants)",
+    "totalSupply": "totalHydrantSupply",
+    "frictionLoss": "frictionLossFactor * (pipeLength / 100)",
+    "elevationPressure": "elevationChange * 0.433",
+    "requiredPressure": "requiredPressureAtOutlet + frictionLoss + elevationPressure",
+    "availablePressure": "waterSupplyPressure",
+    "flowAdequacy": "totalSupply >= totalDemand ? 'Adequate' : 'Inadequate'",
+    "pressureAdequacy": "availablePressure >= requiredPressure ? 'Adequate' : 'Inadequate'",
+    "overallStatus": "flowAdequacy == 'Adequate' && pressureAdequacy == 'Adequate' ? 'Compliant' : 'Non-compliant'",
+    "dataConfidenceAdjusted": "overallStatus == 'Compliant' ? 'Compliant with ' + dataConfidence + '% confidence' : 'Non-compliant with ' + dataConfidence + '% confidence'"
+  },
+  "outputs": {
+    "primary": "overallStatus",
+    "breakdown": {
+      "totalSprinklerFlow": "totalSprinklerFlow",
+      "totalHydrantSupply": "totalHydrantSupply",
+      "totalDemand": "totalDemand",
+      "totalSupply": "totalSupply",
+      "requiredPressure": "requiredPressure",
+      "availablePressure": "availablePressure",
+      "flowAdequacy": "flowAdequacy",
+      "pressureAdequacy": "pressureAdequacy"
+    },
+    "hiddenLossDrivers": [
+      "flowDeficit",
+      "pressureDeficit",
+      "lowConfidence"
+    ],
+    "suggestedActions": [
+      "If flow deficit: increase hydrant flow rate or number of hydrants, or reduce sprinkler demand by adjusting design density.",
+      "If pressure deficit: increase water supply pressure, reduce friction loss (larger pipes), or reduce elevation change.",
+      "If low confidence: verify input data with field measurements or consult local fire department."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF export of detailed report",
+    "CSV export of input and output data",
+    "Trend analysis over multiple calculations",
+    "Comparison with NFPA standards and local codes",
+    "Detailed hydraulic calculation breakdown"
+  ],
+  "premiumRequired": true
+}

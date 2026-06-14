@@ -1,0 +1,155 @@
+{
+  "toolName": "dongusel-ekonomi-ve-urun-omru-uzatma-roi-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total upfront cost for product redesign, tooling, and process changes to extend product life. Based on capital budgeting principles (NPV/ROI)."
+    },
+    {
+      "id": "annualRevenuePerUnit",
+      "label": "Annual Revenue per Unit (USD)",
+      "type": "number",
+      "unit": "USD/unit/year",
+      "default": 500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Revenue generated per product unit per year. Used to calculate revenue impact of extended life. Standard financial metric."
+    },
+    {
+      "id": "unitsSoldPerYear",
+      "label": "Units Sold per Year",
+      "type": "number",
+      "unit": "units/year",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Annual sales volume. Key driver for revenue and cost calculations. Based on sales forecasting."
+    },
+    {
+      "id": "currentProductLifeYears",
+      "label": "Current Product Life (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 3,
+      "min": 0.5,
+      "max": 20,
+      "options": null,
+      "businessContext": "Average lifespan of current product before replacement. Determines baseline replacement cycle. Industry benchmark data."
+    },
+    {
+      "id": "extendedProductLifeYears",
+      "label": "Extended Product Life (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 0.5,
+      "max": 20,
+      "options": null,
+      "businessContext": "Target lifespan after circular economy improvements. Must be greater than current life. Based on design for longevity principles."
+    },
+    {
+      "id": "annualOperatingCostPerUnit",
+      "label": "Annual Operating Cost per Unit (USD)",
+      "type": "number",
+      "unit": "USD/unit/year",
+      "default": 200,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost to maintain and operate product per year (e.g., energy, repairs). Relevant for total cost of ownership (TCO)."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Weighted average cost of capital (WACC) or required rate of return. Used for NPV calculation. Standard finance."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in input data accuracy. Adjusts output reliability. Common in risk analysis."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "extendedProductLifeYears > currentProductLifeYears",
+      "initialInvestment >= 0",
+      "annualRevenuePerUnit >= 0",
+      "unitsSoldPerYear >= 0",
+      "annualOperatingCostPerUnit >= 0",
+      "discountRate >= 0 && discountRate <= 100"
+    ],
+    "thresholds": {
+      "extendedProductLifeYears": "if extendedProductLifeYears <= currentProductLifeYears then 'ERROR: Extended life must be greater than current life'",
+      "discountRate": "if discountRate > 20 then 'WARNING: High discount rate may indicate high risk'",
+      "annualOperatingCostPerUnit": "if annualOperatingCostPerUnit > annualRevenuePerUnit then 'WARNING: Operating cost exceeds revenue per unit'"
+    }
+  },
+  "formulas": {
+    "annualRevenue": "unitsSoldPerYear * annualRevenuePerUnit",
+    "annualOperatingCost": "unitsSoldPerYear * annualOperatingCostPerUnit",
+    "annualNetCashFlow": "annualRevenue - annualOperatingCost",
+    "currentLifeCycleYears": "currentProductLifeYears",
+    "extendedLifeCycleYears": "extendedProductLifeYears",
+    "currentReplacementFrequency": "1 / currentProductLifeYears",
+    "extendedReplacementFrequency": "1 / extendedProductLifeYears",
+    "replacementReduction": "currentReplacementFrequency - extendedReplacementFrequency",
+    "annualSavingsFromReplacement": "replacementReduction * initialInvestment",
+    "totalAnnualBenefit": "annualNetCashFlow + annualSavingsFromReplacement",
+    "npv": "totalAnnualBenefit * (1 - (1 + discountRate/100)^(-extendedProductLifeYears)) / (discountRate/100) - initialInvestment",
+    "roi": "(npv / initialInvestment) * 100",
+    "paybackPeriod": "initialInvestment / totalAnnualBenefit",
+    "dataConfidenceAdjustedNpv": "npv * (dataConfidence == 'high' ? 1.0 : (dataConfidence == 'medium' ? 0.9 : 0.8))"
+  },
+  "outputs": {
+    "primary": "roi",
+    "breakdown": {
+      "npv": "npv",
+      "paybackPeriod": "paybackPeriod",
+      "annualSavingsFromReplacement": "annualSavingsFromReplacement",
+      "totalAnnualBenefit": "totalAnnualBenefit"
+    },
+    "hiddenLossDrivers": [
+      "if annualOperatingCostPerUnit > annualRevenuePerUnit then 'Operating cost exceeds revenue per unit'",
+      "if discountRate > 20 then 'High discount rate'"
+    ],
+    "suggestedActions": [
+      "if roi < 0 then 'Consider reducing initial investment or increasing product life extension'",
+      "if paybackPeriod > 5 then 'Focus on faster payback through cost reduction'",
+      "if annualOperatingCostPerUnit > 0.5 * annualRevenuePerUnit then 'Reduce operating costs via design improvements'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedNpv"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Scenario Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,124 @@
+{
+  "toolName": "rulman-omur-hesabi-l10",
+  "inputs": [
+    {
+      "id": "dynamicLoad",
+      "label": "Dinamik Yük (C)",
+      "type": "number",
+      "unit": "N",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Rulmanın dinamik yük kapasitesi (C), ISO 281 standardına göre tanımlanır. Rulmanın nominal ömrünü hesaplamak için kullanılır."
+    },
+    {
+      "id": "equivalentLoad",
+      "label": "Eşdeğer Yük (P)",
+      "type": "number",
+      "unit": "N",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Rulmana etki eden eşdeğer dinamik yük (P). ISO 281'e göre radyal ve eksenel yüklerin birleşiminden hesaplanır."
+    },
+    {
+      "id": "lifeExponent",
+      "label": "Ömür Üssü (p)",
+      "type": "select",
+      "unit": "",
+      "default": 3,
+      "min": null,
+      "max": null,
+      "options": [
+        "3",
+        "10/3"
+      ],
+      "businessContext": "Rulman tipine bağlı üs: bilyalı rulmanlar için p=3, makaralı rulmanlar için p=10/3. ISO 281 standardı."
+    },
+    {
+      "id": "reliabilityFactor",
+      "label": "Güvenilirlik Faktörü (a1)",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0.1,
+      "max": 1,
+      "options": null,
+      "businessContext": "Güvenilirlik faktörü (a1), ISO 281'e göre %90 güvenilirlik için 1, daha yüksek güvenilirlikler için daha düşük değerler alır."
+    },
+    {
+      "id": "operatingHoursPerDay",
+      "label": "Günlük Çalışma Saati",
+      "type": "number",
+      "unit": "h/gün",
+      "default": 8,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Rulmanın günlük ortalama çalışma saati. Ömür hesaplamasında zaman birimini dönüştürmek için kullanılır."
+    },
+    {
+      "id": "operatingDaysPerYear",
+      "label": "Yıllık Çalışma Günü",
+      "type": "number",
+      "unit": "gün/yıl",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Rulmanın yıllık çalışma günü sayısı. Yıllık ömür hesaplaması için kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "dynamicLoad > 0",
+      "equivalentLoad > 0",
+      "equivalentLoad <= dynamicLoad",
+      "reliabilityFactor > 0 && reliabilityFactor <= 1",
+      "operatingHoursPerDay > 0 && operatingHoursPerDay <= 24",
+      "operatingDaysPerYear > 0 && operatingDaysPerYear <= 365"
+    ],
+    "thresholds": {
+      "L10h < 1000": "Kritik: Rulman ömrü çok düşük, yeniden boyutlandırma gerekebilir.",
+      "L10h < 5000": "Uyarı: Rulman ömrü sınırda, bakım planı gözden geçirilmeli.",
+      "equivalentLoad/dynamicLoad > 0.5": "Uyarı: Yük oranı yüksek, rulman aşırı yüklenmiş olabilir."
+    }
+  },
+  "formulas": {
+    "L10": "dynamicLoad / equivalentLoad",
+    "L10_exp": "Math.pow(L10, lifeExponent)",
+    "L10_reliability": "L10_exp * reliabilityFactor",
+    "L10h": "L10_reliability * 1000000 / (60 * operatingHoursPerDay * operatingDaysPerYear / 365)",
+    "L10y": "L10h / (operatingHoursPerDay * operatingDaysPerYear)"
+  },
+  "outputs": {
+    "primary": "L10y",
+    "breakdown": {
+      "L10": "dynamicLoad / equivalentLoad",
+      "L10_exp": "Math.pow(L10, lifeExponent)",
+      "L10_reliability": "L10_exp * reliabilityFactor",
+      "L10h": "L10_reliability * 1000000 / (60 * operatingHoursPerDay * operatingDaysPerYear / 365)",
+      "L10y": "L10h / (operatingHoursPerDay * operatingDaysPerYear)"
+    },
+    "hiddenLossDrivers": [
+      "Yük oranı (P/C) > 0.5 ise aşırı yük",
+      "Güvenilirlik faktörü düşükse ömür azalır"
+    ],
+    "suggestedActions": [
+      "Daha yüksek dinamik yük kapasiteli rulman seçin",
+      "Eşdeğer yükü azaltmak için yük dağılımını iyileştirin",
+      "Güvenilirlik gereksinimini düşürün veya daha sık bakım planlayın"
+    ],
+    "dataConfidenceAdjusted": "L10y * dataConfidenceFactor"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma (farklı rulman tipleri)",
+    "Detaylı rapor (alt bileşenler ve grafikler)"
+  ],
+  "premiumRequired": true
+}

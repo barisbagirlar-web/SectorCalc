@@ -1,0 +1,190 @@
+{
+  "toolName": "kaynak-dikis-hacmi-maliyeti-hesabi",
+  "inputs": [
+    {
+      "id": "weldLength",
+      "label": "Kaynak Dikiş Uzunluğu",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Kaynak dikişinin toplam uzunluğu. ISO 2553 standardına göre kaynak sembolleri ile belirtilir."
+    },
+    {
+      "id": "weldThroatThickness",
+      "label": "Kaynak Boğaz Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 5,
+      "min": 1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Kaynak dikişinin boğaz kalınlığı (a). Köşe kaynaklarında genellikle kaynak kalınlığı olarak kullanılır. ISO 2553'e göre tanımlanır."
+    },
+    {
+      "id": "weldType",
+      "label": "Kaynak Türü",
+      "type": "select",
+      "unit": "",
+      "default": "fillet",
+      "min": null,
+      "max": null,
+      "options": [
+        "fillet",
+        "butt",
+        "groove"
+      ],
+      "businessContext": "Kaynak dikişinin geometrik türü. Köşe (fillet), alın (butt) veya oluk (groove) kaynağı. Her türün hacim formülü farklıdır."
+    },
+    {
+      "id": "weldWidth",
+      "label": "Kaynak Genişliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Alın ve oluk kaynaklarında dikiş genişliği. Köşe kaynaklarında kullanılmaz."
+    },
+    {
+      "id": "weldReinforcement",
+      "label": "Takviye Yüksekliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Kaynak dikişinin yüzeyindeki takviye yüksekliği. Hacme eklenir. ISO 5817'ye göre kalite sınıflarına bağlıdır."
+    },
+    {
+      "id": "materialDensity",
+      "label": "Malzeme Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "min": 1000,
+      "max": 20000,
+      "options": null,
+      "businessContext": "Kaynak metalinin yoğunluğu. Çelik için 7850 kg/m³, alüminyum için 2700 kg/m³. Malzeme standardına göre değişir."
+    },
+    {
+      "id": "materialCostPerKg",
+      "label": "Malzeme Birim Maliyeti",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 2.5,
+      "min": 0.1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kaynak teli veya dolgu metalinin kilogram başına maliyeti. Piyasa fiyatlarına göre değişir."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "İşçilik Saatlik Maliyeti",
+      "type": "number",
+      "unit": "USD/saat",
+      "default": 30,
+      "min": 5,
+      "max": 200,
+      "options": null,
+      "businessContext": "Kaynak operatörünün saatlik ücreti. Endüstriyel ortalamalara göre belirlenir."
+    },
+    {
+      "id": "weldingSpeed",
+      "label": "Kaynak Hızı",
+      "type": "number",
+      "unit": "mm/dak",
+      "default": 300,
+      "min": 10,
+      "max": 2000,
+      "options": null,
+      "businessContext": "Kaynak işleminin ilerleme hızı. Proses parametrelerine bağlıdır."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Genel Gider Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "İşçilik maliyetine eklenen genel gider yüzdesi. Muhasebe standartlarına göre belirlenir."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirlik yüzdesi. Düşük güven durumunda sonuçlar ayarlanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "weldLength > 0",
+      "weldThroatThickness > 0",
+      "materialDensity > 0",
+      "materialCostPerKg > 0",
+      "laborCostPerHour > 0",
+      "weldingSpeed > 0",
+      "overheadRate >= 0",
+      "dataConfidence >= 50 && dataConfidence <= 100",
+      "if weldType == 'fillet' then weldWidth == null or weldWidth == 0",
+      "if weldType == 'butt' or weldType == 'groove' then weldWidth > 0"
+    ],
+    "thresholds": {
+      "weldThroatThickness > 10": "KRITIK: Kaynak boğaz kalınlığı çok yüksek, aşırı malzeme kullanımı.",
+      "weldingSpeed < 100": "UYARI: Kaynak hızı çok düşük, işçilik maliyeti artacak.",
+      "materialCostPerKg > 10": "UYARI: Malzeme maliyeti yüksek, alternatif malzeme düşünülmeli."
+    }
+  },
+  "formulas": {
+    "weldVolume": "weldLength * (weldType == 'fillet' ? (weldThroatThickness * weldThroatThickness / 2) : (weldThroatThickness * weldWidth)) + (weldReinforcement * weldWidth * 0.5)",
+    "weldMass": "weldVolume * materialDensity / 1e9",
+    "materialCost": "weldMass * materialCostPerKg",
+    "weldingTimeHours": "weldLength / weldingSpeed / 60",
+    "laborCost": "weldingTimeHours * laborCostPerHour",
+    "overheadCost": "laborCost * overheadRate / 100",
+    "totalCost": "materialCost + laborCost + overheadCost",
+    "costPerMeter": "totalCost / (weldLength / 1000)",
+    "dataConfidenceAdjusted": "totalCost * (1 + (100 - dataConfidence) / 100 * 0.1)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "materialCost": "materialCost",
+      "laborCost": "laborCost",
+      "overheadCost": "overheadCost",
+      "weldVolume": "weldVolume",
+      "weldMass": "weldMass",
+      "costPerMeter": "costPerMeter"
+    },
+    "hiddenLossDrivers": [
+      "weldThroatThickness > 10 ? 'Aşırı boğaz kalınlığı malzeme israfına yol açıyor' : ''",
+      "weldingSpeed < 100 ? 'Düşük kaynak hızı işçilik maliyetini artırıyor' : ''",
+      "materialCostPerKg > 10 ? 'Yüksek malzeme maliyeti alternatif arayışı gerektiriyor' : ''"
+    ],
+    "suggestedActions": [
+      "Kaynak parametrelerini optimize ederek boğaz kalınlığını azaltın.",
+      "Kaynak hızını artırmak için proses iyileştirmesi yapın.",
+      "Daha düşük maliyetli dolgu metalleri araştırın.",
+      "Genel gider oranını düşürmek için verimlilik artırıcı önlemler alın."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma (farklı senaryolar)",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

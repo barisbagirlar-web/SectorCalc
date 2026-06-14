@@ -1,0 +1,127 @@
+{
+  "toolName": "hydraulic-pneumatic-cylinder-force-calculator",
+  "inputs": [
+    {
+      "id": "pressure",
+      "label": "Pressure",
+      "type": "number",
+      "unit": "bar",
+      "default": 100,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Operating pressure of the hydraulic or pneumatic system. Typical range: 1-350 bar for hydraulics, 1-10 bar for pneumatics. Based on ISO 4414 (pneumatics) and ISO 4413 (hydraulics)."
+    },
+    {
+      "id": "pistonDiameter",
+      "label": "Piston Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Diameter of the cylinder piston. Standard sizes per ISO 3320 (hydraulic/pneumatic cylinders)."
+    },
+    {
+      "id": "rodDiameter",
+      "label": "Rod Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "Diameter of the piston rod. Affects effective area on retraction stroke. Standard sizes per ISO 3320."
+    },
+    {
+      "id": "cylinderType",
+      "label": "Cylinder Type",
+      "type": "select",
+      "unit": "",
+      "default": "double-acting",
+      "min": null,
+      "max": null,
+      "options": [
+        "single-acting",
+        "double-acting"
+      ],
+      "businessContext": "Single-acting cylinders use pressure on one side only; double-acting use pressure on both sides. Common in industrial applications per ISO 6020/6022."
+    },
+    {
+      "id": "fluidType",
+      "label": "Fluid Type",
+      "type": "select",
+      "unit": "",
+      "default": "hydraulic",
+      "min": null,
+      "max": null,
+      "options": [
+        "hydraulic",
+        "pneumatic"
+      ],
+      "businessContext": "Hydraulic uses incompressible oil; pneumatic uses compressible air. Affects force calculation (pneumatic may have pressure drop due to compressibility)."
+    },
+    {
+      "id": "efficiency",
+      "label": "Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Mechanical efficiency accounting for friction losses. Typical 80-95% for hydraulic cylinders, 70-90% for pneumatic. Based on manufacturer data and ISO 4391."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "rodDiameter must be less than pistonDiameter",
+      "pressure must be positive",
+      "efficiency must be between 0 and 100",
+      "if cylinderType is 'single-acting', rodDiameter is not used in extension force calculation"
+    ],
+    "thresholds": {
+      "pressure": "if pressure > 350 bar for hydraulic or > 10 bar for pneumatic, warning: 'Pressure exceeds typical range'",
+      "efficiency": "if efficiency < 70, warning: 'Low efficiency may indicate wear or misalignment'"
+    }
+  },
+  "formulas": {
+    "pistonArea": "pi * (pistonDiameter/2)^2",
+    "rodArea": "pi * (rodDiameter/2)^2",
+    "effectiveAreaExtension": "pistonArea",
+    "effectiveAreaRetraction": "pistonArea - rodArea",
+    "forceExtension": "pressure * 10 * effectiveAreaExtension * (efficiency/100)",
+    "forceRetraction": "pressure * 10 * effectiveAreaRetraction * (efficiency/100)",
+    "primary": "if cylinderType == 'double-acting' then forceExtension else forceExtension (single-acting extension only)"
+  },
+  "outputs": {
+    "primary": "forceExtension",
+    "breakdown": {
+      "pistonArea": "pistonArea",
+      "rodArea": "rodArea",
+      "effectiveAreaExtension": "effectiveAreaExtension",
+      "effectiveAreaRetraction": "effectiveAreaRetraction",
+      "forceExtension": "forceExtension",
+      "forceRetraction": "forceRetraction"
+    },
+    "hiddenLossDrivers": [
+      "if efficiency < 70 then 'Low efficiency'",
+      "if pressure > 350 and fluidType == 'hydraulic' then 'High pressure'",
+      "if pressure > 10 and fluidType == 'pneumatic' then 'High pressure'"
+    ],
+    "suggestedActions": [
+      "Check for seal wear if efficiency is low",
+      "Verify pressure source calibration",
+      "Consider using a larger cylinder if force is insufficient"
+    ],
+    "dataConfidenceAdjusted": "forceExtension * (dataConfidence/100) if dataConfidence input exists else forceExtension"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis",
+    "Comparison with standard cylinder sizes",
+    "Detailed report with efficiency analysis"
+  ],
+  "premiumRequired": true
+}

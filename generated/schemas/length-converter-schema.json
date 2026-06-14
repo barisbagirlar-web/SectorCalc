@@ -1,0 +1,95 @@
+{
+  "toolName": "length-converter",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "Length Value",
+      "type": "number",
+      "unit": "meters",
+      "default": 1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Input length value to be converted. Based on SI standard (ISO 80000-3)."
+    },
+    {
+      "id": "fromUnit",
+      "label": "From Unit",
+      "type": "select",
+      "unit": "",
+      "default": "m",
+      "min": null,
+      "max": null,
+      "options": [
+        "m",
+        "km",
+        "cm",
+        "mm",
+        "μm",
+        "nm",
+        "mi",
+        "yd",
+        "ft",
+        "in",
+        "nmi"
+      ],
+      "businessContext": "Source unit of length. Supports SI and imperial units per ISO 80000-3 and ASTM E380."
+    },
+    {
+      "id": "toUnit",
+      "label": "To Unit",
+      "type": "select",
+      "unit": "",
+      "default": "ft",
+      "min": null,
+      "max": null,
+      "options": [
+        "m",
+        "km",
+        "cm",
+        "mm",
+        "μm",
+        "nm",
+        "mi",
+        "yd",
+        "ft",
+        "in",
+        "nmi"
+      ],
+      "businessContext": "Target unit of length. Supports SI and imperial units per ISO 80000-3 and ASTM E380."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "value must be >= 0",
+      "fromUnit and toUnit must be different"
+    ],
+    "thresholds": {
+      "value": "if value > 1e6, warn 'Large value may cause precision issues'"
+    }
+  },
+  "formulas": {
+    "conversionFactor": "getConversionFactor(fromUnit, toUnit)",
+    "result": "value * conversionFactor"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": {
+      "inputValue": "value",
+      "fromUnit": "fromUnit",
+      "toUnit": "toUnit",
+      "conversionFactor": "conversionFactor"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [],
+    "dataConfidenceAdjusted": "result"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison",
+    "Detailed Report"
+  ],
+  "premiumRequired": false
+}

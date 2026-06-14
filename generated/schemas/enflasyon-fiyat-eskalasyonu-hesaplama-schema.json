@@ -1,0 +1,107 @@
+{
+  "toolName": "enflasyon-fiyat-eskalasyonu-hesaplama",
+  "inputs": [
+    {
+      "id": "basePrice",
+      "label": "Baz Fiyat",
+      "type": "number",
+      "unit": "TRY",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Sözleşme başlangıcındaki fiyat. Kaynak: Sözleşme yönetimi standartları."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Yıllık Enflasyon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "TÜFE veya ÜFE bazlı yıllık enflasyon oranı. Kaynak: TÜİK, IMF."
+    },
+    {
+      "id": "periodMonths",
+      "label": "Dönem (Ay)",
+      "type": "number",
+      "unit": "ay",
+      "default": 12,
+      "min": 1,
+      "max": 120,
+      "options": null,
+      "businessContext": "Eskalasyonun uygulanacağı ay sayısı. Sözleşme süresine göre."
+    },
+    {
+      "id": "escalationMethod",
+      "label": "Eskalasyon Yöntemi",
+      "type": "select",
+      "unit": "",
+      "default": "compound",
+      "min": null,
+      "max": null,
+      "options": [
+        "simple",
+        "compound"
+      ],
+      "businessContext": "Basit veya bileşik faiz yöntemi. Kaynak: Finansal mühendislik standartları."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Enflasyon verisinin güvenilirlik seviyesi. Kaynak: Risk yönetimi."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "basePrice > 0",
+      "inflationRate >= 0",
+      "periodMonths >= 1",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "inflationRate > 50": "Hiperenflasyon uyarısı: Enflasyon oranı çok yüksek, sözleşme şartlarını gözden geçirin.",
+      "periodMonths > 60": "Uzun dönem uyarısı: 5 yıldan uzun sürelerde belirsizlik artar."
+    }
+  },
+  "formulas": {
+    "escalatedPrice": "basePrice * (1 + (inflationRate/100) * (periodMonths/12)) if escalationMethod == 'simple' else basePrice * ((1 + inflationRate/100) ** (periodMonths/12))",
+    "priceIncrease": "escalatedPrice - basePrice",
+    "dataConfidenceAdjusted": "escalatedPrice * (dataConfidence/100)"
+  },
+  "outputs": {
+    "primary": "escalatedPrice",
+    "breakdown": {
+      "basePrice": "basePrice",
+      "priceIncrease": "priceIncrease",
+      "inflationRate": "inflationRate",
+      "periodMonths": "periodMonths",
+      "escalationMethod": "escalationMethod"
+    },
+    "hiddenLossDrivers": [
+      "inflationRate > 50 ? 'Hiperenflasyon riski' : ''",
+      "periodMonths > 60 ? 'Uzun dönem belirsizliği' : ''"
+    ],
+    "suggestedActions": [
+      "Enflasyon oranını güncel verilerle doğrulayın.",
+      "Uzun dönemli sözleşmelerde fiyat revizyonu maddesi ekleyin.",
+      "Veri güveni düşükse alternatif enflasyon tahminleri kullanın."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (geçmiş enflasyon verileriyle)",
+    "Karşılaştırma (farklı yöntemler veya senaryolar)",
+    "Detaylı rapor (grafiklerle)"
+  ],
+  "premiumRequired": true
+}

@@ -5,6 +5,7 @@
 
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
+import type { UnitSystemPreference } from "@/config/measurement";
 import {
   getAvailableUnitsForQuantity,
   getDefaultDisplayUnitForQuantity,
@@ -140,27 +141,44 @@ function resolveRegion(region: string): RegionalEngineCode {
   return resolveRegionalCodeFromLocale(region);
 }
 
+export function resolveRegionalCodeForUnitDefaults(
+  locale: string,
+  unitSystem?: UnitSystemPreference | null,
+): RegionalEngineCode {
+  if (unitSystem === "imperial") {
+    return "US";
+  }
+  return resolveRegionalCodeFromLocale(locale);
+}
+
 export function getDefaultCurrencyForRegion(region: string): string {
   return getRegionDefaultCurrency(resolveRegion(region));
 }
 
-export function getDefaultUnitForRegion(region: string, group: UnitGroup): string {
+export function getDefaultUnitForRegion(
+  region: string,
+  group: UnitGroup,
+  unitSystem?: UnitSystemPreference | null,
+): string {
   const quantity = UNIT_GROUP_TO_QUANTITY[group];
   if (!quantity) {
     return group === "currency" ? getDefaultCurrencyForRegion(region) : "m";
   }
-  return getDefaultDisplayUnitForQuantity(quantity, resolveRegion(region));
+  const effectiveRegion: RegionalEngineCode =
+    unitSystem === "imperial" ? "US" : resolveRegion(region);
+  return getDefaultDisplayUnitForQuantity(quantity, effectiveRegion);
 }
 
 export function getAvailableUnitsForGroup(
   group: UnitGroup,
   locale: string,
+  unitSystem?: UnitSystemPreference | null,
 ): Array<{ value: string; label: string }> {
   const quantity = UNIT_GROUP_TO_QUANTITY[group];
   if (!quantity) {
     return [];
   }
-  const region = resolveRegionalCodeFromLocale(locale);
+  const region = resolveRegionalCodeForUnitDefaults(locale, unitSystem);
   return getAvailableUnitsForQuantity(quantity, region).map((value) => ({
     value,
     label: localizeUnitSymbol(value, locale),

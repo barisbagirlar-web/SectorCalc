@@ -1,0 +1,123 @@
+{
+  "toolName": "su-deposu-hacmi-hesaplama",
+  "inputs": [
+    {
+      "id": "gunlukSuIhtiyaci",
+      "label": "Günlük Su İhtiyacı",
+      "type": "number",
+      "unit": "m³/gün",
+      "default": 10,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Kullanıcının günlük su tüketim miktarı. Kaynak: TS 1258 Su Depoları Standardı."
+    },
+    {
+      "id": "depolamaGunSayisi",
+      "label": "Depolama Gün Sayısı",
+      "type": "number",
+      "unit": "gün",
+      "default": 3,
+      "min": 1,
+      "max": 30,
+      "options": null,
+      "businessContext": "Kesintisiz su temini için gereken depolama süresi. Kaynak: Belediye su yönetmeliği."
+    },
+    {
+      "id": "guvenlikFaktoru",
+      "label": "Güvenlik Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1.2,
+      "min": 1,
+      "max": 2,
+      "options": null,
+      "businessContext": "Beklenmeyen durumlar için ek kapasite. Kaynak: Mühendislik uygulamaları."
+    },
+    {
+      "id": "depoTipi",
+      "label": "Depo Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "dikdortgen",
+      "min": null,
+      "max": null,
+      "options": [
+        "dikdortgen",
+        "silindir"
+      ],
+      "businessContext": "Depo geometrisi. Dikdörtgen veya silindirik seçenekler."
+    },
+    {
+      "id": "depoYuksekligi",
+      "label": "Depo Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "min": 1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Depo yüksekliği. Dikdörtgen depo için gerekli."
+    },
+    {
+      "id": "depoCapi",
+      "label": "Depo Çapı",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "min": 1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Silindirik depo için çap. Depo tipi silindir ise kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "gunlukSuIhtiyaci > 0",
+      "depolamaGunSayisi >= 1",
+      "guvenlikFaktoru >= 1",
+      "if depoTipi == 'dikdortgen' then depoYuksekligi > 0",
+      "if depoTipi == 'silindir' then depoCapi > 0"
+    ],
+    "thresholds": {
+      "gunlukSuIhtiyaci": ">1000 ise 'Yüksek talep' uyarısı",
+      "guvenlikFaktoru": ">1.5 ise 'Aşırı güvenlik' uyarısı"
+    }
+  },
+  "formulas": {
+    "netHacim": "gunlukSuIhtiyaci * depolamaGunSayisi",
+    "toplamHacim": "netHacim * guvenlikFaktoru",
+    "dikdortgenTabanAlani": "toplamHacim / depoYuksekligi",
+    "silindirTabanAlani": "toplamHacim / depoYuksekligi",
+    "dikdortgenKenarUzunlugu": "Math.sqrt(dikdortgenTabanAlani)",
+    "silindirYaricap": "depoCapi / 2",
+    "silindirHacimKontrol": "Math.PI * Math.pow(silindirYaricap, 2) * depoYuksekligi",
+    "sonuc": "depoTipi == 'dikdortgen' ? { 'hacim': toplamHacim, 'tabanAlani': dikdortgenTabanAlani, 'kenarUzunlugu': dikdortgenKenarUzunlugu, 'yukseklik': depoYuksekligi } : { 'hacim': toplamHacim, 'cap': depoCapi, 'yukseklik': depoYuksekligi }"
+  },
+  "outputs": {
+    "primary": "toplamHacim",
+    "breakdown": {
+      "netHacim": "netHacim",
+      "guvenlikFaktoru": "guvenlikFaktoru",
+      "depoTipi": "depoTipi",
+      "boyutlar": "sonuc"
+    },
+    "hiddenLossDrivers": [
+      "gunlukSuIhtiyaci > 1000 ? 'Yüksek talep' : ''",
+      "guvenlikFaktoru > 1.5 ? 'Aşırı güvenlik' : ''"
+    ],
+    "suggestedActions": [
+      "Günlük su ihtiyacını düşürmek için su tasarrufu önlemleri alın.",
+      "Depolama gün sayısını optimize edin.",
+      "Güvenlik faktörünü 1.2'ye düşürmeyi değerlendirin."
+    ],
+    "dataConfidenceAdjusted": "toplamHacim"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

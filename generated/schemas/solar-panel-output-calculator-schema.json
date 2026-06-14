@@ -1,0 +1,217 @@
+{
+  "toolName": "solar-panel-output-calculator",
+  "inputs": [
+    {
+      "id": "panelCapacity",
+      "label": "Panel Capacity (STC)",
+      "type": "number",
+      "unit": "Wp",
+      "default": 300,
+      "min": 100,
+      "max": 600,
+      "options": null,
+      "businessContext": "Standard Test Condition (STC) rating per panel. Based on IEC 61215 standard."
+    },
+    {
+      "id": "numberOfPanels",
+      "label": "Number of Panels",
+      "type": "number",
+      "unit": "units",
+      "default": 20,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Total panels in the array."
+    },
+    {
+      "id": "irradiance",
+      "label": "Average Daily Irradiance",
+      "type": "number",
+      "unit": "kWh/m²/day",
+      "default": 5,
+      "min": 0.5,
+      "max": 8,
+      "options": null,
+      "businessContext": "Peak Sun Hours (PSH) based on location. Source: NASA SSE or NREL PVWatts."
+    },
+    {
+      "id": "systemLosses",
+      "label": "System Losses",
+      "type": "number",
+      "unit": "%",
+      "default": 14,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Includes wiring, inverter, temperature, shading, soiling, etc. Typical range 10-20% per NREL."
+    },
+    {
+      "id": "degradationRate",
+      "label": "Annual Degradation Rate",
+      "type": "number",
+      "unit": "%/year",
+      "default": 0.5,
+      "min": 0,
+      "max": 2,
+      "options": null,
+      "businessContext": "Typical 0.5-1% per year per manufacturer warranty. Based on IEC 61215."
+    },
+    {
+      "id": "electricityPrice",
+      "label": "Electricity Price",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "min": 0.01,
+      "max": 0.5,
+      "options": null,
+      "businessContext": "Retail electricity rate. Source: EIA."
+    },
+    {
+      "id": "systemCost",
+      "label": "Total System Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 15000,
+      "min": 1000,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Total installed cost after incentives. Used for ROI calculation."
+    },
+    {
+      "id": "inverterEfficiency",
+      "label": "Inverter Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 96,
+      "min": 80,
+      "max": 99,
+      "options": null,
+      "businessContext": "Typical 95-98% for modern inverters. Based on IEC 61683."
+    },
+    {
+      "id": "tiltAngle",
+      "label": "Tilt Angle",
+      "type": "number",
+      "unit": "degrees",
+      "default": 30,
+      "min": 0,
+      "max": 90,
+      "options": null,
+      "businessContext": "Panel tilt from horizontal. Optimal = latitude. Source: ASHRAE."
+    },
+    {
+      "id": "azimuthAngle",
+      "label": "Azimuth Angle",
+      "type": "number",
+      "unit": "degrees",
+      "default": 180,
+      "min": 0,
+      "max": 360,
+      "options": null,
+      "businessContext": "Direction panel faces: 0=N, 90=E, 180=S, 270=W. Optimal south in northern hemisphere."
+    },
+    {
+      "id": "temperatureCoefficient",
+      "label": "Temperature Coefficient of Power",
+      "type": "number",
+      "unit": "%/°C",
+      "default": -0.4,
+      "min": -0.6,
+      "max": -0.2,
+      "options": null,
+      "businessContext": "Typical -0.3 to -0.5%/°C. Based on IEC 61215."
+    },
+    {
+      "id": "ambientTemperature",
+      "label": "Average Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "min": -10,
+      "max": 50,
+      "options": null,
+      "businessContext": "Average daytime temperature during peak sun hours."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Adjusts output for uncertainty. Low = 0.8, Medium = 1.0, High = 1.1 multiplier."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "systemLosses must be between 0 and 50",
+      "degradationRate must be between 0 and 2",
+      "inverterEfficiency must be between 80 and 99",
+      "tiltAngle must be between 0 and 90",
+      "azimuthAngle must be between 0 and 360",
+      "temperatureCoefficient must be between -0.6 and -0.2",
+      "ambientTemperature must be between -10 and 50",
+      "electricityPrice must be greater than 0",
+      "systemCost must be greater than 0"
+    ],
+    "thresholds": {
+      "systemLosses > 20": "High system losses detected. Consider reducing shading, soiling, or wiring losses.",
+      "degradationRate > 1": "Degradation rate exceeds typical warranty. Consider higher quality panels.",
+      "inverterEfficiency < 95": "Inverter efficiency low. Consider upgrading inverter.",
+      "irradiance < 3": "Low irradiance location. May not be economically viable.",
+      "electricityPrice < 0.08": "Low electricity price. Payback period may be long."
+    }
+  },
+  "formulas": {
+    "dcCapacity": "panelCapacity * numberOfPanels / 1000",
+    "temperatureLoss": "temperatureCoefficient * (ambientTemperature - 25)",
+    "effectiveIrradiance": "irradiance * (1 + temperatureLoss / 100)",
+    "dailyEnergy": "dcCapacity * effectiveIrradiance * (1 - systemLosses / 100) * (inverterEfficiency / 100)",
+    "annualEnergy": "dailyEnergy * 365",
+    "annualEnergyDegraded": "annualEnergy * (1 - degradationRate / 100)",
+    "annualSavings": "annualEnergyDegraded * electricityPrice",
+    "paybackPeriod": "systemCost / annualSavings",
+    "roi": "(annualSavings * 25 - systemCost) / systemCost * 100",
+    "dataConfidenceAdjusted": "annualEnergyDegraded * (dataConfidence == 'low' ? 0.8 : dataConfidence == 'medium' ? 1.0 : 1.1)"
+  },
+  "outputs": {
+    "primary": "annualEnergyDegraded",
+    "breakdown": {
+      "dcCapacity": "dcCapacity",
+      "dailyEnergy": "dailyEnergy",
+      "annualEnergy": "annualEnergy",
+      "annualSavings": "annualSavings",
+      "paybackPeriod": "paybackPeriod",
+      "roi": "roi"
+    },
+    "hiddenLossDrivers": [
+      "systemLosses > 20 ? 'High system losses' : ''",
+      "degradationRate > 1 ? 'High degradation rate' : ''",
+      "inverterEfficiency < 95 ? 'Low inverter efficiency' : ''",
+      "irradiance < 3 ? 'Low irradiance' : ''"
+    ],
+    "suggestedActions": [
+      "If systemLosses > 20: Reduce shading, clean panels, upgrade wiring.",
+      "If degradationRate > 1: Consider premium panels with lower degradation.",
+      "If inverterEfficiency < 95: Upgrade to high-efficiency inverter.",
+      "If irradiance < 3: Consider alternative location or tracking system.",
+      "If paybackPeriod > 10: Explore incentives or reduce system cost."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (multi-year projection)",
+    "Comparison (different panel configurations)",
+    "Detailed Report with charts"
+  ],
+  "premiumRequired": true
+}

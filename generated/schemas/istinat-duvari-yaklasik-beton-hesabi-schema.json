@@ -1,0 +1,191 @@
+{
+  "toolName": "istinat-duvari-yaklasik-beton-hesabi",
+  "inputs": [
+    {
+      "id": "duvarYuksekligi",
+      "label": "Duvar Yüksekliği (H)",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "min": 0.5,
+      "max": 15,
+      "options": null,
+      "businessContext": "İstinat duvarının toplam yüksekliği. TS 7994 ve TS EN 1997-1 (Eurocode 7) esas alınır."
+    },
+    {
+      "id": "duvarUzunlugu",
+      "label": "Duvar Uzunluğu (L)",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Duvarın boydan boya uzunluğu. Proje planına göre belirlenir."
+    },
+    {
+      "id": "duvarTipi",
+      "label": "Duvar Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "konsol",
+      "min": null,
+      "max": null,
+      "options": [
+        "konsol",
+        "gabion",
+        "prekast",
+        "betonarme"
+      ],
+      "businessContext": "İstinat duvarının yapısal tipi. Her tip farklı boyut ve donatı gerektirir. TS 7994'te sınıflandırılmıştır."
+    },
+    {
+      "id": "zeminTipi",
+      "label": "Zemin Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "kumlu",
+      "min": null,
+      "max": null,
+      "options": [
+        "kumlu",
+        "killi",
+        "kayali",
+        "siltli"
+      ],
+      "businessContext": "Arka dolgu zemininin türü. Zemin parametreleri (içsel sürtünme açısı, birim hacim ağırlık) TS 1500'e göre sınıflandırılır."
+    },
+    {
+      "id": "betonSinifi",
+      "label": "Beton Sınıfı",
+      "type": "select",
+      "unit": "",
+      "default": "C25",
+      "min": null,
+      "max": null,
+      "options": [
+        "C20",
+        "C25",
+        "C30",
+        "C35",
+        "C40"
+      ],
+      "businessContext": "Kullanılacak betonun dayanım sınıfı. TS 500 ve TS EN 206-1'e göre seçilir."
+    },
+    {
+      "id": "donatiOrani",
+      "label": "Donatı Oranı (ρ)",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "min": 0.5,
+      "max": 4,
+      "options": null,
+      "businessContext": "Beton kesitindeki donatı yüzdesi. TS 500'de minimum %0.5, maksimum %4 olarak belirtilir."
+    },
+    {
+      "id": "birimBetonFiyati",
+      "label": "Birim Beton Fiyatı",
+      "type": "number",
+      "unit": "TL/m³",
+      "default": 800,
+      "min": 200,
+      "max": 2000,
+      "options": null,
+      "businessContext": "Betonun metreküp fiyatı. Güncel piyasa koşullarına göre değişir."
+    },
+    {
+      "id": "birimDonatiFiyati",
+      "label": "Birim Donatı Fiyatı",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 15,
+      "min": 5,
+      "max": 50,
+      "options": null,
+      "businessContext": "Donatı çeliğinin kilogram fiyatı. Piyasa rayici."
+    },
+    {
+      "id": "isciVerimliligi",
+      "label": "İşçi Verimliliği",
+      "type": "number",
+      "unit": "m³/kişi-gün",
+      "default": 2.5,
+      "min": 1,
+      "max": 5,
+      "options": null,
+      "businessContext": "Bir işçinin günde dökebileceği beton hacmi. Ortalama saha verilerine dayanır."
+    },
+    {
+      "id": "iscilikUcreti",
+      "label": "İşçilik Ücreti",
+      "type": "number",
+      "unit": "TL/kişi-gün",
+      "default": 500,
+      "min": 200,
+      "max": 1500,
+      "options": null,
+      "businessContext": "Bir işçinin günlük ücreti. Asgari ücret ve vasıf düzeyine göre belirlenir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "duvarYuksekligi >= 0.5",
+      "duvarYuksekligi <= 15.0",
+      "duvarUzunlugu >= 1.0",
+      "duvarUzunlugu <= 100.0",
+      "donatiOrani >= 0.5",
+      "donatiOrani <= 4.0",
+      "birimBetonFiyati >= 200",
+      "birimBetonFiyati <= 2000",
+      "birimDonatiFiyati >= 5",
+      "birimDonatiFiyati <= 50",
+      "isciVerimliligi >= 1.0",
+      "isciVerimliligi <= 5.0",
+      "iscilikUcreti >= 200",
+      "iscilikUcreti <= 1500"
+    ],
+    "thresholds": {
+      "donatiOrani > 3.0": "Donatı oranı yüksek, maliyet artabilir.",
+      "isciVerimliligi < 1.5": "İşçi verimliliği düşük, iş gücü planlaması gözden geçirilmeli."
+    }
+  },
+  "formulas": {
+    "kesitAlani": "if (duvarTipi == 'konsol') { (0.5 * duvarYuksekligi) + 0.3 } else if (duvarTipi == 'gabion') { 0.6 * duvarYuksekligi } else if (duvarTipi == 'prekast') { 0.4 * duvarYuksekligi } else { 0.5 * duvarYuksekligi }",
+    "betonHacmi": "kesitAlani * duvarUzunlugu",
+    "donatiAgirligi": "betonHacmi * (donatiOrani / 100) * 7850",
+    "betonMaliyeti": "betonHacmi * birimBetonFiyati",
+    "donatiMaliyeti": "donatiAgirligi * birimDonatiFiyati",
+    "isciGunSayisi": "betonHacmi / isciVerimliligi",
+    "iscilikMaliyeti": "isciGunSayisi * iscilikUcreti",
+    "toplamMaliyet": "betonMaliyeti + donatiMaliyeti + iscilikMaliyeti",
+    "birimMaliyet": "toplamMaliyet / betonHacmi"
+  },
+  "outputs": {
+    "primary": "toplamMaliyet",
+    "breakdown": {
+      "betonHacmi": "betonHacmi",
+      "donatiAgirligi": "donatiAgirligi",
+      "betonMaliyeti": "betonMaliyeti",
+      "donatiMaliyeti": "donatiMaliyeti",
+      "iscilikMaliyeti": "iscilikMaliyeti",
+      "birimMaliyet": "birimMaliyet"
+    },
+    "hiddenLossDrivers": [
+      "donatiOrani > 3.0 ? 'Yüksek donatı oranı maliyeti artırıyor' : ''",
+      "isciVerimliligi < 1.5 ? 'Düşük işçi verimliliği işçilik maliyetini artırıyor' : ''"
+    ],
+    "suggestedActions": [
+      "donatiOrani > 3.0 ? 'Donatı oranını düşürmek için kesit boyutlarını optimize edin' : ''",
+      "isciVerimliligi < 1.5 ? 'İşçi eğitimi ve ekipman iyileştirmesi yapın' : ''"
+    ],
+    "dataConfidenceAdjusted": "toplamMaliyet * 1.1"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

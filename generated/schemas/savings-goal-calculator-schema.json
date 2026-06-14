@@ -1,0 +1,158 @@
+{
+  "toolName": "savings-goal-calculator",
+  "inputs": [
+    {
+      "id": "currentSavings",
+      "label": "Current Savings",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Initial amount already saved. Standard financial planning input."
+    },
+    {
+      "id": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "unit": "currency/month",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Amount saved each month. Common in personal finance and retirement planning."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Expected annual return on savings. Based on historical market averages (e.g., S&P 500 ~7-10% nominal)."
+    },
+    {
+      "id": "years",
+      "label": "Number of Years",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Time horizon for savings goal. Standard input for time value of money calculations."
+    },
+    {
+      "id": "goalAmount",
+      "label": "Goal Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Target savings amount. User-defined financial objective."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "select",
+      "unit": "",
+      "default": "monthly",
+      "min": null,
+      "max": null,
+      "options": [
+        "annually",
+        "semi-annually",
+        "quarterly",
+        "monthly",
+        "daily"
+      ],
+      "businessContext": "How often interest is compounded. Affects future value; monthly is common for savings accounts."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Expected annual inflation. Adjusts goal to real terms; typical central bank target ~2%."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "User's confidence in input estimates. Adjusts output for risk; low confidence applies a discount."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "currentSavings >= 0",
+      "monthlyContribution >= 0",
+      "annualInterestRate >= 0 and annualInterestRate <= 100",
+      "years >= 1 and years <= 100",
+      "goalAmount >= 0",
+      "inflationRate >= 0 and inflationRate <= 100"
+    ],
+    "thresholds": {
+      "annualInterestRate > 20": "Warning: Unrealistically high interest rate; verify input.",
+      "inflationRate > 10": "Warning: High inflation; consider adjusting goal.",
+      "goalAmount / (currentSavings + monthlyContribution * 12 * years) > 10": "Warning: Goal may be unrealistic given inputs."
+    }
+  },
+  "formulas": {
+    "futureValue": "currentSavings * (1 + effectiveAnnualRate / n)^(n * years) + monthlyContribution * ((1 + effectiveAnnualRate / n)^(n * years) - 1) / (effectiveAnnualRate / n)",
+    "effectiveAnnualRate": "annualInterestRate / 100",
+    "n": "compoundingFrequency == 'annually' ? 1 : compoundingFrequency == 'semi-annually' ? 2 : compoundingFrequency == 'quarterly' ? 4 : compoundingFrequency == 'monthly' ? 12 : 365",
+    "realFutureValue": "futureValue / (1 + inflationRate / 100)^years",
+    "goalMet": "futureValue >= goalAmount ? true : false",
+    "shortfall": "goalAmount - futureValue",
+    "requiredMonthlyContribution": "if goalMet then 0 else (goalAmount - currentSavings * (1 + effectiveAnnualRate / n)^(n * years)) * (effectiveAnnualRate / n) / ((1 + effectiveAnnualRate / n)^(n * years) - 1)",
+    "dataConfidenceAdjusted": "dataConfidence == 'low' ? futureValue * 0.9 : dataConfidence == 'medium' ? futureValue * 0.95 : futureValue"
+  },
+  "outputs": {
+    "primary": "futureValue",
+    "breakdown": {
+      "totalContributions": "currentSavings + monthlyContribution * 12 * years",
+      "totalInterest": "futureValue - totalContributions",
+      "realFutureValue": "realFutureValue",
+      "goalMet": "goalMet",
+      "shortfall": "shortfall",
+      "requiredMonthlyContribution": "requiredMonthlyContribution"
+    },
+    "hiddenLossDrivers": [
+      "if inflationRate > 5 then 'Inflation erodes purchasing power'",
+      "if annualInterestRate < 3 then 'Low interest rate may not beat inflation'",
+      "if monthlyContribution == 0 and currentSavings == 0 then 'No savings input'"
+    ],
+    "suggestedActions": [
+      "if not goalMet then 'Increase monthly contribution to ' + requiredMonthlyContribution.toFixed(2)",
+      "if annualInterestRate < 5 then 'Consider higher-yield investments'",
+      "if inflationRate > 3 then 'Adjust goal for inflation'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Scenario Comparison",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

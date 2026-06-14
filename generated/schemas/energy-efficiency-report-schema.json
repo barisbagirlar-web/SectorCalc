@@ -1,0 +1,126 @@
+{
+  "toolName": "energy-efficiency-report",
+  "inputs": [
+    {
+      "id": "totalEnergyConsumption",
+      "label": "Total Energy Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total energy used in the facility over the reporting period. Based on ISO 50001 energy management standards."
+    },
+    {
+      "id": "productionOutput",
+      "label": "Production Output",
+      "type": "number",
+      "unit": "units",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total units produced in the same period. Used to calculate energy intensity per unit."
+    },
+    {
+      "id": "energyCostPerKwh",
+      "label": "Energy Cost per kWh",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.12,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average cost of energy (electricity, gas, etc.) per kWh. Based on utility bills."
+    },
+    {
+      "id": "baselineEnergyIntensity",
+      "label": "Baseline Energy Intensity",
+      "type": "number",
+      "unit": "kWh/unit",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Historical or benchmark energy intensity for comparison. Used to calculate savings."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8760,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Total operating hours in the period (e.g., 8760 for continuous annual operation)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in data accuracy. Adjusts final results for uncertainty."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "totalEnergyConsumption >= 0",
+      "productionOutput >= 0",
+      "energyCostPerKwh >= 0",
+      "baselineEnergyIntensity >= 0",
+      "operatingHours >= 0 and operatingHours <= 8760",
+      "if productionOutput > 0 then totalEnergyConsumption > 0"
+    ],
+    "thresholds": {
+      "energyIntensityRatio": "if energyIntensityRatio > 1.2 then 'High energy intensity compared to baseline'",
+      "energyCostRatio": "if energyCostRatio > 0.2 then 'Energy cost exceeds 20% of production value'"
+    }
+  },
+  "formulas": {
+    "energyIntensity": "totalEnergyConsumption / productionOutput",
+    "energyIntensityRatio": "energyIntensity / baselineEnergyIntensity",
+    "totalEnergyCost": "totalEnergyConsumption * energyCostPerKwh",
+    "energyCostPerUnit": "totalEnergyCost / productionOutput",
+    "potentialSavings": "(baselineEnergyIntensity - energyIntensity) * productionOutput * energyCostPerKwh",
+    "energyCostRatio": "totalEnergyCost / (productionOutput * averageRevenuePerUnit)",
+    "dataConfidenceAdjustedSavings": "potentialSavings * (dataConfidence == 'high' ? 1.0 : dataConfidence == 'medium' ? 0.85 : 0.7)"
+  },
+  "outputs": {
+    "primary": "potentialSavings",
+    "breakdown": {
+      "energyIntensity": "energyIntensity",
+      "energyIntensityRatio": "energyIntensityRatio",
+      "totalEnergyCost": "totalEnergyCost",
+      "energyCostPerUnit": "energyCostPerUnit"
+    },
+    "hiddenLossDrivers": [
+      "if energyIntensityRatio > 1.2 then 'High energy intensity compared to baseline'",
+      "if energyCostRatio > 0.2 then 'Energy cost exceeds 20% of production value'"
+    ],
+    "suggestedActions": [
+      "Conduct energy audit to identify inefficiencies",
+      "Implement energy management system per ISO 50001",
+      "Upgrade to energy-efficient equipment",
+      "Optimize production scheduling to reduce peak demand"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedSavings"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis over multiple periods",
+    "Benchmarking against industry standards",
+    "Detailed breakdown report"
+  ],
+  "premiumRequired": true
+}

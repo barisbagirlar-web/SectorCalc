@@ -1,0 +1,163 @@
+{
+  "toolName": "takim-tutucu-ve-baglama-aparati-setup-suresi-calculator",
+  "inputs": [
+    {
+      "id": "setupTimeCurrent",
+      "label": "Current Setup Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "min": 0,
+      "max": 480,
+      "options": null,
+      "businessContext": "Current time to change tool holder and fixture. Based on SMED methodology (Shingo, 1985)."
+    },
+    {
+      "id": "numWorkers",
+      "label": "Number of Workers",
+      "type": "number",
+      "unit": "persons",
+      "default": 1,
+      "min": 1,
+      "max": 5,
+      "options": null,
+      "businessContext": "Workers involved in setup. Lean standard: single-minute exchange of die (SMED) aims for 1 worker."
+    },
+    {
+      "id": "hourlyLaborCost",
+      "label": "Hourly Labor Cost per Worker",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 25,
+      "min": 0,
+      "max": 200,
+      "options": null,
+      "businessContext": "Average wage including overhead. Industry benchmark from BLS or local data."
+    },
+    {
+      "id": "numSetupsPerDay",
+      "label": "Number of Setups per Day",
+      "type": "number",
+      "unit": "setups/day",
+      "default": 2,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Frequency of tool/fixture changes. Affects total daily downtime."
+    },
+    {
+      "id": "machineHourlyCost",
+      "label": "Machine Hourly Cost",
+      "type": "number",
+      "unit": "currency/hour",
+      "default": 100,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Cost of machine downtime including depreciation, energy, maintenance. Based on standard machine hour rate."
+    },
+    {
+      "id": "defectRateAfterSetup",
+      "label": "Defect Rate After Setup",
+      "type": "number",
+      "unit": "percentage",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of defective parts produced after setup until process stabilizes. Quality metric per ISO 9001."
+    },
+    {
+      "id": "productionRatePerHour",
+      "label": "Production Rate per Hour",
+      "type": "number",
+      "unit": "parts/hour",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Number of parts produced per hour during stable production. Used to calculate lost production due to defects."
+    },
+    {
+      "id": "partCost",
+      "label": "Cost per Part",
+      "type": "number",
+      "unit": "currency/part",
+      "default": 5,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Material and variable cost per part. Used to quantify defect cost."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "User's confidence in input data accuracy. Affects adjustment factor for outputs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "setupTimeCurrent >= 0",
+      "numWorkers >= 1",
+      "hourlyLaborCost > 0",
+      "numSetupsPerDay >= 0",
+      "machineHourlyCost >= 0",
+      "defectRateAfterSetup >= 0 and defectRateAfterSetup <= 100",
+      "productionRatePerHour >= 0",
+      "partCost >= 0"
+    ],
+    "thresholds": {
+      "defectRateAfterSetup > 5": "High defect rate after setup; consider process stabilization improvements.",
+      "setupTimeCurrent > 60": "Setup time exceeds 60 minutes; SMED implementation recommended.",
+      "numSetupsPerDay > 10": "High number of setups; consider batch size optimization."
+    }
+  },
+  "formulas": {
+    "totalSetupCostPerDay": "numSetupsPerDay * setupTimeCurrent / 60 * (numWorkers * hourlyLaborCost + machineHourlyCost)",
+    "defectCostPerSetup": "defectRateAfterSetup / 100 * productionRatePerHour * (setupTimeCurrent / 60) * partCost",
+    "totalDefectCostPerDay": "numSetupsPerDay * defectCostPerSetup",
+    "totalCostPerDay": "totalSetupCostPerDay + totalDefectCostPerDay",
+    "setupTimeReductionPotential": "setupTimeCurrent * 0.5",
+    "potentialSavingsPerDay": "numSetupsPerDay * (setupTimeReductionPotential / 60) * (numWorkers * hourlyLaborCost + machineHourlyCost) + numSetupsPerDay * (defectRateAfterSetup / 100 * productionRatePerHour * (setupTimeReductionPotential / 60) * partCost)",
+    "dataConfidenceAdjusted": "totalCostPerDay * (dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9))"
+  },
+  "outputs": {
+    "primary": "totalCostPerDay",
+    "breakdown": {
+      "setupLaborCostPerDay": "numSetupsPerDay * setupTimeCurrent / 60 * numWorkers * hourlyLaborCost",
+      "setupMachineCostPerDay": "numSetupsPerDay * setupTimeCurrent / 60 * machineHourlyCost",
+      "defectCostPerDay": "totalDefectCostPerDay"
+    },
+    "hiddenLossDrivers": [
+      "defectRateAfterSetup > 5 ? 'High defect rate after setup' : ''",
+      "setupTimeCurrent > 60 ? 'Long setup time' : ''",
+      "numSetupsPerDay > 10 ? 'Frequent setups' : ''"
+    ],
+    "suggestedActions": [
+      "Implement SMED to reduce setup time by 50% or more.",
+      "Standardize tool holders and fixtures to reduce variability.",
+      "Train workers on quick-change procedures.",
+      "Use Poka-Yoke to reduce defects after setup.",
+      "Consider batch size optimization to reduce number of setups."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Breakdown"
+  ],
+  "premiumRequired": true
+}

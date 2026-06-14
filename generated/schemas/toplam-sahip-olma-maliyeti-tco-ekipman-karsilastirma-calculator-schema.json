@@ -1,0 +1,211 @@
+{
+  "toolName": "toplam-sahip-olma-maliyeti-tco-ekipman-karsilastirma-calculator",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Satın Alma Fiyatı",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Ekipmanın ilk yatırım maliyeti. ISO 15663 (Petrol ve doğal gaz endüstrisi için yaşam döngüsü maliyeti) standardına dayanır."
+    },
+    {
+      "id": "annualMaintenanceCost",
+      "label": "Yıllık Bakım Maliyeti",
+      "type": "number",
+      "unit": "USD/yıl",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Planlı bakım, yedek parça ve işçilik maliyetleri. ISO 14224 (Bakım verileri) referans alınır."
+    },
+    {
+      "id": "annualEnergyCost",
+      "label": "Yıllık Enerji Maliyeti",
+      "type": "number",
+      "unit": "USD/yıl",
+      "default": 12000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Elektrik, yakıt vb. enerji tüketimi. ISO 50001 (Enerji yönetimi) standardına dayanır."
+    },
+    {
+      "id": "annualOperatingCost",
+      "label": "Yıllık İşletme Maliyeti",
+      "type": "number",
+      "unit": "USD/yıl",
+      "default": 8000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Operatör maaşları, sarf malzemeleri vb. Endüstri mühendisliği maliyet muhasebesi prensipleri."
+    },
+    {
+      "id": "lifespanYears",
+      "label": "Ekonomik Ömür",
+      "type": "number",
+      "unit": "yıl",
+      "default": 10,
+      "min": 1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Ekipmanın faydalı ömrü. ISO 15663 ve mühendislik ekonomisi standartları."
+    },
+    {
+      "id": "salvageValue",
+      "label": "Hurda Değeri",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Ömür sonu tahmini satış değeri. ISO 15663 ve muhasebe standartları."
+    },
+    {
+      "id": "discountRate",
+      "label": "İskonto Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Sermaye maliyeti veya fırsat maliyeti. Finansal yönetim prensipleri (CAPM, WACC)."
+    },
+    {
+      "id": "annualProductionVolume",
+      "label": "Yıllık Üretim Hacmi",
+      "type": "number",
+      "unit": "birim/yıl",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Ekipmanın yıllık ürettiği birim sayısı. Verimlilik ölçümü için kullanılır."
+    },
+    {
+      "id": "defectRate",
+      "label": "Hata Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Üretimdeki kusur yüzdesi. Six Sigma (DPMO) ve kalite yönetimi standartları."
+    },
+    {
+      "id": "downtimeHoursPerYear",
+      "label": "Yıllık Arıza Süresi",
+      "type": "number",
+      "unit": "saat/yıl",
+      "default": 100,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Plansız duruş süresi. Toplam Verimli Bakım (TPM) ve OEE hesaplamaları."
+    },
+    {
+      "id": "costPerDowntimeHour",
+      "label": "Arıza Saat Başına Maliyet",
+      "type": "number",
+      "unit": "USD/saat",
+      "default": 500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Duruş süresinin üretim kaybı maliyeti. Endüstri mühendisliği maliyet analizi."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Enflasyon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Yıllık enflasyon oranı. Finansal planlama ve NPV hesaplamaları."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düzeltilmiş TCO için kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "purchasePrice >= 0",
+      "annualMaintenanceCost >= 0",
+      "annualEnergyCost >= 0",
+      "annualOperatingCost >= 0",
+      "lifespanYears >= 1",
+      "salvageValue >= 0",
+      "discountRate >= 0 && discountRate <= 100",
+      "annualProductionVolume >= 0",
+      "defectRate >= 0 && defectRate <= 100",
+      "downtimeHoursPerYear >= 0 && downtimeHoursPerYear <= 8760",
+      "costPerDowntimeHour >= 0",
+      "inflationRate >= 0 && inflationRate <= 100",
+      "salvageValue <= purchasePrice"
+    ],
+    "thresholds": {
+      "defectRate > 5": "Yüksek hata oranı kalite maliyetlerini artırır.",
+      "downtimeHoursPerYear > 200": "Aşırı arıza süresi verimliliği düşürür.",
+      "annualMaintenanceCost > 0.1 * purchasePrice": "Bakım maliyeti satın alma fiyatının %10'unu aşıyor."
+    }
+  },
+  "formulas": {
+    "totalCostOfOwnership": "purchasePrice + sum_{t=1}^{lifespanYears} ((annualMaintenanceCost + annualEnergyCost + annualOperatingCost + (defectRate/100)*annualProductionVolume*reworkCostPerUnit + downtimeHoursPerYear*costPerDowntimeHour) * (1+inflationRate)^(t-1) / (1+discountRate)^(t-1)) - salvageValue / (1+discountRate)^lifespanYears",
+    "annualRecurringCost": "annualMaintenanceCost + annualEnergyCost + annualOperatingCost + (defectRate/100)*annualProductionVolume*reworkCostPerUnit + downtimeHoursPerYear*costPerDowntimeHour",
+    "reworkCostPerUnit": "10",
+    "dataConfidenceAdjustedTCO": "totalCostOfOwnership * (1 + (dataConfidence == 'low' ? 0.2 : dataConfidence == 'medium' ? 0.1 : 0))"
+  },
+  "outputs": {
+    "primary": "totalCostOfOwnership",
+    "breakdown": {
+      "initialInvestment": "purchasePrice",
+      "maintenanceCost": "sum_{t=1}^{lifespanYears} annualMaintenanceCost * (1+inflationRate)^(t-1) / (1+discountRate)^(t-1)",
+      "energyCost": "sum_{t=1}^{lifespanYears} annualEnergyCost * (1+inflationRate)^(t-1) / (1+discountRate)^(t-1)",
+      "operatingCost": "sum_{t=1}^{lifespanYears} annualOperatingCost * (1+inflationRate)^(t-1) / (1+discountRate)^(t-1)",
+      "qualityCost": "sum_{t=1}^{lifespanYears} (defectRate/100)*annualProductionVolume*reworkCostPerUnit * (1+inflationRate)^(t-1) / (1+discountRate)^(t-1)",
+      "downtimeCost": "sum_{t=1}^{lifespanYears} downtimeHoursPerYear*costPerDowntimeHour * (1+inflationRate)^(t-1) / (1+discountRate)^(t-1)",
+      "salvageValueDiscounted": "salvageValue / (1+discountRate)^lifespanYears"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 5 ? 'Yüksek hata oranı' : ''",
+      "downtimeHoursPerYear > 200 ? 'Aşırı arıza süresi' : ''",
+      "annualMaintenanceCost > 0.1 * purchasePrice ? 'Yüksek bakım maliyeti' : ''"
+    ],
+    "suggestedActions": [
+      "defectRate > 5 ? 'Six Sigma veya Kaizen ile hata oranını düşürün.' : ''",
+      "downtimeHoursPerYear > 200 ? 'TPM uygulayarak arıza süresini azaltın.' : ''",
+      "annualMaintenanceCost > 0.1 * purchasePrice ? 'Bakım stratejinizi gözden geçirin, kestirimci bakıma geçin.' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedTCO"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (zaman serisi)",
+    "Ekipman karşılaştırma (birden fazla ekipman)",
+    "Detaylı maliyet kırılımı grafikleri"
+  ],
+  "premiumRequired": true
+}

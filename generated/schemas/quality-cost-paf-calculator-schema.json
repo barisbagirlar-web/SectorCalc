@@ -1,0 +1,124 @@
+{
+  "toolName": "quality-cost-paf-calculator",
+  "inputs": [
+    {
+      "id": "totalSales",
+      "label": "Total Sales Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Annual total sales revenue. Used as basis for cost ratios. Standard financial metric."
+    },
+    {
+      "id": "preventionCost",
+      "label": "Prevention Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Costs of activities to prevent defects (e.g., training, process control). Based on PAF model (ISO 9001)."
+    },
+    {
+      "id": "appraisalCost",
+      "label": "Appraisal Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Costs of inspection and testing to detect defects. PAF model."
+    },
+    {
+      "id": "internalFailureCost",
+      "label": "Internal Failure Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Costs from defects found before delivery (scrap, rework). PAF model."
+    },
+    {
+      "id": "externalFailureCost",
+      "label": "External Failure Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Costs from defects found after delivery (warranty, returns). PAF model."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "User's confidence in input data accuracy. Adjusts final result for uncertainty."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "totalSales > 0",
+      "preventionCost >= 0",
+      "appraisalCost >= 0",
+      "internalFailureCost >= 0",
+      "externalFailureCost >= 0"
+    ],
+    "thresholds": {
+      "totalQualityCostRatio": "0.15",
+      "externalFailureRatio": "0.05"
+    }
+  },
+  "formulas": {
+    "totalQualityCost": "preventionCost + appraisalCost + internalFailureCost + externalFailureCost",
+    "totalQualityCostRatio": "totalQualityCost / totalSales",
+    "preventionRatio": "preventionCost / totalQualityCost",
+    "appraisalRatio": "appraisalCost / totalQualityCost",
+    "internalFailureRatio": "internalFailureCost / totalQualityCost",
+    "externalFailureRatio": "externalFailureCost / totalQualityCost",
+    "dataConfidenceAdjusted": "totalQualityCost * (dataConfidence === 'low' ? 1.2 : dataConfidence === 'medium' ? 1.0 : 0.9)"
+  },
+  "outputs": {
+    "primary": "totalQualityCostRatio",
+    "breakdown": {
+      "totalQualityCost": "totalQualityCost",
+      "preventionRatio": "preventionRatio",
+      "appraisalRatio": "appraisalRatio",
+      "internalFailureRatio": "internalFailureRatio",
+      "externalFailureRatio": "externalFailureRatio"
+    },
+    "hiddenLossDrivers": [
+      "totalQualityCostRatio > 0.15 ? 'High total quality cost ratio (>15%)' : ''",
+      "externalFailureRatio > 0.05 ? 'High external failure ratio (>5%)' : ''"
+    ],
+    "suggestedActions": [
+      "totalQualityCostRatio > 0.15 ? 'Invest in prevention to reduce overall quality costs.' : ''",
+      "externalFailureRatio > 0.05 ? 'Improve outgoing quality control to reduce external failures.' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

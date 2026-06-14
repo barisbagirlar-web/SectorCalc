@@ -1,0 +1,93 @@
+{
+  "toolName": "joule-kalori-watt-saat-cevirici",
+  "inputs": [
+    {
+      "id": "energyJoules",
+      "label": "Enerji (Joule)",
+      "type": "number",
+      "unit": "J",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Enerji miktarını joule cinsinden girin. Joule, SI birim sisteminde enerji birimidir. ISO 80000-5 standardına göre tanımlanmıştır."
+    },
+    {
+      "id": "energyCalories",
+      "label": "Enerji (Kalori)",
+      "type": "number",
+      "unit": "cal",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Enerji miktarını kalori cinsinden girin. Kalori, termokimya ve gıda enerjisinde yaygın kullanılır. 1 cal = 4.184 J (ISO 80000-5)."
+    },
+    {
+      "id": "energyWattHours",
+      "label": "Enerji (Watt-saat)",
+      "type": "number",
+      "unit": "Wh",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Enerji miktarını watt-saat cinsinden girin. Watt-saat, elektrik enerjisi ölçümünde yaygındır. 1 Wh = 3600 J (ISO 80000-5)."
+    },
+    {
+      "id": "conversionDirection",
+      "label": "Dönüşüm Yönü",
+      "type": "select",
+      "unit": "",
+      "default": "J_to_cal",
+      "min": null,
+      "max": null,
+      "options": [
+        "J_to_cal",
+        "J_to_Wh",
+        "cal_to_J",
+        "cal_to_Wh",
+        "Wh_to_J",
+        "Wh_to_cal"
+      ],
+      "businessContext": "Hangi birimden hangi birime dönüşüm yapılacağını seçin. Tüm dönüşümler SI standartlarına uygun sabitler kullanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "Girilen enerji değerlerinden yalnızca biri sıfırdan farklı olmalıdır (diğerleri 0 olmalı).",
+      "Enerji değerleri negatif olamaz."
+    ],
+    "thresholds": {
+      "energyJoules": "Enerji değeri 1e9 J'den büyükse 'Yüksek enerji seviyesi' uyarısı.",
+      "energyCalories": "Enerji değeri 1e6 cal'den büyükse 'Yüksek enerji seviyesi' uyarısı.",
+      "energyWattHours": "Enerji değeri 1e6 Wh'den büyükse 'Yüksek enerji seviyesi' uyarısı."
+    }
+  },
+  "formulas": {
+    "convertEnergy": "if (conversionDirection == 'J_to_cal') { result = energyJoules / 4.184; } else if (conversionDirection == 'J_to_Wh') { result = energyJoules / 3600; } else if (conversionDirection == 'cal_to_J') { result = energyCalories * 4.184; } else if (conversionDirection == 'cal_to_Wh') { result = energyCalories * 4.184 / 3600; } else if (conversionDirection == 'Wh_to_J') { result = energyWattHours * 3600; } else if (conversionDirection == 'Wh_to_cal') { result = energyWattHours * 3600 / 4.184; }"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": {
+      "inputUnit": "Giriş birimi",
+      "outputUnit": "Çıkış birimi",
+      "conversionFactor": "Kullanılan dönüşüm katsayısı"
+    },
+    "hiddenLossDrivers": [
+      "Yüksek enerji seviyesi uyarısı varsa burada belirtilir."
+    ],
+    "suggestedActions": [
+      "Enerji verimliliği için daha düşük enerji tüketen alternatifleri değerlendirin.",
+      "ISO 50001 enerji yönetim sistemi kapsamında enerji performans göstergelerini izleyin."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,145 @@
+{
+  "toolName": "scrap-rate-calculator",
+  "inputs": [
+    {
+      "id": "totalProductionQuantity",
+      "label": "Total Production Quantity",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total number of units produced in the period. Based on production records (ISO 9001)."
+    },
+    {
+      "id": "scrapQuantity",
+      "label": "Scrap Quantity",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of units scrapped due to defects or waste. Direct measure from quality control (Six Sigma)."
+    },
+    {
+      "id": "reworkQuantity",
+      "label": "Rework Quantity",
+      "type": "number",
+      "unit": "units",
+      "default": 20,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Units that required rework but not scrapped. Important for total waste analysis (Lean)."
+    },
+    {
+      "id": "costPerUnit",
+      "label": "Cost per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average cost to produce one unit including materials, labor, overhead. Used for financial impact (Managerial Accounting)."
+    },
+    {
+      "id": "reworkCostPerUnit",
+      "label": "Rework Cost per Unit",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Additional cost to rework one unit. Typically lower than original cost but significant (Lean Accounting)."
+    },
+    {
+      "id": "periodDays",
+      "label": "Period Days",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Number of days in the analysis period. Used for rate normalization (standard reporting)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in data accuracy. Affects adjustment factor for outputs (risk management)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "scrapQuantity <= totalProductionQuantity",
+      "reworkQuantity <= totalProductionQuantity",
+      "costPerUnit > 0",
+      "reworkCostPerUnit >= 0",
+      "periodDays > 0"
+    ],
+    "thresholds": {
+      "scrapRate": {
+        "warning": 0.05,
+        "critical": 0.1
+      },
+      "totalWasteCost": {
+        "warning": 10000,
+        "critical": 50000
+      }
+    }
+  },
+  "formulas": {
+    "scrapRate": "scrapQuantity / totalProductionQuantity",
+    "reworkRate": "reworkQuantity / totalProductionQuantity",
+    "totalWasteRate": "(scrapQuantity + reworkQuantity) / totalProductionQuantity",
+    "scrapCost": "scrapQuantity * costPerUnit",
+    "reworkCost": "reworkQuantity * reworkCostPerUnit",
+    "totalWasteCost": "scrapCost + reworkCost",
+    "dailyScrapRate": "scrapRate / periodDays",
+    "dataConfidenceAdjustment": "dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9)",
+    "adjustedTotalWasteCost": "totalWasteCost * dataConfidenceAdjustment"
+  },
+  "outputs": {
+    "primary": "totalWasteCost",
+    "breakdown": {
+      "scrapRate": "scrapRate",
+      "reworkRate": "reworkRate",
+      "totalWasteRate": "totalWasteRate",
+      "scrapCost": "scrapCost",
+      "reworkCost": "reworkCost",
+      "dailyScrapRate": "dailyScrapRate"
+    },
+    "hiddenLossDrivers": [
+      "scrapRate > 0.10 ? 'Critical scrap rate' : (scrapRate > 0.05 ? 'Warning scrap rate' : '')",
+      "totalWasteCost > 50000 ? 'Critical waste cost' : (totalWasteCost > 10000 ? 'Warning waste cost' : '')"
+    ],
+    "suggestedActions": [
+      "scrapRate > 0.05 ? 'Investigate root causes of scrap: implement poka-yoke or process control.' : ''",
+      "reworkRate > 0.05 ? 'Analyze rework drivers: consider training or standard work.' : ''",
+      "totalWasteCost > 10000 ? 'Conduct cost-benefit analysis for process improvement.' : ''"
+    ],
+    "dataConfidenceAdjusted": "adjustedTotalWasteCost"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Pareto Chart"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,123 @@
+{
+  "toolName": "hvac-callback-margin-risk",
+  "inputs": [
+    {
+      "id": "annualServiceRevenue",
+      "label": "Annual Service Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total annual revenue from HVAC service contracts. Based on industry standard financial reporting (GAAP)."
+    },
+    {
+      "id": "callbackRate",
+      "label": "Callback Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of service calls that result in a callback within warranty period. Benchmark from ACCA (Air Conditioning Contractors of America) quality standards."
+    },
+    {
+      "id": "avgCallbackCost",
+      "label": "Average Cost per Callback",
+      "type": "number",
+      "unit": "USD",
+      "default": 250,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average direct cost (labor, parts, travel) per callback. Based on industry operational data."
+    },
+    {
+      "id": "warrantyPeriodMonths",
+      "label": "Warranty Period (months)",
+      "type": "number",
+      "unit": "months",
+      "default": 12,
+      "min": 0,
+      "max": 60,
+      "options": null,
+      "businessContext": "Standard warranty period for HVAC installations. Typical range 12-60 months per manufacturer guidelines."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in input data accuracy. Used for risk adjustment. Based on Six Sigma data quality assessment."
+    },
+    {
+      "id": "includeHiddenCosts",
+      "label": "Include Hidden Costs (e.g., reputation loss)",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Toggle to include intangible costs like customer churn and brand damage. Based on balanced scorecard approach."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualServiceRevenue > 0",
+      "callbackRate >= 0 and callbackRate <= 100",
+      "avgCallbackCost >= 0",
+      "warrantyPeriodMonths >= 0 and warrantyPeriodMonths <= 60"
+    ],
+    "thresholds": {
+      "callbackRate > 10": "High callback rate indicates systemic quality issues. Consider root cause analysis.",
+      "callbackRate > 20": "Critical callback rate. Immediate action required to avoid contract penalties."
+    }
+  },
+  "formulas": {
+    "totalCallbacks": "annualServiceRevenue * (callbackRate / 100) / avgCallbackCost",
+    "annualCallbackCost": "totalCallbacks * avgCallbackCost",
+    "marginRisk": "annualCallbackCost / annualServiceRevenue * 100",
+    "hiddenCostMultiplier": "includeHiddenCosts ? 1.5 : 1.0",
+    "adjustedMarginRisk": "marginRisk * hiddenCostMultiplier",
+    "dataConfidenceFactor": "dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.8)",
+    "finalMarginRisk": "adjustedMarginRisk * dataConfidenceFactor"
+  },
+  "outputs": {
+    "primary": "finalMarginRisk",
+    "breakdown": {
+      "totalCallbacks": "totalCallbacks",
+      "annualCallbackCost": "annualCallbackCost",
+      "marginRisk": "marginRisk",
+      "adjustedMarginRisk": "adjustedMarginRisk"
+    },
+    "hiddenLossDrivers": [
+      "callbackRate > 10 ? 'High callback rate' : null",
+      "callbackRate > 20 ? 'Critical callback rate' : null"
+    ],
+    "suggestedActions": [
+      "Implement root cause analysis for callbacks",
+      "Enhance technician training programs",
+      "Review warranty terms and conditions",
+      "Improve preventive maintenance schedules"
+    ],
+    "dataConfidenceAdjusted": "finalMarginRisk"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmarking against industry averages",
+    "Detailed breakdown report with charts"
+  ],
+  "premiumRequired": true
+}

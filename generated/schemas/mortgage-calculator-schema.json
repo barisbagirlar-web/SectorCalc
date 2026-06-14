@@ -1,0 +1,185 @@
+{
+  "toolName": "mortgage-calculator",
+  "inputs": [
+    {
+      "id": "homePrice",
+      "label": "Home Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 300000,
+      "min": 10000,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Purchase price of the property. Standard real estate valuation."
+    },
+    {
+      "id": "downPayment",
+      "label": "Down Payment",
+      "type": "number",
+      "unit": "USD",
+      "default": 60000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Initial upfront payment. Typically 20% to avoid PMI."
+    },
+    {
+      "id": "loanTerm",
+      "label": "Loan Term",
+      "type": "number",
+      "unit": "years",
+      "default": 30,
+      "min": 1,
+      "max": 40,
+      "options": null,
+      "businessContext": "Duration of the loan. Common terms: 15, 20, 30 years."
+    },
+    {
+      "id": "interestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 4.5,
+      "min": 0.1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Annual percentage rate (APR) from lender."
+    },
+    {
+      "id": "propertyTaxRate",
+      "label": "Annual Property Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 1.2,
+      "min": 0,
+      "max": 5,
+      "options": null,
+      "businessContext": "Percentage of home value paid annually in property taxes."
+    },
+    {
+      "id": "homeInsuranceRate",
+      "label": "Annual Home Insurance Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 3,
+      "options": null,
+      "businessContext": "Percentage of home value paid annually for insurance."
+    },
+    {
+      "id": "pmiRate",
+      "label": "PMI Rate (if down payment < 20%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.8,
+      "min": 0,
+      "max": 2,
+      "options": null,
+      "businessContext": "Private mortgage insurance rate if down payment < 20%."
+    },
+    {
+      "id": "hoaDues",
+      "label": "Monthly HOA Dues",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": 5000,
+      "options": null,
+      "businessContext": "Homeowners association fees per month."
+    },
+    {
+      "id": "otherMonthlyCosts",
+      "label": "Other Monthly Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Additional monthly costs (utilities, maintenance, etc.)."
+    },
+    {
+      "id": "annualIncome",
+      "label": "Annual Gross Income",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Borrower's annual income for debt-to-income ratio."
+    },
+    {
+      "id": "monthlyDebts",
+      "label": "Other Monthly Debt Payments",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Existing monthly debt obligations (car loans, student loans, etc.)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "downPayment < homePrice * 0.2 => pmiRate > 0",
+      "downPayment >= homePrice => loanTerm = 0",
+      "interestRate > 0",
+      "loanTerm > 0",
+      "homePrice > 0"
+    ],
+    "thresholds": {
+      "debtToIncomeRatio > 0.43": "High DTI ratio; loan may be denied.",
+      "loanToValueRatio > 0.8": "PMI required.",
+      "monthlyPayment > annualIncome / 12 * 0.28": "Housing expense ratio exceeds 28%."
+    }
+  },
+  "formulas": {
+    "loanAmount": "homePrice - downPayment",
+    "monthlyInterestRate": "interestRate / 100 / 12",
+    "numberOfPayments": "loanTerm * 12",
+    "monthlyPrincipalAndInterest": "loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1)",
+    "monthlyPropertyTax": "homePrice * (propertyTaxRate / 100) / 12",
+    "monthlyHomeInsurance": "homePrice * (homeInsuranceRate / 100) / 12",
+    "monthlyPMI": "downPayment < homePrice * 0.2 ? (loanAmount * (pmiRate / 100) / 12) : 0",
+    "totalMonthlyPayment": "monthlyPrincipalAndInterest + monthlyPropertyTax + monthlyHomeInsurance + monthlyPMI + hoaDues + otherMonthlyCosts",
+    "debtToIncomeRatio": "(totalMonthlyPayment + monthlyDebts) / (annualIncome / 12)",
+    "loanToValueRatio": "loanAmount / homePrice",
+    "totalInterestPaid": "monthlyPrincipalAndInterest * numberOfPayments - loanAmount",
+    "totalCost": "downPayment + monthlyPrincipalAndInterest * numberOfPayments + monthlyPropertyTax * numberOfPayments + monthlyHomeInsurance * numberOfPayments + monthlyPMI * numberOfPayments + hoaDues * numberOfPayments + otherMonthlyCosts * numberOfPayments"
+  },
+  "outputs": {
+    "primary": "totalMonthlyPayment",
+    "breakdown": {
+      "monthlyPrincipalAndInterest": "monthlyPrincipalAndInterest",
+      "monthlyPropertyTax": "monthlyPropertyTax",
+      "monthlyHomeInsurance": "monthlyHomeInsurance",
+      "monthlyPMI": "monthlyPMI",
+      "hoaDues": "hoaDues",
+      "otherMonthlyCosts": "otherMonthlyCosts"
+    },
+    "hiddenLossDrivers": [
+      "debtToIncomeRatio > 0.43 ? 'High DTI ratio' : ''",
+      "loanToValueRatio > 0.8 ? 'PMI required' : ''",
+      "monthlyPayment > annualIncome / 12 * 0.28 ? 'Housing expense ratio exceeds 28%' : ''"
+    ],
+    "suggestedActions": [
+      "Increase down payment to avoid PMI",
+      "Reduce loan term to save on interest",
+      "Shop for lower interest rate",
+      "Reduce other monthly debts to improve DTI"
+    ],
+    "dataConfidenceAdjusted": "totalMonthlyPayment"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with other scenarios",
+    "Detailed Amortization Schedule"
+  ],
+  "premiumRequired": true
+}

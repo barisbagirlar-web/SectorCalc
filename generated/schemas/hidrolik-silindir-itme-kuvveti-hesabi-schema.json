@@ -1,0 +1,96 @@
+{
+  "toolName": "hidrolik-silindir-itme-kuvveti-hesabi",
+  "inputs": [
+    {
+      "id": "pistonCap",
+      "label": "Piston Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 10,
+      "max": 500,
+      "options": null,
+      "businessContext": "Piston çapı, silindirin itme kuvvetini belirleyen temel geometrik parametredir. ISO 6020/6022 standartlarına göre hidrolik silindir boyutlandırmasında kullanılır."
+    },
+    {
+      "id": "rodCap",
+      "label": "Piston Kolu Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 25,
+      "min": 5,
+      "max": 300,
+      "options": null,
+      "businessContext": "Piston kolu çapı, çekme kuvveti hesaplamalarında kullanılır. ISO 6020/6022 standartlarına göre belirlenir."
+    },
+    {
+      "id": "systemPressure",
+      "label": "Sistem Basıncı",
+      "type": "number",
+      "unit": "bar",
+      "default": 100,
+      "min": 10,
+      "max": 400,
+      "options": null,
+      "businessContext": "Hidrolik sistemin çalışma basıncı, itme kuvvetini doğrudan etkiler. ISO 4406 temizlik standardı ile uyumlu olmalıdır."
+    },
+    {
+      "id": "forceType",
+      "label": "Kuvvet Türü",
+      "type": "select",
+      "unit": "",
+      "default": "itme",
+      "min": null,
+      "max": null,
+      "options": [
+        "itme",
+        "çekme"
+      ],
+      "businessContext": "İtme kuvveti piston çapına, çekme kuvveti ise piston kolu çapına bağlıdır. Mühendislik uygulamalarında hangi kuvvetin gerekli olduğu seçilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "pistonCap > rodCap",
+      "systemPressure >= 10",
+      "systemPressure <= 400"
+    ],
+    "thresholds": {
+      "pistonCap": "Piston çapı 200 mm'den büyükse büyük silindir sınıfına girer.",
+      "systemPressure": "Sistem basıncı 250 bar'ı aşarsa yüksek basınç uyarısı."
+    }
+  },
+  "formulas": {
+    "pistonArea": "pi * (pistonCap/2)^2",
+    "rodArea": "pi * (rodCap/2)^2",
+    "effectiveArea": "forceType == 'itme' ? pistonArea : pistonArea - rodArea",
+    "forceN": "effectiveArea * systemPressure * 10",
+    "forceTon": "forceN / 9810"
+  },
+  "outputs": {
+    "primary": "forceTon",
+    "breakdown": {
+      "pistonArea": "pistonArea",
+      "rodArea": "rodArea",
+      "effectiveArea": "effectiveArea",
+      "forceN": "forceN"
+    },
+    "hiddenLossDrivers": [
+      "pistonCap > 200 ? 'Büyük silindir: ağırlık ve maliyet artışı' : null",
+      "systemPressure > 250 ? 'Yüksek basınç: sızdırmazlık ve güvenlik riski' : null"
+    ],
+    "suggestedActions": [
+      "Piston çapını optimize ederek malzeme ve maliyet tasarrufu sağlayın.",
+      "Sistem basıncını düşürmek için pompa ayarlarını kontrol edin.",
+      "Yüksek basınç durumunda sızdırmazlık elemanlarını ISO 4406'ya uygun seçin."
+    ],
+    "dataConfidenceAdjusted": "forceTon * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

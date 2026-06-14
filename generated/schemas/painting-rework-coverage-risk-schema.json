@@ -1,0 +1,106 @@
+{
+  "toolName": "painting-rework-coverage-risk",
+  "inputs": [
+    {
+      "id": "totalPaintedArea",
+      "label": "Total Painted Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total surface area painted in the period. Based on ISO 9001 quality management and standard industrial painting metrics."
+    },
+    {
+      "id": "reworkArea",
+      "label": "Rework Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Area requiring rework due to defects. Derived from Six Sigma DPMO (Defects Per Million Opportunities) methodology."
+    },
+    {
+      "id": "reworkCostPerM2",
+      "label": "Rework Cost per m²",
+      "type": "number",
+      "unit": "USD/m²",
+      "default": 15,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost to rework one square meter including labor, material, and overhead. Based on standard cost accounting principles."
+    },
+    {
+      "id": "coverageRatio",
+      "label": "Coverage Ratio",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of painted area that meets quality standards. Key performance indicator in painting operations."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data accuracy. Affects risk adjustment. Based on data quality assessment frameworks."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "reworkArea <= totalPaintedArea",
+      "coverageRatio >= 0 and coverageRatio <= 100",
+      "reworkCostPerM2 > 0"
+    ],
+    "thresholds": {
+      "defectRate": "0.05",
+      "coverageRatio": "90"
+    }
+  },
+  "formulas": {
+    "defectRate": "reworkArea / totalPaintedArea",
+    "reworkCost": "reworkArea * reworkCostPerM2",
+    "coverageRiskScore": "defectRate * (1 - coverageRatio / 100) * 100",
+    "adjustedRiskScore": "dataConfidence == 'low' ? coverageRiskScore * 1.2 : (dataConfidence == 'medium' ? coverageRiskScore * 1.0 : coverageRiskScore * 0.8)"
+  },
+  "outputs": {
+    "primary": "adjustedRiskScore",
+    "breakdown": {
+      "defectRate": "defectRate",
+      "reworkCost": "reworkCost",
+      "coverageRiskScore": "coverageRiskScore"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 0.05 ? 'High defect rate indicates process instability' : ''",
+      "coverageRatio < 90 ? 'Low coverage ratio suggests quality issues' : ''"
+    ],
+    "suggestedActions": [
+      "defectRate > 0.05 ? 'Implement root cause analysis and process improvement (e.g., Six Sigma DMAIC)' : ''",
+      "coverageRatio < 90 ? 'Review painting parameters and operator training' : ''",
+      "reworkCost > 1000 ? 'Consider automation or better quality control' : ''"
+    ],
+    "dataConfidenceAdjusted": "adjustedRiskScore"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmarking against industry standards",
+    "Detailed report with recommendations"
+  ],
+  "premiumRequired": true
+}

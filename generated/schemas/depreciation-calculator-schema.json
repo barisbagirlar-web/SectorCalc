@@ -1,0 +1,149 @@
+{
+  "toolName": "depreciation-calculator",
+  "inputs": [
+    {
+      "id": "assetCost",
+      "label": "Asset Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Initial cost of the asset. Based on accounting standards (IAS 16, GAAP)."
+    },
+    {
+      "id": "salvageValue",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Estimated residual value at end of useful life. Per IAS 16."
+    },
+    {
+      "id": "usefulLife",
+      "label": "Useful Life",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Expected operational life. Industry standards vary; typical range 3-30 years."
+    },
+    {
+      "id": "depreciationMethod",
+      "label": "Depreciation Method",
+      "type": "select",
+      "unit": "",
+      "default": "straight-line",
+      "min": null,
+      "max": null,
+      "options": [
+        "straight-line",
+        "declining-balance",
+        "sum-of-years-digits",
+        "units-of-production"
+      ],
+      "businessContext": "Common methods per GAAP and IFRS. Straight-line is simplest; declining-balance accelerates expense."
+    },
+    {
+      "id": "decliningBalanceFactor",
+      "label": "Declining Balance Factor",
+      "type": "number",
+      "unit": "multiplier",
+      "default": 2,
+      "min": 1,
+      "max": 3,
+      "options": null,
+      "businessContext": "Factor for declining balance method (e.g., 2 for double-declining). Typical values: 1.5, 2, 2.5."
+    },
+    {
+      "id": "productionUnits",
+      "label": "Total Production Units",
+      "type": "number",
+      "unit": "units",
+      "default": 100000,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Estimated total units to be produced over life. Used in units-of-production method."
+    },
+    {
+      "id": "unitsProducedThisYear",
+      "label": "Units Produced This Year",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Actual units produced in current period for units-of-production method."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "percent",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data (0-100%). Used for adjusted output."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "salvageValue must be less than assetCost",
+      "usefulLife must be positive integer",
+      "if depreciationMethod == 'declining-balance' then decliningBalanceFactor must be >= 1 and <= 3",
+      "if depreciationMethod == 'units-of-production' then productionUnits must be > 0 and unitsProducedThisYear must be >= 0",
+      "unitsProducedThisYear must be <= productionUnits"
+    ],
+    "thresholds": {
+      "salvageValue > 0.5 * assetCost": "High salvage value relative to cost; consider impairment test.",
+      "usefulLife > 30": "Very long useful life; verify asset type and condition.",
+      "decliningBalanceFactor > 2.5": "Aggressive depreciation; may not reflect actual usage."
+    }
+  },
+  "formulas": {
+    "depreciableBase": "assetCost - salvageValue",
+    "annualDepreciation": "depreciationMethod == 'straight-line' ? depreciableBase / usefulLife : (depreciationMethod == 'declining-balance' ? (bookValue * decliningBalanceFactor / usefulLife) : (depreciationMethod == 'sum-of-years-digits' ? (remainingLife / sumOfYears) * depreciableBase : (depreciationMethod == 'units-of-production' ? (depreciableBase / productionUnits) * unitsProducedThisYear : 0)))",
+    "bookValue": "assetCost - accumulatedDepreciation",
+    "accumulatedDepreciation": "sum of annualDepreciation over years (iterative)",
+    "remainingLife": "usefulLife - yearsElapsed",
+    "sumOfYears": "usefulLife * (usefulLife + 1) / 2",
+    "dataConfidenceAdjusted": "annualDepreciation * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "annualDepreciation",
+    "breakdown": {
+      "depreciableBase": "depreciableBase",
+      "bookValue": "bookValue",
+      "accumulatedDepreciation": "accumulatedDepreciation",
+      "remainingLife": "remainingLife"
+    },
+    "hiddenLossDrivers": [
+      "if salvageValue > 0.5 * assetCost then 'High salvage value may indicate overestimated residual value'",
+      "if usefulLife > 30 then 'Extended useful life may lead to inaccurate depreciation'",
+      "if decliningBalanceFactor > 2.5 then 'Aggressive depreciation may distort financials'"
+    ],
+    "suggestedActions": [
+      "Review salvage value estimation based on market data.",
+      "Consider component depreciation for complex assets.",
+      "Align useful life with industry benchmarks (e.g., IRS guidelines).",
+      "If using declining balance, ensure factor reflects asset usage pattern."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "Export to PDF/CSV",
+    "Trend analysis over multiple periods",
+    "Comparison of different depreciation methods",
+    "Detailed report with charts and amortization schedule"
+  ],
+  "premiumRequired": true
+}

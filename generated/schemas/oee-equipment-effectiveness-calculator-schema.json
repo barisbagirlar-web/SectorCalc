@@ -1,0 +1,123 @@
+{
+  "toolName": "oee-equipment-effectiveness-calculator",
+  "inputs": [
+    {
+      "id": "plannedProductionTime",
+      "label": "Planned Production Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 480,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total time scheduled for production per shift/day. Based on ISO 22400 and OEE industry standard."
+    },
+    {
+      "id": "operatingTime",
+      "label": "Operating Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 450,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Actual time equipment is running (planned production time minus downtime). ISO 22400."
+    },
+    {
+      "id": "idealCycleTime",
+      "label": "Ideal Cycle Time (minutes per unit)",
+      "type": "number",
+      "unit": "minutes/unit",
+      "default": 0.5,
+      "min": 0.001,
+      "max": null,
+      "options": null,
+      "businessContext": "Theoretical minimum time to produce one unit under optimal conditions. ISO 22400."
+    },
+    {
+      "id": "totalPartsProduced",
+      "label": "Total Parts Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 800,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total number of units produced during operating time."
+    },
+    {
+      "id": "goodPartsProduced",
+      "label": "Good Parts Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 760,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of units meeting quality standards (first pass yield)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in data accuracy. Used for adjusted OEE. Common in lean manufacturing assessments."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "operatingTime <= plannedProductionTime",
+      "totalPartsProduced >= 0",
+      "goodPartsProduced <= totalPartsProduced",
+      "idealCycleTime > 0",
+      "plannedProductionTime > 0"
+    ],
+    "thresholds": {
+      "availability": "availability < 0.9 -> 'Low availability: investigate downtime causes'",
+      "performance": "performance < 0.95 -> 'Low performance: check speed losses'",
+      "quality": "quality < 0.99 -> 'Low quality: review defect sources'",
+      "oee": "oee < 0.85 -> 'OEE below world-class (85%)'"
+    }
+  },
+  "formulas": {
+    "availability": "operatingTime / plannedProductionTime",
+    "performance": "(totalPartsProduced * idealCycleTime) / operatingTime",
+    "quality": "goodPartsProduced / totalPartsProduced",
+    "oee": "availability * performance * quality",
+    "dataConfidenceAdjusted": "oee * (dataConfidence == 'high' ? 1.0 : dataConfidence == 'medium' ? 0.95 : 0.9)"
+  },
+  "outputs": {
+    "primary": "oee",
+    "breakdown": {
+      "availability": "availability",
+      "performance": "performance",
+      "quality": "quality"
+    },
+    "hiddenLossDrivers": [
+      "availability < 0.9 ? 'Downtime loss' : ''",
+      "performance < 0.95 ? 'Speed loss' : ''",
+      "quality < 0.99 ? 'Quality loss' : ''"
+    ],
+    "suggestedActions": [
+      "availability < 0.9 ? 'Implement TPM and reduce unplanned downtime' : ''",
+      "performance < 0.95 ? 'Analyze cycle time variances and reduce minor stops' : ''",
+      "quality < 0.99 ? 'Apply root cause analysis for defects and improve process control' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmarking against industry standards",
+    "Detailed loss breakdown report"
+  ],
+  "premiumRequired": true
+}

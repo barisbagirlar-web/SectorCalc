@@ -1,0 +1,131 @@
+{
+  "toolName": "kompresor-debisi-tank-hacmi-hesabi",
+  "inputs": [
+    {
+      "id": "compressorFlowRate",
+      "label": "Kompresör Debisi",
+      "type": "number",
+      "unit": "m³/dk",
+      "default": 10,
+      "min": 0.1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Kompresörün birim zamanda ürettiği hava hacmi. ISO 1217 standardına göre ölçülür. Sistem tasarımında temel parametredir."
+    },
+    {
+      "id": "tankVolume",
+      "label": "Tank Hacmi",
+      "type": "number",
+      "unit": "m³",
+      "default": 1,
+      "min": 0.01,
+      "max": 100,
+      "options": null,
+      "businessContext": "Basınçlı hava tankının hacmi. Sistemdeki hava depolama kapasitesini belirler. ISO 4706 standardına uygun olmalıdır."
+    },
+    {
+      "id": "maxPressure",
+      "label": "Maksimum Çalışma Basıncı",
+      "type": "number",
+      "unit": "bar",
+      "default": 8,
+      "min": 1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Sistemin güvenli çalışma basıncı. Tank ve ekipmanların dayanım sınırı. ISO 4126 standardı referans alınır."
+    },
+    {
+      "id": "minPressure",
+      "label": "Minimum Çalışma Basıncı",
+      "type": "number",
+      "unit": "bar",
+      "default": 6,
+      "min": 0.5,
+      "max": 19,
+      "options": null,
+      "businessContext": "Sistemin çalışması için gereken en düşük basınç. Kompresörün devreye girme basıncı."
+    },
+    {
+      "id": "usagePattern",
+      "label": "Kullanım Deseni",
+      "type": "select",
+      "unit": "",
+      "default": "continuous",
+      "min": null,
+      "max": null,
+      "options": [
+        "continuous",
+        "intermittent",
+        "peak"
+      ],
+      "businessContext": "Hava tüketiminin zaman içindeki dağılımı. Sürekli, aralıklı veya pik talebe göre tank hacmi hesaplanır. Endüstriyel tesislerde yaygın kullanılır."
+    },
+    {
+      "id": "airDemand",
+      "label": "Hava Talebi",
+      "type": "number",
+      "unit": "m³/dk",
+      "default": 8,
+      "min": 0.1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Sistemin anlık hava tüketimi. Kompresör debisinden düşük olmalıdır. Aksi halde tank yetersiz kalır."
+    },
+    {
+      "id": "compressorCycleTime",
+      "label": "Kompresör Çevrim Süresi",
+      "type": "number",
+      "unit": "dk",
+      "default": 10,
+      "min": 1,
+      "max": 60,
+      "options": null,
+      "businessContext": "Kompresörün yükte ve boşta çalışma periyodu. Tank hacmi hesaplamasında kullanılır. Enerji verimliliği için optimize edilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "compressorFlowRate > 0",
+      "tankVolume > 0",
+      "maxPressure > minPressure",
+      "airDemand < compressorFlowRate",
+      "compressorCycleTime > 0"
+    ],
+    "thresholds": {
+      "tankVolume": "if tankVolume < (compressorFlowRate - airDemand) * compressorCycleTime / (maxPressure - minPressure) then 'Tank hacmi yetersiz, sık devreye girme riski'",
+      "airDemand": "if airDemand > 0.9 * compressorFlowRate then 'Kritik: Hava talebi kompresör kapasitesine çok yakın'"
+    }
+  },
+  "formulas": {
+    "requiredTankVolume": "((compressorFlowRate - airDemand) * compressorCycleTime) / (maxPressure - minPressure)",
+    "availableAirTime": "(tankVolume * (maxPressure - minPressure)) / airDemand",
+    "cycleFrequency": "60 / compressorCycleTime",
+    "tankUtilization": "airDemand / compressorFlowRate"
+  },
+  "outputs": {
+    "primary": "requiredTankVolume",
+    "breakdown": {
+      "availableAirTime": "availableAirTime",
+      "cycleFrequency": "cycleFrequency",
+      "tankUtilization": "tankUtilization"
+    },
+    "hiddenLossDrivers": [
+      "if tankVolume < requiredTankVolume then 'Tank hacmi yetersiz'",
+      "if airDemand > 0.9 * compressorFlowRate then 'Yüksek talep riski'"
+    ],
+    "suggestedActions": [
+      "if tankVolume < requiredTankVolume then 'Tank hacmini artırın veya kompresör debisini yükseltin'",
+      "if airDemand > 0.8 * compressorFlowRate then 'Hava kaçaklarını kontrol edin'",
+      "if usagePattern == 'intermittent' then 'Tank hacmini pik talebe göre yeniden hesaplayın'"
+    ],
+    "dataConfidenceAdjusted": "requiredTankVolume * 1.1"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma modülü",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

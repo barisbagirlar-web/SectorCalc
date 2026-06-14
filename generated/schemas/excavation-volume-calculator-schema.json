@@ -1,0 +1,138 @@
+{
+  "toolName": "excavation-volume-calculator",
+  "inputs": [
+    {
+      "id": "length",
+      "label": "Excavation Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Length of excavation area. Based on civil engineering standards (e.g., ASTM D3740)."
+    },
+    {
+      "id": "width",
+      "label": "Excavation Width",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Width of excavation area. Common in earthwork calculations."
+    },
+    {
+      "id": "depth",
+      "label": "Excavation Depth",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Depth of excavation. Critical for volume and stability analysis."
+    },
+    {
+      "id": "slopeAngle",
+      "label": "Slope Angle",
+      "type": "number",
+      "unit": "degrees",
+      "default": 30,
+      "min": 0,
+      "max": 90,
+      "options": null,
+      "businessContext": "Angle of excavation sides for safety and volume adjustment. OSHA standards recommend max 34° for Type A soil."
+    },
+    {
+      "id": "soilType",
+      "label": "Soil Type",
+      "type": "select",
+      "unit": "",
+      "default": "Type A",
+      "min": null,
+      "max": null,
+      "options": [
+        "Type A",
+        "Type B",
+        "Type C"
+      ],
+      "businessContext": "Soil classification per OSHA 29 CFR 1926 Subpart P. Affects slope requirements and volume."
+    },
+    {
+      "id": "swellFactor",
+      "label": "Swell Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage increase in volume after excavation due to soil loosening. Typical values: 20-30% for common earth."
+    },
+    {
+      "id": "compactionFactor",
+      "label": "Compaction Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of original density achieved after compaction. ASTM D698 standard."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "length > 0",
+      "width > 0",
+      "depth > 0",
+      "slopeAngle >= 0 and slopeAngle <= 90",
+      "swellFactor >= 0 and swellFactor <= 100",
+      "compactionFactor >= 0 and compactionFactor <= 100",
+      "if soilType == 'Type A' then slopeAngle <= 34",
+      "if soilType == 'Type B' then slopeAngle <= 45",
+      "if soilType == 'Type C' then slopeAngle <= 53"
+    ],
+    "thresholds": {
+      "depth > 5": "Deep excavation warning: additional shoring may be required.",
+      "slopeAngle > 45": "Steep slope warning: risk of collapse.",
+      "swellFactor > 30": "High swell factor: consider material handling costs."
+    }
+  },
+  "formulas": {
+    "bankVolume": "length * width * depth",
+    "slopeAdjustedVolume": "bankVolume + (0.5 * depth * depth * (length + width) * tan(slopeAngle * PI / 180))",
+    "looseVolume": "slopeAdjustedVolume * (1 + swellFactor / 100)",
+    "compactedVolume": "looseVolume * (compactionFactor / 100)",
+    "primary": "compactedVolume"
+  },
+  "outputs": {
+    "primary": "compactedVolume",
+    "breakdown": {
+      "bankVolume": "bankVolume",
+      "slopeAdjustedVolume": "slopeAdjustedVolume",
+      "looseVolume": "looseVolume"
+    },
+    "hiddenLossDrivers": [
+      "if depth > 5 then 'Deep excavation'",
+      "if slopeAngle > 45 then 'Steep slope'",
+      "if swellFactor > 30 then 'High swell'"
+    ],
+    "suggestedActions": [
+      "if depth > 5 then 'Implement shoring system'",
+      "if slopeAngle > 45 then 'Flatten slope or use benching'",
+      "if swellFactor > 30 then 'Review material handling plan'"
+    ],
+    "dataConfidenceAdjusted": "compactedVolume * (1 - (1 - dataConfidence) * 0.1)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with historical projects",
+    "Detailed report with cost estimation"
+  ],
+  "premiumRequired": true
+}

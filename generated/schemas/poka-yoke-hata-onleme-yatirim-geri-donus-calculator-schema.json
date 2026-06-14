@@ -1,0 +1,139 @@
+{
+  "toolName": "poka-yoke-hata-onleme-yatirim-geri-donus-calculator",
+  "inputs": [
+    {
+      "id": "annualDefectCost",
+      "label": "Annual Defect Cost (before Poka-Yoke)",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total cost of defects per year including scrap, rework, warranty, and lost sales. Based on Six Sigma cost of poor quality (COPQ) principles."
+    },
+    {
+      "id": "defectReductionRate",
+      "label": "Expected Defect Reduction Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage reduction in defects expected from implementing Poka-Yoke. Typical range 50-99% based on Lean case studies."
+    },
+    {
+      "id": "implementationCost",
+      "label": "Total Implementation Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "One-time cost for design, purchase, installation, and training for the Poka-Yoke device. Includes engineering hours and materials."
+    },
+    {
+      "id": "annualMaintenanceCost",
+      "label": "Annual Maintenance Cost",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 2000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Recurring cost for upkeep, calibration, and spare parts of the Poka-Yoke system."
+    },
+    {
+      "id": "projectLifeYears",
+      "label": "Project Life (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Expected useful life of the Poka-Yoke solution before major overhaul or replacement."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate (WACC)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Weighted average cost of capital or required rate of return. Used for NPV calculation per corporate finance standards."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in input data accuracy. Affects risk adjustment in final output. Low = 0.8, Medium = 1.0, High = 1.2 multiplier."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualDefectCost > 0",
+      "defectReductionRate >= 0 AND defectReductionRate <= 100",
+      "implementationCost > 0",
+      "annualMaintenanceCost >= 0",
+      "projectLifeYears >= 1 AND projectLifeYears <= 20",
+      "discountRate >= 0 AND discountRate <= 100"
+    ],
+    "thresholds": {
+      "defectReductionRate < 50": "Low reduction rate; consider alternative solutions.",
+      "annualDefectCost < 10000": "Small defect cost; investment may not be justified.",
+      "paybackPeriod > projectLifeYears": "Payback exceeds project life; investment not viable."
+    }
+  },
+  "formulas": {
+    "annualSavings": "annualDefectCost * (defectReductionRate / 100)",
+    "netAnnualCashFlow": "annualSavings - annualMaintenanceCost",
+    "paybackPeriod": "implementationCost / netAnnualCashFlow",
+    "npv": "-implementationCost + sum_{t=1}^{projectLifeYears} (netAnnualCashFlow / (1 + discountRate/100)^t)",
+    "irr": "internal rate of return solving npv=0",
+    "roi": "(npv + implementationCost) / implementationCost * 100",
+    "dataConfidenceAdjustedNpv": "npv * (dataConfidence == 'low' ? 0.8 : (dataConfidence == 'medium' ? 1.0 : 1.2))"
+  },
+  "outputs": {
+    "primary": "npv",
+    "breakdown": {
+      "annualSavings": "annualSavings",
+      "netAnnualCashFlow": "netAnnualCashFlow",
+      "paybackPeriod": "paybackPeriod",
+      "irr": "irr",
+      "roi": "roi"
+    },
+    "hiddenLossDrivers": [
+      "annualDefectCost < 10000 ? 'Low defect cost may not justify investment' : ''",
+      "defectReductionRate < 50 ? 'Low expected reduction rate' : ''",
+      "paybackPeriod > projectLifeYears ? 'Payback period exceeds project life' : ''"
+    ],
+    "suggestedActions": [
+      "If NPV < 0: Consider reducing implementation cost or increasing defect reduction rate.",
+      "If paybackPeriod > 2 years: Explore faster payback options or phased implementation.",
+      "If dataConfidence is low: Gather more accurate defect cost data before proceeding."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedNpv"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (multi-year comparison)",
+    "Benchmarking against industry standards",
+    "Detailed sensitivity analysis report"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,233 @@
+{
+  "toolName": "energy-savings-package-calculator",
+  "inputs": [
+    {
+      "id": "annualEnergyConsumption",
+      "label": "Annual Energy Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 1000000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total annual energy usage of the facility. Based on ISO 50001 energy baseline."
+    },
+    {
+      "id": "energyCostPerKwh",
+      "label": "Energy Cost per kWh",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average cost of electricity. Varies by region and tariff."
+    },
+    {
+      "id": "peakDemand",
+      "label": "Peak Demand",
+      "type": "number",
+      "unit": "kW",
+      "default": 500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Maximum power demand in kW. Used for demand charge calculations."
+    },
+    {
+      "id": "demandChargePerKw",
+      "label": "Demand Charge per kW",
+      "type": "number",
+      "unit": "$/kW",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Monthly demand charge rate from utility."
+    },
+    {
+      "id": "operatingHoursPerDay",
+      "label": "Operating Hours per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 16,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Daily operating hours of the facility."
+    },
+    {
+      "id": "operatingDaysPerYear",
+      "label": "Operating Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 250,
+      "min": 0,
+      "max": 365,
+      "options": null,
+      "businessContext": "Number of operating days per year."
+    },
+    {
+      "id": "energySavingsPercentage",
+      "label": "Expected Energy Savings Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Estimated percentage reduction in energy consumption from proposed measures."
+    },
+    {
+      "id": "peakDemandReductionPercentage",
+      "label": "Peak Demand Reduction Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Estimated percentage reduction in peak demand."
+    },
+    {
+      "id": "implementationCost",
+      "label": "Implementation Cost",
+      "type": "number",
+      "unit": "$",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total upfront cost for energy saving measures."
+    },
+    {
+      "id": "maintenanceCostIncreasePerYear",
+      "label": "Annual Maintenance Cost Increase",
+      "type": "number",
+      "unit": "$/year",
+      "default": 2000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Additional annual maintenance cost due to new equipment."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Discount rate for NPV calculation. Typically company's WACC."
+    },
+    {
+      "id": "projectLifeYears",
+      "label": "Project Life (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 10,
+      "min": 1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Expected useful life of the energy saving measures."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Expected annual inflation rate for energy costs."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence in input data accuracy. Affects risk adjustment."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualEnergyConsumption > 0",
+      "energyCostPerKwh > 0",
+      "peakDemand >= 0",
+      "demandChargePerKw >= 0",
+      "operatingHoursPerDay > 0 && operatingHoursPerDay <= 24",
+      "operatingDaysPerYear > 0 && operatingDaysPerYear <= 365",
+      "energySavingsPercentage >= 0 && energySavingsPercentage <= 100",
+      "peakDemandReductionPercentage >= 0 && peakDemandReductionPercentage <= 100",
+      "implementationCost >= 0",
+      "maintenanceCostIncreasePerYear >= 0",
+      "discountRate >= 0 && discountRate <= 100",
+      "projectLifeYears >= 1",
+      "inflationRate >= 0 && inflationRate <= 100"
+    ],
+    "thresholds": {
+      "paybackPeriodYears": "> 5 -> 'Payback period exceeds 5 years; consider alternative measures.'",
+      "npv": "< 0 -> 'Negative NPV; project may not be financially viable.'",
+      "irr": "< discountRate -> 'IRR below discount rate; project may not meet return expectations.'"
+    }
+  },
+  "formulas": {
+    "annualEnergyCost": "annualEnergyConsumption * energyCostPerKwh",
+    "annualDemandCost": "peakDemand * demandChargePerKw * 12",
+    "totalAnnualEnergyCost": "annualEnergyCost + annualDemandCost",
+    "energySavings": "annualEnergyConsumption * (energySavingsPercentage / 100)",
+    "demandReduction": "peakDemand * (peakDemandReductionPercentage / 100)",
+    "annualEnergyCostSavings": "energySavings * energyCostPerKwh",
+    "annualDemandCostSavings": "demandReduction * demandChargePerKw * 12",
+    "totalAnnualSavings": "annualEnergyCostSavings + annualDemandCostSavings",
+    "netAnnualSavings": "totalAnnualSavings - maintenanceCostIncreasePerYear",
+    "paybackPeriodYears": "implementationCost / netAnnualSavings",
+    "npv": "-implementationCost + sum_{t=1}^{projectLifeYears} (netAnnualSavings * (1 + inflationRate)^(t-1)) / (1 + discountRate)^t",
+    "irr": "internal rate of return solving NPV=0"
+  },
+  "outputs": {
+    "primary": "npv",
+    "breakdown": {
+      "annualEnergyCost": "annualEnergyCost",
+      "annualDemandCost": "annualDemandCost",
+      "totalAnnualEnergyCost": "totalAnnualEnergyCost",
+      "annualEnergyCostSavings": "annualEnergyCostSavings",
+      "annualDemandCostSavings": "annualDemandCostSavings",
+      "totalAnnualSavings": "totalAnnualSavings",
+      "netAnnualSavings": "netAnnualSavings",
+      "paybackPeriodYears": "paybackPeriodYears",
+      "irr": "irr"
+    },
+    "hiddenLossDrivers": [
+      "if paybackPeriodYears > 5 then 'Payback period exceeds 5 years; consider alternative measures.'",
+      "if npv < 0 then 'Negative NPV; project may not be financially viable.'",
+      "if irr < discountRate then 'IRR below discount rate; project may not meet return expectations.'"
+    ],
+    "suggestedActions": [
+      "if paybackPeriodYears > 5 then 'Explore additional energy efficiency measures or negotiate lower implementation costs.'",
+      "if npv < 0 then 'Re-evaluate project scope or seek incentives/rebates.'",
+      "if irr < discountRate then 'Consider alternative investments with higher returns.'",
+      "if dataConfidence == 'low' then 'Conduct detailed energy audit to improve data accuracy.'"
+    ],
+    "dataConfidenceAdjusted": "npv * (dataConfidence == 'high' ? 1.0 : dataConfidence == 'medium' ? 0.9 : 0.8)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (multi-year projection)",
+    "Comparison with industry benchmarks",
+    "Detailed report with sensitivity analysis"
+  ],
+  "premiumRequired": true
+}

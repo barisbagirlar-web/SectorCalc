@@ -1,0 +1,106 @@
+{
+  "toolName": "ise-giris-cikis-bildirgesi-sureleri",
+  "inputs": [
+    {
+      "id": "bildirgeTuru",
+      "label": "Bildirge Türü",
+      "type": "select",
+      "unit": "",
+      "default": "giris",
+      "min": null,
+      "max": null,
+      "options": [
+        "giris",
+        "cikis"
+      ],
+      "businessContext": "İşe giriş veya çıkış bildirgesi türü. SGK mevzuatına göre farklı süreler uygulanır."
+    },
+    {
+      "id": "isverenTuru",
+      "label": "İşveren Türü",
+      "type": "select",
+      "unit": "",
+      "default": "ozel",
+      "min": null,
+      "max": null,
+      "options": [
+        "ozel",
+        "kamu",
+        "varlikYonetim"
+      ],
+      "businessContext": "İşverenin kamu veya özel sektör olması bildirim süresini etkiler. Varlık yönetim şirketleri için farklı düzenleme vardır."
+    },
+    {
+      "id": "calisanSayisi",
+      "label": "Çalışan Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 10,
+      "min": 1,
+      "max": 100000,
+      "businessContext": "İşyerindeki toplam çalışan sayısı. Bazı bildirim yükümlülükleri çalışan sayısına göre değişir."
+    },
+    {
+      "id": "bildirimGunu",
+      "label": "Bildirim Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 0,
+      "min": 0,
+      "max": 30,
+      "businessContext": "İşe giriş/çıkış tarihinden itibaren bildirimin yapıldığı gün sayısı. 0 aynı gün anlamına gelir."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güvenilirliği",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Girdi verilerinin güvenilirlik yüzdesi. Düşük güvenilirlikte sonuçlar düzeltilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "bildirimGunu >= 0",
+      "calisanSayisi >= 1",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "gecikmeUyarisi": "bildirimGunu > 15",
+      "kritikGecikme": "bildirimGunu > 30"
+    }
+  },
+  "formulas": {
+    "yasalSure": "bildirgeTuru == 'giris' ? (isverenTuru == 'kamu' ? 1 : 3) : (isverenTuru == 'kamu' ? 1 : 10)",
+    "gecikmeGunu": "bildirimGunu - yasalSure",
+    "cezaPuani": "gecikmeGunu > 0 ? (gecikmeGunu * (isverenTuru == 'kamu' ? 2 : 1.5)) : 0",
+    "riskSeviyesi": "cezaPuani > 10 ? 'yuksek' : (cezaPuani > 5 ? 'orta' : 'dusuk')",
+    "dataConfidenceAdjusted": "cezaPuani * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "cezaPuani",
+    "breakdown": {
+      "yasalSure": "yasalSure",
+      "gecikmeGunu": "gecikmeGunu",
+      "riskSeviyesi": "riskSeviyesi"
+    },
+    "hiddenLossDrivers": [
+      "gecikmeGunu > 0 ? 'Gecikme nedeniyle ceza puanı oluştu' : ''",
+      "bildirimGunu > 15 ? '15 günü aşan gecikme: idari para cezası riski' : ''"
+    ],
+    "suggestedActions": [
+      "gecikmeGunu > 0 ? 'Bildirimi en kısa sürede yapın, gecikme cezası artabilir' : 'Bildirim süresi içinde yapılmıştır'",
+      "riskSeviyesi == 'yuksek' ? 'Hukuki danışmanlık alınması önerilir' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş bildirimler)",
+    "Karşılaştırma (farklı işyerleri)"
+  ],
+  "premiumRequired": true
+}

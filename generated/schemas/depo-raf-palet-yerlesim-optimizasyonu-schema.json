@@ -1,0 +1,226 @@
+{
+  "toolName": "depo-raf-palet-yerlesim-optimizasyonu",
+  "inputs": [
+    {
+      "id": "depoGenislik",
+      "label": "Depo Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 50,
+      "min": 10,
+      "max": 200,
+      "options": null,
+      "businessContext": "Depo alanının genişliği. Depo yerleşim planlamasında temel boyut. Kaynak: WERC Depo Ölçütleri."
+    },
+    {
+      "id": "depoDerinlik",
+      "label": "Depo Derinliği",
+      "type": "number",
+      "unit": "m",
+      "default": 80,
+      "min": 20,
+      "max": 300,
+      "options": null,
+      "businessContext": "Depo alanının derinliği. Kaynak: WERC Depo Ölçütleri."
+    },
+    {
+      "id": "depoYukseklik",
+      "label": "Depo Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 12,
+      "min": 4,
+      "max": 30,
+      "options": null,
+      "businessContext": "Depo tavan yüksekliği. Raf yüksekliğini sınırlar. Kaynak: ISO 9001 depo yönetimi."
+    },
+    {
+      "id": "rafGenislik",
+      "label": "Raf Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 2.4,
+      "min": 1,
+      "max": 4,
+      "options": null,
+      "businessContext": "Standart palet raf genişliği. Kaynak: FEM 10.2.02 raf standartları."
+    },
+    {
+      "id": "rafDerinlik",
+      "label": "Raf Derinliği",
+      "type": "number",
+      "unit": "m",
+      "default": 1.2,
+      "min": 0.8,
+      "max": 2,
+      "options": null,
+      "businessContext": "Palet derinliğine bağlı raf derinliği. Kaynak: FEM 10.2.02."
+    },
+    {
+      "id": "rafYukseklik",
+      "label": "Raf Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 1.5,
+      "min": 1,
+      "max": 3,
+      "options": null,
+      "businessContext": "Her bir raf katının yüksekliği. Kaynak: FEM 10.2.02."
+    },
+    {
+      "id": "rafKatlari",
+      "label": "Raf Kat Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "min": 1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Dikeyde kaç kat raf olduğu. Depo yüksekliği ve raf yüksekliğine bağlı."
+    },
+    {
+      "id": "koridorGenislik",
+      "label": "Koridor Genişliği",
+      "type": "number",
+      "unit": "m",
+      "default": 3.5,
+      "min": 2,
+      "max": 6,
+      "options": null,
+      "businessContext": "Forklift manevra alanı. Kaynak: OSHA forklift güvenlik standartları."
+    },
+    {
+      "id": "paletBoyu",
+      "label": "Palet Boyu",
+      "type": "number",
+      "unit": "m",
+      "default": 1.2,
+      "min": 0.8,
+      "max": 1.5,
+      "options": null,
+      "businessContext": "Standart palet boyu (EUR palet 1.2m). Kaynak: ISO 6780."
+    },
+    {
+      "id": "paletEni",
+      "label": "Palet Eni",
+      "type": "number",
+      "unit": "m",
+      "default": 1,
+      "min": 0.8,
+      "max": 1.2,
+      "options": null,
+      "businessContext": "Standart palet eni (EUR palet 1.0m). Kaynak: ISO 6780."
+    },
+    {
+      "id": "paletYuksekligi",
+      "label": "Palet Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 1.2,
+      "min": 0.5,
+      "max": 2,
+      "options": null,
+      "businessContext": "Palet üzerindeki yük ile birlikte yükseklik."
+    },
+    {
+      "id": "blokSayisiX",
+      "label": "Blok Sayısı (X yönü)",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "min": 1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Depo genişliği boyunca raf blok sayısı. Her blok arasında koridor."
+    },
+    {
+      "id": "blokSayisiY",
+      "label": "Blok Sayısı (Y yönü)",
+      "type": "number",
+      "unit": "adet",
+      "default": 3,
+      "min": 1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Depo derinliği boyunca raf blok sayısı."
+    },
+    {
+      "id": "siraSayisi",
+      "label": "Blok Başına Raf Sıra Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "min": 1,
+      "max": 5,
+      "options": null,
+      "businessContext": "Her blokta arka arkaya kaç sıra raf olduğu (çift derinlik)."
+    },
+    {
+      "id": "dolulukOrani",
+      "label": "Doluluk Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Depo kapasitesinin ne kadarının kullanıldığı. Kaynak: WERC depo verimlilik raporları."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Düşükse sonuçlar düzeltilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "depoYukseklik >= rafYukseklik * rafKatlari + 0.5",
+      "koridorGenislik >= 2.5",
+      "dolulukOrani >= 0 && dolulukOrani <= 100"
+    ],
+    "thresholds": {
+      "dolulukOrani < 60": "Düşük doluluk oranı, alan optimizasyonu gerekli",
+      "dolulukOrani > 95": "Yüksek doluluk, darboğaz riski"
+    }
+  },
+  "formulas": {
+    "blokGenislik": "rafGenislik * siraSayisi + (siraSayisi - 1) * 0.1",
+    "blokDerinlik": "rafDerinlik",
+    "toplamRafAlani": "blokSayisiX * blokSayisiY * blokGenislik * blokDerinlik * rafKatlari",
+    "toplamPaletKapasitesi": "toplamRafAlani / (paletBoyu * paletEni)",
+    "kullanilanPalet": "toplamPaletKapasitesi * dolulukOrani / 100",
+    "alanKullanimOrani": "toplamRafAlani / (depoGenislik * depoDerinlik) * 100",
+    "dataConfidenceAdjusted": "kullanilanPalet * dataConfidence / 100"
+  },
+  "outputs": {
+    "primary": "kullanilanPalet",
+    "breakdown": {
+      "toplamRafAlani": "toplamRafAlani",
+      "toplamPaletKapasitesi": "toplamPaletKapasitesi",
+      "alanKullanimOrani": "alanKullanimOrani"
+    },
+    "hiddenLossDrivers": [
+      "dolulukOrani < 60 ? 'Düşük doluluk oranı' : null",
+      "dolulukOrani > 95 ? 'Yüksek doluluk oranı' : null"
+    ],
+    "suggestedActions": [
+      "dolulukOrani < 60 ? 'Raf düzenini gözden geçirin, dar koridor kullanın' : null",
+      "dolulukOrani > 95 ? 'Ek depo alanı kiralayın veya raf yüksekliğini artırın' : null"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırmalı senaryolar",
+    "Detaylı maliyet analizi"
+  ],
+  "premiumRequired": true
+}

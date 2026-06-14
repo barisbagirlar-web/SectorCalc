@@ -14,6 +14,7 @@ type CalculatorLibraryContentProps = {
   readonly freeToolsLabel: string;
   readonly premiumToolsLabel: string;
   readonly industriesLabel: string;
+  readonly generatedToolsLabel: string;
 };
 
 export function CalculatorLibraryContent({
@@ -28,6 +29,7 @@ export function CalculatorLibraryContent({
   freeToolsLabel,
   premiumToolsLabel,
   industriesLabel,
+  generatedToolsLabel,
 }: CalculatorLibraryContentProps) {
   return (
     <PageLayout>
@@ -86,6 +88,11 @@ export function CalculatorLibraryContent({
               <li>
                 <Link className="text-premium-copper hover:underline" href="/industries">
                   {industriesLabel}
+                </Link>
+              </li>
+              <li>
+                <Link className="text-premium-copper hover:underline" href="/tools/generated">
+                  {generatedToolsLabel}
                 </Link>
               </li>
             </ul>

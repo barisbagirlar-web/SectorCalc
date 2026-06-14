@@ -1,0 +1,178 @@
+{
+  "toolName": "landscaping-contract-profit-tool",
+  "inputs": [
+    {
+      "id": "contractValue",
+      "label": "Contract Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total contract amount agreed with client. Based on industry standard landscaping contracts."
+    },
+    {
+      "id": "materialCost",
+      "label": "Material Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 15000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of plants, soil, mulch, hardscape materials. Typically 30-40% of contract value."
+    },
+    {
+      "id": "laborHours",
+      "label": "Labor Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 200,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total estimated labor hours for the project. Based on work breakdown structure."
+    },
+    {
+      "id": "hourlyRate",
+      "label": "Hourly Labor Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 35,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average wage including burden. Industry benchmark: $30-$50/hr."
+    },
+    {
+      "id": "equipmentCost",
+      "label": "Equipment Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Rental or depreciation of machinery (mowers, excavators). Typically 10% of contract."
+    },
+    {
+      "id": "subcontractorCost",
+      "label": "Subcontractor Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost for specialized tasks (irrigation, lighting). If any."
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Indirect costs (office, insurance, permits). Industry average 10-20%."
+    },
+    {
+      "id": "contingencyPercent",
+      "label": "Contingency Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Buffer for unforeseen issues. Typical 5-15%."
+    },
+    {
+      "id": "profitMarginTarget",
+      "label": "Target Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Desired profit margin. Industry target 15-25%."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Reliability of input estimates. Low: rough, High: detailed takeoffs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "materialCost >= 0",
+      "laborHours >= 0",
+      "hourlyRate >= 0",
+      "equipmentCost >= 0",
+      "subcontractorCost >= 0",
+      "overheadPercent >= 0 && overheadPercent <= 100",
+      "contingencyPercent >= 0 && contingencyPercent <= 100",
+      "profitMarginTarget >= 0 && profitMarginTarget <= 100",
+      "contractValue > 0",
+      "if dataConfidence == 'low' then contingencyPercent >= 10"
+    ],
+    "thresholds": {
+      "profitMargin": "if profitMargin < 10 then 'Low profit margin warning'",
+      "overheadPercent": "if overheadPercent > 25 then 'High overhead warning'",
+      "contingencyPercent": "if contingencyPercent < 5 then 'Low contingency warning'"
+    }
+  },
+  "formulas": {
+    "totalDirectCost": "materialCost + (laborHours * hourlyRate) + equipmentCost + subcontractorCost",
+    "overheadCost": "totalDirectCost * (overheadPercent / 100)",
+    "contingencyCost": "totalDirectCost * (contingencyPercent / 100)",
+    "totalCost": "totalDirectCost + overheadCost + contingencyCost",
+    "profit": "contractValue - totalCost",
+    "profitMargin": "(profit / contractValue) * 100",
+    "isProfitable": "profitMargin >= profitMarginTarget",
+    "dataConfidenceAdjusted": "if dataConfidence == 'low' then profit * 0.8 else if dataConfidence == 'medium' then profit * 0.9 else profit"
+  },
+  "outputs": {
+    "primary": "profitMargin",
+    "breakdown": {
+      "totalDirectCost": "totalDirectCost",
+      "overheadCost": "overheadCost",
+      "contingencyCost": "contingencyCost",
+      "totalCost": "totalCost",
+      "profit": "profit"
+    },
+    "hiddenLossDrivers": [
+      "if profitMargin < 10 then 'Profit margin below 10%'",
+      "if overheadPercent > 25 then 'Overhead exceeds 25%'",
+      "if contingencyPercent < 5 then 'Contingency below 5%'"
+    ],
+    "suggestedActions": [
+      "if profitMargin < profitMarginTarget then 'Reduce material cost by negotiating with suppliers'",
+      "if profitMargin < profitMarginTarget then 'Optimize labor schedule to reduce hours'",
+      "if overheadPercent > 20 then 'Review indirect expenses for reduction'",
+      "if contingencyPercent < 5 then 'Increase contingency to at least 5%'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

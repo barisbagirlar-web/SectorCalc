@@ -1,0 +1,159 @@
+{
+  "toolName": "compressor-energy-cost-calculator",
+  "inputs": [
+    {
+      "id": "compressorPower",
+      "label": "Compressor Power",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Nominal power rating of the compressor motor. Based on ISO 1217 standard for compressor performance testing."
+    },
+    {
+      "id": "loadFactor",
+      "label": "Load Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of time the compressor operates at full load. Typical values from compressed air system audits (ISO 11011)."
+    },
+    {
+      "id": "operatingHoursPerDay",
+      "label": "Operating Hours per Day",
+      "type": "number",
+      "unit": "hours/day",
+      "default": 16,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Daily operating hours. Based on shift patterns and production schedules."
+    },
+    {
+      "id": "operatingDaysPerYear",
+      "label": "Operating Days per Year",
+      "type": "number",
+      "unit": "days/year",
+      "default": 300,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Annual operating days. Typical for industrial facilities."
+    },
+    {
+      "id": "electricityCost",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "min": 0.01,
+      "max": 1,
+      "options": null,
+      "businessContext": "Average electricity price. Based on local utility rates or EIA data."
+    },
+    {
+      "id": "motorEfficiency",
+      "label": "Motor Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Efficiency of the electric motor. Based on NEMA MG1 or IEC 60034 standards."
+    },
+    {
+      "id": "compressorType",
+      "label": "Compressor Type",
+      "type": "select",
+      "unit": "",
+      "default": "screw",
+      "min": null,
+      "max": null,
+      "options": [
+        "reciprocating",
+        "screw",
+        "centrifugal"
+      ],
+      "businessContext": "Type of compressor affects maintenance and efficiency factors. Based on ISO 5390 classification."
+    },
+    {
+      "id": "maintenanceFactor",
+      "label": "Maintenance Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Additional energy loss due to poor maintenance (e.g., leaks, dirty filters). Based on DOE compressed air guidelines."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data accuracy. Used for risk-adjusted outputs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "compressorPower > 0",
+      "loadFactor >= 0 and loadFactor <= 100",
+      "operatingHoursPerDay >= 0 and operatingHoursPerDay <= 24",
+      "operatingDaysPerYear >= 1 and operatingDaysPerYear <= 365",
+      "electricityCost > 0",
+      "motorEfficiency >= 50 and motorEfficiency <= 100",
+      "maintenanceFactor >= 0 and maintenanceFactor <= 20",
+      "dataConfidence >= 0 and dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "loadFactor < 50": "Low load factor indicates oversized compressor or inefficient operation. Consider variable speed drive or system optimization.",
+      "motorEfficiency < 85": "Motor efficiency below standard. Consider replacing with high-efficiency motor (NEMA Premium or IE3).",
+      "maintenanceFactor > 10": "High maintenance factor suggests significant leaks or poor maintenance. Conduct leak detection and repair program."
+    }
+  },
+  "formulas": {
+    "annualEnergyConsumption": "compressorPower * (loadFactor / 100) * operatingHoursPerDay * operatingDaysPerYear / (motorEfficiency / 100)",
+    "annualEnergyCost": "annualEnergyConsumption * electricityCost",
+    "annualMaintenanceLoss": "annualEnergyCost * (maintenanceFactor / 100)",
+    "totalAnnualCost": "annualEnergyCost + annualMaintenanceLoss",
+    "dataConfidenceAdjustedCost": "totalAnnualCost * (dataConfidence / 100) + totalAnnualCost * (1 - dataConfidence / 100) * 1.1"
+  },
+  "outputs": {
+    "primary": "totalAnnualCost",
+    "breakdown": {
+      "annualEnergyConsumption": "annualEnergyConsumption",
+      "annualEnergyCost": "annualEnergyCost",
+      "annualMaintenanceLoss": "annualMaintenanceLoss"
+    },
+    "hiddenLossDrivers": [
+      "loadFactor < 50 ? 'Low load factor' : ''",
+      "motorEfficiency < 85 ? 'Inefficient motor' : ''",
+      "maintenanceFactor > 10 ? 'High maintenance losses' : ''"
+    ],
+    "suggestedActions": [
+      "loadFactor < 50 ? 'Consider installing variable speed drive or staging multiple compressors.' : ''",
+      "motorEfficiency < 85 ? 'Replace motor with high-efficiency model (NEMA Premium or IE3).' : ''",
+      "maintenanceFactor > 10 ? 'Conduct compressed air leak detection and repair program.' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Breakdown"
+  ],
+  "premiumRequired": true
+}

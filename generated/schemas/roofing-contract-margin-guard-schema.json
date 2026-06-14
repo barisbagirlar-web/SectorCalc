@@ -1,0 +1,170 @@
+{
+  "toolName": "roofing-contract-margin-guard",
+  "inputs": [
+    {
+      "id": "contractValue",
+      "label": "Contract Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total contract amount agreed with client. Based on standard construction contract practices."
+    },
+    {
+      "id": "materialCost",
+      "label": "Material Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 40000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of roofing materials (shingles, underlayment, etc.). Referenced from RSMeans construction cost data."
+    },
+    {
+      "id": "laborCost",
+      "label": "Labor Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 30000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Direct labor cost for installation. Based on prevailing wage rates and crew size."
+    },
+    {
+      "id": "overheadPercent",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Indirect costs as percentage of direct costs. Typical range 10-20% for roofing contractors."
+    },
+    {
+      "id": "contingencyPercent",
+      "label": "Contingency Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Buffer for unforeseen costs. Industry standard 5-15%."
+    },
+    {
+      "id": "marginTarget",
+      "label": "Target Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Desired profit margin. Typical target 15-25% for roofing contracts."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in cost estimates. Low = rough estimate, High = detailed takeoff."
+    },
+    {
+      "id": "roofArea",
+      "label": "Roof Area",
+      "type": "number",
+      "unit": "sq ft",
+      "default": 2000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total roof surface area. Used for unit cost calculations."
+    },
+    {
+      "id": "complexityFactor",
+      "label": "Complexity Factor",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Roof complexity (pitch, penetrations, etc.). Low = simple gable, High = multiple hips/valleys."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "contractValue > 0",
+      "materialCost >= 0",
+      "laborCost >= 0",
+      "overheadPercent >= 0 && overheadPercent <= 100",
+      "contingencyPercent >= 0 && contingencyPercent <= 50",
+      "marginTarget >= 0 && marginTarget <= 100",
+      "roofArea > 0",
+      "if dataConfidence == 'low' then contingencyPercent >= 10",
+      "if complexityFactor == 'high' then laborCost > 0"
+    ],
+    "thresholds": {
+      "marginPercent < 10": "Warning: Margin below 10% - high risk of loss",
+      "marginPercent < marginTarget": "Alert: Margin below target",
+      "contingencyPercent > 20": "Warning: High contingency indicates poor cost estimation"
+    }
+  },
+  "formulas": {
+    "totalDirectCost": "materialCost + laborCost",
+    "overheadCost": "totalDirectCost * (overheadPercent / 100)",
+    "contingencyCost": "totalDirectCost * (contingencyPercent / 100)",
+    "totalCost": "totalDirectCost + overheadCost + contingencyCost",
+    "marginPercent": "((contractValue - totalCost) / contractValue) * 100",
+    "marginDollars": "contractValue - totalCost",
+    "unitCostPerSqFt": "totalCost / roofArea",
+    "dataConfidenceAdjustedMargin": "marginPercent * (dataConfidence == 'high' ? 1.0 : dataConfidence == 'medium' ? 0.9 : 0.8)"
+  },
+  "outputs": {
+    "primary": "marginPercent",
+    "breakdown": {
+      "totalDirectCost": "totalDirectCost",
+      "overheadCost": "overheadCost",
+      "contingencyCost": "contingencyCost",
+      "totalCost": "totalCost",
+      "marginDollars": "marginDollars",
+      "unitCostPerSqFt": "unitCostPerSqFt"
+    },
+    "hiddenLossDrivers": [
+      "if marginPercent < 10 then 'Margin below 10%'",
+      "if marginPercent < marginTarget then 'Margin below target'",
+      "if contingencyPercent > 20 then 'High contingency'"
+    ],
+    "suggestedActions": [
+      "if marginPercent < marginTarget then 'Review material and labor costs for savings opportunities'",
+      "if contingencyPercent > 20 then 'Improve cost estimation accuracy'",
+      "if complexityFactor == 'high' then 'Consider value engineering to reduce complexity'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedMargin"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

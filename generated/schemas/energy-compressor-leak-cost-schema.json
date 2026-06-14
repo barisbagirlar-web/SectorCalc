@@ -1,0 +1,171 @@
+{
+  "toolName": "energy-compressor-leak-cost",
+  "inputs": [
+    {
+      "id": "compressorPower",
+      "label": "Compressor Power",
+      "type": "number",
+      "unit": "kW",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Nominal power rating of the compressor. Based on ISO 1217 standard for compressor performance testing."
+    },
+    {
+      "id": "leakRate",
+      "label": "Leak Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Estimated percentage of compressed air lost through leaks. Typical industry benchmark: 20-30% for unmaintained systems (Compressed Air Challenge)."
+    },
+    {
+      "id": "operatingHoursPerDay",
+      "label": "Operating Hours per Day",
+      "type": "number",
+      "unit": "hours/day",
+      "default": 16,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Daily operating hours of the compressor. Used to calculate energy consumption over time."
+    },
+    {
+      "id": "operatingDaysPerYear",
+      "label": "Operating Days per Year",
+      "type": "number",
+      "unit": "days/year",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Number of days per year the compressor operates. Typical for industrial facilities: 250 days (5 days/week, 50 weeks)."
+    },
+    {
+      "id": "electricityCost",
+      "label": "Electricity Cost",
+      "type": "number",
+      "unit": "$/kWh",
+      "default": 0.12,
+      "min": 0.01,
+      "max": 1,
+      "options": null,
+      "businessContext": "Average cost of electricity per kilowatt-hour. Varies by region and utility rate structure."
+    },
+    {
+      "id": "motorEfficiency",
+      "label": "Motor Efficiency",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Efficiency of the compressor motor. Typical values: 85-95% for modern motors (NEMA MG1)."
+    },
+    {
+      "id": "loadFactor",
+      "label": "Load Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Average load factor of the compressor. Represents actual output as a percentage of full capacity."
+    },
+    {
+      "id": "maintenanceCostPerLeak",
+      "label": "Maintenance Cost per Leak",
+      "type": "number",
+      "unit": "$/leak",
+      "default": 50,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Average cost to repair a single leak, including labor and materials. Based on industry estimates."
+    },
+    {
+      "id": "numberOfLeaks",
+      "label": "Number of Leaks",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Estimated number of leaks in the compressed air system. Can be determined via ultrasonic leak detection."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data accuracy. Affects adjustment of final cost estimate. Low: ±30%, Medium: ±15%, High: ±5%."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "compressorPower > 0",
+      "leakRate >= 0 and leakRate <= 100",
+      "operatingHoursPerDay >= 0 and operatingHoursPerDay <= 24",
+      "operatingDaysPerYear >= 1 and operatingDaysPerYear <= 365",
+      "electricityCost > 0",
+      "motorEfficiency >= 50 and motorEfficiency <= 100",
+      "loadFactor >= 0 and loadFactor <= 100",
+      "maintenanceCostPerLeak >= 0",
+      "numberOfLeaks >= 0",
+      "if leakRate > 0 then numberOfLeaks > 0"
+    ],
+    "thresholds": {
+      "leakRate > 30": "High leak rate indicates urgent maintenance needed.",
+      "motorEfficiency < 80": "Motor efficiency below standard; consider replacement.",
+      "loadFactor < 50": "Compressor oversized; consider downsizing or variable speed drive."
+    }
+  },
+  "formulas": {
+    "annualEnergyConsumption": "compressorPower * (leakRate / 100) * operatingHoursPerDay * operatingDaysPerYear / (motorEfficiency / 100) * (loadFactor / 100)",
+    "annualEnergyCost": "annualEnergyConsumption * electricityCost",
+    "annualMaintenanceCost": "maintenanceCostPerLeak * numberOfLeaks",
+    "totalAnnualLeakCost": "annualEnergyCost + annualMaintenanceCost",
+    "dataConfidenceAdjusted": "totalAnnualLeakCost * (dataConfidence == 'low' ? 1.3 : (dataConfidence == 'medium' ? 1.15 : 1.05))"
+  },
+  "outputs": {
+    "primary": "totalAnnualLeakCost",
+    "breakdown": {
+      "annualEnergyCost": "annualEnergyCost",
+      "annualMaintenanceCost": "annualMaintenanceCost"
+    },
+    "hiddenLossDrivers": [
+      "leakRate > 30 ? 'High leak rate' : ''",
+      "motorEfficiency < 80 ? 'Low motor efficiency' : ''",
+      "loadFactor < 50 ? 'Low load factor' : ''"
+    ],
+    "suggestedActions": [
+      "leakRate > 20 ? 'Conduct ultrasonic leak detection and repair' : ''",
+      "motorEfficiency < 85 ? 'Consider motor replacement with high-efficiency motor' : ''",
+      "loadFactor < 60 ? 'Evaluate compressor sizing and consider variable speed drive' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Breakdown"
+  ],
+  "premiumRequired": true
+}

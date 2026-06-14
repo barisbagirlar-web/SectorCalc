@@ -1,0 +1,207 @@
+{
+  "toolName": "paketleme-malzemesi-strec-koli-sarfiyati",
+  "inputs": [
+    {
+      "id": "unitType",
+      "label": "Birim Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "koli",
+      "min": null,
+      "max": null,
+      "options": [
+        "koli",
+        "palet",
+        "adet"
+      ],
+      "businessContext": "Sarfiyat hesaplanacak birim türü. Koli bazında streç film tüketimi yaygın olarak kullanılır."
+    },
+    {
+      "id": "unitCount",
+      "label": "Birim Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "min": 1,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Sarfiyat hesaplanacak toplam birim sayısı. Üretim planına göre belirlenir."
+    },
+    {
+      "id": "filmWidth",
+      "label": "Streç Film Genişliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 50,
+      "min": 10,
+      "max": 200,
+      "options": null,
+      "businessContext": "Kullanılan streç film rulosunun genişliği. Standart ölçüler 50 cm'dir."
+    },
+    {
+      "id": "filmThickness",
+      "label": "Streç Film Kalınlığı",
+      "type": "number",
+      "unit": "micron",
+      "default": 20,
+      "min": 5,
+      "max": 50,
+      "options": null,
+      "businessContext": "Streç filmin mikron cinsinden kalınlığı. 15-25 mikron yaygındır."
+    },
+    {
+      "id": "wrapLayers",
+      "label": "Sarma Katman Sayısı",
+      "type": "number",
+      "unit": "kat",
+      "default": 2,
+      "min": 1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Her birim için sarılan streç film katman sayısı. Ambalaj gereksinimine göre değişir."
+    },
+    {
+      "id": "overlapRatio",
+      "label": "Bindirme Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Streç filmin her turda bir önceki tura bindirme oranı. Genelde %30-50 arası."
+    },
+    {
+      "id": "filmDensity",
+      "label": "Streç Film Yoğunluğu",
+      "type": "number",
+      "unit": "g/cm³",
+      "default": 0.92,
+      "min": 0.9,
+      "max": 0.96,
+      "options": null,
+      "businessContext": "Streç film malzemesinin yoğunluğu. Polietilen için yaklaşık 0.92 g/cm³."
+    },
+    {
+      "id": "unitLength",
+      "label": "Birim Uzunluğu",
+      "type": "number",
+      "unit": "cm",
+      "default": 40,
+      "min": 1,
+      "max": 200,
+      "options": null,
+      "businessContext": "Bir kolinin uzunluğu. Ortalama koli boyutlarına göre."
+    },
+    {
+      "id": "unitWidth",
+      "label": "Birim Genişliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "min": 1,
+      "max": 200,
+      "options": null,
+      "businessContext": "Bir kolinin genişliği."
+    },
+    {
+      "id": "unitHeight",
+      "label": "Birim Yüksekliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 20,
+      "min": 1,
+      "max": 200,
+      "options": null,
+      "businessContext": "Bir kolinin yüksekliği."
+    },
+    {
+      "id": "filmCostPerKg",
+      "label": "Streç Film Birim Maliyeti",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 30,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Streç filmin kilogram başına maliyeti. Güncel piyasa fiyatı."
+    },
+    {
+      "id": "wasteRate",
+      "label": "Fire Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Streç film kullanımındaki fire oranı. Operasyonel kayıplar."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirlik yüzdesi. Düşükse sonuç düzeltilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "filmWidth > 0",
+      "filmThickness > 0",
+      "wrapLayers >= 1",
+      "overlapRatio >= 0 && overlapRatio <= 100",
+      "filmDensity > 0",
+      "unitLength > 0",
+      "unitWidth > 0",
+      "unitHeight > 0",
+      "filmCostPerKg >= 0",
+      "wasteRate >= 0 && wasteRate <= 50",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "wasteRate > 10": "Fire oranı %10'un üzerinde, süreç iyileştirme önerilir.",
+      "wrapLayers > 5": "Katman sayısı 5'ten fazla, maliyet artışına dikkat."
+    }
+  },
+  "formulas": {
+    "unitPerimeter": "2 * (unitLength + unitWidth)",
+    "filmPerUnit": "(unitPerimeter * unitHeight * wrapLayers * (1 + overlapRatio/100)) / 10000",
+    "filmVolumePerUnit": "filmPerUnit * filmThickness / 10000",
+    "filmWeightPerUnit": "filmVolumePerUnit * filmDensity * 1000",
+    "totalFilmWeight": "unitCount * filmWeightPerUnit * (1 + wasteRate/100)",
+    "totalFilmCost": "totalFilmWeight * filmCostPerKg",
+    "costPerUnit": "totalFilmCost / unitCount",
+    "dataConfidenceAdjusted": "totalFilmCost * (1 + (100 - dataConfidence)/100)"
+  },
+  "outputs": {
+    "primary": "totalFilmCost",
+    "breakdown": {
+      "totalFilmWeight": "totalFilmWeight",
+      "filmPerUnit": "filmPerUnit",
+      "filmWeightPerUnit": "filmWeightPerUnit",
+      "costPerUnit": "costPerUnit"
+    },
+    "hiddenLossDrivers": [
+      "wasteRate > 10 ? 'Yüksek fire oranı' : ''",
+      "wrapLayers > 5 ? 'Aşırı katman kullanımı' : ''"
+    ],
+    "suggestedActions": [
+      "Fire oranını azaltmak için eğitim ve süreç iyileştirme yapın.",
+      "Katman sayısını optimize ederek maliyeti düşürün.",
+      "Streç film kalınlığını gereksinime göre ayarlayın."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

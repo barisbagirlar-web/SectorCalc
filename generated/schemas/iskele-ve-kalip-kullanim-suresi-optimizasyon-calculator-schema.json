@@ -1,0 +1,193 @@
+{
+  "toolName": "iskele-ve-kalip-kullanim-suresi-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "projectDuration",
+      "label": "Proje Süresi (gün)",
+      "type": "number",
+      "unit": "gün",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Toplam proje süresi, iskele/kalıp kullanım planlamasının temelini oluşturur. İnşaat yönetiminde kritik yol yöntemi (CPM) ile belirlenir."
+    },
+    {
+      "id": "scaffoldQuantity",
+      "label": "İskele Miktarı (m²)",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Kullanılacak iskele alanı, iş güvenliği ve verimlilik hesaplamalarında temel girdidir. TS EN 12811 standardına uygun olarak belirlenir."
+    },
+    {
+      "id": "formworkQuantity",
+      "label": "Kalıp Miktarı (m²)",
+      "type": "number",
+      "unit": "m²",
+      "default": 500,
+      "min": 0,
+      "max": 50000,
+      "options": null,
+      "businessContext": "Betonarme yapılarda kullanılan kalıp alanı, maliyet ve süre optimizasyonu için kritiktir. TS 500 standardı referans alınır."
+    },
+    {
+      "id": "dailyScaffoldCost",
+      "label": "Günlük İskele Birim Maliyeti (TL/m²)",
+      "type": "number",
+      "unit": "TL/m²/gün",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "İskelenin günlük kiralama veya amortisman maliyeti. Piyasa koşullarına ve ekipman yaşına bağlıdır."
+    },
+    {
+      "id": "dailyFormworkCost",
+      "label": "Günlük Kalıp Birim Maliyeti (TL/m²)",
+      "type": "number",
+      "unit": "TL/m²/gün",
+      "default": 8,
+      "min": 0,
+      "max": 150,
+      "options": null,
+      "businessContext": "Kalıbın günlük kullanım maliyeti. Kalıp türüne (ahşap, çelik) göre değişir."
+    },
+    {
+      "id": "setupTime",
+      "label": "Kurulum Süresi (gün)",
+      "type": "number",
+      "unit": "gün",
+      "default": 2,
+      "min": 0,
+      "max": 30,
+      "options": null,
+      "businessContext": "İskele/kalıp kurulumu için gereken süre. İş gücü verimliliği ve ekipman hazırlığına bağlıdır."
+    },
+    {
+      "id": "dismantleTime",
+      "label": "Söküm Süresi (gün)",
+      "type": "number",
+      "unit": "gün",
+      "default": 1,
+      "min": 0,
+      "max": 30,
+      "options": null,
+      "businessContext": "İskele/kalıp sökümü için gereken süre. Güvenlik prosedürleri ve işçilik verimliliği etkiler."
+    },
+    {
+      "id": "laborCostPerDay",
+      "label": "Günlük İşçilik Maliyeti (TL/gün)",
+      "type": "number",
+      "unit": "TL/gün",
+      "default": 500,
+      "min": 0,
+      "max": 5000,
+      "options": null,
+      "businessContext": "Kurulum ve söküm işçilik maliyeti. Asgari ücret ve vasıf seviyesine göre belirlenir."
+    },
+    {
+      "id": "numWorkers",
+      "label": "İşçi Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 5,
+      "min": 1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Kurulum ve sökümde çalışan işçi sayısı. İş sağlığı ve güvenliği yönetmeliklerine uygun olmalıdır."
+    },
+    {
+      "id": "optimizationMode",
+      "label": "Optimizasyon Modu",
+      "type": "select",
+      "unit": "",
+      "default": "cost",
+      "min": null,
+      "max": null,
+      "options": [
+        "cost",
+        "time",
+        "balanced"
+      ],
+      "businessContext": "Optimizasyon hedefi: maliyet minimizasyonu, süre minimizasyonu veya dengeli yaklaşım. Lean prensiplerine dayanır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni Seviyesi",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar daha muhafazakar hesaplanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "setupTime + dismantleTime <= projectDuration",
+      "scaffoldQuantity >= 0",
+      "formworkQuantity >= 0",
+      "dailyScaffoldCost >= 0",
+      "dailyFormworkCost >= 0",
+      "laborCostPerDay >= 0",
+      "numWorkers >= 1"
+    ],
+    "thresholds": {
+      "totalCostPerM2": "100",
+      "setupTimeRatio": "0.3"
+    }
+  },
+  "formulas": {
+    "totalScaffoldCost": "scaffoldQuantity * dailyScaffoldCost * projectDuration",
+    "totalFormworkCost": "formworkQuantity * dailyFormworkCost * projectDuration",
+    "totalLaborCost": "laborCostPerDay * (setupTime + dismantleTime) * numWorkers",
+    "totalCost": "totalScaffoldCost + totalFormworkCost + totalLaborCost",
+    "totalCostPerM2": "totalCost / (scaffoldQuantity + formworkQuantity)",
+    "setupTimeRatio": "setupTime / projectDuration",
+    "dismantleTimeRatio": "dismantleTime / projectDuration",
+    "effectiveUsageDays": "projectDuration - setupTime - dismantleTime",
+    "costPerEffectiveDay": "totalCost / effectiveUsageDays",
+    "optimizationScore": "optimizationMode == 'cost' ? totalCost : (optimizationMode == 'time' ? projectDuration : totalCost * projectDuration)",
+    "dataConfidenceAdjusted": "dataConfidence == 'low' ? totalCost * 1.2 : (dataConfidence == 'medium' ? totalCost * 1.1 : totalCost)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "totalScaffoldCost": "totalScaffoldCost",
+      "totalFormworkCost": "totalFormworkCost",
+      "totalLaborCost": "totalLaborCost",
+      "totalCostPerM2": "totalCostPerM2",
+      "effectiveUsageDays": "effectiveUsageDays",
+      "costPerEffectiveDay": "costPerEffectiveDay",
+      "setupTimeRatio": "setupTimeRatio",
+      "dismantleTimeRatio": "dismantleTimeRatio"
+    },
+    "hiddenLossDrivers": [
+      "totalCostPerM2 > 100 ? 'Birim maliyet yüksek, alternatif ekipman değerlendirilmeli' : ''",
+      "setupTimeRatio > 0.3 ? 'Kurulum süresi oranı yüksek, SMED uygulanabilir' : ''"
+    ],
+    "suggestedActions": [
+      "setupTimeRatio > 0.3 ? 'Kurulum süresini azaltmak için SMED tekniği uygulayın' : 'Kurulum süresi kabul edilebilir seviyede'",
+      "totalCostPerM2 > 100 ? 'Daha düşük maliyetli iskele/kalıp tedarikçileri araştırın' : 'Maliyetler kontrol altında'",
+      "effectiveUsageDays < projectDuration * 0.5 ? 'Kullanım süresini artırmak için iş programını gözden geçirin' : 'Kullanım süresi verimli'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma (farklı senaryolar)",
+    "Detaylı maliyet kırılımı raporu"
+  ],
+  "premiumRequired": true
+}

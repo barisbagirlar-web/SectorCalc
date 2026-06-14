@@ -1,0 +1,64 @@
+{
+  "toolName": "yamuk-alani-hesaplama",
+  "inputs": [
+    {
+      "id": "ustKenar",
+      "label": "Üst Kenar Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yamuğun paralel kenarlarından kısa olanı. Geometrik tanım gereği."
+    },
+    {
+      "id": "altKenar",
+      "label": "Alt Kenar Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yamuğun paralel kenarlarından uzun olanı. Geometrik tanım gereği."
+    },
+    {
+      "id": "yukseklik",
+      "label": "Yükseklik",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yamuğun paralel kenarları arasındaki dik mesafe. Geometrik tanım gereği."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "ustKenar >= 0",
+      "altKenar >= 0",
+      "yukseklik >= 0",
+      "ustKenar + altKenar > 0"
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "alan": "(ustKenar + altKenar) * yukseklik / 2"
+  },
+  "outputs": {
+    "primary": "alan",
+    "breakdown": {},
+    "hiddenLossDrivers": [],
+    "suggestedActions": [],
+    "dataConfidenceAdjusted": "alan"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison"
+  ],
+  "premiumRequired": false
+}

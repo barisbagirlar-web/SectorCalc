@@ -1,0 +1,171 @@
+{
+  "toolName": "employee-total-cost-calculator",
+  "inputs": [
+    {
+      "id": "annualSalary",
+      "label": "Annual Salary",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Base salary paid to employee per year. Standard HR practice."
+    },
+    {
+      "id": "bonusPercentage",
+      "label": "Bonus Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Annual bonus as percentage of salary. Common in compensation packages."
+    },
+    {
+      "id": "benefitsCost",
+      "label": "Benefits Cost",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 15000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Health insurance, retirement contributions, etc. Typical range 30-40% of salary."
+    },
+    {
+      "id": "payrollTaxRate",
+      "label": "Payroll Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 7.65,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Social Security and Medicare taxes (FICA). US standard 7.65%."
+    },
+    {
+      "id": "trainingCost",
+      "label": "Training Cost",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 2000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Annual training expenses per employee. Industry benchmark varies."
+    },
+    {
+      "id": "equipmentCost",
+      "label": "Equipment Cost",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Laptop, tools, etc. Depreciated annually."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Overhead Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Facilities, utilities, admin support. Common allocation method."
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Working Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 260,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Standard workdays excluding weekends and holidays."
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "Hours per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 1,
+      "max": 24,
+      "options": null,
+      "businessContext": "Standard working hours per day."
+    },
+    {
+      "id": "productivityRate",
+      "label": "Productivity Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of paid time actually productive. Lean metric."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualSalary > 0",
+      "bonusPercentage >= 0",
+      "benefitsCost >= 0",
+      "payrollTaxRate >= 0",
+      "trainingCost >= 0",
+      "equipmentCost >= 0",
+      "overheadRate >= 0",
+      "workingDaysPerYear > 0",
+      "hoursPerDay > 0",
+      "productivityRate > 0 && productivityRate <= 100"
+    ],
+    "thresholds": {
+      "productivityRate < 70": "Low productivity warning: consider process improvement.",
+      "overheadRate > 50": "High overhead: review allocation or reduce costs.",
+      "benefitsCost > 0.4 * annualSalary": "Benefits cost exceeds 40% of salary: benchmark against industry."
+    }
+  },
+  "formulas": {
+    "totalAnnualCost": "annualSalary + (annualSalary * bonusPercentage / 100) + benefitsCost + (annualSalary * payrollTaxRate / 100) + trainingCost + equipmentCost + (annualSalary * overheadRate / 100)",
+    "totalHourlyCost": "totalAnnualCost / (workingDaysPerYear * hoursPerDay)",
+    "effectiveHourlyCost": "totalHourlyCost / (productivityRate / 100)",
+    "costPerProductiveHour": "totalAnnualCost / (workingDaysPerYear * hoursPerDay * productivityRate / 100)"
+  },
+  "outputs": {
+    "primary": "totalAnnualCost",
+    "breakdown": {
+      "baseSalary": "annualSalary",
+      "bonus": "annualSalary * bonusPercentage / 100",
+      "benefits": "benefitsCost",
+      "payrollTax": "annualSalary * payrollTaxRate / 100",
+      "training": "trainingCost",
+      "equipment": "equipmentCost",
+      "overhead": "annualSalary * overheadRate / 100"
+    },
+    "hiddenLossDrivers": [
+      "productivityRate < 70 ? 'Low productivity' : ''",
+      "overheadRate > 50 ? 'High overhead' : ''",
+      "benefitsCost > 0.4 * annualSalary ? 'High benefits' : ''"
+    ],
+    "suggestedActions": [
+      "If productivity low: implement Lean or Six Sigma.",
+      "If overhead high: review indirect costs.",
+      "If benefits high: benchmark plans."
+    ],
+    "dataConfidenceAdjusted": "totalAnnualCost * (1 - (1 - dataConfidence) * 0.1)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

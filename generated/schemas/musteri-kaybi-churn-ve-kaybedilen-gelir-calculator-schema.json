@@ -1,0 +1,136 @@
+{
+  "toolName": "musteri-kaybi-churn-ve-kaybedilen-gelir-calculator",
+  "inputs": [
+    {
+      "id": "totalCustomers",
+      "label": "Toplam Müşteri Sayısı (Dönem Başı)",
+      "type": "number",
+      "unit": "kişi",
+      "default": 1000,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Dönem başındaki toplam aktif müşteri sayısı. CRM verilerinden alınır."
+    },
+    {
+      "id": "churnedCustomers",
+      "label": "Kaybedilen Müşteri Sayısı (Dönem İçi)",
+      "type": "number",
+      "unit": "kişi",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Belirli bir dönemde (ay/çeyrek/yıl) hizmeti bırakan müşteri sayısı."
+    },
+    {
+      "id": "averageRevenuePerCustomer",
+      "label": "Müşteri Başına Ortalama Gelir (Dönemlik)",
+      "type": "number",
+      "unit": "para birimi",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Dönem boyunca müşteri başına elde edilen ortalama gelir. Finansal kayıtlardan alınır."
+    },
+    {
+      "id": "periodMonths",
+      "label": "Dönem Uzunluğu (Ay)",
+      "type": "number",
+      "unit": "ay",
+      "default": 12,
+      "min": 1,
+      "max": 60,
+      "options": null,
+      "businessContext": "Analiz döneminin ay cinsinden uzunluğu. Genellikle 12 ay (yıllık) kullanılır."
+    },
+    {
+      "id": "customerLifetimeMonths",
+      "label": "Ortalama Müşteri Ömrü (Ay)",
+      "type": "number",
+      "unit": "ay",
+      "default": 36,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Bir müşterinin ortalama olarak hizmet almaya devam ettiği süre. Geçmiş verilerden hesaplanır."
+    },
+    {
+      "id": "discountRate",
+      "label": "İskonto Oranı (Yıllık, %)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Gelecekteki nakit akışlarını bugüne indirgemek için kullanılan oran. Sermaye maliyeti veya hedef getiri oranı."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni Seviyesi",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük ise sonuçlar daha muhafazakar hesaplanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "churnedCustomers <= totalCustomers",
+      "averageRevenuePerCustomer >= 0",
+      "periodMonths > 0",
+      "customerLifetimeMonths > 0",
+      "discountRate >= 0 and discountRate <= 100"
+    ],
+    "thresholds": {
+      "churnRate": "churnRate > 0.05 ? 'Yüksek müşteri kaybı oranı' : ''",
+      "lostRevenue": "lostRevenue > 100000 ? 'Önemli gelir kaybı' : ''"
+    }
+  },
+  "formulas": {
+    "churnRate": "churnedCustomers / totalCustomers",
+    "monthlyChurnRate": "churnedCustomers / (totalCustomers * periodMonths)",
+    "lostRevenuePeriod": "churnedCustomers * averageRevenuePerCustomer",
+    "annualLostRevenue": "lostRevenuePeriod * (12 / periodMonths)",
+    "customerLifetimeValue": "averageRevenuePerCustomer * customerLifetimeMonths",
+    "totalLostLifetimeValue": "churnedCustomers * customerLifetimeValue",
+    "discountedLostRevenue": "totalLostLifetimeValue / (1 + discountRate/100)^(periodMonths/12)"
+  },
+  "outputs": {
+    "primary": "annualLostRevenue",
+    "breakdown": {
+      "churnRate": "churnRate",
+      "monthlyChurnRate": "monthlyChurnRate",
+      "lostRevenuePeriod": "lostRevenuePeriod",
+      "totalLostLifetimeValue": "totalLostLifetimeValue",
+      "discountedLostRevenue": "discountedLostRevenue"
+    },
+    "hiddenLossDrivers": [
+      "churnRate > 0.05 ? 'Yüksek müşteri kaybı oranı' : ''",
+      "lostRevenuePeriod > 100000 ? 'Önemli gelir kaybı' : ''"
+    ],
+    "suggestedActions": [
+      "Müşteri memnuniyeti anketleri düzenleyin.",
+      "Sadakat programları başlatın.",
+      "Müşteri hizmetleri kalitesini artırın.",
+      "Rekabet analizi yaparak fiyatlandırmayı gözden geçirin."
+    ],
+    "dataConfidenceAdjusted": "dataConfidence == 'low' ? annualLostRevenue * 0.8 : (dataConfidence == 'medium' ? annualLostRevenue * 0.9 : annualLostRevenue)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (geçmiş dönemlerle karşılaştırma)",
+    "Detaylı rapor (segment bazında kırılım)",
+    "Simülasyon (farklı senaryolar)"
+  ],
+  "premiumRequired": true
+}

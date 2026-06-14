@@ -1,0 +1,173 @@
+{
+  "toolName": "prefabrik-konteyner-olcu-hesaplama",
+  "inputs": [
+    {
+      "id": "containerLength",
+      "label": "Container Length (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "min": 2,
+      "max": 15,
+      "options": null,
+      "businessContext": "Standard container lengths per ISO 668. Typical lengths: 6m, 12m."
+    },
+    {
+      "id": "containerWidth",
+      "label": "Container Width (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 2.4,
+      "min": 2,
+      "max": 3,
+      "options": null,
+      "businessContext": "Standard width per ISO 668. Typical width: 2.4m."
+    },
+    {
+      "id": "containerHeight",
+      "label": "Container Height (m)",
+      "type": "number",
+      "unit": "m",
+      "default": 2.6,
+      "min": 2.4,
+      "max": 3,
+      "options": null,
+      "businessContext": "Standard height per ISO 668. Typical heights: 2.6m (standard), 2.9m (high cube)."
+    },
+    {
+      "id": "wallThickness",
+      "label": "Wall Thickness (mm)",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 30,
+      "max": 100,
+      "options": null,
+      "businessContext": "Insulation and structural thickness. Common values: 50mm, 75mm, 100mm."
+    },
+    {
+      "id": "materialType",
+      "label": "Material Type",
+      "type": "select",
+      "unit": "",
+      "default": "steel",
+      "min": null,
+      "max": null,
+      "options": [
+        "steel",
+        "aluminum",
+        "composite"
+      ],
+      "businessContext": "Structural material. Steel is most common for durability; aluminum for lightweight; composite for insulation."
+    },
+    {
+      "id": "hasInsulation",
+      "label": "Has Insulation",
+      "type": "boolean",
+      "unit": "",
+      "default": true,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Indicates if container includes thermal insulation. Affects usable internal dimensions."
+    },
+    {
+      "id": "doorType",
+      "label": "Door Type",
+      "type": "select",
+      "unit": "",
+      "default": "single",
+      "min": null,
+      "max": null,
+      "options": [
+        "single",
+        "double",
+        "roll-up"
+      ],
+      "businessContext": "Door configuration affects opening width and usable space."
+    },
+    {
+      "id": "windowCount",
+      "label": "Number of Windows",
+      "type": "number",
+      "unit": "pcs",
+      "default": 0,
+      "min": 0,
+      "max": 4,
+      "options": null,
+      "businessContext": "Windows reduce wall area but improve natural lighting. Typical range 0-4."
+    },
+    {
+      "id": "floorType",
+      "label": "Floor Type",
+      "type": "select",
+      "unit": "",
+      "default": "plywood",
+      "min": null,
+      "max": null,
+      "options": [
+        "plywood",
+        "steel",
+        "composite"
+      ],
+      "businessContext": "Floor material affects load capacity and durability."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "containerLength >= 2 && containerLength <= 15",
+      "containerWidth >= 2 && containerWidth <= 3",
+      "containerHeight >= 2.4 && containerHeight <= 3",
+      "wallThickness >= 30 && wallThickness <= 100",
+      "windowCount >= 0 && windowCount <= 4",
+      "if (hasInsulation == false) then wallThickness >= 30 else wallThickness >= 50"
+    ],
+    "thresholds": {
+      "internalVolume": "if internalVolume < 10 then 'Small container' else if internalVolume < 30 then 'Medium container' else 'Large container'",
+      "wallThickness": "if wallThickness > 80 then 'Heavy insulation'"
+    }
+  },
+  "formulas": {
+    "internalLength": "containerLength - 2 * (wallThickness / 1000)",
+    "internalWidth": "containerWidth - 2 * (wallThickness / 1000)",
+    "internalHeight": "containerHeight - (hasInsulation ? 0.1 : 0) - (wallThickness / 1000)",
+    "internalVolume": "internalLength * internalWidth * internalHeight",
+    "floorArea": "internalLength * internalWidth",
+    "wallArea": "2 * (internalLength + internalWidth) * internalHeight",
+    "doorOpeningWidth": "doorType == 'single' ? 0.9 : (doorType == 'double' ? 1.8 : 2.4)",
+    "windowArea": "windowCount * 0.5",
+    "usableWallArea": "wallArea - doorOpeningWidth * internalHeight - windowArea",
+    "totalWeight": "materialType == 'steel' ? 2000 : (materialType == 'aluminum' ? 1000 : 1500) + (hasInsulation ? 200 : 0) + floorType == 'steel' ? 300 : 100"
+  },
+  "outputs": {
+    "primary": "internalVolume",
+    "breakdown": {
+      "internalLength": "internalLength",
+      "internalWidth": "internalWidth",
+      "internalHeight": "internalHeight",
+      "floorArea": "floorArea",
+      "wallArea": "wallArea",
+      "doorOpeningWidth": "doorOpeningWidth",
+      "windowArea": "windowArea",
+      "usableWallArea": "usableWallArea",
+      "totalWeight": "totalWeight"
+    },
+    "hiddenLossDrivers": [
+      "if internalVolume < 10 then 'Volume too small for standard use'",
+      "if wallThickness > 80 then 'Excessive insulation reduces internal space'"
+    ],
+    "suggestedActions": [
+      "if internalVolume < 10 then 'Consider increasing container dimensions or reducing wall thickness'",
+      "if wallThickness > 80 then 'Evaluate if heavy insulation is necessary; consider alternative materials'"
+    ],
+    "dataConfidenceAdjusted": "internalVolume * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Standard Containers",
+    "Detailed Report with Material List"
+  ],
+  "premiumRequired": true
+}

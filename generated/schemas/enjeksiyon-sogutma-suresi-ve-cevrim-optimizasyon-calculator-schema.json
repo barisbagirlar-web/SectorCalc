@@ -1,0 +1,269 @@
+{
+  "toolName": "enjeksiyon-sogutma-suresi-ve-cevrim-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "partThickness",
+      "label": "Part Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 3,
+      "min": 0.5,
+      "max": 20,
+      "options": null,
+      "businessContext": "Maximum wall thickness of the plastic part. Critical for cooling time calculation. Based on ISO 294-4 and standard injection molding handbooks."
+    },
+    {
+      "id": "thermalDiffusivity",
+      "label": "Thermal Diffusivity of Material",
+      "type": "number",
+      "unit": "mm²/s",
+      "default": 0.1,
+      "min": 0.05,
+      "max": 0.3,
+      "options": null,
+      "businessContext": "Material property; typical values: PP ~0.08, ABS ~0.1, PC ~0.12. Source: material datasheets."
+    },
+    {
+      "id": "moldTemperature",
+      "label": "Mold Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 40,
+      "min": 10,
+      "max": 120,
+      "options": null,
+      "businessContext": "Temperature of the mold surface. Affects cooling rate. Typical range 20-80°C for amorphous polymers."
+    },
+    {
+      "id": "meltTemperature",
+      "label": "Melt Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 230,
+      "min": 150,
+      "max": 350,
+      "options": null,
+      "businessContext": "Temperature of the molten plastic entering the mold. Based on material supplier recommendations."
+    },
+    {
+      "id": "ejectionTemperature",
+      "label": "Ejection Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 90,
+      "min": 40,
+      "max": 150,
+      "options": null,
+      "businessContext": "Temperature at which part can be ejected without deformation. Typically 20-40°C below glass transition temperature."
+    },
+    {
+      "id": "injectionTime",
+      "label": "Injection Time",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "min": 0.1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Time to fill the mold cavity. Depends on machine and part geometry."
+    },
+    {
+      "id": "packingTime",
+      "label": "Packing Time",
+      "type": "number",
+      "unit": "s",
+      "default": 2,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Time for holding pressure after filling to compensate shrinkage."
+    },
+    {
+      "id": "moldOpenCloseTime",
+      "label": "Mold Open/Close Time",
+      "type": "number",
+      "unit": "s",
+      "default": 3,
+      "min": 0.5,
+      "max": 20,
+      "options": null,
+      "businessContext": "Time to open and close the mold. Depends on machine speed."
+    },
+    {
+      "id": "ejectionTime",
+      "label": "Ejection Time",
+      "type": "number",
+      "unit": "s",
+      "default": 1,
+      "min": 0.2,
+      "max": 10,
+      "options": null,
+      "businessContext": "Time to eject the part from the mold."
+    },
+    {
+      "id": "cycleTimeTarget",
+      "label": "Target Cycle Time",
+      "type": "number",
+      "unit": "s",
+      "default": 30,
+      "min": 5,
+      "max": 120,
+      "options": null,
+      "businessContext": "Desired cycle time for production planning."
+    },
+    {
+      "id": "materialCostPerKg",
+      "label": "Material Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 2.5,
+      "min": 0.1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Cost of plastic material per kilogram."
+    },
+    {
+      "id": "partWeight",
+      "label": "Part Weight",
+      "type": "number",
+      "unit": "g",
+      "default": 50,
+      "min": 1,
+      "max": 5000,
+      "options": null,
+      "businessContext": "Weight of the finished part."
+    },
+    {
+      "id": "machineHourlyRate",
+      "label": "Machine Hourly Rate",
+      "type": "number",
+      "unit": "USD/h",
+      "default": 50,
+      "min": 10,
+      "max": 500,
+      "options": null,
+      "businessContext": "Cost per hour to run the injection molding machine."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "USD/h",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Operator labor cost per hour."
+    },
+    {
+      "id": "cavityCount",
+      "label": "Number of Cavities",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 1,
+      "max": 128,
+      "options": null,
+      "businessContext": "Number of parts produced per cycle."
+    },
+    {
+      "id": "scrapRate",
+      "label": "Scrap Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Percentage of parts rejected. Typical range 1-5%."
+    },
+    {
+      "id": "energyCostPerKwh",
+      "label": "Energy Cost per kWh",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.12,
+      "min": 0.01,
+      "max": 1,
+      "options": null,
+      "businessContext": "Electricity cost for the machine."
+    },
+    {
+      "id": "machinePower",
+      "label": "Machine Power",
+      "type": "number",
+      "unit": "kW",
+      "default": 50,
+      "min": 5,
+      "max": 500,
+      "options": null,
+      "businessContext": "Power consumption of the injection molding machine."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "ejectionTemperature must be less than meltTemperature",
+      "moldTemperature must be less than ejectionTemperature",
+      "injectionTime must be positive",
+      "packingTime must be non-negative",
+      "partThickness must be positive",
+      "thermalDiffusivity must be positive",
+      "cycleTimeTarget must be greater than sum of injectionTime, packingTime, coolingTime, moldOpenCloseTime, ejectionTime"
+    ],
+    "thresholds": {
+      "coolingTimeExceedsTarget": "coolingTime > cycleTimeTarget * 0.5",
+      "scrapRateHigh": "scrapRate > 5",
+      "cycleTimeHigh": "cycleTime > cycleTimeTarget * 1.2"
+    }
+  },
+  "formulas": {
+    "coolingTime": "((partThickness^2) / (thermalDiffusivity * pi^2)) * ln((4/pi) * ((meltTemperature - moldTemperature) / (ejectionTemperature - moldTemperature)))",
+    "cycleTime": "injectionTime + packingTime + coolingTime + moldOpenCloseTime + ejectionTime",
+    "cycleTimePerPart": "cycleTime / cavityCount",
+    "partsPerHour": "3600 / cycleTimePerPart",
+    "materialCostPerPart": "(partWeight / 1000) * materialCostPerKg",
+    "machineCostPerPart": "(machineHourlyRate / 3600) * cycleTimePerPart",
+    "laborCostPerPart": "(laborCostPerHour / 3600) * cycleTimePerPart",
+    "energyCostPerPart": "(machinePower * (cycleTimePerPart / 3600)) * energyCostPerKwh",
+    "totalCostPerPart": "materialCostPerPart + machineCostPerPart + laborCostPerPart + energyCostPerPart",
+    "totalCostPerPartWithScrap": "totalCostPerPart / (1 - scrapRate/100)",
+    "annualProductionVolume": "partsPerHour * 24 * 365 * 0.85",
+    "annualCost": "totalCostPerPartWithScrap * annualProductionVolume"
+  },
+  "outputs": {
+    "primary": "totalCostPerPartWithScrap",
+    "breakdown": {
+      "coolingTime": "coolingTime",
+      "cycleTime": "cycleTime",
+      "partsPerHour": "partsPerHour",
+      "materialCostPerPart": "materialCostPerPart",
+      "machineCostPerPart": "machineCostPerPart",
+      "laborCostPerPart": "laborCostPerPart",
+      "energyCostPerPart": "energyCostPerPart",
+      "totalCostPerPart": "totalCostPerPart",
+      "annualProductionVolume": "annualProductionVolume",
+      "annualCost": "annualCost"
+    },
+    "hiddenLossDrivers": [
+      "coolingTime > cycleTimeTarget * 0.5 ? 'Cooling time is too high; consider reducing part thickness or increasing thermal diffusivity.' : ''",
+      "scrapRate > 5 ? 'Scrap rate exceeds 5%; investigate process parameters or material quality.' : ''",
+      "cycleTime > cycleTimeTarget * 1.2 ? 'Cycle time exceeds target by more than 20%; optimize injection or cooling parameters.' : ''"
+    ],
+    "suggestedActions": [
+      "If cooling time is high, consider using a material with higher thermal diffusivity or reducing part thickness.",
+      "Optimize mold temperature and cooling channel design to reduce cooling time.",
+      "Reduce injection and packing times if possible without affecting quality.",
+      "Increase cavity count to improve productivity.",
+      "Implement preventive maintenance to reduce scrap rate."
+    ],
+    "dataConfidenceAdjusted": "totalCostPerPartWithScrap * (1 + (1 - dataConfidence) * 0.1)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Scenario Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

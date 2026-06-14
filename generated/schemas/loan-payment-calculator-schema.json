@@ -1,0 +1,128 @@
+{
+  "toolName": "loan-payment-calculator",
+  "inputs": [
+    {
+      "id": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Principal amount borrowed. Standard financial practice per GAAP."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Annual nominal interest rate. Based on market rates and lender terms."
+    },
+    {
+      "id": "loanTermMonths",
+      "label": "Loan Term (Months)",
+      "type": "number",
+      "unit": "months",
+      "default": 60,
+      "min": 1,
+      "max": 480,
+      "options": null,
+      "businessContext": "Duration of loan in months. Common terms: 12, 24, 36, 48, 60, 120, 240, 360."
+    },
+    {
+      "id": "paymentFrequency",
+      "label": "Payment Frequency",
+      "type": "select",
+      "unit": "",
+      "default": "monthly",
+      "min": null,
+      "max": null,
+      "options": [
+        "monthly",
+        "biweekly",
+        "weekly"
+      ],
+      "businessContext": "How often payments are made. Affects compounding and total interest."
+    },
+    {
+      "id": "extraPayment",
+      "label": "Extra Payment per Period",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Additional principal payment each period to reduce loan term and interest."
+    },
+    {
+      "id": "compoundFrequency",
+      "label": "Compounding Frequency",
+      "type": "select",
+      "unit": "",
+      "default": "monthly",
+      "min": null,
+      "max": null,
+      "options": [
+        "monthly",
+        "quarterly",
+        "semi-annually",
+        "annually"
+      ],
+      "businessContext": "How often interest is compounded. Affects effective interest rate."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "loanAmount > 0",
+      "annualInterestRate >= 0",
+      "loanTermMonths >= 1",
+      "extraPayment >= 0",
+      "if paymentFrequency == 'biweekly' then loanTermMonths must be multiple of 0.5? (not enforced, but term in months is approximate)"
+    ],
+    "thresholds": {
+      "annualInterestRate > 20": "High interest rate warning",
+      "loanTermMonths > 360": "Very long loan term",
+      "extraPayment > loanAmount * 0.1": "Extra payment exceeds 10% of loan amount"
+    }
+  },
+  "formulas": {
+    "periodicInterestRate": "annualInterestRate / 100 / (12 if paymentFrequency == 'monthly' else 26 if paymentFrequency == 'biweekly' else 52)",
+    "numberOfPayments": "loanTermMonths * (1 if paymentFrequency == 'monthly' else 26/12 if paymentFrequency == 'biweekly' else 52/12)",
+    "paymentPerPeriod": "(loanAmount * periodicInterestRate * (1 + periodicInterestRate)^numberOfPayments) / ((1 + periodicInterestRate)^numberOfPayments - 1) + extraPayment",
+    "totalPayment": "paymentPerPeriod * numberOfPayments",
+    "totalInterest": "totalPayment - loanAmount",
+    "effectiveAnnualRate": "(1 + periodicInterestRate)^(12 if paymentFrequency == 'monthly' else 26 if paymentFrequency == 'biweekly' else 52) - 1"
+  },
+  "outputs": {
+    "primary": "paymentPerPeriod",
+    "breakdown": {
+      "totalPayment": "totalPayment",
+      "totalInterest": "totalInterest",
+      "effectiveAnnualRate": "effectiveAnnualRate"
+    },
+    "hiddenLossDrivers": [
+      "if annualInterestRate > 20 then 'High interest rate'",
+      "if loanTermMonths > 360 then 'Very long term'"
+    ],
+    "suggestedActions": [
+      "Consider making extra payments to reduce total interest",
+      "Refinance if interest rates drop",
+      "Shorten loan term to save on interest"
+    ],
+    "dataConfidenceAdjusted": "paymentPerPeriod * (1 + (1 - dataConfidence) * 0.05) if dataConfidence input exists else paymentPerPeriod"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with other loan options",
+    "Detailed Amortization Schedule"
+  ],
+  "premiumRequired": true
+}

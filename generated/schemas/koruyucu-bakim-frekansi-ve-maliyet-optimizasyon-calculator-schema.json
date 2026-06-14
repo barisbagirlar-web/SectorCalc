@@ -1,0 +1,183 @@
+{
+  "toolName": "koruyucu-bakim-frekansi-ve-maliyet-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "annualOperatingHours",
+      "label": "Yıllık Çalışma Saati",
+      "type": "number",
+      "unit": "saat/yıl",
+      "default": 8760,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Ekipmanın yıllık toplam çalışma süresi. ISO 14224 standardına göre bakım planlamasında temel girdi."
+    },
+    {
+      "id": "equipmentCriticality",
+      "label": "Ekipman Kritiklik Seviyesi",
+      "type": "select",
+      "unit": "",
+      "default": "orta",
+      "min": null,
+      "max": null,
+      "options": [
+        "düşük",
+        "orta",
+        "yüksek"
+      ],
+      "businessContext": "Ekipmanın üretim sürecindeki önemi. Yüksek kritiklik daha sık bakım gerektirir. Kaynak: RCM (Reliability Centered Maintenance) prensipleri."
+    },
+    {
+      "id": "meanTimeBetweenFailure",
+      "label": "Ortalama Arıza Süresi (MTBF)",
+      "type": "number",
+      "unit": "saat",
+      "default": 1000,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Arızalar arası ortalama süre. Güvenilirlik mühendisliğinde temel metrik. IEEE 762 standardı."
+    },
+    {
+      "id": "meanTimeToRepair",
+      "label": "Ortalama Onarım Süresi (MTTR)",
+      "type": "number",
+      "unit": "saat",
+      "default": 4,
+      "min": 0.1,
+      "max": 168,
+      "options": null,
+      "businessContext": "Arıza sonrası onarım için geçen ortalama süre. Bakım planlamasında kullanılır."
+    },
+    {
+      "id": "preventiveMaintenanceDuration",
+      "label": "Koruyucu Bakım Süresi",
+      "type": "number",
+      "unit": "saat",
+      "default": 2,
+      "min": 0.1,
+      "max": 168,
+      "options": null,
+      "businessContext": "Planlı bakım için gereken süre. Bakım maliyetini etkiler."
+    },
+    {
+      "id": "hourlyProductionLossCost",
+      "label": "Saatlik Üretim Kaybı Maliyeti",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Ekipman duruşu nedeniyle saat başına kaybedilen üretim değeri. Finansal analiz için kritik."
+    },
+    {
+      "id": "hourlyMaintenanceCost",
+      "label": "Saatlik Bakım Maliyeti",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 200,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Bakım işçiliği ve yedek parça dahil saatlik maliyet."
+    },
+    {
+      "id": "failureCostPerEvent",
+      "label": "Arıza Başına Maliyet",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Bir arıza olayının toplam maliyeti (onarım, üretim kaybı, kalite kaybı vb.)."
+    },
+    {
+      "id": "currentPMFrequency",
+      "label": "Mevcut Koruyucu Bakım Sıklığı",
+      "type": "number",
+      "unit": "saat",
+      "default": 500,
+      "min": 1,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Mevcut bakım periyodu. Optimizasyon için başlangıç değeri."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güven Seviyesi",
+      "type": "select",
+      "unit": "",
+      "default": "orta",
+      "min": null,
+      "max": null,
+      "options": [
+        "düşük",
+        "orta",
+        "yüksek"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar daha muhafazakar hesaplanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "meanTimeBetweenFailure > 0",
+      "meanTimeToRepair > 0",
+      "preventiveMaintenanceDuration > 0",
+      "hourlyProductionLossCost >= 0",
+      "hourlyMaintenanceCost >= 0",
+      "failureCostPerEvent >= 0",
+      "currentPMFrequency > 0",
+      "annualOperatingHours > 0",
+      "if equipmentCriticality == 'yüksek' then meanTimeBetweenFailure > 100",
+      "if dataConfidence == 'düşük' then apply safety factor 1.2"
+    ],
+    "thresholds": {
+      "meanTimeBetweenFailure < 500": "Düşük MTBF: Sık arıza riski, bakım sıklığı artırılmalı.",
+      "failureCostPerEvent > 50000": "Yüksek arıza maliyeti: Koruyucu bakım yatırımı öncelikli.",
+      "currentPMFrequency > meanTimeBetweenFailure": "Mevcut bakım sıklığı MTBF'den büyük: Bakım yetersiz, arıza riski yüksek."
+    }
+  },
+  "formulas": {
+    "failureRate": "1 / meanTimeBetweenFailure",
+    "annualFailureCount": "annualOperatingHours * failureRate",
+    "annualFailureCost": "annualFailureCount * failureCostPerEvent",
+    "annualPMCount": "annualOperatingHours / currentPMFrequency",
+    "annualPMCost": "annualPMCount * (preventiveMaintenanceDuration * hourlyMaintenanceCost)",
+    "annualDowntimeHours": "annualFailureCount * meanTimeToRepair + annualPMCount * preventiveMaintenanceDuration",
+    "annualDowntimeCost": "annualDowntimeHours * hourlyProductionLossCost",
+    "totalAnnualCost": "annualFailureCost + annualPMCost + annualDowntimeCost",
+    "optimalPMFrequency": "sqrt((2 * failureCostPerEvent * annualOperatingHours) / (hourlyMaintenanceCost * preventiveMaintenanceDuration))",
+    "optimalPMFrequencyAdjusted": "optimalPMFrequency * (dataConfidence == 'düşük' ? 0.8 : (dataConfidence == 'yüksek' ? 1.1 : 1.0))",
+    "costSavings": "totalAnnualCost - (annualOperatingHours / optimalPMFrequencyAdjusted * (preventiveMaintenanceDuration * hourlyMaintenanceCost) + annualOperatingHours * failureRate * failureCostPerEvent + (annualOperatingHours * failureRate * meanTimeToRepair + (annualOperatingHours / optimalPMFrequencyAdjusted) * preventiveMaintenanceDuration) * hourlyProductionLossCost)"
+  },
+  "outputs": {
+    "primary": "optimalPMFrequencyAdjusted",
+    "breakdown": {
+      "annualFailureCost": "annualFailureCost",
+      "annualPMCost": "annualPMCost",
+      "annualDowntimeCost": "annualDowntimeCost",
+      "totalAnnualCost": "totalAnnualCost",
+      "costSavings": "costSavings"
+    },
+    "hiddenLossDrivers": [
+      "if meanTimeBetweenFailure < 500 then 'Düşük MTBF: Sık arıza riski'",
+      "if failureCostPerEvent > 50000 then 'Yüksek arıza maliyeti'",
+      "if currentPMFrequency > meanTimeBetweenFailure then 'Mevcut bakım sıklığı yetersiz'"
+    ],
+    "suggestedActions": [
+      "if costSavings > 0 then 'Koruyucu bakım sıklığını optimal değere ayarlayın.'",
+      "if meanTimeBetweenFailure < 500 then 'Kök neden analizi yaparak MTBF'yi artırın.'",
+      "if failureCostPerEvent > 50000 then 'Arıza maliyetlerini düşürmek için yedek parça yönetimini iyileştirin.'"
+    ],
+    "dataConfidenceAdjusted": "optimalPMFrequencyAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş verilerle karşılaştırma)",
+    "Detaylı maliyet kırılımı raporu"
+  ],
+  "premiumRequired": true
+}

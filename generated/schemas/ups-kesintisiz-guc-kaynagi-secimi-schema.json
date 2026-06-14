@@ -1,0 +1,214 @@
+{
+  "toolName": "ups-kesintisiz-guc-kaynagi-secimi",
+  "inputs": [
+    {
+      "id": "totalLoadPower",
+      "label": "Toplam Yük Gücü",
+      "type": "number",
+      "unit": "kVA",
+      "default": 10,
+      "min": 0.5,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Toplam bağlı yükün güç tüketimi. UPS kapasitesini belirler. Kaynak: IEEE 446, IEC 62040."
+    },
+    {
+      "id": "powerFactor",
+      "label": "Güç Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 0.8,
+      "min": 0.5,
+      "max": 1,
+      "options": null,
+      "businessContext": "Yükün güç faktörü. Tipik değer 0.8. Kaynak: IEEE 446."
+    },
+    {
+      "id": "requiredRuntime",
+      "label": "Gerekli Çalışma Süresi",
+      "type": "number",
+      "unit": "dakika",
+      "default": 15,
+      "min": 5,
+      "max": 480,
+      "options": null,
+      "businessContext": "Kesinti durumunda UPS'in yükü beslemesi gereken süre. Kaynak: IEC 62040."
+    },
+    {
+      "id": "inputVoltage",
+      "label": "Giriş Gerilimi",
+      "type": "select",
+      "unit": "V",
+      "default": "380",
+      "min": null,
+      "max": null,
+      "options": [
+        "220",
+        "380",
+        "400",
+        "480"
+      ],
+      "businessContext": "Şebeke giriş gerilimi. Yaygın değerler: 220V (tek faz), 380/400/480V (üç faz). Kaynak: IEC 60038."
+    },
+    {
+      "id": "phaseType",
+      "label": "Faz Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "3-phase",
+      "min": null,
+      "max": null,
+      "options": [
+        "1-phase",
+        "3-phase"
+      ],
+      "businessContext": "UPS giriş/çıkış faz yapısı. Kaynak: IEC 62040."
+    },
+    {
+      "id": "batteryType",
+      "label": "Akü Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "VRLA",
+      "min": null,
+      "max": null,
+      "options": [
+        "VRLA",
+        "Li-ion",
+        "NiCd"
+      ],
+      "businessContext": "Akü teknolojisi. VRLA yaygın, Li-ion daha uzun ömürlü. Kaynak: IEEE 1184."
+    },
+    {
+      "id": "ambientTemperature",
+      "label": "Ortam Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 25,
+      "min": 0,
+      "max": 40,
+      "options": null,
+      "businessContext": "Akü odası sıcaklığı. Akü ömrünü etkiler. Kaynak: IEEE 1184."
+    },
+    {
+      "id": "efficiency",
+      "label": "UPS Verimi",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 80,
+      "max": 99,
+      "options": null,
+      "businessContext": "UPS dönüşüm verimi. Modern UPS'ler %95+ verimlidir. Kaynak: IEC 62040."
+    },
+    {
+      "id": "loadGrowthRate",
+      "label": "Yük Büyüme Oranı",
+      "type": "number",
+      "unit": "%/yıl",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Gelecekteki yük artış beklentisi. UPS kapasite planlaması için. Kaynak: Endüstri standardı."
+    },
+    {
+      "id": "redundancyLevel",
+      "label": "Yedeklilik Seviyesi",
+      "type": "select",
+      "unit": "",
+      "default": "N+1",
+      "min": null,
+      "max": null,
+      "options": [
+        "N",
+        "N+1",
+        "2N"
+      ],
+      "businessContext": "UPS yedeklilik konfigürasyonu. N+1 yaygın, 2N kritik sistemler. Kaynak: Uptime Institute."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar ayarlanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "totalLoadPower > 0",
+      "powerFactor > 0 and powerFactor <= 1",
+      "requiredRuntime >= 5",
+      "efficiency >= 80 and efficiency <= 99",
+      "ambientTemperature >= 0 and ambientTemperature <= 40",
+      "loadGrowthRate >= 0",
+      "if phaseType == '1-phase' then inputVoltage == 220",
+      "if phaseType == '3-phase' then inputVoltage in [380,400,480]"
+    ],
+    "thresholds": {
+      "efficiency < 90": "Düşük verim, enerji maliyetlerini artırır.",
+      "ambientTemperature > 30": "Yüksek sıcaklık akü ömrünü kısaltır.",
+      "loadGrowthRate > 10": "Yüksek büyüme oranı kapasite yetersizliğine yol açabilir.",
+      "powerFactor < 0.8": "Düşük güç faktörü, UPS kapasitesini düşürür."
+    }
+  },
+  "formulas": {
+    "apparentPower": "totalLoadPower / powerFactor",
+    "requiredCapacity": "apparentPower * (1 + loadGrowthRate / 100) * (1 + (redundancyLevel == 'N' ? 0 : redundancyLevel == 'N+1' ? 0.5 : 1))",
+    "batteryCapacityAh": "(requiredCapacity * 1000 * requiredRuntime) / (60 * batteryVoltage * efficiency/100 * depthOfDischarge)",
+    "batteryVoltage": "phaseType == '1-phase' ? 48 : 240",
+    "depthOfDischarge": "batteryType == 'VRLA' ? 0.8 : batteryType == 'Li-ion' ? 0.9 : 0.7",
+    "estimatedBatteryLifeYears": "batteryType == 'VRLA' ? 5 : batteryType == 'Li-ion' ? 10 : 15",
+    "temperatureDerating": "ambientTemperature > 25 ? 1 - (ambientTemperature - 25) * 0.005 : 1",
+    "adjustedBatteryLife": "estimatedBatteryLifeYears * temperatureDerating",
+    "totalCostOfOwnership": "initialCost + (maintenanceCostPerYear * adjustedBatteryLife) + (energyCostPerYear * adjustedBatteryLife)",
+    "initialCost": "requiredCapacity * 200",
+    "maintenanceCostPerYear": "requiredCapacity * 10",
+    "energyCostPerYear": "requiredCapacity * 8760 * (1 - efficiency/100) * 0.1",
+    "dataConfidenceFactor": "dataConfidence == 'low' ? 0.8 : dataConfidence == 'medium' ? 0.95 : 1.0",
+    "confidenceAdjustedCapacity": "requiredCapacity * dataConfidenceFactor"
+  },
+  "outputs": {
+    "primary": "requiredCapacity (kVA)",
+    "breakdown": {
+      "apparentPower": "Görünür güç (kVA)",
+      "batteryCapacityAh": "Akü kapasitesi (Ah)",
+      "estimatedBatteryLifeYears": "Tahmini akü ömrü (yıl)",
+      "adjustedBatteryLife": "Sıcaklık düzeltmeli akü ömrü (yıl)",
+      "totalCostOfOwnership": "Toplam sahip olma maliyeti (USD)",
+      "initialCost": "İlk yatırım maliyeti (USD)",
+      "maintenanceCostPerYear": "Yıllık bakım maliyeti (USD)",
+      "energyCostPerYear": "Yıllık enerji kaybı maliyeti (USD)"
+    },
+    "hiddenLossDrivers": [
+      "Düşük verim enerji maliyetlerini artırır.",
+      "Yüksek ortam sıcaklığı akü ömrünü kısaltır.",
+      "Yük büyüme oranı kapasiteyi aşabilir.",
+      "Düşük güç faktörü UPS kapasitesini düşürür."
+    ],
+    "suggestedActions": [
+      "Verimi yüksek (>%95) UPS modeli seçin.",
+      "Akü odası sıcaklığını 25°C'de tutun.",
+      "Yük büyüme oranını düzenli izleyin.",
+      "Güç faktörü düzeltme ekipmanı ekleyin.",
+      "Yedeklilik seviyesini kritiklik analizine göre belirleyin."
+    ],
+    "dataConfidenceAdjusted": "confidenceAdjustedCapacity (kVA)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV raporu",
+    "Trend analizi",
+    "Karşılaştırma (farklı UPS modelleri)",
+    "Detaylı maliyet dökümü"
+  ],
+  "premiumRequired": true
+}

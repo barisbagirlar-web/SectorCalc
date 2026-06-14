@@ -1,0 +1,208 @@
+{
+  "toolName": "fotokopi-yazici-toner-sayfa-maliyeti",
+  "inputs": [
+    {
+      "id": "tonerPrice",
+      "label": "Toner Fiyatı",
+      "type": "number",
+      "unit": "TL",
+      "default": 500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Toner kartuşunun satın alma fiyatı. Sektörel standart: Tedarikçi faturası baz alınır."
+    },
+    {
+      "id": "tonerYield",
+      "label": "Toner Verimi (Sayfa Sayısı)",
+      "type": "number",
+      "unit": "sayfa",
+      "default": 2000,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Tonerin ISO/IEC 19752 standardına göre yazdırabildiği sayfa sayısı. Üretici beyanı esas alınır."
+    },
+    {
+      "id": "paperCostPerPage",
+      "label": "Sayfa Başına Kağıt Maliyeti",
+      "type": "number",
+      "unit": "TL/sayfa",
+      "default": 0.05,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Bir sayfa A4 kağıdın maliyeti. Genellikle toplu alım fiyatı / sayfa sayısı."
+    },
+    {
+      "id": "electricityCostPerKwh",
+      "label": "Elektrik Birim Fiyatı",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 1.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yazıcının tükettiği elektrik maliyeti. EPDK tarifeleri baz alınır."
+    },
+    {
+      "id": "printerPowerConsumption",
+      "label": "Yazıcı Güç Tüketimi",
+      "type": "number",
+      "unit": "Watt",
+      "default": 500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yazıcının ortalama çalışma gücü. Üretici teknik özelliklerinden alınır."
+    },
+    {
+      "id": "printSpeed",
+      "label": "Yazıcı Hızı",
+      "type": "number",
+      "unit": "sayfa/dakika",
+      "default": 20,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Dakikada basılan sayfa sayısı. Üretici verisi."
+    },
+    {
+      "id": "maintenanceCostPerYear",
+      "label": "Yıllık Bakım Maliyeti",
+      "type": "number",
+      "unit": "TL/yıl",
+      "default": 200,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yazıcının yıllık bakım ve onarım giderleri. Servis sözleşmesi veya geçmiş veri."
+    },
+    {
+      "id": "totalPagesPerYear",
+      "label": "Yıllık Toplam Baskı Sayısı",
+      "type": "number",
+      "unit": "sayfa/yıl",
+      "default": 10000,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Yılda basılan toplam sayfa sayısı. Kullanım istatistiği."
+    },
+    {
+      "id": "printerLifespan",
+      "label": "Yazıcı Ömrü",
+      "type": "number",
+      "unit": "yıl",
+      "default": 5,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Yazıcının ekonomik ömrü. Genellikle 5 yıl kabul edilir."
+    },
+    {
+      "id": "printerPurchasePrice",
+      "label": "Yazıcı Satın Alma Fiyatı",
+      "type": "number",
+      "unit": "TL",
+      "default": 3000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yazıcının ilk yatırım maliyeti."
+    },
+    {
+      "id": "colorPrintRatio",
+      "label": "Renkli Baskı Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Toplam baskı içinde renkli baskının yüzdesi. Renkli toner maliyeti farkı için."
+    },
+    {
+      "id": "colorTonerPrice",
+      "label": "Renkli Toner Fiyatı (Set)",
+      "type": "number",
+      "unit": "TL",
+      "default": 800,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Renkli toner setinin (cyan, magenta, yellow) toplam fiyatı."
+    },
+    {
+      "id": "colorTonerYield",
+      "label": "Renkli Toner Verimi (Sayfa)",
+      "type": "number",
+      "unit": "sayfa",
+      "default": 1500,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Renkli toner setinin ISO/IEC 19798 standardına göre sayfa verimi."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "tonerPrice >= 0",
+      "tonerYield > 0",
+      "paperCostPerPage >= 0",
+      "electricityCostPerKwh >= 0",
+      "printerPowerConsumption >= 0",
+      "printSpeed > 0",
+      "maintenanceCostPerYear >= 0",
+      "totalPagesPerYear > 0",
+      "printerLifespan > 0",
+      "printerPurchasePrice >= 0",
+      "colorPrintRatio >= 0 and colorPrintRatio <= 100",
+      "colorTonerPrice >= 0",
+      "colorTonerYield > 0"
+    ],
+    "thresholds": {
+      "tonerCostPerPage": "> 0.10 TL/sayfa -> 'Toner maliyeti yüksek, alternatif toner değerlendirilmeli.'",
+      "totalCostPerPage": "> 0.50 TL/sayfa -> 'Toplam sayfa maliyeti yüksek, verimlilik artırılmalı.'"
+    }
+  },
+  "formulas": {
+    "tonerCostPerPage": "tonerPrice / tonerYield",
+    "colorTonerCostPerPage": "colorTonerPrice / colorTonerYield",
+    "weightedTonerCostPerPage": "tonerCostPerPage * (1 - colorPrintRatio/100) + colorTonerCostPerPage * (colorPrintRatio/100)",
+    "electricityCostPerPage": "(printerPowerConsumption / 1000) * (1 / (printSpeed * 60)) * electricityCostPerKwh",
+    "maintenanceCostPerPage": "maintenanceCostPerYear / totalPagesPerYear",
+    "depreciationCostPerPage": "(printerPurchasePrice / printerLifespan) / totalPagesPerYear",
+    "totalCostPerPage": "weightedTonerCostPerPage + paperCostPerPage + electricityCostPerPage + maintenanceCostPerPage + depreciationCostPerPage",
+    "annualTotalCost": "totalCostPerPage * totalPagesPerYear"
+  },
+  "outputs": {
+    "primary": "totalCostPerPage",
+    "breakdown": {
+      "tonerCostPerPage": "weightedTonerCostPerPage",
+      "paperCostPerPage": "paperCostPerPage",
+      "electricityCostPerPage": "electricityCostPerPage",
+      "maintenanceCostPerPage": "maintenanceCostPerPage",
+      "depreciationCostPerPage": "depreciationCostPerPage"
+    },
+    "hiddenLossDrivers": [
+      "tonerCostPerPage > 0.10 ? 'Toner maliyeti yüksek' : ''",
+      "totalCostPerPage > 0.50 ? 'Toplam maliyet yüksek' : ''"
+    ],
+    "suggestedActions": [
+      "Daha yüksek verimli toner kullanmayı değerlendirin.",
+      "Çift taraflı baskı ile kağıt tüketimini azaltın.",
+      "Enerji tasarruflu yazıcı modellerine geçiş yapın.",
+      "Bakım periyotlarını optimize edin.",
+      "Renkli baskı oranını düşürmeye çalışın."
+    ],
+    "dataConfidenceAdjusted": "totalCostPerPage * (1 + (1 - dataConfidence/100))"
+  },
+  "premiumFeatures": [
+    "PDF/CSV Export",
+    "Trend Analizi",
+    "Karşılaştırma (Farklı Yazıcı/Toner)",
+    "Detaylı Rapor"
+  ],
+  "premiumRequired": true
+}

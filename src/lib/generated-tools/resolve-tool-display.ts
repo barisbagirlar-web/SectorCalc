@@ -2,6 +2,7 @@ import {
   resolvePremiumSchemaDisplayName,
   resolvePremiumSchemaPainStatement,
 } from "@/lib/i18n/premium-schema-display-i18n";
+import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
 
 function humanizeSlug(slug: string): string {
@@ -33,13 +34,19 @@ export function resolveGeneratedToolDescription(
     return premiumPain;
   }
   const contexts = schema.inputs
-    .map((input) => input.businessContext.trim())
+    .map((input) =>
+      resolveGeneratedI18nText(
+        input.businessContext_i18n,
+        locale,
+        input.businessContext,
+      ).trim(),
+    )
     .filter(Boolean)
     .slice(0, 2);
   if (contexts.length > 0) {
     return contexts.join(" ");
   }
-  return "Sektöre özel hesaplama aracı — girdileri doldurup sonucu görün.";
+  return "Sector-specific calculator — enter inputs to see results.";
 }
 
 export function resolvePrimaryOutputKey(schema: GeneratedToolSchema): string {

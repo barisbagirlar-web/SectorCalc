@@ -35,6 +35,7 @@ export default async function CalculatorLibraryPage({ params }: PageProps) {
       freeToolsLabel={t("freeToolsLabel")}
       premiumToolsLabel={t("premiumToolsLabel")}
       industriesLabel={t("industriesLabel")}
+      generatedToolsLabel={t("generatedToolsLabel")}
     />
   );
 }

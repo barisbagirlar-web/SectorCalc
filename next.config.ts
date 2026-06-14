@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import path from "node:path";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
@@ -10,6 +11,19 @@ const LOCALE_REWRITE_EXCLUDE =
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   serverExternalPackages: ["@react-pdf/renderer"],
+  eslint: {
+    // Firebase `next build` runs lint inline; skip here (use `npm run lint` in CI/local).
+    ignoreDuringBuilds: true,
+  },
+  // Large generated-tool SSG can exceed the default 60s per page.
+  staticPageGenerationTimeout: 180,
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@generated": path.join(process.cwd(), "generated"),
+    };
+    return config;
+  },
   experimental: {
     staleTimes: {
       dynamic: 30,
@@ -17,6 +31,11 @@ const nextConfig: NextConfig = {
     },
     optimizePackageImports: ["lucide-react", "@heroicons/react"],
     staticGenerationRetryCount: 3,
+    // Avoid flaky MODULE_NOT_FOUND / ENOENT races during large SSG on local + Firebase builds.
+    cpus: 1,
+    workerThreads: false,
+    staticGenerationMaxConcurrency: 1,
+    staticGenerationMinPagesPerWorker: 500,
   },
   async redirects() {
     return [

@@ -1,0 +1,263 @@
+{
+  "toolName": "kapasite-planlama-ve-darbogaz-yatirim-onceliklendirme-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Yıllık Talep (adet/yıl)",
+      "type": "number",
+      "unit": "adet/yıl",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yıllık talep miktarı, kapasite planlamasının temel girdisidir. ISO 9001:2015 kapsamında müşteri gereksinimlerinin belirlenmesi ve üretim planlaması için kullanılır."
+    },
+    {
+      "id": "availableWorkingDaysPerYear",
+      "label": "Yıllık Çalışma Günü",
+      "type": "number",
+      "unit": "gün/yıl",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Yıllık çalışma günü sayısı, vardiya planlaması ve kapasite hesaplamalarında kullanılır. Endüstri mühendisliği standartlarına göre genellikle 250 gün (hafta sonları ve resmi tatiller hariç) alınır."
+    },
+    {
+      "id": "shiftsPerDay",
+      "label": "Günlük Vardiya Sayısı",
+      "type": "number",
+      "unit": "vardiya/gün",
+      "default": 1,
+      "min": 1,
+      "max": 3,
+      "options": null,
+      "businessContext": "Vardiya sayısı, mevcut kapasiteyi belirler. Lean üretim sistemlerinde vardiya planlaması, talep dalgalanmalarına göre optimize edilir."
+    },
+    {
+      "id": "hoursPerShift",
+      "label": "Vardiya Süresi (saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 8,
+      "min": 1,
+      "max": 12,
+      "options": null,
+      "businessContext": "Vardiya süresi, iş kanunları ve endüstri standartlarına göre belirlenir. Genellikle 8 saattir."
+    },
+    {
+      "id": "overallEquipmentEffectiveness",
+      "label": "Genel Ekipman Etkinliği (OEE) (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "OEE, ekipmanın ne kadar verimli kullanıldığını gösteren kritik bir metriktir. ISO 22400 standardına göre hesaplanır. Kullanılabilirlik, performans ve kalite çarpanıdır."
+    },
+    {
+      "id": "cycleTimePerUnit",
+      "label": "Çevrim Süresi (dakika/adet)",
+      "type": "number",
+      "unit": "dakika/adet",
+      "default": 5,
+      "min": 0.01,
+      "max": null,
+      "options": null,
+      "businessContext": "Bir ürünün üretilmesi için geçen süre. Endüstri mühendisliğinde zaman etüdü ile belirlenir. Lean üretimde Takt Time ile karşılaştırılır."
+    },
+    {
+      "id": "defectRate",
+      "label": "Hata Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Üretimdeki hatalı ürün yüzdesi. Six Sigma projelerinde DPMO'ya dönüştürülür. ISO 9001 kalite yönetim sisteminde takip edilir."
+    },
+    {
+      "id": "setupTimePerBatch",
+      "label": "Parti Başına Kalıp Değiştirme Süresi (dakika)",
+      "type": "number",
+      "unit": "dakika",
+      "default": 30,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "SMED (Single Minute Exchange of Die) tekniği ile azaltılmaya çalışılan süre. Lean üretimde önemli bir kayıp kaynağıdır."
+    },
+    {
+      "id": "batchSize",
+      "label": "Parti Büyüklüğü (adet)",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Her partide üretilen ürün sayısı. Ekonomik parti büyüklüğü (EPQ) modeli ile optimize edilir."
+    },
+    {
+      "id": "bottleneckMachineCapacity",
+      "label": "Darboğaz Makine Kapasitesi (adet/saat)",
+      "type": "number",
+      "unit": "adet/saat",
+      "default": 100,
+      "min": 0.01,
+      "max": null,
+      "options": null,
+      "businessContext": "Darboğaz operasyonun saatlik üretim kapasitesi. Kısıtlar Teorisi (TOC) kapsamında belirlenir."
+    },
+    {
+      "id": "investmentCost",
+      "label": "Yatırım Maliyeti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 500000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Darboğazı gidermek için yapılacak yatırımın toplam maliyeti. Finansal analizde NPV ve IRR hesaplamalarında kullanılır."
+    },
+    {
+      "id": "costPerUnit",
+      "label": "Birim Maliyet (TL/adet)",
+      "type": "number",
+      "unit": "TL/adet",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Ürün başına değişken maliyet. Maliyet muhasebesi ve fiyatlandırma kararlarında kullanılır."
+    },
+    {
+      "id": "sellingPricePerUnit",
+      "label": "Birim Satış Fiyatı (TL/adet)",
+      "type": "number",
+      "unit": "TL/adet",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Ürünün satış fiyatı. Gelir hesaplamalarında kullanılır."
+    },
+    {
+      "id": "discountRate",
+      "label": "İskonto Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Sermaye maliyeti veya getiri beklentisi. NPV hesaplamalarında kullanılır. CAPM modeli ile belirlenebilir."
+    },
+    {
+      "id": "projectLifeYears",
+      "label": "Proje Ömrü (yıl)",
+      "type": "number",
+      "unit": "yıl",
+      "default": 5,
+      "min": 1,
+      "max": 30,
+      "options": null,
+      "businessContext": "Yatırımın ekonomik ömrü. Finansal değerlendirmede kullanılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar düzeltilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualDemand > 0",
+      "availableWorkingDaysPerYear >= 1 && availableWorkingDaysPerYear <= 365",
+      "shiftsPerDay >= 1 && shiftsPerDay <= 3",
+      "hoursPerShift >= 1 && hoursPerShift <= 12",
+      "overallEquipmentEffectiveness >= 0 && overallEquipmentEffectiveness <= 100",
+      "cycleTimePerUnit > 0",
+      "defectRate >= 0 && defectRate <= 100",
+      "setupTimePerBatch >= 0",
+      "batchSize > 0",
+      "bottleneckMachineCapacity > 0",
+      "investmentCost >= 0",
+      "costPerUnit > 0",
+      "sellingPricePerUnit > costPerUnit",
+      "discountRate >= 0 && discountRate <= 100",
+      "projectLifeYears >= 1 && projectLifeYears <= 30",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "defectRate": "defectRate > 5 ? 'Kritik: Hata oranı %5 üzerinde, kalite iyileştirme gerekli.' : ''",
+      "overallEquipmentEffectiveness": "overallEquipmentEffectiveness < 85 ? 'Uyarı: OEE %85 altında, iyileştirme fırsatı.' : ''",
+      "cycleTimePerUnit": "cycleTimePerUnit > (availableWorkingDaysPerYear * shiftsPerDay * hoursPerShift * 60 / annualDemand) ? 'Uyarı: Çevrim süresi Takt Time üzerinde, darboğaz riski.' : ''"
+    }
+  },
+  "formulas": {
+    "availableCapacity": "availableWorkingDaysPerYear * shiftsPerDay * hoursPerShift * 60 * (overallEquipmentEffectiveness / 100)",
+    "theoreticalCapacity": "availableCapacity / cycleTimePerUnit",
+    "effectiveCapacity": "theoreticalCapacity * (1 - defectRate / 100)",
+    "taktTime": "(availableWorkingDaysPerYear * shiftsPerDay * hoursPerShift * 60) / annualDemand",
+    "bottleneckUtilization": "annualDemand / (bottleneckMachineCapacity * availableWorkingDaysPerYear * shiftsPerDay * hoursPerShift * (overallEquipmentEffectiveness / 100))",
+    "capacityGap": "annualDemand - effectiveCapacity",
+    "additionalCapacityNeeded": "capacityGap > 0 ? capacityGap : 0",
+    "annualRevenue": "annualDemand * sellingPricePerUnit",
+    "annualCost": "annualDemand * costPerUnit",
+    "annualProfit": "annualRevenue - annualCost",
+    "npv": "-investmentCost + sum_{t=1}^{projectLifeYears} (annualProfit / (1 + discountRate/100)^t)",
+    "irr": "discountRate that makes NPV = 0 (approximated)",
+    "paybackPeriod": "investmentCost / annualProfit",
+    "roi": "(annualProfit * projectLifeYears - investmentCost) / investmentCost * 100",
+    "dataConfidenceAdjustedNPV": "npv * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "npv",
+    "breakdown": {
+      "availableCapacity": "availableCapacity",
+      "theoreticalCapacity": "theoreticalCapacity",
+      "effectiveCapacity": "effectiveCapacity",
+      "taktTime": "taktTime",
+      "bottleneckUtilization": "bottleneckUtilization",
+      "capacityGap": "capacityGap",
+      "additionalCapacityNeeded": "additionalCapacityNeeded",
+      "annualRevenue": "annualRevenue",
+      "annualCost": "annualCost",
+      "annualProfit": "annualProfit",
+      "irr": "irr",
+      "paybackPeriod": "paybackPeriod",
+      "roi": "roi"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 5 ? 'Yüksek hata oranı' : ''",
+      "overallEquipmentEffectiveness < 85 ? 'Düşük OEE' : ''",
+      "cycleTimePerUnit > taktTime ? 'Çevrim süresi Takt Time üzerinde' : ''",
+      "bottleneckUtilization > 1 ? 'Darboğaz aşırı yüklenmiş' : ''"
+    ],
+    "suggestedActions": [
+      "capacityGap > 0 ? 'Darboğaz yatırımı yapılmalı' : 'Mevcut kapasite yeterli'",
+      "defectRate > 5 ? 'Kalite iyileştirme projesi başlatın (Six Sigma)' : ''",
+      "overallEquipmentEffectiveness < 85 ? 'TPM uygulayarak OEE artırın' : ''",
+      "cycleTimePerUnit > taktTime ? 'Çevrim süresini azaltmak için süreç iyileştirme yapın' : ''",
+      "setupTimePerBatch > 10 ? 'SMED ile kalıp değiştirme süresini azaltın' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedNPV"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş verilerle karşılaştırma)",
+    "Senaryo karşılaştırma (birden fazla yatırım seçeneği)",
+    "Detaylı rapor (tüm ara değişkenler ve grafikler)"
+  ],
+  "premiumRequired": true
+}

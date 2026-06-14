@@ -1,20 +1,47 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { PROJECT_ROOT } from "./load-env";
+import { generateDiagramForSchema } from "./generate-diagram";
 import type { IndustrialToolSchema } from "./types";
 
 const SCHEMAS_DIR = path.join(PROJECT_ROOT, "generated", "schemas");
 const OUTPUT_DIR = path.join(PROJECT_ROOT, "generated");
 
-function toCamelCase(str: string): string {
-  return str.replace(/[-_\s]+(.)?/g, (_, c: string | undefined) =>
-    c ? c.toUpperCase() : "",
-  );
+const TR_CHAR_MAP: Readonly<Record<string, string>> = {
+  ğ: "g",
+  Ğ: "G",
+  ü: "u",
+  Ü: "U",
+  ş: "s",
+  Ş: "S",
+  ı: "i",
+  İ: "I",
+  ö: "o",
+  Ö: "O",
+  ç: "c",
+  Ç: "C",
+};
+
+function normalizeAscii(str: string): string {
+  return str.replace(/[ğĞüÜşŞıİöÖçÇ]/g, (char) => TR_CHAR_MAP[char] ?? char);
 }
 
-function toPascalCase(str: string): string {
-  const camel = toCamelCase(str);
-  return camel.charAt(0).toUpperCase() + camel.slice(1);
+function toSafePascalCase(str: string): string {
+  let name = normalizeAscii(str.trim())
+    .replace(/[-_\s]+(.)?/g, (_, char?: string) => (char ? char.toUpperCase() : ""))
+    .replace(/[^a-zA-Z0-9]/g, "");
+  if (!name) {
+    name = "Value";
+  }
+  if (/^\d/.test(name)) {
+    name = `Tool${name}`;
+  }
+  return name.charAt(0).toUpperCase() + name.slice(1);
+}
+
+function toSafeVarName(str: string): string {
+  const pascal = toSafePascalCase(str);
+  return pascal.charAt(0).toLowerCase() + pascal.slice(1);
 }
 
 function schemaBaseName(schemaPath: string): string {
@@ -29,6 +56,55 @@ function escapeRegExp(value: string): string {
 function extractPrimaryFormulaKey(primary: string): string {
   const match = primary.match(/^([A-Za-z0-9_]+)/);
   return match?.[1] ?? primary.trim();
+}
+
+function isValidJsExpression(expr: string): boolean {
+  const trimmed = expr.trim();
+  if (!trimmed) {
+    return false;
+  }
+  try {
+    // eslint-disable-next-line no-new-func
+    new Function(`return (${trimmed});`);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function asFormulaString(value: unknown): string | null {
+  if (typeof value === "string") {
+    return value;
+  }
+  return null;
+}
+
+function normalizeFormulas(formulas: Record<string, unknown>): Record<string, string> {
+  const normalized: Record<string, string> = {};
+  for (const [key, value] of Object.entries(formulas)) {
+    const formula = asFormulaString(value);
+    if (formula) {
+      normalized[key] = formula;
+    }
+  }
+  return normalized;
+}
+
+function buildFormulaKeyMap(formulas: Record<string, string>): Map<string, string> {
+  const map = new Map<string, string>();
+  const used = new Set<string>();
+  for (const key of Object.keys(formulas)) {
+    let safeKey = toSafeVarName(key);
+    let candidate = safeKey;
+    let suffix = 2;
+    while (used.has(candidate)) {
+      candidate = `${safeKey}${suffix}`;
+      suffix += 1;
+    }
+    used.add(candidate);
+    map.set(key, candidate);
+  }
+  return map;
 }
 
 const BREAKDOWN_SYNONYMS: Readonly<Record<string, readonly string[]>> = {
@@ -59,7 +135,7 @@ function resolveBreakdownFormulaKey(
 function generateZodSchema(inputs: IndustrialToolSchema["inputs"]): string {
   const shape: string[] = [];
   for (const input of inputs) {
-    const idCamel = toCamelCase(input.id);
+    const idCamel = toSafeVarName(input.id);
     if (input.type === "number") {
       let zod = "z.number()";
       if (input.min != null) zod += `.min(${input.min})`;
@@ -67,8 +143,13 @@ function generateZodSchema(inputs: IndustrialToolSchema["inputs"]): string {
       if (input.default !== undefined) zod += `.default(${input.default})`;
       shape.push(`  ${idCamel}: ${zod},`);
     } else if (input.type === "select" && input.options) {
-      let zod = `z.enum([${input.options.map((o) => `'${o}'`).join(", ")}])`;
-      if (input.default !== undefined) zod += `.default('${input.default}')`;
+      const escapedOptions = input.options.map((option) =>
+        `'${normalizeAscii(option).replace(/'/g, "\\'")}'`,
+      );
+      let zod = `z.enum([${escapedOptions.join(", ")}])`;
+      if (input.default !== undefined) {
+        zod += `.default('${normalizeAscii(String(input.default)).replace(/'/g, "\\'")}')`;
+      }
       shape.push(`  ${idCamel}: ${zod},`);
     } else if (input.type === "boolean") {
       let zod = "z.boolean()";
@@ -85,38 +166,129 @@ function generateTypeInterface(
 ): string {
   const fields: string[] = [];
   for (const input of inputs) {
-    const idCamel = toCamelCase(input.id);
+    const idCamel = toSafeVarName(input.id);
     let tsType: string;
     if (input.type === "number") tsType = "number";
     else if (input.type === "boolean") tsType = "boolean";
     else if (input.type === "select") {
-      tsType = input.options?.map((o) => `'${o}'`).join(" | ") || "string";
+      tsType =
+        input.options
+          ?.map((option) => `'${normalizeAscii(option).replace(/'/g, "\\'")}'`)
+          .join(" | ") || "string";
     } else tsType = "unknown";
     fields.push(`  ${idCamel}: ${tsType};`);
   }
   return `export interface ${pascalName}Input {\n${fields.join("\n")}\n}`;
 }
 
+function getNumericSelectInputIds(inputs: IndustrialToolSchema["inputs"]): Set<string> {
+  const ids = new Set<string>();
+  for (const input of inputs) {
+    if (input.type !== "select" || !input.options?.length) {
+      continue;
+    }
+    if (
+      input.options.every(
+        (option) => option.trim() !== "" && Number.isFinite(Number(option)),
+      )
+    ) {
+      ids.add(input.id);
+    }
+  }
+  return ids;
+}
+
+function inputRef(inputId: string, numericSelectIds: ReadonlySet<string>): string {
+  const safeId = toSafeVarName(inputId);
+  if (numericSelectIds.has(inputId)) {
+    return `(Number(input.${safeId}) || 0)`;
+  }
+  return `input.${safeId}`;
+}
+
+function sanitizeInlineDivisions(formula: string): string {
+  return formula.replace(
+    /([A-Za-z0-9_.]+)\/\((Number\(input\.(\w+)\)\s*\|\|\s*0)\)/g,
+    (_match, numerator: string, _denominatorExpr: string, safeId: string) =>
+      `(Number(input.${safeId}) > 0 ? ${numerator} / (Number(input.${safeId}) || 0) : 0)`,
+  );
+}
+
+function applyExplicitDivisionGuards(formula: string): string {
+  const perUserMonthPattern =
+    /^([\s\S]+?)\s\/\s\(\s*input\.numberOfUsers\s*\*\s*12\s*\)\s*$/;
+  const perUserMonthMatch = formula.match(perUserMonthPattern);
+  if (perUserMonthMatch) {
+    const numerator = perUserMonthMatch[1].trim();
+    return `input.numberOfUsers && input.numberOfUsers > 0 ? ${numerator} / (input.numberOfUsers * 12) : 0`;
+  }
+
+  const perUserPattern = /^([\s\S]+?)\s\/\s\(\s*input\.numberOfUsers\s*\)\s*$/;
+  const perUserMatch = formula.match(perUserPattern);
+  if (perUserMatch) {
+    const numerator = perUserMatch[1].trim();
+    return `input.numberOfUsers && input.numberOfUsers > 0 ? ${numerator} / input.numberOfUsers : 0`;
+  }
+
+  const divideByNumericSelectPattern =
+    /^([\s\S]+?)\s\/\s\(Number\(input\.(\w+)\)\s*\|\|\s*0\)\s*$/;
+  const divideByNumericSelectMatch = formula.match(divideByNumericSelectPattern);
+  if (divideByNumericSelectMatch) {
+    const numerator = divideByNumericSelectMatch[1].trim();
+    const safeId = divideByNumericSelectMatch[2];
+    return `(Number(input.${safeId}) > 0 ? ${numerator} / (Number(input.${safeId}) || 0) : 0)`;
+  }
+
+  return formula;
+}
+
+function wrapFormulaResult(formula: string): string {
+  if (formula.includes("input.numberOfUsers && input.numberOfUsers > 0")) {
+    return formula;
+  }
+  return `((): number => { try { const __v = ${formula}; return typeof __v === "number" && Number.isFinite(__v) ? __v : 0; } catch { return 0; } })()`;
+}
+
 function transformFormulaExpression(
   formula: string,
   inputIds: readonly string[],
-  formulaKeys: readonly string[],
+  formulaKeyMap: ReadonlyMap<string, string>,
+  numericSelectIds: ReadonlySet<string>,
 ): string {
-  let jsFormula = formula;
-  const sortedFormulaKeys = [...formulaKeys].sort((a, b) => b.length - a.length);
+  let jsFormula = normalizeAscii(formula.trim());
+  if (/^\s*if\s*\(/i.test(jsFormula)) {
+    return "0";
+  }
+
+  jsFormula = jsFormula
+    .replace(/\bceil\s*\(/g, "Math.ceil(")
+    .replace(/\bfloor\s*\(/g, "Math.floor(")
+    .replace(/\bround\s*\(/g, "Math.round(")
+    .replace(/\babs\s*\(/g, "Math.abs(")
+    .replace(/\bmin\s*\(/g, "Math.min(")
+    .replace(/\bmax\s*\(/g, "Math.max(")
+    .replace(/\bsqrt\s*\(/g, "Math.sqrt(")
+    .replace(/\bpow\s*\(/g, "Math.pow(");
+
+  const sortedFormulaKeys = [...formulaKeyMap.keys()].sort(
+    (left, right) => right.length - left.length,
+  );
   for (const key of sortedFormulaKeys) {
+    const safeKey = formulaKeyMap.get(key) ?? toSafeVarName(key);
     jsFormula = jsFormula.replace(
       new RegExp(`\\b${escapeRegExp(key)}\\b`, "g"),
-      `results.${key}`,
+      `results.${safeKey}`,
     );
   }
-  const sortedInputIds = [...inputIds].sort((a, b) => b.length - a.length);
+
+  const sortedInputIds = [...inputIds].sort((left, right) => right.length - left.length);
   for (const id of sortedInputIds) {
     jsFormula = jsFormula.replace(
       new RegExp(`\\b${escapeRegExp(id)}\\b`, "g"),
-      `input.${toCamelCase(id)}`,
+      inputRef(id, numericSelectIds),
     );
   }
+
   return jsFormula;
 }
 
@@ -153,13 +325,26 @@ function generateFormulaEvaluator(
   inputs: IndustrialToolSchema["inputs"],
   pascalName: string,
 ): string {
-  const inputIds = inputs.map((i) => i.id);
+  const inputIds = inputs.map((input) => input.id);
+  const numericSelectIds = getNumericSelectInputIds(inputs);
+  const formulaKeyMap = buildFormulaKeyMap(formulas);
   const formulaKeys = sortFormulasByDependency(formulas);
   const assignments: string[] = [];
 
   for (const key of formulaKeys) {
-    const jsFormula = transformFormulaExpression(formulas[key], inputIds, formulaKeys);
-    assignments.push(`  results.${key} = ${jsFormula};`);
+    const safeKey = formulaKeyMap.get(key) ?? toSafeVarName(key);
+    const jsFormula = sanitizeInlineDivisions(
+      transformFormulaExpression(
+        formulas[key],
+        inputIds,
+        formulaKeyMap,
+        numericSelectIds,
+      ),
+    );
+    const guardedFormula = applyExplicitDivisionGuards(jsFormula);
+    const finalFormula = isValidJsExpression(guardedFormula) ? guardedFormula : "0";
+    const wrappedFormula = wrapFormulaResult(finalFormula);
+    assignments.push(`  results.${safeKey} = ${wrappedFormula};`);
   }
 
   return `function evaluateFormulas(input: ${pascalName}Input): Record<string, number> {
@@ -171,9 +356,9 @@ ${assignments.join("\n")}
 
 function generateOutputType(schema: IndustrialToolSchema, pascalName: string): string {
   const breakdownFields = Object.keys(schema.outputs.breakdown)
-    .map((key) => `    ${key}: number;`)
+    .map((key) => `    ${toSafeVarName(key)}: number;`)
     .join("\n");
-  const primaryKey = extractPrimaryFormulaKey(schema.outputs.primary);
+  const primaryKey = toSafeVarName(extractPrimaryFormulaKey(schema.outputs.primary));
 
   return `export interface ${pascalName}Output {
   ${primaryKey}: number;
@@ -188,42 +373,191 @@ ${breakdownFields}
 }`;
 }
 
+const BREAKDOWN_ACTION_SUGGESTIONS: Readonly<
+  Record<string, { threshold: number; message: string }>
+> = {
+  defects: {
+    threshold: 0.25,
+    message: "Kalite iyilestirme ekibi kurun ve kok neden analizi yapin.",
+  },
+  inventory: {
+    threshold: 0.2,
+    message: "Stok seviyelerini gozden gecirin, tam zamaninda (JIT) uygulayin.",
+  },
+  waiting: {
+    threshold: 0.15,
+    message: "Darbogazlari analiz edin ve SMED ile setup surelerini azaltin.",
+  },
+  overproduction: {
+    threshold: 0.2,
+    message: "Uretim planlamasini talebe gore optimize edin.",
+  },
+  transport: {
+    threshold: 0.15,
+    message: "Malzeme akisini yeniden duzenleyin ve tasima mesafelerini azaltin.",
+  },
+  motion: {
+    threshold: 0.15,
+    message: "5S ve ergonomi iyilestirmeleriyle gereksiz hareketleri azaltin.",
+  },
+  overprocessing: {
+    threshold: 0.15,
+    message: "Islem adimlarini gozden gecirin ve gereksiz kalite kontrollerini kaldirin.",
+  },
+};
+
+function parseThresholdExpression(
+  thresholdValue: unknown,
+  thresholdKey: string,
+): { condition: string; message: string } | null {
+  if (typeof thresholdValue !== "string") {
+    return null;
+  }
+  const raw = thresholdValue.trim();
+  const arrowIndex = raw.indexOf("→");
+  if (arrowIndex !== -1) {
+    return {
+      condition: raw.substring(0, arrowIndex).trim(),
+      message: raw.substring(arrowIndex + 1).trim(),
+    };
+  }
+
+  const ternaryMatch = raw.match(/^(.+?)\?\s*['"](.+?)['"]\s*:\s*['"]?\s*['"]?\s*$/s);
+  if (ternaryMatch) {
+    return {
+      condition: ternaryMatch[1].trim(),
+      message: ternaryMatch[2].trim(),
+    };
+  }
+
+  const normalized = normalizeAscii(raw);
+  if (/[<>=!]/.test(normalized) && isValidJsExpression(normalized)) {
+    return { condition: raw, message: thresholdKey };
+  }
+
+  return null;
+}
+
+function transformThresholdCondition(
+  condition: string,
+  inputIds: readonly string[],
+): string | null {
+  let jsCondition = normalizeAscii(condition.trim());
+  const questionIndex = jsCondition.indexOf("?");
+  if (questionIndex !== -1) {
+    jsCondition = jsCondition.substring(0, questionIndex).trim();
+  }
+
+  const sortedInputIds = [...inputIds].sort((left, right) => right.length - left.length);
+  for (const id of sortedInputIds) {
+    jsCondition = jsCondition.replace(
+      new RegExp(`\\b${escapeRegExp(id)}\\b`, "g"),
+      `input.${toSafeVarName(id)}`,
+    );
+  }
+
+  if (!isValidJsExpression(jsCondition)) {
+    return null;
+  }
+  return jsCondition;
+}
+
+function generateThresholdDriverCode(
+  thresholds: Readonly<Record<string, string>>,
+  inputs: IndustrialToolSchema["inputs"],
+): string {
+  const lines: string[] = [];
+  const inputIds = inputs.map((input) => input.id);
+
+  for (const [thresholdKey, expr] of Object.entries(thresholds)) {
+    if (typeof expr !== "string") {
+      lines.push(`  // threshold skipped (non-string): ${thresholdKey}`);
+      continue;
+    }
+    const parsed = parseThresholdExpression(expr, thresholdKey);
+    if (!parsed) {
+      lines.push(`  // threshold skipped (non-JS): ${normalizeAscii(expr).replace(/"/g, '\\"')}`);
+      continue;
+    }
+
+    const jsCondition = transformThresholdCondition(parsed.condition, inputIds);
+    if (!jsCondition) {
+      lines.push(
+        `  // threshold skipped (invalid condition): ${normalizeAscii(parsed.condition).replace(/"/g, '\\"')}`,
+      );
+      continue;
+    }
+
+    const escapedMessage = normalizeAscii(parsed.message).replace(/"/g, '\\"');
+    lines.push(`  if (${jsCondition}) hiddenLossDrivers.push("${escapedMessage}");`);
+  }
+
+  return lines.join("\n");
+}
+
+function generateSuggestedActionsCode(
+  breakdownKeys: readonly string[],
+  primaryKey: string,
+): string {
+  const lines: string[] = [];
+  for (const key of breakdownKeys) {
+    const suggestion = BREAKDOWN_ACTION_SUGGESTIONS[key];
+    if (!suggestion) continue;
+    const safeKey = toSafeVarName(key);
+    lines.push(
+      `  if (breakdown.${safeKey} > ${primaryKey} * ${suggestion.threshold}) suggestedActions.push("${suggestion.message}");`,
+    );
+  }
+  return lines.join("\n");
+}
+
 function generateCalculateFunction(schema: IndustrialToolSchema, pascalName: string): string {
+  const formulaKeyMap = buildFormulaKeyMap(schema.formulas);
+  const numericSelectIds = getNumericSelectInputIds(schema.inputs);
   const formulaKeys = Object.keys(schema.formulas);
-  const primaryKey = extractPrimaryFormulaKey(schema.outputs.primary);
-  const breakdownEntries = Object.keys(schema.outputs.breakdown)
+  const primaryKey = toSafeVarName(extractPrimaryFormulaKey(schema.outputs.primary));
+  const breakdownKeys = Object.keys(schema.outputs.breakdown);
+  const breakdownEntries = breakdownKeys
     .map((key) => {
       const formulaKey = resolveBreakdownFormulaKey(key, formulaKeys);
-      return `    ${key}: results.${formulaKey},`;
+      const safeFormulaKey = formulaKeyMap.get(formulaKey) ?? toSafeVarName(formulaKey);
+      return `    ${toSafeVarName(key)}: results.${safeFormulaKey},`;
     })
     .join("\n");
 
   const dataConfidenceExpr = transformFormulaExpression(
     schema.outputs.dataConfidenceAdjusted,
     schema.inputs.map((input) => input.id),
-    formulaKeys,
+    formulaKeyMap,
+    numericSelectIds,
   );
-
-  const thresholdComments = Object.entries(schema.validation.thresholds)
-    .map(([key, rule]) => `  // threshold ${key}: ${rule}`)
-    .join("\n");
+  const safeDataConfidenceExpr = isValidJsExpression(dataConfidenceExpr)
+    ? dataConfidenceExpr
+    : `${primaryKey}`;
 
   const validationComments = schema.validation.rules
-    .map((rule) => `  // rule: ${rule}`)
+    .map((rule) => `  // rule: ${normalizeAscii(rule)}`)
     .join("\n");
+
+  const thresholdDriverCode = generateThresholdDriverCode(
+    schema.validation.thresholds,
+    schema.inputs,
+  );
+  const suggestedActionsCode = generateSuggestedActionsCode(breakdownKeys, primaryKey);
 
   return `export function calculate${pascalName}(input: ${pascalName}Input): ${pascalName}Output {
   const results = evaluateFormulas(input);
-  const ${primaryKey} = results.${primaryKey};
+  const ${primaryKey} = results.${primaryKey} ?? 0;
   const breakdown = {
 ${breakdownEntries}
   };
 
 ${validationComments}
-${thresholdComments}
-  const hiddenLossDrivers: string[] = ${JSON.stringify(schema.outputs.hiddenLossDrivers)};
-  const suggestedActions: string[] = ${JSON.stringify(schema.outputs.suggestedActions)};
-  const dataConfidenceAdjusted = ${dataConfidenceExpr};
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+${thresholdDriverCode}
+${suggestedActionsCode}
+  const dataConfidenceAdjusted = (() => { try { return ${safeDataConfidenceExpr}; } catch { return ${primaryKey}; } })();
 
   return {
     ${primaryKey},
@@ -232,17 +566,21 @@ ${thresholdComments}
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: ${schema.premiumRequired},
-    premiumFeatures: ${JSON.stringify(schema.premiumFeatures)},
+    premiumFeatures: ${JSON.stringify(schema.premiumFeatures.map((feature) => normalizeAscii(feature)))},
   };
 }`;
 }
 
 export function generateFromSchemaFile(resolvedSchemaPath: string): string {
   const schemaContent = fs.readFileSync(resolvedSchemaPath, "utf-8");
-  const schema = JSON.parse(schemaContent) as IndustrialToolSchema;
+  const parsedSchema = JSON.parse(schemaContent) as IndustrialToolSchema;
+  const schema: IndustrialToolSchema = {
+    ...parsedSchema,
+    formulas: normalizeFormulas(parsedSchema.formulas as unknown as Record<string, unknown>),
+  };
 
   const baseName = schemaBaseName(resolvedSchemaPath);
-  const pascalName = toPascalCase(baseName);
+  const pascalName = toSafePascalCase(baseName);
 
   const zodSchema = generateZodSchema(schema.inputs);
   const typeInterface = generateTypeInterface(schema.inputs, pascalName);
@@ -295,6 +633,7 @@ function main(): void {
     for (const schemaPath of schemaFiles) {
       const outFile = generateFromSchemaFile(schemaPath);
       console.log(`Generated ${outFile}`);
+      generateDiagramForSchema(schemaPath);
     }
     return;
   }
@@ -306,8 +645,10 @@ function main(): void {
     process.exit(1);
   }
 
-  const outFile = generateFromSchemaFile(path.resolve(schemaArg));
+  const resolvedSchemaPath = path.resolve(schemaArg);
+  const outFile = generateFromSchemaFile(resolvedSchemaPath);
   console.log(`Generated ${outFile}`);
+  generateDiagramForSchema(resolvedSchemaPath);
 }
 
 main();

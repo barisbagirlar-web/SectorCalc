@@ -1,0 +1,136 @@
+{
+  "toolName": "kritik-yol-cpm-gecikme-cezasi-ve-hizlandirma-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "projectDuration",
+      "label": "Proje Süresi (gün)",
+      "type": "number",
+      "unit": "gün",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Projenin planlanan toplam süresi. CPM yöntemi ile kritik yol belirlenir."
+    },
+    {
+      "id": "criticalPathDuration",
+      "label": "Kritik Yol Süresi (gün)",
+      "type": "number",
+      "unit": "gün",
+      "default": 80,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Kritik yol üzerindeki aktivitelerin toplam süresi. Gecikme cezası bu süreye bağlıdır."
+    },
+    {
+      "id": "delayDays",
+      "label": "Gecikme Gün Sayısı",
+      "type": "number",
+      "unit": "gün",
+      "default": 10,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Projenin planlanan bitiş tarihine göre gecikme miktarı."
+    },
+    {
+      "id": "penaltyPerDay",
+      "label": "Günlük Gecikme Cezası (TL)",
+      "type": "number",
+      "unit": "TL/gün",
+      "default": 1000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Sözleşmede belirtilen günlük gecikme cezası tutarı."
+    },
+    {
+      "id": "crashCostPerDay",
+      "label": "Hızlandırma Maliyeti (TL/gün)",
+      "type": "number",
+      "unit": "TL/gün",
+      "default": 1500,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Kritik yol aktivitelerini hızlandırmak için ek kaynak maliyeti."
+    },
+    {
+      "id": "maxCrashDays",
+      "label": "Maksimum Hızlandırma Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 5,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Teknik olarak hızlandırılabilecek maksimum gün sayısı."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar düzeltilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "criticalPathDuration <= projectDuration",
+      "delayDays >= 0",
+      "penaltyPerDay >= 0",
+      "crashCostPerDay >= 0",
+      "maxCrashDays >= 0",
+      "maxCrashDays <= criticalPathDuration"
+    ],
+    "thresholds": {
+      "delayDays > 0": "Proje gecikmiş durumda. Hızlandırma optimizasyonu yapılmalı.",
+      "crashCostPerDay > penaltyPerDay": "Hızlandırma maliyeti cezadan yüksek, hızlandırma ekonomik değil.",
+      "maxCrashDays < delayDays": "Maksimum hızlandırma günü gecikmeyi tamamen kapatamıyor."
+    }
+  },
+  "formulas": {
+    "totalPenalty": "delayDays * penaltyPerDay",
+    "crashDays": "min(delayDays, maxCrashDays)",
+    "crashCost": "crashDays * crashCostPerDay",
+    "remainingDelay": "delayDays - crashDays",
+    "remainingPenalty": "remainingDelay * penaltyPerDay",
+    "totalCost": "crashCost + remainingPenalty",
+    "savings": "totalPenalty - totalCost",
+    "dataConfidenceAdjusted": "savings * (dataConfidence == 'high' ? 1.0 : (dataConfidence == 'medium' ? 0.9 : 0.8))"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "totalPenalty": "totalPenalty",
+      "crashCost": "crashCost",
+      "remainingPenalty": "remainingPenalty",
+      "savings": "savings"
+    },
+    "hiddenLossDrivers": [
+      "delayDays > 0 ? 'Gecikme var' : ''",
+      "crashCostPerDay > penaltyPerDay ? 'Hızlandırma maliyeti cezadan yüksek' : ''"
+    ],
+    "suggestedActions": [
+      "crashCostPerDay <= penaltyPerDay ? 'Hızlandırma yapılması önerilir' : 'Hızlandırma yerine cezayı ödemek daha ekonomik'",
+      "maxCrashDays < delayDays ? 'Kritik yol dışı aktivitelerde hızlandırma düşünülmeli' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

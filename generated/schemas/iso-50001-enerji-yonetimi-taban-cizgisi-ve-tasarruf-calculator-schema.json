@@ -1,0 +1,133 @@
+{
+  "toolName": "iso-50001-enerji-yonetimi-taban-cizgisi-ve-tasarruf-calculator",
+  "inputs": [
+    {
+      "id": "baselineEnergyConsumption",
+      "label": "Baz Enerji Tüketimi (kWh/yıl)",
+      "type": "number",
+      "unit": "kWh/yıl",
+      "default": 1000000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "ISO 50001:2018, Madde 6.3 - Enerji baz çizgisi belirleme. Tipik olarak son 12-36 ay verisi kullanılır."
+    },
+    {
+      "id": "energyPrice",
+      "label": "Enerji Birim Fiyatı (TL/kWh)",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 1.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Güncel piyasa fiyatı veya ortalama maliyet. ISO 50001 enerji maliyeti hesaplamaları."
+    },
+    {
+      "id": "productionVolume",
+      "label": "Üretim Hacmi (birim/yıl)",
+      "type": "number",
+      "unit": "birim/yıl",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Enerji yoğunluğu hesaplamak için. ISO 50001 enerji performans göstergeleri (EnPI)."
+    },
+    {
+      "id": "energyReductionTarget",
+      "label": "Hedef Enerji Tasarrufu (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "ISO 50001 hedef belirleme. Genellikle %5-20 arası."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni Seviyesi",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "ISO 50001 veri kalitesi değerlendirmesi. Düşük: tahmini, Orta: ölçülmüş, Yüksek: doğrulanmış."
+    },
+    {
+      "id": "energySource",
+      "label": "Enerji Kaynağı",
+      "type": "select",
+      "unit": "",
+      "default": "electricity",
+      "min": null,
+      "max": null,
+      "options": [
+        "electricity",
+        "natural_gas",
+        "steam",
+        "other"
+      ],
+      "businessContext": "ISO 50001 enerji türü sınıflandırması. Farklı kaynaklar farklı birim fiyat ve emisyon faktörlerine sahiptir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "baselineEnergyConsumption > 0",
+      "energyPrice > 0",
+      "productionVolume > 0",
+      "energyReductionTarget >= 0 && energyReductionTarget <= 100",
+      "if (energySource == 'electricity') then energyPrice > 0.1",
+      "if (dataConfidence == 'low') then baselineEnergyConsumption > 0"
+    ],
+    "thresholds": {
+      "energyReductionTarget > 20": "Yüksek tasarruf hedefi, fizibilite çalışması önerilir.",
+      "baselineEnergyConsumption > 10000000": "Büyük ölçekli tesis, detaylı enerji etüdü gerekebilir.",
+      "energyPrice > 5": "Yüksek enerji maliyeti, tasarruf potansiyeli yüksek."
+    }
+  },
+  "formulas": {
+    "energyCostBaseline": "baselineEnergyConsumption * energyPrice",
+    "energyIntensityBaseline": "baselineEnergyConsumption / productionVolume",
+    "targetEnergyConsumption": "baselineEnergyConsumption * (1 - energyReductionTarget / 100)",
+    "energySavings": "baselineEnergyConsumption - targetEnergyConsumption",
+    "costSavings": "energySavings * energyPrice",
+    "dataConfidenceAdjustedSavings": "costSavings * (dataConfidence == 'high' ? 1.0 : (dataConfidence == 'medium' ? 0.85 : 0.7))"
+  },
+  "outputs": {
+    "primary": "costSavings",
+    "breakdown": {
+      "energyCostBaseline": "energyCostBaseline",
+      "energyIntensityBaseline": "energyIntensityBaseline",
+      "targetEnergyConsumption": "targetEnergyConsumption",
+      "energySavings": "energySavings",
+      "costSavings": "costSavings"
+    },
+    "hiddenLossDrivers": [
+      "energyReductionTarget > 20 ? 'Yüksek tasarruf hedefi, fizibilite çalışması önerilir.' : ''",
+      "baselineEnergyConsumption > 10000000 ? 'Büyük ölçekli tesis, detaylı enerji etüdü gerekebilir.' : ''",
+      "energyPrice > 5 ? 'Yüksek enerji maliyeti, tasarruf potansiyeli yüksek.' : ''"
+    ],
+    "suggestedActions": [
+      "Enerji verimliliği projeleri için fizibilite çalışması başlatın.",
+      "ISO 50001 enerji yönetim sistemi kurun veya iyileştirin.",
+      "Enerji tüketimini gerçek zamanlı izlemek için alt ölçümler ekleyin.",
+      "Çalışanları enerji tasarrufu konusunda eğitin."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedSavings"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş verilerle karşılaştırma)",
+    "Detaylı enerji etüdü raporu",
+    "Benchmark karşılaştırması"
+  ],
+  "premiumRequired": true
+}

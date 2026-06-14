@@ -1,0 +1,167 @@
+{
+  "toolName": "smed-setup-suresi-ve-ekonomik-parti-calculator",
+  "inputs": [
+    {
+      "id": "annualDemand",
+      "label": "Annual Demand (units)",
+      "type": "number",
+      "unit": "units/year",
+      "default": 10000,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Annual demand for the product. Used to calculate economic order quantity and setup cost per unit. Based on EOQ model (Harris, 1913) and lean manufacturing principles."
+    },
+    {
+      "id": "setupTime",
+      "label": "Setup Time (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 30,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Time required to change over from one product to another. Key metric in SMED (Shingo, 1985) to reduce waste and improve flexibility."
+    },
+    {
+      "id": "hourlyCost",
+      "label": "Hourly Cost of Setup Labor ($/hour)",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Labor cost per hour for setup activities. Includes wages, benefits, and overhead. Used to calculate setup cost per setup."
+    },
+    {
+      "id": "holdingCostPerUnit",
+      "label": "Holding Cost per Unit per Year ($)",
+      "type": "number",
+      "unit": "$/unit/year",
+      "default": 2,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost to hold one unit of inventory for one year. Includes storage, insurance, obsolescence, and opportunity cost. Based on inventory carrying cost standards (APICS)."
+    },
+    {
+      "id": "productionRate",
+      "label": "Production Rate (units per hour)",
+      "type": "number",
+      "unit": "units/hour",
+      "default": 100,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of units produced per hour during production. Used to calculate production time and economic production quantity (EPQ) model."
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Working Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Number of working days per year. Used to convert annual demand to daily demand. Typical value 250 (5 days/week, 50 weeks)."
+    },
+    {
+      "id": "hoursPerShift",
+      "label": "Hours per Shift",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 1,
+      "max": 24,
+      "options": null,
+      "businessContext": "Number of hours in a shift. Used to calculate available production time per day."
+    },
+    {
+      "id": "shiftsPerDay",
+      "label": "Shifts per Day",
+      "type": "number",
+      "unit": "shifts",
+      "default": 1,
+      "min": 1,
+      "max": 3,
+      "options": null,
+      "businessContext": "Number of shifts per day. Affects available production time."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence (0-1)",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Confidence level in input data accuracy. Used to adjust output for uncertainty. 1 = high confidence, 0 = low confidence."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualDemand > 0",
+      "setupTime >= 0",
+      "hourlyCost >= 0",
+      "holdingCostPerUnit >= 0",
+      "productionRate > 0",
+      "workingDaysPerYear >= 1 && workingDaysPerYear <= 365",
+      "hoursPerShift >= 1 && hoursPerShift <= 24",
+      "shiftsPerDay >= 1 && shiftsPerDay <= 3",
+      "dataConfidence >= 0 && dataConfidence <= 1"
+    ],
+    "thresholds": {
+      "setupTime": "If setupTime > 60, warning: 'High setup time; consider SMED improvements.'",
+      "holdingCostPerUnit": "If holdingCostPerUnit > 10, warning: 'High holding cost; review inventory policy.'",
+      "hourlyCost": "If hourlyCost > 100, warning: 'High labor cost; consider automation.'"
+    }
+  },
+  "formulas": {
+    "setupCostPerSetup": "setupTime / 60 * hourlyCost",
+    "dailyDemand": "annualDemand / workingDaysPerYear",
+    "dailyProductionRate": "productionRate * hoursPerShift * shiftsPerDay",
+    "economicBatchQuantity": "Math.sqrt((2 * annualDemand * setupCostPerSetup) / holdingCostPerUnit)",
+    "totalSetupCostPerYear": "(annualDemand / economicBatchQuantity) * setupCostPerSetup",
+    "totalHoldingCostPerYear": "(economicBatchQuantity / 2) * holdingCostPerUnit",
+    "totalInventoryCostPerYear": "totalSetupCostPerYear + totalHoldingCostPerYear",
+    "setupTimeReductionPotential": "setupTime > 30 ? setupTime - 30 : 0",
+    "savingsFromSetupReduction": "setupTimeReductionPotential > 0 ? (setupTimeReductionPotential / 60) * hourlyCost * (annualDemand / economicBatchQuantity) : 0",
+    "dataConfidenceAdjustedCost": "totalInventoryCostPerYear / dataConfidence"
+  },
+  "outputs": {
+    "primary": "economicBatchQuantity",
+    "breakdown": {
+      "setupCostPerSetup": "setupCostPerSetup",
+      "dailyDemand": "dailyDemand",
+      "dailyProductionRate": "dailyProductionRate",
+      "totalSetupCostPerYear": "totalSetupCostPerYear",
+      "totalHoldingCostPerYear": "totalHoldingCostPerYear",
+      "totalInventoryCostPerYear": "totalInventoryCostPerYear",
+      "setupTimeReductionPotential": "setupTimeReductionPotential",
+      "savingsFromSetupReduction": "savingsFromSetupReduction"
+    },
+    "hiddenLossDrivers": [
+      "setupTime > 60 ? 'Excessive setup time increases cost and reduces flexibility.' : ''",
+      "holdingCostPerUnit > 10 ? 'High holding cost may indicate inefficiencies in storage or high obsolescence.' : ''",
+      "hourlyCost > 100 ? 'High labor cost for setup; consider automation or training.' : ''"
+    ],
+    "suggestedActions": [
+      "setupTime > 30 ? 'Implement SMED techniques to reduce setup time below 30 minutes.' : ''",
+      "holdingCostPerUnit > 5 ? 'Review inventory policy; consider JIT or reduce safety stock.' : ''",
+      "hourlyCost > 80 ? 'Evaluate automation for setup tasks to reduce labor cost.' : ''",
+      "economicBatchQuantity > dailyDemand * 10 ? 'Consider reducing batch size to lower inventory holding costs.' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmarking",
+    "Detailed Report with Graphs"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,145 @@
+{
+  "toolName": "laboratuvar-analiz-maliyeti-ve-numune-alma-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "numSamples",
+      "label": "Number of Samples per Batch",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Number of samples taken from a batch for analysis. Based on ISO 2859 (sampling procedures for inspection by attributes)."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Total number of units in the batch. Used to calculate sampling ratio and defect probability."
+    },
+    {
+      "id": "costPerSample",
+      "label": "Cost per Sample Analysis",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Direct cost of analyzing one sample (labor, reagents, equipment depreciation). Based on laboratory accounting standards."
+    },
+    {
+      "id": "defectRate",
+      "label": "Historical Defect Rate",
+      "type": "number",
+      "unit": "oran (0-1)",
+      "default": 0.05,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Proportion of defective units in historical production. Used for risk-based sampling optimization. Six Sigma DMAIC metric."
+    },
+    {
+      "id": "costOfDefect",
+      "label": "Cost per Defective Unit (if undetected)",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Cost incurred if a defective unit reaches the customer (rework, scrap, warranty, reputation). Based on quality cost accounting (COPQ)."
+    },
+    {
+      "id": "samplingMode",
+      "label": "Sampling Mode",
+      "type": "select",
+      "unit": "",
+      "default": "fixed",
+      "min": null,
+      "max": null,
+      "options": [
+        "fixed",
+        "variable",
+        "sequential"
+      ],
+      "businessContext": "Type of sampling plan: fixed (constant sample size), variable (sample size depends on batch size), sequential (adaptive based on results). ISO 2859 and ANSI/ASQ Z1.4."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "number",
+      "unit": "oran (0-1)",
+      "default": 0.95,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Confidence level for statistical estimates. Typically 0.90, 0.95, or 0.99. Used to adjust risk calculations."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "numSamples <= batchSize",
+      "if samplingMode == 'fixed' then numSamples > 0",
+      "if samplingMode == 'variable' then numSamples >= 0.1 * batchSize",
+      "costPerSample > 0",
+      "defectRate >= 0 and defectRate <= 1",
+      "costOfDefect > 0",
+      "dataConfidence > 0 and dataConfidence < 1"
+    ],
+    "thresholds": {
+      "defectRate > 0.1": "High defect rate detected; consider process improvement.",
+      "costPerSample > 100": "Sample cost is high; evaluate alternative methods.",
+      "numSamples > 0.5 * batchSize": "Sampling ratio exceeds 50%; consider 100% inspection."
+    }
+  },
+  "formulas": {
+    "totalSamplingCost": "numSamples * costPerSample",
+    "expectedDefectsInBatch": "batchSize * defectRate",
+    "expectedDefectCost": "expectedDefectsInBatch * costOfDefect",
+    "riskReductionFactor": "1 - (1 - defectRate) ^ numSamples",
+    "expectedDetectedDefects": "expectedDefectsInBatch * riskReductionFactor",
+    "expectedUndetectedDefects": "expectedDefectsInBatch * (1 - riskReductionFactor)",
+    "expectedUndetectedCost": "expectedUndetectedDefects * costOfDefect",
+    "totalExpectedCost": "totalSamplingCost + expectedUndetectedCost",
+    "optimalSampleSize": "if samplingMode == 'fixed' then numSamples else if samplingMode == 'variable' then ceil(0.1 * batchSize) else ceil((1 - dataConfidence) * batchSize / (1 - defectRate))",
+    "costSavings": "expectedDefectCost - totalExpectedCost",
+    "dataConfidenceAdjustedCost": "totalExpectedCost * (1 + (1 - dataConfidence))"
+  },
+  "outputs": {
+    "primary": "totalExpectedCost",
+    "breakdown": {
+      "totalSamplingCost": "totalSamplingCost",
+      "expectedUndetectedCost": "expectedUndetectedCost",
+      "expectedDefectCost": "expectedDefectCost",
+      "riskReductionFactor": "riskReductionFactor",
+      "optimalSampleSize": "optimalSampleSize",
+      "costSavings": "costSavings"
+    },
+    "hiddenLossDrivers": [
+      "if defectRate > 0.1 then 'High defect rate'",
+      "if costPerSample > 100 then 'High sample cost'",
+      "if numSamples > 0.5 * batchSize then 'Excessive sampling'"
+    ],
+    "suggestedActions": [
+      "if defectRate > 0.1 then 'Implement process improvement (e.g., Six Sigma DMAIC) to reduce defect rate.'",
+      "if costPerSample > 100 then 'Negotiate with lab or use alternative analysis methods (e.g., NDT).'",
+      "if numSamples > 0.5 * batchSize then 'Consider 100% inspection or reduce sample size using statistical sampling.'",
+      "if costSavings < 0 then 'Increase sample size or improve defect detection to reduce total cost.'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis (historical data)",
+    "Comparison of sampling modes",
+    "Detailed report with charts"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,168 @@
+{
+  "toolName": "isi-degistirici-esanjor-kapasite-hesabi",
+  "inputs": [
+    {
+      "id": "sicakAkiskanDebisi",
+      "label": "Sıcak Akışkan Debisi",
+      "type": "number",
+      "unit": "kg/s",
+      "default": 10,
+      "min": 0.1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Sıcak akışkanın kütlesel debisi. Isı değiştirici tasarımında temel parametre. Kaynak: TEMA Standartları, ASME BPE."
+    },
+    {
+      "id": "sicakAkiskanGirisSicakligi",
+      "label": "Sıcak Akışkan Giriş Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 90,
+      "min": -50,
+      "max": 500,
+      "options": null,
+      "businessContext": "Sıcak akışkanın ısı değiştiriciye giriş sıcaklığı. Kaynak: TEMA Standartları."
+    },
+    {
+      "id": "sicakAkiskanCikisSicakligi",
+      "label": "Sıcak Akışkan Çıkış Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 50,
+      "min": -50,
+      "max": 500,
+      "options": null,
+      "businessContext": "Sıcak akışkanın ısı değiştiriciden çıkış sıcaklığı. Kaynak: TEMA Standartları."
+    },
+    {
+      "id": "sogukAkiskanDebisi",
+      "label": "Soğuk Akışkan Debisi",
+      "type": "number",
+      "unit": "kg/s",
+      "default": 10,
+      "min": 0.1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Soğuk akışkanın kütlesel debisi. Kaynak: TEMA Standartları."
+    },
+    {
+      "id": "sogukAkiskanGirisSicakligi",
+      "label": "Soğuk Akışkan Giriş Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "min": -50,
+      "max": 500,
+      "options": null,
+      "businessContext": "Soğuk akışkanın ısı değiştiriciye giriş sıcaklığı. Kaynak: TEMA Standartları."
+    },
+    {
+      "id": "sogukAkiskanCikisSicakligi",
+      "label": "Soğuk Akışkan Çıkış Sıcaklığı",
+      "type": "number",
+      "unit": "°C",
+      "default": 40,
+      "min": -50,
+      "max": 500,
+      "options": null,
+      "businessContext": "Soğuk akışkanın ısı değiştiriciden çıkış sıcaklığı. Kaynak: TEMA Standartları."
+    },
+    {
+      "id": "sicakAkiskanOzgulIsi",
+      "label": "Sıcak Akışkan Özgül Isısı",
+      "type": "number",
+      "unit": "kJ/(kg·K)",
+      "default": 4.18,
+      "min": 0.1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Sıcak akışkanın özgül ısısı. Su için 4.18 kJ/(kg·K). Kaynak: Termodinamik tablolar."
+    },
+    {
+      "id": "sogukAkiskanOzgulIsi",
+      "label": "Soğuk Akışkan Özgül Isısı",
+      "type": "number",
+      "unit": "kJ/(kg·K)",
+      "default": 4.18,
+      "min": 0.1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Soğuk akışkanın özgül ısısı. Kaynak: Termodinamik tablolar."
+    },
+    {
+      "id": "isTransferKatsayisi",
+      "label": "Toplam Isı Transfer Katsayısı",
+      "type": "number",
+      "unit": "W/(m²·K)",
+      "default": 500,
+      "min": 10,
+      "max": 5000,
+      "options": null,
+      "businessContext": "Isı değiştiricideki toplam ısı transfer katsayısı. Kaynak: TEMA Standartları, Perry's Chemical Engineers' Handbook."
+    },
+    {
+      "id": "akisDuzeni",
+      "label": "Akış Düzeni",
+      "type": "select",
+      "unit": "",
+      "default": "parallel",
+      "min": null,
+      "max": null,
+      "options": [
+        "parallel",
+        "counter",
+        "cross"
+      ],
+      "businessContext": "Akış düzeni: parallel (paralel), counter (ters), cross (çapraz). Kaynak: TEMA Standartları."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "sicakAkiskanGirisSicakligi > sicakAkiskanCikisSicakligi",
+      "sogukAkiskanCikisSicakligi > sogukAkiskanGirisSicakligi",
+      "sicakAkiskanCikisSicakligi > sogukAkiskanGirisSicakligi",
+      "sicakAkiskanDebisi > 0",
+      "sogukAkiskanDebisi > 0",
+      "isTransferKatsayisi > 0"
+    ],
+    "thresholds": {
+      "sicakAkiskanCikisSicakligi": "sicakAkiskanCikisSicakligi < sogukAkiskanGirisSicakligi ? 'KRITIK: Sıcak çıkış sıcaklığı soğuk girişten düşük' : null",
+      "sogukAkiskanCikisSicakligi": "sogukAkiskanCikisSicakligi > sicakAkiskanGirisSicakligi ? 'KRITIK: Soğuk çıkış sıcaklığı sıcak girişten yüksek' : null"
+    }
+  },
+  "formulas": {
+    "sicakAkiskanIsiTransferi": "sicakAkiskanDebisi * sicakAkiskanOzgulIsi * (sicakAkiskanGirisSicakligi - sicakAkiskanCikisSicakligi) * 1000",
+    "sogukAkiskanIsiTransferi": "sogukAkiskanDebisi * sogukAkiskanOzgulIsi * (sogukAkiskanCikisSicakligi - sogukAkiskanGirisSicakligi) * 1000",
+    "ortalamaSicaklikFarki": "akisDuzeni == 'counter' ? ((sicakAkiskanGirisSicakligi - sogukAkiskanCikisSicakligi) - (sicakAkiskanCikisSicakligi - sogukAkiskanGirisSicakligi)) / Math.log((sicakAkiskanGirisSicakligi - sogukAkiskanCikisSicakligi) / (sicakAkiskanCikisSicakligi - sogukAkiskanGirisSicakligi)) : akisDuzeni == 'parallel' ? ((sicakAkiskanGirisSicakligi - sogukAkiskanGirisSicakligi) - (sicakAkiskanCikisSicakligi - sogukAkiskanCikisSicakligi)) / Math.log((sicakAkiskanGirisSicakligi - sogukAkiskanGirisSicakligi) / (sicakAkiskanCikisSicakligi - sogukAkiskanCikisSicakligi)) : ((sicakAkiskanGirisSicakligi - sogukAkiskanCikisSicakligi) - (sicakAkiskanCikisSicakligi - sogukAkiskanGirisSicakligi)) / Math.log((sicakAkiskanGirisSicakligi - sogukAkiskanCikisSicakligi) / (sicakAkiskanCikisSicakligi - sogukAkiskanGirisSicakligi))",
+    "gerekliIsiTransferAlani": "ortalamaSicaklikFarki > 0 ? (sicakAkiskanIsiTransferi / (isTransferKatsayisi * ortalamaSicaklikFarki)) : 0",
+    "kapasiteOrani": "sogukAkiskanIsiTransferi > 0 ? (sicakAkiskanIsiTransferi / sogukAkiskanIsiTransferi) : 0"
+  },
+  "outputs": {
+    "primary": "gerekliIsiTransferAlani",
+    "breakdown": {
+      "sicakAkiskanIsiTransferi": "Sıcak akışkan tarafından transfer edilen ısı (W)",
+      "sogukAkiskanIsiTransferi": "Soğuk akışkan tarafından alınan ısı (W)",
+      "ortalamaSicaklikFarki": "Logaritmik ortalama sıcaklık farkı (K)",
+      "kapasiteOrani": "Kapasite oranı (sıcak/soğuk)"
+    },
+    "hiddenLossDrivers": [
+      "sicakAkiskanCikisSicakligi < sogukAkiskanGirisSicakligi ? 'Sıcak çıkış sıcaklığı soğuk girişten düşük, ısı transferi verimsiz' : null",
+      "sogukAkiskanCikisSicakligi > sicakAkiskanGirisSicakligi ? 'Soğuk çıkış sıcaklığı sıcak girişten yüksek, ısı transferi imkansız' : null",
+      "Math.abs(sicakAkiskanIsiTransferi - sogukAkiskanIsiTransferi) / Math.max(sicakAkiskanIsiTransferi, sogukAkiskanIsiTransferi) > 0.1 ? 'Isı dengesi sapması > %10' : null"
+    ],
+    "suggestedActions": [
+      "gerekliIsiTransferAlani > 100 ? 'Isı değiştirici boyutunu küçültmek için akış düzenini ters akış olarak değiştirin' : null",
+      "kapasiteOrani > 1.2 ? 'Sıcak akışkan debisini azaltın veya soğuk akışkan debisini artırın' : null",
+      "kapasiteOrani < 0.8 ? 'Soğuk akışkan debisini azaltın veya sıcak akışkan debisini artırın' : null"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,146 @@
+{
+  "toolName": "kazanilmis-deger-yonetimi-evm-tamamlanma-maliyet-tahmin-calculator",
+  "inputs": [
+    {
+      "id": "bac",
+      "label": "Budget at Completion (BAC)",
+      "type": "number",
+      "unit": "currency",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Toplam bütçe. PMBOK Guide, EVM standardı."
+    },
+    {
+      "id": "ac",
+      "label": "Actual Cost (AC)",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Gerçekleşen maliyet. PMBOK Guide."
+    },
+    {
+      "id": "ev",
+      "label": "Earned Value (EV)",
+      "type": "number",
+      "unit": "currency",
+      "default": 40000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Kazanılan değer. PMBOK Guide."
+    },
+    {
+      "id": "pv",
+      "label": "Planned Value (PV)",
+      "type": "number",
+      "unit": "currency",
+      "default": 60000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Planlanan değer. PMBOK Guide."
+    },
+    {
+      "id": "cpi",
+      "label": "Cost Performance Index (CPI)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.8,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Maliyet performans indeksi. EV/AC. PMBOK Guide."
+    },
+    {
+      "id": "spi",
+      "label": "Schedule Performance Index (SPI)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.67,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Takvim performans indeksi. EV/PV. PMBOK Guide."
+    },
+    {
+      "id": "etcMethod",
+      "label": "EAC Method for ETC",
+      "type": "select",
+      "unit": "",
+      "default": "typical",
+      "min": null,
+      "max": null,
+      "options": [
+        "typical",
+        "atypical",
+        "custom"
+      ],
+      "businessContext": "EAC hesaplama yöntemi. PMBOK Guide: typical (CPI devam eder), atypical (kalan iş planlandığı gibi), custom (manuel ETC)."
+    },
+    {
+      "id": "etcCustom",
+      "label": "Custom ETC (if method=custom)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Manuel ETC değeri. Sadece method custom ise kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "bac > 0",
+      "ac >= 0",
+      "ev >= 0",
+      "pv >= 0",
+      "cpi > 0",
+      "spi > 0",
+      "if etcMethod == 'custom' then etcCustom > 0"
+    ],
+    "thresholds": {
+      "cpi < 0.8": "Kritik: CPI < 0.8, maliyet aşımı riski yüksek.",
+      "spi < 0.8": "Kritik: SPI < 0.8, takvim gecikmesi riski yüksek.",
+      "cpi < 1.0": "Uyarı: CPI < 1.0, maliyet aşımı var.",
+      "spi < 1.0": "Uyarı: SPI < 1.0, takvim gecikmesi var."
+    }
+  },
+  "formulas": {
+    "eac": "if etcMethod == 'typical' then bac / cpi else if etcMethod == 'atypical' then ac + (bac - ev) else ac + etcCustom",
+    "etc": "eac - ac",
+    "vac": "bac - eac",
+    "tcpi": "(bac - ev) / (bac - ac)"
+  },
+  "outputs": {
+    "primary": "eac",
+    "breakdown": {
+      "etc": "etc",
+      "vac": "vac",
+      "tcpi": "tcpi"
+    },
+    "hiddenLossDrivers": [
+      "cpi < 0.8 ? 'Kritik maliyet aşımı' : ''",
+      "spi < 0.8 ? 'Kritik takvim gecikmesi' : ''"
+    ],
+    "suggestedActions": [
+      "cpi < 1.0 ? 'Maliyet performansını iyileştirmek için düzeltici önlem alın.' : ''",
+      "spi < 1.0 ? 'Takvim performansını iyileştirmek için hızlandırma önlemleri alın.' : ''",
+      "vac < 0 ? 'Bütçe aşımı var, yeniden planlama yapın.' : ''"
+    ],
+    "dataConfidenceAdjusted": "eac"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Baseline",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

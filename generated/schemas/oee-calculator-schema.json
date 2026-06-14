@@ -1,0 +1,135 @@
+{
+  "toolName": "oee-calculator",
+  "inputs": [
+    {
+      "id": "plannedProductionTime",
+      "label": "Planned Production Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 480,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total time scheduled for production per shift/day. Based on ISO 22400 (KPIs for manufacturing operations management)."
+    },
+    {
+      "id": "operatingTime",
+      "label": "Operating Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 450,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Actual time the equipment is running (planned production time minus downtime). Key for Availability calculation."
+    },
+    {
+      "id": "idealCycleTime",
+      "label": "Ideal Cycle Time",
+      "type": "number",
+      "unit": "minutes per unit",
+      "default": 1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Theoretical minimum time to produce one unit under optimal conditions. Used in Performance calculation."
+    },
+    {
+      "id": "totalPartsProduced",
+      "label": "Total Parts Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 400,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total number of parts produced during operating time. Includes both good and defective parts."
+    },
+    {
+      "id": "goodPartsProduced",
+      "label": "Good Parts Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 380,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of parts meeting quality standards. Used in Quality calculation."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective assessment of data accuracy. Adjusts final OEE for uncertainty. Common in lean manufacturing assessments."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "operatingTime <= plannedProductionTime",
+      "totalPartsProduced >= 0",
+      "goodPartsProduced <= totalPartsProduced",
+      "idealCycleTime > 0",
+      "plannedProductionTime > 0"
+    ],
+    "thresholds": {
+      "oee": {
+        "warning": 0.85,
+        "critical": 0.6
+      },
+      "availability": {
+        "warning": 0.9,
+        "critical": 0.7
+      },
+      "performance": {
+        "warning": 0.95,
+        "critical": 0.8
+      },
+      "quality": {
+        "warning": 0.99,
+        "critical": 0.95
+      }
+    }
+  },
+  "formulas": {
+    "availability": "operatingTime / plannedProductionTime",
+    "performance": "(totalPartsProduced * idealCycleTime) / operatingTime",
+    "quality": "goodPartsProduced / totalPartsProduced",
+    "oee": "availability * performance * quality",
+    "dataConfidenceAdjusted": "oee * (dataConfidence === 'high' ? 1 : dataConfidence === 'medium' ? 0.95 : 0.9)"
+  },
+  "outputs": {
+    "primary": "oee",
+    "breakdown": {
+      "availability": "availability",
+      "performance": "performance",
+      "quality": "quality"
+    },
+    "hiddenLossDrivers": [
+      "availability < 0.9 ? 'Excessive downtime' : ''",
+      "performance < 0.95 ? 'Speed loss' : ''",
+      "quality < 0.99 ? 'Defect loss' : ''"
+    ],
+    "suggestedActions": [
+      "availability < 0.9 ? 'Implement TPM and reduce breakdowns' : ''",
+      "performance < 0.95 ? 'Analyze cycle time variances and reduce micro-stops' : ''",
+      "quality < 0.99 ? 'Apply Poka-Yoke and SPC to reduce defects' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmarking against industry standards",
+    "Detailed loss breakdown report"
+  ],
+  "premiumRequired": true
+}

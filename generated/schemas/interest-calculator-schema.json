@@ -1,0 +1,125 @@
+{
+  "toolName": "interest-calculator",
+  "inputs": [
+    {
+      "id": "principal",
+      "label": "Principal Amount",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Initial amount of money borrowed or invested. Standard financial practice."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Annual Interest Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Yearly interest rate as a percentage. Common in loan and investment calculations."
+    },
+    {
+      "id": "timePeriod",
+      "label": "Time Period",
+      "type": "number",
+      "unit": "years",
+      "default": 1,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Duration for which interest is calculated. Typically in years."
+    },
+    {
+      "id": "compoundingFrequency",
+      "label": "Compounding Frequency",
+      "type": "select",
+      "unit": "",
+      "default": "annually",
+      "min": null,
+      "max": null,
+      "options": [
+        "annually",
+        "semi-annually",
+        "quarterly",
+        "monthly",
+        "daily"
+      ],
+      "businessContext": "How often interest is compounded. Affects total interest earned/paid."
+    },
+    {
+      "id": "interestType",
+      "label": "Interest Type",
+      "type": "select",
+      "unit": "",
+      "default": "simple",
+      "min": null,
+      "max": null,
+      "options": [
+        "simple",
+        "compound"
+      ],
+      "businessContext": "Simple interest is linear; compound interest grows exponentially."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data. Used for risk-adjusted outputs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "principal must be >= 0",
+      "annualInterestRate must be between 0 and 100",
+      "timePeriod must be >= 0",
+      "dataConfidence must be between 0 and 100"
+    ],
+    "thresholds": {
+      "annualInterestRate > 20": "High interest rate warning",
+      "timePeriod > 30": "Long-term investment warning"
+    }
+  },
+  "formulas": {
+    "simpleInterest": "principal * (annualInterestRate / 100) * timePeriod",
+    "compoundInterest": "principal * (1 + (annualInterestRate / 100) / compoundingFactor) ^ (compoundingFactor * timePeriod) - principal",
+    "totalAmountSimple": "principal + simpleInterest",
+    "totalAmountCompound": "principal + compoundInterest",
+    "compoundingFactor": "case compoundingFrequency when 'annually' then 1 when 'semi-annually' then 2 when 'quarterly' then 4 when 'monthly' then 12 when 'daily' then 365 end"
+  },
+  "outputs": {
+    "primary": "totalInterest",
+    "breakdown": {
+      "principal": "principal",
+      "totalInterest": "if interestType='simple' then simpleInterest else compoundInterest",
+      "totalAmount": "if interestType='simple' then totalAmountSimple else totalAmountCompound",
+      "effectiveAnnualRate": "if interestType='compound' then ((1 + (annualInterestRate/100)/compoundingFactor)^compoundingFactor - 1)*100 else annualInterestRate"
+    },
+    "hiddenLossDrivers": [
+      "if annualInterestRate > 20 then 'High interest rate may indicate risk'",
+      "if timePeriod > 30 then 'Long duration may increase uncertainty'"
+    ],
+    "suggestedActions": [
+      "if interestType='simple' and timePeriod > 5 then 'Consider compound interest for better returns'",
+      "if annualInterestRate > 15 then 'Review loan terms or investment risk'"
+    ],
+    "dataConfidenceAdjusted": "totalInterest * (dataConfidence / 100)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Market Rates",
+    "Detailed Amortization Schedule"
+  ],
+  "premiumRequired": true
+}

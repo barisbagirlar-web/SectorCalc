@@ -1,0 +1,172 @@
+{
+  "toolName": "warehouse-storage-cost-calculator",
+  "inputs": [
+    {
+      "id": "totalStorageArea",
+      "label": "Total Storage Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total floor area dedicated to storage. Based on WERC warehouse measurement standards."
+    },
+    {
+      "id": "usableStorageArea",
+      "label": "Usable Storage Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 800,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Area actually used for storage after aisles, offices, etc. Typically 70-85% of total area per lean principles."
+    },
+    {
+      "id": "averageInventoryValue",
+      "label": "Average Inventory Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average value of inventory held. Used for cost of capital calculation."
+    },
+    {
+      "id": "annualStorageCostPerSqm",
+      "label": "Annual Storage Cost per m²",
+      "type": "number",
+      "unit": "USD/m²/year",
+      "default": 120,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Includes rent, utilities, maintenance. Benchmark from industry reports (e.g., CBRE)."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Labor Cost per Hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 25,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average warehouse worker wage including benefits. Based on Bureau of Labor Statistics."
+    },
+    {
+      "id": "laborHoursPerSqmPerYear",
+      "label": "Labor Hours per m² per Year",
+      "type": "number",
+      "unit": "hours/m²/year",
+      "default": 2,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Labor intensity for storage activities. Derived from time studies (Maynard)."
+    },
+    {
+      "id": "equipmentCostPerYear",
+      "label": "Equipment Cost per Year",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Annual cost of forklifts, racking, etc. Includes depreciation and maintenance."
+    },
+    {
+      "id": "costOfCapitalRate",
+      "label": "Cost of Capital Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Weighted average cost of capital (WACC). Used for inventory carrying cost. Standard finance."
+    },
+    {
+      "id": "storageUtilizationRate",
+      "label": "Storage Utilization Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of usable space actually occupied. Lean target >85%."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "User's confidence in input data accuracy. Affects output adjustment."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "usableStorageArea <= totalStorageArea",
+      "storageUtilizationRate >= 0 and storageUtilizationRate <= 100",
+      "costOfCapitalRate >= 0 and costOfCapitalRate <= 100",
+      "if storageUtilizationRate > 100 then 'Utilization cannot exceed 100%'"
+    ],
+    "thresholds": {
+      "storageUtilizationRate": {
+        "low": 60,
+        "medium": 75,
+        "high": 90,
+        "critical": 50
+      }
+    }
+  },
+  "formulas": {
+    "annualStorageSpaceCost": "totalStorageArea * annualStorageCostPerSqm",
+    "annualLaborCost": "usableStorageArea * laborHoursPerSqmPerYear * laborCostPerHour",
+    "annualEquipmentCost": "equipmentCostPerYear",
+    "annualInventoryCarryingCost": "averageInventoryValue * (costOfCapitalRate / 100)",
+    "totalAnnualStorageCost": "annualStorageSpaceCost + annualLaborCost + annualEquipmentCost + annualInventoryCarryingCost",
+    "costPerSqmPerYear": "totalAnnualStorageCost / usableStorageArea",
+    "costPerDollarOfInventory": "totalAnnualStorageCost / averageInventoryValue",
+    "adjustedTotalCost": "dataConfidence == 'low' ? totalAnnualStorageCost * 1.2 : (dataConfidence == 'medium' ? totalAnnualStorageCost * 1.1 : totalAnnualStorageCost)"
+  },
+  "outputs": {
+    "primary": "totalAnnualStorageCost",
+    "breakdown": {
+      "annualStorageSpaceCost": "annualStorageSpaceCost",
+      "annualLaborCost": "annualLaborCost",
+      "annualEquipmentCost": "annualEquipmentCost",
+      "annualInventoryCarryingCost": "annualInventoryCarryingCost"
+    },
+    "hiddenLossDrivers": [
+      "if storageUtilizationRate < 60 then 'Low utilization indicates wasted space'",
+      "if annualInventoryCarryingCost > 0.3 * totalAnnualStorageCost then 'High inventory carrying cost relative to total'"
+    ],
+    "suggestedActions": [
+      "if storageUtilizationRate < 75 then 'Improve layout or reduce aisle space to increase utilization'",
+      "if annualLaborCost > 0.4 * totalAnnualStorageCost then 'Consider automation to reduce labor cost'",
+      "if annualInventoryCarryingCost > 0.2 * totalAnnualStorageCost then 'Review inventory levels and implement JIT'"
+    ],
+    "dataConfidenceAdjusted": "adjustedTotalCost"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (historical comparison)",
+    "Benchmarking against industry averages",
+    "Detailed breakdown report with charts"
+  ],
+  "premiumRequired": true
+}

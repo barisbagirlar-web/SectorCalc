@@ -5,6 +5,7 @@ export type PreviewStaticParamFamily =
   | "premium-tools"
   | "premium-schema"
   | "premium-schema-print"
+  | "generated-tools"
   | "seo"
   | "industries"
   | "audit"
@@ -39,6 +40,12 @@ const FAMILY_KEEP_SLUGS: Record<PreviewStaticParamFamily, readonly string[]> = {
     "logistics-route-loss",
     "energy-peak-cost",
     "7-israf-muda-avcisi-parasal-karsilik-calculator",
+  ],
+  "generated-tools": [
+    "cnc-oee-loss",
+    "cloud-api-cost-overrun",
+    "7-israf-muda-avcisi-parasal-karsilik-calculator",
+    "abonelik-yazilim-cloud-yillik-maliyet-hesabi",
   ],
   seo: [
     "3d-print-job-margin-tool",

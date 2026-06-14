@@ -1,0 +1,188 @@
+{
+  "toolName": "logistics-route-loss",
+  "inputs": [
+    {
+      "id": "routeDistance",
+      "label": "Route Distance",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total distance of the logistics route. Based on standard transportation metrics (WERC)."
+    },
+    {
+      "id": "fuelConsumptionPerKm",
+      "label": "Fuel Consumption per km",
+      "type": "number",
+      "unit": "L/km",
+      "default": 0.3,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average fuel consumption of the vehicle. Influenced by vehicle type and load (ISO 50001)."
+    },
+    {
+      "id": "fuelPricePerLiter",
+      "label": "Fuel Price per Liter",
+      "type": "number",
+      "unit": "USD/L",
+      "default": 1.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Current market price of fuel. Used to calculate direct fuel cost."
+    },
+    {
+      "id": "driverHourlyRate",
+      "label": "Driver Hourly Rate",
+      "type": "number",
+      "unit": "USD/h",
+      "default": 25,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Hourly wage of the driver including benefits. Based on labor standards."
+    },
+    {
+      "id": "averageSpeed",
+      "label": "Average Speed",
+      "type": "number",
+      "unit": "km/h",
+      "default": 60,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average speed of the vehicle on the route. Affects travel time and driver cost."
+    },
+    {
+      "id": "loadFactor",
+      "label": "Load Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of vehicle capacity utilized. Low load factor increases loss per unit (Lean principles)."
+    },
+    {
+      "id": "maintenanceCostPerKm",
+      "label": "Maintenance Cost per km",
+      "type": "number",
+      "unit": "USD/km",
+      "default": 0.1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average maintenance cost per kilometer. Includes tires, repairs, etc. (ISO 50001)."
+    },
+    {
+      "id": "tollCost",
+      "label": "Toll Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total toll fees for the route. Direct cost."
+    },
+    {
+      "id": "cargoValue",
+      "label": "Cargo Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total value of the cargo being transported. Used to calculate risk and insurance costs."
+    },
+    {
+      "id": "insuranceRate",
+      "label": "Insurance Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Insurance premium rate as percentage of cargo value. Based on risk assessment."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in the input data. Used to adjust final loss estimate (Six Sigma)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "routeDistance > 0",
+      "fuelConsumptionPerKm > 0",
+      "fuelPricePerLiter > 0",
+      "driverHourlyRate > 0",
+      "averageSpeed > 0",
+      "loadFactor >= 0 && loadFactor <= 100",
+      "maintenanceCostPerKm >= 0",
+      "tollCost >= 0",
+      "cargoValue >= 0",
+      "insuranceRate >= 0 && insuranceRate <= 100",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "loadFactor < 50": "Low load factor warning: consider consolidating shipments.",
+      "fuelConsumptionPerKm > 0.4": "High fuel consumption: check vehicle maintenance.",
+      "insuranceRate > 2": "High insurance rate: review risk management."
+    }
+  },
+  "formulas": {
+    "travelTimeHours": "routeDistance / averageSpeed",
+    "fuelCost": "routeDistance * fuelConsumptionPerKm * fuelPricePerLiter",
+    "driverCost": "travelTimeHours * driverHourlyRate",
+    "maintenanceCost": "routeDistance * maintenanceCostPerKm",
+    "insuranceCost": "cargoValue * (insuranceRate / 100)",
+    "totalDirectCost": "fuelCost + driverCost + maintenanceCost + tollCost + insuranceCost",
+    "lossPerKm": "totalDirectCost / routeDistance",
+    "lossPerUnitCargo": "totalDirectCost / (cargoValue > 0 ? cargoValue : 1)",
+    "dataConfidenceAdjustedLoss": "totalDirectCost * (100 / dataConfidence)"
+  },
+  "outputs": {
+    "primary": "totalDirectCost",
+    "breakdown": {
+      "fuelCost": "fuelCost",
+      "driverCost": "driverCost",
+      "maintenanceCost": "maintenanceCost",
+      "tollCost": "tollCost",
+      "insuranceCost": "insuranceCost"
+    },
+    "hiddenLossDrivers": [
+      "loadFactor < 50 ? 'Low load factor' : ''",
+      "fuelConsumptionPerKm > 0.4 ? 'High fuel consumption' : ''",
+      "insuranceRate > 2 ? 'High insurance rate' : ''"
+    ],
+    "suggestedActions": [
+      "Optimize route to reduce distance.",
+      "Improve load factor by consolidating shipments.",
+      "Perform vehicle maintenance to reduce fuel consumption.",
+      "Negotiate lower insurance rates.",
+      "Consider alternative transport modes."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedLoss"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Route Comparison",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,92 @@
+{
+  "toolName": "paslanmaz-celik-aluminyum-ayirt-etme-hesaplayicisi-yogunluk-bazli",
+  "inputs": [
+    {
+      "id": "sampleMass",
+      "label": "Numune Kütlesi",
+      "type": "number",
+      "unit": "g",
+      "default": 10,
+      "min": 0.1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Numunenin hassas terazi ile ölçülen kütlesi. ISO 9001 kalite yönetim sisteminde ölçüm doğruluğu için kalibrasyon şartı."
+    },
+    {
+      "id": "sampleVolume",
+      "label": "Numune Hacmi",
+      "type": "number",
+      "unit": "cm³",
+      "default": 2,
+      "min": 0.1,
+      "max": 500,
+      "options": null,
+      "businessContext": "Su taşırma yöntemi veya geometrik hesapla bulunan hacim. ASTM D792 standardına uygun."
+    },
+    {
+      "id": "materialType",
+      "label": "Malzeme Türü",
+      "type": "select",
+      "unit": "",
+      "default": "unknown",
+      "min": null,
+      "max": null,
+      "options": [
+        "paslanmaz-celik",
+        "aluminyum",
+        "unknown"
+      ],
+      "businessContext": "Kullanıcının tahmini; hesaplama sonucu ile karşılaştırılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Ölçüm hassasiyetine bağlı güven seviyesi. Endüstriyel ölçümlerde tipik olarak %95 kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "sampleMass > 0",
+      "sampleVolume > 0",
+      "dataConfidence >= 50 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "density": "density < 2.5 || density > 8.0 -> 'Beklenmeyen yoğunluk değeri, ölçümleri kontrol edin'"
+    }
+  },
+  "formulas": {
+    "density": "sampleMass / sampleVolume",
+    "isAluminum": "density >= 2.5 && density <= 3.0",
+    "isStainlessSteel": "density >= 7.5 && density <= 8.0",
+    "materialResult": "isAluminum ? 'aluminyum' : (isStainlessSteel ? 'paslanmaz-celik' : 'tanimsiz')",
+    "confidenceAdjustedDensity": "density * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "materialResult",
+    "breakdown": {
+      "density": "density",
+      "confidenceAdjustedDensity": "confidenceAdjustedDensity",
+      "userGuess": "materialType"
+    },
+    "hiddenLossDrivers": [
+      "density < 2.5 || density > 8.0 ? 'Beklenmeyen yoğunluk değeri, ölçümleri kontrol edin' : ''"
+    ],
+    "suggestedActions": [
+      "materialResult === 'tanimsiz' ? 'Ölçümleri tekrarlayın veya farklı bir yöntem kullanın' : 'Malzeme tespit edildi'"
+    ],
+    "dataConfidenceAdjusted": "confidenceAdjustedDensity"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma"
+  ],
+  "premiumRequired": true
+}

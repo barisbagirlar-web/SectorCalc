@@ -1,0 +1,179 @@
+{
+  "toolName": "product-customer-profitability-calculator",
+  "inputs": [
+    {
+      "id": "revenuePerUnit",
+      "label": "Revenue per Unit",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average selling price per unit. Based on standard cost accounting principles (Horngren)."
+    },
+    {
+      "id": "unitsSold",
+      "label": "Units Sold",
+      "type": "number",
+      "unit": "units",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total quantity sold to customer over analysis period. From sales records."
+    },
+    {
+      "id": "variableCostPerUnit",
+      "label": "Variable Cost per Unit",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 60,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Direct materials, direct labor, variable overhead per unit. Based on standard costing (ABC)."
+    },
+    {
+      "id": "fixedCostAllocation",
+      "label": "Fixed Cost Allocation",
+      "type": "number",
+      "unit": "USD",
+      "default": 20000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Allocated fixed costs (e.g., factory rent, equipment depreciation) for this product-customer. Based on activity-based costing (Kaplan)."
+    },
+    {
+      "id": "customerSpecificCosts",
+      "label": "Customer-Specific Costs",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Costs directly attributable to customer (e.g., special packaging, logistics, sales support). From customer profitability analysis (Shapiro)."
+    },
+    {
+      "id": "discountsAndAllowances",
+      "label": "Discounts and Allowances",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Price discounts, trade allowances, rebates given to customer. Standard in trade spend analysis."
+    },
+    {
+      "id": "returnRate",
+      "label": "Return Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of units returned by customer. Based on quality metrics (Six Sigma)."
+    },
+    {
+      "id": "costOfCapital",
+      "label": "Cost of Capital",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Weighted average cost of capital (WACC) for the firm. Standard finance (Brealey & Myers)."
+    },
+    {
+      "id": "averageCollectionPeriod",
+      "label": "Average Collection Period",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 0,
+      "max": 365,
+      "options": null,
+      "businessContext": "Days sales outstanding for this customer. From accounts receivable aging."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data accuracy. Used for risk adjustment (ISO 31000)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "revenuePerUnit >= 0",
+      "unitsSold >= 0",
+      "variableCostPerUnit >= 0",
+      "fixedCostAllocation >= 0",
+      "customerSpecificCosts >= 0",
+      "discountsAndAllowances >= 0",
+      "returnRate >= 0 && returnRate <= 100",
+      "costOfCapital >= 0 && costOfCapital <= 100",
+      "averageCollectionPeriod >= 0 && averageCollectionPeriod <= 365",
+      "dataConfidence >= 0 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "returnRate": "returnRate > 5 ? 'High return rate may indicate quality issues' : ''",
+      "profitMargin": "profitMargin < 0 ? 'Negative profit margin - review pricing or costs' : ''",
+      "customerSpecificCosts": "customerSpecificCosts > 0.2 * (revenuePerUnit * unitsSold) ? 'Customer-specific costs exceed 20% of revenue' : ''"
+    }
+  },
+  "formulas": {
+    "grossRevenue": "revenuePerUnit * unitsSold",
+    "returnsCost": "grossRevenue * (returnRate / 100)",
+    "netRevenue": "grossRevenue - returnsCost - discountsAndAllowances",
+    "totalVariableCost": "variableCostPerUnit * unitsSold",
+    "totalCost": "totalVariableCost + fixedCostAllocation + customerSpecificCosts",
+    "grossProfit": "netRevenue - totalCost",
+    "profitMargin": "(grossProfit / netRevenue) * 100",
+    "carryingCostOfReceivables": "(netRevenue / 365) * averageCollectionPeriod * (costOfCapital / 100)",
+    "netProfit": "grossProfit - carryingCostOfReceivables",
+    "dataConfidenceAdjustedProfit": "netProfit * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "netProfit",
+    "breakdown": {
+      "grossRevenue": "grossRevenue",
+      "returnsCost": "returnsCost",
+      "netRevenue": "netRevenue",
+      "totalVariableCost": "totalVariableCost",
+      "totalCost": "totalCost",
+      "grossProfit": "grossProfit",
+      "profitMargin": "profitMargin",
+      "carryingCostOfReceivables": "carryingCostOfReceivables"
+    },
+    "hiddenLossDrivers": [
+      "returnRate > 5 ? 'High return rate' : ''",
+      "profitMargin < 0 ? 'Negative margin' : ''",
+      "customerSpecificCosts > 0.2 * (revenuePerUnit * unitsSold) ? 'Excessive customer-specific costs' : ''"
+    ],
+    "suggestedActions": [
+      "profitMargin < 0 ? 'Review pricing strategy or reduce costs' : ''",
+      "returnRate > 5 ? 'Implement quality improvement program (Six Sigma)' : ''",
+      "carryingCostOfReceivables > 0.05 * netRevenue ? 'Negotiate faster payment terms or offer discounts' : ''",
+      "customerSpecificCosts > 0.2 * (revenuePerUnit * unitsSold) ? 'Analyze and reduce customer-specific costs' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedProfit"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Customer Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

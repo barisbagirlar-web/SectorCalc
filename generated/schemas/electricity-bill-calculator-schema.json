@@ -1,0 +1,153 @@
+{
+  "toolName": "electricity-bill-calculator",
+  "inputs": [
+    {
+      "id": "monthlyConsumption",
+      "label": "Monthly Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 500,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Total electricity consumption per month in kilowatt-hours. Based on utility billing data."
+    },
+    {
+      "id": "tariffRate",
+      "label": "Tariff Rate",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.12,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Price per kWh charged by utility. Varies by region and provider."
+    },
+    {
+      "id": "peakConsumption",
+      "label": "Peak Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 200,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Consumption during peak hours if time-of-use pricing applies."
+    },
+    {
+      "id": "offPeakConsumption",
+      "label": "Off-Peak Consumption",
+      "type": "number",
+      "unit": "kWh",
+      "default": 300,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Consumption during off-peak hours."
+    },
+    {
+      "id": "peakRate",
+      "label": "Peak Rate",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.15,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Higher rate for peak hours."
+    },
+    {
+      "id": "offPeakRate",
+      "label": "Off-Peak Rate",
+      "type": "number",
+      "unit": "currency/kWh",
+      "default": 0.1,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Lower rate for off-peak hours."
+    },
+    {
+      "id": "fixedCharge",
+      "label": "Fixed Charge",
+      "type": "number",
+      "unit": "currency",
+      "default": 10,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Monthly fixed fee from utility."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Applicable tax percentage on electricity bill."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data accuracy."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "monthlyConsumption must be >= 0",
+      "tariffRate must be >= 0",
+      "peakConsumption + offPeakConsumption must equal monthlyConsumption if time-of-use pricing is used",
+      "peakRate must be >= offPeakRate",
+      "fixedCharge must be >= 0",
+      "taxRate must be between 0 and 100",
+      "dataConfidence must be between 0 and 100"
+    ],
+    "thresholds": {
+      "monthlyConsumption > 10000": "High consumption alert",
+      "peakConsumption / monthlyConsumption > 0.5": "Peak load exceeds 50% of total",
+      "tariffRate > 0.20": "Tariff rate is above average"
+    }
+  },
+  "formulas": {
+    "energyCharge": "peakConsumption * peakRate + offPeakConsumption * offPeakRate",
+    "totalBeforeTax": "energyCharge + fixedCharge",
+    "taxAmount": "totalBeforeTax * (taxRate / 100)",
+    "totalBill": "totalBeforeTax + taxAmount",
+    "dataConfidenceAdjusted": "totalBill * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "totalBill",
+    "breakdown": {
+      "energyCharge": "energyCharge",
+      "fixedCharge": "fixedCharge",
+      "taxAmount": "taxAmount"
+    },
+    "hiddenLossDrivers": [
+      "peakConsumption / monthlyConsumption > 0.5 ? 'High peak consumption ratio' : ''",
+      "tariffRate > 0.20 ? 'High tariff rate' : ''"
+    ],
+    "suggestedActions": [
+      "Shift consumption to off-peak hours to reduce peak charges",
+      "Consider energy efficiency improvements to lower total consumption",
+      "Negotiate lower tariff rate with provider if possible"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Comparison with historical bills",
+    "Detailed breakdown report"
+  ],
+  "premiumRequired": true
+}

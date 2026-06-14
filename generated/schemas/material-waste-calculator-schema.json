@@ -1,0 +1,165 @@
+{
+  "toolName": "material-waste-calculator",
+  "inputs": [
+    {
+      "id": "totalMaterialInput",
+      "label": "Total Material Input",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total raw material entering the production process. Based on ISO 14051 material flow cost accounting (MFCA) standards."
+    },
+    {
+      "id": "goodOutput",
+      "label": "Good Output",
+      "type": "number",
+      "unit": "kg",
+      "default": 800,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Quantity of product meeting quality specifications. Derived from Six Sigma yield metrics."
+    },
+    {
+      "id": "scrapRate",
+      "label": "Scrap Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of material that becomes scrap during processing. Based on lean manufacturing waste reduction principles."
+    },
+    {
+      "id": "reworkRate",
+      "label": "Rework Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of output requiring rework. Common metric in quality management (ISO 9001)."
+    },
+    {
+      "id": "materialCostPerKg",
+      "label": "Material Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Purchase cost of raw material per kilogram. Used for financial impact calculation."
+    },
+    {
+      "id": "disposalCostPerKg",
+      "label": "Disposal Cost per kg",
+      "type": "number",
+      "unit": "USD/kg",
+      "default": 0.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost to dispose of waste material. Environmental cost factor per ISO 14000."
+    },
+    {
+      "id": "productionVolume",
+      "label": "Production Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total units produced in the period. Used to scale waste calculations."
+    },
+    {
+      "id": "timePeriod",
+      "label": "Time Period",
+      "type": "select",
+      "unit": "",
+      "default": "monthly",
+      "min": null,
+      "max": null,
+      "options": [
+        "daily",
+        "weekly",
+        "monthly",
+        "yearly"
+      ],
+      "businessContext": "Time basis for calculations. Enables scaling to annual waste and cost."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence in input data accuracy. Adjusts output reliability. Based on data quality assessment frameworks."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "goodOutput must be less than or equal to totalMaterialInput",
+      "scrapRate + reworkRate must be less than 100",
+      "materialCostPerKg > 0",
+      "disposalCostPerKg >= 0",
+      "productionVolume > 0"
+    ],
+    "thresholds": {
+      "scrapRate > 10": "Critical: Scrap rate exceeds 10% - investigate process inefficiencies.",
+      "reworkRate > 5": "Warning: Rework rate above 5% - quality issue detected.",
+      "totalWasteCost > 10000": "Alert: Total waste cost exceeds $10,000 - consider waste reduction projects."
+    }
+  },
+  "formulas": {
+    "totalWaste": "totalMaterialInput - goodOutput",
+    "scrapWaste": "totalMaterialInput * (scrapRate / 100)",
+    "reworkWaste": "goodOutput * (reworkRate / 100)",
+    "totalWasteCost": "(scrapWaste + reworkWaste) * materialCostPerKg + totalWaste * disposalCostPerKg",
+    "wastePercentage": "(totalWaste / totalMaterialInput) * 100",
+    "annualWasteCost": "totalWasteCost * (timePeriod === 'daily' ? 365 : timePeriod === 'weekly' ? 52 : timePeriod === 'monthly' ? 12 : 1)",
+    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalWasteCost * 1.2 : dataConfidence === 'medium' ? totalWasteCost * 1.0 : totalWasteCost * 0.9"
+  },
+  "outputs": {
+    "primary": "totalWasteCost",
+    "breakdown": {
+      "totalWaste": "totalWaste",
+      "scrapWaste": "scrapWaste",
+      "reworkWaste": "reworkWaste",
+      "wastePercentage": "wastePercentage",
+      "annualWasteCost": "annualWasteCost"
+    },
+    "hiddenLossDrivers": [
+      "scrapRate > 10 ? 'High scrap rate' : ''",
+      "reworkRate > 5 ? 'High rework rate' : ''",
+      "totalWasteCost > 10000 ? 'Excessive waste cost' : ''"
+    ],
+    "suggestedActions": [
+      "scrapRate > 10 ? 'Implement root cause analysis for scrap reduction' : ''",
+      "reworkRate > 5 ? 'Review quality control processes' : ''",
+      "totalWasteCost > 10000 ? 'Conduct waste reduction Kaizen event' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

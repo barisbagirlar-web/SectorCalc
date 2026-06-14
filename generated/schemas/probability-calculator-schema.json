@@ -1,0 +1,118 @@
+{
+  "toolName": "probability-calculator",
+  "inputs": [
+    {
+      "id": "eventAProbability",
+      "label": "Probability of Event A",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Base probability of event A occurring. Used in basic probability calculations. Referenced from probability theory fundamentals."
+    },
+    {
+      "id": "eventBProbability",
+      "label": "Probability of Event B",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Base probability of event B occurring. Used in joint and conditional probability calculations."
+    },
+    {
+      "id": "conditionalProbability",
+      "label": "Conditional Probability P(B|A)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.5,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Probability of B given A. Required for Bayes' theorem and conditional probability analysis."
+    },
+    {
+      "id": "calculationMode",
+      "label": "Calculation Mode",
+      "type": "select",
+      "unit": "",
+      "default": "joint",
+      "min": null,
+      "max": null,
+      "options": [
+        "joint",
+        "conditional",
+        "bayes",
+        "complement",
+        "union"
+      ],
+      "businessContext": "Select the type of probability calculation: joint (P(A∩B)), conditional (P(A|B)), Bayes (P(A|B) from P(B|A)), complement (P(not A)), union (P(A∪B))."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.95,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Confidence level in input data (0 to 1). Used to adjust output for uncertainty. Typical values: 0.9, 0.95, 0.99."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "eventAProbability must be between 0 and 1",
+      "eventBProbability must be between 0 and 1",
+      "conditionalProbability must be between 0 and 1",
+      "dataConfidence must be between 0 and 1",
+      "If calculationMode is 'conditional' or 'bayes', eventAProbability must be > 0",
+      "If calculationMode is 'bayes', conditionalProbability must be provided"
+    ],
+    "thresholds": {
+      "eventAProbability": "if eventAProbability < 0.01 then 'Very low probability event A'",
+      "eventBProbability": "if eventBProbability < 0.01 then 'Very low probability event B'",
+      "conditionalProbability": "if conditionalProbability < 0.01 then 'Very low conditional probability'",
+      "dataConfidence": "if dataConfidence < 0.8 then 'Low data confidence'"
+    }
+  },
+  "formulas": {
+    "jointProbability": "eventAProbability * conditionalProbability",
+    "conditionalProbabilityFromJoint": "jointProbability / eventBProbability",
+    "bayesTheorem": "(conditionalProbability * eventAProbability) / eventBProbability",
+    "complementProbability": "1 - eventAProbability",
+    "unionProbability": "eventAProbability + eventBProbability - jointProbability",
+    "dataConfidenceAdjusted": "primary * dataConfidence"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": {
+      "jointProbability": "eventAProbability * conditionalProbability",
+      "conditionalProbabilityFromJoint": "jointProbability / eventBProbability",
+      "bayesTheorem": "(conditionalProbability * eventAProbability) / eventBProbability",
+      "complementProbability": "1 - eventAProbability",
+      "unionProbability": "eventAProbability + eventBProbability - jointProbability"
+    },
+    "hiddenLossDrivers": [
+      "Low probability values may indicate rare events requiring special attention",
+      "Low data confidence reduces reliability of results"
+    ],
+    "suggestedActions": [
+      "Verify input probabilities with historical data",
+      "Increase sample size to improve data confidence",
+      "Use sensitivity analysis to assess impact of probability variations"
+    ],
+    "dataConfidenceAdjusted": "primary * dataConfidence"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Comparison with historical data",
+    "Detailed report with confidence intervals"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,182 @@
+{
+  "toolName": "investment-payback-npv-calculator",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total upfront cost including equipment, installation, and training. Based on capital budgeting standards (CAPM, NPV)."
+    },
+    {
+      "id": "annualCashInflow",
+      "label": "Annual Cash Inflow",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 30000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Expected annual net cash inflow from the investment. Used in payback period and NPV calculations."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Required rate of return or cost of capital. Typically based on WACC or industry benchmark (e.g., CAPM)."
+    },
+    {
+      "id": "projectLifeYears",
+      "label": "Project Life (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 1,
+      "max": 50,
+      "options": null,
+      "businessContext": "Expected duration of the investment's cash flows. Used for NPV and IRR calculations."
+    },
+    {
+      "id": "salvageValue",
+      "label": "Salvage Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Estimated residual value at end of project life. Included in final year cash flow for NPV."
+    },
+    {
+      "id": "annualOperatingCost",
+      "label": "Annual Operating Cost",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Recurring costs such as maintenance, labor, and utilities. Subtracted from cash inflow to get net cash flow."
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Corporate tax rate applied to net income. Affects after-tax cash flows in NPV."
+    },
+    {
+      "id": "depreciationMethod",
+      "label": "Depreciation Method",
+      "type": "select",
+      "unit": "",
+      "default": "straight-line",
+      "min": null,
+      "max": null,
+      "options": [
+        "straight-line",
+        "double-declining",
+        "sum-of-years-digits"
+      ],
+      "businessContext": "Method for allocating depreciation expense. Straight-line is simplest; accelerated methods provide tax shield earlier."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Expected annual inflation. Used to adjust nominal cash flows to real terms if needed."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in input data quality. Affects risk adjustment in final outputs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "initialInvestment > 0",
+      "annualCashInflow >= 0",
+      "discountRate >= 0 and discountRate <= 100",
+      "projectLifeYears >= 1 and projectLifeYears <= 50",
+      "salvageValue >= 0",
+      "annualOperatingCost >= 0",
+      "taxRate >= 0 and taxRate <= 100",
+      "inflationRate >= 0 and inflationRate <= 100",
+      "if depreciationMethod == 'double-declining' then projectLifeYears >= 2",
+      "if dataConfidence == 'low' then discountRate >= discountRate * 1.2"
+    ],
+    "thresholds": {
+      "paybackPeriodYears": "if paybackPeriodYears > projectLifeYears then 'Payback period exceeds project life; investment may not recover.'",
+      "npv": "if npv < 0 then 'Negative NPV; investment may not meet required return.'",
+      "irr": "if irr < discountRate then 'IRR below discount rate; project may not be viable.'"
+    }
+  },
+  "formulas": {
+    "annualDepreciation": "if depreciationMethod == 'straight-line' then (initialInvestment - salvageValue) / projectLifeYears else if depreciationMethod == 'double-declining' then (2 / projectLifeYears) * (initialInvestment - accumulatedDepreciation) else if depreciationMethod == 'sum-of-years-digits' then (remainingLife / sumOfYears) * (initialInvestment - salvageValue)",
+    "annualNetCashFlow": "annualCashInflow - annualOperatingCost - (annualDepreciation * taxRate) + annualDepreciation",
+    "cumulativeCashFlow": "for year i: cumulativeCashFlow[i] = cumulativeCashFlow[i-1] + annualNetCashFlow[i]",
+    "paybackPeriodYears": "if annualNetCashFlow > 0 then initialInvestment / annualNetCashFlow else Infinity",
+    "npv": "sum_{t=1}^{projectLifeYears} (annualNetCashFlow / (1 + discountRate/100)^t) + salvageValue / (1 + discountRate/100)^projectLifeYears - initialInvestment",
+    "irr": "discountRate such that npv == 0 (solved iteratively)",
+    "profitabilityIndex": "npv / initialInvestment + 1",
+    "dataConfidenceAdjustedNpv": "if dataConfidence == 'low' then npv * 0.8 else if dataConfidence == 'medium' then npv * 0.95 else npv"
+  },
+  "outputs": {
+    "primary": "npv",
+    "breakdown": {
+      "paybackPeriodYears": "paybackPeriodYears",
+      "npv": "npv",
+      "irr": "irr",
+      "profitabilityIndex": "profitabilityIndex",
+      "annualDepreciation": "annualDepreciation",
+      "annualNetCashFlow": "annualNetCashFlow"
+    },
+    "hiddenLossDrivers": [
+      "if paybackPeriodYears > projectLifeYears then 'Payback period exceeds project life'",
+      "if npv < 0 then 'Negative NPV'",
+      "if irr < discountRate then 'IRR below discount rate'"
+    ],
+    "suggestedActions": [
+      "if npv < 0 then 'Consider reducing initial investment or increasing cash inflows.'",
+      "if paybackPeriodYears > projectLifeYears then 'Extend project life or reduce payback period.'",
+      "if irr < discountRate then 'Re-evaluate discount rate or improve project returns.'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedNpv"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Scenario Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,143 @@
+{
+  "toolName": "fuel-consumption-check",
+  "inputs": [
+    {
+      "id": "fuelType",
+      "label": "Fuel Type",
+      "type": "select",
+      "unit": "",
+      "default": "diesel",
+      "min": null,
+      "max": null,
+      "options": [
+        "diesel",
+        "gasoline",
+        "natural_gas",
+        "lpg",
+        "electricity"
+      ],
+      "businessContext": "Fuel type determines energy density and emission factors. Based on ISO 50001 energy management standards."
+    },
+    {
+      "id": "fuelConsumption",
+      "label": "Fuel Consumption",
+      "type": "number",
+      "unit": "L/100km or kWh/100km",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Measured fuel consumption per 100 km. For electric vehicles, use kWh/100km. Reference: SAE J1321 fuel consumption test."
+    },
+    {
+      "id": "distance",
+      "label": "Distance Driven",
+      "type": "number",
+      "unit": "km",
+      "default": 10000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Total distance traveled in the reporting period. Used to calculate total fuel used."
+    },
+    {
+      "id": "fuelPrice",
+      "label": "Fuel Price",
+      "type": "number",
+      "unit": "currency/L or currency/kWh",
+      "default": 1.5,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Current price per unit of fuel. Source: local fuel price index."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 2000,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Total operating hours of the equipment. Used for idle consumption calculations."
+    },
+    {
+      "id": "idleConsumptionRate",
+      "label": "Idle Consumption Rate",
+      "type": "number",
+      "unit": "L/h or kWh/h",
+      "default": 1,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Fuel consumption per hour when idling. Based on engine specifications."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level of input data. Affects adjustment factor for final result."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "fuelConsumption > 0",
+      "distance >= 0",
+      "fuelPrice > 0",
+      "operatingHours >= 0",
+      "idleConsumptionRate >= 0",
+      "if fuelType == 'electricity' then fuelConsumption unit is kWh/100km",
+      "if fuelType != 'electricity' then fuelConsumption unit is L/100km"
+    ],
+    "thresholds": {
+      "fuelConsumption": "if fuelConsumption > 20 then 'High fuel consumption'",
+      "idleConsumptionRate": "if idleConsumptionRate > 5 then 'Excessive idle consumption'"
+    }
+  },
+  "formulas": {
+    "totalFuelUsed": "fuelConsumption * distance / 100",
+    "totalIdleFuel": "idleConsumptionRate * operatingHours",
+    "totalFuelCost": "(totalFuelUsed + totalIdleFuel) * fuelPrice",
+    "fuelCostPerKm": "totalFuelCost / distance",
+    "fuelEfficiency": "distance / (totalFuelUsed + totalIdleFuel)",
+    "dataConfidenceFactor": "dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9)",
+    "adjustedFuelCost": "totalFuelCost * dataConfidenceFactor"
+  },
+  "outputs": {
+    "primary": "totalFuelCost",
+    "breakdown": {
+      "totalFuelUsed": "totalFuelUsed",
+      "totalIdleFuel": "totalIdleFuel",
+      "fuelCostPerKm": "fuelCostPerKm",
+      "fuelEfficiency": "fuelEfficiency"
+    },
+    "hiddenLossDrivers": [
+      "if fuelConsumption > 20 then 'High fuel consumption'",
+      "if idleConsumptionRate > 5 then 'Excessive idle consumption'"
+    ],
+    "suggestedActions": [
+      "if fuelConsumption > 20 then 'Consider vehicle maintenance or driver training'",
+      "if idleConsumptionRate > 5 then 'Implement anti-idling policies'",
+      "if fuelCostPerKm > 0.5 then 'Evaluate alternative fuel options'"
+    ],
+    "dataConfidenceAdjusted": "adjustedFuelCost"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmark comparison",
+    "Detailed report with breakdown"
+  ],
+  "premiumRequired": true
+}

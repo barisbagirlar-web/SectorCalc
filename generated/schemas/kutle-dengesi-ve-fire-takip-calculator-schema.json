@@ -1,0 +1,110 @@
+{
+  "toolName": "kutle-dengesi-ve-fire-takip-calculator",
+  "inputs": [
+    {
+      "id": "girdiMalzemeMiktari",
+      "label": "Girdi Malzeme Miktarı",
+      "type": "number",
+      "unit": "kg",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Üretime giren toplam hammadde miktarı. ISO 9001 kalite yönetim sistemi kapsamında malzeme akış takibi için temel girdi."
+    },
+    {
+      "id": "fireOrani",
+      "label": "Fire Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Üretim sürecinde kayıp olarak kabul edilen malzeme yüzdesi. Endüstri mühendisliğinde verimlilik hesaplamalarında kullanılır."
+    },
+    {
+      "id": "geriKazanimOrani",
+      "label": "Geri Kazanım Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Fire malzemeden geri kazanılabilen kısım. Sürdürülebilirlik ve atık yönetimi (ISO 14000) kapsamında değerlendirilir."
+    },
+    {
+      "id": "birimMaliyet",
+      "label": "Birim Malzeme Maliyeti",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Hammaddenin birim fiyatı. Finansal analizde maliyet hesaplamaları için gereklidir."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güvenilirliği",
+      "type": "select",
+      "unit": "",
+      "default": "orta",
+      "min": null,
+      "max": null,
+      "options": [
+        "dusuk",
+        "orta",
+        "yuksek"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Düşük güvenilirlikte sonuçlar daha muhafazakar hesaplanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "girdiMalzemeMiktari > 0",
+      "fireOrani >= 0 ve fireOrani <= 100",
+      "geriKazanimOrani >= 0 ve geriKazanimOrani <= 100",
+      "birimMaliyet >= 0",
+      "fireOrani + geriKazanimOrani <= 100"
+    ],
+    "thresholds": {
+      "fireOrani > 10": "Yüksek fire oranı, süreç iyileştirme gerekiyor.",
+      "geriKazanimOrani < 50 ve fireOrani > 5": "Geri kazanım potansiyeli değerlendirilmeli."
+    }
+  },
+  "formulas": {
+    "toplamFireMiktari": "girdiMalzemeMiktari * (fireOrani / 100)",
+    "geriKazanilanMiktar": "toplamFireMiktari * (geriKazanimOrani / 100)",
+    "netFireMiktari": "toplamFireMiktari - geriKazanilanMiktar",
+    "fireMaliyeti": "netFireMiktari * birimMaliyet",
+    "fireOraniNet": "(netFireMiktari / girdiMalzemeMiktari) * 100",
+    "dataConfidenceAdjusted": "dataConfidence == 'dusuk' ? fireMaliyeti * 1.2 : (dataConfidence == 'orta' ? fireMaliyeti * 1.1 : fireMaliyeti)"
+  },
+  "outputs": {
+    "primary": "fireMaliyeti",
+    "breakdown": {
+      "toplamFireMiktari": "toplamFireMiktari",
+      "geriKazanilanMiktar": "geriKazanilanMiktar",
+      "netFireMiktari": "netFireMiktari",
+      "fireOraniNet": "fireOraniNet"
+    },
+    "hiddenLossDrivers": [
+      "fireOrani > 10 ? 'Yüksek fire oranı' : ''",
+      "geriKazanimOrani < 50 && fireOrani > 5 ? 'Düşük geri kazanım' : ''"
+    ],
+    "suggestedActions": [
+      "fireOrani > 10 ? 'Fire oranını azaltmak için süreç iyileştirme çalışması başlatın.' : ''",
+      "geriKazanimOrani < 50 ? 'Geri kazanım sürecini gözden geçirin ve iyileştirin.' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma (benchmark)",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

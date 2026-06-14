@@ -1,0 +1,200 @@
+{
+  "toolName": "forklift-transpalet-kullanim-maliyeti",
+  "inputs": [
+    {
+      "id": "purchasePrice",
+      "label": "Satın Alma Fiyatı",
+      "type": "number",
+      "unit": "TRY",
+      "default": 500000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Forklift veya transpaletin satın alma maliyeti. Endüstriyel ekipman yatırım maliyeti olarak kullanılır."
+    },
+    {
+      "id": "economicLife",
+      "label": "Ekonomik Ömür",
+      "type": "number",
+      "unit": "yıl",
+      "default": 5,
+      "min": 1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Ekipmanın faydalı ömrü. ISO 15686 ve muhasebe standartlarına göre belirlenir."
+    },
+    {
+      "id": "residualValue",
+      "label": "Hurda Değeri",
+      "type": "number",
+      "unit": "TRY",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Ekipmanın ekonomik ömür sonundaki tahmini değeri. Genellikle satın alma fiyatının %10-20'si."
+    },
+    {
+      "id": "annualOperatingHours",
+      "label": "Yıllık Çalışma Saati",
+      "type": "number",
+      "unit": "saat/yıl",
+      "default": 2000,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Ekipmanın yılda toplam çalışma saati. Vardiya düzenine bağlıdır."
+    },
+    {
+      "id": "fuelCostPerHour",
+      "label": "Saatlik Yakıt Maliyeti",
+      "type": "number",
+      "unit": "TRY/saat",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Elektrikli, LPG veya dizel forklift için saatlik enerji maliyeti. Enerji tüketimi ve birim fiyatına göre hesaplanır."
+    },
+    {
+      "id": "maintenanceCostPerHour",
+      "label": "Saatlik Bakım Maliyeti",
+      "type": "number",
+      "unit": "TRY/saat",
+      "default": 20,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Periyodik bakım, yedek parça ve işçilik maliyetlerinin saatlik ortalaması."
+    },
+    {
+      "id": "operatorHourlyWage",
+      "label": "Operatör Saatlik Ücreti",
+      "type": "number",
+      "unit": "TRY/saat",
+      "default": 40,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Operatörün brüt saatlik maliyeti (maaş, sigorta, yan haklar dahil)."
+    },
+    {
+      "id": "annualInsuranceCost",
+      "label": "Yıllık Sigorta Maliyeti",
+      "type": "number",
+      "unit": "TRY/yıl",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Ekipman için yıllık sigorta primi."
+    },
+    {
+      "id": "annualTaxAndLicense",
+      "label": "Yıllık Vergi ve Ruhsat Maliyeti",
+      "type": "number",
+      "unit": "TRY/yıl",
+      "default": 2000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Motorlu taşıtlar vergisi, ruhsat yenileme vb. yıllık maliyetler."
+    },
+    {
+      "id": "annualStorageCost",
+      "label": "Yıllık Depolama Maliyeti",
+      "type": "number",
+      "unit": "TRY/yıl",
+      "default": 3000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Ekipmanın park edildiği alanın kirası veya bakımı."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Yıllık Faiz Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Sermaye maliyeti veya alternatif yatırım getirisi. NPV hesaplamalarında kullanılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güvenilirliği",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Düşük ise sonuçlar daha muhafazakar yorumlanmalı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "purchasePrice > 0",
+      "economicLife > 0",
+      "residualValue >= 0",
+      "annualOperatingHours >= 0",
+      "fuelCostPerHour >= 0",
+      "maintenanceCostPerHour >= 0",
+      "operatorHourlyWage >= 0",
+      "annualInsuranceCost >= 0",
+      "annualTaxAndLicense >= 0",
+      "annualStorageCost >= 0",
+      "annualInterestRate >= 0",
+      "residualValue <= purchasePrice"
+    ],
+    "thresholds": {
+      "fuelCostPerHour > 100": "Yakıt maliyeti çok yüksek, alternatif enerji kaynakları değerlendirilmeli.",
+      "maintenanceCostPerHour > 50": "Bakım maliyeti yüksek, ekipman yaşı veya arıza sıklığı gözden geçirilmeli.",
+      "annualOperatingHours < 500": "Ekipman düşük kullanımda, kiralama veya paylaşım seçenekleri değerlendirilmeli."
+    }
+  },
+  "formulas": {
+    "annualDepreciation": "(purchasePrice - residualValue) / economicLife",
+    "annualFixedCost": "annualDepreciation + annualInsuranceCost + annualTaxAndLicense + annualStorageCost",
+    "annualVariableCost": "(fuelCostPerHour + maintenanceCostPerHour + operatorHourlyWage) * annualOperatingHours",
+    "annualTotalCost": "annualFixedCost + annualVariableCost",
+    "hourlyTotalCost": "annualTotalCost / annualOperatingHours",
+    "npvTotalCost": "-purchasePrice + (annualTotalCost * (1 - (1 + annualInterestRate/100)^(-economicLife)) / (annualInterestRate/100)) + residualValue / (1 + annualInterestRate/100)^economicLife",
+    "dataConfidenceAdjusted": "hourlyTotalCost * (dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9))"
+  },
+  "outputs": {
+    "primary": "hourlyTotalCost",
+    "breakdown": {
+      "annualDepreciation": "annualDepreciation",
+      "annualFixedCost": "annualFixedCost",
+      "annualVariableCost": "annualVariableCost",
+      "annualTotalCost": "annualTotalCost",
+      "npvTotalCost": "npvTotalCost"
+    },
+    "hiddenLossDrivers": [
+      "fuelCostPerHour > 100 ? 'Yakıt maliyeti çok yüksek' : ''",
+      "maintenanceCostPerHour > 50 ? 'Bakım maliyeti çok yüksek' : ''",
+      "annualOperatingHours < 500 ? 'Düşük kullanım oranı' : ''"
+    ],
+    "suggestedActions": [
+      "Yakıt maliyetini düşürmek için elektrikli forklift dönüşümü değerlendirin.",
+      "Bakım planını optimize ederek arıza sürelerini azaltın.",
+      "Düşük kullanım durumunda ekipman paylaşımı veya kiralama seçeneklerini inceleyin.",
+      "Operatör eğitimi ile verimliliği artırın."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (geçmiş verilerle karşılaştırma)",
+    "Ekipman karşılaştırma (birden fazla forklift/transpalet)",
+    "Detaylı rapor (amortisman, nakit akışı, NPV)"
+  ],
+  "premiumRequired": true
+}

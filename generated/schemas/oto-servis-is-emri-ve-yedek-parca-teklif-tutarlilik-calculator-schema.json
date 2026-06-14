@@ -1,0 +1,147 @@
+{
+  "toolName": "oto-servis-is-emri-ve-yedek-parca-teklif-tutarlilik-calculator",
+  "inputs": [
+    {
+      "id": "isEmriSayisi",
+      "label": "İş Emri Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Belirli bir dönemde (genellikle aylık) oluşturulan toplam iş emri sayısı. Sektörel standart: ISO 9001 kalite yönetim sistemi kapsamında iş emri takibi."
+    },
+    {
+      "id": "tamamlananIsEmriSayisi",
+      "label": "Tamamlanan İş Emri Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 90,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Aynı dönemde tamamlanan iş emri sayısı. İş emri kapanış oranı hesaplamak için kullanılır."
+    },
+    {
+      "id": "toplamTeklifTutari",
+      "label": "Toplam Teklif Tutarı (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 50000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Dönem içinde müşterilere sunulan yedek parça ve işçilik tekliflerinin toplam tutarı. Finansal analizde gelir potansiyeli olarak değerlendirilir."
+    },
+    {
+      "id": "onaylananTeklifTutari",
+      "label": "Onaylanan Teklif Tutarı (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 40000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Müşteri tarafından onaylanan tekliflerin toplam tutarı. Teklif kabul oranı hesaplamak için kullanılır."
+    },
+    {
+      "id": "yedekParcaMaliyeti",
+      "label": "Yedek Parça Maliyeti (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 20000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Kullanılan yedek parçaların toplam maliyeti. Maliyet analizi ve kar marjı hesaplamalarında temel girdi."
+    },
+    {
+      "id": "iscilikSaatUcreti",
+      "label": "İşçilik Saat Ücreti (TL/saat)",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 150,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Servis işçiliği için saatlik ücret. Sektörel benchmark: TÜİK verileri ve oto servis dernekleri."
+    },
+    {
+      "id": "toplamIscilikSaati",
+      "label": "Toplam İşçilik Saati (saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 200,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Dönem içinde harcanan toplam işçilik saati. Verimlilik hesaplamalarında kullanılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güvenilirliği",
+      "type": "select",
+      "unit": "",
+      "default": "orta",
+      "min": null,
+      "max": null,
+      "options": [
+        "dusuk",
+        "orta",
+        "yuksek"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Düşük: tahmini veriler, Orta: kısmi kayıtlı, Yüksek: tam kayıtlı. Risk yönetimi için kullanılır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "tamamlananIsEmriSayisi <= isEmriSayisi",
+      "onaylananTeklifTutari <= toplamTeklifTutari",
+      "toplamIscilikSaati > 0",
+      "iscilikSaatUcreti > 0"
+    ],
+    "thresholds": {
+      "isEmriTamamlanmaOrani < 0.5": "Düşük iş emri tamamlanma oranı, operasyonel verimsizlik göstergesi",
+      "teklifKabulOrani < 0.3": "Düşük teklif kabul oranı, fiyatlandırma veya hizmet kalitesi sorunu",
+      "karMarji < 0.1": "Düşük kar marjı, maliyet kontrolü veya fiyatlandırma revizyonu gerekli"
+    }
+  },
+  "formulas": {
+    "isEmriTamamlanmaOrani": "tamamlananIsEmriSayisi / isEmriSayisi",
+    "teklifKabulOrani": "onaylananTeklifTutari / toplamTeklifTutari",
+    "toplamGelir": "onaylananTeklifTutari",
+    "toplamMaliyet": "yedekParcaMaliyeti + (iscilikSaatUcreti * toplamIscilikSaati)",
+    "kar": "toplamGelir - toplamMaliyet",
+    "karMarji": "kar / toplamGelir",
+    "tutarlilikSkoru": "(isEmriTamamlanmaOrani * 0.4 + teklifKabulOrani * 0.3 + karMarji * 0.3) * 100",
+    "dataConfidenceAdjusted": "tutarlilikSkoru * (dataConfidence === 'yuksek' ? 1.0 : dataConfidence === 'orta' ? 0.9 : 0.8)"
+  },
+  "outputs": {
+    "primary": "tutarlilikSkoru",
+    "breakdown": {
+      "isEmriTamamlanmaOrani": "isEmriTamamlanmaOrani",
+      "teklifKabulOrani": "teklifKabulOrani",
+      "karMarji": "karMarji",
+      "kar": "kar"
+    },
+    "hiddenLossDrivers": [
+      "isEmriTamamlanmaOrani < 0.5 ? 'Düşük iş emri tamamlanma oranı' : ''",
+      "teklifKabulOrani < 0.3 ? 'Düşük teklif kabul oranı' : ''",
+      "karMarji < 0.1 ? 'Düşük kar marjı' : ''"
+    ],
+    "suggestedActions": [
+      "isEmriTamamlanmaOrani < 0.5 ? 'İş akışını iyileştirin, darboğazları tespit edin' : ''",
+      "teklifKabulOrani < 0.3 ? 'Fiyatlandırma stratejisini gözden geçirin, müşteri geri bildirimi alın' : ''",
+      "karMarji < 0.1 ? 'Maliyetleri düşürün veya fiyatları artırın' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (zaman serisi)",
+    "Karşılaştırma (benchmark)",
+    "Detaylı rapor (breakdown ve öneriler)"
+  ],
+  "premiumRequired": true
+}

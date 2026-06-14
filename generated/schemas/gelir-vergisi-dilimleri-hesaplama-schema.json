@@ -1,0 +1,111 @@
+{
+  "toolName": "gelir-vergisi-dilimleri-hesaplama",
+  "inputs": [
+    {
+      "id": "yillikGelir",
+      "label": "Yıllık Brüt Gelir (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Türkiye'de gelir vergisi matrahı, yıllık brüt gelir üzerinden hesaplanır. Kaynak: 193 sayılı Gelir Vergisi Kanunu."
+    },
+    {
+      "id": "vergiYili",
+      "label": "Vergi Yılı",
+      "type": "select",
+      "unit": "",
+      "default": "2025",
+      "min": null,
+      "max": null,
+      "options": [
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "businessContext": "Her yıl için vergi dilimleri ve oranları güncellenir. Kaynak: Gelir İdaresi Başkanlığı."
+    },
+    {
+      "id": "medeniDurum",
+      "label": "Medeni Durum",
+      "type": "select",
+      "unit": "",
+      "default": "bekar",
+      "min": null,
+      "max": null,
+      "options": [
+        "bekar",
+        "evliEsCalismiyor",
+        "evliEsCalisiyor"
+      ],
+      "businessContext": "Medeni durum, asgari geçim indirimi (AGİ) hesaplamasında kullanılır. Kaynak: Gelir Vergisi Kanunu."
+    },
+    {
+      "id": "cocukSayisi",
+      "label": "Çocuk Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 0,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Çocuk sayısı, AGİ tutarını etkiler. Kaynak: Gelir Vergisi Kanunu."
+    },
+    {
+      "id": "engellilikDurumu",
+      "label": "Engellilik Durumu",
+      "type": "select",
+      "unit": "",
+      "default": "yok",
+      "min": null,
+      "max": null,
+      "options": [
+        "yok",
+        "birinciDerece",
+        "ikinciDerece",
+        "ucuncuDerece"
+      ],
+      "businessContext": "Engellilik indirimi, vergi matrahından düşülür. Kaynak: Gelir Vergisi Kanunu."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "yillikGelir >= 0",
+      "cocukSayisi >= 0 ve <= 10",
+      "Eğer medeniDurum 'bekar' ise cocukSayisi 0 olmalı",
+      "Eğer medeniDurum 'evliEsCalismiyor' ise cocukSayisi >= 0",
+      "Eğer medeniDurum 'evliEsCalisiyor' ise cocukSayisi >= 0"
+    ],
+    "thresholds": {
+      "yillikGelir": "yillikGelir > 1000000 ? 'Yüksek gelir dilimi, vergi oranı %40' : ''"
+    }
+  },
+  "formulas": {
+    "vergiMatrahı": "yillikGelir - engellilikIndirimi(engellilikDurumu) - agi(medeniDurum, cocukSayisi)",
+    "vergi": "vergiMatrahı * vergiOrani(vergiMatrahı, vergiYili)",
+    "netGelir": "yillikGelir - vergi"
+  },
+  "outputs": {
+    "primary": "netGelir",
+    "breakdown": {
+      "vergiMatrahı": "vergiMatrahı",
+      "vergi": "vergi",
+      "vergiOrani": "vergiOrani(vergiMatrahı, vergiYili)"
+    },
+    "hiddenLossDrivers": [
+      "yillikGelir > 1000000 ? 'Yüksek gelir dilimi, vergi oranı %40' : ''"
+    ],
+    "suggestedActions": [
+      "Eğer vergi yükü yüksekse, yatırım indirimi veya bağış gibi vergi avantajları değerlendirilebilir."
+    ],
+    "dataConfidenceAdjusted": "netGelir"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (geçmiş yıllar karşılaştırması)",
+    "Detaylı rapor (vergi dilimleri grafiği)"
+  ],
+  "premiumRequired": true
+}

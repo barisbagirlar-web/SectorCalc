@@ -1,0 +1,104 @@
+{
+  "toolName": "tel-kablo-uzunlugu-agirlik-hesabi",
+  "inputs": [
+    {
+      "id": "kabloTipi",
+      "label": "Kablo Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "NYM",
+      "min": null,
+      "max": null,
+      "options": [
+        "NYM",
+        "NYY",
+        "YVV",
+        "H05VV-F",
+        "H07RN-F"
+      ],
+      "businessContext": "Kablo tipi, kesit alanı ve malzeme yoğunluğunu belirler. Standart: VDE 0250, IEC 60228."
+    },
+    {
+      "id": "kesitAlani",
+      "label": "Kesit Alanı",
+      "type": "number",
+      "unit": "mm²",
+      "default": 2.5,
+      "min": 0.5,
+      "max": 240,
+      "options": null,
+      "businessContext": "İletken kesit alanı, kablonun ağırlık ve direncini etkiler. Standart: IEC 60228."
+    },
+    {
+      "id": "uzunluk",
+      "label": "Kablo Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Kablo uzunluğu, toplam ağırlık ve maliyet hesaplamasında temel parametredir."
+    },
+    {
+      "id": "malzeme",
+      "label": "İletken Malzemesi",
+      "type": "select",
+      "unit": "",
+      "default": "Bakır",
+      "min": null,
+      "max": null,
+      "options": [
+        "Bakır",
+        "Alüminyum"
+      ],
+      "businessContext": "Bakır yoğunluğu 8.96 g/cm³, alüminyum yoğunluğu 2.70 g/cm³. Standart: ASTM B3."
+    },
+    {
+      "id": "birimFiyat",
+      "label": "Birim Fiyat",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 100,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Piyasa koşullarına göre değişen kablo birim fiyatı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "kesitAlani > 0",
+      "uzunluk > 0",
+      "birimFiyat >= 0"
+    ],
+    "thresholds": {
+      "agirlik > 1000": "Yüksek ağırlık, taşıma maliyetlerini artırabilir.",
+      "toplamMaliyet > 50000": "Yüksek maliyet, bütçe aşımı riski."
+    }
+  },
+  "formulas": {
+    "agirlik": "uzunluk * kesitAlani * (malzeme === 'Bakır' ? 8.96 : 2.70) / 1000",
+    "toplamMaliyet": "agirlik * birimFiyat"
+  },
+  "outputs": {
+    "primary": "toplamMaliyet",
+    "breakdown": {
+      "agirlik": "Kablo ağırlığı (kg)",
+      "toplamMaliyet": "Toplam maliyet (TL)"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [
+      "Daha hafif malzeme (alüminyum) kullanmayı değerlendirin.",
+      "Toplu alım ile birim fiyatı düşürmeyi deneyin."
+    ],
+    "dataConfidenceAdjusted": "toplamMaliyet"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

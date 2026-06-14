@@ -9,6 +9,7 @@
  *   npm run scan:tools -- --slug machine-time-calculator
  *   npm run scan:tools -- --dry-run
  *   npm run scan:tools -- --skip-existing
+ *   npm run scan:all -- --deep-research --skip-existing
  *   npm run scan:all -- --parallel=1 --retry=3 --output=generated/schemas
  */
 import fs from "node:fs";
@@ -17,7 +18,7 @@ import { fileURLToPath } from "node:url";
 import { discoverTools } from "./discover-tools";
 import { fetchIndustrialToolSchema, getDeepSeekModelName } from "./deepseek-client";
 import { loadEnvLocal, PROJECT_ROOT } from "./load-env";
-import { INDUSTRIAL_ENGINEERING_PROMPT } from "./prompts";
+import { INDUSTRIAL_DEEP_RESEARCH_PROMPT, INDUSTRIAL_ENGINEERING_PROMPT } from "./prompts";
 import type { DiscoveredTool, ScanProgressDocument, ToolScanRecord } from "./types";
 
 const DEFAULT_SCHEMAS_DIR = path.join(PROJECT_ROOT, "generated", "schemas");
@@ -31,6 +32,7 @@ export type ScanToolsOptions = {
   readonly slug: string | null;
   readonly dryRun: boolean;
   readonly skipExisting: boolean;
+  readonly deepResearch: boolean;
   readonly parallel: number;
   readonly retry: number;
   readonly outputDir: string;
@@ -52,6 +54,7 @@ export function parseCliOptions(argv: readonly string[]): ScanToolsOptions {
   let slug: string | null = null;
   let dryRun = false;
   let skipExisting = false;
+  let deepResearch = false;
   let parallel = 1;
   let retry = 3;
   let outputDir = "generated/schemas";
@@ -68,6 +71,10 @@ export function parseCliOptions(argv: readonly string[]): ScanToolsOptions {
     }
     if (arg === "--skip-existing") {
       skipExisting = true;
+      continue;
+    }
+    if (arg === "--deep-research") {
+      deepResearch = true;
       continue;
     }
     if (arg === "--limit") {
@@ -120,7 +127,7 @@ export function parseCliOptions(argv: readonly string[]): ScanToolsOptions {
     limit = envLimit;
   }
 
-  return { scanAll, limit, slug, dryRun, skipExisting, parallel, retry, outputDir };
+  return { scanAll, limit, slug, dryRun, skipExisting, deepResearch, parallel, retry, outputDir };
 }
 
 function resolveOutputDir(outputDir: string): string {
@@ -176,7 +183,10 @@ function saveIndustrialSchema(slug: string, schema: ToolScanRecord["industrialSc
 
 export async function scanSingleTool(
   tool: DiscoveredTool,
-  options: Pick<ScanToolsOptions, "skipExisting"> = { skipExisting: false },
+  options: Pick<ScanToolsOptions, "skipExisting" | "deepResearch"> = {
+    skipExisting: false,
+    deepResearch: false,
+  },
 ): Promise<ToolScanRecord> {
   loadEnvLocal();
   const scannedAt = new Date().toISOString();
@@ -196,11 +206,10 @@ export async function scanSingleTool(
 
   try {
     await waitForRateLimit();
-    const prompt = INDUSTRIAL_ENGINEERING_PROMPT(
-      tool.slug,
-      buildToolDescription(tool),
-      tool.contextSnippet,
-    );
+    const description = buildToolDescription(tool);
+    const prompt = options.deepResearch
+      ? INDUSTRIAL_DEEP_RESEARCH_PROMPT(tool.slug, description)
+      : INDUSTRIAL_ENGINEERING_PROMPT(tool.slug, description);
     const industrialSchema = await fetchIndustrialToolSchema({
       slug: tool.slug,
       prompt,
@@ -230,7 +239,7 @@ export async function scanSingleTool(
 
 async function scanBatch(
   tools: readonly DiscoveredTool[],
-  options: Pick<ScanToolsOptions, "skipExisting">,
+  options: Pick<ScanToolsOptions, "skipExisting" | "deepResearch">,
   onComplete: (record: ToolScanRecord, index: number) => void,
   startIndex: number,
 ): Promise<ToolScanRecord[]> {
@@ -264,7 +273,7 @@ export async function scanTools(options: ScanToolsOptions): Promise<ToolScanReco
   console.log(`Discovered ${discovered.length} tool slug(s) from DNA sources.`);
   console.log(`Selected ${selected.length} tool slug(s) for scan.`);
   console.log(
-    `Config: parallel=${options.parallel}, retry=${options.retry}, output=${schemasDir}`,
+    `Config: parallel=${options.parallel}, retry=${options.retry}, deepResearch=${options.deepResearch}, output=${schemasDir}`,
   );
 
   if (options.dryRun) {
@@ -281,7 +290,7 @@ export async function scanTools(options: ScanToolsOptions): Promise<ToolScanReco
     const batch = selected.slice(start, start + parallel);
     const batchRecords = await scanBatch(
       batch,
-      { skipExisting: options.skipExisting },
+      { skipExisting: options.skipExisting, deepResearch: options.deepResearch },
       (record, index) => {
         console.log(`[${index + 1}/${selected.length}] Scanning ${record.slug}...`);
         if (!record.ok) {

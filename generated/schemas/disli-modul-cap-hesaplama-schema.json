@@ -1,0 +1,114 @@
+{
+  "toolName": "disli-modul-cap-hesaplama",
+  "inputs": [
+    {
+      "id": "disliSayisi",
+      "label": "Dişli Sayısı (Z)",
+      "type": "number",
+      "unit": "adet",
+      "default": 20,
+      "min": 5,
+      "max": 200,
+      "options": null,
+      "businessContext": "Dişli sayısı, modül ve çap hesaplamasında temel parametredir. ISO 54:1996 standardına göre tanımlanır."
+    },
+    {
+      "id": "modul",
+      "label": "Modül (m)",
+      "type": "number",
+      "unit": "mm",
+      "default": 2,
+      "min": 0.5,
+      "max": 50,
+      "options": null,
+      "businessContext": "Modül, dişli boyutunu belirleyen standart değerdir. ISO 54:1996'ya göre standart modül serileri kullanılır."
+    },
+    {
+      "id": "basincAcisi",
+      "label": "Basınç Açısı (α)",
+      "type": "select",
+      "unit": "derece",
+      "default": "20",
+      "min": null,
+      "max": null,
+      "options": [
+        "14.5",
+        "20",
+        "25"
+      ],
+      "businessContext": "Basınç açısı, diş profili için standart değerdir. ISO 53:1998'de 20° yaygındır."
+    },
+    {
+      "id": "disliTipi",
+      "label": "Dişli Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "düz",
+      "min": null,
+      "max": null,
+      "options": [
+        "düz",
+        "helis"
+      ],
+      "businessContext": "Düz dişli (spur) veya helis dişli (helical) seçimi, formüllerde helis açısı farkı yaratır."
+    },
+    {
+      "id": "helisAcisi",
+      "label": "Helis Açısı (β)",
+      "type": "number",
+      "unit": "derece",
+      "default": 0,
+      "min": 0,
+      "max": 45,
+      "options": null,
+      "businessContext": "Helis dişlilerde kullanılır; düz dişlilerde 0 alınır. ISO 1328-1:2013 standardı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "disliSayisi >= 5 ve <= 200",
+      "modul >= 0.5 ve <= 50",
+      "helisAcisi >= 0 ve <= 45",
+      "Eğer disliTipi = 'düz' ise helisAcisi = 0 olmalıdır"
+    ],
+    "thresholds": {
+      "modul < 1": "Uyarı: Modül çok küçük, dişli dayanımı düşük olabilir.",
+      "disliSayisi < 12": "Uyarı: Dişli sayısı az, alttan kesme riski var."
+    }
+  },
+  "formulas": {
+    "bolumDairesiCapi": "disliSayisi * modul / cos(helisAcisi * PI / 180)",
+    "disUstuCapi": "bolumDairesiCapi + 2 * modul",
+    "disDibiCapi": "bolumDairesiCapi - 2.5 * modul",
+    "disYuksekligi": "2.25 * modul",
+    "disAraligi": "PI * modul"
+  },
+  "outputs": {
+    "primary": "bolumDairesiCapi",
+    "breakdown": {
+      "bolumDairesiCapi": "Dişli bölüm dairesi çapı (mm)",
+      "disUstuCapi": "Diş üstü çapı (mm)",
+      "disDibiCapi": "Diş dibi çapı (mm)",
+      "disYuksekligi": "Diş yüksekliği (mm)",
+      "disAraligi": "Diş aralığı (mm)"
+    },
+    "hiddenLossDrivers": [
+      "modul < 1 ise 'Küçük modül dayanımı azaltır'",
+      "disliSayisi < 12 ise 'Alttan kesme riski'"
+    ],
+    "suggestedActions": [
+      "Modülü standart seriden seçiniz (ISO 54).",
+      "Dişli sayısı 12'den az ise kaydırma (profile shift) uygulayınız.",
+      "Helis dişli kullanımında yataklama kontrolü yapınız."
+    ],
+    "dataConfidenceAdjusted": "bolumDairesiCapi * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma modülü",
+    "Detaylı tolerans raporu"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,145 @@
+{
+  "toolName": "musteri-yasam-boyu-deger-clv-ve-edinme-maliyeti-cac-calculator",
+  "inputs": [
+    {
+      "id": "averagePurchaseValue",
+      "label": "Average Purchase Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average revenue per purchase. Standard CLV calculation component."
+    },
+    {
+      "id": "purchaseFrequency",
+      "label": "Purchase Frequency per Year",
+      "type": "number",
+      "unit": "times/year",
+      "default": 4,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of purchases per year. Standard CLV calculation component."
+    },
+    {
+      "id": "customerLifespan",
+      "label": "Customer Lifespan (Years)",
+      "type": "number",
+      "unit": "years",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average customer retention period. Standard CLV calculation component."
+    },
+    {
+      "id": "grossMargin",
+      "label": "Gross Margin (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Profit margin per purchase. Standard CLV calculation component."
+    },
+    {
+      "id": "discountRate",
+      "label": "Discount Rate (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Annual discount rate for present value. Based on finance standards (CAPM)."
+    },
+    {
+      "id": "totalMarketingCost",
+      "label": "Total Marketing Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total marketing expenses over a period. CAC calculation component."
+    },
+    {
+      "id": "newCustomersAcquired",
+      "label": "New Customers Acquired",
+      "type": "number",
+      "unit": "count",
+      "default": 1000,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of new customers acquired in the same period. CAC calculation component."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Adjusts output reliability. Common in financial modeling."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "averagePurchaseValue must be >= 0",
+      "purchaseFrequency must be >= 0",
+      "customerLifespan must be >= 0",
+      "grossMargin must be between 0 and 100",
+      "discountRate must be between 0 and 100",
+      "totalMarketingCost must be >= 0",
+      "newCustomersAcquired must be >= 1",
+      "If dataConfidence is 'low', then averagePurchaseValue, purchaseFrequency, customerLifespan must be > 0"
+    ],
+    "thresholds": {
+      "clvToCacRatio": "clvToCacRatio < 3 -> 'Warning: CLV/CAC ratio below 3, consider improving retention or reducing CAC'",
+      "cacRatio": "cacRatio > 0.3 -> 'Critical: CAC exceeds 30% of CLV, unsustainable'"
+    }
+  },
+  "formulas": {
+    "clv": "averagePurchaseValue * purchaseFrequency * customerLifespan * (grossMargin / 100) / (1 + discountRate / 100)",
+    "cac": "totalMarketingCost / newCustomersAcquired",
+    "clvToCacRatio": "clv / cac",
+    "cacRatio": "cac / clv"
+  },
+  "outputs": {
+    "primary": "clvToCacRatio",
+    "breakdown": {
+      "clv": "clv",
+      "cac": "cac",
+      "clvToCacRatio": "clvToCacRatio",
+      "cacRatio": "cacRatio"
+    },
+    "hiddenLossDrivers": [
+      "clvToCacRatio < 3",
+      "cacRatio > 0.3"
+    ],
+    "suggestedActions": [
+      "If CLV/CAC ratio < 3: Increase customer retention programs or reduce marketing spend.",
+      "If CAC ratio > 0.3: Optimize marketing channels or increase average purchase value."
+    ],
+    "dataConfidenceAdjusted": "clv * (dataConfidence === 'high' ? 1 : dataConfidence === 'medium' ? 0.9 : 0.8)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

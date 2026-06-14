@@ -1,0 +1,197 @@
+{
+  "toolName": "kiris-kolon-yaklasik-agirlik-hesabi",
+  "inputs": [
+    {
+      "id": "kirisUzunlugu",
+      "label": "Kiriş Uzunluğu",
+      "type": "number",
+      "unit": "m",
+      "default": 6,
+      "min": 1,
+      "max": 30,
+      "options": null,
+      "businessContext": "Kirişin boyu, genellikle proje çizimlerinden alınır. TS 500 ve Eurocode 2'ye göre kiriş boyutlandırmada temel parametredir."
+    },
+    {
+      "id": "kirisGenisligi",
+      "label": "Kiriş Genişliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 25,
+      "min": 10,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kiriş kesit genişliği, genellikle 20-50 cm arası seçilir. TS 500'de minimum 20 cm önerilir."
+    },
+    {
+      "id": "kirisYuksekligi",
+      "label": "Kiriş Yüksekliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 50,
+      "min": 20,
+      "max": 150,
+      "options": null,
+      "businessContext": "Kiriş yüksekliği, açıklığın 1/10 ila 1/12'si civarında seçilir. TS 500'de minimum 30 cm önerilir."
+    },
+    {
+      "id": "kolonYuksekligi",
+      "label": "Kolon Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "min": 2,
+      "max": 10,
+      "options": null,
+      "businessContext": "Kolon yüksekliği kat yüksekliğine eşittir. Genellikle 2.5-4 m arası."
+    },
+    {
+      "id": "kolonGenisligi",
+      "label": "Kolon Genişliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "min": 20,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kolon kesit genişliği, genellikle 25-60 cm arası. TS 500'de minimum 25 cm."
+    },
+    {
+      "id": "kolonDerinligi",
+      "label": "Kolon Derinliği",
+      "type": "number",
+      "unit": "cm",
+      "default": 30,
+      "min": 20,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kolon kesit derinliği, genellikle genişliğe eşit veya büyük. TS 500'de minimum 25 cm."
+    },
+    {
+      "id": "betonBirimHacimAgirlik",
+      "label": "Beton Birim Hacim Ağırlığı",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 25,
+      "min": 20,
+      "max": 30,
+      "options": null,
+      "businessContext": "Normal beton için 25 kN/m³, hafif beton için 20 kN/m³. TS 500'de 25 kN/m³ kullanılır."
+    },
+    {
+      "id": "celikBirimHacimAgirlik",
+      "label": "Çelik Birim Hacim Ağırlığı",
+      "type": "number",
+      "unit": "kN/m³",
+      "default": 78.5,
+      "min": 70,
+      "max": 80,
+      "options": null,
+      "businessContext": "Çelik için 78.5 kN/m³ standart değerdir."
+    },
+    {
+      "id": "donatiOraniKiris",
+      "label": "Kiriş Donatı Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0.5,
+      "max": 4,
+      "options": null,
+      "businessContext": "Kirişlerde tipik donatı oranı %1-2 arası. TS 500'de minimum %0.5, maksimum %4."
+    },
+    {
+      "id": "donatiOraniKolon",
+      "label": "Kolon Donatı Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 1,
+      "max": 6,
+      "options": null,
+      "businessContext": "Kolonlarda tipik donatı oranı %1-4 arası. TS 500'de minimum %1, maksimum %6."
+    },
+    {
+      "id": "kirisAdedi",
+      "label": "Kiriş Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Projedeki toplam kiriş sayısı."
+    },
+    {
+      "id": "kolonAdedi",
+      "label": "Kolon Adedi",
+      "type": "number",
+      "unit": "adet",
+      "default": 10,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Projedeki toplam kolon sayısı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "kirisUzunlugu > 0",
+      "kirisGenisligi > 0",
+      "kirisYuksekligi > 0",
+      "kolonYuksekligi > 0",
+      "kolonGenisligi > 0",
+      "kolonDerinligi > 0",
+      "betonBirimHacimAgirlik >= 20",
+      "celikBirimHacimAgirlik >= 70",
+      "donatiOraniKiris >= 0.5 && donatiOraniKiris <= 4",
+      "donatiOraniKolon >= 1 && donatiOraniKolon <= 6",
+      "kirisAdedi > 0",
+      "kolonAdedi > 0"
+    ],
+    "thresholds": {
+      "donatiOraniKiris > 3": "Yüksek donatı oranı, maliyeti artırabilir.",
+      "donatiOraniKolon > 4": "Yüksek donatı oranı, maliyeti artırabilir.",
+      "kirisYuksekligi/ kirisUzunlugu < 0.08": "Kiriş yüksekliği açıklığa göre düşük, sehim kontrolü yapılmalı."
+    }
+  },
+  "formulas": {
+    "kirisHacmi": "kirisAdedi * kirisUzunlugu * (kirisGenisligi/100) * (kirisYuksekligi/100)",
+    "kolonHacmi": "kolonAdedi * kolonYuksekligi * (kolonGenisligi/100) * (kolonDerinligi/100)",
+    "toplamBetonHacmi": "kirisHacmi + kolonHacmi",
+    "betonAgirlik": "toplamBetonHacmi * betonBirimHacimAgirlik",
+    "kirisDonatiHacmi": "kirisHacmi * (donatiOraniKiris/100)",
+    "kolonDonatiHacmi": "kolonHacmi * (donatiOraniKolon/100)",
+    "toplamDonatiHacmi": "kirisDonatiHacmi + kolonDonatiHacmi",
+    "celikAgirlik": "toplamDonatiHacmi * celikBirimHacimAgirlik",
+    "toplamAgirlik": "betonAgirlik + celikAgirlik"
+  },
+  "outputs": {
+    "primary": "toplamAgirlik",
+    "breakdown": {
+      "betonAgirlik": "betonAgirlik",
+      "celikAgirlik": "celikAgirlik",
+      "toplamBetonHacmi": "toplamBetonHacmi",
+      "toplamDonatiHacmi": "toplamDonatiHacmi"
+    },
+    "hiddenLossDrivers": [
+      "donatiOraniKiris > 3 ? 'Yüksek kiriş donatı oranı' : ''",
+      "donatiOraniKolon > 4 ? 'Yüksek kolon donatı oranı' : ''",
+      "kirisYuksekligi/ kirisUzunlugu < 0.08 ? 'Kiriş yüksekliği açıklığa göre düşük' : ''"
+    ],
+    "suggestedActions": [
+      "Donatı oranlarını optimize ederek maliyeti düşürün.",
+      "Kiriş yüksekliğini artırarak sehim kontrolü sağlayın.",
+      "Beton sınıfını yükselterek kesit boyutlarını küçültün."
+    ],
+    "dataConfidenceAdjusted": "toplamAgirlik * (1 - 0.1)"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

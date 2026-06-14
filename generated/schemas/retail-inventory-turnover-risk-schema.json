@@ -1,0 +1,154 @@
+{
+  "toolName": "retail-inventory-turnover-risk",
+  "inputs": [
+    {
+      "id": "costOfGoodsSold",
+      "label": "Cost of Goods Sold (Annual)",
+      "type": "number",
+      "unit": "currency",
+      "default": 1000000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Annual cost of goods sold. Standard financial metric per GAAP/IFRS."
+    },
+    {
+      "id": "averageInventory",
+      "label": "Average Inventory Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 200000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average inventory over the period. Calculated as (beginning inventory + ending inventory)/2. Per accounting standards."
+    },
+    {
+      "id": "daysInPeriod",
+      "label": "Days in Period",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Number of days in the analysis period. Typically 365 for annual."
+    },
+    {
+      "id": "industryBenchmarkTurnover",
+      "label": "Industry Benchmark Turnover",
+      "type": "number",
+      "unit": "ratio",
+      "default": 6,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average inventory turnover ratio for the retail sector. Source: WERC/APICS benchmarks."
+    },
+    {
+      "id": "demandVariability",
+      "label": "Demand Variability (Coefficient of Variation)",
+      "type": "number",
+      "unit": "ratio",
+      "default": 0.3,
+      "min": 0,
+      "max": 2,
+      "options": null,
+      "businessContext": "Coefficient of variation of demand. Higher values indicate higher risk. Based on supply chain risk management literature."
+    },
+    {
+      "id": "leadTimeDays",
+      "label": "Lead Time (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 0,
+      "max": 365,
+      "options": null,
+      "businessContext": "Average replenishment lead time from suppliers. Key input for safety stock calculations."
+    },
+    {
+      "id": "serviceLevelTarget",
+      "label": "Service Level Target",
+      "type": "number",
+      "unit": "percent",
+      "default": 95,
+      "min": 50,
+      "max": 99.9,
+      "options": null,
+      "businessContext": "Desired cycle service level. Common values: 95% for standard, 97.5% for premium. Based on inventory theory."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Score",
+      "type": "number",
+      "unit": "percent",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence in input data accuracy. Adjusts final risk score. Common in risk assessment frameworks."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "costOfGoodsSold > 0",
+      "averageInventory > 0",
+      "daysInPeriod between 1 and 365",
+      "industryBenchmarkTurnover > 0",
+      "demandVariability >= 0",
+      "leadTimeDays >= 0",
+      "serviceLevelTarget between 50 and 99.9",
+      "dataConfidence between 0 and 100"
+    ],
+    "thresholds": {
+      "inventoryTurnoverRatio": {
+        "low": 2,
+        "high": 10
+      },
+      "demandVariability": {
+        "high": 0.5
+      },
+      "leadTimeDays": {
+        "high": 60
+      }
+    }
+  },
+  "formulas": {
+    "inventoryTurnoverRatio": "costOfGoodsSold / averageInventory",
+    "daysInventoryOutstanding": "daysInPeriod / inventoryTurnoverRatio",
+    "safetyStockFactor": "normsinv(serviceLevelTarget/100) * demandVariability * sqrt(leadTimeDays/daysInPeriod)",
+    "adjustedTurnoverRisk": "max(0, (industryBenchmarkTurnover - inventoryTurnoverRatio) / industryBenchmarkTurnover) * (1 + demandVariability) * (1 + leadTimeDays/365)",
+    "riskScore": "adjustedTurnoverRisk * (100 / dataConfidence)",
+    "dataConfidenceAdjusted": "riskScore * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "riskScore",
+    "breakdown": {
+      "inventoryTurnoverRatio": "inventoryTurnoverRatio",
+      "daysInventoryOutstanding": "daysInventoryOutstanding",
+      "safetyStockFactor": "safetyStockFactor",
+      "adjustedTurnoverRisk": "adjustedTurnoverRisk"
+    },
+    "hiddenLossDrivers": [
+      "if inventoryTurnoverRatio < 2 then 'Low turnover indicates overstocking or obsolescence risk'",
+      "if demandVariability > 0.5 then 'High demand variability increases safety stock and risk'",
+      "if leadTimeDays > 60 then 'Long lead time increases supply chain vulnerability'"
+    ],
+    "suggestedActions": [
+      "if inventoryTurnoverRatio < industryBenchmarkTurnover then 'Review slow-moving items and consider markdowns or liquidation'",
+      "if demandVariability > 0.5 then 'Implement demand forecasting improvements and safety stock optimization'",
+      "if leadTimeDays > 60 then 'Explore supplier diversification or nearshoring to reduce lead time'",
+      "General: 'Conduct ABC analysis to prioritize inventory management efforts'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (historical comparison)",
+    "Benchmark Comparison (industry peers)",
+    "Detailed Report with breakdowns and charts"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,120 @@
+{
+  "toolName": "hidrolik-pompa-gucu-hesaplama",
+  "inputs": [
+    {
+      "id": "basinc",
+      "label": "Basınç",
+      "type": "number",
+      "unit": "bar",
+      "default": 100,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Pompa çıkış basıncı. ISO 13709 (API 610) standardına göre pompa tasarımında kritik parametre."
+    },
+    {
+      "id": "debi",
+      "label": "Debi",
+      "type": "number",
+      "unit": "L/min",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Pompa debisi. Hidrolik sistem tasarımında temel girdi."
+    },
+    {
+      "id": "verim",
+      "label": "Pompa Verimi",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Pompanın genel verimi. ISO 9906 standardına göre test edilir."
+    },
+    {
+      "id": "akiskanYogunlugu",
+      "label": "Akışkan Yoğunluğu",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1000,
+      "min": 0,
+      "max": 2000,
+      "options": null,
+      "businessContext": "Hidrolik yağ veya su için yoğunluk. Su için 1000 kg/m³, hidrolik yağ için ~870 kg/m³."
+    },
+    {
+      "id": "calismaSuresi",
+      "label": "Günlük Çalışma Süresi",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 8,
+      "min": 0,
+      "max": 24,
+      "options": null,
+      "businessContext": "Pompanın günlük çalışma süresi. Enerji maliyeti hesaplamaları için."
+    },
+    {
+      "id": "elektrikBirimFiyati",
+      "label": "Elektrik Birim Fiyatı",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 2,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Enerji maliyeti hesaplamaları için. Güncel piyasa fiyatı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "basinc > 0",
+      "debi > 0",
+      "verim > 0 && verim <= 100",
+      "akiskanYogunlugu > 0",
+      "calismaSuresi >= 0 && calismaSuresi <= 24",
+      "elektrikBirimFiyati >= 0"
+    ],
+    "thresholds": {
+      "verim < 70": "Düşük verim: pompa bakımı veya değişimi gerekebilir.",
+      "basinc > 500": "Yüksek basınç: sistem sızıntı riski artar."
+    }
+  },
+  "formulas": {
+    "hidrolikGuc_kW": "basinc * debi / (600 * verim / 100)",
+    "milGucu_kW": "hidrolikGuc_kW / (verim / 100)",
+    "enerjiTuketimi_kWh_gun": "milGucu_kW * calismaSuresi",
+    "gunlukEnerjiMaliyeti_TL": "enerjiTuketimi_kWh_gun * elektrikBirimFiyati",
+    "aylikEnerjiMaliyeti_TL": "gunlukEnerjiMaliyeti_TL * 30",
+    "yillikEnerjiMaliyeti_TL": "gunlukEnerjiMaliyeti_TL * 365"
+  },
+  "outputs": {
+    "primary": "milGucu_kW",
+    "breakdown": {
+      "hidrolikGuc_kW": "hidrolikGuc_kW",
+      "enerjiTuketimi_kWh_gun": "enerjiTuketimi_kWh_gun",
+      "gunlukEnerjiMaliyeti_TL": "gunlukEnerjiMaliyeti_TL",
+      "aylikEnerjiMaliyeti_TL": "aylikEnerjiMaliyeti_TL",
+      "yillikEnerjiMaliyeti_TL": "yillikEnerjiMaliyeti_TL"
+    },
+    "hiddenLossDrivers": [
+      "verim < 70 ? 'Düşük verim: pompa bakımı veya değişimi gerekebilir.' : ''",
+      "basinc > 500 ? 'Yüksek basınç: sistem sızıntı riski artar.' : ''"
+    ],
+    "suggestedActions": [
+      "Verim düşükse pompa bakımı planlayın.",
+      "Yüksek basınçta basınç tahliye vanası kontrol edin.",
+      "Enerji maliyetini azaltmak için değişken hızlı sürücü kullanmayı değerlendirin."
+    ],
+    "dataConfidenceAdjusted": "milGucu_kW * (1 - (100 - verim) / 100 * 0.1)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,161 @@
+{
+  "toolName": "heat-loss-calculator",
+  "inputs": [
+    {
+      "id": "surfaceArea",
+      "label": "Surface Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total surface area of the object/pipe exposed to ambient. Based on ISO 12241:2008 for thermal insulation."
+    },
+    {
+      "id": "surfaceTemperature",
+      "label": "Surface Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 200,
+      "min": -273.15,
+      "max": null,
+      "options": null,
+      "businessContext": "Temperature of the outer surface of the insulation or object. Required for convective and radiative heat loss calculation."
+    },
+    {
+      "id": "ambientTemperature",
+      "label": "Ambient Temperature",
+      "type": "number",
+      "unit": "°C",
+      "default": 20,
+      "min": -273.15,
+      "max": null,
+      "options": null,
+      "businessContext": "Temperature of surrounding air. Standard ambient conditions per ISO 6946."
+    },
+    {
+      "id": "windSpeed",
+      "label": "Wind Speed",
+      "type": "number",
+      "unit": "m/s",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Air velocity over surface. Affects convective heat transfer coefficient. Based on ASHRAE Handbook."
+    },
+    {
+      "id": "emissivity",
+      "label": "Emissivity",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.8,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Surface emissivity for radiative heat transfer. Typical values: oxidized steel 0.8, polished metal 0.1. Based on ASTM C1371."
+    },
+    {
+      "id": "insulationThickness",
+      "label": "Insulation Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Thickness of insulation layer. Used to compute thermal resistance. Based on ISO 12241."
+    },
+    {
+      "id": "insulationConductivity",
+      "label": "Insulation Thermal Conductivity",
+      "type": "number",
+      "unit": "W/(m·K)",
+      "default": 0.04,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Thermal conductivity of insulation material. Typical: mineral wool 0.04, polyurethane 0.025. Based on ASTM C518."
+    },
+    {
+      "id": "operationHours",
+      "label": "Operation Hours per Year",
+      "type": "number",
+      "unit": "hours/year",
+      "default": 8760,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Annual operating hours. Used to calculate annual energy loss. Standard industrial assumption."
+    },
+    {
+      "id": "energyCost",
+      "label": "Energy Cost",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of energy per kWh. Used to calculate financial loss. Based on local utility rates."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "surfaceArea > 0",
+      "surfaceTemperature > ambientTemperature",
+      "ambientTemperature >= -273.15",
+      "windSpeed >= 0",
+      "emissivity between 0 and 1",
+      "insulationThickness >= 0",
+      "insulationConductivity > 0",
+      "operationHours between 0 and 8760",
+      "energyCost > 0"
+    ],
+    "thresholds": {
+      "heatLossPerArea": "if > 1000 W/m² then 'High heat loss'",
+      "annualCost": "if > 10000 USD then 'Significant financial loss'"
+    }
+  },
+  "formulas": {
+    "convectiveCoefficient": "if windSpeed > 0 then 10.45 - windSpeed + 10*sqrt(windSpeed) else 5.6 + 4*windSpeed",
+    "radiativeCoefficient": "5.67e-8 * emissivity * ((surfaceTemperature+273.15)^4 - (ambientTemperature+273.15)^4) / (surfaceTemperature - ambientTemperature)",
+    "totalHeatTransferCoefficient": "convectiveCoefficient + radiativeCoefficient",
+    "heatLossPerArea": "totalHeatTransferCoefficient * (surfaceTemperature - ambientTemperature)",
+    "thermalResistanceInsulation": "insulationThickness/1000 / insulationConductivity",
+    "heatLossWithInsulation": "if insulationThickness > 0 then (surfaceTemperature - ambientTemperature) / (1/totalHeatTransferCoefficient + thermalResistanceInsulation) else heatLossPerArea",
+    "totalHeatLoss": "heatLossWithInsulation * surfaceArea",
+    "annualEnergyLoss": "totalHeatLoss * operationHours / 1000",
+    "annualCost": "annualEnergyLoss * energyCost"
+  },
+  "outputs": {
+    "primary": "annualCost",
+    "breakdown": {
+      "totalHeatLoss": "totalHeatLoss",
+      "annualEnergyLoss": "annualEnergyLoss",
+      "convectiveCoefficient": "convectiveCoefficient",
+      "radiativeCoefficient": "radiativeCoefficient",
+      "heatLossPerArea": "heatLossPerArea"
+    },
+    "hiddenLossDrivers": [
+      "if heatLossPerArea > 1000 then 'High heat loss per area'",
+      "if annualCost > 10000 then 'High annual cost'"
+    ],
+    "suggestedActions": [
+      "Increase insulation thickness",
+      "Use insulation with lower thermal conductivity",
+      "Reduce surface temperature",
+      "Apply low-emissivity coatings"
+    ],
+    "dataConfidenceAdjusted": "annualCost * (1 - 0.1*(1 - dataConfidence))"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with benchmarks",
+    "Detailed report with graphs"
+  ],
+  "premiumRequired": true
+}

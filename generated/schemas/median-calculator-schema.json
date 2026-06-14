@@ -1,0 +1,94 @@
+{
+  "toolName": "median-calculator",
+  "inputs": [
+    {
+      "id": "dataPoints",
+      "label": "Data Points",
+      "type": "number",
+      "unit": "count",
+      "default": 0,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "List of numerical values for which median is calculated. Required for any statistical analysis."
+    },
+    {
+      "id": "dataValues",
+      "label": "Data Values",
+      "type": "number",
+      "unit": "any",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "The actual numerical values. Must be provided as a comma-separated list or array. Used in median calculation."
+    },
+    {
+      "id": "sortOrder",
+      "label": "Sort Order",
+      "type": "select",
+      "unit": "",
+      "default": "ascending",
+      "min": null,
+      "max": null,
+      "options": [
+        "ascending",
+        "descending"
+      ],
+      "businessContext": "Order to sort data before finding median. Ascending is standard."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in data accuracy. Used for adjusted median calculation."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "dataPoints must be >= 1",
+      "dataValues count must equal dataPoints",
+      "dataConfidence must be between 0 and 100"
+    ],
+    "thresholds": {
+      "dataConfidence < 80": "Low data confidence may affect reliability",
+      "dataPoints < 5": "Small sample size may not represent population"
+    }
+  },
+  "formulas": {
+    "sortedData": "sort(dataValues, sortOrder)",
+    "n": "dataPoints",
+    "median": "if n % 2 == 1 then sortedData[(n+1)/2] else (sortedData[n/2] + sortedData[n/2 + 1]) / 2",
+    "dataConfidenceAdjusted": "median * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "median",
+    "breakdown": {
+      "sortedData": "sortedData",
+      "n": "n",
+      "median": "median"
+    },
+    "hiddenLossDrivers": [
+      "dataConfidence < 80 ? 'Low data confidence' : ''",
+      "dataPoints < 5 ? 'Small sample size' : ''"
+    ],
+    "suggestedActions": [
+      "dataConfidence < 80 ? 'Improve data collection accuracy' : ''",
+      "dataPoints < 5 ? 'Collect more data points' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Comparison with historical medians",
+    "Detailed report with confidence intervals"
+  ],
+  "premiumRequired": true
+}

@@ -79,6 +79,22 @@ service cloud.firestore {
         allow read: if request.auth != null && request.auth.uid == userId;
         allow write: if false;
       }
+
+      match /machines/{machineId} {
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow write: if false;
+      }
+
+      match /emissionFactors/{categoryId} {
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow create, update: if request.auth != null && request.auth.uid == userId;
+        allow delete: if false;
+      }
+    }
+
+    match /emissionFactors/{factorId} {
+      allow read: if request.auth != null;
+      allow write: if false;
     }
 
     match /premiumEntitlements/{entitlementId} {
@@ -94,6 +110,11 @@ service cloud.firestore {
         && resource.data.uid == request.auth.uid;
 
       allow update, delete: if false;
+    }
+
+    match /machines/{machineId} {
+      allow read: if request.auth != null;
+      allow write: if false;
     }
 
     // Approved calculation reports (Trust Trace / Validation Stamp)

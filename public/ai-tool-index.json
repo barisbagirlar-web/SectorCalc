@@ -1,7 +1,7 @@
 {
   "site": "SectorCalc",
   "baseUrl": "https://www.sectorcalc.com",
-  "generatedAt": "2026-06-14T02:58:34.430Z",
+  "generatedAt": "2026-06-14T12:09:39.465Z",
   "totalTools": 474,
   "totalActiveRoutes": 389,
   "totalCategoryOnly": 85,
@@ -1581,12 +1581,12 @@
         "ar": "7 Waste (Muda) Hunter Monetary Impact Calculator"
       },
       "description": {
-        "en": "Lean teams see waste categories qualitatively but cannot express each muda type in comparable monetary terms with period context and action priority.",
-        "tr": "Her israf türünün işletmeye spesifik maliyeti rakamla ifade edilemez.",
-        "de": "Lean teams see waste categories qualitatively but cannot express each muda type in comparable monetary terms with period context and action priority.",
-        "fr": "Lean teams see waste categories qualitatively but cannot express each muda type in comparable monetary terms with period context and action priority.",
-        "es": "Lean teams see waste categories qualitatively but cannot express each muda type in comparable monetary terms with period context and action priority.",
-        "ar": "Lean teams see waste categories qualitatively but cannot express each muda type in comparable monetary terms with period context and action priority."
+        "en": "Quantifies period-level monetary impact across overproduction, waiting, transport, inventory, motion, overprocessing, and defect waste drivers.",
+        "tr": "Üretim, bekleme, taşıma, stok, hareket, hata ve fazla işlem kaynaklı kayıpların dönemsel parasal etkisini hesaplar.",
+        "de": "Quantifies period-level monetary impact across overproduction, waiting, transport, inventory, motion, overprocessing, and defect waste drivers.",
+        "fr": "Quantifies period-level monetary impact across overproduction, waiting, transport, inventory, motion, overprocessing, and defect waste drivers.",
+        "es": "Quantifies period-level monetary impact across overproduction, waiting, transport, inventory, motion, overprocessing, and defect waste drivers.",
+        "ar": "Quantifies period-level monetary impact across overproduction, waiting, transport, inventory, motion, overprocessing, and defect waste drivers."
       },
       "localeUrls": {
         "en": "https://www.sectorcalc.com/en/tools/premium-schema/7-israf-muda-avcisi-parasal-karsilik-calculator",
@@ -1624,14 +1624,15 @@
           "impact",
           "lean-production",
           "premium-schema",
-          "lean",
-          "teams",
-          "categories",
-          "qualitatively",
-          "cannot",
-          "express",
-          "each",
-          "type"
+          "quantifies",
+          "periodlevel",
+          "across",
+          "overproduction",
+          "waiting",
+          "transport",
+          "inventory",
+          "motion",
+          "overprocessing"
         ],
         "tr": [
           "7",
@@ -1648,13 +1649,16 @@
           "hesaplayıcı",
           "lean-production",
           "premium-schema",
-          "türünün",
-          "işletmeye",
-          "spesifik",
-          "maliyeti",
-          "rakamla",
-          "ifade",
-          "edilemez"
+          "üretim",
+          "bekleme",
+          "taşıma",
+          "stok",
+          "hareket",
+          "hata",
+          "fazla",
+          "işlem",
+          "kaynaklı",
+          "kayıpların"
         ],
         "de": [
           "7",
@@ -1671,14 +1675,15 @@
           "impact",
           "lean-production",
           "premium-schema",
-          "lean",
-          "teams",
-          "categories",
-          "qualitatively",
-          "cannot",
-          "express",
-          "each",
-          "type"
+          "quantifies",
+          "periodlevel",
+          "across",
+          "overproduction",
+          "waiting",
+          "transport",
+          "inventory",
+          "motion",
+          "overprocessing"
         ],
         "fr": [
           "7",
@@ -1695,14 +1700,15 @@
           "impact",
           "lean-production",
           "premium-schema",
-          "lean",
-          "teams",
-          "categories",
-          "qualitatively",
-          "cannot",
-          "express",
-          "each",
-          "type"
+          "quantifies",
+          "periodlevel",
+          "across",
+          "overproduction",
+          "waiting",
+          "transport",
+          "inventory",
+          "motion",
+          "overprocessing"
         ],
         "es": [
           "7",
@@ -1719,14 +1725,15 @@
           "impact",
           "lean-production",
           "premium-schema",
-          "lean",
-          "teams",
-          "categories",
-          "qualitatively",
-          "cannot",
-          "express",
-          "each",
-          "type"
+          "quantifies",
+          "periodlevel",
+          "across",
+          "overproduction",
+          "waiting",
+          "transport",
+          "inventory",
+          "motion",
+          "overprocessing"
         ],
         "ar": [
           "7",
@@ -1743,14 +1750,15 @@
           "impact",
           "lean-production",
           "premium-schema",
-          "lean",
-          "teams",
-          "categories",
-          "qualitatively",
-          "cannot",
-          "express",
-          "each",
-          "type"
+          "quantifies",
+          "periodlevel",
+          "across",
+          "overproduction",
+          "waiting",
+          "transport",
+          "inventory",
+          "motion",
+          "overprocessing"
         ]
       },
       "intent": [
@@ -1763,7 +1771,7 @@
         "sector-analyzer"
       ],
       "formula": "7 Waste (Muda) Hunter Monetary Impact Calculator",
-      "pain": "Lean teams see waste categories qualitatively but cannot express each muda type in comparable monetary terms with period context and action priority.",
+      "pain": "Quantifies period-level monetary impact across overproduction, waiting, transport, inventory, motion, overprocessing, and defect waste drivers.",
       "source": "existing-premium-schema",
       "isFinanceLike": false
     },

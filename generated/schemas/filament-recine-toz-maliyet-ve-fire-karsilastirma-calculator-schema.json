@@ -1,0 +1,207 @@
+{
+  "toolName": "filament-recine-toz-maliyet-ve-fire-karsilastirma-calculator",
+  "inputs": [
+    {
+      "id": "materialType",
+      "label": "Malzeme Türü",
+      "type": "select",
+      "unit": "",
+      "default": "filament",
+      "min": null,
+      "max": null,
+      "options": [
+        "filament",
+        "recine",
+        "toz"
+      ],
+      "businessContext": "Seçilen malzeme türüne göre fire oranları ve maliyet hesaplamaları değişir. Endüstriyel standartlara dayanır."
+    },
+    {
+      "id": "materialCostPerKg",
+      "label": "Malzeme Birim Maliyeti (TL/kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "businessContext": "Malzemenin kilogram başına satın alma maliyeti. Piyasa fiyatlarına göre belirlenir."
+    },
+    {
+      "id": "partWeightGrams",
+      "label": "Parça Ağırlığı (gram)",
+      "type": "number",
+      "unit": "gram",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "businessContext": "Üretilen her bir parçanın ağırlığı. Tasarım ve üretim sürecine bağlıdır."
+    },
+    {
+      "id": "productionVolume",
+      "label": "Üretim Adedi (adet/yıl)",
+      "type": "number",
+      "unit": "adet/yıl",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "businessContext": "Yıllık üretim miktarı. Ölçek ekonomisi ve fire oranlarını etkiler."
+    },
+    {
+      "id": "scrapRate",
+      "label": "Fire Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Üretim sırasında oluşan fire yüzdesi. Kalite kontrol ve süreç verimliliğine bağlıdır. ISO 9001 kalite standartları referans alınır."
+    },
+    {
+      "id": "recycleRate",
+      "label": "Geri Dönüşüm Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Fire malzemenin geri dönüştürülebilme oranı. Çevresel sürdürülebilirlik ve maliyet tasarrufu için önemlidir. ISO 14000 standartlarına dayanır."
+    },
+    {
+      "id": "recycleCostPerKg",
+      "label": "Geri Dönüşüm Maliyeti (TL/kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 20,
+      "min": 0,
+      "max": null,
+      "businessContext": "Fire malzemenin geri dönüştürülmesi için kilogram başına katlanılan maliyet. Geri dönüşüm sürecinin verimliliğine bağlıdır."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "İşçilik Maliyeti (TL/saat)",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "businessContext": "Üretimde çalışan işçilerin saatlik maliyeti. Endüstriyel mühendislik hesaplamalarında kullanılır."
+    },
+    {
+      "id": "cycleTimeMinutes",
+      "label": "Çevrim Süresi (dakika/parça)",
+      "type": "number",
+      "unit": "dakika/parça",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "businessContext": "Bir parçanın üretilmesi için geçen süre. Lean üretim ve verimlilik analizlerinde kullanılır."
+    },
+    {
+      "id": "machineCostPerHour",
+      "label": "Makine Maliyeti (TL/saat)",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "businessContext": "Makinenin saatlik amortisman ve işletme maliyeti. Yatırım maliyeti ve bakım giderlerini içerir."
+    },
+    {
+      "id": "energyCostPerKwh",
+      "label": "Enerji Maliyeti (TL/kWh)",
+      "type": "number",
+      "unit": "TL/kWh",
+      "default": 1.5,
+      "min": 0,
+      "max": null,
+      "businessContext": "Kilowatt-saat başına enerji maliyeti. ISO 50001 enerji yönetimi standardı referans alınır."
+    },
+    {
+      "id": "powerConsumptionKw",
+      "label": "Makine Güç Tüketimi (kW)",
+      "type": "number",
+      "unit": "kW",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "businessContext": "Makinenin saatlik enerji tüketimi. Enerji maliyeti hesaplamalarında kullanılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni (0-1)",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "min": 0,
+      "max": 1,
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Düşük güven durumunda sonuçlar ayarlanır. Risk yönetimi prensiplerine dayanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "scrapRate >= 0 && scrapRate <= 100",
+      "recycleRate >= 0 && recycleRate <= 100",
+      "materialCostPerKg > 0",
+      "partWeightGrams > 0",
+      "productionVolume > 0",
+      "cycleTimeMinutes > 0",
+      "laborCostPerHour >= 0",
+      "machineCostPerHour >= 0",
+      "energyCostPerKwh >= 0",
+      "powerConsumptionKw >= 0",
+      "dataConfidence >= 0 && dataConfidence <= 1",
+      "if recycleRate > 0 then recycleCostPerKg > 0"
+    ],
+    "thresholds": {
+      "scrapRate": "scrapRate > 10 ? 'Yüksek fire oranı: Süreç iyileştirme önerilir.' : ''",
+      "recycleRate": "recycleRate < 20 ? 'Düşük geri dönüşüm oranı: Çevresel etki ve maliyet avantajı kaçırılıyor.' : ''",
+      "dataConfidence": "dataConfidence < 0.7 ? 'Düşük veri güveni: Sonuçlar daha az güvenilir.' : ''"
+    }
+  },
+  "formulas": {
+    "totalMaterialCost": "productionVolume * (partWeightGrams / 1000) * materialCostPerKg",
+    "scrapMaterialCost": "totalMaterialCost * (scrapRate / 100)",
+    "recycleSavings": "scrapMaterialCost * (recycleRate / 100) * (1 - recycleCostPerKg / materialCostPerKg)",
+    "netScrapCost": "scrapMaterialCost - recycleSavings",
+    "totalLaborCost": "productionVolume * (cycleTimeMinutes / 60) * laborCostPerHour",
+    "totalMachineCost": "productionVolume * (cycleTimeMinutes / 60) * machineCostPerHour",
+    "totalEnergyCost": "productionVolume * (cycleTimeMinutes / 60) * powerConsumptionKw * energyCostPerKwh",
+    "totalProductionCost": "totalMaterialCost + totalLaborCost + totalMachineCost + totalEnergyCost",
+    "costPerPart": "totalProductionCost / productionVolume",
+    "effectiveScrapRate": "scrapRate * (1 - recycleRate / 100)",
+    "dataConfidenceAdjustedCost": "costPerPart * (1 + (1 - dataConfidence) * 0.1)"
+  },
+  "outputs": {
+    "primary": "costPerPart",
+    "breakdown": {
+      "totalMaterialCost": "totalMaterialCost",
+      "scrapMaterialCost": "scrapMaterialCost",
+      "recycleSavings": "recycleSavings",
+      "netScrapCost": "netScrapCost",
+      "totalLaborCost": "totalLaborCost",
+      "totalMachineCost": "totalMachineCost",
+      "totalEnergyCost": "totalEnergyCost",
+      "totalProductionCost": "totalProductionCost",
+      "effectiveScrapRate": "effectiveScrapRate"
+    },
+    "hiddenLossDrivers": [
+      "scrapRate > 10 ? 'Yüksek fire oranı' : ''",
+      "recycleRate < 20 ? 'Düşük geri dönüşüm oranı' : ''",
+      "dataConfidence < 0.7 ? 'Düşük veri güveni' : ''"
+    ],
+    "suggestedActions": [
+      "scrapRate > 10 ? 'Fire oranını azaltmak için süreç iyileştirme (Poka-Yoke, SMED) uygulayın.' : ''",
+      "recycleRate < 20 ? 'Geri dönüşüm oranını artırmak için atık yönetimi sürecini gözden geçirin.' : ''",
+      "cycleTimeMinutes > 20 ? 'Çevrim süresini kısaltmak için Lean üretim teknikleri (Kaizen, VSM) uygulayın.' : ''",
+      "energyCostPerKwh > 2 ? 'Enerji verimliliği için ISO 50001 standardına uygun önlemler alın.' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma (farklı malzeme türleri arasında)",
+    "Detaylı rapor (fire kaynakları, maliyet dağılımı)"
+  ],
+  "premiumRequired": true
+}

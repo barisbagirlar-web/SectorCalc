@@ -1,0 +1,103 @@
+{
+  "toolName": "doviz-pozisyonu-kur-farki-riski-hesabi",
+  "inputs": [
+    {
+      "id": "foreignCurrencyPosition",
+      "label": "Döviz Pozisyonu (Net)",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": -1000000000,
+      "max": 1000000000,
+      "options": null,
+      "businessContext": "Net döviz pozisyonu (varlık - yükümlülük). Pozitif uzun, negatif kısa pozisyonu gösterir. Finansal risk yönetimi standardı."
+    },
+    {
+      "id": "currentExchangeRate",
+      "label": "Güncel Kur (USD/TRY)",
+      "type": "number",
+      "unit": "TRY/USD",
+      "default": 30,
+      "min": 0.01,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Anlık döviz kuru. Merkez Bankası veya piyasa verisi."
+    },
+    {
+      "id": "forecastedExchangeRate",
+      "label": "Öngörülen Kur (USD/TRY)",
+      "type": "number",
+      "unit": "TRY/USD",
+      "default": 32,
+      "min": 0.01,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Gelecek dönem için beklenen kur. Finansal tahmin modelleri."
+    },
+    {
+      "id": "confidenceLevel",
+      "label": "Güven Seviyesi (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kur tahminine duyulan güven. Risk yönetiminde kullanılır."
+    },
+    {
+      "id": "hedgeRatio",
+      "label": "Korunma Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Pozisyonun hedge edilen kısmı. Finansal türevlerle riskten korunma."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "foreignCurrencyPosition must be numeric",
+      "currentExchangeRate > 0",
+      "forecastedExchangeRate > 0",
+      "confidenceLevel between 0 and 100",
+      "hedgeRatio between 0 and 100"
+    ],
+    "thresholds": {
+      "kurFarkiRiskOrani": "0.05",
+      "kurFarkiTutari": "100000"
+    }
+  },
+  "formulas": {
+    "kurFarkiTutari": "foreignCurrencyPosition * (forecastedExchangeRate - currentExchangeRate) * (1 - hedgeRatio/100)",
+    "kurFarkiRiskOrani": "abs(kurFarkiTutari) / abs(foreignCurrencyPosition * currentExchangeRate)",
+    "dataConfidenceAdjusted": "kurFarkiTutari * (confidenceLevel / 100)"
+  },
+  "outputs": {
+    "primary": "kurFarkiTutari",
+    "breakdown": {
+      "kurFarkiRiskOrani": "Kur farkı risk oranı",
+      "hedgedPosition": "Korunan pozisyon",
+      "unhedgedPosition": "Korunmayan pozisyon"
+    },
+    "hiddenLossDrivers": [
+      "kurFarkiRiskOrani > 0.05 ? 'Yüksek kur farkı riski' : ''",
+      "abs(kurFarkiTutari) > 100000 ? 'Kur farkı tutarı eşik değeri aştı' : ''"
+    ],
+    "suggestedActions": [
+      "Hedge oranını artırmayı değerlendirin",
+      "Kur riskine karşı forward sözleşmesi yapın",
+      "Pozisyonu azaltmayı düşünün"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

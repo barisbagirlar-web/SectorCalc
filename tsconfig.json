@@ -14,8 +14,11 @@
     "jsx": "preserve",
     "incremental": true,
     "plugins": [{ "name": "next" }],
-    "paths": { "@/*": ["./src/*"] }
+    "paths": {
+      "@/*": ["./src/*"],
+      "@generated/*": ["./generated/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "functions", "apps", "scripts/tool-activation/audit-runtime-tool-readiness-runner.ts", "scripts/tool-activation/audit-runtime-trust-engine-runner.ts"]
+  "exclude": ["node_modules", "functions", "apps", "generated", "scripts/deepseek", "scripts/tool-activation/audit-runtime-tool-readiness-runner.ts", "scripts/tool-activation/audit-runtime-trust-engine-runner.ts"]
 }

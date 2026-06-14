@@ -42,12 +42,28 @@ Görev: Bu aracın tam bir mühendislik şemasını oluştur.
     {
       "id": "analysisPeriodDays",
       "label": "Analysis period length",
+      "label_i18n": {
+        "en": "Analysis period length",
+        "tr": "Analiz dönemi uzunluğu",
+        "de": "Länge des Analysezeitraums",
+        "fr": "Durée de la période d'analyse",
+        "es": "Duración del período de análisis",
+        "ar": "طول فترة التحليل"
+      },
       "type": "number",
       "unit": "days",
       "default": 30,
       "min": 1,
       "max": 365,
-      "businessContext": "Kullanıcının analiz yapmak istediği dönem. Atık hesaplamaları bu dönem için yapılır."
+      "businessContext": "The period the user wants to analyze. Waste calculations apply to this window.",
+      "businessContext_i18n": {
+        "en": "The period the user wants to analyze. Waste calculations apply to this window.",
+        "tr": "Kullanıcının analiz yapmak istediği dönem. Atık hesaplamaları bu dönem için yapılır.",
+        "de": "Der Zeitraum, den der Nutzer analysieren möchte. Verschwendungsberechnungen gelten für dieses Fenster.",
+        "fr": "La période que l'utilisateur souhaite analyser. Les calculs de gaspillage s'appliquent à cette fenêtre.",
+        "es": "El período que el usuario desea analizar. Los cálculos de desperdicio se aplican a esta ventana.",
+        "ar": "الفترة التي يريد المستخدم تحليلها. تُطبَّق حسابات الهدر على هذه النافذة."
+      }
     },
     // ... tüm input'lar bu şekilde
   ],

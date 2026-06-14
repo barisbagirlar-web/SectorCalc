@@ -1,0 +1,160 @@
+{
+  "toolName": "cnc-tool-wear-cost",
+  "inputs": [
+    {
+      "id": "toolPrice",
+      "label": "Tool Price",
+      "type": "number",
+      "unit": "USD",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Purchase cost of the cutting tool. Based on supplier pricing and ISO 9001 procurement standards."
+    },
+    {
+      "id": "toolLife",
+      "label": "Tool Life (minutes)",
+      "type": "number",
+      "unit": "minutes",
+      "default": 60,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Expected usable life of the tool under standard conditions. Derived from manufacturer specifications and Taylor's tool life equation."
+    },
+    {
+      "id": "regrinds",
+      "label": "Number of Regrinds",
+      "type": "number",
+      "unit": "count",
+      "default": 3,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "How many times the tool can be reground. Based on tool geometry and regrinding best practices."
+    },
+    {
+      "id": "regrindCost",
+      "label": "Cost per Regrind",
+      "type": "number",
+      "unit": "USD",
+      "default": 20,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of each regrinding operation. Includes labor and consumables."
+    },
+    {
+      "id": "machineHourlyRate",
+      "label": "Machine Hourly Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 80,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Hourly cost of the CNC machine including depreciation, energy, and maintenance. Based on standard cost accounting."
+    },
+    {
+      "id": "cuttingTimePerPart",
+      "label": "Cutting Time per Part",
+      "type": "number",
+      "unit": "minutes",
+      "default": 2,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Actual cutting time per part. Determined by machining parameters and part geometry."
+    },
+    {
+      "id": "toolChangeTime",
+      "label": "Tool Change Time",
+      "type": "number",
+      "unit": "minutes",
+      "default": 5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Time to replace or index the tool. Includes setup and alignment."
+    },
+    {
+      "id": "partsPerToolChange",
+      "label": "Parts per Tool Change",
+      "type": "number",
+      "unit": "count",
+      "default": 30,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of parts produced before a tool change is needed. Based on tool life and cutting time."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data. Affects adjustment factor for risk analysis."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "toolPrice > 0",
+      "toolLife > 0",
+      "regrinds >= 0",
+      "regrindCost >= 0",
+      "machineHourlyRate > 0",
+      "cuttingTimePerPart > 0",
+      "toolChangeTime >= 0",
+      "partsPerToolChange > 0"
+    ],
+    "thresholds": {
+      "toolWearCostPerPart": "> 5: 'High tool wear cost per part, consider optimizing parameters or tool selection'",
+      "toolLife": "< 30: 'Short tool life, investigate cutting conditions or tool quality'"
+    }
+  },
+  "formulas": {
+    "totalToolCost": "toolPrice + (regrinds * regrindCost)",
+    "totalLifeMinutes": "toolLife * (regrinds + 1)",
+    "toolCostPerMinute": "totalToolCost / totalLifeMinutes",
+    "toolCostPerPart": "toolCostPerMinute * cuttingTimePerPart",
+    "machineCostPerToolChange": "machineHourlyRate * (toolChangeTime / 60)",
+    "machineCostPerPart": "machineCostPerToolChange / partsPerToolChange",
+    "toolWearCostPerPart": "toolCostPerPart + machineCostPerPart",
+    "dataConfidenceFactor": "dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9)",
+    "adjustedToolWearCostPerPart": "toolWearCostPerPart * dataConfidenceFactor"
+  },
+  "outputs": {
+    "primary": "toolWearCostPerPart",
+    "breakdown": {
+      "toolCostPerPart": "toolCostPerPart",
+      "machineCostPerPart": "machineCostPerPart"
+    },
+    "hiddenLossDrivers": [
+      "toolLife < 30 ? 'Short tool life' : null",
+      "toolWearCostPerPart > 5 ? 'High cost per part' : null"
+    ],
+    "suggestedActions": [
+      "toolWearCostPerPart > 5 ? 'Reduce cutting speed or feed rate to extend tool life' : null",
+      "toolLife < 30 ? 'Consider using a more durable tool material or coating' : null",
+      "regrinds > 0 && regrindCost > toolPrice * 0.3 ? 'Evaluate regrinding vs. new tool cost' : null"
+    ],
+    "dataConfidenceAdjusted": "adjustedToolWearCostPerPart"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Benchmarks",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

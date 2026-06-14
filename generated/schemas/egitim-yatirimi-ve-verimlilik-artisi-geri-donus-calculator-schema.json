@@ -1,0 +1,164 @@
+{
+  "toolName": "egitim-yatirimi-ve-verimlilik-artisi-geri-donus-calculator",
+  "inputs": [
+    {
+      "id": "trainingCostPerEmployee",
+      "label": "Çalışan Başına Eğitim Maliyeti",
+      "type": "number",
+      "unit": "TRY",
+      "default": 5000,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Eğitim programının çalışan başına toplam maliyeti (eğitmen, materyal, tesis, seyahat vb.). ISO 10015 eğitim yönetimi standardı referans alınır."
+    },
+    {
+      "id": "numberOfEmployeesTrained",
+      "label": "Eğitilen Çalışan Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 50,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Eğitime katılan toplam çalışan sayısı. İşgücü verimliliği hesaplamalarında temel girdi."
+    },
+    {
+      "id": "currentProductivity",
+      "label": "Mevcut Verimlilik (birim/çalışan/saat)",
+      "type": "number",
+      "unit": "birim/çalışan/saat",
+      "default": 10,
+      "min": 0.1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Eğitim öncesi çalışan başına saatlik üretim miktarı. Endüstri mühendisliğinde standart zaman etüdü ile belirlenir."
+    },
+    {
+      "id": "expectedProductivityGain",
+      "label": "Beklenen Verimlilik Artışı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Eğitim sonrası beklenen verimlilik artış yüzdesi. Literatürde eğitimin verimliliğe etkisi %5-30 arasında raporlanmıştır (Bartel, 1994)."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "Saatlik İşgücü Maliyeti",
+      "type": "number",
+      "unit": "TRY/saat",
+      "default": 50,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Çalışan başına saatlik işgücü maliyeti (ücret, yan haklar, işveren payı). Maliyet muhasebesi standartları."
+    },
+    {
+      "id": "workingHoursPerDay",
+      "label": "Günlük Çalışma Saati",
+      "type": "number",
+      "unit": "saat/gün",
+      "default": 8,
+      "min": 1,
+      "max": 24,
+      "options": null,
+      "businessContext": "Vardiya başına çalışma saati. İş kanunu ve endüstri standartları."
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Yıllık Çalışma Günü",
+      "type": "number",
+      "unit": "gün/yıl",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Yıllık fiili çalışma günü sayısı (tatil, izin düşülmüş)."
+    },
+    {
+      "id": "additionalBenefitsPerEmployee",
+      "label": "Çalışan Başına Ek Fayda (TRY/yıl)",
+      "type": "number",
+      "unit": "TRY/yıl",
+      "default": 2000,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Eğitim sonucu elde edilen ek faydalar (kalite iyileştirme, fire azaltma, motivasyon artışı vb.)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Düşük güven durumunda sonuçlar daha muhafazakar hesaplanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "trainingCostPerEmployee >= 0",
+      "numberOfEmployeesTrained >= 1",
+      "currentProductivity > 0",
+      "expectedProductivityGain >= 0 && expectedProductivityGain <= 100",
+      "laborCostPerHour >= 0",
+      "workingHoursPerDay >= 1 && workingHoursPerDay <= 24",
+      "workingDaysPerYear >= 1 && workingDaysPerYear <= 365",
+      "additionalBenefitsPerEmployee >= 0"
+    ],
+    "thresholds": {
+      "expectedProductivityGain > 30": "Beklenen verimlilik artışı %30'un üzerinde; gerçekçi olmayabilir, verileri kontrol edin.",
+      "trainingCostPerEmployee > 50000": "Eğitim maliyeti çok yüksek; alternatif eğitim yöntemleri değerlendirilmeli.",
+      "laborCostPerHour > 200": "İşgücü maliyeti sektör ortalamasının üzerinde; verimlilik kazancı daha kritik."
+    }
+  },
+  "formulas": {
+    "totalTrainingCost": "trainingCostPerEmployee * numberOfEmployeesTrained",
+    "productivityAfterTraining": "currentProductivity * (1 + expectedProductivityGain / 100)",
+    "productivityIncreasePerEmployeePerHour": "productivityAfterTraining - currentProductivity",
+    "annualProductivityIncreasePerEmployee": "productivityIncreasePerEmployeePerHour * workingHoursPerDay * workingDaysPerYear",
+    "annualLaborCostSavingPerEmployee": "annualProductivityIncreasePerEmployee * laborCostPerHour",
+    "totalAnnualLaborCostSaving": "annualLaborCostSavingPerEmployee * numberOfEmployeesTrained",
+    "totalAnnualBenefit": "totalAnnualLaborCostSaving + (additionalBenefitsPerEmployee * numberOfEmployeesTrained)",
+    "paybackPeriodYears": "totalTrainingCost / totalAnnualBenefit",
+    "roi": "(totalAnnualBenefit - totalTrainingCost) / totalTrainingCost * 100",
+    "dataConfidenceAdjustedROI": "dataConfidence == 'low' ? roi * 0.8 : (dataConfidence == 'medium' ? roi * 0.95 : roi)"
+  },
+  "outputs": {
+    "primary": "roi",
+    "breakdown": {
+      "totalTrainingCost": "totalTrainingCost",
+      "totalAnnualBenefit": "totalAnnualBenefit",
+      "annualLaborCostSaving": "totalAnnualLaborCostSaving",
+      "paybackPeriodYears": "paybackPeriodYears"
+    },
+    "hiddenLossDrivers": [
+      "expectedProductivityGain > 30 ? 'Beklenen verimlilik artışı yüksek' : ''",
+      "trainingCostPerEmployee > 50000 ? 'Eğitim maliyeti yüksek' : ''"
+    ],
+    "suggestedActions": [
+      "Eğitim içeriğini iş hedefleriyle uyumlu hale getirin.",
+      "Eğitim sonrası performans takibi yapın.",
+      "Verimlilik artışını sürdürmek için sürekli iyileştirme programı uygulayın."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedROI"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV veri indirme",
+    "Trend analizi (zaman serisi)",
+    "Sektör karşılaştırması",
+    "Detaylı maliyet kırılımı"
+  ],
+  "premiumRequired": true
+}

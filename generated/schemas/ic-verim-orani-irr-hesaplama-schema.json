@@ -1,0 +1,96 @@
+{
+  "toolName": "ic-verim-orani-irr-hesaplama",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "Başlangıç Yatırımı",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Projenin başlangıcında yapılan toplam yatırım tutarı. Finansal yatırım değerleme standartlarına göre (CAPM, NPV, IRR) kullanılır."
+    },
+    {
+      "id": "cashFlows",
+      "label": "Nakit Akışları (Virgülle ayrılmış)",
+      "type": "number",
+      "unit": "TRY",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Her dönem sonundaki net nakit akışları. Dönem sayısı kadar değer girilmelidir. IRR hesaplamasında temel girdidir."
+    },
+    {
+      "id": "periodType",
+      "label": "Dönem Türü",
+      "type": "select",
+      "unit": "",
+      "default": "yil",
+      "min": null,
+      "max": null,
+      "options": [
+        "yil",
+        "ay",
+        "gun"
+      ],
+      "businessContext": "Nakit akışlarının hangi periyotta olduğunu belirtir. Zaman oranlaması için kullanılır."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "orta",
+      "min": null,
+      "max": null,
+      "options": [
+        "dusuk",
+        "orta",
+        "yuksek"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliğini belirtir. Düşük güven durumunda sonuç ayarlanabilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "initialInvestment > 0",
+      "cashFlows en az 2 değer içermeli (bir negatif, bir pozitif)",
+      "cashFlows değerleri sayı olmalı",
+      "periodType geçerli bir seçenek olmalı"
+    ],
+    "thresholds": {
+      "irr": "0.15",
+      "warning": "IRR < 0.15 ise 'Düşük getiri' uyarısı"
+    }
+  },
+  "formulas": {
+    "irr": "NPV = sum_{t=0}^{n} cashFlows[t] / (1 + r)^t = 0 denklemini r'ye göre çöz. Başlangıç yatırımı cashFlows[0] olarak negatif girilir. Newton-Raphson yöntemi ile iteratif çözüm."
+  },
+  "outputs": {
+    "primary": "IRR (İç Verim Oranı) yüzde olarak",
+    "breakdown": {
+      "npvProfile": "Farklı iskonto oranlarına göre NPV değerleri",
+      "paybackPeriod": "Geri ödeme süresi (dönem cinsinden)"
+    },
+    "hiddenLossDrivers": [
+      "Nakit akışları düzensiz ise IRR yanıltıcı olabilir",
+      "Yeniden yatırım varsayımı IRR'yi etkiler"
+    ],
+    "suggestedActions": [
+      "IRR > sermaye maliyeti ise proje kabul edilebilir",
+      "Alternatif yatırımlarla karşılaştırma yapın",
+      "Duyarlılık analizi uygulayın"
+    ],
+    "dataConfidenceAdjusted": "dataConfidence düşük ise IRR %10 oranında düşürülür; orta ise %5; yüksek ise değişmez"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (zaman serisi)",
+    "Karşılaştırma (birden fazla proje)",
+    "Detaylı rapor (NPV profili, duyarlılık grafiği)"
+  ],
+  "premiumRequired": true
+}

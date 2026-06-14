@@ -1,0 +1,131 @@
+{
+  "toolName": "water-usage-calculator",
+  "inputs": [
+    {
+      "id": "waterConsumption",
+      "label": "Water Consumption",
+      "type": "number",
+      "unit": "m³/month",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total water used per month. Based on ISO 14046 water footprint principles."
+    },
+    {
+      "id": "waterCostPerM3",
+      "label": "Water Cost per m³",
+      "type": "number",
+      "unit": "currency/m³",
+      "default": 2.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average cost of water per cubic meter including supply and treatment. Industry standard from water utility tariffs."
+    },
+    {
+      "id": "productionVolume",
+      "label": "Production Volume",
+      "type": "number",
+      "unit": "units/month",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of units produced per month. Used to calculate water intensity per unit."
+    },
+    {
+      "id": "industryType",
+      "label": "Industry Type",
+      "type": "select",
+      "unit": "",
+      "default": "manufacturing",
+      "min": null,
+      "max": null,
+      "options": [
+        "manufacturing",
+        "food & beverage",
+        "chemical",
+        "pharmaceutical",
+        "textile",
+        "other"
+      ],
+      "businessContext": "Industry sector for benchmarking water usage. Based on WBCSD water footprint benchmarks."
+    },
+    {
+      "id": "recyclingRate",
+      "label": "Water Recycling Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of water recycled/reused. Key metric for water efficiency, ISO 14046."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data accuracy. Affects output reliability."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "waterConsumption >= 0",
+      "waterCostPerM3 >= 0",
+      "productionVolume > 0",
+      "recyclingRate >= 0 and recyclingRate <= 100"
+    ],
+    "thresholds": {
+      "waterIntensity": "if waterIntensity > industryBenchmark then 'High water intensity'",
+      "recyclingRate": "if recyclingRate < 20 then 'Low recycling rate'"
+    }
+  },
+  "formulas": {
+    "waterIntensity": "waterConsumption / productionVolume",
+    "totalWaterCost": "waterConsumption * waterCostPerM3",
+    "recycledWater": "waterConsumption * (recyclingRate / 100)",
+    "netWaterConsumption": "waterConsumption - recycledWater",
+    "costSavings": "recycledWater * waterCostPerM3",
+    "industryBenchmark": "case industryType when 'manufacturing' then 0.1 when 'food & beverage' then 0.2 when 'chemical' then 0.15 when 'pharmaceutical' then 0.12 when 'textile' then 0.18 else 0.1 end",
+    "waterEfficiencyScore": "if waterIntensity <= industryBenchmark then 100 else max(0, 100 - (waterIntensity - industryBenchmark) / industryBenchmark * 100)",
+    "dataConfidenceAdjusted": "case dataConfidence when 'low' then waterEfficiencyScore * 0.8 when 'medium' then waterEfficiencyScore * 0.95 else waterEfficiencyScore end"
+  },
+  "outputs": {
+    "primary": "totalWaterCost",
+    "breakdown": {
+      "waterIntensity": "waterIntensity",
+      "netWaterConsumption": "netWaterConsumption",
+      "costSavings": "costSavings",
+      "waterEfficiencyScore": "waterEfficiencyScore"
+    },
+    "hiddenLossDrivers": [
+      "if waterIntensity > industryBenchmark then 'High water intensity'",
+      "if recyclingRate < 20 then 'Low recycling rate'"
+    ],
+    "suggestedActions": [
+      "Implement water recycling systems to increase recycling rate",
+      "Conduct water audit to identify high consumption areas",
+      "Consider process optimization to reduce water intensity"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmark comparison",
+    "Detailed report with recommendations"
+  ],
+  "premiumRequired": true
+}

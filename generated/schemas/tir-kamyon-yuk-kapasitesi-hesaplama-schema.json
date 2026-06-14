@@ -1,0 +1,238 @@
+{
+  "toolName": "tir-kamyon-yuk-kapasitesi-hesaplama",
+  "inputs": [
+    {
+      "id": "aracTipi",
+      "label": "Araç Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "TIR",
+      "min": null,
+      "max": null,
+      "options": [
+        "TIR",
+        "Kamyon",
+        "Kamyonet"
+      ],
+      "businessContext": "Araç tipine göre yasal yük kapasitesi ve hacim sınırları değişir. Türkiye'de Karayolları Trafik Yönetmeliği esas alınır."
+    },
+    {
+      "id": "yasalAzamiYuk",
+      "label": "Yasal Azami Yük (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 24000,
+      "min": 0,
+      "max": 60000,
+      "businessContext": "Aracın ruhsatında belirtilen azami yüklü ağırlık. TIR için genelde 40 ton (40.000 kg) olup, yasal sınırlar ülkeye göre değişir. Kaynak: Karayolları Trafik Yönetmeliği."
+    },
+    {
+      "id": "daraAgirligi",
+      "label": "Dara Ağırlığı (kg)",
+      "type": "number",
+      "unit": "kg",
+      "default": 12000,
+      "min": 0,
+      "max": 30000,
+      "businessContext": "Aracın boş ağırlığı. Yasal azami yükten dara ağırlığı çıkarılarak net yük kapasitesi bulunur. Kaynak: Araç ruhsatı."
+    },
+    {
+      "id": "yukHacmi",
+      "label": "Yük Hacmi (m³)",
+      "type": "number",
+      "unit": "m³",
+      "default": 90,
+      "min": 0,
+      "max": 150,
+      "businessContext": "Aracın kasasının veya konteynerinin iç hacmi. TIR için tipik 90 m³. Kaynak: Araç teknik özellikleri."
+    },
+    {
+      "id": "yukYogunlugu",
+      "label": "Yük Yoğunluğu (kg/m³)",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 500,
+      "min": 0,
+      "max": 3000,
+      "businessContext": "Taşınacak yükün birim hacim ağırlığı. Düşük yoğunluklu yüklerde hacim, yüksek yoğunluklu yüklerde ağırlık sınırlayıcı olur. Kaynak: Yükün cinsi."
+    },
+    {
+      "id": "yuklemeSuresi",
+      "label": "Yükleme Süresi (saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 2,
+      "min": 0.5,
+      "max": 8,
+      "businessContext": "Yükün araca yüklenmesi için geçen süre. Operasyonel verimlilik hesaplamalarında kullanılır. Kaynak: Saha gözlemi."
+    },
+    {
+      "id": "bosaltmaSuresi",
+      "label": "Boşaltma Süresi (saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 1.5,
+      "min": 0.5,
+      "max": 8,
+      "businessContext": "Yükün araçtan boşaltılması için geçen süre. Kaynak: Saha gözlemi."
+    },
+    {
+      "id": "seferSayisi",
+      "label": "Sefer Sayısı (adet/ay)",
+      "type": "number",
+      "unit": "adet/ay",
+      "default": 20,
+      "min": 1,
+      "max": 100,
+      "businessContext": "Aylık ortalama sefer sayısı. Kapasite kullanım oranı hesaplamalarında kullanılır. Kaynak: Operasyonel veriler."
+    },
+    {
+      "id": "yakitTuketimi",
+      "label": "Yakıt Tüketimi (litre/100 km)",
+      "type": "number",
+      "unit": "litre/100 km",
+      "default": 30,
+      "min": 10,
+      "max": 60,
+      "businessContext": "Aracın 100 km'de tükettiği ortalama yakıt miktarı. Maliyet hesaplamalarında kullanılır. Kaynak: Araç teknik verileri."
+    },
+    {
+      "id": "yakitFiyati",
+      "label": "Yakıt Fiyatı (TL/litre)",
+      "type": "number",
+      "unit": "TL/litre",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Güncel yakıt fiyatı. Kaynak: EPDK."
+    },
+    {
+      "id": "soforUcreti",
+      "label": "Şoför Ücreti (TL/saat)",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 100,
+      "min": 0,
+      "max": 500,
+      "businessContext": "Şoförün saatlik ücreti. Kaynak: İş sözleşmesi."
+    },
+    {
+      "id": "bakimMaliyeti",
+      "label": "Bakım Maliyeti (TL/km)",
+      "type": "number",
+      "unit": "TL/km",
+      "default": 1.5,
+      "min": 0,
+      "max": 10,
+      "businessContext": "Aracın km başına bakım ve onarım maliyeti. Kaynak: Filo yönetimi verileri."
+    },
+    {
+      "id": "ortalamaHiz",
+      "label": "Ortalama Hız (km/saat)",
+      "type": "number",
+      "unit": "km/saat",
+      "default": 70,
+      "min": 20,
+      "max": 120,
+      "businessContext": "Sefer sırasındaki ortalama hız. Kaynak: GPS verileri."
+    },
+    {
+      "id": "mesafe",
+      "label": "Mesafe (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 500,
+      "min": 0,
+      "max": 5000,
+      "businessContext": "Sefer başına kat edilen mesafe. Kaynak: Rota planlaması."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güvenilirliği",
+      "type": "select",
+      "unit": "",
+      "default": "Orta",
+      "min": null,
+      "max": null,
+      "options": [
+        "Düşük",
+        "Orta",
+        "Yüksek"
+      ],
+      "businessContext": "Girilen verilerin güvenilirlik seviyesi. Düşük ise sonuçlar daha temkinli hesaplanır. Kaynak: Kullanıcı beyanı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "daraAgirligi < yasalAzamiYuk",
+      "yukHacmi > 0",
+      "yukYogunlugu > 0",
+      "yuklemeSuresi > 0",
+      "bosaltmaSuresi > 0",
+      "seferSayisi > 0",
+      "ortalamaHiz > 0",
+      "mesafe > 0"
+    ],
+    "thresholds": {
+      "kapasiteKullanimOrani": {
+        "low": 0.6,
+        "high": 0.9,
+        "message": "Kapasite kullanım oranı %60'ın altında ise düşük verimlilik, %90'ın üstünde ise aşırı yüklenme riski."
+      },
+      "birimMaliyet": {
+        "high": 10,
+        "message": "Birim maliyet 10 TL/kg'ın üzerinde ise maliyet optimizasyonu gerekli."
+      }
+    }
+  },
+  "formulas": {
+    "netYukKapasitesi": "yasalAzamiYuk - daraAgirligi",
+    "hacimselKapasite": "yukHacmi * yukYogunlugu",
+    "efektifYukKapasitesi": "Math.min(netYukKapasitesi, hacimselKapasite)",
+    "seferSuresi": "yuklemeSuresi + bosaltmaSuresi + (mesafe / ortalamaHiz)",
+    "aylikCalismaSuresi": "seferSayisi * seferSuresi",
+    "yakitMaliyetiSefer": "(mesafe / 100) * yakitTuketimi * yakitFiyati",
+    "soforMaliyetiSefer": "seferSuresi * soforUcreti",
+    "bakimMaliyetiSefer": "mesafe * bakimMaliyeti",
+    "toplamMaliyetSefer": "yakitMaliyetiSefer + soforMaliyetiSefer + bakimMaliyetiSefer",
+    "birimMaliyet": "toplamMaliyetSefer / efektifYukKapasitesi",
+    "kapasiteKullanimOrani": "efektifYukKapasitesi / netYukKapasitesi",
+    "aylikToplamMaliyet": "toplamMaliyetSefer * seferSayisi",
+    "aylikTasinanYuk": "efektifYukKapasitesi * seferSayisi",
+    "dataConfidenceAdjusted": "dataConfidence === 'Düşük' ? birimMaliyet * 1.2 : dataConfidence === 'Orta' ? birimMaliyet * 1.1 : birimMaliyet"
+  },
+  "outputs": {
+    "primary": "birimMaliyet",
+    "breakdown": {
+      "netYukKapasitesi": "netYukKapasitesi",
+      "hacimselKapasite": "hacimselKapasite",
+      "efektifYukKapasitesi": "efektifYukKapasitesi",
+      "seferSuresi": "seferSuresi",
+      "yakitMaliyetiSefer": "yakitMaliyetiSefer",
+      "soforMaliyetiSefer": "soforMaliyetiSefer",
+      "bakimMaliyetiSefer": "bakimMaliyetiSefer",
+      "toplamMaliyetSefer": "toplamMaliyetSefer",
+      "kapasiteKullanimOrani": "kapasiteKullanimOrani",
+      "aylikToplamMaliyet": "aylikToplamMaliyet",
+      "aylikTasinanYuk": "aylikTasinanYuk"
+    },
+    "hiddenLossDrivers": [
+      "kapasiteKullanimOrani < 0.6 ? 'Düşük kapasite kullanımı' : ''",
+      "kapasiteKullanimOrani > 0.9 ? 'Aşırı yüklenme riski' : ''",
+      "birimMaliyet > 10 ? 'Yüksek birim maliyet' : ''"
+    ],
+    "suggestedActions": [
+      "kapasiteKullanimOrani < 0.6 ? 'Yük hacmini artırın veya daha küçük araç kullanın' : ''",
+      "kapasiteKullanimOrani > 0.9 ? 'Daha büyük araç kullanmayı değerlendirin' : ''",
+      "birimMaliyet > 10 ? 'Yakıt tüketimini azaltın veya bakım maliyetlerini düşürün' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

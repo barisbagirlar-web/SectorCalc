@@ -1,0 +1,117 @@
+{
+  "toolName": "istatistiksel-proses-kontrol-spc-limit-hesabi",
+  "inputs": [
+    {
+      "id": "processMean",
+      "label": "Proses Ortalaması",
+      "type": "number",
+      "unit": "birim",
+      "default": 0,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Prosesin merkezi eğilimini temsil eder. Genellikle örneklem ortalaması olarak hesaplanır. Kaynak: ISO 7870-1, Shewhart kontrol kartları."
+    },
+    {
+      "id": "processStdDev",
+      "label": "Proses Standart Sapması",
+      "type": "number",
+      "unit": "birim",
+      "default": 1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Proses değişkenliğinin ölçüsü. Genellikle örneklem standart sapması veya hareketli aralık ortalamasından tahmin edilir. Kaynak: ISO 7870-2."
+    },
+    {
+      "id": "sampleSize",
+      "label": "Alt Grup Büyüklüğü (n)",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Her bir alt gruptaki ölçüm sayısı. Kontrol limitleri hesaplamasında kullanılır. Kaynak: Montgomery, Introduction to Statistical Quality Control."
+    },
+    {
+      "id": "numSigmas",
+      "label": "Sigma Sayısı (k)",
+      "type": "number",
+      "unit": "sigma",
+      "default": 3,
+      "min": 1,
+      "max": 6,
+      "options": null,
+      "businessContext": "Kontrol limitlerinin genişliğini belirler. Genellikle 3 sigma kullanılır. Kaynak: Shewhart kontrol kartı prensipleri."
+    },
+    {
+      "id": "chartType",
+      "label": "Kontrol Kartı Türü",
+      "type": "select",
+      "unit": "",
+      "default": "Xbar-R",
+      "min": null,
+      "max": null,
+      "options": [
+        "Xbar-R",
+        "Xbar-s",
+        "I-MR",
+        "p",
+        "np",
+        "c",
+        "u"
+      ],
+      "businessContext": "Kullanılacak Shewhart kontrol kartı tipi. Değişken ve nitelik kartları arasından seçim yapılır. Kaynak: ISO 7870 serisi."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "processStdDev > 0",
+      "sampleSize >= 1",
+      "numSigmas >= 1",
+      "chartType must be one of the allowed values"
+    ],
+    "thresholds": {
+      "processStdDev <= 0": "Standart sapma sıfır veya negatif olamaz.",
+      "sampleSize < 2": "Alt grup büyüklüğü en az 2 olmalıdır (Xbar-R için).",
+      "numSigmas < 3": "Sigma sayısı 3'ten küçük ise kontrol limitleri dar olabilir."
+    }
+  },
+  "formulas": {
+    "UCL": "processMean + numSigmas * (processStdDev / sqrt(sampleSize))",
+    "LCL": "processMean - numSigmas * (processStdDev / sqrt(sampleSize))",
+    "CL": "processMean",
+    "UCL_R": "if chartType == 'Xbar-R' then d4 * processStdDev else null",
+    "LCL_R": "if chartType == 'Xbar-R' then d3 * processStdDev else null",
+    "d3": "0",
+    "d4": "2.114"
+  },
+  "outputs": {
+    "primary": "UCL",
+    "breakdown": {
+      "UCL": "Üst kontrol limiti",
+      "CL": "Merkez çizgisi",
+      "LCL": "Alt kontrol limiti",
+      "UCL_R": "R kartı üst limiti (varsa)",
+      "LCL_R": "R kartı alt limiti (varsa)"
+    },
+    "hiddenLossDrivers": [
+      "processStdDev > 0.1 * processMean: Yüksek değişkenlik proses kaybına yol açabilir.",
+      "numSigmas < 3: Düşük sigma seviyesi hatalı sinyal riskini artırır."
+    ],
+    "suggestedActions": [
+      "Kontrol limitleri dışındaki noktalar için kök neden analizi yapın.",
+      "Proses iyileştirme için değişkenliği azaltmaya odaklanın.",
+      "Alt grup büyüklüğünü artırarak hassasiyeti yükseltin."
+    ],
+    "dataConfidenceAdjusted": "UCL * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma (birden fazla proses)",
+    "Detaylı rapor (kök neden analizi dahil)"
+  ],
+  "premiumRequired": true
+}

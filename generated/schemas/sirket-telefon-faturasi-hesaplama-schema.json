@@ -1,0 +1,174 @@
+{
+  "toolName": "sirket-telefon-faturasi-hesaplama",
+  "inputs": [
+    {
+      "id": "monthlyBaseFee",
+      "label": "Aylık Baz Ücret (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 50,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Operatör tarafından belirlenen sabit aylık ücret. Sektör standardı: Türk Telekom, Vodafone, Turkcell tarifeleri."
+    },
+    {
+      "id": "voiceMinutes",
+      "label": "Aylık Konuşma Süresi (dakika)",
+      "type": "number",
+      "unit": "dakika",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Şirket içi ve dışı tüm görüşmelerin toplamı. Ortalama çalışan başına 500 dk/ay (benchmark)."
+    },
+    {
+      "id": "voiceRatePerMinute",
+      "label": "Dakika Başına Konuşma Ücreti (TL)",
+      "type": "number",
+      "unit": "TL/dk",
+      "default": 0.25,
+      "min": 0,
+      "max": 5,
+      "options": null,
+      "businessContext": "Operatörün belirlediği ücret. Genellikle 0.20-0.30 TL/dk arası."
+    },
+    {
+      "id": "dataUsageGB",
+      "label": "Aylık Veri Kullanımı (GB)",
+      "type": "number",
+      "unit": "GB",
+      "default": 10,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "İnternet kullanımı. Ortalama 10 GB/ay (benchmark)."
+    },
+    {
+      "id": "dataRatePerGB",
+      "label": "GB Başına Veri Ücreti (TL)",
+      "type": "number",
+      "unit": "TL/GB",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Operatörün belirlediği ücret. Genellikle 8-15 TL/GB."
+    },
+    {
+      "id": "smsCount",
+      "label": "Aylık SMS Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Gönderilen SMS adedi. Ortalama 100 SMS/ay."
+    },
+    {
+      "id": "smsRatePerSms",
+      "label": "SMS Başına Ücret (TL)",
+      "type": "number",
+      "unit": "TL/SMS",
+      "default": 0.5,
+      "min": 0,
+      "max": 5,
+      "options": null,
+      "businessContext": "Operatörün belirlediği ücret. Genellikle 0.30-0.70 TL/SMS."
+    },
+    {
+      "id": "numEmployees",
+      "label": "Çalışan Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 50,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Faturaya dahil olan çalışan sayısı."
+    },
+    {
+      "id": "contractDiscount",
+      "label": "Kurumsal İndirim Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Operatörle yapılan sözleşme kapsamında uygulanan indirim."
+    },
+    {
+      "id": "taxRate",
+      "label": "Vergi Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "KDV ve ÖİV dahil toplam vergi oranı. Türkiye'de %18 KDV + %7.5 ÖİV (toplam ~%25)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "monthlyBaseFee >= 0",
+      "voiceMinutes >= 0",
+      "voiceRatePerMinute >= 0",
+      "dataUsageGB >= 0",
+      "dataRatePerGB >= 0",
+      "smsCount >= 0",
+      "smsRatePerSms >= 0",
+      "numEmployees >= 1",
+      "contractDiscount >= 0 && contractDiscount <= 50",
+      "taxRate >= 0 && taxRate <= 50"
+    ],
+    "thresholds": {
+      "totalCostPerEmployee": "> 200 TL/çalışan -> 'Yüksek maliyet uyarısı'",
+      "dataUsageGB": "> 50 GB -> 'Veri kullanımı çok yüksek'",
+      "voiceMinutes": "> 2000 dk -> 'Ses kullanımı çok yüksek'"
+    }
+  },
+  "formulas": {
+    "voiceCost": "voiceMinutes * voiceRatePerMinute",
+    "dataCost": "dataUsageGB * dataRatePerGB",
+    "smsCost": "smsCount * smsRatePerSms",
+    "totalBeforeDiscount": "monthlyBaseFee + voiceCost + dataCost + smsCost",
+    "discountAmount": "totalBeforeDiscount * (contractDiscount / 100)",
+    "totalAfterDiscount": "totalBeforeDiscount - discountAmount",
+    "taxAmount": "totalAfterDiscount * (taxRate / 100)",
+    "totalCost": "totalAfterDiscount + taxAmount",
+    "totalCostPerEmployee": "totalCost / numEmployees"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "voiceCost": "voiceCost",
+      "dataCost": "dataCost",
+      "smsCost": "smsCost",
+      "discountAmount": "discountAmount",
+      "taxAmount": "taxAmount",
+      "totalCostPerEmployee": "totalCostPerEmployee"
+    },
+    "hiddenLossDrivers": [
+      "totalCostPerEmployee > 200 ? 'Yüksek maliyet' : null",
+      "dataUsageGB > 50 ? 'Aşırı veri kullanımı' : null",
+      "voiceMinutes > 2000 ? 'Aşırı ses kullanımı' : null"
+    ],
+    "suggestedActions": [
+      "totalCostPerEmployee > 200 ? 'Pazarlıkla indirim oranını artırın veya operatör değiştirin.' : null",
+      "dataUsageGB > 50 ? 'Veri kullanımını optimize edin, Wi-Fi kullanımını teşvik edin.' : null",
+      "voiceMinutes > 2000 ? 'Ses kullanımını azaltmak için VoIP çözümleri değerlendirin.' : null"
+    ],
+    "dataConfidenceAdjusted": "totalCost"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (geçmiş faturalarla karşılaştırma)",
+    "Karşılaştırma (farklı operatör tarifeleri)",
+    "Detaylı rapor (çalışan bazında kırılım)"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,180 @@
+{
+  "toolName": "matkap-kilavuz-delik-capi-tablosu",
+  "inputs": [
+    {
+      "id": "threadSize",
+      "label": "Vida Diş Boyutu (Metrik)",
+      "type": "select",
+      "unit": "mm",
+      "default": "M6",
+      "min": null,
+      "max": null,
+      "options": [
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M8",
+        "M10",
+        "M12",
+        "M16",
+        "M20",
+        "M24"
+      ],
+      "businessContext": "Metrik vida diş boyutu. ISO 68-1 standardına göre diş profili. Matkap kılavuz delik çapı, diş boyutuna bağlıdır."
+    },
+    {
+      "id": "threadPitch",
+      "label": "Diş Adımı",
+      "type": "number",
+      "unit": "mm",
+      "default": 1,
+      "min": 0.25,
+      "max": 6,
+      "options": null,
+      "businessContext": "Diş adımı (P). ISO 261 standardına göre metrik dişler için standart adım değerleri. Kılavuz delik çapı hesaplamasında kullanılır."
+    },
+    {
+      "id": "materialType",
+      "label": "Malzeme Türü",
+      "type": "select",
+      "unit": "",
+      "default": "Çelik",
+      "min": null,
+      "max": null,
+      "options": [
+        "Çelik",
+        "Paslanmaz Çelik",
+        "Alüminyum",
+        "Pirinç",
+        "Dökme Demir",
+        "Plastik"
+      ],
+      "businessContext": "Malzeme türü, kılavuz çekme işlemi için önerilen delik toleransını etkiler. Farklı malzemeler farklı kesme kuvvetleri ve genleşme katsayılarına sahiptir."
+    },
+    {
+      "id": "toleranceClass",
+      "label": "Tolerans Sınıfı",
+      "type": "select",
+      "unit": "",
+      "default": "6H",
+      "min": null,
+      "max": null,
+      "options": [
+        "4H",
+        "5H",
+        "6H",
+        "7H"
+      ],
+      "businessContext": "ISO 965-1 standardına göre metrik diş tolerans sınıfı. 6H genel amaçlı kullanım için standarttır. Tolerans sınıfı, delik çapı toleransını belirler."
+    },
+    {
+      "id": "drillType",
+      "label": "Matkap Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "Standart HSS",
+      "min": null,
+      "max": null,
+      "options": [
+        "Standart HSS",
+        "Kobalt HSS",
+        "Karbür",
+        "TiN Kaplamalı"
+      ],
+      "businessContext": "Matkap tipi, delik kalitesini ve toleransını etkiler. Örneğin karbür matkaplar daha hassas delikler açar."
+    },
+    {
+      "id": "coating",
+      "label": "Kaplama",
+      "type": "select",
+      "unit": "",
+      "default": "Kaplamasız",
+      "min": null,
+      "max": null,
+      "options": [
+        "Kaplamasız",
+        "TiN",
+        "TiCN",
+        "TiAlN"
+      ],
+      "businessContext": "Matkap kaplaması, kesme performansını ve yüzey kalitesini etkiler. Kaplamalı matkaplar daha iyi yüzey kalitesi sağlar."
+    },
+    {
+      "id": "holeDepth",
+      "label": "Delik Derinliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "min": 1,
+      "max": 500,
+      "options": null,
+      "businessContext": "Kılavuz çekilecek deliğin derinliği. Derin deliklerde talaş tahliyesi zorlaşır, bu nedenle delik çapı toleransı etkilenebilir."
+    },
+    {
+      "id": "threadEngagement",
+      "label": "Diş Tutma Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 75,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Diş tutma oranı, kılavuz delik çapının hesaplanmasında kritik parametredir. Genellikle %75 önerilir. Daha yüksek oranlar daha sıkı geçme sağlar."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "threadPitch must be between 0.25 and 6.0 mm",
+      "holeDepth must be positive",
+      "threadEngagement must be between 50 and 100",
+      "If materialType is 'Plastik', threadEngagement should be <= 70 to avoid cracking"
+    ],
+    "thresholds": {
+      "threadEngagement": "if threadEngagement > 90: 'Yüksek diş tutma oranı, kırılma riski artabilir'",
+      "holeDepth": "if holeDepth > 100: 'Derin delik, talaş tahliyesi zor, özel matkap gerekebilir'"
+    }
+  },
+  "formulas": {
+    "nominalDiameter": "threadSize numeric value (e.g., M6 -> 6)",
+    "pitch": "threadPitch",
+    "basicTapDrillSize": "nominalDiameter - pitch",
+    "engagementFactor": "threadEngagement / 100",
+    "adjustedDrillSize": "basicTapDrillSize + (0.5 * pitch * (1 - engagementFactor))",
+    "finalDrillSize": "adjustedDrillSize (rounded to nearest 0.05 mm)",
+    "toleranceAdjustment": "if toleranceClass == '4H' then -0.02 else if toleranceClass == '5H' then -0.01 else if toleranceClass == '6H' then 0 else 0.02",
+    "materialAdjustment": "if materialType == 'Alüminyum' then 0.02 else if materialType == 'Pirinç' then 0.01 else if materialType == 'Plastik' then -0.03 else 0",
+    "coatingAdjustment": "if coating != 'Kaplamasız' then 0.01 else 0",
+    "recommendedDrillDiameter": "finalDrillSize + toleranceAdjustment + materialAdjustment + coatingAdjustment"
+  },
+  "outputs": {
+    "primary": "recommendedDrillDiameter",
+    "breakdown": {
+      "basicTapDrillSize": "basicTapDrillSize",
+      "engagementFactor": "engagementFactor",
+      "adjustedDrillSize": "adjustedDrillSize",
+      "toleranceAdjustment": "toleranceAdjustment",
+      "materialAdjustment": "materialAdjustment",
+      "coatingAdjustment": "coatingAdjustment"
+    },
+    "hiddenLossDrivers": [
+      "if threadEngagement > 90: 'Yüksek diş tutma oranı, kırılma riski artabilir'",
+      "if holeDepth > 100: 'Derin delik, talaş tahliyesi zor, özel matkap gerekebilir'"
+    ],
+    "suggestedActions": [
+      "Önerilen matkap çapını kullanın",
+      "Kılavuz çekmeden önce deliği havşa açın",
+      "Uygun kesme sıvısı kullanın",
+      "Malzemeye uygun kılavuz seçin"
+    ],
+    "dataConfidenceAdjusted": "recommendedDrillDiameter (no adjustment)"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş hesaplamalar)",
+    "Karşılaştırma (farklı diş boyutları)",
+    "Detaylı tolerans raporu"
+  ],
+  "premiumRequired": true
+}

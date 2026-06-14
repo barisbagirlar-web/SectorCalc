@@ -1,0 +1,171 @@
+{
+  "toolName": "cnc-oee-loss",
+  "inputs": [
+    {
+      "id": "plannedProductionTime",
+      "label": "Planned Production Time (min)",
+      "type": "number",
+      "unit": "min",
+      "default": 480,
+      "min": 0,
+      "max": 1440,
+      "options": null,
+      "businessContext": "Total time scheduled for production per shift. Based on ISO 22400 OEE standard."
+    },
+    {
+      "id": "operatingTime",
+      "label": "Operating Time (min)",
+      "type": "number",
+      "unit": "min",
+      "default": 450,
+      "min": 0,
+      "max": 1440,
+      "options": null,
+      "businessContext": "Actual time machine is running. Calculated as planned production time minus downtime losses."
+    },
+    {
+      "id": "idealCycleTime",
+      "label": "Ideal Cycle Time (min/part)",
+      "type": "number",
+      "unit": "min/part",
+      "default": 0.5,
+      "min": 0.001,
+      "max": 100,
+      "options": null,
+      "businessContext": "Theoretical minimum time to produce one part under optimal conditions. From machine specifications."
+    },
+    {
+      "id": "totalPartsProduced",
+      "label": "Total Parts Produced",
+      "type": "number",
+      "unit": "parts",
+      "default": 800,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Total count of parts produced during operating time."
+    },
+    {
+      "id": "goodPartsProduced",
+      "label": "Good Parts Produced",
+      "type": "number",
+      "unit": "parts",
+      "default": 760,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Parts meeting quality standards. Used to calculate quality rate."
+    },
+    {
+      "id": "downtimeLoss",
+      "label": "Downtime Loss (min)",
+      "type": "number",
+      "unit": "min",
+      "default": 30,
+      "min": 0,
+      "max": 1440,
+      "options": null,
+      "businessContext": "Total unplanned downtime including breakdowns, setup, and adjustments."
+    },
+    {
+      "id": "speedLossFactor",
+      "label": "Speed Loss Factor",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Ratio of actual speed to ideal speed. Calculated as (ideal cycle time * total parts) / operating time."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "",
+      "default": 0.05,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Fraction of defective parts. Calculated as (total - good) / total."
+    },
+    {
+      "id": "costPerPart",
+      "label": "Cost per Part ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 10,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Standard cost per part including material, labor, and overhead."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in input data accuracy. Affects adjusted output."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "operatingTime <= plannedProductionTime",
+      "totalPartsProduced >= goodPartsProduced",
+      "idealCycleTime > 0",
+      "defectRate >= 0 and defectRate <= 1",
+      "speedLossFactor >= 0 and speedLossFactor <= 1"
+    ],
+    "thresholds": {
+      "defectRate > 0.05": "Critical: Defect rate exceeds 5% threshold.",
+      "availability < 0.9": "Warning: Availability below 90%.",
+      "performance < 0.9": "Warning: Performance below 90%.",
+      "quality < 0.95": "Warning: Quality below 95%.",
+      "oee < 0.85": "Critical: OEE below world-class 85%."
+    }
+  },
+  "formulas": {
+    "availability": "operatingTime / plannedProductionTime",
+    "performance": "(idealCycleTime * totalPartsProduced) / operatingTime",
+    "quality": "goodPartsProduced / totalPartsProduced",
+    "oee": "availability * performance * quality",
+    "totalLossCost": "(plannedProductionTime - operatingTime) * (costPerPart / idealCycleTime) + (totalPartsProduced - goodPartsProduced) * costPerPart",
+    "dataConfidenceAdjusted": "oee * (dataConfidence == 'high' ? 1 : dataConfidence == 'medium' ? 0.95 : 0.9)"
+  },
+  "outputs": {
+    "primary": "oee",
+    "breakdown": {
+      "availability": "availability",
+      "performance": "performance",
+      "quality": "quality",
+      "totalLossCost": "totalLossCost"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 0.05 ? 'High defect rate' : ''",
+      "availability < 0.9 ? 'Low availability' : ''",
+      "performance < 0.9 ? 'Low performance' : ''"
+    ],
+    "suggestedActions": [
+      "defectRate > 0.05 ? 'Implement Poka-Yoke and SPC to reduce defects.' : ''",
+      "availability < 0.9 ? 'Conduct TPM and SMED to reduce downtime.' : ''",
+      "performance < 0.9 ? 'Optimize cycle time and reduce speed losses.' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Loss Breakdown Report"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,189 @@
+{
+  "toolName": "crop-yield-calculator",
+  "inputs": [
+    {
+      "id": "fieldArea",
+      "label": "Field Area",
+      "type": "number",
+      "unit": "hectares",
+      "default": 1,
+      "min": 0.01,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Total land area under cultivation. Standard agricultural practice."
+    },
+    {
+      "id": "cropType",
+      "label": "Crop Type",
+      "type": "select",
+      "unit": "",
+      "default": "wheat",
+      "min": null,
+      "max": null,
+      "options": [
+        "wheat",
+        "corn",
+        "rice",
+        "soybean",
+        "cotton"
+      ],
+      "businessContext": "Different crops have different yield potentials and growth parameters."
+    },
+    {
+      "id": "plantingDensity",
+      "label": "Planting Density",
+      "type": "number",
+      "unit": "plants per hectare",
+      "default": 100000,
+      "min": 1000,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Number of plants per unit area, affects yield."
+    },
+    {
+      "id": "germinationRate",
+      "label": "Germination Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of seeds that germinate. Typical range 80-95%."
+    },
+    {
+      "id": "survivalRate",
+      "label": "Survival Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of germinated plants that survive to maturity."
+    },
+    {
+      "id": "earsPerPlant",
+      "label": "Ears per Plant",
+      "type": "number",
+      "unit": "ears/plant",
+      "default": 1,
+      "min": 0.5,
+      "max": 3,
+      "options": null,
+      "businessContext": "Average number of ears per plant. For corn, typically 1-2."
+    },
+    {
+      "id": "kernelsPerEar",
+      "label": "Kernels per Ear",
+      "type": "number",
+      "unit": "kernels/ear",
+      "default": 600,
+      "min": 100,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Average number of kernels per ear. Varies by crop and hybrid."
+    },
+    {
+      "id": "kernelWeight",
+      "label": "Kernel Weight",
+      "type": "number",
+      "unit": "grams per 1000 kernels",
+      "default": 300,
+      "min": 100,
+      "max": 500,
+      "options": null,
+      "businessContext": "Weight of 1000 kernels, typically 250-350 g for corn."
+    },
+    {
+      "id": "moistureContent",
+      "label": "Moisture Content",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 5,
+      "max": 30,
+      "options": null,
+      "businessContext": "Moisture percentage at harvest. Standard storage moisture is 15%."
+    },
+    {
+      "id": "harvestLoss",
+      "label": "Harvest Loss",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Percentage of yield lost during harvesting. Typical 3-7%."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data quality. Used for adjusted yield."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "germinationRate + survivalRate must be <= 200? (no strict rule)",
+      "if cropType == 'rice' then fieldArea must be >= 0.1",
+      "if moistureContent > 20 then harvestLoss must be increased by 2% (not enforced in formula)"
+    ],
+    "thresholds": {
+      "germinationRate < 70": "Low germination rate may require replanting",
+      "survivalRate < 70": "Low survival rate indicates pest or disease issues",
+      "moistureContent > 20": "High moisture content may cause storage spoilage",
+      "harvestLoss > 10": "Excessive harvest loss, check equipment"
+    }
+  },
+  "formulas": {
+    "plantsPerHectare": "plantingDensity * (germinationRate/100) * (survivalRate/100)",
+    "earsPerHectare": "plantsPerHectare * earsPerPlant",
+    "kernelsPerHectare": "earsPerHectare * kernelsPerEar",
+    "grossYieldKgPerHa": "kernelsPerHectare * (kernelWeight/1000) / 1000",
+    "netYieldKgPerHa": "grossYieldKgPerHa * (1 - harvestLoss/100)",
+    "adjustedMoistureYieldKgPerHa": "netYieldKgPerHa * (1 - (moistureContent - 15)/100)",
+    "totalYieldKg": "adjustedMoistureYieldKgPerHa * fieldArea",
+    "totalYieldTons": "totalYieldKg / 1000",
+    "dataConfidenceAdjustedYieldTons": "totalYieldTons * (dataConfidence/100)"
+  },
+  "outputs": {
+    "primary": "totalYieldTons",
+    "breakdown": {
+      "plantsPerHectare": "plantsPerHectare",
+      "earsPerHectare": "earsPerHectare",
+      "kernelsPerHectare": "kernelsPerHectare",
+      "grossYieldKgPerHa": "grossYieldKgPerHa",
+      "netYieldKgPerHa": "netYieldKgPerHa",
+      "adjustedMoistureYieldKgPerHa": "adjustedMoistureYieldKgPerHa",
+      "totalYieldKg": "totalYieldKg"
+    },
+    "hiddenLossDrivers": [
+      "germinationRate < 70",
+      "survivalRate < 70",
+      "moistureContent > 20",
+      "harvestLoss > 10"
+    ],
+    "suggestedActions": [
+      "If germination rate low: test seed quality and soil conditions",
+      "If survival rate low: check for pests, diseases, or nutrient deficiencies",
+      "If moisture content high: delay harvest or use drying equipment",
+      "If harvest loss high: calibrate harvesting machinery"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedYieldTons"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis over seasons",
+    "Comparison with historical yields",
+    "Detailed report with charts"
+  ],
+  "premiumRequired": true
+}

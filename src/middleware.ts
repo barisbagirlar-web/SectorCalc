@@ -1,6 +1,13 @@
 import createIntlMiddleware from "next-intl/middleware";
 import { type NextRequest, NextResponse } from "next/server";
 import { routing } from "@/i18n/routing-config";
+import {
+  isUnitSystemPreference,
+  resolveUnitSystemPreference,
+  UNIT_SYSTEM_COOKIE,
+  UNIT_SYSTEM_HEADER,
+  UNIT_SYSTEM_MANUAL_COOKIE,
+} from "@/config/measurement";
 import { REGION_COOKIE, REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
 import { detectCountryFromHeaders, detectRegionFromRequest } from "@/lib/compliance/detect-region";
 import {
@@ -32,6 +39,31 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
     maxAge: 60 * 60 * 24 * 365,
     sameSite: "lax",
   });
+
+  const manualUnitSystem = request.cookies.get(UNIT_SYSTEM_MANUAL_COOKIE)?.value;
+  const cookieUnitSystem = request.cookies.get(UNIT_SYSTEM_COOKIE)?.value;
+  const countryCode = detectCountryFromHeaders(request.headers);
+  const unitSystem = resolveUnitSystemPreference({
+    manual: manualUnitSystem,
+    cookie: cookieUnitSystem,
+    country: countryCode,
+  });
+
+  response.headers.set(UNIT_SYSTEM_HEADER, unitSystem);
+  response.cookies.set(UNIT_SYSTEM_COOKIE, unitSystem, {
+    path: "/",
+    maxAge: 60 * 60 * 24 * 365,
+    sameSite: "lax",
+  });
+
+  if (isUnitSystemPreference(manualUnitSystem)) {
+    response.cookies.set(UNIT_SYSTEM_MANUAL_COOKIE, manualUnitSystem, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+    });
+  }
+
   return response;
 }
 

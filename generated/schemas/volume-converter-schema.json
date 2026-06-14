@@ -1,0 +1,78 @@
+{
+  "toolName": "volume-converter",
+  "inputs": [
+    {
+      "id": "volume",
+      "label": "Volume",
+      "type": "number",
+      "unit": "cubic meters",
+      "default": 1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Volume to be converted. Based on SI unit system."
+    },
+    {
+      "id": "fromUnit",
+      "label": "From Unit",
+      "type": "select",
+      "unit": "",
+      "default": "cubicMeters",
+      "min": null,
+      "max": null,
+      "options": [
+        "cubicMeters",
+        "liters",
+        "gallons",
+        "cubicFeet",
+        "barrels"
+      ],
+      "businessContext": "Source unit of volume. Common units in engineering and trade."
+    },
+    {
+      "id": "toUnit",
+      "label": "To Unit",
+      "type": "select",
+      "unit": "",
+      "default": "liters",
+      "min": null,
+      "max": null,
+      "options": [
+        "cubicMeters",
+        "liters",
+        "gallons",
+        "cubicFeet",
+        "barrels"
+      ],
+      "businessContext": "Target unit of volume. Common units in engineering and trade."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "volume >= 0",
+      "fromUnit != toUnit"
+    ],
+    "thresholds": {}
+  },
+  "formulas": {
+    "conversionFactor": "const conversionFactors = { cubicMeters: 1, liters: 0.001, gallons: 0.00378541, cubicFeet: 0.0283168, barrels: 0.158987 }; const result = volume * conversionFactors[fromUnit] / conversionFactors[toUnit];"
+  },
+  "outputs": {
+    "primary": "result",
+    "breakdown": {
+      "volumeInCubicMeters": "volume * conversionFactors[fromUnit]",
+      "conversionFactorUsed": "conversionFactors[fromUnit] / conversionFactors[toUnit]"
+    },
+    "hiddenLossDrivers": [],
+    "suggestedActions": [],
+    "dataConfidenceAdjusted": "result"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "trend analysis",
+    "comparison",
+    "detailed report"
+  ],
+  "premiumRequired": false
+}

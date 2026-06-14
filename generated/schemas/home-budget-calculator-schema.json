@@ -1,0 +1,193 @@
+{
+  "toolName": "home-budget-calculator",
+  "inputs": [
+    {
+      "id": "monthlyIncome",
+      "label": "Monthly Net Income",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total monthly take-home pay after taxes. Based on personal finance standards (e.g., 50/30/20 rule)."
+    },
+    {
+      "id": "housingCost",
+      "label": "Housing Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 1500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Monthly rent or mortgage payment. Key fixed expense in budgeting."
+    },
+    {
+      "id": "utilitiesCost",
+      "label": "Utilities Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 200,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Monthly electricity, water, gas, internet. Based on average household data."
+    },
+    {
+      "id": "foodCost",
+      "label": "Food Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 600,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Monthly grocery and dining expenses. USDA food plans reference."
+    },
+    {
+      "id": "transportationCost",
+      "label": "Transportation Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 300,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Monthly fuel, public transit, car maintenance. Bureau of Labor Statistics data."
+    },
+    {
+      "id": "healthcareCost",
+      "label": "Healthcare Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 400,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Monthly insurance premiums, out-of-pocket expenses. Kaiser Family Foundation data."
+    },
+    {
+      "id": "entertainmentCost",
+      "label": "Entertainment Cost",
+      "type": "number",
+      "unit": "currency",
+      "default": 200,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Monthly spending on leisure, subscriptions, hobbies. Discretionary expense."
+    },
+    {
+      "id": "savingsGoal",
+      "label": "Monthly Savings Goal",
+      "type": "number",
+      "unit": "currency",
+      "default": 500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Target amount to save each month. Financial planning best practice."
+    },
+    {
+      "id": "debtPayments",
+      "label": "Debt Payments",
+      "type": "number",
+      "unit": "currency",
+      "default": 300,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Monthly minimum payments on loans, credit cards. Debt-to-income ratio reference."
+    },
+    {
+      "id": "otherExpenses",
+      "label": "Other Expenses",
+      "type": "number",
+      "unit": "currency",
+      "default": 200,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Miscellaneous monthly costs not categorized above."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "User's confidence in accuracy of inputs. Affects adjusted outputs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "monthlyIncome > 0",
+      "housingCost >= 0",
+      "utilitiesCost >= 0",
+      "foodCost >= 0",
+      "transportationCost >= 0",
+      "healthcareCost >= 0",
+      "entertainmentCost >= 0",
+      "savingsGoal >= 0",
+      "debtPayments >= 0",
+      "otherExpenses >= 0",
+      "totalExpenses <= monthlyIncome (warning if exceeded)"
+    ],
+    "thresholds": {
+      "housingCostRatio": "housingCost / monthlyIncome > 0.3 -> 'Housing cost exceeds 30% of income, consider reducing.'",
+      "savingsRate": "savingsGoal / monthlyIncome < 0.1 -> 'Savings goal is below 10% of income, consider increasing.'",
+      "debtRatio": "debtPayments / monthlyIncome > 0.36 -> 'Debt payments exceed 36% of income, high risk.'",
+      "totalExpensesRatio": "totalExpenses / monthlyIncome > 0.9 -> 'Total expenses exceed 90% of income, budget is tight.'"
+    }
+  },
+  "formulas": {
+    "totalExpenses": "housingCost + utilitiesCost + foodCost + transportationCost + healthcareCost + entertainmentCost + debtPayments + otherExpenses",
+    "discretionaryIncome": "monthlyIncome - totalExpenses",
+    "savingsAchieved": "discretionaryIncome > savingsGoal ? savingsGoal : discretionaryIncome",
+    "savingsShortfall": "savingsGoal - savingsAchieved",
+    "savingsRate": "savingsAchieved / monthlyIncome",
+    "expenseBreakdown": "{\"housing\": housingCost, \"utilities\": utilitiesCost, \"food\": foodCost, \"transportation\": transportationCost, \"healthcare\": healthcareCost, \"entertainment\": entertainmentCost, \"debt\": debtPayments, \"other\": otherExpenses}",
+    "budgetStatus": "totalExpenses <= monthlyIncome ? 'balanced' : 'deficit'",
+    "dataConfidenceAdjusted": "dataConfidence == 'low' ? savingsRate * 0.9 : (dataConfidence == 'medium' ? savingsRate * 0.95 : savingsRate)"
+  },
+  "outputs": {
+    "primary": "savingsRate",
+    "breakdown": {
+      "totalExpenses": "totalExpenses",
+      "discretionaryIncome": "discretionaryIncome",
+      "savingsAchieved": "savingsAchieved",
+      "savingsShortfall": "savingsShortfall",
+      "expenseBreakdown": "expenseBreakdown",
+      "budgetStatus": "budgetStatus"
+    },
+    "hiddenLossDrivers": [
+      "housingCostRatio > 0.3 ? 'Housing cost exceeds 30% of income' : ''",
+      "savingsRate < 0.1 ? 'Savings rate below 10%' : ''",
+      "debtRatio > 0.36 ? 'Debt ratio exceeds 36%' : ''",
+      "totalExpensesRatio > 0.9 ? 'Total expenses exceed 90% of income' : ''"
+    ],
+    "suggestedActions": [
+      "If housingCostRatio > 0.3: Consider refinancing or downsizing.",
+      "If savingsRate < 0.1: Increase savings goal or reduce expenses.",
+      "If debtRatio > 0.36: Prioritize debt repayment or consolidate.",
+      "If totalExpensesRatio > 0.9: Review and cut discretionary spending."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Benchmarks",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { GeneratedToolPage } from "@/components/tools/GeneratedToolPage";
@@ -9,12 +10,12 @@ import type { AppLocale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
 import {
   GENERATED_CALCULATOR_SLUGS,
-  loadGeneratedCalculator,
 } from "@/lib/generated-tools/calculator-registry";
 import {
   generatedToolDiagramExists,
   generatedToolDiagramPublicPath,
   getGeneratedToolSchema,
+  listGeneratedToolSchemaSlugs,
 } from "@/lib/generated-tools/schema-loader";
 import {
   resolveGeneratedToolDescription,
@@ -31,9 +32,12 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
-  const params = GENERATED_CALCULATOR_SLUGS.map((slug) => ({ slug }));
+  const registrySlugs = new Set<string>(GENERATED_CALCULATOR_SLUGS);
+  const params = listGeneratedToolSchemaSlugs()
+    .filter((slug) => registrySlugs.has(slug))
+    .map((slug) => ({ slug }));
   return limitStaticParamsForPreview(params, {
-    family: "premium-schema",
+    family: "generated-tools",
     slugKey: "slug",
   });
 }
@@ -74,6 +78,7 @@ export default async function GeneratedToolRoutePage({
   }
 
   const tPage = await getTranslations("premiumSchemaPage");
+  const tCatalog = await getTranslations("generatedToolCatalog");
   const diagramSrc = generatedToolDiagramExists(slug)
     ? generatedToolDiagramPublicPath(slug)
     : null;
@@ -83,6 +88,12 @@ export default async function GeneratedToolRoutePage({
       <section className="border-b border-technical-gray bg-surface-cream">
         <Container className="py-6 sm:py-8">
           <p className="sc-ledger-eyebrow">{tPage("eyebrow")}</p>
+          <Link
+            href="/tools/generated"
+            className="mt-2 inline-block text-sm font-semibold text-premium-copper hover:underline"
+          >
+            ← {tCatalog("title")}
+          </Link>
         </Container>
       </section>
       <Container className="pb-12 pt-4 sm:pb-16">

@@ -1,0 +1,181 @@
+{
+  "toolName": "stair-calculator",
+  "inputs": [
+    {
+      "id": "riserHeight",
+      "label": "Riser Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 180,
+      "min": 100,
+      "max": 220,
+      "options": null,
+      "businessContext": "Building codes (e.g., IBC, Eurocode) specify riser height between 100-220 mm for safety and comfort."
+    },
+    {
+      "id": "treadDepth",
+      "label": "Tread Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 280,
+      "min": 200,
+      "max": 400,
+      "options": null,
+      "businessContext": "Building codes require tread depth typically 200-400 mm to ensure adequate foot space."
+    },
+    {
+      "id": "numberOfSteps",
+      "label": "Number of Steps",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Total steps in the stair flight; determined by floor height and riser height."
+    },
+    {
+      "id": "stairWidth",
+      "label": "Stair Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "min": 800,
+      "max": 2000,
+      "options": null,
+      "businessContext": "Minimum width per building codes (e.g., 800 mm for residential, 1000 mm for commercial)."
+    },
+    {
+      "id": "materialType",
+      "label": "Material Type",
+      "type": "select",
+      "unit": "",
+      "default": "concrete",
+      "min": null,
+      "max": null,
+      "options": [
+        "concrete",
+        "steel",
+        "wood",
+        "aluminum"
+      ],
+      "businessContext": "Material affects structural design, cost, and durability. Standards: ACI 318 for concrete, AISC for steel."
+    },
+    {
+      "id": "unitCostMaterial",
+      "label": "Unit Cost of Material",
+      "type": "number",
+      "unit": "USD/m³",
+      "default": 150,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Cost per cubic meter of chosen material; varies by region and quality."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "options": null,
+      "businessContext": "Hourly wage for construction labor; includes overhead."
+    },
+    {
+      "id": "laborHoursPerStep",
+      "label": "Labor Hours per Step",
+      "type": "number",
+      "unit": "hours",
+      "default": 2,
+      "min": 0.5,
+      "max": 10,
+      "options": null,
+      "businessContext": "Estimated labor time to construct one step; based on industry benchmarks."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Percentage of material waste due to cutting, errors; typical 5-10%."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data; used for risk-adjusted outputs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "riserHeight >= 100 && riserHeight <= 220",
+      "treadDepth >= 200 && treadDepth <= 400",
+      "numberOfSteps >= 1 && numberOfSteps <= 100",
+      "stairWidth >= 800 && stairWidth <= 2000",
+      "unitCostMaterial >= 0",
+      "laborRate >= 0",
+      "laborHoursPerStep >= 0.5 && laborHoursPerStep <= 10",
+      "wasteFactor >= 0 && wasteFactor <= 20",
+      "dataConfidence >= 50 && dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "riserHeight > 190": "Riser height exceeds 190 mm; consider reducing for comfort.",
+      "treadDepth < 250": "Tread depth below 250 mm; may cause safety issues.",
+      "wasteFactor > 10": "Waste factor above 10%; review material handling processes."
+    }
+  },
+  "formulas": {
+    "totalRise": "riserHeight * numberOfSteps",
+    "totalRun": "treadDepth * (numberOfSteps - 1)",
+    "stringerLength": "sqrt(totalRise^2 + totalRun^2)",
+    "materialVolumePerStep": "treadDepth * stairWidth * riserHeight / 1e9",
+    "totalMaterialVolume": "materialVolumePerStep * numberOfSteps * (1 + wasteFactor / 100)",
+    "materialCost": "totalMaterialVolume * unitCostMaterial",
+    "laborCost": "laborRate * laborHoursPerStep * numberOfSteps",
+    "totalCost": "materialCost + laborCost",
+    "costPerStep": "totalCost / numberOfSteps",
+    "dataConfidenceAdjustedCost": "totalCost * (1 + (100 - dataConfidence) / 100)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "materialCost": "materialCost",
+      "laborCost": "laborCost",
+      "costPerStep": "costPerStep",
+      "totalRise": "totalRise",
+      "totalRun": "totalRun",
+      "stringerLength": "stringerLength"
+    },
+    "hiddenLossDrivers": [
+      "riserHeight > 190 ? 'High riser height may reduce comfort' : ''",
+      "treadDepth < 250 ? 'Shallow tread depth may cause safety risk' : ''",
+      "wasteFactor > 10 ? 'Excessive waste factor increases cost' : ''"
+    ],
+    "suggestedActions": [
+      "If riserHeight > 190, consider increasing number of steps to reduce riser height.",
+      "If treadDepth < 250, consider increasing tread depth for safety.",
+      "If wasteFactor > 10, implement better material cutting planning.",
+      "Optimize stair width to meet code minimum to reduce material cost."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Building Codes",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

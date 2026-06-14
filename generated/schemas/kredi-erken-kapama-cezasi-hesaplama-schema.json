@@ -1,0 +1,107 @@
+{
+  "toolName": "kredi-erken-kapama-cezasi-hesaplama",
+  "inputs": [
+    {
+      "id": "kalanAnapara",
+      "label": "Kalan Anapara (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Kredinin erken kapatılacağı tarihteki kalan anapara bakiyesi. Bankacılık düzenlemeleri (BDDK) ve sözleşme şartlarına göre belirlenir."
+    },
+    {
+      "id": "kalanVade",
+      "label": "Kalan Vade (Ay)",
+      "type": "number",
+      "unit": "ay",
+      "default": 12,
+      "min": 1,
+      "max": 360,
+      "options": null,
+      "businessContext": "Kredinin erken kapatılacağı tarihten itibaren kalan vade. Sözleşme vadesine göre hesaplanır."
+    },
+    {
+      "id": "faizOrani",
+      "label": "Yıllık Faiz Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kredi sözleşmesinde belirtilen yıllık nominal faiz oranı. TCMB ve BDDK düzenlemelerine tabidir."
+    },
+    {
+      "id": "krediTuru",
+      "label": "Kredi Türü",
+      "type": "select",
+      "unit": "",
+      "default": "konut",
+      "min": null,
+      "max": null,
+      "options": [
+        "konut",
+        "arac",
+        "ihtiyac",
+        "ticari"
+      ],
+      "businessContext": "Kredi türü, erken kapama cezası oranını belirler. BDDK yönetmeliklerine göre konut kredilerinde ceza oranı farklıdır."
+    },
+    {
+      "id": "erkenKapamaSuresi",
+      "label": "Erken Kapama Süresi (Kalan Vadeye Oranı)",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kalan vadenin yüzde kaçının kaldığı. Bazı düzenlemelerde ceza oranı bu süreye göre değişir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "kalanAnapara > 0",
+      "kalanVade >= 1",
+      "faizOrani >= 0",
+      "erkenKapamaSuresi >= 0 && erkenKapamaSuresi <= 100"
+    ],
+    "thresholds": {
+      "faizOrani > 10": "Faiz oranı yüksek, ceza tutarı önemli olabilir.",
+      "erkenKapamaSuresi > 75": "Kalan vadenin büyük kısmı kalmış, ceza oranı yüksek olabilir."
+    }
+  },
+  "formulas": {
+    "cezaOrani": "krediTuru === 'konut' ? (erkenKapamaSuresi <= 50 ? 0.02 : 0.01) : (krediTuru === 'arac' ? 0.03 : (krediTuru === 'ihtiyac' ? 0.04 : 0.05))",
+    "cezaTutari": "kalanAnapara * cezaOrani",
+    "toplamGeriOdeme": "kalanAnapara + cezaTutari"
+  },
+  "outputs": {
+    "primary": "cezaTutari",
+    "breakdown": {
+      "cezaOrani": "cezaOrani",
+      "cezaTutari": "cezaTutari",
+      "toplamGeriOdeme": "toplamGeriOdeme"
+    },
+    "hiddenLossDrivers": [
+      "faizOrani > 10 ? 'Yüksek faiz oranı cezayı artırabilir' : ''",
+      "erkenKapamaSuresi > 75 ? 'Kalan vade yüksek, ceza oranı düşük olabilir' : ''"
+    ],
+    "suggestedActions": [
+      "Kredi türüne göre ceza oranını kontrol edin.",
+      "Erken kapama yapmadan önce toplam maliyeti hesaplayın.",
+      "Alternatif finansman seçeneklerini değerlendirin."
+    ],
+    "dataConfidenceAdjusted": "cezaTutari * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (zaman içinde ceza değişimi)",
+    "Karşılaştırma (farklı kredi türleri)",
+    "Detaylı rapor (faiz, vade, ceza analizi)"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,163 @@
+{
+  "toolName": "isi-degistirici-esanjor-kirlenme-ve-verim-kaybi-calculator",
+  "inputs": [
+    {
+      "id": "cleanHeatTransferCoefficient",
+      "label": "Temiz Isı Transfer Katsayısı (U_clean)",
+      "type": "number",
+      "unit": "W/m²K",
+      "default": 500,
+      "min": 100,
+      "max": 2000,
+      "options": null,
+      "businessContext": "Temiz durumdaki ısı transfer katsayısı. TEMA standartlarına göre tipik değerler."
+    },
+    {
+      "id": "fouledHeatTransferCoefficient",
+      "label": "Kirlenmiş Isı Transfer Katsayısı (U_fouled)",
+      "type": "number",
+      "unit": "W/m²K",
+      "default": 300,
+      "min": 50,
+      "max": 1500,
+      "options": null,
+      "businessContext": "Kirlenme sonrası ölçülen veya tahmin edilen ısı transfer katsayısı."
+    },
+    {
+      "id": "heatTransferArea",
+      "label": "Isı Transfer Alanı",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Eşanjörün toplam ısı transfer alanı."
+    },
+    {
+      "id": "logMeanTemperatureDifference",
+      "label": "Logaritmik Ortalama Sıcaklık Farkı (LMTD)",
+      "type": "number",
+      "unit": "K",
+      "default": 30,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Tasarım veya işletme koşullarındaki LMTD."
+    },
+    {
+      "id": "operatingHoursPerYear",
+      "label": "Yıllık Çalışma Saati",
+      "type": "number",
+      "unit": "h/yıl",
+      "default": 8000,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Eşanjörün yıllık toplam çalışma süresi."
+    },
+    {
+      "id": "energyCost",
+      "label": "Enerji Maliyeti",
+      "type": "number",
+      "unit": "USD/kWh",
+      "default": 0.1,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Birim enerji maliyeti (elektrik veya yakıt)."
+    },
+    {
+      "id": "cleaningCost",
+      "label": "Temizlik Maliyeti",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Bir temizlik işleminin toplam maliyeti."
+    },
+    {
+      "id": "cleaningFrequency",
+      "label": "Temizlik Sıklığı",
+      "type": "number",
+      "unit": "yıl",
+      "default": 1,
+      "min": 0.1,
+      "max": 10,
+      "options": null,
+      "businessContext": "İki temizlik arasındaki süre (yıl cinsinden)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Giriş verilerinin güvenilirliği. Düşük güven durumunda sonuçlar ayarlanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "fouledHeatTransferCoefficient <= cleanHeatTransferCoefficient",
+      "heatTransferArea > 0",
+      "logMeanTemperatureDifference > 0",
+      "operatingHoursPerYear >= 0",
+      "energyCost >= 0",
+      "cleaningCost >= 0",
+      "cleaningFrequency > 0"
+    ],
+    "thresholds": {
+      "foulingFactor": "if foulingFactor > 0.5 then 'Yüksek kirlenme'",
+      "efficiencyLoss": "if efficiencyLoss > 0.3 then 'Kritik verim kaybı'"
+    }
+  },
+  "formulas": {
+    "foulingFactor": "(cleanHeatTransferCoefficient - fouledHeatTransferCoefficient) / cleanHeatTransferCoefficient",
+    "efficiencyLoss": "foulingFactor",
+    "heatTransferRateClean": "cleanHeatTransferCoefficient * heatTransferArea * logMeanTemperatureDifference",
+    "heatTransferRateFouled": "fouledHeatTransferCoefficient * heatTransferArea * logMeanTemperatureDifference",
+    "energyLossRate": "heatTransferRateClean - heatTransferRateFouled",
+    "annualEnergyLoss": "energyLossRate * operatingHoursPerYear / 1000",
+    "annualEnergyCostLoss": "annualEnergyLoss * energyCost",
+    "annualCleaningCost": "cleaningCost / cleaningFrequency",
+    "totalAnnualLoss": "annualEnergyCostLoss + annualCleaningCost",
+    "dataConfidenceAdjusted": "totalAnnualLoss * (dataConfidence === 'low' ? 1.2 : dataConfidence === 'medium' ? 1.0 : 0.9)"
+  },
+  "outputs": {
+    "primary": "totalAnnualLoss",
+    "breakdown": {
+      "foulingFactor": "foulingFactor",
+      "efficiencyLoss": "efficiencyLoss",
+      "annualEnergyLoss": "annualEnergyLoss",
+      "annualEnergyCostLoss": "annualEnergyCostLoss",
+      "annualCleaningCost": "annualCleaningCost"
+    },
+    "hiddenLossDrivers": [
+      "if foulingFactor > 0.5 then 'Yüksek kirlenme'",
+      "if efficiencyLoss > 0.3 then 'Kritik verim kaybı'"
+    ],
+    "suggestedActions": [
+      "Temizlik sıklığını artırın",
+      "Kirlenme önleyici kaplama uygulayın",
+      "Eşanjör tasarımını gözden geçirin",
+      "Online temizlik sistemi değerlendirin"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

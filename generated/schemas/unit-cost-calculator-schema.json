@@ -1,0 +1,188 @@
+{
+  "toolName": "unit-cost-calculator",
+  "inputs": [
+    {
+      "id": "totalCost",
+      "label": "Total Cost (Direct + Indirect)",
+      "type": "number",
+      "unit": "USD",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total cost includes all direct materials, direct labor, and manufacturing overhead. Based on standard cost accounting (GAAP) and activity-based costing (ABC) principles."
+    },
+    {
+      "id": "totalUnitsProduced",
+      "label": "Total Units Produced",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of good units produced in the period. Excludes scrap and rework. Aligns with OEE (Overall Equipment Effectiveness) and yield metrics."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "decimal (0-1)",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Proportion of defective units. Used in Six Sigma (DPMO) and quality cost analysis. High defect rates increase unit cost due to rework and scrap."
+    },
+    {
+      "id": "scrapRate",
+      "label": "Scrap Rate",
+      "type": "number",
+      "unit": "decimal (0-1)",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Proportion of material scrapped. Directly impacts material cost per good unit. Lean manufacturing targets zero scrap."
+    },
+    {
+      "id": "setupTimeHours",
+      "label": "Setup Time per Batch (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Time to changeover between production runs. SMED (Single-Minute Exchange of Die) methodology aims to reduce setup time. Affects effective capacity and unit cost."
+    },
+    {
+      "id": "batchSize",
+      "label": "Batch Size",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of units produced per batch. Larger batches spread setup cost over more units, but increase inventory (Lean vs. EOQ trade-off)."
+    },
+    {
+      "id": "laborRatePerHour",
+      "label": "Labor Rate per Hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 20,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Direct labor cost per hour including benefits. Based on industry wage surveys and collective bargaining agreements."
+    },
+    {
+      "id": "laborHoursPerUnit",
+      "label": "Labor Hours per Unit",
+      "type": "number",
+      "unit": "hours/unit",
+      "default": 0.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Standard labor time per unit. From time studies (MTM, MOST) or historical data. Used in standard costing."
+    },
+    {
+      "id": "materialCostPerUnit",
+      "label": "Material Cost per Unit",
+      "type": "number",
+      "unit": "USD/unit",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of raw materials per unit before scrap. Based on BOM (Bill of Materials) and supplier prices."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Overhead Rate (as % of direct cost)",
+      "type": "number",
+      "unit": "decimal (0-1)",
+      "default": 0.2,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Manufacturing overhead allocated as a percentage of direct costs (labor + material). Common in traditional costing; ABC may be more accurate."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence (0-1)",
+      "type": "number",
+      "unit": "decimal",
+      "default": 0.9,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Subjective confidence in input data accuracy. Used to adjust output for uncertainty. Based on data quality assessment (ISO 8000)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "totalCost >= 0",
+      "totalUnitsProduced >= 1",
+      "defectRate >= 0 and defectRate <= 1",
+      "scrapRate >= 0 and scrapRate <= 1",
+      "setupTimeHours >= 0",
+      "batchSize >= 1",
+      "laborRatePerHour >= 0",
+      "laborHoursPerUnit >= 0",
+      "materialCostPerUnit >= 0",
+      "overheadRate >= 0 and overheadRate <= 1",
+      "dataConfidence >= 0 and dataConfidence <= 1",
+      "If defectRate > 0.05 then warning: 'High defect rate - consider quality improvement'",
+      "If scrapRate > 0.05 then warning: 'High scrap rate - review material usage'",
+      "If setupTimeHours > 2 then warning: 'Long setup time - consider SMED'"
+    ],
+    "thresholds": {
+      "defectRate": "0.05",
+      "scrapRate": "0.05",
+      "setupTimeHours": "2"
+    }
+  },
+  "formulas": {
+    "effectiveUnits": "totalUnitsProduced * (1 - defectRate) * (1 - scrapRate)",
+    "setupCostPerUnit": "(setupTimeHours * laborRatePerHour) / batchSize",
+    "directLaborCostPerUnit": "laborHoursPerUnit * laborRatePerUnit",
+    "directMaterialCostPerUnit": "materialCostPerUnit / (1 - scrapRate)",
+    "directCostPerUnit": "directLaborCostPerUnit + directMaterialCostPerUnit",
+    "overheadCostPerUnit": "directCostPerUnit * overheadRate",
+    "unitCost": "directCostPerUnit + overheadCostPerUnit + setupCostPerUnit",
+    "dataConfidenceAdjusted": "unitCost / dataConfidence"
+  },
+  "outputs": {
+    "primary": "unitCost",
+    "breakdown": {
+      "directLaborCostPerUnit": "directLaborCostPerUnit",
+      "directMaterialCostPerUnit": "directMaterialCostPerUnit",
+      "overheadCostPerUnit": "overheadCostPerUnit",
+      "setupCostPerUnit": "setupCostPerUnit"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 0.05 ? 'High defect rate' : ''",
+      "scrapRate > 0.05 ? 'High scrap rate' : ''",
+      "setupTimeHours > 2 ? 'Long setup time' : ''"
+    ],
+    "suggestedActions": [
+      "defectRate > 0.05 ? 'Implement SPC and root cause analysis' : ''",
+      "scrapRate > 0.05 ? 'Review material handling and supplier quality' : ''",
+      "setupTimeHours > 2 ? 'Apply SMED techniques to reduce setup time' : ''",
+      "batchSize < 100 ? 'Consider increasing batch size to reduce setup cost per unit' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (historical data)",
+    "Benchmarking against industry standards",
+    "Detailed breakdown report with charts"
+  ],
+  "premiumRequired": true
+}

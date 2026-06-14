@@ -1,0 +1,157 @@
+{
+  "toolName": "warehouse-space-cost-leak",
+  "inputs": [
+    {
+      "id": "totalWarehouseArea",
+      "label": "Total Warehouse Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total floor area of the warehouse. Based on WERC DC Measures and ISO 9001 space utilization standards."
+    },
+    {
+      "id": "usableStorageArea",
+      "label": "Usable Storage Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 7000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Area actually used for storage. Lean principles emphasize eliminating wasted space (Muda)."
+    },
+    {
+      "id": "annualRentPerSqm",
+      "label": "Annual Rent per m²",
+      "type": "number",
+      "unit": "currency/m²/year",
+      "default": 120,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Market rental rate per square meter per year. Based on industry benchmarks from JLL, CBRE."
+    },
+    {
+      "id": "operatingCostPerSqm",
+      "label": "Operating Cost per m²",
+      "type": "number",
+      "unit": "currency/m²/year",
+      "default": 30,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Includes utilities, maintenance, labor, etc. ISO 50001 energy costs considered."
+    },
+    {
+      "id": "inventoryTurnover",
+      "label": "Inventory Turnover",
+      "type": "number",
+      "unit": "turns/year",
+      "default": 6,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of times inventory is sold and replaced per year. APICS standard metric."
+    },
+    {
+      "id": "averageInventoryValue",
+      "label": "Average Inventory Value",
+      "type": "number",
+      "unit": "currency",
+      "default": 5000000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average monetary value of inventory held. Used to calculate carrying cost."
+    },
+    {
+      "id": "carryingCostRate",
+      "label": "Carrying Cost Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Annual cost to hold inventory as percentage of value. Typically 20-30% (industry standard)."
+    },
+    {
+      "id": "wasteSpacePercent",
+      "label": "Waste Space Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Estimated percentage of space wasted due to poor layout, obsolete inventory, etc. Lean Six Sigma metric."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence in input data accuracy. Affects adjustment factor for final output."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "usableStorageArea <= totalWarehouseArea",
+      "wasteSpacePercent >= 0",
+      "inventoryTurnover > 0",
+      "carryingCostRate between 0 and 100"
+    ],
+    "thresholds": {
+      "wasteSpacePercent > 20": "Critical: Waste space exceeds 20% - immediate layout review needed.",
+      "inventoryTurnover < 4": "Warning: Low inventory turnover indicates overstocking or obsolescence.",
+      "carryingCostRate > 30": "Warning: Carrying cost rate above industry norm."
+    }
+  },
+  "formulas": {
+    "totalSpaceCost": "totalWarehouseArea * (annualRentPerSqm + operatingCostPerSqm)",
+    "wastedSpaceCost": "totalSpaceCost * (wasteSpacePercent / 100)",
+    "inventoryCarryingCost": "averageInventoryValue * (carryingCostRate / 100)",
+    "spaceCostLeak": "wastedSpaceCost + inventoryCarryingCost * (1 - (usableStorageArea / totalWarehouseArea))",
+    "dataConfidenceAdjusted": "spaceCostLeak * (dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9))"
+  },
+  "outputs": {
+    "primary": "spaceCostLeak",
+    "breakdown": {
+      "totalSpaceCost": "totalSpaceCost",
+      "wastedSpaceCost": "wastedSpaceCost",
+      "inventoryCarryingCost": "inventoryCarryingCost",
+      "spaceUtilization": "usableStorageArea / totalWarehouseArea * 100"
+    },
+    "hiddenLossDrivers": [
+      "wasteSpacePercent > 20 ? 'Excessive wasted space' : ''",
+      "inventoryTurnover < 4 ? 'Low inventory turnover' : ''",
+      "carryingCostRate > 30 ? 'High carrying cost' : ''"
+    ],
+    "suggestedActions": [
+      "Implement Lean 5S to reduce waste space.",
+      "Review inventory management to improve turnover.",
+      "Consider vertical storage or automation to increase usable area.",
+      "Negotiate rent or relocate to lower-cost facility."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Recommendations"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,164 @@
+{
+  "toolName": "salary-cost-calculator",
+  "inputs": [
+    {
+      "id": "annualSalary",
+      "label": "Annual Salary (Gross)",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 50000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Base annual gross salary per employee. Standard HR metric."
+    },
+    {
+      "id": "bonusPercentage",
+      "label": "Bonus Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Annual bonus as percentage of salary. Common in compensation packages."
+    },
+    {
+      "id": "employerTaxRate",
+      "label": "Employer Tax Rate (Social Security, etc.)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Employer-paid taxes (e.g., Social Security, Medicare in US). Varies by country."
+    },
+    {
+      "id": "benefitsCost",
+      "label": "Benefits Cost per Employee per Year",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Health insurance, retirement contributions, etc. Industry benchmark: ~30% of salary."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Overhead Rate (Facilities, IT, etc.)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Indirect costs allocated per employee. Common in cost accounting."
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Working Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 260,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Standard working days (excluding weekends and holidays). Typical: 260."
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "Hours per Day",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 1,
+      "max": 24,
+      "options": null,
+      "businessContext": "Standard working hours per day. Typical: 8."
+    },
+    {
+      "id": "productiveUtilization",
+      "label": "Productive Utilization Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of paid time spent on productive work. Lean metric; typical 70-85%."
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "unit": "",
+      "default": "USD",
+      "min": null,
+      "max": null,
+      "options": [
+        "USD",
+        "EUR",
+        "GBP",
+        "TRY",
+        "Other"
+      ],
+      "businessContext": "Currency for cost display. ISO 4217."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualSalary > 0",
+      "bonusPercentage >= 0",
+      "employerTaxRate >= 0",
+      "benefitsCost >= 0",
+      "overheadRate >= 0",
+      "workingDaysPerYear > 0",
+      "hoursPerDay > 0",
+      "productiveUtilization > 0 && productiveUtilization <= 100"
+    ],
+    "thresholds": {
+      "productiveUtilization < 60": "Low utilization warning: consider process improvement.",
+      "employerTaxRate > 30": "High tax burden: review tax optimization strategies.",
+      "overheadRate > 50": "High overhead: investigate cost reduction opportunities."
+    }
+  },
+  "formulas": {
+    "totalAnnualCost": "annualSalary * (1 + bonusPercentage/100) * (1 + employerTaxRate/100) + benefitsCost + (annualSalary * overheadRate/100)",
+    "totalAnnualCostPerEmployee": "totalAnnualCost",
+    "costPerDay": "totalAnnualCost / workingDaysPerYear",
+    "costPerHour": "costPerDay / hoursPerDay",
+    "effectiveCostPerProductiveHour": "costPerHour / (productiveUtilization/100)",
+    "monthlyCost": "totalAnnualCost / 12"
+  },
+  "outputs": {
+    "primary": "totalAnnualCost",
+    "breakdown": {
+      "baseSalary": "annualSalary",
+      "bonus": "annualSalary * bonusPercentage/100",
+      "employerTaxes": "annualSalary * (1 + bonusPercentage/100) * employerTaxRate/100",
+      "benefits": "benefitsCost",
+      "overhead": "annualSalary * overheadRate/100"
+    },
+    "hiddenLossDrivers": [
+      "productiveUtilization < 60 ? 'Low utilization increases effective hourly cost' : ''",
+      "employerTaxRate > 30 ? 'High tax burden' : ''",
+      "overheadRate > 50 ? 'High overhead' : ''"
+    ],
+    "suggestedActions": [
+      "If productiveUtilization < 70: Implement Lean techniques (e.g., 5S, Kaizen) to improve utilization.",
+      "If employerTaxRate > 30: Consult tax advisor for legal optimization.",
+      "If overheadRate > 40: Review indirect costs and consider shared services."
+    ],
+    "dataConfidenceAdjusted": "totalAnnualCost * (1 - (100 - productiveUtilization)/200)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (historical comparison)",
+    "Benchmarking against industry averages",
+    "Detailed breakdown report with charts"
+  ],
+  "premiumRequired": true
+}

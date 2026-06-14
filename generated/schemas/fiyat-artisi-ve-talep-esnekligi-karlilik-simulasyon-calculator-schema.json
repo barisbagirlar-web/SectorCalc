@@ -1,0 +1,139 @@
+{
+  "toolName": "fiyat-artisi-ve-talep-esnekligi-karlilik-simulasyon-calculator",
+  "inputs": [
+    {
+      "id": "currentPrice",
+      "label": "Mevcut Fiyat",
+      "type": "number",
+      "unit": "TRY",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Ürünün mevcut satış fiyatı. Fiyatlandırma stratejisinin temel girdisi."
+    },
+    {
+      "id": "currentQuantity",
+      "label": "Mevcut Satış Miktarı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Mevcut fiyattan satılan ürün miktarı. Talep tahminleri için baz."
+    },
+    {
+      "id": "priceChangePercent",
+      "label": "Fiyat Değişim Yüzdesi",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": -100,
+      "max": null,
+      "options": null,
+      "businessContext": "Uygulanacak fiyat artışı veya azalışı yüzdesi. Pozitif değer artışı ifade eder."
+    },
+    {
+      "id": "priceElasticity",
+      "label": "Talep Esnekliği",
+      "type": "number",
+      "unit": "",
+      "default": -1.5,
+      "min": -10,
+      "max": 0,
+      "options": null,
+      "businessContext": "Fiyat değişimine karşı talep hassasiyeti. Genellikle negatif; mutlak değer büyüdükçe talep daha esnek. Standart mikroekonomi prensipleri."
+    },
+    {
+      "id": "variableCostPerUnit",
+      "label": "Birim Değişken Maliyet",
+      "type": "number",
+      "unit": "TRY",
+      "default": 60,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Üretim veya hizmet başına değişken maliyet. Katkı payı hesaplamasında kullanılır."
+    },
+    {
+      "id": "fixedCost",
+      "label": "Sabit Maliyetler",
+      "type": "number",
+      "unit": "TRY",
+      "default": 20000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Dönemlik sabit maliyetler (kira, maaş vb.). Kârlılık analizinde kullanılır."
+    },
+    {
+      "id": "timePeriod",
+      "label": "Zaman Periyodu",
+      "type": "select",
+      "unit": "",
+      "default": "monthly",
+      "min": null,
+      "max": null,
+      "options": [
+        "monthly",
+        "quarterly",
+        "yearly"
+      ],
+      "businessContext": "Analiz dönemi. Maliyet ve gelirlerin periyoda göre ölçeklenmesi için."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "currentPrice > 0",
+      "currentQuantity > 0",
+      "priceChangePercent must be between -100 and 100",
+      "priceElasticity < 0",
+      "variableCostPerUnit >= 0",
+      "fixedCost >= 0"
+    ],
+    "thresholds": {
+      "priceElasticity < -2": "Talep çok esnek, fiyat artışı geliri düşürebilir.",
+      "priceElasticity > -0.5": "Talep esnek değil, fiyat artışı geliri artırabilir.",
+      "profitMargin < 0": "Kâr marjı negatif, zarar ediliyor."
+    }
+  },
+  "formulas": {
+    "newPrice": "currentPrice * (1 + priceChangePercent / 100)",
+    "quantityChangePercent": "priceChangePercent * priceElasticity",
+    "newQuantity": "currentQuantity * (1 + quantityChangePercent / 100)",
+    "totalRevenue": "newPrice * newQuantity",
+    "totalVariableCost": "newQuantity * variableCostPerUnit",
+    "totalCost": "totalVariableCost + fixedCost",
+    "profit": "totalRevenue - totalCost",
+    "profitChange": "profit - (currentPrice * currentQuantity - currentQuantity * variableCostPerUnit - fixedCost)",
+    "profitMargin": "profit / totalRevenue * 100"
+  },
+  "outputs": {
+    "primary": "profitChange",
+    "breakdown": {
+      "newPrice": "newPrice",
+      "newQuantity": "newQuantity",
+      "totalRevenue": "totalRevenue",
+      "totalCost": "totalCost",
+      "profit": "profit",
+      "profitMargin": "profitMargin"
+    },
+    "hiddenLossDrivers": [
+      "priceElasticity < -2 ? 'Yüksek esneklik nedeniyle fiyat artışı satışları çok düşürebilir.' : ''",
+      "profitMargin < 0 ? 'Negatif kâr marjı, maliyetler gelirleri aşıyor.' : ''"
+    ],
+    "suggestedActions": [
+      "priceElasticity < -2 ? 'Fiyat artışı yerine maliyet düşürmeye odaklanın.' : ''",
+      "profitMargin < 0 ? 'Maliyet yapısını gözden geçirin veya fiyatı artırın.' : ''",
+      "profitChange > 0 ? 'Fiyat değişimi kârlılığı artırdı, uygulamayı değerlendirin.' : ''"
+    ],
+    "dataConfidenceAdjusted": "profit * (1 - abs(priceElasticity) * 0.1)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (birden çok senaryo karşılaştırması)",
+    "Detaylı rapor (grafikler ve duyarlılık analizi)"
+  ],
+  "premiumRequired": true
+}

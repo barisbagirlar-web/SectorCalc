@@ -1,0 +1,134 @@
+{
+  "toolName": "ogrenme-egrisi-ve-parti-sure-tahmin-calculator",
+  "inputs": [
+    {
+      "id": "initialTime",
+      "label": "İlk Parça Üretim Süresi (dakika)",
+      "type": "number",
+      "unit": "dakika",
+      "default": 60,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "İlk parçanın üretilmesi için gereken süre. Öğrenme eğrisi teorisine göre (Wright 1936) ilk parça süresi temel alınır."
+    },
+    {
+      "id": "learningRate",
+      "label": "Öğrenme Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Her üretim miktarı iki katına çıktığında birim süredeki azalma yüzdesi. Tipik değerler: %70-90 arası. Kaynak: Wright öğrenme eğrisi modeli."
+    },
+    {
+      "id": "batchSize",
+      "label": "Parti Büyüklüğü (adet)",
+      "type": "number",
+      "unit": "adet",
+      "default": 100,
+      "min": 1,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Üretilecek toplam parti miktarı. Parti süresi tahmini için temel girdi."
+    },
+    {
+      "id": "setupTime",
+      "label": "Hazırlık Süresi (dakika)",
+      "type": "number",
+      "unit": "dakika",
+      "default": 30,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Parti başına makine/hat hazırlık süresi. SMED prensipleri ile ilişkilidir."
+    },
+    {
+      "id": "numOperators",
+      "label": "Operatör Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 1,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Aynı anda çalışan operatör sayısı. İş gücü planlaması için önemli."
+    },
+    {
+      "id": "hourlyCost",
+      "label": "Saatlik İşçilik Maliyeti (TL/saat)",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Operatör başına saatlik maliyet. Maliyet analizi için kullanılır."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Genel Gider Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 150,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "Direkt işçilik maliyetine eklenen genel gider yüzdesi. Endüstri mühendisliği maliyet muhasebesi standardı."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "learningRate must be between 50 and 100",
+      "batchSize must be >= 1",
+      "setupTime must be >= 0",
+      "numOperators must be >= 1",
+      "hourlyCost must be >= 0 if numOperators > 0",
+      "overheadRate must be >= 0"
+    ],
+    "thresholds": {
+      "learningRate": "learningRate < 70 ? 'Düşük öğrenme oranı, iyileştirme fırsatı' : ''",
+      "setupTime": "setupTime > 60 ? 'Hazırlık süresi yüksek, SMED uygulanabilir' : ''",
+      "batchSize": "batchSize < 10 ? 'Çok küçük parti, verimsizlik riski' : ''"
+    }
+  },
+  "formulas": {
+    "totalTime": "setupTime + sum_{i=1}^{batchSize} (initialTime * (i)^(log2(learningRate/100)))",
+    "averageTimePerUnit": "totalTime / batchSize",
+    "totalLaborCost": "(totalTime / 60) * numOperators * hourlyCost",
+    "totalOverheadCost": "totalLaborCost * (overheadRate / 100)",
+    "totalCost": "totalLaborCost + totalOverheadCost",
+    "costPerUnit": "totalCost / batchSize"
+  },
+  "outputs": {
+    "primary": "totalTime",
+    "breakdown": {
+      "totalTime": "Toplam Parti Süresi (dakika)",
+      "averageTimePerUnit": "Birim Başına Ortalama Süre (dakika)",
+      "totalLaborCost": "Toplam İşçilik Maliyeti (TL)",
+      "totalOverheadCost": "Toplam Genel Gider (TL)",
+      "totalCost": "Toplam Maliyet (TL)",
+      "costPerUnit": "Birim Maliyet (TL)"
+    },
+    "hiddenLossDrivers": [
+      "learningRate < 70 ? 'Düşük öğrenme oranı' : ''",
+      "setupTime > 60 ? 'Yüksek hazırlık süresi' : ''",
+      "batchSize < 10 ? 'Küçük parti büyüklüğü' : ''"
+    ],
+    "suggestedActions": [
+      "learningRate < 70 ? 'Öğrenme oranını artırmak için eğitim ve standardizasyon uygulayın.' : ''",
+      "setupTime > 60 ? 'SMED teknikleri ile hazırlık süresini azaltın.' : ''",
+      "batchSize < 10 ? 'Parti büyüklüğünü artırmak için talep birleştirme veya ekonomik parti büyüklüğü hesaplaması yapın.' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted not applicable"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (öğrenme eğrisi grafiği)",
+    "Karşılaştırma (farklı senaryolar)",
+    "Detaylı rapor (maliyet kırılımı)"
+  ],
+  "premiumRequired": true
+}

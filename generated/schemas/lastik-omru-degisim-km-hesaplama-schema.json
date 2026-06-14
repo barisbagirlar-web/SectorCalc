@@ -1,0 +1,131 @@
+{
+  "toolName": "lastik-omru-degisim-km-hesaplama",
+  "inputs": [
+    {
+      "id": "lastikFiyati",
+      "label": "Lastik Fiyatı (TL/adet)",
+      "type": "number",
+      "unit": "TL",
+      "default": 1000,
+      "min": 100,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Bir adet lastiğin satın alma fiyatı. Sektörel benchmark: lastik üreticisi verileri."
+    },
+    {
+      "id": "ortalamaKm",
+      "label": "Ortalama Günlük KM",
+      "type": "number",
+      "unit": "km/gün",
+      "default": 100,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Aracın günlük ortalama kat ettiği mesafe. Filo yönetimi standartları."
+    },
+    {
+      "id": "lastikOmru",
+      "label": "Lastik Ömrü (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 50000,
+      "min": 10000,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Lastiğin üretici tarafından belirtilen ömrü. ISO 10191 standardı."
+    },
+    {
+      "id": "aracSayisi",
+      "label": "Araç Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Filo büyüklüğü. Toplam maliyet hesaplaması için."
+    },
+    {
+      "id": "lastikSayisi",
+      "label": "Araç Başına Lastik Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "min": 2,
+      "max": 6,
+      "options": null,
+      "businessContext": "Araç tipine göre lastik sayısı (binek araç 4, kamyon 6)."
+    },
+    {
+      "id": "isletmeGideri",
+      "label": "Değişim Başına İşletme Gideri (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 50,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "Lastik değişim işçilik ve ekipman maliyeti."
+    },
+    {
+      "id": "vergiOrani",
+      "label": "Vergi Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "KDV oranı gibi vergi yüzdesi."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "lastikFiyati > 0",
+      "ortalamaKm > 0",
+      "lastikOmru > 0",
+      "aracSayisi > 0",
+      "lastikSayisi >= 2",
+      "isletmeGideri >= 0",
+      "vergiOrani >= 0"
+    ],
+    "thresholds": {
+      "lastikOmruKisa": "lastikOmru < 30000",
+      "ortalamaKmYuksek": "ortalamaKm > 500"
+    }
+  },
+  "formulas": {
+    "gunlukKm": "ortalamaKm",
+    "gunSayisi": "lastikOmru / gunlukKm",
+    "degisimSikligiGun": "gunSayisi",
+    "yillikDegisimSayisi": "365 / degisimSikligiGun",
+    "birimLastikMaliyeti": "lastikFiyati * (1 + vergiOrani / 100)",
+    "toplamLastikMaliyeti": "birimLastikMaliyeti * lastikSayisi * aracSayisi",
+    "yillikToplamMaliyet": "toplamLastikMaliyeti * yillikDegisimSayisi + isletmeGideri * lastikSayisi * aracSayisi * yillikDegisimSayisi",
+    "kmBasiMaliyet": "yillikToplamMaliyet / (365 * gunlukKm * aracSayisi)"
+  },
+  "outputs": {
+    "primary": "kmBasiMaliyet",
+    "breakdown": {
+      "yillikDegisimSayisi": "yillikDegisimSayisi",
+      "yillikToplamMaliyet": "yillikToplamMaliyet",
+      "toplamLastikMaliyeti": "toplamLastikMaliyeti"
+    },
+    "hiddenLossDrivers": [
+      "lastikOmruKisa",
+      "ortalamaKmYuksek"
+    ],
+    "suggestedActions": [
+      "Lastik ömrü kısa ise daha dayanıklı lastik tercih edin.",
+      "Günlük km yüksek ise rotasyon ve bakım sıklığını artırın."
+    ],
+    "dataConfidenceAdjusted": "kmBasiMaliyet"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Filo karşılaştırma"
+  ],
+  "premiumRequired": true
+}

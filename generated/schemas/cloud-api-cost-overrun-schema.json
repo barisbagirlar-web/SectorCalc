@@ -1,0 +1,106 @@
+{
+  "toolName": "cloud-api-cost-overrun",
+  "inputs": [
+    {
+      "id": "monthlyApiCalls",
+      "label": "Monthly API Calls",
+      "type": "number",
+      "unit": "calls/month",
+      "default": 1000000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total number of API calls per month. Based on typical cloud billing metrics (AWS, Azure, GCP)."
+    },
+    {
+      "id": "costPerCall",
+      "label": "Cost Per Call",
+      "type": "number",
+      "unit": "USD/call",
+      "default": 0.0001,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Unit cost per API call as per cloud provider pricing. Standard billing unit."
+    },
+    {
+      "id": "budgetedMonthlyCost",
+      "label": "Budgeted Monthly Cost",
+      "type": "number",
+      "unit": "USD/month",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Allocated budget for API costs per month. Financial planning standard."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data accuracy. Used for risk adjustment in financial analysis."
+    },
+    {
+      "id": "overrunThreshold",
+      "label": "Overrun Threshold",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage over budget that triggers alert. Common KPI in cost management."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "monthlyApiCalls >= 0",
+      "costPerCall >= 0",
+      "budgetedMonthlyCost > 0",
+      "overrunThreshold >= 0 && overrunThreshold <= 100"
+    ],
+    "thresholds": {
+      "overrunPercent": "overrunPercent > overrunThreshold ? 'Overrun threshold exceeded' : ''"
+    }
+  },
+  "formulas": {
+    "actualMonthlyCost": "monthlyApiCalls * costPerCall",
+    "overrunAmount": "actualMonthlyCost - budgetedMonthlyCost",
+    "overrunPercent": "(overrunAmount / budgetedMonthlyCost) * 100",
+    "dataConfidenceFactor": "dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9)",
+    "adjustedOverrunAmount": "overrunAmount * dataConfidenceFactor"
+  },
+  "outputs": {
+    "primary": "overrunAmount",
+    "breakdown": {
+      "actualMonthlyCost": "actualMonthlyCost",
+      "budgetedMonthlyCost": "budgetedMonthlyCost",
+      "overrunPercent": "overrunPercent"
+    },
+    "hiddenLossDrivers": [
+      "overrunPercent > overrunThreshold ? 'Cost overrun exceeds threshold' : ''"
+    ],
+    "suggestedActions": [
+      "overrunAmount > 0 ? 'Review API usage patterns and optimize calls' : 'No action needed'",
+      "overrunPercent > overrunThreshold ? 'Escalate to management for budget review' : ''"
+    ],
+    "dataConfidenceAdjusted": "adjustedOverrunAmount"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Historical Data",
+    "Detailed Report with Breakdown"
+  ],
+  "premiumRequired": true
+}

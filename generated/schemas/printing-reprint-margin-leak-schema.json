@@ -1,0 +1,122 @@
+{
+  "toolName": "printing-reprint-margin-leak",
+  "inputs": [
+    {
+      "id": "totalPrintVolume",
+      "label": "Total Print Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total number of printed units in the period. Based on production records (ISO 9001)."
+    },
+    {
+      "id": "reprintVolume",
+      "label": "Reprint Volume",
+      "type": "number",
+      "unit": "units",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Number of units reprinted due to defects or errors. Key metric in Lean manufacturing (defect rate)."
+    },
+    {
+      "id": "unitPrice",
+      "label": "Unit Price",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Selling price per unit. Standard financial input."
+    },
+    {
+      "id": "unitCost",
+      "label": "Unit Cost",
+      "type": "number",
+      "unit": "currency/unit",
+      "default": 6,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Variable cost per unit (materials, labor, overhead). Based on cost accounting standards."
+    },
+    {
+      "id": "reprintCostFactor",
+      "label": "Reprint Cost Factor",
+      "type": "number",
+      "unit": "ratio",
+      "default": 1.5,
+      "min": 1,
+      "max": 3,
+      "options": null,
+      "businessContext": "Multiplier for cost of reprint vs. original run (e.g., due to setup waste). Industry benchmark: 1.2-2.0."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data accuracy. Affects adjustment of results. Based on Six Sigma data quality assessment."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "reprintVolume <= totalPrintVolume",
+      "unitCost > 0",
+      "unitPrice > 0",
+      "reprintCostFactor >= 1"
+    ],
+    "thresholds": {
+      "reprintRate": "0.05",
+      "marginLeak": "0.1"
+    }
+  },
+  "formulas": {
+    "reprintRate": "reprintVolume / totalPrintVolume",
+    "originalMargin": "unitPrice - unitCost",
+    "reprintCost": "unitCost * reprintCostFactor",
+    "reprintMargin": "unitPrice - reprintCost",
+    "marginLeakPerUnit": "originalMargin - reprintMargin",
+    "totalMarginLeak": "marginLeakPerUnit * reprintVolume",
+    "dataConfidenceAdjusted": "totalMarginLeak * (dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9))"
+  },
+  "outputs": {
+    "primary": "totalMarginLeak",
+    "breakdown": {
+      "reprintRate": "reprintRate",
+      "originalMargin": "originalMargin",
+      "reprintCost": "reprintCost",
+      "reprintMargin": "reprintMargin",
+      "marginLeakPerUnit": "marginLeakPerUnit"
+    },
+    "hiddenLossDrivers": [
+      "reprintRate > 0.05 ? 'High reprint rate indicates process instability' : ''",
+      "marginLeakPerUnit > 0.1 ? 'Margin leak per unit exceeds 10% of original margin' : ''"
+    ],
+    "suggestedActions": [
+      "reprintRate > 0.05 ? 'Implement root cause analysis (RCA) and reduce defect rate via Six Sigma DMAIC' : ''",
+      "marginLeakPerUnit > 0.1 ? 'Review reprint cost factor; consider SMED to reduce setup waste' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmark comparison with industry standards",
+    "Detailed breakdown report with visualizations"
+  ],
+  "premiumRequired": true
+}

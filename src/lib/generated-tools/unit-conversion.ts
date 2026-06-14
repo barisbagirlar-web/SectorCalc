@@ -1,11 +1,12 @@
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
+import type { UnitSystemPreference } from "@/config/measurement";
 import {
   getAvailableUnitsForGroup,
   getDefaultUnitForRegion,
   inferUnitGroupFromFieldKey,
+  resolveRegionalCodeForUnitDefaults,
   type UnitGroup,
 } from "@/lib/regional/unit-defaults";
-import { resolveRegionalCodeFromLocale } from "@/lib/regional/regions";
 import { convertUnits } from "@/lib/units/unit-conversions";
 import { lookupCanonicalUnit } from "@/lib/units/unit-definitions";
 
@@ -65,19 +66,21 @@ export function shouldShowGeneratedUnitSelector(input: GeneratedToolInput): bool
 export function getGeneratedInputUnitOptions(
   input: GeneratedToolInput,
   locale: string,
+  unitSystem?: UnitSystemPreference | null,
 ): readonly { readonly value: string; readonly label: string }[] {
   const group = inferGeneratedInputUnitGroup(input);
   if (!group) {
     return [];
   }
-  return getAvailableUnitsForGroup(group, locale);
+  return getAvailableUnitsForGroup(group, locale, unitSystem);
 }
 
 export function buildInitialSelectedUnits(
   inputs: readonly GeneratedToolInput[],
   locale: string,
+  unitSystem?: UnitSystemPreference | null,
 ): Record<string, string> {
-  const region = resolveRegionalCodeFromLocale(locale);
+  const region = resolveRegionalCodeForUnitDefaults(locale, unitSystem);
   const selected: Record<string, string> = {};
 
   for (const input of inputs) {
@@ -86,13 +89,13 @@ export function buildInitialSelectedUnits(
       continue;
     }
 
-    const options = getAvailableUnitsForGroup(group, locale);
+    const options = getAvailableUnitsForGroup(group, locale, unitSystem);
     if (options.length === 0) {
       continue;
     }
 
     const schemaUnit = input.unit?.trim();
-    const regionalDefault = getDefaultUnitForRegion(region, group);
+    const regionalDefault = getDefaultUnitForRegion(region, group, unitSystem);
     const schemaOption = options.find(
       (option) => option.value.toLowerCase() === schemaUnit?.toLowerCase(),
     );

@@ -1,0 +1,60 @@
+{
+  "toolName": "newton-kilogram-kuvvet-cevirici",
+  "inputs": [
+    {
+      "id": "newtonValue",
+      "label": "Newton Değeri",
+      "type": "number",
+      "unit": "N",
+      "default": 1,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Kuvvet değeri Newton cinsinden girilir. Newton, SI birim sisteminde kuvvet birimidir. 1 N = 1 kg·m/s²."
+    },
+    {
+      "id": "gravitationalAcceleration",
+      "label": "Yerçekimi İvmesi",
+      "type": "number",
+      "unit": "m/s²",
+      "default": 9.80665,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Standart yerçekimi ivmesi 9.80665 m/s²'dir. Farklı lokasyonlar için değişebilir. ISO 80000-4 standardına göre."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "newtonValue >= 0",
+      "gravitationalAcceleration > 0"
+    ],
+    "thresholds": {
+      "newtonValue": "newtonValue > 1000000 ? 'Yüksek kuvvet değeri, yapısal analiz gerekebilir.' : null"
+    }
+  },
+  "formulas": {
+    "kilogramKuvvet": "newtonValue / gravitationalAcceleration"
+  },
+  "outputs": {
+    "primary": "kilogramKuvvet",
+    "breakdown": {
+      "newtonValue": "newtonValue",
+      "gravitationalAcceleration": "gravitationalAcceleration"
+    },
+    "hiddenLossDrivers": [
+      "newtonValue > 1000000 ? 'Yüksek kuvvet değeri' : null"
+    ],
+    "suggestedActions": [
+      "newtonValue > 1000000 ? 'Yapısal güvenlik analizi yapılması önerilir.' : null"
+    ],
+    "dataConfidenceAdjusted": "kilogramKuvvet"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": false
+}

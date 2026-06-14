@@ -1,0 +1,179 @@
+{
+  "toolName": "plaster-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 0.1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Length of the wall to be plastered. Standard construction measurement."
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "min": 0.1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Height of the wall. Standard construction measurement."
+    },
+    {
+      "id": "plasterThickness",
+      "label": "Plaster Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 15,
+      "min": 5,
+      "max": 50,
+      "options": null,
+      "businessContext": "Thickness of plaster layer. Typical range 10-20 mm for internal walls."
+    },
+    {
+      "id": "mixRatio",
+      "label": "Mix Ratio (Cement:Sand)",
+      "type": "select",
+      "unit": "",
+      "default": "1:4",
+      "min": null,
+      "max": null,
+      "options": [
+        "1:3",
+        "1:4",
+        "1:5",
+        "1:6"
+      ],
+      "businessContext": "Cement to sand ratio by volume. Common ratios: 1:4 for internal plaster, 1:3 for external."
+    },
+    {
+      "id": "cementDensity",
+      "label": "Cement Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1440,
+      "min": 1300,
+      "max": 1600,
+      "options": null,
+      "businessContext": "Bulk density of cement. Typically 1440 kg/m³ per IS 875."
+    },
+    {
+      "id": "sandDensity",
+      "label": "Sand Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 1600,
+      "min": 1400,
+      "max": 1800,
+      "options": null,
+      "businessContext": "Bulk density of sand. Typically 1600 kg/m³."
+    },
+    {
+      "id": "wastageFactor",
+      "label": "Wastage Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Percentage allowance for material wastage during mixing and application. Industry standard 5-10%."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "USD/m²",
+      "default": 5,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Cost of labor per square meter of plastering. Varies by region."
+    },
+    {
+      "id": "cementPrice",
+      "label": "Cement Price",
+      "type": "number",
+      "unit": "USD/bag",
+      "default": 7,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Price per bag of cement (typically 50 kg)."
+    },
+    {
+      "id": "sandPrice",
+      "label": "Sand Price",
+      "type": "number",
+      "unit": "USD/m³",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Price per cubic meter of sand."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "wallLength > 0",
+      "wallHeight > 0",
+      "plasterThickness >= 5 && plasterThickness <= 50",
+      "wastageFactor >= 0 && wastageFactor <= 20",
+      "laborRate >= 0",
+      "cementPrice >= 0",
+      "sandPrice >= 0"
+    ],
+    "thresholds": {
+      "wastageFactor > 10": "High wastage factor may indicate poor workmanship or material quality.",
+      "plasterThickness > 20": "Thick plaster may require multiple coats or structural assessment.",
+      "laborRate > 20": "Labor cost is above typical market rate."
+    }
+  },
+  "formulas": {
+    "wallArea": "wallLength * wallHeight",
+    "plasterVolume": "wallArea * (plasterThickness / 1000)",
+    "dryVolume": "plasterVolume * 1.33",
+    "mixParts": "parseInt(mixRatio.split(':')[0]) + parseInt(mixRatio.split(':')[1])",
+    "cementVolume": "dryVolume * (parseInt(mixRatio.split(':')[0]) / mixParts)",
+    "sandVolume": "dryVolume * (parseInt(mixRatio.split(':')[1]) / mixParts)",
+    "cementWeight": "cementVolume * cementDensity",
+    "cementBags": "cementWeight / 50",
+    "sandWeight": "sandVolume * sandDensity",
+    "totalMaterialCost": "(cementBags * cementPrice) + (sandVolume * sandPrice)",
+    "totalLaborCost": "wallArea * laborRate",
+    "totalCost": "(totalMaterialCost + totalLaborCost) * (1 + wastageFactor / 100)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "wallArea": "wallArea",
+      "plasterVolume": "plasterVolume",
+      "cementBags": "cementBags",
+      "sandVolume": "sandVolume",
+      "totalMaterialCost": "totalMaterialCost",
+      "totalLaborCost": "totalLaborCost"
+    },
+    "hiddenLossDrivers": [
+      "wastageFactor > 10 ? 'High wastage' : ''",
+      "plasterThickness > 20 ? 'Thick plaster' : ''"
+    ],
+    "suggestedActions": [
+      "Use optimal mix ratio to reduce material cost.",
+      "Minimize wastage through proper workmanship.",
+      "Consider bulk purchasing of cement and sand for discounts."
+    ],
+    "dataConfidenceAdjusted": "totalCost * (1 - 0.05)"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Cost Comparison",
+    "Detailed Report"
+  ],
+  "premiumRequired": true
+}

@@ -28,6 +28,8 @@ import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonom
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { getPremiumRevenueRouteSlugs } from "@/lib/tools/revenue-tools";
 import { listMigratedPremiumRouteSlugs } from "@/lib/freemium/resolve-free-to-premium-migration";
+import { GENERATED_CALCULATOR_SLUGS } from "@/lib/generated-tools/calculator-registry";
+import { getGeneratedToolHref } from "@/lib/generated-tools/paths";
 
 export type SitemapRouteType =
   | "core"
@@ -213,10 +215,20 @@ function dedupeManifestItems(items: readonly SitemapManifestItem[]): SitemapMani
   return [...byPath.values()];
 }
 
+export function getGeneratedToolSitemapRoutes(): readonly SitemapManifestItem[] {
+  return [
+    createItem("/tools/generated", "hub", 0.8, "weekly"),
+    ...GENERATED_CALCULATOR_SLUGS.map((slug) =>
+      createItem(getGeneratedToolHref(slug), "free_tool", 0.7, "monthly"),
+    ),
+  ];
+}
+
 export function getSitemapManifest(): readonly SitemapManifestItem[] {
   return dedupeManifestItems([
     ...getCoreSitemapRoutes(),
     ...getHubSitemapRoutes(),
+    ...getGeneratedToolSitemapRoutes(),
     ...getActiveCategorizedToolSitemapRoutes(),
     ...getSeoLandingSitemapRoutes(),
     ...getCaseStudySitemapRoutes(),

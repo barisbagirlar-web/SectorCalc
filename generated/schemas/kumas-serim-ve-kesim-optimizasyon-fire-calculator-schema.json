@@ -1,0 +1,198 @@
+{
+  "toolName": "kumas-serim-ve-kesim-optimizasyon-fire-calculator",
+  "inputs": [
+    {
+      "id": "fabricWidth",
+      "label": "Kumaş Eni",
+      "type": "number",
+      "unit": "cm",
+      "default": 150,
+      "min": 50,
+      "max": 300,
+      "options": null,
+      "businessContext": "Kumaşın rulo eni (cm). Standart tekstil ölçüsü. Kaynak: ISO 22198."
+    },
+    {
+      "id": "fabricLength",
+      "label": "Kumaş Boyu",
+      "type": "number",
+      "unit": "m",
+      "default": 100,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Serim yapılacak kumaşın toplam boyu (metre)."
+    },
+    {
+      "id": "patternLength",
+      "label": "Kesim Kalıp Boyu",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "min": 10,
+      "max": 500,
+      "options": null,
+      "businessContext": "Kesilecek kalıbın boyu (cm)."
+    },
+    {
+      "id": "patternWidth",
+      "label": "Kesim Kalıp Eni",
+      "type": "number",
+      "unit": "cm",
+      "default": 50,
+      "min": 5,
+      "max": 200,
+      "options": null,
+      "businessContext": "Kesilecek kalıbın eni (cm)."
+    },
+    {
+      "id": "layers",
+      "label": "Serim Kat Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 50,
+      "min": 1,
+      "max": 500,
+      "options": null,
+      "businessContext": "Üst üste serilen kumaş kat sayısı."
+    },
+    {
+      "id": "markerEfficiency",
+      "label": "Marker Verimliliği",
+      "type": "number",
+      "unit": "%",
+      "default": 85,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Marker planının kumaş enini kullanma yüzdesi. Kaynak: Lean tekstil uygulamaları."
+    },
+    {
+      "id": "defectRate",
+      "label": "Kumaş Hata Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Kumaşta bulunan hata yüzdesi. Kalite kontrol standardı: ISO 9001."
+    },
+    {
+      "id": "fabricCostPerMeter",
+      "label": "Kumaş Birim Maliyeti",
+      "type": "number",
+      "unit": "TL/m",
+      "default": 50,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Metre başına kumaş maliyeti (TL)."
+    },
+    {
+      "id": "laborCostPerHour",
+      "label": "İşçilik Saat Ücreti",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 30,
+      "min": 10,
+      "max": 200,
+      "options": null,
+      "businessContext": "Kesim operatörü saatlik ücreti."
+    },
+    {
+      "id": "cuttingTimePerLayer",
+      "label": "Kat Başına Kesim Süresi",
+      "type": "number",
+      "unit": "saniye",
+      "default": 30,
+      "min": 5,
+      "max": 300,
+      "options": null,
+      "businessContext": "Her bir katın kesilmesi için geçen süre (saniye)."
+    },
+    {
+      "id": "spreadingTimePerLayer",
+      "label": "Kat Başına Serim Süresi",
+      "type": "number",
+      "unit": "saniye",
+      "default": 20,
+      "min": 5,
+      "max": 200,
+      "options": null,
+      "businessContext": "Her bir katın serilmesi için geçen süre (saniye)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güven Seviyesi",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük ise sonuçlar daha muhafazakar hesaplanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "fabricWidth >= patternWidth",
+      "fabricLength >= patternLength",
+      "markerEfficiency between 50 and 100",
+      "defectRate between 0 and 20",
+      "layers >= 1",
+      "fabricCostPerMeter > 0",
+      "laborCostPerHour > 0",
+      "cuttingTimePerLayer > 0",
+      "spreadingTimePerLayer > 0"
+    ],
+    "thresholds": {
+      "defectRate > 5": "Kumaş hata oranı yüksek, fire artabilir.",
+      "markerEfficiency < 75": "Marker verimliliği düşük, optimizasyon önerilir.",
+      "layers > 200": "Çok katlı serim, kalite riski artabilir."
+    }
+  },
+  "formulas": {
+    "totalFabricLength": "fabricLength * layers",
+    "usableFabricLength": "totalFabricLength * (1 - defectRate/100)",
+    "totalPatternArea": "patternLength * patternWidth * layers",
+    "totalFabricArea": "fabricWidth * usableFabricLength",
+    "markerArea": "totalPatternArea / (markerEfficiency/100)",
+    "fabricWaste": "totalFabricArea - markerArea",
+    "fabricWasteCost": "fabricWaste * fabricCostPerMeter / 100",
+    "totalLaborTime": "(spreadingTimePerLayer + cuttingTimePerLayer) * layers / 3600",
+    "laborCost": "totalLaborTime * laborCostPerHour",
+    "totalCost": "fabricWasteCost + laborCost",
+    "wastePercentage": "(fabricWaste / totalFabricArea) * 100",
+    "dataConfidenceAdjusted": "dataConfidence == 'low' ? totalCost * 1.1 : (dataConfidence == 'medium' ? totalCost * 1.05 : totalCost)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "fabricWasteCost": "fabricWasteCost",
+      "laborCost": "laborCost",
+      "wastePercentage": "wastePercentage"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 5 ? 'Yüksek hata oranı fireyi artırıyor' : ''",
+      "markerEfficiency < 75 ? 'Düşük marker verimliliği' : ''"
+    ],
+    "suggestedActions": [
+      "defectRate > 5 ? 'Kumaş kalite kontrolünü iyileştirin' : ''",
+      "markerEfficiency < 75 ? 'Marker optimizasyonu yapın' : ''",
+      "layers > 200 ? 'Kat sayısını azaltmayı değerlendirin' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

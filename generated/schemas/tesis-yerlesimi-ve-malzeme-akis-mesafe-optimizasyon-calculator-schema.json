@@ -1,0 +1,151 @@
+{
+  "toolName": "tesis-yerlesimi-ve-malzeme-akis-mesafe-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "numDepartments",
+      "label": "Departman Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 5,
+      "min": 2,
+      "max": 50,
+      "options": null,
+      "businessContext": "Tesis yerleşiminde optimize edilecek departman sayısı. Endüstri mühendisliği prensiplerine göre (Maynard, Salvendy) 2-50 arası tipik."
+    },
+    {
+      "id": "distanceMatrix",
+      "label": "Mesafe Matrisi (metre)",
+      "type": "number",
+      "unit": "m",
+      "default": 0,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Departmanlar arası mesafelerin matrisi. Gerçek tesis verisi veya tahmini. ISO 9001 süreç yönetimi kapsamında."
+    },
+    {
+      "id": "flowMatrix",
+      "label": "Malzeme Akış Matrisi (birim/zaman)",
+      "type": "number",
+      "unit": "birim/gün",
+      "default": 0,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Departmanlar arası malzeme akış miktarları. Lean üretimde VSM (Değer Akış Haritalama) temel girdisi."
+    },
+    {
+      "id": "materialHandlingCostPerMeter",
+      "label": "Birim Mesafe Taşıma Maliyeti",
+      "type": "number",
+      "unit": "TL/m",
+      "default": 0.5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Malzeme taşıma ekipmanı ve işçilik maliyeti. WERC lojistik maliyet benchmarkları."
+    },
+    {
+      "id": "operatingDaysPerYear",
+      "label": "Yıllık Çalışma Günü",
+      "type": "number",
+      "unit": "gün/yıl",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Tesisin yıllık faaliyet günü. Endüstri standardı 250 gün."
+    },
+    {
+      "id": "layoutType",
+      "label": "Yerleşim Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "cellular",
+      "min": null,
+      "max": null,
+      "options": [
+        "process",
+        "product",
+        "cellular",
+        "fixed"
+      ],
+      "businessContext": "Tesis yerleşim türü. Süreç, ürün, hücresel veya sabit konumlu. Lean ve Six Sigma uygulamalarında kritik."
+    },
+    {
+      "id": "optimizationCriterion",
+      "label": "Optimizasyon Kriteri",
+      "type": "select",
+      "unit": "",
+      "default": "minimizeDistance",
+      "min": null,
+      "max": null,
+      "options": [
+        "minimizeDistance",
+        "minimizeCost",
+        "minimizeTime"
+      ],
+      "businessContext": "Optimizasyon hedefi: mesafe, maliyet veya zaman. Endüstri mühendisliği karar verme süreci."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güven Seviyesi",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirlik yüzdesi. Düşük güven durumunda sonuçlar düzeltilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "numDepartments >= 2",
+      "numDepartments <= 50",
+      "distanceMatrix boyutu numDepartments x numDepartments olmalı",
+      "flowMatrix boyutu numDepartments x numDepartments olmalı",
+      "materialHandlingCostPerMeter >= 0",
+      "operatingDaysPerYear >= 1",
+      "operatingDaysPerYear <= 365",
+      "dataConfidence >= 50",
+      "dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "totalDistance": ">10000 -> 'Yüksek toplam mesafe, yerleşim optimizasyonu önerilir'",
+      "totalCost": ">100000 -> 'Taşıma maliyeti yüksek, süreç iyileştirme gerekli'",
+      "dataConfidence": "<70 -> 'Veri güveni düşük, sonuçlar dikkatli yorumlanmalı'"
+    }
+  },
+  "formulas": {
+    "totalDistance": "sum_{i=1}^{numDepartments} sum_{j=1}^{numDepartments} (distanceMatrix[i][j] * flowMatrix[i][j])",
+    "totalCost": "totalDistance * materialHandlingCostPerMeter * operatingDaysPerYear",
+    "averageDistancePerFlow": "totalDistance / (sum_{i=1}^{numDepartments} sum_{j=1}^{numDepartments} flowMatrix[i][j])",
+    "dataConfidenceAdjustedCost": "totalCost * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "totalDistance": "Toplam malzeme akış mesafesi (m)",
+      "totalCost": "Yıllık toplam taşıma maliyeti (TL)",
+      "averageDistancePerFlow": "Birim akış başına ortalama mesafe (m)"
+    },
+    "hiddenLossDrivers": [
+      "Yüksek mesafe: departmanlar arası gereksiz taşıma",
+      "Düşük veri güveni: hatalı karar riski"
+    ],
+    "suggestedActions": [
+      "Hücresel yerleşime geçerek mesafeyi azaltın",
+      "Malzeme akışını dengeleyerek darboğazları giderin",
+      "Taşıma ekipmanı otomasyonu ile maliyeti düşürün"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (zaman serisi)",
+    "Karşılaştırmalı senaryo analizi",
+    "Detaylı rapor (grafiklerle)"
+  ],
+  "premiumRequired": true
+}

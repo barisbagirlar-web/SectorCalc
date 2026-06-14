@@ -1,0 +1,159 @@
+{
+  "toolName": "return-profit-erosion-tool",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "Annual Revenue",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total annual revenue from sales. Based on standard financial reporting (GAAP/IFRS)."
+    },
+    {
+      "id": "costOfGoodsSold",
+      "label": "Cost of Goods Sold (COGS)",
+      "type": "number",
+      "unit": "USD",
+      "default": 600000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Direct costs attributable to production. Standard cost accounting."
+    },
+    {
+      "id": "operatingExpenses",
+      "label": "Operating Expenses",
+      "type": "number",
+      "unit": "USD",
+      "default": 200000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "SG&A, R&D, depreciation. Based on income statement."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0.02,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Percentage of defective units. Six Sigma DMAIC metric. Threshold >0.05 triggers critical warning."
+    },
+    {
+      "id": "reworkCostPerUnit",
+      "label": "Rework Cost per Unit",
+      "type": "number",
+      "unit": "USD",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost to rework a defective unit. Lean manufacturing waste reduction."
+    },
+    {
+      "id": "unitsProduced",
+      "label": "Units Produced Annually",
+      "type": "number",
+      "unit": "units",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total production volume. Used to scale defect costs."
+    },
+    {
+      "id": "inventoryHoldingCostRate",
+      "label": "Inventory Holding Cost Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 0.25,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Annual holding cost as % of inventory value. APICS standard: 20-30%."
+    },
+    {
+      "id": "averageInventoryValue",
+      "label": "Average Inventory Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 500000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average value of inventory held. Used for carrying cost calculation."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "number",
+      "unit": "%",
+      "default": 0.9,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Confidence in input data accuracy. Adjusts final result for uncertainty."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "revenue > 0",
+      "costOfGoodsSold >= 0",
+      "operatingExpenses >= 0",
+      "defectRate >= 0 and defectRate <= 1",
+      "reworkCostPerUnit >= 0",
+      "unitsProduced > 0",
+      "inventoryHoldingCostRate >= 0 and inventoryHoldingCostRate <= 1",
+      "averageInventoryValue >= 0",
+      "dataConfidence >= 0 and dataConfidence <= 1"
+    ],
+    "thresholds": {
+      "defectRate": "0.05"
+    }
+  },
+  "formulas": {
+    "grossProfit": "revenue - costOfGoodsSold",
+    "operatingProfit": "grossProfit - operatingExpenses",
+    "defectCost": "defectRate * unitsProduced * reworkCostPerUnit",
+    "inventoryHoldingCost": "inventoryHoldingCostRate * averageInventoryValue",
+    "totalErosion": "defectCost + inventoryHoldingCost",
+    "erosionRatio": "totalErosion / revenue",
+    "adjustedProfit": "operatingProfit - totalErosion",
+    "dataConfidenceAdjusted": "adjustedProfit * dataConfidence"
+  },
+  "outputs": {
+    "primary": "adjustedProfit",
+    "breakdown": {
+      "grossProfit": "grossProfit",
+      "operatingProfit": "operatingProfit",
+      "defectCost": "defectCost",
+      "inventoryHoldingCost": "inventoryHoldingCost",
+      "totalErosion": "totalErosion",
+      "erosionRatio": "erosionRatio"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 0.05 ? 'High defect rate causing significant rework cost' : ''",
+      "inventoryHoldingCostRate > 0.3 ? 'Excessive inventory holding cost rate' : ''"
+    ],
+    "suggestedActions": [
+      "defectRate > 0.05 ? 'Implement Six Sigma DMAIC to reduce defect rate' : ''",
+      "inventoryHoldingCostRate > 0.3 ? 'Review inventory management; consider JIT or lean practices' : ''",
+      "erosionRatio > 0.1 ? 'Conduct value stream mapping to identify waste' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

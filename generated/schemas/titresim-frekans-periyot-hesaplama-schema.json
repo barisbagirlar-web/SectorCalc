@@ -1,0 +1,78 @@
+{
+  "toolName": "titresim-frekans-periyot-hesaplama",
+  "inputs": [
+    {
+      "id": "frequency",
+      "label": "Titreşim Frekansı",
+      "type": "number",
+      "unit": "Hz",
+      "default": 50,
+      "min": 0.1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Titreşim frekansı, bir sistemin birim zamandaki titreşim sayısıdır. ISO 10816 standardına göre makine titreşim değerlendirmesinde kullanılır."
+    },
+    {
+      "id": "period",
+      "label": "Periyot",
+      "type": "number",
+      "unit": "s",
+      "default": 0.02,
+      "min": 0.0001,
+      "max": 10,
+      "options": null,
+      "businessContext": "Periyot, bir tam titreşim için geçen süredir. Frekans ile ters orantılıdır. ISO 2041 standardında tanımlanmıştır."
+    },
+    {
+      "id": "calculationMode",
+      "label": "Hesaplama Modu",
+      "type": "select",
+      "unit": "",
+      "default": "frequencyFromPeriod",
+      "min": null,
+      "max": null,
+      "options": [
+        "frequencyFromPeriod",
+        "periodFromFrequency"
+      ],
+      "businessContext": "Kullanıcının hangi parametreyi girdiğine bağlı olarak diğerini hesaplar. Endüstriyel uygulamalarda genellikle frekans bilinir, periyot hesaplanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "if calculationMode == 'frequencyFromPeriod' then period > 0",
+      "if calculationMode == 'periodFromFrequency' then frequency > 0"
+    ],
+    "thresholds": {
+      "frequencyHigh": "frequency > 1000 -> 'Yüksek frekans, rezonans riski olabilir'",
+      "periodHigh": "period > 1 -> 'Uzun periyot, düşük frekanslı sistem'"
+    }
+  },
+  "formulas": {
+    "frequencyFromPeriod": "frequency = 1 / period",
+    "periodFromFrequency": "period = 1 / frequency"
+  },
+  "outputs": {
+    "primary": "Hesaplanan değer (frekans veya periyot)",
+    "breakdown": {
+      "frequency": "frekans (Hz)",
+      "period": "periyot (s)"
+    },
+    "hiddenLossDrivers": [
+      "frequency > 1000 ? 'Yüksek frekans, rezonans riski olabilir' : null",
+      "period > 1 ? 'Uzun periyot, düşük frekanslı sistem' : null"
+    ],
+    "suggestedActions": [
+      "Rezonans riski varsa titreşim izolasyonu önerilir",
+      "Düşük frekanslı sistemlerde yapısal bütünlük kontrol edilmelidir"
+    ],
+    "dataConfidenceAdjusted": "Veri güveni girdisi olmadığından uygulanmaz"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

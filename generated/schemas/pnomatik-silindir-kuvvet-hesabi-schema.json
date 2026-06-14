@@ -1,0 +1,104 @@
+{
+  "toolName": "pnomatik-silindir-kuvvet-hesabi",
+  "inputs": [
+    {
+      "id": "pistonCapi",
+      "label": "Piston Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 50,
+      "min": 10,
+      "max": 500,
+      "options": null,
+      "businessContext": "Piston çapı, silindirin kuvvet üretiminde temel parametredir. ISO 15552 standardına göre standart çaplar kullanılır."
+    },
+    {
+      "id": "pistonKoluCapi",
+      "label": "Piston Kolu Çapı",
+      "type": "number",
+      "unit": "mm",
+      "default": 20,
+      "min": 5,
+      "max": 200,
+      "options": null,
+      "businessContext": "Piston kolu çapı, özellikle geri dönüş kuvveti hesaplamalarında kullanılır. ISO 15552 standardına göre belirlenir."
+    },
+    {
+      "id": "calismaBasinci",
+      "label": "Çalışma Basıncı",
+      "type": "number",
+      "unit": "bar",
+      "default": 6,
+      "min": 1,
+      "max": 16,
+      "options": null,
+      "businessContext": "Pnömatik sistemlerde tipik çalışma basıncı 6 bar'dır. ISO 8573-1 standardına göre basınç değerleri belirlenir."
+    },
+    {
+      "id": "verim",
+      "label": "Verim",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Silindirin mekanik verimi, sürtünme ve sızdırmazlık kayıplarını hesaba katar. Tipik değer %90'dır."
+    },
+    {
+      "id": "yon",
+      "label": "Hareket Yönü",
+      "type": "select",
+      "unit": "",
+      "default": "ileri",
+      "min": null,
+      "max": null,
+      "options": [
+        "ileri",
+        "geri"
+      ],
+      "businessContext": "İleri hareket, piston çapına bağlı kuvvet; geri hareket, piston kolu çapı düşülerek hesaplanır."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "pistonKoluCapi < pistonCapi",
+      "calismaBasinci >= 1 && calismaBasinci <= 16",
+      "verim >= 50 && verim <= 100"
+    ],
+    "thresholds": {
+      "kuvvet < 100": "Düşük kuvvet, silindir seçimi gözden geçirilmeli",
+      "kuvvet > 10000": "Yüksek kuvvet, yapısal dayanım kontrol edilmeli"
+    }
+  },
+  "formulas": {
+    "alanPiston": "Math.PI * (pistonCapi/2)^2",
+    "alanPistonKolu": "Math.PI * (pistonKoluCapi/2)^2",
+    "alanEtkin": "yon === 'ileri' ? alanPiston : alanPiston - alanPistonKolu",
+    "kuvvetN": "calismaBasinci * 1e5 * alanEtkin * 1e-6 * (verim/100)",
+    "kuvvetKgf": "kuvvetN / 9.80665"
+  },
+  "outputs": {
+    "primary": "kuvvetKgf",
+    "breakdown": {
+      "kuvvetN": "kuvvetN",
+      "alanEtkin_cm2": "alanEtkin * 1e-2",
+      "verim": "verim"
+    },
+    "hiddenLossDrivers": [
+      "verim < 80 ? 'Düşük verim, sızdırmazlık elemanları kontrol edilmeli' : ''"
+    ],
+    "suggestedActions": [
+      "kuvvet < 100 ? 'Daha büyük çaplı silindir seçin' : ''",
+      "kuvvet > 10000 ? 'Yapısal analiz yapın' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidence ? kuvvetKgf * (dataConfidence/100) : kuvvetKgf"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Silindir karşılaştırma"
+  ],
+  "premiumRequired": true
+}

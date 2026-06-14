@@ -1,0 +1,104 @@
+{
+  "toolName": "vida-somun-adim-dis-ustu-cap-hesabi",
+  "inputs": [
+    {
+      "id": "nominalDiameter",
+      "label": "Nominal Diameter (d)",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "options": null,
+      "businessContext": "ISO 68-1 standardına göre vida dişinin nominal çapı. Vida ve somun boyutlandırmasında temel parametre."
+    },
+    {
+      "id": "pitch",
+      "label": "Pitch (P)",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "min": 0.25,
+      "max": 6,
+      "options": null,
+      "businessContext": "ISO 261 standardına göre diş adımı. Metrik vidalarda standart adım değerleri kullanılır."
+    },
+    {
+      "id": "threadClass",
+      "label": "Thread Class",
+      "type": "select",
+      "unit": "",
+      "default": "6g",
+      "min": null,
+      "max": null,
+      "options": [
+        "4g",
+        "6g",
+        "6e",
+        "6h",
+        "8g"
+      ],
+      "businessContext": "ISO 965-1 standardına göre diş tolerans sınıfı. Geçme ve sıkma özelliklerini belirler."
+    },
+    {
+      "id": "threadType",
+      "label": "Thread Type",
+      "type": "select",
+      "unit": "",
+      "default": "metric",
+      "min": null,
+      "max": null,
+      "options": [
+        "metric",
+        "unified",
+        "whitworth"
+      ],
+      "businessContext": "Diş profili standardı. Metrik (ISO), Unified (UN) veya Whitworth (BSW) olabilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "pitch must be less than nominalDiameter",
+      "if threadType='metric' then pitch must be a standard metric pitch (0.25,0.5,0.75,1,1.25,1.5,2,2.5,3,4,5,6)",
+      "if threadType='unified' then pitch must be in inches (converted to mm)"
+    ],
+    "thresholds": {
+      "pitchToDiameterRatio": "if pitch/nominalDiameter > 0.2 then 'High pitch ratio: possible thread strength issue'"
+    }
+  },
+  "formulas": {
+    "majorDiameter": "nominalDiameter",
+    "pitchDiameter": "nominalDiameter - 0.6495 * pitch",
+    "minorDiameter": "nominalDiameter - 1.0825 * pitch",
+    "threadHeight": "0.5413 * pitch",
+    "rootRadius": "0.1443 * pitch",
+    "crestFlat": "0.125 * pitch",
+    "rootFlat": "0.25 * pitch"
+  },
+  "outputs": {
+    "primary": "pitchDiameter",
+    "breakdown": {
+      "majorDiameter": "nominalDiameter",
+      "minorDiameter": "nominalDiameter - 1.0825 * pitch",
+      "threadHeight": "0.5413 * pitch",
+      "rootRadius": "0.1443 * pitch",
+      "crestFlat": "0.125 * pitch",
+      "rootFlat": "0.25 * pitch"
+    },
+    "hiddenLossDrivers": [
+      "if pitch/nominalDiameter > 0.2 then 'High pitch ratio: possible thread strength issue'"
+    ],
+    "suggestedActions": [
+      "Verify thread class tolerance for fit requirements",
+      "Check standard pitch values for selected nominal diameter"
+    ],
+    "dataConfidenceAdjusted": "pitchDiameter"
+  },
+  "premiumFeatures": [
+    "PDF export of thread dimensions",
+    "CSV export of calculation results",
+    "Trend analysis of thread dimensions over multiple inputs",
+    "Comparison with standard thread tables"
+  ],
+  "premiumRequired": false
+}

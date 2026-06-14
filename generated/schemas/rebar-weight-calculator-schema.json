@@ -1,0 +1,106 @@
+{
+  "toolName": "rebar-weight-calculator",
+  "inputs": [
+    {
+      "id": "diameter",
+      "label": "Rebar Diameter",
+      "type": "number",
+      "unit": "mm",
+      "default": 12,
+      "min": 6,
+      "max": 50,
+      "options": null,
+      "businessContext": "Standard rebar diameters per ASTM A615/A615M. Common sizes: 6, 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 32, 36, 40, 50 mm."
+    },
+    {
+      "id": "length",
+      "label": "Rebar Length",
+      "type": "number",
+      "unit": "m",
+      "default": 12,
+      "min": 0.1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Length of rebar piece. Typical stock lengths: 6m, 12m, 18m. User can input custom length."
+    },
+    {
+      "id": "quantity",
+      "label": "Number of Rebars",
+      "type": "number",
+      "unit": "pieces",
+      "default": 1,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Total number of identical rebars to calculate total weight."
+    },
+    {
+      "id": "steelDensity",
+      "label": "Steel Density",
+      "type": "number",
+      "unit": "kg/m³",
+      "default": 7850,
+      "min": 7800,
+      "max": 7900,
+      "options": null,
+      "businessContext": "Density of steel. Standard value 7850 kg/m³ per ASTM A36. Variations for different steel grades."
+    },
+    {
+      "id": "unitSystem",
+      "label": "Unit System",
+      "type": "select",
+      "unit": "",
+      "default": "metric",
+      "min": null,
+      "max": null,
+      "options": [
+        "metric",
+        "imperial"
+      ],
+      "businessContext": "Select unit system. Metric uses mm, m, kg. Imperial uses inch, ft, lb. Conversion factors applied."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "diameter must be between 6 and 50 mm",
+      "length must be positive and ≤ 100 m",
+      "quantity must be positive integer",
+      "steelDensity must be between 7800 and 7900 kg/m³"
+    ],
+    "thresholds": {
+      "diameter": "diameter < 10 → 'Small diameter rebar, check structural requirements'",
+      "quantity": "quantity > 1000 → 'Large order, consider bulk pricing'"
+    }
+  },
+  "formulas": {
+    "crossSectionalArea": "PI * (diameter/2000)^2",
+    "weightPerMeter": "crossSectionalArea * steelDensity",
+    "totalWeight": "weightPerMeter * length * quantity"
+  },
+  "outputs": {
+    "primary": "totalWeight",
+    "breakdown": {
+      "crossSectionalArea": "crossSectionalArea",
+      "weightPerMeter": "weightPerMeter",
+      "totalWeight": "totalWeight"
+    },
+    "hiddenLossDrivers": [
+      "diameter < 10 → 'Small diameter rebar, check structural requirements'",
+      "quantity > 1000 → 'Large order, consider bulk pricing'"
+    ],
+    "suggestedActions": [
+      "Verify rebar grade and density with supplier",
+      "Consider using standard lengths to minimize waste",
+      "For large quantities, request volume discount"
+    ],
+    "dataConfidenceAdjusted": "totalWeight * (1 - 0.02) // assuming 2% uncertainty in density"
+  },
+  "premiumFeatures": [
+    "PDF export of calculation report",
+    "CSV export of multiple calculations",
+    "Trend analysis of weight vs diameter",
+    "Comparison of different rebar sizes",
+    "Detailed report with material cost estimation"
+  ],
+  "premiumRequired": true
+}

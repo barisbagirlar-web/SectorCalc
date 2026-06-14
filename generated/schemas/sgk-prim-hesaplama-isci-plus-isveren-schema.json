@@ -1,0 +1,138 @@
+{
+  "toolName": "sgk-prim-hesaplama-isci-plus-isveren",
+  "inputs": [
+    {
+      "id": "brutUcret",
+      "label": "Brüt Ücret (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Çalışanın brüt maaşı. SGK prim hesaplamalarında esas alınan tutar. 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu'na göre belirlenir."
+    },
+    {
+      "id": "isciPrimOrani",
+      "label": "İşçi SGK Primi Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 14,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "İşçi payı SGK primi oranı. 5510 sayılı Kanun'un 81. maddesi uyarınca %14 olarak belirlenmiştir. İşveren tarafından kesilir."
+    },
+    {
+      "id": "isverenPrimOrani",
+      "label": "İşveren SGK Primi Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20.5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "İşveren payı SGK primi oranı. 5510 sayılı Kanun'un 81. maddesi uyarınca %20.5 olarak belirlenmiştir. İşveren tarafından ödenir."
+    },
+    {
+      "id": "isverenISSizlikOrani",
+      "label": "İşveren İşsizlik Sigortası Primi Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "İşveren payı işsizlik sigortası primi oranı. 4447 sayılı Kanun uyarınca %2'dir."
+    },
+    {
+      "id": "isciISSizlikOrani",
+      "label": "İşçi İşsizlik Sigortası Primi Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "İşçi payı işsizlik sigortası primi oranı. 4447 sayılı Kanun uyarınca %1'dir."
+    },
+    {
+      "id": "asgariUcret",
+      "label": "Asgari Ücret (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 17002,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yürürlükteki brüt asgari ücret tutarı. SGK tavan ve taban hesaplamalarında kullanılır. 2024 yılı için 17.002 TL."
+    },
+    {
+      "id": "sgkTavanKatSayi",
+      "label": "SGK Tavan Katsayısı",
+      "type": "number",
+      "unit": "",
+      "default": 7.5,
+      "min": 1,
+      "max": 10,
+      "options": null,
+      "businessContext": "SGK primine esas kazanç tavanı, asgari ücretin bu katsayı ile çarpımıyla bulunur. 5510 sayılı Kanun'a göre 7.5'tir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "brutUcret >= 0",
+      "isciPrimOrani >= 0 && isciPrimOrani <= 100",
+      "isverenPrimOrani >= 0 && isverenPrimOrani <= 100",
+      "isverenISSizlikOrani >= 0 && isverenISSizlikOrani <= 100",
+      "isciISSizlikOrani >= 0 && isciISSizlikOrani <= 100",
+      "asgariUcret > 0",
+      "sgkTavanKatSayi >= 1"
+    ],
+    "thresholds": {
+      "brutUcret > asgariUcret * sgkTavanKatSayi": "Brüt ücret SGK tavanını aşıyor, prim tavan üzerinden hesaplanacak.",
+      "brutUcret < asgariUcret": "Brüt ücret asgari ücretin altında, prim asgari ücret üzerinden hesaplanacak."
+    }
+  },
+  "formulas": {
+    "sgkTaban": "asgariUcret",
+    "sgkTavan": "asgariUcret * sgkTavanKatSayi",
+    "primMatrah": "brutUcret < sgkTaban ? sgkTaban : (brutUcret > sgkTavan ? sgkTavan : brutUcret)",
+    "isciSGKPrimi": "primMatrah * isciPrimOrani / 100",
+    "isverenSGKPrimi": "primMatrah * isverenPrimOrani / 100",
+    "isciISSizlikPrimi": "primMatrah * isciISSizlikOrani / 100",
+    "isverenISSizlikPrimi": "primMatrah * isverenISSizlikOrani / 100",
+    "toplamIsciKesintisi": "isciSGKPrimi + isciISSizlikPrimi",
+    "toplamIsverenMaliyeti": "isverenSGKPrimi + isverenISSizlikPrimi",
+    "genelToplamPrim": "toplamIsciKesintisi + toplamIsverenMaliyeti"
+  },
+  "outputs": {
+    "primary": "genelToplamPrim",
+    "breakdown": {
+      "isciSGKPrimi": "isciSGKPrimi",
+      "isverenSGKPrimi": "isverenSGKPrimi",
+      "isciISSizlikPrimi": "isciISSizlikPrimi",
+      "isverenISSizlikPrimi": "isverenISSizlikPrimi",
+      "toplamIsciKesintisi": "toplamIsciKesintisi",
+      "toplamIsverenMaliyeti": "toplamIsverenMaliyeti"
+    },
+    "hiddenLossDrivers": [
+      "brutUcret > asgariUcret * sgkTavanKatSayi ? 'Brüt ücret tavanı aştığı için prim matrahı tavana çekildi.' : ''",
+      "brutUcret < asgariUcret ? 'Brüt ücret asgari ücretin altında olduğu için prim matrahı asgari ücrete yükseltildi.' : ''"
+    ],
+    "suggestedActions": [
+      "Brüt ücreti asgari ücretin altında belirlemekten kaçının.",
+      "SGK tavanını aşan ücretlerde ek fayda planlaması yapın.",
+      "İşveren prim oranlarını düzenli olarak kontrol edin."
+    ],
+    "dataConfidenceAdjusted": "genelToplamPrim"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma (farklı ücret senaryoları)",
+    "Detaylı rapor (kesinti dökümü)"
+  ],
+  "premiumRequired": true
+}

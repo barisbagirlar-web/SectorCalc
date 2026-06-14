@@ -1,0 +1,124 @@
+{
+  "toolName": "fuel-emission-calculator",
+  "inputs": [
+    {
+      "id": "fuelType",
+      "label": "Fuel Type",
+      "type": "select",
+      "unit": "",
+      "default": "diesel",
+      "min": null,
+      "max": null,
+      "options": [
+        "diesel",
+        "gasoline",
+        "natural_gas",
+        "lpg",
+        "biomass"
+      ],
+      "businessContext": "Fuel type determines emission factors per ISO 14064 and IPCC guidelines."
+    },
+    {
+      "id": "fuelConsumption",
+      "label": "Fuel Consumption",
+      "type": "number",
+      "unit": "L",
+      "default": 100,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total fuel consumed in liters. Source: operational records."
+    },
+    {
+      "id": "emissionFactor",
+      "label": "Emission Factor",
+      "type": "number",
+      "unit": "kg CO2e/L",
+      "default": 2.68,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "CO2 equivalent per liter. Default for diesel per IPCC 2006. For other fuels, user can override."
+    },
+    {
+      "id": "operatingHours",
+      "label": "Operating Hours",
+      "type": "number",
+      "unit": "hours",
+      "default": 8,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Hours of operation per day. Used for time-based calculations."
+    },
+    {
+      "id": "daysPerYear",
+      "label": "Days per Year",
+      "type": "number",
+      "unit": "days",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Annual operating days. Standard industrial assumption."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in input data. Affects adjustment factor per ISO 14064 uncertainty guidance."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "fuelConsumption >= 0",
+      "emissionFactor >= 0",
+      "operatingHours >= 0",
+      "daysPerYear >= 1 && daysPerYear <= 365"
+    ],
+    "thresholds": {
+      "fuelConsumption": "If fuelConsumption > 10000, warning: 'High fuel consumption detected, consider efficiency audit.'",
+      "emissionFactor": "If emissionFactor > 3.0, warning: 'Emission factor unusually high, verify fuel type.'"
+    }
+  },
+  "formulas": {
+    "dailyEmissions": "fuelConsumption * emissionFactor",
+    "annualEmissions": "dailyEmissions * daysPerYear",
+    "emissionsPerHour": "dailyEmissions / operatingHours",
+    "dataConfidenceAdjusted": "annualEmissions * (dataConfidence === 'low' ? 1.2 : dataConfidence === 'medium' ? 1.0 : 0.9)"
+  },
+  "outputs": {
+    "primary": "annualEmissions",
+    "breakdown": {
+      "dailyEmissions": "dailyEmissions",
+      "emissionsPerHour": "emissionsPerHour",
+      "annualEmissions": "annualEmissions"
+    },
+    "hiddenLossDrivers": [
+      "If fuelConsumption > 10000: 'High fuel consumption'",
+      "If emissionFactor > 3.0: 'Unusual emission factor'"
+    ],
+    "suggestedActions": [
+      "Consider switching to lower-emission fuel.",
+      "Implement regular maintenance to improve fuel efficiency.",
+      "Conduct energy audit per ISO 50001."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmarking against industry standards",
+    "Detailed report with breakdowns"
+  ],
+  "premiumRequired": true
+}

@@ -2,7 +2,7 @@ import type { Tool } from "@/data/tools";
 import { ToolTile } from "@/components/cards/ToolTile";
 
 interface ToolsTileGridProps {
- tools: Tool[];
+ tools: readonly Tool[];
  onDark?: boolean;
  className?: string;
 }

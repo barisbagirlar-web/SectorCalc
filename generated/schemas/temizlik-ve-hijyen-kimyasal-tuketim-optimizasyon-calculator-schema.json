@@ -1,0 +1,196 @@
+{
+  "toolName": "temizlik-ve-hijyen-kimyasal-tuketim-optimizasyon-calculator",
+  "inputs": [
+    {
+      "id": "alanMetrekare",
+      "label": "Temizlenecek Alan (m²)",
+      "type": "number",
+      "unit": "m²",
+      "default": 1000,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Temizlik yapılacak toplam alan. ISO 9001 kalite yönetim sistemlerinde alan bazlı temizlik planlaması için kullanılır."
+    },
+    {
+      "id": "temizlikSikligi",
+      "label": "Temizlik Sıklığı (günde kaç kez)",
+      "type": "number",
+      "unit": "kez/gün",
+      "default": 2,
+      "min": 1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Günlük temizlik sayısı. Hijyen standartlarına göre belirlenir (örneğin gıda sektöründe sık temizlik gerekir)."
+    },
+    {
+      "id": "kimyasalDozaj",
+      "label": "Kimyasal Dozaj (ml/m²)",
+      "type": "number",
+      "unit": "ml/m²",
+      "default": 5,
+      "min": 0.1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Metrekare başına kullanılan kimyasal miktarı. Üretici talimatları ve ISO 14000 çevre yönetimi prensiplerine göre optimize edilir."
+    },
+    {
+      "id": "kimyasalBirimFiyat",
+      "label": "Kimyasal Birim Fiyatı (TL/litre)",
+      "type": "number",
+      "unit": "TL/litre",
+      "default": 50,
+      "min": 0.01,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Kimyasalın litre başına maliyeti. Tedarikçi fiyatları ve bütçe planlaması için kullanılır."
+    },
+    {
+      "id": "iscilikSaatlikUcret",
+      "label": "İşçilik Saatlik Ücreti (TL/saat)",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 30,
+      "min": 0,
+      "max": 500,
+      "options": null,
+      "businessContext": "Temizlik personelinin saatlik maliyeti. İş gücü maliyet analizi için kullanılır."
+    },
+    {
+      "id": "temizlikSuresiMetrekareBasi",
+      "label": "Temizlik Süresi (dakika/m²)",
+      "type": "number",
+      "unit": "dakika/m²",
+      "default": 0.5,
+      "min": 0.01,
+      "max": 10,
+      "options": null,
+      "businessContext": "Metrekare başına harcanan temizlik süresi. Endüstri mühendisliği zaman etüdü prensiplerine dayanır."
+    },
+    {
+      "id": "calismaGunuAy",
+      "label": "Aylık Çalışma Günü",
+      "type": "number",
+      "unit": "gün/ay",
+      "default": 30,
+      "min": 1,
+      "max": 31,
+      "options": null,
+      "businessContext": "Aylık temizlik yapılan gün sayısı. Operasyonel takvime göre belirlenir."
+    },
+    {
+      "id": "atikBertarafMaliyeti",
+      "label": "Atık Bertaraf Maliyeti (TL/kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Kimyasal atıkların bertaraf maliyeti. Çevre mevzuatı ve ISO 14000 standartları kapsamında değerlendirilir."
+    },
+    {
+      "id": "kimyasalYogunluk",
+      "label": "Kimyasal Yoğunluk (kg/litre)",
+      "type": "number",
+      "unit": "kg/litre",
+      "default": 1,
+      "min": 0.5,
+      "max": 2,
+      "options": null,
+      "businessContext": "Kimyasalın yoğunluğu. Hacim-ağırlık dönüşümü için kullanılır."
+    },
+    {
+      "id": "optimizasyonHedefi",
+      "label": "Optimizasyon Hedefi",
+      "type": "select",
+      "unit": "",
+      "default": "maliyet",
+      "min": null,
+      "max": null,
+      "options": [
+        "maliyet",
+        "cevreselEtki",
+        "denge"
+      ],
+      "businessContext": "Optimizasyonun odak noktası. Maliyet minimizasyonu, çevresel etki azaltımı veya ikisi arasında denge."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "alanMetrekare > 0",
+      "temizlikSikligi >= 1",
+      "kimyasalDozaj > 0",
+      "kimyasalBirimFiyat > 0",
+      "iscilikSaatlikUcret >= 0",
+      "temizlikSuresiMetrekareBasi > 0",
+      "calismaGunuAy >= 1 && calismaGunuAy <= 31",
+      "atikBertarafMaliyeti >= 0",
+      "kimyasalYogunluk > 0",
+      "optimizasyonHedefi == 'maliyet' || optimizasyonHedefi == 'cevreselEtki' || optimizasyonHedefi == 'denge'"
+    ],
+    "thresholds": {
+      "kimyasalDozaj > 10": "Yüksek kimyasal dozajı: çevresel etki ve maliyet artışı riski",
+      "temizlikSuresiMetrekareBasi > 2": "Düşük verimlilik: temizlik süresi çok uzun",
+      "iscilikSaatlikUcret > 100": "Yüksek işçilik maliyeti"
+    }
+  },
+  "formulas": {
+    "gunlukKimyasalHacim": "alanMetrekare * temizlikSikligi * kimyasalDozaj / 1000",
+    "aylikKimyasalHacim": "gunlukKimyasalHacim * calismaGunuAy",
+    "aylikKimyasalMaliyet": "aylikKimyasalHacim * kimyasalBirimFiyat",
+    "gunlukTemizlikSuresiSaat": "alanMetrekare * temizlikSuresiMetrekareBasi / 60",
+    "aylikTemizlikSuresiSaat": "gunlukTemizlikSuresiSaat * calismaGunuAy",
+    "aylikIscilikMaliyeti": "aylikTemizlikSuresiSaat * iscilikSaatlikUcret",
+    "aylikAtikMiktariKg": "aylikKimyasalHacim * kimyasalYogunluk * 0.1",
+    "aylikAtikMaliyeti": "aylikAtikMiktariKg * atikBertarafMaliyeti",
+    "aylikToplamMaliyet": "aylikKimyasalMaliyet + aylikIscilikMaliyeti + aylikAtikMaliyeti",
+    "cevreselEtkiPuani": "aylikKimyasalHacim * 0.5 + aylikAtikMiktariKg * 0.3",
+    "optimizeEdilmisDozaj": "optimizasyonHedefi == 'maliyet' ? kimyasalDozaj * 0.9 : (optimizasyonHedefi == 'cevreselEtki' ? kimyasalDozaj * 0.8 : kimyasalDozaj * 0.85)",
+    "optimizeEdilmisAylikKimyasalHacim": "alanMetrekare * temizlikSikligi * optimizeEdilmisDozaj / 1000 * calismaGunuAy",
+    "optimizeEdilmisAylikKimyasalMaliyet": "optimizeEdilmisAylikKimyasalHacim * kimyasalBirimFiyat",
+    "optimizeEdilmisAylikAtikMiktariKg": "optimizeEdilmisAylikKimyasalHacim * kimyasalYogunluk * 0.1",
+    "optimizeEdilmisAylikAtikMaliyeti": "optimizeEdilmisAylikAtikMiktariKg * atikBertarafMaliyeti",
+    "optimizeEdilmisAylikToplamMaliyet": "optimizeEdilmisAylikKimyasalMaliyet + aylikIscilikMaliyeti + optimizeEdilmisAylikAtikMaliyeti",
+    "tasarrufOrani": "(aylikToplamMaliyet - optimizeEdilmisAylikToplamMaliyet) / aylikToplamMaliyet * 100"
+  },
+  "outputs": {
+    "primary": "optimizeEdilmisAylikToplamMaliyet",
+    "breakdown": {
+      "mevcutDurum": {
+        "aylikKimyasalMaliyet": "aylikKimyasalMaliyet",
+        "aylikIscilikMaliyeti": "aylikIscilikMaliyeti",
+        "aylikAtikMaliyeti": "aylikAtikMaliyeti",
+        "aylikToplamMaliyet": "aylikToplamMaliyet"
+      },
+      "optimizeEdilmis": {
+        "aylikKimyasalMaliyet": "optimizeEdilmisAylikKimyasalMaliyet",
+        "aylikIscilikMaliyeti": "aylikIscilikMaliyeti",
+        "aylikAtikMaliyeti": "optimizeEdilmisAylikAtikMaliyeti",
+        "aylikToplamMaliyet": "optimizeEdilmisAylikToplamMaliyet"
+      },
+      "tasarrufOrani": "tasarrufOrani",
+      "cevreselEtkiPuani": "cevreselEtkiPuani"
+    },
+    "hiddenLossDrivers": [
+      "kimyasalDozaj > 10 ? 'Yüksek kimyasal dozajı' : ''",
+      "temizlikSuresiMetrekareBasi > 2 ? 'Düşük verimlilik' : ''",
+      "iscilikSaatlikUcret > 100 ? 'Yüksek işçilik maliyeti' : ''"
+    ],
+    "suggestedActions": [
+      "Kimyasal dozajını optimize ederek maliyet ve çevresel etkiyi azaltın.",
+      "Temizlik süresini iyileştirmek için süreç iyileştirme çalışmaları yapın.",
+      "İşçilik maliyetlerini düşürmek için vardiya planlamasını gözden geçirin.",
+      "Atık bertaraf maliyetlerini azaltmak için geri dönüşüm seçeneklerini değerlendirin."
+    ],
+    "dataConfidenceAdjusted": "optimizeEdilmisAylikToplamMaliyet * 1.1"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma (farklı senaryolar)",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

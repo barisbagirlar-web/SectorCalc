@@ -1,0 +1,212 @@
+{
+  "toolName": "renovation-budget-optimizer",
+  "inputs": [
+    {
+      "id": "totalArea",
+      "label": "Total Renovation Area",
+      "type": "number",
+      "unit": "m²",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Total area to be renovated in square meters. Based on industry standards for construction cost estimation (e.g., RICS New Rules of Measurement)."
+    },
+    {
+      "id": "unitCost",
+      "label": "Unit Cost per m²",
+      "type": "number",
+      "unit": "USD/m²",
+      "default": 500,
+      "min": 10,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Average cost per square meter for renovation, including materials and labor. Derived from local construction cost databases (e.g., RSMeans)."
+    },
+    {
+      "id": "laborCostPercentage",
+      "label": "Labor Cost Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "min": 10,
+      "max": 70,
+      "options": null,
+      "businessContext": "Percentage of total cost allocated to labor. Typical range from industry benchmarks (e.g., 30-50% for renovation projects)."
+    },
+    {
+      "id": "materialCostPercentage",
+      "label": "Material Cost Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 50,
+      "min": 20,
+      "max": 80,
+      "options": null,
+      "businessContext": "Percentage of total cost allocated to materials. Complement of labor and overhead percentages."
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 30,
+      "options": null,
+      "businessContext": "Percentage for overhead costs (permits, insurance, management). Based on typical construction overhead rates."
+    },
+    {
+      "id": "contingencyPercentage",
+      "label": "Contingency Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Contingency reserve for unforeseen costs. Recommended 10-20% per project management standards (PMBOK)."
+    },
+    {
+      "id": "projectDurationMonths",
+      "label": "Project Duration",
+      "type": "number",
+      "unit": "months",
+      "default": 6,
+      "min": 1,
+      "max": 60,
+      "options": null,
+      "businessContext": "Expected duration of renovation project in months. Affects financing costs and escalation."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Annual Inflation Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Expected annual inflation rate for construction costs. Based on economic forecasts (e.g., World Bank)."
+    },
+    {
+      "id": "financingRate",
+      "label": "Annual Financing Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Annual interest rate for project financing. Based on current market rates (e.g., LIBOR + spread)."
+    },
+    {
+      "id": "energySavingsPerYear",
+      "label": "Annual Energy Savings",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 2000,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Expected annual energy cost savings after renovation. Based on energy audit (ISO 50001)."
+    },
+    {
+      "id": "maintenanceSavingsPerYear",
+      "label": "Annual Maintenance Savings",
+      "type": "number",
+      "unit": "USD/year",
+      "default": 1000,
+      "min": 0,
+      "max": 50000,
+      "options": null,
+      "businessContext": "Expected annual maintenance cost savings after renovation. Based on historical data."
+    },
+    {
+      "id": "propertyValueIncrease",
+      "label": "Property Value Increase",
+      "type": "number",
+      "unit": "USD",
+      "default": 50000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Expected increase in property value after renovation. Based on real estate appraisal standards."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level of input data. Affects risk adjustment. Low = 0.8, Medium = 0.9, High = 1.0 multiplier."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "laborCostPercentage + materialCostPercentage + overheadPercentage must equal 100",
+      "if dataConfidence == 'low' then contingencyPercentage >= 20",
+      "projectDurationMonths must be positive integer"
+    ],
+    "thresholds": {
+      "contingencyPercentage > 20": "High contingency indicates high risk; consider detailed risk assessment.",
+      "financingRate > 10": "Financing cost is high; explore alternative funding.",
+      "energySavingsPerYear < 1000": "Energy savings too low; verify energy audit."
+    }
+  },
+  "formulas": {
+    "baseCost": "totalArea * unitCost",
+    "laborCost": "baseCost * (laborCostPercentage / 100)",
+    "materialCost": "baseCost * (materialCostPercentage / 100)",
+    "overheadCost": "baseCost * (overheadPercentage / 100)",
+    "contingencyCost": "baseCost * (contingencyPercentage / 100)",
+    "totalDirectCost": "laborCost + materialCost + overheadCost + contingencyCost",
+    "inflationFactor": "(1 + inflationRate / 100) ** (projectDurationMonths / 12)",
+    "financingCost": "totalDirectCost * (financingRate / 100) * (projectDurationMonths / 12)",
+    "totalBudget": "totalDirectCost * inflationFactor + financingCost",
+    "annualSavings": "energySavingsPerYear + maintenanceSavingsPerYear",
+    "paybackPeriod": "totalBudget / annualSavings",
+    "roi": "((propertyValueIncrease + annualSavings * 10) - totalBudget) / totalBudget * 100",
+    "dataConfidenceAdjusted": "totalBudget * (dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.1 : 1.0))"
+  },
+  "outputs": {
+    "primary": "totalBudget",
+    "breakdown": {
+      "baseCost": "baseCost",
+      "laborCost": "laborCost",
+      "materialCost": "materialCost",
+      "overheadCost": "overheadCost",
+      "contingencyCost": "contingencyCost",
+      "financingCost": "financingCost",
+      "annualSavings": "annualSavings",
+      "paybackPeriod": "paybackPeriod",
+      "roi": "roi"
+    },
+    "hiddenLossDrivers": [
+      "contingencyPercentage > 20 ? 'High contingency' : ''",
+      "financingRate > 10 ? 'High financing rate' : ''",
+      "energySavingsPerYear < 1000 ? 'Low energy savings' : ''"
+    ],
+    "suggestedActions": [
+      "if paybackPeriod > 5 years: Consider phasing renovation to reduce upfront cost.",
+      "if roi < 0: Re-evaluate scope; focus on high-ROI measures.",
+      "if contingencyPercentage > 20: Perform detailed risk analysis."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Scenario Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

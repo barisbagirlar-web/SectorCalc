@@ -1,0 +1,134 @@
+{
+  "toolName": "mtbf-mttr-ve-kullanilabilirlik-finansal-calculator",
+  "inputs": [
+    {
+      "id": "operatingTime",
+      "label": "Operating Time (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 8760,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Total time the system is expected to operate in a year. Typically 8760 hours (365 days * 24 hours). Based on ISO 14224."
+    },
+    {
+      "id": "totalDowntime",
+      "label": "Total Downtime (hours)",
+      "type": "number",
+      "unit": "hours",
+      "default": 100,
+      "min": 0,
+      "max": 8760,
+      "options": null,
+      "businessContext": "Total time the system is not operational due to failures or maintenance. Includes corrective and preventive downtime."
+    },
+    {
+      "id": "numberOfFailures",
+      "label": "Number of Failures",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Total number of failures during the operating time. Used to calculate MTBF."
+    },
+    {
+      "id": "costPerDowntimeHour",
+      "label": "Cost per Downtime Hour ($)",
+      "type": "number",
+      "unit": "$/hour",
+      "default": 1000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Financial loss per hour of downtime, including lost production, labor, and penalties."
+    },
+    {
+      "id": "maintenanceCostPerFailure",
+      "label": "Maintenance Cost per Failure ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 5000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Average cost of repairing a failure, including parts, labor, and logistics."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in the input data quality. Used to adjust results for uncertainty."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "operatingTime must be > 0",
+      "totalDowntime must be >= 0 and <= operatingTime",
+      "numberOfFailures must be >= 0",
+      "costPerDowntimeHour must be >= 0",
+      "maintenanceCostPerFailure must be >= 0",
+      "dataConfidence must be between 0 and 100"
+    ],
+    "thresholds": {
+      "availability": {
+        "critical": 0.9,
+        "warning": 0.95
+      },
+      "mtbf": {
+        "critical": 100,
+        "warning": 500
+      },
+      "mttr": {
+        "critical": 10,
+        "warning": 5
+      }
+    }
+  },
+  "formulas": {
+    "mtbf": "operatingTime / numberOfFailures",
+    "mttr": "totalDowntime / numberOfFailures",
+    "availability": "(operatingTime - totalDowntime) / operatingTime",
+    "totalDowntimeCost": "totalDowntime * costPerDowntimeHour",
+    "totalMaintenanceCost": "numberOfFailures * maintenanceCostPerFailure",
+    "totalCost": "totalDowntimeCost + totalMaintenanceCost",
+    "costPerFailure": "totalCost / numberOfFailures",
+    "dataConfidenceAdjusted": "totalCost * (1 + (100 - dataConfidence) / 100)"
+  },
+  "outputs": {
+    "primary": "totalCost",
+    "breakdown": {
+      "mtbf": "Mean Time Between Failures (hours)",
+      "mttr": "Mean Time To Repair (hours)",
+      "availability": "Availability (ratio)",
+      "totalDowntimeCost": "Total Downtime Cost ($)",
+      "totalMaintenanceCost": "Total Maintenance Cost ($)",
+      "costPerFailure": "Cost per Failure ($)"
+    },
+    "hiddenLossDrivers": [
+      "availability < 0.9: Critical loss of production capacity",
+      "mtbf < 100: Frequent failures indicate poor reliability",
+      "mttr > 10: Long repair times indicate poor maintainability"
+    ],
+    "suggestedActions": [
+      "If availability < 0.9: Implement preventive maintenance program",
+      "If mtbf < 100: Conduct root cause analysis and redesign",
+      "If mttr > 10: Improve spare parts availability and technician training"
+    ],
+    "dataConfidenceAdjusted": "totalCost * (1 + (100 - dataConfidence) / 100)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmarking against industry standards",
+    "Detailed breakdown report with charts"
+  ],
+  "premiumRequired": true
+}

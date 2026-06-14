@@ -1,0 +1,141 @@
+{
+  "toolName": "electrical-panel-rework-cost",
+  "inputs": [
+    {
+      "id": "panelType",
+      "label": "Panel Type",
+      "type": "select",
+      "unit": "",
+      "default": "standard",
+      "min": null,
+      "max": null,
+      "options": [
+        "standard",
+        "custom",
+        "high-voltage"
+      ],
+      "businessContext": "Panel type affects complexity and rework time. Standard panels follow IEC 61439, custom panels may require additional engineering."
+    },
+    {
+      "id": "reworkScope",
+      "label": "Rework Scope",
+      "type": "select",
+      "unit": "",
+      "default": "minor",
+      "min": null,
+      "max": null,
+      "options": [
+        "minor",
+        "moderate",
+        "major"
+      ],
+      "businessContext": "Scope defines extent of rework: minor (wiring fixes), moderate (component replacement), major (full redesign). Based on industry practice."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 50,
+      "min": 15,
+      "max": 150,
+      "businessContext": "Hourly wage for electricians/technicians. Typical range per Bureau of Labor Statistics."
+    },
+    {
+      "id": "numPanels",
+      "label": "Number of Panels",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "min": 1,
+      "max": 1000,
+      "businessContext": "Total panels requiring rework. Batch size affects setup time and learning curve."
+    },
+    {
+      "id": "materialCostPerPanel",
+      "label": "Material Cost per Panel",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "min": 0,
+      "max": 10000,
+      "businessContext": "Cost of replacement components, wires, connectors. Based on supplier quotes and BOM."
+    },
+    {
+      "id": "defectRate",
+      "label": "Defect Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of panels with defects requiring rework. Derived from quality control data (Six Sigma)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence in input data accuracy. Low = ±20% uncertainty, Medium = ±10%, High = ±5%. Used for risk adjustment."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "laborRate must be > 0",
+      "numPanels must be integer >= 1",
+      "materialCostPerPanel must be >= 0",
+      "defectRate must be between 0 and 100",
+      "if reworkScope == 'major' then laborRate >= 40",
+      "if panelType == 'high-voltage' then materialCostPerPanel >= 500"
+    ],
+    "thresholds": {
+      "defectRate > 10": "High defect rate indicates process issues; consider root cause analysis.",
+      "materialCostPerPanel > 1000": "Material cost exceeds typical budget; review sourcing.",
+      "laborRate > 100": "Labor rate is above average; verify market rates."
+    }
+  },
+  "formulas": {
+    "reworkTimePerPanel": "CASE reworkScope WHEN 'minor' THEN 2 WHEN 'moderate' THEN 6 WHEN 'major' THEN 12 ELSE 4 END",
+    "totalLaborHours": "numPanels * reworkTimePerPanel",
+    "totalLaborCost": "totalLaborHours * laborRate",
+    "totalMaterialCost": "numPanels * materialCostPerPanel",
+    "totalReworkCost": "totalLaborCost + totalMaterialCost",
+    "costPerPanel": "totalReworkCost / numPanels",
+    "dataConfidenceAdjustedCost": "totalReworkCost * CASE dataConfidence WHEN 'low' THEN 1.2 WHEN 'medium' THEN 1.0 WHEN 'high' THEN 0.95 ELSE 1.0 END"
+  },
+  "outputs": {
+    "primary": "totalReworkCost",
+    "breakdown": {
+      "totalLaborCost": "totalLaborCost",
+      "totalMaterialCost": "totalMaterialCost",
+      "costPerPanel": "costPerPanel"
+    },
+    "hiddenLossDrivers": [
+      "defectRate > 10 ? 'High defect rate' : ''",
+      "materialCostPerPanel > 1000 ? 'Excessive material cost' : ''",
+      "laborRate > 100 ? 'High labor rate' : ''"
+    ],
+    "suggestedActions": [
+      "defectRate > 10 ? 'Implement root cause analysis and process improvement (Six Sigma DMAIC)' : ''",
+      "materialCostPerPanel > 1000 ? 'Negotiate with suppliers or consider alternative components' : ''",
+      "laborRate > 100 ? 'Review labor efficiency and consider automation' : ''"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Benchmark comparison",
+    "Detailed report with charts"
+  ],
+  "premiumRequired": true
+}

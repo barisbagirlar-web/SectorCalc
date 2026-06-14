@@ -2,8 +2,17 @@
 
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { BreakdownBarChart } from "@/components/tools/BreakdownBarChart";
+import { CarbonFootprintReport } from "@/components/tools/CarbonFootprintReport";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
+import { EOQOptimizer } from "@/components/tools/EOQOptimizer";
+import { GeneratedToolExportActions } from "@/components/tools/GeneratedToolExportActions";
+import { QuoteBuilder } from "@/components/tools/QuoteBuilder";
+import { useSubscription } from "@/hooks/useSubscription";
+import { mapInventoryToolInputsToEOQ } from "@/lib/inventory/eoq-optimizer";
+import {
+  isCarbonFootprintReportTool,
+  mapCarbonToolInputsToReport,
+} from "@/lib/carbon/carbon-footprint-report";
 import {
   resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
@@ -55,8 +64,14 @@ function resolveSuggestedActions(
 export function GeneratedToolPage({ slug, schema, diagramSrc = null }: GeneratedToolPageProps) {
   const locale = useLocale();
   const t = useTranslations("generatedTool");
+  const tQuote = useTranslations("generatedTool.quoteBuilder");
+  const tEoq = useTranslations("generatedTool.eoqOptimizer");
+  const tCarbon = useTranslations("generatedTool.carbonFootprintReport");
+  const { isPro, loading: subscriptionLoading } = useSubscription();
   const { loading, error, calculator, zodSchema } = useToolSchema(slug, schema);
   const [result, setResult] = useState<GeneratedToolResult | null>(null);
+  const [lastInputs, setLastInputs] = useState<Record<string, unknown>>({});
+  const [showQuoteBuilder, setShowQuoteBuilder] = useState(false);
 
   const title = resolveGeneratedToolTitle(slug, schema, locale);
   const description = resolveGeneratedToolDescription(slug, schema, locale);
@@ -84,10 +99,31 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
     [result, schema],
   );
 
+  const eoqInitialInputs = useMemo(
+    () =>
+      slug === "inventory-carrying-cost-eoq-calculator"
+        ? mapInventoryToolInputsToEOQ(lastInputs)
+        : undefined,
+    [lastInputs, slug],
+  );
+
+  const showEoqOptimizer = slug === "inventory-carrying-cost-eoq-calculator";
+
+  const carbonReportConfig = useMemo(
+    () =>
+      isCarbonFootprintReportTool(slug)
+        ? mapCarbonToolInputsToReport(slug, lastInputs)
+        : null,
+    [lastInputs, slug],
+  );
+
+  const showCarbonFootprintReport = isCarbonFootprintReportTool(slug);
+
   const handleCalculate = (values: Record<string, unknown>) => {
     if (!calculator) {
       return;
     }
+    setLastInputs(values);
     setResult(runGeneratedToolCalculation(calculator, values));
   };
 
@@ -154,16 +190,18 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
           schema={schema}
           zodSchema={zodSchema}
           onSubmit={handleCalculate}
+          breakdown={result?.breakdown ?? null}
+          breakdownInputs={lastInputs}
+          breakdownLabelMap={schema.outputs.breakdown}
+          scenarioComparison={{
+            calculateFn: (values) => runGeneratedToolCalculation(calculator, values),
+            primaryOutputKey: primaryKey,
+            enabled: schema.premiumFeatures.some((feature) =>
+              /scenario|what-if/i.test(feature),
+            ),
+          }}
         />
       </div>
-
-      {result && Object.keys(result.breakdown).length > 0 ? (
-        <BreakdownBarChart
-          breakdown={result.breakdown}
-          labelMap={schema.outputs.breakdown}
-          locale={locale}
-        />
-      ) : null}
 
       {result ? (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -193,6 +231,65 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
             )}
           </div>
         </div>
+      ) : null}
+
+      {result ? (
+        <GeneratedToolExportActions
+          slug={slug}
+          title={title}
+          schema={schema}
+          inputs={lastInputs}
+          result={result}
+        />
+      ) : null}
+
+      {result && isPro && !subscriptionLoading ? (
+        <div className="space-y-4">
+          {!showQuoteBuilder ? (
+            <button
+              type="button"
+              onClick={() => setShowQuoteBuilder(true)}
+              className="sc-ledger-cta-primary sc-cta-primary min-h-[44px] px-4 py-2 text-sm"
+            >
+              {tQuote("open")}
+            </button>
+          ) : (
+            <QuoteBuilder
+              slug={slug}
+              toolName={title}
+              schema={schema}
+              inputs={lastInputs}
+              result={result}
+              primaryOutputKey={primaryKey}
+              onClose={() => setShowQuoteBuilder(false)}
+            />
+          )}
+        </div>
+      ) : null}
+
+      {showEoqOptimizer && isPro && !subscriptionLoading ? (
+        <details className="rounded-xl border border-technical-gray bg-white p-4 shadow-sm">
+          <summary className="cursor-pointer text-sm font-semibold text-premium-velvet">
+            {tEoq("summary")}
+          </summary>
+          <div className="mt-4">
+            <EOQOptimizer initialInputs={eoqInitialInputs} />
+          </div>
+        </details>
+      ) : null}
+
+      {showCarbonFootprintReport && isPro && !subscriptionLoading ? (
+        <details className="rounded-xl border border-technical-gray bg-white p-4 shadow-sm">
+          <summary className="cursor-pointer text-sm font-semibold text-premium-velvet">
+            {tCarbon("summary")}
+          </summary>
+          <div className="mt-4">
+            <CarbonFootprintReport
+              initialInputs={carbonReportConfig?.seed}
+              calculationOptions={carbonReportConfig?.options}
+            />
+          </div>
+        </details>
       ) : null}
     </div>
   );

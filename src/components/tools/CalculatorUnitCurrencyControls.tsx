@@ -3,6 +3,7 @@
 import { useLocale } from "next-intl";
 import { useMemo } from "react";
 import { SmartUnitSelect } from "@/components/smart-form/SmartUnitSelect";
+import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import {
   getCurrencyOptionsForLocale,
   getDefaultCurrencyForRegion,
@@ -10,13 +11,15 @@ import {
   getDefaultUnitForRegion,
   inferUnitGroupFromFieldKey,
   localizedUnitAriaLabel,
+  resolveRegionalCodeForUnitDefaults,
   type UnitGroup,
 } from "@/lib/regional/unit-defaults";
 import { resolveRegionalCodeFromLocale } from "@/lib/regional/regions";
 
 export function useCalculatorFieldUnitState(fieldKey: string, explicitUnit?: string, isCurrency = false) {
   const locale = useLocale();
-  const region = resolveRegionalCodeFromLocale(locale);
+  const unitSystem = usePreferredUnitSystem();
+  const region = resolveRegionalCodeForUnitDefaults(locale, unitSystem);
   const unitGroup = inferUnitGroupFromFieldKey(fieldKey);
 
   return useMemo(() => {
@@ -36,11 +39,11 @@ export function useCalculatorFieldUnitState(fieldKey: string, explicitUnit?: str
       };
     }
     return {
-      unit: getDefaultUnitForRegion(region, unitGroup),
-      unitOptions: getAvailableUnitsForGroup(unitGroup, locale),
+      unit: getDefaultUnitForRegion(region, unitGroup, unitSystem),
+      unitOptions: getAvailableUnitsForGroup(unitGroup, locale, unitSystem),
       unitGroup,
     };
-  }, [explicitUnit, isCurrency, locale, region, unitGroup]);
+  }, [explicitUnit, isCurrency, locale, region, unitGroup, unitSystem]);
 }
 
 type CalculatorUnitSelectProps = {
