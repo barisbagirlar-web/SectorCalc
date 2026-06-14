@@ -31,7 +31,7 @@ import { getTranslations } from "next-intl/server";
 import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 export const revalidate = 3600;
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {

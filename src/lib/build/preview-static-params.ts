@@ -75,6 +75,7 @@ export function shouldUsePreviewStaticParams(): boolean {
   return (
     process.env.SECTORCALC_FORCE_FULL_STATIC !== "1" &&
     (process.env.SECTORCALC_FAST_PREVIEW_STATIC === "1" ||
+      process.env.SECTORCALC_VERCEL_BUILD_LIMIT === "1" ||
       process.env.VERCEL_ENV === "preview")
   );
 }

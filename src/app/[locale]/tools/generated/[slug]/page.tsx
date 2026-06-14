@@ -29,7 +29,7 @@ interface GeneratedToolRouteParams {
 }
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
   const registrySlugs = new Set<string>(GENERATED_CALCULATOR_SLUGS);

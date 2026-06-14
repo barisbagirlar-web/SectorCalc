@@ -39,7 +39,7 @@ interface GuideRouteParams extends GuidePageParams {
 }
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<GuidePageParams[]> {
   const params = listAuthorityGuideSlugs().map((slug) => ({ slug }));

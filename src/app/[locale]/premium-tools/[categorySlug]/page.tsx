@@ -22,7 +22,7 @@ type PageProps = {
 
 export const revalidate = 3600;
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<Array<{ categorySlug: string }>> {
   return listPremiumCatalogCategorySlugs().map((categorySlug) => ({ categorySlug }));

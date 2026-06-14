@@ -9,30 +9,14 @@ import {
   buildDefaultSchemaInputs,
   runPremiumSchemaEngine,
 } from "@/lib/premium-schema/premium-schema-engine";
-import {
-  getPremiumSchemaBySlug,
-  listPremiumSchemaSlugs,
-} from "@/lib/premium-schema/schemas/index";
-import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
+import { getPremiumSchemaBySlug } from "@/lib/premium-schema/schemas/index";
 
-interface PrintPageParams {
+interface PrintRouteParams {
   slug: string;
-}
-
-interface PrintRouteParams extends PrintPageParams {
   locale: string;
 }
 
-export const dynamic = "force-static";
-export const dynamicParams = false;
-
-export async function generateStaticParams(): Promise<PrintPageParams[]> {
-  const params = listPremiumSchemaSlugs().map((slug) => ({ slug }));
-  return limitStaticParamsForPreview(params, {
-    family: "premium-schema-print",
-    slugKey: "slug",
-  });
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

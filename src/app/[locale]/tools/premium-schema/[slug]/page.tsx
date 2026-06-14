@@ -42,7 +42,7 @@ function trimFeaturedAnswer(text: string): string {
 }
 
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<PremiumSchemaPageParams[]> {
   const params = listPremiumSchemaSlugs().map((slug) => ({ slug }));
