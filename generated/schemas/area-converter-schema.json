@@ -1,105 +1,94 @@
 {
-  "toolName": "Area Converter",
+  "toolName": "area-converter",
   "inputs": [
     {
       "id": "value",
-      "label": "Area Value",
+      "label": "Value",
       "type": "number",
-      "unit": "varies (see fromUnit)",
+      "unit": "m²",
       "default": 1,
       "min": 0,
       "max": null,
       "options": null,
-      "businessContext": "The numeric area to convert. Must be non-negative. Typical ranges: 0.01 to 1e6 depending on unit."
+      "businessContext": "The numeric value of the area to be converted. Based on SI unit standard (ISO 80000-3)."
     },
     {
       "id": "fromUnit",
       "label": "From Unit",
       "type": "select",
-      "unit": "unit",
-      "default": "m2",
+      "unit": "",
+      "default": "m²",
       "min": null,
       "max": null,
       "options": [
-        "m2",
-        "ft2",
-        "ac",
+        "m²",
+        "km²",
         "ha",
-        "km2",
-        "mi2",
-        "yd2",
-        "in2",
-        "cm2",
-        "mm2"
+        "acre",
+        "ft²",
+        "in²",
+        "yd²",
+        "mi²"
       ],
-      "businessContext": "Source unit of the area value. Supports metric and imperial units."
+      "businessContext": "The unit of the input area. Common units based on international standards (ISO 80000-3) and US customary units."
     },
     {
       "id": "toUnit",
       "label": "To Unit",
       "type": "select",
-      "unit": "unit",
-      "default": "ft2",
+      "unit": "",
+      "default": "ft²",
       "min": null,
       "max": null,
       "options": [
-        "m2",
-        "ft2",
-        "ac",
+        "m²",
+        "km²",
         "ha",
-        "km2",
-        "mi2",
-        "yd2",
-        "in2",
-        "cm2",
-        "mm2"
+        "acre",
+        "ft²",
+        "in²",
+        "yd²",
+        "mi²"
       ],
-      "businessContext": "Target unit for conversion. Must be a valid area unit."
+      "businessContext": "The target unit for conversion. Same standards as fromUnit."
     }
   ],
   "validation": {
     "rules": [
-      "value must be finite and >= 0",
-      "fromUnit and toUnit must be valid units from the list",
-      "value must not be NaN or Infinity"
+      "value must be >= 0",
+      "fromUnit and toUnit must be different"
     ],
-    "thresholds": {
-      "valueTooLarge": "value > 1e9 m2 equivalent -> warning: unusually large area",
-      "valueTooSmall": "value < 1e-6 m2 equivalent -> warning: unusually small area"
-    }
+    "thresholds": {}
   },
   "formulas": {
-    "baseM2": "value * conversionFactor[fromUnit]",
-    "converted": "baseM2 / conversionFactor[toUnit]",
-    "recommendedPrice": "baseM2 * 0.0",
-    "conversionFactor": {
-      "m2": 1,
-      "ft2": 0.092903,
-      "ac": 4046.86,
+    "conversionFactors": {
+      "m²": 1,
+      "km²": 1000000,
       "ha": 10000,
-      "km2": 1000000,
-      "mi2": 2590000,
-      "yd2": 0.836127,
-      "in2": 0.00064516,
-      "cm2": 0.0001,
-      "mm2": 0.000001
-    }
+      "acre": 4046.8564224,
+      "ft²": 0.09290304,
+      "in²": 0.00064516,
+      "yd²": 0.83612736,
+      "mi²": 2589988.110336
+    },
+    "result": "value * conversionFactors[fromUnit] / conversionFactors[toUnit]"
   },
   "outputs": {
-    "primary": "converted",
+    "primary": "result",
     "breakdown": {
-      "baseM2": "Area in square meters (intermediate)",
-      "converted": "Area in target unit"
+      "valueInSqm": "value * conversionFactors[fromUnit]",
+      "conversionFactor": "conversionFactors[fromUnit] / conversionFactors[toUnit]"
     },
     "hiddenLossDrivers": [],
     "suggestedActions": [],
-    "dataConfidenceAdjusted": "converted"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumFeatures": [
-    "PDF export of conversion results",
-    "CSV export of multiple conversions",
-    "Historical conversion log",
-    "Custom unit definitions"
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Comparison",
+    "Detailed report"
   ],
   "premiumRequired": false
 }

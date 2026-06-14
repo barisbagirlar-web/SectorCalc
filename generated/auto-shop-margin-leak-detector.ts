@@ -2,38 +2,43 @@
 import * as z from 'zod';
 
 export interface AutoShopMarginLeakDetectorInput {
-  laborRate: number;
-  laborHoursBilled: number;
-  partsRevenue: number;
+  revenue: number;
+  costOfGoodsSold: number;
+  laborCost: number;
   partsCost: number;
-  laborCostPerHour: number;
-  overheadMonthly: number;
-  warrantyReturnsPercent: number;
-  inventoryShrinkagePercent: number;
+  warrantyClaims: number;
+  reworkCost: number;
+  idleTimeCost: number;
+  inventoryHoldingCost: number;
   dataConfidence: 'low' | 'medium' | 'high';
+  periodDays: number;
 }
 
 export const AutoShopMarginLeakDetectorInputSchema = z.object({
-  laborRate: z.number().min(50).max(200).default(100),
-  laborHoursBilled: z.number().min(100).max(1000).default(400),
-  partsRevenue: z.number().min(10000).max(200000).default(50000),
-  partsCost: z.number().min(5000).max(150000).default(35000),
-  laborCostPerHour: z.number().min(15).max(60).default(30),
-  overheadMonthly: z.number().min(5000).max(50000).default(15000),
-  warrantyReturnsPercent: z.number().min(0).max(10).default(2),
-  inventoryShrinkagePercent: z.number().min(0).max(5).default(1),
+  revenue: z.number().min(0).default(100000),
+  costOfGoodsSold: z.number().min(0).default(60000),
+  laborCost: z.number().min(0).default(30000),
+  partsCost: z.number().min(0).default(20000),
+  warrantyClaims: z.number().min(0).default(5000),
+  reworkCost: z.number().min(0).default(3000),
+  idleTimeCost: z.number().min(0).default(2000),
+  inventoryHoldingCost: z.number().min(0).default(4000),
   dataConfidence: z.enum(['low', 'medium', 'high']).default('medium'),
+  periodDays: z.number().min(1).max(365).default(30),
 });
 
 export interface AutoShopMarginLeakDetectorOutput {
-  adjustedGrossMarginPercent: number;
+  annualizedLeakage: number;
   breakdown: {
+    grossProfit: number;
     grossMarginPercent: number;
-    laborMarginPercent: number;
-    partsMarkupPercent: number;
-    totalHiddenLoss: number;
-    warrantyLoss: number;
-    inventoryLoss: number;
+    totalLeakage: number;
+    leakagePercent: number;
+    laborCostPercent: number;
+    warrantyPercent: number;
+    reworkPercent: number;
+    idleTimePercent: number;
+    inventoryHoldingPercent: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -44,60 +49,60 @@ export interface AutoShopMarginLeakDetectorOutput {
 
 function evaluateFormulas(input: AutoShopMarginLeakDetectorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.laborRevenue = input.laborRate * input.laborHoursBilled;
-  results.partsRevenueInput = input.partsRevenue;
-  results.totalRevenue = results.laborRevenue + input.partsRevenue;
-  results.laborCostTotal = input.laborCostPerHour * input.laborHoursBilled;
-  results.partsCostInput = input.partsCost;
-  results.totalCost = results.laborCostTotal + results.partsCostInput + input.overheadMonthly;
-  results.grossProfit = results.totalRevenue - results.totalCost;
-  results.grossMarginPercent = (results.grossProfit / results.totalRevenue) * 100;
-  results.laborMarginPercent = ((results.laborRevenue - results.laborCostTotal) / results.laborRevenue) * 100;
-  results.partsMarkupPercent = ((input.partsRevenue - input.partsCost) / input.partsCost) * 100;
-  results.warrantyLoss = results.totalRevenue * (input.warrantyReturnsPercent / 100);
-  results.inventoryLoss = input.partsCost * (input.inventoryShrinkagePercent / 100);
-  results.totalHiddenLoss = results.warrantyLoss + results.inventoryLoss;
-  results.adjustedGrossProfit = results.grossProfit - results.totalHiddenLoss;
-  results.adjustedGrossMarginPercent = (results.adjustedGrossProfit / results.totalRevenue) * 100;
-  results.dataConfidenceFactor = input.dataConfidence == 'low' ? 0.9 : (input.dataConfidence == 'medium' ? 0.95 : 1.0);
-  results.dataConfidenceAdjustedMargin = results.adjustedGrossMarginPercent * results.dataConfidenceFactor;
+  results.grossProfit = (() => { try { return input.revenue - input.costOfGoodsSold; } catch { return 0; } })();
+  results.grossMarginPercent = (() => { try { return results.grossProfit / input.revenue; } catch { return 0; } })();
+  results.totalLeakage = (() => { try { return input.warrantyClaims + input.reworkCost + input.idleTimeCost + input.inventoryHoldingCost; } catch { return 0; } })();
+  results.leakagePercent = (() => { try { return results.totalLeakage / input.revenue; } catch { return 0; } })();
+  results.laborCostPercent = (() => { try { return input.laborCost / input.revenue; } catch { return 0; } })();
+  results.warrantyPercent = (() => { try { return input.warrantyClaims / input.revenue; } catch { return 0; } })();
+  results.reworkPercent = (() => { try { return input.reworkCost / input.laborCost; } catch { return 0; } })();
+  results.idleTimePercent = (() => { try { return input.idleTimeCost / input.laborCost; } catch { return 0; } })();
+  results.inventoryHoldingPercent = (() => { try { return input.inventoryHoldingCost / input.partsCost; } catch { return 0; } })();
+  results.annualizedLeakage = (() => { try { return results.totalLeakage * (365 / input.periodDays); } catch { return 0; } })();
+  results.adjustedLeakage = (() => { try { return input.dataConfidence == 'low' ? results.annualizedLeakage * 1.2 : input.dataConfidence == 'medium' ? results.annualizedLeakage * 1.0 : results.annualizedLeakage * 0.9; } catch { return 0; } })();
   return results;
 }
 
 export function calculateAutoShopMarginLeakDetector(input: AutoShopMarginLeakDetectorInput): AutoShopMarginLeakDetectorOutput {
   const results = evaluateFormulas(input);
-  const adjustedGrossMarginPercent = results.adjustedGrossMarginPercent;
+  const annualizedLeakage = results.annualizedLeakage ?? 0;
   const breakdown = {
+    grossProfit: results.grossProfit,
     grossMarginPercent: results.grossMarginPercent,
-    laborMarginPercent: results.laborMarginPercent,
-    partsMarkupPercent: results.partsMarkupPercent,
-    totalHiddenLoss: results.totalHiddenLoss,
-    warrantyLoss: results.warrantyLoss,
-    inventoryLoss: results.inventoryLoss,
+    totalLeakage: results.totalLeakage,
+    leakagePercent: results.leakagePercent,
+    laborCostPercent: results.laborCostPercent,
+    warrantyPercent: results.warrantyPercent,
+    reworkPercent: results.reworkPercent,
+    idleTimePercent: results.idleTimePercent,
+    inventoryHoldingPercent: results.inventoryHoldingPercent,
   };
 
-  // rule: laborRate > laborCostPerHour
-  // rule: partsRevenue > partsCost
-  // rule: laborHoursBilled > 0
-  // rule: overheadMonthly > 0
-  // rule: warrantyReturnsPercent >= 0
-  // rule: inventoryShrinkagePercent >= 0
-  // threshold grossMarginPercent < 40: Low gross margin warning: check pricing and cost structure.
-  // threshold laborMarginPercent < 50: Labor margin below 50%: labor rate may be too low or efficiency poor.
-  // threshold partsMarkupPercent < 30: Parts markup below 30%: consider increasing parts prices.
-  // threshold warrantyReturnsPercent > 5: High warranty returns: investigate quality issues.
-  // threshold inventoryShrinkagePercent > 2: High inventory shrinkage: improve inventory controls.
-  const hiddenLossDrivers: string[] = ["warrantyReturnsPercent > 3 ? 'Warranty returns exceed 3%' : ''","inventoryShrinkagePercent > 1.5 ? 'Inventory shrinkage above 1.5%' : ''"];
-  const suggestedActions: string[] = ["If labor margin < 50%: increase labor rate or improve technician efficiency.","If parts markup < 30%: renegotiate supplier pricing or increase retail markup.","If warranty returns > 3%: implement quality control process.","If inventory shrinkage > 1.5%: conduct physical inventory and improve security."];
-  const dataConfidenceAdjusted = results.dataConfidenceAdjustedMargin;
+  // rule: costOfGoodsSold <= revenue
+  // rule: laborCost + partsCost <= costOfGoodsSold
+  // rule: warrantyClaims <= revenue
+  // rule: reworkCost <= laborCost
+  // rule: idleTimeCost <= laborCost
+  // rule: inventoryHoldingCost <= partsCost
+  // rule: periodDays > 0
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): Gross margin below 40% indicates significant leakage.
+  // threshold skipped (non-JS): Labor cost ratio above 35% suggests inefficiency.
+  // threshold skipped (non-JS): Warranty claims above 5% of revenue indicate quality issues.
+  // threshold skipped (non-JS): Rework cost above 10% of labor cost indicates process problems.
+  // threshold skipped (non-JS): Idle time above 10% of labor cost indicates scheduling issues.
+  // threshold skipped (non-JS): Inventory holding cost above 20% of parts cost suggests overstocking.
+
+  const dataConfidenceAdjusted = (() => { try { return results.adjustedLeakage; } catch { return annualizedLeakage; } })();
 
   return {
-    adjustedGrossMarginPercent,
+    annualizedLeakage,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF report export","CSV data export","Trend analysis over multiple months","Benchmarking against industry averages","Detailed breakdown with charts","Scenario simulation (what-if analysis)"],
+    premiumFeatures: ["PDF Export","CSV Export","Trend Analysis","Benchmark Comparison","Detailed Report with Charts"],
   };
 }

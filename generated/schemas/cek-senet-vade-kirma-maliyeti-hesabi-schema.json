@@ -1,0 +1,122 @@
+{
+  "toolName": "cek-senet-vade-kirma-maliyeti-hesabi",
+  "inputs": [
+    {
+      "id": "nominalTutar",
+      "label": "Nominal Tutar (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Çek/senedin üzerinde yazılı olan nominal değer. Türk Ticaret Kanunu ve çek/senet işlemlerinde temel girdi."
+    },
+    {
+      "id": "vadeGun",
+      "label": "Vade (Gün)",
+      "type": "number",
+      "unit": "gün",
+      "default": 90,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Çek/senedin vadesine kalan gün sayısı. Kırdırma işleminde faiz hesaplaması için temel parametre."
+    },
+    {
+      "id": "iskontoOrani",
+      "label": "İskonto Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Bankalar veya finans kuruluşları tarafından uygulanan aylık iskonto oranı. Piyasa faiz oranlarına göre belirlenir."
+    },
+    {
+      "id": "komisyonOrani",
+      "label": "Komisyon Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Kırdırma işlemi sırasında alınan komisyon oranı. Bankaların hizmet bedeli."
+    },
+    {
+      "id": "bankaKesintisi",
+      "label": "Banka Kesintisi (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "BSMV, KKDF gibi yasal kesintilerin toplamı. Vergi mevzuatına göre değişir."
+    },
+    {
+      "id": "vergiOrani",
+      "label": "Stopaj Vergisi Oranı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Faiz geliri üzerinden kesilen stopaj vergisi oranı. Gelir Vergisi Kanunu'na göre belirlenir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "nominalTutar > 0",
+      "vadeGun >= 1 && vadeGun <= 365",
+      "iskontoOrani >= 0 && iskontoOrani <= 100",
+      "komisyonOrani >= 0 && komisyonOrani <= 10",
+      "bankaKesintisi >= 0",
+      "vergiOrani >= 0 && vergiOrani <= 100"
+    ],
+    "thresholds": {
+      "iskontoOrani": "iskontoOrani > 5 ? 'Yüksek iskonto oranı, maliyet artıyor' : null",
+      "komisyonOrani": "komisyonOrani > 3 ? 'Yüksek komisyon oranı' : null"
+    }
+  },
+  "formulas": {
+    "iskontoTutari": "nominalTutar * (iskontoOrani / 100) * (vadeGun / 30)",
+    "komisyonTutari": "nominalTutar * (komisyonOrani / 100)",
+    "brutKesinti": "iskontoTutari + komisyonTutari + bankaKesintisi",
+    "stopajVergisi": "iskontoTutari * (vergiOrani / 100)",
+    "netKesinti": "brutKesinti + stopajVergisi",
+    "netOdeme": "nominalTutar - netKesinti",
+    "efektifMaliyetOrani": "(netKesinti / nominalTutar) * (360 / vadeGun) * 100"
+  },
+  "outputs": {
+    "primary": "netOdeme",
+    "breakdown": {
+      "iskontoTutari": "iskontoTutari",
+      "komisyonTutari": "komisyonTutari",
+      "bankaKesintisi": "bankaKesintisi",
+      "stopajVergisi": "stopajVergisi",
+      "netKesinti": "netKesinti",
+      "efektifMaliyetOrani": "efektifMaliyetOrani"
+    },
+    "hiddenLossDrivers": [
+      "iskontoOrani > 5 ? 'Yüksek iskonto oranı' : null",
+      "komisyonOrani > 3 ? 'Yüksek komisyon oranı' : null"
+    ],
+    "suggestedActions": [
+      "Daha düşük iskonto oranı için farklı bankalarla görüşün.",
+      "Vadeyi kısaltarak maliyeti azaltabilirsiniz.",
+      "Komisyon oranını müzakere edin."
+    ],
+    "dataConfidenceAdjusted": "netOdeme"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (geçmiş kırdırma işlemleri)",
+    "Karşılaştırma (farklı banka/oran senaryoları)",
+    "Detaylı rapor (vergi ve kesinti dökümü)"
+  ],
+  "premiumRequired": true
+}

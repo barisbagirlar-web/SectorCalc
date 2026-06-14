@@ -1,0 +1,172 @@
+{
+  "toolName": "carbon-footprint-compliance-risk",
+  "inputs": [
+    {
+      "id": "annualRevenue",
+      "label": "Annual Revenue (USD)",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total annual revenue of the company. Used to normalize compliance risk relative to company size. Based on financial reporting standards (GAAP/IFRS)."
+    },
+    {
+      "id": "totalEmissions",
+      "label": "Total Annual CO2 Emissions (metric tons)",
+      "type": "number",
+      "unit": "metric tons CO2e",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total scope 1, 2, and 3 greenhouse gas emissions. Based on GHG Protocol and ISO 14064 standards."
+    },
+    {
+      "id": "emissionReductionTarget",
+      "label": "Emission Reduction Target (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Company's voluntary or regulatory target for reducing emissions by a certain percentage by a target year. Based on SBTi (Science Based Targets initiative) guidelines."
+    },
+    {
+      "id": "targetYear",
+      "label": "Target Year for Reduction",
+      "type": "number",
+      "unit": "year",
+      "default": 2030,
+      "min": 2025,
+      "max": 2050,
+      "options": null,
+      "businessContext": "Year by which the emission reduction target is to be achieved. Aligned with Paris Agreement timelines."
+    },
+    {
+      "id": "currentYear",
+      "label": "Current Year",
+      "type": "number",
+      "unit": "year",
+      "default": 2025,
+      "min": 2020,
+      "max": 2050,
+      "options": null,
+      "businessContext": "Base year for calculations. Used to determine remaining time to target."
+    },
+    {
+      "id": "carbonPrice",
+      "label": "Carbon Price (USD per metric ton)",
+      "type": "number",
+      "unit": "USD/ton CO2e",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Market or regulatory carbon price (e.g., EU ETS, carbon tax). Based on World Bank Carbon Pricing Dashboard."
+    },
+    {
+      "id": "regulatoryRegion",
+      "label": "Regulatory Region",
+      "type": "select",
+      "unit": "",
+      "default": "EU",
+      "min": null,
+      "max": null,
+      "options": [
+        "EU",
+        "US",
+        "China",
+        "Other"
+      ],
+      "businessContext": "Geographic region determining applicable carbon regulations. EU: EU ETS, US: EPA regulations, China: national ETS. Based on IEA and national climate policies."
+    },
+    {
+      "id": "industrySector",
+      "label": "Industry Sector",
+      "type": "select",
+      "unit": "",
+      "default": "Manufacturing",
+      "min": null,
+      "max": null,
+      "options": [
+        "Manufacturing",
+        "Energy",
+        "Transportation",
+        "Agriculture",
+        "Services"
+      ],
+      "businessContext": "Sector classification affecting emission intensity benchmarks and regulatory stringency. Based on IPCC sector categories."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "Medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "businessContext": "Confidence in emission data accuracy. Low: estimated, Medium: partially measured, High: fully audited. Based on ISO 14064 data quality requirements."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "annualRevenue > 0",
+      "totalEmissions >= 0",
+      "emissionReductionTarget >= 0 and emissionReductionTarget <= 100",
+      "targetYear > currentYear",
+      "carbonPrice >= 0",
+      "if regulatoryRegion == 'EU' then carbonPrice >= 30",
+      "if industrySector == 'Energy' then totalEmissions > 0"
+    ],
+    "thresholds": {
+      "complianceRiskScore": {
+        "low": 0.2,
+        "medium": 0.5,
+        "high": 0.8
+      }
+    }
+  },
+  "formulas": {
+    "emissionIntensity": "totalEmissions / annualRevenue",
+    "yearsToTarget": "targetYear - currentYear",
+    "requiredAnnualReductionRate": "emissionReductionTarget / yearsToTarget",
+    "complianceRiskScore": "min(1, max(0, (emissionIntensity * 1000 + requiredAnnualReductionRate * 0.1 + (carbonPrice / 100) * 0.2) / 3))",
+    "financialExposure": "totalEmissions * carbonPrice",
+    "dataConfidenceAdjustedRisk": "complianceRiskScore * (dataConfidence == 'Low' ? 1.2 : (dataConfidence == 'Medium' ? 1.0 : 0.8))"
+  },
+  "outputs": {
+    "primary": "complianceRiskScore",
+    "breakdown": {
+      "emissionIntensity": "emissionIntensity",
+      "requiredAnnualReductionRate": "requiredAnnualReductionRate",
+      "financialExposure": "financialExposure"
+    },
+    "hiddenLossDrivers": [
+      "if complianceRiskScore > 0.8 then 'High compliance risk: immediate action required'",
+      "if emissionIntensity > 0.5 then 'Emission intensity above industry benchmark'",
+      "if requiredAnnualReductionRate > 10 then 'Reduction target may be unrealistic'"
+    ],
+    "suggestedActions": [
+      "Invest in energy efficiency measures to reduce emission intensity",
+      "Increase renewable energy sourcing",
+      "Consider carbon offset purchases to bridge gap to target",
+      "Engage with regulatory bodies to understand future carbon price trends"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedRisk"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over multiple years",
+    "Benchmark comparison against industry peers",
+    "Detailed compliance report with regulatory recommendations"
+  ],
+  "premiumRequired": true
+}

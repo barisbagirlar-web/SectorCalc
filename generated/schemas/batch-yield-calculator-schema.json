@@ -3,73 +3,84 @@
   "inputs": [
     {
       "id": "batchSize",
-      "label": "Batch Size",
+      "label": "Batch Size (units)",
       "type": "number",
       "unit": "units",
       "default": 1000,
       "min": 1,
-      "max": 1000000,
+      "max": null,
       "options": null,
-      "businessContext": "Number of units produced in a single batch. Used to calculate total exposure and yield loss."
+      "businessContext": "Total number of units started in the batch. Based on production planning standards (APICS)."
     },
     {
-      "id": "defectRate",
-      "label": "Defect Rate",
+      "id": "goodUnits",
+      "label": "Good Units Output",
       "type": "number",
-      "unit": "%",
-      "default": 0.02,
+      "unit": "units",
+      "default": 900,
       "min": 0,
-      "max": 1,
+      "max": null,
       "options": null,
-      "businessContext": "Fraction of units that are defective. Based on historical quality data or Six Sigma DPMO."
+      "businessContext": "Units meeting quality specifications. ISO 9001 quality metrics."
+    },
+    {
+      "id": "reworkUnits",
+      "label": "Rework Units",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Units that can be reworked to meet specs. Lean Six Sigma DMAIC."
+    },
+    {
+      "id": "scrapUnits",
+      "label": "Scrap Units",
+      "type": "number",
+      "unit": "units",
+      "default": 50,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Units that are scrapped. Waste reduction metrics (Lean)."
+    },
+    {
+      "id": "costPerUnit",
+      "label": "Cost per Unit ($)",
+      "type": "number",
+      "unit": "$",
+      "default": 10,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Standard cost per unit including materials and labor. Managerial accounting."
     },
     {
       "id": "reworkCostPerUnit",
-      "label": "Rework Cost per Unit",
+      "label": "Rework Cost per Unit ($)",
       "type": "number",
-      "unit": "USD",
+      "unit": "$",
       "default": 5,
       "min": 0,
-      "max": 10000,
+      "max": null,
       "options": null,
-      "businessContext": "Cost to rework a defective unit, including labor, materials, and overhead."
+      "businessContext": "Additional cost to rework a unit. Cost of quality (COQ) analysis."
     },
     {
-      "id": "scrapCostPerUnit",
-      "label": "Scrap Cost per Unit",
+      "id": "sellingPricePerUnit",
+      "label": "Selling Price per Unit ($)",
       "type": "number",
-      "unit": "USD",
-      "default": 2,
-      "min": 0,
-      "max": 10000,
-      "options": null,
-      "businessContext": "Cost of scrapping a defective unit, including material loss and disposal."
-    },
-    {
-      "id": "inspectionCostPerBatch",
-      "label": "Inspection Cost per Batch",
-      "type": "number",
-      "unit": "USD",
-      "default": 100,
-      "min": 0,
-      "max": 100000,
-      "options": null,
-      "businessContext": "Fixed cost for inspecting the batch, including labor and equipment."
-    },
-    {
-      "id": "revenuePerUnit",
-      "label": "Revenue per Unit",
-      "type": "number",
-      "unit": "USD",
+      "unit": "$",
       "default": 20,
       "min": 0,
-      "max": 100000,
+      "max": null,
       "options": null,
-      "businessContext": "Selling price per good unit. Used to calculate opportunity cost of defects."
+      "businessContext": "Revenue per good unit sold. Pricing strategy."
     },
     {
       "id": "dataConfidence",
-      "label": "Data Confidence",
+      "label": "Data Confidence Level",
       "type": "select",
       "unit": "",
       "default": "medium",
@@ -80,70 +91,68 @@
         "medium",
         "high"
       ],
-      "businessContext": "Confidence level in input data accuracy. Adjusts output for uncertainty."
+      "businessContext": "Subjective confidence in input data accuracy. Used for risk adjustment."
     }
   ],
   "validation": {
     "rules": [
-      "batchSize must be >= 1",
-      "defectRate must be between 0 and 1",
-      "reworkCostPerUnit must be >= 0",
-      "scrapCostPerUnit must be >= 0",
-      "inspectionCostPerBatch must be >= 0",
-      "revenuePerUnit must be >= 0",
-      "If defectRate > 0.05, warning: 'High defect rate'",
-      "If reworkCostPerUnit > revenuePerUnit * 0.5, warning: 'Rework cost exceeds 50% of revenue'"
+      "batchSize > 0",
+      "goodUnits >= 0",
+      "reworkUnits >= 0",
+      "scrapUnits >= 0",
+      "goodUnits + reworkUnits + scrapUnits <= batchSize",
+      "costPerUnit >= 0",
+      "reworkCostPerUnit >= 0",
+      "sellingPricePerUnit >= 0"
     ],
     "thresholds": {
-      "defectRate": "0.05",
-      "reworkCostRatio": "0.5"
+      "yieldRate < 0.9": "Low yield warning: yield rate below 90%",
+      "scrapRate > 0.05": "High scrap rate: scrap exceeds 5% of batch",
+      "reworkRate > 0.1": "High rework rate: rework exceeds 10% of batch"
     }
   },
   "formulas": {
-    "defectiveUnits": "batchSize * defectRate",
-    "goodUnits": "batchSize - defectiveUnits",
-    "reworkCost": "defectiveUnits * reworkCostPerUnit",
-    "scrapCost": "defectiveUnits * scrapCostPerUnit",
-    "totalCost": "reworkCost + scrapCost + inspectionCostPerBatch",
-    "opportunityCost": "defectiveUnits * revenuePerUnit",
-    "totalExposure": "totalCost + opportunityCost",
-    "variancePercent": "(totalExposure / (batchSize * revenuePerUnit)) * 100",
-    "summaryLevel": "totalExposure < 1000 ? 'low' : totalExposure < 5000 ? 'medium' : 'high'",
-    "primaryDriver": "defectRate > 0.05 ? 'defectRate' : 'reworkCostPerUnit'",
-    "decisionVerdict": "totalExposure > 5000 ? 'critical' : totalExposure > 1000 ? 'warning' : 'acceptable'",
-    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalExposure * 1.2 : dataConfidence === 'medium' ? totalExposure * 1.1 : totalExposure"
+    "yieldRate": "goodUnits / batchSize",
+    "scrapRate": "scrapUnits / batchSize",
+    "reworkRate": "reworkUnits / batchSize",
+    "firstPassYield": "goodUnits / (goodUnits + reworkUnits + scrapUnits)",
+    "totalCost": "batchSize * costPerUnit + reworkUnits * reworkCostPerUnit",
+    "revenue": "goodUnits * sellingPricePerUnit",
+    "profit": "revenue - totalCost",
+    "profitMargin": "profit / revenue",
+    "costPerGoodUnit": "totalCost / goodUnits",
+    "dataConfidenceAdjustedYield": "dataConfidence === 'low' ? yieldRate * 0.9 : dataConfidence === 'medium' ? yieldRate * 0.95 : yieldRate"
   },
   "outputs": {
-    "primary": "totalExposure",
+    "primary": "yieldRate",
     "breakdown": {
-      "defectiveUnits": "number",
-      "goodUnits": "number",
-      "reworkCost": "number",
-      "scrapCost": "number",
-      "totalCost": "number",
-      "opportunityCost": "number",
-      "variancePercent": "number",
-      "summaryLevel": "string",
-      "primaryDriver": "string",
-      "decisionVerdict": "string"
+      "yieldRate": "yieldRate",
+      "scrapRate": "scrapRate",
+      "reworkRate": "reworkRate",
+      "firstPassYield": "firstPassYield",
+      "totalCost": "totalCost",
+      "revenue": "revenue",
+      "profit": "profit",
+      "profitMargin": "profitMargin",
+      "costPerGoodUnit": "costPerGoodUnit"
     },
     "hiddenLossDrivers": [
-      "defectRate > 0.05 ? 'High defect rate' : ''",
-      "reworkCostPerUnit > revenuePerUnit * 0.5 ? 'Rework cost exceeds 50% of revenue' : ''"
+      "scrapRate > 0.05 ? 'High scrap rate' : ''",
+      "reworkRate > 0.1 ? 'High rework rate' : ''"
     ],
     "suggestedActions": [
-      "defectRate > 0.05 ? 'Implement process improvement to reduce defect rate' : ''",
-      "reworkCostPerUnit > revenuePerUnit * 0.5 ? 'Review rework process for cost reduction' : ''",
-      "totalExposure > 5000 ? 'Consider batch size optimization or quality investment' : ''"
+      "scrapRate > 0.05 ? 'Investigate root cause of scrap and implement process improvements (e.g., Poka-Yoke).' : ''",
+      "reworkRate > 0.1 ? 'Analyze rework causes and consider SMED or standardized work.' : ''",
+      "yieldRate < 0.9 ? 'Review quality control and consider Six Sigma DMAIC project.' : ''"
     ],
-    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedYield"
   },
   "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis",
-    "Benchmark comparison",
-    "Detailed report with breakdowns"
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Loss Drivers"
   ],
   "premiumRequired": true
 }

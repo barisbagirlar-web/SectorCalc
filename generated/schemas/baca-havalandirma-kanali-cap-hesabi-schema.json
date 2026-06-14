@@ -3,29 +3,29 @@
   "inputs": [
     {
       "id": "havaDebisi",
-      "label": "Hava Debisi",
+      "label": "Hava Debisi (Q)",
       "type": "number",
-      "unit": "m³/h",
-      "default": 1000,
-      "min": 0,
-      "max": 100000,
+      "unit": "m³/s",
+      "default": 1,
+      "min": 0.1,
+      "max": 100,
       "options": null,
-      "businessContext": "Bacadan geçen hava miktarı. Tasarım debisi, mahal hacmi ve havalandırma sınıfına göre belirlenir (TS 3419, ASHRAE 62.1)."
+      "businessContext": "Baca veya havalandırma kanalından geçen hava debisi. Tasarım için temel parametre. Kaynak: ASHRAE Fundamentals, ISO 16890."
     },
     {
       "id": "hizSiniri",
-      "label": "Hız Sınırı",
+      "label": "Maksimum Hava Hızı (V_max)",
       "type": "number",
       "unit": "m/s",
-      "default": 8,
-      "min": 2,
-      "max": 15,
+      "default": 10,
+      "min": 1,
+      "max": 30,
       "options": null,
-      "businessContext": "Kanal içi hava hızı üst sınırı. Konfor ve gürültü seviyesine göre seçilir (konfor için 2-5 m/s, endüstriyel için 8-15 m/s)."
+      "businessContext": "Kanal içinde önerilen maksimum hava hızı. Yüksek hız gürültü ve basınç kaybını artırır. Kaynak: ASHRAE, SMACNA."
     },
     {
-      "id": "kanalTipi",
-      "label": "Kanal Tipi",
+      "id": "kanalSekli",
+      "label": "Kanal Kesit Şekli",
       "type": "select",
       "unit": "",
       "default": "yuvarlak",
@@ -35,61 +35,58 @@
         "yuvarlak",
         "dikdortgen"
       ],
-      "businessContext": "Kanal geometrisi. Yuvarlak kanallar düşük sürtünme kaybı sağlar, dikdörtgen kanallar yer tasarrufu için tercih edilir."
+      "businessContext": "Kanal kesit geometrisi. Yuvarlak kanallar daha düşük sürtünme kaybı sağlar. Kaynak: SMACNA."
     },
     {
       "id": "enBoyOrani",
-      "label": "En/Boy Oranı (Dikdörtgen için)",
+      "label": "En/Boy Oranı (dikdörtgen için)",
       "type": "number",
       "unit": "",
       "default": 1,
       "min": 1,
       "max": 5,
       "options": null,
-      "businessContext": "Dikdörtgen kanalda en/boy oranı. 1:1 ideal, 5:1'e kadar kullanılabilir; yüksek oran sürtünmeyi artırır."
+      "businessContext": "Dikdörtgen kanallarda en/boy oranı. 1:1 ideal, yüksek oran basınç kaybını artırır. Kaynak: SMACNA."
     }
   ],
   "validation": {
     "rules": [
       "havaDebisi > 0",
-      "hizSiniri >= 2 && hizSiniri <= 15",
-      "kanalTipi 'yuvarlak' veya 'dikdortgen' olmalı",
-      "kanalTipi 'dikdortgen' ise enBoyOrani >= 1 && enBoyOrani <= 5"
+      "hizSiniri > 0",
+      "if kanalSekli == 'dikdortgen' then enBoyOrani >= 1",
+      "if kanalSekli == 'yuvarlak' then enBoyOrani == 1"
     ],
     "thresholds": {
-      "hizSiniri > 10": "Yüksek hız: gürültü ve basınç kaybı artabilir, susturucu gerekebilir.",
-      "enBoyOrani > 3": "Yüksek en/boy oranı: sürtünme kaybı artar, temizlik zorlaşır."
+      "hizSiniri > 15": "Yüksek hız: gürültü ve basınç kaybı artabilir.",
+      "enBoyOrani > 3": "Yüksek en/boy oranı: basınç kaybı önemli ölçüde artar."
     }
   },
   "formulas": {
-    "kesitAlani": "havaDebisi / (hizSiniri * 3600)",
-    "cap": "kanalTipi === 'yuvarlak' ? Math.sqrt(4 * kesitAlani / Math.PI) : Math.sqrt(kesitAlani / enBoyOrani)",
-    "boy": "kanalTipi === 'dikdortgen' ? cap * enBoyOrani : null",
-    "oneriCap": "Math.ceil(cap * 1000) / 1000"
+    "kesitAlani": "havaDebisi / hizSiniri",
+    "cap": "if kanalSekli == 'yuvarlak' then sqrt(4 * kesitAlani / PI) else sqrt(kesitAlani / enBoyOrani)",
+    "digerKenar": "if kanalSekli == 'dikdortgen' then cap * enBoyOrani else null"
   },
   "outputs": {
-    "primary": "oneriCap (m)",
+    "primary": "cap",
     "breakdown": {
-      "kesitAlani": "m²",
-      "cap": "m (yuvarlak çap veya dikdörtgen kısa kenar)",
-      "boy": "m (dikdörtgen uzun kenar, null ise yuvarlak)"
+      "kesitAlani": "kesitAlani",
+      "digerKenar": "digerKenar"
     },
     "hiddenLossDrivers": [
-      "hizSiniri > 10 ? 'Yüksek hız kaynaklı gürültü ve basınç kaybı' : null",
-      "enBoyOrani > 3 ? 'Yüksek en/boy oranı sürtünmeyi artırır' : null"
+      "if hizSiniri > 15 then 'Yüksek hız: gürültü ve basınç kaybı artabilir.'",
+      "if enBoyOrani > 3 then 'Yüksek en/boy oranı: basınç kaybı önemli ölçüde artar.'"
     ],
     "suggestedActions": [
-      "Hız sınırını düşürerek kanal çapını büyütüp gürültüyü azaltın.",
-      "Dikdörtgen kanalda en/boy oranını 3'ün altında tutun.",
-      "Hava debisini doğrulamak için mahal havalandırma hesabı yapın."
+      "if hizSiniri > 15 then 'Hava hızını düşürmek için kanal kesitini artırın veya debiyi azaltın.'",
+      "if enBoyOrani > 3 then 'En/boy oranını 3'ün altına düşürmek için kanal boyutlarını yeniden düzenleyin.'"
     ],
-    "dataConfidenceAdjusted": "dataConfidence input'u yok, bu çıktı kullanılmaz."
+    "dataConfidenceAdjusted": "cap"
   },
   "premiumFeatures": [
-    "PDF/CSV raporu",
-    "Basınç kaybı ve fan seçimi detaylı hesaplama",
-    "Farklı senaryoların karşılaştırması",
-    "TS 3419 ve ASHRAE standartlarına uygunluk raporu"
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
   ],
   "premiumRequired": true
 }

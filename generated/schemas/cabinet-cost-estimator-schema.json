@@ -1,0 +1,245 @@
+{
+  "toolName": "cabinet-cost-estimator",
+  "inputs": [
+    {
+      "id": "cabinetWidth",
+      "label": "Cabinet Width",
+      "type": "number",
+      "unit": "mm",
+      "default": 600,
+      "min": 300,
+      "max": 1200,
+      "options": null,
+      "businessContext": "Standard cabinet width based on modular kitchen design (ISO 7170)."
+    },
+    {
+      "id": "cabinetHeight",
+      "label": "Cabinet Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 720,
+      "min": 300,
+      "max": 1200,
+      "options": null,
+      "businessContext": "Standard cabinet height for base cabinets (ISO 7170)."
+    },
+    {
+      "id": "cabinetDepth",
+      "label": "Cabinet Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 600,
+      "min": 300,
+      "max": 800,
+      "options": null,
+      "businessContext": "Standard cabinet depth (ISO 7170)."
+    },
+    {
+      "id": "materialType",
+      "label": "Material Type",
+      "type": "select",
+      "unit": "",
+      "default": "MDF",
+      "min": null,
+      "max": null,
+      "options": [
+        "Plywood",
+        "MDF",
+        "Particleboard",
+        "Solid Wood"
+      ],
+      "businessContext": "Common materials for cabinet construction (ANSI/KCMA A161.1)."
+    },
+    {
+      "id": "materialCostPerSqM",
+      "label": "Material Cost per Square Meter",
+      "type": "number",
+      "unit": "USD/m²",
+      "default": 50,
+      "min": 10,
+      "max": 200,
+      "options": null,
+      "businessContext": "Market price for selected material (industry benchmarks)."
+    },
+    {
+      "id": "doorStyle",
+      "label": "Door Style",
+      "type": "select",
+      "unit": "",
+      "default": "Flat",
+      "min": null,
+      "max": null,
+      "options": [
+        "Flat",
+        "Raised Panel",
+        "Slab",
+        "Shaker"
+      ],
+      "businessContext": "Door style affects labor and material cost (KCMA standards)."
+    },
+    {
+      "id": "finishType",
+      "label": "Finish Type",
+      "type": "select",
+      "unit": "",
+      "default": "Laminate",
+      "min": null,
+      "max": null,
+      "options": [
+        "Laminate",
+        "Paint",
+        "Veneer",
+        "Thermofoil"
+      ],
+      "businessContext": "Finish type impacts cost and durability (ANSI/KCMA A161.1)."
+    },
+    {
+      "id": "hardwareGrade",
+      "label": "Hardware Grade",
+      "type": "select",
+      "unit": "",
+      "default": "Standard",
+      "min": null,
+      "max": null,
+      "options": [
+        "Economy",
+        "Standard",
+        "Premium"
+      ],
+      "businessContext": "Hardware quality affects cost and lifespan (ANSI/BHMA A156.9)."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate per Hour",
+      "type": "number",
+      "unit": "USD/hr",
+      "default": 30,
+      "min": 15,
+      "max": 80,
+      "options": null,
+      "businessContext": "Average carpenter labor rate (Bureau of Labor Statistics)."
+    },
+    {
+      "id": "laborHoursPerCabinet",
+      "label": "Labor Hours per Cabinet",
+      "type": "number",
+      "unit": "hours",
+      "default": 4,
+      "min": 1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Standard labor time for cabinet assembly (industrial engineering time studies)."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "units",
+      "default": 1,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Number of identical cabinets to estimate total cost."
+    },
+    {
+      "id": "overheadRate",
+      "label": "Overhead Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Manufacturing overhead as percentage of direct costs (cost accounting standards)."
+    },
+    {
+      "id": "profitMargin",
+      "label": "Profit Margin",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 50,
+      "options": null,
+      "businessContext": "Desired profit margin on total cost (industry standard 10-20%)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "Medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "businessContext": "Confidence level in input data for risk adjustment."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "cabinetWidth >= 300 && cabinetWidth <= 1200",
+      "cabinetHeight >= 300 && cabinetHeight <= 1200",
+      "cabinetDepth >= 300 && cabinetDepth <= 800",
+      "materialCostPerSqM >= 10 && materialCostPerSqM <= 200",
+      "laborRate >= 15 && laborRate <= 80",
+      "laborHoursPerCabinet >= 1 && laborHoursPerCabinet <= 10",
+      "quantity >= 1 && quantity <= 1000",
+      "overheadRate >= 0 && overheadRate <= 100",
+      "profitMargin >= 0 && profitMargin <= 50"
+    ],
+    "thresholds": {
+      "materialCostPerSqM > 150": "High material cost warning",
+      "laborRate > 60": "High labor rate warning",
+      "overheadRate > 30": "High overhead rate warning"
+    }
+  },
+  "formulas": {
+    "surfaceArea": "((cabinetWidth * cabinetHeight) + (cabinetWidth * cabinetDepth) + (cabinetHeight * cabinetDepth)) * 2 / 1000000",
+    "materialCost": "surfaceArea * materialCostPerSqM",
+    "doorCostMultiplier": "doorStyle === 'Raised Panel' ? 1.5 : doorStyle === 'Shaker' ? 1.3 : doorStyle === 'Slab' ? 1.1 : 1.0",
+    "finishCostMultiplier": "finishType === 'Paint' ? 1.4 : finishType === 'Veneer' ? 1.6 : finishType === 'Thermofoil' ? 1.2 : 1.0",
+    "hardwareCostMultiplier": "hardwareGrade === 'Premium' ? 2.0 : hardwareGrade === 'Standard' ? 1.0 : 0.8",
+    "adjustedMaterialCost": "materialCost * doorCostMultiplier * finishCostMultiplier * hardwareCostMultiplier",
+    "laborCost": "laborRate * laborHoursPerCabinet",
+    "directCost": "adjustedMaterialCost + laborCost",
+    "overheadCost": "directCost * (overheadRate / 100)",
+    "totalCostPerCabinet": "directCost + overheadCost",
+    "totalCost": "totalCostPerCabinet * quantity",
+    "sellingPricePerCabinet": "totalCostPerCabinet * (1 + profitMargin / 100)",
+    "totalSellingPrice": "sellingPricePerCabinet * quantity",
+    "dataConfidenceAdjustment": "dataConfidence === 'Low' ? 1.15 : dataConfidence === 'Medium' ? 1.05 : 1.0",
+    "adjustedTotalCost": "totalCost * dataConfidenceAdjustment"
+  },
+  "outputs": {
+    "primary": "totalSellingPrice",
+    "breakdown": {
+      "materialCost": "adjustedMaterialCost",
+      "laborCost": "laborCost",
+      "overheadCost": "overheadCost",
+      "profit": "totalSellingPrice - totalCost"
+    },
+    "hiddenLossDrivers": [
+      "materialCostPerSqM > 150 ? 'High material cost' : ''",
+      "laborRate > 60 ? 'High labor rate' : ''",
+      "overheadRate > 30 ? 'High overhead rate' : ''"
+    ],
+    "suggestedActions": [
+      "Consider using alternative materials to reduce material cost.",
+      "Optimize labor hours through process improvement (Lean methods).",
+      "Negotiate lower overhead rates or reduce indirect costs."
+    ],
+    "dataConfidenceAdjusted": "adjustedTotalCost"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Industry Benchmarks",
+    "Detailed Cost Breakdown Report"
+  ],
+  "premiumRequired": true
+}

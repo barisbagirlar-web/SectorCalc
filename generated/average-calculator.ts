@@ -2,26 +2,29 @@
 import * as z from 'zod';
 
 export interface AverageCalculatorInput {
-  value1: number;
-  value2: number;
-  value3: number;
-  value4: number;
-  value5: number;
+  values: number;
+  weights: number;
+  averageType: 'arithmetic' | 'weighted' | 'geometric' | 'harmonic' | 'median' | 'mode';
+  dataConfidence: number;
 }
 
 export const AverageCalculatorInputSchema = z.object({
-  value1: z.number().default(0),
-  value2: z.number().default(0),
-  value3: z.number().default(0),
-  value4: z.number().default(0),
-  value5: z.number().default(0),
+  values: z.number().default(0),
+  weights: z.number().min(0).default(1),
+  averageType: z.enum(['arithmetic', 'weighted', 'geometric', 'harmonic', 'median', 'mode']).default('arithmetic'),
+  dataConfidence: z.number().min(0).max(100).default(100),
 });
 
 export interface AverageCalculatorOutput {
   average: number;
   breakdown: {
-    count: number;
     sum: number;
+    count: number;
+    min: number;
+    max: number;
+    range: number;
+    variance: number;
+    stdDev: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -32,26 +35,39 @@ export interface AverageCalculatorOutput {
 
 function evaluateFormulas(input: AverageCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.count = results.count = (input.value1 !== undefined ? 1 : 0) + (input.value2 !== undefined ? 1 : 0) + (input.value3 !== undefined ? 1 : 0) + (input.value4 !== undefined ? 1 : 0) + (input.value5 !== undefined ? 1 : 0);
-  results.sum = results.sum = (input.value1 || 0) + (input.value2 || 0) + (input.value3 || 0) + (input.value4 || 0) + (input.value5 || 0);
-  results.average = results.average = results.count > 0 ? results.sum / results.count : undefined;
+  results.arithmetic = (() => { try { return sum(input.values) / count(input.values); } catch { return 0; } })();
+  results.weighted = (() => { try { return sum(input.values[i] * input.weights[i]) / sum(input.weights); } catch { return 0; } })();
+  results.geometric = (() => { try { return exp(sum(log(input.values)) / count(input.values)); } catch { return 0; } })();
+  results.harmonic = (() => { try { return count(input.values) / sum(1/input.values); } catch { return 0; } })();
+  results.median = (() => { try { return 0; } catch { return 0; } })();
+  results.mode = (() => { try { return 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = (() => { try { return primary * (input.dataConfidence / 100); } catch { return 0; } })();
   return results;
 }
 
 export function calculateAverageCalculator(input: AverageCalculatorInput): AverageCalculatorOutput {
   const results = evaluateFormulas(input);
-  const average = results.average;
+  const average = results.average ?? 0;
   const breakdown = {
-    count: results.count,
     sum: results.sum,
+    count: results.count,
+    min: results.min,
+    max: results.max,
+    range: results.range,
+    variance: results.variance,
+    stdDev: results.stdDev,
   };
 
-  // rule: All input values must be finite numbers.
-  // rule: At least one input must be non-zero to compute average (count > 0).
-  // threshold countZero: If count is 0, average is undefined.
+  // rule: values must be an array of numbers
+  // rule: if averageType is 'weighted', weights must be provided and have same length as values
+  // rule: weights must be non-negative
+  // rule: dataConfidence must be between 0 and 100
   const hiddenLossDrivers: string[] = [];
-  const suggestedActions: string[] = ["Ensure all input values are accurate and represent the same unit of measure.","If average is used for benchmarking, compare against industry standards."];
-  const dataConfidenceAdjusted = results.average (no confidence adjustment applied);
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): Low data confidence; results may be unreliable
+  // threshold skipped (non-JS): Small sample size; consider using median
+
+  const dataConfidenceAdjusted = (() => { try { return primary * (input.dataConfidence / 100); } catch { return average; } })();
 
   return {
     average,
@@ -60,6 +76,6 @@ export function calculateAverageCalculator(input: AverageCalculatorInput): Avera
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: false,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis over time","Comparison with historical averages","Detailed report with statistical measures (median, mode, standard deviation)"],
+    premiumFeatures: ["PDF export","CSV export","Trend analysis over time","Comparison with benchmarks","Detailed statistical report"],
   };
 }

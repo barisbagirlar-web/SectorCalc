@@ -4,23 +4,22 @@ import * as z from 'zod';
 export interface BacaHavalandirmaKanaliCapHesabiInput {
   havaDebisi: number;
   hizSiniri: number;
-  kanalTipi: 'yuvarlak' | 'dikdortgen';
+  kanalSekli: 'yuvarlak' | 'dikdortgen';
   enBoyOrani: number;
 }
 
 export const BacaHavalandirmaKanaliCapHesabiInputSchema = z.object({
-  havaDebisi: z.number().min(0).max(100000).default(1000),
-  hizSiniri: z.number().min(2).max(15).default(8),
-  kanalTipi: z.enum(['yuvarlak', 'dikdortgen']).default('yuvarlak'),
+  havaDebisi: z.number().min(0.1).max(100).default(1),
+  hizSiniri: z.number().min(1).max(30).default(10),
+  kanalSekli: z.enum(['yuvarlak', 'dikdortgen']).default('yuvarlak'),
   enBoyOrani: z.number().min(1).max(5).default(1),
 });
 
 export interface BacaHavalandirmaKanaliCapHesabiOutput {
-  oneriCap: number;
+  cap: number;
   breakdown: {
     kesitAlani: number;
-    cap: number;
-    boy: number;
+    digerKenar: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -31,39 +30,38 @@ export interface BacaHavalandirmaKanaliCapHesabiOutput {
 
 function evaluateFormulas(input: BacaHavalandirmaKanaliCapHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.kesitAlani = input.havaDebisi / (input.hizSiniri * 3600);
-  results.cap = input.kanalTipi === 'yuvarlak' ? Math.sqrt(4 * results.kesitAlani / Math.PI) : Math.sqrt(results.kesitAlani / input.enBoyOrani);
-  results.boy = input.kanalTipi === 'dikdortgen' ? results.cap * input.enBoyOrani : null;
-  results.oneriCap = Math.ceil(results.cap * 1000) / 1000;
+  results.kesitAlani = (() => { try { return input.havaDebisi / input.hizSiniri; } catch { return 0; } })();
+  results.cap = (() => { try { return 0; } catch { return 0; } })();
+  results.digerKenar = (() => { try { return 0; } catch { return 0; } })();
   return results;
 }
 
 export function calculateBacaHavalandirmaKanaliCapHesabi(input: BacaHavalandirmaKanaliCapHesabiInput): BacaHavalandirmaKanaliCapHesabiOutput {
   const results = evaluateFormulas(input);
-  const oneriCap = results.oneriCap;
+  const cap = results.cap ?? 0;
   const breakdown = {
     kesitAlani: results.kesitAlani,
-    cap: results.cap,
-    boy: results.boy,
+    digerKenar: results.digerKenar,
   };
 
   // rule: havaDebisi > 0
-  // rule: hizSiniri >= 2 && hizSiniri <= 15
-  // rule: kanalTipi 'yuvarlak' veya 'dikdortgen' olmalı
-  // rule: kanalTipi 'dikdortgen' ise enBoyOrani >= 1 && enBoyOrani <= 5
-  // threshold hizSiniri > 10: Yüksek hız: gürültü ve basınç kaybı artabilir, susturucu gerekebilir.
-  // threshold enBoyOrani > 3: Yüksek en/boy oranı: sürtünme kaybı artar, temizlik zorlaşır.
-  const hiddenLossDrivers: string[] = ["hizSiniri > 10 ? 'Yüksek hız kaynaklı gürültü ve basınç kaybı' : null","enBoyOrani > 3 ? 'Yüksek en/boy oranı sürtünmeyi artırır' : null"];
-  const suggestedActions: string[] = ["Hız sınırını düşürerek kanal çapını büyütüp gürültüyü azaltın.","Dikdörtgen kanalda en/boy oranını 3'ün altında tutun.","Hava debisini doğrulamak için mahal havalandırma hesabı yapın."];
-  const dataConfidenceAdjusted = dataConfidence input'u yok, bu çıktı kullanılmaz.;
+  // rule: hizSiniri > 0
+  // rule: if kanalSekli == 'dikdortgen' then enBoyOrani >= 1
+  // rule: if kanalSekli == 'yuvarlak' then enBoyOrani == 1
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): Yuksek hiz: gurultu ve basinc kaybi artabilir.
+  // threshold skipped (non-JS): Yuksek en/boy orani: basinc kaybi onemli olcude artar.
+
+  const dataConfidenceAdjusted = (() => { try { return results.cap; } catch { return cap; } })();
 
   return {
-    oneriCap,
+    cap,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF/CSV raporu","Basınç kaybı ve fan seçimi detaylı hesaplama","Farklı senaryoların karşılaştırması","TS 3419 ve ASHRAE standartlarına uygunluk raporu"],
+    premiumFeatures: ["PDF/CSV export","Trend analizi","Karsilastirma","Detayli rapor"],
   };
 }

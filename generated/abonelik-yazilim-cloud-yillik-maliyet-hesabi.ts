@@ -3,42 +3,38 @@ import * as z from 'zod';
 
 export interface AbonelikYazilimCloudYillikMaliyetHesabiInput {
   subscriptionType: 'monthly' | 'annual' | 'perUser';
-  monthlyFee: number;
-  annualFee: number;
+  monthlyCostPerUser: number;
   numberOfUsers: number;
-  pricePerUser: number;
-  cloudStorageGB: number;
-  storageCostPerGB: number;
+  annualDiscount: number;
   additionalServicesCost: number;
-  contractDurationYears: number;
-  discountRate: number;
-  currency: 'USD' | 'EUR' | 'TRY';
-  dataConfidence: number;
+  implementationCost: number;
+  trainingCost: number;
+  maintenanceCost: number;
+  contractDuration: '1' | '2' | '3' | '5';
+  currency: 'USD' | 'EUR' | 'TRY' | 'GBP';
 }
 
 export const AbonelikYazilimCloudYillikMaliyetHesabiInputSchema = z.object({
   subscriptionType: z.enum(['monthly', 'annual', 'perUser']).default('monthly'),
-  monthlyFee: z.number().min(0).max(100000).default(100),
-  annualFee: z.number().min(0).max(1000000).default(1000),
-  numberOfUsers: z.number().min(1).max(10000).default(10),
-  pricePerUser: z.number().min(0).max(1000).default(20),
-  cloudStorageGB: z.number().min(0).max(100000).default(100),
-  storageCostPerGB: z.number().min(0).max(10).default(0.1),
-  additionalServicesCost: z.number().min(0).max(100000).default(0),
-  contractDurationYears: z.number().min(1).max(5).default(1),
-  discountRate: z.number().min(0).max(100).default(0),
-  currency: z.enum(['USD', 'EUR', 'TRY']).default('USD'),
-  dataConfidence: z.number().min(0).max(100).default(100),
+  monthlyCostPerUser: z.number().min(0).max(10000).default(10),
+  numberOfUsers: z.number().min(1).max(100000).default(50),
+  annualDiscount: z.number().min(0).max(100).default(20),
+  additionalServicesCost: z.number().min(0).max(1000000).default(0),
+  implementationCost: z.number().min(0).max(1000000).default(5000),
+  trainingCost: z.number().min(0).max(1000000).default(2000),
+  maintenanceCost: z.number().min(0).max(1000000).default(1000),
+  contractDuration: z.enum(['1', '2', '3', '5']).default('1'),
+  currency: z.enum(['USD', 'EUR', 'TRY', 'GBP']).default('USD'),
 });
 
 export interface AbonelikYazilimCloudYillikMaliyetHesabiOutput {
   totalAnnualCost: number;
   breakdown: {
     baseAnnualCost: number;
-    discountedAnnualCost: number;
-    storageAnnualCost: number;
     additionalServicesCost: number;
-    costPerUser: number;
+    implementationCostAmortized: number;
+    trainingCost: number;
+    maintenanceCost: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -49,45 +45,40 @@ export interface AbonelikYazilimCloudYillikMaliyetHesabiOutput {
 
 function evaluateFormulas(input: AbonelikYazilimCloudYillikMaliyetHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.baseAnnualCost = input.subscriptionType === 'monthly' ? input.monthlyFee * 12 : input.subscriptionType === 'annual' ? input.annualFee : input.pricePerUser * input.numberOfUsers * 12;
-  results.discountedAnnualCost = results.baseAnnualCost * (1 - input.discountRate / 100);
-  results.storageAnnualCost = input.cloudStorageGB * input.storageCostPerGB * 12;
-  results.totalAnnualCost = results.discountedAnnualCost + results.storageAnnualCost + input.additionalServicesCost;
-  results.costPerUser = results.totalAnnualCost / input.numberOfUsers;
-  results.dataConfidenceAdjustedCost = results.totalAnnualCost * (input.dataConfidence / 100);
+  results.baseAnnualCost = (() => { try { return input.subscriptionType == 'monthly' ? input.monthlyCostPerUser * input.numberOfUsers * 12 : (input.subscriptionType == 'annual' ? input.monthlyCostPerUser * input.numberOfUsers * 12 * (1 - input.annualDiscount/100) : input.monthlyCostPerUser * input.numberOfUsers * 12); } catch { return 0; } })();
+  results.totalAnnualCost = (() => { try { return results.baseAnnualCost + input.additionalServicesCost + input.implementationCost/input.contractDuration + input.trainingCost + input.maintenanceCost; } catch { return 0; } })();
+  results.costPerUserPerMonth = (() => { try { return results.totalAnnualCost / (input.numberOfUsers * 12); } catch { return 0; } })();
+  results.totalCostOverContract = (() => { try { return results.totalAnnualCost * input.contractDuration; } catch { return 0; } })();
   return results;
 }
 
 export function calculateAbonelikYazilimCloudYillikMaliyetHesabi(input: AbonelikYazilimCloudYillikMaliyetHesabiInput): AbonelikYazilimCloudYillikMaliyetHesabiOutput {
   const results = evaluateFormulas(input);
-  const totalAnnualCost = results.totalAnnualCost;
+  const totalAnnualCost = results.totalAnnualCost ?? 0;
   const breakdown = {
     baseAnnualCost: results.baseAnnualCost,
-    discountedAnnualCost: results.discountedAnnualCost,
-    storageAnnualCost: results.storageAnnualCost,
     additionalServicesCost: results.additionalServicesCost,
-    costPerUser: results.costPerUser,
+    implementationCostAmortized: results.implementationCostAmortized,
+    trainingCost: results.trainingCost,
+    maintenanceCost: results.maintenanceCost,
   };
 
-  // rule: subscriptionType must be one of: monthly, annual, perUser
-  // rule: If subscriptionType='monthly' then monthlyFee > 0
-  // rule: If subscriptionType='annual' then annualFee > 0
-  // rule: If subscriptionType='perUser' then pricePerUser > 0 and numberOfUsers > 0
-  // rule: monthlyFee >= 0
-  // rule: annualFee >= 0
+  // rule: monthlyCostPerUser >= 0
   // rule: numberOfUsers >= 1
-  // rule: pricePerUser >= 0
-  // rule: cloudStorageGB >= 0
-  // rule: storageCostPerGB >= 0
+  // rule: annualDiscount >= 0 && annualDiscount <= 100
   // rule: additionalServicesCost >= 0
-  // rule: contractDurationYears >= 1
-  // rule: discountRate between 0 and 100
-  // rule: dataConfidence between 0 and 100
-  // threshold highStorageCost: cloudStorageGB * storageCostPerGB * 12 > 1000
-  // threshold lowConfidence: dataConfidence < 50
-  const hiddenLossDrivers: string[] = ["highStorageCost: Depolama maliyeti yıllık 1000 USD'yi aşıyor.","lowConfidence: Veri güveni düşük, sonuçlar güvenilir olmayabilir."];
-  const suggestedActions: string[] = ["Uzun vadeli sözleşme ile indirim almayı değerlendirin.","Depolama kullanımını optimize ederek maliyeti düşürün.","Kullanıcı başına maliyeti azaltmak için toplu lisanslama seçeneklerini inceleyin."];
-  const dataConfidenceAdjusted = results.dataConfidenceAdjustedCost;
+  // rule: implementationCost >= 0
+  // rule: trainingCost >= 0
+  // rule: maintenanceCost >= 0
+  // rule: if subscriptionType == 'perUser' then monthlyCostPerUser > 0
+  // rule: if subscriptionType == 'annual' then annualDiscount >= 0
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): > 100 -> 'Yuksek birim maliyet, pazarlik onerilir'
+  // threshold skipped (non-JS): < 10 -> 'Dusuk indirim, yillik taahhut yeniden muzakere edilmeli'
+  // threshold skipped (non-JS): > 10000 -> 'Ek hizmet maliyetleri yuksek, alternatif saglayici degerlendirilmeli'
+
+  const dataConfidenceAdjusted = (() => { try { return results.totalAnnualCost * (1 - 0.05); } catch { return totalAnnualCost; } })();
 
   return {
     totalAnnualCost,
@@ -95,7 +86,7 @@ export function calculateAbonelikYazilimCloudYillikMaliyetHesabi(input: Abonelik
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    premiumRequired: false,
-    premiumFeatures: ["PDF raporu","CSV export","Trend analizi (geçmiş verilerle karşılaştırma)","Detaylı maliyet kırılımı grafikleri","Farklı senaryoların karşılaştırılması"],
+    premiumRequired: true,
+    premiumFeatures: ["PDF/CSV export","Trend analizi (gecmis yillar karsilastirmasi)","Rakiplerle karsilastirma","Detayli rapor (maliyet kirilimi grafikleri)"],
   };
 }

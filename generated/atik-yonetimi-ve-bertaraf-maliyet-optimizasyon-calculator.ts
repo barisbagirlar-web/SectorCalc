@@ -2,43 +2,42 @@
 import * as z from 'zod';
 
 export interface AtikYonetimiVeBertarafMaliyetOptimizasyonCalculatorInput {
-  wasteVolume: number;
-  wasteType: 'organic' | 'recyclable' | 'hazardous' | 'mixed' | 'construction' | 'electronic';
+  annualWasteVolume: number;
+  wasteType: 'mixed' | 'organic' | 'recyclable' | 'hazardous' | 'construction';
   disposalMethod: 'landfill' | 'incineration' | 'recycling' | 'composting' | 'anaerobic_digestion';
   unitDisposalCost: number;
-  transportDistance: number;
-  transportCostPerKm: number;
+  transportCostPerTonKm: number;
+  averageDistance: number;
+  recyclingRevenuePerTon: number;
   laborCostPerHour: number;
   laborHoursPerTon: number;
-  recyclingRevenuePerTon: number;
-  penaltyRate: number;
-  complianceScore: number;
-  dataConfidence: number;
+  equipmentCostPerYear: number;
+  dataConfidence: 'low' | 'medium' | 'high';
 }
 
 export const AtikYonetimiVeBertarafMaliyetOptimizasyonCalculatorInputSchema = z.object({
-  wasteVolume: z.number().min(0).max(100000).default(100),
-  wasteType: z.enum(['organic', 'recyclable', 'hazardous', 'mixed', 'construction', 'electronic']).default('mixed'),
+  annualWasteVolume: z.number().min(0).default(1000),
+  wasteType: z.enum(['mixed', 'organic', 'recyclable', 'hazardous', 'construction']).default('mixed'),
   disposalMethod: z.enum(['landfill', 'incineration', 'recycling', 'composting', 'anaerobic_digestion']).default('landfill'),
-  unitDisposalCost: z.number().min(0).max(1000).default(50),
-  transportDistance: z.number().min(0).max(1000).default(50),
-  transportCostPerKm: z.number().min(0).max(10).default(2),
-  laborCostPerHour: z.number().min(0).max(100).default(25),
-  laborHoursPerTon: z.number().min(0).max(10).default(0.5),
-  recyclingRevenuePerTon: z.number().min(0).max(500).default(0),
-  penaltyRate: z.number().min(0).max(100).default(0),
-  complianceScore: z.number().min(0).max(100).default(100),
-  dataConfidence: z.number().min(0).max(100).default(80),
+  unitDisposalCost: z.number().min(0).default(50),
+  transportCostPerTonKm: z.number().min(0).default(0.5),
+  averageDistance: z.number().min(0).default(50),
+  recyclingRevenuePerTon: z.number().min(0).default(20),
+  laborCostPerHour: z.number().min(0).default(15),
+  laborHoursPerTon: z.number().min(0).default(0.5),
+  equipmentCostPerYear: z.number().min(0).default(10000),
+  dataConfidence: z.enum(['low', 'medium', 'high']).default('medium'),
 });
 
 export interface AtikYonetimiVeBertarafMaliyetOptimizasyonCalculatorOutput {
-  totalExposure: number;
+  totalCostPerTon: number;
   breakdown: {
-    disposalCost: number;
     transportCost: number;
+    disposalCost: number;
     laborCost: number;
+    equipmentCost: number;
     recyclingRevenue: number;
-    penaltyCost: number;
+    netCost: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -49,60 +48,54 @@ export interface AtikYonetimiVeBertarafMaliyetOptimizasyonCalculatorOutput {
 
 function evaluateFormulas(input: AtikYonetimiVeBertarafMaliyetOptimizasyonCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.disposalCost = input.wasteVolume * input.unitDisposalCost;
-  results.transportCost = input.wasteVolume * input.transportDistance * input.transportCostPerKm;
-  results.laborCost = input.wasteVolume * input.laborHoursPerTon * input.laborCostPerHour;
-  results.recyclingRevenue = input.disposalMethod == 'recycling' ? input.wasteVolume * input.recyclingRevenuePerTon : 0;
-  results.penaltyCost = input.wasteVolume * input.unitDisposalCost * (input.penaltyRate / 100) * ((100 - input.complianceScore) / 100);
-  results.totalExposure = results.disposalCost + results.transportCost + results.laborCost - results.recyclingRevenue + results.penaltyCost;
-  results.variancePercent = abs((results.totalExposure - (results.disposalCost + results.transportCost + results.laborCost - results.recyclingRevenue)) / (results.disposalCost + results.transportCost + results.laborCost - results.recyclingRevenue)) * 100;
-  results.summaryLevel = results.totalExposure > 100000 ? 'critical' : (results.totalExposure > 50000 ? 'warning' : 'normal');
-  results.primaryDriver = max(results.disposalCost, results.transportCost, results.laborCost, results.penaltyCost) == results.disposalCost ? 'results.disposalCost' : (max(results.disposalCost, results.transportCost, results.laborCost, results.penaltyCost) == results.transportCost ? 'results.transportCost' : (max(results.disposalCost, results.transportCost, results.laborCost, results.penaltyCost) == results.laborCost ? 'results.laborCost' : 'results.penaltyCost'));
-  results.decisionVerdict = results.totalExposure > 100000 ? 'RED' : (results.totalExposure > 50000 ? 'AMBER' : 'GREEN');
-  results.dataConfidenceAdjusted = results.totalExposure * (input.dataConfidence / 100);
+  results.transportCost = (() => { try { return input.annualWasteVolume * input.transportCostPerTonKm * input.averageDistance; } catch { return 0; } })();
+  results.disposalCost = (() => { try { return input.annualWasteVolume * input.unitDisposalCost; } catch { return 0; } })();
+  results.laborCost = (() => { try { return input.annualWasteVolume * input.laborHoursPerTon * input.laborCostPerHour; } catch { return 0; } })();
+  results.totalDirectCost = (() => { try { return results.transportCost + results.disposalCost + results.laborCost + input.equipmentCostPerYear; } catch { return 0; } })();
+  results.recyclingRevenue = (() => { try { return input.annualWasteVolume * input.recyclingRevenuePerTon; } catch { return 0; } })();
+  results.netCost = (() => { try { return results.totalDirectCost - results.recyclingRevenue; } catch { return 0; } })();
+  results.totalCostPerTon = (() => { try { return results.netCost / input.annualWasteVolume; } catch { return 0; } })();
+  results.recyclingRate = (() => { try { return 0; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = (() => { try { return 0; } catch { return 0; } })();
   return results;
 }
 
 export function calculateAtikYonetimiVeBertarafMaliyetOptimizasyonCalculator(input: AtikYonetimiVeBertarafMaliyetOptimizasyonCalculatorInput): AtikYonetimiVeBertarafMaliyetOptimizasyonCalculatorOutput {
   const results = evaluateFormulas(input);
-  const totalExposure = results.totalExposure;
+  const totalCostPerTon = results.totalCostPerTon ?? 0;
   const breakdown = {
-    disposalCost: results.disposalCost,
     transportCost: results.transportCost,
+    disposalCost: results.disposalCost,
     laborCost: results.laborCost,
+    equipmentCost: results.equipmentCost,
     recyclingRevenue: results.recyclingRevenue,
-    penaltyCost: results.penaltyCost,
+    netCost: results.netCost,
   };
 
-  // rule: wasteVolume >= 0
+  // rule: annualWasteVolume > 0
   // rule: unitDisposalCost >= 0
-  // rule: transportDistance >= 0
-  // rule: transportCostPerKm >= 0
+  // rule: transportCostPerTonKm >= 0
+  // rule: averageDistance >= 0
+  // rule: recyclingRevenuePerTon >= 0
   // rule: laborCostPerHour >= 0
   // rule: laborHoursPerTon >= 0
-  // rule: recyclingRevenuePerTon >= 0
-  // rule: penaltyRate between 0 and 100
-  // rule: complianceScore between 0 and 100
-  // rule: dataConfidence between 0 and 100
-  // rule: if disposalMethod == 'recycling' then recyclingRevenuePerTon > 0 else recyclingRevenuePerTon == 0
-  // rule: if wasteType == 'hazardous' then unitDisposalCost >= 100 (higher cost for hazardous)
-  // rule: if complianceScore < 50 then penaltyRate > 0
-  // threshold totalExposureCritical: totalExposure > 100000
-  // threshold totalExposureWarning: totalExposure > 50000
-  // threshold variancePercentCritical: variancePercent > 20
-  // threshold variancePercentWarning: variancePercent > 10
-  // threshold complianceScoreLow: complianceScore < 60
-  const hiddenLossDrivers: string[] = ["penaltyCost > 0 ? 'Yüksek ceza maliyeti: uyum skorunu artırın' : null","variancePercent > 20 ? 'Yüksek varyans: veri güvenini kontrol edin' : null","complianceScore < 60 ? 'Düşük uyum skoru: düzenleyici risk' : null"];
-  const suggestedActions: string[] = ["Atık hacmini azaltmak için kaynak azaltma stratejileri uygulayın","Daha düşük maliyetli bertaraf yöntemlerini değerlendirin (ör. geri dönüşüm)","Taşıma mesafesini optimize edin veya yerel tesisler kullanın","İşçilik verimliliğini artırın (eğitim, otomasyon)","Uyum skorunu iyileştirmek için çevre yönetim sistemine yatırım yapın"];
-  const dataConfidenceAdjusted = results.totalExposure * (input.dataConfidence / 100);
+  // rule: equipmentCostPerYear >= 0
+  // rule: if wasteType == 'hazardous' then disposalMethod must be 'incineration' or 'landfill' (special handling)
+  // rule: if disposalMethod == 'recycling' then recyclingRevenuePerTon > 0
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-string): totalCostPerTon
+  // threshold skipped (non-string): recyclingRate
+
+  const dataConfidenceAdjusted = (() => { try { return results.dataConfidenceAdjusted; } catch { return totalCostPerTon; } })();
 
   return {
-    totalExposure,
+    totalCostPerTon,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF raporu","CSV veri dışa aktarımı","Trend analizi (geçmiş verilerle karşılaştırma)","Senaryo karşılaştırma (farklı atık türleri/yöntemleri)","Detaylı maliyet kırılımı grafikleri","Özelleştirilebilir uyarı eşikleri"],
+    premiumFeatures: ["PDF raporu disa aktarma","CSV veri disa aktarma","Trend analizi (gecmis verilerle karsilastirma)","Senaryo karsilastirma (farkli atik turleri/yontemleri)","Detayli maliyet kirilimi grafikleri"],
   };
 }

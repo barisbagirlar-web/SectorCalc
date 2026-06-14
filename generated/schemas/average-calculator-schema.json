@@ -1,95 +1,107 @@
 {
-  "toolName": "Average Calculator",
+  "toolName": "average-calculator",
   "inputs": [
     {
-      "id": "value1",
-      "label": "Value 1",
+      "id": "values",
+      "label": "Values",
       "type": "number",
-      "unit": "units",
+      "unit": "any",
       "default": 0,
       "min": null,
       "max": null,
       "options": null,
-      "businessContext": "First numeric value to be averaged. Used in arithmetic mean calculation."
+      "businessContext": "List of numeric values to calculate average. Standard statistical measure."
     },
     {
-      "id": "value2",
-      "label": "Value 2",
+      "id": "weights",
+      "label": "Weights",
       "type": "number",
-      "unit": "units",
-      "default": 0,
-      "min": null,
+      "unit": "any",
+      "default": 1,
+      "min": 0,
       "max": null,
       "options": null,
-      "businessContext": "Second numeric value to be averaged."
+      "businessContext": "Optional weights for weighted average. Must be non-negative. Used in weighted mean calculations."
     },
     {
-      "id": "value3",
-      "label": "Value 3",
-      "type": "number",
-      "unit": "units",
-      "default": 0,
+      "id": "averageType",
+      "label": "Average Type",
+      "type": "select",
+      "unit": "",
+      "default": "arithmetic",
       "min": null,
       "max": null,
-      "options": null,
-      "businessContext": "Third numeric value to be averaged."
+      "options": [
+        "arithmetic",
+        "weighted",
+        "geometric",
+        "harmonic",
+        "median",
+        "mode"
+      ],
+      "businessContext": "Type of average to compute. Arithmetic mean is standard; geometric for growth rates; harmonic for rates; median for robust central tendency; mode for most frequent value."
     },
     {
-      "id": "value4",
-      "label": "Value 4",
+      "id": "dataConfidence",
+      "label": "Data Confidence",
       "type": "number",
-      "unit": "units",
-      "default": 0,
-      "min": null,
-      "max": null,
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
       "options": null,
-      "businessContext": "Fourth numeric value to be averaged."
-    },
-    {
-      "id": "value5",
-      "label": "Value 5",
-      "type": "number",
-      "unit": "units",
-      "default": 0,
-      "min": null,
-      "max": null,
-      "options": null,
-      "businessContext": "Fifth numeric value to be averaged."
+      "businessContext": "Confidence level in data quality (0-100%). Used to adjust output for uncertainty. Based on ISO 9001 data quality principles."
     }
   ],
   "validation": {
     "rules": [
-      "All input values must be finite numbers.",
-      "At least one input must be non-zero to compute average (count > 0)."
+      "values must be an array of numbers",
+      "if averageType is 'weighted', weights must be provided and have same length as values",
+      "weights must be non-negative",
+      "dataConfidence must be between 0 and 100"
     ],
     "thresholds": {
-      "countZero": "If count is 0, average is undefined."
+      "dataConfidence < 50": "Low data confidence; results may be unreliable",
+      "values.length < 3": "Small sample size; consider using median"
     }
   },
   "formulas": {
-    "count": "count = (value1 !== undefined ? 1 : 0) + (value2 !== undefined ? 1 : 0) + (value3 !== undefined ? 1 : 0) + (value4 !== undefined ? 1 : 0) + (value5 !== undefined ? 1 : 0)",
-    "sum": "sum = (value1 || 0) + (value2 || 0) + (value3 || 0) + (value4 || 0) + (value5 || 0)",
-    "average": "average = count > 0 ? sum / count : undefined"
+    "arithmetic": "sum(values) / count(values)",
+    "weighted": "sum(values[i] * weights[i]) / sum(weights)",
+    "geometric": "exp(sum(log(values)) / count(values))",
+    "harmonic": "count(values) / sum(1/values)",
+    "median": "if count(values) % 2 == 1 then sortedValues[floor(count/2)] else (sortedValues[count/2 - 1] + sortedValues[count/2]) / 2",
+    "mode": "most frequent value in values",
+    "dataConfidenceAdjusted": "primary * (dataConfidence / 100)"
   },
   "outputs": {
     "primary": "average",
     "breakdown": {
-      "count": "Number of non-zero inputs used",
-      "sum": "Sum of all input values"
+      "sum": "sum of values",
+      "count": "number of values",
+      "min": "minimum value",
+      "max": "maximum value",
+      "range": "max - min",
+      "variance": "population variance",
+      "stdDev": "population standard deviation"
     },
-    "hiddenLossDrivers": [],
-    "suggestedActions": [
-      "Ensure all input values are accurate and represent the same unit of measure.",
-      "If average is used for benchmarking, compare against industry standards."
+    "hiddenLossDrivers": [
+      "dataConfidence < 50",
+      "values.length < 3"
     ],
-    "dataConfidenceAdjusted": "average (no confidence adjustment applied)"
+    "suggestedActions": [
+      "If data confidence low, verify data sources and improve collection methods.",
+      "If sample size small, collect more data or use median for robustness.",
+      "If outliers present, consider trimmed mean or median."
+    ],
+    "dataConfidenceAdjusted": "primary * (dataConfidence / 100)"
   },
   "premiumFeatures": [
     "PDF export",
     "CSV export",
     "Trend analysis over time",
-    "Comparison with historical averages",
-    "Detailed report with statistical measures (median, mode, standard deviation)"
+    "Comparison with benchmarks",
+    "Detailed statistical report"
   ],
   "premiumRequired": false
 }

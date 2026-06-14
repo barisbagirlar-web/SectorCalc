@@ -2,37 +2,28 @@
 import * as z from 'zod';
 
 export interface AutoRepairComebackCostInput {
-  totalJobs: number;
-  comebackJobs: number;
-  averageJobValue: number;
-  diagnosticTimePerComeback: number;
-  reworkTimePerComeback: number;
-  laborRate: number;
-  partsCostPerComeback: number;
-  customerGoodwillCost: number;
-  comebackRatePercent: number;
+  totalRepairs: number;
+  comebackRate: number;
+  averageComebackCost: number;
+  lostCustomerRate: number;
+  averageCustomerLifetimeValue: number;
+  dataConfidence: 'low' | 'medium' | 'high';
 }
 
 export const AutoRepairComebackCostInputSchema = z.object({
-  totalJobs: z.number().min(1).max(100000).default(100),
-  comebackJobs: z.number().min(0).max(100000).default(5),
-  averageJobValue: z.number().min(0).max(100000).default(500),
-  diagnosticTimePerComeback: z.number().min(0).max(40).default(1.5),
-  reworkTimePerComeback: z.number().min(0).max(40).default(2),
-  laborRate: z.number().min(0).max(500).default(100),
-  partsCostPerComeback: z.number().min(0).max(10000).default(50),
-  customerGoodwillCost: z.number().min(0).max(1000).default(25),
-  comebackRatePercent: z.number().min(0).max(100).default(5),
+  totalRepairs: z.number().min(0).default(1000),
+  comebackRate: z.number().min(0).max(100).default(5),
+  averageComebackCost: z.number().min(0).default(200),
+  lostCustomerRate: z.number().min(0).max(100).default(20),
+  averageCustomerLifetimeValue: z.number().min(0).default(5000),
+  dataConfidence: z.enum(['low', 'medium', 'high']).default('medium'),
 });
 
 export interface AutoRepairComebackCostOutput {
-  totalExposure: number;
+  totalComebackCost: number;
   breakdown: {
-    comebackCost: number;
-    diagnosticLeak: number;
-    summaryLevel: number;
-    primaryDriver: number;
-    decisionVerdict: number;
+    directComebackCost: number;
+    lostRevenue: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -43,48 +34,42 @@ export interface AutoRepairComebackCostOutput {
 
 function evaluateFormulas(input: AutoRepairComebackCostInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.comebackCost = input.comebackJobs * ( (input.diagnosticTimePerComeback + input.reworkTimePerComeback) * input.laborRate + input.partsCostPerComeback + input.customerGoodwillCost );
-  results.diagnosticLeak = input.comebackJobs * input.diagnosticTimePerComeback * input.laborRate;
-  results.totalExposure = results.comebackCost + (input.comebackJobs * input.averageJobValue * 0.5);
-  results.summaryLevel = input.comebackRatePercent >= 8 ? 'critical' : (input.comebackRatePercent >= 4 ? 'warning' : 'normal');
-  results.primaryDriver = input.comebackJobs > 0 ? 'input.comebackJobs' : 'none';
-  results.decisionVerdict = input.comebackRatePercent >= 8 ? 'Immediate action required' : (input.comebackRatePercent >= 4 ? 'Monitor closely' : 'Acceptable');
+  results.comebackCount = (() => { try { return input.totalRepairs * (input.comebackRate / 100); } catch { return 0; } })();
+  results.directComebackCost = (() => { try { return results.comebackCount * input.averageComebackCost; } catch { return 0; } })();
+  results.lostCustomers = (() => { try { return results.comebackCount * (input.lostCustomerRate / 100); } catch { return 0; } })();
+  results.lostRevenue = (() => { try { return results.lostCustomers * input.averageCustomerLifetimeValue; } catch { return 0; } })();
+  results.totalComebackCost = (() => { try { return results.directComebackCost + results.lostRevenue; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = (() => { try { return results.totalComebackCost * (input.dataConfidence == 'low' ? 1.2 : (input.dataConfidence == 'medium' ? 1.0 : 0.9)); } catch { return 0; } })();
   return results;
 }
 
 export function calculateAutoRepairComebackCost(input: AutoRepairComebackCostInput): AutoRepairComebackCostOutput {
   const results = evaluateFormulas(input);
-  const totalExposure = results.totalExposure;
+  const totalComebackCost = results.totalComebackCost ?? 0;
   const breakdown = {
-    comebackCost: results.comebackCost,
-    diagnosticLeak: results.diagnosticLeak,
-    summaryLevel: results.summaryLevel,
-    primaryDriver: results.primaryDriver,
-    decisionVerdict: results.decisionVerdict,
+    directComebackCost: results.directComebackCost,
+    lostRevenue: results.lostRevenue,
   };
 
-  // rule: totalJobs must be >= 1
-  // rule: comebackJobs must be >= 0 and <= totalJobs
-  // rule: averageJobValue must be >= 0
-  // rule: diagnosticTimePerComeback must be >= 0
-  // rule: reworkTimePerComeback must be >= 0
-  // rule: laborRate must be >= 0
-  // rule: partsCostPerComeback must be >= 0
-  // rule: customerGoodwillCost must be >= 0
-  // rule: comebackRatePercent must be >= 0 and <= 100
-  // threshold comebackRatePercent_warning: 4
-  // threshold comebackRatePercent_critical: 8
-  const hiddenLossDrivers: string[] = ["comebackRatePercent >= 8 ? 'Critical comeback rate: immediate process improvement needed' : null","comebackRatePercent >= 4 && comebackRatePercent < 8 ? 'Warning: comeback rate above industry benchmark (4%)' : null"];
-  const suggestedActions: string[] = ["Implement root cause analysis for comebacks","Enhance technician training on first-time fix","Improve diagnostic procedures and checklists","Review parts quality and sourcing","Establish customer follow-up protocol"];
-  const dataConfidenceAdjusted = results.totalExposure * (1 - (1 - dataConfidence) * 0.1);
+  // rule: totalRepairs >= 0
+  // rule: comebackRate >= 0 and comebackRate <= 100
+  // rule: averageComebackCost >= 0
+  // rule: lostCustomerRate >= 0 and lostCustomerRate <= 100
+  // rule: averageCustomerLifetimeValue >= 0
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): Comeback rate exceeds industry benchmark of 5%.
+  // threshold skipped (non-JS): Lost customer rate exceeds typical range.
+
+  const dataConfidenceAdjusted = (() => { try { return results.dataConfidenceAdjusted; } catch { return totalComebackCost; } })();
 
   return {
-    totalExposure,
+    totalComebackCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis over time","Benchmarking against industry averages","Detailed breakdown report","Scenario simulation"],
+    premiumFeatures: ["PDF Export","CSV Export","Trend Analysis","Benchmark Comparison","Detailed Report with Charts"],
   };
 }

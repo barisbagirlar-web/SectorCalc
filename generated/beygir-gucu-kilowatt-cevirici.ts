@@ -3,16 +3,20 @@ import * as z from 'zod';
 
 export interface BeygirGucuKilowattCeviriciInput {
   horsepower: number;
+  horsepowerType: 'mechanical' | 'metric' | 'electric' | 'boiler';
 }
 
 export const BeygirGucuKilowattCeviriciInputSchema = z.object({
-  horsepower: z.number().min(0).max(10000).default(1),
+  horsepower: z.number().min(0).max(10000).default(100),
+  horsepowerType: z.enum(['mechanical', 'metric', 'electric', 'boiler']).default('mechanical'),
 });
 
 export interface BeygirGucuKilowattCeviriciOutput {
   kilowatt: number;
   breakdown: {
-
+    horsepower: number;
+    horsepowerType: number;
+    conversionFactor: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -23,24 +27,26 @@ export interface BeygirGucuKilowattCeviriciOutput {
 
 function evaluateFormulas(input: BeygirGucuKilowattCeviriciInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.primary = kilowatt = input.horsepower * 0.7457;
+  results.kilowatt = (() => { try { return input.horsepower * (input.horsepowerType == 'mechanical' ? 0.7457 : input.horsepowerType == 'metric' ? 0.7355 : input.horsepowerType == 'electric' ? 0.746 : 9.8095); } catch { return 0; } })();
   return results;
 }
 
 export function calculateBeygirGucuKilowattCevirici(input: BeygirGucuKilowattCeviriciInput): BeygirGucuKilowattCeviriciOutput {
   const results = evaluateFormulas(input);
-  const kilowatt = results.kilowatt;
+  const kilowatt = results.kilowatt ?? 0;
   const breakdown = {
-
+    horsepower: results.horsepower,
+    horsepowerType: results.horsepowerType,
+    conversionFactor: results.conversionFactor,
   };
 
-  // rule: horsepower must be a finite number
-  // rule: horsepower must be >= 0
-  // rule: horsepower must be <= 10000
-  // threshold horsepower: horsepower > 5000 → 'Yüksek güç, özel ekipman gerekebilir'
+  // rule: horsepower >= 0
+  // rule: horsepower <= 10000
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = [];
-  const dataConfidenceAdjusted = kilowatt;
+  if (input.horsepower > 5000) hiddenLossDrivers.push("Yuksek guc degeri, dogrulama gerekli");
+
+  const dataConfidenceAdjusted = (() => { try { return results.kilowatt * 1.0; } catch { return kilowatt; } })();
 
   return {
     kilowatt,
@@ -49,6 +55,6 @@ export function calculateBeygirGucuKilowattCevirici(input: BeygirGucuKilowattCev
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: false,
-    premiumFeatures: ["PDF raporu","CSV export","Toplu dönüşüm","Trend analizi"],
+    premiumFeatures: ["PDF/CSV export","Trend analizi","Karsilastirma","Detayli rapor"],
   };
 }

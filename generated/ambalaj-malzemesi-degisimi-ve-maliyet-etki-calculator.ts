@@ -2,32 +2,31 @@
 import * as z from 'zod';
 
 export interface AmbalajMalzemesiDegisimiVeMaliyetEtkiCalculatorInput {
-  currentMaterialCost: number;
-  newMaterialCost: number;
-  annualUsage: number;
+  currentMaterialCostPerUnit: number;
+  newMaterialCostPerUnit: number;
+  annualUsageKg: number;
   changeoverCost: number;
-  wasteRateCurrent: number;
-  wasteRateNew: number;
+  qualityImpact: 'positive' | 'neutral' | 'negative';
   dataConfidence: 'low' | 'medium' | 'high';
 }
 
 export const AmbalajMalzemesiDegisimiVeMaliyetEtkiCalculatorInputSchema = z.object({
-  currentMaterialCost: z.number().min(0).default(0),
-  newMaterialCost: z.number().min(0).default(0),
-  annualUsage: z.number().min(0).default(0),
-  changeoverCost: z.number().min(0).default(0),
-  wasteRateCurrent: z.number().min(0).max(100).default(2),
-  wasteRateNew: z.number().min(0).max(100).default(2),
+  currentMaterialCostPerUnit: z.number().min(0).default(10),
+  newMaterialCostPerUnit: z.number().min(0).default(8),
+  annualUsageKg: z.number().min(0).default(10000),
+  changeoverCost: z.number().min(0).default(5000),
+  qualityImpact: z.enum(['positive', 'neutral', 'negative']).default('neutral'),
   dataConfidence: z.enum(['low', 'medium', 'high']).default('medium'),
 });
 
 export interface AmbalajMalzemesiDegisimiVeMaliyetEtkiCalculatorOutput {
-  totalExposure: number;
+  costSavings: number;
   breakdown: {
-    currentAnnualCost: number;
-    newAnnualCost: number;
-    annualSavings: number;
+    annualMaterialCostCurrent: number;
+    annualMaterialCostNew: number;
+    grossSavings: number;
     changeoverCost: number;
+    netSavings: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -38,47 +37,44 @@ export interface AmbalajMalzemesiDegisimiVeMaliyetEtkiCalculatorOutput {
 
 function evaluateFormulas(input: AmbalajMalzemesiDegisimiVeMaliyetEtkiCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.currentAnnualCost = input.currentMaterialCost * input.annualUsage * (1 + input.wasteRateCurrent / 100);
-  results.newAnnualCost = input.newMaterialCost * input.annualUsage * (1 + input.wasteRateNew / 100);
-  results.annualSavings = results.currentAnnualCost - results.newAnnualCost;
-  results.totalExposure = results.annualSavings - input.changeoverCost;
-  results.variancePercent = ((results.newAnnualCost - results.currentAnnualCost) / results.currentAnnualCost) * 100;
-  results.summaryLevel = results.totalExposure < 10000 ? 'low' : results.totalExposure < 50000 ? 'warning' : 'critical';
-  results.primaryDriver = Math.abs(results.annualSavings) > Math.abs(input.changeoverCost) ? 'results.annualSavings' : 'input.changeoverCost';
-  results.decisionVerdict = results.totalExposure > 0 ? 'positive' : results.totalExposure < 0 ? 'negative' : 'neutral';
-  results.dataConfidenceAdjusted = input.dataConfidence === 'low' ? results.totalExposure * 0.8 : input.dataConfidence === 'high' ? results.totalExposure * 1.2 : results.totalExposure;
+  results.annualMaterialCostCurrent = (() => { try { return input.currentMaterialCostPerUnit * input.annualUsageKg; } catch { return 0; } })();
+  results.annualMaterialCostNew = (() => { try { return input.newMaterialCostPerUnit * input.annualUsageKg; } catch { return 0; } })();
+  results.grossSavings = (() => { try { return results.annualMaterialCostCurrent - results.annualMaterialCostNew; } catch { return 0; } })();
+  results.netSavings = (() => { try { return results.grossSavings - input.changeoverCost; } catch { return 0; } })();
+  results.costSavings = (() => { try { return results.netSavings; } catch { return 0; } })();
+  results.dataConfidenceAdjusted = (() => { try { return input.dataConfidence == 'low' ? results.costSavings * 0.8 : (input.dataConfidence == 'medium' ? results.costSavings * 0.9 : results.costSavings); } catch { return 0; } })();
   return results;
 }
 
 export function calculateAmbalajMalzemesiDegisimiVeMaliyetEtkiCalculator(input: AmbalajMalzemesiDegisimiVeMaliyetEtkiCalculatorInput): AmbalajMalzemesiDegisimiVeMaliyetEtkiCalculatorOutput {
   const results = evaluateFormulas(input);
-  const totalExposure = results.totalExposure;
+  const costSavings = results.costSavings ?? 0;
   const breakdown = {
-    currentAnnualCost: results.currentAnnualCost,
-    newAnnualCost: results.newAnnualCost,
-    annualSavings: results.annualSavings,
+    annualMaterialCostCurrent: results.annualMaterialCostCurrent,
+    annualMaterialCostNew: results.annualMaterialCostNew,
+    grossSavings: results.grossSavings,
     changeoverCost: results.changeoverCost,
+    netSavings: results.netSavings,
   };
 
-  // rule: currentMaterialCost >= 0
-  // rule: newMaterialCost >= 0
-  // rule: annualUsage >= 0
+  // rule: currentMaterialCostPerUnit > 0
+  // rule: newMaterialCostPerUnit > 0
+  // rule: annualUsageKg > 0
   // rule: changeoverCost >= 0
-  // rule: wasteRateCurrent between 0 and 100
-  // rule: wasteRateNew between 0 and 100
-  // rule: dataConfidence must be one of low, medium, high
-  // threshold totalExposure: [object Object]
-  const hiddenLossDrivers: string[] = ["wasteRateCurrent > 5 ? 'Yüksek mevcut fire oranı' : null","wasteRateNew > 5 ? 'Yeni malzeme fire oranı yüksek' : null","changeoverCost > annualSavings * 0.5 ? 'Geçiş maliyeti yıllık tasarrufa göre yüksek' : null"];
-  const suggestedActions: string[] = ["totalExposure > 0 ? 'Malzeme değişimi önerilir' : 'Malzeme değişimi önerilmez'","wasteRateNew > wasteRateCurrent ? 'Yeni malzeme fire oranını düşürmek için iyileştirme yapın' : null"];
-  const dataConfidenceAdjusted = results.dataConfidenceAdjusted;
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): if costSavings < 0 then 'Maliyet tasarrufu saglanamiyor, degisim onerilmez'
+  // threshold skipped (non-JS): if qualityImpact == 'negative' then 'Kalite riski var, dikkatli olunmali'
+
+  const dataConfidenceAdjusted = (() => { try { return results.dataConfidenceAdjusted; } catch { return costSavings; } })();
 
   return {
-    totalExposure,
+    costSavings,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Scenario comparison","Detailed report with charts"],
+    premiumFeatures: ["PDF/CSV export","Trend analizi","Karsilastirma (birden fazla malzeme secenegi)","Detayli rapor (kalite etkisi dahil)"],
   };
 }

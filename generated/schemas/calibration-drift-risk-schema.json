@@ -1,0 +1,137 @@
+{
+  "toolName": "calibration-drift-risk",
+  "inputs": [
+    {
+      "id": "calibrationIntervalDays",
+      "label": "Calibration Interval (days)",
+      "type": "number",
+      "unit": "days",
+      "default": 90,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "ISO 10012:2003 measurement management systems; typical intervals based on manufacturer recommendation or historical drift rate."
+    },
+    {
+      "id": "driftRatePerDay",
+      "label": "Drift Rate per Day",
+      "type": "number",
+      "unit": "%",
+      "default": 0.01,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Historical drift data from calibration records; Six Sigma DMAIC phase for measurement system analysis."
+    },
+    {
+      "id": "toleranceLimit",
+      "label": "Tolerance Limit",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Specification limit from product quality standards (ISO 9001) or process capability requirements."
+    },
+    {
+      "id": "numberOfInstruments",
+      "label": "Number of Instruments",
+      "type": "number",
+      "unit": "count",
+      "default": 10,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Total calibrated instruments in the scope; relevant for risk aggregation."
+    },
+    {
+      "id": "costPerCalibration",
+      "label": "Cost per Calibration",
+      "type": "number",
+      "unit": "USD",
+      "default": 500,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Direct cost including labor, equipment, and downtime; used for financial risk assessment."
+    },
+    {
+      "id": "costOfFailure",
+      "label": "Cost of Failure per Out-of-Tolerance Event",
+      "type": "number",
+      "unit": "USD",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of rework, scrap, or customer impact due to inaccurate measurements; based on quality cost models (COPQ)."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "number",
+      "unit": "%",
+      "default": 95,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence in drift rate estimate; used for risk adjustment (e.g., Bayesian approach)."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "calibrationIntervalDays must be >= 1 and <= 365",
+      "driftRatePerDay must be >= 0 and <= 100",
+      "toleranceLimit must be > 0",
+      "numberOfInstruments must be >= 1",
+      "costPerCalibration must be >= 0",
+      "costOfFailure must be >= 0",
+      "dataConfidence must be between 0 and 100"
+    ],
+    "thresholds": {
+      "driftRiskIndex": {
+        "low": 0.1,
+        "medium": 0.3,
+        "high": 0.5
+      }
+    }
+  },
+  "formulas": {
+    "expectedDrift": "driftRatePerDay * calibrationIntervalDays",
+    "driftRiskIndex": "expectedDrift / toleranceLimit",
+    "probabilityOfFailure": "driftRiskIndex > 1 ? 1 : driftRiskIndex",
+    "expectedAnnualFailures": "probabilityOfFailure * numberOfInstruments * (365 / calibrationIntervalDays)",
+    "annualCalibrationCost": "numberOfInstruments * (365 / calibrationIntervalDays) * costPerCalibration",
+    "annualFailureCost": "expectedAnnualFailures * costOfFailure",
+    "totalAnnualRiskCost": "annualCalibrationCost + annualFailureCost",
+    "dataConfidenceAdjustedRisk": "totalAnnualRiskCost * (1 + (1 - dataConfidence/100))"
+  },
+  "outputs": {
+    "primary": "totalAnnualRiskCost",
+    "breakdown": {
+      "expectedDrift": "expectedDrift",
+      "driftRiskIndex": "driftRiskIndex",
+      "probabilityOfFailure": "probabilityOfFailure",
+      "expectedAnnualFailures": "expectedAnnualFailures",
+      "annualCalibrationCost": "annualCalibrationCost",
+      "annualFailureCost": "annualFailureCost"
+    },
+    "hiddenLossDrivers": [
+      "driftRiskIndex > 0.5 ? 'High drift risk index indicates potential for frequent out-of-tolerance events' : ''",
+      "probabilityOfFailure > 0.3 ? 'Probability of failure exceeds 30%' : ''"
+    ],
+    "suggestedActions": [
+      "driftRiskIndex > 0.3 ? 'Reduce calibration interval or improve drift rate' : 'Maintain current calibration schedule'",
+      "annualFailureCost > annualCalibrationCost ? 'Consider investing in more stable instruments or increasing calibration frequency' : 'Current calibration cost is justified'"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedRisk"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmarking against industry standards",
+    "Detailed report with breakdown and recommendations"
+  ],
+  "premiumRequired": true
+}

@@ -2,181 +2,164 @@
   "toolName": "asma-tavan-malzeme-hesabi",
   "inputs": [
     {
-      "id": "areaLength",
-      "label": "Alan Uzunluğu",
+      "id": "alan",
+      "label": "Asma Tavan Alanı (m²)",
       "type": "number",
-      "unit": "m",
-      "default": 10,
-      "min": 0.1,
-      "max": 100,
+      "unit": "m²",
+      "default": 100,
+      "min": 1,
+      "max": 10000,
       "options": null,
-      "businessContext": "Asma tavan yapılacak alanın uzunluğu. Metre cinsinden girilir. Tavan alanı hesaplamak için kullanılır."
+      "businessContext": "Proje alanı, malzeme miktarının hesaplanmasında temel girdidir. TS 825 standardına göre bina alanı ölçümü esas alınır."
     },
     {
-      "id": "areaWidth",
-      "label": "Alan Genişliği",
+      "id": "profilAraligi",
+      "label": "Profil Aralığı (cm)",
       "type": "number",
-      "unit": "m",
-      "default": 8,
-      "min": 0.1,
-      "max": 100,
+      "unit": "cm",
+      "default": 60,
+      "min": 30,
+      "max": 120,
       "options": null,
-      "businessContext": "Asma tavan yapılacak alanın genişliği. Metre cinsinden girilir. Tavan alanı hesaplamak için kullanılır."
+      "businessContext": "Taşıyıcı profillerin eksen aralığı; yük ve malzeme türüne göre belirlenir. Genellikle 60 cm standarttır."
     },
     {
-      "id": "panelType",
-      "label": "Panel Tipi",
+      "id": "plakaBoyutu",
+      "label": "Plaka Boyutu (cm x cm)",
       "type": "select",
-      "unit": "",
-      "default": "standard",
+      "unit": "cm",
+      "default": "60x60",
       "min": null,
       "max": null,
       "options": [
-        "standard",
-        "acoustic",
-        "moistureResistant"
+        "60x60",
+        "60x120",
+        "120x120"
       ],
-      "businessContext": "Kullanılacak asma tavan panelinin tipi. Standart, akustik veya neme dayanıklı seçenekleri mevcuttur. Panel boyutları ve fiyatları tipe göre değişir."
+      "businessContext": "Asma tavan plakalarının standart ebatları; piyasada yaygın olan boyutlar seçilmiştir."
     },
     {
-      "id": "gridType",
-      "label": "Izgara Tipi",
+      "id": "malzemeTuru",
+      "label": "Malzeme Türü",
       "type": "select",
       "unit": "",
-      "default": "exposed",
+      "default": "alçıpan",
       "min": null,
       "max": null,
       "options": [
-        "exposed",
-        "concealed"
+        "alçıpan",
+        "metal",
+        "ahşap",
+        "mineral lif"
       ],
-      "businessContext": "Asma tavan ızgara sisteminin tipi. Görünür (exposed) veya gizli (concealed) olabilir. Malzeme miktarını ve işçiliği etkiler."
+      "businessContext": "Farklı malzeme türleri farklı fire oranları ve birim maliyetler gerektirir. Alçıpan en yaygın kullanılan türdür."
     },
     {
-      "id": "panelWasteFactor",
-      "label": "Panel Fire Oranı",
+      "id": "fireOrani",
+      "label": "Fire Oranı (%)",
       "type": "number",
       "unit": "%",
       "default": 5,
       "min": 0,
       "max": 20,
       "options": null,
-      "businessContext": "Panel kesim ve montaj sırasında oluşacak fire oranı. Yüzde olarak girilir. Toplam panel ihtiyacını hesaplamak için kullanılır."
+      "businessContext": "Kesim, taşıma ve montaj sırasında oluşan kayıplar. Sektörde %5-10 arası kabul edilir."
     },
     {
-      "id": "gridWasteFactor",
-      "label": "Izgara Fire Oranı",
+      "id": "birimMaliyetPlaka",
+      "label": "Plaka Birim Maliyeti (TL/m²)",
       "type": "number",
-      "unit": "%",
-      "default": 3,
-      "min": 0,
-      "max": 15,
+      "unit": "TL/m²",
+      "default": 50,
+      "min": 10,
+      "max": 500,
       "options": null,
-      "businessContext": "Izgara profillerinde kesim ve montaj sırasında oluşacak fire oranı. Yüzde olarak girilir."
+      "businessContext": "Plaka malzemesinin metrekare fiyatı; piyasa koşullarına göre değişir."
     },
     {
-      "id": "unitPanelPrice",
-      "label": "Birim Panel Fiyatı",
+      "id": "birimMaliyetProfil",
+      "label": "Profil Birim Maliyeti (TL/m)",
       "type": "number",
-      "unit": "USD/m²",
+      "unit": "TL/m",
       "default": 15,
-      "min": 1,
+      "min": 5,
       "max": 100,
       "options": null,
-      "businessContext": "Metrekare başına panel fiyatı. USD cinsinden. Toplam panel maliyetini hesaplamak için kullanılır."
+      "businessContext": "Taşıyıcı profillerin metre fiyatı; galvanizli çelik profiller için tipik değer."
     },
     {
-      "id": "unitGridPrice",
-      "label": "Birim Izgara Fiyatı",
+      "id": "iscilikSaatUcreti",
+      "label": "İşçilik Saat Ücreti (TL/saat)",
       "type": "number",
-      "unit": "USD/m²",
-      "default": 8,
+      "unit": "TL/saat",
+      "default": 100,
+      "min": 50,
+      "max": 300,
+      "options": null,
+      "businessContext": "Montaj işçiliği için saatlik ücret; asgari ücret ve vasıf düzeyine göre belirlenir."
+    },
+    {
+      "id": "verimlilikFaktoru",
+      "label": "Verimlilik Faktörü (m²/saat)",
+      "type": "number",
+      "unit": "m²/saat",
+      "default": 5,
       "min": 1,
-      "max": 50,
+      "max": 20,
       "options": null,
-      "businessContext": "Metrekare başına ızgara sistemi fiyatı. USD cinsinden. Toplam ızgara maliyetini hesaplamak için kullanılır."
-    },
-    {
-      "id": "laborCostPerM2",
-      "label": "İşçilik Maliyeti (m² başına)",
-      "type": "number",
-      "unit": "USD/m²",
-      "default": 10,
-      "min": 0,
-      "max": 50,
-      "options": null,
-      "businessContext": "Metrekare başına işçilik maliyeti. USD cinsinden. Toplam işçilik maliyetini hesaplamak için kullanılır."
-    },
-    {
-      "id": "dataConfidence",
-      "label": "Veri Güveni",
-      "type": "select",
-      "unit": "",
-      "default": "medium",
-      "min": null,
-      "max": null,
-      "options": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "businessContext": "Girilen verilerin güvenilirlik seviyesi. Düşük, orta veya yüksek. Nihai maliyet tahminine güven aralığı eklemek için kullanılır."
+      "businessContext": "Bir işçinin saatte montaj yapabildiği alan; deneyimli ekip için 5-10 m²/saat arası."
     }
   ],
   "validation": {
     "rules": [
-      "areaLength > 0",
-      "areaWidth > 0",
-      "panelWasteFactor >= 0 && panelWasteFactor <= 20",
-      "gridWasteFactor >= 0 && gridWasteFactor <= 15",
-      "unitPanelPrice > 0",
-      "unitGridPrice > 0",
-      "laborCostPerM2 >= 0",
-      "if panelType === 'acoustic' then unitPanelPrice >= 20",
-      "if panelType === 'moistureResistant' then unitPanelPrice >= 25"
+      "alan > 0",
+      "profilAraligi >= 30 && profilAraligi <= 120",
+      "fireOrani >= 0 && fireOrani <= 20",
+      "birimMaliyetPlaka > 0",
+      "birimMaliyetProfil > 0",
+      "iscilikSaatUcreti > 0",
+      "verimlilikFaktoru > 0"
     ],
     "thresholds": {
-      "panelWasteFactor > 10": "Yüksek panel fire oranı, maliyeti artırabilir.",
-      "gridWasteFactor > 10": "Yüksek ızgara fire oranı, maliyeti artırabilir.",
-      "laborCostPerM2 > 30": "İşçilik maliyeti ortalamanın üzerinde."
+      "fireOrani > 10": "Fire oranı yüksek, malzeme kaybını azaltmak için kesim planı gözden geçirilmeli.",
+      "iscilikSaatUcreti > 200": "İşçilik maliyeti yüksek, alternatif ekip veya yöntem değerlendirilmeli."
     }
   },
   "formulas": {
-    "totalArea": "areaLength * areaWidth",
-    "panelAreaNeeded": "totalArea * (1 + panelWasteFactor / 100)",
-    "gridAreaNeeded": "totalArea * (1 + gridWasteFactor / 100)",
-    "panelCost": "panelAreaNeeded * unitPanelPrice",
-    "gridCost": "gridAreaNeeded * unitGridPrice",
-    "laborCost": "totalArea * laborCostPerM2",
-    "totalCost": "panelCost + gridCost + laborCost",
-    "costPerM2": "totalCost / totalArea",
-    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalCost * 1.15 : dataConfidence === 'medium' ? totalCost * 1.05 : totalCost"
+    "plakaMiktari": "alan * (1 + fireOrani / 100)",
+    "profilMiktari": "alan * (100 / profilAraligi) * 2",
+    "toplamMalzemeMaliyeti": "plakaMiktari * birimMaliyetPlaka + profilMiktari * birimMaliyetProfil",
+    "iscilikSuresi": "alan / verimlilikFaktoru",
+    "toplamIscilikMaliyeti": "iscilikSuresi * iscilikSaatUcreti",
+    "toplamMaliyet": "toplamMalzemeMaliyeti + toplamIscilikMaliyeti",
+    "birimMaliyet": "toplamMaliyet / alan"
   },
   "outputs": {
-    "primary": "totalCost",
+    "primary": "toplamMaliyet",
     "breakdown": {
-      "panelCost": "panelCost",
-      "gridCost": "gridCost",
-      "laborCost": "laborCost",
-      "costPerM2": "costPerM2"
+      "plakaMiktari": "plakaMiktari",
+      "profilMiktari": "profilMiktari",
+      "toplamMalzemeMaliyeti": "toplamMalzemeMaliyeti",
+      "iscilikSuresi": "iscilikSuresi",
+      "toplamIscilikMaliyeti": "toplamIscilikMaliyeti",
+      "birimMaliyet": "birimMaliyet"
     },
     "hiddenLossDrivers": [
-      "panelWasteFactor > 10 ? 'Yüksek panel fire oranı' : null",
-      "gridWasteFactor > 10 ? 'Yüksek ızgara fire oranı' : null"
+      "fireOrani > 10 ? 'Yüksek fire oranı' : ''",
+      "iscilikSaatUcreti > 200 ? 'Yüksek işçilik ücreti' : ''"
     ],
     "suggestedActions": [
-      "panelWasteFactor > 10 ? 'Panel fire oranını düşürmek için kesim planlamasını optimize edin.' : null",
-      "gridWasteFactor > 10 ? 'Izgara fire oranını düşürmek için modüler planlama yapın.' : null",
-      "laborCostPerM2 > 30 ? 'İşçilik maliyetini düşürmek için alternatif montaj yöntemleri değerlendirin.' : null"
+      "Fire oranını düşürmek için kesim optimizasyonu yapın.",
+      "Profil aralığını artırarak profil maliyetini azaltın.",
+      "Verimliliği artırmak için eğitim veya ekipman iyileştirmesi yapın."
     ],
-    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+    "dataConfidenceAdjusted": "toplamMaliyet * (1 - 0.05)"
   },
   "premiumFeatures": [
-    "PDF raporu",
-    "CSV export",
-    "Detaylı malzeme listesi",
-    "Trend analizi (geçmiş projelerle karşılaştırma)",
-    "Karşılaştırmalı fiyat teklifi"
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma (farklı senaryolar)",
+    "Detaylı rapor"
   ],
-  "premiumRequired": false
+  "premiumRequired": true
 }

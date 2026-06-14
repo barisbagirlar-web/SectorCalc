@@ -1,0 +1,152 @@
+{
+  "toolName": "celik-raf-depo-rafi-yuk-kapasitesi",
+  "inputs": [
+    {
+      "id": "rafGenisligi",
+      "label": "Raf Genişliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 1000,
+      "min": 500,
+      "max": 3000,
+      "options": null,
+      "businessContext": "Rafın yatay genişliği. TSE 4980 standardına göre tipik ölçüler."
+    },
+    {
+      "id": "rafDerinligi",
+      "label": "Raf Derinliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 500,
+      "min": 300,
+      "max": 1500,
+      "options": null,
+      "businessContext": "Rafın önden arkaya derinliği. TSE 4980 standardına göre."
+    },
+    {
+      "id": "rafYuksekligi",
+      "label": "Raf Yüksekliği",
+      "type": "number",
+      "unit": "mm",
+      "default": 2000,
+      "min": 1000,
+      "max": 5000,
+      "options": null,
+      "businessContext": "Rafın dikey yüksekliği. TSE 4980 standardına göre."
+    },
+    {
+      "id": "malzemeTuru",
+      "label": "Malzeme Türü",
+      "type": "select",
+      "unit": "",
+      "default": "sac",
+      "min": null,
+      "max": null,
+      "options": [
+        "sac",
+        "aluminyum",
+        "paslanmaz"
+      ],
+      "businessContext": "Rafın yapıldığı malzeme. Çelik raflar için genellikle sac kullanılır."
+    },
+    {
+      "id": "sacKalınligi",
+      "label": "Sac Kalınlığı",
+      "type": "number",
+      "unit": "mm",
+      "default": 1.5,
+      "min": 0.5,
+      "max": 5,
+      "options": null,
+      "businessContext": "Raf sacının kalınlığı. TSE 4980 standardına göre minimum 0.5 mm."
+    },
+    {
+      "id": "katSayisi",
+      "label": "Kat Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 4,
+      "min": 1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Rafın dikey kat sayısı. Tipik olarak 4-5 kat."
+    },
+    {
+      "id": "yukDagilimi",
+      "label": "Yük Dağılımı",
+      "type": "select",
+      "unit": "",
+      "default": "uniform",
+      "min": null,
+      "max": null,
+      "options": [
+        "uniform",
+        "noktasal",
+        "cephe"
+      ],
+      "businessContext": "Yükün raf üzerindeki dağılım şekli. Uniform dağılım en yaygın."
+    },
+    {
+      "id": "guvenlikFaktoru",
+      "label": "Güvenlik Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1.5,
+      "min": 1.2,
+      "max": 3,
+      "options": null,
+      "businessContext": "Tasarım güvenlik faktörü. TSE 4980 standardına göre minimum 1.5."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "sacKalınligi >= 0.5",
+      "guvenlikFaktoru >= 1.2",
+      "rafGenisligi >= 500",
+      "rafDerinligi >= 300",
+      "rafYuksekligi >= 1000",
+      "katSayisi >= 1"
+    ],
+    "thresholds": {
+      "sacKalınligi < 1.0": "Sac kalınlığı çok düşük, deformasyon riski yüksek.",
+      "guvenlikFaktoru < 1.5": "Güvenlik faktörü önerilen minimum değerin altında.",
+      "rafYuksekligi > 4000": "Yüksek raf, devrilme riski artar."
+    }
+  },
+  "formulas": {
+    "kesitAlani": "sacKalınligi * (rafGenisligi + rafDerinligi) * 2",
+    "malzemeMukavemeti": "case malzemeTuru when 'sac' then 250 when 'aluminyum' then 200 when 'paslanmaz' then 300 else 250 end",
+    "izinVerilenGerilme": "malzemeMukavemeti / guvenlikFaktoru",
+    "ataletMomenti": "(rafGenisligi * sacKalınligi^3) / 12",
+    "maksimumEğilmeMomenti": "case yukDagilimi when 'uniform' then (toplamYuk * rafGenisligi^2) / 8 when 'noktasal' then (toplamYuk * rafGenisligi) / 4 when 'cephe' then (toplamYuk * rafGenisligi) / 2 else (toplamYuk * rafGenisligi^2) / 8 end",
+    "toplamYuk": "katSayisi * katBasiYuk",
+    "katBasiYuk": "izinVerilenGerilme * ataletMomenti / (rafGenisligi / 2)",
+    "yukKapasitesi": "toplamYuk"
+  },
+  "outputs": {
+    "primary": "yukKapasitesi",
+    "breakdown": {
+      "katBasiYuk": "Her bir katın taşıyabileceği maksimum yük (kg)",
+      "toplamYuk": "Rafın toplam taşıma kapasitesi (kg)",
+      "kesitAlani": "Raf kesit alanı (mm²)",
+      "ataletMomenti": "Atalet momenti (mm⁴)"
+    },
+    "hiddenLossDrivers": [
+      "sacKalınligi < 1.0 ? 'Sac kalınlığı çok düşük' : ''",
+      "guvenlikFaktoru < 1.5 ? 'Güvenlik faktörü düşük' : ''"
+    ],
+    "suggestedActions": [
+      "Sac kalınlığını artırın",
+      "Güvenlik faktörünü yükseltin",
+      "Raf yüksekliğini azaltın"
+    ],
+    "dataConfidenceAdjusted": "yukKapasitesi * 0.9"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

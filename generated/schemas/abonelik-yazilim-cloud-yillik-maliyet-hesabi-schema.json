@@ -14,97 +14,100 @@
         "annual",
         "perUser"
       ],
-      "businessContext": "Abonelik modelinin türü: aylık, yıllık veya kullanıcı başına. Fiyatlandırma yapısını belirler."
+      "businessContext": "Abonelik modeli seçimi: aylık, yıllık veya kullanıcı başına. Standart SaaS fiyatlandırma modelleri."
     },
     {
-      "id": "monthlyFee",
-      "label": "Aylık Ücret (USD)",
+      "id": "monthlyCostPerUser",
+      "label": "Aylık Kullanıcı Başı Maliyet",
       "type": "number",
       "unit": "USD",
-      "default": 100,
+      "default": 10,
       "min": 0,
-      "max": 100000,
-      "businessContext": "Aylık abonelik ücreti. SaaS ürünlerinde yaygın fiyatlandırma."
-    },
-    {
-      "id": "annualFee",
-      "label": "Yıllık Ücret (USD)",
-      "type": "number",
-      "unit": "USD",
-      "default": 1000,
-      "min": 0,
-      "max": 1000000,
-      "businessContext": "Yıllık abonelik ücreti. Genellikle aylık ücrete göre indirimli olur."
+      "max": 10000,
+      "options": null,
+      "businessContext": "Her bir kullanıcı için aylık abonelik ücreti. SaaS sektöründe yaygın."
     },
     {
       "id": "numberOfUsers",
       "label": "Kullanıcı Sayısı",
       "type": "number",
       "unit": "kişi",
-      "default": 10,
+      "default": 50,
       "min": 1,
-      "max": 10000,
-      "businessContext": "Sistemi kullanacak toplam kullanıcı sayısı. Per-user fiyatlandırmada kritik."
+      "max": 100000,
+      "options": null,
+      "businessContext": "Toplam lisanslı kullanıcı sayısı. Şirket büyüklüğüne göre değişir."
     },
     {
-      "id": "pricePerUser",
-      "label": "Kullanıcı Başına Fiyat (USD/ay)",
+      "id": "annualDiscount",
+      "label": "Yıllık İndirim Oranı",
       "type": "number",
-      "unit": "USD/ay",
+      "unit": "%",
       "default": 20,
       "min": 0,
-      "max": 1000,
-      "businessContext": "Her kullanıcı için aylık ücret. Per-user modelinde kullanılır."
-    },
-    {
-      "id": "cloudStorageGB",
-      "label": "Bulut Depolama (GB)",
-      "type": "number",
-      "unit": "GB",
-      "default": 100,
-      "min": 0,
-      "max": 100000,
-      "businessContext": "Kullanılan bulut depolama alanı. Ek maliyet oluşturabilir."
-    },
-    {
-      "id": "storageCostPerGB",
-      "label": "Depolama Birim Maliyeti (USD/GB/ay)",
-      "type": "number",
-      "unit": "USD/GB/ay",
-      "default": 0.1,
-      "min": 0,
-      "max": 10,
-      "businessContext": "GB başına aylık depolama maliyeti. Bulut sağlayıcı fiyatlarına göre değişir."
+      "max": 100,
+      "options": null,
+      "businessContext": "Yıllık ödemede uygulanan indirim yüzdesi. SaaS sağlayıcıları yıllık taahhütlerde indirim sunar."
     },
     {
       "id": "additionalServicesCost",
-      "label": "Ek Hizmet Maliyeti (USD/yıl)",
+      "label": "Ek Hizmet Maliyeti (Yıllık)",
       "type": "number",
-      "unit": "USD/yıl",
+      "unit": "USD",
       "default": 0,
       "min": 0,
-      "max": 100000,
-      "businessContext": "API, destek, eklenti gibi ek hizmetlerin yıllık maliyeti."
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Depolama, API çağrıları, premium destek gibi ek hizmetlerin yıllık maliyeti."
     },
     {
-      "id": "contractDurationYears",
-      "label": "Sözleşme Süresi (yıl)",
+      "id": "implementationCost",
+      "label": "Kurulum ve Entegrasyon Maliyeti",
       "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "İlk kurulum, veri taşıma ve entegrasyon maliyeti. Proje bazlı."
+    },
+    {
+      "id": "trainingCost",
+      "label": "Eğitim Maliyeti (Yıllık)",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Kullanıcı eğitimleri için yıllık maliyet."
+    },
+    {
+      "id": "maintenanceCost",
+      "label": "Bakım ve Destek Maliyeti (Yıllık)",
+      "type": "number",
+      "unit": "USD",
+      "default": 1000,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Sistem bakımı, güncellemeler ve teknik destek maliyeti."
+    },
+    {
+      "id": "contractDuration",
+      "label": "Sözleşme Süresi",
+      "type": "select",
       "unit": "yıl",
       "default": 1,
-      "min": 1,
-      "max": 5,
-      "businessContext": "Taahhüt süresi. Uzun süreli sözleşmelerde indirim olabilir."
-    },
-    {
-      "id": "discountRate",
-      "label": "İndirim Oranı (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 0,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Yıllık veya uzun süreli sözleşmelerde uygulanan indirim yüzdesi."
+      "min": null,
+      "max": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
+      "businessContext": "Taahhüt süresi; uzun süreli sözleşmelerde genellikle indirim sağlanır."
     },
     {
       "id": "currency",
@@ -117,77 +120,63 @@
       "options": [
         "USD",
         "EUR",
-        "TRY"
+        "TRY",
+        "GBP"
       ],
-      "businessContext": "Maliyet hesaplamalarında kullanılacak para birimi."
-    },
-    {
-      "id": "dataConfidence",
-      "label": "Veri Güveni (%)",
-      "type": "number",
-      "unit": "%",
-      "default": 100,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Girdi verilerinin güvenilirlik yüzdesi. Düşükse sonuçlar düzeltilir."
+      "businessContext": "Maliyetlerin hesaplanacağı para birimi."
     }
   ],
   "validation": {
     "rules": [
-      "subscriptionType must be one of: monthly, annual, perUser",
-      "If subscriptionType='monthly' then monthlyFee > 0",
-      "If subscriptionType='annual' then annualFee > 0",
-      "If subscriptionType='perUser' then pricePerUser > 0 and numberOfUsers > 0",
-      "monthlyFee >= 0",
-      "annualFee >= 0",
+      "monthlyCostPerUser >= 0",
       "numberOfUsers >= 1",
-      "pricePerUser >= 0",
-      "cloudStorageGB >= 0",
-      "storageCostPerGB >= 0",
+      "annualDiscount >= 0 && annualDiscount <= 100",
       "additionalServicesCost >= 0",
-      "contractDurationYears >= 1",
-      "discountRate between 0 and 100",
-      "dataConfidence between 0 and 100"
+      "implementationCost >= 0",
+      "trainingCost >= 0",
+      "maintenanceCost >= 0",
+      "if subscriptionType == 'perUser' then monthlyCostPerUser > 0",
+      "if subscriptionType == 'annual' then annualDiscount >= 0"
     ],
     "thresholds": {
-      "highStorageCost": "cloudStorageGB * storageCostPerGB * 12 > 1000",
-      "lowConfidence": "dataConfidence < 50"
+      "monthlyCostPerUser": "> 100 -> 'Yüksek birim maliyet, pazarlık önerilir'",
+      "annualDiscount": "< 10 -> 'Düşük indirim, yıllık taahhüt yeniden müzakere edilmeli'",
+      "additionalServicesCost": "> 10000 -> 'Ek hizmet maliyetleri yüksek, alternatif sağlayıcı değerlendirilmeli'"
     }
   },
   "formulas": {
-    "baseAnnualCost": "subscriptionType === 'monthly' ? monthlyFee * 12 : subscriptionType === 'annual' ? annualFee : pricePerUser * numberOfUsers * 12",
-    "discountedAnnualCost": "baseAnnualCost * (1 - discountRate / 100)",
-    "storageAnnualCost": "cloudStorageGB * storageCostPerGB * 12",
-    "totalAnnualCost": "discountedAnnualCost + storageAnnualCost + additionalServicesCost",
-    "costPerUser": "totalAnnualCost / numberOfUsers",
-    "dataConfidenceAdjustedCost": "totalAnnualCost * (dataConfidence / 100)"
+    "baseAnnualCost": "subscriptionType == 'monthly' ? monthlyCostPerUser * numberOfUsers * 12 : (subscriptionType == 'annual' ? monthlyCostPerUser * numberOfUsers * 12 * (1 - annualDiscount/100) : monthlyCostPerUser * numberOfUsers * 12)",
+    "totalAnnualCost": "baseAnnualCost + additionalServicesCost + implementationCost/contractDuration + trainingCost + maintenanceCost",
+    "costPerUserPerMonth": "totalAnnualCost / (numberOfUsers * 12)",
+    "totalCostOverContract": "totalAnnualCost * contractDuration"
   },
   "outputs": {
     "primary": "totalAnnualCost",
     "breakdown": {
       "baseAnnualCost": "baseAnnualCost",
-      "discountedAnnualCost": "discountedAnnualCost",
-      "storageAnnualCost": "storageAnnualCost",
       "additionalServicesCost": "additionalServicesCost",
-      "costPerUser": "costPerUser"
+      "implementationCostAmortized": "implementationCost / contractDuration",
+      "trainingCost": "trainingCost",
+      "maintenanceCost": "maintenanceCost"
     },
     "hiddenLossDrivers": [
-      "highStorageCost: Depolama maliyeti yıllık 1000 USD'yi aşıyor.",
-      "lowConfidence: Veri güveni düşük, sonuçlar güvenilir olmayabilir."
+      "if monthlyCostPerUser > 100 then 'Yüksek birim maliyet'",
+      "if annualDiscount < 10 then 'Düşük yıllık indirim'",
+      "if additionalServicesCost > 10000 then 'Yüksek ek hizmet maliyeti'"
     ],
     "suggestedActions": [
-      "Uzun vadeli sözleşme ile indirim almayı değerlendirin.",
-      "Depolama kullanımını optimize ederek maliyeti düşürün.",
-      "Kullanıcı başına maliyeti azaltmak için toplu lisanslama seçeneklerini inceleyin."
+      "Yıllık ödeme ile indirim müzakere edin",
+      "Kullanıcı sayısını optimize edin (kullanılmayan lisansları iptal edin)",
+      "Ek hizmetleri gözden geçirin ve gereksiz olanları kaldırın",
+      "Uzun vadeli sözleşme ile daha iyi fiyatlandırma alın"
     ],
-    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
+    "dataConfidenceAdjusted": "totalAnnualCost * (1 - 0.05)"
   },
   "premiumFeatures": [
-    "PDF raporu",
-    "CSV export",
-    "Trend analizi (geçmiş verilerle karşılaştırma)",
-    "Detaylı maliyet kırılımı grafikleri",
-    "Farklı senaryoların karşılaştırılması"
+    "PDF/CSV export",
+    "Trend analizi (geçmiş yıllar karşılaştırması)",
+    "Rakiplerle karşılaştırma",
+    "Detaylı rapor (maliyet kırılımı grafikleri)"
   ],
-  "premiumRequired": false
+  "premiumRequired": true
 }

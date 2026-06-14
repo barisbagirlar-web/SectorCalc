@@ -5,53 +5,74 @@
       "id": "values",
       "label": "Değerler",
       "type": "number",
-      "unit": "birimsiz",
-      "default": null,
+      "unit": "birim",
+      "default": 0,
       "min": null,
       "max": null,
       "options": null,
-      "businessContext": "Ağırlıklı ortalaması alınacak sayısal değerler. Her bir değer, ilgili ağırlıkla çarpılarak toplam ağırlığa bölünür."
+      "businessContext": "Ağırlıklı ortalaması alınacak sayısal değerler. Genellikle finansal oranlar, kalite metrikleri veya performans göstergeleri için kullanılır. Kaynak: Genel istatistik ve mühendislik uygulamaları."
     },
     {
       "id": "weights",
       "label": "Ağırlıklar",
       "type": "number",
-      "unit": "birimsiz",
-      "default": null,
+      "unit": "birim",
+      "default": 0,
       "min": 0,
       "max": null,
       "options": null,
-      "businessContext": "Her bir değerin ağırlığı. Ağırlıklar pozitif olmalıdır. Toplam ağırlık sıfırdan büyük olmalıdır."
+      "businessContext": "Her değere atanan ağırlık. Ağırlıklar genellikle önem derecesini veya frekansı temsil eder. Toplam ağırlık 1 veya 100 olabilir. Kaynak: İstatistiksel ağırlıklandırma prensipleri."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Verilerin güvenilirlik yüzdesi. Düşük güven, sonucun düzeltilmesini gerektirebilir. Kaynak: Veri kalitesi yönetimi standartları (ISO 8000)."
     }
   ],
   "validation": {
     "rules": [
+      "weights dizisindeki tüm değerler >= 0 olmalıdır.",
       "values ve weights dizileri aynı uzunlukta olmalıdır.",
-      "Tüm ağırlıklar pozitif olmalıdır.",
-      "Toplam ağırlık sıfırdan büyük olmalıdır.",
-      "Tüm değerler sayısal olmalıdır."
+      "weights toplamı > 0 olmalıdır."
     ],
     "thresholds": {
-      "totalWeightZero": "Toplam ağırlık sıfır ise hesaplama yapılamaz."
+      "dataConfidence < 50": "Düşük veri güveni: sonuçlar yanıltıcı olabilir.",
+      "weights toplamı != 1 && weights toplamı != 100": "Ağırlıklar toplamı 1 veya 100 değil, normalizasyon uygulanacak."
     }
   },
   "formulas": {
-    "weightedAverage": "sum(values[i] * weights[i]) / sum(weights)"
+    "weightedAverage": "sum(values[i] * weights[i]) / sum(weights)",
+    "normalizedWeights": "weights / sum(weights)",
+    "dataConfidenceAdjusted": "weightedAverage * (dataConfidence / 100)"
   },
   "outputs": {
     "primary": "weightedAverage",
     "breakdown": {
       "weightedSum": "sum(values[i] * weights[i])",
-      "totalWeight": "sum(weights)"
+      "totalWeight": "sum(weights)",
+      "normalizedWeights": "weights / sum(weights)"
     },
-    "hiddenLossDrivers": [],
-    "suggestedActions": [],
-    "dataConfidenceAdjusted": "weightedAverage"
+    "hiddenLossDrivers": [
+      "dataConfidence < 50 ? 'Düşük veri güveni' : ''",
+      "weights toplamı != 1 && weights toplamı != 100 ? 'Ağırlıklar normalize edildi' : ''"
+    ],
+    "suggestedActions": [
+      "Veri güvenini artırmak için veri kaynaklarını doğrulayın.",
+      "Ağırlıkların toplamını 1 veya 100 yapacak şekilde normalize edin."
+    ],
+    "dataConfidenceAdjusted": "weightedAverage * (dataConfidence / 100)"
   },
   "premiumFeatures": [
     "PDF/CSV export",
-    "Detaylı rapor",
-    "Trend analizi"
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
   ],
-  "premiumRequired": false
+  "premiumRequired": true
 }

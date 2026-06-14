@@ -2,113 +2,120 @@
   "toolName": "basincli-kap-cidar-kalinligi-hesabi",
   "inputs": [
     {
-      "id": "icBasinc",
-      "label": "İç Basınç",
+      "id": "designPressure",
+      "label": "Tasarım Basıncı (P)",
       "type": "number",
       "unit": "bar",
       "default": 10,
       "min": 0.1,
       "max": 1000,
       "options": null,
-      "businessContext": "Tankın içindeki maksimum çalışma basıncı. ASME BPVC Bölüm VIII Div.1'e göre tasarım basıncı."
+      "businessContext": "İç basınçlı kaplar için tasarım basıncı, işletme basıncının en az 1.1 katı olarak alınır. Kaynak: ASME BPVC Section VIII Div.1"
     },
     {
-      "id": "icCap",
-      "label": "İç Çap",
+      "id": "vesselDiameter",
+      "label": "Kap Çapı (D)",
       "type": "number",
       "unit": "mm",
       "default": 1000,
       "min": 100,
       "max": 10000,
       "options": null,
-      "businessContext": "Silindirik kabın iç çapı. Basınçlı kap geometrisinin temel boyutu."
+      "businessContext": "Silindirik kabın iç çapı. Kaynak: ASME BPVC"
     },
     {
-      "id": "malzemeAkmaDayanimi",
-      "label": "Malzeme Akma Dayanımı",
+      "id": "allowableStress",
+      "label": "Malzeme Müsaade Edilen Gerilme (S)",
       "type": "number",
       "unit": "MPa",
-      "default": 250,
-      "min": 100,
-      "max": 1000,
+      "default": 138,
+      "min": 50,
+      "max": 500,
       "options": null,
-      "businessContext": "Malzemenin akma dayanımı (örneğin, St37 için 235 MPa). ASME II D bölümüne göre."
+      "businessContext": "Malzemenin tasarım sıcaklığındaki müsaade edilen gerilme değeri. Kaynak: ASME BPVC Section II Part D"
     },
     {
-      "id": "emniyetKatsayisi",
-      "label": "Emniyet Katsayısı",
+      "id": "jointEfficiency",
+      "label": "Kaynak Verimi (E)",
       "type": "number",
-      "unit": "",
-      "default": 1.5,
-      "min": 1,
-      "max": 4,
-      "options": null,
-      "businessContext": "Tasarım emniyet katsayısı. ASME BPVC'ye göre genellikle 1.5-3.5 arası."
-    },
-    {
-      "id": "kaynakFaktoru",
-      "label": "Kaynak Faktörü",
-      "type": "number",
-      "unit": "",
+      "unit": "-",
       "default": 0.85,
       "min": 0.6,
       "max": 1,
       "options": null,
-      "businessContext": "Kaynak kalitesine bağlı faktör. ASME UW-12'ye göre radyografik muayene durumuna göre 0.6-1.0."
+      "businessContext": "Kaynaklı birleştirmelerin mukavemet katsayısı. Radyografik muayene durumuna göre belirlenir. Kaynak: ASME BPVC"
     },
     {
-      "id": "korozyonPayi",
-      "label": "Korozyon Payı",
+      "id": "corrosionAllowance",
+      "label": "Korozyon Payı (CA)",
       "type": "number",
       "unit": "mm",
       "default": 2,
       "min": 0,
       "max": 10,
       "options": null,
-      "businessContext": "Korozyon ve erozyon için ek kalınlık. ASME UG-25'e göre."
+      "businessContext": "Korozyon ve erozyon etkisine karşı eklenen pay. Kaynak: ASME BPVC"
+    },
+    {
+      "id": "materialType",
+      "label": "Malzeme Türü",
+      "type": "select",
+      "unit": "",
+      "default": "Carbon Steel",
+      "min": null,
+      "max": null,
+      "options": [
+        "Carbon Steel",
+        "Stainless Steel",
+        "Alloy Steel",
+        "Aluminum",
+        "Other"
+      ],
+      "businessContext": "Malzeme seçimi, müsaade edilen gerilme ve korozyon payını etkiler. Kaynak: ASME BPVC"
     }
   ],
   "validation": {
     "rules": [
-      "icBasinc > 0",
-      "icCap > 0",
-      "malzemeAkmaDayanimi > 0",
-      "emniyetKatsayisi >= 1.0",
-      "kaynakFaktoru > 0 ve <= 1.0",
-      "korozyonPayi >= 0"
+      "designPressure > 0",
+      "vesselDiameter > 0",
+      "allowableStress > 0",
+      "jointEfficiency > 0 and jointEfficiency <= 1",
+      "corrosionAllowance >= 0"
     ],
     "thresholds": {
-      "icBasinc > 100": "Yüksek basınç, özel tasarım gerektirebilir.",
-      "emniyetKatsayisi < 1.5": "Düşük emniyet katsayısı, riskli.",
-      "kaynakFaktoru < 0.7": "Kaynak kalitesi düşük, tahribatsız muayene önerilir."
+      "designPressure": "Tasarım basıncı 100 bar'ı aşarsa yüksek basınçlı kap sınıfına girer, ek hesaplamalar gerekir.",
+      "vesselDiameter": "Çap 3000 mm'den büyükse nakliye ve montaj zorlukları oluşabilir.",
+      "allowableStress": "Müsaade edilen gerilme 100 MPa altında ise malzeme seçimi gözden geçirilmelidir."
     }
   },
   "formulas": {
-    "gerekliEtKalınlığı": "((icBasinc * icCap) / (2 * (malzemeAkmaDayanimi / emniyetKatsayisi) * kaynakFaktoru + icBasinc)) + korozyonPayi",
-    "izinVerilenBasinc": "(2 * (malzemeAkmaDayanimi / emniyetKatsayisi) * kaynakFaktoru * (gerekliEtKalınlığı - korozyonPayi)) / (icCap - (gerekliEtKalınlığı - korozyonPayi))"
+    "requiredThickness": "((designPressure * vesselDiameter) / (2 * allowableStress * jointEfficiency - designPressure)) + corrosionAllowance",
+    "nominalThickness": "ceil(requiredThickness / 0.5) * 0.5",
+    "stressCheck": "if (designPressure * (vesselDiameter + nominalThickness) / (2 * nominalThickness * jointEfficiency) <= allowableStress) then 'OK' else 'FAIL'"
   },
   "outputs": {
-    "primary": "gerekliEtKalınlığı",
+    "primary": "nominalThickness",
     "breakdown": {
-      "tasarimKalınlığı": "gerekliEtKalınlığı - korozyonPayi",
-      "izinVerilenBasinc": "izinVerilenBasinc"
+      "requiredThickness": "requiredThickness",
+      "corrosionAllowance": "corrosionAllowance",
+      "stressCheck": "stressCheck"
     },
     "hiddenLossDrivers": [
-      "icBasinc > 100 ? 'Yüksek basınç' : null",
-      "emniyetKatsayisi < 1.5 ? 'Düşük emniyet katsayısı' : null"
+      "Düşük kaynak verimi kalınlığı artırır.",
+      "Yüksek korozyon payı gereksiz malzeme maliyetine yol açabilir."
     ],
     "suggestedActions": [
-      "icBasinc > 100 ? 'Yüksek basınç için özel malzeme veya takviye düşünün.' : null",
-      "kaynakFaktoru < 0.7 ? 'Kaynak kalitesini artırın veya radyografik muayene yapın.' : null"
+      "Kaynak verimini artırmak için radyografik muayene uygulayın.",
+      "Korozyon payını azaltmak için korozyona dayanıklı malzeme seçin.",
+      "Tasarım basıncını optimize edin."
     ],
-    "dataConfidenceAdjusted": "gerekliEtKalınlığı * (1 + (1 - dataConfidence))"
+    "dataConfidenceAdjusted": "nominalThickness * (1 + (1 - dataConfidence) * 0.1)"
   },
   "premiumFeatures": [
-    "PDF raporu",
-    "Detaylı malzeme seçimi",
-    "Farklı standartlarla karşılaştırma (ASME, EN, vb.)",
+    "PDF/CSV export",
     "Trend analizi",
-    "Excel/CSV export"
+    "Karşılaştırma (farklı malzeme/basınç senaryoları)",
+    "Detaylı rapor (malzeme seçimi, maliyet analizi)"
   ],
-  "premiumRequired": false
+  "premiumRequired": true
 }

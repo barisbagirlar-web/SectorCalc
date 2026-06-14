@@ -1,160 +1,122 @@
 {
-  "toolName": "Auto Repair Comeback Cost Calculator",
+  "toolName": "auto-repair-comeback-cost",
   "inputs": [
     {
-      "id": "totalJobs",
-      "label": "Total Jobs Completed",
+      "id": "totalRepairs",
+      "label": "Total Repairs Per Period",
       "type": "number",
-      "unit": "jobs",
-      "default": 100,
-      "min": 1,
-      "max": 100000,
-      "options": null,
-      "businessContext": "Total number of repair jobs completed in the period. Used to normalize comeback frequency."
-    },
-    {
-      "id": "comebackJobs",
-      "label": "Comeback Jobs",
-      "type": "number",
-      "unit": "jobs",
-      "default": 5,
+      "unit": "repairs",
+      "default": 1000,
       "min": 0,
-      "max": 100000,
+      "max": null,
       "options": null,
-      "businessContext": "Number of jobs that required rework or additional service due to incomplete or incorrect repair. Directly drives comeback cost."
+      "businessContext": "Total number of repair jobs completed in the period. Based on standard shop management KPIs."
     },
     {
-      "id": "averageJobValue",
-      "label": "Average Job Value",
-      "type": "number",
-      "unit": "USD",
-      "default": 500,
-      "min": 0,
-      "max": 100000,
-      "options": null,
-      "businessContext": "Average revenue per job. Used to estimate lost revenue from rework."
-    },
-    {
-      "id": "diagnosticTimePerComeback",
-      "label": "Diagnostic Time per Comeback",
-      "type": "number",
-      "unit": "hours",
-      "default": 1.5,
-      "min": 0,
-      "max": 40,
-      "options": null,
-      "businessContext": "Average technician hours spent diagnosing the root cause of a comeback. Drives diagnostic labor cost."
-    },
-    {
-      "id": "reworkTimePerComeback",
-      "label": "Rework Time per Comeback",
-      "type": "number",
-      "unit": "hours",
-      "default": 2,
-      "min": 0,
-      "max": 40,
-      "options": null,
-      "businessContext": "Average technician hours spent performing the actual rework. Drives rework labor cost."
-    },
-    {
-      "id": "laborRate",
-      "label": "Labor Rate",
-      "type": "number",
-      "unit": "USD/hour",
-      "default": 100,
-      "min": 0,
-      "max": 500,
-      "options": null,
-      "businessContext": "Shop's hourly labor charge rate. Used to calculate labor cost of diagnostic and rework time."
-    },
-    {
-      "id": "partsCostPerComeback",
-      "label": "Parts Cost per Comeback",
-      "type": "number",
-      "unit": "USD",
-      "default": 50,
-      "min": 0,
-      "max": 10000,
-      "options": null,
-      "businessContext": "Average cost of replacement parts used during rework. Includes handling and waste."
-    },
-    {
-      "id": "customerGoodwillCost",
-      "label": "Customer Goodwill Cost per Comeback",
-      "type": "number",
-      "unit": "USD",
-      "default": 25,
-      "min": 0,
-      "max": 1000,
-      "options": null,
-      "businessContext": "Estimated cost of discounts, vouchers, or compensation offered to retain customer after a comeback."
-    },
-    {
-      "id": "comebackRatePercent",
-      "label": "Comeback Rate (%)",
+      "id": "comebackRate",
+      "label": "Comeback Rate",
       "type": "number",
       "unit": "%",
       "default": 5,
       "min": 0,
       "max": 100,
       "options": null,
-      "businessContext": "Calculated as (comebackJobs / totalJobs) * 100. Used for threshold-based warnings."
+      "businessContext": "Percentage of repairs that result in a comeback. Industry benchmark from ASA (Automotive Service Association) suggests 2-5% as acceptable."
+    },
+    {
+      "id": "averageComebackCost",
+      "label": "Average Cost per Comeback",
+      "type": "number",
+      "unit": "USD",
+      "default": 200,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average direct cost (labor, parts, overhead) incurred per comeback. Based on shop accounting data."
+    },
+    {
+      "id": "lostCustomerRate",
+      "label": "Lost Customer Rate per Comeback",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of customers who do not return after a comeback. Industry studies show 15-30% churn."
+    },
+    {
+      "id": "averageCustomerLifetimeValue",
+      "label": "Average Customer Lifetime Value",
+      "type": "number",
+      "unit": "USD",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Net present value of future profits from a typical customer. Based on CLV calculation methods."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Subjective confidence in input data accuracy. Adjusts final cost for uncertainty."
     }
   ],
   "validation": {
     "rules": [
-      "totalJobs must be >= 1",
-      "comebackJobs must be >= 0 and <= totalJobs",
-      "averageJobValue must be >= 0",
-      "diagnosticTimePerComeback must be >= 0",
-      "reworkTimePerComeback must be >= 0",
-      "laborRate must be >= 0",
-      "partsCostPerComeback must be >= 0",
-      "customerGoodwillCost must be >= 0",
-      "comebackRatePercent must be >= 0 and <= 100"
+      "totalRepairs >= 0",
+      "comebackRate >= 0 and comebackRate <= 100",
+      "averageComebackCost >= 0",
+      "lostCustomerRate >= 0 and lostCustomerRate <= 100",
+      "averageCustomerLifetimeValue >= 0"
     ],
     "thresholds": {
-      "comebackRatePercent_warning": 4,
-      "comebackRatePercent_critical": 8
+      "comebackRate > 5": "Comeback rate exceeds industry benchmark of 5%.",
+      "lostCustomerRate > 25": "Lost customer rate exceeds typical range."
     }
   },
   "formulas": {
-    "comebackCost": "comebackJobs * ( (diagnosticTimePerComeback + reworkTimePerComeback) * laborRate + partsCostPerComeback + customerGoodwillCost )",
-    "diagnosticLeak": "comebackJobs * diagnosticTimePerComeback * laborRate",
-    "totalExposure": "comebackCost + (comebackJobs * averageJobValue * 0.5)",
-    "summaryLevel": "comebackRatePercent >= 8 ? 'critical' : (comebackRatePercent >= 4 ? 'warning' : 'normal')",
-    "primaryDriver": "comebackJobs > 0 ? 'comebackJobs' : 'none'",
-    "decisionVerdict": "comebackRatePercent >= 8 ? 'Immediate action required' : (comebackRatePercent >= 4 ? 'Monitor closely' : 'Acceptable')"
+    "comebackCount": "totalRepairs * (comebackRate / 100)",
+    "directComebackCost": "comebackCount * averageComebackCost",
+    "lostCustomers": "comebackCount * (lostCustomerRate / 100)",
+    "lostRevenue": "lostCustomers * averageCustomerLifetimeValue",
+    "totalComebackCost": "directComebackCost + lostRevenue",
+    "dataConfidenceAdjusted": "totalComebackCost * (dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9))"
   },
   "outputs": {
-    "primary": "totalExposure",
+    "primary": "totalComebackCost",
     "breakdown": {
-      "comebackCost": "Total direct cost of rework labor, parts, and goodwill",
-      "diagnosticLeak": "Cost of diagnostic time spent on comebacks",
-      "summaryLevel": "Risk level based on comeback rate",
-      "primaryDriver": "Main factor driving the exposure",
-      "decisionVerdict": "Recommended action"
+      "directComebackCost": "directComebackCost",
+      "lostRevenue": "lostRevenue"
     },
     "hiddenLossDrivers": [
-      "comebackRatePercent >= 8 ? 'Critical comeback rate: immediate process improvement needed' : null",
-      "comebackRatePercent >= 4 && comebackRatePercent < 8 ? 'Warning: comeback rate above industry benchmark (4%)' : null"
+      "comebackRate > 5 ? 'High comeback rate' : ''",
+      "lostCustomerRate > 25 ? 'High customer churn' : ''"
     ],
     "suggestedActions": [
       "Implement root cause analysis for comebacks",
-      "Enhance technician training on first-time fix",
-      "Improve diagnostic procedures and checklists",
-      "Review parts quality and sourcing",
+      "Enhance technician training programs",
+      "Improve quality control processes",
       "Establish customer follow-up protocol"
     ],
-    "dataConfidenceAdjusted": "totalExposure * (1 - (1 - dataConfidence) * 0.1)"
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
   },
   "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis over time",
-    "Benchmarking against industry averages",
-    "Detailed breakdown report",
-    "Scenario simulation"
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Charts"
   ],
   "premiumRequired": true
 }

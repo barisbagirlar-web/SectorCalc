@@ -4,11 +4,13 @@ import * as z from 'zod';
 export interface AgirlikliOrtalamaHesaplamaInput {
   values: number;
   weights: number;
+  dataConfidence: number;
 }
 
 export const AgirlikliOrtalamaHesaplamaInputSchema = z.object({
-  values: z.number().default(null),
-  weights: z.number().min(0).default(null),
+  values: z.number().default(0),
+  weights: z.number().min(0).default(0),
+  dataConfidence: z.number().min(0).max(100).default(100),
 });
 
 export interface AgirlikliOrtalamaHesaplamaOutput {
@@ -16,6 +18,7 @@ export interface AgirlikliOrtalamaHesaplamaOutput {
   breakdown: {
     weightedSum: number;
     totalWeight: number;
+    normalizedWeights: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -26,26 +29,30 @@ export interface AgirlikliOrtalamaHesaplamaOutput {
 
 function evaluateFormulas(input: AgirlikliOrtalamaHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.weightedAverage = sum(input.values[i] * input.weights[i]) / sum(input.weights);
+  results.weightedAverage = (() => { try { return sum(input.values[i] * input.weights[i]) / sum(input.weights); } catch { return 0; } })();
+  results.normalizedWeights = (() => { try { return input.weights / sum(input.weights); } catch { return 0; } })();
+  results.dataConfidenceAdjusted = (() => { try { return results.weightedAverage * (input.dataConfidence / 100); } catch { return 0; } })();
   return results;
 }
 
 export function calculateAgirlikliOrtalamaHesaplama(input: AgirlikliOrtalamaHesaplamaInput): AgirlikliOrtalamaHesaplamaOutput {
   const results = evaluateFormulas(input);
-  const weightedAverage = results.weightedAverage;
+  const weightedAverage = results.weightedAverage ?? 0;
   const breakdown = {
     weightedSum: results.weightedSum,
     totalWeight: results.totalWeight,
+    normalizedWeights: results.normalizedWeights,
   };
 
-  // rule: values ve weights dizileri aynı uzunlukta olmalıdır.
-  // rule: Tüm ağırlıklar pozitif olmalıdır.
-  // rule: Toplam ağırlık sıfırdan büyük olmalıdır.
-  // rule: Tüm değerler sayısal olmalıdır.
-  // threshold totalWeightZero: Toplam ağırlık sıfır ise hesaplama yapılamaz.
+  // rule: weights dizisindeki tum degerler >= 0 olmalidir.
+  // rule: values ve weights dizileri ayni uzunlukta olmalidir.
+  // rule: weights toplami > 0 olmalidir.
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = [];
-  const dataConfidenceAdjusted = results.weightedAverage;
+  // threshold skipped (non-JS): Dusuk veri guveni: sonuclar yaniltici olabilir.
+  // threshold skipped (non-JS): Agirliklar toplami 1 veya 100 degil, normalizasyon uygulanacak.
+
+  const dataConfidenceAdjusted = (() => { try { return results.weightedAverage * (input.dataConfidence / 100); } catch { return weightedAverage; } })();
 
   return {
     weightedAverage,
@@ -53,7 +60,7 @@ export function calculateAgirlikliOrtalamaHesaplama(input: AgirlikliOrtalamaHesa
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    premiumRequired: false,
-    premiumFeatures: ["PDF/CSV export","Detaylı rapor","Trend analizi"],
+    premiumRequired: true,
+    premiumFeatures: ["PDF/CSV export","Trend analizi","Karsilastirma","Detayli rapor"],
   };
 }

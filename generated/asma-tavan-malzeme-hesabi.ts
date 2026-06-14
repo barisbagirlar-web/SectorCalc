@@ -2,38 +2,38 @@
 import * as z from 'zod';
 
 export interface AsmaTavanMalzemeHesabiInput {
-  areaLength: number;
-  areaWidth: number;
-  panelType: 'standard' | 'acoustic' | 'moistureResistant';
-  gridType: 'exposed' | 'concealed';
-  panelWasteFactor: number;
-  gridWasteFactor: number;
-  unitPanelPrice: number;
-  unitGridPrice: number;
-  laborCostPerM2: number;
-  dataConfidence: 'low' | 'medium' | 'high';
+  alan: number;
+  profilAraligi: number;
+  plakaBoyutu: '60x60' | '60x120' | '120x120';
+  malzemeTuru: 'alcipan' | 'metal' | 'ahsap' | 'mineral lif';
+  fireOrani: number;
+  birimMaliyetPlaka: number;
+  birimMaliyetProfil: number;
+  iscilikSaatUcreti: number;
+  verimlilikFaktoru: number;
 }
 
 export const AsmaTavanMalzemeHesabiInputSchema = z.object({
-  areaLength: z.number().min(0.1).max(100).default(10),
-  areaWidth: z.number().min(0.1).max(100).default(8),
-  panelType: z.enum(['standard', 'acoustic', 'moistureResistant']).default('standard'),
-  gridType: z.enum(['exposed', 'concealed']).default('exposed'),
-  panelWasteFactor: z.number().min(0).max(20).default(5),
-  gridWasteFactor: z.number().min(0).max(15).default(3),
-  unitPanelPrice: z.number().min(1).max(100).default(15),
-  unitGridPrice: z.number().min(1).max(50).default(8),
-  laborCostPerM2: z.number().min(0).max(50).default(10),
-  dataConfidence: z.enum(['low', 'medium', 'high']).default('medium'),
+  alan: z.number().min(1).max(10000).default(100),
+  profilAraligi: z.number().min(30).max(120).default(60),
+  plakaBoyutu: z.enum(['60x60', '60x120', '120x120']).default('60x60'),
+  malzemeTuru: z.enum(['alcipan', 'metal', 'ahsap', 'mineral lif']).default('alcipan'),
+  fireOrani: z.number().min(0).max(20).default(5),
+  birimMaliyetPlaka: z.number().min(10).max(500).default(50),
+  birimMaliyetProfil: z.number().min(5).max(100).default(15),
+  iscilikSaatUcreti: z.number().min(50).max(300).default(100),
+  verimlilikFaktoru: z.number().min(1).max(20).default(5),
 });
 
 export interface AsmaTavanMalzemeHesabiOutput {
-  totalCost: number;
+  toplamMaliyet: number;
   breakdown: {
-    panelCost: number;
-    gridCost: number;
-    laborCost: number;
-    costPerM2: number;
+    plakaMiktari: number;
+    profilMiktari: number;
+    toplamMalzemeMaliyeti: number;
+    iscilikSuresi: number;
+    toplamIscilikMaliyeti: number;
+    birimMaliyet: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -44,51 +44,49 @@ export interface AsmaTavanMalzemeHesabiOutput {
 
 function evaluateFormulas(input: AsmaTavanMalzemeHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalArea = input.areaLength * input.areaWidth;
-  results.panelAreaNeeded = results.totalArea * (1 + input.panelWasteFactor / 100);
-  results.gridAreaNeeded = results.totalArea * (1 + input.gridWasteFactor / 100);
-  results.panelCost = results.panelAreaNeeded * input.unitPanelPrice;
-  results.gridCost = results.gridAreaNeeded * input.unitGridPrice;
-  results.laborCost = results.totalArea * input.laborCostPerM2;
-  results.totalCost = results.panelCost + results.gridCost + results.laborCost;
-  results.costPerM2 = results.totalCost / results.totalArea;
-  results.dataConfidenceAdjusted = input.dataConfidence === 'low' ? results.totalCost * 1.15 : input.dataConfidence === 'medium' ? results.totalCost * 1.05 : results.totalCost;
+  results.plakaMiktari = (() => { try { return input.alan * (1 + input.fireOrani / 100); } catch { return 0; } })();
+  results.profilMiktari = (() => { try { return input.alan * (100 / input.profilAraligi) * 2; } catch { return 0; } })();
+  results.toplamMalzemeMaliyeti = (() => { try { return results.plakaMiktari * input.birimMaliyetPlaka + results.profilMiktari * input.birimMaliyetProfil; } catch { return 0; } })();
+  results.iscilikSuresi = (() => { try { return input.alan / input.verimlilikFaktoru; } catch { return 0; } })();
+  results.toplamIscilikMaliyeti = (() => { try { return results.iscilikSuresi * input.iscilikSaatUcreti; } catch { return 0; } })();
+  results.toplamMaliyet = (() => { try { return results.toplamMalzemeMaliyeti + results.toplamIscilikMaliyeti; } catch { return 0; } })();
+  results.birimMaliyet = (() => { try { return results.toplamMaliyet / input.alan; } catch { return 0; } })();
   return results;
 }
 
 export function calculateAsmaTavanMalzemeHesabi(input: AsmaTavanMalzemeHesabiInput): AsmaTavanMalzemeHesabiOutput {
   const results = evaluateFormulas(input);
-  const totalCost = results.totalCost;
+  const toplamMaliyet = results.toplamMaliyet ?? 0;
   const breakdown = {
-    panelCost: results.panelCost,
-    gridCost: results.gridCost,
-    laborCost: results.laborCost,
-    costPerM2: results.costPerM2,
+    plakaMiktari: results.plakaMiktari,
+    profilMiktari: results.profilMiktari,
+    toplamMalzemeMaliyeti: results.toplamMalzemeMaliyeti,
+    iscilikSuresi: results.iscilikSuresi,
+    toplamIscilikMaliyeti: results.toplamIscilikMaliyeti,
+    birimMaliyet: results.birimMaliyet,
   };
 
-  // rule: areaLength > 0
-  // rule: areaWidth > 0
-  // rule: panelWasteFactor >= 0 && panelWasteFactor <= 20
-  // rule: gridWasteFactor >= 0 && gridWasteFactor <= 15
-  // rule: unitPanelPrice > 0
-  // rule: unitGridPrice > 0
-  // rule: laborCostPerM2 >= 0
-  // rule: if panelType === 'acoustic' then unitPanelPrice >= 20
-  // rule: if panelType === 'moistureResistant' then unitPanelPrice >= 25
-  // threshold panelWasteFactor > 10: Yüksek panel fire oranı, maliyeti artırabilir.
-  // threshold gridWasteFactor > 10: Yüksek ızgara fire oranı, maliyeti artırabilir.
-  // threshold laborCostPerM2 > 30: İşçilik maliyeti ortalamanın üzerinde.
-  const hiddenLossDrivers: string[] = ["panelWasteFactor > 10 ? 'Yüksek panel fire oranı' : null","gridWasteFactor > 10 ? 'Yüksek ızgara fire oranı' : null"];
-  const suggestedActions: string[] = ["panelWasteFactor > 10 ? 'Panel fire oranını düşürmek için kesim planlamasını optimize edin.' : null","gridWasteFactor > 10 ? 'Izgara fire oranını düşürmek için modüler planlama yapın.' : null","laborCostPerM2 > 30 ? 'İşçilik maliyetini düşürmek için alternatif montaj yöntemleri değerlendirin.' : null"];
-  const dataConfidenceAdjusted = results.dataConfidenceAdjusted;
+  // rule: alan > 0
+  // rule: profilAraligi >= 30 && profilAraligi <= 120
+  // rule: fireOrani >= 0 && fireOrani <= 20
+  // rule: birimMaliyetPlaka > 0
+  // rule: birimMaliyetProfil > 0
+  // rule: iscilikSaatUcreti > 0
+  // rule: verimlilikFaktoru > 0
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): Fire orani yuksek, malzeme kaybini azaltmak icin kesim plani gozden gecirilmeli.
+  // threshold skipped (non-JS): Iscilik maliyeti yuksek, alternatif ekip veya yontem degerlendirilmeli.
+
+  const dataConfidenceAdjusted = (() => { try { return results.toplamMaliyet * (1 - 0.05); } catch { return toplamMaliyet; } })();
 
   return {
-    totalCost,
+    toplamMaliyet,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    premiumRequired: false,
-    premiumFeatures: ["PDF raporu","CSV export","Detaylı malzeme listesi","Trend analizi (geçmiş projelerle karşılaştırma)","Karşılaştırmalı fiyat teklifi"],
+    premiumRequired: true,
+    premiumFeatures: ["PDF/CSV export","Trend analizi","Karsilastirma (farkli senaryolar)","Detayli rapor"],
   };
 }

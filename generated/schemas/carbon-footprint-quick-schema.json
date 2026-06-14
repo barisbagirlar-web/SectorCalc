@@ -1,0 +1,157 @@
+{
+  "toolName": "carbon-footprint-quick",
+  "inputs": [
+    {
+      "id": "activityType",
+      "label": "Activity Type",
+      "type": "select",
+      "unit": "",
+      "default": "electricity",
+      "min": null,
+      "max": null,
+      "options": [
+        "electricity",
+        "naturalGas",
+        "diesel",
+        "gasoline",
+        "propane",
+        "coal",
+        "waste",
+        "water",
+        "businessTravel",
+        "commuting"
+      ],
+      "businessContext": "ISO 14064-1:2018 greenhouse gas accounting; EPA emission factors."
+    },
+    {
+      "id": "quantity",
+      "label": "Quantity",
+      "type": "number",
+      "unit": "varies by activity",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "businessContext": "Amount of activity (e.g., kWh for electricity, gallons for fuel, miles for travel)."
+    },
+    {
+      "id": "unit",
+      "label": "Unit",
+      "type": "select",
+      "unit": "",
+      "default": "kWh",
+      "min": null,
+      "max": null,
+      "options": [
+        "kWh",
+        "therms",
+        "gallons",
+        "liters",
+        "miles",
+        "km",
+        "tons",
+        "kg",
+        "cubicMeters"
+      ],
+      "businessContext": "Unit matching the activity type; conversion factors from IPCC guidelines."
+    },
+    {
+      "id": "emissionFactor",
+      "label": "Emission Factor (kg CO2e per unit)",
+      "type": "number",
+      "unit": "kg CO2e/unit",
+      "default": 0.5,
+      "min": 0,
+      "max": null,
+      "businessContext": "Default factors from EPA eGRID or DEFRA; user can override for specific region."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Uncertainty adjustment per ISO 14064-3:2019; low confidence increases uncertainty margin."
+    },
+    {
+      "id": "includeOffset",
+      "label": "Include Offsets",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "businessContext": "If true, subtract purchased offsets from total emissions."
+    },
+    {
+      "id": "offsetAmount",
+      "label": "Offset Amount (kg CO2e)",
+      "type": "number",
+      "unit": "kg CO2e",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "businessContext": "Verified carbon offsets purchased."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "quantity must be >= 0",
+      "if activityType is 'electricity' then unit must be 'kWh'",
+      "if activityType is 'naturalGas' then unit must be 'therms' or 'cubicMeters'",
+      "if activityType is 'diesel' or 'gasoline' or 'propane' then unit must be 'gallons' or 'liters'",
+      "if activityType is 'businessTravel' or 'commuting' then unit must be 'miles' or 'km'",
+      "if includeOffset is true then offsetAmount must be > 0",
+      "emissionFactor must be > 0"
+    ],
+    "thresholds": {
+      "totalEmissions": {
+        "warning": 1000,
+        "critical": 10000
+      }
+    }
+  },
+  "formulas": {
+    "rawEmissions": "quantity * emissionFactor",
+    "confidenceMultiplier": "dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9)",
+    "adjustedEmissions": "rawEmissions * confidenceMultiplier",
+    "netEmissions": "includeOffset ? max(0, adjustedEmissions - offsetAmount) : adjustedEmissions",
+    "totalEmissions": "netEmissions"
+  },
+  "outputs": {
+    "primary": "totalEmissions",
+    "breakdown": {
+      "rawEmissions": "rawEmissions",
+      "confidenceMultiplier": "confidenceMultiplier",
+      "adjustedEmissions": "adjustedEmissions",
+      "offsetAmount": "offsetAmount"
+    },
+    "hiddenLossDrivers": [
+      "if totalEmissions > 10000 then 'Critical: Emissions exceed 10,000 kg CO2e'",
+      "if totalEmissions > 1000 and totalEmissions <= 10000 then 'Warning: Emissions exceed 1,000 kg CO2e'",
+      "if dataConfidence == 'low' then 'Low data confidence increases uncertainty by 20%'"
+    ],
+    "suggestedActions": [
+      "if activityType == 'electricity' then 'Consider switching to renewable energy sources'",
+      "if activityType == 'naturalGas' then 'Improve insulation and heating efficiency'",
+      "if activityType == 'diesel' or 'gasoline' then 'Optimize logistics and consider electric vehicles'",
+      "if totalEmissions > 10000 then 'Conduct detailed carbon audit and set reduction targets'",
+      "if includeOffset == false then 'Consider purchasing carbon offsets to neutralize emissions'"
+    ],
+    "dataConfidenceAdjusted": "adjustedEmissions"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmarking against industry averages",
+    "Detailed report with breakdown by activity type",
+    "Scenario modeling for reduction strategies"
+  ],
+  "premiumRequired": true
+}

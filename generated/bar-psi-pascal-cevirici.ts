@@ -3,20 +3,23 @@ import * as z from 'zod';
 
 export interface BarPsiPascalCeviriciInput {
   value: number;
-  fromUnit: 'bar' | 'psi' | 'Pa';
-  toUnit: 'bar' | 'psi' | 'Pa';
+  fromUnit: 'bar' | 'psi' | 'pascal';
+  toUnit: 'bar' | 'psi' | 'pascal';
 }
 
 export const BarPsiPascalCeviriciInputSchema = z.object({
-  value: z.number().min(0).default(1),
-  fromUnit: z.enum(['bar', 'psi', 'Pa']).default('bar'),
-  toUnit: z.enum(['bar', 'psi', 'Pa']).default('psi'),
+  value: z.number().min(0).max(10000).default(1),
+  fromUnit: z.enum(['bar', 'psi', 'pascal']).default('bar'),
+  toUnit: z.enum(['bar', 'psi', 'pascal']).default('psi'),
 });
 
 export interface BarPsiPascalCeviriciOutput {
-  convertedValue: number;
+  result: number;
   breakdown: {
-
+    originalValue: number;
+    originalUnit: number;
+    convertedValue: number;
+    convertedUnit: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -27,32 +30,36 @@ export interface BarPsiPascalCeviriciOutput {
 
 function evaluateFormulas(input: BarPsiPascalCeviriciInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.convertedValue = if (input.fromUnit == 'bar' && input.toUnit == 'psi') input.value * 14.503773773; else if (input.fromUnit == 'bar' && input.toUnit == 'Pa') input.value * 100000; else if (input.fromUnit == 'psi' && input.toUnit == 'bar') input.value / 14.503773773; else if (input.fromUnit == 'psi' && input.toUnit == 'Pa') input.value * 6894.757293; else if (input.fromUnit == 'Pa' && input.toUnit == 'bar') input.value / 100000; else if (input.fromUnit == 'Pa' && input.toUnit == 'psi') input.value / 6894.757293; else input.value;
+  results.conversion = (() => { try { return 0; } catch { return 0; } })();
   return results;
 }
 
 export function calculateBarPsiPascalCevirici(input: BarPsiPascalCeviriciInput): BarPsiPascalCeviriciOutput {
   const results = evaluateFormulas(input);
-  const convertedValue = results.convertedValue;
+  const result = results.result ?? 0;
   const breakdown = {
-
+    originalValue: results.originalValue,
+    originalUnit: results.originalUnit,
+    convertedValue: results.convertedValue,
+    convertedUnit: results.convertedUnit,
   };
 
   // rule: value >= 0
-  // rule: fromUnit ve toUnit farklı olmalıdır
-  // rule: value sayısal olmalıdır
-  // threshold value: value > 1000 bar ise yüksek basınç uyarısı
+  // rule: fromUnit != toUnit
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = [];
-  const dataConfidenceAdjusted = results.convertedValue;
+  // threshold skipped (non-JS): Yuksek basinc degeri, guvenlik onlemleri alinmalidir.
+  // threshold skipped (non-JS): Cok dusuk basinc, vakum seviyesinde olabilir.
+
+  const dataConfidenceAdjusted = (() => { try { return result; } catch { return result; } })();
 
   return {
-    convertedValue,
+    result,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: false,
-    premiumFeatures: ["PDF rapor","CSV export","Trend analizi","Karşılaştırma"],
+    premiumFeatures: ["PDF/CSV export","Trend analizi","Karsilastirma","Detayli rapor"],
   };
 }

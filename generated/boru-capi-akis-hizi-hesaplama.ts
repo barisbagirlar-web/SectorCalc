@@ -2,21 +2,23 @@
 import * as z from 'zod';
 
 export interface BoruCapiAkisHiziHesaplamaInput {
-  debisi: number;
-  akisHizi: number;
-  akiskaniTuru: 'su' | 'hava' | 'buhar' | 'yag' | 'dogalgaz';
+  debi: number;
+  hiz: number;
+  boruTipi: 'standart' | 'smooth' | 'rough';
+  akiskanturu: 'su' | 'hava' | 'diger';
 }
 
 export const BoruCapiAkisHiziHesaplamaInputSchema = z.object({
-  debisi: z.number().min(0.0001).max(100).default(0.1),
-  akisHizi: z.number().min(0.1).max(10).default(2),
-  akiskaniTuru: z.enum(['su', 'hava', 'buhar', 'yag', 'dogalgaz']).default('su'),
+  debi: z.number().min(0).default(0.1),
+  hiz: z.number().min(0).default(2),
+  boruTipi: z.enum(['standart', 'smooth', 'rough']).default('standart'),
+  akiskanturu: z.enum(['su', 'hava', 'diger']).default('su'),
 });
 
 export interface BoruCapiAkisHiziHesaplamaOutput {
-  boruCapi: number;
+  cap: number;
   breakdown: {
-    kesitAlani: number;
+    alan: number;
     reynoldsSayisi: number;
     basincKaybi: number;
   };
@@ -29,37 +31,40 @@ export interface BoruCapiAkisHiziHesaplamaOutput {
 
 function evaluateFormulas(input: BoruCapiAkisHiziHesaplamaInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.boruCapi = sqrt((4 * input.debisi) / (Math.PI * input.akisHizi));
-  results.kesitAlani = Math.PI * Math.pow(results.boruCapi / 2, 2);
-  results.reynoldsSayisi = (1000 * input.akisHizi * results.boruCapi) / 0.001;
-  results.basincKaybi = 0.02 * (100 / results.boruCapi) * (1000 * Math.pow(input.akisHizi, 2) / 2);
+  results.cap = (() => { try { return Math.sqrt((4 * input.debi) / (PI * input.hiz)); } catch { return 0; } })();
+  results.alan = (() => { try { return PI * (results.cap / 2)^2; } catch { return 0; } })();
+  results.reynoldsSayisi = (() => { try { return (input.akiskanturu == 'su' ? 1000 : 1.2) * input.hiz * results.cap / (input.akiskanturu == 'su' ? 0.001 : 1.8e-5); } catch { return 0; } })();
+  results.surtunmeFaktoru = (() => { try { return input.boruTipi == 'smooth' ? 0.01 : (input.boruTipi == 'rough' ? 0.05 : 0.02); } catch { return 0; } })();
+  results.basincKaybi = (() => { try { return results.surtunmeFaktoru * (1000 / results.cap) * (input.akiskanturu == 'su' ? 1000 : 1.2) * input.hiz^2 / 2; } catch { return 0; } })();
   return results;
 }
 
 export function calculateBoruCapiAkisHiziHesaplama(input: BoruCapiAkisHiziHesaplamaInput): BoruCapiAkisHiziHesaplamaOutput {
   const results = evaluateFormulas(input);
-  const boruCapi = results.boruCapi;
+  const cap = results.cap ?? 0;
   const breakdown = {
-    kesitAlani: results.kesitAlani,
+    alan: results.alan,
     reynoldsSayisi: results.reynoldsSayisi,
     basincKaybi: results.basincKaybi,
   };
 
-  // rule: Debi > 0
-  // rule: Akış hızı > 0
-  // rule: Akış hızı <= 10 m/s (ekonomik hız sınırı)
-  // threshold akisHizi: Akış hızı > 5 m/s ise yüksek aşınma riski uyarısı
-  const hiddenLossDrivers: string[] = ["Yüksek akış hızı aşınmayı artırır","Düşük Reynolds sayısı laminer akışa işaret eder"];
-  const suggestedActions: string[] = ["Ekonomik boru çapı seçimi için standart çapları kontrol edin","Yüksek basınç kaybı durumunda pompa gücünü artırın"];
-  const dataConfidenceAdjusted = dataConfidence input'u olmadığından uygulanmaz;
+  // rule: debi > 0
+  // rule: hiz > 0
+  // rule: Eger akiskanturu = 'diger' ise kullanicidan yogunluk ve viskozite bilgisi istenmeli (bu aracta sadece su ve hava icin standart degerler kullanilir)
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  if (input.hiz > 10) hiddenLossDrivers.push("hiz");
+  if (input.debi > 1) hiddenLossDrivers.push("debi");
+
+  const dataConfidenceAdjusted = (() => { try { return results.cap * (1 - 0.05); } catch { return cap; } })();
 
   return {
-    boruCapi,
+    cap,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF raporu","CSV export","Trend analizi","Detaylı basınç kaybı hesaplamaları"],
+    premiumFeatures: ["PDF/CSV export","Trend analizi","Karsilastirma","Detayli rapor"],
   };
 }

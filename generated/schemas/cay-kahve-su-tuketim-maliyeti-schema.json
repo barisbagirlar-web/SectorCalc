@@ -1,0 +1,212 @@
+{
+  "toolName": "cay-kahve-su-tuketim-maliyeti",
+  "inputs": [
+    {
+      "id": "calisanSayisi",
+      "label": "Çalışan Sayısı",
+      "type": "number",
+      "unit": "kişi",
+      "default": 50,
+      "min": 1,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Toplam çalışan sayısı. İşletme büyüklüğüne göre tüketim tahmini için temel parametre."
+    },
+    {
+      "id": "gunlukCayTuketimiKisi",
+      "label": "Günlük Kişi Başı Çay Tüketimi",
+      "type": "number",
+      "unit": "bardak/gün",
+      "default": 3,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Ortalama çay tüketimi. Türkiye'de kişi başı yıllık 3-4 kg çay tüketimi (TÜİK) baz alınarak günlük 3-4 bardak."
+    },
+    {
+      "id": "gunlukKahveTuketimiKisi",
+      "label": "Günlük Kişi Başı Kahve Tüketimi",
+      "type": "number",
+      "unit": "fincan/gün",
+      "default": 1,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Ortalama kahve tüketimi. Uluslararası Kahve Örgütü (ICO) verilerine göre Türkiye'de kişi başı yıllık 0.5-1 kg."
+    },
+    {
+      "id": "gunlukSuTuketimiKisi",
+      "label": "Günlük Kişi Başı Su Tüketimi (İçme)",
+      "type": "number",
+      "unit": "litre/gün",
+      "default": 1.5,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Dünya Sağlık Örgütü (WHO) önerisi: günde 2 litre. İşyerinde ortalama 1.5 litre."
+    },
+    {
+      "id": "cayPosetFiyati",
+      "label": "Çay Poşeti Fiyatı (Adet)",
+      "type": "number",
+      "unit": "TL/adet",
+      "default": 0.5,
+      "min": 0.01,
+      "max": 5,
+      "options": null,
+      "businessContext": "Piyasa araştırması: 100'lü paket 50 TL civarı."
+    },
+    {
+      "id": "kahveFiyati",
+      "label": "Kahve Fiyatı (Kg)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 300,
+      "min": 50,
+      "max": 2000,
+      "options": null,
+      "businessContext": "Türk kahvesi ortalama 300 TL/kg. ICO referans fiyatları."
+    },
+    {
+      "id": "suFiyati",
+      "label": "Su Fiyatı (Litre)",
+      "type": "number",
+      "unit": "TL/litre",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 10,
+      "options": null,
+      "businessContext": "Damacana su fiyatı 19L için 10-15 TL, litre başı 0.5-0.8 TL."
+    },
+    {
+      "id": "calismaGunuAy",
+      "label": "Aylık Çalışma Günü",
+      "type": "number",
+      "unit": "gün/ay",
+      "default": 22,
+      "min": 1,
+      "max": 31,
+      "options": null,
+      "businessContext": "Standart iş günü sayısı. 5 gün çalışma haftası baz alınır."
+    },
+    {
+      "id": "cayBardakBasinaSuMiktari",
+      "label": "Çay Bardak Başına Su Miktarı",
+      "type": "number",
+      "unit": "litre/bardak",
+      "default": 0.15,
+      "min": 0.05,
+      "max": 0.5,
+      "options": null,
+      "businessContext": "Standart çay bardağı 150 ml. Suyun bir kısmı buharlaşır."
+    },
+    {
+      "id": "kahveFincanBasinaSuMiktari",
+      "label": "Kahve Fincan Başına Su Miktarı",
+      "type": "number",
+      "unit": "litre/fincan",
+      "default": 0.1,
+      "min": 0.05,
+      "max": 0.3,
+      "options": null,
+      "businessContext": "Türk kahvesi fincanı 70-100 ml."
+    },
+    {
+      "id": "cayGramBardak",
+      "label": "Çay Gramı (Bardak Başına)",
+      "type": "number",
+      "unit": "gram/bardak",
+      "default": 2,
+      "min": 1,
+      "max": 5,
+      "options": null,
+      "businessContext": "Bir bardak çay için 2 gram çay kullanılır."
+    },
+    {
+      "id": "kahveGramFincan",
+      "label": "Kahve Gramı (Fincan Başına)",
+      "type": "number",
+      "unit": "gram/fincan",
+      "default": 7,
+      "min": 5,
+      "max": 15,
+      "options": null,
+      "businessContext": "Bir fincan Türk kahvesi için 7 gram kahve."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güvenilirliği",
+      "type": "select",
+      "unit": "",
+      "default": "orta",
+      "min": null,
+      "max": null,
+      "options": [
+        "düşük",
+        "orta",
+        "yüksek"
+      ],
+      "businessContext": "Kullanıcının girdiği verilerin güvenilirliği. Düşük: varsayılan değerler, orta: tahmini, yüksek: ölçülmüş."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "calisanSayisi > 0",
+      "gunlukCayTuketimiKisi >= 0",
+      "gunlukKahveTuketimiKisi >= 0",
+      "gunlukSuTuketimiKisi >= 0",
+      "cayPosetFiyati > 0",
+      "kahveFiyati > 0",
+      "suFiyati > 0",
+      "calismaGunuAy between 1 and 31",
+      "cayBardakBasinaSuMiktari > 0",
+      "kahveFincanBasinaSuMiktari > 0",
+      "cayGramBardak > 0",
+      "kahveGramFincan > 0"
+    ],
+    "thresholds": {
+      "gunlukCayTuketimiKisi > 5": "Yüksek çay tüketimi, sağlık uyarısı",
+      "gunlukKahveTuketimiKisi > 3": "Yüksek kahve tüketimi, kafein uyarısı",
+      "gunlukSuTuketimiKisi < 1": "Düşük su tüketimi, dehidrasyon riski"
+    }
+  },
+  "formulas": {
+    "aylikCayTuketimAdet": "calisanSayisi * gunlukCayTuketimiKisi * calismaGunuAy",
+    "aylikKahveTuketimAdet": "calisanSayisi * gunlukKahveTuketimiKisi * calismaGunuAy",
+    "aylikSuTuketimLitre": "calisanSayisi * gunlukSuTuketimiKisi * calismaGunuAy",
+    "aylikCayMaliyeti": "aylikCayTuketimAdet * cayPosetFiyati",
+    "aylikKahveMaliyeti": "aylikKahveTuketimAdet * (kahveGramFincan / 1000) * kahveFiyati",
+    "aylikSuMaliyeti": "aylikSuTuketimLitre * suFiyati",
+    "aylikToplamMaliyet": "aylikCayMaliyeti + aylikKahveMaliyeti + aylikSuMaliyeti",
+    "yillikToplamMaliyet": "aylikToplamMaliyet * 12",
+    "kisiBasinaAylikMaliyet": "aylikToplamMaliyet / calisanSayisi",
+    "dataConfidenceAdjusted": "dataConfidence == 'düşük' ? aylikToplamMaliyet * 1.2 : (dataConfidence == 'orta' ? aylikToplamMaliyet * 1.1 : aylikToplamMaliyet)"
+  },
+  "outputs": {
+    "primary": "aylikToplamMaliyet",
+    "breakdown": {
+      "aylikCayMaliyeti": "aylikCayMaliyeti",
+      "aylikKahveMaliyeti": "aylikKahveMaliyeti",
+      "aylikSuMaliyeti": "aylikSuMaliyeti",
+      "kisiBasinaAylikMaliyet": "kisiBasinaAylikMaliyet",
+      "yillikToplamMaliyet": "yillikToplamMaliyet"
+    },
+    "hiddenLossDrivers": [
+      "gunlukCayTuketimiKisi > 5 ? 'Yüksek çay tüketimi' : ''",
+      "gunlukKahveTuketimiKisi > 3 ? 'Yüksek kahve tüketimi' : ''",
+      "gunlukSuTuketimiKisi < 1 ? 'Düşük su tüketimi' : ''"
+    ],
+    "suggestedActions": [
+      "Toplu alım ile çay/kahve maliyetini düşürün.",
+      "Su sebili kullanımı ile damacana maliyetini azaltın.",
+      "Tüketim alışkanlıklarını anketle belirleyin."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (aylık karşılaştırma)",
+    "Detaylı rapor (grafiklerle)"
+  ],
+  "premiumRequired": true
+}

@@ -2,186 +2,177 @@
   "toolName": "boru-hatti-surtunme-ve-pompa-enerji-kayip-calculator",
   "inputs": [
     {
-      "id": "pipeLength",
-      "label": "Boru Uzunluğu",
+      "id": "flowRate",
+      "label": "Debi (Q)",
       "type": "number",
-      "unit": "m",
-      "default": 100,
-      "min": 1,
-      "max": 10000,
+      "unit": "m³/s",
+      "default": 0.1,
+      "min": 0.001,
+      "max": 100,
       "options": null,
-      "businessContext": "Boru hattının toplam uzunluğu. Sürtünme kaybı Darcy-Weisbach denklemine göre uzunlukla doğru orantılıdır."
+      "businessContext": "Sıvı akış debisi. Boru hattı tasarımında temel parametre. Kaynak: Darcy-Weisbach denklemi, ISO 5167."
     },
     {
       "id": "pipeDiameter",
-      "label": "Boru İç Çapı",
+      "label": "Boru İç Çapı (D)",
       "type": "number",
-      "unit": "mm",
-      "default": 100,
-      "min": 10,
-      "max": 1000,
+      "unit": "m",
+      "default": 0.3,
+      "min": 0.01,
+      "max": 5,
       "options": null,
-      "businessContext": "Boru iç çapı, akış alanını ve hızı etkiler. Sürtünme kaybı çapın beşinci kuvvetiyle ters orantılıdır."
+      "businessContext": "Boru iç çapı. Sürtünme kaybı hesaplamalarında kullanılır. Kaynak: Darcy-Weisbach, ISO 6708."
     },
     {
-      "id": "flowRate",
-      "label": "Debi",
+      "id": "pipeLength",
+      "label": "Boru Uzunluğu (L)",
       "type": "number",
-      "unit": "m³/h",
-      "default": 50,
-      "min": 0.1,
-      "max": 10000,
+      "unit": "m",
+      "default": 1000,
+      "min": 1,
+      "max": 100000,
       "options": null,
-      "businessContext": "Birim zamanda borudan geçen akışkan hacmi. Sürtünme kaybı debinin karesiyle orantılıdır."
+      "businessContext": "Boru hattı toplam uzunluğu. Sürtünme kaybı mesafe ile orantılıdır. Kaynak: Darcy-Weisbach."
+    },
+    {
+      "id": "roughness",
+      "label": "Boru Pürüzlülüğü (ε)",
+      "type": "number",
+      "unit": "m",
+      "default": 0.000045,
+      "min": 0.000001,
+      "max": 0.01,
+      "options": null,
+      "businessContext": "Boru iç yüzey pürüzlülüğü. Sürtünme faktörünü etkiler. Kaynak: Moody diyagramı, ISO 9906."
     },
     {
       "id": "fluidDensity",
-      "label": "Akışkan Yoğunluğu",
+      "label": "Akışkan Yoğunluğu (ρ)",
       "type": "number",
       "unit": "kg/m³",
       "default": 1000,
       "min": 1,
       "max": 2000,
       "options": null,
-      "businessContext": "Akışkanın yoğunluğu. Su için 1000 kg/m³, petrol için 800-900 kg/m³. Sürtünme kaybı yoğunlukla doğru orantılıdır."
+      "businessContext": "Akışkan yoğunluğu. Su için 1000 kg/m³. Kaynak: Standart sıvı özellikleri."
     },
     {
       "id": "fluidViscosity",
-      "label": "Akışkan Viskozitesi",
+      "label": "Akışkan Dinamik Viskozitesi (μ)",
       "type": "number",
-      "unit": "cP",
-      "default": 1,
-      "min": 0.1,
-      "max": 1000,
-      "options": null,
-      "businessContext": "Akışkanın dinamik viskozitesi. Su için 1 cP, yağlar için 10-100 cP. Reynolds sayısını ve sürtünme faktörünü etkiler."
-    },
-    {
-      "id": "pipeRoughness",
-      "label": "Boru Pürüzlülüğü",
-      "type": "number",
-      "unit": "mm",
-      "default": 0.05,
-      "min": 0.001,
+      "unit": "Pa·s",
+      "default": 0.001,
+      "min": 0.0001,
       "max": 10,
       "options": null,
-      "businessContext": "Boru iç yüzey pürüzlülüğü. Çelik için 0.05 mm, beton için 0.3-3 mm. Sürtünme faktörünü etkiler."
+      "businessContext": "Akışkan viskozitesi. Reynolds sayısı hesaplamak için. Kaynak: Newton tipi akışkanlar."
     },
     {
       "id": "pumpEfficiency",
-      "label": "Pompa Verimi",
+      "label": "Pompa Verimi (η)",
       "type": "number",
       "unit": "%",
       "default": 75,
       "min": 10,
       "max": 100,
       "options": null,
-      "businessContext": "Pompanın genel verimi. Tipik santrifüj pompalar %60-85 arası. Enerji tüketimini hesaplamak için kullanılır."
+      "businessContext": "Pompa verimliliği. Enerji tüketimi hesaplamalarında kullanılır. Kaynak: Pompa standartları (ISO 9906)."
     },
     {
       "id": "electricityCost",
       "label": "Elektrik Birim Maliyeti",
       "type": "number",
-      "unit": "USD/kWh",
-      "default": 0.12,
-      "min": 0.01,
-      "max": 1,
+      "unit": "TL/kWh",
+      "default": 2,
+      "min": 0.1,
+      "max": 10,
       "options": null,
-      "businessContext": "Kilovatsaat başına elektrik maliyeti. Enerji maliyetini hesaplamak için kullanılır."
+      "businessContext": "Elektrik enerjisi maliyeti. Enerji kaybının parasal karşılığı. Kaynak: EPDK tarifeleri."
     },
     {
       "id": "operatingHours",
       "label": "Yıllık Çalışma Saati",
       "type": "number",
-      "unit": "hours/year",
+      "unit": "saat/yıl",
       "default": 8000,
       "min": 0,
       "max": 8760,
       "options": null,
-      "businessContext": "Pompanın yıllık toplam çalışma saati. Sürekli çalışma için 8760 saat, vardiyalı için 4000-6000 saat."
+      "businessContext": "Pompanın yıllık çalışma süresi. Enerji maliyeti hesaplamaları için. Kaynak: Endüstriyel uygulamalar."
     },
     {
-      "id": "fittingCount",
-      "label": "Dirsek ve Bağlantı Sayısı",
+      "id": "fittingLossCoefficient",
+      "label": "Ek Parça Kayıp Katsayısı (K)",
       "type": "number",
-      "unit": "adet",
-      "default": 10,
+      "unit": "birimsiz",
+      "default": 0.5,
       "min": 0,
       "max": 100,
       "options": null,
-      "businessContext": "Borudaki dirsek, vana, T bağlantı gibi elemanların sayısı. Yerel kayıpları hesaplamak için kullanılır."
+      "businessContext": "Dirsek, vana gibi ek parçaların toplam kayıp katsayısı. Kaynak: Crane Technical Paper No. 410."
     }
   ],
   "validation": {
     "rules": [
-      "pipeLength > 0",
-      "pipeDiameter > 0",
       "flowRate > 0",
+      "pipeDiameter > 0",
+      "pipeLength > 0",
+      "roughness >= 0",
       "fluidDensity > 0",
       "fluidViscosity > 0",
-      "pipeRoughness >= 0",
-      "pumpEfficiency between 0 and 100",
-      "electricityCost >= 0",
-      "operatingHours between 0 and 8760",
-      "fittingCount >= 0"
+      "pumpEfficiency > 0 && pumpEfficiency <= 100",
+      "electricityCost > 0",
+      "operatingHours >= 0 && operatingHours <= 8760",
+      "fittingLossCoefficient >= 0"
     ],
     "thresholds": {
-      "frictionLossCritical": "frictionLoss > 100000 Pa",
-      "energyCostWarning": "annualEnergyCost > 10000 USD",
-      "pumpEfficiencyLow": "pumpEfficiency < 50"
+      "pumpEfficiency < 50": "Pompa verimi düşük, bakım veya değişim gerekebilir.",
+      "pressureDrop > 100000": "Yüksek basınç düşüşü, pompa kapasitesi yetersiz olabilir.",
+      "reynoldsNumber < 2000": "Laminer akış, sürtünme kaybı hesaplaması farklı yapılmalı."
     }
   },
   "formulas": {
-    "flowVelocity": "flowRate / (3600 * pi * (pipeDiameter/2000)^2)",
-    "reynoldsNumber": "fluidDensity * flowVelocity * (pipeDiameter/1000) / (fluidViscosity/1000)",
-    "frictionFactor": "if reynoldsNumber < 2000 then 64/reynoldsNumber else 1/(-2*log10(pipeRoughness/(3.7*pipeDiameter/1000) + 2.51/(reynoldsNumber*sqrt(frictionFactor))))^2 (iterative)",
-    "frictionLoss": "frictionFactor * (pipeLength/(pipeDiameter/1000)) * (fluidDensity * flowVelocity^2 / 2)",
-    "minorLoss": "fittingCount * 0.5 * fluidDensity * flowVelocity^2 / 2",
-    "totalHeadLoss": "(frictionLoss + minorLoss) / (fluidDensity * 9.81)",
-    "hydraulicPower": "flowRate/3600 * totalHeadLoss * fluidDensity * 9.81",
-    "shaftPower": "hydraulicPower / (pumpEfficiency/100)",
-    "annualEnergyConsumption": "shaftPower * operatingHours",
-    "annualEnergyCost": "annualEnergyConsumption * electricityCost",
-    "totalExposure": "annualEnergyCost",
-    "variancePercent": "0",
-    "summaryLevel": "if totalExposure > 3 then 'critical' else if totalExposure > 1 then 'warning' else 'normal'",
-    "primaryDriver": "if frictionLoss > minorLoss then 'frictionLoss' else 'minorLoss'",
-    "decisionVerdict": "if summaryLevel == 'critical' then 'review required' else 'acceptable'"
+    "crossSectionalArea": "A = π * (pipeDiameter/2)^2",
+    "velocity": "v = flowRate / A",
+    "reynoldsNumber": "Re = (fluidDensity * v * pipeDiameter) / fluidViscosity",
+    "frictionFactor": "f = (Re < 2000) ? (64/Re) : (1 / (-2 * log10((roughness/(3.7*pipeDiameter)) + (2.51/(Re*sqrt(f_guess))))))^2 (iteratif çözüm)",
+    "majorLoss": "h_f = f * (pipeLength/pipeDiameter) * (v^2/(2*9.81))",
+    "minorLoss": "h_m = fittingLossCoefficient * (v^2/(2*9.81))",
+    "totalHeadLoss": "h_total = h_f + h_m",
+    "pressureDrop": "ΔP = fluidDensity * 9.81 * h_total",
+    "hydraulicPower": "P_h = fluidDensity * 9.81 * flowRate * h_total",
+    "shaftPower": "P_s = P_h / (pumpEfficiency/100)",
+    "annualEnergyConsumption": "E = P_s * operatingHours",
+    "annualEnergyCost": "C = E * electricityCost"
   },
   "outputs": {
-    "primary": "totalExposure",
+    "primary": "annualEnergyCost",
     "breakdown": {
-      "flowVelocity": "m/s",
-      "reynoldsNumber": "dimensionless",
-      "frictionFactor": "dimensionless",
-      "frictionLoss": "Pa",
-      "minorLoss": "Pa",
-      "totalHeadLoss": "m",
-      "hydraulicPower": "W",
-      "shaftPower": "W",
-      "annualEnergyConsumption": "kWh",
-      "annualEnergyCost": "USD"
+      "majorLoss": "h_f",
+      "minorLoss": "h_m",
+      "pressureDrop": "ΔP",
+      "hydraulicPower": "P_h",
+      "shaftPower": "P_s",
+      "annualEnergyConsumption": "E"
     },
     "hiddenLossDrivers": [
-      "frictionLoss > 100000 Pa",
-      "annualEnergyCost > 10000 USD",
-      "pumpEfficiency < 50"
+      "pumpEfficiency < 50 ? 'Düşük pompa verimi' : ''",
+      "reynoldsNumber < 2000 ? 'Laminer akış rejimi' : ''",
+      "fittingLossCoefficient > 10 ? 'Yüksek ek parça kaybı' : ''"
     ],
     "suggestedActions": [
-      "Boru çapını artırarak sürtünme kaybını azaltın.",
-      "Pompa verimini artırmak için bakım yapın veya daha verimli pompa seçin.",
-      "Dirsek sayısını azaltarak yerel kayıpları düşürün.",
-      "Akış hızını düşürmek için paralel boru hattı ekleyin."
+      "pumpEfficiency < 50 ? 'Pompa bakımı veya değişimi önerilir.' : ''",
+      "pressureDrop > 100000 ? 'Boru çapı artırılabilir veya pompa gücü yükseltilebilir.' : ''",
+      "reynoldsNumber < 2000 ? 'Akış hızı artırılarak türbülanslı akışa geçilebilir.' : ''"
     ],
-    "dataConfidenceAdjusted": "totalExposure"
+    "dataConfidenceAdjusted": "annualEnergyCost * (1 - 0.1) (varsayılan güven düzeltmesi)"
   },
   "premiumFeatures": [
     "PDF raporu",
-    "CSV veri indirme",
+    "CSV veri dışa aktarımı",
     "Trend analizi (zaman serisi)",
     "Senaryo karşılaştırma",
-    "Detaylı grafikler",
-    "Özelleştirilebilir varsayılan değerler"
+    "Detaylı kayıp analizi raporu"
   ],
   "premiumRequired": true
 }

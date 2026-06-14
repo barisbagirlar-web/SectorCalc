@@ -1,0 +1,145 @@
+{
+  "toolName": "cbam-exposure-quick-check",
+  "inputs": [
+    {
+      "id": "sector",
+      "label": "Sector",
+      "type": "select",
+      "unit": "",
+      "default": "cement",
+      "min": null,
+      "max": null,
+      "options": [
+        "cement",
+        "iron_steel",
+        "aluminum",
+        "fertilizers",
+        "electricity",
+        "hydrogen"
+      ],
+      "businessContext": "CBAM sectors as defined in EU Regulation 2023/956. Select the sector of the product."
+    },
+    {
+      "id": "productionVolume",
+      "label": "Annual Production Volume",
+      "type": "number",
+      "unit": "tonnes/year",
+      "default": 100000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Total annual production volume of the product in tonnes. Required for calculating embedded emissions."
+    },
+    {
+      "id": "embeddedEmissionsPerTon",
+      "label": "Embedded Emissions per Tonne",
+      "type": "number",
+      "unit": "tCO2e/tonne",
+      "default": 0.8,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Direct and indirect greenhouse gas emissions embedded in one tonne of product, measured in tonnes of CO2 equivalent. Based on ISO 14064 and GHG Protocol."
+    },
+    {
+      "id": "carbonPriceOrigin",
+      "label": "Carbon Price in Origin Country",
+      "type": "number",
+      "unit": "EUR/tCO2e",
+      "default": 30,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Current carbon price applicable in the country of origin. If no carbon price, enter 0. Based on World Bank Carbon Pricing Dashboard."
+    },
+    {
+      "id": "cbamCertificatePrice",
+      "label": "CBAM Certificate Price (EU ETS)",
+      "type": "number",
+      "unit": "EUR/tCO2e",
+      "default": 80,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Current price of CBAM certificates, linked to EU ETS allowance price. Source: European Energy Exchange (EEX)."
+    },
+    {
+      "id": "freeAllowanceFactor",
+      "label": "Free Allowance Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of emissions covered by free allowances during the transitional period. Default 0% for full exposure. Based on CBAM regulation."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level in the input data. Low: estimated, Medium: industry average, High: verified. Affects confidence adjustment."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "productionVolume > 0",
+      "embeddedEmissionsPerTon >= 0",
+      "carbonPriceOrigin >= 0",
+      "cbamCertificatePrice >= 0",
+      "freeAllowanceFactor >= 0 and freeAllowanceFactor <= 100"
+    ],
+    "thresholds": {
+      "embeddedEmissionsPerTon": "if embeddedEmissionsPerTon > sectorBenchmark then 'High emissions relative to sector benchmark'",
+      "carbonPriceOrigin": "if carbonPriceOrigin < 10 then 'Low carbon price in origin country, high exposure'",
+      "freeAllowanceFactor": "if freeAllowanceFactor < 20 then 'Limited free allowances, full exposure'"
+    }
+  },
+  "formulas": {
+    "totalEmbeddedEmissions": "productionVolume * embeddedEmissionsPerTon",
+    "totalCarbonCostOrigin": "totalEmbeddedEmissions * carbonPriceOrigin",
+    "totalCarbonCostCBAM": "totalEmbeddedEmissions * cbamCertificatePrice",
+    "freeAllowanceEmissions": "totalEmbeddedEmissions * (freeAllowanceFactor / 100)",
+    "cbamExposureCost": "totalCarbonCostCBAM - totalCarbonCostOrigin - (freeAllowanceEmissions * cbamCertificatePrice)",
+    "exposurePerTon": "cbamExposureCost / productionVolume",
+    "dataConfidenceAdjusted": "cbamExposureCost * (dataConfidence == 'low' ? 1.2 : (dataConfidence == 'medium' ? 1.0 : 0.9))"
+  },
+  "outputs": {
+    "primary": "cbamExposureCost",
+    "breakdown": {
+      "totalEmbeddedEmissions": "totalEmbeddedEmissions",
+      "totalCarbonCostOrigin": "totalCarbonCostOrigin",
+      "totalCarbonCostCBAM": "totalCarbonCostCBAM",
+      "freeAllowanceEmissions": "freeAllowanceEmissions",
+      "exposurePerTon": "exposurePerTon"
+    },
+    "hiddenLossDrivers": [
+      "High embedded emissions relative to sector benchmark",
+      "Low carbon price in origin country",
+      "Limited free allowances"
+    ],
+    "suggestedActions": [
+      "Reduce embedded emissions through process optimization (Lean, ISO 50001)",
+      "Monitor carbon price trends in origin country",
+      "Apply for free allowances if eligible",
+      "Consider sourcing from countries with higher carbon prices"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmarking against sector averages",
+    "Detailed breakdown report"
+  ],
+  "premiumRequired": true
+}

@@ -3,71 +3,76 @@
   "inputs": [
     {
       "id": "value",
-      "label": "Değer",
+      "label": "Basınç Değeri",
       "type": "number",
-      "unit": "bar, psi, veya Pa",
+      "unit": "bar",
       "default": 1,
       "min": 0,
-      "max": null,
+      "max": 10000,
       "options": null,
-      "businessContext": "Dönüştürülecek basınç değeri. Endüstriyel uygulamalarda yaygın olarak kullanılır."
+      "businessContext": "Kullanıcının dönüştürmek istediği basınç değeri. Endüstriyel uygulamalarda yaygın olarak kullanılan birimlerden biridir. ISO 80000-4:2006 standardına dayanır."
     },
     {
       "id": "fromUnit",
       "label": "Kaynak Birim",
       "type": "select",
-      "unit": "birim",
+      "unit": "",
       "default": "bar",
       "min": null,
       "max": null,
       "options": [
         "bar",
         "psi",
-        "Pa"
+        "pascal"
       ],
-      "businessContext": "Giriş değerinin birimi. Bar, psi ve Pascal yaygın basınç birimleridir."
+      "businessContext": "Dönüştürülecek basınç birimi. Mühendislikte yaygın kullanılan birimler: bar (metrik), psi (İngiliz sistemi), pascal (SI)."
     },
     {
       "id": "toUnit",
       "label": "Hedef Birim",
       "type": "select",
-      "unit": "birim",
+      "unit": "",
       "default": "psi",
       "min": null,
       "max": null,
       "options": [
         "bar",
         "psi",
-        "Pa"
+        "pascal"
       ],
-      "businessContext": "Çıktı değerinin birimi. Kullanıcının ihtiyacına göre seçilir."
+      "businessContext": "Dönüşüm sonucu istenen basınç birimi."
     }
   ],
   "validation": {
     "rules": [
       "value >= 0",
-      "fromUnit ve toUnit farklı olmalıdır",
-      "value sayısal olmalıdır"
+      "fromUnit != toUnit"
     ],
     "thresholds": {
-      "value": "value > 1000 bar ise yüksek basınç uyarısı"
+      "value > 1000": "Yüksek basınç değeri, güvenlik önlemleri alınmalıdır.",
+      "value < 0.01": "Çok düşük basınç, vakum seviyesinde olabilir."
     }
   },
   "formulas": {
-    "convertedValue": "if (fromUnit == 'bar' && toUnit == 'psi') value * 14.503773773; else if (fromUnit == 'bar' && toUnit == 'Pa') value * 100000; else if (fromUnit == 'psi' && toUnit == 'bar') value / 14.503773773; else if (fromUnit == 'psi' && toUnit == 'Pa') value * 6894.757293; else if (fromUnit == 'Pa' && toUnit == 'bar') value / 100000; else if (fromUnit == 'Pa' && toUnit == 'psi') value / 6894.757293; else value"
+    "conversion": "if (fromUnit == 'bar' && toUnit == 'psi') result = value * 14.503773773; else if (fromUnit == 'bar' && toUnit == 'pascal') result = value * 100000; else if (fromUnit == 'psi' && toUnit == 'bar') result = value / 14.503773773; else if (fromUnit == 'psi' && toUnit == 'pascal') result = value * 6894.7572932; else if (fromUnit == 'pascal' && toUnit == 'bar') result = value / 100000; else if (fromUnit == 'pascal' && toUnit == 'psi') result = value / 6894.7572932; else result = value;"
   },
   "outputs": {
-    "primary": "convertedValue",
-    "breakdown": {},
+    "primary": "result",
+    "breakdown": {
+      "originalValue": "value",
+      "originalUnit": "fromUnit",
+      "convertedValue": "result",
+      "convertedUnit": "toUnit"
+    },
     "hiddenLossDrivers": [],
     "suggestedActions": [],
-    "dataConfidenceAdjusted": "convertedValue"
+    "dataConfidenceAdjusted": "result"
   },
   "premiumFeatures": [
-    "PDF rapor",
-    "CSV export",
+    "PDF/CSV export",
     "Trend analizi",
-    "Karşılaştırma"
+    "Karşılaştırma",
+    "Detaylı rapor"
   ],
   "premiumRequired": false
 }

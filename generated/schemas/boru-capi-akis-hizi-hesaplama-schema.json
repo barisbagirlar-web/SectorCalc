@@ -2,29 +2,44 @@
   "toolName": "boru-capi-akis-hizi-hesaplama",
   "inputs": [
     {
-      "id": "debisi",
-      "label": "Debi (Flow Rate)",
+      "id": "debi",
+      "label": "Debi (Q)",
       "type": "number",
       "unit": "m³/s",
       "default": 0.1,
-      "min": 0.0001,
-      "max": 100,
+      "min": 0,
+      "max": null,
       "options": null,
-      "businessContext": "Boru hattından geçen akışkan hacminin zamana oranı. Süreklilik denklemi temel alınır."
+      "businessContext": "Sıvı veya gazın birim zamanda borudan geçen hacmi. ISO 5167 standartlarına göre debi ölçümü."
     },
     {
-      "id": "akisHizi",
-      "label": "Akış Hızı (Flow Velocity)",
+      "id": "hiz",
+      "label": "Akış Hızı (v)",
       "type": "number",
       "unit": "m/s",
       "default": 2,
-      "min": 0.1,
-      "max": 10,
+      "min": 0,
+      "max": null,
       "options": null,
-      "businessContext": "Akışkanın boru içindeki ortalama hızı. Ekonomik hız aralıkları sektörel standartlara göre belirlenir."
+      "businessContext": "Akışkanın boru içindeki ortalama hızı. Endüstriyel uygulamalarda tipik hız aralıkları: su için 1-3 m/s, hava için 10-30 m/s."
     },
     {
-      "id": "akiskaniTuru",
+      "id": "boruTipi",
+      "label": "Boru Tipi",
+      "type": "select",
+      "unit": "",
+      "default": "standart",
+      "min": null,
+      "max": null,
+      "options": [
+        "standart",
+        "smooth",
+        "rough"
+      ],
+      "businessContext": "Boru iç yüzey pürüzlülüğüne göre sınıflandırma. Sürtünme kaybı hesaplamalarında kullanılır."
+    },
+    {
+      "id": "akiskanturu",
       "label": "Akışkan Türü",
       "type": "select",
       "unit": "",
@@ -34,51 +49,51 @@
       "options": [
         "su",
         "hava",
-        "buhar",
-        "yag",
-        "dogalgaz"
+        "diger"
       ],
-      "businessContext": "Akışkanın fiziksel özellikleri (yoğunluk, viskozite) boru çapı seçimini etkiler."
+      "businessContext": "Akışkanın fiziksel özelliklerini (yoğunluk, viskozite) belirlemek için. Su ve hava için standart değerler kullanılır."
     }
   ],
   "validation": {
     "rules": [
-      "Debi > 0",
-      "Akış hızı > 0",
-      "Akış hızı <= 10 m/s (ekonomik hız sınırı)"
+      "debi > 0",
+      "hiz > 0",
+      "Eğer akiskanturu = 'diger' ise kullanıcıdan yoğunluk ve viskozite bilgisi istenmeli (bu araçta sadece su ve hava için standart değerler kullanılır)"
     ],
     "thresholds": {
-      "akisHizi": "Akış hızı > 5 m/s ise yüksek aşınma riski uyarısı"
+      "hiz": "hiz > 10 ? 'Yüksek hız: erozyon riski' : null",
+      "debi": "debi > 1 ? 'Yüksek debi: pompa kapasitesi kontrol edilmeli' : null"
     }
   },
   "formulas": {
-    "boruCapi": "sqrt((4 * debisi) / (Math.PI * akisHizi))",
-    "kesitAlani": "Math.PI * Math.pow(boruCapi / 2, 2)",
-    "reynoldsSayisi": "(1000 * akisHizi * boruCapi) / 0.001",
-    "basincKaybi": "0.02 * (100 / boruCapi) * (1000 * Math.pow(akisHizi, 2) / 2)"
+    "cap": "sqrt((4 * debi) / (PI * hiz))",
+    "alan": "PI * (cap / 2)^2",
+    "reynoldsSayisi": "(akiskanturu == 'su' ? 1000 : 1.2) * hiz * cap / (akiskanturu == 'su' ? 0.001 : 1.8e-5)",
+    "surtunmeFaktoru": "boruTipi == 'smooth' ? 0.01 : (boruTipi == 'rough' ? 0.05 : 0.02)",
+    "basincKaybi": "surtunmeFaktoru * (1000 / cap) * (akiskanturu == 'su' ? 1000 : 1.2) * hiz^2 / 2"
   },
   "outputs": {
-    "primary": "boruCapi (m)",
+    "primary": "cap",
     "breakdown": {
-      "kesitAlani": "m²",
-      "reynoldsSayisi": "boyutsuz",
-      "basincKaybi": "Pa"
+      "alan": "alan",
+      "reynoldsSayisi": "reynoldsSayisi",
+      "basincKaybi": "basincKaybi"
     },
     "hiddenLossDrivers": [
-      "Yüksek akış hızı aşınmayı artırır",
-      "Düşük Reynolds sayısı laminer akışa işaret eder"
+      "hiz > 10 ? 'Erozyon riski' : null",
+      "debi > 1 ? 'Pompa kapasitesi aşımı' : null"
     ],
     "suggestedActions": [
-      "Ekonomik boru çapı seçimi için standart çapları kontrol edin",
-      "Yüksek basınç kaybı durumunda pompa gücünü artırın"
+      "cap < 0.05 ? 'Boru çapı çok küçük, tıkanma riski' : null",
+      "hiz > 5 ? 'Hızı düşürmek için çapı artırın' : null"
     ],
-    "dataConfidenceAdjusted": "dataConfidence input'u olmadığından uygulanmaz"
+    "dataConfidenceAdjusted": "cap * (1 - 0.05)"
   },
   "premiumFeatures": [
-    "PDF raporu",
-    "CSV export",
+    "PDF/CSV export",
     "Trend analizi",
-    "Detaylı basınç kaybı hesaplamaları"
+    "Karşılaştırma",
+    "Detaylı rapor"
   ],
   "premiumRequired": true
 }

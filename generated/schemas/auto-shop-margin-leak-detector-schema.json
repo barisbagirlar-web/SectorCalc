@@ -2,92 +2,92 @@
   "toolName": "auto-shop-margin-leak-detector",
   "inputs": [
     {
-      "id": "laborRate",
-      "label": "Labor Rate (per hour)",
+      "id": "revenue",
+      "label": "Total Revenue",
       "type": "number",
-      "unit": "USD/hour",
-      "default": 100,
-      "min": 50,
-      "max": 200,
+      "unit": "USD",
+      "default": 100000,
+      "min": 0,
+      "max": null,
       "options": null,
-      "businessContext": "Hourly labor charge rate to customers. Based on industry average for auto repair shops (e.g., 2024 rates $80-$150)."
+      "businessContext": "Total revenue from auto shop services and parts over the analysis period. Based on standard financial reporting (GAAP)."
     },
     {
-      "id": "laborHoursBilled",
-      "label": "Labor Hours Billed (per month)",
+      "id": "costOfGoodsSold",
+      "label": "Cost of Goods Sold (COGS)",
       "type": "number",
-      "unit": "hours/month",
-      "default": 400,
-      "min": 100,
-      "max": 1000,
+      "unit": "USD",
+      "default": 60000,
+      "min": 0,
+      "max": null,
       "options": null,
-      "businessContext": "Total billed labor hours per month. Typical shop with 2-5 technicians bills 300-800 hours."
+      "businessContext": "Direct costs attributable to services and parts sold. Includes labor, parts, and overhead. Based on standard cost accounting."
     },
     {
-      "id": "partsRevenue",
-      "label": "Parts Revenue (per month)",
+      "id": "laborCost",
+      "label": "Total Labor Cost",
       "type": "number",
-      "unit": "USD/month",
-      "default": 50000,
-      "min": 10000,
-      "max": 200000,
+      "unit": "USD",
+      "default": 30000,
+      "min": 0,
+      "max": null,
       "options": null,
-      "businessContext": "Monthly revenue from parts sales. Parts markup typically 30-50% over cost."
+      "businessContext": "Total wages, salaries, and benefits for technicians and service staff. Key driver of margin leakage if inefficient."
     },
     {
       "id": "partsCost",
-      "label": "Parts Cost (per month)",
+      "label": "Parts Cost",
       "type": "number",
-      "unit": "USD/month",
-      "default": 35000,
-      "min": 5000,
-      "max": 150000,
-      "options": null,
-      "businessContext": "Monthly cost of parts sold. Includes wholesale purchase cost."
-    },
-    {
-      "id": "laborCostPerHour",
-      "label": "Labor Cost per Hour (technician wage + burden)",
-      "type": "number",
-      "unit": "USD/hour",
-      "default": 30,
-      "min": 15,
-      "max": 60,
-      "options": null,
-      "businessContext": "Effective hourly cost of technician including wages, taxes, benefits. Typically 25-40% of labor rate."
-    },
-    {
-      "id": "overheadMonthly",
-      "label": "Monthly Overhead (rent, utilities, insurance, etc.)",
-      "type": "number",
-      "unit": "USD/month",
-      "default": 15000,
-      "min": 5000,
-      "max": 50000,
-      "options": null,
-      "businessContext": "Fixed monthly operating expenses excluding labor and parts cost."
-    },
-    {
-      "id": "warrantyReturnsPercent",
-      "label": "Warranty Returns / Rework (% of revenue)",
-      "type": "number",
-      "unit": "%",
-      "default": 2,
+      "unit": "USD",
+      "default": 20000,
       "min": 0,
-      "max": 10,
+      "max": null,
       "options": null,
-      "businessContext": "Percentage of revenue lost to warranty repairs or rework. Industry benchmark <3%."
+      "businessContext": "Cost of parts sold to customers. Includes markup leakage if not properly managed."
     },
     {
-      "id": "inventoryShrinkagePercent",
-      "label": "Inventory Shrinkage (% of parts cost)",
+      "id": "warrantyClaims",
+      "label": "Warranty Claims",
       "type": "number",
-      "unit": "%",
-      "default": 1,
+      "unit": "USD",
+      "default": 5000,
       "min": 0,
-      "max": 5,
+      "max": null,
       "options": null,
-      "businessContext": "Parts loss due to theft, damage, or misplacement. Typical 0.5-2%."
+      "businessContext": "Costs from warranty repairs and replacements. High values indicate quality issues or margin leakage."
+    },
+    {
+      "id": "reworkCost",
+      "label": "Rework Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 3000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of redoing work due to errors. Directly impacts margin. Based on Six Sigma cost of poor quality."
+    },
+    {
+      "id": "idleTimeCost",
+      "label": "Idle Time Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 2000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of technician idle time (non-billable). Indicates scheduling inefficiency. Based on Lean principles."
+    },
+    {
+      "id": "inventoryHoldingCost",
+      "label": "Inventory Holding Cost",
+      "type": "number",
+      "unit": "USD",
+      "default": 4000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Cost of carrying parts inventory (storage, insurance, obsolescence). Based on APICS/SCOR standards."
     },
     {
       "id": "dataConfidence",
@@ -102,74 +102,89 @@
         "medium",
         "high"
       ],
-      "businessContext": "User's confidence in input data accuracy. Adjusts final margin for uncertainty."
+      "businessContext": "User's confidence in input data accuracy. Adjusts final output for uncertainty. Based on risk management practices."
+    },
+    {
+      "id": "periodDays",
+      "label": "Analysis Period (Days)",
+      "type": "number",
+      "unit": "days",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Duration of analysis period. Used for annualizing costs. Standard financial period."
     }
   ],
   "validation": {
     "rules": [
-      "laborRate > laborCostPerHour",
-      "partsRevenue > partsCost",
-      "laborHoursBilled > 0",
-      "overheadMonthly > 0",
-      "warrantyReturnsPercent >= 0",
-      "inventoryShrinkagePercent >= 0"
+      "costOfGoodsSold <= revenue",
+      "laborCost + partsCost <= costOfGoodsSold",
+      "warrantyClaims <= revenue",
+      "reworkCost <= laborCost",
+      "idleTimeCost <= laborCost",
+      "inventoryHoldingCost <= partsCost",
+      "periodDays > 0"
     ],
     "thresholds": {
-      "grossMarginPercent < 40": "Low gross margin warning: check pricing and cost structure.",
-      "laborMarginPercent < 50": "Labor margin below 50%: labor rate may be too low or efficiency poor.",
-      "partsMarkupPercent < 30": "Parts markup below 30%: consider increasing parts prices.",
-      "warrantyReturnsPercent > 5": "High warranty returns: investigate quality issues.",
-      "inventoryShrinkagePercent > 2": "High inventory shrinkage: improve inventory controls."
+      "grossMarginPercent < 0.4": "Gross margin below 40% indicates significant leakage.",
+      "laborCostPercent > 0.35": "Labor cost ratio above 35% suggests inefficiency.",
+      "warrantyPercent > 0.05": "Warranty claims above 5% of revenue indicate quality issues.",
+      "reworkPercent > 0.1": "Rework cost above 10% of labor cost indicates process problems.",
+      "idleTimePercent > 0.1": "Idle time above 10% of labor cost indicates scheduling issues.",
+      "inventoryHoldingPercent > 0.2": "Inventory holding cost above 20% of parts cost suggests overstocking."
     }
   },
   "formulas": {
-    "laborRevenue": "laborRate * laborHoursBilled",
-    "partsRevenueInput": "partsRevenue",
-    "totalRevenue": "laborRevenue + partsRevenue",
-    "laborCostTotal": "laborCostPerHour * laborHoursBilled",
-    "partsCostInput": "partsCost",
-    "totalCost": "laborCostTotal + partsCostInput + overheadMonthly",
-    "grossProfit": "totalRevenue - totalCost",
-    "grossMarginPercent": "(grossProfit / totalRevenue) * 100",
-    "laborMarginPercent": "((laborRevenue - laborCostTotal) / laborRevenue) * 100",
-    "partsMarkupPercent": "((partsRevenue - partsCost) / partsCost) * 100",
-    "warrantyLoss": "totalRevenue * (warrantyReturnsPercent / 100)",
-    "inventoryLoss": "partsCost * (inventoryShrinkagePercent / 100)",
-    "totalHiddenLoss": "warrantyLoss + inventoryLoss",
-    "adjustedGrossProfit": "grossProfit - totalHiddenLoss",
-    "adjustedGrossMarginPercent": "(adjustedGrossProfit / totalRevenue) * 100",
-    "dataConfidenceFactor": "dataConfidence == 'low' ? 0.9 : (dataConfidence == 'medium' ? 0.95 : 1.0)",
-    "dataConfidenceAdjustedMargin": "adjustedGrossMarginPercent * dataConfidenceFactor"
+    "grossProfit": "revenue - costOfGoodsSold",
+    "grossMarginPercent": "grossProfit / revenue",
+    "totalLeakage": "warrantyClaims + reworkCost + idleTimeCost + inventoryHoldingCost",
+    "leakagePercent": "totalLeakage / revenue",
+    "laborCostPercent": "laborCost / revenue",
+    "warrantyPercent": "warrantyClaims / revenue",
+    "reworkPercent": "reworkCost / laborCost",
+    "idleTimePercent": "idleTimeCost / laborCost",
+    "inventoryHoldingPercent": "inventoryHoldingCost / partsCost",
+    "annualizedLeakage": "totalLeakage * (365 / periodDays)",
+    "adjustedLeakage": "dataConfidence == 'low' ? annualizedLeakage * 1.2 : dataConfidence == 'medium' ? annualizedLeakage * 1.0 : annualizedLeakage * 0.9"
   },
   "outputs": {
-    "primary": "adjustedGrossMarginPercent",
+    "primary": "annualizedLeakage",
     "breakdown": {
+      "grossProfit": "grossProfit",
       "grossMarginPercent": "grossMarginPercent",
-      "laborMarginPercent": "laborMarginPercent",
-      "partsMarkupPercent": "partsMarkupPercent",
-      "totalHiddenLoss": "totalHiddenLoss",
-      "warrantyLoss": "warrantyLoss",
-      "inventoryLoss": "inventoryLoss"
+      "totalLeakage": "totalLeakage",
+      "leakagePercent": "leakagePercent",
+      "laborCostPercent": "laborCostPercent",
+      "warrantyPercent": "warrantyPercent",
+      "reworkPercent": "reworkPercent",
+      "idleTimePercent": "idleTimePercent",
+      "inventoryHoldingPercent": "inventoryHoldingPercent"
     },
     "hiddenLossDrivers": [
-      "warrantyReturnsPercent > 3 ? 'Warranty returns exceed 3%' : ''",
-      "inventoryShrinkagePercent > 1.5 ? 'Inventory shrinkage above 1.5%' : ''"
+      "grossMarginPercent < 0.4 ? 'Low gross margin' : ''",
+      "laborCostPercent > 0.35 ? 'High labor cost ratio' : ''",
+      "warrantyPercent > 0.05 ? 'High warranty claims' : ''",
+      "reworkPercent > 0.1 ? 'High rework cost' : ''",
+      "idleTimePercent > 0.1 ? 'High idle time' : ''",
+      "inventoryHoldingPercent > 0.2 ? 'High inventory holding cost' : ''"
     ],
     "suggestedActions": [
-      "If labor margin < 50%: increase labor rate or improve technician efficiency.",
-      "If parts markup < 30%: renegotiate supplier pricing or increase retail markup.",
-      "If warranty returns > 3%: implement quality control process.",
-      "If inventory shrinkage > 1.5%: conduct physical inventory and improve security."
+      "If gross margin low: Review pricing strategy and cost control.",
+      "If labor cost high: Implement lean scheduling and cross-training.",
+      "If warranty claims high: Improve quality control and supplier management.",
+      "If rework high: Standardize processes and invest in training.",
+      "If idle time high: Optimize appointment scheduling and reduce bottlenecks.",
+      "If inventory holding high: Implement just-in-time inventory and reduce stock levels."
     ],
-    "dataConfidenceAdjusted": "dataConfidenceAdjustedMargin"
+    "dataConfidenceAdjusted": "adjustedLeakage"
   },
   "premiumFeatures": [
-    "PDF report export",
-    "CSV data export",
-    "Trend analysis over multiple months",
-    "Benchmarking against industry averages",
-    "Detailed breakdown with charts",
-    "Scenario simulation (what-if analysis)"
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Charts"
   ],
   "premiumRequired": true
 }

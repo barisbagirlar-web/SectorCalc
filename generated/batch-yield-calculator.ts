@@ -3,37 +3,38 @@ import * as z from 'zod';
 
 export interface BatchYieldCalculatorInput {
   batchSize: number;
-  defectRate: number;
+  goodUnits: number;
+  reworkUnits: number;
+  scrapUnits: number;
+  costPerUnit: number;
   reworkCostPerUnit: number;
-  scrapCostPerUnit: number;
-  inspectionCostPerBatch: number;
-  revenuePerUnit: number;
+  sellingPricePerUnit: number;
   dataConfidence: 'low' | 'medium' | 'high';
 }
 
 export const BatchYieldCalculatorInputSchema = z.object({
-  batchSize: z.number().min(1).max(1000000).default(1000),
-  defectRate: z.number().min(0).max(1).default(0.02),
-  reworkCostPerUnit: z.number().min(0).max(10000).default(5),
-  scrapCostPerUnit: z.number().min(0).max(10000).default(2),
-  inspectionCostPerBatch: z.number().min(0).max(100000).default(100),
-  revenuePerUnit: z.number().min(0).max(100000).default(20),
+  batchSize: z.number().min(1).default(1000),
+  goodUnits: z.number().min(0).default(900),
+  reworkUnits: z.number().min(0).default(50),
+  scrapUnits: z.number().min(0).default(50),
+  costPerUnit: z.number().min(0).default(10),
+  reworkCostPerUnit: z.number().min(0).default(5),
+  sellingPricePerUnit: z.number().min(0).default(20),
   dataConfidence: z.enum(['low', 'medium', 'high']).default('medium'),
 });
 
 export interface BatchYieldCalculatorOutput {
-  totalExposure: number;
+  yieldRate: number;
   breakdown: {
-    defectiveUnits: number;
-    goodUnits: number;
-    reworkCost: number;
-    scrapCost: number;
+    yieldRate: number;
+    scrapRate: number;
+    reworkRate: number;
+    firstPassYield: number;
     totalCost: number;
-    opportunityCost: number;
-    variancePercent: number;
-    summaryLevel: number;
-    primaryDriver: number;
-    decisionVerdict: number;
+    revenue: number;
+    profit: number;
+    profitMargin: number;
+    costPerGoodUnit: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -44,58 +45,57 @@ export interface BatchYieldCalculatorOutput {
 
 function evaluateFormulas(input: BatchYieldCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.defectiveUnits = input.batchSize * input.defectRate;
-  results.goodUnits = input.batchSize - results.defectiveUnits;
-  results.reworkCost = results.defectiveUnits * input.reworkCostPerUnit;
-  results.scrapCost = results.defectiveUnits * input.scrapCostPerUnit;
-  results.totalCost = results.reworkCost + results.scrapCost + input.inspectionCostPerBatch;
-  results.opportunityCost = results.defectiveUnits * input.revenuePerUnit;
-  results.totalExposure = results.totalCost + results.opportunityCost;
-  results.variancePercent = (results.totalExposure / (input.batchSize * input.revenuePerUnit)) * 100;
-  results.summaryLevel = results.totalExposure < 1000 ? 'low' : results.totalExposure < 5000 ? 'medium' : 'high';
-  results.primaryDriver = input.defectRate > 0.05 ? 'input.defectRate' : 'input.reworkCostPerUnit';
-  results.decisionVerdict = results.totalExposure > 5000 ? 'critical' : results.totalExposure > 1000 ? 'warning' : 'acceptable';
-  results.dataConfidenceAdjusted = input.dataConfidence === 'low' ? results.totalExposure * 1.2 : input.dataConfidence === 'medium' ? results.totalExposure * 1.1 : results.totalExposure;
+  results.yieldRate = (() => { try { return input.goodUnits / input.batchSize; } catch { return 0; } })();
+  results.scrapRate = (() => { try { return input.scrapUnits / input.batchSize; } catch { return 0; } })();
+  results.reworkRate = (() => { try { return input.reworkUnits / input.batchSize; } catch { return 0; } })();
+  results.firstPassYield = (() => { try { return input.goodUnits / (input.goodUnits + input.reworkUnits + input.scrapUnits); } catch { return 0; } })();
+  results.totalCost = (() => { try { return input.batchSize * input.costPerUnit + input.reworkUnits * input.reworkCostPerUnit; } catch { return 0; } })();
+  results.revenue = (() => { try { return input.goodUnits * input.sellingPricePerUnit; } catch { return 0; } })();
+  results.profit = (() => { try { return results.revenue - results.totalCost; } catch { return 0; } })();
+  results.profitMargin = (() => { try { return results.profit / results.revenue; } catch { return 0; } })();
+  results.costPerGoodUnit = (() => { try { return results.totalCost / input.goodUnits; } catch { return 0; } })();
+  results.dataConfidenceAdjustedYield = (() => { try { return input.dataConfidence === 'low' ? results.yieldRate * 0.9 : input.dataConfidence === 'medium' ? results.yieldRate * 0.95 : results.yieldRate; } catch { return 0; } })();
   return results;
 }
 
 export function calculateBatchYieldCalculator(input: BatchYieldCalculatorInput): BatchYieldCalculatorOutput {
   const results = evaluateFormulas(input);
-  const totalExposure = results.totalExposure;
+  const yieldRate = results.yieldRate ?? 0;
   const breakdown = {
-    defectiveUnits: results.defectiveUnits,
-    goodUnits: results.goodUnits,
-    reworkCost: results.reworkCost,
-    scrapCost: results.scrapCost,
+    yieldRate: results.yieldRate,
+    scrapRate: results.scrapRate,
+    reworkRate: results.reworkRate,
+    firstPassYield: results.firstPassYield,
     totalCost: results.totalCost,
-    opportunityCost: results.opportunityCost,
-    variancePercent: results.variancePercent,
-    summaryLevel: results.summaryLevel,
-    primaryDriver: results.primaryDriver,
-    decisionVerdict: results.decisionVerdict,
+    revenue: results.revenue,
+    profit: results.profit,
+    profitMargin: results.profitMargin,
+    costPerGoodUnit: results.costPerGoodUnit,
   };
 
-  // rule: batchSize must be >= 1
-  // rule: defectRate must be between 0 and 1
-  // rule: reworkCostPerUnit must be >= 0
-  // rule: scrapCostPerUnit must be >= 0
-  // rule: inspectionCostPerBatch must be >= 0
-  // rule: revenuePerUnit must be >= 0
-  // rule: If defectRate > 0.05, warning: 'High defect rate'
-  // rule: If reworkCostPerUnit > revenuePerUnit * 0.5, warning: 'Rework cost exceeds 50% of revenue'
-  // threshold defectRate: 0.05
-  // threshold reworkCostRatio: 0.5
-  const hiddenLossDrivers: string[] = ["defectRate > 0.05 ? 'High defect rate' : ''","reworkCostPerUnit > revenuePerUnit * 0.5 ? 'Rework cost exceeds 50% of revenue' : ''"];
-  const suggestedActions: string[] = ["defectRate > 0.05 ? 'Implement process improvement to reduce defect rate' : ''","reworkCostPerUnit > revenuePerUnit * 0.5 ? 'Review rework process for cost reduction' : ''","totalExposure > 5000 ? 'Consider batch size optimization or quality investment' : ''"];
-  const dataConfidenceAdjusted = results.dataConfidenceAdjusted;
+  // rule: batchSize > 0
+  // rule: goodUnits >= 0
+  // rule: reworkUnits >= 0
+  // rule: scrapUnits >= 0
+  // rule: goodUnits + reworkUnits + scrapUnits <= batchSize
+  // rule: costPerUnit >= 0
+  // rule: reworkCostPerUnit >= 0
+  // rule: sellingPricePerUnit >= 0
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): Low yield warning: yield rate below 90%
+  // threshold skipped (non-JS): High scrap rate: scrap exceeds 5% of batch
+  // threshold skipped (non-JS): High rework rate: rework exceeds 10% of batch
+
+  const dataConfidenceAdjusted = (() => { try { return results.dataConfidenceAdjustedYield; } catch { return yieldRate; } })();
 
   return {
-    totalExposure,
+    yieldRate,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF export","CSV export","Trend analysis","Benchmark comparison","Detailed report with breakdowns"],
+    premiumFeatures: ["PDF Export","CSV Export","Trend Analysis","Benchmark Comparison","Detailed Report with Loss Drivers"],
   };
 }

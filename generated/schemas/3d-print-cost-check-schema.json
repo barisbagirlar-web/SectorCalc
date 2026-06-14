@@ -1,5 +1,5 @@
 {
-  "toolName": "3D Print Cost Check",
+  "toolName": "3d-print-cost-check",
   "inputs": [
     {
       "id": "materialCostPerKg",
@@ -8,31 +8,53 @@
       "unit": "USD/kg",
       "default": 50,
       "min": 0,
-      "max": 500,
+      "max": 1000,
       "options": null,
-      "businessContext": "Cost of filament or resin per kilogram. Based on market prices for common 3D printing materials (PLA, ABS, resin)."
+      "businessContext": "Cost of filament or resin per kilogram. Typical range for PLA: $20-50, ABS: $30-60, resin: $50-150. Source: industry benchmarks."
     },
     {
-      "id": "materialWeightGrams",
-      "label": "Material Weight per Part",
+      "id": "materialDensity",
+      "label": "Material Density",
       "type": "number",
-      "unit": "grams",
+      "unit": "g/cm³",
+      "default": 1.24,
+      "min": 0.5,
+      "max": 3,
+      "options": null,
+      "businessContext": "Density of printing material. PLA ~1.24 g/cm³, ABS ~1.04 g/cm³, PETG ~1.27 g/cm³. Used to convert volume to weight."
+    },
+    {
+      "id": "partVolume",
+      "label": "Part Volume",
+      "type": "number",
+      "unit": "cm³",
       "default": 100,
       "min": 0.1,
       "max": 10000,
       "options": null,
-      "businessContext": "Weight of the printed part in grams. Determines material consumption."
+      "businessContext": "Volume of the printed part, typically from CAD model. Affects material usage and print time."
+    },
+    {
+      "id": "infillPercentage",
+      "label": "Infill Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of internal volume filled with material. 0% for hollow, 100% for solid. Affects material usage and strength."
     },
     {
       "id": "printTimeHours",
       "label": "Print Time",
       "type": "number",
       "unit": "hours",
-      "default": 5,
+      "default": 10,
       "min": 0.1,
       "max": 168,
       "options": null,
-      "businessContext": "Total print time per part. Affects machine utilization and labor cost."
+      "businessContext": "Estimated print duration. Affects machine and labor cost. Typical range: 1-100 hours."
     },
     {
       "id": "machineCostPerHour",
@@ -43,29 +65,40 @@
       "min": 0,
       "max": 50,
       "options": null,
-      "businessContext": "Hourly cost including depreciation, maintenance, and electricity. Typical range $1-$10 for desktop printers."
+      "businessContext": "Depreciation, maintenance, and electricity cost per hour. For a $2000 printer over 2000 hours: $1/hour plus electricity $0.1-0.5/hour."
     },
     {
       "id": "laborCostPerHour",
       "label": "Labor Cost per Hour",
       "type": "number",
       "unit": "USD/hour",
-      "default": 25,
+      "default": 15,
       "min": 0,
       "max": 100,
       "options": null,
-      "businessContext": "Hourly wage for operator/post-processing. Based on industry average for technicians."
+      "businessContext": "Operator's hourly wage including overhead. Affects post-processing and monitoring time."
     },
     {
-      "id": "postProcessingHours",
+      "id": "postProcessingTimeHours",
       "label": "Post-Processing Time",
       "type": "number",
       "unit": "hours",
-      "default": 0.5,
+      "default": 1,
       "min": 0,
-      "max": 10,
+      "max": 50,
       "options": null,
-      "businessContext": "Time for support removal, sanding, curing, etc. Varies by part complexity."
+      "businessContext": "Time for support removal, sanding, painting, etc. Affects labor cost."
+    },
+    {
+      "id": "failureRate",
+      "label": "Failure Rate",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Percentage of prints that fail. Affects effective cost per successful part. Typical range: 2-20%."
     },
     {
       "id": "batchSize",
@@ -76,104 +109,104 @@
       "min": 1,
       "max": 1000,
       "options": null,
-      "businessContext": "Number of parts printed simultaneously. Larger batches reduce per-part machine setup cost."
+      "businessContext": "Number of identical parts printed in one run. Affects setup cost amortization."
     },
     {
-      "id": "failureRatePercent",
-      "label": "Failure Rate",
+      "id": "setupCost",
+      "label": "Setup Cost",
       "type": "number",
-      "unit": "%",
-      "default": 5,
+      "unit": "USD",
+      "default": 0,
       "min": 0,
-      "max": 100,
+      "max": 1000,
       "options": null,
-      "businessContext": "Percentage of prints that fail. Affects effective yield and cost per good part."
+      "businessContext": "One-time cost for file preparation, bed leveling, etc. Amortized over batch size."
     },
     {
-      "id": "overheadPercent",
-      "label": "Overhead",
+      "id": "overheadRate",
+      "label": "Overhead Rate",
       "type": "number",
       "unit": "%",
       "default": 20,
       "min": 0,
       "max": 100,
       "options": null,
-      "businessContext": "Indirect costs (facility, admin, etc.) as percentage of direct costs."
+      "businessContext": "Percentage added to direct costs for facility, admin, etc. Typical: 15-30%."
     },
     {
-      "id": "desiredMarginPercent",
-      "label": "Desired Margin",
+      "id": "profitMargin",
+      "label": "Profit Margin",
       "type": "number",
       "unit": "%",
       "default": 30,
       "min": 0,
-      "max": 100,
+      "max": 200,
       "options": null,
-      "businessContext": "Target profit margin on cost."
+      "businessContext": "Desired profit margin on total cost. Typical: 20-50%."
     }
   ],
   "validation": {
     "rules": [
-      "materialCostPerKg > 0",
-      "materialWeightGrams > 0",
+      "materialCostPerKg >= 0",
+      "materialDensity > 0",
+      "partVolume > 0",
+      "infillPercentage >= 0 && infillPercentage <= 100",
       "printTimeHours > 0",
       "machineCostPerHour >= 0",
       "laborCostPerHour >= 0",
-      "postProcessingHours >= 0",
+      "postProcessingTimeHours >= 0",
+      "failureRate >= 0 && failureRate <= 100",
       "batchSize >= 1",
-      "failureRatePercent >= 0 and failureRatePercent <= 100",
-      "overheadPercent >= 0 and overheadPercent <= 100",
-      "desiredMarginPercent >= 0 and desiredMarginPercent <= 100"
+      "setupCost >= 0",
+      "overheadRate >= 0",
+      "profitMargin >= 0"
     ],
     "thresholds": {
-      "failureRatePercent > 10": "High failure rate significantly increases cost per good part. Consider optimizing print settings.",
-      "overheadPercent > 50": "Overhead seems high relative to direct costs. Review indirect expenses.",
-      "desiredMarginPercent > 50": "Target margin is very high; may not be competitive."
+      "failureRate": "failureRate > 10 ? 'High failure rate, consider tuning printer' : ''",
+      "infillPercentage": "infillPercentage > 80 ? 'High infill, consider reducing for cost savings' : ''",
+      "printTimeHours": "printTimeHours > 48 ? 'Long print time, risk of failure increases' : ''"
     }
   },
   "formulas": {
-    "materialCostPerPart": "materialCostPerKg * materialWeightGrams / 1000",
-    "machineCostPerPart": "machineCostPerHour * printTimeHours / batchSize",
-    "laborCostPerPart": "laborCostPerHour * (printTimeHours + postProcessingHours) / batchSize",
-    "directCostPerPart": "materialCostPerPart + machineCostPerPart + laborCostPerPart",
-    "effectiveYield": "1 - failureRatePercent / 100",
-    "costPerGoodPart": "directCostPerPart / effectiveYield",
-    "overheadCostPerPart": "costPerGoodPart * overheadPercent / 100",
-    "totalCostPerPart": "costPerGoodPart + overheadCostPerPart",
-    "recommendedPrice": "totalCostPerPart * (1 + desiredMarginPercent / 100)",
-    "marginAmount": "recommendedPrice - totalCostPerPart",
-    "marginPercent": "marginAmount / recommendedPrice * 100"
+    "materialWeight": "partVolume * (infillPercentage / 100) * materialDensity / 1000",
+    "materialCost": "materialWeight * materialCostPerKg",
+    "machineCost": "printTimeHours * machineCostPerHour",
+    "laborCost": "(printTimeHours + postProcessingTimeHours) * laborCostPerHour",
+    "directCostPerPart": "(materialCost + machineCost + laborCost + setupCost / batchSize) * (1 + failureRate / 100)",
+    "totalCostPerPart": "directCostPerPart * (1 + overheadRate / 100)",
+    "sellingPricePerPart": "totalCostPerPart * (1 + profitMargin / 100)"
   },
   "outputs": {
-    "primary": "recommendedPrice",
+    "primary": "sellingPricePerPart",
     "breakdown": {
-      "materialCostPerPart": "materialCostPerPart",
-      "machineCostPerPart": "machineCostPerPart",
-      "laborCostPerPart": "laborCostPerPart",
+      "materialCost": "materialCost",
+      "machineCost": "machineCost",
+      "laborCost": "laborCost",
+      "setupCostPerPart": "setupCost / batchSize",
       "directCostPerPart": "directCostPerPart",
-      "overheadCostPerPart": "overheadCostPerPart",
+      "overheadCost": "directCostPerPart * (overheadRate / 100)",
       "totalCostPerPart": "totalCostPerPart",
-      "marginAmount": "marginAmount",
-      "marginPercent": "marginPercent"
+      "profitAmount": "totalCostPerPart * (profitMargin / 100)"
     },
     "hiddenLossDrivers": [
-      "failureRatePercent > 10 ? 'High failure rate' : ''",
-      "overheadPercent > 50 ? 'High overhead' : ''"
+      "failureRate > 10 ? 'High failure rate increases effective cost' : ''",
+      "infillPercentage > 80 ? 'Excessive infill wastes material' : ''",
+      "printTimeHours > 48 ? 'Long print time increases risk and machine cost' : ''"
     ],
     "suggestedActions": [
-      "If failure rate > 10%: Review print settings, calibrate printer, or use higher quality material.",
-      "If overhead > 50%: Analyze indirect costs and consider reducing facility or admin expenses.",
-      "If margin too low: Increase batch size, reduce print time, or negotiate material costs."
+      "failureRate > 10 ? 'Calibrate printer and check filament quality' : ''",
+      "infillPercentage > 80 ? 'Reduce infill to 20-30% for non-structural parts' : ''",
+      "printTimeHours > 48 ? 'Consider splitting print or using faster settings' : ''",
+      "batchSize > 1 ? 'Increase batch size to amortize setup cost' : ''"
     ],
-    "dataConfidenceAdjusted": "totalCostPerPart * (1 + (1 - dataConfidence) * 0.1)"
+    "dataConfidenceAdjusted": "sellingPricePerPart * (1 - 0.1 * (failureRate / 100))"
   },
   "premiumFeatures": [
-    "PDF export of detailed cost breakdown",
-    "CSV export for batch analysis",
-    "Trend analysis over time",
-    "Comparison with historical jobs",
-    "Multi-material cost comparison",
-    "Sensitivity analysis on key inputs"
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Historical Data",
+    "Detailed Report with Graphs"
   ],
-  "premiumRequired": false
+  "premiumRequired": true
 }

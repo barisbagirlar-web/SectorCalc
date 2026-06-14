@@ -1,0 +1,138 @@
+{
+  "toolName": "celik-cati-makas-yaklasik-agirligi",
+  "inputs": [
+    {
+      "id": "catiAcikligi",
+      "label": "Çatı Açıklığı",
+      "type": "number",
+      "unit": "m",
+      "default": 20,
+      "min": 5,
+      "max": 50,
+      "options": null,
+      "businessContext": "Çatı makasının iki uç arasındaki yatay mesafe. TS 498 standardına göre yapısal hesaplamalarda kullanılır."
+    },
+    {
+      "id": "makasAraligi",
+      "label": "Makas Aralığı",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "min": 2,
+      "max": 10,
+      "options": null,
+      "businessContext": "Makaslar arasındaki mesafe. Genellikle 5-6 m arası seçilir."
+    },
+    {
+      "id": "catiEgimi",
+      "label": "Çatı Eğimi",
+      "type": "number",
+      "unit": "derece",
+      "default": 15,
+      "min": 5,
+      "max": 45,
+      "options": null,
+      "businessContext": "Çatı yüzeyinin yatayla yaptığı açı. TS 498'de kar yükü hesabı için önemlidir."
+    },
+    {
+      "id": "celikSinifi",
+      "label": "Çelik Sınıfı",
+      "type": "select",
+      "unit": "",
+      "default": "S235",
+      "min": null,
+      "max": null,
+      "options": [
+        "S235",
+        "S275",
+        "S355",
+        "S420"
+      ],
+      "businessContext": "Kullanılacak çeliğin akma dayanımı sınıfı. EN 10025 standardına göre belirlenir."
+    },
+    {
+      "id": "karYuku",
+      "label": "Kar Yükü",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 0.75,
+      "min": 0,
+      "max": 5,
+      "options": null,
+      "businessContext": "Bölgeye bağlı kar yükü değeri. TS 498'deki haritalardan alınır."
+    },
+    {
+      "id": "ruzgarYuku",
+      "label": "Rüzgar Yükü",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 0.5,
+      "min": 0,
+      "max": 3,
+      "options": null,
+      "businessContext": "Bölgeye bağlı rüzgar yükü. TS 498'e göre hesaplanır."
+    },
+    {
+      "id": "ekYuk",
+      "label": "Ek Yük (Kaplama+Tesisat)",
+      "type": "number",
+      "unit": "kN/m²",
+      "default": 0.2,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Çatı kaplaması, aydınlatma, havalandırma gibi sabit ek yükler."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "catiAcikligi must be between 5 and 50 m",
+      "makasAraligi must be between 2 and 10 m",
+      "catiEgimi must be between 5 and 45 degrees",
+      "karYuku must be between 0 and 5 kN/m²",
+      "ruzgarYuku must be between 0 and 3 kN/m²",
+      "ekYuk must be between 0 and 1 kN/m²"
+    ],
+    "thresholds": {
+      "catiAcikligi > 30": "Büyük açıklık, özel tasarım gerekebilir",
+      "karYuku > 1.5": "Yüksek kar yükü, takviye gerekebilir",
+      "ruzgarYuku > 1.0": "Yüksek rüzgar yükü, bağlantı detayları önemli"
+    }
+  },
+  "formulas": {
+    "toplamYuk": "karYuku + ruzgarYuku + ekYuk",
+    "birimBoyYuk": "toplamYuk * makasAraligi",
+    "kesitKatsayisi": "catiAcikligi <= 20 ? 0.012 : (catiAcikligi <= 30 ? 0.015 : 0.018)",
+    "agirlik": "kesitKatsayisi * birimBoyYuk * catiAcikligi * catiAcikligi * (1 + 0.01 * catiEgimi)",
+    "celikDuzeltme": "celikSinifi == 'S235' ? 1.0 : (celikSinifi == 'S275' ? 0.95 : (celikSinifi == 'S355' ? 0.9 : 0.85))",
+    "yaklasikAgirlik": "agirlik * celikDuzeltme"
+  },
+  "outputs": {
+    "primary": "yaklasikAgirlik (kg/m²)",
+    "breakdown": {
+      "toplamYuk": "kN/m²",
+      "birimBoyYuk": "kN/m",
+      "kesitKatsayisi": "boyutsuz",
+      "agirlik": "kg/m²"
+    },
+    "hiddenLossDrivers": [
+      "catiAcikligi > 30 ? 'Büyük açıklık, ağırlık artışı' : ''",
+      "karYuku > 1.5 ? 'Yüksek kar yükü' : ''",
+      "ruzgarYuku > 1.0 ? 'Yüksek rüzgar yükü' : ''"
+    ],
+    "suggestedActions": [
+      "Daha yüksek çelik sınıfı kullanarak ağırlığı azaltabilirsiniz",
+      "Makas aralığını optimize ederek maliyeti düşürebilirsiniz",
+      "Detaylı hesaplama için yapısal analiz yazılımı kullanın"
+    ],
+    "dataConfidenceAdjusted": "dataConfidence input'u bulunmamaktadır"
+  },
+  "premiumFeatures": [
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi",
+    "Karşılaştırma (farklı senaryolar)",
+    "Detaylı malzeme dökümü"
+  ],
+  "premiumRequired": true
+}

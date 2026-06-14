@@ -5,12 +5,12 @@
       "id": "fuelPricePerLiter",
       "label": "Akaryakıt Fiyatı (Litre Başına)",
       "type": "number",
-      "unit": "TRY/L",
+      "unit": "TL/L",
       "default": 30,
       "min": 0,
       "max": 100,
       "options": null,
-      "businessContext": "Güncel akaryakıt litre fiyatı (benzin, motorin veya LPG). Kullanıcının bulunduğu bölgedeki ortalama fiyat baz alınır."
+      "businessContext": "Güncel akaryakıt litre fiyatı. Kaynak: EPDK, akaryakıt dağıtım şirketleri."
     },
     {
       "id": "fuelConsumptionPer100km",
@@ -21,33 +21,88 @@
       "min": 0,
       "max": 50,
       "options": null,
-      "businessContext": "Aracın 100 kilometrede tükettiği ortalama yakıt miktarı. Araç teknik verilerinden veya kullanıcı deneyiminden alınır."
+      "businessContext": "Aracın ortalama yakıt tüketimi. Kaynak: Araç teknik verileri, sürüş deneyimi."
     },
     {
       "id": "distanceKm",
-      "label": "Gidilecek Mesafe",
+      "label": "Toplam Yol Mesafesi",
       "type": "number",
       "unit": "km",
       "default": 100,
       "min": 0,
-      "max": 10000,
+      "max": 100000,
       "options": null,
-      "businessContext": "Planlanan yolculuğun toplam mesafesi. Navigasyon veya harita uygulamalarından alınabilir."
+      "businessContext": "Planlanan veya gerçekleşen yolculuk mesafesi."
     },
     {
-      "id": "fuelType",
-      "label": "Yakıt Türü",
+      "id": "vehicleType",
+      "label": "Araç Türü",
       "type": "select",
       "unit": "",
-      "default": "benzin",
+      "default": "binek",
       "min": null,
       "max": null,
       "options": [
-        "benzin",
-        "motorin",
-        "lpg"
+        "binek",
+        "ticari",
+        "agir"
       ],
-      "businessContext": "Aracın kullandığı yakıt türü. Fiyat ve tüketim değerleri buna göre değişir."
+      "businessContext": "Araç sınıfı; bakım, lastik ve diğer maliyetleri etkiler."
+    },
+    {
+      "id": "maintenanceCostPerKm",
+      "label": "Bakım Maliyeti (km başına)",
+      "type": "number",
+      "unit": "TL/km",
+      "default": 0.5,
+      "min": 0,
+      "max": 10,
+      "options": null,
+      "businessContext": "Aracın km başına ortalama bakım maliyeti (periyodik bakım, lastik, vb.)."
+    },
+    {
+      "id": "tollCost",
+      "label": "Köprü ve Otoyol Ücreti",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Güzergah üzerindeki köprü, otoyol geçiş ücretleri."
+    },
+    {
+      "id": "parkingCost",
+      "label": "Otopark Ücreti",
+      "type": "number",
+      "unit": "TL",
+      "default": 0,
+      "min": 0,
+      "max": 5000,
+      "options": null,
+      "businessContext": "Varış noktasındaki otopark ücreti."
+    },
+    {
+      "id": "driverCostPerHour",
+      "label": "Sürücü Saat Ücreti",
+      "type": "number",
+      "unit": "TL/saat",
+      "default": 0,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Sürücünün saatlik maliyeti (maaş, yemek, konaklama)."
+    },
+    {
+      "id": "averageSpeedKmh",
+      "label": "Ortalama Hız",
+      "type": "number",
+      "unit": "km/saat",
+      "default": 80,
+      "min": 0,
+      "max": 200,
+      "options": null,
+      "businessContext": "Trafik ve yol koşullarına bağlı ortalama hız."
     }
   ],
   "validation": {
@@ -55,42 +110,55 @@
       "fuelPricePerLiter > 0",
       "fuelConsumptionPer100km > 0",
       "distanceKm > 0",
-      "fuelType must be one of: benzin, motorin, lpg"
+      "averageSpeedKmh > 0",
+      "maintenanceCostPerKm >= 0",
+      "tollCost >= 0",
+      "parkingCost >= 0",
+      "driverCostPerHour >= 0"
     ],
     "thresholds": {
-      "fuelPricePerLiter > 40": "Yakıt fiyatı ortalamanın üzerinde, bütçeyi artırabilir.",
-      "fuelConsumptionPer100km > 10": "Araç yüksek yakıt tüketiyor, daha ekonomik sürüş önerilir.",
-      "distanceKm > 500": "Uzun mesafe, mola ve konaklama planlaması gerekebilir."
+      "fuelCostPerKm": "fuelCostPerKm > 5 ? 'Yüksek yakıt maliyeti' : ''",
+      "totalCost": "totalCost > 10000 ? 'Bütçe aşımı uyarısı' : ''"
     }
   },
   "formulas": {
-    "totalFuelCost": "fuelPricePerLiter * fuelConsumptionPer100km * distanceKm / 100",
-    "fuelNeededLiters": "fuelConsumptionPer100km * distanceKm / 100",
-    "costPerKm": "fuelPricePerLiter * fuelConsumptionPer100km / 100"
+    "fuelCost": "fuelPricePerLiter * (fuelConsumptionPer100km / 100) * distanceKm",
+    "maintenanceCost": "maintenanceCostPerKm * distanceKm",
+    "travelTimeHours": "distanceKm / averageSpeedKmh",
+    "driverCost": "driverCostPerHour * travelTimeHours",
+    "totalCost": "fuelCost + maintenanceCost + tollCost + parkingCost + driverCost",
+    "costPerKm": "totalCost / distanceKm",
+    "fuelCostPerKm": "fuelCost / distanceKm"
   },
   "outputs": {
-    "primary": "totalFuelCost",
+    "primary": "totalCost",
     "breakdown": {
-      "fuelNeededLiters": "Gerekli yakıt miktarı (litre)",
-      "costPerKm": "Kilometre başına maliyet (TRY/km)"
+      "fuelCost": "fuelCost",
+      "maintenanceCost": "maintenanceCost",
+      "tollCost": "tollCost",
+      "parkingCost": "parkingCost",
+      "driverCost": "driverCost",
+      "travelTimeHours": "travelTimeHours",
+      "costPerKm": "costPerKm",
+      "fuelCostPerKm": "fuelCostPerKm"
     },
     "hiddenLossDrivers": [
-      "Yakıt fiyatı ortalamanın üzerinde ise: 'Yüksek yakıt fiyatı'",
-      "Yakıt tüketimi yüksek ise: 'Yüksek tüketim'",
-      "Mesafe çok uzunsa: 'Uzun mesafe'"
+      "fuelCostPerKm > 5 ? 'Yüksek yakıt maliyeti' : ''",
+      "totalCost > 10000 ? 'Bütçe aşımı uyarısı' : ''"
     ],
     "suggestedActions": [
-      "Yakıt fiyatı yüksekse: Daha ucuz istasyon araştırın.",
-      "Tüketim yüksekse: Lastik basıncını kontrol edin, ani hızlanmalardan kaçının.",
-      "Mesafe uzunsa: Alternatif rotaları değerlendirin."
+      "Yakıt tüketimini azaltmak için araç bakımını düzenli yapın.",
+      "Daha ekonomik sürüş teknikleri uygulayın.",
+      "Alternatif güzergahlar ile köprü/otoyol ücretlerini minimize edin.",
+      "Toplu taşıma veya araç paylaşımı seçeneklerini değerlendirin."
     ],
-    "dataConfidenceAdjusted": "totalFuelCost * (1 - 0.05) (varsayılan güven düzeltmesi)"
+    "dataConfidenceAdjusted": "totalCost"
   },
   "premiumFeatures": [
-    "PDF raporu",
-    "CSV export",
-    "Trend analizi (geçmiş fiyat karşılaştırması)",
-    "Detaylı rota maliyet analizi"
+    "PDF/CSV export",
+    "Trend analizi (geçmiş verilerle karşılaştırma)",
+    "Detaylı rapor (maliyet kırılımı grafikleri)",
+    "Karşılaştırma (farklı araç/güzergah senaryoları)"
   ],
   "premiumRequired": false
 }

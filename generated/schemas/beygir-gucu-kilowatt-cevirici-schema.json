@@ -6,38 +6,62 @@
       "label": "Beygir Gücü (HP)",
       "type": "number",
       "unit": "HP",
-      "default": 1,
+      "default": 100,
       "min": 0,
       "max": 10000,
       "options": null,
-      "businessContext": "Motor gücü değeri. 1 HP = 0.7457 kW (metrik sistem). Endüstriyel motorlarda tipik aralık 0.5-5000 HP."
+      "businessContext": "Güç değeri, genellikle motor veya türbin gibi makinelerin performansını ifade eder. Endüstriyel standartlarda (ISO 80000-4) kullanılır."
+    },
+    {
+      "id": "horsepowerType",
+      "label": "Beygir Gücü Türü",
+      "type": "select",
+      "unit": "",
+      "default": "mechanical",
+      "min": null,
+      "max": null,
+      "options": [
+        "mechanical",
+        "metric",
+        "electric",
+        "boiler"
+      ],
+      "businessContext": "Farklı tanımlar (mekanik, metrik, elektrik, kazan) farklı dönüşüm katsayıları gerektirir. ISO 80000-4 ve IEEE standartlarına dayanır."
     }
   ],
   "validation": {
     "rules": [
-      "horsepower must be a finite number",
-      "horsepower must be >= 0",
-      "horsepower must be <= 10000"
+      "horsepower >= 0",
+      "horsepower <= 10000"
     ],
     "thresholds": {
-      "horsepower": "horsepower > 5000 → 'Yüksek güç, özel ekipman gerekebilir'"
+      "horsepower": "horsepower > 5000 ? 'Yüksek güç değeri, doğrulama gerekli' : ''"
     }
   },
   "formulas": {
-    "primary": "kilowatt = horsepower * 0.7457"
+    "kilowatt": "horsepower * (horsepowerType == 'mechanical' ? 0.7457 : horsepowerType == 'metric' ? 0.7355 : horsepowerType == 'electric' ? 0.746 : 9.8095)"
   },
   "outputs": {
     "primary": "kilowatt",
-    "breakdown": {},
-    "hiddenLossDrivers": [],
-    "suggestedActions": [],
-    "dataConfidenceAdjusted": "kilowatt"
+    "breakdown": {
+      "horsepower": "horsepower",
+      "horsepowerType": "horsepowerType",
+      "conversionFactor": "horsepowerType == 'mechanical' ? 0.7457 : horsepowerType == 'metric' ? 0.7355 : horsepowerType == 'electric' ? 0.746 : 9.8095"
+    },
+    "hiddenLossDrivers": [
+      "horsepower > 5000 ? 'Yüksek güç değeri, doğrulama gerekli' : ''"
+    ],
+    "suggestedActions": [
+      "Güç değerini doğrulamak için motor etiketini kontrol edin.",
+      "Enerji verimliliği hesaplamaları için kW değerini kullanın."
+    ],
+    "dataConfidenceAdjusted": "kilowatt * 1.0"
   },
   "premiumFeatures": [
-    "PDF raporu",
-    "CSV export",
-    "Toplu dönüşüm",
-    "Trend analizi"
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
   ],
   "premiumRequired": false
 }

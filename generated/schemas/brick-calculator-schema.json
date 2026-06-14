@@ -1,0 +1,149 @@
+{
+  "toolName": "brick-calculator",
+  "inputs": [
+    {
+      "id": "wallLength",
+      "label": "Wall Length",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 0.1,
+      "max": 100,
+      "options": null,
+      "businessContext": "Length of the wall to be built. Standard construction practice."
+    },
+    {
+      "id": "wallHeight",
+      "label": "Wall Height",
+      "type": "number",
+      "unit": "m",
+      "default": 3,
+      "min": 0.1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Height of the wall. Standard construction practice."
+    },
+    {
+      "id": "brickLength",
+      "label": "Brick Length",
+      "type": "number",
+      "unit": "mm",
+      "default": 215,
+      "min": 100,
+      "max": 300,
+      "options": null,
+      "businessContext": "Length of a single brick. Common brick size per ISO 9001."
+    },
+    {
+      "id": "brickHeight",
+      "label": "Brick Height",
+      "type": "number",
+      "unit": "mm",
+      "default": 65,
+      "min": 40,
+      "max": 100,
+      "options": null,
+      "businessContext": "Height of a single brick. Common brick size per ISO 9001."
+    },
+    {
+      "id": "brickDepth",
+      "label": "Brick Depth",
+      "type": "number",
+      "unit": "mm",
+      "default": 102.5,
+      "min": 50,
+      "max": 200,
+      "options": null,
+      "businessContext": "Depth of a single brick. Common brick size per ISO 9001."
+    },
+    {
+      "id": "mortarThickness",
+      "label": "Mortar Thickness",
+      "type": "number",
+      "unit": "mm",
+      "default": 10,
+      "min": 5,
+      "max": 20,
+      "options": null,
+      "businessContext": "Thickness of mortar joints. Standard construction practice per ASTM C270."
+    },
+    {
+      "id": "wasteFactor",
+      "label": "Waste Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 20,
+      "options": null,
+      "businessContext": "Percentage of bricks wasted due to breakage or cutting. Industry standard 5-10%."
+    },
+    {
+      "id": "bondType",
+      "label": "Bond Type",
+      "type": "select",
+      "unit": "",
+      "default": "stretcher",
+      "min": null,
+      "max": null,
+      "options": [
+        "stretcher",
+        "header",
+        "english",
+        "flemish"
+      ],
+      "businessContext": "Type of brick bond pattern. Affects brick count per area. Common masonry standards."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "wallLength > 0",
+      "wallHeight > 0",
+      "brickLength > 0",
+      "brickHeight > 0",
+      "brickDepth > 0",
+      "mortarThickness >= 5",
+      "mortarThickness <= 20",
+      "wasteFactor >= 0",
+      "wasteFactor <= 20"
+    ],
+    "thresholds": {
+      "wasteFactor > 10": "High waste factor may indicate poor quality control or handling.",
+      "mortarThickness > 15": "Thick mortar joints may reduce structural integrity."
+    }
+  },
+  "formulas": {
+    "bricksPerSquareMeter": "1 / ((brickLength + mortarThickness) / 1000 * (brickHeight + mortarThickness) / 1000)",
+    "wallArea": "wallLength * wallHeight",
+    "bricksBeforeWaste": "wallArea * bricksPerSquareMeter",
+    "totalBricks": "bricksBeforeWaste * (1 + wasteFactor / 100)",
+    "mortarVolumePerBrick": "(brickLength + brickHeight) * brickDepth * mortarThickness / 1e9",
+    "totalMortarVolume": "totalBricks * mortarVolumePerBrick"
+  },
+  "outputs": {
+    "primary": "totalBricks",
+    "breakdown": {
+      "wallArea": "wallArea",
+      "bricksPerSquareMeter": "bricksPerSquareMeter",
+      "bricksBeforeWaste": "bricksBeforeWaste",
+      "totalMortarVolume": "totalMortarVolume"
+    },
+    "hiddenLossDrivers": [
+      "wasteFactor > 10 ? 'High waste factor' : ''",
+      "mortarThickness > 15 ? 'Thick mortar joints' : ''"
+    ],
+    "suggestedActions": [
+      "wasteFactor > 10 ? 'Review material handling and cutting processes to reduce waste.' : ''",
+      "mortarThickness > 15 ? 'Consider using thinner mortar joints to improve strength and reduce material cost.' : ''"
+    ],
+    "dataConfidenceAdjusted": "totalBricks"
+  },
+  "premiumFeatures": [
+    "PDF export",
+    "CSV export",
+    "Trend analysis",
+    "Comparison with historical projects",
+    "Detailed report with cost estimation"
+  ],
+  "premiumRequired": true
+}

@@ -1,0 +1,171 @@
+{
+  "toolName": "cleaning-cost-calculator",
+  "inputs": [
+    {
+      "id": "areaSize",
+      "label": "Area to Clean",
+      "type": "number",
+      "unit": "sqm",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Total area to be cleaned in square meters. Based on industry standards for facility management (ISO 41001)."
+    },
+    {
+      "id": "cleaningFrequency",
+      "label": "Cleaning Frequency",
+      "type": "select",
+      "unit": "times per month",
+      "default": "weekly",
+      "min": null,
+      "max": null,
+      "options": [
+        "daily",
+        "weekly",
+        "biweekly",
+        "monthly"
+      ],
+      "businessContext": "How often cleaning is performed. Common frequencies in janitorial services."
+    },
+    {
+      "id": "laborRate",
+      "label": "Labor Rate per Hour",
+      "type": "number",
+      "unit": "USD/hour",
+      "default": 15,
+      "min": 7.25,
+      "max": 100,
+      "options": null,
+      "businessContext": "Hourly wage for cleaning staff. Based on minimum wage and market rates (BLS data)."
+    },
+    {
+      "id": "laborProductivity",
+      "label": "Labor Productivity",
+      "type": "number",
+      "unit": "sqm/hour",
+      "default": 50,
+      "min": 10,
+      "max": 200,
+      "options": null,
+      "businessContext": "Area cleaned per hour per worker. Typical range from industry benchmarks (ISSA)."
+    },
+    {
+      "id": "suppliesCostPerSqm",
+      "label": "Supplies Cost per sqm",
+      "type": "number",
+      "unit": "USD/sqm",
+      "default": 0.05,
+      "min": 0.01,
+      "max": 1,
+      "options": null,
+      "businessContext": "Cost of cleaning supplies (detergents, disinfectants) per square meter. Based on average consumption rates."
+    },
+    {
+      "id": "equipmentCostPerSqm",
+      "label": "Equipment Cost per sqm",
+      "type": "number",
+      "unit": "USD/sqm",
+      "default": 0.02,
+      "min": 0,
+      "max": 0.5,
+      "options": null,
+      "businessContext": "Depreciation and maintenance cost of cleaning equipment per square meter. Includes vacuum cleaners, floor polishers."
+    },
+    {
+      "id": "wasteDisposalCostPerSqm",
+      "label": "Waste Disposal Cost per sqm",
+      "type": "number",
+      "unit": "USD/sqm",
+      "default": 0.01,
+      "min": 0,
+      "max": 0.2,
+      "options": null,
+      "businessContext": "Cost for waste removal and disposal per square meter. Based on local waste management rates."
+    },
+    {
+      "id": "overheadPercentage",
+      "label": "Overhead Percentage",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Indirect costs (management, insurance, training) as percentage of direct costs. Typical range 15-30% in service industries."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence in input data accuracy. Affects adjustment factor for final cost."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "laborRate >= 7.25",
+      "laborProductivity > 0",
+      "suppliesCostPerSqm >= 0",
+      "equipmentCostPerSqm >= 0",
+      "wasteDisposalCostPerSqm >= 0",
+      "overheadPercentage >= 0"
+    ],
+    "thresholds": {
+      "laborProductivity < 20": "Low productivity may indicate inefficiency or need for training.",
+      "suppliesCostPerSqm > 0.2": "Supplies cost is high; consider bulk purchasing or alternative products.",
+      "overheadPercentage > 40": "Overhead is high; review indirect costs for potential savings."
+    }
+  },
+  "formulas": {
+    "monthlyCleaningTimes": "cleaningFrequency === 'daily' ? 30 : cleaningFrequency === 'weekly' ? 4 : cleaningFrequency === 'biweekly' ? 2 : 1",
+    "laborHoursPerMonth": "areaSize * monthlyCleaningTimes / laborProductivity",
+    "laborCostPerMonth": "laborHoursPerMonth * laborRate",
+    "suppliesCostPerMonth": "areaSize * monthlyCleaningTimes * suppliesCostPerSqm",
+    "equipmentCostPerMonth": "areaSize * monthlyCleaningTimes * equipmentCostPerSqm",
+    "wasteDisposalCostPerMonth": "areaSize * monthlyCleaningTimes * wasteDisposalCostPerSqm",
+    "directCostPerMonth": "laborCostPerMonth + suppliesCostPerMonth + equipmentCostPerMonth + wasteDisposalCostPerMonth",
+    "overheadCostPerMonth": "directCostPerMonth * (overheadPercentage / 100)",
+    "totalCostPerMonth": "directCostPerMonth + overheadCostPerMonth",
+    "costPerSqm": "totalCostPerMonth / (areaSize * monthlyCleaningTimes)",
+    "dataConfidenceFactor": "dataConfidence === 'low' ? 1.2 : dataConfidence === 'medium' ? 1.0 : 0.9",
+    "adjustedCostPerMonth": "totalCostPerMonth * dataConfidenceFactor"
+  },
+  "outputs": {
+    "primary": "totalCostPerMonth",
+    "breakdown": {
+      "laborCostPerMonth": "laborCostPerMonth",
+      "suppliesCostPerMonth": "suppliesCostPerMonth",
+      "equipmentCostPerMonth": "equipmentCostPerMonth",
+      "wasteDisposalCostPerMonth": "wasteDisposalCostPerMonth",
+      "overheadCostPerMonth": "overheadCostPerMonth"
+    },
+    "hiddenLossDrivers": [
+      "laborProductivity < 20 ? 'Low labor productivity' : ''",
+      "suppliesCostPerSqm > 0.2 ? 'High supplies cost' : ''",
+      "overheadPercentage > 40 ? 'High overhead' : ''"
+    ],
+    "suggestedActions": [
+      "laborProductivity < 20 ? 'Consider training or better equipment to improve productivity.' : ''",
+      "suppliesCostPerSqm > 0.2 ? 'Negotiate bulk pricing or switch to cheaper supplies.' : ''",
+      "overheadPercentage > 40 ? 'Review overhead allocation and reduce indirect costs.' : ''"
+    ],
+    "dataConfidenceAdjusted": "adjustedCostPerMonth"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report with Charts"
+  ],
+  "premiumRequired": true
+}

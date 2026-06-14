@@ -10,7 +10,7 @@
       "min": 1,
       "max": 50,
       "options": null,
-      "businessContext": "Üretici tarafından belirtilen teorik kaplama oranı; boya türüne ve yüzey pürüzlülüğüne bağlıdır."
+      "businessContext": "Üretici tarafından belirtilen teorik kaplama oranı. ISO 12944 standardına göre boya sarfiyatı hesaplamalarında kullanılır."
     },
     {
       "id": "surfaceArea",
@@ -21,7 +21,7 @@
       "min": 0.1,
       "max": 10000,
       "options": null,
-      "businessContext": "Kaplanacak toplam yüzey alanı; proje ölçeğine göre değişir."
+      "businessContext": "Kaplanacak toplam yüzey alanı. Proje spesifikasyonlarından alınır."
     },
     {
       "id": "numberOfCoats",
@@ -30,20 +30,36 @@
       "unit": "adet",
       "default": 2,
       "min": 1,
-      "max": 5,
+      "max": 10,
       "options": null,
-      "businessContext": "Uygulanacak boya katı sayısı; genellikle 2 kat önerilir."
+      "businessContext": "Uygulanacak boya katı sayısı. Genellikle 1-3 arası, özel durumlarda daha fazla."
     },
     {
       "id": "wasteFactor",
-      "label": "Fire Oranı (%)",
+      "label": "Atık Faktörü (%)",
       "type": "number",
       "unit": "%",
       "default": 10,
       "min": 0,
       "max": 50,
       "options": null,
-      "businessContext": "Uygulama sırasında oluşan kayıplar (püskürtme, rulo, fırça vb.); tipik %5-15."
+      "businessContext": "Uygulama sırasında oluşan kayıplar (püskürtme, sıçrama, fırça/ rulo kaybı). Endüstriyel uygulamalarda %5-20 arası."
+    },
+    {
+      "id": "applicationMethod",
+      "label": "Uygulama Yöntemi",
+      "type": "select",
+      "unit": "",
+      "default": "spray",
+      "min": null,
+      "max": null,
+      "options": [
+        "spray",
+        "brush",
+        "roller",
+        "dip"
+      ],
+      "businessContext": "Uygulama yöntemi atık faktörünü etkiler. Püskürtme daha yüksek atık, fırça daha düşük."
     },
     {
       "id": "paintDensity",
@@ -51,43 +67,54 @@
       "type": "number",
       "unit": "kg/L",
       "default": 1.3,
-      "min": 0.5,
-      "max": 2.5,
+      "min": 0.8,
+      "max": 2,
       "options": null,
-      "businessContext": "Boya yoğunluğu; ağırlık bazlı hesaplamalar için gerekli."
+      "businessContext": "Boya yoğunluğu, ağırlık bazlı hesaplamalar için gerekli. Üretici teknik veri sayfasından alınır."
     },
     {
       "id": "paintCostPerLiter",
-      "label": "Boya Birim Fiyatı (TL/L)",
+      "label": "Boya Birim Maliyeti (TL/L)",
       "type": "number",
       "unit": "TL/L",
       "default": 50,
       "min": 1,
       "max": 1000,
       "options": null,
-      "businessContext": "Boya litre fiyatı; piyasa koşullarına göre değişir."
+      "businessContext": "Boya fiyatı, piyasa koşullarına göre değişir."
     },
     {
       "id": "laborCostPerHour",
-      "label": "İşçilik Saat Ücreti (TL/saat)",
+      "label": "İşçilik Maliyeti (TL/saat)",
       "type": "number",
       "unit": "TL/saat",
       "default": 30,
       "min": 0,
       "max": 500,
       "options": null,
-      "businessContext": "İşçilik maliyeti; uygulama süresine bağlı."
+      "businessContext": "İşçilik saat ücreti, operasyonel maliyet hesaplamaları için."
     },
     {
-      "id": "applicationRate",
-      "label": "Uygulama Hızı (m²/saat)",
+      "id": "laborProductivity",
+      "label": "İşçilik Verimliliği (m²/saat)",
       "type": "number",
       "unit": "m²/saat",
       "default": 20,
       "min": 1,
       "max": 100,
       "options": null,
-      "businessContext": "Bir işçinin saatte kapladığı alan; yönteme bağlı."
+      "businessContext": "Bir işçinin saatte kapladığı alan. Lean prensiplerine göre standart zaman ölçümü."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 90,
+      "min": 50,
+      "max": 100,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven, sonuçlarda düzeltme yapılmasını sağlar."
     }
   ],
   "validation": {
@@ -95,51 +122,59 @@
       "coverageRate > 0",
       "surfaceArea > 0",
       "numberOfCoats >= 1",
-      "wasteFactor >= 0",
+      "wasteFactor >= 0 && wasteFactor <= 50",
       "paintDensity > 0",
       "paintCostPerLiter > 0",
       "laborCostPerHour >= 0",
-      "applicationRate > 0"
+      "laborProductivity > 0",
+      "dataConfidence >= 50 && dataConfidence <= 100",
+      "if applicationMethod == 'spray' then wasteFactor >= 10 else wasteFactor >= 5"
     ],
     "thresholds": {
-      "wasteFactor > 20": "Yüksek fire oranı; uygulama yöntemi gözden geçirilmeli.",
-      "coverageRate < 5": "Düşük kaplama oranı; yüzey hazırlığı veya boya kalitesi kontrol edilmeli."
+      "wasteFactor > 20": "Yüksek atık oranı, uygulama yöntemini gözden geçirin.",
+      "laborProductivity < 10": "Düşük verimlilik, eğitim veya ekipman iyileştirmesi gerekebilir.",
+      "paintCostPerLiter > 200": "Yüksek boya maliyeti, alternatif tedarikçiler değerlendirilmeli."
     }
   },
   "formulas": {
-    "totalPaintLiters": "surfaceArea * numberOfCoats / coverageRate * (1 + wasteFactor / 100)",
-    "totalPaintKg": "totalPaintLiters * paintDensity",
-    "totalPaintCost": "totalPaintLiters * paintCostPerLiter",
-    "totalLaborHours": "surfaceArea * numberOfCoats / applicationRate",
-    "totalLaborCost": "totalLaborHours * laborCostPerHour",
-    "totalCost": "totalPaintCost + totalLaborCost",
-    "costPerSquareMeter": "totalCost / surfaceArea"
+    "theoreticalPaintVolume": "surfaceArea * numberOfCoats / coverageRate",
+    "actualPaintVolume": "theoreticalPaintVolume * (1 + wasteFactor / 100)",
+    "paintWeight": "actualPaintVolume * paintDensity",
+    "paintCost": "actualPaintVolume * paintCostPerLiter",
+    "laborHours": "surfaceArea * numberOfCoats / laborProductivity",
+    "laborCost": "laborHours * laborCostPerHour",
+    "totalCost": "paintCost + laborCost",
+    "costPerSquareMeter": "totalCost / surfaceArea",
+    "dataConfidenceAdjustedCost": "costPerSquareMeter * (1 + (100 - dataConfidence) / 100)"
   },
   "outputs": {
     "primary": "costPerSquareMeter",
     "breakdown": {
-      "totalPaintLiters": "Gerekli toplam boya miktarı (L)",
-      "totalPaintKg": "Gerekli toplam boya miktarı (kg)",
-      "totalPaintCost": "Toplam boya maliyeti (TL)",
-      "totalLaborHours": "Toplam işçilik saati",
-      "totalLaborCost": "Toplam işçilik maliyeti (TL)",
+      "theoreticalPaintVolume": "Teorik boya hacmi (L)",
+      "actualPaintVolume": "Gerçek boya hacmi (L)",
+      "paintWeight": "Boya ağırlığı (kg)",
+      "paintCost": "Boya maliyeti (TL)",
+      "laborHours": "İşçilik saati (saat)",
+      "laborCost": "İşçilik maliyeti (TL)",
       "totalCost": "Toplam maliyet (TL)"
     },
     "hiddenLossDrivers": [
-      "wasteFactor > 20",
-      "coverageRate < 5"
+      "wasteFactor > 20 ? 'Yüksek atık oranı' : ''",
+      "laborProductivity < 10 ? 'Düşük işçilik verimliliği' : ''"
     ],
     "suggestedActions": [
-      "Fire oranını azaltmak için uygun uygulama ekipmanı kullanın.",
-      "Düşük kaplama oranı durumunda yüzey hazırlığını iyileştirin veya daha kaliteli boya tercih edin."
+      "wasteFactor > 20 ? 'Uygulama yöntemini optimize edin veya daha düşük atıklı ekipman kullanın.' : ''",
+      "laborProductivity < 10 ? 'İşçi eğitimi veya daha verimli ekipman yatırımı yapın.' : ''",
+      "paintCostPerLiter > 200 ? 'Alternatif boya tedarikçileri araştırın.' : ''"
     ],
-    "dataConfidenceAdjusted": "costPerSquareMeter * (1 - dataConfidence/100) (dataConfidence input varsayılan %80)"
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedCost"
   },
   "premiumFeatures": [
-    "PDF/CSV raporu",
-    "Trend analizi (geçmiş projelerle karşılaştırma)",
-    "Detaylı maliyet kırılımı ve grafikler",
-    "Farklı boya türleri için karşılaştırma"
+    "PDF raporu",
+    "CSV export",
+    "Trend analizi (geçmiş hesaplamalar)",
+    "Karşılaştırma (farklı senaryolar)",
+    "Detaylı maliyet dökümü raporu"
   ],
-  "premiumRequired": false
+  "premiumRequired": true
 }

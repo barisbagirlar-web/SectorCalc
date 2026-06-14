@@ -2,22 +2,24 @@
 import * as z from 'zod';
 
 export interface AltiSigmaDpmoSigmaSeviyesiCeviriciInput {
-  dpmo: number;
+  defects: number;
+  units: number;
+  opportunitiesPerUnit: number;
   sigmaShift: number;
 }
 
 export const AltiSigmaDpmoSigmaSeviyesiCeviriciInputSchema = z.object({
-  dpmo: z.number().min(0).max(1000000).default(1000),
+  defects: z.number().min(0).default(0),
+  units: z.number().min(1).default(1),
+  opportunitiesPerUnit: z.number().min(1).default(1),
   sigmaShift: z.number().min(0).max(2).default(1.5),
 });
 
 export interface AltiSigmaDpmoSigmaSeviyesiCeviriciOutput {
   sigmaLevel: number;
   breakdown: {
-    sigmaLevel: number;
     dpmo: number;
-    yield: number;
-    defectRate: number;
+    totalOpportunities: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -28,30 +30,30 @@ export interface AltiSigmaDpmoSigmaSeviyesiCeviriciOutput {
 
 function evaluateFormulas(input: AltiSigmaDpmoSigmaSeviyesiCeviriciInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.dpmoToSigmaLevel = sigmaLevel = normsinv(1 - input.dpmo/1000000) + input.sigmaShift;
-  results.sigmaLevelToDpmo = input.dpmo = (1 - normcdf(sigmaLevel - input.sigmaShift)) * 1000000;
-  results.yield = results.yield = (1 - input.dpmo/1000000) * 100;
-  results.defectRate = results.defectRate = input.dpmo / 1000000;
+  results.totalOpportunities = (() => { try { return input.units * input.opportunitiesPerUnit; } catch { return 0; } })();
+  results.dpmo = (() => { try { return (input.defects / results.totalOpportunities) * 1000000; } catch { return 0; } })();
+  results.sigmaLevel = (() => { try { return normsinv(1 - (results.dpmo / 1000000)) + input.sigmaShift; } catch { return 0; } })();
   return results;
 }
 
 export function calculateAltiSigmaDpmoSigmaSeviyesiCevirici(input: AltiSigmaDpmoSigmaSeviyesiCeviriciInput): AltiSigmaDpmoSigmaSeviyesiCeviriciOutput {
   const results = evaluateFormulas(input);
-  const sigmaLevel = results.sigmaLevel;
+  const sigmaLevel = results.sigmaLevel ?? 0;
   const breakdown = {
-    sigmaLevel: results.dpmoToSigmaLevel,
-    dpmo: results.dpmoToSigmaLevel,
-    yield: results.yield,
-    defectRate: results.defectRate,
+    dpmo: results.dpmo,
+    totalOpportunities: results.totalOpportunities,
   };
 
-  // rule: dpmo must be a finite number between 0 and 1,000,000
-  // rule: sigmaShift must be a finite number between 0 and 2
-  // rule: If dpmo is 0, sigma level is theoretically infinite; output will be capped at 6 sigma for practical purposes
-  // threshold dpmo: [object Object]
-  const hiddenLossDrivers: string[] = ["dpmo > 100000: Kritik kalite seviyesi, acil iyileştirme gerekli","dpmo > 10000: Yüksek hata oranı, süreç iyileştirme önerilir"];
-  const suggestedActions: string[] = ["dpmo > 100000: Kök neden analizi yapın ve süreci yeniden tasarlayın","dpmo between 10000 and 100000: DMAIC projesi başlatın","dpmo < 10000: Süreci kontrol altında tutun ve sürekli iyileştirme uygulayın"];
-  const dataConfidenceAdjusted = dataConfidenceAdjusted;
+  // rule: defects >= 0
+  // rule: units >= 1
+  // rule: opportunitiesPerUnit >= 1
+  // rule: sigmaShift >= 0 and sigmaShift <= 2
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): Hata sayisi toplam firsattan fazla olamaz.
+  // threshold skipped (non-JS): DPMO cok yuksek, surec iyilestirme acil.
+
+  const dataConfidenceAdjusted = (() => { try { return results.sigmaLevel; } catch { return sigmaLevel; } })();
 
   return {
     sigmaLevel,
@@ -59,7 +61,7 @@ export function calculateAltiSigmaDpmoSigmaSeviyesiCevirici(input: AltiSigmaDpmo
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    premiumRequired: false,
-    premiumFeatures: ["Detaylı rapor (PDF/CSV export)","Trend analizi (zaman içinde sigma seviyesi değişimi)","Karşılaştırma (farklı süreçlerin sigma seviyelerini karşılaştırma)","Simülasyon (farklı DPMO değerleri için sigma seviyesi tahmini)"],
+    premiumRequired: true,
+    premiumFeatures: ["PDF Export","CSV Export","Trend Analysis","Benchmark Comparison","Detailed Report"],
   };
 }

@@ -3,24 +3,26 @@ import * as z from 'zod';
 
 export interface AnnualLeaveSeveranceNoticeCalculatorInput {
   annualSalary: number;
-  workingDaysPerYear: number;
-  accruedLeaveDays: number;
   yearsOfService: number;
+  monthsOfService: number;
+  leaveDaysAccrued: number;
+  leaveDaysTaken: number;
   severanceMultiplier: number;
-  noticePeriodDays: number;
-  isTerminatedWithCause: boolean;
-  jurisdiction: 'default' | 'US-Federal' | 'EU-Directive' | 'UK-Statutory' | 'UAE-LaborLaw';
+  noticePeriod: number;
+  workingDaysPerWeek: number;
+  currency: 'USD' | 'EUR' | 'GBP' | 'TRY' | 'Other';
 }
 
 export const AnnualLeaveSeveranceNoticeCalculatorInputSchema = z.object({
   annualSalary: z.number().min(0).default(50000),
-  workingDaysPerYear: z.number().min(1).max(365).default(260),
-  accruedLeaveDays: z.number().min(0).default(0),
-  yearsOfService: z.number().min(0).default(5),
-  severanceMultiplier: z.number().min(0).default(2),
-  noticePeriodDays: z.number().min(0).default(30),
-  isTerminatedWithCause: z.boolean().default(false),
-  jurisdiction: z.enum(['default', 'US-Federal', 'EU-Directive', 'UK-Statutory', 'UAE-LaborLaw']).default('default'),
+  yearsOfService: z.number().min(0).max(50).default(5),
+  monthsOfService: z.number().min(0).max(11).default(0),
+  leaveDaysAccrued: z.number().min(0).max(365).default(20),
+  leaveDaysTaken: z.number().min(0).max(365).default(0),
+  severanceMultiplier: z.number().min(0).max(10).default(1),
+  noticePeriod: z.number().min(0).max(52).default(4),
+  workingDaysPerWeek: z.number().min(1).max(7).default(5),
+  currency: z.enum(['USD', 'EUR', 'GBP', 'TRY', 'Other']).default('USD'),
 });
 
 export interface AnnualLeaveSeveranceNoticeCalculatorOutput {
@@ -39,36 +41,40 @@ export interface AnnualLeaveSeveranceNoticeCalculatorOutput {
 
 function evaluateFormulas(input: AnnualLeaveSeveranceNoticeCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.dailyWage = input.annualSalary / input.workingDaysPerYear;
-  results.leavePayout = input.accruedLeaveDays * results.dailyWage;
-  results.severancePay = input.isTerminatedWithCause ? 0 : (input.yearsOfService * input.severanceMultiplier * 5 * results.dailyWage);
-  results.noticePay = input.noticePeriodDays * results.dailyWage;
-  results.totalPayout = results.leavePayout + results.severancePay + results.noticePay;
+  results.dailyRate = (() => { try { return input.annualSalary / (52 * input.workingDaysPerWeek); } catch { return 0; } })();
+  results.totalServiceYears = (() => { try { return input.yearsOfService + input.monthsOfService / 12; } catch { return 0; } })();
+  results.unusedLeaveDays = (() => { try { return input.leaveDaysAccrued - input.leaveDaysTaken; } catch { return 0; } })();
+  results.leavePayout = (() => { try { return results.unusedLeaveDays * results.dailyRate; } catch { return 0; } })();
+  results.severancePay = (() => { try { return results.totalServiceYears * input.severanceMultiplier * results.dailyRate * input.workingDaysPerWeek; } catch { return 0; } })();
+  results.noticePay = (() => { try { return input.noticePeriod * results.dailyRate * input.workingDaysPerWeek; } catch { return 0; } })();
+  results.totalPayout = (() => { try { return results.leavePayout + results.severancePay + results.noticePay; } catch { return 0; } })();
   return results;
 }
 
 export function calculateAnnualLeaveSeveranceNoticeCalculator(input: AnnualLeaveSeveranceNoticeCalculatorInput): AnnualLeaveSeveranceNoticeCalculatorOutput {
   const results = evaluateFormulas(input);
-  const totalPayout = results.totalPayout;
+  const totalPayout = results.totalPayout ?? 0;
   const breakdown = {
     leavePayout: results.leavePayout,
     severancePay: results.severancePay,
     noticePay: results.noticePay,
   };
 
-  // rule: annualSalary must be >= 0
-  // rule: workingDaysPerYear must be between 1 and 365
-  // rule: accruedLeaveDays must be >= 0
-  // rule: yearsOfService must be >= 0
-  // rule: severanceMultiplier must be >= 0
-  // rule: noticePeriodDays must be >= 0
-  // rule: If isTerminatedWithCause is true, severanceMultiplier should be 0 (check jurisdiction)
-  // threshold accruedLeaveDays > 30: High accrued leave balance may indicate poor leave management
-  // threshold yearsOfService > 20: Long service may trigger additional statutory benefits
-  // threshold noticePeriodDays > 90: Extended notice period may be unusual; verify contract
-  const hiddenLossDrivers: string[] = ["accruedLeaveDays > 30 ? 'High leave balance' : ''","yearsOfService > 20 ? 'Long service' : ''"];
-  const suggestedActions: string[] = ["Review leave policy to reduce accruals","Consider phased retirement for long-service employees","Verify notice period compliance with local law"];
-  const dataConfidenceAdjusted = results.totalPayout * (1 - 0.05);
+  // rule: annualSalary > 0
+  // rule: yearsOfService >= 0
+  // rule: monthsOfService >= 0 and monthsOfService <= 11
+  // rule: leaveDaysAccrued >= 0
+  // rule: leaveDaysTaken >= 0 and leaveDaysTaken <= leaveDaysAccrued
+  // rule: severanceMultiplier >= 0
+  // rule: noticePeriod >= 0
+  // rule: workingDaysPerWeek >= 1 and workingDaysPerWeek <= 7
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): High accrued leave days; consider encouraging leave usage.
+  // threshold skipped (non-JS): Severance multiplier is high; check contract terms.
+  // threshold skipped (non-JS): Notice period exceeds typical maximum; verify.
+
+  const dataConfidenceAdjusted = (() => { try { return results.totalPayout; } catch { return totalPayout; } })();
 
   return {
     totalPayout,
@@ -77,6 +83,6 @@ export function calculateAnnualLeaveSeveranceNoticeCalculator(input: AnnualLeave
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF export of detailed report","CSV export of breakdown","Multi-jurisdiction comparison","Trend analysis over time","Scenario modeling (what-if)"],
+    premiumFeatures: ["PDF Export","CSV Export","Trend Analysis","Comparison with Benchmarks","Detailed Report with Legal References"],
   };
 }

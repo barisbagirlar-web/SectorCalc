@@ -4,35 +4,34 @@ import * as z from 'zod';
 export interface AsgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculatorInput {
   annualDemand: number;
   orderingCost: number;
-  holdingCostPerUnit: number;
+  holdingCostPerUnitPerYear: number;
   unitCost: number;
-  moq: number;
   leadTimeDays: number;
-  safetyStock: number;
+  serviceLevel: number;
+  demandStdDev: number;
   workingDaysPerYear: number;
 }
 
 export const AsgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculatorInputSchema = z.object({
   annualDemand: z.number().min(1).max(10000000).default(10000),
   orderingCost: z.number().min(0).max(10000).default(50),
-  holdingCostPerUnit: z.number().min(0).max(1000).default(2),
+  holdingCostPerUnitPerYear: z.number().min(0).max(1000).default(2),
   unitCost: z.number().min(0).max(100000).default(10),
-  moq: z.number().min(1).max(100000).default(500),
   leadTimeDays: z.number().min(0).max(365).default(7),
-  safetyStock: z.number().min(0).max(100000).default(100),
+  serviceLevel: z.number().min(50).max(99.99).default(95),
+  demandStdDev: z.number().min(0).max(10000).default(10),
   workingDaysPerYear: z.number().min(1).max(365).default(250),
 });
 
 export interface AsgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculatorOutput {
-  totalExposure: number;
+  totalAnnualInventoryCost: number;
   breakdown: {
     eoq: number;
-    optimalOrderQuantity: number;
-    averageInventory: number;
-    annualHoldingCost: number;
-    annualOrderingCost: number;
-    totalInventoryCost: number;
-    variancePercent: number;
+    safetyStock: number;
+    reorderPoint: number;
+    totalAnnualOrderingCost: number;
+    totalAnnualHoldingCost: number;
+    moq: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -43,57 +42,53 @@ export interface AsgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculatorOutput
 
 function evaluateFormulas(input: AsgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.eoq = Math.sqrt((2 * input.annualDemand * input.orderingCost) / input.holdingCostPerUnit);
-  results.optimalOrderQuantity = Math.max(results.eoq, input.moq);
-  results.orderFrequency = input.annualDemand / results.optimalOrderQuantity;
-  results.averageInventory = (results.optimalOrderQuantity / 2) + input.safetyStock;
-  results.annualHoldingCost = results.averageInventory * input.holdingCostPerUnit;
-  results.annualOrderingCost = results.orderFrequency * input.orderingCost;
-  results.totalInventoryCost = results.annualHoldingCost + results.annualOrderingCost;
-  results.totalExposure = results.totalInventoryCost + (results.averageInventory * input.unitCost);
-  results.variancePercent = ((results.optimalOrderQuantity - results.eoq) / results.eoq) * 100;
-  results.summaryLevel = results.totalExposure > 500000 ? 'critical' : results.totalExposure > 100000 ? 'warning' : 'normal';
-  results.primaryDriver = results.variancePercent > 20 ? 'MOQ constraint' : 'EOQ optimal';
-  results.decisionVerdict = results.variancePercent > 50 ? 'Negotiate MOQ reduction' : results.variancePercent > 20 ? 'Consider MOQ adjustment' : 'Accept current MOQ';
+  results.eoq = (() => { try { return Math.Math.sqrt((2 * input.annualDemand * input.orderingCost) / input.holdingCostPerUnitPerYear); } catch { return 0; } })();
+  results.dailyDemand = (() => { try { return input.annualDemand / input.workingDaysPerYear; } catch { return 0; } })();
+  results.totalAnnualOrderingCost = (() => { try { return (input.annualDemand / results.eoq) * input.orderingCost; } catch { return 0; } })();
+  results.moq = (() => { try { return results.eoq; } catch { return 0; } })();
+  results.serviceLevelZScore = (() => { try { return getZScore(input.serviceLevel / 100); } catch { return 0; } })();
+  results.safetyStock = (() => { try { return results.serviceLevelZScore * input.demandStdDev * Math.Math.sqrt(input.leadTimeDays); } catch { return 0; } })();
+  results.reorderPoint = (() => { try { return results.dailyDemand * input.leadTimeDays + results.safetyStock; } catch { return 0; } })();
+  results.totalAnnualHoldingCost = (() => { try { return (results.eoq / 2) * input.holdingCostPerUnitPerYear + results.safetyStock * input.holdingCostPerUnitPerYear; } catch { return 0; } })();
+  results.totalAnnualInventoryCost = (() => { try { return results.totalAnnualOrderingCost + results.totalAnnualHoldingCost; } catch { return 0; } })();
   return results;
 }
 
 export function calculateAsgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculator(input: AsgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculatorInput): AsgariSiparisMiktariMoqVeStokTasimaMaliyetDengeCalculatorOutput {
   const results = evaluateFormulas(input);
-  const totalExposure = results.totalExposure;
+  const totalAnnualInventoryCost = results.totalAnnualInventoryCost ?? 0;
   const breakdown = {
     eoq: results.eoq,
-    optimalOrderQuantity: results.optimalOrderQuantity,
-    averageInventory: results.averageInventory,
-    annualHoldingCost: results.annualHoldingCost,
-    annualOrderingCost: results.annualOrderingCost,
-    totalInventoryCost: results.totalInventoryCost,
-    variancePercent: results.variancePercent,
+    safetyStock: results.safetyStock,
+    reorderPoint: results.reorderPoint,
+    totalAnnualOrderingCost: results.totalAnnualOrderingCost,
+    totalAnnualHoldingCost: results.totalAnnualHoldingCost,
+    moq: results.moq,
   };
 
-  // rule: annualDemand must be > 0
-  // rule: orderingCost must be >= 0
-  // rule: holdingCostPerUnit must be >= 0
-  // rule: unitCost must be >= 0
-  // rule: moq must be > 0
-  // rule: leadTimeDays must be >= 0
-  // rule: safetyStock must be >= 0
-  // rule: workingDaysPerYear must be between 1 and 365
-  // rule: If moq > annualDemand, then warning: MOQ exceeds annual demand
-  // rule: If holdingCostPerUnit > unitCost * 0.5, then warning: holding cost is high relative to unit cost
-  // threshold totalExposure: warning: > 100000, critical: > 500000
-  // threshold variancePercent: warning: > 20, critical: > 50
-  const hiddenLossDrivers: string[] = ["If moq > eoq: excess inventory due to MOQ constraint","If safetyStock > 0.5 * averageInventory: high safety stock relative to cycle stock"];
-  const suggestedActions: string[] = ["If variancePercent > 20: negotiate lower MOQ with supplier","If holdingCostPerUnit > unitCost * 0.3: review storage efficiency or reduce safety stock","If orderingCost is high: consider consolidating orders or using blanket orders"];
-  const dataConfidenceAdjusted = results.totalExposure * (1 - (1 - dataConfidence) * 0.1) if dataConfidence provided;
+  // rule: annualDemand > 0
+  // rule: orderingCost >= 0
+  // rule: holdingCostPerUnitPerYear >= 0
+  // rule: unitCost >= 0
+  // rule: leadTimeDays >= 0
+  // rule: serviceLevel >= 50 && serviceLevel <= 99.99
+  // rule: demandStdDev >= 0
+  // rule: workingDaysPerYear >= 1 && workingDaysPerYear <= 365
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): If orderingCost > 1000, consider process improvement to reduce setup costs.
+  // threshold skipped (non-JS): If holdingCostPerUnitPerYear > 0.3 * unitCost, inventory carrying cost is high; review storage efficiency.
+  // threshold skipped (non-JS): If serviceLevel > 99.5, safety stock may be excessive; consider cost-service trade-off.
+
+  const dataConfidenceAdjusted = (() => { try { return results.totalAnnualInventoryCost * (1 + (1 - dataConfidence) * 0.1); } catch { return totalAnnualInventoryCost; } })();
 
   return {
-    totalExposure,
+    totalAnnualInventoryCost,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF/CSV export","Trend analysis over time","Scenario comparison (multiple MOQ values)","Detailed breakdown report with charts","Data confidence adjustment"],
+    premiumFeatures: ["PDF/CSV export","Trend analysis over time","Scenario comparison (multiple parameter sets)","Detailed report with charts and recommendations"],
   };
 }

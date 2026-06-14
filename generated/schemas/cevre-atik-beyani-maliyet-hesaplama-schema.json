@@ -1,0 +1,192 @@
+{
+  "toolName": "cevre-atik-beyani-maliyet-hesaplama",
+  "inputs": [
+    {
+      "id": "atikMiktari",
+      "label": "Atık Miktarı (ton/yıl)",
+      "type": "number",
+      "unit": "ton/yıl",
+      "default": 100,
+      "min": 0,
+      "max": 1000000,
+      "options": null,
+      "businessContext": "Yıllık toplam atık miktarı. Çevre ve Şehircilik Bakanlığı Atık Yönetimi Yönetmeliği'ne göre beyan zorunluluğu. ISO 14001 çevre yönetim sistemi kapsamında atık takibi."
+    },
+    {
+      "id": "atikKodu",
+      "label": "Atık Kodu (Avrupa Atık Kataloğu)",
+      "type": "select",
+      "unit": "",
+      "default": "17 01 01",
+      "min": null,
+      "max": null,
+      "options": [
+        "17 01 01 (Beton)",
+        "17 01 02 (Tuğla)",
+        "17 01 03 (Kiremit)",
+        "17 02 01 (Ahşap)",
+        "17 02 02 (Cam)",
+        "17 02 03 (Plastik)",
+        "17 03 01 (Asfalt)",
+        "17 04 01 (Bakır)",
+        "17 04 02 (Alüminyum)",
+        "17 04 03 (Kurşun)",
+        "17 04 04 (Çinko)",
+        "17 04 05 (Demir)",
+        "17 04 06 (Kalay)",
+        "17 04 07 (Karışık metaller)",
+        "17 05 03 (Toprak)",
+        "17 05 04 (Taş)",
+        "17 06 01 (Yalıtım malzemeleri)",
+        "17 08 01 (Alçı)",
+        "17 09 01 (Karışık inşaat atığı)"
+      ],
+      "businessContext": "Avrupa Atık Kataloğu (EWC) kodları. Atık beyanında zorunlu alan. Tehlikeli atık sınıflandırması için kullanılır."
+    },
+    {
+      "id": "bertarafYontemi",
+      "label": "Bertaraf Yöntemi",
+      "type": "select",
+      "unit": "",
+      "default": "Düzenli Depolama",
+      "min": null,
+      "max": null,
+      "options": [
+        "Düzenli Depolama",
+        "Yakma",
+        "Geri Dönüşüm",
+        "Kompost",
+        "Diğer"
+      ],
+      "businessContext": "Atık Yönetimi Yönetmeliği'ne göre bertaraf yöntemleri. Maliyet hesaplamasında birim fiyat farklılıkları."
+    },
+    {
+      "id": "birimBertarafMaliyeti",
+      "label": "Birim Bertaraf Maliyeti (TL/ton)",
+      "type": "number",
+      "unit": "TL/ton",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "options": null,
+      "businessContext": "Bertaraf yöntemine göre değişen birim maliyet. Düzenli depolama için belediye tarifeleri, yakma için lisanslı tesis fiyatları."
+    },
+    {
+      "id": "nakliyeMesafesi",
+      "label": "Nakliye Mesafesi (km)",
+      "type": "number",
+      "unit": "km",
+      "default": 50,
+      "min": 0,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Atığın bertaraf tesisine taşınma mesafesi. Nakliye maliyeti hesaplaması için."
+    },
+    {
+      "id": "birimNakliyeMaliyeti",
+      "label": "Birim Nakliye Maliyeti (TL/km-ton)",
+      "type": "number",
+      "unit": "TL/(km·ton)",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Ton başına kilometre başına nakliye ücreti. Sektörel ortalama değerler."
+    },
+    {
+      "id": "beyanUcreti",
+      "label": "Beyan Ücreti (TL/yıl)",
+      "type": "number",
+      "unit": "TL/yıl",
+      "default": 1000,
+      "min": 0,
+      "max": 100000,
+      "options": null,
+      "businessContext": "Çevre ve Şehircilik Bakanlığı'na ödenen yıllık beyan ücreti. Atık beyan sistemi (ABS) kullanım bedeli."
+    },
+    {
+      "id": "cezaOlasiligi",
+      "label": "Ceza Olasılığı (%)",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Eksik veya hatalı beyan nedeniyle ceza alma olasılığı. Risk değerlendirmesi için."
+    },
+    {
+      "id": "cezaMiktari",
+      "label": "Ceza Miktarı (TL)",
+      "type": "number",
+      "unit": "TL",
+      "default": 50000,
+      "min": 0,
+      "max": 10000000,
+      "options": null,
+      "businessContext": "Çevre Kanunu'na göre atık beyanı yapılmaması durumunda uygulanan idari para cezası."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Veri Güveni (0-1)",
+      "type": "number",
+      "unit": "",
+      "default": 0.9,
+      "min": 0,
+      "max": 1,
+      "options": null,
+      "businessContext": "Girdi verilerinin güvenilirlik düzeyi. Düşük güven durumunda sonuçlar düzeltilir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "atikMiktari > 0",
+      "birimBertarafMaliyeti > 0",
+      "nakliyeMesafesi >= 0",
+      "birimNakliyeMaliyeti >= 0",
+      "beyanUcreti >= 0",
+      "cezaOlasiligi >= 0 && cezaOlasiligi <= 100",
+      "cezaMiktari >= 0",
+      "dataConfidence >= 0 && dataConfidence <= 1"
+    ],
+    "thresholds": {
+      "toplamMaliyet > 100000": "Yüksek maliyet uyarısı",
+      "cezaOlasiligi > 20": "Yüksek ceza riski uyarısı",
+      "dataConfidence < 0.5": "Düşük veri güveni uyarısı"
+    }
+  },
+  "formulas": {
+    "nakliyeMaliyeti": "atikMiktari * nakliyeMesafesi * birimNakliyeMaliyeti",
+    "bertarafMaliyeti": "atikMiktari * birimBertarafMaliyeti",
+    "beklenenCezaMaliyeti": "cezaOlasiligi / 100 * cezaMiktari",
+    "toplamMaliyet": "nakliyeMaliyeti + bertarafMaliyeti + beyanUcreti + beklenenCezaMaliyeti",
+    "dataConfidenceAdjusted": "toplamMaliyet / dataConfidence"
+  },
+  "outputs": {
+    "primary": "toplamMaliyet",
+    "breakdown": {
+      "nakliyeMaliyeti": "nakliyeMaliyeti",
+      "bertarafMaliyeti": "bertarafMaliyeti",
+      "beyanUcreti": "beyanUcreti",
+      "beklenenCezaMaliyeti": "beklenenCezaMaliyeti"
+    },
+    "hiddenLossDrivers": [
+      "cezaOlasiligi > 20 ? 'Yüksek ceza riski' : ''",
+      "dataConfidence < 0.5 ? 'Düşük veri güveni' : ''"
+    ],
+    "suggestedActions": [
+      "Atık miktarını azaltmak için kaynakta azaltma stratejileri uygulayın.",
+      "Geri dönüşüm oranını artırarak bertaraf maliyetlerini düşürün.",
+      "Nakliye mesafesini optimize etmek için yerel tesislerle anlaşma yapın.",
+      "Beyan sürecini otomatize ederek ceza riskini azaltın."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (geçmiş yıllarla karşılaştırma)",
+    "Detaylı rapor (alt kırılımlar ve grafikler)",
+    "Karşılaştırma (farklı bertaraf yöntemleri senaryoları)"
+  ],
+  "premiumRequired": true
+}

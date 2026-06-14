@@ -2,74 +2,67 @@
   "toolName": "ambalaj-malzemesi-degisimi-ve-maliyet-etki-calculator",
   "inputs": [
     {
-      "id": "currentMaterialCost",
-      "label": "Current Material Cost",
+      "id": "currentMaterialCostPerUnit",
+      "label": "Mevcut Malzeme Birim Maliyeti",
       "type": "number",
-      "unit": "USD/unit",
-      "default": 0,
+      "unit": "TRY/kg",
+      "default": 10,
       "min": 0,
       "max": null,
       "options": null,
-      "businessContext": "Mevcut ambalaj malzemesinin birim maliyeti. Tedarikçi faturalarından alınır."
+      "businessContext": "Mevcut ambalaj malzemesinin birim maliyeti. ISO 14000 çevre yönetimi ve maliyet muhasebesi standartlarına dayanır."
     },
     {
-      "id": "newMaterialCost",
-      "label": "New Material Cost",
+      "id": "newMaterialCostPerUnit",
+      "label": "Yeni Malzeme Birim Maliyeti",
       "type": "number",
-      "unit": "USD/unit",
-      "default": 0,
+      "unit": "TRY/kg",
+      "default": 8,
       "min": 0,
       "max": null,
       "options": null,
-      "businessContext": "Yeni ambalaj malzemesinin birim maliyeti. Tedarikçi tekliflerinden alınır."
+      "businessContext": "Değiştirilecek yeni ambalaj malzemesinin birim maliyeti. Tedarikçi teklifleri veya piyasa araştırması ile belirlenir."
     },
     {
-      "id": "annualUsage",
-      "label": "Annual Usage",
+      "id": "annualUsageKg",
+      "label": "Yıllık Kullanım Miktarı",
       "type": "number",
-      "unit": "units/year",
-      "default": 0,
+      "unit": "kg/yıl",
+      "default": 10000,
       "min": 0,
       "max": null,
       "options": null,
-      "businessContext": "Yıllık kullanılan ambalaj malzemesi miktarı. Üretim planından alınır."
+      "businessContext": "Yıllık ambalaj malzemesi tüketimi. Üretim planlaması ve envanter yönetimi verilerinden alınır."
     },
     {
       "id": "changeoverCost",
-      "label": "Changeover Cost",
+      "label": "Değişim Maliyeti",
       "type": "number",
-      "unit": "USD",
-      "default": 0,
+      "unit": "TRY",
+      "default": 5000,
       "min": 0,
       "max": null,
       "options": null,
-      "businessContext": "Malzeme değişimi için yapılacak tek seferlik geçiş maliyeti (kalıp, ekipman, işçilik)."
+      "businessContext": "Malzeme değişimi için gerekli ekipman ayarı, eğitim ve duruş maliyetleri. SMED (Single Minute Exchange of Die) prensipleri ile ilişkilidir."
     },
     {
-      "id": "wasteRateCurrent",
-      "label": "Waste Rate Current",
-      "type": "number",
-      "unit": "%",
-      "default": 2,
-      "min": 0,
-      "max": 100,
-      "options": null,
-      "businessContext": "Mevcut malzemenin fire oranı. Üretim verilerinden hesaplanır."
-    },
-    {
-      "id": "wasteRateNew",
-      "label": "Waste Rate New",
-      "type": "number",
-      "unit": "%",
-      "default": 2,
-      "min": 0,
-      "max": 100,
-      "options": null,
-      "businessContext": "Yeni malzemenin tahmini fire oranı. Test veya tedarikçi verisi."
+      "id": "qualityImpact",
+      "label": "Kalite Etkisi",
+      "type": "select",
+      "unit": "",
+      "default": "neutral",
+      "min": null,
+      "max": null,
+      "options": [
+        "positive",
+        "neutral",
+        "negative"
+      ],
+      "businessContext": "Yeni malzemenin ürün kalitesine etkisi. ISO 9001 kalite yönetimi standartlarına dayanır."
     },
     {
       "id": "dataConfidence",
-      "label": "Data Confidence",
+      "label": "Veri Güveni",
       "type": "select",
       "unit": "",
       "default": "medium",
@@ -80,62 +73,54 @@
         "medium",
         "high"
       ],
-      "businessContext": "Girdi verilerinin güvenilirlik seviyesi. Düşük ise sonuçlara güven aralığı eklenir."
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar daha muhafazakar hesaplanır."
     }
   ],
   "validation": {
     "rules": [
-      "currentMaterialCost >= 0",
-      "newMaterialCost >= 0",
-      "annualUsage >= 0",
-      "changeoverCost >= 0",
-      "wasteRateCurrent between 0 and 100",
-      "wasteRateNew between 0 and 100",
-      "dataConfidence must be one of low, medium, high"
+      "currentMaterialCostPerUnit > 0",
+      "newMaterialCostPerUnit > 0",
+      "annualUsageKg > 0",
+      "changeoverCost >= 0"
     ],
     "thresholds": {
-      "totalExposure": {
-        "warning": 10000,
-        "critical": 50000
-      }
+      "costSavings": "if costSavings < 0 then 'Maliyet tasarrufu sağlanamıyor, değişim önerilmez'",
+      "qualityImpact": "if qualityImpact == 'negative' then 'Kalite riski var, dikkatli olunmalı'"
     }
   },
   "formulas": {
-    "currentAnnualCost": "currentMaterialCost * annualUsage * (1 + wasteRateCurrent / 100)",
-    "newAnnualCost": "newMaterialCost * annualUsage * (1 + wasteRateNew / 100)",
-    "annualSavings": "currentAnnualCost - newAnnualCost",
-    "totalExposure": "annualSavings - changeoverCost",
-    "variancePercent": "((newAnnualCost - currentAnnualCost) / currentAnnualCost) * 100",
-    "summaryLevel": "totalExposure < 10000 ? 'low' : totalExposure < 50000 ? 'warning' : 'critical'",
-    "primaryDriver": "Math.abs(annualSavings) > Math.abs(changeoverCost) ? 'annualSavings' : 'changeoverCost'",
-    "decisionVerdict": "totalExposure > 0 ? 'positive' : totalExposure < 0 ? 'negative' : 'neutral'",
-    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalExposure * 0.8 : dataConfidence === 'high' ? totalExposure * 1.2 : totalExposure"
+    "annualMaterialCostCurrent": "currentMaterialCostPerUnit * annualUsageKg",
+    "annualMaterialCostNew": "newMaterialCostPerUnit * annualUsageKg",
+    "grossSavings": "annualMaterialCostCurrent - annualMaterialCostNew",
+    "netSavings": "grossSavings - changeoverCost",
+    "costSavings": "netSavings",
+    "dataConfidenceAdjusted": "dataConfidence == 'low' ? costSavings * 0.8 : (dataConfidence == 'medium' ? costSavings * 0.9 : costSavings)"
   },
   "outputs": {
-    "primary": "totalExposure",
+    "primary": "costSavings",
     "breakdown": {
-      "currentAnnualCost": "currentAnnualCost",
-      "newAnnualCost": "newAnnualCost",
-      "annualSavings": "annualSavings",
-      "changeoverCost": "changeoverCost"
+      "annualMaterialCostCurrent": "annualMaterialCostCurrent",
+      "annualMaterialCostNew": "annualMaterialCostNew",
+      "grossSavings": "grossSavings",
+      "changeoverCost": "changeoverCost",
+      "netSavings": "netSavings"
     },
     "hiddenLossDrivers": [
-      "wasteRateCurrent > 5 ? 'Yüksek mevcut fire oranı' : null",
-      "wasteRateNew > 5 ? 'Yeni malzeme fire oranı yüksek' : null",
-      "changeoverCost > annualSavings * 0.5 ? 'Geçiş maliyeti yıllık tasarrufa göre yüksek' : null"
+      "if qualityImpact == 'negative' then 'Kalite kaybı nedeniyle gizli maliyetler oluşabilir'",
+      "if costSavings < 0 then 'Değişim maliyet tasarrufu sağlamıyor'"
     ],
     "suggestedActions": [
-      "totalExposure > 0 ? 'Malzeme değişimi önerilir' : 'Malzeme değişimi önerilmez'",
-      "wasteRateNew > wasteRateCurrent ? 'Yeni malzeme fire oranını düşürmek için iyileştirme yapın' : null"
+      "if costSavings > 0 then 'Malzeme değişimi uygulanabilir'",
+      "if qualityImpact == 'negative' then 'Kalite testleri yapılmalı'",
+      "if changeoverCost > grossSavings * 0.5 then 'Değişim maliyetini düşürmek için SMED uygulanabilir'"
     ],
     "dataConfidenceAdjusted": "dataConfidenceAdjusted"
   },
   "premiumFeatures": [
-    "PDF export",
-    "CSV export",
-    "Trend analysis",
-    "Scenario comparison",
-    "Detailed report with charts"
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma (birden fazla malzeme seçeneği)",
+    "Detaylı rapor (kalite etkisi dahil)"
   ],
   "premiumRequired": true
 }

@@ -8,42 +8,42 @@
       "unit": "USD/kg",
       "default": 50,
       "min": 0,
-      "max": 500,
+      "max": null,
       "options": null,
-      "businessContext": "Cost of filament or resin per kilogram. Typical range for standard PLA is $20-50, engineering materials up to $200."
+      "businessContext": "Cost of filament or resin per kilogram. Based on supplier pricing and industry benchmarks (e.g., Stratasys, Formlabs)."
     },
     {
       "id": "materialUsageKg",
-      "label": "Material Usage (kg)",
+      "label": "Material Usage per Job",
       "type": "number",
       "unit": "kg",
       "default": 0.5,
       "min": 0,
-      "max": 100,
+      "max": null,
       "options": null,
-      "businessContext": "Estimated weight of material used for the print job. Derived from part volume and infill density."
+      "businessContext": "Weight of material consumed for the print job, including support material. Estimated from slicing software or historical data."
     },
     {
       "id": "printTimeHours",
-      "label": "Print Time (hours)",
+      "label": "Print Time",
       "type": "number",
       "unit": "hours",
       "default": 10,
       "min": 0,
-      "max": 1000,
+      "max": null,
       "options": null,
-      "businessContext": "Total estimated print time. Affects machine utilization and labor cost."
+      "businessContext": "Total machine runtime for the job. Critical for machine utilization and energy cost estimation."
     },
     {
       "id": "machineHourlyRate",
       "label": "Machine Hourly Rate",
       "type": "number",
       "unit": "USD/hour",
-      "default": 5,
+      "default": 15,
       "min": 0,
-      "max": 100,
+      "max": null,
       "options": null,
-      "businessContext": "Depreciation, maintenance, and electricity cost per hour of printer operation. Typical range $2-20."
+      "businessContext": "Depreciation, maintenance, and overhead cost per hour. Calculated based on machine purchase price, lifespan, and maintenance schedule (ISO 15663)."
     },
     {
       "id": "laborHourlyRate",
@@ -52,90 +52,86 @@
       "unit": "USD/hour",
       "default": 25,
       "min": 0,
-      "max": 200,
+      "max": null,
       "options": null,
-      "businessContext": "Operator's hourly wage including overhead. Based on local labor market."
+      "businessContext": "Operator wage including benefits. Based on local labor market and skill level required (e.g., technician vs engineer)."
     },
     {
-      "id": "laborTimeHours",
-      "label": "Labor Time (hours)",
+      "id": "laborHours",
+      "label": "Labor Hours per Job",
       "type": "number",
       "unit": "hours",
       "default": 2,
       "min": 0,
-      "max": 100,
+      "max": null,
       "options": null,
-      "businessContext": "Time spent on setup, post-processing, and quality check. Typically 10-30% of print time."
+      "businessContext": "Time spent on setup, monitoring, post-processing, and quality inspection. Lean manufacturing principles (SMED) can reduce this."
     },
     {
-      "id": "overheadPercent",
-      "label": "Overhead (%)",
+      "id": "energyCostPerKwh",
+      "label": "Energy Cost per kWh",
       "type": "number",
-      "unit": "%",
-      "default": 20,
+      "unit": "USD/kWh",
+      "default": 0.12,
       "min": 0,
-      "max": 100,
+      "max": null,
       "options": null,
-      "businessContext": "Facility, administrative, and indirect costs as percentage of direct costs. Industry standard 15-30%."
+      "businessContext": "Local electricity rate. Energy consumption is a significant cost driver for high-temperature printing (ISO 50001)."
     },
     {
-      "id": "targetMarginPercent",
-      "label": "Target Margin (%)",
+      "id": "machinePowerKw",
+      "label": "Machine Power Consumption",
       "type": "number",
-      "unit": "%",
-      "default": 30,
+      "unit": "kW",
+      "default": 0.5,
       "min": 0,
-      "max": 100,
+      "max": null,
       "options": null,
-      "businessContext": "Desired profit margin on the job. Typical range 20-50% for custom manufacturing."
+      "businessContext": "Average power draw during printing. Varies by printer model and material (e.g., PLA vs PEEK)."
     },
     {
-      "id": "wastePercent",
-      "label": "Waste (%)",
+      "id": "defectRate",
+      "label": "Defect Rate",
       "type": "number",
       "unit": "%",
       "default": 5,
       "min": 0,
-      "max": 50,
+      "max": 100,
       "options": null,
-      "businessContext": "Expected material waste due to supports, failed prints, or calibration. Lean manufacturing target <5%."
+      "businessContext": "Percentage of jobs that fail or require rework. Based on historical quality data (Six Sigma DMAIC)."
     },
     {
-      "id": "postProcessingCost",
-      "label": "Post-Processing Cost",
+      "id": "overheadRate",
+      "label": "Overhead Rate",
       "type": "number",
-      "unit": "USD",
-      "default": 0,
+      "unit": "%",
+      "default": 20,
       "min": 0,
-      "max": 1000,
+      "max": null,
       "options": null,
-      "businessContext": "Additional costs for sanding, painting, or assembly. Often quoted separately."
+      "businessContext": "Facility, administrative, and indirect costs as a percentage of direct costs. Standard cost accounting practice."
     },
     {
-      "id": "shippingCost",
-      "label": "Shipping Cost",
+      "id": "sellingPrice",
+      "label": "Selling Price per Job",
       "type": "number",
       "unit": "USD",
-      "default": 0,
+      "default": 200,
       "min": 0,
-      "max": 500,
+      "max": null,
       "options": null,
-      "businessContext": "Cost to deliver the finished part to the customer."
+      "businessContext": "Price charged to customer. Determined by market research and value-based pricing."
     },
     {
       "id": "dataConfidence",
-      "label": "Data Confidence",
-      "type": "select",
-      "unit": "",
-      "default": "medium",
-      "min": null,
-      "max": null,
-      "options": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "businessContext": "Confidence level in input estimates. Low adds a risk buffer, high uses raw values."
+      "label": "Data Confidence Level",
+      "type": "number",
+      "unit": "%",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Subjective confidence in input data accuracy. Used to adjust final margin for uncertainty (Monte Carlo simulation concept)."
     }
   ],
   "validation": {
@@ -145,62 +141,63 @@
       "printTimeHours >= 0",
       "machineHourlyRate >= 0",
       "laborHourlyRate >= 0",
-      "laborTimeHours >= 0",
-      "overheadPercent >= 0 and overheadPercent <= 100",
-      "targetMarginPercent >= 0 and targetMarginPercent <= 100",
-      "wastePercent >= 0 and wastePercent <= 50",
-      "postProcessingCost >= 0",
-      "shippingCost >= 0",
-      "if materialUsageKg > 0 then materialCostPerKg > 0",
-      "if printTimeHours > 0 then machineHourlyRate > 0",
-      "if laborTimeHours > 0 then laborHourlyRate > 0"
+      "laborHours >= 0",
+      "energyCostPerKwh >= 0",
+      "machinePowerKw >= 0",
+      "defectRate >= 0 && defectRate <= 100",
+      "overheadRate >= 0",
+      "sellingPrice >= 0",
+      "dataConfidence >= 0 && dataConfidence <= 100"
     ],
     "thresholds": {
-      "wastePercent > 10": "High waste percentage may indicate process inefficiency.",
-      "overheadPercent > 30": "Overhead above 30% may erode competitiveness.",
-      "targetMarginPercent < 10": "Margin below 10% may not cover risks.",
-      "materialCostPerKg > 200": "Material cost is high; consider alternative materials."
+      "defectRate": "defectRate > 10 ? 'High defect rate: investigate process stability' : ''",
+      "marginPercent": "marginPercent < 10 ? 'Low margin: consider cost reduction or price increase' : ''",
+      "dataConfidence": "dataConfidence < 50 ? 'Low data confidence: results may be unreliable' : ''"
     }
   },
   "formulas": {
-    "materialCost": "materialCostPerKg * materialUsageKg * (1 + wastePercent / 100)",
-    "machineCost": "printTimeHours * machineHourlyRate",
-    "laborCost": "laborTimeHours * laborHourlyRate",
-    "directCost": "materialCost + machineCost + laborCost + postProcessingCost + shippingCost",
-    "totalCost": "directCost * (1 + overheadPercent / 100)",
-    "price": "totalCost / (1 - targetMarginPercent / 100)",
-    "margin": "(price - totalCost) / price * 100",
-    "dataConfidenceAdjusted": "case dataConfidence when 'low' then totalCost * 1.2 when 'medium' then totalCost * 1.1 else totalCost end"
+    "materialCost": "materialCostPerKg * materialUsageKg",
+    "machineCost": "machineHourlyRate * printTimeHours",
+    "laborCost": "laborHourlyRate * laborHours",
+    "energyCost": "energyCostPerKwh * machinePowerKw * printTimeHours",
+    "directCost": "materialCost + machineCost + laborCost + energyCost",
+    "overheadCost": "directCost * (overheadRate / 100)",
+    "totalCost": "directCost + overheadCost",
+    "defectCost": "totalCost * (defectRate / 100)",
+    "adjustedTotalCost": "totalCost + defectCost",
+    "margin": "sellingPrice - adjustedTotalCost",
+    "marginPercent": "(margin / sellingPrice) * 100",
+    "dataConfidenceAdjustedMargin": "margin * (dataConfidence / 100)"
   },
   "outputs": {
-    "primary": "price",
+    "primary": "marginPercent",
     "breakdown": {
       "materialCost": "materialCost",
       "machineCost": "machineCost",
       "laborCost": "laborCost",
-      "directCost": "directCost",
-      "overheadCost": "totalCost - directCost",
-      "totalCost": "totalCost",
-      "marginPercent": "margin"
+      "energyCost": "energyCost",
+      "overheadCost": "overheadCost",
+      "defectCost": "defectCost",
+      "totalCost": "adjustedTotalCost",
+      "margin": "margin"
     },
     "hiddenLossDrivers": [
-      "wastePercent > 10 ? 'High waste' : ''",
-      "overheadPercent > 30 ? 'High overhead' : ''",
-      "targetMarginPercent < 10 ? 'Low margin' : ''"
+      "defectRate > 10 ? 'High defect rate' : ''",
+      "marginPercent < 10 ? 'Low margin' : ''",
+      "dataConfidence < 50 ? 'Low data confidence' : ''"
     ],
     "suggestedActions": [
-      "wastePercent > 10 ? 'Optimize print settings to reduce waste.' : ''",
-      "overheadPercent > 30 ? 'Review overhead allocation.' : ''",
-      "targetMarginPercent < 10 ? 'Increase price or reduce costs.' : ''"
+      "defectRate > 10 ? 'Implement process control (SPC) and root cause analysis' : ''",
+      "marginPercent < 10 ? 'Review material sourcing, reduce print time, or increase price' : ''",
+      "dataConfidence < 50 ? 'Collect more accurate data from sensors and job logs' : ''"
     ],
-    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedMargin"
   },
   "premiumFeatures": [
-    "PDF export of detailed cost breakdown",
-    "CSV export for batch analysis",
-    "Trend analysis over multiple jobs",
-    "Comparison with historical jobs",
-    "Detailed report with graphs"
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Benchmarking against industry standards",
+    "Detailed cost breakdown report"
   ],
   "premiumRequired": true
 }

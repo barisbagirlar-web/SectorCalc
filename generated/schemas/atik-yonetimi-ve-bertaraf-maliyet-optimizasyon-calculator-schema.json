@@ -2,15 +2,15 @@
   "toolName": "atik-yonetimi-ve-bertaraf-maliyet-optimizasyon-calculator",
   "inputs": [
     {
-      "id": "wasteVolume",
-      "label": "Atık Hacmi",
+      "id": "annualWasteVolume",
+      "label": "Yıllık Atık Hacmi",
       "type": "number",
       "unit": "ton/yıl",
-      "default": 100,
+      "default": 1000,
       "min": 0,
-      "max": 100000,
+      "max": null,
       "options": null,
-      "businessContext": "Yıllık toplam atık miktarı (ton cinsinden). Atık yönetimi planlamasının temel girdisidir."
+      "businessContext": "Toplam atık miktarı (ton cinsinden). ISO 14000 çevre yönetim sistemi kapsamında atık envanteri için temel girdi."
     },
     {
       "id": "wasteType",
@@ -21,14 +21,13 @@
       "min": null,
       "max": null,
       "options": [
+        "mixed",
         "organic",
         "recyclable",
         "hazardous",
-        "mixed",
-        "construction",
-        "electronic"
+        "construction"
       ],
-      "businessContext": "Atığın kategorisi; bertaraf maliyeti ve yöntemi atık türüne göre değişir."
+      "businessContext": "Atığın sınıflandırılması; bertaraf yöntemi ve maliyeti doğrudan etkiler. AB Atık Çerçeve Direktifi ve yerel düzenlemeler referans alınır."
     },
     {
       "id": "disposalMethod",
@@ -45,7 +44,7 @@
         "composting",
         "anaerobic_digestion"
       ],
-      "businessContext": "Atığın bertaraf edilme yöntemi; her yöntemin birim maliyeti farklıdır."
+      "businessContext": "Atığın bertaraf edilme şekli; maliyet ve çevresel etkiyi belirler. ISO 14040 yaşam döngüsü değerlendirmesi prensipleri kullanılır."
     },
     {
       "id": "unitDisposalCost",
@@ -54,42 +53,53 @@
       "unit": "USD/ton",
       "default": 50,
       "min": 0,
-      "max": 1000,
+      "max": null,
       "options": null,
-      "businessContext": "Seçilen bertaraf yöntemi için ton başına maliyet. Piyasa verilerine dayanır."
+      "businessContext": "Her bir atık tonu için bertaraf ücreti. Piyasa fiyatları ve yerel tarifeler baz alınır."
     },
     {
-      "id": "transportDistance",
-      "label": "Taşıma Mesafesi",
+      "id": "transportCostPerTonKm",
+      "label": "Taşıma Maliyeti (ton-km başına)",
+      "type": "number",
+      "unit": "USD/(ton·km)",
+      "default": 0.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Atığın toplama noktasından bertaraf tesisine taşınması için birim maliyet. Lojistik maliyet analizi için kullanılır."
+    },
+    {
+      "id": "averageDistance",
+      "label": "Ortalama Taşıma Mesafesi",
       "type": "number",
       "unit": "km",
       "default": 50,
       "min": 0,
-      "max": 1000,
+      "max": null,
       "options": null,
-      "businessContext": "Atığın bertaraf tesisine taşınma mesafesi; yakıt ve zaman maliyetini etkiler."
+      "businessContext": "Atığın bertaraf tesisine ortalama uzaklığı. Yakıt, işçilik ve araç maliyetlerini etkiler."
     },
     {
-      "id": "transportCostPerKm",
-      "label": "Km Başına Taşıma Maliyeti",
+      "id": "recyclingRevenuePerTon",
+      "label": "Geri Dönüşüm Geliri (ton başına)",
       "type": "number",
-      "unit": "USD/km",
-      "default": 2,
+      "unit": "USD/ton",
+      "default": 20,
       "min": 0,
-      "max": 10,
+      "max": null,
       "options": null,
-      "businessContext": "Araç yakıt, bakım ve işçilik maliyetlerini içeren birim taşıma maliyeti."
+      "businessContext": "Geri dönüştürülebilir atıklardan elde edilen gelir. Piyasa fiyatlarına bağlıdır."
     },
     {
       "id": "laborCostPerHour",
-      "label": "Saatlik İşçilik Maliyeti",
+      "label": "İşçilik Maliyeti (saat başına)",
       "type": "number",
       "unit": "USD/saat",
-      "default": 25,
+      "default": 15,
       "min": 0,
-      "max": 100,
+      "max": null,
       "options": null,
-      "businessContext": "Atık yönetimi operasyonlarında çalışan işçilerin saatlik ücreti."
+      "businessContext": "Atık yönetimi operasyonlarında çalışan işçilerin saatlik ücreti. Endüstri mühendisliği iş etüdü prensipleri kullanılır."
     },
     {
       "id": "laborHoursPerTon",
@@ -98,122 +108,100 @@
       "unit": "saat/ton",
       "default": 0.5,
       "min": 0,
-      "max": 10,
+      "max": null,
       "options": null,
-      "businessContext": "Bir ton atığın işlenmesi için gereken ortalama işçilik süresi."
+      "businessContext": "Bir ton atığın işlenmesi için gereken işçilik süresi. Zaman etüdü ve standart zaman verileri kullanılır."
     },
     {
-      "id": "recyclingRevenuePerTon",
-      "label": "Ton Başına Geri Dönüşüm Geliri",
+      "id": "equipmentCostPerYear",
+      "label": "Yıllık Ekipman Maliyeti",
       "type": "number",
-      "unit": "USD/ton",
-      "default": 0,
+      "unit": "USD/yıl",
+      "default": 10000,
       "min": 0,
-      "max": 500,
+      "max": null,
       "options": null,
-      "businessContext": "Geri dönüştürülebilir atıklardan elde edilen gelir; yalnızca recycling yöntemi için geçerlidir."
-    },
-    {
-      "id": "penaltyRate",
-      "label": "Ceza Oranı",
-      "type": "number",
-      "unit": "%",
-      "default": 0,
-      "min": 0,
-      "max": 100,
-      "options": null,
-      "businessContext": "Çevresel düzenlemelere uyumsuzluk durumunda uygulanan ceza oranı (yüzde)."
-    },
-    {
-      "id": "complianceScore",
-      "label": "Uyum Skoru",
-      "type": "number",
-      "unit": "",
-      "default": 100,
-      "min": 0,
-      "max": 100,
-      "options": null,
-      "businessContext": "Atık yönetimi düzenlemelerine uyum seviyesi (0-100). Düşük skor ceza riskini artırır."
+      "businessContext": "Atık yönetimi ekipmanlarının (kamyon, konteyner, vb.) yıllık amortisman ve bakım maliyeti."
     },
     {
       "id": "dataConfidence",
-      "label": "Veri Güveni",
-      "type": "number",
-      "unit": "%",
-      "default": 80,
-      "min": 0,
-      "max": 100,
-      "options": null,
-      "businessContext": "Girdi verilerinin güvenilirlik yüzdesi; düşük değer sonuçlarda belirsizlik yaratır."
+      "label": "Veri Güven Düzeyi",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar daha temkinli yorumlanmalıdır."
     }
   ],
   "validation": {
     "rules": [
-      "wasteVolume >= 0",
+      "annualWasteVolume > 0",
       "unitDisposalCost >= 0",
-      "transportDistance >= 0",
-      "transportCostPerKm >= 0",
+      "transportCostPerTonKm >= 0",
+      "averageDistance >= 0",
+      "recyclingRevenuePerTon >= 0",
       "laborCostPerHour >= 0",
       "laborHoursPerTon >= 0",
-      "recyclingRevenuePerTon >= 0",
-      "penaltyRate between 0 and 100",
-      "complianceScore between 0 and 100",
-      "dataConfidence between 0 and 100",
-      "if disposalMethod == 'recycling' then recyclingRevenuePerTon > 0 else recyclingRevenuePerTon == 0",
-      "if wasteType == 'hazardous' then unitDisposalCost >= 100 (higher cost for hazardous)",
-      "if complianceScore < 50 then penaltyRate > 0"
+      "equipmentCostPerYear >= 0",
+      "if wasteType == 'hazardous' then disposalMethod must be 'incineration' or 'landfill' (special handling)",
+      "if disposalMethod == 'recycling' then recyclingRevenuePerTon > 0"
     ],
     "thresholds": {
-      "totalExposureCritical": "totalExposure > 100000",
-      "totalExposureWarning": "totalExposure > 50000",
-      "variancePercentCritical": "variancePercent > 20",
-      "variancePercentWarning": "variancePercent > 10",
-      "complianceScoreLow": "complianceScore < 60"
+      "totalCostPerTon": {
+        "warning": 100,
+        "critical": 200
+      },
+      "recyclingRate": {
+        "warning": 0.2,
+        "critical": 0.1
+      }
     }
   },
   "formulas": {
-    "disposalCost": "wasteVolume * unitDisposalCost",
-    "transportCost": "wasteVolume * transportDistance * transportCostPerKm",
-    "laborCost": "wasteVolume * laborHoursPerTon * laborCostPerHour",
-    "recyclingRevenue": "disposalMethod == 'recycling' ? wasteVolume * recyclingRevenuePerTon : 0",
-    "penaltyCost": "wasteVolume * unitDisposalCost * (penaltyRate / 100) * ((100 - complianceScore) / 100)",
-    "totalExposure": "disposalCost + transportCost + laborCost - recyclingRevenue + penaltyCost",
-    "variancePercent": "abs((totalExposure - (disposalCost + transportCost + laborCost - recyclingRevenue)) / (disposalCost + transportCost + laborCost - recyclingRevenue)) * 100",
-    "summaryLevel": "totalExposure > 100000 ? 'critical' : (totalExposure > 50000 ? 'warning' : 'normal')",
-    "primaryDriver": "max(disposalCost, transportCost, laborCost, penaltyCost) == disposalCost ? 'disposalCost' : (max(disposalCost, transportCost, laborCost, penaltyCost) == transportCost ? 'transportCost' : (max(disposalCost, transportCost, laborCost, penaltyCost) == laborCost ? 'laborCost' : 'penaltyCost'))",
-    "decisionVerdict": "totalExposure > 100000 ? 'RED' : (totalExposure > 50000 ? 'AMBER' : 'GREEN')",
-    "dataConfidenceAdjusted": "totalExposure * (dataConfidence / 100)"
+    "transportCost": "annualWasteVolume * transportCostPerTonKm * averageDistance",
+    "disposalCost": "annualWasteVolume * unitDisposalCost",
+    "laborCost": "annualWasteVolume * laborHoursPerTon * laborCostPerHour",
+    "totalDirectCost": "transportCost + disposalCost + laborCost + equipmentCostPerYear",
+    "recyclingRevenue": "annualWasteVolume * recyclingRevenuePerTon",
+    "netCost": "totalDirectCost - recyclingRevenue",
+    "totalCostPerTon": "netCost / annualWasteVolume",
+    "recyclingRate": "if disposalMethod == 'recycling' then 1 else if disposalMethod == 'composting' or 'anaerobic_digestion' then 0.8 else 0",
+    "dataConfidenceAdjusted": "if dataConfidence == 'low' then totalCostPerTon * 1.2 else if dataConfidence == 'medium' then totalCostPerTon * 1.05 else totalCostPerTon"
   },
   "outputs": {
-    "primary": "totalExposure (USD) - Toplam bertaraf maliyeti",
+    "primary": "totalCostPerTon",
     "breakdown": {
-      "disposalCost": "Bertaraf maliyeti (USD)",
-      "transportCost": "Taşıma maliyeti (USD)",
-      "laborCost": "İşçilik maliyeti (USD)",
-      "recyclingRevenue": "Geri dönüşüm geliri (USD)",
-      "penaltyCost": "Ceza maliyeti (USD)"
+      "transportCost": "transportCost",
+      "disposalCost": "disposalCost",
+      "laborCost": "laborCost",
+      "equipmentCost": "equipmentCostPerYear",
+      "recyclingRevenue": "recyclingRevenue",
+      "netCost": "netCost"
     },
     "hiddenLossDrivers": [
-      "penaltyCost > 0 ? 'Yüksek ceza maliyeti: uyum skorunu artırın' : null",
-      "variancePercent > 20 ? 'Yüksek varyans: veri güvenini kontrol edin' : null",
-      "complianceScore < 60 ? 'Düşük uyum skoru: düzenleyici risk' : null"
+      "if totalCostPerTon > 200 then 'Yüksek birim maliyet: bertaraf yöntemi veya taşıma mesafesi optimize edilmeli'",
+      "if recyclingRate < 0.1 then 'Düşük geri dönüşüm oranı: atık ayrıştırma ve geri kazanım süreçleri iyileştirilmeli'"
     ],
     "suggestedActions": [
-      "Atık hacmini azaltmak için kaynak azaltma stratejileri uygulayın",
-      "Daha düşük maliyetli bertaraf yöntemlerini değerlendirin (ör. geri dönüşüm)",
-      "Taşıma mesafesini optimize edin veya yerel tesisler kullanın",
-      "İşçilik verimliliğini artırın (eğitim, otomasyon)",
-      "Uyum skorunu iyileştirmek için çevre yönetim sistemine yatırım yapın"
+      "Atık türüne göre bertaraf yöntemini optimize edin (örneğin, organik atık için kompostlama)",
+      "Taşıma mesafesini azaltmak için yerel bertaraf tesisleri ile anlaşma yapın",
+      "Geri dönüşüm oranını artırmak için kaynakta ayrıştırma programı başlatın",
+      "İşçilik verimliliğini artırmak için süreç iyileştirme (Lean) uygulayın"
     ],
-    "dataConfidenceAdjusted": "totalExposure * (dataConfidence / 100)"
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
   },
   "premiumFeatures": [
-    "PDF raporu",
-    "CSV veri dışa aktarımı",
+    "PDF raporu dışa aktarma",
+    "CSV veri dışa aktarma",
     "Trend analizi (geçmiş verilerle karşılaştırma)",
     "Senaryo karşılaştırma (farklı atık türleri/yöntemleri)",
-    "Detaylı maliyet kırılımı grafikleri",
-    "Özelleştirilebilir uyarı eşikleri"
+    "Detaylı maliyet kırılımı grafikleri"
   ],
   "premiumRequired": true
 }

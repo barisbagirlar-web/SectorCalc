@@ -5,89 +5,121 @@
       "id": "fixedCosts",
       "label": "Fixed Costs",
       "type": "number",
-      "unit": "USD",
+      "unit": "currency",
       "default": 0,
       "min": 0,
       "max": null,
       "options": null,
-      "businessContext": "Total fixed costs per period (e.g., rent, salaries, insurance). Based on cost accounting principles."
+      "businessContext": "Total fixed costs (e.g., rent, salaries, insurance) per period. Based on cost accounting standards (e.g., GAAP, IFRS)."
     },
     {
       "id": "variableCostPerUnit",
       "label": "Variable Cost per Unit",
       "type": "number",
-      "unit": "USD/unit",
+      "unit": "currency/unit",
       "default": 0,
       "min": 0,
       "max": null,
       "options": null,
-      "businessContext": "Cost that varies with each unit produced (materials, labor). Standard cost accounting."
+      "businessContext": "Cost that varies with production volume (e.g., materials, labor). Standard in managerial accounting."
     },
     {
       "id": "sellingPricePerUnit",
       "label": "Selling Price per Unit",
       "type": "number",
-      "unit": "USD/unit",
+      "unit": "currency/unit",
       "default": 0,
       "min": 0,
       "max": null,
       "options": null,
-      "businessContext": "Price at which each unit is sold. Determines contribution margin."
+      "businessContext": "Revenue per unit sold. Must exceed variable cost for positive contribution margin."
     },
     {
-      "id": "periodDays",
-      "label": "Period Days",
+      "id": "timePeriod",
+      "label": "Time Period",
+      "type": "select",
+      "unit": "",
+      "default": "month",
+      "min": null,
+      "max": null,
+      "options": [
+        "day",
+        "week",
+        "month",
+        "quarter",
+        "year"
+      ],
+      "businessContext": "Period for which fixed costs are defined. Aligns with financial reporting periods."
+    },
+    {
+      "id": "targetProfit",
+      "label": "Target Profit",
       "type": "number",
-      "unit": "days",
-      "default": 365,
-      "min": 1,
-      "max": 3650,
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
       "options": null,
-      "businessContext": "Length of the period for which fixed costs are defined. Used for annualization."
+      "businessContext": "Desired profit above break-even. Used for target volume calculations."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data (e.g., based on historical accuracy). Adjusts results for uncertainty."
     }
   ],
   "validation": {
     "rules": [
-      "fixedCosts must be >= 0",
-      "variableCostPerUnit must be >= 0",
-      "sellingPricePerUnit must be > 0",
-      "periodDays must be between 1 and 3650",
-      "sellingPricePerUnit must be > variableCostPerUnit to have a positive contribution margin"
+      "sellingPricePerUnit > variableCostPerUnit",
+      "fixedCosts >= 0",
+      "variableCostPerUnit >= 0",
+      "sellingPricePerUnit >= 0",
+      "targetProfit >= 0",
+      "dataConfidence >= 0 && dataConfidence <= 100"
     ],
     "thresholds": {
-      "contributionMargin": "If contributionMargin <= 0, break-even is impossible (infinite units).",
-      "breakEvenUnits": "If breakEvenUnits > 1e6, consider reducing fixed costs or increasing price."
+      "contributionMargin": "if contributionMargin <= 0 then 'CRITICAL: Selling price does not cover variable cost. No break-even possible.'",
+      "breakEvenUnits": "if breakEvenUnits > 1000000 then 'WARNING: Break-even volume is very high. Consider reducing fixed costs or increasing price.'"
     }
   },
   "formulas": {
     "contributionMargin": "sellingPricePerUnit - variableCostPerUnit",
     "breakEvenUnits": "fixedCosts / contributionMargin",
     "breakEvenRevenue": "breakEvenUnits * sellingPricePerUnit",
-    "annualizedBreakEvenUnits": "breakEvenUnits * (365 / periodDays)"
+    "targetProfitUnits": "(fixedCosts + targetProfit) / contributionMargin",
+    "targetProfitRevenue": "targetProfitUnits * sellingPricePerUnit",
+    "dataConfidenceAdjustedBreakEvenUnits": "breakEvenUnits * (100 / dataConfidence)"
   },
   "outputs": {
     "primary": "breakEvenUnits",
     "breakdown": {
       "contributionMargin": "contributionMargin",
       "breakEvenRevenue": "breakEvenRevenue",
-      "annualizedBreakEvenUnits": "annualizedBreakEvenUnits"
+      "targetProfitUnits": "targetProfitUnits",
+      "targetProfitRevenue": "targetProfitRevenue"
     },
     "hiddenLossDrivers": [
-      "If contributionMargin <= 0: 'Negative or zero contribution margin; break-even not achievable.'",
-      "If breakEvenUnits > 1e6: 'Break-even point exceeds 1 million units; review cost structure.'"
+      "if contributionMargin <= 0 then 'Negative contribution margin: product is not viable.'",
+      "if breakEvenUnits > 1000000 then 'Extremely high break-even volume may indicate unrealistic pricing or cost structure.'"
     ],
     "suggestedActions": [
-      "If contributionMargin is low: 'Consider reducing variable costs or increasing selling price.'",
-      "If breakEvenUnits is high: 'Evaluate reducing fixed costs or improving operational efficiency.'"
+      "If break-even volume is too high, consider reducing fixed costs (e.g., renegotiate rent, outsource).",
+      "If contribution margin is low, evaluate increasing selling price or reducing variable costs (e.g., better supplier deals).",
+      "Use target profit analysis to set sales goals."
     ],
-    "dataConfidenceAdjusted": "breakEvenUnits * (1 + (1 - dataConfidence) * 0.1) if dataConfidence provided"
+    "dataConfidenceAdjusted": "dataConfidenceAdjustedBreakEvenUnits"
   },
   "premiumFeatures": [
-    "PDF export of break-even chart",
-    "CSV export of scenario analysis",
-    "Trend analysis over multiple periods",
-    "Comparison with industry benchmarks",
-    "Detailed report with sensitivity analysis"
+    "PDF/CSV export",
+    "Trend analysis (multi-period comparison)",
+    "Scenario comparison (what-if analysis)",
+    "Detailed report with charts"
   ],
   "premiumRequired": true
 }

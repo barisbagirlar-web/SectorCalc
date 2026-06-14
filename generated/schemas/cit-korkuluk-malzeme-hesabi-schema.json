@@ -1,0 +1,145 @@
+{
+  "toolName": "cit-korkuluk-malzeme-hesabi",
+  "inputs": [
+    {
+      "id": "korkulukBoyu",
+      "label": "Korkuluk Boyu",
+      "type": "number",
+      "unit": "m",
+      "default": 10,
+      "min": 1,
+      "max": 1000,
+      "options": null,
+      "businessContext": "Korkuluk yapılacak alanın toplam uzunluğu. TS 498, TS 500 standartlarına göre yapısal hesaplamalarda kullanılır."
+    },
+    {
+      "id": "korkulukYuksekligi",
+      "label": "Korkuluk Yüksekliği",
+      "type": "number",
+      "unit": "m",
+      "default": 1.1,
+      "min": 0.5,
+      "max": 2.5,
+      "options": null,
+      "businessContext": "Korkuluk yüksekliği. Bina yönetmeliklerine göre genellikle 1.10 m. TS 9111 standardı."
+    },
+    {
+      "id": "malzemeTuru",
+      "label": "Malzeme Türü",
+      "type": "select",
+      "unit": "",
+      "default": "celik",
+      "min": null,
+      "max": null,
+      "options": [
+        "celik",
+        "aluminyum",
+        "paslanmaz"
+      ],
+      "businessContext": "Korkulukta kullanılacak ana malzeme. Her malzemenin birim ağırlığı ve maliyeti farklıdır."
+    },
+    {
+      "id": "profilKesiti",
+      "label": "Profil Kesiti",
+      "type": "select",
+      "unit": "",
+      "default": "kare40x40",
+      "min": null,
+      "max": null,
+      "options": [
+        "kare40x40",
+        "kare50x50",
+        "dikdortgen40x60",
+        "dairesel42.4"
+      ],
+      "businessContext": "Kullanılacak profil kesit tipi. Her kesitin birim ağırlığı farklıdır. TS 914 standardı."
+    },
+    {
+      "id": "dikeyAralik",
+      "label": "Dikey Çubuk Aralığı",
+      "type": "number",
+      "unit": "m",
+      "default": 0.1,
+      "min": 0.05,
+      "max": 0.2,
+      "options": null,
+      "businessContext": "Dikey çubuklar arasındaki mesafe. Yönetmeliklere göre 0.10 m'den fazla olmamalıdır (çocuk güvenliği)."
+    },
+    {
+      "id": "yatayKisitSayisi",
+      "label": "Yatay Kiriş Sayısı",
+      "type": "number",
+      "unit": "adet",
+      "default": 2,
+      "min": 1,
+      "max": 4,
+      "options": null,
+      "businessContext": "Korkuluk boyunca uzanan yatay kiriş sayısı. Genellikle 2 veya 3."
+    },
+    {
+      "id": "birimFiyat",
+      "label": "Birim Fiyat (kg başına)",
+      "type": "number",
+      "unit": "TL/kg",
+      "default": 15,
+      "min": 5,
+      "max": 100,
+      "options": null,
+      "businessContext": "Malzemenin kg başına maliyeti. Güncel piyasa fiyatlarına göre belirlenir."
+    },
+    {
+      "id": "iscilikFaktoru",
+      "label": "İşçilik Faktörü",
+      "type": "number",
+      "unit": "",
+      "default": 1.3,
+      "min": 1,
+      "max": 2,
+      "options": null,
+      "businessContext": "Malzeme maliyetine eklenen işçilik ve montaj faktörü. Genellikle 1.2-1.5 arası."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "dikeyAralik <= 0.10 ? 'Dikey aralık 0.10 m'den büyük olamaz (çocuk güvenliği)' : ''",
+      "korkulukYuksekligi >= 1.10 ? '' : 'Korkuluk yüksekliği en az 1.10 m olmalıdır'"
+    ],
+    "thresholds": {
+      "toplamMaliyet": "> 10000 ? 'Yüksek maliyet uyarısı' : ''"
+    }
+  },
+  "formulas": {
+    "dikeyCubukSayisi": "Math.ceil(korkulukBoyu / dikeyAralik) + 1",
+    "dikeyCubukToplamBoy": "dikeyCubukSayisi * korkulukYuksekligi",
+    "yatayKirisToplamBoy": "yatayKisitSayisi * korkulukBoyu",
+    "toplamProfilBoyu": "dikeyCubukToplamBoy + yatayKirisToplamBoy",
+    "birimAgirlik": "profilKesiti === 'kare40x40' ? 2.5 : profilKesiti === 'kare50x50' ? 3.5 : profilKesiti === 'dikdortgen40x60' ? 3.0 : 2.8",
+    "toplamAgirlik": "toplamProfilBoyu * birimAgirlik",
+    "malzemeMaliyeti": "toplamAgirlik * birimFiyat",
+    "toplamMaliyet": "malzemeMaliyeti * iscilikFaktoru"
+  },
+  "outputs": {
+    "primary": "toplamMaliyet",
+    "breakdown": {
+      "toplamAgirlik": "toplamAgirlik",
+      "malzemeMaliyeti": "malzemeMaliyeti",
+      "iscilikMaliyeti": "malzemeMaliyeti * (iscilikFaktoru - 1)"
+    },
+    "hiddenLossDrivers": [
+      "dikeyAralik > 0.10 ? 'Dikey aralık güvenlik sınırını aşıyor' : ''",
+      "toplamMaliyet > 10000 ? 'Toplam maliyet yüksek' : ''"
+    ],
+    "suggestedActions": [
+      "Daha hafif profil kesiti seçerek maliyeti düşürebilirsiniz.",
+      "Toplu alımda birim fiyat indirimi için tedarikçi ile görüşün."
+    ],
+    "dataConfidenceAdjusted": "toplamMaliyet * 1.1"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi",
+    "Karşılaştırma",
+    "Detaylı rapor"
+  ],
+  "premiumRequired": true
+}

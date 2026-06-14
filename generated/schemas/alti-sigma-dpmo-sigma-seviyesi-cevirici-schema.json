@@ -2,71 +2,89 @@
   "toolName": "alti-sigma-dpmo-sigma-seviyesi-cevirici",
   "inputs": [
     {
-      "id": "dpmo",
-      "label": "DPMO (Defects Per Million Opportunities)",
+      "id": "defects",
+      "label": "Defect Count",
       "type": "number",
-      "unit": "defects/million",
-      "default": 1000,
+      "unit": "adet",
+      "default": 0,
       "min": 0,
-      "max": 1000000,
+      "max": null,
       "options": null,
-      "businessContext": "DPMO, Six Sigma'da süreç performansını ölçmek için kullanılan temel metriktir. Milyon fırsat başına düşen hata sayısını ifade eder. Daha düşük DPMO, daha yüksek süreç kalitesini gösterir."
+      "businessContext": "Toplam hata sayısı. Six Sigma projelerinde temel ölçüt."
+    },
+    {
+      "id": "units",
+      "label": "Unit Count",
+      "type": "number",
+      "unit": "adet",
+      "default": 1,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Üretilen veya test edilen toplam birim sayısı."
+    },
+    {
+      "id": "opportunitiesPerUnit",
+      "label": "Opportunities per Unit",
+      "type": "number",
+      "unit": "adet/birim",
+      "default": 1,
+      "min": 1,
+      "max": null,
+      "options": null,
+      "businessContext": "Her birimde hata oluşma fırsatı sayısı. Genellikle ürün karmaşıklığına bağlı."
     },
     {
       "id": "sigmaShift",
-      "label": "Sigma Shift (Ortalama Kayması)",
+      "label": "Sigma Shift",
       "type": "number",
       "unit": "sigma",
       "default": 1.5,
       "min": 0,
       "max": 2,
       "options": null,
-      "businessContext": "Six Sigma'da uzun vadeli süreç performansını kısa vadeli performansa dönüştürmek için kullanılan standart kayma değeridir. Genellikle 1.5 sigma olarak kabul edilir (Motorola standardı)."
+      "businessContext": "Uzun dönem sigma seviyesine uygulanan kayma. Six Sigma'da standart 1.5 sigma kayması kullanılır (Motorola)."
     }
   ],
   "validation": {
     "rules": [
-      "dpmo must be a finite number between 0 and 1,000,000",
-      "sigmaShift must be a finite number between 0 and 2",
-      "If dpmo is 0, sigma level is theoretically infinite; output will be capped at 6 sigma for practical purposes"
+      "defects >= 0",
+      "units >= 1",
+      "opportunitiesPerUnit >= 1",
+      "sigmaShift >= 0 and sigmaShift <= 2"
     ],
     "thresholds": {
-      "dpmo": {
-        "critical": 100000,
-        "warning": 10000
-      }
+      "defects > units * opportunitiesPerUnit": "Hata sayısı toplam fırsattan fazla olamaz.",
+      "dpmo > 100000": "DPMO çok yüksek, süreç iyileştirme acil."
     }
   },
   "formulas": {
-    "dpmoToSigmaLevel": "sigmaLevel = normsinv(1 - dpmo/1000000) + sigmaShift",
-    "sigmaLevelToDpmo": "dpmo = (1 - normcdf(sigmaLevel - sigmaShift)) * 1000000",
-    "yield": "yield = (1 - dpmo/1000000) * 100",
-    "defectRate": "defectRate = dpmo / 1000000"
+    "totalOpportunities": "units * opportunitiesPerUnit",
+    "dpmo": "(defects / totalOpportunities) * 1000000",
+    "sigmaLevel": "normsinv(1 - (dpmo / 1000000)) + sigmaShift"
   },
   "outputs": {
     "primary": "sigmaLevel",
     "breakdown": {
-      "sigmaLevel": "Hesaplanan sigma seviyesi (kısa vadeli, shift dahil)",
-      "dpmo": "Girilen veya hesaplanan DPMO değeri",
-      "yield": "Süreç verimi (%)",
-      "defectRate": "Hata oranı (0-1 arası)"
+      "dpmo": "dpmo",
+      "totalOpportunities": "totalOpportunities"
     },
     "hiddenLossDrivers": [
-      "dpmo > 100000: Kritik kalite seviyesi, acil iyileştirme gerekli",
-      "dpmo > 10000: Yüksek hata oranı, süreç iyileştirme önerilir"
+      "defects > units * opportunitiesPerUnit ? 'Hata sayısı fırsatlardan fazla' : ''",
+      "dpmo > 100000 ? 'Yüksek DPMO' : ''"
     ],
     "suggestedActions": [
-      "dpmo > 100000: Kök neden analizi yapın ve süreci yeniden tasarlayın",
-      "dpmo between 10000 and 100000: DMAIC projesi başlatın",
-      "dpmo < 10000: Süreci kontrol altında tutun ve sürekli iyileştirme uygulayın"
+      "dpmo > 100000 ? 'Kök neden analizi yapın ve süreç iyileştirme başlatın.' : 'Mevcut süreci izlemeye devam edin.'",
+      "sigmaLevel < 3 ? 'Süreç yetersiz, DMAIC projesi başlatın.' : ''"
     ],
-    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+    "dataConfidenceAdjusted": "sigmaLevel"
   },
   "premiumFeatures": [
-    "Detaylı rapor (PDF/CSV export)",
-    "Trend analizi (zaman içinde sigma seviyesi değişimi)",
-    "Karşılaştırma (farklı süreçlerin sigma seviyelerini karşılaştırma)",
-    "Simülasyon (farklı DPMO değerleri için sigma seviyesi tahmini)"
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Benchmark Comparison",
+    "Detailed Report"
   ],
-  "premiumRequired": false
+  "premiumRequired": true
 }

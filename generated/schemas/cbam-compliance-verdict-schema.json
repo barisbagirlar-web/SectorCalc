@@ -1,0 +1,138 @@
+{
+  "toolName": "cbam-compliance-verdict",
+  "inputs": [
+    {
+      "id": "productCategory",
+      "label": "Product Category",
+      "type": "select",
+      "unit": "",
+      "default": "cement",
+      "min": null,
+      "max": null,
+      "options": [
+        "cement",
+        "aluminium",
+        "fertilizers",
+        "electricity",
+        "hydrogen",
+        "ironSteel"
+      ],
+      "businessContext": "CBAM product categories as defined in EU Regulation 2023/956."
+    },
+    {
+      "id": "productionVolume",
+      "label": "Production Volume",
+      "type": "number",
+      "unit": "tonnes/year",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "businessContext": "Annual production volume of the product in metric tonnes."
+    },
+    {
+      "id": "embeddedEmissions",
+      "label": "Embedded Emissions",
+      "type": "number",
+      "unit": "tCO2e/tonne",
+      "default": 0.8,
+      "min": 0,
+      "max": null,
+      "businessContext": "Direct and indirect greenhouse gas emissions embedded in the product, measured in tonnes of CO2 equivalent per tonne of product. Based on ISO 14064 and GHG Protocol."
+    },
+    {
+      "id": "carbonPriceOrigin",
+      "label": "Carbon Price in Origin Country",
+      "type": "number",
+      "unit": "EUR/tCO2e",
+      "default": 30,
+      "min": 0,
+      "max": null,
+      "businessContext": "Effective carbon price paid in the country of origin (e.g., via carbon tax or ETS)."
+    },
+    {
+      "id": "cbamCertificatePrice",
+      "label": "CBAM Certificate Price",
+      "type": "number",
+      "unit": "EUR/tCO2e",
+      "default": 90,
+      "min": 0,
+      "max": null,
+      "businessContext": "Price of CBAM certificates, based on EU ETS allowance auction price."
+    },
+    {
+      "id": "freeAllowanceFactor",
+      "label": "Free Allowance Factor",
+      "type": "number",
+      "unit": "%",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "businessContext": "Percentage of emissions covered by free allowances in the EU ETS for the sector. Based on EU ETS benchmarks."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence Level",
+      "type": "select",
+      "unit": "",
+      "default": "medium",
+      "min": null,
+      "max": null,
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "businessContext": "Confidence level of the input data; affects adjustment of results."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "productionVolume > 0",
+      "embeddedEmissions >= 0",
+      "carbonPriceOrigin >= 0",
+      "cbamCertificatePrice >= 0",
+      "freeAllowanceFactor >= 0 and freeAllowanceFactor <= 100"
+    ],
+    "thresholds": {
+      "embeddedEmissions": "if embeddedEmissions > 1.0 then 'High embedded emissions'",
+      "carbonPriceOrigin": "if carbonPriceOrigin < 10 then 'Low carbon price in origin'"
+    }
+  },
+  "formulas": {
+    "totalEmbeddedEmissions": "productionVolume * embeddedEmissions",
+    "totalFreeAllowances": "totalEmbeddedEmissions * (freeAllowanceFactor / 100)",
+    "netEmissionsSubjectToCBAM": "totalEmbeddedEmissions - totalFreeAllowances",
+    "carbonCostInOrigin": "totalEmbeddedEmissions * carbonPriceOrigin",
+    "cbamCertificateCost": "netEmissionsSubjectToCBAM * cbamCertificatePrice",
+    "additionalCostDueToCBAM": "cbamCertificateCost - carbonCostInOrigin",
+    "complianceVerdict": "if additionalCostDueToCBAM > 0 then 'Non-compliant' else 'Compliant'",
+    "dataConfidenceAdjusted": "if dataConfidence == 'low' then additionalCostDueToCBAM * 1.2 else if dataConfidence == 'medium' then additionalCostDueToCBAM * 1.05 else additionalCostDueToCBAM"
+  },
+  "outputs": {
+    "primary": "additionalCostDueToCBAM",
+    "breakdown": {
+      "totalEmbeddedEmissions": "totalEmbeddedEmissions",
+      "totalFreeAllowances": "totalFreeAllowances",
+      "netEmissionsSubjectToCBAM": "netEmissionsSubjectToCBAM",
+      "carbonCostInOrigin": "carbonCostInOrigin",
+      "cbamCertificateCost": "cbamCertificateCost"
+    },
+    "hiddenLossDrivers": [
+      "embeddedEmissions > 1.0",
+      "carbonPriceOrigin < 10"
+    ],
+    "suggestedActions": [
+      "Reduce embedded emissions through process optimization or cleaner energy sources.",
+      "Increase carbon price paid in origin country to reduce CBAM liability.",
+      "Apply for free allowances if eligible."
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analysis over time",
+    "Comparison with industry benchmarks",
+    "Detailed compliance report"
+  ],
+  "premiumRequired": true
+}

@@ -6,31 +6,36 @@ export interface BoyaKaplamaSarfiyatiMBasinaHesabiInput {
   surfaceArea: number;
   numberOfCoats: number;
   wasteFactor: number;
+  applicationMethod: 'spray' | 'brush' | 'roller' | 'dip';
   paintDensity: number;
   paintCostPerLiter: number;
   laborCostPerHour: number;
-  applicationRate: number;
+  laborProductivity: number;
+  dataConfidence: number;
 }
 
 export const BoyaKaplamaSarfiyatiMBasinaHesabiInputSchema = z.object({
   coverageRate: z.number().min(1).max(50).default(10),
   surfaceArea: z.number().min(0.1).max(10000).default(100),
-  numberOfCoats: z.number().min(1).max(5).default(2),
+  numberOfCoats: z.number().min(1).max(10).default(2),
   wasteFactor: z.number().min(0).max(50).default(10),
-  paintDensity: z.number().min(0.5).max(2.5).default(1.3),
+  applicationMethod: z.enum(['spray', 'brush', 'roller', 'dip']).default('spray'),
+  paintDensity: z.number().min(0.8).max(2).default(1.3),
   paintCostPerLiter: z.number().min(1).max(1000).default(50),
   laborCostPerHour: z.number().min(0).max(500).default(30),
-  applicationRate: z.number().min(1).max(100).default(20),
+  laborProductivity: z.number().min(1).max(100).default(20),
+  dataConfidence: z.number().min(50).max(100).default(90),
 });
 
 export interface BoyaKaplamaSarfiyatiMBasinaHesabiOutput {
   costPerSquareMeter: number;
   breakdown: {
-    totalPaintLiters: number;
-    totalPaintKg: number;
-    totalPaintCost: number;
-    totalLaborHours: number;
-    totalLaborCost: number;
+    theoreticalPaintVolume: number;
+    actualPaintVolume: number;
+    paintWeight: number;
+    paintCost: number;
+    laborHours: number;
+    laborCost: number;
     totalCost: number;
   };
   hiddenLossDrivers: string[];
@@ -42,41 +47,48 @@ export interface BoyaKaplamaSarfiyatiMBasinaHesabiOutput {
 
 function evaluateFormulas(input: BoyaKaplamaSarfiyatiMBasinaHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalPaintLiters = input.surfaceArea * input.numberOfCoats / input.coverageRate * (1 + input.wasteFactor / 100);
-  results.totalPaintKg = results.totalPaintLiters * input.paintDensity;
-  results.totalPaintCost = results.totalPaintLiters * input.paintCostPerLiter;
-  results.totalLaborHours = input.surfaceArea * input.numberOfCoats / input.applicationRate;
-  results.totalLaborCost = results.totalLaborHours * input.laborCostPerHour;
-  results.totalCost = results.totalPaintCost + results.totalLaborCost;
-  results.costPerSquareMeter = results.totalCost / input.surfaceArea;
+  results.theoreticalPaintVolume = (() => { try { return input.surfaceArea * input.numberOfCoats / input.coverageRate; } catch { return 0; } })();
+  results.actualPaintVolume = (() => { try { return results.theoreticalPaintVolume * (1 + input.wasteFactor / 100); } catch { return 0; } })();
+  results.paintWeight = (() => { try { return results.actualPaintVolume * input.paintDensity; } catch { return 0; } })();
+  results.paintCost = (() => { try { return results.actualPaintVolume * input.paintCostPerLiter; } catch { return 0; } })();
+  results.laborHours = (() => { try { return input.surfaceArea * input.numberOfCoats / input.laborProductivity; } catch { return 0; } })();
+  results.laborCost = (() => { try { return results.laborHours * input.laborCostPerHour; } catch { return 0; } })();
+  results.totalCost = (() => { try { return results.paintCost + results.laborCost; } catch { return 0; } })();
+  results.costPerSquareMeter = (() => { try { return results.totalCost / input.surfaceArea; } catch { return 0; } })();
+  results.dataConfidenceAdjustedCost = (() => { try { return results.costPerSquareMeter * (1 + (100 - input.dataConfidence) / 100); } catch { return 0; } })();
   return results;
 }
 
 export function calculateBoyaKaplamaSarfiyatiMBasinaHesabi(input: BoyaKaplamaSarfiyatiMBasinaHesabiInput): BoyaKaplamaSarfiyatiMBasinaHesabiOutput {
   const results = evaluateFormulas(input);
-  const costPerSquareMeter = results.costPerSquareMeter;
+  const costPerSquareMeter = results.costPerSquareMeter ?? 0;
   const breakdown = {
-    totalPaintLiters: results.totalPaintLiters,
-    totalPaintKg: results.totalPaintKg,
-    totalPaintCost: results.totalPaintCost,
-    totalLaborHours: results.totalLaborHours,
-    totalLaborCost: results.totalLaborCost,
+    theoreticalPaintVolume: results.theoreticalPaintVolume,
+    actualPaintVolume: results.actualPaintVolume,
+    paintWeight: results.paintWeight,
+    paintCost: results.paintCost,
+    laborHours: results.laborHours,
+    laborCost: results.laborCost,
     totalCost: results.totalCost,
   };
 
   // rule: coverageRate > 0
   // rule: surfaceArea > 0
   // rule: numberOfCoats >= 1
-  // rule: wasteFactor >= 0
+  // rule: wasteFactor >= 0 && wasteFactor <= 50
   // rule: paintDensity > 0
   // rule: paintCostPerLiter > 0
   // rule: laborCostPerHour >= 0
-  // rule: applicationRate > 0
-  // threshold wasteFactor > 20: Yüksek fire oranı; uygulama yöntemi gözden geçirilmeli.
-  // threshold coverageRate < 5: Düşük kaplama oranı; yüzey hazırlığı veya boya kalitesi kontrol edilmeli.
-  const hiddenLossDrivers: string[] = ["wasteFactor > 20","coverageRate < 5"];
-  const suggestedActions: string[] = ["Fire oranını azaltmak için uygun uygulama ekipmanı kullanın.","Düşük kaplama oranı durumunda yüzey hazırlığını iyileştirin veya daha kaliteli boya tercih edin."];
-  const dataConfidenceAdjusted = results.costPerSquareMeter * (1 - dataConfidence/100) (dataConfidence input varsayılan %80);
+  // rule: laborProductivity > 0
+  // rule: dataConfidence >= 50 && dataConfidence <= 100
+  // rule: if applicationMethod == 'spray' then wasteFactor >= 10 else wasteFactor >= 5
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): Yuksek atik orani, uygulama yontemini gozden gecirin.
+  // threshold skipped (non-JS): Dusuk verimlilik, egitim veya ekipman iyilestirmesi gerekebilir.
+  // threshold skipped (non-JS): Yuksek boya maliyeti, alternatif tedarikciler degerlendirilmeli.
+
+  const dataConfidenceAdjusted = (() => { try { return results.dataConfidenceAdjustedCost; } catch { return costPerSquareMeter; } })();
 
   return {
     costPerSquareMeter,
@@ -84,7 +96,7 @@ export function calculateBoyaKaplamaSarfiyatiMBasinaHesabi(input: BoyaKaplamaSar
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    premiumRequired: false,
-    premiumFeatures: ["PDF/CSV raporu","Trend analizi (geçmiş projelerle karşılaştırma)","Detaylı maliyet kırılımı ve grafikler","Farklı boya türleri için karşılaştırma"],
+    premiumRequired: true,
+    premiumFeatures: ["PDF raporu","CSV export","Trend analizi (gecmis hesaplamalar)","Karsilastirma (farkli senaryolar)","Detayli maliyet dokumu raporu"],
   };
 }

@@ -1,43 +1,49 @@
 // Auto-generated from 3d-print-cost-check-schema.json by generate-from-schema.ts
 import * as z from 'zod';
 
-export interface 3dPrintCostCheckInput {
+export interface Tool3dPrintCostCheckInput {
   materialCostPerKg: number;
-  materialWeightGrams: number;
+  materialDensity: number;
+  partVolume: number;
+  infillPercentage: number;
   printTimeHours: number;
   machineCostPerHour: number;
   laborCostPerHour: number;
-  postProcessingHours: number;
+  postProcessingTimeHours: number;
+  failureRate: number;
   batchSize: number;
-  failureRatePercent: number;
-  overheadPercent: number;
-  desiredMarginPercent: number;
+  setupCost: number;
+  overheadRate: number;
+  profitMargin: number;
 }
 
-export const 3dPrintCostCheckInputSchema = z.object({
-  materialCostPerKg: z.number().min(0).max(500).default(50),
-  materialWeightGrams: z.number().min(0.1).max(10000).default(100),
-  printTimeHours: z.number().min(0.1).max(168).default(5),
+export const Tool3dPrintCostCheckInputSchema = z.object({
+  materialCostPerKg: z.number().min(0).max(1000).default(50),
+  materialDensity: z.number().min(0.5).max(3).default(1.24),
+  partVolume: z.number().min(0.1).max(10000).default(100),
+  infillPercentage: z.number().min(0).max(100).default(20),
+  printTimeHours: z.number().min(0.1).max(168).default(10),
   machineCostPerHour: z.number().min(0).max(50).default(2),
-  laborCostPerHour: z.number().min(0).max(100).default(25),
-  postProcessingHours: z.number().min(0).max(10).default(0.5),
+  laborCostPerHour: z.number().min(0).max(100).default(15),
+  postProcessingTimeHours: z.number().min(0).max(50).default(1),
+  failureRate: z.number().min(0).max(100).default(5),
   batchSize: z.number().min(1).max(1000).default(1),
-  failureRatePercent: z.number().min(0).max(100).default(5),
-  overheadPercent: z.number().min(0).max(100).default(20),
-  desiredMarginPercent: z.number().min(0).max(100).default(30),
+  setupCost: z.number().min(0).max(1000).default(0),
+  overheadRate: z.number().min(0).max(100).default(20),
+  profitMargin: z.number().min(0).max(200).default(30),
 });
 
-export interface 3dPrintCostCheckOutput {
-  recommendedPrice: number;
+export interface Tool3dPrintCostCheckOutput {
+  sellingPricePerPart: number;
   breakdown: {
-    materialCostPerPart: number;
-    machineCostPerPart: number;
-    laborCostPerPart: number;
+    materialCost: number;
+    machineCost: number;
+    laborCost: number;
+    setupCostPerPart: number;
     directCostPerPart: number;
-    overheadCostPerPart: number;
+    overheadCost: number;
     totalCostPerPart: number;
-    marginAmount: number;
-    marginPercent: number;
+    profitAmount: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -46,60 +52,60 @@ export interface 3dPrintCostCheckOutput {
   premiumFeatures: string[];
 }
 
-function evaluateFormulas(input: 3dPrintCostCheckInput): Record<string, number> {
+function evaluateFormulas(input: Tool3dPrintCostCheckInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.materialCostPerPart = input.materialCostPerKg * input.materialWeightGrams / 1000;
-  results.machineCostPerPart = input.machineCostPerHour * input.printTimeHours / input.batchSize;
-  results.laborCostPerPart = input.laborCostPerHour * (input.printTimeHours + input.postProcessingHours) / input.batchSize;
-  results.directCostPerPart = results.materialCostPerPart + results.machineCostPerPart + results.laborCostPerPart;
-  results.effectiveYield = 1 - input.failureRatePercent / 100;
-  results.costPerGoodPart = results.directCostPerPart / results.effectiveYield;
-  results.overheadCostPerPart = results.costPerGoodPart * input.overheadPercent / 100;
-  results.totalCostPerPart = results.costPerGoodPart + results.overheadCostPerPart;
-  results.recommendedPrice = results.totalCostPerPart * (1 + input.desiredMarginPercent / 100);
-  results.marginAmount = results.recommendedPrice - results.totalCostPerPart;
-  results.marginPercent = results.marginAmount / results.recommendedPrice * 100;
+  results.materialWeight = (() => { try { return input.partVolume * (input.infillPercentage / 100) * input.materialDensity / 1000; } catch { return 0; } })();
+  results.materialCost = (() => { try { return results.materialWeight * input.materialCostPerKg; } catch { return 0; } })();
+  results.machineCost = (() => { try { return input.printTimeHours * input.machineCostPerHour; } catch { return 0; } })();
+  results.laborCost = (() => { try { return (input.printTimeHours + input.postProcessingTimeHours) * input.laborCostPerHour; } catch { return 0; } })();
+  results.directCostPerPart = (() => { try { return (results.materialCost + results.machineCost + results.laborCost + input.setupCost / input.batchSize) * (1 + input.failureRate / 100); } catch { return 0; } })();
+  results.totalCostPerPart = (() => { try { return results.directCostPerPart * (1 + input.overheadRate / 100); } catch { return 0; } })();
+  results.sellingPricePerPart = (() => { try { return results.totalCostPerPart * (1 + input.profitMargin / 100); } catch { return 0; } })();
   return results;
 }
 
-export function calculate3dPrintCostCheck(input: 3dPrintCostCheckInput): 3dPrintCostCheckOutput {
+export function calculateTool3dPrintCostCheck(input: Tool3dPrintCostCheckInput): Tool3dPrintCostCheckOutput {
   const results = evaluateFormulas(input);
-  const recommendedPrice = results.recommendedPrice;
+  const sellingPricePerPart = results.sellingPricePerPart ?? 0;
   const breakdown = {
-    materialCostPerPart: results.materialCostPerPart,
-    machineCostPerPart: results.machineCostPerPart,
-    laborCostPerPart: results.laborCostPerPart,
+    materialCost: results.materialCost,
+    machineCost: results.machineCost,
+    laborCost: results.laborCost,
+    setupCostPerPart: results.setupCostPerPart,
     directCostPerPart: results.directCostPerPart,
-    overheadCostPerPart: results.overheadCostPerPart,
+    overheadCost: results.overheadCost,
     totalCostPerPart: results.totalCostPerPart,
-    marginAmount: results.marginAmount,
-    marginPercent: results.marginPercent,
+    profitAmount: results.profitAmount,
   };
 
-  // rule: materialCostPerKg > 0
-  // rule: materialWeightGrams > 0
+  // rule: materialCostPerKg >= 0
+  // rule: materialDensity > 0
+  // rule: partVolume > 0
+  // rule: infillPercentage >= 0 && infillPercentage <= 100
   // rule: printTimeHours > 0
   // rule: machineCostPerHour >= 0
   // rule: laborCostPerHour >= 0
-  // rule: postProcessingHours >= 0
+  // rule: postProcessingTimeHours >= 0
+  // rule: failureRate >= 0 && failureRate <= 100
   // rule: batchSize >= 1
-  // rule: failureRatePercent >= 0 and failureRatePercent <= 100
-  // rule: overheadPercent >= 0 and overheadPercent <= 100
-  // rule: desiredMarginPercent >= 0 and desiredMarginPercent <= 100
-  // threshold failureRatePercent > 10: High failure rate significantly increases cost per good part. Consider optimizing print settings.
-  // threshold overheadPercent > 50: Overhead seems high relative to direct costs. Review indirect expenses.
-  // threshold desiredMarginPercent > 50: Target margin is very high; may not be competitive.
-  const hiddenLossDrivers: string[] = ["failureRatePercent > 10 ? 'High failure rate' : ''","overheadPercent > 50 ? 'High overhead' : ''"];
-  const suggestedActions: string[] = ["If failure rate > 10%: Review print settings, calibrate printer, or use higher quality material.","If overhead > 50%: Analyze indirect costs and consider reducing facility or admin expenses.","If margin too low: Increase batch size, reduce print time, or negotiate material costs."];
-  const dataConfidenceAdjusted = results.totalCostPerPart * (1 + (1 - dataConfidence) * 0.1);
+  // rule: setupCost >= 0
+  // rule: overheadRate >= 0
+  // rule: profitMargin >= 0
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  if (input.failureRate > 10) hiddenLossDrivers.push("High failure rate, consider tuning printer");
+  if (input.infillPercentage > 80) hiddenLossDrivers.push("High infill, consider reducing for cost savings");
+  if (input.printTimeHours > 48) hiddenLossDrivers.push("Long print time, risk of failure increases");
+
+  const dataConfidenceAdjusted = (() => { try { return results.sellingPricePerPart * (1 - 0.1 * (input.failureRate / 100)); } catch { return sellingPricePerPart; } })();
 
   return {
-    recommendedPrice,
+    sellingPricePerPart,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    premiumRequired: false,
-    premiumFeatures: ["PDF export of detailed cost breakdown","CSV export for batch analysis","Trend analysis over time","Comparison with historical jobs","Multi-material cost comparison","Sensitivity analysis on key inputs"],
+    premiumRequired: true,
+    premiumFeatures: ["PDF Export","CSV Export","Trend Analysis","Comparison with Historical Data","Detailed Report with Graphs"],
   };
 }

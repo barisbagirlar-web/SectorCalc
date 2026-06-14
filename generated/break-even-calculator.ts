@@ -5,14 +5,18 @@ export interface BreakEvenCalculatorInput {
   fixedCosts: number;
   variableCostPerUnit: number;
   sellingPricePerUnit: number;
-  periodDays: number;
+  timePeriod: 'day' | 'week' | 'month' | 'quarter' | 'year';
+  targetProfit: number;
+  dataConfidence: number;
 }
 
 export const BreakEvenCalculatorInputSchema = z.object({
   fixedCosts: z.number().min(0).default(0),
   variableCostPerUnit: z.number().min(0).default(0),
   sellingPricePerUnit: z.number().min(0).default(0),
-  periodDays: z.number().min(1).max(3650).default(365),
+  timePeriod: z.enum(['day', 'week', 'month', 'quarter', 'year']).default('month'),
+  targetProfit: z.number().min(0).default(0),
+  dataConfidence: z.number().min(0).max(100).default(100),
 });
 
 export interface BreakEvenCalculatorOutput {
@@ -20,7 +24,8 @@ export interface BreakEvenCalculatorOutput {
   breakdown: {
     contributionMargin: number;
     breakEvenRevenue: number;
-    annualizedBreakEvenUnits: number;
+    targetProfitUnits: number;
+    targetProfitRevenue: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -31,32 +36,37 @@ export interface BreakEvenCalculatorOutput {
 
 function evaluateFormulas(input: BreakEvenCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.contributionMargin = input.sellingPricePerUnit - input.variableCostPerUnit;
-  results.breakEvenUnits = input.fixedCosts / results.contributionMargin;
-  results.breakEvenRevenue = results.breakEvenUnits * input.sellingPricePerUnit;
-  results.annualizedBreakEvenUnits = results.breakEvenUnits * (365 / input.periodDays);
+  results.contributionMargin = (() => { try { return input.sellingPricePerUnit - input.variableCostPerUnit; } catch { return 0; } })();
+  results.breakEvenUnits = (() => { try { return input.fixedCosts / results.contributionMargin; } catch { return 0; } })();
+  results.breakEvenRevenue = (() => { try { return results.breakEvenUnits * input.sellingPricePerUnit; } catch { return 0; } })();
+  results.targetProfitUnits = (() => { try { return (input.fixedCosts + input.targetProfit) / results.contributionMargin; } catch { return 0; } })();
+  results.targetProfitRevenue = (() => { try { return results.targetProfitUnits * input.sellingPricePerUnit; } catch { return 0; } })();
+  results.dataConfidenceAdjustedBreakEvenUnits = (() => { try { return results.breakEvenUnits * (100 / input.dataConfidence); } catch { return 0; } })();
   return results;
 }
 
 export function calculateBreakEvenCalculator(input: BreakEvenCalculatorInput): BreakEvenCalculatorOutput {
   const results = evaluateFormulas(input);
-  const breakEvenUnits = results.breakEvenUnits;
+  const breakEvenUnits = results.breakEvenUnits ?? 0;
   const breakdown = {
     contributionMargin: results.contributionMargin,
     breakEvenRevenue: results.breakEvenRevenue,
-    annualizedBreakEvenUnits: results.annualizedBreakEvenUnits,
+    targetProfitUnits: results.targetProfitUnits,
+    targetProfitRevenue: results.targetProfitRevenue,
   };
 
-  // rule: fixedCosts must be >= 0
-  // rule: variableCostPerUnit must be >= 0
-  // rule: sellingPricePerUnit must be > 0
-  // rule: periodDays must be between 1 and 3650
-  // rule: sellingPricePerUnit must be > variableCostPerUnit to have a positive contribution margin
-  // threshold contributionMargin: If contributionMargin <= 0, break-even is impossible (infinite units).
-  // threshold breakEvenUnits: If breakEvenUnits > 1e6, consider reducing fixed costs or increasing price.
-  const hiddenLossDrivers: string[] = ["If contributionMargin <= 0: 'Negative or zero contribution margin; break-even not achievable.'","If breakEvenUnits > 1e6: 'Break-even point exceeds 1 million units; review cost structure.'"];
-  const suggestedActions: string[] = ["If contributionMargin is low: 'Consider reducing variable costs or increasing selling price.'","If breakEvenUnits is high: 'Evaluate reducing fixed costs or improving operational efficiency.'"];
-  const dataConfidenceAdjusted = results.breakEvenUnits * (1 + (1 - dataConfidence) * 0.1) if dataConfidence provided;
+  // rule: sellingPricePerUnit > variableCostPerUnit
+  // rule: fixedCosts >= 0
+  // rule: variableCostPerUnit >= 0
+  // rule: sellingPricePerUnit >= 0
+  // rule: targetProfit >= 0
+  // rule: dataConfidence >= 0 && dataConfidence <= 100
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): if contributionMargin <= 0 then 'CRITICAL: Selling price does not cover variable cost. No break-even possible.'
+  // threshold skipped (non-JS): if breakEvenUnits > 1000000 then 'WARNING: Break-even volume is very high. Consider reducing fixed costs or increasing price.'
+
+  const dataConfidenceAdjusted = (() => { try { return results.dataConfidenceAdjustedBreakEvenUnits; } catch { return breakEvenUnits; } })();
 
   return {
     breakEvenUnits,
@@ -65,6 +75,6 @@ export function calculateBreakEvenCalculator(input: BreakEvenCalculatorInput): B
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF export of break-even chart","CSV export of scenario analysis","Trend analysis over multiple periods","Comparison with industry benchmarks","Detailed report with sensitivity analysis"],
+    premiumFeatures: ["PDF/CSV export","Trend analysis (multi-period comparison)","Scenario comparison (what-if analysis)","Detailed report with charts"],
   };
 }

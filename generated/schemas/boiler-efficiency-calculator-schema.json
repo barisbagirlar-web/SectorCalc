@@ -11,12 +11,11 @@
       "max": null,
       "options": [
         "naturalGas",
-        "oil",
+        "fuelOil",
         "coal",
-        "biomass",
-        "electricity"
+        "biomass"
       ],
-      "businessContext": "Fuel type determines heating value and combustion characteristics. Based on ASME PTC 4."
+      "businessContext": "Fuel type determines heating value and combustion characteristics. Based on ASME PTC 4 and ISO 50001."
     },
     {
       "id": "fuelConsumption",
@@ -26,7 +25,7 @@
       "default": 100,
       "min": 0,
       "max": 100000,
-      "businessContext": "Mass or volumetric flow rate of fuel consumed. Directly affects energy input."
+      "businessContext": "Mass or volumetric flow rate of fuel input. Essential for energy balance."
     },
     {
       "id": "fuelHeatingValue",
@@ -36,7 +35,7 @@
       "default": 50000,
       "min": 0,
       "max": 100000,
-      "businessContext": "Higher Heating Value of fuel. Standard values from fuel analysis or industry tables."
+      "businessContext": "Higher Heating Value of fuel. Standard test methods ASTM D240 for liquids, ASTM D5865 for solids."
     },
     {
       "id": "steamFlow",
@@ -46,7 +45,7 @@
       "default": 1000,
       "min": 0,
       "max": 1000000,
-      "businessContext": "Mass flow rate of steam generated. Key output parameter."
+      "businessContext": "Mass flow rate of steam produced. Key output parameter."
     },
     {
       "id": "steamEnthalpy",
@@ -56,7 +55,7 @@
       "default": 2800,
       "min": 0,
       "max": 4000,
-      "businessContext": "Enthalpy of steam at operating pressure and temperature. From steam tables."
+      "businessContext": "Enthalpy of steam at operating pressure and temperature. From steam tables per ASME."
     },
     {
       "id": "feedwaterEnthalpy",
@@ -66,7 +65,7 @@
       "default": 420,
       "min": 0,
       "max": 1000,
-      "businessContext": "Enthalpy of feedwater entering the boiler. Typically lower than steam enthalpy."
+      "businessContext": "Enthalpy of feedwater entering boiler. Typically at deaerator outlet temperature."
     },
     {
       "id": "excessAir",
@@ -76,7 +75,7 @@
       "default": 20,
       "min": 0,
       "max": 100,
-      "businessContext": "Excess air supplied for combustion. Affects flue gas losses. Typical range 10-50%."
+      "businessContext": "Excess air used for combustion. Affects flue gas losses. Typical range 10-50%."
     },
     {
       "id": "flueGasTemperature",
@@ -86,7 +85,7 @@
       "default": 200,
       "min": 50,
       "max": 500,
-      "businessContext": "Temperature of flue gases leaving the boiler. Higher temperature indicates more heat loss."
+      "businessContext": "Temperature of flue gases leaving boiler. Higher temperature increases losses."
     },
     {
       "id": "ambientTemperature",
@@ -96,51 +95,31 @@
       "default": 25,
       "min": -20,
       "max": 50,
-      "businessContext": "Ambient air temperature. Used for reference in efficiency calculations."
-    },
-    {
-      "id": "blowdownRate",
-      "label": "Blowdown Rate",
-      "type": "number",
-      "unit": "%",
-      "default": 2,
-      "min": 0,
-      "max": 20,
-      "businessContext": "Percentage of boiler water discharged to control solids. Affects heat loss."
+      "businessContext": "Reference ambient temperature for heat loss calculations."
     },
     {
       "id": "radiationLoss",
       "label": "Radiation and Convection Loss",
       "type": "number",
       "unit": "%",
-      "default": 1.5,
+      "default": 2,
       "min": 0,
       "max": 10,
-      "businessContext": "Heat loss from boiler surface to surroundings. Typically 1-3% for insulated boilers."
+      "businessContext": "Heat loss from boiler surface. Typically 1-3% of input energy."
     },
     {
-      "id": "operatingHours",
-      "label": "Operating Hours per Year",
+      "id": "blowdownRate",
+      "label": "Blowdown Rate",
       "type": "number",
-      "unit": "hours/year",
-      "default": 8000,
+      "unit": "%",
+      "default": 5,
       "min": 0,
-      "max": 8760,
-      "businessContext": "Annual operating hours. Used to compute annual energy and cost."
-    },
-    {
-      "id": "fuelCost",
-      "label": "Fuel Cost",
-      "type": "number",
-      "unit": "USD/unit",
-      "default": 0.5,
-      "min": 0,
-      "max": 100,
-      "businessContext": "Cost per unit of fuel (per kg or m³). For economic analysis."
+      "max": 20,
+      "businessContext": "Percentage of boiler water discharged to control solids. Affects efficiency."
     },
     {
       "id": "dataConfidence",
-      "label": "Data Confidence",
+      "label": "Data Confidence Level",
       "type": "select",
       "unit": "",
       "default": "medium",
@@ -151,7 +130,7 @@
         "medium",
         "high"
       ],
-      "businessContext": "Confidence level in input data. Affects output reliability adjustments."
+      "businessContext": "User's confidence in input data accuracy. Adjusts output reliability."
     }
   ],
   "validation": {
@@ -160,94 +139,58 @@
       "fuelHeatingValue > 0",
       "steamFlow > 0",
       "steamEnthalpy > feedwaterEnthalpy",
-      "excessAir >= 0",
       "flueGasTemperature > ambientTemperature",
-      "blowdownRate >= 0",
+      "excessAir >= 0",
       "radiationLoss >= 0",
-      "operatingHours >= 0 and <= 8760",
-      "fuelCost >= 0",
-      "If fuelType is 'electricity', fuelHeatingValue should be 3600 kJ/kWh (conversion)."
+      "blowdownRate >= 0"
     ],
     "thresholds": {
-      "efficiency": {
-        "warning": 80,
-        "critical": 70
-      },
-      "excessAir": {
-        "warning": 40,
-        "critical": 60
-      },
-      "flueGasTemperature": {
-        "warning": 250,
-        "critical": 350
-      },
-      "blowdownRate": {
-        "warning": 5,
-        "critical": 10
-      }
+      "efficiency": "efficiency < 0.7 -> 'Critical: Boiler efficiency below 70%'",
+      "excessAir": "excessAir > 50 -> 'Warning: Excess air too high, increase heat loss'",
+      "flueGasTemperature": "flueGasTemperature > 300 -> 'Warning: High flue gas temperature, consider economizer'"
     }
   },
   "formulas": {
-    "energyInput": "fuelConsumption * fuelHeatingValue",
-    "energyOutput": "steamFlow * (steamEnthalpy - feedwaterEnthalpy)",
-    "efficiency": "(energyOutput / energyInput) * 100",
-    "dryFlueGasLoss": "excessAir * 0.001 * (flueGasTemperature - ambientTemperature) * (fuelConsumption / steamFlow)",
-    "moistureLoss": "0.09 * (flueGasTemperature - ambientTemperature) * (fuelConsumption / steamFlow)",
-    "blowdownLoss": "blowdownRate / 100 * energyInput",
+    "heatInput": "fuelConsumption * fuelHeatingValue",
+    "heatOutput": "steamFlow * (steamEnthalpy - feedwaterEnthalpy)",
+    "dryFlueGasLoss": "excessAir * 0.001 * (flueGasTemperature - ambientTemperature) * fuelConsumption * fuelHeatingValue / 100",
+    "moistureLoss": "0.09 * (flueGasTemperature - ambientTemperature) * fuelConsumption * fuelHeatingValue / 100",
     "radiationLossPercent": "radiationLoss",
-    "totalLosses": "dryFlueGasLoss + moistureLoss + blowdownLoss + radiationLossPercent / 100 * energyInput",
-    "efficiencyIndirect": "100 - (totalLosses / energyInput * 100)",
-    "annualFuelConsumption": "fuelConsumption * operatingHours",
-    "annualFuelCost": "annualFuelConsumption * fuelCost",
-    "annualEnergyInput": "annualFuelConsumption * fuelHeatingValue",
-    "annualEnergyOutput": "annualFuelConsumption * fuelHeatingValue * (efficiency / 100)",
-    "annualSavingsPotential": "annualFuelCost * (1 - (efficiency / 100) / (efficiencyIndirect / 100))",
-    "totalExposure": "annualFuelCost * (1 - efficiency / 100)",
-    "variancePercent": "abs(efficiency - efficiencyIndirect) / efficiency * 100",
-    "summaryLevel": "efficiency >= 80 ? 'low' : (efficiency >= 70 ? 'warning' : 'critical')",
-    "primaryDriver": "efficiency < 80 ? 'efficiency' : 'none'",
-    "decisionVerdict": "summaryLevel === 'critical' ? 'reject' : (summaryLevel === 'warning' ? 'review' : 'accept')",
-    "dataConfidenceAdjusted": "dataConfidence === 'high' ? efficiency : (dataConfidence === 'medium' ? efficiency * 0.95 : efficiency * 0.9)"
+    "blowdownLoss": "blowdownRate / 100 * heatInput",
+    "totalLosses": "dryFlueGasLoss + moistureLoss + radiationLossPercent / 100 * heatInput + blowdownLoss",
+    "efficiency": "(heatOutput / heatInput) * 100",
+    "efficiencyAdjusted": "efficiency * (1 - (1 - dataConfidenceFactor) * 0.1)"
   },
   "outputs": {
     "primary": "efficiency",
     "breakdown": {
-      "energyInput": "Total energy input from fuel",
-      "energyOutput": "Useful energy output in steam",
-      "dryFlueGasLoss": "Heat loss due to dry flue gases",
-      "moistureLoss": "Heat loss due to moisture in flue gas",
-      "blowdownLoss": "Heat loss due to blowdown",
-      "radiationLossPercent": "Radiation and convection loss percentage",
-      "totalLosses": "Total heat losses",
-      "efficiencyIndirect": "Efficiency calculated by indirect method (losses)",
-      "annualFuelConsumption": "Annual fuel consumption",
-      "annualFuelCost": "Annual fuel cost",
-      "annualEnergyInput": "Annual energy input",
-      "annualEnergyOutput": "Annual energy output",
-      "annualSavingsPotential": "Potential annual savings if efficiency improved to indirect method level"
+      "heatInput": "heatInput",
+      "heatOutput": "heatOutput",
+      "dryFlueGasLoss": "dryFlueGasLoss",
+      "moistureLoss": "moistureLoss",
+      "radiationLoss": "radiationLossPercent",
+      "blowdownLoss": "blowdownLoss",
+      "totalLosses": "totalLosses"
     },
     "hiddenLossDrivers": [
-      "excessAir > 40 ? 'High excess air increases dry flue gas loss' : ''",
-      "flueGasTemperature > 250 ? 'High flue gas temperature indicates fouling or poor heat transfer' : ''",
-      "blowdownRate > 5 ? 'High blowdown rate increases water and heat loss' : ''",
-      "radiationLoss > 3 ? 'High radiation loss suggests insulation issues' : ''"
+      "excessAir > 50",
+      "flueGasTemperature > 300",
+      "blowdownRate > 10"
     ],
     "suggestedActions": [
-      "efficiency < 80 ? 'Optimize excess air to reduce dry flue gas loss' : ''",
-      "flueGasTemperature > 250 ? 'Clean heat transfer surfaces and check for scaling' : ''",
-      "blowdownRate > 5 ? 'Review blowdown schedule and consider automatic blowdown control' : ''",
-      "radiationLoss > 3 ? 'Inspect and improve boiler insulation' : ''",
-      "annualSavingsPotential > 0 ? 'Implement efficiency improvements to realize savings' : ''"
+      "Reduce excess air to optimal level (10-20%)",
+      "Install economizer to recover flue gas heat",
+      "Optimize blowdown rate based on water quality",
+      "Insulate boiler surface to reduce radiation loss"
     ],
-    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+    "dataConfidenceAdjusted": "efficiencyAdjusted"
   },
   "premiumFeatures": [
-    "PDF export of detailed efficiency report",
-    "CSV export of input and output data",
-    "Trend analysis over multiple calculations",
-    "Comparison with benchmark efficiency",
-    "Detailed breakdown of losses with charts",
-    "Scenario analysis (what-if for different parameters)"
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis",
+    "Comparison with Benchmark",
+    "Detailed Report with Breakdown"
   ],
   "premiumRequired": true
 }

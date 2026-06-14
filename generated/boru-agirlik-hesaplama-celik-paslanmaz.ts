@@ -2,28 +2,25 @@
 import * as z from 'zod';
 
 export interface BoruAgirlikHesaplamaCelikPaslanmazInput {
-  materialType: 'carbon-steel' | 'stainless-steel-304' | 'stainless-steel-316';
-  outerDiameter: number;
-  wallThickness: number;
-  length: number;
-  quantity: number;
+  disCap: number;
+  etKal: number;
+  boy: number;
+  malzeme: 'celik' | 'paslanmaz';
 }
 
 export const BoruAgirlikHesaplamaCelikPaslanmazInputSchema = z.object({
-  materialType: z.enum(['carbon-steel', 'stainless-steel-304', 'stainless-steel-316']).default('carbon-steel'),
-  outerDiameter: z.number().min(1).max(2000).default(50),
-  wallThickness: z.number().min(0.5).max(100).default(5),
-  length: z.number().min(0.1).max(50).default(6),
-  quantity: z.number().min(1).max(10000).default(1),
+  disCap: z.number().min(1).max(2000).default(50),
+  etKal: z.number().min(0.5).max(100).default(5),
+  boy: z.number().min(0.1).max(50).default(6),
+  malzeme: z.enum(['celik', 'paslanmaz']).default('celik'),
 });
 
 export interface BoruAgirlikHesaplamaCelikPaslanmazOutput {
-  totalWeight: number;
+  agirlik: number;
   breakdown: {
-    weightPerPipe: number;
-    volumePerPipe: number;
-    crossSectionArea: number;
-    density: number;
+    icCap: number;
+    kesitAlan: number;
+    hacim: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -34,43 +31,39 @@ export interface BoruAgirlikHesaplamaCelikPaslanmazOutput {
 
 function evaluateFormulas(input: BoruAgirlikHesaplamaCelikPaslanmazInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.density = input.materialType === 'carbon-steel' ? 7850 : input.materialType === 'stainless-steel-304' ? 7930 : 7980;
-  results.innerDiameter = input.outerDiameter - 2 * input.wallThickness;
-  results.crossSectionArea = Math.PI / 4 * (input.outerDiameter * input.outerDiameter - results.innerDiameter * results.innerDiameter) / 1e6;
-  results.volumePerPipe = results.crossSectionArea * input.length;
-  results.weightPerPipe = results.volumePerPipe * results.density;
-  results.totalWeight = results.weightPerPipe * input.quantity;
+  results.icCap = (() => { try { return input.disCap - 2 * input.etKal; } catch { return 0; } })();
+  results.kesitAlan = (() => { try { return 3.14159 * (input.disCap^2 - results.icCap^2) / 4; } catch { return 0; } })();
+  results.hacim = (() => { try { return results.kesitAlan * input.boy / 1000000; } catch { return 0; } })();
+  results.agirlik = (() => { try { return results.hacim * (input.malzeme == 'celik' ? 7850 : 7930); } catch { return 0; } })();
   return results;
 }
 
 export function calculateBoruAgirlikHesaplamaCelikPaslanmaz(input: BoruAgirlikHesaplamaCelikPaslanmazInput): BoruAgirlikHesaplamaCelikPaslanmazOutput {
   const results = evaluateFormulas(input);
-  const totalWeight = results.totalWeight;
+  const agirlik = results.agirlik ?? 0;
   const breakdown = {
-    weightPerPipe: results.weightPerPipe,
-    volumePerPipe: results.volumePerPipe,
-    crossSectionArea: results.crossSectionArea,
-    density: results.density,
+    icCap: results.icCap,
+    kesitAlan: results.kesitAlan,
+    hacim: results.hacim,
   };
 
-  // rule: outerDiameter > 0
-  // rule: wallThickness > 0
-  // rule: wallThickness < outerDiameter / 2
-  // rule: length > 0
-  // rule: quantity >= 1
-  // threshold wallThickness: wallThickness < 2 ? 'Düşük et kalınlığı, basınç dayanımını azaltabilir.' : null
-  // threshold outerDiameter: outerDiameter > 500 ? 'Büyük çaplı borular özel taşıma gerektirebilir.' : null
+  // rule: disCap > 0
+  // rule: etKal > 0
+  // rule: boy > 0
+  // rule: etKal < disCap / 2
   const hiddenLossDrivers: string[] = [];
   const suggestedActions: string[] = [];
-  const dataConfidenceAdjusted = results.totalWeight;
+  if (agirlik > 1000) hiddenLossDrivers.push("Agirlik 1 tonu asiyor, tasima ekipmani gerekebilir.");
+
+  const dataConfidenceAdjusted = (() => { try { return results.agirlik; } catch { return agirlik; } })();
 
   return {
-    totalWeight,
+    agirlik,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    premiumRequired: false,
-    premiumFeatures: ["PDF raporu","CSV dışa aktarım","Farklı malzeme karşılaştırması","Birim dönüştürme (kg/lb)"],
+    premiumRequired: true,
+    premiumFeatures: ["PDF/CSV export","Trend analizi","Karsilastirma","Detayli rapor"],
   };
 }

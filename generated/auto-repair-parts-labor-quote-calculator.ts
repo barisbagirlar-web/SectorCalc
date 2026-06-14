@@ -7,37 +7,31 @@ export interface AutoRepairPartsLaborQuoteCalculatorInput {
   laborRate: number;
   shopSuppliesFee: number;
   hazardousWasteFee: number;
-  subletCost: number;
   taxRate: number;
-  desiredProfitMargin: number;
-  discountPercentage: number;
-  includeLaborInTax: boolean;
+  discountPercent: number;
+  customerType: 'retail' | 'wholesale' | 'insurance';
 }
 
 export const AutoRepairPartsLaborQuoteCalculatorInputSchema = z.object({
   partsCost: z.number().min(0).default(0),
-  laborHours: z.number().min(0).default(1),
-  laborRate: z.number().min(0).default(100),
-  shopSuppliesFee: z.number().min(0).default(10),
-  hazardousWasteFee: z.number().min(0).default(5),
-  subletCost: z.number().min(0).default(0),
-  taxRate: z.number().min(0).max(100).default(8),
-  desiredProfitMargin: z.number().min(0).max(100).default(30),
-  discountPercentage: z.number().min(0).max(100).default(0),
-  includeLaborInTax: z.boolean().default(false),
+  laborHours: z.number().min(0.1).max(100).default(1),
+  laborRate: z.number().min(0).max(500).default(100),
+  shopSuppliesFee: z.number().min(0).max(100).default(10),
+  hazardousWasteFee: z.number().min(0).max(50).default(5),
+  taxRate: z.number().min(0).max(20).default(8),
+  discountPercent: z.number().min(0).max(100).default(0),
+  customerType: z.enum(['retail', 'wholesale', 'insurance']).default('retail'),
 });
 
 export interface AutoRepairPartsLaborQuoteCalculatorOutput {
-  finalQuotePrice: number;
+  totalQuote: number;
   breakdown: {
-    totalPartsCost: number;
-    totalLaborCost: number;
-    totalSuppliesAndFees: number;
-    totalSublet: number;
+    partsTotal: number;
+    laborTotal: number;
+    shopSuppliesFee: number;
+    hazardousWasteFee: number;
+    subtotal: number;
     taxAmount: number;
-    discountAmount: number;
-    profitAmount: number;
-    actualProfitMargin: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -48,59 +42,49 @@ export interface AutoRepairPartsLaborQuoteCalculatorOutput {
 
 function evaluateFormulas(input: AutoRepairPartsLaborQuoteCalculatorInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.totalPartsCost = input.partsCost;
-  results.totalLaborCost = input.laborHours * input.laborRate;
-  results.totalSuppliesAndFees = input.shopSuppliesFee + input.hazardousWasteFee;
-  results.totalSublet = input.subletCost;
-  results.totalCostBeforeTax = results.totalPartsCost + results.totalLaborCost + results.totalSuppliesAndFees + results.totalSublet;
-  results.taxableAmount = input.includeLaborInTax ? results.totalCostBeforeTax : results.totalPartsCost + results.totalSuppliesAndFees + results.totalSublet;
-  results.taxAmount = results.taxableAmount * (input.taxRate / 100);
-  results.totalCostWithTax = results.totalCostBeforeTax + results.taxAmount;
-  results.priceBeforeDiscount = results.totalCostWithTax / (1 - input.desiredProfitMargin / 100);
-  results.discountAmount = results.priceBeforeDiscount * (input.discountPercentage / 100);
-  results.finalQuotePrice = results.priceBeforeDiscount - results.discountAmount;
-  results.profitAmount = results.finalQuotePrice - results.totalCostWithTax;
-  results.actualProfitMargin = (results.profitAmount / results.finalQuotePrice) * 100;
+  results.partsTotal = (() => { try { return input.partsCost * (1 - input.discountPercent/100); } catch { return 0; } })();
+  results.laborTotal = (() => { try { return input.laborHours * input.laborRate; } catch { return 0; } })();
+  results.subtotal = (() => { try { return results.partsTotal + results.laborTotal + input.shopSuppliesFee + input.hazardousWasteFee; } catch { return 0; } })();
+  results.taxAmount = (() => { try { return results.subtotal * (input.taxRate/100); } catch { return 0; } })();
+  results.totalQuote = (() => { try { return results.subtotal + results.taxAmount; } catch { return 0; } })();
   return results;
 }
 
 export function calculateAutoRepairPartsLaborQuoteCalculator(input: AutoRepairPartsLaborQuoteCalculatorInput): AutoRepairPartsLaborQuoteCalculatorOutput {
   const results = evaluateFormulas(input);
-  const finalQuotePrice = results.finalQuotePrice;
+  const totalQuote = results.totalQuote ?? 0;
   const breakdown = {
-    totalPartsCost: results.totalPartsCost,
-    totalLaborCost: results.totalLaborCost,
-    totalSuppliesAndFees: results.totalSuppliesAndFees,
-    totalSublet: results.totalSublet,
+    partsTotal: results.partsTotal,
+    laborTotal: results.laborTotal,
+    shopSuppliesFee: results.shopSuppliesFee,
+    hazardousWasteFee: results.hazardousWasteFee,
+    subtotal: results.subtotal,
     taxAmount: results.taxAmount,
-    discountAmount: results.discountAmount,
-    profitAmount: results.profitAmount,
-    actualProfitMargin: results.actualProfitMargin,
   };
 
-  // rule: partsCost must be >= 0
-  // rule: laborHours must be >= 0
-  // rule: laborRate must be > 0
-  // rule: shopSuppliesFee must be >= 0
-  // rule: hazardousWasteFee must be >= 0
-  // rule: subletCost must be >= 0
-  // rule: taxRate must be between 0 and 100
-  // rule: desiredProfitMargin must be between 0 and 100
-  // rule: discountPercentage must be between 0 and 100
-  // threshold desiredProfitMargin > 50: Profit margin above 50% may be unrealistic for competitive market.
-  // threshold laborHours > 10: High labor hours; consider breaking down into sub-operations.
-  // threshold partsCost > 5000: High parts cost; verify with supplier quote.
-  const hiddenLossDrivers: string[] = ["If shopSuppliesFee is too low, actual consumable cost may erode margin.","If laborHours underestimate, overtime or rework reduces profit."];
-  const suggestedActions: string[] = ["Verify parts cost with current supplier pricing.","Check labor hours against standard repair times (e.g., Mitchell).","Review shop supplies fee to cover actual usage.","Ensure hazardous waste fee complies with local regulations."];
-  const dataConfidenceAdjusted = results.finalQuotePrice;
+  // rule: partsCost >= 0
+  // rule: laborHours >= 0.1
+  // rule: laborRate >= 0
+  // rule: shopSuppliesFee >= 0
+  // rule: hazardousWasteFee >= 0
+  // rule: taxRate >= 0 && taxRate <= 20
+  // rule: discountPercent >= 0 && discountPercent <= 100
+  // rule: if customerType == 'wholesale' then discountPercent >= 10 else discountPercent >= 0
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): Long job; consider break into multiple days
+  // threshold skipped (non-JS): High parts cost; verify with customer
+  // threshold skipped (non-JS): Premium labor rate; ensure justification
+
+  const dataConfidenceAdjusted = (() => { try { return results.totalQuote * (1 - 0.05); } catch { return totalQuote; } })();
 
   return {
-    finalQuotePrice,
+    totalQuote,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    premiumRequired: false,
-    premiumFeatures: ["PDF/CSV export of quote","Trend analysis of parts and labor costs over time","Comparison with industry average pricing","Detailed profit margin breakdown by job type","Integration with inventory management"],
+    premiumRequired: true,
+    premiumFeatures: ["PDF Export","CSV Export","Trend Analysis","Quote Comparison","Detailed Report with Labor Time Breakdown"],
   };
 }

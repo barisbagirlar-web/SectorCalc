@@ -10,7 +10,7 @@
       "min": 3,
       "max": 100,
       "options": null,
-      "businessContext": "Nominal diameter of the bolt, typically from M3 to M100. Determines the cross-sectional area and torque requirements per ISO 898-1."
+      "businessContext": "ISO 898-1: Mechanical properties of fasteners. Bolt diameter is a primary factor in torque calculation."
     },
     {
       "id": "threadPitch",
@@ -21,189 +21,119 @@
       "min": 0.5,
       "max": 6,
       "options": null,
-      "businessContext": "Distance between threads. Coarse threads are standard; fine threads used for vibration resistance. Affects stress area and torque-tension relationship."
-    },
-    {
-      "id": "materialGrade",
-      "label": "Material Grade",
-      "type": "select",
-      "unit": "",
-      "default": "8.8",
-      "min": null,
-      "max": null,
-      "options": [
-        "4.6",
-        "4.8",
-        "5.6",
-        "5.8",
-        "6.8",
-        "8.8",
-        "9.8",
-        "10.9",
-        "12.9"
-      ],
-      "businessContext": "Property class per ISO 898-1. Defines yield strength and ultimate tensile strength. Higher grades allow higher preload."
+      "businessContext": "ISO 68-1: Basic profile of metric screw threads. Affects torque-tension relationship."
     },
     {
       "id": "frictionCoefficient",
       "label": "Friction Coefficient",
       "type": "number",
-      "unit": "",
+      "unit": "dimensionless",
       "default": 0.15,
-      "min": 0.08,
-      "max": 0.3,
+      "min": 0.05,
+      "max": 0.5,
       "options": null,
-      "businessContext": "Combined friction under head and in threads. Typical values: 0.12-0.18 for lubricated, 0.18-0.30 for dry. Affects torque required to achieve target preload."
+      "businessContext": "VDI 2230: Systematic calculation of high duty bolted joints. Typical values: 0.10-0.20 for lubricated, 0.15-0.30 for dry."
     },
     {
-      "id": "preloadPercentage",
-      "label": "Preload Percentage of Yield",
+      "id": "preloadForce",
+      "label": "Preload Force",
       "type": "number",
-      "unit": "%",
-      "default": 75,
-      "min": 50,
-      "max": 90,
+      "unit": "N",
+      "default": 10000,
+      "min": 100,
+      "max": 1000000,
       "options": null,
-      "businessContext": "Target preload as percentage of bolt yield strength. Typical 75-80% for static joints, lower for dynamic. Based on VDI 2230 guidelines."
+      "businessContext": "Target clamping force required for joint integrity. Based on joint design and service loads."
+    },
+    {
+      "id": "nutFactor",
+      "label": "Nut Factor (K)",
+      "type": "number",
+      "unit": "dimensionless",
+      "default": 0.2,
+      "min": 0.1,
+      "max": 0.4,
+      "options": null,
+      "businessContext": "Empirical factor combining thread and underhead friction. Typical K=0.2 for as-received condition per SAE J1701."
+    },
+    {
+      "id": "torqueMethod",
+      "label": "Torque Method",
+      "type": "select",
+      "unit": "",
+      "default": "torqueControl",
+      "min": null,
+      "max": null,
+      "options": [
+        "torqueControl",
+        "torqueAngle",
+        "yieldControl"
+      ],
+      "businessContext": "ISO 16047: Tightening torque test methods. Torque control is most common; torque-angle provides higher accuracy."
     },
     {
       "id": "lubricationCondition",
       "label": "Lubrication Condition",
       "type": "select",
       "unit": "",
-      "default": "light_oil",
+      "default": "dry",
       "min": null,
       "max": null,
       "options": [
         "dry",
-        "light_oil",
-        "grease",
-        "moly_coated",
-        "zinc_plated"
+        "oiled",
+        "coated"
       ],
-      "businessContext": "Affects friction coefficient. Dry: 0.18-0.30; Light oil: 0.12-0.18; Grease: 0.10-0.15; Moly coated: 0.08-0.12; Zinc plated: 0.14-0.22."
-    },
-    {
-      "id": "safetyFactor",
-      "label": "Safety Factor",
-      "type": "number",
-      "unit": "",
-      "default": 1.5,
-      "min": 1.2,
-      "max": 3,
-      "options": null,
-      "businessContext": "Factor applied to reduce allowable stress. Higher for critical joints or uncertain loading. Based on engineering judgment and standards like ASME B18.2.1."
-    },
-    {
-      "id": "jointType",
-      "label": "Joint Type",
-      "type": "select",
-      "unit": "",
-      "default": "hard",
-      "min": null,
-      "max": null,
-      "options": [
-        "hard",
-        "soft",
-        "gasketed"
-      ],
-      "businessContext": "Hard joint: metal-to-metal; Soft joint: with gasket or plastic; Gasketed: specific sealing requirements. Affects torque relaxation and preload loss."
-    },
-    {
-      "id": "tighteningMethod",
-      "label": "Tightening Method",
-      "type": "select",
-      "unit": "",
-      "default": "torque_control",
-      "min": null,
-      "max": null,
-      "options": [
-        "torque_control",
-        "angle_control",
-        "yield_control"
-      ],
-      "businessContext": "Torque control: simple but less accurate; Angle control: more precise; Yield control: maximum utilization. Method affects torque specification and scatter."
-    },
-    {
-      "id": "dataConfidence",
-      "label": "Data Confidence",
-      "type": "number",
-      "unit": "%",
-      "default": 90,
-      "min": 50,
-      "max": 100,
-      "options": null,
-      "businessContext": "Confidence in input data quality. Lower confidence reduces recommended torque to account for uncertainty. Used for risk-adjusted output."
+      "businessContext": "Affects friction coefficient. Per VDI 2230: dry (0.15-0.30), oiled (0.10-0.20), coated (0.05-0.12)."
     }
   ],
   "validation": {
     "rules": [
-      "boltDiameter must be between 3 and 100 mm",
-      "threadPitch must be between 0.5 and 6 mm",
-      "frictionCoefficient must be between 0.08 and 0.3",
-      "preloadPercentage must be between 50 and 90",
-      "safetyFactor must be between 1.2 and 3",
-      "dataConfidence must be between 50 and 100",
-      "If lubricationCondition is 'dry', frictionCoefficient must be >= 0.18",
-      "If lubricationCondition is 'light_oil', frictionCoefficient must be between 0.12 and 0.18",
-      "If lubricationCondition is 'grease', frictionCoefficient must be between 0.10 and 0.15",
-      "If lubricationCondition is 'moly_coated', frictionCoefficient must be between 0.08 and 0.12",
-      "If lubricationCondition is 'zinc_plated', frictionCoefficient must be between 0.14 and 0.22",
-      "If jointType is 'gasketed', preloadPercentage must be <= 75",
-      "If tighteningMethod is 'yield_control', preloadPercentage must be >= 80"
+      "boltDiameter >= 3 and boltDiameter <= 100",
+      "threadPitch >= 0.5 and threadPitch <= 6",
+      "frictionCoefficient >= 0.05 and frictionCoefficient <= 0.5",
+      "preloadForce >= 100 and preloadForce <= 1000000",
+      "nutFactor >= 0.1 and nutFactor <= 0.4",
+      "if torqueMethod == 'torqueAngle' then preloadForce must be specified"
     ],
     "thresholds": {
-      "frictionCoefficient > 0.25": "High friction may cause galling; consider lubrication.",
-      "preloadPercentage > 85": "Risk of bolt yielding; verify material grade.",
-      "safetyFactor < 1.5": "Low safety factor for critical joints; review application.",
-      "dataConfidence < 70": "Low data confidence; torque recommendation reduced."
+      "frictionCoefficient > 0.3": "High friction may cause under-tightening; consider lubrication.",
+      "nutFactor > 0.3": "Nut factor high; verify lubrication and surface condition.",
+      "preloadForce > 500000": "Very high preload; verify bolt grade and joint capacity."
     }
   },
   "formulas": {
-    "stressArea": "0.7854 * (boltDiameter - 0.9382 * threadPitch)^2",
-    "yieldStrength": "materialGrade === '4.6' ? 240 : materialGrade === '4.8' ? 320 : materialGrade === '5.6' ? 300 : materialGrade === '5.8' ? 400 : materialGrade === '6.8' ? 480 : materialGrade === '8.8' ? 640 : materialGrade === '9.8' ? 720 : materialGrade === '10.9' ? 940 : materialGrade === '12.9' ? 1100 : 640",
-    "allowableStress": "yieldStrength / safetyFactor",
-    "targetPreload": "allowableStress * stressArea * (preloadPercentage / 100)",
-    "torqueCoefficient": "0.16 * frictionCoefficient + 0.02",
-    "recommendedTorque": "targetPreload * boltDiameter / 1000 * torqueCoefficient",
-    "adjustedTorque": "recommendedTorque * (dataConfidence / 100)",
-    "maxPreload": "yieldStrength * stressArea * 0.9",
-    "maxTorque": "maxPreload * boltDiameter / 1000 * torqueCoefficient"
+    "tighteningTorque": "nutFactor * boltDiameter * preloadForce / 1000",
+    "torqueAngle": "if torqueMethod == 'torqueAngle' then (preloadForce * threadPitch) / (2 * Math.PI * frictionCoefficient) else null",
+    "clampForce": "preloadForce",
+    "torqueTensionEfficiency": "preloadForce / (tighteningTorque * 1000 / boltDiameter)"
   },
   "outputs": {
-    "primary": "adjustedTorque",
+    "primary": "tighteningTorque",
     "breakdown": {
-      "stressArea": "stressArea",
-      "yieldStrength": "yieldStrength",
-      "allowableStress": "allowableStress",
-      "targetPreload": "targetPreload",
-      "torqueCoefficient": "torqueCoefficient",
-      "recommendedTorque": "recommendedTorque",
-      "maxPreload": "maxPreload",
-      "maxTorque": "maxTorque"
+      "tighteningTorque": "nutFactor * boltDiameter * preloadForce / 1000",
+      "torqueAngle": "if torqueMethod == 'torqueAngle' then (preloadForce * threadPitch) / (2 * Math.PI * frictionCoefficient) else null",
+      "clampForce": "preloadForce",
+      "torqueTensionEfficiency": "preloadForce / (tighteningTorque * 1000 / boltDiameter)"
     },
     "hiddenLossDrivers": [
-      "frictionCoefficient > 0.25 ? 'High friction may cause galling; consider lubrication.' : ''",
-      "preloadPercentage > 85 ? 'Risk of bolt yielding; verify material grade.' : ''",
-      "safetyFactor < 1.5 ? 'Low safety factor for critical joints; review application.' : ''",
-      "dataConfidence < 70 ? 'Low data confidence; torque recommendation reduced.' : ''"
+      "frictionCoefficient > 0.3",
+      "nutFactor > 0.3",
+      "preloadForce > 500000"
     ],
     "suggestedActions": [
-      "Use calibrated torque wrench for accuracy.",
-      "Verify bolt material grade and condition.",
-      "Apply lubrication to reduce friction scatter.",
-      "Perform torque-tension testing for critical joints.",
-      "Consider angle control for higher precision."
+      "If friction coefficient > 0.3, consider using lubricant to reduce scatter.",
+      "If nut factor > 0.3, verify bolt and nut surface finish.",
+      "If preload force > 500000 N, check bolt grade (e.g., 12.9) and joint design."
     ],
-    "dataConfidenceAdjusted": "adjustedTorque"
+    "dataConfidenceAdjusted": "tighteningTorque * (1 - 0.1 * (frictionCoefficient / 0.2))"
   },
   "premiumFeatures": [
-    "PDF export of torque specification report",
-    "CSV export of calculation data",
-    "Trend analysis of torque values over time",
-    "Comparison of multiple bolt sizes or grades",
-    "Detailed report with joint diagrams and references",
-    "Integration with inventory management systems"
+    "PDF export of torque calculation report",
+    "CSV export of historical torque data",
+    "Trend analysis of torque vs. preload over time",
+    "Comparison of different tightening methods",
+    "Detailed report with joint diagrams and material specs"
   ],
   "premiumRequired": true
 }

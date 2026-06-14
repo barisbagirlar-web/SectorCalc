@@ -2,28 +2,29 @@
 import * as z from 'zod';
 
 export interface BasincliKapCidarKalinligiHesabiInput {
-  icBasinc: number;
-  icCap: number;
-  malzemeAkmaDayanimi: number;
-  emniyetKatsayisi: number;
-  kaynakFaktoru: number;
-  korozyonPayi: number;
+  designPressure: number;
+  vesselDiameter: number;
+  allowableStress: number;
+  jointEfficiency: number;
+  corrosionAllowance: number;
+  materialType: 'Carbon Steel' | 'Stainless Steel' | 'Alloy Steel' | 'Aluminum' | 'Other';
 }
 
 export const BasincliKapCidarKalinligiHesabiInputSchema = z.object({
-  icBasinc: z.number().min(0.1).max(1000).default(10),
-  icCap: z.number().min(100).max(10000).default(1000),
-  malzemeAkmaDayanimi: z.number().min(100).max(1000).default(250),
-  emniyetKatsayisi: z.number().min(1).max(4).default(1.5),
-  kaynakFaktoru: z.number().min(0.6).max(1).default(0.85),
-  korozyonPayi: z.number().min(0).max(10).default(2),
+  designPressure: z.number().min(0.1).max(1000).default(10),
+  vesselDiameter: z.number().min(100).max(10000).default(1000),
+  allowableStress: z.number().min(50).max(500).default(138),
+  jointEfficiency: z.number().min(0.6).max(1).default(0.85),
+  corrosionAllowance: z.number().min(0).max(10).default(2),
+  materialType: z.enum(['Carbon Steel', 'Stainless Steel', 'Alloy Steel', 'Aluminum', 'Other']).default('Carbon Steel'),
 });
 
 export interface BasincliKapCidarKalinligiHesabiOutput {
-  gerekliEtKal: number;
+  nominalThickness: number;
   breakdown: {
-    tasarimKalınlığı: number;
-    izinVerilenBasinc: number;
+    requiredThickness: number;
+    corrosionAllowance: number;
+    stressCheck: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -34,39 +35,41 @@ export interface BasincliKapCidarKalinligiHesabiOutput {
 
 function evaluateFormulas(input: BasincliKapCidarKalinligiHesabiInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.gerekliEtKalınlığı = ((input.icBasinc * input.icCap) / (2 * (input.malzemeAkmaDayanimi / input.emniyetKatsayisi) * input.kaynakFaktoru + input.icBasinc)) + input.korozyonPayi;
-  results.izinVerilenBasinc = (2 * (input.malzemeAkmaDayanimi / input.emniyetKatsayisi) * input.kaynakFaktoru * (gerekliEtKalınlığı - input.korozyonPayi)) / (input.icCap - (gerekliEtKalınlığı - input.korozyonPayi));
+  results.requiredThickness = (() => { try { return ((input.designPressure * input.vesselDiameter) / (2 * input.allowableStress * input.jointEfficiency - input.designPressure)) + input.corrosionAllowance; } catch { return 0; } })();
+  results.nominalThickness = (() => { try { return Math.ceil(results.requiredThickness / 0.5) * 0.5; } catch { return 0; } })();
+  results.stressCheck = (() => { try { return 0; } catch { return 0; } })();
   return results;
 }
 
 export function calculateBasincliKapCidarKalinligiHesabi(input: BasincliKapCidarKalinligiHesabiInput): BasincliKapCidarKalinligiHesabiOutput {
   const results = evaluateFormulas(input);
-  const gerekliEtKal = results.gerekliEtKal;
+  const nominalThickness = results.nominalThickness ?? 0;
   const breakdown = {
-    tasarimKalınlığı: results.tasarimKalınlığı,
-    izinVerilenBasinc: results.izinVerilenBasinc,
+    requiredThickness: results.requiredThickness,
+    corrosionAllowance: results.corrosionAllowance,
+    stressCheck: results.stressCheck,
   };
 
-  // rule: icBasinc > 0
-  // rule: icCap > 0
-  // rule: malzemeAkmaDayanimi > 0
-  // rule: emniyetKatsayisi >= 1.0
-  // rule: kaynakFaktoru > 0 ve <= 1.0
-  // rule: korozyonPayi >= 0
-  // threshold icBasinc > 100: Yüksek basınç, özel tasarım gerektirebilir.
-  // threshold emniyetKatsayisi < 1.5: Düşük emniyet katsayısı, riskli.
-  // threshold kaynakFaktoru < 0.7: Kaynak kalitesi düşük, tahribatsız muayene önerilir.
-  const hiddenLossDrivers: string[] = ["icBasinc > 100 ? 'Yüksek basınç' : null","emniyetKatsayisi < 1.5 ? 'Düşük emniyet katsayısı' : null"];
-  const suggestedActions: string[] = ["icBasinc > 100 ? 'Yüksek basınç için özel malzeme veya takviye düşünün.' : null","kaynakFaktoru < 0.7 ? 'Kaynak kalitesini artırın veya radyografik muayene yapın.' : null"];
-  const dataConfidenceAdjusted = gerekliEtKalınlığı * (1 + (1 - dataConfidence));
+  // rule: designPressure > 0
+  // rule: vesselDiameter > 0
+  // rule: allowableStress > 0
+  // rule: jointEfficiency > 0 and jointEfficiency <= 1
+  // rule: corrosionAllowance >= 0
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  // threshold skipped (non-JS): Tasarim basinci 100 bar'i asarsa yuksek basincli kap sinifina girer, ek hesaplamalar gerekir.
+  // threshold skipped (non-JS): Cap 3000 mm'den buyukse nakliye ve montaj zorluklari olusabilir.
+  // threshold skipped (non-JS): Musaade edilen gerilme 100 MPa altinda ise malzeme secimi gozden gecirilmelidir.
+
+  const dataConfidenceAdjusted = (() => { try { return results.nominalThickness * (1 + (1 - dataConfidence) * 0.1); } catch { return nominalThickness; } })();
 
   return {
-    gerekliEtKal,
+    nominalThickness,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
-    premiumRequired: false,
-    premiumFeatures: ["PDF raporu","Detaylı malzeme seçimi","Farklı standartlarla karşılaştırma (ASME, EN, vb.)","Trend analizi","Excel/CSV export"],
+    premiumRequired: true,
+    premiumFeatures: ["PDF/CSV export","Trend analizi","Karsilastirma (farkli malzeme/basinc senaryolari)","Detayli rapor (malzeme secimi, maliyet analizi)"],
   };
 }

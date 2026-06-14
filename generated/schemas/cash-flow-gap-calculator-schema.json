@@ -1,0 +1,153 @@
+{
+  "toolName": "cash-flow-gap-calculator",
+  "inputs": [
+    {
+      "id": "accountsReceivable",
+      "label": "Accounts Receivable (Alacaklar)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average accounts receivable balance. Based on standard financial statement analysis (GAAP/IFRS)."
+    },
+    {
+      "id": "accountsPayable",
+      "label": "Accounts Payable (Borçlar)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average accounts payable balance. Standard financial metric."
+    },
+    {
+      "id": "inventory",
+      "label": "Inventory (Stok)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Average inventory value. Based on supply chain management principles (APICS)."
+    },
+    {
+      "id": "costOfGoodsSold",
+      "label": "Cost of Goods Sold (COGS)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Annual cost of goods sold. Standard income statement item."
+    },
+    {
+      "id": "netSales",
+      "label": "Net Sales (Net Satışlar)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Annual net sales revenue. Standard income statement item."
+    },
+    {
+      "id": "operatingExpenses",
+      "label": "Operating Expenses (Faaliyet Giderleri)",
+      "type": "number",
+      "unit": "currency",
+      "default": 0,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Annual operating expenses excluding COGS. Standard financial metric."
+    },
+    {
+      "id": "daysInPeriod",
+      "label": "Days in Period (Dönem Günü)",
+      "type": "number",
+      "unit": "days",
+      "default": 365,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Number of days in the analysis period. Typically 365 for annual."
+    },
+    {
+      "id": "dataConfidence",
+      "label": "Data Confidence (Veri Güveni)",
+      "type": "number",
+      "unit": "%",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Confidence level in input data quality. Used for adjusted outputs."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "costOfGoodsSold >= 0",
+      "netSales >= 0",
+      "operatingExpenses >= 0",
+      "accountsReceivable >= 0",
+      "accountsPayable >= 0",
+      "inventory >= 0",
+      "daysInPeriod >= 1 and daysInPeriod <= 365",
+      "dataConfidence >= 0 and dataConfidence <= 100"
+    ],
+    "thresholds": {
+      "cashConversionCycle": {
+        "warning": "> 60",
+        "critical": "> 90"
+      },
+      "cashFlowGapRatio": {
+        "warning": "> 0.5",
+        "critical": "> 1.0"
+      }
+    }
+  },
+  "formulas": {
+    "daysSalesOutstanding": "accountsReceivable / (netSales / daysInPeriod)",
+    "daysInventoryOutstanding": "inventory / (costOfGoodsSold / daysInPeriod)",
+    "daysPayablesOutstanding": "accountsPayable / (costOfGoodsSold / daysInPeriod)",
+    "cashConversionCycle": "daysSalesOutstanding + daysInventoryOutstanding - daysPayablesOutstanding",
+    "cashFlowGap": "cashConversionCycle * (costOfGoodsSold + operatingExpenses) / daysInPeriod",
+    "cashFlowGapRatio": "cashFlowGap / netSales",
+    "dataConfidenceAdjusted": "cashFlowGap * (dataConfidence / 100)"
+  },
+  "outputs": {
+    "primary": "cashFlowGap",
+    "breakdown": {
+      "daysSalesOutstanding": "daysSalesOutstanding",
+      "daysInventoryOutstanding": "daysInventoryOutstanding",
+      "daysPayablesOutstanding": "daysPayablesOutstanding",
+      "cashConversionCycle": "cashConversionCycle",
+      "cashFlowGapRatio": "cashFlowGapRatio"
+    },
+    "hiddenLossDrivers": [
+      "if cashConversionCycle > 90 then 'Excessive cash conversion cycle indicates working capital inefficiency'",
+      "if cashFlowGapRatio > 1.0 then 'Cash flow gap exceeds net sales, critical liquidity risk'"
+    ],
+    "suggestedActions": [
+      "Reduce accounts receivable by tightening credit terms or improving collection processes",
+      "Reduce inventory levels through just-in-time (JIT) or lean inventory management",
+      "Extend accounts payable terms without harming supplier relationships",
+      "Consider factoring or supply chain financing to bridge the gap"
+    ],
+    "dataConfidenceAdjusted": "dataConfidenceAdjusted"
+  },
+  "premiumFeatures": [
+    "PDF Export",
+    "CSV Export",
+    "Trend Analysis (historical comparison)",
+    "Benchmarking against industry standards",
+    "Detailed report with breakdown and recommendations"
+  ],
+  "premiumRequired": true
+}

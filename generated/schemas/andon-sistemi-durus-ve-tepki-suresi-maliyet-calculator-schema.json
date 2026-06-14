@@ -2,78 +2,85 @@
   "toolName": "andon-sistemi-durus-ve-tepki-suresi-maliyet-calculator",
   "inputs": [
     {
-      "id": "annualOperatingHours",
-      "label": "Yıllık Çalışma Saati",
+      "id": "totalDowntimeMinutes",
+      "label": "Toplam Durma Süresi (dakika)",
       "type": "number",
-      "unit": "hours/year",
-      "default": 2000,
+      "unit": "dakika",
+      "default": 60,
       "min": 0,
-      "max": 8760,
-      "businessContext": "Toplam yıllık üretim saati. Vardiya planına göre belirlenir."
+      "max": 1440,
+      "options": null,
+      "businessContext": "Vardiya boyunca andon sinyali nedeniyle oluşan toplam durma süresi. Lean üretimde OEE hesaplamalarında kullanılır."
     },
     {
-      "id": "hourlyBurdenRate",
-      "label": "Saatlik Maliyet Oranı",
+      "id": "responseTimeMinutes",
+      "label": "Ortalama Tepki Süresi (dakika)",
       "type": "number",
-      "unit": "USD/hour",
-      "default": 50,
-      "min": 0,
-      "max": 1000,
-      "businessContext": "İşçilik, enerji ve genel giderleri içeren saatlik maliyet."
-    },
-    {
-      "id": "andonResponseTime",
-      "label": "Andon Tepki Süresi",
-      "type": "number",
-      "unit": "minutes",
+      "unit": "dakika",
       "default": 5,
       "min": 0,
       "max": 60,
-      "businessContext": "Andon sinyali sonrası operatörün müdahale süresi. Lean üretimde hedef <5 dk."
+      "options": null,
+      "businessContext": "Andon sinyaline operatörün veya ekibin müdahale etme süresi. SMED ve JIT prensiplerine göre azaltılması hedeflenir."
     },
     {
-      "id": "andonDowntimePerEvent",
-      "label": "Olay Başına Durma Süresi",
+      "id": "hourlyCost",
+      "label": "Saatlik İşçilik Maliyeti (para birimi/saat)",
       "type": "number",
-      "unit": "minutes",
-      "default": 10,
+      "unit": "para birimi/saat",
+      "default": 50,
       "min": 0,
-      "max": 480,
-      "businessContext": "Her andon olayında hattın durduğu ortalama süre."
+      "max": 500,
+      "options": null,
+      "businessContext": "Operatör ve ekip saatlik maliyeti. Endüstri mühendisliğinde işçilik maliyeti hesaplamaları için kullanılır."
     },
     {
-      "id": "andonEventsPerYear",
-      "label": "Yıllık Andon Olay Sayısı",
+      "id": "productionRatePerHour",
+      "label": "Saatlik Üretim Hızı (adet/saat)",
       "type": "number",
-      "unit": "events/year",
+      "unit": "adet/saat",
       "default": 100,
       "min": 0,
       "max": 10000,
-      "businessContext": "Yılda gerçekleşen toplam andon olayı sayısı."
+      "options": null,
+      "businessContext": "Normal çalışma koşullarında saatte üretilen ürün miktarı. OEE performans hesaplamalarında kullanılır."
     },
     {
-      "id": "productionLossPerEvent",
-      "label": "Olay Başına Üretim Kaybı",
+      "id": "profitPerUnit",
+      "label": "Birim Başına Kar (para birimi/adet)",
       "type": "number",
-      "unit": "units",
-      "default": 50,
-      "min": 0,
-      "max": 10000,
-      "businessContext": "Her duruşta kaybedilen ürün miktarı."
-    },
-    {
-      "id": "unitProfitMargin",
-      "label": "Birim Kar Marjı",
-      "type": "number",
-      "unit": "USD/unit",
+      "unit": "para birimi/adet",
       "default": 10,
       "min": 0,
       "max": 1000,
-      "businessContext": "Satılan her birim üründen elde edilen kar."
+      "options": null,
+      "businessContext": "Her bir üründen elde edilen kar. Fırsat maliyeti hesaplamalarında kullanılır."
+    },
+    {
+      "id": "shiftHours",
+      "label": "Vardiya Süresi (saat)",
+      "type": "number",
+      "unit": "saat",
+      "default": 8,
+      "min": 1,
+      "max": 24,
+      "options": null,
+      "businessContext": "Günlük vardiya süresi. Zaman oranlamaları için temel alınır."
+    },
+    {
+      "id": "workingDaysPerYear",
+      "label": "Yıllık Çalışma Günü",
+      "type": "number",
+      "unit": "gün",
+      "default": 250,
+      "min": 1,
+      "max": 365,
+      "options": null,
+      "businessContext": "Yıllık çalışma günü sayısı. Yıllık maliyet hesaplamalarında kullanılır."
     },
     {
       "id": "dataConfidence",
-      "label": "Veri Güven Düzeyi",
+      "label": "Veri Güveni",
       "type": "select",
       "unit": "",
       "default": "medium",
@@ -84,74 +91,58 @@
         "medium",
         "high"
       ],
-      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar ayarlanır."
+      "businessContext": "Girdi verilerinin güvenilirliği. Düşük güven durumunda sonuçlar düzeltilir."
     }
   ],
   "validation": {
     "rules": [
-      "annualOperatingHours > 0",
-      "hourlyBurdenRate > 0",
-      "andonResponseTime >= 0",
-      "andonDowntimePerEvent >= 0",
-      "andonEventsPerYear >= 0",
-      "productionLossPerEvent >= 0",
-      "unitProfitMargin >= 0",
-      "andonResponseTime <= andonDowntimePerEvent (tepki süresi durma süresinden büyük olamaz)"
+      "totalDowntimeMinutes >= 0",
+      "responseTimeMinutes >= 0",
+      "hourlyCost > 0",
+      "productionRatePerHour > 0",
+      "profitPerUnit > 0",
+      "shiftHours > 0",
+      "workingDaysPerYear > 0",
+      "responseTimeMinutes <= totalDowntimeMinutes"
     ],
     "thresholds": {
-      "andonResponseTime": {
-        "warning": 5,
-        "critical": 10
-      },
-      "andonDowntimePerEvent": {
-        "warning": 15,
-        "critical": 30
-      },
-      "andonEventsPerYear": {
-        "warning": 500,
-        "critical": 1000
-      }
+      "responseTimeMinutes > 10": "Tepki süresi 10 dakikayı aşıyor; iyileştirme önerilir.",
+      "totalDowntimeMinutes > 60": "Toplam durma süresi 1 saati aşıyor; kritik kayıp.",
+      "hourlyCost > 100": "İşçilik maliyeti yüksek; verimlilik analizi önerilir."
     }
   },
   "formulas": {
-    "totalDowntimeHours": "andonEventsPerYear * andonDowntimePerEvent / 60",
-    "totalResponseTimeHours": "andonEventsPerYear * andonResponseTime / 60",
-    "laborCost": "totalDowntimeHours * hourlyBurdenRate",
-    "lostProductionUnits": "andonEventsPerYear * productionLossPerEvent",
-    "lostProfit": "lostProductionUnits * unitProfitMargin",
-    "totalExposure": "laborCost + lostProfit",
-    "variancePercent": "((totalExposure - (annualOperatingHours * hourlyBurdenRate * 0.05)) / (annualOperatingHours * hourlyBurdenRate * 0.05)) * 100",
-    "summaryLevel": "totalExposure < 10000 ? 'low' : totalExposure < 50000 ? 'medium' : 'high'",
-    "primaryDriver": "laborCost > lostProfit ? 'laborCost' : 'lostProfit'",
-    "decisionVerdict": "summaryLevel === 'high' ? 'action required' : 'monitor'",
-    "dataConfidenceAdjusted": "dataConfidence === 'low' ? totalExposure * 1.2 : dataConfidence === 'medium' ? totalExposure * 1.1 : totalExposure"
+    "downtimeCost": "totalDowntimeMinutes / 60 * hourlyCost",
+    "lostProduction": "totalDowntimeMinutes / 60 * productionRatePerHour",
+    "opportunityCost": "lostProduction * profitPerUnit",
+    "totalCost": "downtimeCost + opportunityCost",
+    "annualCost": "totalCost * (workingDaysPerYear / (shiftHours * 60 / totalDowntimeMinutes))",
+    "dataConfidenceAdjusted": "totalCost * (dataConfidence === 'low' ? 1.2 : dataConfidence === 'medium' ? 1.0 : 0.9)"
   },
   "outputs": {
-    "primary": "totalExposure",
+    "primary": "totalCost",
     "breakdown": {
-      "laborCost": "laborCost",
-      "lostProfit": "lostProfit",
-      "totalDowntimeHours": "totalDowntimeHours",
-      "totalResponseTimeHours": "totalResponseTimeHours"
+      "downtimeCost": "downtimeCost",
+      "opportunityCost": "opportunityCost",
+      "lostProduction": "lostProduction",
+      "annualCost": "annualCost"
     },
     "hiddenLossDrivers": [
-      "andonResponseTime > 10 ? 'Yüksek tepki süresi' : ''",
-      "andonDowntimePerEvent > 30 ? 'Uzun duruş süresi' : ''",
-      "andonEventsPerYear > 1000 ? 'Sık andon olayı' : ''"
+      "responseTimeMinutes > 10 ? 'Yüksek tepki süresi' : ''",
+      "totalDowntimeMinutes > 60 ? 'Aşırı durma süresi' : ''"
     ],
     "suggestedActions": [
       "Tepki süresini azaltmak için andon eğitimi ve görsel yönetim uygulayın.",
-      "Duruş sürelerini kısaltmak için kök neden analizi yapın.",
-      "Andon olay sıklığını azaltmak için önleyici bakım planı oluşturun."
+      "Durma sürelerini kaydedip kök neden analizi yapın.",
+      "Otomatik andon sistemleri ile tepki süresini düşürün."
     ],
     "dataConfidenceAdjusted": "dataConfidenceAdjusted"
   },
   "premiumFeatures": [
-    "PDF raporu",
-    "CSV veri indirme",
-    "Trend analizi (zaman serisi)",
+    "PDF/CSV export",
+    "Trend analizi",
     "Karşılaştırma (benchmark)",
-    "Detaylı maliyet kırılımı"
+    "Detaylı rapor"
   ],
   "premiumRequired": true
 }

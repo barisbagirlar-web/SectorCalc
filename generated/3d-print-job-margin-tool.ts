@@ -1,46 +1,47 @@
 // Auto-generated from 3d-print-job-margin-tool-schema.json by generate-from-schema.ts
 import * as z from 'zod';
 
-export interface 3dPrintJobMarginToolInput {
+export interface Tool3dPrintJobMarginToolInput {
   materialCostPerKg: number;
   materialUsageKg: number;
   printTimeHours: number;
   machineHourlyRate: number;
   laborHourlyRate: number;
-  laborTimeHours: number;
-  overheadPercent: number;
-  targetMarginPercent: number;
-  wastePercent: number;
-  postProcessingCost: number;
-  shippingCost: number;
-  dataConfidence: 'low' | 'medium' | 'high';
+  laborHours: number;
+  energyCostPerKwh: number;
+  machinePowerKw: number;
+  defectRate: number;
+  overheadRate: number;
+  sellingPrice: number;
+  dataConfidence: number;
 }
 
-export const 3dPrintJobMarginToolInputSchema = z.object({
-  materialCostPerKg: z.number().min(0).max(500).default(50),
-  materialUsageKg: z.number().min(0).max(100).default(0.5),
-  printTimeHours: z.number().min(0).max(1000).default(10),
-  machineHourlyRate: z.number().min(0).max(100).default(5),
-  laborHourlyRate: z.number().min(0).max(200).default(25),
-  laborTimeHours: z.number().min(0).max(100).default(2),
-  overheadPercent: z.number().min(0).max(100).default(20),
-  targetMarginPercent: z.number().min(0).max(100).default(30),
-  wastePercent: z.number().min(0).max(50).default(5),
-  postProcessingCost: z.number().min(0).max(1000).default(0),
-  shippingCost: z.number().min(0).max(500).default(0),
-  dataConfidence: z.enum(['low', 'medium', 'high']).default('medium'),
+export const Tool3dPrintJobMarginToolInputSchema = z.object({
+  materialCostPerKg: z.number().min(0).default(50),
+  materialUsageKg: z.number().min(0).default(0.5),
+  printTimeHours: z.number().min(0).default(10),
+  machineHourlyRate: z.number().min(0).default(15),
+  laborHourlyRate: z.number().min(0).default(25),
+  laborHours: z.number().min(0).default(2),
+  energyCostPerKwh: z.number().min(0).default(0.12),
+  machinePowerKw: z.number().min(0).default(0.5),
+  defectRate: z.number().min(0).max(100).default(5),
+  overheadRate: z.number().min(0).default(20),
+  sellingPrice: z.number().min(0).default(200),
+  dataConfidence: z.number().min(0).max(100).default(80),
 });
 
-export interface 3dPrintJobMarginToolOutput {
-  price: number;
+export interface Tool3dPrintJobMarginToolOutput {
+  marginPercent: number;
   breakdown: {
     materialCost: number;
     machineCost: number;
     laborCost: number;
-    directCost: number;
+    energyCost: number;
     overheadCost: number;
+    defectCost: number;
     totalCost: number;
-    marginPercent: number;
+    margin: number;
   };
   hiddenLossDrivers: string[];
   suggestedActions: string[];
@@ -49,30 +50,35 @@ export interface 3dPrintJobMarginToolOutput {
   premiumFeatures: string[];
 }
 
-function evaluateFormulas(input: 3dPrintJobMarginToolInput): Record<string, number> {
+function evaluateFormulas(input: Tool3dPrintJobMarginToolInput): Record<string, number> {
   const results: Record<string, number> = {};
-  results.materialCost = input.materialCostPerKg * input.materialUsageKg * (1 + input.wastePercent / 100);
-  results.machineCost = input.printTimeHours * input.machineHourlyRate;
-  results.laborCost = input.laborTimeHours * input.laborHourlyRate;
-  results.directCost = results.materialCost + results.machineCost + results.laborCost + input.postProcessingCost + input.shippingCost;
-  results.totalCost = results.directCost * (1 + input.overheadPercent / 100);
-  results.price = results.totalCost / (1 - input.targetMarginPercent / 100);
-  results.margin = (results.price - results.totalCost) / results.price * 100;
-  results.dataConfidenceAdjusted = case input.dataConfidence when 'low' then results.totalCost * 1.2 when 'medium' then results.totalCost * 1.1 else results.totalCost end;
+  results.materialCost = (() => { try { return input.materialCostPerKg * input.materialUsageKg; } catch { return 0; } })();
+  results.machineCost = (() => { try { return input.machineHourlyRate * input.printTimeHours; } catch { return 0; } })();
+  results.laborCost = (() => { try { return input.laborHourlyRate * input.laborHours; } catch { return 0; } })();
+  results.energyCost = (() => { try { return input.energyCostPerKwh * input.machinePowerKw * input.printTimeHours; } catch { return 0; } })();
+  results.directCost = (() => { try { return results.materialCost + results.machineCost + results.laborCost + results.energyCost; } catch { return 0; } })();
+  results.overheadCost = (() => { try { return results.directCost * (input.overheadRate / 100); } catch { return 0; } })();
+  results.totalCost = (() => { try { return results.directCost + results.overheadCost; } catch { return 0; } })();
+  results.defectCost = (() => { try { return results.totalCost * (input.defectRate / 100); } catch { return 0; } })();
+  results.adjustedTotalCost = (() => { try { return results.totalCost + results.defectCost; } catch { return 0; } })();
+  results.margin = (() => { try { return input.sellingPrice - results.adjustedTotalCost; } catch { return 0; } })();
+  results.marginPercent = (() => { try { return (results.margin / input.sellingPrice) * 100; } catch { return 0; } })();
+  results.dataConfidenceAdjustedMargin = (() => { try { return results.margin * (input.dataConfidence / 100); } catch { return 0; } })();
   return results;
 }
 
-export function calculate3dPrintJobMarginTool(input: 3dPrintJobMarginToolInput): 3dPrintJobMarginToolOutput {
+export function calculateTool3dPrintJobMarginTool(input: Tool3dPrintJobMarginToolInput): Tool3dPrintJobMarginToolOutput {
   const results = evaluateFormulas(input);
-  const price = results.price;
+  const marginPercent = results.marginPercent ?? 0;
   const breakdown = {
     materialCost: results.materialCost,
     machineCost: results.machineCost,
     laborCost: results.laborCost,
-    directCost: results.directCost,
+    energyCost: results.energyCost,
     overheadCost: results.overheadCost,
+    defectCost: results.defectCost,
     totalCost: results.totalCost,
-    marginPercent: results.marginPercent,
+    margin: results.margin,
   };
 
   // rule: materialCostPerKg >= 0
@@ -80,30 +86,28 @@ export function calculate3dPrintJobMarginTool(input: 3dPrintJobMarginToolInput):
   // rule: printTimeHours >= 0
   // rule: machineHourlyRate >= 0
   // rule: laborHourlyRate >= 0
-  // rule: laborTimeHours >= 0
-  // rule: overheadPercent >= 0 and overheadPercent <= 100
-  // rule: targetMarginPercent >= 0 and targetMarginPercent <= 100
-  // rule: wastePercent >= 0 and wastePercent <= 50
-  // rule: postProcessingCost >= 0
-  // rule: shippingCost >= 0
-  // rule: if materialUsageKg > 0 then materialCostPerKg > 0
-  // rule: if printTimeHours > 0 then machineHourlyRate > 0
-  // rule: if laborTimeHours > 0 then laborHourlyRate > 0
-  // threshold wastePercent > 10: High waste percentage may indicate process inefficiency.
-  // threshold overheadPercent > 30: Overhead above 30% may erode competitiveness.
-  // threshold targetMarginPercent < 10: Margin below 10% may not cover risks.
-  // threshold materialCostPerKg > 200: Material cost is high; consider alternative materials.
-  const hiddenLossDrivers: string[] = ["wastePercent > 10 ? 'High waste' : ''","overheadPercent > 30 ? 'High overhead' : ''","targetMarginPercent < 10 ? 'Low margin' : ''"];
-  const suggestedActions: string[] = ["wastePercent > 10 ? 'Optimize print settings to reduce waste.' : ''","overheadPercent > 30 ? 'Review overhead allocation.' : ''","targetMarginPercent < 10 ? 'Increase price or reduce costs.' : ''"];
-  const dataConfidenceAdjusted = results.dataConfidenceAdjusted;
+  // rule: laborHours >= 0
+  // rule: energyCostPerKwh >= 0
+  // rule: machinePowerKw >= 0
+  // rule: defectRate >= 0 && defectRate <= 100
+  // rule: overheadRate >= 0
+  // rule: sellingPrice >= 0
+  // rule: dataConfidence >= 0 && dataConfidence <= 100
+  const hiddenLossDrivers: string[] = [];
+  const suggestedActions: string[] = [];
+  if (input.defectRate > 10) hiddenLossDrivers.push("High defect rate: investigate process stability");
+  if (marginPercent < 10) hiddenLossDrivers.push("Low margin: consider cost reduction or price increase");
+  if (input.dataConfidence < 50) hiddenLossDrivers.push("Low data confidence: results may be unreliable");
+
+  const dataConfidenceAdjusted = (() => { try { return results.dataConfidenceAdjustedMargin; } catch { return marginPercent; } })();
 
   return {
-    price,
+    marginPercent,
     breakdown,
     hiddenLossDrivers,
     suggestedActions,
     dataConfidenceAdjusted,
     premiumRequired: true,
-    premiumFeatures: ["PDF export of detailed cost breakdown","CSV export for batch analysis","Trend analysis over multiple jobs","Comparison with historical jobs","Detailed report with graphs"],
+    premiumFeatures: ["PDF/CSV export","Trend analysis over time","Benchmarking against industry standards","Detailed cost breakdown report"],
   };
 }

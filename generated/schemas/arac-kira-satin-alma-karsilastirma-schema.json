@@ -1,0 +1,236 @@
+{
+  "toolName": "arac-kira-satin-alma-karsilastirma",
+  "inputs": [
+    {
+      "id": "vehiclePrice",
+      "label": "Araç Satın Alma Fiyatı",
+      "type": "number",
+      "unit": "TRY",
+      "default": 500000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Aracın satın alma bedeli. Finansal karşılaştırmanın temel girdisi."
+    },
+    {
+      "id": "monthlyLeasePayment",
+      "label": "Aylık Kira Ödemesi",
+      "type": "number",
+      "unit": "TRY/ay",
+      "default": 10000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Aylık kira (leasing) ödemesi. Kira seçeneğinin maliyetini temsil eder."
+    },
+    {
+      "id": "leaseTermMonths",
+      "label": "Kira Süresi",
+      "type": "number",
+      "unit": "ay",
+      "default": 36,
+      "min": 1,
+      "max": 120,
+      "options": null,
+      "businessContext": "Kira sözleşmesinin ay cinsinden süresi. Genellikle 12-60 ay arası."
+    },
+    {
+      "id": "annualInterestRate",
+      "label": "Yıllık Faiz Oranı (Kredi)",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Satın alma için kullanılacak kredinin yıllık faiz oranı. Finansman maliyetini hesaplamak için kullanılır."
+    },
+    {
+      "id": "downPayment",
+      "label": "Peşinat Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Satın almada peşinat oranı. Kalan tutar kredilendirilir."
+    },
+    {
+      "id": "residualValue",
+      "label": "Beklenen Hurda/İkinci El Değeri",
+      "type": "number",
+      "unit": "TRY",
+      "default": 200000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Kira sonunda veya satın almada aracın tahmini ikinci el değeri. Kira seçeneğinde genellikle opsiyon."
+    },
+    {
+      "id": "annualMaintenanceCost",
+      "label": "Yıllık Bakım Maliyeti",
+      "type": "number",
+      "unit": "TRY/yıl",
+      "default": 5000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Aracın yıllık bakım, sigorta ve vergi gibi sabit maliyetleri. Kira sözleşmesinde genellikle dahil olabilir."
+    },
+    {
+      "id": "annualInsuranceCost",
+      "label": "Yıllık Sigorta Maliyeti",
+      "type": "number",
+      "unit": "TRY/yıl",
+      "default": 8000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Aracın yıllık sigorta primi. Kira sözleşmesinde genellikle dahil olabilir."
+    },
+    {
+      "id": "usageYears",
+      "label": "Kullanım Süresi",
+      "type": "number",
+      "unit": "yıl",
+      "default": 5,
+      "min": 1,
+      "max": 20,
+      "options": null,
+      "businessContext": "Aracın kullanılacağı toplam süre. Karşılaştırma bu süre boyunca yapılır."
+    },
+    {
+      "id": "annualMileage",
+      "label": "Yıllık Ortalama Kilometre",
+      "type": "number",
+      "unit": "km/yıl",
+      "default": 20000,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Yıllık ortalama kullanım mesafesi. Yakıt ve aşınma maliyetlerini etkiler."
+    },
+    {
+      "id": "fuelCostPerKm",
+      "label": "Kilometre Başına Yakıt Maliyeti",
+      "type": "number",
+      "unit": "TRY/km",
+      "default": 1.5,
+      "min": 0,
+      "max": null,
+      "options": null,
+      "businessContext": "Aracın yakıt tüketimine bağlı km başına maliyet. Ortalama yakıt fiyatı ve tüketimden hesaplanır."
+    },
+    {
+      "id": "inflationRate",
+      "label": "Yıllık Enflasyon Oranı",
+      "type": "number",
+      "unit": "%",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Gelecekteki maliyetleri bugünkü değere indirgemek için kullanılır. Finansal analizlerde standart."
+    },
+    {
+      "id": "discountRate",
+      "label": "İskonto Oranı (Sermaye Maliyeti)",
+      "type": "number",
+      "unit": "%",
+      "default": 12,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Net bugünkü değer hesaplamalarında kullanılan iskonto oranı. Şirketin sermaye maliyetini yansıtır."
+    },
+    {
+      "id": "taxRate",
+      "label": "Vergi Oranı (KDV/ÖTV vb.)",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "min": 0,
+      "max": 100,
+      "options": null,
+      "businessContext": "Satın almada uygulanan vergi oranı. Kira ödemelerinde KDV genellikle ayrıdır."
+    },
+    {
+      "id": "includeResidualInLease",
+      "label": "Kira Sonu Hurda Değeri Dahil mi?",
+      "type": "boolean",
+      "unit": "",
+      "default": false,
+      "min": null,
+      "max": null,
+      "options": null,
+      "businessContext": "Kira sözleşmesinde aracın hurda değerinin kiracıya ait olup olmadığını belirtir."
+    }
+  ],
+  "validation": {
+    "rules": [
+      "vehiclePrice > 0",
+      "monthlyLeasePayment > 0",
+      "leaseTermMonths >= 1",
+      "annualInterestRate >= 0",
+      "downPayment >= 0 && downPayment <= 100",
+      "residualValue >= 0",
+      "annualMaintenanceCost >= 0",
+      "annualInsuranceCost >= 0",
+      "usageYears >= 1",
+      "annualMileage >= 0",
+      "fuelCostPerKm >= 0",
+      "inflationRate >= 0",
+      "discountRate >= 0",
+      "taxRate >= 0 && taxRate <= 100",
+      "if (includeResidualInLease == true) then residualValue > 0"
+    ],
+    "thresholds": {
+      "vehiclePrice": "vehiclePrice > 1000000 ? 'Yüksek araç fiyatı, alternatif modeller değerlendirilmeli' : ''",
+      "monthlyLeasePayment": "monthlyLeasePayment > 20000 ? 'Kira ödemesi yüksek, pazarlık yapılabilir' : ''",
+      "annualInterestRate": "annualInterestRate > 20 ? 'Faiz oranı yüksek, alternatif finansman araştırılmalı' : ''",
+      "residualValue": "residualValue < vehiclePrice * 0.2 ? 'Hurda değeri düşük, satın alma dezavantajlı olabilir' : ''"
+    }
+  },
+  "formulas": {
+    "totalLeaseCost": "monthlyLeasePayment * leaseTermMonths + (includeResidualInLease ? 0 : residualValue)",
+    "totalPurchaseCost": "vehiclePrice * (1 + taxRate/100) - residualValue + (annualMaintenanceCost + annualInsuranceCost) * usageYears + fuelCostPerKm * annualMileage * usageYears",
+    "netPresentValueLease": "totalLeaseCost / ((1 + discountRate/100) ^ (usageYears))",
+    "netPresentValuePurchase": "totalPurchaseCost / ((1 + discountRate/100) ^ (usageYears))",
+    "monthlyCostLease": "totalLeaseCost / leaseTermMonths",
+    "monthlyCostPurchase": "totalPurchaseCost / (usageYears * 12)",
+    "breakEvenMileage": "(monthlyLeasePayment * 12 - (annualMaintenanceCost + annualInsuranceCost)) / fuelCostPerKm",
+    "costDifference": "totalLeaseCost - totalPurchaseCost",
+    "recommendation": "costDifference < 0 ? 'Kiralamak daha avantajlı' : 'Satın almak daha avantajlı'"
+  },
+  "outputs": {
+    "primary": "costDifference",
+    "breakdown": {
+      "totalLeaseCost": "totalLeaseCost",
+      "totalPurchaseCost": "totalPurchaseCost",
+      "netPresentValueLease": "netPresentValueLease",
+      "netPresentValuePurchase": "netPresentValuePurchase",
+      "monthlyCostLease": "monthlyCostLease",
+      "monthlyCostPurchase": "monthlyCostPurchase",
+      "breakEvenMileage": "breakEvenMileage"
+    },
+    "hiddenLossDrivers": [
+      "annualMaintenanceCost > 10000 ? 'Bakım maliyeti yüksek' : ''",
+      "fuelCostPerKm > 2 ? 'Yakıt maliyeti yüksek' : ''",
+      "annualInsuranceCost > 15000 ? 'Sigorta maliyeti yüksek' : ''"
+    ],
+    "suggestedActions": [
+      "costDifference > 0 ? 'Satın alma lehine, ancak kira esnekliği değerlendirilmeli' : 'Kiralama lehine, ancak uzun vadede satın alma düşünülebilir'",
+      "annualInterestRate > 15 ? 'Daha düşük faizli kredi araştırılmalı' : ''",
+      "residualValue < vehiclePrice * 0.3 ? 'Hurda değeri iyileştirmek için bakım planı yapılmalı' : ''"
+    ],
+    "dataConfidenceAdjusted": "costDifference * (1 - (inflationRate/100) * 0.1)"
+  },
+  "premiumFeatures": [
+    "PDF/CSV export",
+    "Trend analizi (fiyat, faiz, enflasyon değişimlerine duyarlılık)",
+    "Karşılaştırma (farklı senaryoları yan yana görme)",
+    "Detaylı rapor (amortisman, nakit akışı tablosu)"
+  ],
+  "premiumRequired": true
+}
