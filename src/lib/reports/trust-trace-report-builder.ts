@@ -96,10 +96,10 @@ function buildFormulaContractRef(
 
   return {
     slug: contract.slug,
-    toolId: contract.toolId,
-    version: contract.toolId,
-    title: contract.toolName,
-    riskLevel: contract.riskLevel,
+    toolId: contract.toolId ?? contract.slug,
+    version: contract.toolId ?? contract.slug,
+    title: contract.toolName ?? contract.slug,
+    riskLevel: contract.riskLevel ?? "medium",
   };
 }
 
@@ -115,8 +115,8 @@ function buildMind2PrecalcTrace(
     formulaPath: trustTrace.formulaPath,
     derivedResolutionPlan: loop.derivedResolutionPlan.map((step) => ({
       variableId: step.variableId,
-      formulaNodeId: step.formulaNodeId,
-      requiredInputs: step.requiredInputs,
+      formulaNodeId: step.formulaNodeId ?? step.variableId,
+      requiredInputs: step.requiredInputs ?? [],
     })),
     readinessStatus: loop.readinessAudit.status,
     readinessWarnings: loop.readinessAudit.warnings,
@@ -166,7 +166,7 @@ function collectBlockers(input: {
   ]);
 
   if (input.fullLoopResult.status === "blocked") {
-    for (const blocker of input.fullLoopResult.blockers) {
+    for (const blocker of input.fullLoopResult.blockers ?? []) {
       blockers.add(blocker);
     }
   }
@@ -203,7 +203,8 @@ export function buildTrustTraceReportPayload(
   const contract = getFormulaContractBySlug(contractSlug);
   const trustTrace = fullLoopResult.trustTrace;
   const loop = fullLoopResult.loop;
-  const calculationStatus = fullLoopResult.status;
+  const calculationStatus =
+    fullLoopResult.status === "success" ? "success" : "blocked";
 
   const oracleCoverage = buildOracleCoverageTrace(contractSlug);
   const scenarioCoverage = contract
@@ -261,7 +262,12 @@ export function buildTrustTraceReportPayload(
     slug: toolSlug,
     toolTitle,
     tier,
-    loopStatus: trustTrace.loopStatus,
+    loopStatus:
+      trustTrace.loopStatus === "SUCCESS"
+        ? "success"
+        : trustTrace.loopStatus === "BLOCKED"
+          ? "blocked"
+          : "pending",
     calculationStatus,
     locale: input.locale ?? "en",
     generatedAt: input.generatedAt ?? new Date().toISOString(),

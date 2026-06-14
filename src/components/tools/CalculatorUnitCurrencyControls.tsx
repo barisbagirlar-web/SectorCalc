@@ -2,7 +2,6 @@
 
 import { useLocale } from "next-intl";
 import { useMemo } from "react";
-import { SmartUnitSelect } from "@/components/smart-form/SmartUnitSelect";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import {
   getCurrencyOptionsForLocale,
@@ -71,14 +70,20 @@ export function CalculatorUnitSelect({
   }
 
   return (
-    <SmartUnitSelect
-      inputId={inputId}
+    <select
+      id={`${inputId}-unit`}
+      className="sc-industrial-field__unit-select min-h-[44px] rounded border border-technical-gray bg-white px-2 text-xs"
       value={value ?? unit}
-      options={unitOptions}
       disabled={!onChange}
-      ariaLabel={localizedUnitAriaLabel(locale)}
-      onChange={onChange}
-    />
+      aria-label={localizedUnitAriaLabel(locale)}
+      onChange={(event) => onChange?.(event.target.value)}
+    >
+      {unitOptions.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </select>
   );
 }
 

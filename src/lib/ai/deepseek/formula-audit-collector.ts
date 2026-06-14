@@ -113,14 +113,14 @@ function summarizeInputSchema(slug: string): Record<string, unknown> | null {
     };
   }
 
-  const freeSpec = ROADMAP_FREE_BATCH2_SPECS[slug as keyof typeof ROADMAP_FREE_BATCH2_SPECS];
+  const freeSpec = ROADMAP_FREE_BATCH2_SPECS[slug];
   if (freeSpec) {
     return {
       source: "roadmap-free-batch2",
       kind: freeSpec.kind,
-      keys: "keys" in freeSpec ? freeSpec.keys : undefined,
-      numerator: "numerator" in freeSpec ? freeSpec.numerator : undefined,
-      denominator: "denominator" in freeSpec ? freeSpec.denominator : undefined,
+      keys: freeSpec.keys,
+      numerator: freeSpec.numerator,
+      denominator: freeSpec.denominator,
       explanation: freeSpec.explanation,
     };
   }

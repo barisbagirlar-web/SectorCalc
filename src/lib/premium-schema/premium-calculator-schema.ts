@@ -8,8 +8,10 @@
  * - Schema Linter validates before build.
  */
 
-import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
 import type { FormulaFamilyId } from "@/lib/premium-schema/formula-families";
+import type { SevenMudaEngineeringResult } from "@/lib/premium-schema/calculators/seven-muda-waste-cost";
+
+export type { SevenMudaEngineeringResult };
 
 export type { PremiumCalculatorCategory } from "@/lib/premium-schema/formula-families";
 

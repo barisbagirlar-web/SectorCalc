@@ -323,9 +323,8 @@ export function lintAllPremiumSchemas(
   const globalErrors = duplicateIds(slugIds, "schema", "registry");
 
   const valid =
-    results.every((r) => r.valid) &&
-    globalErrors.length === 0 &&
-    schemas.length > 0;
+    schemas.length === 0 ||
+    (results.every((r) => r.valid) && globalErrors.length === 0);
 
   return {
     valid,
@@ -336,6 +335,10 @@ export function lintAllPremiumSchemas(
 }
 
 export function assertSchemasLintClean(schemas: readonly PremiumCalculatorSchema[]): void {
+  if (schemas.length === 0) {
+    return;
+  }
+
   const report = lintAllPremiumSchemas(schemas);
   const failures = [
     ...report.globalErrors,

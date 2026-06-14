@@ -1,8 +1,12 @@
 import type { ReferenceGraphicField } from "@/lib/guidance/reference-graphic-types";
-import type { SmartFormExistingInputConfig } from "@/lib/smart-form/smart-form-adapter";
 import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 import type { FreeTrafficTool } from "@/lib/tools/free-traffic-catalog";
 import type { RevenueToolInput } from "@/lib/tools/revenue-tools";
+
+type SmartFormExistingInputConfig =
+  | { readonly kind: "traffic"; readonly inputs: FreeTrafficTool["inputs"] }
+  | { readonly kind: "revenue"; readonly inputs: readonly RevenueToolInput[] }
+  | { readonly kind: "premium"; readonly schema: PremiumCalculatorSchema };
 
 function fromRevenueInputs(inputs: readonly RevenueToolInput[]): ReferenceGraphicField[] {
   return inputs.map((input) => ({
@@ -32,20 +36,15 @@ export function buildGuidanceFieldsFromInputConfig(
   if (config.kind === "revenue") {
     return fromRevenueInputs(config.inputs);
   }
-  if (config.kind === "schema") {
-    return config.inputs.map((input) => ({
+  if (config.kind === "premium") {
+    return config.schema.inputs.map((input) => ({
       key: input.id,
       label: input.label,
       type: input.type,
       unitGroup: input.unit,
     }));
   }
-  return config.inputs.map((input) => ({
-    key: input.id,
-    label: input.label,
-    type: input.type,
-    unitGroup: input.unit,
-  }));
+  return [];
 }
 
 export function buildGuidanceFieldsFromTrafficTool(tool: FreeTrafficTool): ReferenceGraphicField[] {

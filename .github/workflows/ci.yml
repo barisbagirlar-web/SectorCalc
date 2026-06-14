@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "feature/*"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      - run: npx tsc --noEmit
+
+      - run: npm run generate:tests
+
+      - run: npm run test:generated
+
+      - run: npm run test:generated:unit
+
+      - run: npm run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192

@@ -2,7 +2,6 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import PageHero from "@/components/shared/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumb } from "@/components/tools/Breadcrumb";
-import { ToolCalculatorEngine } from "@/components/tools/ToolCalculatorEngine";
 import { PremiumTeaserPanel } from "@/components/tools/PremiumTeaserPanel";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import { CTASection } from "@/components/sections/CTASection";
@@ -60,8 +59,10 @@ export function ToolPageShell({ definition: rawDefinition, locale }: ToolPageShe
 
  <section className="fourth-tab border-t border-border-subtle bg-white">
  <Container size="wide" className="min-w-0 py-4">
- <div className={CALC_TOOL_PAGE_FORM_ZONE_CLASS}>
- <ToolCalculatorEngine definition={definition} />
+        <div className={CALC_TOOL_PAGE_FORM_ZONE_CLASS}>
+          <div className="rounded-lg border border-technical-gray bg-surface-cream p-6 text-sm text-body-charcoal">
+            Calculator regeneration in progress. Schema scan will restore this tool.
+          </div>
  {definition.premiumTeaser && !definition.features?.decisionReport && (
  <div className="mt-10">
  <PremiumTeaserPanel

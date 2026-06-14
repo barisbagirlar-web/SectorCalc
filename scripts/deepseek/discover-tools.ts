@@ -5,6 +5,9 @@ import { PROJECT_ROOT, loadEnvLocal } from "./load-env";
 
 const REVENUE_TOOLS_PATH = path.join(PROJECT_ROOT, "src/lib/tools/revenue-tools.ts");
 const INDUSTRY_REGISTRY_PATH = path.join(PROJECT_ROOT, "src/lib/tools/industry-registry.ts");
+const AI_INDEX_PATH = path.join(PROJECT_ROOT, "public/ai-tool-index.json");
+const PREMIUM_SLUGS_PATH = path.join(PROJECT_ROOT, "premium-slugs.json");
+const FREE_SLUGS_PATH = path.join(PROJECT_ROOT, "free-slugs.json");
 const CONTRACTS_DIR = path.join(PROJECT_ROOT, "src/lib/formula-governance/contracts");
 const LOCATOR_FILES = [
   path.join(PROJECT_ROOT, "src/lib/formula-governance/oracle/production-formula-locator.ts"),
@@ -98,13 +101,62 @@ function extractRevenueSnippet(content: string, slug: string): string | undefine
   return content.slice(Math.max(0, index - 250), index + 1_500).trim();
 }
 
+type AiIndexToolRecord = {
+  readonly slug: string;
+  readonly title?: Readonly<Record<string, string>>;
+  readonly description?: Readonly<Record<string, string>>;
+  readonly tier?: string;
+  readonly categorySlug?: string;
+};
+
+function readSlugList(filePath: string): string[] {
+  if (!fs.existsSync(filePath)) {
+    return [];
+  }
+  const parsed = JSON.parse(fs.readFileSync(filePath, "utf8")) as unknown;
+  if (!Array.isArray(parsed)) {
+    return [];
+  }
+  return parsed.filter((entry): entry is string => typeof entry === "string" && isLikelyToolSlug(entry));
+}
+
+function loadAiToolIndexMap(): Map<string, AiIndexToolRecord> {
+  if (!fs.existsSync(AI_INDEX_PATH)) {
+    return new Map();
+  }
+  const parsed = JSON.parse(fs.readFileSync(AI_INDEX_PATH, "utf8")) as { tools?: readonly AiIndexToolRecord[] };
+  const map = new Map<string, AiIndexToolRecord>();
+  for (const tool of parsed.tools ?? []) {
+    if (tool.slug && isLikelyToolSlug(tool.slug)) {
+      map.set(tool.slug, tool);
+    }
+  }
+  return map;
+}
+
 function buildContextSnippet(input: {
   readonly slug: string;
   readonly revenueToolsText: string;
   readonly industryRegistryText: string;
   readonly contractSnippet?: string;
+  readonly aiTool?: AiIndexToolRecord;
 }): string {
   const chunks: string[] = [`slug: ${input.slug}`];
+
+  if (input.aiTool) {
+    const title = input.aiTool.title?.en ?? input.aiTool.title?.tr ?? input.slug;
+    const description = input.aiTool.description?.en ?? input.aiTool.description?.tr ?? "";
+    chunks.push(`name: ${title}`);
+    if (description) {
+      chunks.push(`description: ${description}`);
+    }
+    if (input.aiTool.tier) {
+      chunks.push(`tier: ${input.aiTool.tier}`);
+    }
+    if (input.aiTool.categorySlug) {
+      chunks.push(`category: ${input.aiTool.categorySlug}`);
+    }
+  }
 
   const revenueSnippet = extractRevenueSnippet(input.revenueToolsText, input.slug);
   if (revenueSnippet) {
@@ -131,19 +183,28 @@ export function discoverTools(): DiscoveredTool[] {
   const contractSnippets = extractContractSlugs();
   const locatorSlugs = extractLocatorSlugs();
   const revenueRoles = extractRevenueRoles(revenueToolsText);
+  const aiToolIndex = loadAiToolIndexMap();
+  const premiumSlugList = readSlugList(PREMIUM_SLUGS_PATH);
+  const freeSlugList = readSlugList(FREE_SLUGS_PATH);
   const discovered = new Map<string, DiscoveredTool>();
 
   function upsert(slug: string, source: ToolDiscoverySource): void {
     const existing = discovered.get(slug);
     const sources = existing ? [...new Set([...existing.sources, source])] : [source];
+    const aiTool = aiToolIndex.get(slug);
     discovered.set(slug, {
       slug,
       sources,
-      revenueRole: revenueRoles.get(slug) ?? existing?.revenueRole,
+      revenueRole:
+        premiumSlugList.includes(slug)
+          ? "paid"
+          : freeSlugList.includes(slug)
+            ? "free"
+            : revenueRoles.get(slug) ?? existing?.revenueRole,
       source:
-        revenueRoles.get(slug) === "paid"
+        premiumSlugList.includes(slug) || revenueRoles.get(slug) === "paid"
           ? "paidSlug"
-          : revenueRoles.get(slug) === "free"
+          : freeSlugList.includes(slug) || revenueRoles.get(slug) === "free"
             ? "freeSlug"
             : existing?.source,
       contextSnippet: buildContextSnippet({
@@ -151,8 +212,21 @@ export function discoverTools(): DiscoveredTool[] {
         revenueToolsText,
         industryRegistryText,
         contractSnippet: contractSnippets.get(slug),
+        aiTool,
       }),
     });
+  }
+
+  for (const slug of premiumSlugList) {
+    upsert(slug, "slug-list");
+  }
+
+  for (const slug of freeSlugList) {
+    upsert(slug, "slug-list");
+  }
+
+  for (const slug of aiToolIndex.keys()) {
+    upsert(slug, "ai-tool-index");
   }
 
   for (const slug of revenueRoles.keys()) {

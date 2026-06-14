@@ -1,7 +1,9 @@
 export type ToolDiscoverySource =
   | "revenue-tools"
   | "formula-governance-contract"
-  | "formula-governance-locator";
+  | "formula-governance-locator"
+  | "slug-list"
+  | "ai-tool-index";
 
 export type DiscoveredTool = {
   readonly slug: string;

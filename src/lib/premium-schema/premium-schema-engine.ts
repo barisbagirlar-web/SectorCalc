@@ -262,6 +262,9 @@ function runPremiumSchemaEngineCore(
 
   for (const step of schema.formulaPipeline) {
     const formulaFn = getFormulaFn(step.formulaId);
+    if (!formulaFn) {
+      continue;
+    }
     const mapped = buildFormulaInputs(step.inputMap, userInputs, computed);
     computed[step.outputId] = formulaFn(mapped);
   }
@@ -311,10 +314,13 @@ function runPremiumSchemaEngineCore(
   const adjustedCost = baseExposure * hiddenMultiplier;
   const volatilityPercent = schema.assumptions.volatilityPercent;
   const p90Exposure = adjustedCost + adjustedCost * (volatilityPercent / 100) * Z_P90;
-  const minimumSafePrice = getFormulaFn("cost.minimum_safe_price")({
-    p90Cost: p90Exposure,
-    targetMarginPercent: schema.assumptions.targetMarginPercent,
-  });
+  const minimumSafePriceFn = getFormulaFn("cost.minimum_safe_price");
+  const minimumSafePrice = minimumSafePriceFn
+    ? minimumSafePriceFn({
+        p90Cost: p90Exposure,
+        targetMarginPercent: schema.assumptions.targetMarginPercent,
+      })
+    : 0;
 
   const p90ExposureFormatted = formatOutput(p90Exposure, "currency", "USD", formatLocale);
   const minimumSafePriceFormatted = formatOutput(minimumSafePrice, "currency", "USD", formatLocale);

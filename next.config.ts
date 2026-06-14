@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import { withSentryConfig } from "@sentry/nextjs";
 import path from "node:path";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
@@ -41,6 +42,21 @@ const nextConfig: NextConfig = {
     return [
       { source: "/en", destination: "/", permanent: true },
       { source: "/en/:path*", destination: "/:path*", permanent: true },
+      {
+        source: "/:locale(en|tr|de|fr|es|ar)/tools/free/:slug",
+        destination: "/:locale/tools/generated/:slug",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|tr|de|fr|es|ar)/tools/premium/:slug",
+        destination: "/:locale/tools/generated/:slug",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|tr|de|fr|es|ar)/tools/free-traffic/:slug",
+        destination: "/:locale/tools/generated/:slug",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
@@ -62,4 +78,19 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withNextIntl(nextConfig);
+const sentryEnabled = Boolean(
+  process.env.NEXT_PUBLIC_SENTRY_DSN ?? process.env.SENTRY_DSN,
+);
+
+const configWithIntl = withNextIntl(nextConfig);
+
+export default sentryEnabled
+  ? withSentryConfig(configWithIntl, {
+      org: "sectorcalc",
+      project: "sectorcalc",
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+      silent: !process.env.CI,
+      widenClientFileUpload: true,
+      disableLogger: true,
+    })
+  : configWithIntl;

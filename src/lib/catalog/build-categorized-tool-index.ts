@@ -94,13 +94,13 @@ function resolveSeedRoutePath(slug: string): string | null {
     return `/tools/premium-schema/${slug}`;
   }
   if (getPremiumRevenueRouteSlugs().includes(slug)) {
-    return `/tools/premium/${slug}`;
+    return `/tools/generated/${slug}`;
   }
   if (listRevenueFreeSlugs().includes(slug)) {
-    return `/tools/free/${slug}`;
+    return `/tools/generated/${slug}`;
   }
   if (getFormulaContractBySlug(slug)) {
-    return `/tools/premium/${slug}`;
+    return `/tools/generated/${slug}`;
   }
   return null;
 }
@@ -134,7 +134,7 @@ function buildRevenueFreeItems(): CategorizedToolItem[] {
       tier: "free",
       categorySlug,
       source: "existing-free",
-      routePath: `/tools/free/${tool.freeSlug}`,
+      routePath: `/tools/generated/${tool.freeSlug}`,
       formulaContractStatus: resolveFormulaContractStatus(tool.freeSlug),
       publicStatus: "active",
     });
@@ -165,7 +165,7 @@ function buildFreeTrafficItems(): CategorizedToolItem[] {
       tier: "free" as const,
       categorySlug,
       source: "existing-free" as const,
-      routePath: `/tools/free/${tool.slug}`,
+      routePath: `/tools/generated/${tool.slug}`,
       formulaContractStatus: resolveFormulaContractStatus(tool.slug),
       publicStatus: "active" as const,
     };
@@ -194,7 +194,7 @@ function buildMigratedFreePremiumItems(): CategorizedToolItem[] {
         categorySlug: match.categorySlug,
         source: "existing-free-migrated" as const,
         migrationSources: ["existing-free-migrated"] as const,
-        routePath: `/tools/premium/${match.slug}`,
+        routePath: `/tools/generated/${match.slug}`,
         formulaContractStatus: hasContract ? "ready" : "missing",
         publicStatus: "active" as const,
       };
@@ -213,7 +213,7 @@ function buildMigratedFreePremiumItems(): CategorizedToolItem[] {
         categorySlug: match.categorySlug,
         source: "existing-free-migrated" as const,
         migrationSources: ["existing-free-migrated"] as const,
-        routePath: `/tools/premium/${match.slug}`,
+        routePath: `/tools/generated/${match.slug}`,
         formulaContractStatus: hasContract ? "ready" : "missing",
         publicStatus: "active" as const,
       };
@@ -247,7 +247,7 @@ function buildRevenuePremiumItems(): CategorizedToolItem[] {
       tier: "premium" as const,
       categorySlug,
       source: "existing-premium" as const,
-      routePath: `/tools/premium/${tool.paidSlug}`,
+      routePath: `/tools/generated/${tool.paidSlug}`,
       formulaContractStatus: resolveFormulaContractStatus(tool.paidSlug),
       publicStatus: "active" as const,
     };

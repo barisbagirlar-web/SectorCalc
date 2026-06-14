@@ -1,24 +1,26 @@
-export function getFormulaGateVerifiedLabel(locale: string): string {
-  return locale === "tr" ? "Formula Gate Onaylı" : "Formula Gate Approved";
+export const FORMULA_GATE_STATUS_LABELS: Record<string, string> = {};
+export const FORMULA_GATE_REVIEW_COPY = { pending: "Pending regeneration." } as const;
+
+export function resolveFormulaGateStatusLabel(_status: string): string {
+  return "Pending";
 }
 
-export function getFormulaGateVerifiedTitle(locale: string): string {
-  return locale === "tr"
-    ? "Bu hesaplama aracı Formula Gate kalite kapısından geçmiştir."
-    : "This calculation tool has passed the Formula Gate quality check.";
+export function resolveFormulaGateReviewCopy(_status: string): string {
+  return FORMULA_GATE_REVIEW_COPY.pending;
 }
 
-export function getFormulaGateReviewLabel(locale: string): string {
-  return locale === "tr" ? "Hesaplama gözden geçiriliyor" : "Calculation under review";
+export function getFormulaGateVerifiedLabel(_locale: string): string {
+  return "Verified";
 }
 
-export function getFormulaGateReviewTitle(locale: string): string {
-  return locale === "tr"
-    ? "Bu hesaplama aracı kalite kontrolünden geçiriliyor. Formula Gate onayı yalnızca canlı yüzey hazır olduğunda gösterilir."
-    : "This calculator is under quality review. The Formula Gate badge appears only when the live surface is runtime-ready.";
+export function getFormulaGateVerifiedTitle(_locale: string): string {
+  return "Formula verification pending regeneration.";
 }
 
-/** @deprecated Use getFormulaGateReviewLabel — kept for catalog meta compatibility */
-export function getFormulaGateReviewLabelLegacy(locale: string): string {
-  return locale === "tr" ? "Formula Gate incelemesi sürüyor" : "Formula Gate review in progress";
+export function getFormulaGateReviewLabel(_locale: string): string {
+  return "Review pending";
+}
+
+export function getFormulaGateReviewTitle(_locale: string): string {
+  return "Formula review pending regeneration.";
 }

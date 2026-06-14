@@ -11,6 +11,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import {
   GENERATED_CALCULATOR_SLUGS,
 } from "@/lib/generated-tools/calculator-registry";
+import { REGENERATION_ALL_SLUGS } from "@/lib/generated-tools/regeneration-slug-lists";
 import {
   generatedToolDiagramExists,
   generatedToolDiagramPublicPath,
@@ -32,9 +33,10 @@ export const dynamic = "force-static";
 export const dynamicParams = true;
 
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  const targetSlugs = new Set<string>(REGENERATION_ALL_SLUGS);
   const registrySlugs = new Set<string>(GENERATED_CALCULATOR_SLUGS);
   const params = listGeneratedToolSchemaSlugs()
-    .filter((slug) => registrySlugs.has(slug))
+    .filter((slug) => targetSlugs.has(slug) && registrySlugs.has(slug))
     .map((slug) => ({ slug }));
   return limitStaticParamsForPreview(params, {
     family: "generated-tools",
@@ -73,7 +75,8 @@ export default async function GeneratedToolRoutePage({
   setRequestLocale(locale);
 
   const schema = getGeneratedToolSchema(slug);
-  if (!schema || !GENERATED_CALCULATOR_SLUGS.includes(slug)) {
+  const isRegenerationSlug = REGENERATION_ALL_SLUGS.includes(slug);
+  if (!schema || !isRegenerationSlug || !GENERATED_CALCULATOR_SLUGS.includes(slug)) {
     notFound();
   }
 

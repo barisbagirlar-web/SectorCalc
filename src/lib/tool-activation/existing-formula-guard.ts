@@ -17,7 +17,7 @@ export function detectExistingFormula(slug: string): ExistingFormulaDetection {
 
   const hasFormulaContract = Boolean(contract);
   const hasExistingFormulaExpression = Boolean(
-    locator?.productionEntry || contract?.requiredInputs.length,
+    locator?.productionEntry || (contract?.requiredInputs?.length ?? 0) > 0,
   );
 
   if (hasFormulaContract || hasExistingFormulaExpression) {

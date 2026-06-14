@@ -3,7 +3,6 @@
 import Link from "@/lib/navigation/next-link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useLocale } from "next-intl";
-import { PremiumPaywall } from "@/components/subscription/PremiumPaywall";
 import { CheckoutLoadingOverlay } from "@/components/billing/CheckoutLoadingOverlay";
 import {
  LEAD_INDUSTRY_OPTIONS,
@@ -385,11 +384,18 @@ export function LeadIntentModal() {
 
  <div className="overflow-y-auto px-5 py-5 sm:px-6 sm:py-6">
  {flow === "paywall" ? (
- <PremiumPaywall
- tool={revenueTool ?? undefined}
- toolSlug={context?.toolSlug}
- variant="modal"
- />
+ <div className="space-y-4">
+ <p className="text-sm leading-relaxed text-text-secondary sm:text-base">
+ Premium report unlock is being rebuilt. Browse pricing or continue with free
+ tools until the new analyzer pages are live.
+ </p>
+ <Link
+ href="/pricing"
+ className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-deep-navy px-6 text-sm font-semibold text-white transition-colors hover:bg-black sm:w-auto"
+ >
+ View pricing
+ </Link>
+ </div>
  ) : null}
 
  {flow !== "paywall" && phase === "success" ? (
