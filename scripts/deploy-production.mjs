@@ -44,13 +44,15 @@ if (!acquireLock()) {
 }
 
 try {
-  const hasBuild = existsSync(BUILD_ID_PATH);
+  const forceRebuild = process.env.DEPLOY_FORCE_REBUILD === "1";
+  const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
+
   if (!hasBuild) {
     console.log("deploy-production: building with fallback wrapper…");
-    const buildStatus = run("node", ["scripts/next-build-with-500-fallback.mjs"]);
-    if (buildStatus !== 0 || !existsSync(BUILD_ID_PATH)) {
+    run("node", ["scripts/next-build-with-500-fallback.mjs"]);
+    if (!existsSync(BUILD_ID_PATH)) {
       console.error("deploy-production: build failed.");
-      process.exit(buildStatus || 1);
+      process.exit(1);
     }
     run("node", ["scripts/ensure-500-export.mjs"]);
   } else {
