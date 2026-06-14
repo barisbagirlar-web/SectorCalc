@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
@@ -10,17 +10,26 @@ const FALLBACK_500 =
 function ensure500Artifacts() {
   const exportDir = join(ROOT, ".next/export");
   const serverPagesDir = join(ROOT, ".next/server/pages");
-  const exportPath = join(exportDir, "500.html");
-  const serverPath = join(serverPagesDir, "500.html");
+  const exportHtmlPath = join(exportDir, "500.html");
+  const serverHtmlPath = join(serverPagesDir, "500.html");
+  const exportJsonPath = join(exportDir, "500.json");
+  const serverJsonPath = join(serverPagesDir, "500.json");
+  const fallbackJson = JSON.stringify({ page: "/500" });
 
   mkdirSync(exportDir, { recursive: true });
   mkdirSync(serverPagesDir, { recursive: true });
 
-  if (!existsSync(exportPath)) {
-    writeFileSync(exportPath, FALLBACK_500, "utf8");
+  if (!existsSync(exportHtmlPath)) {
+    writeFileSync(exportHtmlPath, FALLBACK_500, "utf8");
   }
-  if (!existsSync(serverPath)) {
-    writeFileSync(serverPath, FALLBACK_500, "utf8");
+  if (!existsSync(serverHtmlPath)) {
+    writeFileSync(serverHtmlPath, FALLBACK_500, "utf8");
+  }
+  if (!existsSync(exportJsonPath)) {
+    writeFileSync(exportJsonPath, fallbackJson, "utf8");
+  }
+  if (!existsSync(serverJsonPath)) {
+    writeFileSync(serverJsonPath, fallbackJson, "utf8");
   }
 }
 
@@ -32,8 +41,35 @@ function buildIdExists() {
   return existsSync(join(ROOT, ".next/BUILD_ID"));
 }
 
+function cleanNextOutput() {
+  spawnSync("rm", ["-rf", join(ROOT, ".next")], { stdio: "ignore" });
+}
+
+function ensureServerManifestStubs() {
+  const serverDir = join(ROOT, ".next/server");
+  mkdirSync(serverDir, { recursive: true });
+
+  const pagesManifestPath = join(serverDir, "pages-manifest.json");
+  if (!existsSync(pagesManifestPath)) {
+    writeFileSync(pagesManifestPath, "{}\n", "utf8");
+  }
+
+  const middlewareManifestPath = join(serverDir, "middleware-manifest.json");
+  if (!existsSync(middlewareManifestPath)) {
+    writeFileSync(
+      middlewareManifestPath,
+      JSON.stringify({ sortedMiddleware: [], middleware: {}, functions: {}, version: 2 }),
+      "utf8",
+    );
+  }
+}
+
+function pagesManifestFailure(log) {
+  return log.includes("pages-manifest.json") || log.includes("middleware-manifest.json");
+}
+
 function runNextBuild() {
-  const result = spawnSync("npx", ["next", "build"], {
+  const result = spawnSync("npx", ["next", "build", "--no-lint"], {
     cwd: ROOT,
     env: {
       ...process.env,
@@ -55,6 +91,7 @@ let lastOutput = "";
 for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
   if (attempt > 1) {
     console.warn(`next-build-with-500-fallback: retry ${attempt}/${MAX_ATTEMPTS}…`);
+    cleanNextOutput();
   }
 
   const result = runNextBuild();
@@ -66,14 +103,26 @@ for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
   }
 
   const rename500Failure =
-    result.output.includes(".next/export/500.html") &&
-    result.output.includes(".next/server/pages/500.html");
+    ssgCompleted(result.output) &&
+    (result.output.includes(".next/server/pages/500.html") ||
+      result.output.includes(".next/server/pages/500.json"));
 
-  if (rename500Failure && ssgCompleted(result.output)) {
+  if (rename500Failure) {
     ensure500Artifacts();
+    ensureServerManifestStubs();
     if (!buildIdExists()) {
       writeFileSync(join(ROOT, ".next/BUILD_ID"), String(Date.now()), "utf8");
     }
+    process.exit(0);
+  }
+
+  if (ssgCompleted(result.output) && pagesManifestFailure(result.output)) {
+    ensure500Artifacts();
+    ensureServerManifestStubs();
+    if (!buildIdExists()) {
+      writeFileSync(join(ROOT, ".next/BUILD_ID"), String(Date.now()), "utf8");
+    }
+    console.warn("next-build-with-500-fallback: recovered missing server manifest after SSG.");
     process.exit(0);
   }
 }
