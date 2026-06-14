@@ -5,13 +5,13 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ---------- Yardımcı fonksiyonlar (güvenli) ----------
-function toSafeVarName(str: string): string {
+// ----- Güvenli yardımcılar -----
+function toSafeVarName(str: any): string {
   if (typeof str !== 'string') return 'unknown';
   return str.replace(/[^a-zA-Z0-9]/g, '_').replace(/^(\d)/, '_$1');
 }
 
-function toSafePascalCase(str: string): string {
+function toSafePascalCase(str: any): string {
   const safe = toSafeVarName(str);
   return safe.charAt(0).toUpperCase() + safe.slice(1);
 }
@@ -29,11 +29,12 @@ function ensureString(val: any, defaultValue: string = ''): string {
   if (typeof val === 'string') return val;
   if (val && typeof val === 'object') {
     // Önce 'en' dilini dene, yoksa ilk değeri al
-    if (val.en) return val.en;
+    if (val.en) return String(val.en);
     const firstKey = Object.keys(val)[0];
     return firstKey ? String(val[firstKey]) : defaultValue;
   }
-  return defaultValue;
+  if (val === undefined || val === null) return defaultValue;
+  return String(val);
 }
 
 function extractPrimaryFormulaKey(schema: any): string {
@@ -45,7 +46,7 @@ function extractPrimaryFormulaKey(schema: any): string {
   return 'total';
 }
 
-// ---------- Zod şeması üret ----------
+// ----- Zod şeması -----
 function generateZodSchema(inputs: any[]): string {
   const shape: string[] = [];
   for (const input of inputs) {
@@ -59,22 +60,26 @@ function generateZodSchema(inputs: any[]): string {
       if (input.default !== undefined && typeof input.default === 'number') zod += `.default(${input.default})`;
       shape.push(`  ${safeId}: ${zod},`);
     } else if (type === 'select' && Array.isArray(input.options)) {
-      let zod = `z.enum([${input.options.map((o: string) => `'${o.replace(/'/g, "\\'")}'`).join(', ')}])`;
-      if (input.default !== undefined) zod += `.default('${input.default}')`;
+      const optionValues = input.options.map((o: any) =>
+        `'${ensureString(o, 'unknown').replace(/'/g, "\\'")}'`,
+      );
+      let zod = `z.enum([${optionValues.join(', ')}])`;
+      if (input.default !== undefined) {
+        zod += `.default('${ensureString(input.default, '').replace(/'/g, "\\'")}')`;
+      }
       shape.push(`  ${safeId}: ${zod},`);
     } else if (type === 'boolean') {
       let zod = `z.boolean()`;
       if (input.default !== undefined) zod += `.default(${input.default})`;
       shape.push(`  ${safeId}: ${zod},`);
     } else {
-      // bilinmeyen tip -> string
       shape.push(`  ${safeId}: z.string().default(''),`);
     }
   }
   return `z.object({\n${shape.join('\n')}\n})`;
 }
 
-// ---------- TypeScript interface ----------
+// ----- Input interface -----
 function generateTypeInterface(inputs: any[], toolName: string): string {
   const fields: string[] = [];
   for (const input of inputs) {
@@ -90,48 +95,52 @@ function generateTypeInterface(inputs: any[], toolName: string): string {
   return `export interface ${toSafePascalCase(toolName)}Input {\n${fields.join('\n')}\n}`;
 }
 
-// ---------- Output interface ----------
+// ----- Output interface -----
 function generateOutputType(schema: any, toolName: string): string {
   const breakdownKeys = Object.keys(schema.outputs?.breakdown || {});
-  const hiddenDrivers = schema.outputs?.hiddenLossDrivers ? 'string[]' : 'string[]';
-  const suggestedActions = schema.outputs?.suggestedActions ? 'string[]' : 'string[]';
   return `
 export interface ${toSafePascalCase(toolName)}Output {
   totalWasteCost: number;
   breakdown: { ${breakdownKeys.map(k => `${k}: number`).join('; ')} };
-  hiddenLossDrivers: ${hiddenDrivers};
-  suggestedActions: ${suggestedActions};
+  hiddenLossDrivers: string[];
+  suggestedActions: string[];
   dataConfidenceAdjusted: number;
   premiumRequired: boolean;
   premiumFeatures: string[];
 }`;
 }
 
-// ---------- Formül değerlendirici ----------
-function generateFormulaEvaluator(formulas: Record<string, string>, inputs: any[]): string {
-  const formulaLines: string[] = [];
+// ----- Güvenli formül değerlendirici -----
+function generateFormulaEvaluator(formulas: any, inputs: any[]): string {
+  if (!formulas || typeof formulas !== 'object') {
+    return `const formulas = {};`;
+  }
+  const lines: string[] = [];
   for (const [key, expr] of Object.entries(formulas)) {
-    let jsExpr = expr;
+    // expr string değilse, atla veya boş string kullan
+    let jsExpr = (typeof expr === 'string') ? expr : '';
+    if (!jsExpr) {
+      lines.push(`  ${key}: (input: any) => 0,`);
+      continue;
+    }
+    // Değişken isimlerini dönüştür
     for (const inp of inputs) {
       const oldId = inp.id;
       const newId = toSafeVarName(oldId);
       const regex = new RegExp(`\\b${oldId}\\b`, 'g');
       jsExpr = jsExpr.replace(regex, `input.${newId}`);
     }
-    // güvenlik: try-catch ile sar
-    formulaLines.push(`  ${key}: (input: any) => {
+    lines.push(`  ${key}: (input: any) => {
     try { return ${jsExpr}; } catch { return 0; }
   },`);
   }
-  return `const formulas = {\n${formulaLines.join('\n')}\n};`;
+  return `const formulas = {\n${lines.join('\n')}\n};`;
 }
 
-// ---------- Ana hesaplama fonksiyonu ----------
+// ----- Ana hesaplama fonksiyonu -----
 function generateCalculateFunction(schema: any, toolName: string): string {
   const primaryKey = extractPrimaryFormulaKey(schema);
   const breakdownKeys = Object.keys(schema.outputs?.breakdown || {});
-  const hiddenDrivers = schema.outputs?.hiddenLossDrivers || [];
-  const suggestedActions = schema.outputs?.suggestedActions || [];
   return `
 export function calculate${toSafePascalCase(toolName)}(input: ${toSafePascalCase(toolName)}Input): ${toSafePascalCase(toolName)}Output {
   const values = formulas;
@@ -139,8 +148,8 @@ export function calculate${toSafePascalCase(toolName)}(input: ${toSafePascalCase
   const breakdown = {
     ${breakdownKeys.map(k => `${k}: values.${k} ? values.${k}(input) : 0`).join(',\n    ')}
   };
-  const hiddenLossDrivers: string[] = ${JSON.stringify(hiddenDrivers)};
-  const suggestedActions: string[] = ${JSON.stringify(suggestedActions)};
+  const hiddenLossDrivers: string[] = ${JSON.stringify(schema.outputs?.hiddenLossDrivers || [])};
+  const suggestedActions: string[] = ${JSON.stringify(schema.outputs?.suggestedActions || [])};
   const dataConfidenceAdjusted = input.dataConfidence ? totalWasteCost * (input.dataConfidence / 100) : totalWasteCost;
   return {
     totalWasteCost,
@@ -154,19 +163,17 @@ export function calculate${toSafePascalCase(toolName)}(input: ${toSafePascalCase
 }`;
 }
 
-// ---------- Ana işlem ----------
+// ----- Ana dışa aktarım -----
 export function generateFromSchemaFile(schemaPath: string, outPath: string) {
   const raw = fs.readFileSync(schemaPath, 'utf-8');
   const schema = JSON.parse(raw);
   const toolName = schema.toolName || path.basename(schemaPath, '-schema.json');
-  const inputs = schema.inputs || [];
-
-  // Inputlardaki string alanları normalize et
-  for (const inp of inputs) {
-    inp.label = ensureString(inp.label, inp.id);
-    inp.businessContext = ensureString(inp.businessContext, '');
-    if (inp.unit && typeof inp.unit !== 'string') inp.unit = '';
-  }
+  const inputs = (schema.inputs || []).map((inp: any) => ({
+    ...inp,
+    label: ensureString(inp.label, inp.id),
+    businessContext: ensureString(inp.businessContext, ''),
+    unit: typeof inp.unit === 'string' ? inp.unit : '',
+  }));
 
   const content = `// Auto-generated from ${path.basename(schemaPath)}
 import * as z from 'zod';
@@ -175,7 +182,7 @@ ${generateTypeInterface(inputs, toolName)}
 
 export const ${toSafePascalCase(toolName)}InputSchema = ${generateZodSchema(inputs)};
 
-${generateFormulaEvaluator(schema.formulas || {}, inputs)}
+${generateFormulaEvaluator(schema.formulas, inputs)}
 
 ${generateCalculateFunction(schema, toolName)}
 
@@ -185,7 +192,7 @@ ${generateOutputType(schema, toolName)}
   console.log(`✅ Generated ${outPath}`);
 }
 
-// ---------- CLI desteği ----------
+// ----- CLI -----
 function main() {
   const args = process.argv.slice(2);
   const schemaPathArg = args.find(a => a.startsWith('--schema='));
