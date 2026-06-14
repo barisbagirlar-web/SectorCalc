@@ -1,7 +1,6 @@
 /** Slugs with generic guides explicitly blocked until approved spec exists (P3 repair). */
 
 export const GENERIC_GUIDE_BLOCKED_SLUGS: readonly string[] = ["3d-print-job-margin-tool",
-  "7-israf-muda-avcisi-parasal-karsilik-calculator",
   "annual-leave-severance-notice-calculator",
   "auto-repair-comeback-cost",
   "auto-repair-parts-labor-quote-calculator",

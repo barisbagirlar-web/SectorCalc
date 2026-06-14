@@ -3,16 +3,16 @@
 ## Summary
 
 * Total tools scanned: 474
-* Fully working before: 274
+* Fully working before: 275
 * Fully working after: 275
 * DeepSeek attempted: 361
 * Patch eligible (gate passed): 171
-* Schema-backed tools applied: 171
-* Patched and verified: 171
+* Generated: 0
+* Patched and verified: 0
 * Failed and reverted: 0
 * Expert queue: 35
 * Blocked unknown: 0
-* Deploy executed: yes (Firebase Hosting — https://sectorcalc-bf412.web.app)
+* Deploy executed: no
 
 ## Chief Engineer + Domain Packs
 
@@ -35,7 +35,7 @@
 
 | Slug | Risk Class |
 |------|------------|
-| 7-israf-muda-avcisi-parasal-karsilik-calculator | HIGH_ENGINEERING_SAFETY |
+| 7-israf-muda-avcisi-parasal-karsilik-calculator | HIGH_ENGINEERING_SAFETY — **P7-LIVE-REPAIR-7MUDA PASS** (runtime-readiness native schema route, P24 PASS, TR i18n, oracle scenarios) |
 | abonelik-yazilim-cloud-yillik-maliyet-hesabi | HIGH_FINANCE_LEGAL_TAX |
 | ai-uyum-ve-etik-denetim-maliyet-eu-ai-act-calculator | HIGH_ENGINEERING_SAFETY |
 | auto-repair-parts-labor-quote-calculator | HIGH_ENGINEERING_SAFETY |

@@ -427,7 +427,7 @@ const TR_SCHEMAS: Record<string, LocalizedPremiumSchema> = {
   "7-israf-muda-avcisi-parasal-karsilik-calculator": {
     title: "7 İsraf (Muda) Avcısı Parasal Karşılık Hesaplayıcı",
     painStatement:
-      "Her israf türünün işletmeye spesifik maliyeti rakamla ifade edilemez.",
+      "Üretim, bekleme, taşıma, stok, hareket, hata ve fazla işlem kaynaklı kayıpların dönemsel parasal etkisini hesaplar.",
   },
 };
 

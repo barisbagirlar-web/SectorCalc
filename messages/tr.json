@@ -8538,325 +8538,325 @@
       }
     },
     "7-israf-muda-avcisi-parasal-karsilik-calculator": {
-      "7israfmudaavcisiparasalkarsilikcalculator": {
-        "label": "Analysis period length",
-        "placeholder": "Enter analysis period length",
-        "helper": "Analysis period length"
+      "analysisperioddays": {
+        "label": "Analiz dönemi uzunluğu",
+        "placeholder": "Analiz dönemi uzunluğu girin",
+        "helper": "Bu analiz penceresinin kapsadığı gün sayısı."
       },
       "workingdaysperyear": {
-        "label": "Working days per year",
-        "placeholder": "Enter working days per year",
-        "helper": "Working days per year"
+        "label": "Yıllık çalışma günü",
+        "placeholder": "Yıllık çalışma günü girin",
+        "helper": "Dönemsel israfın yıllıklaştırılmasında kullanılan işletme günü."
       },
       "productionunitsinperiod": {
-        "label": "Production units in period",
-        "placeholder": "Enter production units in period",
-        "helper": "Production units in period"
+        "label": "Dönemdeki üretim adedi",
+        "placeholder": "Dönemdeki üretim adedi girin",
+        "helper": "Yalnızca seçilen analiz döneminde üretilen sağlam ürün adedi."
       },
       "currencycode": {
-        "label": "Currency code",
-        "placeholder": "Enter currency code",
-        "helper": "All monetary inputs below must use this same currency for the analysis period."
+        "label": "Para birimi kodu",
+        "placeholder": "Para birimi kodu girin",
+        "helper": "Aşağıdaki tüm parasal girdiler aynı para biriminde girilmelidir."
       },
       "unitvariablecost": {
-        "label": "Unit variable cost",
-        "placeholder": "Enter unit variable cost",
-        "helper": "Unit variable cost"
+        "label": "Birim değişken maliyet",
+        "placeholder": "Birim değişken maliyet girin",
+        "helper": "Bir sağlam ürünü üretmenin tam yüklenmiş değişken maliyeti."
       },
       "unitsellingprice": {
-        "label": "Unit selling price",
-        "placeholder": "Enter unit selling price",
-        "helper": "Unit selling price"
+        "label": "Birim satış fiyatı",
+        "placeholder": "Birim satış fiyatı girin",
+        "helper": "Analiz dönemindeki ortalama birim satış fiyatı."
       },
       "grossmarginpct": {
-        "label": "Gross margin percent",
-        "placeholder": "Enter gross margin percent",
-        "helper": "Gross margin percent"
+        "label": "Brüt marj yüzdesi",
+        "placeholder": "Brüt marj yüzdesi girin",
+        "helper": "Satış fiyatına göre brüt marj yüzdesi."
       },
       "excessunits": {
-        "label": "Excess production units",
-        "placeholder": "Enter excess production units",
-        "helper": "Excess production units"
+        "label": "Fazla üretim adedi",
+        "placeholder": "Fazla üretim adedi girin",
+        "helper": "Dönem içinde onaylı talebin üzerinde üretilen adet."
       },
       "excessinventoryholdingdays": {
-        "label": "Excess inventory holding days",
-        "placeholder": "Enter excess inventory holding days",
-        "helper": "Excess inventory holding days"
+        "label": "Fazla stok tutma günü",
+        "placeholder": "Fazla stok tutma günü girin",
+        "helper": "Fazla ürünlerin kullanım veya değer düşüşü öncesi ortalama stokta kalma süresi."
       },
       "excesswritedowncostperunit": {
-        "label": "Excess write-down per unit",
-        "placeholder": "Enter excess write-down per unit",
-        "helper": "Excess write-down per unit"
+        "label": "Birim fazla üretim değer kaybı",
+        "placeholder": "Birim fazla üretim değer kaybı girin",
+        "helper": "Fazla üretilen her birim için değer kaybı; toplam tutar değil."
       },
       "waitingminutes": {
-        "label": "Waiting minutes",
-        "placeholder": "Enter waiting minutes",
-        "helper": "Waiting minutes"
+        "label": "Bekleme dakikası",
+        "placeholder": "Bekleme dakikası girin",
+        "helper": "Malzeme, makine veya bilgi için bekleme süresi."
       },
       "affectedoperators": {
-        "label": "Affected operators",
-        "placeholder": "Enter affected operators",
-        "helper": "Affected operators"
+        "label": "Etkilenen operatör sayısı",
+        "placeholder": "Etkilenen operatör sayısı girin",
+        "helper": "Bekleme sırasında atıl kalan operatör sayısı."
       },
       "hourlylaborcost": {
-        "label": "Hourly labor cost",
-        "placeholder": "Enter hourly labor cost",
-        "helper": "Hourly labor cost"
+        "label": "Saatlik işçilik maliyeti",
+        "placeholder": "Saatlik işçilik maliyeti girin",
+        "helper": "Bekleme sırasındaki yüklenmiş saatlik işçilik maliyeti."
       },
       "affectedmachines": {
-        "label": "Affected machines",
-        "placeholder": "Enter affected machines",
-        "helper": "Affected machines"
+        "label": "Etkilenen makine sayısı",
+        "placeholder": "Etkilenen makine sayısı girin",
+        "helper": "Bekleme sırasında atıl kalan makine veya hat sayısı."
       },
       "hourlymachinecost": {
-        "label": "Hourly machine cost",
-        "placeholder": "Enter hourly machine cost",
-        "helper": "Hourly machine cost"
+        "label": "Saatlik makine maliyeti",
+        "placeholder": "Saatlik makine maliyeti girin",
+        "helper": "Bekleme sırasındaki yüklenmiş saatlik makine maliyeti."
       },
       "waitingopportunitymode": {
-        "label": "Waiting opportunity mode",
-        "placeholder": "Enter waiting opportunity mode",
-        "helper": "Choose how waiting opportunity cost is excluded, entered manually, or derived from throughput."
+        "label": "Bekleme fırsat maliyeti modu",
+        "placeholder": "Bekleme fırsat maliyeti modu seçin",
+        "helper": "Fırsat maliyetinin hariç tutulması, manuel veya verimden türetilmesi seçeneği."
       },
       "hourlyopportunitycost": {
-        "label": "Hourly opportunity cost",
-        "placeholder": "Enter hourly opportunity cost",
-        "helper": "Hourly opportunity cost"
+        "label": "Saatlik fırsat maliyeti",
+        "placeholder": "Saatlik fırsat maliyeti girin",
+        "helper": "Manuel fırsat maliyeti modunda kullanılan saatlik oran."
       },
       "plannedunitsperhour": {
-        "label": "Planned units per hour",
-        "placeholder": "Enter planned units per hour",
-        "helper": "Planned units per hour"
+        "label": "Planlanan saatlik üretim",
+        "placeholder": "Planlanan saatlik üretim girin",
+        "helper": "Fırsat maliyeti verimden türetildiğinde kullanılan saatlik üretim."
       },
       "transportdistancekm": {
-        "label": "Transport distance",
-        "placeholder": "Enter transport distance",
-        "helper": "Transport distance"
+        "label": "Taşıma mesafesi (km)",
+        "placeholder": "Taşıma mesafesi girin",
+        "helper": "İç taşıma hareketi başına ortalama tek yön mesafe."
       },
       "transporttrips": {
-        "label": "Transport trips",
-        "placeholder": "Enter transport trips",
-        "helper": "Transport trips"
+        "label": "Taşıma seferi sayısı",
+        "placeholder": "Taşıma seferi sayısı girin",
+        "helper": "Dönemdeki değer katmayan iç taşıma hareketi sayısı."
       },
       "transportcostperkm": {
-        "label": "Transport cost per km",
-        "placeholder": "Enter transport cost per km",
-        "helper": "Transport cost per km"
+        "label": "Km başına taşıma maliyeti",
+        "placeholder": "Km başına taşıma maliyeti girin",
+        "helper": "Kilometre başına yüklenmiş araç veya forklift maliyeti."
       },
       "handlingminutespertrip": {
-        "label": "Handling minutes per trip",
-        "placeholder": "Enter handling minutes per trip",
-        "helper": "Handling minutes per trip"
+        "label": "Sefer başına elleçleme dakikası",
+        "placeholder": "Sefer başına elleçleme dakikası girin",
+        "helper": "Taşıma seferi başına değer katmayan elleçleme süresi."
       },
       "handlinghourlylaborcost": {
-        "label": "Handling hourly labor cost",
-        "placeholder": "Enter handling hourly labor cost",
-        "helper": "Handling hourly labor cost"
+        "label": "Elleçleme saatlik işçilik maliyeti",
+        "placeholder": "Elleçleme saatlik işçilik maliyeti girin",
+        "helper": "Taşıma sırasındaki elleçleme için saatlik işçilik maliyeti."
       },
       "transportdamageratepct": {
-        "label": "Transport damage rate",
-        "placeholder": "Enter transport damage rate",
-        "helper": "Transport damage rate"
+        "label": "Taşıma hasar oranı",
+        "placeholder": "Taşıma hasar oranı girin",
+        "helper": "Ortalama yük değerine göre taşıma sırasındaki beklenen kayıp yüzdesi."
       },
       "averageloadvalue": {
-        "label": "Average load value",
-        "placeholder": "Enter average load value",
-        "helper": "Average load value"
+        "label": "Ortalama yük değeri",
+        "placeholder": "Ortalama yük değeri girin",
+        "helper": "Taşıma seferi başına taşınan ortalama parasal değer."
       },
       "averageexcessinventoryvalue": {
-        "label": "Average excess inventory value",
-        "placeholder": "Enter average excess inventory value",
-        "helper": "Average excess inventory value"
+        "label": "Ortalama fazla stok değeri",
+        "placeholder": "Ortalama fazla stok değeri girin",
+        "helper": "Gerekli tamponun üzerinde tutulan stokun ortalama değeri."
       },
       "inventoryholdingratepct": {
-        "label": "Inventory holding rate",
-        "placeholder": "Enter inventory holding rate",
-        "helper": "Inventory holding rate"
+        "label": "Stok taşıma oranı",
+        "placeholder": "Stok taşıma oranı girin",
+        "helper": "Stok değerine göre yıllık taşıma maliyeti yüzdesi."
       },
       "inventoryobsolescencevalue": {
-        "label": "Inventory obsolescence value",
-        "placeholder": "Enter inventory obsolescence value",
-        "helper": "Inventory obsolescence value"
+        "label": "Stok eskime değeri",
+        "placeholder": "Stok eskime değeri girin",
+        "helper": "Ömrü dolan veya spec değişimi nedeniyle stok değer kaybı."
       },
       "inventoryshrinkageratepct": {
-        "label": "Inventory shrinkage rate",
-        "placeholder": "Enter inventory shrinkage rate",
-        "helper": "Inventory shrinkage rate"
+        "label": "Stok fire oranı",
+        "placeholder": "Stok fire oranı girin",
+        "helper": "Fazla stok değerine uygulanan kayıp veya fire yüzdesi."
       },
       "unnecessarymotionminutes": {
-        "label": "Unnecessary motion minutes",
-        "placeholder": "Enter unnecessary motion minutes",
-        "helper": "Unnecessary motion minutes"
+        "label": "Gereksiz hareket dakikası",
+        "placeholder": "Gereksiz hareket dakikası girin",
+        "helper": "Müşteri değeri katmayan operatör hareket süresi."
       },
       "motionaffectedoperators": {
-        "label": "Motion affected operators",
-        "placeholder": "Enter motion affected operators",
-        "helper": "Motion affected operators"
+        "label": "Hareketten etkilenen operatör",
+        "placeholder": "Hareketten etkilenen operatör girin",
+        "helper": "Gereksiz hareket yapan operatör sayısı."
       },
       "motionhourlylaborcost": {
-        "label": "Motion hourly labor cost",
-        "placeholder": "Enter motion hourly labor cost",
-        "helper": "Motion hourly labor cost"
+        "label": "Hareket saatlik işçilik maliyeti",
+        "placeholder": "Hareket saatlik işçilik maliyeti girin",
+        "helper": "Gereksiz hareket için saatlik işçilik maliyeti."
       },
       "overprocessingminutes": {
-        "label": "Overprocessing minutes",
-        "placeholder": "Enter overprocessing minutes",
-        "helper": "Overprocessing minutes"
+        "label": "Fazla işlem dakikası",
+        "placeholder": "Fazla işlem dakikası girin",
+        "helper": "Müşterinin gerektirdiğinin ötesindeki işlem süresi."
       },
       "overprocessinghourlyresourcecost": {
-        "label": "Overprocessing hourly resource cost",
-        "placeholder": "Enter overprocessing hourly resource cost",
-        "helper": "Overprocessing hourly resource cost"
+        "label": "Fazla işlem saatlik kaynak maliyeti",
+        "placeholder": "Fazla işlem saatlik kaynak maliyeti girin",
+        "helper": "Fazla işlem için saatlik makine veya hat maliyeti."
       },
       "extramaterialcost": {
-        "label": "Extra material cost",
-        "placeholder": "Enter extra material cost",
-        "helper": "Extra material cost"
+        "label": "Ek malzeme maliyeti",
+        "placeholder": "Ek malzeme maliyeti girin",
+        "helper": "Fazla işlemden kaynaklanan ilave malzeme tüketimi."
       },
       "extraenergycost": {
-        "label": "Extra energy cost",
-        "placeholder": "Enter extra energy cost",
-        "helper": "Extra energy cost"
+        "label": "Ek enerji maliyeti",
+        "placeholder": "Ek enerji maliyeti girin",
+        "helper": "Fazla işlem adımlarından kaynaklanan ilave enerji."
       },
       "extrainspectioncost": {
-        "label": "Extra inspection cost",
-        "placeholder": "Enter extra inspection cost",
-        "helper": "Extra inspection cost"
+        "label": "Ek kontrol maliyeti",
+        "placeholder": "Ek kontrol maliyeti girin",
+        "helper": "Fazla işlemden kaynaklanan ilave kontrol veya muayene maliyeti."
       },
       "scrapunits": {
-        "label": "Scrap units",
-        "placeholder": "Enter scrap units",
-        "helper": "Scrap units"
+        "label": "Hurda adedi",
+        "placeholder": "Hurda adedi girin",
+        "helper": "Dönem içinde hurdaya ayrılan ürün adedi."
       },
       "scrapdisposalcostperunit": {
-        "label": "Scrap disposal cost per unit",
-        "placeholder": "Enter scrap disposal cost per unit",
-        "helper": "Scrap disposal cost per unit"
+        "label": "Birim hurda bertaraf maliyeti",
+        "placeholder": "Birim hurda bertaraf maliyeti girin",
+        "helper": "Hurda ürün başına bertaraf, ayırma veya geri dönüşüm maliyeti."
       },
       "reworkminutes": {
-        "label": "Rework minutes",
-        "placeholder": "Enter rework minutes",
-        "helper": "Rework minutes"
+        "label": "Yeniden işleme dakikası",
+        "placeholder": "Yeniden işleme dakikası girin",
+        "helper": "Dönemde yeniden işleme için harcanan işçilik ve makine dakikası."
       },
       "reworkhourlylaborcost": {
-        "label": "Rework hourly labor cost",
-        "placeholder": "Enter rework hourly labor cost",
-        "helper": "Rework hourly labor cost"
+        "label": "Yeniden işleme saatlik işçilik maliyeti",
+        "placeholder": "Yeniden işleme saatlik işçilik maliyeti girin",
+        "helper": "Yeniden işleme için saatlik işçilik maliyeti."
       },
       "reworkhourlymachinecost": {
-        "label": "Rework hourly machine cost",
-        "placeholder": "Enter rework hourly machine cost",
-        "helper": "Rework hourly machine cost"
+        "label": "Yeniden işleme saatlik makine maliyeti",
+        "placeholder": "Yeniden işleme saatlik makine maliyeti girin",
+        "helper": "Yeniden işleme için saatlik makine maliyeti."
       },
       "customerreturncost": {
-        "label": "Customer return cost",
-        "placeholder": "Enter customer return cost",
-        "helper": "Customer return cost"
+        "label": "Müşteri iade maliyeti",
+        "placeholder": "Müşteri iade maliyeti girin",
+        "helper": "Hatalı ürün kaynaklı iade lojistik ve kredi maliyeti."
       },
       "warrantycost": {
-        "label": "Warranty cost",
-        "placeholder": "Enter warranty cost",
-        "helper": "Warranty cost"
+        "label": "Garanti maliyeti",
+        "placeholder": "Garanti maliyeti girin",
+        "helper": "Hata kaynaklı garanti ve servis maliyeti."
       },
       "expeditecost": {
-        "label": "Expedite cost",
-        "placeholder": "Enter expedite cost",
-        "helper": "Expedite cost"
+        "label": "Acil sevkiyat maliyeti",
+        "placeholder": "Acil sevkiyat maliyeti girin",
+        "helper": "Hata sonrası ekspres nakliye, fazla mesai veya acele ücretleri."
       },
       "dataconfidencepct": {
-        "label": "Data confidence",
-        "placeholder": "Enter data confidence",
-        "helper": "Data confidence"
+        "label": "Veri güveni",
+        "placeholder": "Veri güveni girin",
+        "helper": "Girilen israf sürücülerinin saha verisini ne kadar yansıttığına dair güven."
       },
       "implementationdifficultyscore": {
-        "label": "Implementation difficulty",
-        "placeholder": "Enter implementation difficulty",
-        "helper": "Implementation difficulty"
+        "label": "Uygulama zorluğu",
+        "placeholder": "Uygulama zorluğu girin",
+        "helper": "1 = kolay kaizen, 5 = büyük yatırım veya yerleşim değişikliği."
       },
       "totalwastecost": {
-        "label": "Total waste cost",
-        "placeholder": "Enter total waste cost",
-        "helper": "Total waste cost"
+        "label": "Toplam israf maliyeti",
+        "placeholder": "Toplam israf maliyeti",
+        "helper": "Yedi israf başlığının toplam parasal etkisi."
       },
       "annualizedwastecost": {
-        "label": "Annualized waste cost",
-        "placeholder": "Enter annualized waste cost",
-        "helper": "Annualized waste cost"
+        "label": "Yıllıklaştırılmış israf maliyeti",
+        "placeholder": "Yıllıklaştırılmış israf maliyeti",
+        "helper": "Dönem maliyetinin yıllık çalışma gününe göre ölçeklenmiş hali."
       },
       "wastecostperunit": {
-        "label": "Waste cost per unit",
-        "placeholder": "Enter waste cost per unit",
-        "helper": "Waste cost per unit"
+        "label": "Birim israf maliyeti",
+        "placeholder": "Birim israf maliyeti",
+        "helper": "Toplam israf maliyetinin dönem üretim adedine bölünmesi."
       },
       "periodrevenue": {
-        "label": "Period revenue",
-        "placeholder": "Enter period revenue",
-        "helper": "Period revenue"
+        "label": "Dönem cirosu",
+        "placeholder": "Dönem cirosu",
+        "helper": "Analiz dönemindeki toplam ciro."
       },
       "periodgrossmarginvalue": {
-        "label": "Period gross margin value",
-        "placeholder": "Enter period gross margin value",
-        "helper": "Period gross margin value"
+        "label": "Dönem brüt marj tutarı",
+        "placeholder": "Dönem brüt marj tutarı",
+        "helper": "Analiz dönemindeki brüt marj parasal değeri."
       },
       "wastetorevenueratiopct": {
-        "label": "Waste to revenue ratio",
-        "placeholder": "Enter waste to revenue ratio",
-        "helper": "Waste to revenue ratio"
+        "label": "Ciroya göre israf oranı",
+        "placeholder": "Ciroya göre israf oranı",
+        "helper": "Toplam israf maliyetinin dönem cirosuna oranı."
       },
       "wastetogrossmarginratiopct": {
-        "label": "Waste to gross margin ratio",
-        "placeholder": "Enter waste to gross margin ratio",
-        "helper": "Waste to gross margin ratio"
+        "label": "Brüt marja göre israf oranı",
+        "placeholder": "Brüt marja göre israf oranı",
+        "helper": "Toplam israf maliyetinin brüt marja oranı."
       },
       "highestwastecost": {
-        "label": "Highest waste category cost",
-        "placeholder": "Enter highest waste category cost",
-        "helper": "Highest waste category cost"
+        "label": "En yüksek israf kalemi maliyeti",
+        "placeholder": "En yüksek israf kalemi maliyeti",
+        "helper": "En büyük israf kategorisinin parasal tutarı."
       },
       "riskadjustedpriorityscore": {
-        "label": "Risk-adjusted priority score",
-        "placeholder": "Enter risk-adjusted priority score",
-        "helper": "Risk-adjusted priority score"
+        "label": "Riske göre öncelik skoru",
+        "placeholder": "Riske göre öncelik skoru",
+        "helper": "Veri güveni ve uygulama zorluğuna göre ayarlanmış öncelik."
       },
       "overproductioncost": {
-        "label": "Overproduction cost",
-        "placeholder": "Enter overproduction cost",
-        "helper": "Overproduction cost"
+        "label": "Fazla üretim maliyeti",
+        "placeholder": "Fazla üretim maliyeti",
+        "helper": "Fazla üretim kaynaklı parasal kayıp."
       },
       "waitingcost": {
-        "label": "Waiting cost",
-        "placeholder": "Enter waiting cost",
-        "helper": "Waiting cost"
+        "label": "Bekleme maliyeti",
+        "placeholder": "Bekleme maliyeti",
+        "helper": "Bekleme kaynaklı işçilik, makine ve fırsat maliyeti."
       },
       "transportcost": {
-        "label": "Transport cost",
-        "placeholder": "Enter transport cost",
-        "helper": "Transport cost"
+        "label": "Taşıma maliyeti",
+        "placeholder": "Taşıma maliyeti",
+        "helper": "Değer katmayan taşıma hareketlerinin maliyeti."
       },
       "inventorycost": {
-        "label": "Inventory cost",
-        "placeholder": "Enter inventory cost",
-        "helper": "Inventory cost"
+        "label": "Stok maliyeti",
+        "placeholder": "Stok maliyeti",
+        "helper": "Fazla stok, eskime ve fire kaynaklı maliyet."
       },
       "motioncost": {
-        "label": "Motion cost",
-        "placeholder": "Enter motion cost",
-        "helper": "Motion cost"
+        "label": "Hareket maliyeti",
+        "placeholder": "Hareket maliyeti",
+        "helper": "Gereksiz operatör hareketinin maliyeti."
       },
       "overprocessingcost": {
-        "label": "Overprocessing cost",
-        "placeholder": "Enter overprocessing cost",
-        "helper": "Overprocessing cost"
+        "label": "Fazla işlem maliyeti",
+        "placeholder": "Fazla işlem maliyeti",
+        "helper": "Gereğinden fazla işlemin maliyeti."
       },
       "defectcost": {
-        "label": "Defect cost",
-        "placeholder": "Enter defect cost",
-        "helper": "Defect cost"
+        "label": "Hata maliyeti",
+        "placeholder": "Hata maliyeti",
+        "helper": "Hurda, yeniden işleme ve iade kaynaklı maliyet."
       },
       "highestwastecategoryindex": {
-        "label": "Highest waste category rank",
-        "placeholder": "Enter highest waste category rank",
-        "helper": "Highest waste category rank"
+        "label": "En yüksek israf kategorisi sırası",
+        "placeholder": "En yüksek israf kategorisi sırası",
+        "helper": "En büyük israf kaleminin 1–7 arası sıra numarası."
       }
     },
     "cbam-compliance-verdict": {
@@ -9419,7 +9419,7 @@
           "title": "3d Print Job Margin Tool girdi haritası"
         },
         "7IsrafMudaAvcisiParasalKarsilikCalculator": {
-          "title": "7 Israf Muda Avcisi Parasal Karsilik Calculator girdi haritası"
+          "title": "7 İsraf (Muda) parasal etki girdi haritası"
         },
         "agricultureIrrigationYieldLoss": {
           "title": "Agriculture Irrigation Yield Loss girdi haritası"

@@ -431,6 +431,71 @@ describe("seven-muda-waste-cost-calculator REV5", () => {
     expect(directResult.highestWasteCategory).toBe("waiting");
   });
 
+  test("oracle — low waste scenario", () => {
+    const result = calculateSevenMudaEngineeringWasteCost(buildZeroRev5Input());
+
+    expect(result.totalWasteCost).toBe(0);
+    expect(result.wasteCostPerUnit).toBe(0);
+    expect(result.wasteToRevenueRatioPct).toBe(0);
+    expect(Number.isFinite(result.totalWasteCost)).toBe(true);
+    expect(Number.isFinite(result.wasteCostPerUnit)).toBe(true);
+    expect(Number.isFinite(result.wasteToRevenueRatioPct)).toBe(true);
+  });
+
+  test("oracle — high waiting and machine cost scenario", () => {
+    const result = calculateSevenMudaEngineeringWasteCost({
+      ...buildZeroRev5Input(),
+      waitingMinutes: 600,
+      affectedOperators: 4,
+      hourlyLaborCost: 480,
+      affectedMachines: 2,
+      hourlyMachineCost: 720,
+      waitingOpportunityMode: "none",
+    });
+
+    const expectedWaitingCost = 600 * 4 * (480 / 60) + 600 * 2 * (720 / 60);
+    expect(result.waitingCost).toBeCloseTo(expectedWaitingCost, 2);
+    expect(result.totalWasteCost).toBeCloseTo(expectedWaitingCost, 2);
+    expect(result.wasteCostPerUnit).toBeCloseTo(expectedWaitingCost / 10_000, 4);
+    expect(result.wasteToRevenueRatioPct).toBeCloseTo((expectedWaitingCost / 1_000_000) * 100, 4);
+  });
+
+  test("oracle — defect and inventory obsolescence heavy scenario", () => {
+    const result = calculateSevenMudaEngineeringWasteCost({
+      ...buildZeroRev5Input(),
+      inventoryObsolescenceValue: 12_000,
+      averageExcessInventoryValue: 5_000,
+      inventoryHoldingRatePct: 10,
+      scrapUnits: 40,
+      scrapDisposalCostPerUnit: 25,
+      reworkMinutes: 120,
+      reworkHourlyLaborCost: 360,
+      reworkHourlyMachineCost: 480,
+      customerReturnCost: 1_500,
+    });
+
+    const expectedInventoryCost =
+      5_000 * (10 / 100) * (30 / 365) + 12_000 + 5_000 * (0 / 100);
+    const expectedDefectCost =
+      40 * 50 + 40 * 25 + 120 * (360 / 60) + 120 * (480 / 60) + 1_500;
+    const expectedTotal = expectedInventoryCost + expectedDefectCost;
+
+    expect(result.inventoryCost).toBeCloseTo(expectedInventoryCost, 2);
+    expect(result.defectCost).toBeCloseTo(expectedDefectCost, 2);
+    expect(result.totalWasteCost).toBeCloseTo(expectedTotal, 2);
+    expect(result.wasteCostPerUnit).toBeCloseTo(expectedTotal / 10_000, 4);
+    expect(result.wasteToRevenueRatioPct).toBeCloseTo((expectedTotal / 1_000_000) * 100, 4);
+  });
+
+  test("productionUnitsInPeriod must be greater than zero", () => {
+    const validation = validateSevenMudaEngineeringInputs({
+      ...baseRev5Input,
+      productionUnitsInPeriod: 0,
+    });
+    expect(validation.ok).toBe(false);
+    expect(validation.errors.join(" ")).toMatch(/productionUnitsInPeriod must be greater than zero/i);
+  });
+
   test("extended oracle comparison passes for wired premium schema outputs", () => {
     const summary = runPremiumSchemaExtendedOracleComparisonAudit(SLUG);
     expect(summary.status).toBe("PASS");

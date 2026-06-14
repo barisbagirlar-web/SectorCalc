@@ -7,7 +7,10 @@ import {
   localizeFreeTrafficToolInputs,
   localizeRevenueToolInputs,
 } from "@/lib/i18n/free-tool-form-i18n";
-import { getPremiumSchemaForPaidSlug } from "@/lib/premium-schema/schema-registry";
+import {
+  getPremiumCalculatorSchema,
+  getPremiumSchemaForPaidSlug,
+} from "@/lib/premium-schema/schema-registry";
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { hasDedicatedTrafficCalculator } from "@/lib/tools/free-traffic-calculators";
 import {
@@ -84,8 +87,12 @@ type ResolvedInput = {
   readonly required?: boolean;
 };
 
+function resolveNativePremiumSchema(slug: string) {
+  return getPremiumSchemaForPaidSlug(slug) ?? getPremiumCalculatorSchema(slug);
+}
+
 function resolveTier(slug: string): RuntimeToolTier {
-  if (getPremiumSchemaForPaidSlug(slug)) {
+  if (resolveNativePremiumSchema(slug)) {
     return "premium-schema";
   }
   if (getRevenueToolByPaidSlug(slug) || getRevenueToolByPremiumRouteSlug(slug)) {
@@ -98,6 +105,9 @@ function resolveTier(slug: string): RuntimeToolTier {
 }
 
 function hasActiveRoute(slug: string, tier: RuntimeToolTier): boolean {
+  if (tier === "premium-schema" && resolveNativePremiumSchema(slug)) {
+    return true;
+  }
   if (tier === "premium" || tier === "premium-schema") {
     return Boolean(getRevenueToolByPremiumRouteSlug(slug) || getRevenueToolByPaidSlug(slug));
   }
@@ -138,7 +148,7 @@ function resolveInputs(slug: string, locale: SupportedLocale): readonly Resolved
     }));
   }
 
-  const schema = getPremiumSchemaForPaidSlug(slug);
+  const schema = resolveNativePremiumSchema(slug);
   if (schema?.inputs?.length) {
     return schema.inputs.map((input) => ({
       key: input.id,
@@ -197,7 +207,7 @@ function hasValidationPath(slug: string, tier: RuntimeToolTier): boolean {
   }
 
   if (tier === "premium" || tier === "premium-schema") {
-    if (getPremiumSchemaForPaidSlug(slug)) {
+    if (resolveNativePremiumSchema(slug)) {
       return true;
     }
     if (getRevenueToolByPremiumRouteSlug(slug)) {
@@ -223,7 +233,7 @@ function hasResultRenderer(slug: string, tier: RuntimeToolTier): boolean {
 
   if (tier === "premium" || tier === "premium-schema") {
     return Boolean(
-      getPremiumSchemaForPaidSlug(slug) ||
+      resolveNativePremiumSchema(slug) ||
         getRevenueToolByPremiumRouteSlug(slug) ||
         getRevenueToolByPaidSlug(slug),
     );

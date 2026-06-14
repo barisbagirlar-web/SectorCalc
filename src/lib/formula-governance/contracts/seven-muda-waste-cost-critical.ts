@@ -116,6 +116,11 @@ export const SevenMudaWasteCostCalculatorContract: FormulaContract = buildAssure
   }),
   validationRules: [
     {
+      id: "production-units-positive",
+      description: "productionUnitsInPeriod must be greater than zero.",
+      kind: "edge",
+    },
+    {
       id: "analysis-period-positive",
       description: "analysisPeriodDays must be greater than zero.",
       kind: "edge",

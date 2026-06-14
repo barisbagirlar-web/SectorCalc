@@ -298,6 +298,15 @@ export function validateSevenMudaEngineeringInputs(
   validatePositivePeriod("analysisPeriodDays", analysisPeriodDays, errors);
   validatePositivePeriod("workingDaysPerYear", workingDaysPerYear, errors);
 
+  const productionUnitsInPeriod = validateProvidedNumber(
+    "productionUnitsInPeriod",
+    raw.productionUnitsInPeriod,
+    errors,
+  );
+  if (productionUnitsInPeriod !== null && productionUnitsInPeriod <= 0) {
+    errors.push("productionUnitsInPeriod must be greater than zero.");
+  }
+
   for (const field of REQUIRED_NUMBER_FIELDS) {
     const value = validateProvidedNumber(field, raw[field], errors);
     if (field === "analysisPeriodDays" || field === "workingDaysPerYear") {
