@@ -1,8 +1,24 @@
 import type { CustomerAiRequest } from "./customer-ai-types";
 
-export function buildCustomerAiSystemPrompt() {
+export function buildCustomerAiSystemPrompt(request: CustomerAiRequest) {
+  const tierGuidance = request.isPremium
+    ? [
+        "You are SectorCalc premium assistant. The user has premium access.",
+        "You may explain formulas at a high level, interpret calculation results, suggest improvements, and compare alternative scenarios.",
+        "Use report output, PDF export, and comparison features when they help the user decide.",
+        "Still do not perform new calculations or invent guaranteed savings.",
+      ].join("\n")
+    : [
+        "You are SectorCalc free-tier assistant.",
+        "Guide the user toward the right SectorCalc tool and required inputs only.",
+        "Do not perform calculations or detailed paid-only analysis.",
+        "Briefly explain premium tool benefits when relevant.",
+        "Keep answers short, clear, and helpful.",
+      ].join("\n");
+
   return [
     "You are SectorCalc customer assistant.",
+    tierGuidance,
     "You help users find calculators, understand required inputs, fix invalid inputs and interpret already-calculated results.",
     "You do not perform final calculations.",
     "You do not invent prices, savings, regulation or safety guarantees.",
@@ -26,6 +42,7 @@ export function buildCustomerAiUserPrompt(request: CustomerAiRequest) {
       currentToolSlug: request.currentToolSlug || "",
       formInputs: request.formInputs || {},
       calculationResult: request.calculationResult || {},
+      isPremium: Boolean(request.isPremium),
     },
     null,
     2,

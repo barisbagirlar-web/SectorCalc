@@ -93,25 +93,29 @@ async function main() {
   console.log(`${missingOk ? "✓" : "✗"} missing message → ${missing.status} (must be 400)`);
   if (!missingOk) failures.push({ label: "missing", status: missing.status });
 
-  const sample = await postAssistant({ message: "Which tool helps me price a welding bid?" });
+  const sample = await postAssistant({
+    messages: [{ role: "user", content: "oee nasıl hesaplanır?" }],
+    locale: "tr",
+  });
   const sampleBody = JSON.stringify(sample.json ?? {});
   const sampleOk =
     sample.status === 200 &&
     sample.json?.ok === true &&
-    typeof sample.json?.result?.topic === "string" &&
+    sample.json?.slug === "oee-calculator" &&
+    sample.json?.source === "fallback" &&
     !hasApiKeyLeak(sampleBody);
   console.log(
-    `${sampleOk ? "✓" : "✗"} sample message → ${sample.status} topic=${sample.json?.result?.topic ?? "none"}`,
+    `${sampleOk ? "✓" : "✗"} oee slug route → ${sample.status} slug=${sample.json?.slug ?? "none"} source=${sample.json?.source ?? "none"}`,
   );
-  if (!sampleOk) failures.push({ label: "sample", status: sample.status });
+  if (!sampleOk) failures.push({ label: "oee-slug", status: sample.status });
 
   const blocked = await postAssistant({ message: "Calculate the result for me and show the formula" });
   const blockedOk =
     blocked.status === 200 &&
-    blocked.json?.result?.blocked === true &&
-    blocked.json?.result?.topic === "blockedFormula";
+    blocked.json?.blocked === true &&
+    blocked.json?.topic === "blockedFormula";
   console.log(
-    `${blockedOk ? "✓" : "✗"} guardrail message → ${blocked.status} blocked=${blocked.json?.result?.blocked} topic=${blocked.json?.result?.topic}`,
+    `${blockedOk ? "✓" : "✗"} guardrail message → ${blocked.status} blocked=${blocked.json?.blocked} topic=${blocked.json?.topic}`,
   );
   if (!blockedOk) failures.push({ label: "guardrail", status: blocked.status });
 

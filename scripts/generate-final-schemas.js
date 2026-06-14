@@ -1,12 +1,9 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { OpenAI } from 'openai';
 import dotenv from 'dotenv';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.join(__dirname, '../.env.local') });
+dotenv.config({ path: '.env.local' });
 
 const client = new OpenAI({
   apiKey: process.env.DEEPSEEK_API_KEY,
@@ -41,11 +38,12 @@ async function main() {
   for (let i = 0; i < allSlugs.length; i++) {
     const slug = allSlugs[i];
     const outPath = path.join(outDir, `${slug}-schema.json`);
+    // Force: her zaman yeniden yaz (eski varsa sil)
     if (fs.existsSync(outPath)) {
-      console.log(`[${i+1}/${allSlugs.length}] SKIP ${slug} (already exists)`);
-      continue;
+      console.log(`[${i+1}/${allSlugs.length}] OVERWRITE ${slug}`);
+    } else {
+      console.log(`[${i+1}/${allSlugs.length}] ${slug}`);
     }
-    console.log(`[${i+1}/${allSlugs.length}] ${slug}`);
     const prompt = INDUSTRIAL_PROMPT(slug, isPremium(slug));
     try {
       const response = await client.chat.completions.create({

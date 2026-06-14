@@ -818,6 +818,27 @@
       "fallback": "Doğru aracı bulmanıza, girdileri ve sonuçları anlamanıza ve SectorCalc'te gezinmenize yardımcı olabilirim. Şunlardan birini deneyin:"
     }
   },
+  "credits": {
+    "eyebrow": "Krediler",
+    "title": "SectorCalc kredileri",
+    "subtitle": "Premium AI desteği ve analizör kullanımı için kredi satın alın.",
+    "balanceLabel": "Kredi",
+    "loading": "Yükleniyor…",
+    "packageLabel": "{credits} kredi — ${price}",
+    "packageCredits": "{credits} Kredi",
+    "perCreditPrice": "${price} / kredi",
+    "checkoutError": "Ödeme başlatılamadı. Lütfen tekrar deneyin.",
+    "buyIntro": "Bir kredi paketi seçin. Ödeme Stripe ile güvenli şekilde işlenir.",
+    "disclaimer": "Krediler iade edilmez. Yalnızca teknik simülasyon — finansal veya mühendislik tavsiyesi değildir.",
+    "loginTitle": "Kredi satın almak için giriş yapın",
+    "loginBody": "Krediler ödeme sonrası SectorCalc hesabınıza bağlanır.",
+    "loginCta": "Google ile giriş yap",
+    "successTitle": "Ödeme alındı",
+    "successBody": "Krediler birkaç saniye içinde görünür. Bakiye güncellenmezse sayfayı yenileyin.",
+    "canceledTitle": "Ödeme iptal edildi",
+    "canceledBody": "Herhangi bir ücret alınmadı. İstediğiniz zaman tekrar deneyebilirsiniz.",
+    "backToAccount": "Hesaba dön"
+  },
   "premiumSeo": {
     "eyebrow": "Premium araç rehberi",
     "metaTitle": "{tool} | Fiyatlandırma, Marj ve Risk Rehberi | SectorCalc",
@@ -3151,6 +3172,9 @@
   "generatedTool": {
     "calculate": "Hesapla",
     "calculating": "Hesaplanıyor…",
+    "insufficientCredits": "Bu premium analiz için en az 1 krediye ihtiyacınız var.",
+    "buyCreditsCta": "Kredi satın al",
+    "creditsLoading": "Kredi bakiyesi yükleniyor…",
     "primaryResult": "Birincil sonuç",
     "clickToCompute": "Sonuçları görmek için hesaplayın",
     "breakdownTitle": "Kayıp dağılımı",

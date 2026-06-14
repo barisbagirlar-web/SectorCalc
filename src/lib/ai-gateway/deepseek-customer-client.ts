@@ -5,7 +5,11 @@ import {
   buildCustomerAiSystemPrompt,
   buildCustomerAiUserPrompt,
 } from "./customer-ai-prompts";
-import type { CustomerAiIntent, CustomerAiRequest } from "./customer-ai-types";
+import type {
+  CustomerAiConversationMessage,
+  CustomerAiIntent,
+  CustomerAiRequest,
+} from "./customer-ai-types";
 
 const VALID_INTENTS: readonly CustomerAiIntent[] = [
   "tool_finder",
@@ -64,7 +68,7 @@ function selectCustomerModel(request: CustomerAiRequest) {
   const flash = process.env.AI_CUSTOMER_FLASH_MODEL || "deepseek-v4-flash";
   const pro = process.env.AI_CUSTOMER_PRO_MODEL || "deepseek-v4-pro";
 
-  if (request.calculationResult || request.message.length > 600) {
+  if (request.isPremium || request.calculationResult || request.message.length > 600) {
     return {
       model: pro,
       tier: "pro" as const,
@@ -109,6 +113,31 @@ function normalizeCustomerAiJson(input: unknown): unknown {
   };
 }
 
+function buildConversationMessages(
+  request: CustomerAiRequest,
+): OpenAI.Chat.Completions.ChatCompletionMessageParam[] {
+  const history = (request.messages ?? [])
+    .filter(
+      (entry): entry is CustomerAiConversationMessage =>
+        (entry.role === "user" || entry.role === "assistant") &&
+        typeof entry.content === "string" &&
+        entry.content.trim().length > 0,
+    )
+    .slice(-10)
+    .map((entry) => ({
+      role: entry.role,
+      content: entry.content.trim(),
+    }));
+
+  return [
+    ...history,
+    {
+      role: "user",
+      content: buildCustomerAiUserPrompt(request),
+    },
+  ];
+}
+
 export async function runDeepSeekCustomerAssistant(request: CustomerAiRequest) {
   const routing = selectCustomerModel(request);
 
@@ -123,13 +152,10 @@ export async function runDeepSeekCustomerAssistant(request: CustomerAiRequest) {
       {
         role: "system",
         content:
-          buildCustomerAiSystemPrompt() +
+          buildCustomerAiSystemPrompt(request) +
           "\nReturn only valid JSON. No markdown. No prose.",
       },
-      {
-        role: "user",
-        content: buildCustomerAiUserPrompt(request),
-      },
+      ...buildConversationMessages(request),
     ],
     response_format: {
       type: "json_object",

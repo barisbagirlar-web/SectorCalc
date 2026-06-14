@@ -80,6 +80,11 @@ service cloud.firestore {
         allow write: if false;
       }
 
+      match /credits/{creditDocId} {
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow write: if false;
+      }
+
       match /machines/{machineId} {
         allow read: if request.auth != null && request.auth.uid == userId;
         allow write: if false;
@@ -98,6 +103,11 @@ service cloud.firestore {
     }
 
     match /premiumEntitlements/{entitlementId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow write: if false;
+    }
+
+    match /creditTransactions/{transactionId} {
       allow read: if request.auth != null && resource.data.userId == request.auth.uid;
       allow write: if false;
     }

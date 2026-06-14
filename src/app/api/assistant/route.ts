@@ -1,41 +1,106 @@
 /**
  * POST /api/assistant
- * Deterministic, guardrailed SectorCalc assistant (P10).
+ * Slug-routing assistant: deterministic keywords → knowledge match → DeepSeek.
  *
- * No external AI, no calculation, no secrets. Returns structured topic +
- * suggestions; the client renders localized copy.
+ * No calculation. DeepSeek is only used for slug guessing when local routing fails.
+ * Full conversational AI lives at POST /api/ai-gateway/customer.
  */
+import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { respond } from "@/lib/assistant/respond";
-import type { AssistantRequestBody } from "@/lib/assistant/types";
+import { checkAssistantRateLimit } from "@/lib/assistant/assistant-rate-limit";
+import { routeAssistantSlug } from "@/lib/assistant/slug-router";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const MAX_MESSAGE_LENGTH = 1000;
 
+type AssistantChatMessage = {
+  readonly role?: unknown;
+  readonly content?: unknown;
+};
+
+type AssistantRequestBody = {
+  readonly message?: unknown;
+  readonly messages?: unknown;
+  readonly locale?: unknown;
+};
+
+function extractUserMessage(body: AssistantRequestBody): string {
+  if (typeof body.message === "string" && body.message.trim()) {
+    return body.message.trim();
+  }
+
+  if (Array.isArray(body.messages)) {
+    const messages = body.messages as AssistantChatMessage[];
+    for (let index = messages.length - 1; index >= 0; index -= 1) {
+      const entry = messages[index];
+      if (entry?.role === "user" && typeof entry.content === "string" && entry.content.trim()) {
+        return entry.content.trim();
+      }
+    }
+  }
+
+  return "";
+}
+
+function resolveClientIp(headerStore: Awaited<ReturnType<typeof headers>>): string {
+  return (
+    headerStore.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    headerStore.get("x-real-ip") ||
+    "local"
+  );
+}
+
 export async function POST(request: NextRequest) {
+  const headerStore = await headers();
+  const ip = resolveClientIp(headerStore);
+  const rateLimit = checkAssistantRateLimit(ip);
+
+  if (!rateLimit.ok) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "rate_limited",
+        message: "Çok fazla istek, lütfen biraz bekleyin.",
+      },
+      { status: 429 },
+    );
+  }
+
   let body: AssistantRequestBody;
   try {
     body = (await request.json()) as AssistantRequestBody;
   } catch {
     return NextResponse.json(
       { ok: false, error: "invalid_json", message: "Request body must be JSON." },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
-  const message = typeof body.message === "string" ? body.message.trim() : "";
-  if (!message) {
+  const userMessage = extractUserMessage(body);
+  if (!userMessage) {
     return NextResponse.json(
       { ok: false, error: "empty_message", message: "A non-empty message is required." },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
-  const safeMessage = message.slice(0, MAX_MESSAGE_LENGTH);
-  const result = respond(safeMessage);
+  const locale = typeof body.locale === "string" && body.locale.trim() ? body.locale.trim() : "en";
+  const safeMessage = userMessage.slice(0, MAX_MESSAGE_LENGTH);
+  const result = await routeAssistantSlug(safeMessage, locale);
 
-  return NextResponse.json({ ok: true, result }, { status: 200 });
+  return NextResponse.json(
+    {
+      ok: true,
+      message: result.message,
+      slug: result.slug,
+      source: result.source,
+      blocked: result.blocked,
+      topic: result.topic ?? null,
+      suggestion: result.suggestion ?? null,
+    },
+    { status: 200 },
+  );
 }

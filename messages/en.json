@@ -818,6 +818,27 @@
       "fallback": "I can help you find the right tool, understand inputs and results, and navigate SectorCalc. Try one of these:"
     }
   },
+  "credits": {
+    "eyebrow": "Credits",
+    "title": "SectorCalc credits",
+    "subtitle": "Buy credits for premium AI assistance and analyzer usage.",
+    "balanceLabel": "Credits",
+    "loading": "Loading…",
+    "packageLabel": "{credits} credits — ${price}",
+    "packageCredits": "{credits} credits",
+    "perCreditPrice": "${price} / credit",
+    "checkoutError": "Unable to start checkout. Please try again.",
+    "buyIntro": "Choose a credit pack. Payment is processed securely via Stripe.",
+    "disclaimer": "Credits are non-refundable. Technical simulation only — not financial or engineering advice.",
+    "loginTitle": "Sign in to buy credits",
+    "loginBody": "Credits are linked to your SectorCalc account after payment.",
+    "loginCta": "Sign in with Google",
+    "successTitle": "Payment received",
+    "successBody": "Credits may take a few seconds to appear. Refresh if your balance does not update.",
+    "canceledTitle": "Checkout canceled",
+    "canceledBody": "No charge was made. You can try again anytime.",
+    "backToAccount": "Back to account"
+  },
   "premiumSeo": {
     "eyebrow": "Premium tool guide",
     "metaTitle": "{tool} | Pricing, Margin & Risk Guide | SectorCalc",
@@ -3143,6 +3164,9 @@
   "generatedTool": {
     "calculate": "Calculate",
     "calculating": "Calculating…",
+    "insufficientCredits": "You need at least 1 credit for this premium analysis.",
+    "buyCreditsCta": "Buy credits",
+    "creditsLoading": "Loading credit balance…",
     "primaryResult": "Primary result",
     "clickToCompute": "Click calculate to see results",
     "breakdownTitle": "Loss breakdown",

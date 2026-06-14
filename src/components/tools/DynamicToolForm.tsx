@@ -12,6 +12,7 @@ import { EnhancedBreakdownChart } from "@/components/tools/EnhancedBreakdownChar
 import { ScenarioComparison } from "@/components/tools/ScenarioComparison";
 import { MachineRateSelector } from "@/components/tools/MachineRateSelector";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
+import { useCredits } from "@/hooks/useCredits";
 import { useSubscription } from "@/hooks/useSubscription";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
 import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
@@ -98,8 +99,11 @@ export function DynamicToolForm({
   const tMachineRate = useTranslations("generatedTool.machineRateSelector");
   const tGroups = useTranslations("generatedTool.inputGroups");
   const { isPro, loading: subscriptionLoading } = useSubscription();
+  const { credits, loading: creditsLoading, spendCredits } = useCredits();
   const [selectedUnits, setSelectedUnits] = useState<Record<string, string>>({});
   const [machineRateApplied, setMachineRateApplied] = useState(false);
+  const [creditGateError, setCreditGateError] = useState<string | null>(null);
+  const [spendingCredits, setSpendingCredits] = useState(false);
   const [selectedBreakdownItem, setSelectedBreakdownItem] = useState<BreakdownChartItem | null>(
     null,
   );
@@ -221,7 +225,33 @@ export function DynamicToolForm({
     setSelectedUnits((current) => ({ ...current, [inputId]: unit }));
   };
 
-  const handleFormSubmit: SubmitHandler<FieldValues> = (values) => {
+  const handleFormSubmit: SubmitHandler<FieldValues> = async (values) => {
+    setCreditGateError(null);
+
+    if (schema.premiumRequired && !isPro) {
+      if (creditsLoading) {
+        setCreditGateError(t("creditsLoading"));
+        return;
+      }
+
+      const balance = credits ?? 0;
+      if (balance < 1) {
+        setCreditGateError(t("insufficientCredits"));
+        return;
+      }
+
+      setSpendingCredits(true);
+      try {
+        const spent = await spendCredits(1, slug);
+        if (!spent) {
+          setCreditGateError(t("insufficientCredits"));
+          return;
+        }
+      } finally {
+        setSpendingCredits(false);
+      }
+    }
+
     const converted = convertGeneratedFormValues(
       schema.inputs,
       values as Record<string, unknown>,
@@ -237,9 +267,10 @@ export function DynamicToolForm({
     return tGroups("general");
   };
 
-  const submitLabel = loading
-    ? t("calculating")
-    : (calculateLabel ?? t("calculate"));
+  const submitLabel =
+    spendingCredits || loading
+      ? t("calculating")
+      : (calculateLabel ?? t("calculate"));
 
   return (
     <form
@@ -309,9 +340,17 @@ export function DynamicToolForm({
       ))}
 
       <div className="sc-industrial-form-actions">
+        {creditGateError ? (
+          <p className="mb-3 text-sm text-red-700" role="alert">
+            {creditGateError}{" "}
+            <Link href="/account/credits" className="font-semibold underline">
+              {t("buyCreditsCta")}
+            </Link>
+          </p>
+        ) : null}
         <button
           type="submit"
-          disabled={disabled || loading}
+          disabled={disabled || loading || spendingCredits || creditsLoading}
           className="sc-ledger-cta-primary sc-cta-primary min-h-[44px] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {submitLabel}

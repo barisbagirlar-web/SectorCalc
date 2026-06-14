@@ -3,7 +3,9 @@
 import { useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
-import type { AssistantResult, AssistantSuggestion } from "@/lib/assistant/types";
+import { useUser } from "@/hooks/useUser";
+import { getCurrentUserIdToken } from "@/lib/firebase/auth";
+import type { AssistantSuggestion } from "@/lib/assistant/types";
 import type { CustomerAiSafeResponse } from "@/lib/ai-gateway/customer-ai-types";
 
 type ChatMessage = {
@@ -47,6 +49,8 @@ export function SectorCalcAssistant() {
   const t = useTranslations("assistant");
   const locale = useLocale();
   const pathname = usePathname();
+  const { userRole } = useUser();
+  const isPremium = userRole === "premium";
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -59,29 +63,40 @@ export function SectorCalcAssistant() {
     return idRef.current;
   };
 
-  async function requestDeterministicAssistant(message: string): Promise<ChatMessage | null> {
+  async function requestSlugRouterAssistant(message: string): Promise<ChatMessage | null> {
+    const priorMessages = messages.map((entry) => ({
+      role: entry.role,
+      content: entry.text,
+    }));
+
     const res = await fetch("/api/assistant", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({
+        locale,
+        messages: [...priorMessages, { role: "user", content: message }],
+      }),
     });
 
     if (!res.ok) {
       return null;
     }
 
-    const data = (await res.json()) as { ok: boolean; result?: AssistantResult };
-    const result = data.result;
-    if (!result) {
+    const data = (await res.json()) as {
+      ok: boolean;
+      message?: string;
+      suggestion?: AssistantSuggestion;
+    };
+
+    if (!data.ok || !data.message) {
       return null;
     }
 
-    const replyKey = `reply.${result.topic}` as const;
     return {
       id: nextId(),
       role: "assistant",
-      text: t(replyKey),
-      suggestions: result.suggestions,
+      text: data.message,
+      suggestions: data.suggestion ? [data.suggestion] : undefined,
     };
   }
 
@@ -96,14 +111,30 @@ export function SectorCalcAssistant() {
     setLoading(true);
 
     try {
+      const idToken = await getCurrentUserIdToken(true);
+      if (!idToken) {
+        setError(true);
+        return;
+      }
+
+      const priorMessages = messages.map((entry) => ({
+        role: entry.role,
+        content: entry.text,
+      }));
+
       const gatewayRes = await fetch("/api/ai-gateway/customer", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${idToken}`,
+        },
         body: JSON.stringify({
           locale,
           message,
+          messages: priorMessages,
           currentPath: pathname,
           currentToolSlug: extractToolSlug(pathname),
+          isPremium,
         }),
       });
 
@@ -129,7 +160,7 @@ export function SectorCalcAssistant() {
         }
       }
 
-      const fallbackMessage = await requestDeterministicAssistant(message);
+      const fallbackMessage = await requestSlugRouterAssistant(message);
       if (fallbackMessage) {
         setMessages((prev) => [...prev, fallbackMessage]);
         return;

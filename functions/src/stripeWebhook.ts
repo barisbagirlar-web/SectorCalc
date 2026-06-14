@@ -7,6 +7,7 @@ import {
   CHECKOUT_PLAN_PRO_ANNUAL,
   CHECKOUT_PLAN_SINGLE_REPORT,
   CHECKOUT_PLAN_TEAM,
+  CHECKOUT_PLAN_CREDIT_PACKAGE,
   USERS_COLLECTION,
   USER_PURCHASES_SUBCOLLECTION,
 } from "./constants";
@@ -15,6 +16,7 @@ import {
   updateSubscriptionEntitlementStatus,
   upsertCheckoutSessionEntitlement,
 } from "./entitlementPersistence";
+import { addUserCredits } from "./creditPersistence";
 
 const stripeSecretKey = defineString("STRIPE_SECRET_KEY", { default: "" });
 const stripeWebhookSecret = defineString("STRIPE_WEBHOOK_SECRET", { default: "" });
@@ -230,6 +232,20 @@ export async function handleStripeWebhook(
         ) {
           await writeSingleReportPurchase(uid, session);
           await upsertCheckoutSessionEntitlement(uid, session);
+          break;
+        }
+
+        if (
+          session.mode === "payment" &&
+          (session.metadata?.plan === CHECKOUT_PLAN_CREDIT_PACKAGE ||
+            session.metadata?.type === CHECKOUT_PLAN_CREDIT_PACKAGE)
+        ) {
+          const creditsRaw = session.metadata?.credits;
+          const credits =
+            typeof creditsRaw === "string" ? Number.parseInt(creditsRaw, 10) : NaN;
+          if (Number.isFinite(credits) && credits > 0) {
+            await addUserCredits(uid, credits, { stripeSessionId: session.id });
+          }
           break;
         }
 

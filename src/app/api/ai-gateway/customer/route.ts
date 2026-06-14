@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { handleCustomerAiRequest } from "@/lib/ai-gateway/customer-ai-router";
 import { checkCustomerAiRateLimit } from "@/lib/ai-gateway/customer-ai-rate-limit";
+import type { CustomerAiConversationMessage } from "@/lib/ai-gateway/customer-ai-types";
+import {
+  parseBearerToken,
+  verifySignedInUser,
+} from "@/lib/firebase/verify-signed-in-user";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -12,6 +17,16 @@ export async function POST(req: Request) {
         { ok: false, error: "Customer assistant is disabled." },
         { status: 403 },
       );
+    }
+
+    const idToken = parseBearerToken(req);
+    if (!idToken) {
+      return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
+    }
+
+    const signedInUser = await verifySignedInUser(idToken);
+    if (!signedInUser) {
+      return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
     }
 
     const body = await req.json();
@@ -35,12 +50,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const ip =
-      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-      req.headers.get("x-real-ip") ||
-      "local";
-
-    const rateLimit = checkCustomerAiRateLimit(ip);
+    const rateLimit = checkCustomerAiRateLimit(signedInUser.uid);
 
     if (!rateLimit.ok) {
       return NextResponse.json(
@@ -61,6 +71,8 @@ export async function POST(req: Request) {
       currentPath: typeof body.currentPath === "string" ? body.currentPath : "",
       currentToolSlug:
         typeof body.currentToolSlug === "string" ? body.currentToolSlug : "",
+      isPremium: body.isPremium === true,
+      messages: parseConversationMessages(body.messages),
       formInputs:
         body.formInputs && typeof body.formInputs === "object" ? body.formInputs : {},
       calculationResult:
@@ -82,4 +94,26 @@ export async function POST(req: Request) {
       { status: 502 },
     );
   }
+}
+
+function parseConversationMessages(value: unknown): CustomerAiConversationMessage[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((entry) => {
+      if (!entry || typeof entry !== "object") {
+        return null;
+      }
+      const record = entry as Record<string, unknown>;
+      const role = record.role === "assistant" ? "assistant" : record.role === "user" ? "user" : null;
+      const content = typeof record.content === "string" ? record.content.trim() : "";
+      if (!role || !content) {
+        return null;
+      }
+      return { role, content: content.slice(0, 1200) };
+    })
+    .filter((entry): entry is CustomerAiConversationMessage => entry !== null)
+    .slice(-10);
 }
