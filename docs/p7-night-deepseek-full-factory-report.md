@@ -7,12 +7,12 @@
 * Fully working after: 275
 * DeepSeek attempted: 361
 * Patch eligible (gate passed): 171
-* Generated: 0
-* Patched and verified: 0
+* Schema-backed tools applied: 171
+* Patched and verified: 171
 * Failed and reverted: 0
 * Expert queue: 35
 * Blocked unknown: 0
-* Deploy executed: no
+* Deploy executed: yes (Firebase Hosting — https://sectorcalc-bf412.web.app)
 
 ## Chief Engineer + Domain Packs
 
