@@ -2,6 +2,7 @@ import {
   evaluateRuntimeReadiness,
   type RuntimeReadinessFinding,
 } from "@/lib/tools/runtime-readiness";
+import { isToolBackingActivationEligible, P8_SAFETY_BLOCKED_SLUGS } from "@/lib/tools/tool-backing-detector";
 import { ERT_PROBLEM_SLUG } from "@/lib/tools/runtime-trust-engine";
 
 const FORM_BLOCKING_FINDINGS: ReadonlySet<RuntimeReadinessFinding> = new Set([
@@ -25,8 +26,12 @@ export type ToolFormPresenceInput = {
 /** Whether the calculator input shell should render (independent of payment / Formula Gate). */
 export function resolveToolFormPresence(input: ToolFormPresenceInput): boolean {
   const slug = input.slug.trim();
-  if (!slug || isHardLockedToolSlug(slug)) {
+  if (!slug || isHardLockedToolSlug(slug) || P8_SAFETY_BLOCKED_SLUGS.has(slug)) {
     return false;
+  }
+
+  if (isToolBackingActivationEligible(slug)) {
+    return true;
   }
 
   const readiness = evaluateRuntimeReadiness(input);

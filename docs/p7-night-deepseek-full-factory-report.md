@@ -35,7 +35,7 @@
 
 | Slug | Risk Class |
 |------|------------|
-| 7-israf-muda-avcisi-parasal-karsilik-calculator | HIGH_ENGINEERING_SAFETY — **P7-LIVE-REPAIR-7MUDA PASS** (runtime-readiness native schema route, P24 PASS, TR i18n, oracle scenarios) |
+| 7-israf-muda-avcisi-parasal-karsilik-calculator | HIGH_ENGINEERING_SAFETY |
 | abonelik-yazilim-cloud-yillik-maliyet-hesabi | HIGH_FINANCE_LEGAL_TAX |
 | ai-uyum-ve-etik-denetim-maliyet-eu-ai-act-calculator | HIGH_ENGINEERING_SAFETY |
 | auto-repair-parts-labor-quote-calculator | HIGH_ENGINEERING_SAFETY |

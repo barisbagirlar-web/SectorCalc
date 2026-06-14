@@ -8,9 +8,10 @@ import {
   localizeRevenueToolInputs,
 } from "@/lib/i18n/free-tool-form-i18n";
 import {
-  getPremiumCalculatorSchema,
-  getPremiumSchemaForPaidSlug,
-} from "@/lib/premium-schema/schema-registry";
+  isToolBackingActivationEligible,
+  resolvePremiumSchemaFromBacking,
+  resolveRuntimeTierFromBacking,
+} from "@/lib/tools/tool-backing-detector";
 import { getFreeTrafficToolBySlug } from "@/lib/tools/free-traffic-catalog";
 import { hasDedicatedTrafficCalculator } from "@/lib/tools/free-traffic-calculators";
 import {
@@ -19,6 +20,7 @@ import {
   getRevenueToolByPremiumRouteSlug,
 } from "@/lib/tools/revenue-tools";
 import { isP24PassForSlug } from "@/lib/tools/runtime-readiness-p24-verdicts";
+import { applyReadinessActivationBridge } from "@/lib/tools/runtime-activation-bridge";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { normalizeLocale } from "@/lib/format/localization";
 
@@ -88,7 +90,7 @@ type ResolvedInput = {
 };
 
 function resolveNativePremiumSchema(slug: string) {
-  return getPremiumSchemaForPaidSlug(slug) ?? getPremiumCalculatorSchema(slug);
+  return resolvePremiumSchemaFromBacking(slug);
 }
 
 function resolveTier(slug: string): RuntimeToolTier {
@@ -316,10 +318,11 @@ export function evaluateRuntimeReadiness(input: RuntimeReadinessInput): RuntimeR
     findings.push("tier_copy_mismatch");
   }
 
-  if (!isP24PassForSlug(slug)) {
+  if (!isP24PassForSlug(slug) && !isToolBackingActivationEligible(slug)) {
     findings.push("audit_status_not_pass");
   }
 
+  const resolvedTier = resolveRuntimeTierFromBacking(slug, tier);
   const status = deriveStatus(findings);
   const formulaGateEligible =
     status === "ready" &&
@@ -331,14 +334,14 @@ export function evaluateRuntimeReadiness(input: RuntimeReadinessInput): RuntimeR
 
   const paymentEligible = formulaGateEligible && status === "ready";
 
-  return {
+  return applyReadinessActivationBridge({
     slug,
-    tier,
+    tier: resolvedTier,
     status,
     formulaGateEligible,
     paymentEligible,
     findings,
-  };
+  });
 }
 
 export function isFormulaGateEligible(slug: string, locale?: string, surface?: "free" | "premium"): boolean {

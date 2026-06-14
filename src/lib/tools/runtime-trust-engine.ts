@@ -14,6 +14,8 @@ import { applyErt1PaymentSurfacePolicy } from "@/lib/tools/runtime-trust-eligibi
 import { normalizeLocale } from "@/lib/format/localization";
 import type { SupportedLocale } from "@/lib/i18n/locale-config";
 import { collectInputGuideTrustFindings } from "@/lib/tool-guides/input-guide-policy";
+import { applyRuntimeTrustActivationBridge } from "@/lib/tools/runtime-activation-bridge";
+import { isToolBackingActivationEligible, P8_SAFETY_BLOCKED_SLUGS } from "@/lib/tools/tool-backing-detector";
 
 export type RuntimeTrustStatus = "ready" | "review" | "blocked";
 
@@ -111,7 +113,11 @@ function applyTrustPolicy(
     }
   }
 
-  if (!isP24TrustPassForSlug(slug) && !findings.includes("audit_status_not_pass")) {
+  if (
+    !isP24TrustPassForSlug(slug) &&
+    !isToolBackingActivationEligible(slug) &&
+    !findings.includes("audit_status_not_pass")
+  ) {
     findings.push("audit_status_not_pass");
     if (status === "ready") {
       status = "review";
@@ -169,6 +175,25 @@ function applyTrustPolicy(
   };
 }
 
+function applySafetyCalculationBlock(decision: RuntimeTrustDecision): RuntimeTrustDecision {
+  if (!P8_SAFETY_BLOCKED_SLUGS.has(decision.slug)) {
+    return decision;
+  }
+
+  const findings: RuntimeTrustFinding[] = [...decision.findings];
+  if (!findings.includes("audit_status_not_pass")) {
+    findings.push("audit_status_not_pass");
+  }
+
+  return {
+    ...decision,
+    status: "review",
+    calculationEligible: false,
+    findings,
+    recommendedAction: "manual_review",
+  };
+}
+
 export function evaluateRuntimeTrust(input: RuntimeTrustInput): RuntimeTrustDecision {
   const slug = input.slug.trim();
   const locale = normalizeLocale(input.locale ?? "en") as SupportedLocale;
@@ -188,7 +213,11 @@ export function evaluateRuntimeTrust(input: RuntimeTrustInput): RuntimeTrustDeci
       : decision;
 
   const merged = mergeRuntimeHealthWithDecision(withRoute, readRuntimeToolHealth(healthSlug));
-  return applyErt1PaymentSurfacePolicy(applyHardReviewOverride(merged));
+  return applySafetyCalculationBlock(
+    applyRuntimeTrustActivationBridge(
+      applyErt1PaymentSurfacePolicy(applyHardReviewOverride(merged)),
+    ),
+  );
 }
 
 export function isFormulaGateTrustEligible(

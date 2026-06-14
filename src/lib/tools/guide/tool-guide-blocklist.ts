@@ -1,3 +1,10 @@
+import {
+  isToolBackingActivationEligible,
+  P8_SAFETY_BLOCKED_SLUGS,
+} from "@/lib/tools/tool-backing-detector";
+import { ERT_PROBLEM_SLUG } from "@/lib/tools/runtime-trust-engine";
+import { getP24VerdictForSlug } from "@/lib/tools/runtime-readiness-p24-verdicts";
+
 /** Slugs with generic guides explicitly blocked until approved spec exists (P3 repair). */
 
 export const GENERIC_GUIDE_BLOCKED_SLUGS: readonly string[] = ["3d-print-job-margin-tool",
@@ -53,5 +60,14 @@ export const GENERIC_GUIDE_BLOCKED_SLUGS: readonly string[] = ["3d-print-job-mar
 
 export function isGuideExplicitlyBlocked(slug: string): boolean {
   const normalized = slug.trim();
+  if (P8_SAFETY_BLOCKED_SLUGS.has(normalized) || normalized === ERT_PROBLEM_SLUG) {
+    return true;
+  }
+  if (getP24VerdictForSlug(normalized) === "QUARANTINE") {
+    return true;
+  }
+  if (isToolBackingActivationEligible(normalized)) {
+    return false;
+  }
   return GENERIC_GUIDE_BLOCKED_SLUGS.includes(normalized);
 }
