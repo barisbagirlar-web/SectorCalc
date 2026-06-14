@@ -3,12 +3,19 @@
  * Keep in sync with src/lib/ai/deepseek/domain-prompt-dispatcher.ts
  */
 
-import {
-  DOMAIN_PROMPT_IDS,
-  P7_DOMAIN_PROMPT_PACKS,
-} from "./p7-domain-prompt-packs.mjs";
-
-export { DOMAIN_PROMPT_IDS, P7_DOMAIN_PROMPT_PACKS };
+export const DOMAIN_PROMPT_IDS = [
+  "MANUFACTURING_AND_MACHINING",
+  "LEAN_WASTE_AND_OEE",
+  "COSTING_MARGIN_AND_PRICING",
+  "LOGISTICS_AND_TRANSPORT",
+  "ENERGY_AND_UTILITIES",
+  "INVENTORY_AND_STOCK",
+  "MAINTENANCE_AND_DOWNTIME",
+  "CONSTRUCTION_AND_FIELD_SERVICE",
+  "FOOD_AGRI_AND_PROCESS",
+  "FINANCE_LEGAL_TAX_REGULATORY_HIGH_RISK",
+  "GENERAL_INDUSTRIAL_COST_ANALYTICS",
+];
 
 const HIGH_RISK_DOMAIN_ID = "FINANCE_LEGAL_TAX_REGULATORY_HIGH_RISK";
 
@@ -207,13 +214,101 @@ const FALLBACK_DOMAIN_ID = "GENERAL_INDUSTRIAL_COST_ANALYTICS";
 const DOMAIN_OUTPUT_RULES =
   "Return only valid JSON. Generic formula, generic input, weak assumptions, missing oracle, missing unit, missing validation = FAIL.";
 
-function buildDomainPrompt(domainId) {
-  return [`DOMAIN: ${domainId}`, P7_DOMAIN_PROMPT_PACKS[domainId], DOMAIN_OUTPUT_RULES].join("\n\n");
-}
+const DOMAIN_PROMPTS = {
+  MANUFACTURING_AND_MACHINING: [
+    "DOMAIN: MANUFACTURING_AND_MACHINING",
+    "Evaluate machining, fabrication, and production calculators.",
+    "Require cycle-time, setup, tooling, material removal, scrap/yield, and capacity realism.",
+    "Reject generic cost/rate inputs without process context.",
+    "Formulas must cite shop-floor measurable variables with units.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
 
-const DOMAIN_PROMPTS = Object.fromEntries(
-  DOMAIN_PROMPT_IDS.map((domainId) => [domainId, buildDomainPrompt(domainId)]),
-);
+  LEAN_WASTE_AND_OEE: [
+    "DOMAIN: LEAN_WASTE_AND_OEE",
+    "Evaluate waste, OEE, downtime, scrap, rework, and changeover tools.",
+    "Require availability, performance, quality decomposition or explicit waste monetization.",
+    "Reject single-ratio shortcuts without loss breakdown.",
+    "Oracle cases must cover zero-loss, typical-loss, and high-loss scenarios.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
+
+  COSTING_MARGIN_AND_PRICING: [
+    "DOMAIN: COSTING_MARGIN_AND_PRICING",
+    "Evaluate quote, bid, margin, and job-cost calculators.",
+    "Require direct cost, burden/overhead, risk buffer, and margin normalization.",
+    "Reject price-only outputs without cost stack trace.",
+    "Validation must block negative margin inputs and unrealistic markup bounds.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
+
+  LOGISTICS_AND_TRANSPORT: [
+    "DOMAIN: LOGISTICS_AND_TRANSPORT",
+    "Evaluate route, freight, delivery, fuel, and handling calculators.",
+    "Require distance/time, load factor, fuel or tariff basis, and handling surcharges.",
+    "Reject flat-rate formulas without operational drivers.",
+    "Units must distinguish per-trip, per-km, per-kg, and per-pallet.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
+
+  ENERGY_AND_UTILITIES: [
+    "DOMAIN: ENERGY_AND_UTILITIES",
+    "Evaluate energy, power, tariff, heat-loss, cooling, and carbon tools.",
+    "Require kWh or thermal basis, duty cycle, efficiency, and tariff tier logic.",
+    "Reject watt guesses without time basis.",
+    "Carbon outputs must state emission factor source or assumption.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
+
+  INVENTORY_AND_STOCK: [
+    "DOMAIN: INVENTORY_AND_STOCK",
+    "Evaluate inventory holding, reorder, obsolescence, and warehouse-space tools.",
+    "Require demand rate, lead time, carrying cost, and service-level or EOQ logic.",
+    "Reject stock count formulas without turnover or holding cost basis.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
+
+  MAINTENANCE_AND_DOWNTIME: [
+    "DOMAIN: MAINTENANCE_AND_DOWNTIME",
+    "Evaluate maintenance, MTBF, MTTR, failure, and repair downtime tools.",
+    "Require failure rate or interval, repair duration, and production loss linkage.",
+    "Reject downtime minutes without availability impact math.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
+
+  CONSTRUCTION_AND_FIELD_SERVICE: [
+    "DOMAIN: CONSTRUCTION_AND_FIELD_SERVICE",
+    "Evaluate field-service, trades, and construction operation calculators.",
+    "Require labor hours, material takeoff, travel/mobilization, and rework allowance.",
+    "Reject lump-sum inputs without scope drivers.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
+
+  FOOD_AGRI_AND_PROCESS: [
+    "DOMAIN: FOOD_AGRI_AND_PROCESS",
+    "Evaluate agriculture, dairy, recipe, menu, and process-yield tools.",
+    "Require yield, shrink, batch size, and ingredient/process loss linkage.",
+    "Reject recipe cost without portion or batch normalization.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
+
+  FINANCE_LEGAL_TAX_REGULATORY_HIGH_RISK: [
+    "DOMAIN: FINANCE_LEGAL_TAX_REGULATORY_HIGH_RISK",
+    "HIGH-RISK DOMAIN — do not approve automatic calculator generation.",
+    "Produce expert verification checklist, required legal/regulatory sources, oracle test plan, and input gap analysis.",
+    "Set canGenerateCalculator=false unless explicit human expert sign-off path is documented.",
+    "Reject generic tax/legal/fx formulas without jurisdiction and effective-date context.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
+
+  GENERAL_INDUSTRIAL_COST_ANALYTICS: [
+    "DOMAIN: GENERAL_INDUSTRIAL_COST_ANALYTICS",
+    "Fallback domain for industrial cost and operations analytics.",
+    "Require measurable operational drivers, explicit assumptions, and decision-grade outputs.",
+    "Reject placeholder formulas and generic inputs.",
+    DOMAIN_OUTPUT_RULES,
+  ].join("\n"),
+};
 
 const EXPERT_CHECKLIST_APPENDIX = [
   "HIGH-RISK SIGNAL ACTIVE:",

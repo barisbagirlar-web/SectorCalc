@@ -66,6 +66,7 @@
     "audit:p7-night": "node scripts/tool-activation/p7-night-deepseek-full-factory.mjs",
     "apply:p7-night": "node scripts/tool-activation/p7-night-apply-all-verified.mjs",
     "verify:p7-night": "node scripts/tool-activation/p7-night-verify-all.mjs",
+    "run:p7-night": "node scripts/tool-activation/p7-night-run-all.mjs",
     "audit:sprint-activation-manifest": "node scripts/tool-activation/build-sprint-activation-manifest.mjs",
     "apply:s2-low-risk-activation": "node scripts/tool-activation/apply-s2-low-risk-activation-batch.mjs",
     "apply:s3-low-risk-activation": "node scripts/tool-activation/apply-s3-low-risk-activation-batch.mjs",

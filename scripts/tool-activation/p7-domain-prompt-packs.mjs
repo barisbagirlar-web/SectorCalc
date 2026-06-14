@@ -406,6 +406,7 @@ export function runDomainPromptPackSelfTests() {
     const domainOk = resolved.domainId === testCase.expectDomain;
     const contentOk =
       typeof resolved.content === "string" &&
+      resolved.content.includes("=== P7 DOMAIN PROMPT PACK (single domain only) ===") &&
       resolved.content.includes(`DOMAIN: ${testCase.expectDomain}`) &&
       resolved.content.includes(`domainId: ${testCase.expectDomain}`);
     const expertOk = testCase.expectExpert

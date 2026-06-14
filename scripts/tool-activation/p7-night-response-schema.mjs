@@ -263,6 +263,58 @@ export function getP7ResponseJsonSchemaHint() {
   };
 }
 
+export function getP7PassingResponseExample(slug = "example-tool") {
+  const example = buildPassingMockResponse();
+  return {
+    ...example,
+    slug,
+    safeExportBaseName: slug,
+  };
+}
+
+export function normalizeP7Response(raw, expectedSlug) {
+  let parsed = raw;
+  if (!parsed || typeof parsed !== "object") {
+    return parsed;
+  }
+
+  for (const wrapperKey of ["response", "result", "tool", "data", "calculator", "audit"]) {
+    const wrapped = parsed[wrapperKey];
+    if (wrapped && typeof wrapped === "object" && !Array.isArray(wrapped)) {
+      const hasCore =
+        "status" in wrapped ||
+        "formulaMethod" in wrapped ||
+        "formula_method" in wrapped ||
+        "inputs" in wrapped;
+      if (hasCore) {
+        parsed = { ...parsed, ...wrapped };
+      }
+    }
+  }
+
+  if (!parsed.formulaMethod && parsed.formula_method) {
+    parsed.formulaMethod = parsed.formula_method;
+  }
+
+  if (typeof parsed.formulaMethod === "string") {
+    try {
+      parsed.formulaMethod = JSON.parse(parsed.formulaMethod);
+    } catch {
+      // keep as-is; shape validation will fail clearly
+    }
+  }
+
+  if (expectedSlug && !parsed.slug) {
+    parsed.slug = expectedSlug;
+  }
+
+  if (expectedSlug && !parsed.safeExportBaseName) {
+    parsed.safeExportBaseName = expectedSlug;
+  }
+
+  return parsed;
+}
+
 function buildPassingMockResponse() {
   return {
     slug: "mock-tool",

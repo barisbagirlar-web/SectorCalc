@@ -34,12 +34,16 @@ import {
 import {
   rejectP7Response,
   validateP7ResponseShape,
+  normalizeP7Response,
   runRejectGateSelfTests,
   P7_REQUIRED_TOP_LEVEL_FIELDS,
 } from "./p7-night-response-schema.mjs";
 
 const CACHE_DIR = path.join(ROOT, "scripts/.cache");
 const P7_CHECKPOINT_PATH = path.join(CACHE_DIR, "p7-night-deepseek-checkpoint.json");
+const P7_AUDIT_LOCK_PATH = path.join(CACHE_DIR, "p7-night-audit.lock");
+
+const RETRYABLE_REASONS = new Set(["missing_field", "invalid_json", "api_error", "prompt_wiring"]);
 
 const CONTRACTS_DIR = path.join(ROOT, "src/lib/formula-governance/contracts");
 const GUIDE_SPECS_FILE = path.join(ROOT, "src/lib/tool-guides/premium-input-guide-specs.ts");
@@ -191,7 +195,7 @@ async function callDeepSeekForTool(toolContext, apiKey, model, timeoutMs) {
   if (
     !domainSystem ||
     domainSystem.role !== "system" ||
-    !domainSystem.content.includes("=== P7 DOMAIN PROMPT (single domain only) ===")
+    !domainSystem.content.includes("=== P7 DOMAIN PROMPT PACK (single domain only) ===")
   ) {
     return {
       ok: false,
@@ -241,7 +245,7 @@ async function callDeepSeekForTool(toolContext, apiKey, model, timeoutMs) {
       return { ok: false, reason: "invalid_json", message: "No JSON object in response." };
     }
 
-    const parsed = JSON.parse(jsonText);
+    const parsed = normalizeP7Response(JSON.parse(jsonText), toolContext.slug);
     const shape = validateP7ResponseShape(parsed);
     if (!shape.ok) {
       return { ok: false, reason: shape.reason, message: shape.message };
@@ -291,17 +295,17 @@ function verifyPromptWiring() {
     userContainsSlug: typeof user?.content === "string" && user.content.includes("wiring-check"),
     userHasNoDomainPack:
       typeof user?.content === "string" &&
-      !user.content.includes("=== P7 DOMAIN PROMPT (single domain only) ==="),
+      !user.content.includes("=== P7 DOMAIN PROMPT PACK (single domain only) ==="),
     systemPromptLength: CHIEF_ENGINEER_SYSTEM_PROMPT.trim().length > 500,
     domainPromptInjected:
       typeof domainSystem?.content === "string" &&
-      domainSystem.content.includes("=== P7 DOMAIN PROMPT (single domain only) ==="),
+      domainSystem.content.includes("=== P7 DOMAIN PROMPT PACK (single domain only) ==="),
     domainIdPresent:
       typeof domainSystem?.content === "string" &&
       domainSystem.content.includes("domainId: COSTING_MARGIN_AND_PRICING"),
     singleDomainOnly:
       typeof domainSystem?.content === "string" &&
-      (domainSystem.content.match(/=== P7 DOMAIN PROMPT/g) ?? []).length === 1,
+      (domainSystem.content.match(/=== P7 DOMAIN PROMPT PACK/g) ?? []).length === 1,
     domainMatchOk: domainMatch.domainId === "COSTING_MARGIN_AND_PRICING",
     domainPackCount: Object.keys(P7_DOMAIN_PROMPT_PACKS).length === 11,
   };
@@ -466,10 +470,17 @@ function writeDoc(report) {
 }
 
 function loadDeepseekCheckpoint() {
+  if (process.env.P7_NIGHT_RESET_CHECKPOINT === "1" && fs.existsSync(P7_CHECKPOINT_PATH)) {
+    fs.unlinkSync(P7_CHECKPOINT_PATH);
+  }
+
   if (!fs.existsSync(P7_CHECKPOINT_PATH)) return new Map();
   const parsed = JSON.parse(fs.readFileSync(P7_CHECKPOINT_PATH, "utf8"));
   const map = new Map();
   for (const row of parsed.results ?? []) {
+    if (RETRYABLE_REASONS.has(row.reason)) {
+      continue;
+    }
     map.set(row.slug, row);
   }
   return map;
@@ -488,6 +499,27 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function acquireAuditLock() {
+  if (fs.existsSync(P7_AUDIT_LOCK_PATH)) {
+    const existing = fs.readFileSync(P7_AUDIT_LOCK_PATH, "utf8").trim();
+    try {
+      process.kill(Number(existing), 0);
+      console.error(`BLOCKER: audit already running (pid ${existing})`);
+      process.exit(1);
+    } catch {
+      fs.unlinkSync(P7_AUDIT_LOCK_PATH);
+    }
+  }
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+  fs.writeFileSync(P7_AUDIT_LOCK_PATH, `${process.pid}\n`, "utf8");
+}
+
+function releaseAuditLock() {
+  if (fs.existsSync(P7_AUDIT_LOCK_PATH)) {
+    fs.unlinkSync(P7_AUDIT_LOCK_PATH);
+  }
+}
+
 async function runAudit() {
   loadEnvLocal();
 
@@ -497,6 +529,8 @@ async function runAudit() {
     process.exit(1);
   }
 
+  acquireAuditLock();
+  try {
   const wiring = verifyPromptWiring();
   const selfTests = runRejectGateSelfTests();
   const domainDispatcher = runDomainDispatcherSelfTests();
@@ -582,15 +616,7 @@ async function runAudit() {
       message: result.message ?? null,
       patchEligible: result.patchEligible ?? false,
       gateReasons: result.gate?.reasons ?? [],
-      response: result.response
-        ? {
-            slug: result.response.slug,
-            status: result.response.status,
-            overallDecision: result.response.overallDecision,
-            canGenerateCalculator: result.response.canGenerateCalculator,
-            riskClass: result.response.riskClass,
-          }
-        : null,
+      response: result.response ?? null,
     };
     deepseekResults.push(row);
     checkpoint.set(tool.slug, row);
@@ -631,6 +657,9 @@ async function runAudit() {
   console.log(`output: ${path.relative(ROOT, P7_AUDIT_PATH)}`);
   console.log(`doc: ${path.relative(ROOT, P7_QUALITY_GATE_DOC)}`);
   console.log("\naudit:p7-night PASS");
+  } finally {
+    releaseAuditLock();
+  }
 }
 
 function runVerify() {

@@ -111,15 +111,30 @@ export function classifyP7ScanTargets(p6bTools) {
 
 export function selectP7ApplyBatch(audit) {
   const slugs = new Set();
+  const deepseekApproved = new Set();
 
   for (const row of audit.deepseekResults ?? []) {
     if (row.patchEligible && row.response?.slug) {
       slugs.add(row.response.slug);
+      deepseekApproved.add(row.response.slug);
     }
   }
 
   for (const tool of audit.p6bTools ?? []) {
     if (tool.autoPatchEligible && tool.patchAction === "AUTO_PATCH_READY") {
+      slugs.add(tool.slug);
+    }
+
+    if (
+      tool.routeStatus === "active-route" &&
+      !tool.manualExpertRequired &&
+      !tool.blockedSafety &&
+      (tool.riskClass === "LOW_GENERAL_CALC" || tool.riskClass === "MEDIUM_BUSINESS_CALC") &&
+      tool.formulaStatus === "FULLY_WORKING" &&
+      tool.rendererStatus === "FULLY_WORKING" &&
+      !tool.backingComplete &&
+      deepseekApproved.has(tool.slug)
+    ) {
       slugs.add(tool.slug);
     }
   }
