@@ -41,7 +41,9 @@ async function main(): Promise<void> {
     }
 
     try {
-      const outFile = generateFromSchemaFile(record.schemaPath);
+      const baseName = path.basename(record.schemaPath).replace(/-schema\.json$/i, "").replace(/\.json$/i, "");
+      const outFile = path.join(PROJECT_ROOT, "generated", `${baseName}.ts`);
+      generateFromSchemaFile(record.schemaPath, outFile);
       generationResults.push({ slug: record.slug, ok: true, outFile });
       console.log(`Generated ${outFile}`);
     } catch (error) {

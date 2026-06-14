@@ -63,6 +63,47 @@ export function SectorCalcAssistant() {
     return idRef.current;
   };
 
+  async function requestChatAssistant(
+    message: string,
+    idToken: string,
+  ): Promise<ChatMessage | null> {
+    const conversation = [
+      ...messages.map((entry) => ({
+        role: entry.role,
+        content: entry.text,
+      })),
+      { role: "user" as const, content: message },
+    ];
+
+    const res = await fetch("/api/assistant/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${idToken}`,
+      },
+      body: JSON.stringify({
+        locale,
+        role: isPremium ? "premium" : "free",
+        messages: conversation,
+      }),
+    });
+
+    if (!res.ok) {
+      return null;
+    }
+
+    const data = (await res.json()) as { reply?: string };
+    if (!data.reply) {
+      return null;
+    }
+
+    return {
+      id: nextId(),
+      role: "assistant",
+      text: data.reply,
+    };
+  }
+
   async function requestSlugRouterAssistant(message: string): Promise<ChatMessage | null> {
     const priorMessages = messages.map((entry) => ({
       role: entry.role,
@@ -158,6 +199,12 @@ export function SectorCalcAssistant() {
           ]);
           return;
         }
+      }
+
+      const fallbackChat = await requestChatAssistant(message, idToken);
+      if (fallbackChat) {
+        setMessages((prev) => [...prev, fallbackChat]);
+        return;
       }
 
       const fallbackMessage = await requestSlugRouterAssistant(message);
