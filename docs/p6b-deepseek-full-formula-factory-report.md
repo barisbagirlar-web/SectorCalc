@@ -1,0 +1,108 @@
+# P6B DeepSeek Full Formula Factory Report
+
+## Summary
+
+* Total tools: 474
+* Fully working: 71
+* Auto patch ready: 1
+* Patched in this batch: 25
+* Manual expert required: 46
+* Blocked safety: 1
+* Revenue boundary: PASS
+* Deploy executed: no
+
+## Batch 1 Patched Tools
+
+| Slug | Input | Formula | Validation | Oracle | Renderer | Result |
+|------|-------|---------|------------|--------|----------|--------|
+| auto-shop-margin-leak-detector | PASS | PASS | PASS | PASS | PASS | PASS |
+| change-order-impact-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
+| cnc-quote-risk-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
+| crop-yield-loss-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
+| dairy-profit-detector | PASS | PASS | PASS | PASS | PASS | PASS |
+| heat-loss-calculator | PASS | PASS | PASS | PASS | PASS | PASS |
+| hvac-project-margin-guard | PASS | PASS | PASS | PASS | PASS | PASS |
+| landscaping-contract-profit-tool | PASS | PASS | PASS | PASS | PASS | PASS |
+| material-waste-calculator | PASS | PASS | PASS | PASS | PASS | PASS |
+| meal-planning-verdict | PASS | PASS | PASS | PASS | PASS | PASS |
+| menu-profit-leak-detector | PASS | PASS | PASS | PASS | PASS | PASS |
+| millwork-bid-risk-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
+| office-cleaning-bid-optimizer | PASS | PASS | PASS | PASS | PASS | PASS |
+| painting-job-profit-verdict | PASS | PASS | PASS | PASS | PASS | PASS |
+| panel-shop-margin-verdict | PASS | PASS | PASS | PASS | PASS | PASS |
+| plumbing-job-margin-verdict | PASS | PASS | PASS | PASS | PASS | PASS |
+| profit-margin-calculator | PASS | PASS | PASS | PASS | PASS | PASS |
+| quote-price-profit-margin-calculator | PASS | PASS | PASS | PASS | PASS | PASS |
+| return-profit-erosion-tool | PASS | PASS | PASS | PASS | PASS | PASS |
+| roofing-contract-margin-guard | PASS | PASS | PASS | PASS | PASS | PASS |
+| route-optimization-analyzer | PASS | PASS | PASS | PASS | PASS | PASS |
+| scrap-rate-calculator | PASS | PASS | PASS | PASS | PASS | PASS |
+| sheet-metal-quote-risk-tool | PASS | PASS | PASS | PASS | PASS | PASS |
+| signage-bid-safe-price-tool | PASS | PASS | PASS | PASS | PASS | PASS |
+| water-optimization-verdict | PASS | PASS | PASS | PASS | PASS | PASS |
+
+## Manual Expert Queue
+
+| Slug | Reason |
+|------|--------|
+| 7-israf-muda-avcisi-parasal-karsilik-calculator | HIGH_ENGINEERING_SAFETY |
+| abonelik-yazilim-cloud-yillik-maliyet-hesabi | HIGH_FINANCE_LEGAL_TAX |
+| ai-uyum-ve-etik-denetim-maliyet-eu-ai-act-calculator | HIGH_ENGINEERING_SAFETY |
+| annual-leave-severance-notice-calculator | HIGH_ENGINEERING_SAFETY |
+| auto-repair-comeback-cost | HIGH_ENGINEERING_SAFETY |
+| auto-repair-parts-labor-quote-calculator | HIGH_ENGINEERING_SAFETY |
+| basincli-kap-cidar-kalinligi-hesabi | HIGH_ENGINEERING_SAFETY |
+| bolt-tightening-torque-calculator | HIGH_ENGINEERING_SAFETY |
+| break-even-safety-margin-calculator | HIGH_ENGINEERING_SAFETY |
+| carbon-footprint-compliance-risk | HIGH_REGULATORY |
+| cbam-compliance-verdict | HIGH_REGULATORY |
+| cbam-exposure-quick-check | HIGH_REGULATORY |
+| cbam-karbon-sinir-vergisi-ve-ihracat-maliyet-etkisi-calculator | HIGH_FINANCE_LEGAL_TAX |
+| cbam-unit-product-carbon-footprint-calculator | HIGH_REGULATORY |
+| civata-sikma-torku-hesaplama | HIGH_ENGINEERING_SAFETY |
+| doviz-pozisyonu-kur-farki-riski-hesabi | HIGH_FINANCE_LEGAL_TAX |
+| electrical-labor-estimator | HIGH_ENGINEERING_SAFETY |
+| electrical-panel-rework-cost | HIGH_ENGINEERING_SAFETY |
+| faiz-kredi-yapisi-ve-ulke-risk-primi-calculator | HIGH_FINANCE_LEGAL_TAX |
+| feed-efficiency-analyzer | BLOCKED_UNKNOWN |
+| fire-system-flow-hydrant-calculator | HIGH_ENGINEERING_SAFETY |
+| fx-hedging-stratejisi-forward-option-natural-maliyet-fayda-calculator | HIGH_FINANCE_LEGAL_TAX |
+| gelir-vergisi-dilimleri-hesaplama | HIGH_FINANCE_LEGAL_TAX |
+| hidrolik-pompa-gucu-hesaplama | HIGH_ENGINEERING_SAFETY |
+| hidrolik-silindir-itme-kuvveti-hesabi | HIGH_ENGINEERING_SAFETY |
+| hidrolik-sistem-isinma-ve-sogutma-enerji-kayip-calculator | HIGH_ENGINEERING_SAFETY |
+| hydraulic-pneumatic-cylinder-force-calculator | HIGH_ENGINEERING_SAFETY |
+| ic-verim-orani-irr-hesaplama | HIGH_ENGINEERING_SAFETY |
+| investment-payback-npv-calculator | HIGH_ENGINEERING_SAFETY |
+| is-sagligi-ve-guvenligi-ceza-hesaplama | HIGH_ENGINEERING_SAFETY |
+| istinat-duvari-yaklasik-beton-hesabi | HIGH_ENGINEERING_SAFETY |
+| kaynakli-baglanti-kose-kut-mukavemet-hesabi | HIGH_ENGINEERING_SAFETY |
+| kdv-tevkifati-hesaplama | HIGH_FINANCE_LEGAL_TAX |
+| kredi-erken-kapama-cezasi-hesaplama | HIGH_FINANCE_LEGAL_TAX |
+| leasing-kiralama-maliyet-karsilastirma | HIGH_FINANCE_LEGAL_TAX |
+| leasing-vs-satin-alma-finansal-karsilastirma-calculator | HIGH_FINANCE_LEGAL_TAX |
+| legal-interest-fee-calculator-pro | HIGH_FINANCE_LEGAL_TAX |
+| mtv-motorlu-tasitlar-vergisi-hesaplama | HIGH_FINANCE_LEGAL_TAX |
+| pnomatik-silindir-kuvvet-hesabi | HIGH_ENGINEERING_SAFETY |
+| pressure-vessel-wall-thickness-calculator | HIGH_ENGINEERING_SAFETY |
+| siber-guvenlik-yatirimi-ve-breach-risk-maliyet-calculator | HIGH_ENGINEERING_SAFETY |
+| stopaj-hesaplama-kira-serbest-meslek | HIGH_FINANCE_LEGAL_TAX |
+| transfer-pricing-ve-sinir-otesi-vergi-optimizasyon-calculator | HIGH_FINANCE_LEGAL_TAX |
+| welded-bolted-connection-calculator | HIGH_ENGINEERING_SAFETY |
+| yangin-merdiveni-kacis-yolu-genisligi-hesabi | HIGH_ENGINEERING_SAFETY |
+| yangin-tupu-dolap-debisi-hesaplama | HIGH_ENGINEERING_SAFETY |
+
+## Blocked Safety Queue
+
+| Slug | Reason |
+|------|--------|
+| feed-efficiency-analyzer | BLOCKED_UNKNOWN |
+
+## Revenue Boundary
+
+| Check | Expected | Actual |
+| paymentEligible | 22 | 22 |
+| formulaGateEligible | 22 | 22 |
+| freePaymentEligible | 0 | 0 |
+| feed-efficiency-analyzer | blocked | blocked |
+| abonelik-yazilim-cloud-yillik-maliyet-hesabi | locked | locked |

@@ -61,6 +61,31 @@ import { CBAM_COMPLIANCE_VERDICT_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formul
 import { CBAM_EXPOSURE_QUICK_CHECK_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/cbam-exposure-quick-check-critical";
 import { ELECTRICAL_PANEL_REWORK_COST_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/electrical-panel-rework-cost-critical";
 import { LEGAL_INTEREST_FEE_CALCULATOR_PRO_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/legal-interest-fee-calculator-pro-critical";
+import { AUTO_SHOP_MARGIN_LEAK_DETECTOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/auto-shop-margin-leak-detector-critical";
+import { CHANGE_ORDER_IMPACT_ANALYZER_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/change-order-impact-analyzer-critical";
+import { CNC_QUOTE_RISK_ANALYZER_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/cnc-quote-risk-analyzer-critical";
+import { CROP_YIELD_LOSS_ANALYZER_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/crop-yield-loss-analyzer-critical";
+import { DAIRY_PROFIT_DETECTOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/dairy-profit-detector-critical";
+import { HEAT_LOSS_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/heat-loss-calculator-critical";
+import { HVAC_PROJECT_MARGIN_GUARD_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/hvac-project-margin-guard-critical";
+import { LANDSCAPING_CONTRACT_PROFIT_TOOL_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/landscaping-contract-profit-tool-critical";
+import { MATERIAL_WASTE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/material-waste-calculator-critical";
+import { MEAL_PLANNING_VERDICT_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/meal-planning-verdict-critical";
+import { MENU_PROFIT_LEAK_DETECTOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/menu-profit-leak-detector-critical";
+import { MILLWORK_BID_RISK_ANALYZER_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/millwork-bid-risk-analyzer-critical";
+import { OFFICE_CLEANING_BID_OPTIMIZER_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/office-cleaning-bid-optimizer-critical";
+import { PAINTING_JOB_PROFIT_VERDICT_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/painting-job-profit-verdict-critical";
+import { PANEL_SHOP_MARGIN_VERDICT_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/panel-shop-margin-verdict-critical";
+import { PLUMBING_JOB_MARGIN_VERDICT_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/plumbing-job-margin-verdict-critical";
+import { PROFIT_MARGIN_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/profit-margin-calculator-critical";
+import { QUOTE_PRICE_PROFIT_MARGIN_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/quote-price-profit-margin-calculator-critical";
+import { RETURN_PROFIT_EROSION_TOOL_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/return-profit-erosion-tool-critical";
+import { ROOFING_CONTRACT_MARGIN_GUARD_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/roofing-contract-margin-guard-critical";
+import { ROUTE_OPTIMIZATION_ANALYZER_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/route-optimization-analyzer-critical";
+import { SCRAP_RATE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/scrap-rate-calculator-critical";
+import { SHEET_METAL_QUOTE_RISK_TOOL_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/sheet-metal-quote-risk-tool-critical";
+import { SIGNAGE_BID_SAFE_PRICE_TOOL_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/signage-bid-safe-price-tool-critical";
+import { WATER_OPTIMIZATION_VERDICT_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/water-optimization-verdict-critical";
 import { ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/engine-modules-critical";
 import { P77_FREE_TRAFFIC_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/p77-free-traffic-batch";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
@@ -315,6 +340,31 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   ...CBAM_EXPOSURE_QUICK_CHECK_CRITICAL_FORMULA_CONTRACTS,
   ...ELECTRICAL_PANEL_REWORK_COST_CRITICAL_FORMULA_CONTRACTS,
   ...LEGAL_INTEREST_FEE_CALCULATOR_PRO_CRITICAL_FORMULA_CONTRACTS,
+  ...AUTO_SHOP_MARGIN_LEAK_DETECTOR_CRITICAL_FORMULA_CONTRACTS,
+  ...CHANGE_ORDER_IMPACT_ANALYZER_CRITICAL_FORMULA_CONTRACTS,
+  ...CNC_QUOTE_RISK_ANALYZER_CRITICAL_FORMULA_CONTRACTS,
+  ...CROP_YIELD_LOSS_ANALYZER_CRITICAL_FORMULA_CONTRACTS,
+  ...DAIRY_PROFIT_DETECTOR_CRITICAL_FORMULA_CONTRACTS,
+  ...HEAT_LOSS_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...HVAC_PROJECT_MARGIN_GUARD_CRITICAL_FORMULA_CONTRACTS,
+  ...LANDSCAPING_CONTRACT_PROFIT_TOOL_CRITICAL_FORMULA_CONTRACTS,
+  ...MATERIAL_WASTE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...MEAL_PLANNING_VERDICT_CRITICAL_FORMULA_CONTRACTS,
+  ...MENU_PROFIT_LEAK_DETECTOR_CRITICAL_FORMULA_CONTRACTS,
+  ...MILLWORK_BID_RISK_ANALYZER_CRITICAL_FORMULA_CONTRACTS,
+  ...OFFICE_CLEANING_BID_OPTIMIZER_CRITICAL_FORMULA_CONTRACTS,
+  ...PAINTING_JOB_PROFIT_VERDICT_CRITICAL_FORMULA_CONTRACTS,
+  ...PANEL_SHOP_MARGIN_VERDICT_CRITICAL_FORMULA_CONTRACTS,
+  ...PLUMBING_JOB_MARGIN_VERDICT_CRITICAL_FORMULA_CONTRACTS,
+  ...PROFIT_MARGIN_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...QUOTE_PRICE_PROFIT_MARGIN_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...RETURN_PROFIT_EROSION_TOOL_CRITICAL_FORMULA_CONTRACTS,
+  ...ROOFING_CONTRACT_MARGIN_GUARD_CRITICAL_FORMULA_CONTRACTS,
+  ...ROUTE_OPTIMIZATION_ANALYZER_CRITICAL_FORMULA_CONTRACTS,
+  ...SCRAP_RATE_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
+  ...SHEET_METAL_QUOTE_RISK_TOOL_CRITICAL_FORMULA_CONTRACTS,
+  ...SIGNAGE_BID_SAFE_PRICE_TOOL_CRITICAL_FORMULA_CONTRACTS,
+  ...WATER_OPTIMIZATION_VERDICT_CRITICAL_FORMULA_CONTRACTS,
   ...ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS,
   ...P77_FREE_TRAFFIC_FORMULA_CONTRACTS,
 ];

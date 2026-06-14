@@ -1,4 +1,4 @@
-export type QuotePriceProfitMarginCalculatorInputs = {
+export type ProfitMarginCalculatorInputs = {
   materialCost: number;
   laborCost: number;
   machineCost: number;
@@ -14,11 +14,11 @@ export type QuotePriceProfitMarginCalculatorInputs = {
   safetyMarginUplift: number;
 };
 
-export type QuotePriceProfitMarginCalculatorValidationResult =
+export type ProfitMarginCalculatorValidationResult =
   | { ok: true; errors: []; warnings: string[] }
   | { ok: false; errors: string[]; warnings: string[] };
 
-export const QUOTE_PRICE_PROFIT_MARGIN_CALCULATOR_INPUT_KEYS: readonly (keyof QuotePriceProfitMarginCalculatorInputs)[] = [
+export const PROFIT_MARGIN_CALCULATOR_INPUT_KEYS: readonly (keyof ProfitMarginCalculatorInputs)[] = [
   "materialCost",
   "laborCost",
   "machineCost",
@@ -34,7 +34,7 @@ export const QUOTE_PRICE_PROFIT_MARGIN_CALCULATOR_INPUT_KEYS: readonly (keyof Qu
   "safetyMarginUplift",
 ];
 
-const INPUT_LABELS: Record<keyof QuotePriceProfitMarginCalculatorInputs, string> = {
+const INPUT_LABELS: Record<keyof ProfitMarginCalculatorInputs, string> = {
   materialCost: "materialCost",
   laborCost: "laborCost",
   machineCost: "machineCost",
@@ -54,10 +54,10 @@ function isValidNumber(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value);
 }
 
-function collectInputErrors(inputs: QuotePriceProfitMarginCalculatorInputs): string[] {
+function collectInputErrors(inputs: ProfitMarginCalculatorInputs): string[] {
   const errors: string[] = [];
 
-  for (const key of QUOTE_PRICE_PROFIT_MARGIN_CALCULATOR_INPUT_KEYS) {
+  for (const key of PROFIT_MARGIN_CALCULATOR_INPUT_KEYS) {
     const value = inputs[key];
     if (value === undefined || value === null) {
       errors.push(`${INPUT_LABELS[key]} is required.`);
@@ -127,7 +127,7 @@ function collectInputErrors(inputs: QuotePriceProfitMarginCalculatorInputs): str
   return errors;
 }
 
-function collectWarnings(inputs: QuotePriceProfitMarginCalculatorInputs): string[] {
+function collectWarnings(inputs: ProfitMarginCalculatorInputs): string[] {
   const warnings: string[] = [];
 
 
@@ -135,7 +135,7 @@ function collectWarnings(inputs: QuotePriceProfitMarginCalculatorInputs): string
   return warnings;
 }
 
-export function validateQuotePriceProfitMarginCalculatorInputs(inputs: QuotePriceProfitMarginCalculatorInputs): QuotePriceProfitMarginCalculatorValidationResult {
+export function validateProfitMarginCalculatorInputs(inputs: ProfitMarginCalculatorInputs): ProfitMarginCalculatorValidationResult {
   const errors = collectInputErrors(inputs);
   if (errors.length > 0) {
     return { ok: false, errors, warnings: [] };
