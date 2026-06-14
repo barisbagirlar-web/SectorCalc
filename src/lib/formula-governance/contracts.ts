@@ -289,6 +289,7 @@ import { VEHICLE_DEPRECIATION_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/li
 import { WELDING_COST_ESTIMATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/welding-cost-estimator-critical";
 import { YAMAZUMI_IS_YUKU_DENGELEME_KAYIP_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/yamazumi-is-yuku-dengeleme-kayip-calculator-critical";
 import { YATAK_RULMAN_OMUR_HESABI_L10_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/yatak-rulman-omur-hesabi-l10-critical";
+import { TESIS_YERLESIMI_VE_MALZEME_AKIS_MESAFE_OPTIMIZASYON_CALCULATOR_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/tesis-yerlesimi-ve-malzeme-akis-mesafe-optimizasyon-calculator-critical";
 import { ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/engine-modules-critical";
 import { P77_FREE_TRAFFIC_FORMULA_CONTRACTS } from "@/lib/formula-governance/contracts/p77-free-traffic-batch";
 import { RENT_VS_BUY_RESULT_WARNING } from "@/lib/tools/rent-vs-buy-model";
@@ -771,6 +772,7 @@ export const FORMULA_CONTRACTS: readonly FormulaContract[] = [
   ...WELDING_COST_ESTIMATOR_CRITICAL_FORMULA_CONTRACTS,
   ...YAMAZUMI_IS_YUKU_DENGELEME_KAYIP_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
   ...YATAK_RULMAN_OMUR_HESABI_L10_CRITICAL_FORMULA_CONTRACTS,
+  ...TESIS_YERLESIMI_VE_MALZEME_AKIS_MESAFE_OPTIMIZASYON_CALCULATOR_CRITICAL_FORMULA_CONTRACTS,
   ...ENGINE_MODULES_CRITICAL_FORMULA_CONTRACTS,
   ...P77_FREE_TRAFFIC_FORMULA_CONTRACTS,
 ];

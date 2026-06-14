@@ -196,6 +196,7 @@ import { VehicleDepreciationCalculator_SCHEMA } from "@/lib/premium-schema/schem
 import { WeldingCostEstimator_SCHEMA } from "@/lib/premium-schema/schemas/welding-cost-estimator";
 import { YamazumiIsYukuDengelemeKayipCalculator_SCHEMA } from "@/lib/premium-schema/schemas/yamazumi-is-yuku-dengeleme-kayip-calculator";
 import { YatakRulmanOmurHesabiL10_SCHEMA } from "@/lib/premium-schema/schemas/yatak-rulman-omur-hesabi-l10";
+import { TesisYerlesimiVeMalzemeAkisMesafeOptimizasyonCalculator_SCHEMA } from "@/lib/premium-schema/schemas/tesis-yerlesimi-ve-malzeme-akis-mesafe-optimizasyon-calculator";
 import type { PremiumCalculatorSchema } from "@/lib/premium-schema/premium-calculator-schema";
 import { AGRICULTURE_IRRIGATION_YIELD_LOSS_SCHEMA } from "@/lib/premium-schema/schemas/agriculture-irrigation-yield-loss";
 import { AUTO_REPAIR_PARTS_LABOR_QUOTE_CALCULATOR_SCHEMA } from "@/lib/premium-schema/schemas/auto-repair-parts-labor-quote-calculator";
@@ -559,10 +560,12 @@ export const PREMIUM_CALCULATOR_SCHEMAS: readonly PremiumCalculatorSchema[] = [
   WeldingCostEstimator_SCHEMA,
   YamazumiIsYukuDengelemeKayipCalculator_SCHEMA,
   YatakRulmanOmurHesabiL10_SCHEMA,
+  TesisYerlesimiVeMalzemeAkisMesafeOptimizasyonCalculator_SCHEMA,
 ];
 
 /** Maps legacy revenue paidSlug → schema id (pilot bridge only). */
 export const PREMIUM_SCHEMA_SLUG_MAP: Readonly<Record<string, string>> = {
+  "tesis-yerlesimi-ve-malzeme-akis-mesafe-optimizasyon-calculator": "tesis-yerlesimi-ve-malzeme-akis-mesafe-optimizasyon-calculator",
   "yatak-rulman-omur-hesabi-l10": "yatak-rulman-omur-hesabi-l10",
   "yamazumi-is-yuku-dengeleme-kayip-calculator": "yamazumi-is-yuku-dengeleme-kayip-calculator",
   "welding-cost-estimator": "welding-cost-estimator",

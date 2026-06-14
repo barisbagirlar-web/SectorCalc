@@ -1,6 +1,6 @@
 # P7 Chief Engineer Quality Gate
 
-Generated: 2026-06-14T02:32:43.142Z
+Generated: 2026-06-14T02:47:37.309Z
 
 ## Domain Prompt Packs
 
@@ -52,10 +52,10 @@ Generated: 2026-06-14T02:32:43.142Z
 ## Scan Summary
 
 - Total tools: 474
-- DeepSeek attempted: 366
-- Patch eligible (gate passed): 170
+- DeepSeek attempted: 361
+- Patch eligible (gate passed): 171
 - Gate rejected: 190
-- API errors: 6
+- API errors: 0
 
 ## Risk Class Distribution
 
@@ -68,9 +68,9 @@ Generated: 2026-06-14T02:32:43.142Z
 
 ## Domain Distribution
 
-- COSTING_MARGIN_AND_PRICING: 58
-- GENERAL_INDUSTRIAL_COST_ANALYTICS: 239
-- MANUFACTURING_AND_MACHINING: 21
+- COSTING_MARGIN_AND_PRICING: 59
+- GENERAL_INDUSTRIAL_COST_ANALYTICS: 237
+- MANUFACTURING_AND_MACHINING: 22
 - FINANCE_LEGAL_TAX_REGULATORY_HIGH_RISK: 49
 - FOOD_AGRI_AND_PROCESS: 12
 - LOGISTICS_AND_TRANSPORT: 19

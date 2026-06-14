@@ -9,16 +9,16 @@ import {
 
 export const P6B_FORMULA_FACTORY_GUIDE_SPECS: readonly ToolGuideSpec[] = [
   {
-    slug: "yatak-rulman-omur-hesabi-l10",
+    slug: "tesis-yerlesimi-ve-malzeme-akis-mesafe-optimizasyon-calculator",
     guideType: "cost_breakdown",
-    titleKey: "inputGuide.p6bFormulaFactory.tools.yatakRulmanOmurHesabiL10.title",
+    titleKey: "inputGuide.p6bFormulaFactory.tools.tesisYerlesimiVeMalzemeAkisMesafeOptimizasyonCalculator.title",
     descriptionKey: "inputGuide.costBreakdown.description",
     inputMap: [
-      { inputKey: "dynamicLoadRatingC", visualRole: "primary", nodeId: "dynamicloadratingc" },
-      { inputKey: "equivalentDynamicLoadP", visualRole: "driver", nodeId: "equivalentdynamicloadp" },
-      { inputKey: "rotationalSpeedN", visualRole: "driver", nodeId: "rotationalspeedn" },
-      { inputKey: "reliabilityFactorA1", visualRole: "secondary", nodeId: "reliabilityfactora1" },
-      { inputKey: "materialFactorA2", visualRole: "output", nodeId: "materialfactora2" },
+      { inputKey: "departmentCount", visualRole: "primary", nodeId: "departmentcount" },
+      { inputKey: "flowMatrix", visualRole: "driver", nodeId: "flowmatrix" },
+      { inputKey: "distanceMatrix", visualRole: "driver", nodeId: "distancematrix" },
+      { inputKey: "unitHandlingCost", visualRole: "secondary", nodeId: "unithandlingcost" },
+      { inputKey: "optimalDistanceMatrix", visualRole: "output", nodeId: "optimaldistancematrix" },
     ],
     quality: TOOL_GUIDE_QUALITY_DEFAULT,
   }
