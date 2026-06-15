@@ -11,6 +11,7 @@ import {
   shouldShowGeneratedUnitSelector,
 } from "@/lib/generated-tools/unit-conversion";
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
+import { resolveSelectOptionDisplay } from "@/lib/generated-tools/select-options";
 import { useLocale } from "next-intl";
 
 type DynamicToolFormFieldProps = {
@@ -23,10 +24,8 @@ type DynamicToolFormFieldProps = {
   readonly onUnitChange?: (unit: string) => void;
 };
 
-function formatSelectLabel(value: string): string {
-  return value
-    .replace(/_/g, " ")
-    .replace(/\b\w/g, (char) => char.toUpperCase());
+function formatSelectLabel(input: GeneratedToolInput, value: string): string {
+  return resolveSelectOptionDisplay(input, value);
 }
 
 export function DynamicToolFormField({
@@ -75,7 +74,7 @@ export function DynamicToolFormField({
             >
               {input.options?.map((option) => (
                 <option key={option} value={option}>
-                  {formatSelectLabel(option)}
+                  {formatSelectLabel(input, option)}
                 </option>
               ))}
             </select>

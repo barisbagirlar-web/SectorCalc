@@ -1,6 +1,7 @@
 import type { RevenueTool } from "@/lib/tools/revenue-tools";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
 import { PREMIUM_SCHEMA_SLUG_MAP } from "@/lib/premium-schema/schema-registry";
+import { resolvePremiumToolPath } from "@/lib/tools/paths";
 
 export function getFreeToolHref(tool: RevenueTool): string {
   return `/tools/generated/${tool.freeSlug}`;
@@ -19,7 +20,7 @@ export function resolvePremiumToolHref(paidSlug: string): string {
   if (mapped) {
     return getPremiumSchemaToolHref(mapped);
   }
-  return `/tools/generated/${paidSlug.replace(/-premium$/, "")}`;
+  return resolvePremiumToolPath(paidSlug);
 }
 
 export function getPricingHref(tool?: RevenueTool, planId?: string): string {

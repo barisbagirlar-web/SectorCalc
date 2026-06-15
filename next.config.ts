@@ -31,7 +31,7 @@ const nextConfig: NextConfig = {
       static: 300,
     },
     optimizePackageImports: ["lucide-react", "@heroicons/react"],
-    staticGenerationRetryCount: 3,
+    staticGenerationRetryCount: 5,
     // Avoid flaky MODULE_NOT_FOUND / ENOENT races during large SSG on local + Firebase builds.
     cpus: 1,
     workerThreads: false,
@@ -41,17 +41,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/tools/free/:slug", destination: "/tools/generated/:slug", permanent: true },
-      { source: "/tools/premium/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/tools/free-traffic/:slug", destination: "/tools/generated/:slug", permanent: true },
       { source: "/en", destination: "/", permanent: true },
       { source: "/en/:path*", destination: "/:path*", permanent: true },
       {
         source: "/:locale(en|tr|de|fr|es|ar)/tools/free/:slug",
-        destination: "/:locale/tools/generated/:slug",
-        permanent: true,
-      },
-      {
-        source: "/:locale(en|tr|de|fr|es|ar)/tools/premium/:slug",
         destination: "/:locale/tools/generated/:slug",
         permanent: true,
       },

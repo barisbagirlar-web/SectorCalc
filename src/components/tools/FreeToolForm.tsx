@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import type { z } from "zod";
 import { FreeToolReportModal } from "@/components/tools/FreeToolReportModal";
-import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useGeneratedToolFieldDisplay } from "@/hooks/use-generated-tool-field-display";
 import {
@@ -14,10 +13,10 @@ import {
   submitToolFeedback,
 } from "@/lib/feedback/feedback-service";
 import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
-import { resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
+import { resolvePrimaryOutputLabel } from "@/lib/generated-tools/resolve-tool-display";
 import {
-  formatSelectOptionLabel,
-  resolveGeneratedSelectOptions,
+  firstSelectOptionValue,
+  resolveSelectOptionDisplay,
 } from "@/lib/generated-tools/select-options";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
 import {
@@ -62,8 +61,9 @@ function buildDefaultValues(
       fallback[input.id] = input.default;
     } else if (input.type === "boolean") {
       fallback[input.id] = false;
-    } else if (input.type === "select" && input.options?.[0]) {
-      fallback[input.id] = input.options[0];
+    } else if (input.type === "select") {
+      const firstOption = firstSelectOptionValue(input);
+      fallback[input.id] = firstOption ?? "";
     } else {
       fallback[input.id] = "";
     }
@@ -158,6 +158,10 @@ function formatFreePrimaryValue(
   }).format(value);
 }
 
+function formatSelectLabel(input: GeneratedToolInput, value: string): string {
+  return resolveSelectOptionDisplay(input, value);
+}
+
 type FreeToolFormFieldProps = {
   readonly slug: string;
   readonly input: GeneratedToolInput;
@@ -228,7 +232,6 @@ function FreeToolFormField({
   }
 
   if (input.type === "select" && input.options) {
-    const selectOptions = resolveGeneratedSelectOptions(input);
     return (
       <Controller
         name={input.id}
@@ -251,9 +254,9 @@ function FreeToolFormField({
                 aria-describedby={errorMessage ? errorId : undefined}
                 className="sc-premium-dtf-touch-select"
               >
-                {selectOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
+                {input.options?.map((option) => (
+                  <option key={option} value={option}>
+                    {formatSelectLabel(input, option)}
                   </option>
                 ))}
               </select>
@@ -447,10 +450,6 @@ export function FreeToolForm({
     }
   };
 
-  const resolvedPrimaryKey = resolvePrimaryOutputKey(schema);
-  const primaryOutputLabel =
-    schema.outputs.breakdown[resolvedPrimaryKey]?.trim() ||
-    formatSelectOptionLabel(resolvedPrimaryKey);
   const primaryValue = result ? resolvePrimaryNumericValue(result, primaryOutputKey) : null;
   const primaryUnitHint = schema.outputs.primary;
   const formattedPrimary =
@@ -468,15 +467,13 @@ export function FreeToolForm({
         data-testid="free-tool-form"
         data-tool-slug={slug}
       >
-        <ToolOmniMetaSection toolName={toolTitle} />
-
         <div className="sc-premium-dtf-card">
           <header className="sc-premium-dtf-header">
             <span className="sc-premium-dtf-header__accent" aria-hidden="true" />
             <div>
               <h2 className="sc-premium-dtf-header__title">{toolTitle}</h2>
               <p className="sc-premium-dtf-header__subtitle">
-                {primaryOutputLabel || tFree("defaultDescription")}
+                {resolvePrimaryOutputLabel(schema) || tFree("defaultDescription")}
               </p>
             </div>
           </header>

@@ -3,6 +3,7 @@ import {
   resolvePremiumSchemaPainStatement,
 } from "@/lib/i18n/premium-schema-display-i18n";
 import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
+import { formatSelectOptionLabel } from "@/lib/generated-tools/select-options";
 import type { GeneratedToolSchema } from "@/lib/generated-tools/types";
 
 function humanizeSlug(slug: string): string {
@@ -53,7 +54,20 @@ export function resolveGeneratedToolDescription(
 }
 
 export function resolvePrimaryOutputKey(schema: GeneratedToolSchema): string {
-  const primary = schema.outputs.primary.trim();
+  const primary =
+    typeof schema.outputs.primary === "string" ? schema.outputs.primary.trim() : "";
+  if (!primary) {
+    return "total";
+  }
   const match = primary.match(/^([A-Za-z0-9_]+)/);
   return match?.[1] ?? primary;
+}
+
+export function resolvePrimaryOutputLabel(schema: GeneratedToolSchema): string {
+  const key = resolvePrimaryOutputKey(schema);
+  const breakdownLabel = schema.outputs.breakdown[key];
+  if (typeof breakdownLabel === "string" && breakdownLabel.trim()) {
+    return breakdownLabel.trim();
+  }
+  return formatSelectOptionLabel(key);
 }

@@ -6,6 +6,7 @@ import { listFreeTrafficCalculatorSlugs } from "@/lib/tools/free-traffic-calcula
 import { CANONICAL_PREMIUM_SLUGS } from "@/lib/tools/canonical-tool-slugs";
 import { listTrafficOnlyFreeSlugs } from "@/lib/tools/free-traffic-catalog";
 import { getPremiumRevenueRouteSlugs } from "@/lib/tools/revenue-tools";
+import { resolvePremiumToolPath } from "@/lib/tools/paths";
 
 export function listRevenueFreeSlugs(): readonly string[] {
   return [...CANONICAL_PREMIUM_SLUGS];
@@ -24,7 +25,7 @@ export function getFreeToolRoutePath(slug: string): string {
 }
 
 export function getPremiumToolRoutePath(slug: string): string {
-  return `/tools/generated/${slug.replace(/-premium$/, "")}`;
+  return resolvePremiumToolPath(slug);
 }
 
 export function listAllPremiumToolRouteSlugs(): readonly string[] {

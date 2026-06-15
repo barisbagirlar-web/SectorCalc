@@ -25,6 +25,7 @@ export type GeneratedToolInput = {
   readonly min?: number | null;
   readonly max?: number | null;
   readonly options?: readonly string[] | null;
+  readonly optionLabels?: Readonly<Record<string, string>>;
   readonly businessContext: string;
   readonly businessContext_i18n?: GeneratedToolI18nText;
   readonly group?: string;

@@ -17,6 +17,7 @@ import {
   resolveGeneratedToolDescription,
   resolveGeneratedToolTitle,
   resolvePrimaryOutputKey,
+  resolvePrimaryOutputLabel,
 } from "@/lib/generated-tools/resolve-tool-display";
 import {
   runGeneratedToolCalculation,
@@ -175,7 +176,7 @@ export function GeneratedToolPage({ slug, schema, diagramSrc = null }: Generated
                 {formatPrimaryValue(primaryValue, locale)}
               </p>
               <p className="text-sm text-body-charcoal">
-                {schema.outputs.primary.replace(/_/g, " ")}
+                {resolvePrimaryOutputLabel(schema)}
               </p>
             </div>
           ) : (

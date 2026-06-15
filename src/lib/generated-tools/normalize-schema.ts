@@ -1,3 +1,4 @@
+import { normalizeGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
 import type {
   GeneratedToolInput,
   GeneratedToolSchema,
@@ -133,13 +134,45 @@ function normalizeStandardOptions(raw: unknown): readonly GeneratedToolStandardO
   return options.length > 0 ? options : undefined;
 }
 
+function normalizeGeneratedToolInputFromRaw(entry: unknown): GeneratedToolInput | null {
+  const record = asRecord(entry);
+  if (!record || typeof record.id !== "string") {
+    return null;
+  }
+
+  const typeRaw = asString(record.type, "number");
+  const type: GeneratedToolInput["type"] =
+    typeRaw === "select" || typeRaw === "boolean" ? typeRaw : "number";
+
+  const selectOptions = type === "select" ? normalizeGeneratedSelectOptions(record.options) : undefined;
+
+  return {
+    id: record.id.trim(),
+    label: asString(record.label),
+    type,
+    unit: asString(record.unit),
+    default: record.default as GeneratedToolInput["default"],
+    min: typeof record.min === "number" ? record.min : null,
+    max: typeof record.max === "number" ? record.max : null,
+    options: selectOptions?.values ?? null,
+    optionLabels: selectOptions?.labels,
+    businessContext: asString(record.businessContext),
+    group: asString(record.group) || undefined,
+  };
+}
+
 function normalizeGeneratedToolInput(input: GeneratedToolInput): GeneratedToolInput {
   const label = input.label.trim();
   const businessContext = input.businessContext.trim();
+  const selectOptions =
+    input.type === "select" ? normalizeGeneratedSelectOptions(input.options) : undefined;
+
   return {
     ...input,
     label,
     businessContext,
+    options: selectOptions?.values ?? input.options ?? null,
+    optionLabels: selectOptions?.labels ?? input.optionLabels,
   };
 }
 
@@ -155,11 +188,9 @@ export function normalizeRawGeneratedSchema(
 
   const inputsRaw = Array.isArray(record.inputs) ? record.inputs : [];
   const inputs = inputsRaw
-    .filter((entry): entry is GeneratedToolInput => {
-      const input = asRecord(entry);
-      return Boolean(input && typeof input.id === "string");
-    })
-    .map((entry) => normalizeGeneratedToolInput(entry as GeneratedToolInput));
+    .map((entry) => normalizeGeneratedToolInputFromRaw(entry))
+    .filter((input): input is GeneratedToolInput => input !== null)
+    .map((entry) => normalizeGeneratedToolInput(entry));
 
   if (inputs.length === 0) {
     return null;

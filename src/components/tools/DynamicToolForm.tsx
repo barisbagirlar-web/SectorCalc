@@ -23,6 +23,7 @@ import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useCredits } from "@/hooks/useCredits";
 import { useSubscription } from "@/hooks/useSubscription";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
+import { firstSelectOptionValue } from "@/lib/generated-tools/select-options";
 import { withCalculationStandard } from "@/lib/generated-tools/standard-input";
 import { resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
 import {
@@ -85,8 +86,9 @@ function buildDefaultValues(
       fallback[input.id] = input.default;
     } else if (input.type === "boolean") {
       fallback[input.id] = false;
-    } else if (input.type === "select" && input.options?.[0]) {
-      fallback[input.id] = input.options[0];
+    } else if (input.type === "select") {
+      const firstOption = firstSelectOptionValue(input);
+      fallback[input.id] = firstOption ?? "";
     } else {
       fallback[input.id] = "";
     }
