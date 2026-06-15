@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { PremiumDynamicToolFormField } from "@/components/tools/PremiumDynamicToolFormField";
 import { PremiumToolReportModal } from "@/components/tools/PremiumToolReportModal";
+import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { ToolStandardSelector } from "@/components/tools/ToolStandardSelector";
 import type {
   GeneratedToolInput,
@@ -154,6 +155,8 @@ export function PremiumDynamicToolFormLayout({
   return (
     <>
       <div className="sc-premium-dtf-container">
+        <ToolOmniMetaSection toolTitle={toolTitle || schema.toolName} />
+
         <div className="sc-premium-dtf-card">
           <header className="sc-premium-dtf-header">
             <span className="sc-premium-dtf-header__accent" aria-hidden="true" />

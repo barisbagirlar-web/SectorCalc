@@ -3233,6 +3233,15 @@
       "confidence": "Veri güveni",
       "general": "Girdi parametreleri"
     },
+    "omniMeta": {
+      "creatorsLabel": "Yaratıcılar:",
+      "creatorName": "Prof. Dr. Neela Nataraj",
+      "reviewersLabel": "Değerlendirenler:",
+      "reviewerNames": "Bogna Szyk, Adena Benn",
+      "helpfulCount": "1.892",
+      "helpfulLabel": "kişi bu hesap makinesini faydalı buluyor",
+      "socialActionsLabel": "Topluluk etkileşimi"
+    },
     "premiumForm": {
       "analysisStatusTitle": "Saha analiz durumu",
       "calculationStandardLabel": "Hesaplama standardı",
@@ -15521,6 +15530,7 @@
     "legalNavAria": "Yasal bağlantılar",
     "legalPrivacy": "Gizlilik Politikası",
     "legalTerms": "Kullanım Koşulları",
+    "legalRefund": "İade Politikası",
     "legalDisclaimer": "Sorumluluk Reddi",
     "metaCopyright": "© 2026 SectorCalc",
     "metaRights": "Tüm hakları saklıdır.",
@@ -15547,7 +15557,8 @@
     "servicesLabel": "services-products.txt",
     "freeToolsLabel": "Ücretsiz hesap makineleri",
     "premiumToolsLabel": "Premium hesap makineleri",
-    "industriesLabel": "Sektör merkezleri"
+    "industriesLabel": "Sektör merkezleri",
+    "generatedToolsLabel": "Üretilmiş hesap makineleri"
   },
   "inputGuide": {
     "shape": {
@@ -17071,5 +17082,150 @@
       "title": "Kaynak Teklif Risk Analizörü",
       "description": "Bu araç premium analiz kapsamındadır. Tam sonuç ve karar özeti için kredi veya aktif Pro erişimi gerekir."
     }
+  },
+  "legalCommon": {
+    "eyebrow": "Yasal",
+    "readPrivacy": "Gizlilik Politikası",
+    "readTerms": "Hizmet Şartları",
+    "readRefund": "İade Politikası",
+    "seeAlso": "Ayrıca bakınız",
+    "termsFooter": "<privacy>Gizlilik Politikası</privacy> ve <refund>İade Politikası</refund> sayfalarını okuyun.",
+    "privacyFooter": "Ayrıca <terms>Hizmet Şartları</terms> ve <refund>İade Politikası</refund> sayfalarına bakın.",
+    "refundFooter": "Ayrıca <terms>Hizmet Şartları</terms> ve <privacy>Gizlilik Politikası</privacy> sayfalarına bakın.",
+    "contactIntro": "Sorularınız için aşağıdaki iletişim bilgilerini kullanın.",
+    "dataControllerIntro": "SectorCalc için veri sorumlusu:",
+    "refundContactIntro": "İade talepleri veya faturalandırma soruları için aşağıdaki iletişim bilgilerini kullanın."
+  },
+  "terms": {
+    "meta": {
+      "title": "Hizmet Şartları",
+      "description": "SectorCalc hesaplayıcıları ve hizmetlerini kullanmaya ilişkin yasal şartlar."
+    },
+    "heroDescription": "SectorCalc'e erişerek veya kullanarak bu Hizmet Şartları'nı kabul etmiş sayılırsınız.",
+    "title": "Hizmet Şartları",
+    "lastUpdated": "Son güncelleme: {date}",
+    "lastUpdatedDate": "15 Haziran 2026",
+    "intro": "SectorCalc'e hoş geldiniz. Web sitemizi ve hesaplama araçlarımızı kullanarak bu Hizmet Şartları'nı kabul etmiş sayılırsınız.",
+    "section1": {
+      "title": "1. Hizmetlerimiz",
+      "content": "SectorCalc, endüstriyel ve ticari hesaplamalar için bilgilendirme ve karar destek araçları sunar. Araçlarımız profesyonel mühendislik, finansal veya hukuki tavsiye niteliği taşımaz. İş kararları almadan önce sonuçları doğrulamak sizin sorumluluğunuzdadır."
+    },
+    "section2": {
+      "title": "2. Premium Özellikler ve Krediler",
+      "content": "Premium araçlar kredi gerektirir. Krediler iade edilemez ve satın alma tarihinden itibaren 12 ay sonra geçerliliğini yitirir. Kredi paketlerini güvenli ödeme sağlayıcımız üzerinden satın alabilirsiniz. Kullanılmayan krediler yenilenmez."
+    },
+    "section3": {
+      "title": "3. Kullanıcı Hesapları",
+      "content": "Premium özelliklere erişmek için bir hesap oluşturmalısınız. Hesap bilgilerinizin gizliliğini korumak ve hesabınız altında gerçekleşen tüm işlemlerden siz sorumlusunuz."
+    },
+    "section4": {
+      "title": "4. Fikri Mülkiyet",
+      "content": "Tüm içerik, formüller, algoritmalar, tasarımlar ve ticari markalar Sector Calculator'a (SectorCalc olarak faaliyet gösteren) aittir. Önceden yazılı izin alınmadan kopyalanamaz, dağıtılamaz veya türev çalışmalar oluşturulamaz."
+    },
+    "section5": {
+      "title": "5. Sorumluluk Sınırlaması",
+      "content": "Yasanın izin verdiği azami ölçüde, Sector Calculator, hizmetlerimizin kullanımından kaynaklanan dolaylı, arızi, özel, cezai veya neticesi zararlardan sorumlu değildir."
+    },
+    "section6": {
+      "title": "6. Değişiklikler",
+      "content": "Bu Şartları her zaman güncelleyebiliriz. Değişikliklerden sonra hizmeti kullanmaya devam etmeniz, yeni Şartları kabul ettiğiniz anlamına gelir."
+    },
+    "section7": {
+      "title": "7. İletişim Bilgileri",
+      "content": "Bu Şartlar hakkında sorularınız için aşağıdaki iletişim bilgilerini kullanın."
+    }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Gizlilik Politikası",
+      "description": "SectorCalc kişisel verilerinizi nasıl toplar, kullanır ve korur."
+    },
+    "heroDescription": "Hangi verileri topladığımız, nasıl kullandığımız ve haklarınız.",
+    "title": "Gizlilik Politikası",
+    "effective": "Yürürlük Tarihi: 15 Haziran 2026",
+    "intro": "Gizliliğiniz bizim için önemlidir. Bu politika, hangi verileri topladığımızı, nasıl kullandığımızı ve haklarınızı açıklar.",
+    "section1": {
+      "title": "1. Topladığımız Bilgiler",
+      "content": "Kayıt olurken sağladığınız kişisel bilgileri (örneğin e-posta adresiniz) toplarız. Ayrıca araçlarımızı iyileştirmek için kullanım verilerini (IP adresi, tarayıcı türü, ziyaret edilen sayfalar) otomatik olarak toplarız."
+    },
+    "section2": {
+      "title": "2. Bilgilerinizi Nasıl Kullanıyoruz",
+      "content": "Verilerinizi SectorCalc'i işletmek, geliştirmek, ödemeleri işlemek ve hesabınız veya güncellemeler hakkında sizinle iletişim kurmak için kullanırız."
+    },
+    "section3": {
+      "title": "3. Çerezler ve İzleme",
+      "content": "Kimlik doğrulama için zorunlu çerezler ve kullanım analizi için isteğe bağlı analitik çerezler (örneğin Google Analytics) kullanırız. Zorunlu olmayan çerezleri tarayıcı ayarlarınızdan devre dışı bırakabilirsiniz."
+    },
+    "section4": {
+      "title": "4. Veri Paylaşımı",
+      "content": "Kişisel verilerinizi satmayız. Verileri yalnızca güvenilir üçüncü taraf hizmet sağlayıcılarla (ödeme işlemcileri — Stripe/Paddle, barındırma — Vercel) hizmetlerimizi sunmak için gerekli olduğu ölçüde paylaşırız."
+    },
+    "section5": {
+      "title": "5. Veri Saklama ve Güvenlik",
+      "content": "Verilerinizi hesabınız aktif olduğu sürece saklarız. Makul güvenlik önlemleri alırız, ancak internet üzerinden hiçbir veri iletim yöntemi %100 güvenli değildir."
+    },
+    "section6": {
+      "title": "6. Haklarınız",
+      "content": "Kişisel verilerinize erişmek, düzeltmek veya silmek için info@sectorcalc.com adresinden bize ulaşabilirsiniz."
+    },
+    "section7": {
+      "title": "7. Çocukların Gizliliği",
+      "content": "Hizmetlerimiz 16 yaşından küçük bireylere yönelik değildir. Bilerek çocuklardan kişisel bilgi toplamayız."
+    },
+    "section8": {
+      "title": "8. Politikadaki Değişiklikler",
+      "content": "Bu politikayı zaman zaman güncelleyebiliriz. Başlıktaki \"Yürürlük Tarihi\" en son sürümü belirtir."
+    },
+    "section9": {
+      "title": "9. Veri Sorumlusu",
+      "content": "SectorCalc için veri sorumlusu:"
+    }
+  },
+  "refundPolicy": {
+    "meta": {
+      "title": "İade Politikası",
+      "description": "SectorCalc kredi satın alımları ve abonelikler için iade şartları."
+    },
+    "heroDescription": "Kredi satın alımları ve abonelikler için iade şartları.",
+    "title": "İade Politikası",
+    "lastUpdated": "Son güncelleme: 15 Haziran 2026",
+    "intro": "Satın aldığınız üründen memnun kalmanızı isteriz. Lütfen bu İade Politikası'nı dikkatlice okuyun.",
+    "section1": {
+      "title": "1. Krediler ve Abonelikler",
+      "content": "Krediler: Kredi satın alımları kesindir ve iade edilemez. Kullanılmayan krediler, satın alma tarihinden itibaren 12 ay sonra geçerliliğini yitirir. Kullanılmayan krediler için nakit iade yapılmaz. Abonelikler: Yinelenen bir abonelik satın alırsanız, ilk ödemeden sonraki 14 gün içinde, bu süre boyunca herhangi bir premium araç kullanmadıysanız tam iade talep edebilirsiniz. 14 gün sonra veya ilk kullanımdan sonra abonelik ücretleri iade edilemez."
+    },
+    "section2": {
+      "title": "2. Hatalı veya Yanlış Araçlar",
+      "content": "Bir premium araç, sistemimizdeki bir hata nedeniyle belirgin şekilde yanlış sonuç üretirse, bu hesaplama için kullanılan kredileri iade ederiz (harcanan kredi sayısına kadar) veya yedek kredi sağlarız. Lütfen sorunu ekran görüntüleri ve ayrıntılarla info@sectorcalc.com adresine bildirin."
+    },
+    "section3": {
+      "title": "3. İade Nasıl Talep Edilir",
+      "content": "İade talebi için, ödeme sağlayıcınızdan işlem kimliğinizle birlikte gerekçenizi info@sectorcalc.com adresine gönderin. 7-14 iş günü içinde yanıt vereceğiz."
+    },
+    "section4": {
+      "title": "4. Geri Ödeme Ters İşlemleri (Chargeback)",
+      "content": "Önce bize başvurmadan bir geri ödeme ters işlemi başlatırsanız, sorun çözülene kadar hesabınız askıya alınabilir."
+    },
+    "section5": {
+      "title": "5. Politikadaki Değişiklikler",
+      "content": "Bu iade politikasını her zaman değiştirme hakkımız saklıdır. Değişiklikler bu sayfada yayınlanır."
+    },
+    "section6": {
+      "title": "6. İletişim Bilgileri",
+      "content": "İade talepleri veya faturalandırma soruları için aşağıdaki iletişim bilgilerini kullanın."
+    }
+  },
+  "creditsPricing": {
+    "meta": {
+      "title": "Fiyatlandırma – SectorCalc Kredileri",
+      "description": "Premium endüstriyel hesaplayıcıların kilidini açmak için kredi satın alın. Planlar $1.99'dan başlar."
+    },
+    "title": "Kredi Paketinizi Seçin",
+    "subtitle": "Bir kredi, bir premium hesaplamayı açar. Krediler satın alma tarihinden itibaren 12 ay geçerlidir.",
+    "creditsLabel": "{count} kredi",
+    "perCredit": "/ kredi",
+    "buyNow": "Kredi Satın Al",
+    "popular": "En Popüler",
+    "legalNote": "Tüm fiyatlar USD cinsindendir. Krediler iade edilemez ve satın alma tarihinden itibaren 12 ay sonra geçerliliğini yitirir."
   }
 }
