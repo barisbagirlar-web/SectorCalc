@@ -3,6 +3,7 @@ import {
   resolveRootVisitLocale,
   shouldRedirectLocaleLessPublicRoute,
   shouldRedirectRootToLocale,
+  shouldRedirectUnlocalizedPath,
 } from "../src/lib/i18n/locale-routing";
 
 const checks = [
@@ -89,6 +90,26 @@ const checks = [
         cookieLocale: undefined,
         countryCode: null,
         acceptLanguage: "en-US,en;q=0.9",
+      }) === null,
+  },
+  {
+    name: "unlocalized tool path TR redirect",
+    pass:
+      shouldRedirectUnlocalizedPath({
+        pathname: "/tools/generated/margin-calculator",
+        cookieLocale: undefined,
+        countryCode: "TR",
+        acceptLanguage: null,
+      }) === "tr",
+  },
+  {
+    name: "prefixed tool path TR no redirect",
+    pass:
+      shouldRedirectUnlocalizedPath({
+        pathname: "/tr/tools/generated/margin-calculator",
+        cookieLocale: undefined,
+        countryCode: "TR",
+        acceptLanguage: null,
       }) === null,
   },
 ];

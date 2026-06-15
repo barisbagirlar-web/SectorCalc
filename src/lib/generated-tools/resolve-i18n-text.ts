@@ -1,4 +1,5 @@
 import { isSupportedLocale, type SupportedLocale } from "@/lib/i18n/locale-config";
+import { translateCalculatorPhrase } from "@/lib/i18n/calculator-phrase-translate";
 import type { GeneratedToolI18nText } from "@/lib/generated-tools/types";
 
 export const GENERATED_TOOL_I18N_LOCALES = [
@@ -49,6 +50,9 @@ export function resolveGeneratedI18nText(
   }
 
   const english = i18n.en?.trim();
+  if (english && normalizedLocale !== "en") {
+    return translateCalculatorPhrase(english, normalizedLocale);
+  }
   if (english) {
     return english;
   }
@@ -56,9 +60,9 @@ export function resolveGeneratedI18nText(
   for (const localeKey of GENERATED_TOOL_I18N_LOCALES) {
     const value = i18n[localeKey]?.trim();
     if (value) {
-      return value;
+      return normalizedLocale === "en" ? value : translateCalculatorPhrase(value, normalizedLocale);
     }
   }
 
-  return fallback;
+  return normalizedLocale === "en" ? fallback : translateCalculatorPhrase(fallback, normalizedLocale);
 }

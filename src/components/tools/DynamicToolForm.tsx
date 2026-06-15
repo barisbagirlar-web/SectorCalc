@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import type { z } from "zod";
 import { Link } from "@/i18n/routing";
 import { DynamicToolFormField } from "@/components/tools/DynamicToolFormField";
+import { FreeToolForm } from "@/components/tools/FreeToolForm";
 import { PremiumDynamicToolFormLayout } from "@/components/tools/PremiumDynamicToolFormLayout";
 import {
   getOrCreateFeedbackSessionId,
@@ -222,6 +223,10 @@ export function DynamicToolForm({
   const usePremiumLayout =
     layout === "premium" || (layout === "auto" && schema.premiumRequired);
 
+  const useFreeLayout = layout === "auto" && !schema.premiumRequired;
+
+  const useStandardLayout = layout === "standard";
+
   const resolvedPrimaryOutputKey = primaryOutputKey?.trim() || resolvePrimaryOutputKey(schema);
 
   const routePath = `/tools/generated/${slug}`;
@@ -366,6 +371,104 @@ export function DynamicToolForm({
       ? t("calculating")
       : (calculateLabel ?? t("calculate"));
 
+  const machineRateSection = showMachineRateSelector ? (
+    isPro ? (
+      <section className="rounded-xl border border-technical-gray bg-white p-4 shadow-sm sm:p-5">
+        <MachineRateSelector
+          onSelect={handleMachineSelect}
+          currentValues={formValues}
+          inputMapping={machineInputMapping}
+        />
+        {machineRateApplied ? (
+          <p className="mt-2 text-xs font-medium text-emerald-700" role="status">
+            {tMachineRate("applied")}
+          </p>
+        ) : null}
+      </section>
+    ) : (
+      <section className="rounded-xl border border-technical-gray bg-white p-4 shadow-sm sm:p-5">
+        <h3 className="text-lg font-semibold text-premium-velvet">{tMachineRate("label")}</h3>
+        <p className="mt-2 text-sm text-body-charcoal">
+          {tMachineRate("lockedMessage")}{" "}
+          <Link href="/pricing" className="font-semibold text-premium-copper hover:underline">
+            {tMachineRate("unlockCta")}
+          </Link>
+        </p>
+      </section>
+    )
+  ) : null;
+
+  const scenarioComparisonSection =
+    showScenarioComparison && scenarioComparison ? (
+      isPro ? (
+        <ScenarioComparison
+          calculateFn={scenarioCalculateFn}
+          currentInputs={formValues}
+          inputLabels={inputLabels}
+          numericInputIds={numericInputIds}
+          primaryOutputKey={scenarioComparison.primaryOutputKey}
+        />
+      ) : (
+        <section className="mt-8 rounded-xl border border-technical-gray bg-white p-4 shadow-sm sm:p-5">
+          <h3 className="text-lg font-semibold text-premium-velvet">{tScenario("title")}</h3>
+          <p className="mt-2 text-sm text-body-charcoal">
+            {tScenario("lockedMessage")}{" "}
+            <Link href="/pricing" className="font-semibold text-premium-copper hover:underline">
+              {tScenario("unlockCta")}
+            </Link>
+          </p>
+        </section>
+      )
+    ) : null;
+
+  const breakdownSection =
+    hasBreakdown && breakdown ? (
+      <EnhancedBreakdownChart
+        breakdown={breakdown}
+        labelMap={breakdownLabelMap ?? schema.outputs.breakdown}
+        locale={locale}
+        currency={breakdownCurrency}
+        isPro={isPro}
+        onItemClick={setSelectedBreakdownItem}
+      />
+    ) : null;
+
+  const breakdownModal = selectedBreakdownItem ? (
+    <BreakdownWasteDetailModal
+      item={selectedBreakdownItem}
+      relatedInputs={relatedBreakdownInputs}
+      onClose={() => setSelectedBreakdownItem(null)}
+    />
+  ) : null;
+
+  if (useFreeLayout) {
+    return (
+      <div
+        className="space-y-6"
+        data-calculation-form="true"
+        data-testid="dynamic-tool-form"
+        data-tool-slug={slug}
+        data-tool-tier="free"
+      >
+        {machineRateSection}
+        <FreeToolForm
+          slug={slug}
+          schema={schema}
+          zodSchema={zodSchema}
+          toolTitle={toolTitle ?? schema.toolName}
+          primaryOutputKey={resolvedPrimaryOutputKey}
+          onSubmit={onSubmit}
+          result={result}
+          loading={loading}
+          disabled={disabled}
+        />
+        {scenarioComparisonSection}
+        {breakdownSection}
+        {breakdownModal}
+      </div>
+    );
+  }
+
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
@@ -374,33 +477,9 @@ export function DynamicToolForm({
       data-calculation-form="true"
       data-testid="dynamic-tool-form"
       data-tool-slug={slug}
+      data-tool-tier={schema.premiumRequired ? "premium" : "standard"}
     >
-      {showMachineRateSelector ? (
-        isPro ? (
-          <section className="rounded-xl border border-technical-gray bg-white p-4 shadow-sm sm:p-5">
-            <MachineRateSelector
-              onSelect={handleMachineSelect}
-              currentValues={formValues}
-              inputMapping={machineInputMapping}
-            />
-            {machineRateApplied ? (
-              <p className="mt-2 text-xs font-medium text-emerald-700" role="status">
-                {tMachineRate("applied")}
-              </p>
-            ) : null}
-          </section>
-        ) : (
-          <section className="rounded-xl border border-technical-gray bg-white p-4 shadow-sm sm:p-5">
-            <h3 className="text-lg font-semibold text-premium-velvet">{tMachineRate("label")}</h3>
-            <p className="mt-2 text-sm text-body-charcoal">
-              {tMachineRate("lockedMessage")}{" "}
-              <Link href="/pricing" className="font-semibold text-premium-copper hover:underline">
-                {tMachineRate("unlockCta")}
-              </Link>
-            </p>
-          </section>
-        )
-      ) : null}
+      {machineRateSection}
 
       {usePremiumLayout ? (
         <PremiumDynamicToolFormLayout
@@ -436,7 +515,7 @@ export function DynamicToolForm({
         />
       ) : null}
 
-      {!usePremiumLayout
+      {!usePremiumLayout && useStandardLayout
         ? groups.map((group) => (
         <section key={group.id} aria-labelledby={`${slug}-group-${group.id}`}>
           <h3
@@ -469,7 +548,7 @@ export function DynamicToolForm({
       ))
         : null}
 
-      {!usePremiumLayout ? (
+      {!usePremiumLayout && useStandardLayout ? (
         <div className="sc-industrial-form-actions">
           {creditGateError ? (
             <p className="mb-3 text-sm text-red-700" role="alert">
@@ -489,46 +568,11 @@ export function DynamicToolForm({
         </div>
       ) : null}
 
-      {showScenarioComparison && scenarioComparison ? (
-        isPro ? (
-          <ScenarioComparison
-            calculateFn={scenarioCalculateFn}
-            currentInputs={formValues}
-            inputLabels={inputLabels}
-            numericInputIds={numericInputIds}
-            primaryOutputKey={scenarioComparison.primaryOutputKey}
-          />
-        ) : (
-          <section className="mt-8 rounded-xl border border-technical-gray bg-white p-4 shadow-sm sm:p-5">
-            <h3 className="text-lg font-semibold text-premium-velvet">{tScenario("title")}</h3>
-            <p className="mt-2 text-sm text-body-charcoal">
-              {tScenario("lockedMessage")}{" "}
-              <Link href="/pricing" className="font-semibold text-premium-copper hover:underline">
-                {tScenario("unlockCta")}
-              </Link>
-            </p>
-          </section>
-        )
-      ) : null}
+      {scenarioComparisonSection}
 
-      {hasBreakdown && breakdown ? (
-        <EnhancedBreakdownChart
-          breakdown={breakdown}
-          labelMap={breakdownLabelMap ?? schema.outputs.breakdown}
-          locale={locale}
-          currency={breakdownCurrency}
-          isPro={isPro}
-          onItemClick={setSelectedBreakdownItem}
-        />
-      ) : null}
+      {breakdownSection}
 
-      {selectedBreakdownItem ? (
-        <BreakdownWasteDetailModal
-          item={selectedBreakdownItem}
-          relatedInputs={relatedBreakdownInputs}
-          onClose={() => setSelectedBreakdownItem(null)}
-        />
-      ) : null}
+      {breakdownModal}
     </form>
   );
 }

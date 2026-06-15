@@ -20,6 +20,7 @@ type PremiumDynamicToolFormFieldProps = {
   readonly businessContext: string;
   readonly selectedUnit?: string;
   readonly onUnitChange?: (unit: string) => void;
+  readonly enterValuePlaceholder: string;
 };
 
 function formatSelectLabel(value: string): string {
@@ -37,6 +38,7 @@ export function PremiumDynamicToolFormField({
   businessContext,
   selectedUnit,
   onUnitChange,
+  enterValuePlaceholder,
 }: PremiumDynamicToolFormFieldProps) {
   const locale = useLocale();
   const unitSystem = usePreferredUnitSystem();
@@ -148,7 +150,7 @@ export function PremiumDynamicToolFormField({
               onBlur={field.onBlur}
               aria-invalid={Boolean(errorMessage)}
               className="sc-premium-dtf-touch-input"
-              placeholder="Enter value"
+              placeholder={enterValuePlaceholder}
             />
             {showUnitSelector && unitOptions.length > 0 ? (
               <select

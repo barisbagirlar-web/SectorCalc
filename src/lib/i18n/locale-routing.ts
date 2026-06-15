@@ -3,6 +3,7 @@
  */
 
 import {
+  COUNTRY_COOKIE,
   COUNTRY_TO_LOCALE,
   DEFAULT_LOCALE,
   getLocalePathPrefix,
@@ -18,6 +19,7 @@ import {
 import { migrateLegacyToolPath } from "@/lib/tools/paths";
 
 export {
+  COUNTRY_COOKIE,
   COUNTRY_TO_LOCALE,
   DEFAULT_LOCALE,
   LOCALE_COOKIE,
@@ -260,18 +262,41 @@ export function resolveRootVisitLocale(options: {
   return ROOT_LOCALE;
 }
 
-export function shouldRedirectRootToLocale(options: {
+export type LocaleRedirectInputs = {
   readonly cookieLocale: string | undefined;
   readonly nextLocaleCookie?: string | undefined;
   readonly manualCookie?: string | undefined;
   readonly countryCode: string | null;
   readonly acceptLanguage: string | null;
-}): SupportedLocale | null {
+};
+
+function resolvePrefixedLocaleRedirect(
+  options: LocaleRedirectInputs,
+): SupportedLocale | null {
   const resolved = resolveRootVisitLocale(options);
   if (resolved === ROOT_LOCALE) {
     return null;
   }
   return resolved;
+}
+
+export function shouldRedirectRootToLocale(
+  options: LocaleRedirectInputs,
+): SupportedLocale | null {
+  return resolvePrefixedLocaleRedirect(options);
+}
+
+/**
+ * Redirect any unprefixed public path to geo/browser locale (not only `/` and locale-less hubs).
+ * English stays on root URLs; tr/de/fr/es/ar get a path prefix.
+ */
+export function shouldRedirectUnlocalizedPath(
+  options: LocaleRedirectInputs & { readonly pathname: string },
+): SupportedLocale | null {
+  if (isLocalizedPath(options.pathname)) {
+    return null;
+  }
+  return resolvePrefixedLocaleRedirect(options);
 }
 
 export function isLocaleLessPublicRoute(pathname: string): boolean {
@@ -280,22 +305,13 @@ export function isLocaleLessPublicRoute(pathname: string): boolean {
   );
 }
 
-export function shouldRedirectLocaleLessPublicRoute(options: {
-  readonly pathname: string;
-  readonly cookieLocale: string | undefined;
-  readonly nextLocaleCookie?: string | undefined;
-  readonly manualCookie?: string | undefined;
-  readonly countryCode: string | null;
-  readonly acceptLanguage: string | null;
-}): SupportedLocale | null {
+export function shouldRedirectLocaleLessPublicRoute(
+  options: LocaleRedirectInputs & { readonly pathname: string },
+): SupportedLocale | null {
   if (!isLocaleLessPublicRoute(options.pathname)) {
     return null;
   }
-  const resolved = resolveRootVisitLocale(options);
-  if (resolved === ROOT_LOCALE) {
-    return null;
-  }
-  return resolved;
+  return resolvePrefixedLocaleRedirect(options);
 }
 
 /** @deprecated Use shouldRedirectRootToLocale */

@@ -37,7 +37,7 @@
 }
 
 /* bg-bg-primary is matte white — never inherit “dark CTA” white copy */
-.bg-bg-primary:not(:is(.bg-deep-navy, .bg-black, .bg-premium)) {
+.bg-bg-primary:not(:is(.bg-deep-navy, .bg-black, .bg-premium, .bg-premium-velvet)) {
   color: var(--text-premium-velvet);
 }
 
@@ -73,6 +73,7 @@
       .bg-dark-navy,
       .bg-black,
       .bg-premium,
+      .bg-premium-velvet,
       .ind-terminal,
       .ind-terminal--inverse,
       .surface-dark,
@@ -84,6 +85,7 @@
       .bg-dark-navy,
       .bg-black,
       .bg-premium,
+      .bg-premium-velvet,
       .ind-terminal,
       .ind-terminal--inverse,
       .surface-dark,
@@ -111,6 +113,7 @@
     .bg-dark-navy,
     .bg-black,
     .bg-premium,
+    .bg-premium-velvet,
     .ind-terminal,
     .ind-terminal--inverse,
     .surface-dark,
@@ -136,6 +139,7 @@
     .bg-dark-navy,
     .bg-black,
     .bg-premium,
+    .bg-premium-velvet,
     .ind-terminal,
     .ind-terminal--inverse,
     .surface-dark,
@@ -161,6 +165,7 @@
     .bg-dark-navy,
     .bg-black,
     .bg-premium,
+    .bg-premium-velvet,
     .ind-terminal,
     .ind-terminal--inverse,
     .surface-dark,
@@ -176,6 +181,7 @@
   .bg-dark-navy,
   .bg-black,
   .bg-premium,
+  .bg-premium-velvet,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -189,6 +195,7 @@
   .bg-dark-navy,
   .bg-black,
   .bg-premium,
+  .bg-premium-velvet,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -219,6 +226,7 @@
   .bg-dark-navy,
   .bg-black,
   .bg-premium,
+  .bg-premium-velvet,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -245,6 +253,7 @@
   .bg-dark-navy,
   .bg-black,
   .bg-premium,
+  .bg-premium-velvet,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -259,6 +268,7 @@
   .bg-dark-navy,
   .bg-black,
   .bg-premium,
+  .bg-premium-velvet,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -273,6 +283,7 @@
   .bg-dark-navy,
   .bg-black,
   .bg-premium,
+  .bg-premium-velvet,
   .ind-terminal,
   .ind-terminal--inverse,
   .surface-dark,
@@ -283,7 +294,7 @@
 }
 
 /* Light panels nested inside dark sections */
-:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .ind-terminal) .ind-os-panel {
+:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .bg-premium-velvet, .ind-terminal) .ind-os-panel {
   color: var(--text-premium-velvet);
   background: #ffffff;
 }
@@ -317,7 +328,7 @@
 .sc-btn-primary,
 .ind-os-btn-action,
 .ind-btn-primary,
-:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .sc-inverse-surface),
+:is(.bg-deep-navy, .bg-dark-navy, .bg-black, .bg-premium, .bg-premium-velvet, .sc-inverse-surface),
 [class*="bg-deep-navy"],
 [class*="bg-action-orange"] {
   color: var(--sc-inverse-text) !important;

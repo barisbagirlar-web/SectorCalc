@@ -8,6 +8,7 @@ import {
   rewritePathToEnglishLocale,
   shouldRedirectLocaleLessPublicRoute,
   shouldRedirectRootToLocale,
+  shouldRedirectUnlocalizedPath,
   stripLocaleFromPath,
   switchPathLocale,
 } from "@/lib/i18n/locale-routing";
@@ -133,6 +134,39 @@ describe("locale-routing", () => {
         acceptLanguage: null,
       }),
     ).toBe("tr");
+  });
+
+  test("shouldRedirectUnlocalizedPath redirects tool pages for TR country", () => {
+    expect(
+      shouldRedirectUnlocalizedPath({
+        pathname: "/tools/free/concrete-volume-calculator",
+        cookieLocale: undefined,
+        countryCode: "TR",
+        acceptLanguage: null,
+      }),
+    ).toBe("tr");
+  });
+
+  test("shouldRedirectUnlocalizedPath skips already localized paths", () => {
+    expect(
+      shouldRedirectUnlocalizedPath({
+        pathname: "/tr/tools/free/concrete-volume-calculator",
+        cookieLocale: undefined,
+        countryCode: "TR",
+        acceptLanguage: null,
+      }),
+    ).toBeNull();
+  });
+
+  test("shouldRedirectUnlocalizedPath returns null for EN visitors", () => {
+    expect(
+      shouldRedirectUnlocalizedPath({
+        pathname: "/tools/free/concrete-volume-calculator",
+        cookieLocale: undefined,
+        countryCode: null,
+        acceptLanguage: "en-US,en;q=0.9",
+      }),
+    ).toBeNull();
   });
 
   test("isMiddlewareExcludedPath skips AI public files", () => {

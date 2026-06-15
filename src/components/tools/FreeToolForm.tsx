@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import type { z } from "zod";
 import { FreeToolReportModal } from "@/components/tools/FreeToolReportModal";
-import { CalculatorUnitSelect } from "@/components/tools/CalculatorUnitCurrencyControls";
 import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useGeneratedToolFieldDisplay } from "@/hooks/use-generated-tool-field-display";
 import {
@@ -177,7 +176,8 @@ function FreeToolFormField({
   selectedUnit,
   onUnitChange,
   resolveInputLabel,
-}: FreeToolFormFieldProps) {
+  enterValuePlaceholder,
+}: FreeToolFormFieldProps & { readonly enterValuePlaceholder: string }) {
   const locale = useLocale();
   const unitSystem = usePreferredUnitSystem();
   const display = useGeneratedToolFieldDisplay(slug, input);
@@ -197,25 +197,27 @@ function FreeToolFormField({
         name={input.id}
         control={control}
         render={({ field }) => (
-          <div className="space-y-1">
-            <label className="flex min-h-[44px] items-center gap-2">
+          <div className="sc-premium-dtf-input-row">
+            <div className="sc-premium-dtf-input-label">
+              <div className="sc-premium-dtf-input-title">{resolveInputLabel(input)}</div>
+              {display.helper ? (
+                <div className="sc-premium-dtf-input-desc">{display.helper}</div>
+              ) : null}
+            </div>
+            <label className="sc-premium-dtf-boolean-row" htmlFor={inputId}>
               <input
                 id={inputId}
                 type="checkbox"
                 checked={Boolean(field.value)}
                 onChange={(event) => field.onChange(event.target.checked)}
                 onBlur={field.onBlur}
-                className="h-4 w-4"
                 aria-invalid={Boolean(errorMessage)}
                 aria-describedby={errorMessage ? errorId : undefined}
               />
-              <span className="text-sm font-medium text-premium-velvet">{resolveInputLabel(input)}</span>
+              <span>{resolveInputLabel(input)}</span>
             </label>
-            {display.helper ? (
-              <p className="text-xs text-body-charcoal">{display.helper}</p>
-            ) : null}
             {errorMessage ? (
-              <p id={errorId} className="text-xs text-soft-red" role="alert">
+              <p id={errorId} className="sc-premium-dtf-field-error" role="alert">
                 {errorMessage}
               </p>
             ) : null}
@@ -231,11 +233,14 @@ function FreeToolFormField({
         name={input.id}
         control={control}
         render={({ field }) => (
-          <div className="space-y-1">
-            <label htmlFor={inputId} className="block text-sm font-medium text-premium-velvet">
-              {resolveInputLabel(input)}
-            </label>
-            <div className="flex overflow-hidden border border-technical-gray bg-industrial-matte focus-within:border-action-orange focus-within:ring-1 focus-within:ring-action-orange">
+          <div className="sc-premium-dtf-input-row">
+            <div className="sc-premium-dtf-input-label">
+              <div className="sc-premium-dtf-input-title">{resolveInputLabel(input)}</div>
+              {display.helper ? (
+                <div className="sc-premium-dtf-input-desc">{display.helper}</div>
+              ) : null}
+            </div>
+            <div className="sc-premium-dtf-input-control">
               <select
                 id={inputId}
                 value={String(field.value ?? "")}
@@ -243,7 +248,7 @@ function FreeToolFormField({
                 onBlur={field.onBlur}
                 aria-invalid={Boolean(errorMessage)}
                 aria-describedby={errorMessage ? errorId : undefined}
-                className="min-h-[44px] flex-1 bg-transparent px-3 py-2 text-sm outline-none"
+                className="sc-premium-dtf-touch-select"
               >
                 {input.options?.map((option) => (
                   <option key={option} value={option}>
@@ -252,11 +257,8 @@ function FreeToolFormField({
                 ))}
               </select>
             </div>
-            {display.helper ? (
-              <p className="text-xs text-body-charcoal">{display.helper}</p>
-            ) : null}
             {errorMessage ? (
-              <p id={errorId} className="text-xs text-soft-red" role="alert">
+              <p id={errorId} className="sc-premium-dtf-field-error" role="alert">
                 {errorMessage}
               </p>
             ) : null}
@@ -271,14 +273,21 @@ function FreeToolFormField({
       name={input.id}
       control={control}
       render={({ field }) => (
-        <div className="space-y-1">
-          <label htmlFor={inputId} className="block text-sm font-medium text-premium-velvet">
-            {resolveInputLabel(input)}
-            {showStaticUnit ? (
-              <span className="ml-1 text-xs font-normal text-body-charcoal">({input.unit})</span>
+        <div className="sc-premium-dtf-input-row">
+          <div className="sc-premium-dtf-input-label">
+            <div className="sc-premium-dtf-input-title">
+              {resolveInputLabel(input)}
+              {showStaticUnit ? (
+                <span className="ml-1 text-[0.75rem] font-normal text-body-charcoal">
+                  ({input.unit})
+                </span>
+              ) : null}
+            </div>
+            {display.helper ? (
+              <div className="sc-premium-dtf-input-desc">{display.helper}</div>
             ) : null}
-          </label>
-          <div className="flex overflow-hidden border border-technical-gray bg-industrial-matte focus-within:border-action-orange focus-within:ring-1 focus-within:ring-action-orange">
+          </div>
+          <div className="sc-premium-dtf-input-control">
             <input
               id={inputId}
               type="text"
@@ -292,27 +301,27 @@ function FreeToolFormField({
               onBlur={field.onBlur}
               aria-invalid={Boolean(errorMessage)}
               aria-describedby={errorMessage ? errorId : undefined}
-              className="min-h-[44px] min-w-0 flex-1 bg-transparent px-3 py-2 text-sm outline-none"
+              className="sc-premium-dtf-touch-input"
+              placeholder={enterValuePlaceholder}
             />
             {showUnitSelector && unitOptions.length > 0 ? (
-              <CalculatorUnitSelect
-                inputId={inputId}
-                fieldKey={input.id}
-                explicitUnit={input.unit}
-                value={selectedUnit}
-                onChange={onUnitChange}
-              />
-            ) : showStaticUnit ? (
-              <span className="flex items-center border-l border-technical-gray bg-white px-3 text-xs text-body-charcoal">
-                {input.unit}
-              </span>
-            ) : null}
+              <select
+                id={`${inputId}-unit`}
+                value={selectedUnit ?? input.unit}
+                onChange={(event) => onUnitChange?.(event.target.value)}
+                className="sc-premium-dtf-unit-select"
+                aria-label={`${resolveInputLabel(input)} unit`}
+              >
+                {unitOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            ) : showStaticUnit ? null : null}
           </div>
-          {display.helper ? (
-            <p className="text-xs text-body-charcoal">{display.helper}</p>
-          ) : null}
           {errorMessage ? (
-            <p id={errorId} className="text-xs text-soft-red" role="alert">
+            <p id={errorId} className="sc-premium-dtf-field-error" role="alert">
               {errorMessage}
             </p>
           ) : null}
@@ -450,107 +459,108 @@ export function FreeToolForm({
   return (
     <>
       <div
-        className="mx-auto max-w-5xl overflow-hidden border border-technical-gray bg-white"
+        className="sc-premium-dtf-container"
         data-testid="free-tool-form"
         data-tool-slug={slug}
       >
-        <div className="border-b-4 border-action-orange bg-premium-velvet px-6 py-5">
-          <h2 className="text-2xl font-medium tracking-tight text-white">{toolTitle}</h2>
-          <p className="mt-1 text-sm text-technical-gray">
-            {schema.outputs.primary.replace(/_/g, " ")}
-          </p>
-        </div>
+        <div className="sc-premium-dtf-card">
+          <header className="sc-premium-dtf-header">
+            <span className="sc-premium-dtf-header__accent" aria-hidden="true" />
+            <div>
+              <h2 className="sc-premium-dtf-header__title">{toolTitle}</h2>
+              <p className="sc-premium-dtf-header__subtitle">
+                {schema.outputs.primary.trim()
+                  ? schema.outputs.primary.replace(/_/g, " ")
+                  : tFree("defaultDescription")}
+              </p>
+            </div>
+          </header>
 
-        <div className="grid gap-0 md:grid-cols-3">
-          <div className="border-technical-gray p-6 md:col-span-2 md:border-r">
-            <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6" noValidate>
-              {groups.map((group) => (
-                <section key={group.id} aria-labelledby={`${slug}-free-group-${group.id}`}>
-                  {groups.length > 1 ? (
-                    <h3
-                      id={`${slug}-free-group-${group.id}`}
-                      className="mb-3 text-xs font-semibold uppercase tracking-wide text-body-charcoal"
-                    >
-                      {resolveGroupTitle(group.id)}
-                    </h3>
+          <div className="sc-premium-dtf-columns">
+            <div className="sc-premium-dtf-input-panel">
+              <form onSubmit={handleSubmit(handleFormSubmit)} className="sc-premium-dtf-input-grid" noValidate>
+                {groups.map((group) => (
+                  <section key={group.id} aria-labelledby={`${slug}-free-group-${group.id}`}>
+                    {groups.length > 1 ? (
+                      <h3
+                        id={`${slug}-free-group-${group.id}`}
+                        className="mb-2 text-xs font-semibold uppercase tracking-wide text-body-charcoal"
+                      >
+                        {resolveGroupTitle(group.id)}
+                      </h3>
+                    ) : null}
+                    <div className="space-y-3">
+                      {group.inputIds.map((inputId) => {
+                        const input = inputById.get(inputId);
+                        if (!input) {
+                          return null;
+                        }
+                        return (
+                          <FreeToolFormField
+                            key={input.id}
+                            slug={slug}
+                            input={input}
+                            control={control}
+                            errors={errors}
+                            selectedUnit={selectedUnits[input.id]}
+                            onUnitChange={(unit) => handleUnitChange(input.id, unit)}
+                            resolveInputLabel={resolveInputLabel}
+                            enterValuePlaceholder={tFree("enterValue")}
+                          />
+                        );
+                      })}
+                    </div>
+                  </section>
+                ))}
+
+                <button
+                  type="submit"
+                  disabled={disabled || loading}
+                  className="sc-premium-dtf-btn-calculate"
+                >
+                  {loading ? t("calculating") : t("calculate")}
+                </button>
+              </form>
+            </div>
+
+            <div className="sc-premium-dtf-result-panel sc-premium-dtf-feedback-area">
+              {result && formattedPrimary !== null ? (
+                <div className="sc-premium-dtf-result sc-premium-dtf-result--pass">
+                  <div className="sc-premium-dtf-result__title">{tFree("resultLabel")}</div>
+                  <div className="sc-premium-dtf-result__value">{formattedPrimary}</div>
+                  {breakdown && Object.keys(breakdown).length > 0 ? (
+                    <div className="sc-premium-dtf-result__breakdown">
+                      {Object.entries(breakdown).map(([key, value]) => {
+                        if (typeof value !== "number" || !Number.isFinite(value)) {
+                          return null;
+                        }
+                        const label = schema.outputs.breakdown[key] ?? key.replace(/_/g, " ");
+                        return (
+                          <div key={key}>
+                            <span>{label}</span>
+                            <span>
+                              {new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(value)}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
                   ) : null}
-                  <div className="space-y-4">
-                    {group.inputIds.map((inputId) => {
-                      const input = inputById.get(inputId);
-                      if (!input) {
-                        return null;
-                      }
-                      return (
-                        <FreeToolFormField
-                          key={input.id}
-                          slug={slug}
-                          input={input}
-                          control={control}
-                          errors={errors}
-                          selectedUnit={selectedUnits[input.id]}
-                          onUnitChange={(unit) => handleUnitChange(input.id, unit)}
-                          resolveInputLabel={resolveInputLabel}
-                        />
-                      );
-                    })}
-                  </div>
-                </section>
-              ))}
-
-              <button
-                type="submit"
-                disabled={disabled || loading}
-                className="mt-2 min-h-[44px] w-full bg-action-orange px-4 py-2 text-sm font-medium text-white transition hover:bg-sc-copper disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {loading ? t("calculating") : t("calculate")}
-              </button>
-            </form>
-          </div>
-
-          <div className="flex flex-col bg-industrial-matte p-6">
-            {result && formattedPrimary !== null ? (
-              <div className="mb-4 border border-technical-gray bg-white p-4 text-center">
-                <div className="text-xs font-semibold uppercase tracking-wider text-body-charcoal">
-                  {tFree("resultLabel")}
                 </div>
-                <div className="mt-1 font-mono text-4xl font-light text-premium-velvet">
-                  {formattedPrimary}
+              ) : (
+                <div className="sc-premium-dtf-result">
+                  <div className="sc-premium-dtf-result__title">{t("clickToCompute")}</div>
                 </div>
-                {breakdown && Object.keys(breakdown).length > 0 ? (
-                  <div className="mt-3 border-t border-technical-gray pt-3 text-left text-sm">
-                    {Object.entries(breakdown).map(([key, value]) => {
-                      if (typeof value !== "number" || !Number.isFinite(value)) {
-                        return null;
-                      }
-                      const label = schema.outputs.breakdown[key] ?? key.replace(/_/g, " ");
-                      return (
-                        <div key={key} className="flex justify-between gap-2 py-0.5">
-                          <span className="text-body-charcoal">{label}</span>
-                          <span className="font-medium text-premium-velvet">
-                            {new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(value)}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                ) : null}
-              </div>
-            ) : (
-              <div className="mb-4 border border-technical-gray bg-white p-4 text-center text-sm text-body-charcoal">
-                {t("clickToCompute")}
-              </div>
-            )}
+              )}
 
-            <div className="mt-auto border-t border-technical-gray pt-4">
-              <p className="text-sm text-body-charcoal">{tFree("feedbackPrompt")}</p>
-              <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex gap-2">
+              <div className="sc-premium-dtf-operator-bar">
+                <div className="sc-premium-dtf-vote-group">
                   <button
                     type="button"
                     onClick={() => void handleVote("up")}
                     className={[
-                      "min-h-[44px] border border-technical-gray px-3 py-1 text-sm hover:bg-white",
-                      vote === "up" ? "bg-white font-medium text-action-orange" : "",
+                      "sc-premium-dtf-btn-vote",
+                      vote === "up" ? "sc-premium-dtf-btn-vote--active-up" : "",
                     ].join(" ")}
                   >
                     {tFree("voteYes")}
@@ -559,8 +569,8 @@ export function FreeToolForm({
                     type="button"
                     onClick={() => void handleVote("down")}
                     className={[
-                      "min-h-[44px] border border-technical-gray px-3 py-1 text-sm hover:bg-white",
-                      vote === "down" ? "bg-white font-medium text-action-orange" : "",
+                      "sc-premium-dtf-btn-vote",
+                      vote === "down" ? "sc-premium-dtf-btn-vote--active-down" : "",
                     ].join(" ")}
                   >
                     {tFree("voteNo")}
@@ -569,13 +579,14 @@ export function FreeToolForm({
                 <button
                   type="button"
                   onClick={() => setReportModalOpen(true)}
-                  className="min-h-[44px] text-sm text-body-charcoal underline hover:text-premium-velvet"
+                  className="sc-premium-dtf-btn-report"
                 >
                   {tFree("reportIssue")}
                 </button>
               </div>
+
               {voteNotice ? (
-                <p className="mt-2 text-xs text-safe-green" role="status">
+                <p className="sc-premium-dtf-notice" role="status">
                   {voteNotice}
                 </p>
               ) : null}

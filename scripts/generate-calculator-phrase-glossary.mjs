@@ -328,9 +328,17 @@ const EXPAND = JSON.parse(
 const WORD_GLOSSARY = JSON.parse(
   readFileSync(join(ROOT, "scripts/data/calculator-word-glossary.json"), "utf8"),
 );
+const HELPER_PHRASE_GLOSSARY = JSON.parse(
+  readFileSync(join(ROOT, "scripts/data/calculator-helper-phrase-glossary.json"), "utf8"),
+);
 
 for (const loc of ["tr", "de", "fr", "es", "ar"]) {
-  Object.assign(MASTER[loc], EXPAND[loc] ?? {}, WORD_GLOSSARY[loc] ?? {});
+  Object.assign(
+    MASTER[loc],
+    EXPAND[loc] ?? {},
+    WORD_GLOSSARY[loc] ?? {},
+    HELPER_PHRASE_GLOSSARY[loc] ?? {},
+  );
 }
 
 const CATALOG_PATHS = [

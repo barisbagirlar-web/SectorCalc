@@ -12,6 +12,7 @@ import { REGION_COOKIE, REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/reg
 import { detectCountryFromHeaders, detectRegionFromRequest } from "@/lib/compliance/detect-region";
 import {
   addLocaleToPath,
+  COUNTRY_COOKIE,
   getLegacyEnRedirectPath,
   isLocalizedPath,
   isMiddlewareExcludedPath,
@@ -20,8 +21,7 @@ import {
   NEXT_LOCALE_COOKIE,
   needsEnglishLocaleRewrite,
   rewritePathToEnglishLocale,
-  shouldRedirectLocaleLessPublicRoute,
-  shouldRedirectRootToLocale,
+  shouldRedirectUnlocalizedPath,
   type SupportedLocale,
 } from "@/lib/i18n/locale-routing";
 
@@ -48,6 +48,14 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
     cookie: cookieUnitSystem,
     country: countryCode,
   });
+
+  if (countryCode) {
+    response.cookies.set(COUNTRY_COOKIE, countryCode, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+    });
+  }
 
   response.headers.set(UNIT_SYSTEM_HEADER, unitSystem);
   response.cookies.set(UNIT_SYSTEM_COOKIE, unitSystem, {
@@ -117,19 +125,12 @@ export default function middleware(request: NextRequest) {
 
   const localeInputs = readLocaleResolutionInputs(request);
 
-  if (pathname === "/") {
-    const targetLocale = shouldRedirectRootToLocale(localeInputs);
-    if (targetLocale !== null) {
-      return redirectToLocale(request, targetLocale, "/");
-    }
-  }
-
-  const localeLessTarget = shouldRedirectLocaleLessPublicRoute({
+  const unlocalizedTarget = shouldRedirectUnlocalizedPath({
     pathname,
     ...localeInputs,
   });
-  if (localeLessTarget !== null) {
-    return redirectToLocale(request, localeLessTarget, pathname);
+  if (unlocalizedTarget !== null) {
+    return redirectToLocale(request, unlocalizedTarget, pathname);
   }
 
   if (needsEnglishLocaleRewrite(pathname)) {

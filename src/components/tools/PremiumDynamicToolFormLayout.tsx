@@ -136,6 +136,7 @@ export function PremiumDynamicToolFormLayout({
 }: PremiumDynamicToolFormLayoutProps) {
   const t = useTranslations("generatedTool");
   const tPremium = useTranslations("generatedTool.premiumForm");
+  const tFree = useTranslations("generatedTool.freeForm");
 
   const primaryValue = result ? resolvePrimaryNumericValue(result, primaryOutputKey) : null;
   const formattedPrimary =
@@ -147,109 +148,114 @@ export function PremiumDynamicToolFormLayout({
 
   return (
     <>
-      <div className="sc-premium-dtf-workspace">
-        <div className="sc-premium-dtf-panel">
-          <div className="sc-premium-dtf-panel__header">
-            <div className="sc-premium-dtf-panel__accent" aria-hidden="true" />
-            {toolTitle || schema.toolName}
-          </div>
-          <div className="sc-premium-dtf-panel__body">
-            <div className="sc-premium-dtf-input-grid">
-              {inputs.map((input) => (
-                <PremiumDynamicToolFormField
-                  key={input.id}
-                  input={input}
-                  control={control}
-                  errors={errors}
-                  inputId={`premium-${slug}-${input.id}`}
-                  label={resolveInputLabel(input)}
-                  businessContext={resolveBusinessContext(input)}
-                  selectedUnit={selectedUnits[input.id]}
-                  onUnitChange={(unit) => onUnitChange(input.id, unit)}
-                />
-              ))}
+      <div className="sc-premium-dtf-container">
+        <div className="sc-premium-dtf-card">
+          <header className="sc-premium-dtf-header">
+            <span className="sc-premium-dtf-header__accent" aria-hidden="true" />
+            <div>
+              <h2 className="sc-premium-dtf-header__title">{toolTitle || schema.toolName}</h2>
             </div>
-          </div>
-        </div>
+          </header>
 
-        <div className="sc-premium-dtf-panel">
-          <div className="sc-premium-dtf-panel__header">{tPremium("analysisStatusTitle")}</div>
-          <div className="sc-premium-dtf-panel__body sc-premium-dtf-feedback-area">
-            {result ? (
-              <div className="sc-premium-dtf-result sc-premium-dtf-result--pass">
-                <div className="sc-premium-dtf-result__title">{tPremium("calculatedValueTitle")}</div>
-                <div className="sc-premium-dtf-result__value">{formattedPrimary}</div>
-                <div className="sc-premium-dtf-result__status">{tPremium("validStatus")}</div>
-                {breakdown && Object.keys(breakdown).length > 0 ? (
-                  <div className="sc-premium-dtf-result__breakdown">
-                    {Object.entries(breakdown).map(([key, value]) => (
-                      <div key={key}>
-                        {schema.outputs.breakdown[key] ?? key.replace(/_/g, " ")}:{" "}
-                        {typeof value === "number"
-                          ? formatPremiumPrimaryValue(value, locale)
-                          : String(value ?? "—")}
-                      </div>
-                    ))}
-                  </div>
-                ) : null}
+          <div className="sc-premium-dtf-columns">
+            <div className="sc-premium-dtf-input-panel">
+              <div className="sc-premium-dtf-input-grid">
+                {inputs.map((input) => (
+                  <PremiumDynamicToolFormField
+                    key={input.id}
+                    input={input}
+                    control={control}
+                    errors={errors}
+                    inputId={`premium-${slug}-${input.id}`}
+                    label={resolveInputLabel(input)}
+                    businessContext={resolveBusinessContext(input)}
+                    selectedUnit={selectedUnits[input.id]}
+                    onUnitChange={(unit) => onUnitChange(input.id, unit)}
+                    enterValuePlaceholder={tFree("enterValue")}
+                  />
+                ))}
               </div>
-            ) : (
-              <div className="sc-premium-dtf-result">
-                <div className="sc-premium-dtf-result__title">{t("clickToCompute")}</div>
-              </div>
-            )}
 
-            <div className="sc-premium-dtf-operator-bar">
-              <div className="sc-premium-dtf-vote-group">
-                <button
-                  type="button"
-                  onClick={() => onVote("up")}
-                  className={[
-                    "sc-premium-dtf-btn-vote",
-                    vote === "up" ? "sc-premium-dtf-btn-vote--active-up" : "",
-                  ].join(" ")}
-                >
-                  {tPremium("voteCorrect")}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onVote("down")}
-                  className={[
-                    "sc-premium-dtf-btn-vote",
-                    vote === "down" ? "sc-premium-dtf-btn-vote--active-down" : "",
-                  ].join(" ")}
-                >
-                  {tPremium("voteIncorrect")}
-                </button>
-              </div>
-              <button type="button" onClick={onOpenReport} className="sc-premium-dtf-btn-report">
-                {tPremium("reportIssue")}
+              {creditGateError ? (
+                <p className="sc-premium-dtf-alert mt-3" role="alert">
+                  {creditGateError}{" "}
+                  <Link href="/account/credits" className="font-semibold underline">
+                    {t("buyCreditsCta")}
+                  </Link>
+                </p>
+              ) : null}
+
+              <button
+                type="button"
+                onClick={onCalculate}
+                disabled={disabled || loading}
+                className="sc-premium-dtf-btn-calculate"
+              >
+                {submitLabel}
               </button>
             </div>
 
-            {voteNotice ? (
-              <p className="text-xs text-emerald-300" role="status">
-                {voteNotice}
-              </p>
-            ) : null}
+            <div className="sc-premium-dtf-result-panel sc-premium-dtf-feedback-area">
+              {result ? (
+                <div className="sc-premium-dtf-result sc-premium-dtf-result--pass">
+                  <div className="sc-premium-dtf-result__title">{tPremium("calculatedValueTitle")}</div>
+                  <div className="sc-premium-dtf-result__value">{formattedPrimary}</div>
+                  <div className="sc-premium-dtf-result__status">{tPremium("validStatus")}</div>
+                  {breakdown && Object.keys(breakdown).length > 0 ? (
+                    <div className="sc-premium-dtf-result__breakdown">
+                      {Object.entries(breakdown).map(([key, value]) => (
+                        <div key={key}>
+                          <span>{schema.outputs.breakdown[key] ?? key.replace(/_/g, " ")}</span>
+                          <span>
+                            {typeof value === "number"
+                              ? formatPremiumPrimaryValue(value, locale)
+                              : String(value ?? "—")}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              ) : (
+                <div className="sc-premium-dtf-result">
+                  <div className="sc-premium-dtf-result__title">{t("clickToCompute")}</div>
+                </div>
+              )}
 
-            {creditGateError ? (
-              <p className="text-sm text-red-300" role="alert">
-                {creditGateError}{" "}
-                <Link href="/account/credits" className="font-semibold underline">
-                  {t("buyCreditsCta")}
-                </Link>
-              </p>
-            ) : null}
+              <div className="sc-premium-dtf-operator-bar">
+                <div className="sc-premium-dtf-vote-group">
+                  <button
+                    type="button"
+                    onClick={() => onVote("up")}
+                    className={[
+                      "sc-premium-dtf-btn-vote",
+                      vote === "up" ? "sc-premium-dtf-btn-vote--active-up" : "",
+                    ].join(" ")}
+                  >
+                    {tPremium("voteCorrect")}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onVote("down")}
+                    className={[
+                      "sc-premium-dtf-btn-vote",
+                      vote === "down" ? "sc-premium-dtf-btn-vote--active-down" : "",
+                    ].join(" ")}
+                  >
+                    {tPremium("voteIncorrect")}
+                  </button>
+                </div>
+                <button type="button" onClick={onOpenReport} className="sc-premium-dtf-btn-report">
+                  {tPremium("reportIssue")}
+                </button>
+              </div>
 
-            <button
-              type="button"
-              onClick={onCalculate}
-              disabled={disabled || loading}
-              className="sc-premium-dtf-btn-calculate"
-            >
-              {submitLabel}
-            </button>
+              {voteNotice ? (
+                <p className="sc-premium-dtf-notice" role="status">
+                  {voteNotice}
+                </p>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>

@@ -5,25 +5,19 @@ import { useLocale } from "next-intl";
 import { useRegion } from "@/lib/compliance/region-context";
 import {
   readEffectiveLocaleCookie,
+  readGeoCountryCookie,
   readManualLocaleCookie,
   setLocaleCookie,
 } from "@/lib/i18n/locale-client";
 import {
+  addLocaleToPath,
   isPrefixedLocalePath,
+  resolveRootVisitLocale,
   type SupportedLocale,
 } from "@/lib/i18n/locale-routing";
-import { getLocalePathPrefix } from "@/lib/i18n/locale-config";
 
-const SESSION_GUARD_KEY = "sc_root_locale_redirect_v1";
+const SESSION_GUARD_KEY = "sc_global_locale_redirect_v1";
 const REDIRECT_DELAY_MS = 200;
-
-const BROWSER_LOCALE_REDIRECTS: Partial<Record<string, SupportedLocale>> = {
-  tr: "tr",
-  de: "de",
-  fr: "fr",
-  es: "es",
-  ar: "ar",
-};
 
 const REGION_TO_LOCALE: Partial<Record<string, SupportedLocale>> = {
   TR: "tr",
@@ -46,22 +40,23 @@ function setRedirectGuard(): void {
   }
 }
 
-function resolveClientFallbackLocale(
+function resolveClientVisitLocale(
   navLang: string,
   regionCode: string,
-): SupportedLocale | null {
-  const base = navLang.split("-")[0]?.toLowerCase() ?? navLang;
-  const fromBrowser = BROWSER_LOCALE_REDIRECTS[base];
-  if (fromBrowser) {
-    return fromBrowser;
-  }
-  return REGION_TO_LOCALE[regionCode] ?? null;
+  countryCode: string | null,
+  cookieLocale: string | null,
+): SupportedLocale {
+  return resolveRootVisitLocale({
+    cookieLocale: cookieLocale ?? undefined,
+    manualCookie: readManualLocaleCookie() ? "1" : undefined,
+    countryCode: countryCode ?? REGION_TO_LOCALE[regionCode] ?? null,
+    acceptLanguage: navLang ? `${navLang},en;q=0.5` : null,
+  });
 }
 
 /**
- * Firebase Hosting may serve prerendered `/` without running middleware.
- * Redirect root English visitors when geo/browser/region implies a prefixed locale.
- * Mount only on the English home page — never on /tr or other locale routes.
+ * Firebase Hosting may serve prerendered English URLs without running middleware.
+ * Redirect unprefixed English pages when geo/browser/region implies a prefixed locale.
  */
 export function RootLocaleAutoRedirect() {
   const locale = useLocale();
@@ -73,9 +68,6 @@ export function RootLocaleAutoRedirect() {
     }
 
     const browserPath = window.location.pathname;
-    if (browserPath !== "/") {
-      return;
-    }
     if (isPrefixedLocalePath(browserPath)) {
       return;
     }
@@ -90,24 +82,30 @@ export function RootLocaleAutoRedirect() {
     }
 
     const navLang = navigator.language?.toLowerCase() ?? "";
-    const targetLocale = resolveClientFallbackLocale(navLang, region);
-    if (!targetLocale) {
+    const countryCode = readGeoCountryCookie();
+    const targetLocale = resolveClientVisitLocale(
+      navLang,
+      region,
+      countryCode,
+      readEffectiveLocaleCookie(),
+    );
+    if (targetLocale === "en") {
       return;
     }
 
-    const prefix = getLocalePathPrefix(targetLocale);
-    if (!prefix || browserPath === prefix) {
+    const targetPath = addLocaleToPath(browserPath, targetLocale);
+    if (!targetPath || targetPath === browserPath) {
       return;
     }
 
     setRedirectGuard();
 
     const timer = window.setTimeout(() => {
-      if (window.location.pathname !== "/") {
+      if (window.location.pathname !== browserPath) {
         return;
       }
       setLocaleCookie(targetLocale);
-      window.location.replace(prefix);
+      window.location.replace(targetPath);
     }, REDIRECT_DELAY_MS);
 
     return () => {

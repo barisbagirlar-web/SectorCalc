@@ -1,4 +1,5 @@
 import phraseGlossary from "@/data/calculator-phrase-glossary.json";
+import { polishCalculatorSurfaceResidue } from "@/lib/i18n/calculator-surface-residue";
 import { SUPPORTED_LOCALES, type SupportedLocale } from "@/lib/i18n/locale-config";
 
 type GlossaryMap = Record<string, string>;
@@ -25,7 +26,7 @@ export function translateCalculatorPhrase(text: string, locale: string): string 
     const re = new RegExp(en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
     result = result.replace(re, localized);
   }
-  return result;
+  return polishCalculatorSurfaceResidue(result, locale);
 }
 
 export function translateCalculatorPhrases(

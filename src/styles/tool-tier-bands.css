@@ -1,0 +1,105 @@
+/**
+ * Tool tier header bands — free (light blue) · premium (light green)
+ * High-contrast copy on tinted surfaces (never dark-on-dark).
+ */
+
+:root {
+  --sc-tier-free-bg: #dbeafe;
+  --sc-tier-free-border: #93c5fd;
+  --sc-tier-free-title: #1e3a8a;
+  --sc-tier-free-text: #1d4ed8;
+  --sc-tier-free-accent: #2563eb;
+
+  --sc-tier-premium-bg: #dcfce7;
+  --sc-tier-premium-border: #86efac;
+  --sc-tier-premium-title: #14532d;
+  --sc-tier-premium-text: #166534;
+  --sc-tier-premium-accent: #059669;
+}
+
+.sc-tool-tier-band {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid transparent;
+}
+
+.sc-tool-tier-band--free {
+  background-color: var(--sc-tier-free-bg);
+  border-bottom-color: var(--sc-tier-free-border);
+  color: var(--sc-tier-free-title);
+}
+
+.sc-tool-tier-band--premium {
+  background-color: var(--sc-tier-premium-bg);
+  border-bottom-color: var(--sc-tier-premium-border);
+  color: var(--sc-tier-premium-title);
+}
+
+.sc-tool-tier-band__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: inherit;
+}
+
+.sc-tool-tier-band__subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.sc-tool-tier-band--free .sc-tool-tier-band__subtitle {
+  color: var(--sc-tier-free-text);
+}
+
+.sc-tool-tier-band--premium .sc-tool-tier-band__subtitle {
+  color: var(--sc-tier-premium-text);
+}
+
+.sc-tool-tier-band__accent {
+  width: 4px;
+  height: 1.5rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.sc-tool-tier-band__accent--free {
+  background-color: var(--sc-tier-free-accent);
+}
+
+.sc-tool-tier-band__accent--premium {
+  background-color: var(--sc-tier-premium-accent);
+}
+
+/* Keep tier band copy readable — override global contrast safety nets */
+.sc-tool-tier-band :is(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  label,
+  a:not(.sc-btn-primary):not(.ind-os-btn-action)
+) {
+  color: inherit;
+}
+
+.sc-tool-tier-band--free :is(.text-white, .text-premium-velvet, .text-text-primary, .text-body-charcoal) {
+  color: var(--sc-tier-free-title) !important;
+}
+
+.sc-tool-tier-band--free :is(.text-text-secondary, .text-technical-gray) {
+  color: var(--sc-tier-free-text) !important;
+}
+
+.sc-tool-tier-band--premium :is(.text-white, .text-premium-velvet, .text-text-primary, .text-body-charcoal) {
+  color: var(--sc-tier-premium-title) !important;
+}
+
+.sc-tool-tier-band--premium :is(.text-text-secondary, .text-technical-gray) {
+  color: var(--sc-tier-premium-text) !important;
+}

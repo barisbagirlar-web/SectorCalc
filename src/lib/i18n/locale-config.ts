@@ -153,6 +153,9 @@ export const LOCALE_MANUAL_COOKIE = "sectorcalc_locale_manual";
 
 export const NEXT_LOCALE_COOKIE = "NEXT_LOCALE";
 
+/** ISO 3166-1 alpha-2 country from edge geo headers (client redirect fallback). */
+export const COUNTRY_COOKIE = "sectorcalc_country";
+
 export const COUNTRY_TO_LOCALE: Readonly<Record<string, SupportedLocale>> = {
   TR: "tr",
   DE: "de",
