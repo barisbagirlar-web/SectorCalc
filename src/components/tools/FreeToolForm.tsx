@@ -14,7 +14,7 @@ import {
   submitToolFeedback,
 } from "@/lib/feedback/feedback-service";
 import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
-import { resolvePrimaryOutputKey, resolvePrimaryOutputLabel } from "@/lib/generated-tools/resolve-tool-display";
+import { resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
 import {
   buildInitialSelectedUnits,
@@ -443,7 +443,9 @@ export function FreeToolForm({
   };
 
   const resolvedPrimaryKey = resolvePrimaryOutputKey(schema);
-  const primaryOutputLabel = resolvePrimaryOutputLabel(schema);
+  const primaryOutputLabel =
+    schema.outputs.breakdown[resolvedPrimaryKey]?.trim() ||
+    resolvedPrimaryKey.replace(/_/g, " ");
   const primaryValue = result ? resolvePrimaryNumericValue(result, primaryOutputKey) : null;
   const primaryUnitHint = typeof schema.outputs.primary === "string" ? schema.outputs.primary : "";
   const formattedPrimary =
