@@ -3,6 +3,18 @@
   "title": "Bolt Torque Calculator",
   "description": "Industrial-grade bolt torque calculation tool based on ISO 898, VDI 2230, and ASME PCC-1 standards. Computes optimal torque, preload, and joint integrity metrics with loss-driver analysis.",
   "premiumRequired": true,
+  "standardOptions": [
+    {
+      "id": "metric",
+      "label": "Metrik (ISO)",
+      "description": "Milimetre, Newton-metre"
+    },
+    {
+      "id": "imperial",
+      "label": "Imperial (UNC/UNF)",
+      "description": "İnç, pound-feet (sonuç N·m olarak gösterilir)"
+    }
+  ],
   "premiumFeatures": [
     "PDF export",
     "CSV export",

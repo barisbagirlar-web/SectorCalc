@@ -23,6 +23,7 @@ import { usePreferredUnitSystem } from "@/hooks/use-preferred-unit-system";
 import { useCredits } from "@/hooks/useCredits";
 import { useSubscription } from "@/hooks/useSubscription";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
+import { withCalculationStandard } from "@/lib/generated-tools/standard-input";
 import { resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
 import {
   buildInitialSelectedUnits,
@@ -158,6 +159,9 @@ export function DynamicToolForm({
   const [vote, setVote] = useState<"up" | "down" | null>(null);
   const [voteNotice, setVoteNotice] = useState<string | null>(null);
   const [reportModalOpen, setReportModalOpen] = useState(false);
+  const [selectedStandard, setSelectedStandard] = useState<string>(
+    () => schema.standardOptions?.[0]?.id ?? "",
+  );
 
   const defaultValues = useMemo(
     () => buildDefaultValues(schema, zodSchema),
@@ -252,9 +256,10 @@ export function DynamicToolForm({
         throw new Error("Scenario comparison is not configured.");
       }
       const converted = convertGeneratedFormValues(schema.inputs, values, selectedUnits);
-      return scenarioComparison.calculateFn(converted);
+      const standard = selectedStandard || schema.standardOptions?.[0]?.id;
+      return scenarioComparison.calculateFn(withCalculationStandard(converted, standard));
     },
-    [scenarioComparison, schema.inputs, selectedUnits],
+    [scenarioComparison, schema.inputs, schema.standardOptions, selectedStandard, selectedUnits],
   );
 
   const toolInputIds = useMemo(
@@ -288,6 +293,11 @@ export function DynamicToolForm({
   useEffect(() => {
     setSelectedUnits(buildInitialSelectedUnits(schema.inputs, locale, unitSystem));
   }, [schema.inputs, locale, unitSystem]);
+
+  useEffect(() => {
+    const nextDefault = schema.standardOptions?.[0]?.id ?? "";
+    setSelectedStandard(nextDefault);
+  }, [schema.standardOptions, slug]);
 
   const handleUnitChange = (inputId: string, unit: string) => {
     setSelectedUnits((current) => ({ ...current, [inputId]: unit }));
@@ -325,7 +335,8 @@ export function DynamicToolForm({
       values as Record<string, unknown>,
       selectedUnits,
     );
-    onSubmit(converted);
+    const standard = selectedStandard || schema.standardOptions?.[0]?.id;
+    onSubmit(withCalculationStandard(converted, standard));
     setVote(null);
     setVoteNotice(null);
   };
@@ -512,6 +523,8 @@ export function DynamicToolForm({
           onCalculate={() => {
             void handleSubmit(handleFormSubmit)();
           }}
+          selectedStandard={selectedStandard}
+          onStandardChange={setSelectedStandard}
         />
       ) : null}
 

@@ -1,4 +1,8 @@
-import type { GeneratedToolInput, GeneratedToolSchema } from "@/lib/generated-tools/types";
+import type {
+  GeneratedToolInput,
+  GeneratedToolSchema,
+  GeneratedToolStandardOption,
+} from "@/lib/generated-tools/types";
 
 type RawRecord = Readonly<Record<string, unknown>>;
 
@@ -106,6 +110,29 @@ function normalizeStringList(raw: unknown): readonly string[] {
   return values;
 }
 
+function normalizeStandardOptions(raw: unknown): readonly GeneratedToolStandardOption[] | undefined {
+  if (!Array.isArray(raw) || raw.length === 0) {
+    return undefined;
+  }
+
+  const options: GeneratedToolStandardOption[] = [];
+  for (const entry of raw) {
+    const record = asRecord(entry);
+    if (!record) {
+      continue;
+    }
+    const id = asString(record.id);
+    const label = asString(record.label);
+    if (!id || !label) {
+      continue;
+    }
+    const description = asString(record.description);
+    options.push(description ? { id, label, description } : { id, label });
+  }
+
+  return options.length > 0 ? options : undefined;
+}
+
 function normalizeGeneratedToolInput(input: GeneratedToolInput): GeneratedToolInput {
   const label = input.label.trim();
   const businessContext = input.businessContext.trim();
@@ -154,6 +181,7 @@ export function normalizeRawGeneratedSchema(
 
   return {
     toolName,
+    standardOptions: normalizeStandardOptions(record.standardOptions),
     inputs,
     validation: {
       rules: Array.isArray(validationRecord.rules)

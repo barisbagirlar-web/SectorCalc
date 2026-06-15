@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { z } from "zod";
-import { loadGeneratedCalculator } from "@/lib/generated-tools/calculator-registry";
+import { loadGeneratedCalculator } from "@/lib/generated-tools/load-generated-calculator";
 import type {
   GeneratedCalculatorModule,
   GeneratedToolResult,

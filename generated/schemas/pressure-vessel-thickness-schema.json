@@ -3,6 +3,18 @@
   "name": "Pressure Vessel Thickness Calculator",
   "description": "Calculates minimum required wall thickness for cylindrical pressure vessels based on ASME BPVC Section VIII Div. 1 standards, with integrated safety factors, material utilization, and cost optimization.",
   "premiumRequired": true,
+  "standardOptions": [
+    {
+      "id": "asme",
+      "label": "ASME BPVC Section VIII",
+      "description": "American Society of Mechanical Engineers Boiler and Pressure Vessel Code"
+    },
+    {
+      "id": "ped",
+      "label": "PED/EN 13445",
+      "description": "European Pressure Equipment Directive"
+    }
+  ],
   "premiumFeatures": [
     "PDF export",
     "CSV export",

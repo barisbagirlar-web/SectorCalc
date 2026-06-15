@@ -9,6 +9,12 @@ export type GeneratedToolI18nText = Readonly<
   }
 >;
 
+export type GeneratedToolStandardOption = {
+  readonly id: string;
+  readonly label: string;
+  readonly description?: string;
+};
+
 export type GeneratedToolInput = {
   readonly id: string;
   readonly label: string;
@@ -26,6 +32,7 @@ export type GeneratedToolInput = {
 
 export type GeneratedToolSchema = {
   readonly toolName: string;
+  readonly standardOptions?: readonly GeneratedToolStandardOption[];
   readonly inputs: readonly GeneratedToolInput[];
   readonly validation: {
     readonly rules: readonly string[];

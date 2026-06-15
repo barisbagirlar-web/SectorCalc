@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { PremiumDynamicToolFormField } from "@/components/tools/PremiumDynamicToolFormField";
 import { PremiumToolReportModal } from "@/components/tools/PremiumToolReportModal";
+import { ToolStandardSelector } from "@/components/tools/ToolStandardSelector";
 import type {
   GeneratedToolInput,
   GeneratedToolResult,
@@ -40,6 +41,8 @@ type PremiumDynamicToolFormLayoutProps = {
   readonly onCloseReport: () => void;
   readonly userId?: string | null;
   readonly onCalculate: () => void;
+  readonly selectedStandard?: string;
+  readonly onStandardChange?: (standardId: string) => void;
 };
 
 function resolvePrimaryNumericValue(
@@ -133,6 +136,8 @@ export function PremiumDynamicToolFormLayout({
   onCloseReport,
   userId,
   onCalculate,
+  selectedStandard,
+  onStandardChange,
 }: PremiumDynamicToolFormLayoutProps) {
   const t = useTranslations("generatedTool");
   const tPremium = useTranslations("generatedTool.premiumForm");
@@ -160,6 +165,14 @@ export function PremiumDynamicToolFormLayout({
           <div className="sc-premium-dtf-columns">
             <div className="sc-premium-dtf-input-panel">
               <div className="sc-premium-dtf-input-grid">
+                {schema.standardOptions && schema.standardOptions.length > 0 && selectedStandard && onStandardChange ? (
+                  <ToolStandardSelector
+                    options={schema.standardOptions}
+                    value={selectedStandard}
+                    onChange={onStandardChange}
+                    disabled={disabled || loading}
+                  />
+                ) : null}
                 {inputs.map((input) => (
                   <PremiumDynamicToolFormField
                     key={input.id}
