@@ -4,7 +4,7 @@ import {
   type RoadmapStatus,
   type StrategicPremiumCalculator,
 } from "@/data/strategic-premium-calculators";
-import catalogData from "@/lib/tools/free-traffic-catalog.generated.json";
+import { CANONICAL_FREE_SLUGS, CANONICAL_PREMIUM_SLUGS } from "@/lib/tools/canonical-tool-slugs";
 import { listPremiumSchemaIds } from "@/lib/premium-schema/schema-registry";
 import { revenueTools } from "@/lib/tools/revenue-tools";
 import {
@@ -12,10 +12,8 @@ import {
   resolvePremiumToolHref,
 } from "@/lib/tools/tool-links";
 
-const FREE_TRAFFIC_SLUGS = new Set(
-  (catalogData as readonly { slug: string }[]).map((tool) => tool.slug),
-);
-const REVENUE_FREE_SLUGS = new Set(revenueTools.map((tool) => tool.freeSlug));
+const FREE_TRAFFIC_SLUGS = new Set(CANONICAL_FREE_SLUGS);
+const REVENUE_FREE_SLUGS = new Set(CANONICAL_PREMIUM_SLUGS);
 const REVENUE_PAID_SLUGS = new Set(revenueTools.map((tool) => tool.paidSlug));
 const PREMIUM_SCHEMA_IDS = new Set(listPremiumSchemaIds());
 
@@ -33,7 +31,7 @@ export type StrategicPremiumRoadmapCard = {
 
 export function resolveMappedLiveToolHref(mappedLiveSlug: string): string {
   if (FREE_TRAFFIC_SLUGS.has(mappedLiveSlug) || REVENUE_FREE_SLUGS.has(mappedLiveSlug)) {
-    return `/tools/free/${mappedLiveSlug}`;
+    return `/tools/generated/${mappedLiveSlug}`;
   }
   if (PREMIUM_SCHEMA_IDS.has(mappedLiveSlug)) {
     return getPremiumSchemaToolHref(mappedLiveSlug);

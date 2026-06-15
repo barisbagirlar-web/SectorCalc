@@ -120,7 +120,7 @@ function buildToolRecord(item: CategorizedToolItem): AiToolIndexRecord {
     routeStatus,
     keywords: buildKeywords(item),
     intent: CATEGORY_INTENT[item.categorySlug] ?? ["calculator", "decision-support"],
-    industries: item.source === "existing-premium-schema" ? ["sector-analyzer"] : ["cross-industry"],
+    industries: item.tier === "premium" ? ["sector-analyzer"] : ["cross-industry"],
     formula,
     pain: pain.slice(0, 240),
     source: item.source,

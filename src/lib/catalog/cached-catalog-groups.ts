@@ -5,7 +5,7 @@ import {
   buildSectorToolCatalogGroups,
   DEFAULT_FREE_TRAFFIC_CATEGORY,
 } from "@/lib/catalog/build-catalog-groups";
-import { listPublicFreeTrafficTools } from "@/lib/freemium/resolve-free-to-premium-migration";
+import { listPublicFreeTrafficTools } from "@/lib/tools/free-traffic-catalog";
 import { FREE_TOOLS } from "@/data/tools";
 import type { FreeTrafficCategoryMeta } from "@/lib/tools/free-traffic-categories";
 import {

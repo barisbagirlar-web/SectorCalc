@@ -7,6 +7,14 @@ const generatedDir = path.join(process.cwd(), "generated");
 const testResults: { file: string; status: "PASS" | "FAIL"; error?: string }[] =
   [];
 
+if (!fs.existsSync(generatedDir)) {
+  console.log("🧪 generated/ yok — 0 tool dosyası (clean slate OK)\n");
+  console.log("📊 RAPOR:");
+  console.log("Toplam: 0, Başarılı: 0, Başarısız: 0");
+  console.log("🎉 Tüm dosyalar geçti.");
+  process.exit(0);
+}
+
 const toolFiles = fs
   .readdirSync(generatedDir)
   .filter((f) => f.endsWith(".ts") && f !== "index.ts");

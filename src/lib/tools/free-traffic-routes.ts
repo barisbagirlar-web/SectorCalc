@@ -2,20 +2,13 @@
  * Canonical tool route slugs — all calculators use /tools/generated/[slug].
  */
 
-import {
-  isFreeToolMigratedToPremium,
-  listMigratedPremiumRouteSlugs,
-} from "@/lib/freemium/resolve-free-to-premium-migration";
 import { listFreeTrafficCalculatorSlugs } from "@/lib/tools/free-traffic-calculators";
-import { getPremiumRevenueRouteSlugs, revenueTools } from "@/lib/tools/revenue-tools";
+import { CANONICAL_PREMIUM_SLUGS } from "@/lib/tools/canonical-tool-slugs";
+import { listTrafficOnlyFreeSlugs } from "@/lib/tools/free-traffic-catalog";
+import { getPremiumRevenueRouteSlugs } from "@/lib/tools/revenue-tools";
 
 export function listRevenueFreeSlugs(): readonly string[] {
-  return revenueTools.map((tool) => tool.freeSlug);
-}
-
-export function listTrafficOnlyFreeSlugs(): readonly string[] {
-  const revenueSlugs = new Set(listRevenueFreeSlugs());
-  return listFreeTrafficCalculatorSlugs().filter((slug) => !revenueSlugs.has(slug));
+  return [...CANONICAL_PREMIUM_SLUGS];
 }
 
 export function listAllFreeToolSlugs(): readonly string[] {
@@ -23,7 +16,7 @@ export function listAllFreeToolSlugs(): readonly string[] {
 }
 
 export function listPublicFreeToolSlugs(): readonly string[] {
-  return listAllFreeToolSlugs().filter((slug) => !isFreeToolMigratedToPremium(slug));
+  return listFreeTrafficCalculatorSlugs();
 }
 
 export function getFreeToolRoutePath(slug: string): string {
@@ -35,9 +28,5 @@ export function getPremiumToolRoutePath(slug: string): string {
 }
 
 export function listAllPremiumToolRouteSlugs(): readonly string[] {
-  const slugs = new Set<string>([
-    ...getPremiumRevenueRouteSlugs(),
-    ...listMigratedPremiumRouteSlugs(),
-  ]);
-  return [...slugs].sort((a, b) => a.localeCompare(b));
+  return getPremiumRevenueRouteSlugs();
 }

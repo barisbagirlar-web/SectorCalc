@@ -3,11 +3,11 @@ import {
   countItemsForDiscoveryTab,
   getDiscoveryTabsForVariant,
 } from "@/lib/catalog/discovery-tab-groups";
+import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { countToolsInCategory } from "@/lib/tools/free-traffic-categories";
 import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
-import { getPremiumCalculatorSchema, PREMIUM_CALCULATOR_SCHEMAS } from "@/lib/premium-schema/schema-registry";
 import { resolveFreeToolLocalizedCopy } from "@/lib/i18n/free-tool-i18n";
-import { getLocalizedPremiumSchema } from "@/data/premium-schema-i18n";
+import { CANONICAL_PREMIUM_SLUGS } from "@/lib/tools/canonical-tool-slugs";
 
 export const HOMEPAGE_CATEGORY_IDS = [
   "costMargin",
@@ -65,14 +65,14 @@ export const HOMEPAGE_SECTOR_HREFS: Record<(typeof HOMEPAGE_SECTOR_IDS)[number],
 };
 
 const POPULAR_TOOL_DEFS = [
-  { slug: "square-meter-calculator", tier: "free" as const },
-  { slug: "loan-payment-calculator", tier: "free" as const },
-  { slug: "machine-time-calculator", tier: "free" as const },
-  { slug: "paint-coverage-calculator", tier: "free" as const },
+  { slug: "margin-calculator", tier: "free" as const },
+  { slug: "mortgage-calculator", tier: "free" as const },
+  { slug: "oee-calculator", tier: "premium" as const },
   { slug: "concrete-volume-calculator", tier: "free" as const },
-  { slug: "food-waste-margin-loss", tier: "premium-schema" as const },
-  { slug: "route-cost-calculator", tier: "free" as const },
-  { slug: "energy-consumption-check", tier: "free" as const },
+  { slug: "percentage-calculator", tier: "free" as const },
+  { slug: "food-waste-margin-loss", tier: "premium" as const },
+  { slug: "route-cost-calculator", tier: "premium" as const },
+  { slug: "energy-consumption-check", tier: "premium" as const },
 ] as const;
 
 export type HomepagePopularTool = {
@@ -83,7 +83,7 @@ export type HomepagePopularTool = {
 };
 
 export function getHomepageToolTotalCount(): number {
-  return FREE_TRAFFIC_TOOLS.length + PREMIUM_CALCULATOR_SCHEMAS.length;
+  return buildCategorizedToolIndex().length;
 }
 
 export function getHomepageCategoryCounts(freeGroups: readonly CatalogGroup[]): Record<HomepageCategoryId, number> {
@@ -104,12 +104,13 @@ export function getHomepageCategoryCounts(freeGroups: readonly CatalogGroup[]): 
       tabCounts.get("construction-field") ?? countToolsInCategory(FREE_TRAFFIC_TOOLS, "construction-measurement"),
     financeBusiness: countToolsInCategory(FREE_TRAFFIC_TOOLS, "finance-business"),
     dailyPractical: tabCounts.get("daily-practical") ?? 0,
-    premium: PREMIUM_CALCULATOR_SCHEMAS.length,
+    premium: CANONICAL_PREMIUM_SLUGS.length,
   };
 }
 
 export function resolveHomepagePopularTools(locale: string): HomepagePopularTool[] {
   const resolved: HomepagePopularTool[] = [];
+  const premiumSet = new Set<string>(CANONICAL_PREMIUM_SLUGS);
 
   for (const def of POPULAR_TOOL_DEFS) {
     if (def.tier === "free") {
@@ -121,21 +122,20 @@ export function resolveHomepagePopularTools(locale: string): HomepagePopularTool
       resolved.push({
         slug: tool.slug,
         title: copy.title ?? tool.title,
-        href: `/tools/free/${tool.slug}`,
+        href: `/tools/generated/${tool.slug}`,
         tier: "free",
       });
       continue;
     }
 
-    const schema = getPremiumCalculatorSchema(def.slug);
-    if (!schema) {
+    if (!premiumSet.has(def.slug)) {
       continue;
     }
-    const localized = getLocalizedPremiumSchema(def.slug, locale);
+    const copy = resolveFreeToolLocalizedCopy(def.slug, locale);
     resolved.push({
       slug: def.slug,
-      title: localized?.title ?? schema.name,
-      href: `/tools/premium-schema/${def.slug}`,
+      title: copy.title || def.slug.replace(/-/g, " "),
+      href: `/tools/generated/${def.slug}`,
       tier: "premium",
     });
   }

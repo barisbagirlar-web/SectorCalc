@@ -63,6 +63,9 @@ function requiresBuild(file) {
     file.startsWith("app/") ||
     file === "package.json" ||
     file === "package-lock.json" ||
+    file === "vercel.json" ||
+    file === "premium-slugs.json" ||
+    file === "free-slugs.json" ||
     file.startsWith("next.config.") ||
     file.startsWith("tsconfig.") ||
     file.startsWith("messages/") ||

@@ -61,8 +61,9 @@ function extractPrimaryOutputKey(schema) {
 }
 
 if (!fs.existsSync(schemasDir)) {
-  console.error(`Schemas directory not found: ${schemasDir}`);
-  process.exit(1);
+  fs.mkdirSync(schemasDir, { recursive: true });
+  console.log("generate-tests: schemas directory empty — 0 vitest files");
+  process.exit(0);
 }
 
 if (!fs.existsSync(testsDir)) {

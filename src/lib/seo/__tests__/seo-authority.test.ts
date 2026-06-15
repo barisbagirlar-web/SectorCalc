@@ -87,13 +87,13 @@ describe("seo-authority architecture", () => {
     expect(listProgrammaticSeoSlugs().length).toBeGreaterThanOrEqual(8);
   });
 
-  test("FREE_TRAFFIC_TOOLS count is 230", () => {
-    expect(FREE_TRAFFIC_TOOLS.length).toBe(230);
+  test("FREE_TRAFFIC_TOOLS count matches canonical list", () => {
+    expect(FREE_TRAFFIC_TOOLS.length).toBe(51);
   });
 
-  test("PREMIUM_SCHEMAS count is 27", () => {
-    expect(PREMIUM_SCHEMAS.length).toBe(50);
-    expect(listPremiumSchemaSlugs().length).toBe(50);
+  test("PREMIUM_SCHEMAS empty during regeneration baseline", () => {
+    expect(PREMIUM_SCHEMAS.length).toBe(0);
+    expect(listPremiumSchemaSlugs().length).toBe(0);
   });
 
   test("sitemap helper produces indexable public routes", () => {

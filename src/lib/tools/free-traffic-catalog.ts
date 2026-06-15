@@ -1,10 +1,12 @@
 /**
- * Free Traffic Catalog — 230 active browser-side calculators (Omni-style library).
+ * Free traffic catalog — canonical free-slugs.json only (regeneration baseline).
  */
 
-import catalogData from "@/lib/tools/free-traffic-catalog.generated.json";
-import batch1CatalogData from "@/lib/tools/roadmap-free-batch1-catalog.generated.json";
-import batch2CatalogData from "@/lib/tools/roadmap-free-batch2-catalog.generated.json";
+import {
+  CANONICAL_FREE_SLUGS,
+  CANONICAL_TRAFFIC_FREE_SLUGS,
+  humanizeCanonicalSlug,
+} from "@/lib/tools/canonical-tool-slugs";
 
 export type FreeTrafficCategory =
   | "construction-measurement"
@@ -57,11 +59,44 @@ export type FreeTrafficTool = {
 /** @deprecated All catalog tools are active; kept for backward compatibility */
 export type FreeTrafficToolInput = FreeTrafficInput;
 
-export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = [
-  ...(catalogData as FreeTrafficTool[]),
-  ...(batch1CatalogData as FreeTrafficTool[]),
-  ...(batch2CatalogData as FreeTrafficTool[]),
-];
+function inferTrafficCategory(slug: string): FreeTrafficCategory {
+  if (/mortgage|loan|tax|margin|roi|npv|apy|salary|discount|interest|break-even|compound/.test(slug)) {
+    return "finance-business";
+  }
+  if (/concrete|beam|pipe|reynolds|wind|voltage|thermal|deflection|flow/.test(slug)) {
+    return "construction-measurement";
+  }
+  if (/carbon|kwh|energy|ohms|hp-to|psi-to/.test(slug)) {
+    return "energy-carbon";
+  }
+  if (/mpg|liter|gallon|kg-to|lbs-to|cm-to|mm-to|sqft|celsius|converter/.test(slug)) {
+    return "conversion";
+  }
+  if (/bmi|bmr|tdee|calorie|body-fat|ovulation|pregnancy|sleep|water-intake/.test(slug)) {
+    return "health-body";
+  }
+  if (/percent|fraction|lcm|quadratic|probability|z-score|logarithm|vector|scientific|standard-deviation/.test(slug)) {
+    return "math-statistics";
+  }
+  return "everyday-life";
+}
+
+function buildCatalogEntry(slug: string): FreeTrafficTool {
+  const title = humanizeCanonicalSlug(slug);
+  return {
+    slug,
+    title,
+    category: inferTrafficCategory(slug),
+    description: "",
+    seoTitle: title,
+    seoDescription: "",
+    inputs: [],
+    resultType: "quantity",
+    missingFactors: [],
+  };
+}
+
+export const FREE_TRAFFIC_TOOLS: readonly FreeTrafficTool[] = CANONICAL_FREE_SLUGS.map(buildCatalogEntry);
 
 export const FREE_TRAFFIC_CATEGORIES: readonly FreeTrafficCategory[] = [
   "construction-measurement",
@@ -77,15 +112,15 @@ export const FREE_TRAFFIC_CATEGORIES: readonly FreeTrafficCategory[] = [
 ] as const;
 
 export const FEATURED_TRAFFIC_SLUGS: readonly string[] = [
-  "area-converter",
+  "margin-calculator",
   "mortgage-calculator",
   "concrete-volume-calculator",
   "percentage-calculator",
-  "machine-time-calculator",
-  "fuel-consumption-calculator",
+  "compound-interest-calculator",
+  "carbon-footprint-calculator",
   "kwh-cost-calculator",
-  "length-converter",
-] as const;
+  "cm-to-inches-converter",
+].filter((slug) => CANONICAL_FREE_SLUGS.includes(slug));
 
 export function getFreeTrafficToolBySlug(slug: string): FreeTrafficTool | undefined {
   return FREE_TRAFFIC_TOOLS.find((tool) => tool.slug === slug);
@@ -108,6 +143,14 @@ export function listRelatedTrafficTools(
 
 export function listFreeTrafficSlugs(): string[] {
   return FREE_TRAFFIC_TOOLS.map((t) => t.slug);
+}
+
+export function listTrafficOnlyFreeSlugs(): readonly string[] {
+  return [...CANONICAL_TRAFFIC_FREE_SLUGS];
+}
+
+export function listPublicFreeTrafficTools(): readonly FreeTrafficTool[] {
+  return FREE_TRAFFIC_TOOLS;
 }
 
 export function getFreeTrafficCategoryLabelKey(category: FreeTrafficCategory): string {
