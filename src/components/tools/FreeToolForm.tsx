@@ -14,11 +14,7 @@ import {
   submitToolFeedback,
 } from "@/lib/feedback/feedback-service";
 import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-text";
-import { resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
-import {
-  formatSelectOptionLabel,
-  resolveGeneratedSelectOptions,
-} from "@/lib/generated-tools/select-options";
+import { resolvePrimaryOutputKey, resolvePrimaryOutputLabel } from "@/lib/generated-tools/resolve-tool-display";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
 import {
   buildInitialSelectedUnits,
@@ -228,7 +224,6 @@ function FreeToolFormField({
   }
 
   if (input.type === "select" && input.options) {
-    const selectOptions = resolveGeneratedSelectOptions(input);
     return (
       <Controller
         name={input.id}
@@ -251,9 +246,9 @@ function FreeToolFormField({
                 aria-describedby={errorMessage ? errorId : undefined}
                 className="sc-premium-dtf-touch-select"
               >
-                {selectOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
+                {(input.options ?? []).map((value) => (
+                  <option key={value} value={value}>
+                    {input.optionLabels?.[value] ?? value}
                   </option>
                 ))}
               </select>
@@ -448,11 +443,9 @@ export function FreeToolForm({
   };
 
   const resolvedPrimaryKey = resolvePrimaryOutputKey(schema);
-  const primaryOutputLabel =
-    schema.outputs.breakdown[resolvedPrimaryKey]?.trim() ||
-    formatSelectOptionLabel(resolvedPrimaryKey);
+  const primaryOutputLabel = resolvePrimaryOutputLabel(schema);
   const primaryValue = result ? resolvePrimaryNumericValue(result, primaryOutputKey) : null;
-  const primaryUnitHint = schema.outputs.primary;
+  const primaryUnitHint = typeof schema.outputs.primary === "string" ? schema.outputs.primary : "";
   const formattedPrimary =
     primaryValue !== null
       ? formatFreePrimaryValue(primaryValue, locale, primaryOutputKey, primaryUnitHint)
