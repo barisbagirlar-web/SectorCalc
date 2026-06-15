@@ -248,7 +248,7 @@ function FreeToolFormField({
               >
                 {(input.options ?? []).map((value) => (
                   <option key={value} value={value}>
-                    {input.optionLabels?.[value] ?? value}
+                    {value}
                   </option>
                 ))}
               </select>
