@@ -7,6 +7,7 @@ import {
   existsSync,
   openSync,
   readFileSync,
+  symlinkSync,
   unlinkSync,
   writeFileSync,
 } from "node:fs";
@@ -17,6 +18,7 @@ const LOCK_PATH = join(ROOT, ".next-deploy.lock");
 const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
 const NEXT_BIN_PATH = join(ROOT, "node_modules/.bin/next");
 const NEXT_BIN_BACKUP_PATH = join(ROOT, "node_modules/.bin/next.firebase-backup");
+const NEXT_DIST_BIN_PATH = join(ROOT, "node_modules/next/dist/bin/next");
 
 function run(command, args, options = {}) {
   const result = spawnSync(command, args, {
@@ -50,18 +52,20 @@ function releaseLock() {
 }
 
 function installNextBuildShim() {
-  if (!existsSync(NEXT_BIN_PATH)) {
-    console.error("deploy-production: node_modules/.bin/next is missing. Run npm install first.");
+  if (!existsSync(NEXT_DIST_BIN_PATH)) {
+    console.error("deploy-production: node_modules/next/dist/bin/next is missing. Run npm install first.");
     process.exit(1);
   }
+
   if (!existsSync(NEXT_BIN_BACKUP_PATH)) {
-    copyFileSync(NEXT_BIN_PATH, NEXT_BIN_BACKUP_PATH);
+    copyFileSync(NEXT_DIST_BIN_PATH, NEXT_BIN_BACKUP_PATH);
   }
+
   const shimLauncher = [
     "#!/usr/bin/env node",
     "const { spawnSync } = require('node:child_process');",
     "const { join } = require('node:path');",
-    "const root = join(__dirname, '..', '..');",
+    `const root = ${JSON.stringify(ROOT)};`,
     "const status = spawnSync(process.execPath, [join(root, 'scripts/next-firebase-deploy-shim.mjs'), ...process.argv.slice(2)], {",
     "  cwd: root,",
     "  stdio: 'inherit',",
@@ -70,17 +74,33 @@ function installNextBuildShim() {
     "process.exit(status.status ?? 1);",
     "",
   ].join("\n");
+
+  try {
+    unlinkSync(NEXT_BIN_PATH);
+  } catch {
+    // ignore missing wrapper
+  }
+
   writeFileSync(NEXT_BIN_PATH, shimLauncher, "utf8");
   chmodSync(NEXT_BIN_PATH, 0o755);
   console.log("deploy-production: installed Next.js build shim for Firebase frameworks.");
 }
 
 function restoreNextBin() {
-  if (!existsSync(NEXT_BIN_BACKUP_PATH)) {
+  if (!existsSync(NEXT_BIN_BACKUP_PATH) || !existsSync(NEXT_DIST_BIN_PATH)) {
     return;
   }
-  copyFileSync(NEXT_BIN_BACKUP_PATH, NEXT_BIN_PATH);
-  chmodSync(NEXT_BIN_PATH, 0o755);
+
+  copyFileSync(NEXT_BIN_BACKUP_PATH, NEXT_DIST_BIN_PATH);
+  chmodSync(NEXT_DIST_BIN_PATH, 0o755);
+
+  try {
+    unlinkSync(NEXT_BIN_PATH);
+  } catch {
+    // ignore
+  }
+
+  symlinkSync("../next/dist/bin/next", NEXT_BIN_PATH);
   console.log("deploy-production: restored original Next.js binary.");
 }
 
