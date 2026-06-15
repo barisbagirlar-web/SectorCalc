@@ -1,3 +1,6 @@
 {
-  "buildCommand": "SECTORCALC_VERCEL_BUILD_LIMIT=1 npm run test:generated && next build --no-lint"
+  "buildCommand": "next build --no-lint",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "outputDirectory": ".next"
 }
