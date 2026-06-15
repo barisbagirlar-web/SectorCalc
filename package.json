@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NODE_OPTIONS='--max-old-space-size=8192' node scripts/next-build-with-500-fallback.mjs",
     "build:local": "NODE_OPTIONS='--max-old-space-size=8192' node scripts/next-build-with-500-fallback.mjs",
     "deploy:hosting": "node scripts/deploy-production.mjs",
     "vercel-build": "node scripts/vercel/ensure-build-prereqs.mjs && node scripts/deepseek/ensure-generated-artifacts.mjs && npm run test:generated && next build --no-lint",
