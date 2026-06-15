@@ -2,22 +2,22 @@
 import * as z from 'zod';
 
 export interface Standard_deviation_calculatorInput {
-  data_points: string;
+  data_points: number;
   sample_size: number;
   data_type: string;
   population_flag: string;
-  unit_of_measure: string;
+  unit_of_measure: number;
   specification_limit_lower: number;
   specification_limit_upper: number;
   target_value: number;
 }
 
 export const Standard_deviation_calculatorInputSchema = z.object({
-  data_points: z.string().default(''),
+  data_points: z.number(),
   sample_size: z.number().min(2).max(10000).default(10),
   data_type: z.enum(['continuous', 'discrete']).default('continuous'),
   population_flag: z.enum(['population', 'sample']).default('sample'),
-  unit_of_measure: z.string().default(''),
+  unit_of_measure: z.number(),
   specification_limit_lower: z.number(),
   specification_limit_upper: z.number(),
   target_value: z.number(),

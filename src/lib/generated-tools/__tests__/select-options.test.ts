@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
+  firstSelectOptionValue,
   normalizeGeneratedSelectOptions,
   normalizeSelectOptionValue,
+  resolveGeneratedSelectOptions,
   resolveSelectOptionDisplay,
 } from "@/lib/generated-tools/select-options";
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
@@ -33,5 +35,29 @@ describe("select-options", () => {
 
     expect(normalizeSelectOptionValue({ value: "aluminum_6061" })).toBe("aluminum_6061");
     expect(resolveSelectOptionDisplay(input, "aluminum_6061")).toBe("Aluminum 6061");
+  });
+
+  it("normalizes numeric object options for render", () => {
+    const input = {
+      id: "compounding_frequency",
+      label: "Compounding Frequency",
+      type: "select",
+      unit: "",
+      businessContext: "",
+      options: [{ value: 12, label: "Monthly" }] as unknown as readonly string[],
+    } satisfies GeneratedToolInput;
+
+    expect(resolveGeneratedSelectOptions(input)).toEqual([
+      { value: "12", label: "Monthly" },
+    ]);
+    expect(firstSelectOptionValue(input)).toBe("12");
+  });
+
+  it("preserves labels when options are already normalized strings", () => {
+    const normalized = normalizeGeneratedSelectOptions([
+      { value: 1, label: "Annually" },
+      { value: 12, label: "Monthly" },
+    ]);
+    expect(normalized?.labels).toEqual({ "1": "Annually", "12": "Monthly" });
   });
 });

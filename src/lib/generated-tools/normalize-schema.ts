@@ -134,6 +134,14 @@ function normalizeStandardOptions(raw: unknown): readonly GeneratedToolStandardO
   return options.length > 0 ? options : undefined;
 }
 
+function normalizeLastUpdated(raw: unknown): string | undefined {
+  if (typeof raw !== "string") {
+    return undefined;
+  }
+  const match = raw.trim().match(/^(\d{4}-\d{2}-\d{2})/);
+  return match?.[1];
+}
+
 function normalizeGeneratedToolInputFromRaw(entry: unknown): GeneratedToolInput | null {
   const record = asRecord(entry);
   if (!record || typeof record.id !== "string") {
@@ -164,9 +172,19 @@ function normalizeGeneratedToolInputFromRaw(entry: unknown): GeneratedToolInput 
 function normalizeGeneratedToolInput(input: GeneratedToolInput): GeneratedToolInput {
   const label = input.label.trim();
   const businessContext = input.businessContext.trim();
-  const selectOptions =
-    input.type === "select" ? normalizeGeneratedSelectOptions(input.options) : undefined;
 
+  if (input.type !== "select" || !Array.isArray(input.options)) {
+    return { ...input, label, businessContext };
+  }
+
+  const hasObjectOptions = input.options.some(
+    (entry) => entry !== null && typeof entry === "object",
+  );
+  if (!hasObjectOptions) {
+    return { ...input, label, businessContext };
+  }
+
+  const selectOptions = normalizeGeneratedSelectOptions(input.options);
   return {
     ...input,
     label,
@@ -212,6 +230,7 @@ export function normalizeRawGeneratedSchema(
 
   return {
     toolName,
+    lastUpdated: normalizeLastUpdated(record.lastUpdated),
     standardOptions: normalizeStandardOptions(record.standardOptions),
     inputs,
     validation: {

@@ -1,89 +1,77 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "@/lib/navigation/next-link";
 import { PageLayout } from "@/components/layout/PageLayout";
 import PageHero from "@/components/shared/PageHero";
+import { LegalContactBlock } from "@/components/legal/LegalContactBlock";
 import { LegalPageContent } from "@/components/legal/LegalPageContent";
-import { CONTACT_EMAILS } from "@/config/contact";
 import { createPageMetadata } from "@/lib/metadata";
+import type { AppLocale } from "@/i18n/routing";
 
-export const metadata: Metadata = createPageMetadata({
- title: "Privacy Policy",
- description:
- "How SectorCalc handles information you submit, including lead intent forms. No payment data is collected in the MVP.",
- path: "/privacy",
-});
+export const revalidate = 3600;
+export const dynamic = "force-static";
 
-export default function PrivacyPage() {
- return (
- <PageLayout>
- <PageHero
- eyebrow="Legal"
- title="Privacy Policy"
- description="Last updated for the SectorCalc MVP. This policy describes how we handle information you choose to submit."
- />
- <LegalPageContent
- title="Privacy Policy"
- intro="SectorCalc is an English-first decision-support platform. This MVP does not process payments and does not require an account to use free tools."
- sections={[
- {
- title: "Information we collect",
- paragraphs: [
- "SectorCalc collects information that users voluntarily submit in forms — for example, when requesting a premium decision report or unlock intent.",
- "Lead intent data may include your name, email address, company or business name, industry, the tool or report requested, intended use, an optional message, and contextual fields such as page path, plan interest, and source.",
- ],
- },
- {
- title: "How we use information",
- paragraphs: [
- "We use submitted information to understand product demand, improve SectorCalc, and prepare to respond to report requests in future releases.",
- "We do not sell personal data.",
- ],
- },
- {
- title: "Payment and account data",
- paragraphs: [
- "The MVP does not collect payment card data or run checkout.",
- "Full authentication and billing are not live in this release.",
- ],
- },
- {
- title: "Storage",
- paragraphs: [
- "Depending on configuration, lead intents may be stored in your browser (localStorage) and, when Firebase is enabled, in a Firestore collection named leadIntents.",
- "Operational access to stored leads should be restricted before broad production use.",
- ],
- },
- {
- title: "Your choices",
- paragraphs: [
- "You may request deletion of information you submitted by contacting us. We will honor reasonable requests as the product matures.",
- ],
- },
- {
- title: "Contact",
- paragraphs: [
- `Privacy inquiries: ${CONTACT_EMAILS.privacy}`,
- `General contact: ${CONTACT_EMAILS.hello}`,
- ],
- },
- ]}
- footerNote={
- <p>
- See also{" "}
- <Link href="/terms" className="font-semibold text-deep-navy hover:underline">
- Terms of Use
- </Link>{" "}
- and{" "}
- <Link
- href="/disclaimer"
- className="font-semibold text-deep-navy hover:underline"
- >
- Disclaimer
- </Link>
- .
- </p>
- }
- />
- </PageLayout>
- );
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "privacy.meta" });
+
+  return createPageMetadata({
+    title: t("title"),
+    description: t("description"),
+    path: "/privacy",
+    locale: locale as AppLocale,
+  });
+}
+
+export default async function PrivacyPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("privacy");
+  const tCommon = await getTranslations("legalCommon");
+
+  const sections = [1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => ({
+    title: t(`section${index}.title`),
+    paragraphs: [t(`section${index}.content`)],
+  }));
+
+  return (
+    <PageLayout>
+      <PageHero
+        eyebrow={tCommon("eyebrow")}
+        title={t("title")}
+        description={t("heroDescription")}
+      />
+      <LegalPageContent
+        title={t("title")}
+        effectiveDate={t("effective")}
+        intro={t("intro")}
+        sections={sections}
+        footerNote={
+          <>
+            <LegalContactBlock />
+            <p className="mt-6">
+              {tCommon.rich("privacyFooter", {
+                terms: (chunks) => (
+                  <Link href="/terms" className="font-semibold text-deep-navy hover:underline">
+                    {chunks}
+                  </Link>
+                ),
+                refund: (chunks) => (
+                  <Link
+                    href="/refund-policy"
+                    className="font-semibold text-deep-navy hover:underline"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </p>
+          </>
+        }
+      />
+    </PageLayout>
+  );
 }

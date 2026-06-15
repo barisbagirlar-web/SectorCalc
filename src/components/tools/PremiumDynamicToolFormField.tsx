@@ -9,7 +9,7 @@ import {
   shouldShowGeneratedUnitSelector,
 } from "@/lib/generated-tools/unit-conversion";
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
-import { resolveSelectOptionDisplay } from "@/lib/generated-tools/select-options";
+import { resolveGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
 import { useLocale } from "next-intl";
 
 type PremiumDynamicToolFormFieldProps = {
@@ -23,10 +23,6 @@ type PremiumDynamicToolFormFieldProps = {
   readonly onUnitChange?: (unit: string) => void;
   readonly enterValuePlaceholder: string;
 };
-
-function formatSelectLabel(input: GeneratedToolInput, value: string): string {
-  return resolveSelectOptionDisplay(input, value);
-}
 
 export function PremiumDynamicToolFormField({
   input,
@@ -49,6 +45,7 @@ export function PremiumDynamicToolFormField({
     : [];
 
   if (input.type === "select" && input.options) {
+    const selectOptions = resolveGeneratedSelectOptions(input);
     return (
       <div className="sc-premium-dtf-input-row">
         <div className="sc-premium-dtf-input-label">
@@ -70,9 +67,9 @@ export function PremiumDynamicToolFormField({
                 aria-invalid={Boolean(errorMessage)}
                 className="sc-premium-dtf-touch-select"
               >
-                {input.options?.map((option) => (
-                  <option key={option} value={option}>
-                    {formatSelectLabel(input, option)}
+                {selectOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
                   </option>
                 ))}
               </select>

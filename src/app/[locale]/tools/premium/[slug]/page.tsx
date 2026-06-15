@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { GeneratedToolFormView } from "@/components/tools/GeneratedToolFormView";
+import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
 import type { AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 import {
@@ -90,7 +90,7 @@ export default async function PremiumGeneratedToolRoutePage({
 
   return (
     <PageLayout>
-      <GeneratedToolFormView slug={resolvedSlug} schema={schema} />
+      <GeneratedToolFormViewShell slug={resolvedSlug} schema={schema} />
     </PageLayout>
   );
 }

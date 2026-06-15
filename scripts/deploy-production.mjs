@@ -67,7 +67,13 @@ try {
     "hosting,firestore:rules",
     "--project",
     "sectorcalc-bf412",
-  ]);
+  ], {
+    env: {
+      ...process.env,
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      FIREBASE_FRAMEWORKS_BUILD_TARGET: "production",
+    },
+  });
   process.exit(deployStatus);
 } finally {
   releaseLock();

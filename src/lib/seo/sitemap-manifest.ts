@@ -104,6 +104,7 @@ export function getCoreSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/pricing", "core", 0.85, "monthly"),
     createItem("/privacy", "core", 0.5, "yearly"),
     createItem("/terms", "core", 0.5, "yearly"),
+    createItem("/refund-policy", "core", 0.5, "yearly"),
     createItem("/disclaimer", "core", 0.5, "yearly"),
   ];
 }

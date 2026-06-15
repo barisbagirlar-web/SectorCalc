@@ -17,6 +17,7 @@ import {
 } from "@/lib/premium-schema/schema-registry";
 import type { IndustryCategory, IndustrySlug } from "@/lib/tools/industry-registry";
 import { getRevenueToolByPaidSlug } from "@/lib/tools/revenue-tools";
+import { resolvePremiumToolHref } from "@/lib/tools/tool-links";
 import type { ClaimReadiness } from "@/lib/benchmarks/benchmark-types";
 import {
   getPremiumClaimCopy,
@@ -412,7 +413,7 @@ export function resolvePremiumAnalyzerHref(legacyOrSchemaSlug: string): string {
   }
 
   if (getRevenueToolByPaidSlug(trimmed)) {
-    return `/tools/premium/${trimmed}`;
+    return resolvePremiumToolHref(trimmed);
   }
 
   return "/premium-tools";

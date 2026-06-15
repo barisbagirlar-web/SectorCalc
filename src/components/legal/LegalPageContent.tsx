@@ -10,6 +10,7 @@ interface LegalSection {
 interface LegalPageContentProps {
  title: string;
  intro: string;
+ effectiveDate?: string;
  sections: LegalSection[];
  footerNote?: ReactNode;
 }
@@ -17,6 +18,7 @@ interface LegalPageContentProps {
 export function LegalPageContent({
  title,
  intro,
+ effectiveDate,
  sections,
  footerNote,
 }: LegalPageContentProps) {
@@ -25,6 +27,9 @@ export function LegalPageContent({
  <Container size="narrow">
  <article className="rounded-sm border border-border-subtle bg-white p-6 shadow-card sm:p-10">
  <h1 className="text-2xl font-bold text-text-primary sm:text-3xl">{title}</h1>
+ {effectiveDate ? (
+ <p className="mt-4 text-sm text-text-secondary">{effectiveDate}</p>
+ ) : null}
  <p className="mt-4 text-sm leading-relaxed text-text-secondary sm:text-base">{intro}</p>
 
  <div className="mt-10 space-y-8">

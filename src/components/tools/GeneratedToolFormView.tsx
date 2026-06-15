@@ -4,7 +4,11 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
 import { FreeToolForm } from "@/components/tools/FreeToolForm";
-import { resolveGeneratedToolDescription, resolveGeneratedToolTitle, resolvePrimaryOutputKey } from "@/lib/generated-tools/resolve-tool-display";
+import {
+  resolveGeneratedToolDescription,
+  resolveGeneratedToolTitle,
+  resolvePrimaryOutputKey,
+} from "@/lib/generated-tools/resolve-tool-display";
 import {
   runGeneratedToolCalculation,
   useToolSchema,

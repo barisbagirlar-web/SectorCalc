@@ -1,6 +1,7 @@
 import { FREE_TRAFFIC_TOOLS } from "@/lib/tools/free-traffic-catalog";
 import { getPremiumCalculatorSchema } from "@/lib/premium-schema/schema-registry";
 import { getRevenueToolByFreeSlug } from "@/lib/tools/revenue-tools";
+import { resolvePremiumToolHref } from "@/lib/tools/tool-links";
 
 export const HOMEPAGE_HERO_PANEL_IDS = [
   "production",
@@ -122,7 +123,7 @@ export function resolveHomepageCriticalToolHref(tool: HomepageCriticalToolDef): 
     case "premium-schema":
       return `/tools/premium-schema/${tool.slug}`;
     case "premium":
-      return `/tools/premium/${tool.slug}`;
+      return resolvePremiumToolHref(tool.slug);
     default:
       return null;
   }

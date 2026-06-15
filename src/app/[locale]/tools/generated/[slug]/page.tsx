@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { PageLayout } from "@/components/layout/PageLayout";
-import { GeneratedToolFormView } from "@/components/tools/GeneratedToolFormView";
+import { GeneratedToolFormViewShell } from "@/components/tools/GeneratedToolFormViewShell";
 import type { AppLocale } from "@/i18n/routing";
 import { limitStaticParamsForPreview } from "@/lib/build/preview-static-params";
 import {
@@ -44,9 +44,10 @@ export async function generateMetadata({
 
   const displayName = resolveGeneratedToolTitle(slug, schema, locale);
   const displayDescription = resolveGeneratedToolDescription(slug, schema, locale);
+  const titleSuffix = schema.premiumRequired ? "SectorCalc Pro" : "SectorCalc";
 
   return createPageMetadata({
-    title: `${displayName} | SectorCalc`,
+    title: `${displayName} | ${titleSuffix}`,
     description: displayDescription,
     path: `/tools/generated/${slug}`,
     locale: locale as AppLocale,
@@ -68,7 +69,7 @@ export default async function GeneratedToolRoutePage({
 
   return (
     <PageLayout>
-      <GeneratedToolFormView slug={slug} schema={schema} />
+      <GeneratedToolFormViewShell slug={slug} schema={schema} />
     </PageLayout>
   );
 }

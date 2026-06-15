@@ -16,23 +16,23 @@ type PageProps = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "terms.meta" });
+  const t = await getTranslations({ locale, namespace: "refundPolicy.meta" });
 
   return createPageMetadata({
     title: t("title"),
     description: t("description"),
-    path: "/terms",
+    path: "/refund-policy",
     locale: locale as AppLocale,
   });
 }
 
-export default async function TermsPage({ params }: PageProps) {
+export default async function RefundPolicyPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("terms");
+  const t = await getTranslations("refundPolicy");
   const tCommon = await getTranslations("legalCommon");
 
-  const sections = [1, 2, 3, 4, 5, 6, 7].map((index) => ({
+  const sections = [1, 2, 3, 4, 5, 6].map((index) => ({
     title: t(`section${index}.title`),
     paragraphs: [t(`section${index}.content`)],
   }));
@@ -46,27 +46,21 @@ export default async function TermsPage({ params }: PageProps) {
       />
       <LegalPageContent
         title={t("title")}
-        effectiveDate={t("lastUpdated", { date: t("lastUpdatedDate") })}
+        effectiveDate={t("lastUpdated")}
         intro={t("intro")}
         sections={sections}
         footerNote={
           <>
             <LegalContactBlock />
             <p className="mt-6">
-              {tCommon.rich("termsFooter", {
-                privacy: (chunks) => (
-                  <Link
-                    href="/privacy"
-                    className="font-semibold text-deep-navy hover:underline"
-                  >
+              {tCommon.rich("refundFooter", {
+                terms: (chunks) => (
+                  <Link href="/terms" className="font-semibold text-deep-navy hover:underline">
                     {chunks}
                   </Link>
                 ),
-                refund: (chunks) => (
-                  <Link
-                    href="/refund-policy"
-                    className="font-semibold text-deep-navy hover:underline"
-                  >
+                privacy: (chunks) => (
+                  <Link href="/privacy" className="font-semibold text-deep-navy hover:underline">
                     {chunks}
                   </Link>
                 ),

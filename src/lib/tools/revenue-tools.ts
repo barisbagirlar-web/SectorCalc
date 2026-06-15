@@ -5,7 +5,9 @@
 
 import type { ToolDefinition, ToolResult } from "@/data/tool-schema";
 import type { IndustrySlug } from "@/lib/tools/industry-registry";
+import { getLocalizedRevenueToolTitle } from "@/data/revenue-tools-i18n";
 import { getToolHref } from "@/lib/tools/paths";
+import { resolveLegacyPremiumSlug } from "@/lib/tools/legacy-premium-slug-redirects";
 import {
   hasCanonicalToolCatalog,
   isCanonicalFreeSlug,
@@ -211,19 +213,26 @@ const LEGACY_SECTOR_SLUGS: Partial<
 };
 
 export function getRevenueToolBySector(sector: RevenueSector): RevenueTool | null {
-  if (!hasCanonicalToolCatalog()) {
+  const legacy = LEGACY_SECTOR_SLUGS[sector];
+  if (!legacy) {
     return null;
   }
-  const legacy = LEGACY_SECTOR_SLUGS[sector];
-  if (legacy) {
-    const hasFree = isCanonicalFreeSlug(legacy.freeSlug);
-    const hasPaid = isCanonicalPremiumSlug(legacy.paidSlug);
-    if (!hasFree && !hasPaid) {
-      return null;
-    }
-    return { ...buildPremiumSlugTool(legacy.freeSlug), ...legacy, sector };
-  }
-  return null;
+
+  const freeSlug = resolveLegacyPremiumSlug(legacy.freeSlug) ?? legacy.freeSlug;
+  const paidSlug = resolveLegacyPremiumSlug(legacy.paidSlug) ?? legacy.paidSlug;
+  const freeTitle = getLocalizedRevenueToolTitle(legacy.freeSlug, "free", "en", humanizeSlug(freeSlug));
+  const paidTitle = getLocalizedRevenueToolTitle(legacy.paidSlug, "paid", "en", humanizeSlug(paidSlug));
+
+  return {
+    ...buildPremiumSlugTool(freeSlug),
+    sector,
+    freeSlug,
+    paidSlug,
+    freeTitle,
+    paidTitle,
+    paidValue: paidTitle,
+    premiumTeaserTitle: paidTitle,
+  };
 }
 
 export function getAllRevenueToolSpecs(): readonly RevenueTool[] {

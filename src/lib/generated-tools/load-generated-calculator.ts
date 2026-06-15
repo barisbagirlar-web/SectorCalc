@@ -5,9 +5,9 @@ import type { GeneratedCalculatorModule } from "@/lib/generated-tools/types";
 export async function loadGeneratedCalculator(
   slug: string,
 ): Promise<GeneratedCalculatorModule | null> {
-  const module = await loadBaseCalculator(slug);
-  if (!module) {
+  const calculatorModule = await loadBaseCalculator(slug);
+  if (!calculatorModule) {
     return null;
   }
-  return applyStandardCalculatorOverride(slug, module);
+  return applyStandardCalculatorOverride(slug, calculatorModule);
 }

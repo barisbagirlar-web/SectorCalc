@@ -5,8 +5,8 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { PremiumDynamicToolFormField } from "@/components/tools/PremiumDynamicToolFormField";
 import { PremiumToolReportModal } from "@/components/tools/PremiumToolReportModal";
-import { ToolOmniMetaSection } from "@/components/tools/ToolOmniMetaSection";
 import { ToolStandardSelector } from "@/components/tools/ToolStandardSelector";
+import { ToolLastUpdatedLabel } from "@/components/tools/ToolLastUpdatedLabel";
 import type {
   GeneratedToolInput,
   GeneratedToolResult,
@@ -44,6 +44,7 @@ type PremiumDynamicToolFormLayoutProps = {
   readonly onCalculate: () => void;
   readonly selectedStandard?: string;
   readonly onStandardChange?: (standardId: string) => void;
+  readonly lastUpdatedIso?: string | null;
 };
 
 function resolvePrimaryNumericValue(
@@ -139,6 +140,7 @@ export function PremiumDynamicToolFormLayout({
   onCalculate,
   selectedStandard,
   onStandardChange,
+  lastUpdatedIso = null,
 }: PremiumDynamicToolFormLayoutProps) {
   const t = useTranslations("generatedTool");
   const tPremium = useTranslations("generatedTool.premiumForm");
@@ -155,12 +157,11 @@ export function PremiumDynamicToolFormLayout({
   return (
     <>
       <div className="sc-premium-dtf-container">
-        <ToolOmniMetaSection toolName={toolTitle || schema.toolName} />
-
         <div className="sc-premium-dtf-card">
           <header className="sc-premium-dtf-header">
             <span className="sc-premium-dtf-header__accent" aria-hidden="true" />
             <div>
+              {lastUpdatedIso ? <ToolLastUpdatedLabel isoDate={lastUpdatedIso} /> : null}
               <h2 className="sc-premium-dtf-header__title">{toolTitle || schema.toolName}</h2>
             </div>
           </header>

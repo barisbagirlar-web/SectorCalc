@@ -33,6 +33,8 @@ export type GeneratedToolInput = {
 
 export type GeneratedToolSchema = {
   readonly toolName: string;
+  /** Optional ISO date (YYYY-MM-DD) when formulas/inputs were last reviewed. */
+  readonly lastUpdated?: string;
   readonly standardOptions?: readonly GeneratedToolStandardOption[];
   readonly inputs: readonly GeneratedToolInput[];
   readonly validation: {

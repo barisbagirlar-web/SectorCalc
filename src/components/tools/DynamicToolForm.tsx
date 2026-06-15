@@ -69,6 +69,7 @@ export type DynamicToolFormProps = {
   readonly breakdownInputs?: Record<string, unknown>;
   readonly breakdownLabelMap?: Readonly<Record<string, string>>;
   readonly breakdownCurrency?: string;
+  readonly lastUpdatedIso?: string | null;
 };
 
 function buildDefaultValues(
@@ -140,6 +141,7 @@ export function DynamicToolForm({
   breakdownInputs,
   breakdownLabelMap,
   breakdownCurrency = "TRY",
+  lastUpdatedIso = null,
 }: DynamicToolFormProps) {
   const locale = useLocale();
   const unitSystem = usePreferredUnitSystem();
@@ -527,6 +529,7 @@ export function DynamicToolForm({
           }}
           selectedStandard={selectedStandard}
           onStandardChange={setSelectedStandard}
+          lastUpdatedIso={lastUpdatedIso}
         />
       ) : null}
 

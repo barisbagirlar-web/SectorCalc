@@ -65,6 +65,13 @@
   line-height: 1.4;
 }
 
+.sc-tool-last-updated {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  color: var(--sc-dtf-muted);
+  line-height: 1.4;
+}
+
 .sc-premium-dtf-columns {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
@@ -528,131 +535,6 @@
   margin-top: 0.65rem;
   font-size: 0.8125rem;
   color: var(--sc-danger, #991b1b);
-}
-
-/* Omni Calculator–style tool meta (creators, reviewers, social proof) */
-.sc-tool-omni-meta {
-  background: var(--sc-dtf-surface);
-  border: 1px solid var(--sc-dtf-border);
-  border-radius: var(--sc-dtf-radius);
-  box-shadow: var(--sc-dtf-shadow);
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.sc-tool-omni-meta__top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem 1.5rem;
-}
-
-.sc-tool-omni-meta__identity {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.875rem;
-  min-width: 0;
-}
-
-.sc-tool-omni-meta__avatar-wrap {
-  flex-shrink: 0;
-  width: 3rem;
-  height: 3rem;
-  padding: 2px;
-  border-radius: 999px;
-  background: conic-gradient(
-    from 210deg,
-    #f59e0b 0deg 100deg,
-    #3b82f6 100deg 220deg,
-    #f97316 220deg 360deg
-  );
-}
-
-.sc-tool-omni-meta__avatar {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 999px;
-  object-fit: cover;
-  border: 2px solid var(--sc-dtf-surface);
-}
-
-.sc-tool-omni-meta__copy {
-  min-width: 0;
-}
-
-.sc-tool-omni-meta__title {
-  margin: 0 0 0.35rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--sc-dtf-text);
-  line-height: 1.25;
-}
-
-.sc-tool-omni-meta__line {
-  margin: 0.15rem 0 0;
-  font-size: 0.8125rem;
-  color: var(--sc-dtf-muted);
-  line-height: 1.45;
-}
-
-.sc-tool-omni-meta__label {
-  color: var(--sc-dtf-muted);
-}
-
-.sc-tool-omni-meta__name {
-  font-weight: 500;
-  color: var(--sc-dtf-text);
-}
-
-.sc-tool-omni-meta__helpful {
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.sc-tool-omni-meta__helpful-count {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #16a34a;
-  line-height: 1.1;
-}
-
-.sc-tool-omni-meta__helpful-label {
-  margin-top: 0.15rem;
-  font-size: 0.6875rem;
-  color: var(--sc-dtf-muted);
-  max-width: 7rem;
-}
-
-.sc-tool-omni-meta__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--sc-dtf-border);
-}
-
-.sc-tool-omni-meta__action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 2.75rem;
-  min-height: 2.75rem;
-  padding: 0.35rem 0.65rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--sc-dtf-muted);
-  background: #f8fafc;
-  border: 1px solid var(--sc-dtf-border);
-  border-radius: 0.5rem;
-  cursor: default;
-}
-
-.sc-tool-omni-meta__action-count {
-  line-height: 1;
 }
 
 @media (max-width: 900px) {
