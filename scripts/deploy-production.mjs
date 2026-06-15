@@ -88,7 +88,7 @@ function installNextBuildShim() {
 
 function restoreNextBin() {
   if (!existsSync(NEXT_BIN_BACKUP_PATH) || !existsSync(NEXT_DIST_BIN_PATH)) {
-    return;
+    return false;
   }
 
   copyFileSync(NEXT_BIN_BACKUP_PATH, NEXT_DIST_BIN_PATH);
@@ -102,6 +102,7 @@ function restoreNextBin() {
 
   symlinkSync("../next/dist/bin/next", NEXT_BIN_PATH);
   console.log("deploy-production: restored original Next.js binary.");
+  return true;
 }
 
 if (!acquireLock()) {
@@ -112,6 +113,8 @@ if (!acquireLock()) {
 let shimInstalled = false;
 
 try {
+  restoreNextBin();
+
   const forceRebuild = process.env.DEPLOY_FORCE_REBUILD === "1";
   const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
 

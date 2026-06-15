@@ -69,7 +69,8 @@ function pagesManifestFailure(log) {
 }
 
 function runNextBuild() {
-  const result = spawnSync("npx", ["next", "build", "--no-lint"], {
+  const nextCli = join(ROOT, "node_modules/next/dist/bin/next");
+  const result = spawnSync(process.execPath, [nextCli, "build", "--no-lint"], {
     cwd: ROOT,
     env: {
       ...process.env,
