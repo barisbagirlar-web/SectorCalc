@@ -62,10 +62,33 @@ export function resolveSelectOptionDisplay(input: GeneratedToolInput, value: str
   return input.optionLabels?.[value] ?? formatSelectOptionLabel(value);
 }
 
+export type GeneratedSelectOptionEntry = {
+  readonly value: string;
+  readonly label: string;
+};
+
+/** Safe select entries for render — accepts legacy object options from raw schemas. */
+export function resolveGeneratedSelectOptions(
+  input: GeneratedToolInput,
+): readonly GeneratedSelectOptionEntry[] {
+  const raw = input.options as readonly RawSelectOption[] | null | undefined;
+  if (!Array.isArray(raw) || raw.length === 0) {
+    return [];
+  }
+
+  return raw.map((entry) => {
+    const value = normalizeSelectOptionValue(entry);
+    const label =
+      input.optionLabels?.[value] ?? normalizeSelectOptionLabel(entry, value);
+    return { value, label };
+  });
+}
+
 export function firstSelectOptionValue(input: GeneratedToolInput): string | undefined {
-  const first = input.options?.[0];
-  if (typeof first !== "string" || !first.trim()) {
+  const first = input.options?.[0] as RawSelectOption | undefined;
+  if (first === undefined || first === null) {
     return undefined;
   }
-  return first;
+  const value = normalizeSelectOptionValue(first);
+  return value || undefined;
 }

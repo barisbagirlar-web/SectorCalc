@@ -11,7 +11,7 @@ import {
   shouldShowGeneratedUnitSelector,
 } from "@/lib/generated-tools/unit-conversion";
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
-import { resolveSelectOptionDisplay } from "@/lib/generated-tools/select-options";
+import { resolveGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
 import { useLocale } from "next-intl";
 
 type DynamicToolFormFieldProps = {
@@ -23,10 +23,6 @@ type DynamicToolFormFieldProps = {
   readonly selectedUnit?: string;
   readonly onUnitChange?: (unit: string) => void;
 };
-
-function formatSelectLabel(input: GeneratedToolInput, value: string): string {
-  return resolveSelectOptionDisplay(input, value);
-}
 
 export function DynamicToolFormField({
   slug,
@@ -52,6 +48,7 @@ export function DynamicToolFormField({
   const showStaticUnit = Boolean(input.unit) && !showUnitSelector;
 
   if (input.type === "select" && input.options) {
+    const selectOptions = resolveGeneratedSelectOptions(input);
     return (
       <Controller
         name={input.id}
@@ -72,9 +69,9 @@ export function DynamicToolFormField({
               aria-describedby={errorMessage ? errorId : helperId}
               className="sc-ledger-input-boxed min-h-[44px]"
             >
-              {input.options?.map((option) => (
-                <option key={option} value={option}>
-                  {formatSelectLabel(input, option)}
+              {selectOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
                 </option>
               ))}
             </select>

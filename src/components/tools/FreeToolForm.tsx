@@ -16,7 +16,7 @@ import { resolveGeneratedI18nText } from "@/lib/generated-tools/resolve-i18n-tex
 import { resolvePrimaryOutputLabel } from "@/lib/generated-tools/resolve-tool-display";
 import {
   firstSelectOptionValue,
-  resolveSelectOptionDisplay,
+  resolveGeneratedSelectOptions,
 } from "@/lib/generated-tools/select-options";
 import { buildGeneratedInputGroups } from "@/lib/generated-tools/input-groups";
 import {
@@ -158,10 +158,6 @@ function formatFreePrimaryValue(
   }).format(value);
 }
 
-function formatSelectLabel(input: GeneratedToolInput, value: string): string {
-  return resolveSelectOptionDisplay(input, value);
-}
-
 type FreeToolFormFieldProps = {
   readonly slug: string;
   readonly input: GeneratedToolInput;
@@ -232,6 +228,7 @@ function FreeToolFormField({
   }
 
   if (input.type === "select" && input.options) {
+    const selectOptions = resolveGeneratedSelectOptions(input);
     return (
       <Controller
         name={input.id}
@@ -254,9 +251,9 @@ function FreeToolFormField({
                 aria-describedby={errorMessage ? errorId : undefined}
                 className="sc-premium-dtf-touch-select"
               >
-                {input.options?.map((option) => (
-                  <option key={option} value={option}>
-                    {formatSelectLabel(input, option)}
+                {selectOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
                   </option>
                 ))}
               </select>
